@@ -1,8 +1,8 @@
 ---
 title: freedisk
-description: 'Argomento i comandi di Windows per * * *- '
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: ac2f38fb1948a26ae55713ac6fb14254851b062a
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 8e417a8f9768706fe391f705adde37c62ceaa818
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66439164"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71377029"
 ---
 # <a name="freedisk"></a>freedisk
 
 >Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Verifica se è disponibile la quantità specificata di spazio su disco prima di continuare il processo di installazione.
+Verifica se la quantità di spazio su disco specificata è disponibile prima di continuare con un processo di installazione.
 
 ## <a name="syntax"></a>Sintassi
 ```
@@ -34,22 +34,22 @@ freedisk [/s <computer> [/u [<Domain>\]<User> [/p [<Password>]]]] [/d <Drive>] [
 
 |       Parametro       |                                                                                         Descrizione                                                                                          |
 |-----------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|     /s <computer>     | Specifica il nome o indirizzo IP di un computer remoto (non utilizzare le barre rovesciate). Il valore predefinito è il computer locale. Questo parametro si applica a tutti i file e cartelle specificate nel comando. |
-| /u [<Domain>\\]<User> |                                            Esegue lo script con le autorizzazioni dell'account utente specificato. Il valore predefinito è le autorizzazioni di sistema.                                            |
-|    /p [<Password>]    |                                                           Specifica la password dell'account utente specificato nella **/u**.                                                            |
-|      /d <Drive>       |                              Specifica l'unità per il quale si desidera scoprire la disponibilità di spazio libero. È necessario specificare <Drive>per un computer remoto.                               |
-|        <Value>        |                                     Verifica che una quantità specifica di spazio libero su disco. È possibile specificare <Value>in byte, KB, MB, GB, TB, PB, EB, ZB o YB.                                      |
+|     /s <computer>     | Specifica il nome o l'indirizzo IP di un computer remoto (non utilizzare barre rovesciate). Il valore predefinito è il computer locale. Questo parametro si applica a tutti i file e le cartelle specificati nel comando. |
+| /u [<Domain> @ no__t-1] <User> |                                            Esegue lo script con le autorizzazioni dell'account utente specificato. Il valore predefinito è le autorizzazioni di sistema.                                            |
+|    /p [<Password>]    |                                                           Specifica la password dell'account utente specificato in **/u**.                                                            |
+|      /d <Drive>       |                              Specifica l'unità per cui si vuole trovare la disponibilità di spazio libero. È necessario specificare <Drive>per un computer remoto.                               |
+|        <Value>        |                                     Verifica la presenza di una quantità specifica di spazio libero su disco. È possibile specificare <Value>in byte, KB, MB, GB, TB, PB, EB, es o YB.                                      |
 
 ## <a name="remarks"></a>Note
-- Usando il **/s**, **/u**, e **/p** opzioni della riga di comando sono disponibili solo quando si utilizza **/s**. È necessario utilizzare **/p** con **/u**per fornire la password utente s.
-- per le installazioni automatiche, è possibile usare **freedisk** nei file batch di installazione per verificare la presenza di spazio libero dei prerequisiti prima di continuare con l'installazione.
-- Quando si usa **freedisk** in un file batch, restituisce un **0** se lo spazio sia sufficiente e un **1** se non c'è spazio sufficiente.
+- Utilizzare le opzioni della riga di comando **/s**, **/u**e **/p** sono disponibili solo quando si utilizza **/s**. È necessario utilizzare **/p** con **/u**per fornire la password dell'utente.
+- per le installazioni automatiche, è possibile usare **freedisk** nei file batch di installazione per verificare la quantità di spazio libero prerequisito prima di continuare con l'installazione.
+- Quando si usa **freedisk** in un file batch, viene restituito **0** se lo spazio è sufficiente e **1** se lo spazio è insufficiente.
   ## <a name="BKMK_examples"></a>Esempi
-  Per determinare se sono presenti almeno 50 MB di spazio libero disponibile nell'unità c, digitare:
+  Per determinare se sono disponibili almeno 50 MB di spazio libero nell'unità C:, digitare:
   ```
   freedisk 50mb 
   ```
-  Nella schermata viene visualizzato output simile al seguente:
+  Sullo schermo viene visualizzato un output simile al seguente:
   ```
   INFO: The specified 52,428,800 byte(s) of free space is available on current drive.
   ```

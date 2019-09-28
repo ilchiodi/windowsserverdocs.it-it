@@ -1,8 +1,8 @@
 ---
 title: bitsadmin setnoprogresstimeout
-description: Argomento i comandi di Windows per **bitsadmin setnoprogresstimeout** -imposta il periodo di tempo, espresso in secondi, che il servizio tenterà di trasferire il file dopo che si verifica un errore temporaneo.
+description: 'Argomento dei comandi di Windows per **BITSAdmin setnoprogresstimeout** : consente di impostare il periodo di tempo, in secondi, durante il quale il servizio tenta di trasferire il file dopo che si è verificato un errore temporaneo.'
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,16 +13,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 45dd8a7ddfae877984a98db66c742e0af4d18f0d
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 761d0d76a2c70af9d4ad68aa564c1a9816691d0d
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59873772"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71380503"
 ---
 # <a name="bitsadmin-setnoprogresstimeout"></a>bitsadmin setnoprogresstimeout
 
-Imposta il periodo di tempo, espresso in secondi, che BITS tenta di trasferire il file dopo il primo errore temporaneo.
+Imposta il periodo di tempo, in secondi, durante il quale BITS tenta di trasferire il file dopo il primo errore temporaneo.
 
 ## <a name="syntax"></a>Sintassi
 
@@ -52,4 +52,4 @@ C:\>bitsadmin /SetNoProgressTimeout myDownloadJob 20
 
 #### <a name="additional-references"></a>Altri riferimenti
 
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)
+[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

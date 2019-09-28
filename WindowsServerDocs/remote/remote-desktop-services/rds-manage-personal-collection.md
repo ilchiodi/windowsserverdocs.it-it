@@ -2,7 +2,7 @@
 title: Gestire una raccolta di sessioni desktop personali in Servizi Desktop remoto
 description: Informazioni su come aggiungere Host sessione Desktop remoto e programmi RemoteApp alla distribuzione di Servizi Desktop remoto.
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: remote-desktop-services
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 author: lizap
 manager: dongill
-ms.openlocfilehash: 286c7ba4bd4428669d135c35c825033d22b8f40e
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: 6bf0ad3a2cd35c9794fd13631ed29df94725685c
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "63743519"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71387414"
 ---
 ## <a name="manage-your-personal-desktop-session-collections"></a>Gestire le raccolte di sessioni desktop personali
 
@@ -78,7 +78,7 @@ Usa il cmdlet **Get-RDPersonalSessionDesktopAssignment** per ottenere un elenco 
 Puoi eseguire il cmdlet per eseguire query in base al nome della raccolta, al nome utente o al nome del desktop sessione. Se specifichi solo il parametro **-CollectionName**, il cmdlet restituisce un elenco di host sessione e gli utenti associati. Se specifichi anche il parametro **-User**, viene restituito l'host sessione associato a tale utente. Se specifichi il parametro **-Name**, viene restituito l'utente associato a tale host sessione. 
 
 
-Il cmdlet **Export-RDPersonalPersonalDesktopAssignment** esporta le associazioni correnti tra utenti e desktop virtuali personali correnti in un file di testo. Il cmdlet supporta i parametri seguenti:
+Il cmdlet **Export-RDPersonalPersonalDesktopAssignment** esporta le associazioni correnti tra utenti e desktop virtuali personali in un file di testo. Il cmdlet supporta i parametri seguenti:
 
 -CollectionName \<string\>
 

@@ -1,8 +1,8 @@
 ---
 title: eventcreate
-description: 'Argomento i comandi di Windows per * * *- '
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 80d575364adbeba9d9ea4da75a0a866bcc02acea
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: cf53d8d269d0994ddf57eb350982effed5e0e702
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59818712"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71377517"
 ---
 # <a name="eventcreate"></a>eventcreate
 
@@ -36,14 +36,14 @@ eventcreate [/s <Computer> [/u <Domain\User> [/p <Password>]] {[/l {APPLICATION|
 
 |Parametro|Descrizione|
 |---------|-----------|
-|/s \<computer >|Specifica il nome o indirizzo IP di un computer remoto (non utilizzare le barre rovesciate). Il valore predefinito è il computer locale.|
-|/u \<Domain\User>|Esegue il comando con le autorizzazioni dell'utente specificato dall'account \<utente > o < dominio\utente >. Il valore predefinito è le autorizzazioni dell'oggetto utente nel computer eseguendo il comando connesso.|
-|/p \<Password>|Specifica la password dell'account utente specificato nella **/u** parametro.|
-|/l {applicazione\|sistema}|Specifica il nome del registro eventi in cui verrà creato l'evento. I nomi di log valido sono APPLICAZIONI e SISTEMA.|
-|/SO \<NomeOrigine >|Specifica l'origine da utilizzare per l'evento. Un'origine valida può essere qualsiasi stringa e deve rappresentare l'applicazione o componente che genera l'evento.|
-|/t {errore\|avviso\|informazioni\|</br>SUCCESSAUDIT\|FAILUREAUDIT}|Specifica il tipo di evento da creare. I tipi validi sono ERRORE, AVVISO, INFORMAZIONI, SUCCESSAUDIT e FAILUREAUDIT.|
-|/id \<EventID>|Specifica l'ID evento per l'evento. Un ID valido è qualsiasi numero compreso tra 1 e 1000.|
-|/d \<description >|Specifica la descrizione da utilizzare per l'evento appena creato.|
+|/s \<Computer >|Specifica il nome o l'indirizzo IP di un computer remoto (non utilizzare barre rovesciate). Il valore predefinito è il computer locale.|
+|/u \<Domain \ utente >|Esegue il comando con le autorizzazioni dell'account dell'utente specificato da \<User > o < dominio\utente >. Il valore predefinito è le autorizzazioni dell'oggetto utente nel computer eseguendo il comando connesso.|
+|/p \<password >|Specifica la password dell'account utente specificato nella **/u** parametro.|
+|/l {APPLICATION @ no__t-0SYSTEM}|Specifica il nome del registro eventi in cui verrà creato l'evento. I nomi di log valido sono APPLICAZIONI e SISTEMA.|
+|/so \<SrcName >|Specifica l'origine da utilizzare per l'evento. Un'origine valida può essere qualsiasi stringa e deve rappresentare l'applicazione o componente che genera l'evento.|
+|/t {ERROR @ no__t-0WARNING @ no__t-1INFORMATION @ no__t-2</br>SUCCESSAUDIT @ NO__T-0FAILUREAUDIT}|Specifica il tipo di evento da creare. I tipi validi sono ERRORE, AVVISO, INFORMAZIONI, SUCCESSAUDIT e FAILUREAUDIT.|
+|/ID \<EventID >|Specifica l'ID evento per l'evento. Un ID valido è qualsiasi numero compreso tra 1 e 1000.|
+|/d \<Description >|Specifica la descrizione da utilizzare per l'evento appena creato.|
 |/?|Visualizza la guida al prompt dei comandi.|
 
 ## <a name="remarks"></a>Note
@@ -65,4 +65,4 @@ eventcreate /s server /u user /id 100 /t warning /so winmgmt /d "Remote machine 
 
 #### <a name="additional-references"></a>Altri riferimenti
 
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)
+[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

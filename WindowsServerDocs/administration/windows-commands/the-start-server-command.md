@@ -1,8 +1,8 @@
 ---
-title: Inizio comando Server
-description: 'Argomento i comandi di Windows per * * *- '
+title: Comando avvia Server
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,22 +13,22 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 4580c98b3f43decf8989965abe6d2fee63eda78b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e18ed6a7707516410e96ecf4b6bd43e668667c2d
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59889102"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71385104"
 ---
-# <a name="the-start-server-command"></a>Inizio comando Server
+# <a name="the-start-server-command"></a>Comando avvia Server
 
 >Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Avvia la trasmissione multicast, lo spazio dei nomi, Server di trasporto o tutti i servizi nel server di servizi di distribuzione Windows.
+avvia la trasmissione multicast, lo spazio dei nomi, il server di trasporto o tutti i servizi nel server di servizi di distribuzione Windows.
 ## <a name="subcommands"></a>Sottocomandi
 |Sottocomando|Descrizione|
 |-------|--------|
-|[Subcommand: start-MulticastTransmission](subcommand-start-multicasttransmission.md)|Avvia una trasmissione.|
-|[Sottocomando: start-Namespace](subcommand-start-namespace.md)|avvia uno spazio dei nomi.|
-|[Subcommand: start-Server](subcommand-start-server.md)|Avvia tutti i servizi in un server di servizi di distribuzione Windows.|
-|[Subcommand: start-TransportServer](subcommand-start-transportserver.md)|Avvia tutti i servizi in un Server di trasporto.|
+|[Sottocomando: Start-MulticastTransmission](subcommand-start-multicasttransmission.md)|avvia una trasmissione.|
+|[Sottocomando: Start-spazio dei nomi](subcommand-start-namespace.md)|avvia uno spazio dei nomi.|
+|[Sottocomando: Start-Server](subcommand-start-server.md)|Avvia tutti i servizi in un server di servizi di distribuzione Windows.|
+|[Sottocomando: Start-TransportServer](subcommand-start-transportserver.md)|Avvia tutti i servizi in un server di trasporto.|

@@ -1,8 +1,8 @@
 ---
 title: bitsadmin gettype
-description: Argomento i comandi di Windows per **gettype bitsadmin** -recupera il tipo di processo del processo specificato.
+description: 'Argomento dei comandi di Windows per **BITSAdmin GetType** : Recupera il tipo di processo del processo specificato.'
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: ff0118f14acbf4e9f37c02e660bd9c7f6e8d0f70
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: ca46cb813809621f4fa79b3265198206729a392c
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59879432"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71381344"
 ---
 # <a name="bitsadmin-gettype"></a>bitsadmin gettype
 
@@ -40,15 +40,15 @@ bitsadmin /GetType <Job>
 
 ## <a name="remarks"></a>Note
 
-Il tipo può essere SCARICATI, caricare, caricamento-risposta o UNKNOWN.
+Il tipo può essere DOWNLOAD, UPLOAD, UPLOAD-REPLY o UNKNOWN.
 
 ## <a name="BKMK_examples"></a>Esempi
 
-Nell'esempio seguente recupera il tipo di processo per il processo denominato *myDownloadJob*.
+Nell'esempio seguente viene recuperato il tipo di processo per il processo denominato *myDownloadJob*.
 ```
 C:\>bitsadmin /GetType myDownloadJob
 ```
 
 #### <a name="additional-references"></a>Altri riferimenti
 
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)
+[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

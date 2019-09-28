@@ -1,25 +1,25 @@
 ---
 title: Migliorare le prestazioni di un file server con SMB diretto
 description: Descrive la funzionalità SMB diretto in Windows Server 2012 R2, Windows Server 2012 e Windows Server 2016.
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.topic: article
 author: JasonGerend
 ms.author: jgerend
 ms.technology: storage
 ms.date: 04/05/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: ed8fd5b4114fc9fd9c7dc278a98cea8cc67a8749
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 41126aa0d054607449d57928c1777679e5087e73
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59826442"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71394463"
 ---
 # <a name="smb-direct"></a>SMB diretto
 
 >Si applica a: Windows Server 2012 R2, Windows Server 2012, Windows Server 2016
 
-Windows Server 2012 R2, Windows Server 2012 e Windows Server 2016 includono una funzionalità denominata SMB diretto, che supporta l'uso di schede di rete dotate della funzionalità Direct accesso memoria remota (RDMA). Le schede di rete con RDMA sono in grado di funzionare alla massima velocità con una latenza molto bassa e un utilizzo minimo della CPU. Nei carichi di lavoro come Hyper-V o Microsoft SQL Server, ciò consente di assimilare un file server remoto a un archivio locale. SMB diretto include:
+Windows Server 2012 R2, Windows Server 2012 e Windows Server 2016 includono una funzionalità denominata SMB diretto, che supporta l'uso di schede di rete con funzionalità accesso diretto a memoria remota (RDMA). Le schede di rete con RDMA sono in grado di funzionare alla massima velocità con una latenza molto bassa e un utilizzo minimo della CPU. Nei carichi di lavoro come Hyper-V o Microsoft SQL Server, ciò consente di assimilare un file server remoto a un archivio locale. SMB diretto include:
 
 - Velocità effettiva maggiore: sfrutta tutta la velocità effettiva delle reti ad alta velocità in cui le schede di rete coordinano il trasferimento di grandi quantità di dati alla velocità della linea.
 - Bassa latenza: offre tempi di risposta alle richieste di rete molto rapidi, rendendo l'archiviazione file remota veloce quanto l'archiviazione a blocchi collegata direttamente.
@@ -49,12 +49,12 @@ SMB diretto presenta i requisiti seguenti:
 - È possibile utilizzare SMB diretto in un cluster di failover, ma occorre prima verificare che le reti di cluster per l'accesso client consentano l'utilizzo di SMB diretto. Il clustering di failover supporta l'utilizzo di più reti per l'accesso client, oltre a schede di rete con supporto per RSS (Receive Side Scaling) e RDMA.
 - È possibile utilizzare la funzionalità SMB diretto sui sistemi operativi di gestione di Hyper-V a supporto dell'uso di Hyper-V su SMB e come archivio per una macchina virtuale che utilizza lo stack di archiviazione Hyper-V. Le schede di rete con supporto per RDMA, comunque, non sono esposte direttamente a un client Hyper-V. Se si connette a un commutatore virtuale una scheda di rete con supporto per RDMA, questa non sarà più dotata di supporto per RDMA.
 - Se si disabilita la funzionalità SMB multicanale, viene disabilitata anche la funzione SMB diretto. Poiché SMB multicanale rileva le funzionalità delle schede di rete e stabilisce se una scheda di rete offre o meno il supporto per RDMA, il client non potrà utilizzare la funzionalità SMB diretto se la funzionalità SMB multicanale è disabilitata.
-- SMB diretto non è supportata in Windows RT. SMB diretto richiede il supporto per le schede di rete con supporto per RDMA, disponibile solo in Windows Server 2012 R2 e Windows Server 2012.
-- SMB diretto non è supportata dalle versioni di livello inferiore di Windows Server, È supportata solo in Windows Server 2012 R2 e Windows Server 2012.
+- SMB diretto non è supportato in Windows RT. SMB diretto richiede il supporto per le schede di rete che supportano RDMA, disponibile solo in Windows Server 2012 R2 e Windows Server 2012.
+- SMB diretto non è supportata dalle versioni di livello inferiore di Windows Server, È supportato solo in Windows Server 2012 R2 e Windows Server 2012.
 
 ## <a name="enabling-and-disabling-smb-direct"></a>Abilitazione e disabilitazione di SMB diretto
 
-SMB diretto viene abilitato per impostazione predefinita quando si installa Windows Server 2012 R2 o Windows Server 2012. Se viene identificata una configurazione appropriata, il client SMB rileva e utilizza automaticamente più connessioni di rete.
+SMB diretto è abilitato per impostazione predefinita quando Windows Server 2012 R2 o Windows Server 2012 è installato. Se viene identificata una configurazione appropriata, il client SMB rileva e utilizza automaticamente più connessioni di rete.
 
 ### <a name="disable-smb-direct"></a>Disabilitare SMB diretto
 
@@ -72,9 +72,9 @@ Per disabilitare RDMA per tutti i tipi di interfaccia:
 Set-NetOffloadGlobalSetting -NetworkDirect Disabled
 ```
 
-Se RDMA viene disabilitata sul client o sul server, non può essere utilizzata dai sistemi. *Rete diretta* è il nome interno per Windows Server 2012 R2 e Windows Server 2012 base il supporto di rete per le interfacce RDMA.
+Se RDMA viene disabilitata sul client o sul server, non può essere utilizzata dai sistemi. *Rete diretta* è il nome interno del supporto di rete di windows Server 2012 R2 e windows Server 2012 Basic per le interfacce RDMA.
 
-### <a name="re-enable-smb-direct"></a>Riabilitare SMB diretto
+### <a name="re-enable-smb-direct"></a>Abilitare di nuovo SMB diretto
 
 Dopo averla disabilitata, è possibile riabilitare la funzionalità RDMA eseguendo uno degli script di Windows PowerShell indicati di seguito.
 
@@ -98,7 +98,7 @@ Per testare il funzionamento delle prestazioni è possibile utilizzare una delle
 
 ### <a name="compare-a-file-copy-with-and-without-using-smb-direct"></a>Confrontare la copia di un file con e senza la funzionalità SMB diretto
 
-Di seguito viene illustrato come misurare la velocità effettiva maggiore di SMB diretto:
+Ecco come misurare l'aumento della velocità effettiva di SMB diretto:
 
 1. Configurazione di SMB diretto
 2. Misurare il tempo necessario per eseguire la copia di un file di grandi dimensioni con l'impostazione SMB diretto abilitata.
@@ -112,7 +112,7 @@ Di seguito viene illustrato come misurare la velocità effettiva maggiore di SMB
 
 ### <a name="fail-one-of-multiple-network-adapters-during-a-file-copy-with-smb-direct"></a>Mettere in stato di errore una delle schede di rete durante la copia di un file con SMB diretto
 
-Di seguito viene illustrato come verificare la funzionalità di failover di SMB diretto:
+Ecco come verificare la funzionalità di failover di SMB diretto:
 
 1. Assicurarsi che SMB diretto sia utilizzata nell'ambito di una configurazione con più schede di rete.
 2. Eseguire la copia di un file di grandi dimensioni. Durante la copia, scollegare un cavo o disabilitare una scheda di rete per simulare un percorso di rete errato.
@@ -124,5 +124,5 @@ Di seguito viene illustrato come verificare la funzionalità di failover di SMB 
 ## <a name="more-information"></a>Altre informazioni
 
 - [Panoramica di Server Message Block](file-server-smb-overview.md)
-- [Aumento della disponibilità di rete, archiviazione e Server: Panoramica dello scenario](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831437(v%3dws.11)>)
+- Server @no__t 0Increasing, archiviazione e disponibilità di rete: Panoramica dello scenario](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831437(v%3dws.11)>)
 - [Distribuire Hyper-V tramite SMB](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/jj134187(v%3dws.11)>)

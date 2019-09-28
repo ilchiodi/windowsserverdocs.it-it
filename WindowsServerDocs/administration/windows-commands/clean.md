@@ -1,8 +1,8 @@
 ---
 title: clean
-description: 'Argomento i comandi di Windows per * * *- '
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: cd5eb2ec1bde4523eb6f0f919e09b9711b2654fb
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: f871ad1d13e06bf0cbb886ba64a52e7a55a9a797
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66434325"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71379316"
 ---
 # <a name="clean"></a>clean
 
 >Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Il comando di Diskpart pulito rimuove tutte le partizioni o volumi formattati da un disco con lo stato attivo.
+Il comando DiskPart clean rimuove tutte le partizioni o la formattazione del volume dal disco con lo stato attivo.
 ## <a name="syntax"></a>Sintassi
 ```
 clean [all]
@@ -37,7 +37,7 @@ clean [all]
 
 ## <a name="remarks"></a>Note
 - Nei dischi di (avvio principale MBR) master boot record, solo il partizionamento MBR informazioni e settori nascosti vengono sovrascritte.
-- Nei dischi tabella di partizione GUID (gpt), le informazioni, incluso il settore MBR, al partizionamento gpt viene sovrascritto. Non sono disponibili informazioni di settori nascosti.
+- Nei dischi della tabella di partizione GUID (GPT), le informazioni di partizionamento GPT, incluso l'MBR di protezione, vengono sovrascritte. Non sono disponibili informazioni di settori nascosti.
 - Per eseguire questa operazione, è necessario selezionare un disco. Utilizzare il **disco selezionare** comando per selezionare un disco e spostare lo stato attivo a esso.
   ## <a name="BKMK_examples"></a>Esempi
   Per rimuovere tutta la formattazione del disco selezionato, digitare:
@@ -45,4 +45,4 @@ clean [all]
   clean
   ```
 
-[Clear-Disk](https://technet.microsoft.com/library/hh848661.aspx)
+[Cancella disco](https://technet.microsoft.com/library/hh848661.aspx)

@@ -7,14 +7,14 @@ ms.author: joflore
 manager: mtillman
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: a7fec85301e2b70fb64f35f0b6e345adde29eed0
-ms.sourcegitcommit: 67833e36b8b2c6194a1426a974c5ad9c859fa4c9
+ms.openlocfilehash: 5e72c18d3aa49774cf73d5365748e7bf20764b22
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68329653"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71390842"
 ---
 # <a name="install-a-replica-windows-server-2012-domain-controller-in-an-existing-domain-level-200"></a>Installare un controller di dominio di replica di Windows Server 2012 in un dominio esistente (livello 200)
 
@@ -122,7 +122,7 @@ Ad esempio, è possibile utilizzare il cmdlet **Read-Host** per richiedere all'u
   
 ```  
   
-Infine, è possibile archiviare la password offuscata in un file e quindi riutilizzarla in seguito, senza visualizzare mai la password non crittografata. Ad esempio:  
+Infine, è possibile archiviare la password offuscata in un file e quindi riutilizzarla in seguito, senza visualizzare mai la password non crittografata. Esempio:  
   
 ```  
 $file = "c:\pw.txt"  
@@ -221,7 +221,7 @@ Nella pagina **Verifica opzioni** è possibile convalidare le impostazioni e acc
   
 La pagina **Verifica opzioni** di Server Manager include inoltre un pulsante opzionale **Visualizza script** , che consente di creare un file di testo Unicode contenente la configurazione ADDSDeployment corrente come singolo script di Windows PowerShell. In questo modo è possibile utilizzare l'interfaccia grafica di Server Manager come strumento di distribuzione di Windows PowerShell. Utilizzare la Configurazione guidata Servizi di dominio Active Directory per configurare le opzioni, esportare la configurazione e annullare la procedura guidata.  Questo processo crea un esempio valido e sintatticamente corretto che può essere utilizzato direttamente o successivamente modificato.  
   
-Ad esempio:  
+Esempio:  
   
 ```  
 #  
@@ -312,7 +312,7 @@ Per configurare un controller di dominio in modalità remota con Windows PowerSh
 invoke-command {install-addsdomaincontroller "domainname <domain> -credential (get-credential)} -computername <dc name>  
 ```  
   
-Ad esempio:  
+Esempio:  
   
 ![Installare una replica](media/Install-a-Replica-Windows-Server-2012-Domain-Controller-in-an-Existing-Domain--Level-200-/ADDS_PSUpgradeExample.gif)  
   

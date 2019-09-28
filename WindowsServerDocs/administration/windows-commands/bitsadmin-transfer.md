@@ -1,8 +1,8 @@
 ---
 title: bitsadmin Transfer
-description: Argomento i comandi di Windows per **trasferimento bitsadmin** -trasferisce uno o più file.
+description: Argomento dei comandi di Windows per **BITSAdmin Transfer** -trasferisce uno o più file.
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 2ef29a242a834fae42d1de3994a82aedcf87ec2d
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 2a12e6e2023c979d5b0c095c1eddd77eb5155d1e
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59852462"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71380348"
 ---
 # <a name="bitsadmin-transfer"></a>bitsadmin Transfer
 
@@ -34,11 +34,11 @@ bitsadmin /Transfer <Name> [<Type>] [/Priority <Job_Priority>] [/ACLFlags <Flags
 
 |Parametro|Descrizione|
 |---------|-----------|
-|Nome|Il nome del processo. La maggior parte dei comandi, a differenza delle **nome** può essere solo un nome e non è un GUID.|
-|Tipo|Facoltativo: specificare il tipo di processo. Uso **/scaricare** (predefinito) per un processo di download oppure **/caricare** per un processo di caricamento.|
-|Priority|Facoltativo: impostare il job_priority a uno dei valori seguenti:</br>-IN PRIMO PIANO</br>-ALTO</br>-NORMALE</br>-BASSO|
-|ACLFlags|Facoltativo: indica che si vuole mantenere il proprietario e le informazioni di ACL con il file in corso il download. Ad esempio, per mantenere il proprietario e il gruppo con il file, i flag di `OG`. Specificare uno o più dei flag seguenti:</br>-   O: Copiare informazioni sul proprietario con file.</br>-   G: Copiare le informazioni sui gruppi con file.</br>-   D: Copiare informazioni DACL con file.</br>-   S: Copiare informazioni SACL con file.|
-|\/DYNAMIC|Consente di configurare il processo con [ **BITS_JOB_PROPERTY_DYNAMIC_CONTENT**](/windows/desktop/api/bits5_0/ne-bits5_0-bits_job_property_id), che riduce i requisiti lato server.|
+|Nome|Il nome del processo. Diversamente dalla maggior parte dei comandi, il **nome** può essere solo un nome e non un GUID.|
+|Type|Facoltativo: specificare il tipo di processo. Usare **/download** (impostazione predefinita) per un processo di download o **tra/upload** per un processo di caricamento.|
+|Priority|Facoltativo: impostare job_priority su uno dei valori seguenti:</br>-IN PRIMO PIANO</br>-ALTO</br>-NORMALE</br>-BASSO|
+|ACLFlags|Facoltativo: indica che si desidera mantenere il proprietario e le informazioni ACL con il file da scaricare. Ad esempio, per mantenere il proprietario e il gruppo con il file, impostare i flag su `OG`. Specificare uno o più dei flag seguenti:</br>O Copiare le informazioni sul proprietario con il file.</br>G Copia le informazioni sul gruppo con il file.</br>D Copiare le informazioni DACL con file.</br>S Copiare le informazioni SACL con il file.|
+|\/DYNAMIC|Configura il processo con [**BITS_JOB_PROPERTY_DYNAMIC_CONTENT**](/windows/desktop/api/bits5_0/ne-bits5_0-bits_job_property_id), che attenua i requisiti del lato server.|
 |RemoteFileName|Nome del file quando viene trasferito al server.|
 |LocalFileName|Il nome del file che si trova in locale.|
 
@@ -58,4 +58,4 @@ C:\>bitsadmin /Transfer myDownloadJob http://prodserver/audio.wma c:\downloads\a
 
 #### <a name="additional-references"></a>Altri riferimenti
 
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)
+[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

@@ -1,8 +1,8 @@
 ---
-title: gestire-bde aggiornamento
-description: 'Argomento i comandi di Windows per * * *- '
+title: aggiornamento di Manage-bde
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,14 +13,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: dc28dfc98a66a60172c812d12a16d03c078b79e1
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d426af59f5acc958768b316f363bf78ea249b3a7
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59822282"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71373846"
 ---
-# <a name="manage-bde-upgrade"></a>manage-bde: upgrade
+# <a name="manage-bde-upgrade"></a>Manage-bde: aggiornamento
 
 
 
@@ -36,11 +36,11 @@ manage-bde -upgrade [<Drive>] [-computername <Name>] [{-?|/?}] [{-help|-h}]
 
 |Parametro|Descrizione|
 |---------|-----------|
-|\<Drive>|Rappresenta una lettera di unità seguita da due punti.|
+|\<Drive >|Rappresenta una lettera di unità seguita da due punti.|
 |-computername|Specifica che verrà utilizzato Gestione bde.exe per modificare la protezione BitLocker su un computer diverso. È inoltre possibile utilizzare **- cn** come una versione abbreviata di questo comando.|
 |\<Nome >|Rappresenta il nome del computer in cui si desidera modificare la protezione BitLocker. I valori accettati includono nome NetBIOS del computer e l'indirizzo IP del computer.|
-|-? o /?|Consente di visualizzare breve guida al prompt dei comandi.|
-|-help o -h|Visualizza la Guida completa al prompt dei comandi.|
+|-? o /?|Visualizza una breve guida al prompt dei comandi.|
+|-Help o-h|Visualizza la Guida completa al prompt dei comandi.|
 
 ## <a name="BKMK_Examples"></a>Esempi
 
@@ -51,6 +51,6 @@ manage-bde –upgrade C:
 
 #### <a name="additional-references"></a>Altri riferimenti
 
--   [Chiave sintassi della riga di comando](command-line-syntax-key.md)
--   [Gestire-bde](manage-bde.md)
--   [L'aggiornamento di un Computer protetto con BitLocker da Windows Vista a Windows 7](https://technet.microsoft.com/library/ee424325(v=ws.10).aspx)
+-   [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+-   [Manage-bde](manage-bde.md)
+-   [Aggiornamento di un computer protetto con BitLocker da Windows Vista a Windows 7](https://technet.microsoft.com/library/ee424325(v=ws.10).aspx)

@@ -2,7 +2,7 @@
 title: prnqctl
 description: Stampare una pagina di test, sospendere o riprendere una stampante.
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 07/11/2018
-ms.openlocfilehash: 1ba58970e76497f6e91c53c73a429eb65a275b2f
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 189b344dc0c4f587ba7a6382c481304242e22c74
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66442101"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71372037"
 ---
 # <a name="prnqctl"></a>prnqctl
 
 >Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Consente di stampare una pagina di test, sospende o riprende una stampante e cancella la coda di stampa.  
+Stampa una pagina di test, sospende o riprende una stampante e cancella una coda di stampa.  
 
 ## <a name="syntax"></a>Sintassi  
 ```  
@@ -35,36 +35,36 @@ cscript Prnqctl {-z | -m | -e | -x | -?} [-s <ServerName>]
 
 |Parametro|Descrizione|  
 |-------|--------|  
-|-z|Interrompe la stampa su stampante specificata con il **-p** parametro.|  
-|-m|Riprende la stampa su stampante specificata con il **-p** parametro.|  
-|-e|Consente di stampare una pagina di prova nella stampante specificata con il **-p** parametro.|  
-|-x|Annulla tutti i processi di stampa nella stampante specificata con il **-p** parametro.|  
-|-s \<nomeserver >|Specifica il nome del computer remoto che ospita la stampante che si desidera gestire. Se non si specifica un computer, viene utilizzato il computer locale.|  
-|-p \<nomestampante >|Specifica il nome della stampante che si desidera gestire. Obbligatorio.|  
-|-u \<UserName > -w \<Password >|Specifica un account con autorizzazioni sufficienti per connettersi al computer che ospita la stampante che si desidera gestire. Tutti i membri del gruppo Administrators locale del computer di destinazione dispongono di queste autorizzazioni, ma è anche possibile concedere le autorizzazioni ad altri utenti. Se non si specifica un account, è necessario essere connessi con un account con queste autorizzazioni per il comando lavorare.|  
+|-z|sospende la stampa sulla stampante specificata con il parametro **-p** .|  
+|-m|Riprende la stampa sulla stampante specificata con il parametro **-p** .|  
+|-e|stampa una pagina di test sulla stampante specificata con il parametro **-p** .|  
+|-x|Annulla tutti i processi di stampa della stampante specificati con il parametro **-p** .|  
+|-s \<ServerName >|Specifica il nome del computer remoto che ospita la stampante che si desidera gestire. Se non si specifica un computer, viene usato il computer locale.|  
+|-p \<printerName >|Specifica il nome della stampante che si desidera gestire. Obbligatorio.|  
+|-u \<UserName >-w \<Password >|Specifica un account con le autorizzazioni per la connessione al computer che ospita la stampante che si desidera gestire. Tutti i membri del gruppo Administrators locale del computer di destinazione dispongono di queste autorizzazioni, ma è possibile concedere anche le autorizzazioni ad altri utenti. Se non si specifica un account, è necessario effettuare l'accesso con un account con le autorizzazioni necessarie per il funzionamento del comando.|  
 |/?|Visualizza la guida al prompt dei comandi.|  
 
 ## <a name="remarks"></a>Note  
-- Il **prnqctl** comando è uno script Visual Basic che si trova nel %WINdir%\System32\printing_Admin_Scripts\\ <language> directory. Per usare questo comando, un prompt dei comandi, digitare **cscript** aggiungendo il percorso completo del file prnqctl, o cambiare le directory nella cartella appropriata. Ad esempio:  
+- Il comando **prnqctl** è uno script Visual Basic che si trova nella directory%WINdir%\System32\printing_Admin_Scripts @ no__t-1 @ no__t-2. Per usare questo comando, al prompt dei comandi digitare **cscript** seguito dal percorso completo del file prnqctl o passare alla cartella appropriata. Esempio:  
   ```  
   cscript %WINdir%\System32\printing_Admin_Scripts\en-US\prnqctl  
   ```  
-- Se le informazioni fornite contengono spazi, utilizzare le virgolette intorno al testo (ad esempio, `"computer Name"`).  
+- Se le informazioni fornite contengono spazi, racchiudere il testo tra virgolette, ad esempio `"computer Name"`.  
 
 ## <a name="BKMK_examples"></a>Esempi  
-Per stampare una pagina test nella stampante Laserprinter1 condivisa dal \\\Server1 computer, digitare:  
+Per stampare una pagina di prova sulla stampante stampa laserprinter1 condivisa dal computer \\ \ server1, digitare:  
 ```  
 cscript Prnqctl -e -s Server1 -p Laserprinter1  
 ```  
-Per sospendere la stampa su stampante Laserprinter1 nel computer locale, digitare:  
+Per sospendere la stampa sulla stampante stampa laserprinter1 nel computer locale, digitare:  
 ```  
 cscript Prnqctl -z -p Laserprinter1  
 ```  
-Per annullare tutti i processi di stampa nella stampante Laserprinter1 nel computer locale, digitare:  
+Per annullare tutti i processi di stampa sulla stampante stampa laserprinter1 nel computer locale, digitare:  
 ```  
 cscript Prnqctl -x -p Laserprinter1  
 ```  
 
 #### <a name="additional-references"></a>Riferimenti aggiuntivi  
 [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)  
-[Riferimenti ai comandi di stampa](print-command-reference.md)  
+[Riferimento al comando stampa](print-command-reference.md)  

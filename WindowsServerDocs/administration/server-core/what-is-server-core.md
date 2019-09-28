@@ -1,22 +1,22 @@
 ---
 title: Informazioni su Server Core
 description: Informazioni sull'opzione di installazione dei componenti di base del server in Windows Server
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.mktglfcycl: manage
 ms.sitesec: library
 author: lizap
 ms.localizationpriority: medium
 ms.date: 02/20/2018
-ms.openlocfilehash: ce00bc973b7b750e33326cdec24193ba537b5294
-ms.sourcegitcommit: 216d97ad843d59f12bf0b563b4192b75f66c7742
+ms.openlocfilehash: 269be253367ba2bc692a5903e7d519a40f487d8b
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68476471"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71383344"
 ---
 # <a name="what-is-the-server-core-installation-option-in-windows-server"></a>Qual è l'opzione di installazione dei componenti di base del server in Windows Server?
 
-> Si applica a Windows Server 2019, Windows Server 2016 e Windows Server (canale semestrale)
+> Si applica a: Windows Server 2019, Windows Server 2016 e Windows Server (canale semestrale)
 
 L'opzione componenti di base del server è un'opzione di installazione minima disponibile quando si distribuisce l'edizione standard o Datacenter di Windows Server. Server Core include la maggior parte, ma non tutti i ruoli del server. Server Core ha un footprint di disco inferiore e pertanto una superficie di attacco più piccola a causa di una codebase di dimensioni inferiori. 
 
@@ -41,7 +41,7 @@ Oltre a nessuna interfaccia utente, Server Core differisce anche dal server con 
 - Nessuna OOBE (impostazione predefinita) per la configurazione dei componenti di base del server
 - Nessun supporto audio
 
-La tabella seguente mostra quali applicazioni sono disponibili *localmente* in Server Core vs server con esperienza desktop. **Importante**: Nella maggior parte dei casi, le applicazioni elencate come "non disponibili" di seguito possono essere eseguite in modalità remota da un computer client Windows e utilizzate per gestire l'installazione dei componenti di base del server.
+La tabella seguente mostra quali applicazioni sono disponibili *localmente* in Server Core vs server con esperienza desktop. **Important**: Nella maggior parte dei casi, le applicazioni elencate come "non disponibili" di seguito possono essere eseguite in modalità remota da un computer client Windows e utilizzate per gestire l'installazione dei componenti di base del server.
 
 > [!NOTE]
 > Questo elenco è destinato a un riferimento rapido, non è destinato a essere un elenco completo.

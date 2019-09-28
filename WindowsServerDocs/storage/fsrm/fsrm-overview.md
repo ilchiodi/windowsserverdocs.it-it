@@ -1,6 +1,6 @@
 ---
 title: Panoramica di Gestione risorse file server
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.author: jgerend
 ms.manager: brianlic
 ms.technology: storage
@@ -8,16 +8,16 @@ ms.topic: article
 author: jasongerend
 ms.date: 5/14/2018
 description: File server Gestione risorse (FSRM) è uno strumento che consente di gestire e classificare i dati in un file server Windows Server.
-ms.openlocfilehash: 49e7731c9f1e0f312728894e99bc88b0391738d8
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 719176307afc320ad676fd1acfc07ad9d15920cf
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70866953"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71394173"
 ---
 # <a name="file-server-resource-manager-fsrm-overview"></a>Panoramica di Gestione risorse file server
 
-> Si applica a Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2, Windows Server (canale semestrale), 
+> Si applica a: Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2, Windows Server (canale semestrale), 
 
 Gestione risorse file server è un servizio ruolo in Windows Server che consente di gestire e classificare i dati archiviati nei file server. È possibile utilizzare Gestione risorse file server per classificare automaticamente i file, eseguire attività in base a tali classificazioni, impostare quote sulle cartelle e creare report che monitorano l'utilizzo dell'archiviazione.
 
@@ -88,7 +88,7 @@ Per impedire che il file server Gestione risorse la creazione di un journal dell
                     System Reserved \\?\Volume{8d3c9e8a-0000-0000-0000-100000000000}\
         C                           \\?\Volume{8d3c9e8a-0000-0000-0000-501f00000000}\
        ```
-    2. Tornare all'editor del registro di sistema, fare clic con il pulsante destro del mouse sulla chiave **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\SrmSvc\Settings** , quindi scegliere **nuovo** > **valore multistringa**.
+    2. Tornare all'editor del registro di sistema, fare clic con il pulsante destro del mouse sulla chiave **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\SrmSvc\Settings** , quindi scegliere **nuovo** **valore multistringa** > .
     3. Assegnare un nome `SkipUSNCreationForVolumes`al valore.
     4. Immettere il percorso di ogni volume in cui si ignora la creazione di un journal delle modifiche, inserendo ogni percorso in una riga separata. Esempio:
 
@@ -98,7 +98,7 @@ Per impedire che il file server Gestione risorse la creazione di un journal dell
         ```
 
         > [!NOTE] 
-        > L'editor del registro di sistema potrebbe indicare che sono state rimosse stringhe vuote, visualizzando questo avviso che è possibile ignorare: *I dati di tipo REG_MULTI_SZ non possono contenere stringhe vuote. Nell'editor del registro di sistema vengono rimosse tutte le stringhe vuote trovate.*
+        > L'editor del registro di sistema potrebbe indicare che sono state rimosse stringhe vuote, visualizzando questo avviso che è possibile ignorare: @no__t 0Apparecchiature per di tipo REG_MULTI_SZ non possono contenere stringhe vuote. Nell'editor del registro di sistema vengono rimosse tutte le stringhe vuote trovate.*
 
 7. Avviare il servizio SRMSVC. Ad esempio, in una sessione di PowerShell `Start-Service SrmSvc`immettere.
 

@@ -2,18 +2,18 @@
 title: Modificare un disco GPT (GUID Partition Table, tabella delle partizioni GUID) in disco MBR (Master Boot Record, record di avvio principale)
 description: Descrive come modificare un disco con stile di partizione GPT (GUID Partition Table, tabella delle partizioni GUID) in disco con stile di partizione MBR (Master Boot Record, record di avvio principale).
 ms.date: 06/19/2018
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: storage
 ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: 5cd345230ce5c0fc556bfd8b421d866bd827507b
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: 5c6efb0697af663b32ce6f0e27634c3962eca492
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "66812450"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71402104"
 ---
 # <a name="convert-a-gpt-disk-into-an-mbr-disk"></a>Convertire un disco GPT in disco MBR
 

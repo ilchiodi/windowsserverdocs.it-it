@@ -6,14 +6,14 @@ ms.author: billmath
 manager: mtillman
 ms.date: 02/21/2018
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: da3214b715b415eed2cbce351cae93eff14a88c7
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 5985fc022a084e0e36e12ea60f18d1650c8c6b51
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70865527"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71366196"
 ---
 # <a name="ad-fs-troubleshooting---events-and-logging"></a>AD FS risoluzione dei problemi-eventi e registrazione
 AD FS fornisce due log principali che possono essere utilizzati per la risoluzione dei problemi.  Sono:
@@ -57,9 +57,9 @@ La tabella seguente illustra i livelli di controllo disponibili.
 
 |Livello di controllo|Sintassi di PowerShell|Descrizione|  
 |----- | ----- | ----- |
-|Nessuna|Set-AdfsProperties-AuditLevel None|Il controllo è disabilitato e non viene registrato alcun evento.|  
+|Nessuno|Set-AdfsProperties-AuditLevel None|Il controllo è disabilitato e non viene registrato alcun evento.|  
 |Basic (impostazione predefinita)|Set-AdfsProperties-AuditLevel Basic|Non verranno registrati più di 5 eventi per una singola richiesta|  
-|Dettagliato|Set-AdfsProperties-AuditLevel verbose|Tutti gli eventi verranno registrati.  Questa operazione registrerà una quantità significativa di informazioni per ogni richiesta.|  
+|Verbose|Set-AdfsProperties-AuditLevel verbose|Tutti gli eventi verranno registrati.  Questa operazione registrerà una quantità significativa di informazioni per ogni richiesta.|  
   
 Per visualizzare il livello di controllo corrente, è possibile usare il cmdlet di PowerShell:  Get-AdfsProperties.  
   
@@ -91,7 +91,7 @@ Il controllo di sicurezza dell'account del servizio AD FS può talvolta aiutare 
 ### <a name="to-enable-security-auditing"></a>Per abilitare il controllo della sicurezza
 1. Fare clic sul pulsante Start, scegliere **programmi**, **strumenti di amministrazione**, quindi fare clic su **criteri di sicurezza locali**.
 2. Passare alla cartella **Impostazioni sicurezza\Criteri locali\Assegnazione diritti utenti** e quindi fare doppio clic su **Generazione di controlli di sicurezza**.
-3. Nella scheda **Impostazioni sicurezza locale** verificare che sia elencato l'account del servizio AD FS. Se non è presente, fare clic su Aggiungi utente o gruppo e aggiungerlo all'elenco, quindi fare clic su OK.
+3. Nella scheda **impostazioni di sicurezza locali** verificare che sia elencato l'account del servizio ad FS. Se non è presente, fare clic su Aggiungi utente o gruppo e aggiungerlo all'elenco, quindi fare clic su OK.
 4. Aprire un prompt dei comandi con privilegi elevati ed eseguire il comando seguente per abilitare il controllo di Auditpol. exe/set/SubCategory: "applicazione generata"/Failure: Enable/Success: Enable
 5. Chiudere **criteri di sicurezza locali**e quindi aprire lo snap-in gestione ad FS.
  
@@ -99,7 +99,7 @@ Per aprire lo snap-in gestione AD FS, fare clic sul pulsante Start, scegliere pr
  
 6. Nel riquadro azioni fare clic su Modifica proprietà Servizio federativo
 7. Nella finestra di dialogo Proprietà Servizio federativo fare clic sulla scheda eventi.
-8. Selezionare le caselle di controllo **Operazioni riuscite** e **Operazioni non riuscite**.
+8. Selezionare le caselle di controllo **Success audits** e **Failure Audits** .
 9. Fare clic su OK.
 
 ![miglioramenti del controllo](media/ad-fs-tshoot-logging/event4.PNG)  

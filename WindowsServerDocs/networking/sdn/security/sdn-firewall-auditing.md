@@ -1,32 +1,32 @@
 ---
 title: Controllo del firewell SDN
-description: Il controllo firewall è una nuova funzionalità per il firewall di rete SDN in Windows Server 2019. Quando si abilita il firewall di rete SDN, ottiene registrato qualsiasi flusso elaborata dalle regole di firewall di rete SDN (ACL) che hanno abilitata la registrazione.
+description: Il controllo del firewall è una nuova funzionalità per il firewall SDN in Windows Server 2019. Quando si Abilita il firewall SDN, viene registrato qualsiasi flusso elaborato dalle regole del firewall SDN (ACL) con la registrazione abilitata.
 manager: dougkim
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking-sdn
 ms.topic: article
 ms.assetid: c4e2f6c7-0364-4bf8-bb66-9af59c0bbd74
 ms.author: pashort
 author: shortpatti
 ms.date: 08/22/2018
-ms.openlocfilehash: a73cdc443dd55b16f6e6cb187e001581620ce771
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 246adc6b4fd3ea130196cf1786f7fa130703de1a
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59890902"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71355761"
 ---
 # <a name="sdn-firewall-auditing"></a>Controllo del firewell SDN
 
 >Si applica a: Windows Server 2019
 
-Il controllo firewall è una nuova funzionalità per il firewall di rete SDN in Windows Server 2019. Quando si abilita il firewall di rete SDN, ottiene registrato qualsiasi flusso elaborata dalle regole di firewall di rete SDN (ACL) che hanno abilitata la registrazione. I file di log devono essere in una sintassi coerente con il [log di flusso di Azure Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview). Questi log possono essere usati per la diagnostica o archiviati per un'analisi successiva. 
+Il controllo del firewall è una nuova funzionalità per il firewall SDN in Windows Server 2019. Quando si Abilita il firewall SDN, viene registrato qualsiasi flusso elaborato dalle regole del firewall SDN (ACL) con la registrazione abilitata. I file di log devono essere in una sintassi coerente con i [log di flusso del Network Watcher di Azure](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview). Questi log possono essere usati per la diagnostica o archiviati per un'analisi successiva. 
 
-Forniremo presto alcuni esempi di come elaborare questi file usando strumenti come Power BI.
+A breve saranno disponibili alcuni esempi di come elaborare questi file usando strumenti come Power BI.
 
-_**Provarlo e fornire commenti e suggerimenti!**_
+_**Provalo e inviaci commenti e suggerimenti!**_
 
-Ecco uno script di esempio per abilitare il firewall controllo sugli host Hyper-V. Aggiornare le variabili all'inizio e lo eseguo in un computer Windows Server 2019 con la funzionalità di amministrazione remota del server NetworkController installata:
+Ecco uno script di esempio per abilitare il controllo del firewall sugli host Hyper-V. Aggiornare le variabili all'inizio ed eseguire questa operazione in un computer Windows Server 2019 con la funzionalità di strumenti di amministrazione remota di NetworkController installata:
 
 ```PowerShell
 $logpath = "C:\test\log1"
@@ -54,7 +54,7 @@ foreach ($s in $servers) {
 }
 ```
 
-Dopo aver abilitato un nuovo file viene visualizzato nella directory specificata in ogni host su una volta per ogni ora.  Si deve periodicamente elaborare questi file e rimuoverli dall'host.  Il file corrente ha lunghezza zero e viene bloccato fino a quando non scaricate in corrispondenza del contrassegno ora successivo:
+Una volta abilitato, viene visualizzato un nuovo file nella directory specificata in ogni host circa una volta all'ora.  È necessario elaborare periodicamente questi file e rimuoverli dagli host.  Il file corrente ha una lunghezza zero e viene bloccato fino a quando non viene scaricato al contrassegno dell'ora successiva:
 
 ```syntax
 PS C:\test\log1> dir
@@ -100,7 +100,7 @@ Questi file contengono una sequenza di eventi di flusso, ad esempio:
 ```
 
 
-Si noti che la registrazione avviene solo per le regole aventi **Logging** impostata su **abilitato**, ad esempio:
+Si noti che la registrazione si verifica solo per le regole per le quali la **registrazione** è impostata su **Enabled**, ad esempio:
 
 ```syntax
 {

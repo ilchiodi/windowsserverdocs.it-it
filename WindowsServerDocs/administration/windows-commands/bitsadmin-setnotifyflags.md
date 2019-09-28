@@ -1,8 +1,8 @@
 ---
 title: bitsadmin setnotifyflags
-description: Argomento i comandi di Windows per **bitsadmin setnotifyflags** -imposta l'evento di flag di notifica per il processo specificato.
+description: Argomento dei comandi di Windows per **BITSAdmin setnotifyflags** -imposta i flag di notifica degli eventi per il processo specificato.
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: bc817e03e0f1916ea392830d14985a7a1377d69a
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d9cfabf05610cbbe8fa65fd16b0d33e161dcef9b
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59868792"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71380447"
 ---
 # <a name="bitsadmin-setnotifyflags"></a>bitsadmin setnotifyflags
 
@@ -39,9 +39,9 @@ bitsadmin /SetNotifyFlags <Job> <NotifyFlags>
 
 ## <a name="remarks"></a>Note
 
-Il **NotifyFlags** parametro può contenere uno o più dei seguenti flag di notifica.
+Il parametro **NotifyFlags** può contenere uno o più dei flag di notifica seguenti.
 
-|---|---| | 1 | Generare un evento quando sono stati trasferiti tutti i file del processo. | | 2 | Generare un evento quando si verifica un errore. | | 4 | Disabilitare le notifiche. |
+|-----|-----| | 1 | Genera un evento quando tutti i file del processo sono stati trasferiti. | | 2 | Genera un evento quando si verifica un errore. | | 4 | Disabilitare le notifiche. |
 
 ## <a name="BKMK_examples"></a>Esempi
 
@@ -52,4 +52,4 @@ C:\>bitsadmin /SetNotifyFlags myDownloadJob 3
 
 #### <a name="additional-references"></a>Altri riferimenti
 
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)
+[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

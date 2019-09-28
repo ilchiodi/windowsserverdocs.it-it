@@ -1,8 +1,8 @@
 ---
 title: bitsadmin wrap
-description: Argomento i comandi di Windows per **incapsulamento bitsadmin** -esegue il wrapping di tutte le righe di output testo che si estende oltre il bordo all'estrema destra della finestra di comando nella riga successiva.
+description: Argomento comandi di Windows per **BITSAdmin wrap** -wrapping di qualsiasi riga di testo di output che si estende oltre il bordo all'estrema destra della finestra di comando alla riga successiva.
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 4834a8a17c72394b6ee8f051ec76919af9880124
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 5609fb6f38716795a545e0c7fe3939f893a8c8d5
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59881672"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71380685"
 ---
 # <a name="bitsadmin-wrap"></a>bitsadmin wrap
 
 >Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Esegue il wrapping di output regolare in una finestra di comando.
+Esegue il wrapping dell'output per adattarlo a una finestra di comando.
 
 ## <a name="syntax"></a>Sintassi
 
@@ -40,7 +40,7 @@ bitsadmin /Wrap Job
 
 ## <a name="remarks"></a>Note
 
-Specificare prima di altre opzioni. Per impostazione predefinita, tutte le opzioni, ad eccezione di [monitoraggio bitsadmin](bitsadmin-monitor.md) commutatore, eseguire il wrapping dell'output.
+Specificare prima di altre opzioni. Per impostazione predefinita, tutte le opzioni, ad eccezione dell'opzione di [monitoraggio Bitsadmin](bitsadmin-monitor.md) , incapsulano l'output.
 
 ## <a name="BKMK_examples"></a>Esempi
 
@@ -52,4 +52,4 @@ C:\>bitsadmin /Wrap /Info myDownloadJob /verbose
 
 #### <a name="additional-references"></a>Riferimenti aggiuntivi
 
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)
+[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

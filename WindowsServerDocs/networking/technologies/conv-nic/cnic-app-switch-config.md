@@ -1,7 +1,7 @@
 ---
-title: Configurazione di commutatore fisico di interfaccia di rete convergente
-description: In questo argomento, Microsoft fornisce le linee guida per la configurazione dei commutatori fisici.
-ms.prod: windows-server-threshold
+title: Configurazione del Commuter fisico per NIC convergente
+description: In questo argomento vengono fornite le linee guida per la configurazione dei commutatori fisici.
+ms.prod: windows-server
 ms.technology: networking
 ms.topic: article
 ms.assetid: 6d53c797-fb67-4b9e-9066-1c9a8b76d2aa
@@ -9,52 +9,52 @@ manager: dougkim
 ms.author: pashort
 author: shortpatti
 ms.date: 09/14/2018
-ms.openlocfilehash: e31d7b83fee84d9055d938f77b49389205786244
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d10e8ca6e4689b89a8b9532f77613f17280282b1
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59829402"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71355478"
 ---
-# <a name="physical-switch-configuration-for-converged-nic"></a>Configurazione di commutatore fisico di interfaccia di rete convergente
+# <a name="physical-switch-configuration-for-converged-nic"></a>Configurazione del Commuter fisico per NIC convergente
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016
 
-In questo argomento, Microsoft fornisce le linee guida per la configurazione dei commutatori fisici. 
+In questo argomento vengono fornite le linee guida per la configurazione dei commutatori fisici. 
 
 
-Si tratta solo i comandi e il relativo utilizzo; è necessario determinare le porte a cui sono connesse le schede di rete nell'ambiente in uso. 
+Questi sono solo i comandi e i rispettivi usi; è necessario determinare le porte a cui sono connesse le schede di rete nell'ambiente in uso. 
 
 >[!IMPORTANT]
->Verificare che la VLAN e i criteri di non trascinamento è impostato per la priorità su cui è configurato SMB.
+>Verificare che i criteri VLAN e no-drop siano impostati per la priorità di configurazione di SMB.
 
-## <a name="arista-switch-dcs-7050s-64-eos-4137m"></a>Commutatore arista \(controller di dominio\-7050s\-EOS 64,\-4.13.7M\)
+## <a name="arista-switch-dcs-7050s-64-eos-4137m"></a>Arista switch \(dcs @ no__t-17050s @ no__t-264, EOS @ no__t-34.13.7 M @ no__t-4
 
-1.  en \(passare alla modalità di amministrazione, in genere richiede una password\)
-2.  configurazione \(immettere in modalità di configurazione\)
-3.  Visualizza esecuzione \(Visualizza configurazione corrente in esecuzione\)
-4.  informazioni su porte di commutazione a cui le schede di rete connessi. In questi esempio, sono 14/1,15/1,16/1,17/1.
-5.  int eth 14/1,15/1,16/1,17/1 \(immettere in modalità di configurazione per queste porte\)
-6.  modalità dcbx ieee
-7.  modalità di controllo di flusso prioritario a
-8.  switchport trunk vlan nativa 225
-9.  switchport trunk vlan. 100 e 225 è consentita
-10. trunk modalità switchport
-11. controllo di flusso prioritario con priorità 3 non rilascio
-12. QoS trust cos
-13. Visualizza esecuzione \(verificare che la configurazione sia impostata correttamente su porte\)
-14. WR \(per configurare le impostazioni vengono mantenute per switch riavvio\)
+1.  en \(go alla modalità di amministrazione, in genere richiede una password @ no__t-1
+2.  config \(to immettere in modalità di configurazione @ no__t-1
+3.  Mostra Run \(shows Current running Configuration @ no__t-1
+4.  individuare le porte di commutazione a cui sono connesse le schede di rete. In questi esempi, sono 14/1, 15/1, 16/1, 17/1.
+5.  int ETH 14/1, 15/1, 16/1, 17/1 \(enter in modalità di configurazione per queste porte @ no__t-1
+6.  IEEE in modalità DCBX
+7.  priorità-modalità di controllo del flusso in
+8.  VLAN nativa trunk switchport 225
+9.  switchport trunk consentito 100-225 VLAN
+10. Trunk modalità switchport
+11. priorità-flusso-controllo priorità 3 no-drop
+12. cos attendibilità QoS
+13. Mostra eseguire \(verify che la configurazione sia correttamente impostata sulle porte @ no__t-1
+14. WR \(to fare in modo che le impostazioni vengano mantenute tra switch reboot @ no__t-1
 
-### <a name="tips"></a>Suggerimenti:
-1.  Nessun command # # Annulla un comando
-2.  Come aggiungere una nuovo VLAN: vlan int 100 \(se rete di archiviazione si trova in 100 VLAN\)
-3.  Come controllare le VLAN esistente: Mostra vlan
-4.  Per altre informazioni sulla configurazione di commutatore Arista, eseguire una ricerca online: Arista EOS manuale
-5.  Usare questo comando per verificare le impostazioni di base alla priorità: mostrare i dettagli dei contatori di controllo di flusso prioritario
+### <a name="tips"></a>Consigli
+1.  No #command # nega un comando
+2.  Come aggiungere una nuova VLAN: int VLAN 100 \(If Storage Network è on VLAN 100 @ no__t-1
+3.  Come verificare le VLAN esistenti: Mostra VLAN
+4.  Per ulteriori informazioni sulla configurazione dell'opzione Arista, cercare online per: Manuale di Arista EOS
+5.  Usare questo comando per verificare le impostazioni di PFC: Mostra priorità-dettagli dei contatori di controllo del flusso
 
 --- 
 
-## <a name="dell-switch-s4810-ftos-99-00"></a>Commutatore Dell \(S4810, 9.9 FTOS \(0,0\)\)
+## <a name="dell-switch-s4810-ftos-99-00"></a>Switch Dell \(S4810, FTOS 9,9 \(0.0 @ no__t-2 @ no__t-3
 
     
     !
@@ -74,7 +74,7 @@ Si tratta solo i comandi e il relativo utilizzo; è necessario determinare le po
     
 --- 
 
-## <a name="cisco-switch-nexus-3132-version-602u61"></a>Commutatore Cisco \(Nexus 3132, versione 6.0\(2\)U6\(1\)\)
+## <a name="cisco-switch-nexus-3132-version-602u61"></a>Switch Cisco \(Nexus 3132, versione 6.0 @ no__t-12 @ no__t-2U6 @ no__t-31 @ no__t-4 @ no__t-5
 
 ### <a name="global"></a>Globale
     
@@ -105,7 +105,7 @@ Si tratta solo i comandi e il relativo utilizzo; è necessario determinare le po
     service-policy type network-qos QOS_NETWORK
     
 
-### <a name="port-specific"></a>Porta specifica
+### <a name="port-specific"></a>Specifico per la porta
 
     
     switchport mode trunk
@@ -121,8 +121,8 @@ Si tratta solo i comandi e il relativo utilizzo; è necessario determinare le po
 
 ## <a name="related-topics"></a>Argomenti correlati
 
-- [Configurazione scheda di rete convergente con una sola scheda di rete](cnic-single.md)
-- [Configurazione di interfaccia di rete convergente le NIC](cnic-datacenter.md)
-- [Risoluzione dei problemi di configurazioni di interfaccia di rete convergente](cnic-app-troubleshoot.md)
+- [Configurazione NIC convergente con una singola scheda di rete](cnic-single.md)
+- [Configurazione NIC convergente con gruppo NIC](cnic-datacenter.md)
+- [Risoluzione dei problemi relativi alle configurazioni NIC convergenti](cnic-app-troubleshoot.md)
 
 --- 

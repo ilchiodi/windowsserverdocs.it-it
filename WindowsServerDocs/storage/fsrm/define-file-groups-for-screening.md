@@ -2,18 +2,18 @@
 title: Definire gruppi di file per lo screening
 description: Questo articolo descrive come definire gruppi di file per creare uno spazio dei nomi per lo screening dei file, l'eccezione screening dei file o i rapporti di archiviazione File in base a gruppo di file
 ms.date: 7/7/2017
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: storage
 ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: 6e043692500370b6c084a4db068027d13afc957f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: b56d7b0439e3dc6f1a2e0a1c96f761dbb77cb0a0
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59838432"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71394392"
 ---
 # <a name="define-file-groups-for-screening"></a>Definire gruppi di file per lo screening
 
@@ -41,16 +41,16 @@ Un *gruppo di file* viene utilizzato per definire uno spazio dei nomi per uno sc
 
     -   Per ogni set di file che si desidera includere nel gruppo di file, nella casella **File da includere**, immettere un modello di nome file e quindi fare clic su **Aggiungi**.
     -   Per ogni set di file che si desidera escludere dal gruppo di file, nella casella **File da escludere**, immettere un modello di nome file e quindi fare clic su **Aggiungi**.
-        Si noti che si applicano le regole con caratteri jolly standard, ad esempio,  **\*.exe** Seleziona tutti i file eseguibili.
+        Si noti che si applicano le regole con caratteri jolly standard, ad esempio **@no__t 1. exe** seleziona tutti i file eseguibili.
 
 5.  Fare clic su **OK**.
 
 ## <a name="see-also"></a>Vedere anche
 
--   [Gestione di screening dei file](file-screening-management.md)
--   [Creare uno screening dei File](create-file-screen.md)
--   [Creare un'eccezione per screening dei File](create-file-screen-exception.md)
--   [Creare un modello di schermata del File](create-file-screen-template.md)
--   [Gestione rapporti archiviazione](storage-reports-management.md)
+-   [Gestione screening dei file](file-screening-management.md)
+-   [Creare uno screening dei file](create-file-screen.md)
+-   [Creare un'eccezione screening dei file](create-file-screen-exception.md)
+-   [Creare un modello di screening dei file](create-file-screen-template.md)
+-   [Gestione rapporti di archiviazione](storage-reports-management.md)
 
 

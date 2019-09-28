@@ -1,8 +1,8 @@
 ---
-title: REG aggiungere
-description: 'Argomento i comandi di Windows per * * *- '
+title: reg Aggiungi
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,14 +13,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: d46fc2df23391a1dbb782014addc68d9522d603a
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 5b478ce0c98ec77f1387d8f894364f53cf8d2142
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66441910"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71371757"
 ---
-# <a name="reg-add"></a>REG aggiungere
+# <a name="reg-add"></a>reg Aggiungi
 
 
 Aggiunge una nuova sottochiave o voce nel Registro di sistema.
@@ -36,12 +36,12 @@ Per esempi di utilizzo di questo comando, vedere [Esempi](#BKMK_examples).
 
 |      Parametro      |                                                                                                                                                                                                                                                                   Descrizione                                                                                                                                                                                                                                                                   |
 |---------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| \<KeyName<em>></em> | Specifica il percorso completo della sottochiave o voce da aggiungere. Per specificare un computer remoto, includere il nome del computer (nel formato \\ \\ \<nomecomputer >\) come parte del *KeyName*. L'omissione \\ \\ComputerName\ fa sì che l'operazione per impostazione predefinita nel computer locale. Il *KeyName* deve includere una chiave radice valido. Le chiavi principali valide per il computer locale sono: HKLM, HKCU, HKCR, HKU e HKCC. Se viene specificato un computer remoto, le chiavi principali valide sono: HKLM e HKU. Se il nome della chiave del Registro di sistema contiene uno spazio, racchiudere il nome della chiave tra virgolette. |
-|   /v \<ValueName>   |                                                                                                                                                                                                                                Specifica il nome della voce del Registro di sistema da aggiungere nella sottochiave specificata.                                                                                                                                                                                                                                 |
+| \<KeyName<em>></em> | Specifica il percorso completo della sottochiave o voce da aggiungere. Per specificare un computer remoto, includere il nome del computer (nel formato \\ @ no__t-1 @ no__t-2ComputerName > \) come parte del *nome*della pagina. Se si omette \\ @ no__t-1ComputerName \, l'operazione viene impostata sul computer locale per impostazione predefinita. Il *KeyName* deve includere una chiave radice valido. Le chiavi radice valide per il computer locale sono: HKLM, HKCU, HKCR, HKU e HKCC. Se viene specificato un computer remoto, le chiavi radice valide sono: HKLM e HKU. Se il nome della chiave del registro di sistema contiene uno spazio, racchiudere il nome della chiave tra virgolette. |
+|   /v \<ValueName >   |                                                                                                                                                                                                                                Specifica il nome della voce del Registro di sistema da aggiungere nella sottochiave specificata.                                                                                                                                                                                                                                 |
 |         /ve         |                                                                                                                                                                                                                                Specifica che la voce del Registro di sistema che viene aggiunto al Registro di sistema ha un valore null.                                                                                                                                                                                                                                |
-|     /t \<tipo >      |                                                                                                                                          Specifica il tipo per la voce del Registro di sistema. *Tipo* deve essere uno dei seguenti:</br>REG_SZ</br>REG_MULTI_SZ</br>REG_DWORD_BIG_ENDIAN</br>REG_DWORD</br>REG_BINARY</br>REG_DWORD_LITTLE_ENDIAN</br>REG_LINK</br>REG_FULL_RESOURCE_DESCRIPTOR</br>REG_EXPAND_SZ                                                                                                                                          |
-|   /s \<separator >   |                                                                                                                                                              Specifica il carattere da utilizzare per separare più istanze di dati quando viene specificato il tipo di dati REG_MULTI_SZ e deve essere elencato più di una voce. Se non specificato, il separatore predefinito è **\0**.                                                                                                                                                              |
-|     /d \<Data>      |                                                                                                                                                                                                                                                 Specifica i dati per la nuova voce del Registro di sistema.                                                                                                                                                                                                                                                  |
+|     /t \<Type >      |                                                                                                                                          Specifica il tipo per la voce del Registro di sistema. *Tipo* deve essere uno dei seguenti:</br>REG_SZ</br>REG_MULTI_SZ</br>REG_DWORD_BIG_ENDIAN</br>REG_DWORD</br>REG_BINARY</br>REG_DWORD_LITTLE_ENDIAN</br>REG_LINK</br>REG_FULL_RESOURCE_DESCRIPTOR</br>REG_EXPAND_SZ                                                                                                                                          |
+|   /s \<Separator >   |                                                                                                                                                              Specifica il carattere da utilizzare per separare più istanze di dati quando viene specificato il tipo di dati REG_MULTI_SZ e deve essere elencato più di una voce. Se non specificato, il separatore predefinito è **\0**.                                                                                                                                                              |
+|     /d \<Apparecchiature per >      |                                                                                                                                                                                                                                                 Specifica i dati per la nuova voce del Registro di sistema.                                                                                                                                                                                                                                                  |
 |         /f          |                                                                                                                                                                                                                                           Aggiunge la voce del Registro di sistema senza chiedere conferma.                                                                                                                                                                                                                                           |
 |         /?          |                                                                                                                                                                                                                                              Visualizza la Guida per **reg aggiungere** al prompt dei comandi.                                                                                                                                                                                                                                               |
 
@@ -53,7 +53,7 @@ Per esempi di utilizzo di questo comando, vedere [Esempi](#BKMK_examples).
 | Value | Descrizione |
 |-------|-------------|
 |   0   |   Riuscito   |
-|   1   |   Operazione non riuscita   |
+|   1   |   Errore   |
 
 -   Per il tipo di chiave REG_EXPAND_SZ, utilizzare il simbolo di accento circonflesso ( **^** ) con **%** "all'interno del parametro /d
 

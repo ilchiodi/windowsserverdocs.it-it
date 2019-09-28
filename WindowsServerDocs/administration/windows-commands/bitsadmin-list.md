@@ -1,8 +1,8 @@
 ---
 title: bitsadmin list
-description: Argomento i comandi di Windows per **bitsadmin elenco** -vengono elencati i processi di trasferimento di proprietà dell'utente corrente.
+description: Argomento comandi di Windows per l' **elenco Bitsadmin** -elenca i processi di trasferimento di proprietà dell'utente corrente.
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: f0b88001b9c4ae01b57006ffeef66dec0348ca77
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: bd4787f51dc2a7843ff6cf5c4f786658e530ad8f
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59873862"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71381103"
 ---
 # <a name="bitsadmin-list"></a>bitsadmin list
 
@@ -36,20 +36,20 @@ bitsadmin /List [/allusers][/verbose]
 
 |Parametro|Descrizione|
 |---------|-----------|
-|/Allusers|Facoltativo: Elenca i processi per tutti gli utenti|
-|/ Verbose|Facoltativo: vengono fornite informazioni dettagliate per ogni processo.|
+|/Allusers|Facoltativo: elenca i processi per tutti gli utenti|
+|/Verbose|Facoltativo: fornisce informazioni dettagliate per ogni processo.|
 
 ## <a name="remarks"></a>Note
 
-È necessario disporre dei privilegi di amministratore per utilizzare il parametro /allusers
+Per usare il parametro/ALLUSERS, è necessario disporre dei privilegi di amministratore
 
 ## <a name="BKMK_examples"></a>Esempi
 
-Nell'esempio seguente recupera le informazioni sui processi di proprietà dell'utente corrente.
+Nell'esempio seguente vengono recuperate le informazioni sui processi di proprietà dell'utente corrente.
 ```
 C:\>bitsadmin /List 
 ```
 
 #### <a name="additional-references"></a>Altri riferimenti
 
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)
+[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

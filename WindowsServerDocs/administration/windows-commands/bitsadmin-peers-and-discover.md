@@ -1,8 +1,8 @@
 ---
-title: Bitsadmin peer e individuare
-description: Argomento i comandi di Windows per **bitsadmin peer e individuare** -consente di individuare i peer nuovamente.
+title: Bitsadmin peer e individua
+description: Argomento dei comandi di Windows per **BITSAdmin Peers e Discover** -individua nuovamente i peer.
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,14 +13,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: c6fe6ea93e2bf8c103340feb1c9247130411c4d3
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: bad7458d9cace050a9d07fc5978dc9d048094b4b
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59832652"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71380966"
 ---
-# <a name="bitsadmin-peers-and-discover"></a>Bitsadmin peer e individuare
+# <a name="bitsadmin-peers-and-discover"></a>Bitsadmin peer e individua
 
 
 
@@ -41,4 +41,4 @@ C:\>bitsadmin /Peers /Discover
 
 #### <a name="additional-references"></a>Altri riferimenti
 
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)
+[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

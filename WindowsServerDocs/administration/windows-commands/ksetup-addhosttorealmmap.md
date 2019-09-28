@@ -1,8 +1,8 @@
 ---
-title: ksetup:addhosttorealmmap
-description: 'Argomento i comandi di Windows per * * *- '
+title: 'che Ksetup: addhosttorealmmap'
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 25cf258309c94f0efde980018dd5dcf3c7df4d60
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e6a28c6001707fac245de7136b5fb5bd38495027
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59837502"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71375654"
 ---
-# <a name="ksetupaddhosttorealmmap"></a>ksetup:addhosttorealmmap
+# <a name="ksetupaddhosttorealmmap"></a>che Ksetup: addhosttorealmmap
 
 
 
-Aggiunge un mapping del nome dell'entità (SPN) del servizio tra l'host dichiarato e l'area di autenticazione. Per esempi di come è possibile utilizzare questo comando, vedere [esempi](#BKMK_Examples).
+Aggiunge un mapping del nome dell'entità servizio (SPN) tra l'host dichiarato e l'area di autenticazione. Per esempi di come è possibile utilizzare questo comando, vedere [esempi](#BKMK_Examples).
 
 ## <a name="syntax"></a>Sintassi
 
@@ -36,25 +36,25 @@ ksetup /addhosttorealmmap <HostName> <RealmName>
 
 |Parametro|Descrizione|
 |---------|-----------|
-|\<HostName>|Il nome host è il nome del computer e può essere dichiarata come nome di dominio completo del computer.|
+|\<HostName >|Il nome host è il nome del computer e può essere dichiarato come nome di dominio completo del computer.|
 |\<RealmName >|Il nome dell'area di autenticazione è specificato come un nome DNS lettere maiuscole, ad esempio CORP. CONTOSO.COM.|
 
 ## <a name="remarks"></a>Note
 
-Questo comando consente di eseguire il mapping di un host o più host che condividono lo stesso suffisso DNS per l'area di autenticazione.
+Questo comando consente di eseguire il mapping di un host o di più host che condividono lo stesso suffisso DNS per l'area di autenticazione.
 
-Il mapping viene registrato nel Registro di sistema **HKEY_LOCAL_MACHINE\SYSTEM\CurrentContolSet\Lsa\Kerberos\HostToRealm**.
+Il mapping viene registrato nel registro di sistema in **HKEY_LOCAL_MACHINE\SYSTEM\CurrentContolSet\Lsa\Kerberos\HostToRealm**.
 
 ## <a name="BKMK_Examples"></a>Esempi
 
-Nell'ambito della configurazione dell'area di autenticazione CONTOSO, eseguire il mapping del computer host IPops897 all'area di autenticazione:
+Come parte della configurazione dell'area di autenticazione CONTOSO, mappare il computer host IPops897 all'area di autenticazione:
 ```
 ksetup /addhosttorealmmap IPops897 CONTOSO
 ```
-Verificare nel Registro di sistema che il mapping sia come previsto.
+Verificare nel registro di sistema che il mapping sia quello desiderato.
 
 #### <a name="additional-references"></a>Altri riferimenti
 
 -   [Ksetup:delhosttorealmmap](ksetup-delhosttorealmmap.md)
--   [Ksetup](ksetup.md)
--   [Chiave sintassi della riga di comando](command-line-syntax-key.md)
+-   [Che Ksetup](ksetup.md)
+-   [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

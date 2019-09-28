@@ -2,7 +2,7 @@
 title: Scollegare o disconnettere sessioni utente
 description: Informazioni su come disconnettere manualmente un utente
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: multipoint-services
 ms.reviewer: na
 ms.suite: na
@@ -13,12 +13,12 @@ author: lizap
 manager: dongill
 ms.author: elizapo
 ms.date: 08/04/2016
-ms.openlocfilehash: 0e516a617341ffebadbdeb571a39f50369446f11
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: c636af35a78eab76d69c68b6f506b64dcb555f81
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70871653"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71395271"
 ---
 # <a name="log-off-or-disconnect-user-sessions"></a>Scollegare o disconnettere sessioni utente
 Gli utenti di servizi multiPoint possono accedere e disconnettersi delle sessioni di desktop come per qualsiasi sessione di Windows. Gli utenti possono anche disconnettere o sospendere la sessione in modo che la stazione MultiPoint Services non venga usata, ma la sessione rimane attiva nella memoria del computer del sistema MultiPoint Services.  

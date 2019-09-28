@@ -1,7 +1,7 @@
 ---
 title: Come configurare gli account protetti
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.service: na
 ms.suite: na
@@ -12,16 +12,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/12/2016
-ms.openlocfilehash: 9bd03beb81d4a3031b80d0633607efea2f2fe1f7
-ms.sourcegitcommit: d84dc3d037911ad698f5e3e84348b867c5f46ed8
+ms.openlocfilehash: e728265f42289aeceb22c78053f0d84f9bdb9941
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66266813"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71387393"
 ---
 # <a name="how-to-configure-protected-accounts"></a>Come configurare gli account protetti
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016
 
 Gli attacchi Pass-the-hash (PtH) consentono agli autori di attacchi di eseguire l'autenticazione a un server o un servizio remoto usando l'hash NTLM sottostante della password di un utente (o altri derivati delle credenziali). Microsoft ha in precedenza [pubblicato indicazioni](https://www.microsoft.com/download/details.aspx?id=36036) per ridurre gli attacchi pass-the-hash.  Windows Server 2012 R2 include nuove funzionalità per limitare ulteriormente tali attacchi. Per ulteriori informazioni sulle altre funzionalità di sicurezza per la protezione contro il furto di credenziali, vedere [Gestione e protezione delle credenziali](https://technet.microsoft.com/library/dn408190.aspx). In questo argomento viene illustrato come configurare le nuove funzionalità seguenti:  
   
@@ -35,7 +35,7 @@ In Windows 8.1 e Windows Server 2012 R2 sono inoltre incorporate le funzionalit�
   
 -   [Modalità di amministrazione limitata per Desktop remoto](http://blogs.technet.com/b/kfalde/archive/20../restricted-admin-mode-for-rdp-in-windows-8-1-2012-r2.aspx)  
   
--   [LSA Protection](https://technet.microsoft.com/library/dn408187)  
+-   [Protezione LSA](https://technet.microsoft.com/library/dn408187)  
   
 ## <a name="protected-users"></a>Utenti protetti  
 Utenti protetti è un nuovo gruppo di sicurezza globale a cui è possibile aggiungere utenti nuovi o esistenti. I dispositivi Windows 8.1 e Windows Server 2012 R2 host hanno un comportamento speciale con i membri di questo gruppo per fornire una migliore protezione contro il furto di credenziali. Per un membro del gruppo, un host Windows Server 2012 R2 o un dispositivo Windows 8.1 non memorizzare nella cache le credenziali che non sono supportate per utenti protetti. I membri di questo gruppo non dispongono di alcuna protezione aggiuntiva se sono connessi a un dispositivo che esegue una versione di Windows precedenti a Windows 8.1.  
@@ -86,7 +86,7 @@ Per gli account protetti sono previsti i requisiti di distribuzione seguenti:
 In questa sezione vengono illustrati i nuovi registri che consentono di risolvere i problemi relativi agli eventi correlati a Utenti protetti e viene descritto il modo in cui il gruppo Utenti protetti può influire sulle modifiche per la risoluzione dei problemi relativi alla delega o alla scadenza dei ticket di concessione ticket (TGT).  
   
 #### <a name="new-logs-for-protected-users"></a>Nuovi registri per Utenti protetti  
-Sono disponibili due registri amministrativi per la risoluzione dei problemi relativi agli eventi correlati a Utenti protetti: Protected User - Client Log e Protected User Failures - Domain Controller Log. Questi due nuovi registri sono disponibili nel Visualizzatore eventi e sono disabilitati per impostazione predefinita. Per abilitare un registro, fare clic su **registri applicazioni e servizi**, fare clic su **Microsoft**, fare clic su **Windows**, fare clic su **autenticazione**, quindi fare clic sul nome del log e fare clic su **azione** (o destro di log) e fare clic su **Attiva registro**.  
+Sono disponibili due registri amministrativi per la risoluzione dei problemi relativi agli eventi correlati a Utenti protetti: Utente protetto-log del client e errori utente protetti-log del controller di dominio. Questi due nuovi registri sono disponibili nel Visualizzatore eventi e sono disabilitati per impostazione predefinita. Per abilitare un registro, fare clic su **registri applicazioni e servizi**, fare clic su **Microsoft**, fare clic su **Windows**, fare clic su **autenticazione**, quindi fare clic sul nome del log e fare clic su **azione** (o destro di log) e fare clic su **Attiva registro**.  
   
 Per ulteriori informazioni sugli eventi in questi registri, vedere [criteri di autenticazione e silo di criteri di autenticazione](https://technet.microsoft.com/library/dn486813.aspx).  
   
@@ -112,9 +112,9 @@ Per controllare in modo esplicito i tentativi di autenticazione per i membri del
 ### <a name="provide-dc-side-protections-for-services-and-computers"></a>Fornire protezioni sul lato controller di dominio per servizi e computer  
 Gli account per i servizi e i computer non possono essere membri del gruppo **Utenti protetti**. In questa sezione vengono illustrate le protezioni sul lato controller di dominio disponibili per questi account:  
   
--   Rifiutare l'autenticazione NTLM: Configurabile solo tramite [criteri di blocco NTLM](https://technet.microsoft.com/library/jj865674(v=ws.10).aspx).  
+-   Rifiutare l'autenticazione NTLM: Configurabile solo tramite i [criteri di blocco NTLM](https://technet.microsoft.com/library/jj865674(v=ws.10).aspx).  
   
--   Rifiutare la crittografia DES (Data Encryption Standard) nella preautenticazione Kerberos:  I controller di dominio di Windows Server 2012 R2 non accettano la crittografia DES per gli account computer a meno che non sono configurati per DES solo perché ogni versione di Windows rilasciata con Kerberos supporta anche RC4.  
+-   Rifiutare la crittografia DES (Data Encryption Standard) nella preautenticazione Kerberos:  I controller di dominio Windows Server 2012 R2 non accettano DES per gli account computer a meno che non siano configurati per DES solo perché ogni versione di Windows rilasciata con Kerberos supporta anche RC4.  
   
 -   Rifiutare la crittografia RC4 nella preautenticazione Kerberos: non configurabile.  
   
@@ -174,10 +174,10 @@ I criteri di autenticazione integrano il gruppo Utenti protetti, offrendo un mod
   
 ### <a name="requirements-for-using-authentication-policies"></a>Requisiti per l'uso dei criteri di autenticazione  
   
-|Condizione|Requisiti|  
+|Criteri|Requisiti|  
 |-----|--------|  
 |Specifica durate TGT personalizzate| Domini di account con livello funzionale di dominio Windows Server 2012 R2|  
-|Limita l'accesso utente|-Domini di account con livello funzionale di dominio Windows Server 2012 R2 con il supporto di controllo dinamico degli accessi<br />-Supportano di Windows 8, Windows 8.1, Windows Server 2012 o Windows Server 2012 R2 dispositivi con controllo dinamico degli accessi|  
+|Limita l'accesso utente|-Domini di account con livello funzionale di dominio Windows Server 2012 R2 con il supporto di controllo dinamico degli accessi<br />-Dispositivi Windows 8, Windows 8.1, Windows Server 2012 o Windows Server 2012 R2 con supporto per il controllo dinamico degli accessi|  
 |Limita il rilascio di ticket di servizio basati su account utente e gruppi di sicurezza| Domini di risorse a livello funzionale di dominio Windows Server 2012 R2|  
 |Limita il rilascio di ticket di servizio basati su attestazioni utente o account del dispositivo, gruppi di sicurezza o attestazioni| Domini di risorse a livello funzionale di dominio di Windows Server 2012 R2 con il supporto di controllo dinamico degli accessi|  
   
@@ -187,7 +187,7 @@ Un valore elevato di account con privilegi amministrativi deve essere un membro 
 #### <a name="configure-domain-controller-support"></a>Configurare il supporto per il controller di dominio  
 Il dominio dell'account utente deve essere a livello funzionale di dominio Windows Server 2012 R2 (Livello). Verificare che tutti i controller di dominio siano Windows Server 2012 R2 e quindi utilizzano Active Directory Domains and Trusts per [aumentare il livello di funzionalità DEL](https://technet.microsoft.com/library/cc753104.aspx) a Windows Server 2012 R2.  
   
-**Per configurare il supporto per controllo dinamico degli accessi**  
+**Per configurare il supporto per il controllo dinamico degli accessi**  
   
 1.  Nel criterio Controller di dominio predefiniti fare clic su **Abilitato** per abilitare l'impostazione **Supporto client Centro distribuzione chiavi Kerberos per attestazioni, autenticazione composta e blindatura Kerberos** in Configurazione computer | Modelli amministrativi | Sistema | KDC.  
   

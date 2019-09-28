@@ -1,18 +1,18 @@
 ---
 title: Configurazione di Hyper-V
 description: Considerazioni sulla configurazione di Hyper-V per l'ottimizzazione delle prestazioni
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: performance-tuning-guide
 ms.topic: article
 ms.author: Asmahi; SandySp; JoPoulso
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: 0c608d3762c45a0b1478bcb3303159feef963291
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: f21115265ca7d2788fc0be078860048602d82c0f
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70866617"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71370165"
 ---
 # <a name="hyper-v-configuration"></a>Configurazione di Hyper-V
 
@@ -76,11 +76,11 @@ Hyper-V pubblica i contatori delle prestazioni per identificare il comportamento
 
 È sempre necessario misurare l'utilizzo della CPU del sistema fisico usando i contatori delle prestazioni del processore logico hypervisor Hyper-V. I contatori di utilizzo della CPU segnalati da Gestione attività e performance monitor nelle partizioni radice e figlio non riflettono l'effettivo utilizzo della CPU fisica. Usare i contatori delle prestazioni seguenti per monitorare le prestazioni:
 
-- **Processore logico hypervisor Hyper-V (\*)\\% tempo di esecuzione totale tempo** totale di inattività dei processori logici
+- **Processore logico hypervisor Hyper-V (\*) \\% tempo di esecuzione totale** Tempo di non inattività totale dei processori logici
 
-- **Processore logico hypervisor Hyper-V (\*)\\% tempo di esecuzione guest** tempo impiegato per l'esecuzione di cicli in un Guest o nell'host
+- **Processore logico hypervisor Hyper-V (\*) \\% tempo di esecuzione guest** Tempo impiegato per l'esecuzione di cicli in un Guest o nell'host
 
-- **Processore logico hypervisor Hyper-V (\*)\\% tempo di esecuzione hypervisor** il tempo impiegato per l'esecuzione nell'hypervisor
+- **Processore logico hypervisor Hyper-V (\*) \\% tempo di esecuzione hypervisor** Tempo impiegato per l'esecuzione nell'hypervisor
 
 - **Processore virtuale radice hypervisor Hyper-V (\*)\\\\** * misura l'utilizzo della CPU della partizione radice
 

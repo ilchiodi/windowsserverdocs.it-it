@@ -7,14 +7,14 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 055f9baff9c20019493a54fbb92e5c53c199a5e3
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 4d227be18cd69d79f24edca96bd873afda3f2d2a
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70865521"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71385453"
 ---
 # <a name="the-role-of-the-claims-engine"></a>Ruolo del motore delle attestazioni
 Al livello più alto, il motore delle attestazioni \(in\) Active Directory Federation Services ad FS è\-un motore basato su regole dedicato alla gestione e all'elaborazione delle richieste di attestazione per il servizio federativo. Il motore delle attestazioni è l'unica entità del Servizio federativo responsabile dell'esecuzione di ogni set di regole in tutte le relazioni di trust federative configurate e della trasmissione del risultato di output alla pipeline delle attestazioni.  

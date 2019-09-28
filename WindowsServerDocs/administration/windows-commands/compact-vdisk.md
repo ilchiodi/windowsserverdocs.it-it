@@ -1,8 +1,8 @@
 ---
-title: compact vdisk
-description: 'Argomento i comandi di Windows per * * *- '
+title: compatta vdisk
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,14 +13,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: c4a95354bf041777e43a9eac5f16e693b02c185c
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 7efd40fa4b822636eda9f4082b5f561b452d3846
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66434298"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71379296"
 ---
-# <a name="compact-vdisk"></a>compact vdisk
+# <a name="compact-vdisk"></a>compatta vdisk
 
 >Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
@@ -41,11 +41,11 @@ Riduce le dimensioni fisiche di un file di disco rigido virtuale (VHD) ad espans
 >   ```
 >   ## <a name="additional-references"></a>Riferimenti aggiuntivi
 > - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
-> - [attach vdisk](attach-vdisk.md)
+> - [Connetti vdisk](attach-vdisk.md)
 
--   [detail vdisk](detail-vdisk.md)
--   [Detach vdisk](detach-vdisk.md)
--   [expand vdisk](expand-vdisk.md)
--   [Merge vdisk](merge-vdisk.md)
--   [Selezionare vdisk](select-vdisk.md)
+-   [Dettagli vdisk](detail-vdisk.md)
+-   [Scollega vdisk](detach-vdisk.md)
+-   [Espandi vdisk](expand-vdisk.md)
+-   [Unisci vdisk](merge-vdisk.md)
+-   [Seleziona vdisk](select-vdisk.md)
 -   [list_1](list_1.md)

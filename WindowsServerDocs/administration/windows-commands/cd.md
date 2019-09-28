@@ -1,8 +1,8 @@
 ---
 title: cd
-description: 'Argomento i comandi di Windows per * * *- '
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,21 +13,21 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 53340612d26eaa7c4ae6fd977a0eac573f91881d
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: ed0942232eb205a8198d4b3d366ca9482af1f4b3
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66434606"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71379714"
 ---
 # <a name="cd"></a>cd
 
 
 
-Visualizza il nome di o modifiche della directory corrente. Se usato con una lettera di unità (ad esempio, `cd C:`), **cd** vengono visualizzati i nomi della directory corrente nell'unità specificata. Se utilizzata senza parametri, **cd** Visualizza unità corrente e la directory.
+Consente di visualizzare il nome di o di modificare la directory corrente. Se utilizzata solo con una lettera di unità (ad esempio, `cd C:`), **CD** Visualizza i nomi della directory corrente nell'unità specificata. Se utilizzata senza parametri, **CD** Visualizza l'unità e la directory correnti.
 
 > [!NOTE]
-> Questo comando è analogo a come le **chdir** comando.
+> Questo comando corrisponde al comando **chdir** .
 
 Per esempi di utilizzo di questo comando, vedere [Esempi](#BKMK_examples).
 
@@ -44,27 +44,27 @@ chdir [..]
 
 |Parametro|Descrizione|
 |---------|-----------|
-|/d|Cambia l'unità corrente, nonché la directory corrente per un'unità.|
-|\<Drive>:|Specifica l'unità per visualizzare o modificare (se diversa da quella corrente).|
-|\<Path>|Specifica il percorso della directory che si desidera visualizzare o modificare.|
+|/d|Cambia l'unità corrente e la directory corrente per un'unità.|
+|> \<Drive:|Specifica l'unità da visualizzare o modificare (se diversa dall'unità corrente).|
+|\<Path >|Specifica il percorso della directory che si desidera visualizzare o modificare.|
 |[..]|Specifica che si desidera passare alla cartella padre.|
 |/?|Visualizza la guida al prompt dei comandi.|
 
 ## <a name="remarks"></a>Note
 
-Se sono abilitate le estensioni dei comandi, le condizioni seguenti si applicano per la **cd** comando:
-- Per usare la stessa combinazione come i nomi del disco viene convertita nella stringa di directory corrente. Ad esempio, `cd C:\TEMP` imposterebbe la directory corrente a C:\Temp, se in questo caso sul disco.
-- Gli spazi non vengono considerati come delimitatori, così *percorso* possono contenere spazi non racchiuso tra virgolette. Ad esempio:  
+Se sono abilitate le estensioni dei comandi, al comando **CD** si applicano le condizioni seguenti:
+- La stringa di directory corrente viene convertita in modo da usare la stessa combinazione di maiuscole e minuscole dei nomi sul disco. Ad esempio, `cd C:\TEMP` imposta la directory corrente su C:\Temp, se questo è il caso sul disco.
+- Gli spazi non vengono considerati delimitatori, quindi il *percorso* può contenere spazi senza virgolette di inclusione. Esempio:  
   ```
   cd username\programs\start menu
   ```  
-  equivale a:  
+  è uguale a:  
   ```
   cd "username\programs\start menu"
   ```  
-  Le virgolette sono necessarie, tuttavia, se le estensioni sono disabilitate.
+  Tuttavia, le virgolette sono obbligatorie se le estensioni sono disabilitate.
 
-Per disabilitare le estensioni dei comandi, digitare:
+Per disabilitare le estensioni del comando, digitare:
 ```
 cmd /e:off
 ```
@@ -75,11 +75,11 @@ La directory radice è la parte superiore della gerarchia di directory per un'un
 ```
 cd\
 ```
-Per modificare la directory predefinita in un'unità che è diversa da quello che si sta su, digitare:
+Per modificare la directory predefinita in un'unità diversa da quella in cui si è connessi, digitare:
 ```
 cd [<Drive>:\[<Directory>]]
 ```
-Per verificare la modifica della directory, digitare:
+Per verificare la modifica alla directory, digitare:
 ```
 cd [<Drive>:]
 ```

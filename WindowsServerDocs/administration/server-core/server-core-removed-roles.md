@@ -1,22 +1,22 @@
 ---
 title: Ruoli, servizi ruolo e funzionalità non in Windows Server-Server Core
 description: Informazioni sui ruoli e le funzionalità non inclusi nell'opzione di installazione dei componenti di base del server per Windows Server.
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.mktglfcycl: manage
 ms.sitesec: library
 author: lizap
 ms.localizationpriority: medium
 ms.date: 02/23/2018
-ms.openlocfilehash: 882410792c7b8df8a8275c357d64fc17c9f3479e
-ms.sourcegitcommit: feec5cbe983c8c5800ccd4fc214914084fcceaba
+ms.openlocfilehash: ce8fd0edc426b673f873717a27e6045e3476170f
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70975257"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71383360"
 ---
 # <a name="roles-role-services-and-features-not-in-windows-server---server-core"></a>Ruoli, servizi ruolo e funzionalità non in Windows Server-Server Core
 
-> Si applica a Windows Server 2019, Windows Server 2016 e Windows Server (canale semestrale)
+> Si applica a: Windows Server 2019, Windows Server 2016 e Windows Server (canale semestrale)
 
 I ruoli, i servizi ruolo e le funzionalità seguenti sono stati rimossi dall'opzione di installazione dei componenti di base del server di Windows Server. Usare queste informazioni per determinare se l'opzione dei componenti di base del server funziona per l'ambiente.
 

@@ -1,8 +1,8 @@
 ---
 title: prndrvr
-description: 'Argomento i comandi di Windows per * * *- '
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: edf27852c13566ba8c7ca8c16d789d586e749160
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 05e03a4b0b5d686c8fbd1646a775c7f0e5c95706
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66436216"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71372124"
 ---
 # <a name="prndrvr"></a>prndrvr
 
 >Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Usare la **prndrvr** comando per aggiungere, eliminare ed elencare i driver della stampante.
+Usare il comando **prndrvr** per aggiungere, eliminare ed elencare i driver della stampante.
 
 ## <a name="syntax"></a>Sintassi
 ```
@@ -38,46 +38,46 @@ cscript prndrvr {-a | -d | -l | -x | -?} [-m <model>] [-v {0|1|2|3}]
 |Parametro|Descrizione|
 |-------|--------|
 |-a|Installa un driver.|
-|-d|Consente di eliminare un driver.|
-|-l|Elenca tutti i driver della stampante installati sul server specificato per il **-s** parametro. Se non si specifica un server, Windows sono elencati i driver della stampante installati sul computer locale.|
-|-x|Elimina tutti i driver della stampante e ulteriori driver di stampante non è in uso da una stampante logica nel server specificato per il **-s** parametro. Se non si specifica un server da rimuovere dall'elenco, Windows elimina tutti i driver della stampante nel computer locale.|
-|-m \<DrivermodelName\>|Specifica (nome) del driver da installare. I driver vengono spesso denominati per il modello di stampante che supportano. Vedere la documentazione della stampante per altre informazioni.|
-|-v {0 &#124; 1 &#124; 2 &#124; 3}|Specifica la versione del driver da installare. Vedere la descrizione della **-e**parametro per informazioni su cui sono disponibili versioni per l'ambiente. Se non si specifica una versione, la versione del driver appropriato per la versione di Windows in esecuzione nel computer in cui si installa il driver è installata.<br /><br />-versione **0** supporta Windows 95, Windows 98 e Windows Millennium edition.<br />-versione **1** supporta Windows NT 3.51.<br />-versione **2** supporta Windows NT 4.0.<br />-versione **3** supporta Windows Vista, Windows XP, Windows 2000 e i sistemi operativi Windows Server 2003. Si noti che questo è l'unica versione del driver della stampante che supporta Windows Vista.|
-|-e \<ambiente >|Specifica l'ambiente per il driver da installare. Se non si specifica un ambiente, viene usato l'ambiente del computer in cui si installa il driver. I parametri di ambiente supportati sono:<br /><br />-    **"Windows NT x86"**<br />-    **"Windows x64"**<br />-    **"Windows IA64"**|
-|-s \<nomeserver >|Specifica il nome del computer remoto che ospita la stampante che si desidera gestire. Se non si specifica un computer, viene utilizzato il computer locale.|
-|-u \<UserName > -w \<Password >|Specifica un account con autorizzazioni sufficienti per connettersi al computer che ospita la stampante che si desidera gestire. Tutti i membri del gruppo Administrators locale del computer di destinazione dispongono di queste autorizzazioni, ma è anche possibile concedere le autorizzazioni ad altri utenti. Se non si specifica un account, è necessario essere connessi con un account con queste autorizzazioni per il comando lavorare.|
-|-h \<path>|Specifica il percorso del file di driver. Se non si specifica un percorso, viene utilizzato il percorso della posizione in cui è stato installato Windows.|
-|-i \<Filename.inf>|Specifica il nome di file e percorso completo per il driver da installare. Se non si specifica un nome di file, lo script usa uno dei file della posta in arrivo della stampante. inf nella sottodirectory della directory Windows inf.<br /><br />Se il percorso del driver non è specificato, lo script cerca i file dei driver nel file CAB.|
+|-d|Elimina un driver.|
+|-l|Elenca tutti i driver della stampante installati nel server specificato dal parametro **-s** . Se non si specifica un server, Windows elenca i driver della stampante installati nel computer locale.|
+|-x|Elimina tutti i driver della stampante e i driver della stampante aggiuntivi non utilizzati da una stampante logica sul server specificato dal parametro **-s** . Se non si specifica un server da rimuovere dall'elenco, Windows eliminerà tutti i driver della stampante non utilizzati nel computer locale.|
+|-m \<DrivermodelName @ no__t-1|Specifica (per nome) il driver che si desidera installare. I driver sono spesso denominati per il modello di stampante supportato. Per ulteriori informazioni, vedere la documentazione della stampante.|
+|-v {0 &#124; 1 &#124; 2 &#124; 3}|Specifica la versione del driver che si desidera installare. Per informazioni sulle versioni disponibili per l'ambiente, vedere la descrizione del parametro **-e**. Se non si specifica una versione, la versione del driver appropriata per la versione di Windows in esecuzione nel computer in cui si sta installando il driver viene installata.<br /><br />-la versione **0** supporta Windows 95, Windows 98 e Windows Millennium Edition.<br />-la versione **1** supporta Windows NT 3,51.<br />-la versione **2** supporta Windows NT 4,0.<br />-la versione **3** supporta i sistemi operativi Windows Vista, Windows XP, Windows 2000 e windows Server 2003. Si noti che questa è l'unica versione del driver della stampante supportata da Windows Vista.|
+|-e \<Environment >|Specifica l'ambiente per il driver che si desidera installare. Se non si specifica un ambiente, viene utilizzato l'ambiente del computer in cui viene installato il driver. I parametri di ambiente supportati sono:<br /><br />-    **"Windows NT x86"**<br />-    **"Windows x64"**<br />-    **"Windows IA64"**|
+|-s \<ServerName >|Specifica il nome del computer remoto che ospita la stampante che si desidera gestire. Se non si specifica un computer, viene usato il computer locale.|
+|-u \<UserName >-w \<Password >|Specifica un account con le autorizzazioni per la connessione al computer che ospita la stampante che si desidera gestire. Tutti i membri del gruppo Administrators locale del computer di destinazione dispongono di queste autorizzazioni, ma è possibile concedere anche le autorizzazioni ad altri utenti. Se non si specifica un account, è necessario effettuare l'accesso con un account con le autorizzazioni necessarie per il funzionamento del comando.|
+|-h \<path >|Specifica il percorso del file del driver. Se non si specifica un percorso, viene utilizzato il percorso della posizione in cui è stato installato Windows.|
+|-i @no__t -0Filename. inf >|Specifica il percorso completo e il nome file per il driver che si desidera installare. Se non si specifica un nome di file, lo script usa uno dei file di Printer. inf della posta in arrivo nella sottodirectory INF della directory di Windows.<br /><br />Se il percorso del driver non è specificato, lo script cerca i file del driver nel file CAB del driver.|
 |/?|Visualizza la guida al prompt dei comandi.|
 
 ## <a name="remarks"></a>Note
-- Il **prndrvr** comando è uno script Visual Basic che si trova nel %WINdir%\System32\printing_Admin_Scripts\\ <language> directory. Per usare questo comando, un prompt dei comandi, digitare **cscript** aggiungendo il percorso completo del file prndrvr, o cambiare le directory nella cartella appropriata.
+- Il comando **prndrvr** è uno script Visual Basic che si trova nella directory%WINdir%\System32\printing_Admin_Scripts @ no__t-1 @ no__t-2. Per usare questo comando, al prompt dei comandi digitare **cscript** seguito dal percorso completo del file prndrvr o passare alla cartella appropriata.
 
-  Ad esempio:
+  Esempio:
   ```
   cscript %WINdir%\System32\printing_Admin_Scripts\en-US\prndrvr
   ```
-- Se le informazioni fornite contengono spazi, utilizzare le virgolette intorno al testo (ad esempio, `"computer Name"`).
-- X - opzione consente di eliminare tutti i driver della stampante aggiuntivi (driver installato per l'uso nei client alternativo in esecuzione versioni di Windows), anche se il driver primario è in uso. Se è installato il componente fax, questa opzione Elimina anche i driver fax. Il driver fax principale viene eliminato se non è in uso (ovvero, se è presente alcuna coda utilizzarlo). Se il driver fax principale viene eliminato, l'unico modo per abilitare nuovamente i fax è necessario reinstallare il componente fax.
-- Se utilizzato senza parametri, **prndrvr** Visualizza la Guida della riga di comando per il **prndrvr** comando.
+- Se le informazioni fornite contengono spazi, racchiudere il testo tra virgolette, ad esempio `"computer Name"`.
+- L'opzione-x Elimina tutti i driver della stampante aggiuntivi, ovvero i driver installati per l'uso nei client che eseguono versioni alternative di Windows, anche se il driver primario è in uso. Se il componente fax è installato, questa opzione Elimina anche i driver fax. Il driver fax primario viene eliminato se non è in uso, ovvero se non è presente alcuna coda. Se il driver fax primario viene eliminato, l'unico modo per riattivare il fax è reinstallare il componente fax.
+- Usato senza parametri, **prndrvr** Visualizza la guida della riga di comando per il comando **prndrvr** .
 
 ## <a name="BKMK_examples"></a>Esempi
 
-Per elencare tutti i driver nel \\\printServer1 server, digitare:
+Per elencare tutti i driver nel server \\ \ printServer1, digitare:
 ```
 cscript Prndrvr -l -s
 ```
 
-Per aggiungere un driver della stampante Windows x64 versione 3 per il modello "modello di stampante Laser 1" della stampante con il file di informazioni C:\temp\Laserprinter1.inf driver per un driver archiviato nel tipo di cartella C:\temp:
+Per aggiungere un driver della stampante Windows x64 versione 3 per il modello di stampante "Laser Printer Model 1" utilizzando il file di informazioni del driver C:\temp\Laserprinter1.inf per un driver archiviato nel tipo di cartella C:\Temp:
 ```
 cscript Prndrvr -a -m "Laser printer model 1" -v 3 -e "Windows x64" -i c:\temp\Laserprinter1.inf -h c:\temp
 ```
 
-Per eliminare un driver della stampante Windows NT x86 versione 3 per "modello di stampante Laser 1", digitare:
+Per eliminare un driver della stampante Windows NT x86 versione 3 per "Laser Printer Model 1", digitare:
 ```
 cscript Prndrvr -a -m "Laser printer model 1" -v 3 -e "Windows NT x86" 
 ```
 
 #### <a name="additional-references"></a>Riferimenti aggiuntivi
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)
-[riferimenti ai comandi di stampa](print-command-reference.md)
+Informazioni di[riferimento sui comandi di stampa](print-command-reference.md) 
+ per la sintassi della riga di [comando](command-line-syntax-key.md)

@@ -2,7 +2,7 @@
 title: tpmvscmgr
 description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 9b1d9b049615322bffc39b5b372ce145579b57b2
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 0051750f557786b0a564ec20a32089e089898cc0
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70868772"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71385657"
 ---
 # <a name="tpmvscmgr"></a>tpmvscmgr
 
@@ -41,7 +41,7 @@ Il comando crea configura nuove smart card virtuali nel sistema dell'utente. Res
 
 |Parametro|Descrizione|
 |---------|-----------|
-|al nome|Richiesto. Indica il nome della nuova smart card virtuale.|
+|al nome|Obbligatorio. Indica il nome della nuova smart card virtuale.|
 |/ AdminKey|Indica la chiave amministratore desiderato che può essere utilizzata per reimpostare il PIN della scheda se un utente dimentica il PIN.</br>**PREDEFINITO** Specifica il valore predefinito di 010203040506070801020304050607080102030405060708.</br>**Prompt dei COMANDI** richiede all'utente di immettere un valore per la chiave amministratore.</br>**CASUALE** comporta un'impostazione casuale per la chiave di amministrazione per una smart card che non viene restituita all'utente. Verrà creata una smart card che potrebbe non essere gestita tramite strumenti di gestione delle smart card. Quando è stato generato con RANDOM, la chiave amministratore deve essere inserita come 48 caratteri esadecimali.|
 |/ PIN|Indica il valore PIN utente desiderato.</br>**PREDEFINITO** Specifica il valore predefinito di 12345678 PIN.</br>**Prompt dei COMANDI** richiede all'utente di immettere un PIN nella riga di comando. Il PIN deve contenere un minimo di otto caratteri e può contenere numeri, caratteri e caratteri speciali.|
 |/ PUK|Indica il valore di chiave PIN sblocco (PUK) desiderato. Il valore PUK deve essere un minimo di otto caratteri e può contenere numeri, caratteri e caratteri speciali. Se il parametro viene omesso, la scheda viene creata senza un PUK.</br>**PREDEFINITO** Specifica il valore predefinito di 12345678 PUK.</br>**Prompt dei COMANDI** chiede all'utente di immettere un PUK nella riga di comando.|

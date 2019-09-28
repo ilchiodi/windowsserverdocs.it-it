@@ -7,14 +7,14 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: a1210918067bbb71ea26dff4db11561bbeb09dbd
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 08382a8eccaafac257165587fe7b6c18a8ecfbbc
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70869248"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71407275"
 ---
 # <a name="when-to-use-a-send-ldap-attributes-as-claims-rule"></a>Quando usare una regola Inviare attributi LDAP come attestazioni
 È possibile utilizzare questa regola in Active Directory Federation Services \(ad FS\) quando si desidera emettere attestazioni in uscita che contengono valori effettivi dell'attributo \(LDAP\) (Lightweight Directory Access Protocol) esistenti in un archivio di attributi e quindi associare un tipo di attestazione a ognuno degli attributi LDAP. Per ulteriori informazioni sugli archivi di attributi, vedere [il ruolo degli archivi di attributi](The-Role-of-Attribute-Stores.md).  

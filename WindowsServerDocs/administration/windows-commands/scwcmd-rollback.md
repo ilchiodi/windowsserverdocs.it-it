@@ -1,8 +1,8 @@
 ---
-title: Eseguire il rollback scwcmd
-description: 'Argomento i comandi di Windows per * * *- '
+title: Rollback scwcmd
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 6d6cd79c7068d86915141a37b5a4510bddefc94c
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 3f089ea3e6e5d5b95080356dd239272b95a76b37
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59852202"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71371208"
 ---
 # <a name="scwcmd-rollback"></a>Scwcmd: rollback
 
@@ -36,9 +36,9 @@ scwcmd rollback /m:<ComputerName> [/u:<UserName>] [/pw:<Password>]
 
 |Parametro|Descrizione|
 |---------|-----------|
-|/m:\<ComputerName>|Specifica il nome NetBIOS, un nome DNS o un indirizzo IP di un computer in cui deve essere eseguita l'operazione di rollback.|
-|/u:\<UserName >|Specifica un account utente alternativo da utilizzare quando si esegue un rollback remoto. Il valore predefinito è connesso per utente.|
-|/pw:\<Password>|Specifica una credenziale utente alternativo da utilizzare quando si esegue un rollback remoto. Il valore predefinito è connesso per utente.|
+|/m: \<ComputerName >|Specifica il nome NetBIOS, un nome DNS o un indirizzo IP di un computer in cui deve essere eseguita l'operazione di rollback.|
+|/u: \<UserName >|Specifica un account utente alternativo da utilizzare quando si esegue un rollback remoto. Il valore predefinito è connesso per utente.|
+|/PW: > \<Password|Specifica una credenziale utente alternativo da utilizzare quando si esegue un rollback remoto. Il valore predefinito è connesso per utente.|
 |/?|Visualizza la guida al prompt dei comandi.|
 
 ## <a name="remarks"></a>Note
@@ -54,4 +54,4 @@ scwcmd rollback /m:172.16.0.0
 
 #### <a name="additional-references"></a>Altri riferimenti
 
--   [Chiave sintassi della riga di comando](command-line-syntax-key.md)
+-   [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

@@ -7,20 +7,20 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: af0f96096f66ac0968bb349601b319d52bc114e7
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 04fa13983242a7e4b02a89fbd34158c9f75dbc40
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59859452"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71391195"
 ---
 # <a name="active-directory-federation-services"></a>Active Directory Federation Services
 
 >Si applica a: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012 
   
-Questo documento contiene un elenco di tutte le aree della documentazione per AD FS per Windows Server 2016, 2012 R2 e 2012.  Tali attributi includono:  
+Questo documento contiene un elenco di tutte le aree della documentazione per AD FS per Windows Server 2016, 2012 R2 e 2012.  Sono inclusi gli elementi seguenti:  
   
 * [Panoramica di AD FS](ad-fs/AD-FS-2016-Overview.md)
 
@@ -28,10 +28,10 @@ Questo documento contiene un elenco di tutte le aree della documentazione per AD
   
 * [Distribuzione di AD FS](ad-fs/AD-FS-Deployment.md)  
   
-* [Sviluppare AD FS](ad-fs/AD-FS-Development.md)  
+* [Sviluppo di AD FS](ad-fs/AD-FS-Development.md)  
   
 * [Operazioni di AD FS](ad-fs/AD-FS-2016-Operations.md)
 
-* [Documentazione tecnica AD FS](ad-fs/AD-FS-Technical-Reference.md)
+* [Documentazione tecnica su AD FS](ad-fs/AD-FS-Technical-Reference.md)
 
 

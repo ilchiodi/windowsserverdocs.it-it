@@ -1,8 +1,8 @@
 ---
-title: ftp ls_1
-description: 'Argomento i comandi di Windows per * * *- '
+title: ls_1 FTP
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,14 +13,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 6abf8466f90ac29846f2e1ee7d305e7e4280231e
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: d183f6a014273b78befd14c8d3208508948ffc54
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66438629"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71376246"
 ---
-# <a name="ftp-ls1"></a>ftp: ls_1
+# <a name="ftp-ls_1"></a>FTP: ls_1
 
 > Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 > 
@@ -44,7 +44,7 @@ Visualizzare un breve elenco dei file e le sottodirectory del computer remoto.
 ```  
 ls  
 ```  
-Ottenere un elenco delle directory abbreviato **dir1** nel computer remoto e salvarlo in un file locale denominato **Elendir. txt.**  
+Ottenere un elenco abbreviato di directory di **dir1** nel computer remoto e salvarlo in un file locale denominato **dirlist. txt**  
 ```  
 ls dir1 dirlist.txt   
 ```  

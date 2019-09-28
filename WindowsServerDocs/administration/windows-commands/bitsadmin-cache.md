@@ -1,8 +1,8 @@
 ---
 title: cache Bitsadmin
-description: Argomento i comandi di Windows per **bitsadmin cache** passa - contiene un elenco del bitsadmin /Cache attiva
+description: Argomento dei comandi di Windows per le opzioni di **cache Bitsadmin** -contiene un elenco delle opzioni/cache Bitsadmin
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 80077957df0891d738364552491a66a00e831168
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: aaf1df20c7f0be97a9449fc952523dc7dfacc16b
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66435056"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71381858"
 ---
 # <a name="bitsadmin-cache"></a>cache Bitsadmin
 
@@ -43,12 +43,12 @@ bitsadmin /Cache /SetExpirationtime
 
 |Parametro|Descrizione|
 |-------|--------|
-|[bitsadmin cache e help](bitsadmin-cache-and-help.md)|Visualizza il comando\-linee dell'utilizzo per il \/commutatori di Cache.|
+|[bitsadmin cache e help](bitsadmin-cache-and-help.md)|Visualizza il comando @ no__t-0line Usage per le opzioni \/Cache.|
 |[bitsadmin cache e clear](bitsadmin-cache-clear.md)|Elimina la cache locale.|
 |[bitsadmin cache e delete](bitsadmin-cache-and-delete.md)|Elimina una voce della cache.|
 |[bitsadmin cache e deleteurl](bitsadmin-cache-and-deleteurl.md)|Elimina tutte le voci della cache per l'URL specificato.|
 |[bitsadmin cache e list](bitsadmin-cache-and-list.md)|Elenca tutte le voci della cache.|
-|[bitsadmin cache e info](bitsadmin-cache-and-info.md)|I dump di una voce della cache specifica.|
+|[bitsadmin cache e info](bitsadmin-cache-and-info.md)|Dump di una voce della cache specifica.|
 |[bitsadmin cache e getlimit](bitsadmin-cache-and-getlimit.md)|Recupera il limite della cache.|
 |[bitsadmin cache e setlimit](bitsadmin-cache-and-setlimit.md)|Imposta il limite della cache.|
 |[bitsadmin cache e getexpirationtime](bitsadmin-cache-and-getexpirationtime.md)|Recupera l'ora di scadenza della cache.|

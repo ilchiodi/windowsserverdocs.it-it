@@ -1,8 +1,8 @@
 ---
 title: findstr
-description: 'Argomento i comandi di Windows per * * *- '
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 8d080420d250deee9bef701272e936d33733a9d6
-ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
+ms.openlocfilehash: 547a0abf658ef826cca8c87d451144181f8dac7d
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66811194"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71377195"
 ---
 # <a name="findstr"></a>findstr
 
@@ -49,13 +49,13 @@ findstr [/b] [/e] [/l | /r] [/s] [/i] [/x] [/v] [/n] [/m] [/o] [/p] [/f:<File>] 
 |/o|Offset carattere viene stampato prima di ogni riga corrispondente.|
 |/ p|Ignora i file con caratteri non stampabili.|
 |/ [offline]|Non ignorare i file che sono impostato l'attributo non in linea.|
-|/f:\<File>|Ottiene un elenco di file dal file specificato.|
-|/c:\<String>|Utilizza il testo specificato come stringa di ricerca letterale.|
-|/g:\<File>|Ottiene ricerca stringhe dal file specificato.|
-|/d:\<DirList>|Cerca l'elenco di directory specificato. Ogni directory devono essere separati da un punto e virgola (;), ad esempio `dir1;dir2;dir3`.|
-|/a:\<ColorAttribute>|Specifica gli attributi di colore con due cifre esadecimali. Tipo `color /?` Per ulteriori informazioni.|
-|\<Le stringhe >|Specifica il testo da cercare nella *FileName*. Obbligatorio.|
-|[\<Drive>:][<Path>]<FileName>[ ...]|Specifica il percorso e un file o file da cercare. Nome di almeno un file è obbligatorio.|
+|/f: \<File >|Ottiene un elenco di file dal file specificato.|
+|/c: \<String >|Utilizza il testo specificato come stringa di ricerca letterale.|
+|/g: \<File >|Ottiene ricerca stringhe dal file specificato.|
+|/d: \<DirList >|Cerca l'elenco di directory specificato. Ogni directory devono essere separati da un punto e virgola (;), ad esempio `dir1;dir2;dir3`.|
+|/a: \<ColorAttribute >|Specifica gli attributi di colore con due cifre esadecimali. Tipo `color /?` Per ulteriori informazioni.|
+|\<Strings >|Specifica il testo da cercare nella *FileName*. Obbligatorio.|
+|[\<Drive >:] [<Path>] <FileName> [...]|Specifica il percorso e un file o file da cercare. Nome di almeno un file è obbligatorio.|
 |/?|Visualizza la Guida al prompt dei comandi.|
 
 ## <a name="remarks"></a>Note
@@ -75,8 +75,8 @@ findstr [/b] [/e] [/l | /r] [/s] [/i] [/x] [/v] [/n] [/m] [/o] [/p] [/f:<File>] 
   |[^ classe]|Classe inversa: qualsiasi carattere non in un set|
   |[x-y]|Intervallo: qualsiasi carattere compreso nell'intervallo specificato|
   |\x|Escape: utilizzo letterale di una metacarattere x|
-  |\\<string|Posizione nella parola: inizio della parola|
-  |string\>|Posizione nella parola: fine della parola|
+  |stringa \\ <|Posizione nella parola: inizio della parola|
+  |stringa @ no__t-0|Posizione nella parola: fine della parola|
 
   I caratteri speciali nella sintassi delle espressioni regolari sono della massima potenza quando vengono utilizzati insieme. Ad esempio, utilizzare la seguente combinazione del carattere jolly (.) e ripetere il carattere (*) per cercare una stringa di caratteri:
 

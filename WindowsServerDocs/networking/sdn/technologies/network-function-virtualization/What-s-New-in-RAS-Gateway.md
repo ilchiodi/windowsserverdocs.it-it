@@ -3,7 +3,7 @@ title: Novità di Gateway RAS
 description: È possibile utilizzare questo argomento per informazioni sulle nuove funzionalità per Gateway RAS, che è basato su software, multi-tenant, i router in grado di protocollo BGP (Border Gateway) in Windows Server 2016.
 manager: brianlic
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-sdn
@@ -12,16 +12,16 @@ ms.topic: get-started-article
 ms.assetid: 709cb192-313a-47b5-954e-eb5f6fee51a7
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 5cc7d8bab3f2783750dbd723da745b1df3c2e462
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 85595c47c599a72039e93e67ea2f33f92af7200c
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59863022"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71405904"
 ---
 # <a name="whats-new-in-ras-gateway"></a>Novità di Gateway RAS
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016
 
 È possibile utilizzare questo argomento per informazioni sulle nuove funzionalità per Gateway RAS, che è basato su software, multi-tenant, i router in grado di protocollo BGP (Border Gateway) in Windows Server 2016. Il router RAS Gateway multi-tenant BGP è progettato per il provider di servizi Cloud (CSP) e le aziende che ospitano più reti virtuali tenant mediante la virtualizzazione rete Hyper-V.  
   
@@ -30,18 +30,18 @@ ms.locfileid: "59863022"
   
 In questo argomento sono incluse le sezioni seguenti.  
   
--   [Opzioni di connettività Site-to-site](#bkmk_s2s)  
+-   [Opzioni di connettività da sito a sito](#bkmk_s2s)  
   
 -   [Pool di gateway](#bkmk_pools)  
   
--   [Gateway Pool Scalability](#bkmk_gps)  
+-   [Scalabilità del pool di gateway](#bkmk_gps)  
   
--   [Ridondanza dei Pool di Gateway M + N](#bkmk_m)  
+-   [Ridondanza del pool di gateway M + N](#bkmk_m)  
   
--   [Reflector route](#bkmk_rr)  
+-   [Riflettore Route](#bkmk_rr)  
   
-## <a name="bkmk_s2s"></a>Opzioni di connettività Site-to-site  
-Gateway RAS ora supporta tre tipi di connessioni site-to-site VPN:  Internet Key Exchange versione 2 (IKEv2) tunnel rete privata virtuale (VPN) site-to-site VPN di livello 3 (L3) e Generic Routing Encapsulation (GRE).  
+## <a name="bkmk_s2s"></a>Opzioni di connettività da sito a sito  
+Il gateway RAS supporta ora tre tipi di connessioni VPN da sito a sito:  Internet Key Exchange versione 2 (IKEv2) di rete privata virtuale (VPN) da sito a sito, VPN di livello 3 (L3) e Generic Routing Encapsulation (GRE).  
   
 Per ulteriori informazioni su GRE, vedere [GRE Tunneling in Windows Server 2016](../../../../remote/remote-access/ras-gateway/gre-tunneling-windows-server.md).  
   
@@ -60,17 +60,17 @@ In Windows Server 2016, è possibile creare pool di gateway di tipi diversi. Poo
   
 Per ulteriori informazioni, vedere [RAS Gateway un'elevata disponibilità](RAS-Gateway-High-Availability.md).  
   
-## <a name="bkmk_gps"></a>Gateway Pool Scalability  
+## <a name="bkmk_gps"></a>Scalabilità del pool di gateway  
 È possibile scalare facilmente un pool di gateway verso l'alto o verso il basso aggiungendo o rimuovendo le macchine virtuali gateway nel pool. Rimozione o aggiunta di gateway non interrotti i servizi forniti da un pool. È inoltre possibile aggiungere e rimuovere l'intero pool di gateway.  
   
 Per ulteriori informazioni, vedere [RAS Gateway un'elevata disponibilità](RAS-Gateway-High-Availability.md).  
   
-## <a name="bkmk_m"></a>Ridondanza dei Pool di Gateway M + N  
+## <a name="bkmk_m"></a>Ridondanza del pool di gateway M + N  
 Ogni pool di gateway è N + M ridondanti. Ciò significa che un sto ' numero di macchine virtuali gateway attive (VM) viene eseguito il backup da un numero n di macchine virtuali gateway standby. M + N ridondanza offre una maggiore flessibilità nella determinazione del livello di affidabilità che è necessario quando si distribuisce Gateway RAS. Anziché utilizzare un solo Gateway RAS standby per ogni macchina Virtuale Gateway RAS attive, che è l'unica opzione di configurazione di Windows Server 2012 R2 - è ora possibile configurare macchine virtuali standby il numero desiderato. La funzionalità di gestione del servizio Gateway di rete Controller utilizza in modo efficiente la capacità di macchina Virtuale Gateway RAS standby per assicurare il failover affidabile se un oggetto attivo RAS Gateway VM non riesce o perde la connettività.  
   
 Per ulteriori informazioni, vedere [RAS Gateway un'elevata disponibilità](RAS-Gateway-High-Availability.md).  
   
-## <a name="bkmk_rr"></a>Reflector route  
+## <a name="bkmk_rr"></a>Riflettore Route  
 Il protocollo BGP (Border Gateway) Route Reflector è ora incluso con Gateway RAS e fornisce un'alternativa alla topologia a maglia completa BGP necessarie per la sincronizzazione di route tra i router. A maglia completa sincronizzazione, tutti i router BGP devono connettersi con tutti gli altri router nella topologia di routing. Quando si utilizza Route Reflector, tuttavia, il riflettore delle Route è l'unico router che si connette con tutti gli altri router, denominato BGP client, semplificando in questo modo la sincronizzazione di route e ridurre il traffico di rete. Il riflettore delle Route apprende tutte le route, route migliori calcola e ridistribuisce le route migliori ai propri client BGP.  
   
 Con Windows Server 2016, è possibile configurare tunnel di accesso remoto del tenant singolo per terminare in più di una macchina Virtuale Gateway RAS. Questo fornisce maggiore flessibilità per i provider di servizi Cloud di fronte a circostanze in cui è possibile soddisfare una macchina Virtuale Gateway RAS tutti i requisiti di larghezza di banda delle connessioni tenant.  
@@ -93,6 +93,6 @@ Un riflettore Route BGP nel piano di controllo consente di risolvere questi prob
   
 -   Se i clienti aziendali utilizzano Routing BGP nello spazio degli indirizzi cliente, il riflettore delle Route Gateway RAS è il solo esterno vicino BGP (eBGP) per tutti i siti del tenant corrispondente. Questo vale indipendentemente dal punti di interruzione tunnel del tenant dell'organizzazione. In altre parole, indipendentemente da quale VM Gateway RAS in CSP datacenter termina il tunnel VPN site-to-site per un sito tenant, il Peer eBGP per tutti i siti tenant è il riflettore delle Route.  
   
-Per altre informazioni, vedere [architettura di distribuzione di Gateway RAS](RAS-Gateway-Deployment-Architecture.md) e la Internet Engineering Task Force (IETF) richiesta per argomento commenti [RFC 4456 BGP Route Reflection: Un'alternativa a Full Mesh interno BGP (IBGP)](https://tools.ietf.org/html/rfc4456).  
+Per ulteriori informazioni, vedere l'argomento relativo all' [architettura di distribuzione del gateway RAS](RAS-Gateway-Deployment-Architecture.md) e alla richiesta IETF (Internet Engineering Task Force) per i commenti [RFC 4456 Reflection Route BGP: Alternativa a full mesh Internal BGP (IBGP) ](https://tools.ietf.org/html/rfc4456).  
   
 

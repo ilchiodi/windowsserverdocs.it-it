@@ -2,7 +2,7 @@
 title: Servizi Desktop remoto - Qual è la tecnologia per la virtualizzazione della grafica più adatta?
 description: Informazioni sulla pianificazione per scegliere l'opzione di virtualizzazione della grafica corretta per la propria distribuzione di Servizi Desktop remoto (RDS).
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: remote-desktop-services
@@ -13,12 +13,12 @@ ms.topic: article
 ms.assetid: d6ff5b22-7695-4fee-b1bd-6c9dce5bd0e8
 author: lizap
 manager: scottman
-ms.openlocfilehash: ce10575d38bccc0b22dadf55bd89156c6ce5ea7b
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: d5fe737fcdc664a757518f495e3815968d17c331
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70871055"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71387499"
 ---
 # <a name="which-graphics-virtualization-technology-is-right-for-you"></a>Qual è la tecnologia per la virtualizzazione della grafica più adatta?
 

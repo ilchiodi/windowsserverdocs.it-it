@@ -2,18 +2,18 @@
 title: Creare un modello di screening dei file
 description: Questo articolo descrive come creare un modello di screening dei file
 ms.date: 7/7/2017
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: storage
 ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: b06597bce0b88ed5a2e98ad45d0cbc355d1b13fc
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 63824f016180ce5a92d9a16b9ee0d26a46e5db72
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59858352"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71394205"
 ---
 # <a name="create-a-file-screen-template"></a>Creare un modello di screening dei file
 
@@ -46,7 +46,7 @@ Se gli screening dei file vengono creati esclusivamente in base a modelli, è po
 
     In **Gruppi di file**, selezionare ogni gruppo di file che si desidera includere. (Per selezionare la casella di controllo per il gruppo di file, fare doppio clic sull'etichetta del gruppo di file).
 
-    Se si desidera visualizzare i tipi di file da un gruppo di file inclusi ed esclusi, fare clic sull'etichetta di gruppo di file e quindi fare clic su **modifica**. Per creare un nuovo gruppo di file, fare clic su **Create**.
+    Se si desidera visualizzare i tipi di file inclusi ed esclusi da un gruppo di file, fare clic sull'etichetta del gruppo di file e quindi fare clic su **modifica**. Per creare un nuovo gruppo di file, fare clic su **Crea**.
 
     Inoltre, è possibile configurare Gestione risorse file server per generare una o più notifiche impostando le opzioni seguenti nelle schede **Messaggio posta elettronica**, **Registro eventi**, **Comando** e **Report**.
 
@@ -56,7 +56,7 @@ Se gli screening dei file vengono creati esclusivamente in base a modelli, è po
 
     -   Per inviare notifiche agli amministratori quando un utente o applicazione tenta di salvare un file non autorizzato, selezionare la casella di controllo **Invia posta elettronica agli amministratori seguenti** e quindi immettere i nomi degli account amministrativi che riceveranno le notifiche. Usare il formato *account*@*domain* e separare più account con un punto e virgola.
     -   Per inviare messaggi e-mail all'utente che ha tentato di salvare il file, selezionare la casella di controllo **Invia posta elettronica all'utente che ha cercato di salvare un file non autorizzato**.
-    -   Per configurare il messaggio, modificare la riga dell'oggetto e il corpo del messaggio predefiniti forniti. Il testo tra parentesi quadre inserisce informazioni sulle variabili in relazione all'evento di screening dei file che ha generato la notifica. Ad esempio, il \[ **proprietario dell'origine Io** \] variabile inserisce il nome dell'utente che ha tentato di salvare un file non autorizzato. Per inserire altre variabili nel testo, fare clic su **Inserisci variabile**.
+    -   Per configurare il messaggio, modificare la riga dell'oggetto e il corpo del messaggio predefiniti forniti. Il testo tra parentesi quadre inserisce informazioni sulle variabili in relazione all'evento di screening dei file che ha generato la notifica. Ad esempio, il proprietario di i/o di**origine**\[ \] variabile inserisce il nome dell'utente che ha tentato di salvare un file non autorizzato. Per inserire altre variabili nel testo, fare clic su **Inserisci variabile**.
     -   Per configurare le intestazioni aggiuntive (inclusi i campi Da, Cc, Ccn e Rispondi a), fare clic su **Intestazioni messaggio aggiuntive**.
 
 8.  Per registrare un errore nel registro eventi quando un utente tenta di salvare un file non autorizzato:
@@ -77,7 +77,7 @@ Se gli screening dei file vengono creati esclusivamente in base a modelli, è po
 
 ## <a name="see-also"></a>Vedere anche
 
--   [Gestione di screening dei file](file-screening-management.md)
--   [Opzioni di gestione risorse di impostazione File Server](setting-file-server-resource-manager-options.md)
--   [Modifica proprietà modello di schermata](edit-file-screen-template-properties.md)
+-   [Gestione screening dei file](file-screening-management.md)
+-   [Impostazione delle opzioni di Gestione risorse file server](setting-file-server-resource-manager-options.md)
+-   [Modificare le proprietà dei modelli per lo screening dei file](edit-file-screen-template-properties.md)
 

@@ -1,23 +1,23 @@
 ---
 title: Distribuire Network File System
 description: Viene descritto come distribuire il file System di rete.
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.topic: article
 author: JasonGerend
 ms.author: jgerend
 ms.technology: storage
 ms.date: 07/09/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: 761394f3190f02eedfea27a7d873c4c36535f23b
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 22c8725c227719ee143baa8f4abd3a5cc5dcf883
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70865122"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71393974"
 ---
 # <a name="deploy-network-file-system"></a>Distribuire Network File System
 
->Si applica a Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Si applica a: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 NFS (Network File System) fornisce una soluzione di condivisione file che consente di trasferire file tra computer che eseguono sistemi operativi Windows Server e UNIX usando il protocollo NFS. In questo argomento vengono descritti i passaggi da seguire per distribuire NFS.
 

@@ -1,8 +1,8 @@
 ---
 title: volume online
-description: 'Argomento i comandi di Windows per * * *- '
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 6bacba1e204f1eee2e3d4772ff9024aedbfc4fed
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 06a3c81313180b2880c1e47c3b6c12236fda4245
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59882002"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71372525"
 ---
 # <a name="online-volume"></a>volume online
 
@@ -27,10 +27,10 @@ ms.locfileid: "59882002"
 Visualizza i volumi attualmente offline allo stato online
 
 > [!IMPORTANT]
-> Questo comando non è disponibile in alcuna edizione di Windows Vista.
+> Questo comando non è disponibile nelle edizioni di Windows Vista.
 
 > [!IMPORTANT]
-> Questo comando avrà esito negativo se viene usato in un volume di sola lettura.
+> Questo comando avrà esito negativo se viene utilizzato in un volume di sola lettura.
 
 ## <a name="syntax"></a>Sintassi
 
@@ -42,7 +42,7 @@ online volume [noerr]
 
 |Parametro|Descrizione|
 |---------|-----------|
-|NOERR|Solo per script. Quando si è verificato un errore, DiskPart continua a elaborare i comandi come se non si è verificato l'errore. Senza questo parametro, un errore causa DiskPart viene interrotto con un codice di errore.|
+|NOERR|Solo per gli script. Quando si è verificato un errore, DiskPart continua a elaborare i comandi come se non si è verificato l'errore. Senza questo parametro, un errore causa DiskPart viene interrotto con un codice di errore.|
 
 ## <a name="remarks"></a>Note
 
@@ -58,5 +58,5 @@ online volume
 
 #### <a name="additional-references"></a>Altri riferimenti
 
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)
+[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
 

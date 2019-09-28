@@ -1,9 +1,9 @@
 ---
 title: Virtualizzazione delle funzioni di rete
-description: È possibile utilizzare questo argomento per informazioni su virtualizzazione delle funzioni di rete, che consente di distribuire le Appliance virtuali di rete, ad esempio Firewall del centro dati, Gateway RAS multi-tenant e il bilanciamento del carico Software (SLB) in Windows Server 2016.
+description: È possibile usare questo argomento per informazioni sulla virtualizzazione delle funzioni di rete, che consente di distribuire appliance di rete virtuali come il firewall del centro dati, il gateway RAS multi-tenant e il bilanciamento del carico software (SLB) in Windows Server 2016.
 manager: brianlic
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-sdn
@@ -12,52 +12,52 @@ ms.topic: article
 ms.assetid: 79df3bbe-48fd-4eff-8df6-35f6317566f3
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 59474a13d1cbce6a607f025caf3f6c1b839c7eed
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 338d5a285f2524932a91a66db186554cd0f50e2a
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59884552"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71355655"
 ---
 # <a name="network-function-virtualization"></a>Virtualizzazione delle funzioni di rete
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016
 
-È possibile utilizzare questo argomento per informazioni su virtualizzazione delle funzioni di rete, che consente di distribuire le Appliance virtuali di rete, ad esempio Firewall del centro dati, multi-tenant RAS Gateway e il bilanciamento del carico Software \(SLB\) multiplexer connesso \(MUX\).
+È possibile usare questo argomento per informazioni sulla virtualizzazione delle funzioni di rete, che consente di distribuire appliance di rete virtuale, ad esempio firewall del centro dati, gateway RAS multi-tenant e bilanciamento del carico software \(SLB @ no__t-1 multiplexer \(MUX @ No_ _T-3.
   
 >[!NOTE]  
->Oltre a questo argomento, la documentazione di virtualizzazione delle funzioni di rete seguente è disponibile.  
-> - [Cenni preliminari sul datacenter Firewall](../../../sdn/technologies/network-function-virtualization/../../../sdn/technologies/network-function-virtualization/Datacenter-Firewall-Overview.md)  
+>Oltre a questo argomento, è disponibile la seguente documentazione relativa alla virtualizzazione delle funzioni di rete.  
+> - [Panoramica del firewall del data center](../../../sdn/technologies/network-function-virtualization/../../../sdn/technologies/network-function-virtualization/Datacenter-Firewall-Overview.md)  
 > - [Gateway RAS per SDN](../../../sdn/technologies/network-function-virtualization/RAS-Gateway-for-SDN.md)  
-> - [Software Load Balancing (SLB) per SDN](../../../sdn/technologies/network-function-virtualization/Software-Load-Balancing--SLB--for-SDN.md)  
+> - [Bilanciamento del carico software (SLB) per SDN](../../../sdn/technologies/network-function-virtualization/Software-Load-Balancing--SLB--for-SDN.md)  
   
-Nel software di oggi sempre più Data Center definito, le funzioni di rete vengono eseguite da Appliance hardware (ad esempio servizi di bilanciamento del carico, firewall, router, commutatori e così via) sono spesso come Appliance virtuali. Questo "virtualizzazione delle funzioni di rete" è una progressione naturale di virtualizzazione di server e virtualizzazione di rete. Appliance virtuali sono rapidamente emergenti e creazione di un nuovo mercato. Continuano a generare interesse e ottenere l'espansione di entrambe le piattaforme di virtualizzazione e i servizi cloud.  
+Nei data center definiti dal software odierno, le funzioni di rete eseguite da appliance hardware (ad esempio i bilanciamenti del carico, i firewall, i router, i commutatori e così via) vengono virtualizzate sempre più come appliance virtuali. Questo "virtualizzazione delle funzioni di rete" è una progressione naturale di virtualizzazione di server e virtualizzazione di rete. I dispositivi virtuali sono in rapida emergenza e creano un nuovo mercato. Continuano a generare interesse e ottenere l'espansione di entrambe le piattaforme di virtualizzazione e i servizi cloud.  
   
-Microsoft ha incluso un gateway autonomo come appliance virtuale a partire da Windows Server 2012 R2. Per altre informazioni, vedere [Windows Server Gateway](https://technet.microsoft.com/library/dn313101.aspx). Ora con Windows Server 2016 Microsoft continua a espandere e investire del mercato di virtualizzazione di rete (funzione).  
+Microsoft ha incluso un gateway autonomo come appliance virtuale a partire da Windows Server 2012 R2. Per altre informazioni, vedere [Windows Server Gateway](https://technet.microsoft.com/library/dn313101.aspx). Con Windows Server 2016 Microsoft continua ad espandersi e investire nel mercato della virtualizzazione delle funzioni di rete.  
   
-## <a name="virtual-appliance-benefits"></a>Vantaggi di appliance virtuale  
-Un'appliance virtuale è dinamico e facili da modificare perché è una macchina virtuale predefinita e personalizzata. Può trattarsi di uno o più macchine virtuali incluso nel pacchetto, aggiornata e gestita come singola unità. Insieme a software definito networking (SDN), si ottiene l'agilità e la flessibilità necessaria in infrastrutture basate su cloud di oggi. Ad esempio:   
+## <a name="virtual-appliance-benefits"></a>Vantaggi dell'appliance virtuale  
+Un appliance virtuale è dinamico e facile da modificare perché si tratta di una macchina virtuale predefinita e personalizzata. Può trattarsi di una o più macchine virtuali in pacchetto, aggiornate e gestite come unità. Insieme a SDN (Software Defined Networking), avrai la flessibilità e la flessibilità necessarie nell'infrastruttura di oggi basata sul cloud. Esempio:  
   
--   SDN presenta la rete come una risorsa dinamica e in pool.  
+-   SDN presenta la rete come risorsa dinamica e in pool.  
   
--   SDN facilita l'isolamento dei tenant.  
+-   SDN facilita l'isolamento del tenant.  
   
--   SDN Massimizza la scalabilità e prestazioni.  
+-   SDN ottimizza la scalabilità e le prestazioni.  
   
--   Appliance virtuali di consentono la mobilità del carico di lavoro e l'espansione della capacità senza problemi.  
+-   I dispositivi virtuali consentono una facile espansione della capacità e la mobilità del carico di lavoro.  
   
--   Appliance virtuali di ridurre al minimo la complessità operativa.  
+-   Le appliance virtuali riducono la complessità operativa.  
   
--   Appliance virtuali di consentono ai clienti di acquisire, distribuire e gestire soluzioni preintegrate.  
+-   I dispositivi virtuali consentono ai clienti di acquisire, distribuire e gestire facilmente soluzioni preintegrate.  
   
-    -   I clienti possono facilmente spostare l'appliance virtuale in un punto qualsiasi nel cloud.  
+    -   I clienti possono spostare facilmente l'appliance virtuale ovunque nel cloud.  
   
-    -   I clienti possono aumentare Appliance virtuali o verso il basso in modo dinamico in base alla domanda.  
+    -   I clienti possono ridimensionare le appliance virtuali in modo dinamico in base alle esigenze.  
   
-Per altre informazioni su SDN di Microsoft, vedere [Software Defined Networking](https://technet.microsoft.com/windows-server-docs/networking/sdn/software-defined-networking--sdn-).  
+Per ulteriori informazioni su Microsoft SDN, vedere [Software Defined Networking](https://technet.microsoft.com/windows-server-docs/networking/sdn/software-defined-networking--sdn-).  
   
-### <a name="what-network-functions-are-being-virtualized"></a>Quali funzioni di rete sono la virtualizzazione?  
-Il marketplace per le funzioni di rete virtualizzato sta crescendo rapidamente. Le funzioni di rete seguenti sono la virtualizzazione:  
+### <a name="what-network-functions-are-being-virtualized"></a>Quali funzioni di rete vengono virtualizzate?  
+Il Marketplace per le funzioni di rete virtualizzate sta crescendo rapidamente. È in corso la virtualizzazione delle funzioni di rete seguenti:  
   
 -   **Sicurezza**  
   
@@ -67,11 +67,11 @@ Il marketplace per le funzioni di rete virtualizzato sta crescendo rapidamente. 
   
     -   DDoS (Distributed Denial of Service)  
   
-    -   IPS/IDS (sistema di rilevamento intrusione/sistema prevenzione intrusioni)  
+    -   Indirizzi IP/ID (sistema di prevenzione delle intrusioni/sistema di rilevamento delle intrusioni)  
   
--   **Utilità di ottimizzazione dell'applicazione/WAN**  
+-   **Applicazioni/utilità di ottimizzazione WAN**  
   
--   **Edge**  
+-   **Bordo**  
   
     -   Gateway da sito a sito  
   
@@ -79,57 +79,57 @@ Il marketplace per le funzioni di rete virtualizzato sta crescendo rapidamente. 
   
     -   Router  
   
-    -   Commutatori  
+    -   Interruttori  
   
     -   NAT  
   
-    -   Servizi di bilanciamento del carico (non necessariamente in corrispondenza del bordo)  
+    -   Bilanciamento del carico (non necessariamente al perimetro)  
   
     -   Proxy HTTP  
   
-## <a name="why-microsoft-is-a-great-platform-for-virtual-appliances"></a>Perché Microsoft è una piattaforma eccellente per le Appliance virtuali  
+## <a name="why-microsoft-is-a-great-platform-for-virtual-appliances"></a>Perché Microsoft è un'ottima piattaforma per appliance virtuali  
 ![Stack di rete virtuale](../../../media/Network-Function-Virtualization/Microsoft-Network-Function-Virtualization.png)  
   
-La piattaforma Microsoft è stata progettata per creare una piattaforma eccellente per compilare e distribuire Appliance virtuali. Ecco perché:  
+La piattaforma Microsoft è stata progettata per essere un'ottima piattaforma per la creazione e la distribuzione di appliance virtuali. Ecco perché:  
   
--   Microsoft fornisce le funzioni principali delle reti virtualizzate con Windows Server 2016.  
+-   Microsoft fornisce le principali funzioni di rete virtualizzate con Windows Server 2016.  
   
 -   È possibile distribuire un'appliance virtuale dal fornitore di propria scelta.  
   
--   È possibile distribuire, configurare e gestire le Appliance virtuali con il Controller di rete Microsoft fornito con Windows Server 2016. Per altre informazioni sui Controller di rete, vedere [Controller di rete](../../../sdn/technologies/network-controller/Network-Controller.md).  
+-   È possibile distribuire, configurare e gestire le appliance virtuali con il controller di rete Microsoft incluso in Windows Server 2016. Per ulteriori informazioni sul controller di rete, vedere [controller di rete](../../../sdn/technologies/network-controller/Network-Controller.md).  
   
--   Hyper-V può ospitare i sistemi operativi guest superiore che è necessario.  
+-   Hyper-V può ospitare i principali sistemi operativi guest necessari.  
   
 ## <a name="network-function-virtualization-in-windows-server-2016"></a>Virtualizzazione delle funzioni di rete in Windows Server 2016  
   
-### <a name="virtual-appliances-functions-provided-by-microsoft"></a>Funzioni di Appliance virtuali fornite da Microsoft  
-Le Appliance virtuali seguenti vengono fornite con Windows Server 2016:  
+### <a name="virtual-appliances-functions-provided-by-microsoft"></a>Funzioni appliance virtuali fornite da Microsoft  
+Con Windows Server 2016 sono disponibili le appliance virtuali seguenti:  
   
 **Bilanciamento del carico software**  
   
-Un bilanciamento del carico di livello 4 opera su larga scala di Data Center. Si tratta di una versione analoga di bilanciamento del carico di Azure che è stata distribuita su vasta scala nell'ambiente Azure. Per altre informazioni sul bilanciamento del carico Software Microsoft, vedere [bilanciamento del carico Software (SLB) per SDN](https://technet.microsoft.com/library/mt632286.aspx). Per altre informazioni sui servizi di bilanciamento del carico di Microsoft Azure, vedere [servizi di bilanciamento del carico di Microsoft Azure](https://azure.microsoft.com/blog/2014/04/08/microsoft-azure-load-balancing-services/).  
+Un servizio di bilanciamento del carico di livello 4 che opera sulla scala del Data Center. Si tratta di una versione simile del servizio di bilanciamento del carico di Azure distribuito su vasta scala nell'ambiente Azure. Per ulteriori informazioni sul Load Balancer software Microsoft, vedere [bilanciamento del carico software (SLB) per Sdn](https://technet.microsoft.com/library/mt632286.aspx). Per ulteriori informazioni sui servizi di bilanciamento del carico di Microsoft Azure, vedere [Microsoft Azure servizi di bilanciamento del carico](https://azure.microsoft.com/blog/2014/04/08/microsoft-azure-load-balancing-services/).  
   
-**Gateway**. Gateway RAS fornisce tutte le combinazioni delle funzioni di gateway seguenti.  
+**Gateway**. Il gateway RAS fornisce tutte le combinazioni delle funzioni del gateway seguenti.  
   
 -   **Gateway da sito a sito**  
   
-    Il Gateway RAS offre un protocollo BGP (Border Gateway)-gateway in grado di supportare e multi-tenant che consente i tenant potranno accedere alle risorse e gestirle tramite connessioni VPN site-to-site da siti remoti e che consente di flusso del traffico di rete tra le risorse virtuali nelle reti fisiche cloud e del tenant. Per altre informazioni sul Gateway RAS, vedere [disponibilità elevata del Gateway RAS](https://technet.microsoft.com/library/mt631692.aspx) e [Gateway RAS](https://technet.microsoft.com/library/mt626650.aspx).  
+    Il gateway RAS fornisce un gateway multi-tenant con supporto per Border Gateway Protocol (BGP) che consente ai tenant di accedere alle proprie risorse e gestirle tramite connessioni VPN da sito a sito da siti remoti e che consente il flusso del traffico di rete tra le risorse virtuali nelle reti fisiche del tenant e del cloud. Per altre informazioni sul gateway RAS, vedere disponibilità elevata [e gateway RAS](https://technet.microsoft.com/library/mt626650.aspx)del [gateway RAS](https://technet.microsoft.com/library/mt631692.aspx) .  
   
--   **Gateway di inoltro**  
+-   **Gateway di inoltri**  
   
-    RAS Gateway instrada il traffico tra reti virtuali e la rete fisica provider di hosting. Ad esempio, se i tenant creino una o più reti virtuali e richiedono l'accesso alle risorse condivise sulla rete fisica nel provider di hosting, il gateway di inoltro può instradare il traffico tra la rete virtuale e la rete fisica per consentire agli utenti che lavorano su la rete virtuale con i servizi di cui hanno bisogno. Per altre informazioni, vedere [disponibilità elevata del Gateway RAS](https://technet.microsoft.com/library/mt631692.aspx) e [Gateway RAS](https://technet.microsoft.com/library/mt626650.aspx).  
+    Il gateway RAS instrada il traffico tra le reti virtuali e la rete fisica del provider di hosting. Se, ad esempio, i tenant creano una o più reti virtuali e necessitano dell'accesso alle risorse condivise nella rete fisica del provider di hosting, il gateway di inoltro può instradare il traffico tra la rete virtuale e la rete fisica per consentire agli utenti di lavorare rete virtuale con i servizi necessari. Per altre informazioni, vedere la pagina relativa alla disponibilità elevata e al [gateway RAS](https://technet.microsoft.com/library/mt626650.aspx)del [gateway RAS](https://technet.microsoft.com/library/mt631692.aspx) .  
   
--   **Gateway tunnel GRE**  
+-   **Gateway Tunnel GRE**  
   
-    I tunnel basati su GRE consentono la connettività tra reti virtuali tenant e reti esterne. Poiché il protocollo GRE è leggero e il supporto per GRE è disponibile nella maggior parte dei dispositivi di rete, questa diventa la scelta ideale per il tunneling in cui non è necessaria la crittografia dei dati. Il supporto di GRE nei tunnel da sito a sito (S2S) risolve il problema dell'inoltro tra reti virtuali tenant e reti esterne tenant tramite un gateway multi-tenant. Per altre informazioni sui tunnel GRE, vedere [Tunneling GRE in Windows Server 2016](https://technet.microsoft.com/library/dn765485.aspx).  
+    I tunnel basati su GRE consentono la connettività tra reti virtuali tenant e reti esterne. Poiché il protocollo GRE è leggero e il supporto per GRE è disponibile nella maggior parte dei dispositivi di rete, diventa la scelta ideale per il tunneling in cui la crittografia dei dati non è necessaria. Il supporto di GRE nei tunnel da sito a sito (S2S) risolve il problema dell'inoltro tra reti virtuali tenant e reti esterne tenant tramite un gateway multi-tenant. Per ulteriori informazioni sui tunnel GRE, vedere la pagina relativa [al tunneling GRE in Windows Server 2016](https://technet.microsoft.com/library/dn765485.aspx).  
   
-**Piano di controllo del routing BGP**  
+**Piano di controllo di routing con BGP**  
   
-Controllo di Routing di Hyper-V rete virtualizzazione è l'entità logica e centralizzata nel piano di controllo, che contiene tutte le route di piano di indirizzo del cliente e apprende in modo dinamico e quindi aggiorna il router RAS Gateway distribuito nella rete virtuale. Per altre informazioni, vedere [disponibilità elevata del Gateway RAS](https://technet.microsoft.com/library/mt631692.aspx) e [Gateway RAS](https://technet.microsoft.com/library/mt626650.aspx).  
+Il controllo di routing di virtualizzazione rete Hyper-V (HNV) è l'entità logica e centralizzata nel piano di controllo, che contiene tutte le route del piano di indirizzi del cliente e apprende dinamicamente e quindi aggiorna i router del gateway RAS distribuiti nella rete virtuale. Per altre informazioni, vedere la pagina relativa alla disponibilità elevata e al [gateway RAS](https://technet.microsoft.com/library/mt626650.aspx)del [gateway RAS](https://technet.microsoft.com/library/mt631692.aspx) .  
   
 **Firewall multi-tenant distribuito**  
   
-Il firewall consente di proteggere il livello di rete di reti virtuali. I criteri vengono applicati alla porta vSwitch SDN di ogni macchina virtuale tenant. Protegge tutti i flussi di traffico: EST-ovest e Nord-Sud. I criteri vengono inseriti tramite il portale tenant e li distribuisce il Controller di rete a tutti gli host applicabili. Per altre informazioni sul firewall multi-tenant distribuito, vedere [Cenni preliminari sul Firewall Datacenter](../../../sdn/technologies/network-function-virtualization/../../../sdn/technologies/network-function-virtualization/Datacenter-Firewall-Overview.md).  
+Il firewall protegge il livello di rete delle reti virtuali. I criteri vengono applicati alla porta SDN-vSwitch di ogni macchina virtuale tenant. Protegge tutti i flussi di traffico: est-ovest e nord-sud. Il push dei criteri viene effettuato tramite il portale tenant e il controller di rete li distribuisce a tutti gli host applicabili. Per ulteriori informazioni sul firewall multi-tenant distribuito, vedere [Cenni preliminari sul firewall di datacenter](../../../sdn/technologies/network-function-virtualization/../../../sdn/technologies/network-function-virtualization/Datacenter-Firewall-Overview.md).  
   
 
 

@@ -1,8 +1,8 @@
 ---
 title: Caricare i metadati
-description: 'Argomento i comandi di Windows per * * *- '
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: b52b5040fc8c834b04cad83ca4b0cfab103fdc43
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 025f75743d61889c4b987e9a2a575d1c599f04c1
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59871332"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71374616"
 ---
 # <a name="load-metadata"></a>Caricare i metadati
 
@@ -38,7 +38,7 @@ load metadata [<Drive>:][<Path>]<MetaData.cab>
 
 |Parametro|Descrizione|
 |---------|-----------|
-|[\<Drive>:][<Path>]|Specifica il percorso del file di metadati.|
+|[\<Drive >:] [<Path>]|Specifica il percorso del file di metadati.|
 |MetaData.cab|Specifica il file CAB di metadati da caricare.|
 
 ## <a name="remarks"></a>Note
@@ -55,4 +55,4 @@ load metadata metafile.cab
 
 #### <a name="additional-references"></a>Altri riferimenti
 
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)
+[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

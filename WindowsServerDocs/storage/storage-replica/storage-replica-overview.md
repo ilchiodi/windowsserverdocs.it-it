@@ -1,6 +1,6 @@
 ---
 title: Informazioni generali su Replica archiviazione
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 manager: siroy
 ms.author: nedpyle
 ms.technology: storage-replica
@@ -8,16 +8,16 @@ ms.topic: get-started-article
 author: nedpyle
 ms.date: 4/26/2019
 ms.assetid: e9b18e14-e692-458a-a39f-d5b569ae76c5
-ms.openlocfilehash: 1897b57e1f4cf05d222732278835483791f1109b
-ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
+ms.openlocfilehash: 620ab75fc5f44af7cd754847e3e5b717eece5057
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66812651"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71393822"
 ---
 # <a name="storage-replica-overview"></a>Panoramica di Replica di archiviazione
 
->Si applica a: Windows Server 2019, Windows Server 2016, Windows Server (canale semestrale)
+>Si applica a: Windows Server 2019, Windows Server 2016, Windows Server (Canale semestrale)
 
 Replica di archiviazione è la tecnologia di Windows Server che consente la replica dei volumi tra server o cluster per il ripristino di emergenza. Consente inoltre di creare cluster estesi di failover che si estendono su due siti, con tutti i nodi sincronizzati.
 
@@ -28,54 +28,54 @@ Replica di archiviazione supporta la replica sincrona e quella asincrona:
 
 ## <a name="why-use-storage-replica"></a>Perché usare Replica archiviazione?
 
-Replica archiviazione offre funzionalità di ripristino e preparazione in Windows Server di emergenza. Windows Server offre la tranquillità della perdita di dati, grazie alla possibilità di proteggere in modo sincrono i dati in diversi rack, piani, edifici, campus, province e città. Dopo un'emergenza, tutti i dati esiste in un' posizione senza alcuna possibilità di perdita. Lo stesso vale *prima* di un'emergenza; Replica archiviazione offre la possibilità di spostare i carichi di lavoro in una posizione sicura prima delle catastrofi quando vengono concessi alcuni secondi di avviso, ancora una volta senza perdita di dati.  
+Replica archiviazione offre funzionalità di ripristino di emergenza e preparazione in Windows Server. Windows Server offre la tranquillità della perdita di dati pari a zero, con la possibilità di proteggere in modo sincrono i dati in diversi rack, piani, edifici, campus, contee e città. In seguito a un'emergenza, tutti i dati esistono altrove senza alcuna possibilità di perdita. Lo stesso vale *prima* di un'emergenza; Replica archiviazione offre la possibilità di spostare i carichi di lavoro in una posizione sicura prima delle catastrofi quando vengono concessi alcuni secondi di avviso, ancora una volta senza perdita di dati.  
 
 Replica archiviazione consente un uso più efficiente dei centri dati. Estendendo o replicando i cluster, i carichi di lavoro possono essere eseguiti in più centri dati perché gli utenti di prossimità locale e le applicazioni possano accedere ai dati più velocemente, senza contare una migliore distribuzione del carico e un utilizzo più efficiente delle risorse di calcolo. Se si verifica un'emergenza nei centri dati offline, è possibile spostare temporaneamente i carichi di lavoro tipici all'altro sito.  
 
 Replica di archiviazione può consentire di ritirare i sistemi di replica dei file esistenti, come Replica DFS, che sono stati usati come soluzioni di ripristino di emergenza di fascia bassa. Anche se Replica DFS funziona correttamente sulle reti a larghezza di banda molto bassa, la sua latenza è molto elevata ed è spesso misurata in termini di ore o giorni. Ciò è dovuto alla necessità di chiudere i file e alle limitazioni artificiali che hanno lo scopo di impedire la congestione della rete. Con queste caratteristiche di progettazione, i file più recenti e più importanti in una replica gestita da Replica DFS sono quelli che più difficilmente verranno replicati. Replica archiviazione viene eseguita sotto il livello dei file e non presenta alcuna di queste restrizioni.  
 
-Replica archiviazione supporta anche la replica asincrona per gli intervalli più lunghi e le reti a latenza superiore. Perché non è basata su checkpoint e ma replica continuamente, i delta delle modifiche ma tende a essere molto inferiori rispetto ai prodotti basati su snapshot. Inoltre, Replica archiviazione opera a livello di partizione e, pertanto, replica tutti gli snapshot di Servizio Copia Shadow del volume creati da Windows Server o dal software di backup; in questo modo consente l'uso di snapshot dei dati coerenti con l'applicazione per il ripristino temporizzato, in particolar modo i dati utente non strutturati replicati in modo asincrono.  
+Replica archiviazione supporta anche la replica asincrona per gli intervalli più lunghi e le reti a latenza superiore. Poiché non è basato su checkpoint e viene replicato continuamente, il Delta delle modifiche tende a essere molto inferiore rispetto ai prodotti basati su snapshot. Inoltre, Replica archiviazione opera a livello di partizione e, pertanto, replica tutti gli snapshot di Servizio Copia Shadow del volume creati da Windows Server o dal software di backup; in questo modo consente l'uso di snapshot dei dati coerenti con l'applicazione per il ripristino temporizzato, in particolar modo i dati utente non strutturati replicati in modo asincrono.  
 
 ## <a name="BKMK_SRSupportedScenarios"></a>Configurazioni supportate
 
-È possibile distribuire Replica archiviazione in un cluster esteso, da cluster a cluster e nelle configurazioni di server-to-server (vedere figure 1-3).
+È possibile distribuire la replica di archiviazione in un cluster esteso tra cluster e cluster e in configurazioni da server a server (vedere le figure 1-3).
 
 Lo scenario con **cluster esteso** consente la configurazione di computer e dell'archiviazione in un singolo cluster, in cui alcuni nodi condividono un unico set di archiviazione asimmetrica e alcuni nodi ne condividono un altro, quindi esegue la replica in modo sincrono o asincrono con riconoscimento dei siti. Questo scenario può usare Spazi di archiviazione con LUN collegati tramite dispositivi di archiviazione SAS condivisi, SAN e iSCSI. Viene gestito con PowerShell e lo strumento grafico Gestione cluster di failover e consente il failover automatico del carico di lavoro.  
 
 ![Diagramma che mostra due nodi del cluster di New York che usa Replica di archiviazione per replicare l'archiviazione con due nodi in New Jersey](./media/Storage-Replica-Overview/Storage_SR_StretchCluster.png)  
 
-**FIGURA 1: Replica di archiviazione in un cluster esteso usando Replica archiviazione**  
+**FIGURE 1: Replica di archiviazione in un cluster esteso con replica archiviazione @ no__t-0  
 
-Lo scenario **da cluster a cluster** consente la replica tra due cluster distinti, in cui un cluster replica in modo sincrono o asincrono con un altro cluster. Questo scenario può usare Spazi di archiviazione diretta e Spazi di archiviazione con LUN collegati tramite dispositivi di archiviazione SAS condivisi, SAN e iSCSI. Viene gestito con PowerShell e Windows Admin Center e richiede un intervento manuale per il failover. 
+Lo scenario **da cluster a cluster** consente la replica tra due cluster distinti, in cui un cluster replica in modo sincrono o asincrono con un altro cluster. Questo scenario può usare Spazi di archiviazione diretta e Spazi di archiviazione con LUN collegati tramite dispositivi di archiviazione SAS condivisi, SAN e iSCSI. Viene gestito con l'interfaccia di amministrazione di Windows e PowerShell e richiede l'intervento manuale per il failover. 
 
 ![Diagramma che mostra un cluster di Los Angeles che usa Replica di archiviazione per replicare l'archiviazione con un cluster diverso a Las Vegas](./media/Storage-Replica-Overview/Storage_SR_ClustertoCluster.png)  
 
-**FIGURA 2: Replica di archiviazione da cluster a cluster tramite Replica archiviazione**  
+**FIGURE 2: Replica di archiviazione da cluster a cluster con replica archiviazione @ no__t-0  
 
-Lo scenario **da server a server** consente la replica sincrona e asincrona tra due server autonomi, usando Spazi di archiviazione con LUN collegati tramite dispositivi di archiviazione SAS condivisi, SAN e iSCSI e unità locali. Viene gestito con PowerShell e Windows Admin Center e richiede un intervento manuale per il failover.  
+Lo scenario **da server a server** consente la replica sincrona e asincrona tra due server autonomi, usando Spazi di archiviazione con LUN collegati tramite dispositivi di archiviazione SAS condivisi, SAN e iSCSI e unità locali. Viene gestito con l'interfaccia di amministrazione di Windows e PowerShell e richiede l'intervento manuale per il failover.  
 
 ![Diagramma che mostra la replica di un server in Building 5 con un server in Building 9](./media/Storage-Replica-Overview/Storage_SR_ServertoServer.png)  
 
-**FIGURA 3: Replica di archiviazione da server a server tramite Replica archiviazione**  
+**FIGURE 3: Replica di archiviazione da server a server con replica archiviazione @ no__t-0  
 
 > [!NOTE]
 > È inoltre possibile configurare la replica da server a sé stesso usando quattro volumi separati in un computer. Tuttavia, questa guida non illustra questo scenario.  
 
-## <a name="BKMK_SR2"> </a> Funzionalità di Replica archiviazione  
+## <a name="BKMK_SR2"></a> Funzionalità di replica di archiviazione  
 
 * **Perdita di dati pari a zero, replica a livello di blocco**. Con la replica sincrona non vi è alcuna possibilità di perdere i dati. Con la replica a livello di blocco non vi è alcuna possibilità di bloccare i file.  
 
-* **Distribuzione e gestione semplici**. Replica archiviazione dispone di un mandato di progettazione per facilitarne l'uso. La creazione di una relazione di replica tra due server può utilizzare il Windows Admin Center. La distribuzione di cluster estesi usa la procedura guidata intuitiva nello strumento Gestione cluster di failover già noto.   
+* **Distribuzione e gestione semplici**. Replica archiviazione dispone di un mandato di progettazione per facilitarne l'uso. La creazione di una relazione di replica tra due server può utilizzare l'interfaccia di amministrazione di Windows. La distribuzione di cluster estesi usa la procedura guidata intuitiva nello strumento Gestione cluster di failover già noto.   
 
-* **Guest e host**. Tutte le funzionalità di Replica archiviazione sono esposte in distribuzioni virtualizzate basate su host e guest. Ciò significa che i guest possono replicare i volumi di dati anche se in esecuzione su piattaforme di virtualizzazione non Windows o in cloud pubblici, purché usino Windows Server nel guest.  
+* **Guest e host**. Tutte le funzionalità di Replica archiviazione sono esposte in distribuzioni virtualizzate basate su host e guest. Ciò significa che i guest possono replicare i volumi di dati anche se sono in esecuzione su piattaforme di virtualizzazione non Windows o in cloud pubblici, purché utilizzino Windows Server nel guest.  
 
 * **Basata su SMB3**. Replica archiviazione usa la tecnologia comprovata e collaudata SMB 3, rilasciata per la prima volta in Windows Server 2012. Ciò significa che tutte le caratteristiche avanzate di SMB, come il supporto di SMB multicanale e diretto sulle schede di rete RoCE, iWARP e InfiniBand RDMS, sono disponibili per Replica archiviazione.   
 
 * **Sicurezza**. A differenza di molti prodotti di fornitore, Replica archiviazione integra una tecnologia di protezione leader nel settore. Ciò include la firma dei pacchetti, la crittografia completa dei dati AES-128-GCM, il supporto per l'accelerazione della crittografia Intel AES-NI e la prevenzione dagli attacchi man-in-the-middle all'integrità di pre-autenticazione. Replica archiviazione usa Kerberos AES256 per tutte le autenticazioni tra i nodi.  
 
-* **Sincronizzazione iniziale ad alte prestazioni**. Replica archiviazione supporta la sincronizzazione iniziale con seeding, in cui un subset di dati esiste già in una destinazione proveniente da copie, backup o unità spedite meno recenti. La replica iniziale copia solo i blocchi diversi, potenzialmente riduzione del tempo di sincronizzazione iniziale e impedendo che i dati di larghezza di banda limitata. Il calcolo e l'aggregazione del checksum del blocco delle repliche di archiviazione fa sì che le prestazioni di sincronizzazione iniziale siano limitate solo dalla velocità dell'archiviazione e della rete.  
+* **Sincronizzazione iniziale ad alte prestazioni**. Replica archiviazione supporta la sincronizzazione iniziale con seeding, in cui un subset di dati esiste già in una destinazione proveniente da copie, backup o unità spedite meno recenti. La replica iniziale copia solo i blocchi diversi, riducendo potenzialmente il tempo di sincronizzazione iniziale e impedendo ai dati di usare una larghezza di banda limitata. Il calcolo e l'aggregazione del checksum del blocco delle repliche di archiviazione fa sì che le prestazioni di sincronizzazione iniziale siano limitate solo dalla velocità dell'archiviazione e della rete.  
 
-* **Gruppi di coerenza**. L'ordine della scrittura garantisce che le applicazioni come Microsoft SQL Server possano scrivere su più volumi replicati e conoscono i dati viene scritto nel server di destinazione in modo sequenziale.  
+* **Gruppi di coerenza**. L'ordinamento in scrittura garantisce che le applicazioni come Microsoft SQL Server possano scrivere in più volumi replicati e che i dati vengano scritti nel server di destinazione in modo sequenziale.  
 
 * **Delega utente**. Gli utenti possono disporre di autorizzazioni delegate per gestire la replica senza essere membri del gruppo di amministratori nei nodi delegati, limitando quindi le loro possibilità di accesso ad aree non correlate.  
 
@@ -83,7 +83,7 @@ Lo scenario **da server a server** consente la replica sincrona e asincrona tra 
 
 * **Thin provisioning**. Supporto per thin provisioning in dispositivi SAN e Spazi di archiviazione, per poter offrire una replica iniziale quasi istantanea in molte circostanze.  
 
-Replica di archiviazione include le funzionalità seguenti:  
+Replica archiviazione include le funzionalità seguenti:  
 
 | Funzionalità | Dettagli |
 | ----------- | ----------- |  
@@ -92,7 +92,7 @@ Replica di archiviazione include le funzionalità seguenti:
 | Asincrono | Yes |
 | Indipendente dall'hardware di archiviazione | Yes |
 | Unità di replica | Volume (partizione) |
-| Windows Server allungare la creazione del cluster | Yes |
+| Creazione di un cluster esteso di Windows Server | Yes |
 | Replica da server a server | Yes |
 | Replica da cluster a cluster | Yes |
 | Transport | SMB3 |
@@ -109,20 +109,20 @@ Replica di archiviazione include le funzionalità seguenti:
 
 *Potrebbe richiedere apparecchiature e cablaggi prolungati aggiuntivi.  
 
-## <a name="BKMK_SR3"></a> Prerequisiti di Replica archiviazione
+## <a name="BKMK_SR3"></a>Prerequisiti di replica archiviazione
 
 * Foresta di Active Directory Domain Services.
 * Spazi di archiviazione con JBOD SAS, Spazi di archiviazione diretta, SAN fibre channel, VHDX condiviso, destinazione iSCSI o archiviazione SCSI/SAS o SATA locale. Unità SSD o unità più veloci consigliate per le unità di log della replica. Microsoft consiglia una velocità di archiviazione dei log superiore a quella dell'archiviazione dei dati. I volumi di log non devono essere utilizzati per altri carichi di lavoro.
 * Almeno una connessione Ethernet/TCP su ogni server per la replica sincrona, ma preferibilmente RDMA.
 * Almeno 2 GB di RAM e due core per server.
 * Una rete tra i server con larghezza di banda sufficiente per contenere il carico di lavoro di scrittura delle operazioni di I/O e una latenza media di andata e ritorno di 5 ms, o inferiore, per la replica sincrona. La replica asincrona non dispone di un'indicazione di latenza.
-* Windows Server, Datacenter Edition o Windows Server Standard Edition. Replica di archiviazione in esecuzione in Windows Server Standard Edition, presenta le limitazioni seguenti:
+* Windows Server, Datacenter Edition o Windows Server, Standard Edition. La replica di archiviazione in esecuzione in Windows Server, Standard Edition, presenta le limitazioni seguenti:
 
   * È necessario usare Windows Server 2019 o versione successiva
-  * Replica di archiviazione viene replicato un singolo volume invece di un numero illimitato di volumi.
-  * I volumi possono avere dimensioni fino a 2 TB invece di dimensioni illimitate.
+  * Replica archiviazione replica un singolo volume anziché un numero illimitato di volumi.
+  * I volumi possono avere dimensioni fino a 2 TB anziché una dimensione illimitata.
 
-##  <a name="BKMK_SR4"> </a> Background
+##  <a name="BKMK_SR4"></a> Informazioni preliminari
 
 Questa sezione include informazioni sui termini di settore di alto livello, la replica sincrona e asincrona e i comportamenti chiave.
 
@@ -140,7 +140,7 @@ Quando si verificano operazioni di scrittura dell'applicazione nella copia dei d
 
 | Modalità | Diagramma | Passaggi |
 | -------- | ----------- | --------- |
-| **Sincrono**<br /><br />Perdita di dati pari a zero<br /><br />RPO | ![Diagramma che mostra come Replica di archiviazione scrive dati in modalità di replica sincrona](./media/Storage-Replica-Overview/Storage_SR_SynchronousV2.png) | 1.  L'applicazione scrive i dati<br />2.  I dati del log vengono scritti e replicati nel sito remoto<br />3.  I dati del log vengono scritti nel sito remoto<br />4.  Riconoscimento dal sito remoto<br />5.  Scrittura dell'applicazione riconosciuta<br /><br />t & t1: I dati scaricati nel volume, log scrivono sempre |
+| **Sincrono**<br /><br />Perdita di dati pari a zero<br /><br />RPO | ![Diagramma che mostra come Replica di archiviazione scrive dati in modalità di replica sincrona](./media/Storage-Replica-Overview/Storage_SR_SynchronousV2.png) | 1.  L'applicazione scrive i dati<br />2.  I dati del log vengono scritti e replicati nel sito remoto<br />3.  I dati del log vengono scritti nel sito remoto<br />4.  Riconoscimento dal sito remoto<br />5.  Scrittura dell'applicazione riconosciuta<br /><br />t & T1: Dati scaricati nel volume, i log scrivono sempre |
 
 ### <a name="asynchronous-replication"></a>Replica asincrona
 
@@ -152,21 +152,21 @@ Con il suo RPO maggiore di zero, la replica asincrona è meno adatta per le solu
 
 | Modalità | Diagramma | Passaggi |
 | -------- | ----------- | --------- |
-| **Asincrono**<br /><br />Perdita di dati quasi pari a zero<br /><br />(dipende da vari fattori)<br /><br />RPO | ![Diagramma che mostra come Replica di archiviazione scrive dati in modalità di replica asincrona](./media/Storage-Replica-Overview/Storage_SR_AsynchronousV2.png)|1.  L'applicazione scrive i dati<br />2.  Dati del log scritti<br />3.  Scrittura dell'applicazione riconosciuta<br />4.  Dati replicati al sito remoto<br />5.  Dati del log scritti nel sito remoto<br />6.  Riconoscimento dal sito remoto<br /><br />t & t1: I dati scaricati nel volume, log scrivono sempre |
+| **Asincrona**<br /><br />Perdita di dati quasi pari a zero<br /><br />(dipende da vari fattori)<br /><br />RPO | ![Diagramma che mostra come Replica di archiviazione scrive dati in modalità di replica asincrona](./media/Storage-Replica-Overview/Storage_SR_AsynchronousV2.png)|1.  L'applicazione scrive i dati<br />2.  Dati del log scritti<br />3.  Scrittura dell'applicazione riconosciuta<br />4.  Dati replicati al sito remoto<br />5.  Dati del log scritti nel sito remoto<br />6.  Riconoscimento dal sito remoto<br /><br />t & T1: Dati scaricati nel volume, i log scrivono sempre |
 
-### <a name="key-evaluation-points-and-behaviors"></a>I comportamenti e punti di valutazione principali  
+### <a name="key-evaluation-points-and-behaviors"></a>Punti di valutazione chiave e comportamenti  
 
--   Larghezza di banda e latenza della rete con archiviazione più rapida. Esistono limiti fisici per la replica sincrona. Poiché Replica di archiviazione implementa un meccanismo di filtro delle operazioni di I/O che usa i log e richiede round trip della rete, è probabile che la replica sincrona comporti una riduzione della velocità di scrittura dell'applicazione. Con bassa latenza, le reti a larghezza di banda elevata, oltre a sottosistemi di dischi con velocità effettiva elevata per i log, ridurre al minimo il sovraccarico delle prestazioni.  
+-   Larghezza di banda e latenza della rete con archiviazione più rapida. Esistono limiti fisici per la replica sincrona. Poiché Replica di archiviazione implementa un meccanismo di filtro delle operazioni di I/O che usa i log e richiede round trip della rete, è probabile che la replica sincrona comporti una riduzione della velocità di scrittura dell'applicazione. Utilizzando le reti a larghezza di banda elevata e a bassa latenza, oltre a sottosistemi di dischi ad alta velocità effettiva per i log, è possibile ridurre al minimo il sovraccarico delle prestazioni.  
 
 -   Il volume di destinazione non è accessibile durante la replica in Windows Server 2016. Quando si configura la replica, il volume di destinazione si smonta, rendendolo inaccessibile a letture o scritture da parte degli utenti. La lettera dell'unità potrebbe essere visibile in interfacce tipiche, ad esempio Esplora File, ma un'applicazione non può accedere al volume stesso. Le tecnologie di replica a livello di blocco non sono compatibili con l'accesso al file system montato della destinazione in un volume. NTFS e ReFS non supportano la scrittura dei dati nel volume mentre i blocchi cambiano al di sotto di essi. 
 
-Il **Failover di Test** cmdlet debutto in Windows Server, versione 1709 ed è stato anche incluso in Windows Server 2019. Adesso supporta temporaneamente il montaggio di uno snapshot di lettura / scrittura del volume di destinazione per i backup, test e così via. Vedere https://aka.ms/srfaq per altre informazioni.
+Il cmdlet **test-failover** debutto in Windows Server, versione 1709 ed è stato incluso anche in windows server 2019. Questo ora supporta il montaggio temporaneo di uno snapshot di lettura e scrittura del volume di destinazione per i backup, i test e così via. Per altre informazioni, vedere https://aka.ms/srfaq.
 
 -   L'implementazione Microsoft della replica asincrona è diversa rispetto alla maggior parte delle implementazioni. La maggior parte delle implementazioni della replica asincrona nel settore si basano sulla replica basata su snapshot, in cui trasferimenti differenziali periodici si muovono sull'altro nodo e si uniscono. La replica di Replica archiviazione asincrona funziona come la replica sincrona, ad eccezione del fatto che elimina la necessità di un riconoscimento sincrono serializzato dalla destinazione. Ciò significa che Replica di archiviazione possiede teoricamente un RPO inferiore, poiché esegue continuamente la replica. Tuttavia, ciò significa che si basa su garanzie di coerenza interne dell'applicazione invece di usare gli snapshot per forzare la coerenza nei file dell'applicazione. Replica di archiviazione assicura una coerenza per arresto anomalo del sistema in tutte le modalità di replica  
 
 -   Molti clienti usano Replica DFS come soluzione di ripristino di emergenza anche se è spesso poco pratica per tale scenario. Replica DFS non può infatti replicare i file aperti ed è progettata per ridurre al minimo l'uso della larghezza di banda a scapito delle prestazioni, causando ampi delta del punto di ripristino. Replica di archiviazione può consentire di ritirare Replica DFS da alcune di queste attività di ripristino di emergenza.  
 
--   Replica archiviazione non è una soluzione di backup. Alcuni ambienti IT distribuiscono i sistemi di replica come soluzioni di backup, a causa delle loro perdita di dati pari a zero rispetto ai backup giornalieri. Replica di archiviazione replica tutte le modifiche a tutti i blocchi di dati nel volume, indipendentemente dal tipo di modifica. Se un utente elimina tutti i dati da un volume, Replica archiviazione replica l'eliminazione immediata all'altro volume, rimuovendo definitivamente i dati da entrambi i server. Non usare Replica di archiviazione come sostituzione per una soluzione di backup temporizzata.  
+-   Replica archiviazione non è una soluzione di backup. Alcuni ambienti IT distribuiscono i sistemi di replica come soluzioni di backup, a causa delle loro perdita di dati pari a zero rispetto ai backup giornalieri. Replica di archiviazione replica tutte le modifiche a tutti i blocchi di dati nel volume, indipendentemente dal tipo di modifica. Se un utente Elimina tutti i dati da un volume, replica di archiviazione replica immediatamente l'eliminazione nell'altro volume, rimuovendo definitivamente i dati da entrambi i server. Non usare Replica di archiviazione come sostituzione per una soluzione di backup temporizzata.  
 
 -   Replica archiviazione non è la replica Hyper-V e non costituisce i gruppi di disponibilità AlwaysOn di Microsoft SQL. Replica archiviazione è un motore indipendente dall'archiviazione per scopi generali. Per definizione, non è possibile personalizzarne il comportamento come per la replica a livello di applicazione. Ciò potrebbe causare gap di funzionalità specifici che invitano a distribuire o a rimanere sulle tecnologie di replica specifiche dell'applicazione.  
 
@@ -184,16 +184,16 @@ Questa guida usa frequentemente i termini seguenti:
 
 -   Un gruppo di replica è l'organizzazione dei volumi e la relativa configurazione di replica all'interno di una relazione, in base al server. Un gruppo può contenere uno o più volumi.  
 
-### <a name="whats-new-for-storage-replica"></a>Novità della Replica di archiviazione
+### <a name="whats-new-for-storage-replica"></a>Novità di replica archiviazione
 
-Per un elenco delle nuove funzionalità di Replica di archiviazione in Windows Server 2019, vedere [nuove funzionalità di archiviazione](../whats-new-in-storage.md#storage-replica2019)
+Per un elenco delle nuove funzionalità di replica di archiviazione in Windows Server 2019, vedere Novità di [archiviazione](../whats-new-in-storage.md#storage-replica2019)
 
 ## <a name="see-also"></a>Vedere anche
 
-- [Replica di Cluster esteso tramite l'archiviazione condivisa](stretch-cluster-replication-using-shared-storage.md)  
-- [Replica di archiviazione da server a Server](server-to-server-storage-replication.md)  
-- [Replica di archiviazione da cluster a Cluster](cluster-to-cluster-storage-replication.md)  
+- [Replica del cluster esteso tramite l'archiviazione condivisa](stretch-cluster-replication-using-shared-storage.md)  
+- [Replica archiviazione da server a server](server-to-server-storage-replication.md)  
+- [Replica di archiviazione da cluster a cluster](cluster-to-cluster-storage-replication.md)  
 - [Replica di archiviazione: Problemi noti](storage-replica-known-issues.md)  
 - [Replica di archiviazione: domande frequenti](storage-replica-frequently-asked-questions.md)  
 - [Spazi di archiviazione diretta in Windows Server 2016](../storage-spaces/storage-spaces-direct-overview.md)
-- [Windows IT Pro supporto](https://www.microsoft.com/itpro/windows/support)
+- [Supporto di Windows IT Pro](https://www.microsoft.com/itpro/windows/support)

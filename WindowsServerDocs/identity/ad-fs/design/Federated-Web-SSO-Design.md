@@ -7,18 +7,18 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: f7454279f234f65136b9fe6649a6e96ea53e5d51
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 6a3e7eb6c42c8190da799c88c1e947e6aef1c29f
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66191515"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71408103"
 ---
 # <a name="federated-web-sso-design"></a>Progetto SSO Web federativo
 
-Singolo Web federata\-Sign\-sul \(SSO\) progettazione in Active Directory Federation Services \(ADFS\) implica una comunicazione protetta che si estende su più firewall, perimetrale le reti e il nome\-server per la risoluzione, oltre all'intera infrastruttura di routing Internet.  
+Il progetto federativo Web single @ no__t-0Sign @ no__t-1Sulla Barra \(SSO @ no__t-3 Active Directory Federation Services \(AD FS @ no__t-5 implica una comunicazione sicura che si estende su più firewall, reti perimetrali e nome @ no__t-6resolution Server, oltre all'intera infrastruttura di routing Internet.  
   
 Questa progettazione è utilizzata in genere, quando due organizzazioni accettano creare una relazione di trust federativa per consentire agli utenti di un'organizzazione \(organizzazione partner account\) per accedere alle Web\-basato su applicazioni o servizi, che sono protetti da ADFS, all'interno dell'organizzazione \(organizzazione partner risorse\).  
   
@@ -43,7 +43,7 @@ Contoso è il provider di risorse. La parte di Contoso di Web SSO federativo rag
   
 -   [Fornire agli utenti di Active Directory l'accesso ai servizi e alle applicazioni in grado di riconoscere attestazioni](Provide-Your-Active-Directory-Users-Access-to-Your-Claims-Aware-Applications-and-Services.md)  
   
-Per un elenco di attività dettagliate che è possibile usare per pianificare e distribuire il progetto SSO Web federativo, vedere [elenco di controllo: Implementazione di un progetto SSO Web federativo](../../ad-fs/deployment/Checklist--Implementing-a-Federated-Web-SSO-Design.md).  
+Per un elenco delle attività dettagliate che è possibile usare per pianificare e distribuire il progetto Web SSO federativo, vedere [Checklist: Implementazione di un progetto Web SSO federativo @ no__t-0.  
   
 ## <a name="see-also"></a>Vedere anche
 [Guida alla progettazione di AD FS in Windows Server 2012](AD-FS-Design-Guide-in-Windows-Server-2012.md)

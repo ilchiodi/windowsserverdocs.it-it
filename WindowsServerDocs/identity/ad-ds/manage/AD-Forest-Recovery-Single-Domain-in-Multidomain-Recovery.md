@@ -1,61 +1,61 @@
 ---
-title: Ripristino della foresta Active Directory - il ripristino di un singolo dominio in una foresta con più domini
+title: 'Ripristino della foresta di Active Directory: ripristino di un singolo dominio in una foresta con più domini'
 description: ''
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.date: 08/09/2018
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.assetid: 267541be-2ea7-4af6-ab34-8b5a3fedee2d
 ms.technology: identity-adds
-ms.openlocfilehash: fae2cc40af0b43dd38d72c2622720a6bb17b0a66
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 2582ffacb169b59692c0510469131b58be09d5f3
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59863472"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71368928"
 ---
-# <a name="ad-forest-recovery---recovering-a-single-domain-in-a-multidomain-forest"></a>Ripristino della foresta Active Directory - il ripristino di un singolo dominio in una foresta con più domini
+# <a name="ad-forest-recovery---recovering-a-single-domain-in-a-multidomain-forest"></a>Ripristino della foresta di Active Directory: ripristino di un singolo dominio in una foresta con più domini
 
 >Si applica a: Windows Server 2016, Windows Server 2012 e 2012 R2, Windows Server 2008 e 2008 R2
 
-Talvolta potrebbe presentarsene quando è necessario ripristinare solo un singolo dominio all'interno di una foresta che abbia più domini, anziché un ripristino della foresta completo. In questo argomento illustra considerazioni per il ripristino di un singolo dominio e le possibili strategie di ripristino.  
+In alcuni casi è necessario recuperare un solo dominio all'interno di una foresta con più domini, anziché un ripristino completo della foresta. In questo argomento vengono illustrate le considerazioni per il ripristino di un singolo dominio e le possibili strategie per il ripristino.  
   
-Il ripristino di un singolo dominio costituisce una sfida singolare della ricostruzione dei server di catalogo globale (GC). Ad esempio, se il primo controller di dominio (DC) per il dominio viene ripristinato da un backup creato in precedenza una settimana, quindi tutti gli altri cataloghi globali nella foresta avranno più dati aggiornati per il dominio di controller di dominio ripristinato. Per ristabilire la coerenza dei dati di catalogo globale, sono disponibili due opzioni:  
+Un singolo ripristino del dominio presenta una sfida univoca per la ricompilazione dei server di catalogo globale (GC). Se, ad esempio, il primo controller di dominio per il dominio viene ripristinato da un backup creato una settimana prima, tutti gli altri cataloghi globali nella foresta avranno dati più aggiornati per quel dominio rispetto al controller di dominio ripristinato. Per ristabilire la coerenza dei dati GC, sono disponibili due opzioni:  
   
-- Unhost e quindi rehost partizione domini recuperati da tutti i cataloghi globali nella foresta, ad eccezione di quelli nel dominio ripristinato, nello stesso momento.  
-- Seguire il processo di ripristino dell'insieme di strutture per ripristinare il dominio e quindi rimuovere oggetti residui da cataloghi globali in altri domini.  
+- Deallocare e quindi riospitare la partizione domini ripristinati da tutti i cataloghi globali nella foresta, ad eccezione di quelli nel dominio recuperato, nello stesso momento.  
+- Seguire il processo di ripristino della foresta per ripristinare il dominio, quindi rimuovere gli oggetti residui da cataloghi globali in altri domini.  
   
-Le sezioni seguenti offrono considerazioni generali per ogni opzione. Il set completo di passaggi che devono essere eseguite per il ripristino varia per diversi ambienti di Active Directory.  
+Le sezioni seguenti forniscono considerazioni generali per ogni opzione. Il set completo di passaggi che è necessario eseguire per il ripristino può variare per ambienti Active Directory diversi.  
   
-## <a name="rehost-all-gcs"></a>Rehosting di tutti i cataloghi globali  
+## <a name="rehost-all-gcs"></a>Riospitare tutti i cataloghi globali  
 
 > [!WARNING]
-> La password dell'account amministratore di dominio per tutti i domini deve essere pronta per l'uso nel caso in cui un problema impedisce l'accesso a un catalogo globale per l'accesso.  
+> La password dell'account amministratore di dominio per tutti i domini deve essere pronta per l'uso in caso di problemi che impedisce l'accesso a un catalogo globale per l'accesso.  
 
-Rehosting di tutti i cataloghi globali può essere eseguita mediante repadmin / unhost e i comandi repadmin /rehost (parte di repadmin /experthelp). Eseguire i comandi repadmin su ogni Garbage Collection in ogni dominio che non viene recuperato. Deve essere garantita, che tutti i cataloghi globali non contengono più una copia del dominio ripristinato. A tale scopo, unhost la partizione di dominio prima di tutto da tutti i controller di dominio in tutti i domini della foresta nessuno precedente al recupero prima di tutto. Dopo che tutti i cataloghi globali non hanno più la partizione, è possibile riallocare lo. Quando il rehosting, si consideri la struttura del sito e la replica dell'insieme di strutture, ad esempio, completare il rehosting di un controller di dominio per ogni sito prima della riallocazione altri controller di dominio di tale sito.  
+La riallocazione di tutti i cataloghi globali può essere eseguita usando i comandi repadmin/Unhost e repadmin/rehost (parte di repadmin/experthelp). Si eseguiranno i comandi repadmin in ogni GC in ogni dominio non recuperato. È necessario assicurarsi che tutti i cataloghi globali non contengano più una copia del dominio recuperato. A tale scopo, è necessario prima di tutto deallocare la partizione di dominio da tutti i controller di dominio in tutti i domini ripristinati nessuno della foresta. Dopo che tutti i cataloghi globali non contengono più la partizione, è possibile riospitarla. Quando si rialloca, prendere in considerazione la struttura del sito e della replica della foresta, ad esempio, completare il riallocatore di un controller di dominio per sito prima di riallocare gli altri controller di dominio del sito.  
   
-Questa opzione può risultare utile per un'organizzazione di piccole dimensioni con solo pochi controller di dominio per ogni dominio. Tutti i cataloghi globali potrebbe essere ricreati in un venerdì sera e, se necessario, completare la replica per dominio di sola lettura esegue prima di lunedì mattina. Ma se è necessario ripristinare un dominio di grandi dimensioni che copre i siti in tutto il mondo, riallocazione della partizione di dominio di sola lettura in tutti i cataloghi globali per gli altri domini possono significativamente le operazioni di impatto e potenzialmente richiedono tempi di inattività.  
+Questa opzione può risultare vantaggiosa per un'organizzazione di piccole dimensioni con pochi controller di dominio per ogni dominio. Tutti i cataloghi globali possono essere ricompilati in una notte di venerdì e, se necessario, completare la replica per tutte le partizioni di dominio di sola lettura prima del lunedì mattina. Tuttavia, se è necessario ripristinare un dominio di grandi dimensioni che copre i siti di tutto il mondo, la riallocazione della partizione di dominio di sola lettura in tutti i cataloghi globali per altri domini può influire in modo significativo sulle operazioni e potenzialmente richiedere tempi di inattività.  
   
-## <a name="remove-lingering-objects"></a>Rimuovere oggetti residui
+## <a name="remove-lingering-objects"></a>Rimuovi oggetti persistenti
 
-Come per il processo di ripristino della foresta, è ripristinare un controller di dominio da un backup del dominio che è necessario ripristinare, eseguire la pulizia dei metadati di controller di dominio rimanenti e quindi installare nuovamente Active Directory Domain Services per compilare il dominio. Nel server di catalogo globale di tutti gli altri domini nella foresta, è rimuovere gli oggetti residui per la partizione di sola lettura del dominio ripristinato.  
+In modo analogo al processo di ripristino della foresta, viene ripristinato un controller di dominio dal backup nel dominio che è necessario ripristinare, viene eseguita la pulizia dei metadati rimanenti e quindi si reinstalla servizi di dominio Active Directory per compilare il dominio. Nei cataloghi globali di tutti gli altri domini della foresta, è possibile rimuovere gli oggetti residui per la partizione di sola lettura del dominio recuperato.  
 
-L'origine per la pulizia di oggetti residui deve essere un controller di dominio nel dominio ripristinato. Per essere certi che il controller di dominio di origine non dispone di tutti gli oggetti residui per tutte le partizioni di dominio, è possibile rimuovere il catalogo globale, se si tratta di un catalogo globale.  
+L'origine per la pulizia dell'oggetto residuo deve essere un controller di dominio nel dominio recuperato. Per essere certi che il controller di dominio di origine non disponga di oggetti residui per le partizioni di dominio, è possibile rimuovere il catalogo globale se si tratta di un GC.  
 
-Rimozione di oggetti residui è vantaggiosa per le grandi organizzazioni che non è possibile rischio di tempi di inattività associato con le altre opzioni.  
+La rimozione di oggetti residui è vantaggiosa per le organizzazioni di grandi dimensioni che non possono rischiare il tempo di inattività associato ad altre opzioni.  
 
-Per altre informazioni, vedere [utilizzare Repadmin per rimuovere oggetti residui](https://technet.microsoft.com/library/cc785298.aspx).
+Per ulteriori informazioni, vedere [utilizzare Repadmin per rimuovere gli oggetti](https://technet.microsoft.com/library/cc785298.aspx)residui.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Ripristino della foresta Active Directory - prerequisiti](AD-Forest-Recovery-Prerequisties.md)  
-- [Ripristino della foresta Active Directory - concepire un piano di ripristino personalizzata-foresta](AD-Forest-Recovery-Devising-a-Plan.md)  
-- [Ripristino della foresta Active Directory - identificare il problema](AD-Forest-Recovery-Identify-the-Problem.md)
-- [Ripristino della foresta Active Directory - determinare la modalità di ripristino](AD-Forest-Recovery-Determine-how-to-Recover.md)
-- [Ripristino della foresta Active Directory - eseguire il ripristino iniziale](AD-Forest-Recovery-Perform-initial-recovery.md)  
-- [Ripristino della foresta Active Directory - procedure](AD-Forest-Recovery-Procedures.md)  
-- [Ripristino della foresta Active Directory - domande frequenti](AD-Forest-Recovery-FAQ.md)  
-- [Ripristino della foresta Active Directory - il ripristino di un singolo dominio all'interno di un Multidomain foresta](AD-Forest-Recovery-Single-Domain-in-Multidomain-Recovery.md)  
-- [Ripristino della foresta Active Directory - ripristino della foresta con controller di dominio di Windows Server 2003](AD-Forest-Recovery-Windows-Server-2003.md)  
+- [Ripristino della foresta di Active Directory - Prerequisiti](AD-Forest-Recovery-Prerequisties.md)  
+- [Ripristino della foresta di Active Directory-definizione di un piano di ripristino della foresta personalizzato](AD-Forest-Recovery-Devising-a-Plan.md)  
+- [Ripristino della foresta di Active Directory-identificare il problema](AD-Forest-Recovery-Identify-the-Problem.md)
+- [Ripristino della foresta di Active Directory-determinare la modalità di ripristino](AD-Forest-Recovery-Determine-how-to-Recover.md)
+- [Ripristino della foresta di Active Directory-esecuzione del ripristino iniziale](AD-Forest-Recovery-Perform-initial-recovery.md)  
+- [Ripristino della foresta di Active Directory - Procedure](AD-Forest-Recovery-Procedures.md)  
+- [Ripristino della foresta di Active Directory-Domande frequenti](AD-Forest-Recovery-FAQ.md)  
+- [Ripristino della foresta di Active Directory-ripristino di un singolo dominio in una foresta con più domini](AD-Forest-Recovery-Single-Domain-in-Multidomain-Recovery.md)  
+- [Ripristino della foresta di Active Directory-ripristino della foresta con i controller di dominio Windows Server 2003](AD-Forest-Recovery-Windows-Server-2003.md)  

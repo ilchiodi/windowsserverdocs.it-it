@@ -3,7 +3,7 @@ title: Stazioni MultiPoint
 description: Informazioni sulle stazioni in MultiPoint Services, incluse le diverse opzioni per gli utenti
 ms.custom: na
 ms.date: 07/22/2016
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: multipoint-services
 ms.reviewer: na
 ms.suite: na
@@ -13,12 +13,12 @@ ms.assetid: f9f9d618-ccfe-41ea-a52c-00c3c7adb51a
 author: evaseydl
 manager: scottman
 ms.author: evas
-ms.openlocfilehash: 4aa08f58f8fdf6d6fce816ee090275b0bf46a844
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 7b8f757d552bf54cd7f4eed0783ba8e0062b9d30
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70871634"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71405076"
 ---
 # <a name="multipoint--stations"></a>Stazioni MultiPoint
 In un ambiente di sistema MultiPoint Services, le *stazioni* sono gli endpoint utente per la connessione al computer che esegue multipoint Services. Ogni stazione offre all'utente un'esperienza Windows 10 indipendente. Sono supportati i tipi di stazione seguenti:  
@@ -120,8 +120,8 @@ Dopo la suddivisione di una stazione, un utente può accedere alla stazione a si
 |Prestazioni video|Consigliato per ottimizzare le prestazioni video||USA thin client che supportano RemoteFX per migliorare la qualità dei video con una larghezza di banda di rete inferiore|  
 |Limitazioni fisiche|Limitato dalla lunghezza del cavo video e dall'hub USB e dalla lunghezza del cavo (lunghezza massima consigliata di 15 contatori)|Limitato dall'hub USB e dalla lunghezza del cavo (lunghezza massima consigliata di 15 contatori)|Limitato dalla distribuzione LAN|  
 |Numero di stazioni consentite |Limitato dal numero di slot PCIe disponibili sulla scheda madre per le porte video per scheda video|Il numero totale può essere limitato dal produttore del client USB zero (per altre informazioni, vedere la nota che segue questa tabella).|Limitato dalle porte disponibili sul Commuter di rete|  
-|Schermata di suddivisione|Yes|Sì|No|  
-|Stato periferica della stazione di gestione MultiPoint, configurazione dell'accesso automatico, ridenominazione delle stazioni|Yes|Sì|No|  
+|Schermata di suddivisione|Yes|Yes|No|  
+|Stato periferica della stazione di gestione MultiPoint, configurazione dell'accesso automatico, ridenominazione delle stazioni|Yes|Yes|No|  
 |Accesso ai menu di avvio del server|Yes|No|No|  
   
 > [!NOTE]  

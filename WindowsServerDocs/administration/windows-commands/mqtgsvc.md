@@ -1,8 +1,8 @@
 ---
 title: mqtgsvc
-description: 'Argomento i comandi di Windows per * * *- '
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: c420c9d00ab71993fc35d0046fc905049e57b58f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: c10a260470c6a97e521b04f5bef2844c1f3893a9
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59817182"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71373484"
 ---
 # <a name="mqtgsvc"></a>mqtgsvc
 
 
 
-Monitora una coda dei messaggi in arrivo ed esegue un'azione, sotto forma di un file eseguibile o un componente COM, quando le regole di un trigger vengono valutate come true. Per esempi di come è possibile utilizzare il servizio Trigger Accodamento messaggi, vedere [trigger Accodamento messaggi](https://go.microsoft.com/fwlink/?LinkId=248725)su MSDN.
+Monitora una coda per i messaggi in arrivo ed esegue un'azione, sotto forma di un file eseguibile o di un componente COM, quando le regole di un trigger vengono valutate come true. Per esempi di come è possibile utilizzare il servizio Trigger Accodamento messaggi, vedere [trigger di Accodamento messaggi](https://go.microsoft.com/fwlink/?LinkId=248725)su MSDN.
 
 ## <a name="syntax"></a>Sintassi
 
@@ -38,4 +38,4 @@ Nessuno
 
 #### <a name="additional-references"></a>Altri riferimenti
 
--   [Chiave sintassi della riga di comando](command-line-syntax-key.md)
+-   [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

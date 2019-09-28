@@ -1,8 +1,8 @@
 ---
 title: Salvare e condividere file su un'unità flash USB
-description: Informazioni su come salvare filese su un'unità flash USB di MultiPoint Services
+description: Informazioni su come salvare il file in un'unità flash USB in MultiPoint Services
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: multipoint-services
 ms.reviewer: na
 ms.suite: na
@@ -13,15 +13,15 @@ author: lizap
 manager: dongill
 ms.author: elizapo
 ms.date: 08/04/2016
-ms.openlocfilehash: bb9db8936f8098024f76fc09490de7ffef594760
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: ddbee49ae80e65f29dcdb3c3c4ad43c17a451ccf
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59885472"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71389407"
 ---
 # <a name="save-and-share-files-on-a-usb-flash-drive"></a>Salvare e condividere file su un'unità flash USB
-Oltre a poter condividere contenuti usando cartelle pubbliche in Windows Explorer, è anche possibile condividere il contenuto usando un dispositivo di archiviazione USB, ad esempio un'unità flash USB o un dispositivo di archiviazione di massa. Quando si collega un dispositivo di archiviazione USB direttamente al computer host o a un hub USB diverso da un hub di stazione, tale dispositivo di archiviazione verrà visualizzato come dispositivo di archiviazione rimovibile da tutti gli utenti, *utenti standard* e *utenti con privilegi amministrativi*, nel sistema MultiPoint Services.  
+Oltre a poter condividere il contenuto usando le cartelle pubbliche in Esplora risorse, è anche possibile condividere il contenuto usando un dispositivo di archiviazione USB, ad esempio un'unità flash USB o un dispositivo di archiviazione di massa. Quando si collega un dispositivo di archiviazione USB direttamente al computer host o a un hub USB diverso da un hub di stazione, tale dispositivo di archiviazione verrà visualizzato come dispositivo di archiviazione rimovibile da tutti gli utenti, *utenti standard* e *utenti con privilegi amministrativi*, nel sistema MultiPoint Services.  
   
 È possibile usare un dispositivo di archiviazione rimovibile anche per salvare e archiviare documenti riservati in una cartella privata in Esplora risorse, come la cartella **Documenti** nella libreria **Documenti**.  
   
@@ -44,5 +44,5 @@ Collegare il dispositivo di archiviazione rimovibile a una porta USB aperta sull
   
 ## <a name="see-also"></a>Vedere anche  
 [Mantenere riservati i file](Keep-Files-Private.md)  
-[Condivisione di file](Share-Files.md)  
+[Condividere file](Share-Files.md)  
 [Gestire file utente](Manage-User-Files.md)

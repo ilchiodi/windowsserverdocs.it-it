@@ -1,38 +1,38 @@
 ---
 title: Sviluppare un'estensione dello strumento
-description: Sviluppare un'estensione per strumento Windows Admin Center SDK (progetto Honolulu)
+description: Sviluppare un'estensione dello strumento Windows Admin Center SDK (Project Honolulu)
 ms.technology: manage
 ms.topic: article
 author: nwashburn-ms
 ms.author: niwashbu
 ms.date: 09/18/2018
 ms.localizationpriority: medium
-ms.prod: windows-server-threshold
-ms.openlocfilehash: 1a068c0d33887e8e9287ff15c1aa14f3dc84915a
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.prod: windows-server
+ms.openlocfilehash: c5c87be882a32958946198eb6ff1b9d7000577e7
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66445929"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71385295"
 ---
-# <a name="install-extension-payload-on-a-managed-node"></a>Installare il payload di estensione in un nodo gestito
+# <a name="install-extension-payload-on-a-managed-node"></a>Installare il payload dell'estensione in un nodo gestito
 
->Si applica a: Windows Admin Center, Windows Admin Center anteprima
+>Si applica a: Windows Admin Center, Windows Admin Center Preview
 
 ## <a name="setup"></a>Configurazione
 > [!NOTE]
-> Per seguire questa Guida, è necessario compilerà 1.2.1904.02001 o versione successiva. Per controllare la build numero aprire Windows Admin Center e fare clic sul punto interrogativo in alto a destra.
+> Per seguire questa guida, è necessario compilare 1.2.1904.02001 o versione successiva. Per controllare il numero di build, aprire l'interfaccia di amministrazione di Windows e fare clic sul punto interrogativo in alto a destra.
 
-Se hai già fatto, creare un [dello strumento di estensione](../develop-tool.md) per Windows Admin Center. Dopo aver completato questa marca nota dei valori usati durante la creazione di un'estensione:
+Se non è già stato fatto, creare un' [estensione dello strumento](../develop-tool.md) per l'interfaccia di amministrazione di Windows. Una volta completata questa operazione, prendere nota dei valori utilizzati durante la creazione di un'estensione:
 
 | Value | Spiegazione | Esempio |
 | ----- | ----------- | ------- |
-| ```{!Company Name}``` | Il nome della società (spazi inclusi) | ```Contoso``` |
-| ```{!Tool Name}``` | Il nome dello strumento (spazi inclusi) | ```InstallOnNode``` |
+| ```{!Company Name}``` | Nome della società (con spazi) | ```Contoso``` |
+| ```{!Tool Name}``` | Nome dello strumento (con spazi) | ```InstallOnNode``` |
 
-All'interno della cartella dell'estensione degli strumenti creato un ```Node``` cartella (```{!Tool Name}\Node```). Qualsiasi elemento posizionato in questa cartella verrà copiato nel nodo gestito quando si utilizza questa API. Aggiungere eventuali file necessari per il caso d'uso. 
+Nella cartella dell'estensione dello strumento creare una cartella ```Node``` (```{!Tool Name}\Node```). Qualsiasi elemento inserito in questa cartella verrà copiato nel nodo gestito quando si usa questa API. Aggiungere tutti i file necessari per il caso d'uso. 
 
-Creare anche un ```{!Tool Name}\Node\installNode.ps1``` script. Questo script vengono eseguiti nel nodo gestito dopo che tutti i file vengono copiati dal ```{!Tool Name}\Node``` cartella al nodo gestito. Aggiungere alcuna logica aggiuntiva per il caso d'uso. Un esempio ```{!Tool Name}\Node\installNode.ps1``` file:
+Creare anche uno script ```{!Tool Name}\Node\installNode.ps1```. Questo script verrà eseguito nel nodo gestito dopo che tutti i file vengono copiati dalla cartella ```{!Tool Name}\Node``` al nodo gestito. Aggiungere qualsiasi logica aggiuntiva per il caso d'uso. Un esempio di file ```{!Tool Name}\Node\installNode.ps1```:
 
 ``` ps1
 # Add logic for installing payload on managed node
@@ -40,12 +40,12 @@ echo 'Success'
 ```
 
 > [!NOTE]
-> ```{!Tool Name}\Node\installNode.ps1``` include un nome specifico che cerca le API. La modifica del nome di questo file verrà generato un errore.
+> ```{!Tool Name}\Node\installNode.ps1``` ha un nome specifico che sarà ricercato dall'API. Se si modifica il nome di questo file, verrà generato un errore.
 
 
 ## <a name="integration-with-ui"></a>Integrazione con l'interfaccia utente
 
-Aggiornamento ```\src\app\default.component.ts``` al seguente:
+Aggiornare ```\src\app\default.component.ts``` al seguente:
 
 ``` ts
 import { Component } from '@angular/core';
@@ -88,7 +88,7 @@ export class DefaultComponent {
 
 }
 ```
-Aggiornare i segnaposto per i valori utilizzati durante la creazione dell'estensione:
+Aggiornare i segnaposto ai valori usati durante la creazione dell'estensione:
 ``` ts
 this.post('contoso.install-on-node', '1.0.0',
       this.appContextService.activeConnection.nodeName).subscribe(
@@ -105,7 +105,7 @@ this.post('contoso.install-on-node', '1.0.0',
       );
 ```
 
-Aggiornare anche ```\src\app\default.component.html``` per:
+Aggiornare anche ```\src\app\default.component.html``` a:
 ``` html
 <button (click)="installOnNode()">Click to install</button>
 <sme-loading-wheel *ngIf="loading" size="large"></sme-loading-wheel>
@@ -134,13 +134,13 @@ export class DefaultModule { }
 
 ## <a name="creating-and-installing-a-nuget-package"></a>Creazione e installazione di un pacchetto NuGet
 
-L'ultimo passaggio è la creazione di un pacchetto NuGet con i file che sono stati aggiunti e quindi l'installazione di tale pacchetto in Windows Admin Center.
+L'ultimo passaggio consiste nel creare un pacchetto NuGet con i file aggiunti e quindi nell'installare il pacchetto nell'interfaccia di amministrazione di Windows.
 
-Seguire le [estensioni pubblicazione](../publish-extensions.md) Guida se non è stato creato un pacchetto di estensione prima. 
+Se non è stato creato un pacchetto di estensione prima, attenersi alla Guida alle [estensioni di pubblicazione](../publish-extensions.md) . 
 > [!IMPORTANT]
-> Nel file con estensione nuspec per questa estensione, è importante che il ```<id>``` valore corrisponde al nome del progetto ```manifest.json``` e il ```<version>``` corrisponde a ciò che è stato aggiunto al ```\src\app\default.component.ts```. Aggiungere anche una voce sotto ```<files>```: 
+> Nel file. nuspec per questa estensione è importante che il valore ```<id>``` corrisponda al nome nel ```manifest.json``` del progetto e il ```<version>``` corrisponda a ciò che è stato aggiunto a ```\src\app\default.component.ts```. Aggiungere anche una voce sotto ```<files>```: 
 > 
-> ```<file src="Node\**\*.*" target="Node" />```.
+> ```<file src="Node\**\*.*" target="Node" />``` (Indici per tabelle con ottimizzazione per la memoria).
 
 ``` xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -165,4 +165,4 @@ Seguire le [estensioni pubblicazione](../publish-extensions.md) Guida se non è 
 </package>
 ```
 
-Dopo aver creato questo pacchetto, aggiungere un percorso a questo feed. In Windows Admin Center passare a Impostazioni > estensioni > feed e aggiungere il percorso in cui è presente tale pacchetto. Quando viene eseguita l'estensione viene installato, sarà possibile fare clic su di ```install``` pulsante e l'API verrà chiamato.  
+Una volta creato il pacchetto, aggiungere un percorso al feed. Nel centro di amministrazione di Windows passare a Impostazioni > estensioni > feed e aggiungere il percorso in cui è presente il pacchetto. Al termine dell'installazione dell'estensione, sarà possibile fare clic sul pulsante ```install``` per chiamare l'API.  

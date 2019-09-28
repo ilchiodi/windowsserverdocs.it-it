@@ -1,8 +1,8 @@
 ---
-title: uscire da FTP
-description: 'Argomento i comandi di Windows per * * *- '
+title: uscita FTP
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 32b527a01c2c82ff3847affb31e03ee7acf883ac
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: dd523710fa5352c0d3df0d7f1cbc3ddeb3b49000
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59819482"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71376055"
 ---
-# <a name="ftp-quit"></a>ftp: quit
+# <a name="ftp-quit"></a>FTP: Quit
 
 >Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Termina la sessione ftp con il computer remoto e viene chiuso **ftp** al prompt dei comandi del sistema operativo.   
+Termina la sessione FTP con il computer remoto e chiude **FTP** al prompt dei comandi del sistema operativo.   
 ## <a name="syntax"></a>Sintassi  
 ```  
 quit  
@@ -32,9 +32,9 @@ quit
 ### <a name="parameters"></a>Parametri  
 nessuno  
 ## <a name="BKMK_Examples"></a>Esempi  
-Terminare la sessione ftp con il computer remoto e di uscita **ftp** al prompt dei comandi del sistema operativo.  
+Terminare la sessione FTP con il computer remoto e uscire da **FTP** al prompt dei comandi del sistema operativo.  
 ```  
 quit  
 ```  
 ## <a name="additional-references"></a>Riferimenti aggiuntivi  
--   [Chiave sintassi della riga di comando](command-line-syntax-key.md)  
+-   [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)  

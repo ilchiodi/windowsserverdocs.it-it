@@ -1,8 +1,8 @@
 ---
 title: nlbmgr
-description: 'Argomento i comandi di Windows per * * *- '
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 757b218ad3a88cc10c4d1bcfed15a83bfd34cc74
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 2843e303b296beca24132b62073b6776a343544b
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66437031"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71373165"
 ---
 # <a name="nlbmgr"></a>nlbmgr
 
 >Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Utilizzando Gestione bilanciamento carico di rete, è possibile configurare e gestire i cluster di bilanciamento del carico di rete e tutti i cluster host da un singolo computer, ed è possibile replicare anche la configurazione del cluster in altri host. È possibile avviare Gestione bilanciamento carico di rete dalla riga di comando utilizzando il comando **nlbmgr.exe**, in cui è installato il **systemroot\System32** cartella.
+Utilizzando Gestione bilanciamento carico di rete, è possibile configurare e gestire i cluster di bilanciamento carico di rete e tutti gli host del cluster da un singolo computer ed è inoltre possibile replicare la configurazione del cluster in altri host. È possibile avviare Gestione bilanciamento carico di rete dalla riga di comando usando il comando **Nlbmgr. exe**, che viene installato nella cartella **systemroot\System32** .
 ## <a name="syntax"></a>Sintassi
 ```
 nlbmgr [/help] [/noping] [/hostlist <filename>] [/autorefresh <interval>]
@@ -33,10 +33,10 @@ nlbmgr [/help] [/noping] [/hostlist <filename>] [/autorefresh <interval>]
 
 |        Parametro        |                                                                                                                                                                                                Descrizione                                                                                                                                                                                                |
 |-------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|          /help          |                                                                                                                                                                                   Visualizza la guida al prompt dei comandi.                                                                                                                                                                                    |
-|         /noping         | Impedisce il ping gli host prima di tentare di contattarli tramite Strumentazione gestione Windows (WMI) di gestione del bilanciamento del carico di rete. Usare questa opzione se è stata disabilitata messaggio protocollo ICMP (Internet Control) in tutte le schede di rete disponibile. Se Gestione bilanciamento carico di rete tenta di contattare un host che non è disponibile, si verificherà un ritardo quando si usa questa opzione. |
-|  /hostlist <filename>   |                                                                                                                                                                Carica gli host specificati nel nome del file in Gestione bilanciamento carico di rete.                                                                                                                                                                 |
-| /autorefresh <interval> |                                                                                                          Fa sì che Gestione bilanciamento carico rete aggiornare le informazioni di host e cluster ogni <interval> secondi. Se non viene specificato alcun intervallo, le informazioni vengono aggiornate ogni 60 secondi.                                                                                                          |
+|          /Help          |                                                                                                                                                                                   Visualizza la guida al prompt dei comandi.                                                                                                                                                                                    |
+|         /noping         | Impedisce a Gestione bilanciamento carico di rete di effettuare il ping degli host prima di provare a contattarli tramite Strumentazione gestione Windows (WMI). Utilizzare questa opzione se si è disabilitato Internet Control Message Protocol (ICMP) in tutte le schede di rete disponibili. Se Gestione bilanciamento carico di rete tenta di contattare un host non disponibile, si verificherà un ritardo durante l'uso di questa opzione. |
+|  /hostlist <filename>   |                                                                                                                                                                Carica gli host specificati in filename in Gestione bilanciamento carico di rete.                                                                                                                                                                 |
+| /AutoRefresh <interval> |                                                                                                          Consente a Gestione bilanciamento carico di rete di aggiornare le informazioni relative a host e cluster ogni <interval> secondi. Se non viene specificato alcun intervallo, le informazioni vengono aggiornate ogni 60 secondi.                                                                                                          |
 |           /?            |                                                                                                                                                                                   Visualizza la guida al prompt dei comandi.                                                                                                                                                                                    |
 
 ## <a name="additional-references"></a>Riferimenti aggiuntivi

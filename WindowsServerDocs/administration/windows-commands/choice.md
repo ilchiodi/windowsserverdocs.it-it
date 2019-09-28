@@ -1,8 +1,8 @@
 ---
 title: choice
-description: 'Argomento i comandi di Windows per * * *- '
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 78d2816bff754ef04558cf37eaada7c7fafba823
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e710b3813525647053365ebf4c764181fc38b3f6
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59841552"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71379366"
 ---
 # <a name="choice"></a>choice
 
@@ -38,11 +38,11 @@ choice [/c [<Choice1><Choice2><…>]] [/n] [/cs] [/t <Timeout> /d <Choice>] [/m 
 
 |Parametro|Descrizione|
 |---------|-----------|
-|/c \<Choice1><Choice2><…>|Specifica l'elenco di scelte da creare. Le scelte valide includono-z, A-Z, 0-9 e caratteri ASCII estesi (128-254). L'elenco predefinito è "YN", viene visualizzato come `[Y,N]?`.|
+|/c \<Choice1 > <Choice2> <... >|Specifica l'elenco di scelte da creare. Le scelte valide includono-z, A-Z, 0-9 e caratteri ASCII estesi (128-254). L'elenco predefinito è "YN", viene visualizzato come `[Y,N]?`.|
 |/n|Nasconde l'elenco di scelte, anche se sono ancora abilitati le scelte disponibili e il testo del messaggio (se specificato da **/m**) è ancora visualizzato.|
 |/cs|Specifica che le opzioni di maiuscole e minuscole. Per impostazione predefinita, le scelte non sono rilevanti.|
-|/t \<Timeout>|Specifica il numero di secondi di pausa prima di utilizzare l'opzione predefinita specificata da **/d**. I valori accettabili sono compresi **0** a **9999**. Se **/t** è impostato su **0**, **scelta** non sospendere prima di restituire la scelta predefinita.|
-|/d \<Choice>|Specifica la scelta predefinita da utilizzare dopo un'attesa il numero di secondi specificato da **/t**. La scelta predefinita deve essere nell'elenco di scelte specificato da **/c**.|
+|/t \<Timeout >|Specifica il numero di secondi di pausa prima di utilizzare l'opzione predefinita specificata da **/d**. I valori accettabili sono compresi **0** a **9999**. Se **/t** è impostato su **0**, **scelta** non sospendere prima di restituire la scelta predefinita.|
+|/d \<Choice >|Specifica la scelta predefinita da utilizzare dopo un'attesa il numero di secondi specificato da **/t**. La scelta predefinita deve essere nell'elenco di scelte specificato da **/c**.|
 |/m < "text" >|Specifica un messaggio da visualizzare prima dell'elenco di scelte. Se **/m** non è specificato, viene visualizzato solo il messaggio desiderato.|
 |/?|Visualizza la guida al prompt dei comandi.|
 
@@ -97,4 +97,4 @@ Il seguente messaggio viene visualizzato quando il file batch viene eseguito il 
 
 #### <a name="additional-references"></a>Altri riferimenti
 
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)
+[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

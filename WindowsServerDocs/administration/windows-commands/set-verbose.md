@@ -1,8 +1,8 @@
 ---
 title: Impostare dettagliato
-description: 'Argomento i comandi di Windows per * * *- '
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: ec47dea822c338dfe1b809c662d1e31e9a5a9703
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: dcd9dbf5d3f2d371bc348400db932100de2c0523
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66441337"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71370944"
 ---
 # <a name="set-verbose"></a>Impostare dettagliato
 
@@ -36,7 +36,7 @@ set verbose {on | off}
 
 | Parametro | Descrizione |
 |-----------|-------------|
-|    {on    |    off}     |
+|    {on    |    off     |
 
 ## <a name="remarks"></a>Note
 

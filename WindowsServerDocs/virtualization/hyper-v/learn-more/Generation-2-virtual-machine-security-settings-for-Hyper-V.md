@@ -1,7 +1,7 @@
 ---
 title: Impostazioni di sicurezza di generazione 2 macchina virtuale per Hyper-V
-description: Descrive le impostazioni di sicurezza disponibili in Gestione Hyper-V per le macchine virtuali di generazione 2
-ms.prod: windows-server-threshold
+description: Descrive le impostazioni di sicurezza disponibili nella console di gestione di Hyper-V per le macchine virtuali di seconda generazione
+ms.prod: windows-server
 ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
@@ -11,16 +11,16 @@ ms.assetid: 06ab4f5f-6b8e-4058-8108-76785aa93d4c
 author: larsiwer
 ms.author: kathydav
 ms.date: 10/04/2016
-ms.openlocfilehash: 90a2b7234ee55d8469b6e02ba3de3a0efc080a3e
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 82544a58a8d46b3063605557be3c63cfa799e4fb
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59889502"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71364245"
 ---
 # <a name="generation-2-virtual-machine-security-settings-for-hyper-v"></a>Impostazioni di sicurezza di generazione 2 macchina virtuale per Hyper-V
 
->Si applica a: Windows Server 2016, Microsoft Hyper-V Server 2016, Windows Server 2019, Microsoft Hyper-V Server 2019
+>Si applica a: Windows Server 2016, Microsoft Hyper-V Server 2016, Windows Server 2019 Microsoft Hyper-V Server 2019
 
 Utilizzare le impostazioni di protezione della macchina virtuale in Hyper-V Manager per proteggere i dati e lo stato di una macchina virtuale. È possibile proteggere le macchine virtuali da ispezione, furti e manomissione da entrambi malware che può essere eseguito nell'host e amministratori del centro dati. Il livello di sicurezza che si ottiene dipende dall'hardware dell'host che viene eseguito, la generazione della macchina virtuale, e se si configura il servizio, denominato servizio sorveglianza Host, che autorizza l'host per avviare le macchine virtuali schermate.  
 
@@ -30,7 +30,7 @@ Se è stato ancora configurato il servizio sorveglianza Host o in esecuzione in 
 
 Per informazioni su come aumentare la più sicura con il servizio sorveglianza Host delle macchine virtuali, vedere le risorse seguenti.  
 
-- [Rafforzare la protezione dell'infrastruttura: Protezione dei segreti Tenant in Hyper-V (Ignite video)](https://go.microsoft.com/fwlink/?LinkId=746379)
+- [Rafforzare la protezione dell'infrastruttura: Protezione dei segreti dei tenant in Hyper-V (Ignite video) ](https://go.microsoft.com/fwlink/?LinkId=746379)
 - [Infrastruttura sorvegliata e macchine virtuali schermate](https://go.microsoft.com/fwlink/?LinkId=746381)
 
 ## <a name="secure-boot-setting-in-hyper-v-manager"></a>Proteggere l'impostazione dell'avvio di gestione di Hyper-V  
@@ -42,14 +42,14 @@ I modelli descritti nella tabella riportata di seguito fanno riferimento ai cert
 |Nome del modello|Descrizione|  
 |-----------------|---------------|  
 |Microsoft Windows|Selezionare questa opzione per avvio protetto la macchina virtuale per un sistema operativo Windows.|  
-|Autorità di certificazione Microsoft UEFI|Selezionare questa opzione per avvio protetto la macchina virtuale per un sistema operativo di distribuzione di Linux.|  
-|Open Source macchina virtuale schermata|Questo modello viene sfruttato per avvio protetto per [basato su Linux con macchine virtuali schermate](https://docs.microsoft.com/windows-server/security/guarded-fabric-shielded-vm/guarded-fabric-create-a-linux-shielded-vm-template).|
+|Autorità di certificazione Microsoft UEFI|Selezionare per proteggere l'avvio della macchina virtuale per un sistema operativo di distribuzione Linux.|  
+|VM schermata Open Source|Questo modello viene usato per proteggere l'avvio per le [macchine virtuali schermate basate su Linux](https://docs.microsoft.com/windows-server/security/guarded-fabric-shielded-vm/guarded-fabric-create-a-linux-shielded-vm-template).|
 
 Per ulteriori informazioni, vedere gli argomenti seguenti.  
 
-- [Cenni preliminari sulla sicurezza di Windows 10](https://docs.microsoft.com/windows/security/threat-protection/overview-of-threat-mitigations-in-windows-10)  
+- [Panoramica della sicurezza di Windows 10](https://docs.microsoft.com/windows/security/threat-protection/overview-of-threat-mitigations-in-windows-10)  
 - [È consigliabile creare una macchina virtuale di generazione 1 o 2 in Hyper-V?](../plan/Should-I-create-a-generation-1-or-2-virtual-machine-in-Hyper-V.md)  
-- [Linux e FreeBSD le macchine virtuali in Hyper-V](../Supported-Linux-and-FreeBSD-virtual-machines-for-Hyper-V-on-Windows.md)  
+- [Macchine virtuali Linux e FreeBSD in Hyper-V](../Supported-Linux-and-FreeBSD-virtual-machines-for-Hyper-V-on-Windows.md)  
 
 ## <a name="encryption-support-settings-in-hyper-v-manager"></a>Impostazioni di supporto di crittografia nella gestione di Hyper-V
 
@@ -61,7 +61,7 @@ Per ulteriori informazioni, vedere gli argomenti seguenti.
 
 ### <a name="enable-isolated-user-mode"></a>Abilitare la modalità utente isolato
 
-Se si seleziona **abilitare Trusted Platform Module** sugli host Hyper-V che eseguono versioni di Windows precedenti a Windows 10 ricorrenza annuale dell'aggiornamento, è necessario attivare la modalità utente isolato. Non è necessario eseguire questa operazione per Hyper-V ospita tale esecuzione Windows Server 2016 o Windows 10 Anniversary Update o versione successiva.
+Se si seleziona **abilitare Trusted Platform Module** sugli host Hyper-V che eseguono versioni di Windows precedenti a Windows 10 ricorrenza annuale dell'aggiornamento, è necessario attivare la modalità utente isolato. Non è necessario eseguire questa operazione per gli host Hyper-V che eseguono Windows Server 2016 o l'aggiornamento dell'anniversario di Windows 10 o versione successiva.
 
 La modalità utente isolato è l'ambiente di runtime che ospita applicazioni per la sicurezza in modalità protetta virtuale nell'host Hyper-V. Modalità virtuale sicura viene utilizzata per proteggere e lo stato del chip TPM virtuale.  
 
@@ -78,11 +78,11 @@ Per abilitare la modalità utente isolato nell'host Hyper-V che eseguono version
 
     ```  
 
-È possibile eseguire la migrazione di una macchina virtuale con virtual TPM è attivato in qualsiasi host che esegue Windows Server 2016, Windows 10 consente di creare versioni 10586 o versione successiva. Ma se si esegue la migrazione, in un altro host, potrebbe non essere in grado di avviare il servizio. È necessario aggiornare la protezione con chiave per la macchina virtuale per autorizzare il nuovo host per eseguire la macchina virtuale. Per altre informazioni, vedere [sorvegliata e macchine virtuali schermati](https://go.microsoft.com/fwlink/?LinkId=746381) e [requisiti di sistema per Hyper-V in Windows Server](../System-requirements-for-Hyper-V-on-Windows.md).  
+È possibile eseguire la migrazione di una macchina virtuale con virtual TPM è attivato in qualsiasi host che esegue Windows Server 2016, Windows 10 consente di creare versioni 10586 o versione successiva. Ma se si esegue la migrazione, in un altro host, potrebbe non essere in grado di avviare il servizio. È necessario aggiornare la protezione con chiave per la macchina virtuale per autorizzare il nuovo host per eseguire la macchina virtuale. Per altre informazioni, vedere [infrastruttura sorvegliata e VM schermate](https://go.microsoft.com/fwlink/?LinkId=746381) e [requisiti di sistema per Hyper-V in Windows Server](../System-requirements-for-Hyper-V-on-Windows.md).  
 
 ## <a name="security-policy-in-hyper-v-manager"></a>Criteri di sicurezza nella gestione di Hyper-V  
 Per una maggiore protezione macchina virtuale, utilizzare il **abilitare schermatura** opzione per disabilitare le funzionalità di gestione connessione alla console, PowerShell Direct e alcuni componenti di integrazione. Se si seleziona questa opzione, **avvio protetto**, **abilitare Trusted Platform Module**, e **il traffico di migrazione dello stato di crittografia e VM** opzioni sono selezionate e applicate.   
 
 È possibile eseguire localmente la macchina virtuale schermata senza configurare il servizio sorveglianza Host. Ma se si esegue la migrazione, in un altro host, potrebbe non essere in grado di avviare il servizio. È necessario aggiornare la protezione con chiave per la macchina virtuale per autorizzare il nuovo host per eseguire la macchina virtuale. Per ulteriori informazioni, vedere [infrastruttura protetta e macchine virtuali schermati](https://go.microsoft.com/fwlink/?LinkId=746381).  
 
-Per altre informazioni sulla sicurezza in Windows Server, vedere [sicurezza e Assurance](../../../security/Security-and-Assurance.md).  
+Per ulteriori informazioni sulla sicurezza in Windows Server, vedere [Security and Assurance](../../../security/Security-and-Assurance.md).  

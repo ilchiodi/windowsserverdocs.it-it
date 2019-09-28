@@ -2,18 +2,18 @@
 title: Inizializzare nuovi dischi
 description: Come inizializzare nuovi dischi con Gestione disco, preparandoli per l'uso. Include anche collegamenti alla risoluzione dei problemi.
 ms.date: 06/07/2019
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: storage
 ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: 7a275c372e1486b26821f797a7663eecbc3e8784
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: b38fd0b88cea3fcc386959c08af1169302ddaa1c
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "66812423"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71385904"
 ---
 # <a name="initialize-new-disks"></a>Inizializzare nuovi dischi
 

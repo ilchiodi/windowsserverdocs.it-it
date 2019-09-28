@@ -1,8 +1,8 @@
 ---
 title: compact
-description: 'Argomento i comandi di Windows per * * *- '
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 068111b293a3eb3987b14744a1bfcf2fde26bced
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 5e73369d69912437875a0151b1d9cfcfc85a30da
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59826032"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71379184"
 ---
 # <a name="compact"></a>compact
 
 
 
-Visualizza o modifica della compressione di file o directory partizioni NTFS. Se utilizzata senza parametri, **compact** Visualizza lo stato di compressione della directory corrente e i file in essa contenuti.
+Consente di visualizzare o modificare la compressione di file o directory in partizioni NTFS. Se utilizzata senza parametri, **Compact** Visualizza lo stato di compressione della directory corrente e dei file in essa contenuti.
 
 Per esempi di utilizzo di questo comando, vedere [Esempi](#BKMK_examples).
 
@@ -38,29 +38,29 @@ compact [/c | /u] [/s[:<Dir>]] [/a] [/i] [/f] [/q] [<FileName>[...]]
 
 |Parametro|Descrizione|
 |---------|-----------|
-|/c|Comprime la directory specificata o un file.|
-|/u|Decomprime la directory specificata o un file.|
-|/s[:\<Dir>]|Si applica il **compact** comando a tutte le sottodirectory della directory specificata (o della directory corrente se non è specificato).|
-|/a|Vengono visualizzati nascosti o i file di sistema.|
+|/c|Comprime la directory o il file specificato.|
+|/u|Decomprime la directory o il file specificato.|
+|/s [: \<Dir >]|Applica il comando **Compact** a tutte le sottodirectory della directory specificata (o della directory corrente se non ne viene specificato nessuno).|
+|/a|Visualizza i file nascosti o di sistema.|
 |/i|Ignora gli errori.|
-|/f|Impone la compressione o decompressione del file o directory specificata. **/f** viene usato nel caso di un file che è stata compressa in parte durante l'operazione è stata interrotta da un arresto anomalo del sistema. Per forzare il file deve essere compresso nel suo complesso, usare il **/c** e **/f** parametri e specificare il file parzialmente compresso.|
+|/f|Forza la compressione o la decompressione del file o della directory specificata. **/f** viene usato nel caso di un file che è stato parzialmente compresso quando l'operazione è stata interrotta da un arresto anomalo del sistema. Per forzare la compressione del file nel suo complesso, usare i parametri **/c** e **/f** e specificare il file parzialmente compresso.|
 |/q|Segnala solo le informazioni più importanti.|
-|\<FileName>|Specifica il file o directory. È possibile usare più nomi di file e il **&#42;** e **?** caratteri jolly.|
+|\<> FileName|Specifica il file o la directory. È possibile usare più nomi file e **&#42;** e **?** caratteri jolly.|
 |/?|Visualizza la guida al prompt dei comandi.|
 
 ## <a name="remarks"></a>Note
 
--   Il **compact** comando è la versione della riga di comando della funzionalità di compressione del file system NTFS. Lo stato della compressione di una directory indica se i file vengono compressi automaticamente quando vengono aggiunti alla directory. L'impostazione dello stato di compressione di una directory non cambia necessariamente lo stato della compressione dei file che si trovano già nella directory.
--   Non è possibile usare **compact** lettura, scrittura o montare i volumi che sono state compresse con DriveSpace o DoubleSpace.
--   Non è possibile usare **compact** per comprimere i file allocation table (FAT) o partizioni FAT32.
+-   Il comando **Compact** è la versione da riga di comando della funzionalità di compressione file system NTFS. Lo stato di compressione di una directory indica se i file vengono compressi automaticamente al momento dell'aggiunta alla directory. L'impostazione dello stato di compressione di una directory non comporta necessariamente la modifica dello stato di compressione dei file già presenti nella directory.
+-   Non è possibile usare **Compact** per leggere, scrivere o montare volumi compressi con DriveSpace o DoubleSpace.
+-   Non è possibile usare **Compact** per comprimere le partizioni FAT (file allocation table) o FAT32.
 
 ## <a name="BKMK_examples"></a>Esempi
 
-Per impostare lo stato della compressione della directory corrente, le sottodirectory e i file esistenti, digitare:
+Per impostare lo stato di compressione della directory corrente, delle relative sottodirectory e dei file esistenti, digitare:
 ```
 compact /c /s 
 ```
-Per impostare lo stato della compressione dei file e le sottodirectory della directory corrente, senza modificare lo stato della compressione della directory corrente stesso, digitare:
+Per impostare lo stato di compressione dei file e delle sottodirectory nella directory corrente, senza modificare lo stato di compressione della directory corrente, digitare:
 ```
 compact /c /s *.*
 ```
@@ -70,21 +70,21 @@ compact /c /i /s:\
 ```
 
 > [!NOTE]
-> In questo esempio imposta lo stato della compressione di tutte le directory (compresa la directory radice del volume) comprime tutti i file nel volume. Il **/i** parametro impedisce i messaggi di errore di interrompere il processo di compressione.
+> Questo esempio imposta lo stato di compressione di tutte le directory (inclusa la directory radice nel volume) e comprime tutti i file nel volume. Il parametro **/i** impedisce che i messaggi di errore interrompano il processo di compressione.
 
-Per comprimere tutti i file con estensione bmp nella cartella \Tmp e tutte le sottodirectory della \Tmp, senza modificare l'attributo di compressione delle directory, digitare:
+Per comprimere tutti i file con estensione bmp nella directory \Tmp e in tutte le sottodirectory di \Tmp, senza modificare l'attributo compresso delle directory, digitare:
 ```
 compact /c /s:\tmp *.bmp
 ```
-Per forzare la compressione completata del file, parzialmente ZEBRA compresso causa durante un arresto anomalo del sistema, digitare:
+Per forzare la compressione completa del file Zebra. bmp, che è stato parzialmente compresso durante un arresto anomalo del sistema, digitare:
 ```
 compact /c /f zebra.bmp
 ```
-Per rimuovere l'attributo di compressione dalla directory C:\Tmp, senza modificare lo stato della compressione di tutti i file in tale directory, digitare:
+Per rimuovere l'attributo compresso dalla directory C:\Tmp, senza modificare lo stato di compressione di tutti i file nella directory, digitare:
 ```
 compact /u c:\tmp
 ```
 
 #### <a name="additional-references"></a>Altri riferimenti
 
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)
+[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

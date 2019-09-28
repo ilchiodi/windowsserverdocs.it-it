@@ -1,8 +1,8 @@
 ---
-title: Guida in linea e bitsadmin util
-description: Argomento i comandi di Windows per **util bitsadmin e aiutare** -Visualizza l'utilizzo della riga di comando per il **Util** commutatori.
+title: Bitsadmin util e Help
+description: Argomento dei comandi di Windows per **Bitsadmin util e Help** -Visualizza l'utilizzo della riga di comando per le opzioni **util** .
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 99183ab9dd7dcb0fc0351bf2a4369d19b2179aa0
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 47ccf6bf1d285bcea115905781819b8553b7ed71
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59890362"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71380328"
 ---
-# <a name="bitsadmin-util-and-help"></a>Guida in linea e bitsadmin util
+# <a name="bitsadmin-util-and-help"></a>Bitsadmin util e Help
 
 
 
-Visualizza l'utilizzo della riga di comando per il **Util** commutatori.
+Visualizza l'utilizzo della riga di comando per le opzioni **util** .
 
 ## <a name="syntax"></a>Sintassi
 
@@ -34,11 +34,11 @@ Bitsadmin /Util /Help
 
 ## <a name="BKMK_examples"></a>Esempi
 
-Il comando seguente consente di visualizzare la Guida della riga di comando per il **Util** commutatori.
+Il comando seguente Visualizza la guida della riga di comando per le opzioni **util** .
 ```
 Bitsadmin /Util /Help
 ```
 
 #### <a name="additional-references"></a>Altri riferimenti
 
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)
+[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

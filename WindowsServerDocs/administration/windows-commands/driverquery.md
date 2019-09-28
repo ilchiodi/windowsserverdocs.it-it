@@ -1,8 +1,8 @@
 ---
 title: driverquery
-description: 'Argomento i comandi di Windows per * * *- '
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 88a59f9da9927bb923418695bc760303c0fb00b0
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 5d44a1be300b7178bc2271187344c2fc4ab8815e
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66439483"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71377651"
 ---
 # <a name="driverquery"></a>driverquery
 
@@ -38,10 +38,10 @@ driverquery [/s <System> [/u [<Domain>\]<Username> [/p <Password>]]] [/fo {table
 
 |         Parametro         |                                                                                                                                         Descrizione                                                                                                                                          |
 |---------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|       /s \<system >        |                                                                                      Specifica il nome o indirizzo IP di un computer remoto. Non utilizzare le barre rovesciate. Il valore predefinito è il computer locale.                                                                                       |
-| /u [\<Domain>\]<Username> | Esegue il comando con le credenziali dell'account utente come specificato da *utente* oppure *Domain*\*utente<em>. Per impostazione predefinita \* \*/s</em> \* utilizza le credenziali dell'utente attualmente connesso al computer in cui viene eseguito il comando. **/u** non può essere utilizzato a meno che non **/s** specificato. |
-|      /p \<Password>       |                                                                           Specifica la password dell'account utente specificato nella **/u** parametro. **/p** non può essere utilizzato a meno che non **/u** specificato.                                                                            |
-|        /FO {tabella         |                                                                                                                                             list                                                                                                                                             |
+|       /s \<System >        |                                                                                      Specifica il nome o indirizzo IP di un computer remoto. Non utilizzare le barre rovesciate. Il valore predefinito è il computer locale.                                                                                       |
+| /u [\<Domain > \] @ no__t-2 | Esegue il comando con le credenziali dell'account utente come specificato dall' *utente* o dal *dominio*\*User @ no__t-3. Per impostazione predefinita, \* @ no__t-1/s @ no__t-2 @ no__t-3 usa le credenziali dell'utente attualmente connesso al computer che sta eseguendo il comando. **/u** non può essere utilizzato a meno che non **/s** specificato. |
+|      /p \<password >       |                                                                           Specifica la password dell'account utente specificato nella **/u** parametro. **/p** non può essere utilizzato a meno che non **/u** specificato.                                                                            |
+|        /fo {tabella         |                                                                                                                                             list                                                                                                                                             |
 |            /NH            |                                                                                      Omette la riga di intestazione dalle informazioni sui driver visualizzate. Se non è valido il **/fo** parametro è impostato su **elenco**.                                                                                      |
 |            /v             |                                                                                                               Visualizza output dettagliato. **/v** non è valido per i driver firmati.                                                                                                               |
 |            /si            |                                                                                                                          Vengono fornite informazioni sui driver firmati.                                                                                                                          |

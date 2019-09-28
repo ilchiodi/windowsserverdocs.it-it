@@ -1,6 +1,6 @@
 ---
 title: Parità accelerata con mirror
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.author: gawatu
 ms.manager: masriniv
 ms.technology: storage-file-systems
@@ -8,16 +8,16 @@ ms.topic: article
 author: gawatu
 ms.date: 10/17/2018
 ms.assetid: ''
-ms.openlocfilehash: ec1f04b20b0b743085bacd95ad95a52c15207f40
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 0325a37e38845ea9482a6ed260e2bb3b493cc79a
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70871997"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71394001"
 ---
 # <a name="mirror-accelerated-parity"></a>Parità accelerata con mirror
 
->Si applica a Windows Server 2019, Windows Server 2016
+>Si applica a: Windows Server 2019, Windows Server 2016
 
 Il sistema Spazi di archiviazione può fornire la tolleranza di errore per i dati tramite due tecniche fondamentali: mirroring e parità. In [Spazi di archiviazione diretta](../storage-spaces/storage-spaces-direct-overview.md), ReFS introduce parità accelerata con mirroring, che consente di creare volumi che usano sia resilienze con mirroring che con parità. La parità accelerata con mirroring offre una soluzione di archiviazione conveniente ed efficiente in termini di spazio senza compromettere le prestazioni. 
 
@@ -86,7 +86,7 @@ Quando vengono spostati dal mirroring alla parità, i dati vengono letti, vengon
 
 In questa versione semestrale, ReFS introduce la compattazione, che migliora significativamente le prestazioni per i volumi di parità con accelerazione speculare che sono pieni del 90%. 
 
-**Contesto**: In precedenza, poiché i volumi di parità con accelerazione speculare si sono riempiti, le prestazioni di questi volumi potrebbero peggiorare. Tale peggioramento è dovuto alla combinazione di dati ad accesso frequente e sporadico nel volume. Ciò significa che nel mirroring possono essere archiviati meno dati ad accesso frequente perché lo spazio viene occupato anche dai dati ad accesso sporadico. L'archiviazione dei dati ad accesso frequente nel mirroring è fondamentale per garantire prestazioni elevate perché le scritture dirette nel mirroring sono molto più veloci rispetto alle scritture riallocate e notevolmente più veloci delle scritture dirette nella parità. Di conseguenza la presenza di dati ad accesso sporadico nel mirroring non è un fattore positivo per le prestazioni, perché diminuisce la probabilità che ReFS possa scrivere direttamente nel mirroring. 
+**Sfondo** In precedenza, poiché i volumi di parità con accelerazione speculare si sono riempiti, le prestazioni di questi volumi potrebbero peggiorare. Tale peggioramento è dovuto alla combinazione di dati ad accesso frequente e sporadico nel volume. Ciò significa che nel mirroring possono essere archiviati meno dati ad accesso frequente perché lo spazio viene occupato anche dai dati ad accesso sporadico. L'archiviazione dei dati ad accesso frequente nel mirroring è fondamentale per garantire prestazioni elevate perché le scritture dirette nel mirroring sono molto più veloci rispetto alle scritture riallocate e notevolmente più veloci delle scritture dirette nella parità. Di conseguenza la presenza di dati ad accesso sporadico nel mirroring non è un fattore positivo per le prestazioni, perché diminuisce la probabilità che ReFS possa scrivere direttamente nel mirroring. 
 
 La compattazione ReFS risolve questi problemi di prestazioni liberando spazio nel mirroring per i dati ad accesso frequente. La compattazione consolida prima tutti i dati, da mirroring e parità, in parità. Ciò riduce la frammentazione all'interno del volume e aumenta la quantità di spazio indirizzabile nel mirroring. Soprattutto, questo processo permette a ReFS di consolidare nel mirroring i dati ad accesso frequente:
 -   Quando sono presenti nuove operazioni di scrittura, verranno eseguite nel mirroring. Di conseguenza, i nuovi dati ad accesso frequente scritti si trovano nel mirroring. 
@@ -114,7 +114,7 @@ ReFS inizia la rotazione dei dati quando il mirroring ha raggiunto una soglia di
 -   Valori più bassi consentono a ReFS di rimuovere i dati e di inserire i dati di I/O in ingresso in modo efficiente. Ciò si applica ai carichi di lavoro con numerosi inserimenti, ad esempio memorizzazione di archivi. Valori più bassi, tuttavia, potrebbero compromettere le prestazioni per carichi di lavoro generale. Una rotazione dei dati non necessaria all'esterno del mirroring comporta una riduzione delle prestazioni. 
 
 ReFS introduce un parametro regolabile per modificare questa soglia, che può essere configurata con una chiave del Registro di sistema. Questa chiave del Registro di sistema deve essere configurata in **ogni nodo in una distribuzione di Spazi di archiviazione diretta** ed è necessario riavviare il computer perché tutte le modifiche abbiano effetto. 
--   **Chiave** HKEY_LOCAL_MACHINE\System\CurrentControlSet\Policies
+-   **Chiave:** HKEY_LOCAL_MACHINE\System\CurrentControlSet\Policies
 -   **ValueName (DWORD):** DataDestageSsdFillRatioThreshold
 -   **ValueType** Percentuale
 

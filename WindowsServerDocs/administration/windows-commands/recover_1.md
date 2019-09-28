@@ -1,8 +1,8 @@
 ---
 title: recuperare
-description: 'Argomento i comandi di Windows per * * *- '
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 261bfd79d74323ad324246e21b84a5eb798ebcdf
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: a83bb7502145cc09116241ea255e31b5f9981791
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59867182"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71384743"
 ---
 # <a name="recover"></a>recuperare
 
 
 
-Aggiorna lo stato di tutti i dischi in un gruppo di dischi, tentare di ripristinare i dischi in un gruppo di dischi non è valido e risincronizza volumi con mirroring e RAID-5 volumi contenenti i dati non aggiornati.
+Aggiorna lo stato di tutti i dischi in un gruppo di dischi, tenta di ripristinare i dischi in un gruppo di dischi non valido e risincronizza i volumi con mirroring e i volumi RAID-5 con dati non aggiornati.
 
 > [!IMPORTANT]
 > Questo comando di DiskPart non è disponibile in qualsiasi edizione di Windows Vista.
@@ -39,7 +39,7 @@ recover [noerr]
 
 |Parametro|Descrizione|
 |---------|-----------|
-|NOERR|Solo per script. Quando si è verificato un errore, DiskPart continua a elaborare i comandi come se non si è verificato l'errore. Senza questo parametro, un errore causa DiskPart viene interrotto con un codice di errore.|
+|NOERR|Solo per gli script. Quando si è verificato un errore, DiskPart continua a elaborare i comandi come se non si è verificato l'errore. Senza questo parametro, un errore causa DiskPart viene interrotto con un codice di errore.|
 
 ## <a name="remarks"></a>Note
 
@@ -57,5 +57,5 @@ recover
 
 #### <a name="additional-references"></a>Altri riferimenti
 
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)
+[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
 

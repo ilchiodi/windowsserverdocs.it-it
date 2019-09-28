@@ -1,8 +1,8 @@
 ---
 title: recuperare
-description: 'Argomento i comandi di Windows per * * *- '
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: d6b9b5544394bfc69a2dc9f7be26ed8355a3f690
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 415efe2d1e60ca70d68059b5702108440da735f3
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66441965"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71371774"
 ---
 # <a name="recover"></a>recuperare
 
 
 
-Recupera le informazioni leggibili da un disco danneggiato o difettoso.
+Recupera le informazioni leggibili da un disco difettoso o difettoso.
 
 Per esempi di utilizzo di questo comando, vedere [Esempi](#BKMK_examples).
 
@@ -38,19 +38,19 @@ recover [<Drive>:][<Path>]<FileName>
 
 |           Parametro           |                                          Descrizione                                          |
 |-------------------------------|-----------------------------------------------------------------------------------------------|
-| [\<Drive>:][<Path>]<FileName> | Specifica il percorso e nome del file che si desidera ripristinare. *Nome del file* è obbligatorio. |
+| [\<Drive >:] [<Path>] <FileName> | Specifica il percorso e il nome del file che si desidera ripristinare. Il *nome file* è obbligatorio. |
 |              /?               |                             Visualizza la guida al prompt dei comandi.                              |
 
 ## <a name="remarks"></a>Note
 
--   Il **ripristinare** comando legge un file di settore per settore e recupera i dati dai settori in buone condizioni. I dati contenuti nei settori vengono persi.
--   Settori danneggiati segnalati dal **chkdsk** sono stati contrassegnati come "negative" quando il disco è stato preparato per l'operazione. Essi non rappresentano alcun rischio, e **ripristinare** non verranno influenzati.
--   Poiché tutti i dati contenuti nei settori viene perso quando si ripristina un file, è consigliabile ripristinare un solo file alla volta.
--   Non è possibile utilizzare caratteri jolly ( **&#42;** e **?** ) con i **ripristinare** comando. È necessario specificare un file (e il percorso del file se non è presente nella directory corrente).
+-   Il comando di **ripristino** legge un file, settoriale per settore, e recupera i dati dai settori validi. I dati nei settori danneggiati vengono persi.
+-   I settori danneggiati segnalati da **chkdsk** sono stati contrassegnati come "errati" quando il disco è stato preparato per l'operazione. Non costituiscono alcun rischio e il **ripristino** non influisce su di essi.
+-   Poiché tutti i dati nei settori danneggiati vengono persi quando si ripristina un file, è necessario recuperare un solo file alla volta.
+-   Non è possibile usare i caratteri **&#42;** jolly (e **?** ) con il comando **Recover** . È necessario specificare un file (e il percorso del file se non è presente nella directory corrente).
 
 ## <a name="BKMK_examples"></a>Esempi
 
-Per ripristinare il file storia. txt nella directory \Fiction nell'unità D, digitare:
+Per ripristinare il file Story. txt nella directory \Fiction sull'unità D, digitare:
 ```
 recover d:\fiction\story.txt 
 ```

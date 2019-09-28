@@ -1,8 +1,8 @@
 ---
 title: bitsadmin addfile
-description: Argomento i comandi di Windows per **bitsadmin addfile** -aggiunge un file al processo specificato.
+description: Argomento dei comandi di Windows per **BITSAdmin AddFile** -aggiunge un file al processo specificato.
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 1c3027bdc4f3f8f3e3ca50400b2c5dbf33bf2bc5
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 8dfddda92e506dbfca2a47394a310edf16fe78aa
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59861752"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71382038"
 ---
 # <a name="bitsadmin-addfile"></a>bitsadmin addfile
 
@@ -35,16 +35,16 @@ bitsadmin /AddFile <Job> <RemoteURL> <LocalName>
 |Parametro|Descrizione|
 |---------|-----------|
 |Job|Nome visualizzato o il GUID del processo|
-|RemoteURL|L'URL del file nel server.|
-|LocalName|Il nome del file nel computer locale. *LocalName* deve contenere un percorso assoluto del file.|
+|RemoteURL|URL del file nel server.|
+|LocalName|Nome del file nel computer locale. *LocalName* deve contenere un percorso assoluto del file.|
 
 ## <a name="BKMK_examples"></a>Esempi
 
-Aggiungere un file al processo. Ripetere questa chiamata per ogni file da aggiungere. Se più processi utilizzano *myDownloadJob* per il proprio nome, è necessario sostituire *myDownloadJob* con il GUID del processo per identificare in modo univoco il processo.
+Aggiungere un file al processo. Ripetere questa chiamata per ogni file che si desidera aggiungere. Se più processi usano *myDownloadJob* come nome, è necessario sostituire *MYDOWNLOADJOB* con il GUID del processo per identificare in modo univoco il processo.
 ```
 C:\>bitsadmin /addfile myDownloadJob http://downloadsrv/10mb.zip c:\10mb.zip
 ```
 
 #### <a name="additional-references"></a>Altri riferimenti
 
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)
+[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

@@ -2,18 +2,18 @@
 title: Creare un'attività di scadenza dei file
 description: Questo articolo descrive il processo di creazione di un'attività di gestione dei file prossimi alla scadenza
 ms.date: 7/7/2017
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: storage
 ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: b816dbe759d94980b2cc27284fd2e0ec7787d0b0
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 0901c17203252414a37ccc5205a0946b8bef0d41
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66445998"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71394234"
 ---
 # <a name="create-a-file-expiration-task"></a>Creare un'attività di scadenza dei file
 
@@ -61,7 +61,7 @@ Il nome della nuova directory è basato sul nome dell'attività di gestione dei 
 
      - Per inviare un messaggio di posta elettronica all'utente i cui file stanno per scadere, selezionare la casella di controllo **Invia messaggio di posta elettronica all'utente i cui file stanno per scadere**.
 
-     - Per configurare il messaggio, modificare la riga dell'oggetto e il corpo del messaggio predefiniti forniti. Il testo tra parentesi quadre inserisce informazioni sulle variabili in relazione all'evento di quota che ha generato la notifica. Ad esempio, il **\[Source File Owner\]** variabile inserisce il nome dell'utente il cui file sta per scadere. Per inserire altre variabili nel testo, fare clic su **Inserisci variabile**.
+     - Per configurare il messaggio, modificare la riga dell'oggetto e il corpo del messaggio predefiniti forniti. Il testo tra parentesi quadre inserisce informazioni sulle variabili in relazione all'evento di quota che ha generato la notifica. Ad esempio, il **proprietario del file \[Source @ no__t-2** variabile inserisce il nome dell'utente il cui file sta per scadere. Per inserire altre variabili nel testo, fare clic su **Inserisci variabile**.
 
      - Per allegare un elenco dei file che stanno per scadere, fare clic su **Allega a elenco di file inviati per posta elettronica su cui verrà eseguita l'azione** e digitare o selezionare un valore per **Numero massimo di file nell'elenco**.
 

@@ -1,22 +1,22 @@
 ---
 title: Configurare i file di dump della memoria per l'installazione Server Core
 description: Informazioni su come configurare i file di dump della memoria per un'installazione Server Core di Windows Server
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.mktglfcycl: manage
 ms.sitesec: library
 author: lizap
 ms.localizationpriority: medium
 ms.date: 10/17/2017
-ms.openlocfilehash: 0cea3118abce156acdd9ad933518015a25f8afbf
-ms.sourcegitcommit: 216d97ad843d59f12bf0b563b4192b75f66c7742
+ms.openlocfilehash: 4f1baa52fc9f0ebfe8afae35d86b7a7238d56223
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68476554"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71383395"
 ---
 # <a name="configure-memory-dump-files-for-server-core-installation"></a>Configurare i file di dump della memoria per l'installazione Server Core
 
->Si applica a Windows Server 2019, Windows Server 2016 e Windows Server (canale semestrale)
+>Si applica a: Windows Server 2019, Windows Server 2016 e Windows Server (canale semestrale)
 
 Usare la procedura seguente per configurare un dump della memoria per l'installazione dei componenti di base del server. 
 
@@ -39,15 +39,15 @@ Non è necessario avere il file di paging nella partizione in cui è installato 
 3. Fare clic su **modifica > nuovo valore stringa >** .
 4. Assegnare al nuovo valore il nome **DedicatedDumpFile**, quindi premere INVIO.
 5. Fare clic con il pulsante destro del mouse su **DedicatedDumpFile**, quindi scegliere **modifica**.
-6. In tipo   **\<di dati valore unità\\\>: DedicatedDumpFile.sys,quindifareclicsuOK.\<\>**
+6. In tipo di **dati valore** **\<Drive @ no__t-3: @no__t -4\<Dedicateddumpfile.sys @ no__t-6**e quindi fare clic su **OK**.
 
    >[!NOTE] 
-   > Sostituire \<l'\> unità con un'unità che disponga di spazio su disco sufficiente per il file di \<paging e sostituire\> DedicatedDumpFile. dmp con il percorso completo del file dedicato.
+   > Sostituire \<Drive @ no__t-1 con un'unità con spazio su disco sufficiente per il file di paging e sostituire @no__t -2Dedicateddumpfile. dmp @ no__t-3 con il percorso completo del file dedicato.
  
 7. Fare clic su **modifica > nuovo > valore DWORD**.
 8. Digitare **DumpFileSize**, quindi premere INVIO.
 9. Fare clic con il pulsante destro del mouse su **DumpFileSize**, quindi scegliere **modifica**.
-10. In **Modifica valore DWORD**, in **base**, fare clic su decimale.
+10. In **Modifica valore DWORD**, in **base**, fare clic su **decimale**.
 11. In **dati valore**Digitare il valore appropriato, quindi fare clic su **OK**.
     >[!NOTE]
     > Le dimensioni del file dump sono in megabyte (MB).
@@ -65,7 +65,7 @@ La destinazione predefinita per **DebugFilePath** è%SystemRoot%\Memory.dmp. Per
 wmic RECOVEROS set DebugFilePath = <FilePath>
 ```
 
-Impostare \<FilePath\> sul percorso di destinazione. Ad esempio, il comando seguente imposta il percorso di destinazione del dump della memoria su C:\WINDOWS\MEMORY. DMP 
+Impostare \<FilePath @ no__t-1 sul percorso di destinazione. Ad esempio, il comando seguente imposta il percorso di destinazione del dump della memoria su C:\WINDOWS\MEMORY. DMP 
 
 ```
 wmic RECOVEROS set DebugFilePath = C:\WINDOWS\MEMORY.DMP
@@ -85,7 +85,7 @@ Per modificare il tipo di dump della memoria corrente, eseguire il comando segue
 wmic RECOVEROS set DebugInfoType = <Value>
 ```
 
-\<Il\> valore può essere 0, 1, 2 o 3, come definito di seguito.
+\<Value @ no__t-1 può essere 0, 1, 2 o 3, come definito di seguito.
 
 - 0: Disabilitare la rimozione di un dump di memoria.
 - 1: Dump di memoria completo. Registra tutto il contenuto della memoria di sistema quando il computer si arresta in modo imprevisto. Un dump completo della memoria può contenere dati di processi in esecuzione quando è stato raccolto il dump della memoria.

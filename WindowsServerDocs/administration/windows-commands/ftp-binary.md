@@ -1,8 +1,8 @@
 ---
-title: FTP binario
-description: Argomento i comandi di Windows per i dati binari di ftp
+title: binario FTP
+description: Argomento dei comandi di Windows per FTP binario
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,14 +13,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: cadd59bff3bd2acf5c6d700caef66ca5c871b523
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 48579523f44232dec3357a20e8082050cc5175e6
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59821922"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71376576"
 ---
-# <a name="ftp-binary"></a>ftp: binary
+# <a name="ftp-binary"></a>FTP: binario
 
 >Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
@@ -31,13 +31,13 @@ binary
 ```  
 ### <a name="parameters"></a>Parametri  
 nessuno  
-## <a name="remarks-optional-section"></a>Sezione Osservazioni <optional section>  
-**FTP** supporta ASCII e tipi di trasferimento di file di immagine binari. Usa binario durante il trasferimento di file eseguibili. In modalità binaria, i file vengono trasferiti in unità di un byte. Per altre informazioni sul trasferimento di file ASCII, vedere **ftp: ascii** in riferimenti aggiuntivi.  
+## <a name="remarks-optional-section"></a>Osservazioni <optional section>  
+**FTP** supporta i tipi di trasferimento di file di immagine binari e ASCII. Usa binario durante il trasferimento di file eseguibili. In modalità binaria, i file vengono trasferiti in unità di un byte. Per ulteriori informazioni sul trasferimento di file ASCII, vedere **FTP: ASCII** in riferimenti aggiuntivi.  
 ## <a name="BKMK_Examples"></a>Esempi  
 Impostare il tipo di trasferimento di file in formato binario.  
 ```  
 binary  
 ```  
 ## <a name="additional-references"></a>Riferimenti aggiuntivi  
--   [ftp: ascii](ftp-ascii.md)  
--   [Chiave sintassi della riga di comando](command-line-syntax-key.md)  
+-   [FTP: ASCII](ftp-ascii.md)  
+-   [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)  

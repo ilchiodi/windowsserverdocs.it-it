@@ -1,8 +1,8 @@
 ---
 title: dcgpofix
-description: 'Argomento i comandi di Windows per * * *- '
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 179d540371870075906bbcbf8ff912e1b883915d
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 2592210ae688f47dcf2d32c7bef560d52223141c
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66433930"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71378764"
 ---
 # <a name="dcgpofix"></a>dcgpofix
 
@@ -37,13 +37,13 @@ DCGPOFix [/ignoreschema] [/target: {Domain | DC | Both}] [/?]
 |    Parametro    |                                                                                                 Descrizione                                                                                                 |
 |-----------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |  /IgnoreSchema  | Ignora la versione di mc schema Active Directory®</br>Quando si esegue questo comando. In caso contrario, il comando funziona solo nella stessa versione di schema come la versione di Windows in cui è stato fornito il comando. |
-| /target {Domain |                                                                                                     DC                                                                                                      |
+| /target {dominio |                                                                                                     DC                                                                                                      |
 |       /?        |                                                                                    Visualizza la Guida al prompt dei comandi.                                                                                     |
 
 ## <a name="remarks"></a>Note
 
--   Il **dcgpofix** comando è disponibile in Windows Server 2008 R2 e Windows Server 2008, tranne nelle installazioni Server Core.
--   Sebbene la Console Gestione criteri di gruppo (GPMC) viene distribuita con Windows Server 2008 R2 e Windows Server 2008, è necessario installare Gestione criteri di gruppo come funzionalità tramite Server Manager.
+-   Il comando **Dcgpofix** è disponibile in windows Server 2008 R2 e windows Server 2008, tranne che nelle installazioni dei componenti di base del server.
+-   Sebbene la Console Gestione Criteri di gruppo (GPMC) venga distribuita con Windows Server 2008 R2 e Windows Server 2008, è necessario installare Criteri di gruppo gestione come funzionalità tramite Server Manager.
 
 ## <a name="BKMK_Examples"></a>Esempi
 
@@ -58,5 +58,5 @@ dcgpofix /ignoreschema /target:DC
 
 #### <a name="additional-references"></a>Altri riferimenti
 
--   [TechCenter di criteri di gruppo](https://go.microsoft.com/fwlink/?LinkID=145531)
+-   [Criteri di gruppo TechCenter](https://go.microsoft.com/fwlink/?LinkID=145531)
 -   [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

@@ -1,119 +1,119 @@
 ---
 title: VM schermate - Il provider di servizi di hosting configura Windows Azure Pack
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.topic: article
 ms.assetid: d528c689-58b0-425c-9740-25e2553ed689
 manager: dongill
 author: rpsqrd
 ms.technology: security-guarded-fabric
 ms.date: 08/29/2018
-ms.openlocfilehash: 156832087bc7af0c95a92cab9a0c1501264d47a5
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: d388da2b7416543c307bd931636902b4a7543e1e
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66447498"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71403654"
 ---
 # <a name="shielded-vms---hosting-service-provider-sets-up-windows-azure-pack"></a>VM schermate - Il provider di servizi di hosting configura Windows Azure Pack
 
-Questo argomento descrive come un provider di servizi possibile configurare Windows Azure Pack in modo che i tenant possono usare per distribuire le macchine virtuali schermate. Windows Azure Pack è un portale web che estende le funzionalità di System Center Virtual Machine Manager per consentire ai tenant da distribuire e gestire le proprie macchine virtuali tramite una semplice interfaccia web. Windows Azure Pack interamente supporta le macchine virtuali schermate e rende ancora più semplice per i tenant creare e gestire i file di dati di schermatura.
+Questo argomento descrive come un provider di servizi di hosting può configurare Windows Azure Pack in modo che i tenant possano usarlo per distribuire macchine virtuali schermate. Windows Azure Pack è un portale Web che estende la funzionalità di System Center Virtual Machine Manager per consentire ai tenant di distribuire e gestire le proprie macchine virtuali tramite una semplice interfaccia Web. Windows Azure Pack supporta completamente le VM schermate e rende ancora più semplice per i tenant creare e gestire i file di dati di schermatura.
 
-Per comprendere come in questo argomento si integra nel processo complessivo della distribuzione di macchine virtuali schermate, vedere [passaggi di configurazione di provider di servizi di Hosting di host sorvegliati e macchine virtuali schermate](guarded-fabric-configuration-scenarios-for-shielded-vms-overview.md).
+Per comprendere il modo in cui questo argomento si integra nel processo generale di distribuzione delle macchine virtuali schermate, vedere la [procedura di configurazione del provider di servizi di hosting per gli host sorvegliati e le VM schermate](guarded-fabric-configuration-scenarios-for-shielded-vms-overview.md).
 
 ## <a name="setting-up-windows-azure-pack"></a>Configurazione di Windows Azure Pack
 
-Si completeranno le attività seguenti per configurare Windows Azure Pack nell'ambiente in uso:
+Per configurare Windows Azure Pack nell'ambiente in uso, è necessario completare le attività seguenti:
 
-1. Completare la configurazione di System Center 2016 - Virtual Machine Manager (VMM) per l'infrastruttura di hosting. È inoltre necessario impostare i modelli di macchina virtuale e un cloud VM, che verrà esposta tramite Windows Azure Pack:
+1. Completare la configurazione di System Center 2016-Virtual Machine Manager (VMM) per l'infrastruttura di hosting. Ciò include la configurazione di modelli di VM e un Cloud VM, che verranno esposti tramite Windows Azure Pack:
 
     [Scenario: distribuire host sorvegliati e macchine virtuali schermate in VMM](https://technet.microsoft.com/system-center-docs/vmm/scenario/guarded-overview)
 
-2. Installare e configurare System Center 2016 - Service Provider Foundation (SPF). Questo software consente a Windows Azure Pack per comunicare con i server VMM:
+2. Installare e configurare System Center 2016-Service Provider Foundation (SPF). Questo software consente Windows Azure Pack di comunicare con i server VMM:
 
-    [Distribuzione di Service Provider Foundation - SPF](https://technet.microsoft.com/system-center-docs/spf/deploy/deploy-spf)
+    [Distribuzione di Service Provider Foundation-SPF](https://technet.microsoft.com/system-center-docs/spf/deploy/deploy-spf)
 
-3. Installare Windows Azure Pack e configurarlo in modo da comunicare con SPF:
+3. Installare Windows Azure Pack e configurarlo per la comunicazione con SPF:
 
-    - [Installare Windows Azure Pack](#install-windows-azure-pack) (in questo argomento)
+    - [Installa Windows Azure Pack](#install-windows-azure-pack) (in questo argomento)
     - [Configurare Windows Azure Pack](#configure-windows-azure-pack) (in questo argomento)
 
-4. Creare uno o più piani di hosting in Windows Azure Pack per consentire l'accesso ai cloud VM i tenant:
+4. Creare uno o più piani di hosting in Windows Azure Pack per consentire ai tenant di accedere ai Cloud VM:
 
-    [Creare un piano in Windows Azure Pack](#create-a-plan-in-windows-azure-pack) (in questo argomento)
+    [Creazione di un piano in Windows Azure Pack](#create-a-plan-in-windows-azure-pack) (in questo argomento)
 
-## <a name="install-windows-azure-pack"></a>Installare Windows Azure Pack
+## <a name="install-windows-azure-pack"></a>Installa Windows Azure Pack
 
-Installare e configurare Windows Azure Pack (WAP) nel computer in cui si vuole ospitare il portale web per i tenant. Questo computer dovrà essere in grado di raggiungere il server di SPF e deve essere raggiungibile per i tenant.
+Installare e configurare Windows Azure Pack (WAP) nel computer in cui si vuole ospitare il portale Web per i tenant. Il computer deve essere in grado di raggiungere il server SPF ed essere raggiungibile dai tenant.
 
-1.  Revisione [requisiti di sistema WAP](https://technet.microsoft.com/library/dn296442.aspx) e installare le [prerequisiti software](https://technet.microsoft.com/library/dn469335.aspx).
+1.  Revisione dei [requisiti di sistema WAP](https://technet.microsoft.com/library/dn296442.aspx) e installazione dei [prerequisiti software](https://technet.microsoft.com/library/dn469335.aspx).
 
-2.  Scaricare e installare il [instalace Webové Platformy](https://www.microsoft.com/web/downloads/platform.aspx). Se il computer non è connesso a Internet, seguire le [istruzioni di installazione offline](http://www.iis.net/learn/install/web-platform-installer/web-platform-installer-v4-command-line-webpicmdexe-rtw-release).
+2.  Scaricare e installare l' [installazione guidata piattaforma Web](https://www.microsoft.com/web/downloads/platform.aspx). Se il computer non è connesso a Internet, seguire le [istruzioni per l'installazione offline](http://www.iis.net/learn/install/web-platform-installer/web-platform-installer-v4-command-line-webpicmdexe-rtw-release).
 
-3.  Aprire l'installazione guidata piattaforma Web e trovare **Windows Azure Pack: Portale e API Express** sotto la **prodotti** scheda. Fare clic su **Add**, quindi **installare** nella parte inferiore della finestra.
+3.  Aprire l'installazione guidata piattaforma Web e trovare **Windows Azure Pack: Il portale e l'API Express @ no__t-0 nella scheda **prodotti** . Fare clic su **Aggiungi**, quindi su **Installa** nella parte inferiore della finestra.
 
-4.  Proseguire con l'installazione. Al termine dell'installazione, il sito di configurazione (*https://&lt;wapserver&gt;: 30101 /* ) apre nel browser web. In questo sito Web, forniscono informazioni sull'istanza di SQL server e completare la configurazione di WAP.
+4.  Proseguire con l'installazione. Al termine dell'installazione, nel Web browser verrà aperto il sito di configurazione (*https://&lt;wapserver @ no__t-2:30101/* ). In questo sito Web, fornire informazioni su SQL Server e completare la configurazione di WAP.
 
-Per ulteriori informazioni sulla configurazione di Windows Azure Pack, vedere [installare una distribuzione con installazione rapida di Windows Azure Pack](https://technet.microsoft.com/dn296439.aspx).
+Per informazioni sulla configurazione di Windows Azure Pack, vedere [Install an Express Deployment of Windows Azure Pack](https://technet.microsoft.com/dn296439.aspx).
 
 > [!NOTE]
-> Se si esegue già Windows Azure Pack nell'ambiente in uso, è possibile usare l'installazione esistente. Per poter funzionare con le ultime funzionalità delle VM schermate, tuttavia, è necessario aggiornare l'installazione di almeno aggiornamento cumulativo 10.
+> Se è già stato eseguito Windows Azure Pack nell'ambiente in uso, è possibile usare l'installazione esistente. Per lavorare con le più recenti funzionalità di VM schermate, tuttavia, sarà necessario aggiornare l'installazione almeno all'aggiornamento cumulativo 10.
 
 ### <a name="configure-windows-azure-pack"></a>Configurare Windows Azure Pack
 
-Prima di utilizzare Windows Azure Pack, si dovrebbe già installato e configurato per l'infrastruttura.
+Prima di usare Windows Azure Pack, è necessario che sia già installato e configurato per l'infrastruttura.
 
-1.  Passare al portale di amministrazione di Windows Azure Pack al *https://&lt;wapserver&gt;: 30091*e quindi accedere con le credenziali di amministratore.
+1.  Passare al portale di amministrazione di Windows Azure Pack in *https://&lt;wapserver @ no__t-2:30091*e quindi accedere con le credenziali di amministratore.
 
-2.  Nel riquadro sinistro, fare clic su **cloud VM**.
+2.  Nel riquadro sinistro fare clic su **Cloud VM**.
 
-3.  Connettersi a Windows Azure Pack per l'istanza di Service Provider Foundation facendo **registra System Center Service Provider Foundation**. È necessario specificare l'URL per Service Provider Foundation, nonché un nome utente e password.
+3.  Per connettersi Windows Azure Pack all'istanza di Service Provider Foundation, fare clic su **registra Service Provider Foundation di System Center**. Sarà necessario specificare l'URL per Service Provider Foundation, nonché un nome utente e una password.
 
-    ![Registra System Center Service Provider Foundation](../media/Guarded-Fabric-Shielded-VM/guarded-host-azure-pack-01-register-spf.png)
+    ![Registra Service Provider Foundation di System Center](../media/Guarded-Fabric-Shielded-VM/guarded-host-azure-pack-01-register-spf.png)
 
-4.  Al termine, sarà in grado di visualizzare i cloud VM impostato nell'ambiente VMM. Assicurarsi di che disporre di almeno un cloud della macchina virtuale che supporta macchine virtuali schermate di disponibili per WAP prima di continuare.
+4.  Al termine, dovrebbe essere possibile visualizzare i Cloud VM configurati nell'ambiente VMM. Prima di continuare, assicurarsi di avere almeno un Cloud VM che supporta le macchine virtuali schermate disponibili per WAP.
 
 ### <a name="create-a-plan-in-windows-azure-pack"></a>Creare un piano in Windows Azure Pack
 
-Per consentire ai tenant di creare le VM in WAP, è innanzitutto necessario creare un piano di hosting a cui i tenant possano sottoscriversi. I piani di definiscono il cloud di macchine Virtuali consentiti, modelli, reti ed entità di fatturazione per i tenant.
+Per consentire ai tenant di creare macchine virtuali in WAP, è innanzitutto necessario creare un piano di hosting a cui i tenant possono eseguire la sottoscrizione. I piani definiscono i Cloud VM consentiti, i modelli, le reti e le entità di fatturazione per i tenant.
 
-1. Nel riquadro inferiore del portale, fare clic su **+ nuovo** &gt; **piano** &gt; **crea piano**.
+1. Nel riquadro inferiore del portale fare clic su **+ nuovo** &gt; **piano** &gt; **crea piano**.
 
-2. Nel primo passaggio della procedura guidata, scegliere un nome per il piano. Si tratta del nome che di tenant verrà visualizzato quando la sottoscrizione.
+2. Nel primo passaggio della procedura guidata scegliere un nome per il piano. Si tratta del nome che verrà visualizzato dai tenant durante la sottoscrizione.
 
-3. Nel secondo passaggio, selezionare **cloud di macchine VIRTUALI** come uno dei servizi da offrire nel piano.
+3. Nel secondo passaggio selezionare Cloud di **macchine virtuali** come uno dei servizi da offrire nel piano.
 
-4. Ignorare il passaggio sulla selezione di tutti i componenti aggiuntivi per il piano.
+4. Ignorare il passaggio relativo alla selezione dei componenti aggiuntivi per il piano.
 
-5. Fare clic su **OK** (segno di spunta) per creare il piano. Anche se si crea il piano, non è ancora presente in uno stato configurato.
+5. Fare clic su **OK** (segno di spunta) per creare il piano. Sebbene venga creato il piano, lo stato non è ancora configurato.
 
-   ![I piani in Windows Azure Pack](../media/Guarded-Fabric-Shielded-VM/guarded-host-azure-pack-02-create-plan.png)
+   ![Piani in Windows Azure Pack](../media/Guarded-Fabric-Shielded-VM/guarded-host-azure-pack-02-create-plan.png)
 
 6. Per iniziare a configurare il piano, fare clic sul relativo nome.
 
-7. Nella pagina successiva, sotto **servizi del piano**, fare clic su **Virtual Machine Clouds**. Verrà visualizzata la pagina in cui è possibile configurare le quote per questo piano.
+7. Nella pagina successiva, in **servizi del piano**, fare clic su **cloud macchine virtuali**. Verrà visualizzata la pagina in cui è possibile configurare le quote per questo piano.
 
-8. Sotto **base**, selezionare il Server di gestione VMM e il Cloud di macchine virtuali che si desidera offrire ai tenant. Verranno visualizzati con i cloud che possono offrire le macchine virtuali schermate **(schermatura supportata)** accanto al nome.
+8. In **Basic**selezionare il server di gestione VMM e il cloud di macchine virtuali che si vuole offrire ai tenant. I cloud che possono offrire VM schermate verranno visualizzati con **(schermatura supportata)** accanto al nome.
 
-9. Selezionare le quote da applicare in questo piano. (Ad esempio, i limiti per core della CPU e utilizzo della RAM). Assicurarsi di lasciare il **consentire le macchine virtuali per essere schermata** casella di controllo selezionata.
+9. Selezionare le quote da applicare al piano. (Ad esempio, limiti per l'utilizzo di CPU e memoria Core). Assicurarsi di lasciare selezionata la casella di controllo **Consenti la schermatura delle macchine virtuali** .
 
-   ![Impostazioni per il cloud di macchine virtuali in Windows Azure Pack](../media/Guarded-Fabric-Shielded-VM/guarded-host-azure-pack-03-virtual-machine-clouds.png)
+   ![Impostazioni per i cloud di macchine virtuali in Windows Azure Pack](../media/Guarded-Fabric-Shielded-VM/guarded-host-azure-pack-03-virtual-machine-clouds.png)
     
-10. Scorrere fino alla sezione intitolata **modelli**e quindi selezionare uno o più modelli per offrire ai tenant. È possibile offrire entrambi schermate e i modelli schermati ai tenant, ma un modello schermato deve essere offerti per offrire garanzie di end-to-end sull'integrità della VM e i propri segreti tenant.
+10. Scorrere verso il basso fino alla sezione **modelli**, quindi selezionare uno o più modelli da offrire ai tenant. È possibile offrire modelli schermati e non schermati ai tenant, ma è necessario che sia disponibile un modello schermato per concedere ai tenant garanzie end-to-end sull'integrità della VM e sui relativi segreti.
 
-11. Nel **reti** sezione, aggiungere una o più reti per i tenant.
+11. Nella sezione **reti** aggiungere una o più reti per i tenant.
 
-12. Dopo l'impostazione altri impostazioni o le quote per il piano, fare clic su **salvare** nella parte inferiore.
+12. Dopo aver impostato le altre impostazioni o quote per il piano, fare clic su **Salva** nella parte inferiore.
 
-13. Nella parte superiore sinistra della schermata, fare clic sulla freccia per consentono di eseguire il backup per il **pianificare** pagina.
+13. Nella parte superiore sinistra della schermata fare clic sulla freccia per tornare alla pagina del **piano** .
 
-14. Nella parte inferiore della schermata, modificare il piano da in corso **privati** al **pubblico** in modo che i tenant possono sottoscrivere il piano.
+14. Nella parte inferiore della schermata modificare il piano da **privato** a **pubblico** in modo che i tenant possano sottoscrivere il piano.
 
     ![Modificare l'accesso per un piano in Windows Azure Pack](../media/Guarded-Fabric-Shielded-VM/guarded-host-azure-pack-04-change-access.png)
 
-    A questo punto, è configurato Windows Azure Pack e i tenant potranno sottoscrivere il piano che appena creato e distribuire VM schermate. Per altri passaggi che è necessario completare i tenant, vedere [schermato macchine virtuali per tenant - distribuzione di una macchina virtuale schermata usando Microsoft Azure Pack](guarded-fabric-shielded-vm-windows-azure-pack.md).
+    A questo punto, Windows Azure Pack è configurato e i tenant saranno in grado di sottoscrivere il piano appena creato e distribuire le macchine virtuali schermate. Per ulteriori passaggi che i tenant devono completare, vedere [macchine virtuali schermate per i tenant-distribuzione di una macchina virtuale schermata usando Windows Azure Pack](guarded-fabric-shielded-vm-windows-azure-pack.md).
 
 ## <a name="see-also"></a>Vedere anche
 
-- [Passaggi di configurazione di provider di servizi di hosting di host sorvegliati e macchine virtuali schermate](guarded-fabric-configuration-scenarios-for-shielded-vms-overview.md)
+- [Procedura di configurazione del provider di servizi di hosting per host sorvegliati e macchine virtuali schermate](guarded-fabric-configuration-scenarios-for-shielded-vms-overview.md)
 - [Infrastruttura sorvegliata e macchine virtuali schermate](guarded-fabric-and-shielded-vms-top-node.md)

@@ -7,14 +7,14 @@ ms.author: joflore
 manager: mtillman
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 7b35eee77b69714580a859402a8942621efdc180
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 52f77e2cb60be66d8be2e3927fe0f97c2c945994
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59821882"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71391018"
 ---
 # <a name="active-directory-domain-services"></a>Servizi di dominio di Active Directory
 
@@ -24,10 +24,10 @@ ms.locfileid: "59821882"
 In questa pagina è possibile trovare collegamenti a contenuti di servizi di dominio Active Directory.   
 
 
-* [Quali sono le novità in servizi di dominio Active Directory](../whats-new-active-directory-domain-services.md)  
-* [Introduzione ad AD DS](../ad-ds/AD-DS-Getting-Started.md)   
-* [Pianificazione e progettazione di AD DS](../ad-ds/plan/AD-DS-Design-and-Planning.md)  
+* [Novità di Active Directory Domain Services](../whats-new-active-directory-domain-services.md)  
+* [Introduzione di servizi di dominio Active Directory](../ad-ds/AD-DS-Getting-Started.md)   
+* [Pianificazione e progettazione di Active Directory Domain Services](../ad-ds/plan/AD-DS-Design-and-Planning.md)  
 * [Distribuzione di Active Directory Domain Services](../ad-ds/deploy/AD-DS-Deployment.md)  
-* [Operazioni di AD DS](../ad-ds/manage/component-updates/AD-DS-Operations.md)   
-* [Virtualizzazione di servizi di dominio Active Directory](../ad-ds/get-started/virtual-dc/Active-Directory-Domain-Services-Virtualization.md)  
-* [Risoluzione dei problemi relativi AD DS](../ad-ds/manage/AD-DS-Troubleshooting.md)
+* [Operazioni di Active Directory Domain Services](../ad-ds/manage/component-updates/AD-DS-Operations.md)   
+* [Virtualizzazione di Active Directory Domain Services](../ad-ds/get-started/virtual-dc/Active-Directory-Domain-Services-Virtualization.md)  
+* [Risoluzione dei problemi relativi ad Active Directory Domain Services](../ad-ds/manage/AD-DS-Troubleshooting.md)

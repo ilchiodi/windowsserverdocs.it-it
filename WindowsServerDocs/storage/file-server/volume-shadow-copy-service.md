@@ -1,21 +1,21 @@
 ---
 title: Servizio Copia Shadow del volume
 ms.date: 01/30/2019
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: storage
 author: JasonGerend
 manager: elizapo
 ms.author: jgerend
-ms.openlocfilehash: 3fc184f8f23e4325198e3a1a08f20109c2c577e8
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 19e07504dad49c5e23cc49630015529e2a746aa7
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70867322"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71394453"
 ---
 # <a name="volume-shadow-copy-service"></a>Servizio Copia Shadow del volume
 
-Si applica a Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012 e Windows Server 2008 R2, Windows Server 2008, Windows 10, Windows 8.1, Windows 8, Windows 7
+Si applica a: Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012 e Windows Server 2008 R2, Windows Server 2008, Windows 10, Windows 8.1, Windows 8, Windows 7
 
 Il backup e il ripristino dei dati aziendali critici possono essere molto complessi a causa dei problemi seguenti:
 

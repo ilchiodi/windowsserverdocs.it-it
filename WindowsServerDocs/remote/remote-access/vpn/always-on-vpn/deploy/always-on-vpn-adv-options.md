@@ -2,7 +2,7 @@
 title: Funzionalità avanzate di VPN Always On
 description: Oltre allo scenario di distribuzione fornito in questa distribuzione, è possibile aggiungere altre funzionalità VPN avanzate per migliorare la sicurezza e la disponibilità della connessione VPN.
 ms.assetid: 51a1ee61-3ffe-4f65-b8de-ff21903e1e74
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking-ras
 ms.topic: article
 ms.date: 07/24/19
@@ -10,16 +10,16 @@ ms.author: pashort, v-tea
 author: shortpatti
 ms.localizationpriority: medium
 ms.reviewer: deverette
-ms.openlocfilehash: e09a23b6f1c14c4c14b00fd19d84d0abb71d0163
-ms.sourcegitcommit: e40fce7b8b4bc0bef278e676435306f14078cf00
+ms.openlocfilehash: aee2f14d0d99fd453fa6fb1f3147a515ca57abb1
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68787213"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71366909"
 ---
 # <a name="advanced-features-of-always-on-vpn"></a>Funzionalità avanzate di Always On VPN
 
->Si applica a Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows 10
+>Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows 10
 
 - [**Precedente** Scopri la tecnologia VPN Always On](../always-on-vpn-technology-overview.md)
 - [**Prossimo** Iniziare a pianificare la distribuzione di Always On VPN](always-on-vpn-deploy-planning.md)
@@ -50,7 +50,7 @@ Di seguito sono riportate le opzioni aggiuntive per le funzionalità avanzate.
 
 |Opzione  |Descrizione  |
 |---------|---------|
-|Filtro del traffico     |Se è necessario applicare la scelta dei client VPN che possono accedere alle applicazioni, è possibile abilitare i filtri di traffico VPN.<p>Per altre informazioni, vedere [funzionalità di sicurezza VPN](https://docs.microsoft.com/windows/access-protection/vpn/vpn-security-features).         |
+|Filtraggio del traffico     |Se è necessario applicare la scelta dei client VPN che possono accedere alle applicazioni, è possibile abilitare i filtri di traffico VPN.<p>Per altre informazioni, vedere [funzionalità di sicurezza VPN](https://docs.microsoft.com/windows/access-protection/vpn/vpn-security-features).         |
 |VPN attivata dall'app     |È possibile configurare i profili VPN per la connessione automatica quando si avviano determinate applicazioni o tipi di applicazioni.<p>Per altre informazioni su questa e altre opzioni di attivazione, vedere [Opzioni del profilo attivato automaticamente da VPN](https://docs.microsoft.com/windows/access-protection/vpn/vpn-auto-trigger-profile).         |
 |Accesso condizionale VPN   |L'accesso condizionale e la conformità dei dispositivi possono richiedere che i dispositivi gestiti soddisfino gli standard prima che possano connettersi alla VPN. Una delle funzionalità avanzate per l'accesso condizionale VPN consente di limitare le connessioni VPN solo a quelle in cui il certificato di autenticazione client contiene l'OID "accesso condizionale AAD" di **1.3.6.1.4.1.311.87**.<p>Per limitare le connessioni VPN, è necessario eseguire le operazioni seguenti:<ol><li>Nel server dei criteri di rete aprire lo snap-in **Server dei criteri di rete** .</li><li>Espandere **criteri** > criteri di**rete**.</li><li>Fare clic con il pulsante destro del mouse su connessioni di rete **privata virtuale (VPN)** e selezionare **Proprietà**.</li><li>Selezionare la scheda **Impostazioni** .</li><li>Selezionare **specifico del fornitore**e quindi selezionare **Aggiungi**.</li><li>Selezionare l'opzione **allowed-certificate-OID** , quindi selezionare **Aggiungi**.</li><li>Incollare l'OID di accesso condizionale di AAD di **1.3.6.1.4.1.311.87** come valore dell'attributo, quindi selezionare **OK** due volte.</li><li>Selezionare **Chiudi**e quindi fare clic su **applica**.<p>Dopo aver eseguito questi passaggi, quando i client VPN tentano di connettersi usando un certificato diverso dal certificato cloud di breve durata, la connessione non riesce.</li></ol>Per altre informazioni sull'accesso condizionale, vedere [VPN e accesso condizionale](https://docs.microsoft.com/windows/access-protection/vpn/vpn-conditional-access).   |
 
@@ -64,7 +64,7 @@ Dopo aver installato gli aggiornamenti, il server RRAS può applicare la revoca 
 
 Nella tabella seguente sono elencate le versioni di che contengono le correzioni per ogni versione di Windows.
 
-|Versione del sistema operativo |Rilascio  |
+|Versione del sistema operativo |Release  |
 |---------|---------|
 |Windows Server, versione 1903  |[KB4501375](https://support.microsoft.com/help/4501375/windows-10-update-kb4501375) |
 |Windows Server 2019<br />Windows Server, versione 1809  |[KB4505658](https://support.microsoft.com/help/4505658/windows-10-update-kb4505658)  |
