@@ -2,18 +2,18 @@
 title: Impostare il metodo di ordinamento delle destinazioni nei riferimenti
 description: Questo articolo descrive come impostare il metodo di ordinamento per le destinazioni nei riferimenti.
 ms.date: 6/5/2017
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: storage
 ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: 52568944a98bed7960b37335b2e3cbbde61479ca
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: bb42a98666941c5dfa50a8dfbf45635ad25dc767
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66447199"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71386141"
 ---
 # <a name="set-the-ordering-method-for-targets-in-referrals"></a>Impostare il metodo di ordinamento delle destinazioni nei riferimenti
 
@@ -40,7 +40,7 @@ Usa la procedura seguente per impostare il metodo di ordinamento nella radice de
 >    -   **EnableInsiteReferrals** specifica il metodo di ordinamento **Escludi destinazioni esterne al sito del client**
 >    -   L'omissione di un parametro specifica il metodo di ordinamento **Ordine casuale** 
 
-Il modulo DFSN Windows PowerShell è stato introdotto in Windows Server 2012.
+Il modulo DFSN di Windows PowerShell è stato introdotto in Windows Server 2012.
    
 ## <a name="to-set-the-ordering-method-for-targets-in-folder-referrals"></a>Per impostare il metodo di ordinamento delle destinazioni nei riferimenti a cartelle
 
@@ -67,7 +67,7 @@ I tre metodi di ordinamento sono i seguenti:
 
 In questo metodo le destinazioni vengono ordinate come segue:
 
-1.  Nello stesso sito Active Directory Directory Services (AD DS) del client vengono ordinate in ordine casuale nella parte superiore del riferimento.
+1.  Le destinazioni nello stesso sito di servizi di Active Directory directory (AD DS) del client sono elencate in ordine casuale nella parte superiore del riferimento.
 2.  Destinazioni esterne al sito del client sono elencate in ordine casuale.
 
 Se nessun server di destinazione è disponibile nello stesso sito, il computer client viene indicato a un server di destinazione casuale indipendentemente dal costo delle connessione o dalla distanza della destinazione.

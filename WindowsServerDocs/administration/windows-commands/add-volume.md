@@ -1,8 +1,8 @@
 ---
-title: aggiungere un volume
-description: Argomento i comandi di Windows per **Aggiungi volume** -aggiunge volumi per la copia shadow Set, ovvero il set di volumi shadow copiati.
+title: Aggiungi volume
+description: Windows Commands Topic for **Add volume** -aggiunge i volumi al set di copie shadow, ovvero il set di volumi da replicare.
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,14 +13,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 8960ffafdf49d4512e1df2dfcc046bdfbe56e224
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: c534bcc5a264fbb51d12cfd2a6fc93b4e6fbd857
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59819472"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71382792"
 ---
-# <a name="add-volume"></a>aggiungere un volume
+# <a name="add-volume"></a>Aggiungi volume
 
 
 
@@ -69,4 +69,4 @@ add volume c: alias System1
 
 #### <a name="additional-references"></a>Altri riferimenti
 
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)
+[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

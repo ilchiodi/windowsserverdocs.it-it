@@ -1,8 +1,8 @@
 ---
 title: replace
-description: Informazioni su come usare il comando replace per sostituire i file.
+description: Informazioni su come usare il comando Sostituisci per sostituire i file.
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 07/11/2018
-ms.openlocfilehash: 293534a2287fe0219643dacc88926018c37dbdcc
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 0e96be58106847a3ff6451cdb7792a197ec40227
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66441772"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71384513"
 ---
 # <a name="replace"></a>replace
 
@@ -39,8 +39,8 @@ replace [<Drive1>:][<Path1>]<FileName> [<Drive2>:][<Path2>] [/p] [/r] [/s] [/w] 
 
 |Parametro|Descrizione|
 |---------|-----------|
-|[\<Drive1>:][\<Path1>]\<FileName>|Specifica il percorso e nome del file di origine o un set di file. *Nome file* è obbligatorio e può includere caratteri jolly ( **&#42;** e **?** ).|
-|[\<Drive2>:][\<Path2>]|Specifica il percorso del file di destinazione. È possibile specificare un nome di file per file da sostituire. Se non si specifica un'unità o percorso, **sostituire** utilizza l'unità corrente e la directory come destinazione.|
+|[\<Drive1 >:] [\<Path1 >] \<FileName >|Specifica il percorso e nome del file di origine o un set di file. *Filename* è obbligatorio e può includere caratteri jolly ( **&#42;** e **?** ).|
+|[\<Drive2 >:] [\<Path2 >]|Specifica il percorso del file di destinazione. È possibile specificare un nome di file per file da sostituire. Se non si specifica un'unità o percorso, **sostituire** utilizza l'unità corrente e la directory come destinazione.|
 |/a|Aggiunge nuovi file della directory di destinazione invece di sostituire i file esistenti. Non è possibile utilizzare questa opzione della riga di comando con il **/s** o **/u** opzione della riga di comando.|
 |/ p|Chiede conferma prima di sostituire un file di destinazione o aggiunta di un file di origine.|
 |/r|Sostituisce i file protetti e di sola lettura. Se si tenta di sostituire un file di sola lettura, ma non si specifica **/r**, risultati di un errore e arresta l'operazione di sostituzione.|

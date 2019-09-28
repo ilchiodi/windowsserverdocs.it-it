@@ -7,30 +7,30 @@ author: MicrosoftGuyJFlo
 manager: mtillman
 ms.date: 08/07/2018
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: fc2aaa9f7c7c42b6e94995ff473a580ce560ed93
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 00e307da35911189114257eea88ccaf90ceab1ae
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59820002"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71390720"
 ---
 # <a name="advanced-ad-ds-management-using-active-directory-administrative-center-level-200"></a>Advanced AD DS Management Using Active Directory Administrative Center (Level 200)
 
 >Si applica a: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-In questo argomento viene illustrato il Centro di amministrazione di Active Directory aggiornato con una descrizione dettagliata delle nuove funzionalità, ad esempio il Cestino di Active Directory, i criteri granulari per le password e il Visualizzatore della cronologia di Windows PowerShell, e vengono forniti esempi per attività comuni, oltre a informazioni sull'architettura e sulla risoluzione dei problemi. Per un'introduzione, vedere [Introduzione a Active Directory Administrative Center Enhancements &#40;livello 100&#41;](../../../ad-ds/get-started/adac/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-.md).  
+In questo argomento viene illustrato il Centro di amministrazione di Active Directory aggiornato con una descrizione dettagliata delle nuove funzionalità, ad esempio il Cestino di Active Directory, i criteri granulari per le password e il Visualizzatore della cronologia di Windows PowerShell, e vengono forniti esempi per attività comuni, oltre a informazioni sull'architettura e sulla risoluzione dei problemi. Per un'introduzione, vedere [Introduzione al &#40;livello di miglioramento di centro di amministrazione di Active Directory&#41;100](../../../ad-ds/get-started/adac/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-.md).  
   
-- [Architettura di centro di amministrazione di Active Directory](../../../ad-ds/get-started/adac/Advanced-AD-DS-Management-Using-Active-Directory-Administrative-Center--Level-200-.md#BKMK_Arch)  
-- [Cestino abilitazione e la gestione di Active Directory tramite Centro di amministrazione di Active Directory](../../../ad-ds/get-started/adac/Advanced-AD-DS-Management-Using-Active-Directory-Administrative-Center--Level-200-.md#BKMK_EnableRecycleBin)  
-- [Configurazione e gestione dei criteri granulari per le Password usando centro di amministrazione di Active Directory](../../../ad-ds/get-started/adac/Advanced-AD-DS-Management-Using-Active-Directory-Administrative-Center--Level-200-.md#BKMK_FGPP)  
-- [Utilizzando il Visualizzatore della cronologia di PowerShell di Active Directory centro di amministrazione Windows](../../../ad-ds/get-started/adac/Advanced-AD-DS-Management-Using-Active-Directory-Administrative-Center--Level-200-.md#BKMK_HistoryViewer)  
-- [Risoluzione dei problemi relativi AD DS Management](../../../ad-ds/get-started/adac/Advanced-AD-DS-Management-Using-Active-Directory-Administrative-Center--Level-200-.md#BKMK_Tshoot)  
+- [Architettura Centro di amministrazione di Active Directory](../../../ad-ds/get-started/adac/Advanced-AD-DS-Management-Using-Active-Directory-Administrative-Center--Level-200-.md#BKMK_Arch)  
+- [Abilitazione e gestione del Cestino Active Directory tramite Centro di amministrazione di Active Directory](../../../ad-ds/get-started/adac/Advanced-AD-DS-Management-Using-Active-Directory-Administrative-Center--Level-200-.md#BKMK_EnableRecycleBin)  
+- [Configurazione e gestione dei criteri granulari per le password con Centro di amministrazione di Active Directory](../../../ad-ds/get-started/adac/Advanced-AD-DS-Management-Using-Active-Directory-Administrative-Center--Level-200-.md#BKMK_FGPP)  
+- [Uso del Visualizzatore della cronologia di Windows PowerShell Centro di amministrazione di Active Directory](../../../ad-ds/get-started/adac/Advanced-AD-DS-Management-Using-Active-Directory-Administrative-Center--Level-200-.md#BKMK_HistoryViewer)  
+- [Risoluzione dei problemi di gestione di servizi di dominio Active Directory](../../../ad-ds/get-started/adac/Advanced-AD-DS-Management-Using-Active-Directory-Administrative-Center--Level-200-.md#BKMK_Tshoot)  
   
-## <a name="BKMK_Arch"></a>Architettura di centro di amministrazione di Active Directory  
+## <a name="BKMK_Arch"></a>Architettura Centro di amministrazione di Active Directory  
   
-### <a name="active-directory-administrative-center-executables-dlls"></a>Active Directory centro di amministrazione eseguibili, DLL  
+### <a name="active-directory-administrative-center-executables-dlls"></a>File eseguibili di Centro di amministrazione di Active Directory, dll  
 
 Il modulo e l'architettura sottostante del Centro di amministrazione di Active Directory sono rimasti invariati anche in seguito all'introduzione delle funzionalità del nuovo cestino, dei criteri granulari per le password e del visualizzatore della cronologia.  
   
@@ -42,13 +42,13 @@ Il modulo e l'architettura sottostante del Centro di amministrazione di Active D
   
 L'architettura sottostante di Windows PowerShell e il livello delle operazioni per il nuovo Cestino sono illustrati di seguito:  
   
-![Advanced AD DS Management](media/Advanced-AD-DS-Management-Using-Active-Directory-Administrative-Center--Level-200-/adds_adrestore.png)  
+![Gestione avanzata di servizi di dominio Active Directory](media/Advanced-AD-DS-Management-Using-Active-Directory-Administrative-Center--Level-200-/adds_adrestore.png)  
   
-## <a name="BKMK_EnableRecycleBin"></a>Cestino abilitazione e la gestione di Active Directory tramite Centro di amministrazione di Active Directory  
+## <a name="BKMK_EnableRecycleBin"></a>Abilitazione e gestione del Cestino Active Directory tramite Centro di amministrazione di Active Directory  
   
 ### <a name="capabilities"></a>Funzionalità  
   
-- Il Windows Server 2012 o versioni successive centro di amministrazione di Active Directory consente di configurare e gestire Cestino di Active Directory per qualsiasi partizione di dominio in una foresta. Non è più necessario usare Windows PowerShell o Ldp.exe per abilitare il Cestino di Active Directory o ripristinare gli oggetti in partizioni di dominio.
+- Il Centro di amministrazione di Active Directory Windows Server 2012 o versioni successive consente di configurare e gestire il Cestino Active Directory per qualsiasi partizione di dominio in una foresta. Non è più necessario usare Windows PowerShell o Ldp.exe per abilitare il Cestino di Active Directory o ripristinare gli oggetti in partizioni di dominio.
 - Il Centro di Amministrazione di Active Directory offre criteri di filtro avanzati per semplificare il ripristino mirato in ambienti di grandi dimensioni con molti oggetti eliminati intenzionalmente.
   
 ### <a name="limitations"></a>Limitazioni  
@@ -58,15 +58,15 @@ L'architettura sottostante di Windows PowerShell e il livello delle operazioni p
 - Nel Centro di amministrazione di Active Directory non è possibile ripristinare sottoalberi di oggetti in un'unica operazione. Se ad esempio si elimina un'unità organizzativa con unità amministrative, utenti, gruppi e computer annidati, il ripristino dell'unità organizzativa di base non ripristina gli oggetti figlio.  
   
     > [!NOTE]  
-    > L'operazione di ripristino di batch centro di amministrazione di Active Directory effettua un "massimo sforzo" ordinamento degli oggetti eliminati *all'interno della selezione solo* in modo che gli oggetti padre siano ordinati prima di quelli figlio per l'elenco di ripristino. Nei casi di test più semplici, potrebbe essere possibile ripristinare i sottoalberi di oggetti in un'unica operazione. Tuttavia, casi estremi, ad esempio una selezione contenente alberi parziali - alberi con alcuni dei nodi padre eliminati mancante - o casi di errore, ad esempio ignorando gli oggetti figlio durante il ripristino padre ha esito negativo, potrebbe non funzionare come previsto. Per questo motivo, è consigliabile ripristinare sempre i sottoalberi di oggetti con un'operazione separata dopo avere ripristinato gli oggetti padre.  
+    > L'operazione di ripristino batch Centro di amministrazione di Active Directory esegue un tipo di "massimo sforzo" degli oggetti eliminati *all'interno della selezione, in* modo che i padri vengano ordinati prima degli elementi figlio per l'elenco di ripristino. Nei casi di test più semplici, potrebbe essere possibile ripristinare i sottoalberi di oggetti in un'unica operazione. Tuttavia, i casi d'angolo, ad esempio una selezione contenente alberi ad albero parziali in cui mancano alcuni dei nodi padre eliminati, o i casi di errore, ad esempio ignorando gli oggetti figlio quando il ripristino padre ha esito negativo, potrebbero non funzionare come previsto. Per questo motivo, è consigliabile ripristinare sempre i sottoalberi di oggetti con un'operazione separata dopo avere ripristinato gli oggetti padre.  
   
-Cestino di Active Directory richiede un Windows Server 2008 R2 livello di funzionalità foresta ed è necessario essere un membro del gruppo Enterprise Admins. Se si abilita il Cestino di Active Directory nell'ambiente in uso, non sarà più possibile disabilitarlo. Il Cestino di Active Directory comporta un aumento delle dimensioni del database di Active Directory (NTDS.DIT) in ogni controller di dominio della foresta. Lo spazio su disco usato dal cestino continua ad aumentare nel tempo, in quanto conserva gli oggetti e tutti i dati degli attributi.  
+Il cestino del Active Directory richiede un livello di funzionalità della foresta di Windows Server 2008 R2 ed è necessario essere un membro del gruppo Enterprise Admins. Se si abilita il Cestino di Active Directory nell'ambiente in uso, non sarà più possibile disabilitarlo. Il Cestino di Active Directory comporta un aumento delle dimensioni del database di Active Directory (NTDS.DIT) in ogni controller di dominio della foresta. Lo spazio su disco usato dal cestino continua ad aumentare nel tempo, in quanto conserva gli oggetti e tutti i dati degli attributi.  
   
 ### <a name="enabling-active-directory-recycle-bin-using-active-directory-administrative-center"></a>Abilitazione del Cestino di Active Directory dal Centro di amministrazione di Active Directory
 
 Per abilitare il Cestino di Active Directory, aprire il **Centro di amministrazione di Active Directory** e fare clic sul nome della foresta nel pannello di navigazione. Nel riquadro **Attività** fare clic su **Abilita Cestino**.  
   
-![Advanced AD DS Management](media/Advanced-AD-DS-Management-Using-Active-Directory-Administrative-Center--Level-200-/ADDS_ADAC_TR_EnableRecycleBin.png)  
+![Gestione avanzata di servizi di dominio Active Directory](media/Advanced-AD-DS-Management-Using-Active-Directory-Administrative-Center--Level-200-/ADDS_ADAC_TR_EnableRecycleBin.png)  
   
 Verrà visualizzata la finestra di dialogo **Abilita conferma Cestino** del Centro di amministrazione di Active Directory. La finestra di dialogo indica che l'abilitazione del cestino è irreversibile. Fare clic su **OK** per abilitare il Cestino di Active Directory. Nel Centro di amministrazione di Active Directory verrà visualizzata un'altra finestra di dialogo che ricorda all'utente che il Cestino di Active Directory non sarà pienamente funzionale fintanto che tutti i controller di dominio non replicano la modifica alla configurazione.  
   
@@ -76,7 +76,7 @@ Verrà visualizzata la finestra di dialogo **Abilita conferma Cestino** del Cent
 > - Il livello di funzionalità della foresta è inferiore a Windows Server 2008 R2.  
 > - È già abilitato.  
 
-Il cmdlet di Windows PowerShell per Active Directory equivalente è:  
+Il cmdlet Active Directory Windows PowerShell equivalente è:  
 
 ```powershell
 Enable-ADOptionalFeature  
@@ -88,21 +88,21 @@ Per altre informazioni sull'uso di Windows PowerShell per abilitare il Cestino d
 
 In questa sezione viene usato l'esempio relativo a un dominio esistente denominato **corp.contoso.com**. Il dominio organizza gli utenti in un'unità organizzativa padre denominata **UserAccounts**. L'unità organizzativa **UserAccounts** contiene tre unità organizzative figlio denominate in base al reparto e ognuna di esse contiene altre unità organizzative, utenti e gruppi.  
   
-![Advanced AD DS Management](media/Advanced-AD-DS-Management-Using-Active-Directory-Administrative-Center--Level-200-/ADDS_ADAC_TR_EnableRecycleBinExampleOU.png)  
+![Gestione avanzata di servizi di dominio Active Directory](media/Advanced-AD-DS-Management-Using-Active-Directory-Administrative-Center--Level-200-/ADDS_ADAC_TR_EnableRecycleBinExampleOU.png)  
   
 #### <a name="storage-and-filtering"></a>Archiviazione e filtro
 
 Il Cestino di Active Directory conserva tutti gli oggetti eliminati nella foresta. Salva gli oggetti in base all'attributo **msDS-deletedObjectLifetime**, che per impostazione predefinita corrisponde all'attributo **tombstoneLifetime** della foresta. In ogni foresta creata con Windows Server 2003 SP1 o versioni successive, il valore di **tombstoneLifetime** è pari a 180 giorni per impostazione predefinita. Nelle foreste aggiornate da Windows 2000 o installate con Windows Server 2003 (senza Service Pack) l'attributo tombstoneLifetime predefinito NON È IMPOSTATO e pertanto viene usato il valore predefinito interno di Windows di 60 giorni. Queste impostazioni sono configurabili. È possibile usare il Centro di amministrazione di Active Directory per ripristinare gli oggetti eliminati dalle partizioni del dominio della foresta. È necessario continuare a usare il cmdlet **Restore-ADObject** per ripristinare gli oggetti eliminati da altre partizioni, ad esempio la partizione di configurazione. L'abilitazione del Cestino di Active Directory rende visibile il contenitore **Oggetti eliminati** in ogni partizione del dominio nel Centro di amministrazione di Active Directory.  
   
-![Advanced AD DS Management](media/Advanced-AD-DS-Management-Using-Active-Directory-Administrative-Center--Level-200-/ADDS_ADAC_TR_DeletedObjectsContainer.png)  
+![Gestione avanzata di servizi di dominio Active Directory](media/Advanced-AD-DS-Management-Using-Active-Directory-Administrative-Center--Level-200-/ADDS_ADAC_TR_DeletedObjectsContainer.png)  
   
 Nel contenitore **Oggetti eliminati** sono visualizzati tutti gli oggetti che si possono ripristinare in quella partizione del dominio. Gli oggetti eliminati più vecchi di **msDS-deletedObjectLifetime** sono noti come oggetti riciclati. Gli oggetti riciclati non sono visualizzati nel Centro di amministrazione di Active Directory e non è possibile ripristinare questi oggetti tramite il Centro di amministrazione di Active Directory.  
   
-Per una spiegazione più approfondita dell'architettura del Cestino e delle regole di elaborazione, vedere [Cestino di Active Directory: Informazioni, implementazione, procedure consigliate e risoluzione dei problemi](http://blogs.technet.com/b/askds/archive/2009/08/27/the-ad-recycle-bin-understanding-implementing-best-practices-and-troubleshooting.aspx).  
+Per una spiegazione più approfondita dell'architettura del cestino e delle regole di elaborazione, vedere il cestino di Active Directory [The: Informazioni, implementazione, procedure consigliate e risoluzione dei problemi @ no__t-0.  
   
 Il Centro di amministrazione di Active Directory limita artificialmente il numero predefinito di oggetti restituito da un contenitore a 20.000 oggetti. Per aumentare questo limite fino a 100.000 oggetti, fare clic sul menu **Gestisci** e quindi su **Opzioni elenco elementi da gestire**.  
   
-![Advanced AD DS Management](media/Advanced-AD-DS-Management-Using-Active-Directory-Administrative-Center--Level-200-/ADDS_ADAC_TR_MgmtList.png)  
+![Gestione avanzata di servizi di dominio Active Directory](media/Advanced-AD-DS-Management-Using-Active-Directory-Administrative-Center--Level-200-/ADDS_ADAC_TR_MgmtList.png)  
   
 #### <a name="restoration"></a>Ripristino  
   
@@ -110,23 +110,23 @@ Il Centro di amministrazione di Active Directory limita artificialmente il numer
 
 Il Centro di amministrazione di Active Directory offre potenti criteri e opzioni di filtro con i quali è necessario acquisire familiarità prima di usarli per un ripristino reale. Nel relativo ciclo di vita, i domini eliminano intenzionalmente molti oggetti. Con una probabile durata dell'oggetto eliminato di 180 giorni, non è possibile ripristinare tutti gli oggetti quando si verifica un incidente.  
   
-![Advanced AD DS Management](media/Advanced-AD-DS-Management-Using-Active-Directory-Administrative-Center--Level-200-/ADDS_ADAC_TR_AddCriteria.png)  
+![Gestione avanzata di servizi di dominio Active Directory](media/Advanced-AD-DS-Management-Using-Active-Directory-Administrative-Center--Level-200-/ADDS_ADAC_TR_AddCriteria.png)  
   
 Invece di scrivere filtri LDAP complessi e convertire valori UTC in date e ore, è possibile usare il menu **Filtro** con filtri di base e avanzati per visualizzare solo gli oggetti pertinenti. Se si conosce il giorno dell'eliminazione, i nomi degli oggetti o altri dati chiave, è consigliabile usarli per filtrare i dati. Attivare le opzioni relative al filtro avanzato facendo clic sulla freccia di espansione a destra della casella di ricerca.  
   
 L'operazione di ripristino supporta tutte le opzioni dei criteri di filtro standard, come qualsiasi altra ricerca. In genere, i filtri incorporati importanti per il ripristino di oggetti sono:  
   
-- *ANR (risoluzione nome ambiguo, non è elencata nel menu ma usato quando si digita nella * * * filtro * * * finestra)*  
+- *ANR (risoluzione del nome ambiguo: non elencato nel menu, ma ciò che viene usato quando si digita nella casella * * * * Filter * * * *)*  
 - Ultima modifica compresa nell'intervallo di date specificato  
 - L'oggetto è Utente/inetOrgPerson/Computer/Gruppo/Unità organizzativa  
 - Nome  
 - Data di eliminazione  
 - Ultimo padre noto  
-- Tipo  
+- Type  
 - Descrizione  
-- Città  
+- City  
 - Paese/area geografica  
-- Reparto  
+- department  
 - ID dipendente  
 - Nome  
 - Posizione  
@@ -137,11 +137,11 @@ L'operazione di ripristino supporta tutte le opzioni dei criteri di filtro stand
 - UPN  
 - CAP  
 
-È possibile aggiungere più criteri. Ad esempio, è possibile trovare tutti gli oggetti utente eliminati 24 settembre 2012 da Chicago, Illinois, con un titolo professionale di gestione.
+È possibile aggiungere più criteri. Ad esempio, è possibile trovare tutti gli oggetti utente eliminati il 24 settembre 2012 da Chicago, Illinois con un titolo di lavoro manager.
   
 È anche possibile aggiungere, modificare o riordinare le intestazioni di colonna per visualizzare più dettagli durante la valutazione degli oggetti da recuperare.  
   
-![Advanced AD DS Management](media/Advanced-AD-DS-Management-Using-Active-Directory-Administrative-Center--Level-200-/ADDS_ADAC_TR_ColumnHeaders.png)  
+![Gestione avanzata di servizi di dominio Active Directory](media/Advanced-AD-DS-Management-Using-Active-Directory-Administrative-Center--Level-200-/ADDS_ADAC_TR_ColumnHeaders.png)  
   
 Per altre informazioni su Risoluzione nome ambiguo, vedere [Attributi ANR](https://msdn.microsoft.com/library/ms675092(VS.85).aspx).  
   
@@ -155,17 +155,17 @@ Il ripristino di oggetti eliminati può essere da sempre eseguito con una singol
   
 L'oggetto viene ripristinato nel percorso originale.  
   
-![Advanced AD DS Management](media/Advanced-AD-DS-Management-Using-Active-Directory-Administrative-Center--Level-200-/ADDS_ADAC_TR_RestoreSingle.gif)  
+![Gestione avanzata di servizi di dominio Active Directory](media/Advanced-AD-DS-Management-Using-Active-Directory-Administrative-Center--Level-200-/ADDS_ADAC_TR_RestoreSingle.gif)  
   
-Fare clic su **ripristinare in...**  per modificare il percorso di ripristino. Ciò è utile se è stato eliminato anche contenitore padre dell'oggetto eliminato, ma non si vuole ripristinare l'elemento padre.  
+Fare clic su **Ripristina in...** per modificare il percorso di ripristino. Questa operazione è utile se è stato eliminato anche il contenitore padre dell'oggetto eliminato, ma non si desidera ripristinare l'elemento padre.  
   
-![Advanced AD DS Management](media/Advanced-AD-DS-Management-Using-Active-Directory-Administrative-Center--Level-200-/ADDS_ADAC_TR_RestoreToSingle.gif)  
+![Gestione avanzata di servizi di dominio Active Directory](media/Advanced-AD-DS-Management-Using-Active-Directory-Administrative-Center--Level-200-/ADDS_ADAC_TR_RestoreToSingle.gif)  
   
 ##### <a name="multiple-peer-objects"></a>Più oggetti peer
 
 È possibile ripristinare più oggetti a livello di peer, ad esempio tutti gli utenti in un'unità organizzativa. Tenere premuto il tasto CTRL e fare clic su uno o più oggetti eliminati da ripristinare. Fare clic su **Ripristina** dal riquadro Attività. Per selezionare tutti gli oggetti visualizzati, tenere premuti i tasti CTRL e A. Per selezionare un intervallo di oggetti tenere premuto il tasto MAIUSC e fare clic.  
   
-![Advanced AD DS Management](media/Advanced-AD-DS-Management-Using-Active-Directory-Administrative-Center--Level-200-/ADDS_ADAC_TR_RestorePeers.png)  
+![Gestione avanzata di servizi di dominio Active Directory](media/Advanced-AD-DS-Management-Using-Active-Directory-Administrative-Center--Level-200-/ADDS_ADAC_TR_RestorePeers.png)  
   
 ##### <a name="multiple-parent-and-child-objects"></a>Più oggetti padre e figlio
 
@@ -180,29 +180,29 @@ Non è possibile ripristinare un oggetto figlio prima di ripristinare il relativ
   
 **Il padre dell'oggetto è privo di istanza o è stato eliminato.**  
   
-L'attributo **Ultimo padre noto** mostra la relazione padre di ogni oggetto. L'attributo **Ultimo padre noto** passa dal percorso eliminato al percorso ripristinato dopo aver aggiornato il Centro di amministrazione di Active Directory a seguito del ripristino di un oggetto padre. Pertanto, è possibile ripristinare tale oggetto figlio quando il percorso dell'oggetto padre non viene più visualizzato il nome distinto del contenitore oggetti eliminati.  
+L'attributo **Ultimo padre noto** mostra la relazione padre di ogni oggetto. L'attributo **Ultimo padre noto** passa dal percorso eliminato al percorso ripristinato dopo aver aggiornato il Centro di amministrazione di Active Directory a seguito del ripristino di un oggetto padre. Pertanto, è possibile ripristinare l'oggetto figlio quando il percorso di un oggetto padre non Visualizza più il nome distinto del contenitore degli oggetti eliminati.  
   
 Di seguito viene presentato uno scenario in cui un amministratore elimina accidentalmente l'unità organizzativa Sales che contiene unità organizzative e utenti figlio.  
   
-In primo luogo, osservare il valore dei **ultimo padre noto** attributo per tutti gli utenti eliminati e la modalità di lettura **OU = Sales\0ADEL:*< guid + contenitore oggetti eliminati il nome distinto > * * *:  
+Osservare innanzitutto il valore dell'ultimo attributo **padre noto** per tutti gli utenti eliminati e il modo in cui legge **ou = Sales\0ADEL:* < GUID + oggetti eliminati nome distinto del contenitore > * * *:  
   
-![Advanced AD DS Management](media/Advanced-AD-DS-Management-Using-Active-Directory-Administrative-Center--Level-200-/ADDS_ADAC_TR_LastKnownParent.gif)  
+![Gestione avanzata di servizi di dominio Active Directory](media/Advanced-AD-DS-Management-Using-Active-Directory-Administrative-Center--Level-200-/ADDS_ADAC_TR_LastKnownParent.gif)  
   
 Filtrare in base al nome ambiguo Sales per visualizzare l'unità organizzativa eliminata, che verrà quindi ripristinata:  
   
-![Advanced AD DS Management](media/Advanced-AD-DS-Management-Using-Active-Directory-Administrative-Center--Level-200-/ADDS_ADAC_TR_LastKnownParentSales.png)  
+![Gestione avanzata di servizi di dominio Active Directory](media/Advanced-AD-DS-Management-Using-Active-Directory-Administrative-Center--Level-200-/ADDS_ADAC_TR_LastKnownParentSales.png)  
   
-Aggiornare il centro di amministrazione di Active Directory per vedere attributo ultimo padre noto dell'oggetto utente eliminato di cambiare il nome distinto dell'unità Organizzativa Sales ripristinato:  
+Aggiornare il Centro di amministrazione di Active Directory per vedere la modifica dell'ultimo attributo padre noto dell'oggetto utente eliminato nel nome distinto dell'unità organizzativa Sales ripristinata:  
   
-![Advanced AD DS Management](media/Advanced-AD-DS-Management-Using-Active-Directory-Administrative-Center--Level-200-/ADDS_ADAC_TR_LastKnownParentSalesRestored.gif)  
+![Gestione avanzata di servizi di dominio Active Directory](media/Advanced-AD-DS-Management-Using-Active-Directory-Administrative-Center--Level-200-/ADDS_ADAC_TR_LastKnownParentSalesRestored.gif)  
   
 Filtrare in base a tutti gli utenti Sales. Tenere premuti i tasti CTRL e A per selezionare tutti gli utenti Sales eliminati. Fare clic su **Ripristina** per spostare gli oggetti dal contenitore **Oggetti eliminati** all'unità organizzativa Sales con le appartenenze ai gruppi e gli attributi intatti.  
   
-![Advanced AD DS Management](media/Advanced-AD-DS-Management-Using-Active-Directory-Administrative-Center--Level-200-/ADDS_ADAC_TR_LastKnownParentSalesUndelete.png)  
+![Gestione avanzata di servizi di dominio Active Directory](media/Advanced-AD-DS-Management-Using-Active-Directory-Administrative-Center--Level-200-/ADDS_ADAC_TR_LastKnownParentSalesUndelete.png)  
   
 Se l'unità organizzativa **Sales** contiene unità organizzative figlio indipendenti, è necessario ripristinare le unità organizzative figlio prima di ripristinare i relativi oggetti figlio e così via.  
   
-Per ripristinare gli oggetti eliminati annidati tutto specificando un contenitore padre eliminato, vedere [appendice b: Ripristinare più oggetti Active Directory (Script di esempio) eliminati](https://technet.microsoft.com/library/dd379504(WS.10).aspx).  
+Per ripristinare tutti gli oggetti eliminati annidati specificando un contenitore padre eliminato, vedere [Appendix B: Ripristinare più oggetti Active Directory eliminati (script di esempio) ](https://technet.microsoft.com/library/dd379504(WS.10).aspx).  
   
 Il cmdlet di Windows PowerShell per Active Directory per il ripristino degli oggetti eliminati è:  
 
@@ -220,7 +220,7 @@ Nel tempo è possibile che nel contenitore Oggetti eliminati di medie e grandi i
 2. Fare clic sulla freccia di espansione per visualizzare il menu **+Aggiungi criteri**, quindi selezionare e aggiungere **Ultima modifica compresa nell'intervallo di date specificato**. L'ora dell'ultima modifica (l'attributo **whenChanged**) rappresenta un'approssimazione dell'ora di modifica e, nella maggior parte degli ambienti, questi valori sono identici. Questa query consente di eseguire una ricerca sul lato server.  
 3. Individuare gli oggetti eliminati da ripristinare applicando altre opzioni di visualizzazione, filtro e ordinamento ai risultati e quindi ripristinarli normalmente.  
   
-## <a name="BKMK_FGPP"></a>Configurazione e gestione dei criteri granulari per le Password usando centro di amministrazione di Active Directory  
+## <a name="BKMK_FGPP"></a>Configurazione e gestione dei criteri granulari per le password con Centro di amministrazione di Active Directory  
   
 ### <a name="configuring-fine-grained-password-policies"></a>Configurazione dei criteri granulari per le password
 
@@ -230,19 +230,19 @@ Per altre informazioni sulla gestione delle password, vedere [Guida dettagliata 
   
 Nel riquadro di spostamento fare clic su Visualizzazione albero, selezionare il dominio e fare clic su **Sistema**, su **Contenitore Impostazioni password**. Nel riquadro Attività fare clic su **Nuovo** e infine su **Impostazioni password**.  
   
-![Advanced AD DS Management](media/Advanced-AD-DS-Management-Using-Active-Directory-Administrative-Center--Level-200-/ADDS_ADAC_TR_PasswordSettings.png)  
+![Gestione avanzata di servizi di dominio Active Directory](media/Advanced-AD-DS-Management-Using-Active-Directory-Administrative-Center--Level-200-/ADDS_ADAC_TR_PasswordSettings.png)  
   
 ### <a name="managing-fine-grained-password-policies"></a>Gestione dei criteri granulari per le password
 
 Durante la creazione di un nuovo criterio granulare per le password o la modifica di uno esistente, viene visualizzato l'editor **Impostazioni password** . Da qui è possibile configurare tutti i criteri per le password desiderati esattamente come in Windows Server 2008 o in Windows Server 2008 R2, solo che ora questa operazione viene eseguita nell'apposito editor.  
   
-![Advanced AD DS Management](media/Advanced-AD-DS-Management-Using-Active-Directory-Administrative-Center--Level-200-/ADDS_ADAC_TR_CreatePasswordSettings.png)  
+![Gestione avanzata di servizi di dominio Active Directory](media/Advanced-AD-DS-Management-Using-Active-Directory-Administrative-Center--Level-200-/ADDS_ADAC_TR_CreatePasswordSettings.png)  
   
 Compilare tutti i campi obbligatori (contrassegnati con un asterisco rosso) e i campi facoltativi, quindi fare clic su **Aggiungi** per impostare gli utenti o i gruppi destinatari di questo criterio. I criteri granulari per le password sostituiscono le impostazioni dei criteri di dominio predefinite per le entità di sicurezza specificate. Nella figura precedente, un criterio estremamente restrittivo viene applicato solo all'account predefinito Administrator, per impedirne la compromissione. Il criterio è troppo complesso per essere applicato a utenti standard, ma è perfetto per un account ad alto rischio usato esclusivamente dai professionisti IT.  
   
 È inoltre possibile impostare le precedenze e definire gli utenti e i gruppi a cui verrà applicato il criterio all'interno di un determinato dominio.  
   
-![Advanced AD DS Management](media/Advanced-AD-DS-Management-Using-Active-Directory-Administrative-Center--Level-200-/ADDS_ADAC_TR_Precedence.png)  
+![Gestione avanzata di servizi di dominio Active Directory](media/Advanced-AD-DS-Management-Using-Active-Directory-Administrative-Center--Level-200-/ADDS_ADAC_TR_Precedence.png)  
   
 I cmdlet di Windows PowerShell per Active Directory per i criteri granulari per le password sono:  
   
@@ -258,19 +258,19 @@ Set-ADFineGrainedPasswordPolicy
 
 La funzionalità del cmdlet per i criteri granulari per le password non è stata modificata nel passaggio da Windows Server 2008 R2 a Windows Server 2012. Per maggiore semplicità, il diagramma seguente illustra gli argomenti associati per i cmdlet:  
   
-![Advanced AD DS Management](media/Advanced-AD-DS-Management-Using-Active-Directory-Administrative-Center--Level-200-/ADDS_ADAC_TR_FGPP.gif)  
+![Gestione avanzata di servizi di dominio Active Directory](media/Advanced-AD-DS-Management-Using-Active-Directory-Administrative-Center--Level-200-/ADDS_ADAC_TR_FGPP.gif)  
   
-Il Centro di amministrazione di Active Directory consente di individuare il set risultante dei criteri granulari per le password applicati per un utente specifico. Fare clic con il pulsante destro tutti gli utenti e fare clic su **Visualizza impostazioni password risultanti...**  per aprire la *impostazioni Password* pagina in cui si applica all'utente tramite assegnazione implicita o esplicita:  
+Il Centro di amministrazione di Active Directory consente di individuare il set risultante dei criteri granulari per le password applicati per un utente specifico. Fare clic con il pulsante destro del mouse su un utente e scegliere **Visualizza impostazioni password risultanti...** per aprire la pagina *Impostazioni password* che si applica a tale utente tramite assegnazione implicita o esplicita:  
   
-![Advanced AD DS Management](media/Advanced-AD-DS-Management-Using-Active-Directory-Administrative-Center--Level-200-/ADDS_ADAC_TR_RSOP.png)  
+![Gestione avanzata di servizi di dominio Active Directory](media/Advanced-AD-DS-Management-Using-Active-Directory-Administrative-Center--Level-200-/ADDS_ADAC_TR_RSOP.png)  
   
 Nelle **Proprietà** di ogni utente vengono mostrate le **Impostazioni password associate direttamente**, che sono i criteri granulari per le password assegnati in modo esplicito:  
   
-![Advanced AD DS Management](media/Advanced-AD-DS-Management-Using-Active-Directory-Administrative-Center--Level-200-/ADDS_ADAC_TR_FGPPSettings.gif)  
+![Gestione avanzata di servizi di dominio Active Directory](media/Advanced-AD-DS-Management-Using-Active-Directory-Administrative-Center--Level-200-/ADDS_ADAC_TR_FGPPSettings.gif)  
   
-Implicita granulari per le non vengono visualizzati in questa sede. a tal fine, è necessario usare il **Visualizza impostazioni password risultanti...**  opzione.  
+L'assegnazione FGPP implicita non viene visualizzata qui. per questo motivo, è necessario usare l'opzione **Visualizza impostazioni password risultanti** ....  
   
-## <a name="BKMK_HistoryViewer"></a>Utilizzando il Visualizzatore della cronologia di PowerShell di Active Directory centro di amministrazione Windows
+## <a name="BKMK_HistoryViewer"></a>Uso del Visualizzatore della cronologia di Windows PowerShell Centro di amministrazione di Active Directory
 
 Windows PowerShell rappresenta la gestione di Windows del futuro. La sovrapposizione di strumenti grafici su un framework di automazione delle attività garantisce una gestione coerente ed efficiente dei sistemi distribuiti più complessi. Per sfruttare il potenziale offerto da Windows PowerShell e ottimizzare gli investimenti IT, è necessario comprenderne il funzionamento.  
   
@@ -278,27 +278,27 @@ Il Centro di amministrazione di Active Directory ora offre la cronologia complet
   
 Il Visualizzatore della cronologia di Windows PowerShell del Centro di amministrazione di Active Directory consente all'utente di imparare attraverso l'esperienza pratica.  
   
-![Advanced AD DS Management](media/Advanced-AD-DS-Management-Using-Active-Directory-Administrative-Center--Level-200-/ADDS_ADAC_TR_HistoryViewer.gif)  
+![Gestione avanzata di servizi di dominio Active Directory](media/Advanced-AD-DS-Management-Using-Active-Directory-Administrative-Center--Level-200-/ADDS_ADAC_TR_HistoryViewer.gif)  
   
 Fare clic sulla freccia di espansione per aprire il Visualizzatore della cronologia di Windows PowerShell.  
   
-![Advanced AD DS Management](media/Advanced-AD-DS-Management-Using-Active-Directory-Administrative-Center--Level-200-/ADDS_ADAC_TR_RaiseViewer.png)  
+![Gestione avanzata di servizi di dominio Active Directory](media/Advanced-AD-DS-Management-Using-Active-Directory-Administrative-Center--Level-200-/ADDS_ADAC_TR_RaiseViewer.png)  
   
 Creare quindi un utente o modificare l'appartenenza di un gruppo. Il visualizzatore della cronologia viene aggiornato continuamente con una visualizzazione compressa di ogni cmdlet eseguito dal Centro di amministrazione di Active Directory con gli argomenti specificati.  
   
 Espandere le righe a cui si è interessati per visualizzare tutti i valori forniti agli argomenti del cmdlet:  
   
-![Advanced AD DS Management](media/Advanced-AD-DS-Management-Using-Active-Directory-Administrative-Center--Level-200-/ADDS_ADAC_TR_ViewArgs.png)  
+![Gestione avanzata di servizi di dominio Active Directory](media/Advanced-AD-DS-Management-Using-Active-Directory-Administrative-Center--Level-200-/ADDS_ADAC_TR_ViewArgs.png)  
   
 Fare clic sul menu **Avvia attività** per creare una notazione manuale prima di usare il Centro di amministrazione di Active Directory per creare, modificare o eliminare un oggetto. Digitare l'operazione eseguita.  Al termine della modifica, selezionare **Termina attività**. La nota dell'attività raggruppa tutte le operazioni eseguite in una nota comprimibile per una migliore comprensione.  
   
 Ad esempio, per visualizzare i comandi di Windows PowerShell usati per modificare la password di un utente e rimuovere quest'ultimo da un gruppo:  
   
-![Advanced AD DS Management](media/Advanced-AD-DS-Management-Using-Active-Directory-Administrative-Center--Level-200-/ADDS_ADAC_TR_RemoveUser.gif)  
+![Gestione avanzata di servizi di dominio Active Directory](media/Advanced-AD-DS-Management-Using-Active-Directory-Administrative-Center--Level-200-/ADDS_ADAC_TR_RemoveUser.gif)  
   
 Se si seleziona la casella di controllo Mostra tutto, vengono visualizzati i cmdlet di Windows PowerShell con il verbo Get-* che recuperano solo i dati.  
   
-![Advanced AD DS Management](media/Advanced-AD-DS-Management-Using-Active-Directory-Administrative-Center--Level-200-/ADDS_ADAC_TR_ShowAll.png)  
+![Gestione avanzata di servizi di dominio Active Directory](media/Advanced-AD-DS-Management-Using-Active-Directory-Administrative-Center--Level-200-/ADDS_ADAC_TR_ShowAll.png)  
   
 Il visualizzatore della cronologia mostra i comandi letterali eseguiti dal Centro di amministrazione di Active Directory ed è possibile osservare che l'esecuzione di alcuni cmdlet sembra non essere necessaria. Ad esempio, è possibile creare un nuovo utente con:  
 
@@ -316,7 +316,7 @@ set-aduser
 
 La progettazione del Centro di amministrazione di Active Directory ha richiesto modularità e uso di codice minimi. Di conseguenza, invece di un set di funzioni per la creazione dei nuovi utenti e di un altro set per la modifica degli utenti esistenti, esegue tutte le funzioni e le concatena con i cmdlet. Tenere presente questo concetto durante l'apprendimento di Windows PowerShell per Active Directory. Questa può anche essere considerata una tecnica di apprendimento che consente di visualizzare come è facile usare Windows PowerShell per completare un'attività.  
   
-## <a name="BKMK_Tshoot"></a>Risoluzione dei problemi relativi AD DS Management  
+## <a name="BKMK_Tshoot"></a>Risoluzione dei problemi di gestione di servizi di dominio Active Directory  
   
 ### <a name="introduction-to-troubleshooting"></a>Introduzione alla risoluzione dei problemi
 
@@ -326,9 +326,9 @@ Poiché è stato introdotto di recente e l'uso negli ambienti dei clienti esiste
   
 #### <a name="logging-options"></a>Opzioni di registrazione
 
-Il centro di amministrazione di Active Directory contiene ora la registrazione predefinita, come parte di un file di configurazione di traccia. Creare/modificare il file seguente nella stessa cartella del file dsac.exe:  
+Il Centro di amministrazione di Active Directory ora contiene la registrazione incorporata, come parte di un file di configurazione di traccia. Creare/modificare il file seguente nella stessa cartella del file dsac.exe:  
   
-**dsac.exe.config**
+**dsac. exe. config**
   
 Creare il contenuto seguente:  
   
@@ -439,7 +439,7 @@ Il livello di dettaglio INFO ad esempio restituisce tutti i risultati ad eccezio
 L'impostazione del livello Dettagliato consente inoltre di visualizzare gli stack .NET per ogni funzione, ma poiché contengono un numero ridotto di dati non risultano particolarmente utili se non per la risoluzione dei problemi di Dsac.exe quando si verifica una violazione dell'accesso o un arresto anomalo. Le due cause probabili di questo problema sono le seguenti:
   
 - Il servizio Servizi Web Active Directory non è in esecuzione in ogni controller di dominio accessibile.
-- Le comunicazioni di rete vengono bloccate per il servizio servizi Web Active Directory nel computer che esegue il centro di amministrazione di Active Directory.
+- Le comunicazioni di rete sono bloccate per il servizio ADWS dal computer in cui è in esecuzione la Centro di amministrazione di Active Directory.
 
 > [!IMPORTANT]  
 > È disponibile anche una versione fuori programma del servizio chiamata [Gateway di gestione di Active Directory](https://www.microsoft.com/download/en/details.aspx?displaylang=en&id=2852), che viene eseguita in Windows Server 2008 SP2 e Windows Server 2003 SP2.
@@ -450,7 +450,7 @@ Di seguito sono illustrati gli errori visualizzati quando non sono disponibili i
 |Errore|Operazione|
 | --- | --- |  
 |"Impossibile connettersi ad alcun dominio. Aggiornare la pagina o riprovare quando sarà disponibile una connessione."|Visualizzato all'avvio del Centro di amministrazione di Active Directory|
-|"Impossibile trovare un server disponibile nel *<NetBIOS domain name>* dominio che esegue il servizio Active Directory Web Service (ADWS)"|Visualizzato quando si tenta di selezionare un nodo di dominio nell'applicazione Centro di amministrazione di Active Directory|
+|"Impossibile trovare un server disponibile nel dominio *<NetBIOS domain name>* in cui è in esecuzione il servizio Web di Active Directory (ADWS)"|Visualizzato quando si tenta di selezionare un nodo di dominio nell'applicazione Centro di amministrazione di Active Directory|
   
 Per risolvere questo problema, eseguire la procedura seguente:  
   
@@ -486,4 +486,4 @@ Per risolvere questo problema, eseguire la procedura seguente:
   
 ## <a name="see-also"></a>Vedere anche
 
-[Il Cestino di Active directory Bin, i criteri granulari per le Password e la cronologia di PowerShell](../../../ad-ds/get-started/adac/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-.md)  
+[Cestino di AD, criteri granulari per le password e cronologia di PowerShell](../../../ad-ds/get-started/adac/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-.md)  

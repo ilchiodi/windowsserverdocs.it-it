@@ -1,7 +1,7 @@
 ---
 title: Tutte le reti per il traffico di migrazione in tempo reale devono avere una velocità di collegamento di almeno 1 Gbps
 description: Versione online del testo per questa regola di Best Practices Analyzer.
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
@@ -10,12 +10,12 @@ ms.topic: article
 ms.assetid: 89411b63-bec8-463d-b486-107548ed440e
 author: KBDAzure
 ms.date: 8/16/2016
-ms.openlocfilehash: 9a53e3885914a087d9456aef055336b2ffc505b6
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 92ba74ec75d8e90979e1cc329415a52af0218f54
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59828412"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71365298"
 ---
 # <a name="all-networks-for-live-migration-traffic-should-have-a-link-speed-of-at-least-1-gbps"></a>Tutte le reti per il traffico di migrazione in tempo reale devono avere una velocità di collegamento di almeno 1 Gbps
 
@@ -26,22 +26,22 @@ ms.locfileid: "59828412"
 |Proprietà|Dettagli|  
 |-|-|  
 |**Sistema operativo**|Windows Server 2016|  
-|**/ Funzionalità del prodotto**|Hyper-V|  
-|**Severity**|Avviso|  
+|**Prodotto/funzionalità**|Hyper-V|  
+|**Gravità**|Avviso|  
 |**Categoria**|Configurazione|  
   
 Nelle sezioni seguenti, corsivo indica il testo dell'interfaccia Utente visualizzata nello strumento Analizzatore procedure consigliate per questo problema.  
   
 ## <a name="issue"></a>Problema  
-*Nessun delle reti per il traffico di migrazione in tempo reale con una velocità di collegamento pari ad almeno 1 Gbps.*  
+*Nessuna delle reti per il traffico di migrazione in tempo reale ha una velocità di collegamento di almeno 1 Gbps.*  
   
 ## <a name="impact"></a>Impatto  
-*Migrazioni in tempo reale potrebbero verificarsi lenta, che può interrompere la connessione di rete a causa di un timeout di connessione TCP.*  
+*Le migrazioni in tempo reale possono verificarsi lentamente, che potrebbero compromettere la connessione di rete a causa di un timeout di connessione TCP.*  
   
 ## <a name="resolution"></a>Risoluzione  
-*Configurare almeno una rete di migrazione in tempo reale con una velocità pari a 1 Gbps o più veloce.*  
+*Configurare almeno una rete di migrazione in tempo reale con una velocità di 1 Gbps o superiore.*  
   
-Vedere la documentazione del fornitore di hardware di rete per scoprire se una delle schede di rete esistente può supportare una velocità di collegamento pari ad almeno 1 Gbps.  
+Vedere la documentazione del fornitore dell'hardware di rete per verificare se una delle schede di rete esistenti è in grado di supportare una velocità di collegamento di almeno 1 Gbps.  
   
 
 

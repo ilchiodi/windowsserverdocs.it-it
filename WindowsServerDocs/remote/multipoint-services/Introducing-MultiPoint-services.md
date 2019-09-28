@@ -1,9 +1,9 @@
 ---
 title: Introduzione a Servizi MultiPoint
-description: Viene fornita una panoramica di servizi MultiPoint, un modo per consentire a più utenti di condividere un sistema
+description: Viene fornita una panoramica di MultiPoint Services, un modo per consentire a più utenti di condividere un sistema
 ms.custom: na
 ms.date: 07/22/2016
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: multipoint-services
 ms.reviewer: na
 ms.suite: na
@@ -13,36 +13,36 @@ ms.assetid: 1cbef744-4661-4ba9-9e2b-0bbd8854fd5c
 author: evaseydl
 manager: scottman
 ms.author: evas
-ms.openlocfilehash: 86d240092282e7cc29eebe638e5a97312e22baff
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: a0497f9dfd39648a94d9fb832f4404491955c06a
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59844212"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71395350"
 ---
 # <a name="introducing-multipoint-services"></a>Introduzione a Servizi MultiPoint
-Ruolo di servizi multiPoint in Windows Server 2016 consente a più utenti, ognuno con i propri familiare e indipendente dal Windows esperienza, per computer contemporaneamente. Esistono diversi modi, gli utenti possono accedere le sessioni. È possibile remoti al server usando il [le app desktop remote](../remote-desktop-services/clients/remote-desktop-clients.md) con qualsiasi dispositivo. Un altro modo consiste nel stazioni collegate al server MultiPoint stazioni fisiche:  
+Il ruolo Servizi MultiPoint in Windows Server 2016 consente a più utenti, ognuno con un'esperienza Windows indipendente e familiare, di condividere simultaneamente un solo computer. Esistono diversi modi in cui gli utenti possono accedere alle proprie sessioni. Un modo consiste nel fare in modo che i servizi remoti vengano inseriti nel server usando le [app desktop remote](../remote-desktop-services/clients/remote-desktop-clients.md) con qualsiasi dispositivo. Un altro modo consiste nell'usare le stazioni fisiche collegate al server MultiPoint:  
   
--   Direttamente alle porte video sul computer  
+-   Direttamente alle porte video del computer  
   
--   Tramite client USB zero specializzato (detto anche hub multifunzione USB), nonché tramite dispositivi USB-over-Ethernet simili.  
+-   Tramite i client USB zero specializzati (detti anche hub USB multifunzione) e tramite dispositivi USB-over-Ethernet analoghi.  
   
--   Attraverso la rete locale (LAN)  
+-   Tramite la rete locale (LAN)  
   
-Ognuno di questi metodi è descritto più dettagliatamente [stazioni servizi MultiPoint](MultiPoint-services-Stations.md) più avanti in questo documento.  
+Ognuno di questi metodi viene descritto più dettagliatamente nelle [stazioni MultiPoint Services](MultiPoint-services-Stations.md) più avanti in questo documento.  
   
-Questo documento sono illustrati i seguenti fattori da considerare quando si prevede di distribuire i servizi MultiPoint:  
+Questo documento illustra i fattori seguenti da considerare quando si pianifica la distribuzione di servizi MultiPoint:  
   
--   Il tipo di computer desktop da usare con il sistema MultiPoint Services: Le sessioni, le macchine virtuali o i PC Windows è necessario?  
+-   Tipo di desktop da usare con il sistema MultiPoint Services: Ti servono sessioni, macchine virtuali o PC Windows?  
   
--   [Scelta dell'Hardware per il sistema MultiPoint Services](Selecting-Hardware-for-Your-MultiPoint-services-System.md): Quali decisioni hardware è riempire?  
+-   [Selezione dell'hardware per il sistema MultiPoint Services](Selecting-Hardware-for-Your-MultiPoint-services-System.md): Quali decisioni hardware è opportuno apportare?  
   
--   [Requisiti hardware e consigli sulle prestazioni](Hardware-Requirements-and-Performance-Recommendations.md): Il tipo di hardware è obbligatorio per i servizi MultiPoint?  
+-   [Requisiti hardware e consigli sulle prestazioni](Hardware-Requirements-and-Performance-Recommendations.md): Quale hardware è necessario per servizi MultiPoint?  
   
--   [Pianificazione del sito servizi multiPoint](MultiPoint-services-Site-Planning.md): In cui i computer che eseguono servizi MultiPoint e stazioni troverà e la cui configurazione?  
+-   [Pianificazione del sito di servizi multipoint](MultiPoint-services-Site-Planning.md): Dove si trovano i computer che eseguono MultiPoint Services e le rispettive stazioni e come verranno configurati?  
   
--   [Considerazioni e gli account utente di rete](Network-Considerations-and-User-Accounts.md): L'ambiente di rete in cui viene distribuito il sistema MultiPoint Services può influire sul modo in cui vengono gestiti gli account utente. Che cos'è l'ambiente di rete? Come verranno gestiti gli account utente?  
+-   [Considerazioni sulla rete e account utente](Network-Considerations-and-User-Accounts.md): L'ambiente di rete in cui viene distribuito il sistema MultiPoint Services può influire sul modo in cui vengono gestiti gli account utente. Qual è l'ambiente di rete? Come vengono gestiti gli account utente?  
   
--   [L'archiviazione dei file con MultiPoint Services](Storing-Files-with-MultiPoint-services.md): Dove i file dell'utente archiviare e modo in cui si accederà?  
+-   [Archiviazione di file con servizi multipoint](Storing-Files-with-MultiPoint-services.md): Dove verranno archiviati i file utente e come sarà possibile accedervi?  
   
--   [Elenco di controllo pre-distribuzione](Predeployment-Checklist.md)  
+-   [Elenco di controllo per la pre-distribuzione](Predeployment-Checklist.md)  

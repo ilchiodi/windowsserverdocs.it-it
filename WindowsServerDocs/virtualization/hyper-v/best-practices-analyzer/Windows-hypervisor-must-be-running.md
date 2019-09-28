@@ -1,7 +1,7 @@
 ---
 title: Hypervisor di Windows deve essere in esecuzione
-description: Fornisce le istruzioni per risolvere il problema segnalato da questa regola di Best Practices Analyzer.
-ms.prod: windows-server-threshold
+description: Vengono fornite istruzioni per risolvere il problema segnalato da questa regola di Best Practices Analyzer.
+ms.prod: windows-server
 ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
@@ -10,12 +10,12 @@ ms.topic: article
 ms.assetid: 501a9beb-c464-46c0-88c5-e3e7e3e70101
 author: KBDAzure
 ms.date: 10/03/2016
-ms.openlocfilehash: f34e10918c60fb602c3a88ef3434cda619b11d8d
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 51f863425bd1107894fb5e4d44ed7c742a806394
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59884142"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71393050"
 ---
 # <a name="windows-hypervisor-must-be-running"></a>Hypervisor di Windows deve essere in esecuzione
 
@@ -24,25 +24,25 @@ ms.locfileid: "59884142"
 |Proprietà|Dettagli|  
 |-|-|  
 |**Sistema operativo**|Windows Server 2016|  
-|**/ Funzionalità del prodotto**|Hyper-V|  
-|**Severity**|Avviso|  
+|**Prodotto/funzionalità**|Hyper-V|  
+|**Gravità**|Avviso|  
 |**Categoria**|Prerequisiti|  
   
 Nelle sezioni seguenti, corsivo indica il testo dell'interfaccia Utente visualizzata nello strumento Analizzatore procedure consigliate per questo problema.  
   
 ## <a name="issue"></a>Problema  
   
-*Non è in esecuzione Windows hypervisor.*  
+*Windows Hypervisor non è in esecuzione.*  
   
 ## <a name="impact"></a>Impatto  
   
-*Le macchine virtuali non può essere avviate fino a quando non è in esecuzione Windows hypervisor.*  
+*Le macchine virtuali non possono essere avviate fino a quando Windows Hypervisor non è in esecuzione.*  
   
 ## <a name="resolution"></a>Risoluzione  
   
-*Controllare il catalogo di Windows Server per verificare se il server è qualificato per l'esecuzione di Hyper-V. Successivamente, verificare che il BIOS è abilitato per la virtualizzazione assistita da hardware e protezione esecuzione programmi applicata hardware. Quindi, controllare il registro eventi di Hypervisor Hyper-V.*  
+@no__t 0Check il catalogo di Windows Server per verificare se il server è qualificato per l'esecuzione di Hyper-V. Successivamente, verificare che il BIOS è abilitato per la virtualizzazione assistita da hardware e protezione esecuzione programmi applicata hardware. Quindi, controllare il registro eventi di hypervisor Hyper-V. *  
   
-Per controllare il catalogo, vedere [catalogo di Windows Server](https://go.microsoft.com/fwlink/?LinkId=111228) (https://go.microsoft.com/fwlink/?LinkId=111228).  
+Per controllare il catalogo, vedere il [Catalogo di Windows Server](https://go.microsoft.com/fwlink/?LinkId=111228) (https://go.microsoft.com/fwlink/?LinkId=111228).  
   
 > [!CAUTION]  
 > Modificare alcuni parametri nel BIOS di sistema di un computer può causare il computer per arrestare il caricamento del sistema operativo o rendere i dispositivi hardware, ad esempio unità disco rigido, non disponibile. Sempre, consultare il manuale dell'utente per il computer per determinare la modalità appropriata per configurare il BIOS di sistema. Inoltre, è sempre una buona idea per tenere traccia dei parametri che si modifica e il valore originale in modo che sia possibile ripristinarle in un secondo momento se necessario. Se si verificano problemi dopo la modifica dei parametri nel BIOS di sistema, provare a caricare le impostazioni predefinite (un'opzione viene in genere è disponibile nell'utilità di configurazione del BIOS) o per assistenza, contattare il produttore del computer.  
@@ -86,7 +86,7 @@ Successivamente, controllare il registro eventi di Hypervisor Hyper-V. Se vi son
   
 5.  Utilizzare un filtro per trovare gli eventi di Hypervisor Hyper-V:   
     1. Nel **azioni** riquadro, fare clic su **Filtro registro corrente**. Per **origini evento**, specificare "Hypervisor Hyper-V".   
-    2. Cercare eventi che indicano problemi. Ad esempio, l'evento con ID 41 indica un problema con la configurazione del BIOS: "Hyper-V avvio non riuscito; Entrambi VMX non è presente o non è abilitato nel BIOS."  
+    2. Cercare eventi che indicano problemi. Ad esempio, l'ID evento 41 indica un problema con la configurazione BIOS: "Avvio Hyper-V non riuscito. VMX non presente o non abilitato nel BIOS. "  
   
 ### <a name="see-also"></a>Vedere anche  
 Per informazioni dettagliate sull'utilizzo di Hyper-V in Windows 10, tra cui come verificare che il computer può eseguire Hyper-V, vedere [requisiti di sistema di Windows 10 Hyper-V](https://msdn.microsoft.com/virtualization/hyperv_on_windows/quick_start/walkthrough_compatibility). 

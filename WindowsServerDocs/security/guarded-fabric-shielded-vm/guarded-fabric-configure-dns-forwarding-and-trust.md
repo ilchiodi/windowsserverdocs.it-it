@@ -1,29 +1,29 @@
 ---
-title: Configurare l'inoltro di DNS e trust di dominio
+title: Configurare l'invio DNS e l'attendibilità del dominio
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.topic: article
 manager: dongill
 author: rpsqrd
 ms.technology: security-guarded-fabric
 ms.date: 08/29/2018
-ms.openlocfilehash: 3f9083d749ba9251ba47ecb64b7cb3d7c6290f1d
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 5d8ffe82065caeee27c5d13f5243f13addc6c325
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66443777"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71386744"
 ---
-# <a name="configure-dns-forwarding-in-the-hgs-domain-and-a-one-way-trust-with-the-fabric-domain"></a>Configurare l'inoltro DNS nel dominio di HGS e una relazione di trust unidirezionale con il dominio dell'infrastruttura
+# <a name="configure-dns-forwarding-in-the-hgs-domain-and-a-one-way-trust-with-the-fabric-domain"></a>Configurare l'invio DNS nel dominio HGS e un trust unidirezionale con il dominio dell'infrastruttura
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016
 
 >[!IMPORTANT]
->Modalità di Active Directory è deprecata a partire da Windows Server 2019. Per gli ambienti in cui l'attestazione TPM non è possibile, configurare [ospitare l'attestazione chiave](guarded-fabric-initialize-hgs-key-mode.md). Attestazione chiave host fornisce una garanzia analoga alla modalità di Active Directory ed è più semplice da configurare. 
+>La modalità Active Directory è deprecata a partire da Windows Server 2019. Per gli ambienti in cui non è possibile attestazione TPM, configurare l' [attestazione chiave host](guarded-fabric-initialize-hgs-key-mode.md). L'attestazione chiave host offre una garanzia simile alla modalità AD ed è più semplice da configurare. 
 
-Usare la procedura seguente per configurare l'inoltro di DNS e stabilire un trust unidirezionale con il dominio dell'infrastruttura. Questi passaggi consentono il servizio HGS per individuare l'infrastruttura di controller di dominio e verificare l'appartenenza al gruppo degli host Hyper-V.
+Usare la procedura seguente per configurare l'invio DNS e stabilire una relazione di trust unidirezionale con il dominio infrastruttura. Questi passaggi consentono al HGS di individuare i controller di dominio dell'infrastruttura e di convalidare l'appartenenza al gruppo degli host Hyper-V.
 
-1.  Eseguire il comando seguente in una sessione di PowerShell con privilegi elevata per configurare il DNS di inoltro. Sostituire fabrikam.com con il nome del dominio dell'infrastruttura e digitare gli indirizzi IP dei server DNS nel dominio dell'infrastruttura. Per una maggiore disponibilità, fare riferimento più di un server DNS.
+1.  Eseguire il comando seguente in una sessione di PowerShell con privilegi elevati per configurare l'invio DNS. Sostituire fabrikam.com con il nome del dominio dell'infrastruttura e digitare gli indirizzi IP dei server DNS nel dominio dell'infrastruttura. Per una disponibilità più elevata, puntare a più di un server DNS.
 
     ```powershell
     Add-DnsServerConditionalForwarderZone -Name "fabrikam.com" -ReplicationScope "Forest" -MasterServers <DNSserverAddress1>, <DNSserverAddress2>
@@ -31,7 +31,7 @@ Usare la procedura seguente per configurare l'inoltro di DNS e stabilire un trus
 
 2.  Per creare un trust tra foreste unidirezionale, eseguire il comando seguente in un prompt dei comandi con privilegi elevati:
 
-    Sostituire `bastion.local` con il nome del dominio HGS e `fabrikam.com` con il nome del dominio dell'infrastruttura. Specificare la password per un amministratore del dominio dell'infrastruttura.
+    Sostituire `bastion.local` con il nome del dominio HGS e `fabrikam.com` con il nome del dominio dell'infrastruttura. Fornire la password per un amministratore del dominio dell'infrastruttura.
 
         netdom trust bastion.local /domain:fabrikam.com /userD:fabrikam.com\Administrator /passwordD:<password> /add
 

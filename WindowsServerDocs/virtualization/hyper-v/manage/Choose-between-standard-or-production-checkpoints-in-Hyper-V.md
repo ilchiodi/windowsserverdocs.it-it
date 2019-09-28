@@ -1,7 +1,7 @@
 ---
 title: Scegliere tra i checkpoint standard o di produzione in Hyper-V
-description: Fornisce istruzioni per configurare una macchina virtuale per usare i checkpoint standard o di produzione
-ms.prod: windows-server-threshold
+description: Fornisce istruzioni per la configurazione di una macchina virtuale per l'utilizzo di checkpoint standard o di produzione
+ms.prod: windows-server
 ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
@@ -11,16 +11,16 @@ ms.assetid: 92bb573b-03b7-470e-b72e-e35edf52b349
 author: KBDAzure
 ms.author: kathydav
 ms.date: 10/04/2016
-ms.openlocfilehash: cf1144886ec5ae723b7747bb7dd72f235944d06c
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: 29c7b8be5b1e9d392cead304ab35c3d5dd5ee86a
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67141353"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71364214"
 ---
 # <a name="choose-between-standard-or-production-checkpoints-in-hyper-v"></a>Scegliere tra i checkpoint standard o di produzione in Hyper-V
 
->Si applica a: Windows 10, Windows Server 2016, Microsoft Hyper-V Server 2016, Windows Server 2019, Microsoft Hyper-V Server 2019
+>Si applica a: Windows 10, Windows Server 2016, Microsoft Hyper-V Server 2016, Windows Server 2019 Microsoft Hyper-V Server 2019
 
   
 A partire da Windows 10 e Windows Server 2016, è possibile scegliere tra i checkpoint standard e di produzione per ogni macchina virtuale. I checkpoint di produzione sono il valore predefinito per nuove macchine virtuali.
@@ -44,7 +44,7 @@ A partire da Windows 10 e Windows Server 2016, è possibile scegliere tra i chec
 5.  Fare clic su **Applica** per salvare le modifiche. Se è stata completata, fare clic su **OK** per chiudere la finestra di dialogo.  
   
 > [!NOTE]
-> Solo **checkpoint di produzione** sono supportati nei guest che eseguono il ruolo di servizi di dominio Active Directory (Controller di dominio) o di Active Directory Lightweight Directory Services.
+> Solo i **Checkpoint di produzione** sono supportati nei guest che eseguono Active Directory Domain Services ruolo (controller di dominio) o Active Directory Lightweight Directory Services ruolo.
 
 ## <a name="see-also"></a>Vedere anche  
   

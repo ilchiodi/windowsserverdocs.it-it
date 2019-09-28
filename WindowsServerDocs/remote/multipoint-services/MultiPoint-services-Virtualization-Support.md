@@ -1,9 +1,9 @@
 ---
 title: Supporto della virtualizzazione di Servizi MultiPoint
-description: Viene descritto come utilizzare servizi MultiPoint con Hyper-V
+description: Viene descritto come usare i servizi MultiPoint con Hyper-V
 ms.custom: na
 ms.date: 07/22/2016
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: multipoint-services
 ms.reviewer: na
 ms.suite: na
@@ -13,30 +13,30 @@ ms.assetid: 3f0864b8-a087-4890-94ef-05efbd3c4241
 author: evaseydl
 manager: scottman
 ms.author: evas
-ms.openlocfilehash: 06d518dcea154ac2bab49a7d0e83a90f96be6e44
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 7b94b4a4015e58402a62cf74f9abbb3eb2333f26
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59872522"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71395191"
 ---
 # <a name="multipoint-services-virtualization-support"></a>Supporto della virtualizzazione di Servizi MultiPoint
-Servizi multiPoint supporta il ruolo Hyper-V in due modi:  
+MultiPoint Services supporta il ruolo Hyper-V in due modi:  
   
--   Servizi multiPoint possono essere distribuiti come un sistema operativo guest in un server che esegue Hyper-V.  
+-   MultiPoint Services può essere distribuito come sistema operativo guest in un server che esegue Hyper-V.  
   
--   MultiPoint Services può essere utilizzato come un server di virtualizzazione.   
+-   MultiPoint Services può essere usato come server di virtualizzazione.   
   
-L'esecuzione di servizi MultiPoint in una macchina virtuale consente l'uso degli strumenti di Hyper-V per gestire i sistemi operativi. Questi strumenti includono le funzionalità di checkpoint e rollback e consentono di esportare e importare macchine virtuali. Per le installazioni di dimensioni maggiori, è possibile consolidare server tramite l'esecuzione di più computer virtuale MultiPoint Services in un unico server fisico. Di seguito sono illustrati alcuni degli scenari possibili:  
+L'esecuzione di MultiPoint Services in una macchina virtuale consente di usare gli strumenti di Hyper-V per gestire i sistemi operativi. Questi strumenti includono funzionalità di checkpoint e di rollback che consentono di esportare e importare macchine virtuali. Per installazioni di dimensioni maggiori, è possibile consolidare i server eseguendo più computer virtuali MultiPoint Services in un singolo server fisico. Di seguito sono illustrati alcuni degli scenari possibili:  
   
--   Una sola aula o lab ha più di 20 postazioni. Invece di distribuire più computer fisici che eseguono MultiPoint Services, è possibile distribuire più macchine virtuali in un singolo computer fisico.  
+-   Una singola classe o un Lab ha più di 20 postazioni. Invece di distribuire più computer fisici che eseguono MultiPoint Services, è possibile distribuire più macchine virtuali in un singolo computer fisico.  
   
     > [!NOTE]  
-    > È possibile gestire più server MultiPoint, fisica o virtuale, tramite un'unica console di gestione MultiPoint.  
+    > È possibile gestire più server MultiPoint, sia fisici che virtuali, tramite una singola console di gestione MultiPoint.  
   
--   Il server MultiPoint è in esecuzione in una macchina virtuale con un'altra infrastruttura di server nello stesso computer fisico. In tal caso questa infrastruttura di server consente di centralizzare il dominio, sicurezza e i dati per la rete. Il server MultiPoint offre servizi Desktop remoto e centralizza i desktop.  
+-   Il server MultiPoint è in esecuzione in una macchina virtuale con un'altra infrastruttura server nello stesso computer fisico. In tal caso, questa infrastruttura Server centralizza il dominio, la sicurezza e i dati per la rete. Il server MultiPoint fornisce Servizi Desktop remoto e centralizza i desktop.  
   
 > [!NOTE]  
-> Quando si esegue MultiPoint Services in una macchina virtuale, USB-over-Ethernet e stazioni client RDP sono supportate. Video diretta e USB zero stazioni client connesso non sono supportati.  
+> Quando si eseguono Servizi MultiPoint in una macchina virtuale, sono supportate le stazioni USB-over-Ethernet e RDP client. Le stazioni di connessione video diretta e USB zero client non sono supportate.  
   
-Per altre informazioni sul ruolo Hyper-V, vedere [Hyper-V](../../virtualization/hyper-v/hyper-v-on-windows-server.md).  
+Per ulteriori informazioni sul ruolo Hyper-V, vedere [Hyper-v](../../virtualization/hyper-v/hyper-v-on-windows-server.md).  

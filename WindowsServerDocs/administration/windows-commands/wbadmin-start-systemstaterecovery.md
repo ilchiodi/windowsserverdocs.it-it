@@ -1,8 +1,8 @@
 ---
-title: Comando Wbadmin start systemstaterecovery
-description: 'Argomento i comandi di Windows per * * *- '
+title: comando Wbadmin start systemstaterecovery
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,14 +13,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 4282da2011c39daec0315a7f3836d5517f29debb
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 6ae534eed26629be264b698869edc57232e2b571
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66440201"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71362218"
 ---
-# <a name="wbadmin-start-systemstaterecovery"></a>Comando Wbadmin start systemstaterecovery
+# <a name="wbadmin-start-systemstaterecovery"></a>comando Wbadmin start systemstaterecovery
 
 
 
@@ -46,7 +46,7 @@ wbadmin start systemstaterecovery
 [-authsysvol]
 [-quiet]
 ```
-Sintassi per Windows Server 2008 R2 o versioni successive:
+Sintassi per Windows Server 2008 R2 o versione successiva:
 ```
 wbadmin start systemstaterecovery
 -version:<VersionIdentifier>
@@ -78,7 +78,7 @@ wbadmin start systemstaterecovery
   ```
   wbadmin start systemstaterecovery -version:03/31/2013-09:00
   ```  
-- Per eseguire un ripristino del backup dello stato del sistema da 30/04/2013 alle 9:00. che viene archiviato nella risorsa condivisa \\ \\servername\share per server01, tipo:  
+- Per eseguire un ripristino del backup dello stato del sistema da 30/04/2013 alle 9:00. archiviati nella risorsa condivisa \\ @ no__t-1servername\share per Server01, digitare:  
   ```
   wbadmin start systemstaterecovery -version:04/30/2013-09:00 -backupTarget:\\servername\share -machine:server01
   ```

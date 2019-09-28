@@ -1,8 +1,8 @@
 ---
-title: Catalogo di ripristino Wbadmin
-description: 'Argomento i comandi di Windows per * * *- '
+title: Wbadmin restore catalog
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,14 +13,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 5876a44b178025baac7ee5901cdc32c1b5d33dad
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: b0d646440ca9b30f9fa30fb1ac3ff08458b8e44d
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59851712"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71362334"
 ---
-# <a name="wbadmin-restore-catalog"></a>Catalogo di ripristino Wbadmin
+# <a name="wbadmin-restore-catalog"></a>Wbadmin restore catalog
 
 
 
@@ -57,13 +57,13 @@ Per ripristinare un catalogo da un backup archiviato su disco d, digitare:
 ```
 wbadmin restore catalog -backupTarget:d
 ```
-Per ripristinare un catalogo da un backup archiviato nella cartella condivisa \\ \\servername\share di server01, tipo:
+Per ripristinare un catalogo da un backup archiviato nella cartella condivisa \\ @ no__t-1servername\share di Server01, digitare:
 ```
 wbadmin restore catalog -backupTarget:\\servername\share -machine:server01
 ```
 
 #### <a name="additional-references"></a>Altri riferimenti
 
--   [Chiave sintassi della riga di comando](command-line-syntax-key.md)
+-   [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
 -   [Wbadmin](wbadmin.md)
 -   [Ripristino-WBCatalog](https://technet.microsoft.com/library/jj902437.aspx) cmdlet

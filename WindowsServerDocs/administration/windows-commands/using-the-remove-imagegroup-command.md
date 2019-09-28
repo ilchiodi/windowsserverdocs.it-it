@@ -1,8 +1,8 @@
 ---
 title: Utilizzando il comando remove-ImageGroup
-description: 'Argomento i comandi di Windows per * * *- '
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: df6af7fbd19cc95dfbffa0a5c0e2a4b3e33fb82c
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 51d9636013fef182c4abb74ae196e08c51ff11d8
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59877892"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71362751"
 ---
 # <a name="using-the-remove-imagegroup-command"></a>Utilizzando il comando remove-ImageGroup
 
@@ -32,7 +32,7 @@ wdsutil [Options] /remove-ImageGroumediaGroup:<Image group name> [/Server:<Serve
 ## <a name="parameters"></a>Parametri
 |Parametro|Descrizione|
 |-------|--------|
-mediaGroup:<Image group name>|Specifica il nome del gruppo di immagini da rimuovere|
+mediaGroup: <Image group name>|Specifica il nome del gruppo di immagini da rimuovere|
 |[/Server:<Server name>]|Specifica il nome del server. Può essere il nome NetBIOS oppure il nome di dominio completo. Se viene specificato alcun nome di server, verrà utilizzato il server locale.|
 ## <a name="BKMK_examples"></a>Esempi
 Per rimuovere il gruppo di immagini, digitare uno dei seguenti:

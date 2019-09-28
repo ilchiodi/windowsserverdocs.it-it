@@ -2,7 +2,7 @@
 title: Proiettare una stazione su altre stazioni
 description: Informazioni su come condividere un desktop da un sistema a un altro in MultiPoint Services
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: multipoint-services
 ms.reviewer: na
 ms.suite: na
@@ -13,12 +13,12 @@ author: lizap
 manager: dongill
 ms.author: elizapo
 ms.date: 08/04/2016
-ms.openlocfilehash: db2b718154a7c41646ab25b16420eb0ee46a17cd
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 242214ba69fc3265c9984e218110a16242b1cff3
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70871585"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71395137"
 ---
 # <a name="project-a-station-to-other-stations"></a>Proiettare una stazione su altre stazioni
 In qualità di utente di Dashboard MultiPoint, è possibile proiettare il desktop sulla stazione di un singolo utente o su tutte le stazioni degli utenti (non amministratori). Questa funzionalità è utile quando si vuole illustrare un'attività a un utente o a un insieme di utenti.  

@@ -1,9 +1,9 @@
 ---
 title: Risoluzione dei problemi relativi all'impostazione del controller di dominio dei punti di ingresso
-description: Questo argomento fa parte della Guida alla distribuzione di più server di accesso remoto in una distribuzione multisito di Windows Server 2016.
+description: Questo argomento fa parte della Guida distribuire più server di accesso remoto in una distribuzione multisito di Windows Server 2016.
 manager: brianlic
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-ras
@@ -12,30 +12,30 @@ ms.topic: article
 ms.assetid: b12dd0e8-1d80-4d4b-bb45-586f19d17ef0
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 5e7e09a6715df22882c8a88aedf95a5158dd2a0d
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: 10a0f7952fc27d0185d4383da21f0614885ddac3
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67280912"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71367053"
 ---
 # <a name="troubleshooting-setting-the-entry-point-domain-controller"></a>Risoluzione dei problemi relativi all'impostazione del controller di dominio dei punti di ingresso
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016
 
 In questo argomento vengono fornite informazioni sulla risoluzione dei problemi relativi al comando `Set-DAEntryPointDC`. Per assicurarsi che l'errore ricevuto sia correlato all'impostazione del controller di dominio dei punti di ingresso, cercare l'evento con ID 10065 nel registro eventi di Windows.  
   
-## <a name="SaveGPOSettings"></a>Salvataggio delle impostazioni server oggetto Criteri di gruppo  
-**Errore ricevuto**. Si è verificato un errore durante il salvataggio delle impostazioni di accesso remoto nell'oggetto Criteri di gruppo < nome_oggetto >.  
+## <a name="SaveGPOSettings"></a>Salvataggio delle impostazioni dell'oggetto Criteri di gruppo Server  
+**Errore ricevuto**. Si è verificato un errore durante il salvataggio delle impostazioni di accesso remoto nell'oggetto Criteri di gruppo < GPO_name >.  
   
-Per risolvere questo errore, vedere il salvataggio delle impostazioni di server oggetto Criteri di gruppo.  
+Per risolvere questo errore, vedere Salvataggio delle impostazioni dell'oggetto Criteri di gruppo del server.  
   
 ## <a name="remote-access-is-not-configured"></a>Accesso remoto non configurato  
-**Errore ricevuto**. Accesso remoto non è configurato in < nome_server >. Specificare il nome di un server che fa parte di una distribuzione multisito.  
+**Errore ricevuto**. Accesso remoto non configurato in < nome_server >. Specificare il nome di un server che fa parte di una distribuzione multisito.  
   
 Oppure  
   
-Accesso remoto non è configurato nel server di < nome_server >. Specificare un computer in cui DirectAccess è abilitato.  
+Accesso remoto non configurato nel server < nome_server >. Specificare un computer in cui DirectAccess è abilitato.  
   
 **Causa**  
   
@@ -48,7 +48,7 @@ Il cmdlet `Set-DaEntryPointDC` è disponibile solo nei server che fanno parte di
 Eseguire il comando e assicurarsi di specificare il parametro *ComputerName* con il nome del server già configurato come parte della distribuzione multisito.  
   
 ## <a name="multisite-is-not-enabled"></a>Multisito non abilitato  
-**Errore ricevuto**. È necessario abilitare una distribuzione multisito prima di eseguire questa operazione. A tale scopo, utilizzare il cmdlet `Enable-DAMultiSite`.  
+**Errore ricevuto**. Prima di eseguire questa operazione, è necessario abilitare una distribuzione multisito. A tale scopo, utilizzare il cmdlet `Enable-DAMultiSite`.  
   
 **Causa**  
   
@@ -63,7 +63,7 @@ Eseguire il comando e assicurarsi di specificare il parametro *ComputerName* con
 ## <a name="entry-point-and-domain-controller-not-provided-in-cmdlet"></a>Punto di ingresso e controller di dominio non specificati nel cmdlet  
 Il cmdlet `Set-DaEntryPointDC` consente di modificare il controller di dominio associato a punti di ingresso diversi, ad esempio nel caso non sia più disponibile un particolare controller di dominio. È possibile aggiornare un punto di ingresso specifico per utilizzare un controller di dominio diverso oppure aggiornare tutti i punti di ingresso che utilizzano uno specifico controller di dominio per l'utilizzo di un nuovo controller di dominio. Nel primo caso, è consigliabile utilizzare il parametro *EntryPointName* per specificare il punto di ingresso da aggiornare. Nel secondo caso, è necessario utilizzare il parametro *ExistingDC* per specificare il controller di dominio da sostituire. È possibile specificare uno solo di questi parametri.  
   
-**Errore ricevuto**. Senza parametri obbligatori sono stati specificati. Specificare il nome di un punto di ingresso o di un controller di dominio esistente.  
+**Errore ricevuto**. Non è stato specificato alcun parametro obbligatorio. Specificare il nome di un punto di ingresso o di un controller di dominio esistente.  
   
 Oppure  
   
@@ -92,7 +92,7 @@ Assicurarsi che il computer remoto sia accessibile tramite RPC e che sia disponi
   
 -   **Problema 1**  
   
-    **Errore ricevuto**. Impossibile raggiungere il controller di dominio < controller_dominio >. Controllare la connettività di rete e la disponibilità del server.  
+    **Errore ricevuto**. Impossibile raggiungere il controller di dominio < > Domain_Controller. Controllare la connettività di rete e la disponibilità del server.  
   
     **Causa**  
   
@@ -104,7 +104,7 @@ Assicurarsi che il computer remoto sia accessibile tramite RPC e che sia disponi
   
 -   **Problema 2**  
   
-    **Errore ricevuto**. Impossibile contattare il controller di dominio < controller_dominio >.  
+    **Errore ricevuto**. Impossibile contattare il controller di dominio < Domain_Controller >.  
   
     **Causa**  
   
@@ -116,19 +116,19 @@ Assicurarsi che il computer remoto sia accessibile tramite RPC e che sia disponi
   
 -   **Problema 3**  
   
-    **Errore ricevuto**. Impossibile raggiungere il controller di dominio < controller_dominio > per %2 2!s!.  
+    **Errore ricevuto**. Impossibile raggiungere il controller di dominio < > Domain_Controller per% 2! s!.  
   
     **Causa**  
   
-    Per mantenere la coerenza di configurazione in una distribuzione multisito, è importante assicurarsi che ogni oggetto Criteri di gruppo sia gestito da un singolo controller di dominio. Quando il controller di dominio che gestisce server di un punto di ingresso oggetto Criteri di gruppo non è disponibile, non è possibile leggere o modificare le impostazioni di configurazione di accesso remoto.  
+    Per mantenere la coerenza di configurazione in una distribuzione multisito, è importante assicurarsi che ogni oggetto Criteri di gruppo sia gestito da un singolo controller di dominio. Quando il controller di dominio che gestisce un oggetto Criteri di gruppo del server di un punto di ingresso non è disponibile, non è possibile leggere o modificare le impostazioni di configurazione di accesso remoto.  
   
     **Soluzione**  
   
-    Seguire la procedura "per modificare il controller di dominio che gestisce oggetti Criteri di gruppo di server" descritta in [2.4. Configurare oggetti Criteri di gruppo](assetId:///b1960686-a81e-4f48-83f1-cc4ea484df43#ConfigGPOs).  
+    Seguire la procedura "per modificare il controller di dominio che gestisce gli oggetti Criteri di gruppo del server" descritto in [2,4. Configurare gli oggetti Criteri di gruppo @ no__t-0.  
   
 -   **Problema 4**  
   
-    **Errore ricevuto**. Impossibile raggiungere il controller di dominio primario nel dominio < nome_dominio >.  
+    **Errore ricevuto**. Impossibile raggiungere il controller di dominio primario nel dominio < domain_name >.  
   
     **Causa**  
   
@@ -136,10 +136,10 @@ Assicurarsi che il computer remoto sia accessibile tramite RPC e che sia disponi
   
     **Soluzione**  
   
-    Seguire la procedura "per trasferire il ruolo emulatore PDC" descritta in [2.4. Configurare oggetti Criteri di gruppo](assetId:///b1960686-a81e-4f48-83f1-cc4ea484df43#ConfigGPOs).  
+    Attenersi alla procedura "per trasferire il ruolo emulatore PDC" descritta in [2,4. Configurare gli oggetti Criteri di gruppo @ no__t-0.  
   
 ## <a name="read-only-domain-controller"></a>Controller di dominio di sola lettura  
-**Errore ricevuto**. Il controller di dominio < controller_dominio > è di sola lettura. Specificare un controller di dominio non di sola lettura.  
+**Errore ricevuto**. Il controller di dominio < > Domain_Controller è di sola lettura. Specificare un controller di dominio non di sola lettura.  
   
 **Causa**  
   
@@ -153,7 +153,7 @@ Quando si utilizza `Set-DAEntryPointDC`, il parametro *NewDC* viene utilizzato p
   
 -   **Problema 1**  
   
-    **Errore ricevuto**. Oggetto Criteri di gruppo < nome_oggetto > in < controller_dominio_precedente > controller di dominio non può essere recuperata dal controller di dominio < controller_dominio_sostitutivo > perché non sono nello stesso dominio.  
+    **Errore ricevuto**. Impossibile recuperare l'oggetto Criteri di gruppo < > GPO_name sul controller di dominio < previous_domain_controller > dal controller di dominio < replacement_domain_controller > perché non si trovano nello stesso dominio.  
   
     **Causa**  
   
@@ -165,7 +165,7 @@ Quando si utilizza `Set-DAEntryPointDC`, il parametro *NewDC* viene utilizzato p
   
 -   **Problema 2**  
   
-    **Errore ricevuto**. Oggetto Criteri di gruppo < nome_oggetto > in < controller_dominio_precedente > controller di dominio non può essere recuperata dal controller di dominio < controller_dominio_sostitutivo >. Attendere il completamento della replica del dominio e quindi riprovare.  
+    **Errore ricevuto**. Impossibile recuperare l'oggetto Criteri di gruppo < > GPO_name sul controller di dominio < previous_domain_controller > dal controller di dominio < replacement_domain_controller >. Attendere il completamento della replica del dominio e quindi riprovare.  
   
     **Causa**  
   
@@ -177,7 +177,7 @@ Quando si utilizza `Set-DAEntryPointDC`, il parametro *NewDC* viene utilizzato p
   
 -   **Problema 3**  
   
-    **Errore ricevuto**. Non hai le autorizzazioni per accedere a oggetto Criteri di gruppo < nome_oggetto >.  
+    **Errore ricevuto**. Non si dispone delle autorizzazioni necessarie per accedere all'oggetto Criteri di gruppo < > GPO_name.  
   
     **Causa**  
   
@@ -188,7 +188,7 @@ Quando si utilizza `Set-DAEntryPointDC`, il parametro *NewDC* viene utilizzato p
     L'oggetto Criteri di gruppo esiste nel controller di dominio, ma non è possibile leggerlo. Assicurarsi di disporre delle autorizzazioni necessarie e riprovare.  
   
 ## <a name="entry-point-not-part-of-multisite-deployment"></a>Il punto di ingresso non fa parte della distribuzione multisito  
-**Errore ricevuto**. Punto di ingresso < nome_punto_di_ingresso > non fa parte della distribuzione multisito. Specificare un valore alternativo.  
+**Errore ricevuto**. Il punto di ingresso < > entry_point_name non fa parte della distribuzione multisito. Specificare un valore alternativo.  
   
 **Causa**  
   
@@ -202,7 +202,7 @@ Assicurarsi che il nome del punto di ingresso sia digitato correttamente e che g
   
 -   **Problema 1**  
   
-    **Errore ricevuto**. Server < server_name > nel punto di ingresso < nome_punto_di_ingresso > non è accessibile.  
+    **Errore ricevuto**. Impossibile accedere al server < nome_server > nel punto di ingresso < entry_point_name >.  
   
     **Causa**  
   
@@ -214,7 +214,7 @@ Assicurarsi che il nome del punto di ingresso sia digitato correttamente e che g
   
 -   **Problema 2**  
   
-    **Errore ricevuto**. Impossibile salvare le impostazioni nel Registro di sistema sul server < nome_server > nel punto di ingresso < nome_punto_di_ingresso >.  
+    **Errore ricevuto**. Non è possibile salvare le impostazioni nel registro di sistema nel server < nome_server > nel punto di ingresso < entry_point_name >.  
   
     **Causa**  
   
@@ -226,7 +226,7 @@ Assicurarsi che il nome del punto di ingresso sia digitato correttamente e che g
   
 -   **Problema 3**  
   
-    **Errore ricevuto**. Impossibile applicare gli aggiornamenti di oggetto Criteri di gruppo su < nome_server >. Le modifiche verranno applicate al prossimo aggiornamento dei criteri.  
+    **Errore ricevuto**. Impossibile applicare gli aggiornamenti dell'oggetto Criteri di gruppo in < nome_server >. Le modifiche verranno applicate al prossimo aggiornamento dei criteri.  
   
     **Causa**  
   
@@ -237,7 +237,7 @@ Assicurarsi che il nome del punto di ingresso sia digitato correttamente e che g
     Qualsiasi server non aggiornato può essere visualizzato tramite **Stato configurazione** in **DASHBOARD** della Console di gestione Accesso remoto. Questa situazione non causa problemi funzionali. È comunque possibile eseguire `gpupdate /force` in qualsiasi server non aggiornato per recuperare immediatamente lo stato della configurazione.  
   
 ## <a name="problem-resolving-fqdn"></a>Problema durante la risoluzione del nome di dominio completo  
-**Errore ricevuto**. Server < server_name > nel punto di ingresso < nome_punto_di_ingresso > non è accessibile.  
+**Errore ricevuto**. Impossibile accedere al server < nome_server > nel punto di ingresso < entry_point_name >.  
   
 **Causa**  
   
@@ -248,7 +248,7 @@ Durante il recupero dell'elenco dei server DirectAccess da modificare, il cmdlet
 Il punto di ingresso specificato nel messaggio di errore è associato a un controller di dominio. Assicurarsi che il controller di dominio sia disponibile per il punto di ingresso. Se il computer a cui appartiene il SID specificato è stato rimosso dal dominio, ignorare il messaggio e quindi rimuovere il server dalla distribuzione multisito.  
   
 ## <a name="no-entry-points-to-update"></a>Nessun punto di ingresso da aggiornare  
-**Avviso ricevuto**. Non sono state modificate le impostazioni di controller di dominio. Se è necessario modificarle, verificare che i parametri del cmdlet siano configurati correttamente e che gli oggetti Criteri di gruppo siano stati replicati nei controller di dominio necessari.  
+**Avviso ricevuto**. Le impostazioni del controller di dominio non sono state modificate. Se è necessario modificarle, verificare che i parametri del cmdlet siano configurati correttamente e che gli oggetti Criteri di gruppo siano stati replicati nei controller di dominio necessari.  
   
 **Causa**  
   

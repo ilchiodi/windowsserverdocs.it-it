@@ -1,50 +1,50 @@
 ---
-title: I ruoli, servizi ruolo e funzionalità non in Server Core contenitori - Windows Server, versione 1803
-description: Informazioni sui ruoli e funzionalità che è stata rimossa dall'immagine del contenitore di Server Core per Windows Server.
-ms.prod: windows-server-threshold
+title: Ruoli, servizi ruolo e funzionalità non inclusi nei contenitori di Server Core-Windows Server, versione 1803
+description: Informazioni sui ruoli e le funzionalità che sono state rimosse dall'immagine del contenitore di Server Core per Windows Server.
+ms.prod: windows-server
 ms.mktglfcycl: manage
 ms.sitesec: library
 author: lizap
 ms.localizationpriority: medium
 ms.date: 05/07/2018
-ms.openlocfilehash: 0ad574a04ba7ecd235f1825bd25c247a1565edf6
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 41b5a9ac32066f1b2a41de84f66b9be79252c336
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59873782"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71383406"
 ---
-# <a name="roles-role-services-and-features-not-in-server-core-containers---windows-server-version-1803"></a>I ruoli, servizi ruolo e funzionalità non in Server Core contenitori - Windows Server, versione 1803
+# <a name="roles-role-services-and-features-not-in-server-core-containers---windows-server-version-1803"></a>Ruoli, servizi ruolo e funzionalità non inclusi nei contenitori di Server Core-Windows Server, versione 1803
 
 > Si applica a: Windows Server, versione 1803
 
-In Windows Server, versione 1803, abbiamo [ridotta la dimensione complessiva dell'immagine del contenitore di base del Server per **1.58 GB**](https://blogs.technet.microsoft.com/virtualization/2018/01/22/a-smaller-windows-server-core-container-with-better-application-compatibility/). Il modo in cui è stata eseguita questa operazione è ottimizzando l'architettura e la rimozione di elementi non sono necessarie un [contenitore di Server Core](https://docs.microsoft.com/virtualization/windowscontainers/about/). Alcuni sono cose che non ha funzionato in contenitori, alcuni hanno ruoli e funzionalità che non è stato utilizzato. 
+In Windows Server versione 1803 sono state [ridotte le dimensioni complessive dell'immagine del contenitore di server core a **1,58 GB**](https://blogs.technet.microsoft.com/virtualization/2018/01/22/a-smaller-windows-server-core-container-with-better-application-compatibility/). Per eseguire questa operazione, è possibile ottimizzare l'architettura e rimuovere gli elementi che non sono necessari in un [contenitore](https://docs.microsoft.com/virtualization/windowscontainers/about/)dei componenti di base del server. Alcuni erano elementi che non funzionavano nei contenitori, alcuni sono i ruoli e le funzionalità che non sono state usate da nessuno. 
 
 > [!IMPORTANT]
-> Queste informazioni dal Server Core è stato rimosso **contenitore** delle immagini, non [Core Server stesso](server-core-roles-and-services.md). 
+> Questi elementi sono stati rimossi dall'immagine del **contenitore** Server Core, non da [Server Core](server-core-roles-and-services.md). 
 
-Ecco l'elenco completo di funzionalità e ruoli rimossi dall'immagine del contenitore di Server Core:
+Ecco l'elenco completo delle funzionalità e dei ruoli rimossi dall'immagine del contenitore di Server Core:
 
 <div style='font-size:9.0pt'>
 
 <br>ADCertificateServicesRole
 <br>AuthManager
-<br>BitLocker-utilità
+<br>Utilità BitLocker
 <br>BitLocker
 <br>BITS
-<br>BITSExtensions-Upload
+<br>BITSExtensions-caricamento
 <br>CCFFilter
 <br>CertificateEnrollmentPolicyServer
 <br>CertificateEnrollmentServer
-<br>CertificateServices
-<br>ClientForNFS-Infrastructure
+<br>ServiziCertificati
+<br>ClientForNFS-infrastruttura
 <br>Contenitori
 <br>CoreFileServer
 <br>DataCenterBridging-LLDP-Tools
 <br>DataCenterBridging
 <br>Deduplicazione-Core
 <br>DeviceHealthAttestationService
-<br>DFSN-Server
+<br>DFSN-server
 <br>DFSR-Infrastructure-ServerEdition
 <br>DirectoryServices-ADAM
 <br>DirectoryServices-DomainController
@@ -55,14 +55,14 @@ Ecco l'elenco completo di funzionalità e ruoli rimossi dall'immagine del conten
 <br>FailoverCluster-CmdInterface
 <br>FailoverCluster-FullServer
 <br>FailoverCluster-PowerShell
-<br>File-Services
+<br>Servizi file
 <br>FileServerVSSAgent
-<br>FRS-Infrastructure
+<br>FRS-infrastruttura
 <br>FSRM-Infrastructure-Services
-<br>FSRM-Infrastructure
+<br>FSRM-infrastruttura
 <br>HardenedFabricEncryptionTask
 <br>HostGuardian
-<br>HostGuardianService-Package
+<br>HostGuardianService-pacchetto
 <br>IdentityServer-SecurityTokenService
 <br>IPAMClientFeature
 <br>IPAMServerFeature
@@ -73,13 +73,13 @@ Ecco l'elenco completo di funzionalità e ruoli rimossi dall'immagine del conten
 <br>Gestione licenze
 <br>LightweightServer
 <br>Microsoft-Hyper-V-Management-client
-<br>Microsoft-Hyper-V-Offline
-<br>Microsoft-Hyper-V-Online
+<br>Microsoft-Hyper-V-offline
+<br>Microsoft-Hyper-V-online
 <br>Microsoft-Hyper-V
-<br>Microsoft-Windows-FCI-Client-Package
+<br>Microsoft-Windows-FCI-client-package
 <br>Microsoft-Windows-GroupPolicy-ServerAdminTools-Update
-<br>Microsoft-Windows-Subsystem-Linux
-<br>Infrastruttura di MSRDC
+<br>Microsoft-Windows-sottosistema-Linux
+<br>MSRDC-infrastruttura
 <br>MultipathIo
 <br>NetworkController
 <br>NetworkControllerTools
@@ -89,47 +89,47 @@ Ecco l'elenco completo di funzionalità e ruoli rimossi dall'immagine del conten
 <br>OnlineRevocationServices
 <br>P2P-PnrpOnly
 <br>PeerDist
-<br>Stampa-Client-interfaccia utente grafica
-<br>Printing-LPDPrintService
-<br>Stampa-Server-Foundation-funzionalità
+<br>Stampa-client-GUI
+<br>Stampa-LPDPrintService
+<br>Printing-Server-Foundation-features
 <br>Printing-Server-Role
 <br>QWAVE
 <br>RasRoutingProtocols
-<br>Remote-Desktop-Services
+<br>Servizi Desktop remoto
 <br>RemoteAccess
 <br>RemoteAccessMgmtTools
 <br>RemoteAccessPowerShell
 <br>RemoteAccessServer
 <br>ResumeKeyFilter
-<br>RightsManagementServices-Role
+<br>RightsManagementServices-ruolo
 <br>RightsManagementServices
-<br>RMS-Federation
-<br>SBMgr-UI
-<br>ServerCore-Drivers-General-WOW64
-<br>ServerCore-driver-generale
-<br>ServerForNFS-Infrastructure
-<br>ServerManager-Core-RSAT-Feature-Tools
+<br>RMS-Federazione
+<br>SBMgr-interfaccia utente
+<br>ServerCore-drivers-General-WOW64
+<br>ServerCore-drivers-generale
+<br>ServerForNFS-infrastruttura
+<br>ServerManager-Core-strumenti di amministrazione delle funzionalità
 <br>ServerMediaFoundation
 <br>ServerMigration
 <br>SessionDirectory
 <br>SetupAndBootEventCollection
 <br>ShieldedVMToolsAdminPack
-<br>SMB1Protocol-Server
+<br>SMB1Protocol-server
 <br>SmbDirect
 <br>SMBHashGeneration
 <br>SmbWitness
 <br>SNMP
 <br>SoftwareLoadBalancer
-<br>Storage-Replica-AdminPack
-<br>Replica di archiviazione
-<br>Cmdlet di PSH TPM
-<br>UpdateServices-Database
-<br>UpdateServices-Services
+<br>Storage-replica-Adminpak
+<br>Archiviazione-replica
+<br>TPM-PSH-cmdlet
+<br>UpdateServices-database
+<br>UpdateServices-servizi
 <br>UpdateServices-WidDatabase
 <br>UpdateServices
 <br>VmHostAgent
 <br>VolumeActivation-Full-Role
-<br>Web-Application-Proxy
+<br>Web-application-proxy
 <br>WebAccess
 <br>WebEnrollmentServices
 <br>Windows-Defender
@@ -137,7 +137,7 @@ Ecco l'elenco completo di funzionalità e ruoli rimossi dall'immagine del conten
 <br>WindowsStorageManagementService
 <br>WINSRuntime
 <br>WMISnmpProvider
-<br>WorkFolders-Server
-<br>WSS-Product-Package
+<br>Cartellelavoro-server
+<br>WSS-pacchetto prodotto
 
 </div>

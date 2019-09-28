@@ -1,8 +1,8 @@
 ---
 title: Utilizzando il comando disable-Server
-description: 'Argomento i comandi di Windows per * * *- '
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 3b229146206c1fbe6ce8b6f585b2ff9b50ae6104
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 9376bf1c5a5641aa6763c88b58bfe92d799b44f5
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59853032"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71363506"
 ---
 # <a name="using-the-disable-server-command"></a>Utilizzando il comando disable-Server
 
@@ -36,7 +36,7 @@ WDSUTIL [Options] /Disable-Server [/Server:<Server name>]
 
 |Parametro|Descrizione|
 |---------|-----------|
-|[/ Server:\<nome Server >]|Specifica il nome del server. Può essere il nome NetBIOS oppure il nome di dominio completo. Se viene specificato alcun nome di server, verrà utilizzato il server locale.|
+|[/Server: nome \<Server >]|Specifica il nome del server. Può essere il nome NetBIOS oppure il nome di dominio completo. Se viene specificato alcun nome di server, verrà utilizzato il server locale.|
 
 ## <a name="BKMK_examples"></a>Esempi
 
@@ -48,5 +48,5 @@ WDSUTIL /Verbose /Disable-Server /Server:MyWDSServer
 
 #### <a name="additional-references"></a>Altri riferimenti
 
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)
+[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
 

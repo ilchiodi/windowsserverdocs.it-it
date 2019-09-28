@@ -1,7 +1,7 @@
 ---
 title: Una macchina virtuale che esegue Windows Server 2008 e configurati con la memoria dinamica deve utilizzare valori consigliati per le impostazioni della memoria
-description: Fornisce le istruzioni per risolvere il problema segnalato da questa regola di Best Practices Analyzer.
-ms.prod: windows-server-threshold
+description: Vengono fornite istruzioni per risolvere il problema segnalato da questa regola di Best Practices Analyzer.
+ms.prod: windows-server
 ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
@@ -10,12 +10,12 @@ ms.topic: article
 ms.assetid: f4c05a2c-52d0-4fa2-987d-37a6ed667134
 author: KBDAzure
 ms.date: 8/16/2016
-ms.openlocfilehash: e1d995fc5480f36f4981ba90aab923b802ceb76f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 25921c410ec4bb986b690a8a95e44c603301b676
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59859002"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71365344"
 ---
 # <a name="a-virtual-machine-running-windows-server-2008-and-configured-with-dynamic-memory-should-use-recommended-values-for-memory-settings"></a>Una macchina virtuale che esegue Windows Server 2008 e configurati con la memoria dinamica deve utilizzare valori consigliati per le impostazioni della memoria
 
@@ -26,22 +26,22 @@ Per altre informazioni sulle procedure consigliate e sulle analisi, vedere [Eseg
 |Proprietà|Dettagli|  
 |-|-|  
 |**Sistema operativo**|Windows Server 2016|  
-|**/ Funzionalità del prodotto**|Hyper-V|  
-|**Severity**|Avviso|  
+|**Prodotto/funzionalità**|Hyper-V|  
+|**Gravità**|Avviso|  
 |**Categoria**|Configurazione|  
   
 Nelle sezioni seguenti, corsivo indica il testo dell'interfaccia Utente visualizzata nello strumento Analizzatore procedure consigliate per questo problema.  
   
 ## <a name="issue"></a>Problema  
-*Uno o più macchine virtuali sono configurate per l'utilizzo della memoria dinamica con minore rispetto alla quantità di memoria consigliata per Windows Server 2008.*  
+*Una o più macchine virtuali sono configurate per l'utilizzo di memoria dinamica con minore rispetto alla quantità di memoria consigliata per Windows Server 2008.*  
   
 ## <a name="impact"></a>Impatto  
-*Il sistema operativo guest nelle macchine virtuali seguenti potrebbero non essere eseguiti o potrebbero essere eseguiti unreliably:*  
+*Il sistema operativo guest nelle macchine virtuali seguenti potrebbe non essere eseguito o potrebbe non essere eseguito in modo affidabile:*  
   
-\<elenco di macchine virtuali >  
+@no__t 0list di macchine virtuali >  
   
 ## <a name="resolution"></a>Risoluzione  
-*Utilizzare Gestione Hyper-V o Windows PowerShell per aumentare la memoria minima per almeno 256 MB e la memoria di avvio e massima di memoria su almeno 512 MB.*  
+*Usare la console di gestione di Hyper-V o Windows PowerShell per aumentare la memoria minima per almeno 256 MB e la memoria di avvio e la memoria massima ad almeno 512 MB.*  
   
 #### <a name="increase-memory-using-hyper-v-manager"></a>Aumentare la memoria tramite Gestione di Hyper-V  
   
@@ -59,7 +59,7 @@ Nelle sezioni seguenti, corsivo indica il testo dell'interfaccia Utente visualiz
   
 ### <a name="increase-memory-using-windows-powershell"></a>Aumentare la memoria con Windows PowerShell  
   
-1.  Aprire Windows PowerShell. (Dal desktop, fare clic su **avviare** e iniziare a digitare **Windows PowerShell**.)  
+1.  Aprire Windows PowerShell. (Dal desktop fare clic su **Start** e iniziare a digitare **Windows PowerShell**).  
   
 2.  Fare doppio clic su **Windows PowerShell** e fare clic su **Esegui come amministratore**.  
   

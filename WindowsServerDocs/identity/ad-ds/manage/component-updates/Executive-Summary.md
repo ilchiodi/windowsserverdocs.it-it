@@ -7,27 +7,27 @@ ms.author: joflore
 manager: mtillman
 ms.date: 05/08/2018
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: a3eecec9d47f91bb6a9ba549abc3bf62482b2f49
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: a24c88f5469890f12f821b9f729c7d283b687f43
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59863282"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71389896"
 ---
 # <a name="executive-summary"></a>Schema riepilogativo
 
 >Si applica a: Windows Server 2012
 
 >[!IMPORTANT] 
->La documentazione seguente è stato scritto nel 2013 e viene fornita solo a fini cronologici.  Attualmente è esame della presente documentazione ed è soggetta a modifiche.  Potrebbe non riflettere corrente e le procedure consigliate.
+>La documentazione seguente è stata scritta in 2013 e viene fornita solo a scopo cronologico.  Attualmente si sta esaminando questa documentazione ed è soggetta a modifiche.  Potrebbe non riflettere le procedure consigliate correnti.
 
-Nessuna organizzazione con un'infrastruttura degli information technology (IT) è immune agli attacchi, ma se i controlli, processi e i criteri appropriati vengono implementati per proteggere i segmenti essenziali dell'infrastruttura informatica dell'organizzazione, potrebbe essere possibile impedire l'aumento delle dimensioni per una vendita all'ingrosso compromissione dell'ambiente di elaborazione di un evento di violazione.  
+Nessuna organizzazione con un'infrastruttura IT (Information Technology) è immune agli attacchi, ma se sono implementati criteri, processi e controlli appropriati per proteggere i segmenti chiave dell'infrastruttura di elaborazione di un'organizzazione, potrebbe essere possibile evitare che un evento di violazione aumenti fino a un compromesso all'ingrosso dell'ambiente di elaborazione.  
   
-Questo sunto è destinato a essere utile come un documento autonomo che contenga il contenuto del documento, che contiene le indicazioni di supporto delle organizzazioni nel migliorare la sicurezza delle installazioni Active Directory. Implementando questi suggerimenti, le organizzazioni saranno in grado di identificare e classificare le attività di sicurezza, proteggere i segmenti essenziali dell'infrastruttura informatica della propria organizzazione e creare i controlli che diminuire in modo significativo la probabilità di esito positivo attacchi contro i componenti critici dell'ambiente IT.  
+Questo riepilogo può essere utile come documento autonomo in cui viene riepilogato il contenuto del documento, che contiene raccomandazioni che aiuteranno le organizzazioni a migliorare la sicurezza delle installazioni Active Directory. Implementando questi consigli, le organizzazioni saranno in grado di identificare e classificare in ordine di priorità le attività di sicurezza, proteggere i segmenti chiave dell'infrastruttura di elaborazione dell'organizzazione e creare controlli che diminuiscono significativamente la probabilità di attacchi riusciti contro i componenti critici dell'ambiente IT.  
   
-Sebbene questo documento illustra gli attacchi più comuni Active Directory e contromisure per ridurre la superficie di attacco, include anche le raccomandazioni per il ripristino in caso di compromissione completa. L'unico modo sicuro per il ripristino in caso di compromissione completa di Active Directory deve essere preparato per la compromissione prima che venga eseguito.  
+Sebbene questo documento discuta gli attacchi più comuni contro Active Directory e contromisure per ridurre la superficie di attacco, contiene anche consigli per il ripristino in caso di compromissione completa. L'unico modo sicuro per eseguire il ripristino in caso di una compromissione completa di Active Directory è prepararsi per la compromissione prima che si verifichi.  
   
 Le sezioni principali di questo documento sono:  
   
@@ -40,57 +40,57 @@ Le sezioni principali di questo documento sono:
 -   Pianificazione del compromesso  
   
 ## <a name="avenues-to-compromise"></a>Esposizione a possibili violazioni  
-In questa sezione fornisce informazioni su alcune delle vulnerabilità sfruttate più comunemente usata dagli utenti malintenzionati per compromettere le infrastrutture dei clienti. Include le categorie generali di vulnerabilità e modo in cui sono abituati a penetrare inizialmente infrastrutture dei clienti, propagare i compromessi tra altri sistemi e infine destinata Active Directory e controller di dominio per ottenere completo controllo delle foreste di organizzazioni. Non fornisce indicazioni dettagliate sulla risoluzione di ogni tipo di vulnerabilità, in particolare nelle aree in cui le vulnerabilità non vengono utilizzate per Active Directory hanno come destinazione diretta. Per ogni tipo di vulnerabilità, tuttavia, Microsoft fornisce collegamenti a informazioni aggiuntive da usare per sviluppare contromisure e ridurre la superficie di attacco dell'organizzazione.  
+Questa sezione fornisce informazioni su alcune delle vulnerabilità sfruttate più di frequente usate dagli utenti malintenzionati per compromettere le infrastrutture dei clienti. Contiene categorie generali di vulnerabilità e il modo in cui vengono usate per penetrare inizialmente le infrastrutture dei clienti, propagare la compromissione tra sistemi aggiuntivi e infine indirizzare Active Directory e controller di dominio per ottenere il completamento controllo delle foreste delle organizzazioni. Non fornisce indicazioni dettagliate sull'indirizzamento di ogni tipo di vulnerabilità, in particolare nelle aree in cui le vulnerabilità non vengono usate direttamente come destinazione Active Directory. Tuttavia, per ogni tipo di vulnerabilità sono disponibili collegamenti a informazioni aggiuntive da usare per sviluppare contromisure e ridurre la superficie di attacco dell'organizzazione.  
   
 Sono inclusi gli argomenti seguenti:  
   
--   **Violazione destinazioni iniziali** -la maggior parte delle violazioni della sicurezza informazioni iniziano con la compromissione di piccole parti di un'organizzazione infrastruttura spesso uno o due sistemi alla volta. Questi eventi iniziali o punti di ingresso alla rete, spesso sfruttano le vulnerabilità che è stato possibile sono stati corretti, ma non sono stati. Le vulnerabilità comuni sono:  
+-   **Destinazioni di violazione iniziali** : la maggior parte delle violazioni alla sicurezza delle informazioni inizia con la compromissione di piccoli componenti dell'infrastruttura di un'organizzazione, spesso uno o due sistemi alla volta. Questi eventi iniziali, o punti di ingresso nella rete, sfruttano spesso vulnerabilità che potrebbero essere state corrette, ma non lo sono. Le vulnerabilità più diffuse sono:  
   
-    -   Gap nelle distribuzioni di antivirus e antimalware  
+    -   Gap nelle distribuzioni antivirus e antimalware  
   
-    -   L'applicazione di patch incompleto  
+    -   Applicazione di patch incompleta  
   
-    -   Sistemi operativi e applicazioni obsolete  
+    -   Applicazioni e sistemi operativi obsoleti  
   
-    -   Errore di configurazione  
+    -   Configurazione  
   
-    -   Mancanza di procedure consigliate per lo sviluppo di applicazioni sicure  
+    -   Mancanza di procedure di sviluppo di applicazioni sicure  
   
--   **Account interessanti per il furto di credenziali** -attacchi con furto di credenziali sono quelle in cui un utente malintenzionato ottiene inizialmente l'accesso con privilegi a un computer in una rete e quindi Usa gli strumenti disponibili gratuitamente per estrarre le credenziali dalle sessioni di altri account connessi.   
-    Inclusi in questa sezione sono i seguenti:  
+-   **Account attraenti per il furto di credenziali** : gli attacchi con furto di credenziali sono quelli in cui un utente malintenzionato ottiene inizialmente l'accesso con privilegi a un computer in una rete e quindi usa gli strumenti disponibili gratuitamente per estrarre le credenziali dalle sessioni di altri account connessi.   
+    In questa sezione sono inclusi i seguenti elementi:  
   
-    -   **Le attività che aumentano la probabilità di compromissione** - perché la destinazione di furto di credenziali è in genere gli account di dominio con privilegi elevati e "molto importante person" account (VIP), è importante per gli amministratori di essere consapevole di attività che aumentano la probabilità di successo di un attacco di furto di credenziali. Queste attività sono:  
+    -   **Attività che aumentano la probabilità di compromissione** : poiché la destinazione del furto di credenziali è in genere costituita da account di dominio con privilegi elevati e account di tipo "persona molto importante", è importante che gli amministratori siano consapevoli delle attività che aumentano la probabilità di successo di un attacco con furto di credenziali. Queste attività sono:  
   
-        -   L'accesso a computer non protetto con gli account con privilegi  
+        -   Accesso a computer non protetti con account con privilegi  
   
-        -   Esplorazione di Internet con un account con privilegiato elevati  
+        -   Esplorazione di Internet con un account con privilegi elevati  
   
-        -   Configurazione di account con privilegi locali con le stesse credenziali tra sistemi  
+        -   Configurazione di account con privilegi locali con le stesse credenziali tra i sistemi  
   
-        -   Overpopulation e uso eccessivo di gruppi di dominio con privilegi  
+        -   Sovrapopolazione e utilizzo eccessivo dei gruppi di dominio con privilegi  
   
-        -   Insufficiente gestione della sicurezza del controller di dominio.  
+        -   Gestione insufficiente della sicurezza dei controller di dominio.  
   
-    -   **Con privilegi più elevati e propagazione** -account specifici, server e i componenti dell'infrastruttura sono in genere le destinazioni principali di attacchi contro Active Directory. Questi account sono:  
+    -   Gli account, i server e i componenti dell'infrastruttura specifici **per l'elevazione dei privilegi e la propagazione** sono in genere gli obiettivi principali degli attacchi contro Active Directory. Questi account sono:  
   
-        -   Account con privilegi in modo permanente  
+        -   Account con privilegi permanenti  
   
         -   Account VIP  
   
-        -   Account di Active Directory "Associati con privilegi"  
+        -   Account Active Directory "con privilegi collegati"  
   
         -   Controller di dominio  
   
-        -   Altri servizi di infrastruttura che influiscono sulla gestione di identità, l'accesso e configurazione, ad esempio i server di infrastruttura a chiave pubblica (PKI) e il server di gestione di sistemi  
+        -   Altri servizi di infrastruttura che influiscono sulle identità, l'accesso e la gestione della configurazione, ad esempio server di infrastruttura a chiave pubblica (PKI) e server di gestione dei sistemi  
   
 ## <a name="reducing-the-active-directory-attack-surface"></a>Riduzione della superficie di attacco di Active Directory  
-Questa sezione è incentrata sui controlli tecnici per ridurre la superficie di attacco di un'installazione di Active Directory. In questa sezione sono inclusi gli argomenti seguenti:  
+Questa sezione è incentrata sui controlli tecnici che consentono di ridurre la superficie di attacco di un'installazione di Active Directory. In questa sezione sono inclusi gli argomenti seguenti:  
   
--   Il **gli account con privilegi e gruppi in Active Directory** sezione vengono illustrati gli account con privilegi più elevato e i gruppi in Active Directory e i meccanismi per cui sono protetti gli account con privilegi. All'interno di Active Directory, tre gruppi predefiniti sono i gruppi con privilegi più elevati nella directory (Enterprise Admins, Domain Admins e amministratori), anche se un numero di altri gruppi e gli account deve anche essere protetti.  
+-   Gli account **e i gruppi con privilegi nella sezione Active Directory** illustrano i gruppi e gli account con privilegi più elevati in Active Directory e i meccanismi con cui vengono protetti gli account con privilegi. All'interno Active Directory tre gruppi predefiniti sono i gruppi di privilegi più elevati nella directory (Enterprise Admins, Domain Admins e Administrators), sebbene sia necessario proteggere anche un numero di gruppi e account aggiuntivi.  
   
--   Il **implementazione di modelli amministrativi con privilegi minimi** sezione è incentrata sui che identifica il rischio che presenta l'uso di account con privilegi elevati per attività di ordinaria amministrazione, oltre a fornire suggerimenti a ridurre tale rischio.  
+-   La sezione **implementazione dei modelli amministrativi con privilegi minimi** è incentrata sull'identificazione del rischio di utilizzo di account con privilegi elevati per l'amministrazione quotidiana, oltre a fornire consigli per ridurre tale rischio.  
   
-Privilegi eccessivi non solo trovare in Active Directory negli ambienti di compromessi. Quando un'organizzazione ha sviluppato l'abitudine di concessione di più privilegi rispetto a quelli necessari, in genere risulta in tutta l'infrastruttura:  
+I privilegi eccessivi non sono disponibili solo in Active Directory in ambienti compromessi. Quando un'organizzazione ha sviluppato l'abitudine di concedere più privilegi rispetto a quanto richiesto, si trova in genere nell'infrastruttura:  
   
 -   In Active Directory  
   
@@ -98,104 +98,104 @@ Privilegi eccessivi non solo trovare in Active Directory negli ambienti di compr
   
 -   Sulle workstation  
   
--   Nelle applicazioni  
+-   In applicazioni  
   
--   Nel repository dei dati  
+-   In repository di dati  
   
--   Il **implementazione host amministrativi protetti** sezione descrive host amministrativi protetti, costituiti da computer configurati per supportare l'amministrazione di Active Directory e i sistemi connessi. Gli host dedicati alla funzionalità amministrative e non vengono eseguite applicazioni software come applicazioni di posta elettronica, browser web o software di produttività (ad esempio Microsoft Office).  
+-   Nella sezione **implementazione di host amministrativi protetti** vengono descritti gli host amministrativi protetti, ovvero i computer configurati per supportare l'amministrazione di Active Directory e dei sistemi connessi. Questi host sono dedicati alle funzionalità amministrative e non eseguono software, ad esempio applicazioni di posta elettronica, Web browser o software di produttività, ad esempio Microsoft Office.  
   
-Inclusi in questa sezione sono i seguenti:  
+In questa sezione sono inclusi i seguenti elementi:  
   
--   **Principi per la creazione di host amministrativi Secure** -sono i principi generali da tenere presenti:  
+-   **Principi per la creazione di host amministrativi protetti** : i principi generali da tenere presenti sono:  
   
-    -   Non amministrare mai un sistema attendibile da un host considerato meno attendibile.  
+    -   Non amministrare mai un sistema attendibile da un host meno attendibile.  
   
-    -   Non fare affidamento su un singolo fattore di autenticazione durante l'esecuzione di attività con privilegi.  
+    -   Non fare affidamento su un singolo fattore di autenticazione quando si eseguono attività con privilegi.  
   
-    -   Non dimenticare la protezione fisica durante la progettazione e implementazione host amministrativi protetti.  
+    -   Non dimenticare la sicurezza fisica durante la progettazione e l'implementazione di host amministrativi protetti.  
   
--   **Protezione dei controller di dominio contro attacco** -se un utente malintenzionato ottiene accesso con privilegi a un controller di dominio, tale utente può modificare, danneggiati ed elimina il database di Active Directory e di conseguenza, tutti i sistemi e gli account gestito da Active Directory.  
+-   **Protezione dei controller di dominio da attacchi** : se un utente malintenzionato ottiene l'accesso con privilegi a un controller di dominio, tale utente può modificare, danneggiare ed eliminare definitivamente il database Active Directory e, per estensione, tutti i sistemi e gli account gestiti per Active Directory.  
   
 In questa sezione sono inclusi gli argomenti seguenti:  
   
--   **Sicurezza fisica per i controller di dominio** -contiene le indicazioni per fornire la sicurezza fisica per i controller di dominio nel Data Center, succursali e sedi remote.  
+-   **Sicurezza fisica per i controller di dominio** : contiene consigli per fornire la sicurezza fisica per i controller di dominio in data center, succursali e posizioni remote.  
   
--   **Sistemi operativi dei Controller di dominio** -contiene le indicazioni per la protezione di sistemi operativi dei controller di dominio.  
+-   **Sistemi operativi dei controller di dominio** : contiene raccomandazioni per la protezione dei sistemi operativi dei controller di dominio.  
   
--   **Configurazione di controller di dominio protetti** -nativo e disponibile gratuitamente gli strumenti e configurazione delle impostazioni consente di creare linee di base di configurazione per i controller di dominio che successivamente possono essere applicati dalla (oggetti Criteri di gruppo di sicurezza Oggetti Criteri di gruppo).  
+-   **Configurazione sicura dei controller di dominio** : gli strumenti e le impostazioni di configurazione native e disponibili possono essere usati per creare linee di base di configurazione della sicurezza per i controller di dominio che possono essere applicati in seguito da oggetti Criteri di gruppo (GPO).  
   
 ## <a name="monitoring-active-directory-for-signs-of-compromise"></a>Monitoraggio dei segnali di compromissione di Active Directory  
-Questa sezione vengono fornite informazioni sulle categorie di controllo legacy e le sottocategorie dei criteri di controllo (che sono stati introdotti in Windows Vista e Windows Server 2008) e criteri di controllo avanzati (che è stata introdotta in Windows Server 2008 R2). Anche fornito informazioni sugli eventi e gli oggetti per il monitoraggio che possono indicare tentativi di violazione dell'ambiente e alcuni riferimenti aggiuntivi che possono essere utilizzati per costruire un criterio di controllo completo per Active Directory.  
+In questa sezione vengono fornite informazioni sulle categorie di controllo legacy e sulle sottocategorie dei criteri di controllo (introdotte in Windows Vista e Windows Server 2008) e sui criteri di controllo avanzati introdotti in Windows Server 2008 R2. Sono inoltre disponibili informazioni sugli eventi e sugli oggetti da monitorare che possono indicare i tentativi di compromissione dell'ambiente e alcuni riferimenti aggiuntivi che possono essere utilizzati per costruire criteri di controllo completi per Active Directory.  
   
 In questa sezione sono inclusi gli argomenti seguenti:  
   
--   **Criteri di controllo di Windows** : i registri eventi di sicurezza di Windows dispongono delle categorie e sottocategorie che determinano gli eventi di sicurezza vengono monitorate e registrate.  
+-   **Criteri di controllo di Windows** : i registri eventi di sicurezza di Windows includono categorie e sottocategorie che determinano quali eventi di sicurezza vengono rilevati e registrati.  
   
--   **Suggerimenti per i criteri di controllo** -in questa sezione descrive le impostazioni di Criteri controllo predefinito di Windows, controllare le impostazioni dei criteri consigliati da Microsoft e consigli più aggressive per le organizzazioni a per un controllo server critici e workstation.  
+-   **Raccomandazioni sui criteri di controllo** : questa sezione descrive le impostazioni dei criteri di controllo predefiniti di Windows, le impostazioni dei criteri di controllo consigliate da Microsoft e consigli più aggressivi per le organizzazioni da usare per controllare i server critici e workstation.  
   
 ## <a name="planning-for-compromise"></a>Pianificazione del compromesso  
-Questa sezione vengono fornite indicazioni che possono favorire le organizzazioni di prepararsi a una compromissione prima che venga eseguito, implementare i controlli che è possono rilevare un evento di compromissione prima che si è verificata una violazione completa e fornire linee guida per la risposta e il ripristino per i casi in cui gli utenti malintenzionati viene ottenuta una compromissione completa della directory. In questa sezione sono inclusi gli argomenti seguenti:  
+Questa sezione contiene raccomandazioni che consentono alle organizzazioni di prepararsi per un compromesso prima che avvenga, implementare i controlli in grado di rilevare un evento di compromissione prima che si verifichi una violazione completa e fornire linee guida per la risposta e il ripristino per i casi in cui un compromesso completo della directory viene raggiunto dagli utenti malintenzionati. In questa sezione sono inclusi gli argomenti seguenti:  
   
--   **L'approccio rethinking** -contiene i principi e le linee guida per creare ambienti protetti, in cui un'organizzazione può inserire le proprie risorse più critiche. Queste linee guida sono i seguenti:  
+-   **Ripensare all'approccio** : contiene principi e linee guida per creare ambienti sicuri in cui un'organizzazione può inserire le risorse più importanti. Queste linee guida sono le seguenti:  
   
-    -   Che identifica i principi per adeguatamente e protezione di asset critici  
+    -   Identificazione dei principi per la separazione e la protezione di asset critici  
   
-    -   Definizione di un piano di migrazione limitata, in base al rischio  
+    -   Definizione di un piano di migrazione limitato e basato sul rischio  
   
-    -   Sfruttando le migrazioni "nonmigratory" dove necessario  
+    -   Sfruttando le migrazioni "non migrate" laddove necessario  
   
-    -   Implementazione di "eliminazione creative"  
+    -   Implementazione della "distruzione creativa"  
   
-    -   Isolamento delle applicazioni e sistemi legacy  
+    -   Isolamento di applicazioni e sistemi legacy  
   
-    -   Semplificazione della protezione per gli utenti finali  
+    -   Semplificazione della sicurezza per gli utenti finali  
   
--   **Manutenzione di un ambiente più sicuro** -contiene le indicazioni di alto livello deve essere usata come linee guida da utilizzare nello sviluppo di sicurezza valide non solo, ma gestione efficace del ciclo di vita. In questa sezione sono inclusi gli argomenti seguenti:  
+-   Gestione di **un ambiente più sicuro** : contiene raccomandazioni di alto livello da usare come linee guida per lo sviluppo di una sicurezza efficace, ma una gestione efficace del ciclo di vita. In questa sezione sono inclusi gli argomenti seguenti:  
   
-    -   **Creazione di spendere procedure di sicurezza per Active Directory** : per gestire il ciclo di vita di utenti, dati, applicazioni e i sistemi gestiti da Active Directory in modo efficace, seguire questi principi.  
+    -   La **creazione di procedure di sicurezza incentrate sull'azienda per Active Directory** per gestire efficacemente il ciclo di vita di utenti, dati, applicazioni e sistemi gestiti da Active Directory, attenersi a questi principi.  
   
-        -   **Assegnare una proprietà di Business a dati di Active Directory** -assegnare la proprietà dei componenti dell'infrastruttura IT; per i dati che viene aggiunto in Active Directory Domain Services (AD DS) per supportare l'azienda, ad esempio nuovi dipendenti, le nuove applicazioni, e nuovi repository di informazioni, un'unità aziendale designato o l'utente deve essere associata ai dati.  
+        -   **Assegnare una proprietà dell'azienda a Active Directory dati** : assegnare alla proprietà i componenti dell'infrastruttura; per i dati aggiunti a Active Directory Domain Services (AD DS) per il supporto dell'azienda, ad esempio nuovi dipendenti, nuove applicazioni e nuovi repository di informazioni, un'unità aziendale o un utente designato deve essere associato ai dati.  
   
-        -   **Implementare la gestione del ciclo di vita Business-Driven** -gestione del ciclo di vita deve essere implementato per i dati in Active Directory.  
+        -   **Implementare** la gestione del ciclo di vita basata sull'azienda-la gestione del ciclo di vita deve essere implementata per i dati in Active Directory  
   
-        -   **Classificare tutti i dati di Active Directory** -impresa deve fornire la classificazione per i dati in Active Directory. All'interno del modello di classificazione dei dati, è necessario inclusa la classificazione per i dati di Active Directory seguenti:  
+        -   **Classificare tutti i Active Directory** i proprietari di dati aziendali devono fornire la classificazione dei dati in Active Directory. All'interno del modello di classificazione dei dati, è necessario includere la classificazione per i dati di Active Directory seguenti:  
   
-            -   **I sistemi** -classificare popolazioni di server, il sistema operativo proprio ruolo, le applicazioni in esecuzione su di essi e l'IT e i proprietari aziendali dei record.  
+            -   **Sistemi** : classificare i popolamenti dei server, il loro sistema operativo, le applicazioni in esecuzione su di essi e i proprietari it e aziendali del record.  
   
-            -   **Le applicazioni** -classificazione delle applicazioni dalla funzionalità di base di utenti e il sistema operativo.  
+            -   **Applicazioni** : classificare le applicazioni in base alle funzionalità, alla base utente e al sistema operativo.  
   
-            -   **Gli utenti** -devono essere contrassegnati e monitorati gli account nelle installazioni di Active Directory che possono più essere attaccate da utenti malintenzionati.  
+            -   **Utenti** : gli account nelle installazioni di Active Directory che più probabilmente verranno assegnati a utenti malintenzionati devono essere contrassegnati e monitorati.  
   
 ## <a name="summary-of-best-practices-for-securing-active-directory-domain-services"></a>Riepilogo delle procedure consigliate per la protezione di Active Directory Domain Services  
-Nella tabella seguente fornisce un riepilogo dei consigli forniti in questo documento per la protezione di un'installazione di Active Directory Domain Services. Alcune procedure consigliate sono di natura strategiche e richiedono pianificazione completa e i progetti di implementazione. altri sono tattica e di focalizzare l'attenzione su componenti specifici di Active Directory e relativa infrastruttura.  
+La tabella seguente fornisce un riepilogo delle indicazioni fornite in questo documento per la protezione di un'installazione di servizi di dominio Active Directory. Alcune procedure consigliate sono di natura strategica e richiedono progetti di pianificazione e implementazione completi; altri sono tattici e sono incentrati su componenti specifici di Active Directory e sull'infrastruttura correlata.  
   
-Procedure consigliate sono elencate in ordine approssimativo di priorità, ovvero, i numeri più bassi indicano priorità più alta. Dove applicabile sulle procedure consigliate identificate come preventive o detective di natura. Tutte queste indicazioni deve essere accuratamente testate e modificate in base alle necessità per le caratteristiche e requisiti della propria organizzazione.  
+Le procedure sono elencate in ordine di priorità approssimativo, ovvero. i numeri più bassi indicano una priorità più alta. Laddove applicabile, le procedure consigliate vengono identificate come preventive o investigative di natura. Tutti questi consigli devono essere testati e modificati accuratamente in base alle esigenze delle caratteristiche e dei requisiti dell'organizzazione.  
   
   
-||**Procedure consigliate**|**Tattico o strategico**|**Preventive o Detective**|  
+||**Procedura consigliata**|**Tattica o strategica**|**Preventivo o detective**|  
 |-|-|-|-|  
-|1|Applicazioni di patch.|Tattico|Preventive|  
-|2|Sistemi operativi di patch.|Tattico|Preventive|  
-|3|Distribuire e aggiornare immediatamente un software antivirus e antimalware in tutti i sistemi e monitoraggio dei tentativi per rimuovere o disabilitarlo.|Tattico|Entrambi|  
-|4|Monitoraggio oggetti Active Directory riservati per i tentativi di modifica e Windows per gli eventi che potrebbero indicare compromissione effettuata è fallita.|Tattico|Detective|  
-|5|Proteggere e monitorare gli account per utenti che hanno accesso ai dati sensibili|Tattico|Entrambi|  
-|6|Impedire l'account di potenti nei sistemi non autorizzati.|Tattico|Preventive|  
-|7|Eliminare l'appartenenza permanente a gruppi con privilegi elevati.|Tattico|Preventive|  
-|8|Implementare controlli per concedere l'appartenenza a gruppi con privilegi quando necessario.|Tattico|Preventive|  
-|9|Implementazione host amministrativi protetti.|Tattico|Preventive|  
-|10|Usare nell'elenco elementi consentiti dell'applicazione sul controller di dominio, gli host amministrativi e altri sistemi riservati.|Tattico|Preventive|  
-|11|Identificare le risorse critiche e definire la priorità relativa protezione e il monitoraggio.|Tattico|Entrambi|  
-|12|Implementare i controlli di accesso basato su ruolo con privilegi minimi per l'amministrazione della directory relativa infrastruttura di supporto e i sistemi appartenenti a un dominio.|Strategico|Preventive|  
-|13|Isolare le applicazioni e sistemi legacy.|Tattico|Preventive|  
-|14|Rimozione delle autorizzazioni delle applicazioni e sistemi legacy.|Strategico|Preventive|  
-|15|Implementare i programmi del ciclo di vita di sviluppo sicuro per le applicazioni personalizzate.|Strategico|Preventive|  
-|16|Implementare la gestione della configurazione, esaminare regolarmente la conformità e valutare le impostazioni con ogni nuova versione di hardware o software.|Strategico|Preventive|  
-|17|Eseguire la migrazione di asset critici alle foreste originario con rigorosi di sicurezza e monitoraggio dei requisiti.|Strategico|Entrambi|  
-|18|Semplifica la sicurezza per gli utenti finali.|Strategico|Preventive|  
-|19|Usare firewall basati su host per le comunicazioni sicure e controllo.|Tattico|Preventive|  
-|20|Dispositivi di patch.|Tattico|Preventive|  
-|21|Implementare la gestione del ciclo di vita spendere per risorse IT.|Strategico|N/D|  
-|22|Creare o aggiornare i piani di ripristino degli eventi imprevisti.|Strategico|N/D|  
+|1|Applicazione patch.|Tattico|Prevenzione|  
+|2|Applicare patch ai sistemi operativi.|Tattico|Prevenzione|  
+|3|Distribuisci e aggiorna tempestivamente il software antivirus e antimalware in tutti i sistemi e monitora i tentativi di rimozione o disabilitazione.|Tattico|Entrambi|  
+|4|Monitorare gli oggetti Active Directory sensibili per i tentativi di modifica e Windows per gli eventi che potrebbero indicare un tentativo di compromissione.|Tattico|Rilevamento|  
+|5|Proteggi e monitora gli account per gli utenti che hanno accesso ai dati sensibili|Tattico|Entrambi|  
+|6|Impedire l'utilizzo di account avanzati nei sistemi non autorizzati.|Tattico|Prevenzione|  
+|7|Eliminare l'appartenenza permanente a gruppi con privilegi elevati.|Tattico|Prevenzione|  
+|8|Implementare i controlli per concedere l'appartenenza temporanea a gruppi con privilegi quando necessario.|Tattico|Prevenzione|  
+|9|Implementare host amministrativi protetti.|Tattico|Prevenzione|  
+|10|Utilizzare l'elenco elementi consentiti dell'applicazione nei controller di dominio, negli host amministrativi e in altri sistemi sensibili.|Tattico|Prevenzione|  
+|11|Identificare le risorse critiche e classificare in ordine di priorità la sicurezza e il monitoraggio.|Tattico|Entrambi|  
+|12|Implementare i controlli di accesso con privilegi minimi e basati sui ruoli per l'amministrazione della directory, l'infrastruttura di supporto e i sistemi aggiunti a un dominio.|Strategico|Prevenzione|  
+|13|Isolare i sistemi e le applicazioni legacy.|Tattico|Prevenzione|  
+|14|Rimuovere le autorizzazioni di sistemi e applicazioni legacy.|Strategico|Prevenzione|  
+|15|Implementare programmi del ciclo di vita dello sviluppo sicuro per applicazioni personalizzate.|Strategico|Prevenzione|  
+|16|Implementare la gestione della configurazione, verificare regolarmente la conformità e valutare le impostazioni con ogni nuova versione hardware o software.|Strategico|Prevenzione|  
+|17|Esegui la migrazione di asset critici a foreste incontaminate con requisiti di sicurezza e monitoraggio rigorosi.|Strategico|Entrambi|  
+|18|Semplifica la sicurezza per gli utenti finali.|Strategico|Prevenzione|  
+|19|Usare firewall basati su host per controllare e proteggere le comunicazioni.|Tattico|Prevenzione|  
+|20|Dispositivi patch.|Tattico|Prevenzione|  
+|21|Implementare la gestione del ciclo di vita incentrata sull'azienda per le risorse IT.|Strategico|N/D|  
+|22|Crea o aggiorna i piani di ripristino degli eventi imprevisti.|Strategico|N/D|  
   
 
 

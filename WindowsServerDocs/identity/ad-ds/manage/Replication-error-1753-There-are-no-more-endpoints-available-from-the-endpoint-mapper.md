@@ -7,14 +7,14 @@ ms.author: joflore
 manager: mtillman
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 9c8efee98cc8128443d9c835ccc5cb6b7695a094
-ms.sourcegitcommit: a9625758fbfb066494fe62e0da5f9570ccb738a3
+ms.openlocfilehash: 64b479663dfc930ec9a6d2055b4c9ad5755b30fc
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68952474"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71389975"
 ---
 # <a name="replication-error-1753-there-are-no-more-endpoints-available-from-the-endpoint-mapper"></a>Errore di replica 1753 Nessun endpoint disponibile nel mapping degli endpoint
 
@@ -88,7 +88,7 @@ Last success @ <date> <time>.
 
 Il comando **Controlla topologia replica** in Active Directory Sites and Services restituisce "non sono disponibili altri endpoint dal mapper degli endpoint".
 
-Facendo clic con il pulsante destro del mouse sull'oggetto connessione da un controller di dominio di origine e scegliendo Controlla la topologia di **replica** ha esito negativo con "non sono disponibili altri endpoint dal mapper degli endpoint". Di seguito è riportato il messaggio di errore su schermo:
+Facendo clic con il pulsante destro del mouse sull'oggetto connessione da un controller di dominio di origine e scegliendo **Controlla la topologia di replica** ha esito negativo con "non sono disponibili altri endpoint dal mapper degli endpoint". Di seguito è riportato il messaggio di errore su schermo:
 
 Testo del titolo della finestra di dialogo: Controllare il testo del messaggio della finestra di dialogo topologia replica Si è verificato il seguente errore durante il tentativo di contattare il controller di dominio: Nessun endpoint disponibile nel mapper degli endpoint.
 
@@ -96,7 +96,7 @@ Il comando **Replicate Now** in Active Directory Sites and Services restituisce 
 Facendo clic con il pulsante destro del mouse sull'oggetto connessione da un controller di dominio di origine e scegliendo **Replica ora** si verifica un errore con "non sono disponibili altri endpoint dal mapper degli endpoint".
 Di seguito è riportato il messaggio di errore su schermo:
 
-Testo del titolo della finestra di dialogo: Testo del messaggio della finestra di dialogo replica ora: Si è verificato il seguente errore durante il tentativo di sincronizzare \<il contesto dei nomi% nome partizione di directory \<% > dal controller di dominio \<di origine controller di dominio > al controller di dominio di destinazione controller di dominio >:
+Testo del titolo della finestra di dialogo: Testo del messaggio della finestra di dialogo replica ora: Si è verificato il seguente errore durante il tentativo di sincronizzare il contesto dei nomi \<% nome partizione di directory% > dal controller di dominio \<Source DC > a controller di dominio \<Destination DC >:
 
 Nessun endpoint disponibile nel mapper degli endpoint.
 L'operazione non continuerà
@@ -150,7 +150,7 @@ Verificare che il servizio che registra il servizio con il mapper di endpoint si
 
 Verificare che il client RPC (controller di dominio di destinazione) sia connesso al server RPC previsto (DC di origine)
 
-Tutti i controller di dominio in una foresta Active Directory comune registrano un record CNAME del controller di dominio nella _msdcs. \<dominio radice della foresta > zona DNS indipendentemente dal dominio in cui risiedono all'interno della foresta. Il record CNAME DC deriva dall'attributo objectGUID dell'oggetto Impostazioni NTDS per ogni controller di dominio.
+Tutti i controller di dominio in una foresta Active Directory comune registrano un record CNAME del controller di dominio nella _msdcs. dominio radice \<forest > zona DNS indipendentemente dal dominio in cui risiedono all'interno della foresta. Il record CNAME DC deriva dall'attributo objectGUID dell'oggetto Impostazioni NTDS per ogni controller di dominio.
 
 Quando si eseguono operazioni basate sulla replica, un controller di dominio di destinazione esegue una query DNS per il record CNAME del controller di dominio di origine Il record CNAME contiene il nome del computer completo del controller di dominio di origine che viene usato per derivare l'indirizzo IP del controller di dominio di origine tramite la ricerca della cache del client DNS, la ricerca di file host/LMHOSTS, l'host A/AAAA record in DNS o WINS.
 
@@ -295,11 +295,11 @@ Successivamente, il computer membro con indirizzo IP x. x. 1.2 viene promosso co
 
 I mapping da host a IP non validi potrebbero essere causati da voci obsolete nei file host/LMHOSTS, da host a/AAAA registrazioni in DNS o WINS.
 
-Riepilogo Questo esempio non è riuscito perché un mapping da host a IP non valido (nel file HOST in questo caso) ha causato la risoluzione del controller di dominio di destinazione in un controller di dominio di origine in cui non è stato eseguito il servizio Active Directory Domain Services (o addirittura installato), quindi la replica SPN non è ancora stato registrato e il controller di dominio di origine ha restituito l'errore 1753. Nel secondo caso, un mapping da host a IP non valido (di nuovo nel file HOST) ha causato la connessione del controller di dominio di destinazione a un controller di dominio che ha registrato E351... nome SPN della replica ma tale origine aveva un nome host e un'identità di sicurezza diversi rispetto al controller di dominio di origine previsto, quindi i tentativi non sono riusciti con errore-2146893022: Il nome dell'entità di destinazione non è corretto.
+Riepilogo: Questo esempio non è riuscito perché un mapping da host a IP non valido (nel file HOST in questo caso) ha causato la risoluzione del controller di dominio di destinazione in un controller di dominio di origine in cui non è stato eseguito il servizio Active Directory Domain Services (o addirittura installato), quindi la replica SPN non è ancora stato registrato e il controller di dominio di origine ha restituito l'errore 1753. Nel secondo caso, un mapping da host a IP non valido (di nuovo nel file HOST) ha causato la connessione del controller di dominio di destinazione a un controller di dominio che ha registrato E351... nome SPN della replica ma tale origine aveva un nome host e un'identità di sicurezza diversi rispetto al controller di dominio di origine previsto, quindi i tentativi non sono riusciti con errore-2146893022: Il nome dell'entità di destinazione non è corretto.
 
 ## <a name="related-topics"></a>Argomenti correlati
 
-* [Risoluzione dei problemi di Active Directory operazioni che hanno esito negativo con errore 1753: Nessun endpoint disponibile nel mapper degli endpoint.](https://support.microsoft.com/kb/2089874)
+* [Troubleshooting Active Directory operazioni che hanno esito negativo con errore 1753: Nessun endpoint disponibile nel mapper degli endpoint. ](https://support.microsoft.com/kb/2089874)
 * [Articolo della Knowledge base 839880 risoluzione degli errori di mapping degli endpoint RPC mediante gli strumenti di supporto di Windows Server 2003 dal CD del prodotto](https://support.microsoft.com/kb/839880)
 * [Articolo della Knowledge 832017 Panoramica dei servizi e requisiti per le porte di rete per Windows Server System](https://support.microsoft.com/kb/832017/)
 * [Articolo della Knowledge base 224196 limitazione Active Directory il traffico di replica e il traffico RPC client a una porta specifica](https://support.microsoft.com/kb/224196/)
