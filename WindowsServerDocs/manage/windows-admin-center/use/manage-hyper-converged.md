@@ -7,13 +7,13 @@ author: daniellee-msft
 ms.author: jol
 ms.date: 03/01/2019
 ms.localizationpriority: medium
-ms.prod: windows-server-threshold
-ms.openlocfilehash: 5df035b448b80aa147067004c6a2f14aa03a9684
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.prod: windows-server
+ms.openlocfilehash: d692251e1ba0fef43e4eeee6f259f26f4347f3c0
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70869091"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71356878"
 ---
 # <a name="manage-hyper-converged-infrastructure-with-windows-admin-center"></a>Gestire l'infrastruttura iperconvergente con l'interfaccia di amministrazione di Windows
 
@@ -157,7 +157,7 @@ L'interfaccia di amministrazione di Windows per l'infrastruttura iperconvergente
 
 Windows Admin Center non comporta costi aggiuntivi oltre a Windows.
 
-È possibile usare l'interfaccia di amministrazione di Windows (disponibile come download separato) con licenze valide di Windows Server o Windows 10 senza costi aggiuntivi. questa licenza viene concessa in licenza in base a un contratto di licenza supplementare di Windows.
+Puoi usare Windows Admin Center (disponibile come download separato) con licenze valide di Windows Server o Windows 10 senza alcun costo aggiuntivo: viene concesso in licenza nel quadro di condizioni di licenza integrative di Windows.
 
 ### <a name="does-windows-admin-center-require-system-center"></a>Windows Admin Center richiede System Center?
 
@@ -278,7 +278,7 @@ Se si è appena iniziato, di seguito sono riportate alcune esercitazioni rapide 
 
 ![Monitorare l'infrastruttura SDN](../media/manage-hyper-converged/sdn-monitoring.png)
 
-## <a name="feedback"></a>Commenti e suggerimenti
+## <a name="feedback"></a>Feedback
 
 Sono tutti i tuoi commenti e suggerimenti! Il vantaggio più importante degli aggiornamenti frequenti è quello di sapere cosa funziona e cosa è necessario migliorare. Ecco alcuni modi per farci sapere cosa si sta pensando:
 

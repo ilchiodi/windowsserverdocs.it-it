@@ -1,45 +1,45 @@
 ---
 title: Sviluppare un'estensione della soluzione
-description: Sviluppare un'estensione di soluzioni Windows Admin Center SDK (progetto Honolulu)
+description: Sviluppare un'estensione di soluzione Windows Admin Center SDK (Project Honolulu)
 ms.technology: manage
 ms.topic: article
 author: nwashburn-ms
 ms.author: niwashbu
 ms.date: 09/18/2018
 ms.localizationpriority: medium
-ms.prod: windows-server-threshold
-ms.openlocfilehash: 268a7d2833f73e9fab006501e9b3dc261d1b1d9e
-ms.sourcegitcommit: 48bb3e5c179dc520fa879b16c9afe09e07c87629
+ms.prod: windows-server
+ms.openlocfilehash: 6ac9c6296fdf9159c9f50a1304dd345932052ac9
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66452570"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71357151"
 ---
 # <a name="develop-a-solution-extension"></a>Sviluppare un'estensione della soluzione
 
->Si applica a: Windows Admin Center, Windows Admin Center anteprima
+>Si applica a: Windows Admin Center, Windows Admin Center Preview
 
-Soluzioni definiscono essenzialmente un tipo univoco dell'oggetto da gestire tramite Windows Admin Center.  Questi tipi di soluzioni/connessione sono inclusi con Windows Admin Center, per impostazione predefinita:
+Le soluzioni definiscono principalmente un tipo di oggetto univoco che si vuole gestire tramite l'interfaccia di amministrazione di Windows.  Per impostazione predefinita, tali soluzioni/tipi di connessione sono inclusi nell'interfaccia di amministrazione di Windows:
 
-* Connessioni al Server di Windows
-* Connessioni di PC Windows
-* Connessioni del cluster di failover
-* Connessioni al cluster iperconvergente
+* Connessioni di Windows Server
+* Connessioni PC Windows
+* Connessioni cluster di failover
+* Connessioni cluster iperconvergenti
 
-Quando si seleziona una connessione dalla pagina di connessione Windows Admin Center, l'estensione di soluzioni per il tipo della connessione viene caricata e Windows Admin Center tenterà di connettersi al nodo di destinazione. Se la connessione ha esito positivo, la soluzione dell'interfaccia utente dell'estensione verrà caricato e Windows Admin Center visualizzerà gli strumenti per la soluzione nel riquadro di spostamento a sinistra.
+Quando si seleziona una connessione dalla pagina di connessione dell'interfaccia di amministrazione di Windows, viene caricata l'estensione della soluzione per il tipo di tale connessione e il centro di amministrazione di Windows tenterà di connettersi al nodo di destinazione. Se la connessione ha esito positivo, l'interfaccia utente dell'estensione della soluzione verrà caricata e il centro di amministrazione di Windows visualizzerà gli strumenti per tale soluzione nel riquadro di spostamento a sinistra.
 
-Se si vorrebbe compilare una GUI di gestione per i servizi non è definito per i tipi di connessione predefinita di sopra, uno switch di rete o altro hardware non individuabile in base al nome di computer, è possibile creare soluzioni un'estensione personalizzata.
+Se si desidera creare un'interfaccia utente grafica di gestione per i servizi non definiti dai tipi di connessione predefiniti precedenti, ad esempio un commutire di rete o un altro hardware non individuabile in base al nome del computer, è possibile creare un'estensione della soluzione personalizzata.
 
 > [!NOTE]
-> Non hanno familiarità con i tipi di estensione diversi? Altre informazioni sul [tipi di architettura e l'estensione di estendibilità](understand-extensions.md).
+> Non si ha familiarità con i diversi tipi di estensione? Altre informazioni sull' [architettura di estendibilità e i tipi di estensione](understand-extensions.md).
 
 ## <a name="prepare-your-environment"></a>Preparazione dell'ambiente
 
-Se non già [preparare l'ambiente](prepare-development-environment.md) installando le dipendenze e globali prerequisiti obbligatori per tutti i progetti.
+Se non è già stato fatto, [preparare l'ambiente](prepare-development-environment.md) installando le dipendenze e i prerequisiti globali necessari per tutti i progetti.
 
-## <a name="create-a-new-solution-extension-with-the-windows-admin-center-cli"></a>Creare una nuova estensione di soluzioni con la CLI di Windows Admin Center ##
+## <a name="create-a-new-solution-extension-with-the-windows-admin-center-cli"></a>Creare una nuova estensione della soluzione con l'interfaccia della riga di comando di Windows Admin Center ##
 
-Dopo aver creato tutte le dipendenze installate, si è pronti per creare la nuova estensione di soluzioni.  Creare o selezionare una cartella che contiene i file di progetto, aprire un prompt dei comandi e impostare tale cartella come directory di lavoro.  Tramite la CLI di Windows Admin Center che è stato installato in precedenza, creare una nuova estensione con la sintassi seguente:
+Una volta installate tutte le dipendenze, si è pronti per creare la nuova estensione della soluzione.  Creare o selezionare una cartella contenente i file di progetto, aprire un prompt dei comandi e impostare tale cartella come directory di lavoro.  Usando l'interfaccia della riga di comando dell'interfaccia di amministrazione di Windows installata in precedenza, creare una nuova estensione con la sintassi seguente:
 
 ```
 wac create --company "{!Company Name}" --solution "{!Solution Name}" --tool "{!Tool Name}"
@@ -47,9 +47,9 @@ wac create --company "{!Company Name}" --solution "{!Solution Name}" --tool "{!T
 
 | Value | Spiegazione | Esempio |
 | ----- | ----------- | ------- |
-| ```{!Company Name}``` | Il nome della società (spazi inclusi) | ```Contoso Inc``` |
-| ```{!Solution Name}``` | Il nome della soluzione (con spazi) | ```Contoso Foo Works Suite``` |
-| ```{!Tool Name}``` | Il nome dello strumento (spazi inclusi) | ```Manage Foo Works``` |
+| ```{!Company Name}``` | Nome della società (con spazi) | ```Contoso Inc``` |
+| ```{!Solution Name}``` | Nome della soluzione (con spazi) | ```Contoso Foo Works Suite``` |
+| ```{!Tool Name}``` | Nome dello strumento (con spazi) | ```Manage Foo Works``` |
 
 Ecco un esempio di utilizzo:
 
@@ -57,31 +57,31 @@ Ecco un esempio di utilizzo:
 wac create --company "Contoso Inc" --solution "Contoso Foo Works Suite" --tool "Manage Foo Works"
 ```
 
-In questo modo viene creata una nuova cartella all'interno della directory di lavoro corrente usando il nome specificato per la soluzione, consente di copiare tutti i file modello necessari nel progetto e configura i file con l'azienda, di soluzione e nome dello strumento.  
+Viene creata una nuova cartella nella directory di lavoro corrente usando il nome specificato per la soluzione, vengono copiati tutti i file di modello necessari nel progetto e vengono configurati i file con la società, la soluzione e il nome dello strumento.  
 
-Successivamente, passare alla cartella appena creata, quindi installare le dipendenze locali necessari eseguendo il comando seguente:
+Successivamente, passare alla cartella appena creata, quindi installare le dipendenze locali necessarie eseguendo il comando seguente:
 
 ```
 npm install
 ```
 
-Al termine, aver configurato tutto il che necessario per caricare la nuova estensione Windows Admin Center. 
+Al termine dell'operazione, è stato configurato tutto il necessario per caricare la nuova estensione nell'interfaccia di amministrazione di Windows. 
 
 ## <a name="add-content-to-your-extension"></a>Aggiungere contenuto all'estensione
 
-Ora che è stata creata un'estensione con l'interfaccia CLI di Windows Admin Center, si è pronti per personalizzare il contenuto.  Per esempi di operazioni possibili, vedere le guide seguenti:
+Ora che è stata creata un'estensione con l'interfaccia della riga di comando di Windows Admin Center, si è pronti per personalizzare il contenuto.  Per esempi delle operazioni possibili, vedere le guide seguenti:
 
 - Aggiungere un [modulo vuoto](guides/add-module.md)
-- Aggiungere un [iFrame](guides/add-iframe.md)
-- Creare un [provider di connessione personalizzata](guides/create-connection-provider.md)
-- Modificare [radice comportamento di navigazione](guides/modify-root-navigation.md)
+- Aggiungere un [IFRAME](guides/add-iframe.md)
+- Creazione di un [provider di connessione personalizzato](guides/create-connection-provider.md)
+- Modificare il [comportamento di navigazione radice](guides/modify-root-navigation.md)
  
-Sono disponibili anche altri esempi nostri [sito GitHub SDK](https://aka.ms/wacsdk):
--  [Strumenti di sviluppo](https://github.com/Microsoft/windows-admin-center-sdk/tree/master/windows-admin-center-developer-tools) è un'estensione completamente funzionante che può essere caricate in sideload in Windows Admin Center e contiene un'ampia raccolta di esempi di funzionalità e lo strumento di esempio che è possibile esplorare e utilizzare in un'estensione personalizzata.
+Altri esempi sono reperibili nel [sito di GITHUB SDK](https://aka.ms/wacsdk):
+-  [Strumenti di sviluppo](https://github.com/Microsoft/windows-admin-center-sdk/tree/master/windows-admin-center-developer-tools) è un'estensione completamente funzionante che può essere caricata a lato nell'interfaccia di amministrazione di Windows e contiene una raccolta completa di esempi di funzionalità e strumenti che è possibile esplorare e utilizzare nella propria estensione.
 
-## <a name="build-and-side-load-your-extension"></a>Compilazione e sul lato caricare l'estensione
+## <a name="build-and-side-load-your-extension"></a>Compilazione e caricamento laterale dell'estensione
 
-Successivamente, compilazione e sul lato, caricare l'estensione Windows Admin Center.  Aprire una finestra di comando, passare alla directory di origine, quindi è possibile passare alla compilazione.
+Successivamente, compilare e caricare la propria estensione nell'interfaccia di amministrazione di Windows.  Aprire una finestra di comando, passare alla directory di origine, quindi si è pronti per la compilazione.
 
 * Crea e gestisci con gulp:
 
@@ -106,6 +106,6 @@ Il progetto può essere trasferito localmente in un'istanza locale Windows Admin
 
 Il progetto sarà ora visibile nell'elenco Strumenti con (trasferito localmente) accanto al nome.
 
-## <a name="target-a-different-version-of-the-windows-admin-center-sdk"></a>Destinazione una versione diversa di Windows Admin Center SDK
+## <a name="target-a-different-version-of-the-windows-admin-center-sdk"></a>Specificare come destinazione una versione diversa di Windows Admin Center SDK
 
-L'estensione di stare al passo con le modifiche a SDK e piattaforma è facile.  Ottenere informazioni su come [destinare una versione diversa](target-sdk-version.md) Windows Admin Center SDK.
+L'aggiornamento dell'estensione con le modifiche apportate all'SDK e le modifiche apportate alla piattaforma è facile.  Leggere le informazioni su come [assegnare una versione diversa](target-sdk-version.md) di Windows Admin Center SDK.

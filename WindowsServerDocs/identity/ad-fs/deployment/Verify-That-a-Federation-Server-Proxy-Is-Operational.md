@@ -6,20 +6,20 @@ author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: 26b0ae4f331607d83c6b94a2655ddc9eded8a356
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 24f4fe2a152244dc904be82c4c10abe71abffcc4
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66191871"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71359974"
 ---
 # <a name="verify-that-a-federation-server-proxy-is-operational"></a>Verificare il funzionamento di un proxy server federativo
 
 
-È possibile usare la procedura seguente per verificare che il proxy server federativo possa comunicare con il servizio federativo in Active Directory Federation Services \(ADFS\). Eseguire questa procedura dopo aver eseguito il **configurazione guidata di AD FS Federation Server Proxy** per configurare il computer per l'esecuzione nel ruolo proxy server federativo. Per altre informazioni su come eseguire questa procedura guidata, vedere [configurare un Computer per il ruolo Proxy Server federativo](Configure-a-Computer-for-the-Federation-Server-Proxy-Role.md).  
+È possibile utilizzare la procedura seguente per verificare che il proxy server federativo possa comunicare con il Servizio federativo in Active Directory Federation Services \(AD FS @ no__t-1. Questa procedura viene eseguita dopo l'esecuzione della **Configurazione guidata del proxy server federativo di ad FS** per configurare il computer per l'esecuzione nel ruolo proxy server federativo. Per ulteriori informazioni su come eseguire questa procedura guidata, vedere [configurare un computer per il ruolo proxy server federativo](Configure-a-Computer-for-the-Federation-Server-Proxy-Role.md).  
   
 > [!IMPORTANT]  
 > Il risultato di questa verifica è la generazione di un evento specifico nel Visualizzatore eventi del computer proxy server federativo.  
@@ -30,13 +30,13 @@ Per completare questa procedura, è necessaria almeno l'appartenenza al gruppo *
   
 1.  Accedere al proxy server federativo come amministratore.  
   
-2.  Nel **avviare** digitare**Visualizzatore eventi**, quindi premere INVIO.  
+2.  Nella schermata **Start** Digitare**Visualizzatore eventi**e quindi premere INVIO.  
   
-3.  Nel riquadro dei dettagli fare doppio\-fare clic su **registri applicazioni e servizi**, double\-fare clic su **gestione eventi ADFS**, quindi fare clic su **Admin**.  
+3.  Nel riquadro dei dettagli fare doppio\-clic su **registri applicazioni e servizi**,\-fare doppio clic su **ad FS evento**, quindi fare clic su **Amministrazione**.  
   
 4.  Nella colonna **ID evento**, cercare l'evento ID 198.  
   
-    Se il proxy server federativo è configurato correttamente, viene visualizzato un nuovo evento nel registro applicazioni del Visualizzatore eventi, con l'evento ID 198. Tale evento verifica che il servizio di proxy server federativo è stato avviato e adesso è online.  
+    Se il proxy server federativo è configurato correttamente, viene visualizzato un nuovo evento nel registro applicazioni di Visualizzatore eventi con l'ID evento 198. Questo evento verifica che il servizio proxy server federativo sia stato avviato correttamente e che ora sia online.  
   
 ## <a name="additional-references"></a>Altri riferimenti  
 [Elenco di controllo: Configurazione di un proxy server federativo](Checklist--Setting-Up-a-Federation-Server-Proxy.md)  

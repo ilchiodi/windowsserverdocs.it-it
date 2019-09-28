@@ -1,9 +1,9 @@
 ---
-title: Che cosa sono le novità di virtualizzazione rete Hyper-V in Windows Server 2016
-description: Questo argomento vengono fornite informazioni sulle nuove funzionalità di virtualizzazione rete Hyper-V in Windows Server 2016
+title: Novità di virtualizzazione rete Hyper-V in Windows Server 2016
+description: In questo argomento vengono fornite informazioni sulle nuove funzionalità di virtualizzazione rete Hyper-V in Windows Server 2016
 manager: brianlic
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-sdn
@@ -13,51 +13,51 @@ ms.assetid: 0254275a-0a77-40a9-b68a-1029284c03fe
 ms.author: pashort
 author: shortpatti
 ms.date: 03/19/2018
-ms.openlocfilehash: c87ccfba7b9ccc77646f58ade2853766524e67b1
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: 57db82fdd8c7524afb427c61f754e9b8ede8e7b7
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67284038"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71355670"
 ---
-# <a name="whats-new-in-hyper-v-network-virtualization-in-windows-server-2016"></a>Che cosa sono le novità di virtualizzazione rete Hyper-V in Windows Server 2016
+# <a name="whats-new-in-hyper-v-network-virtualization-in-windows-server-2016"></a>Novità di virtualizzazione rete Hyper-V in Windows Server 2016
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016
 
-Questo argomento descrive le funzionalità di Hyper-V rete virtualizzazione nuove o modificate in Windows Server 2016.  
+In questo argomento vengono descritte le funzionalità di virtualizzazione rete Hyper-V (HNV) nuove o modificate in Windows Server 2016.  
   
-## <a name="BKMK_IPAM2012R2"></a>Aggiornamenti in virtualizzazione rete  
-Virtualizzazione rete offre supporto avanzato nelle aree seguenti:  
+## <a name="BKMK_IPAM2012R2"></a>Aggiornamenti in HNV  
+HNV offre supporto avanzato nelle aree seguenti:  
   
 |Caratteristica/funzionalità|Novità o miglioramento|Descrizione|  
 |--------------------------|-------------------|---------------|  
-|[Programmable commutatore Hyper-V](../../../sdn/technologies/hyper-v-network-virtualization/../../../sdn/technologies/hyper-v-network-virtualization/../../../sdn/technologies/hyper-v-network-virtualization/../../../sdn/technologies/hyper-v-network-virtualization/whats-new-hyperv-network-virtualization-windows-server.md#SDN)|Nuova|Criteri HNV sono programmabili tramite il Controller di rete Microsoft.|  
-|[Supporto di incapsulamento VXLAN](../../../sdn/technologies/hyper-v-network-virtualization/../../../sdn/technologies/hyper-v-network-virtualization/../../../sdn/technologies/hyper-v-network-virtualization/../../../sdn/technologies/hyper-v-network-virtualization/whats-new-hyperv-network-virtualization-windows-server.md#VXLAN)|Nuova|Virtualizzazione rete supporta ora l'incapsulamento VXLAN.|  
-|[Interoperabilità di Load Balancer (SLB) del software](../../../sdn/technologies/hyper-v-network-virtualization/../../../sdn/technologies/hyper-v-network-virtualization/../../../sdn/technologies/hyper-v-network-virtualization/../../../sdn/technologies/hyper-v-network-virtualization/whats-new-hyperv-network-virtualization-windows-server.md#SLB)|Nuova|Virtualizzazione rete è completamente integrato con bilanciamento del carico Software Microsoft.|  
-|[Intestazioni Ethernet IEEE conforme](../../../sdn/technologies/hyper-v-network-virtualization/../../../sdn/technologies/hyper-v-network-virtualization/../../../sdn/technologies/hyper-v-network-virtualization/../../../sdn/technologies/hyper-v-network-virtualization/whats-new-hyperv-network-virtualization-windows-server.md#L2)|Miglioramento|Conforme agli standard IEEE Ethernet|  
+|[Commutire programmabile Hyper-V](../../../sdn/technologies/hyper-v-network-virtualization/../../../sdn/technologies/hyper-v-network-virtualization/../../../sdn/technologies/hyper-v-network-virtualization/../../../sdn/technologies/hyper-v-network-virtualization/whats-new-hyperv-network-virtualization-windows-server.md#SDN)|Nuova|Il criterio HNV è programmabile tramite il controller di rete Microsoft.|  
+|[Supporto di incapsulamento VXLAN](../../../sdn/technologies/hyper-v-network-virtualization/../../../sdn/technologies/hyper-v-network-virtualization/../../../sdn/technologies/hyper-v-network-virtualization/../../../sdn/technologies/hyper-v-network-virtualization/whats-new-hyperv-network-virtualization-windows-server.md#VXLAN)|Nuova|HNV supporta ora l'incapsulamento di VXLAN.|  
+|[Interoperabilità con Load Balancer software (SLB)](../../../sdn/technologies/hyper-v-network-virtualization/../../../sdn/technologies/hyper-v-network-virtualization/../../../sdn/technologies/hyper-v-network-virtualization/../../../sdn/technologies/hyper-v-network-virtualization/whats-new-hyperv-network-virtualization-windows-server.md#SLB)|Nuova|HNV è completamente integrato con il software Microsoft Load Balancer.|  
+|[Intestazioni IEEE Ethernet conformi](../../../sdn/technologies/hyper-v-network-virtualization/../../../sdn/technologies/hyper-v-network-virtualization/../../../sdn/technologies/hyper-v-network-virtualization/../../../sdn/technologies/hyper-v-network-virtualization/whats-new-hyperv-network-virtualization-windows-server.md#L2)|Miglioramento|Conforme agli standard IEEE Ethernet|  
   
-### <a name="SDN"></a>Programmable commutatore Hyper-V  
-Virtualizzazione rete è un blocco predefinito fondamentale della soluzione di rete SDN (Software Defined) aggiornata di Microsoft ed è completamente integrato nello stack SDN.  
+### <a name="SDN"></a>Commutire programmabile Hyper-V  
+HNV è un blocco predefinito fondamentale della soluzione SDN (Software Defined Networking) aggiornata di Microsoft ed è completamente integrato nello stack SDN.  
   
-Il nuovo Controller di rete di Microsoft effettua il push dei criteri di virtualizzazione rete fino a un agente Host in esecuzione in ogni host usando vSwitch aprire Database Management Protocol (OVSDB) come l'interfaccia SouthBound (SBI). L'agente Host archivia questi criteri usando una personalizzazione della [schema VTEP](https://github.com/openvswitch/ovs/blob/master/vtep/vtep.ovsschema) e i programmi di regole di flusso complessi in un motore di flusso ad alte prestazioni nel commutatore Hyper-V.  
+Il nuovo controller di rete Microsoft effettua il push dei criteri di HNV a un agente host in esecuzione in ogni host usando il protocollo OVSDB (Open vSwitch Database Management Protocol) come interfaccia di sud (SBI). L'agente host archivia questi criteri usando una personalizzazione dello [schema VTEP](https://github.com/openvswitch/ovs/blob/master/vtep/vtep.ovsschema) e le regole di flusso complesse programmi in un motore di flusso a prestazioni elevate nel commutire Hyper-V.  
   
-Il motore del flusso all'interno del commutatore Hyper-V è lo stesso motore utilizzato in Microsoft Azure&trade;, che ha già dimostrato su vasta scala nel cloud pubblico di Microsoft Azure. Inoltre, l'intero stack SDN backup tramite il Controller di rete e il Provider di risorse di rete (dettagli sarà presto disponibile) sia coerenza con Microsoft Azure, garantendo la potenza del cloud pubblico di Microsoft Azure per l'azienda e servizio di hosting clienti di provider.  
+Il motore di flusso all'interno del Commuter Hyper-V è lo stesso motore usato in Microsoft Azure @ no__t-0, che è stato testato su larga scala nel cloud Microsoft Azure pubblico. Inoltre, l'intero stack SDN attraverso il controller di rete e il provider di risorse di rete (informazioni presto disponibili) sono coerenti con Microsoft Azure, in modo da offrire la potenza del Microsoft Azure cloud pubblico all'azienda e al servizio di hosting clienti del provider.  
   
 > [!NOTE]  
-> Per altre informazioni sulle OVSDB, vedere [RFC 7047](https://www.rfc-editor.org/info/rfc7047).  
+> Per ulteriori informazioni su OVSDB, vedere la [specifica RFC 7047](https://www.rfc-editor.org/info/rfc7047).  
   
-Il commutatore Hyper-V supporta entrambe le regole del flusso con e senza state basate sul motore di flusso 'azione corrispondere a quella' all'interno di Microsoft semplice.  
+Il Commuter Hyper-V supporta regole di flusso con e senza stato in base alla semplice "azione di corrispondenza" all'interno del motore Microsoft Flow.  
  
-![Commutatore Windows Server 2016 Hyper-V](../../../media/what-s-new-in-hyper-v-network-virtualization-in-windows-server/HNVOverview.png)  
+![Switch Hyper-V di Windows Server 2016](../../../media/what-s-new-in-hyper-v-network-virtualization-in-windows-server/HNVOverview.png)  
   
 ### <a name="VXLAN"></a>Supporto di incapsulamento VXLAN  
-Virtual eXtensible LAN (VXLAN - [7348 RFC](https://www.rfc-editor.org/info/rfc7348)) protocollo è stato ampiamente adottato nel mercato, grazie al supporto di fornitori come Cisco, Brocade, Dell, HP e altri utenti. Virtualizzazione rete supporta ora anche in questo schema incapsulamento utilizza la modalità di distribuzione MAC tramite il Controller di rete Microsoft per i mapping di programma per tenant sovrimpressione indirizzi IP di rete (indirizzo cliente o autorità di certificazione) per il fisica Metti sotto indirizzi IP di rete (Provider Indirizzo o PA). NVGRE e VXLAN trasferisce il carico di attività sono supportato per prestazioni migliori attraverso i driver di terze parti.  
+Il protocollo VXLAN- [RFC 7348](https://www.rfc-editor.org/info/rfc7348)(Virtual Extensible Local Area Network) è stato ampiamente adottato sul mercato, con supporto da fornitori come Cisco, broccato, Dell, HP e altri. HNV supporta ora questo schema di incapsulamento usando la modalità di distribuzione MAC tramite il controller di rete Microsoft per programmare i mapping per gli indirizzi IP della rete sovrapposta ai tenant (indirizzo del cliente o CA) per gli indirizzi IP di rete sottoposti a sottofondo fisico (provider Indirizzo o PA. Gli offload delle attività NVGRE e VXLAN sono supportati per migliorare le prestazioni tramite driver di terze parti.  
   
-### <a name="SLB"></a>Interoperabilità di Load Balancer (SLB) del software  
-Windows Server 2016 include un servizio di bilanciamento del carico software (SLB) con supporto completo per il traffico di rete virtuale e un'agevole interazione con virtualizzazione rete. Il bilanciamento del carico software viene implementata tramite il motore del flusso ad alte prestazioni nel piano dati v-commutatore e controllato dal Controller di rete per IP virtuale (VIP) / dinamico mapping IP (DIP).  
+### <a name="SLB"></a>Interoperabilità con Load Balancer software (SLB)  
+Windows Server 2016 include un servizio di bilanciamento del carico software (SLB) con supporto completo per il traffico di rete virtuale e l'interazione senza problemi con HNV. SLB viene implementato tramite il motore di flusso ad esecuzione nell'opzione v del piano dati e controllato dal controller di rete per i mapping IP virtuali (VIP)/IP dinamico (DIP).  
   
-### <a name="L2"></a>Intestazioni Ethernet IEEE conforme  
-Virtualizzazione rete implementa intestazioni Ethernet L2 corrette per garantire l'interoperabilità con le Appliance virtuali e fisiche terze parti che dipendono da protocolli standard del settore. Microsoft garantisce che tutti i pacchetti trasmessi abbiano valori conformi a tutti i campi per garantire l'interoperabilità. Inoltre, il supporto per il frame jumbo nell'ambito (MTU > 1780) nella rete L2 fisica verrà richiesto di account per pacchetto overhead introdotto dai protocolli encapsulation (NVGRE, VXLAN), garantendo guest mantenere le macchine virtuali collegate a una rete virtuale di virtualizzazione rete un IL VALORE MTU 1514.  
+### <a name="L2"></a>Intestazioni IEEE Ethernet conformi  
+HNV implementa le intestazioni Ethernet L2 corrette per garantire l'interoperabilità con appliance virtuali e fisiche di terze parti che dipendono da protocolli standard del settore. Microsoft garantisce che tutti i pacchetti trasmessi abbiano valori conformi in tutti i campi per garantire l'interoperabilità. Inoltre, il supporto per i frame Jumbo (MTU > 1780) nella rete L2 fisica sarà necessario per tenere conto dell'overhead dei pacchetti introdotto dai protocolli di incapsulamento (NVGRE, VXLAN), assicurando al contempo le macchine virtuali guest collegate a una rete virtuale HNV MTU 1514.  
   
 ## <a name="see-also"></a>Vedere anche  
   

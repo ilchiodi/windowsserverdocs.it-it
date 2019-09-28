@@ -1,38 +1,38 @@
 ---
-title: Destinazione una versione diversa di Windows Admin Center SDK
-description: Destinazione una versione diversa di Windows Admin Center SDK (progetto Honolulu)
+title: Specificare come destinazione una versione diversa di Windows Admin Center SDK
+description: Specificare come destinazione una versione diversa di Windows Admin Center SDK (Project Honolulu)
 ms.technology: manage
 ms.topic: article
 author: nwashburn-ms
 ms.author: niwashbu
 ms.date: 09/18/2018
 ms.localizationpriority: medium
-ms.prod: windows-server-threshold
-ms.openlocfilehash: 47ae669e517f963762ee6267594e18f3413a72ff
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.prod: windows-server
+ms.openlocfilehash: 0d3b7af5229f7b8487aa9f04eaf0d1756d8c02f4
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59833622"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71356974"
 ---
-# <a name="target-a-different-version-of-the-windows-admin-center-sdk"></a>Destinazione una versione diversa di Windows Admin Center SDK
+# <a name="target-a-different-version-of-the-windows-admin-center-sdk"></a>Specificare come destinazione una versione diversa di Windows Admin Center SDK
 
->Si applica a: Windows Admin Center, Windows Admin Center anteprima
+>Si applica a: Windows Admin Center, Windows Admin Center Preview
 
-L'estensione di stare al passo con le modifiche a SDK e piattaforma è facile.  Usiamo [NPM tag](https://www.npmjs.com/package/@microsoft/windows-admin-center-sdk) per organizzare il rilascio delle nuove funzionalità in versioni precedenti del SDK.
+L'aggiornamento dell'estensione con le modifiche apportate all'SDK e le modifiche apportate alla piattaforma è facile.  Si usano i [tag NPM](https://www.npmjs.com/package/@microsoft/windows-admin-center-sdk) per organizzare il rilascio di nuove funzionalità nelle versioni di SDK.
 
-Esistono tre versioni del SDK che è possibile scegliere tra:
+Sono disponibili tre versioni dell'SDK tra cui è possibile scegliere:
 
-* ```latest``` : questo pacchetto SDK in linea con la versione di disponibilità generale corrente di Windows Admin Center
-* ```insider``` : questo pacchetto SDK in linea con la versione di anteprima corrente di Windows Admin Center (disponibile in Windows Server Insider Preview)
-* ```next``` : questo pacchetto SDK contiene le funzionalità più recenti
+* ```latest```: questo pacchetto SDK è allineato alla versione GA corrente dell'interfaccia di amministrazione di Windows
+* ```insider```: questo pacchetto SDK è allineato alla versione di anteprima corrente di Windows Admin Center (disponibile in Windows Server Insider Preview)
+* ```next```: questo pacchetto SDK contiene le funzionalità più recenti
 
 > [!NOTE]
-> Altre informazioni sulle diverse [versioni](https://aka.ms/WACDownloadPage) di Windows Admin Center che è possibile scaricare.
+> Scopri di più sulle diverse [versioni](https://aka.ms/WACDownloadPage) dell'interfaccia di amministrazione di Windows disponibili per il download.
 
-## <a name="targeting-sdk-version-on-a-new-project"></a>Per la versione SDK a un nuovo progetto
+## <a name="targeting-sdk-version-on-a-new-project"></a>Destinazione della versione SDK in un nuovo progetto
 
-Quando si crea una nuova estensione, è possibile includere il ```--version``` parametro come destinazione una versione diversa del SDK:
+Quando si crea una nuova estensione, è possibile includere il parametro ```--version``` per fare riferimento a una versione diversa dell'SDK:
 
 ```
 wac create --company "{!Company Name}" --tool "{!Tool Name}" --version {!version}
@@ -40,27 +40,27 @@ wac create --company "{!Company Name}" --tool "{!Tool Name}" --version {!version
 
 | Value | Spiegazione | Esempio |
 | ----- | ----------- | ------- |
-| ```{!Company Name}``` | Il nome della società (spazi inclusi) | ```Contoso Inc``` |
-| ```{!Tool Name}``` | Il nome dello strumento (spazi inclusi) | ```Manage Foo Works``` |
-| ```{!version}``` | Versione del SDK | ```latest``` |
+| ```{!Company Name}``` | Nome della società (con spazi) | ```Contoso Inc``` |
+| ```{!Tool Name}``` | Nome dello strumento (con spazi) | ```Manage Foo Works``` |
+| ```{!version}``` | Versione SDK | ```latest``` |
 
-Di seguito è riportato un esempio di creazione di una nuova estensione targeting ```insider```:
+Di seguito è riportato un esempio di creazione di una nuova estensione destinata a ```insider```:
 
 ```
 wac create --company "Contoso Inc" --tool "Manage Foo Works" --version insider
 ```
 
-## <a name="targeting-sdk-version-on-an-existing-project"></a>Per la versione SDK su un progetto esistente
+## <a name="targeting-sdk-version-on-an-existing-project"></a>Destinazione della versione SDK in un progetto esistente
 
-Per modificare un progetto esistente come destinazione una versione SDK diversa, modificare la riga seguente nel ```package.json```:
+Per modificare un progetto esistente in modo che abbia come destinazione una versione diversa di SDK, modificare la riga seguente in ```package.json```:
 
 ```
 "@microsoft/windows-admin-center-sdk": "latest",
 ```
-In questo esempio, sostituire ```latest``` con la versione SDK desiderata, ad esempio ```insider```:
+In questo esempio, sostituire ```latest``` con la versione dell'SDK desiderata, ad esempio ```insider```:
 
 ```
 "@microsoft/windows-admin-center-sdk": "insider",
 ```
 
-Eseguire quindi ```npm install``` per aggiornare i riferimenti in tutto il progetto.
+Eseguire quindi ```npm install``` per aggiornare i riferimenti nell'intero progetto.

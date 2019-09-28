@@ -1,8 +1,8 @@
 ---
 title: Disco virtuale di tipo merge
-description: 'Argomento i comandi di Windows per * * *- '
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: bc20fcaf6e511bb25156996bddc3357f99195875
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 7023f2a6669ea6f6801e25cbfc87c950ab95a3bc
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66437417"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71373729"
 ---
 # <a name="merge-vdisk"></a>Disco virtuale di tipo merge
 
 >Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Unisce un differenziazione disco rigido virtuale (VHD) con il disco rigido virtuale padre corrispondente. Il VHD padre verrà modificato per includere le modifiche dal disco rigido virtuale differenze.
+Unisce un disco rigido virtuale differenze (VHD) con il VHD padre corrispondente. Il VHD padre verrà modificato in modo da includere le modifiche dal disco rigido virtuale differenze.
 > [!NOTE]
 > Questo comando è disponibile solo per Windows 7 e Windows Server 2008 R2.
 > ## <a name="syntax"></a>Sintassi
@@ -35,23 +35,23 @@ Unisce un differenziazione disco rigido virtuale (VHD) con il disco rigido virtu
 > 
 > | Parametro |                                                                                    Descrizione                                                                                    |
 > |-----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-> | depth=<n> | Indica il numero di file di disco rigido virtuale padre da unire. Ad esempio, **profondità = 1** indica che il disco rigido virtuale differenze verrà unito con un livello della catena di differenziazione. |
+> | Depth = <n> | Indica il numero di file VHD padre da unire insieme. Ad esempio, **depth = 1** indica che il disco rigido virtuale differenze verrà unito a un livello della catena di differenziazione. |
 > 
 > ## <a name="remarks"></a>Note
 > - Un disco rigido Virtuale deve essere selezionato e scollegato per eseguire questa operazione. Utilizzare il **Selezionare vdisk** comando per selezionare un disco rigido Virtuale e spostare lo stato attivo a esso.
-> - Questo parametro consente di modificare il disco rigido virtuale padre. Di conseguenza, gli altri dischi rigidi virtuali differenze che dipendono l'elemento padre non saranno validi.
+> - Questo parametro modifica il VHD padre. Di conseguenza, altri dischi rigidi virtuali differenze che dipendono dall'elemento padre non saranno più validi.
 >   ## <a name="BKMK_Examples"></a>Esempi
->   Per unire un disco rigido virtuale differenze con il proprio disco rigido virtuale padre, digitare:
+>   Per unire un disco rigido virtuale differenze con il VHD padre, digitare:
 >   ```
 >   merge vdisk depth=1
 >   ```
 >   ## <a name="additional-references"></a>Riferimenti aggiuntivi
 > - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
-> - [attach vdisk](attach-vdisk.md)
-> - [compact vdisk](compact-vdisk.md)
+> - [Connetti vdisk](attach-vdisk.md)
+> - [compatta vdisk](compact-vdisk.md)
 
--   [detail vdisk](detail-vdisk.md)
--   [Detach vdisk](detach-vdisk.md)
--   [expand vdisk](expand-vdisk.md)
--   [Selezionare vdisk](select-vdisk.md)
+-   [Dettagli vdisk](detail-vdisk.md)
+-   [Scollega vdisk](detach-vdisk.md)
+-   [Espandi vdisk](expand-vdisk.md)
+-   [Seleziona vdisk](select-vdisk.md)
 -   [list_1](list_1.md)

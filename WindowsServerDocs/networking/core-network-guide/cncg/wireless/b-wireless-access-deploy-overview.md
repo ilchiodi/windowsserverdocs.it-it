@@ -1,104 +1,104 @@
 ---
 title: Panoramica della distribuzione dell'accesso wireless
-description: Questo argomento fa parte della Guida alla rete di Windows Server 2016 "Distribuisci con 802.1x basato su Password X Authenticated Wireless Access"
+description: Questo argomento fa parte della Guida alla rete di Windows Server 2016 "distribuire l'accesso wireless autenticato con 802.1 X basato su password"
 manager: brianlic
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking
 ms.topic: article
 ms.assetid: 29ae0f54-f045-465a-a08e-5867979345f2
 author: shortpatti
 ms.author: pashort
-ms.openlocfilehash: 6658c4750ba2f71b24acd4f7da02029da63179bd
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 93fb80c550771e4e7d8bc400d647b520b0c67fdf
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59818922"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71356092"
 ---
 # <a name="wireless-access-deployment-overview"></a>Panoramica della distribuzione dell'accesso wireless
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016
 
-La figura seguente mostra i componenti necessari per la distribuzione di 802.1 X autenticato accesso senza fili con PEAP\-MS\-CHAP v2.  
+Nella figura seguente sono illustrati i componenti necessari per distribuire l'accesso wireless autenticato tramite 802.1 X con PEAP @ no__t-0MS @ no__t-1CHAP V2.  
 
-![Panoramica dell'infrastruttura di distribuzione con 802.1x](../../../media/8021X-Deploy-Overview/8021X-Deploy-Overview.jpg)
+![Panoramica dell'infrastruttura di distribuzione 802.1 x](../../../media/8021X-Deploy-Overview/8021X-Deploy-Overview.jpg)
 
-## <a name="wireless-access-deployment-components"></a>Componenti di distribuzione di accesso wireless
-È necessaria per la distribuzione di accesso wireless l'infrastruttura seguente:
+## <a name="wireless-access-deployment-components"></a>Componenti di distribuzione dell'accesso wireless
+Per questa distribuzione dell'accesso wireless è necessaria l'infrastruttura seguente:
 
-### <a name="8021x-capable-wireless-access-points"></a>802.1x\-punti di accesso Wireless in grado di supportare
-Dopo che i servizi di infrastruttura di rete che supportano la rete locale wireless sono presenti, è possibile iniziare il processo di progettazione per la posizione dei punti di accesso wireless. Il processo di Progettazione distribuzione AP senza fili prevede questi passaggi:
+### <a name="8021x-capable-wireless-access-points"></a>802.1 x @ no__t-punti di accesso wireless 0capable
+Dopo aver installato i servizi di infrastruttura di rete richiesti che supportano la rete locale wireless, è possibile avviare il processo di progettazione per la posizione dei punti di accesso wireless. Il processo di progettazione della distribuzione dei punti di accesso wireless prevede i passaggi seguenti:
 
-- Identificare le aree di copertura per gli utenti wireless. Mentre che identifica le aree di copertura, assicurarsi di stabilire se si desidera fornire servizi senza fili edificio e in tal caso, determinare in modo specifico in cui tali aree esterne.
+- Identificare le aree di copertura per gli utenti wireless. Quando si identificano le aree di copertura, assicurarsi di stabilire se si desidera fornire il servizio wireless all'esterno dell'edificio e, in tal caso, determinare in particolare dove si trovano le aree esterne.
 
-- Determinare quanti punti di accesso wireless per distribuire per garantire una copertura adeguata.
+- Determinare il numero di punti di accesso wireless da distribuire per garantire una copertura adeguata.
 
-- Determinare dove posizionare punti di accesso wireless.
+- Determinare dove posizionare i punti di accesso wireless.
 
-- Selezionare le frequenze di canale per AP senza fili.
+- Selezionare le frequenze del canale per i punti di accesso wireless.
 
 ### <a name="active-directory-domain-services"></a>Servizi di dominio di Active Directory
-Gli elementi seguenti di Active Directory Domain Services sono necessari per la distribuzione di accesso wireless.
+Per la distribuzione dell'accesso wireless sono necessari i seguenti elementi di servizi di dominio Active Directory.
 
 #### <a name="users-and-computers"></a>Utenti e computer
 
-Usare Active Directory Users e computer blocca\-in per creare e gestire gli account utente e per creare un gruppo di sicurezza wireless che include ogni membro del dominio a cui si desidera concedere l'accesso wireless.
+Utilizzare lo snap-in utenti e computer Active Directory @ no__t-0cm per creare e gestire gli account utente e per creare un gruppo di sicurezza wireless che includa ciascun membro del dominio a cui si desidera concedere l'accesso wireless.
 
-#### <a name="wireless-network-ieee-80211-policies"></a>Rete wireless \(IEEE 802.11\) criteri
+#### <a name="wireless-network-ieee-80211-policies"></a>Criteri di rete wireless \(IEEE 802.11 @ no__t-1
 
-È possibile usare la rete Wireless \(IEEE 802.11\) estensione criteri di gestione di criteri di gruppo per configurare i criteri applicati al computer wireless quando tentano di accedere alla rete.
+Per configurare i criteri applicati ai computer senza fili durante il tentativo di accesso alla rete, è possibile usare l'estensione Criteri di gruppo dei criteri di rete wireless \(IEEE 802.11 @ no__t-1.
 
-In Editor criteri di gruppo Management quando destra\-fare clic su **rete senza fili \(IEEE 802.11\) criteri**, si dispone di due opzioni seguenti per il tipo di criterio wireless creato.
+In Editor Gestione Criteri di gruppo, quando si usa il pulsante destro del mouse su no__t-0click **Wireless Network \(IEEE 802.11 @ no__t-3**Policy, sono disponibili le due opzioni seguenti per il tipo di criterio wireless creato.
 
-- **Creare un nuovo criterio di rete Wireless per Windows Vista e versioni successive**
+- **Creare un nuovo criterio di rete wireless per Windows Vista e versioni successive**
 
-- **Creare un nuovo criterio di Windows XP**
+- **Creazione di un nuovo criterio di Windows XP**
 
 >[!TIP]
->Quando si configura un nuovo criterio di rete wireless, è possibile modificare il nome e descrizione dei criteri. Se si modifica il nome del criterio, la modifica viene riflessa nel **dettagli** riquadro dell'Editor Gestione criteri di gruppo e sulla barra del titolo della finestra di dialogo di criteri di rete wireless. Indipendentemente dal modo in cui si rinominano i criteri, il nuovo criterio di rete Wireless vengono sempre elencato in Editor criteri di gruppo Management con il **tipo** visualizzando **XP**. Sono elencati altri criteri con il **tipo** che mostra **Vista e versioni successive**.  
+>Quando si configura un nuovo criterio di rete wireless, è possibile modificare il nome e la descrizione dei criteri. Se si modifica il nome del criterio, la modifica viene riflessa nel riquadro dei **Dettagli** di Editor gestione criteri di gruppo e nella barra del titolo della finestra di dialogo dei criteri di rete wireless. Indipendentemente dal modo in cui i criteri vengono rinominati, i nuovi criteri wireless XP verranno sempre elencati Editor Gestione Criteri di gruppo con il **tipo** che visualizza **XP**. Altri criteri sono elencati con il **tipo** **che Mostra vista e versioni successive**.  
 
-I criteri di rete Wireless per Windows Vista e versioni successive consente di configurare, definire le priorità e gestire i profili wireless più. Un profilo wireless è una raccolta di impostazioni di sicurezza che consentono di connettersi a una rete wireless specifica e connettività. Quando viene aggiornato criteri di gruppo nei computer client wireless, i profili creati nei criteri di rete Wireless vengono aggiunti automaticamente alla configurazione nei computer client wireless a cui si applicano i criteri di rete Wireless.
+I criteri di rete wireless per Windows Vista e versioni successive consentono di configurare, classificare in ordine di priorità e gestire più profili wireless. Un profilo wireless è una raccolta di impostazioni di connettività e sicurezza usate per la connessione a una rete wireless specifica. Quando Criteri di gruppo viene aggiornato nei computer client wireless, i profili creati nei criteri di rete wireless vengono aggiunti automaticamente alla configurazione nei computer client wireless a cui si applicano i criteri di rete wireless.
 
-##### <a name="allowing-connections-to-multiple-wireless-networks"></a>Consentire le connessioni a più reti wireless
+##### <a name="allowing-connections-to-multiple-wireless-networks"></a>Consentire connessioni a più reti wireless
 
-Se si dispone di computer client wireless che vengono spostate tra posizioni fisiche all'interno dell'organizzazione, ad esempio tra una sede principale e una succursale, è possibile connettere computer a più di una rete wireless. In questo caso, è possibile configurare un profilo wireless contenente le impostazioni di connettività e sicurezza specifiche per ogni rete.
+Se si dispone di client wireless spostati in posizioni fisiche all'interno dell'organizzazione, ad esempio tra una sede centrale e una succursale, potrebbe essere necessario che i computer si connettano a più di una rete wireless. In questa situazione è possibile configurare un profilo wireless che contiene le impostazioni di sicurezza e connettività specifiche per ogni rete.
 
-Si supponga ad esempio l'azienda dispone di una rete wireless per la sede principale, con un identificatore \(SSID\) WlanCorp.
+Si supponga, ad esempio, che la società disponga di una rete wireless per la sede principale, con un identificatore del set di servizi \(SSID @ no__t-1 WlanCorp.
 
-La succursale ha anche una rete wireless a cui si vuole anche connettersi. Succursale è l'identificatore SSID configurato come WlanBranch.
+Anche la succursale dispone di una rete wireless a cui si desidera connettersi. La succursale dispone del SSID configurato come WlanBranch.
 
-In questo scenario, è possibile configurare un profilo per ogni rete e i computer o altri dispositivi utilizzati nella sede principale e succursale può connettersi a una delle reti wireless quando sono fisicamente nell'intervallo dell'area di copertura di rete.
+In questo scenario, è possibile configurare un profilo per ogni rete, mentre i computer o altri dispositivi usati sia nella sede aziendale che nella succursale possono connettersi a una delle reti wireless quando sono fisicamente in un intervallo di copertura di rete.
 
-##### <a name="mixed-mode-wireless-networks"></a>Misto\-reti senza fili in modalità
+##### <a name="mixed-mode-wireless-networks"></a>Reti wireless miste @ no__t-0mode
 
-Si supponga in alternativa, che la rete è una combinazione di computer wireless e i dispositivi che supportano gli standard di sicurezza diversi. Probabilmente alcuni computer meno recenti dispongono di schede di rete wireless che possono usare solo WPA\-Enterprise, mentre i dispositivi più recenti possono usare il più avanzato WPA2\-Enterprise standard.
+In alternativa, si supponga che la rete disponga di una combinazione di computer e dispositivi wireless che supportano standard di sicurezza diversi. Probabilmente alcuni computer meno recenti hanno schede wireless che possono usare solo WPA @ no__t-0Enterprise, mentre i dispositivi più recenti possono usare lo standard WPA2 @ no__t-1Enterprise più sicuro.
 
-È possibile creare due diversi profili che usano il SSID stesso e le impostazioni di connettività e sicurezza quasi identiche.
+È possibile creare due profili diversi che usano lo stesso SSID e le stesse impostazioni di sicurezza e connettività.
 
-In un profilo, è possibile impostare l'autenticazione wireless per WPA2\-Enterprise con AES e in altro profilo è possibile specificare WPA\-Enterprise con TKIP.
+In un profilo è possibile impostare l'autenticazione wireless su WPA2 @ no__t-0Enterprise con AES e nell'altro profilo è possibile specificare WPA @ no__t-1Enterprise con TKIP.
 
-Questa caratteristica è nota come un misto\-distribuzione in modalità che consente ai computer di diversi tipi e le funzionalità wireless di condividere la stessa rete wireless.
+Questa funzionalità è comunemente nota come distribuzione mista @ no__t-0mode e consente ai computer di diversi tipi e funzionalità wireless di condividere la stessa rete wireless.
 
-### <a name="network-policy-server-nps"></a>Server dei criteri di rete \(dei criteri di rete\)
-Criteri di rete consente di creare e applicare criteri di accesso alla rete per la connessione richiesta autenticazione e autorizzazione.
+### <a name="network-policy-server-nps"></a>Server dei criteri di rete \(NPS @ no__t-1
+Server dei criteri di rete consente di creare e applicare criteri di accesso alla rete per l'autenticazione e l'autorizzazione delle richieste di connessione.
 
-Quando si usa criteri di rete come server RADIUS, configurare i server di accesso di rete, ad esempio punti di accesso wireless come client RADIUS in Criteri di rete. È anche possibile configurare i criteri di rete che usa criteri di rete per autenticare i client di accesso e autorizzare le richieste di connessione.  
+Quando si usa server dei criteri di rete come server RADIUS, si configurano i server di accesso alla rete, ad esempio punti di accesso wireless, come client RADIUS in NPS. È inoltre possibile configurare i criteri di rete utilizzati da server dei criteri di rete per autenticare i client Access e autorizzare le richieste di connessione.  
 
 ### <a name="wireless-client-computers"></a>Computer client wireless
-Ai fini di questa Guida, i computer client wireless sono computer e altri dispositivi che sono dotati di schede di rete wireless IEEE 802.11 e che eseguono sistemi operativi Windows Server o client Windows.
+Ai fini di questa guida, i computer client wireless sono computer e altri dispositivi dotati di schede di rete wireless IEEE 802,11 e che eseguono sistemi operativi client Windows o Windows Server.
 
-#### <a name="server-computers-as-wireless-clients"></a>Computer server come computer client wireless
+#### <a name="server-computers-as-wireless-clients"></a>Computer server come client wireless
 
-Per impostazione predefinita, la funzionalità per 802.11 wireless è disabilitata nei computer che eseguono Windows Server.
+Per impostazione predefinita, la funzionalità per 802,11 wireless è disabilitata nei computer che eseguono Windows Server.
 
-Per abilitare la connettività wireless nei computer che eseguono sistemi operativi server, è necessario installare e abilitare la LAN Wireless \(WLAN\) funzionalità del servizio usando sia Windows PowerShell o l'aggiunta guidata ruoli e funzionalità nel Server Gestore.
+Per abilitare la connettività wireless nei computer che eseguono sistemi operativi server, è necessario installare e abilitare la funzionalità del servizio LAN wireless \(WLAN @ no__t-1 usando Windows PowerShell o l'aggiunta guidata ruoli e funzionalità in Server Manager.
 
-Quando si installa il **servizio LAN Wireless** delle funzionalità, il nuovo servizio **configurazione automatica WLAN** viene installato nella **Services**. Quando l'installazione è stata completata, è necessario riavviare il server.
+Quando si installa la funzionalità del **servizio LAN wireless** , la nuova **configurazione automatica della WLAN** del servizio viene installata nei **Servizi**. Al termine dell'installazione, è necessario riavviare il server.
 
-Dopo il riavvio del server, è possibile accedere configurazione automatica WLAN quando si fa clic **avviare**, **strumenti di amministrazione di Windows**, e **Services**.
+Una volta riavviato il server, è possibile accedere a configurazione automatica WLAN quando si fa clic su **Start**, **strumenti di amministrazione di Windows**e **Servizi**.
 
-Dopo l'installazione e il server riavviare, la configurazione automatica WLAN servizio è in stato arrestato con un tipo di avvio **automatica**. Per avviare il servizio, fare doppio clic su **configurazione automatica WLAN**. Nel **generale** scheda, fare clic su **avviare**, quindi fare clic su **OK**.
+Al termine dell'installazione e del riavvio del server, il servizio configurazione automatica WLAN si trova nello stato interrotto con un tipo di avvio **automatico**. Per avviare il servizio, fare doppio clic su **configurazione automatica WLAN**. Nella scheda **generale** fare clic su **Start**, quindi fare clic su **OK**.
 
-Il servizio configurazione automatica WLAN enumera schede di rete wireless e gestisce sia le connessioni senza fili e i profili wireless che contengono le impostazioni necessarie per configurare il server per connettersi a una rete wireless.
+Il servizio configurazione automatica WLAN enumera le schede wireless e gestisce sia le connessioni wireless che i profili wireless che contengono le impostazioni necessarie per configurare il server per la connessione a una rete wireless.
 
-Per una panoramica della distribuzione di accesso wireless, vedere [processo di distribuzione dell'accesso Wireless](c-wireless-access-deploy-process.md).
+Per una panoramica della distribuzione dell'accesso wireless, vedere [processo di distribuzione dell'accesso wireless](c-wireless-access-deploy-process.md).

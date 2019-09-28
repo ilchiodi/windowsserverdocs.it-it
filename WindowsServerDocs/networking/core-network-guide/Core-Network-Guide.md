@@ -2,22 +2,22 @@
 title: Componenti di una rete core
 description: In questa guida vengono fornite istruzioni su come pianificare e distribuire i componenti di base necessari per una rete completamente funzionante e un nuovo dominio di Active Directory in una nuova foresta con Windows Server 2016
 manager: brianlic
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking
 ms.topic: article
 ms.assetid: b3cd60f7-d380-4712-9a78-0a8f551e1121
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: ef764356c5f74eb0aff15753e7f83a020c68c091
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: cae789974c3f2b4f83c9120558d77dbe27f4190a
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66446537"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71356407"
 ---
 # <a name="core-network-components"></a>Componenti di una rete core
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016
 
 In questa guida vengono fornite istruzioni su come pianificare e distribuire i componenti di base necessari per una rete completamente funzionante e un nuovo dominio di Active Directory in una nuova foresta.
 
@@ -28,7 +28,7 @@ Questa guida contiene le sezioni seguenti.
 
 - [Informazioni sulla guida](#BKMK_about)
 
-- [Panoramica sulle reti core](#BKMK_overview)
+- [Panoramica della rete core](#BKMK_overview)
 
 - [Pianificazione della rete core](#BKMK_planning)
 
@@ -36,9 +36,9 @@ Questa guida contiene le sezioni seguenti.
 
 - [Risorse tecniche aggiuntive](#BKMK_resources)
 
-- [Appendici A-E](#BKMK_appendix)
+- [Appendici da A A E](#BKMK_appendix)
 
-## <a name="BKMK_about"></a>Informazioni sulla Guida
+## <a name="BKMK_about"></a>Informazioni su questa guida
 Questa guida è destinata agli amministratori di rete e di sistema che devono installare una nuova rete o che desiderano creare una rete basata su domini in sostituzione di una rete costituita da gruppi di lavoro. Lo scenario di distribuzione illustrato in questa guida è particolarmente utile se si prevede di dover aggiungere alla rete ulteriori funzionalità e servizi in futuro.
 
 È consigliabile consultare le guide di progettazione e distribuzione per ognuna delle tecnologie utilizzate in questo scenario di distribuzione, al fine di verificare che questa guida includa tutti i servizi e le impostazioni di configurazione necessari.
@@ -105,7 +105,7 @@ Lo standard DHCP consente di assegnare dinamicamente un indirizzo IP a un comput
 Per le reti basate su TCP/IP, il protocollo DHCP riduce la complessità e la quantità delle attività amministrative necessarie per la riconfigurazione dei computer.
 
 ### <a name="tcpip"></a>TCP/IP
-TCP/IP in Windows Server 2016 è la seguente:
+TCP/IP in Windows Server 2016 è il seguente:
 
 -   Software di rete basato su protocolli di rete standard.
 
@@ -153,7 +153,7 @@ Il servizio TCP/IP include utilità TCP/IP di base che consentono ai computer ba
 
 -   Tablet e telefoni cellulari con Ethernet cablate e senza fili 802.11 abilitato
 
-## <a name="BKMK_overview"></a>Panoramica sulle reti core
+## <a name="BKMK_overview"></a>Panoramica della rete core
 Nella figura seguente è illustrata la topologia di una rete core basata su Windows Server.
 
 ![Topologia di rete di Windows Server Core](../media/Core-Network-Guide/cng16_overview.jpg)
@@ -188,7 +188,7 @@ Prima di distribuire una rete core, è necessario pianificare gli elementi segue
 
 -   [Pianificazione della distribuzione di DC1](#bkmk_NetFndtn_Pln_AD-DNS-01)
 
--   [L'accesso al dominio di pianificazione](#bkmk_NetFndtn_Pln_DomAccess)
+-   [Pianificazione dell'accesso al dominio](#bkmk_NetFndtn_Pln_DomAccess)
 
 -   [Pianificazione della distribuzione di DHCP1](#bkmk_NetFndtn_Pln_DHCP-01)
 
@@ -207,11 +207,11 @@ Per configurare i server della rete con indirizzi IP statici, è inoltre necessa
 
 Nella RFC (Request for Comments) Internet 1918 sono specificati i seguenti intervalli di indirizzi IP privati riconosciuti:
 
--   10.0.0.0 - 10.255.255.255
+-   10.0.0.0-10.255.255.255
 
--   172.16.0.0 - 172.31.255.255
+-   172.16.0.0-172.31.255.255
 
--   192.168.0.0 - 192.168.255.255
+-   192.168.0.0-192.168.255.255
 
 Quando si utilizzano gli intervalli di indirizzi IP privati specificati nella RFC 1918, non è possibile connettersi direttamente a Internet tramite un indirizzo IP privato perché le richieste in entrata e in uscita da tali indirizzi vengono automaticamente scartate dai router dei provider di servizi Internet (ISP). Per aggiungere in seguito connettività Internet alla rete core, sarà necessario sottoscrivere un contratto con un ISP per ottenere un indirizzo IP pubblico.
 
@@ -285,11 +285,11 @@ Nella tabella seguente vengono forniti gli elementi di configurazione per Active
 |------------------------|-------------------|
 |Nome DNS completo|Esempi:<br /><br />-corp.contoso.com<br />-example.com|
 |Livello di funzionalità della foresta|-Windows Server 2008 <br />-Windows Server 2008 R2 <br />-Windows Server 2012 <br />-Windows Server 2012 R2 <br />-Windows Server 2016|
-|Percorso della cartella per il database di Servizi di dominio Active Directory|E:\Configuration\\<br /><br />In alternativa accettare il percorso predefinito.|
-|Percorso della cartella per i file di registro di Servizi di dominio Active Directory|E:\Configuration\\<br /><br />In alternativa accettare il percorso predefinito.|
-|Percorso della cartella SYSVOL di Servizi di dominio Active Directory|E:\Configuration\\<br /><br />In alternativa accettare il percorso predefinito.|
-|Password di amministratore modalità ripristino servizi directory|**J\*p2leO4$F**|
-|Nome file di risposte (facoltativo)|**AD DS_AnswerFile**|
+|Percorso della cartella per il database di Servizi di dominio Active Directory|E:\Configuration @ no__t-0<br /><br />In alternativa accettare il percorso predefinito.|
+|Percorso della cartella per i file di registro di Servizi di dominio Active Directory|E:\Configuration @ no__t-0<br /><br />In alternativa accettare il percorso predefinito.|
+|Percorso della cartella SYSVOL di Servizi di dominio Active Directory|E:\Configuration @ no__t-0<br /><br />In alternativa accettare il percorso predefinito.|
+|Password di amministratore modalità ripristino servizi directory|**J @ no__t-1p2leO4 $ F**|
+|Nome file di risposte (facoltativo)|**DS_AnswerFile AD**|
 
 #### <a name="planning-dns-zones"></a>Pianificazione delle zone DNS
 Nei server DNS primari integrati in Active Directory viene creata una zona di ricerca diretta per impostazione predefinita, durante l'installazione del ruolo server DNS. La zona di ricerca diretta consente a computer e dispositivi di eseguire una query sull'indirizzo IP di un altro computer o dispositivo in base al nome DNS. Oltre alla zona di ricerca diretta, è consigliabile creare anche una zona DNS di ricerca inversa. Con una query DNS di ricerca inversa, un computer o dispositivo può scoprire il nome di un altro computer o dispositivo a partire dall'indirizzo IP. L'implementazione di una zona di ricerca inversa migliora in genere le prestazioni DNS e aumenta notevolmente il numero delle query DNS con esito positivo.
@@ -303,12 +303,12 @@ Durante l'esecuzione della Creazione guidata nuova zona è consigliabile specifi
 |Elementi di configurazione|Valori di esempio|
 |-----------------------|------------------|
 |Tipo di zona|Le opzioni **Zona primaria** e **Archivia la zona in Active Directory** sono selezionate|
-|Ambito di replica zona Active Directory|**Per tutti i server DNS nel dominio**|
+|Ambito di replica zona Active Directory|**A tutti i server DNS in questo dominio**|
 |Prima pagina della creazione guidata Nome della zona di ricerca inversa|**Zona di ricerca inversa IPv4**|
 |Seconda pagina della creazione guidata Nome della zona di ricerca inversa|ID rete = 10.0.0.|
-|Aggiornamenti dinamici|**Consenti soltanto aggiornamenti dinamici sicuri**|
+|Aggiornamenti dinamici|**Consenti solo aggiornamenti dinamici sicuri**|
 
-### <a name="bkmk_NetFndtn_Pln_DomAccess"></a>L'accesso al dominio di pianificazione
+### <a name="bkmk_NetFndtn_Pln_DomAccess"></a>Pianificazione dell'accesso al dominio
 Per accedere al dominio, il computer deve essere un computer membro del dominio e l'account utente deve essere creato in Active Directory prima di tentare l'accesso.
 
 > [!NOTE]
@@ -412,7 +412,7 @@ Nella tabella seguente vengono forniti gli elementi di configurazione di esempio
 |Binding connessioni di rete|Ethernet|
 |Impostazioni server DNS|DC1.corp.contoso.com|
 |Indirizzo IP del server DNS preferito|10.0.0.2|
-|Valori per la finestra di dialogo Aggiunta ambito<br /><br />1.  Nome dell'ambito<br />2.  Indirizzo IP iniziale<br />3.  Indirizzo IP finale<br />4.  Subnet mask<br />5.  Gateway predefinito (facoltativo)<br />6.  Durata del lease|1.  Subnet principale<br />2.  10.0.0.1<br />3.  10.0.0.254<br />4.  255.255.255.0<br />5.  10.0.0.1<br />6. 8 giorni|
+|Valori per la finestra di dialogo Aggiunta ambito<br /><br />1.  Nome dell'ambito<br />2.  Indirizzo IP iniziale<br />3.  Indirizzo IP finale<br />4.  Subnet mask<br />5.  Gateway predefinito (facoltativo)<br />6.  Durata del lease|1.  Subnet principale<br />2.10.0.0.1<br />3.10.0.0.254<br />4.255.255.255.0<br />5.10.0.0.1<br />6. 8 giorni|
 |Modalità operativa server DHCP IPv6|Non abilitato|
 
 ## <a name="BKMK_deployment"></a>Distribuzione di rete core
@@ -422,13 +422,13 @@ La procedura di base per distribuire una rete core è la seguente:
 
 2.  [Distribuzione di DC1](#BKMK_deployADDNS01)
 
-3.  [Aggiunta di computer Server al dominio e accesso](#BKMK_joinlogserver)
+3.  [Aggiunta di computer server al dominio e accesso](#BKMK_joinlogserver)
 
 4.  [Distribuzione di DHCP1](#BKMK_deployDHCP01)
 
-5.  [Aggiunta di computer Client al dominio e accesso](#BKMK_joinlogclients)
+5.  [Aggiunta di computer client al dominio e accesso](#BKMK_joinlogclients)
 
-6.  [Distribuzione di funzionalità facoltative per l'autenticazione di accesso di rete e servizi Web](#BKMK_optionalfeatures)
+6.  [Distribuzione di funzionalità facoltative per l'autenticazione dell'accesso alla rete e i servizi Web](#BKMK_optionalfeatures)
 
 > [!NOTE]
 > -   Per la maggior parte delle procedure descritte in questa guida vengono forniti anche i comandi equivalenti in Windows PowerShell. Prima di eseguire tali cmdlet in Windows PowerShell, sostituire i valori di esempio con valori adatti per la distribuzione di rete. È inoltre necessario immettere ogni cmdlet su un'unica riga di Windows PowerShell. È possibile che i singoli cmdlet siano visualizzati su più righe in questa guida, a causa dei vincoli di formattazione e della visualizzazione del documento in un browser o altra applicazione.
@@ -451,11 +451,11 @@ L'appartenenza a **amministratori**, o equivalente è il requisito minimo necess
 > [!NOTE]
 > Per eseguire questa procedura mediante Windows PowerShell, aprire PowerShell e digitare i cmdlet seguenti su righe distinte, quindi premere INVIO. È inoltre necessario sostituire il *NomeComputer* con il nome che si desidera utilizzare.
 >
-> `Rename-Computer`*ComputerName*
+> `Rename-Computer`*nomecomputer*
 >
 > `Restart-Computer`
 
-###### <a name="to-rename-computers-running-windows-server-2016-windows-server-2012-r2-and-windows-server-2012"></a>Per rinominare computer che eseguono Windows Server 2016, Windows Server 2012 R2 e Windows Server 2012
+###### <a name="to-rename-computers-running-windows-server-2016-windows-server-2012-r2-and-windows-server-2012"></a>Per rinominare i computer che eseguono Windows Server 2016, Windows Server 2012 R2 e Windows Server 2012
 
 1.  In Server Manager fare clic su **Server locale**. Il computer **proprietà** vengono visualizzati nel riquadro dei dettagli.
 
@@ -511,13 +511,13 @@ Per distribuire DC1, ovvero è il computer che esegue servizi di dominio Active 
 
 -   Eseguire i passaggi nella sezione [configurazione di tutti i server](#BKMK_configuringAll).
 
--   [Installare Active Directory Domain Services e DNS per una nuova foresta](#BKMK_installAD-DNS)
+-   [Installare servizi di dominio Active Directory e DNS per una nuova foresta](#BKMK_installAD-DNS)
 
--   [Creare un Account utente in utenti e computer Active Directory](#BKMK_createUA)
+-   [Creare un account utente in Active Directory utenti e computer](#BKMK_createUA)
 
--   [Appartenenza al gruppo assegnazione](#BKMK_assigngroup)
+-   [Assegnare l'appartenenza al gruppo](#BKMK_assigngroup)
 
--   [Configurare una zona di ricerca inversa DNS](#BKMK_reverse)
+-   [Configurare una zona DNS di ricerca inversa](#BKMK_reverse)
 
 **Privilegi amministrativi**
 
@@ -525,7 +525,7 @@ Se si installa una rete di piccole dimensioni e si è il solo amministratore di 
 
 Se si dispone di un'organizzazione più grande con più amministratori, fare riferimento alla documentazione di Active Directory per determinare l'appartenenza al gruppo migliore per i dipendenti dell'organizzazione.
 
-**Differenze tra gli account utente di dominio e gli account utente nel computer locale**
+**Differenze tra account utente di dominio e account utente nel computer locale**
 
 Uno dei vantaggi di un'infrastruttura basata sul dominio è non dover creare gli account utente in ogni computer del dominio. Ciò vale per tutti i computer, sia client che server.
 
@@ -535,21 +535,21 @@ Tutti i membri del gruppo Domain Users possono eseguire l'accesso a qualsiasi co
 
 È possibile configurare gli account utente specificando i giorni e gli orari in cui l'utente è autorizzato ad accedere ai computer. È inoltre possibile specificare i computer che l'utente è autorizzato a utilizzare. Per configurare queste impostazioni, aprire Utenti e computer di Active Directory, individuare l'account utente che si desidera configurare e fare doppio clic sull'account. Nella finestra **Proprietà** dell'account utente fare clic sulla scheda **Account** e quindi su **Orario di accesso** o su **Accedi a**.
 
-#### <a name="BKMK_installAD-DNS"></a>Installare Active Directory Domain Services e DNS per una nuova foresta
+#### <a name="BKMK_installAD-DNS"></a>Installare servizi di dominio Active Directory e DNS per una nuova foresta
 
-È possibile usare una delle procedure seguenti per installare Active Directory Domain Services (AD DS) e DNS e creare un nuovo dominio in una nuova foresta. 
+È possibile utilizzare una delle seguenti procedure per installare Active Directory Domain Services (AD DS) e DNS e per creare un nuovo dominio in una nuova foresta. 
 
-La prima procedura vengono fornite istruzioni su come eseguire queste azioni usando Windows PowerShell, mentre la seconda procedura illustra come installare Active Directory e DNS usando Server Manager.
+La prima procedura fornisce istruzioni sull'esecuzione di queste azioni mediante Windows PowerShell, mentre nella seconda procedura viene illustrato come installare servizi di dominio Active Directory e DNS utilizzando Server Manager.
 
 >[!IMPORTANT]
->Dopo aver completato i passaggi in questa procedura, il computer viene riavviato automaticamente.
+>Al termine dell'esecuzione dei passaggi di questa procedura, il computer viene riavviato automaticamente.
 
-**Installare Active Directory Domain Services e DNS con Windows PowerShell**
+**Installare servizi di dominio Active Directory e DNS con Windows PowerShell**
 
-È possibile usare i comandi seguenti per installare e configurare Active Directory e DNS. È necessario sostituire il nome di dominio in questo esempio con il valore che si desidera usare per il dominio.
+È possibile utilizzare i comandi seguenti per installare e configurare servizi di dominio Active Directory e DNS. È necessario sostituire il nome di dominio in questo esempio con il valore che si desidera utilizzare per il dominio.
 
 >[!NOTE]
->Per altre informazioni su questi comandi di Windows PowerShell, vedere gli argomenti di riferimento seguenti.
+>Per ulteriori informazioni su questi comandi di Windows PowerShell, vedere gli argomenti di riferimento seguenti.
 >- [Install-WindowsFeature](https://docs.microsoft.com/powershell/module/servermanager/install-windowsfeature?view=win10-ps)
 >- [Install-ADDSForest](https://docs.microsoft.com/powershell/module/addsdeployment/install-addsforest?view=win10-ps)
 
@@ -559,7 +559,7 @@ Per eseguire questa procedura è necessaria almeno l'appartenenza al gruppo **Ad
 
 `Install-WindowsFeature AD-Domain-Services -IncludeManagementTools`
 
-Dopo aver completato l'installazione, viene visualizzato il messaggio seguente in Windows PowerShell.
+Al termine dell'installazione, viene visualizzato il messaggio seguente in Windows PowerShell.
 
 
     Success Restart Needed  Exit Code   Feature Result
@@ -567,21 +567,21 @@ Dopo aver completato l'installazione, viene visualizzato il messaggio seguente i
     True    No              Success     {Active Directory Domain Services, Group P...
 
 
-- In Windows PowerShell, digitare il comando seguente, sostituendo il testo **corp.contoso.com** con il nome di dominio e quindi premere INVIO:
+- In Windows PowerShell digitare il comando seguente, sostituendo il testo **Corp.contoso.com** con il nome di dominio e quindi premere INVIO:
 
 ````
 Install-ADDSForest -DomainName "corp.contoso.com"
 ````
 
-- Durante il processo di installazione e configurazione, che è visibile nella parte superiore della finestra di Windows PowerShell, viene visualizzato il prompt seguente. Dopo che viene visualizzato, digitare una password e quindi premere INVIO.
+- Durante il processo di installazione e configurazione, che è visibile nella parte superiore della finestra di Windows PowerShell, viene visualizzato il prompt seguente. Una volta visualizzato, digitare una password, quindi premere INVIO.
 
-    **SafeModeAdministratorPassword:**
+    **SafeModeAdministratorPassword**
 
-- Quando si digita una password e premere INVIO, viene visualizzata la seguente richiesta di conferma. Digitare la stessa password e quindi premere INVIO.
+- Dopo aver digitato una password e premuto INVIO, viene visualizzata la seguente richiesta di conferma. Digitare la stessa password e premere INVIO.
 
     **Conferma SafeModeAdministratorPassword:**
 
-- Quando viene visualizzato il seguente prompt dei comandi, digitare la lettera **Y** e quindi premere INVIO.
+- Quando viene visualizzato il prompt seguente digitare la lettera **Y** , quindi premere INVIO.
 
 
 ~~~
@@ -590,21 +590,21 @@ Do you want to continue with this operation?
 [Y] Yes  [A] Yes to All  [N] No  [L] No to All  [S] Suspend  [?] Help (default is "Y"):
 ~~~
 
-- Se si desidera, è possibile leggere i messaggi di avviso visualizzate durante il normale installazione di Active Directory e DNS. Questi messaggi sono normali e non sono un'indicazione di errore di installazione.
+- Se lo si desidera, è possibile leggere i messaggi di avviso visualizzati durante la normale installazione di servizi di dominio Active Directory e DNS. Questi messaggi sono normali e non indicano errori di installazione.
 
-- Al termine dell'installazione, viene visualizzato un messaggio che informa che sta tentando di essere connessi a un computer in modo che sia possibile riavviare il computer. Se si sceglie **Chiudi**immediatamente sono disconnessi dal computer e il riavvio del computer. Se non si sceglie **Chiudi**, il computer viene riavviato dopo un periodo predefinito di tempo.
+- Una volta completata l'installazione, viene visualizzato un messaggio che informa che l'utente sta per essere disconnesso dal computer in modo che il computer possa essere riavviato. Se si fa clic su **Chiudi**, viene immediatamente effettuata la disconnessione dal computer e il computer viene riavviato. Se non si fa clic su **Chiudi**, il computer viene riavviato dopo un periodo di tempo predefinito.
 
-- Dopo il riavvio del server, è possibile verificare corretta installazione di servizi di dominio Active Directory e DNS. Aprire Windows PowerShell, digitare il comando seguente e premere INVIO.
+- Una volta riavviato il server, è possibile verificare la corretta installazione di Active Directory Domain Services e DNS. Aprire Windows PowerShell, digitare il comando seguente e premere INVIO.
 
 ````
 Get-WindowsFeature
 ````
 
-I risultati di questo comando vengono visualizzati in Windows PowerShell e devono essere simili a quelli nell'immagine seguente. Per le tecnologie installate, le parentesi quadre a sinistra del nome della tecnologia contengono il carattere **X**e il valore di **lo stato di installazione** viene **Installed**.
+I risultati di questo comando vengono visualizzati in Windows PowerShell e dovrebbero essere simili ai risultati nell'immagine seguente. Per le tecnologie installate, le parentesi quadre a sinistra del nome della tecnologia contengono il carattere **X**e il valore di **Install state** è **installato**.
 
 ![Risultati del comando Get-WindowsFeature](../media/Core-Network-Guide/server-roles-installed.jpg)
 
-**Installare Active Directory Domain Services e DNS con Server Manager**
+**Installare servizi di dominio Active Directory e DNS usando Server Manager**
 
 1.  Su DC1, in **Server Manager**, fare clic su **Gestisci**, quindi fare clic su **Aggiungi ruoli e funzionalità**. Viene avviata l'Aggiunta guidata ruoli e funzionalità.
 
@@ -641,13 +641,13 @@ I risultati di questo comando vengono visualizzati in Windows PowerShell e devon
 
 14. In **Verifica opzioni** verificare le impostazioni selezionate.
 
-15. Se si desidera esportare le impostazioni in uno script di Windows PowerShell, fare clic su **visualizzare script**. Lo script viene aperto in Blocco note e può essere salvato nel percorso di cartelle desiderato. Fare clic su **Avanti**. In **Controllo dei prerequisiti** vengono confermate le impostazioni selezionate. Al termine del controllo fare clic su **Installa**. Al prompt di Windows fare clic su **Chiudi**. Il server viene riavviato per completare l'installazione di Active Directory Domain Services e DNS.
+15. Se si desidera esportare le impostazioni in uno script di Windows PowerShell, fare clic su **visualizzare script**. Lo script viene aperto in Blocco note e può essere salvato nel percorso di cartelle desiderato. Fare clic su **Avanti**. In **Controllo dei prerequisiti** vengono confermate le impostazioni selezionate. Al termine del controllo fare clic su **Installa**. Al prompt di Windows fare clic su **Chiudi**. Il server viene riavviato per completare l'installazione di servizi di dominio Active Directory e DNS.
 
-16. Per verificare l'installazione ha esito positivo, visualizzare la console di Server Manager dopo il riavvio del server. Entrambi i servizi di dominio Active Directory e DNS verrà visualizzato nel riquadro sinistro, come gli elementi evidenziati nell'immagine seguente.
+16. Per verificare se l'installazione è riuscita, visualizzare la console di Server Manager dopo il riavvio del server. I servizi di dominio Active Directory e DNS verranno visualizzati nel riquadro sinistro, come gli elementi evidenziati nell'immagine seguente.
 
-![Active Directory e DNS in Server Manager](../media/Core-Network-Guide/server-roles-installed-sm.jpg)
+![Servizi di dominio Active Directory e DNS in Server Manager](../media/Core-Network-Guide/server-roles-installed-sm.jpg)
 
-##### <a name="BKMK_createUA"></a>Creare un Account utente in utenti e computer Active Directory
+##### <a name="BKMK_createUA"></a>Creare un account utente in Active Directory utenti e computer
 Questa procedura consente di creare un nuovo account utente di dominio nello snap-in di Microsoft Management Console (MMC) Utenti e computer di Active Directory.
 
 Per eseguire questa procedura è necessaria almeno l'appartenenza al gruppo **Domain Admins** oppure a un gruppo equivalente.
@@ -669,7 +669,7 @@ Per eseguire questa procedura è necessaria almeno l'appartenenza al gruppo **Do
 
 2.  Nel riquadro dei dettagli fare clic con il pulsante destro del mouse sulla cartella in cui si desidera aggiungere un account utente.
 
-    **Dove?**
+    **In cui?**
 
     -   Active Directory Users and Computers /*nodo dominio*/*cartella*
 
@@ -689,7 +689,7 @@ Per eseguire questa procedura è necessaria almeno l'appartenenza al gruppo **Do
 
 10. Fare clic su **Avanti**, esaminare le nuove impostazioni dell'account utente e quindi fare clic su **Fine**.
 
-##### <a name="BKMK_assigngroup"></a>Appartenenza al gruppo assegnazione
+##### <a name="BKMK_assigngroup"></a>Assegnare l'appartenenza al gruppo
 Questa procedura consente di aggiungere un utente, un computer o un gruppo a un gruppo nello snap-in di Microsoft Management Console (MMC) Utenti e computer di Active Directory.
 
 L'appartenenza a **Domain Admins**, o equivalente è il requisito minimo necessario per eseguire questa procedura.
@@ -712,7 +712,7 @@ L'appartenenza a **Domain Admins**, o equivalente è il requisito minimo necessa
 
 6.  Per assegnare l'appartenenza al gruppo per altri utenti, gruppi o computer, ripetere i passaggi 4 e 5 della procedura.
 
-##### <a name="BKMK_reverse"></a>Configurare una zona di ricerca inversa DNS
+##### <a name="BKMK_reverse"></a>Configurare una zona DNS di ricerca inversa
 Questa procedura consente di configurare una zona di ricerca inversa in DNS (Domain Name System).
 
 L'appartenenza a **Domain Admins** è il requisito minimo necessario per eseguire questa procedura.
@@ -751,7 +751,7 @@ L'appartenenza a **Domain Admins** è il requisito minimo necessario per eseguir
 
 11. In **completare la creazione guidata nuova zona**, rivedere le scelte effettuate e quindi fare clic su **Fine**.
 
-#### <a name="BKMK_joinlogserver"></a>Aggiunta di computer Server al dominio e accesso
+#### <a name="BKMK_joinlogserver"></a>Aggiunta di computer server al dominio e accesso
 Dopo avere installato Servizi di dominio Active Directory (AD DS) e creato uno o più account utente che dispone delle autorizzazioni per aggiungere un computer al dominio, è possibile aggiungere server della rete core al dominio e accesso a tali server per installare tecnologie aggiuntive, ad esempio Dynamic Host Configuration Protocol (DHCP).
 
 In tutti i server che si desidera distribuire, ad eccezione del server che esegue servizi di dominio Active Directory, eseguire le operazioni seguenti:
@@ -788,7 +788,7 @@ In tutti i server che si desidera distribuire, ad eccezione del server che esegu
 > [!NOTE]
 > Per informazioni su come aggiungere i computer che eseguono altri sistemi operativi Microsoft per il dominio, vedere [Appendice C - aggiunta di computer al dominio](#BKMK_C).
 
-###### <a name="to-log-on-to-the-domain-using-computers-running-windows-server-2016"></a>Per accedere al dominio utilizzando computer che esegue Windows Server 2016
+###### <a name="to-log-on-to-the-domain-using-computers-running-windows-server-2016"></a>Per accedere al dominio utilizzando computer che eseguono Windows Server 2016
 
 1.  Disconnettersi o riavviare il computer.
 
@@ -812,7 +812,7 @@ Prima di distribuire questo componente della rete core, è necessario eseguire l
 
 Per distribuire DHCP1, ovvero il computer che esegue il ruolo server DHCP (Dynamic Host Configuration Protocol), è necessario completare questi passaggi nell'ordine seguente:
 
--   [Installare Dynamic Host Configuration Protocol (DHCP)](#BKMK_installDHCP)
+-   [Installa Dynamic Host Configuration Protocol (DHCP)](#BKMK_installDHCP)
 
 -   [Creare e attivare un nuovo ambito DHCP](#BKMK_newscopeDHCP)
 
@@ -837,7 +837,7 @@ Per distribuire DHCP1, ovvero il computer che esegue il ruolo server DHCP (Dynam
 >
 > `Add-DhcpServerInDC -DnsName DHCP1.corp.contoso.com`
 
-##### <a name="BKMK_installDHCP"></a>Installare Dynamic Host Configuration Protocol (DHCP)
+##### <a name="BKMK_installDHCP"></a>Installa Dynamic Host Configuration Protocol (DHCP)
 Questa procedura consente di installare e configurare il ruolo server DHCP utilizzando Aggiunta guidata ruoli e funzionalità.
 
 Per eseguire questa procedura è necessaria almeno l'appartenenza al gruppo **Domain Admins** oppure a un gruppo equivalente.
@@ -927,7 +927,7 @@ Per eseguire questa procedura è necessaria almeno l'appartenenza al gruppo **DH
 > [!IMPORTANT]
 > Per creare nuovi ambiti per ulteriori subnet, ripetere questa procedura. Utilizzare un diverso intervallo di indirizzi IP per ogni subnet che si deve distribuire, assicurandosi che l'inoltro dei messaggi DHCP sia attivato su tutti i router che rimandano ad altre subnet.
 
-### <a name="BKMK_joinlogclients"></a>Aggiunta di computer Client al dominio e accesso
+### <a name="BKMK_joinlogclients"></a>Aggiunta di computer client al dominio e accesso
 
 > [!NOTE]
 > Per eseguire questa procedura mediante Windows PowerShell, aprire PowerShell e digitare il cmdlet seguente, quindi premere INVIO. È inoltre necessario sostituire il nome del dominio con il nome che si desidera utilizzare.
@@ -990,8 +990,8 @@ Per eseguire questa procedura è necessaria almeno l'appartenenza al gruppo **DH
 
 5.  In **Password** digitare la password per il dominio, quindi fare clic sulla freccia o premere INVIO.
 
-### <a name="BKMK_optionalfeatures"></a>Distribuzione di funzionalità facoltative per l'autenticazione di accesso di rete e servizi Web
-Se si prevede di distribuire i server di accesso di rete, ad esempio punti di accesso wireless o server VPN, dopo l'installazione della rete core, è consigliabile distribuire sia un criteri di rete e un server Web. Per le distribuzioni di accesso alla rete, è consigliato l'utilizzo di metodi di autenticazione sicuri, basati sui certificati. Server dei criteri di rete consente di gestire i criteri di accesso alla rete e di distribuire metodi di autenticazione sicuri. È possibile utilizzare un server Web per pubblicare l'elenco di revoche di certificati (CRL) dell'autorità di certificazione (CA) che emette i certificati per l'autenticazione sicura.
+### <a name="BKMK_optionalfeatures"></a>Distribuzione di funzionalità facoltative per l'autenticazione dell'accesso alla rete e i servizi Web
+Se si intende distribuire server di accesso alla rete, ad esempio punti di accesso wireless o server VPN, dopo l'installazione della rete core è consigliabile distribuire sia un server dei criteri di rete che un server Web. Per le distribuzioni di accesso alla rete, è consigliato l'utilizzo di metodi di autenticazione sicuri, basati sui certificati. Server dei criteri di rete consente di gestire i criteri di accesso alla rete e di distribuire metodi di autenticazione sicuri. È possibile utilizzare un server Web per pubblicare l'elenco di revoche di certificati (CRL) dell'autorità di certificazione (CA) che emette i certificati per l'autenticazione sicura.
 
 > [!NOTE]
 > È possibile distribuire i certificati server e altre funzionalità aggiuntive utilizzando le Guide complementari alla rete core. Per ulteriori informazioni, vedere [Risorse tecniche aggiuntive](#BKMK_resources).
@@ -1009,16 +1009,16 @@ Nelle sezioni seguenti sono disponibili informazioni sull'aggiunta dei Server de
 #### <a name="BKMK_deployNPS1"></a>Distribuzione di NPS1
 Server dei criteri di rete viene installato come passaggio preliminare alla distribuzione di altre tecnologie di accesso alla rete, ad esempio server di rete privata virtuale (VPN), punti di accesso wireless e commutatori di autenticazione 802.1X.
 
-Strumentazione gestione Windows (NPS, Network Policy Server) consente all'utente in modo centralizzato, configurare e gestire i criteri di rete con le funzionalità seguenti: Remote Authentication Dial-In Service (server RADIUS User) e proxy RADIUS.
+Server dei criteri di rete consente di configurare e gestire centralmente i criteri di rete con le seguenti funzionalità: Server Remote Authentication Dial-In User Service (RADIUS) e proxy RADIUS.
 
 Server dei criteri di rete è un componente facoltativo in una rete core, tuttavia è consigliabile installarlo in presenza di una qualsiasi delle condizioni seguenti:
 
--   Si prevede di espandere la rete in modo da includere server di accesso remoto compatibili con il protocollo RADIUS, ad esempio un computer che esegue Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 o Windows Server 2008 e Servizio Routing e accesso remoto, Gateway Servizi Terminal o Gateway Desktop remoto.
+-   Si prevede di espandere la rete per includere i server di accesso remoto compatibili con il protocollo RADIUS, ad esempio un computer che esegue Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 o Windows Server 2008 e Servizio Routing e accesso remoto, gateway di Servizi terminal o Gateway Desktop remoto.
 
 
 -   Si prevede di distribuire l'autenticazione 802.1 X per reti cablate o wireless access.
 
-Prima di distribuire questo servizio ruolo, è necessario eseguire i passaggi seguenti nel computer che viene configurato come un NPS.
+Prima di distribuire questo servizio ruolo, è necessario eseguire i passaggi seguenti nel computer che si sta configurando come server dei criteri di server.
 
 -   Eseguire i passaggi nella sezione [configurazione di tutti i server](#BKMK_configuringAll).
 
@@ -1030,7 +1030,7 @@ Per distribuire il server NPS1, ovvero il computer che esegue il servizio ruolo 
 
 -   [Installare Server dei criteri di rete (NPS)](#BKMK_installNPS)
 
--   [Registrare i criteri di rete nel dominio predefinito](#BKMK_registerNPS)
+-   [Registrare il server dei criteri di dominio nel dominio predefinito](#BKMK_registerNPS)
 
 > [!NOTE]
 > Questa guida vengono fornite istruzioni per la distribuzione dei criteri di RETE in un server autonomo o macchina Virtuale denominata NPS1.  Un altro modello di distribuzione consigliato è l'installazione di criteri di RETE in un controller di dominio. Se si preferisce l'installazione dei criteri di RETE in un controller di dominio anziché in un server autonomo, installare il server NPS in DC1.
@@ -1050,7 +1050,7 @@ Di seguito sono riportati i passaggi chiave per la pianificazione, che dovranno 
 È possibile utilizzare questa procedura per installare Server dei criteri di rete (NPS) tramite l'aggiunta guidata ruoli e funzionalità. Server dei criteri di rete è un servizio ruolo del ruolo server Servizi di accesso e criteri di rete.
 
 > [!NOTE]
-> Per impostazione predefinita, Server dei criteri di rete rimane in ascolto del traffico RADIUS sulle porte 1812, 1813, 1645 e 1646 di tutte le schede di rete installate. Se Windows Firewall con sicurezza avanzata è abilitata quando si installa NPS, eccezioni del firewall per queste porte vengono create automaticamente durante il processo di installazione di entrambi protocollo Internet versione 6 \(IPv6\) e il traffico IPv4. Se i server di accesso di rete sono configurati per l'invio di traffico RADIUS su porte diverse da quelle predefinite, rimuovere le eccezioni create durante l'installazione dei criteri di RETE in Windows Firewall con sicurezza avanzata e creare eccezioni per le porte utilizzate per il traffico RADIUS.
+> Per impostazione predefinita, Server dei criteri di rete rimane in ascolto del traffico RADIUS sulle porte 1812, 1813, 1645 e 1646 di tutte le schede di rete installate. Se Windows Firewall con sicurezza avanzata è abilitata quando si installa NPS, le eccezioni del firewall per queste porte vengono create automaticamente durante il processo di installazione sia per il protocollo Internet versione 6 \(IPv6 @ no__t-1 che per il traffico IPv4. Se i server di accesso di rete sono configurati per l'invio di traffico RADIUS su porte diverse da quelle predefinite, rimuovere le eccezioni create durante l'installazione dei criteri di RETE in Windows Firewall con sicurezza avanzata e creare eccezioni per le porte utilizzate per il traffico RADIUS.
 
 **Credenziali amministrative**
 
@@ -1074,7 +1074,7 @@ Per completare questa procedura, è necessario essere un membro del **Domain Adm
 
 4.  In **Selezione server di destinazione** assicurarsi che sia selezionata l'opzione **Selezionare un server dal pool di server**. Assicurarsi che in **Pool di server** sia selezionato il computer locale. Fare clic su **Avanti**.
 
-5.  Nelle **Selezione ruoli Server**, nel **ruoli**, selezionare **servizi di accesso e criteri di rete**. Viene aperta una finestra di dialogo che chiede se è necessario aggiungere le funzionalità necessarie per servizi di accesso e criteri di rete. Fare clic su **Aggiungi funzionalità necessarie**e quindi su **Avanti**.
+5.  In **Selezione ruoli server**, in **ruoli**, selezionare **servizi di accesso e criteri di rete**. Verrà visualizzata una finestra di dialogo in cui viene chiesto se aggiungere funzionalità richieste per servizi di accesso e criteri di rete. Fare clic su **Aggiungi funzionalità necessarie**e quindi su **Avanti**.
 
 6.  In **Selezione funzionalità** fare clic su **Avanti**, quindi in **Servizi di accesso e criteri di rete** esaminare le informazioni fornite e quindi fare clic su **Avanti**.
 
@@ -1082,10 +1082,10 @@ Per completare questa procedura, è necessario essere un membro del **Domain Adm
 
 8.  In **Conferma selezioni per l'installazione**, fare clic su **Riavvia automaticamente il server di destinazione se necessario**. Quando viene chiesto di confermare la selezione, fare clic su **Sì**, quindi fare clic su **installare**. Nella pagina di stato dell'installazione viene visualizzato lo stato di avanzamento del processo di installazione. Al termine del processo, il messaggio "Installazione completata in *nomecomputer*" viene visualizzato, in cui *nomecomputer* è il nome del computer su cui è installato Server dei criteri di rete. Fare clic su **Chiudi**.
 
-##### <a name="BKMK_registerNPS"></a>Registrare i criteri di rete nel dominio predefinito
-È possibile utilizzare questa procedura per iscrivere un criteri di rete nel dominio in cui il server è un membro del dominio.
+##### <a name="BKMK_registerNPS"></a>Registrare il server dei criteri di dominio nel dominio predefinito
+È possibile utilizzare questa procedura per registrare un server dei criteri di dominio nel dominio in cui il server è un membro di dominio.
 
-NPSs deve essere registrato in Active Directory in modo che abbiano l'autorizzazione per leggere le proprietà di connessione remota degli account utente durante il processo di autorizzazione. La registrazione di un NPS aggiunge il server per il **server RAS e IAS** gruppo in Active Directory.
+NPSs deve essere registrato in Active Directory in modo che disponga delle autorizzazioni per leggere le proprietà di connessione di account utente durante il processo di autorizzazione. La registrazione di un server dei criteri di gruppo aggiunge il server al gruppo di **server RAS e IAS** in Active Directory.
 
 **Credenziali amministrative**
 
@@ -1096,7 +1096,7 @@ Per completare questa procedura, è necessario essere un membro del **Domain Adm
 >
 > `netsh nps add registeredserver domain=corp.contoso.com server=NPS1.corp.contoso.com`
 
-###### <a name="to-register-an-nps-in-its-default-domain"></a>Per registrare un criteri di rete nel dominio predefinito
+###### <a name="to-register-an-nps-in-its-default-domain"></a>Per registrare un server dei criteri di dominio nel dominio predefinito
 
 1.  Su NPS1, in Server Manager, fare clic su strumenti e quindi fare clic su **Server dei criteri di rete**. Si apre lo snap-in MMC Server dei criteri di rete.
 
@@ -1104,7 +1104,7 @@ Per completare questa procedura, è necessario essere un membro del **Domain Adm
 
 3.  In **Server dei criteri di rete**, fare clic su **OK**, quindi fare clic su **OK** nuovamente.
 
-Per altre informazioni sui Server dei criteri di rete, vedere [Strumentazione gestione Windows (NPS, Network Policy Server)](../technologies/nps/nps-top.md).
+Per ulteriori informazioni su server dei criteri di rete, vedere [Server dei criteri di rete (NPS)](../technologies/nps/nps-top.md).
 
 #### <a name="BKMK_IIS"></a>Distribuzione di WEB1
 
@@ -1128,9 +1128,9 @@ Per distribuire WEB1, ovvero il computer che eseguire il ruolo server Server Web
 
 -   Eseguire i passaggi nella sezione [aggiunta di computer Server al dominio ed effettuare l'accesso](#BKMK_joinlogserver)
 
--   [Installare il ruolo server Server Web (IIS)](#BKMK_install_IIS)
+-   [Installare il ruolo server server Web (IIS)](#BKMK_install_IIS)
 
-##### <a name="BKMK_install_IIS"></a>Installare il ruolo server Server Web (IIS)
+##### <a name="BKMK_install_IIS"></a>Installare il ruolo server server Web (IIS)
 Per completare questa procedura, è necessario essere un membro del **amministratori** gruppo.
 
 > [!NOTE]
@@ -1160,34 +1160,34 @@ Per ulteriori informazioni sulle tecnologie citate in questa guida, vedere le ri
 
  Risorse di documentazione tecnica di Windows Server 2012, Windows Server 2012 R2 e Windows Server 2016
 
--   [Che cosa sono le novità di Active Directory Domain Services (AD DS) in Windows Server 2016](https://technet.microsoft.com/library/mt163897.aspx)
+-   [Novità di Active Directory Domain Services (AD DS) in Windows Server 2016](https://technet.microsoft.com/library/mt163897.aspx)
 
--   [Panoramica di Active Directory Domain Services](https://technet.microsoft.com/library/hh831484.aspx) a https://technet.microsoft.com/library/hh831484.aspx.
+-   [Active Directory Domain Services panoramica](https://technet.microsoft.com/library/hh831484.aspx) https://technet.microsoft.com/library/hh831484.aspx.
 
--   [Panoramica di Domain Name System (DNS)](https://technet.microsoft.com/library/hh831667.aspx) a https://technet.microsoft.com/library/hh831667.aspx.
+-   [Panoramica di Domain Name System (DNS)](https://technet.microsoft.com/library/hh831667.aspx) in https://technet.microsoft.com/library/hh831667.aspx.
 
 -   [Implementazione del ruolo DNS Admins](https://technet.microsoft.com/library/cc756152(WS.10).aspx)
 
--   [Panoramica di Dynamic Host Configuration Protocol (DHCP)](https://technet.microsoft.com/library/hh831825.aspx) a https://technet.microsoft.com/library/hh831825.aspx.
+-   [Panoramica di Dynamic Host Configuration Protocol (DHCP)](https://technet.microsoft.com/library/hh831825.aspx) in https://technet.microsoft.com/library/hh831825.aspx.
 
--   [Panoramica di servizi di accesso e criteri di rete](https://technet.microsoft.com/library/hh831683.aspx) a https://technet.microsoft.com/library/hh831683.aspx.
+-   [Panoramica di servizi di accesso e criteri di rete](https://technet.microsoft.com/library/hh831683.aspx) in https://technet.microsoft.com/library/hh831683.aspx.
 
--   [Panoramica di Web Server (IIS)](https://technet.microsoft.com/library/hh831725.aspx) a https://technet.microsoft.com/library/hh831725.aspx.
+-   [Panoramica di server Web (IIS)](https://technet.microsoft.com/library/hh831725.aspx) in https://technet.microsoft.com/library/hh831725.aspx.
 
-## <a name="BKMK_appendix"></a>Appendici A-E
+## <a name="BKMK_appendix"></a>Appendici da A A E
 Nelle sezioni seguenti contengono informazioni di configurazione aggiuntive per i computer che eseguono sistemi operativi diversi da Windows Server 2016, Windows 10, Windows Server 2012 e Windows 8. Inoltre, viene fornito un foglio di lavoro di preparazione di rete per facilitare la distribuzione.
 
-1.  [Appendice A - ridenominazione dei computer](#BKMK_A)
+1.  [Appendice A-ridenominazione dei computer](#BKMK_A)
 
-2.  [Appendice B - configurazione di indirizzo IP statico di indirizzi](#BKMK_B)
+2.  [Appendice B-configurazione di indirizzi IP statici](#BKMK_B)
 
-3.  [Appendice C - aggiunta di computer al dominio](#BKMK_C)
+3.  [Appendice C-aggiunta di computer al dominio](#BKMK_C)
 
-4.  [Appendice D - accesso al dominio](#BKMK_D)
+4.  [Appendice D-accesso al dominio](#BKMK_D)
 
-5.  [Appendice E - foglio di preparazione alla pianificazione di rete di Core](#BKMK_E)
+5.  [Appendice E-foglio di preparazione alla pianificazione della rete core](#BKMK_E)
 
-## <a name="BKMK_A"></a>Appendice A - ridenominazione dei computer
+## <a name="BKMK_A"></a>Appendice A-ridenominazione dei computer
 È possibile utilizzare le procedure descritte in questa sezione per fornire i computer che eseguono Windows Server 2008 R2, Windows 7, Windows Server 2008 e Windows Vista con un nome computer diverso.
 
 -   [Windows Server 2008 R2 e Windows 7](#bkmk_NetFndtn_Pln_rename_R2)
@@ -1230,7 +1230,7 @@ L'appartenenza a **amministratori**, o equivalente è il requisito minimo necess
 
 5.  Fare clic due volte su **OK**, fare clic su **Chiudi**, quindi su **Riavvia** per riavviare il computer.
 
-## <a name="BKMK_B"></a>Appendice B - configurazione di indirizzo IP statico di indirizzi
+## <a name="BKMK_B"></a>Appendice B-configurazione di indirizzi IP statici
 Le procedure illustrate in questa sezione consentono di configurare gli indirizzi IP statici in computer che eseguono i sistemi operativi seguenti:
 
 -   [Windows Server 2008 R2](#bkmk_R2Cng_WS08R2IP)
@@ -1293,7 +1293,7 @@ L'appartenenza a **amministratori**, o equivalente è il requisito minimo necess
 
 11. Fare clic su **OK** e quindi fare clic su **Chiudi**.
 
-## <a name="BKMK_C"></a>Appendice C - aggiunta di computer al dominio
+## <a name="BKMK_C"></a>Appendice C-aggiunta di computer al dominio
 È possibile utilizzare queste procedure per aggiungere i computer che esegue Windows Server 2008 R2, Windows 7, Windows Server 2008 e Windows Vista al dominio.
 
 -   [Windows Server 2008 R2 e Windows 7](#BKMK_c1)
@@ -1352,7 +1352,7 @@ L'appartenenza a **gli utenti del dominio**, o equivalente è il requisito minim
 
 9. Nella scheda **Nome computer** della finestra di dialogo **Proprietà del sistema** fare clic su **Chiudi**. Viene visualizzata la finestra di dialogo **Microsoft Windows**, che contiene un messaggio per segnalare nuovamente la necessità di riavviare il computer in modo da rendere effettive le modifiche. Fare clic su **Riavvia**.
 
-## <a name="BKMK_D"></a>Appendice D - accesso al dominio
+## <a name="BKMK_D"></a>Appendice D-accesso al dominio
 È possibile utilizzare queste procedure per accedere al dominio utilizzando computer che eseguono Windows Server 2008 R2, Windows 7, Windows Server 2008 e Windows Vista.
 
 -   [Windows Server 2008 R2 e Windows 7](#BKMK_d1)
@@ -1389,16 +1389,16 @@ L'appartenenza a **gli utenti del dominio**, o equivalente è il requisito minim
 
 5.  In **Password** digitare la password per il dominio, quindi fare clic sulla freccia o premere INVIO.
 
-## <a name="BKMK_E"></a>Appendice E - foglio di preparazione alla pianificazione di rete di Core
+## <a name="BKMK_E"></a>Appendice E-foglio di preparazione alla pianificazione della rete core
 È possibile utilizzare questo foglio di preparazione alla pianificazione della rete per raccogliere le informazioni necessarie per installare una rete core. In questa sezione sono disponibili tabelle contenenti i singoli elementi di configurazione per ogni computer server per cui è necessario fornire informazioni o valori specifici durante il processo di installazione o configurazione. Per ogni elemento di configurazione sono riportati valori di esempio.
 
 Ai fini della pianificazione e della registrazione, in ogni tabella sono disponibili spazi in cui è possibile inserire i valori utilizzati nella distribuzione. Se si specificano valori correlati alla sicurezza in queste tabelle, è consigliabile archiviare le informazioni in un luogo sicuro.
 
 I collegamenti seguenti rimandano alle sezioni di questo argomento in cui sono illustrati gli elementi di configurazione e i valori di esempio associati alle procedure di distribuzione descritte in questa guida.
 
-1.  [Installazione di servizi di dominio Active Directory e DNS](#BKMK_FndtnPrep_InstallAD)
+1.  [Installazione di Active Directory Domain Services e DNS](#BKMK_FndtnPrep_InstallAD)
 
-    -   [Configurazione di una zona di ricerca inversa DNS](#BKMK_FndtnPrep_DNSRevrsLook)
+    -   [Configurazione di una zona DNS di ricerca inversa](#BKMK_FndtnPrep_DNSRevrsLook)
 
 2.  [Installazione di DHCP](#BKMK_FndtnPrep_InstallDHCP)
 
@@ -1406,9 +1406,9 @@ I collegamenti seguenti rimandano alle sezioni di questo argomento in cui sono i
 
     -   [Creazione di un nuovo ambito DHCP](#bkmk_NetFndtn_Pln_DHCP_NewScope)
 
-3.  [Installazione di Server dei criteri di rete (facoltativo)](#BKMK_FndtnPrep_InstallNPS)
+3.  [Installazione del server dei criteri di rete (facoltativo)](#BKMK_FndtnPrep_InstallNPS)
 
-### <a name="BKMK_FndtnPrep_InstallAD"></a>Installazione di servizi di dominio Active Directory e DNS
+### <a name="BKMK_FndtnPrep_InstallAD"></a>Installazione di Active Directory Domain Services e DNS
 Le tabelle in questa sezione elencano gli elementi di configurazione per la preinstallazione e installazione di servizi di dominio Active Directory (AD DS) e DNS.
 
 ##### <a name="pre-installation-configuration-items-for-ad-ds-and-dns"></a>Elementi di configurazione di preinstallazione per Active Directory e DNS
@@ -1424,7 +1424,7 @@ Gli elementi di configurazione di pre-installazione elenco nelle tabelle seguent
 |Server DNS preferito|127.0.0.1||
 |Server DNS alternativo|10.0.0.15||
 
--   [Rinominare il Computer](#BKMK_rename)
+-   [Rinominare il computer](#BKMK_rename)
 
 |Elemento di configurazione|Valore di esempio|Value|
 |----------------------|-----------------|---------|
@@ -1437,18 +1437,18 @@ Elementi di configurazione per la procedura di distribuzione di rete di Windows 
 |-----------------------|------------------|----------|
 |Nome DNS completo|corp.contoso.com||
 |Livello di funzionalità della foresta|Windows Server 2003||
-|Percorso della cartella per il database di Servizi di dominio Active Directory|E:\Configuration\\<br /><br />In alternativa accettare il percorso predefinito.||
-|Percorso della cartella per i file di registro di Servizi di dominio Active Directory|E:\Configuration\\<br /><br />In alternativa accettare il percorso predefinito.||
-|Percorso della cartella SYSVOL di Servizi di dominio Active Directory|E:\Configuration\\<br /><br />In alternativa accettare il percorso predefinito.||
+|Percorso della cartella per il database di Servizi di dominio Active Directory|E:\Configuration @ no__t-0<br /><br />In alternativa accettare il percorso predefinito.||
+|Percorso della cartella per i file di registro di Servizi di dominio Active Directory|E:\Configuration @ no__t-0<br /><br />In alternativa accettare il percorso predefinito.||
+|Percorso della cartella SYSVOL di Servizi di dominio Active Directory|E:\Configuration @ no__t-0<br /><br />In alternativa accettare il percorso predefinito.||
 |Password di amministratore modalità ripristino servizi directory|J*p2leO4$F||
 |Nome file di risposte (facoltativo)|DS_AnswerFile di Active Directory||
 
-#### <a name="BKMK_FndtnPrep_DNSRevrsLook"></a>Configurazione di una zona di ricerca inversa DNS
+#### <a name="BKMK_FndtnPrep_DNSRevrsLook"></a>Configurazione di una zona DNS di ricerca inversa
 
 |Elementi di configurazione|Valori di esempio|Valori|
 |-----------------------|------------------|----------|
 |Tipo di zona:|-Zona principale<br />-Zona secondaria<br />: Zona di stub||
-|Tipo di zona<br /><br />**Store la zona in Active Directory**|-Selezionato<br />-Non selezionata||
+|Tipo di zona<br /><br />**Archivia la zona in Active Directory**|-Selezionato<br />-Non selezionata||
 |Ambito di replica zona Active Directory|-Per tutti i server DNS della foresta<br />-Per tutti i server DNS nel dominio<br />-Per tutti i controller di dominio nel dominio<br />-Per tutti i controller di dominio specificati nell'ambito di questa partizione di directory||
 |Nome della zona di ricerca inversa<br /><br />(tipo IP)|: Zona di ricerca inversa IPv4<br />: Zona di ricerca inversa IPv6||
 |Nome della zona di ricerca inversa<br /><br />(ID rete)|10.0.0||
@@ -1469,7 +1469,7 @@ Gli elementi di configurazione di pre-installazione elenco nelle tabelle seguent
 |Server DNS preferito|10.0.0.2||
 |Server DNS alternativo|10.0.0.15||
 
--   [Rinominare il Computer](#BKMK_rename)
+-   [Rinominare il computer](#BKMK_rename)
 
 |Elemento di configurazione|Valore di esempio|Value|
 |----------------------|-----------------|---------|
@@ -1515,12 +1515,12 @@ Elementi di configurazione per la procedura di distribuzione di rete di Windows 
 |Subnet mask|255.255.255.0||
 |Indirizzo IP iniziale dell'intervallo di esclusione|10.0.1.1||
 |Indirizzo IP finale dell'intervallo di esclusione|10.0.1.15||
-|Durata del lease<br /><br />Days<br /><br />Ore<br /><br />Minuti|-   8<br />-   0<br />-   0||
+|Durata del lease<br /><br />Days<br /><br />Ore<br /><br />Minuti|-8<br />-   0<br />-   0||
 |Router (gateway predefinito)<br /><br />L'indirizzo IP|10.0.1.1||
 |Dominio padre DNS|corp.contoso.com||
 |Server DNS<br /><br />L'indirizzo IP|10.0.0.2||
 
-### <a name="BKMK_FndtnPrep_InstallNPS"></a>Installazione di Server dei criteri di rete (facoltativo)
+### <a name="BKMK_FndtnPrep_InstallNPS"></a>Installazione del server dei criteri di rete (facoltativo)
 Nelle tabelle riportate in questa sezione sono elencati gli elementi di configurazione per le procedure di preinstallazione e installazione di Server dei criteri di rete.
 
 ##### <a name="pre-installation-configuration-items"></a>Elementi di configurazione per la preinstallazione
@@ -1536,14 +1536,14 @@ Le seguenti tre tabelle elencano gli elementi di configurazione pre-installazion
 |Server DNS preferito|10.0.0.2||
 |Server DNS alternativo|10.0.0.15||
 
--   [Rinominare il Computer](#BKMK_rename)
+-   [Rinominare il computer](#BKMK_rename)
 
 |Elemento di configurazione|Valore di esempio|Value|
 |----------------------|-----------------|---------|
 |Il nome del computer|NPS1||
 
 ##### <a name="network-policy-server-installation-configuration-items"></a>Elementi di configurazione per l'installazione di Server dei criteri di rete
-Gli elementi di configurazione per le procedure di distribuzione di Windows Server Core rete NPS [installare Server criteri di rete (NPS)](#BKMK_installNPS) e [registrare i criteri di rete nel dominio predefinito](#BKMK_registerNPS).
+Gli elementi di configurazione per le procedure di distribuzione del server dei criteri di rete di Windows Server Core [installano server dei criteri di rete](#BKMK_installNPS) e [registrano il server dei criteri di rete nel dominio predefinito](#BKMK_registerNPS)
 
 -   Per installare e registrare Server dei criteri di rete non sono necessari ulteriori elementi di configurazione.
 

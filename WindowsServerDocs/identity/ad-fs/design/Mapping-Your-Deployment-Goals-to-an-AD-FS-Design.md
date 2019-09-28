@@ -7,23 +7,23 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 13d8ae8b8f3e4c8160f61284e5fb97e21b6a51b6
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: ca10f8e784fea3b99a60b2117f65ba1ccaf6501e
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66191254"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71359095"
 ---
 # <a name="mapping-your-deployment-goals-to-an-ad-fs-design"></a>Mapping degli obiettivi di distribuzione a una progettazione ADFS
 
 
-Dopo aver esaminato i servizi esistenti di Active Directory Federation \(ADFS\) degli obiettivi di distribuzione e avere determinato gli obiettivi correlati alla distribuzione, è possibile eseguire il mapping di tali obiettivi a una specifica progettazione di AD FS. Per altre informazioni su AD FS predefinite degli obiettivi di distribuzione, vedere [identificazione degli obiettivi di distribuzione di AD FS](Identifying-Your-AD-FS-Deployment-Goals.md).  
+Dopo aver esaminato gli obiettivi di distribuzione esistenti di Active Directory Federation Services \(AD FS @ no__t-1 e aver determinato gli obiettivi correlati alla distribuzione, è possibile eseguire il mapping di tali obiettivi a una specifica progettazione di AD FS. Per altre informazioni su AD FS obiettivi di distribuzione predefiniti, vedere [identificazione degli obiettivi di distribuzione di ad FS](Identifying-Your-AD-FS-Deployment-Goals.md).  
   
-Usare la tabella seguente per determinare quale progettazione ADFS viene eseguito il mapping alla combinazione appropriata di AD FS degli obiettivi di distribuzione per l'organizzazione. Questa tabella fa riferimento solo alle due progettazioni di AD FS primarie, come descritto in questa Guida. Tuttavia, è possibile creare ibrida o personalizzata progettazione di AD FS usando qualsiasi combinazione di obiettivi di distribuzione di AD FS per soddisfare le esigenze della propria organizzazione.  
+Usare la tabella seguente per determinare quale progettazione di AD FS viene mappata alla combinazione appropriata di obiettivi di distribuzione AD FS per l'organizzazione. Questa tabella si riferisce solo alle due progettazioni di AD FS principali, come descritto in questa guida. Tuttavia, è possibile creare una progettazione di AD FS ibrida o personalizzata usando qualsiasi combinazione degli obiettivi di distribuzione AD FS per soddisfare le esigenze dell'organizzazione.  
   
-|Obiettivo di distribuzione di AD FS|[Progetto di Web SSO](Web-SSO-Design.md)|[Progetto di Web SSO federativo](Federated-Web-SSO-Design.md)|  
+|Obiettivo della distribuzione AD FS|[Progetto di Web SSO](Web-SSO-Design.md)|[Progetto di Web SSO federativo](Federated-Web-SSO-Design.md)|  
 |---------------------------------------------------------------------------|----------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------|  
 |[Fornire agli utenti di Active Directory l'accesso ai servizi e alle applicazioni in grado di riconoscere attestazioni](Provide-Your-Active-Directory-Users-Access-to-Your-Claims-Aware-Applications-and-Services.md)|No|Sì, nel partner account|  
 |[Fornire agli utenti di Active Directory l'accesso ai servizi e alle applicazioni di altre organizzazioni](Provide-Your-Active-Directory-Users-Access-to-the-Applications-and-Services-of-Other-Organizations.md)|No|Sì, facoltativo nel partner account|  

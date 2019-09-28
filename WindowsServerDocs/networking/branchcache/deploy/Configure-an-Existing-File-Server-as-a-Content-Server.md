@@ -2,22 +2,22 @@
 title: Configurare un file server esistente come server di contenuti
 description: Questo argomento fa parte di BranchCache distribuzione Guide per Windows Server 2016, che illustra come distribuire BranchCache in modalità cache distribuita e ospitato per ottimizzare l'utilizzo della larghezza di banda WAN nelle succursali
 manager: brianlic
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking-bc
 ms.topic: get-started-article
 ms.assetid: bdac7d2a-25b4-4f61-bed1-b290700c18f3
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: d031e8aa853849c322692552ca9107838cebb5e5
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: f675322c32db0816d5afb155d53fad9f096ad650
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59866912"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71356689"
 ---
 # <a name="configure-an-existing-file-server-as-a-content-server"></a>Configurare un file server esistente come server di contenuti
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016
 
 È possibile utilizzare questa procedura per installare il **BranchCache per file di rete** servizio ruolo del ruolo server Servizi File in un computer che esegue Windows Server 2016.  
   
@@ -37,7 +37,7 @@ L'appartenenza a **amministratori**, o equivalente è il requisito minimo necess
   
 ### <a name="to-install-the-branchcache-for-network-files-role-service"></a>Per installare il file di rete servizio ruolo BranchCache per  
   
-1.  In Server Manager fare clic su **Gestione**e quindi su **Aggiungi ruoli e funzionalità**. Verrà visualizzata la procedura guidata Aggiungi ruoli e funzionalità. Fare clic su **Avanti**.  
+1.  In Server Manager fare clic su **Gestione**e quindi su **Aggiungi ruoli e funzionalità**. Si apre la procedura guidata Aggiungi ruoli e funzionalità. Fare clic su **Avanti**.  
   
 2.  In **Selezione tipo di installazione**, assicurarsi che **installazione basata su ruoli o basata su funzionalità** è selezionata e quindi fare clic su **Avanti**.  
   

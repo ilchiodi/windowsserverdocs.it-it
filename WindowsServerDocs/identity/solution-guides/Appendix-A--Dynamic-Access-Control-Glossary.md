@@ -1,51 +1,51 @@
 ---
 ms.assetid: 7f6b27e5-dc55-4ffc-8e76-6d57e65a870b
-title: Glossario di controllo di accesso dinamico appendice A
+title: Appendice un glossario del controllo dinamico degli accessi
 description: ''
 author: billmath
 ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: b2044355812e95b9a5bfe90e33257f11ce78cf93
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 5508c3397039a1a70c07f1dc5f29e06bd02234a0
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59856702"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71357614"
 ---
-# <a name="appendix-a-dynamic-access-control-glossary"></a>Appendice A: Glossario di controllo di accesso dinamico
+# <a name="appendix-a-dynamic-access-control-glossary"></a>Appendice A: Glossario del controllo dinamico degli accessi
 
 >Si applica a: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Ecco l'elenco di termini e definizioni che sono inclusi nello scenario controllo dinamico degli accessi.  
+Di seguito è riportato l'elenco dei termini e delle definizioni inclusi nello scenario di controllo dinamico degli accessi.  
   
 |Nome|Definizione|  
 |--------|--------------|  
-|Classificazione automatica|Classificazione che si verifica in base alle proprietà di classificazione che dipendono dalle regole di classificazione configurate dall'amministratore.|  
-|CAPID|ID dei criteri di accesso centrale. Questo ID fa riferimento a un criterio di accesso centrale specifici e viene usato per fare riferimento i criteri dal descrittore di sicurezza di file e cartelle.|  
-|Regola di accesso centrale|Una regola che include una condizione e un'espressione di accesso.|  
+|Classificazione automatica|Classificazione eseguita in base alle proprietà di classificazione determinate dalle regole di classificazione configurate da un amministratore.|  
+|CAPITI|ID dei criteri di accesso centrale. Questo ID fa riferimento a criteri di accesso centrale specifici e viene usato per fare riferimento ai criteri dal descrittore di sicurezza di file e cartelle.|  
+|Regola di accesso centrale|Regola che include una condizione e un'espressione di accesso.|  
 |Criteri di accesso centrale|Criteri creati e ospitati in Active Directory.|  
-|Controllo degli accessi basato su attestazioni|Un paradigma che utilizza le attestazioni per prendere decisioni di controllo di accesso alle risorse.|  
-|Classificazione|Il processo di determinazione delle proprietà di classificazione delle risorse e l'assegnazione di queste proprietà per i metadati che è associato con le risorse. Vedere anche REF AutomaticClassification \h \\* \h InheritedClassification REF, la classificazione automatica MERGEFORMAT \\ \* classificazione MERGEFORMAT ereditata e REF ManualClassification \h \\ \* Classificazione manuale MERGEFORMAT.|  
-|Attestazione dispositivo|Un'attestazione che viene associata al sistema.  Con le attestazioni utente, è incluso nel token di un utente prova ad accedere a una risorsa.|  
-|Elenco di controllo di accesso discrezionale (DACL)|Un elenco di controllo di accesso che identifica i fiduciari cui sono consentiti o negati l'accesso a una risorsa di entità a protezione diretta. Può essere modificata a discrezione del proprietario della risorsa.|  
-|Proprietà della risorsa|Proprietà (ad esempio etichette punteggio) che descrivono un file e vengono assegnate ai file usando la classificazione automatica o la classificazione manuale. Ecco alcuni esempi: Periodo di sensibilità, progetto e la fidelizzazione.|  
-|Gestione risorse file server|Una funzionalità nel sistema operativo Windows Server che offre la gestione di quote di cartelle, lo screening dei file, i rapporti di archiviazione, classificazione dei file e i processi di gestione di file in un file server.|  
-|Le etichette e le proprietà della cartella|Le proprietà e le etichette che descrivono una cartella e vengono assegnate manualmente dagli amministratori e i proprietari di una cartella. Queste proprietà assegnare valori di proprietà predefiniti per i file all'interno di queste cartelle, ad esempio segreto o reparto.|  
-|Criteri di gruppo|Un set di regole e criteri che controlla l'ambiente di lavoro di utenti e computer in un ambiente Active Directory.|  
-|Quasi in tempo reale classificazione|Classificazione automatica che viene eseguita subito dopo viene creato o modificato un file.|  
-|In prossimità di attività di gestione file in tempo reale|Attività di gestione che viene eseguita subito dopo il file (un file viene creato o modificato. Queste attività vengono attivate per la classificazione quasi in tempo reale.|  
-|Unità organizzativa (OU)|Un contenitore di Active Directory che rappresenta le strutture gerarchiche e logiche all'interno di un'organizzazione. È l'ambito più piccolo a quali criteri di gruppo vengono applicate le impostazioni.|  
-|Proprietà protetta|Una proprietà di classificazione che il runtime di autorizzazione può considerare attendibili per essere un'asserzione valida sulla risorsa in un determinato punto nel tempo. In controllo degli accessi basato sulle attestazioni, una proprietà sicura viene assegnata a una risorsa viene considerata come un'attestazione di risorse.|  
-|descrittore di sicurezza|Una struttura di dati che contiene le informazioni di sicurezza associate a una risorsa di entità a protezione diretta, ad esempio elenchi di controllo di accesso.|  
-|Linguaggio di definizione del descrittore di sicurezza|Specifica che descrive le informazioni contenute in un descrittore di sicurezza come stringa di testo.|  
-|Criteri di gestione temporanea|Criteri di accesso centrale che non sono ancora attivi.|  
-|Elenco di controllo di accesso di sistema (SACL)|Un elenco di controllo di accesso che specifica i tipi di tentativi di accesso dal trustee specifici per il quale devono essere generati i record di controllo.|  
-|Attestazione utente|Attributi di un utente che vengono forniti all'interno del token di sicurezza utente. Ecco alcuni esempi: Nulla osta di reparto, società, progetto e sicurezza.  Le informazioni nel token dell'utente da sistemi precedenti a Windows Server 2012, ad esempio i gruppi di sicurezza che l'utente fa parte di, possono essere considerate anche le attestazioni utente. Alcune attestazioni di utente vengono fornite tramite Active Directory e gli altri vengono calcolati in modo dinamico, ad esempio che l'utente connesso o meno con una smart card.|  
-|Token dell'utente|Oggetto dati che identifica un utente e le attestazioni utente e richieste diritti da dispositivo che sono associati a tale utente. Viene utilizzato per autorizzare l'accesso dell'utente alle risorse.|  
+|Controllo degli accessi in base alle attestazioni|Paradigma che usa le attestazioni per prendere decisioni relative al controllo dell'accesso alle risorse.|  
+|classificazione|Processo di determinazione delle proprietà di classificazione delle risorse e di assegnazione di tali proprietà ai metadati associati alle risorse. Vedere anche REF AutomaticClassification \h \\ * MERGEFORMAT classificazione automatica, REF InheritedClassification \h \\ @ no__t-2 MERGEFORMAT ereditò classificazione e REF ManualClassification \h \\ @ no__t-4 MERGEFORMAT Manual classificazione.|  
+|Attestazione dispositivo|Attestazione associata al sistema.  Con attestazioni utente, è incluso nel token di un utente che tenta di accedere a una risorsa.|  
+|Elenco di controllo di accesso discrezionale (DACL)|Elenco di controllo di accesso che identifica i trustee a cui è consentito o negato l'accesso a una risorsa a protezione diretta. Può essere modificato a discrezione del proprietario della risorsa.|  
+|Proprietà Resource|Proprietà (ad esempio etichette) che descrivono un file e vengono assegnate ai file utilizzando la classificazione automatica o la classificazione manuale. Ecco alcuni esempi: Sensitivity, Project e periodo di conservazione.|  
+|Gestione risorse file server|Funzionalità del sistema operativo Windows Server che offre la gestione di quote di cartelle, screening dei file, report di archiviazione, classificazione di file e processi di gestione file in una file server.|  
+|Proprietà ed etichette delle cartelle|Proprietà ed etichette che descrivono una cartella e vengono assegnate manualmente da amministratori e proprietari di cartelle. Queste proprietà assegnano valori di proprietà predefiniti ai file all'interno di queste cartelle, ad esempio, segretezza o reparto.|  
+|Criteri di gruppo|Set di regole e criteri che controllano l'ambiente di lavoro di utenti e computer in un ambiente Active Directory.|  
+|Classificazione near Real Time|Classificazione automatica eseguita subito dopo la creazione o la modifica di un file.|  
+|Attività di gestione dei file quasi in tempo reale|Attività di gestione dei file eseguite poco dopo (viene creato o modificato un file. Queste attività vengono attivate dalla classificazione near Real Time.|  
+|Unità organizzativa (OU)|Contenitore Active Directory che rappresenta le strutture logiche e gerarchiche all'interno di un'organizzazione. Si tratta dell'ambito più piccolo a cui vengono applicate Criteri di gruppo impostazioni.|  
+|Proprietà Secure|Proprietà di classificazione che il runtime di autorizzazione può considerare attendibile come un'asserzione valida della risorsa in un determinato momento. Nel controllo degli accessi in base alle attestazioni, una proprietà protetta assegnata a una risorsa viene considerata come un'attestazione di risorse.|  
+|Descrittore di sicurezza|Struttura di dati che contiene le informazioni sulla sicurezza associate a una risorsa a protezione diretta, ad esempio gli elenchi di controllo di accesso.|  
+|Linguaggio di definizione del descrittore di sicurezza|Specifica che descrive le informazioni in un descrittore di sicurezza sotto forma di stringa di testo.|  
+|Criteri di gestione temporanea|Criteri di accesso centrale non ancora attivi.|  
+|Elenco di controllo di accesso di sistema (SACL)|Elenco di controllo di accesso che specifica i tipi di tentativi di accesso da parte di determinati trustee per i quali è necessario generare record di controllo.|  
+|Attestazione utente|Attributi di un utente forniti all'interno del token di sicurezza dell'utente. Ecco alcuni esempi: Reparto, società, progetto e spazio di sicurezza.  Anche le informazioni nel token utente dei sistemi precedenti a Windows Server 2012, ad esempio i gruppi di sicurezza di cui l'utente fa parte, possono essere considerate come attestazioni utente. Alcune attestazioni utente vengono fornite tramite Active Directory e altre vengono calcolate in modo dinamico, ad esempio se l'utente ha eseguito l'accesso con una smart card.|  
+|Token utente|Oggetto dati che identifica un utente e le attestazioni utente e del dispositivo associate a tale utente. Viene usato per autorizzare l'accesso dell'utente alle risorse.|  
   
 ## <a name="see-also"></a>Vedere anche  
 [Controllo dinamico degli accessi: Panoramica dello scenario](Dynamic-Access-Control--Scenario-Overview.md)  

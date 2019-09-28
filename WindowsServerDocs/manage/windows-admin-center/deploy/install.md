@@ -7,17 +7,17 @@ author: jwwool
 ms.author: jeffrew
 ms.date: 07/17/2019
 ms.localizationpriority: medium
-ms.prod: windows-server-threshold
-ms.openlocfilehash: e67102d1fa8b35d90e97df64cb8bd2991b205ad5
-ms.sourcegitcommit: af80963a1d16c0b836da31efd9c5caaaf6708133
+ms.prod: windows-server
+ms.openlocfilehash: c7adb3ef50d5d88565463d15e664b8fe1add8d4c
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68658882"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71357227"
 ---
 # <a name="install-windows-admin-center"></a>Installare Windows Admin Center
 
-> Si applica a Windows Admin Center, Windows Admin Center Preview
+> Si applica a: Windows Admin Center, Windows Admin Center Preview
 
 Questo argomento descrive come installare l'interfaccia di amministrazione di Windows in un computer Windows o in un server in modo che più utenti possano accedere all'interfaccia di amministrazione di Windows tramite un Web browser.
 

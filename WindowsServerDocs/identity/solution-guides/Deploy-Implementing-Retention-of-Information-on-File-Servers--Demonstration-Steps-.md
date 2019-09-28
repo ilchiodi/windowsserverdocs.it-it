@@ -7,14 +7,14 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 0acfa6eec1d83c246c43ad32f7548ea771eb3c11
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 994eadfa205b62c5a512ab130c71fa6c22d1cff6
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66445763"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71357537"
 ---
 # <a name="deploy-implementing-retention-of-information-on-file-servers-demonstration-steps"></a>Deploy Implementing Retention of Information on File Servers (Demonstration Steps)
 
@@ -22,17 +22,17 @@ ms.locfileid: "66445763"
 
 È possibile impostare periodi di memorizzazione per le cartelle e applicare ai file il blocco a fini giudiziari usando Infrastruttura di classificazione file e Gestione risorse file server.  
   
-**In questo documento**  
+**Contenuto del documento**  
   
 -   [Prerequisiti](assetId:///4a96cdaf-0081-4824-aab8-f0d51be501ac#BKMK_Prereqs)  
   
--   [Passaggio 1: Creare definizioni delle proprietà risorse](assetId:///4a96cdaf-0081-4824-aab8-f0d51be501ac#BKMK_Step1)  
+-   [Passaggio 1: Creare definizioni di proprietà delle risorse @ no__t-0  
   
--   [Passaggio 2: Configurare le notifiche](Deploy-Implementing-Retention-of-Information-on-File-Servers--Demonstration-Steps-.md#BKMK_Step2)  
+-   [Passaggio 2: Configurare le notifiche @ no__t-0  
   
--   [Passaggio 3: Creare un'attività di gestione file](assetId:///4a96cdaf-0081-4824-aab8-f0d51be501ac#BKMK_Step3)  
+-   [Passaggio 3: Creare un'attività di gestione file @ no__t-0  
   
--   [Passaggio 4: Classificare manualmente un file](Deploy-Implementing-Retention-of-Information-on-File-Servers--Demonstration-Steps-.md#BKMK_Step4)  
+-   [Passaggio 4: Classificare manualmente un file @ no__t-0  
   
 > [!NOTE]  
 > Questo argomento include cmdlet di esempio di Windows PowerShell che è possibile usare per automatizzare alcune delle procedure descritte. Per ulteriori informazioni, vedere [mediante i cmdlet](https://go.microsoft.com/fwlink/p/?linkid=230693).  
@@ -43,7 +43,7 @@ Per i passaggi in questo argomento si presuppone che sia disponibile un server S
 ## <a name="BKMK_Step1"></a>Passaggio 1: Creare definizioni delle proprietà delle risorse  
 In questo passaggio si abilita il periodo di memorizzazione e le proprietà di esposizione al rilevamento delle risorse, in modo che Infrastruttura di classificazione file possa usare queste proprietà delle risorse per assegnare tag ai file analizzati in una cartella di rete condivisa.  
   
-[Eseguire questo passaggio usando Windows PowerShell](assetId:///4a96cdaf-0081-4824-aab8-f0d51be501ac#BKMK_PSstep1)  
+[Eseguire questo passaggio con Windows PowerShell](assetId:///4a96cdaf-0081-4824-aab8-f0d51be501ac#BKMK_PSstep1)  
   
 #### <a name="to-create-resource-property-definitions"></a>Per creare definizioni delle proprietà delle risorse  
   
@@ -57,7 +57,7 @@ In questo passaggio si abilita il periodo di memorizzazione e le proprietà di e
   
 5.  Fare clic con il pulsante destro del mouse su **Esposizione al rilevamento**, quindi scegliere **Abilita**.  
   
-![Guide alle soluzioni](media/Deploy-Implementing-Retention-of-Information-on-File-Servers--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em>***  
+![solution guide i](media/Deploy-Implementing-Retention-of-Information-on-File-Servers--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em>***  
   
 Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.  
   
@@ -69,7 +69,7 @@ Set-ADResourceProperty -Enabled:$true -Identity:'CN=Discoverability_MS,CN=Resour
 ## <a name="BKMK_Step2"></a>Passaggio 2: Configurare le notifiche  
 In questo passaggio si usa Gestione risorse file server per configurare il server SMTP, l'indirizzo di posta elettronica predefinito dell'amministratore e l'indirizzo di posta elettronica predefinito da cui inviare i rapporti.  
   
-[Eseguire questo passaggio usando Windows PowerShell](assetId:///4a96cdaf-0081-4824-aab8-f0d51be501ac#BKMK_PSstep2)  
+[Eseguire questo passaggio con Windows PowerShell](assetId:///4a96cdaf-0081-4824-aab8-f0d51be501ac#BKMK_PSstep2)  
   
 #### <a name="to-configure-notifications"></a>Per configurare le notifiche  
   
@@ -91,7 +91,7 @@ In questo passaggio si usa Gestione risorse file server per configurare il serve
   
 6.  Fare clic su **OK**.  
   
-![Guide alle soluzioni](media/Deploy-Implementing-Retention-of-Information-on-File-Servers--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em>***  
+![solution guide i](media/Deploy-Implementing-Retention-of-Information-on-File-Servers--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em>***  
   
 Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.  
   
@@ -108,7 +108,7 @@ In questo passaggio si usa la console di Gestione risorse file server per creare
   
 -   Il file non è stato modificato negli ultimi 10 anni.  
   
-[Eseguire questo passaggio usando Windows PowerShell](assetId:///4a96cdaf-0081-4824-aab8-f0d51be501ac#BKMK_PSstep3)  
+[Eseguire questo passaggio con Windows PowerShell](assetId:///4a96cdaf-0081-4824-aab8-f0d51be501ac#BKMK_PSstep3)  
   
 #### <a name="to-create-a-file-management-task"></a>Per creare un'attività di gestione dei file  
   
@@ -142,7 +142,7 @@ In questo passaggio si usa la console di Gestione risorse file server per creare
   
 11. Fare clic su **OK**.  
   
-![Guide alle soluzioni](media/Deploy-Implementing-Retention-of-Information-on-File-Servers--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em>***  
+![solution guide i](media/Deploy-Implementing-Retention-of-Information-on-File-Servers--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em>***  
   
 Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.  
   
@@ -187,7 +187,7 @@ In questo passaggio si classifica manualmente un file da sottoporre a blocco a f
   
 -   [Scenario: Implementare la conservazione delle informazioni nei file server](Scenario--Implement-Retention-of-Information-on-File-Servers.md)  
   
--   [Pianificare la conservazione delle informazioni nei File server](assetId:///edf13190-7077-455a-ac01-f534064a9e0c)  
+-   [Pianificare la conservazione delle informazioni nei file server](assetId:///edf13190-7077-455a-ac01-f534064a9e0c)  
   
 -   [Controllo dinamico degli accessi: Panoramica dello scenario](Dynamic-Access-Control--Scenario-Overview.md)  
   

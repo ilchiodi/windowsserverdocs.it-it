@@ -7,28 +7,28 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 2c399467a8bb70e723a86618aa37fc54425f4e7d
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: e73cf77e9590496f0ff3f881fd8ac4556450b5f0
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66189055"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71357762"
 ---
 # <a name="manage-risk-with-conditional-access-control"></a>Gestire i rischi con il controllo di accesso condizionale
 
 
 
 
--   [Controllo di accesso condizionale i concetti chiave in AD FS](../../ad-fs/operations/Manage-Risk-with-Conditional-Access-Control.md#BKMK_1)
+-   [Concetti chiave: controllo di accesso condizionale in AD FS](../../ad-fs/operations/Manage-Risk-with-Conditional-Access-Control.md#BKMK_1)
 
--   [Gestione dei rischi con il controllo di accesso condizionale](../../ad-fs/operations/Manage-Risk-with-Conditional-Access-Control.md#BKMK_2)
+-   [Gestione dei rischi con il controllo degli accessi condizionali](../../ad-fs/operations/Manage-Risk-with-Conditional-Access-Control.md#BKMK_2)
 
-## <a name="BKMK_1"></a>Concetti fondamentali - controllo di accesso condizionale in AD FS
-La funzione generale di AD FS deve emettere un token di accesso che contiene un set di attestazioni. La decisione che riguarda le attestazioni ADFS accetta e quindi invia è disciplinata dalle regole attestazione.
+## <a name="BKMK_1"></a>Concetti chiave: controllo di accesso condizionale in AD FS
+La funzione complessiva di AD FS consiste nell'emettere un token di accesso che contiene un set di attestazioni. La decisione che riguarda le attestazioni ADFS accetta e quindi invia è disciplinata dalle regole attestazione.
 
-Controllo degli accessi in ADFS viene implementato con regole attestazione di autorizzazione rilascio che vengono usate per emettere consentire o negare le attestazioni che determineranno se un utente o un gruppo di utenti sarà autorizzato ad accedere alle risorse protette da ADFS AD o non. Le regole di autorizzazione possono essere impostate solo per i trust della relying party.
+Il controllo di accesso in AD FS viene implementato con regole attestazione di autorizzazione di rilascio usate per rilasciare attestazioni che consentono o negano che determineranno se un utente o un gruppo di utenti sarà autorizzato ad accedere o meno a risorse protette da AD FS. Le regole di autorizzazione possono essere impostate solo per i trust della relying party.
 
 |Opzione della regola|Logica della regola|
 |---------------|--------------|
@@ -38,9 +38,9 @@ Controllo degli accessi in ADFS viene implementato con regole attestazione di au
 
 Per altre informazioni sulle opzioni e sulla logica di queste regole, vedere [When to Use an Authorization Claim Rule](https://technet.microsoft.com/library/ee913560.aspx).
 
-In ADFS in Windows Server 2012 R2, il controllo di accesso è stato migliorato a più fattori, tra cui l'utente, dispositivo, posizione e i dati di autenticazione. Ciò è possibile grazie alla disponibilità di una più ampia gamma di tipi di attestazione per le regole attestazione di autorizzazione.  In altre parole, in AD FS di Windows Server 2012 R2, è possibile applicare il controllo di accesso condizionale basato su utente identità o appartenenza al gruppo, percorso di rete, al dispositivo (si tratti di all'area di lavoro, per altre informazioni, vedere [partecipa a una rete aziendale da qualsiasi Dispositivo per SSO e trasparente secondo fattore di autenticazione tra le applicazioni aziendali](../../ad-fs/operations/Join-to-Workplace-from-Any-Device-for-SSO-and-Seamless-Second-Factor-Authentication-Across-Company-Applications.md)) e lo stato di autenticazione (se è stata eseguita l'autenticazione a più fattori (MFA)).
+In AD FS in Windows Server 2012 R2, il controllo di accesso è migliorato con diversi fattori, inclusi i dati relativi a utenti, dispositivi, posizione e autenticazione. Ciò è possibile grazie alla disponibilità di una più ampia gamma di tipi di attestazione per le regole attestazione di autorizzazione.  In altre parole, in AD FS in Windows Server 2012 R2, è possibile applicare il controllo di accesso condizionale in base all'identità utente o all'appartenenza a un gruppo, al percorso di rete, al dispositivo (se è aggiunto all'area di lavoro). per altre informazioni, vedere [aggiungere un'area di lavoro da qualsiasi dispositivo per SSO e l'autenticazione a due fattori trasparente per tutte le applicazioni aziendali](../../ad-fs/operations/Join-to-Workplace-from-Any-Device-for-SSO-and-Seamless-Second-Factor-Authentication-Across-Company-Applications.md)) e lo stato di autenticazione (autenticazione a più fattori (multi-factor authentication).
 
-Controllo di accesso condizionale in ADFS in Windows Server 2012 R2, offre i vantaggi seguenti:
+Il controllo dell'accesso condizionale in AD FS in Windows Server 2012 R2 offre i vantaggi seguenti:
 
 -   Criteri di autorizzazione per applicazione flessibili ed espressivi, con i quali è possibile concedere o negare l'accesso in base a utente, dispositivo, posizione in rete e stato di autenticazione
 
@@ -50,9 +50,9 @@ Controllo di accesso condizionale in ADFS in Windows Server 2012 R2, offre i van
 
 -   Linguaggio esteso per le attestazioni e supporto di Windows PowerShell per gli scenari avanzati di controllo di accesso condizionale
 
--   Personalizzato (per ogni componente dell'applicazione di terze parti) i messaggi di "Accesso negato". Per altre informazioni, vedere [Customizing the AD FS Sign-in Pages](https://technet.microsoft.com/library/dn280950.aspx). La possibilità di personalizzare questi messaggi consente di spiegare i motivi per cui viene negato l'accesso e facilita inoltre la risoluzione autonoma del problema nei casi in cui è possibile, ad esempio richiedendo agli utenti di unire i loro dispositivi all'area di lavoro. Per altre informazioni, vedere [Accedere a una rete aziendale da qualsiasi dispositivo per SSO e l'autenticazione a due fattori trasparente per tutte le applicazioni aziendali](../../ad-fs/operations/Join-to-Workplace-from-Any-Device-for-SSO-and-Seamless-Second-Factor-Authentication-Across-Company-Applications.md).
+-   Messaggi di "accesso negato" personalizzati (per applicazione relying party). Per altre informazioni, vedere [Customizing the AD FS Sign-in Pages](https://technet.microsoft.com/library/dn280950.aspx). La possibilità di personalizzare questi messaggi consente di spiegare i motivi per cui viene negato l'accesso e facilita inoltre la risoluzione autonoma del problema nei casi in cui è possibile, ad esempio richiedendo agli utenti di unire i loro dispositivi all'area di lavoro. Per altre informazioni, vedere [Accedere a una rete aziendale da qualsiasi dispositivo per SSO e l'autenticazione a due fattori trasparente per tutte le applicazioni aziendali](../../ad-fs/operations/Join-to-Workplace-from-Any-Device-for-SSO-and-Seamless-Second-Factor-Authentication-Across-Company-Applications.md).
 
-Nella tabella seguente include tutti i tipi di attestazione disponibili in ADFS in Windows Server 2012 R2 da utilizzare per l'implementazione del controllo di accesso condizionale.
+La tabella seguente include tutti i tipi di attestazione disponibili in AD FS in Windows Server 2012 R2 da usare per l'implementazione del controllo di accesso condizionale.
 
 |Tipo di attestazione|Descrizione|
 |--------------|---------------|
@@ -62,9 +62,9 @@ Nella tabella seguente include tutti i tipi di attestazione disponibili in ADFS 
 |UPN|Nome dell'entità utente (UPN) dell'utente.|
 |Nome comune|Nome comune dell'utente.|
 |Indirizzo di posta elettronica AD FS 1.x|Indirizzo di posta elettronica dell'utente quando interagisce con AD FS 1.1 o AD FS 1.0.|
-|Raggruppa|Gruppo a cui appartiene l'utente.|
+|Group|Gruppo a cui appartiene l'utente.|
 |UPN AD FS 1.x|UPN dell'utente quando interagisce con AD FS 1.1 o AD FS 1.0.|
-|Ruolo|Ruolo dell'utente.|
+|Role|Ruolo dell'utente.|
 |Surname|Cognome dell'utente.|
 |PPID|Identificatore privato dell'utente.|
 |ID nome|Identificatore nome SAML dell'utente.|
@@ -119,16 +119,16 @@ Nella tabella seguente include tutti i tipi di attestazione disponibili in ADFS 
 |URL aggiornamento password|Consente di visualizzare l'indirizzo Web del servizio di aggiornamento password.|
 |Riferimenti dei metodi di autenticazione|Consente di indicare tutti i metodi di autenticazione utilizzati per autenticare l'utente.|
 
-## <a name="BKMK_2"></a>Gestione dei rischi con il controllo di accesso condizionale
+## <a name="BKMK_2"></a>Gestione dei rischi con il controllo degli accessi condizionali
 Le impostazioni disponibili offrono numerose soluzioni per gestire i rischi grazie all'implementazione del controllo di accesso condizionale.
 
 ### <a name="common-scenarios"></a>Scenari comuni
-Si supponga, ad esempio, un semplice scenario di implementazione del controllo di accesso condizionale basato sui dati di appartenenza al gruppo dell'utente per una particolare applicazione (trust della relying party). In altre parole, è possibile impostare una regola di autorizzazione di rilascio nel server federativo per permettere agli utenti che appartengono a un determinato gruppo di nell'istanza di AD l'accesso al dominio a una specifica applicazione protetta da AD FS.  Il passo a passo istruzioni dettagliate (tramite l'interfaccia utente e Windows PowerShell) per l'implementazione di questo scenario vengono analizzate [Guida allo scenario: Gestire i rischi con il controllo di accesso condizionale](../../ad-fs/operations/Walkthrough-Guide--Manage-Risk-with-Conditional-Access-Control.md). Per completare la procedura descritta in questa procedura dettagliata, è necessario configurare un ambiente lab e seguire i passaggi descritti in [configurare l'ambiente lab per AD FS in Windows Server 2012 R2](../../ad-fs/deployment/Set-up-the-lab-environment-for-AD-FS-in-Windows-Server-2012-R2.md).
+Si supponga, ad esempio, un semplice scenario di implementazione del controllo di accesso condizionale in base ai dati di appartenenza a gruppi dell'utente per una particolare applicazione (relying party Trust). In altre parole, è possibile configurare una regola di autorizzazione di rilascio nel server federativo per consentire agli utenti che appartengono a un determinato gruppo nel dominio di Active Directory di accedere a una particolare applicazione protetta da AD FS.  Le istruzioni dettagliate (usando l'interfaccia utente e Windows PowerShell) per l'implementazione di questo scenario sono illustrate nella Guida [Walkthrough: Gestire i rischi con il controllo degli accessi condizionali @ no__t-0. Per completare i passaggi di questa procedura dettagliata, è necessario configurare un ambiente lab e seguire i passaggi descritti in [configurare l'ambiente lab per ad FS in Windows Server 2012 R2](../../ad-fs/deployment/Set-up-the-lab-environment-for-AD-FS-in-Windows-Server-2012-R2.md).
 
 ### <a name="advanced-scenarios"></a>Scenari avanzati
-Altri esempi di implementazione del controllo di accesso condizionale in ADFS in Windows Server 2012 R2 includono quanto segue:
+Altri esempi di implementazione del controllo di accesso condizionale in AD FS in Windows Server 2012 R2 includono quanto segue:
 
--   Consentire l'accesso a un'applicazione protetta da ADFS solo se l'identità dell'utente viene convalidata con autenticazione a più fattori
+-   Consentire l'accesso a un'applicazione protetta da AD FS solo se l'identità dell'utente è stata convalidata con l'autenticazione a più fattori
 
     È possibile usare il codice seguente:
 
@@ -139,7 +139,7 @@ Altri esempi di implementazione del controllo di accesso condizionale in ADFS in
 
     ```
 
--   Consentire l'accesso a un'applicazione protetta da ADFS solo se la richiesta di accesso proviene da un dispositivo unito all'area di lavoro è registrato per l'utente
+-   Consentire l'accesso a un'applicazione protetta da AD FS solo se la richiesta di accesso è proveniente da un dispositivo aggiunto all'area di lavoro registrato per l'utente
 
     È possibile usare il codice seguente:
 
@@ -150,7 +150,7 @@ Altri esempi di implementazione del controllo di accesso condizionale in ADFS in
 
     ```
 
--   Consentire l'accesso a un'applicazione protetta da ADFS solo se la richiesta di accesso proviene da un dispositivo aggiunto all'area di lavoro è registrato a un utente la cui identità viene convalidata con autenticazione a più fattori
+-   Consentire l'accesso a un'applicazione protetta da AD FS solo se la richiesta di accesso è proveniente da un dispositivo aggiunto all'area di lavoro registrato per un utente la cui identità è stata convalidata con l'autenticazione a più fattori
 
     È possibile usare il codice seguente:
 
@@ -162,7 +162,7 @@ Altri esempi di implementazione del controllo di accesso condizionale in ADFS in
 
     ```
 
--   Consentire l'accesso extranet a un'applicazione protetta da ADFS solo se la richiesta di accesso proviene da un utente la cui identità viene convalidata con autenticazione a più fattori.
+-   Consentire l'accesso Extranet a un'applicazione protetta da AD FS solo se la richiesta di accesso è proveniente da un utente la cui identità è stata convalidata con l'autenticazione a più fattori.
 
     È possibile usare il codice seguente:
 
@@ -175,8 +175,7 @@ Altri esempi di implementazione del controllo di accesso condizionale in ADFS in
     ```
 
 ## <a name="see-also"></a>Vedere anche
-[Procedura dettagliata: Gestire i rischi con il controllo di accesso condizionale](../../ad-fs/operations/Walkthrough-Guide--Manage-Risk-with-Conditional-Access-Control.md)
-[configurare l'ambiente lab per AD FS in Windows Server 2012 R2](../../ad-fs/deployment/Set-up-the-lab-environment-for-AD-FS-in-Windows-Server-2012-R2.md)
+[Procedura dettagliata: Gestire i rischi con il controllo degli accessi condizionali @ no__t-0 @ no__t-1[configurare l'ambiente lab per ad FS in Windows Server 2012 R2](../../ad-fs/deployment/Set-up-the-lab-environment-for-AD-FS-in-Windows-Server-2012-R2.md)
 
 
 

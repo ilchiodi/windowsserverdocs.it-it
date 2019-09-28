@@ -1,29 +1,29 @@
 ---
 ms.assetid: a4526500-24b3-423d-805c-24b0d8061aba
-title: Cambiare l'illustrazione nella pagina di accesso di AD FS
+title: Modificare l'illustrazione nella pagina di accesso AD FS
 description: ''
 author: billmath
 ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: a182b6243777d119394615008cee63b5e5a71ab8
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 3da7726ca625c32728fb0ae64d291ae599b6cd8d
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66189947"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71358294"
 ---
-# <a name="change-the-illustration-on-the-ad-fs-sign-in-page"></a>Cambiare l'illustrazione nella pagina di accesso di AD FS
+# <a name="change-the-illustration-on-the-ad-fs-sign-in-page"></a>Modificare l'illustrazione nella pagina di accesso AD FS
 
-## <a name="change-the-illustration"></a>Cambiare l'illustrazione  
+## <a name="change-the-illustration"></a>Modificare l'illustrazione  
 
 
-Per cambiare l'illustrazione, il grafico a sinistra, che viene visualizzato il segno\-nella pagina, utilizzare la sintassi e i cmdlet di Windows PowerShell seguente.  
+Per modificare l'illustrazione, l'elemento grafico a sinistra, visualizzato nella pagina Sign @ no__t-0cm, usare la sintassi e il cmdlet di Windows PowerShell seguenti.  
 
-![cambiare l'illustrazione](media/AD-FS-user-sign-in-customization/ADFS_Blue_Custom2.png)
+![modifica illustrazione](media/AD-FS-user-sign-in-customization/ADFS_Blue_Custom2.png)
   
 > [!IMPORTANT]  
 > È consigliabile usare un'illustrazione con dimensioni di 1420x1080, 96 dpi, in un file con dimensioni massime di 200 KB.  
@@ -32,6 +32,6 @@ Per cambiare l'illustrazione, il grafico a sinistra, che viene visualizzato il s
     Set-AdfsWebTheme -TargetName default -Illustration @{path="c:\Contoso\illustration.png"}  
 
 ## <a name="additional-references"></a>Altri riferimenti 
-[AD FS Sign-in personalizzazione dell'utente](AD-FS-user-sign-in-customization.md)  
+[Personalizzazione dell'accesso utente AD FS](AD-FS-user-sign-in-customization.md)  
   
   

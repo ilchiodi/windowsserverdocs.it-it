@@ -2,22 +2,22 @@
 title: Distribuire i server cache ospitata (facoltativo)
 description: Questo argomento fa parte di BranchCache distribuzione Guide per Windows Server 2016, che illustra come distribuire BranchCache in modalità cache distribuita e ospitato per ottimizzare l'utilizzo della larghezza di banda WAN nelle succursali
 manager: brianlic
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking-bc
 ms.topic: get-started-article
 ms.assetid: 96d03b42-6cd9-4905-b6a2-dc36130dd24f
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: b19680e933e7a33871816578b63c5a141db0ce00
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 69dc525a093c86d57b665e26ff5acaf2679c81a5
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59826212"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71356442"
 ---
 # <a name="deploy-hosted-cache-servers-optional"></a>Distribuire i server cache ospitata (facoltativo)
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016
 
 È possibile utilizzare questa procedura per installare e configurare i server cache ospitata BranchCache che si trovano nelle filiali in cui si desidera distribuire la modalità cache ospitata di BranchCache. Con BranchCache in Windows Server 2016, è possibile distribuire più server cache ospitata in una succursale.  
   

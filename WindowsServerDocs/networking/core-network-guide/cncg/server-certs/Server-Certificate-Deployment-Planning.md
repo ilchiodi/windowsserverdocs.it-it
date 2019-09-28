@@ -4,40 +4,40 @@ description: Questo argomento fa parte della Guida alla distribuzione di un Serv
 manager: brianlic
 ms.topic: article
 ms.assetid: 7eb746e0-1046-4123-b532-77d5683ded44
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: b0d14ed33c9bf389433f59774c04ff15e37256cc
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 1ec5bc315381f85434753f9becc94409a74271b7
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59839532"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71356111"
 ---
 # <a name="server-certificate-deployment-planning"></a>Pianificazione della distribuzione dei certificati del server
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016
 
 Prima di distribuire i certificati del server, è necessario pianificare gli elementi seguenti:  
   
--   [Pianificare la configurazione di base del server](#bkmk_basic)  
+-   [Pianificare la configurazione del server di base](#bkmk_basic)  
   
 -   [Pianificare l'accesso al dominio](#bkmk_domain)  
   
--   [Pianificare il percorso e nome della directory virtuale sul server Web](#bkmk_virtual)  
+-   [Pianificare il percorso e il nome della directory virtuale nel server Web](#bkmk_virtual)  
   
--   [Pianificare un record alias (CNAME) DNS per il server Web](#bkmk_cname)  
+-   [Pianificare un record di alias DNS (CNAME) per il server Web](#bkmk_cname)  
   
--   [Pianificare la configurazione del file CAPolicy. inf](#bkmk_capolicy)  
+-   [Pianificare la configurazione di CAPolicy. inf](#bkmk_capolicy)  
   
 -   [Pianificare la configurazione delle estensioni CDP e AIA su CA1](#bkmk_cdp)  
   
--   [Pianificare l'operazione di copia tra l'autorità di certificazione e il server Web](#bkmk_copy)  
+-   [Pianificare l'operazione di copia tra la CA e il server Web](#bkmk_copy)  
   
--   [Pianificare la configurazione del modello di certificato server nell'autorità di certificazione](#bkmk_template)  
+-   [Pianificare la configurazione del modello di certificato del server nella CA](#bkmk_template)  
   
-## <a name="bkmk_basic"></a>Pianificare la configurazione di base del server  
+## <a name="bkmk_basic"></a>Pianificare la configurazione del server di base  
 Dopo aver installato Windows Server 2016 nei computer che si intende utilizzare come autorità di certificazione e server Web, è necessario rinominare il computer e assegnare e configurare un indirizzo IP statico per il computer locale.  
   
 Per ulteriori informazioni, vedere Windows Server 2016 [Guida alla rete Core](../../../core-network-guide/Core-Network-Guide.md).  
@@ -47,15 +47,15 @@ Per accedere al dominio, il computer deve essere un computer membro del dominio 
   
 Per ulteriori informazioni, vedere Windows Server 2016 [Guida alla rete Core](../../../core-network-guide/Core-Network-Guide.md).  
   
-## <a name="bkmk_virtual"></a>Pianificare il percorso e nome della directory virtuale sul server Web  
+## <a name="bkmk_virtual"></a>Pianificare il percorso e il nome della directory virtuale nel server Web  
 Per fornire l'accesso a CRL e il certificato CA da altri computer, è necessario archiviare questi elementi in una directory virtuale sul server Web. In questa Guida, la directory virtuale si trova sul server Web WEB1. In questa cartella si trova sull'unità "C" ed è denominata "pki". È possibile individuare la directory virtuale sul server Web in qualsiasi posizione di cartella che è appropriato per la distribuzione.  
   
-## <a name="bkmk_cname"></a>Pianificare un record alias (CNAME) DNS per il server Web  
+## <a name="bkmk_cname"></a>Pianificare un record di alias DNS (CNAME) per il server Web  
 Record di risorse alias (CNAME) vengono talvolta definite anche record di risorse nome canonico. Con questi record, è possibile utilizzare più di un nome in modo che punti a un singolo host, rendendo più semplice svolgere attività quali l'host sia un server File Transfer Protocol (FTP) e un server Web nello stesso computer. Ad esempio, i nomi di server conosciuti (ftp, www) vengono registrati utilizzando record di risorse alias (CNAME) che eseguono il mapping al sistema DNS (Domain Name) nome host, ad esempio WEB1 per il computer server che ospita i servizi.  
   
 Questa guida fornisce istruzioni per la configurazione del server Web per ospitare l'elenco di revoche di certificati (CRL) per l'autorità di certificazione (CA). Poiché si potrebbe inoltre desidera utilizzare il server Web per altri scopi, ad esempio per ospitare un sito Web o FTP, è consigliabile creare un record di risorse alias DNS per il server Web. In questa Guida, il record CNAME è denominato "pki", ma è possibile scegliere un nome appropriato per la distribuzione.  
   
-## <a name="bkmk_capolicy"></a>Pianificare la configurazione del file CAPolicy. inf  
+## <a name="bkmk_capolicy"></a>Pianificare la configurazione di CAPolicy. inf  
 Prima di installare Servizi certificati Active Directory, è necessario configurare file CAPolicy. inf nell'autorità di certificazione con informazioni corrette per la distribuzione. Un file CAPolicy. inf contiene le informazioni seguenti:  
   
 ```  
@@ -78,7 +78,7 @@ AlternateSignatureAlgorithm=1
 ```  
 È necessario pianificare i seguenti elementi per questo file:  
   
--   **URL**. Il file CAPolicy. inf di esempio ha un valore URL **https://pki.corp.contoso.com/pki/cps.txt**. In questo modo il server Web in questa guida è denominato WEB1 e dispone di un record di risorse DNS CNAME dell'infrastruttura pki. Il server Web viene inoltre aggiunto al dominio corp.contoso.com. Inoltre, vi è una directory virtuale sul server Web denominato "pki" in cui è archiviato l'elenco certificati revocati. Verificare che il valore fornito dall'utente per l'URL nel file del file CAPolicy. inf fanno riferimento a una directory virtuale sul server Web nel dominio.  
+-   **URL**. Il file CAPolicy. inf di esempio ha un valore di URL **https://pki.corp.contoso.com/pki/cps.txt** . In questo modo il server Web in questa guida è denominato WEB1 e dispone di un record di risorse DNS CNAME dell'infrastruttura pki. Il server Web viene inoltre aggiunto al dominio corp.contoso.com. Inoltre, vi è una directory virtuale sul server Web denominato "pki" in cui è archiviato l'elenco certificati revocati. Verificare che il valore fornito dall'utente per l'URL nel file del file CAPolicy. inf fanno riferimento a una directory virtuale sul server Web nel dominio.  
   
 -   **RenewalKeyLength**. La lunghezza della chiave rinnovo predefinito per Servizi certificati Active Directory in Windows Server 2012 è 2048. La lunghezza della chiave selezionato deve avere una lunghezza possibile pur fornendo la compatibilità con le applicazioni che si intendono utilizzare.  
   
@@ -118,10 +118,10 @@ Ad esempio, se il server Web è denominato WEB1 e il DNS alias record CNAME per 
       
     `http:\/\/pki.corp.contoso.com\/pki\/<ServerDNSName>\_<CaName><CertificateName>.crt`  
       
-## <a name="bkmk_copy"></a>Pianificare l'operazione di copia tra l'autorità di certificazione e il server Web  
+## <a name="bkmk_copy"></a>Pianificare l'operazione di copia tra la CA e il server Web  
 Per pubblicare il CRL e certificati della CA dalla CA per la directory virtuale del server Web, è possibile eseguire il comando di certutil - crl dopo aver configurato i percorsi CDP e AIA nella CA. Assicurarsi di configurare i percorsi corretti sulle proprietà CA **estensioni** scheda prima di eseguire il comando utilizzando le istruzioni riportate in questa Guida. Inoltre, per copiare il certificato CA dell'organizzazione per il server Web, è necessario avere già creato la directory virtuale sul server Web e configurata la cartella come cartella condivisa.  
   
-## <a name="bkmk_template"></a>Pianificare la configurazione del modello di certificato server nell'autorità di certificazione  
+## <a name="bkmk_template"></a>Pianificare la configurazione del modello di certificato del server nella CA  
 Per distribuire per i certificati server, è necessario copiare il modello di certificato denominato **Server RAS e IAS**. Per impostazione predefinita, questa copia è denominata **copia di Server RAS e IAS**. Se si desidera rinominare questa copia del modello, pianificare il nome che si desidera utilizzare durante il passaggio di distribuzione.  
   
 > [!NOTE]  

@@ -6,14 +6,14 @@ ms.author: billmath
 manager: femila
 ms.date: 07/10/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: d72217d9e8dc3b0f47382e08346dca977ac14b67
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 9e947f1894516de232a0db50bcbb56c7452098cd
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70867927"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71359416"
 ---
 # <a name="migrate-the-ad-fs-20-federation-server-to-ad-fs-on-windows-server-2012-r2"></a>Eseguire la migrazione del server federativo AD FS 2,0 alla AD FS in Windows Server 2012 R2
 
@@ -103,14 +103,14 @@ Get-ADFSClaimDescription | Out-File “.\claimtypes.txt”`.
   
 ###  <a name="to-export-claims-provider-trusts-and-relying-party-trusts"></a>Per esportare le attendibilità del provider di attestazioni e del componente  
   
-1.  Per esportare AD FS attendibilità del provider di attestazioni e relying party trust, è necessario accedere come amministratore (Tuttavia, non come amministratore di dominio) al server federativo ed eseguire il seguente script di Windows PowerShell che si trova in **media/server_support cartella/ADFS** del CD di installazione di Windows Server 2012 R2 `export-federationconfiguration.ps1`:.  
+1.  Per esportare AD FS attendibilità del provider di attestazioni e relying party trust, è necessario accedere come amministratore (Tuttavia, non come amministratore di dominio) al server federativo ed eseguire il seguente script di Windows PowerShell che si trova in **media/server_support cartella/ADFS** del CD di installazione di Windows Server 2012 R2: `export-federationconfiguration.ps1`.  
   
 > [!IMPORTANT]
 >  Lo script di esportazione accetta i parametri seguenti:  
 > 
-> - FederationConfiguration. ps1-PATH < stringa\> [-ComputerName < stringa\>] [-Credential < PSCredential\>] [-Force] [-CertificatePassword < SecureString\>]  
->   -   FederationConfiguration. ps1-PATH < stringa\> [-ComputerName < stringa\>] [-Credential < PSCredential\>] [-Force] [-CertificatePassword < SecureString\>] [- RelyingPartyTrustIdentifier < String [] >] [-ClaimsProviderTrustIdentifier < String [] >]  
->   -   FederationConfiguration. ps1-PATH < stringa\> [-ComputerName < stringa\>] [-Credential < PSCredential\>] [-Force] [-CertificatePassword < SecureString\>] [- RelyingPartyTrustName < String [] >] [-ClaimsProviderTrustName < String [] >]  
+> - FederationConfiguration. ps1-PATH < stringa @ no__t-0 [-ComputerName < stringa @ no__t-1] [-Credential < PSCredential @ no__t-2] [-Force] [-CertificatePassword < SecureString @ no__t-3]  
+>   -   FederationConfiguration. ps1-PATH < String @ no__t-0 [-ComputerName < String @ no__t-1] [-Credential < PSCredential @ no__t-2] [-Force] [-CertificatePassword < SecureString @ no__t-3] [-RelyingPartyTrustIdentifier < stringa [] >] [-ClaimsProviderTrustIdentifier < stringa [] >]  
+>   -   FederationConfiguration. ps1-PATH < stringa @ no__t-0 [-ComputerName < stringa @ no__t-1] [-Credential < PSCredential @ no__t-2] [-Force] [-CertificatePassword < SecureString @ no__t-3] [-RelyingPartyTrustName < stringa [] >] [- ClaimsProviderTrustName < String [] >]  
 > 
 >   **-RelyingPartyTrustIdentifier <string[]>** : il cmdlet esporta solo i trust della relying party con gli identificatori specificati nella matrice di stringhe. Per impostazione predefinita non viene esportata alcuna attendibilità del componente. Se non si specificano i parametri RelyingPartyTrustIdentifier, ClaimsProviderTrustIdentifier, RelyingPartyTrustName e ClaimsProviderTrustName, lo script esporterà tutte le attendibilità del componente e del provider di attestazioni.  
 > 
@@ -130,7 +130,7 @@ Get-ADFSClaimDescription | Out-File “.\claimtypes.txt”`.
 > 
 >   **-CertificatePassword < SecureString\>**  -specifica una password per l'esportazione delle chiavi private dei certificati ad FS. Se questo parametro non viene specificato, lo script richiederà una password se è necessario esportare un certificato ADFS con chiave privata.  
 > 
->   **Input**: Nessuna  
+>   **Input**: Nessuno  
 > 
 >   **Output**: stringa - questo cmdlet restituisce il percorso della cartella di esportazione. È possibile reindirizzare l'oggetto restituito a Import-FederationConfiguration.  
   
@@ -193,9 +193,9 @@ import-federationconfiguration.ps1
 > [!IMPORTANT]
 >  Lo script di importazione accetta i parametri seguenti:  
 > 
-> - FederationConfiguration. ps1-PATH < stringa\> [-ComputerName < stringa\>] [-Credential < PSCredential\>] [-Force] [-LogPath < stringa\>] [-CertificatePassword < SecureString \>]  
->   -   FederationConfiguration. ps1-PATH < stringa\> [-ComputerName < stringa\>] [-Credential < PSCredential\>] [-Force] [-LogPath < stringa\>] [-CertificatePassword < SecureString \>] [-RelyingPartyTrustIdentifier < stringa [] >] [-ClaimsProviderTrustIdentifier < stringa [] >  
->   -   FederationConfiguration. ps1-PATH < stringa\> [-ComputerName < stringa\>] [-Credential < PSCredential\>] [-Force] [-LogPath < stringa\>] [-CertificatePassword < SecureString \>] [-RelyingPartyTrustName < stringa [] >] [-ClaimsProviderTrustName < stringa [] >]  
+> - FederationConfiguration. ps1-PATH < stringa @ no__t-0 [-ComputerName < stringa @ no__t-1] [-Credential < PSCredential @ no__t-2] [-Force] [-LogPath < stringa @ no__t-3] [-CertificatePassword < SecureString @ no__t-4]  
+>   -   FederationConfiguration. ps1-PATH < stringa @ no__t-0 [-ComputerName < stringa @ no__t-1] [-Credential < PSCredential @ no__t-2] [-Force] [-LogPath < stringa @ no__t-3] [-CertificatePassword < SecureString @ no__t-4] [- RelyingPartyTrustIdentifier < String [] >] [-ClaimsProviderTrustIdentifier < String [] >  
+>   -   FederationConfiguration. ps1-PATH < stringa @ no__t-0 [-ComputerName < stringa @ no__t-1] [-Credential < PSCredential @ no__t-2] [-Force] [-LogPath < stringa @ no__t-3] [-CertificatePassword < SecureString @ no__t-4] [- RelyingPartyTrustName < String [] >] [-ClaimsProviderTrustName < String [] >]  
 > 
 >   **-RelyingPartyTrustIdentifier <string[]>** - the cmdlet only imports relying party trusts whose identifiers are specified in the string array. Per impostazione predefinita NON viene importata alcuna attendibilità del componente. Se non si specificano i parametri RelyingPartyTrustIdentifier, ClaimsProviderTrustIdentifier, RelyingPartyTrustName e ClaimsProviderTrustName, lo script importerà tutte le attendibilità del componente e del provider di attestazioni.  
 > 

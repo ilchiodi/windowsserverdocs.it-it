@@ -7,14 +7,14 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: e94b07d7fa654732526d0b43daadc9ad0ad4f3a8
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: b0ea877170a07db6abe9ac82e72d1722600ec933
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66444937"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71358107"
 ---
 # <a name="create-a-non-claims-aware-relying-party-trust"></a>Creare un Trust Non attestazioni Relying Party
 
@@ -31,25 +31,25 @@ Per completare questa procedura, è necessaria almeno l'appartenenza al gruppo *
 1. In Server Manager, fare clic su **strumenti**, quindi selezionare **Gestione ADFS**.  
   
 2.  In **azioni**, fare clic su **Aggiungi attendibilità**.  
-![relying party](media/Create-a-Relying-Party-Trust/addtrust1.PNG)   
+![relying entità @ no__t-1   
 
 3.  Nel **iniziale** scegliere pagina **grado di riconoscere attestazioni Non** e fare clic su **avviare**.  
-![relying party](media/Create-a-Non-Claims-Aware-Relying-Party-Trust/addnon1.PNG) 
+![relying entità @ no__t-1 
   
 4.  Nel **Specifica nome visualizzato** digitare un nome in **nome visualizzato**, in **note** digitare una descrizione per questo trust della relying party e quindi fare clic su **Avanti**.  
-![relying party](media/Create-a-Non-Claims-Aware-Relying-Party-Trust/addnon2.PNG)
+![relying entità @ no__t-1
 
 5. Nella pagina **Configura identificatori** specificare uno o più identificatori per la relying party, fare clic su **Aggiungi** per aggiungerli all'elenco, quindi fare clic su **Avanti**.  
-![relying party](media/Create-a-Non-Claims-Aware-Relying-Party-Trust/addnon3.PNG)
+![relying entità @ no__t-1
 
 6.  Nel **scegliere Criteri di controllo di accesso** Selezionare un criterio e fare clic su **Avanti**.  Per ulteriori informazioni sui criteri di controllo di accesso, vedere [criteri di controllo di accesso in ADFS](Access-Control-Policies-in-AD-FS.md). 
-![relying party](media/Create-a-Non-Claims-Aware-Relying-Party-Trust/addnon4.PNG)
+![relying entità @ no__t-1
 
 7. Nel **Aggiunta attendibilità** pagina, controllare le impostazioni e quindi fare clic su **Avanti** per salvare la relying party trust informazioni.  
-   ![relying party](media/Create-a-Non-Claims-Aware-Relying-Party-Trust/addnon5.PNG) 
+   ![relying entità @ no__t-1 
 
 8. Nella pagina **Fine** fare clic su **Chiudi**. Con questa azione viene visualizzata automaticamente la finestra di dialogo **Modifica regole attestazione**.  
-![relying party](media/Create-a-Non-Claims-Aware-Relying-Party-Trust/addnon6.PNG)  
+![relying entità @ no__t-1  
   
 ## <a name="see-also"></a>Vedere anche  
 [Operazioni di AD FS](../../ad-fs/AD-FS-2016-Operations.md) 

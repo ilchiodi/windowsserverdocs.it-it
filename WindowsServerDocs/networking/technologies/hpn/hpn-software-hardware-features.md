@@ -1,7 +1,7 @@
 ---
 title: Funzionalità e tecnologie per software e hardware (SH, Software e Hardware) integrate
 description: Queste funzionalità includono componenti software e hardware. Il software è strettamente correlato alle funzionalità hardware necessarie per il funzionamento della funzionalità. Esempi di questi includono VMMQ, VMQ, offload con checksum IPv4 di trasmissione e RSS.
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking
 ms.topic: article
 ms.assetid: 0cafb1cc-5798-42f5-89b6-3ffe7ac024ba
@@ -9,12 +9,12 @@ manager: dougkim
 ms.author: pashort
 author: shortpatti
 ms.date: 09/12/2018
-ms.openlocfilehash: 2f6bb2190dbaa432d20f445c90a560843d6cf4e5
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: f032717b9f4dca65454d8251083b73ff2d57dba7
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70871939"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71355317"
 ---
 # <a name="software-and-hardware-sh-integrated-features-and-technologies"></a>Funzionalità e tecnologie per software e hardware (SH, Software e Hardware) integrate
 

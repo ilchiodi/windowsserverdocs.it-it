@@ -2,22 +2,22 @@
 title: Abilitare la pubblicazione di hash per i file server non appartenenti al dominio
 description: Questo argomento fa parte di BranchCache distribuzione Guide per Windows Server 2016, che illustra come distribuire BranchCache in modalità cache distribuita e ospitato per ottimizzare l'utilizzo della larghezza di banda WAN nelle succursali
 manager: brianlic
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking-bc
 ms.topic: get-started-article
 ms.assetid: 11584b73-f9e2-4530-afa5-b8df970e6b24
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 00be97abbd583e4c5e762775ea563ba0720d5142
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e870863b497c17b4b56265d99d91274e34690767
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59814952"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71356544"
 ---
 # <a name="enable-hash-publication-for-non-domain-member-file-servers"></a>Abilitare la pubblicazione di hash per i file server non appartenenti al dominio
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016
 
 È possibile utilizzare questa procedura per configurare la pubblicazione di hash per BranchCache utilizzando criteri di gruppo del computer locali in un file server che esegue Windows Server 2016 con il **BranchCache per file di rete** servizio ruolo del ruolo server Servizi File installato.  
   
@@ -36,7 +36,7 @@ L'appartenenza a **amministratori**, o equivalente è il requisito minimo necess
   
 3.  In **Aggiungi o rimuovi Snap-in** fare doppio clic su **Editor oggetti Criteri di gruppo** in **Snap-in disponibili**. Verrà visualizzata la Procedura guidata Criteri di gruppo con l'oggetto Computer Locale selezionato. Fare clic su **Fine**e quindi su **OK**.  
   
-4.  Nello snap-in MMC Editor Criteri di gruppo locali espandere il percorso seguente: **Criteri del Computer locale**, **configurazione Computer**, **modelli amministrativi**, **rete**, **Server Lanman**. Fare clic su **Server Lanman**.  
+4.  Nello snap-in MMC Editor Criteri di gruppo locali espandere il percorso seguente: **Criteri del computer locale**, **configurazione computer**, **modelli amministrativi**, **rete**, **LanMan Server**. Fare clic su **Server Lanman**.  
   
 5.  Nel riquadro dei dettagli fare doppio clic su **pubblicazione Hash per BranchCache**. Verrà visualizzata la finestra di dialogo **Pubblicazione hash per BranchCache**.  
   

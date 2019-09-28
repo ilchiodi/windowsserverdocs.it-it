@@ -1,6 +1,6 @@
 ---
 title: Distribuire Cartelle di lavoro con AD FS e Proxy dell'applicazione Web - Passaggio 3, configurare Cartelle di lavoro
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: storage-work-folders
 ms.topic: article
 manager: klaasl
@@ -8,31 +8,31 @@ ms.author: jeffpatt
 author: JeffPatt24
 ms.date: 4/5/2017
 ms.assetid: 5a43b104-4d02-4d73-a385-da1cfb67e341
-ms.openlocfilehash: d6b21579fb1dedc777733317e7222debd8d944a1
-ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
+ms.openlocfilehash: ef76b87928e696586356c499367051ff0d0e9ab4
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66812672"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71365775"
 ---
-# <a name="deploy-work-folders-with-ad-fs-and-web-application-proxy-step-3-set-up-work-folders"></a>Distribuire cartelle di lavoro con AD FS e Proxy applicazione Web: Passaggio 3, cartelle di lavoro di configurazione
+# <a name="deploy-work-folders-with-ad-fs-and-web-application-proxy-step-3-set-up-work-folders"></a>Distribuire cartelle di lavoro con AD FS e il proxy dell'applicazione Web: Passaggio 3, configurare cartelle di lavoro
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016
 
 Questo argomento descrive il terzo passaggio nella distribuzione di Cartelle di lavoro con Active Directory Federation Services (AD FS) e Proxy applicazione Web. È possibile trovare gli altri passaggi di questo processo negli argomenti seguenti:  
   
--   [Distribuire cartelle di lavoro con AD FS e Proxy applicazione Web: Panoramica](deploy-work-folders-adfs-overview.md)  
+-   Cartelle di lavoro [Deploy con AD FS e proxy applicazione Web: Panoramica](deploy-work-folders-adfs-overview.md)  
   
--   [Distribuire cartelle di lavoro con AD FS e Proxy applicazione Web: Passaggio 1, configurare AD FS](deploy-work-folders-adfs-step1.md)  
+-   Cartelle di lavoro [Deploy con AD FS e proxy applicazione Web: Passaggio 1, configurare AD FS @ no__t-0  
   
--   [Distribuire cartelle di lavoro con AD FS e Proxy applicazione Web: Passaggio 2, lavoro post-configurazione di AD FS](deploy-work-folders-adfs-step2.md)  
+-   Cartelle di lavoro [Deploy con AD FS e proxy applicazione Web: Passaggio 2, AD FS lavoro post-configurazione @ no__t-0  
   
--   [Distribuire cartelle di lavoro con AD FS e Proxy applicazione Web: Passaggio 4, impostare un Proxy applicazione Web](deploy-work-folders-adfs-step4.md)  
+-   Cartelle di lavoro [Deploy con AD FS e proxy applicazione Web: Passaggio 4: configurare il proxy dell'applicazione Web @ no__t-0  
   
--   [Distribuire cartelle di lavoro con AD FS e Proxy applicazione Web: Passaggio 5, configurare i client](deploy-work-folders-adfs-step5.md)  
+-   Cartelle di lavoro [Deploy con AD FS e proxy applicazione Web: Passaggio 5: configurare i client @ no__t-0  
   
 > [!NOTE]
->   Le istruzioni illustrate in questa sezione sono per un ambiente Windows Server 2016 o Windows Server 2019. Se usi Windows Server 2012 R2, segui le [istruzioni di Windows Server 2012 R2](https://technet.microsoft.com/library/dn747208(v=ws.11).aspx).
+>   Le istruzioni descritte in questa sezione si riferiscono a un ambiente Windows Server 2019 o Windows Server 2016. Se usi Windows Server 2012 R2, segui le [istruzioni di Windows Server 2012 R2](https://technet.microsoft.com/library/dn747208(v=ws.11).aspx).
 
 Per configurare Cartelle di lavoro, utilizza le procedure seguenti.  
   
@@ -42,7 +42,7 @@ Per installare Cartelle di lavoro, è necessario disporre di un server che venga
 Nell'esempio di test, aggiungi il computer che eseguirà Cartelle di lavoro nel dominio Contoso e configura l'interfaccia di rete come descritto nelle sezioni seguenti. 
 
 ### <a name="set-the-server-ip-address"></a>Imposta l'indirizzo IP del server  
-Modifica l'indirizzo IP del server in un indirizzo IP statico. Nell'esempio di test, usare IP classe A, ovvero 192.168.0.170 / la subnet mask: 255.255.0.0 / Gateway predefinito: 192.168.0.1 / preferita DNS: 192.168.0.150 (l'indirizzo IP del controller di dominio). 
+Modifica l'indirizzo IP del server in un indirizzo IP statico. Per l'esempio di test, usare la classe IP A, che è 192.168.0.170/subnet mask: 255.255.0.0/gateway predefinito: 192.168.0.1/DNS preferito: 192.168.0.150 (indirizzo IP del controller di dominio). 
   
 ### <a name="create-the-cname-record-for-work-folders"></a>Creare il record di CNAME per Cartelle di lavoro  
 Per creare il record di CNAME per Cartelle di lavoro, segui questi passaggi:  
@@ -189,7 +189,7 @@ Per completare la configurazione di Cartelle di lavoro, completa questi passaggi
 ### <a name="bind-the-certificate"></a>Associa il certificato  
 Cartelle di lavoro comunica solo tramite SSL e deve avere il certificato autofirmato creato in precedenza (o emesso dalla tua autorità di certificazione) associato alla porta.  
   
-Esistono due metodi che è possibile usare per associare il certificato alla porta tramite Windows PowerShell: I cmdlet IIS e netsh.  
+Esistono due metodi che è possibile usare per associare il certificato alla porta tramite Windows PowerShell: Cmdlet di IIS e netsh.  
   
 #### <a name="bind-the-certificate-by-using-netsh"></a>Associare il certificato usando netsh  
 Per utilizzare l'utilità di scripting dalla riga di comando di netsh in Windows PowerShell, è necessario inviare tramite pipe il comando a netsh. Il seguente script di esempio consente di trovare il certificato con soggetto **workfolders.contoso.com** e lo associa alla porta 443 utilizzando netsh:  
@@ -250,7 +250,7 @@ Per configurare Cartelle di lavoro per l'utilizzo di AD FS per l'autenticazione,
   
 4.  Nella finestra **Impostazioni di Cartelle di lavoro**, seleziona **Active Directory Federation Services** e digita l'URL del servizio federativo. Fare clic su **Applica**.  
   
-    Nell'esempio test, è l'URL **https://blueadfs.contoso.com** .  
+    Nell'esempio di test, l'URL è **https://blueadfs.contoso.com** .  
   
 Il cmdlet per eseguire la stessa attività tramite Windows PowerShell è:  
   
@@ -271,9 +271,9 @@ Il certificato Cartelle di lavoro autofirmato deve essere esportato in modo tale
   
 -   Il client Windows non aggiunto al dominio  
   
-Per esportare il certificato, seguire la stessa procedura usata per esportare il certificato di AD FS in precedenza, come descritto nel [distribuire cartelle di lavoro con AD FS e Proxy applicazione Web: Passaggio 2, lavoro post-configurazione di AD FS](deploy-work-folders-adfs-step2.md), esportare il certificato di AD FS.  
+Per esportare il certificato, seguire la stessa procedura usata per esportare il certificato AD FS in precedenza, come descritto in cartelle di lavoro [Deploy con AD FS e proxy applicazione Web: Passaggio 2, AD FS post-configurazione work @ no__t-0, export the AD FS certificate.  
   
-Passaggio successivo: [Distribuire cartelle di lavoro con AD FS e Proxy applicazione Web: Passaggio 4, impostare un Proxy applicazione Web](deploy-work-folders-adfs-step4.md)  
+Passaggio successivo: Cartelle di lavoro [Deploy con AD FS e proxy applicazione Web: Passaggio 4: configurare il proxy dell'applicazione Web @ no__t-0  
   
 ## <a name="see-also"></a>Vedere anche  
 [Panoramica di cartelle di lavoro](Work-Folders-Overview.md)  

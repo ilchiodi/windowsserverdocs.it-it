@@ -2,31 +2,31 @@
 title: Guida alla rete core per Windows Server
 description: In questo argomento viene fornita una panoramica della Guida alla rete Core, che consente di pianificare e distribuire i componenti di base necessari per una rete completamente funzionante e un nuovo dominio di Active Directory in una nuova foresta con Windows Server 2016
 manager: brianlic
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking
 ms.topic: article
 ms.date: ''
 ms.assetid: 9b3ef3eb-4246-4e0e-8bf1-53224ca5f2f9
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: a905fd0c11237edd3a408998f8f71aa25a054328
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 52f8b9e1446b5b3f3b1e7060cc737204771d1eae
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59847902"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71356071"
 ---
 # <a name="core-network-guidance-for-windows-server"></a>Guida alla rete core per Windows Server
 
 >Si applica a: Windows Server, Windows Server 2016
 
-In questo argomento viene fornita una panoramica della Guida per la rete Core per Windows Server&reg; 2016 e include le sezioni seguenti.  
+In questo argomento viene fornita una panoramica delle linee guida principali per la rete di Windows Server @ no__t-0 2016 e sono incluse le sezioni seguenti.  
   
--   [Introduzione alla rete Core di Windows Server](#bkmk_intro)  
+-   [Introduzione alla rete di Windows Server Core](#bkmk_intro)  
   
 -   [Guida alla rete core per Windows Server](#bkmk_core)  
   
-## <a name="bkmk_intro"></a>Introduzione alla rete Core di Windows Server
+## <a name="bkmk_intro"></a>Introduzione alla rete di Windows Server Core
 
 Una rete core è un insieme di componenti hardware, dispositivi e componenti software di rete che forniscono i servizi essenziali per i requisiti IT dell'organizzazione.
 

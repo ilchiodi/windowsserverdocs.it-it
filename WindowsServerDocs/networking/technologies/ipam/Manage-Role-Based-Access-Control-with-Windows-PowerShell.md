@@ -1,9 +1,9 @@
 ---
 title: Gestire il controllo degli accessi in base al ruolo con Windows PowerShell
-description: Questo argomento fa parte della Guida di gestione di gestione indirizzi IP (IPAM) in Windows Server 2016.
+description: Questo argomento fa parte della Guida alla gestione di gestione indirizzi IP in Windows Server 2016.
 manager: brianlic
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-ipam
@@ -12,35 +12,35 @@ ms.topic: article
 ms.assetid: 4f13f78e-0114-4e41-9a28-82a4feccecfc
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 11dd417be4720b09851fc03f111edaaf06b55e59
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: dec5c9b9b5d5fe858e063af70ff0a8e16991e632
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67282127"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71355218"
 ---
 # <a name="manage-role-based-access-control-with-windows-powershell"></a>Gestire il controllo degli accessi in base al ruolo con Windows PowerShell
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016
 
-È possibile utilizzare questo argomento per imparare a usare Gestione indirizzi IP per gestire controllo degli accessi in base al ruolo con Windows PowerShell.  
+È possibile usare questo argomento per informazioni su come usare Gestione indirizzi IP per gestire il controllo degli accessi in base al ruolo con Windows PowerShell.  
   
 >[!NOTE]
->Per i riferimenti ai comandi di gestione indirizzi IP Windows PowerShell, vedere la [IpamServer cmdlet in Windows PowerShell](https://docs.microsoft.com/powershell/module/ipamserver/?view=win10-ps).  
+>Per informazioni di riferimento sui comandi di Windows PowerShell per gestione indirizzi IP, vedere i [cmdlet di IpamServer in Windows PowerShell](https://docs.microsoft.com/powershell/module/ipamserver/?view=win10-ps).  
   
-I nuovi comandi di gestione indirizzi IP di Windows PowerShell offrono la possibilità di recuperare e modificare gli ambiti di accesso di oggetti DNS e DHCP. Nella tabella seguente viene illustrato il comando corretto da utilizzare per ogni oggetto di gestione indirizzi IP.  
+I nuovi comandi di gestione indirizzi IP di Windows PowerShell offrono la possibilità di recuperare e modificare gli ambiti di accesso degli oggetti DNS e DHCP. La tabella seguente illustra il comando corretto da usare per ogni oggetto di gestione indirizzi IP.  
   
-|Oggetto di gestione indirizzi IP|Comando|Descrizione|  
+|Oggetto IPAM|Comando|Descrizione|  
 |---------------|-----------|---------------|  
-|Server DNS|Get-IpamDnsServer|Questo cmdlet restituisce l'oggetto server DNS in Gestione indirizzi IP|  
-|Zona DNS|Get-IpamDnsZone|Questo cmdlet restituisce l'oggetto di zona DNS in Gestione indirizzi IP|  
-|Record di risorse DNS|Get-IpamResourceRecord|Questo cmdlet restituisce l'oggetto di record risorsa DNS in Gestione indirizzi IP|  
-|Server d'inoltro condizionale DNS|Get-IpamDnsConditionalForwarder|Questo cmdlet restituisce l'oggetto server d'inoltro condizionale DNS in Gestione indirizzi IP|  
-|Server DHCP|Get-IpamDhcpServer|Questo cmdlet restituisce l'oggetto server DHCP in Gestione indirizzi IP|  
-|Ambito esteso DHCP|Get-IpamDhcpSuperscope|Questo cmdlet restituisce l'oggetto di ambito esteso DHCP in Gestione indirizzi IP|  
-|Ambito DHCP|Get-IpamDhcpScope|Questo cmdlet restituisce l'oggetto di ambito DHCP in Gestione indirizzi IP|  
+|Server DNS|Get-IpamDnsServer|Questo cmdlet restituisce l'oggetto server DNS in gestione indirizzi IP|  
+|Zona DNS|Get-IpamDnsZone|Questo cmdlet restituisce l'oggetto zona DNS in gestione indirizzi IP|  
+|Record di risorse DNS|Get-IpamResourceRecord|Questo cmdlet restituisce l'oggetto record di risorse DNS in gestione indirizzi IP|  
+|Server di trasmissione condizionale DNS|Get-IpamDnsConditionalForwarder|Questo cmdlet restituisce l'oggetto server di trasmissione condizionale DNS in gestione indirizzi IP|  
+|Server DHCP|Get-IpamDhcpServer|Questo cmdlet restituisce l'oggetto server DHCP in gestione indirizzi IP|  
+|Ambito esteso DHCP|Get-IpamDhcpSuperscope|Questo cmdlet restituisce l'oggetto ambito esteso DHCP in gestione indirizzi IP|  
+|Ambito DHCP|Get-IpamDhcpScope|Questo cmdlet restituisce l'oggetto ambito DHCP in gestione indirizzi IP|  
   
-Nell'esempio seguente di output del comando, il `Get-IpamDnsZone` cmdlet recupera le **dublin.contoso.com** zona DNS.  
+Nell'esempio seguente di output del comando, il cmdlet `Get-IpamDnsZone` recupera la zona DNS **Dublin.contoso.com** .  
   
 ```  
 PS C:\Users\Administrator.CONTOSO> Get-IpamDnsZone -ZoneType Forward -ZoneName dublin.contoso.com  
@@ -53,8 +53,8 @@ DynamicUpdateStatus  : None
 ScavengeStaleRecords : False  
 ```  
   
-## <a name="setting-access-scopes-on-ipam-objects"></a>Impostare gli ambiti di accesso su oggetti di gestione indirizzi IP  
-È possibile impostare gli ambiti di accesso per gli oggetti di gestione indirizzi IP usando il `Set-IpamAccessScope` comando. È possibile usare questo comando per impostare l'ambito di accesso a un valore specifico per un oggetto o per fare in modo gli oggetti da cui ereditare ambito di accesso a oggetti padre. Di seguito sono gli oggetti che è possibile configurare con questo comando.  
+## <a name="setting-access-scopes-on-ipam-objects"></a>Impostazione degli ambiti di accesso sugli oggetti IPAM  
+È possibile impostare gli ambiti di accesso sugli oggetti di gestione indirizzi IP usando il comando `Set-IpamAccessScope`. È possibile utilizzare questo comando per impostare l'ambito di accesso su un valore specifico per un oggetto o per fare in modo che gli oggetti ereditino l'ambito di accesso dagli oggetti padre. Di seguito sono riportati gli oggetti che è possibile configurare con questo comando.  
   
 -   Ambito DHCP  
   
@@ -62,9 +62,9 @@ ScavengeStaleRecords : False
   
 -   Ambito esteso DHCP  
   
--   Server d'inoltro condizionale DNS  
+-   Server di trasmissione condizionale DNS  
   
--   Record risorsa DNS  
+-   Record di risorse DNS  
   
 -   Server DNS  
   
@@ -74,11 +74,11 @@ ScavengeStaleRecords : False
   
 -   Intervallo di indirizzi IP  
   
--   Spazio di indirizzi IP  
+-   Spazio degli indirizzi IP  
   
--   Subnet di indirizzi IP  
+-   Subnet indirizzi IP  
   
-Seguito è riportata la sintassi per il `Set-IpamAccessScope` comando.  
+Di seguito è riportata la sintassi per il comando `Set-IpamAccessScope`.  
   
 ```  
 NAME  
@@ -116,7 +116,7 @@ SYNTAX
     Set-IpamAccessScope [-IpamBlock] -InputObject <ciminstance[]> [-AccessScopePath <string>] [-IsInheritedAccessScope] [-PassThru] [-CimSession <CimSession[]>] [-ThrottleLimit <int>] [-AsJob] [-WhatIf] [-Confirm]  [<CommonParameters>]  
 ```  
   
-Nell'esempio seguente, l'ambito di accesso della zona DNS **dublin.contoso.com** viene modificato da **Dublino** al **Europa**.  
+Nell'esempio seguente, l'ambito di accesso della zona DNS **Dublin.contoso.com** viene modificato da **Dublino** ad **Europa**.  
   
 ```  
 PS C:\Users\Administrator.CONTOSO> Get-IpamDnsZone -ZoneType Forward -ZoneName dublin.contoso.com  

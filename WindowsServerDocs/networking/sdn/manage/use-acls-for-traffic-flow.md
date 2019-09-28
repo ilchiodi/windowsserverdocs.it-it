@@ -1,9 +1,9 @@
 ---
-title: Controllo di accesso di Usa elenchi (ACL) per gestire il flusso del Data Center rete traffico
-description: In questo argomento descrive come configurare elenchi di controllo di accesso (ACL) per gestire il flusso del traffico dei dati tramite Firewall del centro dati e gli ACL in subnet virtuali. Abilitare e configurare Firewall del centro dati creando gli ACL che vengano applicati a una subnet virtuale o un'interfaccia di rete.
+title: Usare gli elenchi di controllo di accesso (ACL) per gestire il flusso del traffico di rete del Data Center
+description: In questo argomento si apprenderà come configurare gli elenchi di controllo di accesso (ACL) per gestire il flusso di traffico dei dati usando il firewall del centro dati e gli ACL nelle subnet virtuali. Per abilitare e configurare il firewall di Data Center, è possibile creare ACL che vengono applicati a una subnet virtuale o a un'interfaccia di rete.
 manager: dougkim
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-sdn
@@ -13,42 +13,42 @@ ms.assetid: 6a7ac5af-85e9-4440-a631-6a3a38e9015d
 ms.author: pashort
 author: shortpatti
 ms.date: 08/27/2018
-ms.openlocfilehash: 7bfb74e0964735d357226ab1e5af826796c48d81
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 6a1d210d25309be322359add20da4eb8d0eee091
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66446298"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71355813"
 ---
-# <a name="use-access-control-lists-acls-to-manage-datacenter-network-traffic-flow"></a>Controllo di accesso di Usa elenchi (ACL) per gestire il flusso del Data Center rete traffico
+# <a name="use-access-control-lists-acls-to-manage-datacenter-network-traffic-flow"></a>Usare gli elenchi di controllo di accesso (ACL) per gestire il flusso del traffico di rete del Data Center
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016
 
-In questo argomento descrive come configurare elenchi di controllo di accesso (ACL) per gestire il flusso del traffico dei dati tramite Firewall del centro dati e gli ACL in subnet virtuali. Abilitare e configurare Firewall del centro dati creando gli ACL che vengano applicati a una subnet virtuale o un'interfaccia di rete.   
+In questo argomento si apprenderà come configurare gli elenchi di controllo di accesso (ACL) per gestire il flusso di traffico dei dati usando il firewall del centro dati e gli ACL nelle subnet virtuali. Per abilitare e configurare il firewall di Data Center, è possibile creare ACL che vengono applicati a una subnet virtuale o a un'interfaccia di rete.   
 
 Gli esempi seguenti in questo argomento illustrano come usare Windows PowerShell per creare questi ACL.  
 
-## <a name="configure-datacenter-firewall-to-allow-all-traffic"></a>Configurare il Firewall di Data Center per consentire tutto il traffico  
+## <a name="configure-datacenter-firewall-to-allow-all-traffic"></a>Configurare il firewall del Data Center per consentire tutto il traffico  
 
-Quando si distribuisce SDN, è consigliabile testare la connettività di rete di base nel tuo nuovo ambiente.  A tale scopo, creare una regola di Firewall di Data Center che consente tutto il traffico di rete, senza alcuna restrizione.   
+Dopo aver distribuito SDN, è necessario verificare la connettività di rete di base nel nuovo ambiente.  A tale scopo, creare una regola per il firewall del data center che consenta tutto il traffico di rete, senza alcuna restrizione.   
 
-Usare le voci nella tabella seguente per creare un set di regole che consentono di tutto il traffico di rete in ingresso e in uscita.
+Usare le voci nella tabella seguente per creare un set di regole che consentano tutto il traffico di rete in ingresso e in uscita.
 
 
 | IP origine | IP destinazione | Protocol | Porta di origine | Porta di destinazione | Direction | Azione | Priority |
 |:---------:|:--------------:|:--------:|:-----------:|:----------------:|:---------:|:------:|:--------:|
-|    \*     |       \*       |   Tutte    |     \*      |        \*        |  In entrata  | Consenti  |   100    |
-|    \*     |       \*       |   Tutte    |     \*      |        \*        | In uscita  | Consenti  |   110    |
+|    \*     |       \*       |   Tutte    |     \*      |        \*        |  In ingresso  | Allow  |   100    |
+|    \*     |       \*       |   Tutte    |     \*      |        \*        | In uscita  | Allow  |   110    |
 
 ---       
 
 ### <a name="example-create-an-acl"></a>Esempio: Creare un ACL 
-In questo esempio, si crea un ACL con due regole:
+In questo esempio viene creato un ACL con due regole:
 
-1. **AllowAll_Inbound** -consente tutto il traffico di rete da passare all'interfaccia di rete in cui viene configurato l'ACL.    
-2. **AllowAllOutbound** -consente tutto il traffico da passare all'esterno dell'interfaccia di rete. L'ACL, identificato dall'id di risorsa "AllowAll-1" è ora pronto per essere usato nelle interfacce di rete e subnet virtuali.  
+1. **AllowAll_Inbound** -consente a tutto il traffico di rete di passare all'interfaccia di rete in cui è configurato questo ACL.    
+2. **AllowAllOutbound** -consente a tutto il traffico di passare dall'interfaccia di rete. Questo ACL, identificato dall'ID risorsa "AllowAll-1", è ora pronto per essere usato nelle subnet virtuali e nelle interfacce di rete.  
 
-Lo script di esempio seguente usa i comandi di Windows PowerShell esportati dal **NetworkController** modulo per creare l'ACL.  
+Lo script di esempio seguente usa i comandi di Windows PowerShell esportati dal modulo **NetworkController** per creare questo ACL.  
 
 
 ```PowerShell
@@ -84,26 +84,26 @@ New-NetworkControllerAccessControlList -ResourceId "AllowAll" -Properties $aclli
 ```  
 
 >[!NOTE]  
->I riferimenti ai comandi di Windows PowerShell per il Controller di rete si trova nell'argomento [cmdlet Controller di rete](https://technet.microsoft.com/library/mt576401.aspx).  
+>La Guida di riferimento ai comandi di Windows PowerShell per il controller di rete si trova nell'argomento [cmdlet del controller di rete](https://technet.microsoft.com/library/mt576401.aspx).  
 
-## <a name="use-acls-to-limit-traffic-on-a-subnet"></a>Usare gli elenchi di limitare il traffico in una subnet  
-In questo esempio, si crea un ACL che impedisce che le macchine virtuali all'interno della subnet 192.168.0.0/24 che comunicano tra loro. Questo tipo di ACL è utile per limitare la capacità di un utente malintenzionato per diffondere lateralmente all'interno della subnet, consentendo allo stesso tempo le macchine virtuali per la ricezione di richieste provenienti dall'esterno della subnet, nonché per comunicare con altri servizi su altre subnet.   
+## <a name="use-acls-to-limit-traffic-on-a-subnet"></a>Usare gli ACL per limitare il traffico in una subnet  
+In questo esempio viene creato un ACL che impedisce alle macchine virtuali all'interno della subnet 192.168.0.0/24 di comunicare tra loro. Questo tipo di ACL è utile per limitare la capacità di un utente malintenzionato di diffondersi in un secondo momento all'interno della subnet, consentendo allo stesso tempo alle macchine virtuali di ricevere richieste dall'esterno della subnet, nonché di comunicare con altri servizi su altre subnet.   
 
 
 |   IP origine    | IP destinazione | Protocol | Porta di origine | Porta di destinazione | Direction | Azione | Priority |
 |:--------------:|:--------------:|:--------:|:-----------:|:----------------:|:---------:|:------:|:--------:|
-|  192.168.0.1   |       \*       |   Tutte    |     \*      |        \*        |  In entrata  | Consenti  |   100    |
-|       \*       |  192.168.0.1   |   Tutte    |     \*      |        \*        | In uscita  | Consenti  |   101    |
-| 192.168.0.0/24 |       \*       |   Tutte    |     \*      |        \*        |  In entrata  | Blocca  |   102    |
+|  192.168.0.1   |       \*       |   Tutte    |     \*      |        \*        |  In ingresso  | Allow  |   100    |
+|       \*       |  192.168.0.1   |   Tutte    |     \*      |        \*        | In uscita  | Allow  |   101    |
+| 192.168.0.0/24 |       \*       |   Tutte    |     \*      |        \*        |  In ingresso  | Blocca  |   102    |
 |       \*       | 192.168.0.0/24 |   Tutte    |     \*      |        \*        | In uscita  | Blocca  |   103    |
-|       \*       |       \*       |   Tutte    |     \*      |        \*        |  In entrata  | Consenti  |   104    |
-|       \*       |       \*       |   Tutte    |     \*      |        \*        | In uscita  | Consenti  |   105    |
+|       \*       |       \*       |   Tutte    |     \*      |        \*        |  In ingresso  | Allow  |   104    |
+|       \*       |       \*       |   Tutte    |     \*      |        \*        | In uscita  | Allow  |   105    |
 
 --- 
 
-L'ACL creato dallo script di esempio riportato di seguito, identificata dall'id di risorsa **Subnet-192-168-0-0**, è ora possibile applicare a una subnet di rete virtuale che usa l'indirizzo di subnet "192.168.0.0/24".  Qualsiasi interfaccia di rete viene connesso automaticamente a tale subnet di rete virtuale Ottiene le regole ACL precedenti applicate.  
+È ora possibile applicare l'ACL creato dallo script di esempio seguente, identificato dall'ID risorsa **subnet-192-168-0-0**, a una subnet di rete virtuale che usa l'indirizzo subnet "192.168.0.0/24".  Qualsiasi interfaccia di rete collegata alla subnet della rete virtuale ottiene automaticamente le regole ACL sopra applicate.  
 
-Di seguito è riportato un esempio di script usando i comandi di Windows Powershell per creare questo ACL usando l'API REST del Controller di rete:  
+Di seguito è riportato uno script di esempio che usa i comandi di Windows PowerShell per creare questo ACL usando l'API REST del controller di rete:  
 
 ```PowerShell  
 import-module networkcontroller  

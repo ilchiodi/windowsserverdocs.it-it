@@ -2,18 +2,18 @@
 title: Installare la funzionalità BranchCache e configurare il server della cache ospitata in base al punto di connessione del servizio
 description: In questa guida vengono fornite istruzioni sulla distribuzione di BranchCache in modalità cache ospitata sul computer che eseguono Windows Server 2016 e Windows 10
 manager: brianlic
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking-bc
 ms.topic: article
 ms.assetid: 9adf420b-5a58-4e59-9906-71bd58f757fd
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 6619b09df0d4c161148d22091337a5039c7ea3af
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: fe2120310c6c410b410649aff1372f93e0ea5db7
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59849652"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71356352"
 ---
 # <a name="install-the-branchcache-feature-and-configure-the-hosted-cache-server-by-service-connection-point"></a>Installare la funzionalità BranchCache e configurare il server della cache ospitata in base al punto di connessione del servizio
 
@@ -21,7 +21,7 @@ ms.locfileid: "59849652"
 
 È possibile utilizzare questa procedura per installare la funzionalità BranchCache nel server cache ospitata, HCS1 e per configurare il server per registrare un punto di connessione del servizio \(SCP\) in servizi di dominio Active Directory \(AD DS\).
 
-Quando si registra server cache ospitata con un SCP in Active Directory Domain Services, SCP consente ai computer client che sono configurati correttamente per individuare automaticamente i server cache ospitata eseguendo una query Active Directory Domain Services per SCP. Più avanti in questa guida vengono fornite istruzioni su come configurare i computer client per eseguire questa azione.
+Quando si registrano server cache ospitata con SCP in servizi di dominio Active Directory, SCP consente ai computer client configurati correttamente di individuare automaticamente i server cache ospitata eseguendo una query su servizi di dominio Active Directory per SCP. Le istruzioni su come configurare i computer client per l'esecuzione di questa azione sono fornite più avanti in questa guida.
 
 >[!IMPORTANT]
 >Prima di eseguire questa procedura, è necessario aggiungere il computer al dominio e configurare il computer con un indirizzo IP statico.
@@ -36,7 +36,7 @@ Per eseguire questa procedura, è necessario essere un membro del gruppo Adminis
     Install-WindowsFeature BranchCache
     ```
 
-2.  Per configurare il computer come server cache ospitata, dopo aver installata la funzionalità BranchCache e per registrare un punto di connessione del servizio in Active Directory Domain Services, digitare il comando seguente in Windows PowerShell e quindi premere INVIO.
+2.  Per configurare il computer come server cache ospitata dopo l'installazione della funzionalità BranchCache e per registrare un punto di connessione del servizio in servizi di dominio Active Directory, digitare il comando seguente in Windows PowerShell e quindi premere INVIO.
 
     ```  
     Enable-BCHostedServer -RegisterSCP
@@ -48,7 +48,7 @@ Per eseguire questa procedura, è necessario essere un membro del gruppo Adminis
     Get-BCStatus  
     ```  
   
-    I risultati del comando vengono visualizzati lo stato per tutti gli aspetti dell'installazione di BranchCache. Di seguito sono alcune delle impostazioni di BranchCache e il valore corretto per ogni elemento:  
+    I risultati dello stato di visualizzazione del comando per tutti gli aspetti dell'installazione di BranchCache. Di seguito sono riportate alcune delle impostazioni di BranchCache e il valore corretto per ogni elemento:  
   
     -   BranchCacheIsEnabled: True
 
@@ -56,8 +56,8 @@ Per eseguire questa procedura, è necessario essere un membro del gruppo Adminis
 
     -   HostedCacheScpRegistrationEnabled: True
 
-4. Per preparare il passaggio di copia dei pacchetti di dati dai server al server cache ospitata, identificare una condivisione esistente nel server cache ospitata o creare una nuova cartella e condividere la cartella in modo che sia accessibile dai server. Dopo aver creato i pacchetti di dati sui server di contenuti, verranno copiati i pacchetti di dati in questa cartella condivisa sul server cache ospitata.
+4. Per preparare il passaggio della copia dei pacchetti di dati dai server di contenuti ai server cache ospitata, identificare una condivisione esistente nel server cache ospitata o creare una nuova cartella e condividere la cartella in modo che sia accessibile dai server di contenuti. Dopo aver creato i pacchetti di dati nei server di contenuti, i pacchetti di dati vengono copiati in questa cartella condivisa nel server cache ospitata.
   
-5. Se si distribuiscono più server cache ospitata, ripetere questa procedura su ogni server.
+5. Se si distribuisce più di un server cache ospitata, ripetere questa procedura in ogni server.
 
 Per continuare con questa Guida, vedere [spostare e ridimensionare la Cache ospitata & #40; facoltativo & #41;](6-Bc-Move-Resize-Cache.md).

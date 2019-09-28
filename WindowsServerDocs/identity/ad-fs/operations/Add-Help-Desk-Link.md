@@ -7,20 +7,20 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: fb186c3ba5cfb3acb9bfd0c3139b09b992fb8863
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 1673e6ee6357a9d59e8ac5891625d453bb434088
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66190215"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71358461"
 ---
 # <a name="add-help-desk-link"></a>Aggiungere un collegamento al supporto tecnico 
 
 
 ## <a name="to-add-a-help-desk-link"></a>Per aggiungere un collegamento al supporto tecnico  
-Per aggiungere il collegamento al supporto tecnico che viene visualizzato il segno\-nella pagina, utilizzare la sintassi e i cmdlet di Windows PowerShell seguente.  
+Per aggiungere il collegamento help desk visualizzato nella pagina Sign @ no__t-0cm, usare la sintassi e il cmdlet di Windows PowerShell seguenti.  
 
 ![aggiungere supporto tecnico](media/AD-FS-user-sign-in-customization/ADFS_Blue_Custom2.png)
   
@@ -33,4 +33,4 @@ Per aggiungere il collegamento al supporto tecnico che viene visualizzato il seg
 
 
 ## <a name="additional-references"></a>Altri riferimenti 
-[AD FS Sign-in personalizzazione dell'utente](AD-FS-user-sign-in-customization.md)  
+[Personalizzazione dell'accesso utente AD FS](AD-FS-user-sign-in-customization.md)  

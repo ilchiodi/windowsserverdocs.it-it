@@ -7,14 +7,14 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 87ada412e6b4ab47aa18a62953b84d8a1369dffa
-ms.sourcegitcommit: 6f968368c12b9dd699c197afb3a3d13c2211f85b
+ms.openlocfilehash: 191ec0243c8c34c2084dd07f94f0b3f70b197756
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68544513"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71358074"
 ---
 # <a name="configure-ad-fs-to-authenticate-users-stored-in-ldap-directories"></a>Configurare AD FS per l'autenticazione di utenti memorizzati nelle directory LDAP
 
@@ -23,7 +23,7 @@ Nell'argomento seguente viene descritta la configurazione necessaria per abilita
 In molte organizzazioni, le soluzioni di gestione delle identità sono costituite da una combinazione di Active Directory, AD LDS o directory LDAP di terze parti. Con l'aggiunta del supporto AD FS per l'autenticazione degli utenti archiviati in directory conformi a LDAP v3, è possibile trarre vantaggio dall'intero set di funzionalità di AD FS di livello aziendale indipendentemente dalla posizione in cui sono archiviate le identità utente. AD FS supporta qualsiasi directory conforme a LDAP v3.
 
 > [!NOTE]
-> Alcune delle funzionalità di AD FS includono Single Sign-on (SSO), autenticazione del dispositivo, criteri di accesso condizionale flessibili, supporto per il lavoro da qualsiasi luogo attraverso l'integrazione con il proxy dell'applicazione Web e Federazione trasparente con Azure AD che a loro volta consente all'utente e agli utenti di usare il cloud, inclusi Office 365 e altre applicazioni SaaS.  Per ulteriori informazioni, vedere [Active Directory Federation Services Overview](../../ad-fs/AD-FS-2016-Overview.md).
+> Alcune delle funzionalità di AD FS includono Single Sign-On (SSO), autenticazione del dispositivo, criteri di accesso condizionale flessibili, supporto per il lavoro da qualsiasi luogo attraverso l'integrazione con il proxy dell'applicazione Web e Federazione trasparente con Azure AD che a loro volta consente all'utente e agli utenti di usare il cloud, inclusi Office 365 e altre applicazioni SaaS.  Per ulteriori informazioni, vedere [Active Directory Federation Services Overview](../../ad-fs/AD-FS-2016-Overview.md).
 
 Per consentire AD FS di autenticare gli utenti da una directory LDAP, è necessario connettere questa directory LDAP alla farm di AD FS creando un **trust del provider di attestazioni locale**.  Un trust del provider di attestazioni locale è un oggetto trust che rappresenta una directory LDAP nella farm AD FS. Un oggetto trust del provider di attestazioni locale è costituito da diversi identificatori, nomi e regole che identificano questa directory LDAP per il servizio federativo locale.
 
@@ -93,7 +93,7 @@ Per configurare la farm AD FS per autenticare gli utenti da una directory LDAP, 
    -OrganizationalAccountSuffix "vendors.contoso.com"
    ```
 
-   Nell'esempio precedente si crea un trust del provider di attestazioni locale denominato "vendors". Si specificano le informazioni di connessione per ad FS per connettersi alla directory LDAP rappresentata dall'attendibilità del provider di `$vendorDirectory` attestazioni `-LdapServerConnection` locale assegnando al parametro. Si noti che nel passaggio uno è stata assegnata `$vendorDirectory` una stringa di connessione da usare per la connessione alla directory LDAP specifica. Infine, si specifica che gli attributi `$GivenName`LDAP `$Surname`, e `$CommonName` (di cui è stato eseguito il mapping alle attestazioni ad FS) devono essere usati per il controllo di accesso condizionale, inclusi i criteri di autenticazione a più fattori e il rilascio le regole di autorizzazione, nonché per il rilascio tramite attestazioni nei token di sicurezza emessi da AD FS. Per usare i protocolli attivi come WS-Trust con AD FS, è necessario specificare il parametro OrganizationalAccountSuffix, che consente AD FS di evitare ambiguità tra i trust del provider di attestazioni locali durante la manutenzione di una richiesta di autorizzazione attiva.
+   Nell'esempio precedente si crea un trust del provider di attestazioni locale denominato "vendors". Si specificano le informazioni di connessione per AD FS per connettersi alla directory LDAP rappresentata dall'attendibilità del provider di attestazioni locale assegnando `$vendorDirectory` al parametro `-LdapServerConnection`. Si noti che nel passaggio uno è stata assegnata `$vendorDirectory` una stringa di connessione da usare per la connessione alla directory LDAP specifica. Infine, si specifica che gli attributi LDAP `$GivenName`, `$Surname` e `$CommonName` (di cui è stato eseguito il mapping alle attestazioni AD FS) devono essere usati per il controllo di accesso condizionale, inclusi i criteri di autenticazione a più fattori e le regole di autorizzazione di rilascio, nonché per il rilascio tramite attestazioni nei token di sicurezza emessi da AD FS. Per usare i protocolli attivi come WS-Trust con AD FS, è necessario specificare il parametro OrganizationalAccountSuffix, che consente AD FS di evitare ambiguità tra i trust del provider di attestazioni locali durante la manutenzione di una richiesta di autorizzazione attiva.
 
 ## <a name="see-also"></a>Vedere anche
 [Operazioni di AD FS](../../ad-fs/AD-FS-2016-Operations.md)

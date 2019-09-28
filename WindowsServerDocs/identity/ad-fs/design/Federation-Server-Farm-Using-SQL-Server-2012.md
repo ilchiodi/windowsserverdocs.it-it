@@ -7,18 +7,18 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 66c8bae2fbccca2bf618e46ffd3ccc05cb52f911
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 358199fd37cdbb320bc8f3e3e5b2900d261986f0
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66191500"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71359148"
 ---
 # <a name="federation-server-farm-using-sql-server"></a>Server farm federativa che usa SQL Server
 
-Questa topologia di Active Directory Federation Services \(ADFS\) differisce dalla server farm federativa utilizzando Database interno di Windows \(WID\) topologia di distribuzione in cui non viene replicato i dati da ogni server federativo nella farm. Al contrario, tutti i server federativi della farm possono leggere e scrivere dati in un database comune che viene archiviato in un server che esegue Microsoft SQL Server che si trova nella rete aziendale.  
+Questa topologia per \(Active Directory Federation Services\) ad FS è diversa dalla Federazione server farm utilizzando la topologia \(di\) distribuzione database interno di Windows wid in quanto non replica i dati in ciascun server federativo nella farm. Al contrario, tutti i server federativi della farm possono leggere e scrivere dati in un database comune archiviato in un server che esegue Microsoft SQL Server che si trova nella rete aziendale.  
   
 ## <a name="deployment-considerations"></a>Considerazioni sulla distribuzione  
 Questa sezione vengono descritte varie considerazioni sui destinatari, vantaggi e limitazioni di cui è associate a questa topologia di distribuzione.  
@@ -27,24 +27,24 @@ Questa sezione vengono descritte varie considerazioni sui destinatari, vantaggi 
   
 -   Le organizzazioni di grandi dimensioni con più di 100 relazioni di trust che è necessario fornire loro utenti interni e gli utenti esterni con single sign-\-in \(SSO\) l'accesso a servizi o applicazione federata  
   
--   Le organizzazioni che già utilizzano SQL Server e si desidera sfruttare gli strumenti esistenti e competenze  
+-   Organizzazioni che usano già SQL Server e vogliono sfruttare i vantaggi offerti dagli strumenti e dalle competenze esistenti  
   
 ### <a name="what-are-the-benefits-of-using-this-topology"></a>Quali sono i vantaggi dell'utilizzo di questa topologia?  
   
--   Supporto per numeri elevati di relazioni di trust \(più di 100\)  
+-   Supporto per un numero maggiore di relazioni \(di trust maggiori di 100\)  
   
--   Supporto per il rilevamento riproduzione token \(una funzionalità di sicurezza\) e la risoluzione artefatto \(fa parte di Security Assertion Markup Language \(SAML\) protocollo 2.0\)  
+-   Supporto per il \(rilevamento della riproduzione dei token una funzionalità\) di sicurezza \(e una parte della \(risoluzione\) dell'artefatto del protocollo Security Assertion Markup Language SAML 2,0\)  
   
--   Strumenti di supporto per i vantaggi di SQL Server, ad esempio il mirroring del database, il clustering di failover, reporting e gestione  
+-   Supporto per tutti i vantaggi di SQL Server, ad esempio il mirroring del database, il clustering di failover, la creazione di report e gli strumenti di gestione  
   
 ### <a name="what-are-the-limitations-of-using-this-topology"></a>Quali sono le limitazioni dell'utilizzo di questa topologia?  
   
--   Per impostazione predefinita questa topologia non fornisce ridondanza del database. Anche se una server farm federativa con topologia WID vengono replicati automaticamente il database interno di Windows in ogni server federativo nella farm, la server farm federativa con topologia SQL Server contiene solo una copia del database  
+-   Per impostazione predefinita questa topologia non fornisce ridondanza del database. Anche se una Federazione server farm con la topologia WID replica automaticamente il database WID in ogni server federativo della farm, la Federazione server farm con SQL Server topologia contiene solo una copia del database  
   
 > [!NOTE]  
-> SQL Server supporta molti dati diversi e opzioni di ridondanza dell'applicazione tra cui clustering di failover del mirroring del database e diversi tipi di replica di SQL Server.  
+> SQL Server supporta diverse opzioni di ridondanza dei dati e delle applicazioni, tra cui il clustering di failover, il mirroring del database e diversi tipi diversi di replica SQL Server.  
   
-Microsoft Information Technology \(IT\) reparto utilizza il mirroring del database di SQL Server in alta\-safety \(sincrono\) modalità e clustering di failover per fornire elevata\- supporto della disponibilità per l'istanza di SQL Server. SQL Server transazionale \(peer\-al\-peer\) e replica di tipo merge non sono stati testati dal team del prodotto AD FS in Microsoft. Per ulteriori informazioni su SQL Server, vedere [Panoramica delle soluzioni a disponibilità elevata](https://go.microsoft.com/fwlink/?LinkId=179853) o [selezionando il tipo di replica appropriato](https://go.microsoft.com/fwlink/?LinkId=214648).  
+Il reparto IT\) di \(Microsoft Information Technology USA SQL Server il mirroring del database \(in\) modalità sincrona a sicurezza elevata\-e il\- clustering di failover per offrire elevata supporto della disponibilità per l'istanza di SQL Server. SQL Server \(peer\-transazionale\) e\-la replica di tipo merge non sono stati testati dal team del prodotto ad FS in Microsoft. Per ulteriori informazioni su SQL Server, vedere [Panoramica delle soluzioni a disponibilità elevata](https://go.microsoft.com/fwlink/?LinkId=179853) o [selezionando il tipo di replica appropriato](https://go.microsoft.com/fwlink/?LinkId=214648).  
   
 ### <a name="supported-sql-server-versions"></a>Versioni supportate di SQL Server  
 Le seguenti versioni SQL server sono supportate con ADFS installato con Windows Server 2012:  
@@ -56,7 +56,7 @@ Le seguenti versioni SQL server sono supportate con ADFS installato con Windows 
 ## <a name="server-placement-and-network-layout-recommendations"></a>Consigli di layout posizionamento e la rete di server  
 Come per la server farm federativa con topologia database interno di Windows, tutti i server federativi nella farm sono configurati per utilizzare un cluster Domain Name System \(DNS\) nome \(che rappresenta il nome del servizio federativo\) e l'indirizzo IP di un cluster come parte di bilanciamento carico di rete \(Bilanciamento carico di RETE\) configurazione del cluster. In questo modo l'host di bilanciamento carico di RETE di allocare le richieste client per i server federativi singoli. I proxy server federativi utilizzabile per le richieste client proxy per la server farm federativa.  
   
-La figura seguente mostra come la società fittizia Contoso Pharmaceuticals distribuite la server farm federativa con topologia SQL Server nella rete aziendale. Viene inoltre illustrato come la società configurata la rete perimetrale con accesso a un server DNS, un host di bilanciamento carico di RETE aggiuntiva che utilizza lo stesso nome DNS del cluster \(fs.contoso.com\) utilizzato nel cluster di bilanciamento carico di RETE alla rete aziendale e con due server federativi \(fsp1 e fsp2\).  
+Nella figura seguente viene illustrato il modo in cui la società fittizia Contoso Pharmaceuticals ha distribuito il server farm della Federazione con SQL Server topologia nella rete aziendale. Viene inoltre illustrato come la società configurata la rete perimetrale con accesso a un server DNS, un host di bilanciamento carico di RETE aggiuntiva che utilizza lo stesso nome DNS del cluster \(fs.contoso.com\) utilizzato nel cluster di bilanciamento carico di RETE alla rete aziendale e con due server federativi \(fsp1 e fsp2\).  
   
 ![server farm con SQL](media/FarmSQLProxies.gif)  
   

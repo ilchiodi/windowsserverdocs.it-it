@@ -7,18 +7,18 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 31e2e1b04383adc8bec12e7290a7acec80e0402f
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 5fa89a4a57c618fd711234b8770a35750f3099bd
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66190795"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71358960"
 ---
 # <a name="stand-alone-federation-server-using-wid"></a>Server federativo autonomo che usa Database interno di Windows
 
-Un supporto\-server federativo solo in Active Directory Federation Services \(ADFS\) costituito da un singolo server che ospita un servizio federativo configurato per utilizzare Database interno di Windows \(WID\). Questa topologia ADFS è per i laboratori di test. Non è consigliabile per gli ambienti di produzione perché ha un limite di un solo server federativo e non può essere utilizzato per la scalabilità verticale a più server.  
+Un server federativo stand @ no__t-0alone in Active Directory Federation Services \(AD FS @ no__t-2 è costituito da un singolo server che ospita un Servizio federativo configurato per l'uso del database interno di Windows \(WID @ no__t-4. Questa topologia ADFS è per i laboratori di test. Non è consigliabile per gli ambienti di produzione perché ha un limite di un solo server federativo e non può essere utilizzato per la scalabilità verticale a più server.  
   
 Se si desidera aggiungere altri server federativi a un ambiente di laboratorio, è necessario ricompilare il servizio federativo da zero distribuendo le topologie illustrate più avanti in questa sezione. È pertanto consigliabile utilizzare questa topologia per un laboratorio di test o un modello di prova\-di\-ambiente della rete di test privato in cui un server federativo singolo è adeguato, come illustrato nella figura seguente.  
   
@@ -37,9 +37,9 @@ Questa sezione vengono descritte varie considerazioni sui destinatari, vantaggi 
   
 ### <a name="what-are-the-limitations-of-using-this-topology"></a>Quali sono le limitazioni dell'utilizzo di questa topologia?  
   
--   Un solo server federativo al servizio federativo \(alcuna funzionalità per la scalabilità verticale a una farm\)  
+-   Un solo server federativo per Servizio federativo funzionalità di \(NO per la scalabilità verticale a una farm @ no__t-1  
   
--   Non ridondante \(esiste una sola istanza del database di configurazione di AD FS\)  
+-   @No__t non ridondante-0only è presente una singola istanza del database di configurazione AD FS @ no__t-1  
   
 
 ## <a name="see-also"></a>Vedere anche

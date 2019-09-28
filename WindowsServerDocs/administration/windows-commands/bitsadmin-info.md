@@ -1,8 +1,8 @@
 ---
 title: bitsadmin info
-description: Argomento i comandi di Windows per **Visualizza informazioni di riepilogo sul processo specificato.** -info bitsadmin
+description: Nell'argomento comandi di Windows per **vengono visualizzate le informazioni di riepilogo sul processo specificato.** -Bitsadmin informazioni
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 2ee96c69e311600a53f04b1b883983718adf0f69
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 3b6710d73860315fcd13670669871cd310ffb41c
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59851522"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71381083"
 ---
 # <a name="bitsadmin-info"></a>bitsadmin info
 
@@ -40,15 +40,15 @@ bitsadmin /Info <Job> [/verbose]
 
 ## <a name="remarks"></a>Note
 
-Usare il / verbose parametro per fornire informazioni dettagliate sul processo.
+Usare il parametro/Verbose per fornire informazioni dettagliate sul processo.
 
 ## <a name="BKMK_examples"></a>Esempi
 
-Nell'esempio seguente recupera informazioni sul processo denominato *myDownloadJob*.
+Nell'esempio seguente vengono recuperate le informazioni sul processo denominato *myDownloadJob*.
 ```
 C:\>bitsadmin /Info myDownloadJob
 ```
 
 #### <a name="additional-references"></a>Altri riferimenti
 
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)
+[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

@@ -6,27 +6,27 @@ author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: e11d507f726323e774bf54f09a390b0c4b68e0a0
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 9634f4004fbb3354020ce025cd403b15f77b6cbc
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66192251"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71359704"
 ---
 # <a name="configuring-claim-rules"></a>Configurazione delle regole attestazioni
 
-In delle attestazioni\-identità basata su modello, la funzione di Active Directory Federation Services \(ADFS\) come federation services consiste nel rilasciare un token che contiene un set di attestazioni. Le regole delle attestazioni regolano le decisioni in materia di attestazioni che ADFS rilascia. Le regole attestazioni e tutti i dati di configurazione di server vengono archiviati nel database di configurazione di AD FS.  
+In un modello di identità Claims @ no__t-0based la funzione di Active Directory Federation Services \(AD FS @ no__t-2 come Federation Services consiste nell'emettere un token che contiene un set di attestazioni. Le regole attestazioni regolano la decisione in relazione alle attestazioni che AD FS problemi. Le regole attestazioni e tutti i dati di configurazione del server vengono archiviati nel database di configurazione AD FS.  
   
-AD FS prende decisioni di rilascio che si basano sulle informazioni di identità che vengano fornite sotto forma di attestazioni e altre informazioni contestuali. A livello generale, AD FS funziona come un elaboratore regole adottando una set di attestazioni come input, esegue una serie di trasformazioni e quindi restituisce un diverso set di attestazioni come output.  
+AD FS prende decisioni di rilascio basate sulle informazioni di identità fornite sotto forma di attestazioni e altre informazioni contestuali. A livello generale, AD FS funge da processore di regole prendendo un set di attestazioni come input, esegue una serie di trasformazioni e quindi restituisce un set di attestazioni diverso come output.  
   
--   [Creare una regola per Pass-Through o filtrare un'attestazione in ingresso](../../ad-fs/operations/Create-a-Rule-to-Pass-Through-or-Filter-an-Incoming-Claim.md)  
+-   [Creare una regola per il pass-through o filtrare un'attestazione in ingresso](../../ad-fs/operations/Create-a-Rule-to-Pass-Through-or-Filter-an-Incoming-Claim.md)  
   
 -   [Creare una regola per concedere l'accesso a tutti gli utenti](../../ad-fs/operations/Create-a-Rule-to-Permit-All-Users.md)  
 
--   [Creare una regola per inviare un'attestazione compatibile di AD FS 1.x](../../ad-fs/operations/Create-a-Rule-to-Send-an-AD-FS-1x-Compatible-Claim.md)
+-   [Creare una regola per inviare un'attestazione compatibile con AD FS 1. x](../../ad-fs/operations/Create-a-Rule-to-Send-an-AD-FS-1x-Compatible-Claim.md)
   
 -   [Creare una regola per concedere o rifiutare l'accesso agli utenti in base a un'attestazione in ingresso](../../ad-fs/operations/Create-a-Rule-to-Permit-or-Deny-Users-Based-on-an-Incoming-Claim.md)  
   

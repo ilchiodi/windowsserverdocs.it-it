@@ -1,8 +1,8 @@
 ---
-title: Il comando verbose
-description: 'Argomento i comandi di Windows per * * *- '
+title: Comando Verbose
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,14 +13,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 6a655ccdbd95b2f3523babecaa713ccdf99f9ec7
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 7c7ecc2bb3578b578060694c95833fd32674db10
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59827242"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71369908"
 ---
-# <a name="the-verbose-command"></a>Il comando verbose
+# <a name="the-verbose-command"></a>Comando Verbose
 
 
 

@@ -2,7 +2,7 @@
 title: Logman creazione del contatore
 description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 3d9099fa4540a1d9c91a714ada8a1dbba13f051e
-ms.sourcegitcommit: af80963a1d16c0b836da31efd9c5caaaf6708133
+ms.openlocfilehash: 3245ce1c153ac0d5fe95ea0c85009e33f71a230c
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "66437816"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71374557"
 ---
 # <a name="logman-create-counter"></a>Logman creazione del contatore
 
@@ -35,11 +35,11 @@ logman create counter <[-n] <name>> [options]
 |                    Parametro                     |                                                                               Descrizione                                                                               |
 |--------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |                        /?                        |                                                                    Vengono visualizzate sensibile al contesto della Guida.                                                                     |
-|                -s<computer name>                |                                                          Eseguire il comando nel computer remoto specificato.                                                          |
+|                -s <computer name>                |                                                          Eseguire il comando nel computer remoto specificato.                                                          |
 |                 -config <value>                  |                                                         Specifica il file di impostazioni che contiene le opzioni di comando.                                                         |
 |                   [-n] <name>                    |                                                                       Nome dell'oggetto di destinazione.                                                                        |
 | -f < bin &#124; bincirc &#124; csv &#124; tsv &#124; sql > |                                                            Specifica il formato di log per l'agente di raccolta dati.                                                             |
-|             -u [-] < utente [password] >              | Specifica l'utente di Esegui come. L'immissione \* di un oggetto per la password genera una richiesta per la password. La password non viene visualizzata quando si digita. |
+|             -u [-] < utente [password] >              | Specifica l'utente di Esegui come. L'immissione di un \* per la password genera una richiesta per la password. La password non viene visualizzata quando si digita. |
 |    -m < [avvio] [stop] [[start] [stop] [...]] >    |                                                modificare l'avvio o l'arresto manuale anziché un'ora di inizio o di fine pianificata.                                                 |
 |                -rf < [[hh:] mm:] ss >                |                                                        Eseguire l'agente di raccolta dati per il periodo di tempo specificato.                                                         |
 |        -b < g/aaaa h:mm: ss [AM &#124; PM] >         |                                                              Avviare la raccolta dei dati all'ora specificata.                                                               |
@@ -50,7 +50,7 @@ logman create counter <[-n] <name>> [options]
 |                      -[-]a                       |                                                                     Accoda a un file di log esistente.                                                                     |
 |                      -[-] Mostra                      |                                                                     Sovrascrivere un file di log esistente.                                                                     |
 |           -v [-] < nnnnnn &#124; mmgghhmm >           |                                                   alleghi le informazioni sul controllo delle versioni dei file alla fine del nome del file di log.                                                   |
-|                  -[-] RC<task>                   |                                                         Eseguire il comando specificato ogni volta che il log viene chiuso.                                                          |
+|                  -[-] RC <task>                   |                                                         Eseguire il comando specificato ogni volta che il log viene chiuso.                                                          |
 |                 -max [-] <value>                  |                                                 Dimensioni massime in MB o numero massimo di record di log di SQL.                                                  |
 |              -cnf [-] < [[hh:] mm:] ss >              |     Quando viene specificata l'ora, creare un nuovo file quando è trascorso il tempo specificato. Quando non viene specificata l'ora, creare un nuovo file quando viene superata la dimensione massima.     |
 |                        -y                        |                                                             Rispondere Sì a tutte le domande senza chiedere conferma.                                                              |
@@ -69,5 +69,5 @@ Il comando seguente crea un contatore denominato perf_log utilizzando il contato
 ```  
 logman create counter perf_log -c "\Processor(_Total)\% Processor time" -max 10 -rf 01:00  
 ```  
-#### <a name="additional-references"></a>riferimenti aggiuntivi  
+#### <a name="additional-references"></a>Riferimenti aggiuntivi  
 [logman](logman.md)  

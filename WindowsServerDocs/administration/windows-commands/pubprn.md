@@ -1,8 +1,8 @@
 ---
 title: pubprn
-description: 'Argomento i comandi di Windows per * * *- '
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 499ff2ade7ffc6c608791ba3da0ede0c3282c13d
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 844a13c1a650ebedcc0d5b4fbf65b9de671b2180
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59831702"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71372008"
 ---
 # <a name="pubprn"></a>pubprn
 
 >Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Pubblica una stampante servizi di dominio active directory.
+Pubblica una stampante in servizi di dominio Active Directory.
 
 ## <a name="syntax"></a>Sintassi
 ```
@@ -35,28 +35,28 @@ cscript pubprn {<ServerName> | <UNCprinterpath>}
 ## <a name="parameters"></a>Parametri
 |Parametro|Descrizione|
 |-------|--------|
-|\<ServerName>|Specifica il nome del server Windows che ospita la stampante che si desidera pubblicare. Se non si specifica un computer, viene utilizzato il computer locale.|
-|\<UNCprinterpath>|Il percorso Universal Naming Convention (UNC) per la stampante condivisa a cui si desidera pubblicare.|
-|"LDAP://CN=<Container>,DC=<Container>"|Specifica il percorso del contenitore in servizi di dominio active directory in cui si desidera pubblicare la stampante.|
+|\<ServerName >|Specifica il nome del server Windows che ospita la stampante che si desidera pubblicare. Se non si specifica un computer, viene usato il computer locale.|
+|\<UNCprinterpath >|Percorso Universal Naming Convention (UNC) della stampante condivisa che si desidera pubblicare.|
+|"LDAP://CN = <Container>, DC = <Container>"|Specifica il percorso del contenitore in servizi di dominio Active Directory in cui si desidera pubblicare la stampante.|
 |/?|Visualizza la guida al prompt dei comandi.|
 
 ## <a name="remarks"></a>Note
--   Il **pubprn** comando è uno script Visual Basic che si trova nel %WINdir%\System32\printing_Admin_Scripts\\ <language> directory. Per usare questo comando, un prompt dei comandi, digitare **cscript** aggiungendo il percorso completo del file pubprn, o cambiare le directory nella cartella appropriata. Ad esempio:
+-   Il comando **pubprn** è uno script Visual Basic che si trova nella directory%WINdir%\System32\printing_Admin_Scripts @ no__t-1 @ no__t-2. Per usare questo comando, al prompt dei comandi digitare **cscript** seguito dal percorso completo del file pubprn o passare alla cartella appropriata. Esempio:
     ```
     cscript %WINdir%\System32\printing_Admin_Scripts\en-US\pubprn
     ```
--   Se le informazioni fornite contengono spazi, utilizzare le virgolette intorno al testo (ad esempio, `"computer Name"`).
+-   Se le informazioni fornite contengono spazi, racchiudere il testo tra virgolette, ad esempio `"computer Name"`.
 
 ## <a name="BKMK_examples"></a>Esempi
-Per pubblicare tutte le stampanti nel \\\Server1 computer nel contenitore MyContainer nel dominio MyDomain.company.Com, digitare:
+Per pubblicare tutte le stampanti nel computer \\ \ server1 nel contenitore di contenitori del dominio MyDomain.company.Com, digitare:
 ```
 cscript Ppubprn Server1 "LDAP://CN=MyContainer,DC=MyDomain,DC=company,DC=Com"
 ```
-Per pubblicare la stampante Laserprinter1 sul \\\Server1 server per il contenitore MyContainer nel dominio MyDomain.company.Com, tipo:
+Per pubblicare la stampante stampa laserprinter1 nel server \\ \ server1 nel contenitore di contenitori del dominio MyDomain.company.Com, digitare:
 ```
 cscript Ppubprn \\Server1\Laserprinter1 "LDAP://CN=MyContainer,DC=MyDomain,DC=company,DC=Com"
 ```
 
 #### <a name="additional-references"></a>Riferimenti aggiuntivi
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)
-[riferimenti ai comandi di stampa](print-command-reference.md)
+Informazioni di[riferimento sui comandi di stampa](print-command-reference.md) 
+ per la sintassi della riga di [comando](command-line-syntax-key.md)

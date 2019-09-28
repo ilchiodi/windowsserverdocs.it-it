@@ -7,14 +7,14 @@ ms.author: billmath
 manager: mtillman
 ms.date: 11/14/2018
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 586f2d7b73c6017f8b69103a09f6b38bb31f542d
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 12c47f98af24331b25355178370cc4cd28c0aa10
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70865799"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71358047"
 ---
 # <a name="configuring-alternate-login-id"></a>Configurazione di un ID di accesso alternativo
 
@@ -137,9 +137,9 @@ Le applicazioni di Office si basano sulle informazioni inviate dall'amministrato
 
 |Chiave da aggiungere|Chiave nome dati, tipo e valore|Windows 7/8|Windows 10|Descrizione|
 |-----|-----|-----|-----|-----|
-|HKEY_CURRENT_USER\Software\Microsoft\AuthN|DomainHint</br>REG_SZ</br>contoso.com|Obbligatoria|Obbligatoria|Il valore di questo chiave è un nome di dominio personalizzato verificato nel tenant dell'organizzazione. Ad esempio, Contoso Corp può fornire un valore Contoso.com in questo chiave se Contoso.com è uno dei nomi di dominio personalizzati verificati nel tenant Contoso.onmicrosoft.com.|
+|HKEY_CURRENT_USER\Software\Microsoft\AuthN|DomainHint</br>REG_SZ</br>contoso.com|Obbligatorio|Obbligatorio|Il valore di questo chiave è un nome di dominio personalizzato verificato nel tenant dell'organizzazione. Ad esempio, Contoso Corp può fornire un valore Contoso.com in questo chiave se Contoso.com è uno dei nomi di dominio personalizzati verificati nel tenant Contoso.onmicrosoft.com.|
 HKEY_CURRENT_USER\Software\Microsoft\Office\16.0\Common\Identity|EnableAlternateIdSupport</br>REG_DWORD</br>1|Obbligatorio per Outlook 2016 ProPlus|Obbligatorio per Outlook 2016 ProPlus|Il valore di questo chiave può essere 1/0 per indicare all'applicazione Outlook se deve coinvolgere la logica di autenticazione con ID alternativo migliorata.|
-HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\Domains\contoso.com\sts|&#42;</br>REG_DWORD</br>1|Obbligatoria|Obbligatoria|Questo chiave può essere usato per impostare il servizio token di accesso come zona attendibile nelle impostazioni Internet. La distribuzione standard di ADFS consiglia di aggiungere lo spazio dei nomi ADFS all'area Intranet locale per Internet Explorer|
+HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\Domains\contoso.com\sts|&#42;</br>REG_DWORD</br>1|Obbligatorio|Obbligatorio|Questo chiave può essere usato per impostare il servizio token di accesso come zona attendibile nelle impostazioni Internet. La distribuzione standard di ADFS consiglia di aggiungere lo spazio dei nomi ADFS all'area Intranet locale per Internet Explorer|
 
 ## <a name="new-authentication-flow-after-additional-configuration"></a>Nuovo flusso di autenticazione dopo una configurazione aggiuntiva
 

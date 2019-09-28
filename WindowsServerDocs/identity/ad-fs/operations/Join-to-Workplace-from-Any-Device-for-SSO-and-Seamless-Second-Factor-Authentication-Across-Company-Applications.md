@@ -7,14 +7,14 @@ ms.author: billmath
 manager: femila
 ms.date: 12/05/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: e9d6161666be89673cff6ef1a975d3205fa4b5c9
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 05a8b8bb5685c31ece29ed8eb38d37a424e478b8
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66189095"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71357944"
 ---
 # <a name="join-to-workplace-from-any-device-for-sso-and-seamless-second-factor-authentication-across-company-applications"></a>Accedere a una rete aziendale da qualsiasi dispositivo per SSO e l'autenticazione a due fattori trasparente per tutte le applicazioni aziendali
 
@@ -31,10 +31,10 @@ Il rapido aumento del numero di dispositivi di uso personale e l'accesso univers
 ### <a name="workplace-join"></a>Aggiunta all'area di lavoro
 Consente agli Information Worker di aggiungere i dispositivi di uso personale ai computer della rete aziendale per accedere alle risorse e ai servizi aziendali. Quando si aggiunge il dispositivo di uso personale alla rete aziendale, questo diventa un dispositivo noto e consente l'autenticazione a due fattori trasparente e Single Sign-On per le applicazioni e le risorse della rete aziendale. Quando si aggiunge un dispositivo con Aggiunta alla rete aziendale, gli attributi del dispositivo possono essere recuperati dalla directory per consentire l'accesso condizionale, allo scopo di autorizzare il rilascio di token di sicurezza per le applicazioni. I dispositivi Windows 8.1 e iOS 6.0+ e i dispositivi Android 4.0+ possono essere aggiunti con Aggiunta all'area di lavoro.
 
-### <a name="BKMK_DRS"></a>Servizio di Azure Active Directory Device Registration
+### <a name="BKMK_DRS"></a>Servizio Registrazione dispositivo Azure Active Directory
 L'aggiunta all'area di lavoro è possibile grazie al servizio Azure Active Directory Device Registration. Quando si aggiunge un dispositivo con Aggiunta alla rete aziendale, il servizio effettua il provisioning dell'oggetto dispositivo in Azure Active Directory e quindi imposta una chiave nel dispositivo locale, usato per rappresentare l'identità del dispositivo. Questa identità del dispositivo può quindi essere usata con le regole di controllo di accesso per le applicazioni ospitate nel cloud e in locale.
 
-Per altre informazioni, vedere [Introduzione alla gestione dei dispositivi in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/device-management-introduction).
+Per informazioni dettagliate, vedere [Introduzione alla gestione dei dispositivi in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/device-management-introduction).
 
 ### <a name="workplace-join-as-a-seamless-second-factor-authentication"></a>Aggiunta alla rete aziendale come autenticazione a due fattori trasparente
 Le aziende possono gestire il rischio correlato all'accesso alle informazioni e favorire la governance e la conformità, concedendo contemporaneamente l'accesso alle risorse aziendali da parte dei dispositivi di uso personale. Aggiunta alla rete aziendale sui dispositivi offre le seguenti funzionalità agli amministratori:

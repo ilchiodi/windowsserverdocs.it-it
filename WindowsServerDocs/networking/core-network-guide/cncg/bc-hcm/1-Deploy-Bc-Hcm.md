@@ -2,18 +2,18 @@
 title: Distribuire la modalità Cache ospitata BranchCache
 description: In questa guida vengono fornite istruzioni sulla distribuzione di BranchCache in modalità cache ospitata sul computer che eseguono Windows Server 2016 e Windows 10
 manager: brianlic
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking-bc
 ms.topic: article
 ms.assetid: 4235231c-4732-4ea9-9330-2a8c8a616d39
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 54991b343623b934118bb62af1bd91871a726996
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 49e74132dba2909b7e5b639c95ef50064cf23e8c
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66446479"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71356374"
 ---
 # <a name="deploy-branchcache-hosted-cache-mode"></a>Distribuire la modalità Cache ospitata BranchCache
 
@@ -28,23 +28,23 @@ In questa guida viene illustrato come compilare nella rete principale, fornendo 
 
 Questa guida contiene le sezioni seguenti.
 
-- [Prerequisiti per l'uso di questa Guida](#bkmk_pre)
+- [Prerequisiti per l'uso di questa guida](#bkmk_pre)
 
 - [Informazioni sulla guida](#bkmk_about)
 
 - [Informazioni non contenute in questa guida](#bkmk_not)
 
-- [Panoramiche sulla tecnologia](#bkmk_tech)
+- [Panoramica sulla tecnologia](#bkmk_tech)
 
-- [Panoramica di distribuzione di modalità Cache ospitata di BranchCache](2-Bc-Hcm-Deploy-Overview.md)
+- [Panoramica della distribuzione in modalità cache ospitata di BranchCache](2-Bc-Hcm-Deploy-Overview.md)
 
-- [Modalità Cache ospitata BranchCache pianificazione della distribuzione](3-Bc-Hcm-Plan.md)
+- [Pianificazione della distribuzione in modalità cache ospitata di BranchCache](3-Bc-Hcm-Plan.md)
 
-- [Distribuzione in modalità Cache ospitata in BranchCache](4-Bc-Hcm-Deployment.md)
+- [Distribuzione in modalità cache ospitata di BranchCache](4-Bc-Hcm-Deployment.md)
 
 - [Risorse aggiuntive](11-Bc-Hcm-additional-resources.md)
 
-## <a name="bkmk_pre"></a>Prerequisiti per l'uso di questa Guida
+## <a name="bkmk_pre"></a>Prerequisiti per l'uso di questa guida
 
 Si tratta di una guida complementare alla Guida di Windows Server 2016 Core Network. Per distribuire BranchCache in modalità cache ospitata con questa Guida, è prima di tutto necessario eseguire questa procedura.
 
@@ -65,17 +65,17 @@ Si tratta di una guida complementare alla Guida di Windows Server 2016 Core Netw
 
 > [!NOTE]
 > Nei seguenti sistemi operativi, BranchCache non supporta la funzionalità HTTP e SMB, ma supporta la funzionalità BranchCache BITS.
->     - Windows 10 Pro, BITS supportano solo
->     - Windows 8.1 Pro, BITS supportano solo
->     - Windows 8 Pro, BITS supportano solo
+>     - Windows 10 Pro, solo supporto BITS
+>     - Windows 8.1 Pro, solo supporto BITS
+>     - Windows 8 Pro, solo supporto BITS
 
-## <a name="bkmk_about"></a>Informazioni sulla Guida
+## <a name="bkmk_about"></a>Informazioni su questa guida
 
-Questa guida è progettata per gli amministratori di rete e di sistema che hanno seguito le istruzioni nella Guida alla rete Core di Windows Server 2016 o Guida alla rete Core di Windows Server 2012 per distribuire una rete core oppure a coloro che hanno distribuito in precedenza il le tecnologie inclusi nella Guida alla rete Core, tra cui Active Directory Domain Services \(AD DS\), Domain Name Service \(DNS\), Dynamic Host Configuration Protocol \(DHCP\), TCP e\/IP v4.
+Questa guida è destinata agli amministratori di rete e di sistema che hanno seguito le istruzioni riportate nella Guida alla rete core di Windows Server 2016 o nella Guida alla rete core di Windows Server 2012 per distribuire una rete core o per coloro che hanno distribuito in precedenza il tecnologie incluse nella Guida alla rete core, tra cui Active Directory Domain Services \(AD DS @ no__t-1, Domain Name Service \(DNS @ no__t-3, Dynamic Host Configuration Protocol \(DHCP @ no__t-5 e TCP @ no__t-6IP V4.
 
 È consigliabile vedere le guide alla progettazione e alla distribuzione per ognuna delle tecnologie usate in questo scenario di distribuzione. Queste guide consentono di determinare se questo scenario di distribuzione fornisce la configurazione e i servizi necessari per la rete dell'organizzazione.
 
-## <a name="bkmk_not"></a>Informazioni non contenute in questa Guida
+## <a name="bkmk_not"></a>Descrizione non fornita da questa guida
 
 Questa Guida non fornisce informazioni concettuali su BranchCache, incluse le informazioni sulle modalità e le funzionalità di BranchCache.  
 
@@ -84,11 +84,11 @@ In questa Guida non fornisce informazioni sulla distribuzione di connessioni WAN
 Questa Guida non fornisce inoltre indicazioni sull'hardware che è necessario usare quando si distribuisce un server cache ospitata. È possibile eseguire altre applicazioni e servizi nel server cache ospitata, ma è necessario determinare, in base a carico di lavoro, funzionalità hardware e dimensioni delle succursali, se si vuole installare il server cache ospitata BranchCache in un computer specifico e quanto spazio su disco allocare per la cache.  
 In questa guida vengono fornite istruzioni per configurare i computer che eseguono Windows 7. Se si dispone di computer client che eseguono Windows 7 nelle succursali, è necessario configurarli tramite le procedure che sono diverse da quelli forniti in questa guida per i computer client che eseguono Windows 10, Windows 8.1 e Windows 8.
   
-Inoltre, se si dispone di computer che eseguono Windows 7, è necessario configurare il server cache ospitata con un certificato server emesso da un'autorità di certificazione attendibili i computer client. \(Se tutti i computer client eseguono Windows 10, Windows 8.1 o Windows 8, non devi configurare il server cache ospitata con un certificato del server.\) 
+Inoltre, se si dispone di computer che eseguono Windows 7, è necessario configurare il server cache ospitata con un certificato server emesso da un'autorità di certificazione attendibili i computer client. \(If tutti i computer client eseguono Windows 10, Windows 8.1 o Windows 8, non è necessario configurare il server cache ospitata con un certificato server. \) 
 > [!IMPORTANT]
 > Se i server cache ospitata esegue Windows Server 2008 R2, utilizzare Windows Server 2008 R2 [Guida alla distribuzione di BranchCache](https://technet.microsoft.com/library/ee649232(v=ws.10).aspx) invece di questa Guida alla distribuzione di BranchCache in modalità cache ospitata. Applicare le impostazioni di criteri di gruppo che sono descritti nella Guida a tutti i client di BranchCache che eseguono versioni di Windows da Windows 7 per Windows 10. Attenersi alla procedura riportata in questa Guida non è possibile configurare i computer che eseguono Windows Server 2008 R2.
 
-## <a name="bkmk_tech"></a>Panoramiche sulla tecnologia
+## <a name="bkmk_tech"></a>Panoramica sulla tecnologia
 
 In questa guida complementare BranchCache è la sola tecnologia che è necessario installare e configurare. Si devono eseguire i comandi BranchCache di Windows PowerShell nei server di contenuti, ad esempio server Web e file server, ma non è necessario modificare o riconfigurare i server di contenuti in altro modo. Inoltre, è necessario configurare i computer client utilizzando criteri di gruppo nei controller di dominio che eseguono servizi di dominio Active Directory in Windows Server 2016, Windows Server 2012 R2 o Windows Server 2012.
 

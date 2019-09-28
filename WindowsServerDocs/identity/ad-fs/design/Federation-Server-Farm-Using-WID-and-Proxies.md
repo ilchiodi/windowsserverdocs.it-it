@@ -7,28 +7,28 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: d49ae34d83d4a0b912bd92dbb9de16e18cc5b7ff
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 6a123afaebba002b8ee4fb98d5cee5aded286a96
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66191344"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71359128"
 ---
 # <a name="federation-server-farm-using-wid-and-proxies"></a>Server farm federativa che usa Database interno di Windows e proxy
 
-Questa topologia di distribuzione di Active Directory Federation Services \(ADFS\) è identica alla server farm federativa con Database interno di Windows \(WID\) topologia, ma aggiunge i computer proxy per il rete perimetrale per supportare gli utenti esterni. Questi proxy reindirizza le richieste di autenticazione client provengono dall'esterno della rete aziendale per la server farm federativa. Nelle versioni precedenti di AD FS, chiamati questi proxy server federativi.  
+Questa topologia di distribuzione per Active Directory Federation Services \(AD FS @ no__t-1 è identica alla server farm federativa con la topologia di database interno di Windows \(WID @ no__t-3, ma aggiunge i computer proxy alla rete perimetrale per supportare utenti esterni. Questi proxy reindirizzano le richieste di autenticazione client che provengono dall'esterno della rete aziendale alla Federazione server farm. Nelle versioni precedenti di AD FS, questi proxy erano denominati proxy server federativi.  
   
 > [!IMPORTANT]  
-> In Active Directory Federation Services \(ADFS\) in Windows Server 2012 R2, il ruolo di un proxy server federativo viene gestito da un nuovo servizio ruolo Accesso remoto denominato Proxy applicazione Web. Per rendere ADFS accessibile dall'esterno della rete aziendale, che lo scopo della distribuzione di un proxy server federativo nelle versioni legacy di ADFS, ad esempio AD FS 2.0 e ADFS in Windows Server 2012, è possibile distribuire uno o più proxy applicazione web per oggetto D ADFS in Windows Server 2012 R2.  
+> In Active Directory Federation Services \(AD FS @ no__t-1 in Windows Server 2012 R2, il ruolo di proxy server federativo viene gestito da un nuovo servizio ruolo di accesso remoto denominato proxy applicazione Web. Per abilitare la AD FS per l'accessibilità dall'esterno della rete aziendale, che era lo scopo della distribuzione di un proxy server federativo nelle versioni legacy di AD FS, ad esempio AD FS 2,0 e AD FS in Windows Server 2012, è possibile distribuire uno o più proxy applicazione Web per un D FS in Windows Server 2012 R2.  
 >   
-> Nel contesto di AD FS, Proxy applicazione Web funziona come un proxy server federativo AD FS. Oltre a questo, Proxy applicazione Web rende disponibili funzionalità di proxy inverso per le applicazioni Web all'interno della rete aziendale, in modo da consentire agli utenti con qualsiasi dispositivo di accedere a tali applicazioni dall'esterno della rete aziendale. Per altre informazioni sul servizio ruolo Proxy applicazione Web, vedere la panoramica di Proxy applicazione Web.  
+> Nel contesto di AD FS, proxy applicazione Web funge da AD FS proxy server federativo. Oltre a questo, Proxy applicazione Web rende disponibili funzionalità di proxy inverso per le applicazioni Web all'interno della rete aziendale, in modo da consentire agli utenti con qualsiasi dispositivo di accedere a tali applicazioni dall'esterno della rete aziendale. Per altre informazioni sul servizio ruolo Proxy applicazione Web, vedere la panoramica di Proxy applicazione Web.  
 >   
 > Per pianificare la distribuzione di Proxy applicazione Web, è possibile consultare le informazioni negli argomenti seguenti:  
 >   
-> -   [Pianificare l'infrastruttura del Proxy applicazione Web (WAP)](https://technet.microsoft.com/library/dn383648.aspx)  
-> -   [Pianificare il Server Proxy applicazione Web](https://technet.microsoft.com/library/dn383647.aspx)  
+> -   [Pianificare l'infrastruttura del proxy dell'applicazione Web (WAP)](https://technet.microsoft.com/library/dn383648.aspx)  
+> -   [Pianificare il server proxy applicazione Web](https://technet.microsoft.com/library/dn383647.aspx)  
   
 ## <a name="deployment-considerations"></a>Considerazioni sulla distribuzione  
 Questa sezione vengono descritte varie considerazioni sui destinatari, vantaggi e limitazioni di cui è associate a questa topologia di distribuzione.  
@@ -55,11 +55,11 @@ Questa sezione vengono descritte varie considerazioni sui destinatari, vantaggi 
 |Nodi più di 30 AD FS|Non supportato utilizzando WID \- SQL necessarie|Non supportato utilizzando WID \- SQL necessarie  
   
 ## <a name="server-placement-and-network-layout-recommendations"></a>Consigli di layout posizionamento e la rete di server  
-Per distribuire questa topologia, oltre ad aggiungere due proxy applicazioni web, è necessario assicurarsi che nella rete perimetrale può anche fornire l'accesso a un sistema di nome di dominio \(DNS\) server e al bilanciamento del carico di rete secondo \( Bilanciamento carico di rete\) host. Il secondo host NLB deve essere configurato con un cluster di bilanciamento carico di RETE che utilizza un Internet\-indirizzo IP del cluster accessibile e utilizzino la stessa impostazione di nome DNS cluster del cluster di bilanciamento carico di RETE precedente configurata nella rete aziendale \(fs.fabrikam.com\). Il proxy applicazione web deve essere configurato anche con Internet\-indirizzi IP accessibili.  
+Per distribuire questa topologia, oltre ad aggiungere due proxy applicazione Web, è necessario assicurarsi che la rete perimetrale possa anche fornire l'accesso a un Domain Name System \(DNS @ no__t-1 server e a un secondo host di bilanciamento carico di rete \(NLB @ no__t-3. Il secondo host NLB deve essere configurato con un cluster di bilanciamento carico di RETE che utilizza un Internet\-indirizzo IP del cluster accessibile e utilizzino la stessa impostazione di nome DNS cluster del cluster di bilanciamento carico di RETE precedente configurata nella rete aziendale \(fs.fabrikam.com\). I proxy dell'applicazione Web devono essere configurati anche con indirizzi IP Internet @ no__t-0accessible.  
   
-La figura seguente mostra la server farm federativa esistente con topologia database interno di Windows che è stato descritto in precedenza e fornisce l'accesso a un server DSN perimetrale, come la società fittizia Fabrikam, Inc., aggiunge un secondo host NLB con lo stesso nome DNS cluster \(fs.fabrikam.com\)e aggiunge due proxy applicazioni web \(wap1 e wap2\) alla rete perimetrale.  
+Nella figura seguente viene illustrato il server farm della Federazione esistente con la topologia WID descritta in precedenza e il modo in cui l'azienda fittizia Fabrikam, Inc., fornisce l'accesso a un server DNS perimetrale, aggiunge un secondo host NLB con lo stesso nome DNS del cluster @no__t -0FS. fabrikam. com @ no__t-1 e aggiunge due proxy applicazione Web \(wap1 e WAP2 @ no__t-3 alla  
   
-![Farm WID e proxy](media/WIDFarmADFSBlue.gif)  
+![Farm e proxy WID](media/WIDFarmADFSBlue.gif)  
   
 Per ulteriori informazioni su come configurare l'ambiente di rete per l'utilizzo con server federativo o proxy applicazione web, vedere "Requisiti di risoluzione dei nomi" sezione [requisiti per ADFS](AD-FS-Requirements.md) e [pianificare l'infrastruttura di Proxy applicazione Web (WAP)](https://technet.microsoft.com/library/dn383648.aspx).  
   

@@ -1,8 +1,8 @@
 ---
 title: defrag
-description: 'Argomento i comandi di Windows per * * *- '
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 6b5f6231273fb9fe9a99a1cd1bf72dbd0bad71af
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 2d930e224ac1610b5e49cbf5701778bfb6f14b2e
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66433908"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71378707"
 ---
 # <a name="defrag"></a>defrag
 
@@ -41,36 +41,36 @@ defrag <volume> [/<Parameter>]*
 |`<volume>`|Specifica il percorso di punto di montaggio o lettera di unità del volume da deframmentare o l'analisi.|
 |A|Analizzare i volumi specificati.|
 |C|Eseguire l'operazione in tutti i volumi.|
-|D|Eseguire la deframmentazione tradizionale (questo è il valore predefinito). In un volume a livelli, deframmentazione tradizionali viene eseguita solo nel livello di capacità.|
+|D|Eseguire la deframmentazione tradizionale (impostazione predefinita). In un volume a livelli, tuttavia, la deframmentazione tradizionale viene eseguita solo sul livello di capacità.|
 |E|Eseguire l'operazione in tutti i volumi ad eccezione di quelli specificati.|
-|G|Ottimizzare i livelli di archiviazione nel volume specificati.|
+|G|Ottimizzare i livelli di archiviazione nei volumi specificati.|
 |H|Eseguire l'operazione con priorità normale (valore predefinito è bassa).|
-|I n|Ottimizzazione dei livelli verrà eseguite al massimo n secondi in ogni volume.|
-|K|Eseguire il consolidamento i volumi specificati.|
-|L|Eseguire retrim i volumi specificati.|
-|M [n]|Eseguire l'operazione in ciascun volume in parallelo in background. Al massimo n thread ottimizzare i livelli di archiviazione in parallelo.|
-|O|Eseguire l'ottimizzazione appropriato per ogni tipo di supporto.|
+|I n|L'ottimizzazione del livello viene eseguita per al massimo n secondi in ogni volume.|
+|K|Esegue il consolidamento delle piastre sui volumi specificati.|
+|L|Eseguire il ritaglio sui volumi specificati.|
+|M [n]|Eseguire l'operazione in ciascun volume in parallelo in background. Al massimo n thread ottimizzano i livelli di archiviazione in parallelo.|
+|O|Eseguire l'ottimizzazione corretta per ogni tipo di supporto.|
 |T|Tenere traccia di un'operazione già in corso nel volume specificato.|
 |U|stampa lo stato di avanzamento dell'operazione sullo schermo.|
-|V|stampare l'output dettagliato contenente le statistiche di frammentazione.|
+|V|stampa l'output dettagliato contenente le statistiche di frammentazione.|
 |x|Eseguire il consolidamento di spazio libero nel volume specificati.|
 |?|Consente di visualizzare queste informazioni della Guida.|
 
 ## <a name="remarks"></a>Note
 - È in grado di deframmentare tipi specifici di unità o volumi di file system:
   -   È possibile deframmentare i volumi che ha bloccato il file system.
-  -   È Impossibile deframmentare volumi che il file system è contrassegnato come modificato, che indica un possibile danneggiamento. È necessario eseguire **chkdsk** in un volume danneggiato prima di deframmentare. È possibile determinare se un volume è danneggiato, utilizzare il **fsutil** dirty comando di query. Per altre informazioni sulle **chkdsk** e **fsutil** dirty, vedere [riferimenti aggiuntivi](defrag.md#BKMK_additionalRef).
+  -   È Impossibile deframmentare volumi che il file system è contrassegnato come modificato, che indica un possibile danneggiamento. È necessario eseguire **chkdsk** in un volume danneggiato prima di deframmentare. È possibile determinare se un volume è danneggiato, utilizzare il **fsutil** dirty comando di query. Per ulteriori informazioni su **chkdsk** e **fsutil** Dirty, vedere [riferimenti aggiuntivi](defrag.md#BKMK_additionalRef).
   -   È possibile deframmentare le unità di rete.
-  -   È possibile deframmentare cdROMs.
-  -   È possibile deframmentare i volumi di file system che non sono **NTFS**, **ReFS**, **Fat** oppure **Fat32**.
+  -   Non è possibile deframmentare i cdROM.
+  -   Non è possibile deframmentare file system volumi che non sono **NTFS**, **refs**, **FAT** o **FAT32**.
 - Con Windows Server 2008 R2, Windows Server 2008 e Windows Vista, è possibile pianificare per deframmentare un volume. Tuttavia, non è possibile pianificare per deframmentare un volume su un disco rigido virtuale (VHD) che risiede in un'unità SSD o un solido stato unità SSD.
-- Per eseguire questa procedura è necessario essere membri del gruppo Administrators nel computer locale oppure disporre della delega per l'autorità appropriata. Se il computer fa parte di un dominio, i membri del gruppo Domain Admins potrebbero essere in grado di eseguire questa procedura. Come procedura di sicurezza consigliata, è consigliabile usare **runas** per eseguire questa procedura.
-- Un volume deve avere almeno 15% spazio per **defrag** in modo completo e corretto. **la deframmentazione** Usa quest'area come area di ordinamento per i frammenti di file. Se un volume è inferiore a 15% di spazio libero, **defrag** solo parzialmente la deframmentazione. Per aumentare lo spazio disponibile su un volume, eliminare i file non necessari o spostarli in un altro disco.
+- Per eseguire questa procedura è necessario essere membri del gruppo Administrators nel computer locale oppure disporre della delega per l'autorità appropriata. Se il computer fa parte di un dominio, i membri del gruppo Domain Admins potrebbero essere in grado di eseguire questa procedura. Come procedura di sicurezza consigliata, provare a utilizzare **RunAs** per eseguire questa procedura.
+- Un volume deve avere almeno 15% spazio per **defrag** in modo completo e corretto. **Defrag** utilizza questo spazio come area di ordinamento per i frammenti di file. Se un volume è inferiore a 15% di spazio libero, **defrag** solo parzialmente la deframmentazione. Per aumentare lo spazio disponibile su un volume, eliminare i file non necessari o spostarli in un altro disco.
 - Mentre **defrag** è l'analisi e la deframmentazione di un volume, viene visualizzato un cursore lampeggiante. Quando **defrag** termine dell'analisi e la deframmentazione del volume, Visualizza il report di analisi, il rapporto di deframmentazione o entrambi i report e quindi viene chiusa al prompt dei comandi.
 - Per impostazione predefinita, **defrag** Visualizza un riepilogo dei report di analisi e deframmentazione se non si specifica il **/a** o **/v** parametri.
 - È possibile inviare i report in un file di testo digitando **>** <em>nomefile</em>, dove *nomefile* è un nome file specificato. Ad esempio: `defrag volume /v > FileName.txt`
 - Per interrompere il processo di deframmentazione, dalla riga di comando, premere **CTRL + C**.
-- In esecuzione la **defrag** comando e utilità di deframmentazione dischi si escludono a vicenda. Se si usa l'utilità di deframmentazione dischi per deframmentare un volume e si esegue la **defrag** comando in una riga di comando, il **defrag** comando ha esito negativo. Viceversa, se si esegue la **defrag** comando e aprire Utilità di deframmentazione dischi, non sono disponibili le opzioni di utilità di deframmentazione dischi.
+- L'esecuzione del comando **Defrag** e dell'utilità di deframmentazione dischi si escludono a vicenda. Se si usa l'utilità di deframmentazione dischi per deframmentare un volume e si esegue il comando **Defrag** da una riga di comando, il comando **Defrag** ha esito negativo. Viceversa, se si esegue il comando **Defrag** e si apre l'utilità di deframmentazione dischi, le opzioni di deframmentazione nell'utilità di deframmentazione dischi non sono disponibili.
 
 ## <a name="BKMK_examples"></a>Esempi
 Per deframmentare il volume dell'unità C, fornendo lo stato di avanzamento e l'output dettagliato, digitare:
@@ -91,16 +91,16 @@ defrag /C /H /V
 ```
 
 ## <a name="BKMK_scheduledTask"></a>Attività pianificata
-La deframmentazione pianificati dell'esecuzione dell'attività come attività di manutenzione e in genere pianificato per l'esecuzione ogni settimana. Amministratore può modificare la frequenza usando **Ottimizza unità** dell'applicazione.
-- Quando viene eseguito dall'attività pianificata **defrag** ha criteri seguenti per le unità SSD:
-   - **La deframmentazione Traditional** (vale a dire lo spostamento di file per renderli ragionevolmente contigue) e **retrim** viene eseguita solo una volta al mese.
-   - Se entrambe **tradizionale defrag** e **retrim** vengono ignorate **analysis** non viene eseguito.
-      - Se l'utente è stata eseguita **tradizionale defrag** manualmente in un'unità SSD, ad esempio 3 settimane dopo pianificata l'ultima esecuzione di attività, quindi verrà eseguita l'attività pianificata successiva eseguire **analysis** e **retrim** ma ignorare **tradizionale defrag** su tale unità SSD.
-   - Se **analysis** viene ignorato e il **ultima esecuzione** memento nel **Ottimizza unità** non verrà aggiornato.  In questo caso per le unità SSD il **ultima esecuzione** temporale nella **Ottimizza unità** può essere precedente al mese.
-- Questa attività di manutenzione potrebbe non deframmentare tutti i volumi, in alcuni casi poiché questa attività esegue le operazioni seguenti:
-   - Non riattivare il computer per poter eseguire la deframmentazione
-   - Viene avviato solo se il computer è alimentato da rete elettrica e viene interrotta se il computer passa all'alimentazione a batteria
-   - Viene interrotta se nel computer cessa di essere inattivo
+L'attività pianificata di deframmentazione viene eseguita come un'attività di manutenzione e viene in genere pianificata per essere eseguita ogni settimana. L'amministratore può modificare la frequenza utilizzando l'applicazione **Ottimizza unità** .
+- Quando viene eseguito dall'attività pianificata, **Defrag** presenta i criteri seguenti per le unità SSD:
+   - La **deframmentazione tradizionale** , ovvero lo spostamento dei file per renderli ragionevolmente contigui, e il **ritaglio** viene eseguito solo una volta al mese.
+   - Se vengono ignorate la **deframmentazione** e il **ritaglio** tradizionali, l' **analisi** non viene eseguita.
+      - Se l'utente ha eseguito manualmente la **deframmentazione** in un'unità SSD, ad indicare 3 settimane dopo l'esecuzione dell'ultima attività pianificata, la successiva esecuzione pianificata dell'attività eseguirà l' **analisi** e il **ritaglio** , ignorando però la **deframmentazione tradizionale** .
+   - Se l' **analisi** viene ignorata, l' **ultima esecuzione** in **Ottimizza unità** non verrà aggiornata.  Quindi, per le unità SSD l' **ultima esecuzione** in **Ottimizza unità** può essere un mese precedente.
+- Questa attività di manutenzione potrebbe non deframmentare tutti i volumi, in alcuni casi perché questa attività esegue le operazioni seguenti:
+   - Non riattiva il computer per eseguire la deframmentazione
+   - Viene avviato solo se il computer è alimentato da AC e si arresta se il computer passa alla batteria
+   - Arresta se il computer cessa di essere inattivo
 
 ## <a name="BKMK_additionalRef"></a>Riferimenti aggiuntivi
 -   [chkdsk](chkdsk.md)

@@ -1,8 +1,8 @@
 ---
-title: REG Salva
-description: 'Argomento i comandi di Windows per * * *- '
+title: reg Salva
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,14 +13,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 2a46dfe081421ed727bd7ffeeab364e6c23dd801
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 6ae07cd3c90c51e7bd494bc6c35919680cde912a
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59841082"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71371700"
 ---
-# <a name="reg-save"></a>REG Salva
+# <a name="reg-save"></a>reg Salva
 
 
 
@@ -38,19 +38,19 @@ reg save <KeyName> <FileName> [/y]
 
 |Parametro|Descrizione|
 |---------|-----------|
-|\<Nome chiave >|Specifica il percorso completo della sottochiave. Per specificare un computer remoto, includere il nome del computer (nel formato \\ \\nomecomputer\) come parte del *KeyName*. L'omissione \\ \\ComputerName\ fa sì che l'operazione per impostazione predefinita nel computer locale. Il *KeyName* deve includere una chiave radice valido. Le chiavi principali valide per il computer locale sono: HKLM, HKCU, HKCR, HKU e HKCC. Se viene specificato un computer remoto, le chiavi principali valide sono: HKLM e HKU.|
-|\<FileName>|Specifica il nome e percorso del file che viene creato. Se viene specificato alcun percorso, viene utilizzato il percorso corrente.|
+|\<KeyName >|Specifica il percorso completo della sottochiave. Per specificare i computer remoti, includere il nome del computer (nel formato \\ @ no__t-1ComputerName @ no__t-2 come parte del *nome*della pagina. Se si omette \\ @ no__t-1ComputerName \, l'operazione viene impostata sul computer locale per impostazione predefinita. Il *KeyName* deve includere una chiave radice valido. Le chiavi radice valide per il computer locale sono: HKLM, HKCU, HKCR, HKU e HKCC. Se viene specificato un computer remoto, le chiavi radice valide sono: HKLM e HKU.|
+|\<> FileName|Specifica il nome e percorso del file che viene creato. Se viene specificato alcun percorso, viene utilizzato il percorso corrente.|
 |/y|Sovrascrive un file esistente con il nome *FileName* senza chiedere conferma.|
 |/?|Visualizza la Guida per **reg salvare** al prompt dei comandi.|
 
-## <a name="remarks-optional-section"></a>La sezione Osservazioni \<sezione facoltativa >
+## <a name="remarks-optional-section"></a>@No__t sezione Osservazioni-0optional >
 
 -   Nella tabella seguente sono elencati i valori restituiti per il **reg salvare** operazione.
 
 |Value|Descrizione|
 |-----|-----------|
 |0|Riuscito|
-|1|Operazione non riuscita|
+|1|Errore|
 -   Prima di modificare le voci del Registro di sistema, salvare la sottochiave padre con il **reg salvare** operazione. Se la modifica non riesce, ripristinare la sottochiave originale con la **ripristino reg** operazione.
 
 ## <a name="BKMK_examples"></a>Esempi
@@ -62,4 +62,4 @@ REG SAVE HKLM\Software\MyCo\MyApp AppBkUp.hiv
 
 #### <a name="additional-references"></a>Altri riferimenti
 
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)
+[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

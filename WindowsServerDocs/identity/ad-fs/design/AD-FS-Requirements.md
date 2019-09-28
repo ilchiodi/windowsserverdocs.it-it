@@ -7,14 +7,14 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 247381b35a038627b5d8c91ac4dda0cc4fab6195
-ms.sourcegitcommit: ccec91c1d32a978159f9b8bb5e39ead5805c26c4
+ms.openlocfilehash: 720c20437f7e6da875b809b2816f0d4df5d210d6
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71143783"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71359194"
 ---
 # <a name="ad-fs-requirements"></a>Requisiti per ADFS
 
@@ -185,7 +185,7 @@ AD FS crea cookie\-permanenti e basati su sessione che devono essere archiviati 
 ## <a name="BKMK_extranet"></a>Requisiti Extranet  
 Per fornire l'accesso extranet al servizio ADFS, è necessario distribuire il servizio ruolo Proxy applicazione Web come ruolo pubblico extranet che le richieste di autenticazione proxy in modo sicuro per il servizio ADFS. In questo modo l'isolamento di tutte le chiavi di sicurezza e isolamento degli endpoint del servizio ADFS \(ad esempio i certificati di firma del token\) dalle richieste provenienti da internet. Inoltre, le funzionalità, ad esempio il blocco degli Account Extranet Soft richiedono l'utilizzo del Proxy dell'applicazione Web. Per ulteriori informazioni sul Proxy dell'applicazione Web, vedere [Proxy applicazione Web](https://technet.microsoft.com/library/dn584107.aspx).  
   
-Se si vuole usare un proxy di\-terze parti per l'accesso Extranet,\-questo proxy di terze parti deve supportare il protocollo definito nel [download\/\/ http: download.Microsoft.com\/\/ 9\/5E\/95EF66AF\-90264BB0\-A41DA4F81802D92C%5bMS\-ADFSPIP% 5 d.pdf.\/\-\-\/](https://download.microsoft.com/download/9/5/E/95EF66AF-9026-4BB0-A41D-A4F81802D92C/%5bMS-ADFSPIP%5d.pdf)  
+Se si vuole usare un terzo proxy @ no__t-0party per l'accesso Extranet, questo terzo proxy @ no__t-1party deve supportare il protocollo definito in [http: @no__t -3\/download.microsoft.com @ no__t-5download @ no__t-69 @ no__t-75 @ no__t-8E @ no__t-995EF66AF](https://download.microsoft.com/download/9/5/E/95EF66AF-9026-4BB0-A41D-A4F81802D92C/%5bMS-ADFSPIP%5d.pdf)@ no__t-109026 @ no__t-114BB0 @ no__t-12A41D @ no__t-13A4F81802D92C @ no__t-14%5bMS\-5ADFSPIP%5d.pdf.  
   
 ## <a name="BKMK_7"></a>Requisiti di rete  
 Configurazione dei seguenti servizi di rete è essenziale per una corretta distribuzione di ADFS nell'organizzazione:  

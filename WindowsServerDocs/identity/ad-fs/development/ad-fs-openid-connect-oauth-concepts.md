@@ -6,14 +6,14 @@ ms.author: billmath
 manager: daveba
 ms.date: 08/09/2019
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 6a0a1da3dd5c92dff885478c1669bbda5ae07fe5
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 0e680e07ce1ee27a73791e310a71b85ad76d6318
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70867482"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71358757"
 ---
 # <a name="ad-fs-openid-connectoauth-concepts"></a>Concetti di AD FS OpenID Connect/OAuth
 Si applica a AD FS 2016 e versioni successive
@@ -55,7 +55,7 @@ L'autenticazione moderna usa i tipi di token seguenti:
  
 Durante la registrazione di una risorsa in AD FS, è possibile configurare gli ambiti in modo da consentire AD FS di eseguire azioni specifiche. Oltre a configurare l'ambito, è necessario inviare anche il valore dell'ambito nella richiesta di AD FS per eseguire l'azione. Ad esempio, l'amministratore deve configurare l'ambito come OpenID durante la registrazione delle risorse e l'applicazione (client) deve inviare l'ambito = OpenID nella richiesta di autenticazione per AD FS per emettere un token ID. Di seguito sono riportati i dettagli sugli ambiti disponibili in AD FS 
  
-- Aza: se si utilizzano le [estensioni del protocollo OAuth 2,0 per i client](https://docs.microsoft.com/openspecs/windows_protocols/ms-oapxbc/2f7d8875-0383-4058-956d-2fb216b44706) del broker e se il parametro scope contiene l'ambito "AZA", il server emette un nuovo token di aggiornamento primario e lo imposta nel campo refresh_token della risposta, nonché impostando campo refresh_token_expires_in per la durata del nuovo token di aggiornamento primario se ne viene applicato uno. 
+- Aza: se si utilizzano le [estensioni del protocollo OAuth 2,0 per i client Broker](https://docs.microsoft.com/openspecs/windows_protocols/ms-oapxbc/2f7d8875-0383-4058-956d-2fb216b44706)  e se il parametro scope contiene l'ambito "AZA", il server emette un nuovo token di aggiornamento primario e lo imposta nel campo refresh_token della risposta, nonché impostando il refresh_ campo token_expires_in per la durata del nuovo token di aggiornamento primario se ne viene applicato uno. 
 - OpenID: consente all'applicazione di richiedere l'uso del protocollo di autorizzazione OpenID Connect. 
 - logon_cert: l'ambito logon_cert consente a un'applicazione di richiedere certificati di accesso, che possono essere usati per accedere in modo interattivo agli utenti autenticati. Il server AD FS omette il parametro access_token dalla risposta e fornisce invece una catena di certificati CMS con codifica Base64 o una risposta PKI completa della CMC. Altre informazioni sono disponibili [qui](https://docs.microsoft.com/en-us/openspecs/windows_protocols/ms-oapx/32ce8878-7d33-4c02-818b-6c9164cc731e).
 - user_impersonation: l'ambito user_impersonation è necessario per richiedere correttamente un token di accesso per conto di AD FS. Per informazioni dettagliate su come usare questo ambito, vedere la pagina relativa alla creazione di un'applicazione a più livelli con l'uso [di OAuth con AD FS 2016](ad-fs-on-behalf-of-authentication-in-windows-server.md). 

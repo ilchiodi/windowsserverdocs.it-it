@@ -2,22 +2,22 @@
 title: Installare server di contenuti di Servizi file
 description: Questo argomento fa parte di BranchCache distribuzione Guide per Windows Server 2016, che illustra come distribuire BranchCache in modalità cache distribuita e ospitato per ottimizzare l'utilizzo della larghezza di banda WAN nelle succursali
 manager: brianlic
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking-bc
 ms.topic: get-started-article
 ms.assetid: 74b0a5ed-dc20-4974-9d4b-2426987a01a1
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 496c0c1408c64216f29a31d5b22d3d9b48d4f44c
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: c55f8df57ed98d13d6d0d6d2a281edfb55883bea
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59855062"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71356558"
 ---
 # <a name="install-file-services-content-servers"></a>Installare server di contenuti di Servizi file
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016
 
 Per distribuire server di contenuti che eseguono il ruolo server Servizi file, è necessario installare il servizio ruolo BranchCache per file di rete del ruolo server Servizi file. Inoltre, è necessario abilitare BranchCache sulle condivisioni file in base ai requisiti.  
   
@@ -30,11 +30,11 @@ Durante la configurazione del server di contenuti è possibile consentire a Bran
   
 Vedere gli argomenti seguenti per distribuire server di contenuti.  
   
--   [Configurare il ruolo server Servizi File](../../branchcache/deploy/Configure-the-File-Services-server-role.md)  
+-   [Configurare il ruolo server Servizi file](../../branchcache/deploy/Configure-the-File-Services-server-role.md)  
   
--   [Abilitare la pubblicazione di Hash per File server](../../branchcache/deploy/Enable-Hash-Publication-for-File-Servers.md)  
+-   [Abilitare la pubblicazione di hash per i file server](../../branchcache/deploy/Enable-Hash-Publication-for-File-Servers.md)  
   
--   [Abilitare BranchCache su una condivisione File &#40;facoltativo&#41;](../../branchcache/deploy/enable-bc-on-file-share.md)  
+-   [Abilitare BranchCache su una condivisione &#40;file facoltativa&#41;](../../branchcache/deploy/enable-bc-on-file-share.md)  
   
 
 

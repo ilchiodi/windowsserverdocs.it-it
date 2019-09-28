@@ -7,13 +7,13 @@ author: nwashburn-ms
 ms.author: niwashbu
 ms.date: 05/09/2019
 ms.localizationpriority: medium
-ms.prod: windows-server-threshold
-ms.openlocfilehash: c30f8a9b856db8250a16210931e6f8dd73c07aa7
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.prod: windows-server
+ms.openlocfilehash: 6e99fc43d4acb7a70dfd3a8ba19dae6492c41b2b
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70869611"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71357048"
 ---
 # <a name="using-powershell-in-your-extension"></a>Utilizzo di PowerShell nell'estensione #
 
@@ -92,7 +92,7 @@ Fornendo il nome del nodo al metodo createSession, viene creata una nuova sessio
 ### <a name="key-options"></a>Opzioni chiave ###
 Sono disponibili alcune opzioni quando si chiama l'API di PowerShell. Ogni volta che viene creata una sessione, è possibile crearla con o senza una chiave. 
 
-**Chiave** In questo modo viene creata una sessione con chiave che può essere cercata e riutilizzata anche tra i componenti, ovvero Component1 può creare una sessione con la chiave "PMI-ROCKs" e Component2 può utilizzare la stessa sessione. Se viene fornita una chiave, la sessione creata deve essere eliminata chiamando Dispose () come è stato fatto nell'esempio precedente. Una sessione non deve essere mantenuta senza essere eliminata per più di 5 minuti. 
+**Chiave:** In questo modo viene creata una sessione con chiave che può essere cercata e riutilizzata anche tra i componenti, ovvero Component1 può creare una sessione con la chiave "PMI-ROCKs" e Component2 può utilizzare la stessa sessione. Se viene fornita una chiave, la sessione creata deve essere eliminata chiamando Dispose () come è stato fatto nell'esempio precedente. Una sessione non deve essere mantenuta senza essere eliminata per più di 5 minuti. 
 ```ts
   const session = this.appContextService.powerShell.createSession('{!TargetNode}', '{!Key}');
 ```

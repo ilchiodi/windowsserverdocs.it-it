@@ -4,20 +4,20 @@ description: Questo argomento fa parte della Guida alla distribuzione di un Serv
 manager: brianlic
 ms.topic: article
 ms.assetid: 65b36794-bb09-4c1b-a2e7-8fc780893d97
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 83dd48297535aafe30e48fe37010d81b279f4c91
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 88d39f41f61ae7c7f6a1fb84aa99806c4796c8cf
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59863452"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71356192"
 ---
 # <a name="refresh-group-policy"></a>Aggiornare Criteri di gruppo
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016
 
 È possibile utilizzare questa procedura per aggiornare manualmente Criteri di gruppo nel computer locale. Quando viene aggiornato Criteri di gruppo, se la registrazione automatica del certificato è correttamente configurata e funzionante, nel computer locale viene registrato automaticamente un certificato dall'autorità di certificazione (CA).  
   

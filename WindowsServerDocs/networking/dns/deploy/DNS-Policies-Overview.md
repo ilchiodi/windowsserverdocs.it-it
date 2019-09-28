@@ -2,33 +2,33 @@
 title: Informazioni generali sui criteri QoS
 description: Questo argomento fa parte della Guida allo scenario dei criteri DNS per Windows Server 2016
 manager: brianlic
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking-dns
 ms.topic: article
 ms.assetid: 566bc270-81c7-48c3-a904-3cba942ad463
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 687864619c981b3ab8d24ef540c759bc29314c90
-ms.sourcegitcommit: 6f968368c12b9dd699c197afb3a3d13c2211f85b
+ms.openlocfilehash: 613bb7f43b382389dc0db953a48668147cfaee88
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68544670"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71356049"
 ---
 # <a name="dns-policies-overview"></a>Informazioni generali sui criteri QoS
 
->Si applica a Windows Server (Canale semestrale), Windows Server 2016
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016
 
-È possibile usare questo argomento per informazioni sui criteri DNS, che è una novità di Windows Server 2016. È possibile usare i criteri DNS per la gestione del traffico basata sulla posizione geografica, le risposte DNS intelligenti basate sull'ora del giorno, per gestire un singolo server\-DNS configurato per la distribuzione di Split Brain, l'applicazione di filtri alle query DNS e altro ancora. Gli elementi seguenti forniscono maggiori dettagli su queste funzionalità.
+È possibile usare questo argomento per informazioni sui criteri DNS, che è una novità di Windows Server 2016. È possibile usare i criteri DNS per la gestione del traffico basata sulla posizione geografica, le risposte DNS intelligenti basate sull'ora del giorno, per gestire un singolo server DNS configurato per la distribuzione Split @ no__t-0brain, l'applicazione di filtri alle query DNS e altro ancora. Gli elementi seguenti forniscono maggiori dettagli su queste funzionalità.
 
 -   **Bilanciamento del carico dell'applicazione.** Quando sono state distribuite più istanze di un'applicazione in posizioni diverse, è possibile usare i criteri DNS per bilanciare il carico del traffico tra le diverse istanze dell'applicazione, allocando dinamicamente il carico del traffico per l'applicazione.
 
--   **Gestione\-del traffico basata sulla posizione geografica.** È possibile usare i criteri DNS per consentire ai server DNS primari e secondari di rispondere alle query del client DNS in base alla posizione geografica del client e alla risorsa a cui il client sta tentando di connettersi, fornendo al client l'indirizzo IP del più vicino risorse. 
+-   **Geo @ no__t: gestione del traffico basata su 1Location.** È possibile usare i criteri DNS per consentire ai server DNS primari e secondari di rispondere alle query del client DNS in base alla posizione geografica del client e alla risorsa a cui il client sta tentando di connettersi, fornendo al client l'indirizzo IP del più vicino risorse. 
 
--   **Split Brain DNS.** Con il\-DNS split brain, i record DNS vengono suddivisi in ambiti di zona diversi nello stesso server DNS e i client DNS ricevono una risposta a seconda che i client siano client interni o esterni. È possibile configurare il\-DNS split brain per Active Directory zone integrate o per le zone in server DNS autonomi.
+-   **Split Brain DNS.** Con il DNS split @ no__t-0brain, i record DNS vengono suddivisi in ambiti di zona diversi nello stesso server DNS e i client DNS ricevono una risposta a seconda che i client siano client interni o esterni. È possibile configurare il DNS split @ no__t-0brain per Active Directory zone integrate o per le zone in server DNS autonomi.
 
 -   **Filtro.** È possibile configurare i criteri DNS per creare filtri di query in base ai criteri forniti. I filtri query nei criteri DNS consentono di configurare il server DNS per rispondere in modo personalizzato in base alla query DNS e al client DNS che invia la query DNS. 
--   **Analisi.** È possibile usare i criteri DNS per reindirizzare i client DNS\-dannosi a un indirizzo IP inesistente anziché indirizzarli al computer che sta tentando di raggiungere.
+-   **Analisi.** È possibile usare i criteri DNS per reindirizzare i client DNS dannosi a un indirizzo IP diverso da @ no__t-0existent anziché indirizzarli al computer che tentano di raggiungere.
 
 -   **Reindirizzamento basato sull'ora del giorno.** È possibile usare i criteri DNS per distribuire il traffico delle applicazioni tra diverse istanze distribuite geograficamente di un'applicazione usando criteri DNS basati sull'ora del giorno.
 
@@ -67,17 +67,17 @@ Il campo criteri dei criteri DNS è costituito da due elementi:
 
 |              Nome               |                                         Descrizione                                          |                                                                                                                               Valori di esempio                                                                                                                               |
 |---------------------------------|----------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|        **Subnet client**        | Nome di una subnet del client predefinito. Utilizzato per verificare la subnet da cui la query è stata inviata. |                             -   **EQ, Spagna, Francia** -restituisce true se la subnet è identificata come Spagna o Francia<br />-   **Ne, Canada, Messico** : viene risolto in true se la subnet del client è una subnet diversa da Canada e Messico                             |
-|     **Protocollo di trasporto**      |        Il trasporto di protocollo utilizzato nella query. Le voci possibili sono **UDP** e **TCP**        |                                                                                                                    -   **EQ, TCP**<br />-   **EQ, UDP**                                                                                                                     |
-|      **Protocollo Internet**      |        Protocollo di rete utilizzato nella query. Le voci possibili sono **IPv4** e **IPv6**        |                                                                                                                   -   **EQ, IPv4**<br />-   **EQ, IPv6**                                                                                                                    |
-| **Indirizzo IP dell'interfaccia server** |                   Indirizzo IP per l'interfaccia di rete del server DNS in ingresso                   |                                                                                                              -   **EQ, 10.0.0.1**<br />-   **EQ, 192.168.1.1**                                                                                                              |
-|            **FQDN**             |            FQDN del record nella query, con la possibilità di usare un carattere jolly            | -   **EQ, www. contoso. com** : restituisce true solo se la query sta tentando di risolvere il nome di dominio completo <em>www.contoso.com</em><br />-   **EQ,\*. contoso.com,\*. Woodgrove.com** -restituisce true se la query è per qualsiasi record che termina con *contoso.com***o***Woodgrove.com* |
+|        **Subnet client**        | Nome di una subnet del client predefinito. Utilizzato per verificare la subnet da cui la query è stata inviata. |                             -   **EQ, Spagna, Francia** -restituisce true se la subnet è identificata come Spagna o Francia<br />-   **ne, Canada, Messico** -restituisce true se la subnet del client è una subnet diversa da Canada e Messico                             |
+|     **Protocollo di trasporto**      |        Il trasporto di protocollo utilizzato nella query. Le voci possibili sono **UDP** e **TCP**        |                                                                                                                    EQ @NO__T 0 **, TCP**<br />EQ @NO__T 0 **, UDP**                                                                                                                     |
+|      **Protocollo Internet**      |        Protocollo di rete utilizzato nella query. Le voci possibili sono **IPv4** e **IPv6**        |                                                                                                                   EQ @no__t 0 **, IPv4**<br />EQ @no__t 0 **, IPv6**                                                                                                                    |
+| **Indirizzo IP dell'interfaccia server** |                   Indirizzo IP per l'interfaccia di rete del server DNS in ingresso                   |                                                                                                              EQ @NO__T 0 **, 10.0.0.1**<br />EQ -    **, 192.168.1.1**                                                                                                              |
+|            **FQDN**             |            FQDN del record nella query, con la possibilità di usare un carattere jolly            | -   **EQ, www. contoso. com** -restituisce true solo se la query sta tentando di risolvere il nome di dominio completo <em>www.contoso.com</em><br />-   **EQ, \*.contoso.com, \*.Woodgrove.com** -restituisce true se la query è per qualsiasi record che termina con *contoso.com***o***Woodgrove.com* |
 |         **Tipo di query**          |                          Tipo di record sottoposto A query (A, SRV, TXT)                          |                                                  -   **EQ, txt, SRV** -restituisce true se la query richiede un record TXT **o** SRV<br />-   **EQ, MX** -restituisce true se la query richiede un record MX                                                   |
-|         **Ora del giorno**         |                              Ora del giorno in cui viene ricevuta la query                               |                                                                    -   **EQ, 10:00-12:00, 22:00-23:00** -restituisce true se la query viene ricevuta tra le 10:00 e mezzogiorno **oppure** tra le 22.00 e le 23.00                                                                    |
+|         **Ora del giorno**         |                              Ora del giorno in cui viene ricevuta la query                               |                                                                    -   **EQ, 10:00-12:00, 22:00-23:00** -restituisce true se la query viene ricevuta tra le 10.00 e le 12.00 **oppure** tra le 22.00 e le 23:00.                                                                    |
 
 Utilizzando la tabella precedente come punto di partenza, è possibile utilizzare la tabella seguente per definire un criterio utilizzato per trovare la corrispondenza con le query per qualsiasi tipo di record, ma i record SRV nel dominio contoso.com provenienti da un client nella subnet 10.0.0.0/24 tramite TCP compreso tra 8 e 10 PM tramite i 10.0.0.3 nterface:  
 
-|Name|Value|  
+|Nome|Value|  
 |--------|---------|  
 |Subnet client|EQ, 10.0.0.0/24|  
 |Protocollo di trasporto|EQ, TCP|  
@@ -97,7 +97,7 @@ I criteri di ricorsione sono un **tipo** speciale di criteri a livello di server
 
 I criteri di ricorsione contengono gli stessi elementi che contengono i normali criteri di risoluzione delle query DNS, insieme agli elementi della tabella seguente:  
 
-|Name|Descrizione|  
+|Nome|Descrizione|  
 |--------|---------------|  
 |**Applica alla ricorsione**|Specifica che questi criteri devono essere utilizzati solo per la ricorsione.|  
 |**Ambito di ricorsione**|Nome dell'ambito di ricorsione.|  

@@ -7,14 +7,14 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 5cf74042c9b511abb1fbeb88224dea0c7f2c8706
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 343e51f113f54c3965ef45d49f5d8fd64c260991
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59812052"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71357514"
 ---
 # <a name="dynamic-access-control-overview"></a>Panoramica del controllo dinamico degli accessi
 
@@ -24,7 +24,7 @@ Questa panoramica, dedicata ai professionisti IT, descrive il controllo dinamico
   
 Il controllo dinamico degli accessi basato sul dominio consente agli amministratori di applicare autorizzazioni e limitazioni al controllo degli accessi, seguendo regole ben definite che possono includere sensibilità delle risorse, mansione o ruolo dell'utente e configurazione del dispositivo utilizzato per accedere alle risorse.  
   
-È possibile, ad esempio, concedere a un utente autorizzazioni diverse a seconda che acceda a una risorsa dal computer dell'ufficio oppure da un computer portatile tramite una rete privata virtuale. È anche possibile consentire l'accesso solo se il dispositivo usato è conforme ai requisiti di sicurezza definiti dagli amministratori della rete. Quando viene utilizzato controllo dinamico degli accessi, le autorizzazioni modificate in modo dinamico senza l'intervento dell'amministratore aggiuntivo se mansione o il ruolo dell'utente cambia (risultante nelle modifiche agli attributi di account dell'utente in Active Directory Domain Services).  
+È possibile, ad esempio, concedere a un utente autorizzazioni diverse a seconda che acceda a una risorsa dal computer dell'ufficio oppure da un computer portatile tramite una rete privata virtuale. È anche possibile consentire l'accesso solo se il dispositivo usato è conforme ai requisiti di sicurezza definiti dagli amministratori della rete. Quando si usa il controllo dinamico degli accessi, le autorizzazioni di un utente cambiano in modo dinamico senza alcun intervento da parte dell'amministratore se il processo o il ruolo dell'utente cambia (con conseguente modifica degli attributi dell'account dell'utente in servizi di dominio Active Directory).  
   
 Il controllo dinamico degli accessi non è supportato nei sistemi operativi Windows precedenti a Windows Server 2012 e Windows 8. Se il controllo dinamico degli accessi è configurato all'interno di ambienti che comprendono sia versioni supportate che non supportate di Windows, le modifiche verranno implementate solo per le versioni supportate.  
   
@@ -34,7 +34,7 @@ Le funzionalità e i concetti associati al controllo dinamico degli accessi incl
   
 -   [Criteri di accesso centrale](#BKMK_Policies)  
   
--   [attestazioni](#BKMK_Claims)  
+-   [Sostiene](#BKMK_Claims)  
   
 -   [Espressioni](#BKMK_Expressions2)  
   
@@ -46,7 +46,7 @@ Una regola di accesso centrale è un'espressione delle regole di autorizzazione,
 Se per un dominio sono state definite una o più regole di accesso centrale, gli amministratori di condivisioni file possono associare regole specifiche a risorse e requisiti aziendali specifici.  
   
 ### <a name="BKMK_Policies"></a>Criteri di accesso centrale  
-I criteri di accesso centrale sono criteri di autorizzazione che includono espressioni condizionali. Ad esempio supponga che un'organizzazione ha come requisito aziendale per limitare l'accesso alle informazioni personali (PII) nei file al solo proprietario dei file e i membri del reparto risorse umane (HR) autorizzati a visualizzare informazioni personali. Questo costituisce un criterio a livello dell'organizzazione valido per i file contenenti informazioni personali, ovunque si trovino i file server dell'organizzazione che contengono tali file. Per applicare questo criterio, un'organizzazione deve essere in grado di:  
+I criteri di accesso centrale sono criteri di autorizzazione che includono espressioni condizionali. Supponiamo, ad esempio, che un'organizzazione abbia un requisito aziendale per limitare l'accesso alle informazioni personali nei file solo al proprietario del file e ai membri del reparto risorse umane che possono visualizzare le informazioni personali. Questo costituisce un criterio a livello dell'organizzazione valido per i file contenenti informazioni personali, ovunque si trovino i file server dell'organizzazione che contengono tali file. Per applicare questo criterio, un'organizzazione deve essere in grado di:  
   
 -   Identificare e contrassegnare i file che contengono le informazioni personali.  
   
@@ -56,8 +56,8 @@ I criteri di accesso centrale sono criteri di autorizzazione che includono espre
   
 I criteri di accesso centrale sono una sorta di ombrello di protezione che un'organizzazione predispone per i propri server. Questi criteri non intendono sostituire, ma vanno a sommarsi ai criteri di accesso locale o agli elenchi di controllo di accesso discrezionale (DACL) che vengono applicati ai file e alle cartelle.  
   
-### <a name="BKMK_Claims"></a>attestazioni  
-Un'attestazione è un'informazione univoca riguardante un utente, un dispositivo o una risorsa che viene pubblicata da un controller di dominio. Titolo dell'utente, la classificazione di reparto di un file o lo stato di integrità di un computer sono esempi validi di un'attestazione. Per un'entità possono esistere più attestazioni ed è possibile utilizzare qualsiasi combinazione di attestazioni per autorizzare l'accesso alle risorse. Nelle versioni supportate di Windows sono disponibili i tipi di attestazioni seguenti:  
+### <a name="BKMK_Claims"></a>Sostiene  
+Un'attestazione è un'informazione univoca riguardante un utente, un dispositivo o una risorsa che viene pubblicata da un controller di dominio. Il titolo dell'utente, la classificazione del reparto di un file o lo stato di integrità di un computer sono esempi validi di un'attestazione. Per un'entità possono esistere più attestazioni ed è possibile utilizzare qualsiasi combinazione di attestazioni per autorizzare l'accesso alle risorse. Nelle versioni supportate di Windows sono disponibili i tipi di attestazioni seguenti:  
   
 -   **Attestazioni utente** Attributi Active Directory associati a un utente specifico.  
   
@@ -92,7 +92,7 @@ Ogni controller di dominio deve avere la stessa impostazione dei criteri Modelli
 ### <a name="support-in-active-directory-to-store-user-and-device-claims-resource-properties-and-central-access-policy-objects"></a>Supporto di Active Directory per l'archiviazione di attestazioni utente e dispositivo, proprietà risorse e oggetti criteri di accesso centrale.  
   
 ### <a name="support-for-using-group-policy-to-deploy-central-access-policy-objects"></a>Supporto dell'uso dei criteri di gruppo per la distribuzione degli oggetti criteri di accesso centrale.  
-L'impostazione di criteri di gruppo seguente consente di distribuire gli oggetti Criteri di accesso centrale ai file server all'interno dell'organizzazione: **Criteri di accesso di computer configurazione Windows Windows\Impostazioni sicurezza\file System\Central**.  
+La seguente impostazione di Criteri di gruppo consente di distribuire oggetti Criteri di accesso centrale ai file server nell'organizzazione: **Computer Configuration\Policies\ Windows Windows\Impostazioni Sicurezza\file System\Central Access Policy**.  
   
 ### <a name="support-for-claims-based-file-authorization-and-auditing-for-file-systems-by-using-group-policy-and-global-object-access-auditing"></a>Supporto di autorizzazione e controllo dei file basato sulle attestazioni per i file system tramite Criteri di gruppo e Controllo di accesso agli oggetti globale  
 È necessario abilitare il controllo dei criteri di accesso centrale con installazione di appoggio allo scopo di verificare l'effettivo accesso dei criteri di accesso centrale utilizzando le autorizzazioni proposte. È possibile configurare questa impostazione per il computer in **Configurazione avanzata dei criteri di controllo** nelle **Impostazioni di protezione** di un oggetto Criteri di gruppo. Dopo aver configurato l'impostazione di protezione nell'oggetto Criteri di gruppo, è possibile distribuire l'oggetto Criteri di gruppo nei computer della rete.  
@@ -119,16 +119,16 @@ Per i domini che supportano le attestazioni utente, è necessario configurare tu
   
 -   **Supportati**Quando si usa questa impostazione, è necessario monitorare i controller di dominio per assicurarsi che il numero di controller di dominio che eseguono le versioni di Windows Server supportate sia sufficiente in rapporto al numero di computer client che devono accedere alle risorse protette tramite il controllo dinamico degli accessi.  
   
-Se il dominio utente e file server si trovano in foreste diverse, è necessario impostare tutti i controller di dominio nella radice della foresta del file server a livello funzionale versioni successiva o Windows Server 2012.  
+Se il dominio utente e il dominio di file server si trovano in foreste diverse, tutti i controller di dominio nella radice della foresta del file server devono essere impostati sul livello di funzionalità di Windows Server 2012 o versione successiva.  
   
 Se i client non riconoscono il controllo dinamico degli accessi, deve esistere una relazione di trust bidirezionale tra le due foreste.  
   
-Se le attestazioni vengono trasformate quando escono dalla foresta, è necessario impostare tutti i controller di dominio nella radice della foresta dell'utente a livello funzionale versioni successiva o Windows Server 2012.  
+Se le attestazioni vengono trasformate quando lasciano una foresta, tutti i controller di dominio nella radice della foresta dell'utente devono essere impostati sul livello di funzionalità di Windows Server 2012 o versione successiva.  
   
 Un file server che esegue Windows Server 2012 o Windows Server 2012 R2 deve avere un'impostazione dei Criteri di gruppo che stabilisca se è necessario ottenere le attestazioni utente per i token utente che non hanno attestazioni. L'impostazione predefinita è **Automatico**, pertanto l'impostazione dei Criteri di gruppo viene **attivata** se esiste un criterio centrale che contiene le attestazioni utente o le attestazioni dispositivo per tale file server. Se il file server contiene elenchi di controllo di accesso discrezionali che includono attestazioni utente, è necessario rendere **attiva** questa impostazione dei Criteri di gruppo in modo tale che il server richieda le attestazioni per conto degli utenti che forniscono attestazioni quando accedono al server.  
   
-## <a name="additional-resource"></a>Risorse aggiuntive  
-Per informazioni sull'implementazione di soluzioni basate su questa tecnologia, vedere [controllo dinamico degli accessi: Panoramica dello scenario](Dynamic-Access-Control--Scenario-Overview.md).  
+## <a name="additional-resource"></a>Risorsa aggiuntiva  
+Per informazioni sull'implementazione di soluzioni basate su questa tecnologia, vedere [Dynamic Access Control: Panoramica dello scenario @ no__t-0.  
   
 
 

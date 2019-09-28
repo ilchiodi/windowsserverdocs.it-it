@@ -6,15 +6,15 @@ ms.author: billmath
 manager: mtillman
 ms.date: 02/22/2018
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: anandy
 ms.technology: identity-adfs
-ms.openlocfilehash: d2577be364d7bb2e74ab7e06490b7bc3f150441a
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 88ae6837872c5a6cf6bb1d8533a0aa14b82ca573
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70867698"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71358914"
 ---
 # <a name="customize-claims-to-be-emitted-in-id_token-when-using-openid-connect-or-oauth-with-ad-fs-2016-or-later"></a>Personalizzare le attestazioni da emettere in token ID quando si usa OpenID Connect o OAuth con AD FS 2016 o versione successiva
 
@@ -61,11 +61,11 @@ Attenersi alla procedura seguente per creare e configurare l'applicazione in AD 
 
 3. Copia il **identificatore Client** valore.  E verrà essere utilizzato in un secondo momento come valore di ida: ClientId nel file Web. config delle applicazioni.
 
-4. Immettere quanto segue per l' **URI di reindirizzamento:**  -  **https://localhost:44320/** .  Fare clic su **Aggiungi**. Fare clic su **Avanti**.
+4. Immettere quanto segue per l' **URI di reindirizzamento:**  -  **https://localhost:44320/** .  Fai clic su **Aggiungi**. Fare clic su **Avanti**.
 
    ![Client](media/Custom-Id-Tokens-in-AD-FS/clientsnap2.png)
 
-5. Nella schermata **Configura API Web** immettere quanto segue per identificatore. -  **https://contoso.com/WebApp**  Fare clic su **Aggiungi**. Fare clic su **Avanti**.  Questo valore verrà usato in un secondo momento per **Ida: ResourceId** nel file Web. config delle applicazioni.
+5. Nella schermata **Configura API Web** immettere quanto segue per identificatore. -  **https://contoso.com/WebApp**  Fai clic su **Aggiungi**. Fare clic su **Avanti**.  Questo valore verrà usato in un secondo momento per **Ida: ResourceId** nel file Web. config delle applicazioni.
 
    ![Client](media/Custom-Id-Tokens-in-AD-FS/clientsnap3.png)
 

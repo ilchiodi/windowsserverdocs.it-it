@@ -7,14 +7,14 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 38e058f36522ba6a2c81694cb883d0946b04adda
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: ab1b277b83369cf2e4ef4be5aa467dea8b2d2f84
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59865182"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71357438"
 ---
 # <a name="scenario-classification-based-encryption-for-office-documents"></a>Scenario: crittografia basata sulla classificazione per i documenti di Office
 
@@ -38,11 +38,11 @@ Per questo scenario sono disponibili le informazioni seguenti:
   
 -   [Considerazioni sulla pianificazione per la crittografia dei documenti di Office](assetId:///14714ba6-d6a2-45e4-aae5-d3318817e52a)  
   
--   [Distribuire la crittografia dei file di Office &#40;passaggi dimostrativi&#41;](Deploy-Encryption-of-Office-Files--Demonstration-Steps-.md)  
+-   [Distribuire la crittografia dei file &#40;di Office procedura dimostrativa&#41;](Deploy-Encryption-of-Office-Files--Demonstration-Steps-.md)  
   
 -   [Controllo dinamico degli accessi: Panoramica dello scenario](Dynamic-Access-Control--Scenario-Overview.md)  
   
-## <a name="BKMK_NEW"></a>Ruoli e funzionalità incluse in questo scenario  
+## <a name="BKMK_NEW"></a>Ruoli e funzionalità inclusi in questo scenario  
 Nella tabella seguente sono elencati i ruoli e le funzionalità che interessano questo scenario e sono descritte le modalità di supporto.  
   
 |Ruolo/funzionalità|Modalità di supporto dello scenario|  

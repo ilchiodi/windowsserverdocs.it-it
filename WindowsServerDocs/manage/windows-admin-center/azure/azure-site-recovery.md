@@ -1,5 +1,5 @@
 ---
-title: Proteggere le macchine virtuali Hyper-V con Azure Site Recovery e Windows Admin Center
+title: Proteggi le tue macchine virtuali Hyper-V con Azure Site Recovery e l'interfaccia di amministrazione di Windows
 description: Usa Windows Admin Center (Project Honolulu) per proteggere le macchine virtuali Hyper-V con Azure Site Recovery.
 ms.technology: manage
 ms.topic: article
@@ -7,19 +7,19 @@ author: haley-rowland
 ms.author: harowl
 ms.date: 07/17/2018
 ms.localizationpriority: low
-ms.prod: windows-server-threshold
-ms.openlocfilehash: 66e9b2e23a60d1e4725321e88fc1ac262b9c31fa
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.prod: windows-server
+ms.openlocfilehash: 4995ed433d34fddfa91548fa42d67eea3a319c1f
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66445911"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71357347"
 ---
-# <a name="protect-your-hyper-v-virtual-machines-with-azure-site-recovery-and-windows-admin-center"></a>Proteggere le macchine virtuali Hyper-V con Azure Site Recovery e Windows Admin Center
+# <a name="protect-your-hyper-v-virtual-machines-with-azure-site-recovery-and-windows-admin-center"></a>Proteggi le tue macchine virtuali Hyper-V con Azure Site Recovery e l'interfaccia di amministrazione di Windows
 
->Si applica a: Anteprima di Windows Admin Center, Windows Admin Center
+>Si applica a: Windows Admin Center Preview, interfaccia di amministrazione di Windows
 
-[Altre informazioni sull'integrazione di Azure con Windows Admin Center.](../plan/azure-integration-options.md)
+[Altre informazioni sull'integrazione di Azure con l'interfaccia di amministrazione di Windows.](../plan/azure-integration-options.md)
 
 Windows Admin Center semplifica il processo di replica delle macchine virtuali nei server o nei cluster Hyper-V, facilitando l'uso delle funzionalità di Azure dal proprio data center. Per automatizzare l'installazione, puoi connettere il gateway di Windows Admin Center ad Azure.
 
@@ -40,7 +40,7 @@ Il solo completamento dell'installazione per il componente di replica è suffici
 - [Connetti il gateway di Windows Admin Center ad Azure](azure-integration.md).
 - [Esamina lo strumento di pianificazione della capacità per valutare i requisiti per completare correttamente replica e failover](https://docs.microsoft.com/azure/site-recovery/hyper-v-site-walkthrough-capacity).
 
-## <a name="step-1-set-up-vm-protection-on-your-target-host"></a>Passaggio 1: Configurare la protezione della macchina virtuale nell'host di destinazione
+## <a name="step-1-set-up-vm-protection-on-your-target-host"></a>Passaggio 1: Configurare la protezione delle macchine virtuali nell'host di destinazione
 
 > [!NOTE] 
 > Devi eseguire questo passaggio una volta per ogni server o cluster host contenente le macchine virtuali che vuoi proteggere.
@@ -52,20 +52,20 @@ Il solo completamento dell'installazione per il componente di replica è suffici
 5. Accedi all'Account Azure.
 6. Immetti le informazioni richieste:
 
-   - **Sottoscrizione:** Sottoscrizione di Azure da usare per la replica di macchine virtuali in questo host.
-   - **Percorso:** L'area di Azure in cui le risorse di Azure Site Recovery devono essere create.
-   - **Account di archiviazione:** L'account di archiviazione in cui verranno salvati i carichi di lavoro della macchina virtuale replicate in questo host.
-   - **volta:** Scegliere un nome per l'insieme di credenziali di Azure Site Recovery per macchine virtuali protette nell'host.
+   - **Abbonamento** Sottoscrizione di Azure che si vuole usare per la replica delle macchine virtuali in questo host.
+   - **Percorso:** Area di Azure in cui devono essere create le risorse di ASR.
+   - **Account di archiviazione:** L'account di archiviazione in cui verranno salvati i carichi di lavoro delle VM replicati in questo host.
+   - **Credenziali** Scegliere un nome per l'insieme di credenziali Azure Site Recovery per le macchine virtuali protette in questo host.
 
 7. Seleziona **Configura ASR**.
-8. Attendere fino a quando non viene visualizzata la notifica: **Site Recovery impostazione completato**.
+8. Attendere finché non viene visualizzata la notifica: **Impostazione Site Recovery completata**.
  
 Ciò potrebbe richiedere fino a 10 minuti. Puoi controllare lo stato di avanzamento passando a **Notifiche** (l'icona a forma di campana in alto a destra).
 
 >[!NOTE]
 > Questo passaggio installa automaticamente l'agente ASR sul server o sui nodi di destinazione (se la configurazione è in un cluster) e crea un **Gruppo di risorse** con **l'account di archiviazione** e l'**insieme di credenziali** specificati nella **posizione** indicata. Viene anche registrato l'host di destinazione con il servizio di ASR e configurato un criterio di replica predefinito.
 
-## <a name="step-2-select-virtual-machines-to-protect"></a>Passaggio 2: Seleziona macchine virtuali da proteggere
+## <a name="step-2-select-virtual-machines-to-protect"></a>Passaggio 2: Selezionare le macchine virtuali da proteggere
 
 1. Torna al server o al cluster configurato nel passaggio 2 e vai a **Macchine virtuali > Inventario**.
 2. Seleziona la macchina virtuale da proteggere.
@@ -78,7 +78,7 @@ Ciò potrebbe richiedere fino a 10 minuti. Puoi controllare lo stato di avanzame
 
 6. ASR avvia la replica. La replica viene completata e la macchina virtuale risulta protetta quando il valore nella colonna **Protetto** della griglia dell'**inventario della macchina virtuale** viene impostato su **Sì**. L'operazione può richiedere diversi minuti.  
 
-## <a name="step-3-configure-and-run-a-test-failover-in-the-azure-portal"></a>Passaggio 3: Configurare ed eseguire un failover di test nel portale di Azure
+## <a name="step-3-configure-and-run-a-test-failover-in-the-azure-portal"></a>Passaggio 3: Configurare ed eseguire un failover di test nella portale di Azure
 
  Anche se non è necessario completare questo passaggio all'avvio della replica della macchina virtuale (la macchina virtuale è già protetta solo dalla replica), è consigliabile configurare le impostazioni di failover quando configuri Azure Site Recovery. Se vuoi preparare il failover in una macchina virtuale di Azure, completa questa procedura:
 

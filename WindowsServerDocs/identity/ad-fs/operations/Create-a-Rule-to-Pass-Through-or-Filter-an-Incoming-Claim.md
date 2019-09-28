@@ -7,18 +7,18 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: be20996d1df3898b8ff23422759e810a4b333b3d
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 145558e620188c4311d79d2a9ba4ed7aaf7b13a8
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66189545"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71358144"
 ---
 # <a name="create-a-rule-to-pass-through-or-filter-an-incoming-claim"></a>Creare una regola per Pass-Through o filtrare un'attestazione in ingresso
 
-Utilizzando il Pass-Through o filtro a un modello di regola attestazione in ingresso in Active Directory Federation Services \(ADFS\), è possibile passare attraverso tutte le attestazioni in ingresso con un tipo di attestazione selezionato. È inoltre possibile filtrare i valori delle attestazioni in ingresso con un tipo di attestazione selezionato. Ad esempio, è possibile utilizzare questo modello di regola per creare una regola che invierà tutte le attestazioni di gruppo in ingresso. È anche possibile usare questa regola per inviare solo i nomi dell'entità utente \(UPN\) attestazioni che terminano con @fabrikam.  
+Usando il pass-through o filtrare un modello di regola attestazione in ingresso in Active Directory Federation Services \(AD FS @ no__t-1, è possibile passare tutte le attestazioni in ingresso con un tipo di attestazione selezionato. È inoltre possibile filtrare i valori delle attestazioni in ingresso con un tipo di attestazione selezionato. Ad esempio, è possibile utilizzare questo modello di regola per creare una regola che invierà tutte le attestazioni di gruppo in ingresso. È anche possibile usare questa regola per inviare solo il nome dell'entità utente \(UPN @ no__t-1 attestazioni che terminano con @fabrikam.  
   
 È possibile utilizzare la procedura seguente per creare una regola attestazione con lo snap di gestione di ADFS\-in.  
   
@@ -42,9 +42,9 @@ Per completare questa procedura, è necessaria almeno l'appartenenza al gruppo *
 
 6.  Nel **configurare la regola** pagina **Nome regola attestazione** digitare il nome visualizzato per questa regola, **tipo di attestazione in ingresso** Selezionare un tipo di attestazione nell'elenco e quindi selezionare una delle opzioni seguenti, a seconda delle esigenze dell'organizzazione:  
   
-    -   **Pass-through di tutti i valori di attestazione**  
+    -   **Passa tutti i valori di attestazione**  
   
-    -   **Pass-through solo un valore attestazione specifico**  
+    -   **Pass-through solo di un valore attestazione specifico**  
   
     -   **Pass-through solo dei valori attestazione che corrispondono a un valore suffisso di posta elettronica specifico**  
   
@@ -73,9 +73,9 @@ Per completare questa procedura, è necessaria almeno l'appartenenza al gruppo *
 
 6.  Nel **configurare la regola** pagina **Nome regola attestazione** digitare il nome visualizzato per questa regola, **tipo di attestazione in ingresso** Selezionare un tipo di attestazione nell'elenco e quindi selezionare una delle opzioni seguenti, a seconda delle esigenze dell'organizzazione:  
   
-    -   **Pass-through di tutti i valori di attestazione**  
+    -   **Passa tutti i valori di attestazione**  
   
-    -   **Pass-through solo un valore attestazione specifico**  
+    -   **Pass-through solo di un valore attestazione specifico**  
   
     -   **Pass-through solo dei valori attestazione che corrispondono a un valore suffisso di posta elettronica specifico**  
   
@@ -103,7 +103,7 @@ Per completare questa procedura, è necessaria almeno l'appartenenza al gruppo *
   
     -   **Regole di autorizzazione rilascio**  
   
-    -   **Regole di autorizzazione di delega**  
+    -   **Regole di autorizzazione della delega**  
 ![Crea regola](media/Create-a-Rule-to-Permit-All-Users/permitall5.PNG)    
 
 5.  Nel **Seleziona modello di regola** nella pagina **il modello di regola attestazione**, selezionare **Pass Through or Filter an Incoming Claim** dall'elenco, quindi fare clic su **Avanti**.  
@@ -111,9 +111,9 @@ Per completare questa procedura, è necessaria almeno l'appartenenza al gruppo *
 
 6.  Nel **configurare la regola** pagina **Nome regola attestazione** digitare il nome visualizzato per questa regola, **tipo di attestazione in ingresso** Selezionare un tipo di attestazione nell'elenco e quindi selezionare una delle opzioni seguenti, a seconda delle esigenze dell'organizzazione:  
   
-    -   **Pass-through di tutti i valori di attestazione**  
+    -   **Passa tutti i valori di attestazione**  
   
-    -   **Pass-through solo un valore attestazione specifico**  
+    -   **Pass-through solo di un valore attestazione specifico**  
   
     -   **Pass-through solo dei valori attestazione che corrispondono a un valore suffisso di posta elettronica specifico**  
   
@@ -130,7 +130,7 @@ Per completare questa procedura, è necessaria almeno l'appartenenza al gruppo *
 ## <a name="additional-references"></a>Altri riferimenti  
 [Configurare le regole delle attestazioni](Configure-Claim-Rules.md)  
   
-[Quando utilizzare un Pass-Through or Filter Claim Rule](../../ad-fs/technical-reference/When-to-Use-a-Pass-Through-or-Filter-Claim-Rule.md)  
+[Quando usare una regola di attestazione pass-through o filtro](../../ad-fs/technical-reference/When-to-Use-a-Pass-Through-or-Filter-Claim-Rule.md)  
   
 [Ruolo delle attestazioni](../../ad-fs/technical-reference/The-Role-of-Claims.md)  
   

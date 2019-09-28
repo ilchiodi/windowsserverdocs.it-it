@@ -6,14 +6,14 @@ ms.author: billmath
 manager: femila
 ms.date: 09/07/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: b67177c8bf0ce9869aa51c3012d57f3208ac02f5
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 78db6f8b6961cecea55b8d371e9abf952cafdab3
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70866284"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71358671"
 ---
 # <a name="compound-authentication-and-ad-ds-claims-in-ad-fs"></a>Autenticazione composta e attestazioni di Active Directory Domain Services in AD FS
 Windows Server 2012 migliora l'autenticazione Kerberos introducendo l'autenticazione composta.  L'autenticazione composta consente a una richiesta del servizio di concessione ticket (TGS) Kerberos di includere due identità: 
@@ -62,7 +62,7 @@ Usare la procedura seguente per la configurazione di attestazioni e autenticazio
 ### <a name="step-3-ensure-the-ad-fs-servers-have-been-updated"></a>Passaggio 3: Verificare che i server di AD FS siano stati aggiornati.
 È necessario assicurarsi che i seguenti aggiornamenti siano installati nei server AD FS.
 
-|Aggiorna|Descrizione|
+|Aggiornamenti|Descrizione|
 |----- | ----- |
 |[KB2919355](https://www.microsoft.com/download/details.aspx?id=42335)|Aggiornamento cumulativo della sicurezza (include KB2919355, KB2932046, KB2934018, KB2937592, KB2938439)|
 |[KB2959977](https://www.microsoft.com/download/details.aspx?id=42530)|Aggiornamento per Server 2012 R2|

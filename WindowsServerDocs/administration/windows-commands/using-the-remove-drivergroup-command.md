@@ -1,8 +1,8 @@
 ---
 title: Utilizzando il comando remove-DriverGroup
-description: 'Argomento i comandi di Windows per * * *- '
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: b56f162861caf4493550f9e063065e9544e52eae
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d22ae4e191c2110a0b8d4cc50c24c2f3ec4a7e60
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59885752"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71362927"
 ---
 # <a name="using-the-remove-drivergroup-command"></a>Utilizzando il comando remove-DriverGroup
 
@@ -36,8 +36,8 @@ WDSUTIL /Remove-DriverGroup /DriverGroup:<Group Name> [/Server:<Server name>]
 
 |Parametro|Descrizione|
 |---------|-----------|
-|/ DriverGroup:\<nome gruppo >|Specifica il nome del gruppo di driver da rimuovere.|
-|[/ Server:\<nome Server >]|Specifica il nome del server. Questo può essere il nome NetBIOS o il nome FQDN. Se non viene specificato un nome di server, viene utilizzato il server locale.|
+|/DriverGroup: nome \<Group >|Specifica il nome del gruppo di driver da rimuovere.|
+|[/Server: nome \<Server >]|Specifica il nome del server. Questo può essere il nome NetBIOS o il nome FQDN. Se non viene specificato un nome di server, viene utilizzato il server locale.|
 
 ## <a name="BKMK_examples"></a>Esempi
 
@@ -51,4 +51,4 @@ WDSUTIL /Remove-DriverGroup /DriverGroup:PrinterDrivers /Server:MyWdsServer
 
 #### <a name="additional-references"></a>Altri riferimenti
 
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)
+[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

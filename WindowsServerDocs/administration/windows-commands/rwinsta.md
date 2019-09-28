@@ -1,8 +1,8 @@
 ---
 title: rwinsta
-description: Informazioni su come reimpostare un sessionf host sessione Desktop remoto dalla riga di comando.
+description: Informazioni su come reimpostare un sessionf RDSH dalla riga di comando.
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,26 +13,25 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: ad57f33f3bbdb3ac34d8c27f1854fb86855e69f8
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 05e14c468d8f78cfcc4017b966e779d4c8f9eb9c
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59837082"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71371369"
 ---
 # <a name="rwinsta"></a>rwinsta
 
 >Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Consente di reimpostare (eliminare) una sessione in un server Host sessione Desktop remoto (Host sessione rd).
+Consente di reimpostare (eliminare) una sessione in un server Host sessione Desktop remoto (host sessione Desktop remoto).
 
 > [!NOTE]
-> In Windows Server 2008 R2, Servizi terminal si chiama ora Servizi Desktop remoto. Per scoprire quali sono le novità nella versione più recente, vedere [What ' s New in Servizi Desktop remoto in Windows Server 2012](https://technet.microsoft.com/library/hh831527) nella libreria TechNet di Windows Server.
+> In Windows Server 2008 R2, Servizi terminal si chiama ora Servizi Desktop remoto. Per informazioni sulle novità della versione più recente, vedere Novità di [Servizi Desktop remoto in Windows server 2012](https://technet.microsoft.com/library/hh831527) nella libreria TechNet di Windows Server.
 
 ## <a name="remarks"></a>Note
-Questo comando è analogo a come le **reimpostazione sessione** comando.
+Questo comando corrisponde al comando **Reimposta sessione** .
 
 #### <a name="additional-references"></a>Riferimenti aggiuntivi
-[reimpostazione sessione](reset-session.md)
-[chiave di sintassi della riga di comando](command-line-syntax-key.md)
-[Remote Desktop Services &#40;servizi Terminal&#41; riferimenti ai comandi](remote-desktop-services-terminal-services-command-reference.md)
+[reset session](reset-session.md)
+[sintassi della riga di comando chiave](command-line-syntax-key.md)@no__t-[3 &#40;Servizi Desktop remoto riferimento&#41; ai comandi di Servizi terminal](remote-desktop-services-terminal-services-command-reference.md)
