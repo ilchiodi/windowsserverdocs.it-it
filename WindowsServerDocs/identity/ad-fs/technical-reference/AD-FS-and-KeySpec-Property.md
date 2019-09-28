@@ -1,31 +1,31 @@
 ---
-title: Active Directory Federation Services e proprietà chiave specifica informazioni certificato
+title: Informazioni sulle proprietà di specifica della chiave Active Directory Federation Services e del certificato
 description: ''
 author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.assetid: a5307da5-02ff-4c31-80f0-47cb17a87272
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: 32b0d08f678e9e612bb0ce9cc38d254564bd9b2f
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 51c9828cfe494c68422f4985e5b17113020c8414
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66444097"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71407413"
 ---
-# <a name="ad-fs-and-certificate-keyspec-property-information"></a>AD FS e proprietà KeySpec informazioni certificato
-Chiave specifica ("KeySpec") è una proprietà associata a un certificato e una chiave. Specifica se una chiave privata associata a un certificato può essere utilizzata per la firma, crittografia o entrambi.   
+# <a name="ad-fs-and-certificate-keyspec-property-information"></a>Informazioni sulle proprietà delle specifiche della AD FS e del certificato
+La specifica della chiave ("chiave specifica") è una proprietà associata a un certificato e una chiave. Specifica se è possibile usare una chiave privata associata a un certificato per la firma, la crittografia o entrambi.   
 
-Un valore KeySpec non corretto può causare errori di AD FS e Proxy applicazione Web, ad esempio:
+Un valore di una specifica di un valore non corretto può causare errori di AD FS e proxy dell'applicazione Web, ad esempio:
 
 
-- Tentativo di stabilire una connessione SSL/TLS per AD FS o il Proxy applicazione Web, senza eventi di AD FS registrati (anche se potrebbero essere registrati eventi SChannel 36888 e 36874)
-- L'autenticazione basata su pagina, di form di errore all'account di accesso nel server di AD FS o WAP con alcun messaggio di errore visualizzato nella pagina.
+- Errore durante il tentativo di stabilire una connessione SSL/TLS a AD FS o al proxy dell'applicazione Web, senza AD FS eventi registrati (sebbene sia possibile registrare gli eventi SChannel 36888 e 36874)
+- Impossibile eseguire l'accesso alla pagina di autenticazione basata su form AD FS o WAP, senza visualizzare alcun messaggio di errore nella pagina.
 
-Si potrebbe visualizzare quanto segue nel registro eventi:
+Nel registro eventi potrebbe essere visualizzato quanto segue:
 
     Log Name:      AD FS Tracing/Debug
     Source:        AD FS Tracing
@@ -39,80 +39,80 @@ Si potrebbe visualizzare quanto segue nel registro eventi:
     Description:
     Ignore corrupted SSO cookie.
 
-## <a name="what-causes-the-problem"></a>Qual è la causa del problema
-La proprietà KeySpec identifica come una chiave generata o recuperare da Microsoft CryptoAPI (CAPI), da un Microsoft legacy Storage Provider crittografia (CSP), può essere usata.
+## <a name="what-causes-the-problem"></a>Causa del problema
+La proprietà chiave specifica identifica il modo in cui può essere usata una chiave generata o recuperata da Microsoft CryptoAPI (CAPI), da un provider di archiviazione di crittografia (CSP) legacy Microsoft.
 
-Valore KeySpec **1**, o **AT_KEYEXCHANGE**, può essere utilizzato per la firma e crittografia.  Un valore pari **2**, o **AT_SIGNATURE**, viene usato solo per la firma.
+Per la firma e la crittografia è possibile usare un valore di una **specifica di una**o più **AT_KEYEXCHANGE**.  Il valore **2**, o **AT_SIGNATURE**, viene usato solo per la firma.
 
-La configurazione errata KeySpec più comune utilizza un valore pari a 2 per un certificato diverso dal certificato di firma dei token.  
+La configurazione errata della specifica di più comune sta usando un valore di 2 per un certificato diverso dal certificato per la firma di token.  
 
-Per i certificati le cui chiavi sono stati generati usando provider di Cryptography Next Generation (CNG), non prevedono il concetto di specifica della chiave e il valore KeySpec sarà sempre zero.
+Per i certificati le cui chiavi sono state generate usando i provider CNG (Cryptography Next Generation), non esiste alcun concetto di specifica della chiave e il valore della chiave specifica sarà sempre zero.
 
-Informazioni su come verificare la presenza di un valore valido di KeySpec riportato di seguito. 
+Vedere come verificare la presenza di un valore di una specifica di un valore valido. 
 
 ### <a name="example"></a>Esempio
-Un esempio di un CSP legacy è Microsoft Enhanced Cryptographic Provider. 
+Un esempio di CSP legacy è Microsoft Enhanced Cryptographic Provider. 
 
-Formato blob della chiave RSA Microsoft CSP include un identificatore dell'algoritmo, ovvero **CALG_RSA_KEYX** oppure **CALG_RSA_SIGN**rispettivamente, per soddisfare le richieste tra <strong>AT_KEYEXCHANGE * * o * * AT _ FIRMA</strong> chiavi.
+Il formato BLOB della chiave Microsoft RSA CSP include rispettivamente un identificatore di algoritmo, **CALG_RSA_KEYX** o **CALG_RSA_SIGN**, per soddisfare le richieste per le chiavi <strong>AT_KEYEXCHANGE * * o * * AT_SIGNATURE</strong> .
 
-Gli identificatori di algoritmo della chiave RSA eseguire il mapping ai valori KeySpec come indicato di seguito
+Gli identificatori dell'algoritmo della chiave RSA vengono mappati ai valori delle specifiche chiave come indicato di seguito
 
-| Algoritmo di provider supportati| Valore di chiave specifica per le chiamate CAPI |
+| Algoritmo supportato dal provider| Valore della specifica chiave per le chiamate CAPI |
 | --- | --- |
-|CALG_RSA_KEYX: Chiave RSA che può essere utilizzato per la firma e la decrittografia| AT_KEYEXCHANGE (o KeySpec = 1)|
-CALG_RSA_SIGN: Solo chiave di firma RSA |AT_SIGNATURE (o KeySpec = 2)|
+|CALG_RSA_KEYX : Chiave RSA che può essere usata per la firma e la decrittografia| AT_KEYEXCHANGE (o la specifica di una scheda di stato = 1)|
+CALG_RSA_SIGN : Chiave solo firma RSA |AT_SIGNATURE (o la specifica di una scheda di stato = 2)|
 
-## <a name="keyspec-values-and-associated-meanings"></a>KeySpec valori e significati associati
-Di seguito sono i significati dei vari valori KeySpec:
+## <a name="keyspec-values-and-associated-meanings"></a>Valori delle specifiche e significati associati
+Di seguito sono riportati i significati dei diversi valori delle specifiche di codice:
 
-|Valore KeySpec|Significa che|Uso consigliato di AD FS|
+|Valore della specifica|Significa|Uso consigliato AD FS|
 | --- | --- | --- |
 |0|Il certificato è un certificato CNG|Solo certificato SSL|
-|1|Per un certificato CAPI (non-CNG) legacy, la chiave può essere utilizzata per la firma e la decrittografia|    SSL, token di accesso, token certificati per le comunicazioni del servizio la decrittografia,|
-|2|Per un certificato CAPI (non-CNG) legacy, la chiave può essere utilizzata solo per la firma|Non è consigliata|
+|1|Per un certificato CAPI legacy (non CNG), la chiave può essere usata per la firma e la decrittografia|    SSL, firma di token, decrittografia di token, certificati di comunicazione del servizio|
+|2|Per un certificato CAPI legacy (non CNG), la chiave può essere usata solo per la firma|Non consigliato|
 
-## <a name="how-to-check-the-keyspec-value-for-your-certificates--keys"></a>Come controllare il valore KeySpec per i certificati o chiavi
-Per visualizzare un valore di certificati è possibile usare la **certutil** strumento da riga di comando.  
+## <a name="how-to-check-the-keyspec-value-for-your-certificates--keys"></a>Come controllare il valore della specifica della chiave per i certificati o le chiavi
+Per visualizzare un valore di certificati, è possibile usare lo strumento da riga di comando **certutil** .  
 
-Di seguito è riportato un esempio: **certutil – v – archivio my**.  Questo verrà dump le informazioni sul certificato alla schermata.
+Di seguito è riportato un esempio: **certutil – v – Store My**.  Il dump delle informazioni del certificato verrà eseguito sullo schermo.
 
-![KeySpec cert](media/AD-FS-and-KeySpec-Property/keyspec1.png)
+![Certificato di specifica della scheda](media/AD-FS-and-KeySpec-Property/keyspec1.png)
 
-In Cerca CERT_KEY_PROV_INFO_PROP_ID per due motivi:
+In CERT_KEY_PROV_INFO_PROP_ID cercare due elementi:
 
 
-1. **Tipoprovider:** ciò indica se il certificato viene utilizzato un legacy Storage Provider crittografia (CSP) o un Provider di archiviazione chiavi basati su più recente certificato Next Generation (CNG) le API.  Qualsiasi valore diverso da zero indica un provider legacy.
-2. **KeySpec:** Di seguito sono valori KeySpec validi per un certificato di AD FS:
+1. **ProviderType:** indica se il certificato usa un provider di archiviazione di crittografia (CSP) legacy o un provider di archiviazione chiavi basato sulle API CNG (certificate Next Generation) più recenti.  Qualsiasi valore diverso da zero indica un provider Legacy.
+2. **KeySpec** Di seguito sono riportati i valori validi delle specifiche per un certificato AD FS:
 
-   Provider CSP legacy (Tipoprovider non è uguale a 0):
+   Provider CSP legacy (ProviderType diverso da 0):
 
-   |Utilizzo generico di AD FS certificato|Valori validi KeySpec|
+   |Scopo del certificato AD FS|Valori validi per le specifiche|
    | --- | --- |
    |Comunicazione del servizio|1|
-   |La decrittografia di token|1|
-   |La firma di token|1 e 2|
+   |Decrittografia di token|1|
+   |Firma di token|1 e 2|
    |SSL|1|
 
-   Provider CNG (Tipoprovider = 0):
+   Provider CNG (ProviderType = 0):
 
-   |Utilizzo generico di AD FS certificato|Valori validi KeySpec|
+   |Scopo del certificato AD FS|Valori validi per le specifiche|
    | --- | --- |   
    |SSL|0|
 
-## <a name="how-to-change-the-keyspec-for-your-certificate-to-a-supported-value"></a>Come modificare keyspec per il certificato su un valore supportato
-La modifica del valore KeySpec non richiede il certificato deve essere nuovamente generati o nuovamente rilasciato dall'autorità di certificazione.  È possibile modificare KeySpec importando nuovamente il certificato completato e la chiave privata da un file PFX nell'archivio certificati attenendosi alla procedura seguente:
+## <a name="how-to-change-the-keyspec-for-your-certificate-to-a-supported-value"></a>Come modificare la specifica di una scheda per il certificato in un valore supportato
+Per modificare il valore di una specifica di base non è necessario che il certificato venga rigenerato o riemesso dall'autorità di certificazione.  È possibile modificare la specifica della chiave importando nuovamente il certificato completo e la chiave privata da un file PFX nell'archivio certificati usando la procedura seguente:
 
 
-1. Innanzitutto, controllare e prendere le autorizzazioni per chiavi private per il certificato esistente, in modo che possano essere riconfigurati se necessario dopo la reimportazione.
-2. Esportare il certificato con chiave privata in un file PFX.
-3. Eseguire la procedura seguente per ogni server AD FS e WAP
-    1. Eliminare il certificato (da AD FS o server WAP)
-    2. Aprire un prompt dei comandi di PowerShell con privilegi elevati e importare il file PFX in ogni server AD FS e WAP usando la sintassi di cmdlet seguente, specificando il valore AT_KEYEXCHANGE (che funziona per tutti gli scopi di certificati AD FS):
-        1. C:\>certutil-importpfx CertFile AT_KEYEXCHANGE
+1. Prima di tutto, controllare e registrare le autorizzazioni della chiave privata per il certificato esistente in modo che possano essere riconfigurate, se necessario, dopo la reimportazione.
+2. Esportare il certificato, inclusa la chiave privata, in un file PFX.
+3. Per ogni AD FS e server WAP, seguire questa procedura.
+    1. Eliminare il certificato (dal server AD FS/WAP)
+    2. Aprire un prompt dei comandi di PowerShell con privilegi elevati e importare il file PFX in ogni AD FS e server WAP usando la sintassi del cmdlet riportata di seguito, specificando il valore AT_KEYEXCHANGE (che funziona per tutti i AD FS scopi del certificato):
+        1. C: \>certutil – importpfx CertFile. pfx AT_KEYEXCHANGE
         2. Immettere la password PFX
-    3. Dopo aver completato il codice precedente, seguire questa procedura
-        1. Controllare le autorizzazioni per chiavi private
-        2. riavviare il servizio ad FS o wap
+    3. Al termine dell'operazione, eseguire le operazioni seguenti
+        1. controllare le autorizzazioni per la chiave privata
+        2. riavviare il servizio ADFS o WAP
 
 
 

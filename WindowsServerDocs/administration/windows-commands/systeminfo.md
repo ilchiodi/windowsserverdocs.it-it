@@ -1,8 +1,8 @@
 ---
 title: systeminfo
-description: 'Argomento i comandi di Windows per * * *- '
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 3d08d3f86bdbd176aa4de157f58a58c9ea418470
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 32a84a33c5339e9949648a4e40d71daf25c055d8
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59841502"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71370687"
 ---
 # <a name="systeminfo"></a>systeminfo
 
@@ -38,27 +38,27 @@ Systeminfo [/s <Computer> [/u <Domain>\<UserName> [/p <Password>]]] [/fo {TABLE 
 
 |Parametro|Descrizione|
 |---------|-----------|
-|/s \<computer >|Specifica il nome o indirizzo IP di un computer remoto (non utilizzare le barre rovesciate). Il valore predefinito è il computer locale.|
-|/u \<Domain>\<UserName>|Esegue il comando con le autorizzazioni dell'account dell'account utente specificato. Se **/u** non è specificato, questo comando vengono utilizzate le autorizzazioni dell'utente attualmente connesso al computer in cui viene eseguito il comando.|
-|/p \<Password>|Specifica la password dell'account utente specificato nella **/u** parametro.|
-|/Fo \<formato >|Specifica il formato di output con uno dei valori seguenti:</br>TAVOLO: Visualizza l'output in una tabella.</br>ELENCO: Visualizza l'output in un elenco.</br>CSV: Visualizza l'output in formato valori separati da virgole.|
+|/s \<Computer >|Specifica il nome o l'indirizzo IP di un computer remoto (non utilizzare barre rovesciate). Il valore predefinito è il computer locale.|
+|/u \<Domain > \<UserName >|Esegue il comando con le autorizzazioni dell'account dell'account utente specificato. Se **/u** non è specificato, questo comando vengono utilizzate le autorizzazioni dell'utente attualmente connesso al computer in cui viene eseguito il comando.|
+|/p \<password >|Specifica la password dell'account utente specificato nella **/u** parametro.|
+|/fo \<Format >|Specifica il formato di output con uno dei valori seguenti:</br>TAVOLO: Visualizza l'output in una tabella.</br>ELENCO Visualizza l'output in un elenco.</br>CSV Visualizza l'output nel formato con valori delimitati da virgole.|
 |/NH|Elimina le intestazioni di colonna nell'output. Valido quando il **/fo** parametro è impostato su TABELLA o CSV.|
 |/?|Visualizza la guida al prompt dei comandi.|
 
 ## <a name="BKMK_examples"></a>Esempi
 
-Per visualizzare le informazioni di configurazione per un computer denominato Srvprinc, digitare:
+Per visualizzare le informazioni di configurazione per un computer denominato SRVPRINC, digitare:
 
-**systeminfo /s Srvprinc**
+**systeminfo/s srvprinc**
 
-Per visualizzare in modalità remota informazioni di configurazione per un computer denominato Srvmain2 che si trova nella cartella Domprinc, digitare:
+Per visualizzare in remoto le informazioni di configurazione per un computer denominato Srvprinc2 nella che si trova nel dominio Domprinc, digitare:
 
-**systeminfo /s srvmain2 /u maindom\hiropln**
+**systeminfo/s srvprinc2 nella/u maindom\hiropln**
 
-Per visualizzare in modalità remota informazioni di configurazione (in formato elenco) per un computer denominato Srvmain2 che si trova nella cartella Domprinc, digitare:
+Per visualizzare in remoto le informazioni di configurazione (in formato elenco) per un computer denominato Srvprinc2 nella che si trova nel dominio Domprinc, digitare:
 
-**systeminfo /s srvmain2 /u maindom\hiropln /p p@ssW23 /fo list**
+**systeminfo/s srvprinc2 nella/u maindom\hiropln/p p@ssW23/fo list**
 
 #### <a name="additional-references"></a>Altri riferimenti
 
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)
+[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

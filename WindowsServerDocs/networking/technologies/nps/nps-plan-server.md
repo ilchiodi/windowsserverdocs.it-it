@@ -1,227 +1,227 @@
 ---
 title: Pianificare Servizi dei criteri di rete come server RADIUS
-description: In questo argomento vengono fornite informazioni sulla distribuzione di server RADIUS di Server dei criteri di rete relativa alla pianificazione in Windows Server 2016.
+description: In questo argomento vengono fornite informazioni sulla pianificazione della distribuzione del server RADIUS del server dei criteri di rete in Windows Server 2016.
 manager: brianlic
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking
 ms.topic: article
 ms.assetid: 2900dd2c-0f70-4f8d-9650-ed83d51d509a
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 5fd89ef8d95735b8cbe1334ba51ed0059595dbc3
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: bbcf3338f2cd6d8662a84faf263b486e31b140e5
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59839172"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71405333"
 ---
 # <a name="plan-nps-as-a-radius-server"></a>Pianificare Servizi dei criteri di rete come server RADIUS
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016
 
-Quando si distribuisce il Server dei criteri di rete \(NPS\) come server RADIUS Remote Authentication Dial-In User Service (), dei criteri di rete esegue l'autenticazione, autorizzazione e accounting per le richieste di connessione per il dominio locale e per i domini che considera attendibile il dominio locale. È possibile usare queste linee guida sulla pianificazione per semplificare la distribuzione RADIUS.
+Quando si distribuisce il server dei criteri di rete \(NPS @ no__t-1 come server di Remote Authentication Dial-In User Service (RADIUS), NPS esegue l'autenticazione, l'autorizzazione e l'accounting per le richieste di connessione per il dominio locale e per i domini che considerano attendibile il dominio locale. È possibile usare queste linee guida di pianificazione per semplificare la distribuzione RADIUS.
 
-Queste linee guida per la pianificazione non includono circostanze in cui si desidera distribuire dei criteri di rete come proxy RADIUS. Quando si distribuiscono criteri di rete come proxy RADIUS, dei criteri di rete inoltra le richieste di connessione a un server che eseguono criteri di rete o altri server RADIUS in domini remoti, domini non trusted o entrambi. 
+Queste linee guida di pianificazione non includono le circostanze in cui si desidera distribuire NPS come proxy RADIUS. Quando si distribuisce NPS come proxy RADIUS, NPS Invia le richieste di connessione a un server che esegue NPS o altri server RADIUS in domini remoti, domini non trusted o entrambi. 
 
-Prima di distribuire criteri di rete come server RADIUS in rete, usare le linee guida seguenti per pianificare la distribuzione.
+Prima di distribuire server dei criteri di rete come server RADIUS nella rete, usare le linee guida seguenti per pianificare la distribuzione.
 
-- Pianificare la configurazione dei criteri di rete.
+- Pianificare la configurazione di NPS.
 
 - Pianificare i client RADIUS.
 
-- Pianificare l'uso dei metodi di autenticazione.
+- Pianificare l'utilizzo dei metodi di autenticazione.
 
 - Pianificare i criteri di rete.
 
 - Pianificare l'accounting NPS.
 
-## <a name="plan-nps-configuration"></a>Pianificare la configurazione dei criteri di rete
+## <a name="plan-nps-configuration"></a>Pianificare la configurazione di NPS
 
-È necessario decidere in quale dominio NPS è un membro. Per gli ambienti di più domini, un NPS è possibile autenticare le credenziali per gli account utente nel dominio di cui è membro e per tutti i domini trusting del dominio locale di NPS. Per consentire i criteri di rete leggere le proprietà di connessione remota degli account utente durante il processo di autorizzazione, è necessario aggiungere l'account computer dei criteri di rete al gruppo di server RAS e NPSs per ogni dominio.
+È necessario decidere in quale dominio è membro il server dei criteri di dominio. Per gli ambienti con più domini, un server dei criteri di server può autenticare le credenziali per gli account utente nel dominio di cui è membro e per tutti i domini che considerano attendibile il dominio locale del server dei criteri di server. Per consentire al server dei criteri di gruppo di leggere le proprietà di connessione degli account utente durante il processo di autorizzazione, è necessario aggiungere l'account computer del server dei criteri di gruppo al gruppo RAS e NPSs per ogni dominio.
 
-Dopo aver determinato l'appartenenza al dominio di NPS, il server deve essere configurato per comunicare con i client RADIUS, chiamati anche il server di accesso di rete, utilizzando il protocollo RADIUS. Inoltre, è possibile configurare i tipi di eventi registrati da criteri di rete nel caso in cui log ed è possibile specificare una descrizione per il server.
+Dopo aver determinato l'appartenenza al dominio del server dei criteri di rete, è necessario configurare il server per la comunicazione con i client RADIUS, detti anche server di accesso alla rete, usando il protocollo RADIUS. Inoltre, è possibile configurare i tipi di eventi registrati da NPS nel registro eventi ed è possibile immettere una descrizione per il server.
 
 ### <a name="key-steps"></a>Passaggi principali
 
-Durante la pianificazione per la configurazione dei criteri di rete, è possibile usare la procedura seguente.
+Durante la pianificazione della configurazione di NPS, è possibile usare i passaggi seguenti.
 
-- Determinare le porte RADIUS NPS utilizzata per ricevere i messaggi RADIUS dai client RADIUS. Le porte predefinite sono le porte UDP 1812 e 1645 per i messaggi di autenticazione RADIUS e le porte 1813 e 1646 per i messaggi di accounting RADIUS.
+- Determinare le porte RADIUS utilizzate dal server dei criteri di server per la ricezione di messaggi RADIUS dai client RADIUS. Le porte predefinite sono le porte UDP 1812 e 1645 per i messaggi di autenticazione RADIUS e le porte 1813 e 1646 per i messaggi di accounting RADIUS.
 
-- Se i criteri di rete è configurata con più schede di rete, determinare gli adapter su cui si desidera che il traffico RADIUS deve essere autorizzato.
+- Se il server dei criteri di rete è configurato con più schede di rete, determinare le schede in cui si desidera consentire il traffico RADIUS.
 
-- Determinare i tipi di eventi che si desidera registrare nel Log eventi dei criteri di rete. È possibile registrare le richieste di autenticazione rifiutati, le richieste di autenticazione riusciti o entrambi i tipi di richieste.
+- Determinare i tipi di eventi che si desidera registrare nel registro eventi del server dei criteri di server. È possibile registrare le richieste di autenticazione rifiutate, le richieste di autenticazione riuscite o entrambi i tipi di richieste.
 
-- Determinare se si distribuiscono più criteri di rete. Per fornire tolleranza di errore per l'autenticazione basata su RADIUS e accounting, usare almeno due NPSs. Uno dei criteri di rete viene utilizzato come server RADIUS primario e l'altro viene usato come backup. Quindi, ogni client RADIUS è configurato in entrambi NPSs. Se i criteri di rete primaria non è più disponibile, i client RADIUS, quindi inviano i messaggi di richiesta di accesso ai criteri di rete alternativo.
+- Determinare se si intende distribuire più server dei criteri di server. Per fornire la tolleranza di errore per l'autenticazione e l'accounting basati su RADIUS, usare almeno due NPSs. Un server dei criteri di database viene utilizzato come server RADIUS primario e l'altro viene utilizzato come backup. Ogni client RADIUS viene quindi configurato in entrambi i NPSs. Se il server dei criteri di database primario diventa non disponibile, i client RADIUS inviano messaggi di richiesta di accesso al server dei criteri di accesso alternativo.
 
-- Pianificare lo script usato per copiare una configurazione di criteri di rete per altri NPSs per risparmiare sui costi generali amministrativi e per impedire il corretto della configurazione di un server. Criteri di rete offre i comandi Netsh per la copia tutta o parte di una configurazione di NPS per l'importazione in un'altra dei criteri di rete. È possibile eseguire manualmente i comandi al prompt dei comandi di Netsh. Tuttavia, se si salva la sequenza di comandi come uno script, è possibile eseguire lo script in un secondo momento se si decide di modificare le configurazioni del server.
+- Pianificare lo script utilizzato per copiare una configurazione del server dei criteri di server in altri NPSs per risparmiare sul sovraccarico amministrativo e per impedire la cofigurazione errata di un server. NPS fornisce i comandi netsh che consentono di copiare interamente o in parte una configurazione NPS per l'importazione in un altro server dei criteri di accesso. È possibile eseguire manualmente i comandi al prompt di netsh. Tuttavia, se si salva la sequenza di comandi come uno script, è possibile eseguire lo script in un secondo momento se si decide di modificare le configurazioni del server.
 
 ## <a name="plan-radius-clients"></a>Pianificare i client RADIUS
 
-I client RADIUS sono server di accesso di rete, ad esempio punti di accesso wireless, server di rete privata virtuale (VPN), 802.1 commutatori 802.1X e i server di accesso remoto. I proxy RADIUS, che inoltrano i messaggi di richiesta per i server RADIUS di connessione, sono anche i client RADIUS. NPS supporta tutti i server di accesso di rete e i proxy RADIUS che rispettano il raggio del protocollo come descritto nella RFC 2865, "Remote Authentication Dial-in User Service (RADIUS)," e RFC 2866 "Accounting RADIUS".
+I client RADIUS sono server di accesso alla rete, ad esempio punti di accesso wireless, server VPN (Virtual Private Network), commutatori compatibili con 802.1 X e server di connessione remota. I proxy RADIUS, che inoltrano i messaggi di richiesta di connessione ai server RADIUS, sono anche client RADIUS. NPS supporta tutti i server di accesso alla rete e i proxy RADIUS conformi al protocollo RADIUS come descritto in RFC 2865, "Remote Authentication Dial-in User Service (RADIUS)" e RFC 2866, "RADIUS Accounting".
 
 >[!IMPORTANT]
->I client di accesso, ad esempio i computer client, non sono client RADIUS. Solo i server proxy che supportano il protocollo RADIUS e server di accesso alla rete sono client RADIUS.
+>I client di Access, ad esempio i computer client, non sono client RADIUS. Solo i server di accesso alla rete e i server proxy che supportano il protocollo RADIUS sono client RADIUS.
 
-Inoltre, entrambe opzioni e i punti di accesso wireless devono essere in grado di autenticazione 802.1x. Se si desidera distribuire Extensible Authentication Protocol \(EAP\) o Protected Extensible Authentication Protocol \(PEAP\), commutatori e i punti di accesso devono supportare l'uso di EAP.
+Inoltre, sia i punti di accesso wireless che i commutatori devono essere in grado di supportare l'autenticazione 802.1 X. Se si desidera distribuire Extensible Authentication Protocol \(EAP @ no__t-1 o Protected Extensible Authentication Protocol \(PEAP @ no__t-3, i punti di accesso e i commutatori devono supportare l'utilizzo di EAP.
 
-Per testare l'interoperabilità di base per le connessioni PPP per punti di accesso wireless, configurare il punto di accesso e il client di accesso per usare l'autenticazione protocollo PAP (Password). Usare protocolli di autenticazione basate su PPP aggiuntivi, ad esempio PEAP, fino a quando il test di quelli che si intendono usare per l'accesso alla rete.
+Per testare l'interoperabilità di base per le connessioni PPP per i punti di accesso wireless, configurare il punto di accesso e il client di accesso per l'uso di Password Authentication Protocol (PAP). Usare protocolli di autenticazione basati su PPP aggiuntivi, ad esempio PEAP, fino a quando non sono stati testati quelli che si intende usare per l'accesso alla rete.
 
 ### <a name="key-steps"></a>Passaggi principali
 
-Durante la pianificazione per i client RADIUS, è possibile usare la procedura seguente.
+Durante la pianificazione dei client RADIUS, è possibile usare i passaggi seguenti.
 
-- Documentare gli attributi specifici del fornitore (VSA), che è necessario configurare in Criteri di rete. Se i server di accesso di rete richiedono VSA, registrare le informazioni di VSA per un utilizzo successivo quando si configurano i criteri di rete in Criteri di rete. 
+- Documentare gli attributi specifici del fornitore (VSA) che è necessario configurare in NPS. Se i server di accesso alla rete richiedono VSA, registrare le informazioni VSA per un uso successivo quando si configurano i criteri di rete nel server dei criteri di rete. 
 
-- Documentare gli indirizzi IP dei computer client RADIUS e i criteri di rete per semplificare la configurazione di tutti i dispositivi. Quando si distribuiscono i client RADIUS, è necessario configurare in modo che usino il protocollo RADIUS, con l'indirizzo IP di NPS immesso come server di autenticazione. E quando si configurano criteri di rete per comunicare con i client RADIUS, è necessario immettere gli indirizzi IP di client RADIUS nello snap-in dei criteri di rete.
+- Documentare gli indirizzi IP dei client RADIUS e NPS per semplificare la configurazione di tutti i dispositivi. Quando si distribuiscono i client RADIUS, è necessario configurarli per l'utilizzo del protocollo RADIUS, con l'indirizzo IP del server dei criteri di server immesso come server di autenticazione. Quando si configura NPS per la comunicazione con i client RADIUS, è necessario immettere gli indirizzi IP del client RADIUS nello snap-in NPS.
 
-- Creare i segreti condivisi per la configurazione nei client RADIUS e nello snap-in NPS. È necessario configurare i client RADIUS con un segreto condiviso, o una password, che immetterà anche nello snap-in Criteri di rete durante la configurazione del client RADIUS in Criteri di rete.
+- Creare segreti condivisi per la configurazione sui client RADIUS e nello snap-in NPS. È necessario configurare i client RADIUS con un segreto condiviso, o una password, che sarà anche possibile immettere nello snap-in NPS durante la configurazione dei client RADIUS in NPS.
 
 ## <a name="plan-the-use-of-authentication-methods"></a>Pianificare l'uso dei metodi di autenticazione
 
-NPS supporta entrambi i metodi di autenticazione basato su password e basata su certificati. Tuttavia, non tutti i server di accesso di rete supportano gli stessi metodi di autenticazione. In alcuni casi, si potrebbe essere necessario distribuire un metodo di autenticazione diverso in base al tipo di accesso alla rete.
+NPS supporta sia i metodi di autenticazione basati su password che quelli basati sui certificati. Tuttavia, non tutti i server di accesso alla rete supportano gli stessi metodi di autenticazione. In alcuni casi, potrebbe essere necessario distribuire un metodo di autenticazione diverso in base al tipo di accesso alla rete.
 
-Potrebbe ad esempio, si desidera distribuire sia wireless e VPN per l'organizzazione, ma usare un metodo di autenticazione diverso per ogni tipo di accesso: EAP-TLS per le connessioni VPN, a causa la sicurezza avanzata che fornisce EAP con Transport Layer Security (EAP-TLS) e PEAP-MS-CHAP v2 per connessioni wireless 802.1x.
+Ad esempio, potrebbe essere necessario distribuire l'accesso wireless e VPN per l'organizzazione, ma usare un metodo di autenticazione diverso per ogni tipo di accesso: EAP-TLS per le connessioni VPN, a causa della sicurezza avanzata fornita da EAP con Transport Layer Security (EAP-TLS) e PEAP-MS-CHAP v2 per le connessioni wireless 802.1 X.
 
-Riconnessione PEAP con Microsoft Challenge Handshake Authentication Protocol versione 2 (PEAP-MS-CHAP v2) fornisce una funzionalità denominata fast progettato espressamente per l'uso con i computer portatili e altri dispositivi wireless. Riconnessione rapida consente ai client senza fili per spostarsi tra i punti di accesso wireless nella stessa rete senza essere riautenticati ogni volta che vengono associati a un nuovo punto di accesso. Ciò offre un'esperienza migliore per gli utenti wireless e consente di spostarsi tra i punti di accesso senza dover immettere nuovamente le proprie credenziali.
-A causa di fast ristabilire la connessione e la sicurezza che fornisce il protocollo PEAP-MS-CHAP v2, PEAP-MS-CHAP v2 è una scelta logica come metodo di autenticazione per le connessioni wireless.
+Il protocollo PEAP con Microsoft Challenge Handshake Authentication Protocol versione 2 (PEAP-MS-CHAP v2) fornisce una funzionalità denominata riconnessione rapida progettata appositamente per l'uso con computer portatili e altri dispositivi wireless. La riconnessione rapida consente ai client wireless di spostarsi tra punti di accesso wireless nella stessa rete senza essere riautenticati ogni volta che si associano a un nuovo punto di accesso. Questo offre un'esperienza migliore per gli utenti wireless e consente loro di spostarsi tra i punti di accesso senza dover digitare nuovamente le proprie credenziali.
+Grazie alla riconnessione rapida e alla sicurezza fornita da PEAP-MS-CHAP v2, PEAP-MS-CHAP v2 è una scelta logica come metodo di autenticazione per le connessioni wireless.
 
-Per le connessioni VPN, EAP-TLS è un metodo di autenticazione basata su certificati che offre una protezione avanzata che protegge il traffico di rete anche se quest'ultima viene trasmessa nella rete Internet dal computer di casa o per dispositivi mobili per i server VPN di organizzazione.
+Per le connessioni VPN, EAP-TLS è un metodo di autenticazione basato su certificati che garantisce una sicurezza avanzata che protegge il traffico di rete, anche quando viene trasmesso attraverso Internet da computer domestici o portatili ai server VPN dell'organizzazione.
 
-### <a name="certificate-based-authentication-methods"></a>Metodi di autenticazione basata su certificati
+### <a name="certificate-based-authentication-methods"></a>Metodi di autenticazione basati su certificati
 
-Metodi di autenticazione basata su certificati hanno il vantaggio di fornire protezione avanzata. e hanno lo svantaggio di essere più difficili da distribuire rispetto ai metodi di autenticazione basata su password.
+I metodi di autenticazione basati su certificati hanno il vantaggio di garantire una sicurezza avanzata; e presentano gli svantaggi di essere più difficili da distribuire rispetto ai metodi di autenticazione basati su password.
 
-PEAP-MS-CHAP v2 sia EAP-TLS sono metodi di autenticazione basata su certificati, ma esistono molte differenze tra loro e il modo in cui vengono distribuiti.
+Sia PEAP-MS-CHAP v2 che EAP-TLS sono metodi di autenticazione basati sui certificati, ma vi sono molte differenze tra di essi e il modo in cui vengono distribuiti.
 
 ### <a name="eap-tls"></a>Protocollo EAP-TLS
 
-EAP-TLS Usa i certificati per l'autenticazione client e server e richiede la distribuzione di un'infrastruttura a chiave pubblica (PKI) all'interno dell'organizzazione. Distribuire un'infrastruttura PKI può risultare complesso e richiede una fase di pianificazione che è indipendente dalla pianificazione per l'uso di criteri di rete come server RADIUS.
+EAP-TLS usa i certificati per l'autenticazione client e server e richiede la distribuzione di un'infrastruttura a chiave pubblica (PKI) nell'organizzazione. La distribuzione di un'infrastruttura a chiave pubblica può essere complessa e richiede una fase di pianificazione indipendente dalla pianificazione dell'utilizzo di NPS come server RADIUS.
 
-Con EAP-TLS, i criteri di rete viene registrato un certificato del server da un'autorità di certificazione \(CA\), e il certificato salvato nel computer locale nell'archivio certificati. Durante il processo di autenticazione, l'autenticazione server si verifica quando i criteri di rete invia il certificato del server al client di accesso per dimostrare la propria identità ai client di accesso. Il client di accesso vengono esaminate diverse proprietà del certificato per determinare se il certificato è valido e può essere usata durante l'autenticazione server. Se il certificato del server soddisfi i requisiti del certificato server minimo e viene emesso da un'autorità di certificazione considerata attendibile dal client l'accesso, i criteri di rete viene correttamente autenticato dal client.
+Con EAP-TLS, NPS registra un certificato server da un'autorità di certificazione \(CA @ no__t-1 e il certificato viene salvato nel computer locale nell'archivio certificati. Durante il processo di autenticazione, l'autenticazione server si verifica quando il server dei criteri di server invia il proprio certificato server al client di accesso per dimostrare la propria identità al client Access. Il client di accesso esamina varie proprietà del certificato per determinare se il certificato è valido ed è appropriato per l'utilizzo durante l'autenticazione del server. Se il certificato del server soddisfa i requisiti minimi del certificato del server e viene emesso da un'autorità di certificazione che il client di accesso considera attendibile, il server dei criteri di accesso viene autenticato dal client.
 
-Analogamente, l'autenticazione del client si verifica durante il processo di autenticazione quando il client invia il certificato client per i criteri di rete per dimostrare la propria identità ai criteri di rete. I criteri di rete esamina il certificato e se il certificato client soddisfa i requisiti del certificato client minima e viene emesso da un'autorità di certificazione che considera attendibile i criteri di rete, il client di accesso viene correttamente autenticato da NPS.
+Analogamente, l'autenticazione client si verifica durante il processo di autenticazione quando il client invia il certificato client al server dei criteri di server per dimostrare la propria identità al server dei criteri di server. Il server dei criteri di dominio esamina il certificato e se il certificato client soddisfa i requisiti minimi del certificato client e viene emesso da una CA considerata attendibile dal server dei criteri di accesso, il client di accesso viene autenticato correttamente dal server dei criteri di dominio.
 
-Anche se è necessario che il certificato del server viene archiviato nell'archivio certificati su NPS, il certificato client o utente può essere archiviato nell'archivio di certificati sul client o in una smart card.
+Sebbene sia necessario che il certificato del server sia archiviato nell'archivio certificati nel server dei criteri di server, il certificato client o utente può essere archiviato nell'archivio certificati del client o in una smart card.
 
-Per questo processo di autenticazione abbia esito positivo, è necessario che tutti i computer hanno certificati di autorità di certificazione dell'organizzazione nell'archivio certificati Autorità di certificazione radice attendibili per il Computer locale e l'utente corrente.
+Affinché il processo di autenticazione abbia esito positivo, è necessario che tutti i computer dispongano del certificato CA dell'organizzazione nell'archivio certificati delle autorità di certificazione radice attendibili per il computer locale e l'utente corrente.
 
 ### <a name="peap-ms-chap-v2"></a>PEAP-MS-CHAP v2
 
-PEAP-MS-CHAP v2 utilizza un certificato per l'autenticazione server e credenziali basate su password per l'autenticazione utente. Poiché i certificati vengono usati solo per l'autenticazione server, non si è necessaria per distribuire un'infrastruttura a chiave pubblica per poter utilizzare PEAP-MS-CHAP v2. Quando si distribuisce PEAP-MS-CHAP v2, è possibile ottenere un certificato del server per i criteri di rete in uno dei due modi seguenti:
+PEAP-MS-CHAP v2 usa un certificato per l'autenticazione del server e le credenziali basate su password per l'autenticazione utente. Poiché i certificati vengono utilizzati solo per l'autenticazione server, non è necessario distribuire un'infrastruttura a chiave pubblica per utilizzare PEAP-MS-CHAP v2. Quando si distribuisce PEAP-MS-CHAP v2, è possibile ottenere un certificato server per NPS in uno dei due modi seguenti:
 
-- È possibile installare Servizi certificati Active Directory (AD CS) e quindi registrare automaticamente i certificati per NPSs. Se si usa questo metodo, è anche necessario registrare il certificato della CA per i computer client connessi alla rete in modo che ritengano attendibile il certificato emesso per i criteri di rete.
+- È possibile installare Active Directory Servizi certificati (AD CS), quindi registrare automaticamente i certificati in NPSs. Se si usa questo metodo, è necessario registrare anche il certificato della CA nei computer client che si connettono alla rete in modo che considerino attendibile il certificato rilasciato al server dei criteri di rete.
 
-- È possibile acquistare un certificato server da una CA pubblica, ad esempio VeriSign. Se si usa questo metodo, assicurarsi di selezionare un'autorità di certificazione è già considerato attendibile dai computer client. Per determinare se i computer client considera attendibile un'autorità di certificazione, aprire lo snap-in certificati di Microsoft Management Console (MMC) in un computer client e quindi visualizzare l'archivio di autorità di certificazione radice attendibili per il Computer locale e per l'utente corrente. Se è presente un certificato dall'autorità di certificazione in questi archivi certificati, il computer client considera attendibile l'autorità di certificazione e pertanto considereranno attendibile qualsiasi certificato rilasciato dall'autorità di certificazione.
+- È possibile acquistare un certificato server da un'autorità di certificazione pubblica, ad esempio VeriSign. Se si usa questo metodo, assicurarsi di selezionare una CA già considerata attendibile dai computer client. Per determinare se i computer client considerano attendibile una CA, aprire lo snap-in certificati di Microsoft Management Console (MMC) in un computer client, quindi visualizzare l'archivio Autorità di certificazione radice attendibili per il computer locale e per l'utente corrente. Se è presente un certificato dell'autorità di certificazione in questi archivi certificati, il computer client considera attendibile l'autorità di certificazione e pertanto considera attendibile qualsiasi certificato emesso dalla CA.
 
-Durante il processo di autenticazione PEAP-MS-CHAP v2 l'autenticazione server si verifica quando i criteri di rete invia il certificato del server nel computer client. Il client di accesso vengono esaminate diverse proprietà del certificato per determinare se il certificato è valido e può essere usata durante l'autenticazione server. Se il certificato del server soddisfi i requisiti del certificato server minimo e viene emesso da un'autorità di certificazione considerata attendibile dal client l'accesso, i criteri di rete viene correttamente autenticato dal client.
+Durante il processo di autenticazione con PEAP-MS-CHAP v2, l'autenticazione server si verifica quando il server dei criteri di server invia il proprio certificato server al computer client. Il client di accesso esamina varie proprietà del certificato per determinare se il certificato è valido ed è appropriato per l'utilizzo durante l'autenticazione del server. Se il certificato del server soddisfa i requisiti minimi del certificato del server e viene emesso da un'autorità di certificazione che il client di accesso considera attendibile, il server dei criteri di accesso viene autenticato dal client.
 
-L'autenticazione dell'utente si verifica quando un utente tenta di connettersi alle credenziali di rete tipi basato su password e tenta di accedere. Criteri di rete riceve le credenziali ed esegue l'autenticazione e autorizzazione. Se l'utente viene autenticato e autorizzato correttamente e se il computer client viene autenticato correttamente i criteri di rete, la richiesta di connessione è consentita.
+L'autenticazione utente si verifica quando un utente tenta di connettersi alle credenziali basate su password dei tipi di rete e tenta di accedere. NPS riceve le credenziali ed esegue l'autenticazione e l'autorizzazione. Se l'utente viene autenticato e autorizzato correttamente e se il computer client ha eseguito correttamente l'autenticazione del server dei criteri di accesso, viene concessa la richiesta di connessione.
 
 ### <a name="key-steps"></a>Passaggi principali
 
-Durante la pianificazione per l'uso dei metodi di autenticazione, è possibile usare la procedura seguente.
+Durante la pianificazione per l'utilizzo dei metodi di autenticazione, è possibile utilizzare i passaggi seguenti.
 
-- Identificare i tipi di accesso remoto e si prevede di offrire, ad esempio wireless, VPN, 802.1x switch 802.1X, l'accesso alla rete.
+- Identificare i tipi di accesso alla rete che si intende offrire, ad esempio wireless, VPN, Commuter compatibile con 802.1 X e accesso remoto.
 
-- Determinare il metodo di autenticazione o i metodi che si desidera utilizzare per ogni tipo di accesso. È consigliabile usare i metodi di autenticazione basata su certificati che offrono sicurezza avanzata; Tuttavia, potrebbe non essere utile distribuire un'infrastruttura a chiave pubblica, in modo che altri metodi di autenticazione potrebbero fornire un equilibrio migliore di ciò che occorre per la rete.
+- Determinare il metodo o i metodi di autenticazione che si desidera utilizzare per ogni tipo di accesso. Si consiglia di utilizzare i metodi di autenticazione basati sui certificati che garantiscono una sicurezza avanzata; Tuttavia, potrebbe non essere pratico distribuire un'infrastruttura a chiave pubblica (PKI), in modo che altri metodi di autenticazione possano offrire un migliore equilibrio tra i dati necessari per la rete.
 
-- Se si intende distribuire EAP-TLS, pianificare la distribuzione di infrastruttura a chiave pubblica. Ciò consente di pianificare i modelli di certificato che si intende usare per i certificati del server e i certificati del computer client. Include inoltre determinare la modalità di registrazione certificati al membro del dominio e i computer non appartenente al dominio e determinare se si desidera utilizzare smart card.
+- Se si distribuisce EAP-TLS, pianificare la distribuzione dell'infrastruttura a chiave pubblica (PKI). Ciò include la pianificazione dei modelli di certificato che si intende usare per i certificati del server e i certificati del computer client. Include anche la determinazione della modalità di registrazione dei certificati per i computer membri del dominio e non appartenenti al dominio e di determinare se si desidera utilizzare smart card.
 
-- Se si distribuisce PEAP-MS-CHAP v2, determinare se si desidera installare Servizi certificati Active Directory per rilasciare certificati server per il NPSs o se si desidera acquistare i certificati del server da una CA pubblica, ad esempio VeriSign.
+- Se si distribuisce PEAP-MS-CHAP v2, determinare se si desidera installare Servizi certificati Active Directory per emettere certificati server per la NPSs o se si desidera acquistare certificati server da una CA pubblica, ad esempio VeriSign.
 
 ### <a name="plan-network-policies"></a>Pianificare i criteri di rete
 
-I criteri di rete vengono utilizzati da NPS per determinare se le richieste di connessione ricevute dai client RADIUS sono autorizzate. Criteri di rete Usa anche la proprietà di connessione remota dell'account utente per eseguire un'operazione di autorizzazione.
+I criteri di rete vengono utilizzati da server dei criteri di rete per determinare se le richieste di connessione ricevute dai client RADIUS sono autorizzate NPS usa anche le proprietà di connessione remota dell'account utente per eseguire una determinazione dell'autorizzazione.
 
-Poiché i criteri di rete vengono elaborati nell'ordine in cui vengono visualizzati nello snap-in NPS, prevede di inserire i criteri più restrittivi prima di tutto nell'elenco dei criteri. Per ogni richiesta di connessione, NPS tenta di ottenere le condizioni dei criteri con le proprietà di connessione richiesta. Criteri di rete viene esaminato ogni criterio di rete in ordine fino a quando non viene trovata una corrispondenza. Se non trova una corrispondenza, la richiesta di connessione viene rifiutata.
+Poiché i criteri di rete vengono elaborati nell'ordine in cui sono visualizzati nello snap-in NPS, pianificare di inserire prima i criteri più restrittivi nell'elenco dei criteri. Per ogni richiesta di connessione, NPS tenta di trovare una corrispondenza tra le condizioni dei criteri e le proprietà della richiesta di connessione. NPS esamina ogni criterio di rete in ordine fino a quando non viene trovata una corrispondenza. Se non viene trovata alcuna corrispondenza, la richiesta di connessione viene rifiutata.
 
 ### <a name="key-steps"></a>Passaggi principali
 
-Durante la pianificazione per i criteri di rete, è possibile usare la procedura seguente.
+Durante la pianificazione dei criteri di rete, è possibile utilizzare i passaggi seguenti.
 
-- Determinare l'ordine di elaborazione dei criteri di rete preferita di criteri di rete, dalla più restrittiva alla più restrittiva.
+- Determinare l'ordine di elaborazione NPS preferito dei criteri di rete, dal più restrittivo al meno restrittivo.
 
-- Determinare lo stato dei criteri. Lo stato dei criteri può avere il valore di abilitato o disabilitato. Se è abilitato il criterio, NPS valuta i criteri durante l'esecuzione dell'autorizzazione. Se il criterio non è abilitato, non viene valutata.
+- Determinare lo stato dei criteri. Il valore dello stato dei criteri può essere Enabled o Disabled. Se il criterio è abilitato, NPS valuta i criteri durante l'esecuzione dell'autorizzazione. Se il criterio non è abilitato, non viene valutato.
 
-- Determinare il tipo di criteri. È necessario determinare se il criterio è progettato per concedere l'accesso quando le condizioni dei criteri sono corrisposti tramite la richiesta di connessione o se il criterio è stato progettato per negare l'accesso quando le condizioni dei criteri sono corrisposti tramite la richiesta di connessione. Ad esempio, se si vuole negare l'accesso wireless in modo esplicito ai membri di un gruppo di Windows, è possibile creare un criterio di rete che specifica il gruppo e il metodo di connessione wireless che contiene un criterio di tipo di impostazione di negare l'accesso.
+- Determinare il tipo di criteri. È necessario determinare se il criterio è stato progettato per concedere l'accesso quando le condizioni dei criteri vengono confrontate con la richiesta di connessione o se il criterio è stato progettato per negare l'accesso quando le condizioni dei criteri corrispondono alla richiesta di connessione. Se ad esempio si vuole negare in modo esplicito l'accesso wireless ai membri di un gruppo di Windows, è possibile creare un criterio di rete che specifichi il gruppo, il metodo di connessione wireless e con un'impostazione del tipo di Criteri nega accesso.
 
-- Determinare se si desidera che i criteri di rete per ignorare le proprietà di connessione remota degli account utente che sono membri del gruppo in cui si basa il criterio. Quando questa impostazione non è abilitata, le proprietà di connessione remota degli account utente sostituiscono le impostazioni configurate nei criteri di rete. Ad esempio, se un criterio di rete è configurato che concede l'accesso a un utente, ma la proprietà di connessione remota dell'account utente per l'utente è impostata per negare l'accesso, l'utente viene negato l'accesso. Ma se si abilita le proprietà dell'impostazione dial-all'account utente di ignorare criteri tipo, lo stesso account utente viene concesso l'accesso alla rete.
+- Determinare se si desidera che il server dei criteri di gruppo ignori le proprietà di accesso remoto degli account utente che sono membri del gruppo su cui si basa il criterio. Se questa impostazione non è abilitata, le proprietà di accesso remoto degli account utente sostituiscono le impostazioni configurate nei criteri di rete. Se, ad esempio, è configurato un criterio di rete che concede l'accesso a un utente, ma le proprietà di connessione dell'account utente per tale utente sono impostate su Nega accesso, all'utente viene negato l'accesso. Tuttavia, se si Abilita l'impostazione tipo di criteri Ignora proprietà connessione account utente, allo stesso utente viene concesso l'accesso alla rete.
 
-- Determinare se il criterio Usa l'impostazione di origine dei criteri. Questa impostazione consente di specificare in modo semplice un'origine per tutte le richieste di accesso. Le possibili origini sono un Gateway di servizi Terminal (TS Gateway), un server di accesso remoto (VPN o remote), un server DHCP, un punto di accesso wireless e un server Autorità registrazione integrità. In alternativa, è possibile specificare un'origine specifiche del fornitore.
+- Determinare se il criterio utilizza l'impostazione dell'origine dei criteri. Questa impostazione consente di specificare facilmente un'origine per tutte le richieste di accesso. Le origini possibili sono un gateway di Servizi terminal (Gateway Servizi terminal), un server di accesso remoto (VPN o connessione remota), un server DHCP, un punto di accesso wireless e un server Autorità registrazione integrità. In alternativa, è possibile specificare un'origine specifica del fornitore.
 
-- Determinare le condizioni che devono essere corrisposte affinché i criteri di rete da applicare.
+- Determinare le condizioni per le quali è necessario trovare una corrispondenza per applicare i criteri di rete.
 
-- Determinare le impostazioni che vengono applicate se vengono soddisfatte le condizioni dei criteri di rete per la richiesta di connessione.
+- Determinare le impostazioni che vengono applicate se le condizioni dei criteri di rete corrispondono alla richiesta di connessione.
 
-- Determinare se si desidera usare, modificare o eliminare i criteri di rete predefinito.
+- Determinare se si desidera utilizzare, modificare o eliminare i criteri di rete predefiniti.
 
 ## <a name="plan-nps-accounting"></a>Pianificare l'accounting NPS
 
-Criteri di rete offre la possibilità di registrare i dati di accounting RADIUS, ad esempio l'autenticazione dell'utente e richieste di accounting, nei tre formati: Formato di IAS, formato compatibile con il database e la registrazione di Microsoft SQL Server. 
+NPS offre la possibilità di registrare i dati di accounting RADIUS, ad esempio le richieste di autenticazione utente e accounting, in tre formati: Il formato IAS, il formato compatibile con il database e la registrazione Microsoft SQL Server. 
 
-Formato di IAS e compatibile con il database creare file di log in Criteri di rete locale nel formato di file di testo. 
+Formato IAS e formato compatibile con il database creare file di log nel server dei criteri di accesso locale in formato file di testo. 
 
-La registrazione di SQL Server offre la possibilità di accedere a un database compatibile con SQL Server 2005 XML, estensione di accounting RADIUS per sfruttare i vantaggi della registrazione a un database relazionale o di SQL Server 2000.
-
-### <a name="key-steps"></a>Passaggi principali
-
-Durante la pianificazione per l'accounting NPS, è possibile usare la procedura seguente.
-
-- Determinare se si desidera archiviare i dati di accounting di NPS nei file di log o in un database di SQL Server.
-
-### <a name="nps-accounting-using-local-log-files"></a>Accounting di NPS utilizzando i file di log locali
-
-La registrazione di autenticazione dell'utente e richieste nel file di log di accounting viene utilizzato principalmente per scopi di analisi e la fatturazione di connessione ed è inoltre utile come strumento di analisi di sicurezza, offrendo un metodo per tenere traccia dell'attività di un utente malintenzionato dopo un attacco.
+SQL Server registrazione consente di accedere a un database SQL Server 2000 o SQL Server 2005 conforme a XML, estendendo l'accounting RADIUS per sfruttare i vantaggi della registrazione in un database relazionale.
 
 ### <a name="key-steps"></a>Passaggi principali
 
-Durante la pianificazione per l'accounting di NPS utilizzando i file di log locale, è possibile usare la procedura seguente.
+Durante la pianificazione per l'accounting NPS, è possibile utilizzare i passaggi seguenti.
 
-- Determinare il formato di file di testo che si desidera utilizzare per i file di log criteri di rete.
+- Determinare se si desidera archiviare i dati di contabilità NPS nei file di log o in un database SQL Server.
 
-- Scegliere il tipo di informazioni che si desidera accedere. È possibile registrare le richieste di accounting e le richieste di autenticazione periodico dello stato.
+### <a name="nps-accounting-using-local-log-files"></a>Contabilità NPS con i file di log locali
+
+La registrazione delle richieste di autenticazione e accounting degli utenti nei file di log viene utilizzata principalmente per scopi di analisi della connessione e fatturazione ed è utile anche come strumento di analisi della sicurezza, fornendo un metodo per tenere traccia dell'attività di un utente malintenzionato dopo un attacco.
+
+### <a name="key-steps"></a>Passaggi principali
+
+Durante la pianificazione per l'accounting NPS utilizzando i file di log locali, è possibile utilizzare i passaggi seguenti.
+
+- Determinare il formato del file di testo che si desidera utilizzare per i file di log di NPS.
+
+- Scegliere il tipo di informazioni che si desidera registrare. È possibile registrare le richieste di contabilità, le richieste di autenticazione e lo stato periodico.
 
 - Determinare il percorso del disco rigido in cui si desidera archiviare i file di log.
 
-- Progettare la soluzione di backup di file di log. Il percorso del disco rigido in cui vengono archiviati i file di log deve essere un percorso che consente di eseguire facilmente il backup dei dati. Inoltre, il percorso del disco rigido deve essere protetti configurando l'elenco di controllo di accesso (ACL) per la cartella in cui sono archiviati i file di log.
+- Progettare la soluzione di backup del file di log. Il percorso del disco rigido in cui archiviare i file di log deve essere un percorso che consente di eseguire facilmente il backup dei dati. Inoltre, il percorso del disco rigido deve essere protetto tramite la configurazione dell'elenco di controllo di accesso (ACL) per la cartella in cui sono archiviati i file di log.
 
-- Determinare la frequenza con cui si desidera nuovi file di log da creare. Se si desidera che i file di log deve essere creato in base alle dimensioni del file, determinare le dimensioni massime del file prima che venga creato un nuovo file di log da criteri di rete.
+- Determinare la frequenza con cui si desidera creare nuovi file di log. Se si desidera che i file di log vengano creati in base alle dimensioni del file, determinare le dimensioni massime consentite prima che venga creato un nuovo file di log da NPS.
 
-- Determinare se si desidera che i criteri di rete per eliminare i file di log meno recenti, se il disco rigido viene esaurito tutto lo spazio di archiviazione.
+- Determinare se si desidera che NPS elimini i file di log meno recenti se il disco rigido esaurisce lo spazio di archiviazione.
 
-- Determinare l'applicazione o le applicazioni che si desidera utilizzare per visualizzare i dati di accounting e generare report.
+- Determinare l'applicazione o le applicazioni che si desidera utilizzare per visualizzare i dati di contabilità e generare report.
 
-### <a name="nps-sql-server-logging"></a>Registrazione dei criteri di rete SQL Server
+### <a name="nps-sql-server-logging"></a>Registrazione SQL Server NPS
 
-Registrazione dei criteri di rete SQL Server viene utilizzata quando le informazioni sullo stato della sessione, è necessario per scopi di analisi di dati e la creazione di report e per centralizzare e semplificare la gestione dei tuoi dati contabili.
+NPS SQL Server la registrazione viene utilizzata quando sono necessarie informazioni sullo stato della sessione, per la creazione di report e l'analisi dei dati, nonché per centralizzare e semplificare la gestione dei dati contabili.
 
-Criteri di rete offre la possibilità di usare SQL Server per l'autenticazione utente del record di registrazione e l'accounting richieste ricevute da uno o più server di accesso di rete a un'origine dati in un computer che esegue Microsoft SQL Server Desktop Engine \(MSDE 2000\), o qualsiasi versione di SQL Server in un secondo momento rispetto a SQL Server 2000.
+Server dei criteri di rete consente di utilizzare SQL Server registrazione per registrare le richieste di autenticazione e accounting degli utenti ricevute da uno o più server di accesso alla rete a un'origine dati in un computer in cui è in esecuzione il Microsoft SQL Server Desktop Engine \(MSDE 2000 @ no__t-1 o qualsiasi versione di SQL Server successiva alla SQL Server 2000.
 
-I dati di accounting sono passati da NPS in formato XML a una stored procedure nel database, che supporta entrambi linguaggio di query strutturate \(SQL\) e XML \(SQLXML\). L'autenticazione dell'utente di registrazione e l'accounting le richieste in un database di SQL Server compatibile con XML consente a più NPSs avere una sola origine dati.
+I dati di contabilità vengono passati da server dei criteri di database in formato XML a una stored procedure nel database, che supporta sia Structured Query Language \(SQL @ no__t-1 che XML \(SQLXML @ no__t-3. La registrazione delle richieste di autenticazione e accounting degli utenti in un database di SQL Server conforme a XML consente a più NPSs di avere un'origine dati.
 
 ### <a name="key-steps"></a>Passaggi principali
 
-Durante la pianificazione per l'accounting di NPS utilizzando la registrazione dei criteri di rete SQL Server, è possibile usare la procedura seguente.
+Durante la pianificazione per l'accounting NPS utilizzando NPS SQL Server la registrazione, è possibile utilizzare i passaggi seguenti.
 
-- Determina se l'utente o un altro membro dell'organizzazione ha lo sviluppo di database relazionale di SQL Server 2000 o SQL Server 2005 esperienza ed è comprendere come usare questi prodotti per creare, modificare, amministrare e gestire database SQL Server.
+- Determinare se l'utente o un altro membro dell'organizzazione ha SQL Server esperienza di sviluppo di database relazionali 2000 o SQL Server 2005 e si è appreso come usare questi prodotti per creare, modificare, amministrare e gestire SQL Server database.
 
-- Determinare se i criteri di rete o in un computer remoto è installato SQL Server.
+- Determinare se SQL Server è installato nel server dei criteri di server o in un computer remoto.
 
-- Progettare stored procedure che utilizzerà nel database di SQL Server per elaborare file XML in ingresso che contengono i dati di accounting di NPS.
+- Progettare la stored procedure che verrà utilizzata nel database di SQL Server per elaborare i file XML in arrivo che contengono i dati di contabilità NPS.
 
-- Progettare la struttura della replica di database SQL Server e il flusso.
+- Progettare la struttura e il flusso di replica del database di SQL Server.
 
-- Determinare l'applicazione o le applicazioni che si desidera utilizzare per visualizzare i dati di accounting e generare report.
+- Determinare l'applicazione o le applicazioni che si desidera utilizzare per visualizzare i dati di contabilità e generare report.
 
-- Prevede di usare server di accesso di rete che inviano l'attributo di classe in tutte le richieste di accounting. L'attributo di classe viene inviato al client RADIUS in un messaggio di autorizzazione di accesso ed è utile per la correlazione dei messaggi di richiesta di accesso con le sessioni di autenticazione. Se l'attributo di classe viene inviato dal server di accesso rete nei messaggi di richiesta di contabilità, può essere utilizzato in modo che corrisponda il record di autenticazione e accounting. La combinazione degli attributi del numero di serie univoco, tempo di riavvio del servizio e dall'indirizzo del Server deve essere un identificatore univoco per ciascuna autenticazione che il server accetta.
+- Pianificare l'uso di server di accesso alla rete che inviano l'attributo della classe in tutte le richieste di accounting. L'attributo Class viene inviato al client RADIUS in un messaggio di accettazione dell'accesso ed è utile per la correlazione dei messaggi di richiesta di contabilità con sessioni di autenticazione. Se l'attributo Class viene inviato dal server di accesso alla rete nei messaggi di richiesta di contabilità, può essere usato per trovare la corrispondenza con i record di accounting e di autenticazione. La combinazione degli attributi Unique-Serial-Number, Service-Reboot-Time e server-address deve essere un'identificazione univoca per ogni autenticazione accettata dal server.
 
-- Pianifica di utilizzare i server di accesso di rete che supportano accounting provvisorio.
+- Pianificare l'utilizzo di server di accesso alla rete che supportano la contabilità temporanea.
 
-- Prevede di usare server di accesso di rete che inviano messaggi di attivazione e disattivazione Accounting.
+- Pianificare l'utilizzo di server di accesso alla rete che inviano messaggi di contabilità e di accounting.
 
-- Pianifica di utilizzare i server di accesso di rete che supportano l'archiviazione e l'inoltro dei dati di accounting. Server di accesso di rete che supportano questa funzionalità può archiviare i dati di accounting quando il server di accesso di rete non può comunicare con i criteri di rete. Quando i criteri di rete è disponibile, il server di accesso di rete inoltra i record archiviati per i criteri di rete, fornendo una maggiore affidabilità accounting sul server di accesso di rete che non forniscono questa funzionalità.
+- Pianificare l'utilizzo di server di accesso alla rete che supportano l'archiviazione e l'invio di dati di contabilità. I server di accesso alla rete che supportano questa funzionalità possono archiviare i dati di contabilità quando il server di accesso alla rete non è in grado di comunicare con NPS. Quando il server dei criteri di rete è disponibile, il server di accesso alla rete trasmette i record archiviati al server dei criteri di rete, garantendo una maggiore affidabilità nella contabilità dei server di accesso alla rete che non forniscono questa funzionalità.
 
-- Pianificare la configurazione sempre l'attributo Interim-Acct-Interval nei criteri di rete. L'attributo Interim-Acct-Interval imposta l'intervallo (in secondi) tra ciascun aggiornamento interim che invia il server di accesso di rete. In base alla specifica RFC 2869, il valore dell'attributo Interim-Acct-Interval non deve essere minore di 60 secondi, ovvero un minuto e non deve essere inferiore a 600 secondi, o 10 minuti. Per altre informazioni, vedere RFC 2869, "Estensioni RADIUS".
+- Pianificare di configurare sempre l'attributo Acct-Interim-Interval nei criteri di rete. L'attributo Acct-Interim-Interval imposta l'intervallo (in secondi) tra ogni aggiornamento provvisorio inviato dal server di accesso alla rete. In base allo standard RFC 2869, il valore dell'attributo Acct-Interim-Interval non deve essere minore di 60 secondi, un minuto e non deve essere inferiore a 600 secondi oppure 10 minuti. Per ulteriori informazioni, vedere RFC 2869, "RADIUS Extensions".
 
-- Verificare che la registrazione dello stato periodica è abilitata nel NPSs.
+- Assicurarsi che la registrazione dello stato periodico sia abilitata nella NPSs.
 

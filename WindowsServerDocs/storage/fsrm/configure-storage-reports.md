@@ -2,18 +2,18 @@
 title: Configurare i rapporti di archiviazione
 description: Questo articolo descrive come configurare i parametri predefiniti per i rapporti di archiviazione
 ms.date: 7/7/2017
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: storage
 ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: f62109a8d3ea3e4e6386956789d276f9aa911e80
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d3500f4ea4fc264f3cb663f17c3a50439b9cb454
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59885232"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71394257"
 ---
 # <a name="configure-storage-reports"></a>Configurare i rapporti di archiviazione
 
@@ -42,5 +42,5 @@ ms.locfileid: "59885232"
 
 ## <a name="see-also"></a>Vedere anche
 
--   [Opzioni di gestione risorse di impostazione File Server](setting-file-server-resource-manager-options.md)
--   [Gestione rapporti archiviazione](storage-reports-management.md)
+-   [Impostazione delle opzioni di Gestione risorse file server](setting-file-server-resource-manager-options.md)
+-   [Gestione rapporti di archiviazione](storage-reports-management.md)

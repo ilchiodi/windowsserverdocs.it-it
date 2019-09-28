@@ -1,6 +1,6 @@
 ---
 title: Problemi noti di Replica di archiviazione
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 manager: siroy
 ms.author: nedpyle
 ms.technology: storage-replica
@@ -8,16 +8,16 @@ ms.topic: get-started-article
 author: nedpyle
 ms.date: 06/25/2019
 ms.assetid: ceddb0fa-e800-42b6-b4c6-c06eb1d4bc55
-ms.openlocfilehash: 681e07b85af603d11295bf1ca2a08f0eb7181725
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 32020dba2ccca04e8d0bdc29d47dc9fef1f05a01
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70865247"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71402929"
 ---
 # <a name="known-issues-with-storage-replica"></a>Problemi noti di Replica di archiviazione
 
->Si applica a Windows Server 2019, Windows Server 2016, Windows Server (Canale semestrale)
+>Si applica a: Windows Server 2019, Windows Server 2016, Windows Server (Canale semestrale)
 
 Questo argomento descrive i problemi noti di replica di archiviazione in Windows Server.
 
@@ -364,7 +364,7 @@ Quando esegui lo snap-in di gestione disco (DISKMGMT.MSC), noterai uno o più vo
 
     "An Unexpected Error has Occurred"  
 
-Questo comportamento dipende dalla progettazione. Non si tratta di un volume, ma di una partizione. Replica archiviazione crea una partizione di 512 KB come slot di database (lo strumento DiskMgmt.msc legacy esegue l'arrotondamento al MB più vicino). Disporre di una partizione simile per ciascun volume replicato è normale e auspicabile. Quando non è più in uso, sei libero di eliminare questa partizione di 512 KB. Le partizioni in uso non possono essere eliminate. La partizione non verrà estesa né ridotta. Se si sta ricreando la replica, si consiglia di lasciare la partizione in quanto Replica archiviazione richiederà quelle non usate.
+Questo comportamento è da progettazione. Non si tratta di un volume, ma di una partizione. Replica archiviazione crea una partizione di 512 KB come slot di database (lo strumento DiskMgmt.msc legacy esegue l'arrotondamento al MB più vicino). Disporre di una partizione simile per ciascun volume replicato è normale e auspicabile. Quando non è più in uso, sei libero di eliminare questa partizione di 512 KB. Le partizioni in uso non possono essere eliminate. La partizione non verrà estesa né ridotta. Se si sta ricreando la replica, si consiglia di lasciare la partizione in quanto Replica archiviazione richiederà quelle non usate.
 
 Per visualizzare i dettagli, usa lo strumento DISKPART o il cmdlet Get-Partition. Tali partizioni avranno un tipo GPT di `558d43c5-a1ac-43c0-aac8-d1472b2923d1`.
 
@@ -411,7 +411,7 @@ Quando si esegue test-SRTopology tra due cluster e i relativi percorsi CSV, l'op
     + CategoryInfo          : ObjectNotFound: (:) [Test-SRTopology], FileNotFoundException
     + FullyQualifiedErrorId : TestSRTopologyFailure,Microsoft.FileServices.SR.Powershell.TestSRTopologyCommand 
 
-Questo problema è causato da un difetto del codice noto in Windows Server 2016. Questo problema è stato risolto per la prima volta in Windows Server, versione 1709 e gli strumenti di strumenti di amministrazione remota associati. Per una risoluzione di livello inferiore, contattare supporto tecnico Microsoft e richiedere un aggiornamento backporting. Non è disponibile alcuna soluzione.
+Questo problema è causato da un difetto del codice noto in Windows Server 2016. Questo problema è stato risolto per la prima volta in Windows Server, versione 1709 e gli strumenti di strumenti di amministrazione remota associati. Per una risoluzione di livello inferiore, contattare supporto tecnico Microsoft e richiedere un aggiornamento backporting. Non sono disponibili soluzioni alternative.
 
 ## <a name="error-specified-volume-could-not-be-found-when-running-test-srtopology-between-two-clusters"></a>Errore "Impossibile trovare il volume specificato" durante l'esecuzione di test-SRTopology tra due cluster
 

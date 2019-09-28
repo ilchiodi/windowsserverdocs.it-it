@@ -7,24 +7,24 @@ author: MicrosoftGuyJFlo
 manager: mtillman
 ms.date: 08/07/2018
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 63dfec0298097c537e626ce81bac4139c4644c17
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: f2c0837ecc31731d7844f6bb424aba61ea31dbbe
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59813562"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71391134"
 ---
 # <a name="ad-ds-getting-started"></a>Guida introduttiva a Servizi di dominio Active Directory
 
 >Si applica a: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Active Directory archivia le informazioni sugli oggetti sulla rete e più facile per gli amministratori e agli utenti di trovare e usare queste informazioni. Active Directory Usa un archivio dati strutturato come base per un'organizzazione logica e gerarchica di informazioni sulla directory.  
+Active Directory archivia le informazioni sugli oggetti sulla rete e semplifica la ricerca e l'utilizzo di queste informazioni da parte degli amministratori e degli utenti. Active Directory utilizza un archivio dati strutturato come base per un'organizzazione logica gerarchica delle informazioni di directory.  
   
 | Argomento | Descrizione |
 | --------- | --------- |
-| [Panoramica di servizi di dominio Active Directory](../ad-ds/get-started/virtual-dc/Active-Directory-Domain-Services-Overview.md) | Fornisce informazioni sulla funzionalità di base di Active Directory Domain Services. Include i concetti tecnici, collegamenti alla pianificazione e distribuzione.|
-| [Centro di amministrazione di Active Directory](../ad-ds/get-started/adac/Active-Directory-Administrative-Center.md) | Fornisce informazioni sul centro di amministrazione di Active Directory che include funzionalità di gestione migliorate. Queste funzionalità semplificano le attività amministrative per la gestione dei servizi di dominio Active Directory (AD DS).|
-| [Virtualizzazione di servizi di dominio Active Directory](../ad-ds/get-started/virtual-dc/Active-Directory-Domain-Services-Virtualization.md) | Fornisce informazioni tecniche e panoramica sulla virtualizzazione di Active Directory Domain Services.|
-| [Servizio ora di Windows](../../networking/windows-time-service/Windows-Time-Service.md) | Fornisce informazioni dettagliate su che cos'è il servizio ora di Windows, l'importanza dei protocolli di tempo e come funziona il servizio ora di Windows.|
+| [Panoramica di Active Directory Domain Services](../ad-ds/get-started/virtual-dc/Active-Directory-Domain-Services-Overview.md) | Vengono fornite informazioni sulle funzionalità di servizi di dominio Active Directory di base. Include concetti tecnici, collegamenti alla pianificazione e alla distribuzione.|
+| [Centro di amministrazione di Active Directory](../ad-ds/get-started/adac/Active-Directory-Administrative-Center.md) | Vengono fornite informazioni sul Centro di amministrazione di Active Directory che include funzionalità avanzate di gestione dell'esperienza. Queste funzionalità semplificano il carico amministrativo per la gestione di Active Directory Domain Services (AD DS).|
+| [Virtualizzazione di Active Directory Domain Services](../ad-ds/get-started/virtual-dc/Active-Directory-Domain-Services-Virtualization.md) | Vengono fornite informazioni generali e tecniche sulla virtualizzazione di servizi di dominio Active Directory.|
+| [Servizio Ora di Windows](../../networking/windows-time-service/Windows-Time-Service.md) | Fornisce informazioni dettagliate sul servizio ora di Windows, sull'importanza dei protocolli temporali e sul funzionamento del servizio ora di Windows.|

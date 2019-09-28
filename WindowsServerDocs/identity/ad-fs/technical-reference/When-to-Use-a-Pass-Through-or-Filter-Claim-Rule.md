@@ -7,14 +7,14 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: fd25927a11f12deb9cf23866dcad447f397d3173
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 49061aaab2f46d7d3abe80d4fade98c10654fc37
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70869311"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71407294"
 ---
 # <a name="when-to-use-a-pass-through-or-filter-claim-rule"></a>Quando usare una regola di pass-through o di filtro delle attestazioni
 È possibile utilizzare questa regola in Active Directory Federation Services \(ad FS\) quando è necessario eseguire un tipo di attestazione in ingresso specifico e quindi applicare un'azione che determinerà l'output che deve essere eseguito in base ai valori nell'attestazione in ingresso. Quando si usa questa regola, si consente l'ingresso o si filtrano le eventuali attestazioni corrispondenti alla logica della regola nella tabella seguente, in base all'opzione configurata nella regola.  

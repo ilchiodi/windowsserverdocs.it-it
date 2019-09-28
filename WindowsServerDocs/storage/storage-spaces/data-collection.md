@@ -1,39 +1,39 @@
 ---
-title: Raccogliere dati diagnostici con spazi di archiviazione diretta
-description: Informazioni sugli spazi diretto dei dati raccolta strumenti di archiviazione, con esempi specifici di come eseguire e usarli.
-keywords: Spazi di archiviazione, la raccolta dei dati, risoluzione dei problemi, i canali di eventi, Get-SDDCDiagnosticInfo
+title: Raccogliere i dati di diagnostica con Spazi di archiviazione diretta
+description: Informazioni sugli strumenti di raccolta dati Spazi di archiviazione diretta, con esempi specifici su come eseguirli e usarli.
+keywords: Spazi di archiviazione, raccolta dati, risoluzione dei problemi, canali eventi, Get-SDDCDiagnosticInfo
 ms.assetid: ''
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.author: adagashe
 ms.technology: storage-spaces
 ms.topic: article
 author: adagashe
 ms.date: 10/24/2018
 ms.localizationpriority: ''
-ms.openlocfilehash: 51cf96fb462b68f2ba01d49642a858430c71e9f5
-ms.sourcegitcommit: 63926404009f9e1330a4a0aa8cb9821a2dd7187e
+ms.openlocfilehash: 67f35e3afa8e9eafabe7b22eb60cc85c7be6cb23
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67469610"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71402878"
 ---
-# <a name="collect-diagnostic-data-with-storage-spaces-direct"></a>Raccogliere dati diagnostici con spazi di archiviazione diretta
+# <a name="collect-diagnostic-data-with-storage-spaces-direct"></a>Raccogliere i dati di diagnostica con Spazi di archiviazione diretta
 
 > Si applica a: Windows Server 2019, Windows Server 2016
 
-Sono disponibili vari strumenti di diagnostica che possono essere utilizzati per raccogliere i dati necessari per risolvere i problemi di spazi di archiviazione diretta e Cluster di Failover. In questo articolo esamineremo **Get-SDDCDiagnosticInfo** -uno strumento di un dispositivo a tocco che raccoglierà tutte le informazioni pertinenti per aiutare a diagnosticare il cluster.
+Sono disponibili diversi strumenti di diagnostica che possono essere utilizzati per raccogliere i dati necessari per la risoluzione dei problemi relativi a Spazi di archiviazione diretta e cluster di failover. In questo articolo si incentrerà su **Get-SDDCDiagnosticInfo** -uno strumento One Touch che raccoglie tutte le informazioni rilevanti per facilitare la diagnosi del cluster.
 
-Dato che i log e altre informazioni che **Get-SDDCDiagnosticInfo** sono di tipo densa, le informazioni sulla risoluzione dei problemi riportati di seguito saranno utili per la risoluzione dei problemi avanzata problemi che sono stati inoltrati e che può richiedere i dati da inviare a Microsoft per la valutazione.
+Dato che i log e altre informazioni su **Get-SDDCDiagnosticInfo** sono densi, le informazioni sulla risoluzione dei problemi illustrate di seguito saranno utili per la risoluzione dei problemi avanzati escalati e che potrebbero richiedere l'invio di dati a Microsoft per la valutazione della durata.
 
 ## <a name="installing-get-sddcdiagnosticinfo"></a>Installazione di Get-SDDCDiagnosticInfo
 
-Il **Get-SDDCDiagnosticInfo** cmdlet di PowerShell (noto anche come **Get-PCStorageDiagnosticInfo**, precedentemente noto come **Test StorageHealth**) può essere usato per raccogliere i log per ed eseguire controlli di integrità per il Clustering di Failover (Cluster, le risorse, reti, i nodi), (spazi di archiviazione I dischi fisici, enclosure, i dischi virtuali) del Cluster condivisi volumi, condivisioni File SMB e la deduplicazione. 
+Cmdlet di PowerShell **Get-SDDCDiagnosticInfo** (noto anche come **Get-PCStorageDiagnosticInfo**, noto in precedenza come **test-StorageHealth**, può essere usato per raccogliere i log ed eseguire i controlli di integrità per il clustering di failover (cluster, risorse, reti, nodi), spazi di archiviazione (dischi fisici, enclosure, Dischi virtuali), volumi condivisi cluster, condivisioni file SMB e deduplicazione. 
 
-Esistono due metodi di installazione di script, entrambi sono strutture riportato di seguito.
+Sono disponibili due metodi di installazione dello script, entrambi delineati di seguito.
 
 ### <a name="powershell-gallery"></a>PowerShell Gallery
 
-Il [PowerShell Gallery](https://www.powershellgallery.com/packages/PrivateCloud.DiagnosticInfo) è uno snapshot del repository GitHub. Si noti che l'installazione degli elementi da PowerShell Gallery richiede la versione più recente del modulo PowerShellGet, disponibile in Windows 10, in Windows Management Framework (WMF) 5.0 o nel programma di installazione basata su MSI (per PowerShell 3 e 4).
+Il [PowerShell Gallery](https://www.powershellgallery.com/packages/PrivateCloud.DiagnosticInfo) è uno snapshot del repository GitHub. Si noti che l'installazione di elementi dal PowerShell Gallery richiede la versione più recente del modulo PowerShellGet, disponibile in Windows 10, in Windows Management Framework (WMF) 5,0 o nel programma di installazione basato su MSI (per PowerShell 3 e 4).
 
 È possibile installare il modulo eseguendo il comando seguente in PowerShell con privilegi di amministratore:
 
@@ -51,7 +51,7 @@ Update-Module PrivateCloud.DiagnosticInfo
 
 ### <a name="github"></a>GitHub
 
-Il [repository GitHub](https://github.com/PowerShell/PrivateCloud.DiagnosticInfo/) è la versione più aggiornata del modulo, poiché si sta costantemente l'iterazione di seguito. Per installare il modulo da GitHub, scaricare il modulo più recente dal [archive](https://github.com/PowerShell/PrivateCloud.DiagnosticInfo/archive/master.zip) ed estrarre la directory PrivateCloud.DiagnosticInfo sul percorso di moduli di PowerShell corretto a cui fa riferimento ```$env:PSModulePath```
+Il [repository GitHub](https://github.com/PowerShell/PrivateCloud.DiagnosticInfo/) è la versione più aggiornata del modulo, dal momento che l'iterazione continua qui. Per installare il modulo da GitHub, scaricare il modulo più recente dall' [Archivio](https://github.com/PowerShell/PrivateCloud.DiagnosticInfo/archive/master.zip) ed estrarre la directory PrivateCloud. DiagnosticInfo nel percorso dei moduli di PowerShell corretto indicato da ```$env:PSModulePath```
 
 ``` PowerShell
 # Allowing Tls12 and Tls11 -- e.g. github now requires Tls12
@@ -79,25 +79,25 @@ Import-Module $module -Force
 
 ``` 
 
-Se è necessario ottenere questo modulo in un cluster non in linea, scaricare il file zip, spostarlo al nodo del server di destinazione e installare il modulo.
+Se è necessario ottenere questo modulo in un cluster offline, scaricare il file zip, spostarlo nel nodo del server di destinazione e installare il modulo.
 
 ## <a name="gathering-logs"></a>Raccolta dei log
 
-Dopo aver abilitato i canali di eventi e completare il processo di installazione, è possibile usare il cmdlet di PowerShell Get-SDDCDiagnosticInfo nel modulo per ottenere:
+Dopo aver abilitato i canali eventi e completato il processo di installazione, è possibile usare il cmdlet di PowerShell Get-SDDCDiagnosticInfo nel modulo per ottenere:
 
-- Report su integrità di archiviazione, oltre a informazioni dettagliate sui componenti di tipo non integro
-- Report di capacità di archiviazione dal pool, volumi e volumi deduplicati
-- Registri eventi da tutti i nodi del cluster e un report di riepilogo degli errori
+- Report sull'integrità dell'archiviazione e dettagli sui componenti non integri
+- Report sulla capacità di archiviazione in base al pool, al volume e al volume deduplicato
+- Log eventi da tutti i nodi del cluster e una segnalazione errori di riepilogo
 
-Si supponga che il cluster di archiviazione con il nome *"CLUS01".*
+Si supponga che il cluster di archiviazione abbia il nome *"clus01".*
 
-Per l'esecuzione avviene in un cluster di archiviazione remoti:
+Per l'esecuzione in un cluster di archiviazione remoto:
 
 ``` PowerShell
 Get-SDDCDiagnosticInfo -ClusterName CLUS01
 ```
 
-Per eseguire in locale nel nodo di archiviazione in cluster:
+Per eseguire localmente nel nodo di archiviazione in cluster:
 
 ``` PowerShell
 Get-SDDCDiagnosticInfo
@@ -109,26 +109,26 @@ Per salvare i risultati in una cartella specificata:
 Get-SDDCDiagnosticInfo -WriteToPath D:\Folder 
 ```
 
-Ecco un esempio di questo aspetto in un vero cluster:
+Di seguito è riportato un esempio di come viene eseguita la ricerca in un cluster reale:
 
 ``` PowerShell
 New-Item -Name SDDCDiagTemp -Path d:\ -ItemType Directory -Force
 Get-SddcDiagnosticInfo -ClusterName S2D-Cluster -WriteToPath d:\SDDCDiagTemp
 ```
 
-Come può notare, lo script eseguirà anche la convalida dello stato corrente del cluster
+Come si può notare, lo script eseguirà anche la convalida dello stato corrente del cluster
 
-![screenshot di powershell di raccolta dati](media/data-collection/CollectData.png)
+![schermata di PowerShell per la raccolta dati](media/data-collection/CollectData.png)
 
-Come può notare, tutti i dati vengono scritti SDDCDiagTemp cartella
+Come si può notare, tutti i dati vengono scritti nella cartella SDDCDiagTemp
 
-![dati nello screenshot di Esplora file](media/data-collection/CollectDataFolder.png)
+![schermata dei dati in Esplora file](media/data-collection/CollectDataFolder.png)
 
-Dopo che lo script verrà completato e verrà creato con estensione ZIP nella directory degli utenti
+Al termine dell'esecuzione dello script, verrà creato un file ZIP nella directory degli utenti
 
-![dati zip nello screenshot di powershell](media/data-collection/CollectDataResult.png)
+![schermata di data zip in PowerShell](media/data-collection/CollectDataResult.png)
 
-È necessario generare un report in un file di testo
+Generazione di un report in un file di testo
 
 ```PowerShell
 #find the latest diagnostic zip in UserProfile
@@ -143,43 +143,43 @@ Dopo che lo script verrà completato e verrà creato con estensione ZIP nella di
     
 ```
 
-Per riferimento, ecco un collegamento per il [report di esempio](https://github.com/Microsoft/WSLab/blob/dev/Scenarios/S2D%20Tools/Get-SDDCDiagnosticInfo/SDDCReport.txt) e [zip di esempio](https://github.com/Microsoft/WSLab/blob/dev/Scenarios/S2D%20Tools/Get-SDDCDiagnosticInfo/HealthTest-S2D-Cluster-20180522-1546.ZIP).
+Per riferimento, di seguito è riportato un collegamento al [report di esempio](https://github.com/Microsoft/WSLab/blob/dev/Scenarios/S2D%20Tools/Get-SDDCDiagnosticInfo/SDDCReport.txt) e al file zip di [esempio](https://github.com/Microsoft/WSLab/blob/dev/Scenarios/S2D%20Tools/Get-SDDCDiagnosticInfo/HealthTest-S2D-Cluster-20180522-1546.ZIP).
 
-Per visualizzare tali informazioni in Windows Admin Center (e versioni successive 1812 versione), passare al *diagnostica* scheda. Come noterete nella schermata seguente, è possibile 
+Per visualizzarlo nell'interfaccia di amministrazione di Windows (versione 1812 e successive), passare alla scheda *diagnostica* . Come è possibile osservare nella schermata seguente, è possibile 
 
 - Installare gli strumenti di diagnostica
-- Aggiornamento dei dati (in tal caso non aggiornati), 
-- Pianificare le esecuzioni giornaliere di diagnostica (hanno un valore basso impatto sul sistema, in genere richiedere < 5 minuti in background, e non occupa più di 500mb nel cluster)
-- Vista precedentemente raccolte le informazioni di diagnostica se si desidera assegnare a supportare o analizzarli personalmente.
+- Aggiornare i dati (se non sono aggiornati), 
+- Pianificare le esecuzioni di diagnostica giornaliere, che hanno un basso effetto sul sistema, in genere < 5 minuti in background e non richiede più di 500MB nel cluster.
+- Consente di visualizzare le informazioni di diagnostica raccolte in precedenza se è necessario fornirle per supportarle o analizzarle autonomamente.
 
-![screenshot della diagnostica wac](media/data-collection/Wac.png)
+![schermata di diagnostica WAC](media/data-collection/Wac.png)
 
 ## <a name="get-sddcdiagnosticinfo-output"></a>Output di Get-SDDCDiagnosticInfo
 
-Di seguito sono i file inclusi nell'output di Get-SDDCDiagnosticInfo compresso.
+Di seguito sono riportati i file inclusi nell'output compresso di Get-SDDCDiagnosticInfo.
 
-### <a name="health-summary-report"></a>Report di riepilogo dell'integrità
+### <a name="health-summary-report"></a>Report Riepilogo integrità
 
-Report di riepilogo dell'integrità viene salvato come:
-- 0_CloudHealthSummary.log
+Il report di riepilogo integrità viene salvato come:
+- 0_CloudHealthSummary. log
 
-Questo file viene generato dopo l'analisi di tutti i dati raccolti e mira a fornire un breve riepilogo del sistema. Contiene:
+Questo file viene generato dopo aver analizzato tutti i dati raccolti ed è destinato a fornire un breve riepilogo del sistema. Contiene:
 
 - Informazioni di sistema
-- Panoramica dell'integrità di archiviazione (numero di nodi di backup, le risorse online, volumi condivisi del cluster online, i componenti di tipo non integro e così via).
-- Dettagli sui componenti di tipo non integro (risorse cluster sono offline, non riuscite o in linea in sospeso)
-- Informazioni di firmware e driver
-- Pool di dischi fisici e i dettagli di volume
+- Panoramica sull'integrità dell'archiviazione (numero di nodi, risorse online, volumi condivisi del cluster online, componenti non integri e così via)
+- Dettagli sui componenti non integri (risorse cluster offline, non riuscite o in sospeso online)
+- Informazioni sul firmware e sul driver
+- Dettagli del pool, del disco fisico e del volume
 - Prestazioni di archiviazione (vengono raccolti i contatori delle prestazioni)
 
-Questo report è in corso continuamente aggiornato per includere le informazioni più utili. Per informazioni aggiornate, vedere la [README GitHub](https://github.com/PowerShell/PrivateCloud.DiagnosticInfo/edit/master/README.md).
+Questo report viene aggiornato continuamente per includere informazioni più utili. Per informazioni aggiornate, vedere il [file Leggimi di GitHub](https://github.com/PowerShell/PrivateCloud.DiagnosticInfo/edit/master/README.md).
 
-### <a name="logs-and-xml-files"></a>I log e file XML
+### <a name="logs-and-xml-files"></a>Log e file XML
 
-Lo script esegue vari log di raccolta script e l'output viene salvato come file xml. Microsoft raccoglie i log del cluster e l'integrità, le informazioni di sistema (MSInfo32), non filtrato i registri eventi (clustering di failover, diagnostica dis, hyper-v, spazi di archiviazione e altro ancora) e le informazioni di diagnostica di archiviazione (log operativi). Per informazioni aggiornate sul tipo di informazioni raccolte, vedere la [README GitHub (che cos'è raccogliere)](https://github.com/PowerShell/PrivateCloud.DiagnosticInfo/blob/master/README.md#what-does-the-cmdlet-output-include).
+Lo script esegue vari script di raccolta dei log e salva l'output come file XML. Vengono raccolti i log di cluster e di integrità, le informazioni di sistema (MSInfo32), i registri eventi non filtrati (clustering di failover, diagnostica dis, Hyper-v, spazi di archiviazione e così via) e le informazioni di diagnostica di archiviazione (log operativi). Per informazioni aggiornate sulle informazioni raccolte, vedere il [file Leggimi di GitHub (raccolta)](https://github.com/PowerShell/PrivateCloud.DiagnosticInfo/blob/master/README.md#what-does-the-cmdlet-output-include).
 
-## <a name="how-to-consume-the-xml-files-from-get-pcstoragediagnosticinfo"></a>Come usare i file XML da Get-PCStorageDiagnosticInfo
-È possibile utilizzare i dati da file XML forniti nei dati raccolti dal **Get-PCStorageDiagnosticInfo** cmdlet. Questi file dispone di informazioni sul virtuale i dischi, dischi fisici, le informazioni di base del cluster e altri PowerShell relativi output. 
+## <a name="how-to-consume-the-xml-files-from-get-pcstoragediagnosticinfo"></a>Come utilizzare i file XML da Get-PCStorageDiagnosticInfo
+È possibile utilizzare i dati dei file XML forniti nei dati raccolti dal cmdlet **Get-PCStorageDiagnosticInfo** . Questi file contengono informazioni sui dischi virtuali, i dischi fisici, le informazioni di base sul cluster e altri output correlati a PowerShell. 
 
 Per visualizzare i risultati di questi output, aprire una finestra di PowerShell ed eseguire i passaggi seguenti. 
 
@@ -189,6 +189,6 @@ $d = import-clixml <filename>
 $d
 ```
 
-## <a name="what-to-expect-next"></a>Cosa accade quindi?
-Numerosi miglioramenti e nuovi cmdlet per l'analisi dell'integrità del sistema SDDC.
-Fornire commenti e suggerimenti su ciò che si desidera vedere compilando problemi [qui](https://github.com/PowerShell/PrivateCloud.DiagnosticInfo/issues). Inoltre, non esitate a contribuire con le modifiche utili per lo script, inviando un [richiesta pull](https://github.com/PowerShell/PrivateCloud.DiagnosticInfo/pulls).
+## <a name="what-to-expect-next"></a>Cosa aspettarsi successivamente?
+Sono stati apportati numerosi miglioramenti e nuovi cmdlet per analizzare l'integrità del sistema SDDC.
+Inviare commenti e suggerimenti su ciò che si desidera visualizzare segnalando i problemi [qui](https://github.com/PowerShell/PrivateCloud.DiagnosticInfo/issues). Inoltre, è possibile contribuire a apportare modifiche utili allo script inviando una [richiesta pull](https://github.com/PowerShell/PrivateCloud.DiagnosticInfo/pulls).

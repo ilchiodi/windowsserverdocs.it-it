@@ -1,34 +1,34 @@
 ---
-title: Consiglia di parametri di piano di risparmio di energia bilanciata per tempi di risposta rapidi
-description: Consiglia di parametri di piano di risparmio di energia bilanciata per tempi di risposta rapidi
-ms.prod: windows-server-threshold
+title: Parametri di combinazione per il risparmio di energia consigliati per tempi di risposta rapidi
+description: Parametri di combinazione per il risparmio di energia consigliati per tempi di risposta rapidi
+ms.prod: windows-server
 ms.technology: performance-tuning-guide
 ms.topic: article
 ms.author: Qizha;TristanB
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: 134e868e1400729f754039fc8120cea0c73945bf
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 96037a577c9f2a835e9c49bf9339ed8dc6da1a6b
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59878792"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71383509"
 ---
-# <a name="recommended-balanced-power-plan-parameters-for-workloads-requiring-quick-response-times"></a>Consiglia di parametri di piano di risparmio di energia bilanciata per carichi di lavoro che richiedono tempi di risposta rapidi
+# <a name="recommended-balanced-power-plan-parameters-for-workloads-requiring-quick-response-times"></a>Parametri di combinazione per il risparmio di energia consigliati per i carichi di lavoro che richiedono tempi di risposta rapidi
 
-Il valore predefinito **bilanciato** power Usa piano **velocità effettiva** come metrica delle prestazioni per l'ottimizzazione. Durante lo stato stazionario **velocità effettiva** non cambia con degli utilizzi diversi fino a quando il sistema è totalmente overload (~ 100% di utilizzo).  Di conseguenza, il **bilanciato** risparmio di energia predilige power un bel po' con riducendo al minimo la frequenza del processore e utilizzo di ottimizzazione.
+La combinazione per il risparmio di energia predefinita **bilancia** usa la **velocità effettiva** come misurazione delle prestazioni per l'ottimizzazione. Durante lo stato stazionario, la **velocità effettiva** non cambia con diversi utilizzi fino a quando il sistema non viene completamente sovraccaricato (~ 100% di utilizzo).  Di conseguenza, il piano di risparmio energia **bilanciato** favorisce un notevole risparmio di energia riducendo la frequenza del processore e ottimizzando l'utilizzo.
 
-Tuttavia **tempi di risposta** potrebbe aumentare in modo esponenziale con incrementi di utilizzo. Al giorno d'oggi, il requisito di tempi di risposta rapidi è notevolmente aumentate. Anche se Microsoft suggerito agli utenti di passare per il **ad alte prestazioni** risparmio di energia quando sono necessari tempi di risposta rapidi, alcuni utenti non si desiderano perdere il vantaggio power durante chiaro ai livelli di carico medio. Di conseguenza, Microsoft offre il seguente set di modifiche di parametro suggeriti per i carichi di lavoro che richiedono tempi di risposta rapidi.
+Tuttavia, il **tempo di risposta** potrebbe aumentare in modo esponenziale con un aumento dell'utilizzo. Attualmente, il requisito del tempo di risposta rapido è aumentato significativamente. Anche se Microsoft ha suggerito agli utenti di passare alla combinazione per il risparmio di energia a **prestazioni elevate** quando necessitano di tempi di risposta rapidi, alcuni utenti non vogliono perdere il vantaggio energetico durante i livelli di carico leggero e medio. Di conseguenza, Microsoft fornisce il seguente set di modifiche dei parametri suggerite per i carichi di lavoro che richiedono tempi di risposta rapidi.
 
 
-| Parametro | Descrizione | Valore predefinito | Valore proposto |
+| Parametro | Descrizione | Default Value | Valore proposto |
 |------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Soglia di aumento delle prestazioni processore | Soglia di utilizzo precedente che è l'aumento della frequenza | 90 | 60 |
-| Soglia di riduzione delle prestazioni processore | Soglia di utilizzo seguente che la frequenza è quello di ridurre | 80 | 40 |
-| Tempo di aumento delle prestazioni processore | Numero di finestre di PPM prima è l'aumento della frequenza | 3 | 1 |
-| Criteri di aumento delle prestazioni del processore | Velocità con cui la frequenza è aumentare | singolo | Ideale |
+| Soglia di aumento delle prestazioni del processore | Soglia di utilizzo oltre la quale è necessario aumentare la frequenza | 90 | 60 |
+| Soglia di riduzione delle prestazioni del processore | Soglia di utilizzo al di sotto della quale la frequenza diminuisce | 80 | 40 |
+| Tempo di aumento delle prestazioni del processore | Numero di finestre di controllo PPM prima che la frequenza aumenti | 3 | 1 |
+| Criteri di aumento delle prestazioni del processore | Velocità di aumento della frequenza | Single | Ideale |
 
-Per impostare i valori proposti, gli utenti possono eseguire i comandi seguenti in una finestra con l'amministratore:
+Per impostare i valori proposti, gli utenti possono eseguire i comandi seguenti in una finestra con amministratore:
 
 ``` syntax
 Powercfg -setacvalueindex scheme_balanced sub_processor PERFINCTHRESHOLD 60
@@ -38,35 +38,35 @@ Powercfg -setacvalueindex scheme_balanced sub_processor PERFINCPOL 0
 Powercfg -setactive scheme_balanced
 ```
 
-Questa modifica si basa sulle prestazioni e analisi di compromesso power con carichi di lavoro seguenti. Per gli utenti che desiderano ulteriormente per ottimizzare l'efficienza di risparmio energia con determinati requisiti del contratto di servizio, consultare [considerazioni sulle prestazioni Hardware Server](../power.md).
+Questa modifica è basata sull'analisi delle prestazioni e del compromesso di alimentazione usando i carichi di lavoro seguenti. Per gli utenti che desiderano ottimizzare ulteriormente l'efficienza energetica con determinati requisiti del contratto di assistenza, vedere [considerazioni sulle prestazioni dell'hardware del server](../power.md).
 
 >[!Note]
-> Per altre indicazioni e informazioni dettagliate sull'utilizzo di risparmio di energia per l'ottimizzazione di carichi di lavoro virtualizzati, leggere [configurazione Hyper-v](../../role/hyper-v-server/configuration.md)
+> Per consigli aggiuntivi e informazioni dettagliate sull'uso delle combinazioni per il risparmio di energia per ottimizzare i carichi di lavoro virtualizzati, vedere [configurazione di Hyper-v](../../role/hyper-v-server/configuration.md)
 
 ## <a name="specpower--java-workload"></a>SPECpower: carico di lavoro JAVA
 
-[SPECpower\_ssj2008](http://spec.org/power_ssj2008/), più popolari benchmark specifiche tecniche standard di settore per le caratteristiche di potenza e prestazioni del server, viene usato per controllare l'impatto di risparmio energia. Dal momento che utilizza solo **velocità effettiva** come metrica di prestazioni, il valore predefinito **bilanciato** risparmio di energia fornisce il migliore risparmio energetico.
+[SPECpower @ no__t-1ssj2008](http://spec.org/power_ssj2008/), il benchmark delle specifiche standard del settore più diffuso per le caratteristiche di potenza e prestazioni del server, viene usato per controllare l'effetto sull'alimentazione. Poiché usa la **velocità effettiva** solo come metrica delle prestazioni, la combinazione per il risparmio di energia predefinita **equilibrata** offre la migliore efficienza energetica.
 
-La modifica di proposta parametro consuma energia leggermente superiore alla luce (ad esempio, < = % 20) livelli di carico. Ma con il maggiore aumenta il carico di livello, il differenza e inizia a consumare energia stesso come il **ad alte prestazioni** risparmio di energia dopo il livello di carico il 60%. Per usare i parametri della modifica proposta, gli utenti devono tenere il costo dell'energia media per i livelli di carico elevato durante la pianificazione della capacità per i rack.
+La modifica proposta del parametro usa una potenza leggermente superiore alla luce (ad esempio, < = 20%) livelli di carico. Tuttavia, con il livello di carico più elevato, la differenza aumenta e inizia a consumare la stessa potenza della combinazione per il risparmio di energia a **prestazioni elevate** dopo il livello di carico del 60%. Per usare i parametri di modifica proposti, è necessario che gli utenti siano a conoscenza del costo dell'energia a livelli di carico medio-alto durante la pianificazione della capacità del rack.
 
 ## <a name="geekbench-3"></a>GeekBench 3
 
-[3 GeekBench](http://www.geekbench.com/geekbench3/) è un benchmark di processore multipiattaforma che separa i punteggi per garantire prestazioni core singolo e multi-core. Simula una serie di carichi di lavoro inclusi interi carichi di lavoro (crittografare i dati, la compressione, l'elaborazione di immagini e così via), carichi di lavoro di punto a virgola mobile (modellazione, frattale, ottimizzazione delle immagini, immagine sfocatura, e così via) e carichi di lavoro di memoria (streaming).
+[Geekbench 3](http://www.geekbench.com/geekbench3/) è un benchmark del processore multipiattaforma che separa i punteggi per le prestazioni single core e multicore. Simula un set di carichi di lavoro, inclusi carichi di lavoro di tipo Integer (crittografia, compressioni, elaborazione di immagini e così via), carichi di lavoro a virgola mobile (modellazione, frattale, nitidezza delle immagini, sfocatura delle immagini e così via) e carichi di lavoro di memoria (streaming).
 
-**Tempo di risposta** è una misura principali per il calcolo del punteggio. Nel nostro sistema testato, il valore predefinito **bilanciato** risparmio di energia ha regressione di circa 18% nella regressione di test e ~ 40% single core nei test di multi-core rispetto al **ad alte prestazioni** risparmio di energia. La modifica proposta rimuove le regressioni.
+Il **tempo di risposta** è una misura principale nel calcolo del punteggio. Nel nostro sistema testato, la combinazione per il risparmio di energia predefinita **bilanciata** ha una regressione di ~ 18% nei test single core e la regressione di ~ 40% nei test multicore rispetto alla combinazione per il risparmio di energia a **prestazioni elevate** . La modifica proposta rimuove queste regressioni.
 
 ## <a name="diskspd"></a>DiskSpd
 
-[Diskspd](https://en.wikipedia.org/wiki/Diskspd) è uno strumento da riga di comando per archiviazione di benchmarking sviluppato da Microsoft. Viene ampiamente utilizzato per generare una serie di richieste nei sistemi di archiviazione per l'analisi delle prestazioni di archiviazione.
+[Diskspd](https://en.wikipedia.org/wiki/Diskspd) è uno strumento da riga di comando per il benchmarking di archiviazione sviluppato da Microsoft. Viene ampiamente usato per generare una serie di richieste nei sistemi di archiviazione per l'analisi delle prestazioni di archiviazione.
 
-Si configura un [Cluster di Failover] e utilizzate Diskspd per generare casuale e sequenziale e lettura e scrittura per i sistemi di archiviazione locale e remota con diverse dimensioni dei / o. I test indicano che il tempo di risposta dei / o è molto sensibile alla frequenza del processore in risparmio di energia diverse. Il **bilanciato** risparmio di energia può raddoppiare il tempo di risposta di queste informazioni dalle **ad alte prestazioni** risparmio di energia in determinati carichi di lavoro. La modifica proposta rimuove la maggior parte delle regressioni.
+Viene configurato un [cluster di failover] e sono stati usati Diskspd per generare casualmente e sequenziali e leggere e scrivere IOs nei sistemi di archiviazione locali e remoti con diverse dimensioni di i/o. I test indicano che il tempo di risposta IO è molto sensibile alla frequenza del processore in combinazioni per il risparmio di energia diverse. Il piano di risparmio energia **bilanciato** potrebbe raddoppiare il tempo di risposta di tale combinazione dalla combinazione per il risparmio di energia a **prestazioni elevate** in determinati carichi La modifica proposta rimuove la maggior parte delle regressioni.
 
 >[!Important]
->A partire da processori Intel [Broadwell] che esegue Windows Server 2016, la maggior parte delle decisioni processor power management vengono effettuata nel processore anziché a livello del sistema operativo per ottenere la personalizzazione più rapido alle modifiche del carico di lavoro. I parametri PPM legacy utilizzati dal sistema operativo hanno un impatto minimo sulle decisioni frequenza effettiva, eccetto che informa il processore se deve favorire la riduzione dell'alimentazione o prestazioni o limitando le frequenze minimo e massime. Di conseguenza, la modifica di proposta PPM parametro è destinato solo per i sistemi di pre-Broadwell.
+>A partire da processori Intel [Broadwell] che eseguono Windows Server 2016, la maggior parte delle decisioni relative al risparmio di energia del processore vengono apportate al processore anziché al livello del sistema operativo per ottenere un adattamento più rapido alle modifiche del carico di lavoro. I parametri PPM legacy usati dal sistema operativo hanno un effetto minimo sulle decisioni relative alla frequenza effettiva, tranne per indicare al processore se è opportuno ottimizzare il consumo di energia o le prestazioni o la limitazione delle frequenze minime e massime. Di conseguenza, la modifica del parametro PPM proposto è destinata solo ai sistemi pre-Broadwell.
 
 ## <a name="see-also"></a>Vedere anche
-- [Considerazioni sulle prestazioni dell'Hardware di server](../index.md)
-- [Considerazioni relative all'alimentazione Hardware server](../power.md)
+- [Considerazioni sulle prestazioni dell'hardware del server](../index.md)
+- [Considerazioni sull'alimentazione dell'hardware del server](../power.md)
 - [Risparmio energia e ottimizzazione delle prestazioni](power-performance-tuning.md)
-- [Processore Power Management di ottimizzazione](processor-power-management-tuning.md)
+- [Ottimizzazione di Risparmio energia del processore](processor-power-management-tuning.md)
 - [Cluster di failover](https://technet.microsoft.com/library/cc725923.aspx)

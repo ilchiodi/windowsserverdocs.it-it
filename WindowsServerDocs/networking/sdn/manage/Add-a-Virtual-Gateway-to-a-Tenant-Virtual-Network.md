@@ -3,7 +3,7 @@ title: Aggiungere un gateway virtuale a una rete virtuale del tenant
 description: Informazioni su come usare i cmdlet e gli script di Windows PowerShell per offrire connettività da sito a sito per le reti virtuali del tenant.
 manager: dougkim
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-sdn
@@ -13,16 +13,16 @@ ms.assetid: b9552054-4eb9-48db-a6ce-f36ae55addcd
 ms.author: pashort
 author: shortpatti
 ms.date: 08/23/2018
-ms.openlocfilehash: 39199a96b1f3cd5a62e60f676e8ab47ad4acb4a8
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: deeb226d81c48e0e389ea4d2619c43aca01e25c2
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70869955"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71355893"
 ---
 # <a name="add-a-virtual-gateway-to-a-tenant-virtual-network"></a>Aggiungere un gateway virtuale a una rete virtuale tenant 
 
->Si applica a Windows Server (Canale semestrale), Windows Server 2016 
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016 
 
 Informazioni su come usare i cmdlet e gli script di Windows PowerShell per offrire connettività da sito a sito per le reti virtuali del tenant. In questo argomento si aggiungono gateway virtuali tenant a istanze del gateway RAS che sono membri dei pool di gateway, usando il controller di rete. Il gateway RAS supporta fino a 100 tenant, a seconda della larghezza di banda usata da ogni tenant. Il controller di rete determina automaticamente il gateway RAS migliore da usare quando si distribuisce un nuovo gateway virtuale per i tenant.  
 

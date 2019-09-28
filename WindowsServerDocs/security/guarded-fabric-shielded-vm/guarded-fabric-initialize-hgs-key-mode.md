@@ -1,30 +1,30 @@
 ---
-title: Inizializzare HGS usando l'attestazione chiave host
+title: Inizializzare HGS con l'attestazione chiave host
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.topic: article
 manager: dongill
 author: rpsqrd
 ms.technology: security-guarded-fabric
 ms.date: 08/29/2018
-ms.openlocfilehash: f19b61ee79b815bb2d2b61676c7b4a8a41e64f31
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 92b8b61a2c940ed7ca2879f6639b11f4a92a694f
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59875832"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71403613"
 ---
-# <a name="initialize-hgs-using-host-key-attestation"></a>Inizializzare HGS usando l'attestazione chiave host
+# <a name="initialize-hgs-using-host-key-attestation"></a>Inizializzare HGS con l'attestazione chiave host
 
 >Si applica a: Windows Server 2019
 
-Questo passaggio dipende dal fatto che si sta inizializzando HGS in una nuova foresta o una foresta bastion esistente:
+Questo passaggio dipende dalla possibilità di inizializzare HGS in una nuova foresta o in una foresta Bastion esistente:
 
-- [Inizializzare il cluster del servizio HGS in una nuova foresta (impostazione predefinita)](guarded-fabric-initialize-hgs-key-mode-default.md)
+- [Inizializzare il cluster HGS in una nuova foresta (impostazione predefinita)](guarded-fabric-initialize-hgs-key-mode-default.md)
 
   -Oppure-
 
-- [Inizializzare il cluster del servizio HGS in una foresta bastion esistente](guarded-fabric-initialize-hgs-key-mode-bastion.md)
+- [Inizializzare il cluster HGS in una foresta Bastion esistente](guarded-fabric-initialize-hgs-key-mode-bastion.md)
 
 
 

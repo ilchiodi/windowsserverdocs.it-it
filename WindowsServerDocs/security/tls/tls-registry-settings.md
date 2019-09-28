@@ -2,7 +2,7 @@
 title: Impostazioni del registro di sistema Transport Layer Security (TLS)
 description: Sicurezza di Windows Server
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: security-tls-ssl
@@ -12,16 +12,16 @@ author: justinha
 ms.author: justinha
 manager: brianlic-msft
 ms.date: 02/28/2019
-ms.openlocfilehash: 83146bd8a65b90994ed90a6dda29a4bc00a2533a
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 60202e537093bd21515043ba56f70f3895c91d42
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70870305"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71403409"
 ---
 # <a name="transport-layer-security-tls-registry-settings"></a>Impostazioni del registro di sistema Transport Layer Security (TLS)
 
->Si applica a Windows Server (Canale semestrale), Windows Server 2019, Windows Server 2016, Windows 10
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2019, Windows Server 2016, Windows 10
 
 Questo argomento di riferimento per i professionisti IT contiene informazioni sulle impostazioni del registro di sistema supportate per l'implementazione di Windows del protocollo Transport Layer Security (TLS) e il protocollo di Secure Sockets Layer (SSL) tramite il supporto della sicurezza Schannel Provider (SSP). Le sottochiavi e le voci del registro di sistema descritte in questo argomento consentono di amministrare e risolvere i problemi relativi a SSP Schannel, in particolare i protocolli TLS e SSL. 
 

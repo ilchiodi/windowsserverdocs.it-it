@@ -1,8 +1,8 @@
 ---
 title: Mantenere riservati i file
-description: Informazioni su come proteggere i file di determinati dagli utenti all'interno di servizi MultiPoint
+description: Informazioni su come proteggere determinati file dagli utenti all'interno di MultiPoint Services
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: multipoint-services
 ms.reviewer: na
 ms.suite: na
@@ -13,12 +13,12 @@ author: lizap
 manager: dongill
 ms.author: elizapo
 ms.date: 08/04/2016
-ms.openlocfilehash: f254b07c1f6f8ffdc83a1fe506bee7e6d5aa89ce
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: b9ff84678787e53ef5def822e33139b9839411a6
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59879652"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71395344"
 ---
 # <a name="keep-files-private"></a>Mantenere riservati i file
 Questo argomento riguarda tutti i contenuti, ad esempio i documenti, che \(l'*utente con privilegi amministrativi*\) e gli *utenti standard* non vogliono condividere con altri utenti in un sistema MultiPoint Services.  
@@ -34,4 +34,4 @@ Per mantenere riservati documenti e altri contenuti, salvare il lavoro in Esplor
   
 ## <a name="see-also"></a>Vedere anche  
 [Gestire file utente](Manage-User-Files.md)  
-[Salvare e condividere file su un'unità Flash USB](Save-and-Share-Files-on-a-USB-Flash-Drive.md)
+[Salvare e condividere file su un'unità flash USB](Save-and-Share-Files-on-a-USB-Flash-Drive.md)

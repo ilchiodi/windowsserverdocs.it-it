@@ -2,22 +2,22 @@
 title: Installare un nuovo file server come server di contenuti
 description: Questo argomento fa parte di BranchCache distribuzione Guide per Windows Server 2016, che illustra come distribuire BranchCache in modalità cache distribuita e ospitato per ottimizzare l'utilizzo della larghezza di banda WAN nelle succursali
 manager: brianlic
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking-bc
 ms.topic: get-started-article
 ms.assetid: 1f49fc3c-28a6-4d3d-b787-1be9e61e792f
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: e3a4dbe5339685b385b0157756379e9e545f1964
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 489006c50ccbfa1f452d56b1a18217692d45cb1f
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59812022"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71406459"
 ---
 # <a name="install-a-new-file-server-as-a-content-server"></a>Installare un nuovo file server come server di contenuti
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016
 
 È possibile utilizzare questa procedura per installare il ruolo server Servizi File e il **BranchCache per file di rete** servizio ruolo in un computer che esegue Windows Server 2016.  
   

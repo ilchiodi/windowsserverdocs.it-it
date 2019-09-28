@@ -1,7 +1,7 @@
 ---
 title: NIC convergente in una configurazione NIC in gruppo (Datacenter)
 description: In questo argomento vengono fornite le istruzioni per distribuire una scheda di interfaccia di rete convergente in una configurazione NIC in gruppo con switch Embedded Teaming (SET).
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking
 ms.topic: article
 ms.assetid: f01546f8-c495-4055-8492-8806eee99862
@@ -9,16 +9,16 @@ manager: dougkim
 ms.author: pashort
 author: shortpatti
 ms.date: 09/17/2018
-ms.openlocfilehash: 8229b72d69968d3690ece87d5116b215bdf78a08
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: e4c305a7c8c4c4618b0df1e1b2a646356d8f821f
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70869867"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71356117"
 ---
 # <a name="converged-nic-in-a-teamed-nic-configuration-datacenter"></a>NIC convergente in una configurazione NIC in gruppo (Datacenter)
 
->Si applica a Windows Server (Canale semestrale), Windows Server 2016
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016
 
 In questo argomento vengono fornite le istruzioni per distribuire una scheda di interfaccia di rete convergente in una configurazione di nic in gruppo con switch \(Embedded Teaming set\). 
 
@@ -39,7 +39,7 @@ Verificare che la scheda di interfaccia di rete fisica sia in grado di connetter
    _**Risultati**_
 
 
-   |    Name    |           InterfaceDescription           | ifIndex | Stato |    macAddress     | LinkSpeed |
+   |    Nome    |           InterfaceDescription           | ifIndex | Stato |    macAddress     | LinkSpeed |
    |------------|------------------------------------------|---------|--------|-------------------|-----------|
    | Test-40G-1 | Mellanox ConnectX-3 scheda Ethernet Pro |   11    |   Su   | E4-1D-2D-07-43-D0 |  40 Gbps  |
 
@@ -75,7 +75,7 @@ Verificare che la scheda di interfaccia di rete fisica sia in grado di connetter
    _**Risultati**_
 
 
-   |    Name    |          InterfaceDescription           | ifIndex | Stato |    macAddress     | LinkSpeed |
+   |    Nome    |          InterfaceDescription           | ifIndex | Stato |    macAddress     | LinkSpeed |
    |------------|-----------------------------------------|---------|--------|-------------------|-----------|
    | TEST-40G-2 | Mellanox ConnectX-3 Pro Ethernet A... #2 |   13    |   Su   | E4-1D-2D-07-40-70 |  40 Gbps  |
 
@@ -207,7 +207,7 @@ Nella figura seguente vengono illustrati due host Hyper-V con due schede di rete
    _**Risultati**_   
 
 
-   |    Name    | DisplayName | DisplayValue | RegistryKeyword | RegistryValue |
+   |    Nome    | DisplayName | DisplayValue | RegistryKeyword | RegistryValue |
    |------------|-------------|--------------|-----------------|---------------|
    | TEST-40G-1 |   ID VLAN   |     101      |     VlanID      |     {101}     |
 
@@ -228,7 +228,7 @@ Nella figura seguente vengono illustrati due host Hyper-V con due schede di rete
    _**Risultati**_
 
 
-   |    Name    |          InterfaceDescription           | ifIndex | Stato |    macAddress     | LinkSpeed |
+   |    Nome    |          InterfaceDescription           | ifIndex | Stato |    macAddress     | LinkSpeed |
    |------------|-----------------------------------------|---------|--------|-------------------|-----------|
    | Test-40G-1 | Mellanox ConnectX-3 Pro Ethernet Ada... |   11    |   Su   | E4-1D-2D-07-43-D0 |  40 Gbps  |
 
@@ -244,7 +244,7 @@ Nella figura seguente vengono illustrati due host Hyper-V con due schede di rete
    _**Risultati**_
 
 
-   |    NOME    | DisplayName | DisplayValue | RegistryKeyword | RegistryValue |
+   |    Nome    | DisplayName | DisplayValue | RegistryKeyword | RegistryValue |
    |------------|-------------|--------------|-----------------|---------------|
    | TEST-40G-2 |   ID VLAN   |     102      |     VlanID      |     {102}     |
 
@@ -265,7 +265,7 @@ Nella figura seguente vengono illustrati due host Hyper-V con due schede di rete
    _**Risultati**_
 
 
-   |    Name    |          InterfaceDescription           | ifIndex | Stato |    macAddress     | LinkSpeed |
+   |    Nome    |          InterfaceDescription           | ifIndex | Stato |    macAddress     | LinkSpeed |
    |------------|-----------------------------------------|---------|--------|-------------------|-----------|
    | Test-40G-2 | Mellanox ConnectX-3 Pro Ethernet Ada... |   11    |   Su   | E4-1D-2D-07-43-D1 |  40 Gbps  |
 
@@ -342,7 +342,7 @@ Nella figura seguente vengono illustrati due host Hyper-V con due schede di rete
    _**Risultati**_
 
 
-   | Riuscito | Riavvio necessario | Codice di uscita |     Risultato della funzionalità     |
+   | Riuscito | Riavvio necessario | Codice di chiusura |     Risultato della funzionalità     |
    |---------|----------------|-----------|------------------------|
    |  True   |       No       |  Riuscito  | {Data Center Bridging} |
 
@@ -364,9 +364,9 @@ Nella figura seguente vengono illustrati due host Hyper-V con due schede di rete
 
    |   Parametro    |          Value           |
    |----------------|--------------------------|
-   |      Name      |           SMB            |
+   |      Nome      |           SMB            |
    |     Proprietario      | Computer \(criteri di gruppo\) |
-   | NetworkProfile |           Tutti            |
+   | NetworkProfile |           Tutte            |
    |   Precedenza   |           127            |
    |   JobObject    |          &nbsp;          |
    | NetDirectPort  |           445            |
@@ -385,9 +385,9 @@ Nella figura seguente vengono illustrati due host Hyper-V con due schede di rete
 
    |   Parametro    |          Value           |
    |----------------|--------------------------|
-   |      Name      |         DEFAULT          |
+   |      Nome      |         DEFAULT          |
    |     Proprietario      | Computer \(criteri di gruppo\) |
-   | NetworkProfile |           Tutti            |
+   | NetworkProfile |           Tutte            |
    |   Precedenza   |           127            |
    |    Modello    |         Predefinito          |
    |   JobObject    |          &nbsp;          |
@@ -405,16 +405,16 @@ Nella figura seguente vengono illustrati due host Hyper-V con due schede di rete
    _**Risultati**_
 
 
-   | Priority | Enabled | PolicySet | IfIndex | IfAlias |
+   | Priority | Enabled | PolicySet | ifIndex | IfAlias |
    |----------|---------|-----------|---------|---------|
-   |    0     |  False  |  Global   | &nbsp;  | &nbsp;  |
-   |    1     |  False  |  Global   | &nbsp;  | &nbsp;  |
-   |    2     |  False  |  Global   | &nbsp;  | &nbsp;  |
-   |    3     |  True   |  Global   | &nbsp;  | &nbsp;  |
-   |    4     |  False  |  Global   | &nbsp;  | &nbsp;  |
-   |    5     |  False  |  Global   | &nbsp;  | &nbsp;  |
-   |    6     |  False  |  Global   | &nbsp;  | &nbsp;  |
-   |    7     |  False  |  Global   | &nbsp;  | &nbsp;  |
+   |    0     |  False  |  Globale   | &nbsp;  | &nbsp;  |
+   |    1     |  False  |  Globale   | &nbsp;  | &nbsp;  |
+   |    2     |  False  |  Globale   | &nbsp;  | &nbsp;  |
+   |    3     |  True   |  Globale   | &nbsp;  | &nbsp;  |
+   |    4     |  False  |  Globale   | &nbsp;  | &nbsp;  |
+   |    5     |  False  |  Globale   | &nbsp;  | &nbsp;  |
+   |    6     |  False  |  Globale   | &nbsp;  | &nbsp;  |
+   |    7     |  False  |  Globale   | &nbsp;  | &nbsp;  |
 
    ---
 
@@ -442,7 +442,7 @@ Nella figura seguente vengono illustrati due host Hyper-V con due schede di rete
    |      Parametro      |   Hardware   |   Corrente    |
    |---------------------|--------------|--------------|
    |    MacSecBypass     | NotSupported | NotSupported |
-   |     DcbxSupport     |     Nessuna     |     Nessuna     |
+   |     DcbxSupport     |     Nessuno     |     Nessuno     |
    | NumTCs (max/ETS/PFC) |    8/8/8     |    8/8/8     |
 
    ---
@@ -486,7 +486,7 @@ Nella figura seguente vengono illustrati due host Hyper-V con due schede di rete
    |      Parametro      |   Hardware   |   Corrente    |
    |---------------------|--------------|--------------|
    |    MacSecBypass     | NotSupported | NotSupported |
-   |     DcbxSupport     |     Nessuna     |     Nessuna     |
+   |     DcbxSupport     |     Nessuno     |     Nessuno     |
    | NumTCs (max/ETS/PFC) |    8/8/8     |    8/8/8     |
 
    ---
@@ -524,9 +524,9 @@ Nella figura seguente vengono illustrati due host Hyper-V con due schede di rete
    _**Risultati**_  
 
 
-   | Name | Algoritmo | Larghezza di banda (%) | Priority | PolicySet | IfIndex | IfAlias |
+   | Nome | Algoritmo | Larghezza di banda (%) | Priority | PolicySet | ifIndex | IfAlias |
    |------|-----------|--------------|----------|-----------|---------|---------|
-   | SMB  |    ETS    |      50      |    3     |  Global   | &nbsp;  | &nbsp;  |
+   | SMB  |    ETS    |      50      |    3     |  Globale   | &nbsp;  | &nbsp;  |
 
    ---
 
@@ -539,10 +539,10 @@ Nella figura seguente vengono illustrati due host Hyper-V con due schede di rete
    _**Risultati**_  
 
 
-   |   Name    | Algoritmo | Larghezza di banda (%) | Priority | PolicySet | IfIndex | IfAlias |
+   |   Nome    | Algoritmo | Larghezza di banda (%) | Priority | PolicySet | ifIndex | IfAlias |
    |-----------|-----------|--------------|----------|-----------|---------|---------|
-   | Predefinita |    ETS    |      50      | 0-2, 4-7  |  Global   | &nbsp;  | &nbsp;  |
-   |    SMB    |    ETS    |      50      |    3     |  Global   | &nbsp;  | &nbsp;  |
+   | Predefinita |    ETS    |      50      | 0-2, 4-7  |  Globale   | &nbsp;  | &nbsp;  |
+   |    SMB    |    ETS    |      50      |    3     |  Globale   | &nbsp;  | &nbsp;  |
 
    ---
 
@@ -558,9 +558,9 @@ Nella figura seguente vengono illustrati due host Hyper-V con due schede di rete
    _**Risultati**_
 
 
-   | NOME | Algoritmo | Larghezza di banda (%) | Priority | PolicySet | IfIndex | IfAlias |
+   | Nome | Algoritmo | Larghezza di banda (%) | Priority | PolicySet | ifIndex | IfAlias |
    |------|-----------|--------------|----------|-----------|---------|---------|
-   | IP1  |    ETS    |      10      |    1     |  Global   | &nbsp;  | &nbsp;  |
+   | IP1  |    ETS    |      10      |    1     |  Globale   | &nbsp;  | &nbsp;  |
 
    ---
 
@@ -571,9 +571,9 @@ Nella figura seguente vengono illustrati due host Hyper-V con due schede di rete
    _**Risultati**_
 
 
-   | Name | Algoritmo | Larghezza di banda (%) | Priority | PolicySet | IfIndex | IfAlias |
+   | Nome | Algoritmo | Larghezza di banda (%) | Priority | PolicySet | ifIndex | IfAlias |
    |------|-----------|--------------|----------|-----------|---------|---------|
-   | IP2  |    ETS    |      10      |    2     |  Global   | &nbsp;  | &nbsp;  |
+   | IP2  |    ETS    |      10      |    2     |  Globale   | &nbsp;  | &nbsp;  |
 
    ---
 
@@ -586,12 +586,12 @@ Nella figura seguente vengono illustrati due host Hyper-V con due schede di rete
     _**Risultati**_
 
 
-    |   Name    | Algoritmo | Larghezza di banda (%) | Priority | PolicySet | IfIndex | IfAlias |
+    |   Nome    | Algoritmo | Larghezza di banda (%) | Priority | PolicySet | ifIndex | IfAlias |
     |-----------|-----------|--------------|----------|-----------|---------|---------|
-    | Predefinita |    ETS    |      30      |  0, 4-7   |  Global   | &nbsp;  | &nbsp;  |
-    |    SMB    |    ETS    |      50      |    3     |  Global   | &nbsp;  | &nbsp;  |
-    |    IP1    |    ETS    |      10      |    1     |  Global   | &nbsp;  | &nbsp;  |
-    |    IP2    |    ETS    |      10      |    2     |  Global   | &nbsp;  | &nbsp;  |
+    | Predefinita |    ETS    |      30      |  0, 4-7   |  Globale   | &nbsp;  | &nbsp;  |
+    |    SMB    |    ETS    |      50      |    3     |  Globale   | &nbsp;  | &nbsp;  |
+    |    IP1    |    ETS    |      10      |    1     |  Globale   | &nbsp;  | &nbsp;  |
+    |    IP2    |    ETS    |      10      |    2     |  Globale   | &nbsp;  | &nbsp;  |
 
     ---
 
@@ -628,7 +628,7 @@ La figura seguente mostra lo stato corrente degli host Hyper-V.
    _**Risultati**_
 
 
-   |    Name    |        InterfaceDescription        | Enabled |
+   |    Nome    |        InterfaceDescription        | Enabled |
    |------------|------------------------------------|---------|
    | TEST-40G-1 | #2 Mellanox ConnectX-4 adapter VPI |  True   |
    | TEST-40G-2 |  Mellanox ConnectX-4 VPI adapter   |  True   |
@@ -730,9 +730,9 @@ La figura seguente Mostra Hyper-V host 1 con vSwitch.
    _**Risultato**_
 
 
-   |  Name   | SwitchType | Parametro netadapterinterfacedescription |
+   |  Nome   | SwitchType | Parametro netadapterinterfacedescription |
    |---------|------------|--------------------------------|
-   | VMSTEST |  Altre informazioni  |        Gruppo-interfaccia        |
+   | VMSTEST |  Esterno  |        Gruppo-interfaccia        |
 
    ---
 
@@ -761,7 +761,7 @@ La figura seguente Mostra Hyper-V host 1 con vSwitch.
    _**Risultati**_
 
 
-   |        NOME         |        InterfaceDescription         | ifIndex | Stato |    macAddress     | LinkSpeed |
+   |        Nome         |        InterfaceDescription         | ifIndex | Stato |    macAddress     | LinkSpeed |
    |---------------------|-------------------------------------|---------|--------|-------------------|-----------|
    | vEthernet (VMSTEST) | Scheda Ethernet virtuale Hyper-V #2 |   28    |   Su   | E4-1D-2D-07-40-71 |  80 Gbps  |
 
@@ -776,7 +776,7 @@ La figura seguente Mostra Hyper-V host 1 con vSwitch.
    _**Risultati**_
 
 
-   |  Name   | Gestione dei | VMName  |  SwitchName  | macAddress | Stato | IPAddresses |
+   |  Nome   | Gestione dei | VMName  |  SwitchName  | macAddress | Stato | IPAddresses |
    |---------|----------------|---------|--------------|------------|--------|-------------|
    | VMSTEST |      True      | VMSTEST | E41D2D074071 |    OK    | &nbsp; |             |
 
@@ -885,7 +885,7 @@ In questo passaggio viene rimossa l'impostazione della VLAN di accesso dalla sch
    _**Risultati**_ 
 
 
-   |         NOME         | Gestione dei | VMName |      SwitchName      |  macAddress  | Stato | IPAddresses |
+   |         Nome         | Gestione dei | VMName |      SwitchName      |  macAddress  | Stato | IPAddresses |
    |----------------------|----------------|--------|----------------------|--------------|--------|-------------|
    | CORP-External-switch |      True      | &nbsp; | CORP-External-switch | 001B785768AA |  OK  |   &nbsp;    |
    |         ENERGIA          |      True      | &nbsp; |       VMSTEST        | E41D2D074071 |  OK  |   &nbsp;    |
@@ -901,7 +901,7 @@ In questo passaggio viene rimossa l'impostazione della VLAN di accesso dalla sch
    _**Risultati**_
 
 
-   |      Name       |        InterfaceDescription         | ifIndex | Stato |    macAddress     | LinkSpeed |
+   |      Nome       |        InterfaceDescription         | ifIndex | Stato |    macAddress     | LinkSpeed |
    |-----------------|-------------------------------------|---------|--------|-------------------|-----------|
    | vEthernet (gest) | Scheda Ethernet virtuale Hyper-V #2 |   28    |   Su   | E4-1D-2D-07-40-71 |  80 Gbps  |
 
@@ -941,7 +941,7 @@ La figura seguente mostra lo stato corrente degli host Hyper-V, incluso vSwitch 
    _**Risultati**_ 
 
 
-   |         Name         | Gestione dei |        VMName        |  SwitchName  | macAddress | Stato | IPAddresses |
+   |         Nome         | Gestione dei |        VMName        |  SwitchName  | macAddress | Stato | IPAddresses |
    |----------------------|----------------|----------------------|--------------|------------|--------|-------------|
    | CORP-External-switch |      True      | CORP-External-switch | 001B785768AA |    OK    | &nbsp; |             |
    |         Energia          |      True      |       VMSTEST        | E41D2D074071 |    OK    | &nbsp; |             |

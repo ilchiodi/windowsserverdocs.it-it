@@ -2,22 +2,22 @@
 title: Scelta di una progettazione di BranchCache
 description: Questo argomento fa parte di BranchCache distribuzione Guide per Windows Server 2016, che illustra come distribuire BranchCache in modalità cache distribuita e ospitato per ottimizzare l'utilizzo della larghezza di banda WAN nelle succursali
 manager: brianlic
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking-bc
 ms.topic: get-started-article
 ms.assetid: 86c1ccad-2aa4-40fe-84c1-f77c49eb1216
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 330dcbee26f52ff69cd85ef8dc78d2e161b943d1
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 2a1b4615dfda3989f0321725fd27da066fcb8a5e
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59811912"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71406312"
 ---
 # <a name="choosing-a-branchcache-design"></a>Scelta di una progettazione di BranchCache
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016
 
 Per informazioni sulle modalità di BranchCache e per selezionare le modalità migliori per la distribuzione, è possibile utilizzare questo argomento.  
   

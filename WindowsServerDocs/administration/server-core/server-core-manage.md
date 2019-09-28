@@ -1,22 +1,22 @@
 ---
 title: Gestire Server Core
 description: Informazioni su come gestire un'installazione Server Core di Windows Server
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.mktglfcycl: manage
 ms.sitesec: library
 author: lizap
 ms.localizationpriority: medium
 ms.date: 07/23/2019
-ms.openlocfilehash: bbb04e761dbb1dd48d95e15d11c91608f4d6c240
-ms.sourcegitcommit: 216d97ad843d59f12bf0b563b4192b75f66c7742
+ms.openlocfilehash: bd96dbfc93f3999d8fb3ddf7ec94cc11025bba30
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68476542"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71383403"
 ---
 # <a name="manage-a-server-core-server"></a>Gestire un server Server Core
  
-> Si applica a Windows Server 2019, Windows Server 2016 e Windows Server (canale semestrale)
+> Si applica a: Windows Server 2019, Windows Server 2016 e Windows Server (canale semestrale)
 
 È possibile gestire un server Server Core nei modi seguenti:
 - Uso dell'interfaccia di [amministrazione di Windows](../../manage/windows-admin-center/overview.md)
@@ -30,7 +30,7 @@ ms.locfileid: "68476542"
 
 Quando si lavora con Server Core, è necessario tenere presenti alcune limitazioni e suggerimenti importanti:
 
-- Se si chiudono tutte le finestre del prompt dei comandi e si desidera aprire una nuova finestra del prompt dei comandi, è possibile eseguire questa operazione da Gestione attività. Premere **CTRL\+ALT\+CANC**, fare clic su **Avvia Gestione attività**, fare clic su **altre informazioni > File > Esegui**, quindi digitare **cmd. exe**. Digitare **PowerShell. exe** per aprire una finestra di comando di PowerShell. In alternativa, è possibile disconnettersi e quindi eseguire di nuovo l'accesso.
+- Se si chiudono tutte le finestre del prompt dei comandi e si desidera aprire una nuova finestra del prompt dei comandi, è possibile eseguire questa operazione da Gestione attività. Premere **CTRL @ no__t-1ALT @ no__t-2DELETE**, fare clic su **Avvia Gestione attività**, fare clic su **altre informazioni > File > Esegui**, quindi digitare **cmd. exe**. Digitare **PowerShell. exe** per aprire una finestra di comando di PowerShell. In alternativa, è possibile disconnettersi e quindi eseguire di nuovo l'accesso.
 - Qualsiasi comando o strumento tenti di avviare Esplora risorse non funzionerà. Ad esempio, l'esecuzione di **Start.** da un prompt dei comandi non funzionerà.
 - Non è disponibile alcun supporto per il rendering HTML o la Guida HTML in Server Core.
 - Server Core supporta Windows Installer in modalità non interattiva, in modo che sia possibile installare strumenti e utilità da file di Windows Installer. Quando si installano pacchetti di Windows Installer in Server Core, usare l'opzione **/qb** per visualizzare l'interfaccia utente di base.
@@ -91,7 +91,7 @@ Dove *RuleGroup* è uno dei seguenti, a seconda dello snap-in che si desidera co
 
 | Snap-in MMC                            | Gruppo di regole                                            |
 | ---------------------------------------- | ------------------------------------------------------- |
-| Aprire il Visualizzatore eventi                           | Gestione remota registro eventi                           |
+| Visualizzatore eventi                           | Gestione remota registro eventi                           |
 | Servizi                               | Gestione remota servizi                             |
 | Cartelle condivise                         | Condivisione file e stampanti                              |
 | Utilità di pianificazione                         | Condivisione di file e stampanti Avvisi e registri di prestazioni |

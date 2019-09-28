@@ -7,83 +7,83 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: a6f2e5d3a227384b20735ab99ee1ab5ea77bd913
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 6045c144a0da399e8279c781273235942316e538
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66445838"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71407125"
 ---
 # <a name="deploy-claims-across-forests-demonstration-steps"></a>Distribuire attestazioni nelle foreste (passaggi dimostrativi)
 
 >Si applica a: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-In questo argomento si affronterà uno scenario di base che illustra come configurare le trasformazioni di attestazioni tra foreste trusted e trusting. Si apprenderà come gli oggetti Criteri di trasformazione delle attestazioni possono essere creati e collegati per la relazione di trust foresta trusting e la foresta trusted. È quindi convaliderà lo scenario.  
+In questo argomento si tratterà di uno scenario di base in cui viene illustrato come configurare le trasformazioni delle attestazioni tra foreste trusted e trusting. Si apprenderà come creare oggetti Criteri di trasformazione delle attestazioni e come collegarli alla relazione di trust nella foresta trusting e nella foresta trusted. Sarà quindi possibile convalidare lo scenario.  
 
 ## <a name="scenario-overview"></a>Panoramica dello scenario  
-Adatum Corporation offre servizi finanziari a Contoso, Ltd. Ogni trimestre, Adatum accountants copiare i fogli di calcolo di account in una cartella in un file server che si trova in Contoso, Ltd. È presente un trust bidirezionale configurati da Contoso Adatum. Contoso, Ltd. vuole proteggere la condivisione in modo che solo Adatum dipendenti possono accedere alla condivisione remota.  
+Adatum Corporation fornisce servizi finanziari a contoso, Ltd. Ogni trimestre, adatum Accountants copia i fogli di calcolo degli account in una cartella in un file server situato in contoso, Ltd. Esiste una relazione di trust bidirezionale configurata da Contoso a adatum. Contoso, Ltd. vuole proteggere la condivisione in modo che solo i dipendenti di adatum possano accedere alla condivisione remota.  
 
 In questo scenario:  
 
 1.  [Configurare i prerequisiti e l'ambiente di test](Deploy-Claims-Across-Forests--Demonstration-Steps-.md#BKMK_1.1)  
 
-2.  [Configurare la trasformazione delle attestazioni nella foresta trusted (Adatum)](Deploy-Claims-Across-Forests--Demonstration-Steps-.md#BKMK_3)  
+2.  [Configurare la trasformazione delle attestazioni su una foresta trusted (adatum)](Deploy-Claims-Across-Forests--Demonstration-Steps-.md#BKMK_3)  
 
-3.  [Configurare la trasformazione delle attestazioni nella foresta trusting (Contoso)](Deploy-Claims-Across-Forests--Demonstration-Steps-.md#BKMK_4)  
+3.  [Configurare la trasformazione delle attestazioni nella foresta trusting (contoso)](Deploy-Claims-Across-Forests--Demonstration-Steps-.md#BKMK_4)  
 
-4.  [Convalidare lo scenario.](Deploy-Claims-Across-Forests--Demonstration-Steps-.md#BKMK_5)  
+4.  [Convalidare lo scenario](Deploy-Claims-Across-Forests--Demonstration-Steps-.md#BKMK_5)  
 
 ## <a name="BKMK_1.1"></a>Configurare i prerequisiti e l'ambiente di test  
-La configurazione di test comporta la configurazione di due insiemi di strutture: Adatum Corporation e Contoso, Ltd e avere una relazione di trust bidirezionale tra Contoso e Adatum. "adatum.com" è la foresta trusted e "contoso.com" è la foresta trusting.  
+La configurazione di test prevede l'impostazione di due foreste: Adatum Corporation e contoso, Ltd e hanno una relazione di trust bidirezionale tra Contoso e adatum. "adatum.com" è la foresta trusted e "contoso.com" è la foresta trusting.  
 
-Lo scenario di trasformazione delle attestazioni dimostra trasformazione di un'attestazione nella foresta trusted per un'attestazione nella foresta trusting. A tale scopo, è necessario configurare una nuova foresta denominata adatum.com e popolare la foresta con un utente di test con il valore aziendale 'Adatum'. È quindi necessario configurare un trust bidirezionale tra contoso.com e adatum.com.  
+Nello scenario di trasformazione delle attestazioni viene illustrata la trasformazione di un'attestazione nella foresta trusted in un'attestazione nella foresta trusting. A tale scopo, è necessario configurare una nuova foresta denominata adatum.com e popolare la foresta con un utente di test con un valore della società "adatum". Sarà quindi necessario configurare un trust bidirezionale tra contoso.com e adatum.com.  
 
 > [!IMPORTANT]  
-> Quando si configurano le foreste di Contoso e Adatum, è necessario assicurarsi che entrambi i domini radice sono al livello di Windows Server 2012 dominio funzionale per la trasformazione delle attestazioni per lavorare.  
+> Quando si configurano le foreste Contoso e adatum, è necessario assicurarsi che entrambi i domini radice siano al livello di funzionalità del dominio di Windows Server 2012 per il funzionamento della trasformazione delle attestazioni.  
 
-È necessario impostare quanto segue per l'ambiente lab. Queste procedure sono illustrate in dettaglio in [appendice b: Configurazione dell'ambiente di testing](Appendix-B--Setting-Up-the-Test-Environment.md)  
+È necessario configurare quanto segue per il Lab. Queste procedure sono illustrate in dettaglio in [Appendix B: Configurazione dell'ambiente di testing](Appendix-B--Setting-Up-the-Test-Environment.md)  
 
-È necessario implementare le procedure seguenti per configurare l'ambiente lab per questo scenario:  
+Per configurare il Lab per questo scenario, è necessario implementare le procedure seguenti:  
 
-1.  [Impostare Adatum come foresta trusted per Contoso](Appendix-B--Setting-Up-the-Test-Environment.md)  
+1.  [Impostare adatum come foresta trusted su contoso](Appendix-B--Setting-Up-the-Test-Environment.md)  
 
-2.  [Creare il tipo di attestazione "Company" in Contoso](Appendix-B--Setting-Up-the-Test-Environment.md#BKMK_2.8)  
+2.  [Creare il tipo di attestazione "Company" in contoso](Appendix-B--Setting-Up-the-Test-Environment.md#BKMK_2.8)  
 
-3.  [Abilitare la proprietà di risorsa "Company" in Contoso](Appendix-B--Setting-Up-the-Test-Environment.md#BKMK_2.55)  
+3.  [Abilitare la proprietà della risorsa ' Company ' in contoso](Appendix-B--Setting-Up-the-Test-Environment.md#BKMK_2.55)  
 
 4.  [Creare la regola di accesso centrale](Appendix-B--Setting-Up-the-Test-Environment.md#BKMK_2.9)  
 
 5.  [Creare i criteri di accesso centrale](Appendix-B--Setting-Up-the-Test-Environment.md#BKMK_2.10)  
 
-6.  [Pubblicare i nuovi criteri tramite criteri di gruppo](Appendix-B--Setting-Up-the-Test-Environment.md#BKMK_2.11)  
+6.  [Pubblicare i nuovi criteri tramite Criteri di gruppo](Appendix-B--Setting-Up-the-Test-Environment.md#BKMK_2.11)  
 
-7.  [Creare la cartella Earnings sul file server](Appendix-B--Setting-Up-the-Test-Environment.md#BKMK_2.12)  
+7.  [Creare la cartella guadagni nel file server](Appendix-B--Setting-Up-the-Test-Environment.md#BKMK_2.12)  
 
-8.  [Impostare la classificazione e applicare i criteri di accesso centrale per la nuova cartella](Appendix-B--Setting-Up-the-Test-Environment.md#BKMK_2.13)  
+8.  [Impostare la classificazione e applicare i criteri di accesso centrale alla nuova cartella](Appendix-B--Setting-Up-the-Test-Environment.md#BKMK_2.13)  
 
-Usare le informazioni seguenti per completare questo scenario:  
+Per completare questo scenario, utilizzare le seguenti informazioni:  
 
-|Objects|Dettagli|  
+|Oggetti|Dettagli|  
 |-----------|-----------|  
-|Utenti|Jeff Low, Contoso|  
-|Attestazioni utente su Contoso e Adatum|ID: ad: / / EST/aziendale: ContosoAdatum,<br /><br />Attributo di origine: azienda<br /><br />Valori suggeriti: Contoso, Adatum **importanti:** È necessario impostare l'ID su "Company" tipo di attestazione in Contoso e Adatum sia lo stesso per la trasformazione delle attestazioni per lavorare.|  
-|Regola di accesso centrale in Contoso|AdatumEmployeeAccessRule|  
-|Criteri di accesso centrale in Contoso|Criteri di accesso unico adatum|  
-|Criteri di trasformazione delle attestazioni in Contoso e Adatum|DenyAllExcept Company|  
-|Cartella di file in Contoso|D:\EARNINGS.|  
+|Utenti|Jeff low, contoso|  
+|Attestazioni utente su Adatum e contoso|ID: ad://ext/Company:ContosoAdatum,<br /><br />Attributo di origine: società<br /><br />Valori suggeriti: Contoso, adatum **importante:** Per il corretto funzionamento della trasformazione delle attestazioni è necessario impostare l'ID del tipo di attestazione "Company" su contoso e adatum.|  
+|Regola di accesso centrale in contoso|AdatumEmployeeAccessRule|  
+|Criteri di accesso centrale in contoso|Criteri di accesso solo a adatum|  
+|Criteri di trasformazione delle attestazioni in Adatum e contoso|Società DenyAllExcept|  
+|Cartella di file in contoso|D:\EARNINGS|  
 
-## <a name="BKMK_3"></a>Configurare la trasformazione delle attestazioni nella foresta trusted (Adatum)  
-In questo passaggio si crea un criterio di trasformazione in Adatum negare tutte le attestazioni, ad eccezione di "Company" per passare a Contoso.  
+## <a name="BKMK_3"></a>Configurare la trasformazione delle attestazioni su una foresta trusted (adatum)  
+In questo passaggio viene creato un criterio di trasformazione in Adatum per negare tutte le attestazioni ad eccezione di "Company" per passare a contoso.  
 
-Il modulo di Active Directory per Windows PowerShell fornisce il **DenyAllExcept** argomento, che elimina tutto, tranne le attestazioni specificate nei criteri di trasformazione.  
+Il modulo Active Directory per Windows PowerShell fornisce l'argomento **DenyAllExcept** , che elimina tutti gli elementi, ad eccezione delle attestazioni specificate nei criteri di trasformazione.  
 
-Per configurare una trasformazione di attestazioni, è necessario creare un criterio di trasformazione delle attestazioni e crea un collegamento tra le foreste trusted e trusting.  
+Per configurare una trasformazione delle attestazioni, è necessario creare un criterio di trasformazione delle attestazioni e collegarlo tra le foreste trusted e trusting.  
 
-### <a name="BKMK_2.2"></a>Creare criteri di trasformazione delle attestazioni in Adatum  
+### <a name="BKMK_2.2"></a>Creazione di un criterio di trasformazione delle attestazioni in adatum  
 
-##### <a name="to-create-a-transformation-policy-adatum-to-deny-all-claims-except-company"></a>Per creare un criterio di trasformazione Adatum negare tutte le attestazioni, ad eccezione di "Company"  
+##### <a name="to-create-a-transformation-policy-adatum-to-deny-all-claims-except-company"></a>Per creare un criterio di trasformazione Adatum per negare tutte le attestazioni ad eccezione di ' Company '  
 
 1. Accedere al controller di dominio, adatum.com come amministratore con la password <strong>pass@word1</strong>.  
 
@@ -98,8 +98,8 @@ Per configurare una trasformazione di attestazioni, è necessario creare un crit
 
    ```  
 
-### <a name="BKMK_2.3"></a>Impostare un collegamento di trasformazione delle attestazioni sull'oggetto di dominio di trust del Adatum  
-In questo passaggio è applicare i criteri di trasformazione delle attestazioni appena creata sull'oggetto di dominio di trust del Adatum per Contoso.  
+### <a name="BKMK_2.3"></a>Impostare un collegamento di trasformazione delle attestazioni nell'oggetto dominio di trust di adatum  
+In questo passaggio si applicano i criteri di trasformazione delle attestazioni appena creati nell'oggetto dominio di trust di Adatum per contoso.  
 
 ##### <a name="to-apply-the-claims-transformation-policy"></a>Per applicare i criteri di trasformazione delle attestazioni  
 
@@ -116,14 +116,14 @@ In questo passaggio è applicare i criteri di trasformazione delle attestazioni 
 
    ```  
 
-## <a name="BKMK_4"></a>Configurare la trasformazione delle attestazioni nella foresta trusting (Contoso)  
-In questo passaggio si crea un criterio di trasformazione delle attestazioni in Contoso (la foresta trusting) per negare tutte le attestazioni, ad eccezione di "Company". È necessario creare un criterio di trasformazione delle attestazioni e crea un collegamento per il trust tra foreste.  
+## <a name="BKMK_4"></a>Configurare la trasformazione delle attestazioni nella foresta trusting (contoso)  
+In questo passaggio vengono creati i criteri di trasformazione delle attestazioni in Contoso (la foresta trusting) per negare tutte le attestazioni ad eccezione di "Company". È necessario creare un criterio di trasformazione delle attestazioni e collegarlo al trust tra insiemi di strutture.  
 
-### <a name="BKMK_4.1"></a>Creare criteri di trasformazione delle attestazioni in Contoso  
+### <a name="BKMK_4.1"></a>Creare criteri di trasformazione delle attestazioni in contoso  
 
-##### <a name="to-create-a-transformation-policy-adatum-to-deny-all-except-company"></a>Per creare un criterio di trasformazione Adatum per negare tutto tranne "Company"  
+##### <a name="to-create-a-transformation-policy-adatum-to-deny-all-except-company"></a>Per creare un criterio di trasformazione Adatum per negare tutte le eccezioni ' Company '  
 
-1. Accedere al controller di dominio, contoso.com come Administrator con la password <strong>pass@word1</strong>.  
+1. Accedere al controller di dominio, contoso.com come amministratore con la password <strong>pass@word1</strong>.  
 
 2. Aprire un prompt dei comandi con privilegi elevati in Windows PowerShell e digitare quanto segue:  
 
@@ -136,12 +136,12 @@ In questo passaggio si crea un criterio di trasformazione delle attestazioni in 
 
    ```  
 
-### <a name="BKMK_4.2"></a>Impostare un collegamento di trasformazione delle attestazioni sull'oggetto di dominio di trust Contoso  
-In questo passaggio si applica l'oggetto appena creato criteri di trasformazione delle attestazioni dell'oggetto di dominio di trust contoso.com per Adatum consentire "Company" passate a contoso.com. Oggetto trust di dominio è denominato adatum.com.  
+### <a name="BKMK_4.2"></a>Impostare un collegamento di trasformazione delle attestazioni nell'oggetto dominio di trust di contoso  
+In questo passaggio si applicano i criteri di trasformazione delle attestazioni appena creati nell'oggetto dominio di trust contoso.com per Adatum per consentire a "Company" di essere passati a contoso.com. L'oggetto dominio di trust è denominato adatum.com.  
 
-##### <a name="to-set-the-claims-transformation-policy"></a>Per impostare criteri di trasformazione di attestazioni  
+##### <a name="to-set-the-claims-transformation-policy"></a>Per impostare i criteri di trasformazione delle attestazioni  
 
-1. Accedere al controller di dominio, contoso.com come Administrator con la password <strong>pass@word1</strong>.  
+1. Accedere al controller di dominio, contoso.com come amministratore con la password <strong>pass@word1</strong>.  
 
 2. Aprire un prompt dei comandi con privilegi elevati in Windows PowerShell e digitare quanto segue:  
 
@@ -154,32 +154,32 @@ In questo passaggio si applica l'oggetto appena creato criteri di trasformazione
 
    ```  
 
-## <a name="BKMK_5"></a>Convalidare lo scenario.  
-In questo passaggio si tenta di accedere alla cartella d:\earnings. che è stata configurata nel file server FILE1 per convalidare che l'utente abbia accesso alla cartella condivisa.  
+## <a name="BKMK_5"></a>Convalidare lo scenario  
+In questo passaggio si tenta di accedere alla cartella D:\EARNINGS configurata nel file server FILE1 per verificare che l'utente abbia accesso alla cartella condivisa.  
 
-#### <a name="to-ensure-that-the-adatum-user-can-access-the-shared-folder"></a>Per assicurarsi che l'utente Adatum possono accedere alla cartella condivisa  
+#### <a name="to-ensure-that-the-adatum-user-can-access-the-shared-folder"></a>Per assicurarsi che l'utente adatum possa accedere alla cartella condivisa  
 
-1. Accedi a Client computer, CLIENT1 come Jeff Low con la password <strong>pass@word1</strong>.  
+1. Accedere al computer client, CLIENT1 come Jeff low con la password <strong>pass@word1</strong>.  
 
-2. Passare alla cartella \\\FILE1.contoso.com\Earnings.  
+2. Passare alla cartella \\ \ FILE1. contoso. com\Earnings.  
 
-3. Jeff Low deve essere in grado di accedere alla cartella.  
+3. Jeff low dovrebbe essere in grado di accedere alla cartella.  
 
 ## <a name="additional-scenarios-for-claims-transformation-policies"></a>Scenari aggiuntivi per i criteri di trasformazione delle attestazioni  
-Seguito è riportato un elenco di altri scenari comuni nella trasformazione delle attestazioni.  
+Di seguito è riportato un elenco di casi comuni aggiuntivi nella trasformazione delle attestazioni.  
 
 
-|                                                 Scenario                                                 |                                                                                                                                                                                                                                           Condizione                                                                                                                                                                                                                                            |
+|                                                 Scenario                                                 |                                                                                                                                                                                                                                           Criteri                                                                                                                                                                                                                                            |
 |----------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|                  Consenti tutte le attestazioni provenienti da Adatum di giungere ad Contoso Adatum                  |                                                          Codice: <br />New-ADClaimTransformPolicy \`<br /> -Description: "Criteri di trasformazione per consentire tutte le attestazioni delle attestazioni" \`<br />-Name:"AllowAllClaimsPolicy" \`<br />-AllowAll \`<br />-Server:"contoso.com" \`<br />Set-ADClaimTransformLink \`<br />-Identity:"adatum.com" \`<br />-Policy:"AllowAllClaimsPolicy" \`<br />-TrustRole:Trusting \`<br />-Server:"contoso.com" \`                                                          |
-|                  Negare tutte le attestazioni provenienti da Adatum di giungere ad Contoso Adatum                   |                                                            Codice: <br />New-ADClaimTransformPolicy \`<br />-Description: "Criteri di trasformazione per negare tutte le attestazioni delle attestazioni" \`<br />-Name:"DenyAllClaimsPolicy" \`<br /> -DenyAll \`<br />-Server:"contoso.com" \`<br />Set-ADClaimTransformLink \`<br />-Identity:"adatum.com" \`<br />-Policy:"DenyAllClaimsPolicy" \`<br />-TrustRole:Trusting \`<br />-Server:"contoso.com"\`                                                             |
-| Consenti tutte le attestazioni provenienti da Adatum ad eccezione di "Company" e "Department" di giungere ad Contoso Adatum | Codice <br />Nuova-ADClaimTransformationPolicy \`<br />-Description: "Criteri di trasformazione per consentire tutte le attestazioni, ad eccezione della società e reparto delle attestazioni" \`<br /> -Name:"AllowAllClaimsExceptCompanyAndDepartmentPolicy" \`<br />-AllowAllExcept: aziendale, reparto \`<br />-Server:"contoso.com" \`<br />Set-ADClaimTransformLink \`<br /> -Identity:"adatum.com" \`<br />-Policy:"AllowAllClaimsExceptCompanyAndDepartmentPolicy" \`<br /> -TrustRole:Trusting \`<br />-Server:"contoso.com" \` |
+|                  Consentire a tutte le attestazioni provenienti da Adatum di passare a Contoso adatum                  |                                                          Codice: <br />New-ADClaimTransformPolicy \`<br /> -Description: "criterio di trasformazione delle attestazioni per consentire tutte le attestazioni" \`<br />-Name: "AllowAllClaimsPolicy" \`<br />-AllowAll \`<br />-Server:"contoso. com" \`<br />Set-ADClaimTransformLink \`<br />-Identity:"adatum. com" \`<br />-Policy: "AllowAllClaimsPolicy" \`<br />-TrustRole: trusting \`<br />-Server:"contoso. com" \`                                                          |
+|                  Nega tutte le attestazioni provenienti da Adatum per passare a Contoso adatum                   |                                                            Codice: <br />New-ADClaimTransformPolicy \`<br />-Description: "criterio di trasformazione delle attestazioni per negare tutte le attestazioni" \`<br />-Name: "DenyAllClaimsPolicy" \`<br /> -DenyAll \`<br />-Server:"contoso. com" \`<br />Set-ADClaimTransformLink \`<br />-Identity:"adatum. com" \`<br />-Policy: "DenyAllClaimsPolicy" \`<br />-TrustRole: trusting \`<br />-Server:"contoso. com" \`                                                             |
+| Consenti tutte le attestazioni provenienti da Adatum ad eccezione di "società" e "reparto" per passare a Contoso adatum | Codice <br />-New-ADClaimTransformationPolicy \`<br />-Description: "criteri di trasformazione delle attestazioni per consentire tutte le attestazioni ad eccezione della società e del reparto" \`<br /> -Name: "AllowAllClaimsExceptCompanyAndDepartmentPolicy" \`<br />-AllowAllExcept: società, reparto \`<br />-Server:"contoso. com" \`<br />Set-ADClaimTransformLink \`<br /> -Identity:"adatum. com" \`<br />-Policy: "AllowAllClaimsExceptCompanyAndDepartmentPolicy" \`<br /> -TrustRole: trusting \`<br />-Server:"contoso. com" \` |
 
 ## <a name="BKMK_Links"></a>Vedere anche  
 
--   Per un elenco di tutti i cmdlet di Windows PowerShell disponibili per la trasformazione delle attestazioni, vedere [Active Directory PowerShell Cmdlet Reference](https://go.microsoft.com/fwlink/?LinkId=243150).  
+-   Per un elenco di tutti i cmdlet di Windows PowerShell disponibili per la trasformazione delle attestazioni, vedere [Active Directory riferimento ai cmdlet di PowerShell](https://go.microsoft.com/fwlink/?LinkId=243150).  
 
--   Per attività avanzate che coinvolgono l'esportazione e importazione delle informazioni di configurazione dell'applicazione livello dati tra due foreste, usare il [riferimento di PowerShell controllo di accesso dinamiche](https://go.microsoft.com/fwlink/?LinkId=243150)  
+-   Per le attività avanzate che coinvolgono l'esportazione e l'importazione di informazioni di configurazione dell'applicazione livello dati tra due foreste, usare il [controllo dinamico degli accessi di PowerShell](https://go.microsoft.com/fwlink/?LinkId=243150)  
 
 -   [Distribuire attestazioni nelle foreste](Deploy-Claims-Across-Forests.md)  
 

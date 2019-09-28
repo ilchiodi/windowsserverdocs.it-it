@@ -2,17 +2,17 @@
 title: SMB Le porte di condivisione file e stampanti devono essere aperte
 TOCTitle: 'SMB: File and printer sharing ports should be open'
 ms.date: 07/02/2012
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: storage
 author: JasonGerend
 manager: elizapo
 ms.author: jgerend
-ms.openlocfilehash: a22801be6ec73b6819a190c793d28feae4edcf69
-ms.sourcegitcommit: 23a6e83b688119c9357262b6815c9402c2965472
+ms.openlocfilehash: 22cd926fdb873538631a6f6850157dceb5a020d7
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69560431"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71385826"
 ---
 # <a name="smb-file-and-printer-sharing-ports-should-be-open"></a>SMB Le porte di condivisione file e stampanti devono essere aperte
 
@@ -21,7 +21,7 @@ Aggiornamento: 2 febbraio 2011
 
 Si applica a: Windows Server 2019, Windows Server 2016, Windows Server 2012 R2 e Windows Server 2012, Windows Server 2008 R2
 
-*Questo argomento è destinato a risolvere un problema specifico identificato da un'analisi Best Practices Analyzer. È necessario applicare le informazioni contenute in questo argomento solo ai computer in cui è stato Best Practices Analyzer eseguire i servizi file e si è verificato il problema trattato da questo argomento. Per ulteriori informazioni sulle procedure consigliate e le analisi* , vedere [Best Practices Analyzer](http://go.microsoft.com/fwlink/?linkid=122786%0d%0a).
+l'argomento *Stanziamento è progettato per risolvere un problema specifico identificato da un'analisi di Best Practices Analyzer. È necessario applicare le informazioni contenute in questo argomento solo ai computer in cui è stato Best Practices Analyzer eseguire i servizi file e si è verificato il problema trattato da questo argomento. Per ulteriori informazioni sulle procedure consigliate e le analisi, vedere @ no__t-0 [Best Practices Analyzer](http://go.microsoft.com/fwlink/?linkid=122786%0d%0a).
 
 
 <table>
@@ -75,5 +75,5 @@ Il requisito minimo per completare questa procedura è l'appartenenza al gruppo 
 
 ## <a name="additional-references"></a>Altri riferimenti
 
-[Informazioni sulle cartelle condivise e sul Windows Firewall](https://technet.microsoft.com/library/cc731402.aspx) (https://technet.microsoft.com/library/cc731402.aspx)
+[Informazioni sulle cartelle condivise e sulla Windows Firewall](https://technet.microsoft.com/library/cc731402.aspx)(https://technet.microsoft.com/library/cc731402.aspx)
 

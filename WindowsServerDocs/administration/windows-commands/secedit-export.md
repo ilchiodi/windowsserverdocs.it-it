@@ -1,8 +1,8 @@
 ---
-title: secedit:export
-description: 'Argomento i comandi di Windows per * * *- '
+title: 'secedit: Export'
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,14 +13,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 398d2fa47f2418aec910569c2eb85aec408ad482
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 2aed2774bcba1ac3d5ba828901586acbbe24d255
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66441596"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71384255"
 ---
-# <a name="seceditexport"></a>secedit:export
+# <a name="seceditexport"></a>secedit: Export
 
 
 
@@ -47,7 +47,7 @@ Secedit /export /db <database file name> [/mergedpolicy] /cfg <configuration fil
 
 È possibile utilizzare questo comando per eseguire il backup i criteri di protezione in un computer locale, oltre a importare le impostazioni in un altro computer.
 
-Se il percorso del file di log non viene specificato, il file di registro predefinito (*systemroot*\Documents and Settings\*UserAccount<em>\My Documents\Security\Logs\*NomeDatabase</em>. viene usato log).
+Se il percorso del file di log non viene specificato, viene usato il file di logpredefinito, ovvero systemroot\*\Documents and Settings AccountUtente<em>\My Documents\Security\Logs\*DatabaseName</em>. log.
 
 In Windows Server 2008, `Secedit /refreshpolicy` è stato sostituito con `gpupdate`. Per informazioni su come aggiornare le impostazioni di sicurezza, vedere [Gpupdate](gpupdate.md).
 

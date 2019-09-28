@@ -7,14 +7,14 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 1ec4165209b726609b1f9b2caeab02fb5072c756
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 91fd437895e765d4d73f3a200f76a5f8f96b52f2
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59873412"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71407097"
 ---
 # <a name="scenario-central-access-policy"></a>Scenario: Criteri di accesso centrale
 
@@ -81,11 +81,11 @@ Per i criteri di accesso centrale sono disponibili le indicazioni seguenti:
   
 -   [Pianificare una distribuzione di criteri di accesso centrale](assetId:///0311a76d-d66c-4ddb-ade6-af586a2ad82f)  
   
--   [Distribuire un criterio di accesso centrale &#40;passaggi dimostrativi&#41;](Deploy-a-Central-Access-Policy--Demonstration-Steps-.md)  
+-   [Distribuire una procedura dimostrativa per &#40;i criteri di accesso centrale&#41;](Deploy-a-Central-Access-Policy--Demonstration-Steps-.md)  
   
 -   [Controllo dinamico degli accessi: Panoramica dello scenario](Dynamic-Access-Control--Scenario-Overview.md)  
   
-## <a name="BKMK_NEW"></a>Ruoli e funzionalità incluse in questo scenario  
+## <a name="BKMK_NEW"></a>Ruoli e funzionalità inclusi in questo scenario  
 Nella tabella seguente sono elencati i ruoli e le funzionalità che interessano questo scenario e sono descritte le modalità di supporto.  
   
 |Ruolo/funzionalità|Modalità di supporto dello scenario|  

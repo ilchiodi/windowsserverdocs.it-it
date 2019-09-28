@@ -1,9 +1,9 @@
 ---
-title: Passaggio 2 configurare il server DirectAccess avanzato
-description: Questo argomento fa parte della Guida di distribuire un DirectAccess Server singolo con Advanced le impostazioni per Windows Server 2016
+title: Passaggio 2 configurare i server DirectAccess avanzati
+description: Questo argomento fa parte della Guida distribuire un server DirectAccess singolo con impostazioni avanzate per Windows Server 2016
 manager: brianlic
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-da
@@ -12,16 +12,16 @@ ms.topic: article
 ms.assetid: 35afec8e-39a4-463b-839a-3c300ab01174
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: b55e0f9a4d059da89a5d71678a6a0bb385895fd6
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: 0ba2154338871827aae03936e5e39a356a43d675
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67281802"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71388626"
 ---
-# <a name="step-2-configure-advanced-directaccess-servers"></a>Passaggio 2 configurare il server DirectAccess avanzato
+# <a name="step-2-configure-advanced-directaccess-servers"></a>Passaggio 2 configurare i server DirectAccess avanzati
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016
 
 In questo argomento viene descritto come configurare le impostazioni del client e del server richieste per la distribuzione avanzata di Accesso remoto con un solo server di Accesso remoto in un ambiente IPv4 e IPv6. Prima di iniziare la procedura di distribuzione, assicurarsi di aver completato i passaggi di pianificazione descritti in [pianificare una distribuzione avanzata DirectAccess](Plan-an-Advanced-DirectAccess-Deployment.md).  
   
@@ -39,7 +39,7 @@ In questo argomento viene descritto come configurare le impostazioni del client 
 > [!NOTE]  
 > Questo argomento include cmdlet di esempio di Windows PowerShell che è possibile usare per automatizzare alcune delle procedure descritte. Per ulteriori informazioni, vedere [mediante i cmdlet](https://go.microsoft.com/fwlink/p/?linkid=230693).  
   
-## <a name="BKMK_Role"></a>2.1. Installare il ruolo Accesso remoto  
+## <a name="BKMK_Role"></a>2,1. Installare il ruolo Accesso remoto  
 Per distribuire Accesso remoto, è necessario installare il ruolo Accesso remoto in un server dell'organizzazione che fungerà da server di Accesso remoto.  
   
 #### <a name="to-install-the-remote-access-role"></a>Per installare il ruolo Accesso remoto  
@@ -56,7 +56,7 @@ Per distribuire Accesso remoto, è necessario installare il ruolo Accesso remoto
   
 6.  Nella pagina **Stato installazione**, verificare che l'installazione sia stata completata correttamente, quindi fare clic su **Chiudi**.  
   
-![Esito positivo lo stato di avanzamento dell'installazione](../../../media/Step-2-Configuring-DirectAccess-Servers/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em>***  
+](../../../media/Step-2-Configuring-DirectAccess-Servers/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em> per lo stato @no__t 0Installation***  
   
 Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.  
   
@@ -64,7 +64,7 @@ Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione 
 Install-WindowsFeature RemoteAccess -IncludeManagementTools  
 ```  
   
-## <a name="BKMK_Deploy"></a>2.2. Configurare il tipo di distribuzione  
+## <a name="BKMK_Deploy"></a>2,2. Configurare il tipo di distribuzione  
 È possibile distribuire Accesso remoto con la Console di gestione Accesso remoto in tre modi:  
   
 -   DirectAccess e VPN  
@@ -77,13 +77,13 @@ Nelle procedure di esempio di questa guida viene illustrata la distribuzione con
   
 #### <a name="to-configure-the-deployment-type"></a>Per configurare il tipo di distribuzione  
   
-1.  Nel server di Accesso remoto, aprire la Console di gestione Accesso remoto: Nel **avviare** digitare**RAMgmtUI.exe**, quindi premere INVIO. Se viene visualizzata la finestra di dialogo **Controllo account utente** , verificare che l'azione visualizzata sia quella desiderata e quindi fare clic su **Sì**.  
+1.  Nel server di Accesso remoto, aprire la Console di gestione Accesso remoto: Nella schermata **Start** digitare**RAMgmtUI. exe**, quindi premere INVIO. Se viene visualizzata la finestra di dialogo **Controllo account utente** , verificare che l'azione visualizzata sia quella desiderata e quindi fare clic su **Sì**.  
   
 2.  Nella Console di gestione accesso remoto, nel riquadro centrale, fare clic su **eseguire Configurazione guidata accesso remoto**.  
   
 3.  Nel **Configura accesso remoto** finestra di dialogo scegliere se distribuire solo DirectAccess e VPN, solo DirectAccess o VPN.  
   
-## <a name="BKMK_Clients"></a>2.3. Configurare i client DirectAccess  
+## <a name="BKMK_Clients"></a>2,3. Configurare i client DirectAccess  
 Per effettuarne il provisioning allo scopo di usare DirectAccess, un computer client deve appartenere al gruppo di sicurezza selezionato. Dopo aver configurato DirectAccess, viene effettuato il provisioning dei computer client nel gruppo di sicurezza in modo da ricevere l'oggetto Criteri di gruppo DirectAccess. È anche possibile configurare lo scenario di distribuzione che consente di configurare DirectAccess per l'accesso client e la gestione remota o solo per quest'ultima.  
   
 #### <a name="to-configure-directaccess-clients"></a>Per configurare i client DirectAccess  
@@ -123,7 +123,7 @@ Per effettuarne il provisioning allo scopo di usare DirectAccess, un computer cl
   
 9. Scegliere **Fine**.  
   
-## <a name="BKMK_Server"></a>2.4. Configurare il server di Accesso remoto  
+## <a name="BKMK_Server"></a>2,4. Configurare il server di Accesso remoto  
 Per distribuire Accesso remoto è necessario configurare il server di Accesso remoto con le schede di rete corrette, un URL pubblico per il server di Accesso remoto al quale i computer client possano connettersi (l'indirizzo ConnectTo) e un certificato IP-HTTPS il cui soggetto corrisponda all'indirizzo ConnectTo, alle impostazioni IPv6 e all'autenticazione del computer client.  
   
 #### <a name="to-configure-the-remote-access-server"></a>Per configurare il server di Accesso remoto  
@@ -152,7 +152,7 @@ Per distribuire Accesso remoto è necessario configurare il server di Accesso re
   
 6.  Scegliere **Fine**.  
   
-## <a name="BKMK_Infra"></a>2.5. Configurare i server dell'infrastruttura  
+## <a name="BKMK_Infra"></a>2,5. Configurare i server dell'infrastruttura  
 Per configurare i server dell'infrastruttura in una distribuzione di Accesso remoto, è necessario configurare il server dei percorsi di rete, le impostazioni DNS (incluso l'elenco di ricerca dei suffissi DNS) e i server di gestione non rilevati automaticamente da Accesso remoto.  
   
 #### <a name="to-configure-the-infrastructure-servers"></a>Per configurare i server dell'infrastruttura  
@@ -172,7 +172,7 @@ Per configurare i server dell'infrastruttura in una distribuzione di Accesso rem
   
 6.  Scegliere **Fine**.  
   
-## <a name="BKMK_App"></a>2.6. Configurare i server applicazioni  
+## <a name="BKMK_App"></a>2,6. Configurare i server applicazioni  
 In una distribuzione di Accesso remoto, la configurazione dei server applicazioni è un'attività facoltativa. Accesso remoto consente di richiedere l'autenticazione per i server applicazioni selezionati, determinati in base all'inclusione in un gruppo di sicurezza dei server applicazioni. Per impostazione predefinita, anche il traffico verso i server applicazioni che richiedono l'autenticazione è crittografato. Tuttavia, è possibile scegliere di non crittografarlo e di usare solo l'autenticazione.  
   
 > [!NOTE]  
@@ -190,7 +190,7 @@ In una distribuzione di Accesso remoto, la configurazione dei server applicazion
   
 5.  Scegliere **Fine**.  
   
-## <a name="BKMK_GPO"></a>2.7. Riepilogo della configurazione e oggetti Criteri di gruppo alternativi  
+## <a name="BKMK_GPO"></a>2,7. Riepilogo della configurazione e oggetti Criteri di gruppo alternativi  
 Al termine, la configurazione di accesso remoto di **revisione di accesso remoto** viene visualizzato. È possibile controllare tutte le impostazioni selezionate in precedenza, incluse:  
   
 1.  **Impostazioni dell'oggetto Criteri di gruppo**: sono elencati il nome dell'oggetto Criteri di gruppo del server DirectAccess e il nome dell'oggetto Criteri di gruppo del client. Inoltre, è possibile fare clic sul collegamento **Cambia** accanto all'intestazione **Impostazioni dell'oggetto Criteri di gruppo** per modificare le impostazioni dell'oggetto Criteri di gruppo.  
@@ -203,12 +203,12 @@ Al termine, la configurazione di accesso remoto di **revisione di accesso remoto
   
 5.  **Server applicazioni**: viene visualizzato lo stato della gestione remota DirectAccess, oltre allo stato dell'autenticazione end-to-end per specifici server applicazioni.  
   
-## <a name="BKMK_PS"></a>2.8. Come configurare il server di Accesso remoto con Windows PowerShell  
-![Windows PowerShell](../../../media/Step-2-Configuring-DirectAccess-Servers/PowerShellLogoSmall.gif)**comandi equivalenti di Windows PowerShell**  
+## <a name="BKMK_PS"></a>2,8. Come configurare il server di Accesso remoto con Windows PowerShell  
+](../../../media/Step-2-Configuring-DirectAccess-Servers/PowerShellLogoSmall.gif)**comandi equivalenti** di PowerShell per Windows PowerShell @no__t 0Windows  
   
 Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.  
   
-Per eseguire un'installazione completa in una topologia perimetrale di Accesso remoto per DirectAccess solo in un dominio con la radice **corp.contoso.com** e usando i seguenti parametri: oggetto Criteri di gruppo del server: **DirectAccess Server Settings**, oggetto Criteri di gruppo del client: Impostazioni del client DirectAccess, scheda di rete interna: **Corpnet**, scheda di rete esterna: **Internet**, indirizzo ConnectTto: **edge1.contoso.com**e server dei percorsi di rete: **nls.corp.contoso.com**:  
+Per eseguire un'installazione completa in una topologia perimetrale di Accesso remoto per DirectAccess solo in un dominio con la radice **corp.contoso.com** e usando i seguenti parametri: oggetto Criteri di gruppo del server: **DirectAccess Server Settings**, oggetto Criteri di gruppo del client: Impostazioni del client DirectAccess, scheda di rete interna: **Corpnet**, scheda di rete esterna: **Internet**, indirizzo ConnectTto: **Edge1.contoso.com**e server del percorso di rete: **NLS.Corp.contoso.com**:  
   
 ```  
 Install-RemoteAccess -Force -PassThru -ServerGpoName 'corp.contoso.com\DirectAccess Server Settings' -ClientGpoName 'corp.contoso.com\DirectAccess Client Settings' -DAInstallType 'FullInstall' -InternetInterface 'Internet' -InternalInterface 'Corpnet' -ConnectToAddress 'edge1.contoso.com' -NlsUrl 'https://nls.corp.contoso.com/'  

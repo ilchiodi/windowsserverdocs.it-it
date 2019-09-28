@@ -1,23 +1,23 @@
 ---
 title: Guide complementari alla rete core
-description: In questo argomento viene fornita una panoramica delle guide complementari alla Guida alla rete Windows Server 2016 Core
+description: Questo argomento fornisce una panoramica delle guide complementari alla guida alla rete core di Windows Server 2016
 manager: brianlic
 ms.technology: networking
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.topic: article
 ms.assetid: d57af0bd-9301-4f62-9888-f528cd10451d
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: b757e1914ee263a041f39e9767d3cb8af38403dc
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: c0895cfd62d462ef6d158dc39ef59a9ee10a7c98
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59816802"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71406307"
 ---
 # <a name="core-network-companion-guidance"></a>Guida complementare alla rete core
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016
 
 Mentre Windows Server 2016 [Guida alla rete Core](https://technet.microsoft.com/windows-server-docs/networking/core-network-guide/core-network-guide) vengono fornite istruzioni su come distribuire un nuovo Active Directory&reg; foresta con un nuovo dominio radice e l'infrastruttura di rete supporto, le guide complementari offrono la possibilità di aggiungere funzionalità alla rete.
 
@@ -42,7 +42,7 @@ Per istruzioni su come distribuire i certificati del server, vedere [distribuire
 
 In questa guida complementare viene illustrato come si basano su una rete di base fornendo istruzioni su come distribuire Institute of Electrical and Electronics Engineers \(IEEE\) 802.1 X\-accesso wireless IEEE 802.11 con Protected Extensible Authentication {1>protocollo<1}-Microsoft Challenge Handshake Authentication Protocol versione 2 autenticato \(PEAP\-MS\-CHAP v2\).
 
-Il metodo di autenticazione PEAP\-MS\-CHAP v2 richiede che l'autenticazione server che eseguono Server dei criteri di rete \(NPS\) presentare client senza fili con un certificato server per dimostrare l'identità dei criteri di rete per il client, tuttavia, l'autenticazione utente non viene eseguita usando un certificato - invece agli utenti forniscono il nome utente di dominio e la password.
+Il metodo di autenticazione PEAP @ no__t-0MS @ no__t-1CHAP V2 richiede che i server di autenticazione che eseguono Server dei criteri di rete \(NPS @ no__t-3 presentino client wireless con un certificato server per dimostrare l'identità del server dei criteri di rete al client, tuttavia l'utente l'autenticazione non viene eseguita tramite un certificato, ma gli utenti forniscono il nome utente e la password di dominio.
 
 Poiché il protocollo PEAP\-MS\-CHAP v2 richiede che gli utenti di fornire credenziali basate su password, piuttosto che un certificato durante il processo di autenticazione, è in genere più semplice e meno costoso da distribuire EAP\-TLS o PEAP\-TLS.
 

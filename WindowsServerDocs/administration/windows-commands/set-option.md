@@ -1,8 +1,8 @@
 ---
 title: Opzione set
-description: 'Argomento i comandi di Windows per * * *- '
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 1c4756627d19d296d02fa11ac67ef80080ddf318
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 9b9174f219654e99eb9441abe3342c31b5089ef5
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66441363"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71384055"
 ---
 # <a name="set-option"></a>Opzione set
 
@@ -36,9 +36,9 @@ set option {[differential | plex] [transportable] [[rollbackrecover] [txfrecover
 
 |     Parametro     |                                                                                                  Descrizione                                                                                                  |
 |-------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|   [backup differenziali   |                                                                                                     plex]                                                                                                     |
-|  [trasportabili]  |                       Specifica che la copia shadow non deve essere importata. Il file CAB dei metadati può successivamente essere utilizzato per importare la copia shadow allo stesso o a un altro computer.                       |
-| [rollbackrecover] |                     Segnala writer da utilizzare *salvataggio* durante il **PostSnapshot** evento. Ciò è utile se la copia shadow verrà utilizzata per eseguire il rollback (ad esempio, con il data mining).                      |
+|   [differenziale   |                                                                                                     plessi                                                                                                     |
+|  trasportabili  |                       Specifica che la copia shadow non deve essere importata. Il file CAB dei metadati può successivamente essere utilizzato per importare la copia shadow allo stesso o a un altro computer.                       |
+| [rollbackrecover] |                     Segnala writer da utilizzare *salvataggio* durante il **PostSnapshot** evento. Questa operazione è utile se la copia shadow verrà utilizzata per il rollback, ad esempio con data mining.                      |
 |   [txfrecover]    |                                                               Richieste per effettuare la copia shadow coerenti durante la creazione di VSS.                                                                |
 |  [noautorecover]  | Gli autori si arresta e il file system di eseguire le modifiche di ripristino per la copia shadow in uno stato consistente. **Noautorecover** non può essere utilizzato con **txfrecover** o **rollbackrecover**. |
 

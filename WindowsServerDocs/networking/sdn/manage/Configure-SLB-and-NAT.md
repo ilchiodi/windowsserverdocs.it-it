@@ -3,7 +3,7 @@ title: Configurare il servizio di bilanciamento del carico software per il bilan
 description: Questo argomento fa parte della Guida Software Defined Networking su come gestire i carichi di lavoro e le reti virtuali dei tenant in Windows Server 2016.
 manager: dougkim
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-sdn
@@ -13,16 +13,16 @@ ms.assetid: 73bff8ba-939d-40d8-b1e5-3ba3ed5439c3
 ms.author: pashort
 author: shortpatti
 ms.date: 08/23/2018
-ms.openlocfilehash: 70bc6aa6a1276506d81b56520b7e127cd271cc83
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 80f1319c1abc845d7e63a2d53868bf7a3c381019
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70867157"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71406093"
 ---
 # <a name="configure-the-software-load-balancer-for-load-balancing-and-network-address-translation-nat"></a>Configurare il servizio di bilanciamento del carico software per il bilanciamento del carico e Network Address Translation (NAT)
 
->Si applica a Windows Server (Canale semestrale), Windows Server 2016
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016
 
 È possibile usare questo argomento per informazioni su come usare Software Defined Networking \(Sdn\) software Load Balancer \(SLB\) per fornire Network Address Translation \(NAT\)in uscita, NAT in ingresso o bilanciamento del carico tra più istanze di un'applicazione.
 

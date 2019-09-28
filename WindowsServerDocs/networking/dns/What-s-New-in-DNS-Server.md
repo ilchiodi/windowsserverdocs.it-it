@@ -1,23 +1,23 @@
 ---
-title: Che cosa sono le novità di Server DNS in Windows Server
-description: In questo argomento viene fornita una panoramica delle nuove funzionalità in Server DNS in Windows Server 2016 e versioni successive
+title: Novità del server DNS in Windows Server
+description: Questo argomento fornisce una panoramica delle nuove funzionalità del server DNS in Windows Server 2016 e versioni successive
 manager: brianlic
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking-dns
 ms.topic: article
 ms.assetid: c9cecb94-3cd5-4da7-9a3e-084148b8226b
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 665e411eda834a59c6dbe3581611b9b58bd006f2
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: de502d7be023d12e3350063e467a60356b2472c4
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59833572"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71406232"
 ---
-# <a name="whats-new-in-dns-server-in-windows-server"></a>Che cosa sono le novità di Server DNS in Windows Server
+# <a name="whats-new-in-dns-server-in-windows-server"></a>Novità del server DNS in Windows Server
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016
 
 In questo argomento vengono descritte le funzionalità server Domain Name System (DNS) nuove o modificate in Windows Server 2016.  
   
@@ -27,29 +27,29 @@ In Windows Server 2016, Server DNS offre supporto avanzato nelle aree seguenti.
 |-----------------|-------------------|---------------|  
 |Criteri DNS|Nuova|È possibile configurare criteri DNS per specificare come un server DNS risponde alle query DNS. Le risposte DNS possono essere basate sull'indirizzo IP client (posizione), ora del giorno e molti altri parametri. I criteri di DNS consentono DNS con riconoscimento della posizione, la gestione del traffico, il bilanciamento del carico, DNS "split Brain" e altri scenari.|  
 |Velocità di risposta limitando (RRL)|Nuova|È possibile abilitare la limitazione della velocità di risposta dei server DNS. In questo modo, evitare la possibilità di sistemi dannoso tramite i server DNS per avviare un attacco denial of service in un client DNS.|  
-|Autenticazione basata su DNS di entità denominate (DANE)|Nuova|È possibile utilizzare i record TLSA (autenticazione di sicurezza Layer di trasporto) per fornire informazioni al client DNS che indicano quali CA deve prevedono un certificato da per il nome di dominio. Questo impedisce gli attacchi man-in-the-middle in cui qualcuno potrebbe danneggiare la cache DNS in modo che punti al proprio sito Web e fornire un certificato che è emesso da un'autorità di certificazione diversi.|  
+|Autenticazione basata su DNS di entità denominate (DANE)|Nuova|È possibile utilizzare i record TLSA (autenticazione di sicurezza Layer di trasporto) per fornire informazioni al client DNS che indicano quali CA deve prevedono un certificato da per il nome di dominio. In questo modo si evitano gli attacchi man-in-the-Middle in cui un utente potrebbe danneggiare la cache DNS per puntare al proprio sito Web e fornire un certificato emesso da un'autorità di certificazione diversa.|  
 |Supporto di record sconosciuto|Nuova|È possibile aggiungere i record che non sono supportati in modo esplicito dal server DNS di Windows utilizzando la funzionalità di record sconosciuto.|  
 |Parametri radice IPv6|Nuova|È possibile utilizzare la connettività IPV6 nativa supportano i parametri radice per eseguire la risoluzione dei nomi internet utilizzando i server principali di IPV6.|  
 |Supporto di Windows PowerShell|Miglioramento|Nuovi cmdlet di Windows PowerShell sono disponibili per il Server DNS.|  
   
 ## <a name="dns-policies"></a>Criteri DNS
 
-È possibile utilizzare criteri DNS per posizione geografica basato su gestione traffico, risposte DNS intelligente basate sull'ora del giorno, per gestire un singolo server DNS configurato per la suddivisione\-distribuzione cervello, applicazione di filtri alle query DNS e altro ancora. Gli elementi seguenti forniscono altri dettagli su queste funzionalità.
+È possibile usare i criteri DNS per la gestione del traffico basata sulla posizione geografica, le risposte DNS intelligenti basate sull'ora del giorno, per gestire un singolo server DNS configurato per la distribuzione Split @ no__t-0brain, l'applicazione di filtri alle query DNS e altro ancora. Gli elementi seguenti forniscono maggiori dettagli su queste funzionalità.
 
--   **Bilanciamento del carico dell'applicazione.** Quando si distribuiscono più istanze di un'applicazione in posizioni diverse, è possibile utilizzare criteri DNS per bilanciare il carico del traffico tra le istanze di applicazione diversi, allocare dinamicamente il carico del traffico per l'applicazione.
+-   **Bilanciamento del carico dell'applicazione.** Quando sono state distribuite più istanze di un'applicazione in posizioni diverse, è possibile usare i criteri DNS per bilanciare il carico del traffico tra le diverse istanze dell'applicazione, allocando dinamicamente il carico del traffico per l'applicazione.
 
--   **Geografica\-Location Based di gestione traffico.** È possibile utilizzare criteri DNS per consentire ai server DNS primario e secondario rispondere alle query client DNS in base alla posizione geografica del client e la risorsa a cui il client sta provando a connettersi, fornendo il client con l'indirizzo IP di quello più vicino risorsa. 
+-   **Geo @ no__t: gestione del traffico basata su 1Location.** È possibile usare i criteri DNS per consentire ai server DNS primari e secondari di rispondere alle query del client DNS in base alla posizione geografica del client e alla risorsa a cui il client sta tentando di connettersi, fornendo al client l'indirizzo IP del più vicino risorse. 
 
--   **Dividere cervello DNS.** Divisione\-brain DNS, i record DNS vengono suddivise in diversi ambiti di zona nello stesso server DNS e i client DNS ricevano una risposta basata sul fatto che i client trovano i client interni o esterni. È possibile configurare la suddivisione\-brain DNS per le zone integrate con Active Directory o per le zone sui server DNS autonomi.
+-   **Split Brain DNS.** Con il DNS split @ no__t-0brain, i record DNS vengono suddivisi in ambiti di zona diversi nello stesso server DNS e i client DNS ricevono una risposta a seconda che i client siano client interni o esterni. È possibile configurare il DNS split @ no__t-0brain per Active Directory zone integrate o per le zone in server DNS autonomi.
 
--   **Filtering.** È possibile configurare criteri DNS per creare filtri per query sono basati su criteri che viene fornito. Filtri di query in Criteri di DNS consentono di configurare il server DNS per rispondere in modo personalizzato in base alla query DNS e client DNS che invia la query DNS. 
--   **Analisi scientifiche.** È possibile utilizzare criteri DNS per reindirizzare i client DNS non autorizzati a non\-indirizzo IP esistente anziché indirizzare li al computer che sta provando a raggiungere.
+-   **Filtro.** È possibile configurare i criteri DNS per creare filtri di query in base ai criteri forniti. I filtri query nei criteri DNS consentono di configurare il server DNS per rispondere in modo personalizzato in base alla query DNS e al client DNS che invia la query DNS. 
+-   **Analisi.** È possibile usare i criteri DNS per reindirizzare i client DNS dannosi a un indirizzo IP diverso da @ no__t-0existent anziché indirizzarli al computer che tentano di raggiungere.
 
--   **Ora del giorno in base reindirizzamento.** È possibile utilizzare criteri DNS per distribuire il traffico dell'applicazione tra diverse istanze distribuite geograficamente di un'applicazione usando i criteri DNS che si basano sull'ora del giorno. 
+-   **Reindirizzamento basato sull'ora del giorno.** È possibile usare i criteri DNS per distribuire il traffico delle applicazioni tra diverse istanze distribuite geograficamente di un'applicazione usando criteri DNS basati sull'ora del giorno. 
   
 È inoltre possibile utilizzare criteri DNS per DNS integrato di Active Directory zone.
 
-Per altre informazioni, vedere la [Guida agli scenari di criteri DNS](deploy/DNS-Policies-Overview.md).
+Per ulteriori informazioni, vedere la [Guida allo scenario dei criteri DNS](deploy/DNS-Policies-Overview.md).
 
 ## <a name="response-rate-limiting"></a>Limitazione della velocità di risposta
 
@@ -75,7 +75,7 @@ Per altre informazioni, vedere la [Guida agli scenari di criteri DNS](deploy/DNS
   
 ## <a name="dane-support"></a>Supporto DANE
 
-È possibile usare il supporto di DANE \(RFC 6394 e 6698\) per specificare quali CA deve prevedono l'emissione da per i nomi di domini di certificati per i client DNS ospitati in un server DNS. Questo impedisce un tipo di attacco man-in-the-middle in cui un utente è in grado di danneggiare una cache DNS e scegliere un nome DNS per il proprio indirizzo IP.  
+È possibile usare il supporto danese \(RFC 6394 e 6698 @ no__t-1 per specificare ai client DNS la CA da cui devono essere rilasciati i certificati per i nomi dei domini ospitati nel server DNS. Questo impedisce un tipo di attacco man-in-the-middle in cui un utente è in grado di danneggiare una cache DNS e scegliere un nome DNS per il proprio indirizzo IP.  
   
 Si supponga ad esempio si ospita un sito Web protetto che utilizza SSL in www.contoso.com mediante un certificato da un'autorità noto denominato CA1. Qualcuno potrebbe ancora essere in grado di ottenere un certificato per www.contoso.com da un diverso, non in modo-noti, certificato autorità denominata CA2. Quindi, l'entità che ospita il sito Web www.contoso.com fittizio potrebbe essere in grado di danneggiare la cache DNS di un client o server in modo da puntare www.contoto.com al rispettivo sito fittizio. L'utente finale verrà visualizzato un certificato da CA2, può semplicemente confermare e connettersi al sito fittizio. Con DANE, il client potrebbe effettuare una richiesta al server DNS per contoso.com che richiede il record TLSA e informazioni che il certificato per www.contoso.com è problemi da CA1. Se viene visualizzata con un certificato da un'altra CA, la connessione viene interrotta.  
   
@@ -89,7 +89,7 @@ I parametri principali IPV6, pubblicati da IANA, sono state aggiunte al server D
 
 ## <a name="windows-powershell-support"></a>Supporto di Windows PowerShell
 
-I seguenti nuovi cmdlet di Windows PowerShell e i parametri vengono introdotti in Windows Server 2016.
+I nuovi cmdlet e parametri di Windows PowerShell seguenti sono stati introdotti in Windows Server 2016.
   
 -   **Aggiungere DnsServerRecursionScope**. Questo cmdlet crea un nuovo ambito di ricorsione nel server DNS. Gli ambiti di ricorsione vengono utilizzati dai criteri DNS per specificare un elenco di server d'inoltro da utilizzare in una query DNS.  
   
@@ -145,14 +145,14 @@ I seguenti nuovi cmdlet di Windows PowerShell e i parametri vengono introdotti i
   
 -   **Set-DnsServerResourceRecord**. Questo cmdlet è stato aggiornato per supportare il tipo di record sconosciuto
 
-Per altre informazioni, vedere gli argomenti di riferimento di comando Windows Server 2016, Windows PowerShell seguenti.
+Per ulteriori informazioni, vedere gli argomenti di riferimento sui comandi di Windows PowerShell seguenti per Windows Server 2016.
 
 - [Modulo DnsServer](https://docs.microsoft.com/powershell/module/dnsserver/?view=win10-ps)
 - [Modulo DnsClient](https://docs.microsoft.com/powershell/module/dnsclient/?view=win10-ps)
 
 ## <a name="see-also"></a>Vedere anche  
   
--   [Che cosa sono le novità di Client DNS](What-s-New-in-DNS-Client.md)  
+-   [Novità del client DNS](What-s-New-in-DNS-Client.md)  
   
 
   

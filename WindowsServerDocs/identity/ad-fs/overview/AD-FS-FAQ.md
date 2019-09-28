@@ -8,14 +8,14 @@ manager: mtillman
 ms.date: 04/17/2019
 ms.topic: article
 ms.custom: it-pro
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 8444e417fe089c1a3cf2acc2648b222ec5c9774c
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: a52676ffc89c9fc5ce0eba4f44407e76520fef0a
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70865469"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71407438"
 ---
 # <a name="ad-fs-frequently-asked-questions-faq"></a>Domande frequenti su AD FS
 
@@ -124,7 +124,7 @@ Attestazione rilasciata nel token di accesso:
     "array_in_json":{"Items":[{"Name":"Apple","Price":12.3},{"Name":"Grape","Price":3.21}],"Date":"21/11/2010"}
 
 ### <a name="can-i-pass-resource-value-as-part-of-the-scope-value-like-how-requests-are-done-against-azure-ad"></a>È possibile passare il valore della risorsa come parte del valore dell'ambito, ad esempio il modo in cui le richieste vengono eseguite su Azure AD?
-Con AD FS sul server 2019, è ora possibile passare il valore della risorsa incorporato nel parametro scope. Il parametro scope può ora essere organizzato come un elenco separato da spazi in cui ogni voce è una struttura come risorsa/ambito. Esempio:  
+Con AD FS sul server 2019, è ora possibile passare il valore della risorsa incorporato nel parametro scope. Il parametro scope può ora essere organizzato come un elenco separato da spazi in cui ogni voce è una struttura come risorsa/ambito. Per esempio  
 **< creare una richiesta di esempio valida >**
 
 ### <a name="does-ad-fs-support-pkce-extension"></a>AD FS supporta l'estensione PKCE?

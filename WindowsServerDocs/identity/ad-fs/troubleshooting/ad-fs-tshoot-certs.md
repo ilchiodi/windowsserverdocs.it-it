@@ -6,14 +6,14 @@ ms.author: billmath
 manager: mtillman
 ms.date: 02/21/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: cee87ce864e333b98e92fa64e939f2ead7edc156
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: fdadbefc138562246c72f7707b303d966bff0989
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70869192"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71407195"
 ---
 # <a name="ad-fs-troubleshooting---certificates"></a>AD FS risoluzione dei problemi-certificati
 Per il corretto funzionamento di AD FS sono necessari i certificati seguenti.  Se una di queste impostazioni non è stata configurata o configurata correttamente, possono verificarsi problemi.  
@@ -46,7 +46,7 @@ Di seguito è riportato un elenco di elementi che possono verificarsi e che devo
 ## <a name="common-certificate-errors"></a>Errori comuni relativi ai certificati
 La tabella seguente elenca gli errori comuni e le possibili cause.
 
-|event|Causa|Risoluzione
+|Evento|Causa|Risoluzione
 |-----|-----|-----|
 |Evento 249: Impossibile trovare un certificato nell'archivio certificati. Negli scenari di rollover dei certificati questo può causare un errore quando il Servizio federativo esegue la firma o la decrittografia utilizzando questo certificato.|Il certificato in questione non è presente nell'archivio certificati locale o l'account del servizio non dispone dell'autorizzazione per la chiave privata del certificato.|Verificare che il certificato sia installato nell'archivio LocalMAchine\My nel server AD FS. Verificare che l'account del servizio AD FS disponga dell'accesso in lettura alla chiave privata del certificato.|
 |Evento 315: si è verificato un errore durante un tentativo di compilazione della catena di certificati per il certificato di firma del trust del provider di attestazioni.|Il certificato è stato revocato.</br></br>Impossibile verificare la catena di certificati.</br></br>Il certificato è scaduto o non è ancora valido.|Verificare che il certificato sia valido e che non sia stato revocato.</br></br>Verificare che l'elenco CRL sia accessibile.|

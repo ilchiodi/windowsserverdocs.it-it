@@ -1,9 +1,9 @@
 ---
 title: Passaggio 3 configurare un Cluster con bilanciamento del carico
-description: Questo argomento fa parte della Guida alla distribuzione di accesso remoto in un Cluster in Windows Server 2016.
+description: Questo argomento fa parte della Guida deploy Remote Access in a cluster in Windows Server 2016.
 manager: brianlic
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-ras
@@ -12,28 +12,28 @@ ms.topic: article
 ms.assetid: f000066e-7cf8-4085-82a3-4f4fe1cb3c5c
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: aea8ce1e07b29be49761e33cbe92a1bf56c29f43
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: fb7dca9a0f7875936cbb30cbc9c5e9e0a7473237
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67282961"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71404639"
 ---
 # <a name="step-3-configure-a-load-balanced-cluster"></a>Passaggio 3 configurare un Cluster con bilanciamento del carico
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016
 
 Dopo la preparazione server per il cluster, configurare il bilanciamento del carico sul server singolo, configurare i certificati necessari e distribuire il cluster.  
   
 |Attività|Descrizione|  
 |----|--------|  
-|[3.1 configurare il prefisso IPv6](#BKMK_Prefix)|Se l'ambiente azienda è IPv6 + IPv4, o solo IPv6, quindi sul singolo server di accesso remoto, assicurarsi che il prefisso IPv6 assegnato ai computer client DirectAccess sia sufficiente a coprire tutti i server del cluster.|  
-|[3.2 abilitare il bilanciamento del carico](#BKMK_NLB)|Abilitare il bilanciamento del carico sul server di accesso remoto singolo.|  
-|[3.3 installare il certificato IP-HTTPS](#BKMK_InstallIPHTTP)|Ogni server del cluster richiede un certificato server per autenticare la connessione IP-HTTPS.  Esportare il certificato IP-HTTPS dal singolo server di accesso remoto e distribuirlo in ogni server che verranno aggiunti al cluster. Questo è necessario solo se l'utilizzo di certificati non autofirmato.|  
-|[3.4 installare il certificato server percorsi di rete](#BKMK_NLS)|Se nel server singolo è il server dei percorsi rete distribuito in locale, è necessario distribuire il certificato server percorsi di rete in ogni server del cluster. Se il server dei percorsi di rete è ospitato su un server esterno, non è necessario un certificato in ogni server. Questo è necessario solo se l'utilizzo di certificati non autofirmato.|  
-|[3.5 aggiungere server al cluster](#BKMK_Add)|Aggiungere tutti i server al cluster. Accesso remoto non deve essere configurata sul server da aggiungere.|  
-|[3.6 rimuovere un server dal cluster](#BKMK_remove)|Istruzioni per rimuovere un server dal cluster.|  
-|[3.7 disabilitare il bilanciamento del carico](#BKBK_disable)|Istruzioni per la disabilitazione di bilanciamento del carico.|  
+|[3,1 configurare il prefisso IPv6](#BKMK_Prefix)|Se l'ambiente azienda è IPv6 + IPv4, o solo IPv6, quindi sul singolo server di accesso remoto, assicurarsi che il prefisso IPv6 assegnato ai computer client DirectAccess sia sufficiente a coprire tutti i server del cluster.|  
+|[3,2 abilitare il bilanciamento del carico](#BKMK_NLB)|Abilitare il bilanciamento del carico sul server di accesso remoto singolo.|  
+|[3,3 installare il certificato IP-HTTPS](#BKMK_InstallIPHTTP)|Ogni server del cluster richiede un certificato server per autenticare la connessione IP-HTTPS.  Esportare il certificato IP-HTTPS dal singolo server di accesso remoto e distribuirlo in ogni server che verranno aggiunti al cluster. Questo è necessario solo se l'utilizzo di certificati non autofirmato.|  
+|[3,4 installare il certificato del server dei percorsi di rete](#BKMK_NLS)|Se nel server singolo è il server dei percorsi rete distribuito in locale, è necessario distribuire il certificato server percorsi di rete in ogni server del cluster. Se il server dei percorsi di rete è ospitato su un server esterno, non è necessario un certificato in ogni server. Questo è necessario solo se l'utilizzo di certificati non autofirmato.|  
+|[3,5 aggiungere server al cluster](#BKMK_Add)|Aggiungere tutti i server al cluster. Accesso remoto non deve essere configurata sul server da aggiungere.|  
+|[3,6 rimuovere un server dal cluster](#BKMK_remove)|Istruzioni per rimuovere un server dal cluster.|  
+|[3,7 disabilitare il bilanciamento del carico](#BKBK_disable)|Istruzioni per la disabilitazione di bilanciamento del carico.|  
   
 > [!NOTE]  
 > L'indirizzo IP selezionato per il DIP non deve essere in uso alle schede di rete del primo server di accesso remoto nel cluster. Iniziare la distribuzione di DirectAccess con indirizzi VIP e DIP aggiunto alla scheda di rete verrà generato un errore.  
@@ -41,7 +41,7 @@ Dopo la preparazione server per il cluster, configurare il bilanciamento del car
 > [!NOTE]  
 > Assicurarsi di non utilizzare un DIP che è già presente in un altro computer nella rete.  
   
-## <a name="BKMK_Prefix"></a>3.1 configurare il prefisso IPv6  
+## <a name="BKMK_Prefix"></a>3,1 configurare il prefisso IPv6  
   
 ### <a name="configDA"></a>Per configurare il prefisso  
   
@@ -57,7 +57,7 @@ Dopo la preparazione server per il cluster, configurare il bilanciamento del car
   
 6.  Nel **controllare l'accesso remoto** la finestra di dialogo, rivedere le impostazioni di configurazione e quindi fare clic su **Applica**. Nella finestra di dialogo **Applicazione delle impostazioni della Configurazione guidata Accesso remoto** fare clic su **Chiudi**.  
   
-## <a name="BKMK_NLB"></a>3.2 abilitare il bilanciamento del carico  
+## <a name="BKMK_NLB"></a>3,2 abilitare il bilanciamento del carico  
   
 #### <a name="to-enable-load-balancing"></a>Per abilitare il bilanciamento del carico  
   
@@ -69,9 +69,9 @@ Dopo la preparazione server per il cluster, configurare il bilanciamento del car
   
 4.  Si è scelto in passaggi di pianificazione in base:  
   
-    1.  Windows NLB: Nel **metodo di bilanciamento del carico** pagina, fare clic su **usare Windows carico bilanciamento rete (NLB)** e quindi fare clic su **Next**.  
+    1.  Bilanciamento carico di Windows: Nella pagina **metodo di bilanciamento del carico** fare clic su **Usa bilanciamento carico di rete (NLB) di Windows**, quindi fare clic su **Avanti**.  
   
-    2.  Servizio di bilanciamento del carico esterno: Nel **metodo di bilanciamento del carico** pagina, fare clic su **Usa un servizio di bilanciamento del carico esterno**e quindi fare clic su **Avanti**.  
+    2.  Servizio di bilanciamento del carico esterno: Nella pagina **metodo di bilanciamento del carico** fare clic su **Usa un servizio di bilanciamento del carico esterno**, quindi fare clic su **Avanti**.  
   
 5.  In una distribuzione di adapter singola rete, nel **indirizzi IP dedicati** pagina, eseguire le operazioni seguenti e quindi fare clic su **Avanti**:  
   
@@ -100,7 +100,7 @@ Dopo la preparazione server per il cluster, configurare il bilanciamento del car
     > [!NOTE]  
     > Se viene utilizzato il bilanciamento del carico esterno, annotare gli indirizzi IP virtuali e inserirle in servizi di bilanciamento del carico esterno.  
   
-![Windows PowerShell](../../../../media/Step-3-Configure-a-Load-Balanced-Cluster/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em>***  
+](../../../../media/Step-3-Configure-a-Load-Balanced-Cluster/PowerShellLogoSmall.gif)***<em>comandi equivalenti</em> di PowerShell per Windows PowerShell @no__t 0Windows***  
   
 Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.  
   
@@ -119,7 +119,7 @@ Set-RemoteAccessLoadBalancer -InternetDedicatedIPAddress "2.1.1.20/255.255.255.0
 > [!NOTE]  
 > Si consiglia di non includere le modifiche alle impostazioni di bilanciamento del carico con le modifiche a tutte le altre impostazioni, se si utilizza oggetti Criteri di gruppo di gestione temporanea. Qualsiasi modifica alle impostazioni di bilanciamento del carico deve essere applicato per primo e quindi devono essere apportate altre modifiche di configurazione. Inoltre, dopo la configurazione di bilanciamento del carico in un nuovo server DirectAccess, attendi del tempo essere applicato e replicati tra i server DNS nell'organizzazione, prima di modificare altre impostazioni di DirectAccess relative al nuovo cluster le modifiche di IP.  
   
-## <a name="BKMK_InstallIPHTTP"></a>3.3 installare il certificato IP-HTTPS  
+## <a name="BKMK_InstallIPHTTP"></a>3,3 installare il certificato IP-HTTPS  
 Appartenenza al gruppo locale **amministratori** o gruppo equivalente, è il requisito minimo necessario per completare questa procedura.  
   
 ### <a name="IPHTTPSCert"></a>Per installare il certificato IP-HTTPS  
@@ -170,7 +170,7 @@ Appartenenza al gruppo locale **amministratori** o gruppo equivalente, è il req
   
 23. Ripetere i passaggi da 13 a 22 in tutti i server che si desidera essere membri del cluster.  
   
-## <a name="BKMK_NLS"></a>3.4 installare il certificato server percorsi di rete  
+## <a name="BKMK_NLS"></a>3,4 installare il certificato del server dei percorsi di rete  
 Appartenenza al gruppo locale **amministratori** o gruppo equivalente, è il requisito minimo necessario per completare questa procedura.  
   
 #### <a name="to-install-a-certificate-for-network-location"></a>Per installare un certificato per il percorso di rete  
@@ -208,7 +208,7 @@ Appartenenza al gruppo locale **amministratori** o gruppo equivalente, è il req
   
 14. Ripetere questa procedura su tutti i server che si desidera essere membri del cluster.  
   
-## <a name="BKMK_Add"></a>3.5 aggiungere server al cluster  
+## <a name="BKMK_Add"></a>3,5 aggiungere server al cluster  
  
   
 #### <a name="to-add-servers-to-the-cluster"></a>Per aggiungere server al cluster  
@@ -247,7 +247,7 @@ Appartenenza al gruppo locale **amministratori** o gruppo equivalente, è il req
   
 12. Nel **aggiunta e rimozione di server** la finestra di dialogo, fare clic su **Chiudi**.  
   
-![Windows PowerShell](../../../../media/Step-3-Configure-a-Load-Balanced-Cluster/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em>***  
+](../../../../media/Step-3-Configure-a-Load-Balanced-Cluster/PowerShellLogoSmall.gif)***<em>comandi equivalenti</em> di PowerShell per Windows PowerShell @no__t 0Windows***  
   
 Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.  
   
@@ -258,7 +258,7 @@ Add-RemoteAccessLoadBalancerNode -RemoteAccessServer <server name>
 > [!NOTE]  
 > Se VPN non è stata abilitata in un cluster con bilanciamento di carico, è necessario fornire non eventuali intervalli di indirizzi VPN quando si aggiunge un nuovo server al cluster tramite i cmdlet di Windows PowerShell. Se si è fatto per errore, rimuovere il server dal cluster e aggiungerlo nuovamente al cluster senza specificare gli intervalli di indirizzi VPN.  
   
-## <a name="BKMK_remove"></a>3.6 rimuovere un server dal cluster  
+## <a name="BKMK_remove"></a>3,6 rimuovere un server dal cluster  
  
   
 #### <a name="to-remove-a-server-from-the-cluster"></a>Per rimuovere un server dal cluster  
@@ -277,7 +277,7 @@ Add-RemoteAccessLoadBalancerNode -RemoteAccessServer <server name>
   
 7.  Nel **aggiunta e rimozione di server** la finestra di dialogo, fare clic su **Chiudi**.  
   
-![Windows PowerShell](../../../../media/Step-3-Configure-a-Load-Balanced-Cluster/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em>***  
+](../../../../media/Step-3-Configure-a-Load-Balanced-Cluster/PowerShellLogoSmall.gif)***<em>comandi equivalenti</em> di PowerShell per Windows PowerShell @no__t 0Windows***  
   
 Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.  
   
@@ -285,8 +285,8 @@ Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione 
 Remove-RemoteAccessLoadBalancerNode -RemoteAccessServer <server name>  
 ```  
   
-## <a name="BKBK_disable"></a>3.7 disabilitare il bilanciamento del carico  
-[Eseguire questo passaggio usando Windows PowerShell](assetId:///7a817ca0-2b4a-4476-9d28-9a63ff2453f9)  
+## <a name="BKBK_disable"></a>3,7 disabilitare il bilanciamento del carico  
+[Eseguire questo passaggio con Windows PowerShell](assetId:///7a817ca0-2b4a-4476-9d28-9a63ff2453f9)  
   
 #### <a name="to-disable-load-balancing"></a>Per disabilitare il bilanciamento del carico  
   
@@ -298,7 +298,7 @@ Remove-RemoteAccessLoadBalancerNode -RemoteAccessServer <server name>
   
 4.  Nel **disabilitare il bilanciamento del carico** la finestra di dialogo, fare clic su **Chiudi**.  
   
-![Windows PowerShell](../../../../media/Step-3-Configure-a-Load-Balanced-Cluster/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em>***  
+](../../../../media/Step-3-Configure-a-Load-Balanced-Cluster/PowerShellLogoSmall.gif)***<em>comandi equivalenti</em> di PowerShell per Windows PowerShell @no__t 0Windows***  
   
 Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.  
   
@@ -317,7 +317,7 @@ Fare clic su **rimuovere impostazioni di configurazione** rimuoverà bilanciamen
   
 ## <a name="BKMK_Links"></a>Vedere anche  
   
--   [Passaggio 4: Verifica per determinare se il cluster](Step-4-Verify-the-Cluster.md)  
+-   [Passaggio 4: Verifica del cluster @ no__t-0  
   
 
 

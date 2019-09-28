@@ -1,9 +1,9 @@
 ---
 title: Informazioni generali sul firewall del centro dati
-description: È possibile utilizzare questo argomento per apprendere Firewall del centro dati, ovvero un livello di rete o di un firewall con stato, multi-tenant in Windows Server 2016, 5 tuple (protocollo, origine e destinazione numeri di porta, gli indirizzi IP di origine e destinazione).
+description: È possibile utilizzare questo argomento per informazioni sul firewall del Data Center, ovvero un livello di rete, 5 Tuple (protocollo, numeri di porta di origine e destinazione, indirizzi IP di origine e di destinazione), il firewall con stato e multi-tenant in Windows Server 2016.
 manager: brianlic
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-sdn
@@ -12,44 +12,44 @@ ms.topic: article
 ms.assetid: 67576533-206b-428a-956c-ed8c53218d9b
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: f1de50dc61639f4985c9d28fdde6072af650f42e
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 9562972f731a553dbc3e5558fcce1d5c51d539d0
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59890832"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71405890"
 ---
 # <a name="datacenter-firewall-overview"></a>Informazioni generali sul firewall del centro dati
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016
 
-Firewall del centro dati è un nuovo servizio incluso in Windows Server 2016. È un livello di rete, 5 tuple (protocollo, numeri di porta di origine e di destinazione, indirizzi IP di origine e destinazione), con stato e multi-tenant. Quando distribuito e disponibile come servizio dal provider di servizi, gli amministratori tenant possono installare e configurare i criteri firewall per proteggere le reti virtuali dal traffico indesiderato provenienti da Internet e reti intranet.  
+Il firewall del Data Center è un nuovo servizio incluso in Windows Server 2016. Si tratta di un livello di rete, a 5 Tuple (protocollo, numeri di porta di origine e destinazione, indirizzi IP di origine e di destinazione), a un firewall multi-tenant con stato. Quando vengono distribuiti e offerti come servizio dal provider di servizi, gli amministratori tenant possono installare e configurare i criteri del firewall per proteggere le reti virtuali da traffico indesiderato originato da reti Internet e Intranet.  
   
-![Firewall del centro dati nello stack di rete](../../../media/Datacenter-Firewall-Overview/MultitenantFirewallOverview2.png)  
+![Firewall del Data Center nello stack di rete](../../../media/Datacenter-Firewall-Overview/MultitenantFirewallOverview2.png)  
   
-L'amministratore di provider del servizio o l'amministratore tenant può gestire i criteri Firewall del centro dati tramite l'API northbound e il controller di rete.  
+L'amministratore del provider di servizi o l'amministratore tenant può gestire i criteri del firewall del Data Center tramite il controller di rete e le API in direzione nord.  
   
-Per i provider di servizi cloud, il Firewall del centro dati offre i vantaggi seguenti:  
+Il firewall del Data Center offre i vantaggi seguenti per i provider di servizi cloud:  
   
--   Una soluzione altamente scalabile, gestibile e diagnosable firewall basati su software che può essere offerti ai tenant  
+-   Soluzione firewall basata su software altamente scalabile, gestibile e diagnosticabile che può essere offerta ai tenant  
   
--   Possibilità di spostare le macchine virtuali tenant agli host di calcolo diverse senza violare i criteri firewall di tenant  
+-   Libertà di spostare le macchine virtuali tenant in host di calcolo diversi senza suddividere i criteri del firewall del tenant  
   
-    -   Distribuito come un firewall dell'agente host porta vSwitch  
+    -   Distribuito come firewall dell'agente host della porta vSwitch  
   
-    -   Le macchine virtuali tenant ottenere i criteri assegnati al proprio firewall dell'agente host di commutatore virtuale  
+    -   Le macchine virtuali tenant ottengono i criteri assegnati al firewall dell'agente host vSwitch  
   
-    -   Le regole del firewall sono configurate in ogni porta vSwitch, indipendente dall'host effettivo in esecuzione la macchina virtuale  
+    -   Le regole del firewall vengono configurate in ogni porta vSwitch, indipendentemente dall'host effettivo che esegue la macchina virtuale  
   
--   Offre protezione per le macchine virtuali indipendente dal sistema operativo guest tenant del tenant  
+-   Offre protezione alle macchine virtuali tenant indipendenti dal sistema operativo guest tenant  
   
-Il Firewall del centro dati offre i vantaggi seguenti per i tenant:  
+Il firewall del Data Center offre i vantaggi seguenti per i tenant:  
   
--   Possibilità di definire le regole del firewall per proteggere i carichi di lavoro nelle reti virtuali è connessa a Internet  
+-   Possibilità di definire regole del firewall per proteggere i carichi di lavoro con connessione Internet nelle reti virtuali  
   
--   Possibilità di definire le regole del firewall per proteggere il traffico tra macchine virtuali sulla stessa L2 subnet virtuale anche tra le macchine virtuali in subnet distinte L2  
+-   Possibilità di definire regole del firewall per proteggere il traffico tra macchine virtuali nella stessa subnet virtuale L2 e tra macchine virtuali in subnet virtuali L2 diverse  
   
--   Possibilità di definire le regole del firewall per proteggere e isolare il traffico di rete tra tenant on-premises reti e le proprie reti virtuali nel provider di servizi  
+-   Possibilità di definire le regole del firewall per proteggere e isolare il traffico di rete tra le reti locali tenant e le relative reti virtuali presso il provider di servizi  
   
 
 

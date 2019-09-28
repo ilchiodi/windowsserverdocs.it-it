@@ -2,18 +2,18 @@
 title: Creare un modello quota
 description: Questo articolo descrive come creare un modello quota per definire un limite di spazio di archiviazione
 ms.date: 7/7/2017
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: storage
 ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: 236b5cb198a13441a087ad6dbfeef9a416e07e61
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 28a64c77d09bffeccbbc94ba7648d1bc0227e945
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66445979"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71394163"
 ---
 # <a name="create-a-quota-template"></a>Creare un modello quota
 
@@ -53,7 +53,7 @@ Ad esempio, è possibile configurare le soglie per inviare un messaggio di posta
 > [!Important]
 > Per inviare notifiche tramite posta elettronica e configurare i report di archiviazione con i parametri appropriati per l'ambiente server, è innanzitutto necessario impostare le opzioni di Gestione risorse file server generali. Per ulteriori informazioni, vedere [Impostazione delle opzioni di Gestione risorse file server](setting-file-server-resource-manager-options.md)
 
-**Per configurare le notifiche che Gestione risorse File Server consentono di generare a una soglia di quota**
+**Per configurare le notifiche che i file server Gestione risorse genereranno a una soglia di quota**
 
 1. Nella finestra di dialogo **Crea modello quota** in **Soglie notifiche**, fare clic su **Aggiungi**. Verrà visualizzata la finestra di dialogo **Aggiungi soglia**.
 
@@ -67,7 +67,7 @@ Ad esempio, è possibile configurare le soglie per inviare un messaggio di posta
 
    - Per inviare notifiche agli amministratori quando viene raggiunta una soglia, selezionare la casella di controllo **Invia posta elettronica agli amministratori seguenti** e quindi immettere i nomi degli account amministrativi che riceveranno le notifiche. Usare il formato <em>account@domain</em> e separare gli account con un punto e virgola.
    - Per inviare messaggi di posta elettronica alla persona che ha salvato il file che ha raggiunto la soglia di quota, selezionare la casella di controllo **Invia messaggio di posta elettronica all'utente che ha superato la soglia**.
-   - Per configurare il messaggio, modificare la riga dell'oggetto e il corpo del messaggio predefiniti forniti. Il testo tra parentesi quadre inserisce informazioni sulle variabili in relazione all'evento di quota che ha generato la notifica. Ad esempio, il **\[proprietario dell'origine Io\]** variabile inserisce il nome dell'utente che ha stato salvato il file che raggiunto la soglia di quota. Per inserire altre variabili nel testo, fare clic su **Inserisci variabile**.
+   - Per configurare il messaggio, modificare la riga dell'oggetto e il corpo del messaggio predefiniti forniti. Il testo tra parentesi quadre inserisce informazioni sulle variabili in relazione all'evento di quota che ha generato la notifica. Ad esempio, la variabile **\[Source Io Owner @ no__t-2** inserisce il nome dell'utente che ha salvato il file che ha raggiunto la soglia di quota. Per inserire altre variabili nel testo, fare clic su **Inserisci variabile**.
    - Per configurare le intestazioni aggiuntive (inclusi i campi Da, Cc, Ccn e Rispondi a), fare clic su **Intestazioni messaggio aggiuntive**.
 
 4. Per registrare un evento:

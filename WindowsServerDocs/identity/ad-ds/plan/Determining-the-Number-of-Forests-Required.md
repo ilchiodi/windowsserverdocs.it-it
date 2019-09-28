@@ -7,69 +7,69 @@ ms.author: joflore
 manager: mtillman
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 1721190bf592b6f7a1274d60d47bbc755eeff1c2
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 21bece55ef64a552ddc641befd94d3ce19e78db6
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59820652"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71408882"
 ---
 # <a name="determining-the-number-of-forests-required"></a>Determinazione del numero di foreste necessarie
 
 >Si applica a: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Per determinare il numero di insiemi di strutture che è necessario distribuire, è necessario identificare e valutare i requisiti di isolamento e autonomia per ogni gruppo di nell'organizzazione ed eseguire il mapping di tali requisiti per i modelli di progettazione foreste appropriate con attenzione.  
+Per determinare il numero di foreste che è necessario distribuire, è necessario identificare e valutare con attenzione i requisiti di isolamento e autonomia per ogni gruppo dell'organizzazione ed eseguire il mapping di tali requisiti ai modelli di progettazione di foresta appropriati.  
   
-Quando si determina il numero di foreste da distribuire nell'organizzazione, considerare quanto segue:  
+Quando si determina il numero di foreste da distribuire per l'organizzazione, tenere presente quanto segue:  
   
--   I requisiti di isolamento limitano le scelte di progettazione. Di conseguenza, dopo aver identificato i requisiti di isolamento, assicurarsi che i gruppi richiedono effettivamente l'isolamento dei dati e che autonomia dei dati non è sufficiente per le proprie esigenze. Assicurarsi che i vari gruppi all'interno dell'organizzazione comprendano chiaramente i concetti di isolamento e autonomia.  
+-   I requisiti di isolamento limitano le scelte di progettazione. Pertanto, se si identificano i requisiti di isolamento, assicurarsi che i gruppi richiedano effettivamente l'isolamento dei dati e che l'autonomia dei dati non sia sufficiente per le proprie esigenze. Assicurarsi che i vari gruppi dell'organizzazione conoscano chiaramente i concetti di isolamento e autonomia.  
   
--   La negoziazione della progettazione può essere un processo lungo. Può essere difficile per i gruppi per raggiungere un accordo sulle proprietà e viene utilizzato per le risorse disponibili. Assicurarsi di consentire tempo sufficiente per i gruppi nell'organizzazione per condurre ricerche di adeguati per identificare le proprie esigenze. Impostare scadenze ferma per prendere decisioni di progettazione e ottenere il consenso a tutte le parti su ai termini stabiliti.  
+-   La negoziazione della progettazione può essere un processo lungo. Può essere difficile per i gruppi passare a un accordo sulla proprietà e USA per le risorse disponibili. Assicurarsi di disporre di tempo sufficiente per consentire ai gruppi dell'organizzazione di eseguire ricerche adeguate per identificare le proprie esigenze. Impostare scadenze aziendali per le decisioni di progettazione e ottenere consenso da tutte le parti alle scadenze stabilite.  
   
--   Determinazione del numero di insiemi di strutture per la distribuzione consente di bilanciare i costi con i vantaggi. Un modello di foresta singola è l'opzione più economica e richiede il minimo carico amministrativo. Anche se un gruppo di nell'organizzazione potrebbe preferire le operazioni di servizio autonomo, potrebbe essere più conveniente per l'organizzazione per la sottoscrizione per una distribuzione di servizio da un gruppo di reparti IT centralizzata e attendibili le informazioni. In questo modo il gruppo di gestione dei propri dati senza creare costi e della gestione dei servizi. I costi con i vantaggi di bilanciamento del carico può richiedere indicazioni dallo sponsor direttivo.  
+-   Determinare il numero di foreste da distribuire comporta un bilanciamento dei costi rispetto ai vantaggi. Un modello a foresta singola è l'opzione più conveniente e richiede la minima quantità di overhead amministrativo. Sebbene un gruppo dell'organizzazione preferisca operazioni di servizio autonome, potrebbe essere più conveniente per l'organizzazione sottoscrivere la distribuzione dei servizi da un gruppo IT centralizzato e attendibile. Ciò consente al gruppo di gestire la gestione dei dati senza creare i costi aggiuntivi per la gestione dei servizi. Il bilanciamento dei costi rispetto ai vantaggi potrebbe richiedere l'input dello sponsor Executive.  
   
-    Una singola foresta è la configurazione più semplice da gestire. Poiché consente massima collaborazione all'interno dell'ambiente:  
+    Una singola foresta è la configurazione più semplice da gestire. Consente la massima collaborazione all'interno dell'ambiente, perché:  
   
-    -   Tutti gli oggetti in una singola foresta sono elencati nel catalogo globale. Pertanto, è richiesta alcuna sincronizzazione tra foreste.  
+    -   Tutti gli oggetti in una singola foresta sono elencati nel catalogo globale. Pertanto, non è necessaria alcuna sincronizzazione tra foreste.  
   
-    -   Gestione di un'infrastruttura duplicata non è obbligatorio.  
+    -   La gestione di un'infrastruttura duplicata non è obbligatoria.  
   
--   Non è consigliabile comproprietà di una singola foresta da due organizzazioni IT separate e autonome. In futuro, potrebbero cambiare gli obiettivi dei due gruppi IT, in modo che non accettino non è più controllo condiviso.  
+-   Non è consigliabile usare la co-proprietà di una singola foresta per due organizzazioni IT separate e autonome. In futuro, gli obiettivi dei due gruppi IT potrebbero cambiare, in modo che non possano più accettare il controllo condiviso.  
   
--   Non è consigliabile amministrazione dei servizi di outsourcing a più all'esterno di partner. Le organizzazioni multinazionali con i gruppi in aree o paesi diversi potrebbero scegliere per l'outsourcing dell'amministrazione del servizio a un partner esterno diverso per ogni paese o area geografica. Poiché più i partner esterni non possono essere isolati una da altra, le azioni di un partner possono influenzare il servizio di altra parte, cosa che rende difficile contenere i partner responsabili per i contratti di servizio.  
+-   Non è consigliabile esternalizzare l'amministrazione del servizio a più di un partner esterno. Le organizzazioni multinazionali con gruppi in paesi o aree geografiche diverse possono scegliere di esternalizzare l'amministrazione del servizio a un partner esterno diverso per ogni paese o area geografica. Poiché più partner esterni non possono essere isolati gli uni dagli altri, le azioni di un partner possono influire sul servizio dell'altro, rendendo difficile la contabilità dei partner per i contratti di servizio.  
   
--   Solo un'istanza di un dominio Active Directory deve esistere in qualsiasi momento. Microsoft non supporta la clonazione, divisione o copia i controller di dominio da un dominio nel tentativo di stabilire una seconda istanza dello stesso dominio. Per altre informazioni su questa limitazione, vedere la sezione seguente.  
+-   Deve esistere una sola istanza di un dominio di Active Directory in qualsiasi momento. Microsoft non supporta la clonazione, la suddivisione o la copia di controller di dominio da un dominio nel tentativo di stabilire una seconda istanza dello stesso dominio. Per ulteriori informazioni su questa limitazione, vedere la sezione seguente.  
   
-## <a name="restructuring-limitations"></a>Ristrutturazione dei limiti  
-Quando una società acquisisce un'altra società, business unit, ovvero o linea di prodotti, l'acquisto aziendale potrebbe essere necessario anche acquisire risorse IT corrispondente dal venditore. In particolare, l'aggregazione buyer possibile acquisire alcuni o tutti i controller di dominio che ospitano gli account utente, gli account computer e i gruppi di sicurezza che corrispondono alle risorse aziendali che devono essere acquisiti. Gli unici metodi supportati per l'acquirente acquisire gli asset IT che sono archiviati nella foresta di Active Directory del venditore sono i seguenti:  
+## <a name="restructuring-limitations"></a>Limitazioni di ristrutturazione  
+Quando un'azienda acquisisce un'altra società, una business unit o una linea di prodotti, è possibile che l'azienda acquisti desideri acquisire anche le risorse IT corrispondenti dal venditore. In particolare, l'acquirente potrebbe voler acquisire alcuni o tutti i controller di dominio che ospitano gli account utente, gli account computer e i gruppi di sicurezza che corrispondono agli asset aziendali da acquisire. Gli unici metodi supportati per l'acquirente per acquisire gli asset IT archiviati nella foresta Active Directory del venditore sono i seguenti:  
   
-1.  Acquisire l'unica istanza dell'insieme di strutture, inclusi tutti i controller di dominio e i dati della directory nell'intera foresta del venditore.  
+1.  Acquisire l'unica istanza della foresta, inclusi tutti i controller di dominio e i dati di directory nell'intera foresta del venditore.  
   
-2.  Eseguire la migrazione di dati di directory necessari provenienti da foreste o domini del venditore a uno o più domini dell'acquirente. La destinazione per questo tipo di migrazione potrebbe essere una completamente nuova foresta o uno o più domini esistenti già distribuite nella foresta dell'acquirente.  
+2.  Eseguire la migrazione dei dati di directory necessari dalla foresta o dai domini del venditore a uno o più domini dell'acquirente. La destinazione per una migrazione di questo tipo potrebbe essere una foresta completamente nuova o uno o più domini esistenti già distribuiti nella foresta dell'acquirente.  
   
-Perché esiste una limitazione supporto:  
+Questa limitazione del supporto esiste perché:  
   
--   Ogni dominio in una foresta di Active Directory viene assegnata un'identità univoca durante la creazione della foresta. Copia i controller di dominio da un dominio originale a una compromissione di dominio clonato la sicurezza sia i domini della foresta. Le minacce per il dominio originale e quello clonato includono quanto segue:  
+-   A ogni dominio in una foresta Active Directory viene assegnata un'identità univoca durante la creazione della foresta. La copia di controller di dominio da un dominio originale a un dominio clonato compromette la sicurezza dei domini e della foresta. Di seguito sono riportate le minacce per il dominio originale e per il dominio clonato:  
   
-    -   Condivisione di password che può essere utilizzata per accedere alle risorse  
+    -   Condivisione delle password che possono essere usate per ottenere l'accesso alle risorse  
   
-    -   Informazioni dettagliate relative a gruppi e account utente con privilegi  
+    -   Informazioni dettagliate sugli account utente e i gruppi con privilegi  
   
-    -   Mapping di indirizzi IP per i nomi dei computer  
+    -   Mapping degli indirizzi IP ai nomi dei computer  
   
-    -   Aggiunte, eliminazioni e modifiche di informazioni sulla directory se i controller di dominio in un dominio clonato mai stabilire la connettività di rete con i controller di dominio dal dominio originale  
+    -   Aggiunte, eliminazioni e modifiche delle informazioni di directory se i controller di dominio in un dominio clonato stabiliscono la connettività di rete con i controller di dominio del dominio originale  
   
--   Domini clonati condividono un'identità di sicurezza comuni. Pertanto, non è possibile stabilire relazioni di trust tra di essi, anche se uno o entrambi i domini sono stati rinominati.  
+-   I domini clonati condividono un'identità di sicurezza comune; non è pertanto possibile stabilire relazioni di trust tra di essi, anche se uno o entrambi i domini sono stati rinominati.  
   
 ## <a name="in-this-section"></a>Contenuto della sezione  
   
--   [Modelli di progettazione di foresta](https://technet.microsoft.com/library/cc770439.aspx)  
+-   [Modelli di progettazione della foresta](https://technet.microsoft.com/library/cc770439.aspx)  
   
--   [Requisiti di progettazione di mapping ai modelli di progettazione di foresta](Forest-Design-Models.md)  
+-   [Mapping dei requisiti di progettazione ai modelli di progettazione della foresta](Forest-Design-Models.md)  
   
--   [Usando il modello di foresta di domini organizzativi](../../ad-ds/plan/Using-the-Organizational-Domain-Forest-Model.md)  
+-   [Uso del modello di foresta di domini aziendali](../../ad-ds/plan/Using-the-Organizational-Domain-Forest-Model.md)  
   
 
 

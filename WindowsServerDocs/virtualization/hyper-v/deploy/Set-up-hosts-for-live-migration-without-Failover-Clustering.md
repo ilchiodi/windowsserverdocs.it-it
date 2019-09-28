@@ -1,7 +1,7 @@
 ---
 title: Configurare gli host per live migration senza Clustering di Failover
-description: Vengono fornite le istruzioni per l'impostazione di migrazione in tempo reale in un ambiente non cluster
-ms.prod: windows-server-threshold
+description: Vengono fornite istruzioni per la configurazione della migrazione in tempo reale in un ambiente non cluster
+ms.prod: windows-server
 ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
@@ -11,16 +11,16 @@ ms.assetid: b5e3c405-cb76-4ff2-8042-c2284448c435
 author: KBDAzure
 ms.author: kathydav
 ms.date: 9/30/2016
-ms.openlocfilehash: 49e36d7fae5eec07772fd6f82c5a5d69838351d8
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: ad5c3da632df3afc4c7b22c4e1c79b3b92ea7508
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59821992"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71364287"
 ---
 # <a name="set-up-hosts-for-live-migration-without-failover-clustering"></a>Configurare gli host per live migration senza Clustering di Failover
 
->Si applica a: Windows Server 2016, Microsoft Hyper-V Server 2016, Windows Server 2019, Microsoft Hyper-V Server 2019
+>Si applica a: Windows Server 2016, Microsoft Hyper-V Server 2016, Windows Server 2019 Microsoft Hyper-V Server 2019
 
 In questo articolo viene descritto come impostare l'host non in cluster in modo è possibile eseguire live migrazioni tra di essi. Utilizzare queste istruzioni se è stata impostata migrazione in tempo reale durante l'installazione di Hyper-V o se si desidera modificare le impostazioni. Per configurare il cluster host, utilizzare gli strumenti per Clustering di Failover.  
   
@@ -30,7 +30,7 @@ Per configurare gli host non cluster per live migration, è necessario:
   
 -  Un account utente con autorizzazione per eseguire i vari passaggi. L'appartenenza al gruppo amministratori Hyper-V locale o il gruppo Administrators nel computer di origine e di destinazione soddisfa questo requisito, a meno che non si configura la delega vincolata. L'appartenenza al gruppo di amministratori di dominio è necessario configurare la delega vincolata.  
   
-- Il ruolo Hyper-V in Windows Server 2016 o Windows Server 2012 R2 installato nel server di origine e destinazione. È possibile eseguire una migrazione in tempo reale tra host che eseguono Windows Server 2016 e Windows Server 2012 R2, se la macchina virtuale sia almeno la versione 5. <br>Per istruzioni sull'aggiornamento di versione, vedere [versione aggiornamento macchina virtuale in Hyper-V in Windows 10 o Windows Server 2016](Upgrade-virtual-machine-version-in-Hyper-V-on-Windows-or-Windows-Server.md). Per istruzioni sull'installazione, vedere [installare il ruolo Hyper-V in Windows Server](../get-started/Install-the-Hyper-V-role-on-Windows-Server.md).  
+- Il ruolo Hyper-V in Windows Server 2016 o Windows Server 2012 R2 installato nel server di origine e in quello di destinazione. È possibile eseguire una migrazione in tempo reale tra host che eseguono Windows Server 2016 e Windows Server 2012 R2 se la macchina virtuale è almeno la versione 5. <br>Per istruzioni sull'aggiornamento della versione, vedere [aggiornare la versione della macchina virtuale in Hyper-V in Windows 10 o Windows Server 2016](Upgrade-virtual-machine-version-in-Hyper-V-on-Windows-or-Windows-Server.md). Per le istruzioni di installazione, vedere [installare il ruolo Hyper-V in Windows Server](../get-started/Install-the-Hyper-V-role-on-Windows-Server.md).  
   
 - Computer di origine e di destinazione che appartengono allo stesso dominio Active Directory oppure appartengono a domini di trust reciproca.    
 - Gli strumenti di gestione di Hyper-V installati in un computer che eseguono Windows Server 2016 o Windows 10, a meno che gli strumenti vengono installati in server di origine o destinazione ed è necessario eseguire gli strumenti dal server.  
@@ -39,16 +39,16 @@ Per configurare gli host non cluster per live migration, è necessario:
   
 Considerare come si desidera impostare le seguenti opzioni:  
   
--  **Autenticazione**: Il protocollo da utilizzare per autenticare il traffico di migrazione in tempo reale tra i server di origine e di destinazione? La scelta determina se è necessario accedere al server di origine prima di avviare una migrazione in tempo reale:   
+-  **Autenticazione**: Quale protocollo verrà usato per autenticare il traffico di migrazione in tempo reale tra i server di origine e di destinazione? La scelta determina se è necessario accedere al server di origine prima di avviare una migrazione in tempo reale:   
    - Kerberos consente di evitare di dover effettuare l'accesso al server, ma richiede la delega vincolata da impostare. Per istruzioni, vedere di seguito.  
    - CredSSP consente di evitare di configurare la delega vincolata, ma è necessario che accedere al server di origine. È possibile farlo tramite una sessione di console locale, una sessione Desktop remoto o una sessione remota di Windows PowerShell.  
   
       CredSPP richiede una firma situazioni in cui potrebbe non essere evidente. Ad esempio, se si accede a TestServer01 per spostare una macchina virtuale in TestServer02 e quindi si desidera riportare la macchina virtuale in TestServer01, è necessario accedere a TestServer02 prima di tentare di riportare la macchina virtuale in TestServer01. Se non si esegue questa operazione, il tentativo di autenticazione ha esito negativo, si verifica un errore, e viene visualizzato il messaggio seguente:  
     
       "Operazione di migrazione di macchina virtuale non riuscita all'origine della migrazione.  
-      Non è riuscito a stabilire una connessione all'host *nome computer*: Le credenziali non sono disponibili nel pacchetto di protezione 0x8009030E."
+      Non è stato possibile stabilire una connessione con il *nome del computer*host: Nessuna credenziale disponibile nel pacchetto di sicurezza 0x8009030E. "
   
--   **Prestazioni**: È opportuno configurare le opzioni di prestazioni? Queste opzioni possono ridurre l'utilizzo della CPU e rete, nonché eseguire migrazioni in tempo reale più velocemente. Prendere in considerazione i requisiti e l'infrastruttura e configurazioni diverse per decidere di test. Le opzioni sono descritte alla fine del passaggio 2.  
+-   **Prestazioni**: È opportuno configurare le opzioni relative alle prestazioni? Queste opzioni possono ridurre l'utilizzo della CPU e rete, nonché eseguire migrazioni in tempo reale più velocemente. Prendere in considerazione i requisiti e l'infrastruttura e configurazioni diverse per decidere di test. Le opzioni sono descritte alla fine del passaggio 2.  
   
 -  **Preferenza di rete**: Si intende consentire il traffico delle migrazioni in tempo reale a tutte le reti disponibili o isolarlo a reti specifiche? Come procedura consigliata di sicurezza, è preferibile isolare il traffico delle migrazioni in tempo reale a reti privati e attendibili perché non viene crittografato durante l'invio in rete. L'isolamento di rete può essere ottenuto con una rete isolata fisicamente o con un'altra tecnologia di rete attendibile come le VLAN.  
   
@@ -65,7 +65,7 @@ Se si è deciso di utilizzare Kerberos per autenticare il traffico di migrazione
   
 4.  Da **proprietà**, fare clic sui **delega** scheda.  
   
-5.  Nella scheda della delega, selezionare **computer attendibile per la delega ai servizi specificati** e quindi selezionare **utilizza un qualsiasi protocollo di autenticazione**.  
+5.  Nella scheda delega selezionare **computer attendibile per la delega solo ai servizi specificati** e quindi selezionare **Usa un qualsiasi protocollo di autenticazione**.  
   
 6.  Fai clic su **Aggiungi**.  
   
@@ -86,9 +86,9 @@ Se si è deciso di utilizzare Kerberos per autenticare il traffico di migrazione
 Le modifiche di configurazione applicate dopo verificarsi entrambe le operazioni seguenti:  
   
   -  Le modifiche vengono replicate nei controller di dominio che si è connessi i server che esegue Hyper-V.  
-  -  Il controller di dominio invia un nuovo ticket Kerberos.  
+  -  Il controller di dominio emette un nuovo ticket Kerberos.  
   
-## <a name="BKMK_Step2"></a>Passaggio 2: Configurare il computer di origine e destinazione per live migration  
+## <a name="BKMK_Step2"></a>Passaggio 2: Configurare i computer di origine e di destinazione per la migrazione in tempo reale  
 Questo passaggio include la scelta di opzioni per l'autenticazione e di rete. Per una protezione ottimale, è consigliabile selezionare reti specifiche da utilizzare per il traffico di migrazione in tempo reale, come illustrato in precedenza. Questo passaggio illustra anche come scegliere l'opzione relativa alle prestazioni.   
   
 ### <a name="use-hyper-v-manager-to-set-up-the-source-and-destination-computers-for-live-migration"></a>Gestione di Hyper-V consente di configurare i computer di origine e destinazione per live migration  
@@ -116,7 +116,7 @@ Questo passaggio include la scelta di opzioni per l'autenticazione e di rete. Pe
   
 ### <a name="use-windows-powershell-to-set-up-the-source-and-destination-computers-for-live-migration"></a>Utilizzare Windows PowerShell per configurare il computer di origine e destinazione per live migration  
   
-I tre cmdlet sono disponibili per la configurazione di migrazione in tempo reale negli host non cluster: [Enable-VMMigration](https://technet.microsoft.com/library/hh848544.aspx), [Set-VMMigrationNetwork](https://technet.microsoft.com/library/hh848467.aspx), e [Set-VMHost](https://technet.microsoft.com/library/hh848524.aspx). In questo esempio utilizza tutti e tre ed esegue le operazioni seguenti:   
+Sono disponibili tre cmdlet per la configurazione della migrazione in tempo reale in host non in cluster: [Enable-VMMigration](https://technet.microsoft.com/library/hh848544.aspx), [set-VMMigrationNetwork](https://technet.microsoft.com/library/hh848467.aspx)e [set-VMHost](https://technet.microsoft.com/library/hh848524.aspx). In questo esempio utilizza tutti e tre ed esegue le operazioni seguenti:   
   - Configura migrazione in tempo reale nell'host locale  
   - Consente il traffico in ingresso migrazione solo su una rete specifica  
   - Sceglie Kerberos come protocollo di autenticazione   
@@ -143,7 +143,7 @@ La tabella seguente descrive come utilizzare le opzioni di prestazioni.
 |Opzione|Descrizione|  
 |----------|---------------|  
     |TCP/IP|Copia la memoria della macchina virtuale nel server di destinazione tramite una connessione TCP/IP.|  
-    |Compressione|Comprime il contenuto della memoria della macchina virtuale prima della copia nel server di destinazione tramite una connessione TCP/IP. **Nota:** Questo è il **predefinito** impostazione.|  
+    |Compressione|Comprime il contenuto della memoria della macchina virtuale prima della copia nel server di destinazione tramite una connessione TCP/IP. **Nota:** Si tratta dell'impostazione **predefinita** .|  
     |SMB|Copia la memoria della macchina virtuale nel server di destinazione tramite una connessione SMB 3.0.<br /><br />-SMB diretto viene utilizzato quando le schede di rete nel server di origine e destinazione hanno funzionalità Direct accesso memoria remota (RDMA).<br />-SMB multicanale rileva e utilizza automaticamente più connessioni quando viene identificata una configurazione SMB multicanale appropriata.<br /><br />Per altre informazioni, vedere [Improve Performance of a File Server with SMB Direct](https://technet.microsoft.com/library/jj134210(WS.11).aspx).|  
       
  ## <a name="next-steps"></a>Passaggi successivi

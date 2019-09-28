@@ -7,22 +7,22 @@ ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking-sdn
 ms.assetid: 3c361575-1050-46f4-ac94-fa42102f83c1
 ms.author: pashort
 author: shortpatti
 ms.date: 08/30/2018
-ms.openlocfilehash: 21f8698236e5358e0909ad0ac43a6a220013fee4
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 158183bab74e6e45c36c579f3259fc2095a939b5
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70869932"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71406047"
 ---
 # <a name="use-network-virtual-appliances-on-a-virtual-network"></a>Usare le appliance di rete virtuali in una rete virtuale
 
->Si applica a Windows Server (Canale semestrale), Windows Server 2016
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016
 
 In questo argomento si apprenderà come distribuire appliance virtuali di rete nelle reti virtuali tenant. È possibile aggiungere appliance virtuali di rete alle reti che eseguono funzioni di routing e di mirroring delle porte definite dall'utente.
 

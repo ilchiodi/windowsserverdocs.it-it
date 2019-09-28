@@ -6,36 +6,36 @@ author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: 6150b52030734c57b345aea731302650bcbddbfd
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 6306b87dd06774bfde5ffc3ff98818d47d0c858f
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66192133"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71408372"
 ---
 # <a name="implementing-your-ad-fs-design-plan"></a>Implementazione del piano di progettazione di AD FS
 
-I requisiti e condizioni ambientali seguenti sono fattori importanti per l'implementazione di Active Directory Federation Services \(ADFS\) piano di progettazione:  
+I requisiti e le condizioni ambientali seguenti sono fattori importanti nell'implementazione del piano di progettazione Active Directory Federation Services \(AD FS @ no__t-1:  
   
--   **Partner supportati:** In genere si usa AD FS per lavorare con le organizzazioni partner. Per stabilire la federazione di identità, determinare le organizzazioni con cui si desidera formare una relazione. Dopo aver applicato una distribuzione di base AD FS, funziona con i partner implica aggiungere partner, l'eliminazione di partner e aggiornare le informazioni sul partner. Le modifiche apportate a relazioni possono verificarsi per diversi motivi. Ad esempio, la distribuzione di AD FS potrebbe richiedere aggiornamenti partnership se subisce una modifica significativa al partner la propria attività, l'organizzazione diventa parte di un'organizzazione più grande o di una federazione di organizzazioni o dell'organizzazione viene acquisita da un'altra società. In qualsiasi scenario in cui eseguire la federazione delle identità da più domini, è necessario conoscere i domini \(partner\) che sono attualmente supportati e tutti i domini aggiuntivi che rappresentano potenziali partner.  
+-   **Partner supportati:** In genere si usa AD FS per collaborare con le organizzazioni partner. Per stabilire la Federazione delle identità, determinare le organizzazioni con cui si desidera creare una relazione. Dopo la distribuzione di una linea di base AD FS, l'utilizzo dei partner comporta l'aggiunta di partner, l'eliminazione di partner e l'aggiornamento delle informazioni sui partner. Le modifiche alle relazioni possono verificarsi per diversi motivi. Ad esempio, la distribuzione di AD FS potrebbe richiedere aggiornamenti della partnership se il partner cambia significativamente l'azienda, l'organizzazione diventa parte di un'organizzazione più grande o di una Federazione di organizzazioni oppure l'organizzazione viene acquisita da un'altra azienda. In qualsiasi scenario in cui si esegue la Federazione delle identità da più domini, è necessario essere a conoscenza dei domini \(partners @ no__t-1 attualmente supportati e di tutti i domini aggiuntivi che rappresentano i potenziali partner.  
   
--   **Applicazioni supportate e tipi di servizio:** Alcune applicazioni e servizi richiedono l'accesso alle risorse di sistema operativo, mentre altri sono "grado di riconoscere attestazioni." È importante comprendere i tipi di applicazioni e servizi che supportano ADFS, in modo che è possibile formulare i requisiti di amministrazione.  
+-   **Tipi di servizi e applicazioni supportati:** Per alcune applicazioni e servizi è necessario l'accesso alle risorse del sistema operativo, mentre altre sono in grado di riconoscere le attestazioni. È importante comprendere i tipi di applicazioni e servizi che AD FS supporta per poter formulare i requisiti amministrativi.  
   
--   **I diagrammi di architettura logici e fisici o la topologia di distribuzione:** È necessario conoscere:  
+-   **Diagrammi dell'architettura logica e fisica o topologia di distribuzione:** È necessario tenere presente quanto segue:  
   
-    -   Indica se i server federativi funzionerà in un set di server farm o in un singolo server.  
+    -   Indica se i server federativi funzioneranno in un set di server farm o in un singolo server.  
   
-    -   In cui la rete distribuisce proxy e firewall.  
+    -   Dove la rete distribuisce firewall e proxy.  
   
-    -   Il percorso delle risorse e indica se gli utenti accedono a risorse all'interno dell'organizzazione, di fuori dell'organizzazione, o entrambi.  
+    -   La posizione delle risorse e la possibilità per gli utenti di accedere alle risorse all'interno dell'organizzazione, all'esterno dell'organizzazione o a entrambe.  
   
-## <a name="how-to-implement-your-ad-fs-design-using-this-guide"></a>Come implementare la progettazione di ADFS usando questa Guida  
-Il passaggio successivo dell'implementazione della progettazione è per determinare in quale ordine deve essere eseguita ogni attività di distribuzione. Questa guida usa elenchi di controllo per fornire indicazioni dettagliate sulle diverse attività di distribuzione di server e applicazioni necessarie per implementare il piano di progettazione. Elenchi di controllo padre e figlio vengono usati per rappresentare l'ordine in cui attività per una specifica ADFS progettazione deve essere elaborata.  
+## <a name="how-to-implement-your-ad-fs-design-using-this-guide"></a>Come implementare la progettazione di AD FS usando questa guida  
+Il passaggio successivo dell'implementazione della progettazione consiste nel determinare in quale ordine deve essere eseguita ogni attività di distribuzione. Questa guida usa elenchi di controllo per fornire indicazioni dettagliate sulle diverse attività di distribuzione di server e applicazioni necessarie per implementare il piano di progettazione. Gli elenchi di controllo padre e figlio vengono utilizzati in base alle esigenze per rappresentare l'ordine in cui è necessario elaborare le attività per una progettazione di AD FS specifica.  
   
-Usare i seguenti elenchi di controllo padre in questa sezione della Guida per acquisire familiarità con le attività di distribuzione per l'implementazione di progettazione di AD FS preferita della propria organizzazione:  
+Utilizzare i seguenti elenchi di controllo padre in questa sezione della Guida per acquisire familiarità con le attività di distribuzione per l'implementazione della progettazione AD FS preferita dell'organizzazione:  
   
 -   [Elenco di controllo: Implementazione di un progetto di Web SSO](Checklist--Implementing-a-Web-SSO-Design.md)  
   

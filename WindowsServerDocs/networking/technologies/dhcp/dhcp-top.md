@@ -1,31 +1,31 @@
 ---
 title: Dynamic Host Configuration Protocol (DHCP)
-description: In questo argomento fornisce una breve panoramica della configurazione protocollo DHCP (Dynamic Host) in Windows Server 2016.
+description: Questo argomento fornisce una breve panoramica di Dynamic Host Configuration Protocol (DHCP) in Windows Server 2016.
 manager: brianlic
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking-dhcp
 ms.topic: article
 ms.assetid: 0ff29ef3-c458-4432-9065-e50a7de5b4b9
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 7828d75d58ff328e826cb685899a76347ce56953
-ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
+ms.openlocfilehash: c71517bc742cf9eda62cc7d83128f1ab9bd04547
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66812211"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71355403"
 ---
 # <a name="dynamic-host-configuration-protocol-dhcp"></a>Dynamic Host Configuration Protocol (DHCP)
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016
 
 È possibile utilizzare questo argomento per una breve panoramica di DHCP in Windows Server 2016.
 
 > [!NOTE]
-> Oltre a questo argomento, la seguente documentazione DHCP è disponibile.
+> Oltre a questo argomento, è disponibile la seguente documentazione DHCP.
 >
-> - [What ' s New in DHCP](What-s-New-in-DHCP.md)
-> - [Distribuire il DHCP con Windows PowerShell](dhcp-deploy-wps.md)
+> - [Novità di DHCP](What-s-New-in-DHCP.md)
+> - [Distribuire DHCP con Windows PowerShell](dhcp-deploy-wps.md)
 
 Dynamic Host Configuration Protocol (DHCP) è un protocollo client/server che fornisce automaticamente un host IP (Internet Protocol) con l'indirizzo IP e altre informazioni di configurazione correlati, ad esempio il subnet mask e il gateway predefinito. RFC 2131 e 2132 definisce DHCP come un Internet Engineering Task Force (IETF) standard basata sul protocollo Bootstrap (BOOTP), un protocollo con cui DHCP condivide molti dettagli di implementazione. DHCP consente agli host ottenere informazioni sulla configurazione TCP/IP richieste da un server DHCP.
 

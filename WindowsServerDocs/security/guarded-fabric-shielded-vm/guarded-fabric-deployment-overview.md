@@ -1,7 +1,7 @@
 ---
 title: Guida introduttiva per la distribuzione di infrastruttura sorvegliata
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.topic: article
 ms.assetid: e060e052-39a0-4154-90bb-b97cc6dde68e
 manager: dongill
@@ -9,16 +9,16 @@ author: justinha
 ms.author: justinha
 ms.technology: security-guarded-fabric
 ms.date: 01/30/2019
-ms.openlocfilehash: 48ac73e79709f28816ea9eff35361bd54710c66e
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 8359532113e04e2247b4af34effc7f5b89d36f34
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70870535"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71402414"
 ---
 # <a name="quick-start-for-guarded-fabric-deployment"></a>Guida introduttiva per la distribuzione di infrastruttura sorvegliata
 
->Si applica a Windows Server (Canale semestrale), Windows Server 2016
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016
 
 In questo argomento viene illustrata un'infrastruttura sorvegliata, i relativi requisiti e un riepilogo del processo di distribuzione. Per informazioni dettagliate sulla procedura di distribuzione, vedere [distribuzione del servizio sorveglianza host per host sorvegliati e macchine virtuali schermate](https://technet.microsoft.com/windows-server-docs/security/guarded-fabric-shielded-vm/guarded-fabric-deploying-hgs-overview).
 

@@ -7,13 +7,13 @@ author: daniellee-msft
 ms.author: jol
 ms.date: 09/18/2018
 ms.localizationpriority: medium
-ms.prod: windows-server-threshold
-ms.openlocfilehash: d2bb97fb65e3fbf5c7809317a8565ff7051d0447
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.prod: windows-server
+ms.openlocfilehash: 24beb287aa35757e1f8057920e8fd95828baf83b
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70869701"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71385198"
 ---
 # <a name="publishing-extensions"></a>Pubblicazione di estensioni
 
@@ -110,16 +110,16 @@ Ecco un esempio di file con estensione NuSpec e l'elenco delle proprietà obblig
 
 | Nome proprietà | Obbligatorio/consigliato | Descrizione |
 | ---- | ---- | ---- |
-| PackageType | Obbligatoria | Usare "WindowsAdminCenterExtension", che è il tipo di pacchetto NuGet definito per le estensioni dell'interfaccia di amministrazione di Windows. |
-| id | Obbligatoria | Identificatore univoco del pacchetto all'interno del feed. Questo valore deve corrispondere al valore "Name" nel file manifest. JSON del progetto.  Per informazioni aggiuntive, vedere [scelta di un identificatore univoco del pacchetto](https://docs.microsoft.com/nuget/create-packages/creating-a-package#choosing-a-unique-package-identifier-and-setting-the-version-number) . |
+| PackageType | Obbligatorio | Usare "WindowsAdminCenterExtension", che è il tipo di pacchetto NuGet definito per le estensioni dell'interfaccia di amministrazione di Windows. |
+| ID | Obbligatorio | Identificatore univoco del pacchetto all'interno del feed. Questo valore deve corrispondere al valore "Name" nel file manifest. JSON del progetto.  Per informazioni aggiuntive, vedere [scelta di un identificatore univoco del pacchetto](https://docs.microsoft.com/nuget/create-packages/creating-a-package#choosing-a-unique-package-identifier-and-setting-the-version-number) . |
 | title | Obbligatorio per la pubblicazione nel feed dell'interfaccia di amministrazione di Windows | Nome descrittivo per il pacchetto visualizzato in Gestione estensioni di Windows Admin Center. |
-| version | Obbligatoria | Versione dell'estensione. L'uso del [controllo delle versioni semantico (convenzione SemVer)](http://semver.org/spec/v1.0.0.html) è consigliato ma non obbligatorio. |
-| Autori | Obbligatoria | Se si pubblica per conto dell'azienda, usare il nome della società. |
-| description | Obbligatoria | Fornire una descrizione delle funzionalità dell'estensione. |
+| version | Obbligatorio | Versione dell'estensione. L'uso del [controllo delle versioni semantico (convenzione SemVer)](http://semver.org/spec/v1.0.0.html) è consigliato ma non obbligatorio. |
+| Autori | Obbligatorio | Se si pubblica per conto dell'azienda, usare il nome della società. |
+| description | Obbligatorio | Fornire una descrizione delle funzionalità dell'estensione. |
 | iconUrl | Consigliato per la pubblicazione nel feed dell'interfaccia di amministrazione di Windows | URL dell'icona da visualizzare in Gestione estensioni. |
 | projectUrl | Obbligatorio per la pubblicazione nel feed dell'interfaccia di amministrazione di Windows | URL del sito Web dell'estensione. Se non si dispone di un sito Web separato, usare l'URL della pagina Web del pacchetto nel feed NuGet. |
 | licenseUrl | Obbligatorio per la pubblicazione nel feed dell'interfaccia di amministrazione di Windows | URL del contratto di licenza con l'utente finale dell'estensione. |
-| files | Obbligatoria | Queste due impostazioni configurano la struttura di cartelle prevista dal centro di amministrazione di Windows per le estensioni dell'interfaccia utente e i plug-in del gateway. |
+| files | Obbligatorio | Queste due impostazioni configurano la struttura di cartelle prevista dal centro di amministrazione di Windows per le estensioni dell'interfaccia utente e i plug-in del gateway. |
 
 ### <a name="3-build-the-extension-nuget-package"></a>3. Compilare il pacchetto NuGet di estensione
 

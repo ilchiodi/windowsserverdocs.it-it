@@ -1,8 +1,8 @@
 ---
 title: Modifica del mapping dei sistemi MultiPoint selezionati
-description: Informazioni su come modificare il mapping di alcuni, ma non tutti i sistemi in servizi MultiPoint
+description: Informazioni su come modificare il mapping di alcuni ma non di tutti i sistemi in MultiPoint Services
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: multipoint-services
 ms.reviewer: na
 ms.suite: na
@@ -13,18 +13,18 @@ author: lizap
 manager: dongill
 ms.author: elizapo
 ms.date: 08/04/2016
-ms.openlocfilehash: f564ea241307ba5d5375ef431ac034c4eaf7e935
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 13ccafd5100ce19145cc0a15867308cc237b92ba
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59844242"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71389403"
 ---
 # <a name="remap-selected-multipoint-systems"></a>Modifica del mapping dei sistemi MultiPoint selezionati
 La modifica del mapping delle stazioni in Dashboard MultiPoint consente di associare tastiere e mouse ai monitor. Le stazioni utente locali sono sospese mentre è in corso la modifica del mapping del sistema MultiPoint Server.  
   
 > [!CAUTION]  
-> La modifica del mapping è una procedura usato solitamente per la risoluzione dei problemi. Le impostazioni, ad esempio nome e automatico della stazione\-informazioni per l'accesso, vengono cancellate durante il processo di modifica del mapping.  
+> La modifica del mapping è una procedura usato solitamente per la risoluzione dei problemi. Le impostazioni della stazione, ad esempio il nome e le informazioni auto @ no__t-0logon, vengono cancellate durante il processo di modifica del mapping.  
   
 #### <a name="to-remap-a-multipoint-services-system"></a>Per modificare il mapping di un sistema MultiPoint  
   

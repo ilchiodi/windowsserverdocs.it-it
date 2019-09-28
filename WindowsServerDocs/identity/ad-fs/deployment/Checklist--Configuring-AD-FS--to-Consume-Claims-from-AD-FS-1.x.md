@@ -1,37 +1,37 @@
 ---
 ms.assetid: e7f9e518-2d5d-4a0d-9147-34e1304f42ac
-title: 'Elenco di controllo: configurazione di ADFS per utilizzare attestazioni AD FS 1.x'
+title: Elenco di controllo-configurazione AD FS per l'utilizzo di attestazioni da AD FS 1. x
 description: ''
 author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: 41a71ff49d211d294768c0e4a55692ced3f2d844
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 1c952abc0bca5eadbfc14f3eda54d05826d50294
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66192454"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71408482"
 ---
-# <a name="checklist-configuring-ad-fs--to-consume-claims-from-ad-fs-1x"></a>Elenco di controllo: Configurazione di ADFS per utilizzare attestazioni AD FS 1.x
+# <a name="checklist-configuring-ad-fs--to-consume-claims-from-ad-fs-1x"></a>Elenco di controllo: Configurazione di AD FS per l'utilizzo di attestazioni da AD FS 1. x
 
   
-## <a name="checklist-configuring-ad-fs-to-consume-claims-from-adfs1x"></a>Elenco di controllo: Configurazione di ADFS per utilizzare attestazioni AD FS 1.x  
-Questo elenco di controllo include le attività necessarie per la configurazione di Active Directory Federation Services \(ADFS\) servizio federativo in Windows Server 2012 per utilizzare le attestazioni inviate da un'istanza di ADFS 1. *x* servizio federativo.  
+## <a name="checklist-configuring-ad-fs-to-consume-claims-from-adfs1x"></a>Elenco di controllo: Configurazione di AD FS per l'utilizzo di attestazioni da AD FS 1. x  
+Questo elenco di controllo include le attività necessarie per configurare il Active Directory Federation Services \(AD FS @ no__t-1 Servizio federativo in Windows Server 2012 per utilizzare le attestazioni inviate da un AD FS 1. *x* servizio federativo.  
   
 > [!NOTE]  
 > Completare le attività dell'elenco di controllo nell'ordine indicato. Quando un collegamento a un riferimento porta a una procedura, tornare a questo argomento una volta completati i passaggi della procedura, in modo da poter procedere con le operazioni rimanenti nell'elenco di controllo.  
   
-![utilizzare attestazioni ADFS](media/2b05dce3-938f-4168-9b8f-1f4398cbdb9b.gif)**elenco di controllo: Configurazione di ADFS per utilizzare attestazioni AD FS 1.x**  
+attestazioni ![consume da AD FS @ no__t-1Checklist: Configurazione di AD FS per l'utilizzo di attestazioni da AD FS 1. x @ no__t-0  
   
 ||Attività|Riferimenti|  
 |-|--------|-------------|  
-|![Utilizzare le attestazioni di ADFS](media/icon_checkboxo.gif)|Piano per l'interoperabilità tra ADFS in Windows Server 2012 e versioni precedenti di ADFS e apprendere che informazioni sull'ID nome del tipo di attestazione.|![utilizzare attestazioni ADFS](media/faa393df-4856-4431-9eda-4f4e5be72a90.gif)[pianificazione dell'interoperabilità con AD FS 1.x](https://technet.microsoft.com/library/ff678040.aspx)|  
-|![Utilizzare le attestazioni di ADFS](media/icon_checkboxo.gif)|Prima è possibile interagire con una versione precedente di ADFS, è innanzitutto necessario creare un trust del provider di attestazioni nel servizio federativo AD FS. **Nota:** È possibile creare una relazione di trust con ADFS 1. *x* servizio federativo utilizzando i metadati della federazione.<br /><br />Quando si configura la relazione di trust utilizzando la procedura nel collegamento a destra, è necessario effettuare le operazioni seguenti in attestazioni Provider attendibilità Installazione guidata per impostare questa relazione di trust per interagire con un'istanza di ADFS 1. *x* servizio federativo:<br /><br />1.  Nel **Selezionare un'origine dati** selezionare **immettere dati sulla relying party trust manualmente**.<br />2.  Nel **Scegli profilo** selezionare **profilo ADFS 1.0 e 1.1**.<br />3.  Nel **Configura URL** nella pagina **WS\-federazione passiva URL**, digitare il **URL dell'endpoint del servizio federativo** come definito in AD FS 1. *x* servizio federativo del partner.<br />4.  Nel **Configura identificatori** nella pagina **identificatore trust del provider di attestazioni**, digitare il **URI del servizio federativo** come definito in AD FS 1. *x* servizio federativo del partner.|![utilizzare attestazioni ADFS](media/faa393df-4856-4431-9eda-4f4e5be72a90.gif)[creare un'attestazioni Provider attendibilità manualmente](../../ad-fs/operations/Create-a-Claims-Provider-Trust.md)|  
-|![Utilizzare le attestazioni di ADFS](media/icon_checkboxo.gif)|Nell'attendibilità del provider di attestazioni creato in precedenza, è necessario creare una regola di attestazione che avranno le attestazioni in ingresso da AD FS 1.x Federation Service e pass-through, filtrare oppure li trasforma in un tipo di attestazione ID nome.<br /><br />Quando il tipo di attestazione ID nome è stato passato mediante, filtrati o trasformati, può essere utilizzato come input per un'altra regola o le regole in modo che può essere riconosciuto e utilizzato dal servizio federativo ADFS in Windows Server 2012.|![utilizzare attestazioni ADFS](media/faa393df-4856-4431-9eda-4f4e5be72a90.gif)[creare una regola per inviare un'istanza di ADFS 1. x attestazione compatibile](../../ad-fs/operations/Create-a-Rule-to-Send-an-AD-FS-1x-Compatible-Claim.md)|  
-|![Utilizzare le attestazioni di ADFS](media/icon_checkboxo.gif)|Contattare l'amministratore di AD FS 1. *x* servizio federativo e che l'amministratore di AD FS 1. *x* servizio federativo impostare una nuova attendibilità del partner risorse. Specificare anche l'amministratore con l'URI del servizio federativo \(nelle proprietà del servizio federativo\), l'URL dell'endpoint del servizio federativo e un token esportato\-file del certificato di firma \(con la chiave pubblica solo\). L'amministratore dovrà questi elementi per impostare la relazione di trust.|N\/A|  
+|![Utilizzare le attestazioni di ADFS](media/icon_checkboxo.gif)|Pianificare l'interoperabilità tra AD FS in Windows Server 2012 e versioni precedenti di AD FS e altre informazioni sul tipo di attestazione ID nome.|@no__t 0consume attestazioni da AD FS](media/faa393df-4856-4431-9eda-4f4e5be72a90.gif)[pianificazione per l'interoperabilità con ad FS 1. x](https://technet.microsoft.com/library/ff678040.aspx)|  
+|![Utilizzare le attestazioni di ADFS](media/icon_checkboxo.gif)|Prima di poter interagire con una versione precedente di AD FS, è necessario creare prima di tutto un trust del provider di attestazioni nel Servizio federativo AD FS. **Nota:** Non è possibile creare una relazione di trust con un AD FS 1. *x* servizio federativo tramite metadati federativi.<br /><br />Quando si configura il trust utilizzando la procedura nel collegamento a destra, è necessario eseguire le operazioni seguenti nella procedura guidata Aggiungi attendibilità provider di attestazioni per configurare l'attendibilità per l'interoperabilità con un AD FS 1. Servizio federativo *x* :<br /><br />1.  Nel **Selezionare un'origine dati** selezionare **immettere dati sulla relying party trust manualmente**.<br />2.  Nel **Scegli profilo** selezionare **profilo ADFS 1.0 e 1.1**.<br />3.  Nella pagina **Configura URL** , in **WS @ No__t-2FEDERATION passive URL**, digitare l' **URL dell'endpoint servizio federativo** come definito nella ad FS 1. *x* servizio federativo del partner.<br />4.  Nella pagina **Configura identificatori** , in **identificatore attendibilità provider di attestazioni**, digitare l' **URI servizio federativo** come definito nella ad FS 1. *x* servizio federativo del partner.|attestazioni ![consume da AD FS](media/faa393df-4856-4431-9eda-4f4e5be72a90.gif)[creare manualmente un trust del provider di attestazioni](../../ad-fs/operations/Create-a-Claims-Provider-Trust.md)|  
+|![Utilizzare le attestazioni di ADFS](media/icon_checkboxo.gif)|Nel trust del provider di attestazioni creato in precedenza, è necessario creare una regola attestazioni che consentirà di ottenere le attestazioni in ingresso dal AD FS 1. x Servizio federativo e pass-through, filtrare o trasformarle in un tipo di attestazione ID nome.<br /><br />Quando il tipo di attestazione ID nome è stato passato mediante, filtrati o trasformati, può essere utilizzato come input per un'altra regola o le regole in modo che può essere riconosciuto e utilizzato dal servizio federativo ADFS in Windows Server 2012.|attestazioni ![consume da AD FS](media/faa393df-4856-4431-9eda-4f4e5be72a90.gif)[creare una regola per inviare un'attestazione compatibile ad FS 1. x](../../ad-fs/operations/Create-a-Rule-to-Send-an-AD-FS-1x-Compatible-Claim.md)|  
+|![Utilizzare le attestazioni di ADFS](media/icon_checkboxo.gif)|Contattare l'amministratore del AD FS 1. *x* servizio federativo e avere l'amministratore della ad FS 1. *x* servizio federativo configurare una nuova attendibilità del partner risorse. Specificare anche l'amministratore con l'URI del servizio federativo \(nelle proprietà del servizio federativo\), l'URL dell'endpoint del servizio federativo e un token esportato\-file del certificato di firma \(con la chiave pubblica solo\). L'amministratore dovrà questi elementi per impostare la relazione di trust.|N\/A|  
   
 

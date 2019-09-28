@@ -1,8 +1,8 @@
 ---
 title: Telnet non impostato
-description: 'Argomento i comandi di Windows per * * *- '
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 37c4d84d1664fdc13ea7ffec60bf981b264dba00
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e6f0eb98c4168d2f664780dad42ca1aea5463d24
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59853892"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71383476"
 ---
-# <a name="telnet-unset"></a>telnet: unset
+# <a name="telnet-unset"></a>Telnet: Annulla impostazione
 
 >Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Disattiva l'impostazione delle opzioni precedentemente.   
+Disattiva le opzioni impostate in precedenza.   
 ## <a name="syntax"></a>Sintassi  
 ```  
 u[nset] {bsasdel | crlf | delasbs | escape | localecho | logging | ntlm} [?]  
@@ -32,18 +32,18 @@ u[nset] {bsasdel | crlf | delasbs | escape | localecho | logging | ntlm} [?]
 ### <a name="parameters"></a>Parametri  
 |Parametro|Descrizione|  
 |-------|--------|  
-|bsasdel|Invia **Backspace** come una **Backspace**.|  
-|crlf|Invia il **invio** chiave come un CR. Noto anche come modalità di avanzamento riga.|  
-|delasbs|Invia **eliminare** come **eliminare**.|  
-|escape|Rimuove l'impostazione di caratteri di escape.|  
-|eco locale|Disattiva l'eco locale.|  
+|bsasdel|Invia **BACKSPACE** come **BACKSPACE**.|  
+|CRLF|Invia il tasto **invio** come CR. Nota anche come modalità di avanzamento riga.|  
+|delasbs|Invia **Delete** come **Delete**.|  
+|Fuga|Rimuove l'impostazione del carattere di escape.|  
+|LOCALECHO|Disattiva localecho.|  
 |logging|Disattiva la registrazione.|  
-|ntlm|Disattiva l'autenticazione NTLM.|  
-|?|Visualizza la Guida per questo comando.|  
+|NTLM|Disattiva l'autenticazione NTLM.|  
+|?|Visualizza la guida per questo comando.|  
 ## <a name="BKMK_Examples"></a>Esempi  
-Disabilitare la registrazione.  
+Disattivare la registrazione.  
 ```  
 u logging  
 ```  
 ## <a name="additional-references"></a>Riferimenti aggiuntivi  
--   [Chiave sintassi della riga di comando](command-line-syntax-key.md)  
+-   [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)  

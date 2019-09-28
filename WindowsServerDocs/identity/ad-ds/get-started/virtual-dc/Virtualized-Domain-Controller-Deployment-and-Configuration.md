@@ -7,14 +7,14 @@ ms.author: joflore
 manager: mtillman
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 059bb3c1b15afdc579ba048b8bbb02ed185f3d42
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: be2c919e4379cf615fe25d68446855229ace87dd
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67280949"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71390701"
 ---
 # <a name="virtualized-domain-controller-deployment-and-configuration"></a>Distribuzione e configurazione di controller di dominio virtualizzati
 
@@ -26,11 +26,11 @@ Vengono trattati gli argomenti seguenti:
   
     Illustra i requisiti della piattaforma e altri vincoli importanti.  
   
--   [Dominio virtualizzati la clonazione del Controller](../../../ad-ds/get-started/virtual-dc/Virtualized-Domain-Controller-Deployment-and-Configuration.md#BKMK_VDCCloning)  
+-   [Clonazione di controller di dominio virtualizzati](../../../ad-ds/get-started/virtual-dc/Virtualized-Domain-Controller-Deployment-and-Configuration.md#BKMK_VDCCloning)  
   
     Descrive in dettaglio l'intero processo di clonazione di controller di dominio virtualizzati.  
   
--   [Ripristino sicuro di Controller di dominio virtualizzati](../../../ad-ds/get-started/virtual-dc/Virtualized-Domain-Controller-Deployment-and-Configuration.md#BKMK_VDCSafeRestore)  
+-   [Ripristino sicuro di controller di dominio virtualizzati](../../../ad-ds/get-started/virtual-dc/Virtualized-Domain-Controller-Deployment-and-Configuration.md#BKMK_VDCSafeRestore)  
   
     Illustra in dettaglio le verifiche effettuate durante il ripristino sicuro di controller di dominio virtualizzati.  
   
@@ -44,7 +44,7 @@ I controller di dominio scrivibili e di sola lettura supportano tutti gli aspett
 > [!IMPORTANT]  
 > Il detentore del ruolo FSMO dell'emulatore PDC deve essere online quando viene avviata la clonazione.  
   
-### <a name="BKMK_PlatformReqs"></a>Requisiti di piattaforma  
+### <a name="BKMK_PlatformReqs"></a>Requisiti della piattaforma  
 La clonazione di controller di dominio virtualizzati richiede:  
   
 -   Ruolo FSMO dell'emulatore PDC ospitato in un controller di dominio di Windows Server 2012  
@@ -61,10 +61,10 @@ Per informazioni sui prodotti di virtualizzazione, con indicazioni se supportano
   
 |||  
 |-|-|  
-|**Prodotto di virtualizzazione**|**Supporto dei controller di dominio virtualizzati e VMGID**|  
+|**Prodotto di virtualizzazione**|**Supporta i controller di dominio virtualizzati e VMGID**|  
 |**Server Microsoft Windows Server 2012 con funzionalità Hyper-V**|Yes|  
-|**Microsoft Windows Server 2012 Hyper-V Server**|Yes|  
-|**Funzionalità di Microsoft Windows 8 con Client Hyper-V**|Yes|  
+|**Server Hyper-V di Microsoft Windows Server 2012**|Yes|  
+|**Microsoft Windows 8 con funzionalità client Hyper-V**|Yes|  
 |**Windows Server 2008 R2 e Windows Server 2008**|No|  
 |**Soluzioni di virtualizzazione non Microsoft**|Contattare il fornitore|  
   
@@ -91,16 +91,16 @@ Nessuna di queste operazioni è inclusa nella semantica dell'ID di generazione V
 >   
 > Dopo il ripristino di uno snapshot, i delta di modifiche in precedenza non replicate che derivano dal controller di dominio dopo lo snapshot vanno persi definitivamente. Il ripristino sicuro implementa il ripristino automatizzato non autorevole *solo* per evitare la quarantena accidentale di controller di dominio.  
   
-Per altre informazioni su bolle USN e oggetti residui, vedere [operazioni di risoluzione dei problemi di Active Directory che non riescono con l'errore 8606: "Attributi insufficienti sono stato passati a creare un oggetto"](https://support.microsoft.com/kb/2028495).  
+Per altre informazioni su bolle USN e oggetti residui, vedere [Troubleshooting Active Directory operazioni che hanno esito negativo con errore 8606: "Sono stati assegnati attributi insufficienti per creare un oggetto" ](https://support.microsoft.com/kb/2028495).  
   
-## <a name="BKMK_VDCCloning"></a>Dominio virtualizzati la clonazione del Controller  
+## <a name="BKMK_VDCCloning"></a>Clonazione di controller di dominio virtualizzati  
 La clonazione di un controller di dominio virtualizzato richiede diversi passaggi e fasi, sia che si usino strumenti grafici o Windows PowerShell. In generale, le tre fasi principali sono:  
   
 **Preparare l'ambiente**  
   
 -   Passaggio 1: Verificare che l'hypervisor supporti l'ID di generazione VM e quindi la clonazione.  
   
--   Passaggio 2: Verificare che il ruolo emulatore PDC sia ospitato da un controller di dominio che esegue Windows Server 2012 e che siano online e raggiungibile dal controller di dominio clonato durante la clonazione.  
+-   Passaggio 2: Verificare che il ruolo emulatore PDC sia ospitato da un controller di dominio che esegue Windows Server 2012 e che sia online e raggiungibile dal controller di dominio clonato durante la clonazione.  
   
 **Preparare il controller di dominio di origine**  
   
@@ -281,7 +281,7 @@ Eseguire il cmdlet nel controller di dominio proposto che si intende clonare. Il
 ||-AlternateWINSServer|Specifica l'indirizzo IPv4 statico del computer WINS secondario. Tipo di dati stringa.|  
 ||-IPv6DNSResolver|Specifica le voci DNS IPv6 statiche del computer clonato in un elenco di valori delimitati da virgole. Non è possibile impostare informazioni statiche Ipv6 nella clonazione di controller di dominio virtualizzati. Tipo di dati matrice.|  
 ||-Offline|Non esegue i test di convalida e sovrascrive eventuali file dccloneconfig.xml esistenti. Non ha parametri.|  
-||*-Static*|Obbligatorio se si specificano gli argomenti IP statici IPv4SubnetMask, IPv4SubnetMask o IPv4DefaultGateway. Non ha parametri.|  
+||*-Statico*|Obbligatorio se si specificano gli argomenti IP statici IPv4SubnetMask, IPv4SubnetMask o IPv4DefaultGateway. Non ha parametri.|  
   
 Test eseguiti durante l'esecuzione in modalità online:  
   
@@ -451,7 +451,7 @@ Ad esempio, per esportare un'intera catena di snapshot di dischi di VM (questa v
   
 ![Distribuzione di controller di dominio virtualizzati](media/Virtualized-Domain-Controller-Deployment-and-Configuration/ADDS_VDC_PSConvertVhd.png)  
   
-#### <a name="BKMK_Offline"></a>Aggiunta di XML per il disco del sistema non in linea  
+#### <a name="BKMK_Offline"></a>Aggiunta di XML al disco di sistema offline  
 Se il file Dccloneconfig.xml è stato copiato nel controller di dominio di origine in esecuzione, è adesso necessario copiare il file dccloneconfig.xml aggiornato nel disco di sistema copiato/esportato offline. A seconda delle applicazioni installate rilevate con Get-ADDCCloningExcludedApplicationList in precedenza, può anche essere necessario copiare il file CustomDCCloneAllowList.xml nel disco.  
   
 I percorsi seguenti possono contenere il file DcCloneConfig.xml:  
@@ -546,7 +546,7 @@ copy-item <xml file path><destination path>\dccloneconfig.xml
 dismount-vhd <disk path>  
 ```  
   
-Ad esempio:  
+Esempio:  
   
 ![Distribuzione di controller di dominio virtualizzati](media/Virtualized-Domain-Controller-Deployment-and-Configuration/ADDS_VDC_PSMountVHD.png)  
   
@@ -640,15 +640,15 @@ Get-VMSnapshot
 Remove-VMSnapshot  
 ```  
   
-Ad esempio:  
+Esempio:  
   
 ![Distribuzione di controller di dominio virtualizzati](media/Virtualized-Domain-Controller-Deployment-and-Configuration/ADDS_VDC_PSGetVMSnap.png)  
   
 > [!WARNING]
 > Assicurarsi che, quando si importa il computer, gli indirizzi MAC statici non siano stati assegnati al controller di dominio di origine. Se viene clonato un computer di origine con un indirizzo MAC statico, i computer copiati non invieranno né riceveranno correttamente traffico di rete. Impostare un nuovo indirizzo MAC univoco, statico o dinamico, se questo è il caso. È possibile verificare se una VM usa indirizzi MAC statici con il comando:  
 > 
-> **Get-VM -VMName**   
->  ***test-vm* | Get-VMNetworkAdapter | fl \\** *  
+> **Get-VM-VMName**   
+>  ***test-VM* | Get-VMNetworkAdapter | FL \\** *  
   
 ### <a name="step-9---clone-the-new-virtual-machine"></a>Passaggio 9 - Creare la nuova macchina virtuale  
 Facoltativamente, prima di iniziare la clonazione, avviare il controller di dominio di origine offline. Assicurarsi che l'emulatore PDC sia online, in ogni caso.  
@@ -664,13 +664,13 @@ Se si usa Windows PowerShell per avviare una VM, il nuovo cmdlet del modulo Hype
 Start-VM  
 ```  
   
-Ad esempio:  
+Esempio:  
   
 ![Distribuzione di controller di dominio virtualizzati](media/Virtualized-Domain-Controller-Deployment-and-Configuration/ADDS_VDC_PSStartVM.png)  
   
 Dopo il riavvio al termine della clonazione, il computer è un controller di dominio ed è possibile effettuare l'accesso normalmente per verificarne il regolare funzionamento. Se sono presenti errori, il server è impostato per essere avviato in modalità ripristino servizi directory per l'analisi della causa.  
   
-## <a name="BKMK_VDCSafeRestore"></a>Protezioni relative alla virtualizzazione  
+## <a name="BKMK_VDCSafeRestore"></a>Misure di sicurezza della virtualizzazione  
 A differenza della clonazione di controller di dominio virtualizzati, le misure di sicurezza di Windows Server 2012 non prevedono passaggi di configurazione. La funzionalità viene eseguita senza intervento dell'utente, purché vengano rispettate alcune semplici condizioni:  
   
 -   L'hypervisor supporta l'ID di generazione VM.  
@@ -714,7 +714,7 @@ Non ripristinare tutti i controller di dominio di un singolo dominio simultaneam
 >   
 > [Utilizzo della chiave del Registro di sistema BurFlags per reinizializzare i set di repliche del servizio Replica file](https://support.microsoft.com/kb/290762)  
 >   
-> [Come forzare una sincronizzazione autorevole e non autorevole di DFSR-replicated SYSVOL (ad esempio, "D4/D2" per FRS)](https://support.microsoft.com/kb/2218556)  
+> [Come forzare una sincronizzazione autorevole e non autorevole per SYSVOL con replica DFSR (come "D4/D2" per FRS)](https://support.microsoft.com/kb/2218556)  
   
 > [!WARNING]  
 > Non eseguire tutti i controller di dominio in una foresta o in un dominio nello stesso host dell'hypervisor. In caso contrario, si introduce un singolo punto di errore che danneggia Servizi di dominio Active Directory, Exchange, SQL e altre operazioni aziendali ogni volta che l'hypervisor passa offline. Questa situazione non è diversa dall'uso di un singolo controller di dominio per un intero dominio o foresta. Più controller di dominio in più piattaforme assicurano ridondanza e tolleranza di errore.  

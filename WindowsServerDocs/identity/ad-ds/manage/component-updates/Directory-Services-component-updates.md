@@ -7,30 +7,30 @@ ms.author: joflore
 manager: mtillman
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: fe27b61abe196a2148ced18806be904ebd555fcc
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: d79f31572bc30d0f4fa3af45671c58b799e40f02
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66442897"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71390023"
 ---
 # <a name="directory-services-component-updates"></a>Aggiornamenti dei componenti di Servizi directory
 
 >Si applica a: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-**Autore**: Justin. Turner, Senior Support Escalation Engineer presso il gruppo di Windows  
+**Autore**: Justin Turner, Senior Support Escalation Engineer con il gruppo di Windows  
   
 > [!NOTE]  
 > Questo contenuto è stato redatto da un ingegnere del Supporto tecnico Microsoft ed è destinato ad amministratori esperti e architetti di sistemi che desiderano una spiegazione tecnica delle funzionalità e delle soluzioni relative a Windows Server 2012 R2 più approfondita rispetto agli argomenti solitamente disponibili su TechNet. Non è stato tuttavia sottoposto agli stessi passaggi redazionali e, di conseguenza, per alcune lingue potrebbe essere meno accurato della documentazione che si trova in genere su TechNet.  
   
-In questa lezione vengono illustrati gli aggiornamenti dei componenti dei servizi di Directory in Windows Server 2012 R2.  
+In questa lezione vengono illustrati gli aggiornamenti dei componenti dei servizi directory in Windows Server 2012 R2.  
   
 ## <a name="what-you-will-learn"></a>Contenuto dell'esercitazione  
-Illustrano gli aggiornamenti dei componenti nuovi servizi di Directory seguenti:  
+Descrizione dei seguenti nuovi aggiornamenti dei componenti di servizi directory:  
   
--   Illustrano gli aggiornamenti dei componenti nuovi servizi di Directory seguenti:  
+-   Descrizione dei seguenti nuovi aggiornamenti dei componenti di servizi directory:  
   
     -   [Livelli di funzionalità di domini e foreste](../../../ad-ds/manage/component-updates/Directory-Services-component-updates.md#BKMK_FL)  
   
@@ -42,80 +42,80 @@ Illustrano gli aggiornamenti dei componenti nuovi servizi di Directory seguenti:
   
     -   [Miglioramento della velocità effettiva della replica di Active Directory](../../../ad-ds/manage/component-updates/Directory-Services-component-updates.md#BKMK_ADRepl)  
   
-## <a name="BKMK_FL"></a>Livelli di funzionalità del dominio e foresta  
+## <a name="BKMK_FL"></a>Livelli di funzionalità di domini e foreste  
   
 ### <a name="overview"></a>Panoramica  
-La sezione fornisce una breve introduzione alle modifiche di livello funzionale di domini e foreste.  
+La sezione fornisce una breve introduzione alle modifiche del livello di funzionalità del dominio e della foresta.  
   
-### <a name="new-dfl-and-ffl"></a>FFL e nuove funzionalità del dominio  
-Con il rilascio, esistono nuovi livelli di funzionalità di domini e foreste:  
+### <a name="new-dfl-and-ffl"></a>Nuovi DFL e FFL  
+Con la versione sono disponibili nuovi livelli di funzionalità di domini e foreste:  
   
 -   Livello di funzionalità della foresta: Windows Server 2012 R2  
   
--   Livello funzionale del dominio: Windows Server 2012 R2  
+-   Livello di funzionalità del dominio: Windows Server 2012 R2  
   
-### <a name="the-windows-server-2012-r2-domain-functional-level-enables-support-for-the-following"></a>Windows Server 2012 R2 livello funzionale di dominio abilita il supporto per le operazioni seguenti:  
+### <a name="the-windows-server-2012-r2-domain-functional-level-enables-support-for-the-following"></a>Il livello di funzionalità del dominio Windows Server 2012 R2 consente il supporto per gli elementi seguenti:  
   
-1.  Protezioni sul lato controller di dominio per *utenti protetti*  
+1.  Protezioni lato controller di dominio per *utenti protetti*  
   
-    *Agli utenti protetti* l'autenticazione a un dominio di Windows Server 2012 R2 può **non è più**:  
+    *Gli utenti protetti* che eseguono l'autenticazione a un dominio di Windows Server 2012 R2 **non possono più**:  
   
     -   Eseguire l'autenticazione con l'autenticazione NTLM  
   
-    -   Usare pacchetti di crittografia DES o RC4 nella preautenticazione Kerberos  
+    -   Usare i pacchetti di crittografia DES o RC4 nella preautenticazione Kerberos  
   
-    -   Delega vincolata o non usare la delega  
+    -   Delega vincolata o vincolata  
   
-    -   Rinnovare i ticket utente (TGT) oltre la durata iniziale di 4 ore  
+    -   Rinnova i ticket utente (TGT) oltre la durata iniziale di 4 ore  
   
 2.  Authentication Policies  
   
-    Nuova foresta Active Directory i criteri che possono essere applicati agli account nei domini Windows Server 2012 R2 per controllare quali host un account può sign-on da e applicare condizioni di controllo di accesso per l'autenticazione ai servizi in esecuzione come account  
+    Nuovi criteri di Active Directory basati sulle foreste che possono essere applicati agli account nei domini di Windows Server 2012 R2 per controllare quali host possono accedere da un account e applicare le condizioni di controllo di accesso per l'autenticazione ai servizi in esecuzione come account  
   
 3.  Authentication Policy Silos  
   
-    Nuova foresta Active Directory oggetti che è possono creare una relazione tra utente, servizi gestiti e gli account computer per essere usato per classificare gli account per i criteri di autenticazione o per l'isolamento di autenticazione.  
+    Nuovo oggetto Active Directory basato su foresta che può creare una relazione tra l'utente, il servizio gestito e gli account computer da usare per classificare gli account per i criteri di autenticazione o per l'isolamento dell'autenticazione.  
   
-Vedere come configurare gli account protetti per altre informazioni.  
+Per ulteriori informazioni, vedere come configurare gli account protetti.  
   
-Oltre alle funzionalità precedente, il livello di funzionalità dominio di Windows Server 2012 R2 garantisce che qualsiasi controller di dominio nel dominio esegua Windows Server 2012 R2.  
-Il livello di funzionalità foresta Windows Server 2012 R2 non fornisce tutte le nuove funzionalità, ma garantisce che ogni nuovo dominio creato nella foresta venga automaticamente utilizzato a livello funzionale di dominio di Windows Server 2012 R2.  
+Oltre alle funzionalità sopra riportate, il livello di funzionalità del dominio Windows Server 2012 R2 garantisce che qualsiasi controller di dominio nel dominio esegua Windows Server 2012 R2.  
+Il livello di funzionalità della foresta di Windows Server 2012 R2 non fornisce nuove funzionalità, ma garantisce che ogni nuovo dominio creato nella foresta funzioni automaticamente al livello di funzionalità del dominio Windows Server 2012 R2.  
   
-### <a name="minimum-dfl-enforced-on-new-domain-creation"></a>Funzionalità del dominio minimo applicati per la creazione del nuovo dominio  
-Funzionalità del dominio di Windows Server 2008 è il livello di funzionalità minimo supportato nella creazione del nuovo dominio.  
+### <a name="minimum-dfl-enforced-on-new-domain-creation"></a>DFL minimo applicato alla creazione di un nuovo dominio  
+Windows Server 2008 DFL è il livello di funzionalità minimo supportato per la creazione di un nuovo dominio.  
   
 > [!NOTE]  
-> Deprecazione di FRS viene eseguita, eliminando la possibilità di installare un nuovo dominio con un livello di funzionalità dominio inferiore a Windows Server 2008 con Server Manager o tramite Windows PowerShell.  
+> La deprecazione di FRS viene eseguita rimuovendo la possibilità di installare un nuovo dominio con un livello di funzionalità del dominio inferiore a Windows Server 2008 con Server Manager o tramite Windows PowerShell.  
   
-### <a name="lowering-the-forest-and-domain-functional-levels"></a>Abbassando i livelli di funzionalità foresta e del dominio  
-I livelli di funzionalità foresta e del dominio vengono impostati per Windows Server 2012 R2 per impostazione predefinita al momento della creazione nuovo nuova foresta e dominio ma possono essere ridotto mediante Windows PowerShell.  
+### <a name="lowering-the-forest-and-domain-functional-levels"></a>Riduzione dei livelli di funzionalità del dominio e della foresta  
+Per impostazione predefinita, i livelli di funzionalità della foresta e del dominio sono impostati su Windows Server 2012 R2 nel nuovo dominio e sulla nuova creazione della foresta, ma possono essere ridotti usando Windows PowerShell.  
   
-Per aumentare o diminuire il livello di funzionalità della foresta con Windows PowerShell, usare il **Set-ADForestMode** cmdlet.  
+Per aumentare o abbassare il livello di funzionalità della foresta utilizzando Windows PowerShell, utilizzare il cmdlet **Set-ADForestMode** .  
   
-**Per impostare contoso.com FFL in modalità Windows Server 2008:**  
+**Per impostare la modalità contoso.com FFL su Windows Server 2008:**  
   
 ```sql  
 Set-ADForestMode -ForestMode Windows2008Forest -Identity contoso.com  
 ```  
   
-Per aumentare o diminuire il livello funzionale del dominio tramite Windows PowerShell, usare il cmdlet Set-ADDomainMode.  
+Per aumentare o abbassare il livello di funzionalità del dominio usando Windows PowerShell, usare il cmdlet Set-ADDomainMode.  
   
-**Per impostare la funzionalità del dominio contoso.com in modalità Windows Server 2008:**  
+**Per impostare la contoso.com DFL sulla modalità Windows Server 2008:**  
   
 ```powershell  
 Set-ADDomainMode -DomainMode Windows2008Domain -Identity contoso.com  
 ```  
   
-Innalzamento di livello un controller di dominio che eseguono Windows Server 2012 R2 come un'altra replica in un dominio esistente che esegue funzionalità del dominio 2003 funziona.  
+La promozione di un controller di dominio che esegue Windows Server 2012 R2 come replica aggiuntiva in un dominio esistente che esegue 2003 DFL funziona.  
   
-Creazione del nuovo dominio in una foresta esistente  
+Creazione di un nuovo dominio in una foresta esistente  
   
-![gli aggiornamenti dei servizi directory](media/Directory-Services-component-updates/GTR_ADDS_FFL.gif)  
+![aggiornamenti dei servizi directory](media/Directory-Services-component-updates/GTR_ADDS_FFL.gif)  
   
 ### <a name="adprep"></a>ADPREP  
-Non esistono operazioni di dominio in questa versione o nuova foresta.  
+In questa versione non sono presenti nuove operazioni di foresta o di dominio.  
   
-Questi file con estensione ldf contengono modifiche dello schema per il **Device Registration Service**.  
+Questi file con estensione ldf contengono modifiche dello schema per il **servizio Registrazione dispositivi**.  
   
 1.  Sch59  
   
@@ -135,69 +135,69 @@ Questi file con estensione ldf contengono modifiche dello schema per il **Device
   
 1.  Sch66  
   
-**MSODS:**  
+**MSODS**  
   
 1.  Sch60  
   
-**I silo e criteri di autenticazione**  
+**Criteri di autenticazione e silo**  
   
 1.  Sch68  
   
 2.  Sch69  
   
-## <a name="BKMK_NTFRS"></a>Elementi deprecati di NTFRS  
+## <a name="BKMK_NTFRS"></a>Deprecazione di NTFRS  
   
 ### <a name="overview"></a>Panoramica  
-Il servizio Replica file è deprecato in Windows Server 2012 R2.  Deprecazione di FRS viene eseguita tramite l'applicazione di un livello funzionale del dominio minimo (funzionalità del dominio) di Windows Server 2008.  Questa applicazione è presente solo se il nuovo dominio viene creato usando Server Manager o Windows PowerShell.  
+Il servizio Replica file è deprecato in Windows Server 2012 R2.  La deprecazione di FRS viene eseguita applicando un livello di funzionalità del dominio minimo (DFL) di Windows Server 2008.  Questa applicazione è presente solo se il nuovo dominio viene creato con Server Manager o Windows PowerShell.  
   
-Utilizzare il parametro - Modalitàdominio con Install-ADDSForest o i cmdlet Install-ADDSDomain per specificare il livello funzionale del dominio.  I valori supportati per questo parametro possono essere un numero intero valido o un valore stringa enumerata corrispondente. Ad esempio, per impostare il livello di modalità di dominio a Windows Server 2008 R2, è possibile specificare un valore pari a 4 o "Win2008R2".  Durante l'esecuzione di questi cmdlet da Server 2012 R2 validi i valori includono quelle per Windows Server 2008 (3, Win2008) Windows Server 2008 R2 (4, Win2008R2) (5, Win2012) di Windows Server 2012 e Windows Server 2012 R2 (6, Win2012R2). Il livello di funzionalità del dominio non può essere inferiore al livello di funzionalità della foresta, ma può essere superiore.  Poiché il servizio Replica file è deprecato in questa versione, Windows Server 2003 (2, Win2003) non è un parametro riconosciuto con questi cmdlet quando eseguita da Windows Server 2012 R2.  
+Usare il parametro-DomainMode con i cmdlet Install-ADDSForest o Install-ADDSDomain per specificare il livello di funzionalità del dominio.  I valori supportati per questo parametro possono essere un numero intero valido o un valore stringa enumerato corrispondente. Ad esempio, per impostare il livello di modalità dominio su Windows Server 2008 R2, è possibile specificare un valore pari a 4 o "Win2008R2".  Quando si eseguono questi cmdlet da Server 2012 R2, i valori validi includono quelli per Windows Server 2008 (3, Win2008) Windows Server 2008 R2 (4, Win2008R2) Windows Server 2012 (5, Win2012) e Windows Server 2012 R2 (6, Win2012R2). Il livello di funzionalità del dominio non può essere inferiore al livello di funzionalità della foresta, ma può essere superiore.  Poiché FRS è stato deprecato in questa versione, Windows Server 2003 (2, Win2003) non è un parametro riconosciuto con questi cmdlet quando viene eseguito da Windows Server 2012 R2.  
   
-![gli aggiornamenti dei servizi directory](media/Directory-Services-component-updates/GTR_ADDS_PS_Install2003DFL.gif)  
+![aggiornamenti dei servizi directory](media/Directory-Services-component-updates/GTR_ADDS_PS_Install2003DFL.gif)  
   
-![gli aggiornamenti dei servizi directory](media/Directory-Services-component-updates/GTR_ADDS_PS_InstallDFL2.gif)  
+![aggiornamenti dei servizi directory](media/Directory-Services-component-updates/GTR_ADDS_PS_InstallDFL2.gif)  
   
-## <a name="BKMK_LDAPQuery"></a>Modifiche di Query Optimizer LDAP  
+## <a name="BKMK_LDAPQuery"></a>Modifiche a Query Optimizer LDAP  
   
 ### <a name="overview"></a>Panoramica  
-L'algoritmo di ottimizzazione query LDAP è stata rivalutata e ulteriormente ottimizzato.  Il risultato è il miglioramento delle prestazioni nell'efficienza della ricerca LDAP e durata ricerca LDAP delle query complesse.  
+L'algoritmo di Query Optimizer LDAP è stato rivalutato e ottimizzato ulteriormente.  Il risultato è il miglioramento delle prestazioni nell'efficienza della ricerca LDAP e nei tempi di ricerca LDAP delle query complesse.  
   
 > [!NOTE]
-> <strong>Da parte dello sviluppatore:</strong>miglioramenti delle prestazioni delle ricerche attraverso i miglioramenti nel mapping da LDAP di query a query ESE.  Indice con ottimizzazione per la selezione, risultante in modo significativo calo delle prestazioni (x 1000 o superiore) impedita dai filtri LDAP oltre un certo livello di complessità. Questa modifica consente di modificare il modo in cui si selezionano gli indici per le query LDAP evitare questo problema.  
+> <strong>Dallo sviluppatore:</strong>miglioramenti apportati alle prestazioni delle ricerche nei miglioramenti apportati al mapping dalla query LDAP alla query ESE.  I filtri LDAP oltre un determinato livello di complessità impediscono la selezione ottimizzata degli indici, con conseguente riduzione delle prestazioni (1.000 volte o più). Questa modifica modifica il modo in cui vengono selezionati gli indici per le query LDAP per evitare questo problema.  
 > 
 > [!NOTE]
-> Una revisione completa dell'algoritmo, query optimizer LDAP query risultante:  
+> Una revisione completa dell'algoritmo di Query Optimizer LDAP, con conseguente:  
 > 
-> -   Tempi di ricerca  
-> -   Consentire l'aumento della produttività controller di dominio eseguire altre operazioni  
-> -   Meno chiamate al supporto tecnico problemi relative alle prestazioni di Active Directory  
-> -   Eseguire il porting in Windows Server 2008 R2 (KB 2862304)  
+> -   Tempi di ricerca più veloci  
+> -   I miglioramenti dell'efficienza consentono ai controller di dominio di eseguire altre operazioni  
+> -   Meno richieste di supporto per i problemi di prestazioni di Active Directory  
+> -   Back ported to Windows Server 2008 R2 (KB 2862304)  
   
-### <a name="background"></a>Informazioni  
-La possibilità di eseguire ricerche in Active Directory è un servizio fondamentale fornito da controller di dominio.  Altri servizi e applicazioni line of business si basano sulle ricerche di Active Directory.  Operazioni di business possono smettere di arresto se questa funzionalità non è disponibile.  Come un core e un servizio utilizzato molto frequentemente, è fondamentale che i controller di dominio di gestire il traffico di ricerca LDAP in modo efficiente.  L'algoritmo di ottimizzazione query LDAP tenta di rendere più efficiente possibile le ricerche LDAP eseguendo il mapping di filtri di ricerca LDAP a un set di risultati che può essere soddisfatte tramite record già indicizzati nel database.  Questo algoritmo è stato rivalutato e ulteriormente ottimizzato.  Il risultato è il miglioramento delle prestazioni nell'efficienza della ricerca LDAP e durata ricerca LDAP delle query complesse.  
+### <a name="background"></a>Sfondo  
+La possibilità di eseguire ricerche Active Directory è un servizio di base fornito dai controller di dominio.  Altri servizi e applicazioni line-of-business si basano sulle ricerche Active Directory.  Se questa funzionalità non è disponibile, è possibile che le operazioni di business smettano di fermarsi.  Come servizio di base e di uso intensivo, è indispensabile che i controller di dominio gestiscano il traffico di ricerca LDAP in modo efficiente.  L'algoritmo LDAP Query Optimizer tenta di rendere le ricerche LDAP più efficienti possibile eseguendo il mapping di filtri di ricerca LDAP a un set di risultati che può essere soddisfatto tramite record già indicizzati nel database.  Questo algoritmo è stato rivalutato e ottimizzato ulteriormente.  Il risultato è il miglioramento delle prestazioni nell'efficienza della ricerca LDAP e nei tempi di ricerca LDAP delle query complesse.  
   
-### <a name="details-of-change"></a>Dettagli di modifica  
-Contiene una ricerca LDAP:  
+### <a name="details-of-change"></a>Dettagli della modifica  
+Una ricerca LDAP contiene:  
   
--   Un percorso (intestazione NC dell'unità Organizzativa, oggetto) all'interno della gerarchia per iniziare la ricerca  
+-   Un percorso (Head NC, OU, Object) all'interno della gerarchia per iniziare la ricerca  
   
 -   Un filtro di ricerca  
   
--   Un elenco di attributi da restituire  
+-   Elenco di attributi da restituire.  
   
 Il processo di ricerca può essere riepilogato come segue:  
   
 1.  Se possibile, semplificare il filtro di ricerca.  
   
-2.  Selezionare un set di chiavi di indice che restituirà il set più piccolo maggiore coperto.  
+2.  Consente di selezionare un set di chiavi di indice che restituirà il set coperto più piccolo.  
   
-3.  Eseguire le intersezioni di uno o più delle chiavi di indice, per ridurre il set di coperto.  
+3.  Eseguire una o più intersezioni delle chiavi di indice per ridurre il set coperto.  
   
-4.  Per ogni record nel set di copertura, valutare l'espressione di filtro, nonché la sicurezza. Se il filtro restituisce TRUE e viene concesso l'accesso, quindi restituiscono questo record al client.  
+4.  Per ogni record nel set coperto, valutare l'espressione di filtro e la sicurezza. Se il filtro restituisce TRUE e viene concesso l'accesso, il record viene restituito al client.  
   
-Le operazioni di ottimizzazione query LDAP consente di modificare i passaggi 2 e 3, per ridurre le dimensioni del set di copertura. In particolare, l'implementazione corrente consente di selezionare le chiavi di indice duplicati ed esegue le intersezioni ridondanti.  
+Il lavoro di ottimizzazione delle query LDAP modifica i passaggi 2 e 3 per ridurre le dimensioni del set coperto. In particolare, l'implementazione corrente Seleziona chiavi di indice duplicate ed esegue le intersezioni ridondanti.  
   
-### <a name="comparison-between-old-and-new-algorithm"></a>Confronto tra vecchio e nuovo di algoritmo  
-La destinazione della ricerca LDAP inefficiente in questo esempio è un controller di dominio di Windows Server 2012.  La ricerca viene completato in circa 44 secondi in seguito a non riuscire a trovare un indice più efficiente.  
+### <a name="comparison-between-old-and-new-algorithm"></a>Confronto tra algoritmo obsoleto e nuovo  
+La destinazione della ricerca LDAP non efficiente in questo esempio è un controller di dominio Windows Server 2012.  La ricerca viene completata in circa 44 secondi, a causa della mancata individuazione di un indice più efficiente.  
   
 ```  
 adfind -b dc=blue,dc=contoso,dc=com -f "(| (& (|(cn=justintu) (postalcode=80304) (userprincipalname=justintu@blue.contoso.com)) (|(objectclass=person) (cn=justintu)) ) (&(cn=justintu)(objectclass=person)))" -stats >>adfind.txt  
@@ -226,8 +226,8 @@ Log Records Generated     : 0
 Log Record Bytes Generated: 0  
 ```  
   
-### <a name="sample-results-using-the-new-algorithm"></a>Risultati di esempio usando il nuovo algoritmo  
-In questo esempio si ripete la stessa ricerca esatta come illustrato in precedenza ma è destinata a un controller di dominio di Windows Server 2012 R2.  La ricerca stessa viene completato in meno di un secondo a causa di miglioramenti apportate all'algoritmo di ottimizzazione query LDAP.  
+### <a name="sample-results-using-the-new-algorithm"></a>Risultati di esempio con il nuovo algoritmo  
+In questo esempio viene ripetuta esattamente la stessa ricerca indicata sopra, ma è destinato a un controller di dominio Windows Server 2012 R2.  La stessa ricerca viene completata in meno di un secondo a causa dei miglioramenti apportati all'algoritmo LDAP Query Optimizer.  
   
 ```  
 adfind -b dc=blue,dc=contoso,dc=com -f "(| (& (|(cn=justintu) (postalcode=80304) (userprincipalname=dhunt@blue.contoso.com)) (|(objectclass=person) (cn=justintu)) ) (&(cn=justintu)(objectclass=person)))" -stats >>adfindBLUE.txt  
@@ -258,79 +258,79 @@ Log Records Generated     : 0
 Log Record Bytes Generated: 0  
 ```  
   
--   Se non è possibile ottimizzare la struttura ad albero:  
+-   Se non è possibile ottimizzare l'albero:  
   
-    -   Ad esempio: un'espressione dell'albero non su una colonna non indicizzata  
+    -   Ad esempio, un'espressione nell'albero era su una colonna non indicizzata  
   
     -   Registrare un elenco di indici che impediscono l'ottimizzazione  
   
-    -   Vengono esposte tramite l'analisi ETW e ID evento 1644 come  
+    -   Esposto tramite traccia ETW e ID evento 1644  
   
-        ![gli aggiornamenti dei servizi directory](media/Directory-Services-component-updates/GTR_ADDS_Event1644.gif)  
+        ![aggiornamenti dei servizi directory](media/Directory-Services-component-updates/GTR_ADDS_Event1644.gif)  
   
 ### <a name="BKMK_EnableStats"></a>Per abilitare il controllo delle statistiche in LDP  
   
-1.  Aprire LDP.exe e connettersi ed eseguire l'associazione a un controller di dominio.  
+1.  Aprire LDP. exe e connettersi e associarlo a un controller di dominio.  
   
-2.  Nel **le opzioni** menu, fare clic su **controlli**.  
+2.  Scegliere **controlli**dal menu **Opzioni** .  
   
-3.  Nella finestra di dialogo controlli, espandere la **Load Predefined** dal menu a discesa, fare clic su **ricerca Stats** e quindi fare clic su **OK**.  
+3.  Nella finestra di dialogo controlli espandere il menu a discesa **Load predefined** , fare clic su **Search Statistics** e quindi fare clic su **OK**.  
   
-    ![gli aggiornamenti dei servizi directory](media/Directory-Services-component-updates/GTR_ADDS_Controls.gif)  
+    ![aggiornamenti dei servizi directory](media/Directory-Services-component-updates/GTR_ADDS_Controls.gif)  
   
-4.  Nel **esplorare** menu, fare clic su **ricerca**  
+4.  Scegliere **Cerca** dal menu **Sfoglia** .  
   
-5.  Nella finestra di dialogo di ricerca, selezionare la **opzioni** pulsante.  
+5.  Nella finestra di dialogo Cerca selezionare il pulsante **Opzioni** .  
   
-6.  Verificare che il **Extended** casella di controllo è selezionata nella finestra di dialogo Opzioni di ricerca e selezionare **OK**.  
+6.  Verificare che la casella di controllo **esteso** sia selezionata nella finestra di dialogo Opzioni di ricerca e selezionare **OK**.  
   
-    ![gli aggiornamenti dei servizi directory](media/Directory-Services-component-updates/GTR_ADDS_SearchOptions.gif)  
+    ![aggiornamenti dei servizi directory](media/Directory-Services-component-updates/GTR_ADDS_SearchOptions.gif)  
   
-### <a name="try-this-use-ldp-to-return-query-statistics"></a>Provare quanto segue: Utilizzare LDP per restituire le statistiche sulle query  
-Eseguire le operazioni seguenti in un controller di dominio o da un client aggiunti a un dominio o un server in cui sono installati gli strumenti di Active Directory Domain Services.  Ripetere le operazioni seguenti come destinazione il controller di dominio di Windows Server 2012 e Windows Server 2012 R2 controller di dominio.  
+### <a name="try-this-use-ldp-to-return-query-statistics"></a>Provare: Utilizzare LDP per restituire le statistiche sulle query  
+Eseguire le operazioni seguenti in un controller di dominio o in un client o server aggiunto a un dominio in cui sono installati gli strumenti di servizi di dominio Active Directory.  Ripetere la procedura seguente per il controller di dominio Windows Server 2012 e il controller di dominio Windows Server 2012 R2.  
   
-1.  Rivedere le ["Creazione più efficiente Microsoft applicazioni abilitate per AD"](https://msdn.microsoft.com/library/ms808539.aspx) articolo e fare riferimento ad esso in base alle esigenze.  
+1.  Esaminare l'articolo ["creazione di applicazioni abilitate per Microsoft ad più efficienti"](https://msdn.microsoft.com/library/ms808539.aspx) e farvi riferimento in base alle esigenze.  
   
-2.  Utilizzare LDP per abilitare le statistiche di ricerca (vedere [per abilitare il controllo delle statistiche in LDP](../../../ad-ds/manage/component-updates/../../../ad-ds/manage/component-updates/../../../ad-ds/manage/component-updates/../../../ad-ds/manage/component-updates/../../../ad-ds/manage/component-updates/../../../ad-ds/manage/component-updates/Directory-Services-component-updates.md#BKMK_EnableStats))  
+2.  Utilizzando LDP, abilitare le statistiche di ricerca (vedere [per abilitare il controllo statistiche in LDP](../../../ad-ds/manage/component-updates/../../../ad-ds/manage/component-updates/../../../ad-ds/manage/component-updates/../../../ad-ds/manage/component-updates/../../../ad-ds/manage/component-updates/../../../ad-ds/manage/component-updates/Directory-Services-component-updates.md#BKMK_EnableStats))  
   
-3.  Eseguire diverse ricerche LDAP e osservare le informazioni statistiche nella parte superiore dei risultati.  Si ripeterà la stessa ricerca in altre attività in modo documentarli blocco note il file di testo.  
+3.  Eseguire varie ricerche LDAP e osservare le informazioni statistiche all'inizio dei risultati.  Si ripeterà la stessa ricerca in altre attività, quindi la si documenterà in un file di testo del blocco note.  
   
-4.  Eseguire una ricerca LDAP che query optimizer deve essere in grado di ottimizzare a causa di indici di attributi  
+4.  Eseguire una ricerca LDAP che l'Query Optimizer dovrebbe essere in grado di ottimizzare a causa degli indici degli attributi  
   
-5.  Tenta di costruire una ricerca che richiede molto tempo per il completamento (è possibile aumentare la **limite di tempo** opzione in modo che la ricerca senza timeout).  
+5.  Tentativo di creare una ricerca che richiede molto tempo per il completamento (è possibile aumentare l'opzione **limite di tempo** in modo che la ricerca non venga impostata su timeout).  
   
 ### <a name="additional-resources"></a>Risorse aggiuntive  
-[Quali sono le ricerche di Active Directory?](https://technet.microsoft.com/library/cc783845(v=ws.10).aspx)  
+[Che cosa sono le ricerche Active Directory?](https://technet.microsoft.com/library/cc783845(v=ws.10).aspx)  
   
-[La modalità di lavoro di ricerche di Active Directory](https://technet.microsoft.com/library/cc755809(v=WS.10).aspx)  
+[Come funzionano le ricerche Active Directory](https://technet.microsoft.com/library/cc755809(v=WS.10).aspx)  
   
-[Creazione di applicazioni abilitate alla Directory Microsoft Active più efficiente](https://msdn.microsoft.com/library/ms808539.aspx)  
+[Creazione di applicazioni più efficienti abilitate per Active Directory Microsoft](https://msdn.microsoft.com/library/ms808539.aspx)  
   
-[951581](https://support.microsoft.com/kb/951581) query LDAP vengono eseguite più lentamente del previsto in Active Directory o servizio di directory LDS/ADAM e 1644 ID evento potrebbero essere registrati  
+[951581](https://support.microsoft.com/kb/951581) le query LDAP vengono eseguite più lentamente del previsto nel servizio directory ad o LDS/Adam ed è possibile che l'ID evento 1644 venga registrato  
   
-## <a name="BKMK_1644"></a>Evento 1644  
+## <a name="BKMK_1644"></a>miglioramenti agli eventi 1644  
   
 ### <a name="overview"></a>Panoramica  
-Questo aggiornamento aggiunge le statistiche aggiuntive risultati di ricerca LDAP per ID evento 1644 come per facilitare la risoluzione dei problemi.  Inoltre, vi è un nuovo valore del Registro di sistema che può essere utilizzato per abilitare la registrazione su una soglia basati sul tempo.  Questi miglioramenti sono stati resi disponibili in Windows Server 2012 e Windows Server 2008 R2 SP1 tramite KB [2800945](https://support.microsoft.com/kb/2800945) e verrà reso disponibile per Windows Server 2008 SP2.  
+Questo aggiornamento consente di aggiungere statistiche aggiuntive per i risultati della ricerca LDAP all'ID evento 1644 per facilitare la risoluzione dei problemi.  Inoltre, è disponibile un nuovo valore del registro di sistema che può essere utilizzato per abilitare la registrazione in una soglia basata sul tempo.  Questi miglioramenti sono stati resi disponibili in Windows Server 2012 e Windows Server 2008 R2 SP1 tramite KB [2800945](https://support.microsoft.com/kb/2800945) e saranno resi disponibili per windows Server 2008 SP2.  
   
 > [!NOTE]  
-> -   Statistiche di ricerca LDAP aggiuntive vengono aggiunte per ID evento 1644 come per facilitare la risoluzione dei problemi non efficiente o costose le ricerche LDAP  
-> -   È ora possibile specificare una soglia durata di ricerca (ad es. Registra evento 1644 per le ricerche impiegano più di 100 ms) invece di specificare i valori di soglia risultati di ricerca Expensive e Inefficient  
+> -   Sono state aggiunte statistiche di ricerca LDAP aggiuntive all'ID evento 1644 per facilitare la risoluzione di ricerche LDAP inefficienti o dispendiose  
+> -   È ora possibile specificare una soglia di tempo di ricerca (ad esempio, Evento del log 1644 per le ricerche che richiedono più di 100 ms, anziché specificare i valori di soglia dei risultati di ricerca costosi e non efficienti  
   
-### <a name="background"></a>Informazioni  
-Durante la risoluzione dei problemi relativi alle prestazioni di Active Directory, risulta evidente che attività di ricerca LDAP può essere aggiunta come contributo al problema.  Si decide di abilitare la registrazione in modo che è possibile visualizzare le query LDAP costosa o poco efficiente elaborate dal controller di dominio.  Per abilitare la registrazione, è necessario impostare il valore di diagnostica Engineering di campo e può facoltativamente specificare i valori di soglia dei risultati di ricerca costosa o poco efficiente.  Dopo aver attivato il livello di registrazione su un valore pari a 5 campo Engineering, una ricerca che soddisfa questi criteri viene registrata nel registro eventi dei servizi di Directory con un ID evento 1644 come.  
+### <a name="background"></a>Sfondo  
+Durante la risoluzione dei problemi relativi alle prestazioni Active Directory, risulta evidente che l'attività di ricerca LDAP potrebbe contribuire al problema.  Si decide di abilitare la registrazione per poter visualizzare query LDAP costose o inefficienti elaborate dal controller di dominio.  Per abilitare la registrazione, è necessario impostare il valore di diagnostica Field Engineering e, facoltativamente, specificare i valori soglia per i risultati di ricerca costosi e inefficienti.  Quando si Abilita il livello di registrazione progettazione campi su un valore pari a 5, qualsiasi ricerca che soddisfi questi criteri viene registrata nel registro eventi dei servizi directory con ID evento 1644.  
   
 L'evento contiene:  
   
--   Client IP e porta  
+-   IP e porta del client  
   
--   Nodo di inizio  
+-   Nodo iniziale  
   
 -   Filter  
   
 -   Ambito di ricerca  
   
--   Selezione dell'attributo  
+-   Selezione attributi  
   
 -   Controlli server  
   
@@ -338,28 +338,28 @@ L'evento contiene:
   
 -   Voci restituite  
   
-Tuttavia, dati chiave mancano l'evento, ad esempio la quantità di tempo impiegato per l'operazione di ricerca e cosa (se presente) indice è stato utilizzato.  
+Tuttavia, i dati della chiave non sono presenti nell'evento, ad esempio la quantità di tempo impiegato per l'operazione di ricerca e gli eventuali indici utilizzati.  
   
-#### <a name="additional-search-statistics-added-to-event-1644"></a>Statistiche di ricerca aggiuntivo aggiunte all'evento 1644  
+#### <a name="additional-search-statistics-added-to-event-1644"></a>Ulteriori statistiche di ricerca aggiunte all'evento 1644  
   
--   Indici usati  
+-   Indici utilizzati  
   
--   Pagine di cui viene fatto riferimento  
+-   Pagine a cui viene fatto riferimento  
   
 -   Pagine lette dal disco  
   
--   Pagine pre-lette dal disco  
+-   Pagine prelette dal disco  
   
--   Pagine Clean modificate  
+-   Pagine pulite modificate  
   
 -   Pagine dirty modificate  
   
 -   Tempo di ricerca  
   
--   Attributi impedendo l'ottimizzazione  
+-   Attributi che impediscono l'ottimizzazione  
   
-#### <a name="new-time-based-threshold-registry-value-for-event-1644-logging"></a>Nuovo valore del Registro di sistema soglia basati sul tempo per la registrazione evento 1644  
-Invece di specificare i valori di soglia risultati di ricerca Expensive e Inefficient, è possibile specificare una soglia durata di ricerca.  Se è maggiore o desiderati per registrare tutti i risultati di ricerca che richiedeva 50 ms, si specificherà decimale 50 / 32 hex (oltre a impostare il valore di campo Engineering).  
+#### <a name="new-time-based-threshold-registry-value-for-event-1644-logging"></a>Nuovo valore del registro di sistema della soglia basata sul tempo per la registrazione dell'evento 1644  
+Invece di specificare i valori di soglia per i risultati di ricerca costosi e inefficienti, è possibile specificare la soglia del tempo di ricerca.  Se si desidera registrare tutti i risultati della ricerca che hanno richiesto 50 ms o versione successiva, è necessario specificare 50 esadecimale/32 esadecimale (oltre a impostare il valore di Field Engineering).  
   
 ```  
 Windows Registry Editor Version 5.00  
@@ -367,43 +367,43 @@ Windows Registry Editor Version 5.00
 "Search Time Threshold (msecs)"=dword:00000032  
 ```  
   
-#### <a name="comparison-of-the-old-and-new-event-id-1644"></a>Confronto tra i vecchio e nuovo ID evento 1644 come  
+#### <a name="comparison-of-the-old-and-new-event-id-1644"></a>Confronto tra il vecchio e il nuovo ID evento 1644  
 PRECEDENTE  
   
-![gli aggiornamenti dei servizi directory](media/Directory-Services-component-updates/GTR_ADDS_Event1644_2012.gif)  
+![aggiornamenti dei servizi directory](media/Directory-Services-component-updates/GTR_ADDS_Event1644_2012.gif)  
   
 NUOVO  
   
-![gli aggiornamenti dei servizi directory](media/Directory-Services-component-updates/GTR_ADDS_Event1644_2012R2.gif)  
+![aggiornamenti dei servizi directory](media/Directory-Services-component-updates/GTR_ADDS_Event1644_2012R2.gif)  
   
-#### <a name="try-this-use-the-event-log-to-return-query-statistics"></a>Provare quanto segue: Usare il registro eventi per restituire le statistiche sulle query  
+#### <a name="try-this-use-the-event-log-to-return-query-statistics"></a>Provare: Usare il registro eventi per restituire le statistiche sulle query  
   
-1.  Ripetere le operazioni seguenti come destinazione il controller di dominio di Windows Server 2012 e Windows Server 2012 R2 controller di dominio. Osservare l'evento ID 1644s su entrambi i controller di dominio dopo ogni ricerca.  
+1.  Ripetere la procedura seguente per il controller di dominio Windows Server 2012 e il controller di dominio Windows Server 2012 R2. Osservare l'ID evento 1644 in entrambi i controller di dominio dopo ogni ricerca.  
   
-2.  Utilizzando regedit, abilitare la registrazione di ID evento 1644 come con una soglia basati sul tempo in Windows Server 2012 R2 controller di dominio e il metodo precedente in Windows Server 2012 controller di dominio.  
+2.  Con regedit, abilitare la registrazione con ID evento 1644 usando una soglia basata sul tempo sul controller di dominio Windows Server 2012 R2 e il vecchio metodo sul controller di dominio di Windows Server 2012.  
   
-3.  Eseguire diverse ricerche LDAP che superano la soglia e osservare le informazioni statistiche nella parte superiore dei risultati.  Usare le query LDAP che è documentato in precedenza e ripetere le stesse ricerche.  
+3.  Eseguire varie ricerche LDAP che superano la soglia e osservano le informazioni statistiche all'inizio dei risultati.  Usare le query LDAP documentate in precedenza e ripetere le stesse ricerche.  
   
-4.  Eseguire una ricerca LDAP che query optimizer non è in grado di ottimizzare perché uno o più attributi non sono indicizzati.  
+4.  Eseguire una ricerca LDAP che l'Query Optimizer non è in grado di ottimizzare perché uno o più attributi non vengono indicizzati.  
   
-## <a name="BKMK_ADRepl"></a>Miglioramento della velocità effettiva di Active Directory replica  
+## <a name="BKMK_ADRepl"></a>Miglioramento della velocità effettiva della replica Active Directory  
   
 ### <a name="overview"></a>Panoramica  
-Replica di Active Directory Usa RPC per il trasporto di replica. Per impostazione predefinita, RPC utilizza un buffer di trasmissione da 8 KB e un pacchetto di dimensioni pari a 5 KB. Questo è il risultato finale in cui l'istanza l'invio trasmettere pacchetti di tre (circa 15K vale la pena di dati) e quindi essere necessario attendere per una rete di round trip prima dell'invio di più. Supponendo un 3 MS tempo di round trip, la velocità effettiva più alta saranno circa 40Mbps, anche in 1 Gbps o 10 Gbps reti.  
+La replica di Active Directory utilizza RPC per il trasporto di replica. Per impostazione predefinita, RPC usa un buffer di trasmissione da 8 KB e una dimensione del pacchetto 5K. Questo ha l'effetto finale in cui l'istanza mittente trasmette tre pacchetti (approssimativamente 15.000 di dati) e quindi deve attendere un round trip di rete prima di inviarli. Supponendo un tempo di round trip 3ms, la velocità effettiva più elevata è aggirata tra 40Mbps, anche in reti 1 Gbps o 10 Gbps.  
   
 > [!NOTE]  
-> -   Questo aggiornamento consente di regolare la velocità massima effettiva replica di Active Directory dal 40Mbps a circa 600 Mbps.  
+> -   Questo aggiornamento regola la velocità effettiva massima della replica AD da 40Mbps a circa 600 Mbps.  
 >   
->     -   Aumenta le dimensioni del buffer di trasmissione RPC che riduce il numero di rete di andata e ritorno  
-> -   L'effetto sarà più evidente su ad alta velocità, la rete ad alta latenza.  
+>     -   Aumenta la dimensione del buffer di invio RPC che riduce il numero di round trip in rete  
+> -   L'effetto sarà più evidente sulla rete ad alta velocità e a latenza elevata.  
   
-Questi aggiornamenti aumentano la velocità effettiva massima di circa 600 Mbps modificando le dimensioni del buffer di invio RPC da 8 KB a 256KB.  Questa modifica consente le dimensioni della finestra TCP più di 8 KB, riducendo il numero di rete dei round trip.  
+Questi aggiornamenti aumentano la velocità effettiva massima a circa 600 Mbps modificando le dimensioni del buffer di invio RPC da 8 a 256 KB.  Questa modifica consente di aumentare le dimensioni della finestra TCP oltre gli 8 KB, riducendo il numero di round trip in rete.  
   
 > [!NOTE]  
-> Non esistono impostazioni configurabili per modificare questo comportamento.  
+> Non sono disponibili impostazioni configurabili per modificare questo comportamento.  
   
 ### <a name="additional-resources"></a>Risorse aggiuntive  
-[Come funziona il modello di replica di Active Directory](https://technet.microsoft.com/library/cc772726(v=WS.10).aspx)  
+[Funzionamento del modello di replica Active Directory](https://technet.microsoft.com/library/cc772726(v=WS.10).aspx)  
   
 
 

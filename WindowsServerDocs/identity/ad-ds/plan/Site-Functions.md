@@ -7,41 +7,41 @@ ms.author: joflore
 manager: mtillman
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 0a330a9dae8ab8d3b9de5d1fff0e52060908f520
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 109f576bfdacf68a0eadc7dd84ddb9a4148e6dd9
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59815812"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71408671"
 ---
 # <a name="site-functions"></a>Funzioni del sito
 
 >Si applica a: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
- Windows Server 2008 utilizza le informazioni del sito per vari scopi, inclusa la replica di routing, affinità del client, replica di sistema volume (SYSVOL), Distributed File System gli spazi dei nomi (DFSN) e posizione del servizio.  
+ Windows Server 2008 utilizza le informazioni del sito per molti scopi, tra cui replica di routing, affinità client, replica del volume di sistema (SYSVOL), file system distribuito spazi dei nomi (DFSN) e posizione del servizio.  
   
-## <a name="routing-replication"></a>Replica di routing  
-Servizi di dominio Active Directory (AD DS) usa un metodo multimaster, archiviazione e inoltro di replica. Un controller di dominio comunica le modifiche di directory a un secondo controller di dominio, quindi comunica a un terzo e così via, fino a quando tutti i controller di dominio hanno ricevuto la modifica. Per ottenere il miglior rapporto tra la riduzione della latenza di replica e la riduzione del traffico, la topologia del sito controlla la replica di Active Directory, distinguendo tra replica che si verifica all'interno di un sito e che si verifica tra siti.  
+## <a name="routing-replication"></a>Routing della replica  
+Active Directory Domain Services (AD DS) utilizza un metodo di replica multimaster, di archiviazione e di avanzamento. Un controller di dominio comunica le modifiche alla directory di un secondo controller di dominio, che quindi comunica a un terzo e così via, fino a quando tutti i controller di dominio non hanno ricevuto la modifica. Per ottenere il migliore equilibrio tra la riduzione della latenza di replica e la riduzione del traffico, i controlli della topologia del sito Active Directory la replica distinguendo la replica che si verifica all'interno di un sito e la replica eseguita tra siti.  
   
-All'interno dei siti, è con ottimizzazione per la replica per velocità, avviare la replica degli aggiornamenti di dati e i dati vengono inviati senza l'overhead necessario per la compressione dei dati. Invece, la replica tra siti viene compressa per ridurre al minimo i costi della trasmissione in collegamenti wide area network (WAN). Quando si verifica la replica tra siti, raccoglie e archivia le modifiche nella directory un singolo controller di dominio per ogni dominio in ogni sito e li comunica a un'ora pianificata per un controller di dominio in un altro sito.  
+All'interno dei siti, la replica è ottimizzata per la velocità, gli aggiornamenti dei dati attivano la replica e i dati vengono inviati senza l'overhead richiesto dalla compressione dei dati. Viceversa, la replica tra siti viene compressa per ridurre al minimo il costo della trasmissione sui collegamenti Wide Area Network (WAN). Quando si verifica la replica tra siti, un singolo controller di dominio per ogni dominio in ogni sito raccoglie e archivia le modifiche della directory e le comunica a un momento pianificato in un controller di dominio in un altro sito.  
   
 ## <a name="client-affinity"></a>Affinità del client  
-I controller di dominio utilizzano le informazioni del sito per segnalare ai client di Active Directory sui controller di dominio presenti all'interno del sito più vicino del client. Si consideri ad esempio un client nel sito di Seattle che non conosce relativa associazione di sito e contatta un controller di dominio dal sito ad Atlanta. Basato sull'indirizzo IP del client, il controller di dominio ad Atlanta determina quale sito il client è effettivamente in ordine e invia le informazioni del sito al client. Il controller di dominio indica inoltre il client, se il controller di dominio scelto è quella più vicina a esso. Il client memorizza nella cache le informazioni sul sito forniti dal controller di dominio ad Atlanta, le query per il record di risorse specifico del sito del servizio (SRV) (un sistema DNS (Domain Name) record di risorse usato per individuare i controller di dominio per AD DS) e in tal modo rileva che un dominio controller nello stesso sito.  
+I controller di dominio utilizzano le informazioni del sito per informare Active Directory client sui controller di dominio presenti nel sito più vicino come client. Si consideri, ad esempio, un client nel sito di Seattle che non conosce l'affiliazione del sito e Contatta un controller di dominio dal sito Atlanta. In base all'indirizzo IP del client, il controller di dominio di Atlanta determina il sito da cui il client è effettivamente e invia le informazioni sul sito al client. Il controller di dominio informa inoltre il client se il controller di dominio scelto è quello più vicino. Il client memorizza nella cache le informazioni del sito fornite dal controller di dominio di Atlanta, esegue una query per il record di risorse del servizio specifico del sito (SRV), ovvero un record di risorse Domain Name System (DNS) usato per individuare i controller di dominio per servizi di dominio Active Directory e quindi trova un dominio controller all'interno dello stesso sito.  
   
-Mediante la ricerca di un controller di dominio nello stesso sito, il client consente di evitare le comunicazioni su collegamenti WAN. Se nessun controller di dominio situati nel sito del client, un controller di dominio con le connessioni di costo più basse rispetto a altro siti connessi promuove se stesso (Registra un record di risorse specifico del sito del servizio (SRV) nel DNS) nel sito che non dispone di un controller di dominio. I controller di dominio che vengono pubblicati in DNS sono quelli dal sito più vicino in base alla topologia dei siti. Questo processo assicura che ogni sito dispone di un controller di dominio preferito per l'autenticazione.  
+Trovando un controller di dominio nello stesso sito, il client evita le comunicazioni sui collegamenti WAN. Se nel sito client non è presente alcun controller di dominio, un controller di dominio con le connessioni a costo più basso rispetto ad altri siti connessi annuncia se stesso (registra un record di risorse del servizio specifico del sito (SRV) nel sito che non dispone di un controller di dominio. I controller di dominio pubblicati in DNS sono quelli del sito più vicino come definito dalla topologia del sito. Questo processo garantisce che ogni sito disponga di un controller di dominio preferito per l'autenticazione.  
   
-Per altre informazioni sul processo di individuazione di un controller di dominio, vedere insieme Active Directory ([https://go.microsoft.com/fwlink/?LinkID=88626](https://go.microsoft.com/fwlink/?LinkID=88626)).  
+Per ulteriori informazioni sul processo di individuazione di un controller di dominio, vedere Active Directory Collection ([https://go.microsoft.com/fwlink/?LinkID=88626](https://go.microsoft.com/fwlink/?LinkID=88626)).  
   
-## <a name="sysvol-replication"></a>Replica di SYSVOL  
-SYSVOL è una raccolta di cartelle nel file system che esiste in ogni controller di dominio in un dominio. Le cartelle SYSVOL forniscono un percorso di Active Directory predefinito per i file che devono essere replicate in un dominio, inclusi gli oggetti Criteri di gruppo (GPO), script di avvio e arresto del sistema e gli script di accesso e disconnessione.  Windows Server 2008 è possibile usare il servizio Replica File (FRS) o DFSR Distributed File System Replication () per replicare le modifiche apportate alle cartelle SYSVOL da un controller di dominio ad altri controller di dominio. FRS e replica DFS per replicare tali modifiche in base alla pianificazione che crea durante la progettazione di topologia del sito.  
+## <a name="sysvol-replication"></a>Replica SYSVOL  
+SYSVOL è una raccolta di cartelle nel file system esistente in ogni controller di dominio in un dominio. Le cartelle SYSVOL forniscono un percorso di Active Directory predefinito per i file che devono essere replicati in un dominio, inclusi oggetti Criteri di gruppo (GPO), script di avvio e arresto e script di accesso e disconnessione.  Windows Server 2008 può utilizzare il servizio Replica file (FRS) o la replica file system distribuito (DFSR) per replicare le modifiche apportate alle cartelle SYSVOL da un controller di dominio ad altri controller di dominio. FRS e DFSR replicano queste modifiche in base alla pianificazione creata durante la progettazione della topologia del sito.  
   
 ## <a name="dfsn"></a>DFSN  
-DFSN Usa le informazioni del sito per indirizzare un client al server che ospita i dati all'interno del sito richiesti. Se DFSN non trova una copia dei dati nello stesso sito del client, DFSN utilizza le informazioni del sito in Active Directory Domain Services per determinare quali file server contenente DFSN di dati condivisi sono vicine al client.  
+DFSN utilizza le informazioni del sito per indirizzare un client al server che ospita i dati richiesti all'interno del sito. Se DFSN non trova una copia dei dati all'interno dello stesso sito del client, DFSN usa le informazioni sul sito in servizi di dominio Active Directory per determinare quali file server con dati condivisi DFSN sono più vicini al client.  
   
 ## <a name="service-location"></a>Posizione servizio  
-Mediante la pubblicazione di servizi, ad esempio file e servizi di stampa in Active Directory Domain Services, è consentire ai client di Active Directory individuare il servizio richiesto all'interno della stessa o più vicino al sito. Servizi di stampa usano l'attributo di percorso archiviato in Active Directory Domain Services per consentire agli utenti di cercare le stampanti dal percorso senza conoscere la posizione esatta. Per altre informazioni sulla progettazione e distribuzione di server di stampa, vedere Progettazione e distribuzione di server di stampa ([https://go.microsoft.com/fwlink/?LinkId=107041](https://go.microsoft.com/fwlink/?LinkId=107041)).  
+Grazie alla pubblicazione di servizi quali servizi file e stampa in servizi di dominio Active Directory, è possibile consentire ai client di Active Directory di individuare il servizio richiesto nello stesso sito o in un sito più vicino. I servizi di stampa utilizzano l'attributo location archiviato in servizi di dominio Active Directory per consentire agli utenti di cercare le stampanti in base alla località senza conoscerne la posizione precisa. Per ulteriori informazioni sulla progettazione e la distribuzione di server di stampa, vedere Progettazione e distribuzione di server di stampa ([https://go.microsoft.com/fwlink/?LinkId=107041](https://go.microsoft.com/fwlink/?LinkId=107041)).  
   
 
 

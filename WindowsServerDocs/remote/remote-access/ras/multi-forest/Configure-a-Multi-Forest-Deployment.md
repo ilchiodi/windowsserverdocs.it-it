@@ -1,9 +1,9 @@
 ---
 title: Configure a Multi-Forest Deployment
-description: Questo argomento fa parte della Guida alla distribuzione di accesso remoto in un ambiente con più foreste in Windows Server 2016.
+description: Questo argomento fa parte della Guida distribuire accesso remoto in un ambiente a più foreste in Windows Server 2016.
 manager: brianlic
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-ras
@@ -12,20 +12,20 @@ ms.topic: article
 ms.assetid: 3c8feff2-cae1-4376-9dfa-21ad3e4d5d99
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: bf9222293dfd22b6f32cf00021f34b44c555e340
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: 41c4de30482ff09cb0db8a113fa324b7299af43d
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67281100"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71404540"
 ---
 # <a name="configure-a-multi-forest-deployment"></a>Configure a Multi-Forest Deployment
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016
 
 In questo argomento viene descritto come configurare una distribuzione a più foreste di Accesso remoto in diversi scenari. In tutti gli scenari si presuppone che DirectAccess sia attualmente distribuito in una sola foresta, Forest1, e venga configurato per essere utilizzato in una nuova foresta, Forest2.  
   
-## <a name="AccessForest2"></a>Accedere alle risorse da Forest2  
+## <a name="AccessForest2"></a>Accedere alle risorse da Foresta2  
 In questo scenario, DirectAccess è già distribuito in Forest1 e viene configurato per consentire ai client di Forest1 di accedere alla rete aziendale. Per impostazione predefinita, i client connessi tramite DirectAccess possono accedere solo alle risorse presenti in Forest1 e non sono in grado di accedere ad alcun server contenuto in Forest2.  
   
 #### <a name="to-enable-directaccess-clients-to-access-resources-from-forest2"></a>Per abilitare l'accesso alle risorse di Forest2 da parte dei client DirectAccess  
@@ -34,20 +34,20 @@ In questo scenario, DirectAccess è già distribuito in Forest1 e viene configur
   
 2.  Se IPv6 viene distribuito nella rete interna, aggiungere i prefissi IPv6 interni pertinenti in Forest2.  
   
-## <a name="EnableForest2DA"></a>Abilitare i client da Forest2 alla connessione tramite DirectAccess  
+## <a name="EnableForest2DA"></a>Consentire ai client di Foresta2 di connettersi tramite DirectAccess  
 In questo scenario, viene configurata la distribuzione di Accesso remoto per consentire ai client di Forest2 di accedere alla rete aziendale. Si presuppone che i gruppi di sicurezza richiesti per i computer client di Forest2 siano già stati creati.   
   
 #### <a name="to-allow-clients-from-forest2-to-access-the-corporate-network"></a>Per consentire ai client di Forest2 di accedere alla rete aziendale  
   
 1.  Aggiungere il gruppo di sicurezza dei client da Forest2.  
   
-2.  Se il suffisso DNS di Forest2 non fa parte del suffisso DNS di Forest1, aggiungere regole NRPT con i suffissi di dominio dei client contenuti in Forest2 per abilitare l'accesso ai controller di dominio per l'autenticazione e, facoltativamente, aggiungere i suffissi dei domini in Forest2 al suf DNS correggere l'elenco di ricerca. 
+2.  Se il suffisso DNS di Foresta2 non fa parte del suffisso DNS di Forest1, aggiungere regole della tabella dei criteri di risoluzione dei nomi con i suffissi del dominio dei client in Foresta2 per consentire l'accesso ai controller di dominio per l'autenticazione e, facoltativamente, aggiungere i suffissi dei domini in Foresta2 al servizio DNS SUF correggere l'elenco di ricerca. 
   
 3.  Aggiungere i prefissi IPv6 interni in Forest2 per consentire a DirectAccess di creare il tunnel IPsec ai controller di dominio per l'autenticazione.  
   
 4.  Aggiornare l'elenco dei server di gestione.  
   
-## <a name="AddEPForest2"></a>Aggiungere punti di ingresso da Forest2  
+## <a name="AddEPForest2"></a>Aggiungere punti di ingresso da Foresta2  
 In questo scenario, DirectAccess viene distribuito in una configurazione multisito in Forest1 e si desidera aggiungere un server di Accesso remoto, DA2, da Forest2 come punto di ingresso alla distribuzione multisito DirectAccess esistente.  
   
 #### <a name="to-add-a-remote-access-server-from-forest2-as-an-entry-point"></a>Per aggiungere un server di Accesso remoto come punto di ingresso da Forest2  
@@ -62,18 +62,18 @@ In questo scenario, DirectAccess viene distribuito in una configurazione multisi
   
 5.  Aggiornare l'elenco dei server di gestione.  
   
-## <a name="OTPMultiForest"></a>Configurare l'autenticazione OTP in una distribuzione a più foreste  
+## <a name="OTPMultiForest"></a>Configurare OTP in una distribuzione a più foreste  
 Per una configurazione OTP in una distribuzione a più foreste tenere presente i termini seguenti:  
   
--   Foreste autorità di certificazione, il principale infrastruttura a chiave pubblica dell'albero autorità di certificazione radice.  
+-   CA radice: CA principale dell'albero PKI della foresta.  
   
--   Autorità di certificazione aziendale, tutti gli altri CAs.  
+-   CA globale (Enterprise): tutte le altre CA.  
   
--   La foresta delle risorse dell'insieme di strutture che contiene la CA radice e viene considerato il 'gestione foresta/dominio'.  
+-   Foresta delle risorse: la foresta che contiene la CA radice ed è considerata come ' Managing forest\domain '.  
   
--   Foresta account-All altre foreste nella topologia.  
+-   Foresta degli account: tutte le altre foreste nella topologia.  
   
-Per questa procedura è necessario lo script PKISync.ps1 di PowerShell. Vedere [Servizi certificati Active Directory: Script PKISync.ps1 per registrazione certificato tra foreste](https://technet.microsoft.com/library/ff961506.aspx).  
+Per questa procedura è necessario lo script PKISync.ps1 di PowerShell. Vedere [AD CS: Script script PKISync. ps1 per la registrazione di certificati tra foreste @ no__t-0.  
   
 > [!NOTE]  
 > Questo argomento include cmdlet di esempio di Windows PowerShell che è possibile usare per automatizzare alcune delle procedure descritte. Per ulteriori informazioni, vedere [mediante i cmdlet](https://go.microsoft.com/fwlink/p/?linkid=230693).  
@@ -100,7 +100,7 @@ Per questa procedura è necessario lo script PKISync.ps1 di PowerShell. Vedere [
     certutil -config <Computer-Name>\<Root-CA-Name> -ca.cert <root-ca-cert-filename.cer>  
     ```  
   
-    (Se si esegue il comando nella CA radice è possibile omettere le informazioni di connessione - < nome-Computer > config\\< nome-CA-radice >)  
+    Se si esegue il comando nella CA radice, è possibile omettere le informazioni sulla connessione,-config < nome-computer > \\ < radice-CA-Name >)  
   
     1.  Importare il certificato CA radice estratto nel precedente passaggio nella CA della foresta degli account eseguendo il comando seguente in un prompt dei comandi con privilegi elevati:  
   
@@ -108,7 +108,7 @@ Per questa procedura è necessario lo script PKISync.ps1 di PowerShell. Vedere [
         certutil -dspublish -f <root-ca-cert-filename.cer> RootCA  
         ```  
   
-    2.  Foresta delle risorse GRANT certificato modelli delle autorizzazioni di scrittura per il \<foresta Account\>\\< account di amministratore\>.  
+    2.  Concedere le autorizzazioni di lettura/scrittura per i modelli di certificato della foresta delle risorse alla foresta \<Account @ no__t-1 @ no__t-2 < account amministratore @ no__t-3.  
   
     3.  Estrarre tutti i certificati CA globale (enterprise) della foresta delle risorse eseguendo questo comando da un prompt dei comandi con privilegi elevati:  
   
@@ -116,7 +116,7 @@ Per questa procedura è necessario lo script PKISync.ps1 di PowerShell. Vedere [
         certutil -config <Computer-Name>\<Enterprise-CA-Name> -ca.cert <enterprise-ca-cert-filename.cer>  
         ```  
   
-        (Se si esegue il comando nella CA radice è possibile omettere le informazioni di connessione - < nome-Computer > config\\< nome-CA-radice >)  
+        Se si esegue il comando nella CA radice, è possibile omettere le informazioni sulla connessione,-config < nome-computer > \\ < radice-CA-Name >)  
   
     4.  Importare i certificati della CA globale (enterprise) estratti nel precedente passaggio nella CA della foresta degli account eseguendo il comando seguente in un prompt dei comandi con privilegi elevati:  
   
@@ -143,7 +143,7 @@ Per questa procedura è necessario lo script PKISync.ps1 di PowerShell. Vedere [
   
 -   Emettere i modelli di certificato nuovi importati in tutte le CA delle foreste degli account.  
   
-### <a name="BKMK_Extract"></a>Estrarre e sincronizzare le autorità di certificazione  
+### <a name="BKMK_Extract"></a>Estrarre e sincronizzare la CA  
   
 1.  Estrarre tutti i certificati della CA globale (enterprise) dalle foreste degli account eseguendo il comando seguente in un prompt dei comandi con privilegi elevati:  
   
@@ -166,7 +166,7 @@ Per questa procedura è necessario lo script PKISync.ps1 di PowerShell. Vedere [
 ## <a name="configuration-procedures"></a>Procedure di configurazione  
 Nelle sezioni seguenti sono illustrate le procedure di configurazione per le distribuzioni di scenario sopra riportate. Dopo aver completato una procedura, tornare allo scenario per continuare.  
   
-### <a name="NRPT_DNSSearchSuffix"></a>Aggiungere regole NRPT e suffissi DNS  
+### <a name="NRPT_DNSSearchSuffix"></a>Aggiungere regole della tabella e suffissi DNS  
 I client che si connettono alla rete aziendale per mezzo di DirectAccess utilizzano la tabella dei criteri di risoluzione dei nomi (NRPT) per determinare quale server DNS utilizzare per risolvere l'indirizzo di risorse diverse. In questo modo il client può risolvere gli indirizzi delle risorse aziendali e conservare una classificazione adeguata sia all'interno che all'esterno dell'azienda, indispensabile per continuare a utilizzare DirectAccess. Gli strumenti di configurazione di DirectAccess rilevano automaticamente il suffisso DNS radice di Forest1 e lo aggiungono alla tabella NRPT. I suffissi FQDN di Forest2, invece, non vengono aggiunti automaticamente alla tabella NRPT e l'amministratore di Accesso remoto deve aggiungerli manualmente.  
   
 L'elenco di ricerca suffissi DNS consente ai client di utilizzare nomi di etichetta breve, anziché nomi di dominio completo. Gli strumenti di configurazione di Accesso remoto aggiungono automaticamente tutti i domini di Forest1 all'elenco di ricerca dei suffissi DNS. Se si desidera abilitare l'utilizzo di nomi di etichetta breve per le risorse di Forest2 nei client, è necessario aggiungerli automaticamente.  
@@ -177,7 +177,7 @@ L'elenco di ricerca suffissi DNS consente ai client di utilizzare nomi di etiche
   
 2.  Nella pagina **Server dei percorsi di rete** fare clic su **Avanti**.  
   
-3.  Nella tabella della pagina **DNS** immettere eventuali suffissi di nomi aggiuntivi che fanno parte della rete aziendale in Forest 2. In **Indirizzo del server DNS** inserire manualmente l'indirizzo del server DNS o fare clic su **Rileva**. Se non si immette l'indirizzo, le nuove voci vengono applicate come esenzioni della tabella NRPT. Fare quindi clic su **Avanti**.  
+3.  Nella tabella della pagina **DNS** immettere eventuali suffissi di nomi aggiuntivi che fanno parte della rete aziendale in Forest 2. In **Indirizzo del server DNS** inserire manualmente l'indirizzo del server DNS o fare clic su **Rileva**. Se non si immette l'indirizzo, le nuove voci vengono applicate come esenzioni della tabella dei criteri di risoluzione dei nomi. Fare quindi clic su **Avanti**.  
   
 4.  Facoltativo: nella pagina **Elenco di ricerca suffissi DNS** aggiungere eventuali suffissi DNS inserendo il suffisso nella casella **Nuovo suffisso** e facendo clic su **Aggiungi**. Fare quindi clic su **Avanti**.  
   
@@ -189,12 +189,12 @@ L'elenco di ricerca suffissi DNS consente ai client di utilizzare nomi di etiche
   
 8.  Nella finestra di dialogo **Applicazione delle impostazioni della Configurazione guidata Accesso remoto** fare clic su **Chiudi**.  
   
-### <a name="IPv6Prefix"></a>Aggiungere un prefisso IPv6 interno  
+### <a name="IPv6Prefix"></a>Aggiungi prefisso IPv6 interno  
   
 > [!NOTE]  
 > È necessario aggiungere un prefisso IPv6 interno solo quando IPv6 viene distribuito nella rete interna.  
   
-Accesso remoto gestisce un elenco di prefissi IPv6 per le risorse aziendali. È possibile accedere alle risorse utilizzando i prefissi IPv6 solo da client connessi tramite DirectAccess. Poiché la console Gestione accesso remoto e i comandi di Windows PowerShell automaticamente aggiungere i prefissi IPv6 di Forest1 e non potrebbero aggiungere i prefissi di altre foreste, è necessario aggiungere manualmente qualsiasi mancante i prefissi di Forest2.  
+Accesso remoto gestisce un elenco di prefissi IPv6 per le risorse aziendali. È possibile accedere alle risorse utilizzando i prefissi IPv6 solo da client connessi tramite DirectAccess. Poiché la console di gestione accesso remoto e i comandi di Windows PowerShell aggiungono automaticamente i prefissi IPv6 di Forest1 e potrebbero non aggiungere i prefissi di altre foreste, è necessario aggiungere manualmente i prefissi mancanti di Foresta2.  
   
 ##### <a name="to-add-an-ipv6-prefix"></a>Per aggiungere un prefisso IPv6  
   
@@ -213,7 +213,7 @@ Accesso remoto gestisce un elenco di prefissi IPv6 per le risorse aziendali. È 
 7.  Nella finestra di dialogo **Applicazione delle impostazioni della Configurazione guidata Accesso remoto** fare clic su **Chiudi**.  
   
 ### <a name="SGs"></a>Aggiungere gruppi di sicurezza client  
-Per consentire ai computer client Windows 8 di Forest2 di accedere alle risorse tramite DirectAccess, è necessario aggiungere il gruppo di sicurezza da Forest2 alla distribuzione di accesso remoto.  
+Per consentire ai computer client Windows 8 da Foresta2 di accedere alle risorse tramite DirectAccess, è necessario aggiungere il gruppo di sicurezza da Foresta2 alla distribuzione di accesso remoto.  
   
 ##### <a name="to-add-windows-8-client-security-groups"></a>Per aggiungere gruppi di sicurezza client Windows 8  
   
@@ -231,9 +231,9 @@ Per consentire ai computer client Windows 8 di Forest2 di accedere alle risorse 
   
 7.  Nella finestra di dialogo **Applicazione delle impostazioni della Configurazione guidata Accesso remoto** fare clic su **Chiudi**.  
   
-Per attivare Windows 7 ai computer client di Forest2 di accedere alle risorse tramite DirectAccess quando multisito è abilitato, è necessario aggiungere il gruppo di sicurezza da Forest2 alla distribuzione di accesso remoto per ogni punto di ingresso. Per informazioni sull'aggiunta di gruppi di sicurezza di Windows 7, vedere la descrizione del **supporto Client** pagina 3.6. Abilitare la distribuzione multisito.  
+Per consentire ai computer client Windows 7 di Foresta2 di accedere alle risorse tramite DirectAccess quando è abilitata la funzionalità multisito, è necessario aggiungere il gruppo di sicurezza da Foresta2 alla distribuzione di accesso remoto per ogni punto di ingresso. Per informazioni sull'aggiunta di gruppi di sicurezza di Windows 7, vedere la descrizione della pagina **supporto client** in 3,6. Abilitare la distribuzione multisito.  
   
-### <a name="RefreshMgmtServers"></a>Aggiornare l'elenco di server di gestione  
+### <a name="RefreshMgmtServers"></a>Aggiornare l'elenco dei server di gestione  
 Accesso remoto rileva automaticamente i server di infrastruttura in tutte le foreste che contengono oggetti Criteri di gruppo per la configurazione di DirectAccess. Se DirectAccess è stato distribuito in un server di Forest1, l'oggetto Criteri di gruppo del server verrà scritto nel relativo dominio in Forest1. Se è abilitato l'accesso a DirectAccess per i client di Forest2, l'oggetto Criteri di gruppo del client verrà scritto in un dominio in Forest2.  
   
 Il processo di individuazione automatica dei server di infrastruttura è necessario per consentire di accedere tramite DirectAccess ai controller di dominio e a System Center Configuration Manager. Il processo di individuazione deve essere avviato manualmente.  

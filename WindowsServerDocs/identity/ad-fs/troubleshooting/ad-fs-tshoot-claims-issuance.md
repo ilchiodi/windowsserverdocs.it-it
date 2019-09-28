@@ -1,40 +1,40 @@
 ---
-title: Risoluzione dei problemi di AD FS - rilascio di attestazioni
-description: Questo documento descrive come risolvere i problemi di rilascio dei token di AD FS
+title: Risoluzione dei problemi AD FS-rilascio di attestazioni
+description: In questo documento viene descritto come risolvere i problemi di emissione di token con AD FS
 author: billmath
 ms.author: billmath
 manager: mtillman
 ms.date: 01/03/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: fdf8851fe9b35f82191458ba3313fda2dc3ee4cf
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: ea0e6112f00f9cace6a0c580661a5319b5adaea5
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59839662"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71366236"
 ---
-# <a name="ad-fs-troubleshooting---claims-issuance"></a>Risoluzione dei problemi di AD FS - rilascio di attestazioni
-Un'attestazione è un'istruzione che un soggetto compie relativa a se stesso o un altro soggetto.  Le attestazioni vengono generate da una relying party e vengono assegnati uno o più valori e quindi inserite nei token di sicurezza emessi dal server AD FS.  Poiché sono presenti molti elementi in questo processo, rilascio delle attestazioni può essere suddivisa nelle parti seguenti chiavi.
+# <a name="ad-fs-troubleshooting---claims-issuance"></a>Risoluzione dei problemi AD FS-rilascio di attestazioni
+Un'attestazione è un'istruzione che un soggetto crea su se stesso o su un altro soggetto.  Le attestazioni vengono rilasciate da un relying party, a cui vengono assegnati uno o più valori e quindi inseriti in un pacchetto nei token di sicurezza emessi dal server di AD FS.  Poiché in questo processo sono presenti diverse parti mobili, il rilascio di attestazioni può essere suddiviso in queste parti principali.
 
 >[!NOTE]  
->È possibile usare [ClaimsXRay](https://adfshelp.microsoft.com/ClaimsXray/TokenRequest) nel [Guida di ad FS](https://adfshelp.microsoft.com) sito per facilitare la risoluzione dei problemi di attestazioni.   
+>È possibile utilizzare [ClaimsXRay](https://adfshelp.microsoft.com/ClaimsXray/TokenRequest) nel sito della [Guida di ADFS](https://adfshelp.microsoft.com) per facilitare la risoluzione dei problemi relativi alle attestazioni.   
 
 ## <a name="token-request"></a>Richiesta di token
-Quando si passa a una relying party si verrà reindirizzati ad AD FS con una richiesta di token.  Possono verificarsi problemi con la richiesta.  In particolare:
+Quando si passa a un relying party viene reindirizzato all'AD FS con una richiesta di token.  I problemi possono verificarsi con la richiesta.  In particolare:
 
-### <a name="the-request-formatting-with-3rd-parties-particularly-saml"></a>La richiesta di formattazione con parti 3rd (in particolare SAML)
+### <a name="the-request-formatting-with-3rd-parties-particularly-saml"></a>Formattazione della richiesta con terze parti (in particolare SAML)
 
-### <a name="pre-formated-urls-that-have-typos"></a>Pre-formato URL con errori di digitazione
-Quando si emette un token dalla relying party WS-Federaion tale richiesta di token include parametri di stringa di query dell'URL.  Se la relying party non specificare i parametri corretti in quell'URL quando esegue il reindirizzamento ad AD FS potrebbe causare un problema con la richiesta.
-
-
-Per poter verificare il formato del token, è possibile utilizzare uno strumento di debugger web
+### <a name="pre-formated-urls-that-have-typos"></a>URL pre-formattati con errori di digitazione
+Quando si emette un token dalla relying party WS-Federaion, la richiesta di token viene fornita con i parametri della stringa di query dell'URL.  Se il relying party non specifica i parametri corretti in tale URL quando esegue il reindirizzamento a AD FS, potrebbe verificarsi un problema con la richiesta.
 
 
-## <a name="token-response"></a>Risposta del token
+Per verificare il formato del token, è possibile usare uno strumento del debugger Web
 
-## <a name="authentication"></a>Autenticazione
 
-## <a name="claim-rule-processing"></a>Elaborazione delle regole attestazione
+## <a name="token-response"></a>Risposta token
+
+## <a name="authentication"></a>Authentication
+
+## <a name="claim-rule-processing"></a>Elaborazione delle regole attestazioni
