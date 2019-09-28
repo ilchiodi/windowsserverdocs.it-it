@@ -1,7 +1,7 @@
 ---
-title: Dfsutil importazione radice Merge
+title: Merge importazione radice Dfsutil
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -12,17 +12,17 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: e09f4c14800b7deee4b90bc153e8d707dc3ed524
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 45011b1f0a47c6f081c46522d8aed7245ca9f49d
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59856362"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71378076"
 ---
-# <a name="dfsutil-root-import-merge"></a>Dfsutil importazione radice Merge
+# <a name="dfsutil-root-import-merge"></a>Merge importazione radice Dfsutil
 
 
 
-## <a name="this-topic-is-no-longer-available"></a>In questo argomento non è più disponibile
+## <a name="this-topic-is-no-longer-available"></a>Questo argomento non è più disponibile
 
-Siamo spiacenti, ovvero l'argomento richiesto non è più disponibile.
+L'argomento richiesto non è più disponibile.

@@ -1,8 +1,8 @@
 ---
 title: convert mbr
-description: 'Argomento i comandi di Windows per * * *- '
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,23 +13,23 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: da8d62567863bc38a5aa0b35a8f3fe4ee24cc888
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 47001415158b3bdb0b06af9114b995a6f0634da1
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59834612"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71379069"
 ---
 # <a name="convert-mbr"></a>convert mbr
 
 
 
-Converte un disco di base vuoto con lo stile di partizione della tabella di partizione GUID (GPT) in un disco di base con lo stile di partizione avvio principale (MBR) record.
+Converte un disco di base vuoto con lo stile di partizione GPT (tabella di partizione GUID) in un disco di base con lo stile di partizione MBR (master boot record).
 
 > [!IMPORTANT]
-> Il disco deve essere vuoto per convertirlo in un disco MBR. Eseguire il backup dei dati e quindi eliminare tutte le partizioni o volumi prima di convertire il disco.
+> Il disco deve essere vuoto per convertirlo in un disco MBR. Eseguire il backup dei dati e quindi eliminare tutte le partizioni o i volumi prima di convertire il disco.
 
-Per istruzioni su come usare questo comando, vedere [modificare un disco GPT in un disco MBR Master](https://go.microsoft.com/fwlink/?LinkId=207050) (https://go.microsoft.com/fwlink/?LinkId=207050).
+Per istruzioni su come usare questo comando, vedere [modificare un disco della tabella di partizione GUID in un disco di record di avvio principale](https://go.microsoft.com/fwlink/?LinkId=207050) (https://go.microsoft.com/fwlink/?LinkId=207050).
 
 ## <a name="syntax"></a>Sintassi
 
@@ -41,20 +41,20 @@ convert mbr [noerr]
 
 |Parametro|Descrizione|
 |---------|-----------|
-|NOERR|Solo per script. Quando si è verificato un errore, DiskPart continua a elaborare i comandi come se non si è verificato l'errore. Senza questo parametro, un errore causa DiskPart viene interrotto con un codice di errore.|
+|NOERR|Solo per gli script. Quando si è verificato un errore, DiskPart continua a elaborare i comandi come se non si è verificato l'errore. Senza questo parametro, un errore causa DiskPart viene interrotto con un codice di errore.|
 
 ## <a name="remarks"></a>Note
 
--   Per eseguire questa operazione, è necessario selezionare un disco di base. Usare la **disco selezionare** comando per selezionare un disco di base e spostare lo stato attivo a esso.
+-   Per eseguire questa operazione, è necessario selezionare un disco di base. Usare il comando **Seleziona disco** per selezionare un disco di base e spostare lo stato attivo a esso.
 
 ## <a name="BKMK_examples"></a>Esempi
 
-Per convertire un disco di base di stile di partizione GPT in stile di partizione MBR, digitare >:
+Per convertire un disco di base dallo stile di partizione GPT allo stile di partizione MBR, digitare >:
 ```
 convert mbr
 ```
 
 #### <a name="additional-references"></a>Altri riferimenti
 
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)
+[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
 

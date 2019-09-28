@@ -1,8 +1,8 @@
 ---
 title: bitsadmin getdescription
-description: Argomento i comandi di Windows per **getdescription bitsadmin** -recupera la descrizione del processo specificato.
+description: 'Argomento dei comandi di Windows per **BITSAdmin GetDescription** : Recupera la descrizione del processo specificato.'
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: ee20dd808cdbc8b76f44b7b14c9fd65b313a74e5
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 02ab91ad9b6d1d6d1ef67465bb5c982fbddc1bb4
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59813132"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71381654"
 ---
 # <a name="bitsadmin-getdescription"></a>bitsadmin getdescription
 
@@ -40,11 +40,11 @@ bitsadmin /GetDescription <Job>
 
 ## <a name="BKMK_examples"></a>Esempi
 
-Nell'esempio seguente recupera la descrizione per il processo denominato *myDownloadJob*.
+Nell'esempio seguente viene recuperata la descrizione per il processo denominato *myDownloadJob*.
 ```
 C:\>bitsadmin /GetDescription myDownloadJob
 ```
 
 #### <a name="additional-references"></a>Altri riferimenti
 
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)
+[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

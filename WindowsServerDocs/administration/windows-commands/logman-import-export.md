@@ -1,8 +1,8 @@
 ---
 title: importazione Logman | esportazione
-description: 'Argomento i comandi di Windows per * * *- '
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 2d68f5f340476bbb783c47f9c3fe9c060105b4e4
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 309274b5288bd1c17259e01cf563ae8685a2094e
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66437709"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71374456"
 ---
 # <a name="logman-import--export"></a>importazione Logman | esportazione
 
@@ -39,9 +39,9 @@ logman export <[-n] <name>> <-xml <name>> [options]
 |   -s <computer name>    |                                                   Eseguire il comando nel computer remoto specificato.                                                   |
 |     -config <value>     |                                                  Specifica il file di impostazioni che contiene le opzioni di comando.                                                  |
 |       [-n] <name>       |                                                                Nome dell'oggetto di destinazione.                                                                 |
-|       -xml <name>       |                                                         Nome del file XML per importare o esportare.                                                         |
+|       -XML <name>       |                                                         Nome del file XML per importare o esportare.                                                         |
 |          -ets           |                                       Inviare comandi alle sessioni di traccia eventi direttamente senza salvare o pianificare.                                        |
-| -u [-] < utente [password] > | Utente di Esegui come. Immettere un \* per la password produce una richiesta per la password. La password non viene visualizzata quando si digita. |
+| -u [-] < utente [password] > | Utente di Esegui come. L'immissione di un \* per la password genera una richiesta per la password. La password non viene visualizzata quando si digita. |
 |           -y            |                                                      Rispondere Sì a tutte le domande senza chiedere conferma.                                                       |
 
 ## <a name="BKMK_examples"></a>Esempi  

@@ -1,42 +1,42 @@
 ---
 title: Estensione dei volumi in Spazi di archiviazione diretta
-description: Come ridimensionare i volumi in spazi di archiviazione diretta tramite Windows Admin Center e PowerShell.
-ms.prod: windows-server-threshold
+description: Come ridimensionare i volumi in Spazi di archiviazione diretta usando l'interfaccia di amministrazione di Windows e PowerShell.
+ms.prod: windows-server
 ms.reviewer: cosmosdarwin
 author: cosmosdarwin
 ms.author: cosdar
 manager: eldenc
 ms.technology: storage-spaces
 ms.date: 05/07/2019
-ms.openlocfilehash: 3be6a4cda20f4d7d7d881ad8a272dc38fd787bba
-ms.sourcegitcommit: 75f257d97d345da388cda972ccce0eb29e82d3bc
+ms.openlocfilehash: 20482fe1728b12d4fe56dcfa397352fbb4b4f981
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65613231"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71366089"
 ---
 # <a name="extending-volumes-in-storage-spaces-direct"></a>Estensione dei volumi in Spazi di archiviazione diretta
 > Si applica a: Windows Server 2019, Windows Server 2016
 
-Questo argomento fornisce istruzioni per il ridimensionamento dei volumi in un [spazi di archiviazione diretta](storage-spaces-direct-overview.md) cluster utilizzando Windows Admin Center.
+Questo argomento fornisce istruzioni per il ridimensionamento dei volumi in un cluster [spazi di archiviazione diretta](storage-spaces-direct-overview.md) usando l'interfaccia di amministrazione di Windows.
 
-Guardare un video rapido su come ridimensionare un volume.
+Guarda un breve video su come ridimensionare un volume.
 
 > [!VIDEO https://www.youtube-nocookie.com/embed/hqyBzipBoTI]
 
-## <a name="extending-volumes-using-windows-admin-center"></a>Estensione dei volumi utilizzando Windows Admin Center
+## <a name="extending-volumes-using-windows-admin-center"></a>Estensione di volumi con l'interfaccia di amministrazione di Windows
 
-1. In Windows Admin Center, connettersi a un cluster di spazi di archiviazione diretta e quindi selezionare **volumi** dalle **Tools** riquadro.
-2. Nella pagina di volumi, selezionare la **inventario** scheda e quindi selezionare il volume che si intende ridimensionare.
+1. Nell'interfaccia di amministrazione di Windows connettersi a un cluster Spazi di archiviazione diretta e quindi selezionare **volumi** dal riquadro **strumenti** .
+2. Nella pagina volumi selezionare la scheda **inventario** , quindi selezionare il volume che si desidera ridimensionare.
 
-    Nella pagina dei dettagli di volume, è indicata la capacità di archiviazione per il volume. È anche possibile aprire la pagina dei dettagli volumi direttamente dal Dashboard. Nel Dashboard, nel riquadro avvisi, selezionare l'avviso, che avvisa l'utente se un volume è quasi esaurito la capacità di archiviazione, e quindi selezionare **passare al Volume**.
+    Nella pagina dettagli volume è indicata la capacità di archiviazione per il volume. È anche possibile aprire la pagina dei dettagli sui volumi direttamente dal dashboard. Nel riquadro avvisi del Dashboard selezionare l'avviso, che informa l'utente se la capacità di archiviazione di un volume è insufficiente e quindi selezionare **Vai al volume**.
 
-4. Nella parte superiore della pagina di dettaglio di volumi, selezionare **ridimensionare**.
-5. Immettere una nuova dimensione maggiore e quindi selezionare **ridimensionare**.
+4. Nella parte superiore della pagina dei dettagli volumi selezionare **Ridimensiona**.
+5. Immettere una nuova dimensione maggiore e quindi fare clic su **Ridimensiona**.
 
-    Nella pagina dei dettagli di volumi, viene indicata la capacità di archiviazione più grande per il volume e viene cancellato l'avviso sul Dashboard.
+    Nella pagina Dettagli volumi è indicata la capacità di archiviazione più ampia per il volume e l'avviso sul dashboard è stato cancellato.
 
-## <a name="extending-volumes-using-powershell"></a>Estensione dei volumi con PowerShell
+## <a name="extending-volumes-using-powershell"></a>Estensione di volumi con PowerShell
 
 ### <a name="capacity-in-the-storage-pool"></a>Capacità nel pool di archiviazione
 
@@ -50,7 +50,7 @@ In Spazi di archiviazione diretta, ogni volume è costituito da diversi oggetti 
 
 Per acquisire familiarità con tali oggetti, prova a eseguire **Get-** con il sostantivo corrispondente in PowerShell.
 
-Ad esempio: 
+Esempio:
 
 ```PowerShell
 Get-VirtualDisk
@@ -142,6 +142,6 @@ La procedura è terminata.
 ## <a name="see-also"></a>Vedere anche
 
 - [Spazi di archiviazione diretta in Windows Server 2016](storage-spaces-direct-overview.md)
-- [Pianificazione di volumi in spazi di archiviazione diretta](plan-volumes.md)
-- [Creazione di volumi in spazi di archiviazione diretta](create-volumes.md)
-- [Eliminazione dei volumi in spazi di archiviazione diretta](delete-volumes.md)
+- [Pianificazione di volumi in Spazi di archiviazione diretta](plan-volumes.md)
+- [Creazione di volumi in Spazi di archiviazione diretta](create-volumes.md)
+- [Eliminazione di volumi in Spazi di archiviazione diretta](delete-volumes.md)

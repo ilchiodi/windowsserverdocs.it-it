@@ -1,8 +1,8 @@
 ---
-title: volume di attributi
-description: Argomento i comandi di Windows per **attributi volume** -Visualizza, imposta o Cancella gli attributi di un volume.
+title: volume attributi
+description: Windows Commands Topic for **Attributes volume** -Visualizza, imposta o cancella gli attributi di un volume.
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 37af55ee2a041fbcf8068e0def72147732d3a687
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 225a10307123763d1a024fcc08fbae536fd0b5df
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59846582"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71382579"
 ---
-# <a name="attributes-volume"></a>volume di attributi
+# <a name="attributes-volume"></a>volume attributi
 
 >Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Visualizza, imposta o Cancella gli attributi di un volume.  
+Visualizza, imposta o cancella gli attributi di un volume.  
   
   
   
@@ -40,41 +40,41 @@ attributes volume [{set | clear}] [{hidden | readonly | nodefaultdriveletter | s
 |-------|--------|  
 |set|Imposta l'attributo specificato del volume con lo stato attivo.|  
 |clear|Cancella l'attributo specificato del volume con lo stato attivo.|  
-|readonly|Specifica che il volume viene letto\-solo.|  
-|Nascosta|Specifica che il volume è nascosto.|  
-|NODEFAULTDRIVELETTER sono|Specifica che il volume non riceve una lettera di unità per impostazione predefinita.|  
-|SHADOWCOPY|Specifica che il volume è un volume copia shadow.|  
-|NOERR|Solo per script. Quando si è verificato un errore, DiskPart continua a elaborare i comandi come se non si è verificato l'errore. Senza questo parametro, un errore causa DiskPart viene interrotto con un codice di errore.|  
+|readonly|Specifica che il volume viene letto @ no__t-0only.|  
+|nascosto|Specifica che il volume è nascosto.|  
+|NODEFAULTDRIVELETTER|Specifica che il volume non riceve una lettera di unità per impostazione predefinita.|  
+|ShadowCopy|Specifica che il volume è un volume di copia shadow.|  
+|NOERR|Solo per gli script. Quando si è verificato un errore, DiskPart continua a elaborare i comandi come se non si è verificato l'errore. Senza questo parametro, un errore causa DiskPart viene interrotto con un codice di errore.|  
   
 ## <a name="remarks"></a>Note  
   
--   Nel record di avvio principale base \(MBR\) dischi, il **nascosto**, **readonly**, e **NODEFAULTDRIVELETTER sono** parametri si applicano a tutti i volumi in il disco.  
+-   Nel record di avvio principale di base \(MBR @ no__t-1 disks, i parametri **Hidden**, **ReadOnly**e **nodefaultdriveletter** si applicano a tutti i volumi sul disco.  
   
--   Nella tabella di partizione GUID semplice \(gpt\) dischi e su dynamic dischi MBR e gpt, il **nascosto**, **readonly**, e **NODEFAULTDRIVELETTER sono** i parametri si applicano solo al volume selezionato.  
+-   Nella tabella di partizione GUID di base \(gpt @ no__t-1 dischi e nei dischi MBR e GPT dinamici i parametri **Hidden**, **ReadOnly**e **nodefaultdriveletter** si applicano solo al volume selezionato.  
   
--   È necessario selezionare un volume per la **attributi volume** comando abbia esito positivo. Utilizzare il **Selezionare volume** comando per selezionare un volume e spostare lo stato attivo a esso.  
+-   È necessario selezionare un volume affinché il comando **volume attributi** abbia esito positivo. Utilizzare il **Selezionare volume** comando per selezionare un volume e spostare lo stato attivo a esso.  
   
 ## <a name="BKMK_examples"></a>Esempi  
-Per visualizzare gli attributi correnti nel volume selezionato, digitare:  
+Per visualizzare gli attributi correnti sul volume selezionato, digitare:  
   
 ```  
 attributes volume  
 ```  
   
-Per impostare il volume selezionato come nascosto e lettura\-solo, digitare:  
+Per impostare il volume selezionato come nascosto e leggere @ no__t-0only, digitare:  
   
 ```  
 attributes volume set hidden readonly  
 ```  
   
-Per rimuovere i nascosti e lettura\-solo gli attributi del volume selezionato, digitare:  
+Per rimuovere gli attributi Hidden e Read @ no__t-0only nel volume selezionato, digitare:  
   
 ```  
 attributes volume clear hidden readonly  
 ```  
   
 #### <a name="additional-references"></a>Riferimenti aggiuntivi  
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)  
+[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)  
   
 
   

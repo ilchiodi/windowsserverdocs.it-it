@@ -1,8 +1,8 @@
 ---
 title: find
-description: 'Argomento i comandi di Windows per * * *- '
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 4b13a2fe573ffc81fa5c85d8fd28e9ab13ca4342
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 25cd99f3a6411c637a07b7231729cbf529a5d52e
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66439345"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71377197"
 ---
 # <a name="find"></a>find
 
@@ -38,37 +38,37 @@ find [/v] [/c] [/n] [/i] [/off[line]] "<String>" [[<Drive>:][<Path>]<FileName>[.
 
 |           Parametro           |                                              Descrizione                                               |
 |-------------------------------|--------------------------------------------------------------------------------------------------------|
-|              /v               |                    Visualizza tutte le righe che non contengono specificato \<stringa >.                     |
-|              /c               |              Conta le righe che contengono l'oggetto specificato \<String > e visualizza il totale.              |
+|              /v               |                    Consente di visualizzare tutte le righe che non contengono i > \<String specificati.                     |
+|              /c               |              Conta le righe che contengono il > \<String specificato e visualizza il totale.              |
 |              /n               |                            Precede ogni riga con numero di riga del file.                             |
 |              /i               |                            Specifica che la ricerca non fa distinzione maiuscole/minuscole.                            |
 |         [/ [offline]]          |                        Non ignorare i file che sono impostato l'attributo non in linea.                        |
-|          "\<String>"          | Obbligatorio. Specifica il gruppo di caratteri (racchiusa tra virgolette singole) che si desidera cercare. |
-| [\<Drive>:][<Path>]<FileName> |        Specifica il percorso e nome del file in cui cercare la stringa specificata.        |
+|          "\<String >"          | Obbligatorio. Specifica il gruppo di caratteri (racchiusa tra virgolette singole) che si desidera cercare. |
+| [\<Drive >:] [<Path>] <FileName> |        Specifica il percorso e nome del file in cui cercare la stringa specificata.        |
 |              /?               |                                  Visualizza la guida al prompt dei comandi.                                  |
 
 ## <a name="remarks"></a>Note
 
--   Se si specifica una stringa
+-   Specifica di una stringa
 
-    Se non si usa **/i**, **trovare** cerca esattamente il testo specificato per la *stringa*. Ad esempio, il **trovare** considera i caratteri "a" e "A" in modo diverso. Se si utilizza **/i**, tuttavia, **trovare** non distinzione maiuscole/minuscole e considera "a" e "" come lo stesso carattere.
+    Se non si usa **/i**, **trovare** cerca esattamente ciò che si specifica per la *stringa*. Ad esempio, il **trovare** considera i caratteri "a" e "A" in modo diverso. Se si utilizza **/i**, tuttavia, **trovare** non distinzione maiuscole/minuscole e considera "a" e "" come lo stesso carattere.
 
     Se la stringa che si desidera cercare contiene virgolette, è necessario utilizzare le virgolette doppie per ogni virgoletta contenuta all'interno della stringa (ad esempio, """string" "contiene virgolette").
--   Usando **trovare** come filtro
+-   Utilizzo di **trova** come filtro
 
-    Se si omette un nome file, **trovare** funge da filtro, accettando l'input dall'origine di input standard (in genere la tastiera, una barra verticale (|) o un file di reindirizzamento) e quindi la visualizzazione di tutte le righe contenenti *stringa*.
--   Sintassi dei comandi di ordinamento
+    Se si omette un nome di file, **Find** funge da filtro, accettando input dall'origine di input standard (in genere la tastiera, una pipe (|) o un file reindirizzato) e quindi visualizzando le righe che contengono la *stringa*.
+-   Ordinamento della sintassi del comando
 
-    È possibile digitare i parametri e le opzioni della riga di comando per il **trovare** comando in qualsiasi ordine.
--   Utilizzo dei caratteri jolly
+    È possibile digitare parametri e opzioni della riga di comando per il comando **trova** in qualsiasi ordine.
+-   Utilizzo di caratteri jolly
 
-    Non è possibile usare caratteri jolly ( **&#42;** e **?** ) in nomi di file o le estensioni specificate con il **trovare** comando. Per cercare una stringa in un set di file specificato con i caratteri jolly, è possibile utilizzare il **trovare** comando all'interno di un **per** comando.
--   Usando **/v** oppure **/n** con   **/c**
+    Non è possibile utilizzare caratteri jolly **&#42;** (e **?** ) in nomi file o estensioni specificati con il comando **trova** . Per cercare una stringa in un set di file specificato con i caratteri jolly, è possibile utilizzare il **trovare** comando all'interno di un **per** comando.
+-   Uso di **/v** o **/n** con **/c**
 
-    Se si usa **/c** e **/v** nella riga di comando stessa **trovare** Visualizza un conteggio delle righe che non contengono la stringa specificata. Se si specifica **/c** e **/n** nella stessa riga di comando, **trovare** Ignora **/n**.
--   Usando **trovare** con ritorno a capo restituisce
+    Se si usano **/c** e **/v** nella stessa riga di comando, **Find** Visualizza un conteggio delle righe che non contengono la stringa specificata. Se si specifica **/c** e **/n** nella stessa riga di comando, **trovare** Ignora **/n**.
+-   Utilizzo di **Find** con ritorno a capo
 
-    Il **trovare** comando non riconosce i ritorni a capo. Quando si utilizza **trovare** per cercare testo in un file che include i ritorni a capo, è necessario limitare la stringa di ricerca di testo che può trovarsi tra ritorni a capo (vale a dire una stringa che non sembra essere interrotta da un ritorno a capo). Ad esempio, **trovare** non segnala una corrispondenza per la stringa "spartito" Se si verifica un ritorno a capo tra le parole "imposta" e "file".
+    Il comando **Find** non riconosce i ritorni a capo. Quando si utilizza **trovare** per cercare testo in un file che include i ritorni a capo, è necessario limitare la stringa di ricerca di testo che può trovarsi tra ritorni a capo (vale a dire una stringa che non sembra essere interrotta da un ritorno a capo). Ad esempio, **trovare** non segnala una corrispondenza per la stringa "spartito" Se si verifica un ritorno a capo tra le parole "imposta" e "file".
 
 ## <a name="BKMK_examples"></a>Esempi
 

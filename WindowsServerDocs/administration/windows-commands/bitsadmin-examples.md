@@ -1,8 +1,8 @@
 ---
 title: esempi di Bitsadmin
-description: Negli esempi seguenti illustrano come usare lo strumento bitsadmin per eseguire le attività più comuni.
+description: Gli esempi seguenti illustrano come usare lo strumento Bitsadmin per eseguire le attività più comuni.
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,60 +13,60 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 05/31/2018
-ms.openlocfilehash: a98e1a876c972b0f146ff37aff0a77399b684e99
-ms.sourcegitcommit: 8eea7aadbe94f5d4635c4ffedc6a831558733cc0
+ms.openlocfilehash: c675f08752b3464f7ab1eddd4e9fddf3b16db5f4
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66308555"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71381766"
 ---
 # <a name="bitsadmin-examples"></a>esempi di Bitsadmin
 
-Gli esempi seguenti illustrano come usare il `bitsadmin` dello strumento per eseguire le attività più comuni.
+Negli esempi seguenti viene illustrato come utilizzare lo strumento `bitsadmin` per eseguire le attività più comuni.
 
 ## <a name="transfer-a-file"></a>Trasferire un file
 
-Il **/trasferimento** switch è un collegamento per eseguire le attività elencate di seguito. Questa opzione crea il processo, aggiunge i file al processo, viene attivato il processo nella coda di trasferimento e completa il processo. BITSAdmin continua a visualizzare le informazioni sullo stato nella finestra di MS-DOS fino a quando non viene completato il trasferimento o si verifica un errore.
+L'opzione **/Transfer** è un collegamento per l'esecuzione delle attività elencate di seguito. Questa opzione Crea il processo, aggiunge i file al processo, attiva il processo nella coda di trasferimento e completa il processo. BITSAdmin continua a visualizzare le informazioni sullo stato di avanzamento nella finestra di MS-DOS fino al completamento del trasferimento o si verifica un errore.
 
-**normale /priority /download myDownloadJob /transfer Bitsadmin `https://downloadsrv/10mb.zip c:\\10mb.zip`**
+**Bitsadmin/Transfer myDownloadJob/download/Priority Normal `https://downloadsrv/10mb.zip c:\\10mb.zip`**
 
-## <a name="create-a-download-job"></a>Creare un processo di download
+## <a name="create-a-download-job"></a>Creazione di un processo di download
 
-Usare il **/create** switch per creare un processo di download denominato myDownloadJob.
+Usare l'opzione **/create** per creare un processo di download denominato myDownloadJob.
 
-**Bitsadmin / creare myDownloadJob**
+**Bitsadmin/create myDownloadJob**
 
-BITSAdmin restituisce un GUID che identifica in modo univoco il processo. Usare il nome di processo o GUID nelle chiamate successive. Il testo seguente è riportato un output.
+BITSAdmin restituisce un GUID che identifica in modo univoco il processo. Utilizzare il GUID o il nome del processo nelle chiamate successive. Il testo seguente è un esempio di output.
 
 ``` syntax
 Created job {C775D194-090F-431F-B5FB-8334D00D1CB6}.
 ```
 
-Successivamente, usare il **/addfile** commutatore di aggiungere uno o più file per il processo di download.
+Usare quindi l'opzione **/AddFile** per aggiungere uno o più file al processo di download.
 
 ## <a name="add-files-to-the-download-job"></a>Aggiungere file al processo di download
 
-Usare la **/addfile** commutatore di aggiungere un file al processo. Ripetere questa chiamata per ogni file da aggiungere. Se più processi usano myDownloadJob per il proprio nome, è necessario sostituire myDownloadJob con il GUID del processo per identificare in modo univoco il processo.
+Usare l'opzione **/AddFile** per aggiungere un file al processo. Ripetere questa chiamata per ogni file che si desidera aggiungere. Se più processi usano myDownloadJob come nome, è necessario sostituire myDownloadJob con il GUID del processo per identificare in modo univoco il processo.
 
-**bitsadmin /addfile myDownloadJob https://downloadsrv/10mb.zip c:\\10mb.zip**
+**Bitsadmin/AddFile myDownloadJob https://downloadsrv/10mb.zip c: @no__t -210MB. zip**
 
-Per attivare il processo nella coda di trasferimento, usare il **/ripresa** passare.
+Per attivare il processo nella coda di trasferimento, usare l'opzione **/Resume** .
 
 ## <a name="activate-the-download-job"></a>Attivare il processo di download
 
-Quando si crea un nuovo processo, BITS sospende il processo. Per attivare il processo nella coda di trasferimento, usare il **/ripresa** passare. Se più processi usano myDownloadJob per il proprio nome, è necessario sostituire myDownloadJob con il GUID del processo per identificare in modo univoco il processo.
+Quando si crea un nuovo processo, BITS sospende il processo. Per attivare il processo nella coda di trasferimento, usare l'opzione **/Resume** . Se più processi usano myDownloadJob come nome, è necessario sostituire myDownloadJob con il GUID del processo per identificare in modo univoco il processo.
 
-**myDownloadJob /resume Bitsadmin**
+**Bitsadmin/Resume myDownloadJob**
 
-Per determinare lo stato di avanzamento del processo, usare il **/List**, **/info**, o **/monitorare** passare.
+Per determinare lo stato di avanzamento del processo, usare l'opzione **/List**, **/info**o **/Monitor** .
 
 ## <a name="determine-the-progress-of-the-download-job"></a>Determinare lo stato di avanzamento del processo di download
 
-Usare la **/info** commutatore per determinare lo stato di avanzamento di un processo. Se più processi usano myDownloadJob per il proprio nome, è necessario sostituire myDownloadJob con il GUID del processo per identificare in modo univoco il processo.
+Usare l'opzione **/info** per determinare lo stato di avanzamento di un processo. Se più processi usano myDownloadJob come nome, è necessario sostituire myDownloadJob con il GUID del processo per identificare in modo univoco il processo.
 
-**Bitsadmin /info myDownloadJob / verbose**
+**Bitsadmin/info myDownloadJob/verbose**
 
-Il **/info** switch restituisce lo stato del processo e il numero di file e i byte trasferiti. Quando lo stato viene TRASFERITO, BITS avrà trasferito tutti i file del processo. Il **/Verbose** argomento è contenute informazioni dettagliate del processo. Il testo seguente è riportato un output.
+L'opzione **/info** restituisce lo stato del processo e il numero di file e byte trasferiti. Quando lo stato viene trasferito, BITS ha trasferito correttamente tutti i file nel processo. L'argomento **/verbose** fornisce i dettagli completi del processo. Il testo seguente è un esempio di output.
 
 ``` syntax
 GUID: {482FCAF0-74BF-469B-8929-5CCD028C9499} DISPLAY: myDownloadJob
@@ -87,21 +87,21 @@ JOB FILES:
 NOTIFICATION COMMAND LINE: none
 ```
 
-Per ricevere le informazioni per tutti i processi nella coda di trasferimento, utilizzare il **/List** o **/monitorare** passare.
+Per ricevere informazioni per tutti i processi nella coda di trasferimento, usare l'opzione **/List** o **/Monitor** .
 
-## <a name="completing-the-download-job"></a>Il completamento del processo di download
+## <a name="completing-the-download-job"></a>Completamento del processo di download
 
-Quando lo stato del processo viene TRASFERITO, BITS avrà trasferito tutti i file del processo. Tuttavia, i file non sono disponibili finché non si usa la **/ completo** passare. Se più processi usano myDownloadJob per il proprio nome, è necessario sostituire myDownloadJob con il GUID del processo per identificare in modo univoco il processo.
+Quando lo stato del processo viene trasferito, BITS ha trasferito correttamente tutti i file nel processo. Tuttavia, i file non sono disponibili finché non si usa l'opzione **/completo** . Se più processi usano myDownloadJob come nome, è necessario sostituire myDownloadJob con il GUID del processo per identificare in modo univoco il processo.
 
-**Bitsadmin / completare myDownloadJob**
+**Bitsadmin/completo myDownloadJob**
 
 ## <a name="monitoring-jobs-in-the-transfer-queue"></a>Monitoraggio dei processi nella coda di trasferimento
 
-Usare il **/List**, **/il monitoraggio**, o **/info** switch per monitorare i processi nella coda di trasferimento. Il **/List** commutatore fornisce informazioni per tutti i processi nella coda.
+Utilizzare l'opzione **/List**, **/Monitor**o **/info** per monitorare i processi nella coda di trasferimento. L'opzione **/List** fornisce informazioni per tutti i processi nella coda.
 
-**bitsadmin /list**
+**/List Bitsadmin**
 
-Il **/List** switch restituisce lo stato del processo e il numero di file e i byte trasferiti per tutti i processi nella coda di trasferimento. Il testo seguente è riportato un output.
+L'opzione **/List** restituisce lo stato del processo e il numero di file e byte trasferiti per tutti i processi nella coda di trasferimento. Il testo seguente è un esempio di output.
 
 ``` syntax
 {6AF46E48-41D3-453F-B7AF-A694BBC823F7} job1 SUSPENDED 0 / 0 0 / 0
@@ -110,11 +110,11 @@ Il **/List** switch restituisce lo stato del processo e il numero di file e i by
 Listed 2 job(s).
 ```
 
-Usare la **/monitorare** switch per monitorare tutti i processi nella coda. Il **/monitorare** commutatore vengono aggiornati i dati ogni 5 secondi. Per arrestare l'aggiornamento, immettere CTRL + C.
+Usare l'opzione **/Monitor** per monitorare tutti i processi nella coda. L'opzione **/Monitor** aggiorna i dati ogni 5 secondi. Per arrestare l'aggiornamento, premere CTRL + C.
 
 **/monitor Bitsadmin**
 
-Il **/monitorare** switch restituisce lo stato del processo e il numero di file e i byte trasferiti per tutti i processi nella coda di trasferimento. Il testo seguente è riportato un output.
+L'opzione **/Monitor** restituisce lo stato del processo e il numero di file e byte trasferiti per tutti i processi nella coda di trasferimento. Il testo seguente è un esempio di output.
 
 ``` syntax
 MONITORING BACKGROUND COPY MANAGER(5 second refresh)
@@ -123,13 +123,13 @@ MONITORING BACKGROUND COPY MANAGER(5 second refresh)
 {0B138008-304B-4264-B021-FD04455588FF} job3 TRANSFERRED 1 / 1 100379370 / 100379370
 ```
 
-## <a name="deleting-jobs-from-the-transfer-queue"></a>Eliminazione dei processi dalla coda di trasferimento
+## <a name="deleting-jobs-from-the-transfer-queue"></a>Eliminazione di processi dalla coda di trasferimento
 
-Usare la **/Reimposta** switch per rimuovere tutti i processi dalla coda di trasferimento.
+Usare l'opzione **/Reset** per rimuovere tutti i processi dalla coda di trasferimento.
 
-**bitsadmin /reset**
+**/Reset Bitsadmin**
 
-Il testo seguente è riportato un output.
+Il testo seguente è un esempio di output.
 
 ``` syntax
 {DC61A20C-44AB-4768-B175-8000D02545B9} canceled.

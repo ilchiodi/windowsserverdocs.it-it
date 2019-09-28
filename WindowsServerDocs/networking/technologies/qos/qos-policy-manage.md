@@ -1,23 +1,23 @@
 ---
 title: Gestisci criteri QoS
 description: Questo argomento fornisce istruzioni su come creare e gestire i criteri di qualità del servizio (QoS) in Windows Server 2016.
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking
 ms.topic: article
 ms.assetid: 04fdfa54-6600-43d4-8945-35f75e15275a
 manager: brianlic
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 3cff51b3cf76d3224832bf99ff966bf473d6ff6c
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: ac717555d1ab751600527e294d32f10d1f05bfa5
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70871854"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71395876"
 ---
 # <a name="manage-qos-policy"></a>Gestisci criteri QoS
 
->Si applica a Windows Server (Canale semestrale), Windows Server 2016
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016
 
 È possibile utilizzare questo argomento per informazioni sull'utilizzo della creazione guidata criteri QoS per creare, modificare o eliminare un criterio QoS.
 
@@ -253,7 +253,7 @@ Impostando un livello di velocità effettiva inferiore sulla scheda **traffico T
   
 La finestra di ricezione TCP è cambiata in Windows Server 2012, Windows 8, Windows Server 2008 R2, Windows Server 2008 e Windows Vista da versioni precedenti di Windows. Le versioni precedenti di Windows limitavano la finestra del lato di ricezione TCP a un massimo di 64 kilobyte (KB), mentre Windows Server 2012, Windows 8, Windows Server 2008 R2, Windows Server 2008 e Windows Vista ridimensionavano dinamicamente la finestra sul lato di ricezione fino a 16 megabyte (MB ). Nel controllo del traffico TCP in ingresso è possibile controllare il livello di velocità effettiva in ingresso impostando il valore massimo che la finestra di ricezione TCP può aumentare. I livelli corrispondono ai valori massimi seguenti. 
   
-|Livello di velocità effettiva in ingresso|Massima|  
+|Livello di velocità effettiva in ingresso|Massimo|  
 |------------------------|-------|  
 |0|64 KB|
 |1|256 KB|
@@ -280,7 +280,7 @@ Per impostazione predefinita, i computer che eseguono Windows Server 2016, Windo
 
 ##### <a name="wireless-multimedia-and-dscp-values"></a>Multimedia wireless e valori DSCP
 
-Il [Wi-Fi Alliance](https://go.microsoft.com/fwlink/?LinkId=160769) ha stabilito una certificazione per la tecnologia \(wireless\) WMM che definisce quattro categorie \(di\) accesso WMM_AC per la priorità del traffico di rete trasmesso su un Wi\-Rete wireless Fi. Le categorie di accesso \(includono l'ordine di priorità\)più alta a quella più bassa: voce, video, sforzo ottimale e sfondo, rispettivamente abbreviato come vo, vi, be e BK. La specifica WMM definisce quali valori DSCP corrispondono a ognuna delle quattro categorie di accesso:
+Il [Wi-Fi Alliance](https://go.microsoft.com/fwlink/?LinkId=160769) ha stabilito una certificazione per Multimedia wireless \(WMM @ no__t-2 che definisce quattro categorie di accesso \(WMM_AC @ no__t-4 per la definizione delle priorità del traffico di rete trasmesso su una rete wireless Wi @ No__t-5FI. Le categorie di accesso \(includono l'ordine di priorità\)più alta a quella più bassa: voce, video, sforzo ottimale e sfondo, rispettivamente abbreviato come vo, vi, be e BK. La specifica WMM definisce quali valori DSCP corrispondono a ognuna delle quattro categorie di accesso:
   
 |Valore DSCP|Categoria di accesso WMM|
 |----------|-------------------|
@@ -312,7 +312,7 @@ Quando più criteri QoS corrispondono al traffico specifico, vengono applicati i
 
 In alternativa, è possibile che più criteri QoS si applichino allo stesso traffico specificando condizioni non sovrapposte. Tra le condizioni delle applicazioni e la rete quintupla, i criteri che specificano l'applicazione sono considerati più specifici e vengono applicati. 
 
-Ad esempio, policy_A specifica solo un nome di applicazione (app. exe) e policy_B specifica l'indirizzo IP di destinazione 192.168.1.0/24. Quando questi criteri QoS sono \(in conflitto, app. exe invia il traffico a un indirizzo IP compreso nell'intervallo\)di 192.168.4.0/24. viene applicato policy_A.
+Ad esempio, policy_A specifica solo un nome di applicazione (app. exe) e policy_B specifica l'indirizzo IP di destinazione 192.168.1.0/24. Quando questi criteri QoS sono in conflitto @no__t -0app. exe invia il traffico a un indirizzo IP compreso nell'intervallo 192.168.4.0/24 @ no__t-1, viene applicato policy_A.
 
  **Una maggiore specificità ha la precedenza all'interno della rete quintupla**
 

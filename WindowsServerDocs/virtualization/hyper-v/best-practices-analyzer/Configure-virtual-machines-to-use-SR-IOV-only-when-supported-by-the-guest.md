@@ -1,7 +1,7 @@
 ---
-title: Configurare le macchine virtuali per l'utilizzo di SR-IOV solo quando è supportata dal sistema operativo guest
+title: Configurare le macchine virtuali per l'utilizzo di SR-IOV solo quando supportato dal sistema operativo guest
 description: Versione online del testo per questa regola di Best Practices Analyzer.
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
@@ -10,14 +10,14 @@ ms.topic: article
 ms.assetid: 33cf5b68-e43e-47ef-adbc-6b266c1d4dce
 author: KBDAzure
 ms.date: 8/16/2016
-ms.openlocfilehash: e5c2acb21fe8b11e8f020c6d2ab1742116c23b28
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 8c43e06806f66ce0faae255f0f34d80a653fbe10
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59833362"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71366263"
 ---
-# <a name="configure-virtual-machines-to-use-sr-iov-only-when-supported-by-the-guest-operating-system"></a>Configurare le macchine virtuali per l'utilizzo di SR-IOV solo quando è supportata dal sistema operativo guest
+# <a name="configure-virtual-machines-to-use-sr-iov-only-when-supported-by-the-guest-operating-system"></a>Configurare le macchine virtuali per l'utilizzo di SR-IOV solo quando supportato dal sistema operativo guest
 
 >Si applica a: Windows Server 2016
 
@@ -26,24 +26,24 @@ Per altre informazioni sulle procedure consigliate e sulle analisi, vedere [Eseg
 |Proprietà|Dettagli|  
 |-|-|  
 |**Sistema operativo**|Windows Server 2016|  
-|**/ Funzionalità del prodotto**|Hyper-V|  
-|**Severity**|Avviso|  
+|**Prodotto/funzionalità**|Hyper-V|  
+|**Gravità**|Avviso|  
 |**Categoria**|Configurazione|  
   
 Nelle sezioni seguenti, corsivo indica il testo dell'interfaccia Utente visualizzata nello strumento Analizzatore procedure consigliate per questo problema.  
   
 ## <a name="issue"></a>Problema  
-*Uno o più macchine virtuali sono configurate per utilizzare single-root i/o virtualization (SR-IOV), ma il sistema operativo guest non supporta SR-IOV*  
+*Una o più macchine virtuali sono configurate per l'utilizzo di Single-Root I/O Virtualization (SR-IOV), ma il sistema operativo guest non supporta SR-IOV*  
   
 ## <a name="impact"></a>Impatto  
-*Funzioni virtuali SR-IOV non verranno allocate per le macchine virtuali seguenti:*  
+*Le funzioni virtuali SR-IOV non verranno allocate alle macchine virtuali seguenti:*  
   
-\<elenco di macchine virtuali >  
+@no__t 0list di macchine virtuali >  
   
 ## <a name="resolution"></a>Risoluzione  
-*Disabilitare SR-IOV in tutte le macchine virtuali che eseguono sistemi operativi guest che non supporta SR-IOV.*  
+*Disabilitare SR-IOV in tutte le macchine virtuali che eseguono sistemi operativi guest che non supportano SR-IOV.*  
   
-SR-IOV è supportata solo in alcuni utenti guest Windows a 64 bit. Per informazioni dettagliate, vedere [compatibilità con la funzionalità Hyper-V per la generazione e guest](../Hyper-V-feature-compatibility-by-generation-and-guest.md).  
+SR-IOV è supportato solo in alcuni Guest Windows a 64 bit. Per informazioni dettagliate, vedere [compatibilità delle funzionalità Hyper-V per generazione e Guest](../Hyper-V-feature-compatibility-by-generation-and-guest.md).  
   
 
 

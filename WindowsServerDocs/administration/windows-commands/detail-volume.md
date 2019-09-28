@@ -1,8 +1,8 @@
 ---
-title: volume di dettaglio
-description: 'Argomento i comandi di Windows per * * *- '
+title: volume dettaglio
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,14 +13,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: b7cae6dc9b82992b58c4f94801f90c0b7072492b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: f8cd5889bfd2aea835cb64ef1a4076faee0f39b3
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59856922"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71378475"
 ---
-# <a name="detail-volume"></a>volume di dettaglio
+# <a name="detail-volume"></a>volume dettaglio
 
 
 
@@ -35,7 +35,7 @@ detail volume
 ## <a name="remarks"></a>Note
 
 -   Per eseguire questa operazione, è necessario selezionare un volume. Utilizzare il **Selezionare volume** comando per selezionare un volume e spostare lo stato attivo a esso.
--   I dettagli di volume non sono applicabili ai volumi di sola lettura, ad esempio un DVD-ROM o CD-ROM.
+-   I dettagli del volume non sono applicabili ai volumi di sola lettura, ad esempio un'unità DVD-ROM o CD-ROM.
 
 ## <a name="BKMK_examples"></a>Esempi
 
@@ -46,5 +46,5 @@ detail volume
 
 #### <a name="additional-references"></a>Altri riferimenti
 
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)
+[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
 

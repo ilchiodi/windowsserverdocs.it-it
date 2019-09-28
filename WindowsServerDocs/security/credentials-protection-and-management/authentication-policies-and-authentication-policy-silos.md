@@ -2,7 +2,7 @@
 title: Criteri di autenticazione e silo di criteri di autenticazione
 description: Sicurezza di Windows Server
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: security-credential-protection
@@ -13,24 +13,24 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/12/2016
-ms.openlocfilehash: 55dd38c966fea8448231b06cde9c1dd63b024197
-ms.sourcegitcommit: d84dc3d037911ad698f5e3e84348b867c5f46ed8
+ms.openlocfilehash: 6b0b841930df246bd784d990916b6029f12a1f96
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66266764"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71403821"
 ---
 # <a name="authentication-policies-and-authentication-policy-silos"></a>Criteri di autenticazione e silo di criteri di autenticazione
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016
 
 In questo argomento per professionisti IT sono descritti i silo di criteri di autenticazione e i criteri che possono limitare gli account in tali silo. È illustrato anche il modo in cui è possibile usare i criteri di autenticazione per limitare l'ambito degli account.
 
-I silo di criteri di autenticazione e i criteri corrispondenti offrono un modo per includere credenziali con privilegi elevati per sistemi pertinenti solo per utenti, computer o servizi selezionati. Silo possono essere definiti e gestiti in servizi di dominio Active Directory (AD DS) tramite il centro di amministrazione di Active Directory e i cmdlet di Windows PowerShell per Active Directory.
+I silo di criteri di autenticazione e i criteri corrispondenti offrono un modo per includere credenziali con privilegi elevati per sistemi pertinenti solo per utenti, computer o servizi selezionati. I silo possono essere definiti e gestiti in Active Directory Domain Services (AD DS) usando i cmdlet Centro di amministrazione di Active Directory e Active Directory Windows PowerShell.
 
 I silo di criteri di autenticazione sono contenitori a cui gli amministratori possono assegnare account utente, account computer e account del servizio. Gli insiemi di account possono essere quindi gestiti tramite i criteri di autenticazione applicati al contenitore specifico. Ciò riduce la necessità di verifica dell'accesso alle risorse da parte dell'amministratore per i singoli account e aiuta a impedire agli utenti malintenzionati di accedere ad altre risorse tramite il furto di credenziali.
 
-Le funzionalità introdotte in Windows Server 2012 R2, consentono di creare silo di criteri, che ospitano un insieme di utenti con privilegi elevati di autenticazione. È quindi possibile assegnare criteri di autenticazione per questo contenitore, in modo da limitare la posizione in cui gli account con privilegi possono essere usati nel dominio. Quando gli account si trovano nel gruppo di sicurezza Utenti protetti, sono applicati controlli aggiuntivi, ad esempio l'uso esclusivo del protocollo Kerberos.
+Le funzionalità introdotte in Windows Server 2012 R2 consentono di creare silo di criteri di autenticazione che ospitano un set di utenti con privilegi elevati. È quindi possibile assegnare criteri di autenticazione per questo contenitore, in modo da limitare la posizione in cui gli account con privilegi possono essere usati nel dominio. Quando gli account si trovano nel gruppo di sicurezza Utenti protetti, sono applicati controlli aggiuntivi, ad esempio l'uso esclusivo del protocollo Kerberos.
 
 Queste capacità permettono di limitare l'uso di account di valore elevato a host di valore elevato. Ad esempio, è possibile creare un nuovo silo per gli amministratori di foresta, contenente amministratori di azienda, schema e dominio. È quindi possibile configurare il silo con un criterio di autenticazione, in modo che la l'autenticazione basata su password e smart card da sistemi diversi dai controller di dominio e dalle console degli amministratori di dominio abbia esito negativo.
 
@@ -39,7 +39,7 @@ Per informazioni sulla configurazione di silo di criteri di autenticazione e di 
 ### <a name="about-authentication-policy-silos"></a>Informazioni sui silo di criteri di autenticazione
 Un silo di criteri di autenticazione controlla gli account che possono essere limitati dal silo e definisce i criteri di autenticazione da applicare ai membri. È possibile creare il silo in base ai requisiti specifici dell'organizzazione. I silo sono oggetti di Active Directory per utenti, computer e servizi, come definito dallo schema nella tabella seguente.
 
-**Schema di Active Directory per silo di criteri di autenticazione**
+**Schema di Active Directory per i silo di criteri di autenticazione**
 
 |Nome visualizzato|Descrizione|
 |--------|--------|
@@ -53,7 +53,7 @@ Un silo di criteri di autenticazione controlla gli account che possono essere li
 I silo di criteri di autenticazione possono essere configurati usando la console di amministrazione di Active Directory o Windows PowerShell. Per altre informazioni, vedere [Come configurare gli account protetti](how-to-configure-protected-accounts.md).
 
 ### <a name="about-authentication-policies"></a>Informazioni sui criteri di autenticazione
-Un criterio di autenticazione definisce le proprietà relative alla durata del ticket TGT (Ticket-Granting Ticket) del protocollo Kerberos e le condizioni di controllo di accesso di autenticazione per un tipo di account. Il criterio si basa su e controlla il contenitore di Active Directory Domain Services, noto come silo di criteri di autenticazione.
+Un criterio di autenticazione definisce le proprietà relative alla durata del ticket TGT (Ticket-Granting Ticket) del protocollo Kerberos e le condizioni di controllo di accesso di autenticazione per un tipo di account. Il criterio è compilato e controlla il contenitore di servizi di dominio Active Directory noto come Silo dei criteri di autenticazione.
 
 I criteri di autenticazione controllano gli elementi seguenti:
 
@@ -69,13 +69,13 @@ Il tipo di account Active Directory determina il ruolo del chiamante come uno de
 
     Gli utenti devono essere sempre membri del gruppo di sicurezza Utenti protetti, che rifiuta per impostazione predefinita i tentativi di autenticazione tramite NTLM.
 
-    I criteri possono essere configurati per impostare la durata TGT di un account utente su un valore più breve o limitare i dispositivi a cui può accedere un account utente. Possono configurare espressioni avanzate nei criteri di autenticazione per controllare i criteri che gli utenti e i dispositivi devono soddisfare per l'autenticazione al servizio.
+    È possibile configurare i criteri per impostare la durata TGT di un account utente su un valore più breve o limitare i dispositivi a cui un account utente può accedere. Le espressioni avanzate possono essere configurate nei criteri di autenticazione per controllare i criteri che gli utenti e i loro dispositivi devono soddisfare per l'autenticazione al servizio.
 
     Per altre informazioni, vedere [Gruppo di sicurezza Utenti protetti](protected-users-security-group.md).
 
--   **Service**
+-   **Servizio**
 
-    Sono usati account del servizio gestiti autonomi, account del servizio gestiti del gruppo oppure un oggetto account personalizzato derivato da questi due tipi di account del servizio. Impostare criteri accesso al dispositivo condizioni di controllo, vengono utilizzate per limitare le credenziali dell'account del servizio gestito a specifici dispositivi con un'identità di Active Directory. I servizi non devono essere mai membri del gruppo di sicurezza Utenti protetti, poiché tutte le autenticazioni in ingresso avranno esito negativo.
+    Sono usati account del servizio gestiti autonomi, account del servizio gestiti del gruppo oppure un oggetto account personalizzato derivato da questi due tipi di account del servizio. I criteri possono impostare le condizioni di controllo di accesso di un dispositivo, che vengono usate per limitare le credenziali dell'account del servizio gestito a dispositivi specifici con un'identità Active Directory. I servizi non devono essere mai membri del gruppo di sicurezza Utenti protetti, poiché tutte le autenticazioni in ingresso avranno esito negativo.
 
 -   **Computer**
 
@@ -90,11 +90,11 @@ I criteri per gli oggetti di Active Directory per utenti, computer e servizi, so
 
 |Type|Nome visualizzato|Descrizione|
 |----|--------|--------|
-|Condizione|Authentication Policy|Un'istanza di questa classe definisce i comportamenti dei criteri di autenticazione per le entità di sicurezza assegnate.|
-|Condizione|Authentication Policies|Un contenitore di questa classe può includere oggetti di criteri di autenticazione.|
-|Condizione|Authentication Policy Enforced|Specifica se i criteri di autenticazione sono applicati.<br /><br />Se non sono applicati, per impostazione predefinita il criterio sarà in modalità di controllo e saranno generati eventi che indicano operazioni potenzialmente riuscite e non riuscite, ma al sistema non sarà applicata alcuna protezione.|
-|Condizione|Assigned Authentication Policy Backlink|Questo attributo è il back link per msDS-AssignedAuthNPolicy.|
-|Condizione|Assigned Authentication Policy|Specifica quale AuthNPolicy deve essere applicato a questa entità di sicurezza.|
+|Criteri|Authentication Policy|Un'istanza di questa classe definisce i comportamenti dei criteri di autenticazione per le entità di sicurezza assegnate.|
+|Criteri|Authentication Policies|Un contenitore di questa classe può includere oggetti di criteri di autenticazione.|
+|Criteri|Authentication Policy Enforced|Specifica se i criteri di autenticazione sono applicati.<br /><br />Se non sono applicati, per impostazione predefinita il criterio sarà in modalità di controllo e saranno generati eventi che indicano operazioni potenzialmente riuscite e non riuscite, ma al sistema non sarà applicata alcuna protezione.|
+|Criteri|Assigned Authentication Policy Backlink|Questo attributo è il back link per msDS-AssignedAuthNPolicy.|
+|Criteri|Assigned Authentication Policy|Specifica quale AuthNPolicy deve essere applicato a questa entità di sicurezza.|
 |Utente|User Authentication Policy|Specifica quale AuthNPolicy deve essere applicato a utenti a cui è assegnato questo oggetto silo.|
 |Utente|User Authentication Policy Backlink|Questo attributo è il back link per msDS-UserAuthNPolicy.|
 |Utente|ms-DS-User-Allowed-To-Authenticate-To|Questo attributo è usato per determinare l'insieme di entità di sicurezza a cui è permesso effettuare l'autenticazione a un servizio in esecuzione con l'account utente.|
@@ -104,46 +104,46 @@ I criteri per gli oggetti di Active Directory per utenti, computer e servizi, so
 |Computer|Computer Authentication Policy Backlink|Questo attributo è il back link per msDS-ComputerAuthNPolicy.|
 |Computer|ms-DS-Computer-Allowed-To-Authenticate-To|Questo attributo è usato per determinare l'insieme di entità di sicurezza a cui è permesso effettuare l'autenticazione a un servizio in esecuzione con l'account computer.|
 |Computer|Computer TGT Lifetime|Specifica la durata massima di un ticket TGT Kerberos emesso a un computer (espressa in secondi). La modifica di questa impostazione non è consigliata.|
-|Servizio|Service Authentication Policy|Specifica quale AuthNPolicy deve essere applicato a servizi a cui è assegnato questo oggetto silo.|
-|Servizio|Service Authentication Policy Backlink|Questo attributo è il back link per msDS-ServiceAuthNPolicy.|
-|Servizio|ms-DS-Service-Allowed-To-Authenticate-To|Questo attributo è usato per determinare l'insieme di entità di sicurezza a cui è permesso effettuare l'autenticazione a un servizio in esecuzione con l'account del servizio.|
-|Servizio|ms-DS-Service-Allowed-To-Authenticate-From|Questo attributo permette di determinare l'insieme di dispositivi a cui un account del servizio è autorizzato ad accedere.|
-|Servizio|Service TGT Lifetime|Specifica la durata massima di un ticket TGT Kerberos emesso a un servizio (espressa in secondi).|
+|Service|Service Authentication Policy|Specifica quale AuthNPolicy deve essere applicato a servizi a cui è assegnato questo oggetto silo.|
+|Service|Service Authentication Policy Backlink|Questo attributo è il back link per msDS-ServiceAuthNPolicy.|
+|Service|ms-DS-Service-Allowed-To-Authenticate-To|Questo attributo è usato per determinare l'insieme di entità di sicurezza a cui è permesso effettuare l'autenticazione a un servizio in esecuzione con l'account del servizio.|
+|Service|ms-DS-Service-Allowed-To-Authenticate-From|Questo attributo permette di determinare l'insieme di dispositivi a cui un account del servizio è autorizzato ad accedere.|
+|Service|Service TGT Lifetime|Specifica la durata massima di un ticket TGT Kerberos emesso a un servizio (espressa in secondi).|
 
 I silo di criteri di autenticazione possono essere configurati per ogni silo usando la console di amministrazione di Active Directory o Windows PowerShell. Per altre informazioni, vedere [Come configurare gli account protetti](how-to-configure-protected-accounts.md).
 
 ## <a name="how-it-works"></a>Come funziona
 In questa sezione è illustrato il funzionamento dei silo di criteri di autenticazione e dei criteri di autenticazione insieme al gruppo di sicurezza Utenti protetti e all'implementazione del protocollo Kerberos in Windows.
 
--   [Come il protocollo Kerberos viene usato con i criteri e i silo di autenticazione](#BKMK_HowKerbUsed)
+-   [Modalità di utilizzo del protocollo Kerberos con i silo e i criteri di autenticazione](#BKMK_HowKerbUsed)
 
--   [Limitazione come un utente funziona l'accesso](#BKMK_HowRestrictingSignOn)
+-   [Come si limita l'accesso degli utenti](#BKMK_HowRestrictingSignOn)
 
--   [Funzionamento della limitazione dell'emissione di ticket di servizio](#BKMK_HowRestrictingServiceTicket)
+-   [Come si limita il rilascio di ticket di servizio](#BKMK_HowRestrictingServiceTicket)
 
-**account protetti**
+**Account protetti**
 
-Il gruppo di sicurezza utenti protetti attiva una protezione non configurabile sui dispositivi e computer host che eseguono Windows 8.1 e Windows Server 2012 R2 e nei controller di dominio in domini con controller di dominio primario che esegue Windows Server 2012 R2. A seconda del livello di funzionalità del dominio dell'account, i membri del gruppo di sicurezza Utenti protetti dispongono di un'ulteriore protezione grazie alle modifiche del comportamento nei metodi di autenticazione supportati in Windows.
+Il gruppo di sicurezza utenti protetti attiva la protezione non configurabile in dispositivi e computer host che eseguono Windows Server 2012 R2 e Windows 8.1 e nei controller di dominio nei domini con un controller di dominio primario che esegue Windows Server 2012 R2. A seconda del livello di funzionalità del dominio dell'account, i membri del gruppo di sicurezza Utenti protetti dispongono di un'ulteriore protezione grazie alle modifiche del comportamento nei metodi di autenticazione supportati in Windows.
 
 -   Il membro del gruppo di sicurezza Utenti protetti non può autenticarsi con NTLM, l'autenticazione del digest o la delega predefinita delle credenziali CredSSP. In un dispositivo che esegue Windows 8.1 che usa uno dei seguenti Security Support Provider (SSP), l'autenticazione a un dominio avrà esito negativo quando l'account è un membro del gruppo di sicurezza utenti protetti.
 
 -   Il protocollo Kerberos non usa i tipi di crittografia più vulnerabili DES o RC4 nel processo di preautenticazione. Ciò significa che il dominio deve essere configurato per supportare almeno il tipo di crittografia AES.
 
--   L'account dell'utente non è possibile usare la delega Kerberos vincolata o non vincolata delega. Ciò significa che le connessioni precedenti ad altri sistemi possono non riuscire se l'utente è membro del gruppo di sicurezza Utenti protetti.
+-   Non è possibile delegare l'account dell'utente con la delega vincolata o non vincolata Kerberos. Ciò significa che le connessioni precedenti ad altri sistemi possono non riuscire se l'utente è membro del gruppo di sicurezza Utenti protetti.
 
 -   L'impostazione della durata predefinita TGT (Ticket Granting Tickets), pari a quattro ore, può essere configurata con Criteri di autenticazione e silo, accessibili dal Centro di amministrazione di Active Directory. Ciò significa che, dopo che sono trascorse le quattro ore predefinite, l'utente deve ripetere l'autenticazione.
 
 Per altre informazioni su questo gruppo di sicurezza, vedere [Come funziona il gruppo Utenti protetti](protected-users-security-group.md#BKMK_HowItWorks).
 
-**I silo e criteri di autenticazione**
+**Silo e criteri di autenticazione**
 
 I silo di criteri di autenticazione e i criteri di autenticazione si avvalgono dell'infrastruttura di autenticazione Windows esistente. L'uso del protocollo NTLM è rifiutato ed è usato il protocollo Kerberos con tipi di crittografia più recenti. I criteri di autenticazione integrano il gruppo di sicurezza Utenti protetti, offrendo un modo per applicare restrizioni configurabili agli account, oltre a offrire restrizioni per gli account per servizi e computer. I criteri di autenticazione sono applicati durante lo scambio del servizio di autenticazione del protocollo Kerberos o del ticket TGS (Ticket-Granting Service). Per altre informazioni sul modo in cui Windows usa il protocollo Kerberos e sulle modifiche apportate per supportare i silo di criteri di autenticazione e i criteri di autenticazione, vedere:
 
--   [Come funziona il protocollo Kerberos versione 5](https://technet.microsoft.com/library/cc772815(v=ws.10).aspx)
+-   [Funzionamento del protocollo di autenticazione Kerberos versione 5](https://technet.microsoft.com/library/cc772815(v=ws.10).aspx)
 
--   [Modifiche all'autenticazione Kerberos](https://technet.microsoft.com/library/dd560670(v=ws.10).aspx) (Windows Server 2008 R2 e Windows 7)
+-   [Modifiche all'autenticazione Kerberos](https://technet.microsoft.com/library/dd560670(v=ws.10).aspx) (windows Server 2008 R2 e Windows 7)
 
-### <a name="BKMK_HowKerbUsed"></a>Come il protocollo Kerberos viene usato con i criteri e silo di criteri di autenticazione
+### <a name="BKMK_HowKerbUsed"></a>Modalità di utilizzo del protocollo Kerberos con i silo di criteri di autenticazione e i criteri
 Quando un account di dominio è collegato a un silo di criteri di autenticazione e l'utente effettua l'accesso, Gestione account di protezione aggiunge il tipo di attestazione del silo di criteri di autenticazione che include il silo come valore. L'attestazione relativa all'account offre l'accesso al silo di destinazione.
 
 Quando un criterio di autenticazione è applicato e nel controller di dominio si riceve una richiesta del servizio di autenticazione per un account di dominio, il controller di dominio restituisce un TGT non rinnovabile con la durata configurata, a meno che la durata TGT del dominio non sia inferiore.
@@ -161,7 +161,7 @@ Quando un criterio di autenticazione è applicato e il servizio di autenticazion
 > [!NOTE]
 > L'account di dominio deve essere collegato direttamente al criterio o collegato indirettamente tramite l'appartenenza al silo.
 
-Quando un criterio di autenticazione è in modalità di controllo e viene ricevuta una richiesta di servizio di concessione ticket dal controller di dominio per un account di dominio, il controller di dominio verifica se l'autenticazione è consentita basato su ticket della richiesta certificato attributi privilegi I dati (PAC) che registra un messaggio di avviso in caso di errore. Il certificato attributi privilegi include diversi tipi di dati relativi all'autorizzazione, inclusi i gruppi a cui appartiene l'utente, i diritti di cui dispone l'utente e i criteri applicabili all'utente. Queste informazioni vengano utilizzate per generare token di accesso dell'utente. Se si tratta di un criterio di autenticazione applicato che permette l'autenticazione a un utente, dispositivo o servizio, il controller di dominio verifica se è consentita l'autenticazione basata su ticket della richiesta dei dati su certificato attributi privilegi. In caso di esito negativo, il controller di dominio restituisce un messaggio di errore e registra un evento.
+Quando un criterio di autenticazione è in modalità di controllo e una richiesta del servizio di concessione ticket viene ricevuta dal controller di dominio per un account di dominio, il controller di dominio verifica se l'autenticazione è consentita in base al certificato dell'attributo Privilege del ticket della richiesta. (PAC) e registra un messaggio di avviso in caso di errore. Il certificato attributi privilegi include diversi tipi di dati relativi all'autorizzazione, inclusi i gruppi a cui appartiene l'utente, i diritti di cui dispone l'utente e i criteri applicabili all'utente. Queste informazioni vengono usate per generare il token di accesso dell'utente. Se si tratta di criteri di autenticazione applicati che consentono l'autenticazione a un utente, un dispositivo o un servizio, il controller di dominio verifica se l'autenticazione è consentita in base ai dati del ticket PAC della richiesta. In caso di esito negativo, il controller di dominio restituisce un messaggio di errore e registra un evento.
 
 > [!NOTE]
 > L'account di dominio deve essere collegato direttamente oppure tramite l'appartenenza a un silo a un criterio di autenticazione controllato, che permette l'autenticazione a un utente, un dispositivo o un servizio.
@@ -170,62 +170,62 @@ Quando un criterio di autenticazione è in modalità di controllo e viene ricevu
 
 I silo di criteri di autenticazione possono essere configurati per ogni silo usando la console di amministrazione di Active Directory o Windows PowerShell. Per altre informazioni, vedere [Come configurare gli account protetti](how-to-configure-protected-accounts.md).
 
-### <a name="BKMK_HowRestrictingSignOn"></a>Limitazione come un utente funziona l'accesso
+### <a name="BKMK_HowRestrictingSignOn"></a>Come si limita l'accesso degli utenti
 Poiché questi criteri di autenticazione sono applicati a un account, sono applicabili anche agli account usati dai servizi. Questa impostazione è utile per limitare l'uso di una password per un servizio ad alcuni host specifici. Ad esempio, è possibile configurare account del servizio gestiti per un gruppo in modo che gli host siano autorizzati a recuperare la password da Servizi di dominio Active Directory. La password può essere però usata da qualsiasi host per l'autenticazione iniziale. Tramite l'applicazione di una condizione di controllo dell'accesso, è possibile ottenere un livello aggiuntivo di protezione limitando la password solo all'insieme di host in grado di recuperare la password.
 
-Servizi che vengono eseguiti come sistema, servizio di rete o altre identità del servizio locale si connettono ai servizi di rete, Usa account del computer dell'host. Non è possibile applicare restrizioni agli account computer. Anche se il servizio usa un account computer non relativo a un host Windows , non sarà quindi possibile applicarvi restrizioni.
+Quando i servizi eseguiti come sistema, servizio di rete o altra identità del servizio locale si connettono ai servizi di rete, utilizzano l'account computer dell'host. Non è possibile applicare restrizioni agli account computer. Anche se il servizio usa un account computer non relativo a un host Windows , non sarà quindi possibile applicarvi restrizioni.
 
-Limitazione dell'accesso dell'utente a host specifici richiede il controller di dominio per convalidare l'identità dell'host. Quando si usa l'autenticazione Kerberos con la blindatura Kerberos (che fa parte del Controllo dinamico degli accessi), al Centro distribuzione chiavi viene fornito il TGT dell'host da cui l'utente esegue l'autenticazione. Il contenuto del TGT blindato è usato per completare una verifica dell'accesso, in modo da determinare se l'host è autorizzato.
+Per limitare l'accesso degli utenti a host specifici, è necessario che il controller di dominio convalidi l'identità dell'host. Quando si usa l'autenticazione Kerberos con la blindatura Kerberos (che fa parte del Controllo dinamico degli accessi), al Centro distribuzione chiavi viene fornito il TGT dell'host da cui l'utente esegue l'autenticazione. Il contenuto del TGT blindato è usato per completare una verifica dell'accesso, in modo da determinare se l'host è autorizzato.
 
 Quando un utente accede a Windows o inserisce le credenziali per il dominio in una richiesta di credenziali per un'applicazione, per impostazione predefinita Windows invia una richiesta AS-REQ blindata al controller di dominio. Se l'utente invia la richiesta da un computer che non supporta la blindatura, ad esempio i computer che eseguono Windows 7 o Windows Vista, la richiesta ha esito negativo.
 
 Il processo è descritto nell'elenco seguente:
 
--   Il controller di dominio in un dominio che esegue Windows Server 2012 R2 esegue una query per l'account utente e determina se viene configurato con un criterio di autenticazione che limita l'autenticazione iniziale che richiede richieste blindate.
+-   Il controller di dominio in un dominio che esegue Windows Server 2012 R2 esegue una query per l'account utente e determina se è configurato con un criterio di autenticazione che limita l'autenticazione iniziale che richiede richieste blindate.
 
 -   La richiesta avrà esito negativo nel controller di dominio.
 
--   Poiché la blindatura è obbligatorio, l'utente può tentare di accedere usando un computer che eseguono Windows 8.1 o Windows 8, che è abilitato per supportare la blindatura Kerberos per ripetere il processo di accesso.
+-   Poiché la blindatura è obbligatoria, l'utente può provare ad accedere usando un computer che esegue Windows 8.1 o Windows 8, che è abilitato per supportare la blindatura Kerberos per ritentare il processo di accesso.
 
 -   Windows rileva che il dominio supporta la blindatura Kerberos e invia una richiesta AS-REQ blindata per riprovare la richiesta di accesso.
 
--   Il controller di dominio esegue una verifica dell'accesso tramite le condizioni di controllo di accesso configurate e le informazioni sull'identità del sistema operativo client disponibili nel TGT usato per la blindatura della richiesta.
+-   Il controller di dominio esegue una verifica dell'accesso usando le condizioni di controllo di accesso configurate e le informazioni sull'identità del sistema operativo client nel TGT usato per blindare la richiesta.
 
 -   In caso di errore della verifica dell'accesso, il controller di dominio respinge la richiesta.
 
-Anche se i sistemi operativi supportano la blindatura Kerberos, è possibile applicare i requisiti per il controllo di accesso, che devono essere soddisfatti prima che sia concesso l'accesso. Gli utenti accedono a Windows o immettono le credenziali del dominio in una richiesta di credenziali per un'applicazione. Per impostazione predefinita, Windows invia una richiesta AS-REQ non blindata al controller di dominio. Se l'utente invia la richiesta da un computer che supporta la blindatura, ad esempio Windows 8.1 o Windows 8, i criteri di autenticazione vengono valutati come indicato di seguito:
+Anche se i sistemi operativi supportano la blindatura Kerberos, è possibile applicare i requisiti per il controllo di accesso, che devono essere soddisfatti prima che sia concesso l'accesso. Gli utenti accedono a Windows o immettono le credenziali del dominio in una richiesta di credenziali per un'applicazione. Per impostazione predefinita, Windows invia una richiesta AS-REQ non blindata al controller di dominio. Se l'utente invia la richiesta da un computer che supporta la blindatura, ad esempio Windows 8.1 o Windows 8, i criteri di autenticazione vengono valutati come segue:
 
-1.  Il controller di dominio in un dominio che esegue Windows Server 2012 R2 esegue una query per l'account utente e determina se viene configurato con un criterio di autenticazione che limita l'autenticazione iniziale che richiede richieste blindate.
+1.  Il controller di dominio in un dominio che esegue Windows Server 2012 R2 esegue una query per l'account utente e determina se è configurato con un criterio di autenticazione che limita l'autenticazione iniziale che richiede richieste blindate.
 
-2.  Il controller di dominio esegue una verifica dell'accesso tramite le condizioni di controllo di accesso configurate e le informazioni sull'identità di sistema disponibili nel TGT usato per la blindatura della richiesta. La verifica dell'accesso ha esito positivo.
+2.  Il controller di dominio esegue una verifica dell'accesso usando le condizioni di controllo di accesso configurate e le informazioni sull'identità del sistema nel TGT usato per blindare la richiesta. La verifica dell'accesso ha esito positivo.
 
     > [!NOTE]
     > Se sono configurate restrizioni legacy per il gruppo di lavoro, sarà necessario soddisfarle.
 
 3.  Il controller di dominio risponde con una risposta blindata (AS-REP) e il processo di autenticazione continua.
 
-### <a name="BKMK_HowRestrictingServiceTicket"></a>Funzionamento della limitazione dell'emissione di ticket di servizio
-Quando non è consentito un account e un utente con TGT tenta di connettersi al servizio (ad esempio aprendo un'applicazione che richiede l'autenticazione a un servizio identificato dal nome dell'entità servizio del servizio (SPN), si verifica la sequenza seguente:
+### <a name="BKMK_HowRestrictingServiceTicket"></a>Come si limita il rilascio di ticket di servizio
+Quando un account non è consentito e un utente con TGT tenta di connettersi al servizio, ad esempio aprendo un'applicazione che richiede l'autenticazione a un servizio identificato dal nome dell'entità servizio (SPN) del servizio, si verifica la sequenza seguente:
 
 1.  In caso di tentativo di connessione a SPN1 da SPN, Windows invia una richiesta TGS-REQ al controller di dominio che richiede un ticket di servizio per SPN1.
 
-2.  Il controller di dominio in un dominio che esegue Windows Server 2012 R2 Cerca SPN1 per trovare l'account di Active Directory Domain Services per il servizio e determina che l'account è configurato con un criterio di autenticazione che limita l'emissione di ticket di servizio.
+2.  Il controller di dominio in un dominio che esegue Windows Server 2012 R2 Cerca SPN1 per trovare l'account Active Directory Domain Services per il servizio e stabilisce che l'account è configurato con un criterio di autenticazione che limita il rilascio di ticket di servizio.
 
-3.  Il controller di dominio esegue una verifica dell'accesso tramite le condizioni di controllo di accesso configurate e le informazioni sull'identità dell'utente disponibili nel TGT. La verifica dell'accesso ha esito negativo.
+3.  Il controller di dominio esegue una verifica dell'accesso usando le condizioni di controllo di accesso configurate e le informazioni sull'identità dell'utente nella TGT. La verifica dell'accesso ha esito negativo.
 
 4.  Il controller di dominio respinge la richiesta.
 
-Quando un account è consentito perché l'account soddisfi le condizioni di controllo di accesso impostati dal criterio di autenticazione e un utente con TGT tenta di connettersi al servizio (ad esempio aprendo un'applicazione che richiede l'autenticazione a un servizio vale a dire identificato dal nome SPN del servizio), si verifica la sequenza seguente:
+Quando un account è consentito perché l'account soddisfa le condizioni di controllo di accesso impostate dai criteri di autenticazione e un utente che ha un TGT tenta di connettersi al servizio, ad esempio aprendo un'applicazione che richiede l'autenticazione a un servizio che è identificato dal nome SPN del servizio), si verifica la sequenza seguente:
 
 1.  In caso di tentativo di connessione a SPN1, Windows invia una richiesta TGS-REQ al controller di dominio che richiede un ticket di servizio per SPN1.
 
-2.  Il controller di dominio in un dominio che esegue Windows Server 2012 R2 Cerca SPN1 per trovare l'account di Active Directory Domain Services per il servizio e determina che l'account è configurato con un criterio di autenticazione che limita l'emissione di ticket di servizio.
+2.  Il controller di dominio in un dominio che esegue Windows Server 2012 R2 Cerca SPN1 per trovare l'account Active Directory Domain Services per il servizio e stabilisce che l'account è configurato con un criterio di autenticazione che limita il rilascio di ticket di servizio.
 
-3.  Il controller di dominio esegue una verifica dell'accesso tramite le condizioni di controllo di accesso configurate e le informazioni sull'identità dell'utente disponibili nel TGT. La verifica dell'accesso ha esito positivo.
+3.  Il controller di dominio esegue una verifica dell'accesso usando le condizioni di controllo di accesso configurate e le informazioni sull'identità dell'utente nella TGT. La verifica dell'accesso ha esito positivo.
 
 4.  Il controller di dominio risponde alla richiesta con una richiesta TGS (TGS-REP).
 
-## <a name="BKMK_ErrorandEvents"></a>Errore associato e i messaggi di evento informativo
+## <a name="BKMK_ErrorandEvents"></a>Messaggi di eventi informativi e di errore associati
 Nella tabella seguente sono descritti gli eventi associati al gruppo di sicurezza Utenti protetti e i criteri di autenticazione applicati ai silo di criteri di autenticazione.
 
 Gli eventi sono registrati nei registri relativi ad applicazioni e servizi in **Microsoft\Windows\Authentication**.

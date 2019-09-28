@@ -1,8 +1,8 @@
 ---
 title: nslookup view
-description: 'Argomento i comandi di Windows per * * *- '
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 623064db7a3e89decbfc1fbc27fa0598e398ac34
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 61a01a25317bdf42491f05e896ddd5bb022193fe
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66436415"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71372725"
 ---
 # <a name="nslookup-view"></a>nslookup view
 
 >Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Ordina ed elenca l'output del precedente **ls** sottocomando o dei comandi.  
+Ordina ed elenca l'output del sottocomando o dei comandi **ls** precedenti.  
 ## <a name="syntax"></a>Sintassi  
 ```  
 view <FileName>  
@@ -33,8 +33,8 @@ view <FileName>
 
 |    Parametro    |                                            Descrizione                                            |
 |-----------------|---------------------------------------------------------------------------------------------------|
-|   <FileName>    | Specifica il nome del file che contiene l'output dal precedente **ls** sottocomando o dei comandi. |
-| {help &#124; ?} |                       Viene visualizzato un breve riepilogo di **nslookup** sottocomandi.                       |
+|   <FileName>    | Specifica il nome del file che contiene l'output del sottocomando o dei comandi **ls** precedenti. |
+| {Help &#124; ?} |                       Viene visualizzato un breve riepilogo di **nslookup** sottocomandi.                       |
 
 ## <a name="additional-references"></a>Riferimenti aggiuntivi  
 [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)  

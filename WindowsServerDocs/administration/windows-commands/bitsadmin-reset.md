@@ -1,8 +1,8 @@
 ---
 title: bitsadmin reset
-description: Argomento i comandi di Windows per **reimpostazione bitsadmin** -Annulla tutti i processi nella coda di trasferimento a cui appartiene l'utente corrente.
+description: "Argomento dei comandi di Windows per la **reimpostazione di Bitsadmin** : Annulla tutti i processi nella coda di trasferimento di proprietà dell'utente corrente."
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: b7c29aac55393cd87145583814b3ffa8f0a2c3b3
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: adc6b07a7b5d1414c733fe6a3ac05eba7cb3029e
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59874252"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71380807"
 ---
 # <a name="bitsadmin-reset"></a>bitsadmin reset
 
 Annulla tutti i processi nella coda di trasferimento a cui appartiene l'utente corrente.
 
-**BITSAdmin 1.5 e versioni precedenti**: Se si dispone di privilegi di amministratore **reimpostare** Annulla tutti i processi nella coda. L'opzione /AllUsers non è supportata.
+**BITSAdmin 1,5 e versioni precedenti**: Se si dispone dei privilegi di amministratore, **reimpostare** cancels tutti i processi nella coda. L'opzione/AllUsers non è supportata.
 
 ## <a name="syntax"></a>Sintassi
 
@@ -43,7 +43,7 @@ bitsadmin /Reset [/AllUsers]
 È necessario disporre dei privilegi di amministratore per utilizzare il **AllUsers** parametro.
 
 > [!NOTE]
-> Gli amministratori non possono reimpostare i processi creati dal sistema locale. Utilizzare l'utilità di pianificazione per pianificare questo comando come attività utilizzando le credenziali di sistema locale.
+> Gli amministratori non possono reimpostare i processi creati dal sistema locale. Usare l'utilità di pianificazione per pianificare questo comando come attività usando le credenziali del sistema locale.
 
 ## <a name="BKMK_examples"></a>Esempi
 
@@ -54,4 +54,4 @@ C:\>bitsadmin /Reset
 
 #### <a name="additional-references"></a>Altri riferimenti
 
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)
+[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

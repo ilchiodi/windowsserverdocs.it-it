@@ -1,8 +1,8 @@
 ---
 title: setvalidationstate Bitsadmin
-description: Argomento i comandi di Windows per **bitsadmin setvalidationstate** -imposta lo stato di convalida del contenuto del file specificato all'interno del processo.
+description: Argomento dei comandi di Windows per **BITSAdmin setvalidationstate** -imposta lo stato di convalida del contenuto del file specificato all'interno del processo.
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: a832e8f3d21681f67a4486df33c387e5a8456718
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 37d7fa3a8a91abf1e7b6ac5a51b6cebd78984a91
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66434875"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71380403"
 ---
 # <a name="bitsadmin-setvalidationstate"></a>setvalidationstate Bitsadmin
 
@@ -37,12 +37,12 @@ bitsadmin /SetValidationState <Job> <file index> <true|false>
 | Parametro  |          Descrizione           |
 |------------|--------------------------------|
 |    Job     | Nome visualizzato o il GUID del processo |
-| Indice di file |         Inizia da 0          |
+| Indice file |         Inizia da 0          |
 |    True    |             False              |
 
 ## <a name="BKMK_examples"></a>Esempi
 
-Nell'esempio seguente imposta lo stato di convalida del contenuto del file 2 su TRUE per il processo denominato *myJob*.
+L'esempio seguente imposta lo stato di convalida del contenuto del file 2 su TRUE per il processo denominato *il mio lavoro*.
 ```
 C:\>bitsadmin /SetValidationState myJob 2 TRUE 
 ```

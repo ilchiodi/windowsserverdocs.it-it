@@ -1,7 +1,7 @@
 ---
 ms.assetid: b198d8ca-a5b7-430f-8911-5cbb9f50484c
 title: Fsutil risorse
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 manager: dmoss
 ms.author: toklima
 author: toklima
@@ -9,12 +9,12 @@ ms.technology: storage
 audience: IT Pro
 ms.topic: article
 ms.date: 10/16/2017
-ms.openlocfilehash: ea97f7f71d1b484c7ac63c7c429f291fba607bba
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 10f2847fd05658a481a10dfb5a1920a998559962
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70867072"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71376824"
 ---
 # <a name="fsutil-resource"></a>Fsutil risorse
 >Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows 10, Windows Server 2012 R2, Windows 8.1, Windows Server 2012, Windows 8, Windows Server 2008 R2, Windows 7, Windows 2008, Windows Vista
@@ -48,7 +48,7 @@ fsutil resource [stop] <RmRootPathname>
 
 |        Parametro        |                                                                                                                                                                                                                                        Descrizione                                                                                                                                                                                                                                         |
 |-------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|         create          |                                                                                                                                                                                                                    Crea una Gestione risorse transazionale secondaria.                                                                                                                                                                                                                     |
+|         creazione          |                                                                                                                                                                                                                    Crea una Gestione risorse transazionale secondaria.                                                                                                                                                                                                                     |
 |    <RmRootPathname>     |                                                                                                                                                                                                        Specifica il percorso completo di una directory radice Gestione risorse transazionale.                                                                                                                                                                                                         |
 |          info           |                                                                                                                                                                                                            Consente di visualizzare le informazioni sul Gestione risorse transazionale specificato.                                                                                                                                                                                                            |
 |      setautoreset       | Specifica se un Gestione risorse transazionale predefinito pulirà i metadati transazionali al montaggio successivo.<br /><br />-Impostare il parametro **setautoreset** su **true** per specificare che la transazione gestione risorse eliminerà i metadati transazionali al montaggio successivo, per impostazione predefinita.<br />-Impostare il parametro **setautoreset** su **false** per specificare che la transazione gestione risorse non eliminerà i metadati transazionali al montaggio successivo, per impostazione predefinita. |
@@ -63,7 +63,7 @@ fsutil resource [stop] <RmRootPathname>
 |  modalità {Undo&#124;completo}  |                                                                                                                                                                                        Specifica se tutte le transazioni vengono registrate ( **complete**) o se solo gli eventi sottoposti a rollback vengono registrati (**Annulla**).                                                                                                                                                                                         |
 |         rename          |                                                                                                                                                                                                                  Modifica il GUID per la Gestione risorse transazionale.                                                                                                                                                                                                                  |
 |         shrink          |                                                                                                                                                                                              Specifica la percentuale in base alla quale il log di Gestione risorse transazionale può essere ridotto automaticamente.                                                                                                                                                                                              |
-|          size           |                                                                                                                                                                                              Specifica le dimensioni del Gestione risorse transazionale come numero specificato di *contenitori*.                                                                                                                                                                                               |
+|          dimensioni           |                                                                                                                                                                                              Specifica le dimensioni del Gestione risorse transazionale come numero specificato di *contenitori*.                                                                                                                                                                                               |
 |          start          |                                                                                                                                                                                                                    Avvia il Gestione risorse transazionale specificato.                                                                                                                                                                                                                    |
 |          stop           |                                                                                                                                                                                                                    Arresta il Gestione risorse transazionale specificato.                                                                                                                                                                                                                     |
 

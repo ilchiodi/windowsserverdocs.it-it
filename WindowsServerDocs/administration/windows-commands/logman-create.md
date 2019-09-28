@@ -1,8 +1,8 @@
 ---
 title: creare Logman
-description: 'Argomento i comandi di Windows per * * *- '
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: cb87ee824bb5802864d4e661fd231b8854ce8b40
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 22e6d19669152f3c9e4761ce2bde5b6d9e524e14
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59837822"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71374489"
 ---
 # <a name="logman-create"></a>creare Logman
 
@@ -34,10 +34,10 @@ logman create <counter | trace | alert | cfg | api> <[-n] <name>> [options]
 
 |Parametro|Descrizione|
 |---------|-----------|
-|[Logman creazione del contatore](logman-create-counter.md)|Creare un agente di raccolta dati del contatore.|
-|[Logman creare traccia](logman-create-trace.md)|Creare un agente di raccolta dati di traccia.|
-|[Logman crea avviso](logman-create-alert.md)|Creare un agente di raccolta dati di avviso.|
-|[Logman creare cfg](logman-create-cfg.md)|Creare un agente di raccolta dati di configurazione.|
-|[Logman creare api](logman-create-api.md)|Creare una raccolta di dati di traccia API.|
+|[logman create counter](logman-create-counter.md)|Creare un agente di raccolta dati del contatore.|
+|[logman Crea traccia](logman-create-trace.md)|Creare un agente di raccolta dati di traccia.|
+|[logman crea avviso](logman-create-alert.md)|Creare un agente di raccolta dati di avviso.|
+|[logman creare una cfg](logman-create-cfg.md)|Creare un agente di raccolta dati di configurazione.|
+|[logman creare un'API](logman-create-api.md)|Creare una raccolta di dati di traccia API.|
 
 #### <a name="additional-references"></a>Altri riferimenti

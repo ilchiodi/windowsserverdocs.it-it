@@ -1,8 +1,8 @@
 ---
 title: chdir
-description: 'Argomento i comandi di Windows per * * *- '
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,19 +13,19 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: db30ab6cbfd4d88aabf736e24535443be23c9b53
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 5f7d4753c42ec9f992895b92bea7b901982c6d8f
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59877102"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71379517"
 ---
 # <a name="chdir"></a>chdir
 
 >Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Questo comando è analogo a come il **cd** comando.  
-Visualizzare [cd](cd.md) per la sintassi e parametri.  
+Vedere [CD](cd.md) per la sintassi e i parametri.  
 ## <a name="additional-references"></a>Riferimenti aggiuntivi  
--   [Chiave sintassi della riga di comando](command-line-syntax-key.md)  
+-   [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)  
   

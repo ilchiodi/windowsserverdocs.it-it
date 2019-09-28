@@ -1,8 +1,8 @@
 ---
 title: Elimina
-description: 'Argomento i comandi di Windows per * * *- '
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 7cfa1c125d9ad1859550ae746839600283d07f44
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: c2dd1edc8404ef89ae087e49b9e1d4b302d1c8ad
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59813072"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71378603"
 ---
 # <a name="delete"></a>Elimina
 
 
 
-Elimina un volume o una partizione. Un disco dinamico verranno inoltre eliminati dall'elenco dei dischi.
+Elimina una partizione o un volume. Elimina inoltre un disco dinamico dall'elenco dei dischi.
 
 ## <a name="syntax"></a>Sintassi
 
@@ -38,9 +38,9 @@ delete volume
 
 |Parametro|Descrizione|
 |---------|-----------|
-|[Elimina disco](delete-disk.md)|Elimina un disco dinamico mancante nell'elenco dei dischi.|
+|[Elimina disco](delete-disk.md)|Elimina un disco dinamico mancante dall'elenco dei dischi.|
 |[Elimina partizione](delete-partition.md)|Elimina una partizione.|
-|[Eliminazione del volume](delete-volume.md)|Elimina un volume.|
+|[Elimina volume](delete-volume.md)|Elimina un volume.|
 
 #### <a name="additional-references"></a>Altri riferimenti
 

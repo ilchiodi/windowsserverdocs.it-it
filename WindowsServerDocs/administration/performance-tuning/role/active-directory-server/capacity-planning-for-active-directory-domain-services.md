@@ -1,18 +1,18 @@
 ---
 title: Pianificazione della capacità per Active Directory Domain Services
 description: Descrizione dettagliata dei fattori da prendere in considerazione durante la pianificazione della capacità per servizi di dominio Active Directory.
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: performance-tuning-guide
 ms.topic: article
 ms.author: v-tea; kenbrunf
 author: Teresa-Motiv
 ms.date: 7/3/2019
-ms.openlocfilehash: dac13ac94e38cf671239d35507e07d7ac3a0c1ab
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 8b17d7f5c7774c1c332d49962b14fe31128f1a27
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70866722"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71370427"
 ---
 # <a name="capacity-planning-for-active-directory-domain-services"></a>Pianificazione della capacità per Active Directory Domain Services
 
@@ -114,7 +114,7 @@ In generale:
 |Prestazioni di archiviazione/database|<ul><li>"Disco logico ( *\<\>unità del database NTDS*) \Avg letture disco/sec," "disco logico ( *\<unità\>di database NTDS*) \Avg disco/sec," "disco logico ( *\<unità di database NTDS )\>* \Avg/sec disco "</li><li>"Disco logico ( *\<\>unità del database NTDS*) \ Reads/sec," "disco logico ( *\<unità\>del database NTDS*) \ scritture/sec," "disco logico ( *\<unità\>deldatabaseNTDS*) \ Trasferimenti/sec "</li></ul>|<ul><li>L'archiviazione presenta due aspetti da affrontare<ul><li>Spazio disponibile, che, con le dimensioni della data odierna basata su mandrino e archiviazione basata su SSD, è irrilevante per la maggior parte degli ambienti AD.</li> <li>Operazioni di i/o (input/output) disponibili: in molti ambienti questa operazione viene spesso trascurata. Tuttavia è importante valutare solo gli ambienti in cui non è disponibile RAM sufficiente per caricare l'intero database NTDS in memoria.</li></ul><li>L'archiviazione può essere un argomento complesso e deve coinvolgere le competenze del fornitore dell'hardware per il dimensionamento corretto. In particolare con scenari più complessi, ad esempio gli scenari SAN, NAS e iSCSI. Tuttavia, in generale, il costo per Gigabyte di archiviazione è spesso in opposizione diretta ai costi per IO:<ul><li>RAID 5 ha un costo inferiore per Gigabyte rispetto a RAID 1, ma RAID 1 ha un costo inferiore per i/o</li><li>I dischi rigidi basati su mandrino hanno un costo inferiore per Gigabyte, ma le SSD hanno un costo inferiore per i/o</li></ul><li>Dopo il riavvio del computer o del servizio Active Directory Domain Services, la cache Extensible Storage Engine (ESE) è vuota e le prestazioni saranno vincolate dal disco mentre la cache viene riscaldata.</li><li>Nella maggior parte degli ambienti AD è possibile leggere I/O intensivo in un modello casuale sui dischi, negando gran parte dei vantaggi della memorizzazione nella cache e delle strategie di ottimizzazione per la lettura.  Inoltre, AD ha una cache di dimensioni superiori in memoria rispetto alla maggior parte delle cache del sistema di archiviazione.</li></ul>
 |RAM|<ul><li>Dimensioni del database</li><li>Raccomandazioni del sistema operativo di base</li><li>Applicazioni di terze parti</li></ul>|<ul><li>L'archiviazione è il componente più lento in un computer. Maggiore è il numero che può essere residente in RAM, minore è la necessità di passare al disco.</li><li>Assicurarsi che venga allocata una quantità di RAM sufficiente per archiviare il sistema operativo, gli agenti (antivirus, backup, monitoraggio), il database NTDS e la crescita nel tempo.</li><li>Per gli ambienti in cui la massimizzazione della quantità di RAM non è economicamente conveniente (ad esempio, percorsi satellite) o non fattibile (il DIT è troppo grande), fare riferimento alla sezione archiviazione per assicurarsi che le dimensioni dell'archiviazione siano corrette.</li></ul>|
 |Rete|<ul><li>"Interfaccia di rete\*() \Byte ricevuti/sec"</li><li>"Interfaccia di rete\*() \Byte inviati/sec"|<ul><li>In generale, il traffico inviato da un controller di dominio supera molto il traffico inviato a un controller di dominio.</li><li>Poiché una connessione Ethernet comcambiata è full duplex, il traffico di rete in ingresso e in uscita deve essere ridimensionato in modo indipendente.</li><li>Il consolidamento del numero di controller di dominio aumenterà la quantità di larghezza di banda utilizzata per inviare risposte alle richieste client per ogni controller di dominio, ma sarà abbastanza vicino a lineare per il sito nel suo complesso.</li><li>Se si rimuovono i controller di dominio del percorso satellite, non dimenticare di aggiungere la larghezza di banda per il controller di dominio satellite nei controller di dominio dell'hub e di usarla per valutare la quantità di traffico WAN.</li></ul>|
-|CPU|<ul><li>"Disco logico ( *\<\>unità del database NTDS*) \Avg letture disco/sec"</li><li>"Elaborazione (LSASS)\\% tempo processore"</li></ul>|<ul><li>Dopo aver eliminato l'archiviazione come collo di bottiglia, risolvere la quantità di potenza di calcolo necessaria.</li><li>Sebbene non sia perfettamente lineare, il numero di core del processore utilizzati in tutti i server all'interno di un ambito specifico, ad esempio un sito, può essere usato per misurare il numero di processori necessari per supportare il carico totale del client. Aggiungere il requisito minimo necessario per mantenere il livello di servizio corrente in tutti i sistemi all'interno dell'ambito.</li><li>Modifiche della velocità del processore, incluse le modifiche relative al risparmio energia, i numeri di impatto derivati dall'ambiente corrente. In genere, non è possibile valutare con precisione il modo in cui un processore da 2,5 GHz a un processore a 3 GHz ridurrà il numero di CPU necessarie.</li></ul>|
+|CPU|<ul><li>"Disco logico ( *\<\>unità del database NTDS*) \Avg letture disco/sec"</li><li>"Processo (LSASS) \\% tempo processore"</li></ul>|<ul><li>Dopo aver eliminato l'archiviazione come collo di bottiglia, risolvere la quantità di potenza di calcolo necessaria.</li><li>Sebbene non sia perfettamente lineare, il numero di core del processore utilizzati in tutti i server all'interno di un ambito specifico, ad esempio un sito, può essere usato per misurare il numero di processori necessari per supportare il carico totale del client. Aggiungere il requisito minimo necessario per mantenere il livello di servizio corrente in tutti i sistemi all'interno dell'ambito.</li><li>Modifiche della velocità del processore, incluse le modifiche relative al risparmio energia, i numeri di impatto derivati dall'ambiente corrente. In genere, non è possibile valutare con precisione il modo in cui un processore da 2,5 GHz a un processore a 3 GHz ridurrà il numero di CPU necessarie.</li></ul>|
 |Accesso rete|<ul><li>"Netlogon (\*) \Semaphore acquisisce"</li><li>"Netlogon (\*) \Semaphore timeout"</li><li>"Netlogon (\*) \Latenza tempo di attesa del semaforo"</li></ul>|<ul><li>Canale sicuro accesso rete/MaxConcurrentAPI influiscono solo sugli ambienti con autenticazione NTLM e/o convalida PAC. La convalida PAC è attiva per impostazione predefinita nelle versioni del sistema operativo precedenti a Windows Server 2008. Si tratta di un'impostazione client, di conseguenza i controller di dominio saranno interessati fino a quando non viene disattivato in tutti i sistemi client.</li><li>Gli ambienti con autenticazione con attendibilità significativa, che include i trust tra foreste, presentano maggiori rischi se non vengono ridimensionati correttamente.</li><li>I consolidamenti dei server aumenteranno la concorrenza dell'autenticazione tra trust.</li><li>È necessario gestire i picchi, ad esempio i failover del cluster, quando gli utenti eseguono di nuovo l'autenticazione in massa nel nuovo nodo del cluster.</li><li>Potrebbe essere necessario ottimizzare i singoli sistemi client (ad esempio un cluster).</li></ul>|
 
 ## <a name="planning"></a>Pianificazione
@@ -232,7 +232,7 @@ CONTROLLER DI DOMINIO 2|6,25 MB/s|
 |DC 5|4,75 MB/s|
 |Totale|28,5 MB/s|
 
-**Consigliabile 72 MB/s** (28,5 MB/s diviso per 40%)
+**Consigliabile 72 MB/s @ no__t-0 (28,5 MB/s diviso per 40%)
 
 |Conteggio sistema/i di destinazione|Larghezza di banda totale (precedente)|
 |-|-|
@@ -398,7 +398,7 @@ Per la maggior parte degli ambienti, dopo la corretta ottimizzazione di archivia
   Negli ambienti più grandi, il motivo è importante che le applicazioni con codice scarso possono incorrere in una volatilità al carico della CPU, "rubare" una quantità inordinata di tempo della CPU da altre applicazioni, incrementare artificialmente le esigenze di capacità e distribuire in modo non uniforme il carico Controller di dominio.  
 - Poiché servizi di dominio Active Directory è un ambiente distribuito con una vasta gamma di potenziali client, la stima delle spese di un "singolo client" è soggetta all'ambiente a causa dei modelli di utilizzo e del tipo o della quantità di applicazioni che sfruttano i servizi di dominio Active Directory. In breve, in modo analogo alla sezione relativa alla rete, per un'applicabilità ampia, questo approccio è più adatto dal punto di vista della valutazione della capacità totale necessaria per l'ambiente.
 
-Per gli ambienti esistenti, dato che il dimensionamento dell'archiviazione è stato discusso in precedenza, il presupposto è che l'archiviazione è ora dimensionata correttamente e pertanto i dati relativi al carico del processore sono validi. Per ripetere l'iterazione, è fondamentale assicurarsi che il collo di bottiglia nel sistema non sia le prestazioni dell'archiviazione. Quando si verifica un collo di bottiglia e il processore è in attesa, sono presenti stati inattivi che scompariranno una volta rimosso il collo di bottiglia.  Poiché gli Stati di attesa del processore vengono rimossi, per definizione, l'utilizzo della CPU aumenta perché non è più necessario attendere i dati. Quindi, raccogliere i contatori delle prestazioni "disco logico ( *\<unità\>del database NTDS*) \Avg letture disco/sec" e "processo\\(LSASS)% tempo processore". I dati in "Process (LSASS)\\% Processor Time" saranno artificialmente bassi se "disco logico ( *\<unità\>di database NTDS*) \Avg letture disco/sec" supera i 10-15 ms, che è una soglia generale utilizzata dal supporto tecnico Microsoft per la risoluzione dei problemi relativi alle prestazioni di archiviazione. Come prima, è consigliabile che gli intervalli di campionamento siano di 15, 30 o 60 minuti. Un valore inferiore sarà in genere troppo volatile per le misurazioni valide; un valore maggiore consiste nel smussare le operazioni di lettura giornaliera.
+Per gli ambienti esistenti, dato che il dimensionamento dell'archiviazione è stato discusso in precedenza, il presupposto è che l'archiviazione è ora dimensionata correttamente e pertanto i dati relativi al carico del processore sono validi. Per ripetere l'iterazione, è fondamentale assicurarsi che il collo di bottiglia nel sistema non sia le prestazioni dell'archiviazione. Quando si verifica un collo di bottiglia e il processore è in attesa, sono presenti stati inattivi che scompariranno una volta rimosso il collo di bottiglia.  Poiché gli Stati di attesa del processore vengono rimossi, per definizione, l'utilizzo della CPU aumenta perché non è più necessario attendere i dati. Raccogliere quindi i contatori delle prestazioni "disco logico ( *\<NTDS database Drive @ no__t-2*) \Avg disco sec/Read" e "Process (lsass) \\% tempo processore". I dati in "Process (LSASS) \\% tempo processore" saranno artificialmente bassi se "disco logico ( *\<NTDS database Drive @ no__t-3*) \Avg disco/sec" supera i 10-15 ms, che è una soglia generale utilizzata dal supporto tecnico Microsoft per la risoluzione dei problemi problemi di prestazioni relativi all'archiviazione. Come prima, è consigliabile che gli intervalli di campionamento siano di 15, 30 o 60 minuti. Un valore inferiore sarà in genere troppo volatile per le misurazioni valide; un valore maggiore consiste nel smussare le operazioni di lettura giornaliera.
 
 ### <a name="introduction"></a>Introduzione
 
@@ -421,7 +421,7 @@ Nell'esempio seguente vengono eseguiti i presupposti seguenti:
 
 ![Grafico utilizzo CPU](media/capacity-planning-considerations-cpu-chart.png)
 
-Analisi dei dati nel grafico (utilità del processore (_ Total)\% per ogni controller di dominio:
+Analisi dei dati nel grafico (informazioni sul processore (_ Total) \% Utility Processor) per ogni controller di dominio:
 
 - Nella maggior parte dei casi, il carico è distribuito in modo relativamente uniforme, che corrisponde a quello previsto quando i client usano il localizzatore DC e hanno ricerche ben scritte. 
 - Il 10% è costituito da un numero di picchi di cinque minuti, con alcune dimensioni pari al 20%. In generale, a meno che non causino il superamento della destinazione del piano di capacità, l'analisi di questi elementi non è utile.  
@@ -436,7 +436,7 @@ Analisi dei dati nel grafico (utilità del processore (_ Total)\% per ogni contr
 
 ### <a name="calculating-cpu-demands"></a>Calcolo delle richieste della CPU
 
-Il contatore oggetto\\prestazioni "tempo processore processo% processore" somma la quantità totale di tempo impiegato da tutti i thread di un'applicazione sulla CPU e divide in base alla quantità totale di tempo di sistema trascorso. Ciò è dovuto al fatto che un'applicazione multithread in un sistema con più CPU può superare il 100% del tempo di CPU e verrebbe interpretata in modo molto diverso rispetto alla "\\utilità processore% Processor Information". In pratica, il "processo (Lsass\\)% tempo processore" può essere visualizzato come il numero di CPU in esecuzione al 100% necessarie per supportare le richieste del processo. Il valore 200% indica che sono necessarie 2 CPU, ciascuna al 100%, per supportare il caricamento completo di servizi di dominio Active Directory. Anche se una CPU in esecuzione al 100% di capacità è la più conveniente dal punto di vista del denaro speso per le CPU e il consumo di energia e energia, per diversi motivi descritti in Appendice A, una maggiore velocità di risposta in un sistema multithread si verifica quando il sistema è non in esecuzione al 100%.
+Il contatore oggetto prestazioni "processo @ no__t-0% tempo processore" somma la quantità totale di tempo impiegato da tutti i thread di un'applicazione sulla CPU e si divide in base alla quantità totale di tempo di sistema trascorso. Ciò è dovuto al fatto che un'applicazione multithread in un sistema con più CPU può superare il 100% del tempo di CPU e verrebbe interpretata in modo molto diverso rispetto a "Information Processor @ no__t-0% Processor Utility". In pratica, il "processo (LSASS) \\% tempo processore" può essere visualizzato come il numero di CPU in esecuzione al 100% necessarie per supportare le richieste del processo. Il valore 200% indica che sono necessarie 2 CPU, ciascuna al 100%, per supportare il caricamento completo di servizi di dominio Active Directory. Anche se una CPU in esecuzione al 100% di capacità è la più conveniente dal punto di vista del denaro speso per le CPU e il consumo di energia e energia, per diversi motivi descritti in Appendice A, una maggiore velocità di risposta in un sistema multithread si verifica quando il sistema è non in esecuzione al 100%.
 
 Per supportare picchi temporanei nel carico del client, è consigliabile usare una CPU con un periodo di picco compreso tra il 40% e il 60% della capacità del sistema. Con l'esempio precedente, ciò significa che tra 3,33 (60% target) e 5 (40% target) CPU è necessario per il caricamento di servizi di dominio Active Directory (processo LSASS). È necessario aggiungere capacità aggiuntiva in base alle esigenze del sistema operativo di base e di altri agenti necessari, ad esempio antivirus, backup, monitoraggio e così via. Sebbene l'impatto degli agenti debba essere valutato in base all'ambiente, è possibile stimare un valore compreso tra 5% e 10% di una singola CPU. Nell'esempio corrente, questo suggerisce che tra le CPU 3,43 (60% target) e 5,1 (40% target) sono necessarie durante i periodi di picco.
 
@@ -448,7 +448,7 @@ Presupposti:
 
 ![Grafico del tempo del processore per il processo LSASS (su tutti i processori)](media/capacity-planning-considerations-proc-time-chart.png)
 
-Informazioni ottenute dai dati nel grafico (elaborazione (LSASS)\\% tempo processore):
+Informazioni ottenute dai dati nel grafico (processo (LSASS) \\% tempo processore):
 
 - Il giorno lavorativo inizia a dilagare circa 7:00 e diminuisce alle 5:00.
 - Il periodo di picco più occupato è compreso tra 9:30 e 11:00. 
@@ -486,7 +486,7 @@ Utilizzando l'esempio del profilo di [comportamento del sito di destinazione](#t
 
 #### <a name="example-2---differing-cpu-counts"></a>Esempio 2: conteggi diversi della CPU
 
-| |Utilità processore\\informazioni %processore(_totale&nbsp;)<br />Utilizzo con impostazioni predefinite|Nuovo LdapSrvWeight|Nuovo utilizzo stimato|
+| |Informazioni sul processore @ no__t-0 @ no__t-1 @ no__t-utilità 2Processor (_ totale)<br />Utilizzo con impostazioni predefinite|Nuovo LdapSrvWeight|Nuovo utilizzo stimato|
 |-|-|-|-|
 |4-DC CPU 1|40|100|30|
 |4-DC CPU 2|40|100|30|
@@ -521,7 +521,7 @@ Durante l'analisi e il calcolo delle quantità di CPU necessarie per supportare 
 |-|-|
 |CPU necessarie al 40% di destinazione|4,85 &divide; . 4 = 12,25|
 
-Ripetuta a causa dell'importanza di questo punto, *ricordarsi di pianificare la crescita*. Supponendo che la crescita del 50% nei tre anni successivi, questo ambiente necessiterà di &times; 18,375 CPU (12,25 1,5) al contrassegno di tre anni. Un piano alternativo può essere esaminato dopo il primo anno e aggiungere capacità aggiuntiva in base alle esigenze.
+Ripetuta a causa dell'importanza di questo punto, *ricordarsi di pianificare la crescita*. Supponendo che la crescita del 50% nei prossimi tre anni, questo ambiente necessiterà di 18,375 CPU (12,25 &times; 1,5) al contrassegno di tre anni. Un piano alternativo può essere esaminato dopo il primo anno e aggiungere capacità aggiuntiva in base alle esigenze.
 
 ### <a name="cross-trust-client-authentication-load-for-ntlm"></a>Carico di autenticazione client tra trust per NTLM
 
@@ -576,7 +576,7 @@ In questo articolo è stato illustrato che la pianificazione e la scalabilità v
 
 |Category|Contatore delle prestazioni|Intervallo/campionamento|Destinazione|Avviso|
 |-|-|-|-|-|
-|Processore|Informazioni sul processore (_\\Total)% Processor Utility|60 min|40%|60%|
+|Processore|Informazioni sul processore (_ Total) \\% Processor Utility|60 min|40%|60%|
 |RAM (Windows Server 2008 R2 o versioni precedenti)|Memoria\mbyte MB|< 100 MB|N/D|< 100 MB|
 |RAM (Windows Server 2012)|Durata media cache standby Memory\Long-Term|30 minuti|Deve essere testato|Deve essere testato|
 |Rete|Interfaccia di rete\*() \Byte inviati/sec<br /><br />Interfaccia di rete\*() \Byte ricevuti/sec|30 minuti|40%|60%|
@@ -655,7 +655,7 @@ L'istruzione precedente considera la percentuale di calcolo del tempo del proces
 - Uso della matematica:
   - *U* k = 1 –% tempo processore
   - % Tempo processore = 1 – *U* k
-  - % Tempo processore = 1 – *B* / *T*
+  - % Tempo processore = 1 – *B* / *t*
   - % Tempo processore = 1 – *X1* – *x0* / *Y1* – *y0*
 
 ### <a name="applying-the-concepts-to-capacity-planning"></a>Applicazione dei concetti alla pianificazione della capacità
@@ -667,7 +667,7 @@ Il 40% non è un requisito difficile e rapido. si tratta di un inizio ragionevol
 - L'aggiunta di più processori a un sistema che esegue il 90% che è associato a un disco probabilmente non consentirà di migliorare significativamente le prestazioni. Un'analisi più approfondita del sistema probabilmente identificherà che ci sono molti thread che non sono ancora in esecuzione nel processore perché sono in attesa del completamento di operazioni di I/O.
 - La risoluzione dei problemi legati al disco implica potenzialmente che i thread che in precedenza impiegavano molto tempo in uno stato di attesa non saranno più in uno stato di attesa per I/O e vi sarà maggiore concorrenza per il tempo di CPU, ovvero l'utilizzo del 90% nei precedenti L'esempio passerà al 100% (perché non può andare più in alto). Entrambi i componenti devono essere ottimizzati in combinazione.
   > [!NOTE]
-  > Le informazioni sul processore (\\*)% l'utilità processore può superare il 100% con sistemi con modalità "Turbo".  Questo è il punto in cui la CPU supera la velocità di elaborazione nominale per brevi periodi.  Documentazione di riferimento per i produttori della CPU e descrizione del contatore per informazioni più dettagliate.  
+  > Le informazioni sul processore (*) \\% l'utilità processore può superare il 100% con sistemi con modalità "Turbo".  Questo è il punto in cui la CPU supera la velocità di elaborazione nominale per brevi periodi.  Documentazione di riferimento per i produttori della CPU e descrizione del contatore per informazioni più dettagliate.  
 
 La discussione di considerazioni sull'utilizzo completo del sistema introduce anche i controller di dominio di conversazione come guest virtualizzati. Il [tempo di risposta/il modo in cui la disponibilità del sistema influisca sulle prestazioni](#response-timehow-the-system-busyness-impacts-performance) si applica sia all'host che al Guest in uno scenario virtualizzato. Questo è il motivo per cui in un host con un solo Guest, un controller di dominio (e in genere qualsiasi sistema) ha quasi le stesse prestazioni dell'hardware fisico. L'aggiunta di altri utenti Guest agli host aumenta l'utilizzo dell'host sottostante, aumentando in tal modo i tempi di attesa per ottenere l'accesso ai processori, come illustrato in precedenza. In breve, l'utilizzo del processore logico deve essere gestito sia nell'host che nei livelli Guest.
 
@@ -794,7 +794,7 @@ Dopo l'analisi dei componenti del sottosistema di archiviazione, l'asse rapprese
 
 A questo punto, dopo aver analizzato una semplice configurazione, nella tabella seguente viene illustrata la posizione in cui si verificherà il collo di bottiglia quando i componenti del sottosistema di archiviazione vengono modificati o aggiunti.
 
-|Note|Analisi colli di bottiglia|Disco|Bus|Scheda|Bus PCI|
+|Note|Analisi colli di bottiglia|Disk|Bus|Scheda|Bus PCI|
 |-|-|-|-|-|-|
 |Si tratta della configurazione del controller di dominio dopo l'aggiunta di un secondo disco. La configurazione del disco rappresenta il collo di bottiglia a 800 KB/s.|Aggiungi 1 disco (totale = 2)<br /><br />I/O è casuale<br /><br />Dimensioni blocco 4 KB<br /><br />10.000 RPM HD|totale 200 I/o<br />800 KB/s totale.| | | |
 |Dopo l'aggiunta di 7 dischi, la configurazione del disco rappresenta ancora il collo di bottiglia a 3200 KB/s.|**Aggiungi 7 dischi (Totale = 8)**  <br /><br />I/O è casuale<br /><br />Dimensioni blocco 4 KB<br /><br />10.000 RPM HD|800 I/o totale.<br />3200 KB/s totali| | | |

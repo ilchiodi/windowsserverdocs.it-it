@@ -1,8 +1,8 @@
 ---
-title: ksetup:changepassword
-description: 'Argomento i comandi di Windows per * * *- '
+title: 'che Ksetup: ChangePassword'
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: f629c6c7930777583df38f5af900ed380ec60f9c
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 51be9e71c2b290e6346d23144543e0eec29f9d07
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59878532"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71375183"
 ---
-# <a name="ksetupchangepassword"></a>ksetup:changepassword
+# <a name="ksetupchangepassword"></a>che Ksetup: ChangePassword
 
 
 
-Usa il valore della password (kpasswd) Centro distribuzione chiavi (KDC) per modificare la password dell'utente connesso. Per esempi di come è possibile utilizzare questo comando, vedere [esempi](#BKMK_Examples).
+Usa il valore della password Centro distribuzione chiavi (KDC) (kpasswd) per modificare la password dell'utente che ha eseguito l'accesso. Per esempi di come è possibile utilizzare questo comando, vedere [esempi](#BKMK_Examples).
 
 ## <a name="syntax"></a>Sintassi
 
@@ -36,36 +36,36 @@ ksetup /changepassword <OldPasswd> <NewPasswd>
 
 |Parametro|Descrizione|
 |---------|-----------|
-|\<OldPasswd>|Indica la password esistente dell'utente connesso.|
-|\<NewPasswd >|Gli stati usato per l'accesso nella nuova password dell'utente.|
+|\<OldPasswd >|Indica la password esistente dell'utente connesso.|
+|\<NewPasswd >|Indica la nuova password dell'utente connesso.|
 
 ## <a name="remarks"></a>Note
 
-Questo comando Usa il valore della password (kpasswd) KDC per modificare la password dell'utente connesso. Kpasswd, se impostato, verrà visualizzato nell'output eseguendo le **che ksetup /dumpstate** comando.
+Questo comando usa il valore della password KDC (kpasswd) per modificare la password dell'utente che ha eseguito l'accesso. Il kpasswd, se impostato, viene visualizzato nell'output eseguendo il comando **che Ksetup/dumpstate** .
 
-La nuova password deve soddisfare tutti i requisiti di password che sono impostati su questo computer.
+La nuova password dell'utente deve soddisfare tutti i requisiti di password impostati nel computer.
 
-Se l'account utente non viene trovato nel dominio corrente, il sistema chiederà di specificare il nome di dominio in cui si trova l'account utente.
+Se l'account utente non viene trovato nel dominio corrente, il sistema chiederà di specificare il nome di dominio in cui risiede l'account utente.
 
-Se si vuole forzare una modifica della password all'accesso successivo, questo comando consente di usare l'asterisco (*) in modo che l'utente verrà richiesto per una nuova password.
+Se si vuole forzare una modifica della password all'accesso successivo, questo comando consente di usare l'asterisco (*), in modo che all'utente venga richiesto di immettere una nuova password.
 
 L'output del comando segnala lo stato di esito positivo o negativo.
 
 ## <a name="BKMK_Examples"></a>Esempi
 
-Modificare la password dell'utente attualmente connesso al computer in questo dominio:
+Modificare la password di un utente attualmente connesso al computer in questo dominio:
 ```
 ksetup /changepassword Pas$w0rd Pa$$w0rd
 ```
-Modificare la password dell'utente attualmente connesso nel dominio Contoso:
+Modificare la password di un utente attualmente connesso nel dominio contoso:
 ```
 ksetup /domain CONTOSO /changepassword Pas$w0rd Pa$$w0rd
 ```
-Forza l'utente attualmente connesso per modificare la password al successivo accesso:
+Forza l'utente attualmente connesso a modificare la password all'accesso successivo:
 ```
 ksetup /changepassword Pas$w0rd *
 ```
 
 #### <a name="additional-references"></a>Altri riferimenti
 
--   [Chiave sintassi della riga di comando](command-line-syntax-key.md)
+-   [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

@@ -1,8 +1,8 @@
 ---
-title: ksetup:addkpasswd
-description: 'Argomento i comandi di Windows per * * *- '
+title: 'che Ksetup: addkpasswd'
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,14 +13,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 2a85eb6dfe30c33126504744a7659fe2cc573087
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 72c27cb6b068dc46cd58e753b4b08d68b39bfb20
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59856822"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71375186"
 ---
-# <a name="ksetupaddkpasswd"></a>ksetup:addkpasswd
+# <a name="ksetupaddkpasswd"></a>che Ksetup: addkpasswd
 
 
 
@@ -59,6 +59,6 @@ In questo modo un server di password Kerberos non Windows che controlla tutte le
 
 #### <a name="additional-references"></a>Altri riferimenti
 
--   [Ksetup](ksetup.md)
+-   [Che Ksetup](ksetup.md)
 -   [Ksetup:delkpasswd](ksetup-delkpasswd.md)
--   [Chiave sintassi della riga di comando](command-line-syntax-key.md)
+-   [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

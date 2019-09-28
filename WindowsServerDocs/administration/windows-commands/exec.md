@@ -1,8 +1,8 @@
 ---
 title: Exec
-description: 'Argomento i comandi di Windows per * * *- '
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: ecdfd05b8abefb35946b783daaa3220a6713a38d
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 514503e4920e16ba6778185af32f925541805223
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59882922"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71377428"
 ---
 # <a name="exec"></a>Exec
 
@@ -36,7 +36,7 @@ exec <ScriptFile.cmd>
 
 |Parametro|Descrizione|
 |---------|-----------|
-|\<ScriptFile.cmd>|Specifica il file di script da eseguire.|
+|@no__t -0ScriptFile. cmd >|Specifica il file di script da eseguire.|
 
 ## <a name="remarks"></a>Note
 
@@ -45,4 +45,4 @@ exec <ScriptFile.cmd>
 
 #### <a name="additional-references"></a>Altri riferimenti
 
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)
+[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

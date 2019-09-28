@@ -1,8 +1,8 @@
 ---
 title: online
-description: 'Argomento i comandi di Windows per * * *- '
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: a8063ac09b1d8d9bf4dd4e6665c1725fcb77ae89
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 489cef1ad4dc5fec5f477f95a6f2fad391b3bf02
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59828112"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71372487"
 ---
 # <a name="online"></a>online
 
@@ -37,7 +37,7 @@ Offline volume
 
 |Parametro|Descrizione|
 |---------|-----------|
-|[Disco non in linea](offline-disk.md)|Accetta il disco non in linea con lo stato attivo allo stato online.|
+|[Disco offline](offline-disk.md)|Accetta il disco non in linea con lo stato attivo allo stato online.|
 |[Volume offline](offline-volume.md)|Porta il volume non in linea con lo stato attivo allo stato online.|
 
 #### <a name="additional-references"></a>Altri riferimenti

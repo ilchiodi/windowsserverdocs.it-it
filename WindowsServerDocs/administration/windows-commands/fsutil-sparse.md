@@ -1,7 +1,7 @@
 ---
 ms.assetid: 77545920-2d13-4f35-a4d1-14dbec8340dc
 title: Fsutil sparse
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 manager: dmoss
 ms.author: toklima
 author: toklima
@@ -9,12 +9,12 @@ ms.technology: storage
 audience: IT Pro
 ms.topic: article
 ms.date: 10/16/2017
-ms.openlocfilehash: b1bc4e45ed2a2b06c72318e0999988ed8f016c40
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: f9fb3cf46afb7e96c13fb623bc8f4fe67c1f3694
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66438975"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71376811"
 ---
 # <a name="fsutil-sparse"></a>Fsutil sparse
 >Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows 10, Windows Server 2012 R2, Windows 8.1, Windows Server 2012, Windows 8, Windows Server 2008 R2, Windows 7
@@ -36,26 +36,26 @@ fsutil sparse [setrange] <FileName> <BeginningOffset> <Length>
 
 |     Parametro     |                                                    Descrizione                                                    |
 |-------------------|-------------------------------------------------------------------------------------------------------------------|
-|     queryflag     |                                                  Query di tipo sparse.                                                  |
-|    queryrange     |                        Cerca un file e ricerca gli intervalli che possono contenere dati diverso da zero.                        |
+|     queryflag     |                                                  Query sparse.                                                  |
+|    queryrange     |                        Analizza un file e cerca gli intervalli che possono contenere dati diversi da zero.                        |
 |      setflag      |                                        Contrassegna il file indicato come sparse.                                        |
 |     SetRange      |                                   Riempie un intervallo specificato di un file con zeri.                                   |
-|    <FileName>     | Specifica il percorso completo del file incluso il nome del file e l'estensione, ad esempio C:\documents\filename.txt. |
-| <BeginningOffset> |                              Specifica l'offset all'interno del file da contrassegnare come di tipo sparse.                              |
-|     <Length>      |                 Specifica la lunghezza dell'area del file siano contrassegnati come sparse (in byte).                 |
+|    <FileName>     | Specifica il percorso completo del file, inclusi il nome file e l'estensione, ad esempio C:\documents\filename.txt. |
+| <BeginningOffset> |                              Specifica l'offset nel file da contrassegnare come sparse.                              |
+|     <Length>      |                 Specifica la lunghezza dell'area nel file da contrassegnare come sparse (in byte).                 |
 
 ## <a name="remarks"></a>Note
 
--   Un file sparse è un file con una o più aree di dati non allocati. Un programma vedranno tali aree non allocate come contenente byte con valore zero, ma nessuno spazio su disco viene utilizzato per rappresentare questi zeri. Tutti i dati significativi o diverso da zero è allocato, mentre tutti i dati nonmeaningful (stringhe di grandi dimensioni di dati che sono costituiti da zeri) non è allocata. Quando viene letto un file sparse, dati allocati vengono restituiti come archiviati e per impostazione predefinita, i dati non allocati vengono restituiti come zeri, conforme alla specifica di requisiti di sicurezza C2. Supporto file sparse consente di deallocare da ovunque nel file di dati.
+-   Un file sparse è un file con una o più aree di dati non allocati. Un programma vedranno tali aree non allocate come contenente byte con valore zero, ma nessuno spazio su disco viene utilizzato per rappresentare questi zeri. Vengono allocati tutti i dati significativi o diversi da zero, mentre tutti i dati non significativi (stringhe di grandi dimensioni di dati costituiti da zeri) non vengono allocati. Quando viene letto un file sparse, i dati allocati vengono restituiti come archiviati e vengono restituiti dati non allocati, per impostazione predefinita, come zeri, in base alla specifica del requisito di sicurezza C2. Supporto file sparse consente di deallocare da ovunque nel file di dati.
 
--   In un file sparse, grandi intervalli di zeri non richiedano l'allocazione dei dischi. In base alle necessità quando viene scritto il file verrà allocato spazio per i dati di diverso da zero.
+-   In un file sparse, i grandi intervalli di zeri potrebbero non richiedere l'allocazione dei dischi. Lo spazio per i dati diversi da zero verrà allocato in base alle esigenze quando il file viene scritto.
 
--   Solo i file di tipo sparse o compressi possono avere zeroed intervalli noti al sistema operativo.
+-   Solo i file compressi o sparse possono avere intervalli azzerati noti al sistema operativo.
 
--   Se il file è di tipo sparse o compressi, NTFS può deallocare spazio su disco all'interno del file. Questo imposta l'intervallo di byte su zero senza aumentare le dimensioni del file.
+-   Se il file è di tipo sparse o compresso, NTFS potrebbe deallocare spazio su disco all'interno del file. Questo consente di impostare l'intervallo di byte su zero senza estendere le dimensioni del file.
 
 ## <a name="BKMK_examples"></a>Esempi
-Per contrassegnare un file denominato Sample. txt nella directory C:\Temp di tipo sparse, digitare:
+Per contrassegnare un file denominato Sample. txt nella directory C:\Temp come sparse, digitare:
 
 ```
 fsutil sparse setflag c:\temp\sample.txt 

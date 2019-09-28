@@ -1,9 +1,9 @@
 ---
 title: Protocollo BGP (Border Gateway Protocol)
-description: È possibile utilizzare questo argomento per ottenere una comprensione del protocollo BGP (Border Gateway) in Windows Server 2016, inclusi topologie di distribuzione BGP è supportato e BGP caratteristiche e funzionalità.
+description: È possibile usare questo argomento per comprendere Border Gateway Protocol (BGP) in Windows Server 2016, incluse le topologie di distribuzione supportate da BGP e le caratteristiche e funzionalità BGP.
 manager: brianlic
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-ras
@@ -12,16 +12,16 @@ ms.topic: article
 ms.assetid: 78cc2ce3-a48e-45db-b402-e480b493fab1
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 655a7b02468db4246b85b495289806a3f9735a95
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: ae6fddce1564e44ad72a5630c6abb16cdb6735d1
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67281997"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71388977"
 ---
 # <a name="border-gateway-protocol-bgp"></a>Protocollo BGP (Border Gateway Protocol)
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016
 
 Questo argomento contiene informazioni sul protocollo BGP (Border Gateway Protocol), incluse le topologie di distribuzione supportate da BGP e le caratteristiche e le funzionalità BGP.  
   
@@ -32,7 +32,7 @@ Questo argomento contiene informazioni sul protocollo BGP (Border Gateway Protoc
   
 In questo argomento sono incluse le sezioni seguenti.  
   
--   [BGP topologie di distribuzione supportate](#bkmk_top)  
+-   [Topologie di distribuzione supportate da BGP](#bkmk_top)  
   
 -   [Funzionalità BGP](#bkmk_features)  
   
@@ -61,7 +61,7 @@ Enable-RemoteAccessRoutingDomain -Name $Contoso_RoutingDomain -Type All -PassThr
 Enable-RemoteAccessRoutingDomain -Name $Fabrikam_RoutingDomain -Type All -PassThru  
 ```  
   
-## <a name="bkmk_top"></a>BGP topologie di distribuzione supportate  
+## <a name="bkmk_top"></a>Topologie di distribuzione supportate da BGP  
 Di seguito sono elencate le topologie di distribuzione supportate in cui i siti aziendali sono connessi a un data center di provider di servizi cloud (CSP, Cloud Service Provider).  
   
 In tutti gli scenari, il gateway CSP è un Gateway di Windows Server 2016 RAS in corrispondenza del bordo. Il Gateway RAS, che è in grado di gestire più connessioni da più tenant, è costituito da un host Hyper-V e una macchina Virtuale che viene configurata come gateway. Questo gateway perimetrale viene configurato con connessioni VPN da sito a sito come router BGP multi-tenant per scambiare le route della subnet aziendale e CSP.  
@@ -70,17 +70,17 @@ I tenant si connettono alle risorse nel data center CSP usando una connessione V
   
 Sono supportate le topologie di distribuzione seguenti.  
   
--   [Gateway Site-to-Site VPN RAS con il protocollo BGP al sito aziendale](#bkmk_top1)  
+-   [Gateway da sito a sito VPN RAS con BGP presso il sito aziendale perimetrale](#bkmk_top1)  
   
--   [Gateway di terze parti con BGP al sito aziendale](#bkmk_top2)  
+-   [Gateway di terze parti con BGP presso il sito aziendale Edge](#bkmk_top2)  
   
--   [Siti aziendali multipli con gateway di terze parti](#bkmk_top3)  
+-   [Più siti aziendali con gateway di terze parti](#bkmk_top3)  
   
 -   [Punti di terminazione distinti per BGP e VPN](#bkmk_top4)  
   
 Le sezioni seguenti contengono informazioni aggiuntive su ogni topologia BGP supportata.  
   
-### <a name="bkmk_top1"></a>Gateway Site-to-Site VPN RAS con il protocollo BGP al sito aziendale  
+### <a name="bkmk_top1"></a>Gateway da sito a sito VPN RAS con BGP presso il sito aziendale perimetrale  
 Questa topologia illustra un sito aziendale connesso a un provider CSP. La topologia di routing Enterprise include un router interno, un Gateway di Windows Server 2016 RAS configurato per le connessioni site-to-site VPN con il CSP e un dispositivo firewall perimetrale. Il Gateway RAS termina le connessioni VPN S2S e BGP.  
   
 ![Gateway to-Site VPN RAS](../../media/Border-Gateway-Protocol-BGP/bgp_01.jpg)  
@@ -97,7 +97,7 @@ In questo scenario BGP funziona nel modo seguente.
   
     -   Il dispositivo perimetrale può essere configurato con route statiche o interfacce per selezionare le route per l'annuncio usando BGP. Il dispositivo perimetrale distribuisce anche le route esterne agli altri router locali usando un protocollo IGP.  
   
-### <a name="bkmk_top2"></a>Gateway di terze parti con BGP al sito aziendale  
+### <a name="bkmk_top2"></a>Gateway di terze parti con BGP presso il sito aziendale Edge  
 Questa topologia illustra un sito aziendale che usa un router perimetrale di terze parti per connettersi a un provider CSP. Il router perimetrale funge anche da gateway VPN da sito a sito.  
   
 ![Gateway di terze parti con BGP a livello di sito aziendale](../../media/Border-Gateway-Protocol-BGP/bgp_02.jpg)  
@@ -108,7 +108,7 @@ Il router perimetrale aziendale apprende le route interne locali con uno dei mec
   
 -   Il dispositivo perimetrale implementa un protocollo IGP e partecipa direttamente al routing interno.  
   
-### <a name="bkmk_top3"></a>Più siti aziendali connessi a CSP cloud datacenter  
+### <a name="bkmk_top3"></a>Più siti aziendali che si connettono a CSP Cloud Datacenter  
 Questa topologia illustra più siti aziendali che usano gateway di terze parti per connettersi a un provider CSP. I dispositivi perimetrali di terze parti fungono da gateway VPN da sito a sito e da router BGP.  
   
 ![Più siti aziendali connessi a CSP cloud datacenter](../../media/Border-Gateway-Protocol-BGP/bgp_03.jpg)  

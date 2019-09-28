@@ -1,8 +1,8 @@
 ---
 title: break
-description: "Argomento i comandi di Windows per **break_2** : rimuove l'associazione di un volume copia shadow da VSS e lo rende accessibile come un volume normale."
+description: "Argomento dei comandi di Windows per **break_2** : Annulla l'associazione di un volume di copia shadow a VSS e lo rende accessibile come volume normale."
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,21 +13,21 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 49516539ae603e2c93b3fc395c77786be790d663
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: a5789e3442152c705b3197bf1ce5e63dc782a15c
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59886332"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71379783"
 ---
 # <a name="break"></a>break
 
 
 
-Rimuove l'associazione di un volume copia shadow da VSS e la rende accessibile come un volume normale. Il volume è quindi accessibile con una lettera di unità (se assegnato) o il nome del volume. Se utilizzata senza parametri, **interruzione** Visualizza la Guida al prompt dei comandi.
+Annulla l'associazione di un volume di copia shadow a VSS e lo rende accessibile come volume normale. È quindi possibile accedere al volume utilizzando una lettera di unità (se assegnata) o il nome del volume. Se utilizzata senza parametri, **Interrompi** Visualizza la guida al prompt dei comandi.
 
 > [!NOTE]
-> Questo comando è rilevante solo per le copie shadow hardware dopo l'importazione.
+> Questo comando è pertinente solo per le copie shadow dell'hardware dopo l'importazione.
 
 Per esempi di utilizzo di questo comando, vedere [Esempi](#BKMK_examples).
 
@@ -41,24 +41,24 @@ break [writable] <SetID>
 
 |Parametro|Descrizione|
 |---------|-----------|
-|[scrivibile]|Abilita accesso in lettura/scrittura nel volume.|
-|\<SetID>|Specifica l'ID del set di copie shadow.|
+|scrivibile|Consente l'accesso in lettura/scrittura al volume.|
+|\<SetID >|Specifica l'ID del set di copie shadow.|
 
 ## <a name="remarks"></a>Note
 
--   I volumi esposti, come le copie shadow provengano da, sono di sola lettura per impostazione predefinita.
--   L'alias dell'ID copia shadow, che viene archiviata come una variabile di ambiente per il **caricare i metadati** comando, può essere usato nel *SetID* parametro.
+-   Per impostazione predefinita, i volumi esposti, come le copie shadow da cui provengono, sono di sola lettura.
+-   L'alias dell'ID della copia shadow, archiviato come variabile di ambiente tramite il comando **Load Metadata** , può essere usato nel parametro *SetID* .
 
 ## <a name="BKMK_examples"></a>Esempi
 
-Per rendere un'ombreggiatura copiare con il nome dell'alias Alias1 accessibile come un volume accessibile in scrittura nel sistema operativo, digitare:
+Per creare una copia shadow con il nome alias Alias1 accessibile come volume scrivibile nel sistema operativo, digitare:
 ```
 break writable %Alias1%
 ```
 
 > [!NOTE]
-> Accedere al volume viene eseguito direttamente il provider hardware senza record di essere stata una copia shadow del volume.
+> L'accesso al volume viene effettuato direttamente al provider hardware senza che sia stata registrata una copia shadow del volume.
 
 #### <a name="additional-references"></a>Altri riferimenti
 
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)
+[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

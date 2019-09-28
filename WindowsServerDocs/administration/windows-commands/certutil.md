@@ -2,7 +2,7 @@
 title: certutil
 description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 3bc1e544c0e0684678bc168f286b52e5573f3ac2
-ms.sourcegitcommit: 286e3181ebd2cb9d7dc7fe651858a4e0d61d153f
+ms.openlocfilehash: 45c9946cc53fe3a901c3f6ee53f082a5b3d086c0
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68300682"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71379646"
 ---
 # <a name="certutil"></a>certutil
 
@@ -250,7 +250,7 @@ Torna al [menu](#menu)
 
 ## <a name="-setextension"></a>-seextension
 
-CertUtil [Options]-disextension RequestId ExtensionName flag {Long | Data | Stringa | \@Infile}
+CertUtil [Options]-disextension RequestId ExtensionName flag {Long | Data | Stringa | \@InFile}
 
 Imposta l'estensione per la richiesta in sospeso
 
@@ -1208,7 +1208,7 @@ Torna al [menu](#menu)
 
 CertUtil [opzioni]-aggiornamento SCRoots [+] [InputRootFile] [Readername]
 
-CertUtil [opzioni]-SCRoots Salva \@OutputRootFile [readername]
+CertUtil [opzioni]-SCRoots Save \@OutputRootFile [Readername]
 
 CertUtil [opzioni]-Visualizzazione SCRoots [InputRootFile | Readername]
 
@@ -1308,7 +1308,7 @@ Torna al [menu](#menu)
 
 ## <a name="-sign"></a>-firma
 
-CertUtil [opzioni]-segno di infiler | SerialNumber | Elenco di file CRL [StartDate + GG: HH] [+ SerialNumberList |-SerialNumberList |-ObjectIdList | \@Extensionfile]
+CertUtil [opzioni]-segno di infiler | SerialNumber | Elenco di file CRL [StartDate + GG: HH] [+ SerialNumberList |-SerialNumberList |-ObjectIdList | \@ExtensionFile]
 
 CertUtil [opzioni]-segno di infiler | SerialNumber | Elenco di file CRL [#HashAlgorithm] [+ AlternateSignatureAlgorithm |-AlternateSignatureAlgorithm]
 
@@ -1461,7 +1461,7 @@ Torna al [menu](#menu)
 
 ## <a name="-getreg"></a>-getreg
 
-CertUtil [opzioni]-getreg [{CA | Restore | Policy | Exit | template | registra | Chain | PolicyServers}\[ProgID\]] [RegistryValueName]
+CertUtil [opzioni]-getreg [{CA | Restore | Policy | Exit | template | registra | Chain | PolicyServers} \[ProgId @ no__t-1] [RegistryValueName]
 
 Visualizza valore del registro di sistema
 
@@ -1499,7 +1499,7 @@ Torna al [menu](#menu)
 
 ## <a name="-setreg"></a>-setreg
 
-CertUtil [opzioni]-setreg [{CA | Restore | Policy | Exit | template | registra | Chain | PolicyServers}\[ProgID\]] Valore RegistryValueName
+CertUtil [opzioni]-setreg [{CA | Restore | Policy | Exit | template | registra | Chain | PolicyServers} \[ProgId @ no__t-1] Valore RegistryValueName
 
 Imposta valore del registro di sistema
 
@@ -1537,7 +1537,7 @@ Torna al [menu](#menu)
 
 ## <a name="-delreg"></a>-delreg
 
-CertUtil [opzioni]-DelReg [{CA | Restore | Policy | Exit | template | registra | Chain | PolicyServers}\[ProgID\]] [RegistryValueName]
+CertUtil [opzioni]-DelReg [{CA | Restore | Policy | Exit | template | registra | Chain | PolicyServers} \[ProgId @ no__t-1] [RegistryValueName]
 
 Elimina valore del registro di sistema
 

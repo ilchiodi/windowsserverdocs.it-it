@@ -1,8 +1,8 @@
 ---
-title: creare e gestire gruppi di Server
+title: creare e gestire gruppi di server
 description: Server Manager
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-server-manager
@@ -13,14 +13,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 32e20040e2cb075e447c0d03d48676c7011a5a92
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 74075f091cd707f6faf73567c1dce6f22a2f6753
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59889482"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71383225"
 ---
-# <a name="create-and-manage-server-groups"></a>creare e gestire gruppi di Server
+# <a name="create-and-manage-server-groups"></a>creare e gestire gruppi di server
 
 >Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
@@ -33,11 +33,11 @@ I server possono essere membri di più gruppi.
 
 #### <a name="to-create-a-new-server-group"></a>Per creare un nuovo gruppo di server
 
-1.  Nel **Manage** menu, fare clic su **Crea gruppo di Server**.
+1.  Scegliere **Crea gruppo di server**dal menu **Gestisci** .
 
 2.  Nella casella di testo **Nome gruppo server** digitare un nome descrittivo per il gruppo di server, ad esempio **Server contabilità**.
 
-3.  aggiungere server al **selezionati** elencati dal pool di server oppure aggiungere altri server al gruppo tramite il **active directory**, **DNS**, o **importare**schede. Per altre informazioni su come utilizzare queste schede, vedere [aggiungere server a Server Manager](add-servers-to-server-manager.md) in questa Guida.
+3.  aggiungere i server all'elenco **selezionato** dal pool di server oppure aggiungere altri server al gruppo tramite le schede **Active Directory**, **DNS**o **Importa** . Per ulteriori informazioni su come utilizzare queste schede, vedere [aggiungere server a Server Manager](add-servers-to-server-manager.md) in questa guida.
 
 4.  Dopo aver completato l'aggiunta di server al gruppo, fare clic su **OK**. Il nuovo gruppo viene visualizzato nel riquadro di spostamento di Server Manager sotto il **tutti i server** gruppo.
 
@@ -45,14 +45,14 @@ I server possono essere membri di più gruppi.
 
 1.  Effettuare una delle operazioni seguenti.
 
-    -   Nel riquadro di spostamento di Server Manager, fare doppio clic su un gruppo di server e quindi fare clic su **Modifica gruppo di Server**.
+    -   Nel riquadro di spostamento Server Manager fare clic con il pulsante destro del mouse su un gruppo di server e quindi scegliere **modifica gruppo di server**.
 
-    -   Nella home page del gruppo di server, aprire il **attività** menu le **server** riquadro e quindi fare clic su **Modifica gruppo di Server**.
+    -   Nella home page per il gruppo di server, aprire il menu **attività** nel riquadro **Server** e quindi fare clic su **modifica gruppo di server**.
 
-2.  modificare il nome del gruppo, oppure aggiungere o rimuovere server dal gruppo.
+2.  modificare il nome del gruppo oppure aggiungere o rimuovere server dal gruppo.
 
     > [!NOTE]
-    > rimozione di server da un gruppo di server non vengono rimossi da Server Manager. ma rimangono nel gruppo **Tutti i server** nel pool di server.
+    > la rimozione di server da un gruppo di server non comporta la rimozione di server da Server Manager. ma rimangono nel gruppo **Tutti i server** nel pool di server.
 
 3.  Dopo aver completato le modifiche del gruppo, fare clic su **OK**.
 
@@ -60,14 +60,14 @@ I server possono essere membri di più gruppi.
 
 1.  Effettuare una delle operazioni seguenti.
 
-    -   Nel riquadro di spostamento di Server Manager, fare doppio clic su un gruppo di server e quindi fare clic su **eliminare il gruppo di Server**.
+    -   Nel riquadro di spostamento Server Manager fare clic con il pulsante destro del mouse su un gruppo di server e quindi scegliere **Elimina gruppo di server**.
 
-    -   Nella home page del gruppo di server, aprire il **attività** menu il **server** riquadro e quindi fare clic su **eliminare il gruppo di Server**.
+    -   Nella home page per il gruppo di server, aprire il menu **attività** nel riquadro **Server** e quindi fare clic su **Elimina gruppo di server**.
 
 2.  Quando viene richiesto di confermare se si desidera eliminare il gruppo di server fare clic su **Sì**.
 
     > [!NOTE]
-    > l'eliminazione di un gruppo di server non vengono rimossi da Server Manager. ma rimangono nel gruppo **Tutti i server** nel pool di server.
+    > l'eliminazione di un gruppo di server non comporta la rimozione di server da Server Manager. ma rimangono nel gruppo **Tutti i server** nel pool di server.
 
 3.  Dopo aver completato le modifiche del gruppo, fare clic su **OK**.
 

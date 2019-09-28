@@ -1,8 +1,8 @@
 ---
-title: gestire-bde off
-description: 'Argomento i comandi di Windows per * * *- '
+title: Manage-bde disattivato
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,14 +13,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: d8b2fb5abb739c2905c29336d543888d4d0d50ef
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: a3da40146441a057db73dd76442189e3357415de
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59837762"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71374022"
 ---
-# <a name="manage-bde-off"></a>manage-bde: off
+# <a name="manage-bde-off"></a>Manage-bde: disattivato
 
 
 
@@ -39,8 +39,8 @@ manage-bde -off [<Volume>] [-computername <Name>] [{-?|/?}] [{-help|-h}]
 |\<Volume >|Una lettera di unità seguita da due punti, un percorso GUID volume o un volume montato.|
 |-computername|Specifica che verrà utilizzato Gestione bde.exe per modificare la protezione BitLocker su un computer diverso. È inoltre possibile utilizzare **- cn** come una versione abbreviata di questo comando.|
 |\<Nome >|Rappresenta il nome del computer in cui si desidera modificare la protezione BitLocker. I valori accettati includono nome NetBIOS del computer e l'indirizzo IP del computer.|
-|-? o /?|Consente di visualizzare breve guida al prompt dei comandi.|
-|-help o -h|Visualizza la Guida completa al prompt dei comandi.|
+|-? o /?|Visualizza una breve guida al prompt dei comandi.|
+|-Help o-h|Visualizza la Guida completa al prompt dei comandi.|
 
 ## <a name="BKMK_Examples"></a>Esempi
 
@@ -51,5 +51,5 @@ manage-bde –off C:
 
 #### <a name="additional-references"></a>Altri riferimenti
 
--   [Chiave sintassi della riga di comando](command-line-syntax-key.md)
--   [Gestire-bde](manage-bde.md)
+-   [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+-   [Manage-bde](manage-bde.md)

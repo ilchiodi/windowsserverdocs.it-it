@@ -1,8 +1,8 @@
 ---
 title: pushprinterconnections
-description: 'Argomento i comandi di Windows per * * *- '
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: c571d3adffd0e6a28f63f6d821b2524dc055aa9a
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: fe25a29af34f78ebe161dc0d07c5edf64257f5c2
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59873722"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71371964"
 ---
 # <a name="pushprinterconnections"></a>pushprinterconnections
 
 
 
-Legge le impostazioni di connessione della stampante distribuiti da criteri di gruppo e consente di distribuire/rimuove le connessioni alle stampanti in base alle esigenze.
+Legge le impostazioni di connessione alla stampante distribuite da Criteri di gruppo e distribuisce/rimuove le connessioni stampante in base alle esigenze.
 
 ## <a name="syntax"></a>Sintassi
 
@@ -36,14 +36,14 @@ pushprinterconnections <-log> <-?>
 
 |Parametro|Descrizione|
 |---------|-----------|
-|<-log>|Scrive una per ogni file di log di debug utente a % temp o operazioni di scrittura una per ogni log di debug di computer a windir%\temp.|
-|<-?>|Visualizza la Guida al prompt dei comandi.|
+|> log <|Scrive un file di log di debug per utente in% temp o scrive un log di debug per computer in%windir%\Temp.|
+|< >|Visualizza la Guida al prompt dei comandi.|
 
 ## <a name="remarks"></a>Note
 
-Questa utilità può essere utilizzata negli script di accesso di avvio o l'utente macchina e non deve essere eseguita dalla riga di comando.
+Questa utilità viene utilizzata per l'avvio del computer o gli script di accesso utente e non deve essere eseguita dalla riga di comando.
 
 #### <a name="additional-references"></a>Altri riferimenti
 
--   [Chiave sintassi della riga di comando](command-line-syntax-key.md)
--   [Distribuzione delle stampanti con criteri di gruppo](https://go.microsoft.com/fwlink/?LinkId=230627)
+-   [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+-   [Distribuire stampanti usando Criteri di gruppo](https://go.microsoft.com/fwlink/?LinkId=230627)

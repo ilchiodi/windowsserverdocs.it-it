@@ -1,8 +1,8 @@
 ---
-title: FTP verbose_1
-description: 'Argomento i comandi di Windows per * * *- '
+title: verbose_1 FTP
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,14 +13,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 062a6399aa3fc8de5bc759b821c1b66de9c70ae9
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 93088b29d174cfbe13f243b6fe4422d37419da39
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59882072"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71375835"
 ---
-# <a name="ftp-verbose1"></a>ftp: verbose_1
+# <a name="ftp-verbose_1"></a>FTP: verbose_1
 
 >Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
@@ -39,4 +39,4 @@ Attiva/disattiva **dettagliato** o disattiva la modalità.
 verbose  
 ```  
 ## <a name="additional-references"></a>Riferimenti aggiuntivi  
--   [Chiave sintassi della riga di comando](command-line-syntax-key.md)  
+-   [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)  

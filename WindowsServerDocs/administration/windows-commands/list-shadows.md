@@ -1,8 +1,8 @@
 ---
-title: shadows elenco
-description: 'Argomento i comandi di Windows per * * *- '
+title: ombreggiatura elenco
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 50e4c4b8c7ea97ec65cecb6b8e904abd8c6d98eb
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 2640c04aef34cd6433efe529ac08c0294ba1c3b9
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59848772"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71374764"
 ---
-# <a name="list-shadows"></a>shadows elenco
+# <a name="list-shadows"></a>ombreggiatura elenco
 
 
 
-Copie shadow non persistente esistente e non permanenti gli elenchi sono nel sistema.
+Elenca le copie shadow persistenti e non persistenti presenti nel sistema.
 
 ## <a name="syntax"></a>Sintassi
 
@@ -37,9 +37,9 @@ list shadows {all | set <SetID> | id <ShadowID>}
 |Parametro|Descrizione|
 |---------|-----------|
 |tutti|Elenca tutte le copie shadow.|
-|set \<SetID>|Elenchi di ombreggiatura copie che appartengono all'ID specificato insieme di copie Shadow.|
-|id \<ShadowID>|Elenca qualsiasi copia shadow con l'ID di copia shadow specificata.|
+|imposta \<SetID >|Elenchi di ombreggiatura copie che appartengono all'ID specificato insieme di copie Shadow.|
+|ID \<ShadowID >|Elenca qualsiasi copia shadow con l'ID di copia shadow specificata.|
 
 #### <a name="additional-references"></a>Altri riferimenti
 
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)
+[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

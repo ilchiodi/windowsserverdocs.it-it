@@ -1,7 +1,7 @@
 ---
 title: Configurare almeno la quantità di memoria per una macchina virtuale in esecuzione Windows Server 2012 e abilitato per la memoria dinamica richiesta
 description: Versione online del testo per questa regola di Best Practices Analyzer.
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
@@ -10,12 +10,12 @@ ms.topic: article
 ms.assetid: 46f9a5dc-355b-415b-863d-fb740609d6b6
 author: KBDAzure
 ms.date: 8/16/2016
-ms.openlocfilehash: 4d8df352a00809cba8ef57b3098d4fef19e1e89e
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 1398252f2f5e842f170ad1f932bb047720d82ab2
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59879152"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71364997"
 ---
 # <a name="configure-at-least-the-required-amount-of-memory-for-a-virtual-machine-running-windows-server-2012-and-enabled-for-dynamic-memory"></a>Configurare almeno la quantità di memoria per una macchina virtuale in esecuzione Windows Server 2012 e abilitato per la memoria dinamica richiesta
 
@@ -26,22 +26,22 @@ Per altre informazioni sulle procedure consigliate e sulle analisi, vedere [Eseg
 |Proprietà|Dettagli|  
 |-|-|  
 |**Sistema operativo**|Windows Server 2016|  
-|**/ Funzionalità del prodotto**|Hyper-V|  
-|**Severity**|Errore|  
+|**Prodotto/funzionalità**|Hyper-V|  
+|**Gravità**|Errore|  
 |**Categoria**|Configurazione|  
   
 Nelle sezioni seguenti, corsivo indica il testo dell'interfaccia Utente visualizzata nello strumento Analizzatore procedure consigliate per questo problema.  
   
 ## <a name="issue"></a>**Problema**  
-*Uno o più macchine virtuali sono configurate per l'utilizzo della memoria dinamica con minore rispetto alla quantità di memoria necessaria per Windows Server 2012.*  
+*Una o più macchine virtuali sono configurate per l'utilizzo di memoria dinamica con minore rispetto alla quantità di memoria necessaria per Windows Server 2012.*  
   
-## <a name="impact"></a>**Impact**  
-*Il sistema operativo guest nelle macchine virtuali seguenti potrebbero non essere eseguiti o potrebbero essere eseguiti unreliably:*  
+## <a name="impact"></a>**Impatto**  
+*Il sistema operativo guest nelle macchine virtuali seguenti potrebbe non essere eseguito o potrebbe non essere eseguito in modo affidabile:*  
   
-\<elenco di macchine virtuali >  
+@no__t 0list di macchine virtuali >  
   
 ## <a name="resolution"></a>**Soluzione**  
-*Utilizzare Hyper-V Manager per aumentare la memoria minima per almeno 256 MB e la memoria di avvio e memoria massima per almeno 512 MB per la macchina virtuale.*  
+*Usare la console di gestione di Hyper-V per aumentare la memoria minima per almeno 256 MB e la memoria di avvio e la quantità massima di memoria per almeno 512 MB per questa macchina virtuale.*  
   
 ### <a name="increase-memory-using-hyper-v-manager"></a>Aumentare la memoria tramite Gestione di Hyper-V  
   
@@ -59,7 +59,7 @@ Nelle sezioni seguenti, corsivo indica il testo dell'interfaccia Utente visualiz
   
 ### <a name="increase-memory-using-windows-powershell"></a>Aumentare la memoria con Windows PowerShell  
   
-1.  Aprire Windows PowerShell. (Dal desktop, fare clic su **avviare** e iniziare a digitare **Windows PowerShell**.)  
+1.  Aprire Windows PowerShell. (Dal desktop fare clic su **Start** e iniziare a digitare **Windows PowerShell**).  
   
 2.  Fare doppio clic su **Windows PowerShell** e fare clic su **Esegui come amministratore**.  
   

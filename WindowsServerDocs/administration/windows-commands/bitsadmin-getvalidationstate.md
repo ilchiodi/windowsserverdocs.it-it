@@ -1,8 +1,8 @@
 ---
 title: getvalidationstate Bitsadmin
-description: "Argomento i comandi di Windows per **bitsadmin getvalidationstate** -segnala lo stato di convalida del contenuto del file specificato all'interno del processo. "
+description: "Argomento comandi di Windows per **BITSAdmin getvalidationstate** -segnala lo stato di convalida del contenuto del file specificato all'interno del processo. "
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 8abff3fc9fddb9cff1758739fdc540a9c945efe2
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: ca4269a596010258edd0479f5a7e9844bc9c98df
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59879162"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71381264"
 ---
 # <a name="bitsadmin-getvalidationstate"></a>getvalidationstate Bitsadmin
 
@@ -37,15 +37,15 @@ bitsadmin /GetValidationState <Job> <file index>
 |Parametro|Descrizione|
 |---------|-----------|
 |Job|Nome visualizzato o il GUID del processo|
-|Indice di file|Inizia da 0|
+|Indice file|Inizia da 0|
 
 ## <a name="BKMK_examples"></a>Esempi
 
-Nell'esempio seguente ottiene lo stato di convalida del contenuto del file 2 all'interno del processo denominato *myJob*.
+Nell'esempio seguente viene ottenuto lo stato di convalida del contenuto del file 2 nel processo denominato *il mio lavoro*.
 ```
 C:\>bitsadmin /GetValidationState myJob 1
 ```
 
 #### <a name="additional-references"></a>Altri riferimenti
 
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)
+[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

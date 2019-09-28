@@ -2,18 +2,18 @@
 title: Replicare destinazioni cartella mediante Replica DFS
 description: Questo articolo descrive come replicare destinazioni cartella mediante Replica DFS
 ms.date: 6/5/2017
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: storage
 ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: 098ffd1a47891d2355742682a002f80dcfc59650
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: ad26b8685539869e9302eafac69df19d11778a1b
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59878082"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71386130"
 ---
 # <a name="replicate-folder-targets-using-dfs-replication"></a>Replicare destinazioni cartella mediante Replica DFS
 
@@ -30,12 +30,12 @@ Puoi usare Replica DFS per sincronizzare il contenuto di destinazioni cartella i
 3.  Segui le istruzioni nella Replica guidata cartella.
 
 > [!NOTE]
-> Le modifiche di configurazione non vengono applicate immediatamente a tutti i membri ad eccezione di quando si usano i cmdlet [Suspend-DfsReplicationGroup](https://technet.microsoft.com/itpro/powershell/windows/dfsr/suspend-dfsreplicationgroup) e [Sync-DfsReplicationGroup](https://technet.microsoft.com/itpro/powershell/windows/dfsr/sync-dfsreplicationgroup). La nuova configurazione deve essere replicata in tutti i controller di dominio e ogni membro del gruppo di replica deve eseguire il polling del controller di dominio più vicino per ottenere le modifiche. La quantità di tempo necessaria dipende dalla latenza di replica di Active Directory Directory Services (AD DS) e long intervallo di polling (60 minuti) in ogni membro. Per eseguire immediatamente il polling delle modifiche di configurazione, apri una finestra del prompt dei comandi, quindi digita il comando seguente una volta per ogni membro del gruppo di replica: <br /> dfsrdiag.exe PollAD /Member:DOMAIN\Server1
+> Le modifiche di configurazione non vengono applicate immediatamente a tutti i membri ad eccezione di quando si usano i cmdlet [Suspend-DfsReplicationGroup](https://technet.microsoft.com/itpro/powershell/windows/dfsr/suspend-dfsreplicationgroup) e [Sync-DfsReplicationGroup](https://technet.microsoft.com/itpro/powershell/windows/dfsr/sync-dfsreplicationgroup). La nuova configurazione deve essere replicata in tutti i controller di dominio e ogni membro del gruppo di replica deve eseguire il polling del controller di dominio più vicino per ottenere le modifiche. La quantità di tempo necessaria dipende dalla latenza di replica dei servizi di Active Directory directory (AD DS) e dall'intervallo di polling lungo (60 minuti) per ogni membro. Per eseguire immediatamente il polling delle modifiche di configurazione, apri una finestra del prompt dei comandi, quindi digita il comando seguente una volta per ogni membro del gruppo di replica: <br /> dfsrdiag.exe PollAD /Member:DOMAIN\Server1
 <br />
-A questo scopo da una sessione di Windows PowerShell, usare il [Update-DfsrConfigurationFromAD](https://technet.microsoft.com/itpro/powershell/windows/dfsr/update-dfsrconfigurationfromad) cmdlet, che è stata introdotta in Windows Server 2012 R2.
+A tale scopo da una sessione di Windows PowerShell, usare il cmdlet [Update-DfsrConfigurationFromAD](https://technet.microsoft.com/itpro/powershell/windows/dfsr/update-dfsrconfigurationfromad) , introdotto in windows Server 2012 R2.
 
 ## <a name="see-also"></a>Vedere anche
 
--   [Distribuzione di spazi dei nomi DFS](deploying-dfs-namespaces.md)
--   [Delegare le autorizzazioni di gestione di spazi dei nomi DFS](delegate-management-permissions-for-dfs-namespaces.md)
+-   [Distribuzione di Spazi dei nomi DFS](deploying-dfs-namespaces.md)
+-   [Delegare le autorizzazioni di gestione per Spazi dei nomi DFS](delegate-management-permissions-for-dfs-namespaces.md)
 -   [Replica DFS](../dfs-replication/dfsr-overview.md)

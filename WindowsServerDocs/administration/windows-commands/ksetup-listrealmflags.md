@@ -1,8 +1,8 @@
 ---
-title: ksetup:listrealmflags
-description: 'Argomento i comandi di Windows per * * *- '
+title: 'che Ksetup: listrealmflags'
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,14 +13,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 7db6caf4e63ea59fa40892679d3de0cfaca661e9
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 8f103875dc10dfbf7b0c604a8e2060fe58ee7a92
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66438021"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71374975"
 ---
-# <a name="ksetuplistrealmflags"></a>ksetup:listrealmflags
+# <a name="ksetuplistrealmflags"></a>che Ksetup: listrealmflags
 
 
 
@@ -38,15 +38,15 @@ Nessuno
 
 ## <a name="remarks"></a>Note
 
-I flag dell'area di autenticazione specificano funzionalità aggiuntive di un'area autenticazione Kerberos non basate su Windows. Computer che eseguono Windows Server 2003, Windows Server 2008 o Windows Server 2008 R2 è possibile usare un server di Kerberos non basate su Windows per amministrare l'autenticazione invece di usare un dominio che esegue un sistema operativo Windows Server. Questi sistemi partecipano a un'area di autenticazione Kerberos anziché in un dominio di Windows. Questa voce definisce le funzionalità dell'area di autenticazione. La tabella seguente descrive ciascuno.
+I flag dell'area di autenticazione specificano funzionalità aggiuntive di un'area autenticazione Kerberos non basate su Windows. I computer che eseguono Windows Server 2003, Windows Server 2008 o Windows Server 2008 R2 possono utilizzare un server Kerberos non basato su Windows per amministrare l'autenticazione anziché utilizzare un dominio in cui è in esecuzione un sistema operativo Windows Server. Questi sistemi partecipano a un'area di autenticazione Kerberos anziché in un dominio di Windows. Questa voce definisce le funzionalità dell'area di autenticazione. Nella tabella seguente vengono descritte le singole.
 
-|Value|Flag dell'area di autenticazione|Descrizione|
+|Value|Flag area di autenticazione|Descrizione|
 |-----|----------|-----------|
-|0xF|Tutte|Vengono impostati tutti i flag dell'area di autenticazione.|
-|0x00|Nessuno|È impostato alcun flag dell'area di autenticazione e nessuna funzionalità aggiuntiva è abilitata.|
-|0x01|SendAddress|L'indirizzo IP sarà incluso all'interno di ticket granting ticket.|
+|0xF|Tutte|Tutti i flag dell'area di autenticazione sono impostati.|
+|0x00|Nessuno|Nessun flag area di autenticazione è impostato e non sono abilitate funzionalità aggiuntive.|
+|0x01|SendAddress|L'indirizzo IP verrà incluso nei ticket di concessione ticket.|
 |0x02|TcpSupported|Il protocollo TCP (Transmission Control) e il protocollo UDP (User Datagram) sono supportati in questa area di autenticazione.|
-|0x04|Delegato|Tutti gli utenti in questa area di autenticazione è trusted per delega.|
+|0x04|Delegato|Tutti gli utenti in questa area di autenticazione sono attendibili per la delega.|
 |0x08|NcSupported|L'area di autenticazione supporta la rappresentazione canonica di nome, che consente di DNS e dell'area di autenticazione standard di denominazione.|
 |0x80|RC4|L'area di autenticazione supporta la crittografia RC4 per abilitare il trust, che consente l'uso di TLS.|
 
@@ -71,5 +71,5 @@ ksetup /setrealmflags CORP.CONTOSO.COM 0xF
 -   [Ksetup:setrealmflags](ksetup-setrealmflags.md)
 -   [Ksetup:addrealmflags](ksetup-addrealmflags.md)
 -   [Ksetup:delrealmflags](ksetup-delrealmflags.md)
--   [Ksetup](ksetup.md)
+-   [Che Ksetup](ksetup.md)
 -   [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

@@ -1,8 +1,8 @@
 ---
 title: bitsadmin getnotifycmdline
-description: Argomento i comandi di Windows per **bitsadmin getnotifycmdline** -recupera la riga di comando che viene eseguito quando il processo viene completato il trasferimento dei dati.
+description: 'Windows Commands Topic for **BITSAdmin getnotifycmdline** : Recupera il comando della riga di comando che viene eseguito al termine del processo di trasferimento dei dati.'
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 3ca7b2e67c0b5672733a25465fba89d1bd69d07a
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: b91d2c71ad4bedaac65e23041ca78a70ade99977
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59817292"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71381495"
 ---
 # <a name="bitsadmin-getnotifycmdline"></a>bitsadmin getnotifycmdline
 
-Recupera la riga di comando da eseguire quando il processo viene completato il trasferimento dei dati.
+Recupera il comando della riga di comando da eseguire al termine del trasferimento dei dati da parte del processo.
 
-**BITS 1.2 e versioni precedenti**: Non supportato.
+**BITS 1,2 e versioni precedenti**: Non supportati.
 
 ## <a name="syntax"></a>Sintassi
 
@@ -40,11 +40,11 @@ bitsadmin /GetNotifyCmdLine <Job>
 
 ## <a name="BKMK_examples"></a>Esempi
 
-Nell'esempio seguente recupera la riga di comando usata dal servizio quando il processo denominato *myDownloadJob* viene completata.
+Nell'esempio seguente viene recuperato il comando della riga di comando utilizzato dal servizio quando il processo denominato *myDownloadJob* viene completato.
 ```
 C:\>bitsadmin /GetNotifyCmdLine myDownloadJob
 ```
 
 #### <a name="additional-references"></a>Altri riferimenti
 
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)
+[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

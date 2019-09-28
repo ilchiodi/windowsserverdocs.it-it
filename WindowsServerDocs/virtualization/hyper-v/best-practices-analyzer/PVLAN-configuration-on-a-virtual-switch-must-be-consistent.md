@@ -1,7 +1,7 @@
 ---
-title: Configurazione PVLAN in un commutatore virtuale deve essere coerenti
+title: La configurazione di PVLAN in un Commuter virtuale deve essere coerente
 description: Versione online del testo per questa regola di Best Practices Analyzer.
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
@@ -10,14 +10,14 @@ ms.topic: article
 ms.assetid: 4db63bcc-7a54-4f19-98a6-c274c3956d51
 author: KBDAzure
 ms.date: 8/16/2016
-ms.openlocfilehash: b7d6d068027aa9497b00138bd1d889ea86aa3308
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 36616a5c4d8e57ae929cdab846db65dcdda57b85
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59813252"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71364755"
 ---
-# <a name="pvlan-configuration-on-a-virtual-switch-must-be-consistent"></a>Configurazione PVLAN in un commutatore virtuale deve essere coerenti
+# <a name="pvlan-configuration-on-a-virtual-switch-must-be-consistent"></a>La configurazione di PVLAN in un Commuter virtuale deve essere coerente
 
 >Si applica a: Windows Server 2016
 
@@ -26,20 +26,20 @@ Per altre informazioni sulle procedure consigliate e sulle analisi, vedere [Eseg
 |Proprietà|Dettagli|  
 |-|-|  
 |**Sistema operativo**|Windows Server 2016| 
-|**/ Funzionalità del prodotto**|Hyper-V|  
-|**Severity**|Errore|  
+|**Prodotto/funzionalità**|Hyper-V|  
+|**Gravità**|Errore|  
 |**Categoria**|Configurazione|  
   
 Nelle sezioni seguenti, corsivo indica il testo dell'interfaccia Utente visualizzata nello strumento Analizzatore procedure consigliate per questo problema.
   
 ## <a name="issue"></a>**Problema**  
-*Privato Virtual Local Area Network (PVLAN) non è configurato correttamente in uno o più schede di rete virtuale.*  
+*La rete locale virtuale privata (PVLAN) non è configurata correttamente in una o più schede di rete virtuali.*  
   
-## <a name="impact"></a>**Impact**  
-*PVLAN può isolare il traffico di rete tra le macchine virtuali correttamente.*  
+## <a name="impact"></a>**Impatto**  
+*PVLAN potrebbe non isolare correttamente il traffico di rete tra le macchine virtuali.*  
   
 ## <a name="resolution"></a>**Soluzione**  
-*Usare il cmdlet di Windows PowerShell Set-VMNetworkAdapterVlan, alla configurazione corretta PVLAN.*  
+*Usare il cmdlet di Windows PowerShell, set-VMNetworkAdapterVlan, per configurare PVLAN in modo corretto.*  
   
 
 

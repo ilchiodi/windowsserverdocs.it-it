@@ -1,8 +1,8 @@
 ---
-title: ksetup:mapuser
-description: 'Argomento i comandi di Windows per * * *- '
+title: 'che Ksetup: mapuser'
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,14 +13,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 5bc68fe9e8f4cbb9869cb74e4eb20a3400eb56ad
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 6b80538999c364e9ed10ca0ed43387f603ac9ad3
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66437966"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71374982"
 ---
-# <a name="ksetupmapuser"></a>ksetup:mapuser
+# <a name="ksetupmapuser"></a>che Ksetup: mapuser
 
 
 
@@ -36,18 +36,18 @@ ksetup /mapuser <Principal> <Account>
 
 |  Parametro   |                                                   Descrizione                                                   |
 |--------------|-----------------------------------------------------------------------------------------------------------------|
-| \<Principal> |              Il nome di dominio completo di qualsiasi entità; ad esempio, mike@corp.CONTOSO.COM.              |
-|  \<Account>  | Qualsiasi account o sicurezza gruppo nome presente in questo computer, ad esempio Guest, gli utenti del dominio o amministratore. |
+| \<Principal > |              Nome di dominio completo di qualsiasi entità; ad esempio, mike@corp.CONTOSO.COM.              |
+|  \<Account >  | Qualsiasi account o sicurezza gruppo nome presente in questo computer, ad esempio Guest, gli utenti del dominio o amministratore. |
 
 ## <a name="remarks"></a>Note
 
-Un account può essere specificamente identificato, ad esempio Guest del dominio. Oppure è possibile utilizzare il carattere jolly (*) per includere tutti gli account.
+Un account può essere specificamente identificato, ad esempio Guest del dominio. In alternativa, è possibile usare il carattere jolly (*) per includere tutti gli account.
 
 Se il nome dell'account viene omesso, viene eliminato il mapping per l'entità specificata.
 
 Il computer solo eseguire l'autenticazione di entità dell'area di autenticazione specifico che presentano i ticket Kerberos validi
 
-Uso **che ksetup** senza parametri o argomenti corrente eseguito il mapping le impostazioni e l'area di autenticazione predefinito.
+Usare **che Ksetup** senza parametri o argomenti per visualizzare le impostazioni correnti di cui è stato eseguito il mapping e l'area di autenticazione predefinita.
 
 Quando vengono apportate modifiche per il centro di distribuzione chiavi (KDC) esterna e la configurazione dell'area di autenticazione, è necessario un riavvio del computer in cui è stata modificata l'impostazione.
 
@@ -73,4 +73,4 @@ ksetup /mapuser * *
 #### <a name="additional-references"></a>Altri riferimenti
 
 -   [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
--   [Ksetup](ksetup.md)
+-   [Che Ksetup](ksetup.md)

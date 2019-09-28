@@ -2,18 +2,18 @@
 title: Abilitare o disabilitare i riferimenti e il failback del client
 description: Questo articolo descrive come abilitare o disabilitare i riferimenti e il failback del client.
 ms.date: 6/5/2017
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: storage
 ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: 20ac61f86ede938efd574fc6a048775437a51211
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e7dd11b530c61e2536db425d3e85e0fbe458d349
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59835022"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71386216"
 ---
 # <a name="enable-or-disable-referrals-and-client-failback"></a>Abilitare o disabilitare i riferimenti e il failback del client
 
@@ -39,11 +39,11 @@ Disattivando il riferimento di un server dello spazio dei nomi o di una destinaz
 
 
 > [!TIP]
-> Per abilitare o disabilitare i riferimenti con Windows PowerShell, usare il [Set-DfsnRootTarget: lo stato](https://technet.microsoft.com/library/jj884266.aspx) o [Set-DfsnServerConfiguration](https://technet.microsoft.com/library/jj884277.aspx) cmdlet, che sono stati introdotti in Windows Server 2012.
+> Per abilitare o disabilitare i riferimenti usando Windows PowerShell, usare i cmdlet [set-DfsnRootTarget – state](https://technet.microsoft.com/library/jj884266.aspx) o [set-DfsnServerConfiguration](https://technet.microsoft.com/library/jj884277.aspx) , introdotti in Windows Server 2012.
 
 ## <a name="enable-client-failback"></a>Abilitare il failback dei client
 
-Se una destinazione non è più disponibile, è possibile configurare i client in modo che eseguano il failback sulla destinazione dopo che quest'ultima viene ripristinata. Il failback funzioni, i computer client devono soddisfare i requisiti elencati nell'argomento seguente: [Esaminare i requisiti del Client di spazi dei nomi DFS](https://technet.microsoft.com/library/cc771913(v=ws.11).aspx).
+Se una destinazione non è più disponibile, è possibile configurare i client in modo che eseguano il failback sulla destinazione dopo che quest'ultima viene ripristinata. Per il corretto funzionamento del failback, è necessario che i computer client soddisfino i requisiti elencati nell'argomento seguente: [Esaminare i requisiti del client per gli spazi dei nomi DFS](https://technet.microsoft.com/library/cc771913(v=ws.11).aspx).
 
 
 > [!NOTE]
@@ -70,6 +70,6 @@ Le cartelle con destinazioni ereditano le impostazioni relative al failback dei 
 
 ## <a name="see-also"></a>Vedere anche 
 
--   [Ottimizzazione di spazi dei nomi DFS](tuning-dfs-namespaces.md)
--   [Esaminare i requisiti del Client di spazi dei nomi DFS](https://technet.microsoft.com/library/cc771913(v=ws.11).aspx)
--   [Delegare le autorizzazioni di gestione di spazi dei nomi DFS](delegate-management-permissions-for-dfs-namespaces.md)
+-   [Ottimizzazione di Spazi dei nomi DFS](tuning-dfs-namespaces.md)
+-   [Esaminare i requisiti del client per spazi dei nomi DFS](https://technet.microsoft.com/library/cc771913(v=ws.11).aspx)
+-   [Delegare le autorizzazioni di gestione per Spazi dei nomi DFS](delegate-management-permissions-for-dfs-namespaces.md)

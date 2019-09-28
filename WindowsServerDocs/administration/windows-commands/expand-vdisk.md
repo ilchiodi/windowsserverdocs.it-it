@@ -1,8 +1,8 @@
 ---
-title: Espandere vdisk
-description: 'Argomento i comandi di Windows per * * *- '
+title: Espandi vdisk
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 8019ce62d6cf38c7430a789f68749444ac91ad48
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 8fb5d7b58b7aa4bc9557086c73020820cfa04284
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66439446"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71377288"
 ---
-# <a name="expand-vdisk"></a>Espandere vdisk
+# <a name="expand-vdisk"></a>Espandi vdisk
 
 >Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-si espande un disco rigido virtuale (VHD) per le dimensioni specificate.
+espande un disco rigido virtuale (VHD) per le dimensioni specificate.
 > [!NOTE]
 > Questo comando è disponibile solo per Windows 7 e Windows Server 2008 R2.
 > ## <a name="syntax"></a>Sintassi
@@ -35,7 +35,7 @@ si espande un disco rigido virtuale (VHD) per le dimensioni specificate.
 > 
 > |  Parametro  |                      Descrizione                      |
 > |-------------|-------------------------------------------------------|
-> | numero massimo =<n> | Specifica la nuova dimensione per il disco rigido Virtuale in megabyte (MB). |
+> | massimo = <n> | Specifica la nuova dimensione per il disco rigido Virtuale in megabyte (MB). |
 > 
 > ## <a name="remarks"></a>Note
 > - Un disco rigido Virtuale deve essere selezionato e scollegato per eseguire questa operazione. Utilizzare il **Selezionare vdisk** comando per selezionare un volume e spostare lo stato attivo a esso.
@@ -46,11 +46,11 @@ si espande un disco rigido virtuale (VHD) per le dimensioni specificate.
 >   ```
 >   ## <a name="additional-references"></a>Riferimenti aggiuntivi
 > - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
-> - [attach vdisk](attach-vdisk.md)
-> - [compact vdisk](compact-vdisk.md)
+> - [Connetti vdisk](attach-vdisk.md)
+> - [compatta vdisk](compact-vdisk.md)
 
--   [Detach vdisk](detach-vdisk.md)
--   [detail vdisk](detail-vdisk.md)
--   [Merge vdisk](merge-vdisk.md)
--   [Selezionare vdisk](select-vdisk.md)
+-   [Scollega vdisk](detach-vdisk.md)
+-   [Dettagli vdisk](detail-vdisk.md)
+-   [Unisci vdisk](merge-vdisk.md)
+-   [Seleziona vdisk](select-vdisk.md)
 -   [list_1](list_1.md)

@@ -1,8 +1,8 @@
 ---
 title: Utilizzare il sottocomando Aggiungi AllDriverPackages
-description: 'Argomento i comandi di Windows per * * *- '
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 3f934d8c65da939fb60c564b375699f411b7c9ac
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: d8290a95dd53718b200d10b6804d312abe95e257
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66440830"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71363893"
 ---
 # <a name="using-the-add-alldriverpackages-subcommand"></a>Utilizzare il sottocomando Aggiungi AllDriverPackages
 
@@ -36,10 +36,10 @@ WDSUTIL /Add-AllDriverPackages /FolderPath:<Folder Path> [/Server:<Server name>]
 
 |          Parametro           |                                                              Descrizione                                                              |
 |------------------------------|---------------------------------------------------------------------------------------------------------------------------------------|
-|  / FolderPath:\<percorso cartella >  |                      Specifica il percorso completo alla cartella che contiene i file. inf per i pacchetti driver.                      |
-|   [/ Server:\<nome Server >]   | Specifica il nome del server. Questo può essere il nome NetBIOS o il nome FQDN. Se viene specificato alcun nome di server, viene utilizzato il server locale. |
-|     [/Architecture:{x86      |                                                                 ia64                                                                  |
-| [/ DriverGroup:\<nome gruppo >] |                             Specifica il nome del gruppo di driver a cui devono essere aggiunti i pacchetti.                             |
+|  /FolderPath: > percorso \<Folder  |                      Specifica il percorso completo alla cartella che contiene i file. inf per i pacchetti driver.                      |
+|   [/Server: nome \<Server >]   | Specifica il nome del server. Questo può essere il nome NetBIOS o il nome FQDN. Se viene specificato alcun nome di server, viene utilizzato il server locale. |
+|     [/Architettura: {x86      |                                                                 ia64                                                                  |
+| [/DriverGroup: \<Group nome >] |                             Specifica il nome del gruppo di driver a cui devono essere aggiunti i pacchetti.                             |
 
 ## <a name="BKMK_examples"></a>Esempi
 

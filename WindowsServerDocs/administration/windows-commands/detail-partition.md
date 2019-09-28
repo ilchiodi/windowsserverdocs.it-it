@@ -1,8 +1,8 @@
 ---
-title: partizione di dettaglio
-description: 'Argomento i comandi di Windows per * * *- '
+title: partizione dettagli
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,14 +13,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 3a955303a5f06c64dcdb64de110686be570ef149
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 9ead078217804def619998b1d31e55744f2e1c6b
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59846642"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71378518"
 ---
-# <a name="detail-partition"></a>partizione di dettaglio
+# <a name="detail-partition"></a>partizione dettagli
 
 
 
@@ -34,7 +34,7 @@ detail partition
 
 ## <a name="remarks"></a>Note
 
--   Per eseguire questa operazione, è necessario selezionare una partizione. Usare la **Seleziona partizione** comando per selezionare una partizione e spostare lo stato attivo a esso.
+-   Per eseguire questa operazione, è necessario selezionare una partizione. Usare il comando **select partition** per selezionare una partizione e spostare lo stato attivo su di essa.
 
 ## <a name="BKMK_examples"></a>Esempi
 
@@ -45,5 +45,5 @@ detail partition
 
 #### <a name="additional-references"></a>Altri riferimenti
 
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)
+[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
 

@@ -1,8 +1,8 @@
 ---
 title: Logman query
-description: 'Argomento i comandi di Windows per * * *- '
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 6e00e1ca7e6e090fd618af5b0ca2307bb573ab8c
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 6acf6cf5240dd59357f4c788577190699a354744
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66437724"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71374424"
 ---
 # <a name="logman-query"></a>Logman query
 
 >Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-raccolta di dati di query o dell'agente di raccolta dati impostare le proprietà.  
+agente di raccolta dati query o proprietà dell'insieme agenti di raccolta dati.  
 
 ## <a name="syntax"></a>Sintassi  
 ```  

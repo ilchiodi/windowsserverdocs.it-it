@@ -1,9 +1,9 @@
 ---
 title: Servizio DNS interno (iDNS) per SDN
-description: Questo argomento viene illustrato come è possibile fornire i servizi DNS per i carichi di lavoro tenant ospitato usando DNS interno (iDNS), che è integrato con Software Defined Networking di Windows Server 2016.
+description: Questo argomento illustra come fornire i servizi DNS ai carichi di lavoro tenant ospitati usando DNS interno (IDN), integrato con Software Defined Networking in Windows Server 2016.
 manager: brianlic
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-sdn
@@ -12,83 +12,83 @@ ms.topic: get-started-article
 ms.assetid: ad848a5b-0811-4c67-afe5-6147489c0384
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 4d4ae5ee5f5600d86349ca26b7acbdb284b45bac
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: a7e5aa9e1ae7442c706c1bdbdb56d65234fe5ae8
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59824082"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71405971"
 ---
 # <a name="internal-dns-service-idns-for-sdn"></a>Servizio DNS interno (iDNS) per SDN
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016
 
-Se si lavora per un Provider di servizi Cloud \(CSP\) o dell'organizzazione che prevede di distribuire Software Defined Networking \(SDN\) in Windows Server 2016, è possibile fornire servizi DNS per i carichi di lavoro tenant ospitato tramite DNS interno \(IDN\), che è integrato con SDN.
+Se si lavora per un provider di servizi cloud \(CSP @ no__t-1 o Enterprise che prevede la distribuzione di Software Defined Networking \(SDN @ no__t-3 in Windows Server 2016, è possibile fornire servizi DNS ai carichi di lavoro tenant ospitati usando DNS interno @no__ t-4iDNS @ no__t-5, integrato con SDN.
 
-Le macchine virtuali ospitate \(macchine virtuali\) e le applicazioni richiedono il DNS per comunicare all'interno delle proprie reti e con risorse esterne su Internet. Con i nomi IDN, è possibile fornire tenant con servizi di risoluzione dei nomi DNS relativi lo spazio dei nomi locale, isolato e per le risorse Internet.
+Le macchine virtuali ospitate \(VMs @ no__t-1 e le applicazioni richiedono che il DNS comunichi all'interno delle proprie reti e con risorse esterne su Internet. Con IDN, è possibile fornire ai tenant i servizi di risoluzione dei nomi DNS per lo spazio dei nomi locale isolato e per le risorse Internet.
 
-Poiché il servizio nomi IDN non è accessibile da reti virtuali tenant, diverso da attraverso il proxy di nomi IDN, il server non è vulnerabile ad attività dannose su reti tenant.
+Poiché il servizio IDN non è accessibile da reti virtuali tenant, ad eccezione del proxy IDN, il server non è vulnerabile a attività dannose nelle reti tenant.
 
 **Funzionalità principali**
 
-Di seguito sono le funzionalità principali per nomi IDN.
+Di seguito sono riportate le funzionalità chiave per IDN.
 
-- Fornisce che servizi di risoluzione per il tenant del nome DNS condivisi i carichi di lavoro
-- Servizio DNS autorevole per la risoluzione dei nomi e la registrazione DNS all'interno di spazio dei nomi di tenant
-- Servizio Recursive DNS per la risoluzione dei nomi Internet dalla VM tenant.
-- Se si desidera, è possibile configurare l'hosting simultaneo dei nomi dell'infrastruttura e tenant
-- Una conveniente soluzione DNS - tenant non è necessario distribuire la propria infrastruttura DNS
-- Disponibilità elevata con l'integrazione di Active Directory, che è obbligatorio.
+- Fornisce servizi di risoluzione dei nomi DNS condivisi per i carichi di lavoro tenant
+- Servizio DNS autorevole per la risoluzione dei nomi e la registrazione DNS nello spazio dei nomi del tenant
+- Servizio DNS ricorsivo per la risoluzione dei nomi Internet dalle macchine virtuali tenant.
+- Se lo si desidera, è possibile configurare l'hosting simultaneo di nomi di infrastruttura e tenant
+- Una soluzione DNS conveniente: i tenant non devono distribuire la propria infrastruttura DNS
+- Disponibilità elevata con l'integrazione di Active Directory, richiesta.
 
-Oltre a queste funzionalità, se si è interessati a mantenere l'integrato in Active Directory i server DNS aperte a Internet, è possibile distribuire server di nomi IDN dietro a un altro sistema di risoluzione ricorsiva nella rete perimetrale.
+Oltre a queste funzionalità, se si è interessati a mantenere i server DNS integrati AD aperti a Internet, è possibile distribuire i server IDN dietro un altro resolver ricorsivo nella rete perimetrale.
 
-Poiché i nomi IDN è un server centralizzato per tutte le query DNS, un CSP o Enterprise può anche implementare tenant DNS firewall, applicare filtri, rilevare attività dannose e controllare le transazioni in una posizione centrale
+Poiché IDN è un server centralizzato per tutte le query DNS, un CSP o un'azienda può implementare anche firewall DNS tenant, applicare filtri, rilevare attività dannose e controllare le transazioni in una posizione centrale
 
-## <a name="idns-infrastructure"></a>nomi IDN infrastruttura
-L'infrastruttura di nomi IDN include i nomi IDN server e nomi IDN proxy.
+## <a name="idns-infrastructure"></a>Infrastruttura IDN
+L'infrastruttura di IDN include i server IDN e il proxy IDN.
 
-### <a name="idns-servers"></a>nomi IDN server
-i nomi IDN include un set di server DNS che ospitano i dati specifici del tenant, ad esempio i record DNS della macchina virtuale.
+### <a name="idns-servers"></a>Server IDN
+IDN include un set di server DNS che ospitano dati specifici del tenant, ad esempio i record di risorse DNS della macchina virtuale.
 
-server di nomi IDN sono server autorevoli per le zone DNS interni e fungere anche da un sistema di risoluzione dei nomi pubblici del tenant quando il tentativo di macchine virtuali per la connessione alle risorse esterne.
+i server IDN sono i server autorevoli per le zone DNS interne e fungono anche da resolver per i nomi pubblici quando le macchine virtuali del tenant tentano di connettersi a risorse esterne.
 
-Tutti i nomi host per le macchine virtuali in reti virtuali vengono archiviati come record di risorse DNS nella stessa zona. Ad esempio, se si distribuisce iDNS per una zona denominata Contoso. Local, i record risorsa DNS per le macchine virtuali in tale rete vengono archiviati nell'area di Contoso. Local.
+Tutti i nomi host per le macchine virtuali nelle reti virtuali vengono archiviati come record di risorse DNS nella stessa zona. Se ad esempio si distribuisce IDN per una zona denominata Contoso. local, i record di risorse DNS per le macchine virtuali in tale rete vengono archiviati nella zona contoso. local.
 
-Macchina virtuale di nomi di dominio completi del tenant \(FQDN\) costituito il nome del computer e la stringa di suffisso DNS per la rete virtuale, in formato GUID. Ad esempio, se si dispone di un tenant di macchina virtuale denominata TENANT1 che si trova in contoso, rete virtuale locale, nome di dominio completo della macchina virtuale è TENANT1. *vn-guid*. contoso. Local, dove *vn-guid* è la stringa di suffisso DNS per la rete virtuale.
+I nomi di dominio completi della macchina virtuale tenant \(FQDNs @ no__t-1 sono costituiti dal nome del computer e dalla stringa del suffisso DNS per la rete virtuale, in formato GUID. Ad esempio, se si dispone di una VM tenant denominata TENANT1 che si trova nella rete virtuale Contoso, local, il nome di dominio completo della macchina virtuale è TENANT1. *VN-GUID*. contoso. local, dove *VN-GUID* è la stringa del suffisso DNS per la rete virtuale.
 
 >[!NOTE]
->Se sei un amministratore dell'infrastruttura, è possibile utilizzare l'infrastruttura CSP o Enterprise DNS come nomi IDN server invece di distribuire nuovi server DNS in modo specifico per utilizzare come nomi IDN server. Se si distribuiscono nuovi server per nomi IDN o si usa l'infrastruttura esistente, i nomi IDN si basa su Active Directory per garantire un'elevata disponibilità. I server di nomi IDN devono pertanto essere integrati con Active Directory.
+>Se si è un amministratore dell'infrastruttura, è possibile usare il CSP o l'infrastruttura DNS aziendale come server IDN anziché distribuire i nuovi server DNS in modo specifico per l'uso come server IDN. Se si distribuiscono nuovi server per IDN o si usa l'infrastruttura esistente, IDN si basa su Active Directory per garantire la disponibilità elevata. I server IDN devono pertanto essere integrati con Active Directory.
 
-### <a name="idns-proxy"></a>iDNS Proxy
-i nomi IDN proxy è un servizio Windows che viene eseguito in ogni host e tenant che inoltra il traffico DNS della rete virtuale per i nomi IDN Server.
+### <a name="idns-proxy"></a>Proxy IDN
+il proxy IDN è un servizio Windows che viene eseguito in ogni host e che invia il traffico DNS della rete virtuale del tenant al server IDN.
 
-La figura seguente illustra i percorsi del traffico DNS da tenant le reti virtuali tramite il proxy di nomi IDN per i nomi IDN, Server e Internet.
+La figura seguente illustra i percorsi di traffico DNS dalle reti virtuali tenant tramite il proxy IDN al server IDN e a Internet.
 
-![nomi IDN infrastruttura](../../media/Internal-Dns/Internal-Dns.jpg)
+![Infrastruttura IDN](../../media/Internal-Dns/Internal-Dns.jpg)
 
 ## <a name="how-to-deploy-idns"></a>Come distribuire IDN
-Quando si distribuisce SDN in Windows Server 2016 tramite script, i nomi IDN è automaticamente incluso nella distribuzione.
+Quando si distribuisce SDN in Windows Server 2016 usando gli script, IDN viene incluso automaticamente nella distribuzione.
 
 Per ulteriori informazioni, vedere gli argomenti seguenti.
 
-- [Distribuire un'infrastruttura Software Defined Networking tramite script](https://docs.microsoft.com/windows-server/networking/sdn/deploy/deploy-a-software-defined-network-infrastructure-using-scripts)
+- [Distribuire un'infrastruttura software defined Network usando gli script](https://docs.microsoft.com/windows-server/networking/sdn/deploy/deploy-a-software-defined-network-infrastructure-using-scripts)
 
 
-## <a name="understanding-idns-deployment-steps"></a>Informazioni sui nomi IDN passaggi di distribuzione
-È possibile utilizzare questa sezione per comprendere come i nomi IDN è installato e configurato quando si distribuisce SDN tramite script.
+## <a name="understanding-idns-deployment-steps"></a>Informazioni sui passaggi per la distribuzione di IDN
+È possibile usare questa sezione per comprendere in che modo IDN viene installato e configurato quando si distribuisce SDN usando gli script.
 
-Viene riportato un riepilogo dei passaggi necessari per distribuire i nomi IDN.
+Di seguito è riportato un riepilogo dei passaggi necessari per distribuire IDN.
 
 >[!NOTE]
->Se è stata distribuita SDN tramite script, non devi eseguire uno di questi passaggi. Vengono forniti i passaggi per informazioni e risoluzione dei problemi relativi a solo scopo.
+>Se SDN è stato distribuito usando gli script, non è necessario eseguire una di queste operazioni. La procedura viene fornita solo a scopo informativo e di risoluzione dei problemi.
 
-### <a name="step-1-deploy-dns"></a>Passaggio 1: DNS di distribuzione
-È possibile distribuire un server DNS tramite il seguente comando Windows PowerShell.
+### <a name="step-1-deploy-dns"></a>Passaggio 1: Distribuire DNS
+È possibile distribuire un server DNS usando il comando di Windows PowerShell di esempio seguente.
     
     Install-WindowsFeature DNS -IncludeManagementTools
     
-### <a name="step-2-configure-idns-information-in-network-controller"></a>Passaggio 2: Configurare le informazioni di nomi IDN nel Controller di rete
-Il segmento di script è una chiamata REST che viene eseguita dall'amministratore al Controller di rete, che viene informato sulla configurazione della zona iDNS - ad esempio l'indirizzo IP del iDNSServer e il fuso orario che viene usato per ospitare i nomi IDN. 
+### <a name="step-2-configure-idns-information-in-network-controller"></a>Passaggio 2: Configurare le informazioni IDN nel controller di rete
+Questo segmento di script è una chiamata REST effettuata dall'amministratore al controller di rete, per informarla sulla configurazione della zona IDN, ad esempio l'indirizzo IP del iDNSServer e la zona utilizzata per ospitare i nomi IDN. 
 
 ```
     Url: https://<url>/networking/v1/iDnsServer/configuration
@@ -112,85 +112,85 @@ Method: PUT
 ```
 
 >[!NOTE]
->Questo è un estratto dalla sezione **ConfigureIDns configurazione** in SDNExpress.ps1. Per altre informazioni, vedere [distribuire un'infrastruttura Software Defined Networking tramite script](https://technet.microsoft.com/windows-server-docs/networking/sdn/deploy/deploy-a-software-defined-network-infrastructure-using-scripts).
+>Si tratta di un estratto dalla sezione **Configuration ConfigureIDns** in SDNExpress. ps1. Per altre informazioni, vedere [distribuire un'infrastruttura software defined Network usando gli script](https://technet.microsoft.com/windows-server-docs/networking/sdn/deploy/deploy-a-software-defined-network-infrastructure-using-scripts).
 
-### <a name="step-3-configure-the-idns-proxy-service"></a>Passaggio 3: Configurare il servizio Proxy di nomi IDN
-I nomi IDN servizio Proxy viene eseguito in ognuno degli host Hyper-V, fornendo il ponte tra le reti virtuali dei tenant e la rete fisica in cui si trovano i server di nomi IDN. Le seguenti chiavi del Registro di sistema devono essere create in ogni host Hyper-V.
+### <a name="step-3-configure-the-idns-proxy-service"></a>Passaggio 3: Configurare il servizio proxy IDN
+Il servizio proxy IDN viene eseguito in ogni host Hyper-V, fornendo il Bridge tra le reti virtuali dei tenant e la rete fisica in cui si trovano i server IDN. È necessario creare le seguenti chiavi del registro di sistema in ogni host Hyper-V.
 
 
 **Porta DNS:** Porta fissa 53
 
-- Registry Key = HKLM\SYSTEM\CurrentControlSet\Services\NcHostAgent\Parameters\Plugins\Vnet\InfraServices\DnsProxyService"
-- ValueName = "Port"
+- Chiave del registro di sistema = HKLM\SYSTEM\CurrentControlSet\Services\NcHostAgent\Parameters\Plugins\Vnet\InfraServices\DnsProxyService "
+- VALUENAME = "porta"
 - ValueData = 53
-- ValueType = "Dword"
+- ValueType = "DWORD"
        
 
-**Porta del Proxy DNS:** Porta fissa 53
+**Porta proxy DNS:** Porta fissa 53
 
-- Registry Key = HKLM\SYSTEM\CurrentControlSet\Services\NcHostAgent\Parameters\Plugins\Vnet\InfraServices\DnsProxyService"
-- ValueName = "ProxyPort"
+- Chiave del registro di sistema = HKLM\SYSTEM\CurrentControlSet\Services\NcHostAgent\Parameters\Plugins\Vnet\InfraServices\DnsProxyService "
+- VALUENAME = "ProxyPort"
 - ValueData = 53
-- ValueType = "Dword"
+- ValueType = "DWORD"
         
-**INDIRIZZO IP DNS:** Indirizzo IP fisso configurato nell'interfaccia di rete, nel caso in cui il tenant viene scelto di utilizzare il servizio nomi IDN
+**IP DNS:** Indirizzo IP fisso configurato nell'interfaccia di rete, nel caso in cui il tenant scelga di usare il servizio IDN
 
-- Registry Key = HKLM\SYSTEM\CurrentControlSet\Services\NcHostAgent\Parameters\Plugins\Vnet\InfraServices\DnsProxyService"
-- ValueName = "IP"
+- Chiave del registro di sistema = HKLM\SYSTEM\CurrentControlSet\Services\NcHostAgent\Parameters\Plugins\Vnet\InfraServices\DnsProxyService "
+- VALUENAME = "IP"
 - ValueData = "169.254.169.254"
-- ValueType = "String"
+- ValueType = "stringa"
 
         
-**Indirizzo MAC:** Indirizzo Media Access Control del server DNS
+**Indirizzo Mac:** Indirizzo del controllo di accesso multimediale del server DNS
 
-- Registry Key = HKLM\SYSTEM\CurrentControlSet\Services\NcHostAgent\Parameters\Plugins\Vnet\InfraServices\DnsProxyService
-- ValueName = "MAC"
-- ValueData = “aa-bb-cc-aa-bb-cc”
-- ValueType = "String"
+- Chiave del registro di sistema = HKLM\SYSTEM\CurrentControlSet\Services\NcHostAgent\Parameters\Plugins\Vnet\InfraServices\DnsProxyService
+- VALUENAME = "MAC"
+- ValueData = "AA-BB-CC-AA-BB-CC"
+- ValueType = "stringa"
 
-**Indirizzo del Server di nomi IDN:** Un elenco delimitato da virgole di nomi IDN server.
+**Indirizzo del server IDN:** Elenco delimitato da virgole di server IDN.
 
 - Chiave del Registro di sistema: HKLM\SYSTEM\CurrentControlSet\Services\DNSProxy\Parameters
-- ValueName = "Server di inoltro"
-- ValueData = “10.0.0.9”
-- ValueType = "String"
+- VALUENAME = "server d'inoltri"
+- ValueData = "10.0.0.9"
+- ValueType = "stringa"
 
 
 
 >[!NOTE]
->Questo è un estratto dalla sezione **ConfigureIDnsProxy configurazione** in SDNExpress.ps1. Per altre informazioni, vedere [distribuire un'infrastruttura Software Defined Networking tramite script](https://technet.microsoft.com/windows-server-docs/networking/sdn/deploy/deploy-a-software-defined-network-infrastructure-using-scripts).
+>Si tratta di un estratto dalla sezione **Configuration ConfigureIDnsProxy** in SDNExpress. ps1. Per altre informazioni, vedere [distribuire un'infrastruttura software defined Network usando gli script](https://technet.microsoft.com/windows-server-docs/networking/sdn/deploy/deploy-a-software-defined-network-infrastructure-using-scripts).
 
-### <a name="step-4-restart-the-network-controller-host-agent-service"></a>Passaggio 4: Riavviare il servizio agente Host di rete Controller
-È possibile utilizzare il comando Windows PowerShell seguente per riavviare il servizio di agente Host di Controller di rete.
+### <a name="step-4-restart-the-network-controller-host-agent-service"></a>Passaggio 4: Riavviare il servizio agente host del controller di rete
+Per riavviare il servizio agente host del controller di rete, è possibile utilizzare il comando di Windows PowerShell seguente.
     
     Restart-Service nchostagent -Force
     
 Per altre informazioni, vedere [Restart-Service](https://technet.microsoft.com/library/hh849823.aspx).
 
 ### <a name="enable-firewall-rules-for-the-dns-proxy-service"></a>Abilitare le regole del firewall per il servizio proxy DNS
-È possibile usare il comando Windows PowerShell seguente per creare una regola del firewall che supporta le eccezioni per il proxy comunicare con la macchina virtuale e il server di nomi IDN.
+È possibile usare il comando di Windows PowerShell seguente per creare una regola del firewall che consenta alle eccezioni per la comunicazione del proxy con la macchina virtuale e il server IDN.
     
     Enable-NetFirewallRule -DisplayGroup 'DNS Proxy Firewall'
 
-Per altre informazioni, vedere [Enable-NetFirewallRule](https://technet.microsoft.com/library/jj554869.aspx).
+Per ulteriori informazioni, vedere [Enable-NetFirewallRule](https://technet.microsoft.com/library/jj554869.aspx).
     
-### <a name="validate-the-idns-service"></a>Convalidare il servizio nomi IDN
-Per convalidare i nomi IDN, servizio, è necessario distribuire un carico di lavoro tenant di esempio.
+### <a name="validate-the-idns-service"></a>Convalidare il servizio IDN
+Per convalidare il servizio IDN, è necessario distribuire un carico di lavoro tenant di esempio.
 
-Per altre informazioni, vedere [creare una macchina virtuale e connettersi a una rete virtuale del Tenant o VLAN](https://technet.microsoft.com/windows-server-docs/networking/sdn/manage/create-a-tenant-vm).
+Per altre informazioni, vedere [creare una macchina virtuale e connettersi a una rete virtuale tenant o a una VLAN](https://technet.microsoft.com/windows-server-docs/networking/sdn/manage/create-a-tenant-vm).
 
-Se si desidera che il tenant di macchina virtuale da usare il servizio nomi IDN, è necessario lasciare vuota la configurazione di Server DNS interfacce di rete della macchina virtuale e consentire le interfacce da usare il protocollo DHCP. 
+Se si vuole che la macchina virtuale tenant usi il servizio IDN, è necessario lasciare vuota la configurazione del server DNS delle interfacce di rete VM e consentire alle interfacce di usare DHCP. 
 
-Dopo aver avviata la macchina virtuale con un'interfaccia di rete, riceve automaticamente una configurazione che consente la macchina virtuale usi nomi IDN, e la macchina virtuale inizia immediatamente eseguendo la risoluzione dei nomi usando il servizio nomi IDN.
+Dopo l'avvio della macchina virtuale con un'interfaccia di rete di questo tipo, riceve automaticamente una configurazione che consente alla macchina virtuale di usare IDN e la macchina virtuale inizia immediatamente a eseguire la risoluzione dei nomi usando il servizio IDN.
 
-Se si configura il macchina virtuale usare il servizio nomi IDN lasciando vuoto Server DNS e Server DNS alternativo informazioni di interfaccia di rete tenant, Controller di rete fornisce la macchina virtuale con un indirizzo IP ed esegue la registrazione di un nome DNS per conto della VM con il Server di nomi IDN . 
+Se si configura la macchina virtuale tenant per l'uso del servizio IDN lasciando vuoti il server DNS dell'interfaccia di rete e le informazioni del server DNS alternativo, il controller di rete fornisce la macchina virtuale con un indirizzo IP ed esegue una registrazione del nome DNS per conto della macchina virtuale con il server IDN . 
 
-Controller di rete indica inoltre il proxy di nomi IDN, sulla macchina virtuale e i dettagli necessari per eseguire la risoluzione dei nomi per la macchina virtuale. 
+Il controller di rete informa anche il proxy IDN sulla macchina virtuale e i dettagli necessari per eseguire la risoluzione dei nomi per la macchina virtuale. 
 
-Quando la macchina virtuale viene avviata una query DNS, il proxy agisce come un server d'inoltro di query dalla rete virtuale per il servizio nomi IDN. 
+Quando la macchina virtuale avvia una query DNS, il proxy funge da server d'inoltro della query dalla rete virtuale al servizio IDN. 
 
-Il proxy DNS assicura anche che le query di macchine Virtuali tenant siano isolate. Se il server di nomi IDN è autorevole per la query, il server di nomi IDN invia una risposta autorevole. Se il server di nomi IDN non autorevole per la query, esegue una ricorsione di DNS per risolvere i nomi di Internet.
+Il proxy DNS garantisce inoltre che le query della VM tenant siano isolate. Se il server IDN è autorevole per la query, il server IDN risponde con una risposta autorevole. Se il server IDN non è autorevole per la query, esegue una ricorsione DNS per risolvere i nomi Internet.
 
 >[!NOTE]
->Queste informazioni sono incluse nella sezione **AttachToVirtualNetwork configurazione** in SDNExpressTenant.ps1. Per altre informazioni, vedere [distribuire un'infrastruttura Software Defined Networking tramite script](https://technet.microsoft.com/windows-server-docs/networking/sdn/deploy/deploy-a-software-defined-network-infrastructure-using-scripts).
+>Queste informazioni sono incluse nella sezione **Configuration AttachToVirtualNetwork** in SDNExpressTenant. ps1. Per altre informazioni, vedere [distribuire un'infrastruttura software defined Network usando gli script](https://technet.microsoft.com/windows-server-docs/networking/sdn/deploy/deploy-a-software-defined-network-infrastructure-using-scripts).
 

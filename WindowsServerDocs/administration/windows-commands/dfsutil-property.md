@@ -1,7 +1,7 @@
 ---
 title: Proprietà Dfsutil
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,17 +13,17 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: d1d85a0c8713a3590271a2cf38063dfeb9726031
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 927e456a6c7197c065be0ea867494096256699ac
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59835842"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71378145"
 ---
 # <a name="dfsutil-property"></a>Proprietà Dfsutil
 
 
 
-## <a name="this-topic-is-no-longer-available"></a>In questo argomento non è più disponibile
+## <a name="this-topic-is-no-longer-available"></a>Questo argomento non è più disponibile
 
-Siamo spiacenti, ovvero l'argomento richiesto non è più disponibile.
+L'argomento richiesto non è più disponibile.
