@@ -1,8 +1,8 @@
 ---
-title: ftp ascii
-description: 'Argomento i comandi di Windows per ftp ascii '
+title: ASCII FTP
+description: 'Argomento dei comandi di Windows per FTP ASCII '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,14 +13,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 8e38c57b7a5ffd9afe677c4b49787383412621fe
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: d5ae0064f9c1679bb8b386271f042d589b158c73
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66438806"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71376625"
 ---
-# <a name="ftp-ascii"></a>ftp: ascii
+# <a name="ftp-ascii"></a>FTP: ASCII
 
 >Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
@@ -34,12 +34,12 @@ nessuno
 ## <a name="remarks"></a>Note  
 - Il tipo di trasferimento di file predefinito è ASCII.  
 - In QUESTA modalità, vengono eseguite le conversioni di caratteri da e verso il set di caratteri standard di rete. Ad esempio, caratteri di fine della riga vengono convertiti in base alle esigenze, in base al sistema operativo di destinazione.  
-- **FTP** supporta ASCII e tipi di trasferimento di file di immagine binari. Utilizzare ASCII durante il trasferimento dei file di testo. Per altre informazioni sul trasferimento di file binari, vedere **ftp: binario** in riferimenti aggiuntivi.  
+- **FTP** supporta i tipi di trasferimento di file di immagine binari e ASCII. Utilizzare ASCII durante il trasferimento dei file di testo. Per ulteriori informazioni sul trasferimento di file binari, vedere **FTP: Binary** in riferimenti aggiuntivi.  
   ## <a name="BKMK_Examples"></a>Esempi  
   Impostare il tipo di trasferimento di file ASCII.  
   ```  
   ascii  
   ```  
   ## <a name="additional-references"></a>Riferimenti aggiuntivi  
-- [ftp: binary](ftp-binary.md)  
+- [FTP: binario](ftp-binary.md)  
 - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)  

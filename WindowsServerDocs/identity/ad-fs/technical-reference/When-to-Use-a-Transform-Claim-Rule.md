@@ -7,17 +7,17 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 5ed8ee500582e0e687a2b52e83d99fc3cb8f147f
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: b7cdf68783db1b6b775209e4e42dc6b6ccf0e1b8
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66188338"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71385424"
 ---
 # <a name="when-to-use-a-transform-claim-rule"></a>Quando usare una regola attestazioni di trasformazione
-È possibile usare questa regola in Active Directory Federation Services \(ADFS\) quando è necessario eseguire il mapping di un tipo di attestazione in ingresso a un tipo di attestazione in uscita e quindi applicare un'azione che determina il tipo di output deve essere eseguita in base ai valori che originato nell'attestazione in ingresso. Quando si usa questa regola, si consente l'ingresso o si trasformano le attestazioni corrispondenti alla logica della regola seguente, in base all'opzione configurata nella regola, come descritto nella tabella seguente.  
+È possibile usare questa regola in Active Directory Federation Services \(AD FS @ no__t-1 quando è necessario eseguire il mapping di un tipo di attestazione in ingresso a un tipo di attestazione in uscita e quindi applicare un'azione che determini quale output deve essere eseguito in base ai valori originati nel attestazione in ingresso. Quando si usa questa regola, si consente l'ingresso o si trasformano le attestazioni corrispondenti alla logica della regola seguente, in base all'opzione configurata nella regola, come descritto nella tabella seguente.  
   
 |Opzione della regola|Logica della regola|  
 |---------------|--------------|  
@@ -76,7 +76,7 @@ Creare questa regola utilizzando il linguaggio di regola attestazione o il **tra
 Per ulteriori istruzioni su come creare questo modello, vedere [creare una regola per trasformare un'attestazione in ingresso](https://technet.microsoft.com/library/dd807068.aspx) nella Guida alla distribuzione di ADFS.  
   
 ## <a name="using-the-claim-rule-language"></a>Uso del linguaggio delle regole attestazioni  
-Se l'attestazione in uscita deve essere creata dal contenuto di più di un'attestazione in ingresso, è necessario usare invece una regola personalizzata. Se il valore attestazione dell'attestazione in uscita deve essere basato sul valore dell'attestazione in ingresso, ma con contenuto aggiuntivo, è necessario includere una regola personalizzata anche in quel contesto. Per altre informazioni, vedere [When to Use a Custom Claim Rule](When-to-Use-a-Custom-Claim-Rule.md).  
+Se l'attestazione in uscita deve essere creata dal contenuto di più di un'attestazione in ingresso, è necessario usare invece una regola personalizzata. Se il valore attestazione dell'attestazione in uscita deve essere basato sul valore dell'attestazione in ingresso, ma con contenuto aggiuntivo, è necessario includere una regola personalizzata anche in quel contesto. Per altre informazioni, vedere [quando usare una regola attestazioni personalizzata](When-to-Use-a-Custom-Claim-Rule.md).  
   
 ### <a name="examples-of-how-to-construct-a-transform-rule-syntax"></a>Esempi di creazione della sintassi di una regola di trasformazione  
 Quando si usa la sintassi del linguaggio delle regole attestazioni per trasformare le attestazioni, è possibile impostare una proprietà dell'attestazione trasformata in un nuovo valore letterale. Ad esempio, la regola seguente modifica il valore attestazione del ruolo da "Administrators" in "root" mantenendo lo stesso tipo di attestazione:  

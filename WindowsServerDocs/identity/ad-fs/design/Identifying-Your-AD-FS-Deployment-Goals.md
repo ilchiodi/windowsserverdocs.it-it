@@ -7,27 +7,27 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: ec111954bbe39a3089072f41778990546b6287e5
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 5fb6d150f91042d31caea2a51acebbb18a3167cf
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66191287"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71408076"
 ---
 # <a name="identifying-your-ad-fs-deployment-goals"></a>Identificazione degli obiettivi di distribuzione di AD FS
 
-Identificazione corretta di Active Directory Federation Services \(ADFS\) degli obiettivi di distribuzione è essenziale per il successo del progetto di progettazione di AD FS. A seconda delle dimensioni dell'organizzazione e il livello di coinvolgimento che si desidera specificare per l'information technology \(IT\) di gestione del personale in tutte le organizzazioni partner, formare un team di progetto che possa articolare reale\-problemi di distribuzione globale in una dichiarazione della visione. Assicurarsi che i membri di questo team abbiano chiaro l'orientamento in cui il progetto di distribuzione necessario per raggiungere gli obiettivi di distribuzione di AD FS.  
+L'identificazione corretta degli \(obiettivi\) di distribuzione di Active Directory Federation Services ad FS è essenziale per il successo del progetto di progettazione ad FS. A seconda delle dimensioni dell'organizzazione e del livello di coinvolgimento che si desidera fornire per lo staff Information Technology \(IT @ no__t-1 in tutte le organizzazioni partner, formare un team di progetto che possa articolare chiaramente la distribuzione reale di @ no__t-2world problemi in un'istruzione di visione. Assicurarsi che i membri di questo team conoscano la direzione in cui deve essere spostato il progetto di distribuzione per raggiungere gli obiettivi di distribuzione AD FS.  
   
-Quando si scrive la dichiarazione della visione, identificare, chiarire e migliorare gli obiettivi di distribuzione. Definire le priorità e, se possibile, combinare gli obiettivi di distribuzione in modo che sia possibile progettare e distribuire AD FS con un approccio iterativo. È possibile sfruttare i vantaggi esistenti, documentati e predefiniti degli obiettivi di distribuzione di AD FS che sono rilevanti per le progettazioni di AD FS e sviluppano una soluzione appropriata per la situazione specifica.  
+Quando si scrive la dichiarazione della visione, identificare, chiarire e migliorare gli obiettivi di distribuzione. Classificare in ordine di priorità e, possibilmente, combinare gli obiettivi di distribuzione in modo che sia possibile progettare e distribuire AD FS usando un approccio iterativo. È possibile sfruttare i vantaggi degli obiettivi di distribuzione AD FS esistenti, documentati e predefiniti che sono rilevanti per la AD FS progetta e sviluppano una soluzione funzionante per la situazione specifica.  
   
-Nella tabella seguente elenca le attività per articolare, perfezionare e documentare gli obiettivi di distribuzione di AD FS.  
+Nella tabella seguente sono elencate le attività per articolare, affinare e documentare gli obiettivi di distribuzione di AD FS.  
   
 |Attività|Collegamenti di riferimento|  
 |--------|-------------------|  
-|Valutare predefiniti degli obiettivi di distribuzione di ADFS sono disponibili in questa sezione della Guida e combinare uno o più obiettivi per raggiungere gli obiettivi dell'organizzazione|-   [Fornire agli utenti di Active Directory accesso ai servizi e alle applicazioni in grado di riconoscere attestazioni](Provide-Your-Active-Directory-Users-Access-to-Your-Claims-Aware-Applications-and-Services.md)<br />-   [Fornire l'accesso agli utenti di Active Directory per le applicazioni e servizi di altre organizzazioni](Provide-Your-Active-Directory-Users-Access-to-the-Applications-and-Services-of-Other-Organizations.md)<br />-   [Fornire agli utenti in un'altra organizzazione l'accesso ai servizi e alle applicazioni in grado di riconoscere attestazioni](Provide-Users-in-Another-Organization-Access-to-Your-Claims-Aware-Applications-and-Services.md)|  
-|Eseguire il mapping di un obiettivo o una combinazione di uno degli obiettivi di distribuzione di ADFS predefiniti per una progettazione di ADFS esistente|-   [Mapping degli obiettivi di distribuzione per un progetto di ADFS](Mapping-Your-Deployment-Goals-to-an-AD-FS-Design.md)|  
+|Valutare gli obiettivi di distribuzione AD FS predefiniti forniti in questa sezione della guida e combinare uno o più obiettivi per raggiungere gli obiettivi dell'organizzazione|-   [consente agli utenti Active Directory di accedere ai servizi e alle applicazioni in grado di riconoscere attestazioni](Provide-Your-Active-Directory-Users-Access-to-Your-Claims-Aware-Applications-and-Services.md)<br />-   [consente agli utenti Active Directory di accedere alle applicazioni e ai servizi di altre organizzazioni](Provide-Your-Active-Directory-Users-Access-to-the-Applications-and-Services-of-Other-Organizations.md)<br />-   [consente agli utenti di un'altra organizzazione di accedere ai servizi e alle applicazioni in grado di riconoscere attestazioni](Provide-Users-in-Another-Organization-Access-to-Your-Claims-Aware-Applications-and-Services.md)|  
+|Eseguire il mapping di un obiettivo o una combinazione di uno degli obiettivi di distribuzione AD FS predefiniti a una progettazione di AD FS esistente|-   [mapping degli obiettivi di distribuzione a una progettazione ad FS](Mapping-Your-Deployment-Goals-to-an-AD-FS-Design.md)|  
   
 ## <a name="see-also"></a>Vedere anche
 [Guida alla progettazione di AD FS in Windows Server 2012](AD-FS-Design-Guide-in-Windows-Server-2012.md)

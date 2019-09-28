@@ -1,43 +1,43 @@
 ---
 title: Distribuire host protetti
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.topic: article
 ms.assetid: 2379ca26-b32d-4055-8b4b-99d1f2df37e1
 manager: dongill
 author: rpsqrd
 ms.technology: security-guarded-fabric
 ms.date: 08/29/2018
-ms.openlocfilehash: 3b20a7eb2b5097d8ddb7381fd0304581ca4e6722
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: bc79d13b4dda96cd3e760958a6310276d2c45bae
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59845352"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71386749"
 ---
 # <a name="deploy-guarded-hosts"></a>Distribuire host protetti
 
 >Si applica a: Windows Server 2019, Windows Server (canale semestrale), Windows Server 2016
 
-Gli argomenti in questa sezione descrivono i passaggi che richiede un amministratore dell'infrastruttura per configurare gli host Hyper-V per lavorare con il servizio sorveglianza Host (HGS). Prima di iniziare questa procedura, almeno un nodo nel [HGS cluster deve essere impostato](guarded-fabric-setting-up-the-host-guardian-service-hgs.md).
+Negli argomenti di questa sezione vengono descritti i passaggi necessari a un amministratore di infrastruttura per configurare gli host Hyper-V per l'utilizzo con il servizio sorveglianza host (HGS). Prima di poter avviare questi passaggi, è necessario configurare almeno un nodo nel [cluster HGS](guarded-fabric-setting-up-the-host-guardian-service-hgs.md).
 
 **Per l'attestazione TPM**:
-1. [Configurare l'infrastruttura DNS](guarded-fabric-configuring-fabric-dns.md): Viene descritto come configurare un server d'inoltro DNS dal dominio dell'infrastruttura per il dominio del servizio HGS.
-2. [Acquisire le informazioni richieste dal servizio HGS](guarded-fabric-tpm-trusted-attestation-capturing-hardware.md): Indica come acquisire gli identificatori TPM (detti anche gli identificatori della piattaforma), creare un criterio di integrità del codice e creare una linea di base TPM. Fornirà quindi queste informazioni all'amministratore di HGS per configurare l'attestazione.
-3. [Verificare che consente di attestare gli host sorvegliati](guarded-fabric-confirm-hosts-can-attest-successfully.md)
+1. [Configurare il DNS dell'infrastruttura](guarded-fabric-configuring-fabric-dns.md): Viene illustrato come configurare un server d'inoltre DNS dal dominio dell'infrastruttura al dominio HGS.
+2. [Informazioni di acquisizione richieste da HGS](guarded-fabric-tpm-trusted-attestation-capturing-hardware.md): Indica come acquisire gli identificatori TPM (detti anche identificatori di piattaforma), creare un criterio di integrità del codice e creare una baseline TPM. Queste informazioni vengono quindi fornite all'amministratore di HGS per configurare l'attestazione.
+3. [Confermare che gli host sorvegliati possono attestare](guarded-fabric-confirm-hosts-can-attest-successfully.md)
 
 **Per l'attestazione chiave host**:
-1. [Creare una chiave host](guarded-fabric-create-host-key.md#create-a-host-key): Viene descritto come configurare un server d'inoltro DNS dal dominio dell'infrastruttura per il dominio del servizio HGS.
-2. [Aggiungere il codice Product key host per il servizio di attestazione](guarded-fabric-create-host-key.md#add-the-host-key-to-the-attestation-service): Viene descritto come configurare un gruppo di sicurezza di Active Directory nel dominio dell'infrastruttura, aggiungere gli host sorvegliati come membri di tale gruppo e fornire tale identificatore di gruppo all'amministratore del servizio HGS. 
-3. [Verificare che consente di attestare gli host sorvegliati](guarded-fabric-confirm-hosts-can-attest-successfully.md)
+1. [Creare una chiave host](guarded-fabric-create-host-key.md#create-a-host-key): Viene illustrato come configurare un server d'inoltre DNS dal dominio dell'infrastruttura al dominio HGS.
+2. [Aggiungere la chiave host al servizio di attestazione](guarded-fabric-create-host-key.md#add-the-host-key-to-the-attestation-service): Indica come configurare un gruppo di sicurezza Active Directory nel dominio dell'infrastruttura, aggiungere host sorvegliati come membri del gruppo e fornire l'identificatore di gruppo all'amministratore di HGS. 
+3. [Confermare che gli host sorvegliati possono attestare](guarded-fabric-confirm-hosts-can-attest-successfully.md)
 
 
-**Per l'attestazione amministratore**:
-1. [Configurare l'infrastruttura DNS](guarded-fabric-configuring-fabric-dns.md): Viene descritto come configurare un server d'inoltro DNS dal dominio dell'infrastruttura per il dominio del servizio HGS.
-2. [Creare un gruppo di sicurezza](guarded-fabric-admin-trusted-attestation-creating-a-security-group.md): Viene descritto come configurare un gruppo di sicurezza di Active Directory nel dominio dell'infrastruttura, aggiungere gli host sorvegliati come membri di tale gruppo e fornire tale identificatore di gruppo all'amministratore del servizio HGS. 
-3. [Verificare che consente di attestare gli host sorvegliati](guarded-fabric-confirm-hosts-can-attest-successfully.md)
+**Per l'attestazione attendibile dell'amministratore**:
+1. [Configurare il DNS dell'infrastruttura](guarded-fabric-configuring-fabric-dns.md): Viene illustrato come configurare un server d'inoltre DNS dal dominio dell'infrastruttura al dominio HGS.
+2. [Creare un gruppo di sicurezza](guarded-fabric-admin-trusted-attestation-creating-a-security-group.md): Indica come configurare un gruppo di sicurezza Active Directory nel dominio dell'infrastruttura, aggiungere host sorvegliati come membri del gruppo e fornire l'identificatore di gruppo all'amministratore di HGS. 
+3. [Confermare che gli host sorvegliati possono attestare](guarded-fabric-confirm-hosts-can-attest-successfully.md)
 
 
 ## <a name="see-also"></a>Vedere anche
 
-- [Attività di distribuzione per le infrastrutture protetta e macchine virtuali schermate](guarded-fabric-deploying-hgs-overview.md#deployment-tasks-for-guarded-fabrics-and-shielded-vms)
+- [Attività di distribuzione per infrastrutture sorvegliate e VM schermate](guarded-fabric-deploying-hgs-overview.md#deployment-tasks-for-guarded-fabrics-and-shielded-vms)

@@ -1,7 +1,7 @@
 ---
 title: Introduzione alla raccolta eventi di configurazione e avvio
 description: Impostazione di target e agenti di raccolta di Raccolta eventi di configurazione e avvio
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.service: na
 manager: DonGill
 ms.technology: server-sbec
@@ -12,12 +12,12 @@ ms.topic: get-started-article
 ms.assetid: fc239aec-e719-47ea-92fc-d82a7247b3f8
 author: jaimeo
 ms.author: jaimeo
-ms.openlocfilehash: e94659c62db574dc8779c8246d471ab401414ddb
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: d1d24cdf481f19b37093f76cf8741702e1b4de60
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66435802"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71370507"
 ---
 # <a name="get-started-with-setup-and-boot-event-collection"></a>Introduzione alla raccolta eventi di configurazione e avvio
 
@@ -95,7 +95,7 @@ In ogni computer di destinazione, è necessario abilitare prima il trasporto di 
   
 4.  Verificare la connessione remota accedendo al computer dell'agente di raccolta e in esecuzione uno di questi comandi di Windows PowerShell:  
   
-    Se il computer di destinazione è nello stesso dominio del computer dell'agente di raccolta, eseguire `New-PSSession -Computer <target> | Remove-PSSession`  
+    Se il computer di destinazione si trova nello stesso dominio del computer dell'agente di raccolta, eseguire `New-PSSession -Computer <target> | Remove-PSSession`  
   
     Se il computer di destinazione non è presente nello stesso dominio, eseguire `New-PSSession -Computer  <target>  -Credential Administrator | Remove-PSSession`, che verranno richieste le credenziali.  
   
@@ -105,7 +105,7 @@ In ogni computer di destinazione, è necessario abilitare prima il trasporto di 
   
     `Enable-SbecBcd -ComputerName <target_name> -CollectorIP <ip> -CollectorPort <port> -Key <a.b.c.d>`  
   
-    Qui < target_name > è il nome del computer di destinazione, \<ip > è l'indirizzo IP del computer di raccolta. \<porta > è il numero di porta in cui verrà eseguito l'agente di raccolta. La chiave < a.b.c. d > è una chiave di crittografia richiesto per la comunicazione, che comprende quattro stringhe alfanumeriche separate da punti. La stessa chiave viene utilizzata sul computer agente. Se non si immette una chiave, il sistema genera una chiave casuale. sarà necessaria per il computer dell'agente di raccolta, quindi prendere nota di esso.  
+    Qui < target_name > è il nome del computer di destinazione, \<ip > è l'indirizzo IP del computer di raccolta. \<port > è il numero di porta in cui verrà eseguito l'agente di raccolta. La chiave < a.b.c. d > è una chiave di crittografia richiesto per la comunicazione, che comprende quattro stringhe alfanumeriche separate da punti. La stessa chiave viene utilizzata sul computer agente. Se non si immette una chiave, il sistema genera una chiave casuale. sarà necessaria per il computer dell'agente di raccolta, quindi prendere nota di esso.  
   
 6.  Se si dispone già di un computer agente configurare, aggiornare il file di configurazione sul computer agente con le informazioni per il nuovo computer di destinazione. Vedere la sezione "Configurazione del computer dell'agente di raccolta" per informazioni dettagliate.  
   
@@ -113,15 +113,15 @@ In ogni computer di destinazione, è necessario abilitare prima il trasporto di 
   
 1.  Avviare un prompt dei comandi con privilegi elevati e quindi eseguire questi comandi:  
   
-    **Sì organizzazione di eventi / bcdedit**  
+    **bcdedit organizzazione bcdedit Sì**  
   
-    **bcdedit /eventsettings net hostip:1.2.3.4 porta: 50000 Key: a.b.c. d**  
+    **bcdedit/eventsettings NET HostIP: 1.2.3.4 porta: 50000 chiave: a. b. c. d**  
   
     Di seguito "1.2.3.4" è un esempio; Sostituire con l'indirizzo IP del computer di raccolta. Sostituire anche "50000" con il numero di porta in cui verrà eseguito l'agente di raccolta e "a.b.c. d" con la chiave di crittografia richiesto per la comunicazione. La stessa chiave viene utilizzata sul computer agente. Se non si immette una chiave, il sistema genera una chiave casuale. sarà necessaria per il computer dell'agente di raccolta, quindi prendere nota di esso.  
   
 2.  Se si dispone già di un computer agente configurare, aggiornare il file di configurazione sul computer agente con le informazioni per il nuovo computer di destinazione. Vedere la sezione "Configurazione del computer dell'agente di raccolta" per informazioni dettagliate.  
   
-**Ora che il trasporto evento stesso è abilitato, è necessario abilitare il sistema inviare effettivamente gli eventi ETW tramite tale trasporto.**  
+**Ora che il trasporto eventi è abilitato, è necessario consentire al sistema di inviare effettivamente gli eventi ETW tramite il trasporto.**  
   
 ##### <a name="to-enable-sending-of-etw-events-through-the-transport-remotely"></a>Per consentire l'invio di eventi ETW tramite il trasporto in modalità remota  
   
@@ -154,7 +154,7 @@ Se il computer di destinazione ha più di una scheda di rete, il driver KDNET sc
   
 3.  Eseguire uno dei seguenti comandi:  
   
-    Da un prompt di Windows PowerShell con privilegi elevato: `Enable-SbecBcd -ComputerName <target_name> -CollectorIP <ip> -CollectorPort <port> -Key <a.b.c.d> -BusParams <X.Y.Z>`  
+    Da un prompt di Windows PowerShell con privilegi elevati: `Enable-SbecBcd -ComputerName <target_name> -CollectorIP <ip> -CollectorPort <port> -Key <a.b.c.d> -BusParams <X.Y.Z>`  
   
     Da un prompt dei comandi con privilegi elevati: **/eventsettings bcdedit net hostip:aaa porta: 50000 chiave: bbb busparams:X.Y.Z**  
   
@@ -188,7 +188,7 @@ File ETL raccolti vengono in genere memorizzati nella directory **c:\ProgramData
   
 **Creazione del file di configurazione dell'agente di raccolta**  
   
-Quando si abilita il servizio, i tre file di configurazione XML vengono creati e archiviati nel **c:\ProgramData\Microsoft\BootEventCollector\Config**:  
+Quando si Abilita il servizio, vengono creati tre file di configurazione XML e archiviati in **c:\ProgramData\Microsoft\BootEventCollector\Config**:  
   
 -   **Active.XML** questo file contiene la configurazione attiva corrente del servizio agente di raccolta dati.  Subito dopo l'installazione, questo file è lo stesso contenuto di Empty.xml. Quando si imposta una nuova configurazione dell'agente di raccolta è salvare questo file.  
   
@@ -196,9 +196,9 @@ Quando si abilita il servizio, i tre file di configurazione XML vengono creati e
   
 -   **Example.XML** questo file fornisce esempi e le spiegazioni degli elementi di configurazione.  
   
-**Scelta di una dimensione massima dei file**  
+**Scelta di un limite per le dimensioni del file**  
   
-Una delle decisioni che è necessario apportare consiste nell'impostare un limite di dimensioni del file. Il limite delle dimensioni file migliore dipende dal volume previsto di eventi e spazio disponibile su disco. I file più piccoli sono più pratico dal punto di vista della pulizia dei dati precedenti. Tuttavia, ogni file comporta l'overhead di un'intestazione di 64KB e lettura di molti file per ottenere la cronologia combinata potrebbe risultare poco pratica. Il limite minimo assoluto del file è 256 KB. Un limite di dimensioni ragionevoli pratico file deve essere superiore a 1 MB e 10 MB è probabilmente un buon valore tipico. Un limite superiore potrebbe essere accettabile se si prevede che molti eventi.  
+Una delle decisioni che è necessario apportare consiste nell'impostare un limite di dimensioni del file. Il limite delle dimensioni file migliore dipende dal volume previsto di eventi e spazio disponibile su disco. I file più piccoli sono più pratico dal punto di vista della pulizia dei dati precedenti. Tuttavia, ogni file comporta l'overhead di un'intestazione 64KB e la lettura di molti file per ottenere la cronologia combinata potrebbe non essere utile. Il limite di dimensioni minime assoluto del file è 256 KB. Un limite di dimensioni ragionevoli pratico file deve essere superiore a 1 MB e 10 MB è probabilmente un buon valore tipico. Un limite superiore potrebbe essere accettabile se si prevede che molti eventi.  
   
 Esistono diversi aspetti da tenere in mente riguardo il file di configurazione:  
   
@@ -292,7 +292,7 @@ L'interfaccia minima offerto da Nano Server può talvolta rendere difficili da d
   
     3.  Aggiornare il Registro di sistema di Nano Server VHD per abilitare AutoLoggers. A tale scopo, eseguire `Enable-SbecAutoLogger -Path C:\NanoServer\Workloads\IncludingWorkloads.vhd`. Aggiunge un elenco di base dell'impostazione più comuni e gli eventi di avvio; è possibile ricercare altre [sessioni di traccia di eventi controllo](https://msdn.microsoft.com/library/windows/desktop/aa363694(v=vs.85).aspx).  
   
-4.  Aggiornare le impostazioni di avvio nell'immagine di Nano Server per abilitare il flag di eventi e impostare il computer agente per verificare gli eventi di diagnostica vengono inviati al server appropriato. Si noti l'indirizzo IPv4 del computer dell'agente di raccolta, la porta TCP e la chiave di crittografia configurato nel file Active.XML dell'agente di raccolta (descritto altrove in questo argomento). Usare questo comando nella console di Windows PowerShell con autorizzazioni elevate: `Enable-SbecBcd -Path C:\NanoServer\Workloads\IncludingWorkloads.vhd -CollectorIp 192.168.100.1 -CollectorPort 50000 -Key a.b.c.d`  
+4.  Aggiornare le impostazioni di avvio nell'immagine di Nano Server per abilitare il flag di eventi e impostare il computer agente per verificare gli eventi di diagnostica vengono inviati al server appropriato. Si noti l'indirizzo IPv4 del computer dell'agente di raccolta, la porta TCP e la chiave di crittografia configurato nel file Active.XML dell'agente di raccolta (descritto altrove in questo argomento). Usare questo comando in una console di Windows PowerShell con autorizzazioni elevate: `Enable-SbecBcd -Path C:\NanoServer\Workloads\IncludingWorkloads.vhd -CollectorIp 192.168.100.1 -CollectorPort 50000 -Key a.b.c.d`  
   
 5.  Aggiornare il computer dell'agente di raccolta per la ricezione di eventi inviati dal computer Nano Server aggiungendo l'intervallo di indirizzi IPv4, l'indirizzo IPv4 specifico o l'indirizzo MAC del Server di Nano al file Active.XML sul computer agente (vedere la sezione "Configurazione del computer dell'agente di raccolta" di questo argomento).  
   
@@ -316,7 +316,7 @@ Il log per il servizio agente di raccolta dati stesso (che è diverso dal progra
   
 ### <a name="troubleshooting-the-collector"></a>Risoluzione dei problemi l'agente di raccolta  
   
-**Registrazione:**  
+**Registrazione**  
 L'agente di raccolta registra i propri eventi come provider ETW Microsoft-Windows-BootEvent-agente di raccolta. È il primo punto che è possibile cercare la risoluzione dei problemi con l'agente di raccolta. È possibile ottenerli nel Visualizzatore eventi in registri applicazioni e servizi > Microsoft > Windows > BootEvent Collector > amministratore oppure è possibile leggerli in una finestra di comando con uno di questi comandi:  
   
 In un prompt dei comandi comuni: **wevtutil qe Microsoft-Windows-BootEvent-agente di raccolta/Admin**  
@@ -333,7 +333,7 @@ A livello di debug, potrebbe essere utile scrivere il log in un file anziché te
   
 < collector configVersionMajor = "1" minlog = "debug" log\="c:\ProgramData\Microsoft\BootEventCollector\Logs\log.txt" >  
       
- **Un approccio consigliato alla risoluzione dei problemi l'agente di raccolta:**  
+ **Un approccio consigliato per la risoluzione dei problemi dell'agente di raccolta:**  
    
 1. In primo luogo, verificare che l'agente di raccolta ha ricevuto la connessione dalla destinazione (creerà il file solo quando la destinazione viene avviato l'invio dei messaggi) con   
    ```  
@@ -342,10 +342,10 @@ A livello di debug, potrebbe essere utile scrivere il log in un file anziché te
    Se viene restituito è disponibile una connessione di destinazione che il problema potrebbe essere nelle impostazioni di autologger. Se restituisce nothing, il problema è iniziare con la connessione KDNET. Per diagnosticare problemi di connessione KDNET, controllare la connessione da entrambe le estremità (vale a dire dall'agente di raccolta dati e dalla destinazione).  
   
 2. Per vedere diagnostica estesa dall'agente di raccolta dati, aggiungere questa opzione per il \<collector > elemento del file di configurazione:  
-   \<agente di raccolta dati... minlog = "verbose" >  
+   @no__t 0collector... minlog = "verbose" >  
    In questo modo i messaggi relativi a ogni pacchetto ricevuto.  
 3. Controllare se i pacchetti vengono ricevuti affatto. Facoltativamente, è possibile scrivere il log in modalità dettagliata direttamente in un file anziché tramite ETW. A tale scopo, aggiungere quanto segue per il \<collector > elemento del file di configurazione:  
-   \<agente di raccolta dati... minlog = "verbose" log="c:\ProgramData\Microsoft\BootEventCollector\Logs\log.txt" >  
+   @no__t 0collector... minlog = "verbose" log = "c:\ProgramData\Microsoft\BootEventCollector\Logs\log.txt" >  
       
 4. Controllare i registri eventi per tutti i messaggi sui pacchetti ricevuti. Controllare se i pacchetti vengono ricevuti affatto. Se i pacchetti ricevuti ma non corretto, controllare i messaggi di evento per i dettagli.  
 5. Dal lato di destinazione, KDNET scrive alcune informazioni diagnostiche nel Registro di sistema. Cerca   
@@ -358,7 +358,7 @@ A livello di debug, potrebbe essere utile scrivere il log in un file anziché te
 8. Verificare che l'agente di raccolta nella stessa rete di destinazione. In caso contrario, controllare se il routing è configurato correttamente, in particolare il gateway predefinito impostazione per DHCP.  
   
   
-**Stato della connessione**  
+**Stato connessione**  
   
 È possibile controllare l'elenco corrente di connessioni stabilite e informazioni su dove i dati inoltrati con `Get-SbecForwarding`.  
   
@@ -382,5 +382,5 @@ In alternativa, se non si desidera salvare il risultato in una variabile, è pos
 |-|---------|---------------------|-----------|---------------------|  
 |Computer di destinazione||Destinazione non è connesso all'agente di raccolta||-Il computer di destinazione non ottenere riavviato dopo essere stato configurato. Riavviare il computer di destinazione.<br />-Il computer di destinazione dispone di impostazioni errate di BCD. Controllare le impostazioni nella sezione "Impostazioni computer di destinazione convalida". Risolvere il problema e quindi riavviare il computer di destinazione.<br />-Il driver KDNET/EVENTO-NET non è in grado di connettersi a una scheda di rete o connesso alla scheda di rete errato. In Windows PowerShell, eseguire `gwmi Win32_NetworkAdapter` e controllare l'output di uno con la proprietà ServiceName **kdnic**. Se è selezionata la scheda di rete errato, eseguire nuovamente la procedura descritta in "Per specificare una scheda di rete". Se non vengono visualizzate la scheda di rete, è possibile che il driver non supporta le schede di rete.<br>**Vedere anche** "Un approccio consigliato per l'agente di raccolta di risoluzione dei problemi" in precedenza, in particolare passaggi da 5 a 8.|  
 |Agente di raccolta dati||Dopo la migrazione della macchina Virtuale l'agente di raccolta dati è ospitato in non vengono visualizzati gli eventi.||Verificare che l'indirizzo IP del computer di raccolta non è stato modificato. In caso affermativo, consultare "per consentire l'invio di eventi ETW tramite il trasporto in modalità remota."|  
-|Agente di raccolta dati||Non vengono creati i file ETL.|`Get-SbecForwarding` indica che la destinazione è collegato, senza errori, ma non vengono creati i file ETL.|Il computer di destinazione è probabilmente non tutti i dati ancora inviato; File ETL vengono creati solo quando vengono ricevuti i dati.|  
+|Agente di raccolta dati||Non vengono creati i file ETL.|`Get-SbecForwarding` indica che la destinazione è connessa, senza errori, ma non vengono creati i file ETL.|Il computer di destinazione è probabilmente non tutti i dati ancora inviato; File ETL vengono creati solo quando vengono ricevuti i dati.|  
 |Agente di raccolta dati||Un evento non viene visualizzato nel file con estensione ETL.|Il computer di destinazione ha inviato un evento, ma quando viene letto il file ETL con Visualizzatore eventi di Message Analyzer, l'evento non è presente.|-L'evento può essere ancora nel buffer. Gli eventi non vengono scritti nel file ETL fino a quando non viene raccolto un buffer pieno di 64 KB o si è verificato un timeout di circa 10-15 secondi con nessun nuovo evento. Attendere il timeout di scadenza o scaricare il buffer con `Save-SbecInstance`.<br />-Il manifesto di eventi non è disponibile nel computer di raccolta o nel computer in cui viene eseguito il Visualizzatore eventi o Message Analyzer.  In questo caso, l'agente di raccolta potrebbe non essere in grado di elaborare l'evento (controllare il log di agente di raccolta) o il visualizzatore potrebbe non essere in grado di visualizzare.  È buona norma disporre di tutti i manifesti installati sul computer agente e installare gli aggiornamenti sul computer agente prima di eseguirne l'installazione nei computer di destinazione.|

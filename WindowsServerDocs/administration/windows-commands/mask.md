@@ -1,8 +1,8 @@
 ---
 title: Maschera
-description: 'Argomento i comandi di Windows per * * *- '
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 353e6080d1f6c548bc907b58655f31d0bce6de8b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 2f0dc83d7d9f7204f56e95c62b7cfad991f539ef
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59858022"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71373706"
 ---
 # <a name="mask"></a>Maschera
 
 
 
-Rimuove le copie shadow hardware che sono state importate usando il **importare** comando.
+rimuove le copie shadow dell'hardware importate tramite il comando **Import** .
 
 Per esempi di utilizzo di questo comando, vedere [Esempi](#BKMK_examples).
 
@@ -38,7 +38,7 @@ mask <ShadowSetID>
 
 |Parametro|Descrizione|
 |---------|-----------|
-|ShadowSetID|Rimuove ombreggiatura copie che appartengono all'ID specificato insieme di copia Shadow.|
+|ShadowSetID|Rimuove le copie shadow che appartengono all'ID del set di copie shadow specificato.|
 
 ## <a name="remarks"></a>Note
 
@@ -46,11 +46,11 @@ mask <ShadowSetID>
 
 ## <a name="BKMK_examples"></a>Esempi
 
-Per rimuovere % Import_1% copia shadow importati, digitare:
+Per rimuovere la copia shadow importata% Import_1%, digitare:
 ```
 mask %Import_1%
 ```
 
 #### <a name="additional-references"></a>Altri riferimenti
 
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)
+[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

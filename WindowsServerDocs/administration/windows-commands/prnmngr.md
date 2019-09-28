@@ -1,8 +1,8 @@
 ---
 title: prnmngr
-description: Informazioni su come aggiungere, eliminare ed elencare le stampanti e connessioni.
+description: Informazioni su come aggiungere, eliminare ed elencare le stampanti e le connessioni.
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 07/11/2018
-ms.openlocfilehash: f0e3af7b05b77400d3d8a04d048b34b8c553438d
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 12981519a1d3bfc079a58e5883bc845955b8a8c6
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66436228"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71372074"
 ---
 # <a name="prnmngr"></a>prnmngr
 
 >Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Aggiunge, Elimina e sono elencate le stampanti o le connessioni alle stampanti, oltre all'impostazione e la visualizzazione della stampante predefinita.
+aggiunge, Elimina ed elenca stampanti o connessioni stampanti, oltre a impostare e visualizzare la stampante predefinita.
 
 ## <a name="syntax"></a>Sintassi
 ```
@@ -37,37 +37,37 @@ cscript Prnmngr {-a | -d | -x | -g | -t | -l | -?}[c] [-s <ServerName>]
 
 |           Parametro           |                                                                                                                                                                                        Descrizione                                                                                                                                                                                        |
 |-------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|              -a               |                                                                                                                                                                             Aggiunge una connessione stampante locale.                                                                                                                                                                              |
+|              -a               |                                                                                                                                                                             aggiunge una connessione alla stampante locale.                                                                                                                                                                              |
 |              -d               |                                                                                                                                                                               Elimina una connessione alla stampante.                                                                                                                                                                               |
-|              -x               |                                                                                                               Elimina tutte le stampanti dal server specificato con il **-s** parametro. Se non si specifica un server, Windows elimina tutte le stampanti nel computer locale.                                                                                                               |
+|              -x               |                                                                                                               Elimina tutte le stampanti dal server specificato con il parametro **-s** . Se non si specifica un server, Windows eliminerà tutte le stampanti nel computer locale.                                                                                                               |
 |              -g               |                                                                                                                                                                               Visualizza la stampante predefinita.                                                                                                                                                                               |
-|              -t               |                                                                                                                                                        Imposta la stampante predefinita sulla stampante specificata per il **-p** parametro.                                                                                                                                                         |
-|              -l               |                                                                                                         Elenca tutte le stampanti installate nel server specificato per il **-s** parametro. Se non si specifica un server, Windows elenca le stampanti installate nel computer locale.                                                                                                         |
-|               c               |                                                                                                                                      Specifica che il parametro deve essere applicato per le connessioni alle stampanti. Può essere usato con il **- un** e **- x** parametri.                                                                                                                                      |
-|        -s <ServerName>        |                                                                                                                  Specifica il nome del computer remoto che ospita la stampante che si desidera gestire. Se non si specifica un computer, viene utilizzato il computer locale.                                                                                                                  |
-|       -p \<nomestampante >       |                                                                                                                                                                Specifica il nome della stampante che si desidera gestire.                                                                                                                                                                 |
-|     -m \<DrivermodelName >     |                                                                                                          Specifica (nome) del driver da installare. I driver vengono spesso denominati per il modello di stampante che supportano. Vedere la documentazione della stampante per altre informazioni.                                                                                                           |
-|        -r \<PortName >         |                                                                         Specifica la porta in cui è connesso alla stampante. Se si tratta di una porta seriale o parallelo, usare l'ID della porta (ad esempio, LPT1: o COM1:). Se si tratta di una porta TCP/IP, usare il nome della porta che è stato specificato quando è stata aggiunta la porta.                                                                          |
-| -u \<UserName > -w \<Password > | Specifica un account con autorizzazioni sufficienti per connettersi al computer che ospita la stampante che si desidera gestire. Tutti i membri del gruppo Administrators locale del computer di destinazione dispongono di queste autorizzazioni, ma è anche possibile concedere le autorizzazioni ad altri utenti. Se non si specifica un account, è necessario essere connessi con un account con queste autorizzazioni per il comando lavorare. |
+|              -t               |                                                                                                                                                        Imposta la stampante predefinita sulla stampante specificata dal parametro **-p** .                                                                                                                                                         |
+|              -l               |                                                                                                         elenca tutte le stampanti installate nel server specificato dal parametro **-s** . Se non si specifica un server, Windows elenca le stampanti installate nel computer locale.                                                                                                         |
+|               c               |                                                                                                                                      Specifica che il parametro si applica alle connessioni della stampante. Può essere usato con i parametri **-a** e **-x** .                                                                                                                                      |
+|        -s <ServerName>        |                                                                                                                  Specifica il nome del computer remoto che ospita la stampante che si desidera gestire. Se non si specifica un computer, viene usato il computer locale.                                                                                                                  |
+|       -p \<printerName >       |                                                                                                                                                                Specifica il nome della stampante che si desidera gestire.                                                                                                                                                                 |
+|     -m \<DrivermodelName >     |                                                                                                          Specifica (per nome) il driver che si desidera installare. I driver sono spesso denominati per il modello di stampante supportato. Per ulteriori informazioni, vedere la documentazione della stampante.                                                                                                           |
+|        -r \<PortName >         |                                                                         Specifica la porta a cui è connessa la stampante. Se si tratta di una porta parallela o seriale, usare l'ID della porta (ad esempio, LPT1: o COM1:). Se si tratta di una porta TCP/IP, utilizzare il nome della porta specificato quando la porta è stata aggiunta.                                                                          |
+| -u \<UserName >-w \<Password > | Specifica un account con le autorizzazioni per la connessione al computer che ospita la stampante che si desidera gestire. Tutti i membri del gruppo Administrators locale del computer di destinazione dispongono di queste autorizzazioni, ma è possibile concedere anche le autorizzazioni ad altri utenti. Se non si specifica un account, è necessario effettuare l'accesso con un account con le autorizzazioni necessarie per il funzionamento del comando. |
 |              /?               |                                                                                                                                                                           Visualizza la guida al prompt dei comandi.                                                                                                                                                                            |
 
 ## <a name="remarks"></a>Note
--   Il **prndrvr** comando è uno script Visual Basic che si trova nel %WINdir%\System32\printing_Admin_Scripts\\ <language> directory. Per usare questo comando, un prompt dei comandi, digitare **cscript** aggiungendo il percorso completo per il **prnmngr** file oppure passare alla directory nella cartella appropriata. Ad esempio:
+-   Il comando **prndrvr** è uno script Visual Basic che si trova nella directory%WINdir%\System32\printing_Admin_Scripts @ no__t-1 @ no__t-2. Per usare questo comando, al prompt dei comandi digitare **cscript** seguito dal percorso completo del file **prnmngr** o passare alla cartella appropriata. Esempio:
     ```
     cscript %WINdir%\System32\printing_Admin_Scripts\en-US\prnmngr
     ```
--   Se le informazioni fornite contengono spazi, utilizzare le virgolette intorno al testo (ad esempio, `"computer Name"`).
+-   Se le informazioni fornite contengono spazi, racchiudere il testo tra virgolette, ad esempio `"computer Name"`.
 
 ## <a name="BKMK_examples"></a>Esempi
-Per aggiungere una stampante denominata StampanteColori_2 che è connesso a LPT1 nel computer locale e richiede un driver della stampante denominato colore stampante Driver1, digitare:
+Per aggiungere una stampante denominata colorprinter_2 connessa a LPT1 nel computer locale e richiede un driver della stampante denominato Color Printer Driver1, digitare:
 ```
 cscript prnmngr -a -p colorprinter_2 -m "color printer Driver1" -r lpt1:
 ```
-Per eliminare la stampante denominata del computer remoto denominato ServerRU StampanteColori_2, digitare:
+Per eliminare la stampante denominata colorprinter_2 dal computer remoto denominato ServerRU, digitare:
 ```
 cscript prnmngr -d -s HRServer -p colorprinter_2 
 ```
 
 #### <a name="additional-references"></a>Riferimenti aggiuntivi
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)
-[riferimenti ai comandi di stampa](print-command-reference.md)
+Informazioni di[riferimento sui comandi di stampa](print-command-reference.md) 
+ per la sintassi della riga di [comando](command-line-syntax-key.md)

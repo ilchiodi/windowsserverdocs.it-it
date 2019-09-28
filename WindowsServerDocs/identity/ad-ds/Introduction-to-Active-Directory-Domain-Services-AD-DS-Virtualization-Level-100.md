@@ -1,26 +1,26 @@
 ---
-title: Safely virtualizing Active Directory Domain Services (AD DS)
-description: Rollback degli USN e virtualizzazione sicura di Active Directory
+title: Virtualizzazione sicura di Active Directory Domain Services (AD DS)
+description: Ripristino degli USN e virtualizzazione sicura di Active Directory
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 author: MicrosoftGuyJFlo
 ms.author: joflore
 manager: mtillman
 ms.date: 03/22/2019
 ms.technology: identity-adds
 ms.assetid: 7a3114c8-bda8-49bb-83a8-4e04340ab221
-ms.openlocfilehash: aa84e09e8a958193fee82c7b9c03cd1dca910c55
-ms.sourcegitcommit: 2977c707a299929c6ab0d1e0adab2e1c644b8306
+ms.openlocfilehash: 67e35a47467b1f5f66bfd073c6f9db06094ea3f9
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63684173"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71391035"
 ---
-# <a name="safely-virtualizing-active-directory-domain-services-ad-ds"></a>Safely virtualizing Active Directory Domain Services (AD DS)
+# <a name="safely-virtualizing-active-directory-domain-services-ad-ds"></a>Virtualizzazione sicura di Active Directory Domain Services (AD DS)
 
 >Si applica a: Windows Server
 
-A partire da Windows Server 2012, Active Directory Domain Services offre maggiore supporto per la virtualizzazione dei controller di dominio grazie all'introduzione di funzionalità di virtualizzazione. Questo articolo illustra il ruolo di numeri USN e InvocationIDs nella replica del Controller di dominio e alcuni potenziali problemi che possono verificarsi.
+A partire da Windows Server 2012, servizi di dominio Active Directory offre maggiore supporto per la virtualizzazione dei controller di dominio introducendo funzionalità affidabili per la virtualizzazione. Questo articolo illustra il ruolo di USNs e InvocationIDs nella replica dei controller di dominio e illustra alcuni potenziali problemi che possono verificarsi.
 
 ## <a name="update-sequence-number-and-invocationid"></a>Numero di sequenza di aggiornamento e InvocationID
 
@@ -30,7 +30,7 @@ La replica di Servizi di dominio Active Directory utilizza l'ID chiamata e gli U
 
 Nell'illustrazione seguente, ad esempio, viene mostrata la sequenza di eventi che si verifica in Windows Server 2008 R2 e nei sistemi operativi precedenti quando il rollback degli USN viene rilevato in VDC2, ovvero il controller di dominio di destinazione eseguito in una macchina virtuale. In questa illustrazione, il rilevamento del rollback degli USN si verifica su VDC2 quando un partner di replica rileva che VDC2 ha inviato un valore USN di aggiornamento che è stato individuato in precedenza dal partner di replica, a indicare che il database di VDC2 ha rollback nel tempo in modo non corretto.
 
-![La sequenza di eventi quando viene rilevato rollback degli USN](../media/Introduction-to-Active-Directory-Domain-Services--AD-DS--Virtualization--Level-100-/ADDS_Exampleofhowreplicationcanbecomeinconsistent.png)
+![Sequenza di eventi quando viene rilevato il rollback degli USN](../media/Introduction-to-Active-Directory-Domain-Services--AD-DS--Virtualization--Level-100-/ADDS_Exampleofhowreplicationcanbecomeinconsistent.png)
 
 Una macchina virtuale (VM) semplifica per gli amministratori degli hypervisor ripristinare un dominio USN del controller (il clock logico), ad esempio, l'applicazione di uno snapshot di fuori di presenza del controller di dominio. Per ulteriori informazioni sugli USN e USN rollback, inclusa un'altra illustrazione per illustrare le istanze non rilevate del rollback degli USN, vedere [USN e Rollback degli USN](https://technet.microsoft.com/library/virtual_active_directory_domain_controller_virtualization_hyperv(WS.10).aspx#usn_and_usn_rollback).
 
@@ -38,36 +38,36 @@ A partire da Windows Server 2012, il controller di dominio virtuali AD DS ospita
 
 ## <a name="effects-of-usn-rollback"></a>Effetti del rollback degli USN
 
-Quando si verificano i rollback degli USN, le modifiche a oggetti e attributi non sono in ingresso replicata dal controller di dominio di destinazione che hanno visualizzato in precedenza l'USN.
+Quando si verifica il rollback degli USN, le modifiche apportate agli oggetti e agli attributi non vengono replicate in ingresso dai controller di dominio di destinazione che hanno precedentemente rilevato l'USN.
 
-Poiché questi controller di dominio di destinazione ritengono di essere aggiornati, errori di replica non vengono segnalati nei log eventi del servizio Directory o dagli strumenti di monitoraggio e diagnostici.
+Poiché i controller di dominio di destinazione ritengono che siano aggiornati, non vengono segnalati errori di replica nei registri eventi del servizio directory o dagli strumenti di monitoraggio e diagnostica.
 
-Rollback degli USN può influire sulla replica di qualsiasi oggetto o attributo in qualsiasi partizione. L'effetto collaterale più spesso osservato è che gli account utente e account del computer che vengono creati nel controller di dominio di rollback non esistono in uno o più partner di replica. In alternativa, gli aggiornamenti delle password originati nel controller di dominio di rollback non esistono per i partner di replica.
+Il rollback degli USN può influire sulla replica di qualsiasi oggetto o attributo in qualsiasi partizione. L'effetto collaterale osservato più frequentemente è che gli account utente e gli account computer creati nel controller di dominio di rollback non esistono in uno o più partner di replica. In alternativa, gli aggiornamenti delle password originati nel controller di dominio di rollback non esistono nei partner di replica.
 
-Un rollback degli USN può impedire la replica di qualsiasi tipo di oggetto in qualsiasi partizione di Active Directory. I tipi di oggetti seguenti:
+Un rollback degli USN può impedire la replica di qualsiasi tipo di oggetto in qualsiasi Active Directory partizione. Questi tipi di oggetto includono quanto segue:
 
-* La topologia di replica di Active Directory e pianificazione
-* La presenza di controller di dominio nella foresta e i ruoli che contengono questi controller di dominio
-* L'esistenza di partizioni dell'applicazione e di dominio nella foresta
-* L'esistenza di gruppi di sicurezza e l'appartenenza al gruppo corrente
-* Registrazione dei record DNS nelle zone DNS integrate in Active Directory
+* La topologia di replica di Active Directory e la pianificazione
+* Esistenza di controller di dominio nella foresta e dei ruoli che questi controller di dominio contengono
+* Esistenza di partizioni di dominio e di applicazione nella foresta
+* Esistenza di gruppi di sicurezza e relative appartenenze a gruppi correnti
+* Registrazione di record DNS in zone DNS integrate Active Directory
 
-La dimensione del foro USN può rappresentare centinaia, migliaia o persino decine di migliaia di modifiche a utenti, computer, i trust, le password e gruppi di sicurezza. Il problema di USN viene definito dalla differenza tra il numero più alto USN che esistevano quando è stato effettuato il backup dello stato del sistema ripristinato e modificato il numero di origine che sono stati creati nel controller di dominio di rollback, prima è stato portato offline.
+Le dimensioni del foro USN possono rappresentare centinaia, migliaia o persino decine di migliaia di modifiche a utenti, computer, trust, password e gruppi di sicurezza. Il foro USN viene definito dalla differenza tra il numero USN più elevato esistente al momento dell'esecuzione del backup dello stato del sistema ripristinato e il numero di modifiche di origine create sul controller di dominio di cui è stato eseguito il rollback prima di essere portato offline.
 
 ## <a name="detecting-a-usn-rollback"></a>Rilevamento di un rollback degli USN
 
-Poiché è difficile rilevare un rollback degli USN, un controller di dominio registra l'evento 2095 quando un controller di dominio di origine invia un numero USN riconosciuto in precedenza a un controller di dominio di destinazione senza una corrispondente variazione l'ID di chiamata.
+Poiché è difficile rilevare un rollback degli USN, un controller di dominio registra l'evento 2095 quando un controller di dominio di origine invia un numero USN precedentemente riconosciuto a un controller di dominio di destinazione senza una modifica corrispondente nell'ID chiamata.
 
-Per evitare univoci che hanno origine gli aggiornamenti per Active Directory di creare nel controller di dominio ripristinato in modo non corretto, il servizio Accesso rete è in pausa. Quando il servizio Accesso rete è in pausa, account utente e computer non è possibile modificare la password in un controller di dominio che verrà non in uscita-replica tali modifiche. Analogamente, gli strumenti di amministrazione di Active Directory verranno favorito un controller di dominio integro quando effettuano aggiornamenti agli oggetti in Active Directory.
+Per impedire che gli aggiornamenti di origine univoci Active Directory vengano creati nel controller di dominio ripristinato in modo errato, il servizio Accesso rete viene sospeso. Quando il servizio Accesso rete viene sospeso, gli account utente e computer non possono modificare la password in un controller di dominio che non effettuerà la replica in uscita di tali modifiche. Allo stesso modo, Active Directory strumenti di amministrazione favoriscono un controller di dominio integro quando eseguono aggiornamenti agli oggetti in Active Directory.
 
-In un controller di dominio, i messaggi di evento simili ai seguenti vengono registrati se vengono soddisfatte le condizioni seguenti:
+In un controller di dominio, i messaggi di evento simili a quelli riportati di seguito vengono registrati se si verificano le condizioni seguenti:
 
-* Un controller di dominio di origine invia un numero USN riconosciuto in precedenza a un controller di dominio di destinazione.
-* Sussiste alcuna modifica corrispondente nell'ID chiamata.
+* Un controller di dominio di origine invia un numero USN precedentemente riconosciuto a un controller di dominio di destinazione.
+* Non esiste alcuna modifica corrispondente nell'ID chiamata.
 
-Questi eventi possono essere acquisiti nel registro eventi del servizio Directory. Tuttavia, possono essere sovrascritti prima che vengono lette dall'amministratore.
+Questi eventi possono essere acquisiti nel registro eventi del servizio directory. Tuttavia, possono essere sovrascritti prima che vengano osservati da un amministratore.
 
-Se si sospetta che un rollback degli USN si è verificato ma non viene visualizzato un evento corrispondente nel caso in cui i log, cercare la voce del Registro di sistema DSA non scrivibile. Questa voce fornisce prove che si è verificato un rollback degli USN.
+Se si sospetta che il rollback degli USN includa si è verificato ma non viene visualizzato un evento corrispondente nei registri eventi, controllare la voce DSA non scrivibile nel registro di sistema. Questa voce fornisce l'evidenza forense che si è verificato un rollback degli USN.
 
 ```
 HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\NTDS\Parameters
@@ -76,11 +76,11 @@ Value: 0x4
 ```
 
 > [!WARNING]
-> L'eliminazione o modifica manualmente il valore della voce del Registro di sistema Dsa non scrivibile inserisce il controller di dominio di rollback in uno stato non supportato in modo permanente. Pertanto, tali modifiche non sono supportate. In particolare, la modifica del valore rimuove il comportamento di quarantena aggiunto per il codice di rilevamento del rollback degli USN. Le partizioni di Active Directory nel controller di dominio di rollback sarà incoerente in modo permanente con i partner di replica dirette e transitive nella stessa foresta Active Directory.
+> Eliminando o modificando manualmente il valore della voce del registro di sistema DSA non scrivibile, il controller di dominio di rollback verrà inserito in uno stato non supportato in modo permanente. Pertanto, tali modifiche non sono supportate. In particolare, la modifica del valore comporta la rimozione del comportamento di quarantena aggiunto dal codice di rilevamento del rollback degli USN. Le partizioni Active Directory del controller di dominio di rollback saranno in modo permanente incoerenti con i partner di replica diretti e transitivi nella stessa foresta Active Directory.
 
-Altre informazioni su questa passaggi chiave e la risoluzione del Registro di sistema sono reperibili nell'articolo del supporto tecnico [Active Directory replica errore 8456 o 8457: "L'origine | server di destinazione rifiuta le richieste di replica"](https://support.microsoft.com/help/2023007/active-directory-replication-error-8456-or-8457-the-source-destination).
+Altre informazioni su questa chiave del registro di sistema e la procedura di risoluzione sono disponibili nell'articolo del supporto @no__t-errore di replica della directory 0Active 8456 o 8457: "Origine | il server di destinazione rifiuta le richieste di replica "](https://support.microsoft.com/help/2023007/active-directory-replication-error-8456-or-8457-the-source-destination).
 
-## <a name="virtualization-based-safeguards"></a>Misure di sicurezza basato su virtualizzazione
+## <a name="virtualization-based-safeguards"></a>Misure di sicurezza basate sulla virtualizzazione
 
 Durante l'installazione di controller di dominio Active Directory archivia inizialmente l'identificatore di generazione macchina Virtuale come parte dell'attributo msDS-GenerationID sull'oggetto computer del controller di dominio nel proprio database (noto anche come la directory information tree o DIT). L'ID di generazione macchina virtuale viene registrato in modo indipendente da un driver Windows all'interno della macchina virtuale.
 
@@ -90,44 +90,44 @@ Se i due valori sono diversi, l'ID chiamata viene reimpostato e il pool di RID v
 
 Servizi di dominio Active Directory confronta inoltre il valore corrente dell'ID di generazione macchina virtuale della macchina virtuale con il valore nell'albero delle informazioni di directory ogni volta che viene riavviato il controller di dominio e, se diverso, reimposta l'ID chiamata, ignora il pool di RID e aggiorna l'albero delle informazioni di directory con il nuovo valore. Sincronizza inoltre in modo non autorevole la cartella SYSVOL per completare il ripristino sicuro. In questo modo le misure di sicurezza possono estendersi all'applicazione di snapshot nelle macchine virtuali arrestate. Queste misure di sicurezza introdotti in Windows Server 2012 consentono agli amministratori di dominio Active Directory beneficiare dei vantaggi univoci di distribuzione e gestione di controller di dominio in un ambiente virtualizzato.
 
-La figura seguente mostra come le misure di sicurezza vengono applicate quando lo stesso rollback degli USN viene rilevato in un controller di dominio virtualizzato che esegue Windows Server 2012 in un hypervisor che supporta VM-GenerationID.
+La figura seguente mostra come vengono applicate le misure di sicurezza di virtualizzazione quando viene rilevato lo stesso rollback degli USN in un controller di dominio virtualizzato che esegue Windows Server 2012 su un hypervisor che supporta VM-generazione.
 
-![Misure di sicurezza applicati quando viene rilevato lo stesso rollback degli USN](../media/Introduction-to-Active-Directory-Domain-Services--AD-DS--Virtualization--Level-100-/ADDS_VDC_Exampleofhowsafeguardswork.gif)
+![Misure di sicurezza applicate quando viene rilevato lo stesso rollback degli USN](../media/Introduction-to-Active-Directory-Domain-Services--AD-DS--Virtualization--Level-100-/ADDS_VDC_Exampleofhowsafeguardswork.gif)
 
 In questo caso, quando l'hypervisor rileva una modifica al valore dell'ID di generazione macchina virtuale, vengono attivate misure di sicurezza di virtualizzazione, inclusi la reimpostazione dell'ID chiamata per il controller di dominio virtualizzato (da A a B nell'esempio precedente) e l'aggiornamento del valore dell'ID di generazione macchina virtuale salvato nella macchina virtuale perché corrisponda al nuovo valore (G2) archiviato nell'hypervisor. Le misure di sicurezza fanno sì che la replica converga per entrambi i controller di dominio.
 
-Con Windows Server 2012, Active Directory Domain Services si avvale di misure di sicurezza nei controller di dominio virtuali ospitati in hypervisor compatibile con VM-GenerationID e assicura che l'applicazione accidentale di snapshot o altri sistemi analoghi di abilitati per hypervisor che potrebbero eseguire il rollback virtuale stato della macchina non interferire con l'ambiente Active Directory Domain Services (per evitare problemi di replica, ad esempio una bolla USN o oggetti residui).
+Con Windows Server 2012, servizi di dominio Active Directory utilizza misure di sicurezza nei controller di dominio virtuali ospitati in hypervisor generazione compatibili con VM e garantisce che l'applicazione accidentale di snapshot o altri meccanismi abilitati per hypervisor che potrebbero eseguire il rollback di una macchina virtuale lo stato del computer non interrompe l'ambiente di servizi di dominio Active Directory, impedendo problemi di replica, ad esempio una bolla USN o oggetti residui.
 
-Il ripristino di un controller di dominio applicando uno snapshot macchina virtuale non è consigliato come meccanismo alternativo per il backup di un controller di dominio. È consigliabile continuare a utilizzare Windows Server Backup o altre soluzioni di backup basate sul writer del servizio Copia Shadow.
+Il ripristino di un controller di dominio tramite l'applicazione di uno snapshot della macchina virtuale non è consigliato come meccanismo alternativo per il backup di un controller di dominio. È consigliabile continuare a utilizzare Windows Server Backup o altre soluzioni di backup basate sul writer del servizio Copia Shadow.
 
 > [!CAUTION]
 > Se un controller di dominio in un ambiente di produzione viene accidentalmente ripristinato a uno snapshot, è consigliabile che rivolgersi ai fornitori per le applicazioni e servizi ospitati su tale macchina virtuale, per istruzioni su come verificare lo stato di tali programmi dopo snapshot ripristino.
 
 Per ulteriori informazioni, vedere [architettura di ripristino sicuro di controller di dominio virtualizzati](../ad-ds/get-started/virtual-dc/Virtualized-Domain-Controller-Architecture.md#BKMK_SafeRestoreArch).
 
-## <a name="recovering-from-a-usn-rollback"></a>Il ripristino da un rollback degli USN
+## <a name="recovering-from-a-usn-rollback"></a>Recupero da un rollback degli USN
 
-Esistono due approcci per il ripristino da un rollback degli USN:
+Esistono due approcci per eseguire il ripristino da un rollback degli USN:
 
-* Rimuovere il Controller di dominio dal dominio
+* Rimuovere il controller di dominio dal dominio
 * Ripristinare lo stato del sistema di un backup valido
 
-### <a name="remove-the-domain-controller-from-the-domain"></a>Rimuovere il Controller di dominio dal dominio
+### <a name="remove-the-domain-controller-from-the-domain"></a>Rimuovere il controller di dominio dal dominio
 
-1. Rimuovere Active Directory dal controller di dominio per forzarlo a diventare un server autonomo.
-2. Arrestare il server abbassato di livello.
-3. In un controller di dominio integro pulire i metadati del controller di dominio abbassato di livello.
-4. Se il dominio non correttamente ripristinato controller ospita ruoli master operazioni, trasferire questi ruoli a un controller di dominio integro.
-5. Riavviare il server abbassato di livello.
-6. Se è necessario, installare Active Directory nuovamente nel server autonomo.
-7. Se il controller di dominio era in precedenza un catalogo globale, configurare il controller di dominio da un catalogo globale.
-8. Se il controller di dominio ospitato in precedenza ruoli master operazioni, trasferire tali ruoli di nuovo al controller di dominio.
+1. Rimuovere Active Directory dal controller di dominio per forzarlo a essere un server autonomo.
+2. Arrestare il server abbassato di pagina.
+3. In un controller di dominio integro, pulire i metadati del controller di dominio abbassato.
+4. Se il controller di dominio ripristinato in modo errato ospita i ruoli di master operazioni, trasferire questi ruoli in un controller di dominio integro.
+5. Riavviare il server abbassato di pagina.
+6. Se necessario, installare di nuovo Active Directory nel server autonomo.
+7. Se il controller di dominio era in precedenza un catalogo globale, configurare il controller di dominio come catalogo globale.
+8. Se il controller di dominio ospitava in precedenza ruoli master operazioni, trasferire di nuovo i ruoli di master operazioni al controller di dominio.
 
 ### <a name="restore-the-system-state-of-a-good-backup"></a>Ripristinare lo stato del sistema di un backup valido
 
-Valutare se esistono backup dello stato del sistema valido per questo controller di dominio. Se è stato eseguito un backup dello stato del sistema valido prima che il controller di dominio di rollback è stato ripristinato in modo non corretto e il backup contiene modifiche recenti apportate nel controller di dominio, ripristinare lo stato del sistema dal backup più recente.
+Valutare se esistono backup dello stato del sistema validi per questo controller di dominio. Se è stato eseguito un backup dello stato del sistema valido prima del ripristino errato del controller di dominio di cui è stato eseguito il rollback e il backup contiene modifiche recenti apportate al controller di dominio, ripristinare lo stato del sistema dal backup più recente.
 
-È anche possibile usare lo snapshot come origine di un backup. Oppure è possibile impostare il database per concedere a se stesso un nuovo ID chiamata seguendo la procedura nella sezione [ripristino di un controller di dominio virtuale quando non è disponibile un backup dei dati dello stato del sistema appropriato](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd363553%28v%3dws.10%29#restoring-a-virtual-domain-controller-when-an-appropriate-system-state-data-backup-is-not-available)
+È anche possibile usare lo snapshot come origine di un backup. In alternativa, è possibile impostare il database per assegnare a se stesso un nuovo ID di chiamata usando la procedura descritta nella sezione [ripristino di un controller di dominio virtuale quando non è disponibile un backup dei dati di stato del sistema appropriato](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd363553%28v%3dws.10%29#restoring-a-virtual-domain-controller-when-an-appropriate-system-state-data-backup-is-not-available) .
 
 ## <a name="next-steps"></a>Passaggi successivi
 

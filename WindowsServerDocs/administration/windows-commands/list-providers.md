@@ -1,8 +1,8 @@
 ---
-title: elencare i provider
-description: 'Argomento i comandi di Windows per * * *- '
+title: elenca i provider
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,14 +13,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: f94df982205d639f64dde2cfb014c851bac02b61
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: ed2da9e5c38c13377e694f9e39a63a15b9f144b2
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59840642"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71374737"
 ---
-# <a name="list-providers"></a>elencare i provider
+# <a name="list-providers"></a>elenca i provider
 
 
 
@@ -52,4 +52,4 @@ Output che è simile a verrà visualizzato il seguente:
 
 #### <a name="additional-references"></a>Altri riferimenti
 
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)
+[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

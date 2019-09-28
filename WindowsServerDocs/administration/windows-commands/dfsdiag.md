@@ -1,8 +1,8 @@
 ---
-title: dfsdiag
-description: 'Argomento i comandi di Windows per * * *- '
+title: Dfsdiag
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,14 +13,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: ab5c86ce7ed4760aef4941de55e8dcf8efe48c8f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 61a6ab9a90e4d0220cfe27d2d21120be19b9ff1f
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59819142"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71378315"
 ---
-# <a name="dfsdiag"></a>dfsdiag
+# <a name="dfsdiag"></a>Dfsdiag
 
 
 
@@ -37,13 +37,13 @@ dfsdiag [ /TestDCs [/Domain:<Domain name>]| /TestSites </Machine:<server name>| 
 
 |Parametro|Descrizione|
 |---------|-----------|
-|[Dfsdiag TestDCs](dfsdiag-testdcs.md)|Controlli di configurazione del controller di dominio.|
-|[Dfsdiag TestSites](dfsdiag-testsites.md)|Controlli del sito le associazioni.|
-|[dfsdiag TestDFSConfig](dfsdiag-testdfsconfig.md)|Controlla la configurazione dello spazio dei nomi DFS.|
-|[Dfsdiag TestDFSIntegrity](dfsdiag-testdfsintegrity.md)|Controlla l'integrità dello spazio dei nomi DFS.|
-|[Dfsdiag TestReferral](dfsdiag-testreferral.md)|Controlla le risposte di riferimento.|
+|[TestDCs Dfsdiag](dfsdiag-testdcs.md)|Controlli di configurazione del controller di dominio.|
+|[TestSites Dfsdiag](dfsdiag-testsites.md)|Controlli del sito le associazioni.|
+|[TestDFSConfig Dfsdiag](dfsdiag-testdfsconfig.md)|Controlla la configurazione dello spazio dei nomi DFS.|
+|[TestDFSIntegrity Dfsdiag](dfsdiag-testdfsintegrity.md)|Controlla l'integrità dello spazio dei nomi DFS.|
+|[TestReferral Dfsdiag](dfsdiag-testreferral.md)|Controlla le risposte di riferimento.|
 |/?|Visualizza la guida al prompt dei comandi.|
 
 #### <a name="additional-references"></a>Altri riferimenti
 
--   [Chiave sintassi della riga di comando](command-line-syntax-key.md)
+-   [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

@@ -1,8 +1,8 @@
 ---
 title: irftp
-description: 'Argomento i comandi di Windows per * * *- '
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: d469270b744a9de881efd9b0cfa6f1105f70519a
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: ad8a0b9b49d90223f830081f5a99c40995d9e4ef
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59848422"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71375358"
 ---
 # <a name="irftp"></a>irftp
 
@@ -33,8 +33,8 @@ irftp [<Drive>:\] [[<path>] <FileName>] [/h][/s]
 ### <a name="parameters"></a>Parametri  
 |Parametro|Descrizione|  
 |-------|--------|  
-|Unità:\|specifica l'unità che contiene i file che si desiderano inviare tramite un collegamento a infrarossi.|  
-|[path]FileName|Specifica il percorso e nome del file o set di file che si desiderano inviare tramite un collegamento a infrarossi. Se si specifica un set di file, è necessario specificare il percorso completo per ogni file.|  
+|Unità: \|Specifies l'unità che contiene i file che si desidera inviare tramite un collegamento a infrarossi.|  
+|percorso FileName|Specifica il percorso e nome del file o set di file che si desiderano inviare tramite un collegamento a infrarossi. Se si specifica un set di file, è necessario specificare il percorso completo per ogni file.|  
 |/h|Specifica la modalità nascosta. Quando si utilizza tale modalità, i file vengono inviati senza visualizzare la finestra di dialogo Collegamento senza fili.|  
 |/s|Apre la finestra di dialogo Collegamento senza fili, che è possibile selezionare il file o un set di file che si desiderano inviare senza utilizzare la riga di comando per specificare l'unità, percorso e i nomi di file.|  
 
@@ -49,4 +49,4 @@ irftp c:\example.txt
 ```  
 
 ## <a name="additional-references"></a>Riferimenti aggiuntivi  
--   [Chiave sintassi della riga di comando](command-line-syntax-key.md)  
+-   [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)  

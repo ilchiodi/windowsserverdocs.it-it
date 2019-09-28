@@ -1,8 +1,8 @@
 ---
-title: Il sottocomando start-Namespace
-description: 'Argomento i comandi di Windows per * * *- '
+title: Avvio sottocomando-spazio dei nomi
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,16 +13,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 9a54f849580a139470c2cca43ba57fee60dc81ec
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 55fe4a6136fe4f8e886dc62fff746a1e5ff1898f
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66441152"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71370755"
 ---
 # <a name="subcommand-start-namespace"></a>Sottocomando: start-spazio dei nomi
 
-> Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012 viene avviato uno spazio dei nomi multicast pianificato.
+> Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012 avvia uno spazio dei nomi multicast pianificato.
 > ## <a name="syntax"></a>Sintassi
 > ```
 > wdsutil /start-Namespace /Namespace:<Namespace name> [/Server:<Server name>]
@@ -31,7 +31,7 @@ ms.locfileid: "66441152"
 > 
 > |          Parametro          |                                                                                                                                                                                             Descrizione                                                                                                                                                                                             |
 > |-----------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-> | / Namespace:<Namespace name> | Specifica il nome dello spazio dei nomi. Si noti che questo non è il nome descrittivo e deve essere univoco.<br /><br />-   **Server di distribuzione**: La sintassi per il nome dello spazio dei nomi è /namspace:<Image group>/<Image name>/<Index>. Ad esempio: **WDS:ImageGroup1/install.wim/1**<br />-   **Server di trasporto**: Questo nome deve corrispondere al nome specificato per lo spazio dei nomi quando è stato creato nel server. |
+> | /Namespace: <Namespace name> | Specifica il nome dello spazio dei nomi. Si noti che questo non è il nome descrittivo e deve essere univoco.<br /><br />**server di distribuzione**-   : La sintassi per il nome dello spazio dei nomi è/namspace: WDS: <Image group> @ no__t-1 @ no__t-2 @ no__t-3 @ no__t-4. Esempio: **WDS: ImageGroup1/install. wim/1**<br />**server di trasporto**-   : Questo nome deve corrispondere al nome assegnato allo spazio dei nomi al momento della creazione nel server. |
 > |   [/Server:<Server name>]   |                                                                                                           Specifica il nome del server. Può essere il nome NetBIOS oppure il nome di dominio completo. Se viene specificato alcun nome di server, verrà utilizzato il server locale.                                                                                                           |
 > 
 > ## <a name="BKMK_examples"></a>Esempi

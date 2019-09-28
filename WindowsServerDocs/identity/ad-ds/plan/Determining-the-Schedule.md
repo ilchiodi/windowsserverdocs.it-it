@@ -7,24 +7,24 @@ ms.author: joflore
 manager: mtillman
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: dee63ce0fb687b2b722ce64614c54388fc544433
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 04576a88825205398f1b555d9f5063ac26e2a76e
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59839002"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71408861"
 ---
 # <a name="determining-the-schedule"></a>Definizione della pianificazione
 
 >Si applica a: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-È possibile controllare la disponibilità di collegamento di sito impostando una pianificazione per i collegamenti di sito. Quando la replica tra due siti attraversa più collegamenti di sito, punto di intersezione tra le pianificazioni di replica in tutti i collegamenti rilevanti determina la pianificazione della connessione tra i due siti.  
+È possibile controllare la disponibilità dei collegamenti di sito impostando una pianificazione per i collegamenti di sito. Quando la replica tra due siti attraversa più collegamenti di sito, l'intersezione delle pianificazioni di replica in tutti i collegamenti rilevanti determina la pianificazione della connessione tra i due siti.  
   
-Per pianificare l'impostazione di pianificazione del collegamento di sito, creare due pianificazioni sovrapposte tra i collegamenti di sito che contengono i controller di dominio che vengono replicati direttamente tra loro. Usare la pianificazione predefinita (100% disponibili) su tali collegamenti a meno che non si vuole bloccare il traffico di replica durante le ore di picco. Per il blocco della replica, viene data priorità al resto del traffico, ma è anche aumentare la latenza di replica.  
+Per pianificare l'impostazione della pianificazione dei collegamenti di sito, creare due pianificazioni sovrapposte tra i collegamenti di sito che contengono controller di dominio che vengono replicati direttamente tra loro. Usare la pianificazione predefinita (100-percent) per questi collegamenti, a meno che non si desideri bloccare il traffico di replica durante le ore di picco. Bloccando la replica, si assegna la priorità ad altro traffico, ma si aumenta anche la latenza di replica.  
   
-I controller di dominio archiviano l'ora in Coordinated Universal Time (UTC). Impostazioni di tempo nelle pianificazioni oggetto collegamento di sito sono conformi all'ora locale del sito e computer in cui la pianificazione è impostata. Quando un controller di dominio contatta un computer che si trova in un altro sito e il fuso orario, la pianificazione nel controller di dominio viene visualizzata l'impostazione di ora secondo l'ora locale per il sito del computer.  
+I controller di dominio archiviano l'ora in formato UTC (Coordinated Universal Time). Le impostazioni di ora nelle pianificazioni degli oggetti di collegamento di sito sono conformi all'ora locale del sito e del computer in cui è impostata la pianificazione. Quando un controller di dominio Contatta un computer che si trova in un sito e in un fuso orario diversi, la pianificazione del controller di dominio Visualizza l'impostazione dell'ora in base all'ora locale per il sito del computer.  
   
 
 

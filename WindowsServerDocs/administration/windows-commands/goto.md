@@ -1,8 +1,8 @@
 ---
 title: goto
-description: 'Argomento i comandi di Windows per * * *- '
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: f1ad0190519d58bd879ae391f378d800760c204f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 1caf3da3e8b873150af5be7ed8316cfcb526db83
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59857532"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71375688"
 ---
 # <a name="goto"></a>goto
 
@@ -38,29 +38,29 @@ goto <Label>
 
 |Parametro|Descrizione|
 |---------|-----------|
-|\<Label>|Specifica una stringa di testo che viene utilizzata come etichetta nel programma batch.|
+|\<Label >|Specifica una stringa di testo che viene utilizzata come etichetta nel programma batch.|
 |/?|Visualizza la guida al prompt dei comandi.|
 
 ## <a name="remarks"></a>Note
 
 -   Utilizzo di estensioni di comando
 
-    Se le estensioni comando sono abilitata (impostazione predefinita) e si utilizza il **goto** comando con etichetta di destinazione **: EOF**, di trasferire il controllo alla fine del file di script batch corrente e di chiudere il file di script batch senza definire un'etichetta. Quando si utilizza **goto** con il **: EOF** etichetta, è necessario inserire due punti prima l'etichetta. Ad esempio:  
+    Se sono abilitate le estensioni dei comandi (impostazione predefinita) e si usa il comando **goto** con un'etichetta di destinazione **: EOF**, si trasferisce il controllo alla fine del file di script batch corrente e si chiude il file di script batch senza definire un'etichetta. Quando si utilizza **goto** con il **: EOF** etichetta, è necessario inserire due punti prima l'etichetta. Esempio:  
     ```
     goto:EOF
     ```  
--   Utilizzo valido *etichetta* valori
+-   Utilizzo di valori di *etichetta* validi
 
-    È possibile usare gli spazi nel *etichetta* parametro, ma è possibile includere altri separatori (ad esempio, un punto e virgola o segni di uguale).
--   Corrispondenza *etichetta* con l'etichetta nel programma batch
+    È possibile usare gli spazi nel parametro *Label* , ma non è possibile includere altri separatori, ad esempio punti e virgola o segni di uguale.
+-   *Etichetta* corrispondente con l'etichetta nel programma batch
 
-    Il *etichetta* valore specificato deve corrispondere a un'etichetta nel programma batch. L'etichetta all'interno del programma batch deve iniziare con due punti (:). Se una riga che inizia con due punti, viene considerato come un'etichetta e vengono ignorati tutti i comandi nella riga. Se il programma batch non contiene l'etichetta specificata in *etichetta*, il programma batch si interrompe e viene visualizzato il messaggio seguente:  
+    Il valore dell' *etichetta* specificato deve corrispondere a un'etichetta nel programma batch. L'etichetta all'interno del programma batch deve iniziare con due punti (:). Se una riga che inizia con due punti, viene considerato come un'etichetta e vengono ignorati tutti i comandi nella riga. Se il programma batch non contiene l'etichetta specificata in *etichetta*, il programma batch si interrompe e viene visualizzato il messaggio seguente:  
     ```
     Label not found
     ```  
--   Usando **goto** per operazioni condizionali
+-   Uso di **goto** per le operazioni condizionali
 
-    È possibile usare **goto** con altri comandi per eseguire operazioni condizionali. Per ulteriori informazioni sull'utilizzo **goto** per operazioni condizionali, vedere il [Se](if.md) comando riferimento.
+    È possibile utilizzare **goto** con altri comandi per eseguire operazioni condizionali. Per ulteriori informazioni sull'utilizzo **goto** per operazioni condizionali, vedere il [Se](if.md) comando riferimento.
 
 ## <a name="BKMK_examples"></a>Esempi
 
@@ -76,8 +76,8 @@ echo End of batch program.
 
 #### <a name="additional-references"></a>Altri riferimenti
 
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)
+[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
 
 [Cmd](cmd.md)
 
-[If](if.md)
+[Se](if.md)

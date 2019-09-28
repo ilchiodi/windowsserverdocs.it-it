@@ -1,7 +1,7 @@
 ---
 ms.assetid: a7c39656-81ee-4c2b-80ef-4d017dd11b07
 title: Pianificazione di una distribuzione di Cartelle di lavoro
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: storage-work-folders
 ms.topic: article
 author: JasonGerend
@@ -9,12 +9,12 @@ manager: dongill
 ms.author: jgerend
 ms.date: 4/5/2017
 description: Come pianificare una distribuzione di Cartelle di lavoro, tra cui requisiti di sistema e modalità di preparazione dell'ambiente di rete.
-ms.openlocfilehash: 06d56df7ce9ddb8c9822f62de383ccad0394b4f3
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: e62cd61350299461d725c5d84209230ce1cc41a3
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66447840"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71365738"
 ---
 # <a name="planning-a-work-folders-deployment"></a>Pianificazione di una distribuzione di Cartelle di lavoro
 
@@ -34,7 +34,7 @@ In questo argomento viene illustrato il processo di progettazione per un'impleme
   
   Nelle sezioni seguenti sono disponibili indicazioni su come progettare un'implementazione di Cartelle di lavoro. La distribuzione di Cartelle di lavoro è illustrata nell'argomento seguente, ovvero [Distribuzione di Cartelle di lavoro](deploy-work-folders.md).  
   
-##  <a name="BKMK_SOFT"></a> Requisiti software  
+##  <a name="BKMK_SOFT"></a>Requisiti software  
 
 Per Cartelle di lavoro, è necessario che i file server e l'infrastruttura di rete soddisfino i requisiti software seguenti:  
   
@@ -116,7 +116,7 @@ Per Cartelle di lavoro, è necessario che i computer client soddisfino i requisi
 ### <a name="file-servers"></a>File server  
  I file server che eseguono Windows Server 2012 R2 o Windows Server 2016, ospitano il servizio ruolo Cartelle di lavoro e le condivisioni di sincronizzazione in cui sono archiviati i dati di Cartelle di lavoro degli utenti. I file server possono inoltre ospitare i dati archiviati da altre tecnologie in uso nella rete interna, ad esempio condivisioni di file, e possono essere inseriti in un cluster in modo da fornire la tolleranza di errore per i dati degli utenti.  
   
-###  <a name="GroupPolicy"></a> Criteri di gruppo  
+###  <a name="GroupPolicy"></a>Criteri di gruppo  
  Se nell'ambiente sono disponibili computer con Windows 7, è consigliabile attenersi alle indicazioni seguenti:  
   
 - Usare Criteri di gruppo per controllare i criteri per le password per tutti i computer appartenenti al dominio che usano Cartelle di lavoro.  
@@ -128,7 +128,7 @@ Per Cartelle di lavoro, è necessario che i computer client soddisfino i requisi
   È inoltre possibile utilizzare Criteri di gruppo per forzare la configurazione di Cartelle di lavoro per utente o per computer, anche se questa operazione causa la sincronizzazione di Cartelle di lavoro in ogni computer a cui un utente accede (se si utilizza l'impostazione del criterio per utente) e impedisce agli utenti di specificare una posizione alternativa per Cartelle di lavoro nel proprio computer (ad esempio in una scheda microSD per risparmiare spazio di archiviazione nell'unità principale). Prima di forzare la configurazione automatica, è pertanto consigliabile valutare attentamente le proprie esigenze.  
   
 ### <a name="windows-intune"></a>Windows Intune  
- Windows Intune fornisce un livello di sicurezza e gestibilità non altrimenti disponibile per i dispositivi che non fanno parte del dominio. È possibile utilizzare Windows Intune per configurare e gestire i dispositivi personali degli utenti, ad esempio i tablet che si connettono a Cartelle di lavoro tramite Internet. Windows Intune può fornire ai dispositivi con l'URL del server di sincronizzazione da utilizzare – in caso contrario, gli utenti devono immettere l'indirizzo di posta elettronica di lavoro per controllare le impostazioni (se si pubblica un URL di cartelle di lavoro pubblico nel formato https://workfolders. <em>Contoso.com</em>), oppure immettere direttamente l'URL del server di sincronizzazione.  
+ Windows Intune fornisce un livello di sicurezza e gestibilità non altrimenti disponibile per i dispositivi che non fanno parte del dominio. È possibile utilizzare Windows Intune per configurare e gestire i dispositivi personali degli utenti, ad esempio i tablet che si connettono a Cartelle di lavoro tramite Internet. Windows Intune può fornire i dispositivi con l'URL del server di sincronizzazione da usare. in caso contrario, gli utenti devono immettere l'indirizzo di posta elettronica dell'ufficio per cercare le impostazioni (se si pubblica un URL di cartelle di lavoro pubbliche nel formato https://workfolders. <em>contoso.com</em>) oppure immettere direttamente l'URL del server di sincronizzazione.  
   
  Se non si distribuisce Windows Intune, gli utenti devono configurare manualmente i dispositivi esterni, operazione che può causare l'aumento delle richieste di assistenza al personale dell'help desk.  
   
@@ -158,7 +158,7 @@ Cartelle di lavoro supporta l'utilizzo di Proxy applicazione Web, Proxy applicaz
   Per informazioni sulla scalabilità e le prestazioni del server di Cartelle di lavoro, vedere le [considerazioni sulle prestazioni delle distribuzioni di Cartelle di lavoro](http://blogs.technet.com/b/filecab/archive/2013/11/01/performance-considerations-for-large-scale-work-folders-deployments.aspx).  
   
 > [!NOTE]
->  Quando si utilizzano più server di sincronizzazione, è consigliabile configurare l'individuazione automatica del server per gli utenti. Questo processo si basa sulla configurazione di un attributo in ogni account utente di AD DS. L'attributo è denominato **msDS-SyncServerURL** ed è disponibile negli account utente dopo l'aggiunta al dominio di un controller di dominio di Windows Server 2012 R2 oppure dopo l'applicazione degli aggiornamenti dello schema di Active Directory. Questo attributo deve essere impostato per ogni utente per fare in modo che gli utenti si connettano al server di sincronizzazione appropriato. Utilizzando l'individuazione automatica del server, le organizzazioni possono pubblicare cartelle di lavoro protetto da un URL "breve", ad esempio *https://workfolders.contoso.com* , indipendentemente dal numero di server di sincronizzazione nell'operazione.  
+>  Quando si utilizzano più server di sincronizzazione, è consigliabile configurare l'individuazione automatica del server per gli utenti. Questo processo si basa sulla configurazione di un attributo in ogni account utente di AD DS. L'attributo è denominato **msDS-SyncServerURL** ed è disponibile negli account utente dopo l'aggiunta al dominio di un controller di dominio di Windows Server 2012 R2 oppure dopo l'applicazione degli aggiornamenti dello schema di Active Directory. Questo attributo deve essere impostato per ogni utente per fare in modo che gli utenti si connettano al server di sincronizzazione appropriato. L'individuazione automatica dei server consente alle organizzazioni di pubblicare cartelle di lavoro con un URL "descrittivo", ad esempio *https://workfolders.contoso.com* , indipendentemente dal numero di server di sincronizzazione in uso.  
   
 ### <a name="number-of-sync-shares"></a>Numero di condivisioni di sincronizzazione  
  Un server di sincronizzazione può gestire più condivisioni di sincronizzazione. Questa configurazione può risultare utile per diversi motivi:  
@@ -255,5 +255,5 @@ L'insieme di domande elencate di seguito possono essere utilizzate dai clienti p
   
 |Tipo di contenuto|Riferimenti|  
 |------------------|----------------|  
-|**Valutazione del prodotto**|-   [Cartelle di lavoro](work-folders-overview.md)<br />-   [Cartelle di lavoro per Windows 7](http://blogs.technet.com/b/filecab/archive/2014/04/24/work-folders-for-windows-7.aspx) (post di blog)|  
-|**Distribuzione**|-   [Progettazione di un'implementazione di cartelle di lavoro](plan-work-folders.md)<br />-   [Distribuzione di cartelle di lavoro](deploy-work-folders.md)<br />-   [Distribuzione di cartelle di lavoro con AD FS e Proxy applicazione Web (WAP)](deploy-work-folders-adfs-overview.md)<br />- [Distribuzione di cartelle di lavoro con Azure AD Application Proxy](https://blogs.technet.microsoft.com/filecab/2017/05/31/enable-remote-access-to-work-folders-using-azure-active-directory-application-proxy/)<br />-   [Considerazioni sulle prestazioni per le distribuzioni di cartelle di lavoro](https://blogs.technet.com/b/filecab/archive/2013/11/01/performance-considerations-for-large-scale-work-folders-deployments.aspx)<br />-   [Cartelle di lavoro per Windows 7 (download a 64 bit)](https://www.microsoft.com/download/details.aspx?id=42558)<br />-   [Cartelle di lavoro per Windows 7 (download a 32 bit)](https://www.microsoft.com/download/details.aspx?id=42559)<br />-   [Distribuzione di Lab di Test di cartelle di lavoro](http://blogs.technet.com/b/filecab/archive/2013/07/10/work-folders-test-lab-deployment.aspx) (post di blog)|
+|**Valutazione del prodotto**|-   [Cartelle di lavoro](work-folders-overview.md)<br />[cartelle di lavoro -    per Windows 7](http://blogs.technet.com/b/filecab/archive/2014/04/24/work-folders-for-windows-7.aspx) (post di Blog)|  
+|**Distribuzione**|-   [Progettazione di un'implementazione di cartelle di lavoro](plan-work-folders.md)<br />-   [distribuzione di cartelle di lavoro](deploy-work-folders.md)<br />-   [Distribuzione di cartelle di lavoro con AD FS e proxy applicazione Web (WAP)](deploy-work-folders-adfs-overview.md)<br />- [distribuzione di cartelle di lavoro con Azure ad proxy di applicazione](https://blogs.technet.microsoft.com/filecab/2017/05/31/enable-remote-access-to-work-folders-using-azure-active-directory-application-proxy/)<br />[considerazioni sulle prestazioni @no__t 0 per le distribuzioni di cartelle di lavoro](https://blogs.technet.com/b/filecab/archive/2013/11/01/performance-considerations-for-large-scale-work-folders-deployments.aspx)<br />[cartelle di lavoro -    per Windows 7 (download di 64 bit)](https://www.microsoft.com/download/details.aspx?id=42558)<br />[cartelle di lavoro -    per Windows 7 (download di 32 bit)](https://www.microsoft.com/download/details.aspx?id=42559)<br />-   [Distribuzione Lab di test di cartelle di lavoro](http://blogs.technet.com/b/filecab/archive/2013/07/10/work-folders-test-lab-deployment.aspx) (post di Blog)|

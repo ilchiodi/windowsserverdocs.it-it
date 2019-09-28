@@ -2,7 +2,7 @@
 title: Utilizzare dispositivi video
 description: Informazioni su come funzionano i monitor e i proiettori video con le stazioni in MultiPoint Services
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: multipoint-services
 ms.reviewer: na
 ms.suite: na
@@ -13,12 +13,12 @@ author: lizap
 manager: dongill
 ms.author: elizapo
 ms.date: 08/04/2016
-ms.openlocfilehash: 4439d72165d70623d854d0221137c1fe282c922b
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: b7019000c99295204f196ee918129cded02e084f
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70871483"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71389254"
 ---
 # <a name="work-with-video-devices"></a>Utilizzare dispositivi video
 Questo argomento descrive il funzionamento di dispositivi video, ad esempio monitor o proiettori, collegati a un computer nel sistema MultiPoint Services o a una *stazione* MultiPoint Services.  

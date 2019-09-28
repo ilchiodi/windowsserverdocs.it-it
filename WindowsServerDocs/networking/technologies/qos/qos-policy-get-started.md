@@ -1,29 +1,29 @@
 ---
-title: Introduzione a criteri QoS
-description: In questo argomento vengono forniti collegamenti ad argomenti introduttivi per criteri di qualità del servizio (QoS), che consentono di usare criteri di gruppo per definire le priorità della larghezza di banda di rete del traffico di specifiche applicazioni e servizi in Windows Server 2016.
-ms.prod: windows-server-threshold
+title: Introduzione con criteri QoS
+description: Questo argomento fornisce collegamenti ad argomenti di panoramica per i criteri di qualità del servizio (QoS), che consentono di usare Criteri di gruppo per assegnare priorità alla larghezza di banda del traffico di rete di applicazioni e servizi specifici in Windows Server 2016.
+ms.prod: windows-server
 ms.technology: networking
 ms.topic: article
 ms.assetid: a37398a4-fe46-464f-8a33-829ef3c6db55
 manager: brianlic
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 28419bcf29276c0f919231a602faa0711478e224
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 16b88f108eb22e2f1b9a8f77c4d64415757a73cf
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59889412"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71405282"
 ---
-# <a name="getting-started-with-qos-policy"></a>Introduzione a criteri QoS
+# <a name="getting-started-with-qos-policy"></a>Introduzione con criteri QoS
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016
 
-È possibile usare gli argomenti seguenti per iniziare a usare QoS \(QoS\) criteri.
+È possibile usare gli argomenti seguenti per iniziare a usare la qualità del servizio \(QoS @ no__t-1 criterio.
 
 - [Funzionamento dei criteri QoS](qos-policy-works.md)
 - [Architettura dei criteri QoS](qos-policy-architecture.md)
-- [Scenari relativi ai criteri di QoS](qos-policy-scenarios.md)
+- [Scenari di criteri QoS](qos-policy-scenarios.md)
 
 
-Per il primo argomento in questa Guida, vedere [dei criteri di qualità del servizio (QoS)](qos-policy-top.md).
+Per il primo argomento di questa guida, vedere [criteri di qualità del servizio (QoS)](qos-policy-top.md).

@@ -1,9 +1,9 @@
 ---
 title: PASSAGGIO 1 completare la configurazione di DirectAccess
-description: 'Questo argomento fa parte della Guida al Lab di Test: dimostrare DirectAccess con autenticazione OTP e SecurID RSA per Windows Server 2016'
+description: 'Questo argomento fa parte della Guida al Lab di test: dimostrazione di DirectAccess con autenticazione OTP e RSA SecurID per Windows Server 2016'
 manager: brianlic
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-da
@@ -12,18 +12,18 @@ ms.topic: article
 ms.assetid: a815bc0d-4b4f-432e-85f0-23b2cc67d827
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: b3b8806186b5084d628e6239f1bd40ab53c4ca75
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: 61d5dcc42dea79b67a6cceb5ad1574f02f1d9a1d
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67281339"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71367569"
 ---
 # <a name="step-1-complete-the-directaccess-configuration"></a>PASSAGGIO 1 completare la configurazione di DirectAccess
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016
 
-Il primo passaggio consiste nel completare il [Guida al Lab di Test: Dimostrazione della Server singolo di DirectAccess con ambiente misto IPv4 e IPv6](https://go.microsoft.com/fwlink/p/?LinkId=237004). Se si hanno già completato i passaggi in tale Guida al lab di test e salvare un'immagine di disco o snapshot del lab di test, è possibile ripristinare l'immagine o snapshot e iniziano con il passaggio successivo.  
+Il primo passaggio consiste nel completare la guida al Lab [Test: Dimostrazione della configurazione del singolo server DirectAccess con IPv4 misto e IPv6 @ no__t-0. Se sono già stati completati i passaggi della Guida al Lab di test e si è salvata un'immagine snapshot o disco del Lab di test, è possibile ripristinare lo snapshot o l'immagine e iniziare con il passaggio successivo.  
   
 
 

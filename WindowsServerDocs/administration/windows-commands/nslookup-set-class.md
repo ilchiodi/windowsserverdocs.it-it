@@ -1,8 +1,8 @@
 ---
 title: nslookup set class
-description: 'Argomento i comandi di Windows per * * *- '
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 7953f450c17afdee849515f8d8945631a30f4b98
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 312b409490603fcb0ded63a78f3a2936f5216de1
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66436846"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71372984"
 ---
 # <a name="nslookup-set-class"></a>nslookup set class
 
@@ -36,8 +36,8 @@ set class=<Class>
 
 | Parametro |                                                                                                                                    Descrizione                                                                                                                                    |
 |-----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| \<Classe >  | La classe predefinita è in. Di seguito sono elencati i valori validi per questo comando.</br>- IN: Specifica la classe di Internet.</br>- CHAOS: Specifica la classe di Chaos.</br>- HESIOD: Specifica la classe Athena Hesiod MIT.</br>-ANY: Specifica uno qualsiasi dei caratteri jolly elencate in precedenza. |
-|   Guida {   |                                                                                                                                        ?}                                                                                                                                         |
+| \<> Della classe  | La classe predefinita è IN. Di seguito sono elencati i valori validi per questo comando.</br>IN Specifica la classe Internet.</br>CAOS Specifica la classe Chaos.</br>ESIODO Specifica la classe MIT Athena Esiodo.</br>QUALSIASI Specifica uno dei caratteri jolly elencati in precedenza. |
+|   {Guida   |                                                                                                                                        ?}                                                                                                                                         |
 
 #### <a name="additional-references"></a>Altri riferimenti
 

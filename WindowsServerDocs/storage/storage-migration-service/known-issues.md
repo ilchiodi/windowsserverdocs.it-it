@@ -6,14 +6,14 @@ ms.author: nedpyle
 manager: siroy
 ms.date: 07/09/2019
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: storage
-ms.openlocfilehash: d8437e0e33a370ab698d25f25b43fbbcbae97792
-ms.sourcegitcommit: 45415ba58907d650cfda45f4c57f6ddf1255dcbf
+ms.openlocfilehash: 391430b75670f207520a7d972b54ba293616d0e1
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71206917"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71393913"
 ---
 # <a name="storage-migration-service-known-issues"></a>Problemi noti del servizio migrazione archiviazione
 
@@ -133,7 +133,7 @@ Durante l'inventario o il trasferimento di file dai computer di origine a quello
   Nome registro:      Origine Microsoft-Windows-StorageMigrationService-proxy/debug:        Microsoft-Windows-StorageMigrationService-data proxy:          ID evento 2/26/2019 9:00:04 AM:      10000 Categoria attività: Nessun livello:         Parole chiave Error:      
   Utente:          Computer servizio di rete: srv1.contoso.com Descrizione:
 
-  02/26/2019-09:00:04.860 [Error] errore di trasferimento \\per srv1. contoso. com\public\indy.png: (5) accesso negato.
+  02/26/2019-09:00:04.860 [Error] errore di trasferimento per \\srv1. contoso. com\public\indy.png: (5) accesso negato.
 Analisi dello stack: in Microsoft. StorageMigration. proxy. Service. Transfer. FileDirUtils. OpenFile (String fileName, DesiredAccess desiredAccess, ShareMode SHAREMODE, CreationDisposition CreationDisposition, FlagsAndAttributes flagsAndAttributes) at Microsoft. StorageMigration. proxy. Service. Transfer. FileDirUtils. GetTargetFile (percorso stringa) in Microsoft. StorageMigration. proxy. Service. Transfer. FileDirUtils. GetTargetFile (file FileInfo) in Microsoft. StorageMigration. proxy. Service. Transfer. filetransfer. InitializeSourceFileInfo () in Microsoft. StorageMigration. proxy. Service. Transfer. filetransfer. Transfer () at Microsoft. StorageMigration. proxy. Service. Transfer. filetransfer. TryTransfer () [d:\os\src\base\dms\proxy\transfer\transferproxy\FileTransfer.cs:: TryTransfer:: 55]
 
 

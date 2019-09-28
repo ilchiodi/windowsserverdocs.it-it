@@ -1,8 +1,8 @@
 ---
 title: Gestire le attività di sistema tramite Gestione MultiPoint
-description: Panoramica delle attività di gestione nella console di gestione MultiPoint
+description: Panoramica delle attività di gestione in Gestione MultiPoint
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: multipoint-services
 ms.reviewer: na
 ms.suite: na
@@ -13,15 +13,15 @@ author: lizap
 manager: dongill
 ms.author: elizapo
 ms.date: 08/04/2016
-ms.openlocfilehash: 52400b5ed74e4dcc9350e74ac8bc31182fdbbccc
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 185f4c88286138af61f92f3f349efd8f584ed73c
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59845112"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71405056"
 ---
 # <a name="manage-system-tasks-using-multipoint-manager"></a>Gestire le attività di sistema tramite Gestione MultiPoint
-Selezionare Gestione MultiPoint, è possibile usare la **Home** scheda per eseguire attività di MultiPoint Services e controllare lo stato del sistema. Le attività che è possibile eseguire nella scheda **Home** sono le seguenti:  
+In Gestione MultiPoint è possibile usare la scheda **Home** per eseguire attività di MultiPoint Services e controllare lo stato del sistema. Le attività che è possibile eseguire nella scheda **Home** sono le seguenti:  
   
 -   Modifica delle impostazioni selezionate al momento dell'installazione di MultiPoint Services, come descritto nell'argomento [Modificare le impostazioni del server](Edit-Server-Settings.md).  
   
@@ -36,9 +36,9 @@ Selezionare Gestione MultiPoint, è possibile usare la **Home** scheda per esegu
 -   Aggiunta o rimozione di computer, come descritto nell'argomento [Aggiungere o rimuovere computer](Add-or-Remove-Computers.md).  
 
 ## <a name="see-also"></a>Vedere anche  
-[Modificare le impostazioni del Server](Edit-Server-Settings.md)  
-[Riavviare o arrestare](Restart-or-Shut-Down.md)  
-[Passare da una modalità](Switch-Between-Modes.md)  
-[Abilitare o disabilitare la protezione disco](Enable-or-Disable-Disk-Protection.md)  
+[Modificare le impostazioni del server](Edit-Server-Settings.md)  
+[Eseguire il riavvio o l'arresto](Restart-or-Shut-Down.md)  
+[Passare da una modalità all'altra](Switch-Between-Modes.md)  
+[Abilitare o disabilitare Protezione disco](Enable-or-Disable-Disk-Protection.md)  
 [Modificare il mapping di tutte le stazioni](Remap-All-Stations.md)  
-[Aggiungere o rimuovere computer](Add-or-Remove-Computers.md)
+[Aggiunta o rimozione di computer](Add-or-Remove-Computers.md)

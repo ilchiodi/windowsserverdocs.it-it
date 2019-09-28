@@ -1,8 +1,8 @@
 ---
 title: set_2
-description: 'Argomento i comandi di Windows per * * *- '
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 3f5523646fddbfec31cb3900fc09230efc1c7813
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e91bee5f0d351e461d16ccd22478d67f26887728
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59862612"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71370908"
 ---
-# <a name="set2"></a>set_2
+# <a name="set_2"></a>set_2
 
 
 
-Imposta il contesto, opzioni, la modalità dettagliata e file di metadati per la creazione di copie shadow. Se utilizzata senza parametri, **impostare** Elenca tutte le impostazioni correnti.
+Imposta il contesto, le opzioni, la modalità dettagliata e il file di metadati per la creazione della copia shadow. Se utilizzata senza parametri, **impostare** elenca tutte le impostazioni correnti.
 
 ## <a name="syntax"></a>Sintassi
 
@@ -36,16 +36,16 @@ set verbose {on|off}
 set metadata <MetaData.cab>
 ```
 
-## <a name="set-sub-commands"></a>Set di comandi secondari
+## <a name="set-sub-commands"></a>Imposta sottocomandi
 
 |Sottocomando|Descrizione|
 |-----------|-----------|
-|context|Imposta il contesto per la creazione di copie shadow. Visualizzare [impostare il contesto](set-context.md) per la sintassi e parametri.|
-|Opzione|Imposta le opzioni per la creazione di copie shadow. Visualizzare [impostare l'opzione](set-option.md) per la sintassi e parametri.|
-|verbose|Attiva o disattiva la modalità di output dettagliato. Visualizzare [impostare dettagliato](set-verbose.md) per la sintassi e parametri.|
-|metadati|Imposta il nome e percorso del file di metadati creazione shadow. Visualizzare [impostare i metadati](set-metadata.md) per la sintassi e parametri.|
+|Contesto|Imposta il contesto per la creazione di copie shadow. Vedere [impostare il contesto](set-context.md) per la sintassi e i parametri.|
+|Opzione|Imposta le opzioni per la creazione della copia shadow. Per la sintassi e i parametri, vedere [set Option](set-option.md) .|
+|verbose|Attiva o disattiva la modalità di output dettagliata. Vedere [set verbose](set-verbose.md) per la sintassi e i parametri.|
+|metadati|Imposta il nome e il percorso del file di metadati per la creazione di Shadow. Vedere [impostare i metadati](set-metadata.md) per la sintassi e i parametri.|
 |/?|Visualizza la guida al prompt dei comandi.|
 
 #### <a name="additional-references"></a>Altri riferimenti
 
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)
+[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

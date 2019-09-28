@@ -2,7 +2,7 @@
 title: Gestire desktop utente tramite Dashboard MultiPoint
 description: Viene fornita una panoramica del Dashboard MultiPoint
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: multipoint-services
 ms.reviewer: na
 ms.suite: na
@@ -13,17 +13,17 @@ author: lizap
 manager: dongill
 ms.author: elizapo
 ms.date: 08/04/2016
-ms.openlocfilehash: 049910029f0ed2623ae34131d3755964d3499d0e
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: b250d820e7086054d18d62eebe8ce9d3686f8d5d
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59837342"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71405092"
 ---
 # <a name="manage-user-desktops-using-multipoint-dashboard"></a>Gestire desktop utente tramite Dashboard MultiPoint
-In un sistema MultiPoint Services un desktop è costituito dall'interfaccia utente del software visualizzata sul monitor per ogni *stazione* utente. Dashboard MultiPoint è uno strumento che consente di gestire i desktop.   
+In un sistema MultiPoint Services un desktop è costituito dall'interfaccia utente del software visualizzata sul monitor per ogni *stazione* utente. Il Dashboard MultiPoint è uno strumento che consente di gestire i desktop.   
   
-Nel Dashboard MultiPoint, nelle **Home** scheda, è possibile eseguire le operazioni seguenti:  
+Nel Dashboard MultiPoint, nella scheda **Home** , è possibile eseguire le operazioni seguenti:  
   
 - Visualizzare i desktop  
 È possibile visualizzare le immagini di anteprima per ogni desktop attivo. Per informazioni sulla visualizzazione delle anteprime, vedere l'argomento [View Options for Session Thumbnail](View-Options-for-Session-Thumbnails-in-MultiPoint-Dashboard.md) (Opzioni di visualizzazione per anteprime di sessione).  
@@ -40,7 +40,7 @@ Nel Dashboard MultiPoint, nelle **Home** scheda, è possibile eseguire le operaz
 - Uso della messaggistica istantanea  
 È possibile chattare con utenti selezionati. Il messaggio di chat può essere visualizzato solo dall'utente visibile all'utente di Dashboard e dall'utente della sessione selezionata. Per altre informazioni, vedere [Use IM](Use-IM.md) (Usare la messaggistica istantanea).  
 - Modificare le dimensioni di immagini di anteprima  
-È possibile modificare le dimensioni delle anteprime visualizzate in Dashboard MultiPoint. Per informazioni sulla modifica delle dimensioni delle anteprime, vedere [View Options for Session Thumbnails](View-Options-for-Session-Thumbnails-in-MultiPoint-Dashboard.md) (Opzioni di visualizzazione per anteprime di sessione).
+È possibile modificare le dimensioni delle anteprime visualizzate nel Dashboard MultiPoint. Per informazioni sulla modifica delle dimensioni delle anteprime, vedere [View Options for Session Thumbnails](View-Options-for-Session-Thumbnails-in-MultiPoint-Dashboard.md) (Opzioni di visualizzazione per anteprime di sessione).
 - Visualizzare tutte le stazioni  
 È possibile visualizzare tutte le stazioni connesse al sistema, incluse quelle non attive. Per informazioni sulla visualizzazione di tutte le stazioni, vedere l'argomento [Visualizzare tutte le stazioni](Show-All-Stations.md).  
 - Cercare e ordinare le anteprime  

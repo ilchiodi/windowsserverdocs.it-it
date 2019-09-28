@@ -1,7 +1,7 @@
 ---
-title: Coda macchine Virtuali devono essere abilitata nelle schede di rete fisica con supporto per coda macchine Virtuali associate a un commutatore virtuale esterno
+title: VMQ deve essere abilitato in schede di rete fisiche con supporto per VMQ associato a un Commuter virtuale esterno
 description: Versione online del testo per questa regola di Best Practices Analyzer.
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
@@ -10,14 +10,14 @@ ms.topic: article
 ms.assetid: 93d1b155-bf44-46b0-bb69-d34d5b30e574
 author: KBDAzure
 ms.date: 8/16/2016
-ms.openlocfilehash: 9a552c15675e6ca7a7310c8c9eaec883653987be
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e8607ee891ef693d4e4e7a868540237855aebd2e
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59889472"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71393294"
 ---
-# <a name="vmq-should-be-enabled-on-vmq-capable-physical-network-adapters-bound-to-an-external-virtual-switch"></a>Coda macchine Virtuali devono essere abilitata nelle schede di rete fisica con supporto per coda macchine Virtuali associate a un commutatore virtuale esterno
+# <a name="vmq-should-be-enabled-on-vmq-capable-physical-network-adapters-bound-to-an-external-virtual-switch"></a>VMQ deve essere abilitato in schede di rete fisiche con supporto per VMQ associato a un Commuter virtuale esterno
 
 >Si applica a: Windows Server 2016
 
@@ -26,22 +26,22 @@ Per altre informazioni sulle procedure consigliate e sulle analisi, vedere [Eseg
 |Proprietà|Dettagli|  
 |-|-|  
 |**Sistema operativo**|Windows Server 2016|  
-|**/ Funzionalità del prodotto**|Hyper-V|  
-|**Severity**|Avviso|  
+|**Prodotto/funzionalità**|Hyper-V|  
+|**Gravità**|Avviso|  
 |**Categoria**|Configurazione|  
   
 Nelle sezioni seguenti, corsivo indica il testo dell'interfaccia Utente visualizzata nello strumento Analizzatore procedure consigliate per questo problema.  
   
 ## <a name="issue"></a>**Problema**  
-*Le schede di rete seguenti sono in grado di coda macchine virtuali (VMQ) ma la funzionalità è disabilitata.*  
+*Le seguenti schede di rete sono in grado di supportare la coda delle macchine virtuali (VMQ), ma la funzionalità è disabilitata.*  
   
-## <a name="impact"></a>**Impact**  
-*Windows è in grado di sfruttare appieno gli offload hardware disponibili nelle schede di rete seguenti:*  
+## <a name="impact"></a>**Impatto**  
+*Windows non è in grado di sfruttare tutti i vantaggi degli offload hardware disponibili sulle schede di rete seguenti:*  
   
-\<elenco di schede di rete >  
+@no__t 0list di schede di rete >  
   
 ## <a name="resolution"></a>**Soluzione**  
-*Abilita coda macchine Virtuali usando il cmdlet Enable-NetAdapterVmq Windows PowerShell o tramite l'interfaccia utente delle proprietà avanzate per la scheda di rete.*  
+*Abilitare VMQ con il cmdlet Enable-NetAdapterVmq di Windows PowerShell o usando l'interfaccia utente delle proprietà avanzate per la scheda di rete.*  
   
 
 

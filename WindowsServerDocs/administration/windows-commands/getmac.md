@@ -1,8 +1,8 @@
 ---
 title: getmac
-description: 'Argomento i comandi di Windows per * * *- '
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: b1266b7368f1b073e00735a8d3362c75305d7c0f
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: c770f5da5159e0037af479f90fadb4cd83464c77
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66438275"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71375812"
 ---
 # <a name="getmac"></a>getmac
 
@@ -33,16 +33,16 @@ getmac[.exe][/s <computer> [/u <Domain\<User> [/p <Password>]]][/fo {TABLE | lis
 
 |             Parametro              |                                                                                          Descrizione                                                                                          |
 |------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|           /s <computer>            |                                      Specifica il nome o indirizzo IP di un computer remoto (non utilizzare le barre rovesciate). Il valore predefinito è il computer locale.                                       |
+|           /s <computer>            |                                      Specifica il nome o l'indirizzo IP di un computer remoto (non utilizzare barre rovesciate). Il valore predefinito è il computer locale.                                       |
 |        /u <Domain>\\<User>         | Esegue il comando con le autorizzazioni dell'account dell'utente specificato dall'utente o dominio\utente. Il valore predefinito è le autorizzazioni dell'oggetto utente nel computer eseguendo il comando connesso. |
 |           /p <Password>            |                                                     Specifica la password dell'account utente specificato nella **/u** parametro.                                                     |
-| /FO {tabella &#124; elenco&#124; CSV} |                       Specifica il formato da utilizzare per l'output della query. I valori validi sono **tabella**, **elenco**, e **CSV**. Il formato predefinito per l'output è **TABELLA**.                        |
+| /FO {elenco &#124; &#124; tabella CSV} |                       Specifica il formato da utilizzare per l'output della query. I valori validi sono **Table**, **List**e **CSV**. Il formato predefinito per l'output è **TABELLA**.                        |
 |                /NH                 |                                             Omette le intestazioni di colonna nell'output. Valido quando il **/fo** parametro è impostato su **TABELLA** o **CSV**.                                              |
 |                 /v                 |                                                                    Specifica la visualizzazione di informazioni dettagliate.                                                                     |
 |                 /?                 |                                                                                                                                                                                               |
 
 ## <a name="remarks"></a>Note
-**GETMAC** può essere utile quando si desidera immettere l'indirizzo MAC in un analizzatore di rete o quando è necessario sapere quali protocolli sono attualmente in uso in ogni scheda di rete in un computer.
+**getmac** può essere utile quando si vuole immettere l'indirizzo Mac in un analizzatore di rete o quando è necessario conoscere i protocolli attualmente in uso in ogni scheda di rete in un computer.
 ## <a name="BKMK_Examples"></a>Esempi
 Gli esempi seguenti illustrano come utilizzare il **getmac** comando:
 ```

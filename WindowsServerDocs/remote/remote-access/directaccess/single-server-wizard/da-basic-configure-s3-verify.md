@@ -1,9 +1,9 @@
 ---
 title: Passaggio 3 verificare le distribuzioni
-description: Questo argomento fa parte della Guida di distribuire un Server DirectAccess singolo con l'introduzione avvio procedura guidata per Windows Server 2016
+description: Questo argomento fa parte della Guida distribuire un server DirectAccess singolo usando la procedura guidata di Introduzione per Windows Server 2016
 manager: brianlic
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-da
@@ -12,16 +12,16 @@ ms.topic: article
 ms.assetid: 45e9edd6-acca-4d59-851a-a0cc8bd8b4c6
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: e9e78ed78671c5c61fb3736cccf4e095b5186e23
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: 29457f6f1859a8f3aee2f9d0f84e226b20905175
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67281655"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71388535"
 ---
 # <a name="step-3-verify-deployments"></a>Passaggio 3 verificare le distribuzioni
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016
 
 Questo argomento descrive come verificare di avere configurato correttamente la distribuzione di DirectAccess di base.  
   
@@ -39,7 +39,7 @@ Questo argomento descrive come verificare di avere configurato correttamente la 
   
 ## <a name="BKMK_Links"></a>Passaggio precedente  
   
--   [Passaggio 2: Configurare il Server DirectAccess](da-basic-configure-s2-server.md)  
+-   [Passaggio 2: Configurare il server DirectAccess @ no__t-0  
   
 
 

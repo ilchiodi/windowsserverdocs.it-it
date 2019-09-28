@@ -1,8 +1,8 @@
 ---
 title: bitsadmin getfilestransferred
-description: Argomento i comandi di Windows per **bitsadmin getfilestransferred** -recupera il numero di file trasferito per il processo specificato.
+description: 'Windows Commands Topic for **BITSAdmin getfilestransferred** : Recupera il numero di file trasferiti per il processo specificato.'
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 5df7f2abfdad6780878b1f00da44c772eecf9fba
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d02d9d7bc216a5ad7ca922e716c368f64c4b9a44
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59822262"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71381596"
 ---
 # <a name="bitsadmin-getfilestransferred"></a>bitsadmin getfilestransferred
 
@@ -40,11 +40,11 @@ bitsadmin /GetFilesTransferred <Job>
 
 ## <a name="BKMK_examples"></a>Esempi
 
-Nell'esempio seguente recupera il numero di file trasferiti nel processo denominato *myDownloadJob*.
+Nell'esempio seguente viene recuperato il numero di file trasferiti nel processo denominato *myDownloadJob*.
 ```
 C:\>bitsadmin /GetFilesTransferred myDownloadJob
 ```
 
 #### <a name="additional-references"></a>Altri riferimenti
 
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)
+[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

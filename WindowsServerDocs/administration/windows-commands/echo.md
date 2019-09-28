@@ -1,8 +1,8 @@
 ---
 title: echo
-description: 'Argomento i comandi di Windows per * * *- '
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: bfe6c936ee5606e286aab076bea08db04b8b6500
-ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
+ms.openlocfilehash: 343d6327d262401b4be14e472a135062456890f1
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66811172"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71377627"
 ---
 # <a name="echo"></a>echo
 
@@ -40,12 +40,12 @@ echo [on | off]
 |Parametro|Descrizione|
 |---------|-----------|
 |[in \| off]|Attiva o disattiva la ripetizione dei comandi. Eco dei comandi è abilitata per impostazione predefinita.|
-|\<messaggio >|Specifica il testo da visualizzare sullo schermo.|
+|\<Message >|Specifica il testo da visualizzare sullo schermo.|
 |/?|Visualizza la guida al prompt dei comandi.|
 
 ## <a name="remarks"></a>Note
 
--   Il **echo** *messaggio* comando è particolarmente utile quando **echo** è disattivata. Per visualizzare un messaggio di più righe senza i comandi, è possibile includere più **echo** *messaggio* comandi dopo la **echo off** comando il file batch.
+-   Il comando **echo** *Message* è particolarmente utile quando **echo** è disattivato. Per visualizzare un messaggio di diverse righe senza visualizzare alcun comando, è possibile includere diversi comandi del *messaggio* Echo dopo il comando **echo off** del programma batch.
 -   Quando **echo** è disattivato, il prompt dei comandi non viene visualizzato nella finestra del prompt dei comandi. Per visualizzare il prompt dei comandi, digitare **l'aggiornamento.**
 -   Se utilizzato in un file batch, **echo in** e **echo off** non influisce sull'impostazione al prompt dei comandi.
 -   Per evitare la ripetizione di un comando specifico in un file batch, inserire un simbolo di chiocciola (@) prima il comando. Per evitare la ripetizione di tutti i comandi in un file batch, includere il **echo off** comando all'inizio del file.

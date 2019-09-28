@@ -1,7 +1,7 @@
 ---
 ms.assetid: 7787a72e-a26b-415f-b700-a32806803478
 title: Fsutil fsinfo
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 manager: dmoss
 ms.author: toklima
 author: toklima
@@ -9,17 +9,17 @@ ms.technology: storage
 audience: IT Pro
 ms.topic: article
 ms.date: 10/16/2017
-ms.openlocfilehash: 434dfde2286538367fb96d168b06983cb4357067
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 472c3b91285810ac1ff528da24de50533bae526d
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59873042"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71376939"
 ---
 # <a name="fsutil-fsinfo"></a>Fsutil fsinfo
 >Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows 10, Windows Server 2012 R2, Windows 8.1, Windows Server 2012, Windows 8, Windows Server 2008 R2, Windows 7
 
-Elenca tutte le unità, esegue una query del tipo di unità, informazioni sul volume, informazioni sul volume NTFS specifiche o esegue una query delle statistiche di sistema di file.
+Elenca tutte le unità, esegue una query sul tipo di unità, esegue query sulle informazioni sul volume, esegue query su informazioni sul volume specifiche di NTFS o query file system statistiche.
 
 Per esempi di utilizzo di questo comando, vedere [Esempi](#BKMK_examples).
 
@@ -38,13 +38,13 @@ fsutil fsinfo [volumeinfo] <RootPath>
 |Parametro|Descrizione|
 |-------------|---------------|
 |Unità|Elenca tutte le unità del computer.|
-|DriveType|Un'unità di una query e visualizza il tipo, ad esempio unità CD-ROM.|
-|ntfsinfo|Visualizza le informazioni specifiche di volume NTFS per il volume specificato, ad esempio il numero di settori, complessivo cluster, i cluster gratuiti e inizio e alla fine della zona MFT.|
-|sectorinfo|Elenca le informazioni sulle dimensioni di settore e l'allineamento dell'hardware.|
-|Statistiche|Elenca le statistiche di sistema per il volume specificato, ad esempio metadati, file di log e MFT letture e scritture di file.|
-|volumeinfo|Elenca le informazioni per il volume specificato, ad esempio il file system e se il volume supporta nomi di file tra maiuscole e minuscole, unicode nei nomi di file, le quote del disco o un volume DirectAccess (DAX).|
-|<"VolumePath">|Specifica la lettera di unità (seguita da due punti).|
-|<"RootPathname">|Specifica la lettera di unità (seguita da due punti) dell'unità radice.|
+|DriveType|Esegue una query su un'unità e ne elenca il tipo, ad esempio l'unità CD-ROM.|
+|ntfsinfo|Elenca le informazioni sul volume specifico NTFS per il volume specificato, ad esempio il numero di settori, i cluster totali, i cluster gratuiti e l'inizio e la fine della zona MFT.|
+|sectorinfo|Elenca le informazioni sulle dimensioni e sull'allineamento del settore dell'hardware.|
+|Statistiche|Elenca file system statistiche per il volume specificato, ad esempio i metadati, il file di log e le letture e le Scritture MFT.|
+|volumeinfo|Elenca le informazioni per il volume specificato, ad esempio il file system e se il volume supporta nomi file con distinzione tra maiuscole e minuscole, Unicode nei nomi file, quote disco o è un volume DirectAccess (DAX).|
+|< "VolumePath" >|Specifica la lettera di unità (seguita da due punti).|
+|< "RootPathname" >|Specifica la lettera di unità (seguita da due punti) dell'unità radice.|
 
 ## <a name="BKMK_examples"></a>Esempi
 Per elencare tutte le unità del computer, digitare:
@@ -53,19 +53,19 @@ Per elencare tutte le unità del computer, digitare:
 fsutil fsinfo drives
 ```
 
-Output simile a verrà visualizzato il seguente:
+Viene visualizzato un output simile al seguente:
 
 ```
 Drives: A:\ C:\ D:\ E:\       
 ```
 
-Per eseguire una query il tipo di unità dell'unità C, digitare:
+Per eseguire una query sul tipo di unità C, digitare:
 
 ```
 fsutil fsinfo drivetype c:
 ```
 
-Possibili risultati della query includono:
+I risultati possibili della query includono:
 
 ```
 Unknown Drive
@@ -77,13 +77,13 @@ CD-ROM Drive
 Ram Disk
 ```
 
-Per recuperare le informazioni sul volume per il volume E, digitare:
+Per eseguire una query sulle informazioni sul volume per il volume E, digitare:
 
 ```
 fsinfo volumeinfo e:\
 ```
 
-Output simile a verrà visualizzato il seguente:
+Viene visualizzato un output simile al seguente:
 
 ```
 Volume Name :Volume
@@ -97,13 +97,13 @@ Supports Named Streams
 Is DAX Volume
 ```
 
-Unità di query F per informazioni sul volume NTFS specifici, digitare:
+Per eseguire una query sull'unità F per informazioni sul volume specifiche di NTFS, digitare:
 
 ```
 fsutil fsinfo ntfsinfo f:
 ```
 
-Output simile a verrà visualizzato il seguente:
+Viene visualizzato un output simile al seguente:
 
 ```
 NTFS Volume Serial Number : 0xe660d46a60d442cb
@@ -115,13 +115,13 @@ Total Clusters :            0x000000000021d409
 Mft Zone End   :            0x0000000000004700       
 ```
 
-Per eseguire query su hardware sottostante del file system per le informazioni sul settore, digitare:
+Per eseguire una query sull'hardware sottostante file system per informazioni sul settore, digitare:
 
 ```
 fsinfo sectorinfo d:
 ```
 
-Output simile a verrà visualizzato il seguente:
+Viene visualizzato un output simile al seguente:
 
 ```
 D:\>fsutil fsinfo sectorinfo d:
@@ -134,13 +134,13 @@ Trim Not Supported
 DAX capable
 ```
 
-Per recuperare le statistiche di sistema di file per l'unità E, digitare:
+Per eseguire una query sulle statistiche di file system per l'unità E, digitare:
 
 ```
 fsinfo statistics e:
 ```
 
-Output simile a verrà visualizzato il seguente:
+Viene visualizzato un output simile al seguente:
 
 ```
 File System Type :     NTFS
@@ -154,7 +154,7 @@ LogFileWriteBytes :    180936704
 ```
 
 #### <a name="additional-references"></a>Altri riferimenti
-[Chiave sintassi della riga di comando](Command-Line-Syntax-Key.md)
-[Fsutil](Fsutil.md)
+[Chiave della sintassi della riga di comando](Command-Line-Syntax-Key.md)
+[fsutil](Fsutil.md)
 
 

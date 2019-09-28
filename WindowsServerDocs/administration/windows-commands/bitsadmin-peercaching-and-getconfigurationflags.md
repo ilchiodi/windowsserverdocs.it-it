@@ -1,8 +1,8 @@
 ---
-title: getconfigurationflags e bitsadmin Caching
-description: 'Argomento i comandi di Windows per **bitsadmin caching e getconfigurationflags** : Ottiene i flag di configurazione che determinano se il computer fornisce contenuto per peer e può scaricare contenuto da peer.'
+title: Bitsadmin peer caching e getconfigurationflags
+description: Argomento dei comandi di Windows per **BITSAdmin peer caching e getconfigurationflags** -ottiene i flag di configurazione che determinano se il computer serve contenuto ai peer e può scaricare il contenuto dai peer.
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,14 +13,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 6afa39993cf90b2d71b6b681680c3b4e1fd9b56b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 94c7eb1a115fe9152b149b8cf65765b179080cc3
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59826352"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71381095"
 ---
-# <a name="bitsadmin-peercaching-and-getconfigurationflags"></a>getconfigurationflags e bitsadmin Caching
+# <a name="bitsadmin-peercaching-and-getconfigurationflags"></a>Bitsadmin peer caching e getconfigurationflags
 
 
 
@@ -47,4 +47,4 @@ C:\> Bitsadmin /PeerCaching /GetConfigurationFlags myJob
 
 #### <a name="additional-references"></a>Altri riferimenti
 
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)
+[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

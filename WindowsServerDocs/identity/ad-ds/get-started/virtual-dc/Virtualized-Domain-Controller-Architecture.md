@@ -7,14 +7,14 @@ ms.author: joflore
 manager: mtillman
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: d69ccfd15004619f890c6f5c1cb630c62e16256b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e8673b9e66a0aa3b6bea89b91ae5022efb26c65c
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59889192"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71390514"
 ---
 # <a name="virtualized-domain-controller-architecture"></a>Architettura di controller di dominio virtualizzati
 
@@ -22,11 +22,11 @@ ms.locfileid: "59889192"
 
 Questo argomento descrive l'architettura della clonazione e del ripristino sicuro dei controller di dominio virtualizzati. Illustra i processi di clonazione e ripristino sicuro con diagrammi di flusso, quindi fornisce una spiegazione dettagliata di ogni passaggio.  
   
--   [Architettura di clonazione del controller di dominio virtualizzati](../../../ad-ds/get-started/virtual-dc/Virtualized-Domain-Controller-Architecture.md#BKMK_CloneArch)  
+-   [Architettura di clonazione di controller di dominio virtualizzati](../../../ad-ds/get-started/virtual-dc/Virtualized-Domain-Controller-Architecture.md#BKMK_CloneArch)  
   
 -   [Architettura di ripristino sicuro di controller di dominio virtualizzati](../../../ad-ds/get-started/virtual-dc/Virtualized-Domain-Controller-Architecture.md#BKMK_SafeRestoreArch)  
   
-## <a name="BKMK_CloneArch"></a>Architettura di clonazione del controller di dominio virtualizzati  
+## <a name="BKMK_CloneArch"></a>Architettura di clonazione di controller di dominio virtualizzati  
   
 ### <a name="overview"></a>Panoramica  
 Per la clonazione di domini virtualizzati, la piattaforma hypervisor deve esporre un identificatore chiamato **ID di generazione VM** per rilevare la creazione di una macchina virtuale. Servizi di dominio Active Directory archivia inizialmente il valore di questo identificatore nel proprio database (NTDS.DIT) durante la promozione del controller. All'avvio della macchina virtuale, il relativo valore corrente dell'ID di generazione VM viene confrontato con il valore nel database. Se i due valori sono diversi, il controller di dominio reimposta l'ID di chiamata e rimuove il pool di RID, impedendo in questo modo il riutilizzo di numeri USN o la potenziale creazione di entità di sicurezza duplicate. Il controller di dominio cerca quindi un file DCCloneConfig.xml nei percorsi indicati nel passaggio 3, in [Cloning Detailed Processing](../../../ad-ds/get-started/virtual-dc/../../../ad-ds/get-started/virtual-dc/../../../ad-ds/get-started/virtual-dc/../../../ad-ds/get-started/virtual-dc/Virtualized-Domain-Controller-Architecture.md#BKMK_CloneProcessDetails). Se trova un file DCCloneConfig.xml, conclude che è stato distribuito come clone, quindi avvia la clonazione per effettuare il provisioning di se stesso come controller di dominio aggiuntivo ripetendo la promozione con i contenuti esistenti di NTDS.DIT e SYSVOL copiati dai supporti di origine.  
@@ -35,14 +35,14 @@ In un ambiente misto in cui alcuni hypervisor supportano l'ID di generazione VM 
   
 Se il supporto clone viene distribuito in un hypervisor che supporta l'ID di generazione VM, ma non viene fornito un file DCCloneConfig.xml, quando il controller di dominio rileva una modifica dell'ID di generazione VM tra il proprio file DIT e quello della nuova VM, attiverà delle misure di sicurezza per impedire il riutilizzo di numeri USN ed evitare SID duplicati. Tuttavia, la clonazione non verrà avviata, quindi il controller di dominio secondario continuerà a essere eseguito con la stessa identità di quello di origine. Il controller di dominio secondario dovrà essere rimosso dalla rete il prima possibile, per evitare incoerenze nell'ambiente. Per altre informazioni su come recuperare il controller di dominio secondario assicurandosi al contempo che gli aggiornamenti vengano replicati in uscita, vedere l'articolo [2742970](https://support.microsoft.com/kb/2742970)della Microsoft Knowledge Base.  
   
-### <a name="BKMK_CloneProcessDetails"></a>Dettagliato di clonazione  
+### <a name="BKMK_CloneProcessDetails"></a>Clonazione di elaborazione dettagliata  
 Il diagramma seguente mostra l'architettura per l'operazione iniziale e per la ripetizione del tentativo di clonazione. I processi sono illustrati in maggior dettaglio più avanti in questo argomento.  
   
 **Operazione di clonazione iniziale**  
   
 ![Architettura di controller di dominio virtualizzati](media/Virtualized-Domain-Controller-Architecture/ADDS_VDC_InitialCloningProcess.png)  
   
-**Ripetere l'operazione di clonazione**  
+**Clonazione dell'operazione di ripetizione dei tentativi**  
   
 ![Architettura di controller di dominio virtualizzati](media/Virtualized-Domain-Controller-Architecture/ADDS_VDC_CloningRetryProcess.png)  
   
@@ -112,7 +112,7 @@ I passaggi seguenti illustrano il processo in maggior dettaglio:
   
 15. Il guest forza la sincronizzazione oraria di NT5DS (Windows NTP) con un altro controller di dominio. In una gerarchia predefinita del servizio Ora di Windows, ciò implica l'uso dell'emulatore PDC. Il guest contatta l'emulatore PDC. Tutti gli attuali ticket Kerberos vengono scaricati.  
   
-16. Il guest configura i servizi DFSR o NTFRS per l'esecuzione automatica. Il guest Elimina tutti DFSR e NTFRS file di database esistenti (impostazione predefinita: c:\windows\ntfrs e c:\system volume information\dfsr\\ *< database_GUID >*), in modo da forzare la sincronizzazione non autorevole di SYSVOL quando il servizio viene avviato successivamente. Il guest non elimina il contenuto dei file di SYSVOL, in modo da eseguire il pre-seeding di SYSVOL quando in seguito viene avviata la sincronizzazione.  
+16. Il guest configura i servizi DFSR o NTFRS per l'esecuzione automatica. Il guest Elimina tutti DFSR e NTFRS file di database esistenti (impostazione predefinita: c:\windows\ntfrs e c:\system volume information\dfsr\\ *< database_GUID >* ), in modo da forzare la sincronizzazione non autorevole di SYSVOL quando il servizio viene avviato successivamente. Il guest non elimina il contenuto dei file di SYSVOL, in modo da eseguire il pre-seeding di SYSVOL quando in seguito viene avviata la sincronizzazione.  
   
 17. Il guest viene rinominato. Il servizio Ruolo server DS nel guest inizia la configurazione di Servizi di dominio Active Directory (promozione) usando il file di database NTDS.DIT esistente come origine, invece del database modello incluso in c:\windows\system32 come avviene normalmente in una promozione.  
   
@@ -182,7 +182,7 @@ Il diagramma seguente mostra in che modo le misure di sicurezza della virtualizz
   
 1.  All'ora T1, l'amministratore dell'hypervisor acquisisce uno snapshot del controller di dominio DC1. In quel momento DC1 ha un valore di USN (**highestCommittedUsn**) pari a 100 e un valore di InvocationId (rappresentato come ID nel diagramma precedente) A (in pratica questo sarebbe il GUID). Il valore savedVMGID corrisponde all'ID di generazione VM nel file DIT del controller di dominio (archiviato per l'oggetto computer del controller di dominio in un attributo denominato **msDS-GenerationId**). VMGID è il valore corrente dell'ID di generazione VM disponibile nel driver della macchina virtuale. Questo valore viene fornito dall'hypervisor.  
   
-2.  A un'ora T2 successiva, in questo controller di dominio vengono aggiunti 100 utenti. Gli utenti possono essere considerati come un esempio degli aggiornamenti che potrebbero essere stati eseguiti in questo controller di dominio tra l'ora T1 e l'ora T2. Questi aggiornamenti potrebbero in realtà essere una combinazione di creazione di utenti o gruppi, aggiornamenti di password e attributi e così via. In questo esempio ogni aggiornamento usa un numero USN univoco, anche se in pratica la creazione di un utente potrebbe usarne più di uno. Prima di eseguire il commit di questi aggiornamenti, il controller di dominio DC1 controlla se il valore dell'ID di generazione VM nel relativo database (savedVMGID) è uguale al valore corrente disponibile nel driver (VMGID). Questi valori sono identici, in quanto non si è ancora verificato nessun rollback, quindi viene eseguito il commit degli aggiornamenti e il numero USN aumenta a 200, a indicare che il successivo aggiornamento può usare l'USN 201. I valori di InvocationId, savedVMGID o VMGID rimangono inalterati. Questi aggiornamenti vengono replicati nel controller di dominio DC2 al successivo ciclo di replica. DC2 aggiorna il limite massimo (e **UptoDatenessVector**) rappresentato qui semplicemente come DC1(a @USN = 200. Ossia, DC2 riconosce tutti gli aggiornamenti di DC1 nel contesto di InvocationId A fino a USN 200.  
+2.  A un'ora T2 successiva, in questo controller di dominio vengono aggiunti 100 utenti. Gli utenti possono essere considerati come un esempio degli aggiornamenti che potrebbero essere stati eseguiti in questo controller di dominio tra l'ora T1 e l'ora T2. Questi aggiornamenti potrebbero in realtà essere una combinazione di creazione di utenti o gruppi, aggiornamenti di password e attributi e così via. In questo esempio ogni aggiornamento usa un numero USN univoco, anche se in pratica la creazione di un utente potrebbe usarne più di uno. Prima di eseguire il commit di questi aggiornamenti, il controller di dominio DC1 controlla se il valore dell'ID di generazione VM nel relativo database (savedVMGID) è uguale al valore corrente disponibile nel driver (VMGID). Questi valori sono identici, in quanto non si è ancora verificato nessun rollback, quindi viene eseguito il commit degli aggiornamenti e il numero USN aumenta a 200, a indicare che il successivo aggiornamento può usare l'USN 201. I valori di InvocationId, savedVMGID o VMGID rimangono inalterati. Questi aggiornamenti vengono replicati nel controller di dominio DC2 al successivo ciclo di replica. DC2 aggiorna il limite massimo (e **UptoDatenessVector**), rappresentato qui semplicemente come DC1 (a) @USN = 200. Ossia, DC2 riconosce tutti gli aggiornamenti di DC1 nel contesto di InvocationId A fino a USN 200.  
   
 3.  All'ora T3, lo snapshot acquisito all'ora T1 viene applicato al controller di dominio DC1. Poiché è stato eseguito il rollback di DC1, il relativo USN viene ripristinato su 100, a indicare che è possibile usare gli USN a partire da 101 per associarli agli aggiornamenti successivi. Tuttavia, a questo punto il valore di VMGID sarebbe diverso negli hypervisor che supportano l'ID di generazione VM.  
   
@@ -192,7 +192,7 @@ Dopo che il guest applica le misure di sicurezza della virtualizzazione, il serv
   
 -   Se si usa il servizio Replica file, il guest arresta il servizio NTFRS e imposta il valore del Registro di sistema D2 BURFLAGS. Avvia quindi il servizio NTFRS, che esegue la replica non autorevole in ingresso, riutilizzando gli attuali dati SYSVOL non modificati, quando possibile.  
   
--   Se con replica DFS, il guest Arresta il servizio Replica DFS ed elimina i file di database DFSR (percorso predefinito: %systemroot%\system. volume information\dfsr\\*<database GUID>*). Avvia quindi il servizio Replica DFS, che esegue la replica non autorevole in ingresso, riutilizzando gli attuali dati SYSVOL non modificati, quando possibile.  
+-   Se con replica DFS, il guest Arresta il servizio Replica DFS ed elimina i file di database DFSR (percorso predefinito: %systemroot%\system. volume information\dfsr\\ *<database GUID>* ). Avvia quindi il servizio Replica DFS, che esegue la replica non autorevole in ingresso, riutilizzando gli attuali dati SYSVOL non modificati, quando possibile.  
   
 > [!NOTE]  
 > -   Se l'hypervisor non fornisce un ID di generazione VM per il confronto, significa che non supporta le misure di sicurezza della virtualizzazione e il guest opererà come un controller di dominio virtualizzato che esegue Windows Server 2008 R2 o versione precedente. Il guest implementa la protezione della quarantena con rollback degli USN se si verifica un tentativo di avviare la replica con USN che non sono aumentati dopo l'ultimo USN più alto riscontrato dal controller di dominio partner. Per altre informazioni sulla protezione della quarantena con rollback degli USN, vedere l'articolo su [USN e rollback degli USN](https://technet.microsoft.com/library/virtual_active_directory_domain_controller_virtualization_hyperv(WS.10).aspx)  

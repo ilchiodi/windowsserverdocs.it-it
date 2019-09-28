@@ -1,7 +1,7 @@
 ---
 title: Server di replica devono essere configurati per identificare i server primari specifici è autorizzato a inviare il traffico di replica
-description: Fornisce le istruzioni per risolvere il problema segnalato da questa regola di Best Practices Analyzer.
-ms.prod: windows-server-threshold
+description: Vengono fornite istruzioni per risolvere il problema segnalato da questa regola di Best Practices Analyzer.
+ms.prod: windows-server
 ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
@@ -10,12 +10,12 @@ ms.topic: article
 ms.assetid: 0aeb1f4b-2e75-430b-9557-fe64738c4992
 author: KBDAzure
 ms.date: 8/16/2016
-ms.openlocfilehash: 47b215d4c84e68d93ae1189ddd370358e2781eff
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 567b20d00d2f245ae7e9577d9d200dca116a9b4d
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59822242"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71364742"
 ---
 # <a name="replica-servers-should-be-configured-to-identify-specific-primary-servers-authorized-to-send-replication-traffic"></a>Server di replica devono essere configurati per identificare i server primari specifici è autorizzato a inviare il traffico di replica
 
@@ -26,20 +26,20 @@ Per altre informazioni sulle procedure consigliate e sulle analisi, vedere [Eseg
 |Proprietà|Dettagli|  
 |-|-|  
 |**Sistema operativo**|Windows Server 2016|  
-|**/ Funzionalità del prodotto**|Hyper-V|  
-|**Severity**|Avviso|  
+|**Prodotto/funzionalità**|Hyper-V|  
+|**Gravità**|Avviso|  
 |**Categoria**|Configurazione|  
   
 Nelle sezioni seguenti, corsivo indica il testo dell'interfaccia Utente visualizzata nello strumento Analizzatore procedure consigliate per questo problema.  
   
 ## <a name="issue"></a>Problema  
-*In base alla configurazione, server di Replica accetta il traffico di replica da tutti i server primari e li archivia in un'unica posizione.*  
+*Come configurato, il server di replica accetta il traffico di replica da tutti i server primari e li archivia in un'unica posizione.*  
   
 ### <a name="impact"></a>Impatto  
-*Tutte le repliche dal server primario vengono archiviati in un'unica posizione, questo potrebbe comportare problemi di sicurezza o privacy.*  
+*Tutta la replica da tutti i server primari viene archiviata in un'unica posizione, che può comportare problemi di sicurezza o di privacy.*  
   
 ## <a name="resolution"></a>Risoluzione  
-*Utilizzare Hyper-V Manager per creare nuove voci di autorizzazione per i server primari specifici e specificare i percorsi di archiviazione separato per ognuno di essi. È possibile usare caratteri jolly per raggruppare i server primari in set per ogni voce di autorizzazione.*  
+*Use console di gestione di Hyper-V per creare nuove voci di autorizzazione per i server primari specifici e specificare percorsi di archiviazione separati per ognuno di essi. È possibile utilizzare caratteri jolly per raggruppare i server primari nei set per ogni voce di autorizzazione.*  
   
 #### <a name="create-authorization-entries-using-hyper-v-manager"></a>Creare le voci di autorizzazione utilizzando Gestione di Hyper-V  
   

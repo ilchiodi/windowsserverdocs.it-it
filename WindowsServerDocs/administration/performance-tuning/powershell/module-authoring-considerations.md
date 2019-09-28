@@ -1,39 +1,39 @@
 ---
-title: Considerazioni di creazione modulo di PowerShell
-description: Considerazioni di creazione modulo di PowerShell
-ms.prod: windows-server-threshold
+title: Considerazioni sulla creazione di moduli di PowerShell
+description: Considerazioni sulla creazione di moduli di PowerShell
+ms.prod: windows-server
 ms.technology: performance-tuning-guide
 ms.topic: article
 ms.author: JasonSh
 author: lzybkr
 ms.date: 10/16/2017
-ms.openlocfilehash: 37dd860019b91daf70947dba93d20274048487a0
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 8945339e7a7950d3cd722ab2af629b45e7f6dd5d
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59818722"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71370364"
 ---
-# <a name="powershell-module-authoring-considerations"></a>Considerazioni di creazione modulo di PowerShell
+# <a name="powershell-module-authoring-considerations"></a>Considerazioni sulla creazione di moduli di PowerShell
 
-Questo documento include alcune linee guida relative al modo in cui viene creato un modulo per ottenere prestazioni ottimali.
+Questo documento include alcune linee guida relative alla modalità di creazione di un modulo per ottenere prestazioni ottimali.
 
-## <a name="module-manifest-authoring"></a>Creazione del manifesto di modulo
+## <a name="module-manifest-authoring"></a>Creazione del manifesto del modulo
 
-Un manifesto del modulo che non usa le seguenti linee guida può avere un impatto significativo sulle prestazioni generali di PowerShell, anche se non viene usato il modulo in una sessione.
+Un manifesto del modulo che non usa le linee guida seguenti può avere un notevole effetto sulle prestazioni generali di PowerShell anche se il modulo non viene usato in una sessione.
 
-Comando auto-discovery analizza ogni modulo per determinare i comandi esportati dal modulo e l'analisi può essere costosa.
-I risultati dell'analisi del modulo vengono memorizzati nella cache per ogni utente, ma la cache non è disponibile alla prima esecuzione, ossia uno scenario tipico con i contenitori.
-Durante l'analisi di modulo, se possono determinare completamente i comandi esportati dal manifesto di analisi più costoso del modulo possono essere evitato.
+Il rilevamento automatico dei comandi analizza ogni modulo per individuare i comandi esportati dal modulo e questa analisi può essere costosa.
+I risultati dell'analisi dei moduli vengono memorizzati nella cache per utente, ma la cache non è disponibile alla prima esecuzione, che è uno scenario tipico con i contenitori.
+Durante l'analisi del modulo, se i comandi esportati possono essere completamente determinati dal manifesto, è possibile evitare un'analisi più costosa del modulo.
 
 ### <a name="guidelines"></a>Linee guida
 
-* Nel manifesto del modulo, non usare caratteri jolly nel `AliasesToExport`, `CmdletsToExport`, e `FunctionsToExport` voci.
+* Nel manifesto del modulo, non usare caratteri jolly nelle voci `AliasesToExport`, `CmdletsToExport` e `FunctionsToExport`.
 
-* Se il modulo non Esporta i comandi di un tipo specifico, specificare in modo esplicito nel manifesto specificando `@()`.
-Manca un oppure `$null` voce equivale a specificare il carattere jolly `*`.
+* Se il modulo non Esporta comandi di un determinato tipo, specificarlo in modo esplicito nel manifesto specificando `@()`.
+Una voce mancante o `$null` equivale a specificare il carattere jolly `*`.
 
-Di seguito debba essere evitati laddove possibile:
+Quando possibile, è consigliabile evitare quanto segue:
 
 ```PowerShell
 @{
@@ -45,7 +45,7 @@ Di seguito debba essere evitati laddove possibile:
 }
 ```
 
-In alternativa, usare:
+Usare invece:
 
 ```PowerShell
 @{
@@ -57,17 +57,17 @@ In alternativa, usare:
 
 ## <a name="avoid-cdxml"></a>Evitare CDXML
 
-Prima di decidere come implementare un modulo, esistono tre opzioni principali:
+Quando si decide come implementare il modulo, sono disponibili tre opzioni principali:
 
-* Binario (in genere C#)
+* Binario (in C#genere)
 * Script (PowerShell)
-* CDXML (un file XML CIM di wrapping)
+* CDXML (codice CIM per il wrapping di file XML)
 
-Se la velocità di caricamento di un modulo è importante, CDXML è più o meno un decisamente più lento rispetto a un modulo binario.
+Se la velocità di caricamento del modulo è importante, CDXML è approssimativamente un ordine di grandezza più lento rispetto a un modulo binario.
 
-Un modulo binario consente di caricare più velocemente perché viene compilata anticipatamente e possono usare NGen per la compilazione JIT una sola volta per ogni macchina.
+Un modulo binario carica il più velocemente perché viene compilato in anticipo e può usare NGen per compilare JIT una volta per ogni computer.
 
-Un modulo di script viene caricato un po' più lento rispetto a un modulo binario in genere poiché PowerShell è necessario analizzare lo script prima di compilare ed eseguirla.
+Un modulo di script in genere carica un po' più lentamente rispetto a un modulo binario perché PowerShell deve analizzare lo script prima di compilarlo ed eseguirlo.
 
-Un modulo CDXML è in genere molto più lento rispetto a un modulo di script perché innanzitutto necessario analizzare un file XML che viene quindi generato gran parte dello script di PowerShell che viene quindi analizzato e compilato.
+Un modulo CDXML è in genere molto più lento rispetto a un modulo di script perché deve prima analizzare un file XML che quindi genera un po' di script di PowerShell che viene quindi analizzato e compilato.
 

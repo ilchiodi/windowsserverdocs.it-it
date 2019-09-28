@@ -7,14 +7,14 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: bd9c47c0f786fa8c7814519b26d33daaf01080a3
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 0a1543f2c935c2ef76ea014567b18bfc778c7401
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70869391"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71407385"
 ---
 # <a name="the-role-of-attribute-stores"></a>Ruolo degli archivi attributi
 Active Directory Federation Services utilizza il termine "archivi attributi" per fare riferimento a directory o database utilizzati da un'organizzazione per archiviare gli account utente e i relativi valori di attributo associati. Una volta configurata in un'organizzazione del provider di identità, AD FS recupera questi valori di attributo dall'archivio e crea attestazioni in base a tali informazioni, in modo che un'applicazione o un servizio Web ospitato in un'organizzazione relying party possa rendere appropriato decisioni di autorizzazione ogni volta che \(un utente federato un utente il cui account è archiviato nell'\) organizzazione del provider di identità tenta di accedere all'applicazione o al servizio.  

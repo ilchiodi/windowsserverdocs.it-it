@@ -1,8 +1,8 @@
 ---
-title: bdehdcfg dimensioni
-description: Argomento i comandi di Windows - specifica la dimensione della partizione di sistema quando viene creata una nuova unità di sistema.
+title: dimensioni BdeHdCfg
+description: 'Argomento dei comandi di Windows: specifica la dimensione della partizione di sistema quando viene creata una nuova unità di sistema.'
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: d024bb4092f93782300d6afb9053cee1da32629a
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 6ec42cdb5716c63c7210ea6cfde8ce8884833b45
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59817522"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71382205"
 ---
-# <a name="bdehdcfg-size"></a>bdehdcfg: size
+# <a name="bdehdcfg-size"></a>BdeHdCfg: dimensioni
 
 
 
-Specifica le dimensioni della partizione di sistema quando viene creata una nuova unità di sistema. Per un esempio di come è possibile utilizzare questo comando, vedere [esempi](#BKMK_Examples).
+Specifica le dimensioni della partizione di sistema durante la creazione di una nuova unità di sistema. Per un esempio di come è possibile usare questo comando, vedere [esempi](#BKMK_Examples).
 
 ## <a name="syntax"></a>Sintassi
 
@@ -43,16 +43,16 @@ bdehdcfg -target {default|unallocated|<DriveLetter> shrink} -size <SizeinMB>
 Se non si specifica una dimensione, verrà utilizzato automaticamente il valore predefinito di 300 MB. La dimensione minima dell'unità di sistema è 100 MB. Se si prevede di archiviare Ripristino di sistema o altri strumenti sulla partizione di sistema, è necessario aumentare di conseguenza la dimensione.
 
 > [!NOTE]
-> Il **dimensioni** comando non può essere combinato con il **destinazione** \<LetteraUnità > **merge** comando.
+> Il comando **size** non può essere combinato con il comando \<DriveLetter > **merge** di **destinazione** .
 
 ## <a name="BKMK_Examples"></a>Esempi
 
-Nell'esempio seguente viene illustrato l'utilizzo di **dimensioni** comando allocare 500 MB a unità di sistema predefinito.
+Nell'esempio seguente viene illustrato l'utilizzo del comando **size** per allocare 500 MB all'unità di sistema predefinita.
 ```
 bdehdcfg -target default -size 500
 ```
 
 #### <a name="additional-references"></a>Altri riferimenti
 
--   [Chiave sintassi della riga di comando](command-line-syntax-key.md)
--   [Bdehdcfg](bdehdcfg.md)
+-   [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+-   [BdeHdCfg](bdehdcfg.md)

@@ -1,8 +1,8 @@
 ---
 title: bitsadmin nowrap
-description: Argomento i comandi di Windows per **nowrap bitsadmin** -tronca tutte le righe di output testo che si estende oltre il bordo all'estrema destra della finestra di comando.
+description: "Argomento dei comandi di Windows per **BITSAdmin nowrap** : tronca qualsiasi riga di testo di output che si estende oltre il bordo all'estrema destra della finestra di comando."
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 4130f606a6b1874e1ea31952160de44d6e09c6b6
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 3806ec51161eeae498e3c9b367b2aacf0bd32c99
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59822922"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71381048"
 ---
 # <a name="bitsadmin-nowrap"></a>bitsadmin nowrap
 
@@ -32,7 +32,7 @@ bitsadmin /NoWrap
 
 ## <a name="remarks"></a>Note
 
-Per impostazione predefinita, tutte le opzioni, ad eccezione di **Monitor** commutatore, eseguire il wrapping dell'output. Specificare il **NoWrap** passare prima di altre opzioni.
+Per impostazione predefinita, tutte le opzioni, ad eccezione dell'opzione di **monitoraggio** , incapsulano l'output. Specificare l'opzione **nowrap** prima di altre opzioni.
 
 ## <a name="BKMK_examples"></a>Esempi
 
@@ -43,4 +43,4 @@ C:\>bitsadmin /NoWrap /GetState myDownloadJob
 
 #### <a name="additional-references"></a>Altri riferimenti
 
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)
+[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

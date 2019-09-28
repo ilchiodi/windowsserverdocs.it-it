@@ -1,8 +1,8 @@
 ---
-title: rename FTP
-description: 'Argomento i comandi di Windows per * * *- '
+title: ridenominazione FTP
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 80d1a15f038017444c7654a44748bfd22be8e487
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 977baa042a6b0d9c23db7cb398bee997c2049227
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66438387"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71376019"
 ---
 # <a name="ftp-rename"></a>FTP: Rinomina
 
@@ -37,7 +37,7 @@ rename <FileName> <NewFileName>
 | <NewFileName> |        Specifica il nuovo nome del file.         |
 
 ## <a name="BKMK_Examples"></a>Esempi  
-rinominare il file remoto **example. txt** a **example1.txt**  
+Rinominare il file remoto **example. txt** in **Example1. txt**  
 ```  
 rename example.txt example1.txt  
 ```  

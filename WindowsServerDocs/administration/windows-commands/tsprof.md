@@ -1,8 +1,8 @@
 ---
 title: tsprof
-description: 'Argomento i comandi di Windows per * * *- '
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,26 +13,26 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: e17d60126125fcd4b10373133dd61ca0db030290
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 77d0752f74d2f6031f83f805273650747d24cfee
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59836072"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71392313"
 ---
 # <a name="tsprof"></a>tsprof
 
 >Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Copia le informazioni di configurazione utente di Servizi Desktop remoto da un utente a un altro.
-Le informazioni di configurazione utente di Servizi Desktop remoto viene visualizzate in estensioni di Servizi Desktop remoto per gli utenti locali e i gruppi e active directory gli utenti e computer.
+Le informazioni di configurazione dell'utente Servizi Desktop remoto vengono visualizzate nelle estensioni Servizi Desktop remoto a utenti e gruppi locali e utenti e computer di Active Directory.
 
-**tsprof** possono anche impostare il percorso del profilo per un utente.
+**tsprof** può anche impostare il percorso del profilo per un utente.
 
 Per esempi di utilizzo di questo comando, vedere [Esempi](#BKMK_examples).
 
 > [!NOTE]
-> In Windows Server 2008 R2, Servizi terminal si chiama ora Servizi Desktop remoto. Per scoprire quali sono le novità nella versione più recente, vedere [novità in Servizi Desktop remoto in Windows Server 2012](https://technet.microsoft.com/library/hh831527) nella libreria TechNet di Windows Server.
+> In Windows Server 2008 R2, Servizi terminal si chiama ora Servizi Desktop remoto. Per informazioni sulle novità della versione più recente, vedere Novità di [Servizi Desktop remoto in Windows server 2012](https://technet.microsoft.com/library/hh831527) nella libreria TechNet di Windows Server.
 
 ## <a name="syntax"></a>Sintassi
 ```
@@ -44,19 +44,19 @@ tsprof /q {/domain:<DomainName> | /local} <UserName>
 ## <a name="parameters"></a>Parametri
 |Parametro|Descrizione|
 |-------|--------|
-|/Update|Informazioni sul percorso per il profilo aggiornamenti <*nomeutente*> dominio <*DomainName*> per <*PercorsoProfilo*>.|
-|/domain:\<DomainName>|Specifica il nome del dominio in cui viene applicata l'operazione.|
+|/Update|Aggiorna le informazioni sul percorso del profilo per <*nome utente*> nel dominio <*DomainName*> per <*filePath*>.|
+|/Domain: > \<DomainName|Specifica il nome del dominio in cui viene applicata l'operazione.|
 |/ locale|Applica l'operazione solo agli account utente locali.|
-|/profile:\<path>|Specifica il percorso del profilo così come visualizzati nelle estensioni di Servizi Desktop remoto in locale di utenti e gruppi e active directory gli utenti e computer.|
-|\<Nome utente >|Specifica il nome dell'utente per il quale si desidera aggiornare o il percorso del profilo del server di query.|
-|/Copy|Copia le informazioni di configurazione utente da \< *SourceUser*> per \< *DestinationUser*> e aggiorna le informazioni di percorso profilo per \<  *DestinationUser*> a \< *PercorsoProfilo*>. Entrambe \< *SourceUser*> e \< *DestinationUser*> deve essere locale o deve essere nel dominio \< *DomainName*> .|
-|\<Src_usr>|Specifica il nome dell'utente da cui si desidera copiare le informazioni di configurazione utente.|
-|\<Dest_usr>|Specifica il nome dell'utente a cui si desidera copiare le informazioni di configurazione utente.|
+|/profile: > \<path|Specifica il percorso del profilo come visualizzato nelle estensioni Servizi Desktop remoto in utenti e gruppi locali e in utenti e computer di Active Directory.|
+|\<UserName >|Specifica il nome dell'utente per il quale si desidera aggiornare o il percorso del profilo del server di query.|
+|/Copy|Copia le informazioni di configurazione dell'utente da \<*SourceUser*> a \<*UtenteDestinazione*> e aggiorna le informazioni sul percorso del profilo per \<*UtenteDestinazione*>*a \<* propercorso >. Sia \<*SourceUser*> che \<*UtenteDestinazione*> devono essere locali o devono trovarsi nel dominio \<*DomainName*>.|
+|\<Src_usr >|Specifica il nome dell'utente da cui si desidera copiare le informazioni di configurazione utente.|
+|\<Dest_usr >|Specifica il nome dell'utente a cui si desidera copiare le informazioni di configurazione utente.|
 |/q|Visualizza il percorso del profilo corrente dell'utente per il quale si desidera eseguire una query il percorso del profilo del server.|
 |/?|Visualizza la guida al prompt dei comandi.|
 
 ## <a name="remarks"></a>Note
--   Il **tsprof** comando è disponibile solo dopo aver installato il servizio ruolo Terminal Server in un computer che esegue servizio ruolo Host sessione Desktop remoto o Windows Server 2008 in un computer che esegue Windows Server 2008 R2.
+-   Il comando **tsprof** è disponibile solo se è stato installato il servizio ruolo Terminal Server in un computer che esegue il servizio ruolo Host sessione Desktop remoto o windows Server 2008 in un computer che esegue windows Server 2008 R2.
 
 ## <a name="BKMK_examples"></a>Esempi
 -   Per copiare le informazioni di configurazione utente da Utentelocale1 Utentelocale2, digitare:
@@ -69,5 +69,4 @@ tsprof /q {/domain:<DomainName> | /local} <UserName>
     ```
 
 #### <a name="additional-references"></a>Altri riferimenti
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)
-[Servizi Desktop remoto &#40;servizi Terminal&#41; Guida comandi](remote-desktop-services-terminal-services-command-reference.md)
+[Sintassi della riga di comando chiave](command-line-syntax-key.md)@no__t-[1 &#40;Servizi Desktop remoto riferimento&#41; ai comandi di Servizi terminal](remote-desktop-services-terminal-services-command-reference.md)

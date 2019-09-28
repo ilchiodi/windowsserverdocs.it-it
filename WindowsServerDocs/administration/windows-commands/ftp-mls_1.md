@@ -1,8 +1,8 @@
 ---
 title: mls_1 FTP
-description: 'Argomento i comandi di Windows per * * *- '
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 7a379ead9c56af096e121048a8c0f596f6879bb0
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: a84a0f8f3121ea19876744e9ef04bebf5f9fcb08
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66438547"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71376264"
 ---
-# <a name="ftp-mls1"></a>FTP: mls_1
+# <a name="ftp-mls_1"></a>FTP: mls_1
 
 >Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Consente di visualizzare un elenco abbreviato di file e le sottodirectory in una directory remota.   
+Visualizza un elenco abbreviato di file e sottodirectory in una directory remota.   
 ## <a name="syntax"></a>Sintassi  
 ```  
 mls <remoteFile>[ ] <LocalFile>  
@@ -33,20 +33,20 @@ mls <remoteFile>[ ] <LocalFile>
 
 |  Parametro   |                       Descrizione                       |
 |--------------|---------------------------------------------------------|
-| <remoteFile> | Specifica il file per cui si desidera visualizzare un elenco. |
+| <remoteFile> | Specifica il file per il quale si desidera visualizzare un elenco. |
 | <LocalFile>  |  Specifica un file locale in cui archiviare l'elenco.  |
 
 ## <a name="remarks"></a>Note  
-- Specificando *FileRemoti*  
-  Digitare un segno meno ( **-** ) usare la directory di lavoro corrente nel computer remoto.  
-- Specifica di *FileLocale*  
-  Digitare un segno meno ( **-** ) per visualizzare la voce sullo schermo.  
+- Specifica di *remoteFiles*  
+  digitare un trattino ( **-** ) per utilizzare la directory di lavoro corrente nel computer remoto.  
+- Specifica di *LocalFile*  
+  digitare un trattino ( **-** ) per visualizzare l'elenco sullo schermo.  
   ## <a name="BKMK_Examples"></a>Esempi  
-  Visualizzare un elenco abbreviato di file e sottodirectory relative **dir1** e **dir2**.  
+  Visualizza un elenco abbreviato di file e sottodirectory per **dir1** e **dir2**.  
   ```  
   mls dir1 dir2 -  
   ```  
-  Salvare un elenco abbreviato di file e sottodirectory relative **dir1** e **dir2** nel file locale **Elendir. txt.**  
+  Salvare un elenco abbreviato di file e sottodirectory per **dir1** e **dir2** nel file locale **dirlist. txt**  
   ```  
   mls dir1 dir2 dirlist.txt   
   ```  

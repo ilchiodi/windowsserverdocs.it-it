@@ -1,8 +1,8 @@
 ---
-title: Annulla l'esposizione
-description: 'Argomento i comandi di Windows per * * *- '
+title: volume x:.
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,14 +13,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: fe9cb5dfd8ae6c71fdc72ddc1e8421229f98f5d0
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 4e10126739ef82b060e271e9b804a77658b5ec82
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59837472"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71392270"
 ---
-# <a name="unexpose"></a>Annulla l'esposizione
+# <a name="unexpose"></a>volume x:.
 
 
 
@@ -38,10 +38,10 @@ unexpose {<ShadowID> | <Drive:> | <Share> | <MountPoint>}
 
 |Parametro|Descrizione|
 |---------|-----------|
-|\<ShadowID>|Unexposes la copia shadow specificata per l'ID di Shadow specificato.|
-|\<Unità: >|Unexposes la copia shadow associata con la lettera di unità specificata (ad esempio, l'unità P).|
-|\<Share>|La copia shadow associata la condivisione specificata unexposes (ad esempio, \\ \\ *MachineName*\).|
-|\<MountPoint>|La copia shadow associata al punto di montaggio specificato unexposes (ad esempio, C:\shadowcopy\).|
+|\<ShadowID >|Unexposes la copia shadow specificata per l'ID di Shadow specificato.|
+|\<Drive: >|Non espone la copia shadow associata alla lettera di unità specificata (ad esempio, l'unità P).|
+|\<Share >|Non espone la copia shadow associata alla condivisione specificata, ad esempio \\ @ no__t-1*MachineName*\).|
+|\<MountPoint >|Non espone la copia shadow associata al punto di montaggio specificato (ad esempio, C:\shadowcopy @ no__t-0.|
 
 ## <a name="remarks"></a>Note
 
@@ -56,4 +56,4 @@ unexpose P:
 
 #### <a name="additional-references"></a>Altri riferimenti
 
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)
+[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

@@ -2,7 +2,7 @@
 title: tracerpt
 description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 25014d23c797f37dcc488b5fea20c73907eb6f4c
-ms.sourcegitcommit: feec5cbe983c8c5800ccd4fc214914084fcceaba
+ms.openlocfilehash: 1c8e85acc59383d0a027c8d5ec51e68942a76b85
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70975298"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71385679"
 ---
 # <a name="tracerpt"></a>tracerpt
 
@@ -57,7 +57,7 @@ tracerpt <[-l] <value [value [...]]>|-rt <session_name [session_name [...]]>> [o
 |           -report [nomefile]           |                                  Generare un file di report di output di testo. Nome del file se non specificato è Workload.                                   |
 |                  -lr                   |                        Specificare "meno restrittiva". Usa impegno per gli eventi che non corrispondono allo schema di eventi.                         |
 |           -esportare [nomefile]           |                                  Generare un file di esportazione dello Schema di eventi. Nome del file se non specificato è man.                                   |
-|       [-l] \<valore [valore [...]] >        |                                                   Specificare il file di log traccia eventi per l'elaborazione.                                                    |
+|       [-l] \<value [valore [...]] >        |                                                   Specificare il file di log traccia eventi per l'elaborazione.                                                    |
 | -RT \<session_name [session_name [...]] > |                                                Specificare origini dati di sessione di traccia di eventi in tempo reale.                                                |
 
 ## <a name="BKMK_EXAMPLES"></a>Esempi

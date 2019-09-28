@@ -1,8 +1,8 @@
 ---
 title: rd
-description: 'Argomento i comandi di Windows per * * *- '
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 94231e3ec032280beb91a14db7949a1296c2d811
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 029935bcd8773e41adefcd6ca916d75edcea3065
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66442037"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71371805"
 ---
 # <a name="rd"></a>rd
 
 
 
-Elimina una directory. Questo comando è analogo a come le **rmdir** comando.
+Elimina una directory. Questo comando corrisponde al comando **rmdir** .
 
 Per esempi di utilizzo di questo comando, vedere [Esempi](#BKMK_examples).
 
@@ -39,35 +39,35 @@ rmdir [<Drive>:]<Path> [/s [/q]]
 
 |     Parametro     |                                                                 Descrizione                                                                  |
 |-------------------|----------------------------------------------------------------------------------------------------------------------------------------------|
-| [\<Drive>:]<Path> |                      Specifica il percorso e il nome della directory in cui si desidera eliminare. *Percorso* è obbligatorio.                       |
+| [\<Drive >:] <Path> |                      Specifica il percorso e il nome della directory che si desidera eliminare. Il *percorso* è obbligatorio.                       |
 |        /s         |                     Elimina un albero di directory (la directory specificata e tutte le relative sottodirectory, inclusi tutti i file).                      |
-|        /q         | Specifica la modalità non interattiva. Non chiedono conferma quando l'eliminazione di un albero di directory. (Si noti che **/q** funziona solo se **/s** è specificato.) |
+|        /q         | Specifica la modalità non interattiva. Non richiede la conferma dell'eliminazione di un albero di directory. Si noti che **/q** funziona solo se è specificato **/s** . |
 |        /?         |                                                     Visualizza la guida al prompt dei comandi.                                                     |
 
 ## <a name="remarks"></a>Note
 
--   Non è possibile eliminare una directory che contiene i file, tra cui nascosti o i file di sistema. Se si prova a eseguire questa operazione, viene visualizzato il messaggio seguente:
+-   Non è possibile eliminare una directory che contiene file, inclusi i file di sistema o nascosti. Se si tenta di eseguire questa operazione, viene visualizzato il messaggio seguente:
 
     `The directory is not empty`
 
-    Usare la **dir /a** comando per elencare tutti i file (tra cui nascosti e i file di sistema). Quindi usare il **attrib** comando **-h** per rimuovere gli attributi di file nascosti, **-s** per rimuovere gli attributi di file system, o **-h -s** da rimuovere sia nascosto e gli attributi di file di sistema. Dopo avere nascosto e gli attributi di file sono stati rimossi, è possibile eliminare i file.
--   Se si inserisce una barra rovesciata (\) all'inizio del *percorso*, *percorso* verrà avviata nella directory radice (indipendentemente dalla directory corrente).
--   Non è possibile usare **rd** per eliminare la directory corrente. Se si prova a eliminare la directory corrente, viene visualizzato il messaggio di errore seguente:
+    Usare il comando **dir/a** per elencare tutti i file (inclusi i file di sistema e nascosti). Usare quindi il comando **attrib** con **-h** per rimuovere gli attributi di file nascosti, **-s** per rimuovere gli attributi del file di sistema o **-h-s** per rimuovere gli attributi di file di sistema e nascosti. Dopo la rimozione degli attributi nascosti e file, è possibile eliminare i file.
+-   Se si inserisce una barra rovesciata (\) all'inizio del *percorso*, il *percorso* inizierà dalla directory radice (indipendentemente dalla directory corrente).
+-   Non è possibile utilizzare **Rd** per eliminare la directory corrente. Se si tenta di eliminare la directory corrente, viene visualizzato il messaggio di errore seguente:
 
     `The process cannot access the file because it is being used by another process.`
 
-    Se si riceve questo messaggio di errore, è necessario selezionare una directory diversa (non una sottodirectory della directory corrente) e quindi usare **rd** (specificare *percorso* se necessario).
--   Il **rd** comando con parametri diversi, è disponibile dalla Console di ripristino.
+    Se viene visualizzato questo messaggio di errore, è necessario passare a una directory diversa, non a una sottodirectory della directory corrente, quindi utilizzare **Rd** (specificare il *percorso* , se necessario).
+-   Il comando **Rd** , con parametri diversi, è disponibile dalla console di ripristino.
 
 ## <a name="BKMK_examples"></a>Esempi
 
-È possibile eliminare la directory che sta lavorando. È necessario passare alla directory che non è incluso nella directory corrente. Ad esempio, per passare alla directory padre, digitare:
+Non è possibile eliminare la directory attualmente in uso. È necessario passare a una directory che non si trova nella directory corrente. Ad esempio, per passare alla directory padre, digitare:
 ```
 cd ..
 ```
 È ora possibile rimuovere in modo sicuro la directory desiderata.
 
-Usare la **/s** opzione per rimuovere un albero di directory. Ad esempio, per rimuovere una directory denominata Test (e tutte le relative sottodirectory e file) dalla directory corrente, digitare:
+Usare l'opzione **/s** per rimuovere un albero di directory. Per rimuovere, ad esempio, una directory denominata test (e tutte le relative sottodirectory e file) dalla directory corrente, digitare:
 ```
 rd /s test
 ```
@@ -77,7 +77,7 @@ rd /s /q test
 ```
 
 > [!CAUTION]
-> Quando si esegue **desktop remoto /s** in modalità non interattiva, l'intero albero di directory viene eliminato senza chiedere conferma. Assicurarsi che i file importanti vengono spostati o il backup prima di usare la **/q** opzione della riga di comando.
+> Quando si esegue **Rd/s** in modalità non interattiva, l'intero albero di directory viene eliminato senza conferma. Assicurarsi che i file importanti vengano spostati o sottoposti a backup prima di usare l'opzione della riga di comando **/q** .
 
 #### <a name="additional-references"></a>Altri riferimenti
 

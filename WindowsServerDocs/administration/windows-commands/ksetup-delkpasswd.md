@@ -1,8 +1,8 @@
 ---
-title: ksetup:delkpasswd
-description: 'Argomento i comandi di Windows per * * *- '
+title: 'che Ksetup: delkpasswd'
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: a1c701707f736fe51a1f4af70a2571e63025f281
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: dce7d9666040ff0c234139932ea60e3589dfecb2
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66438039"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71375128"
 ---
-# <a name="ksetupdelkpasswd"></a>ksetup:delkpasswd
+# <a name="ksetupdelkpasswd"></a>che Ksetup: delkpasswd
 
 >Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Rimuove un server di password Kerberos (Kpasswd) per un'area di autenticazione. Per esempi di come è possibile utilizzare questo comando, vedere [esempi](#BKMK_Examples).
+Rimuove un server di password Kerberos (kpasswd) per un'area di autenticazione. Per esempi di come è possibile utilizzare questo comando, vedere [esempi](#BKMK_Examples).
 ## <a name="syntax"></a>Sintassi
 ```
 ksetup /delkpasswd <RealmName> <KpasswdName>
@@ -39,12 +39,12 @@ ksetup /delkpasswd <RealmName> <KpasswdName>
 ## <a name="remarks"></a>Note
 Eseguire il comando **che ksetup** per verificare il nome KDC. Se **kpasswd =** non viene visualizzato nell'output, quindi il mapping non è stato configurato. Verranno elencati i mapping di più, se impostata.
 ## <a name="BKMK_Examples"></a>Esempi
-Verificare l'area di autenticazione CORP. CONTOSO.COM utilizza il mitkdc.contoso.com server KDC non Windows come server di password:
+verificare la CORP dell'area di autenticazione. CONTOSO.COM utilizza il server KDC non Windows mitkdc.contoso.com come server delle password:
 ```
 ksetup /delkpasswd CORP.CONTOSO.COM mitkdc.contoso.com
 ```
 Per verificare il comando ha lavorato come previsto, eseguire **che ksetup** nel computer Windows per verificare l'area di autenticazione CORP. CONTOSO.COM non viene mappato a un server di password (il nome KDC) Kerberos.
 ## <a name="additional-references"></a>Riferimenti aggiuntivi
 -   [ksetup](ksetup.md)
--   [ksetup:delkpasswd](ksetup-delkpasswd.md)
+-   [che Ksetup: delkpasswd](ksetup-delkpasswd.md)
 -   [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

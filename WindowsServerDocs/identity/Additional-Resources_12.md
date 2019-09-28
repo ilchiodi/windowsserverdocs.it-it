@@ -2,7 +2,7 @@
 ms.assetid: 20dff664-2370-469b-96a8-df1acf7c7f12
 title: Risorse aggiuntive
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.service: ''
 ms.suite: na
@@ -13,36 +13,36 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.date: 08/07/2018
-ms.openlocfilehash: e50527358dbffa36f8f14e290a548568e3d0635e
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 36fb987bae28edc6745227bc9ce9a51d16cce9b3
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66443266"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71391145"
 ---
 # <a name="additional-resources"></a>Risorse aggiuntive
 
 >Si applica a: Windows Server
 
-Per informazioni dettagliate sull'uso Repadmin.exe per gestire la replica di Active Directory, vedere la seguente risorsa: 
+Per informazioni dettagliate sull'uso di Repadmin. exe per gestire la replica Active Directory, vedere la risorsa seguente: 
 
-- [Monitoraggio e risoluzione dei problemi di replica di Active Directory mediante Repadmin](https://go.microsoft.com/fwlink/?LinkId=122830)
+- [Monitoraggio e risoluzione dei problemi relativi alla replica di Active Directory tramite repadmin](https://go.microsoft.com/fwlink/?LinkId=122830)
 
-Per informazioni sugli eventi specifici che vengono registrate per problemi di Active Directory, vedere la seguente risorsa:
+Per informazioni sugli eventi specifici registrati per Active Directory problemi, vedere la risorsa seguente:
 
 - [Active Directory](https://go.microsoft.com/fwlink/?LinkId=122877)
 
-Per informazioni su Active Directory le procedure consigliate e problemi noti, vedere le risorse seguenti:
+Per informazioni sui problemi noti e sulle procedure consigliate di Active Directory, vedere le risorse seguenti:
 
-- [Problemi noti per la creazione di trust tra foreste e dominio](https://go.microsoft.com/fwlink/?LinkId=128784)
-- [Trust tra foreste e procedure consigliate per l'amministrazione di dominio](https://go.microsoft.com/fwlink/?LinkId=128785)
-- [Problemi noti per il backup dei servizi di dominio Active Directory](https://go.microsoft.com/fwlink/?LinkId=128793)
+- [Problemi noti per la creazione di trust tra domini e foreste](https://go.microsoft.com/fwlink/?LinkId=128784)
+- [Procedure consigliate per l'amministrazione dei trust tra domini e foreste](https://go.microsoft.com/fwlink/?LinkId=128785)
+- [Problemi noti per il backup Active Directory Domain Services](https://go.microsoft.com/fwlink/?LinkId=128793)
 - [Problemi noti per il ripristino autorevole](https://go.microsoft.com/fwlink/?LinkId=128788)
-- [Le procedure consigliate per il ripristino autorevole](https://go.microsoft.com/fwlink/?LinkId=128791) 
+- [Procedure consigliate per il ripristino autorevole](https://go.microsoft.com/fwlink/?LinkId=128791) 
 - [Problemi noti per l'aggiunta di controller di dominio in siti remoti](https://go.microsoft.com/fwlink/?LinkId=128794)
-- [Le procedure consigliate per l'aggiunta di controller di dominio in siti remoti](https://go.microsoft.com/fwlink/?LinkId=128796)
+- [Procedure consigliate per l'aggiunta di controller di dominio in siti remoti](https://go.microsoft.com/fwlink/?LinkId=128796)
 
-Per informazioni generali su come gestire e configurare Active Directory Domain Services (AD DS) e il relativo funzionamento, vedere le risorse seguenti:
+Per informazioni generali su come gestire e configurare Active Directory Domain Services (AD DS) e sul relativo funzionamento, vedere le risorse seguenti:
 
-- [Amministrazione di operazioni di Active Directory](https://go.microsoft.com/fwlink/?LinkId=128798)
-- [Raccolta di Active Directory](https://go.microsoft.com/fwlink/?LinkId=34157)
+- [Amministrazione delle operazioni di Active Directory](https://go.microsoft.com/fwlink/?LinkId=128798)
+- [Raccolta Active Directory](https://go.microsoft.com/fwlink/?LinkId=34157)

@@ -1,8 +1,8 @@
 ---
 title: diskshadow
-description: 'Argomento i comandi di Windows per * * *- '
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,82 +13,82 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: b2c5648235a1c856c6aef09621e2381e74d08d70
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 8d9f34377473608d71ce7753972e5312d9eea0f6
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59869182"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71377774"
 ---
 # <a name="diskshadow"></a>diskshadow
 
 >Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-DiskShadow.exe è uno strumento che espone le funzionalità offerte dalla copia shadow del volume del servizio \(VSS\). Per impostazione predefinita, diskshadow utilizza un interprete dei comandi interattivo simile a quello di diskraid o DiskPart. DiskShadow è inoltre disponibile una modalità gestibile tramite script.  
+DiskShadow. exe è uno strumento che espone la funzionalità offerta dal servizio Copia Shadow del volume \(VSS @ no__t-1. Per impostazione predefinita, DiskShadow usa un interprete dei comandi interattivo simile a quello di DiskRAID o DiskPart. DiskShadow include anche una modalità di scripting.  
   
 > [!NOTE]  
-> L'appartenenza al gruppo Administrators locale o equivalente è il requisito minimo necessario per eseguire diskshadow.  
+> L'appartenenza al gruppo Administrators locale o a un gruppo equivalente è il requisito minimo necessario per eseguire DiskShadow.  
   
-Per esempi di come usare i comandi diskshadow, vedere [esempi](#BKMK_examples).  
+per esempi di come usare i comandi DiskShadow, vedere [esempi](#BKMK_examples).  
   
 ## <a name="syntax"></a>Sintassi  
-per la modalità interattiva, digitare quanto segue al prompt dei comandi per avviare l'interprete dei comandi diskshadow:  
+per la modalità interattiva, digitare quanto segue al prompt dei comandi per avviare l'interprete dei comandi di DiskShadow:  
   
 ```  
 diskshadow  
 ```  
   
-per la modalità di script, digitare quanto segue, dove *script.txt* è un file di script contenente comandi diskshadow:  
+per la modalità script digitare quanto segue, dove *script. txt* è un file di script contenente i comandi di DiskShadow:  
   
 ```  
 diskshadow -s script.txt  
 ```  
   
 ## <a name="diskshadow-commands"></a>comandi DiskShadow  
-In diskshadow l'interprete dei comandi o tramite un file di script, è possibile eseguire i comandi seguenti:  
+È possibile eseguire i comandi seguenti nell'interprete dei comandi di DiskShadow o tramite un file script:  
   
 |Parametro|Descrizione|  
 |-------|--------|  
-|[set_2](set_2.md)|Imposta il contesto, opzioni, la modalità dettagliata e file di metadati per la creazione di copie shadow.|  
-|[Simulare il ripristino](simulate-restore.md)|Testa un coinvolgimento dell'agente di scrittura nelle sessioni di ripristino nel computer senza emettere **PreRestore** oppure **PostRestore** per gli autori di eventi.|  
-|[Caricare i metadati](load-metadata.md)|Carica un file con estensione cab metadati prima di importare una copia shadow trasportabili o carica i metadati del writer in caso di ripristino.|  
-|[writer](writer.md)|verifica che un writer o un componente è incluso o esclude un writer o un componente della procedura di backup o ripristino.|  
-|[add_1](add_1.md)|Aggiunge volumi per il set di volumi che devono essere replicati mediante copiata shadow, o gli alias per l'ambiente di alias.|  
-|[create_1](create_1.md)|Avvia il processo di creazione copia shadow, utilizzando le impostazioni correnti di contesto e l'opzione.|  
-|[exec](exec.md)|esegue un file nel computer locale.|  
-|[Avviare il backup](begin-backup.md)|Avvia una sessione di backup completo.|  
-|[Backup di fine](end-backup.md)|Termina una sessione di backup completo e problemi di un **Backupcomplete** evento con lo stato del writer appropriato, se necessario.|  
-|[Inizio ripristino](begin-restore.md)|Avvia una sessione di ripristino e i problemi di un **PreRestore** eventi per gli scrittori coinvolti.|  
-|[Ripristino di fine](end-restore.md)|Termina una sessione di ripristino e i problemi di un **PostRestore** eventi per gli scrittori coinvolti.|  
-|[reset](reset.md)|Reimposta diskshadow allo stato predefinito.|  
-|[list](list.md)|Elenca i writer, le copie shadow o provider di copie shadow attualmente registrato che sono nel sistema.|  
-|[eliminare le ombreggiature](delete-shadows.md)|Elimina le copie shadow.|  
-|[import](import.md)|Importa una copia shadow trasportabili da un file dei metadati caricati nel sistema.|  
-|[mask](mask.md)|Rimuove le copie shadow hardware che sono state importate usando il **importare** comando.|  
-|[expose](expose.md)|espone una copia permanente come una lettera di unità, una condivisione o un punto di montaggio.|  
-|[unexpose](unexpose.md)|unexposes una copia shadow esposta tramite il **esporre** comando.|  
-|[break_2](break_2.md)|Rimuove l'associazione di un volume copia shadow da VSS.|  
-|[revert](revert.md)|Ripristina un volume in una copia shadow specificata.|  
-|[exit_1](exit_1.md)|esce da diskshadow.|  
+|[set_2](set_2.md)|Imposta il contesto, le opzioni, la modalità dettagliata e il file di metadati per la creazione di copie shadow.|  
+|[Simula ripristino](simulate-restore.md)|Verifica il coinvolgimento del writer nelle sessioni di ripristino nel computer senza inviare eventi di **preripristino** o di **ripristino** a writer.|  
+|[Carica metadati](load-metadata.md)|Carica un file con estensione cab metadati prima di importare una copia shadow trasportabili o carica i metadati del writer in caso di ripristino.|  
+|[Writer](writer.md)|Verifica che un writer o un componente sia incluso o escluda un writer o un componente dalla procedura di backup o ripristino.|  
+|[add_1](add_1.md)|Aggiunge volumi al set di volumi di cui deve essere eseguita la copia shadow o aggiunge alias all'ambiente alias.|  
+|[create_1](create_1.md)|Avvia il processo di creazione della copia shadow, usando il contesto e le impostazioni dell'opzione correnti.|  
+|[Exec](exec.md)|esegue un file nel computer locale.|  
+|[Avvia backup](begin-backup.md)|avvia una sessione di backup completo.|  
+|[Termina backup](end-backup.md)|Termina una sessione di backup completo e genera un evento **BackupComplete** con lo stato del writer appropriato, se necessario.|  
+|[Avvia ripristino](begin-restore.md)|Avvia una sessione di ripristino e genera un evento di **preripristino** per i writer necessari.|  
+|[Fine ripristino](end-restore.md)|Termina una sessione di ripristino e i problemi di un **PostRestore** eventi per gli scrittori coinvolti.|  
+|[reimpostazione](reset.md)|Reimposta DiskShadow sullo stato predefinito.|  
+|[elenco](list.md)|Elenca i writer, le copie shadow o i provider di copie shadow attualmente registrati presenti nel sistema.|  
+|[Elimina ombre](delete-shadows.md)|Elimina le copie shadow.|  
+|[import](import.md)|importa una copia shadow trasportabile da un file di metadati caricato nel sistema.|  
+|[maschera](mask.md)|rimuove le copie shadow dell'hardware importate tramite il comando **Import** .|  
+|[esporre](expose.md)|Espone una copia shadow permanente come una lettera di unità, una condivisione o un punto di montaggio.|  
+|[volume x:.](unexpose.md)|non espone una copia shadow esposta tramite il comando **Expose** .|  
+|[break_2](break_2.md)|Annulla l'associazione di un volume di copia shadow da VSS.|  
+|[ripristinare](revert.md)|Ripristina un volume a una copia shadow specificata.|  
+|[exit_1](exit_1.md)|esce da DiskShadow.|  
   
 ## <a name="remarks"></a>Note  
   
--   come minimo, solo **aggiungere** e **creare** sono necessari per creare una copia shadow. Tuttavia, si perderanno le impostazioni di contesto e l'opzione, sarà un backup di copia e solo creerà una copia shadow con nessuno script di esecuzione di backup.  
+-   come minimo, è necessario **aggiungere** e **creare** solo per creare una copia shadow. In questo modo, tuttavia, le impostazioni relative al contesto e alle opzioni saranno un backup di copia e verrà creata solo una copia shadow senza script di esecuzione di backup.  
   
 ## <a name="BKMK_examples"></a>Esempi  
-Si tratta di una sequenza di esempio di comandi che verrà creata una copia shadow per il backup. Può essere salvato in un file con script.dsh ed eseguita con diskshadow \/script.dsh s  
+Si tratta di una sequenza di comandi di esempio che creerà una copia shadow per il backup. È possibile salvarlo nel file come script. DSH ed eseguirlo con lo script DiskShadow \/. DSH  
   
-Si presupponga quanto segue:  
+Si supponga quanto segue:  
   
--   Si dispone di una directory esistente denominata c:\\diskshadowdata.  
+-   Si dispone di una directory esistente denominata c: \\diskshadowdata.  
   
--   Il volume di sistema è c: e il volume di dati è il d:.  
+-   Il volume di sistema è C: e il volume di dati è D:.  
   
--   Si dispone di un file backupscript.cmd in c:\\diskshadowdata.  
+-   Si dispone di un file backupscript. cmd in c: \\diskshadowdata.  
   
--   Il file backupscript.cmd eseguirà la copia di p: dati di ombreggiatura e d: per l'unità di backup.  
+-   Il file backupscript. cmd eseguirà la copia dei dati Shadow p: e q: nell'unità di backup.  
   
-È possibile immettere questi comandi manualmente o uno script:  
+È possibile immettere questi comandi manualmente o crearne uno script:  
   
 ```  
 #diskshadow script file  
@@ -109,6 +109,6 @@ end backup
 ```  
   
 #### <a name="additional-references"></a>Riferimenti aggiuntivi  
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)  
+[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)  
   
 

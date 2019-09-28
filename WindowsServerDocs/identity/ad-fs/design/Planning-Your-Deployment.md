@@ -7,27 +7,27 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 0206197b24f13d80019cbc864057e99e195ebc4b
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 607dc34c8f44d8d96a8dc0c9d1ed004edc799167
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66191142"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71407991"
 ---
 # <a name="planning-your-deployment"></a>Pianificazione della distribuzione
 
-Quando si pianifica la cross\-dell'organizzazione \(federation\-basata\) collaborazione usando Active Directory Federation Services \(ADFS\), determinare innanzitutto se l'organizzazione ospiterà una risorsa Web a cui accedere da altre organizzazioni su Internet o se si intende fornire l'accesso alla risorsa Web per i dipendenti dell'organizzazione. Questo aspetto influisce sul modo in cui si distribuisce ADFS ed è determinante per la pianificazione dell'infrastruttura AD FS.  
+Quando si pianifica la collaborazione tra @ no__t-0organizational \(federation @ no__t-2based @ no__t-3 con Active Directory Federation Services \(AD FS @ no__t-5, determinare innanzitutto se l'organizzazione ospiterà una risorsa Web a cui accedere da altri organizzazioni in Internet o se si fornirà l'accesso alla risorsa Web per i dipendenti dell'organizzazione. Questa determinazione influiscono sul modo in cui si distribuisce AD FS ed è fondamentale per la pianificazione dell'infrastruttura AD FS.  
   
 > [!NOTE]  
 > Assicurarsi che il ruolo dell'organizzazione nel contratto di federazione sia ben chiaro a tutte le parti.  
   
-Per il [Federated Web SSO Design](Federated-Web-SSO-Design.md), AD FS Usa, ad esempio termini *partner account* \(noto anche come *provider di identità* nello snap di gestione di AD FS\-nelle\) e *partner risorse* \(noto anche come *relying party* nello snap di gestione di AD FS\-in\) a distinguere l'organizzazione che ospita gli account \(partner account\) dall'organizzazione che ospita Web\-risorse basate su \(partner risorse\).  
+Per il [progetto SSO Web federativo](Federated-Web-SSO-Design.md), ad FS usa termini quali il *partner account* \(also definito provider di *identità* nello snap-in di gestione ad FS @ no__t-4in @ no__t-5 e il *partner risorse* \(also indicato come  *relying party* nello snap-in gestione ad FS @ no__t-9in @ no__t-10 per distinguere l'organizzazione che ospita gli account 1The account partner @ no__t-12 dall'organizzazione che ospita la risorsa Web @ no__t-13based risorse 4a partner @ no__t-15.  
   
 Nel [Web SSO Design](Web-SSO-Design.md)l'organizzazione riveste entrambi i ruoli di partner account e di partner risorse, perché fornisce ai suoi utenti l'accesso alle sue applicazioni.  
   
-Gli argomenti seguenti illustrano che alcune di AD FS concetti di organizzazione del partner. Contengono anche collegamenti ad argomenti della Guida alla distribuzione di AD FS che contengono informazioni sull'impostazione e configurazione di organizzazioni partner account e le organizzazioni partner risorse in base agli obiettivi di distribuzione di AD FS.  
+Negli argomenti seguenti vengono illustrati alcuni dei concetti AD FS dell'organizzazione partner. Contengono inoltre collegamenti ad argomenti della Guida alla distribuzione di AD FS che contengono informazioni sulla configurazione e la configurazione di organizzazioni partner account e organizzazioni partner risorse in base agli obiettivi di distribuzione di AD FS.  
   
 ## <a name="in-this-section"></a>Contenuto della sezione  
   
@@ -35,7 +35,7 @@ Gli argomenti seguenti illustrano che alcune di AD FS concetti di organizzazione
   
 -   [Pianificazione per l'interoperabilità con AD FS 1.x](Planning-for-Interoperability-with-AD-FS-1.x.md)  
   
--   [Quando usare la delega dell'identità](When-to-Use-Identity-Delegation.md)  
+-   [Quando usare la delega di identità](When-to-Use-Identity-Delegation.md)  
   
 -   [Distribuzione di AD FS nell'organizzazione partner account](Deploying-AD-FS-in-the-Account-Partner-Organization-2012.md)  
   

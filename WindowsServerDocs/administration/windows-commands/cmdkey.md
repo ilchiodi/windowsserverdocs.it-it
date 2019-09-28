@@ -1,8 +1,8 @@
 ---
 title: cmdkey
-description: 'Argomento i comandi di Windows per * * *- '
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 5c06a04fa6473bc30c3b354f049a55775d2308a0
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: dc2b12cb53eef930d05c1e291de5574a8ba94306
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66434308"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71379315"
 ---
 # <a name="cmdkey"></a>cmdkey
 
@@ -34,32 +34,32 @@ cmdkey [{/add:<TargetName>|/generic:<TargetName>}] {/smartcard|/user:<UserName> 
 
 |             Parametri             |                                                                                    Descrizione                                                                                     |
 |------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|         /add:<TargetName>          | Aggiunge un nome utente e una password per l'elenco.<br /><br />Richiede che il parametro di <TargetName> che identifica il nome di dominio o computer che verrà associato questo movimento. |
-|       /generic:<TargetName>        |   Aggiunge le credenziali generiche all'elenco.<br /><br />Richiede che il parametro di <TargetName> che identifica il nome di dominio o computer che verrà associato questo movimento.    |
-|             /smartcard             |                                                                    Recupera le credenziali da una smart card.                                                                     |
-|          /User:<UserName>          |                                 Specifica l'utente o il nome dell'account per l'archiviazione con questo movimento. Se *UserName* viene omesso, si verrà richiesto.                                  |
-|          /pass:<Password>          |                                       Specifica la password per l'archiviazione con questo movimento. Se *Password* viene omesso, si verrà richiesto.                                        |
-| /delete{:<TargetName> &#124; /ras} |  Elimina un nome utente e password dall'elenco. Se *TargetName* viene specificato, che verrà eliminata la voce. Se viene specificato /ras, verrà eliminata la voce di accesso remoto archiviati.   |
-|         /List:<TargetName>         |                  Visualizza l'elenco di nomi utente archiviato e le credenziali. Se *TargetName* non i nomi utente specificato, tutte le stored e le credenziali verranno elencate.                   |
+|         /Add: <TargetName>          | aggiunge un nome utente e una password all'elenco.<br /><br />Richiede il parametro di <TargetName> che identifica il computer o il nome di dominio a cui verrà associata questa voce. |
+|       /problemi generici: <TargetName>        |   aggiunge credenziali generiche all'elenco.<br /><br />Richiede il parametro di <TargetName> che identifica il computer o il nome di dominio a cui verrà associata questa voce.    |
+|             /Smartcard             |                                                                    Recupera le credenziali da una smart card.                                                                     |
+|          /User: <UserName>          |                                 Specifica il nome dell'utente o dell'account da archiviare con questa voce. Se il *nome utente* non viene specificato, verrà richiesto.                                  |
+|          /Pass: <Password>          |                                       Specifica la password da archiviare con questa voce. Se la *password* non viene specificata, verrà richiesta.                                        |
+| /Delete{: <TargetName> &#124; /RAS} |  Elimina un nome utente e una password dall'elenco. Se *TargetName* è specificato, la voce verrà eliminata. Se si specifica/RAS, la voce di accesso remoto archiviata verrà eliminata.   |
+|         /list: <TargetName>         |                  Visualizza l'elenco dei nomi utente e delle credenziali archiviati. Se *TargetName* non è specificato, verranno elencati tutti i nomi utente e le credenziali archiviati.                   |
 |                 /?                 |                                                                        Visualizza la guida al prompt dei comandi.                                                                        |
 
 ## <a name="remarks"></a>Note
-- Se viene trovata più di una smart card nel sistema quando viene utilizzata l'opzione della riga di comando di /smartcard, **cmdkey** visualizzerà informazioni su tutte le smart card disponibile e quindi verrà richiesto all'utente di specificare l'immagine da usare.
-- Le password non verranno visualizzate dopo che sono archiviati.
+- Se viene trovata più di una smart card nel sistema quando viene usata l'opzione della riga di comando/smartcard, **cmdkey** visualizzerà informazioni su tutte le smart card disponibili, quindi chiederà all'utente di specificare quale usare.
+- Le password non verranno visualizzate dopo l'archiviazione.
   ## <a name="BKMK_examples"></a>Esempi
-  Per visualizzare un elenco di tutti i nomi utente e le credenziali archiviate, digitare:
+  Per visualizzare un elenco di tutti i nomi utente e le credenziali archiviati, digitare:
   ```
   cmdkey /list
   ```
-  Per aggiungere un nome utente e password per consentire all'utente bianchi accesso computer Server01 con la password Kleo, digitare:
+  Per aggiungere un nome utente e una password per l'utente Zaffaronif per accedere al computer Server01 con la password Kleo, digitare:
   ```
   cmdkey /add:server01 /user:mikedan /pass:Kleo
   ```
-  Per aggiungere un nome utente e password per consentire all'utente bianchi per accedere a computer Server01 e Richiedi la password ogni volta che si accede a Server01, digitare:
+  Per aggiungere un nome utente e una password per l'utente Zaffaronif per accedere al computer Server01 e richiedere la password ogni volta che viene eseguito l'accesso a Server01, digitare:
   ```
   cmdkey /add:server01 /user:mikedan
   ```
-  Per eliminare le credenziali di accesso remoto è archiviato, digitare:
+  Per eliminare le credenziali archiviate da accesso remoto, digitare:
   ```
   cmdkey /delete /ras
   ```

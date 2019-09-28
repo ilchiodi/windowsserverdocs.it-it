@@ -6,15 +6,15 @@ author: MicrosoftGuyJFlo
 manager: mtillman
 ms.date: 08/09/2018
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.assetid: 5a291f65-794e-4fc3-996e-094c5845a383
 ms.technology: identity-adds
-ms.openlocfilehash: ca942691a88465061ebbde2b78314844a694fbf2
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: a369347fe889c7f6675d0091d05a6dee93cb4434
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70868200"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71369071"
 ---
 # <a name="perform-initial-recovery"></a>Eseguire il ripristino iniziale  
 
@@ -34,7 +34,7 @@ Al termine del ripristino del dominio radice della foresta, ripetere gli stessi 
   
 Per ogni dominio ripristinato, ripristinare un solo controller di dominio scrivibile da un backup. Questa è la parte più importante del ripristino perché il controller di dominio deve avere un database che non è stato influenzato da ciò che ha causato la mancata riuscita della foresta. È importante disporre di un backup attendibile testato accuratamente prima di essere introdotto nell'ambiente di produzione. 
   
-Quindi, eseguire i passaggi seguenti. Le procedure per l'esecuzione di alcuni passaggi sono [le procedure per il ripristino della foresta Active Directory](AD-Forest-Recovery-Procedures.md). 
+Eseguire quindi i passaggi seguenti. Le procedure per l'esecuzione di alcuni passaggi sono [le procedure per il ripristino della foresta Active Directory](AD-Forest-Recovery-Procedures.md). 
   
 1. Se si prevede di ripristinare un server fisico, verificare che il cavo di rete del controller di dominio di destinazione non sia collegato e che quindi non sia connesso alla rete di produzione. Per una macchina virtuale, è possibile rimuovere la scheda di rete o usare una scheda di rete collegata a un'altra rete in cui è possibile testare il processo di ripristino mentre è isolato dalla rete di produzione. 
   

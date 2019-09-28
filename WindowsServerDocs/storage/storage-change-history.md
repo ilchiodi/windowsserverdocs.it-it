@@ -1,7 +1,7 @@
 ---
 ms.assetid: 87174225-a60f-4718-b4cc-9b172f205b72
 title: Cronologia delle modifiche per argomenti relativi all'archiviazione
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: storage
 ms.topic: article
 author: JasonGerend
@@ -9,16 +9,16 @@ manager: brianlic
 ms.author: jgerend
 ms.date: 08/19/2019
 description: Argomenti nuovi e aggiornati nella documentazione di archiviazione locale per Windows Server per professionisti IT.
-ms.openlocfilehash: d5ab2d8ae4ca90e259f8bc996494439190bc5279
-ms.sourcegitcommit: e2b565ce85a97c0c51f6dfe7041f875a265b35dd
+ms.openlocfilehash: ce937dfb5c6c0b46c8085cbb202590567ea829d3
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69584825"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71393926"
 ---
 # <a name="change-history-for-storage-topics-in-windows-server"></a>Cronologia delle modifiche per gli argomenti relativi all'archiviazione in Windows Server
 
-> Si applica a Windows Server 2019, Windows Server 2016, Windows Server (Canale semestrale)
+> Si applica a: Windows Server 2019, Windows Server 2016, Windows Server (Canale semestrale)
 
 Questo argomento elenca gli argomenti nuovi e aggiornati nella documentazione di [archiviazione](storage.md) per Windows Server.
 
@@ -198,7 +198,7 @@ Questo argomento elenca gli argomenti nuovi e aggiornati nella documentazione di
 |[Informazioni sulla cache in Spazi di archiviazione diretta](storage-spaces/understand-the-cache.md)|Aggiunto un video di considerazioni sulla progettazione di Spazi di archiviazione diretta.|
 |[Domande frequenti su replica archiviazione](storage-replica/storage-replica-frequently-asked-questions.md)|Aggiunta di procedure consigliate per i volumi di log.|
 
-## <a name="june-2017"></a>giugno 2017
+## <a name="june-2017"></a>Giugno 2017
 
 |Argomento nuovo o modificato|Descrizione|
 |---|---|
@@ -207,7 +207,7 @@ Questo argomento elenca gli argomenti nuovi e aggiornati nella documentazione di
 |[Distribuzione di Spazi di archiviazione diretta](storage-spaces/deploy-storage-spaces-direct.md)|Rimozione di Nano Server dalle opzioni di installazione supportate.|
 |[Gestione risorse file server](fsrm/fsrm-overview.md)|Nuovo argomento per Windows Server 2016.|
 
-## <a name="may-2017"></a>maggio 2017
+## <a name="may-2017"></a>Maggio 2017
 
 |                                                           Argomento nuovo o modificato                                                           |                                          Descrizione                                           |
 |------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------|

@@ -1,8 +1,8 @@
 ---
 title: prompt_1 FTP
-description: 'Argomento i comandi di Windows per * * *- '
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 65f7505dfcb3677fcaace9bd645cca7e7ba70b7d
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 08c7f9c14f4168bb5d3aa874711669eede8d0d87
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66438589"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71376203"
 ---
-# <a name="ftp-prompt1"></a>ftp: prompt_1
+# <a name="ftp-prompt_1"></a>FTP: prompt_1
 
 >Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Alternativamente **prompt dei comandi** disattiva la modalità.   
+Consente di attivare e disattivare la modalità di **richiesta** .   
 ## <a name="syntax"></a>Sintassi  
 ```  
 prompt  
@@ -32,10 +32,10 @@ prompt
 ### <a name="parameters"></a>Parametri  
 nessuno  
 ## <a name="remarks"></a>Note  
-- Per impostazione predefinita **prompt dei comandi** si trova in.  
-- **FTP** richiede durante il trasferimento di file più che consente di recuperare o archiviare i file in modo selettivo.  **Mget** e **mput** trasferire tutti i file se **prompt** è disattivata.  
+- Per impostazione predefinita, il **prompt** è on.  
+- richieste **FTP** durante i trasferimenti di più file per consentire di recuperare o archiviare i file in modo selettivo.  **Mget** e **mput** trasferiscono tutti i file se la **richiesta** è disattivata.  
   ## <a name="BKMK_Examples"></a>Esempi  
-  Attiva/Disattiva modalità dei messaggi di richiesta e disattivare.  
+  Attiva o disattiva la modalità di richiesta.  
   ```  
   prompt  
   ```  

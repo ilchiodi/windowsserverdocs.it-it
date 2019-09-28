@@ -7,14 +7,14 @@ ms.author: joflore
 manager: mtillman
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: d21491f5ce9c15ecc514e4be24a91de28b0fd0ce
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: a23ba4ac8bbdb076381c8419e3a0821bee364acf
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59890972"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71409037"
 ---
 # <a name="ad-ds-deployment-requirements"></a>Requisiti di distribuzione di Active Directory Domain Services
 

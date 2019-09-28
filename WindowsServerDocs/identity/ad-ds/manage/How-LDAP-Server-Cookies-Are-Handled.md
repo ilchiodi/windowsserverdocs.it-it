@@ -7,14 +7,14 @@ ms.author: joflore
 manager: mtillman
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 873953155d22bafef5b042887b22e953ff580b5c
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: c825ae9c9b52068b58b99bc6ff597304c9643d17
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67280577"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71390076"
 ---
 # <a name="how-ldap-server-cookies-are-handled"></a>Come vengono gestiti i cookie del server LDAP
 
@@ -26,17 +26,17 @@ Raccogliere e compilare questi set di risultati di grandi dimensioni rappresenta
   
 Un altro problema è costituito dal fatto che i set di risultati con decine di migliaia di oggetti diventano enormi, raggiungendo spesso diverse centinaia di megabyte richiedendo pertanto una quantità elevata di spazio degli indirizzi virtuali. Anche il trasferimento tramite rete presenta dei problemi in quanto tutto il lavoro viene perso se durante il trasferimento la sessione TCP si interrompe.  
   
-Queste capacità e i problemi di logistici hanno portato gli sviluppatori LDAP di Microsoft per la creazione di un'estensione LDAP nota come "Query di paging". Tale estensione implementa un controllo LDAP per separare una query di grandi dimensioni in blocchi di set di risultati più piccoli. È diventato uno standard RFC come [RFC 2696](http://www.ietf.org/rfc/rfc2696).  
+Questi problemi di capacità e logistica hanno portato gli sviluppatori Microsoft LDAP a creare un'estensione LDAP nota come "query di paging". Tale estensione implementa un controllo LDAP per separare una query di grandi dimensioni in blocchi di set di risultati più piccoli. È diventato uno standard RFC come [rfc 2696](http://www.ietf.org/rfc/rfc2696).  
   
 ## <a name="cookie-handling-on-client"></a>Gestione dei cookie nel client  
-Il metodo di Query di paging Usa le dimensioni di pagina impostate dal client o tramite un [criteri LDAP](https://support.microsoft.com/kb/315071/en-us) ("MaxPageSize"). Il client deve sempre abilitare il paging inviando un controllo LDAP.  
+Il metodo di query di paging usa le dimensioni di pagina impostate dal client o tramite un [criterio LDAP](https://support.microsoft.com/kb/315071/en-us) ("MaxPageSize"). Il client deve sempre abilitare il paging inviando un controllo LDAP.  
 
   
 Quando si usa una query con molti risultati, a un certo punto viene raggiunto il numero massimo di oggetti consentiti. Il server LDAP suddivide il messaggio di risposta in pacchetti e aggiunge un cookie che contiene le informazioni necessarie per continuare la ricerca.  
   
 L'applicazione client deve considerare il cookie come un BLOB opaco. Può recuperare il conteggio degli oggetti nella risposta e può continuare la ricerca in base alla presenza del cookie. Il client continua la ricerca inviando di nuovo la query al server LDAP con gli stessi parametri come l'oggetto e il filtro di base e include il valore del cookie restituito nella risposta precedente.  
   
-Se il numero di oggetti non riempie una pagina, la query LDAP risulterà completa e la risposta non contiene alcun cookie di pagina. Se dal server non viene restituito alcun cookie, il client deve considerare la ricerca di paging completata.  
+Se il numero di oggetti non riempie una pagina, la query LDAP è completa e la risposta non contiene cookie di pagina. Se dal server non viene restituito alcun cookie, il client deve considerare la ricerca di paging completata.  
   
 Se dal server viene restituito un errore, il client deve considerare la ricerca di paging non riuscita. Se si riprova, la ricerca verrà riavviata dalla prima pagina.  
   
@@ -48,15 +48,15 @@ In questo caso, il cookie inviato al client dal server viene usato anche dal ser
 ## <a name="how-the-cookie-pool-is-managed"></a>Come viene gestito il pool di cookie  
 Ovviamente, il server LDAP gestisce più di un client alla volta ed è anche possibile che più client alla volta avviino una query che richiede l'uso della cache dei cookie del server. Pertanto l'implementazione di Windows Server prevede di tenere traccia dell'utilizzo del pool di cookie e vengono applicati alcuni limiti in modo tale che il pool di cookie non richieda una quantità eccessiva di risorse. I limiti possono essere impostati dall'amministratore usando le seguenti impostazioni nei criteri LDAP. Le impostazioni predefinite e le spiegazioni sono:  
   
-**MinResultSets: 4**  
+**MinResultSets: 4 @ no__t-0  
   
 Il server LDAP non considera le dimensioni massime del pool descritte di seguito, se nella cache dei cookie del server è presente un numero inferiore di voci rispetto a MinResultSets.  
   
-**MaxResultSetSize: 262.144 byte**  
+**MaxResultSetSize: 262.144 byte @ no__t-0  
   
 Le dimensioni totali della cache dei cookie nel server non devono superare il numero massimo di MaxResultSetSize in byte. Altrimenti, vengono eliminati i cookie meno recenti fino a quando le dimensioni in byte del pool non sono inferiori a MaxResultSetSize o nel pool non sia presente un numero di cookie inferiore a MinResultSets. Ciò significa che usando le impostazioni predefinite, il server LDAP considera come valore ottimale un pool di 450 KB se sono archiviati solo 3 cookie.  
   
-**MaxResultSetsPerConn: 10**  
+**MaxResultSetsPerConn: 10 @ no__t-0  
   
 Il server LDAP non consente un numero di cookie maggiore di MaxResultSetsPerConn per ogni connessione LDAP nel pool.  
   
@@ -72,10 +72,10 @@ Cosa accade quando un cookie viene eliminato nel server e il client continua la 
 ```  
   
 > [!NOTE]  
-> Il valore esadecimale dietro "DSID" variano a seconda della versione di build dei file binari del server LDAP.  
+> Il valore esadecimale "DSID" può variare a seconda della versione di build dei file binari del server LDAP.  
   
 ## <a name="reporting-on-the-cookie-pool"></a>Creazione di report nel pool di cookie  
-Il Server LDAP ha la possibilità di registrare eventi fino alla categoria "16 interfaccia Ldap" [chiave diagnostica NTDS](https://support.microsoft.com/kb/314980/en-us). Se si imposta questa categoria su "2", è possibile ottenere gli eventi seguenti:  
+Il server LDAP è in grado di registrare gli eventi tramite la categoria "16 Interface LDAP" nella [chiave di diagnostica NTDS](https://support.microsoft.com/kb/314980/en-us). Se si imposta questa categoria su "2", è possibile ottenere gli eventi seguenti:  
   
 ```  
 Log Name:      Directory Service  
@@ -126,11 +126,11 @@ Gli eventi 2898 e 2899 rappresentano l'unico modo per sapere se il server LDAP h
   
 Se nel controller di dominio o nel server LDAP viene visualizzato l'evento 2898, è consigliabile impostare MaxResultSetsPerConn su 25. In genere non si eseguono più di 25 ricerche di paging parallele in una singola connessione LDAP. Se l'evento 2898 persiste, provare a cercare la causa dell'errore nell'applicazione client LDAP. Potrebbe essere possibile che l'applicazione rimanga in qualche modo bloccata durante il recupero di altri risultati di paging lasciando il cookie in sospeso e riavviando quindi una nuova query. Per questo motivo è opportuno valutare se l'applicazione dispone di cookie sufficienti per lo scopo. È anche possibile aumentare il valore di MaxResultSetsPerConn impostando un valore maggiore di 25. Quando invece nei controller di dominio viene visualizzato l'evento 2899, la soluzione sarà diversa. Se il controller di dominio o il server LDAP viene eseguito in un computer con memoria sufficiente (diversi GB di memoria disponibile), è consigliabile impostare MaxResultsetSize su un valore maggiore di 250 MB nel server LDAP. Questo limite è sufficiente per soddisfare volumi elevati di ricerche di pagina LDAP anche in directory di dimensioni molto grandi.  
   
-Se l'evento 2899 persiste con un pool di 250 MB o più, è probabile che molti client con un numero elevato di oggetti restituiti abbiamo eseguito una query con un'elevata frequenza. I dati è possibile raccogliere con il [insieme agenti di raccolta dati di Active Directory](http://blogs.technet.com/b/askds/archive/2010/06/08/son-of-spa-ad-data-collector-sets-in-win2008-and-beyond.aspx) può occupato consentono di trovare query di paging ripetitive che mantengono i server LDAP. Tali query verranno visualizzate con un numero di "Voci restituite" che corrisponde alle dimensioni della pagina usata.  
+Se l'evento 2899 persiste con un pool di 250 MB o più, è probabile che molti client con un numero elevato di oggetti restituiti abbiamo eseguito una query con un'elevata frequenza. I dati che è possibile raccogliere con il [Active Directory insieme agenti di raccolta dati](http://blogs.technet.com/b/askds/archive/2010/06/08/son-of-spa-ad-data-collector-sets-in-win2008-and-beyond.aspx) consentono di trovare query di paging ripetitive che mantengono occupato il server LDAP. Queste query vengono visualizzate con una serie di "voci restituite" corrispondenti alle dimensioni della pagina utilizzata.  
   
-Se possibile, è necessario rivedere la progettazione dell'applicazione e implementare un approccio diverso con una frequenza inferiore, volume di dati e/o meno istanze del client relative a questi dati. In caso di applicazioni per cui si dispone di accesso al codice sorgente, questa guida per [creazione di applicazioni efficienti AD-Enabled](https://msdn.microsoft.com/library/ms808539.aspx) possono aiutare a comprendere il modo ottimale per l'accesso AD delle applicazioni.  
+Se possibile, è consigliabile esaminare la progettazione dell'applicazione e implementare un approccio diverso con una frequenza inferiore, un volume di dati e/o un minor numero di istanze client che eseguono query su questi dati. Nel caso delle applicazioni per le quali si dispone dell'accesso al codice sorgente, questa guida alla [creazione di applicazioni efficienti abilitate per Active Directory](https://msdn.microsoft.com/library/ms808539.aspx) può essere utile per comprendere il modo ottimale per accedere AD Active Directory.  
   
-Se non è possibile modificare il comportamento di query, un approccio consiste nell'aggiungere più istanze replicate dei contesti dei nomi necessiti per ridistribuire i client e alla fine di ridurre il carico sui singoli server LDAP.  
+Se non è possibile modificare il comportamento della query, un approccio prevede anche l'aggiunta di altre istanze replicate dei contesti di denominazione necessari e la ridistribuzione dei client e infine la riduzione del carico sui singoli server LDAP.  
   
 
 

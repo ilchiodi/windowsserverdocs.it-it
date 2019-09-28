@@ -1,8 +1,8 @@
 ---
 title: Comandi in base al ruolo del server
-description: 'Argomento i comandi di Windows per * * *- '
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,20 +13,20 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 6a855926b9648a7c0f1a0db3e59ca802f8654ab0
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 5201e7291ce93c6bc45180aa8b9df2e36409c8f8
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59873752"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71379249"
 ---
 # <a name="commands-by-server-role"></a>Comandi in base al ruolo del server
 
 >Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Un ruolo del server viene descritta la funzione primaria del server. Gli amministratori possono scegliere di dedicare un intero server a un ruolo, oppure installare più ruoli del server e i ruoli secondari in un singolo computer. Ogni ruolo può includere altri strumenti da riga di comando, installati come parte del ruolo. Gli argomenti seguenti forniscono un elenco di comandi associati a ogni ruolo del server.
+Un ruolo del server descrive la funzione principale del server. Gli amministratori possono scegliere di dedicare un intero server a un ruolo oppure di installare più ruoli server e ruoli secondari in un singolo computer. Ogni ruolo può includere altri strumenti da riga di comando, installati come parte del ruolo. Negli argomenti seguenti viene fornito un elenco di comandi associati a ogni ruolo del server.
 
--   [Riferimenti ai comandi di stampa](print-command-reference.md)
--   [Servizi per riferimento ai comandi di Network File System](services-for-network-file-system-command-reference.md)
--   [Servizi Desktop remoto &#40;servizi Terminal&#41; Guida comandi](remote-desktop-services-terminal-services-command-reference.md)
--   [Riferimento di comando di Backup di Windows Server](windows-server-backup-command-reference.md)
+-   [Informazioni di riferimento sui comandi di stampa](print-command-reference.md)
+-   [Informazioni di riferimento sui comandi di Servizi per NFS](services-for-network-file-system-command-reference.md)
+-   [Guida &#40;di riferimento&#41; ai comandi di Servizi Desktop remoto Servizi terminal](remote-desktop-services-terminal-services-command-reference.md)
+-   [Informazioni di riferimento sui comandi di Windows Server Backup](windows-server-backup-command-reference.md)

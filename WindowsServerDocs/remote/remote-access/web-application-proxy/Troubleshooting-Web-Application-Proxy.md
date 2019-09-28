@@ -5,21 +5,21 @@ author: kgremban
 manager: femila
 ms.date: 07/13/2016
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.assetid: a2fef55d-747b-4e20-8f21-5f8807e7ef87
 ms.technology: web-app-proxy
-ms.openlocfilehash: c63dbc415765cbe60bfbde7bf180f3dd967d6ab8
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: c772b2717ebca02f972027dccb92abd8d69bea6a
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59841582"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71388018"
 ---
 # <a name="troubleshooting-web-application-proxy"></a>Risoluzione dei problemi di Proxy applicazione Web
 
 >Si applica a: Windows Server 2016
 
-**Questo contenuto è rilevante per la versione locale del Proxy applicazione Web. Per abilitare l'accesso sicuro alle applicazioni locali tramite il cloud, vedere la [contenuto di Azure AD Application Proxy](https://azure.microsoft.com/documentation/articles/active-directory-application-proxy-get-started/).**  
+il contenuto **Stanziamento è pertinente per la versione locale del proxy applicazione Web. Per abilitare l'accesso sicuro alle applicazioni locali tramite il cloud, vedere il [Azure ad contenuto del proxy dell'applicazione](https://azure.microsoft.com/documentation/articles/active-directory-application-proxy-get-started/).**  
   
 Questa sezione vengono fornite le procedure di risoluzione dei problemi per il Proxy di applicazione Web incluse soluzioni e le spiegazioni di eventi. Ci sono tre posizioni in cui vengono visualizzati errori:  
   
@@ -57,7 +57,7 @@ I seguenti eventi console di amministrazione sono in genere indicativi di errori
   
 |Evento o sintomo|Possibile causa|Risoluzione|  
 |--------------------|------------------|--------------|  
-|11005<br /><br />Proxy applicazione Web Impossibile creare la chiave di crittografia cookie utilizzando la chiave privata dalla configurazione.|Il parametro di configurazione globale "AccessCookiesEncryptionKey" è stato modificato dal comando PowerShell: Set-WebApplicationProxyConfiguration -RegenerateAccessCookiesEncryptionKey|Non è necessaria alcuna azione. Il cookie problematico è stato rimosso e l'utente è stato reindirizzato al servizio token di sicurezza per l'autenticazione.|  
+|11005<br /><br />Proxy applicazione Web Impossibile creare la chiave di crittografia cookie utilizzando la chiave privata dalla configurazione.|Il parametro "AccessCookiesEncryptionKey" della configurazione globale è stato modificato dal comando di PowerShell: Set-WebApplicationProxyConfiguration-RegenerateAccessCookiesEncryptionKey|Non è necessaria alcuna azione. Il cookie problematico è stato rimosso e l'utente è stato reindirizzato al servizio token di sicurezza per l'autenticazione.|  
 |12000<br /><br />Proxy applicazione Web Impossibile verificare le modifiche di configurazione per almeno 60 minuti|Proxy applicazione Web non può accedere alla configurazione di Proxy applicazione Web utilizzando il comando Get-WebApplicationProxyConfiguration o dell'applicazione. Questo è in genere causato da mancanza di connettività con ADFS o dover rinnovare relazione di trust con ADFS.|Verificare la connettività con AD FS. È possibile farlo utilizzando il collegamento di https://<FQDN_AD_FS_Proxy>/FederationMetadata/2007-06/FederationMetadata.xmlMake che vi sia attendibilità stabilita tra ADFS e Proxy applicazione Web. Se queste soluzioni non funzionano, eseguire il Cmdlet Install-WebApplicationProxy.|  
 |12003<br /><br />Proxy applicazione Web non è riuscito ad analizzare il cookie di accesso.|Questo può indicare che il Proxy dell'applicazione Web e AD FS non sono connessi o che non ricevono la stessa configurazione.|Verificare la connettività con AD FS. È possibile farlo utilizzando il collegamento di https://<FQDN_AD_FS_Proxy>/FederationMetadata/2007-06/FederationMetadata.xmlMake che vi sia attendibilità stabilita tra ADFS e Proxy applicazione Web. Se queste soluzioni non funzionano, eseguire il Cmdlet Install-WebApplicationProxy.|  
 |12004<br /><br />Proxy applicazione Web ha ricevuto una richiesta con un cookie di accesso non validi.|Questo evento può indicare che il Proxy dell'applicazione Web e AD FS non sono connessi o che non ricevono la stessa configurazione.<br /><br />Se è stato eseguito il parametro "AccessCookiesEncryptionKey" è stato chaged dal comando di PowerShell Set-WebApplicationProxyConfiguration - RegenerateAccessCookiesEncryptionKey, questo evento è normale e non eseguire passaggi di risoluzione.|Verificare la connettività con AD FS. È possibile farlo utilizzando il collegamento di https://<FQDN_AD_FS_Proxy>/FederationMetadata/2007-06/FederationMetadata.xmlMake che vi sia attendibilità stabilita tra ADFS e Proxy applicazione Web. Se queste soluzioni non funzionano, eseguire il Cmdlet Install-WebApplicationProxy.|  
@@ -88,13 +88,13 @@ I seguenti eventi di console di amministrazione sono in genere indicativi di pro
 |12019<br /><br />Proxy applicazione Web Impossibile creare un listener per l'URL seguente.|Delle possibile cause per l'evento è che un altro servizio sia in ascolto allo stesso URL.|L'amministratore deve assicurarsi che non è in ascolto o associa gli stessi URL. A tale scopo, eseguire il comando: netsh http show urlacl. Se questo URL viene utilizzato da un altro componente in esecuzione sul computer Proxy applicazione Web, rimuoverla o utilizzare un URL diverso per pubblicare applicazioni mediante Proxy applicazione Web.|  
 |12020<br /><br />Proxy applicazione Web Impossibile creare una prenotazione per l'URL seguente.|Una possibile causa l'evento è che un altro servizio disponga di una prenotazione per lo stesso URL.|L'amministratore deve assicurarsi che nessun altro associa gli stessi URL. A tale scopo, eseguire il comando: netsh http show urlacl. Se questo URL viene utilizzato da un altro componente in esecuzione sul computer Proxy applicazione Web, rimuoverla o utilizzare un URL diverso per pubblicare applicazioni mediante Proxy applicazione Web.|  
 |12021<br /><br />Proxy applicazione Web non è riuscito a collegare il certificato server SSL. Sono state applicate tutte le altre impostazioni di configurazione.|Impossibile creare e impostare un record di configurazione dei dati del certificato SSL.|Assicurarsi che le identificazioni personali certificato configurati per Proxyapplications di applicazione Web sono installate in tutti i computer Proxy applicazione Web con una chiave privata nell'archivio del computer locale.|  
-|13001<br /><br />Il certificato server SSL presentato al Proxy di applicazione Web dal server back-end non è valido. il certificato non è attendibile.|Il certificato Secure Sockets Layer (SSL) inviato dal server sono stati rilevati uno o più errori. Ciò può indicare che il server back-end fornito un certificato SSL non valido o che non vi sia alcuna relazione di trust tra il Proxy dell'applicazione Web e il server back-end.|Convalidare un certificato SSL del server back-end. Assicurarsi che il computer Proxy applicazione Web è configurato con destra CA per considerare attendibile il certificato del server back-end.|  
+|13001<br /><br />Il certificato server SSL presentato al Proxy di applicazione Web dal server back-end non è valido. il certificato non è attendibile.|Il certificato Secure Sockets Layer (SSL) inviato dal server sono stati rilevati uno o più errori. Ciò può indicare che il server back-end fornito un certificato SSL non valido o che non vi sia alcuna relazione di trust tra il Proxy dell'applicazione Web e il server back-end.|Convalidare un certificato SSL del server back-end. Verificare che il computer del proxy dell'applicazione Web sia configurato con le autorità di certificazione radice corrette per considerare attendibile il certificato del server back-end.|  
 |13006|Quando il codice di errore 0x80072ee7, il failurrre è causato dall'impossibilità di risolvere l'URL del server back-end. Altri codici di errore sono descritti in [https://msdn.microsoft.com/library/windows/desktop/aa384110(v=vs.85)](https://msdn.microsoft.com/library/windows/desktop/aa384110(v=vs.85))|Verificare che l'URL del server back-end sia corretto e che il nome può essere risolto correttamente dal computer Proxy applicazione Web.|  
 |13007<br /><br />La risposta HTTP dal server back-end non è stata ricevuta entro l'intervallo previsto.|La richiesta del server back-end è scaduta o è lento o non risponde.|Controllare la configurazione del server back-end. Se è molto lenta, controllare la connettività al server back-end e inoltre provare a modificare il cmdlet di parametro di configurazione globale di Proxy applicazione Web per InactiveTransactionsTimeoutSec.|  
   
 ## <a name="see-also"></a>Vedere anche  
-[What ' s New in Proxy applicazione Web in Windows Server 2016](web-application-proxy-windows-server.md)  
-[Utilizzo di Proxy applicazione Web](assetId:///b607b717-2172-4271-98d1-fa8162e0bb2e)  
+[Novità di proxy applicazione Web in Windows Server 2016](web-application-proxy-windows-server.md)  
+[Utilizzo del proxy dell'applicazione Web](assetId:///b607b717-2172-4271-98d1-fa8162e0bb2e)  
   
 
 

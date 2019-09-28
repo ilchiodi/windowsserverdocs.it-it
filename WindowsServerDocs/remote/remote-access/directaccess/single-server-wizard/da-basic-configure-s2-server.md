@@ -1,9 +1,9 @@
 ---
-title: Passaggio 2 configurare il Server DirectAccess di base
-description: Questo argomento fa parte della Guida di distribuire un Server DirectAccess singolo con l'introduzione avvio procedura guidata per Windows Server 2016
+title: Passaggio 2 configurare il server DirectAccess di base
+description: Questo argomento fa parte della Guida distribuire un server DirectAccess singolo usando la procedura guidata di Introduzione per Windows Server 2016
 manager: brianlic
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-da
@@ -12,16 +12,16 @@ ms.topic: article
 ms.assetid: 82bf5fed-93b3-4fa6-8e71-522146eccdb1
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 5bd248e36c316b11ea5e272707b75624d73dc49a
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: a21e5799824c968b29c719585ca16b6b45a9ef37
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67283421"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71404916"
 ---
-# <a name="step-2-configure-the-basic-directaccess-server"></a>Passaggio 2 configurare il Server DirectAccess di base
+# <a name="step-2-configure-the-basic-directaccess-server"></a>Passaggio 2 configurare il server DirectAccess di base
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016
 
 Questo argomento descrive come configurare le impostazioni client e server richieste per una distribuzione di base di DirectAccess. Prima di iniziare la procedura di distribuzione, assicurarsi di aver completato i passaggi di pianificazione descritti in [pianificare una distribuzione DirectAccess base](Plan-a-Basic-DirectAccess-Deployment.md).  
   
@@ -34,7 +34,7 @@ Questo argomento descrive come configurare le impostazioni client e server richi
 > [!NOTE]  
 > Questo argomento include cmdlet di esempio di Windows PowerShell che è possibile usare per automatizzare alcune delle procedure descritte. Per ulteriori informazioni, vedere [mediante i cmdlet](https://go.microsoft.com/fwlink/p/?linkid=230693).  
   
-## <a name="BKMK_Role"></a>Installare il ruolo Accesso remoto  
+## <a name="BKMK_Role"></a>Installare il ruolo accesso remoto  
 Per distribuire Accesso remoto, è necessario installare il ruolo Accesso remoto in un server dell'organizzazione che fungerà da server di Accesso remoto.  
   
 #### <a name="to-install-the-remote-access-role"></a>Per installare il ruolo Accesso remoto  
@@ -53,9 +53,9 @@ Per distribuire Accesso remoto, è necessario installare il ruolo Accesso remoto
   
 7.  Nella finestra di dialogo **Stato installazione** verificare che l'installazione sia stata completata correttamente e quindi fare clic su **Chiudi**.  
   
-![Windows PowerShell](../../../media/Step-2-Configure-the-DirectAccess-Server/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em>***  
+](../../../media/Step-2-Configure-the-DirectAccess-Server/PowerShellLogoSmall.gif)***<em>comandi equivalenti</em> di PowerShell per Windows PowerShell @no__t 0Windows***  
   
-Il seguente cmdlet Windows PowerShell o i cmdlet installa il ruolo Accesso remoto: 
+Il cmdlet o i cmdlet di Windows PowerShell seguenti installano il ruolo accesso remoto: 
 
 1. Aprire PowerShell come amministratore.
 
@@ -71,7 +71,7 @@ Il seguente cmdlet Windows PowerShell o i cmdlet installa il ruolo Accesso remot
    Restart-Computer
    ```
    
-4. Installare PowerShell di accesso remoto:
+4. Installare PowerShell per accesso remoto:
 
    ```
    Install-WindowsFeature RSAT-RemoteAccess-PowerShell
@@ -125,7 +125,7 @@ Il seguente cmdlet Windows PowerShell o i cmdlet installa il ruolo Accesso remot
   
 ## <a name="next-step"></a>Passaggio successivo  
   
--   [Passaggio 3 verificare le distribuzioni di DirectAccess di base](da-basic-configure-s3-verify.md)  
+-   [Passaggio 3 verificare le distribuzioni di base di DirectAccess](da-basic-configure-s3-verify.md)  
   
 
 

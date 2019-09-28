@@ -1,8 +1,8 @@
 ---
-title: ksetup:setcomputerpassword
-description: 'Argomento i comandi di Windows per * * *- '
+title: 'che Ksetup: setcomputerpassword'
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,14 +13,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 0679bb9ee429e05c7679411c5493bd21b530ef8e
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d1d3742476385eb770c9cb5c798c1f6ab27c74f8
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59831542"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71374939"
 ---
-# <a name="ksetupsetcomputerpassword"></a>ksetup:setcomputerpassword
+# <a name="ksetupsetcomputerpassword"></a>che Ksetup: setcomputerpassword
 
 
 
@@ -36,7 +36,7 @@ ksetup /setcomputerpassword <Password>
 
 |Parametro|Descrizione|
 |---------|-----------|
-|\<Password>|Utilizza la password per impostare l'account computer del computer locale.</br>La password può essere impostata solo utilizzando un account con privilegi amministrativi. La password può contenere da 1 a 156 alfanumerico o di caratteri speciali.|
+|\<Password >|Utilizza la password per impostare l'account computer del computer locale.</br>La password può essere impostata solo utilizzando un account con privilegi amministrativi. La password può contenere da 1 a 156 alfanumerico o di caratteri speciali.|
 
 ## <a name="remarks"></a>Note
 
@@ -55,5 +55,5 @@ ksetup /setcomputerpassword IPop$897!
 
 #### <a name="additional-references"></a>Altri riferimenti
 
--   [Ksetup](ksetup.md)
--   [Chiave sintassi della riga di comando](command-line-syntax-key.md)
+-   [Che Ksetup](ksetup.md)
+-   [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

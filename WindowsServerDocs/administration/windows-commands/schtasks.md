@@ -2,7 +2,7 @@
 title: schtasks
 description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: fdda956a5da9ec50e44002cd8ab38373396d5713
-ms.sourcegitcommit: 0e3c2473a54f915d35687d30d1b4b1ac2bae4068
+ms.openlocfilehash: 8029bff5907c044e51b0a371265c3bde452e1366
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68914649"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71371267"
 ---
 # <a name="schtasks"></a>schtasks
 
@@ -102,15 +102,15 @@ Specifica il tipo di pianificazione. I valori validi sono MINUTO, ORARIA, GIORNA
 
 Specifica un nome per l'attività. Ogni attività del sistema deve avere un nome univoco. Il nome deve essere conforme alle regole per i nomi di file e non deve superare 238 caratteri. Utilizzare le virgolette per racchiudere i nomi contenenti spazi.
 
-##### <a name="tr-taskrun"></a>/TR \<esecuzioneattività >
+##### <a name="tr-taskrun"></a>/TR \<TaskRun >
 
 Specifica il comando che viene eseguita l'attività o un programma. Digitare il nome di file e percorso completo di un file eseguibile, file di script o file batch. Il nome del percorso non deve superare 262 caratteri. Se si omette il percorso, **schtasks** presuppone che il file di *SystemRoot*directory \System32.
 
-##### <a name="s-computer"></a>/s \<> computer
+##### <a name="s-computer"></a>/s \<Computer >
 
 Pianifica un'attività nel computer remoto specificato. Digitare il nome o indirizzo IP di un computer remoto (con o senza barre rovesciate). Il valore predefinito è il computer locale. Il **/u** e **/p** i parametri sono validi solo quando si utilizza **/s**.
 
-##### <a name="u-domainuser"></a>/u [\<dominio >\]<User>
+##### <a name="u-domainuser"></a>/u [\<Domain > \] @ no__t-2
 
 Esegue il comando con le autorizzazioni dell'account utente specificato. Il valore predefinito è le autorizzazioni dell'utente corrente del computer locale. Il **/u** e **/p** i parametri sono validi solo per la pianificazione di un'attività in un computer remoto ( **/s**).
 
@@ -124,39 +124,39 @@ Fornisce la password per l'account utente specificato nel **/u** parametro. Se s
 
 Il **/u** e **/p** i parametri sono validi solo per la pianificazione di un'attività in un computer remoto ( **/s**).
 
-##### <a name="ru-domainuser--system"></a>/ru {[\<dominio >\] <User> | Sistema
+##### <a name="ru-domainuser--system"></a>/ru {[\<Domain > \] @ no__t-2 | Sistema
 
 Esegue l'attività con le autorizzazioni dell'account utente specificato. Per impostazione predefinita, l'operazione viene eseguita con le autorizzazioni dell'utente corrente del computer locale o con l'autorizzazione dell'utente specificato per il **/u** parametro, se presente. Il **/ru** parametro è valido quando la pianificazione di attività sul computer locale o remoto.
 
 
 |       Value        |                                                    Descrizione                                                    |
 |--------------------|-------------------------------------------------------------------------------------------------------------------|
-| [\<> Di dominio\]<User> |                                       Specifica un account utente alternativo.                                        |
+| [\<Domain > \] @ no__t-2 |                                       Specifica un account utente alternativo.                                        |
 |    Sistema o ""    | Specifica l'account sistema locale, un account con privilegi elevati utilizzato dal sistema operativo e servizi di sistema. |
 
-##### <a name="rp-password"></a>> \<password/RP
+##### <a name="rp-password"></a>/RP \<Password >
 
 Fornisce la password per l'account utente specificato nella **/ru** parametro. Se si omette questo parametro quando si specifica un account utente, **SchTasks.exe** richiesta la password e nasconde il testo digitato.
 
 Non utilizzare il **/rp** parametro per le attività di esecuzione con le credenziali dell'account di sistema ( **/ru System**). L'account di sistema non dispone di una password e **SchTasks.exe** non viene visualizzata una richiesta per uno.
 
-##### <a name="mo-modifier"></a>> \<modificatore/mo
+##### <a name="mo-modifier"></a>/mo \<Modifier >
 
 Specifica la frequenza con cui l'attività viene eseguita all'interno del tipo di pianificazione. Questo parametro è valido, ma facoltativo, per un MINUTO, su base ORARIA, GIORNALIERA, SETTIMANALE e MENSILE pianificare. Il valore predefinito è 1.
 
 |Tipo di pianificazione|Valori di modificatore|Descrizione|
 |-------------|---------------|-----------|
-|MINUTO|1 - 1439|L'attività viene eseguita \<ogni N > minuti.|
-|OGNI ORA|1 - 23|L'attività viene eseguita \<ogni N > ore.|
-|GIORNALIERO|1 - 365|L'attività viene eseguita \<ogni N > giorni.|
-|SETTIMANALE|1 - 52|L'attività viene eseguita \<ogni N > settimane.|
+|MINUTO|1 - 1439|L'attività viene eseguita ogni \<N > minuti.|
+|OGNI ORA|1 - 23|L'attività viene eseguita ogni \<N > ore.|
+|GIORNALIERO|1 - 365|L'attività viene eseguita ogni \<N > giorni.|
+|SETTIMANALE|1 - 52|L'attività viene eseguita ogni \<N > settimane.|
 |VOLTA|Nessun modificatore.|L'operazione viene eseguita una sola volta.|
 |ONSTART|Nessun modificatore.|L'attività viene eseguita all'avvio.|
 |ALL'ACCESSO|Nessun modificatore.|L'operazione viene eseguita quando l'utente specificato per il **/u** parametro esegue l'accesso.|
 |ONIDLE|Nessun modificatore.|L'operazione viene eseguita dopo che il sistema è inattivo per il numero di minuti specificato mediante il **/i** parametro, è necessario per l'utilizzo con ONIDLE.|
-|MENSILE|1 - 12|L'attività viene eseguita \<ogni N > mesi.|
+|MENSILE|1 - 12|L'attività viene eseguita ogni \<N > mesi.|
 |MENSILE|LASTDAY|L'operazione viene eseguita l'ultimo giorno del mese.|
-|MENSILE|IN PRIMO LUOGO, IN SECONDO LUOGO, TERZA, QUARTA, ULTIMA|Utilizzare con il parametro **/d**\<Day > per eseguire un'attività in una determinata settimana e giorno. Ad esempio, il terzo mercoledì del mese.|
+|MENSILE|IN PRIMO LUOGO, IN SECONDO LUOGO, TERZA, QUARTA, ULTIMA|Utilizzare con il parametro **/d**\<giorno > per eseguire un'attività in una determinata settimana e giorno. Ad esempio, il terzo mercoledì del mese.|
 
 ##### <a name="d-dayday--"></a>/d giorno [, giorno...] | *
 
@@ -167,46 +167,46 @@ Specifica un giorno o giorni della settimana o un giorno o giorni di un mese. Va
 |---------------|------------------------------------|--------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |    SETTIMANALE     |               1 - 52               | LUN-DOM [, LUN-DOM...] |                                                                                                     \*                                                                                                      |
 |    MENSILE    | IN PRIMO LUOGO, IN SECONDO LUOGO, TERZA, QUARTA, ULTIMA |        LUN - DOM         |                                                                                   Obbligatorio per una pianificazione determinata settimana.                                                                                    |
-|    MENSILE    |          Nessuno o {1-12}          |          1 - 31          | Facoltativo e valido solo senza modificatore ( **/mo**) parametro (una pianificazione data specifica) o quando **/mo** è 1-12 (una pianificazione "ogni \<N > mesi"). Il valore predefinito è il giorno 1 (il primo giorno del mese). |
+|    MENSILE    |          Nessuno o {1-12}          |          1 - 31          | Facoltativo e valido solo con nessun modificatore ( **/mo**) parametro (una pianificazione data specifica) o quando **/mo** è 1-12 (una pianificazione "ogni \<n > mesi"). Il valore predefinito è il giorno 1 (il primo giorno del mese). |
 
 ##### <a name="m-monthmonth"></a>/m mese [, mese...]
 
 Specifica una o più mesi dell'anno durante il quale deve essere eseguita l'attività pianificata. I valori validi sono JAN-DEC e * (ogni mese). Il **/m** parametro è valido solo con una pianificazione MENSILE. È obbligatorio quando si utilizza il modificatore LASTDAY. In caso contrario, è facoltativo e il valore predefinito è * (ogni mese).
 
-##### <a name="i-idletime"></a>/i \<tempoinattività >
+##### <a name="i-idletime"></a>/i \<IdleTime >
 
 Specifica quanti minuti il computer è inattivo prima che l'attività viene avviata. Un valore valido è un numero intero compreso tra 1 e 999. Questo parametro è valido solo con una pianificazione ONIDLE e pertanto è obbligatorio.
 
-##### <a name="st-starttime"></a>> \<StartTime/St
+##### <a name="st-starttime"></a>/St \<StartTime >
 
-Specifica l'ora del giorno in cui l'attività viene avviata (ogni volta che \<viene avviata) in HH: mm > formato a 24 ore. Il valore predefinito è l'ora corrente nel computer locale. Il **/st** parametro è valido con MINUTO, ORARIA, GIORNALIERA, SETTIMANALE, MENSILE e pianifica una sola VOLTA. È necessario per una pianificazione di una sola VOLTA.
+Specifica l'ora del giorno in cui l'attività viene avviata (ogni volta che viene avviata) nel formato \<HH: MM > 24 ore. Il valore predefinito è l'ora corrente nel computer locale. Il **/st** parametro è valido con MINUTO, ORARIA, GIORNALIERA, SETTIMANALE, MENSILE e pianifica una sola VOLTA. È necessario per una pianificazione di una sola VOLTA.
 
-##### <a name="ri-interval"></a>> \<intervallo/ri
+##### <a name="ri-interval"></a>/ri \<Interval >
 
 Specifica l'intervallo di ripetizione in minuti. Questa operazione non è applicabile per i tipi di pianificazione: MINUTO, orario, OnStart, con LOGO e OnIdle. Intervallo valido è 1 per 599940 minuti (599940 minuti = 9999 ore). Se è specificato /ET o /DU, l'intervallo di ripetizione predefinito è 10 minuti.
 
 ##### <a name="et-endtime"></a>/et \<EndTime >
 
-Specifica l'ora del giorno in cui la pianificazione di un minuto o un'attività \<oraria termina in HH: mm > formato a 24 ore. Dopo l'ora di fine specificata, **schtasks** non si avvia l'attività nuovamente fino a quando non si ripete l'ora di inizio. Per impostazione predefinita, le pianificazioni delle attività non hanno nessuna ora di fine. Questo parametro è facoltativo e valido solo con una pianificazione ORARIA o MINUTI.
+Specifica l'ora del giorno in cui la pianificazione di un minuto o un'attività oraria termina in \<HH: MM > formato a 24 ore. Dopo l'ora di fine specificata, **schtasks** non si avvia l'attività nuovamente fino a quando non si ripete l'ora di inizio. Per impostazione predefinita, le pianificazioni delle attività non hanno nessuna ora di fine. Questo parametro è facoltativo e valido solo con una pianificazione ORARIA o MINUTI.
 
 Per un esempio, vedere:
--   "Per pianificare un'attività che viene eseguita ogni 100 minuti durante le ore non lavorative" nell'oggetto **per pianificare un'attività che viene eseguita ogni** \<N > **minuti** .
+-   "Per pianificare un'attività che viene eseguita ogni 100 minuti durante le ore non lavorative" nell'oggetto **per pianificare un'attività che esegue ogni** \<N > **minuti** .
 
-##### <a name="du-duration"></a>> \<Durata/du
+##### <a name="du-duration"></a>/du \<Duration >
 
-Specifica la durata massima di un minuto o una pianificazione oraria in \<HHHH: mm > formato a 24 ore. Dopo aver trascorso il periodo di tempo specificato, **schtasks** non si avvia l'attività nuovamente fino a quando non si ripete l'ora di inizio. Per impostazione predefinita, le pianificazioni delle attività non hanno una durata massima. Questo parametro è facoltativo e valido solo con una pianificazione ORARIA o MINUTI.
+Specifica la durata massima di un minuto o una pianificazione oraria nel formato \<HHHH: MM > 24 ore. Dopo aver trascorso il periodo di tempo specificato, **schtasks** non si avvia l'attività nuovamente fino a quando non si ripete l'ora di inizio. Per impostazione predefinita, le pianificazioni delle attività non hanno una durata massima. Questo parametro è facoltativo e valido solo con una pianificazione ORARIA o MINUTI.
 
 Per un esempio, vedere:
--   "Per pianificare un'attività che viene eseguita ogni 3 ore per 10 ore" nella sezione **per pianificare un'attività che viene eseguita ogni** \<N > **ore** .
+-   "Per pianificare un'attività che viene eseguita ogni 3 ore per 10 ore" nella sezione **per pianificare un'attività che esegue ogni** \<N > **ore** .
 
 ##### <a name="k"></a>/k
 
 Arresta il programma eseguito dall'attività all'ora specificata da **/et** o **/du**. Senza **/k**, **schtasks** non avviare nuovamente il programma che raggiunge il tempo specificato da **/et** o **/du**, ma non impedisce il programma se è ancora in esecuzione. Questo parametro è facoltativo e valido solo con una pianificazione ORARIA o MINUTI.
 
 Per un esempio, vedere:
--   "Per pianificare un'attività che viene eseguita ogni 100 minuti durante le ore non lavorative" nell'oggetto **per pianificare un'attività che viene eseguita ogni** \<N > **minuti** .
+-   "Per pianificare un'attività che viene eseguita ogni 100 minuti durante le ore non lavorative" nell'oggetto **per pianificare un'attività che esegue ogni** \<N > **minuti** .
 
-##### <a name="sd-startdate"></a>> \<StartDate/SD
+##### <a name="sd-startdate"></a>/SD \<StartDate >
 
 Specifica la data in cui inizia la pianificazione di attività. Il valore predefinito è la data corrente nel computer locale. Il **/sd** parametro sia valido e facoltativo per tutti i tipi di pianificazione.
 
@@ -218,10 +218,10 @@ Nella tabella seguente sono elencati i formati di data valido. Utilizzare il for
 |       Value       |                                        Descrizione                                         |
 |-------------------|--------------------------------------------------------------------------------------------|
 | \<MM >/<DD>/<YYYY> | Utilizzare per i formati primo mese, ad esempio **inglese (Stati Uniti)** e **Spagnolo (Panama)** . |
-| \<GG >/<MM>/<YYYY> |       Utilizzare per primo giorno formati, ad esempio **bulgaro** e **olandese (Paesi Bassi)** .        |
-| \<AAAA >/<MM>/<DD> |          Utilizzare per i formati anno all'inizio, ad esempio **svedese** e **francese (Canada)** .          |
+| \<DD >/<MM> @ NO__T-2 @ NO__T-3 |       Utilizzare per primo giorno formati, ad esempio **bulgaro** e **olandese (Paesi Bassi)** .        |
+| \<YYYY >/<MM> @ NO__T-2<DD> |          Utilizzare per i formati anno all'inizio, ad esempio **svedese** e **francese (Canada)** .          |
 
-> \<EndDate/ed
+/ed \<EndDate >
 
 Specifica la data di fine della pianificazione. Questo parametro è facoltativo. Non è valido in base a una pianificazione ONCE, ONSTART, all'ACCESSO o ONIDLE. Per impostazione predefinita, le pianificazioni non dispongono di alcuna data di fine.
 
@@ -233,8 +233,8 @@ Nella tabella seguente sono elencati i formati di data valido. Utilizzare il for
 |       Value       |                                        Descrizione                                         |
 |-------------------|--------------------------------------------------------------------------------------------|
 | \<MM >/<DD>/<YYYY> | Utilizzare per i formati primo mese, ad esempio **inglese (Stati Uniti)** e **Spagnolo (Panama)** . |
-| \<GG >/<MM>/<YYYY> |       Utilizzare per primo giorno formati, ad esempio **bulgaro** e **olandese (Paesi Bassi)** .        |
-| \<AAAA >/<MM>/<DD> |          Utilizzare per i formati anno all'inizio, ad esempio **svedese** e **francese (Canada)** .          |
+| \<DD >/<MM> @ NO__T-2 @ NO__T-3 |       Utilizzare per primo giorno formati, ad esempio **bulgaro** e **olandese (Paesi Bassi)** .        |
+| \<YYYY >/<MM> @ NO__T-2<DD> |          Utilizzare per i formati anno all'inizio, ad esempio **svedese** e **francese (Canada)** .          |
 
 ##### <a name="it"></a>/IT
 
@@ -382,7 +382,7 @@ schtasks /create /tn <TaskName> /tr <TaskRun> /sc weekly [/mo {1 - 52}] [/d {<MO
 
 In una pianificazione settimanale, la **/sc weekly** parametro è obbligatorio. Il **al mese** parametro (modificatore) è facoltativo e specifica il numero di settimane tra ogni esecuzione dell'attività. Il valore predefinito per **al mese** è 1 (ogni settimana).
 
-Le pianificazioni settimanali dispongono inoltre di un parametro facoltativo **/d** per pianificare l'esecuzione dell'attività in giorni specifici della settimana o in tutti i*giorni (). Il valore predefinito è MON (lunedì). Ogni giorno (* ) è equivalente alla pianificazione giornaliera.
+Le pianificazioni settimanali dispongono inoltre di un parametro facoltativo **/d** per pianificare l'esecuzione dell'attività nei giorni della settimana specificati o in tutti i giorni ( *). Il valore predefinito è MON (lunedì). Ogni giorno (* ) è equivalente alla pianificazione giornaliera.
 
 #### <a name="examples"></a>Esempi
 
@@ -479,7 +479,7 @@ schtasks /create /tn <TaskName> /tr <TaskRun> /sc monthly /mo {FIRST | SECOND | 
 
 #### <a name="remarks"></a>Note
 
-In questo tipo di pianificazione, la **/sc monthly** parametro, il **al mese** parametro (modificatore) e **/d** parametro (giorno) sono necessari. Il **al mese** parametro (modificatore) specifica la settimana in cui viene eseguita l'attività. Il **/d** parametro specifica il giorno della settimana. (È possibile specificare un solo giorno della settimana per questo tipo di pianificazione). La pianificazione prevede inoltre un **/m** parametro (mese) che consente di pianificare l'attività in determinati mesi o ogni mese (\*). Il valore predefinito per il parametro **/m** è ogni mese\*().
+In questo tipo di pianificazione, la **/sc monthly** parametro, il **al mese** parametro (modificatore) e **/d** parametro (giorno) sono necessari. Il **al mese** parametro (modificatore) specifica la settimana in cui viene eseguita l'attività. Il **/d** parametro specifica il giorno della settimana. (È possibile specificare un solo giorno della settimana per questo tipo di pianificazione). La pianificazione prevede inoltre un **/m** parametro (mese) che consente di pianificare l'attività in determinati mesi o ogni mese (\*). Il valore predefinito per il parametro **/m** è ogni mese (\*).
 
 #### <a name="examples"></a>Esempi
 
@@ -896,19 +896,19 @@ schtasks /change /tn <TaskName> [/s <Computer> [/u [<Domain>\]<User> [/p <Passwo
 |          Nome           |                                                                                                                                                                                                                                                                                                                                     Definizione                                                                                                                                                                                                                                                                                                                                      |
 |-------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |     /TN \<TaskName >     |                                                                                                                                                                                                                                                                                                               Identifica l'attività da modificare. Immettere il nome dell'attività.                                                                                                                                                                                                                                                                                                               |
-|     /s \<> computer      |                                                                                                                                                                                                                                                                               Specifica il nome o indirizzo IP di un computer remoto (con o senza barre rovesciate). Il valore predefinito è il computer locale.                                                                                                                                                                                                                                                                               |
-|  /u [\<dominio >\]<User>  |                                                                                                                                                                 Esegue il comando con le autorizzazioni dell'account utente specificato. Il valore predefinito è le autorizzazioni dell'utente corrente del computer locale. L'account utente specificato deve essere un membro del gruppo Administrators nel computer remoto. Il **/u** e **/p** i parametri sono validi solo per la modifica di un'attività in un computer remoto ( **/s**).                                                                                                                                                                  |
+|     /s \<Computer >      |                                                                                                                                                                                                                                                                               Specifica il nome o indirizzo IP di un computer remoto (con o senza barre rovesciate). Il valore predefinito è il computer locale.                                                                                                                                                                                                                                                                               |
+|  /u [\<Domain > \] @ no__t-2  |                                                                                                                                                                 Esegue il comando con le autorizzazioni dell'account utente specificato. Il valore predefinito è le autorizzazioni dell'utente corrente del computer locale. L'account utente specificato deve essere un membro del gruppo Administrators nel computer remoto. Il **/u** e **/p** i parametri sono validi solo per la modifica di un'attività in un computer remoto ( **/s**).                                                                                                                                                                  |
 |     /p \<password >      |                                                                                                                                                                                              Specifica la password dell'account utente specificato nella **/u** parametro. Se si utilizza il **/u** parametro, ma si omette il **/p** parametro o l'argomento password, **schtasks** richiede una password.</br>Il **/u** e **/p** i parametri sono validi solo quando si utilizza **/s**.                                                                                                                                                                                               |
-| /ru {[\<dominio >\]<User> |                                                                                                                                                                                                                                                                                                                                       Sistema                                                                                                                                                                                                                                                                                                                                       |
-|     > \<password/RP     |                                                                                                                                                                                                                                                 Specifica una nuova password per l'account utente esistente, o l'account utente specificato per il **/ru** parametro. Questo parametro viene ignorato quando utilizzato con l'account sistema locale.                                                                                                                                                                                                                                                  |
-|     /TR \<esecuzioneattività >      |                                                                                                                                                                                  Modifica il programma eseguito dall'attività. Immettere il nome di file e percorso completo di un file eseguibile, file di script o file batch. Se si omette il percorso, **Schtasks** presuppone che il file si trovi nella \<directory SystemRoot > \System32 Il programma specificato sostituisce il programma originale eseguito dall'attività.                                                                                                                                                                                  |
-|    > \<StartTime/St     |                                                                                                                                                                                                                                                              Specifica l'ora di inizio per l'attività, utilizzando il formato di 24 ore, hh: mm. Ad esempio, un valore pari a 14:30 è equivalente all'ora di 12 ore 2:30 PM.                                                                                                                                                                                                                                                               |
-|     > \<intervallo/ri     |                                                                                                                                                                                                                                                                           Specifica l'intervallo di ripetizione per l'attività pianificata, in minuti. Intervallo valido è 1-599940 (599940 minuti = 9999 ore).                                                                                                                                                                                                                                                                            |
+| /ru {[\<Domain > \] @ no__t-2 |                                                                                                                                                                                                                                                                                                                                       Sistema                                                                                                                                                                                                                                                                                                                                       |
+|     /RP \<Password >     |                                                                                                                                                                                                                                                 Specifica una nuova password per l'account utente esistente, o l'account utente specificato per il **/ru** parametro. Questo parametro viene ignorato quando utilizzato con l'account sistema locale.                                                                                                                                                                                                                                                  |
+|     /TR \<TaskRun >      |                                                                                                                                                                                  Modifica il programma eseguito dall'attività. Immettere il nome di file e percorso completo di un file eseguibile, file di script o file batch. Se si omette il percorso, **Schtasks** presuppone che il file si trovi nella directory \<systemroot > \System32. Il programma specificato sostituisce il programma originale eseguito dall'attività.                                                                                                                                                                                  |
+|    /St \<Starttime >     |                                                                                                                                                                                                                                                              Specifica l'ora di inizio per l'attività, utilizzando il formato di 24 ore, hh: mm. Ad esempio, un valore pari a 14:30 è equivalente all'ora di 12 ore 2:30 PM.                                                                                                                                                                                                                                                               |
+|     /ri \<Interval >     |                                                                                                                                                                                                                                                                           Specifica l'intervallo di ripetizione per l'attività pianificata, in minuti. Intervallo valido è 1-599940 (599940 minuti = 9999 ore).                                                                                                                                                                                                                                                                            |
 |     /et \<EndTime >      |                                                                                                                                                                                                                                                               Specifica l'ora di fine per l'attività, utilizzando il formato di 24 ore, hh: mm. Ad esempio, un valore pari a 14:30 è equivalente all'ora di 12 ore 2:30 PM.                                                                                                                                                                                                                                                                |
-|     > \<Durata/du     |                                                                                                                                                                                                                                                                                                     Specifica di chiudere l'attività nel \<EndTime > o <Duration>, se specificato.                                                                                                                                                                                                                                                                                                      |
+|     /du \<Duration >     |                                                                                                                                                                                                                                                                                                     Specifica di chiudere l'attività in corrispondenza dell'> \<EndTime o <Duration>, se specificato.                                                                                                                                                                                                                                                                                                      |
 |           /k            |                                                                                                                                                                   Arresta il programma eseguito dall'attività all'ora specificata da **/et** o **/du**. Senza **/k**, **schtasks** non avviare nuovamente il programma che raggiunge il tempo specificato da **/et** o **/du**, ma non impedisce il programma se è ancora in esecuzione. Questo parametro è facoltativo e valido solo con una pianificazione ORARIA o MINUTI.                                                                                                                                                                   |
-|    > \<StartDate/SD     |                                                                                                                                                                                                                                                                                              Specifica la prima data in cui l'attività deve essere eseguita. Il formato della data è MM/GG/AAAA.                                                                                                                                                                                                                                                                                               |
-|     > \<EndDate/ed      |                                                                                                                                                                                                                                                                                                 Specifica l'ultima data in cui l'attività deve essere eseguita. Il formato è MM/GG/AAAA.                                                                                                                                                                                                                                                                                                  |
+|    /SD \<StartDate >     |                                                                                                                                                                                                                                                                                              Specifica la prima data in cui l'attività deve essere eseguita. Il formato della data è MM/GG/AAAA.                                                                                                                                                                                                                                                                                               |
+|     /ed \<EndDate >      |                                                                                                                                                                                                                                                                                                 Specifica l'ultima data in cui l'attività deve essere eseguita. Il formato è MM/GG/AAAA.                                                                                                                                                                                                                                                                                                  |
 |         / ABILITA         |                                                                                                                                                                                                                                                                                                                       Specifica per abilitare l'attività pianificata.                                                                                                                                                                                                                                                                                                                       |
 |        O DISABILITARE         |                                                                                                                                                                                                                                                                                                                      Specifica per disabilitare l'attività pianificata.                                                                                                                                                                                                                                                                                                                       |
 |           /IT           | Specifica per eseguire l'attività pianificata solo quando l'utente "Esegui come" (l'account utente con cui viene eseguito l'attività) è connesso al computer.</br>Questo parametro ha effetto su eseguite con autorizzazioni di sistema o attività che la proprietà solo interattivo è già impostata. È possibile utilizzare un comando di modifica per rimuovere la proprietà solo interattivo da un'attività.</br>Per impostazione predefinita, l'utente "Esegui come" è l'utente corrente del computer locale quando l'attività viene pianificata o l'account specificato per il **/u** parametro, se ne viene usato. Tuttavia, se il comando include il **/ru** parametro, quindi l'utente "Esegui come" è l'account specificato per il **/ru** parametro. |
@@ -1014,17 +1014,17 @@ schtasks /run /tn <TaskName> [/s <Computer> [/u [<Domain>\]<User> [/p <Password>
 
 |         Nome          |                                                                                                                                                                 Definizione                                                                                                                                                                  |
 |-----------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|    /TN \<TaskName >    |                                                                                                                                                       Richiesto. Identifica l'attività.                                                                                                                                                        |
-|    /s \<> computer     |                                                                                                           Specifica il nome o indirizzo IP di un computer remoto (con o senza barre rovesciate). Il valore predefinito è il computer locale.                                                                                                           |
-| /u [\<dominio >\]<User> | Esegue il comando con le autorizzazioni dell'account utente specificato. Per impostazione predefinita, il comando viene eseguito con le autorizzazioni dell'utente corrente del computer locale.</br>L'account utente specificato deve essere un membro del gruppo Administrators nel computer remoto. Il **/u** e **/p** i parametri sono validi solo quando si utilizza **/s**. |
+|    /TN \<TaskName >    |                                                                                                                                                       Obbligatorio. Identifica l'attività.                                                                                                                                                        |
+|    /s \<Computer >     |                                                                                                           Specifica il nome o indirizzo IP di un computer remoto (con o senza barre rovesciate). Il valore predefinito è il computer locale.                                                                                                           |
+| /u [\<Domain > \] @ no__t-2 | Esegue il comando con le autorizzazioni dell'account utente specificato. Per impostazione predefinita, il comando viene eseguito con le autorizzazioni dell'utente corrente del computer locale.</br>L'account utente specificato deve essere un membro del gruppo Administrators nel computer remoto. Il **/u** e **/p** i parametri sono validi solo quando si utilizza **/s**. |
 |    /p \<password >     |                          Specifica la password dell'account utente specificato nella **/u** parametro. Se si utilizza il **/u** parametro, ma si omette il **/p** parametro o l'argomento password, **schtasks** richiede una password.</br>Il **/u** e **/p** i parametri sono validi solo quando si utilizza **/s**.                           |
 |          /?           |                                                                                                                                                    Visualizza la guida al prompt dei comandi.                                                                                                                                                     |
 
 ### <a name="remarks"></a>Note
 
--   Utilizzare questa operazione per le attività di test. Se un'attività non viene eseguita, controllare il log delle transazioni del servizio \<utilità di pianificazione, SystemRoot > \schedlgu.txt, per gli errori.
+-   Utilizzare questa operazione per le attività di test. Se un'attività non viene eseguita, controllare il log delle transazioni del servizio Utilità di pianificazione, \<Systemroot > \SchedLgU.txt, per gli errori.
 -   Esecuzione di un'attività non influenza la pianificazione di attività e non modifica alla successiva esecuzione pianificata per l'attività.
--   Per eseguire un'attività in remoto, l'attività deve essere pianificata nel computer remoto. Quando si esegue l'attività viene eseguita solo nel computer remoto. Per verificare che un'attività sia in esecuzione in un computer remoto, utilizzare Gestione attività o il utilità di pianificazione log delle \<transazioni, SystemRoot > \schedlgu.txt.
+-   Per eseguire un'attività in remoto, l'attività deve essere pianificata nel computer remoto. Quando si esegue l'attività viene eseguita solo nel computer remoto. Per verificare che un'attività sia in esecuzione in un computer remoto, usare Gestione attività o il log delle transazioni Utilità di pianificazione \<Systemroot > \SchedLgU.txt.
 
 ### <a name="examples"></a>Esempi
 
@@ -1082,9 +1082,9 @@ schtasks /end /tn <TaskName> [/s <Computer> [/u [<Domain>\]<User> [/p <Password>
 
 |         Nome          |                                                                                                                                                               Definizione                                                                                                                                                                |
 |-----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|    /TN \<TaskName >    |                                                                                                                                         Richiesto. Identifica l'attività che ha avviato il programma.                                                                                                                                         |
-|    /s \<> computer     |                                                                                                                        Specifica il nome o indirizzo IP di un computer remoto. Il valore predefinito è il computer locale.                                                                                                                        |
-| /u [\<dominio >\]<User> | Esegue il comando con le autorizzazioni dell'account utente specificato. Per impostazione predefinita, il comando viene eseguito con le autorizzazioni dell'utente corrente del computer locale. L'account utente specificato deve essere un membro del gruppo Administrators nel computer remoto. Il **/u** e **/p** i parametri sono validi solo quando si utilizza **/s**. |
+|    /TN \<TaskName >    |                                                                                                                                         Obbligatorio. Identifica l'attività che ha avviato il programma.                                                                                                                                         |
+|    /s \<Computer >     |                                                                                                                        Specifica il nome o indirizzo IP di un computer remoto. Il valore predefinito è il computer locale.                                                                                                                        |
+| /u [\<Domain > \] @ no__t-2 | Esegue il comando con le autorizzazioni dell'account utente specificato. Per impostazione predefinita, il comando viene eseguito con le autorizzazioni dell'utente corrente del computer locale. L'account utente specificato deve essere un membro del gruppo Administrators nel computer remoto. Il **/u** e **/p** i parametri sono validi solo quando si utilizza **/s**. |
 |    /p \<password >     |                        Specifica la password dell'account utente specificato nella **/u** parametro. Se si utilizza il **/u** parametro, ma si omette il **/p** parametro o l'argomento password, **schtasks** richiede una password.</br>Il **/u** e **/p** i parametri sono validi solo quando si utilizza **/s**.                         |
 |          /?           |                                                                                                                                                             Visualizza la Guida.                                                                                                                                                              |
 
@@ -1132,15 +1132,15 @@ schtasks /delete /tn {<TaskName> | *} [/f] [/s <Computer> [/u [<Domain>\]<User> 
 |-----------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |   /TN {\<TaskName >    |                                                                                                                                                                     \*}                                                                                                                                                                     |
 |          /f           |                                                                                                                                  Elimina il messaggio di conferma. L'attività viene eliminato senza preavviso.                                                                                                                                  |
-|    /s \<> computer     |                                                                                                           Specifica il nome o indirizzo IP di un computer remoto (con o senza barre rovesciate). Il valore predefinito è il computer locale.                                                                                                           |
-| /u [\<dominio >\]<User> | Esegue il comando con le autorizzazioni dell'account utente specificato. Per impostazione predefinita, il comando viene eseguito con le autorizzazioni dell'utente corrente del computer locale.</br>L'account utente specificato deve essere un membro del gruppo Administrators nel computer remoto. Il **/u** e **/p** i parametri sono validi solo quando si utilizza **/s**. |
+|    /s \<Computer >     |                                                                                                           Specifica il nome o indirizzo IP di un computer remoto (con o senza barre rovesciate). Il valore predefinito è il computer locale.                                                                                                           |
+| /u [\<Domain > \] @ no__t-2 | Esegue il comando con le autorizzazioni dell'account utente specificato. Per impostazione predefinita, il comando viene eseguito con le autorizzazioni dell'utente corrente del computer locale.</br>L'account utente specificato deve essere un membro del gruppo Administrators nel computer remoto. Il **/u** e **/p** i parametri sono validi solo quando si utilizza **/s**. |
 |    /p \<password >     |                          Specifica la password dell'account utente specificato nella **/u** parametro. Se si utilizza il **/u** parametro, ma si omette il **/p** parametro o l'argomento password, **schtasks** richiede una password.</br>Il **/u** e **/p** i parametri sono validi solo quando si utilizza **/s**.                           |
 |          /?           |                                                                                                                                                    Visualizza la guida al prompt dei comandi.                                                                                                                                                     |
 
 ### <a name="remarks"></a>Note
 
 - Il **eliminare** operazione Elimina l'attività dalla pianificazione. Non eliminare il programma che viene eseguita l'attività o interrompere un programma in esecuzione.
-- Il **comando \\Delete** * Elimina tutte le attività pianificate per il computer, non solo le attività pianificate dall'utente corrente.
+- Il comando **delete \\** * Elimina tutte le attività pianificate per il computer, non solo le attività pianificate dall'utente corrente.
 
 ### <a name="examples"></a>Esempi
 
@@ -1158,7 +1158,7 @@ SUCCESS: The scheduled task "Start Mail" was successfully deleted.
 
 ### <a name="to-delete-all-tasks-scheduled-for-the-local-computer"></a>Per eliminare tutte le attività pianificate per il computer locale
 
-Il seguente comando Elimina tutte le attività dalla pianificazione del computer locale, incluse le operazioni pianificate da altri utenti. Usa il parametro **/TN \\** * per rappresentare tutte le attività nel computer e il parametro **/f** per non visualizzare il messaggio di conferma.
+Il seguente comando Elimina tutte le attività dalla pianificazione del computer locale, incluse le operazioni pianificate da altri utenti. Usa il parametro **/tn \\** * per rappresentare tutte le attività nel computer e il parametro **/f** per non visualizzare il messaggio di conferma.
 ```
 schtasks /delete /tn * /f
 ```
@@ -1184,8 +1184,8 @@ schtasks [/query] [/fo {TABLE | LIST | CSV}] [/nh] [/v] [/s <Computer> [/u [<Dom
 |      /fo {tabella       |                                                                                                                                                                    ELENCO                                                                                                                                                                     |
 |          /NH          |                                                                                                            Omette le intestazioni di colonna dalla visualizzazione della tabella. Questo parametro è valido con la **TABELLA** e **CSV** formati di output.                                                                                                             |
 |          /v           |                                                                                                         Aggiunge le proprietà avanzate delle attività per la visualizzazione.</br>Query che utilizzano **/v** deve essere formattato come **ELENCO** o **CSV**.                                                                                                          |
-|    /s \<> computer     |                                                                                                           Specifica il nome o indirizzo IP di un computer remoto (con o senza barre rovesciate). Il valore predefinito è il computer locale.                                                                                                           |
-| /u [\<dominio >\]<User> | Esegue il comando con le autorizzazioni dell'account utente specificato. Per impostazione predefinita, il comando viene eseguito con le autorizzazioni dell'utente corrente del computer locale.</br>L'account utente specificato deve essere un membro del gruppo Administrators nel computer remoto. Il **/u** e **/p** i parametri sono validi solo quando si utilizza **/s**. |
+|    /s \<Computer >     |                                                                                                           Specifica il nome o indirizzo IP di un computer remoto (con o senza barre rovesciate). Il valore predefinito è il computer locale.                                                                                                           |
+| /u [\<Domain > \] @ no__t-2 | Esegue il comando con le autorizzazioni dell'account utente specificato. Per impostazione predefinita, il comando viene eseguito con le autorizzazioni dell'utente corrente del computer locale.</br>L'account utente specificato deve essere un membro del gruppo Administrators nel computer remoto. Il **/u** e **/p** i parametri sono validi solo quando si utilizza **/s**. |
 |    /p \<password >     |                                        Specifica la password dell'account utente specificato nella **/u** parametro. Se si utilizza **/u**, ma omettere **/p** o l'argomento password, **schtasks** richiede una password.</br>Il **/u** e **/p** i parametri sono validi solo quando si utilizza **/s**.                                         |
 |          /?           |                                                                                                                                                    Visualizza la guida al prompt dei comandi.                                                                                                                                                     |
 

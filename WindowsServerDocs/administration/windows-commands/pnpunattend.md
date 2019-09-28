@@ -1,8 +1,8 @@
 ---
 title: pnpunattend
-description: Informazioni su come controllare i driver di dispositivo in un computer, nonché di eseguire installazioni driver invisibile all'utente.
+description: Informazioni su come controllare i driver di dispositivo in un computer, nonché eseguire installazioni di driver invisibile all'utente.
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,16 +13,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 07/11/2018
-ms.openlocfilehash: 53b72459d497ac5d079336c2a00ba65634b2e3a6
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 77a6ab1ea45322e3c53e8b095c412cf8838be60d
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66436330"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71372273"
 ---
 # <a name="pnpunattend"></a>pnpunattend
 
-Controlli di un computer per i driver di dispositivo e di eseguire installazioni automatiche di driver, o cercare i driver senza installare e, facoltativamente, riportare i risultati nella riga di comando. Usare questo comando per specificare l'installazione di driver specifici per i dispositivi hardware specifici. Vedi Osservazioni.
+Controlla un computer per i driver di dispositivo ed esegue le installazioni automatiche dei driver o cerca i driver senza installare e, facoltativamente, segnalare i risultati alla riga di comando. Usare questo comando per specificare l'installazione di driver specifici per dispositivi hardware specifici. Vedi Osservazioni.
 
 ## <a name="syntax"></a>Sintassi
 
@@ -34,25 +34,25 @@ PnPUnattend.exe auditSystem [/help] [/?] [/h] [/s] [/L]
 
 |Parametro|Descrizione|
 |---------|-----------|
-|auditSystem|Specifica l'installazione di driver in linea.</br>Obbligatorio, eccetto quando **pnpunattend** viene eseguito con il **/Help** o **/?** parametri.|
+|Passaggio auditSystem|Specifica l'installazione del driver online.</br>Obbligatorio, tranne quando **pnpunattend** viene eseguito con **/Help** o **/?** parametri.|
 |/s|Facoltativo. Specifica la ricerca dei driver senza installare.|
-|/L|Facoltativo. Specifica per visualizzare le informazioni del log per questo comando al prompt dei comandi.|
-|/?|Facoltativo. Visualizza la Guida per questo comando al prompt dei comandi.|
+|/L|Facoltativo. Specifica di visualizzare le informazioni di log per questo comando nel prompt dei comandi.|
+|/?|Facoltativo. Visualizza la guida per questo comando al prompt dei comandi.|
 
 ## <a name="remarks"></a>Note
 
-Preparazione preliminare è obbligatorio. Prima di usare questo comando, è necessario completare le attività seguenti:
+La preparazione preliminare è obbligatoria. Prima di utilizzare questo comando, è necessario completare le attività seguenti:
 
-1. Creare una directory per i driver da installare. Ad esempio, creare una cartella nel **C:\Drivers\Video** per i driver della scheda video.
-2. Scaricare ed estrarre il pacchetto di driver per il dispositivo. Copiare il contenuto della sottocartella contenente il file INF per la versione del sistema operativo ed eventuali sottocartelle nella cartella video che è stato creato. Ad esempio, copiare i file di driver video C:\Drivers\Video.
-3. Aggiungere una variabile di ambiente path di sistema per la cartella creata nel passaggio 1. ad esempio, **C:\Drivers\Video**.
-4. Creare la seguente chiave del Registro di sistema, quindi per il **DriverPaths** chiave create, impostare il **dati valore** a **1**.
-5. Per Windows® 7 passare al percorso del Registro di sistema: **Su HKEY_LOCAL_Machine\Software\Microsoft\Windows NT\CurrentVersion.\\** e quindi creare le chiavi: **UnattendSettings\PnPUnattend\DriverPaths\\**
-6. Per Windows Vista, passare al percorso del Registro di sistema: **HK_LM\Software\Microsoft\Windows NT\CurrentVersion.\\** , quindi creare le chiavi = **\UnattendSettings\PnPUnattend\DriverPaths**.
+1. Creare una directory per i driver da installare. Ad esempio, creare una cartella in **C:\Drivers\Video** per i driver della scheda video.
+2. Scaricare ed estrarre il pacchetto driver per il dispositivo. Copiare il contenuto della sottocartella che contiene il file INF per la versione del sistema operativo ed eventuali sottocartelle nella cartella video creata. Ad esempio, copiare i file del driver video in C:\Drivers\Video.
+3. Aggiungere una variabile di percorso dell'ambiente di sistema alla cartella creata nel passaggio 1, ad esempio **C:\Drivers\Video**.
+4. Creare la chiave del registro di sistema seguente e quindi, per la chiave **DriverPaths** creata, impostare i **dati del valore** su **1**.
+5. Per Windows® 7 esplorare il percorso del registro di sistema: **HKEY_LOCAL_Machine\Software\Microsoft\Windows NT\CurrentVersion @ no__t-1**, quindi creare le chiavi: **UnattendSettings\PnPUnattend\DriverPaths @ no__t-1**
+6. Per Windows Vista, passare al percorso del registro di sistema: **HK_LM\Software\Microsoft\Windows NT\CurrentVersion @ no__t-1**, quindi creare le chiavi = **\UnattendSettings\PnPUnattend\DriverPaths**.
 
 ## <a name="examples"></a>Esempi
 
-Il comando seguente viene illustrato come utilizzare il **PNPUnattend.exe** per controllare un computer per gli aggiornamenti dei driver possibili e quindi segnalare i risultati al prompt dei comandi.
+Il comando di esempio seguente mostra come usare **PNPUnattend. exe** per controllare un computer per individuare possibili aggiornamenti dei driver, quindi segnalare i risultati al prompt dei comandi.
 
 ```
 pnpunattend auditsystem /s /l 

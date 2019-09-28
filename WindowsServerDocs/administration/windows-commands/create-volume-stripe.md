@@ -1,8 +1,8 @@
 ---
-title: creazione di striping di volume
-description: 'Argomento i comandi di Windows per * * *- '
+title: Crea Stripe del volume
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,21 +13,21 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 55ed731df4613e215fb4d0954a5b8424035b1166
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 46c1367b5667294a7a9df742861a011090e7a337
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66434003"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71379141"
 ---
-# <a name="create-volume-stripe"></a>creazione di striping di volume
+# <a name="create-volume-stripe"></a>Crea Stripe del volume
 
 >Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Crea un volume con striping utilizzando due o più dischi dinamici specificati.  
+consente di creare un volume con striping utilizzando due o più dischi dinamici specificati.  
   
 > [!IMPORTANT]  
-> per Windows Vista, questo comando DiskPart è solo disponibile nelle edizioni di Windows Vista Ultimate, Windows Vista Enterprise e Windows Vista Business.  
+> per Windows Vista, questo comando DiskPart è disponibile solo in Windows Vista Ultimate, Windows Vista Enterprise e Windows Vista Business Edition.  
   
   
   
@@ -41,10 +41,10 @@ create volume stripe [size=<n>] disk=<n>,<n>[,<n>,...] [align=<n>] [noerr]
   
 |         Parametro         |                                                                                                                            Descrizione                                                                                                                            |
 |---------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|         size\=<n>         |             La quantità di spazio su disco, in megabyte \(MB\), che verrà occupata dal volume in ciascun disco. Se si specifica alcuna dimensione, il nuovo volume occuperà lo spazio libero rimanente nel disco più piccolo e un'uguale quantità di spazio su ogni disco successivo.             |
-| disk\=<n>,<n>\[,<n>,...\] |                                  I dischi dinamici in cui viene creato il volume con striping. Sono necessari almeno due dischi dinamici per creare un volume con striping. Una quantità di spazio pari a **dimensioni\= <n>**  viene allocato su ogni disco.                                   |
-|        align\=<n>         | Consente di allineare tutti gli extent di volume per il limite di allineamento più vicino. In genere utilizzata con il numero di unità logica RAID hardware \(LUN\) matrici per migliorare le prestazioni. *n* è il numero di kilobyte \(KB\) dall'inizio del disco per il limite di allineamento più vicino. |
-|           NOERR           |                               Solo per script. Quando si è verificato un errore, DiskPart continua a elaborare i comandi come se non si è verificato l'errore. Senza questo parametro, un errore causa DiskPart viene interrotto con un codice di errore.                                |
+|         dimensioni @ no__t-0 @ no__t-1         |             La quantità di spazio su disco, in megabyte \(MB\), che verrà occupata dal volume in ciascun disco. Se si specifica alcuna dimensione, il nuovo volume occuperà lo spazio libero rimanente nel disco più piccolo e un'uguale quantità di spazio su ogni disco successivo.             |
+| Disk @ no__t-0 @ no__t-1, <n> @ no__t-3, <n>,... \] |                                  I dischi dinamici in cui viene creato il volume con striping. Sono necessari almeno due dischi dinamici per creare un volume con striping. In ogni disco viene allocata una quantità di spazio uguale a **size @ no__t-1 @ no__t-2** .                                   |
+|        align @ no__t-0 @ no__t-1         | Consente di allineare tutti gli extent di volume per il limite di allineamento più vicino. In genere utilizzata con il numero di unità logica RAID hardware \(LUN\) matrici per migliorare le prestazioni. *n* è il numero di kilobyte \(KB\) dall'inizio del disco per il limite di allineamento più vicino. |
+|           NOERR           |                               Solo per gli script. Quando si è verificato un errore, DiskPart continua a elaborare i comandi come se non si è verificato l'errore. Senza questo parametro, un errore causa DiskPart viene interrotto con un codice di errore.                                |
   
 ## <a name="remarks"></a>Note  
   

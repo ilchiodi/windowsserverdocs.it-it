@@ -1,8 +1,8 @@
 ---
 title: bitsadmin getnotifyflags
-description: Argomento i comandi di Windows per **bitsadmin getnotifyflags** -recupera i flag di notifica per il processo specificato.
+description: 'Argomento dei comandi di Windows per **BITSAdmin getnotifyflags** : recupera i flag di notifica per il processo specificato.'
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 690e94805c5e61d96603e4ade102fb3a4bda409e
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 56ee3a30050b6cc934b35bab24e9508911ea250e
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59889282"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71381483"
 ---
 # <a name="bitsadmin-getnotifyflags"></a>bitsadmin getnotifyflags
 
@@ -40,17 +40,17 @@ bitsadmin /GetNotifyFlags <Job>
 
 ## <a name="remarks"></a>Note
 
-Il processo può contenere uno o più dei seguenti flag di notifica.
+Il processo può contenere uno o più dei flag di notifica seguenti.
 
-|---|---| | 0x001 | Generare un evento quando sono stati trasferiti tutti i file del processo. | | 0x002 | Generare un evento quando si verifica un errore. | | 0x004 | Disabilitare le notifiche. | | 0x008 | Generare un evento quando il processo viene modificato o viene effettuato lo stato del trasferimento. |
+|-----|-----| | 0x001 | Genera un evento quando tutti i file del processo sono stati trasferiti. | | 0x002 | Genera un evento quando si verifica un errore. | | 0x004 | Disabilitare le notifiche. | | 0x008 | Genera un evento quando il processo viene modificato o viene effettuato lo stato del trasferimento. |
 
 ## <a name="BKMK_examples"></a>Esempi
 
-Nell'esempio seguente recupera i flag di notifica per il processo denominato *myDownloadJob*.
+Nell'esempio seguente vengono recuperati i flag di notifica per il processo denominato *myDownloadJob*.
 ```
 C:\>bitsadmin /GetNotifyFlags myDownloadJob
 ```
 
 #### <a name="additional-references"></a>Altri riferimenti
 
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)
+[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

@@ -1,7 +1,7 @@
 ---
 title: I controller di archiviazione devono essere abilitati nelle macchine virtuali per fornire accesso ai dispositivi di archiviazione collegati
-description: Fornisce le istruzioni per risolvere il problema segnalato da questa regola di Best Practices Analyzer.
-ms.prod: windows-server-threshold
+description: Vengono fornite istruzioni per risolvere il problema segnalato da questa regola di Best Practices Analyzer.
+ms.prod: windows-server
 ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
@@ -10,12 +10,12 @@ ms.topic: article
 ms.assetid: 532548a1-8ffe-4b5b-902e-ed2f0819012b
 author: KBDAzure
 ms.date: 8/16/2016
-ms.openlocfilehash: 42803a0eef84bf006e9f9e7ed6297ea21b4eb7b1
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: f0d10ab4c419a6014a9edb4b7f721714dc92798d
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59849162"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71393488"
 ---
 # <a name="storage-controllers-should-be-enabled-in-virtual-machines-to-provide-access-to-attached-storage"></a>I controller di archiviazione devono essere abilitati nelle macchine virtuali per fornire accesso ai dispositivi di archiviazione collegati
 
@@ -26,25 +26,25 @@ Per altre informazioni sulle procedure consigliate e le analisi, vedere [Best Pr
 |Proprietà|Dettagli|  
 |-|-|  
 |**Sistema operativo**|Windows Server 2016|  
-|**/ Funzionalità del prodotto**|Hyper-V|  
-|**Severity**|Avviso|  
+|**Prodotto/funzionalità**|Hyper-V|  
+|**Gravità**|Avviso|  
 |**Categoria**|Configurazione|  
 
 Nelle sezioni seguenti, corsivo indica il testo dell'interfaccia Utente visualizzata nello strumento Analizzatore procedure consigliate per questo problema.
 
 ## <a name="issue"></a>Problema  
   
-*È possibile disabilitare uno o più controller di archiviazione in una macchina virtuale.*  
+*Uno o più controller di archiviazione potrebbero essere disabilitati in una macchina virtuale.*  
   
 ## <a name="impact"></a>Impatto  
   
-*Le macchine virtuali non è possibile usare l'archiviazione connessa a un controller di archiviazione disabilitato. Questo influisce sulle macchine virtuali seguenti:*  
+i computer @no__t 0Virtual non possono usare l'archiviazione connessa a un controller di archiviazione disabilitato. Ciò influisca sulle macchine virtuali seguenti: *  
   
-\<elenco di nomi delle macchine virtuali >  
+@no__t 0list di nomi di macchina virtuale >  
   
 ## <a name="resolution"></a>Risoluzione  
   
-*Usare Gestione dispositivi nel sistema operativo guest per abilitare tutti i controller di archiviazione. Se il controller di archiviazione non necessario, utilizzare Hyper-V Manager per rimuoverlo dalla macchina virtuale.*  
+*Use Device Manager nel sistema operativo guest per abilitare tutti i controller di archiviazione. Se il controller di archiviazione non è necessario, utilizzare la console di gestione di Hyper-V per rimuoverlo dalla macchina virtuale.*  
   
 Per istruzioni su come utilizzare Gestione dispositivi, vedere la Guida del sistema operativo guest. Per istruzioni su come rimuovere il controller di archiviazione, vedere la procedura seguente.  
   

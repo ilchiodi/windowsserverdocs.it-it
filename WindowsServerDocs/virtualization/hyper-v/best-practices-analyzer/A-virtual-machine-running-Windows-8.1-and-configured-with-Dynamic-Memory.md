@@ -1,7 +1,7 @@
 ---
 title: Una macchina virtuale che esegue Windows 8.1 e configurato con la memoria dinamica deve utilizzare valori consigliati per le impostazioni della memoria
-description: Fornisce le istruzioni per risolvere il problema segnalato da questa regola di Best Practices Analyzer.
-ms.prod: windows-server-threshold
+description: Vengono fornite istruzioni per risolvere il problema segnalato da questa regola di Best Practices Analyzer.
+ms.prod: windows-server
 ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
@@ -10,12 +10,12 @@ ms.topic: article
 ms.assetid: b9a14f85-326f-4916-9278-2c8d39a32848
 author: KBDAzure
 ms.date: 8/16/2016
-ms.openlocfilehash: bb283b094791904e54f13efdc0b6848ecacc1a3a
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: cd01c69183dde74b96ecbf1f0818a30fb7c48fca
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59859882"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71365367"
 ---
 # <a name="a-virtual-machine-running-windows-81-and-configured-with-dynamic-memory-should-use-recommended-values-for-memory-settings"></a>Una macchina virtuale che esegue Windows 8.1 e configurato con la memoria dinamica deve utilizzare valori consigliati per le impostazioni della memoria
 
@@ -26,23 +26,23 @@ Per altre informazioni sulle procedure consigliate e sulle analisi, vedere [Eseg
 |Proprietà|Dettagli|  
 |-|-|  
 |**Sistema operativo**|Windows Server 2016|  
-|**/ Funzionalità del prodotto**|Hyper-V|  
-|**Severity**|Avviso|  
+|**Prodotto/funzionalità**|Hyper-V|  
+|**Gravità**|Avviso|  
 |**Categoria**|Configurazione|  
   
 Nelle sezioni seguenti, corsivo indica il testo dell'interfaccia Utente visualizzata nello strumento Analizzatore procedure consigliate per questo problema.  
   
 ## <a name="issue"></a>**Problema**  
-*Uno o più macchine virtuali sono configurate per l'utilizzo della memoria dinamica con minore rispetto alla quantità di memoria consigliata per Windows 8.1.*  
+*Una o più macchine virtuali sono configurate per l'utilizzo di memoria dinamica con minore rispetto alla quantità di memoria consigliata per Windows 8.1.*  
   
-## <a name="impact"></a>**Impact**  
+## <a name="impact"></a>**Impatto**  
 Il sistema operativo guest nelle macchine virtuali seguenti potrebbero non essere eseguiti o potrebbero essere eseguiti unreliably:   
   
-\<elenco di macchine virtuali >  
+@no__t 0list di macchine virtuali >  
       
   
 ## <a name="resolution"></a>**Soluzione**  
-*Utilizzare Hyper-V Manager per aumentare la memoria minima per almeno 256 MB, memoria di avvio di almeno 512 MB e memoria massima per almeno 1 GB per la macchina virtuale.*  
+*Usare la console di gestione di Hyper-V per aumentare la memoria minima per almeno 256 MB, memoria di avvio per almeno 512 MB e memoria massima per almeno 1 GB per questa macchina virtuale.*  
   
 #### <a name="increase-memory-using-hyper-v-manager"></a>Aumentare la memoria tramite Gestione di Hyper-V  
   

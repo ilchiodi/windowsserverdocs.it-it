@@ -1,8 +1,8 @@
 ---
 title: Scwcmd
-description: 'Argomento i comandi di Windows per * * *- '
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 19d631f97c194a78819491f32955e391d3be5a70
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: fae9476f94af5faa6e942239e7d91cf589bb1776
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59883882"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71384263"
 ---
 # <a name="scwcmd"></a>Scwcmd
 
 > Si applica a: Windows Server 2012 R2, Windows Server 2012
 
-Lo strumento della riga di comando Scwcmd.exe incluso con la configurazione guidata impostazioni di sicurezza può essere usato per eseguire le attività seguenti:
+Lo strumento da riga di comando Scwcmd. exe incluso con la configurazione guidata impostazioni di sicurezza può essere utilizzato per eseguire le attività seguenti:
 -   Configurare uno o più server con un criterio di Sicurezza generato.
 -   Analizzare uno o più server con un criterio di Sicurezza generato.
 -   Consente di visualizzare i risultati dell'analisi in formato HTML.
@@ -54,4 +54,4 @@ scwcmd <command> [<subcommand>]
 
 #### <a name="additional-references"></a>Altri riferimenti
 
--   [Chiave sintassi della riga di comando](command-line-syntax-key.md)
+-   [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

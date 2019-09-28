@@ -1,8 +1,8 @@
 ---
 title: mqbkup
-description: 'Argomento i comandi di Windows per * * *- '
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,20 +13,20 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: a809bfc788ba25afab280e80e5c6f0dc9c70dc86
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 66783e0bbfe5c82971e14fd05e913d485485dc6f
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59842902"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71373506"
 ---
 # <a name="mqbkup"></a>mqbkup
 
 >Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Esegue il backup del Registro di sistema e file di messaggi MSMQ impostazioni in un dispositivo di archiviazione e consente di ripristinare le impostazioni e i messaggi archiviati in precedenza.   
-Il backup e l'operazione di ripristino interrompe il servizio MSMQ locale. Se è stato avviato il servizio MSMQ in anticipo, l'utilità tenterà di riavviare il servizio MSMQ alla fine del backup o l'operazione di ripristino. Se il servizio era già arrestato prima di eseguire l'utilità, viene eseguito alcun tentativo di riavviare il servizio.  
-Prima di usare l'utilità di Backup/ripristino messaggio di MSMQ è necessario chiudere tutte le applicazioni locali che usano MSMQ.  
+Consente di eseguire il backup dei file di messaggi MSMQ e delle impostazioni del registro di sistema in un dispositivo di archiviazione e di ripristinare i messaggi e le impostazioni archiviati in precedenza.   
+Il servizio MSMQ locale viene arrestato sia dal backup che dall'operazione di ripristino. Se il servizio MSMQ è stato avviato in anticipo, l'utilità tenterà di riavviare il servizio MSMQ alla fine del backup o dell'operazione di ripristino. Se il servizio è già stato arrestato prima di eseguire l'utilità, non viene eseguito alcun tentativo di riavviare il servizio.  
+Prima di utilizzare l'utilità di backup/ripristino messaggi MSMQ, è necessario chiudere tutte le applicazioni locali che utilizzano MSMQ.  
 ## <a name="syntax"></a>Sintassi  
 ```  
 mqbkup {/b | /r} <folder path_to_storage_device>  
@@ -36,22 +36,22 @@ mqbkup {/b | /r} <folder path_to_storage_device>
 |-------|--------|  
 |/ b|Specifica l'operazione di backup|  
 |/r|Specifica l'operazione di ripristino|  
-|< cartella path_to_storage\_dispositivo >|Specifica il percorso in cui sono archiviate i file dei messaggi MSMQ e le impostazioni del Registro di sistema|  
+|< cartella path_to_storage @ no__t-0device >|Specifica il percorso in cui sono archiviati i file dei messaggi MSMQ e le impostazioni del registro di sistema|  
 |/?|Visualizza la guida al prompt dei comandi.|  
 ## <a name="BKMK_Examples"></a>Esempi  
-Eseguire il backup di tutti i file dei messaggi MSMQ e le impostazioni del Registro di sistema e archiviarli nel *Msmqbkup* nell'unità c: cartella.  
+Per eseguire il backup di tutti i file di messaggi MSMQ e le impostazioni del registro di sistema e archiviarli nella cartella *Msmqbkup* nell'unità C:.  
 ```  
 mqbkup /b c:\msmqbkup  
 ```  
-Se la cartella specificata non esiste, l'utilità creerà automaticamente uno. Se si sceglie di specificare una cartella esistente, questa cartella deve essere vuota. Se si specifica una cartella non è vuoto, l'utilità eliminerà tutti i file e sottocartella contenuta al suo interno. In questo caso, verrà richiesto di concedere l'autorizzazione per eliminare le sottocartelle e i file esistenti. È possibile usare la **/y** parametro per indicare che l'utente accetti in anticipo l'eliminazione di tutti i file esistenti e le sottocartelle nella cartella specificata.  
-Per eliminare tutti i file e sottocartelle nel *Oldbkup* cartella l'unità c: e archivio file di messaggi MSMQ e le impostazioni del Registro di sistema in questa cartella.  
+Se la cartella specificata non esiste, l'utilità ne creerà automaticamente una. Se si sceglie di specificare una cartella esistente, questa cartella deve essere vuota. Se si specifica una cartella non vuota, l'utilità eliminerà tutti i file e le sottocartelle in essa contenuti. In tal caso, verrà richiesto di concedere l'autorizzazione per eliminare i file e le sottocartelle esistenti. È possibile utilizzare il parametro **/y** per indicare che si accettano prima di tutto l'eliminazione di tutti i file e le sottocartelle esistenti nella cartella specificata.  
+Per eliminare tutti i file e le sottocartelle nella cartella *Oldbkup* nell'unità C: e archiviare i file dei messaggi MSMQ e le impostazioni del registro di sistema in questa cartella.  
 ```  
 mqbkup /b /y c:\oldbkup  
 ```  
-Per ripristinare i messaggi MSMQ e le impostazioni del Registro di sistema:  
+Per ripristinare i messaggi MSMQ e le impostazioni del registro di sistema:  
 ```  
 mqbkup /r c:\msmqbkup  
 ```  
-I percorsi delle cartelle utilizzate per archiviare i file di messaggi MSMQ vengono archiviati nel Registro di sistema. Di conseguenza, l'utilità ripristinerà i file di messaggi MSMQ per le cartelle specificate nel Registro di sistema e non per le cartelle di archiviazione usate prima dell'operazione di ripristino. Se le cartelle specificate nel Registro di sistema non esistono, l'operazione di ripristino verrà automaticamente crearli. Se le directory di cartelle sono presenti e non sono vuote, l'utilità richiederà l'autorizzazione per eliminare il contenuto corrente di queste cartelle.  
+I percorsi delle cartelle utilizzate per archiviare i file di messaggi MSMQ vengono archiviati nel registro di sistema. In questo modo, l'utilità ripristinerà i file di messaggi MSMQ alle cartelle specificate nel registro di sistema e non alle cartelle di archiviazione utilizzate prima dell'operazione di ripristino. Se le cartelle specificate nel registro di sistema non esistono, l'operazione di ripristino li creerà automaticamente. Se le directory delle cartelle esistono e non sono vuote, l'utilità richiede l'autorizzazione per eliminare il contenuto corrente di queste cartelle.  
 ## <a name="additional-references"></a>Riferimenti aggiuntivi  
--   [Chiave sintassi della riga di comando](command-line-syntax-key.md)  
+-   [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)  

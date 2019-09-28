@@ -1,9 +1,9 @@
 ---
 title: Passaggio 1 configurare l'infrastruttura DirectAccess
-description: Questo argomento fa parte della Guida di aggiungere DirectAccess a una distribuzione di accesso remoto esistente (VPN) per Windows Server 2016
+description: Questo argomento fa parte della guida aggiungere DirectAccess a una distribuzione di accesso remoto esistente (VPN) per Windows Server 2016
 manager: brianlic
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-da
@@ -12,18 +12,18 @@ ms.topic: article
 ms.assetid: 5dc529f7-7bc3-48dd-b83d-92a09e4055c4
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: ad0ac1ad1187d0f99f84528a658bc66794ba67b2
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: 4437101c6cde25ebb370fe54a2f8ef821997f15d
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67281857"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71388774"
 ---
 # <a name="step-1-configure-the-directaccess-infrastructure"></a>Passaggio 1 configurare l'infrastruttura DirectAccess
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016
 
-In questo argomento viene descritto come configurare l'infrastruttura necessaria per l'abilitazione di DirectAccess in una distribuzione VPN esistente. Prima di iniziare i passaggi di distribuzione, assicurarsi di aver completato i passaggi di pianificazione descritti in [passaggio 1: Pianificare l'infrastruttura DirectAccess](Step-1-Plan-DirectAccess-Infrastructure.md).  
+In questo argomento viene descritto come configurare l'infrastruttura necessaria per l'abilitazione di DirectAccess in una distribuzione VPN esistente. Prima di iniziare la procedura di distribuzione, assicurarsi di aver completato i passaggi di pianificazione descritti in [Step 1: Pianificare l'infrastruttura DirectAccess @ no__t-0.  
   
 |Attività|Descrizione|  
 |----|--------|  
@@ -37,7 +37,7 @@ In questo argomento viene descritto come configurare l'infrastruttura necessaria
 |Configurare i gruppi di sicurezza|Consente di configurare i gruppi di sicurezza che conterranno i computer client DirectAccess e qualsiasi altro gruppo di sicurezza necessario nella distribuzione.|  
 |Configurare il server dei percorsi di rete|L'Abilitazione guidata DirectAccess consente di configurare il server dei percorsi di rete sul server DirectAccess.|  
   
-## <a name="ConfigNetworkSettings"></a>Configurare le impostazioni di rete di server  
+## <a name="ConfigNetworkSettings"></a>Configurare le impostazioni di rete del server  
 Le seguenti impostazioni dell'interfaccia di rete sono necessarie per la distribuzione di un singolo server in un ambiente con IPv4 e IPv6. Tutti gli indirizzi IP vengono configurati tramite **modificare le impostazioni della scheda** nel **Windows Networking and Sharing Center**.  
   
 -   Topologia perimetrale  
@@ -95,7 +95,7 @@ Quando si utilizzano altri firewall, applicare le eccezioni firewall delle rete 
 ## <a name="ConfigCAs"></a>Configurare CA e certificati  
 L'Abilitazione guidata DirectAccess consente di configurare un proxy Kerberos predefinito per autenticare l'uso dei nome utente e delle password. Consente di configurare anche un certificato IP-HTTPS sul server di Accesso remoto.  
   
-### <a name="ConfigCertTemp"></a>Configurare modelli di certificato  
+### <a name="ConfigCertTemp"></a>Configurare i modelli di certificato  
 Quando si usa una CA interna per l'emissione di certificati, è necessario configurare un modello di certificato per il certificato IP-HTTPS e il certificato del sito Web del server dei percorsi di rete.  
   
 ##### <a name="to-configure-a-certificate-template"></a>Per configurare un modello di certificato  
@@ -144,7 +144,7 @@ Assicurarsi che il certificato del sito Web usato per l'autenticazione IP-HTTPS 
   
 ##### <a name="to-install-the-ip-https-certificate-from-an-internal-ca"></a>Per installare il certificato IP-HTTPS da una CA interna  
   
-1.  Sul server di Accesso remoto: Nel **avviare** digitare**mmc.exe**, quindi premere INVIO.  
+1.  Sul server di Accesso remoto: Nella schermata **Start** Digitare**MMC. exe**, quindi premere INVIO.  
   
 2.  Nella console di MMC, nel **File** menu, fare clic su **Aggiungi/Rimuovi Snap-in**.  
   
@@ -177,9 +177,9 @@ Assicurarsi che il certificato del sito Web usato per l'autenticazione IP-HTTPS 
 ## <a name="ConfigDNS"></a>Configurare il server DNS  
 È necessario configurare manualmente una voce DNS per il sito Web del server dei percorsi di rete per la rete interna nella distribuzione.  
   
-### <a name="NLS_DNS"></a>Per creare il probe web e server del percorso rete i record DNS  
+### <a name="NLS_DNS"></a>Per creare i record DNS del server dei percorsi di rete e del probe Web  
   
-1.  Nel server DNS della rete interna: Nel **avviare** schermata, digitare * * dnsmgmt.msc**, e quindi premere INVIO.  
+1.  Nel server DNS della rete interna: Nella schermata **Start** Digitare * * dnsmgmt. msc * *, quindi premere INVIO.  
   
 2.  Nel riquadro a sinistra della console **Gestore DNS** espandere la zona di ricerca diretta per il proprio dominio. Fare clic con il pulsante destro del mouse sul dominio e fare clic su **Nuovo host (A o AAAA)** .  
   
@@ -189,7 +189,7 @@ Assicurarsi che il certificato del sito Web usato per l'autenticazione IP-HTTPS 
   
 5.  Fare clic su **Fine**.  
 
-![Windows PowerShell](../../../media/Step-1-Configure-the-DirectAccess-Infrastructure_3/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em>***  
+](../../../media/Step-1-Configure-the-DirectAccess-Infrastructure_3/PowerShellLogoSmall.gif)***<em>comandi equivalenti</em> di PowerShell per Windows PowerShell @no__t 0Windows***  
   
 Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.  
   
@@ -233,7 +233,7 @@ Il server di Accesso remoto e tutti i computer client DirectAccess devono appart
   
 9. Nel **le proprietà di sistema** la finestra di dialogo, fare clic su Chiudi. Fare clic su **Riavvia** quando richiesto.  
   
-![Windows PowerShell](../../../media/Step-1-Configure-the-DirectAccess-Infrastructure_3/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em>***  
+](../../../media/Step-1-Configure-the-DirectAccess-Infrastructure_3/PowerShellLogoSmall.gif)***<em>comandi equivalenti</em> di PowerShell per Windows PowerShell @no__t 0Windows***  
   
 Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.  
   
@@ -260,7 +260,7 @@ Per creare oggetti Criteri di gruppo, vedere [creare e modificare un oggetto Cri
 > [!NOTE]  
 > Se un oggetto Criteri di gruppo è stato creato manualmente, è possibile durante la configurazione di DirectAccess che l'oggetto Criteri di gruppo non sarà disponibile. L'oggetto Criteri di gruppo potrebbe non essere stato replicato sul controller di dominio più vicino al computer di gestione. In questo caso, l'amministratore può attendere il completamento della replica o forzarla.  
   
-## <a name="ConfigSGs"></a>Configurare gruppi di sicurezza  
+## <a name="ConfigSGs"></a>Configurare i gruppi di sicurezza  
 Le impostazioni di DirectAccess contenute nell'oggetto Criteri di gruppo di computer client vengono applicate solo ai computer che sono membri dei gruppi di sicurezza specificati durante la configurazione di accesso remoto. Inoltre, se si usano i gruppi di sicurezza per gestire i server applicazioni, creare un gruppo di sicurezza per tali server.  
   
 ### <a name="Sec_Group"></a>Per creare un gruppo di sicurezza per i client DirectAccess  
@@ -277,7 +277,7 @@ Le impostazioni di DirectAccess contenute nell'oggetto Criteri di gruppo di comp
   
 6.  Nel **Seleziona utenti, contatti, computer o gli account del servizio** finestra di dialogo, selezionare i computer client che si desidera abilitare per DirectAccess e quindi fare clic su **OK**.  
   
-![Windows PowerShell](../../../media/Step-1-Configure-the-DirectAccess-Infrastructure_3/PowerShellLogoSmall.gif)**comandi equivalenti di Windows PowerShell**  
+](../../../media/Step-1-Configure-the-DirectAccess-Infrastructure_3/PowerShellLogoSmall.gif)**comandi equivalenti** di PowerShell per Windows PowerShell @no__t 0Windows  
   
 Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.  
   
@@ -307,7 +307,7 @@ Il server dei percorsi di rete deve trovarsi su un server con elevata disponibil
   
 #### <a name="to-install-the-network-location-server-certificate-from-an-internal-ca"></a>Per installare il certificato del server dei percorsi di rete da una CA interna  
   
-1.  Sul server che ospiterà il sito Web del server dei percorsi di rete: Nel **avviare** digitare**mmc.exe**, quindi premere INVIO.  
+1.  Sul server che ospiterà il sito Web del server dei percorsi di rete: Nella schermata **Start** Digitare**MMC. exe**, quindi premere INVIO.  
   
 2.  Nella console di MMC, nel **File** menu, fare clic su **Aggiungi/Rimuovi Snap-in**.  
   

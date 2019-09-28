@@ -1,8 +1,8 @@
 ---
 title: autofmt
-description: Argomento i comandi di Windows per **autofmt** -formatta un disco o partizione quando viene chiamato dalla Console di ripristino di Windows.
+description: Windows Commands Topic for **Autofmt** -formatta un'unità o una partizione quando viene chiamata dalla console di ripristino di Windows.
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 6e976a74a8d491710b9f306f2f45ccab2b190dae
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: a15a50966ef4fdcd0abe6615fccae719d73b2d82
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59816812"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71382263"
 ---
 # <a name="autofmt"></a>autofmt
 
 
 
-Formatta un disco o partizione quando viene chiamato dalla Console di ripristino di Windows.
+Formatta un'unità o una partizione quando viene chiamata dalla Console ripristino Windows.
 
 ## <a name="remarks"></a>Note
 
@@ -32,6 +32,6 @@ Non è possibile eseguire **Autofmt** direttamente dalla riga di comando.
 
 #### <a name="additional-references"></a>Altri riferimenti
 
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)
+[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
 
-[Utilizzo di File System](https://go.microsoft.com/fwlink/?LinkId=4509)
+[Uso dei file System](https://go.microsoft.com/fwlink/?LinkId=4509)

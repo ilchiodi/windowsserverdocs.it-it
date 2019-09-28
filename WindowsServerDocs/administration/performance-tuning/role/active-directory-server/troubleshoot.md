@@ -1,26 +1,26 @@
 ---
-title: Risolvere i problemi di prestazioni di Active Directory Domain Services
-description: Risoluzione dei problemi relativi alle indicazioni fornite in ottimizzazione delle prestazioni di Active Directory.
-ms.prod: windows-server-threshold
+title: Risolvere i problemi relativi alle prestazioni Active Directory Domain Services
+description: Guida alla risoluzione dei problemi in Active Directory ottimizzazione delle prestazioni.
+ms.prod: windows-server
 ms.technology: performance-tuning-guide
 ms.topic: article
 ms.author: TimWi; ChrisRob; HerbertM; KenBrumf;  MLeary; ShawnRab
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: b7d024b9c43d46b3025213635ebc097594e6484d
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 9ab5b78917c51e3669dcaf27689e99ab064b992a
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59854542"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71370241"
 ---
-# <a name="troubleshooting-active-directory-domain-services-performance"></a>Risoluzione dei problemi delle prestazioni di Active Directory Domain Services
+# <a name="troubleshooting-active-directory-domain-services-performance"></a>Risoluzione dei problemi relativi alle prestazioni Active Directory Domain Services
 
-Per altre informazioni sulla risoluzione dei problemi di prestazioni consente di aggiungere, vedere [monitoraggio dell'ambiente di succursali](https://technet.microsoft.com/library/dd736504.aspx).
+Per ulteriori informazioni sull'aggiunta della risoluzione dei problemi di prestazioni, vedere [monitoraggio dell'ambiente di succursale](https://technet.microsoft.com/library/dd736504.aspx).
 
 ## <a name="see-also"></a>Vedere anche
-- [Server Active Directory l'ottimizzazione delle prestazioni](index.md)
-- [Considerazioni relative all'hardware](hardware-considerations.md)
-- [Considerazioni di LDAP](ldap-considerations.md)
+- [Ottimizzazione delle prestazioni di Active Directory Server](index.md)
+- [Considerazioni relative ai requisiti hardware](hardware-considerations.md)
+- [Considerazioni relative a LDAP](ldap-considerations.md)
 - [Esatto posizionamento dei controller di dominio e considerazioni sul sito](site-definition-considerations.md)
-- [Pianificazione della capacità per servizi di dominio Active Directory](https://go.microsoft.com/fwlink/?LinkId=324566)
+- [Pianificazione della capacità per Active Directory Domain Services](https://go.microsoft.com/fwlink/?LinkId=324566)
