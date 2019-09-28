@@ -4,20 +4,20 @@ description: Questo argomento fa parte della Guida alla distribuzione di un Serv
 manager: brianlic
 ms.topic: article
 ms.assetid: 4acdc3ad-078e-45cc-b54c-e9456e0c90f5
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 1774d235703bd75d810f2649cb8ed3f2f92622d5
-ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
+ms.openlocfilehash: 024fc73c4ed089d81808cf44d7cfe8b01bfffaa0
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66811601"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71406322"
 ---
 # <a name="install-the-certification-authority"></a>Installare l'Autorità di certificazione
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016
 
 È possibile utilizzare questa procedura per installare Servizi certificati Active Directory (AD CS) in modo che è possibile registrare un certificato server da server che eseguono Server dei criteri di rete (NPS), Routing e accesso remoto (RRAS) o entrambi.  
   
@@ -39,7 +39,7 @@ Per completare questa procedura, è necessaria almeno l'appartenenza al gruppo *
 ### <a name="to-install-active-directory-certificate-services"></a>Per installare Servizi certificati Active Directory  
 
 > [!TIP]
-> Se si desidera utilizzare Windows PowerShell per installare Servizi certificati Active Directory, vedere [Install-AdcsCertificationAuthority](https://docs.microsoft.com/powershell/module/adcsdeployment/install-adcscertificationauthority?view=win10-ps) per cmdlet e parametri facoltativi.
+> Se si vuole usare Windows PowerShell per installare Active Directory Servizi certificati, vedere [Install-AdcsCertificationAuthority](https://docs.microsoft.com/powershell/module/adcsdeployment/install-adcscertificationauthority?view=win10-ps) per i cmdlet e i parametri facoltativi.
   
 1.  Accedere come membro del gruppo Enterprise Admins e del gruppo Domain Admins del dominio radice.  
   
@@ -70,7 +70,7 @@ Per completare questa procedura, è necessaria almeno l'appartenenza al gruppo *
   
 13. Nel **specificare il tipo della chiave privata** verificare che **creare una nuova chiave privata** sia selezionata e quindi fare clic su **Avanti**.  
   
-14. Nel **crittografia per la CA** pagina, mantenere le impostazioni predefinite per CSP (**RSA #Microsoft Software Key Storage Provider**) e l'algoritmo hash (**SHA2**) e determinare la migliore lunghezza di chiave in caratteri per la distribuzione. Lunghezze di chiave in caratteri grandi offrono una sicurezza ottimale; Tuttavia, che può influire sulle prestazioni del server e potrebbe non essere compatibile con applicazioni legacy. È consigliabile mantenere l'impostazione predefinita di 2048. Fare clic su **Avanti**.  
+14. Nella pagina **crittografia per la CA** , conservare le impostazioni predefinite per CSP (**RSA # Microsoft software key storage provider**) e l'algoritmo hash (**SHA2**) e determinare la lunghezza dei caratteri chiave migliore per la distribuzione. Lunghezze di chiave in caratteri grandi offrono una sicurezza ottimale; Tuttavia, che può influire sulle prestazioni del server e potrebbe non essere compatibile con applicazioni legacy. È consigliabile mantenere l'impostazione predefinita di 2048. Fare clic su **Avanti**.  
   
 15. Nel **nome CA** pagina, mantenere il nome comune suggerito per l'autorità di certificazione o modificare il nome in base ai requisiti. Verificare che si è certi che il nome della CA è compatibile con le convenzioni di denominazione e scopi, poiché non è possibile modificare il nome della CA dopo aver installato Servizi certificati Active Directory. Fare clic su **Avanti**.  
   

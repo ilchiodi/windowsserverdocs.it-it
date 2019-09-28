@@ -1,30 +1,30 @@
 ---
-title: L'aggiornamento a AD FS in Windows Server 2016 con SQL Server
+title: Aggiornamento a AD FS in Windows Server 2016 con SQL Server
 description: ''
 author: billmath
 manager: mtillman
 ms.date: 04/11/2018
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.assetid: 70f279bf-aea1-4f4f-9ab3-e9157233e267
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: 0a3db2a095d1a31f55bd1c8bfc5bf3c9f6bb65b8
-ms.sourcegitcommit: ccc802338b163abdad2e53b55f39addcfea04603
+ms.openlocfilehash: dd843724faf1c7a8101def84091484a5e7f7900f
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66687402"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71408233"
 ---
-# <a name="upgrading-to-ad-fs-in-windows-server-2016-with-sql-server"></a>L'aggiornamento a AD FS in Windows Server 2016 con SQL Server
+# <a name="upgrading-to-ad-fs-in-windows-server-2016-with-sql-server"></a>Aggiornamento a AD FS in Windows Server 2016 con SQL Server
 
 
 > [!NOTE]  
-> Solo iniziare un aggiornamento con un intervallo di tempo definitivo pianificato per il completamento. Si consiglia di non mantenere ADFS in uno stato in modalità mista per un lungo periodo di tempo, come uscire da AD FS in uno stato in modalità mista possono causare problemi con la farm.
+> Avviare un aggiornamento solo con un intervallo di tempo definitivo pianificato per il completamento. Non è consigliabile mantenere AD FS in uno stato in modalità mista per un periodo di tempo prolungato, lasciando AD FS in uno stato in modalità mista può causare problemi con la farm.
 
 
 ## <a name="moving-from-a-windows-server-2012-r2-ad-fs-farm-to-a-windows-server-2016-ad-fs-farm"></a>Lo spostamento da una farm di Windows Server 2012 R2 AD ADFS in una farm ADFS a Windows Server 2016  
-Il documento seguente viene descritto come aggiornare la farm di AD FS Windows Server 2012 R2 ad ADFS in Windows Server 2016 quando si usa un Server SQL per il database di ADFS.  
+Nel documento seguente viene descritto come aggiornare la farm di AD FS Windows Server 2012 R2 per AD FS in Windows Server 2016 quando si utilizza un SQL Server per il database AD FS.  
 
 ### <a name="upgrading-ad-fs-to-windows-server-2016-fbl"></a>Aggiornamento di ADFS per Windows Server 2016 FBL  
 Novità di ADFS per Windows Server 2016 è la funzionalità di livello il comportamento di farm (FBL).   Questa funzionalità è per l'intera farm e determina le funzionalità che consente la farm di ADFS.   Per impostazione predefinita, il FBL in una farm di Windows Server 2012 R2 AD ADFS si trova il FBL di Windows Server 2012 R2.  
@@ -44,74 +44,74 @@ Il resto del documento fornisce i passaggi per l'aggiunta di un server federativ
 > [!NOTE]  
 > Prima di poter passare ad ADFS in Windows Server 2016 FBL, è necessario rimuovere tutti i nodi di Windows 2012 R2.  Non appena l'aggiornamento di un sistema operativo di Windows Server 2012 R2 a Windows Server 2016 ed è diventato un nodo 2016.  È necessario rimuoverlo e sostituirlo con un nuovo nodo 2016.  
 
-Diagramma dell'architettura seguente viene illustrato il programma di installazione che è stato usato per convalidare e registrare la procedura seguente.
+Nel diagramma dell'architettura seguente viene illustrata la configurazione utilizzata per convalidare e registrare i passaggi riportati di seguito.
 
-![Architecture](media/Upgrading-to-AD-FS-in-Windows-Server-2016-SQL/arch.png)
+![Architettura](media/Upgrading-to-AD-FS-in-Windows-Server-2016-SQL/arch.png)
 
 
-#### <a name="join-the-windows-2016-ad-fs-server-to-the-ad-fs-farm"></a>Aggiungere il Server ADFS 2016 Windows per la farm AD FS
+#### <a name="join-the-windows-2016-ad-fs-server-to-the-ad-fs-farm"></a>Aggiungere il server di AD FS Windows 2016 alla farm AD FS
 
 1.  Utilizzando Server Manager installa il ruolo di Active Directory Federation Services in Windows Server 2016  
 
-2.  Utilizzando la procedura guidata configurazione di ADFS, aggiungere il nuovo server di Windows Server 2016 alla farm ADFS esistente.  Nel **benvenuto** dello schermo fare clic su **successivo**.
- ![Aggiungi a farm](media/Upgrading-to-AD-FS-in-Windows-Server-2016-SQL/configure1.png)  
-3.  Nel **connettersi a servizi di dominio Active Directory** dello schermo, s**pecificare un account amministratore** con le autorizzazioni per eseguire la configurazione di servizi di federazione e fare clic su **Next**.
-4.  Nel **impostazione Farm** schermata, immettere il nome del server SQL e dell'istanza e quindi fare clic su **successivo**.
-![Aggiungi a farm](media/Upgrading-to-AD-FS-in-Windows-Server-2016-SQL/configure3.png)
-5.  Nel **specifica il certificato SSL** schermata, specificare il certificato e fare clic su **successivo**.
-![Aggiungi a farm](media/Upgrading-to-AD-FS-in-Windows-Server-2016-SQL/configure4.png)
-6.  Nel **impostazione Account del servizio** schermata, specificare l'account del servizio e fare clic su **successivo**.
-7.  Nel **esaminare le opzioni** schermata, esaminare le opzioni e fare clic su **successivo**.
-8.  Nel **prerequisiti controlla** schermata, assicurarsi che tutti i controlli dei prerequisiti sono stati superati e fare clic su **configura**.
-9.  Nel **risultati** schermata, assicurarsi che tale server è stato configurato correttamente e fare clic su **Chiudi**.
+2.  Utilizzando la procedura guidata configurazione di ADFS, aggiungere il nuovo server di Windows Server 2016 alla farm ADFS esistente.  Nella schermata **iniziale** fare clic su **Avanti**.
+ Farm ![Join @ no__t-1  
+3.  Nella schermata **Connetti a Active Directory Domain Services** , s**pecificare un account amministratore** con le autorizzazioni per eseguire la configurazione di Federation Services e fare clic su **Avanti**.
+4.  Nella schermata **specifica Farm** immettere il nome dell'istanza di SQL Server e quindi fare clic su **Avanti**.
+Farm ![Join @ no__t-1
+5.  Nella schermata **specificare il certificato SSL** specificare il certificato e fare clic su **Avanti**.
+Farm ![Join @ no__t-1
+6.  Nella schermata **Specifica account del servizio** , specificare l'account del servizio e fare clic su **Avanti**.
+7.  Nella schermata **verifica opzioni** rivedere le opzioni e fare clic su **Avanti**.
+8.  Nella schermata **controlli dei prerequisiti** verificare che tutti i controlli dei prerequisiti siano stati superati e fare clic su **Configura**.
+9.  Nella schermata **dei risultati** verificare che il server sia stato configurato correttamente e fare clic su **Chiudi**.
 
 
-#### <a name="remove-the-windows-server-2012-r2-ad-fs-server"></a>Rimuovere il server AD FS di Windows Server 2012 R2
+#### <a name="remove-the-windows-server-2012-r2-ad-fs-server"></a>Rimuovere il server AD FS Windows Server 2012 R2
 
 >[!NOTE]
->Non è necessario impostare il server ADFS primario tramite Set-AdfsSyncProperties-ruolo quando si usa SQL come database.  Questo avviene perché tutti i nodi sono considerati principali in questa configurazione.
+>Non è necessario impostare il server di AD FS primario utilizzando set-AdfsSyncProperties-Role quando si utilizza SQL come database.  Questo perché tutti i nodi sono considerati primari in questa configurazione.
 
-1.  Nel server di Windows Server 2012 R2 AD ADFS in uso di Server Manager **Rimuovi ruoli e funzionalità** sotto **Gestisci**.
-![Rimuovi server](media/Upgrading-to-AD-FS-in-Windows-Server-2016-SQL/remove1.png)
+1.  Nel server AD FS Windows Server 2012 R2 Server Manager utilizzare **Rimuovi ruoli e funzionalità** in **Gestisci**.
+@no__t-server 0Remove @ no__t-1
 2.  Nella schermata **Prima di iniziare** fare clic su **Avanti**.
-3.  Nel **selezione del Server** schermata, fare clic su **successivo**.
-4.  Nel **ruoli predefiniti del Server** schermata, rimuovere il segno di spunta accanto a **Active Directory Federation Services** e fare clic su **Next**.
-![Rimuovi server](media/Upgrading-to-AD-FS-in-Windows-Server-2016-SQL/remove2.png)
-5.  Nel **caratteristiche** schermata, fare clic su **successivo**.
-6.  Nel **conferma** schermata, fare clic su **rimuovere**.
-7.  Al termine, riavviare il server.
+3.  Nella schermata **Selezione server** fare clic su **Avanti**.
+4.  Nella schermata **ruoli server** , rimuovere il segno di spunta accanto a **Active Directory Federation Services** e fare clic su **Avanti**.
+@no__t-server 0Remove @ no__t-1
+5.  Nella schermata **funzionalità** fare clic su **Avanti**.
+6.  Nella schermata di **conferma** fare clic su **Rimuovi**.
+7.  Al termine dell'operazione, riavviare il server.
 
-#### <a name="raise-the-farm-behavior-level-fbl"></a>Aumentare il livello di comportamento Farm (FBL)
-Prima di questo passaggio è necessario assicurarsi che forestprep e domainprep sono stati eseguiti nell'ambiente di Active Directory e che Active Directory con lo schema di Windows Server 2016.  Questo documento avviata con un controller di dominio Windows 2016 e non era necessaria l'esecuzione di questi perché sono stati eseguiti durante l'installazione di AD.
+#### <a name="raise-the-farm-behavior-level-fbl"></a>Aumentare il livello di comportamento della farm (FBI)
+Prima di questo passaggio è necessario assicurarsi che ForestPrep e DomainPrep siano stati eseguiti nell'ambiente Active Directory e che Active Directory disponga dello schema di Windows Server 2016.  Questo documento è stato avviato con un controller di dominio Windows 2016 e non è necessario eseguirlo perché è stato eseguito quando è stato installato Active Directory.
 
 >[!NOTE]
->Prima di iniziare la procedura seguente, verificare che Windows Server 2016 è corrente tramite l'esecuzione di Windows Update dalle impostazioni.  Continua questo processo fino a quando non sono necessari altri aggiornamenti.
+>Prima di avviare il processo seguente, verificare che Windows Server 2016 sia aggiornato eseguendo Windows Update da impostazioni.  Continua questo processo fino a quando non sono necessari altri aggiornamenti.
 
-1. Ora nel Server di Windows Server 2016 aprire PowerShell ed eseguire il comando seguente: **$cred = Get-Credential** e premere INVIO.
-2. Immettere le credenziali con privilegi di amministratore in SQL Server.
-3. Ora in PowerShell, immettere quanto segue: **Invoke-AdfsFarmBehaviorLevelRaise -Credential $cred**
-2. Quando richiesto, digitare **Y**.  Verrà avviata l'aumento del livello.  Questo termine si sono generati correttamente il FBL.  
-![Completare l'aggiornamento](media/Upgrading-to-AD-FS-in-Windows-Server-2016-SQL/finish1.png)
+1. A questo punto, nel server Windows Server 2016 aprire PowerShell ed eseguire il comando seguente: **$cred = Get-Credential** e premere INVIO.
+2. Immettere le credenziali con privilegi di amministratore per la SQL Server.
+3. A questo punto, in PowerShell, immettere quanto segue: **Invoke-AdfsFarmBehaviorLevelRaise-Credential $cred**
+2. Quando richiesto, digitare **Y**.  Verrà avviata la generazione del livello.  Questo termine si sono generati correttamente il FBL.  
+Aggiornamento di ![Finish @ no__t-1
 3. A questo punto, se si passa alla gestione di ADFS, si noterà nuovi nodi che sono state aggiunte per ADFS in Windows Server 2016  
-4. Analogamente, è possibile utilizzare il cmdlet di PowerShell:  Get-AdfsFarmInformation per mostrarvi FBL corrente.  
-![Completare l'aggiornamento](media/Upgrading-to-AD-FS-in-Windows-Server-2016-SQL/finish2.png)
+4. Analogamente, è possibile usare il cmdlet di PowerShell:  Get-AdfsFarmInformation per visualizzare l'FBI corrente.  
+![Fine aggiornamento](media/Upgrading-to-AD-FS-in-Windows-Server-2016-SQL/finish2.png)
 
 #### <a name="upgrade-the-configuration-version-of-existing-wap-servers"></a>Aggiornare la versione di configurazione dei server WAP esistenti
-1. In ogni Proxy applicazione Web, riconfigurare il WAP eseguendo il comando PowerShell seguente in una finestra con privilegi elevata:  
+1. In ogni proxy applicazione Web, riconfigurare il WAP eseguendo il comando di PowerShell seguente in una finestra con privilegi elevati:  
     ```powershell
     $trustcred = Get-Credential -Message "Enter Domain Administrator credentials"
     Install-WebApplicationProxy -CertificateThumbprint {SSLCert} -fsname fsname -FederationServiceTrustCredential $trustcred  
     ```
-2. Rimuovere i vecchi server dal cluster e mantenere solo i server WAP in esecuzione la versione più recente di server, che sono stati riconfigurati sopra, eseguendo il commandlet di Powershell seguente.
+2. Rimuovere i server obsoleti dal cluster e conservare solo i server WAP che eseguono la versione più recente del server, che sono stati riconfigurati in precedenza, eseguendo il cmdlet di PowerShell seguente.
     ```powershell
     Set-WebApplicationProxyConfiguration -ConnectedServersName WAPServerName1, WAPServerName2
     ```
-3. Controllare la configurazione di WAP eseguendo il commmandlet Get-WebApplicationProxyConfiguration. Il ConnectedServersName rifletterà server eseguita dal comando precedente.
+3. Controllare la configurazione WAP eseguendo Get-WebApplicationProxyConfiguration commmandlet. Il ConnectedServersName rifletterà l'esecuzione del server dal comando precedente.
     ```powershell
     Get-WebApplicationProxyConfiguration
     ```
-4. Per aggiornare la versione di configurazione dei server WAP, eseguire il comando Powershell seguente.
+4. Per aggiornare il ConfigurationVersion dei server WAP, eseguire il comando di PowerShell seguente.
     ```powershell
     Set-WebApplicationProxyConfiguration -UpgradeConfigurationVersion
     ```
-5. Verificare che la versione di configurazione è stata aggiornata con il comando Powershell Get-WebApplicationProxyConfiguration.
+5. Verificare che ConfigurationVersion sia stato aggiornato con il comando di PowerShell Get-WebApplicationProxyConfiguration.

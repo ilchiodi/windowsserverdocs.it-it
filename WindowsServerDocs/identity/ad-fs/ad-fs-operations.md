@@ -7,14 +7,14 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 594e1605f44dad69ab7eee8b22e6a620ade02ad0
-ms.sourcegitcommit: c307886e96622e9595700c94128103b84f5722ce
+ms.openlocfilehash: 99167850ff9ee193aca888d34d98503ea0554c30
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70108737"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71408550"
 ---
 # <a name="ad-fs-operations"></a>Operazioni di AD FS
 

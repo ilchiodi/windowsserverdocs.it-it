@@ -4,16 +4,16 @@ description: Il file CAPolicy. inf contiene varie impostazioni che vengono usate
 manager: alanth
 ms.topic: article
 ms.assetid: 65b36794-bb09-4c1b-a2e7-8fc780893d97
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: fb2e25dcd27ed3046eeeb444a9f167ccff6e1dd3
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 810f6f8ba9e33f1f26f49f542ad6d23819deb463
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70868956"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71406288"
 ---
 # <a name="capolicyinf-syntax"></a>Sintassi di CAPolicy. inf
 >   Si applica a: Windows Server (Canale semestrale), Windows Server 2016
@@ -42,7 +42,7 @@ I termini seguenti vengono usati per descrivere la struttura dei file. inf:
 
 -   _Value_ : è il parametro e viene visualizzato a destra del segno di uguale.
 
-Nell'esempio seguente **[Version]** è la sezione, **Signature** è la chiave e **\$"Windows NT\$"** è il valore.
+Nell'esempio seguente **[Version]** è la sezione, **Signature** è la chiave e **"\$Windows NT @ no__t-4"** è il valore.
 
 Esempio:
 
@@ -252,7 +252,7 @@ Prima di installare Servizi certificati Active Directory, si configura il file C
    > [!CAUTION]
    >   Assicurarsi di salvare il file CAPolicy.inf con l'estensione inf. Se non digita specificamente **.inf** alla fine del nome del file e si selezionano le opzioni nel modo indicato, il file verrà salvato come file di testo e non verrà usato durante l'installazione della CA.
 
-9. Chiudere il Blocco note.
+9. Chiudere Blocco note.
 
 > [!IMPORTANT]
 >   Nel file CAPolicy. inf, è possibile notare che è presente una riga che specifica https://pki.corp.contoso.com/pki/cps.txt l'URL. La sezione del criterio interno di CAPolicy.inf è riportata solo come esempio del modo in cui specificare il percorso di un'istruzione di pratica di certificazione (CPS). In questa guida non viene richiesto di creare l'istruzione per la procedura di certificazione (CPS).

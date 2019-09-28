@@ -1,20 +1,20 @@
 ---
 ms.assetid: 6a852428-c1ec-4703-b3b3-a4bfdf8cbb9d
-title: Cosa&#39;s novità di servizi di dominio Active Directory in Windows Server 2016
+title: '&#39;Novità di Active Directory Domain Services in Windows Server 2016'
 description: ''
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.date: 08/07/2018
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: ffdeedfc2d818fe223c033aeecfe29d18365db7a
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: f62692a420bbc6cdae08fa56ec12b8a2fd357ac8
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59865542"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71406977"
 ---
 # <a name="whats-new-in-active-directory-domain-services-for-windows-server-2016"></a>Novità di Active Directory Domain Services per Windows Server 2016
 
@@ -22,15 +22,15 @@ ms.locfileid: "59865542"
 
 Le seguenti nuove funzionalità in servizi di dominio Active Directory (AD DS) è migliorare la capacità per le organizzazioni di proteggere gli ambienti Active Directory e consentono di eseguire la migrazione a distribuzioni cloud-only e distribuzioni ibride, in alcune applicazioni e servizi sono ospitati nel cloud e ad altri utenti sono ospitati in locale. I miglioramenti includono:  
   
-- [Gestione degli accessi con privilegi](https://docs.microsoft.com/microsoft-identity-manager/pam/privileged-identity-management-for-active-directory-domain-services)  
+- [Privileged Access Management](https://docs.microsoft.com/microsoft-identity-manager/pam/privileged-identity-management-for-active-directory-domain-services)  
   
-- [Estensione delle funzionalità del cloud ai dispositivi Windows 10 tramite Azure Active Directory Join](https://azure.microsoft.com/documentation/articles/active-directory-azureadjoin-overview/)
+- [Estensione delle funzionalità del cloud ai dispositivi Windows 10 tramite l'aggiunta di Azure Active Directory](https://azure.microsoft.com/documentation/articles/active-directory-azureadjoin-overview/)
   
-- [Connettere dispositivi aggiunti a un dominio ad Azure AD per Windows 10 esperienze](https://azure.microsoft.com/documentation/articles/active-directory-azureadjoin-devices-group-policy/)
+- [Connessione di dispositivi aggiunti a un dominio a Azure AD per le esperienze di Windows 10](https://azure.microsoft.com/documentation/articles/active-directory-azureadjoin-devices-group-policy/)
   
 - [Abilitare Microsoft Passport for Work nell'organizzazione](https://azure.microsoft.com/documentation/articles/active-directory-azureadjoin-passport-deployment/)
   
-- [Deprecazione di livelli di funzionalità del servizio Replica File (FRS) e Windows Server 2003](ad-ds/active-directory-functional-levels.md)  
+- [Deprecazione del servizio Replica file (FRS) e dei livelli di funzionalità di Windows Server 2003](ad-ds/active-directory-functional-levels.md)  
   
 ## <a name="privileged-access-management"></a>Gestione dell'accesso con privilegi
 
@@ -51,7 +51,7 @@ Gestione accesso con privilegi (PAM) riduce i rischi di sicurezza per gli ambien
   
 - Nuove funzionalità di monitoraggio consentono di identificare che ha richiesto l'accesso, il tipo di accesso è stato concesso e quali attività sono state eseguite.  
 
-### <a name="requirements-for-privileged-access-management"></a>Requisiti per i privilegi di gestione degli accessi
+### <a name="requirements-for-privileged-access-management"></a>Requisiti per Privileged Access Management
   
 - Microsoft Identity Manager  
   
@@ -63,14 +63,14 @@ Azure Active Directory Join migliora le esperienze di identità per enterprise e
   
 Vantaggi:  
   
-- **Disponibilità delle attuali impostazioni** nei dispositivi Windows di proprietà della società. Servizi ossigeno non richiedono un account Microsoft personale: eseguono ora disattivare account aziendali esistenti degli utenti per garantire la conformità. Servizi ossigeno funzionerà su computer che fanno parte di un dominio di Windows in locale, e PC e dispositivi connessi "" per il tenant di Azure AD ("dominio cloud"). Queste impostazioni includono:  
+- **Disponibilità delle attuali impostazioni** nei dispositivi Windows di proprietà della società. I servizi di ossigeno non richiedono più un account Microsoft personale: ora eseguono gli account di lavoro esistenti degli utenti per garantire la conformità. I servizi di ossigeno funzioneranno nei PC che fanno parte di un dominio Windows locale e i PC e i dispositivi aggiunti al tenant di Azure AD ("dominio cloud"). Queste impostazioni includono:  
 
    - Il roaming o personalizzazione, le impostazioni di accessibilità e le credenziali  
    - Backup e ripristino  
-   - Accesso a Microsoft Store con account aziendale  
+   - Accesso a Microsoft Store con account di lavoro  
    - I riquadri animati e notifiche  
   
-- **Accedere alle risorse aziendali** nei dispositivi mobili (telefoni, phablets) che non possono essere aggiunti a un dominio di Windows, se sono proprietà della società o BYOD  
+- **Accedere alle risorse aziendali** nei dispositivi mobili (telefoni, phablet) che non possono essere aggiunti a un dominio di Windows, indipendentemente dal fatto che siano di proprietà di Corp o BYOD  
 - **Single-Sign On** a Office 365 e altre applicazioni aziendale, siti Web e risorse.  
 - **Sui dispositivi BYOD**, aggiungere un account aziendale (da un dominio locale o Azure AD) in un dispositivo personali e usufruire del servizio SSO per l'uso di risorse, tramite le applicazioni e sul web, in modo che consente di garantire la conformità con nuove funzionalità come l'attestazione condizionale controllo dell'Account e l'integrità del dispositivo.  
 - **Integrazione MDM** consente di registrare automaticamente i dispositivi per il MDM (Intune o terze parti)  
@@ -78,24 +78,24 @@ Vantaggi:
 - **Esperienza dello sviluppatore** consente di creare applicazioni che ciò sia aziendali che personali contesti di uno stack di programmazione condiviso.  
 - **Imaging** opzione consente di scegliere tra l'immagine e consentire agli utenti di configurare i dispositivi di proprietà della società direttamente durante la prima esecuzione.  
   
-Per altre informazioni, vedere [Introduzione alla gestione dei dispositivi in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/devices/overview).  
+Per ulteriori informazioni, vedere [Introduzione alla gestione dei dispositivi in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/devices/overview).  
   
 ## <a name="windows-hello-for-business"></a>Windows Hello for Business
 
-Windows Hello for Business è un'autenticazione basata su chiave approccio alle organizzazioni e ai consumatori, che vanno oltre le password. Questo tipo di autenticazione si basa su violazioni, furti e credenziali resistente per attività di phishing.  
+Windows Hello for business è un approccio di autenticazione basato su chiavi per organizzazioni e consumer che va oltre le password. Questo tipo di autenticazione si basa su violazioni, furti e credenziali resistente per attività di phishing.  
   
-L'utente accede al dispositivo con un log biometrico o PIN nelle informazioni collegate a un certificato o una coppia di chiavi asimmetrica. I provider di identità (IDP) convalidare l'utente abbinando la chiave pubblica dell'utente per IDLocker e fornisce log in informazioni tramite un tempo Password (OTP), telefono o un diverso meccanismo di notifica.  
+L'utente accede al dispositivo con un log biometrico o PIN nelle informazioni collegate a un certificato o una coppia di chiavi asimmetrica. I provider di identità (IDP) convalidano l'utente eseguendo il mapping della chiave pubblica dell'utente a IDLocker e fornisce informazioni di accesso tramite password monouso (OTP), telefono o un meccanismo di notifica diverso.  
   
-Per altre informazioni, vedere [Windows Hello for Business](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification)  
+Per ulteriori informazioni, vedere [Windows Hello for business](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification)  
   
 ## <a name="deprecation-of-file-replication-service-frs-and-windows-server-2003-functional-levels"></a>Deprecazione di livelli di funzionalità del servizio Replica File (FRS) e Windows Server 2003
 
 Sebbene il servizio Replica File (FRS) e i livelli di funzionalità di Windows Server 2003 sono stati deprecati nelle versioni precedenti di Windows Server, vale la pena ripetere che il sistema operativo Windows Server 2003 non è più supportato. Di conseguenza, qualsiasi controller di dominio che esegue Windows Server 2003 devono essere rimossi dal dominio. Il livello di funzionalità del dominio e foresta deve essere generato almeno a Windows Server 2008 per evitare che un controller di dominio che esegue una versione precedente di Windows Server venga aggiunto all'ambiente.
 
-In Windows Server 2008 e più livelli funzionali di dominio, replica del file system distribuito (DFS, Distributed File Service) viene utilizzata per la replica di contenuto della cartella SYSVOL tra i controller di dominio. Se si crea un nuovo dominio a livello funzionale di dominio di Windows Server 2008 o versione successiva, replica DFS viene automaticamente utilizzata per replicare SYSVOL. Se è stato creato il dominio a un livello funzionale inferiore, è necessario eseguire la migrazione da utilizza FRS a replica DFS per SYSVOL. Per i passaggi di migrazione, è possibile seguire [questi passaggi](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd640019\(v=ws.10\)) oppure è possibile vedere il [semplificata di set di passaggi nel blog del Team di archiviazione File CAB](http://blogs.technet.com/b/filecab/archive/2014/06/25/streamlined-migration-of-frs-to-dfsr-sysvol.aspx).  
+In Windows Server 2008 e più livelli funzionali di dominio, replica del file system distribuito (DFS, Distributed File Service) viene utilizzata per la replica di contenuto della cartella SYSVOL tra i controller di dominio. Se si crea un nuovo dominio a livello funzionale di dominio di Windows Server 2008 o versione successiva, replica DFS viene automaticamente utilizzata per replicare SYSVOL. Se è stato creato il dominio a un livello funzionale inferiore, è necessario eseguire la migrazione da utilizza FRS a replica DFS per SYSVOL. Per la procedura di migrazione, è possibile seguire [questa procedura](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd640019\(v=ws.10\)) oppure è possibile fare riferimento al [set di passaggi semplificato nel Blog del file CAB del team di archiviazione](http://blogs.technet.com/b/filecab/archive/2014/06/25/streamlined-migration-of-frs-to-dfsr-sysvol.aspx).  
   
 I livelli di funzionalità dominio e foresta Windows Server 2003 continuano a essere supportate, ma le organizzazioni devono aumentare il livello di funzionalità a Windows Server 2008 (o versioni successive, se possibile) per garantire la compatibilità di replica di SYSVOL e il supporto in futuro. Inoltre, sono disponibili molti altri vantaggi e funzionalità a più livelli di funzionalità superiore. Per altre informazioni, vedere le risorse seguenti:  
 
-- [La comprensione di Active Directory Domain Services i livelli di funzionalità (AD DS)](ad-ds/active-directory-functional-levels.md)  
-- [Aumentare il livello funzionale di dominio](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc753104\(v=ws.11\))  
-- [Aumentare il livello funzionale di foresta](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc730985\(v=ws.11\))  
+- [Informazioni sui livelli di funzionalità di Active Directory Domain Services (AD DS)](ad-ds/active-directory-functional-levels.md)  
+- [Aumentare il livello di funzionalità del dominio](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc753104\(v=ws.11\))  
+- [Aumentare il livello di funzionalità della foresta](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc730985\(v=ws.11\))  

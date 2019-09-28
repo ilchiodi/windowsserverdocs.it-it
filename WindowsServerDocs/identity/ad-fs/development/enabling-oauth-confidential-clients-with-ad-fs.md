@@ -1,29 +1,29 @@
 ---
 ms.assetid: 5a64e790-6725-4099-aa08-8067d57c3168
-title: Compilare sul lato server dell'applicazione tramite i client riservati OAuth con AD FS 2016 o versioni successive
+title: Creare un'applicazione lato server usando client riservati OAuth con AD FS 2016 o versione successiva
 description: ''
 author: billmath
 ms.author: billmath
 manager: mtillman
 ms.date: 02/22/2018
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 167f74522172790d8f5b3fc1dea46d0b7059cd20
-ms.sourcegitcommit: cd12ace92e7251daaa4e9fabf1d8418632879d38
+ms.openlocfilehash: 5b2bf036de1de8300e36c3413c551e51d408a4d2
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66501677"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71407865"
 ---
-# <a name="build-a-server-side-application-using-oauth-confidential-clients-with-ad-fs-2016-or-later"></a>Compilare sul lato server dell'applicazione tramite i client riservati OAuth con AD FS 2016 o versioni successive
+# <a name="build-a-server-side-application-using-oauth-confidential-clients-with-ad-fs-2016-or-later"></a>Creare un'applicazione lato server usando client riservati OAuth con AD FS 2016 o versione successiva
 
 
-AD FS 2016 e versioni successive forniscono supporto per i client in grado di mantenere i propri segreto, ad esempio un'app o servizio in esecuzione in un server web.  Questi client sono noti come client riservati.
+AD FS 2016 e versioni successive forniscono supporto per i client in grado di gestire il proprio segreto, ad esempio un'app o un servizio in esecuzione su un server Web.  Questi client sono noti come client riservati.
 Di seguito è uno schema di un'applicazione web in esecuzione su un server web e che funge da un client riservato per ADFS:  
 
 ## <a name="pre-requisites"></a>Prerequisiti  
-Di seguito sono un elenco di prerequisiti che sono necessarie prima del completamento di questo documento. Questo documento si presuppone che ADFS sia stato installato.  
+Di seguito sono un elenco di prerequisiti che sono necessarie prima del completamento di questo documento. In questo documento si presuppone che AD FS sia stato installato.  
 
 -   Strumenti client di GitHub  
 
@@ -32,13 +32,13 @@ Di seguito sono un elenco di prerequisiti che sono necessarie prima del completa
 -   Visual Studio 2013 o versione successiva.  
 
 ## <a name="create-an-application-group-in-ad-fs-2016-or-later"></a>Creare un gruppo di applicazioni in AD FS 2016 o versione successiva
-La sezione seguente descrive come configurare l'applicazione di gruppo in AD FS 2016 o versione successiva.  
+Nella sezione seguente viene descritto come configurare il gruppo di applicazioni in AD FS 2016 o versione successiva.  
 
 #### <a name="create-the-application-group"></a>Creare il gruppo di applicazioni  
 
 1.  Nella gestione di ADFS, fare clic su gruppi di applicazioni e selezionare **Aggiungi gruppo di applicazioni**.  
 
-2.  Creazione guidata gruppo di applicazioni, per il **Name** immettere **ADFSOAUTHCC** e in **applicazioni Client / Server** selezionare la **applicazione Server l'accesso a un'API Web** modello.  Fare clic su **Avanti**.  
+2.  Nella creazione guidata gruppo di applicazioni, per il **nome** immettere **ADFSOAUTHCC** e in **applicazioni client-server** selezionare l' **applicazione server che accede a un modello di API Web** .  Fare clic su **Avanti**.  
 
     ![AD FS Oauth](media/Enabling-Oauth-Confidential-Clients-with-AD-FS-2016/AD_FS_Confidential_2.PNG)  
 
@@ -46,21 +46,21 @@ La sezione seguente descrive come configurare l'applicazione di gruppo in AD FS 
 
     ![AD FS Oauth](media/Enabling-Oauth-Confidential-Clients-with-AD-FS-2016/AD_FS_Confidential_3.PNG)  
 
-4.  Immettere le informazioni seguenti per **URI di reindirizzamento:**  -  **https://localhost:44323** .  Fai clic su **Aggiungi**. Fare clic su **Avanti**.  
+4.  Immettere quanto segue per l' **URI di reindirizzamento:**  -  **https://localhost:44323** .  Fai clic su **Aggiungi**. Fare clic su **Avanti**.  
 
-5.  Nel **Configura applicazione credenziali** dello schermo, inserire un segno di spunta **generare una chiave privata condivisa** e copiare la chiave privata.  Verrà usato in un secondo momento come valore per **ida: ClientSecret** nel file Web. config dell'applicazione.  Fare clic su **Avanti**.  
+5.  Nel **Configura applicazione credenziali** dello schermo, inserire un segno di spunta **generare una chiave privata condivisa** e copiare la chiave privata.  Che verrà usato in un secondo momento come valore per **Ida: ClientSecret** nel file Web. config delle applicazioni.  Fare clic su **Avanti**.  
 
     ![AD FS Oauth](media/Enabling-Oauth-Confidential-Clients-with-AD-FS-2016/AD_FS_Confidential_4.PNG)   
 
-6. Nel **configurare Web API** schermata, immettere le informazioni seguenti per **Identifier** -  **https://contoso.com/WebApp** .  Fai clic su **Aggiungi**. Fare clic su **Avanti**.  Questo valore verrà usato successivamente per **ida: GraphResourceId** nel file Web. config dell'applicazione.  
+6. Nella schermata **Configura API Web** immettere quanto segue per identificatore. -  **https://contoso.com/WebApp**  Fai clic su **Aggiungi**. Fare clic su **Avanti**.  Questo valore verrà usato successivamente per **ida: GraphResourceId** nel file Web. config dell'applicazione.  
 
     ![AD FS Oauth](media/Enabling-Oauth-Confidential-Clients-with-AD-FS-2016/AD_FS_Confidential_9.PNG)  
 
-7. Nel **si applicano criteri di controllo di accesso** schermata, seleziona **consentire tutti gli utenti** e fare clic su **Avanti**.  
+7. Nella schermata **Applica criteri di controllo di accesso** selezionare **Consenti tutti gli utenti** e fare clic su **Avanti**.  
 
     ![AD FS Oauth](media/Enabling-Oauth-Confidential-Clients-with-AD-FS-2016/AD_FS_Confidential_7.PNG)  
 
-8. Nel **configurare le autorizzazioni applicazione** schermata, assicurarsi che **openid** e **user_impersonation** siano selezionate e fare clic su **successivo**.  
+8. Nella schermata **Configura autorizzazioni** per le applicazioni verificare che **OpenID** e **user_impersonation** siano selezionati e fare clic su **Avanti**.  
 
     ![AD FS Oauth](media/Enabling-Oauth-Confidential-Clients-with-AD-FS-2016/AD_FS_Confidential_8.PNG)  
 
@@ -83,7 +83,7 @@ git clone https://github.com/Azure-Samples/active-directory-dotnet-webapp-webapi
 
 #### <a name="to-upgrade-the-database-file"></a>Per aggiornare il file di database  
 
-1.  Aprire il progetto in Visual Studio, verrà visualizzata una finestra popup che informa che l'app richiede SQL Server 2012 Express o sarà necessario aggiornare il database.  Fare clic su Ok.  
+1.  Aprire il progetto in Visual Studio. verrà visualizzata una finestra popup che informa che l'app richiede SQL Server 2012 Express o sarà necessario aggiornare il database.  Fare clic su Ok.  
 
     ![AD FS Oauth](media/Enabling-Oauth-Confidential-Clients-with-AD-FS-2016/AD_FS_Confidential_12.PNG)  
 
@@ -95,7 +95,7 @@ git clone https://github.com/Azure-Samples/active-directory-dotnet-webapp-webapi
 
     ![AD FS Oauth](media/Enabling-Oauth-Confidential-Clients-with-AD-FS-2016/AD_FS_Confidential_14.PNG)  
 
-4.  Sul **Modifica connessione**, in **nome file di Database (nuovo o esistente)** , selezionare **Sfoglia** e fornire **path\filename.mdf**. Fare clic su **Sì** nella finestra di dialogo.
+4.  In **Modifica connessione**, in **nome file di database (nuovo o esistente)** Selezionare **Sfoglia** e specificare **path\filename.MDF**. Fare clic su **Sì** nella finestra di dialogo.
 
     ![AD FS Oauth](media/Enabling-Oauth-Confidential-Clients-with-AD-FS-2016/AD_FS_Confidential_6.PNG)
 
@@ -103,7 +103,7 @@ git clone https://github.com/Azure-Samples/active-directory-dotnet-webapp-webapi
 
     ![AD FS Oauth](media/Enabling-Oauth-Confidential-Clients-with-AD-FS-2016/AD_FS_Confidential_15.PNG)  
 
-6.  In proprietà avanzate, individuare l'origine dati e usare l'elenco a discesa per modificarlo da **(LocalDb\v11.0)** al **(LocalDB) \MSSQLLocalDB**.  
+6.  In proprietà avanzate, individuare l'origine dati e utilizzare l'elenco a discesa per modificarlo da **(LocalDb\v11.0)** a **(local DB) \MSSQLLocalDB**.  
 
     ![AD FS Oauth](media/Enabling-Oauth-Confidential-Clients-with-AD-FS-2016/AD_FS_Confidential_16.PNG)  
 
@@ -149,11 +149,11 @@ git clone https://github.com/Azure-Samples/active-directory-dotnet-webapp-webapi
 
 2.  Aprire il file Web. config.  Modificare i valori seguenti:  
 
-    -   ida: ClientId - immettere il valore # 3 nella sezione precedente gruppo di applicazioni crea.  
+    -   Ida: ClientID: immettere il valore da #3 nella sezione creare il gruppo di applicazioni precedente.  
 
-    -   ida: ClientSecret - immettere il valore 5 # in Crea area gruppo di applicazioni.  
+    -   Ida: ClientSecret-immettere il valore da #5 nella sezione creare il gruppo di applicazioni precedente.  
 
-    -   ida: GraphResourceId - immettere il valore #6 nella sezione precedente gruppo di applicazioni crea.  
+    -   Ida: GraphResourceId-immettere il valore da #6 nella sezione creare il gruppo di applicazioni precedente.  
 
     ![AD FS Oauth](media/Enabling-Oauth-Confidential-Clients-with-AD-FS-2016/AD_FS_Confidential_24.PNG)  
 
@@ -230,11 +230,11 @@ In questa sezione verranno testate le soluzioni client riservato.  Utilizzare la
 
    ![AD FS Oauth](media/Enabling-Oauth-Confidential-Clients-with-AD-FS-2016/AD_FS_Confidential_36.png)  
 
-2. Una volta che viene visualizzata la pagina ASP.Net, fare clic su **registrare** in alto a destra della pagina.  Immettere un nome utente e password e quindi fare clic su **registrare** pulsante.  Consente di creare un account locale nel database SQL.  
+2. Una volta visualizzata la pagina ASP.Net, fare clic su **Register (registra** ) in alto a destra nella pagina.  Immettere un nome utente e una password e quindi fare clic sul pulsante **Register (registra** ).  Consente di creare un account locale nel database SQL.  
 
    ![AD FS Oauth](media/Enabling-Oauth-Confidential-Clients-with-AD-FS-2016/AD_FS_Confidential_31.PNG)  
 
-3. Si noti che a questo punto, il sito ASP.NET afferma Hello abby@contoso.com!.  Fare clic su **profilo**.  
+3. Si noti ora che il sito di ASP.NET indica Hello abby@contoso.com!.  Fare clic su **profilo**.  
 
    ![AD FS Oauth](media/Enabling-Oauth-Confidential-Clients-with-AD-FS-2016/AD_FS_Confidential_32.PNG)  
 

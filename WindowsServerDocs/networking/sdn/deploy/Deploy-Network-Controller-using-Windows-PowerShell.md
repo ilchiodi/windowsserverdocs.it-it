@@ -3,7 +3,7 @@ title: Distribuire controller di rete tramite Windows PowerShell
 description: In questo argomento vengono fornite istruzioni sull'utilizzo di Windows PowerShell per distribuire Controller di rete in uno o più computer o macchine virtuali (VM) che eseguono Windows Server 2016.
 manager: dougkim
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-sdn
@@ -13,44 +13,44 @@ ms.assetid: 2448d381-55aa-4c14-997a-202c537c6727
 ms.author: pashort
 author: shortpatti
 ms.date: 08/23/2018
-ms.openlocfilehash: d671d044896ae9e71edad8302f06f2a21fe50772
-ms.sourcegitcommit: 21165734a0f37c4cd702c275e85c9e7c42d6b3cb
+ms.openlocfilehash: 294466ef70a9ffc230953b48bb292938be519eac
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/03/2019
-ms.locfileid: "65034551"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71406121"
 ---
 # <a name="deploy-network-controller-using-windows-powershell"></a>Distribuire controller di rete tramite Windows PowerShell
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016
 
-Questo argomento fornisce istruzioni su come usare Windows PowerShell per distribuire Controller di rete in uno o più macchine virtuali (VM) che eseguono Windows Server 2016.
+In questo argomento vengono fornite istruzioni sull'utilizzo di Windows PowerShell per distribuire il controller di rete in una o più macchine virtuali (VM) che eseguono Windows Server 2016.
 
 >[!IMPORTANT]
->Non distribuire il ruolo del server Controller di rete in host fisici. Per distribuire Controller di rete, è necessario installare il ruolo del server Controller di rete in una macchina virtuale Hyper-V \(VM\) che viene installato in un host Hyper-V. Dopo aver installato il Controller di rete nelle macchine virtuali in tre diverse Hyper\-host V, è necessario abilitare il Hyper\-host V per Software Defined Networking \(SDN\) mediante l'aggiunta di host al Controller di rete usando il comando di Windows PowerShell **New-NetworkControllerServer**. In questo modo, si sta abilitando il bilanciamento del carico Software SDN alla funzione. Per altre informazioni, vedere [New-NetworkControllerServer](https://technet.microsoft.com/itpro/powershell/windows/network-controller/new-networkcontrollerserver).
+>Non distribuire il ruolo del server del controller di rete negli host fisici. Per distribuire il controller di rete, è necessario installare il ruolo del server del controller di rete in una macchina virtuale Hyper-V \(VM @ no__t-1 installato in un host Hyper-V. Dopo aver installato il controller di rete nelle macchine virtuali in tre host Hyper @ no__t-0V diversi, è necessario abilitare gli host Hyper @ no__t-1V per Software Defined Networking \(SDN @ no__t-3 aggiungendo gli host al controller di rete usando Windows PowerShell comando **New-NetworkControllerServer**. In questo modo si Abilita il funzionamento del software SDN Load Balancer. Per ulteriori informazioni, vedere [New-NetworkControllerServer](https://technet.microsoft.com/itpro/powershell/windows/network-controller/new-networkcontrollerserver).
 
 In questo argomento sono incluse le sezioni seguenti.
 
-- [Installare il ruolo del server Controller di rete](#install-the-network-controller-server-role)
+- [Installare il ruolo del server del controller di rete](#install-the-network-controller-server-role)
 
-- [Configurare il cluster di Controller di rete](#configure-the-network-controller-cluster)
+- [Configurare il cluster di controller di rete](#configure-the-network-controller-cluster)
 
-- [Configurare l'applicazione Controller di rete](#configure-the-network-controller-application)
+- [Configurare l'applicazione del controller di rete](#configure-the-network-controller-application)
 
-- [Convalida della distribuzione Controller di rete](#network-controller-deployment-validation)
+- [Convalida della distribuzione del controller di rete](#network-controller-deployment-validation)
 
-- [Altri comandi di Windows PowerShell per il Controller di rete](#additional-windows-powershell-commands-for-network-controller)
+- [Comandi aggiuntivi di Windows PowerShell per il controller di rete](#additional-windows-powershell-commands-for-network-controller)
 
-- [Script di configurazione di Controller di rete di esempio](#sample-network-controller-configuration-script)
+- [Script di configurazione del controller di rete di esempio](#sample-network-controller-configuration-script)
 
-- [Passaggi di post-distribuzione per le distribuzioni Non Kerberos](#post-deployment-steps-for-non-kerberos-deployments)
+- [Passaggi post-distribuzione per le distribuzioni non Kerberos](#post-deployment-steps-for-non-kerberos-deployments)
 
 ## <a name="install-the-network-controller-server-role"></a>Installare il ruolo di server di Controller di rete
 
-È possibile utilizzare questa procedura per installare il ruolo di server di Controller di rete in una macchina virtuale \(VM\).
+È possibile utilizzare questa procedura per installare il ruolo del server del controller di rete in una macchina virtuale \(VM @ no__t-1.
 
 >[!IMPORTANT]
->Non distribuire il ruolo del server Controller di rete in host fisici. Per distribuire Controller di rete, è necessario installare il ruolo del server Controller di rete in una macchina virtuale Hyper-V \(VM\) che viene installato in un host Hyper-V. Dopo aver installato il Controller di rete nelle macchine virtuali in tre diverse Hyper\-host V, è necessario abilitare il Hyper\-host V per Software Defined Networking \(SDN\) mediante l'aggiunta di host al Controller di rete. In questo modo, si sta abilitando il bilanciamento del carico Software SDN alla funzione.
+>Non distribuire il ruolo del server del controller di rete negli host fisici. Per distribuire il controller di rete, è necessario installare il ruolo del server del controller di rete in una macchina virtuale Hyper-V \(VM @ no__t-1 installato in un host Hyper-V. Dopo aver installato il controller di rete nelle macchine virtuali in tre host Hyper @ no__t-0V diversi, è necessario abilitare gli host Hyper @ no__t-1V per Software Defined Networking \(SDN @ no__t-3 aggiungendo gli host al controller di rete. In questo modo si Abilita il funzionamento del software SDN Load Balancer.
 
 Per eseguire questa procedura è necessaria almeno l'appartenenza al gruppo **Administrators** oppure a un gruppo equivalente.  
 
@@ -70,13 +70,13 @@ Installazione di Controller di rete richiede il riavvio del computer. A tale sco
 Il cluster di Controller di rete fornisce disponibilità elevata e scalabilità all'applicazione Controller di rete, che è possibile configurare dopo la creazione del cluster e che si trova nella parte superiore del cluster.
 
 >[!NOTE]
->È possibile eseguire le procedure descritte nelle sezioni seguenti direttamente nella macchina virtuale in cui è installato il Controller di rete oppure è possibile utilizzare Remote Server Administration Tools per Windows Server 2016 per eseguire le procedure da un computer remoto che esegue Windows Server 2016 o Windows 10. Inoltre, l'appartenenza a **amministratori**, o equivalente è il requisito minimo necessario per eseguire questa procedura. Se il computer o una macchina Virtuale su cui è installato il Controller di rete fa parte di un dominio, l'account utente deve essere un membro di **gli utenti del dominio**.
+>È possibile eseguire le procedure descritte nelle sezioni seguenti direttamente nella macchina virtuale in cui è installato il controller di rete oppure è possibile usare la Strumenti di amministrazione remota del server per Windows Server 2016 per eseguire le procedure da un computer remoto che esegue Windows Server 2016 o Windows 10. Inoltre, l'appartenenza a **amministratori**, o equivalente è il requisito minimo necessario per eseguire questa procedura. Se il computer o una macchina Virtuale su cui è installato il Controller di rete fa parte di un dominio, l'account utente deve essere un membro di **gli utenti del dominio**.
 
 Creazione di un nodo oggetto, quindi configurare il cluster, è possibile creare un cluster di Controller di rete.
 
 ### <a name="create-a-node-object"></a>Creare un oggetto nodo
 
-È necessario creare un oggetto nodo per ogni macchina virtuale che è un membro del cluster di Controller di rete.
+È necessario creare un oggetto Node per ogni macchina virtuale che è un membro del cluster di controller di rete.
 
 Per creare un oggetto del nodo, digitare il comando seguente al prompt dei comandi Windows PowerShell e quindi premere INVIO. Assicurarsi di aggiungere valori per i parametri appropriati per la distribuzione.  
 
@@ -90,7 +90,7 @@ Nella tabella seguente vengono fornite descrizioni per ogni parametro di **Nuovo
 |-------------|---------------|
 |Nome|Il **nome** parametro specifica il nome descrittivo del server che si desidera aggiungere al cluster|
 |Server|Il **Server** parametro specifica il nome host, completamente dominio nome completo (FQDN) o l'indirizzo IP del server che si desidera aggiungere al cluster. Per i computer appartenenti a un dominio, nome di dominio COMPLETO è obbligatorio.|
-|FaultDomain|Il **FaultDomain** parametro specifica il dominio di errore per il server che si desidera aggiungere al cluster. Questo parametro definisce il server che potrebbero verificarsi errori nello stesso momento del server che si desidera aggiungere al cluster. Questo errore potrebbe essere a causa di dipendenze fisiche condivise, ad esempio power e origini di rete. Domini di errore rappresentano in genere gerarchie correlate a tali dipendenze condivise con altri server potrebbe non riuscire insieme dal punto più alto nella struttura di dominio di errore. Durante la fase di esecuzione, il Controller di rete prende in considerazione i domini di errore del cluster e tenta di distribuire i servizi del Controller di rete in modo che si trovano in domini di errore. Questo processo assicura che, in caso di errore di qualsiasi dominio di un errore, che non venga compromessa la disponibilità del servizio e il relativo stato. Domini di errore vengono specificati in un formato gerarchico. Ad esempio: "Fd: / DC1/Rack1/Host1", dove DC1 è il nome del Data Center, Rack1 è il nome del rack e Host1 è il nome dell'host in cui si trova il nodo.|
+|FaultDomain|Il **FaultDomain** parametro specifica il dominio di errore per il server che si desidera aggiungere al cluster. Questo parametro definisce il server che potrebbero verificarsi errori nello stesso momento del server che si desidera aggiungere al cluster. Questo errore potrebbe essere a causa di dipendenze fisiche condivise, ad esempio power e origini di rete. Domini di errore rappresentano in genere gerarchie correlate a tali dipendenze condivise con altri server potrebbe non riuscire insieme dal punto più alto nella struttura di dominio di errore. Durante la fase di esecuzione, il Controller di rete prende in considerazione i domini di errore del cluster e tenta di distribuire i servizi del Controller di rete in modo che si trovano in domini di errore. Questo processo assicura che, in caso di errore di qualsiasi dominio di un errore, che non venga compromessa la disponibilità del servizio e il relativo stato. Domini di errore vengono specificati in un formato gerarchico. Esempio: "FD:/DC1/Rack1/host1", dove DC1 è il nome del Data Center, Rack1 è il nome del rack e host1 è il nome dell'host in cui si trova il nodo.|
 |RestInterface|Il **RestInterface** parametro specifica il nome dell'interfaccia sul nodo in cui è terminata la comunicazione Representational State Transfer (REST). Questa interfaccia di Controller di rete riceve le richieste API Northbound dal livello di gestione della rete.|
 |NodeCertificate|Il **NodeCertificate** parametro specifica il certificato utilizzato per l'autenticazione computer Controller di rete. Il certificato è obbligatorio se si utilizza l'autenticazione basata su certificati per la comunicazione all'interno del cluster; il certificato viene utilizzato anche per la crittografia del traffico tra i servizi del Controller di rete. Il nome soggetto del certificato deve essere uguale al nome DNS del nodo.|
 
@@ -112,7 +112,7 @@ Nella tabella seguente vengono fornite descrizioni per ogni parametro del **inst
 |DiagnosticLogLocation|Il **DiagnosticLogLocation** parametro specifica il percorso di condivisione in cui vengono caricati periodicamente i log di diagnostica. Se non si specifica un valore per questo parametro, i log vengono archiviati in locale su ciascun nodo. I log vengono archiviati nel systemdrive%\Windows\tracing\SDNDiagnostics % cartella locale. Log del cluster vengono archiviati nella cartella %systemdrive%\ProgramData\Microsoft\Service Fabric\log\Traces locale.|
 |LogLocationCredential|Il **LogLocationCredential** parametro specifica le credenziali necessarie per l'accesso al percorso di condivisione in cui sono archiviati i log.|
 |CredentialEncryptionCertificate|Il **CredentialEncryptionCertificate** parametro specifica il certificato utilizzato dal Controller di rete per crittografare le credenziali utilizzate per accedere ai file binari di Controller di rete e **LogLocationCredential**, se specificato. Il certificato deve essere effettuato il provisioning tutti i nodi di Controller di rete prima di eseguire questo comando, e lo stesso certificato deve essere registrato in tutti i nodi del cluster. Negli ambienti di produzione è consigliabile utilizzare questo parametro per proteggere i registri e file binari di Controller di rete. Senza questo parametro, le credenziali vengono archiviate in testo non crittografato e l'utilizzo improprio da qualsiasi utente non autorizzato.|
-|Credential|Questo parametro è obbligatorio solo se si esegue questo comando da un computer remoto. Il **credenziali** parametro specifica un account utente che dispone dell'autorizzazione per eseguire questo comando sul computer di destinazione.|
+|Credenziale|Questo parametro è obbligatorio solo se si esegue questo comando da un computer remoto. Il **credenziali** parametro specifica un account utente che dispone dell'autorizzazione per eseguire questo comando sul computer di destinazione.|
 |CertificateThumbprint|Questo parametro è obbligatorio solo se si esegue questo comando da un computer remoto. Il **CertificateThumbprint** parametro specifica il certificato pubblico digitale chiave (X509) di un account utente che dispone dell'autorizzazione per eseguire questo comando sul computer di destinazione.|
 |UseSSL|Questo parametro è obbligatorio solo se si esegue questo comando da un computer remoto. Il **UseSSL** parametro specifica il protocollo Secure Sockets Layer (SSL) che viene utilizzato per stabilire una connessione al computer remoto. Per impostazione predefinita SSL non viene usato.|
 |ComputerName|Il **nomecomputer** parametro specifica il nodo di Controller di rete in cui si esegue questo comando. Se non si specifica un valore per questo parametro, per impostazione predefinita viene utilizzato il computer locale.|
@@ -137,7 +137,7 @@ Nella tabella seguente vengono fornite descrizioni per ogni parametro del **inst
 |RESTIPAddress|Non è necessario specificare un valore per **RESTIPAddress** con una distribuzione a nodo singolo di Controller di rete. Per le distribuzioni a più nodi, il **RESTIPAddress** parametro specifica l'indirizzo IP dell'endpoint REST in notazione CIDR. Ad esempio, 192.168.1.10/24. Il valore del nome soggetto **server** necessario risolvere il valore di **RESTIPAddress** parametro. Quando tutti i nodi sono nella stessa subnet, è necessario specificare questo parametro per tutte le distribuzioni di Controller di rete di più nodi. Se i nodi in subnet diverse, è necessario utilizzare il **RestName** parametro anziché **RESTIPAddress**.|
 |RestName|Non è necessario specificare un valore per **RestName** con una distribuzione a nodo singolo di Controller di rete. L'unica volta è necessario specificare un valore per **RestName** quando le distribuzioni di più nodi dispongono di nodi che si trovano in subnet diverse. Per le distribuzioni a più nodi, il **RestName** parametro specifica il FQDN per il cluster di Controller di rete.|
 |ClientSecurityGroup|Il **ClientSecurityGroup** parametro specifica il nome del gruppo di sicurezza di Active Directory i cui membri sono Controller di rete client. Questo parametro è obbligatorio solo se si utilizza l'autenticazione Kerberos per **ClientAuthentication**. Il gruppo di sicurezza deve contenere gli account da cui le API REST sono accessibili e, è necessario creare il gruppo di sicurezza e aggiungere i membri prima di eseguire questo comando.|
-|Credential|Questo parametro è obbligatorio solo se si esegue questo comando da un computer remoto. Il **credenziali** parametro specifica un account utente che dispone dell'autorizzazione per eseguire questo comando sul computer di destinazione.|
+|Credenziale|Questo parametro è obbligatorio solo se si esegue questo comando da un computer remoto. Il **credenziali** parametro specifica un account utente che dispone dell'autorizzazione per eseguire questo comando sul computer di destinazione.|
 |CertificateThumbprint|Questo parametro è obbligatorio solo se si esegue questo comando da un computer remoto. Il **CertificateThumbprint** parametro specifica il certificato pubblico digitale chiave (X509) di un account utente che dispone dell'autorizzazione per eseguire questo comando sul computer di destinazione.|
 |UseSSL|Questo parametro è obbligatorio solo se si esegue questo comando da un computer remoto. Il **UseSSL** parametro specifica il protocollo Secure Sockets Layer (SSL) che viene utilizzato per stabilire una connessione al computer remoto. Per impostazione predefinita SSL non viene usato.|
 
@@ -149,7 +149,7 @@ Per convalidare la distribuzione di Controller di rete, è possibile aggiungere 
 
 Se si utilizza Kerberos come meccanismo di ClientAuthentication, l'appartenenza di **ClientSecurityGroup** creato è il requisito minimo necessario per eseguire questa procedura.
 
-**Procedura:**
+**Procedura**
 
 1.  Su un computer client, se si utilizza Kerberos come meccanismo di ClientAuthentication, accedere con un account utente che è un membro di **ClientSecurityGroup**.
 
@@ -229,7 +229,7 @@ Install-NetworkControllerCluster -Node @($a,$b,$c)  -ClusterAuthentication Kerbe
 Install-NetworkController -Node @($a,$b,$c) -ClientAuthentication Kerberos -ClientSecurityGroup Contoso\NCRESTClients -ServerCertificate $cert -RestIpAddress 10.0.0.1/24
 ```
 
-## <a name="post-deployment-steps-for-non-kerberos-deployments"></a>Passaggi di post-distribuzione per le distribuzioni non Kerberos
+## <a name="post-deployment-steps-for-non-kerberos-deployments"></a>Passaggi post-distribuzione per le distribuzioni non Kerberos
 
 Se non si utilizza Kerberos con la distribuzione di Controller di rete, è necessario distribuire i certificati.
 

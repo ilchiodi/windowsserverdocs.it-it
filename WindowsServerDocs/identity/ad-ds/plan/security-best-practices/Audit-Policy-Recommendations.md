@@ -7,32 +7,32 @@ ms.author: joflore
 manager: mtillman
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 343a9a7aedf22e9c021249f00fb628f871a2ce1f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: c902f9a438afd226dfb58dbde9f3c00d57b0ed58
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59835752"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71408599"
 ---
 # <a name="audit-policy-recommendations"></a>Suggerimenti per i criteri di controllo
 
 >Si applica a: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows 10, Windows 8.1, Windows 7
 
-Questa sezione vengono illustrati le impostazioni di controllo predefinito Windows, di base consigliati delle impostazioni di criteri di controllo e i consigli più aggressivi da Microsoft, per i prodotti server e workstation.  
+Questa sezione illustra le impostazioni dei criteri di controllo predefiniti di Windows, le impostazioni dei criteri di controllo di base consigliate e le raccomandazioni più aggressive da Microsoft per i prodotti workstation e server.  
 
-Le indicazioni di base di Gestione controllo servizi riportate di seguito, con le impostazioni consigliate per semplificare il rilevamento di compromissione, servono solo a essere una Guida iniziale della linea di base per gli amministratori. Ogni organizzazione deve proprio decisioni riguardanti le minacce da affrontare, la tolleranza di rischio accettabile e quali categorie di criteri di controllo o le sottocategorie consentono. Per altre informazioni sulle minacce, consultare il [Guida alle minacce e contromisure](https://technet.microsoft.com/library/hh125921(v=ws.10).aspx). Gli amministratori senza un criterio di controllo attente posto sono invitati a iniziare con le impostazioni consigliate in questo caso e quindi modificare e testare, prima dell'implementazione nell'ambiente di produzione.  
+Le raccomandazioni di base SCM illustrate qui, insieme alle impostazioni consigliate per il rilevamento della compromissione, sono destinate solo a essere una guida di base iniziale per gli amministratori. Ogni organizzazione deve prendere le proprie decisioni in merito alle minacce che affrontano, alle relative tolleranze di rischio accettabili e alle categorie o sottocategorie di criteri di controllo da abilitare. Per ulteriori informazioni sulle minacce, vedere la [Guida alle minacce e alle contromisure](https://technet.microsoft.com/library/hh125921(v=ws.10).aspx). Gli amministratori che non dispongono di criteri di controllo riflessivi sono invitati a iniziare con le impostazioni consigliate in questo articolo e quindi per modificarle e testarle prima di implementare nel proprio ambiente di produzione.  
 
-Le raccomandazioni sono per i computer di livello aziendale, che Microsoft definisce come i computer che hanno requisiti di sicurezza medio e richiedono un elevato livello di funzionalità operativa. Criteri di controllo entità che richiedono una maggiore sicurezza requisiti devono prendere in considerazione più aggressivi.  
+Le raccomandazioni sono destinate a computer di livello aziendale, che Microsoft definisce come computer con requisiti di sicurezza medi e che richiedono un elevato livello di funzionalità operative. Le entità che richiedono requisiti di sicurezza più elevati devono considerare criteri di controllo più aggressivi.  
 
 > [!NOTE]  
-> Microsoft Windows per impostazione predefinita e indicazioni di base sono stati ricavati dal [dello strumento Microsoft Security Compliance Manager](https://technet.microsoft.com/library/cc677002.aspx).  
+> Le indicazioni predefinite e di base di Microsoft Windows sono state ricavate dallo [strumento Microsoft Security Compliance Manager](https://technet.microsoft.com/library/cc677002.aspx).  
 
-Le impostazioni di criteri di controllo della linea di base seguenti sono consigliate per i computer normale sicurezza che non sono noti per essere sotto attacco attivo, ha esito positivo da antagonisti o malware.  
+Le impostazioni dei criteri di controllo di base seguenti sono consigliate per i computer di sicurezza normali che non sono noti come attacchi attivi e con successo da parte di avversari determinati o malware.  
 
-## <a name="recommended-audit-policies-by-operating-system"></a>I criteri di controllo dal sistema operativo consigliato  
-In questa sezione contiene le tabelle che elencano le impostazioni consigliate di controllo che si applicano ai sistemi operativi seguenti:  
+## <a name="recommended-audit-policies-by-operating-system"></a>Criteri di controllo consigliati per sistema operativo  
+In questa sezione sono contenute le tabelle in cui sono elencate le indicazioni sulle impostazioni di controllo applicabili ai sistemi operativi seguenti:  
 
 -   Windows Server 2016 
 
@@ -48,27 +48,27 @@ In questa sezione contiene le tabelle che elencano le impostazioni consigliate d
 
 -   Windows 7  
 
-Queste tabelle contengono l'impostazione predefinita di Windows, le indicazioni di base e i consigli più avanzati per questi sistemi operativi.  
+Queste tabelle contengono l'impostazione predefinita di Windows, le raccomandazioni di base e le raccomandazioni più solide per questi sistemi operativi.  
 
-**Controllo criteri tabelle legenda**  
+**Legenda tabelle dei criteri di controllo**  
 
 |||  
 |-|-|  
-|**Notazione**|**Raccomandazione**|  
-|SÌ|In genere consentono scenari|  
-|NO|Effettuare **non** consentono in genere scenari|  
-|IF|Attivare se è necessario per uno scenario specifico, o se un ruolo o funzionalità per cui il controllo è richiesto è installato nel computer|  
+|**Notazione**|**Consiglio**|  
+|SÌ|Abilita in scenari generali|  
+|NO|**Non** abilitare in scenari generali|  
+|SE|Abilitare se necessario per uno scenario specifico o se un ruolo o una funzionalità per cui si desidera il controllo è installato nel computer|  
 |DC|Abilita nei controller di dominio|  
-|[Vuoto]|Nessuna raccomandazione|  
+|Vuoto|Nessuna raccomandazione|  
 
-**Windows 10, Windows 8 e consigli sulle impostazioni di Windows 7 di controllo**  
+**Consigli sulle impostazioni di controllo di Windows 10, Windows 8 e Windows 7**  
 
 **Criteri di controllo**  
 
-|Categoria di criteri di controllo o una sottocategoria|Windows Default<br /><br />Errore di operazione riuscita|Indicazione della linea di base<br /><br />Errore di operazione riuscita|Raccomandazione più avanzati<br /><br />Errore di operazione riuscita|  
+|Categoria o sottocategoria dei criteri di controllo|Impostazione predefinita di Windows<br /><br />Esito negativo|Raccomandazione Baseline<br /><br />Esito negativo|Raccomandazione più avanzata<br /><br />Esito negativo|  
 |----------------------------------------|------------------------------------------|--------------------------------------------------|--------------------------------------------------|  
 |**Accesso all'account**||||  
-|Controlla Convalida delle credenziali|No    No|Sì No|Sì, sì|  
+|Controlla Convalida delle credenziali|No, no|Sì No|Sì, sì|  
 |Controlla Servizio di autenticazione Kerberos|||Sì, sì|  
 |Controlla Operazioni ticket di servizio Kerberos|||Sì, sì|  
 |Controlla Altri eventi di accesso account|||Sì, sì|  
@@ -79,12 +79,12 @@ Queste tabelle contengono l'impostazione predefinita di Windows, le indicazioni 
 |Controllo Altri eventi di gestione account||Sì No|Sì, sì|  
 |Controllo Gestione gruppi di sicurezza||Sì No|Sì, sì|  
 |Controllo della Gestione account utente|Sì No|Sì No|Sì, sì|  
-|**Analisi dettagliata**||||  
+|**Rilevamento dettagliato**||||  
 |Controlla Attività DPAPI|||Sì, sì|  
 |Controlla Creazione di processi||Sì No|Sì, sì|  
 |Controlla Chiusura di processi||||  
 |Controlla Eventi RPC||||  
-|**Accesso al servizio directory**||||  
+|**Accesso DS**||||  
 |Controlla Replica dettagliata servizio directory||||  
 |Controlla Accesso al servizio directory||||  
 |Controlla Modifiche servizio directory||||  
@@ -93,10 +93,10 @@ Queste tabelle contengono l'impostazione predefinita di Windows, le indicazioni 
 |Controlla Blocco account|Sì No||Sì No|  
 |Controlla attestazioni utente/dispositivo||||  
 |Controlla Modalità estesa IPsec||||  
-|Controlla Modalità principale IPsec|||IF     IF|  
+|Controlla Modalità principale IPsec|||SE|  
 |Controlla Modalità rapida IPsec||||  
 |Controlla Fine sessione|Sì No|Sì No|Sì No|  
-|Controllare l'accesso <sup>1</sup>|Sì, sì|Sì, sì|Sì, sì|  
+|Controlla accesso <sup>1</sup>|Sì, sì|Sì, sì|Sì, sì|  
 |Controlla Server dei criteri di rete|Sì, sì|||  
 |Controlla Altri eventi di accesso/fine sessione||||  
 |Controlla Accesso speciale|Sì No|Sì No|Sì, sì|  
@@ -126,52 +126,52 @@ Queste tabelle contengono l'impostazione predefinita di Windows, le indicazioni 
 |Controlla Utilizzo privilegi non sensibili||||  
 |Controlla Altri eventi di utilizzo dei privilegi||||  
 |Controlla Utilizzo privilegi sensibili||||  
-|**System**||||  
+|**Sistema**||||  
 |Controlla Driver IPSec||Sì, sì|Sì, sì|  
 |Controlla Altri eventi di sistema|Sì, sì|||  
 |Controlla Modifica stato sicurezza|Sì No|Sì, sì|Sì, sì|  
 |Controlla Estensione sistema di sicurezza||Sì, sì|Sì, sì|  
 |Controlla Integrità sistema|Sì, sì|Sì, sì|Sì, sì|  
-|**Accesso agli oggetti globale di controllo**||||  
+|**Controllo di accesso agli oggetti globali**||||  
 |Controlla Driver IPSec||||  
 |Controlla Altri eventi di sistema||||  
 |Controlla Modifica stato sicurezza||||  
 |Controlla Estensione sistema di sicurezza||||  
 |Controlla Integrità sistema||||  
 
-<sup>1</sup> a partire da Windows 10 versione 1809, controllo dell'accesso è abilitata per impostazione predefinita per entrambi esito positivo e negativo. Nelle versioni precedenti di Windows, solo operazioni riuscite sono abilitata per impostazione predefinita.
+<sup>1</sup> a partire da Windows 10 versione 1809, l'accesso di controllo è abilitato per impostazione predefinita in caso di esito positivo e negativo. Nelle versioni precedenti di Windows, per impostazione predefinita viene abilitato solo l'esito positivo.
 
-**Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 e consigli sulle impostazioni di controllo di Windows Server 2008**  
+**Indicazioni sulle impostazioni di controllo di Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 e Windows Server 2008**  
 
-|Categoria di criteri di controllo o una sottocategoria|Windows Default<br /><br />Errore di operazione riuscita|Indicazione della linea di base<br /><br />Errore di operazione riuscita|Raccomandazione più avanzati<br /><br />Errore di operazione riuscita|  
+|Categoria o sottocategoria dei criteri di controllo|Impostazione predefinita di Windows<br /><br />Esito negativo|Raccomandazione Baseline<br /><br />Esito negativo|Raccomandazione più avanzata<br /><br />Esito negativo|  
 |----------------------------------------|------------------------------------------|--------------------------------------------------|--------------------------------------------------|  
 |**Accesso all'account**||||  
-|Controlla Convalida delle credenziali|No    No|Sì, sì|Sì, sì|  
+|Controlla Convalida delle credenziali|No, no|Sì, sì|Sì, sì|  
 |Controlla Servizio di autenticazione Kerberos|||Sì, sì|  
 |Controlla Operazioni ticket di servizio Kerberos|||Sì, sì|  
 |Controlla Altri eventi di accesso account|||Sì, sì|  
 |**Gestione degli account**||||  
 |Controlla Gestione gruppi di applicazioni||||  
-|Controlla Gestione account computer||Sì controller di dominio|Sì, sì|  
+|Controlla Gestione account computer||Sì DC|Sì, sì|  
 |Controlla Gestione gruppi di distribuzione||||  
 |Controllo Altri eventi di gestione account||Sì, sì|Sì, sì|  
 |Controllo Gestione gruppi di sicurezza||Sì, sì|Sì, sì|  
 |Controllo della Gestione account utente|Sì No|Sì, sì|Sì, sì|  
-|**Analisi dettagliata**||||  
+|**Rilevamento dettagliato**||||  
 |Controlla Attività DPAPI|||Sì, sì|  
 |Controlla Creazione di processi||Sì No|Sì, sì|  
 |Controlla Chiusura di processi||||  
 |Controlla Eventi RPC||||  
-|**Accesso al servizio directory**||||  
+|**Accesso DS**||||  
 |Controlla Replica dettagliata servizio directory||||  
-|Controlla Accesso al servizio directory||DC    DC|DC    DC|  
-|Controlla Modifiche servizio directory||DC    DC|DC    DC|  
+|Controlla Accesso al servizio directory||DC DC|DC DC|  
+|Controlla Modifiche servizio directory||DC DC|DC DC|  
 |Controlla Replica servizio directory||||  
 |**Accesso e disconnessione**||||  
 |Controlla Blocco account|Sì No||Sì No|  
 |Controlla attestazioni utente/dispositivo||||  
 |Controlla Modalità estesa IPsec||||  
-|Controlla Modalità principale IPsec|||IF     IF|  
+|Controlla Modalità principale IPsec|||SE|  
 |Controlla Modalità rapida IPsec||||  
 |Controlla Fine sessione|Sì No|Sì No|Sì No|  
 |Controlla Accesso|Sì, sì|Sì, sì|Sì, sì|  
@@ -204,106 +204,106 @@ Queste tabelle contengono l'impostazione predefinita di Windows, le indicazioni 
 |Controlla Utilizzo privilegi non sensibili||||  
 |Controlla Altri eventi di utilizzo dei privilegi||||  
 |Controlla Utilizzo privilegi sensibili||||  
-|**System**||||  
+|**Sistema**||||  
 |Controlla Driver IPSec||Sì, sì|Sì, sì|  
 |Controlla Altri eventi di sistema|Sì, sì|||  
 |Controlla Modifica stato sicurezza|Sì No|Sì, sì|Sì, sì|  
 |Controlla Estensione sistema di sicurezza||Sì, sì|Sì, sì|  
 |Controlla Integrità sistema|Sì, sì|Sì, sì|Sì, sì|  
-|**Accesso agli oggetti globale di controllo**||||  
+|**Controllo di accesso agli oggetti globali**||||  
 |Controlla Driver IPSec||||  
 |Controlla Altri eventi di sistema||||  
 |Controlla Modifica stato sicurezza||||  
 |Controlla Estensione sistema di sicurezza||||  
 |Controlla Integrità sistema||||  
 
-## <a name="set-audit-policy-on-workstations-and-servers"></a>Impostare i criteri di controllo sulle workstation e server  
-Tutti i piani di gestione di log eventi devono monitorare le workstation e server. Un errore comune è di monitorare solo i controller di dominio o server. Poiché spesso inizialmente pirateria informatica dannosi si verifica nelle workstation, non esegue il monitoraggio workstation ignora la fonte migliore e più vecchia di informazioni.  
+## <a name="set-audit-policy-on-workstations-and-servers"></a>Impostare i criteri di controllo nelle workstation e nei server  
+Tutti i piani di gestione del registro eventi devono monitorare le workstation e i server. Un errore comune consiste nel monitorare solo i server o i controller di dominio. Poiché le intrusioni dannose si verificano spesso nelle workstation, non è possibile che le workstation di monitoraggio ignorino la fonte di informazioni migliore e meno recente.  
 
-Gli amministratori devono scrupoloso esaminare e testare qualsiasi criterio di controllo prima dell'implementazione nell'ambiente di produzione.  
+Gli amministratori devono esaminare attentamente e testare i criteri di controllo prima dell'implementazione nell'ambiente di produzione.  
 
 ## <a name="events-to-monitor"></a>Eventi da monitorare  
 Un ID evento perfetto per generare un avviso di sicurezza deve contenere gli attributi seguenti:  
 
--   È probabile che tale occorrenza indica attività non autorizzate  
+-   Elevata probabilità che l'occorrenza indichi attività non autorizzate  
 
 -   Numero ridotto di falsi positivi  
 
--   Occorrenza dovrebbe restituire una risposta investigativa/forense  
+-   L'occorrenza dovrebbe causare una risposta investigativa/forense  
 
-Due tipi di eventi devono essere monitorati e ricevere un avviso:  
+È necessario monitorare e avvisare due tipi di eventi:  
 
-1.  Tali eventi in cui anche una singola occorrenza indica attività non autorizzate  
+1.  Gli eventi in cui anche una singola occorrenza indica attività non autorizzata  
 
 2.  Accumularsi di eventi oltre una baseline prevista e accettata  
 
-È un esempio del primo evento:  
+Un esempio del primo evento è:  
 
-Se gli amministratori di dominio (DAs) non è consentiti di accedere al computer che non sono controller di dominio, una singola occorrenza di un membro dall'accesso a una workstation dell'utente finale deve generare un avviso e analizzare. Questo tipo di avviso è facile da generare utilizzando l'evento Controlla accesso speciale 4964 (gruppi speciali sono stati assegnati a un nuovo account di accesso). Altri esempi di avvisi di istanza singola:  
+Se non è consentito eseguire l'accesso a computer che non sono controller di dominio, una singola occorrenza di un membro DA che accede a una workstation dell'utente finale deve generare un avviso ed esaminarla. Questo tipo di avviso è facile da generare utilizzando l'evento di accesso speciale di controllo 4964 (i gruppi speciali sono stati assegnati a un nuovo accesso). Altri esempi di avvisi a istanza singola includono:  
 
--   Se un Server non si connetterà mai al Server B, l'avviso quando si connettono tra loro.  
+-   Se il server A non deve mai connettersi al server B, avvisare quando si connettono tra loro.  
 
--   Genera un avviso se un account normale per l'utente finale viene aggiunto in modo imprevisto a un gruppo di sicurezza sensibili.  
+-   Avviso se un normale account utente finale viene aggiunto in modo imprevisto a un gruppo di sicurezza sensibile.  
 
--   Se i dipendenti nella posizione della factory oggetto non funzionano mai durante la notte, avviso quando un utente accede a mezzanotte.  
+-   Se i dipendenti nella sede della fabbrica non lavorano mai a notte, avvisare quando un utente accede a mezzanotte.  
 
--   Genera un avviso se un servizio non autorizzato viene installato in un controller di dominio.  
+-   Avvisa se un servizio non autorizzato viene installato in un controller di dominio.  
 
--   Verificare se un utente finale regolare tenta di accedere direttamente a un Server SQL per cui non dispongono di alcun motivo chiaro per questa operazione.  
+-   Verificare se un normale utente finale tenta di accedere direttamente a una SQL Server per cui non hanno motivo chiaro per eseguire questa operazione.  
 
--   Se non presentano membri del gruppo DA, e un utente aggiunge stessi non esiste, estrarlo immediatamente.  
+-   Se non sono presenti membri nel gruppo DA e qualcuno aggiunge se stessi, verificarlo immediatamente.  
 
-È un esempio del secondo evento:  
+Un esempio del secondo evento è:  
 
-Un numero di accessi non riusciti pericolosi potrebbe indicare un'attacco di individuazione delle password. Per un'azienda fornire un avviso per un numero insolitamente elevato di accessi non riusciti, è innanzitutto necessario comprendere i normali livelli di accessi non riusciti nell'ambiente prima di un evento di sicurezza malintenzionato.  
+Un numero aberrato di accessi non riusciti potrebbe indicare un attacco di individuazione della password. Per consentire a un'azienda di fornire un avviso per un numero insolitamente elevato di accessi non riusciti, è necessario che i livelli normali degli accessi non riusciti siano compresi nell'ambiente precedente a un evento di sicurezza dannoso.  
 
-Per un elenco completo degli eventi che è necessario includere quando esegue il monitoraggio dei segnali di compromissione, vedere [appendice l: Eventi da monitorare](../../../ad-ds/plan/Appendix-L--Events-to-Monitor.md).  
+Per un elenco completo degli eventi che è necessario includere quando si esegue il monitoraggio dei segnali di compromissione, vedere [Appendix L: Eventi da monitorare @ no__t-0.  
 
-## <a name="active-directory-objects-and-attributes-to-monitor"></a>Oggetti Active Directory e gli attributi di monitoraggio  
-Di seguito è gli account, gruppi e gli attributi che è necessario monitorare per semplificare il rilevamento di tentativi di violazione l'installazione di Active Directory Domain Services.  
+## <a name="active-directory-objects-and-attributes-to-monitor"></a>Active Directory gli oggetti e gli attributi da monitorare  
+Di seguito sono riportati gli account, i gruppi e gli attributi che è necessario monitorare per facilitare il rilevamento dei tentativi di compromissione dell'installazione del Active Directory Domain Services.  
 
--   Sistemi per la disabilitazione o la rimozione del software antivirus e antimalware (automaticamente protezione riavvio quando viene disabilitata manualmente)  
+-   Sistemi per la disabilitazione o la rimozione di software antivirus e antimalware (riavvia automaticamente la protezione quando viene disabilitato manualmente)  
 
--   Account di amministratore per le modifiche non autorizzate  
+-   Account amministratore per le modifiche non autorizzate  
 
--   Attività eseguite con account con privilegi (automaticamente account di rimozione quando le attività sospette sono state completate o assegnate tempo scaduto)  
+-   Attività eseguite usando account con privilegi (Rimuovi automaticamente l'account quando le attività sospette vengono completate o il tempo assegnato è scaduto)  
 
--   Con privilegi e VIP account in Active Directory Domain Services. Monitorare eventuali modifiche, in particolare le modifiche agli attributi nella scheda Account (ad esempio, cn, nome, sAMAccountName, userPrincipalName o userAccountControl). Oltre al monitoraggio gli account, limitare chi può modificare l'account come piccole un set di utenti con privilegi amministrativi possibili.  
+-   Account con privilegi e VIP in servizi di dominio Active Directory. Monitorare le modifiche, in particolare le modifiche apportate agli attributi nella scheda account, ad esempio CN, Name, sAMAccountName, userPrincipalName o userAccountControl. Oltre al monitoraggio degli account, limitare gli utenti che possono modificare gli account in un set ridotto di utenti amministrativi come possibile.  
 
-Fare riferimento a [appendice l: Eventi da monitorare](../../../ad-ds/plan/Appendix-L--Events-to-Monitor.md) per un elenco degli eventi consigliati per monitoraggio, le valutazioni di criticità e un riepilogo di messaggio di evento.  
+Vedere [Appendix L: Eventi per il monitoraggio di @ no__t-0 per un elenco di eventi consigliati da monitorare, le classificazioni critiche e un riepilogo dei messaggi di evento.  
 
--   Gruppo server per la classificazione di carichi di lavoro, che consente di identificare rapidamente i server che devono essere il più strettamente monitorati e configurati più rigoroso  
+-   Raggruppare i server in base alla classificazione dei propri carichi di lavoro, consentendo di identificare rapidamente i server che devono essere monitorati più accuratamente e configurati in modo più rigoroso  
 
--   Modifiche alle proprietà e l'appartenenza dei seguenti gruppi di Active Directory Domain Services: Enterprise Admins (EA), Domain Admins (DA), gli amministratori (BA) e Schema Admins (SA)  
+-   Modifiche alle proprietà e all'appartenenza dei gruppi di servizi di dominio Active Directory seguenti: Enterprise Admins (EA), Domain Admins (DA), amministratori (BA) e Schema Admins (SA)  
 
--   Disabilitato gli account con privilegi (ad esempio, l'account amministratore predefiniti in Active Directory e nei sistemi di membro) per abilitare gli account  
+-   Account con privilegi disabilitati (ad esempio account Administrator predefiniti in Active Directory e nei sistemi membro) per abilitare gli account  
 
--   Account di gestione per registrare tutte le operazioni di scrittura all'account  
+-   Account di gestione per registrare tutte le Scritture nell'account  
 
--   Predefinito configurazione guidata sicurezza per configurare le impostazioni del firewall per ridurre la superficie di attacco del server, del Registro di sistema, controllo e servizio. Utilizzare questa procedura guidata se si implementa jump server come parte della strategia di host amministrativi.  
+-   Configurazione guidata impostazioni di sicurezza predefinite per configurare le impostazioni di servizio, registro di sistema, controllo e firewall per ridurre la superficie di attacco del server. Utilizzare questa procedura guidata se si implementano Jump server come parte della strategia host di amministrazione.  
 
-## <a name="additional-information-for-monitoring-active-directory-domain-services"></a>Informazioni aggiuntive per il monitoraggio di Active Directory Domain Services  
-Esaminare i collegamenti seguenti per altre informazioni sul monitoraggio di Active Directory Domain Services:  
+## <a name="additional-information-for-monitoring-active-directory-domain-services"></a>Informazioni aggiuntive per il monitoraggio Active Directory Domain Services  
+Per ulteriori informazioni sul monitoraggio di servizi di dominio Active Directory, vedere i collegamenti seguenti:  
   
--   [Controllo dell'accesso agli oggetti globale è Magic](http://blogs.technet.com/b/askds/archive/2011/03/10/global-object-access-auditing-is-magic.aspx) -fornisce informazioni su configurazione e uso di controllo configurazione avanzata dei criteri che è stato aggiunto a Windows 7 e Windows Server 2008 R2.  
+-   Il [controllo dell'accesso agli oggetti globale è](http://blogs.technet.com/b/askds/archive/2011/03/10/global-object-access-auditing-is-magic.aspx) una funzionalità che fornisce informazioni sulla configurazione e l'uso della configurazione avanzata dei criteri di controllo aggiunti a Windows 7 e windows Server 2008 R2.  
 
--   [Introduzione a controllo delle modifiche in Windows 2008](http://blogs.technet.com/b/askds/archive/2007/10/19/introducing-auditing-changes-in-windows-2008.aspx) -introduce il controllo le modifiche apportate in Windows 2008.  
+-   [Introduzione alle modifiche di controllo in windows 2008](http://blogs.technet.com/b/askds/archive/2007/10/19/introducing-auditing-changes-in-windows-2008.aspx) : introduce le modifiche di controllo apportate in Windows 2008.  
 
--   [Ad accesso sporadico suggerimenti per il controllo in Vista e 2008](http://blogs.technet.com/b/askds/archive/2007/11/16/cool-auditing-tricks-in-vista-and-2008.aspx) -spiega nuove e interessanti funzionalità di controllo in Windows Vista e Windows Server 2008 che può essere utilizzato per la risoluzione dei problemi o per visualizzare ciò che accade nell'ambiente in uso.  
+-   [Trucchi di controllo interessanti in vista e 2008](http://blogs.technet.com/b/askds/archive/2007/11/16/cool-auditing-tricks-in-vista-and-2008.aspx) : vengono illustrate le nuove funzionalità interessanti del controllo in Windows Vista e windows Server 2008 che possono essere usate per la risoluzione dei problemi o per vedere cosa accade nell'ambiente.  
 
--   [Posizione centralizzata per il controllo in Windows Server 2008 e Windows Vista](http://blogs.technet.com/b/askds/archive/2008/03/27/one-stop-shop-for-auditing-in-windows-server-2008-and-windows-vista.aspx) -contiene una raccolta di controllo, le funzionalità e le informazioni contenute in Windows Server 2008 e Windows Vista.  
+-   [Un'unica tappa per il controllo in Windows server 2008 e Windows Vista](http://blogs.technet.com/b/askds/archive/2008/03/27/one-stop-shop-for-auditing-in-windows-server-2008-and-windows-vista.aspx) : contiene una compilazione di funzionalità di controllo e informazioni contenute in windows Server 2008 e Windows Vista.  
 
--   [Guida dettagliata il controllo di AD DS](https://technet.microsoft.com/library/a9c25483-89e2-4202-881c-ea8e02b4b2a5.aspx) -descrive la nuova funzionalità di controllo Active Directory Domain Services (AD DS) in Windows Server 2008. Fornisce inoltre le procedure per implementare questa nuova funzionalità.  
+-   [Guida dettagliata al controllo di servizi di dominio Active Directory](https://technet.microsoft.com/library/a9c25483-89e2-4202-881c-ea8e02b4b2a5.aspx) : descrive la nuova funzionalità di controllo Active Directory Domain Services (ad DS) in Windows Server 2008. Sono inoltre disponibili procedure per l'implementazione di questa nuova funzionalità.  
 
-## <a name="general-list-of-security-event-id-recommendation-criticalities"></a>Elenco generale di sicurezza evento ID raccomandazione criticità  
-Tutte le raccomandazioni di ID evento sono accompagnate da una criticità rating come indicato di seguito:  
+## <a name="general-list-of-security-event-id-recommendation-criticalities"></a>Elenco generale di criticità delle raccomandazioni ID evento sicurezza  
+Tutte le raccomandazioni relative agli ID evento sono corredate da una valutazione della criticità, come indicato di seguito:  
 
-**Elevata:** ID evento con un livello di importanza elevata deve sempre e immediatamente da un avviso e analizzato.  
+**Alta** Gli ID evento con una classificazione di criticità elevata devono sempre e immediatamente essere avvisati e analizzati.  
 
-**Media:** ID evento con una classificazione Media criticità potrebbe indicare attività dannose, ma devono essere accompagnato da alcune altre anomalia (ad esempio, un numero insolito che si verificano in un determinato periodo di tempo, le occorrenze impreviste o le occorrenze in un computer che in genere non dovrebbe registrare l'evento.). Potrebbe inoltre un evento di criticità di supporto di r da raccolte come metrica e confrontare nel corso del tempo.  
+**Media** Un ID evento con una classificazione di criticità media potrebbe indicare attività dannose, ma deve essere accompagnato da altre anomalie, ad esempio un numero insolito che si verifica in un determinato periodo di tempo, occorrenze impreviste o occorrenze in un computer che normalmente non si prevede di registrare l'evento. Un evento di criticità media può anche essere raccolto come metrica e confrontato nel tempo.  
 
-**Bassa:** E l'ID evento con eventi di importanza bassa non dovrebbe smaliziati attenzione o generano avvisi, a meno che non riconducibili a eventi di criticità medio o alto.  
+**Basso** E l'ID evento con eventi di criticità bassa non devono raccogliere attenzione o causare avvisi, a meno che non siano correlati a eventi di criticità medio o elevato.  
 
-Queste indicazioni sono concepite per fornire una Guida di base per l'amministratore. Prima dell'implementazione in un ambiente di produzione è necessario esaminare attentamente tutte le raccomandazioni.  
+Questi consigli hanno lo scopo di fornire una guida di base per l'amministratore. Prima dell'implementazione in un ambiente di produzione, è necessario esaminare accuratamente tutti i consigli.  
 
-Fare riferimento a [appendice l: Eventi da monitorare](../../../ad-ds/plan/Appendix-L--Events-to-Monitor.md) per un elenco degli eventi consigliati per monitoraggio, le valutazioni di criticità e un riepilogo di messaggio di evento.  
+Vedere [Appendix L: Eventi per il monitoraggio di @ no__t-0 per un elenco degli eventi consigliati da monitorare, le classificazioni critiche e un riepilogo dei messaggi di evento.  

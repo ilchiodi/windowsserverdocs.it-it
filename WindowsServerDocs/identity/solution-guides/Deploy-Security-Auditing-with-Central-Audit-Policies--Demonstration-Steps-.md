@@ -7,34 +7,34 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: b14ded98c4f1a340349119bd9f5f42e3a1bf9434
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: ecbaa33d83d7b37f376a426571c0d2df89c7695d
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66445740"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71407111"
 ---
 # <a name="deploy-security-auditing-with-central-audit-policies-demonstration-steps"></a>Distribuzione dei controlli di sicurezza con criteri di accesso centrale (procedura dimostrativa)
 
 >Si applica a: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-In questo scenario, si controllerà l'accesso ai file nella cartella Finance Documents utilizzando il criterio finanziario creato nella [distribuire un criterio di accesso centrale &#40;passaggi&#41;](Deploy-a-Central-Access-Policy--Demonstration-Steps-.md). Se un utente non autorizzato tenta di accedere alla cartella, l'attività viene registrata dal visualizzatore eventi.   
+In questo scenario, si verificherà l'accesso ai file nella cartella Finance Documents usando il criterio Finance creato in [distribuire una procedura &#40;&#41;dimostrativa per i criteri di accesso centrale](Deploy-a-Central-Access-Policy--Demonstration-Steps-.md). Se un utente non autorizzato tenta di accedere alla cartella, l'attività viene registrata dal visualizzatore eventi.   
  Per testare questo scenario è necessario eseguire la procedura seguente.  
   
 |Attività|Descrizione|  
 |--------|---------------|  
-|[Configurare l'accesso agli oggetti globale](Deploy-Security-Auditing-with-Central-Audit-Policies--Demonstration-Steps-.md#BKMK_1)|Questo passaggio consente di configurare il criterio di accesso agli oggetti globale nel controller di dominio.|  
-|[Impostazioni dei criteri di gruppo di aggiornamento](Deploy-Security-Auditing-with-Central-Audit-Policies--Demonstration-Steps-.md#BKMK_2)|Accedere al file server e applicare l'aggiornamento dei Criteri di gruppo.|  
-|[Verificare che sia stato applicato il criterio di accesso agli oggetti globale](Deploy-Security-Auditing-with-Central-Audit-Policies--Demonstration-Steps-.md#BKMK_3)|Utilizzare il visualizzatore eventi per visualizzare gli eventi pertinenti, tra cui i metadati relativi al Paese e al tipo di documento.|  
+|[Configurare l'accesso agli oggetti globali](Deploy-Security-Auditing-with-Central-Audit-Policies--Demonstration-Steps-.md#BKMK_1)|Questo passaggio consente di configurare il criterio di accesso agli oggetti globale nel controller di dominio.|  
+|[Aggiorna impostazioni Criteri di gruppo](Deploy-Security-Auditing-with-Central-Audit-Policies--Demonstration-Steps-.md#BKMK_2)|Accedere al file server e applicare l'aggiornamento dei Criteri di gruppo.|  
+|[Verificare che il criterio di accesso agli oggetti globale sia stato applicato](Deploy-Security-Auditing-with-Central-Audit-Policies--Demonstration-Steps-.md#BKMK_3)|Utilizzare il visualizzatore eventi per visualizzare gli eventi pertinenti, tra cui i metadati relativi al Paese e al tipo di documento.|  
   
-## <a name="BKMK_1"></a>Configura criterio accesso agli oggetti globale  
+## <a name="BKMK_1"></a>Configurare i criteri di accesso agli oggetti globali  
 Questo passaggio consente di configurare il criterio di accesso agli oggetti globale nel controller di dominio.  
   
 #### <a name="to-configure-a-global-object-access-policy"></a>Per configurare un criterio di accesso agli oggetti globale  
   
-1. Accedere al controller di dominio DC1 specificando Contoso\administrator con la password <strong>pass@word1</strong>.  
+1. Accedere al controller di dominio DC1 come CONTOSO\Administrator con la password <strong>pass@word1</strong>.  
   
 2. In Server Manager scegliere **Strumenti**, quindi fare clic su **Gestione Criteri di gruppo**.  
   
@@ -58,19 +58,19 @@ Questo passaggio consente di configurare il criterio di accesso agli oggetti glo
   
 12. In **Voci di controllo per Global File SACL** selezionare **Controllo completo** nella casella **Autorizzazioni**.  
   
-13. Nel **aggiungere una condizione:** fare clic su **Aggiungi una condizione** e nell'elenco a discesa Elenca select   
-    [**Resource**] [**reparto**] [**uno qualsiasi dei**] [**valore**] [**Finance**].  
+13. Nella sezione **Aggiungi una condizione:** fare clic su **Aggiungi una condizione** e negli elenchi a discesa selezionare   
+    [**Risorsa**] [**Reparto**] [**Any of**] [**Valore**] [**Finance**].  
   
 14. Fare clic tre volte su **OK** per completare la configurazione del criterio di controllo dell'accesso agli oggetti globale.  
   
 15. Nel riquadro di spostamento fare clic su **Accesso agli oggetti**, quindi nel riquadro dei risultati fare doppio clic su **Controlla Modifica handle**. Fare clic su **Configura gli eventi di controllo seguenti**, **Operazione riuscita** ed **Errore**, fare clic su **OK** e quindi chiudere l'oggetto Criteri di gruppo ad accesso flessibile.  
   
-## <a name="BKMK_2"></a>Aggiornare le impostazioni di criteri di gruppo  
+## <a name="BKMK_2"></a>Aggiorna impostazioni Criteri di gruppo  
 Questo passaggio consente di aggiornare le impostazioni di Criteri di gruppo dopo aver creato il criterio di controllo.  
   
 #### <a name="to-update-group-policy-settings"></a>Per aggiornare le impostazioni di Criteri di gruppo  
   
-1. Accedere al file server FILE1 come contoso\Administrator, con la password <strong>pass@word1</strong>.  
+1. Accedere al file server, FILE1 come contoso\Administrator, con la password <strong>pass@word1</strong>.  
   
 2. Premere il tasto WINDOWS+R, quindi digitare **cmd** per aprire la finestra del prompt dei comandi.  
   
@@ -79,12 +79,12 @@ Questo passaggio consente di aggiornare le impostazioni di Criteri di gruppo dop
   
 3. Digitare **gpupdate /force** e quindi premere INVIO.  
   
-## <a name="BKMK_3"></a>Verificare che sia stato applicato il criterio di accesso agli oggetti globale  
+## <a name="BKMK_3"></a>Verificare che il criterio di accesso agli oggetti globale sia stato applicato  
 Dopo che le impostazioni di Criteri di gruppo sono state applicate, è possibile verificare che le impostazioni di controllo siano state applicate correttamente.  
   
 #### <a name="to-verify-that-the-global-object-access-policy-has-been-applied"></a>Per verificare che il criterio di controllo di accesso agli oggetti globale sia stato applicato  
   
-1.  Accedere al computer client CLIENT1 come Contoso\MReid. Passare alla cartella HYPERLINK "file:///\\\\\\\ID_AD_FILE1\\\Finance" \\\ FILE1\Finance documenti e modificare i 2 documenti di Word.  
+1.  Accedere al computer client CLIENT1 come Contoso\MReid. Passare alla cartella HYPERLINK "file:///\\ @ no__t-1 @ no__t-2\ID_AD_FILE1 @ no__t-3\Finance" \\ \ FILE1\Finance Documents e modificare Word Document 2.  
   
 2.  Accedere al file server FILE1 come contoso\administrator. Aprire il visualizzatore eventi, passare a **Registri di Windows**, selezionare **Sicurezza** e confermare che le attività eseguite siano segnalate negli eventi di controllo **4656** e **4663** (anche se non erano stati impostati SACL di controllo espliciti su cartelle o file creati, modificati ed eliminati).  
   

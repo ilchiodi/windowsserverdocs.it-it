@@ -2,20 +2,20 @@
 title: Spostare e ridimensionare la cache ospitata (facoltativa)
 description: In questa guida vengono fornite istruzioni sulla distribuzione di BranchCache in modalità cache ospitata sul computer che eseguono Windows Server 2016 e Windows 10
 manager: brianlic
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking-bc
 ms.topic: article
 ms.assetid: bb0eb349-914d-4596-9140-d3aae7597d55
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: cb75e06b5da8ff95fcf763b22c5160ea200035f3
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 0b0e3b6b490dead32071d99becccd9dca937f1f3
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59853532"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71406354"
 ---
-# <a name="move-and-resize-the-hosted-cache-optional"></a>Spostare e ridimensionare la Cache ospitata \(facoltativo\)
+# <a name="move-and-resize-the-hosted-cache-optional"></a>Spostare e ridimensionare la cache ospitata \(Optional @ no__t-1
 
 >Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
@@ -53,10 +53,10 @@ Per eseguire questa procedura, è necessario essere membri del gruppo Administra
     Get-BCStatus
     ``` 
 
-    I risultati del comando vengono visualizzati lo stato per tutti gli aspetti dell'installazione di BranchCache. Di seguito sono alcune delle impostazioni di BranchCache e il valore corretto per ogni elemento:
+    I risultati dello stato di visualizzazione del comando per tutti gli aspetti dell'installazione di BranchCache. Di seguito sono riportate alcune delle impostazioni di BranchCache e il valore corretto per ogni elemento:
 
     -   DataCache | CacheFileDirectoryPath: Visualizza il percorso del disco rigido che corrisponde al valore fornito con il parametro – MoveTo del comando SetBCCache. Ad esempio, se è stato specificato il valore d\\datacache, di valore viene visualizzato nell'output del comando.
 
-    -   DataCache | MaxCacheSizeAsPercentageOfDiskVolume: Visualizza il numero che corrisponde al valore fornito con – parametro percentuale del comando SetBCCache. Ad esempio, se il valore 20, tale valore viene visualizzato nell'output del comando.
+    -   DataCache | MaxCacheSizeAsPercentageOfDiskVolume: Visualizza il numero che corrisponde al valore specificato con il parametro – percentuale del comando SetBCCache. Ad esempio, se il valore 20, tale valore viene visualizzato nell'output del comando.
 
 Per continuare con questa Guida, vedere [Prehash e Preload contenuto sul Server Cache ospitata & #40; facoltativo & #41;](7-Bc-Prehash-Preload.md).
