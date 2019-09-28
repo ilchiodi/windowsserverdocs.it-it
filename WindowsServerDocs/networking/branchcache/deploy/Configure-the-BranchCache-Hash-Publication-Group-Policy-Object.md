@@ -2,22 +2,22 @@
 title: Configurare l'oggetto Criteri di gruppo per la pubblicazione di hash di BranchCache
 description: Questo argomento fa parte di BranchCache distribuzione Guide per Windows Server 2016, che illustra come distribuire BranchCache in modalità cache distribuita e ospitato per ottimizzare l'utilizzo della larghezza di banda WAN nelle succursali
 manager: brianlic
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking-bc
 ms.topic: get-started-article
 ms.assetid: da74fea7-52b2-4d6d-9d21-19184eedbe3c
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 6e9a338dfebfb1dfadb258bcbdfcc8d75bd3ea86
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: bae0d3dff22205f3311020e233a26835527186f5
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59862962"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71406499"
 ---
 # <a name="configure-the-branchcache-hash-publication-group-policy-object"></a>Configurare l'oggetto Criteri di gruppo per la pubblicazione di hash di BranchCache
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016
 
 Questa procedura consente di configurare la pubblicazione di hash di BranchCache oggetto Criteri di gruppo (GPO) in modo che tutti i file server che sono aggiunti all'unità Organizzativa hanno la stessa impostazione criteri pubblicazione hash applicata.  
   
@@ -34,11 +34,11 @@ L'appartenenza a **Domain Admins**, o equivalente è il requisito minimo necessa
   
 3.  In **Aggiungi o rimuovi snap-in** fare doppio clic su **Gestione Criteri di gruppo** in **Snap-in disponibili** e quindi fare clic su **OK**.  
   
-4.  Nello snap-in di MMC Gestione Criteri di gruppo espandere il percorso dell'oggetto Criteri di gruppo Pubblicazione di hash per BranchCache creato precedentemente. Ad esempio, se la foresta è denominata example.com, il dominio è denominato example1.com e l'oggetto Criteri di gruppo è denominato **Pubblicazione di hash per BranchCache**, espandere il percorso seguente: **Gestione criteri di gruppo**, **foresta: example.com**, **domini**, **example1.com**, **oggetti Criteri di gruppo**,  **Pubblicazione di Hash di BranchCache**.  
+4.  Nello snap-in di MMC Gestione Criteri di gruppo espandere il percorso dell'oggetto Criteri di gruppo Pubblicazione di hash per BranchCache creato precedentemente. Ad esempio, se la foresta è denominata example.com, il dominio è denominato example1.com e l'oggetto Criteri di gruppo è denominato **Pubblicazione di hash per BranchCache**, espandere il percorso seguente: **Gestione criteri di gruppo**, **foresta: example.com**, **domini**, **Example1.com**, **oggetti Criteri di gruppo**, **pubblicazione di hash di BranchCache**.  
   
-5.  Pulsante destro del mouse il **pubblicazione Hash per BranchCache** oggetto Criteri di gruppo e fare clic su **modificare**. Verrà visualizzata la console di Editor Gestione criteri di gruppo.  
+5.  Pulsante destro del mouse il **pubblicazione Hash per BranchCache** oggetto Criteri di gruppo e fare clic su **modificare**. Si apre la console Editor Gestione Criteri di gruppo.  
   
-6.  Nella console di Editor Gestione criteri di gruppo, espandere il percorso seguente: **Configurazione computer**, **Criteri**, **Modelli amministrativi**, **Rete**, **Lanman Server**.  
+6.  Nella console di Editor Gestione Criteri di gruppo espandere il percorso seguente: **Configurazione computer**, **Criteri**, **Modelli amministrativi**, **Rete**, **Lanman Server**.  
   
 7.  Nella console di Editor Gestione criteri di gruppo, fare clic su **Lanman Server**. Nel riquadro dei dettagli fare doppio clic su **pubblicazione Hash per BranchCache**. Verrà visualizzata la finestra di dialogo **Pubblicazione hash per BranchCache**.  
   

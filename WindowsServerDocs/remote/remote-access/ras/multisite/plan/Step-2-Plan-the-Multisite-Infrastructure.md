@@ -1,9 +1,9 @@
 ---
 title: Passaggio 2 piano infrastruttura multisito
-description: Questo argomento fa parte della Guida alla distribuzione di più server di accesso remoto in una distribuzione multisito di Windows Server 2016.
+description: Questo argomento fa parte della Guida distribuire più server di accesso remoto in una distribuzione multisito di Windows Server 2016.
 manager: brianlic
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-ras
@@ -12,19 +12,19 @@ ms.topic: article
 ms.assetid: 64c10107-cb03-41f3-92c6-ac249966f574
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: a2655f4de83576ef62b113419a69badaacc868f9
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: ff8a58aa679691132d074ef52b876cea05366ab5
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67281004"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71367099"
 ---
 # <a name="step-2-plan-the-multisite-infrastructure"></a>Passaggio 2 piano infrastruttura multisito
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016
 
 Il passaggio successivo della distribuzione di accesso remoto in una topologia multisita è per completare la pianificazione dell'infrastruttura multisito; tra cui Active Directory, gruppi di sicurezza e oggetti Criteri di gruppo.  
-## <a name="bkmk_2_1_AD"></a>2.1 pianificare Active Directory  
+## <a name="bkmk_2_1_AD"></a>piano di 2,1 Active Directory  
 Una distribuzione multisito può essere configurata in un numero di topologie di accesso remoto:  
   
 -   **Singolo sito di Active Directory, più punti di ingresso**-In questa topologia, è necessario un singolo sito di Active Directory per l'intera organizzazione con collegamenti veloci intranet del sito, ma sono presenti più server di accesso remoto distribuito in tutta l'organizzazione, ogni che agisce come un punto di ingresso. Un esempio di questa topologia geografico è disporre di un singolo sito di Active Directory per gli Stati Uniti con punti di ingresso in costa orientale e costa occidentale.  
@@ -56,16 +56,16 @@ Tenere presenti le indicazioni e vincoli per la distribuzione di Active Director
   
     2.  Se il controller di dominio che gestisce un oggetto Criteri di gruppo di server è disponibile, utilizzare il cmdlet Set-DAEntryPointDC PowerShell per associare un nuovo controller di dominio con il punto di ingresso. Il nuovo controller di dominio deve disporre oggetti Criteri di gruppo aggiornato prima di eseguire il cmdlet.  
   
-## <a name="bkmk_2_2_SG"></a>2.2 pianificare gruppi di sicurezza  
+## <a name="bkmk_2_2_SG"></a>2,2 pianificare i gruppi di sicurezza  
 Durante la distribuzione di un singolo server con impostazioni avanzate, sono stati raccolti tutti i computer client che accedono alla rete interna tramite DirectAccess in un gruppo di sicurezza. In una distribuzione multisito, viene utilizzato questo gruppo di sicurezza per Windows 8 solo i computer client. Per una distribuzione multisita, i computer client Windows 7 saranno raccolti nei gruppi di protezione distinti per ogni punto di ingresso nella distribuzione multisito. Ad esempio, se in precedenza sono raggruppati tutti i computer client nel gruppo di client_da, è necessario ora rimuovere tutti i computer Windows 7 da quel gruppo e inserirli in un altro gruppo di protezione. Ad esempio, in più siti di Active Directory, punti di ingresso più di topologia, si crea un gruppo di sicurezza per il punto di ingresso di Stati Uniti (DA_Clients_US) e uno per il punto di ingresso Europa (DA_Clients_Europe). Inserire tutti i computer client Windows 7 in United States nel gruppo di DA_Clients_US e qualsiasi Europa all'interno del gruppo DA_Clients_Europe. Se non si dispongono di tutti i computer client Windows 7, non è necessario pianificare i gruppi di sicurezza per i computer Windows 7.  
   
 Gruppi di sicurezza necessari sono i seguenti:  
   
 -   Un gruppo di protezione per tutti i computer client Windows 8. È consigliabile creare un gruppo di sicurezza univoco per questi client per ogni dominio.  
   
--   Un gruppo di sicurezza contenente i computer client Windows 7 per ogni punto di ingresso. È consigliabile creare un gruppo univoco per ogni dominio. Ad esempio: Domain1\DA_Clients_Europe; Domain2\DA_Clients_Europe; Domain1\DA_Clients_US; Domain2\DA_Clients_US.  
+-   Un gruppo di sicurezza contenente i computer client Windows 7 per ogni punto di ingresso. È consigliabile creare un gruppo univoco per ogni dominio. Esempio: Domain1\DA_Clients_Europe; Domain2\DA_Clients_Europe; Domain1\DA_Clients_US; Domain2\DA_Clients_US.  
   
-## <a name="bkmk_2_3_GPO"></a>2.3 oggetti Criteri di gruppo del piano  
+## <a name="bkmk_2_3_GPO"></a>2,3 pianificare oggetti Criteri di gruppo  
 Impostazioni di DirectAccess configurate durante la distribuzione di accesso remoto vengono raccolti in oggetti Criteri di gruppo. La distribuzione a server singolo già utilizza oggetti Criteri di gruppo per i client DirectAccess, server di accesso remoto e, facoltativamente, per i server applicazioni. Una distribuzione multisito richiede i seguenti oggetti Criteri di gruppo:  
   
 -   Un oggetto Criteri di gruppo di server per ogni punto di ingresso.  
@@ -165,7 +165,7 @@ Per mantenere la coerenza di configurazione in una distribuzione multisito, è i
   
 -   **Ottimizzazione della distribuzione della configurazione**-dopo l'infrastruttura di rete cambia, potrebbe essere necessario gestire il server oggetto Criteri di gruppo di un punto di ingresso in un controller di dominio nello stesso sito Active Directory come punto di ingresso.   
   
-## <a name="bkmk_2_4_DNS"></a>2.4 pianificare DNS  
+## <a name="bkmk_2_4_DNS"></a>2,4 pianificare il DNS  
 Durante la pianificazione di DNS per una distribuzione multisito, tenere presente quanto segue:  
   
 1.  I client utilizzano l'indirizzo ConnectTo per connettersi al server di accesso remoto. Ogni punto di ingresso della distribuzione richiede un diverso indirizzo ConnectTo. Ogni indirizzo ConnectTo punto di ingresso deve essere disponibile nel DNS pubblico e l'indirizzo scelto dall'utente deve corrispondere al nome soggetto del certificato IP-HTTPS distribuito per la connessione IP-HTTPS.   

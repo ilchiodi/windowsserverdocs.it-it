@@ -2,22 +2,22 @@
 title: Utilizzare Windows PowerShell per configurare i computer Client Non appartenenti al dominio
 description: Questo argomento fa parte di BranchCache distribuzione Guide per Windows Server 2016, che illustra come distribuire BranchCache in modalità cache distribuita e ospitato per ottimizzare l'utilizzo della larghezza di banda WAN nelle succursali
 manager: brianlic
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking-bc
 ms.topic: get-started-article
 ms.assetid: 1b511e1a-686d-441f-a1c7-d4d029e1a061
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 9abb77e573d7b3f144ab831c655c81370a4a6af1
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 9743d93fe7bc21a971ff886a7e255eed3b775c97
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59839952"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71406426"
 ---
 # <a name="use-windows-powershell-to-configure-non-domain-member-client-computers"></a>Utilizzare Windows PowerShell per configurare i computer Client Non appartenenti al dominio
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016
 
 È possibile utilizzare questa procedura per configurare manualmente un computer client con BranchCache per la modalità cache distribuita o la modalità cache ospitata.  
   

@@ -1,8 +1,8 @@
 ---
 title: clip
-description: 'Argomento i comandi di Windows per * * *- '
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: b10876e115c1f0dcac3448948003852449012087
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 82186869782c47f41930d46b4c33a710e6addedf
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59862392"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71379334"
 ---
 # <a name="clip"></a>clip
 
@@ -39,8 +39,8 @@ clip < <FileName>
 
 |Parametro|Descrizione|
 |---------|-----------|
-|\<Comando >|Specifica un comando il cui output si desidera inviare negli Appunti di Windows.|
-|\<FileName>|Specifica un file il cui contenuto si desidera inviare negli Appunti di Windows.|
+|\<Command >|Specifica un comando il cui output si desidera inviare negli Appunti di Windows.|
+|\<> FileName|Specifica un file il cui contenuto si desidera inviare negli Appunti di Windows.|
 |/?|Visualizza la guida al prompt dei comandi.|
 
 ## <a name="remarks"></a>Note
@@ -64,4 +64,4 @@ clip < readme.txt
 
 #### <a name="additional-references"></a>Altri riferimenti
 
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)
+[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

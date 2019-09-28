@@ -1,8 +1,8 @@
 ---
-title: Ripristino Reg
-description: 'Argomento i comandi di Windows per * * *- '
+title: ripristino reg
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,14 +13,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 0025a37ed8ca50b47e7750501a7362659b500537
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d6c121256cecaebc26e2c402d9b9ced8890eddc2
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59858772"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71384669"
 ---
-# <a name="reg-restore"></a>Ripristino Reg
+# <a name="reg-restore"></a>ripristino reg
 
 
 
@@ -38,8 +38,8 @@ Reg restore <KeyName> <FileName>
 
 |Parametro|Descrizione|
 |---------|-----------|
-|\<Nome chiave >|Specifica il percorso completo della sottochiave da ripristinare. L'operazione di ripristino funziona solo con il computer locale. Il nome di chiave deve includere una chiave radice valido. Le chiavi principali valide sono: HKLM, HKCU, HKCR, HKU e HKCC.|
-|\<FileName>|Specifica il nome e percorso del file con contenuto da scrivere nel Registro di sistema. Questo file deve essere creato in anticipo con il **reg salvare** operazione utilizzando l'estensione hiv.|
+|\<KeyName >|Specifica il percorso completo della sottochiave da ripristinare. L'operazione di ripristino funziona solo con il computer locale. Il nome di chiave deve includere una chiave radice valido. Le chiavi radice valide sono: HKLM, HKCU, HKCR, HKU e HKCC.|
+|\<> FileName|Specifica il nome e percorso del file con contenuto da scrivere nel Registro di sistema. Questo file deve essere creato in anticipo con il **reg salvare** operazione utilizzando l'estensione hiv.|
 |/?|Visualizza la Guida per **ripristino reg** al prompt dei comandi.|
 
 ## <a name="remarks"></a>Note
@@ -50,7 +50,7 @@ Reg restore <KeyName> <FileName>
 |Value|Descrizione|
 |-----|-----------|
 |0|Riuscito|
-|1|Operazione non riuscita|
+|1|Errore|
 
 ## <a name="BKMK_examples"></a>Esempi
 
@@ -61,4 +61,4 @@ REG RESTORE HKLM\Software\Microsoft\ResKit NTRKBkUp.hiv
 
 #### <a name="additional-references"></a>Altri riferimenti
 
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)
+[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

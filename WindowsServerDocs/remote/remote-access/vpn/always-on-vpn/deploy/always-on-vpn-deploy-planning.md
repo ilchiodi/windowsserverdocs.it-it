@@ -1,7 +1,7 @@
 ---
 title: Pianificare la distribuzione di VPN Always On
 description: Questo argomento fornisce istruzioni di pianificazione per la distribuzione di Always On VPN in Windows Server 2016.
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking-ras
 ms.topic: article
 ms.assetid: 3c9de3ec-4bbd-4db0-b47a-03507a315383
@@ -9,16 +9,16 @@ ms.localizationpriority: medium
 ms.author: pashort
 author: shortpatti
 ms.date: 11/05/2018
-ms.openlocfilehash: 7b194bc2eefbe28b75b66ef644c199f3416c14fb
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: f92cfdbe13633dd4c59012f566c6888fdc7fc7a1
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70871367"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71388166"
 ---
 # <a name="step-1-plan-the-always-on-vpn-deployment"></a>Passaggio 1. Pianificare la distribuzione di VPN Always On
 
->Si applica a Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows 10
+>Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows 10
 
 - [**Precedente** Informazioni sul flusso di lavoro per la distribuzione di Always On VPN](always-on-vpn-deploy-deployment.md)
 - [**Prossimo** Passaggio 2. Configurare l'infrastruttura server](vpn-deploy-server-infrastructure.md)

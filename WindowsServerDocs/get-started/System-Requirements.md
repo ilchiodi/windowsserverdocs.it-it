@@ -2,7 +2,7 @@
 title: Requisiti di sistema
 description: Requisiti minimi per archiviazione, CPU, rete, memoria e RAM in un'installazione pulita di ogni opzione di installazione.
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.date: 10/17/2017
@@ -14,12 +14,12 @@ author: jaimeo
 ms.author: jaimeo
 manager: dongill
 ms.localizationpriority: medium
-ms.openlocfilehash: d089af3562467aa1c222b17d9a1ad69d9c1b5008
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: 155e828c77670c7c489b334ec3e7c49aa0809d4d
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "66810592"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71391622"
 ---
 # <a name="system-requirements"></a>Requisiti di sistema
 
@@ -117,7 +117,7 @@ Gli elementi seguenti non sono effettivamente obbligatori, ma necessari per alcu
 > Un chip Trusted Platform Module (TPM) non è strettamente necessario per installare questa versione, anche se è necessario per usare determinate funzionalità come Crittografia unità BitLocker. Se il computer usa TPM, è necessario soddisfare questi requisiti:  
 >  
 > - I TPM basati su hardware devono implementare la versione 2.0 delle specifiche TPM.  
-> - I TPM che implementano versione 2.0 devono disporre di un certificato EK su cui sia stato effettuato preventivamente il provisioning al TPM dal fornitore dell'hardware, o che possa essere recuperato dal dispositivo durante il primo avvio.  
+> - I TPM che implementano la versione 2.0 devono disporre di un certificato EK su cui sia stato effettuato preventivamente il provisioning al TPM dal fornitore dell'hardware, o che possa essere recuperato dal dispositivo durante il primo avvio.  
 > - I TPM che implementano la versione 2.0 devono includere banche PCR SHA-256 e implementare i PCR tra 0 e 23 per SHA-256. Sono accettabili TPM con una singola banca PCR intercambiabile che possa essere usata sia per le misurazioni SHA-1 che per le misurazioni SHA-256.  
 > - La presenza di un'opzione UEFI per disattivare il TPM non costituisce un requisito.  
 

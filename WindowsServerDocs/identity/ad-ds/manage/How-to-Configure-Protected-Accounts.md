@@ -7,14 +7,14 @@ ms.author: joflore
 manager: mtillman
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: d2a832d17c4f6ab926aeb44ea3598c1c2ea932b8
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: fcf10ee11e92a00aca8bc0589c7419690312b6b9
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59890862"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71390144"
 ---
 # <a name="how-to-configure-protected-accounts"></a>Come configurare gli account protetti
 
@@ -32,7 +32,7 @@ In Windows 8.1 e Windows Server 2012 R2 sono inoltre incorporate le funzionalit�
 
 -   [Modalità di amministrazione limitata per Desktop remoto](http://blogs.technet.com/b/kfalde/archive/2013/08/14/restricted-admin-mode-for-rdp-in-windows-8-1-2012-r2.aspx)
 
--   [LSA Protection](https://technet.microsoft.com/library/dn408187)
+-   [Protezione LSA](https://technet.microsoft.com/library/dn408187)
 
 ## <a name="BKMK_AddtoProtectedUsers"></a>Utenti protetti
 Utenti protetti è un nuovo gruppo di sicurezza globale a cui è possibile aggiungere utenti nuovi o esistenti. I dispositivi Windows 8.1 e Windows Server 2012 R2 host hanno un comportamento speciale con i membri di questo gruppo per fornire una migliore protezione contro il furto di credenziali. Per un membro del gruppo, un host Windows Server 2012 R2 o un dispositivo Windows 8.1 non memorizzare nella cache le credenziali che non sono supportate per utenti protetti. I membri di questo gruppo non dispongono di alcuna protezione aggiuntiva se sono connessi a un dispositivo che esegue una versione di Windows precedenti a Windows 8.1.
@@ -72,19 +72,19 @@ I membri del gruppo Utenti protetti devono essere in grado di eseguire l'autenti
 
 -   **Modifica della password** per ogni utente prima di aggiungere l'account per utenti protetti di gruppo o verificare che la password sia stata modificata di recente in un controller di dominio che esegue Windows Server 2008 o versione successiva.
 
-### <a name="BKMK_Prereq"></a>Requisiti per l'uso degli account protetti
+### <a name="BKMK_Prereq"></a>Requisiti per l'uso di account protetti
 Per gli account protetti sono previsti i requisiti di distribuzione seguenti:
 
 -   Per specificare restrizioni sul lato client per utenti protetti, gli host devono eseguire Windows 8.1 o Windows Server 2012 R2. Un utente deve semplicemente eseguire l'accesso con un account membro di un gruppo Utenti protetti. In questo caso, il gruppo utenti protetti può essere creato da [trasferire il ruolo di emulatore dominio primario (PDC) controller](https://technet.microsoft.com/library/cc816944(v=ws.10).aspx) a un controller di dominio che esegue Windows Server 2012 R2. Dopo avere replicato l'oggetto gruppo in altri controller di dominio, il ruolo dell'emulatore PDC può essere ospitato in un controller di dominio che esegue una versione precedente di Windows Server.
 
 -   Per specificare restrizioni sul lato controller di dominio per utenti protetti, che consiste nel limitare l'utilizzo dell'autenticazione NTLM, e altre restrizioni, il livello funzionale del dominio deve essere Windows Server 2012 R2. Per ulteriori informazioni sui livelli di funzionalità, vedere [livelli di funzionalità di servizi di dominio Active Directory informazioni (AD DS)](../active-directory-functional-levels.md).
 
-### <a name="BKMK_TrubleshootingEvents"></a>Risolvere i problemi degli eventi correlati a utenti protetti
+### <a name="BKMK_TrubleshootingEvents"></a>Risolvere gli eventi correlati a utenti protetti
 In questa sezione vengono illustrati i nuovi registri che consentono di risolvere i problemi relativi agli eventi correlati a Utenti protetti e viene descritto il modo in cui il gruppo Utenti protetti può influire sulle modifiche per la risoluzione dei problemi relativi alla delega o alla scadenza dei ticket di concessione ticket (TGT).
 
 #### <a name="new-logs-for-protected-users"></a>Nuovi registri per Utenti protetti
 
-Sono disponibili due registri amministrativi per la risoluzione dei problemi relativi agli eventi correlati a Utenti protetti: Protected User - Client Log e Protected User Failures - Domain Controller Log. Questi due nuovi registri sono disponibili nel Visualizzatore eventi e sono disabilitati per impostazione predefinita. Per abilitare un registro, fare clic su **registri applicazioni e servizi**, fare clic su **Microsoft**, fare clic su **Windows**, fare clic su **autenticazione**, quindi fare clic sul nome del log e fare clic su **azione** (o destro di log) e fare clic su **Attiva registro**.
+Sono disponibili due registri amministrativi per la risoluzione dei problemi relativi agli eventi correlati a Utenti protetti: Utente protetto-log del client e errori utente protetti-log del controller di dominio. Questi due nuovi registri sono disponibili nel Visualizzatore eventi e sono disabilitati per impostazione predefinita. Per abilitare un registro, fare clic su **registri applicazioni e servizi**, fare clic su **Microsoft**, fare clic su **Windows**, fare clic su **autenticazione**, quindi fare clic sul nome del log e fare clic su **azione** (o destro di log) e fare clic su **Attiva registro**.
 
 Per ulteriori informazioni sugli eventi in questi registri, vedere [criteri di autenticazione e silo di criteri di autenticazione](https://technet.microsoft.com/library/dn486813.aspx).
 
@@ -104,15 +104,15 @@ In precedenza, se si verifica un errore una tecnologia che utilizza la delega Ke
 
 ![account protetti](media/How-to-Configure-Protected-Accounts/ADDS_ProtectAcct_TshootDelegation.gif)
 
-### <a name="BKMK_AuditAuthNattempts"></a>Controllare i tentativi di autenticazione
+### <a name="BKMK_AuditAuthNattempts"></a>Controlla tentativi di autenticazione
 Per controllare in modo esplicito i tentativi di autenticazione per i membri del gruppo **Utenti protetti**, è possibile continuare a raccogliere eventi di controllo del registro di protezione o a raccogliere i dati nei nuovi registri amministrativi. Per ulteriori informazioni su questi eventi, vedere [criteri di autenticazione e silo di criteri di autenticazione](https://technet.microsoft.com/library/dn486813.aspx)
 
 ### <a name="BKMK_ProvidePUdcProtections"></a>Fornire protezioni sul lato controller di dominio per servizi e computer
 Gli account per i servizi e i computer non possono essere membri del gruppo **Utenti protetti**. In questa sezione vengono illustrate le protezioni sul lato controller di dominio disponibili per questi account:
 
--   Rifiutare l'autenticazione NTLM: Configurabile solo tramite [criteri di blocco NTLM](https://technet.microsoft.com/library/jj865674(v=ws.10).aspx)
+-   Rifiutare l'autenticazione NTLM: Configurabile solo tramite i [criteri di blocco NTLM](https://technet.microsoft.com/library/jj865674(v=ws.10).aspx)
 
--   Rifiutare la crittografia DES (Data Encryption Standard) nella preautenticazione Kerberos:  I controller di dominio di Windows Server 2012 R2 non accettano la crittografia DES per gli account computer a meno che non sono configurati per DES solo perché ogni versione di Windows rilasciata con Kerberos supporta anche RC4.
+-   Rifiutare la crittografia DES (Data Encryption Standard) nella preautenticazione Kerberos:  I controller di dominio Windows Server 2012 R2 non accettano DES per gli account computer a meno che non siano configurati per DES solo perché ogni versione di Windows rilasciata con Kerberos supporta anche RC4.
 
 -   Rifiutare la crittografia RC4 nella preautenticazione Kerberos: non configurabile.
 
@@ -172,7 +172,7 @@ I criteri di autenticazione integrano il gruppo Utenti protetti, offrendo un mod
 
 ### <a name="BKMK_ReqForAuthnPolicies"></a>Requisiti per l'uso dei criteri di autenticazione
 
-|Condizione|Requisiti|
+|Criteri|Requisiti|
 |----------|----------------|
 |Specifica durate TGT personalizzate| Domini di account con livello funzionale di dominio Windows Server 2012 R2|
 |Limita l'accesso utente|-Domini di account con livello funzionale di dominio Windows Server 2012 R2 con il supporto di controllo dinamico degli accessi<br />-Supportano Windows 8, Windows 8.1, Windows Server 2012 o Windows Server 2012 R2 dispositivi con controllo dinamico degli accessi|
@@ -186,7 +186,7 @@ Un valore elevato di account con privilegi amministrativi deve essere un membro 
 
 Il dominio dell'account utente deve essere a livello funzionale di dominio Windows Server 2012 R2 (Livello). Verificare che tutti i controller di dominio siano Windows Server 2012 R2 e quindi utilizzano Active Directory Domains and Trusts per [aumentare il livello di funzionalità DEL](https://technet.microsoft.com/library/cc753104.aspx) a Windows Server 2012 R2.
 
-**Per configurare il supporto per controllo dinamico degli accessi**
+**Per configurare il supporto per il controllo dinamico degli accessi**
 
 1.  Nel criterio Controller di dominio predefiniti fare clic su **Abilitato** per abilitare l'impostazione **Supporto client Centro distribuzione chiavi Kerberos per attestazioni, autenticazione composta e blindatura Kerberos** in Configurazione computer | Modelli amministrativi | Sistema | KDC.
 
@@ -328,7 +328,7 @@ In Criteri di gruppo o nell'Editor Criteri di gruppo locale abilitare l'impostaz
 
 ![account protetti](media/How-to-Configure-Protected-Accounts/ADDS_ProtectAcct_KerbClientDACSupport.gif)
 
-### <a name="BKMK_TroubleshootAuthnPolicies"></a>Risolvere i problemi di criteri di autenticazione
+### <a name="BKMK_TroubleshootAuthnPolicies"></a>Risolvere i problemi relativi ai criteri di autenticazione
 
 #### <a name="determine-the-accounts-that-are-directly-assigned-an-authentication-policy"></a>Individuare gli account a cui è assegnato direttamente un criterio di autenticazione
 Nella sezione Account in Criterio di autenticazione sono visualizzati gli account è cui è stato direttamente assegnato il criterio.
@@ -428,7 +428,7 @@ Queste informazioni ai controller di dominio della risorsa richiede controllo di
 
     ![account protetti](media/How-to-Configure-Protected-Accounts/ADDS_ProtectAcct_NewAuthNPolicySiloDisplayName.gif)
 
-### <a name="BKMK_ManageAuthnSilosUsingPSH"></a>Gestire i silo di criteri di autenticazione tramite Windows PowerShell
+### <a name="BKMK_ManageAuthnSilosUsingPSH"></a>Gestire i silo di criteri di autenticazione con Windows PowerShell
 Questo comando crea un oggetto silo di criterio di autenticazione e lo impone.
 
 ```

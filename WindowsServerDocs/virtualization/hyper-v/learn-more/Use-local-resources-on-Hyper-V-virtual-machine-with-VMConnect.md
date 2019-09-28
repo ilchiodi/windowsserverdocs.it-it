@@ -1,7 +1,7 @@
 ---
 title: Use local resources on Hyper-V virtual machine with VMConnect
-description: Vengono descritti i requisiti per l'utilizzo delle risorse locali con VMConnect
-ms.prod: windows-server-threshold
+description: Descrive i requisiti per l'uso delle risorse locali con VMConnect
+ms.prod: windows-server
 ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
@@ -11,25 +11,25 @@ ms.assetid: 18eface5-7518-4c6b-9282-93e2e3e87492
 author: KBDAzure
 ms.author: kathyDav
 ms.date: 12/06/2016
-ms.openlocfilehash: a7e465313c68ee793715aba045cc56a2ca5fd1de
-ms.sourcegitcommit: 8ba2c4de3bafa487a46c13c40e4a488bf95b6c33
+ms.openlocfilehash: 70bf72ec2277679820d985c9f78f10a4ea6e04df
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/25/2019
-ms.locfileid: "66222844"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71392891"
 ---
 # <a name="use-local-resources-on-hyper-v-virtual-machine-with-vmconnect"></a>Use local resources on Hyper-V virtual machine with VMConnect
 
 >Si applica a: Windows 10, Windows 8.1, Windows Server 2016, Windows Server 2012 R2
 
-Virtual Machine Connection (VMConnect) consente di usare risorse locali del computer in una macchina virtuale, ad esempio un rimovibili unità flash USB o una stampante. La modalità sessione avanzata consente anche di ridimensionare la finestra di VMConnect. Questo articolo illustra come configurare l'host e quindi assegnare l'accesso alle macchine virtuali a una risorsa locale.
+Virtual Machine Connection (VMConnect) consente di usare le risorse locali di un computer in una macchina virtuale, ad esempio un'unità flash USB rimovibile o una stampante. La modalità sessione avanzata consente anche di ridimensionare la finestra VMConnect. Questo articolo illustra come configurare l'host e quindi concedere alla macchina virtuale l'accesso a una risorsa locale.
 
-La modalità sessione avanzata e digita testo Appunti sono disponibili solo per le macchine virtuali che eseguono sistemi operativi Windows recenti. \(Visualizzare [requisiti per l'utilizzo delle risorse locali](#requirements-for-using-local-resources)riportato di seguito.\) 
+La modalità sessione avanzata e il testo degli Appunti di tipo sono disponibili solo per le macchine virtuali che eseguono sistemi operativi Windows recenti. Requisiti \(See [per l'uso delle risorse locali](#requirements-for-using-local-resources), sotto. \) 
 
 Per le macchine virtuali che eseguono Ubuntu, vedere [Modifica risoluzione dello schermo di Ubuntu in una macchina Virtuale Hyper-V](https://blogs.msdn.microsoft.com/virtual_pc_guy/2014/09/19/changing-ubuntu-screen-resolution-in-a-hyper-v-vm/). 
   
 ## <a name="turn-on-enhanced-session-mode-on-a-hyper-v-host"></a>Attivare la modalità sessione avanzata in un host Hyper-V  
-Se l'host Hyper-V esegue Windows 10 o Windows 8.1, la modalità sessione avanzata è su per impostazione predefinita, pertanto è possibile ignorare questo passaggio e passare alla sezione successiva. Ma se l'host esegue Windows Server 2016 o Windows Server 2012 R2, innanzitutto eseguire questa operazione. 
+Se l'host Hyper-V esegue Windows 10 o Windows 8.1, la modalità sessione avanzata è abilitata per impostazione predefinita, pertanto è possibile ignorare questo passaggio e passare alla sezione successiva. Tuttavia, se l'host esegue Windows Server 2016 o Windows Server 2012 R2, eseguire prima questa operazione. 
   
 Attivare la modalità sessione avanzata:
 
@@ -61,7 +61,7 @@ Attivare la modalità sessione avanzata:
   
 ## <a name="choose-a-local-resource"></a>Scegliere una risorsa locale
 
-Le risorse locali includono stampanti, negli Appunti e un'unità locale nel computer in cui si esegue VMConnect. Per altre informazioni, vedere [requisiti per l'utilizzo delle risorse locali](#requirements-for-using-local-resources)riportato di seguito.  
+Le risorse locali includono stampanti, appunti e un'unità locale nel computer in cui si esegue VMConnect. Per ulteriori informazioni, vedere i [requisiti per l'utilizzo delle risorse locali](#requirements-for-using-local-resources)di seguito.  
   
 Per scegliere una risorsa locale:
   
@@ -101,13 +101,13 @@ Per scegliere una risorsa locale:
 
 Per poter usare le risorse locali del computer in una macchina virtuale:  
   
--   L'host Hyper-V deve disporre **criteri modalità sessione avanzata** e **modalità sessione avanzata** attivato le impostazioni.  
+-   Per l'host Hyper-V devono essere attivate le impostazioni **criteri modalità sessione avanzata** e **modalità sessione avanzata** .  
   
 -   Il computer in cui si usa VMConnect deve eseguire Windows 10, Windows 8.1, Windows Server 2016 o Windows Server 2012 R2.  
   
--   La macchina virtuale deve avere Servizi Desktop remoto abilitata ed eseguire Windows 10, Windows 8.1, Windows Server 2016 o Windows Server 2012 R2 come sistema operativo guest.  
+-   Per la macchina virtuale deve essere abilitato Servizi Desktop remoto ed eseguire Windows 10, Windows 8.1, Windows Server 2016 o Windows Server 2012 R2 come sistema operativo guest.  
   
-Se il computer che esegue VMConnect e la macchina virtuale sia soddisfa i requisiti, è possibile usare una delle seguenti risorse locali se sono disponibili:  
+Se il computer che esegue VMConnect e la macchina virtuale soddisfano entrambi i requisiti, è possibile usare una delle risorse locali seguenti, se disponibili:  
   
 -   Configurazione dello schermo  
   

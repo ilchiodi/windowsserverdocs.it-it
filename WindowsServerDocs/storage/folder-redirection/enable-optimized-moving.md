@@ -1,23 +1,23 @@
 ---
 title: Abilita spostamento ottimizzato di cartelle reindirizzate
 description: Come eseguire uno spostamento ottimizzato delle cartelle reindirizzate in una nuova condivisione file.
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.topic: article
 author: JasonGerend
 ms.author: jgerend
 ms.technology: storage
 ms.date: 09/10/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: edf6596f7daaa2f496b8b4da36e98ee72b05dfcd
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 6c54fee98247b1ce0aa3ef3a2502cf18f314e763
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70867254"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71394372"
 ---
 # <a name="enable-optimized-moves-of-redirected-folders"></a>Abilita spostamento ottimizzato di cartelle reindirizzate
 
->Si applica a Windows 10, Windows 8, Windows 8.1, Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server (canale semestrale)
+>Si applica a: Windows 10, Windows 8, Windows 8.1, Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server (canale semestrale)
 
 In questo argomento viene descritto come eseguire uno spostamento ottimizzato di cartelle reindirizzate (Reindirizzamento cartelle) in una nuova condivisione file. Se si abilita questa impostazione di criteri, quando un amministratore sposta la condivisione file che ospita le cartelle reindirizzate e aggiorna il percorso di destinazione delle cartelle reindirizzate in Criteri di gruppo, il contenuto memorizzato nella cache viene semplicemente rinominato nella cache File offline locale senza ritardi o potenziale perdita di dati per l'utente.
 

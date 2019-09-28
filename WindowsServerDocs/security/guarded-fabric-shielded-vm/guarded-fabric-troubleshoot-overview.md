@@ -1,29 +1,29 @@
 ---
-title: Risoluzione dei problemi di un'infrastruttura sorvegliata
+title: Risoluzione dei problemi relativi a un'infrastruttura sorvegliata
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.topic: article
 ms.assetid: 55e954ec-6a5f-4b42-b6a7-1006f3e24556
 manager: dongill
 author: rpsqrd
 ms.technology: security-guarded-fabric
-ms.openlocfilehash: 0f0a9605b1db6f9b972091a7f792806c96c4ca5c
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 0da623cc0cd5de5a9b9f31a819a9ad3a4a08b9f8
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59869552"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71403462"
 ---
-# <a name="troubleshooting-a-guarded-fabric"></a>Risoluzione dei problemi di un'infrastruttura sorvegliata
+# <a name="troubleshooting-a-guarded-fabric"></a>Risoluzione dei problemi relativi a un'infrastruttura sorvegliata
 
-Gli argomenti seguenti descrivono come risolvere i problemi di un'infrastruttura sorvegliata:
+Gli argomenti seguenti illustrano come risolvere i problemi relativi a un'infrastruttura sorvegliata:
 
-- [Risoluzione dei problemi mediante lo strumento di diagnostica dell'infrastruttura sorvegliata](guarded-fabric-troubleshoot-diagnostics.md)
-- [Risoluzione dei problemi del servizio sorveglianza Host](guarded-fabric-troubleshoot-hgs.md)
-- [Risoluzione dei problemi di host sorvegliati](guarded-fabric-troubleshoot-hosts.md)
-- [Risoluzione dei problemi relativi a macchine virtuali schermate](guarded-fabric-troubleshoot-shielded-vms.md)
+- [Risoluzione dei problemi con lo strumento di diagnostica dell'infrastruttura sorvegliata](guarded-fabric-troubleshoot-diagnostics.md)
+- [Risoluzione dei problemi relativi al servizio sorveglianza host](guarded-fabric-troubleshoot-hgs.md)
+- [Risoluzione dei problemi degli host sorvegliati](guarded-fabric-troubleshoot-hosts.md)
+- [Risoluzione dei problemi relativi alle macchine virtuali schermate](guarded-fabric-troubleshoot-shielded-vms.md)
 
 ## <a name="see-also"></a>Vedere anche
 
-- [Il servizio sorveglianza Host per la distribuzione di host sorvegliati e macchine virtuali schermate](guarded-fabric-deploying-hgs-overview.md)
-- [La gestione di un'infrastruttura sorvegliata](guarded-fabric-manage-overview.md)
+- [Distribuzione del servizio sorveglianza host per host sorvegliati e macchine virtuali schermate](guarded-fabric-deploying-hgs-overview.md)
+- [Gestione di un'infrastruttura sorvegliata](guarded-fabric-manage-overview.md)

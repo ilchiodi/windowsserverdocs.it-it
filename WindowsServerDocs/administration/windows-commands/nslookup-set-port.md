@@ -1,8 +1,8 @@
 ---
 title: nslookup set port
-description: 'Argomento i comandi di Windows per * * *- '
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 47eb780631da766f49c0ca2cac8ef90007a95c7e
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 5e1d7565499b87d861b727be54442a86527a85a7
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66436717"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71372925"
 ---
 # <a name="nslookup-set-port"></a>nslookup set port
 
 
 
-Modifica la porta predefinita TCP/UDP sistema DNS (Domain Name) nome server sul valore specificato.
+Consente di modificare la porta predefinita del server dei nomi TCP/UDP Domain Name System (DNS) al valore specificato.
 
 ## <a name="syntax"></a>Sintassi
 
@@ -36,8 +36,8 @@ set port=<Port>
 
 | Parametro |                                          Descrizione                                          |
 |-----------|-----------------------------------------------------------------------------------------------|
-|  \<Port>  | Specifica il nuovo valore per la porta predefinita TCP/UDP DNS nome server. La porta predefinita è 53. |
-|   Guida {   |                                              ?}                                               |
+|  \<Port >  | Specifica il nuovo valore per la porta predefinita del server dei nomi DNS TCP/UDP. La porta predefinita è 53. |
+|   {Guida   |                                              ?}                                               |
 
 #### <a name="additional-references"></a>Altri riferimenti
 

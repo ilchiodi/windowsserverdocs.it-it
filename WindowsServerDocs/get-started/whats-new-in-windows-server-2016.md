@@ -1,7 +1,7 @@
 ---
 title: Novità di Windows Server 2016
 description: Quali sono le nuove funzionalità di calcolo, identità, gestione, automazione, rete, sicurezza e archiviazione.
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.date: 05/21/2019
 ms.technology: server-general
 ms.topic: article
@@ -10,12 +10,12 @@ author: jasongerend
 ms.author: jgerend
 manager: dongill
 ms.localizationpriority: medium
-ms.openlocfilehash: b2be54748a36f97a11796ebfa16701baac1c612d
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: 76cfd0f0cca18fb072883a9e14fae420516bd329
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67280647"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71391357"
 ---
 # <a name="whats-new-in-windows-server-2016"></a>Novità di Windows Server 2016
 

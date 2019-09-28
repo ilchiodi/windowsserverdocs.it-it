@@ -1,8 +1,8 @@
 ---
 title: Il Server uninitialize (opzione)
-description: 'Argomento i comandi di Windows per * * *- '
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 73f1ff67331ae41fa0d88cb3a16df5095e0b6d66
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 5c63e09738871c5b74c1b564a83c35ad28f4fa80
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59873982"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71385587"
 ---
 # <a name="the-uninitialize-server-option"></a>Il Server uninitialize (opzione)
 
 >Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Ripristina le modifiche apportate al server durante la configurazione iniziale del server. Ciò include le modifiche apportate mediante la **/initialize-server** opzione o lo snap-in mmc servizi di distribuzione Windows. Si noti che questo comando Reimposta il server a uno stato non configurato. Questo comando non modifica il contenuto della cartella condivisa remoteInstall. Piuttosto, Ripristina lo stato del server in modo che è possibile reinizializzare il server.
+Ripristina le modifiche apportate al server durante la configurazione iniziale del server. Sono incluse le modifiche apportate dall'opzione **/Initialize-Server** o dallo snap-in MMC Servizi di distribuzione Windows. Si noti che questo comando Reimposta il server a uno stato non configurato. Questo comando non modifica il contenuto della cartella condivisa remoteInstall. Piuttosto, Ripristina lo stato del server in modo che è possibile reinizializzare il server.
 ## <a name="syntax"></a>Sintassi
 ```
 wdsutil [Options] /Uninitialize-Server [/Server:<Server name>]

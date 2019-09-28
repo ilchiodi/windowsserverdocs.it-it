@@ -1,9 +1,9 @@
 ---
 title: Risoluzione dei problemi dell'abilitazione di OTP
-description: Questo argomento fa parte della Guida alla distribuzione di accesso remoto con autenticazione OTP in Windows Server 2016.
+description: Questo argomento fa parte della Guida distribuire accesso remoto con l'autenticazione OTP in Windows Server 2016.
 manager: brianlic
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-ras
@@ -12,98 +12,98 @@ ms.topic: article
 ms.assetid: b58252ca-4c1d-4664-a3c4-7301e2121517
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 55314f3bd5e3500847beed256580b1924521abc9
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: a1c18f264a6a8d263f3e9f50bc325ef97f4240af
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67280799"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71366923"
 ---
 # <a name="troubleshooting-enabling-otp"></a>Risoluzione dei problemi dell'abilitazione di OTP
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016
 
-In questo argomento contiene informazioni sulla risoluzione dei problemi relativi all'abilitazione dell'autenticazione OTP di DirectAccess usando la **Enable-DAOtpAuthentication** cmdlet di PowerShell o la console Gestione accesso remoto.
+Questo argomento contiene informazioni sulla risoluzione dei problemi relativi all'abilitazione dell'autenticazione OTP di DirectAccess tramite il cmdlet **Enable-DAOtpAuthentication di** PowerShell o la console di gestione accesso remoto.
   
-## <a name="failed-to-enroll-the-otp-signing-certificate"></a>Non è riuscito a registrare il certificato di firma OTP  
-**Errore ricevuto** (registro eventi del server). Un certificato di autenticazione OTP non può essere registrato usando il modello di certificato < OTP_signing_template_name >  
+## <a name="failed-to-enroll-the-otp-signing-certificate"></a>Non è stato possibile registrare il certificato di firma OTP  
+**Errore ricevuto** (registro eventi del server). Non è possibile registrare un certificato di firma OTP usando un modello di certificato < OTP_signing_template_name >  
   
 **Causa**  
   
-Esistono tre possibili cause di questo errore:  
+Questo errore può essere dovuto a tre cause:  
   
 -   Il modello non esiste.  
   
--   Le autorizzazioni impostate per il modello non consente al server DirectAccess di registrarsi.  
+-   Le autorizzazioni impostate per il modello non consentono la registrazione del server DirectAccess.  
   
 -   Non è disponibile connettività di rete all'autorità di certificazione emittente (CA).  
   
 **Soluzione**  
   
-1.  Assicurarsi che la firma di OTP certificato modello con il nome specificato:  
+1.  Verificare che il modello di certificato di firma OTP con il nome specificato:  
   
-    1.  Esista e disponga delle autorizzazioni appropriate.  
+    1.  Esiste e dispone delle autorizzazioni appropriate.  
   
-    2.  È impostato su vengano emessi da almeno una CA che possa emettere certificati per il server DirectAccess.  
+    2.  È impostato per essere emesso da almeno una CA che può emettere certificati per il server DirectAccess.  
   
-2.  Se il modello non esiste, crearla come descritto nel piano 3.3 il certificato dell'autorità di registrazione o se esiste un altro modello corrisponda riconfigurare OTP di DirectAccess con il nuovo nome del modello.  
+2.  Se il modello non esiste, crearlo come descritto in 3,3 pianificare il certificato dell'autorità di registrazione o se è presente un altro modello corrispondente riconfigurare OTP DirectAccess con il nome del nuovo modello.  
   
-## <a name="failed-to-enable-directaccess-otp-when-webdav-is-installed"></a>Non è stato possibile abilitare OTP di DirectAccess quando è installato WebDAV  
-**Scenario**. Durante il tentativo di applicare la configurazione di OTP di DirectAccess nella console di gestione accesso remoto o tramite il `Enable-DAOtpAuthentication` cmdlet di PowerShell, l'operazione non riesce.  
+## <a name="failed-to-enable-directaccess-otp-when-webdav-is-installed"></a>Non è stato possibile abilitare OTP DirectAccess quando è installato WebDAV  
+**Scenario**. Quando si tenta di applicare la configurazione OTP di DirectAccess nella console di gestione accesso remoto o usando il cmdlet di PowerShell `Enable-DAOtpAuthentication`, l'operazione ha esito negativo.  
   
-**Errore ricevuto** (registro eventi del server). Impossibile applicare le impostazioni OTP di DirectAccess perché l'estensione WebDAV IIS è in esecuzione nel server. Rimuovere WebDAV e applicare nuovamente le impostazioni.  
+**Errore ricevuto** (registro eventi del server). Impossibile applicare le impostazioni OTP di DirectAccess perché l'estensione IIS WebDAV è in esecuzione nel server. Rimuovere WebDAV e applicare di nuovo le impostazioni.  
   
 **Causa**  
   
-Il servizio di OTP di DirectAccess non è compatibile con la funzionalità di pubblicazione WebDAV e non può essere abilitato anche se WebDAV è installato.  
+Il servizio OTP DirectAccess non è compatibile con la funzionalità di pubblicazione WebDAV e non può essere abilitato mentre WebDAV è installato.  
   
 **Soluzione**  
   
 Disinstallare il ruolo WebDAV:  
   
-1.  Nella console di Server Manager, nel riquadro di sinistra, fare clic su **IIS**.  
+1.  Nel riquadro sinistro della console di Server Manager fare clic su **IIS**.  
   
-2.  Nel riquadro principale, scorrere fino alla **ruoli e funzionalità**.  
+2.  Nel riquadro principale scorrere fino a **ruoli e funzionalità**.  
   
-3.  Fare doppio clic su **pubblicazioni WebDAV**, quindi fare clic su **Rimuovi ruolo o funzionalità**.  
+3.  Fare clic con il pulsante destro del mouse su **WebDAV publishing**, quindi scegliere **Rimuovi ruolo o funzionalità**.  
   
 4.  Completare la rimozione guidata ruoli e funzionalità.  
   
-5.  Applicare di nuovo la configurazione di OTP di DirectAccess.  
+5.  Applicare nuovamente la configurazione OTP di DirectAccess.  
   
 ## <a name="no-templates-available-in-the-remote-access-management-console"></a>Nessun modello disponibile nella console di gestione accesso remoto  
-**Scenario**. Durante la configurazione OTP o registrazione modelli di certificato di autorità mediante la console Gestione accesso remoto, alcuni o tutti i modelli non sono presenti dalle finestre di selezione.  
+**Scenario**. Durante la configurazione dei modelli di certificato dell'autorità di registrazione o OTP utilizzando la console di gestione accesso remoto, alcuni o tutti i modelli non sono presenti nelle finestre di selezione.  
   
 **Causa**  
   
-Esistono due possibili cause di questo errore:  
+Questo errore può essere dovuto a due cause:  
   
--   Il modello non è configurato in base ai requisiti di OTP di DirectAccess e pertanto non può essere selezionato.  
+-   Il modello non è configurato in base ai requisiti OTP di DirectAccess e pertanto non può essere selezionato.  
   
--   Le autorità di certificazione selezionate sotto **server CA OTP** non sono configurate per emettere i modelli necessari.  
+-   Le autorità di certificazione selezionate in **server CA OTP** non sono configurate per emettere i modelli richiesti.  
   
 **Soluzione**  
   
-1.  Assicurarsi che il modello di accesso OTP e il modello di certificato OTP firma siano configurati correttamente come descritto nel piano 3.2, 3.3 e il modello di certificato OTP prevede il certificato dell'autorità di registrazione.  
+1.  Verificare che il modello di accesso OTP e il modello di certificato di firma OTP siano configurati correttamente come descritto in 3,2 pianificare il modello di certificato OTP e 3,3 pianificare il certificato dell'autorità di registrazione.  
   
-2.  Assicurarsi che il server accesso client configurato nel **server CA OTP** elenco sono configurati per i problemi i modelli rilevanti:  
+2.  Verificare che le autorità di certificazione configurate nell'elenco **server CA OTP** siano configurate per l'emissione dei modelli pertinenti:  
   
-    1.  Nel server CA, aprire la console Autorità di certificazione.  
+    1.  Nel server CA aprire la console autorità di certificazione.  
   
-    2.  Nel riquadro sinistro, espandere il server di autorità di certificazione prescelto.  
+    2.  Nel riquadro sinistro espandere il server CA scelto.  
   
-    3.  Fare clic su **modelli di certificato** e assicurarsi che i modelli necessari sono abilitati. In caso contrario, fare doppio clic su **modelli di certificato**, fare clic su **New**, fare clic su **modello di certificato da emettere**e quindi selezionare i modelli che si desidera abilitare.  
+    3.  Fare clic su **modelli di certificato** e verificare che i modelli richiesti siano abilitati. In caso contrario, fare clic con il pulsante destro del mouse su **modelli di certificato**, scegliere **nuovo**, fare clic su **modello di certificato da emettere**, quindi selezionare i modelli che si desidera abilitare.  
   
-## <a name="cannot-set-renewal-period-of-otp-template-to-1-hour"></a>Non è possibile impostare il periodo di rinnovo del modello OTP a 1 ora  
-**Scenario**. Quando si configura il modello di accesso di OTP di DirectAccess tramite autorità di certificazione di Windows 2003, non è possibile impostare il periodo di rinnovo del modello a 1 ora.  
+## <a name="cannot-set-renewal-period-of-otp-template-to-1-hour"></a>Impossibile impostare il periodo di rinnovo del modello OTP su un'ora  
+**Scenario**. Quando si configura il modello di accesso OTP di DirectAccess utilizzando la CA Windows 2003, non è possibile impostare il periodo di rinnovo del modello su 1 ora.  
   
 **Causa**  
   
-Lo snap-in MMC di modelli di certificato in Windows Server 2003 non consente di impostare il periodo di rinnovo di un modello a 1 ora.  
+Lo snap-in MMC modelli di certificato in Windows Server 2003 non consente di impostare il periodo di rinnovo di un modello su 1 ora.  
   
 **Soluzione**  
   
-Installare lo snap-in modelli di certificato in un server di post-Windows Server 2003 e usarla per configurare il modello di accesso OTP, vedere [installare lo Snap-In modelli di certificato](https://technet.microsoft.com/library/cc732445.aspx).  
+Installare lo snap-in modelli di certificato in un server Post-Windows Server 2003 e usarlo per configurare il modello di accesso OTP. vedere [installare lo snap-in modelli di certificato](https://technet.microsoft.com/library/cc732445.aspx).  
   
 
 

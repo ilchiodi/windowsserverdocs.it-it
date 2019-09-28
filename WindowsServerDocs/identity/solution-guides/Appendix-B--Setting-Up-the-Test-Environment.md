@@ -1,20 +1,20 @@
 ---
 ms.assetid: 82918181-525d-4e93-af96-957dac6aedb6
-title: Appendice B impostazione dell'ambiente di Test
+title: Appendice B configurazione dell'ambiente di test
 description: ''
 author: billmath
 ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 3ebe125ce7850797d786e7b564c98889cfb19927
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: af045545826269630af9327480cda59093d219df
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66445865"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71407148"
 ---
 # <a name="appendix-b-setting-up-the-test-environment"></a>Appendice B: Configurazione dell'ambiente di testing
 
@@ -31,7 +31,7 @@ Requisiti per la configurazione del laboratorio di test:
 
 -   Una copia dell'ISO di Windows Server 2012  
 
--   Una copia del file di ISO di Windows 8  
+-   Una copia dell'immagine ISO di Windows 8  
 
 -   Microsoft Office 2010  
 
@@ -95,12 +95,12 @@ A questo punto si creerà una rete virtuale interna denominata ID_AD_Network.
 
 6.  Fare clic su **OK** per creare la rete virtuale e chiudere Gestione reti virtuali oppure fare clic su **Applica** per creare la rete virtuale e continuare a usare Gestione reti virtuali.  
 
-### <a name="BKMK_Build"></a>Compilare il controller di dominio  
-Creare una macchina virtuale da usare come controller di dominio (DC1). Installare la macchina virtuale usando file ISO di Windows Server 2012 e il nome DC1.  
+### <a name="BKMK_Build"></a>Compilazione del controller di dominio  
+Creare una macchina virtuale da usare come controller di dominio (DC1). Installare la macchina virtuale usando l'ISO di Windows Server 2012 e denominarla DC1.  
 
 ##### <a name="to-install-active-directory-domain-services"></a>Per installare Servizi di dominio Active Directory  
 
-1. Connettere la macchina virtuale alla rete ID_AD_Network. Accedere a DC1 come Administrator con la password <strong>pass@word1</strong>.  
+1. Connettere la macchina virtuale alla rete ID_AD_Network. Accedere a DC1 come amministratore con la password <strong>pass@word1</strong>.  
 
 2. In Server Manager fare clic su **Gestione**e quindi su **Aggiungi ruoli e funzionalità**.  
 
@@ -122,7 +122,7 @@ Creare una macchina virtuale da usare come controller di dominio (DC1). Installa
 
 11. Nella pagina **Configurazione distribuzione** fare clic su **Aggiungi una nuova foresta**, digitare il nome del dominio radice, **contoso.com**, e quindi fare clic su **Avanti**.  
 
-12. Nel **opzioni Controller di dominio** pagina selezionare i livelli di funzionalità foresta e dominio di Windows Server 2012, specificare la password DSRM <strong>pass@word1</strong>, quindi fare clic su **Avanti**.  
+12. Nella pagina **Opzioni controller di dominio** selezionare i livelli di funzionalità dominio e foresta come Windows Server 2012, specificare la password della modalità ripristino servizi directory <strong>pass@word1</strong>, quindi fare clic su **Avanti**.  
 
 13. Nella pagina **Opzioni DNS** fare clic su **Avanti**.  
 
@@ -164,13 +164,13 @@ Creare gli utenti seguenti mediante Centro di amministrazione di Active Director
 4. Creare gli utenti seguenti con gli attributi indicati:  
 
 
-   |       Utente       |  Nome utente  |     Indirizzo di posta elettronica      | Reparto |      Raggruppa       | Paese/area geografica |
+   |       Utente       |  Nome utente  |     Indirizzo di posta elettronica      | department |      Group       | Paese/area geografica |
    |------------------|------------|------------------------|------------|------------------|----------------|
-   | Myriam Delesalle | MDelesalle | MDelesalle@contoso.com |  Finanza   |                  |       Stati Uniti       |
-   |    Miles Reid    |   MReid    |   MReid@contoso.com    |  Finanza   |   FinanceAdmin   |       Stati Uniti       |
-   |   Esther Valle   |   EValle   |   EValle@contoso.com   | Operazioni | FinanceException |       Stati Uniti       |
-   |   Maira Wenzel   |  MWenzel   |  MWenzel@contoso.com   |     RU     |                  |       Stati Uniti       |
-   |     Jeff Low     |    JLow    |    JLow@contoso.com    |     RU     |                  |       Stati Uniti       |
+   | Myriam Delesalle | MDelesalle | MDelesalle@contoso.com |  Finanza   |                  |       US       |
+   |    Miles Reid    |   MReid    |   MReid@contoso.com    |  Finanza   |   FinanceAdmin   |       US       |
+   |   Esther Valle   |   EValle   |   EValle@contoso.com   | Operazioni | FinanceException |       US       |
+   |   Maira Wenzel   |  MWenzel   |  MWenzel@contoso.com   |     RU     |                  |       US       |
+   |     Jeff Low     |    JLow    |    JLow@contoso.com    |     RU     |                  |       US       |
    |    RMS Server    |    rms     |    rms@contoso.com     |            |                  |                |
 
    Per altre informazioni sulla creazione di gruppi di sicurezza, vedere [Creare un nuovo gruppo](https://technet.microsoft.com/library/dd861305.aspx) sul sito Web di Windows Server.  
@@ -179,7 +179,7 @@ Creare gli utenti seguenti mediante Centro di amministrazione di Active Director
 
 1.  Passare il cursore sull'angolo superiore destro dello schermo e fare clic sull'icona di ricerca. Nella casella di ricerca digitare **gestione criteri di gruppo** e fare clic su **Gestione criteri di gruppo**.  
 
-2.  Espandere **Foresta: contoso.com**e quindi espandere **Domini**, passare a **contoso.com**, espandere **(contoso.com)** e quindi selezionare **FileServerOU**. Fare doppio clic su **crea un oggetto Criteri di gruppo in questo dominio e crea qui un collegamento**
+2.  Espandere **Foresta: contoso.com**e quindi espandere **Domini**, passare a **contoso.com**, espandere **(contoso.com)** e quindi selezionare **FileServerOU**. Fare clic con il pulsante destro del mouse su **Crea un oggetto Criteri di gruppo nel dominio e collegarlo qui**
 
 3.  Digitare un nome descrittivo per l'oggetto Criteri di gruppo, ad esempio **FlexibleAccessGPO**, e quindi fare clic su **OK**.  
 
@@ -199,13 +199,13 @@ Creare gli utenti seguenti mediante Centro di amministrazione di Active Director
     gpupdate /force  
     ```  
 
-### <a name="BKMK_FS1"></a>Creare il file server e server AD RMS (FILE1)  
+### <a name="BKMK_FS1"></a>Compilare il file server e il server di AD RMS (FILE1)  
 
 1. Creare una macchina virtuale con nome FILE1 dall'ISO di Windows Server 2012.  
 
 2. Connettere la macchina virtuale alla rete ID_AD_Network.  
 
-3. Aggiungere la macchina virtuale al dominio contoso.com e quindi accedere a FILE1 come contoso\administrator specificando la password <strong>pass@word1</strong>.  
+3. Aggiungere la macchina virtuale al dominio contoso.com, quindi accedere a FILE1 come CONTOSO\Administrator usando la password <strong>pass@word1</strong>.  
 
 #### <a name="install-file-services-resource-manager"></a>Installare Gestione risorse file server  
 
@@ -230,7 +230,7 @@ Creare gli utenti seguenti mediante Centro di amministrazione di Active Director
 8.  Nella pagina **Stato dell'installazione** fare clic su **Chiudi**.  
 
 #### <a name="install-the-microsoft-office-filter-packs-on-the-file-server"></a>Installare i Microsoft Office Filter Pack nel file server  
-È necessario installare Microsoft Office Filter Pack in Windows Server 2012 per abilitare gli IFilter per una più ampia varietà di file di Office rispetto a quelli forniti per impostazione predefinita.  Windows Server 2012 non è gli IFilter per i file di Microsoft Office installati per impostazione predefinita, e l'infrastruttura di classificazione file li usa per eseguire l'analisi del contenuto.  
+È necessario installare i pacchetti di filtri Microsoft Office in Windows Server 2012 per abilitare gli IFilter per una matrice più ampia di file di Office rispetto a quelli forniti per impostazione predefinita.  Windows Server 2012 non dispone di filtri IFilter per i file di Microsoft Office installati per impostazione predefinita e l'infrastruttura di classificazione file USA IFilters per eseguire l'analisi del contenuto.  
 
 Per scaricare e installare gli IFilter, vedere [Microsoft Office 2010 Filter Packs](https://go.microsoft.com/fwlink/?LinkID=234122).  
 
@@ -245,13 +245,13 @@ Quando si creano quote e screening dei file, è possibile inviare notifiche tram
 
 3. Nella scheda **Notifiche posta elettronica** , in Nome server SMTP o indirizzo IP, digitare il nome host o l'indirizzo IP del server SMTP che inoltrerà le notifiche tramite posta elettronica.  
 
-4. Se si vuole avvisare regolarmente alcuni amministratori della quota di o screening eventi, di file in **destinatari amministratori predefiniti**, digitare ogni indirizzo di posta elettronica, ad esempio fileadmin@contoso.com. Usare il formato account@domaine usare un punto e virgola per separare più account.  
+4. Se si desidera notificare periodicamente a determinati amministratori gli eventi di quota o di screening dei file, in **destinatari amministratori predefiniti**Digitare l'indirizzo di posta elettronica, ad esempio fileadmin@contoso.com. Usare il formato account@domain e usare un punto e virgola per separare più account.  
 
 #### <a name="create-groups-on-file1"></a>Creare gruppi in FILE1  
 
 ###### <a name="to-create-security-groups-on-file1"></a>Per creare gruppi di sicurezza in FILE1  
 
-1. Accedere a FILE1 come contoso\administrator, con la password: <strong>pass@word1</strong>.  
+1. Accedere a FILE1 come CONTOSO\Administrator, con la password: <strong>pass@word1</strong>.  
 
 2. Aggiungere NT AUTHORITY\Authenticated Users al gruppo **WinRMRemoteWMIUsers__** .  
 
@@ -261,7 +261,7 @@ Quando si creano quote e screening dei file, è possibile inviare notifiche tram
 
 2.  Creare i file seguenti con i dettagli specificati:  
 
-    -   **Finance Memo.docx**: aggiungere del testo di argomento finanziario nel documento. Ad esempio, ' le regole di business su chi può accedere ai documenti finanziari sono cambiate. Da ora i documenti finanziari sono accessibili solo ai membri del gruppo FinanceExpert. Nessun altro reparto o i gruppi hanno accesso.' Prima di implementare questo cambiamento nell'ambiente operativo, è necessario valutarne l'impatto. Verificare che il piè di pagina di ogni pagina del documento riporti il testo CONTOSO CONFIDENTIAL.  
+    -   **Finance Memo.docx**: aggiungere del testo di argomento finanziario nel documento. Ad esempio, le regole business relative agli utenti che possono accedere ai documenti finanziari sono cambiate. Da ora i documenti finanziari sono accessibili solo ai membri del gruppo FinanceExpert. Nessun altro reparto o gruppo ha accesso. Prima di implementare questo cambiamento nell'ambiente operativo, è necessario valutarne l'impatto. Verificare che il piè di pagina di ogni pagina del documento riporti il testo CONTOSO CONFIDENTIAL.  
 
     -   **Request for Approval to Hire.docx**: creare nel documento un modulo che raccoglie le informazioni sui candidati. Il documento deve contenere i campi seguenti: **Applicant Name, Social Security number, Job Title, Proposed Salary, Starting Date, Supervisor name, Department**. Aggiungere al documento un'altra sezione con un modulo per **Supervisor Signature, Approved Salary, Conformation of Offer** e **Status of Offer**.   
         Abilitare Rights Management per il documento.  
@@ -270,9 +270,9 @@ Quando si creano quote e screening dei file, è possibile inviare notifiche tram
 
     -   **Word Document2.docx**: aggiungere del contenuto di prova al documento.  
 
-    -   **Workbook1.xlsx**  
+    -   **WorkBook1. xlsx**  
 
-    -   **Workbook2.xlsx**  
+    -   **Workbook2. xlsx**  
 
     -   Sul desktop creare una cartella denominata Regular Expressions. Nella cartella creare un documento di testo denominato **RegEx-SSN**. Digitare il contenuto seguente nel file, quindi salvare e chiudere il file:   
         ^(?!000)([0-7]\d{2}|7([0-7]\d|7[012]))([ -]?)(?!00)\d\d\3(?!0000)\d{4}$  
@@ -282,7 +282,7 @@ Quando si creano quote e screening dei file, è possibile inviare notifiche tram
 > [!NOTE]  
 > Per impostazione predefinita, i criteri di accesso centrale non sono abilitati nel volume di sistema o di avvio C:.  
 
-#### <a name="BKMK_CS1"></a>Installare Active Directory Rights Management Services  
+#### <a name="BKMK_CS1"></a>Installa Active Directory Rights Management Services  
 Aggiungere Active Directory Rights Management Services (AD RMS) e tutte le funzionalità necessarie mediante Server Manager. Scegliere tutte le impostazioni predefinite.  
 
 ###### <a name="to-install-active-directory-rights-management-services"></a>Per installare Active Directory Rights Management Services  
@@ -329,13 +329,13 @@ Aggiungere Active Directory Rights Management Services (AD RMS) e tutte le funzi
     > [!NOTE]  
     > L'uso di Database interno di Windows è consigliato solo per gli ambienti di test perché supporta un solo server nel cluster AD RMS. Negli ambienti di produzione occorre usare un server di database server separato.  
 
-19. Nel **Account del servizio** schermata **Account utente di dominio**, fare clic su **specificare** e quindi specificare il nome utente (**contoso\rms**), e Password (<strong>pass@word1</strong>) e fare clic su **OK**, quindi fare clic su **Avanti**.  
+19. Nella schermata **account del servizio** , in **account utente di dominio**, fare clic su **specifica** e quindi specificare il nome utente (**contoso\rms**) e la password (<strong>pass@word1</strong>), quindi fare clic su **OK**, quindi su **Avanti**.  
 
 20. Nella schermata **Modalità crittografia** fare clic su **Modalità crittografia 2**.  
 
 21. Nella schermata **Archivio chiavi cluster** fare clic su **Avanti**.  
 
-22. Nel **Password chiave Cluster** schermata il **Password** e **Conferma password** caselle digitare <strong>pass@word1</strong>e quindi fare clic su **Successivo**.  
+22. Nelle caselle **password e** **Conferma password** della schermata della password della **chiave del cluster** Digitare <strong>pass@word1</strong>, quindi fare clic su **Avanti**.  
 
 23. Nella schermata **Sito Web cluster** verificare che l'opzione **Sito Web predefinito** sia selezionata e quindi fare clic su **Avanti**.  
 
@@ -347,7 +347,7 @@ Aggiungere Active Directory Rights Management Services (AD RMS) e tutte le funzi
 
 27. Nella schermata **Conferma** fare clic su **Installa**.  
 
-28. Nella schermata **Risultati** fare clic su **Chiudi** e quindi ancora su **Chiudi** nella schermata **Stato dell'installazione**. Al termine, disconnettersi e accedere come contoso\rms specificando la password fornita (<strong>pass@word1</strong>).  
+28. Nella schermata **Risultati** fare clic su **Chiudi** e quindi ancora su **Chiudi** nella schermata **Stato dell'installazione**. Al termine, disconnettersi e accedere come contoso\rms usando la password specificata (<strong>pass@word1</strong>).  
 
 29. Avviare la console AD RMS e passare a **Modelli di criteri per i diritti di utilizzo**.  
 
@@ -363,13 +363,13 @@ Aggiungere Active Directory Rights Management Services (AD RMS) e tutte le funzi
 
     Fare clic su **Aggiungi** e quindi su **Avanti**.  
 
-31. Nella sezione utenti e diritti fare clic su **utenti e diritti**, fare clic su **Add**, digitare <strong>financeadmin@contoso.com</strong>, fare clic su **OK**.  
+31. Nella sezione utenti e diritti fare clic su **utenti e diritti**, fare clic su **aggiungi**, digitare <strong>financeadmin@contoso.com</strong>e fare clic su **OK**.  
 
 32. Selezionare **Controllo completo**e lasciare l'opzione **Concedi al proprietario (autore) il diritto di controllo completo senza scadenza** selezionata.  
 
 33. Fare clic sulle schede rimanenti senza apportare modifiche e quindi fare clic su **Fine**. Eseguire l'accesso come CONTOSO\Administrator.  
 
-34. Passare alla cartella, C:\inetpub\wwwroot\\_wmcs\certification, selezionare il file ServerCertification asmx e aggiungervi gli utenti autenticati hanno autorizzazioni lettura e scrittura al file.  
+34. Passare alla cartella C:\Inetpub\Wwwroot @ no__t-0_wmcs\certification, selezionare il file ServerCertification. asmx e aggiungere gli utenti autenticati per avere le autorizzazioni di lettura e scrittura per il file.  
 
 35. Aprire Windows PowerShell ed eseguire `Get-FsrmRmsTemplate`. Verificare di riuscire a vedere il modello RMS creato nei passaggi precedenti di questa procedura con questo comando.  
 
@@ -388,7 +388,7 @@ Se si preferisce, invece di usare l'Aggiunta guidata ruoli e funzionalità in Se
 
 ###### <a name="to-install-and-configure-an-ad-rms-cluster-in-windows-server-2012-using-windows-powershell"></a>Per installare e configurare un cluster AD RMS in Windows Server 2012 mediante Windows PowerShell  
 
-1. Accedere a Contoso\administrator con la password: <strong>pass@word1</strong>.  
+1. Accedere come CONTOSO\Administrator con la password: <strong>pass@word1</strong>.  
 
    > [!IMPORTANT]  
    > Per installare il ruolo del server AD RMS, l'account con cui si esegue l'installazione (in questo caso CONTOSO\Administrator) deve essere membro sia del gruppo Administrators locale nel computer server in cui deve essere installato AD RMS, sia del gruppo Enterprise Admins in Active Directory.  
@@ -475,7 +475,7 @@ Se si preferisce, invece di usare l'Aggiunta guidata ruoli e funzionalità in Se
 
    Digitare "Y" quando il cmdlet chiede di confermare l'avvio dell'installazione.  
 
-7. Disconnettersi come CONTOSO\Administrator e di log nuovo come CONTOSO\RMS specificando la password fornita ("pass@word1").  
+7. Disconnettersi come CONTOSO\Administrator e accedere come CONTOSO\RMS usando la password specificata ("pass@word1").  
 
    > [!IMPORTANT]  
    > Per gestire il server AD RMS, l'account usato per effettuare l'accesso e per gestire il server (in questo caso CONTOSO\RMS) deve essere membro sia del gruppo Administrators locale nel computer server AD RMS, sia del gruppo Enterprise Admins in Active Directory.  
@@ -522,7 +522,7 @@ Configurare Microsoft Exchange Server in questo computer. Per altre informazioni
 
    - Nome: File Administrator  
 
-   - indirizzo email: fileadmin@contoso.com  
+   - Indirizzo di posta elettronica: fileadmin@contoso.com  
 
    - Tipo di account: POP3  
 
@@ -530,17 +530,17 @@ Configurare Microsoft Exchange Server in questo computer. Per altre informazioni
 
    - Server della posta in uscita: indirizzo IP statico di of SRV1  
 
-   - Nome utente: fileadmin@contoso.com  
+   - Nome utente:fileadmin@contoso.com  
 
    - Ricorda password: Selezione  
 
 4. Creare un collegamento ad Outlook sul desktop di contoso\administrator.  
 
-5. Aprire Outlook e risolvere tutti i messaggi 'primo avviato'.  
+5. Aprire Outlook e indirizzare tutti i messaggi "primo avvio".  
 
 6. Eliminare gli eventuali messaggi di prova generati.  
 
-7. Creare un nuovo collegamento sul desktop per tutti gli utenti nella macchina virtuale client che punta a \\\FILE1\Finance documenti.  
+7. Creare una nuova scorciatoia sul desktop per tutti gli utenti della macchina virtuale client che punta ai documenti \\ \ FILE1\Finance.  
 
 8. Riavviare se necessario.  
 
@@ -552,7 +552,7 @@ Configurare Microsoft Exchange Server in questo computer. Per altre informazioni
 
     -   Valore: DWORD  
 
-## <a name="BKMK_CF"></a>Installazione del laboratorio per la distribuzione di attestazioni tra uno scenario di foreste  
+## <a name="BKMK_CF"></a>Scenario di installazione Lab per la distribuzione di attestazioni tra foreste  
 
 ### <a name="BKMK_2.1"></a>Creare una macchina virtuale per DC2  
 
@@ -571,7 +571,7 @@ Configurare Microsoft Exchange Server in questo computer. Per altre informazioni
 
 ##### <a name="to-install-active-directory-domain-services"></a>Per installare Servizi di dominio Active Directory  
 
-1. Connettere la macchina virtuale alla rete ID_AD_Network. Accedere a DC2 come Administrator con la password <strong>Pass@word1</strong>.  
+1. Connettere la macchina virtuale alla rete ID_AD_Network. Accedere a DC2 come amministratore con la password <strong>Pass@word1</strong>.  
 
 2. In Server Manager fare clic su **Gestione**e quindi su **Aggiungi ruoli e funzionalità**.  
 
@@ -596,7 +596,7 @@ Configurare Microsoft Exchange Server in questo computer. Per altre informazioni
 
 11. Nella pagina **Configurazione distribuzione** fare clic su **Aggiungi una nuova foresta**, digitare il nome del dominio radice, **adatum.com**, e quindi fare clic su **Avanti**.  
 
-12. Nel **opzioni Controller di dominio** pagina selezionare i livelli di funzionalità foresta e dominio di Windows Server 2012, specificare la password DSRM <strong>pass@word1</strong>, quindi fare clic su **Avanti**.  
+12. Nella pagina **Opzioni controller di dominio** selezionare i livelli di funzionalità dominio e foresta come Windows Server 2012, specificare la password della modalità ripristino servizi directory <strong>pass@word1</strong>, quindi fare clic su **Avanti**.  
 
 13. Nella pagina **Opzioni DNS** fare clic su **Avanti**.  
 
@@ -620,7 +620,7 @@ Configurare Microsoft Exchange Server in questo computer. Per altre informazioni
 >   
 > Se questi comandi vengono eseguiti senza errori, significa che le foreste possono comunicare tra loro. Per altre informazioni sugli errori nslookup, vedere la sezione relativa alla risoluzione dei problemi nell'argomento [Uso di NSlookup.exe](https://support.microsoft.com/kb/200525)  
 
-### <a name="BKMK_2.22"></a>Impostare contoso.com come foresta trusting per adatum.com  
+### <a name="BKMK_2.22"></a>Impostare contoso.com come foresta trusting su adatum.com  
 In questo passaggio si creerà una relazione di trust tra il sito Adatum Corporation e il sito Contoso, Ltd.  
 
 ##### <a name="to-set-contoso-as-a-trusting-forest-to-adatum"></a>Per impostare contoso.com come foresta trusting per adatum.com  
@@ -641,8 +641,8 @@ In questo passaggio si creerà una relazione di trust tra il sito Adatum Corpora
 
 8.  Continuare a seguire le istruzioni della procedura guidata.  
 
-### <a name="BKMK_2.4"></a>Creare altri utenti nella foresta Adatum  
-Creare l'utente Jeff Low con la password <strong>pass@word1</strong>e assegnare l'attributo company con il valore **Adatum**.  
+### <a name="BKMK_2.4"></a>Creare altri utenti nella foresta adatum  
+Creare l'utente Jeff low con la password <strong>pass@word1</strong>e assegnare l'attributo Company con il valore **adatum**.  
 
 ##### <a name="to-create-a-user-with-the-company-attribute"></a>Per creare un utente con l'attributo Company  
 
@@ -697,7 +697,7 @@ Creare l'utente Jeff Low con la password <strong>pass@word1</strong>e assegnare 
 
 5.  Selezionare **Company** nell'elenco **Proprietà risorse**, fare clic con il pulsante destro del mouse e scegliere **Abilita**.  
 
-### <a name="BKMK_2.6"></a>Abilitare controllo dinamico degli accessi per adatum.com  
+### <a name="BKMK_2.6"></a>Abilitare il controllo dinamico degli accessi in adatum.com  
 
 ##### <a name="to-enable-dynamic-access-control-for-adatumcom"></a>Per abilitare il controllo dinamico degli accessi per adatum.com  
 
@@ -752,7 +752,7 @@ Creare l'utente Jeff Low con la password <strong>pass@word1</strong>e assegnare 
 
 7. Fare tre volte clic su **OK** per completare la procedura, quindi tornare al Centro di amministrazione di Active Directory.  
 
-   ![Guide alle soluzioni](media/Appendix-B--Setting-Up-the-Test-Environment/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em>***  
+   ![solution guide i](media/Appendix-B--Setting-Up-the-Test-Environment/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em>***  
 
    Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.  
 
@@ -779,7 +779,7 @@ Creare l'utente Jeff Low con la password <strong>pass@word1</strong>e assegnare 
     -Member "AdatumEmployeeAccessRule" `  
     ```  
 
-### <a name="BKMK_2.11"></a>Pubblicare i nuovi criteri tramite criteri di gruppo  
+### <a name="BKMK_2.11"></a>Pubblicare i nuovi criteri tramite Criteri di gruppo  
 
 ##### <a name="to-apply-the-central-access-policy-across-file-servers-through-group-policy"></a>Per applicare i criteri di accesso centrale nei file server mediante Criteri di gruppo  
 
@@ -788,7 +788,7 @@ Creare l'utente Jeff Low con la password <strong>pass@word1</strong>e assegnare 
     > [!TIP]  
     > Se l'impostazione **Mostra strumenti di amministrazione** è disabilitata, la cartella Strumenti di amministrazione e il relativo contenuto non verranno visualizzati nei risultati di **Impostazioni**.  
 
-2.  Fare clic sul dominio contoso.com, fare clic su **crea un oggetto Criteri di gruppo in questo dominio e crea qui un collegamento**  
+2.  Fare clic con il pulsante destro del mouse sul dominio contoso.com, scegliere **Crea un oggetto Criteri di gruppo in questo dominio e collegarlo qui** .  
 
 3.  Digitare un nome descrittivo per l'oggetto Criteri di gruppo, ad esempio **AdatumAccessGPO**, e quindi fare clic su **OK**.  
 
@@ -811,13 +811,13 @@ Creare l'utente Jeff Low con la password <strong>pass@word1</strong>e assegnare 
 
 7.  Chiudi l'Editor Gestione Criteri di gruppo. I criteri di accesso centrale sono stati aggiunti in Criteri di gruppo.  
 
-### <a name="BKMK_2.12"></a>Creare la cartella Earnings sul file server  
+### <a name="BKMK_2.12"></a>Creare la cartella guadagni nel file server  
 Creare un nuovo volume NTFS in FILE1 e quindi creare la cartella seguente: D:\Earnings.  
 
 > [!NOTE]  
 > Per impostazione predefinita, i criteri di accesso centrale non sono abilitati nel volume di sistema o di avvio C:.  
 
-### <a name="BKMK_2.13"></a>Impostare la classificazione e applicare i criteri di accesso centrale alla cartella Earnings  
+### <a name="BKMK_2.13"></a>Impostare la classificazione e applicare i criteri di accesso centrale nella cartella guadagni  
 
 ##### <a name="to-assign-the-central-access-policy-on-the-file-server"></a>Per assegnare i criteri di accesso centrale nel file server  
 

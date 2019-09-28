@@ -7,31 +7,31 @@ ms.author: pashort
 manager: dougkim
 ms.date: 05/08/2018
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking
-ms.openlocfilehash: 9e4131c28a18a50f3312e5e0201a0ed9529d4555
-ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
+ms.openlocfilehash: 2bf4a887218cd51e9c10954a75bbc1ba2112647f
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66812401"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71405150"
 ---
 # <a name="how-the-windows-time-service-works"></a>Funzionamento del servizio Ora di Windows
 
 >Si applica a: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows 10 o versione successiva
 
-**In questa sezione**  
+**Contenuto della sezione**  
   
--   [Architettura del servizio Windows ora](#windows-time-service-architecture)  
+-   [Architettura del servizio ora di Windows](#windows-time-service-architecture)  
   
--   [Protocolli ora servizio ora di Windows](#windows-time-service-time-protocols)  
+-   [Protocolli Tempo di servizio ora di Windows](#windows-time-service-time-protocols)  
   
--   [Windows ora servizio processi e interazioni](#windows-time-service-processes-and-interactions)  
+-   [Processi e interazioni del servizio ora di Windows](#windows-time-service-processes-and-interactions)  
   
 -   [Porte di rete usate dal servizio ora di Windows](#network-ports-used-by-windows-time-service)  
   
 > [!NOTE]  
-> In questo argomento viene illustrato solo come funziona il servizio ora di Windows (W32Time). Per informazioni su come configurare il servizio ora di Windows, vedere [configurazione dei sistemi per verificarne l'accuratezza elevata](configuring-systems-for-high-accuracy.md).
+> In questo argomento viene illustrato solo come funziona il servizio ora di Windows (W32Time). Per informazioni su come configurare il servizio ora di Windows, vedere [configurazione dei sistemi per un'accuratezza elevata](configuring-systems-for-high-accuracy.md).
   
 > [!NOTE]  
 > In Windows Server 2003 e Microsoft Windows 2000 Server, il servizio directory è denominato servizio directory Active Directory. In Windows Server 2008 e versioni successive, il servizio directory è denominato servizi di dominio Active Directory (AD DS). Nel resto di questo argomento si fa riferimento ad AD DS, ma le informazioni sono applicabili anche ad Active Directory.  
@@ -45,13 +45,13 @@ Sebbene il servizio ora di Windows non è un'implementazione esatta del protocol
 -   La quantità di risorse della CPU e della rete disponibili per il servizio ora di Windows  
   
 > [!IMPORTANT]  
-> Prima di Windows Server 2016, il servizio W32Time non è stato progettato per soddisfare le esigenze dell'applicazione di scadenza.  Tuttavia, gli aggiornamenti a Windows Server 2016 ora consentono di implementare una soluzione per 1 ms accuratezza nel dominio.  Visualizzare [ora di Windows 2016 accurata](accurate-time.md) e [limiti di supporto per configurare il servizio ora di Windows per gli ambienti ad alta precisione](support-boundary.md) per altre informazioni.  
+> Prima di Windows Server 2016, il servizio W32Time non è stato progettato per soddisfare le esigenze dell'applicazione in termini di tempo.  Tuttavia, gli aggiornamenti a Windows Server 2016 consentono ora di implementare una soluzione per l'accuratezza del 1 MS nel dominio.  Per ulteriori informazioni, vedere l' [ora esatta](accurate-time.md) e [il limite del supporto di Windows 2016 per configurare il servizio ora di Windows per ambienti ad alta precisione](support-boundary.md) .  
   
-Computer che la sincronizzazione all'ora meno frequentemente o non aggiunti a un dominio sono configurati, per impostazione predefinita, per la sincronizzazione con time.windows.com.  Pertanto, è possibile garantire l'accuratezza di tempo nei computer che dispongono di intermittente o nessuna connessione di rete.  
+Per impostazione predefinita, i computer che sincronizzano la loro durata o che non fanno parte di un dominio vengono configurati per la sincronizzazione con time.windows.com.  Pertanto, non è possibile garantire l'accuratezza del tempo nei computer con connessioni di rete intermittenti o non disponibili.  
   
 Un insieme di strutture Active Directory presenta una gerarchia di sincronizzazione di tempo predeterminato. Il servizio ora di Windows sincronizza il tempo tra i computer all'interno della gerarchia, con gli orologi di riferimento più accurati nella parte superiore. Se più di un'origine ora è configurata in un computer, ora di Windows utilizza algoritmi NTP per selezionare l'origine dell'ora migliore dalle origini configurate in base alle capacità del computer per la sincronizzazione con tale origine dell'ora. Il servizio ora di Windows non supporta la sincronizzazione di rete da broadcast o multicast peer. Per ulteriori informazioni su queste funzionalità NTP, vedere RFC 1305 nel Database IETF RFC.  
   
-Ogni computer che esegue il servizio ora di Windows utilizza il servizio per gestire l'ora più accurata. Computer che sono membri di un dominio di agire come client ora per impostazione predefinita, pertanto, nella maggior parte dei casi non è necessario configurare il servizio ora di Windows. Tuttavia, il servizio ora di Windows può essere configurato per richiedere l'ora da un'origine ora riferimento designato e può inoltre fornire ora ai client.
+Ogni computer che esegue il servizio ora di Windows utilizza il servizio per gestire l'ora più accurata. Per impostazione predefinita, i computer membri di un dominio agiscono come client di ora, pertanto nella maggior parte dei casi non è necessario configurare il servizio ora di Windows. Tuttavia, il servizio ora di Windows può essere configurato per richiedere tempo da un'origine ora di riferimento designata e può anche fornire tempo ai client.
   
 Il livello a cui l'ora del computer sia precisa viene chiamato un strato. L'origine dell'ora più accurata in una rete (ad esempio un orologio hardware) occupa il livello più basso strato o uno strato. L'origine esatta del tempo viene chiamata un orologio di riferimento. Un server NTP che acquisisce il tempo di direttamente da un orologio riferimento occupa un strato di un livello superiore a quello dell'orologio del riferimento. Risorse di acquisire l'ora del server NTP sono due passaggi per l'orologio di riferimento e pertanto occupano un strato di due superiore l'origine dell'ora più accurati possibile e così via. Come numero strato di un computer aumenta, l'ora del clock di sistema potrebbe diventare meno accurato. Pertanto, il livello strato di qualsiasi computer è un indicatore in quale misura tale computer viene sincronizzato con l'origine dell'ora più accurato.  
   
@@ -70,7 +70,7 @@ Il servizio ora di Windows include i componenti seguenti:
   
 Nella figura seguente è illustrata l'architettura del servizio ora di Windows.  
   
-**Architettura del servizio Windows ora**  
+**Architettura del servizio ora di Windows**  
   
 ![Ora di Windows](../media/Windows-Time-Service/How-the-Windows-Time-Service-Works/trnt_sec_arcc.gif)
   
@@ -130,7 +130,7 @@ Orologi basati su hardware, ad esempio GPS o orologi radio vengono spesso utiliz
   
 Dispositivi hardware, ad esempio un orologio cesium o un ricevitore di posizionamento GPS (Global System), forniscono l'ora corrente esatta seguendo uno standard per ottenere una definizione precisa di tempo. Orologi cesium sono estremamente stabili e non vengono influenzati da fattori quali la temperatura e pressione umidità, ma sono anche molto costosi. Un ricevitore GPS è molto meno costoso da usare ed è anche un orologio riferimento preciso. I ricevitori GPS ottengono l'ora da satelliti che ottengono l'ora da un orologio cesium. Senza l'utilizzo di un provider indipendente dal tempo, il server di riferimento ora di Windows può acquisire all'ora tramite la connessione a un server NTP esterno, che è connesso a un dispositivo hardware tramite un telefono o Internet. Le organizzazioni, ad esempio l'Osservatorio navale degli Stati Uniti fornire i server NTP connessi a orologi riferimento estremamente affidabile.  
   
-Molti ricevitori GPS e altri dispositivi ora possono fungere da server NTP in una rete. È possibile configurare la foresta di Active Directory per sincronizzare l'ora da tali dispositivi hardware esterni solo se anche agiscono come server NTP sulla rete. A tale scopo, configurare il controller di dominio funzionano come controller di dominio primario (emulatore) nella radice della foresta per la sincronizzazione con il server NTP fornito dal dispositivo GPS. A tale scopo, vedere [configurare il servizio ora di Windows sull'emulatore PDC nel dominio radice della foresta](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731191%28v=ws.10%29).  
+Molti ricevitori GPS e altri dispositivi ora possono fungere da server NTP in una rete. È possibile configurare la foresta di Active Directory per sincronizzare l'ora da tali dispositivi hardware esterni solo se anche agiscono come server NTP sulla rete. A tale scopo, configurare il controller di dominio funzionano come controller di dominio primario (emulatore) nella radice della foresta per la sincronizzazione con il server NTP fornito dal dispositivo GPS. A tale scopo, vedere [configurare il servizio ora di Windows nell'emulatore PDC nel dominio radice della foresta](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731191%28v=ws.10%29).  
   
 ### <a name="simple-network-time-protocol"></a>Simple Network Time Protocol  
 Simple Network Time Protocol (SNTP) è un protocollo ora semplificato destinato a server e client che non richiedono il livello di precisione che fornisce NTP. SNTP, una versione più elementare di NTP, è il protocollo principale ora utilizzato in Windows 2000. Poiché i formati di pacchetti di rete di NTP e SNTP sono identici, i due protocolli sono interoperativi. La differenza principale tra i due è che SNTP non dispone di gestione degli errori e sistemi complessi di filtro che fornisce NTP. Per ulteriori informazioni sul protocollo ora rete semplice, vedere RFC 1769 nel Database IETF RFC.  
@@ -170,8 +170,8 @@ Ciascuno di questi tipi di sincronizzazione è descritto nella sezione seguente.
 
 Sincronizzazione basata su una gerarchia di dominio utilizza la gerarchia dei domini di Active Directory per trovare un'origine affidabile con cui sincronizzare l'ora. In base alla gerarchia di dominio, il servizio ora di Windows determina l'accuratezza di ogni server di riferimento ora. In una foresta di Windows Server 2003, il computer che contiene il dominio primario (PDC) controller emulatore ruolo master operazioni, che si trova nel dominio radice della foresta, ricopre la posizione di origine dell'ora migliore, a meno che non è stata configurata un'altra origine ora affidabile. Nella figura seguente viene illustrato un percorso di sincronizzazione dell'ora tra i computer in una gerarchia di dominio.  
   
-**Sincronizzazione dell'ora in una gerarchia di Active Directory Domain Services**  
-![Ora di Windows](../media/Windows-Time-Service/How-the-Windows-Time-Service-Works/trnt_ntw_adhc.gif)
+**Sincronizzazione dell'ora in una gerarchia di servizi di dominio Active Directory**  
+![Windows Time @ no__t-1
   
 #### <a name="reliable-time-source-configuration"></a>Configurazione dell'origine ora affidabile  
 Un computer in cui è configurato per essere un'origine ora affidabile è identificato come radice del servizio ora di. La radice del servizio ora è il server autorevole per il dominio e in genere è configurata per recuperare l'ora da un server NTP esterno o un dispositivo hardware. Un server può essere configurato come origine ora affidabile per ottimizzare il trasferimento dell'ora in tutta la gerarchia di dominio. Se un controller di dominio è configurato per essere un'origine ora affidabile, servizio Accesso rete annuncia il controller di dominio come origine ora affidabile quando si connette alla rete. Quando altri controller di dominio cercano un'origine dell'ora per la sincronizzazione con, essi scegliere un'origine affidabile innanzitutto se è disponibile.  
@@ -201,7 +201,7 @@ Se il controller di dominio non è in grado di sincronizzare con il tipo di cont
   
 Nella tabella seguente elenca le query eseguite da un controller di dominio a trovare un'origine dell'ora e l'ordine in cui vengono eseguite le query.  
   
-**Origine ora del Controller di dominio esegue una query**  
+**Query di origine dell'ora del controller di dominio**  
   
 |Numero di query|Controller di dominio|Location|Affidabilità dell'origine dell'ora|  
 |----------------|---------------------|------------|------------------------------|  
@@ -218,7 +218,7 @@ Nella tabella seguente elenca le query eseguite da un controller di dominio a tr
   
 Ogni query restituisce un elenco di controller di dominio che può essere utilizzato come origine dell'ora. Ora di Windows assegna ogni controller di dominio che è richiesto un punteggio in base all'affidabilità e la posizione del controller di dominio. Nella tabella seguente sono elencati i punteggi assegnati da ora di Windows per ogni tipo di controller di dominio.  
   
-**Determinazione di punteggio**  
+**Determinazione del Punteggio**  
   
 |Stato del Controller di dominio|Punteggio|  
 |----------------------------|---------|  
@@ -263,6 +263,6 @@ Il servizio ora di Windows comunica in una rete per identificare le origini di o
 |SNTP|123|N/D|  
   
 ## <a name="see-also"></a>Vedere anche  
-[Riferimento tecnico per Windows Time Service](windows-time-service-tech-ref.md)
-[impostazioni e strumenti di Windows ora servizio](Windows-Time-Service-Tools-and-Settings.md)
-[articolo della Microsoft Knowledge Base 902229](https://go.microsoft.com/fwlink/?LinkId=186066)
+[Riferimento tecnico per il servizio ora di windows](windows-time-service-tech-ref.md)
+[strumenti e impostazioni del servizio ora di Windows](Windows-Time-Service-Tools-and-Settings.md)
+[articolo 902229 della Microsoft Knowledge base](https://go.microsoft.com/fwlink/?LinkId=186066)

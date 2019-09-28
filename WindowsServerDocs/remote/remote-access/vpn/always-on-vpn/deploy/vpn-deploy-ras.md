@@ -1,7 +1,7 @@
 ---
 title: Configurare il server di accesso remoto per VPN Always On
 description: RRAS è progettato per essere eseguito correttamente sia come router che come server di accesso remoto. Pertanto, supporta una vasta gamma di funzionalità.
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking-ras
 ms.topic: article
 ms.assetid: ''
@@ -10,16 +10,16 @@ ms.author: pashort
 author: shortpatti
 ms.date: 08/30/2018
 ms.reviewer: deverette
-ms.openlocfilehash: 8ed7dd9b8b02ab58cfb6dacf031576004c8d0290
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: c04074338cf4ba0189eb1e9bc45a80b948fdbfbf
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70871313"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71388036"
 ---
 # <a name="step-3-configure-the-remote-access-server-for-always-on-vpn"></a>Passaggio 3. Configurare il server di accesso remoto per VPN Always On
 
->Si applica a Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows 10
+>Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows 10
 
 - [**Precedente** Passaggio 2. Configurare l'infrastruttura server](vpn-deploy-server-infrastructure.md)
 - [**Precedente** Passaggio 4. Installare e configurare il server dei criteri di rete](vpn-deploy-nps.md)

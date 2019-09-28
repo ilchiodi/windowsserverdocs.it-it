@@ -1,9 +1,9 @@
 ---
 title: Passaggio 3 pianificare una distribuzione di Cluster con bilanciamento del carico
-description: Questo argomento fa parte della Guida alla distribuzione di accesso remoto in un Cluster in Windows Server 2016.
+description: Questo argomento fa parte della Guida deploy Remote Access in a cluster in Windows Server 2016.
 manager: brianlic
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-ras
@@ -12,16 +12,16 @@ ms.topic: article
 ms.assetid: 7540c17b-81de-47de-a04f-3247afa26f70
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 8efeb29bf07b572d5e2faef677349690d4282b4d
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: beb2f5ce27115bf328917e38910198794f523547
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67281177"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71404604"
 ---
 # <a name="step-3-plan-a-load-balanced-cluster-deployment"></a>Passaggio 3 pianificare una distribuzione di Cluster con bilanciamento del carico
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016
 
 Il passaggio successivo consiste nel pianificare la configurazione di bilanciamento del carico e la distribuzione di cluster.  
   
@@ -32,7 +32,7 @@ Il passaggio successivo consiste nel pianificare la configurazione di bilanciame
 |3.3 piano per le connessioni client VPN|Tenere presente i requisiti per le connessioni client VPN.|  
 |3.4 pianificare il server dei percorsi di rete|Server dei percorsi di rete è ospitato nel server di accesso remoto, se non viene utilizzato un certificato autofirmato, assicurarsi che ogni server del cluster dispone di un certificato server per autenticare la connessione al sito Web.|  
   
-## <a name="bkmk_2_1_Plan_LB"></a>3.1 pianificare il bilanciamento del carico  
+## <a name="bkmk_2_1_Plan_LB"></a>3,1 pianificare il bilanciamento del carico  
 Accesso remoto può essere distribuito in un singolo server o in un cluster di server di accesso remoto. Il traffico al cluster può essere con carico bilanciato per fornire elevata disponibilità e scalabilità per i client DirectAccess. Sono disponibili due opzioni di bilanciamento del carico:  
   
 -   **Bilanciamento carico di RETE di Windows**-Bilanciamento carico di RETE di Windows è una funzionalità di Windows server. Per utilizzarlo, non richiesto hardware aggiuntivo perché tutti i server del cluster sono responsabili della gestione il carico del traffico. Bilanciamento carico di RETE di Windows supporta un massimo di otto server in un cluster di accesso remoto.  
@@ -47,7 +47,7 @@ Accesso remoto può essere distribuito in un singolo server o in un cluster di s
   
     -   L'amministratore può passare da Bilanciamento carico di RETE di Windows a bilanciamento del carico esterno e viceversa. Si noti che l'amministratore non può passare dal bilanciamento del carico esterno bilanciamento carico di rete di Windows se ha più di 8 server nella distribuzione del bilanciamento del carico esterno.  
   
-### <a name="ELBConfigEx"></a>3.1.1 esempio di configurazione di bilanciamento del carico esterno  
+### <a name="ELBConfigEx"></a>3.1.1 esempio di configurazione di Load Balancer esterno  
 In questa sezione vengono descritti i passaggi di configurazione per l'attivazione di un servizio di bilanciamento del carico esterno una nuova distribuzione di accesso remoto. Quando si utilizza un servizio di bilanciamento del carico esterno, il cluster di accesso remoto potrebbe essere simile nella figura seguente, in cui i server di accesso remoto sono connessi alla rete aziendale tramite un servizio di bilanciamento del carico sulla rete interna e a Internet tramite un bilanciamento del carico connesso alla rete esterna:  
   
 ![Esempio di configurazione di bilanciamento del carico esterno](../../../../media/Step-3-Plan-a-Load-Balanced-Cluster-Deployment/ELBDiagram-URA_Enterprise_NLB-.png)  
@@ -85,7 +85,7 @@ In questa sezione vengono descritti i passaggi di configurazione per l'attivazio
   
 6.  Ora il server di accesso remoto verrà configurato con gli indirizzi IP pianificati e gli indirizzi IP interni ed esterni per il cluster verranno configurati in base a indirizzi IP pianificati.  
   
-## <a name="bkmk_2_2_NLB"></a>3.2 piano IP-HTTPS  
+## <a name="bkmk_2_2_NLB"></a>3,2 piano IP-HTTPS  
   
 1.  **Requisiti dei certificati**-durante la distribuzione del singolo server di accesso remoto si è scelto di utilizzare un certificato IP-HTTPS emesso da un'autorità di certificazione interna o pubblica (CA) o un certificato autofirmato. Per la distribuzione di cluster, è necessario utilizzare stesso tipo di certificato in ogni membro del cluster di accesso remoto. Ovvero, se si utilizza un certificato emesso da un'autorità di certificazione pubblica (scelta consigliata), è necessario installare un certificato emesso da un'autorità di certificazione pubblica ogni membro del cluster. Il nome del soggetto del nuovo certificato deve essere identico al nome del soggetto del certificato IP-HTTPS attualmente utilizzato nella distribuzione. Si noti che se si utilizzano certificati autofirmati questi verranno configurati automaticamente in ogni server durante la distribuzione del cluster.  
   
@@ -94,7 +94,7 @@ In questa sezione vengono descritti i passaggi di configurazione per l'attivazio
     > [!NOTE]  
     > I requisiti di prefisso sono rilevanti solo in una rete interna IPv6 abilitato (solo IPv6 o IPV4 + IPv6). In una rete aziendale solo IPv4, il prefisso del client viene configurato automaticamente e l'amministratore può essere modificato.  
   
-## <a name="BKMK_3.3"></a>3.3 piano per le connessioni client VPN  
+## <a name="BKMK_3.3"></a>piano 3,3 per le connessioni client VPN  
 Esistono una serie di considerazioni per le connessioni client VPN:  
   
 -   Il traffico client VPN non può essere con carico bilanciato se gli indirizzi client VPN vengono allocati utilizzando DHCP. È necessario un pool di indirizzi statici.  
@@ -105,7 +105,7 @@ Esistono una serie di considerazioni per le connessioni client VPN:
   
 -   Per consentire il traffico client VPN IPv6 il bilanciamento del carico, è necessario specificare un prefisso IPv6 bit 59.  
   
-## <a name="BKMK_nls"></a>3.4 pianificare il server dei percorsi di rete  
+## <a name="BKMK_nls"></a>3,4 pianificare il server dei percorsi di rete  
 Se si eseguono server dei percorsi di rete nel server di accesso remoto singolo, durante la distribuzione è scelto di utilizzare un certificato rilasciato da un'autorità di certificazione interna (CA) o un certificato autofirmato.  Tenere presente quanto segue:  
   
 1.  Ogni membro del cluster di accesso remoto deve disporre di un certificato per il server di percorso di rete che corrisponde alla voce DNS per server dei percorsi di rete.  

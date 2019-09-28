@@ -2,7 +2,7 @@
 title: Impostazioni dei criteri di gruppo usate in Autenticazione di Windows
 description: Sicurezza di Windows Server
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: security-windows-auth
@@ -13,58 +13,58 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/12/2016
-ms.openlocfilehash: 38df2033b57c0394b96f539f54efe6a3579500f2
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 352e67dead6e22085a8e7350dd7e5c18c6d74676
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59847932"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71403260"
 ---
 # <a name="group-policy-settings-used-in-windows-authentication"></a>Impostazioni dei criteri di gruppo usate in Autenticazione di Windows
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016
 
-Questo argomento di riferimento per i professionisti IT descrive l'uso e l'impatto delle impostazioni di criteri di gruppo nel processo di autenticazione.
+Questo argomento di riferimento per i professionisti IT descrive l'uso e l'effetto delle impostazioni di Criteri di gruppo nel processo di autenticazione.
 
-È possibile gestire l'autenticazione nei sistemi operativi Windows tramite l'aggiunta di utenti, computer e account del servizio ai gruppi, quindi applicando i criteri di autenticazione a tali gruppi. Questi criteri sono definiti come criteri di sicurezza locali e i modelli amministrativi, noto anche come impostazioni di criteri di gruppo. Entrambi i set possono essere configurati e distribuiti in tutta l'organizzazione usando criteri di gruppo.
+Per gestire l'autenticazione nei sistemi operativi Windows, è possibile aggiungere utenti, computer e account del servizio ai gruppi, quindi applicare i criteri di autenticazione a tali gruppi. Questi criteri sono definiti come criteri di sicurezza locali e come modelli amministrativi, noti anche come impostazioni di Criteri di gruppo. È possibile configurare e distribuire entrambi i set in tutta l'organizzazione utilizzando Criteri di gruppo.
 
 > [!NOTE]
-> Le funzionalità introdotte in Windows Server 2012 R2, consentono di configurare i criteri di autenticazione per i servizi di destinazione o le applicazioni, comunemente denominato silo di autenticazione, usando gli account protetti. Per informazioni su come eseguire questa operazione in Active Directory, vedere [come configurare gli account protetti](how-to-configure-protected-accounts.md).
+> Le funzionalità introdotte in Windows Server 2012 R2 consentono di configurare i criteri di autenticazione per le applicazioni o i servizi di destinazione, comunemente denominati silo di autenticazione, usando gli account protetti. Per informazioni su come eseguire questa operazione in Active Directory, vedere [How to configure Protected accounts](how-to-configure-protected-accounts.md).
 
-Ad esempio, è possibile applicare i criteri seguenti ai gruppi, in base alle funzione all'interno dell'organizzazione:
+È ad esempio possibile applicare i criteri seguenti ai gruppi in base alla relativa funzione nell'organizzazione:
 
--   Accesso localmente o a un dominio
+-   Accedere localmente o a un dominio
 
--   Accedere al sistema tramite una rete
+-   Accesso tramite rete
 
--   Reimpostare gli account
+-   Reimposta account
 
--   Creare gli account
+-   Crea account
 
-Nella tabella seguente sono elencati i gruppi di criteri pertinenti per l'autenticazione e fornisce collegamenti alla documentazione che consentono di configurare i criteri.
+Nella tabella seguente sono elencati i gruppi di criteri rilevanti per l'autenticazione di e vengono forniti i collegamenti alla documentazione che consentono di configurare tali criteri.
 
-|Criteri di gruppo|Location|Descrizione|
+|Gruppo di criteri|Location|Descrizione|
 |--------|------|--------|
-|**Criteri password**|Computer locale locale\Configurazione computer\Impostazioni Windows\Impostazioni protezione\Criteri criteri|I criteri password interessano le caratteristiche e il comportamento delle password. I criteri password vengono usati per gli account di dominio o account utente locali. E determinano le impostazioni per le password, ad esempio imposizione e durata.<br /><br />Per informazioni sulle impostazioni specifiche, vedere [criteri Password](https://technet.microsoft.com/itpro/windows/keep-secure/password-policy).|
-|**Criterio di blocco account**|Computer locale locale\Configurazione computer\Impostazioni Windows\Impostazioni protezione\Criteri criteri|Le opzioni dei criteri di blocco degli account disabilitano degli account dopo un determinato numero di tentativi di accesso non riuscito. Usare queste opzioni consente di rilevare e bloccare i tentativi di password.<br /><br />Per informazioni sulle opzioni dei criteri di blocco degli account, vedere [criterio di blocco Account](https://technet.microsoft.com/itpro/windows/keep-secure/account-lockout-policy).|
-|**Criteri Kerberos**|Computer locale locale\Configurazione computer\Impostazioni Windows\Impostazioni protezione\Criteri criteri|Le impostazioni relative a Kerberos includono regole di durata e l'imposizione di ticket. Criteri Kerberos non sono applicabile ai database di account locale perché il protocollo di autenticazione Kerberos non viene utilizzato per autenticare gli account locali. Di conseguenza, le impostazioni dei criteri Kerberos possono essere configurate solo tramite il dominio predefinito oggetto (criteri di gruppo), in cui influisce su accessi al dominio.<br /><br />Per informazioni sulle opzioni di criteri Kerberos per il controller di dominio, vedere [criteri Kerberos](https://technet.microsoft.com/itpro/windows/keep-secure/kerberos-policy).|
-|**Criteri di controllo**|Locale\Configurazione Computer locale Configurazione computer\Impostazioni di Windows\Impostazioni protezione\Criteri locali\Criteri controllo criteri|I criteri di controllo consentono di controllare e comprendere l'accesso agli oggetti, quali file e cartelle, nonché per gestire gli account utente e gruppo e gli accessi degli utenti e disconnessioni. I criteri di controllo è possono specificare le categorie di eventi che si desidera controllare, impostare le dimensioni e il comportamento del log di sicurezza e determinare di quali oggetti si desidera monitorare l'accesso e il tipo di accesso da monitorare.<br /><br />|
-|**Assegnazione diritti utente**|Computer locale locale\Configurazione computer\Impostazioni Windows\Impostazioni sicurezza\Criteri Locali\assegnazione diritti|Diritti utente vengono in genere assegnati in base a cui appartiene un utente, ad esempio amministratori, agli utenti di alimentazione o agli utenti i gruppi di sicurezza. Le impostazioni dei criteri in questa categoria sono in genere usate per concedere o negare l'autorizzazione per accedere a un computer in base al metodo dell'appartenenza a gruppi di accesso e sicurezza.|
-|**Opzioni di sicurezza**|Computer locale locale\Configurazione computer\Impostazioni Windows\Impostazioni sicurezza\Criteri Locali\opzioni di protezione|I criteri pertinenti per l'autenticazione includono:<br /><br />-I dispositivi<br />: Controller di dominio<br />: Membro del dominio<br />-Accesso interattivo<br />-Server di rete Microsoft<br />: Accesso alla rete<br />: Sicurezza di rete<br />-Console di ripristino<br />-Shutdown<br /><br />|
-|**Delega delle credenziali**|Computer Configurazione computer\Modelli amministrativi\sistema\delega delega|La delega delle credenziali è un meccanismo che consente le credenziali locali di essere usato in altri sistemi, in particolare i server membri e i controller di dominio all'interno di un dominio. Queste impostazioni si applicano alle applicazioni tramite Credential Security Support Provider (SSP Cred). Connessione Desktop remoto è un esempio.|
-|**KDC**|Computer Configurazione computer\Modelli Templates\System\KDC|Queste impostazioni dei criteri influiscono sul modo in cui il centro distribuzione chiavi (KDC), che è un servizio nel controller di dominio, gestisce le richieste di autenticazione Kerberos.|
-|**Kerberos**|Computer Configurazione computer\Modelli Templates\System\Kerberos|Queste impostazioni dei criteri influiscono sul modo in cui Kerberos è configurato per gestire il supporto per le attestazioni, la blindatura Kerberos, autenticazione composta, identificazione i server proxy e altre configurazioni.|
-|**Accesso**|Configurazione computer\Modelli amministrativi\Sistema\Accesso|Queste impostazioni dei criteri di controllo come il sistema presenta l'esperienza di accesso per gli utenti.|
-|**Accesso rete**|Accesso al computer Configurazione computer\Modelli Templates\System\Net|Queste impostazioni dei criteri di controllo come il sistema gestisce le richieste di accesso di rete tra cui come si comporta il localizzatore di Controller di dominio.<br /><br />Per altre informazioni sul modo in cui il localizzatore di Controller di dominio si integra processi di replica, vedere [informazioni sulla replica tra siti](https://technet.microsoft.com/library/cc771251.aspx).|
-|**Biometria**|Computer Configurazione computer\Modelli amministrativi\Componenti Components\Biometrics|Queste impostazioni dei criteri, in genere, consentono o negare l'uso di dati biometrici come un metodo di autenticazione.<br /><br />Per informazioni sull'implementazione di biometria Windows, vedere Panoramica di Windows Biometric Framework.|
-|**Interfaccia utente delle credenziali**|Computer Configurazione computer\Modelli amministrativi\Componenti di Windows\interfaccia utente|Queste impostazioni dei criteri di controllo come le credenziali vengono gestite nel punto di ingresso.|
-|**Sincronizzazione delle password**|Computer Configurazione computer\Modelli amministrativi\Componenti Components\Password sincronizzazione|Queste impostazioni determinano come il sistema gestisce la sincronizzazione delle password tra Windows e sistemi operativi basati su UNIX.<br /><br />Per altre informazioni, vedere [sincronizzazione delle Password](https://technet.microsoft.com/library/cc732609.aspx).|
-|**Smart Card**|Computer Configurazione computer\Modelli amministrativi\Componenti Components\Smart carta|Queste impostazioni controllano il modo in cui il sistema gestisce accessi con smart card.<br /><br />|
-|**Opzioni di accesso di Windows**|Opzioni di accesso a computer Configurazione computer\Modelli amministrativi\Componenti Windows\Segnalazione|Queste impostazioni dei criteri controllano come e quando sono disponibili le opportunità di accesso.|
-|**Opzioni di CTRL + Alt + Canc**|Opzioni computer Configurazione computer\Modelli amministrativi\Componenti Components\Ctrl + Alt + Canc|Queste impostazioni dei criteri interessano l'aspetto di e l'accessibilità per le funzionalità nell'account di accesso dell'interfaccia utente (Desktop sicuro), ad esempio Gestione attività e il blocco della tastiera del computer.|
-|**Accesso**|Computer Configurazione computer\Modelli amministrativi\Componenti Components\Logon|Queste impostazioni determinano se o i processi che possono essere eseguite quando l'utente accede.|
+|**Criteri password**|Configurazione computer\Impostazioni di Windows\Impostazioni Locale\configurazione protezione\Criteri criteri del computer locale|I criteri password influiscono sulle caratteristiche e sul comportamento delle password. I criteri password vengono utilizzati per gli account di dominio o gli account utente locali. Determinano le impostazioni per le password, ad esempio l'imposizione e la durata.<br /><br />Per informazioni sulle impostazioni specifiche, vedere [criteri password](https://technet.microsoft.com/itpro/windows/keep-secure/password-policy).|
+|**Criteri di blocco degli account**|Configurazione computer\Impostazioni di Windows\Impostazioni Locale\configurazione protezione\Criteri criteri del computer locale|Le opzioni dei criteri di blocco degli account disabilitano gli account dopo un numero impostato di tentativi di accesso non riusciti. L'utilizzo di queste opzioni consente di rilevare e bloccare i tentativi di interrompere le password.<br /><br />Per informazioni sulle opzioni dei criteri di blocco degli account, vedere [criteri di blocco degli account](https://technet.microsoft.com/itpro/windows/keep-secure/account-lockout-policy).|
+|**Criteri di Kerberos**|Configurazione computer\Impostazioni di Windows\Impostazioni Locale\configurazione protezione\Criteri criteri del computer locale|Le impostazioni relative a Kerberos includono le regole per la durata e l'imposizione di ticket. Il criterio Kerberos non si applica ai database degli account locali poiché il protocollo di autenticazione Kerberos non viene utilizzato per autenticare gli account locali. Pertanto, le impostazioni dei criteri Kerberos possono essere configurate solo tramite l'oggetto Criteri di gruppo dominio predefinito (GPO), in cui influiscono sugli accessi al dominio.<br /><br />Per informazioni sulle opzioni dei criteri Kerberos per il controller di dominio, vedere [criteri Kerberos](https://technet.microsoft.com/itpro/windows/keep-secure/kerberos-policy).|
+|**Criteri di controllo**|Computer locale Locale\configurazione computer\Impostazioni di Windows\Impostazioni protezione\Criteri locali\Criteri controllo criterio|I criteri di controllo consentono di controllare e comprendere l'accesso agli oggetti, ad esempio file e cartelle, nonché di gestire gli account utente e di gruppo e gli accessi e le disconnessioni degli utenti. I criteri di controllo possono specificare le categorie di eventi che si desidera controllare, impostare le dimensioni e il comportamento del log di sicurezza e determinare gli oggetti per i quali si desidera monitorare l'accesso e il tipo di accesso che si desidera monitorare.<br /><br />|
+|**Assegnazione diritti utente**|Configurazione computer\Impostazioni Locale\configurazione Windows\Impostazioni protezione\Criteri locali\Assegnazione diritti di Windows\Impostazioni|I diritti utente vengono in genere assegnati in base ai gruppi di sicurezza a cui appartiene un utente, ad esempio amministratori, utenti avanzati o utenti. Le impostazioni dei criteri in questa categoria vengono in genere utilizzate per concedere o negare l'autorizzazione per accedere a un computer in base al metodo di accesso e alle appartenenze ai gruppi di sicurezza.|
+|**Opzioni di sicurezza**|Computer locale Locale\configurazione computer\Impostazioni di Windows\Impostazioni protezione\Criteri locali\Opzioni opzioni|I criteri relativi all'autenticazione includono:<br /><br />-Dispositivi<br />-Controller di dominio<br />-Membro del dominio<br />-Accesso interattivo<br />-Server di rete Microsoft<br />-Accesso alla rete<br />-Sicurezza di rete<br />-Console di ripristino<br />-Arresta<br /><br />|
+|**Delega delle credenziali**|Configurazione computer\Modelli Templates\System\Credentials|La delega delle credenziali è un meccanismo che consente di usare le credenziali locali in altri sistemi, in particolare i server membri e i controller di dominio all'interno di un dominio. Queste impostazioni si applicano alle applicazioni usando Credential Security Support Provider (credito SSP). Connessione Desktop remoto è un esempio.|
+|**KDC**|Configurazione computer\Modelli Templates\System\KDC|Queste impostazioni dei criteri influiscono sul modo in cui il Centro distribuzione chiavi (KDC), che è un servizio sul controller di dominio, gestisce le richieste di autenticazione Kerberos.|
+|**Kerberos**|Configurazione computer\Modelli Templates\System\Kerberos|Queste impostazioni di criteri influiscono sul modo in cui Kerberos è configurato per gestire il supporto per attestazioni, blindatura Kerberos, autenticazione composta, server proxy di identificazione e altre configurazioni.|
+|**Accesso**|Configurazione computer\Modelli amministrativi\Sistema\Accesso|Queste impostazioni dei criteri controllano il modo in cui il sistema presenta l'esperienza di accesso per gli utenti.|
+|**Accesso rete**|Configurazione computer\Modelli Templates\System\Net Logon|Queste impostazioni dei criteri controllano il modo in cui il sistema gestisce le richieste di accesso alla rete, incluso il comportamento del localizzatore del controller di dominio.<br /><br />Per ulteriori informazioni sul modo in cui il localizzatore del controller di dominio si inserisce nei processi di replica, vedere [informazioni sulla replica tra siti](https://technet.microsoft.com/library/cc771251.aspx).|
+|**Biometria**|Configurazione computer\Modelli Amministrativi\componenti di Components\Biometrics|Queste impostazioni dei criteri consentono in genere o negano l'uso di biometria come metodo di autenticazione.<br /><br />Per informazioni sull'implementazione di Windows della biometria, vedere Windows Biometric Framework Overview.|
+|**Interfaccia utente delle credenziali**|Configurazione computer\Modelli Amministrativi\componenti di Components\Credential interfaccia utente|Queste impostazioni dei criteri controllano la modalità di gestione delle credenziali in corrispondenza del punto di ingresso.|
+|**Sincronizzazione password**|Configurazione computer\Modelli Amministrativi\componenti di Components\Password|Queste impostazioni dei criteri determinano il modo in cui il sistema gestisce la sincronizzazione delle password tra i sistemi operativi Windows e UNIX.<br /><br />Per altre informazioni, vedere [sincronizzazione delle password](https://technet.microsoft.com/library/cc732609.aspx).|
+|**Smart Card**|Configurazione computer\Modelli Amministrativi\componenti di Components\Smart|Queste impostazioni dei criteri controllano il modo in cui il sistema gestisce gli accessi tramite smart card.<br /><br />|
+|**Opzioni di accesso di Windows**|Configurazione computer\Modelli Amministrativi\componenti di Windows\windows opzioni di accesso|Queste impostazioni dei criteri controllano quando e come sono disponibili le opportunità di accesso.|
+|**Opzioni CTRL + ALT + CANC**|Configurazione computer\Modelli Amministrativi\componenti di Components\Ctrl + ALT + CANC|Queste impostazioni dei criteri influiscono sull'aspetto e sull'accessibilità delle funzionalità nell'interfaccia utente di accesso (desktop protetto), ad esempio Gestione attività e il blocco da tastiera del computer.|
+|**Accesso**|Configurazione computer\Modelli Amministrativi\componenti di Components\Logon|Queste impostazioni dei criteri determinano se o quali processi possono essere eseguiti quando l'utente esegue l'accesso.|
 
 ## <a name="see-also"></a>Vedere anche
-[Panoramica tecnica di autenticazione di Windows](windows-authentication-technical-overview.md)
+[Panoramica tecnica di Autenticazione di Windows](windows-authentication-technical-overview.md)
 
 

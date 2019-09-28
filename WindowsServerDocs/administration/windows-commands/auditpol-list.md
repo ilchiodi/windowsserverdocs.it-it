@@ -1,8 +1,8 @@
 ---
-title: elenco di auditpol
-description: 'Argomento i comandi di Windows per **auditpol elenco** : gli elenchi di controllo categorie di criteri e/o sottocategorie o vengono elencati gli utenti per i quali un utente per ogni criterio di controllo è definito.'
+title: elenco Auditpol
+description: Argomento Windows Commands for **auditpol list** -elenca le categorie e/o le sottocategorie dei criteri di controllo oppure elenca gli utenti per i quali è definito un criterio di controllo per utente.
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 08f524ef0aacd731f709ce7a2e17b3d831da1e5b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 27a89ae18838989b4f2df27d777c1c35249b8991
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59858582"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71382459"
 ---
-# <a name="auditpol-list"></a>elenco di auditpol
+# <a name="auditpol-list"></a>elenco Auditpol
 
 >Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-gli elenchi di controllo vengono elencati gli utenti per i quali è definito un criterio di controllo per utente e/o sottocategorie o categorie di criteri.
+elenca le categorie e/o le sottocategorie dei criteri di controllo oppure elenca gli utenti per i quali è definito un criterio di controllo per utente.
 
 ## <a name="syntax"></a>Sintassi
 ```
@@ -35,14 +35,14 @@ auditpol /list
 ## <a name="parameters"></a>Parametri
 |Parametro|Descrizione|
 |-------|--------|
-|/User|Recupera tutti gli utenti per i quali è stato definito il criterio di controllo per utente. Se usato con il parametro /v, viene visualizzato anche l'ID di sicurezza (SID) dell'utente.|
-|/category|Visualizza i nomi delle categorie riconosciute dal sistema. Se usato con il parametro /v, viene visualizzato anche l'identificatore univoco globale (GUID) di categoria.|
-|/subcategory|Consente di visualizzare i nomi delle sottocategorie e i rispettivi GUID associati.|
-|/v|Consente di visualizzare il GUID con la categoria o sottocategoria, o se usato con /user, il SID di ogni utente.|
-|/r|Visualizza l'output come un report in formato con valori delimitati da virgole (CSV).|
+|/User|Recupera tutti gli utenti per i quali è stato definito il criterio di controllo per utente. Se usato con il parametro/v, viene visualizzato anche l'ID di sicurezza (SID) dell'utente.|
+|/Category|Visualizza i nomi delle categorie riconosciute dal sistema. Se usato con il parametro/v, viene visualizzato anche l'identificatore univoco globale (GUID) Category.|
+|/Subcategory|Visualizza i nomi delle sottocategorie e il GUID associato.|
+|/v|Visualizza il GUID con la categoria o la sottocategoria oppure, se usato con/User, Visualizza il SID di ogni utente.|
+|/r|Visualizza l'output come report in formato CSV (delimitato da virgole).|
 |/?|Visualizza la guida al prompt dei comandi.|
 ## <a name="remarks"></a>Note
-per tutte le operazioni di elenco per i criteri per ogni utente, è necessario disporre di autorizzazioni per tale oggetto impostato nel descrittore di sicurezza lettura. È anche possibile eseguire operazioni di elenco da cui appartiene il **gestione file registro di controllo e protezione** diritto utente (SeSecurityPrivilege). Tuttavia, questo diritto consente accesso aggiuntivo che non è necessario eseguire l'operazione di elenco.
+per tutte le operazioni di elenco per i criteri per utente, è necessario disporre dell'autorizzazione di lettura per tale set di oggetti nel descrittore di sicurezza. È anche possibile eseguire operazioni di elenco con il diritto utente **Gestione registro di controllo e protezione** (SeSecurityPrivilege). Tuttavia, questo diritto consente un accesso aggiuntivo che non è necessario per eseguire l'operazione di elenco.
 ## <a name="BKMK_examples"></a>Esempi
 Per elencare tutti gli utenti che dispongono di un criterio di controllo definito, digitare:
 ```
@@ -52,13 +52,13 @@ Per elencare tutti gli utenti che dispongono di un criterio di controllo definit
 ```
 auditpol /list /user /v
 ```
-Per elencare tutte le categorie e sottocategorie in formato di report, digitare:
+Per elencare tutte le categorie e le sottocategorie in formato report, digitare:
 ```
 auditpol /list /subcategory:* /r
 ```
-Per visualizzare un elenco di sottocategorie delle categorie di accesso di dominio Active Directory e il rilevamento dettagliate, digitare:
+Per elencare le sottocategorie delle categorie di rilevamento dettagliate e di accesso DS, digitare:
 ```
 auditpol /list /subcategory:"detailed Tracking","DS Access"
 ```
 #### <a name="additional-references"></a>Riferimenti aggiuntivi
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)
+[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

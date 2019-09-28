@@ -1,22 +1,22 @@
 ---
 title: Applicazione di patch a Server Core
 description: Informazioni su come aggiornare un'installazione Server Core di Windows Server
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.mktglfcycl: manage
 ms.sitesec: library
 author: lizap
 ms.localizationpriority: medium
 ms.date: 10/17/2017
-ms.openlocfilehash: b649a3cc16bc1a527c5df0b4a0d543da22a882d2
-ms.sourcegitcommit: 216d97ad843d59f12bf0b563b4192b75f66c7742
+ms.openlocfilehash: eacb80d89e7bcc95d6b5c12269d7587dc7d6870c
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68476488"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71383325"
 ---
 # <a name="patch-a-server-core-installation"></a>Applicare patch a un'installazione Server Core
 
-> Si applica a Windows Server 2019, Windows Server 2016 e Windows Server (canale semestrale)
+> Si applica a: Windows Server 2019, Windows Server 2016 e Windows Server (canale semestrale)
 
 È possibile applicare patch a un server che esegue l'installazione dei componenti di base del server nei modi seguenti:
 

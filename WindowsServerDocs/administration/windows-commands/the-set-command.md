@@ -1,8 +1,8 @@
 ---
 title: Il comando Set
-description: 'Argomento i comandi di Windows per * * *- '
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 1ad041a6fd1c4cd7fd05def0ea44923e6c59f0bf
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 8131685b227444a0114e9c0eb70d6191a78f3da0
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59879222"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71385081"
 ---
 # <a name="the-set-command"></a>Il comando Set
 
@@ -28,11 +28,11 @@ Imposta le proprietà e gli attributi per i server di servizi di distribuzione W
 ## <a name="subcommands"></a>Sottocomandi
 |Sottocomando|Descrizione|
 |-------|--------|
-|[Subcommand: set-Device](subcommand-set-device.md)|Modifica gli attributi di un computer pre-installato. Un computer pre-installato è un computer in cui è stato collegato a un oggetto account computer nel server di dominio active directory (AD DS). Client pre-installazione sono detti anche computer noti.|
-|[Subcommand: set-Image](subcommand-set-image.md)|Modifica gli attributi di un'immagine esistente.|
-|[Subcommand: set-ImageGroup](subcommand-set-imagegroup.md)|modificare gli attributi di un gruppo di immagini esistente.|
-|[Subcommand: set-Server](subcommand-set-server.md)|Configura le impostazioni per un server di servizi di distribuzione Windows.|
-|[Subcommand: set-TransportServer](subcommand-set-transportserver.md)|Configura le impostazioni per un Server di trasporto.|
-|[Subcommand: set-DriverPackage](subcommand-set-driverpackage.md)|Rinomina e/o abilitare o disabilitare un pacchetto di driver in un server.|
-|[Subcommand: set-DriverGroup](subcommand-set-drivergroup.md)|Imposta le proprietà di un gruppo di driver esistente in un server.|
-|[Subcommand: set-DriverGroupFilter](subcommand-set-drivergroupfilter.md)|Aggiunge o rimuove un filtro di gruppo di driver esistente da un gruppo di driver.|
+|[Sottocomando: Set-Device](subcommand-set-device.md)|modifica gli attributi di un computer pre-installato. Un computer pre-installato è un computer collegato a un oggetto account computer in Active Directory Domain Servers (AD DS). Client pre-installazione sono detti anche computer noti.|
+|[Sottocomando: Set-Image](subcommand-set-image.md)|modifica gli attributi di un'immagine esistente.|
+|[Sottocomando: set-ImageGroup](subcommand-set-imagegroup.md)|modifica gli attributi di un gruppo di immagini esistente.|
+|[Sottocomando: set-server](subcommand-set-server.md)|Configura le impostazioni per un server di servizi di distribuzione Windows.|
+|[Sottocomando: Set-TransportServer](subcommand-set-transportserver.md)|Configura le impostazioni per un Server di trasporto.|
+|[Sottocomando: set-DriverPack](subcommand-set-driverpackage.md)|Rinomina e/o Abilita/Disabilita un pacchetto driver in un server.|
+|[Sottocomando: set-DriverGroup](subcommand-set-drivergroup.md)|Imposta le proprietà di un gruppo di driver esistente in un server.|
+|[Sottocomando: set-DriverGroupFilter](subcommand-set-drivergroupfilter.md)|aggiunge o rimuove un filtro di gruppo di driver esistente da un gruppo di driver.|

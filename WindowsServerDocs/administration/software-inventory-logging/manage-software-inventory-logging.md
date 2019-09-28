@@ -2,7 +2,7 @@
 title: Gestire Registrazione inventario software
 description: Viene descritto come gestire la registrazione dell'inventario software
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: manage-software-inventory-logging
 ms.reviewer: na
 ms.suite: na
@@ -13,12 +13,12 @@ author: brentfor
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 686bb61426e49f00597c423bcf4f52d949a358ab
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: bd8a26d158f53121074881ac8ff204287f9a19ad
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70866383"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71382971"
 ---
 # <a name="manage-software-inventory-logging"></a>Gestire Registrazione inventario software
 
@@ -221,7 +221,7 @@ Registrazione inventario software archivia temporaneamente le raccolte orarie de
 > Se per qualsiasi motivo è necessario un aggiornamento o un'installazione di ripristino del sistema operativo, i file di registro archiviati in locale andranno persi.  Se questi dati sono fondamentali per le operazioni, è consigliabile eseguire il backup prima dell'installazione del nuovo sistema operativo. Dopo il ripristino o l'aggiornamento, è sufficiente ripristinare i dati nello stesso percorso.  
   
 > [!NOTE]  
-> Se per qualsiasi motivo la gestione della durata di conservazione dei dati registrati localmente da SIL diventa importante, è possibile configurarla modificando il valore del\\registro di sistema: \HKEY_LOCAL_MACHINE SOFTWARE\Microsoft\Windows\SoftwareInventoryLogging. Il valore predefinito è '30 ' per 30 giorni.  
+> Se per qualsiasi motivo la gestione della durata di conservazione dei dati registrati localmente da SIL diventa importante, è possibile configurarla modificando il valore del registro di sistema qui: \HKEY_LOCAL_MACHINE @ no__t-0SOFTWARE\Microsoft\Windows\SoftwareInventoryLogging. Il valore predefinito è '30 ' per 30 giorni.  
   
 ## <a name="BKMK_Step6"></a>Lettura dei dati registrati e pubblicati da registrazione inventario software  
 I dati registrati da registrazione inventario software, archiviati localmente (in caso di esito negativo dell'URI di destinazione) o i dati che vengono trasmessi correttamente al server di aggregazione di destinazione, vengono archiviati in un file binario (per i dati di ogni giorno). Per visualizzare questi dati in PowerShell, usare il cmdlet [Import-BinaryMiLog](https://technet.microsoft.com/library/dn262592.aspx) .  
@@ -244,7 +244,7 @@ Tutti i dati archiviati in locale in un server Windows (solo nel caso in cui la 
 ## <a name="BKMK_Step10"></a>Abilitazione e configurazione di registrazione inventario software in un disco rigido virtuale montato  
 Registrazione inventario software supporta anche la configurazione e l'abilitazione in macchine virtuali offline. Gli usi pratici per questo scopo sono la configurazione di un'installazione di "immagine Gold" per la distribuzione in più data center, nonché la configurazione delle immagini degli utenti finali da una distribuzione locale a una distribuzione cloud.  
   
-Per supportare questi tipi di uso, Registrazione inventario software dispone di voci del Registro di sistema associate a ogni opzione configurabile.  Questi valori del registro di sistema si trovano\\in \HKEY_LOCAL_MACHINE SOFTWARE\Microsoft\Windows\SoftwareInventoryLogging.  
+Per supportare questi tipi di uso, Registrazione inventario software dispone di voci del Registro di sistema associate a ogni opzione configurabile.  Questi valori del registro di sistema si trovano in \HKEY_LOCAL_MACHINE @ no__t-0SOFTWARE\Microsoft\Windows\SoftwareInventoryLogging.  
   
 |||||  
 |-|-|-|-|  

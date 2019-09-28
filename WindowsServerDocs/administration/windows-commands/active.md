@@ -1,8 +1,8 @@
 ---
 title: active
-description: Argomento i comandi di Windows per **active** - nei dischi di base Contrassegna partizione come attiva.
+description: Windows Commands Topic for **Active** -on Basic disks contrassegna la partizione con lo stato attivo come attivo.
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 3a039e0200fb84d446739ac7017556b6c302f4af
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: c926bf9b7a583cf7eaa23166e09e6f0a1599e625
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59868762"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71382854"
 ---
 # <a name="active"></a>active
 
@@ -39,7 +39,7 @@ active
 
 -   Informa il basic input/output system (BIOS) o l'interfaccia EFI (Extensible Firmware Interface) che la partizione o il volume è una partizione di sistema valida o un volume di sistema.
 -   Solo le partizioni possono essere contrassegnate come attive.
--   Per eseguire questa operazione, è necessario selezionare una partizione. Usare la **Seleziona partizione** comando per selezionare una partizione e spostare lo stato attivo a esso.
+-   Per eseguire questa operazione, è necessario selezionare una partizione. Usare il comando **select partition** per selezionare una partizione e spostare lo stato attivo su di essa.
 
 ## <a name="BKMK_examples"></a>Esempi
 

@@ -2,7 +2,7 @@
 title: Add Servers to Server Manager
 description: Server Manager
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-server-manager
@@ -14,12 +14,12 @@ ms.author: coreyp
 manager: dongill
 ms.localizationpriority: medium
 ms.date: 02/01/2018
-ms.openlocfilehash: a47ecbc0c7359438ed60ed34c94adf0096b14967
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: ad30a8f1c4c1e0aa317512eb68fffbd76413175b
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66435457"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71383263"
 ---
 # <a name="add-servers-to-server-manager"></a>Add Servers to Server Manager
 
@@ -38,11 +38,11 @@ In questo argomento viene descritto come aggiungere server al pool di server di 
 
 In questo argomento sono incluse le sezioni seguenti.
 
--   [Aggiungi server da gestire](#BKMK_add)
+-   [Aggiungere i server da gestire](#BKMK_add)
 
--   [Fornire le credenziali con il comando account di gestione](#BKMK_creds)
+-   [Fornire le credenziali con il comando Gestisci come](#BKMK_creds)
 
-## <a name="BKMK_creds"></a>Fornire le credenziali con il comando account di gestione
+## <a name="BKMK_creds"></a>Fornire le credenziali con il comando Gestisci come
 Quando si aggiungono server remoti a Server Manager, alcuni dei server che aggiungono potrebbero richiedere le credenziali dell'account utente diverso per accedere o gestirli. Per specificare le credenziali per un server gestito che sono diverse da quelli utilizzati per accedere al computer in cui è in esecuzione Server Manager, utilizzare il **Gestione** comando dopo aver aggiunto un server a Server Manager, che è accessibile facendo clic con il movimento di un server gestito nel **server** sezioni della home page di un ruolo o gruppo. Facendo clic su **Account di gestione** viene aperta la finestra di dialogo **Sicurezza di Windows** in cui è possibile fornire un nome utente con diritti di accesso nel server gestito, in uno dei formati seguenti.
 
 -   *Nome utente*
@@ -64,7 +64,7 @@ Dopo avere aggiunto i server da gestire seguendo le procedure descritte in quest
 > [!NOTE]
 > Ruoli e funzionalità che non supportano il comando **Account di gestione** includono il server Remote Desktop Services (RDS) e Gestione indirizzi IP (IPAM). Se è possibile gestire il server di servizi desktop REMOTO o gestione indirizzi IP remoto usando le stesse credenziali in uso nel computer in cui è in esecuzione Server Manager, provare ad aggiungere l'account in genere utilizzato per gestire tali server remoto al gruppo Administrators nel computer che esegue Server Manager. Quindi, accedi al computer in cui è in esecuzione Server Manager con l'account usato per gestire il server remoto con RDS o IPAM.
 
-## <a name="BKMK_add"></a>Aggiungi server da gestire
+## <a name="BKMK_add"></a>Aggiungere i server da gestire
 Puoi aggiungere server da gestire a Server Manager usando uno dei tre metodi nella finestra di dialogo **Aggiungi server**.
 
 -   **Active Directory Domain Services** aggiunge i server da gestire trovati da Active Directory nello stesso dominio del computer locale.

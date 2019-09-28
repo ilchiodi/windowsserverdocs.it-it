@@ -2,18 +2,18 @@
 ms.assetid: 60fca6b2-f1c0-451f-858f-2f6ab350d220
 title: Interoperabilità di Deduplicazione dati
 ms.technology: storage-deduplication
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.topic: article
 author: wmgries
 manager: klaasl
 ms.author: wgries
 ms.date: 09/16/2016
-ms.openlocfilehash: b82e02b7896c3795ae7470ca03bb8d19a8d5e403
-ms.sourcegitcommit: fe621b72d45d0259bac1d5b9031deed3dcbed29d
+ms.openlocfilehash: fb3c9842f1d698151bffebbe5f77618c8b19b366
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2019
-ms.locfileid: "66455418"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71403199"
 ---
 # <a name="data-deduplication-interoperability"></a>Interoperabilità di Deduplicazione dati
 
@@ -22,7 +22,7 @@ ms.locfileid: "66455418"
 ## <a name="supported"></a>Supportato
 
 ### <a name="refs"></a>ReFS
-Deduplicazione dati è supportata a partire da Windows Server 2019. 
+La deduplicazione dei dati è supportata a partire da Windows Server 2019. 
 
 ### <a name="failover-clustering"></a>Clustering di failover
 
@@ -71,7 +71,7 @@ Windows Server Backup consente di eseguire il backup di un volume ottimizzato "c
     wbadmin start recovery –version:02/16/2012-06:22 -itemtype:Volume  -items:E: -recoveryTarget:E:
     ```
 
-    **--OR--**  
+    **--O--**  
 
     Ripristinare una particolare cartella (in questo caso la cartella E:\Docs):
     ```PowerShell
@@ -80,7 +80,7 @@ Windows Server Backup consente di eseguire il backup di un volume ottimizzato "c
 
 ## <a name="unsupported"></a>File modifiche disco non supportato
 
-### <a name="windows-10-client-os"></a>Windows 10 (SO client)
+### <a name="windows-10-client-os"></a>Windows 10 (sistema operativo client)
 La funzionalità Deduplicazione dati non è supportata in Windows 10. Esistono diversi post di blog popolari nella community di Windows che descrivono come rimuovere i file binari da Windows Server 2016 e installarli su Windows 10, ma questo scenario non è stato convalidato come parte dello sviluppo di Deduplicazione dati. [Vota per questo elemento per Windows 10 vNext su Windows Server Storage UserVoice](https://windowsserver.uservoice.com/forums/295056-storage/suggestions/9011008-add-deduplication-support-to-client-os).
 
 ### <a name="windows-search"></a>Windows Search

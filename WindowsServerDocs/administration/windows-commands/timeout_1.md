@@ -1,8 +1,8 @@
 ---
 title: timeout
-description: 'Argomento i comandi di Windows per * * *- '
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 3997399b732c494050797c83a0a52938574986bd
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 09f294eb78a8868b4e3962557a36199b69fae0c9
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59830172"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71385766"
 ---
 # <a name="timeout"></a>timeout
 
@@ -38,7 +38,7 @@ timeout /t <TimeoutInSeconds> [/nobreak]
 
 |Parametro|Descrizione|
 |---------|-----------|
-|/t \<TimeoutInSeconds>|Specifica il numero decimale di secondi compreso tra -1 e 99999, di attesa prima che il processore dei comandi continua l'elaborazione. Il valore -1, il computer per un'attesa indefinita per una sequenza di tasti.|
+|/t \<TimeoutInSeconds >|Specifica il numero decimale di secondi compreso tra -1 e 99999, di attesa prima che il processore dei comandi continua l'elaborazione. Il valore -1, il computer per un'attesa indefinita per una sequenza di tasti.|
 |/NOBREAK|Specifica per ignorare le pressioni di tasti utente.|
 |/?|Visualizza la guida al prompt dei comandi.|
 
@@ -65,4 +65,4 @@ timeout /t -1
 
 #### <a name="additional-references"></a>Altri riferimenti
 
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)
+[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

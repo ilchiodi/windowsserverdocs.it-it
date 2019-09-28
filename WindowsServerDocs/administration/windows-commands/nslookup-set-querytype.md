@@ -2,7 +2,7 @@
 title: nslookup set querytype
 description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 496eededd8b0b5eb79cdc1b4a7e35bc017157768
-ms.sourcegitcommit: f3b61dcd8aa0aa744db4ea938aac633c19217b0a
+ms.openlocfilehash: bc0eb19fd66e738b4bfc110a2bbc172153a12d98
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70746303"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71372896"
 ---
 # <a name="nslookup-set-querytype"></a>nslookup set querytype
 
@@ -57,6 +57,5 @@ Visualizza un breve riepilogo dei sottocomandi <strong>nslookup</strong>
 ## <a name="remarks"></a>Note
 - Il comando <strong>set Type</strong> esegue la stessa funzione del comando <strong>set querytype</strong> .
 - Per ulteriori informazioni sui tipi di record di risorse, vedere Request for Comment (RFC) 1035.
-  ## <a name="additional-references"></a>riferimenti aggiuntivi
-  <a href="command-line-syntax-key.md" data-raw-source="[Command-Line Syntax Key](command-line-syntax-key.md)">Tipo di</a>
-  <a href="nslookup-set-type.md" data-raw-source="[nslookup set type](nslookup-set-type.md)">set nslookup</a> della sintassi della riga di comando
+  ## <a name="additional-references"></a>Riferimenti aggiuntivi
+  <a href="command-line-syntax-key.md" data-raw-source="[Command-Line Syntax Key](command-line-syntax-key.md)">Chiave della sintassi della riga di comando</a>@no__t<a href="nslookup-set-type.md" data-raw-source="[nslookup set type](nslookup-set-type.md)">tipo di set nslookup</a>

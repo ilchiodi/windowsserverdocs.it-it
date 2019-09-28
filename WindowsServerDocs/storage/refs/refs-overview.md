@@ -1,18 +1,18 @@
 ---
 title: Panoramica del file system ReFS (Resilient File System)
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.author: gawatu
 ms.manager: mchad
 ms.technology: storage-file-systems
 ms.topic: article
 author: gawatu
 ms.date: 06/17/2019
-ms.openlocfilehash: 133358e959e24abc506be13259d750753d3727f7
-ms.sourcegitcommit: 6fec3ca19ddaecbc936320d98cca0736dd8505d1
+ms.openlocfilehash: 91fdd5aa696c170cacc8903a65e996beb71c4b8f
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67196179"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71403021"
 ---
 # <a name="resilient-file-system-refs-overview"></a>Panoramica del file system ReFS (Resilient File System)
 
@@ -35,7 +35,7 @@ ReFS introduce nuove funzionalità in grado di rilevare con precisione i dannegg
 
 Oltre a fornire miglioramenti della resilienza, ReFS introduce nuove funzionalità per carichi di lavoro sensibili alle prestazioni e virtualizzati. L'ottimizzazione del livello in tempo reale, la clonazione dei blocchi e VDL di tipo sparse sono ottimi esempi delle funzionalità in evoluzione di ReFS, progettate per supportare carichi di lavoro dinamici e diversi.
 
-- **[Parità con accelerazione mirror](./mirror-accelerated-parity.md)**  -parità con accelerazione Mirror offre sia ad alte prestazioni e anche archiviare in modo efficiente la capacità per i dati. 
+- La parità con accelerazione con mirroring con **[accelerazione speculare](./mirror-accelerated-parity.md)** offre prestazioni elevate e capacità di archiviazione efficiente per i dati. 
 
     - Per garantire prestazioni elevate e spazio di archiviazione efficiente in termini di capacità, ReFS divide un volume in due gruppi di archiviazione logica, noti come livelli. Questi livelli possono disporre di propri tipi di resilienza e unità consentendone quindi l'ottimizzazione delle prestazioni o della capacità. Alcune configurazioni di esempio sono: 
     
@@ -47,10 +47,10 @@ Oltre a fornire miglioramenti della resilienza, ReFS introduce nuove funzionalit
             
     - Una volta configurati questi livelli, ReFS li utilizza per fornire un'archiviazione veloce di dati ad accesso frequente e un'archiviazione efficiente in termini di capacità per i dati ad accesso sporadico:
         - Tutte le scritture vengono eseguite nel livello prestazioni. I grandi gruppi di dati che rimangono in questo livello verranno spostati in modo efficiente nel livello capacità in tempo reale.
-        - Se si usa una distribuzione ibrida (combinazione di flash e unità HDD), [cache in spazi di archiviazione diretta](../storage-spaces/understand-the-cache.md) aiuta ad accelerare le letture, riducendo l'impatto dei dati caratteristici di frammentazione virtualizzata i carichi di lavoro. In caso contrario, se si usa una distribuzione di all-flash, anche verificarsi letture nel livello di prestazioni.
+        - Se si usa una distribuzione ibrida (combinando unità flash e HDD), [la cache in spazi di archiviazione diretta](../storage-spaces/understand-the-cache.md) consente di accelerare le letture, riducendo l'effetto della caratteristica di frammentazione dei dati dei carichi di lavoro virtualizzati. In caso contrario, se si usa una distribuzione di tutti i flash, le letture si verificano anche nel livello di prestazioni.
 
 > [!NOTE]
-> Per le distribuzioni di Server, la parità accelerata con mirroring è supportata solo in [Spazi di archiviazione diretta](../storage-spaces/storage-spaces-direct-overview.md). È consigliabile usare la parità con accelerazione mirror con dell'archivio e backup dei carichi di lavoro solo. Per carichi di lavoro casuale virtualizzato e gli altri ad alte prestazioni, è consigliabile usare i mirror a tre vie per ottenere prestazioni migliori.
+> Per le distribuzioni di Server, la parità accelerata con mirroring è supportata solo in [Spazi di archiviazione diretta](../storage-spaces/storage-spaces-direct-overview.md). È consigliabile usare la parità con accelerazione con mirroring solo con i carichi di lavoro di archiviazione e di backup. Per carichi di lavoro a prestazioni elevate e virtualizzate, è consigliabile utilizzare i mirror a tre vie per ottenere prestazioni migliori.
 
 - **Operazioni VM con accelerazione**: ReFS introduce una nuova funzionalità destinata in particolar modo al miglioramento delle prestazioni di carichi di lavoro virtualizzati:
     - [Clonazione di blocchi](./block-cloning.md): la clonazione di blocchi consente di accelerare le operazioni di copia, consentendo rapide operazioni di unione del checkpoint VM a basso impatto.
@@ -64,43 +64,43 @@ ReFS è progettato per supportare set di dati molto grandi (nell'ordine di milio
 
 ## <a name="supported-deployments"></a>Distribuzioni supportate
 
-Microsoft ha sviluppato NTFS in modo specifico per l'uso per utilizzo generico con un'ampia gamma di configurazioni e i carichi di lavoro, tuttavia, per i clienti in modo speciale che richiede la disponibilità, resilienza e/o scala che fornisce riferimenti, Microsoft supporta ReFS per l'utilizzo con le configurazioni e gli scenari seguenti. 
+Microsoft ha sviluppato NTFS in modo specifico per un uso generico con un'ampia gamma di configurazioni e carichi di lavoro, tuttavia, per i clienti che richiedono la disponibilità, la resilienza e/o la scalabilità fornita da ReFS, Microsoft supporta ReFS per l'uso in le configurazioni e gli scenari seguenti. 
 
 > [!NOTE]
-> Devono usare tutte le configurazioni supportate di ReFS [catalogo di Windows Server](https://www.WindowsServerCatalog.com) certified hardware e rispettare i requisiti dell'applicazione.
+> Tutte le configurazioni supportate da ReFS devono usare hardware certificato del [Catalogo di Windows Server](https://www.WindowsServerCatalog.com) e soddisfare i requisiti dell'applicazione.
 
 ### <a name="storage-spaces-direct"></a>Spazi di archiviazione diretta
 
 La distribuzione di ReFS in Spazi di archiviazione diretta è consigliata per i carichi di lavoro virtualizzati o per i dispositivi NAS: 
 - Parità accelerata con mirroring e [la cache in Spazi di archiviazione diretta](../storage-spaces/understand-the-cache.md) offrono prestazioni elevate e un'archiviazione efficiente in termini di capacità. 
 - L'introduzione della clonazione dei blocchi e di VDL di tipo sparse accelera in modo significativo le operazioni di file .vhdx, quali la creazione, l'unione e l'espansione.
-- I flussi di integrità, il ripristino online e copie di dati alternativi abilitano ReFS e spazi di archiviazione diretta per congiuntamente per rilevare e correggere eventuali danni ai supporti di archiviazione all'interno di dati e metadati e controller di archiviazione. 
+- I flussi di integrità, il ripristino in linea e le copie di dati alternative consentono a ReFS e Spazi di archiviazione diretta di eseguire congiuntamente per rilevare e correggere i danneggiamenti del controller di archiviazione e dei supporti di archiviazione all'interno di metadati e dati. 
 - ReFS offre la funzionalità di ridimensionare e supportare set di dati di notevoli dimensioni. 
 
 ### <a name="storage-spaces"></a>Spazi di archiviazione
 
-- I flussi di integrità, il ripristino online e copie di dati alternativi abilitano ReFS e [spazi di archiviazione](../storage-spaces/overview.md) a congiuntamente per rilevare e correggere eventuali danni ai supporti di archiviazione all'interno di dati e metadati e controller di archiviazione.
+- I flussi di integrità, il ripristino in linea e le copie di dati alternativi consentono a ReFS e [spazi di archiviazione](../storage-spaces/overview.md) di rilevare e correggere i danneggiamenti del controller di archiviazione e dei supporti di archiviazione sia nei metadati che nei dati.
 - Le distribuzioni di spazi di archiviazione possono inoltre utilizzare la clonazione in blocco e la scalabilità offerte in ReFS.
-- La distribuzione di ReFS in spazi di archiviazione con enclosure SAS condivisi è adatta per ospitare i dati di archiviazione e l'archiviazione dei documenti degli utenti.
+- La distribuzione di ReFS in spazi di archiviazione con enclosure SAS condivise è adatta per l'hosting di dati di archiviazione e l'archiviazione di documenti utente.
 
 > [!NOTE]
-> Archiviazione spazi supporta locale non rimovibile collegato direttamente tramite BusTypes SATA, SAS o NVME o collegate tramite HBA (noto anche come controller RAID in modalità pass-through).
+> Spazi di archiviazione supporta la connessione diretta locale non rimovibile tramite BusTypes SATA, SAS, NVME o collegato tramite HBA (noto anche come controller RAID in modalità pass-through).
 
 ### <a name="basic-disks"></a>Dischi di base
 
-La distribuzione di ReFS nei dischi di base è ideale per le applicazioni che implementano le proprie soluzioni software, disponibilità e resilienza. 
+La distribuzione di ReFS sui dischi Basic è più adatta per le applicazioni che implementano soluzioni di disponibilità e resilienza del software. 
 - Le applicazioni che introducono le proprie soluzioni di disponibilità e resilienza del software possono sfruttare i flussi di integrità, la clonazione in blocchi e la possibilità di ridimensionare e supportare set di dati di grandi dimensioni. 
 
 > [!NOTE]
-> I dischi di base includono locale non rimovibile collegato direttamente tramite BusTypes SATA, SAS, NVME o RAID. 
+> I dischi di base includono il collegamento diretto locale non rimovibile tramite BusTypes SATA, SAS, NVME o RAID. 
 
 ### <a name="backup-target"></a>Destinazione di backup
 
-Distribuzione di ReFS come destinazione di backup è consigliabile ideale per applicazioni e hardware che implementano le proprie soluzioni di resilienza e disponibilità.
+La distribuzione di ReFS come destinazione di backup è più adatta per le applicazioni e l'hardware che implementano soluzioni di disponibilità e resilienza.
 - Le applicazioni che introducono le proprie soluzioni di disponibilità e resilienza del software possono sfruttare i flussi di integrità, la clonazione in blocchi e la possibilità di ridimensionare e supportare set di dati di grandi dimensioni.
 
 > [!NOTE]
-> Destinazioni di backup includono le configurazioni supportate precedente. Per informazioni dettagliate di supporto su Fiber Channel e iSCSI SANs, contattare i produttori di array di archiviazione e dell'applicazione. Per SAN, se sono richieste, funzionalità quali thin provisioning, TRIM/UNMAP o Offloaded Data Transfer (ODX) NTFS deve essere utilizzato.   
+> Le destinazioni di backup includono le configurazioni supportate sopra. Per informazioni dettagliate sul supporto su Fibre Channel e San iSCSI, contattare i fornitori di applicazioni e array di archiviazione. Per San, se sono necessarie funzionalità quali thin provisioning, TRIM/annullare o Offloaded Trasferimento dati (ODX), è necessario usare NTFS.   
 
 ## <a name="feature-comparison"></a>Confronto delle funzionalità
 
@@ -136,10 +136,10 @@ Distribuzione di ReFS come destinazione di backup è consigliabile ideale per ap
 | File sparse | Yes | Yes |
 | Flussi denominati | Yes | Yes |
 | Thin provisioning | Sì<sup>3</sup> | Yes |
-| Trim/Unmap | Sì<sup>3</sup> | Yes |
-1. Disponibile in Windows Server, versione 1709 e successive.
+| Trim/annullare | Sì<sup>3</sup> | Yes |
+1. Disponibile in Windows Server, versione 1709 e versioni successive.
 2. Disponibile in Windows Server 2012 R2 e versioni successive.
-3. Solo gli spazi di archiviazione
+3. Solo spazi di archiviazione
 
 #### <a name="the-following-features-are-only-available-on-refs"></a>Le seguenti funzionalità sono disponibili solo in ReFS:
 
@@ -158,17 +158,17 @@ Distribuzione di ReFS come destinazione di backup è consigliabile ideale per ap
 | Transazioni | No | Yes |
 | Collegamenti reali | No | Yes |
 | ID oggetto | No | Yes |
-| ODX (ODX) | No | Yes |
+| Trasferimento dati Offloaded (ODX) | No | Yes |
 | Nomi brevi | No | Yes |
 | Attributi estesi | No | Yes |
 | Quote disco | No | Yes |
 | Di avvio | No | Yes |
-| Supporto dei file di pagina | No | Yes |
+| Supporto file di paging | No | Yes |
 | Supportato in supporti rimovibili | No | Yes |
 
 ## <a name="see-also"></a>Vedere anche
 
-- [Consigli relativi alle dimensioni del cluster per NTFS e ReFS](https://techcommunity.microsoft.com/t5/Storage-at-Microsoft/Cluster-size-recommendations-for-ReFS-and-NTFS/ba-p/425960)
-- [Panoramica di spazi diretti di archiviazione](../storage-spaces/storage-spaces-direct-overview.md)
-- [Clonazione dei blocchi reFS](block-cloning.md)
-- [Flussi di integrità di reFS](integrity-streams.md)
+- [Consigli sulle dimensioni del cluster per ReFS e NTFS](https://techcommunity.microsoft.com/t5/Storage-at-Microsoft/Cluster-size-recommendations-for-ReFS-and-NTFS/ba-p/425960)
+- [Panoramica di Spazi di archiviazione diretta](../storage-spaces/storage-spaces-direct-overview.md)
+- [Clonazione blocco ReFS](block-cloning.md)
+- [Flussi di integrità ReFS](integrity-streams.md)

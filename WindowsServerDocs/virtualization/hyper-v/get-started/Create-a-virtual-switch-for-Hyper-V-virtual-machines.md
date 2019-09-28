@@ -1,7 +1,7 @@
 ---
 title: Creare un commutatore virtuale per le macchine virtuali Hyper-V
 description: Vengono fornite istruzioni sulla creazione di un commutire virtuale utilizzando la console di gestione di Hyper-V o Windows PowerShell
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
@@ -11,16 +11,16 @@ ms.assetid: fdc8063c-47ce-4448-b445-d7ff9894dc17
 author: KBDAzure
 ms.author: kathydav
 ms.date: 10/04/2016
-ms.openlocfilehash: 3c0ba19183dd68a86d995293f663accf10e91df9
-ms.sourcegitcommit: 0467b8e69de66e3184a42440dd55cccca584ba95
+ms.openlocfilehash: f1a814060e763545411b5c4345367638a5161ac2
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69546386"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71392920"
 ---
 # <a name="create-a-virtual-switch-for-hyper-v-virtual-machines"></a>Creare un commutatore virtuale per le macchine virtuali Hyper-V
 
->Si applica a: Windows 10, Windows Server 2016, Microsoft Hyper-V Server 2016, Windows Server 2019, Microsoft Hyper-V Server 2019
+>Si applica a: Windows 10, Windows Server 2016, Microsoft Hyper-V Server 2016, Windows Server 2019 Microsoft Hyper-V Server 2019
   
 Un commutatore virtuale consente alle macchine virtuali create negli host Hyper-V per comunicare con altri computer. È possibile creare un commutire virtuale quando si installa per la prima volta il ruolo Hyper-V in Windows Server. Per creare commutatori virtuali aggiuntivi, utilizzare Hyper-V Manager o Windows PowerShell. Per ulteriori informazioni sui commutatori virtuali, vedere [commutatore virtuale Hyper-V](../../hyper-v-virtual-switch/Hyper-V-Virtual-Switch.md).  
   
@@ -38,7 +38,7 @@ Rete della macchina virtuale può essere un oggetto complesso. E sono disponibil
   
     |Tipo di connessione|Descrizione|  
     |-------------------|---------------|  
-    |Altre informazioni|Fornisce accesso alle macchine virtuali a una rete fisica per comunicare con server e client in una rete esterna. Consente alle macchine virtuali nello stesso server Hyper-V per comunicare tra loro.|  
+    |Esterno|Fornisce accesso alle macchine virtuali a una rete fisica per comunicare con server e client in una rete esterna. Consente alle macchine virtuali nello stesso server Hyper-V per comunicare tra loro.|  
     |Internal|Consente la comunicazione tra macchine virtuali nello stesso server Hyper-V e tra le macchine virtuali e il sistema operativo di gestione host.|  
     |Private|Consente solo la comunicazione tra macchine virtuali nello stesso server Hyper-V. Una rete privata è isolata da tutto il traffico di rete esterno nel server Hyper-V. Questo tipo di rete è utile quando è necessario creare un ambiente di rete isolato, ad esempio un dominio di prova isolata.|  
   

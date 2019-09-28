@@ -2,7 +2,7 @@
 title: 'Note sulla versione: problemi importanti di Windows Server 2016'
 description: Riepilogano i problemi critici che richiedono soluzioni alternative per evitare l'arresto anomalo del sistema, i blocchi, gli errori di installazione o la perdita di dati.
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.date: 11/13/2018
@@ -12,12 +12,12 @@ ms.topic: article
 ms.assetid: 134aab85-664f-4d44-87ef-9e5fd389071f
 author: jaimeo
 ms.author: jaimeo
-ms.openlocfilehash: dec1ec184a147ef4fae64e9cc4384c0b6e4510b6
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: 4e2f7cbaed42dd1c1b1884438467cf59f1529f0c
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "66749534"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71391545"
 ---
 # <a name="release-notes-important-issues-in-windows-server-2016"></a>Note sulla versione: problemi importanti di Windows Server 2016
 

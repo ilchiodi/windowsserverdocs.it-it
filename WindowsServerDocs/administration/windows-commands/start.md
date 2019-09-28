@@ -1,8 +1,8 @@
 ---
 title: start
-description: 'Argomento i comandi di Windows per * * *- '
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: ab7388633681120442544adf4ee0e337d8599854
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 1fb0875c972f8259b47f48ef84ed486fc678d8b0
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66441220"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71370895"
 ---
 # <a name="start"></a>start
 
@@ -39,16 +39,16 @@ start ["<Title>"] [/d <Path>] [/i] [{/min | /max}] [{/separate | /shared}] [{/lo
 |Parametro|Descrizione|
 |---------|-----------|
 |"\<Title >"|Specifica il titolo da visualizzare nella barra del titolo di finestra prompt dei comandi.|
-|/d \<Path>|Specifica la directory di avvio.|
+|/d \<Path >|Specifica la directory di avvio.|
 |/i|Passa l'ambiente di avvio Cmd.exe alla nuova finestra prompt dei comandi. Se **/i** non viene specificato, viene usato l'ambiente corrente.|
-|/min \| /max|Specifica per ridurre al minimo ( **/min**) o ottimizzare (**Max**) la nuova finestra prompt dei comandi.|
-|/ separare \| / condiviso|Avvia i programmi a 16 bit in uno spazio di memoria separato ( **/separate**) o spazio di memoria condivisa ( **/ condiviso**). Queste opzioni non sono supportate nelle piattaforme a 64 bit.|
-|/ basse \| /normale \| alta \| /realtime \| /abovenormal \| /BelowNormal}|Avvia un'applicazione nella classe di priorità specificata. I valori di classe di priorità validi sono **/basso**, **/normale**, **/elevata**, **/realtime**, **/abovenormal**, e **/belownormal**.|
-|/affinity \<HexAffinity>|Applica la maschera di affinità di processore specificato (espressa come numero esadecimale) per la nuova applicazione.|
+|/min \|/max|Specifica per ridurre al minimo ( **/min**) o ottimizzare (**Max**) la nuova finestra prompt dei comandi.|
+|/separate \|/documenti condivisi|Avvia i programmi a 16 bit in uno spazio di memoria separato ( **/separate**) o spazio di memoria condivisa ( **/ condiviso**). Queste opzioni non sono supportate nelle piattaforme a 64 bit.|
+|/Low \|/Normal \|/High \|/realtime \|/AboveNormal \|/BelowNormal|Avvia un'applicazione nella classe di priorità specificata. I valori di classe di priorità validi sono **/basso**, **/normale**, **/elevata**, **/realtime**, **/abovenormal**, e **/belownormal**.|
+|/Affinity \<HexAffinity >|Applica la maschera di affinità di processore specificato (espressa come numero esadecimale) per la nuova applicazione.|
 |/Wait|Avvia un'applicazione e attende la fine.|
 |/ b|Avvia un'applicazione senza aprire una nuova finestra prompt dei comandi. CTRL + C viene ignorato a meno che l'applicazione consente l'elaborazione di CTRL + C. Utilizzare CTRL + INTERR per interrompere l'applicazione.|
-|/ b \<comando > \| \<programma >|Specifica il comando o un programma di avvio.|
-|\<I parametri >|Specifica i parametri da passare per il comando o programma.|
+|/b \<Command > \| \<Program >|Specifica il comando o un programma di avvio.|
+|\<Parameters >|Specifica i parametri da passare per il comando o programma.|
 |/?|Visualizza la guida al prompt dei comandi.|
 
 ## <a name="remarks"></a>Note

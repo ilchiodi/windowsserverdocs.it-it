@@ -1,8 +1,8 @@
 ---
-title: Cancella e Bitsadmin peer
-description: Argomento i comandi di Windows per **bitsadmin peer e cancellare** -Cancella l'elenco di peer.
+title: Bitsadmin peer e cancella
+description: Argomento comandi di Windows per **peer Bitsadmin e cancella** l'elenco di peer.
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,14 +13,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 19e14078dab5471dad78b4198cd39c3a547339e2
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 253b7ce370a942b30479936a5ee84aaea9c950e7
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59873012"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71381003"
 ---
-# <a name="bitsadmin-peers-and-clear"></a>Cancella e Bitsadmin peer
+# <a name="bitsadmin-peers-and-clear"></a>Bitsadmin peer e cancella
 
 
 
@@ -41,4 +41,4 @@ C:\>bitsadmin /Peers /Clear
 
 #### <a name="additional-references"></a>Altri riferimenti
 
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)
+[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

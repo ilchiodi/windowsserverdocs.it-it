@@ -1,8 +1,8 @@
 ---
-title: Confronto Reg
-description: 'Argomento i comandi di Windows per * * *- '
+title: confronto reg
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,14 +13,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 83bb010af4bfbf38ce41001d6a6001d5a3996090
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: bfccc1f64b0113967a52e3ac0516d800cfea3532
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66441927"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71384724"
 ---
-# <a name="reg-compare"></a>Confronto Reg
+# <a name="reg-compare"></a>confronto reg
 
 
 
@@ -38,13 +38,13 @@ reg compare <KeyName1> <KeyName2> [{/v ValueName | /ve}] [{/oa | /od | /os | on}
 
 |    Parametro    |                                                                                                                                                                                                                                                                                          Descrizione                                                                                                                                                                                                                                                                                           |
 |-----------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|   \<Nomechiave1 >   |                                                               Specifica il percorso completo della sottochiave del primo da confrontare. Per specificare un computer remoto, includere il nome del computer (nel formato \\ \\nomecomputer\) come parte del *KeyName*. L'omissione \\ \\ComputerName\ fa sì che l'operazione per impostazione predefinita nel computer locale. Il *KeyName* deve includere una chiave radice valido. Le chiavi principali valide per il computer locale sono: HKLM, HKCU, HKCR, HKU e HKCC. Se viene specificato un computer remoto, le chiavi principali valide sono: HKLM e HKU.                                                                |
-|   \<KeyName2>   | Specifica il percorso completo della seconda sottochiave da confrontare. Per specificare un computer remoto, includere il nome del computer (nel formato \\ \\nomecomputer\) come parte del *KeyName*. L'omissione \\ \\ComputerName\ fa sì che l'operazione per impostazione predefinita nel computer locale. Specifica il nome del computer in *Nomechiave2* fa sì che l'operazione utilizzare il percorso per la sottochiave specificata *Nomechiave1*. Il *KeyName* deve includere una chiave radice valido. Le chiavi principali valide per il computer locale sono: HKLM, HKCU, HKCR, HKU e HKCC. Se viene specificato un computer remoto, le chiavi principali valide sono: HKLM e HKU. |
-| /v \<ValueName> |                                                                                                                                                                                                                                                                     Specifica il nome del valore da confrontare nella sottochiave.                                                                                                                                                                                                                                                                      |
+|   \<KeyName1 >   |                                                               Specifica il percorso completo della sottochiave del primo da confrontare. Per specificare un computer remoto, includere il nome del computer (nel formato \\ @ no__t-1ComputerName @ no__t-2 come parte del *nome*della pagina. Se si omette \\ @ no__t-1ComputerName \, l'operazione viene impostata sul computer locale per impostazione predefinita. Il *KeyName* deve includere una chiave radice valido. Le chiavi radice valide per il computer locale sono: HKLM, HKCU, HKCR, HKU e HKCC. Se viene specificato un computer remoto, le chiavi radice valide sono: HKLM e HKU.                                                                |
+|   \<KeyName2 >   | Specifica il percorso completo della seconda sottochiave da confrontare. Per specificare un computer remoto, includere il nome del computer (nel formato \\ @ no__t-1ComputerName @ no__t-2 come parte del *nome*della pagina. Se si omette \\ @ no__t-1ComputerName \, l'operazione viene impostata sul computer locale per impostazione predefinita. Specifica il nome del computer in *Nomechiave2* fa sì che l'operazione utilizzare il percorso per la sottochiave specificata *Nomechiave1*. Il *KeyName* deve includere una chiave radice valido. Le chiavi radice valide per il computer locale sono: HKLM, HKCU, HKCR, HKU e HKCC. Se viene specificato un computer remoto, le chiavi radice valide sono: HKLM e HKU. |
+| /v \<ValueName > |                                                                                                                                                                                                                                                                     Specifica il nome del valore da confrontare nella sottochiave.                                                                                                                                                                                                                                                                      |
 |       /ve       |                                                                                                                                                                                                                                                         Specifica che solo le voci con il nome di un valore null devono essere confrontate.                                                                                                                                                                                                                                                         |
-|      [{/oa      |                                                                                                                                                                                                                                                                                              /od                                                                                                                                                                                                                                                                                               |
+|      [{/OA      |                                                                                                                                                                                                                                                                                              /od                                                                                                                                                                                                                                                                                               |
 |       /Oa       |                                                                                                                                                                                                                                             Specifica che vengono visualizzate tutte le differenze e le corrispondenze. Per impostazione predefinita, vengono elencate solo le differenze.                                                                                                                                                                                                                                             |
-|       /od       |                                                                                                                                                                                                                                                          Specifica che vengono visualizzate solo le differenze. Questo è il comportamento predefinito.                                                                                                                                                                                                                                                          |
+|       /od       |                                                                                                                                                                                                                                                          Specifica che vengono visualizzate solo le differenze. Comportamento predefinito.                                                                                                                                                                                                                                                          |
 |       /OS       |                                                                                                                                                                                                                                                    Specifica che vengono visualizzate solo le corrispondenze. Per impostazione predefinita, vengono elencate solo le differenze.                                                                                                                                                                                                                                                     |
 |       /on       |                                                                                                                                                                                                                                                       Specifica che verrà visualizzato nulla. Per impostazione predefinita, vengono elencate solo le differenze.                                                                                                                                                                                                                                                        |
 |       /s        |                                                                                                                                                                                                                                                                         Confronta tutti in modo ricorsivo le sottochiavi e voci.                                                                                                                                                                                                                                                                          |
@@ -70,17 +70,17 @@ Nella tabella seguente sono elencati i simboli visualizzati nei risultati.
 
 ## <a name="BKMK_examples"></a>Esempi
 
-Per confrontare tutti i valori nella chiave **MyApp** con tutti i valori nella chiave **SalvaMiaApp**, tipo:
+Per confrontare tutti i valori nella chiave **MyApp** con tutti i valori nella chiave **SalvaMiaApp**, digitare:
 
 REG COMPARE HKLM\Software\MyCo\MyApp HKLM\Software\MyCo\SaveMyApp
 
-Per confrontare il valore per la versione nella chiave **MyCo** e il valore per la versione nella chiave **MyCo1**, tipo:
+Per confrontare il valore della versione sotto la chiave **MYCO** e il valore per la versione nella chiave **MyCo1**, digitare:
 
-REG COMPARE HKLM\Software\MyCo HKLM\Software\MyCo1 /v Version
+REG COMPARE Hklm\software\miasoc HKLM\Software\MyCo1/v versione
 
-Per confrontare tutte le sottochiavi e valori sotto HKLM\Software\MyCo nel computer denominato ZODIAC con tutte le sottochiavi e valori sotto HKLM\Software\MyCo nel computer locale, digitare:
+Per confrontare tutte le sottochiavi e i valori in Hklm\software\miasoc nel computer denominato ZODIAC con tutte le sottochiavi e i valori in Hklm\software\miasoc nel computer locale, digitare:
 
-REG COMPARE \\\\ZODIAC\HKLM\Software\MyCo \\\\. /s
+REG COMPARE \\ @ no__t-1ZODIAC\HKLM\Software\MyCo \\ @ no__t-3. /s
 
 #### <a name="additional-references"></a>Altri riferimenti
 

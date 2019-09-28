@@ -1,22 +1,22 @@
 ---
 title: Configurazione del servizio sorveglianza host per Always Encrypted in SQL Server
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.topic: article
 manager: dongill
 author: rpsqrd
 ms.technology: security-guarded-fabric
 ms.date: 11/03/2018
-ms.openlocfilehash: 74146e854f4183970d2b92bb26babbd1b31f0bc2
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 5d1396f609a425adcd87a41d3469f3aa55774851
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70870348"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71402254"
 ---
 # <a name="setting-up-the-host-guardian-service-for-always-encrypted-with-secure-enclaves-in-sql-server"></a>Configurazione del servizio sorveglianza host per Always Encrypted con enclave sicure in SQL Server 
 
->Si applica a Windows Server (canale semestrale), Windows Server 2019, SQL Server 2019 Preview
+>Si applica a: Windows Server (canale semestrale), Windows Server 2019, SQL Server 2019 Preview
  
 [Always Encrypted con enclave sicure](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-enclaves) in SQL Server 2019 Preview è una funzionalità progettata per consentire calcoli riservati sui dati sensibili archiviati in un database. Il servizio sorveglianza host (HGS) svolge un ruolo importante nel garantire la sicurezza dei dati quando un enclave protetto, configurato per Always Encrypted, è un'enclave di memoria basata sulla virtualizzazione (VBS). La sicurezza di un'enclave di memoria VBS dipende dalla sicurezza dell'hypervisor di Windows e, in maniera più ampia, dalla sicurezza del computer che ospita SQL Server. 
 

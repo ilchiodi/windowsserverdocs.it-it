@@ -7,16 +7,16 @@ author: MicrosoftGuyJFlo
 manager: mtillman
 ms.date: 10/29/2018
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.custom: it-pro
 ms.reviewer: maheshu
 ms.technology: identity-adds
-ms.openlocfilehash: c1e2108084b03fabbf7c6a18c2ecbcaf3cbd1dd9
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 7f16d58eb6c5074c75f49ba7936c4d312a3dbda4
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70868261"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71390985"
 ---
 # <a name="forest-and-domain-functional-levels"></a>Livelli di funzionalità del dominio e della foresta
 
@@ -57,7 +57,7 @@ Sistema operativo del controller di dominio supportato:
 
     Per ulteriori informazioni, vedere Novità dell' [autenticazione Kerberos](https://docs.microsoft.com/windows-server/security/kerberos/whats-new-in-kerberos-authentication) e novità [di protezione delle credenziali](https://docs.microsoft.com/windows-server/security/credentials-protection-and-management/whats-new-in-credential-protection)
 
-## <a name="windows-server-2012r2"></a>Windows Server 2012 R2
+## <a name="windows-server-2012r2"></a>Windows Server 2012R2
 
 Sistema operativo del controller di dominio supportato:
 

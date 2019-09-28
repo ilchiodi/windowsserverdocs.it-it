@@ -7,14 +7,14 @@ ms.author: joflore
 manager: mtillman
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 49798f785fe02b5a97fd8bd979c327b86c9ddef2
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: dd265fecce06b849bd14d4d6b81503aba7311656
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59874222"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71390068"
 ---
 # <a name="managing-rid-issuance"></a>Gestione del rilascio di RID
 
@@ -24,11 +24,11 @@ In questo argomento vengono illustrate le modifiche apportate al ruolo FSMO del 
   
 -   [Gestione del rilascio di RID](../../ad-ds/manage/Managing-RID-Issuance.md#BKMK_Manage)  
   
--   [Risoluzione dei problemi relativi al rilascio di RID](../../ad-ds/manage/Managing-RID-Issuance.md#BKMK_Tshoot)  
+-   [Risoluzione dei problemi di rilascio RID](../../ad-ds/manage/Managing-RID-Issuance.md#BKMK_Tshoot)  
   
-Altre informazioni sono disponibile all'indirizzo il [AskDS Blog](http://blogs.technet.com/b/askds/archive/2012/08/10/managing-rid-issuance-in-windows-server-2012.aspx).  
+Altre informazioni sono disponibili nel [Blog di nel](http://blogs.technet.com/b/askds/archive/2012/08/10/managing-rid-issuance-in-windows-server-2012.aspx).  
   
-## <a name="BKMK_Manage"></a>Gestione del rilascio di RID  
+## <a name="BKMK_Manage"></a>Gestione del rilascio RID  
 Per impostazione predefinita, la capacità di un dominio è di circa un miliardo di entità di sicurezza, ad esempio utenti, gruppi e computer. Ovviamente non esistono domini con così tanti oggetti usati attivamente. Tuttavia, il Servizio Supporto Tecnico Clienti Microsoft ha trovato casi in cui:  
   
 -   Il provisioning di script software o amministrativi ha accidentalmente creato in blocco utenti, gruppi e computer  
@@ -45,7 +45,7 @@ Per impostazione predefinita, la capacità di un dominio è di circa un miliardo
   
 In tutte queste situazioni i RID vengono consumati senza necessità, spesso per errore. In molti anni, in alcuni ambienti i RID sono stati esauriti ed è stato necessario eseguire la migrazione a un nuovo dominio o eseguire recuperi di foreste.  
   
-Windows Server 2012 risolve solo i problemi relativi all'allocazione del RID divenuti gravi con il tempo e la grande diffusione di Active Directory. Questi includono una migliore registrazione degli eventi, limiti più appropriati e la capacità in caso di emergenza - raddoppiare la dimensione complessiva dello spazio RID globale per un dominio.  
+Windows Server 2012 risolve solo i problemi relativi all'allocazione del RID divenuti gravi con il tempo e la grande diffusione di Active Directory. Sono incluse una migliore registrazione degli eventi, limiti più appropriati e la possibilità di-in un'emergenza di raddoppiare le dimensioni complessive dello spazio globale RID per un dominio.  
   
 ### <a name="periodic-consumption-warnings"></a>Avvisi periodici sul consumo  
 In Windows Server 2012 è stata aggiunta la registrazione degli eventi di spazio RID globale, che avvisa tempestivamente quando vengono superate le principali attività cardine. Il modello calcola il 10% di utilizzo nel pool globale e registra un evento quando viene raggiunto. Calcola quindi il successivo 10% utilizzato della parte rimanente e il ciclo degli eventi continua. Man mano che lo spazio RID globale si esaurisce, gli eventi subiranno un'accelerazione perché il 10% viene raggiunto più rapidamente in un pool decrescente (ma l'attenuazione del registro eventi non consentirà più di una voce all'ora). Il registro eventi di sistema di ogni controller di dominio scrive l'evento avviso Directory-Services-SAM 16658.  
@@ -55,12 +55,12 @@ Presumendo uno spazio RID globale di 30 bit predefinito, il primo evento viene r
 > [!IMPORTANT]  
 > Questo evento non è previsto. Analizzare immediatamente i processi di creazione di utenti, computer e gruppi nel dominio. La creazione di più di 100 milioni di oggetti Servizi di dominio Active Directory non è affatto normale.  
   
-![Rilascio di RID](media/Managing-RID-Issuance/ADDS_RID_TR_EventWaypoints2.png)  
+![Rilascio RID](media/Managing-RID-Issuance/ADDS_RID_TR_EventWaypoints2.png)  
   
 ### <a name="rid-pool-invalidation-events"></a>Eventi di invalidamento del pool di RID  
 Esistono nuovi avvisi di evento indicanti che un pool di RID di un controller di dominio locale è stato rimosso. Sono informativi e prevedibili, soprattutto a causa della nuova funzionalità di controller di dominio virtuale. Per i dettagli dell'evento, vedere l'elenco di eventi seguente.  
   
-### <a name="BKMK_RIDBlockMaxSize"></a>Limite delle dimensioni del blocco di RID  
+### <a name="BKMK_RIDBlockMaxSize"></a>Limite dimensioni blocco RID  
 In genere, un controller di dominio richiede le allocazioni di RID in blocchi di 500 RID per volta. È possibile sostituire questa impostazione predefinita con il seguente valore REG_DWORD del Registro di sistema su un controller di dominio:  
   
 ```  
@@ -75,7 +75,7 @@ In Windows Server 2012, questo valore del Registro di sistema può essere impost
   
 Se si imposta un valore *superiore* a 15.000, il valore considerato è comunque 15.000 e il controller di dominio registra l'evento 16653 nel registro eventi di Servizi directory a ogni riavvio finché il valore non è corretto.  
   
-### <a name="BKMK_GlobalRidSpaceUnlock"></a>Sblocco della dimensione dello spazio RID globale  
+### <a name="BKMK_GlobalRidSpaceUnlock"></a>Sblocco dimensioni spazio RID globale  
 Prima di Windows Server 2012, lo spazio RID globale era limitato a 2<sup>30</sup> (o 1.073.741.823) RID totali. Una volta raggiunto, solo una migrazione del dominio o il ripristino di una condizione precedente della foresta consentiva la creazione di nuovi SID: si trattava in pratica di un ripristino di emergenza. A partire da Windows Server 2012, è possibile sbloccare i 2<sup>31</sup> bit in modo da incrementare il pool globale fino a 2.147.483,648 RID.  
   
 Servizi di dominio Active Directory memorizza questa impostazione in un speciale attributo nascosto denominato **SidCompatibilityVersion** nel contesto RootDSE di tutti i controller di dominio. Questo attributo non è leggibile con ADSIEdit, LDP o altri strumenti. Per vedere un incremento nello spazio RID globale, cercare nel registro eventi di sistema l'evento di avviso 16655 di Directory-Services-SAM o usare il comando Dcdiag seguente:  
@@ -85,9 +85,9 @@ Dcdiag.exe /TEST:RidManager /v | find /i "Available RID Pool for the Domain"
   
 ```  
   
-Se si incrementa il pool di RID globale, il pool disponibile verrà impostato su 2.147.483.647 invece che sul valore predefinito 1.073.741.823. Ad esempio:  
+Se si incrementa il pool di RID globale, il pool disponibile verrà impostato su 2.147.483.647 invece che sul valore predefinito 1.073.741.823. Esempio:  
   
-![Rilascio di RID](media/Managing-RID-Issuance/ADDS_RID_TR_Dcdiag.png)  
+![Rilascio RID](media/Managing-RID-Issuance/ADDS_RID_TR_Dcdiag.png)  
   
 > [!WARNING]  
 > Questo sblocco ha il *solo* scopo di evitare l'esaurimento dei RID e deve essere usato *solo* insieme all'imposizione di un limite massimo per il RID (vedere la sezione successiva). Non impostarlo "preventivamente" in ambienti con milioni di RID rimanenti e una crescita bassa, perché esistono potenziali problemi di compatibilità delle applicazioni con i SID generati dal pool di RID sbloccato.  
@@ -95,7 +95,7 @@ Se si incrementa il pool di RID globale, il pool disponibile verrà impostato su
 > Questa operazione di sblocco non può essere invertita o rimossa, se non da un ripristino completo della foresta ai backup precedenti.  
   
 #### <a name="important-caveats"></a>Avvertenze importanti  
-I controller di dominio di Windows Server 2003 e di Windows Server 2008 non possono rilasciare i RID quando il viene sbloccato il trentunesimo pool di RID<sup></sup>globali. I controller di dominio di Windows Server 2008 R2 *può* usare 31<sup>st</sup> i RID del trentunesimobit *ma solo se* dispongono degli aggiornamenti rapidi [KB 2642658](https://support.microsoft.com/kb/2642658) installato. I controller di dominio non supportati e senza patch considerano il pool di RID globale come esaurito quando viene sbloccato.  
+I controller di dominio di Windows Server 2003 e di Windows Server 2008 non possono rilasciare i RID quando il viene sbloccato il trentunesimo pool di RID<sup></sup>globali. I controller di dominio di Windows Server 2008 R2 *possono* usare RID<sup>a 32 bit</sup> , *ma solo se* hanno installato l'hotfix [KB 2642658](https://support.microsoft.com/kb/2642658) . I controller di dominio non supportati e senza patch considerano il pool di RID globale come esaurito quando viene sbloccato.  
   
 Questa funzionalità non viene applicata da tutti i livelli di funzionalità del dominio. Controllare con particolare attenzione che nel dominio esistano solo controller di dominio di Windows Server 2012 o di Windows Server 2008 R2 aggiornati.  
   
@@ -128,7 +128,7 @@ Per sbloccare il pool di RID al trentunesimo<sup></sup>bit dopo aver ricevuto l'
   
 9. Selezionare le opzioni **Sincrona** ed **Esteso**, quindi fare clic su **Esegui**.  
   
-    ![Rilascio di RID](media/Managing-RID-Issuance/ADDS_RID_TR_LDPModify.png)  
+    ![Rilascio RID](media/Managing-RID-Issuance/ADDS_RID_TR_LDPModify.png)  
   
 10. In caso di esito positivo, nella finestra di output LDP viene visualizzato:  
   
@@ -139,7 +139,7 @@ Per sbloccare il pool di RID al trentunesimo<sup></sup>bit dopo aver ricevuto l'
   
     ```  
   
-    ![Rilascio di RID](media/Managing-RID-Issuance/ADDS_RID_TR_LDPModifySuccess.png)  
+    ![Rilascio RID](media/Managing-RID-Issuance/ADDS_RID_TR_LDPModifySuccess.png)  
   
 11. Per verificare l'incremento del pool di RID globale, cercare nel registro eventi di sistema su questo controller di dominio l'evento informativo Directory-Services-SAM 16655.  
   
@@ -154,7 +154,7 @@ Questo limite massimo è hardcoded al 10% dello spazio RID disponibile rimanente
   
 Se attivato, il master RID imposta l'attributo di Active Directory **msDS-RIDPoolAllocationEnabled** (nome comune **ms-DS-RID-Pool-Allocation-Enabled**) su FALSE nell'oggetto:  
   
-CN = RID Manager$, CN = System, DC =*<domain>*  
+CN = RID Manager $, CN = System, DC = *<domain>*  
   
 Viene scritto l'evento 16657 e si impedisce l'ulteriore rilascio di blocchi di RID a tutti i controller di dominio. I controller di dominio continuano a utilizzare i pool di RID in sospeso già rilasciati.  
   
@@ -171,7 +171,7 @@ Per rimuovere il blocco una volta raggiunto il limite massimo artificiale, esegu
   
 4.  Scegliere **Albero** dal menu **Visualizza**, quindi per **DN di base** selezionare il contesto dei nomi del dominio del master RID. Fare clic su **OK**.  
   
-5.  Nel pannello di navigazione eseguire il drill-down nel contenitore **CN=System** e fare clic sull'oggetto **CN=RID Manager$**. Fare clic con il pulsante destro del mouse e scegliere **Modifica**.  
+5.  Nel pannello di navigazione eseguire il drill-down nel contenitore **CN=System** e fare clic sull'oggetto **CN=RID Manager$** . Fare clic con il pulsante destro del mouse e scegliere **Modifica**.  
   
 6.  In Modifica attributo voce digitare:  
   
@@ -189,7 +189,7 @@ Per rimuovere il blocco una volta raggiunto il limite massimo artificiale, esegu
   
 9. Attivare le opzioni **Sincrona** ed **Esteso**, quindi fare clic su **Esegui**:  
   
-    ![Rilascio di RID](media/Managing-RID-Issuance/ADDS_RID_TR_LDPRaiseCeiling.png)  
+    ![Rilascio RID](media/Managing-RID-Issuance/ADDS_RID_TR_LDPRaiseCeiling.png)  
   
 10. In caso di esito positivo, nella finestra di output LDP viene visualizzato:  
   
@@ -200,10 +200,10 @@ Per rimuovere il blocco una volta raggiunto il limite massimo artificiale, esegu
   
     ```  
   
-    ![Rilascio di RID](media/Managing-RID-Issuance/ADDS_RID_TR_LDPRaiseCeilingSuccess.png)  
+    ![Rilascio RID](media/Managing-RID-Issuance/ADDS_RID_TR_LDPRaiseCeilingSuccess.png)  
   
 ### <a name="other-rid-fixes"></a>Altre correzioni relative al RID  
-Nei precedenti sistemi operativi Windows Server si verifica una perdita di pool di RID quando l'attributo rIDSetReferences è mancante. Per risolvere questo problema nei controller di dominio che eseguono Windows Server 2008 R2, installare l'hotfix dal [KB 2618669](https://support.microsoft.com/kb/2618669).  
+Nei precedenti sistemi operativi Windows Server si verifica una perdita di pool di RID quando l'attributo rIDSetReferences è mancante. Per risolvere questo problema nei controller di dominio che eseguono Windows Server 2008 R2, installare l'hotfix da [KB 2618669](https://support.microsoft.com/kb/2618669).  
   
 ### <a name="unfixed-rid-issues"></a>Problemi del RID non risolti  
 È sempre esistita una perdita di RID in caso di errore di creazione di un account. Quando si crea un account, l'errore causa ancora il consumo di un RID. L'esempio più comune è la creazione di un utente con una password che non soddisfa i requisiti di complessità.  
@@ -211,12 +211,12 @@ Nei precedenti sistemi operativi Windows Server si verifica una perdita di pool 
 ### <a name="rid-fixes-for-earlier-versions-of-windows-server"></a>Correzioni relative al RID per versioni precedenti di Windows Server  
 Tutte le correzioni e le modifiche illustrate sopra sono state rilasciate come hotfix per Windows Server 2008 R2. Nessun hotfix per Windows Server 2008 è attualmente pianificato o in corso.  
   
-## <a name="BKMK_Tshoot"></a>Risoluzione dei problemi relativi al rilascio di RID  
+## <a name="BKMK_Tshoot"></a>Risoluzione dei problemi di rilascio RID  
   
 ### <a name="introduction-to-troubleshooting"></a>Introduzione alla risoluzione dei problemi  
 La risoluzione dei problemi di rilascio di RID richiede un metodo logico e lineare. A meno che non si monitorino attentamente i registri eventi per individuare gli avvisi e gli errori generati dal RID, le prime indicazioni di un problema saranno probabilmente date da creazioni di account non riuscite. Per risolvere i problemi di rilascio di RID, è indispensabile comprendere quando il sintomo è previsto oppure no. Molti problemi di rilascio di RID potrebbero interessare un solo controller di dominio e non avere nulla a che fare con i miglioramenti dei componenti. Il semplice diagramma seguente aiuta a decidere più facilmente:  
   
-![Rilascio di RID](media/Managing-RID-Issuance/adds_rid_issuance_troubleshooting.png)  
+![Rilascio RID](media/Managing-RID-Issuance/adds_rid_issuance_troubleshooting.png)  
   
 ### <a name="troubleshooting-options"></a>Opzioni di risoluzione dei problemi  
   
@@ -244,7 +244,7 @@ Per risolvere i problemi non spiegati dai log menzionati in precedenza, in parti
   
 3.  L'errore restituito cita alcuni RID in particolare, ma non fornisce altre indicazioni specifiche? Ad esempio, "Impossibile creare l'oggetto a causa dell'errore: Il servizio directory non è in grado di allocare l'identificatore relativo".  
   
-    1.  Esaminare il registro eventi di sistema sul controller di dominio per "legacy" (precedenti a Windows Server 2012) descritti in dettaglio in eventi RID [richiesta al Pool RID](https://technet.microsoft.com/library/ee406152(WS.10).aspx) (16642, 16643, 16644, 16645, 16656).  
+    1.  Esaminare il registro eventi di sistema nel controller di dominio per gli eventi RID "Legacy" (precedenti a Windows Server 2012) descritti in dettaglio nella [richiesta del pool di RID](https://technet.microsoft.com/library/ee406152(WS.10).aspx) (16642, 16643, 16644, 16645, 16656).  
   
     2.  Esaminare l'evento di sistema sul controller di dominio e il master RID per individuare nuovi eventi indicanti un blocco descritti in dettaglio più avanti in questo argomento (16655, 16656, 16657).  
   
@@ -257,7 +257,7 @@ I nuovi messaggi seguenti vengono registrati nel registro eventi di sistema sui 
 |-|-|  
 |ID evento|16653|  
 |Source|Directory-Services-SAM|  
-|Severity|Avviso|  
+|severity|Avviso|  
 |Messaggio|Una dimensione del pool per gli identificatori di account (RID) configurata da un amministratore supera il limite massimo supportato. Quando il controller di dominio sarà il master RID, verrà utilizzato il valore massimo %1.<br /><br />Per ulteriori informazioni, vedere [Limite della dimensione del blocco RID](../../ad-ds/manage/../../ad-ds/manage/../../ad-ds/manage/../../ad-ds/manage/Managing-RID-Issuance.md#BKMK_RIDBlockMaxSize).|  
 |Note e risoluzione|Il valore massimo per la dimensione del blocco RID è ora 15000 nel sistema decimale (3A98 nel sistema esadecimale). Un controller di dominio non può richiedere più di 15.000 RID. Questo evento viene registrato a ogni bootstrap finché il valore viene impostato su un valore pari o inferiore a questo valore massimo.|  
   
@@ -265,15 +265,15 @@ I nuovi messaggi seguenti vengono registrati nel registro eventi di sistema sui 
 |-|-|  
 |ID evento|16654|  
 |Source|Directory-Services-SAM|  
-|Severity|Informativo|  
-|Messaggio|Un pool di identificatori di account (RID) è stato invalidato. Questa situazione può verificarsi nei seguenti casi previsti:<br /><br />1. Un controller di dominio viene ripristinato da un backup.<br /><br />2. Un controller di dominio in esecuzione in una macchina virtuale viene ripristinato da uno snapshot.<br /><br />3. Un amministratore ha invalidato manualmente il pool.<br /><br />Per ulteriori informazioni, vedere https://go.microsoft.com/fwlink/?LinkId=226247.|  
+|severity|Informativo|  
+|Messaggio|Un pool di identificatori di account (RID) è stato invalidato. Questa situazione può verificarsi nei seguenti casi previsti:<br /><br />1. Un controller di dominio viene ripristinato da un backup.<br /><br />2. Un controller di dominio in esecuzione in una macchina virtuale viene ripristinato da uno snapshot.<br /><br />3. Un amministratore ha invalidato manualmente il pool.<br /><br />Per altre informazioni, vedere https://go.microsoft.com/fwlink/?LinkId=226247.|  
 |Note e risoluzione|Se questo evento è imprevisto, contattare tutti gli amministratori di dominio e determinare chi tra essi ha eseguito l'azione. Il registro eventi Servizi directory contiene anche altre informazioni su quando è stato eseguito uno di questi passaggi.|  
   
 |||  
 |-|-|  
 |ID evento|16655|  
 |Source|Directory-Services-SAM|  
-|Severity|Informativo|  
+|severity|Informativo|  
 |Messaggio|Il limite massimo globale per gli identificatori di account (RID) è stato portato a %1.|  
 |Note e risoluzione|Se questo evento è imprevisto, contattare tutti gli amministratori di dominio e determinare chi tra essi ha eseguito l'azione. Questo evento evidenzia l'incremento della dimensione totale del pool di RID oltre il valore predefinito di 2<sup>30</sup> e non si verificherà automaticamente, ma solo in seguito a un'azione amministrativa.|  
   
@@ -281,28 +281,28 @@ I nuovi messaggi seguenti vengono registrati nel registro eventi di sistema sui 
 |-|-|  
 |ID evento|16656|  
 |Source|Directory-Services-SAM|  
-|Severity|Avviso|  
+|severity|Avviso|  
 |Messaggio|Il limite massimo globale per gli identificatori di account (RID) è stato portato a %1.|  
-|Note e risoluzione|Azione necessaria: un pool di identificatori di account (RID) è stato allocato al controller di dominio corrente. Il valore del pool indica che il dominio ha utilizzato una parte considerevole degli identificatori di account disponibili.<br /><br />Verrà attivato un meccanismo di protezione quando il dominio raggiungerà la soglia del totale identificatori di account disponibili rimanenti seguente: %1.  Tale meccanismo impedirà la creazione di account finché non si riabiliterà manualmente l'allocazione di identificatori di account sul controller di dominio del master RID.<br /><br />Per ulteriori informazioni, vedere https://go.microsoft.com/fwlink/?LinkId=228610.|  
+|Note e risoluzione|Azione necessaria: un pool di identificatori di account (RID) è stato allocato al controller di dominio corrente. Il valore del pool indica che il dominio ha utilizzato una parte considerevole degli identificatori di account disponibili.<br /><br />Verrà attivato un meccanismo di protezione quando il dominio raggiunge la soglia seguente di totale identificatori di account disponibili rimanenti:% 1.  Tale meccanismo impedirà la creazione di account finché non si riabiliterà manualmente l'allocazione di identificatori di account sul controller di dominio del master RID.<br /><br />Per altre informazioni, vedere https://go.microsoft.com/fwlink/?LinkId=228610.|  
   
 |||  
 |-|-|  
 |ID evento|16657|  
 |Source|Directory-Services-SAM|  
-|Severity|Errore|  
-|Messaggio|Azione necessaria: il dominio ha utilizzato una parte considerevole degli identificatori di account (RID) disponibili. È stato attivato un meccanismo di protezione in quanto gli identificatori di account disponibili rimanenti sono meno di: X% [argomento del limite massimo artificiale].<br /><br />Tale meccanismo impedisce la creazione di account finché non si riabilita manualmente l'allocazione di identificatori di account sul controller di dominio del master RID.<br /><br />È estremamente importante eseguire determinate operazioni diagnostiche prima di riabilitare la creazione di account per garantire che il dominio non utilizzi gli identificatori di account in modo eccessivo. Eventuali problemi rilevati devono essere risolti prima di riabilitare la creazione di account.<br /><br />Se i problemi sottostanti che causano un tasso eccessivo di utilizzo degli identificatori di account non vengono diagnosticati e risolti, gli identificatori di account potrebbero esaurirsi nel dominio, dopo di che la creazione di account verrebbe disabilitata in modo permanente nel dominio.<br /><br />Per ulteriori informazioni, vedere https://go.microsoft.com/fwlink/?LinkId=228610.|  
+|severity|Errore|  
+|Messaggio|Azione necessaria: il dominio ha utilizzato una parte considerevole degli identificatori di account (RID) disponibili. È stato attivato un meccanismo di protezione in quanto gli identificatori di account disponibili rimanenti sono meno di: X% [argomento del limite massimo artificiale].<br /><br />Tale meccanismo impedisce la creazione di account finché non si riabilita manualmente l'allocazione di identificatori di account sul controller di dominio del master RID.<br /><br />È estremamente importante eseguire determinate operazioni diagnostiche prima di riabilitare la creazione di account per garantire che il dominio non utilizzi gli identificatori di account in modo eccessivo. Eventuali problemi rilevati devono essere risolti prima di riabilitare la creazione di account.<br /><br />Se i problemi sottostanti che causano un tasso eccessivo di utilizzo degli identificatori di account non vengono diagnosticati e risolti, gli identificatori di account potrebbero esaurirsi nel dominio, dopo di che la creazione di account verrebbe disabilitata in modo permanente nel dominio.<br /><br />Per altre informazioni, vedere https://go.microsoft.com/fwlink/?LinkId=228610.|  
 |Note e risoluzione|Contattare tutti gli amministratori di dominio e informarli che non è possibile creare altre entità di sicurezza in questo dominio finché la protezione non viene sostituita. Per altre informazioni sulla sostituzione della protezione e sulla possibilità di incrementare il pool di RID generale, vedere [Sblocco della dimensione dello spazio del RID globale](../../ad-ds/manage/../../ad-ds/manage/../../ad-ds/manage/../../ad-ds/manage/Managing-RID-Issuance.md#BKMK_GlobalRidSpaceUnlock).|  
   
 |||  
 |-|-|  
 |ID evento|16658|  
 |Source|Directory-Services-SAM|  
-|Severity|Avviso|  
-|Messaggio|Questo evento è un aggiornamento periodico sulla quantità totale rimanente di identificatori di account (RID) disponibili. Il numero di identificatori di account rimanenti è circa: %1.<br /><br />Gli identificatori di account vengono utilizzati per la creazione di account e quando si esauriscono non è più possibile creare nuovi account nel dominio.<br /><br />Per ulteriori informazioni, vedere https://go.microsoft.com/fwlink/?LinkId=228745.|  
+|severity|Avviso|  
+|Messaggio|Questo evento è un aggiornamento periodico sulla quantità totale rimanente di identificatori di account (RID) disponibili. Il numero di identificatori di account rimanenti è approssimativamente:% 1.<br /><br />Gli identificatori di account vengono utilizzati per la creazione di account e quando si esauriscono non è più possibile creare nuovi account nel dominio.<br /><br />Per altre informazioni, vedere https://go.microsoft.com/fwlink/?LinkId=228745.|  
 |Note e risoluzione|Contattare tutti gli amministratori di dominio e informarli che l'utilizzo del RID ha superato un'attività cardine principale. Determinare se questo comportamento sia previsto o meno esaminando gli schemi di creazione del dominio trusted di sicurezza. In realtà questo evento è del tutto insolito, in quanto significa che sono stati allocati circa 100 milioni di RID.|  
   
 ## <a name="see-also"></a>Vedere anche  
-[Gestione del rilascio di RID in Windows Server 2012](http://blogs.technet.com/b/askds/archive/2012/08/10/managing-rid-issuance-in-windows-server-2012.aspx)  
+[Gestione del rilascio del RID in Windows Server 2012](http://blogs.technet.com/b/askds/archive/2012/08/10/managing-rid-issuance-in-windows-server-2012.aspx)  
   
 
 

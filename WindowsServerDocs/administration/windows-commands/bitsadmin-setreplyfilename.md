@@ -1,8 +1,8 @@
 ---
 title: bitsadmin setreplyfilename
-description: Argomento i comandi di Windows per **bitsadmin setreplyfilename** -specificare il percorso del file che contiene la risposta del server.
+description: Argomento dei comandi di Windows per **BITSAdmin setreplyfilename** -specificare il percorso del file che contiene la risposta del server.
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: b86d4137f661e9953d6d397b2fbc890393bbd8a0
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: a490b5bc565549d096b6f43f42758f77570fcb26
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59852872"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71380420"
 ---
 # <a name="bitsadmin-setreplyfilename"></a>bitsadmin setreplyfilename
 
 Specificare il percorso del file che contiene la risposta del server.
 
-**BITS 1.2 e versioni precedenti**: Non supportato.
+**BITS 1,2 e versioni precedenti**: Non supportati.
 
 ## <a name="syntax"></a>Sintassi
 
@@ -37,7 +37,7 @@ bitsadmin /SetReplyFileName <Job> <Path>
 |Parametro|Descrizione|
 |---------|-----------|
 |Job|Nome visualizzato o il GUID del processo|
-|Percorso|Posizione in cui inserire la risposta del server|
+|`Path`|Località in cui inserire la risposta del server|
 
 ## <a name="remarks"></a>Note
 
@@ -45,11 +45,11 @@ Valido solo per i processi di caricamento-risposta.
 
 ## <a name="BKMK_examples"></a>Esempi
 
-L'esempio seguente imposta pathfor il nome del file reply il processo denominato *myDownloadJob*.
+Nell'esempio seguente viene impostato il nome del file di risposta pathfor il processo denominato *myDownloadJob*.
 ```
 C:\>bitsadmin /SetReplyFileName myDownloadJob c:\reply
 ```
 
 #### <a name="additional-references"></a>Altri riferimenti
 
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)
+[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

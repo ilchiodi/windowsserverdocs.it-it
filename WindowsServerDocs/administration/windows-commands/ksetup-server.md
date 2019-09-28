@@ -1,8 +1,8 @@
 ---
-title: ksetup:server
-description: 'Argomento i comandi di Windows per * * *- '
+title: 'che Ksetup: Server'
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,14 +13,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: f370d4dede278e1facdda829503ea3793502b9e6
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: dd05fd294640c63e633b7b866307197ae6770476
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59814572"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71374965"
 ---
-# <a name="ksetupserver"></a>ksetup:server
+# <a name="ksetupserver"></a>che Ksetup: Server
 
 
 
@@ -36,7 +36,7 @@ ksetup /server <ServerName>
 
 |Parametro|Descrizione|
 |---------|-----------|
-|\<ServerName>|Il nome completo del computer in cui la configurazione sarà efficace, ad esempio IPops897.corp.contoso.com.</br>Se un incompleti completo è specificato il nome di computer di dominio, il comando avrà esito negativo.|
+|\<ServerName >|Il nome completo del computer in cui la configurazione sarà efficace, ad esempio IPops897.corp.contoso.com.</br>Se un incompleti completo è specificato il nome di computer di dominio, il comando avrà esito negativo.|
 
 ## <a name="remarks"></a>Note
 
@@ -53,5 +53,5 @@ ksetup /server IPops897.corp.contoso.com
 
 #### <a name="additional-references"></a>Altri riferimenti
 
--   [Ksetup](ksetup.md)
--   [Chiave sintassi della riga di comando](command-line-syntax-key.md)
+-   [Che Ksetup](ksetup.md)
+-   [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

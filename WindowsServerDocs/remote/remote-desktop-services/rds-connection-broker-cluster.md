@@ -2,7 +2,7 @@
 title: Aggiungere un server Gestore connessione Desktop remoto per configurare la disponibilità elevata in Servizi Desktop remoto
 description: Informazioni su come aggiungere un Gestore connessione Desktop remoto a una distribuzione Servizi Desktop remoto per la disponibilità elevata.
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: remote-desktop-services
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 author: lizap
 manager: dongill
-ms.openlocfilehash: b1e5726e3976527278b11f105007a32548da0bc4
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: 511f852568aa4cc7498e3a0b8deacea83db22c08
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "66805148"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71404058"
 ---
 # <a name="add-the-rd-connection-broker-server-to-the-deployment-and-configure-high-availability"></a>Aggiungere il server Gestore connessione Desktop remoto alla distribuzione e configurare la disponibilità elevata
 

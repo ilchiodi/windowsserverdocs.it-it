@@ -7,14 +7,14 @@ ms.author: joflore
 manager: mtillman
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: c8d34d7b35f3cd5209fd6096f69b16162229bc3a
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: 82b0035075c981d123ab3b90d56768940f65558e
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59863082"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71391113"
 ---
 # <a name="install-a-windows-server-2012-active-directory-read-only-domain-controller-rodc-level-200"></a>Installare un controller di dominio di sola lettura di Active Directory di Windows Server 2012 (livello 200)
 
@@ -33,7 +33,7 @@ Il diagramma seguente illustra il processo di gestione temporanea del controller
   
 ![Installare RODC](media/Install-a-Windows-Server-2012-Active-Directory-Read-Only-Domain-Controller--RODC---Level-200-/adds_stagedcreation.png)  
   
-## <a name="BKMK_StagePS"></a>Fase RODC Windows PowerShell  
+## <a name="BKMK_StagePS"></a>Windows PowerShell per la fase di RODC  
   
 |||  
 |-|-|  
@@ -48,7 +48,7 @@ Il diagramma seguente illustra il processo di configurazione di Servizi di domin
   
 ![Installare RODC](media/Install-a-Windows-Server-2012-Active-Directory-Read-Only-Domain-Controller--RODC---Level-200-/adds_stageddeploy_beta1.png)  
   
-## <a name="BKMK_AttachPS"></a>Collegare RODC Windows PowerShell  
+## <a name="BKMK_AttachPS"></a>Connetti RODC Windows PowerShell  
   
 |||  
 |-|-|  
@@ -63,7 +63,7 @@ Il diagramma seguente illustra il processo di configurazione di Servizi di domin
   
 Per eseguire l'operazione di gestione temporanea di un account computer di un controller di dominio di sola lettura, aprire Centro di amministrazione di Active Directory (**Dsac.exe**). Fare clic sul nome del dominio nel riquadro di spostamento. Fare doppio clic su **Controller di dominio** nell'elenco degli elementi da gestire. Fare clic su **Creazione preliminare di un account controller di dominio di sola lettura** nel riquadro delle attività.  
   
-Per altre informazioni sul centro di amministrazione di Active Directory, vedere [avanzate AD DS gestione utilizzando Active Directory centro di amministrazione &#40;livello 200&#41; ](../../../ad-ds/get-started/adac/Advanced-AD-DS-Management-Using-Active-Directory-Administrative-Center--Level-200-.md) ed esaminare [Active Directory Centro di amministrazione: Introduzione a](https://technet.microsoft.com/library/dd560651(WS.10).aspx).  
+Per ulteriori informazioni sulla centro di amministrazione di Active Directory, vedere la pagina relativa alla [Gestione avanzata di &#40;servizi di&#41; dominio Active Directory utilizzando centro di amministrazione di Active Directory Level 200](../../../ad-ds/get-started/adac/Advanced-AD-DS-Management-Using-Active-Directory-Administrative-Center--Level-200-.md) ed esaminare @no__t 3Active centro di amministrazione della directory: Introduzione @ no__t-0.  
   
 Se si ha esperienza nella creazione di controller di dominio di sola lettura, si noterà che l'installazione guidata ha la stessa interfaccia grafica del precedente snap-in Utenti e computer di Active Directory di Windows Server 2008 e usa lo stesso codice, che include l'esportazione della configurazione nel formato di file di installazione automatica usato da dcpromo obsoleto.  
   
@@ -278,7 +278,7 @@ Ad esempio, è possibile utilizzare il cmdlet **Read-Host** per richiedere all'u
 -safemodeadministratorpassword (convertto-securestring "Password1" -asplaintext -force)  
 ```  
   
-Infine, è possibile archiviare la password offuscata in un file e quindi riutilizzarla in seguito, senza visualizzare mai la password non crittografata. Ad esempio:   
+Infine, è possibile archiviare la password offuscata in un file e quindi riutilizzarla in seguito, senza visualizzare mai la password non crittografata. Esempio:  
   
 ```  
 $file = "c:\pw.txt"  
@@ -297,7 +297,12 @@ $pw | ConvertFrom-SecureString | Set-Content $file
   
 Nella pagina **Opzioni aggiuntive** sono disponibili le opzioni di configurazione per denominare un controller di dominio come origine della replica o per usare qualsiasi controller di dominio come origine della replica.  
   
-È inoltre possibile decidere di installare il controller di dominio usando i supporti di backup tramite l'opzione Installazione da supporto. Selezionando la casella di controllo **Installazione da supporto** , viene visualizzata un'opzione di selezione ed è necessario fare clic su **Verifica** per assicurarsi che il percorso specificato sia un supporto valido. I supporti compatibili con l'opzione Installazione da supporto vengono creati con Windows Server Backup o Ntdsutil.exe esclusivamente da un altro computer Windows Server 2012; non è possibile utilizzare Windows Server 2008 R2 o un sistema operativo precedente per creare un supporto per un controller di dominio Windows Server 2012. Per ulteriori informazioni sulle modifiche apportate alle IFM, vedere [Ntdsutil.exe installa da supporto modifiche](../../../ad-ds/deploy/Simplified-Administration-Appendix.md#BKMK_IFM). Se si usa un supporto protetto da SYSKEY, Server Manager richiede la password dell'immagine durante la verifica.  
+È inoltre possibile decidere di installare il controller di dominio usando i supporti di backup tramite l'opzione Installazione da supporto. Selezionando la casella di controllo **Installazione da supporto** , viene visualizzata un'opzione di selezione ed è necessario fare clic su **Verifica** per assicurarsi che il percorso specificato sia un supporto valido.
+
+Linee guida per l'origine installazione da supporto: • i supporti utilizzati dall'opzione installazione da supporto vengono creati con Windows Server Backup o Ntdsutil. exe da un altro controller di dominio Windows Server esistente con la stessa versione del sistema operativo. Ad esempio, non è possibile usare un sistema operativo Windows Server 2008 R2 o precedente per creare un supporto per un controller di dominio Windows Server 2012.
+• I dati di origine di installazione da supporto devono provenire da un controller di dominio scrivibile. Sebbene un'origine del RODC funzioni tecnicamente per la creazione di un nuovo RODC, sono presenti avvisi di replica falsi positivi che il RODC di origine installazione da supporto non sta replicando.
+
+Per ulteriori informazioni sulle modifiche apportate alle IFM, vedere [Ntdsutil.exe installa da supporto modifiche](../../../ad-ds/deploy/Simplified-Administration-Appendix.md#BKMK_IFM). Se si usa un supporto protetto da SYSKEY, Server Manager richiede la password dell'immagine durante la verifica. 
   
 ![Installare RODC](media/Install-a-Windows-Server-2012-Active-Directory-Read-Only-Domain-Controller--RODC---Level-200-/ADDS_SMI_TR_StagedIFM.png)  
   
@@ -323,7 +328,7 @@ Nella pagina **Percorsi** è possibile sostituire i percorsi predefiniti delle c
 ### <a name="review-options-and-view-script"></a>Verifica opzioni e Visualizza script  
 ![Installare RODC](media/Install-a-Windows-Server-2012-Active-Directory-Read-Only-Domain-Controller--RODC---Level-200-/ADDS_SMI_TR_Stage2ReviewOptions.png)  
   
-Nella pagina **Verifica opzioni** è possibile convalidare le impostazioni e accertarsi se soddisfano i requisiti prima di iniziare l'installazione. Questa non è l'ultima possibilità per interrompere l'installazione utilizzando Server Manager. La pagina consente semplicemente di rivedere e confermare le impostazioni prima di proseguire con la configurazione. La pagina **Verifica opzioni** di Server Manager include inoltre un pulsante opzionale **Visualizza script** , che consente di creare un file di testo Unicode contenente la configurazione ADDSDeployment corrente come singolo script di Windows PowerShell. In questo modo è possibile utilizzare l'interfaccia grafica di Server Manager come strumento di distribuzione di Windows PowerShell. Utilizzare la Configurazione guidata Servizi di dominio Active Directory per configurare le opzioni, esportare la configurazione e annullare la procedura guidata. Questo processo crea un esempio valido e sintatticamente corretto che può essere utilizzato direttamente o successivamente modificato. Ad esempio:  
+Nella pagina **Verifica opzioni** è possibile convalidare le impostazioni e accertarsi se soddisfano i requisiti prima di iniziare l'installazione. Questa non è l'ultima possibilità per interrompere l'installazione utilizzando Server Manager. La pagina consente semplicemente di rivedere e confermare le impostazioni prima di proseguire con la configurazione. La pagina **Verifica opzioni** di Server Manager include inoltre un pulsante opzionale **Visualizza script** , che consente di creare un file di testo Unicode contenente la configurazione ADDSDeployment corrente come singolo script di Windows PowerShell. In questo modo è possibile utilizzare l'interfaccia grafica di Server Manager come strumento di distribuzione di Windows PowerShell. Utilizzare la Configurazione guidata Servizi di dominio Active Directory per configurare le opzioni, esportare la configurazione e annullare la procedura guidata. Questo processo crea un esempio valido e sintatticamente corretto che può essere utilizzato direttamente o successivamente modificato. Esempio:  
   
 ```  
 #  
@@ -490,7 +495,7 @@ Ad esempio, è possibile utilizzare il cmdlet **Read-Host** per richiedere all'u
 -safemodeadministratorpassword (convertto-securestring "Password1" -asplaintext -force)  
 ```  
   
-Infine, è possibile archiviare la password offuscata in un file e quindi riutilizzarla in seguito, senza visualizzare mai la password non crittografata. Ad esempio:   
+Infine, è possibile archiviare la password offuscata in un file e quindi riutilizzarla in seguito, senza visualizzare mai la password non crittografata. Esempio:  
   
 ```  
 $file = "c:\pw.txt"  
@@ -549,7 +554,12 @@ Gli argomenti ADDSDeployment di Windows PowerShell equivalenti sono:
   
 Nella pagina **Opzioni aggiuntive** sono disponibili le opzioni di configurazione per denominare un controller di dominio come origine della replica o per usare qualsiasi controller di dominio come origine della replica.  
   
-È inoltre possibile decidere di installare il controller di dominio usando i supporti di backup tramite l'opzione Installazione da supporto. Selezionando la casella di controllo **Installazione da supporto** , viene visualizzata un'opzione di selezione ed è necessario fare clic su **Verifica** per assicurarsi che il percorso specificato sia un supporto valido. I supporti compatibili con l'opzione Installazione da supporto vengono creati con Windows Server Backup o Ntdsutil.exe esclusivamente da un altro computer Windows Server 2012; non è possibile utilizzare Windows Server 2008 R2 o un sistema operativo precedente per creare un supporto per un controller di dominio Windows Server 2012.  Nelle appendici sono disponibili altre informazioni sulle modifiche all'installazione da supporto. Se si usa un supporto protetto da SYSKEY, Server Manager richiede la password dell'immagine durante la verifica.  
+È inoltre possibile decidere di installare il controller di dominio usando i supporti di backup tramite l'opzione Installazione da supporto. Selezionando la casella di controllo **Installazione da supporto** , viene visualizzata un'opzione di selezione ed è necessario fare clic su **Verifica** per assicurarsi che il percorso specificato sia un supporto valido.
+
+Linee guida per l'origine installazione da supporto: • i supporti utilizzati dall'opzione installazione da supporto vengono creati con Windows Server Backup o Ntdsutil. exe da un altro controller di dominio Windows Server esistente con la stessa versione del sistema operativo. Ad esempio, non è possibile usare un sistema operativo Windows Server 2008 R2 o precedente per creare un supporto per un controller di dominio Windows Server 2012.
+• I dati di origine di installazione da supporto devono provenire da un controller di dominio scrivibile. Sebbene un'origine del RODC funzioni tecnicamente per la creazione di un nuovo RODC, sono presenti avvisi di replica falsi positivi che il RODC di origine installazione da supporto non sta replicando.
+
+Per ulteriori informazioni sulle modifiche apportate alle IFM, vedere [Ntdsutil.exe installa da supporto modifiche](../../../ad-ds/deploy/Simplified-Administration-Appendix.md#BKMK_IFM). Se si usa un supporto protetto da SYSKEY, Server Manager richiede la password dell'immagine durante la verifica.
   
 ![Installare RODC](media/Install-a-Windows-Server-2012-Active-Directory-Read-Only-Domain-Controller--RODC---Level-200-/ADDS_PSIFM.png)  
   
@@ -597,7 +607,7 @@ L'argomento del cmdlet di ADDSDeployment per Opzioni aggiuntive è:
   
 Nella pagina **Verifica opzioni** è possibile convalidare le impostazioni e accertarsi se soddisfano i requisiti prima di iniziare l'installazione. Questa non è l'ultima possibilità per interrompere l'installazione utilizzando Server Manager. La pagina consente semplicemente di rivedere e confermare le impostazioni prima di proseguire con la configurazione.  
   
-La pagina **Verifica opzioni** di Server Manager include inoltre un pulsante opzionale **Visualizza script** , che consente di creare un file di testo Unicode contenente la configurazione ADDSDeployment corrente come singolo script di Windows PowerShell. In questo modo è possibile utilizzare l'interfaccia grafica di Server Manager come strumento di distribuzione di Windows PowerShell. Utilizzare la Configurazione guidata Servizi di dominio Active Directory per configurare le opzioni, esportare la configurazione e annullare la procedura guidata. Questo processo crea un esempio valido e sintatticamente corretto che può essere utilizzato direttamente o successivamente modificato. Ad esempio:   
+La pagina **Verifica opzioni** di Server Manager include inoltre un pulsante opzionale **Visualizza script** , che consente di creare un file di testo Unicode contenente la configurazione ADDSDeployment corrente come singolo script di Windows PowerShell. In questo modo è possibile utilizzare l'interfaccia grafica di Server Manager come strumento di distribuzione di Windows PowerShell. Utilizzare la Configurazione guidata Servizi di dominio Active Directory per configurare le opzioni, esportare la configurazione e annullare la procedura guidata. Questo processo crea un esempio valido e sintatticamente corretto che può essere utilizzato direttamente o successivamente modificato. Esempio:  
   
 ```  
 #  

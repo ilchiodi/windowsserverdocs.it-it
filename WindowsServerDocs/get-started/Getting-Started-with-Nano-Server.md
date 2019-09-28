@@ -1,7 +1,7 @@
 ---
 title: Installare Nano Server
 description: Installazione pulita, aggiornamento, migrazione e valutazione di Nano Server
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.service: na
 manager: dougkim
 ms.technology: server-nano
@@ -12,19 +12,19 @@ ms.assetid: 2c2fa45b-6f3b-4663-b421-2da6ecc463bf
 author: jaimeo
 ms.author: jaimeo
 ms.localizationpriority: medium
-ms.openlocfilehash: 295402a3bcdcec07025ad1f803cddd47127baa8d
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: d395c72a1e21cd8eda043eebf3b72bbd5c9a13e8
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "63688589"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71391799"
 ---
 # <a name="install-nano-server"></a>Installare Nano Server
 
 >Si applica a: Windows Server 2016
 
 > [!IMPORTANT]
-> A partire da Windows Server, versione 1709, Nano Server sarà disponibile solo come [immagine del sistema operativo di base del contenitore](/virtualization/windowscontainers/quick-start/using-insider-container-images#install-base-container-image). Per informazioni, vedi [Modifiche apportate a Nano Server](nano-in-semi-annual-channel.md). 
+> A partire da Windows Server versione 1709, Nano Server sarà disponibile solo come [immagine del sistema operativo di base del contenitore](/virtualization/windowscontainers/quick-start/using-insider-container-images#install-base-container-image). Per informazioni, vedi [Modifiche apportate a Nano Server](nano-in-semi-annual-channel.md). 
 
 Windows Server 2016 offre una nuova opzione di installazione: Nano Server. Nano Server è un sistema operativo server amministrato da postazione remota e ottimizzato per data center e cloud privati. È simile a Windows Server in modalità Server Core, ma notevolmente più piccolo, non dispone di alcuna funzionalità di accesso locale e supporta solo agenti, strumenti e applicazioni a 64 bit. Occupa meno spazio su disco, viene impostato molto più velocemente e richiede meno aggiornamenti e riavvii rispetto a Windows Server. Il riavvio del sistema viene eseguito molto più velocemente. L'opzione di installazione di Nano Server è disponibile per le edizioni Standard e Datacenter di Windows Server 2016.  
 

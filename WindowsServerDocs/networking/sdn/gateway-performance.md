@@ -1,48 +1,48 @@
 ---
-title: Prestazioni del Gateway Windows Server 2019
+title: Prestazioni del gateway Windows Server 2019
 description: ''
 manager: dougkim
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking-hv-switch
 ms.topic: get-started-article
 ms.assetid: ''
 ms.author: pashort
 author: shortpatti
 ms.date: 08/22/2018
-ms.openlocfilehash: a6530b29ce7ffb0d18e0266e70cb2ca45188915c
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 58e85c15723126f2976fac3ccc21b3cfc6585750
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59845632"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71355933"
 ---
-# <a name="windows-server-2019-gateway-performance"></a>Prestazioni del Gateway Windows Server 2019
+# <a name="windows-server-2019-gateway-performance"></a>Prestazioni del gateway Windows Server 2019
 
 >Si applica a: Windows Server
 
 
-In Windows Server 2016, una delle preoccupazioni dei clienti era l'impossibilità di gateway di rete SDN per soddisfare i requisiti di velocità effettiva delle reti moderne. La velocità effettiva di rete del tunnel IPsec e GRE soggetto a limitazioni con la velocità effettiva di singola connessione per la connettività IPsec in corso di circa 300 MB/s e per la connettività GRE da circa 2,5 GB/s.
+In Windows Server 2016, una delle preoccupazioni dei clienti è l'impossibilità del gateway SDN di soddisfare i requisiti di velocità effettiva delle reti moderne. La velocità effettiva di rete dei tunnel IPsec e GRE presentava alcune limitazioni con la velocità effettiva di connessione singola per la connettività IPsec di circa 300 Mbps e per la connettività GRE circa 2,5 Gbps.
 
-Sono state migliorate significativamente in Windows Server 2019, con i numeri di salita a 1,8 Gbps e 15 Gbps per le connessioni IPsec e GRE, rispettivamente. Tutte queste funzioni, con riduzioni significative dei cicli di CPU / per byte, offrendo così la velocità effettiva ad alte prestazioni con molto minore utilizzo della CPU.
+Sono state migliorate significativamente in Windows Server 2019, con i numeri che salgono rispettivamente a 1,8 Gbps e 15 Gbps per le connessioni IPsec e GRE. Tutto questo, con riduzioni significative dei cicli CPU/per byte, garantendo così una velocità effettiva elevatissima delle prestazioni con un utilizzo molto inferiore della CPU.
 
-## <a name="enable-high-performance-with-gateways-in-windows-server-2019"></a>Abilitati consentano alte prestazioni con i gateway in Windows Server 2019
+## <a name="enable-high-performance-with-gateways-in-windows-server-2019"></a>Abilitare prestazioni elevate con i gateway in Windows Server 2019
 
-Per la **connessioni GRE**, una volta distribuzione e aggiornamento per le build di Windows Server 2019 sulle VM gateway, verrà visualizzato automaticamente il miglioramento delle prestazioni. Richiedere passaggi manuali non sono coinvolti.
+Per le **connessioni GRE**, dopo la distribuzione o l'aggiornamento a Windows Server 2019 si basa sulle VM del gateway, è possibile visualizzare automaticamente le prestazioni migliorate. Non sono previsti passaggi manuali.
 
-Per la **le connessioni IPsec**, per impostazione predefinita, quando si crea la connessione per le reti virtuali, otterrai i numeri di percorso e le prestazioni dei dati Windows Server 2016. Per abilitare il percorso dei dati di Windows Server 2019, eseguire le operazioni seguenti:
+Per le **connessioni IPSec**, per impostazione predefinita, quando si crea la connessione per le reti virtuali, si ottengono i valori di percorso dati e prestazioni di Windows Server 2016. Per abilitare il percorso dati di Windows Server 2019, procedere come segue:
 
-   1. In un gateway di rete SDN della macchina virtuale, passare a **Services** console (Services. msc).
-   2. Trovare il servizio denominato **servizio Gateway di Azure**e impostare il tipo di avvio **automatica**.
-   3. Riavviare la macchina virtuale gateway.
-      Le connessioni attive in questo failover del gateway a un gateway con ridondanza della macchina virtuale.
-   4. Ripetere i passaggi precedenti per rest di macchine virtuali gateway.
+   1. In una macchina virtuale del gateway SDN passare alla console **dei servizi** (Services. msc).
+   2. Trovare il servizio denominato **servizio gateway di Azure**e impostare il tipo di avvio su **automatico**.
+   3. Riavviare la macchina virtuale del gateway.
+      Le connessioni attive in questo gateway si failover a una VM gateway ridondante.
+   4. Ripetere i passaggi precedenti per le altre macchine virtuali del gateway.
 
 >[!TIP]
->Per prestazioni ottimali, verificare che il cipherTransformationConstant e authenticationTransformConstant nelle impostazioni di modalità rapida di connessione IPsec utilizza il **GCMAES256** pacchetto di crittografia.
+>Per ottenere risultati ottimali, verificare che le impostazioni cipherTransformationConstant e authenticationTransformConstant in quickMode della connessione IPsec utilizzino il pacchetto di crittografia **GCMAES256** .
 >
->Per ottenere prestazioni ottimali, l'hardware del gateway host deve supportare AES-NI e set di istruzioni CPU PCLMULQDQ. Sono disponibili su qualsiasi Westmere (32nm) e versioni successive CPU Intel, ad eccezione per i modelli in cui è stata disabilitata AES-NI. È possibile esaminare la documentazione del fornitore dell'hardware per verificare se la CPU supporta AES-NI e la CPU PCLMULQDQ istruzione imposta.
+>Per ottenere prestazioni ottimali, l'hardware host del gateway deve supportare i set di istruzioni CPU AES-NI e PCLMULQDQ. Sono disponibili in qualsiasi CPU Intel Westmere (32nm) e versioni successive, ad eccezione dei modelli in cui AES-NI è stato disabilitato. È possibile esaminare la documentazione del fornitore dell'hardware per verificare se la CPU supporta i set di istruzioni CPU AES-NI e PCLMULQDQ.
 
-Di seguito è riportato un esempio di REST della connessione IPsec con gli algoritmi di sicurezza ottimale:
+Di seguito è riportato un esempio REST di connessione IPsec con algoritmi di sicurezza ottimali:
 
 ```PowerShell
 # NOTE: The virtual gateway must be created before creating the IPsec connection. More details here.
@@ -92,8 +92,8 @@ $nwConnectionProperties.DestinationIPAddress = "<<Public IP address of the On-Pr
 New-NetworkControllerVirtualGatewayNetworkConnection -ConnectionUri $uri -VirtualGatewayId $virtualGW.ResourceId -ResourceId "Contoso_IPSecGW" -Properties $nwConnectionProperties -Force
 ```
 
-## <a name="testing-results"></a>I risultati dei test
+## <a name="testing-results"></a>Risultati dei test
 
-È stato eseguito il test per i gateway di rete SDN nei nostri laboratori di test delle prestazioni complete. Nei test, è stato confrontato con le prestazioni di rete gateway con Windows Server 2019 negli scenari SDN e gli scenari non SDN. È possibile trovare i risultati e testare i dettagli di installazione acquisiti nell'articolo di blog [qui](https://blogs.technet.microsoft.com/networking/2018/08/15/high-performance-gateways/).
+Sono stati eseguiti test delle prestazioni completi per i gateway SDN nei Lab di test. Nei test sono state confrontate le prestazioni della rete gateway con Windows Server 2019 in scenari SDN e in scenari non SDN. I risultati e i dettagli di installazione dei test sono disponibili nell'articolo del Blog [qui](https://blogs.technet.microsoft.com/networking/2018/08/15/high-performance-gateways/).
 
 ---

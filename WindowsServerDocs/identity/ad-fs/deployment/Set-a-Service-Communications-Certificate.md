@@ -6,41 +6,41 @@ author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: 7253502390db004747d3732cf3d288a51afdaaf1
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: d0464853c73f88ed76545921ffc8a4bf8551c800
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67280694"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71408329"
 ---
 # <a name="set-a-service-communications-certificate"></a>Impostare un certificato per le comunicazioni di servizi
 
 
-Server federativo in Active Directory Federation Services \(ADFS\) usare il certificato di comunicazioni di servizi per proteggere il traffico dei servizi Web per Secure Sockets Layer \(SSL\) la comunicazione con Web i client o server federativi.
+Server federativi in Active Directory Federation Services \(AD FS @ no__t-1 usare il certificato di comunicazione del servizio per proteggere il traffico dei servizi Web per la comunicazione Secure Sockets Layer \(SSL @ no__t-3 con client Web o con server federativo proxy.
 
 > [!NOTE]  
-> Il certificato per le comunicazioni del servizio non è quello utilizzato per un certificato SSL. Per modificare il certificato SSL di AD FS, è necessario usare Powershell. Seguire le indicazioni fornite in questo [articolo](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/manage-ssl-certificates-ad-fs-wap).
+> Il certificato di comunicazione del servizio non corrisponde a un certificato SSL. Per modificare il certificato SSL di AD FS, sarà necessario usare PowerShell. Seguire le istruzioni riportate in questo [articolo](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/manage-ssl-certificates-ad-fs-wap).
 
 
-È possibile usare la procedura seguente per modificare il certificato di comunicazioni di servizi con lo snap di gestione di AD FS\-in.  
+È possibile utilizzare la procedura seguente per modificare il certificato di comunicazione del servizio con lo snap-in di gestione di AD FS @ no__t-0cm.  
 
 > [!NOTE]  
-> Lo snap di gestione di AD FS\-in si riferisce ai certificati di autenticazione server per i server federativi come certificati per le comunicazioni del servizio.  
+> Lo snap-in di gestione AD FS @ no__t-0cm fa riferimento ai certificati di autenticazione server per i server federativi come certificati di comunicazione del servizio.  
 
-Per completare questa procedura, è necessaria almeno l'appartenenza al gruppo **Administrators** oppure a un gruppo equivalente nel computer locale.  Informazioni dettagliate sull'utilizzo degli account appropriati e appartenenze [dominio gruppi predefiniti locali e](https://go.microsoft.com/fwlink/?LinkId=83477) \(http:\/\/go.microsoft.com\/fwlink\/? LinkId\=83477\).   
+Per completare questa procedura, è necessaria almeno l'appartenenza al gruppo **Administrators** oppure a un gruppo equivalente nel computer locale.  Per informazioni dettagliate sull'uso degli account appropriati e delle appartenenze a gruppi, vedere \( [gruppi predefiniti locali e](https://go.microsoft.com/fwlink/?LinkId=83477) di\/dominio http:\/\/go.Microsoft.com\/fwlink? LinkId\=83477\).   
 
-### <a name="to-set-a-service-communications-certificate"></a>Per impostare un certificato di comunicazioni di servizi  
+### <a name="to-set-a-service-communications-certificate"></a>Per impostare un certificato per le comunicazioni di servizio  
 
-1.  Nel **avviare** digitare**gestione di AD FS**, e quindi premere INVIO.  
+1.  Nella schermata **Start** Digitare**ad FS Management**, quindi premere INVIO.  
 
-2.  Nell'albero della console, fare doppio\-fare clic su **Service**, quindi fare clic su **certificati**.  
+2.  Nell'albero della console, Double @ no__t-0click **Service**, quindi fare clic su **Certificates**.  
 
-3.  Nel **azioni** riquadro, fare clic sui **certificato per le comunicazioni del servizio impostato** collegamento.  
+3.  Nel riquadro **azioni** fare clic sul collegamento **set service Communications Certificate** .  
 
-4.  Nel **selezionare un certificato di comunicazioni di servizi** finestra di dialogo passare al file del certificato che si desidera impostare come certificato per le comunicazioni del servizio, selezionare il file del certificato e quindi fare clic su **aprire**.  
+4.  Nella finestra di dialogo **selezionare un certificato di comunicazione del servizio** passare al file del certificato che si desidera impostare come certificato di comunicazione del servizio, selezionare il file del certificato e quindi fare clic su **Apri**.  
 
 ## <a name="additional-references"></a>Altri riferimenti  
 [Elenco di controllo: Configurazione di un server federativo](Checklist--Setting-Up-a-Federation-Server.md)  

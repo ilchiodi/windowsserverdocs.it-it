@@ -1,7 +1,7 @@
 ---
-title: L'autenticazione basata su certificati viene configurata, ma il certificato specificato non è installato nel server di Replica o nodi cluster di failover
+title: È configurata l'autenticazione basata su certificato, ma il certificato specificato non è installato nel server di replica o nei nodi del cluster di failover
 description: Versione online del testo per questa regola di Best Practices Analyzer.
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
@@ -10,43 +10,43 @@ ms.topic: article
 ms.assetid: 4cabbce3-9367-4ddc-a108-1e5e1ab2bcff
 author: KBDAzure
 ms.date: 8/16/2016
-ms.openlocfilehash: feef30d2f798057e4bd8e53ebab240af6b1d25b8
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 0b107a4760cc3470c7f80d53feef00a2f8f789c5
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59832942"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71365196"
 ---
-# <a name="certificate-based-authentication-is-configured-but-the-specified-certificate-is-not-installed-on-the-replica-server-or-failover-cluster-nodes"></a>L'autenticazione basata su certificati viene configurata, ma il certificato specificato non è installato nel server di Replica o nodi cluster di failover
+# <a name="certificate-based-authentication-is-configured-but-the-specified-certificate-is-not-installed-on-the-replica-server-or-failover-cluster-nodes"></a>È configurata l'autenticazione basata su certificato, ma il certificato specificato non è installato nel server di replica o nei nodi del cluster di failover
 
 >Si applica a: Windows Server 2016
 
 
   
-*Per altre informazioni sulle procedure consigliate e le analisi, vedere* [Best Practices Analyzer](https://go.microsoft.com/fwlink/?LinkId=122786).  
+*Per ulteriori informazioni sulle procedure consigliate e le analisi, vedere* [Best Practices Analyzer](https://go.microsoft.com/fwlink/?LinkId=122786).  
   
 |Proprietà|Dettagli|  
 |-|-|  
 |**Sistema operativo**|Windows Server 2016|  
-|**/ Funzionalità del prodotto**|Hyper-V|  
-|**Severity**|Errore|  
+|**Prodotto/funzionalità**|Hyper-V|  
+|**Gravità**|Errore|  
 |**Categoria**|Configurazione|  
 
 Nelle sezioni seguenti, corsivo indica il testo dell'interfaccia Utente visualizzata nello strumento Analizzatore procedure consigliate per questo problema.
 
 ## <a name="issue"></a>Problema  
   
-*Il certificato di sicurezza che la Replica Hyper-V sia stata configurata per l'uso per fornire la replica basata su certificato non è installata nel server di Replica (o qualsiasi nodi del cluster di failover).*  
+*Il certificato di sicurezza configurato per la replica Hyper-V per fornire la replica basata su certificato non è installato nel server di replica (o in qualsiasi nodo del cluster di failover).*  
   
 ## <a name="impact"></a>Impatto  
   
-*In caso di failover del cluster o spostare in un altro nodo, la replica Hyper-V sospenderà se il nuovo nodo non ha anche installato il certificato appropriato. Questo influisce sulle seguenti nodi:*  
+@no__t 0Cm l'evento di un failover del cluster o lo spostamento in un altro nodo, la replica Hyper-V viene sospesa se nel nuovo nodo non è installato anche il certificato appropriato. Ciò influisca sui nodi seguenti: *  
   
-\<elenco di nodi >  
+@no__t 0list dei nodi >  
   
 ## <a name="resolution"></a>Risoluzione  
   
-*Installare il certificato configurato nel server Replica (e tutti i relativi nodi del cluster di failover, se presente).*  
+*Installare il certificato configurato nel server di replica (e in tutti i nodi associati nel cluster di failover, se presente).*  
   
 
 
