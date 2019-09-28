@@ -1,8 +1,8 @@
 ---
 title: tzutil
-description: 'Argomento i comandi di Windows per * * *- '
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 41a46ea7974b67cc557973484428480e7beb5484
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 347254bd5a00a8bfb4a80f20d518f1e0e8b593bf
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59876802"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71392310"
 ---
 # <a name="tzutil"></a>tzutil
 
 >Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Consente di visualizzare il Windows ora zona utilità. 
+Visualizza l'utilità fuso orario di Windows. 
 ## <a name="syntax"></a>Sintassi
 ```
 tzutil [/?] [/g] [/s <timeZoneID>[_dstoff]] [/l]
@@ -33,26 +33,26 @@ tzutil [/?] [/g] [/s <timeZoneID>[_dstoff]] [/l]
 |Parametro|Descrizione|
 |-------|--------|
 |/?|Visualizza la guida al prompt dei comandi.|
-|/g|Visualizza l'ID fuso orario corrente.|
-|/s \<timeZoneID>[_dstoff]|Imposta il fuso orario corrente usando l'ID fuso orario specificato. Il **_dstoff** suffisso disabilita le regolazioni dell'ora legale per il fuso orario (dove applicabile).|
-|/l|gli elenchi di tutto il tempo valido ID della zona e i nomi visualizzati. L'output sarà:<br /><br />-   \<nome visualizzato ><br />-   \<ID fuso orario >|
+|/g|Visualizza l'ID del fuso orario corrente.|
+|/s \<timeZoneID > [_dstoff]|Imposta il fuso orario corrente usando l'ID del fuso orario specificato. Il suffisso **_dstoff** Disabilita le regolazioni dell'ora legale per il fuso orario, se applicabile.|
+|/l|Elenca tutti gli ID di fuso orario e i nomi visualizzati validi. L'output sarà:<br /><br />-    @ no__t-nome 1Visualizzare ><br />-    @ no__t-ID zona 1time >|
 
 ## <a name="remarks"></a>Note
-Un codice di uscita **0** indica il comando completato correttamente.
+Un codice di uscita pari a **0** indica che il comando è stato completato correttamente.
 
 ## <a name="BKMK_Examples"></a>Esempi
-Per visualizzare l'ID fuso orario corrente, digitare:
+Per visualizzare l'ID del fuso orario corrente, digitare:
 ```
 tzutil /g
 ```
-Per impostare il fuso orario ora solare Pacifico, digitare:
+Per impostare il fuso orario corrente sull'ora solare Pacifico, digitare:
 ```
 tzutil /s Pacific Standard time
 ```
-Per impostare il fuso orario corrente per ora solare Pacifico e disabilita le regolazioni dell'ora legale, digitare:
+Per impostare il fuso orario corrente sull'ora solare Pacifico e disabilitare le regolazioni dell'ora legale, digitare:
 ```
 tzutil /s Pacific Standard time_dstoff
 ```
 ## <a name="additional-references"></a>Riferimenti aggiuntivi
--   [Chiave sintassi della riga di comando](command-line-syntax-key.md)
+-   [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
 

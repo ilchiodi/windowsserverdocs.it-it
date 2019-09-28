@@ -2,18 +2,18 @@
 title: Modificare le proprietà delle quote automatiche
 description: Questo articolo descrive come modificare le proprietà delle quote automatiche
 ms.date: 7/7/2017
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: storage
 ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: aa2155268d42293ade925d53da5e29142d13aae4
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 4b4fda5cdfeed8df02fee922c8dc5fddc75c56ff
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59878062"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71403116"
 ---
 # <a name="edit-auto-apply-quota-properties"></a>Modificare le proprietà delle quote automatiche
 
@@ -44,7 +44,7 @@ Quando si apportano modifiche a una quota automatica, si ha la possibilità di e
 
 ## <a name="see-also"></a>Vedere anche
 
--   [Quota Management](quota-management.md)
--   [Creare un'Auto della Quota di applicazione](create-auto-apply-quota.md)
+-   [Gestione delle quote](quota-management.md)
+-   [Creare una quota automatica](create-auto-apply-quota.md)
 
 

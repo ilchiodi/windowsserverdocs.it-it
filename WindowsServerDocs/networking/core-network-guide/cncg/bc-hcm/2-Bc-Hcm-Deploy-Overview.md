@@ -2,18 +2,18 @@
 title: Panoramica della distribuzione in modalità Cache ospitata di BranchCache
 description: In questa guida vengono fornite istruzioni sulla distribuzione di BranchCache in modalità cache ospitata sul computer che eseguono Windows Server 2016 e Windows 10
 manager: brianlic
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking-bc
 ms.topic: article
 ms.assetid: 55686a9c-60dd-47f4-9f1f-fe72c2873a44
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 930a9b4872a7a79351055841a5d716dd99df0fa9
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: dc6ade92eb5fe04271033973911ccb98e871d236
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59829512"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71406377"
 ---
 # <a name="branchcache-hosted-cache-mode-deployment-overview"></a>Panoramica della distribuzione in modalità Cache ospitata di BranchCache
 
@@ -23,7 +23,7 @@ ms.locfileid: "59829512"
 
 In questa panoramica include l'infrastruttura di BranchCache che è necessario, nonché una panoramica dettagliata semplice della distribuzione.
 
-## <a name="bkmk_components"></a>Infrastruttura di distribuzione Server Cache ospitata
+## <a name="bkmk_components"></a>Infrastruttura di distribuzione del server cache ospitata
 
 In questa distribuzione, il server cache ospitata viene distribuito tramite punti di connessione del servizio in servizi di dominio Active Directory \(AD DS\), è disponibile l'opzione con BranchCache in Windows Server 2016, Windows Server 2012 R2 e Windows Server 2012, per prehash il contenuto condiviso nel Web e file server basati su contenuto, quindi caricare il contenuto nel server cache ospitata.
 
@@ -56,7 +56,7 @@ Quando i computer client nel ramo dispongano di criteri di gruppo aggiornato e v
 
 È necessario aggiornare i criteri di gruppo nei computer client per applicare nuove impostazioni di criteri di gruppo e consentire ai client di individuare e utilizzare il server cache ospitata.
 
-## <a name="bkmk_overview"></a>Panoramica del processo di distribuzione Server Cache ospitata
+## <a name="bkmk_overview"></a>Panoramica del processo di distribuzione del server cache ospitata
 
 >[!NOTE]
 >Vengono forniti i dettagli di come eseguire questi passaggi nella sezione [distribuzione in modalità Cache ospitata BranchCache](4-Bc-Hcm-Deployment.md).
@@ -68,12 +68,12 @@ Si verifica il processo di distribuzione di un Server Cache ospitata di BranchCa
 
 1. Nel HCS1, utilizzare i comandi di Windows PowerShell per configurare il computer come server cache ospitata e di registrare un punto di connessione del servizio in Active Directory.
 
-2. \(Facoltativo\) hcs1 su interno, se i valori predefiniti di BranchCache non corrispondono gli obiettivi di distribuzione per il server e la cache ospitata, configurare la quantità di spazio su disco che vuoi allocare per la cache ospitata. Configurare inoltre il percorso del disco che si preferisce per la cache ospitata.
+2. \(Optional @ no__t-1 in HCS1, se i valori predefiniti di BranchCache non corrispondono agli obiettivi di distribuzione per il server e la cache ospitata, configurare la quantità di spazio su disco che si desidera allocare per la cache ospitata. Configurare inoltre il percorso del disco che si preferisce per la cache ospitata.
 
-3. \(Facoltativo\) Prehash contenuto nel server di contenuti, creare pacchetti di dati e a precaricare contenuto nel server cache ospitata.
+3. \(Optional @ no__t-1 prehash contenuto sui server di contenuti, creazione di pacchetti di dati e precaricamento del contenuto nel server cache ospitata.
 
     > [!NOTE]
-    > Prehashing e precaricamento dei contenuti sul server cache ospitata è facoltativo, tuttavia se si sceglie di prehash e precaricamento, è necessario eseguire tutte le operazioni descritte di seguito che sono applicabili alla distribuzione. \(Ad esempio, se non hai i server Web, è necessario eseguire nessuna delle operazioni relative a prehashing e precaricamento contenuto server Web.\)
+    > Prehashing e precaricamento dei contenuti sul server cache ospitata è facoltativo, tuttavia se si sceglie di prehash e precaricamento, è necessario eseguire tutte le operazioni descritte di seguito che sono applicabili alla distribuzione. esempio \(per, se non si dispone di server Web, non è necessario eseguire alcuna procedura correlata al prehashing e precaricamento del contenuto del server Web. \)
 
     1. In WEB1 prehash contenuto server Web e creare un pacchetto di dati.
 

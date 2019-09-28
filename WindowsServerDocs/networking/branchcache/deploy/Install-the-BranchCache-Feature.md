@@ -2,22 +2,22 @@
 title: Installare la funzionalità BranchCache
 description: Questo argomento fa parte di BranchCache distribuzione Guide per Windows Server 2016, che illustra come distribuire BranchCache in modalità cache distribuita e ospitato per ottimizzare l'utilizzo della larghezza di banda WAN nelle succursali
 manager: brianlic
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking-bc
 ms.topic: get-started-article
 ms.assetid: 4f31dc61-2dbe-4c7e-b3f9-85ae49a45049
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 8b4aecd9e9355a6c2d5ac485ac77c76428fe295f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 5ee438ef57d3355cf19713d8574591aeea6ae06f
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59872192"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71406435"
 ---
 # <a name="install-the-branchcache-feature"></a>Installare la funzionalità BranchCache
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016
 
 È possibile utilizzare questa procedura per installare la funzionalità BranchCache e avviare il servizio BranchCache in un computer che esegue Windows Server&reg; 2016, Windows Server 2012 R2 o Windows Server 2012.  
   
@@ -34,7 +34,7 @@ Prima di eseguire questa procedura, si consiglia di installare e configurare l'a
   
 ### <a name="to-install-and-enable-the-branchcache-feature"></a>Per installare e abilitare la funzionalità BranchCache  
   
-1.  In Server Manager fare clic su **Gestione**e quindi su **Aggiungi ruoli e funzionalità**. Verrà visualizzata la procedura guidata Aggiungi ruoli e funzionalità. Fare clic su **Avanti**.  
+1.  In Server Manager fare clic su **Gestione**e quindi su **Aggiungi ruoli e funzionalità**. Si apre la procedura guidata Aggiungi ruoli e funzionalità. Fare clic su **Avanti**.  
   
 2.  In **Selezione tipo di installazione**, assicurarsi che **installazione basata su ruoli o basata su funzionalità** è selezionata e quindi fare clic su **Avanti**.  
   

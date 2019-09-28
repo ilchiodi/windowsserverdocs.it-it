@@ -7,26 +7,26 @@ ms.author: joflore
 manager: mtillman
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 160ebf65348aaff0095f359766c65aebd6fdd3c3
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 8a01fde69ebdd5a14899bd888a3c282ded74caaa
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59889542"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71408808"
 ---
 # <a name="identifying-your-ad-ds-design-and-deployment-requirements"></a>Identificazione dei requisiti di progettazione e distribuzione di Active Directory Domain Services
 
 >Si applica a: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Esecuzione di una valutazione generale dell'ambiente corrente e la corretta identificazione delle attività di distribuzione di Active Directory Domain Services (AD DS) è essenziale per il successo della tua strategia di distribuzione di Active Directory Domain Services.  
+Eseguire una valutazione di alto livello dell'ambiente corrente e identificare correttamente le attività di distribuzione di Active Directory Domain Services (AD DS) è essenziale per il successo della strategia di distribuzione di servizi di dominio Active Directory.  
   
-La strategia di distribuzione di Active Directory Domain Services dipende dalla configurazione di rete esistente. Ad esempio, se l'organizzazione è attualmente in esecuzione Windows Server 2003, è possibile aggiornare il sistema operativo a Windows Server 2008. Il processo di distribuzione può implicare la ristrutturazione di domini esistenti, all'interno di una foresta di Active Directory oppure tra le foreste di Active Directory. Potrebbe essere necessario ristrutturare i domini esistenti, dopo aver distribuito Windows Server 2008 Active Directory o dopo la modifica dell'organizzazione o fusioni aziendali.  
+La strategia di distribuzione di servizi di dominio Active Directory dipende dalla configurazione di rete esistente. Se, ad esempio, l'organizzazione attualmente esegue Windows Server 2003, è possibile aggiornare il sistema operativo a Windows Server 2008. Il processo di distribuzione potrebbe comportare la ristrutturazione di domini esistenti, all'interno di una foresta Active Directory o tra Active Directory foreste. Potrebbe essere necessario ristrutturare i domini esistenti dopo la distribuzione di servizi di dominio Active Directory di Windows Server 2008 o dopo le modifiche dell'organizzazione o le acquisizioni aziendali.  
   
--   [Requisiti di progettazione di servizi directory Active Directory](../../ad-ds/plan/AD-DS-Design-Requirements.md)  
+-   [Requisiti di progettazione di Active Directory Domain Services](../../ad-ds/plan/AD-DS-Design-Requirements.md)  
   
--   [Requisiti di distribuzione di Active Directory](../../ad-ds/plan/AD-DS-Deployment-Requirements.md)  
+-   [Requisiti di distribuzione di Active Directory Domain Services](../../ad-ds/plan/AD-DS-Deployment-Requirements.md)  
   
 
 

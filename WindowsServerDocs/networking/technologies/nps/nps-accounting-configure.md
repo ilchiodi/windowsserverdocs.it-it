@@ -2,19 +2,19 @@
 title: Configurare le funzionalità di accounting del Server dei criteri di rete
 description: In questo argomento vengono fornite informazioni sul file di testo e la registrazione SQL Server per server dei criteri di rete in Windows Server 2016.
 manager: dougkim
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking
 ms.topic: article
 ms.assetid: dfde2e21-f3d5-41e8-8492-cb3f0d028afb
 ms.author: pashort
 author: shortpatti
 ms.date: 05/25/2018
-ms.openlocfilehash: f16e4093ed58f2a2fadc4b9faa1fa42c0c157ca3
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 0c154d4d4534f4c343107eecd158974b92903e39
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70871897"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71405562"
 ---
 # <a name="configure-network-policy-server-accounting"></a>Configurare le funzionalità di accounting del Server dei criteri di rete
 
@@ -55,7 +55,7 @@ Per evitare che i file di log compilano l'unità disco rigido, è consigliabile 
 
 - Per inviare i dati del file di log per la raccolta da parte di un altro processo, è possibile configurare NPS per la scrittura in un named pipe. Per utilizzare named pipe, impostare la cartella del file di \\log su \\.\pipe o ComputerName\pipe. Il programma server named pipe crea una named pipe denominata \\.\pipe\iaslog.log per accettare i dati. In crea un nuovo file di log della finestra di dialogo Proprietà file locale selezionare mai (dimensioni file illimitate) quando si utilizzano named pipe.
 
-- È possibile creare la directory dei file di registro usando le variabili di ambiente di sistema, anziché le variabili utente, ad esempio% SystemDrive%,% SystemRoot% e% windir%. Il percorso seguente, ad esempio, utilizzando la variabile di ambiente% windir%, individua il file di log nella directory di sistema nella sottocartella \System32\Logs (ovvero,%windir%\System32\Logs\).
+- È possibile creare la directory dei file di registro usando le variabili di ambiente di sistema, anziché le variabili utente, ad esempio% SystemDrive%,% SystemRoot% e% windir%. Il percorso seguente, ad esempio, utilizzando la variabile di ambiente% windir%, individua il file di log nella directory di sistema nella sottocartella \System32\Logs (ovvero%windir%\System32\Logs @ no__t-0.
 
 - Il cambio di formati di file di log non comporta la creazione di un nuovo log. Se si modificano i formati dei file di log, il file attivo al momento della modifica conterrà una combinazione dei due formati (i record all'inizio del log avranno il formato precedente e i record alla fine del log avranno il nuovo formato).
 

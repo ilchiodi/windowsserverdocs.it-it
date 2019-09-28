@@ -7,23 +7,23 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: f2e373f45088105a7ac9ca5cb43fbebc6452ccb9
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: ab78a5847c52650f2a608dfc89e2001cc43153ff
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66188580"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71407351"
 ---
 # <a name="device-registration-technical-reference"></a>Guida di riferimento tecnico per la registrazione di dispositivi
-Il servizio registrazione dispositivo \(DRS\) è un nuovo servizio Windows che è incluso con il servizio ruolo Active Directory Federation in Windows Server 2012 R2.  Il servizio DRS deve essere installato e configurato in tutti i server federativi della farm AD FS.  Per informazioni sulla distribuzione del servizio DRS, vedere [Configurare un server federativo con Device Registration Service](https://technet.microsoft.com/library/dn486831.aspx).  
+Il servizio registrazione dispositivo \(DRS @ no__t-1 è un nuovo servizio Windows incluso nel ruolo Servizio federativo Active Directory in Windows Server 2012 R2.  Il servizio DRS deve essere installato e configurato in tutti i server federativi della farm AD FS.  Per informazioni sulla distribuzione del servizio DRS, vedere [Configurare un server federativo con Device Registration Service](https://technet.microsoft.com/library/dn486831.aspx).  
   
 ## <a name="active-directory-objects-created-when-a-device-is-registered"></a>Oggetti Active Directory creati quando viene registrato un dispositivo  
 Gli oggetti Active Directory seguenti vengono creati nell'ambito del servizio registrazione dispositivi.  
   
 ### <a name="device-registration-configuration"></a>Configurazione registrazione dispositivi  
-La configurazione registrazione dispositivi viene archiviata nel contesto dei nomi di configurazione della foresta Active Directory. \(Ad esempio, **CN\=Device Registration Configuration, CN\=Services, < configuration\-denominazione\-contesto >** \). Questo oggetto viene creato quando la foresta Active Directory viene inizializzata per la registrazione dispositivi.  
+La configurazione registrazione dispositivi viene archiviata nel contesto dei nomi di configurazione della foresta Active Directory. esempio \(per, **CN @ no__t-2Device Registration Configuration, CN @ no__t-3Services, < Configuration @ no__t-4naming @ no__t-5context >** \). Questo oggetto viene creato quando la foresta Active Directory viene inizializzata per la registrazione dispositivi.  
   
 La configurazione registrazione dispositivi include gli elementi seguenti:  
   
@@ -31,14 +31,14 @@ La configurazione registrazione dispositivi include gli elementi seguenti:
   
     Le chiavi pubbliche e private usate per rilasciare il certificato X.509 associato a un dispositivo registrato.  Le chiavi private sono protette con DKM.  
   
--   **Configurazione del servizio registrazione dispositivo**  
+-   **Configurazione del servizio Registrazione dispositivi**  
   
     Criteri relativi al servizio registrazione dispositivi.  
   
 ### <a name="registered-devices-container"></a>Contenitore di dispositivi registrati  
 Il contenitore di dispositivi registrati viene creato in uno dei domini della foresta Active Directory.  Questo contenitore di oggetti conterrà tutti gli oggetti dispositivo per la foresta Active Directory.  
   
-Per impostazione predefinita, il contenitore viene creato nello stesso dominio di AD FS.  \(Ad esempio, **CN\=RegisteredDevices, DC\=< impostazione predefinita\-denominazione\-contesto >** \). Questo oggetto viene creato quando la foresta di Active Directory viene inizializzata per la registrazione del dispositivo.  
+Per impostazione predefinita, il contenitore viene creato nello stesso dominio di AD FS.  \(per esempio, **CN @ no__t-2RegisteredDevices, DC @ no__t-3 < default @ no__t-4naming @ no__t-5context >** \). Questo oggetto viene creato quando la foresta Active Directory viene inizializzata per la registrazione del dispositivo.  
   
 ### <a name="registered-devices"></a>Dispositivi registrati  
 Gli oggetti dispositivo sono nuovi oggetti leggeri in Active Directory.  Vengono usati per rappresentare la relazione tra un utente, un dispositivo e la società.  Gli oggetti dispositivo usano un certificato firmato da AD FS per associare il dispositivo fisico all'oggetto dispositivo logico in Active Directory.  
@@ -49,7 +49,7 @@ I dispositivi registrati includono gli elementi seguenti:
   
     Nome descrittivo del dispositivo.  Per i dispositivi Windows, è il nome host del computer.  
   
--   **Device Id**  
+-   **ID dispositivo**  
   
     GUID generato dal server di registrazione dispositivi.  
   
@@ -65,22 +65,22 @@ I dispositivi registrati includono gli elementi seguenti:
   
     Versione del sistema operativo del dispositivo.  
   
--   **È abilitata**  
+-   **Abilitato**  
   
     Valore booleano che indica se il dispositivo è abilitato in Active Directory.  Solo ai dispositivi abilitati è consentito accedere ai servizi.  
   
--   **Ora approssimativa ultimo utilizzo**  
+-   **Ora ultimo utilizzo approssimativo**  
   
     Ora approssimativa in cui il dispositivo è stato usato per accedere a una risorsa.  Per limitare il traffico di replica, viene aggiornato solo ogni 14 giorni.  
   
 -   **Proprietario registrato**  
   
-    L'identità di sicurezza \(SID\) dell'utente che ha aggiunto il dispositivo all'area di lavoro.  
+    Identità di sicurezza \(SID @ no__t-1 dell'utente che ha aggiunto il dispositivo all'area di lavoro.  
   
-## <a name="ad-fsdrs-server-ssl-certificate-revocation-checking"></a>AD FS\/revoche del certificato SSL del Server DRS  
-Il client Aggiunta all'area di lavoro controlla la validità del certificato SSL del server AD FS.  Se il certificato Server SSL di AD FS include un elenco di revoche di certificati \(CRL\) endpoint, il client deve essere in grado di raggiungere l'endpoint specificato per convalidare il certificato.  
+## <a name="ad-fsdrs-server-ssl-certificate-revocation-checking"></a>AD FS @ no__t-controllo delle revoche di certificati SSL del server 0DRS  
+Il client Aggiunta all'area di lavoro controlla la validità del certificato SSL del server AD FS.  Se il certificato SSL del server AD FS include un elenco di revoche di certificati \(CRL @ no__t-1 endpoint, il client deve essere in grado di raggiungere l'endpoint specificato per convalidare il certificato.  
   
-Se si usa un ambiente di test e un'autorità di certificazione di prova \(CA\) per rilasciare certificati SSL del server, quindi è possibile scegliere di non includere l'endpoint CRL nei certificati server rilasciati dall'autorità di certificazione.  In questo modo il client Aggiunta all'area di lavoro potrà ignorare la verifica CRL.  
+Se si usa un ambiente di testing e un'autorità di certificazione di test \(CA @ no__t-1 per emettere i certificati SSL del server, è possibile scegliere di non includere l'endpoint CRL nei certificati del server rilasciati dalla CA.  In questo modo il client Aggiunta all'area di lavoro potrà ignorare la verifica CRL.  
   
 > [!CAUTION]  
 > Questo non è mai consigliato per i sistemi di produzione  

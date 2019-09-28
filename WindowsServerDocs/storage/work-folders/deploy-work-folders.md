@@ -1,7 +1,7 @@
 ---
 ms.assetid: d2429185-9720-4a04-ad94-e89a9350cdba
 title: Distribuzione di Cartelle di lavoro
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: storage-work-folders
 ms.topic: article
 author: JasonGerend
@@ -9,16 +9,16 @@ manager: dongill
 ms.author: jgerend
 ms.date: 6/24/2017
 description: Come distribuire Cartelle di lavoro, tra cui l'installazione del ruolo del server, la creazione di condivisioni di sincronizzazione e di record DNS.
-ms.openlocfilehash: 45b25befcde328e38f694b64fa7536a2b5c7f232
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 7fe39ded6d262d9310bce30239345a9f42e43c04
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70867030"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71365862"
 ---
 # <a name="deploying-work-folders"></a>Distribuzione di Cartelle di lavoro
 
->Si applica a Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows 10, Windows 8.1, Windows 7
+>Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows 10, Windows 8.1, Windows 7
 
 In questo argomento vengono illustrati i passaggi necessari per la distribuzione di Cartelle di lavoro. Si suppone che le informazioni disponibili in [Pianificazione di una distribuzione di Cartelle di lavoro](plan-work-folders.md) siano già note.  
   

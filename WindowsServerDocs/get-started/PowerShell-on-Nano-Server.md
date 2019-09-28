@@ -1,7 +1,7 @@
 ---
 title: PowerShell in Nano Server
 description: Differenze nel set ridotto di funzionalità di PowerShell in Nano Server
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.service: na
 manager: DonGill
 ms.technology: server-nano
@@ -11,12 +11,12 @@ ms.assetid: 9b25b939-1e2c-4bed-a8d3-2a8e8e46b53d
 author: jaimeo
 ms.author: jaimeo
 ms.localizationpriority: medium
-ms.openlocfilehash: 8a19082121e2d859bc4694fd3f7332e9d0d0b3b9
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: f662f1f48e903fac69c85185222c08954c5994a0
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "63687648"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71360261"
 ---
 # <a name="powershell-on-nano-server"></a>PowerShell in Nano Server
 
@@ -29,7 +29,7 @@ ms.locfileid: "63687648"
   
 A partire dalla versione 5.1, PowerShell è disponibile in diverse edizioni che indicano diversi set di funzionalità e compatibilità della piattaforma.  
   
-- **Desktop Edition:** basata su .NET Framework, fornisce la compatibilità con script e moduli destinati a versioni di PowerShell che eseguono edizioni a impatto completo di Windows, ad esempio Server Core e Windows Desktop.  
+- **Desktop Edition:** basata su .NET Framework, fornisce la compatibilità con script e moduli destinati a versioni di PowerShell che eseguono edizioni a impatto completo di Windows, ad esempio i componenti di base del server e Windows Desktop.  
 - **Core Edition:** basata su .NET Core, fornisce la compatibilità con script e moduli destinati a versioni di PowerShell che eseguono edizioni a impatto ridotto di Windows, ad esempio Nano Server e Windows IoT.  
   
 L'edizione di PowerShell in esecuzione viene visualizzata nella proprietà PSEdition di $PSVersionTable.  

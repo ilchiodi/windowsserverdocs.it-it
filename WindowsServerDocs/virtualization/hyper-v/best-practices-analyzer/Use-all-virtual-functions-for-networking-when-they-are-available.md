@@ -1,7 +1,7 @@
 ---
 title: Utilizzare tutte le funzioni virtuali per le reti quando sono disponibili
 description: Versione online del testo per questa regola di Best Practices Analyzer.
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
@@ -10,12 +10,12 @@ ms.topic: article
 ms.assetid: bf895484-6a0d-4aa4-9a42-9fac739e875d
 author: KBDAzure
 ms.date: 8/16/2016
-ms.openlocfilehash: 3ad120ffa689f1f7dcae832432e216ebda57e62f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 8798a7021b3df0113b8d957340d6d688acead5c7
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59877792"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71393354"
 ---
 # <a name="use-all-virtual-functions-for-networking-when-they-are-available"></a>Utilizzare tutte le funzioni virtuali per le reti quando sono disponibili
 
@@ -26,22 +26,22 @@ Per altre informazioni sulle procedure consigliate e sulle analisi, vedere [Eseg
 |Proprietà|Dettagli|  
 |-|-|  
 |**Sistema operativo**|Windows Server 2016|  
-|**/ Funzionalità del prodotto**|Hyper-V|  
-|**Severity**|Avviso|  
+|**Prodotto/funzionalità**|Hyper-V|  
+|**Gravità**|Avviso|  
 |**Categoria**|Configurazione|  
   
 Nelle sezioni seguenti, corsivo indica il testo dell'interfaccia Utente visualizzata nello strumento Analizzatore procedure consigliate per questo problema.  
   
 ## <a name="issue"></a>Problema  
-*Alcune funzionalità di accelerazione hardware non presentano un utilizzo*  
+*Alcune funzionalità di accelerazione hardware non vengono utilizzate*  
   
 ## <a name="impact"></a>Impatto  
-*Questa configurazione potrebbe causare l'utilizzo globale della CPU superiori al necessario. Prestazioni di rete potrebbero non essere ottimale nelle macchine virtuali seguenti:*  
+la configurazione *Stanziamento può causare un utilizzo complessivo della CPU superiore al necessario. Le prestazioni di rete potrebbero non essere ottimali nelle macchine virtuali seguenti:*  
   
-\<elenco di macchine virtuali >  
+@no__t 0list di macchine virtuali >  
   
 ## <a name="resolution"></a>Risoluzione  
-*Si consiglia di configurare la scheda di rete virtuale per SR-IOV se l'hardware fisico supporta SR-IOV e se questa configurazione non è in conflitto con le funzionalità di rete necessari per la macchina virtuale.*  
+*Prendere in considerazione la configurazione della scheda di rete virtuale per SR-IOV se l'hardware fisico supporta SR-IOV e se questa configurazione non è in conflitto con le funzionalità di rete richieste dalla macchina virtuale.*  
   
 
 

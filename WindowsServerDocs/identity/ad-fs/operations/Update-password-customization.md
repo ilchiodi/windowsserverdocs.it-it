@@ -7,14 +7,14 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: e67c04c98a53f4f1db36e6586fa77bcf181a8d5a
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: e007d4449cb62e7888c30f5b5929e393d7b571ef
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66188971"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71407456"
 ---
 # <a name="update-password-customization"></a>Aggiornare la personalizzazione di password 
 
@@ -34,4 +34,4 @@ Per personalizzare la descrizione della pagina password aggiornamento, utilizzar
     Set-AdfsGlobalWebContent -UpdatePasswordPageDescriptionText "This is the Contoso Update Password page."  
 
 ## <a name="additional-references"></a>Altri riferimenti 
-[AD FS Sign-in personalizzazione dell'utente](AD-FS-user-sign-in-customization.md)  
+[Personalizzazione dell'accesso utente AD FS](AD-FS-user-sign-in-customization.md)  

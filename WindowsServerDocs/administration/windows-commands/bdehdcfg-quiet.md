@@ -1,8 +1,8 @@
 ---
-title: bdehdcfg quiet
-description: Argomento i comandi di Windows per quiet bdehdcfg - indica bdehdcfg per non visualizzare tutti gli errori e azioni.
+title: BdeHdCfg silenzioso
+description: 'Argomento dei comandi di Windows per BdeHdCfg quiet: indica a BdeHdCfg di non visualizzare tutte le azioni e gli errori.'
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 0f0d98f6ae76e9bf6357689c97e091766b9645c2
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d59a14e34200e3fa8e18e36e166ef62ceca1afe7
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59865752"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71382222"
 ---
-# <a name="bdehdcfg-quiet"></a>bdehdcfg: quiet
+# <a name="bdehdcfg-quiet"></a>BdeHdCfg: non interattiva
 
 
 
-Informa lo strumento da riga di comando Bdehdcfg che tutte le azioni e gli errori non devono essere visualizzati nell'interfaccia della riga di comando. Per un esempio di come è possibile utilizzare questo comando, vedere [esempi](#BKMK_Examples).
+Informa lo strumento da riga di comando BdeHdCfg che tutte le azioni e gli errori non devono essere visualizzati nell'interfaccia della riga di comando. Per un esempio di come è possibile usare questo comando, vedere [esempi](#BKMK_Examples).
 
 ## <a name="syntax"></a>Sintassi
 
@@ -42,12 +42,12 @@ Se durante la preparazione dell'unità avrebbero dovuto essere visualizzate rich
 
 ## <a name="BKMK_Examples"></a>Esempi
 
-Nell'esempio seguente viene illustrato l'utilizzo di **quiet** comando.
+Nell'esempio seguente viene illustrato l'utilizzo del comando **quiet** .
 ```
 bdehdcfg -target default -quiet
 ```
 
 #### <a name="additional-references"></a>Altri riferimenti
 
--   [Chiave sintassi della riga di comando](command-line-syntax-key.md)
--   [Bdehdcfg](bdehdcfg.md)
+-   [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+-   [BdeHdCfg](bdehdcfg.md)

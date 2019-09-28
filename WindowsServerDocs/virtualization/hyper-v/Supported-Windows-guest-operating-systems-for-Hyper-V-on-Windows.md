@@ -1,7 +1,7 @@
 ---
 title: Sistemi operativi guest supportati Windows per Hyper-V in Windows Server
 description: Elenca i sistemi operativi Windows supportati per l'uso come guest in una macchina virtuale. Fornisce inoltre collegamenti ad articoli simili per le versioni precedenti di Hyper-V.
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
@@ -11,12 +11,12 @@ ms.assetid: 06b35897-2192-48b7-8c2d-125c520b0786
 author: lizap
 ms.author: elizapo
 ms.date: 01/08/2019
-ms.openlocfilehash: b24c67de90f8773eec69f10381bd9ce1e121853e
-ms.sourcegitcommit: b68ff64ecd87959cd2acde4a47506a01035b542a
+ms.openlocfilehash: f491f283861098bbe98e253cb2ff1d5cee2ac57f
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68830888"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71365460"
 ---
 # <a name="supported-windows-guest-operating-systems-for-hyper-v-on-windows-server"></a>Sistemi operativi guest supportati Windows per Hyper-V in Windows Server
 
@@ -59,7 +59,7 @@ Nella tabella seguente vengono forniti i collegamenti alle informazioni sui sist
 |Sistema operativo host|Argomento|  
 |-------------------------|---------|  
 |Windows 10|[Sistemi operativi guest supportati per Hyper-V client in Windows 10](https://docs.microsoft.com/virtualization/hyper-v-on-windows/about/supported-guest-os)|  
-|Windows Server 2012 R2 e Windows 8.1|-   [Sistemi operativi guest Windows supportati per Hyper-V in Windows Server 2012 R2 e Windows 8.1](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn792027(v=ws.11))<br />-   [Macchine virtuali Linux e FreeBSD in Hyper-V](Supported-Linux-and-FreeBSD-virtual-machines-for-Hyper-V-on-Windows.md)|  
+|Windows Server 2012 R2 e Windows 8.1|-   [supporta i sistemi operativi guest Windows per Hyper-V in Windows Server 2012 R2 e Windows 8.1](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn792027(v=ws.11))<br />[macchine virtuali Linux e FreeBSD -    in Hyper-V](Supported-Linux-and-FreeBSD-virtual-machines-for-Hyper-V-on-Windows.md)|  
 |Windows Server 2012 e Windows 8|[Sistemi operativi guest Windows supportati per Hyper-V in Windows Server 2012 e Windows 8](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn792028(v=ws.11))|  
 |Windows Server 2008 e Windows Server 2008 R2|[Informazioni sulle macchine virtuali e sui sistemi operativi guest](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc794868(v=ws.10))|  
   

@@ -1,6 +1,6 @@
 ---
 title: Distribuire Cartelle di lavoro con AD FS e Proxy dell'applicazione Web - Passaggio 2, lavoro post-configurazione di AD FS
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: storage-work-folders
 ms.topic: article
 manager: klaasl
@@ -8,31 +8,31 @@ ms.author: jeffpatt
 author: JeffPatt24
 ms.date: 06/06/2019
 ms.assetid: 0a48852e-48cc-4047-ae58-99f11c273942
-ms.openlocfilehash: 5497651f57a0276daced614687e89f8047af9116
-ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
+ms.openlocfilehash: 6364c3f8dc35fbafa518a106780ae6b767d4d40c
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66812681"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71365776"
 ---
-# <a name="deploy-work-folders-with-ad-fs-and-web-application-proxy-step-2-ad-fs-post-configuration-work"></a>Distribuire cartelle di lavoro con AD FS e Proxy applicazione Web: Passaggio 2, lavoro post-configurazione di AD FS
+# <a name="deploy-work-folders-with-ad-fs-and-web-application-proxy-step-2-ad-fs-post-configuration-work"></a>Distribuire cartelle di lavoro con AD FS e il proxy dell'applicazione Web: Passaggio 2, AD FS lavoro di post-configurazione
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016
 
 Questo argomento descrive il secondo passaggio nella distribuzione di Cartelle di lavoro con Active Directory Federation Services (AD FS) e Proxy applicazione Web. È possibile trovare gli altri passaggi di questo processo negli argomenti seguenti:  
   
--   [Distribuire cartelle di lavoro con AD FS e Proxy applicazione Web: Panoramica](deploy-work-folders-adfs-overview.md)  
+-   Cartelle di lavoro [Deploy con AD FS e proxy applicazione Web: Panoramica](deploy-work-folders-adfs-overview.md)  
   
--   [Distribuire cartelle di lavoro con AD FS e Proxy applicazione Web: Passaggio 1, configurare AD FS](deploy-work-folders-adfs-step1.md)  
+-   Cartelle di lavoro [Deploy con AD FS e proxy applicazione Web: Passaggio 1, configurare AD FS @ no__t-0  
   
--   [Distribuire cartelle di lavoro con AD FS e Proxy applicazione Web: Passaggio 3, impostare le cartelle di lavoro](deploy-work-folders-adfs-step3.md)  
+-   Cartelle di lavoro [Deploy con AD FS e proxy applicazione Web: Passaggio 3: configurare cartelle di lavoro @ no__t-0  
   
--   [Distribuire cartelle di lavoro con AD FS e Proxy applicazione Web: Passaggio 4, impostare un Proxy applicazione Web](deploy-work-folders-adfs-step4.md)  
+-   Cartelle di lavoro [Deploy con AD FS e proxy applicazione Web: Passaggio 4: configurare il proxy dell'applicazione Web @ no__t-0  
   
--   [Distribuire cartelle di lavoro con AD FS e Proxy applicazione Web: Passaggio 5, configurare i client](deploy-work-folders-adfs-step5.md)  
+-   Cartelle di lavoro [Deploy con AD FS e proxy applicazione Web: Passaggio 5: configurare i client @ no__t-0  
   
 > [!NOTE]
-> Le istruzioni illustrate in questa sezione sono per un ambiente Windows Server 2016 o Windows Server 2019. Se usi Windows Server 2012 R2, segui le [istruzioni di Windows Server 2012 R2](https://technet.microsoft.com/library/dn747208(v=ws.11).aspx).
+> Le istruzioni descritte in questa sezione si riferiscono a un ambiente Windows Server 2019 o Windows Server 2016. Se usi Windows Server 2012 R2, segui le [istruzioni di Windows Server 2012 R2](https://technet.microsoft.com/library/dn747208(v=ws.11).aspx).
 
 Nel passaggio 1, è stato installato e configurato AD FS. A questo punto, è necessario eseguire i seguenti passaggi di post-configurazione per AD FS.  
   
@@ -104,7 +104,7 @@ Per configurare il trust della relying party:
   
 7.  Nella pagina **Configura URL**, fai clic su **Avanti**.  
   
-8. Nel **Configura identificatori** pagina, aggiungere il seguente identificatore: `https://windows-server-work-folders/V1`. Questo identificatore è un valore hardcoded utilizzato dalle Cartelle di lavoro e viene inviato dal servizio Cartelle di lavoro quando comunica con AD FS. Fare clic su **Avanti**.  
+8. Nella pagina **Configura identificatori** aggiungere l'identificatore seguente: `https://windows-server-work-folders/V1`. Questo identificatore è un valore hardcoded utilizzato dalle Cartelle di lavoro e viene inviato dal servizio Cartelle di lavoro quando comunica con AD FS. Fare clic su **Avanti**.  
   
 9. Nella pagina Scegliere Criteri di controllo di accesso, seleziona **Consenti tutti gli utenti** quindi fai clic su **Avanti**.  
   
@@ -124,13 +124,13 @@ Per configurare il trust della relying party:
   
 17. Nella tabella di mapping, immetti questi valori:  
   
-    -   User-Principal-Name: UPN  
+    -   Nome-entità utente: UPN  
   
     -   Nome visualizzato: Nome  
   
-    -   Cognome: Surname  
+    -   Cognome Surname  
   
-    -   Specificato nome: Nome (di battesimo)  
+    -   Nome specificato: Nome (di battesimo)  
   
 18. Scegliere **Fine**. Potrai visualizzare la regola WorkFolders elencata nella Scheda Regole di trasformazione rilascio e fai clic su **OK**.  
   
@@ -242,15 +242,15 @@ L'installazione del certificato viene descritta in seguito nella procedura di di
   
 13. Nella finestra **Autorizzazioni**, assegna all'account almeno le autorizzazioni di lettura e fai clic su **OK**.  
   
-Se non si ha la possibilità di gestire le chiavi private, è necessario eseguire il comando seguente: `certutil -repairstore my *`  
+Se non si ha la possibilità di gestire le chiavi private, potrebbe essere necessario eseguire il comando seguente: `certutil -repairstore my *`  
   
 ## <a name="verify-that-ad-fs-is-operational"></a>Verificare che AD FS sia operativo
 
-Per verificare che ADFS sia operativo, aprire una finestra del browser e passare a `https://blueadfs.contoso.com/federationmetadata/2007-06/federationmetadata.xml`, la modifica dell'URL per adattarli all'ambiente.
+Per verificare che AD FS sia operativo, aprire una finestra del browser e passare a `https://blueadfs.contoso.com/federationmetadata/2007-06/federationmetadata.xml`, modificando l'URL in modo che corrisponda all'ambiente.
   
 I metadati del server federativo verranno visualizzati nella finestra del browser senza alcuna formattazione. Se è possibile visualizzare i dati senza errori o avvisi SSL, il server federativo è operativo.  
   
-Passaggio successivo: [Distribuire cartelle di lavoro con AD FS e Proxy applicazione Web: Passaggio 3, impostare le cartelle di lavoro](deploy-work-folders-adfs-step3.md)  
+Passaggio successivo: Cartelle di lavoro [Deploy con AD FS e proxy applicazione Web: Passaggio 3: configurare cartelle di lavoro @ no__t-0  
   
 ## <a name="see-also"></a>Vedere anche  
 [Panoramica di cartelle di lavoro](Work-Folders-Overview.md)

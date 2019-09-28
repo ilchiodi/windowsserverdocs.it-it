@@ -1,8 +1,8 @@
 ---
-title: Reg delete
-description: 'Argomento i comandi di Windows per * * *- '
+title: reg delete
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,14 +13,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 369ef3bda37ab8e143a14f0f9707b9bbf14bd5f8
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 7156bf58b27da1602931f0dc1903de71d86764e7
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59877082"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71384756"
 ---
-# <a name="reg-delete"></a>Reg delete
+# <a name="reg-delete"></a>reg delete
 
 
 
@@ -38,8 +38,8 @@ Reg delete <KeyName> [{/v ValueName | /ve | /va}] [/f]
 
 |Parametro|Descrizione|
 |---------|-----------|
-|\<Nome chiave >|Specifica il percorso completo della sottochiave o voce da eliminare. Per specificare un computer remoto, includere il nome del computer (nel formato \\ \\nomecomputer\) come parte del *KeyName*. L'omissione \\ \\ComputerName\ fa sì che l'operazione per impostazione predefinita nel computer locale. Il *KeyName* deve includere una chiave radice valido. Le chiavi principali valide per il computer locale sono: HKLM, HKCU, HKCR, HKU e HKCC. Se viene specificato un computer remoto, le chiavi principali valide sono: HKLM e HKU.|
-|/v \<ValueName>|Elimina una voce specifica della sottochiave. Se non viene specificato alcun valore, verranno eliminate tutti i movimenti e le sottochiavi della sottochiave.|
+|\<KeyName >|Specifica il percorso completo della sottochiave o voce da eliminare. Per specificare un computer remoto, includere il nome del computer (nel formato \\ @ no__t-1ComputerName @ no__t-2 come parte del *nome*della pagina. Se si omette \\ @ no__t-1ComputerName \, l'operazione viene impostata sul computer locale per impostazione predefinita. Il *KeyName* deve includere una chiave radice valido. Le chiavi radice valide per il computer locale sono: HKLM, HKCU, HKCR, HKU e HKCC. Se viene specificato un computer remoto, le chiavi radice valide sono: HKLM e HKU.|
+|/v \<ValueName >|Elimina una voce specifica della sottochiave. Se non viene specificato alcun valore, verranno eliminate tutti i movimenti e le sottochiavi della sottochiave.|
 |/ve|Specifica che verranno eliminate solo le voci che non hanno alcun valore.|
 |/va|Elimina tutte le voci nella sottochiave specificata. Sottochiave sotto la sottochiave specificata non vengono eliminati.|
 |/f|Elimina la sottochiave del Registro di sistema esistente o una voce senza chiedere conferma.|
@@ -52,7 +52,7 @@ Nella tabella seguente sono elencati i valori restituiti per il **reg delete** o
 |Value|Descrizione|
 |-----|-----------|
 |0|Riuscito|
-|1|Operazione non riuscita|
+|1|Errore|
 
 ## <a name="BKMK_examples"></a>Esempi
 
@@ -67,4 +67,4 @@ REG DELETE \\ZODIAC\HKLM\Software\MyCo /v MTU
 
 #### <a name="additional-references"></a>Altri riferimenti
 
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)
+[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

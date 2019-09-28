@@ -1,9 +1,9 @@
 ---
 title: Configurare una porta USB zero stazione client connesso in servizi MultiPoint
-description: Informazioni su come creare una porta USB zero stazione client in servizi MultiPoint
+description: Informazioni su come creare una stazione USB zero client in MultiPoint Services
 ms.custom: na
 ms.date: 07/22/2016
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: multipoint-services
 ms.reviewer: na
 ms.suite: na
@@ -13,17 +13,17 @@ ms.assetid: d2908865-6be3-474d-88f1-995f40bb61d0
 author: lizap
 manager: dongill
 ms.author: elizapo
-ms.openlocfilehash: 1a64373f4ed5e0d1ac96a0257ac5697ff94ffcbe
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 80a73065024e5c40f1ebf8efd64022ee6d48fbe8
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59878932"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71395068"
 ---
 # <a name="set-up-a-usb-zero-client-connected-station-in-multipoint-services"></a>Configurare una porta USB zero stazione client connesso in servizi MultiPoint
 Quando si utilizza il client USB zero per creare le stazioni MultiPoint servizi, il monitoraggio per ogni stazione è connesso alla porta video sul client USB zero, come illustrato nella figura seguente. Per ulteriori informazioni su questo e altri tipi di espansione, vedere [MultiPoint stazioni](MultiPoint-services-Stations.md).
   
-**Sistema multiPoint Services con una stazione di direct-video-connessi e due stazioni USB zero client connesso**  
+**Sistema di servizi MultiPoint con una stazione con connessione diretta a video e due stazioni USB zero con connessione client**  
   
 ![Stazioni con connessione USB zero-client](./media/WMS11_diagram7.gif)  
   

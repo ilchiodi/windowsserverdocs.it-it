@@ -1,23 +1,23 @@
 ---
 title: Distribuire i computer primari per il reindirizzamento cartelle e i profili utente mobili
 description: Come abilitare il supporto del computer primario e designare i computer primari per gli utenti con reindirizzamento cartelle e profili utente mobili.
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.topic: article
 author: JasonGerend
 ms.author: jgerend
 ms.technology: storage
 ms.date: 06/06/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: fe026b97f15b4094303c8162c5363cc6205dedd1
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: be2b41cf32e2020422c32415e2d8f4273eb09859
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70867283"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71394442"
 ---
 # <a name="deploy-primary-computers-for-folder-redirection-and-roaming-user-profiles"></a>Distribuire i computer primari per il reindirizzamento cartelle e i profili utente mobili
 
->Si applica a Windows 10, Windows 8, Windows 8.1, Windows Server 2019, Windows Server 2016, Windows Server 2012, Windows Server 2012 R2
+>Si applica a: Windows 10, Windows 8, Windows 8.1, Windows Server 2019, Windows Server 2016, Windows Server 2012, Windows Server 2012 R2
 
 In questo argomento viene descritto come abilitare il supporto del computer primario e designare i computer primari per gli utenti. In questo modo è possibile controllare quali computer utilizzano il reindirizzamento cartelle e i profili utente mobili.
 

@@ -1,7 +1,7 @@
 ---
 title: Pianificare la distribuzione di dispositivi con l'assegnazione di dispositivi discreti
 description: Informazioni sul funzionamento di DDA in Windows Server
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.service: na
 ms.technology: hyper-v
 ms.tgt_pltfrm: na
@@ -9,12 +9,12 @@ ms.topic: article
 author: chrishuybregts
 ms.author: chrihu
 ms.date: 02/06/2018
-ms.openlocfilehash: 7df7dbd1e7252f5bab451ed9272f9cbede63d223
-ms.sourcegitcommit: 216d97ad843d59f12bf0b563b4192b75f66c7742
+ms.openlocfilehash: 7084f4951ebe1d1203f4c9e45bc5f73cc6487a84
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68476491"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71364189"
 ---
 # <a name="plan-for-deploying-devices-using-discrete-device-assignment"></a>Pianificare la distribuzione di dispositivi con l'assegnazione di dispositivi discreti
 >Si applica a: Microsoft Hyper-V Server 2016, Windows Server 2016, Microsoft Hyper-V Server 2019, Windows Server 2019
@@ -23,7 +23,7 @@ L'assegnazione di un dispositivo discreto consente di accedere direttamente all'
 
 Per la versione iniziale dell'assegnazione di dispositivi discreti, Microsoft si è concentrata su due classi di dispositivi che sono formalmente supportate da Microsoft: Adattatori grafici e dispositivi di archiviazione NVMe.  È probabile che altri dispositivi lavorino e che i fornitori di hardware possano offrire i rapporti di supporto per tali dispositivi.  Per questi altri dispositivi, rivolgersi a tali fornitori di hardware per il supporto.
 
-Se si è pronti per provare l'assegnazione di dispositivi discreti, è possibile passare alla [distribuzione di dispositivi grafici usando l'assegnazione](../deploy/Deploying-graphics-devices-using-dda.md) di dispositivi discreti o la distribuzione di dispositivi di [archiviazione usando l'assegnazione](../deploy/Deploying-storage-devices-using-dda.md) di dispositivi discreti per iniziare.
+Se si è pronti per provare l'assegnazione di dispositivi discreti, è possibile passare alla [distribuzione di dispositivi grafici usando l'assegnazione di dispositivi discreti](../deploy/Deploying-graphics-devices-using-dda.md) o la distribuzione di dispositivi di archiviazione usando l'assegnazione di dispositivi [discreti](../deploy/Deploying-storage-devices-using-dda.md) per iniziare.
 
 ## <a name="supported-virtual-machines-and-guest-operating-systems"></a>Macchine virtuali e sistemi operativi guest supportati
 L'assegnazione di dispositivi discreti è supportata per le macchine virtuali di generazione 1 o 2.  Inoltre, i guest supportati includono Windows 10, Windows Server 2019, Windows Server 2016, Windows Server 2012r2 con [KB 3133690](https://support.microsoft.com/kb/3133690) applicati e varie distribuzioni del [sistema operativo Linux.](../supported-linux-and-freebsd-virtual-machines-for-hyper-v-on-windows.md)
@@ -52,12 +52,12 @@ A causa della natura del modo in cui viene implementata l'assegnazione di dispos
 - Uso della memoria dinamica
 - Aggiunta della macchina virtuale a un cluster a disponibilità elevata
 
-## <a name="security"></a>Sicurezza
+## <a name="security"></a>Security
 L'assegnazione di un dispositivo discreto passa l'intero dispositivo alla macchina virtuale.  Ciò significa che tutte le funzionalità del dispositivo sono accessibili dal sistema operativo guest. Alcune funzionalità, ad esempio l'aggiornamento del firmware, possono avere un impatto negativo sulla stabilità del sistema. Di conseguenza, molti avvisi vengono presentati all'amministratore quando si smonta il dispositivo dall'host. Si consiglia vivamente di usare l'assegnazione di dispositivi discreti solo se i tenant delle macchine virtuali sono attendibili.  
 
 Se l'amministratore desidera usare un dispositivo con un tenant non attendibile, i produttori di dispositivi hanno la possibilità di creare un driver di mitigazione del dispositivo che può essere installato nell'host.  Contattare il produttore del dispositivo per informazioni dettagliate sul fatto che forniscano un driver di mitigazione dei dispositivi.
 
-Se si desidera ignorare i controlli di sicurezza per un dispositivo che non dispone di un driver `-Force` `Dismount-VMHostAssignableDevice` di mitigazione dei dispositivi, sarà necessario passare il parametro al cmdlet.  Si tenga presente che, in questo modo, il profilo di sicurezza del sistema è stato modificato ed è consigliato solo per la realizzazione di prototipi o ambienti attendibili.
+Se si desidera ignorare i controlli di sicurezza per un dispositivo che non dispone di un driver di mitigazione dei dispositivi, sarà necessario passare il parametro `-Force` al cmdlet `Dismount-VMHostAssignableDevice`.  Si tenga presente che, in questo modo, il profilo di sicurezza del sistema è stato modificato ed è consigliato solo per la realizzazione di prototipi o ambienti attendibili.
 
 ## <a name="pcie-location-path"></a>Percorso del percorso PCIe
 Il percorso del percorso PCIe è necessario per smontare e montare il dispositivo dall'host.  Un percorso di esempio è simile al seguente: `"PCIROOT(20)#PCI(0300)#PCI(0000)#PCI(0800)#PCI(0000)"`.   Lo [script del profilo del computer](#machine-profile-script) restituirà anche il percorso del dispositivo PCIe.

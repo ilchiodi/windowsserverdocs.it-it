@@ -7,14 +7,14 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: c690f81620f97622a2f068b07c36e0a6c59e90d4
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 27eb5b4b52dd727afae5cffc60e7d9749dd5d59f
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66190343"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71407769"
 ---
 # <a name="access-control-policies-in-windows-server-2016-ad-fs"></a>Criteri di controllo di accesso in AD FS per Windows Server 2016
 
@@ -52,10 +52,10 @@ Se un amministratore seleziona più condizioni, sono di **AND** relazione. Le az
   
 |**Criterio**|**Regole dei criteri**|
 | --- | --- |  
-|L'accesso Extranet richiede l'autenticazione a più Fattori<br /><br />Sono consentiti tutti gli utenti|**Regola di #1**<br /><br />da **extranet**<br /><br />e con autenticazione a più Fattori<br /><br />Autorizza<br /><br />**Rule#2**<br /><br />da **intranet**<br /><br />Autorizza|  
-|Accesso esterno non sono consentiti tranne non FTE<br /><br />È consentito l'accesso Intranet per FTE sul dispositivo all'area di lavoro|**Regola di #1**<br /><br />Da **extranet**<br /><br />e da **non FTE** gruppo<br /><br />Autorizza<br /><br />**Regola #2**<br /><br />da **intranet**<br /><br />e da **all'area di lavoro** dispositivo<br /><br />e da **FTE** gruppo<br /><br />Autorizza|  
-|L'accesso Extranet richiede autenticazione a più Fattori, ad eccezione di "amministratore del servizio"<br /><br />Tutti gli utenti sono autorizzati ad accedere|**Regola di #1**<br /><br />da **extranet**<br /><br />e con autenticazione a più Fattori<br /><br />Autorizza<br /><br />Ad eccezione di **gruppo amministrativo di servizio**<br /><br />**Regola #2**<br /><br />sempre<br /><br />Autorizza|  
-|dispositivo aggiunto al luogo di lavoro non - l'accesso dalla extranet richiede l'autenticazione a più Fattori<br /><br />Consentire l'infrastruttura di Active Directory per l'accesso intranet ed extranet|**Regola di #1**<br /><br />da **intranet**<br /><br />E da **AD Fabric** gruppo<br /><br />Autorizza<br /><br />**Regola #2**<br /><br />da **extranet**<br /><br />e da **non-all'area di lavoro** dispositivo<br /><br />e da **AD Fabric** gruppo<br /><br />e con autenticazione a più Fattori<br /><br />Autorizza<br /><br />**Regola #3**<br /><br />da **extranet**<br /><br />e da **all'area di lavoro** dispositivo<br /><br />e da **AD Fabric** gruppo<br /><br />Autorizza|  
+|L'accesso Extranet richiede l'autenticazione a più Fattori<br /><br />Sono consentiti tutti gli utenti|**#1 regola**<br /><br />da **extranet**<br /><br />e con autenticazione a più Fattori<br /><br />Autorizza<br /><br />**Regola n. 2**<br /><br />da **intranet**<br /><br />Autorizza|  
+|Accesso esterno non sono consentiti tranne non FTE<br /><br />È consentito l'accesso Intranet per FTE sul dispositivo all'area di lavoro|**#1 regola**<br /><br />Da **extranet**<br /><br />e da **non FTE** gruppo<br /><br />Autorizza<br /><br />**#2 regola**<br /><br />da **intranet**<br /><br />e da **all'area di lavoro** dispositivo<br /><br />e da **FTE** gruppo<br /><br />Autorizza|  
+|L'accesso Extranet richiede autenticazione a più Fattori, ad eccezione di "amministratore del servizio"<br /><br />Tutti gli utenti sono autorizzati ad accedere|**#1 regola**<br /><br />da **extranet**<br /><br />e con autenticazione a più Fattori<br /><br />Autorizza<br /><br />Ad eccezione di **gruppo amministrativo di servizio**<br /><br />**#2 regola**<br /><br />sempre<br /><br />Autorizza|  
+|dispositivo aggiunto al luogo di lavoro non - l'accesso dalla extranet richiede l'autenticazione a più Fattori<br /><br />Consentire l'infrastruttura di Active Directory per l'accesso intranet ed extranet|**#1 regola**<br /><br />da **intranet**<br /><br />E da **AD Fabric** gruppo<br /><br />Autorizza<br /><br />**#2 regola**<br /><br />da **extranet**<br /><br />e da **non-all'area di lavoro** dispositivo<br /><br />e da **AD Fabric** gruppo<br /><br />e con autenticazione a più Fattori<br /><br />Autorizza<br /><br />**#3 regola**<br /><br />da **extranet**<br /><br />e da **all'area di lavoro** dispositivo<br /><br />e da **AD Fabric** gruppo<br /><br />Autorizza|  
   
 ## <a name="parameterized-policy-template-vs-non-parameterized-policy-template"></a>Modello di criteri con parametri senza parametri dei criteri di Visual Studio  
 Criteri di controllo di accesso possono essere  
@@ -75,7 +75,7 @@ Per creare un accesso senza parametri dei criteri di controllo utilizzare la pro
   
 1.  Dalla gestione di ADFS a sinistra selezionare criteri di controllo di accesso e a destra fare clic su Aggiungi criteri di controllo di accesso.  
   
-2.  Immettere un nome e una descrizione.  Ad esempio:   Consentire agli utenti con dispositivi autenticati.  
+2.  Immettere un nome e una descrizione.  Esempio:  Consentire agli utenti con dispositivi autenticati.  
   
 3.  In **consentire l'accesso se viene soddisfatta una delle seguenti regole**, fare clic su **Aggiungi**.  
   
@@ -98,7 +98,7 @@ Per creare un controllo di accesso con parametri criteri utilizzare la procedura
   
 1.  Dalla gestione di ADFS a sinistra selezionare criteri di controllo di accesso e a destra fare clic su Aggiungi criteri di controllo di accesso.  
   
-2.  Immettere un nome e una descrizione.  Ad esempio:   Consentire agli utenti con una determinata attestazione.  
+2.  Immettere un nome e una descrizione.  Esempio:  Consentire agli utenti con un'attestazione specifica.  
   
 3.  In **consentire l'accesso se viene soddisfatta una delle seguenti regole**, fare clic su **Aggiungi**.  
   
@@ -121,7 +121,7 @@ Per creare un controllo di accesso ai criteri con un'eccezione utilizzare la pro
   
 1.  Dalla gestione di ADFS a sinistra selezionare criteri di controllo di accesso e a destra fare clic su Aggiungi criteri di controllo di accesso.  
   
-2.  Immettere un nome e una descrizione.  Ad esempio:   Consentire agli utenti autenticati dispositivi ma non gestito.  
+2.  Immettere un nome e una descrizione.  Esempio:  Consente agli utenti con dispositivi autenticati, ma non gestiti.  
   
 3.  In **consentire l'accesso se viene soddisfatta una delle seguenti regole**, fare clic su **Aggiungi**.  
   
@@ -148,7 +148,7 @@ Per creare un criterio di controllo di accesso con autorizzazione più condizion
   
 1.  Dalla gestione di ADFS a sinistra selezionare criteri di controllo di accesso e a destra fare clic su Aggiungi criteri di controllo di accesso.  
   
-2.  Immettere un nome e una descrizione.  Ad esempio:  Consentire agli utenti con una determinata attestazione e dal gruppo specifico.  
+2.  Immettere un nome e una descrizione.  Esempio:  Consentire agli utenti con un'attestazione specifica e da un gruppo specifico.  
   
 3.  In **consentire l'accesso se viene soddisfatta una delle seguenti regole**, fare clic su **Aggiungi**.  
   

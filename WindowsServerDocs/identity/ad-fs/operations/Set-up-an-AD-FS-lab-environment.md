@@ -6,15 +6,15 @@ author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: 5c91cb97a1b8371d1e3f8e496f026727681e2304
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 921cf4b4b5629df735b20ba59f239abfd6b0d6d6
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70865600"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71407500"
 ---
 # <a name="set-up-an-ad-fs-lab-environment"></a>Impostare un ambiente lab per AD FS
 
@@ -53,7 +53,7 @@ Creare i seguenti account:
   
 - Utente: **Robert Hatley** con le seguenti credenziali, nome utente: **RobertH** e password:<strong>P@ssword</strong>  
   
-- Gruppo: **Finanza**  
+- Gruppo: **Finance**  
   
 Per informazioni sulla creazione di account utente e di gruppo in Active Directory (AD), vedere [https://technet.microsoft.com/library/cc783323%28v=ws.10%29.aspx](https://technet.microsoft.com/library/cc783323%28v=ws.10%29.aspx).  
   
@@ -255,7 +255,7 @@ Per configurare un server Web con questa applicazione di esempio basata su attes
   
 2.  Copiare il contenuto di C:\Programmi (x86) Windows Identity Foundation SDKv 3.5 SamplesQuick StartWeb ApplicationPassiveRedirectBasedClaimsAwareWebApp in C:InetpubClaimapp.  
   
-3.  Modificare il file **Default.aspx.cs** in modo che non venga applicato alcun filtro di attestazioni. Questo passaggio viene eseguito per verificare che l'applicazione di esempio visualizzi tutte le attestazioni rilasciate dal server federativo. Seguire questa procedura:  
+3.  Modificare il file **Default.aspx.cs** in modo che non venga applicato alcun filtro di attestazioni. Questo passaggio viene eseguito per verificare che l'applicazione di esempio visualizzi tutte le attestazioni rilasciate dal server federativo. Eseguire le operazioni seguenti:  
   
     1.  Aprire **Default.aspx.cs** in un editor di testo.  
   

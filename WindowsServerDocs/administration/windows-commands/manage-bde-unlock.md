@@ -1,8 +1,8 @@
 ---
-title: gestire-bde sbloccare
-description: 'Argomento i comandi di Windows per * * *- '
+title: 'gestione: sblocco BDE'
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,14 +13,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: a86267890449be2048221940e5955e49f30f99f3
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 92ed2e00babfad890be83e45827ae8e0080cac40
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59814602"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71373874"
 ---
-# <a name="manage-bde-unlock"></a>gestire-bde: sbloccare
+# <a name="manage-bde-unlock"></a>Manage-bde: sblocco
 
 
 
@@ -37,18 +37,18 @@ manage-bde -unlock {-recoverypassword <Password>|-recoverykey <PathToExternalKey
 |Parametro|Value|Descrizione|
 |---------|-----|-----------|
 |-recoverypassword||Specifica una password di ripristino verrà utilizzata per sbloccare l'unità. Abbreviazione di: - rp|
-||\<Password>|Rappresenta la password di ripristino che può essere utilizzata per sbloccare l'unità.|
+||\<Password >|Rappresenta la password di ripristino che può essere utilizzata per sbloccare l'unità.|
 |-recoverykey||Specifica un file di chiave esterna di ripristino verrà utilizzato per sbloccare l'unità. Abbreviazione: - rk|
-||\<PathToExternalKeyFile>|Rappresenta il file di chiave esterna di ripristino che può essere utilizzato per sbloccare l'unità.|
-||\<Drive>|Rappresenta una lettera di unità seguita da due punti.|
+||\<PathToExternalKeyFile >|Rappresenta il file di chiave esterna di ripristino che può essere utilizzato per sbloccare l'unità.|
+||\<Drive >|Rappresenta una lettera di unità seguita da due punti.|
 |-certificato||Il certificato utente locale di un certificato BitLocker unclock il volume si trova nell'archivio certificati utente locale. Abbreviazione di:-cert|
 ||<-cf PathToCertificateFile >|Percorso del file di certificato|
 ||<-ct CertificateThumbprint >|Identificazione personale del certificato che può includere facoltativamente il PIN (-pin).|
 |-password||Visualizza un prompt dei comandi per la password per sbloccare il volume. Abbreviazione di: - pw|
 |-computername||Specifica che verrà utilizzato Gestione bde.exe per modificare la protezione BitLocker su un computer diverso. Abbreviazione di: - cn|
 ||\<Nome >|Rappresenta il nome del computer in cui si desidera modificare la protezione BitLocker. I valori accettati includono nome NetBIOS del computer e l'indirizzo IP del computer.|
-|-? o /?||Consente di visualizzare breve guida al prompt dei comandi.|
-|-help o -h||Visualizza la Guida completa al prompt dei comandi.|
+|-? o /?||Visualizza una breve guida al prompt dei comandi.|
+|-Help o-h||Visualizza la Guida completa al prompt dei comandi.|
 
 ## <a name="BKMK_Examples"></a>Esempi
 
@@ -59,5 +59,5 @@ manage-bde –unlock E: -recoverykey "F:\Backupkeys\recoverykey.bek"
 
 #### <a name="additional-references"></a>Altri riferimenti
 
--   [Chiave sintassi della riga di comando](command-line-syntax-key.md)
--   [Gestire-bde](manage-bde.md)
+-   [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+-   [Manage-bde](manage-bde.md)

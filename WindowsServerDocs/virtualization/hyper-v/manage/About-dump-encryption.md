@@ -1,19 +1,19 @@
 ---
 title: Informazioni sulla crittografia del dump
 description: Viene descritto come crittografare i file di dump e risolvere i problemi di crittografia.
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 manager: dongill
 ms.topic: article
 author: larsiwer
 ms.asset: b78ab493-e7c3-41f5-ab36-29397f086f32
 ms.author: kathydav
 ms.date: 11/03/2016
-ms.openlocfilehash: d46deee7fc9d911de2a6ee44ae097affe1d658a3
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: e1e374a75c11321820393bede83ca9ea225f5424
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70872137"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71392819"
 ---
 # <a name="about-dump-encryption"></a>Informazioni sulla crittografia del dump
 La crittografia del dump può essere usata per crittografare i dump di arresto anomalo del sistema e i dump Live generati per un sistema. I dump vengono crittografati usando una chiave di crittografia simmetrica generata per ogni dump. Questa chiave viene quindi crittografata usando la chiave pubblica specificata dall'amministratore attendibile dell'host (protezione con chiave di crittografia del dump di arresto anomalo del sistema). In questo modo si garantisce che solo un utente con la chiave privata corrispondente possa decrittografare e quindi accedere al contenuto del dump. Questa funzionalità viene sfruttata in un'infrastruttura sorvegliata.
@@ -27,7 +27,7 @@ Per attivare la crittografia del dump utilizzando il registro di sistema, config
 | ---------- | ---- | ----- |
 | DumpEncryptionEnabled | DWORD | 1 per abilitare la crittografia del dump, 0 per disabilitare la crittografia del dump |
 | EncryptionCertificates\Certificate.1::P ublicKey | Binary | Chiave pubblica (RSA, 2048 bit) da usare per la crittografia dei dump. Questo deve essere formattato come [BCRYPT_RSAKEY_BLOB](https://msdn.microsoft.com/library/windows/desktop/aa375531(v=vs.85).aspx). |
-| EncryptionCertificates\Certificate.1:: identificazione personale | String | Identificazione personale del certificato per consentire la ricerca automatica della chiave privata nell'archivio certificati locale durante la decrittografia di un dump di arresto anomalo del sistema. |
+| EncryptionCertificates\Certificate.1:: identificazione personale | Stringa | Identificazione personale del certificato per consentire la ricerca automatica della chiave privata nell'archivio certificati locale durante la decrittografia di un dump di arresto anomalo del sistema. |
 
 
 ## <a name="configuration-using-script"></a>Configurazione tramite script

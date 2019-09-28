@@ -1,9 +1,9 @@
 ---
 title: Documentazione relativa al ruolo del server Accesso remoto
-description: In questo argomento vengono forniti collegamenti alla documentazione per l'accesso remoto in Windows Server 2016.
+description: In questo argomento vengono forniti i collegamenti alla documentazione per l'accesso remoto in Windows Server 2016.
 manager: brianlic
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-ras
@@ -12,15 +12,15 @@ ms.topic: article
 ms.assetid: 3c6df007-4c39-4b72-9f2c-b2c9b2825c2f
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: e4c1c0d4264971d3ec91af8ca5a1f46331b6bca7
-ms.sourcegitcommit: 63926404009f9e1330a4a0aa8cb9821a2dd7187e
+ms.openlocfilehash: e05eadcbba003c024d22e422efa25584a836e569
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67469693"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71367474"
 ---
 # <a name="remote-access-server-role-documentation"></a>Documentazione relativa al ruolo del server Accesso remoto
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016
 
-Documentazione di ruolo del Server accesso remota vengono fornite istruzioni per distribuire i servizi tre ruolo (VPN Always On, Routing e accesso remoto, Proxy applicazione Web) singolarmente o nello stesso server. Ad esempio, questi documenti si applicano alle situazioni in cui è stato distribuito qualsiasi combinazione dei servizi tre ruolo, ad esempio la distribuzione di RRAS e DirectAccess nello stesso server.  
+La documentazione del ruolo del server accesso remoto fornisce istruzioni per distribuire uno dei tre servizi ruolo (Always On VPN, servizio Routing e accesso remoto, proxy applicazione Web) singolarmente o sullo stesso server. Questi documenti, ad esempio, si applicano a situazioni in cui è stata distribuita una combinazione dei tre servizi ruolo, ad esempio la distribuzione di RRAS e DirectAccess nello stesso server.  

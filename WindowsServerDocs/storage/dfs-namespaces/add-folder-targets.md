@@ -1,19 +1,19 @@
 ---
 title: Aggiungere destinazioni cartella
 description: In questo argomento viene descritto come aggiungere destinazioni cartella (percorsi UNC)
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.author: jgerend
 ms.manager: brianlic
 ms.technology: storage
 ms.topic: article
 author: jasongerend
 ms-date: 06/05/2017
-ms.openlocfilehash: 8cc61189076669d5c24244294b2f0eee2b783517
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: b0685ea795d53b36fad92d54f817f67de57e3a82
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59831002"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71403189"
 ---
 # <a name="add-folder-targets"></a>Aggiungere destinazioni cartella
 
@@ -41,6 +41,6 @@ Per aggiungere una destinazione cartella mediante Gestione DFS, esegui questa pr
 
 ## <a name="see-also"></a>Vedere anche
 
--   [Distribuzione di spazi dei nomi DFS](deploying-dfs-namespaces.md)
--   [Delegare le autorizzazioni di gestione di spazi dei nomi DFS](delegate-management-permissions-for-dfs-namespaces.md)
--   [Replicare le destinazioni cartella tramite la replica DFS](replicate-folder-targets-using-dfs-replication.md)
+-   [Distribuzione di Spazi dei nomi DFS](deploying-dfs-namespaces.md)
+-   [Delegare le autorizzazioni di gestione per Spazi dei nomi DFS](delegate-management-permissions-for-dfs-namespaces.md)
+-   [Replicare destinazioni di cartelle utilizzando Replica DFS](replicate-folder-targets-using-dfs-replication.md)

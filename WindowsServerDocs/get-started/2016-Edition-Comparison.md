@@ -2,7 +2,7 @@
 title: Prodotti ed edizioni di Windows Server 2016
 description: Illustra le differenze tra le edizioni Standard e Datacenter
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.date: 01/03/2017
@@ -14,12 +14,12 @@ author: jaimeo
 ms.author: jaimeo
 manager: dongill
 ms.localizationpriority: medium
-ms.openlocfilehash: 4a305141b839772bb024140bd803073a67e266b2
-ms.sourcegitcommit: 6f968368c12b9dd699c197afb3a3d13c2211f85b
+ms.openlocfilehash: e3d32d596746d2ff137fe2517a6430976f9e77ce
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68544581"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71391885"
 ---
 # <a name="comparison-of-standard-and-datacenter-editions-of-windows-server-2016"></a>Confronto tra le edizioni Standard e Datacenter di Windows Server 2016
 

@@ -1,8 +1,8 @@
 ---
 title: chcp
-description: 'Argomento i comandi di Windows per * * *- '
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 622d4b64128c7e39cc761e4f5e9d69cf54383760
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: d5784b052ff1d7084d68cca0589caf518b8e44a8
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59819202"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71379534"
 ---
 # <a name="chcp"></a>chcp
 
@@ -38,7 +38,7 @@ chcp [<NNN>]
 
 |Parametro|Descrizione|
 |---------|-----------|
-|\<NNN>|Specifica la tabella codici.|
+|\<NNN >|Specifica la tabella codici.|
 |/?|Visualizza la guida al prompt dei comandi.|
 
 La tabella seguente elenca ogni codice supportate pagina e il paese/area geografica o lingua:
@@ -74,7 +74,7 @@ Viene visualizzato un messaggio simile al seguente:
 
 `Active code page: 437`
 
-Per modificare la tabella codici attiva a 850 (multilingue), digitare:
+Per impostare la tabella codici attiva su 850 (multilingue), digitare:
 ```
 chcp 850
 ```
@@ -84,4 +84,4 @@ Se la tabella codici specificata non è valida, viene visualizzato il messaggio 
 
 #### <a name="additional-references"></a>Altri riferimenti
 
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)
+[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

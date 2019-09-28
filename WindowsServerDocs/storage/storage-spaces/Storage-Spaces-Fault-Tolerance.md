@@ -1,6 +1,6 @@
 ---
 title: Tolleranza di errore ed efficienza di archiviazione in Spazi di archiviazione diretta
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.author: cosmosdarwin
 ms.manager: eldenc
 ms.technology: storage-spaces
@@ -10,12 +10,12 @@ ms.date: 10/11/2017
 ms.assetid: 5e1d7ecc-e22e-467f-8142-bad6d82fc5d0
 description: Una descrizione delle opzioni di resilienza in Spazi di archiviazione diretta, tra cui mirroring e parità.
 ms.localizationpriority: medium
-ms.openlocfilehash: 4e6a29e82a85ec9570cda827060dfe1cdf192c53
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d2220584c0021352110b27c3107d1113eb17ef59
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59849572"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71393811"
 ---
 # <a name="fault-tolerance-and-storage-efficiency-in-storage-spaces-direct"></a>Tolleranza di errore ed efficienza di archiviazione in Spazi di archiviazione diretta
 
@@ -179,18 +179,18 @@ A meno che tu non abbia solo due server, ti consigliamo di usare il mirroring a 
 
 Questi sei esempi mostrano le situazioni che **possono** essere tollerate dal mirroring a 3 vie e/o dalla doppia parità.
 
-- **1.**    Un'unità perdita (include le unità di cache)
-- **2.**    Un server perdito
+- **1.**    Perdita di un'unità (incluse le unità cache)
+- **2.**    Un server è andato perso
 
 ![esempi 1 e 2 relativi alla tolleranza di errore](media/Storage-Spaces-Fault-Tolerance/Fault-Tolerance-Example-12.png)
 
-- **3.**    Un server e un'unità persa
-- **4.**    Due unità persa in server diversi
+- **3.**    Un server e un'unità perdute
+- **4.**    Due unità perdute in server diversi
 
 ![esempi 3 e 4 relativi alla tolleranza di errore](media/Storage-Spaces-Fault-Tolerance/Fault-Tolerance-Example-34.png)
 
-- **5.**    Più di due unità perdita, purché si è interessati al massimo due server
-- **6.**    Due server perdito
+- **5.**    Sono state perse più di due unità, purché siano interessati al massimo due server
+- **6.**    Due server persi
 
 ![esempi 5 e 6 relativi alla tolleranza di errore](media/Storage-Spaces-Fault-Tolerance/Fault-Tolerance-Example-56.png)
 
@@ -200,12 +200,12 @@ Questi sei esempi mostrano le situazioni che **possono** essere tollerate dal mi
 
 Nel tempo, Spazi di archiviazione può tollerare un numero qualsiasi di errori, perché ripristina la resilienza completa dopo ognuno di essi, a condizione che ci sia un tempo sufficiente per farlo. Tuttavia, in un momento specifico sono tollerati errori in un massimo di due domini di errore. Gli esempi seguenti mostrano le situazioni che **non possono** essere tollerate dal mirroring a 3 vie e/o dalla doppia parità.
 
-- **7.** Le unità persa in tre o più server in una sola volta
-- **8.** Tre o più server perso in una sola volta
+- **7.** Unità perse in tre o più server contemporaneamente
+- **8.** Tre o più server persi contemporaneamente
 
 ![esempi 7 e 8 relativi alla tolleranza di errore](media/Storage-Spaces-Fault-Tolerance/Fault-Tolerance-Example-78.png)
 
-## <a name="usage"></a>Uso
+## <a name="usage"></a>Utilizzo
 
 Consulta [Creazione di volumi in Spazi di archiviazione diretta](create-volumes.md).
 
@@ -214,9 +214,9 @@ Consulta [Creazione di volumi in Spazi di archiviazione diretta](create-volumes.
 Ognuno dei link seguenti è presente anche nel corpo di questo argomento.
 
 - [Spazi di archiviazione diretta in Windows Server 2016](storage-spaces-direct-overview.md)
-- [Fault Domain Awareness in Windows Server 2016](../../failover-clustering/fault-domains.md)
-- [La codifica di cancellazione in Azure da Microsoft Research](https://www.microsoft.com/en-us/research/publication/erasure-coding-in-windows-azure-storage/)
-- [I codici di ricostruzione locale e accelerando volumi di parità](https://blogs.technet.microsoft.com/filecab/2016/09/06/volume-resiliency-and-efficiency-in-storage-spaces-direct/)
-- [Volumi nell'API di gestione archiviazione](https://blogs.technet.microsoft.com/filecab/2016/08/29/deep-dive-volumes-in-spaces-direct/)
-- [Demo di efficienza di archiviazione presso Microsoft Ignite 2016](https://www.youtube.com/watch?v=-LK2ViRGbWs&t=36m55s)
-- [Spazi di capacità calcolatore di anteprima per l'archiviazione diretta](http://aka.ms/s2dcalc)
+- [Consapevolezza del dominio di errore in Windows Server 2016](../../failover-clustering/fault-domains.md)
+- [Cancellazione della codifica in Azure da Microsoft Research](https://www.microsoft.com/en-us/research/publication/erasure-coding-in-windows-azure-storage/)
+- [Codici di ricostruzione locali e accelerazione di volumi di parità](https://blogs.technet.microsoft.com/filecab/2016/09/06/volume-resiliency-and-efficiency-in-storage-spaces-direct/)
+- [Volumi nell'API di gestione dell'archiviazione](https://blogs.technet.microsoft.com/filecab/2016/08/29/deep-dive-volumes-in-spaces-direct/)
+- [Demo sull'efficienza dell'archiviazione in Microsoft Ignite 2016](https://www.youtube.com/watch?v=-LK2ViRGbWs&t=36m55s)
+- [ANTEPRIMA del calcolatore di capacità per Spazi di archiviazione diretta](http://aka.ms/s2dcalc)

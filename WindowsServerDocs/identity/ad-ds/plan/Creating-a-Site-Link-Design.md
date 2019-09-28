@@ -7,41 +7,41 @@ author: MicrosoftGuyJFlo
 manager: mtillman
 ms.date: 08/08/2018
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 4e0607cf66d41e1747b108a3ecc10562120d9174
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: fdff477a1fb7cbe42402b2bb608eea55f2f9ec09
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59861932"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71402706"
 ---
 # <a name="creating-a-site-link-design"></a>Creazione di un progetto di collegamenti di sito
 
 >Si applica a: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Creare una progettazione di collegamento di sito per connettere i siti con collegamenti di sito. I collegamenti di sito riflettono la connettività tra siti e il metodo utilizzato per trasferire il traffico di replica. È necessario connettere siti con collegamenti di sito in modo che i controller di dominio in ogni sito possono replicare le modifiche di Active Directory.  
+Creare una struttura di collegamento di sito per connettere i siti con i collegamenti di sito. I collegamenti di sito riflettono la connettività e il metodo tra siti usati per trasferire il traffico di replica. È necessario connettere i siti con collegamenti di sito in modo che i controller di dominio in ogni sito possano replicare Active Directory modifiche.  
   
 ## <a name="connecting-sites-with-site-links"></a>Connettere i siti con collegamenti di sito
 
-Per connettere siti con collegamenti di sito, identificare i siti di membro che si desidera connettersi con il collegamento di sito, creare un oggetto collegamento di sito nel rispettivo contenitore trasporti tra siti e quindi assegnare un nome al collegamento di sito. Dopo aver creato il collegamento di sito, è possibile impostare proprietà dei collegamenti di sito.  
+Per connettere siti con collegamenti di sito, identificare i siti membri che si desidera connettere al collegamento di sito, creare un oggetto collegamento di sito nel rispettivo contenitore di trasporti tra siti, quindi denominare il collegamento di sito. Dopo aver creato il collegamento di sito, è possibile procedere con l'impostazione delle proprietà del collegamento di sito.  
   
-Quando si creano i collegamenti di sito, assicurarsi che ogni sito è incluso in un collegamento di sito. Inoltre, assicurarsi che tutti i siti sono connessi tra loro tramite altri collegamenti di sito in modo che le modifiche possano essere replicate dal controller di dominio in un sito qualsiasi per tutti gli altri siti. Se non si riesce a eseguire questa operazione, viene generato un messaggio di errore nel log del servizio Directory nel Visualizzatore eventi che informa che la topologia del sito non è connesso.  
+Quando si creano i collegamenti di sito, verificare che ogni sito sia incluso in un collegamento di sito. Assicurarsi inoltre che tutti i siti siano connessi tra loro tramite altri collegamenti di sito, in modo che le modifiche possano essere replicate dai controller di dominio in qualsiasi sito a tutti gli altri siti. In caso contrario, viene generato un messaggio di errore nel log del servizio directory Visualizzatore eventi indicante che la topologia del sito non è connessa.  
   
-Ogni volta che si aggiungono siti a un collegamento di sito appena creato, determinare se il sito viene aggiunto è un membro di altri collegamenti di sito e modificare l'appartenenza al collegamento di sito del sito se necessario. Ad esempio, se creiamo un sito di un membro di predefinito-primo-sito-Link quando si crea inizialmente il sito, assicurarsi di rimuovere il sito da predefinito-primo-sito-Link dopo aver aggiunto il sito a un nuovo collegamento di sito. Se non si rimuove il sito da predefinito-primo-sito-Link, il controllo di coerenza informazioni (KCC) sarà prendere decisioni di routing basate sull'appartenenza a entrambi i collegamenti di sito, che potrebbe comportare il routing non corretto.  
+Ogni volta che si aggiungono siti a un collegamento di sito appena creato, determinare se il sito da aggiungere è un membro di altri collegamenti di sito e modificare l'appartenenza al collegamento di sito del sito, se necessario. Se, ad esempio, si imposta un sito come membro del collegamento predefinito-primo-sito quando si crea inizialmente il sito, assicurarsi di rimuovere il sito dal collegamento predefinito-primo-sito dopo aver aggiunto il sito a un nuovo collegamento di sito. Se il sito non viene rimosso dal collegamento predefinito-primo-sito, il controllo di coerenza informazioni (KCC) farà prendere decisioni di routing in base all'appartenenza di entrambi i collegamenti di sito, il che potrebbe comportare un routing errato.  
   
-Per identificare i siti di membro che si desidera connettersi con un collegamento di sito, usare l'elenco di percorsi e i percorsi collegati che sono state registrate nel foglio di lavoro "Geografica posizioni e collegamenti di comunicazione" (DSSTOPO_1.doc). Se più siti hanno la stessa connettività e disponibilità tra loro, è possibile connettere tali elementi con lo stesso collegamento di sito.  
+Per identificare i siti membri a cui si desidera connettersi con un collegamento di sito, utilizzare l'elenco delle località e dei percorsi collegati registrati nel foglio di DSSTOPO_1 "posizioni geografiche e collegamenti di comunicazione" (. doc). Se più siti hanno la stessa connettività e disponibilità tra loro, è possibile connetterli con lo stesso collegamento di sito.  
   
-Il contenitore dei trasporti tra siti fornisce i mezzi per il mapping di collegamenti di sito per il trasporto che utilizza il collegamento. Quando si crea un oggetto collegamento di sito, si crea il contenitore IP, che associa il collegamento di sito con la chiamata di procedura remota (RPC) tramite il trasporto IP, o il contenitore Simple Mail Transfer Protocol (SMTP), che associa il collegamento di sito con il protocollo SMTP trasporto.  
+Il contenitore trasporti tra siti fornisce i mezzi per eseguire il mapping dei collegamenti di sito al trasporto utilizzato dal collegamento. Quando si crea un oggetto collegamento di sito, lo si crea nel contenitore IP, che associa il collegamento di sito a RPC (Remote Procedure Call) su trasporto IP o il contenitore Simple Mail Transfer Protocol (SMTP), che associa il collegamento di sito con SMTP trasporto.  
   
 > [!NOTE]  
-> La replica SMTP non sarà supportata nelle versioni future di Active Directory Domain Services (AD DS); Pertanto, non è consigliabile creare gli oggetti di collegamenti di sito nel contenitore SMTP.  
+> La replica SMTP non sarà supportata nelle versioni future di Active Directory Domain Services (AD DS); Pertanto, non è consigliabile creare oggetti collegamenti di sito nel contenitore SMTP.  
   
-Quando si crea un oggetto collegamento di sito nel rispettivo contenitore trasporti tra siti, per il trasferimento tra siti sia all'interno del sito di replica tra controller di dominio Active Directory Domain Services Usa RPC su IP. Per proteggere i dati in transito, replica RPC su IP utilizza sia il Kerberos authentication protocol e crittografia dei dati.  
+Quando si crea un oggetto collegamento di sito nel rispettivo contenitore trasporto tra siti, servizi di dominio Active Directory utilizza RPC su IP per trasferire la replica sia tra siti che tra siti tra i controller di dominio. Per garantire la sicurezza dei dati durante il transito, la replica RPC su IP utilizza sia il protocollo di autenticazione Kerberos che la crittografia dei dati.  
   
-Quando una connessione IP diretta non è disponibile, è possibile configurare la replica tra siti per utilizzare il protocollo SMTP. Tuttavia, funzionalità di replica è limitata e richiede un'autorità di certificazione (CA). SMTP possono replicare solo la configurazione, dello schema e directory applicative e non supporta la replica delle partizioni di directory dominio.  
+Quando non è disponibile una connessione IP diretta, è possibile configurare la replica tra siti per l'utilizzo di SMTP. Tuttavia, la funzionalità di replica SMTP è limitata e richiede un'autorità di certificazione (CA) dell'organizzazione (Enterprise). SMTP può replicare solo le partizioni di directory di configurazione, dello schema e delle applicazioni e non supporta la replica delle partizioni di directory del dominio.  
   
-Per denominare i collegamenti di sito, usare uno schema di denominazione coerente, ad esempio nome_del_sito1 nome_del_sito2. Registrare l'elenco di siti, siti collegati e i nomi dei collegamenti di sito la connessione di questi siti in un foglio di lavoro. Per un foglio di lavoro semplificare la registrazione di nomi dei siti e i nomi di collegamento di sito associati, vedere [processo di supporto per Windows Server 2003 Deployment Kit](https://go.microsoft.com/fwlink/?LinkID=102558), scaricare Job_Aids_Designing_and_Deploying_Directory_and_Security_Services.zip, e aprire "Siti e collegamenti di sito associati" (DSSTOPO_5.doc).  
+Per assegnare un nome ai collegamenti di sito, usare uno schema di denominazione coerente, ad esempio name_of_site1-name_of_site2. Registrare l'elenco di siti, i siti collegati e i nomi dei collegamenti di sito che connettono questi siti in un foglio di un foglio di un foglio di. Per un foglio di lavoro che consente di registrare i nomi dei siti e i nomi dei collegamenti di sito associati, vedere l'argomento relativo ai [processi di supporto per Windows Server 2003 Deployment Kit](https://go.microsoft.com/fwlink/?LinkID=102558), scaricare Job_Aids_Designing_and_Deploying_Directory_and_Security_Services. zip e aprire "siti e Collegamenti di sito associati "(DSSTOPO_5. doc).  
   
 ## <a name="in-this-guide"></a>Contenuto della guida
 

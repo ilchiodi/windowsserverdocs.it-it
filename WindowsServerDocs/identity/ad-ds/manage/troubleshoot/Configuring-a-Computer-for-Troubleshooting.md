@@ -7,55 +7,55 @@ author: MicrosoftGuyJFlo
 manager: mtillman
 ms.date: 08/07/2018
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 1acb5f7d309d58ed4a5a3aca6bb89f01c0cbf933
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 8e11883de9f89d0b95ed0fc35b4f5f3941ef82a3
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59854122"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71368900"
 ---
 # <a name="configuring-a-computer-for-troubleshooting"></a>Configurazione di un computer per la risoluzione dei problemi
 
 >Si applica a: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Prima di utilizzare tecniche di risoluzione dei problemi avanzate per identificare e risolvere i problemi di Active Directory, configurare i computer per la risoluzione dei problemi. È necessario anche una conoscenza di base di risoluzione dei problemi relativi concetti, procedure e strumenti.
+Prima di utilizzare tecniche avanzate di risoluzione dei problemi per identificare e correggere Active Directory problemi, configurare i computer per la risoluzione dei problemi. È inoltre necessario avere una conoscenza di base dei concetti, procedure e strumenti di risoluzione dei problemi.
 
-Per informazioni sugli strumenti di monitoraggio per Windows Server, vedere la Guida dettagliata per [monitoraggio delle prestazioni e affidabilità in Windows Server](https://go.microsoft.com/fwlink/?LinkId=123737)
+Per informazioni sugli strumenti di monitoraggio per Windows Server, vedere la guida dettagliata al [monitoraggio delle prestazioni e dell'affidabilità in Windows Server](https://go.microsoft.com/fwlink/?LinkId=123737)
 
 ## <a name="configuration-tasks-for-troubleshooting"></a>Attività di configurazione per la risoluzione dei problemi
 
-Per configurare il computer per la risoluzione dei problemi di Active Directory Domain Services (AD DS), eseguire le attività seguenti:
+Per configurare il computer per la risoluzione dei problemi Active Directory Domain Services (AD DS), eseguire le attività seguenti:
 
-### <a name="install-remote-server-administration-tools-for-ad-ds"></a>Installare strumenti di amministrazione Server remota per Active Directory Domain Services
+### <a name="install-remote-server-administration-tools-for-ad-ds"></a>Installare Strumenti di amministrazione remota del server per servizi di dominio Active Directory
 
-Quando si installa Active Directory Domain Services per creare un controller di dominio, gli strumenti di amministrazione utilizzabili per gestire Active Directory Domain Services vengono installati automaticamente. Se si desidera gestire i controller di dominio in modalità remota da un computer che non è un controller di dominio, è possibile installare strumenti di amministrazione remota Server (RSAT) in un server membro o una workstation in cui è in esecuzione una versione supportata di Windows. Amministrazione remota del server sostituisce gli strumenti di supporto di Windows da Windows Server 2003.
+Quando si installa Servizi di dominio Active Directory per creare un controller di dominio, gli strumenti di amministrazione utilizzati per la gestione di servizi di dominio Active Directory vengono installati automaticamente. Se si desidera gestire i controller di dominio in modalità remota da un computer che non è un controller di dominio, è possibile installare il Strumenti di amministrazione remota del server (strumenti di amministrazione remota del server) in un server membro o in una workstation che esegue una versione supportata di Windows. Amministrazione remota Windows sostituisce gli strumenti di supporto di Windows da Windows Server 2003.
 
-Per informazioni sull'installazione di amministrazione remota del server, vedere l'articolo [strumenti di amministrazione remota del Server](https://docs.microsoft.com/windows-server/remote/remote-server-administration-tools).
+Per informazioni sull'installazione di strumenti di amministrazione remota del server, vedere l'articolo [strumenti di amministrazione remota del server](https://docs.microsoft.com/windows-server/remote/remote-server-administration-tools).
 
-### <a name="configure-reliability-and-performance-monitor"></a>Configurare Monitoraggio affidabilità e prestazioni
+### <a name="configure-reliability-and-performance-monitor"></a>Configurare il monitoraggio dell'affidabilità e delle prestazioni
 
-Windows Server include il Windows affidabilità e Performance Monitor, che è uno snap-in Microsoft Management Console (MMC) che combina le funzionalità dei precedenti strumenti autonomi, incluso Server Performance Advisor, avvisi e registri di prestazioni e monitoraggio di sistema. Questo snap-in fornisce un'interfaccia utente grafica (GUI) per la personalizzazione di insiemi agenti di raccolta dati e sessioni di traccia eventi.
+Windows Server include il monitoraggio dell'affidabilità e delle prestazioni di Windows, uno snap-in di Microsoft Management Console (MMC) che combina la funzionalità di precedenti strumenti autonomi, tra cui Avvisi e registri di prestazioni, Server Performance Advisor, e monitor di sistema. Questo snap-in fornisce un'interfaccia utente grafica (GUI) per personalizzare gli insiemi agenti di raccolta dati e le sessioni di traccia eventi.
 
-Affidabilità e Performance Monitor include anche Monitoraggio affidabilità, uno snap-in MMC che tiene traccia delle modifiche al sistema e li confronta con le modifiche nella stabilità del sistema, che fornisce una visualizzazione grafica del rapporto di collaborazione.
+Il monitoraggio dell'affidabilità e delle prestazioni include anche Monitoraggio affidabilità, uno snap-in di MMC che consente di tenere traccia delle modifiche apportate al sistema e di confrontarle con le modifiche apportate alla stabilità del sistema, offrendo una visualizzazione grafica della relazione.
 
 ### <a name="set-logging-levels"></a>Impostare i livelli di registrazione
 
-Se le informazioni che viene visualizzato nel log del servizio Directory nel Visualizzatore eventi non sono sufficienti per la risoluzione dei problemi, generare i livelli di registrazione utilizzando la voce del Registro di sistema appropriate nel **HKEY_LOCAL MACHINESYSTEMCurrentControlSetServicesNTDSDiagnostics**.
+Se le informazioni ricevute nel log del servizio directory in Visualizzatore eventi non sono sufficienti per la risoluzione dei problemi, aumentare i livelli di registrazione usando la voce del registro di sistema appropriata in **HKEY_LOCAL_ MACHINESYSTEMCurrentControlSetServicesNTDSDiagnostics**.
 
-Per impostazione predefinita, i livelli di registrazione per tutte le voci sono impostati su **0**, che fornisce la quantità minima di informazioni. È il più elevato livello di registrazione **5**. Aumentare il livello di una voce fa in modo che altri eventi da registrare nel registro eventi del servizio Directory.
+Per impostazione predefinita, i livelli di registrazione per tutte le voci vengono impostati su **0**, che fornisce la quantità minima di informazioni. Il livello di registrazione più alto è **5**. L'aumento del livello di una voce comporta la registrazione di eventi aggiuntivi nel registro eventi del servizio directory.
 
 Utilizzare la procedura seguente per modificare il livello di registrazione per una voce di diagnostica. Per eseguire questa procedura, è necessaria almeno l'appartenenza al gruppo **Domain Admins** o a un gruppo equivalente.
 
 > [!WARNING]
-> È consigliabile non modificare direttamente il Registro di sistema, a meno che non ci siano altre alternative. Modifiche al Registro di sistema non vengono convalidate dall'editor del Registro di sistema o da Windows prima di applicarle, e di conseguenza, possono essere archiviati i valori non corretti. Ciò può causare errori irreversibili nel sistema. Quando possibile, usare criteri di gruppo o altri strumenti di Windows, ad esempio lo snap-in MMC, eseguire le attività, piuttosto che modificare direttamente il Registro di sistema. Se è necessario modificare il Registro di sistema, usare la massima cautela.
+> È consigliabile non modificare direttamente il Registro di sistema, a meno che non ci siano altre alternative. Modifiche al Registro di sistema non vengono convalidate dall'editor del Registro di sistema o da Windows prima di applicarle, e di conseguenza, possono essere archiviati i valori non corretti. Ciò può causare errori irreversibili nel sistema. Quando possibile, utilizzare Criteri di gruppo o altri strumenti di Windows, ad esempio gli snap-in MMC, per eseguire le attività, anziché modificare direttamente il registro di sistema. Se è necessario modificare il Registro di sistema, usare la massima cautela.
 >
 
 Per modificare il livello di registrazione per una voce di diagnostica
 
-1. Fare clic su **avviare** > **eseguire** > tipo **regedit** > fare clic su **OK**.
-2. Passare alla voce per il quale si desidera impostare l'accesso.
+1. Fare clic su **Start** > **eseguire** > digitare **Regedit** > fare clic su **OK**.
+2. Passare alla voce per la quale si desidera impostare l'accesso.
    * ESEMPIO: HKEY_LOCAL_MACHINESYSTEMCurrentControlSetServicesNTDSDiagnostics
-3. Fare doppio clic sulla voce e nella **Base**, fare clic su **decimale**.
-4. Nelle **valore**, digitare un numero intero compreso tra **0** attraverso **5**, quindi fare clic su **OK**.
+3. Fare doppio clic sulla voce e in **base**fare clic su **Decimal**.
+4. In **valore**Digitare un numero intero compreso tra **0** e **5**, quindi fare clic su **OK**.

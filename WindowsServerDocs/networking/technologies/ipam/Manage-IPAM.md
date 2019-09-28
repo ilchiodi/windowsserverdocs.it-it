@@ -1,9 +1,9 @@
 ---
 title: Gestire Gestione indirizzi IP
-description: Questo argomento fa parte della Guida di gestione di gestione indirizzi IP (IPAM) in Windows Server 2016.
+description: Questo argomento fa parte della Guida alla gestione di gestione indirizzi IP in Windows Server 2016.
 manager: brianlic
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-ipam
@@ -12,30 +12,30 @@ ms.topic: article
 ms.assetid: c68905ef-d54f-4fc8-80ac-1006125db64f
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 12d86504df02e7a94709feb9319659ec662d71f5
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: 165ffe41fd79fc9f71f96ef65317375e4120cc5c
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67283920"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71405621"
 ---
 # <a name="manage-ipam"></a>Gestire Gestione indirizzi IP
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016
 
-Questa guida fornisce informazioni sulla risoluzione dei problemi per la funzionalità di gestione indirizzi IP (IPAM) in Windows Server 2016 e amministrazione.  
+Questa guida fornisce informazioni sull'amministrazione e la risoluzione dei problemi per la funzionalità Gestione indirizzi IP in Windows Server 2016.  
   
-In Windows Server 2016, gestione indirizzi IP supporta record di risorse DNS, server d'inoltro condizionale e gestione delle zone DNS per i server DNS integrate in Active Directory e file di backup aggiunto al dominio. Inoltre, gestione indirizzi IP supporta controllo degli accessi in base al ruolo e tutte le funzionalità nelle versioni precedenti della tecnologia.  
+In Windows Server 2016, gestione indirizzi IP supporta i record di risorse DNS, il server d'esecuzione condizionale e la gestione delle zone DNS per i server DNS integrati in Active Directory e con backup di file. IPAM supporta inoltre il controllo degli accessi in base al ruolo e tutte le funzionalità delle versioni precedenti della tecnologia.  
   
 In questa guida sono inclusi gli argomenti seguenti:  
   
--   [Gestione dei Record risorse DNS](../../technologies/ipam/DNS-Resource-Record-Management.md)  
+-   [Gestione dei record di risorse DNS](../../technologies/ipam/DNS-Resource-Record-Management.md)  
   
--   [Gestire le Zone DNS](../../technologies/ipam/DNS-Zone-Management.md)  
+-   [Gestione delle zone DNS](../../technologies/ipam/DNS-Zone-Management.md)  
   
--   [Gestire le risorse in più foreste di Active Directory](../../technologies/ipam/Manage-Resources-in-Multiple-Active-Directory-Forests.md)  
+-   [Gestire le risorse in più foreste Active Directory](../../technologies/ipam/Manage-Resources-in-Multiple-Active-Directory-Forests.md)  
   
--  [Eliminare i dati di utilizzo](../../technologies/ipam/Purge-Utilization-Data.md)  
+-  [Elimina dati di utilizzo](../../technologies/ipam/Purge-Utilization-Data.md)  
   
 -   [Controllo degli accessi in base al ruolo](../../technologies/ipam/Role-based-Access-Control.md)  
   

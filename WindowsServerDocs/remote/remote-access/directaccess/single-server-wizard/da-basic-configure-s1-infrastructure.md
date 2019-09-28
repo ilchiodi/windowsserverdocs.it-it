@@ -1,9 +1,9 @@
 ---
-title: Passaggio 1 configurare l'infrastruttura DirectAccess base
-description: Questo argomento fa parte della Guida di distribuire un Server DirectAccess singolo con l'introduzione avvio procedura guidata per Windows Server 2016
+title: Passaggio 1 configurare l'infrastruttura DirectAccess di base
+description: Questo argomento fa parte della Guida distribuire un server DirectAccess singolo usando la procedura guidata di Introduzione per Windows Server 2016
 manager: brianlic
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-da
@@ -12,16 +12,16 @@ ms.topic: article
 ms.assetid: ba4de2a4-f237-4b14-a8a7-0b06bfcd89ad
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 2a8fb9565c5a84844104b202d749e74337101601
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: 2cd84949dddf75730aca6302f1244f784b5933d0
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67281731"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71388570"
 ---
-# <a name="step-1-configure-the-basic-directaccess-infrastructure"></a>Passaggio 1 configurare l'infrastruttura DirectAccess base
+# <a name="step-1-configure-the-basic-directaccess-infrastructure"></a>Passaggio 1 configurare l'infrastruttura DirectAccess di base
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016
 
 Questo argomento descrive come configurare l'infrastruttura richiesta per una distribuzione di DirectAccess di base che usa un server DirectAccess singolo in un ambiente misto IPv4 e IPv6. Prima di iniziare la procedura di distribuzione, assicurarsi di aver completato i passaggi di pianificazione descritti in [pianificare una distribuzione DirectAccess base](../../../remote-access/directaccess/single-server-wizard/Plan-a-Basic-DirectAccess-Deployment.md).  
   
@@ -38,7 +38,7 @@ Questo argomento descrive come configurare l'infrastruttura richiesta per una di
 > [!NOTE]  
 > Questo argomento include cmdlet di esempio di Windows PowerShell che è possibile usare per automatizzare alcune delle procedure descritte. Per ulteriori informazioni, vedere [mediante i cmdlet](https://go.microsoft.com/fwlink/p/?linkid=230693).  
   
-## <a name="ConfigNetworkSettings"></a>Configurare le impostazioni di rete di server  
+## <a name="ConfigNetworkSettings"></a>Configurare le impostazioni di rete del server  
 Le seguenti impostazioni dell'interfaccia di rete sono necessarie per la distribuzione di un singolo server in un ambiente con IPv4 e IPv6. Tutti gli indirizzi IP vengono configurati tramite **modificare le impostazioni della scheda** nel **Windows Networking and Sharing Center**.  
   
 -   Topologia perimetrale  
@@ -109,7 +109,7 @@ Quando si utilizzano altri firewall, applicare le eccezioni firewall delle rete 
 ## <a name="ConfigDNS"></a>Configurare il server DNS  
 È necessario configurare manualmente una voce DNS per il sito Web del server dei percorsi di rete per la rete interna nella distribuzione.  
   
-### <a name="NLS_DNS"></a>Per creare il percorso di rete server e del probe NCSI i record DNS  
+### <a name="NLS_DNS"></a>Per creare i record DNS del server dei percorsi di rete e del probe NCSI  
   
 1.  Nel server DNS di rete interna, eseguire **dnsmgmt. msc** e quindi premere INVIO.  
   
@@ -121,7 +121,7 @@ Quando si utilizzano altri firewall, applicare le eccezioni firewall delle rete 
   
 5.  Fare clic su **Fine**.  
   
-![Windows PowerShell](../../../media/Step-1-Configure-the-DirectAccess-Infrastructure/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em>***  
+](../../../media/Step-1-Configure-the-DirectAccess-Infrastructure/PowerShellLogoSmall.gif)***<em>comandi equivalenti</em> di PowerShell per Windows PowerShell @no__t 0Windows***  
 
 Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.  
   
@@ -183,7 +183,7 @@ Il server di Accesso remoto e tutti i computer client DirectAccess devono appart
   
 9. Nel **le proprietà di sistema** la finestra di dialogo, fare clic su Chiudi. Fare clic su **Riavvia** quando richiesto.  
   
-![Windows PowerShell](../../../media/Step-1-Configure-the-DirectAccess-Infrastructure/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em>***  
+](../../../media/Step-1-Configure-the-DirectAccess-Infrastructure/PowerShellLogoSmall.gif)***<em>comandi equivalenti</em> di PowerShell per Windows PowerShell @no__t 0Windows***  
   
 Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.  
   
@@ -210,7 +210,7 @@ Per creare un oggetto Criteri di gruppo, vedere [creare e modificare un oggetto 
 > [!NOTE]  
 > Se un oggetto Criteri di gruppo è stato creato manualmente, è possibile durante la configurazione di DirectAccess che l'oggetto Criteri di gruppo non sarà disponibile. L'oggetto Criteri di gruppo potrebbe non essere stato replicato sul controller di dominio più vicino al computer di gestione. In questo caso, l'amministratore può attendere il completamento della replica o forzarla.  
   
-## <a name="ConfigSGs"></a>Configurare gruppi di sicurezza  
+## <a name="ConfigSGs"></a>Configurare i gruppi di sicurezza  
 Le impostazioni di DirectAccess contenute negli oggetti Criteri di gruppo di computer client vengono applicate solo ai computer che sono membri dei gruppi di sicurezza specificati durante la configurazione di accesso remoto.  
   
 ### <a name="Sec_Group"></a>Per creare un gruppo di sicurezza per i client DirectAccess  
@@ -227,7 +227,7 @@ Le impostazioni di DirectAccess contenute negli oggetti Criteri di gruppo di com
   
 6.  Nel **Seleziona utenti, contatti, computer o gli account del servizio** finestra di dialogo, selezionare i computer client che si desidera abilitare per DirectAccess e quindi fare clic su **OK**.  
   
-![Windows PowerShell](../../../media/Step-1-Configure-the-DirectAccess-Infrastructure/PowerShellLogoSmall.gif)**comandi equivalenti di Windows PowerShell**  
+](../../../media/Step-1-Configure-the-DirectAccess-Infrastructure/PowerShellLogoSmall.gif)**comandi equivalenti** di PowerShell per Windows PowerShell @no__t 0Windows  
   
 Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.  
   

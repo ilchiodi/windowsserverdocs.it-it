@@ -1,8 +1,8 @@
 ---
 title: chglogon
-description: 'Argomento relativo a comandi di Windows '
+description: 'Argomento dei comandi di Windows per '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,23 +13,23 @@ ms.date: 10/16/2017
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: aca42e39a520e6e801bb8e7fa8cb2605f3028566
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 52cc465bb220c0a30678f75dcf0a37061fd80d56
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66434441"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71379514"
 ---
 # <a name="chglogon"></a>chglogon
 >Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 
-Abilita o disabilita gli accessi da sessioni client in un server Host sessione Desktop remoto o Visualizza lo stato di accesso corrente.
+Abilita o Disabilita gli accessi da sessioni client in un server Host sessione Desktop remoto o Visualizza lo stato di accesso corrente.
 > [!NOTE]
-> In Windows Server 2008 R2, Servizi terminal si chiama ora Servizi Desktop remoto. Per scoprire quali sono le novità nella versione più recente, vedere [novità in Servizi Desktop remoto in Windows Server 2012](https://technet.microsoft.com/library/hh831527) nella libreria TechNet di Windows Server.
+> In Windows Server 2008 R2, Servizi terminal si chiama ora Servizi Desktop remoto. Per informazioni sulle novità della versione più recente, vedere Novità di [Servizi Desktop remoto in Windows server 2012](https://technet.microsoft.com/library/hh831527) nella libreria TechNet di Windows Server.
 > ## <a name="remarks"></a>Note
 > Questo comando è analogo a come il **modificare accesso** comando.
 > #### <a name="additional-references"></a>Riferimenti aggiuntivi
-> [modificare logon](change-logon.md)
-> [chiave di sintassi della riga di comando](command-line-syntax-key.md)
-> [Remote Desktop Services &#40;servizi Terminal&#41; riferimenti ai comandi](remote-desktop-services-terminal-services-command-reference.md)
+> [modificare l'accesso](change-logon.md)
+> [chiave della sintassi della riga di comando](command-line-syntax-key.md)
+> [Servizi Desktop remoto &#40;riferimento ai comandi di Servizi terminal&#41; ](remote-desktop-services-terminal-services-command-reference.md)

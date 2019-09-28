@@ -7,14 +7,14 @@ ms.author: joflore
 manager: mtillman
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 9e3a5cc2c71455bb040f1311bdbfed1ac7e213fb
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e1018d5bbff5922df5a696e5c4fad12dc9f6ec3d
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59832232"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71408589"
 ---
 # <a name="virtualized-domain-controller-technical-reference-appendix"></a>Appendice della documentazione tecnica sui controller di dominio virtualizzati
 
@@ -24,27 +24,27 @@ Vengono trattati gli argomenti seguenti:
   
 -   [Terminologia](../../../ad-ds/reference/virtual-dc/../../../ad-ds/reference/virtual-dc/Virtualized-Domain-Controller-Technical-Reference-Appendix.md#BKMK_Terms)  
   
--   [FixVDCPermissions.ps1](../../../ad-ds/reference/virtual-dc/../../../ad-ds/reference/virtual-dc/Virtualized-Domain-Controller-Technical-Reference-Appendix.md#BKMK_FixPDCPerms)  
+-   [FixVDCPermissions. ps1](../../../ad-ds/reference/virtual-dc/../../../ad-ds/reference/virtual-dc/Virtualized-Domain-Controller-Technical-Reference-Appendix.md#BKMK_FixPDCPerms)  
   
 ## <a name="BKMK_Terms"></a>Terminologia  
   
--   **Snapshot** -lo stato di una macchina virtuale in un determinato momento. È dipendente la catena di snapshot precedente, nell'hardware e la piattaforma di virtualizzazione.  
+-   **Snapshot** : stato di una macchina virtuale in un determinato momento. Dipende dalla catena di snapshot precedenti acquisita, dall'hardware e dalla piattaforma di virtualizzazione.  
   
--   **Clone** - il completamento e separare copia di una macchina virtuale. Cui dipende l'hardware virtuale (hypervisor).  
+-   **Clone** : copia completa e separata di una macchina virtuale. Dipende dall'hardware virtuale (hypervisor).  
   
--   **Clone completo** -un clone completo è una copia indipendente di una macchina virtuale che non condivide alcuna risorsa con la macchina virtuale padre dopo l'operazione di clonazione. Operazione in corso di un clone completo è completamente separato dalla macchina virtuale padre.  
+-   **Clone completo** : un clone completo è una copia indipendente di una macchina virtuale che non condivide risorse con la macchina virtuale padre dopo l'operazione di clonazione. Il funzionamento continuo di un clone completo è interamente separato dalla macchina virtuale padre.  
   
--   **Disco differenze** -una copia di una macchina virtuale che condivide i dischi virtuali con la macchina virtuale padre in modo continuo. Questo in genere consente di conservare lo spazio su disco e consente più macchine virtuali da usare l'installazione del software stesso.  
+-   **Disco differenze** : copia di una macchina virtuale che condivide i dischi virtuali con la macchina virtuale padre in modo continuo. Questo in genere consente di mantenere lo spazio su disco e consente a più macchine virtuali di usare la stessa installazione software.  
   
--   **Copia macchina virtuale**: un file system copia di tutti i file correlati e le cartelle di una macchina virtuale.  
+-   **Copia**della macchina virtuale: una file System copia di tutti i file e le cartelle correlati di una macchina virtuale.  
   
--   **Copia dei File di disco rigido virtuale** -una copia del disco rigido virtuale della macchina virtuale  
+-   **Copia del file VHD** : copia del disco rigido virtuale di una macchina virtuale  
   
--   **ID di generazione VM** : un intero a 128 bit assegnato alla macchina virtuale dall'hypervisor. Questo ID viene archiviato in memoria e reimpostato ogni volta che viene applicato uno snapshot. La progettazione Usa un meccanismo indipendente dal hypervisor per esporre l'ID di generazione macchina virtuale nella macchina virtuale. L'implementazione di Hyper-V espone l'ID della tabella ACPI della macchina virtuale.  
+-   **ID di generazione VM** : intero a 128 bit assegnato alla macchina virtuale dall'hypervisor. Questo ID viene archiviato in memoria e reimpostato ogni volta che viene applicato uno snapshot. La progettazione usa un meccanismo indipendente dall'hypervisor per l'emersione dell'ID di generazione VM nella macchina virtuale. L'implementazione di Hyper-V espone l'ID nella tabella ACPI della macchina virtuale.  
   
--   **Importazione/esportazione** -funzionalità A Hyper-V che consente all'utente di salvare l'intera macchina virtuale (VM file, disco rigido virtuale e la configurazione della macchina). Consente agli utenti all'uso di tale set di file per portare il computer nuovamente nello stesso computer della VM stessa (ripristino), quindi in un computer diverso nella stessa macchina virtuale (spostare) o una nuova macchina virtuale (copia)  
+-   **Importazione/esportazione** : funzionalità Hyper-V che consente all'utente di salvare l'intera macchina virtuale (file VM, VHD e configurazione macchina). Consente quindi agli utenti di usare tale set di file per riportare il computer nello stesso computer della stessa VM (ripristino), in un computer diverso come la stessa VM (spostamento) o una nuova macchina virtuale (copia)  
   
-## <a name="BKMK_FixPDCPerms"></a>FixVDCPermissions.ps1  
+## <a name="BKMK_FixPDCPerms"></a>FixVDCPermissions. ps1  
   
 ```  
 # Unsigned script, requires use of set-executionpolicy remotesigned -force  

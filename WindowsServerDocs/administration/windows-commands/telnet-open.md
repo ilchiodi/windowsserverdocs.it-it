@@ -1,8 +1,8 @@
 ---
-title: Telnet open
-description: 'Argomento i comandi di Windows per * * *- '
+title: Telnet aperto
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 186664a75978f589a9a26047c72b9db74dd2dc4d
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 4528b728c89bbdfc99de94c7fefebb18c8e1ad97
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66441122"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71383650"
 ---
-# <a name="telnet-open"></a>Telnet: aprire
+# <a name="telnet-open"></a>Telnet: Apri
 
 >Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Si connette a un server telnet.    
+Stabilisce la connessione a un server Telnet.    
 ## <a name="syntax"></a>Sintassi  
 ```  
 o[pen] <hostname> [<Port>]  
@@ -33,11 +33,11 @@ o[pen] <hostname> [<Port>]
 
 | Parametro  |                                        Descrizione                                         |
 |------------|--------------------------------------------------------------------------------------------|
-| <hostname> |                         Specifica il nome del computer o indirizzo IP.                         |
-|  [<Port>]  | Specifica la porta TCP che il server telnet è in ascolto. Il valore predefinito è la porta TCP 23. |
+| <hostname> |                         Specifica il nome del computer o l'indirizzo IP.                         |
+|  [<Port>]  | Specifica la porta TCP su cui è in ascolto il server Telnet. Il valore predefinito è la porta TCP 23. |
 
 ## <a name="BKMK_Examples"></a>Esempi  
-Connettersi a un server telnet in telnet.microsoft.com.  
+Connettersi a un server Telnet in telnet.microsoft.com.  
 ```  
 o telnet.microsoft.com  
 ```  

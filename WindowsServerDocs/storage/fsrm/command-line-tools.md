@@ -2,18 +2,18 @@
 title: 'Strumenti da riga di comando Gestione risorse file server:'
 description: Questo articolo descrive gli strumenti da riga di comando di Windows Server 2016
 ms.date: 7/7/2017
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: storage
 ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: 9b31c133b0ee4382b5b9aeded9b3852c7230d2d8
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 78c054c5b0c3de19d1f3acd825335eab2f140541
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59858442"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71394301"
 ---
 # <a name="file-server-resource-manager-command-line-tools"></a>Strumenti da riga di comando Gestione risorse file server:
 
@@ -59,4 +59,4 @@ Per gestire le risorse remote con gli strumenti da riga di comando:
 
 ## <a name="see-also"></a>Vedere anche
 
--   [La gestione delle risorse di archiviazione remota](managing-remote-storage-resources.md)
+-   [Gestione delle risorse di archiviazione remota](managing-remote-storage-resources.md)

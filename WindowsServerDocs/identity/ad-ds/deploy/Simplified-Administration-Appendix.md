@@ -7,35 +7,35 @@ ms.author: joflore
 manager: mtillman
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 36cdacec27e64586c359146b858a9d68750e5026
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: ffc2849fa5e18f7984814d6187cf83d68566409b
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59858262"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71369638"
 ---
 # <a name="simplified-administration-appendix"></a>Appendice: Amministrazione semplificata
 
 >Si applica a: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
   
--   [Server Manager aggiungere server finestre di dialogo (Active Directory)](../../ad-ds/deploy/Simplified-Administration-Appendix.md#BKMK_AddServers)  
+-   [Finestra di dialogo Server Manager Aggiungi server (Active Directory)](../../ad-ds/deploy/Simplified-Administration-Appendix.md#BKMK_AddServers)  
   
--   [Stato del Server remoto di Server Manager](../../ad-ds/deploy/Simplified-Administration-Appendix.md#BKMK_ServerMgrStatus)  
+-   [Stato del server remoto Server Manager](../../ad-ds/deploy/Simplified-Administration-Appendix.md#BKMK_ServerMgrStatus)  
   
--   [Caricamento del modulo PowerShell di Windows](../../ad-ds/deploy/Simplified-Administration-Appendix.md#BKMK_PSLoadModule)  
+-   [Caricamento del modulo di Windows PowerShell](../../ad-ds/deploy/Simplified-Administration-Appendix.md#BKMK_PSLoadModule)  
   
--   [Aggiornamenti rapidi di rilascio di RID per sistemi operativi precedenti](../../ad-ds/deploy/Simplified-Administration-Appendix.md#BKMK_Rid)  
+-   [Hotfix di rilascio dei RID per i sistemi operativi precedenti](../../ad-ds/deploy/Simplified-Administration-Appendix.md#BKMK_Rid)  
   
--   [Ntdsutil.exe installa da supporto modifiche](../../ad-ds/deploy/Simplified-Administration-Appendix.md#BKMK_IFM)  
+-   [Installazione di Ntdsutil. exe da supporti modifiche](../../ad-ds/deploy/Simplified-Administration-Appendix.md#BKMK_IFM)  
   
-## <a name="BKMK_AddServers"></a>Server Manager aggiungere server finestre di dialogo (Active Directory)  
+## <a name="BKMK_AddServers"></a>Finestra di dialogo Server Manager Aggiungi server (Active Directory)  
 
-Il **Aggiungi server** finestra di dialogo consente la ricerca di Active Directory per i server, dal sistema operativo, usando caratteri jolly e dall'indirizzo. La finestra di dialogo consente anche con le query DNS da nome di dominio completo o prefisso del nome. Queste ricerche usano protocolli LDAP e DNS nativi implementati tramite .NET, non AD Windows PowerShell con il Gateway di gestione di Active Directory tramite SOAP - vale a dire che i controller di dominio contattati dal Server di gestione possono anche eseguire Windows Server 2003. È anche possibile importare un file con nomi di server per scopi di provisioning.  
+La finestra di dialogo **Aggiungi server** consente la ricerca Active Directory per i server, per sistema operativo, per l'utilizzo di caratteri jolly e per percorso. La finestra di dialogo consente inoltre l'utilizzo di query DNS in base al nome di dominio completo o al nome del prefisso. Queste ricerche usano i protocolli DNS e LDAP nativi implementati tramite .NET, non AD Windows PowerShell per il gateway di gestione di Active Directory tramite SOAP, ovvero i controller di dominio contattati da Server Manager possono anche eseguire Windows Server 2003. È anche possibile importare un file con nomi di server a scopo di provisioning.  
   
-La ricerca di Active Directory Usa i filtri LDAP seguenti:  
+La ricerca Active Directory usa i filtri LDAP seguenti:  
   
 ```  
 (&(ObjectCategory=computer)  
@@ -50,22 +50,22 @@ La ricerca di Active Directory Usa i filtri LDAP seguenti:
   
 ```  
   
-La ricerca di Active Directory restituisce gli attributi seguenti:  
+La ricerca Active Directory restituisce i seguenti attributi:  
   
 ```  
 ( dnsHostName )( operatingSystem )( cn )  
   
 ```  
   
-## <a name="BKMK_ServerMgrStatus"></a>Stato del Server remoto di Server Manager  
-Server Manager verifica accessibilità server remoto utilizzando il protocollo di Routing degli indirizzi. Tutti i server non risponde alle richieste ARP non sono elencati, anche se sono in pool.  
+## <a name="BKMK_ServerMgrStatus"></a>Stato del server remoto Server Manager  
+Server Manager verifica l'accessibilità del server remoto usando il protocollo di routing degli indirizzi. Eventuali server che non rispondono alle richieste ARP non sono elencati, anche se sono nel pool.  
   
-Se risponde ARP, le connessioni DCOM e WMI vengono apportate al server per restituire informazioni sullo stato. Se RPC, DCOM e WMI non sono raggiungibili, Gestione server non è possibile gestire completamente i server.  
+Se ARP risponde, le connessioni DCOM e WMI vengono effettuate al server per restituire informazioni sullo stato. Se RPC, DCOM e WMI non sono raggiungibili, Server Manager non è in grado di gestire completamente il server.  
   
-## <a name="BKMK_PSLoadModule"></a>Caricamento del modulo PowerShell di Windows  
-Windows PowerShell 3.0 implementa il caricamento del modulo dinamico. Usando il **Import-Module** cmdlet in genere non è più necessario; in alternativa, è sufficiente richiamare il cmdlet, alias o funzione automaticamente carica il modulo.  
+## <a name="BKMK_PSLoadModule"></a>Caricamento del modulo di Windows PowerShell  
+Windows PowerShell 3,0 implementa il caricamento dinamico dei moduli. L'uso del cmdlet **Import-Module** in genere non è più necessario. ma semplicemente richiamando il cmdlet, l'alias o la funzione carica automaticamente il modulo.  
   
-Per visualizzare i moduli caricati, usare il **Get-Module** cmdlet.  
+Per visualizzare i moduli caricati, usare il cmdlet **Get-Module** .  
   
 ```  
 Get-Module  
@@ -74,14 +74,14 @@ Get-Module
   
 ![Amministrazione semplificata](media/Simplified-Administration-Appendix/ADDS_PSGetModule.gif)  
   
-Per visualizzare tutti i moduli installati con le funzioni esportate e i cmdlet, usare:  
+Per visualizzare tutti i moduli installati con le funzioni e i cmdlet esportati, usare:  
   
 ```  
 Get-Module -ListAvailable  
   
 ```  
   
-Il caso principale per l'uso di **import-module** comando è quando è necessario accedere al "AD:" Il disco virtuale di Windows PowerShell e nessun altro elemento è già caricato il modulo. Ad esempio, usando i comandi seguenti:  
+Il caso principale per l'uso del comando **Import-Module** è quando è necessario accedere a "ad:" L'unità virtuale di Windows PowerShell e nient'altro ha già caricato il modulo. Ad esempio, usando i comandi seguenti:  
   
 ```  
 import-module activedirectory  
@@ -90,19 +90,19 @@ dir
   
 ```  
   
-## <a name="BKMK_Rid"></a>Aggiornamenti rapidi di rilascio di RID per sistemi operativi precedenti  
-Visualizzare [è disponibile un aggiornamento per rilevare e prevenire eccessivo consumo del pool di RID globale in un controller di dominio che esegue Windows Server 2008 R2](https://support.microsoft.com/kb/2618669).  
+## <a name="BKMK_Rid"></a>Hotfix di rilascio dei RID per i sistemi operativi precedenti  
+Vedere [un aggiornamento è disponibile per rilevare e impedire un consumo eccessivo del pool di RID globale in un controller di dominio che esegue Windows Server 2008 R2](https://support.microsoft.com/kb/2618669).  
   
-## <a name="BKMK_IFM"></a>Ntdsutil.exe installa da supporto modifiche  
-Windows Server 2012 aggiunge due opzioni aggiuntive per lo strumento da riga di comando Ntdsutil.exe per il **IFM (creazione di supporti di installazione da supporto)** menu. Questi consentono di creare gli archivi di installazione da supporto senza prima eseguire una deframmentazione non in linea del file NTDS esportato. File di database DIT. Quando lo spazio su disco non è un piano premium, ciò consente di risparmiare tempo creando l'installazione da supporto.  
+## <a name="BKMK_IFM"></a>Installazione di Ntdsutil. exe da supporti modifiche  
+Windows Server 2012 aggiunge due opzioni aggiuntive allo strumento da riga di comando Ntdsutil. exe per il menu **installazione da supporto (installazione da supporto Media Creation)** . Questi consentono di creare archivi installazione da supporto senza prima eseguire una deframmentazione non in linea del NTDS esportato. File di database DIT. Quando lo spazio su disco non è Premium, viene risparmiato tempo per la creazione di installazione da supporto.  
   
-La tabella seguente descrive due nuove voci di menu:  
+Nella tabella seguente vengono descritte le due nuove voci di menu:  
   
 |||  
 |-|-|  
 |Voce di menu|Spiegazione|  
-|Creare NoDefrag completo %s|Creare supporti di installazione da supporto senza effettuare la deframmentazione di un controller di dominio completo di Active Directory o un'istanza di AD LDS/nella cartella %s|  
-|Creare Full Sysvol NoDefrag %s|Creare supporti di installazione da supporto con SYSVOL e senza la deframmentazione di un controller di dominio completo di Active Directory nella cartella %s|  
+|Crea nodefrag% s completa|Creare supporti installazione da supporto senza deframmentazione per un controller di dominio Active Directory completo o un'istanza di AD/LDS nella cartella% s|  
+|Creazione di SYSVOL completa nodefrag% s|Creare un supporto installazione da supporto con SYSVOL e senza deframmentazione per un controller di dominio Active Directory completo nella cartella% s|  
   
 ![Amministrazione semplificata](media/Simplified-Administration-Appendix/ADDS_PSIFM.png)  
   

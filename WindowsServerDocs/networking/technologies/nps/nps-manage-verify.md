@@ -1,90 +1,90 @@
 ---
-title: Verificare la configurazione dopo le modifiche dei criteri di rete
-description: È possibile utilizzare questo argomento per verificare la configurazione di Server dei criteri di rete di Windows Server 2016 dopo un indirizzo IP o nome modificato nel server.
+title: Verificare la configurazione dopo le modifiche di NPS
+description: È possibile utilizzare questo argomento per verificare la configurazione del server dei criteri di rete di Windows Server 2016 dopo che un indirizzo IP o un nome è stato modificato nel server.
 manager: brianlic
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking
 ms.topic: article
 ms.assetid: fc77450e-2af1-47ba-bb23-1fd36d9efdbf
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 144e414e32d413e4863b90ada671753155bc96d7
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 9ba1f5f494228f6bdba22b300a2336fa6eb37690
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59880672"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71405367"
 ---
-# <a name="verify-configuration-after-nps-changes"></a>Verificare la configurazione dopo le modifiche dei criteri di rete
+# <a name="verify-configuration-after-nps-changes"></a>Verificare la configurazione dopo le modifiche di NPS
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016
 
-È possibile utilizzare questo argomento per verificare la configurazione dei criteri di rete dopo la modifica un indirizzo IP o un nome per il server.
+È possibile utilizzare questo argomento per verificare la configurazione del server dei criteri di configurazione dopo che un indirizzo IP o un nome è stato modificato nel server.
 
-## <a name="verify-configuration-after-an-nps-ip-address-change"></a>Verificare la configurazione dopo un cambio di indirizzo IP dei criteri di rete
+## <a name="verify-configuration-after-an-nps-ip-address-change"></a>Verificare la configurazione dopo la modifica di un indirizzo IP NPS
 
-Potrebbero esserci casi in cui è necessario modificare l'indirizzo IP di un proxy, ad esempio quando si sposta il server a un'altra subnet IP o dei criteri di rete. 
+Potrebbero esserci casi in cui è necessario modificare l'indirizzo IP di un server dei criteri di server o proxy, ad esempio quando si sposta il server in una subnet IP diversa. 
 
-Se si modifica un indirizzo IP dei criteri di rete o un proxy, è necessario riconfigurare parti della distribuzione dei criteri di rete. 
+Se si modifica un server dei criteri di server o un indirizzo IP proxy, è necessario riconfigurare le parti della distribuzione del server dei criteri di server. 
 
-Usare le linee guida generali seguenti per facilitare la verifica che un cambio di indirizzo IP non interrompe l'autenticazione di accesso di rete, autorizzazione o accounting sulla rete per i server NPS RADIUS e server proxy RADIUS.
+Usare le linee guida generali seguenti per verificare che la modifica di un indirizzo IP non interrompa l'autenticazione, l'autorizzazione o l'accounting di accesso alla rete per i server RADIUS e i server proxy RADIUS.
 
-È necessario essere un membro del **gli amministratori**, o equivalente, per eseguire queste procedure.
+Per eseguire queste procedure, è necessario essere un membro del gruppo **Administrators**o di un gruppo equivalente.
 
-### <a name="to-verify-configuration-after-an-nps-ip-address-change"></a>Per verificare la configurazione dopo un cambio di indirizzo IP NPS
+### <a name="to-verify-configuration-after-an-nps-ip-address-change"></a>Per verificare la configurazione dopo una modifica dell'indirizzo IP del server dei criteri di server
 
-1. Riconfigurare tutti i client RADIUS, ad esempio punti di accesso wireless e server VPN, con il nuovo indirizzo IP di NPS.
+1. Riconfigurare tutti i client RADIUS, ad esempio punti di accesso wireless e server VPN, con il nuovo indirizzo IP del server dei criteri di rete.
 
-2. Se i criteri di rete è un membro di un gruppo di server RADIUS remoti, riconfigurare il proxy di criteri di rete con il nuovo indirizzo IP di NPS.
+2. Se il server dei criteri di gruppo è membro di un gruppo di server RADIUS remoti, riconfigurare il proxy NPS con il nuovo indirizzo IP del server dei criteri di gruppo.
 
-3. Se è stato configurato per usare la registrazione di SQL Server NPS, verificare che la connettività tra il computer che esegue SQL Server e i criteri di rete funziona ancora correttamente.
+3. Se è stato configurato il server dei criteri di accesso per l'utilizzo di SQL Server registrazione, verificare che la connettività tra il computer che esegue SQL Server e NPS funzioni correttamente.
 
-4. Se è stato distribuito IPsec per proteggere il traffico RADIUS tra i criteri di rete e un proxy di criteri di rete o altri server o dispositivi, riconfigurare i criteri IPsec o la regola di sicurezza di connessione in Windows Firewall con sicurezza avanzata per usare il nuovo indirizzo IP di NPS.
+4. Se è stato distribuito IPsec per proteggere il traffico RADIUS tra il server dei criteri di dominio e un proxy server dei criteri di dominio o altri server o dispositivi, riconfigurare i criteri IPsec o la regola di sicurezza della connessione in Windows Firewall con sicurezza avanzata per usare il nuovo indirizzo IP del server dei criteri di dominio.
 
-5. Se i criteri di rete è multihomed e aver configurato il server da associare a una scheda di rete specifica, riconfigurare le impostazioni di porta dei criteri di rete con il nuovo indirizzo IP.
+5. Se il server dei criteri di rete è multihomed e il server è stato configurato per l'associazione a una scheda di rete specifica, riconfigurare le impostazioni della porta NPS con il nuovo indirizzo IP.
 
-### <a name="to-verify-configuration-after-an-nps-proxy-ip-address-change"></a>Per verificare la configurazione dopo un NPS di indirizzi IP proxy modifica
+### <a name="to-verify-configuration-after-an-nps-proxy-ip-address-change"></a>Per verificare la configurazione dopo la modifica dell'indirizzo IP di un server dei criteri di server
 
-1. Riconfigurare tutti i client RADIUS, ad esempio punti di accesso wireless e server VPN, con il nuovo indirizzo IP del proxy di criteri di rete.
+1. Riconfigurare tutti i client RADIUS, ad esempio punti di accesso wireless e server VPN, con il nuovo indirizzo IP del proxy server dei criteri di rete.
 
-2. Se il proxy di criteri di rete è multihomed e aver configurato il proxy per l'associazione a una scheda di rete specifica, riconfigurare le impostazioni di porta dei criteri di rete con il nuovo indirizzo IP.
+2. Se il proxy server dei criteri di rete è multihomed ed è stato configurato il proxy per l'associazione a una scheda di rete specifica, riconfigurare le impostazioni della porta NPS con il nuovo indirizzo IP.
 
-3. Riconfigurare tutti i membri di tutti i gruppi di server RADIUS remoti con l'indirizzo IP del server proxy. A tale scopo, in ogni NPS con il proxy NPS configurato come client RADIUS:
+3. Riconfigurare tutti i membri di tutti i gruppi di server RADIUS remoti con l'indirizzo IP del server proxy. Per eseguire questa operazione, in ogni server dei criteri di gruppo che dispone del proxy NPS configurato come client RADIUS:
 
-    a. Fare doppio clic su **dei criteri di rete (locale)**, fare doppio clic su **client e server RADIUS**, fare clic su **client RADIUS**e quindi nel riquadro dei dettagli fare doppio clic il client RADIUS che si Se si desidera modificare.
+    a. Fare doppio clic su **NPS (local)** , fare doppio clic su **client e server RADIUS**, fare clic su **client RADIUS**, quindi nel riquadro dei dettagli fare doppio clic sul client RADIUS che si desidera modificare.
 
-    b. Nel client RADIUS **delle proprietà**, nel **indirizzo \(IP o DNS\)**, digitare il nuovo indirizzo IP del proxy di criteri di rete.
+    b. In **Proprietà**client RADIUS, in **Indirizzo \(IP o DNS @ no__t-3**, digitare il nuovo indirizzo IP del proxy NPS.
 
-4. Se è stato configurato il proxy di criteri di rete per usare la registrazione di SQL Server, verificare che la connettività tra il computer che esegue SQL Server e il proxy di criteri di rete funziona ancora correttamente.
+4. Se il proxy NPS è stato configurato per l'uso di SQL Server la registrazione, verificare che la connettività tra il computer che esegue SQL Server e il proxy NPS funzioni ancora correttamente.
 
-## <a name="verify-configuration-after-renaming-an-nps"></a>Verificare la configurazione dopo aver rinominato un criteri di rete
+## <a name="verify-configuration-after-renaming-an-nps"></a>Verificare la configurazione dopo aver rinominato server dei criteri di server
 
-Potrebbero esserci casi quando è necessario modificare il nome di un proxy, ad esempio quando si riprogettare le convenzioni di denominazione per i server o dei criteri di rete.
+In alcuni casi è necessario modificare il nome di un server dei criteri di server o di un proxy, ad esempio quando si riprogettano le convenzioni di denominazione per i server.
 
-Se si modifica un nome dei criteri di rete o un proxy, è necessario riconfigurare parti della distribuzione dei criteri di rete. 
+Se si modifica un nome di server dei criteri di server o proxy, è necessario riconfigurare parti della distribuzione del server dei criteri di server. 
 
-Usare le linee guida generali seguenti per facilitare la verifica che una modifica del nome server non interrompe l'autenticazione di accesso di rete, autorizzazione e accounting.
+Usare le linee guida generali seguenti per verificare che la modifica del nome di un server non interrompa l'autenticazione, l'autorizzazione o l'accounting di accesso alla rete.
 
-È necessario essere un membro del **gli amministratori**, o equivalente, per eseguire questa procedura.
+Per eseguire questa procedura, è necessario essere un membro di **Administrators**o un gruppo equivalente.
 
-### <a name="to-verify-configuration-after-an-nps-or-proxy-name-change"></a>Per verificare la configurazione dopo una modifica del nome dei criteri di rete o un proxy
+### <a name="to-verify-configuration-after-an-nps-or-proxy-name-change"></a>Per verificare la configurazione dopo la modifica di un server dei criteri di server o del proxy
 
-1. Se i criteri di rete è un membro di un gruppo di server RADIUS remoti e il gruppo è configurato con i nomi di computer anziché degli indirizzi IP, riconfigurare il gruppo di server RADIUS remoto con il nuovo nome dei criteri di rete.
+1. Se il server dei criteri di gruppo è membro di un gruppo di server RADIUS remoto e il gruppo è configurato con nomi computer anziché indirizzi IP, riconfigurare il gruppo di server RADIUS remoti con il nuovo nome NPS.
 
-2. Se i metodi di autenticazione basata su certificato vengono distribuiti in NPS, la modifica del nome invalida il certificato del server. È possibile richiedere un nuovo certificato da parte dell'amministratore di autorità (CA) certificazione oppure, se il computer è un computer membro del dominio e registrazione automatica certificati per i membri del dominio, è possibile aggiornare i criteri di gruppo per ottenere un nuovo certificato tramite la registrazione automatica . Per aggiornare criteri di gruppo:
+2. Se i metodi di autenticazione basati su certificato vengono distribuiti in NPS, la modifica del nome invalida il certificato del server. È possibile richiedere un nuovo certificato dall'amministratore dell'autorità di certificazione (CA) oppure, se il computer è un computer membro di dominio e registrare automaticamente i certificati ai membri del dominio, è possibile aggiornare Criteri di gruppo per ottenere un nuovo certificato tramite la registrazione automatica . Per aggiornare Criteri di gruppo:
 
     a. Aprire il prompt dei comandi o Windows PowerShell.
 
     b. Digitare **gpupdate** e quindi premere INVIO.
 
 
-3. Dopo aver creato un nuovo certificato del server, richiedere che l'amministratore della CA revocare il certificato precedente. 
+3. Quando si dispone di un nuovo certificato del server, richiedere all'amministratore della CA di revocare il certificato precedente. 
 
-     Il certificato precedente è stato revocato, NPS continua a usarlo fino a quando non scade il certificato precedente. Per impostazione predefinita, il certificato precedente rimane valido per un tempo massimo di una settimana e 10 ore. Questo periodo di tempo potrebbe essere diverso a seconda del fatto che la scadenza di Strumentazione gestione Windows (CRL, Certificate Revocation List) e la scadenza di tempo della cache di Transport Layer Security (TLS) sono stati modificati i valori predefiniti. La durata CRL predefinita è una settimana; il valore predefinito TLS di memorizzare nella cache ora di scadenza è 10 ore. 
+     Una volta revocato il certificato precedente, NPS continua a utilizzarlo fino alla scadenza del certificato precedente. Per impostazione predefinita, il certificato precedente rimane valido per un periodo di tempo massimo di una settimana e 10 ore. Questo periodo di tempo potrebbe variare a seconda che la scadenza dell'elenco di revoche di certificati (CRL) e la scadenza della cache del Transport Layer Security (TLS) siano state modificate rispetto ai valori predefiniti. La scadenza predefinita del CRL è di una settimana. la scadenza del tempo di memorizzazione nella cache TLS predefinita è 10 ore. 
 
-     Tuttavia, se si vuole configurare criteri di rete per usare immediatamente il nuovo certificato, è possibile riconfigurare manualmente i criteri di rete con il nuovo certificato.
+     Se si desidera configurare server dei criteri di rete per l'utilizzo immediato del nuovo certificato, è tuttavia possibile riconfigurare manualmente i criteri di rete con il nuovo certificato.
 
-4. Dopo che il vecchio certificato scade, dei criteri di rete inizia automaticamente usando il nuovo certificato. 
+4. Una volta scaduto il certificato precedente, NPS inizia automaticamente a usare il nuovo certificato. 
 
-5. Se è stato configurato per usare la registrazione di SQL Server NPS, verificare che la connettività tra il computer che esegue SQL Server e i criteri di rete funziona ancora correttamente.
+5. Se è stato configurato il server dei criteri di accesso per l'utilizzo di SQL Server registrazione, verificare che la connettività tra il computer che esegue SQL Server e NPS funzioni correttamente.
 

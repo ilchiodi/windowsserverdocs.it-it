@@ -7,14 +7,14 @@ ms.author: joflore
 manager: mtillman
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 7292f76155c2bcb47b6c632b969f54f3afb93d50
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d0944377739f43ea5d9b8d0d9c94c13e9f18985f
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59853702"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71390892"
 ---
 # <a name="install-a-new-windows-server-2012-active-directory-child-or-tree-domain-level-200"></a>Installare un nuovo dominio albero o un elemento figlio di Active Directory di Windows Server 2012 (livello 200)
 
@@ -22,23 +22,23 @@ ms.locfileid: "59853702"
 
 In questo argomento viene illustrato come aggiungere domini figlio e albero a una foresta di Windows Server 2012 esistente, con Server Manager o Windows PowerShell.  
   
--   [Elemento figlio e flusso di lavoro dominio albero](../../ad-ds/deploy/Install-a-New-Windows-Server-2012-Active-Directory-Child-or-Tree-Domain--Level-200-.md#BKMK_Workflow)  
+-   [Flusso di lavoro del dominio figlio ed albero](../../ad-ds/deploy/Install-a-New-Windows-Server-2012-Active-Directory-Child-or-Tree-Domain--Level-200-.md#BKMK_Workflow)  
   
--   [Elemento figlio e albero Domain Windows PowerShell](../../ad-ds/deploy/Install-a-New-Windows-Server-2012-Active-Directory-Child-or-Tree-Domain--Level-200-.md#BKMK_PS)  
+-   [Dominio figlio e albero di Windows PowerShell](../../ad-ds/deploy/Install-a-New-Windows-Server-2012-Active-Directory-Child-or-Tree-Domain--Level-200-.md#BKMK_PS)  
   
 -   [Distribuzione](../../ad-ds/deploy/Install-a-New-Windows-Server-2012-Active-Directory-Child-or-Tree-Domain--Level-200-.md#BKMK_Deployment)  
   
-## <a name="BKMK_Workflow"></a>Elemento figlio e flusso di lavoro dominio albero  
+## <a name="BKMK_Workflow"></a>Flusso di lavoro del dominio figlio ed albero  
 Il diagramma seguente illustra il processo di configurazione di Servizi di dominio Active Directory, quando in precedenza è stato installato il ruolo Servizi di dominio Active Directory ed è stata avviata la Configurazione guidata Servizi di dominio Active Directory mediante Server Manager per creare un nuovo dominio in una foresta esistente.  
   
-![Installare un nuovo figlio di Active Directory](media/Install-a-New-Windows-Server-2012-Active-Directory-Child-or-Tree-Domain--Level-200-/adds_childtreedeploy_beta1.png)  
+![Installare un nuovo elemento figlio AD](media/Install-a-New-Windows-Server-2012-Active-Directory-Child-or-Tree-Domain--Level-200-/adds_childtreedeploy_beta1.png)  
   
-## <a name="BKMK_PS"></a>Elemento figlio e albero Domain Windows PowerShell  
+## <a name="BKMK_PS"></a>Dominio figlio e albero di Windows PowerShell  
   
 |||  
 |-|-|  
 |**Cmdlet di ADDSDeployment**|Argomenti. Gli argomenti in **grassetto** sono obbligatori. Gli argomenti in *corsivo* possono essere specificati usando Windows PowerShell o la Configurazione guidata Servizi di dominio Active Directory.|  
-|**Install-AddsDomain**|-SkipPreChecks<br /><br />***-NewDomainName***<br /><br />***-ParentDomainName***<br /><br />***-SafeModeAdministratorPassword***<br /><br />*-ADPrepCredential*<br /><br />-AllowDomainReinstall<br /><br />-Confirm<br /><br />*-CreateDNSDelegation*<br /><br />***-Credential***<br /><br />*-DatabasePath*<br /><br />*-DNSDelegationCredential*<br /><br />-NoDNSOnNetwork<br /><br />*-DomainMode*<br /><br />***-DomainType***<br /><br />-Force<br /><br />*-InstallDNS*<br /><br />*-LogPath*<br /><br />*-NewDomainNetBIOSName*<br /><br />*-NoGlobalCatalog*<br /><br />-NoNorebootoncompletion<br /><br />*-ReplicationSourceDC*<br /><br />*-SiteName*<br /><br />-SkipAutoConfigureDNS<br /><br />*-SYSVOLPath*<br /><br />*-Whatif*|  
+|**Install-AddsDomain**|-SkipPreChecks<br /><br />***-NewDomainName***<br /><br />***-ParentDomainName***<br /><br />***-SafeModeAdministratorPassword***<br /><br />*-ADPrepCredential*<br /><br />-AllowDomainReinstall<br /><br />-Confirm<br /><br />*-CreateDNSDelegation*<br /><br />***-Credential***<br /><br />*-DatabasePath*<br /><br />*-DNSDelegationCredential*<br /><br />-NoDNSOnNetwork<br /><br />*-DomainMode*<br /><br />***-DomainType***<br /><br />-Force<br /><br />*-InstallDNS*<br /><br />*-LogPath*<br /><br />*-NewDomainNetBIOSName*<br /><br />*-NoGlobalCatalog*<br /><br />-NoNorebootoncompletion<br /><br />*-ReplicationSourceDC*<br /><br />*-SiteName*<br /><br />-SkipAutoConfigureDNS<br /><br />*-SYSVOLPath*<br /><br />*-WhatIf*|  
   
 > [!NOTE]  
 > L'argomento **-credential** è obbligatorio solo se attualmente non si è connessi come membro del gruppo Enterprise Admins. L'argomento **-NewDomainNetBIOSName** è obbligatorio solo se si vuole cambiare il nome di 15 caratteri generato automaticamente in base al prefisso del nome di dominio DNS o se il nome supera i 15 caratteri.  
@@ -48,11 +48,11 @@ Il diagramma seguente illustra il processo di configurazione di Servizi di domin
 ### <a name="deployment-configuration"></a>Configurazione distribuzione  
 Nella cattura di schermata seguente vengono visualizzate le opzioni per aggiungere un dominio figlio:  
   
-![Installare un nuovo figlio di Active Directory](media/Install-a-New-Windows-Server-2012-Active-Directory-Child-or-Tree-Domain--Level-200-/ADDS_SMI_TR_ChildDeployConfig.png)  
+![Installare un nuovo elemento figlio AD](media/Install-a-New-Windows-Server-2012-Active-Directory-Child-or-Tree-Domain--Level-200-/ADDS_SMI_TR_ChildDeployConfig.png)  
   
 Nella cattura di schermata seguente vengono visualizzate le opzioni per aggiungere un dominio albero:  
   
-![Installare un nuovo figlio di Active Directory](media/Install-a-New-Windows-Server-2012-Active-Directory-Child-or-Tree-Domain--Level-200-/ADDS_SMI_TR_TreeDeployConfig.png)  
+![Installare un nuovo elemento figlio AD](media/Install-a-New-Windows-Server-2012-Active-Directory-Child-or-Tree-Domain--Level-200-/ADDS_SMI_TR_TreeDeployConfig.png)  
   
 Server Manager inizia l'innalzamento di livello di ogni controller di dominio nella pagina **Configurazione distribuzione** . Le opzioni restanti e i campi obbligatori in questa pagina e nella pagine successive sono diversi a seconda dell'operazione di distribuzione selezionata.  
   
@@ -77,7 +77,7 @@ Install-AddsDomain
 ```  
   
 ### <a name="domain-controller-options"></a>Opzioni controller di dominio  
-![Installare un nuovo figlio di Active Directory](media/Install-a-New-Windows-Server-2012-Active-Directory-Child-or-Tree-Domain--Level-200-/ADDS_SMI_DCOptions_Child.gif)  
+![Installare un nuovo elemento figlio AD](media/Install-a-New-Windows-Server-2012-Active-Directory-Child-or-Tree-Domain--Level-200-/ADDS_SMI_DCOptions_Child.gif)  
   
 La pagina **Opzioni controller di dominio** specifica le opzioni per il nuovo controller di dominio. Le opzioni configurabili per il controller di dominio includono **Server DNS** e **Catalogo globale**. Non è possibile configurare un controller di dominio di sola lettura come primo controller in un nuovo dominio.  
   
@@ -135,7 +135,7 @@ Ad esempio, è possibile utilizzare il cmdlet **Read-Host** per richiedere all'u
   
 ```  
   
-Infine, è possibile archiviare la password offuscata in un file e quindi riutilizzarla in seguito, senza visualizzare mai la password non crittografata. Ad esempio:   
+Infine, è possibile archiviare la password offuscata in un file e quindi riutilizzarla in seguito, senza visualizzare mai la password non crittografata. Esempio:  
   
 ```  
 $file = "c:\pw.txt"  
@@ -157,7 +157,7 @@ Il modulo ADDSDeployment offre un'altra opzione per ignorare la configurazione a
 ```  
   
 ### <a name="dns-options-and-dns-delegation-credentials"></a>Opzioni DNS e credenziali di delega DNS  
-![Installare un nuovo figlio di Active Directory](media/Install-a-New-Windows-Server-2012-Active-Directory-Child-or-Tree-Domain--Level-200-/ADDS_SMI_TR_ChildDNSOptions.png)  
+![Installare un nuovo elemento figlio AD](media/Install-a-New-Windows-Server-2012-Active-Directory-Child-or-Tree-Domain--Level-200-/ADDS_SMI_TR_ChildDNSOptions.png)  
   
 La pagina **Opzioni DNS** consente di specificare credenziali amministrative DNS alternative per la delega.  
   
@@ -173,7 +173,7 @@ Gli argomenti ADDSDeployment di Windows PowerShell per **Opzioni DNS** sono:
 Per altre informazioni sulla delega DNS, vedi [Informazioni sulla delega delle zone](https://technet.microsoft.com/library/cc771640.aspx).  
   
 ### <a name="additional-options"></a>Opzioni aggiuntive  
-![Installare un nuovo figlio di Active Directory](media/Install-a-New-Windows-Server-2012-Active-Directory-Child-or-Tree-Domain--Level-200-/ADDS_SMI_TR_ChildAdditionalOptions.png)  
+![Installare un nuovo elemento figlio AD](media/Install-a-New-Windows-Server-2012-Active-Directory-Child-or-Tree-Domain--Level-200-/ADDS_SMI_TR_ChildAdditionalOptions.png)  
   
 La pagina **Opzioni aggiuntive** mostra il nome NetBIOS del dominio e consente di sostituirlo. Per impostazione predefinita, il nome di dominio NetBIOS corrisponde all'etichetta a sinistra del nome di dominio completo specificato nella pagina **Configurazione distribuzione**. Se, ad esempio, è stato specificato il nome di dominio completo corp.contoso.com, il nome di dominio NetBIOS predefinito è CORP.  
   
@@ -198,7 +198,7 @@ L'argomento del cmdlet di ADDSDeployment per **Opzioni aggiuntive** è:
 ```  
   
 ### <a name="paths"></a>Percorsi  
-![Installare un nuovo figlio di Active Directory](media/Install-a-New-Windows-Server-2012-Active-Directory-Child-or-Tree-Domain--Level-200-/ADDS_SMI_TR_UpgradePaths.png)  
+![Installare un nuovo elemento figlio AD](media/Install-a-New-Windows-Server-2012-Active-Directory-Child-or-Tree-Domain--Level-200-/ADDS_SMI_TR_UpgradePaths.png)  
   
 Nella pagina **Percorsi** è possibile sostituire i percorsi predefiniti delle cartelle per il database di Servizi di dominio Active Directory, i registri delle transazioni del database e la condivisione SYSVOL. Le posizioni predefinite sono sempre in sottodirectory di %systemroot%.  
   
@@ -211,11 +211,11 @@ Gli argomenti del cmdlet di ADDSDeployment per **Percorsi** sono:
 ```  
   
 ### <a name="review-options-and-view-script"></a>Verifica opzioni e Visualizza script  
-![Installare un nuovo figlio di Active Directory](media/Install-a-New-Windows-Server-2012-Active-Directory-Child-or-Tree-Domain--Level-200-/ADDS_SMI_TR_ChildReviewOptions.png)  
+![Installare un nuovo elemento figlio AD](media/Install-a-New-Windows-Server-2012-Active-Directory-Child-or-Tree-Domain--Level-200-/ADDS_SMI_TR_ChildReviewOptions.png)  
   
 Nella pagina **Verifica opzioni** è possibile convalidare le impostazioni e accertarsi se soddisfano i requisiti prima di iniziare l'installazione. Questa non è l'ultima possibilità per interrompere l'installazione quando si utilizza Server Manager. È semplicemente un'opzione per confermare le impostazioni prima di proseguire con la configurazione.  
   
-La pagina **Verifica opzioni** di Server Manager include inoltre un pulsante opzionale **Visualizza script** , che consente di creare un file di testo Unicode contenente la configurazione ADDSDeployment corrente come singolo script di Windows PowerShell. In questo modo è possibile utilizzare l'interfaccia grafica di Server Manager come strumento di distribuzione di Windows PowerShell. Utilizzare la Configurazione guidata Servizi di dominio Active Directory per configurare le opzioni, esportare la configurazione e annullare la procedura guidata.  Questo processo crea un esempio valido e sintatticamente corretto che può essere utilizzato direttamente o successivamente modificato. Ad esempio:   
+La pagina **Verifica opzioni** di Server Manager include inoltre un pulsante opzionale **Visualizza script** , che consente di creare un file di testo Unicode contenente la configurazione ADDSDeployment corrente come singolo script di Windows PowerShell. In questo modo è possibile utilizzare l'interfaccia grafica di Server Manager come strumento di distribuzione di Windows PowerShell. Utilizzare la Configurazione guidata Servizi di dominio Active Directory per configurare le opzioni, esportare la configurazione e annullare la procedura guidata.  Questo processo crea un esempio valido e sintatticamente corretto che può essere utilizzato direttamente o successivamente modificato. Esempio:  
   
 ```  
 #  
@@ -247,10 +247,10 @@ Install-ADDSDomain `
   
 Usare l'argomento facoltativo **Whatif** con il cmdlet **Install-ADDSForest** per rivedere le informazioni sulla configurazione. In questo modo è possibile visualizzare i valori espliciti e impliciti degli argomenti per un cmdlet.  
   
-![Installare un nuovo figlio di Active Directory](media/Install-a-New-Windows-Server-2012-Active-Directory-Child-or-Tree-Domain--Level-200-/ADDS_SMI_TR_ChildWhatIf.png)  
+![Installare un nuovo elemento figlio AD](media/Install-a-New-Windows-Server-2012-Active-Directory-Child-or-Tree-Domain--Level-200-/ADDS_SMI_TR_ChildWhatIf.png)  
   
 ### <a name="prerequisites-check"></a>Controllo dei prerequisiti  
-![Installare un nuovo figlio di Active Directory](media/Install-a-New-Windows-Server-2012-Active-Directory-Child-or-Tree-Domain--Level-200-/ADDS_SMI_TR_ChildPrereqCheck.png)  
+![Installare un nuovo elemento figlio AD](media/Install-a-New-Windows-Server-2012-Active-Directory-Child-or-Tree-Domain--Level-200-/ADDS_SMI_TR_ChildPrereqCheck.png)  
   
 **Controllo dei prerequisiti** è una nuova funzionalità nella configurazione del dominio di Servizi di dominio Active Directory. Questa nuova fase convalida che la configurazione server sia in grado di supportare un nuovo dominio Servizi di dominio Active Directory.  
   
@@ -272,7 +272,7 @@ Non è possibile ignorare il **Controllo prerequisiti** quando si usa Server Man
 Fare clic su **Installa** per iniziare il processo di innalzamento di livello del controller di dominio. È l'ultima opportunità per annullare l'installazione. Non è possibile annullare il processo di innalzamento di livello una volta iniziato. Al termine dell'innalzamento di livello il computer verrà riavviato automaticamente, indipendentemente dai risultati.  
   
 ### <a name="installation"></a>Installazione  
-![Installare un nuovo figlio di Active Directory](media/Install-a-New-Windows-Server-2012-Active-Directory-Child-or-Tree-Domain--Level-200-/ADDS_SMI_TR_ChildInstallation.png)  
+![Installare un nuovo elemento figlio AD](media/Install-a-New-Windows-Server-2012-Active-Directory-Child-or-Tree-Domain--Level-200-/ADDS_SMI_TR_ChildInstallation.png)  
   
 Quando la pagina **Installazione** viene visualizzata, la configurazione del controller di dominio inizia e non può essere interrotta o annullata. I dettagli delle operazioni vengono visualizzati in questa pagina e scritti nei log:  
   
@@ -288,9 +288,9 @@ Install-addsdomain
   
 Per gli argomenti obbligatori e facoltativi, vedere [Windows PowerShell per domini figlio e domini albero](../../ad-ds/deploy/Install-a-New-Windows-Server-2012-Active-Directory-Child-or-Tree-Domain--Level-200-.md#BKMK_PS). Il cmdlet **Install-addsdomain** ha solo due fasi (controllo dei prerequisiti e installazione). Nelle due figure seguenti è illustrata la fase di installazione con gli argomenti minimi obbligatori di **-domaintype**, **-newdomainname**, **-parentdomainname** e **-credential**. Si noti che, esattamente come Server Manager, **Install-ADDSDomain** ricorda che l'innalzamento di livello riavvierà automaticamente il server.  
   
-![Installare un nuovo figlio di Active Directory](media/Install-a-New-Windows-Server-2012-Active-Directory-Child-or-Tree-Domain--Level-200-/ADDS_PSInstallADDSDomain.png)  
+![Installare un nuovo elemento figlio AD](media/Install-a-New-Windows-Server-2012-Active-Directory-Child-or-Tree-Domain--Level-200-/ADDS_PSInstallADDSDomain.png)  
   
-![Installare un nuovo figlio di Active Directory](media/Install-a-New-Windows-Server-2012-Active-Directory-Child-or-Tree-Domain--Level-200-/ADDS_PSInstallADDSDomainProgress.png)  
+![Installare un nuovo elemento figlio AD](media/Install-a-New-Windows-Server-2012-Active-Directory-Child-or-Tree-Domain--Level-200-/ADDS_PSInstallADDSDomainProgress.png)  
   
 Per accettare automaticamente il prompt di riavvio, usare gli argomenti **-force** o **-confirm:$false** con un cmdlet ADDSDeployment di Windows PowerShell. Per evitare il riavvio automatico del server al termine dell'innalzamento di livello, usare l'argomento **-norebootoncompletion**.  
   
@@ -298,7 +298,7 @@ Per accettare automaticamente il prompt di riavvio, usare gli argomenti **-force
 > Si sconsiglia di eseguire l'override del riavvio. Il controller di dominio deve essere riavviato per funzionare correttamente.  
   
 ### <a name="results"></a>Risultati  
-![Installare un nuovo figlio di Active Directory](media/Install-a-New-Windows-Server-2012-Active-Directory-Child-or-Tree-Domain--Level-200-/ADDS_SMI_TR_ForestSignOff.png)  
+![Installare un nuovo elemento figlio AD](media/Install-a-New-Windows-Server-2012-Active-Directory-Child-or-Tree-Domain--Level-200-/ADDS_SMI_TR_ForestSignOff.png)  
   
 La pagina **Risultati** mostra l'esito positivo o negativo dell'innalzamento di livello e le informazioni amministrative importanti. Il controller di dominio verrà automaticamente riavviato dopo 10 secondi.  
   

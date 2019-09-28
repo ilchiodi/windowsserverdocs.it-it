@@ -1,7 +1,7 @@
 ---
 title: MPIO in Nano Server
 description: Configurazione di MPIO in Nano
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.service: na
 manager: DonGill
 ms.date: 09/06/2017
@@ -12,19 +12,19 @@ ms.assetid: fbef4d91-e18c-4f1b-952f-a9a7ad46cd74
 author: jaimeo
 ms.author: jaimeo
 ms.localizationpriority: medium
-ms.openlocfilehash: 15d9ebfe72744ed26239587ef297b06361233425
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: 7b1f352fbdc625ee2b0fd6fa1fa28eeb576215b9
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "63687684"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71360204"
 ---
 # <a name="mpio-on-nano-server"></a>MPIO in Nano Server
 
 >Si applica a: Windows Server 2016
 
 > [!IMPORTANT]
-> A partire da Windows Server, versione 1709, Nano Server sarà disponibile solo come [immagine del sistema operativo di base del contenitore](/virtualization/windowscontainers/quick-start/using-insider-container-images#install-base-container-image). Per informazioni, vedi [Modifiche apportate a Nano Server](nano-in-semi-annual-channel.md). 
+> A partire da Windows Server versione 1709, Nano Server sarà disponibile solo come [immagine del sistema operativo di base del contenitore](/virtualization/windowscontainers/quick-start/using-insider-container-images#install-base-container-image). Per informazioni, vedi [Modifiche apportate a Nano Server](nano-in-semi-annual-channel.md). 
 
 Questo argomento introduce l'uso di MPIO in installazioni Nano Server di Windows Server 2016. Per informazioni di carattere generale su FMPIO in Windows Server, vedere [Panoramica di Multipath I/O](https://technet.microsoft.com/library/cc725907.aspx).  
 

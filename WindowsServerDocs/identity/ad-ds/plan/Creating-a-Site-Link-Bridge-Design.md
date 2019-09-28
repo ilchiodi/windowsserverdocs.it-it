@@ -7,36 +7,36 @@ author: MicrosoftGuyJFlo
 manager: mtillman
 ms.date: 08/08/2018
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 4a194aa2fe2594c518d310cd86549945487d101e
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 79e91481c357d05617ee0ddc716e2bf6e90b8b27
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59813992"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71408964"
 ---
 # <a name="creating-a-site-link-bridge-design"></a>Creazione di un progetto di ponte di collegamenti di sito
 
 >Si applica a: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Un ponte di collegamenti di sito si connette due o più siti si collega e consente la transitività tra i collegamenti di sito. Ogni collegamento di sito in un bridge deve avere un sito in comune con un altro collegamento di sito nel bridge. Il controllo di coerenza informazioni (KCC) utilizza le informazioni su ogni collegamento di sito per calcolare il costo della replica tra siti in un collegamento di sito e in altri collegamenti di sito del bridge. Senza la presenza di un sito comune tra i collegamenti di sito, KCC inoltre non è possibile stabilire connessioni dirette tra i controller di dominio nei siti che sono connessi tramite il ponte di collegamenti di sito stesso.  
+Un Bridge di collegamenti di sito connette due o più collegamenti di sito e Abilita la transitività tra i collegamenti di sito. Ogni collegamento di sito in un bridge deve avere un sito in comune con un altro collegamento di sito nel Bridge. Il controllo di coerenza informazioni (KCC) utilizza le informazioni di ogni collegamento di sito per calcolare il costo della replica tra siti in un collegamento di sito e siti negli altri collegamenti del sito del Bridge. Senza la presenza di un sito comune tra i collegamenti di sito, KCC non è inoltre in grado di stabilire connessioni dirette tra i controller di dominio nei siti connessi dallo stesso Bridge di collegamenti di sito.  
   
-Per impostazione predefinita, tutti i collegamenti di sito sono transitivi. È consigliabile mantenere abilitata non viene modificato il valore predefinito di transitività **Bridge i collegamenti di sito** (abilitato per impostazione predefinita). Tuttavia, è necessario disabilitare **Bridge i collegamenti di sito** e completare una progettazione di ponte di collegamento di sito se:  
+Per impostazione predefinita, tutti i collegamenti di sito sono transitivi. È consigliabile abilitare la transitività evitando di modificare il valore predefinito di **Bridge all site links** (abilitato per impostazione predefinita). Tuttavia, sarà necessario disabilitare **Bridge tutti i collegamenti di sito** e completare una progettazione del Bridge di collegamenti di sito se:  
 
-- Rete IP non viene indirizzato completamente. Quando si disabilita **Bridge i collegamenti di sito**, tutti i collegamenti di sito sono considerati non transitivi ed è possibile creare e configurare oggetti ponte di collegamenti di sito per modellare il comportamento di routing effettivo della rete.  
-- È necessario controllare il flusso di replica delle modifiche apportate in Active Directory Domain Services (AD DS). Disabilitando **Bridge i collegamenti di sito** per il trasporto IP collegamento di sito e configurare un bridge di collegamenti di sito, il ponte di collegamenti di sito diventa l'equivalente di una rete indipendente. Tutti i collegamenti di sito entro il ponte di collegamenti di sito possono indirizzare in modo transitivo, ma non indirizzino di fuori il ponte di collegamenti di sito.  
+- La rete IP non è completamente instradata. Quando si disabilita **Bridge tutti i collegamenti di sito**, tutti i collegamenti di sito sono considerati non transitivi ed è possibile creare e configurare oggetti Bridge di collegamenti di sito per modellare il comportamento di routing effettivo della rete.  
+- È necessario controllare il flusso di replica delle modifiche apportate in Active Directory Domain Services (AD DS). Disabilitando **Bridge tutti i collegamenti di sito** per il trasporto IP del collegamento di sito e la configurazione di un Bridge di collegamenti di sito, il Bridge di collegamenti di sito diventa l'equivalente di una rete disgiunta. Tutti i collegamenti di sito nel Bridge di collegamenti di sito possono essere indirizzati in modo transitivo, ma non vengono indirizzati all'esterno del Bridge di collegamenti di sito.  
 
-Per altre informazioni su come usare lo snap-in servizi e siti di Active Directory per disabilitare il **Bridge i collegamenti di sito** ll'impostazione, vedere l'articolo [abilitare o disabilitare i ponti di collegamenti di sito](https://go.microsoft.com/fwlink/?LinkId=107073).  
+Per ulteriori informazioni sull'utilizzo dello snap-in siti e servizi Active Directory per disabilitare l'impostazione **Bridge tutti i collegamenti di sito** , vedere l'articolo [abilitare o disabilitare i Bridge di collegamenti di sito](https://go.microsoft.com/fwlink/?LinkId=107073).  
   
-## <a name="controlling-ad-ds-replication-flow"></a>Controllo del flusso di replica di Active Directory Domain Services
+## <a name="controlling-ad-ds-replication-flow"></a>Controllo del flusso di replica di servizi di dominio Active Directory
 
-Due scenari in cui è necessario una progettazione di bridge di collegamento di sito per controllare il flusso di replica includono il failover della replica di controllo e controllo della replica tramite un firewall.  
+Due scenari in cui è necessario un progetto di Bridge di collegamenti di sito per controllare il flusso di replica includono il controllo del failover della replica e il controllo della replica tramite un firewall.  
   
-### <a name="controlling-replication-failover"></a>Controllare il failover della replica
+### <a name="controlling-replication-failover"></a>Controllo del failover della replica
 
-Se l'organizzazione ha una topologia di rete hub-spoke, in genere non si desidera siti il satellite per creare connessioni di replica in altri siti satellite se tutti i controller di dominio nel sito hub hanno esito negativo. In questi scenari, è necessario disabilitare **Bridge i collegamenti di sito** e creare bridge di collegamenti di sito in modo che le connessioni di replica vengono create tra il sito satellite e un altro sito hub che è solo uno o due passaggi rispetto al sito satellite.  
+Se l'organizzazione dispone di una topologia di rete hub-spoke, in genere non si desidera che i siti satellite creino connessioni di replica ad altri siti satellite se tutti i controller di dominio nel sito hub hanno esito negativo. In questi scenari, è necessario disabilitare **Bridge tutti i collegamenti di sito** e creare ponti di collegamenti di sito in modo da creare le connessioni di replica tra il sito satellite e un altro sito hub che è costituito solo da uno o due hop al di fuori del sito satellite.  
   
 ### <a name="controlling-replication-through-a-firewall"></a>Controllo della replica tramite un firewall
 
-Se due controller di dominio che rappresenta il dominio stesso in due siti diversi siano esplicitamente consentiti per comunicare tra loro solo attraverso un firewall, è possibile disabilitare **Bridge i collegamenti di sito** e creare bridge di collegamenti di sito per siti sullo stesso lato del firewall. Pertanto, se la rete è separata da firewall, è consigliabile disabilitare la transitività dei collegamenti di sito e creare bridge di collegamenti di sito per la rete su un lato del firewall. Per informazioni sulla gestione della replica attraverso i firewall, vedere l'articolo [Active Directory in reti segmentate tramite firewall](https://go.microsoft.com/fwlink/?LinkId=107074).
+Se due controller di dominio che rappresentano lo stesso dominio in due siti diversi sono specificamente autorizzati a comunicare tra loro solo tramite un firewall, è possibile disabilitare **Bridge tutti i collegamenti di sito** e creare ponti di collegamenti di sito per i siti sullo stesso lato del firewall. Se pertanto la rete è separata da firewall, è consigliabile disabilitare la transitività dei collegamenti di sito e creare ponti di collegamenti di sito per la rete su un lato del firewall. Per informazioni sulla gestione della replica tramite firewall, vedere l'articolo [Active Directory in reti segmentate da firewall](https://go.microsoft.com/fwlink/?LinkId=107074).

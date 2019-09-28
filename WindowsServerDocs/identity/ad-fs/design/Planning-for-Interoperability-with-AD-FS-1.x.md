@@ -7,32 +7,32 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 9c5f49bd0ee0da9c3b92bad96f16ca310f82c239
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: e9f72bd83c90a804749329521a72e3232589c735
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66445335"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71407968"
 ---
 # <a name="planning-for-interoperability-with-ad-fs-1x"></a>Pianificazione per l'interoperabilità con AD FS 1.x
 
-Active Directory Federation Services \(ADFS\) che esegue Windows Server® 2012 server federativi possono interagire con entrambi un'istanza di ADFS 1.0 \(installata con Windows Server 2003 R2\) servizio federativo e un'istanza di ADFS 1.1 \(installato con Windows Server 2008 o Windows Server 2008 R2\) servizio federativo. Sono supportate le seguenti combinazioni di interoperabilità:  
+Active Directory Federation Services \(AD FS @ no__t-1 i server federativi che eseguono Windows Server® 2012 possono interagire con un AD FS 1,0 \(installed con Windows Server 2003 R2 @ no__t-3 Servizio federativo e un AD FS 1,1 \(installed con Windows Server 2008 o Windows Server 2008 R2 @ no__t-5 Servizio federativo. Sono supportate le seguenti combinazioni di interoperabilità:  
 
--   Qualsiasi istanza di ADFS 1. *x* servizio federativo può inviare un'attestazione che può essere utilizzata da un servizio federativo di AD FS in Windows Server 2012. Per ulteriori informazioni, vedere [Elenco di controllo: Configurazione di ADFS per utilizzare attestazioni ADFS 1.x](../../ad-fs/deployment/Checklist--Configuring-AD-FS--to-Consume-Claims-from-AD-FS-1.x.md).  
+-   Qualsiasi AD FS 1. *x* servizio federativo può inviare un'attestazione che può essere utilizzata da un Servizio federativo di ad FS in Windows Server 2012. Per ulteriori informazioni, vedere [Elenco di controllo: Configurazione di AD FS per l'utilizzo di attestazioni da AD FS 1. x @ no__t-0.  
 
--   Qualsiasi servizio federativo ADFS in Windows Server 2012 può inviare un'istanza di ADFS 1. *x*\-attestazione compatibili che può essere utilizzati da un'istanza di ADFS 1. *x* servizio federativo. Per ulteriori informazioni, vedere [Elenco di controllo: Configurazione di AD FS per l'invio di attestazioni a un servizio federativo di AD FS 1.x](../../ad-fs/deployment/Checklist--Configuring-AD-FS-to-Send-Claims-to-an-AD-FS-1.x-Federation-Service.md).  
+-   Qualsiasi Servizio federativo di AD FS in Windows Server 2012 può inviare un AD FS 1. *x*@no__t: attestazione 1compatible che può essere utilizzata da un ad FS 1. *x* servizio federativo. Per ulteriori informazioni, vedere [Elenco di controllo: Configurazione AD FS per inviare attestazioni a una AD FS 1. x Servizio federativo @ no__t-0.  
 
--   Qualsiasi servizio federativo ADFS in Windows Server 2012 può inviare un'istanza di ADFS 1. *x*\-attestazione compatibili che può essere utilizzati da uno o più server Web che esegue AD FS 1. *x* attestazioni\-agente Web compatibile con. Per ulteriori informazioni, vedere [Elenco di controllo: Configurazione di AD FS per l'invio di attestazioni a un agente di AD FS 1.x Claims-Aware Web](../../ad-fs/deployment/Checklist--Configuring-AD-FS-to-Send-Claims-to-an-AD-FS-1.x-Claims-Aware-Web-Agent.md).  
+-   Qualsiasi Servizio federativo di AD FS in Windows Server 2012 può inviare un AD FS 1. *x*@no__t: attestazione 1compatible che può essere utilizzata da uno o più server Web che eseguono il ad FS 1. *x* Claims @ no__t-3aware Web Agent. Per ulteriori informazioni, vedere [Elenco di controllo: Configurazione AD FS per inviare attestazioni a un agente Web in grado di riconoscere attestazioni AD FS 1. x @ no__t-0.  
 
 > [!NOTE]  
-> ADFS non supporta né offre interoperabilità con AD FS 1. *x* agente Web basato su token Windows NT.  
+> AD FS non supporta o interagisce con il AD FS 1. agente Web basato su *token Windows NT* .  
 
-Un'istanza di ADFS 1. *x*\-attestazione compatibile è un'attestazione che può essere inviata da un servizio federativo di AD FS in Windows Server 2012 e compresa da un'istanza di ADFS 1. *x* servizio federativo. In modo che un'istanza di ADFS 1. *x* servizio federativo può utilizzare le attestazioni inviate da un servizio federativo AD FS, un identificatore di nome \(ID\) attestazione di tipo deve essere inviato.  
+AD FS 1. *x*@no__t 1compatible è un'attestazione che può essere inviata da un ad FS servizio federativo in Windows Server 2012 e riconosciuta da un ad FS 1. *x* servizio federativo. Quindi, un AD FS 1. *x* servizio federativo possibile utilizzare le attestazioni inviate da un ad FS servizio federativo, è necessario inviare un identificatore nome \(ID @ no__t-2 tipo di attestazione.  
 
 ## <a name="understanding-the-name-id-claim-type"></a>Informazioni sul tipo di attestazione ID nome  
-Il tipo di attestazione ID nome equivale al tipo di attestazione di identità usato da AD FS 1.*x* . Questa attestazione deve essere usata ogni volta che è necessaria l'interoperabilità con AD FS 1.*x*. L'attestazione ID nome tipo Abilita sia un'istanza di ADFS 1. *x* servizio federativo o AD FS 1. *x* attestazioni\-agente Web compatibile con per utilizzare attestazioni inviate da ADFS in Windows Server 2012, purché queste attestazioni siano inviate in uno dei formati di ID nome nella tabella seguente.  
+Il tipo di attestazione ID nome equivale al tipo di attestazione di identità usato da AD FS 1.*x* . Questa attestazione deve essere usata ogni volta che è necessaria l'interoperabilità con AD FS 1.*x*. Il tipo di attestazione ID nome Abilita un AD FS 1. *x* Servizio federativo o ad FS 1. *x* Claims @ no__t-2aware Web Agent to User Claims that ad FS in Windows Server 2012 sends, purché queste attestazioni vengano inviate in uno dei formati ID nome nella tabella seguente.  
 
 
 |      Formato ID nome       |               URI corrispondente                |
@@ -40,12 +40,12 @@ Il tipo di attestazione ID nome equivale al tipo di attestazione di identità us
 | Indirizzo di posta elettronica AD FS 1.*x* | http://schemas.xmlsoap.org/claims/EmailAddress |
 |   UPN di posta elettronica AD FS 1.*x*   |     http://schemas.xmlsoap.org/claims/UPN      |
 |        Nome comune        |  http://schemas.xmlsoap.org/claims/CommonName  |
-|           Raggruppa           |    http://schemas.xmlsoap.org/claims/Group     |
+|           Group           |    http://schemas.xmlsoap.org/claims/Group     |
 
 Deve essere inviata solo una attestazione ID nome nel formato appropriato. Una volta soddisfatto questo criterio, è possibile inviare anche molte altre attestazioni, a condizione che siano che siano conformi alle restrizioni descritte nella tabella.  
 
 > [!NOTE]  
-> Un'istanza di ADFS 1. *x* servizio federativo può interpretare i tipi di attestazione solo in ingresso che iniziano con l'Uniform Resource Identifier \(URI\) di http://schemas.xmlsoap.org/claims/.  
+> AD FS 1. *x* servizio federativo può interpretare solo i tipi di attestazione in ingresso che iniziano con il Uniform Resource Identifier \(URI @ no__t-2 di http://schemas.xmlsoap.org/claims/.  
 
 ## <a name="see-also"></a>Vedere anche
 [Guida alla progettazione di AD FS in Windows Server 2012](AD-FS-Design-Guide-in-Windows-Server-2012.md)

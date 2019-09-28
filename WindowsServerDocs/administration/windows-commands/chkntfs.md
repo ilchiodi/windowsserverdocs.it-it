@@ -1,8 +1,8 @@
 ---
 title: chkntfs
-description: 'Argomento i comandi di Windows per * * *- '
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 876c0e0c254216ac217aea7d165d5f4e3a7da9b4
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: f940fe81f0e7e01495e071931059b2375b78bb22
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59861992"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71379350"
 ---
 # <a name="chkntfs"></a>chkntfs
 
 
 
-Visualizza o modifica automatica del disco di controllo quando il computer viene avviato. Se utilizzata senza le opzioni, **chkntfs** consente di visualizzare il file system del volume specificato. Se il controllo automatico dei file è pianificato per l'esecuzione, **chkntfs** Visualizza se il volume specificato è stato modificato o verrà selezionata la volta successiva che il computer viene avviato.
+Visualizza o modifica il controllo del disco automatico all'avvio del computer. Se utilizzata senza opzioni, **chkntfs** visualizza la file System del volume specificato. Se è pianificata l'esecuzione del controllo automatico dei file, **chkntfs** Visualizza se il volume specificato è modificato o è pianificato per essere controllato al successivo avvio del computer.
 
 > [!NOTE]
 > Per eseguire **chkntfs**, è necessario essere un membro del gruppo Administrators.
@@ -45,11 +45,11 @@ chkntfs [/c <Volume> [...]]
 
 |Parametro|Descrizione|
 |---------|-----------|
-|\<Volume > [...]|Specifica uno o più volumi per controllare quando il computer viene avviato. I volumi validi includono lettere di unità (seguite da due punti), punti o i nomi dei volumi di montaggio.|
-|/d|Ripristina tutti **chkntfs** predefinite, eccetto il conto alla rovescia per la verifica automatica dei file. Per impostazione predefinita, tutti i volumi vengono controllati quando il computer viene avviato, e **chkdsk** viene eseguito su quelli che vengono modificati.|
-|/t [:\<tempo >]|Modifica il conto alla rovescia initiation Autochk.exe alla quantità di tempo espresso in secondi. Se non si immette una volta **/t** Visualizza l'ora corrente del conto alla rovescia.|
-|/x \<volume > [...]|Specifica uno o più volumi da escludere dalla verifica quando il computer viene avviato, anche se il volume è contrassegnato in modo che richiedano **chkdsk**.|
-|/c \<volume > [...]|Pianifica l'uno o più volumi da controllare quando il computer viene avviato e viene eseguito **chkdsk** su quelle che sono dirty.|
+|\<Volume > [...]|Specifica uno o più volumi da controllare all'avvio del computer. I volumi validi includono le lettere di unità (seguite da due punti), i punti di montaggio o i nomi dei volumi.|
+|/d|Ripristina tutte le impostazioni predefinite di **chkntfs** , eccetto l'ora del conto alla rovescia per il controllo automatico dei file. Per impostazione predefinita, tutti i volumi vengono controllati all'avvio del computer e **chkdsk** viene eseguito su quelli sporchi.|
+|/t [: \<Tempo >]|Modifica l'ora del conto alla rovescia di avvio Autochk. exe per la quantità di tempo specificata in secondi. Se non si immette un'ora, **/t** Visualizza l'ora del conto alla rovescia corrente.|
+|/x \<Volume > [...]|Specifica uno o più volumi da escludere dal controllo quando il computer viene avviato, anche se il volume è contrassegnato per la richiesta di **chkdsk**.|
+|/c \<Volume > [...]|Pianifica uno o più volumi da controllare all'avvio del computer ed esegue **chkdsk** su quelli che sono sporchi.|
 |/?|Visualizza la guida al prompt dei comandi.|
 
 ## <a name="BKMK_examples"></a>Esempi
@@ -64,31 +64,31 @@ The type of the file system is NTFS.
 ```
 
 > [!NOTE]
-> Se il controllo automatico dei file è pianificato per l'esecuzione, verrà visualizzato l'output aggiuntivi, che indica se l'unità è stato modificato o è stata manualmente pianificata sia selezionata la volta successiva che il computer viene avviato.
+> Se è pianificata l'esecuzione del controllo automatico dei file, verrà visualizzato un output aggiuntivo che indica se l'unità è sporca o è stata pianificata manualmente per essere controllata al successivo avvio del computer.
 
-Per visualizzare il conto alla rovescia Autochk.exe avvio, digitare:
+Per visualizzare l'ora del conto alla rovescia di avvio Autochk. exe, digitare:
 ```
 chkntfs /t
 ```
-Ad esempio, se il conto alla rovescia viene impostato su 10 secondi, viene visualizzato l'output seguente:
+Se, ad esempio, l'ora del conto alla rovescia è impostata su 10 secondi, viene visualizzato l'output seguente:
 ```
 The AUTOCHK initiation countdown time is set to 10 second(s).
 ```
-Per modificare il conto alla rovescia initiation Autochk.exe su 30 secondi, digitare:
+Per modificare il tempo del conto alla rovescia di avvio di Autochk. exe in 30 secondi, digitare:
 ```
 chkntfs /t:30
 ```
 
 > [!NOTE]
-> Sebbene sia possibile impostare il conto alla rovescia Autochk.exe inizializzazione su zero, tale operazione così sarà dall'annullamento di una verifica automatica dei file potrebbe richiedere molto tempo.
+> Sebbene sia possibile impostare il tempo del conto alla rovescia per l'avvio di Autochk. exe su zero, in questo modo si impedisce l'annullamento di un controllo automatico del file che richiede molto tempo.
 
-Il **/x** opzione della riga di comando non è cumulabile. Se si digita più di una volta, la voce più recente sostituisce la voce precedente. Per escludere più volumi da sottoposto al controllo, è necessario elencare ognuno di essi in un unico comando. Ad esempio, per escludere i volumi sia D ed E, digitare:
+L'opzione della riga di comando **/x** non è cumulativa. Se si digita più volte, la voce più recente sostituisce quella precedente. Per escludere più volumi da controllare, è necessario elencarli tutti in un unico comando. Ad esempio, per escludere sia i volumi D che E, digitare:
 ```
 chkntfs /x d: e:
 ```
-Il **/c** opzione della riga di comando è cumulativa. Se si digita **/c** più volte, ogni voce rimane. Per assicurarsi che sia selezionato solo un determinato volume, reimpostare le impostazioni predefinite per cancellare tutti i comandi precedenti, escludere tutti i volumi di archiviazione e quindi pianificare controllo sul volume automatico dei file.
+L'opzione della riga di comando **/c** è cumulativa. Se si digita **/c** più di una volta, ogni voce rimane. Per assicurarsi che sia selezionato solo un determinato volume, reimpostare le impostazioni predefinite per cancellare tutti i comandi precedenti, escludere tutti i volumi da controllare e quindi pianificare il controllo automatico dei file nel volume desiderato.
 
-Ad esempio, per pianificare il volume D ma non i volumi C o E controllo automatico dei file, digitare i comandi seguenti nell'ordine indicato:
+Ad esempio, per pianificare il controllo automatico dei file sul volume D ma non sui volumi C o E, digitare i comandi seguenti nell'ordine indicato:
 ```
 chkntfs /d
 chkntfs /x c: d: e:
@@ -97,4 +97,4 @@ chkntfs /c d:
 
 #### <a name="additional-references"></a>Altri riferimenti
 
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)
+[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

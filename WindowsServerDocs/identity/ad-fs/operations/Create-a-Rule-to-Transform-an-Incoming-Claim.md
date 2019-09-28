@@ -7,19 +7,19 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: a29406880481f0e4e257105e94bc1a33ee661164
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 15a4583d429de9383e9405cfcd444777aa55c921
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66444440"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71407573"
 ---
 # <a name="create-a-rule-to-transform-an-incoming-claim"></a>Creare una regola per trasformare un'attestazione in ingresso
 
 
-Tramite il **trasformare un'attestazione in ingresso** modello di regola in Active Directory Federation Services \(ADFS\), è possibile selezionare un'attestazione in ingresso, modificarne il tipo di attestazione e modificarne il valore di attestazione. Ad esempio, è possibile utilizzare questo modello di regola per creare una regola che invia l'attestazione del ruolo con lo stesso valore di attestazione di un'attestazione in ingresso. È anche possibile usare questa regola per inviare un gruppo di un'attestazione con valore di attestazione dell'acquirente quando esiste un'attestazione in ingresso con un valore del gruppo amministratori oppure è possibile inviare solo i nomi dell'entità utente \(UPN\) attestazioni che terminano con @fabrikam.  
+Utilizzando il trasforma un modello di regola **attestazione in ingresso** in Active Directory Federation Services \(AD FS @ no__t-2, è possibile selezionare un'attestazione in ingresso, modificare il tipo di attestazione e modificare il relativo valore attestazione. Ad esempio, è possibile utilizzare questo modello di regola per creare una regola che invia l'attestazione del ruolo con lo stesso valore di attestazione di un'attestazione in ingresso. È anche possibile usare questa regola per inviare un'attestazione di gruppo con un valore di attestazione per gli acquirenti quando esiste un'attestazione di gruppo in ingresso con un valore di amministratori oppure è possibile inviare solo il nome dell'entità utente \(UPN @ no__t-1 attestazioni che terminano con @fabrikam.  
   
 È possibile utilizzare la procedura seguente per creare una regola attestazione con lo snap di gestione di ADFS\-in.  
   
@@ -43,11 +43,11 @@ L'appartenenza a **amministratori**, o equivalente nel computer locale è il req
 
 6.  Nel **configurare la regola** nella pagina **Nome regola attestazione**, digitare il nome visualizzato per questa regola. In **tipo di attestazione in ingresso**, selezionare un tipo di attestazione nell'elenco. In **attestazione in uscita**, selezionare un tipo di attestazione nell'elenco e quindi selezionare una delle opzioni seguenti, che dipende dai requisiti dell'organizzazione:  
   
-    -   **Pass-through di tutti i valori di attestazione**  
+    -   **Passa tutti i valori di attestazione**  
   
-    -   **Sostituire un valore attestazione in ingresso con un diverso valore attestazione in uscita**  
+    -   **Sostituire un valore di attestazione in ingresso con un valore attestazione in uscita diverso**  
   
-    -   **In ingresso e sostituire\-suffisso attestazioni con una nuova e\-suffisso di posta elettronica**  
+    -   **Sostituire le attestazioni del suffisso e @ no__t-1mail in ingresso con un nuovo suffisso e @ no__t-2mail**  
 ![Crea regola](media/Create-a-Rule-to-Transform-an-Incoming-Claim/transform4.PNG)   
 
 7.  Fare clic sui **Fine** pulsante.  
@@ -77,11 +77,11 @@ L'appartenenza a **amministratori**, o equivalente nel computer locale è il req
 
 6.  Nel **configurare la regola** nella pagina **Nome regola attestazione**, digitare il nome visualizzato per questa regola. In **tipo di attestazione in ingresso**, selezionare un tipo di attestazione nell'elenco. In **attestazione in uscita**, selezionare un tipo di attestazione nell'elenco e quindi selezionare una delle opzioni seguenti, che dipende dai requisiti dell'organizzazione:  
   
-    -   **Pass-through di tutti i valori di attestazione**  
+    -   **Passa tutti i valori di attestazione**  
   
-    -   **Sostituire un valore attestazione in ingresso con un diverso valore attestazione in uscita**  
+    -   **Sostituire un valore di attestazione in ingresso con un valore attestazione in uscita diverso**  
   
-    -   **In ingresso e sostituire\-suffisso attestazioni con una nuova e\-suffisso di posta elettronica**  
+    -   **Sostituire le attestazioni del suffisso e @ no__t-1mail in ingresso con un nuovo suffisso e @ no__t-2mail**  
 ![Crea regola](media/Create-a-Rule-to-Transform-an-Incoming-Claim/transform4.PNG)       
 
 7.  Fare clic sui **Fine** pulsante.  
@@ -110,7 +110,7 @@ L'appartenenza a **amministratori**, o equivalente nel computer locale è il req
   
     -   **Regole di autorizzazione rilascio**  
   
-    -   **Regole di autorizzazione di delega**  
+    -   **Regole di autorizzazione della delega**  
 ![Crea regola](media/Create-a-Rule-to-Permit-All-Users/permitall5.PNG)
   
 5.  Nel **Seleziona modello di regola** nella pagina **modello di regola attestazione**, selezionare **trasformare un'attestazione in ingresso** dall'elenco, quindi fare clic su **Avanti**.  
@@ -118,11 +118,11 @@ L'appartenenza a **amministratori**, o equivalente nel computer locale è il req
 
 6.  Nel **configurare la regola** nella pagina **Nome regola attestazione**, digitare il nome visualizzato per questa regola. In **tipo di attestazione in ingresso**, selezionare un tipo di attestazione nell'elenco. In **attestazione in uscita**, selezionare un tipo di attestazione nell'elenco e quindi selezionare una delle opzioni seguenti, che dipende dai requisiti dell'organizzazione:  
   
-    -   **Pass-through di tutti i valori di attestazione**  
+    -   **Passa tutti i valori di attestazione**  
   
-    -   **Sostituire un valore attestazione in ingresso con un diverso valore attestazione in uscita**  
+    -   **Sostituire un valore di attestazione in ingresso con un valore attestazione in uscita diverso**  
   
-    -   **In ingresso e sostituire\-suffisso attestazioni con una nuova e\-suffisso di posta elettronica**  
+    -   **Sostituire le attestazioni del suffisso e @ no__t-1mail in ingresso con un nuovo suffisso e @ no__t-2mail**  
 ![Crea regola](media/Create-a-Rule-to-Transform-an-Incoming-Claim/transform2.PNG)  
 
 > [!NOTE]  
@@ -141,7 +141,7 @@ L'appartenenza a **amministratori**, o equivalente nel computer locale è il req
 
 [Elenco di controllo: Creazione di regole delle attestazioni per un'istanza di attendibilità del provider di attestazioni](https://technet.microsoft.com/library/ee913564.aspx)  
   
-[Quando usare una regola di attestazione di autorizzazione](../../ad-fs/technical-reference/When-to-Use-an-Authorization-Claim-Rule.md)  
+[Quando usare una regola attestazioni di autorizzazione](../../ad-fs/technical-reference/When-to-Use-an-Authorization-Claim-Rule.md)  
 
 [Ruolo delle attestazioni](../../ad-fs/technical-reference/The-Role-of-Claims.md)  
   

@@ -2,18 +2,18 @@
 title: Creare una proprietà di classificazione
 description: Questo articolo descrive le proprietà di classificazione, utilizzate per assegnare i valori per i file all'interno di una cartella o un volume specificati.
 ms.date: 7/7/2017
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: storage
 ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: aa1f1a2ab4422f4bb36a737e47894b22b60160e1
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d330f896c71cced8e97701af2c1008b3531e065d
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59880652"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71394218"
 ---
 # <a name="create-a-classification-property"></a>Creare una proprietà di classificazione
 
@@ -25,7 +25,7 @@ Le proprietà di classificazione vengono utilizzate per assegnare i valori per i
 | --- | --- |
 | Sì/No | Una proprietà booleana che può essere **Sì** o **No**. Se si combinano più valori durante la classificazione o dal contenuto del file, un valore **No** verrà sostituito da un valore **Sì**. |
 | Data e ora | Una semplice proprietà data/ora. Se si combinano più valori durante la classificazione o dal contenuto dei file, i valori in conflitto impediranno la nuova classificazione. |
-| Numero | Una semplice proprietà numerica. Se si combinano più valori durante la classificazione o dal contenuto dei file, i valori in conflitto impediranno la nuova classificazione. |
+| NUMBER | Una semplice proprietà numerica. Se si combinano più valori durante la classificazione o dal contenuto dei file, i valori in conflitto impediranno la nuova classificazione. |
 | Elenco ordinato | Un elenco di valori fissi. È possibile assegnare a una proprietà un solo valore alla volta. Se si combinano più valori durante la classificazione o dal contenuto del file, verrà utilizzato il valore più altro dell'elenco. |
 | Stringa | Una semplice proprietà di stringa. Se si combinano più valori durante la classificazione o dal contenuto dei file, i valori in conflitto impediranno la nuova classificazione. |
 | Selezione multipla | Un elenco di valori che possono essere assegnati a una proprietà. È possibile assegnare a una proprietà più di un valore alla volta. Se si combinano più valori durante la classificazione o dal contenuto del file, verrà utilizzato ciascun valore in elenco. |
@@ -52,4 +52,4 @@ La seguente procedura descrive il processo di creazione di una proprietà di cla
 ## <a name="see-also"></a>Vedere anche
 
 -   [Creare una regola di classificazione automatica](create-automatic-classification-rule.md)
--   [Gestione classificazioni](classification-management.md)
+-   [Gestione delle classificazioni](classification-management.md)

@@ -1,39 +1,39 @@
 ---
-title: Scegliere se installare HGS nella propria nuova foresta o in una foresta bastion esistente
+title: Scegliere se installare HGS nella relativa nuova foresta o in una foresta Bastion esistente
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.topic: article
 manager: dongill
 author: rpsqrd
 ms.technology: security-guarded-fabric
 ms.date: 08/29/2018
-ms.openlocfilehash: 4e02cd37391e629c9b947095fe32626bd15726ff
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 28c7eceefa4747a35d1b989df4a2c5e43a8d6a42
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59827502"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71386803"
 ---
-# <a name="choose-whether-to-install-hgs-in-its-own-dedicated-forest-or-in-an-existing-bastion-forest"></a>Scegliere se installare HGS nella propria foresta dedicata o in una foresta bastion esistente
+# <a name="choose-whether-to-install-hgs-in-its-own-dedicated-forest-or-in-an-existing-bastion-forest"></a>Scegliere se installare HGS nella propria foresta dedicata o in una foresta Bastion esistente
 
 >Si applica a: Windows Server 2019, Windows Server (canale semestrale), Windows Server 2016
 
 
-La foresta di Active Directory per HGS è riservata perché gli amministratori hanno accesso alle chiavi che controllo di macchine virtuali schermate. L'installazione predefinita verrà impostata una nuova foresta dedicata per HGS e configurare altre dipendenze. Questa opzione è consigliata perché l'ambiente è indipendente e Nota per essere protetti quando viene creato. 
+La foresta Active Directory per HGS è sensibile perché gli amministratori hanno accesso alle chiavi che controllano le macchine virtuali schermate. Con l'installazione predefinita viene configurata una nuova foresta dedicata per HGS e vengono configurate altre dipendenze. Questa opzione è consigliata perché l'ambiente è indipendente e noto come protetto quando viene creato. 
 
-Il requisito tecnico solo per l'installazione di HGS in una foresta esistente è che deve essere aggiunto al dominio radice. domini non radice non sono supportati. Ma esistono anche i requisiti operativi e le procedure consigliate relative alla sicurezza per l'uso di una foresta esistente. Foreste adatte intenzionalmente create per servire una funzione sensibile, ad esempio l'insieme di strutture utilizzate da [Privileged Access Management per Active Directory Domain Services](https://docs.microsoft.com/microsoft-identity-manager/pam/privileged-identity-management-for-active-directory-domain-services) o un [foresta migliorata sicurezza amministrativa ambiente (ESAE)](https://technet.microsoft.com/windows-server-docs/security/securing-privileged-access/securing-privileged-access-reference-material#ESAE_BM). Queste foreste si comportano in genere le caratteristiche seguenti:
+L'unico requisito tecnico per l'installazione di HGS in una foresta esistente è che viene aggiunto al dominio radice. i domini non radice non sono supportati. Tuttavia, esistono anche requisiti operativi e procedure consigliate relative alla sicurezza per l'utilizzo di una foresta esistente. Le foreste appropriate vengono create appositamente per servire una funzione sensibile, ad esempio la foresta usata da [Privileged Access Management per servizi di dominio Active Directory](https://docs.microsoft.com/microsoft-identity-manager/pam/privileged-identity-management-for-active-directory-domain-services) o una [foresta ESAE (Enhanced Security Administrative Environment)](https://technet.microsoft.com/windows-server-docs/security/securing-privileged-access/securing-privileged-access-reference-material#ESAE_BM). Tali foreste presentano in genere le caratteristiche seguenti:
 
-- Sono presenti alcuni amministratori (separati dagli amministratori dell'infrastruttura)
-- Hanno un numero ridotto di accessi riusciti
-- Non sono per utilizzo generico di natura 
+- Hanno pochi amministratori (distinti dagli amministratori dell'infrastruttura)
+- Hanno un numero ridotto di accessi
+- Non sono di natura generale 
 
-Foreste generico, ad esempio gli insiemi di strutture di produzione non sono adatte per l'uso da HGS. Le foreste dell'infrastruttura sono non adatto anche perché HGS deve essere isolato dagli amministratori dell'infrastruttura.
+Le foreste di uso generico come le foreste di produzione non sono adatte per l'uso da HGS. Anche le foreste dell'infrastruttura non sono adatte perché HGS deve essere isolato dagli amministratori dell'infrastruttura.
 
 ## <a name="next-step"></a>Passaggio successivo
 
-Scegliere l'opzione di installazione più adatto dell'ambiente:
+Scegliere l'opzione di installazione più adatta al proprio ambiente:
 
-- [Installare servizio HGS nella propria foresta dedicata](guarded-fabric-install-hgs-default.md)
-- [Installare servizio HGS in una foresta bastion esistente](guarded-fabric-install-hgs-in-a-bastion-forest.md)
+- [Installare HGS nella propria foresta dedicata](guarded-fabric-install-hgs-default.md)
+- [Installare HGS in una foresta Bastion esistente](guarded-fabric-install-hgs-in-a-bastion-forest.md)
 
 

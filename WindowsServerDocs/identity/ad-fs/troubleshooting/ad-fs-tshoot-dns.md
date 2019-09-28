@@ -1,56 +1,56 @@
 ---
-title: Risoluzione dei problemi di AD FS - risoluzione DNS
-description: Questo documento descrive come risolvere i problemi gli aspetti DNS di AD FS.
+title: Risoluzione dei problemi di AD FS-risoluzione DNS
+description: In questo documento viene descritto come risolvere i problemi relativi a DNS di AD FS
 author: billmath
 ms.author: billmath
 manager: mtillman
 ms.date: 01/03/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 7e0065feac4241b617b8b13c6867d5dc36634bd0
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 7ffda6916bd91f1195ac0c289959becafff1d2c5
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59815902"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71407203"
 ---
-# <a name="ad-fs-troubleshooting---dns"></a>Risoluzione dei problemi di AD FS - DNS 
-Una delle prime cose da controllare, se AD FS non funziona o non risponde, è la risoluzione dei nomi DNS.  Si tratta di semplici test per determinare se il server AD FS o server WAP in cui vengono trovati nella rete.  Per gli utenti interni, questi test devono restituire i server AD FS (STS).    Per gli utenti esterni, questi test dovrebbero risolvere per i server WAP.
+# <a name="ad-fs-troubleshooting---dns"></a>Risoluzione dei problemi di AD FS-DNS 
+Una delle prime cose da verificare, se AD FS non funziona o non risponde, è la risoluzione dei nomi DNS.  Si tratta di test di base per determinare se i server AD FS o i server WAP sono presenti sulla rete.  Per gli utenti interni, questi test dovrebbero risolversi nei server di AD FS (STS).    Per gli utenti esterni, questi test devono essere risolti nei server WAP.
 
-Il resto di questo documento verrà illustrato come eseguire alcuni controlli di risoluzione nome rapido usando gli strumenti da riga di comando.
+Nella parte restante di questo documento verrà illustrato come eseguire alcuni controlli di risoluzione dei nomi rapidi utilizzando gli strumenti da riga di comando.
 
-## <a name="ping-test"></a>Test di ping
-Verifica la connettività a livello IP a un altro computer TCP/IP inviando messaggi di richiesta Echo di Internet controllo Message Protocol (ICMP). La ricezione di messaggi Echo Reply corrispondenti vengono visualizzati, insieme ai tempi di round trip.  Per altre informazioni, vedere [Ping](https://technet.microsoft.com/library/ff961503.aspx).
+## <a name="ping-test"></a>Ping test
+Verifica la connettività a livello IP a un altro computer TCP/IP inviando Internet Control Message Protocol (ICMP) messaggi di richiesta echo. Viene visualizzata la ricezione dei messaggi di risposta echo corrispondenti, insieme ai tempi di round trip.  Per ulteriori informazioni, vedere [ping](https://technet.microsoft.com/library/ff961503.aspx).
 
 
 >[!NOTE]
->Tenere presente che alcune organizzazioni bloccano la porta nei relativi server ed è possibile ottenere un **timeout della richiesta** risposta.
+>Tenere presente che alcune organizzazioni bloccano questa porta sui server ed è possibile che venga **richiesta** una risposta scaduta.
 
-### <a name="to-use-a-ping-test"></a>Usare un test di PING
+### <a name="to-use-a-ping-test"></a>Per utilizzare un test di PING
 1.  Aprire un prompt dei comandi
-2. Immettere il comando PING <name of adfs server> una. Esempio:  PING sts.contoso.com
-3. Dovrebbe essere una risposta dal server
+2. Immettere PING <name of adfs server> a. Esempio:  PING sts.contoso.com
+3. Verrà visualizzata una risposta dal server
 
 ![Ping](media/ad-fs-tshoot-dns/dns1.png)
 
 ## <a name="nslookup"></a>NSLookup
-Visualizza le informazioni che è possibile utilizzare per diagnosticare infrastruttura Domain Name System (DNS).  Per altre informazioni, vedere [NSLookup](https://technet.microsoft.com/library/cc725991.aspx).
+Visualizza le informazioni che è possibile utilizzare per diagnosticare infrastruttura Domain Name System (DNS).  Per ulteriori informazioni, vedere [nslookup](https://technet.microsoft.com/library/cc725991.aspx).
 
 ### <a name="to-use-a-nslookup"></a>Per usare un NSLookup
 1.  Aprire un prompt dei comandi
-2. Immettere il comando PING <name of adfs server> una. Esempio: sts.contoso.com di nslookup
-3. Si dovrebbero vedere le informazioni dns per il server ![NSLookup](media/ad-fs-tshoot-dns/dns2.png)
+2. Immettere PING <name of adfs server> a. Esempio: nslookup sts.contoso.com
+3. Verranno visualizzate le informazioni DNS per il server ![NSLookup @ no__t-1
 
 ## <a name="tracert"></a>Tracert
-Determina il percorso conduce a una destinazione per l'invio messaggio protocollo ICMP (Internet Control) Echo Request o messaggi ICMPv6 nella destinazione con l'aumentare in modo incrementale ora ai valori di campo Live (TTL).   Per altre informazioni, vedere [Tracert](https://technet.microsoft.com/library/ff961507.aspx).
+Determina il percorso effettuato a una destinazione inviando i messaggi di richiesta echo Internet Control Message Protocol (ICMP) o ICMPv6 alla destinazione con valori di campo TTL (time to Live) che aumentano in modo incrementale.   Per ulteriori informazioni, vedere [tracert](https://technet.microsoft.com/library/ff961507.aspx).
 
 
-### <a name="to-use-tracert"></a>Usare Tracert
+### <a name="to-use-tracert"></a>Per usare tracert
 1.  Aprire un prompt dei comandi
-2. Immettere tracert <name of adfs server> una. Esempio: tracert sts.contoso.com
-3. Dovrebbe essere il percorso di destinazione utilizzato per raggiungere il server ![Tracert](media/ad-fs-tshoot-dns/dns3.png)
+2. Immettere tracert <name of adfs server> a. Esempio: tracert sts.contoso.com
+3. Dovrebbe essere visualizzato il percorso di destinazione usato per raggiungere il server ![Tracert @ no__t-1
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Risoluzione dei problemi di AD FS](ad-fs-tshoot-overview.md)
+- [Risoluzione dei problemi relativi ad AD FS](ad-fs-tshoot-overview.md)

@@ -2,18 +2,18 @@
 title: Creare una regola di classificazione automatica
 description: Questo articolo descrive come creare una regola di classificazione per una proprietà.
 ms.date: 7/7/2017
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: storage
 ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: c472949228184c6202681d257412c046bbc90d37
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 8907c15106f4615ce26ba830e11e5f887a3f22aa
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59812302"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71402048"
 ---
 # <a name="create-an-automatic-classification-rule"></a>Creare una regola di classificazione automatica
 
@@ -42,9 +42,9 @@ La seguente procedura descrive il processo di creazione di una regola di classif
 
 5.  Facoltativamente, fare clic sul pulsante **Avanzate** per selezionare ulteriori opzioni. Nella scheda **Tipo valutazione**, la casella di controllo **Rivaluta file** non è selezionata per impostazione predefinita. Le opzioni che possono essere selezionate in questo punto sono le seguenti:
 
-    -   **Valutare nuovamente i file** deselezionata: Se e solo se la proprietà specificata dalla regola non è stata impostata su qualsiasi valore sul file, viene applicata una regola in un file.
+    -   **Valuta di nuovo i file** deselezionati: Una regola viene applicata a un file se, e solo se, la proprietà specificata dalla regola non è stata impostata su alcun valore nel file.
     -   **Rivaluta file** selezionata e opzione **Sovrascrivi il valore esistente** selezionata: la regola verrà applicata ai file di ogni volta che viene eseguito il processo di classificazione automatica. Ad esempio, se un file ha una proprietà booleana impostata su **Sì**, una regola che utilizza il classificatore di cartelle per impostare tutti i file su **No** con questo set di opzioni lascerà la proprietà impostata su **No**.
-    -   **Valutare nuovamente i file** controllati e il **aggregare i valori** opzione selezionata: La regola verrà applicata ai file ogni volta che viene eseguito il processo di classificazione automatica. Tuttavia, quando la regola ha deciso quale valore impostare al file della proprietà, aggrega tale valore con quello nel file. Ad esempio, se un file ha una proprietà booleana impostata su **Sì**, una regola che utilizza il classificatore di cartelle per impostare tutti i file su **No** con questo set di opzioni lascerà la proprietà impostata su **Sì**.
+    -   **Rivalutare i file** controllati e l'opzione **aggregare i valori** selezionati: La regola verrà applicata ai file ogni volta che viene eseguito il processo di classificazione automatica. Tuttavia, quando la regola ha deciso quale valore impostare al file della proprietà, aggrega tale valore con quello nel file. Ad esempio, se un file ha una proprietà booleana impostata su **Sì**, una regola che utilizza il classificatore di cartelle per impostare tutti i file su **No** con questo set di opzioni lascerà la proprietà impostata su **Sì**.
 
     Nella scheda **Parametri di classificazione aggiuntivi**, è possibile specificare parametri aggiuntivi riconosciuti dal metodo di classificazione selezionato immettendo il nome e il valore e facendo clic sul pulsante **Inserisci**.
 
@@ -55,4 +55,4 @@ La seguente procedura descrive il processo di creazione di una regola di classif
 ## <a name="see-also"></a>Vedere anche
 
 -   [Creare una proprietà di classificazione](create-classification-property.md)
--   [Gestione classificazioni](classification-management.md)
+-   [Gestione delle classificazioni](classification-management.md)

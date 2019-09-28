@@ -1,8 +1,8 @@
 ---
-title: REPAIRSERVICE e bitsadmin util
-description: Argomento i comandi di Windows per **util bitsadmin e repairservice** -comando usato per risolvere i problemi noti con diverse versioni del servizio BITS.
+title: Bitsadmin util e REPAIRSERVICE
+description: Argomento dei comandi di Windows per **Bitsadmin util e REPAIRSERVICE** -Command usati per risolvere i problemi noti con diverse versioni del servizio BITS.
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: bc5101378a389c865f5753146b711be0d15c6785
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 0ab06ac9c784cfa438eb285c28f0e661cf4b8302
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59852092"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71380284"
 ---
-# <a name="bitsadmin-util-and-repairservice"></a>REPAIRSERVICE e bitsadmin util
+# <a name="bitsadmin-util-and-repairservice"></a>Bitsadmin util e REPAIRSERVICE
 
-Se BITS non viene avviato, è possibile usare questa opzione per risolvere i problemi noti con diverse versioni di bit.
+Se non è possibile avviare BITS, usare questa opzione per correggere i problemi noti con diverse versioni di BITS.
 
-**BITSAdmin 1.5 e versioni precedenti:** non supportato.
+**BITSAdmin 1,5 e versioni precedenti:**  Not supportati.
 
 ## <a name="syntax"></a>Sintassi
 
@@ -40,10 +40,10 @@ bitsadmin /Util /RepairService [/Force]
 
 ## <a name="remarks"></a>Note
 
-Questa opzione consente di risolvere gli errori correlati al corretto servizio configurazione e le dipendenze da servizi di Windows (ad esempio LANManworkstation) e alla directory di rete. Questa opzione genera output che indica se i problemi che sono stati risolti.
+Questa opzione risolve gli errori correlati alla configurazione e alle dipendenze del servizio non corrette nei servizi Windows (ad esempio LANManworkstation) e nella directory di rete. Questa opzione genera un output che indica se i problemi sono stati risolti.
 
 > [!NOTE]
-> Se BITS ricrea il servizio, la stringa di descrizione servizio può essere impostata su inglese in un sistema localizzato.
+> Se BITS ricrea il servizio, la stringa di descrizione del servizio può essere impostata su inglese in un sistema localizzato.
 
 > [!IMPORTANT]
 > Questo comando non è supportato in Windows Vista.
@@ -57,4 +57,4 @@ C:\>bitsadmin /Util /RepairService
 
 #### <a name="additional-references"></a>Altri riferimenti
 
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)
+[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

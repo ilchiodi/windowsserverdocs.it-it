@@ -1,7 +1,7 @@
 ---
 title: Il servizio di gestione delle macchine virtuali Hyper-V deve essere configurato per l'avvio automatico
-description: Fornisce le istruzioni per risolvere il problema segnalato da questa regola di Best Practices Analyzer.
-ms.prod: windows-server-threshold
+description: Vengono fornite istruzioni per risolvere il problema segnalato da questa regola di Best Practices Analyzer.
+ms.prod: windows-server
 ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
@@ -10,12 +10,12 @@ ms.topic: article
 ms.assetid: 222bbe76-c514-4a3f-b61b-860a4dc2826a
 author: KBDAzure
 ms.date: 8/16/2016
-ms.openlocfilehash: c33f81678d7fdc71e81834a002fd3d7917a6f632
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: f35f94a815e9f895f7f7690737b6b8fb2bed82e1
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59833252"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71393423"
 ---
 # <a name="the-hyper-v-virtual-machine-management-service-should-be-configured-to-start-automatically"></a>Il servizio di gestione delle macchine virtuali Hyper-V deve essere configurato per l'avvio automatico
 
@@ -26,8 +26,8 @@ Per altre informazioni sulle procedure consigliate e le analisi, vedere [Best Pr
 |Proprietà|Dettagli|  
 |-|-|  
 |**Sistema operativo**|Windows Server 2016|  
-|**/ Funzionalità del prodotto**|Hyper-V|  
-|**Severity**|Avviso|  
+|**Prodotto/funzionalità**|Hyper-V|  
+|**Gravità**|Avviso|  
 |**Categoria**|Configurazione|  
 
 Nelle sezioni seguenti, corsivo indica il testo dell'interfaccia Utente visualizzata nello strumento Analizzatore procedure consigliate per questo problema.
@@ -38,21 +38,21 @@ Nelle sezioni seguenti, corsivo indica il testo dell'interfaccia Utente visualiz
   
 ## <a name="impact"></a>Impatto  
   
-*Le macchine virtuali non possono essere gestite fino a quando non viene avviato il servizio.*  
+*Le macchine virtuali non possono essere gestite fino a quando il servizio non viene avviato.*  
   
-Le macchine virtuali in esecuzione continuerà a eseguire. Tuttavia, non potrai gestire macchine virtuali, o creare o eliminare tali fino a quando non viene eseguito il servizio.  
+Le macchine virtuali in esecuzione continuerà a eseguire. Tuttavia, non sarà possibile gestire le macchine virtuali o crearle o eliminarle finché il servizio non è in esecuzione.  
   
 ## <a name="resolution"></a>Risoluzione  
   
-*Utilizzare lo snap-in o sc config della riga di comando strumento Servizi per riconfigurare il servizio venga avviato automaticamente.*  
+*Utilizzare lo snap-in servizi o lo strumento da riga di comando sc config per riconfigurare il servizio per l'avvio automatico.*  
   
 > [!TIP]  
 > Se non si trova il servizio nell'applicazione desktop o lo strumento da riga di comando indica che il servizio non esiste, gli strumenti di gestione di Hyper-V probabilmente non sono installati. Per installarli:  
 >   
-> - In Windows Server, aprire Server Manager e usare la procedura guidata Aggiungi ruoli e funzionalità. Per altre informazioni, vedere [installare il ruolo Hyper-V in Windows Server 2016](../get-started/Install-the-Hyper-V-role-on-Windows-Server.md).  
-> - In Windows, dal Desktop, iniziare a digitare **i programmi**, fare clic su **programmi e funzionalità** (Pannello di controllo) > **o disattivazione delle funzionalità Windows attivare**  >   **Hyper-V** > **strumenti di gestione di Hyper-V**. Fare clic su **OK**.  
+> - In Windows Server aprire Server Manager e utilizzare l'aggiunta guidata ruoli e funzionalità. Per ulteriori informazioni, vedere [installare il ruolo Hyper-V in Windows Server 2016](../get-started/Install-the-Hyper-V-role-on-Windows-Server.md).  
+> - In Windows, dal desktop iniziare a digitare **programmi**, fare clic su **programmi e funzionalità** (pannello di controllo) > **attivare o disattivare le funzionalità Windows** > **Hyper-v** > **strumenti di gestione Hyper-v**. Fare clic su **OK**.  
   
-#### <a name="to-reconfigure-the-service-to-start-automatically-using-the-services-desktop-app"></a>Per riconfigurare il servizio per avviare automaticamente l'app desktop di servizi  
+#### <a name="to-reconfigure-the-service-to-start-automatically-using-the-services-desktop-app"></a>Per riconfigurare il servizio per l'avvio automatico tramite l'app desktop dei servizi  
   
 1.  Aprire l'applicazione desktop di servizi. (Fare clic su **Avviare**, fare clic nella casella di ricerca, iniziare a digitare **servizi**, quindi fare clic su servizi nell'elenco dei risultati.  
   
@@ -64,7 +64,7 @@ Le macchine virtuali in esecuzione continuerà a eseguire. Tuttavia, non potrai 
   
 1.  Aprire Windows PowerShell.  
   
-2.  Digitare:   
+2.  Digitare:  
   
     ```  
     set-service  vmms -startuptype automatic  

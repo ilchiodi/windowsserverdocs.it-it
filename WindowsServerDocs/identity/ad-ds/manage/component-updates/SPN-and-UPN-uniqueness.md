@@ -7,20 +7,20 @@ ms.author: joflore
 manager: mtillman
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 13259f7f12a37c4ceb8bdd2e35ae2fe131ec35cf
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: ded707276471fccd28f0ec17afef0a24015ff32f
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66442808"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71390034"
 ---
 # <a name="spn-and-upn-uniqueness"></a>Unicità di SPN e UPN
 
 >Si applica a: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-**Autore**: Justin. Turner, Senior Support Escalation Engineer presso il gruppo di Windows  
+**Autore**: Justin Turner, Senior Support Escalation Engineer con il gruppo di Windows  
   
 > [!NOTE]  
 > Questo contenuto è stato redatto da un ingegnere del Supporto tecnico Microsoft ed è destinato ad amministratori esperti e architetti di sistemi che desiderano una spiegazione tecnica delle funzionalità e delle soluzioni relative a Windows Server 2012 R2 più approfondita rispetto agli argomenti solitamente disponibili su TechNet. Non è stato tuttavia sottoposto agli stessi passaggi redazionali e, di conseguenza, per alcune lingue potrebbe essere meno accurato della documentazione che si trova in genere su TechNet.  
@@ -28,14 +28,14 @@ ms.locfileid: "66442808"
 ## <a name="overview"></a>Panoramica  
 I controller di dominio che eseguono Windows Server 2012 R2 blocco la creazione di duplicare i nomi dell'entità servizio (SPN) e i nomi dell'entità utente (UPN). Sono inclusi se il ripristino o il recupero di un oggetto eliminato o la ridenominazione di un oggetto comporta un duplicato.  
   
-### <a name="background"></a>Informazioni  
+### <a name="background"></a>Sfondo  
 Duplicati principale nomi servizio (SPN) in genere si verificano e causare errori di autenticazione e può comportare l'utilizzo eccessivo della CPU di LSASS. Non esiste alcun metodo incorporato per bloccare l'aggiunta di un nome SPN duplicati o UPN. *  
   
 I valori UPN duplicati interrompere la sincronizzazione tra locale AD e Office 365.  
   
 *Setspn.exe viene comunemente utilizzato per creare nuovi nomi SPN e funzionale è stato creato nella versione rilasciata con Windows Server 2008 che viene aggiunto un controllo di duplicati.  
   
-**Tabella SEQ tabella \\ \* 1 ARABO: Unicità SPN e UPN**  
+**Table SEQ Table \\ @ no__t-2 ARABIC 1: Univocità UPN e SPN @ no__t-0  
   
 |Funzionalità|Commento|  
 |-----------|-----------|  
@@ -49,7 +49,7 @@ Codici di errore 8467 o 8468 o loro esadecimale, simbolici o stringhe equivalent
   
 -   La scrittura viene elaborata da Windows Server 2012 R2 controller di dominio  
   
-**Tabella SEQ tabella \\ \* 2 ARABO: Codici di errore di unicità SPN e UPN**  
+**Table SEQ Table \\ @ no__t-2 ARABIC 2: Codici di errore di univocità UPN e SPN @ no__t-0  
   
 |Decimal|Hex|Simbolico|Stringa|  
 |-----------|-------|------------|----------|  
@@ -74,18 +74,18 @@ Un tentativo di creare un nuovo utente nel centro di amministrazione di Active D
   
 ![Unicità di SPN e UPN](media/SPN-and-UPN-uniqueness/GTR_ADDS_Fig03_DupUPNADAC.gif)  
   
-**Figura SEQ Figure \\ \* ARABO 1 errore visualizzato nel centro di amministrazione di Active Directory quando si verifica un errore di creazione del nuovo utente a causa di UPN duplicato**  
+**Figura SEQ figura \\ @ no__t-2 errore arabo 1 visualizzato nel centro di amministrazione di AD quando la creazione di un nuovo utente non riesce a causa di un UPN duplicato**  
   
-### <a name="event-2974-source-activedirectorydomainservice"></a>Origine evento 2974: ActiveDirectory_DomainService  
+### <a name="event-2974-source-activedirectory_domainservice"></a>Origine evento 2974: ActiveDirectory_DomainService  
 ![Unicità di SPN e UPN](media/SPN-and-UPN-uniqueness/GTR_ADDS_Fig04_Event2974.gif)  
   
-**Figura SEQ Figure \\ \* ARABO 2974 di ID evento 2 con errore 8648**  
+**Figura SEQ figura \\ @ no__t-2 arabo 2 ID evento 2974 con errore 8648**  
   
-Evento 2974: Elenca il valore che è stato bloccato e un elenco di uno o più oggetti (fino a 10) che già contengono quel valore.  Nella figura seguente, è possibile visualizzare il valore dell'attributo UPN **<em>dhunt@blue.contoso.com</em>** esiste già nei quattro altri oggetti.  Poiché si tratta di una nuova funzionalità di Windows Server 2012 R2, la creazione accidentale di duplicati UPN e SPN in un ambiente misto verrà generato anche quando i controller di dominio di livello inferiore di elaborare il tentativo di scrittura.  
+Evento 2974: Elenca il valore che è stato bloccato e un elenco di uno o più oggetti (fino a 10) che già contengono quel valore.  Nella figura seguente è possibile notare che il valore dell'attributo UPN **<em>dhunt@blue.contoso.com</em>** esiste già in quattro altri oggetti.  Poiché si tratta di una nuova funzionalità di Windows Server 2012 R2, la creazione accidentale di duplicati UPN e SPN in un ambiente misto verrà generato anche quando i controller di dominio di livello inferiore di elaborare il tentativo di scrittura.  
   
 ![Unicità di SPN e UPN](media/SPN-and-UPN-uniqueness/GTR_ADDS_Fig05_Event2974ShowAllDups.gif)  
   
-**Figura SEQ Figure \\ \* 2974 di eventi 3 ARABO che mostra tutti gli oggetti che contiene il nome UPN duplicato**  
+**Figura SEQ figura \\ @ no__t-2 arabo 3 evento 2974 che Mostra tutti gli oggetti che contengono il nome UPN duplicato**  
   
 > [!TIP]  
 > Esaminare regolarmente a 2974s ID evento:  
@@ -96,7 +96,7 @@ Evento 2974: Elenca il valore che è stato bloccato e un elenco di uno o più og
 8648 = "Operazione non riuscita perché il valore UPN specificato per l'aggiunta/modifica non è univoco a livello di foresta".  
   
 ### <a name="setspn"></a>SetSPN:  
-Setspn.exe ha SPN il rilevamento dei duplicati è incorporato dopo il rilascio di Windows Server 2008 quando si utilizza il **"-S"** (opzione).  È possibile ignorare il rilevamento di SPN duplicato utilizzando il **"-A"** opzione tuttavia.  Creazione di un SPN duplicato viene bloccata quando si fa riferimento a un Windows Server 2012 R2 controller di dominio utilizzando SetSPN con l'opzione - A.  Messaggio di errore visualizzato è lo stesso di quello visualizzato quando si usa l'opzione -S: "Duplicate SPN trovato, l'operazione di interruzione!"  
+Setspn.exe ha SPN il rilevamento dei duplicati è incorporato dopo il rilascio di Windows Server 2008 quando si utilizza il **"-S"** (opzione).  È possibile ignorare il rilevamento di SPN duplicato utilizzando il **"-A"** opzione tuttavia.  Creazione di un SPN duplicato viene bloccata quando si fa riferimento a un Windows Server 2012 R2 controller di dominio utilizzando SetSPN con l'opzione - A.  Il messaggio di errore visualizzato corrisponde a quello visualizzato quando si usa l'opzione-S: "È stato trovato un nome SPN duplicato, operazione di interruzione!"  
   
 ### <a name="adsiedit"></a>ADSIEDIT:  
   
@@ -108,7 +108,7 @@ The operation failed because UPN value provided for addition/modification is not
   
 ![Unicità di SPN e UPN](media/SPN-and-UPN-uniqueness/GTR_ADDS_Fig06_ADSI21c8.gif)  
   
-**Figura SEQ Figure \\ \* messaggio di errore di 4 ARABO visualizzato in ADSIEdit quando viene bloccato l'aggiunta di UPN duplicato**  
+**Figura SEQ figura \\ @ no__t-2 messaggio di errore arabo 4 visualizzato in ADSIEdit quando viene bloccato l'aggiunta di UPN duplicato**  
   
 ### <a name="windows-powershell"></a>Windows PowerShell  
 Windows Server 2012 R2:  
@@ -123,11 +123,11 @@ DSAC.exe in esecuzione su Windows Server 2012, Windows Server 2012 R2 controller
   
 ![Unicità di SPN e UPN](media/SPN-and-UPN-uniqueness/GTR_ADDS_Fig09_UserCreateError.gif)  
   
-**Figura SEQ Figure \\ \* errore di creazione utente ARABO DSAC 5 su non - Windows Server 2012 R2 durante l'assegnazione di controller di dominio di Windows Server 2012 R2**  
+**Figura SEQ figura \\ @ no__t-2 arabo 5 DSAC errore di creazione utente in non Windows Server 2012 R2 durante la destinazione di Windows Server 2012 R2 DC**  
   
 ![Unicità di SPN e UPN](media/SPN-and-UPN-uniqueness/GTR_ADDS_Fig10_UserModError.gif)  
   
-**Figura SEQ Figure \\ \* errore di modifica utente DSAC 6 ARABO sul non - Windows Server 2012 R2 durante l'assegnazione di controller di dominio di Windows Server 2012 R2**  
+**Figura SEQ figura \\ @ no__t-2 arabo 6 DSAC errore di modifica utente in non Windows Server 2012 R2 durante la destinazione di Windows Server 2012 R2 DC**  
   
 ### <a name="restore-of-an-object-that-would-result-in-a-duplicate-upn-fails"></a>Ripristino di un oggetto che può determinerebbe un UPN duplicato ha esito negativo:  
 ![Unicità di SPN e UPN](media/SPN-and-UPN-uniqueness/GTR_ADDS_Fig11_RestoreDupUPN.gif)  
@@ -182,7 +182,7 @@ DN: CN=Dianne Hunt2\0ADEL:dd3ab8a4-3005-4f2f-814f-d6fc54a1a1c0,CN=Deleted Object
   
 -   Selezionare il **Converti in LDAP** pulsante di opzione  
   
--   Type **(userPrincipalName=*ConflictingUPN*)**  
+-   Tipo **(UserPrincipalName =*ConflictingUPN*)**  
   
     -   Sostituire ***ConflictingUPN*** con l'UPN effettivo che è in conflitto  
   
@@ -210,7 +210,7 @@ Per annullare l'attributo UserPrincipalName utilizzando Windows PowerShell:
 ### <a name="duplicate-spn"></a>SPN duplicato  
 ![Unicità di SPN e UPN](media/SPN-and-UPN-uniqueness/GTR_ADDS_Fig16_DupSPN.gif)  
   
-**Figura SEQ Figure \\ \* messaggio ARABIC 8 errore visualizzato in ADSIEdit quando viene bloccato l'aggiunta di SPN duplicato**  
+**Figura SEQ figura \\ @ no__t-2 messaggio di errore arabo 8 visualizzato in ADSIEdit quando viene bloccato l'aggiunta del nome SPN duplicato**  
   
 Registrato nei servizi Directory registro eventi è un **ActiveDirectory DomainService** ID evento **2974**.  
   
@@ -224,15 +224,15 @@ servicePrincipalName Value=<SPN>
   
 ![Unicità di SPN e UPN](media/SPN-and-UPN-uniqueness/GTR_ADDS_Fig17_DupSPN2974.gif)  
   
-**Figura SEQ Figure \\ \* ARABO 9 errore registrato durante la creazione di SPN duplicato viene bloccata**  
+**Figura SEQ figura \\ @ no__t-2 errore arabo 9 registrato quando la creazione del nome SPN duplicato è bloccata**  
   
 ### <a name="workflow"></a>Flusso di lavoro  
   
--   **If DC == GC**  
+-   **Se DC = = GC**  
   
     -   Nessuna chiamata offbox necessari, query può essere soddisfatta localmente  
   
-    -   ***Caso UPN***  
+    -   ***Case UPN***  
   
         -   Query a livello di foresta UPN indice locale per UPN specificato (*userPrincipalName; un indice globale*)  
   
@@ -248,7 +248,7 @@ servicePrincipalName Value=<SPN>
   
                         *ERROR_DS_UPN_VALUE_NOT_UNIQUE_IN_FOREST*  
   
-    -   ***Caso SPN***  
+    -   ***Case SPN***  
   
         -   Query a livello di foresta SPN indice locale per nome SPN fornito (*servicePrincipalName; un indice globale*)  
   
@@ -272,7 +272,7 @@ servicePrincipalName Value=<SPN>
   
         -   Evento registrato per indicare ad  
   
-    -   ***Caso UPN***  
+    -   ***Case UPN***  
   
         -   Inviare query LDAP GC più vicino? indice della query del catalogo globale a livello di foresta UPN per UPN specificato (*userPrincipalName; un indice globale*)  
   
@@ -288,7 +288,7 @@ servicePrincipalName Value=<SPN>
   
                         *ERROR_DS_UPN_VALUE_NOT_UNIQUE_IN_FOREST*  
   
-    -   ***Caso SPN***  
+    -   ***Case SPN***  
   
         -   Inviare query LDAP GC più vicino? indice della query del catalogo globale a livello di foresta SPN per nome SPN fornito (*servicePrincipalName; un indice globale*)  
   
@@ -322,7 +322,7 @@ Quando gli oggetti eliminati vengono nuovamente animati, i valori SPN o UPN pres
   
 Se un nuovo valore SPN è un duplicato, correttamente la modifica. L'elenco precedente, gli attributi più importanti sono ATT_DNS_HOST_NAME (nome del computer) e ATT_SAM_ACCOUNT_NAME (nome Account SAM).  
   
-### <a name="try-this-exploring-spn-and-upn-uniqueness"></a>Provare quanto segue: Esplorare unicità SPN e UPN  
+### <a name="try-this-exploring-spn-and-upn-uniqueness"></a>Provare: Esplorazione dell'unicità SPN e UPN  
 Questo è il primo di diversi "**prova**" attività nel modulo.  Non è disponibile una Guida di laboratorio separato per questo modulo.  Il **prova** le attività sono essenzialmente le attività in formato libero che consentono esplorare il materiale della lezione nell'ambiente di laboratorio.  È possibile dopo il prompt o attraversa script e ideare proprie attività.  
   
 > [!NOTE]  

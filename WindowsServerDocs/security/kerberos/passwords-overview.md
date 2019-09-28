@@ -2,7 +2,7 @@
 title: Panoramica delle password
 description: Sicurezza di Windows Server
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: security-kerberos
@@ -13,48 +13,48 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/12/2016
-ms.openlocfilehash: 6c1b8d56b5c0da738e7dae5c0072be81040f90d8
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 27d456dd274b917233f0484f055b679dc8c73214
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59869602"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71403503"
 ---
 # <a name="passwords-overview"></a>Panoramica delle password
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016
 
-Questo argomento destinato ai professionisti IT descrive le password come utilizzata per i sistemi operativi Windows e i collegamenti alla documentazione e discussioni sull'utilizzo delle password in una strategia di gestione delle credenziali.
+Questo argomento per i professionisti IT descrive le password usate nei sistemi operativi Windows e fornisce collegamenti alla documentazione e alle discussioni sull'uso delle password in una strategia di gestione delle credenziali.
 
-## <a name="BKMK_OVER"></a>Descrizione funzionalità
-Sistemi operativi e applicazioni odierne vengono progettate relativi alle password e anche se si usano le smart card o sistemi biometrici, tutti gli account hanno ancora le password e possono comunque essere utilizzati in alcuni casi. Alcuni account, in particolare gli account usati per eseguire i servizi, non è possibile anche utilizzare smart card e biometrico token e pertanto necessario utilizzare una password per l'autenticazione. Windows protegge le password con hash di crittografia.
+## <a name="BKMK_OVER"></a>Descrizione della funzionalità
+Attualmente i sistemi operativi e le applicazioni sono progettati per aggirare le password e anche se si usano smart card o sistemi biometrici, tutti gli account hanno ancora password e possono comunque essere usati in alcune circostanze. Alcuni account, in particolare gli account usati per eseguire servizi, non possono anche usare Smart Card e token biometrici e pertanto devono usare una password per l'autenticazione. Windows protegge le password usando gli hash crittografici.
 
-Per altre informazioni sulle password di Windows, vedere [Panoramica tecnica sulle password](https://technet.microsoft.com/library/hh994558(WS.10).aspx).
+Per ulteriori informazioni sulle password di Windows, vedere la [Panoramica tecnica sulle password](https://technet.microsoft.com/library/hh994558(WS.10).aspx).
 
 ## <a name="BKMK_APP"></a>Applicazioni pratiche
-In Windows e molti altri sistemi operativi, il metodo più comune per autenticare l'identità dell'utente consiste nell'utilizzare un segreto passphrase o una password. Proteggere l'ambiente di rete richiede password complesse utilizzate da tutti gli utenti. Ciò consente di evitare il rischio di un utente malintenzionato indovinare una password debole, se tramite metodi manuali o usando gli strumenti, per acquisire le credenziali di un account utente compromessi. Ciò vale soprattutto per gli account amministrativi. Quando si modifica una password complessa regolarmente, riduce la probabilità di compromettere tale account di un attacco di password.
+In Windows e in molti altri sistemi operativi, il metodo più comune per autenticare l'identità di un utente consiste nell'usare una passphrase o una password segreta. Per proteggere l'ambiente di rete, è necessario che tutti gli utenti debbano usare password complesse. Questo consente di evitare la minaccia di un utente malintenzionato che indovina una password vulnerabile, sia tramite metodi manuali che tramite strumenti, per acquisire le credenziali di un account utente compromesso. Questa operazione è particolarmente valida per gli account amministrativi. Quando si modifica regolarmente una password complessa, si riduce la probabilità che un attacco con password compromettere l'account.
 
 ## <a name="BKMK_NEW"></a>Funzionalità nuove e modificate
-In Windows Server 2012 e Windows 8, sono le nuove password grafiche. Password grafiche sono una combinazione di un'immagine selezionata dell'utente insieme a una serie di movimenti. La funzionalità Picture password è disabilitata nel dominio\-aggiunto al computer. Sono elencati collegamenti a ulteriori informazioni sulle password grafiche [vedere anche](#BKMK_LINKS) sotto.
+In Windows Server 2012 e Windows 8 le password per le immagini sono nuove. Le password immagine sono una combinazione di un'immagine selezionata dall'utente associata a una serie di movimenti. La funzionalità password immagine è disabilitata nei computer Domain @ no__t-0joined. I collegamenti ad altre informazioni sulle password dell'immagine sono elencati in [vedere anche](#BKMK_LINKS) di seguito.
 
-È non stata apportata alcuna modifica alle funzionalità di password in Windows Server 2012 e Windows 8. Nessun nuovo impostazioni di criteri di gruppo sono state aggiunte. Tuttavia, miglioramenti sono state apportate nella credenziale \(e la password\) gestione, ad esempio con password grafiche, casella di sicurezza delle credenziali e accesso a Windows 8 con un account Microsoft, precedentemente noto come Windows Live ID .
+Non sono state apportate modifiche alle funzionalità delle password in Windows Server 2012 e Windows 8. Non sono state aggiunte nuove impostazioni di Criteri di gruppo. Tuttavia, sono stati apportati miglioramenti e miglioramenti in Credential \(and password @ no__t-1 Management, ad esempio con le password immagine, la casella di sicurezza delle credenziali e l'accesso a Windows 8 con un account Microsoft, in precedenza noto come Windows Live ID.
 
 ## <a name="BKMK_DEP"></a>Funzionalità deprecate
-È stata deprecata alcuna funzionalità di password in Windows Server 2012 e Windows 8.
+Nessuna funzionalità password è stata deprecata in Windows Server 2012 e Windows 8.
 
 ## <a name="BKMK_SOFT"></a>Requisiti software
-Negli ambienti aziendali, le password vengono in genere gestite con Active Directory Domain Services. Le password possono essere gestite nel computer locale usando le impostazioni di criteri Password le impostazioni di sicurezza, criteri di Account locali.
+Negli ambienti aziendali, le password vengono in genere gestite con Active Directory Domain Services. Le password possono anche essere gestite nel computer locale usando le impostazioni in impostazioni di protezione locali, criteri account e password.
 
 ## <a name="BKMK_LINKS"></a>Vedere anche
-Questa tabella sono elencate risorse aggiuntive per le funzionalità di password, la tecnologia e le credenziali di gestione.
+In questa tabella sono elencate risorse aggiuntive per le funzionalità delle password, la tecnologia e la gestione delle credenziali.
 
 |Tipo di contenuto|Riferimenti|
 |--------|-------|
 |**Documentazione dello scenario**|[Protezione dell'identità digitale](http://blogs.msdn.com/b/b8/archive/2011/12/14/protecting-your-digital-identity.aspx)|
-|**Operazioni**|[Utenti e computer active Directory](https://technet.microsoft.com/library/cc754217.aspx)|
-|**Risoluzione dei problemi**|[Scoprire quando scade la Password \- Blog di Active Directory PowerShell](http://blogs.msdn.com/b/adpowershell/archive/2010/08/09/9970198.aspx)|
-|**Sicurezza**| Windows Server 2008 R2 e Windows 7 [Guida alle minacce e contromisure: Criteri di account](https://technet.microsoft.com/library/hh125920(v=ws.10).aspx)<br /><br />Materiale sussidiario per [modificare e creare le password complesse](https://www.microsoft.com/security/online-privacy/passwords-create.aspx)|
-|**Strumenti e impostazioni**|[Riferimento delle impostazioni di criteri di gruppo per Windows e Windows Server nell'area download Microsoft](https://www.microsoft.com/download/en/details.aspx?amp;displaylang=en&displaylang=en&id=25250)|
-|**Risorse della community**|[Protezione dell'identità digitale](http://blogs.msdn.com/b/b8/archive/2011/12/14/protecting-your-digital-identity.aspx)<br /><br />[Accesso a Windows 8 con un Windows Live ID](http://blogs.msdn.com/b/b8/archive/2011/09/26/signing-in-to-windows-8-with-a-windows-live-id.aspx)<br /><br />[Accesso con una password grafica](http://blogs.msdn.com/b/b8/archive/2011/12/16/signing-in-with-a-picture-password.aspx)<br /><br />[Ottimizzazione della sicurezza delle password immagine](http://blogs.msdn.com/b/b8/archive/2011/12/19/optimizing-picture-password-security.aspx)|
+|**Operazioni**|[Utenti e computer Active Directory](https://technet.microsoft.com/library/cc754217.aspx)|
+|**Risoluzione dei problemi**|[Scoprire quando la password scade \- Active Directory Blog di PowerShell](http://blogs.msdn.com/b/adpowershell/archive/2010/08/09/9970198.aspx)|
+|**Sicurezza**| Guida di Windows Server 2008 R2 e Windows 7 [Threats e contromisure: Criteri account @ no__t-0<br /><br />Linee guida per la [modifica e la creazione di password complesse](https://www.microsoft.com/security/online-privacy/passwords-create.aspx)|
+|**Strumenti e impostazioni**|[Informazioni di riferimento sulle impostazioni di Criteri di gruppo per Windows e Windows Server nell'area download Microsoft](https://www.microsoft.com/download/en/details.aspx?amp;displaylang=en&displaylang=en&id=25250)|
+|**Risorse della community**|[Protezione dell'identità digitale](http://blogs.msdn.com/b/b8/archive/2011/12/14/protecting-your-digital-identity.aspx)<br /><br />[Accesso a Windows 8 con Windows Live ID](http://blogs.msdn.com/b/b8/archive/2011/09/26/signing-in-to-windows-8-with-a-windows-live-id.aspx)<br /><br />[Accesso con una password immagine](http://blogs.msdn.com/b/b8/archive/2011/12/16/signing-in-with-a-picture-password.aspx)<br /><br />[Ottimizzazione della sicurezza delle password per le immagini](http://blogs.msdn.com/b/b8/archive/2011/12/19/optimizing-picture-password-security.aspx)|
 
 

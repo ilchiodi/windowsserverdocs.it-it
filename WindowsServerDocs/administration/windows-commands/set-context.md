@@ -1,8 +1,8 @@
 ---
 title: Imposta contesto
-description: 'Argomento i comandi di Windows per * * *- '
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 6f24e795f2d7c92d462cf822e70e4830b53827e5
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 16f71d831f374f495abf2239cb8e694eee69efdf
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59845852"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71370984"
 ---
 # <a name="set-contex"></a>Set di menu di scelta rapida
 
@@ -39,7 +39,7 @@ set context {clientaccessible | persistent [nowriters] | volatile [nowriters]}
 |Parametro|Descrizione|
 |---------|-----------|
 |ClientAccessible|Specifica che la copia shadow è utilizzabile dalle versioni client di Windows.|
-|Persistente|Specifica che la copia shadow viene mantenuta in uscita del programma, ripristino o il riavvio.|
+|persistente|Specifica che la copia shadow viene mantenuta in uscita del programma, ripristino o il riavvio.|
 |volatile|Consente di eliminare l'ombreggiatura copiare sul uscire o reimpostare.|
 |NoWriters|Specifica che tutti i writer sono esclusi.|
 
@@ -56,4 +56,4 @@ set context persistent
 
 #### <a name="additional-references"></a>Altri riferimenti
 
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)
+[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

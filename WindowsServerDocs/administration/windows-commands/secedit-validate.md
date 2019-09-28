@@ -1,8 +1,8 @@
 ---
-title: secedit:validate
-description: 'Argomento i comandi di Windows per * * *- '
+title: 'secedit: Validate'
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,14 +13,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: cca64f6b2904ed11f6b45e316c8e4da0093c373e
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: ece0a0324b77eb4226b679bc29f7bd599f15a120
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59877912"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71371099"
 ---
-# <a name="seceditvalidate"></a>secedit:validate
+# <a name="seceditvalidate"></a>secedit: Validate
 
 
 
@@ -60,4 +60,4 @@ Secedit /validate secRBKcontoso.inf
 
 -   [Secedit:generaterollback](secedit-generaterollback.md)
 -   [Secedit](secedit.md)
--   [Chiave sintassi della riga di comando](command-line-syntax-key.md)
+-   [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

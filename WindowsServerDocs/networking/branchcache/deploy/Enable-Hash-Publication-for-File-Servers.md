@@ -2,22 +2,22 @@
 title: Abilitare la pubblicazione di hash per i file server
 description: Questo argomento fa parte di BranchCache distribuzione Guide per Windows Server 2016, che illustra come distribuire BranchCache in modalità cache distribuita e ospitato per ottimizzare l'utilizzo della larghezza di banda WAN nelle succursali
 manager: brianlic
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking-bc
 ms.topic: get-started-article
 ms.assetid: 5697aefe-1dd2-4ff9-82a9-da0afc182cb3
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 6f7d9c286f80b8c1ad4fb2370389f1afcd16dff8
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 62ebddf85a2a86b9759d970f29b3c8edbeba63f0
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59859742"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71406468"
 ---
 # <a name="enable-hash-publication-for-file-servers"></a>Abilitare la pubblicazione di hash per i file server
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016
 
 È possibile abilitare la pubblicazione di hash di BranchCache su uno o più file server.  
   

@@ -2,18 +2,18 @@
 title: Connettersi a un computer remoto
 description: Questo articolo descrive come connettersi a un computer remoto per gestire le risorse di archiviazione da Gestione risorse file server
 ms.date: 7/7/2017
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: storage
 ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: 93d2be926437b65ed8eb84a828ea0d7da6a51086
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 4d813933ec3073ecb3348468ca4b8f2e124c403d
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59818862"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71402015"
 ---
 # <a name="connect-to-a-remote-computer"></a>Connettersi a un computer remoto 
 
@@ -47,4 +47,4 @@ Per gestire risorse remote con Gestione risorse file server:
 
 ## <a name="see-also"></a>Vedere anche
 
--   [La gestione delle risorse di archiviazione remota](managing-remote-storage-resources.md)
+-   [Gestione delle risorse di archiviazione remota](managing-remote-storage-resources.md)

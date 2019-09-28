@@ -7,19 +7,19 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: b9702873d42e0a72e510ac022d8d7fb04b45dab9
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: cc0da10858ca6924a516fbf825206e376294209d
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66189174"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71407560"
 ---
 # <a name="customize-the-display-names-and-descriptions-for-authentication-methods"></a>Personalizzare i nomi visualizzati e le descrizioni per i metodi di autenticazione 
 
 
-Per personalizzare i nomi visualizzati e le descrizioni dei metodi di autenticazione è possibile usare il cmdlet di PowerShell `Set-AdfsAuthenticationProviderWebContent` .  Per poter usare questo cmdlet, è prima di tutto necessario ottenere il nome del metodo di autenticazione che si vuole personalizzare.  A tale scopo, usare `Get-AdfsGlobalAuthenticationPolicy`.  Nell'esempio riportato di seguito vediamo che, al nostro accesso\-nella pagina, viene visualizzato il seguente:  "Accedi con un certificato X.509".  L'obiettivo è semplificare questa operazione per gli utenti.  
+Per personalizzare i nomi visualizzati e le descrizioni dei metodi di autenticazione è possibile usare il cmdlet di PowerShell `Set-AdfsAuthenticationProviderWebContent` .  Per poter usare questo cmdlet, è prima di tutto necessario ottenere il nome del metodo di autenticazione che si vuole personalizzare.  A tale scopo, usare `Get-AdfsGlobalAuthenticationPolicy`.  Nell'esempio seguente si noterà che, nella pagina Sign @ no__t-0cm, viene visualizzato quanto segue:  "Accedi con un certificato X.509".  L'obiettivo è semplificare questa operazione per gli utenti.  
   
 ![personalizzare displayname](media/AD-FS-user-sign-in-customization/ADFS_Customize_Update1.PNG)  
   
@@ -44,4 +44,4 @@ Come si può vedere, il messaggio visualizzato è cambiato.
 ![personalizzare displayname](media/AD-FS-user-sign-in-customization/ADFS_Customize_Update3.PNG)  
 
 ## <a name="additional-references"></a>Altri riferimenti 
-[AD FS Sign-in personalizzazione dell'utente](AD-FS-user-sign-in-customization.md) 
+[Personalizzazione dell'accesso utente AD FS](AD-FS-user-sign-in-customization.md) 

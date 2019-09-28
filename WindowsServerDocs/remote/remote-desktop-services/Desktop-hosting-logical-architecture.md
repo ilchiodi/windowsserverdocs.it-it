@@ -2,7 +2,7 @@
 title: Architettura di Servizi Desktop remoto
 description: Diagrammi di architettura per Servizi Desktop remoto
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: remote-desktop-services
@@ -13,12 +13,12 @@ ms.topic: article
 ms.assetid: 7f73bb0a-ce98-48a4-9d9f-cf7438936ca1
 author: lizap
 manager: dongill
-ms.openlocfilehash: f70cfbf7d65ee0a8fb4439ea51a995e6428ede5e
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 7cd46cadf5ed5424e50556ee0c91a80804108113
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70871364"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71404215"
 ---
 # <a name="remote-desktop-services-architecture"></a>Architettura di Servizi Desktop remoto
 

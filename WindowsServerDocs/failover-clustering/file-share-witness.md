@@ -1,93 +1,93 @@
 ---
-title: Distribuire una condivisione File di controllo in Windows Server 2019
-ms.prod: windows-server-threshold
+title: Distribuire una condivisione file di controllo in Windows Server 2019
+ms.prod: windows-server
 ms.manager: eldenc
 ms.technology: failover-clustering
 ms.topic: article
 author: johnmarlin-msft
 ms.date: 01/24/2019
-description: Condivisioni file di controllo consentono di usare una condivisione file di voto di quorum del cluster. Questo argomento descrive le nuove funzionalità, incluso l'uso di un'unità USB connessa a un router come controllo di condivisione file e condivisioni file di controllo.
+description: I witness di condivisione file consentono di usare una condivisione file per votare il quorum del cluster. Questo argomento descrive i witness di condivisione file e le nuove funzionalità, tra cui l'uso di un'unità USB connessa a un router come condivisione file di controllo.
 ms.localizationpriority: medium
-ms.openlocfilehash: 47371be946c08cac2f271138d701922fc340a89d
-ms.sourcegitcommit: 48bb3e5c179dc520fa879b16c9afe09e07c87629
+ms.openlocfilehash: 9f0a0c5b48f7c382367e4b1100ff649fe73d3be9
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66453041"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71369757"
 ---
 # <a name="deploy-a-file-share-witness"></a>Distribuire una condivisione file di controllo
 
 > Si applica a: Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Controllo di condivisione file è una condivisione SMB che il Cluster di Failover Usa come il voto del quorum del cluster. In questo argomento viene fornita una panoramica della tecnologia e le nuove funzionalità di Windows Server 2019, incluso l'uso di un'unità USB connessa a un router come controllo di condivisione file.
+Una condivisione file di controllo è una condivisione SMB utilizzata dal cluster di failover come voto nel quorum del cluster. Questo argomento fornisce una panoramica della tecnologia e delle nuove funzionalità di Windows Server 2019, tra cui l'uso di un'unità USB connessa a un router come condivisione file di controllo.
 
-Condivisioni file di controllo è utili nelle situazioni seguenti:  
+I witness di condivisione file sono utili nelle circostanze seguenti:  
 
-- Un cloud di controllo non può essere usato perché non tutti i server del cluster dispongano di una connessione Internet affidabile
-- Impossibile utilizzare un disco di controllo perché non ci sono eventuali unità condivise da utilizzare per un disco di controllo. Potrebbe trattarsi di un cluster spazi di archiviazione diretta, SQL Server Always in gruppi di disponibilità (AG), gruppo di disponibilità del Database Exchange (DAG) e così via.  Nessuno di questi tipi di cluster di usare i dischi condivisi.
+- Non è possibile usare un cloud di controllo perché non tutti i server del cluster hanno una connessione Internet affidabile
+- Non è possibile usare un disco di controllo perché non sono presenti unità condivise da usare per un disco di controllo. Potrebbe trattarsi di un cluster Spazi di archiviazione diretta, SQL Server Always On gruppi di disponibilità (AG), gruppo di disponibilità del database di Exchange (DAG) e così via.  Nessuno di questi tipi di cluster usa dischi condivisi.
 
-## <a name="file-share-witness-requirements"></a>I requisiti di controllo di condivisione di file
+## <a name="file-share-witness-requirements"></a>Requisiti di controllo della condivisione file
 
-È possibile ospitare un controllo di condivisione file in un server di Windows aggiunti a un dominio o se il cluster è in esecuzione Windows Server 2019, tutti i dispositivi che possa host un SMB 2 o versione successiva nella condivisione file.
+È possibile ospitare una condivisione file di controllo in un server Windows aggiunto a un dominio o se il cluster esegue Windows Server 2019, qualsiasi dispositivo in grado di ospitare una condivisione file SMB 2 o successiva.
 
-|Tipo di file server                 | Cluster supportato |
+|Tipo di file server                 | Cluster supportati |
 |---------------------------------|--------------------|
-|Qualsiasi dispositivo w/un SMB 2 in una condivisione | Windows Server 2019|
-|Dominio Windows Server     | Windows Server 2008 e versioni successive|
+|Qualsiasi dispositivo con una condivisione file SMB 2 | Windows Server 2019|
+|Windows Server aggiunto a un dominio     | Windows Server 2008 e versioni successive|
 
-Se il cluster è in esecuzione Windows Server 2019, ecco i requisiti:
+Se il cluster esegue Windows Server 2019, di seguito sono riportati i requisiti:
 
-- Una condivisione file SMB *su qualsiasi dispositivo che usa il protocollo versione successiva o SMB 2*, tra cui:
-    - Dispositivi di archiviazione collegati alla rete (NAS)
-    - I computer Windows aggiunti a un gruppo di lavoro
-    - Router con archiviazione tramite dispositivo USB collegato localmente
+- Una condivisione file SMB *su qualsiasi dispositivo che usa il protocollo SMB 2 o versione successiva*, tra cui:
+    - Dispositivi NAS (Network Attached Storage)
+    - Computer Windows aggiunti a un gruppo di lavoro
+    - Router con archiviazione USB connessa localmente
 - Un account locale nel dispositivo per l'autenticazione del cluster
-- Se invece si usa Active Directory per l'autenticazione del cluster con la condivisione file, l'oggetto nome Cluster (CNO) deve disporre delle autorizzazioni di scrittura nella condivisione e il server deve essere nella stessa foresta Active Directory al cluster
-- La condivisione file disponga di almeno 5 MB di spazio libero
+- Se invece si usa Active Directory per autenticare il cluster con la condivisione file, l'oggetto nome cluster (oggetto nome cluster) deve disporre delle autorizzazioni di scrittura per la condivisione e il server deve trovarsi nella stessa foresta Active Directory del cluster
+- La condivisione file ha un minimo di 5 MB di spazio disponibile
 
-Se il cluster è in esecuzione Windows Server 2016 o versioni precedenti, ecco i requisiti:
+Se il cluster esegue Windows Server 2016 o versione precedente, di seguito sono riportati i requisiti:
 
-- Condivisione file SMB *su un server Windows aggiunto alla stessa foresta di Active Directory del cluster*
-- L'oggetto nome Cluster (CNO) deve disporre delle autorizzazioni di scrittura nella condivisione
-- La condivisione file disponga di almeno 5 MB di spazio libero
+- Condivisione file SMB *in un server Windows aggiunto alla stessa foresta Active Directory del cluster*
+- L'oggetto nome cluster (oggetto nome cluster) deve disporre delle autorizzazioni di scrittura per la condivisione
+- La condivisione file ha un minimo di 5 MB di spazio disponibile
 
 Altre note:
-- Per usare una condivisione file di controllo ospitate da dispositivi diversi da un server di Windows aggiunti a un dominio, è attualmente necessario usare il **Set-ClusterQuorum-Credential** cmdlet di PowerShell per impostare il tipo di controllo, come descritto più avanti in questo argomento.
-- Per la disponibilità elevata, è possibile usare una condivisione file di controllo in un Cluster di Failover separato
-- La condivisione file è utilizzabile da più cluster
-- L'uso di una condivisione di File System distribuito (DFS) o archiviazione replicata non è supportato con le versioni del clustering di failover.  Tali può causare una situazione Perle di divisione in cui i server del cluster sono in esecuzione indipendentemente uno da altro e può provocare la perdita di dati.
+- Per usare una condivisione file di controllo ospitata da dispositivi diversi da Windows Server aggiunto a un dominio, attualmente è necessario usare il cmdlet di PowerShell **set-ClusterQuorum-Credential** per impostare il server di controllo del mirroring, come descritto più avanti in questo argomento.
+- Per la disponibilità elevata, è possibile usare una condivisione file di controllo in un cluster di failover separato
+- La condivisione file può essere usata da più cluster
+- L'utilizzo di una condivisione file system distribuito (DFS) o di un archivio replicato non è supportato con alcuna versione del clustering di failover.  Questi possono causare una situazione di divisione dei cervelli in cui i server del cluster vengono eseguiti in modo indipendente l'uno dall'altro e possono causare la perdita di dati.
 
-## <a name="creating-a-file-share-witness-on-a-router-with-a-usb-device"></a>Creazione di un controllo di condivisione file su un router con un dispositivo USB
+## <a name="creating-a-file-share-witness-on-a-router-with-a-usb-device"></a>Creazione di una condivisione file di controllo in un router con un dispositivo USB
 
-Alla [Microsoft Ignite 2018](https://azure.microsoft.com/ignite/), [DataOn archiviazione](http://www.dataonstorage.com/) è stato rilevato un Cluster di spazi di archiviazione diretta in base alla relativa area per chiosco multimediale.  In questo cluster è stato connesso a un [NetGear](https://www.netgear.com) Nighthawk X4S Wi-Fi Router utilizza la porta USB di un file di controllo analogo al seguente di condivisione.
+In [Microsoft ignite 2018](https://azure.microsoft.com/ignite/), [DataOn storage](http://www.dataonstorage.com/) disponeva di un cluster spazi di archiviazione diretta nell'area chiosco multimediale.  Questo cluster è stato connesso a un router [Netgear](https://www.netgear.com) Nighthawk X4S Wi-Fi usando la porta USB come una condivisione file di controllo simile a questa.
 
-![Controllo del mirroring NetGear](media/File-Share-Witness/FSW1.png)
+![Server di controllo NetGear](media/File-Share-Witness/FSW1.png)
 
-I passaggi per la creazione di un controllo di condivisione file usando un dispositivo USB su questo particolare router sono elencati di seguito.  Si noti che questa procedura su altri router e i dispositivi NAS varia e deve essere eseguita mediante il fornitore fornito le direzioni.
+Di seguito sono elencati i passaggi per la creazione di un controllo di condivisione file usando un dispositivo USB in questo particolare router.  Si noti che i passaggi su altri router e appliance NAS variano e devono essere eseguiti usando le direzioni fornite dal fornitore.
 
 
 1. Accedere al router con il dispositivo USB collegato.
 
    ![Interfaccia NetGear](media/File-Share-Witness/FSW2.png)
 
-2. Nell'elenco delle opzioni, selezionare ReadySHARE ovvero dove è possibile creare condivisioni.
+2. Dall'elenco di opzioni selezionare ReadySHARE, in cui è possibile creare le condivisioni.
 
-   ![NetGear ReadySHARE](media/File-Share-Witness/FSW3.png)
+   ![ReadySHARE NetGear](media/File-Share-Witness/FSW3.png)
 
-3. Per un controllo di condivisione file, una condivisione di base è tutto ciò che serve.  Selezione del pulsante di modifica viene visualizzata una finestra di dialogo in cui è possibile creare la condivisione nel dispositivo USB.
+3. Per una condivisione file di controllo, è sufficiente una condivisione di base.  Se si seleziona il pulsante modifica, viene visualizzata una finestra di dialogo in cui è possibile creare la condivisione sul dispositivo USB.
 
-   ![Interfaccia NetGear condivisione](media/File-Share-Witness/FSW4.png)
+   ![Interfaccia di condivisione NetGear](media/File-Share-Witness/FSW4.png)
 
 4. Dopo aver selezionato il pulsante Applica, la condivisione viene creata e può essere visualizzata nell'elenco.
 
    ![Condivisioni NetGear](media/File-Share-Witness/FSW5.png)
 
-5. Dopo aver creata la condivisione, Creazione condivisione file di controllo per il Cluster viene eseguita con PowerShell.
+5. Una volta creata la condivisione, la creazione della condivisione file di controllo per il cluster viene eseguita con PowerShell.
 
    ```PowerShell
    Set-ClusterQuorum -FileShareWitness \\readyshare\Witness -Credential (Get-Credential)
    ```
 
-   Verrà visualizzata una finestra di dialogo per immettere l'account locale nel dispositivo.
+   Verrà visualizzata una finestra di dialogo in cui è possibile immettere l'account locale nel dispositivo.
 
-Questi stessi passaggi simile possono avvenire su altri router con funzionalità USB, i dispositivi NAS o altri dispositivi Windows.
+Questi stessi passaggi simili possono essere eseguiti in altri router con funzionalità USB, dispositivi NAS o altri dispositivi Windows.

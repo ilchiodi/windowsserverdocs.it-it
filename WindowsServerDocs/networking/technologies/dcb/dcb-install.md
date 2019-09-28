@@ -1,109 +1,109 @@
 ---
-title: Installazione di Data Center Bridging (DCB) in Windows Server o Client Windows
-description: In questo argomento vengono fornite istruzioni su come installare il Data Center Bridging in Windows Server o Client Windows.
-ms.prod: windows-server-threshold
+title: Installare Data Center Bridging (DCB) in Windows Server o client
+description: Questo argomento fornisce istruzioni su come installare Data Center Bridging in Windows Server o client Windows.
+ms.prod: windows-server
 ms.technology: networking
 ms.topic: article
 ms.assetid: b89213d8-143a-45f3-a609-bc6a7027204c
 manager: brianlic
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 7c20ef027279780181ff176afa39a19f2976c4c1
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 5ecb6ef072dd2328a0a45d57d181dca9c2928a30
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59845442"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71405790"
 ---
-# <a name="install-data-center-bridging-dcb-in-windows-server-2016-or-windows-10"></a>Installazione Data Center Bridging \(DCB\) in Windows Server 2016 o Windows 10
+# <a name="install-data-center-bridging-dcb-in-windows-server-2016-or-windows-10"></a>Installare Data Center Bridging \(DCB @ no__t-1 in Windows Server 2016 o Windows 10
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016
 
-È possibile utilizzare questo argomento per informazioni su come installare i Data Center Bridging in Windows Server 2016 o Windows 10.
+È possibile utilizzare questo argomento per informazioni su come installare DCB in Windows Server 2016 o Windows 10.
 
-## <a name="prerequisites-for-using-dcb"></a>Prerequisiti per l'uso di Data Center Bridging
+## <a name="prerequisites-for-using-dcb"></a>Prerequisiti per l'uso di DCB
 
-Di seguito sono i prerequisiti per la configurazione e la gestione DCB.
+Di seguito sono riportati i prerequisiti per la configurazione e la gestione di DCB.
 
 ### <a name="install-a-compatible-operating-system"></a>Installare un sistema operativo compatibile
 
-È possibile usare i comandi DCB da questa Guida in sistemi operativi seguenti.
+È possibile usare i comandi di DCB di questa guida nei sistemi operativi seguenti.
 
 - Windows Server (Canale semestrale)
 - Windows Server 2016
-- Windows 10 \(tutte le versioni\)
+- Windows 10 \(tutti Versions @ no__t-1
 
-I sistemi operativi seguenti includono le versioni precedenti di DCB che non sono compatibili con i comandi che vengono usati nella documentazione di Data Center Bridging per Windows Server 2016 e Windows 10.
+I sistemi operativi seguenti includono versioni precedenti di DCB che non sono compatibili con i comandi usati nella documentazione di DCB per Windows Server 2016 e Windows 10.
 
 - Windows Server 2012 R2
 - Windows Server 2012
 
 ###  <a name="hardware-requirements"></a>Requisiti hardware
 
-Seguito è riportato un elenco di requisiti hardware per DCB.
+Di seguito è riportato un elenco dei requisiti hardware per DCB.
 
-- DCB\-scheda di rete Ethernet che supportano\(s\) deve essere installato nel computer che forniscono DCB di Windows Server 2016.
-- DCB\-commutatori hardware che supportano devono essere distribuiti nella rete.
+- DCB @ no__t-0capable Ethernet Network Adapter @ no__t-1S @ no__t-2 deve essere installato nei computer che forniscono Windows Server 2016 DCB.
+- DCB @ no__t-i commutatori hardware 0capable devono essere distribuiti nella rete.
 
 
-## <a name="install-dcb-in-windows-server-2016"></a>Installare i Data Center Bridging in Windows Server 2016
+## <a name="install-dcb-in-windows-server-2016"></a>Installare DCB in Windows Server 2016
 
-È possibile utilizzare le sezioni seguenti per installare i Data Center Bridging in un computer che esegue Windows Server 2016.
+È possibile usare le sezioni seguenti per installare DCB in un computer che esegue Windows Server 2016.
 
 **Credenziali amministrative**
 
-Per eseguire queste procedure, è necessario essere un membro del **gli amministratori**.
+Per eseguire queste procedure, è necessario essere un membro di **Administrators**.
 
-### <a name="install-dcb-using-windows-powershell"></a>Installare DCB tramite Windows PowerShell
+### <a name="install-dcb-using-windows-powershell"></a>Installare DCB con Windows PowerShell
 
 È possibile utilizzare la procedura seguente per installare DCB tramite Windows PowerShell.
 
-1. In un computer che esegue Windows Server 2016, fare clic su **avviare**, quindi fare doppio clic sull'icona di Windows PowerShell. Viene visualizzato un menu. Nel menu, fare clic su **altre**, quindi fare clic su **Esegui come amministratore**. Se richiesto, digitare le credenziali per un account con privilegi di amministratore nel computer. Verrà visualizzata la finestra di Windows PowerShell con privilegi di amministratore.
+1. In un computer che esegue Windows Server 2016, fare clic sul pulsante **Start**, quindi fare clic con il pulsante destro del mouse sull'icona di Windows PowerShell. Viene visualizzato un menu. Nel menu fare clic su **altro**e quindi su **Esegui come amministratore**. Se richiesto, digitare le credenziali di un account con privilegi di amministratore per il computer. Windows PowerShell viene aperto con privilegi di amministratore.
 2. Digitare il comando seguente e quindi premere INVIO.
 
 ````
     Install-WindowsFeature -Name Data-Center-Bridging -IncludeManagementTools
 ````
 
-### <a name="install-dcb-using-server-manager"></a>Installare DCB utilizzando Server Manager
+### <a name="install-dcb-using-server-manager"></a>Installare DCB usando Server Manager
 
-È possibile utilizzare la procedura seguente per installare i Data Center Bridging tramite Server Manager.
+È possibile utilizzare la procedura seguente per installare DCB utilizzando Server Manager.
 
 >[!NOTE]
->Dopo aver eseguito il primo passaggio in questa procedura, il **prima di iniziare** pagina l'aggiunta guidata ruoli e funzionalità non viene visualizzata se si è scelto in precedenza **Ignora questa pagina per impostazione predefinita** quando Aggiungi È stato eseguito guidata ruoli e funzionalità. Se il **prima di iniziare** pagina non viene visualizzata, andare nel passaggio 1 al passaggio 3.
+>Dopo aver eseguito il primo passaggio di questa procedura, la pagina **prima di iniziare** dell'aggiunta guidata ruoli e funzionalità non viene visualizzata se in precedenza è stata selezionata l'opzione **Ignora questa pagina per impostazione predefinita** durante l'aggiunta guidata ruoli e funzionalità. Se non viene visualizzata la pagina **prima di iniziare** , passare dal passaggio 1 al passaggio 3.
 
-1. Su DC1, in Server Manager fare clic su **Manage**, quindi fare clic su **Aggiungi ruoli e funzionalità**. Viene avviata l'Aggiunta guidata ruoli e funzionalità.
+1. In Server Manager, in DC1 fare clic su **Gestisci**, quindi su **Aggiungi ruoli e funzionalità**. Viene avviata l'Aggiunta guidata ruoli e funzionalità.
 2. In **Prima di iniziare** fare clic su **Avanti**.
 3. In **Select Installation Type**, assicurarsi che **installazione basata su ruoli o basata su funzionalità** sia selezionata e quindi fare clic su **Avanti**.
 4. In **Selezione server di destinazione** assicurarsi che sia selezionata l'opzione **Selezionare un server dal pool di server**. Assicurarsi che in **Pool di server** sia selezionato il computer locale. Fare clic su **Avanti**.
 5. In **Selezione ruoli server**, fare clic su **Avanti**.
-6. Nelle **Selezione funzionalità**, nel **funzionalità**, fare clic su **Data Center Bridging**. Consente di aprire una finestra di dialogo per chiedere se si desidera aggiungere funzionalità di Data Center Bridging necessari. Fare clic su **aggiungere funzionalità**.
+6. In **Selezione funzionalità**, in **funzionalità**, fare clic su **Data Center Bridging**. Verrà visualizzata una finestra di dialogo in cui viene chiesto se si desidera aggiungere le funzionalità richieste di DCB. Fare clic su **Aggiungi funzionalità**.
 7. In **Selezionare le funzionalità**, fare clic su **Avanti**. 
-8. 7. in **Conferma selezioni per l'installazione**, fare clic su **installare**. Il **lo stato dell'installazione** pagina Visualizza stato durante il processo di installazione. Dopo che viene visualizzato il messaggio che segnala che l'installazione ha avuto esito positivo, fare clic su **Chiudi**.
+8. 7.In **confermare le selezioni**per l'installazione, fare clic su **Installa**. Il **lo stato dell'installazione** pagina Visualizza stato durante il processo di installazione. Quando viene visualizzato il messaggio indicante che l'installazione è riuscita, fare clic su **Chiudi**.
 
-### <a name="configure-the-kernel-debugger-to-allow-qos-optional"></a>Configurare il debugger del kernel per consentire QoS \(facoltativo\)
+### <a name="configure-the-kernel-debugger-to-allow-qos-optional"></a>Configurare il debugger del kernel per consentire QoS \(Optional @ no__t-1
 
- Per impostazione predefinita, il debugger del kernel Blocca NetQos. Indipendentemente dal metodo usato per installare i Data Center Bridging, se si dispone di un debugger del kernel installato nel computer, è necessario configurare il debugger per consentire di QoS essere abilitato e configurato per eseguire il comando seguente.
+ Per impostazione predefinita, i debugger del kernel bloccano NetQos. Indipendentemente dal metodo usato per installare DCB, se nel computer è installato un debugger del kernel, è necessario configurare il debugger in modo da consentire l'abilitazione e la configurazione di QoS eseguendo il comando seguente.
 
 ````
 Set-ItemProperty HKLM:"\SYSTEM\CurrentControlSet\Services\NDIS\Parameters" AllowFlowControlUnderDebugger -type DWORD -Value 1 -Force
 ````
 
-## <a name="install-dcb-in-windows-10"></a>Installare i Data Center Bridging in Windows 10
+## <a name="install-dcb-in-windows-10"></a>Installare DCB in Windows 10
 
 È possibile eseguire la procedura seguente in un computer Windows 10.
 
-Per eseguire questa procedura, è necessario essere un membro del **gli amministratori**.
+Per eseguire questa procedura, è necessario essere un membro di **Administrators**.
 
 ### <a name="install-dcb"></a>Installare DCB
 
-1. Fare clic su **avviare**, quindi scorrere verso il basso e fare clic su **sistema Windows**.
-2. Fare clic su **Pannello di controllo**. Il **Pannello di controllo** verrà visualizzata la finestra di dialogo.
-3. In **Pannello di controllo**, fare clic su **visualizzare**, quindi fare clic su **icone grandi** o **icone piccole**.
+1. Fare clic sul pulsante **Start**, quindi scorrere verso il basso e fare clic su **sistema Windows**.
+2. Fare clic su **Pannello di controllo**. Verrà visualizzata la finestra di dialogo **Pannello di controllo** .
+3. Nel **Pannello di controllo**fare clic su **Visualizza per**e quindi su icone **grandi** o **icone piccole**.
 4. Fare clic su **programmi e funzionalità**. Verrà visualizzata la finestra di dialogo programmi e funzionalità.
-5. Nelle **programmi e funzionalità**, nel riquadro sinistro, fare clic su **o disattivazione delle funzionalità Windows attivare**. Il **funzionalità di Windows** verrà visualizzata la finestra di dialogo.
-6. Nelle **funzionalità di Windows**, fare clic su **Data Center Bridging**, quindi fare clic su **OK**.
+5. In **programmi e funzionalità**, nel riquadro sinistro, fare clic **su attivazione o disattivazione delle funzionalità Windows**. Verrà visualizzata la finestra di dialogo **funzionalità Windows** .
+6. In **funzionalità di Windows**fare clic su **Data Center Bridging**, quindi fare clic su **OK**.
 
-![Attivare le funzionalità di Windows o disattivare la finestra di dialogo](../../media/Dcb-Scripting/Dcb-Scripting.jpg)
+![Finestra di dialogo Attivazione o disattivazione delle funzionalità Windows](../../media/Dcb-Scripting/Dcb-Scripting.jpg)
 
 
