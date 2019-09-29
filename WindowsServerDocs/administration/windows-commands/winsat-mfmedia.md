@@ -1,8 +1,8 @@
 ---
-title: WinSAT mfmedia
+title: mfmedia WinSAT
 description: Comandi di Windows
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 2c63682e474311a49b01dc8078b023547e1fb170
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 3684d4b23ba6d34febe226f54b8b2ab2204f610c
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66440018"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71361904"
 ---
-# <a name="winsat-mfmedia"></a>WinSAT mfmedia
+# <a name="winsat-mfmedia"></a>mfmedia WinSAT
 
 
 
-Misura le prestazioni di video decodifica (riproduzione) usando il framework di Media Foundation.
+Misura le prestazioni della decodifica video (riproduzione) utilizzando il Framework Media Foundation.
 
 Per esempi di utilizzo di questo comando, vedere [Esempi](#BKMK_examples).
 
@@ -38,31 +38,31 @@ winsat mfmedia <parameters>
 
 |Parametri|Descrizione|
 |----------|-----------|
-|-input \<nome file >|Obbligatorio: Specificare il file contenente la clip video da riprodurre o codificato. Il file può essere in qualsiasi formato che può essere sottoposto a rendering da Media Foundation.|
-|-dumpgraph|Specificare che il grafico di filtro deve essere salvato in un file compatibile con GraphEdit prima dell'avvio della valutazione.|
-|-ns|Specificare che il grafico di filtro deve essere eseguito con la velocità di riproduzione normale del file di input. Per impostazione predefinita, il grafico di filtro viene eseguito più velocemente possibile, ignorando i tempi di presentazione.|
-|-play|Esegui la valutazione in decodificare la modalità e qualsiasi fornito audio contenuto nel file specificato play **-input** usando il dispositivo DirectSound predefinito. Per impostazione predefinita, la riproduzione audio è disabilitata.|
-|-nopmp|Si avvale di Media Foundation protetti supporti Pipeline (MFPMP) processo durante la valutazione.|
-|-pmp|Assicurarsi sempre di utilizzare il MFPMP processo durante la valutazione.</br>Nota: Se **- pmp** oppure **- nopmp** non viene specificato, verrà utilizzato MFPMP solo quando necessario.|
-|-v|Inviare un output dettagliato a STDOUT, incluse le informazioni di stato e lo stato di avanzamento. Anche gli eventuali errori verranno scritto nella finestra di comando.|
-|xml - \<nome file >|Salvare l'output della valutazione come file XML specificato. Se il file specificato esiste, verrà sovrascritto.|
-|-idiskinfo|Salvare le informazioni sui volumi fisici e i dischi logici come parte del  **\<SystemConfig >** sezione nell'output XML.|
+|-input \<file nome >|Obbligatorio: Specificare il file contenente il clip video da riprodurre o codificare. Il file può essere in qualsiasi formato di cui è possibile eseguire il rendering Media Foundation.|
+|-dumpgraph|Consente di specificare che il grafico del filtro deve essere salvato in un file compatibile con GraphEdit prima dell'avvio della valutazione.|
+|-NS|Consente di specificare che il grafico del filtro deve essere eseguito con la normale velocità di riproduzione del file di input. Per impostazione predefinita, il grafico del filtro viene eseguito il più rapidamente possibile, ignorando i tempi di presentazione.|
+|-Play|Eseguire la valutazione in modalità decodifica e riprodurre qualsiasi contenuto audio fornito nel file specificato in **-input** usando il dispositivo DirectSound predefinito. Per impostazione predefinita, la riproduzione audio è disabilitata.|
+|-nopmp|Non usare il processo MFPMP (Protected Media pipeline) Media Foundation durante la valutazione.|
+|-PMP|Usare sempre il processo MFPMP durante la valutazione.</br>Nota: Se non si specifica **-PMP** o **-nopmp** , MFPMP verrà usato solo quando necessario.|
+|-v|Inviare l'output dettagliato a STDOUT, incluse le informazioni sullo stato e sullo stato di avanzamento. Eventuali errori verranno anche scritti nella finestra di comando.|
+|-nome \<file XML >|Salva l'output della valutazione come file XML specificato. Se il file specificato esiste, verrà sovrascritto.|
+|-idiskinfo|Salvare le informazioni sui volumi fisici e i  **\<** dischi logici come parte della sezione SystemConfig > nell'output XML.|
 |-iguid|Creare un identificatore univoco globale (GUID) nel file di output XML.|
-|-Si noti "testo nota"|Aggiungere il testo della nota per il  **\<nota >** sezione nel file di output XML.|
-|-icn|Includere il nome del computer locale nel file di output XML.|
-|-eef|Enumerare le informazioni di sistema aggiuntivi nel file di output XML.|
+|-Nota "testo della nota"|Aggiungere il testo della nota alla  **\<sezione Nota >** nel file di output XML.|
+|-ICN|Includere il nome del computer locale nel file di output XML.|
+|-Eef|Enumerare informazioni aggiuntive sul sistema nel file di output XML.|
 
 ## <a name="BKMK_examples"></a>Esempi
 
-- Nell'esempio seguente viene eseguita la valutazione con il file di input che viene usato durante una **winsat formale** valutazione, senza uso di Media Foundation protetti supporti Pipeline (MFPMP), in un computer in cui c:\windows è il percorso del la cartella Windows.  
+- Nell'esempio seguente viene eseguita la valutazione con il file di input utilizzato durante una valutazione **formale di WinSAT** , senza utilizzare la pipeline multimediale protetta Media Foundation (MFPMP), in un computer in cui c:\Windows è il percorso della cartella di Windows.  
   ```
   winsat mfmedia -input c:\windows\performance\winsat\winsat.wmv -nopmp
   ```
 
 ## <a name="remarks"></a>Note
 
--   L'appartenenza al gruppo Administrators locale o equivalente è il requisito minimo per usare **winsat**. Il comando deve essere eseguito da una finestra del prompt dei comandi con privilegi elevati.
--   Per aprire una finestra del prompt dei comandi con privilegi elevati, fare clic su **avviare**, fare clic su **Accessori**, fare doppio clic su **prompt dei comandi**, fare clic su **Esegui come amministratore**.
+-   L'appartenenza al gruppo Administrators locale o a un gruppo equivalente è il requisito minimo necessario per usare **WinSAT**. Il comando deve essere eseguito da una finestra del prompt dei comandi con privilegi elevati.
+-   Per aprire una finestra del prompt dei comandi con privilegi elevati, fare clic su **Start**, **Accessori**, fare clic con il pulsante destro del mouse su **prompt dei comandi**e scegliere **Esegui come amministratore**.
 
 #### <a name="additional-references"></a>Altri riferimenti
 

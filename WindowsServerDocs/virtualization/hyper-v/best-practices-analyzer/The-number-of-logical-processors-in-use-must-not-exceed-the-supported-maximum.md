@@ -1,7 +1,7 @@
 ---
 title: Il numero di processori logici in uso non deve superare il valore massimo supportato
-description: Fornisce le istruzioni per risolvere il problema segnalato da questa regola di Best Practices Analyzer.
-ms.prod: windows-server-threshold
+description: Vengono fornite istruzioni per risolvere il problema segnalato da questa regola di Best Practices Analyzer.
+ms.prod: windows-server
 ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
@@ -10,12 +10,12 @@ ms.topic: article
 ms.assetid: 66df8b02-91d1-424b-8934-a39c214d530e
 author: KBDAzure
 ms.date: 8/16/2016
-ms.openlocfilehash: d1275a17cc04494708f5ecfe9b708834b4233641
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 380daf333c041c8702228a60c26ab6e76e4cf3e1
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59847072"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71393400"
 ---
 # <a name="the-number-of-logical-processors-in-use-must-not-exceed-the-supported-maximum"></a>Il numero di processori logici in uso non deve superare il valore massimo supportato
 
@@ -26,9 +26,9 @@ Per altre informazioni sulle procedure consigliate e le analisi, vedere [Best Pr
 |Proprietà|Dettagli|  
 |-|-|  
 |**Sistema operativo**|Windows Server 2016|  
-|**/ Funzionalità del prodotto**|Hyper-V|  
-|**Severity**|Errore|  
-|**Categoria**|Condizione|  
+|**Prodotto/funzionalità**|Hyper-V|  
+|**Gravità**|Errore|  
+|**Categoria**|Criteri|  
   
 Nelle sezioni seguenti, corsivo indica il testo visualizzato nello strumento Analizzatore procedure consigliate per questo problema.  
   
@@ -38,11 +38,11 @@ Nelle sezioni seguenti, corsivo indica il testo visualizzato nello strumento Ana
   
 ## <a name="impact"></a>Impatto  
   
-*Microsoft non supporta l'esecuzione di Hyper-V nel computer.*  
+*Microsoft non supporta l'esecuzione di Hyper-V in questo computer.*  
   
 ## <a name="resolution"></a>Risoluzione  
   
-*Rimuovere alcuni processori da questo computer o utilizzare msconfig per limitare il numero di processori disponibili.*  
+*Rimuovere alcuni processori dal computer o usare msconfig per limitare il numero di processori disponibili.*  
   
 Vedere le istruzioni seguenti per utilizzare Msconfig. Per ulteriori informazioni sulla rimozione di processori, vedere le istruzioni fornite con il computer o contattare il produttore dell'hardware. Per informazioni dettagliate sulle configurazioni supportate massime per Hyper-V, vedere [pianificare la scalabilità di Hyper-V in Windows Server 2016](../plan/Plan-for-Hyper-V-scalability-in-Windows-Server-2016.md).  
   

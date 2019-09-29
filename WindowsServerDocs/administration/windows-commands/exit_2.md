@@ -1,8 +1,8 @@
 ---
 title: exit
-description: 'Argomento i comandi di Windows per * * *- '
+description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,19 +13,19 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 4e599f84389b23e527e3718a620d5fdfefe24edb
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 105bf572c1ebeb37ea59ff8bc5c04121d2442341
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66439467"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71377352"
 ---
 # <a name="exit"></a>exit
 
 >Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-esce dal programma Cmd.exe (l'interprete dei comandi) o lo script batch corrente.  
-Per esempi di come usare questo comando, vedere [esempi](#BKMK_examples).  
+esce dal programma cmd. exe (l'interprete dei comandi) o dallo script batch corrente.  
+Per esempi relativi all'uso di questo comando, vedere [esempi](#BKMK_examples).  
 ## <a name="syntax"></a>Sintassi  
 ```  
 exit [/b] [<exitCode>]  
@@ -34,7 +34,7 @@ exit [/b] [<exitCode>]
 
 | Parametro  |                                                                                         Descrizione                                                                                          |
 |------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|     / b     |                                      Chiude lo script batch corrente anziché uscire Cmd.exe. Se eseguita in uno script batch, viene chiuso Cmd.exe.                                      |
+|     / b     |                                      chiude lo script batch corrente anziché uscire da cmd. exe. Se eseguita in uno script batch, viene chiuso Cmd.exe.                                      |
 | <exitCode> | Specifica un numero. Se **/b** è specificato, la variabile di ambiente ERRORLEVEL è impostata su tale numero. Se sono in fase di chiusura **Cmd.exe**, il codice di uscita del processo è impostato su tale numero. |
 |     /?     |                                                                             Visualizza la guida al prompt dei comandi.                                                                             |
 

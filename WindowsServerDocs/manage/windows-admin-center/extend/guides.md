@@ -1,43 +1,43 @@
 ---
 title: Guide
-description: Le guide Windows Admin Center SDK (progetto Honolulu)
+description: Guide Windows Admin Center SDK (Project Honolulu)
 ms.technology: manage
 ms.topic: article
 author: nwashburn-ms
 ms.author: niwashbu
 ms.date: 09/17/2018
 ms.localizationpriority: medium
-ms.prod: windows-server-threshold
-ms.openlocfilehash: 0620329bc0059c830359a125dd865ffd39ae72b9
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.prod: windows-server
+ms.openlocfilehash: b7e091e4b9bef11b37a8247b52390404e258ae3b
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59836152"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71357106"
 ---
 # <a name="guides"></a>Guide
 
->Si applica a: Windows Admin Center, Windows Admin Center anteprima
+>Si applica a: Windows Admin Center, Windows Admin Center Preview
 
 ## <a name="guides"></a>Guide
-Ecco alcune guide per lo sviluppo con il SDK di Windows Admin Center:
+Di seguito sono riportate alcune guide per lo sviluppo con Windows Admin Center SDK:
 
-- [Aggiungere un modulo a un'estensione degli strumenti](guides/add-module.md)
-- [Aggiungere un elemento iFrame per un'estensione degli strumenti](guides/add-iframe.md)
-- [Usare un plug-in gateway personalizzato nella propria estensione degli strumenti](guides/use-custom-gateway-plugin.md)
+- [Aggiungere un modulo a un'estensione dello strumento](guides/add-module.md)
+- [Aggiungere un iFrame a un'estensione dello strumento](guides/add-iframe.md)
+- [Utilizzare un plug-in del gateway personalizzato nell'estensione dello strumento](guides/use-custom-gateway-plugin.md)
 - [Creare un provider di connessione](guides/create-connection-provider.md)
-- [Modificare il comportamento di navigazione principale](guides/modify-root-navigation.md)
+- [Modificare il comportamento di spostamento principale](guides/modify-root-navigation.md)
 - [Controllare la visibilità dello strumento](guides/dynamic-tool-display.md)
-- [Le stringhe e la localizzazione](guides/strings-localization.md)
-- [Uso di PowerShell nella propria estensione](guides/powershell.md)
-- [Guida sull'icona CSS](guides/cssicons.md)
+- [Stringhe e localizzazione](guides/strings-localization.md)
+- [Utilizzo di PowerShell nell'estensione](guides/powershell.md)
+- [Guida dell'icona CSS](guides/cssicons.md)
 
 ## <a name="sdk-design-toolkit"></a>Toolkit di progettazione SDK
 
-- Consultare il Windows Admin Center [toolkit progettazione SDK](https://github.com/Microsoft/windows-admin-center-sdk/blob/master/WindowsAdminCenterDesignToolkit.zip)! Questo toolkit è progettato per aiutarti a simulare rapidamente le estensioni in PowerPoint con stili di Windows Admin Center, controlli e modelli di pagina. Vedere l'estensione può come appaiono nel Windows Admin Center prima di iniziare a scrivere codice!
+- Visitare il Windows Admin Center [SDK Design Toolkit](https://github.com/Microsoft/windows-admin-center-sdk/blob/master/WindowsAdminCenterDesignToolkit.zip). Questo Toolkit è stato progettato per consentire di simulare rapidamente le estensioni in PowerPoint usando gli stili, i controlli e i modelli di pagina dell'interfaccia di amministrazione di Windows. Prima di iniziare a scrivere il codice, vedere l'aspetto dell'estensione nell'interfaccia di amministrazione di Windows.
 
-## <a name="sample-code-included-with-the-sdk"></a>Codice di esempio incluso nel SDK
+## <a name="sample-code-included-with-the-sdk"></a>Codice di esempio incluso nell'SDK
 
-- Codice di esempio è disponibile per [tool](develop-tool.md), [soluzione](develop-solution.md), e [plug-in gateway](develop-gateway-plugin.md) tipi di estensione nella documentazione SDK. Non esiste è possibile usare l'interfaccia CLI di Windows Admin Center per generare un nuovo progetto di estensione e quindi seguire le guide per personalizzare il progetto per soddisfare le esigenze individuali.
+- Il codice di esempio è disponibile per i tipi di estensione di plug-in per [strumenti](develop-tool.md), [soluzioni](develop-solution.md)e [gateway](develop-gateway-plugin.md) nella documentazione di SDK. Sarà possibile usare l'interfaccia della riga di comando di Windows Admin Center per compilare un nuovo progetto di estensione, quindi seguire le singole guide per personalizzare il progetto in base alle esigenze.
 
-- [Strumenti di sviluppo](https://aka.ms/wacsdk), ospitata nel sito GitHub SDK, è un'estensione di soluzione che contiene un'ampia raccolta di controlli che è possibile esplorare e utilizzare in un'estensione personalizzata.  Strumenti di sviluppo è un'estensione completamente funzionante che può essere trasferita localmente in Windows Admin Center in modalità di sviluppo.
+- [Strumenti di sviluppo](https://aka.ms/wacsdk), ospitato nel sito di GitHub SDK, è un'estensione della soluzione che contiene una raccolta completa di controlli che è possibile esplorare e usare nella propria estensione.  Strumenti di sviluppo è un'estensione completamente funzionante che può essere trasferita localmente in Windows Admin Center in modalità di sviluppo.

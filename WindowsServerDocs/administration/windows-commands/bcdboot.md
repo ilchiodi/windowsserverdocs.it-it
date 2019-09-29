@@ -1,8 +1,8 @@
 ---
 title: bcdboot
-description: Argomento i comandi di Windows per **bcdboot** - rapidamente consente di impostare una partizione di sistema, o ripristinare l'ambiente di avvio che si trova nella partizione di sistema.
+description: "Argomento dei comandi di Windows per **BCDboot** : configurare rapidamente una partizione di sistema o ripristinare l'ambiente di avvio che si trova nella partizione di sistema."
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,20 +13,20 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 78838dd6567ad886948df8ac21425a8f9b596d5f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: a1c0f505180a503617335cc9575fea3d346bbe02
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59825882"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71383444"
 ---
 # <a name="bcdboot"></a>bcdboot
 
 
 
-Consente di configurare rapidamente una partizione di sistema o per ripristinare l'ambiente di avvio che si trova nella partizione di sistema. La partizione di sistema viene configurata tramite la copia di un semplice set di file di dati di configurazione di avvio (BCD) a una partizione vuota esistente.
+Consente di configurare rapidamente una partizione di sistema o di ripristinare l'ambiente di avvio che si trova nella partizione di sistema. La partizione di sistema viene configurata copiando un semplice set di file di dati configurazione di avvio (BCD) in una partizione vuota esistente.
 
-Per altre informazioni su BCDboot, incluse le informazioni su dove trovare BCDboot ed esempi su come usare questo comando, vedere la [opzioni della riga di comando di BCDboot](https://technet.microsoft.com/library/hh824874.aspx) argomento.
+Per ulteriori informazioni su BCDboot, incluse informazioni su dove trovare BCDboot ed esempi sull'uso di questo comando, vedere l'argomento [Opzioni della riga di comando di BCDboot](https://technet.microsoft.com/library/hh824874.aspx) .
 
 ## <a name="syntax"></a>Sintassi
 
@@ -38,14 +38,14 @@ bcdboot <source> [/l] [/s]
 
 |Parametro|Descrizione|
 |---------|-----------|
-|origine|Specifica il percorso della directory di Windows da utilizzare come origine per la copia dei file dell'ambiente di avvio.|
-|/l|Specifica le impostazioni locali. Le impostazioni locali predefinite sono inglese Stati Uniti.|
-|/s|Specifica la lettera di volume della partizione di sistema. Il valore predefinito è la partizione di sistema identificata dal firmware.|
+|source|Specifica il percorso della directory di Windows da utilizzare come origine per la copia dei file dell'ambiente di avvio.|
+|/l|Specifica le impostazioni locali. Le impostazioni locali predefinite sono inglesi (Stati Uniti).|
+|/s|Specifica la lettera del volume della partizione di sistema. Il valore predefinito è la partizione di sistema identificata dal firmware.|
 
 ## <a name="BKMK_examples"></a>Esempi
 
-Per altri esempi di come usare questo comando, vedere la [opzioni della riga di comando di BCDboot](https://technet.microsoft.com/library/hh824874.aspx) argomento.
+Per ulteriori esempi di utilizzo di questo comando, vedere l'argomento [Opzioni della riga di comando BCDboot](https://technet.microsoft.com/library/hh824874.aspx) .
 
 #### <a name="additional-references"></a>Altri riferimenti
 
-[Chiave sintassi della riga di comando](command-line-syntax-key.md)
+[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
