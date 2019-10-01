@@ -1,7 +1,7 @@
 ---
 title: Distribuire l'ambiente Desktop remoto
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 description: Procedura di base per distribuire un ambiente Desktop remoto.
 ms.reviewer: na
 ms.suite: na
@@ -13,12 +13,12 @@ ms.topic: article
 author: lizap
 manager: dongill
 ms.localizationpriority: medium
-ms.openlocfilehash: 5b9ce1bb87a7a2ad8819235edc412fd095bc2985
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: e00be471b2607ad4bc8cc8e11652d428419b4fd6
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "66805135"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71404021"
 ---
 # <a name="deploy-your-remote-desktop-environment"></a>Distribuire l'ambiente Desktop remoto
 
@@ -46,7 +46,7 @@ Se usi macchine virtuali per uno o più server Servizi Desktop remoto, assicurat
 4.  Attiva il server licenze Desktop remoto e aggiungilo al gruppo Server licenze:  
     1.  In Server Manager fai clic su **Strumenti > Servizi terminal > Gestione licenze Desktop remoto**.  
     2.  In Gestione licenze Desktop remoto seleziona il server e quindi fai clic su **Azione > Attiva server**.  
-    3.  Accetta i valori predefiniti nell'Attivazione guidata server fino ad arrivare alla pagina **Informazioni società**. Immetti quindi le informazioni sulla società.  
+    3.  Accetta i valori predefiniti nell'Attivazione guidata server. Continua ad accettare i valori predefiniti fino a raggiungere la pagina **Informazioni società**. Immetti quindi le informazioni sulla società.  
     4.  Accetta i valori predefiniti per le pagine restanti fino alla pagina finale. Deseleziona **Avvia Installazione guidata licenze** e quindi fai clic su **Fine**.  
     5.  Fai clic su **Azione > Verifica configurazione > Aggiungi al gruppo > OK**. Immetti le credenziali per un utente nel gruppo Amministratori AAD DC ed effettua la registrazione come SCP. Questo passaggio potrebbe non funzionare se usi Servizi di dominio Active Directory, ma puoi ignorare gli eventuali avvisi o errori.  
 5.  Aggiungi il server Gateway Desktop remoto e il nome del certificato:  
