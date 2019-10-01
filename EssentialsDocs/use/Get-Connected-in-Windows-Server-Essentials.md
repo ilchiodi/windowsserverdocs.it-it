@@ -90,7 +90,7 @@ ms.locfileid: "70866943"
 -   L'installazione di Windows Server Essentials è stata completata e il server è in esecuzione. Se non è possibile comunicare con il server, l'installazione del software Connettore sarà interrotta.  
 
 
--   Il sistema operativo in esecuzione nel computer client è supportato. Per altre informazioni, vedere [Supported operating systems for client computers](Get-Connected-in-Windows-Server-Essentials.md#BKMK_4).
+-   Il sistema operativo in esecuzione nel computer client è supportato. Per altre informazioni, vedere [Sistemi operativi supportati per i computer client](Get-Connected-in-Windows-Server-Essentials.md#BKMK_4).
 
 
 -   Il computer client deve avere una connessione valida a Internet.  
@@ -123,11 +123,11 @@ ms.locfileid: "70866943"
 > 
 >  In una distribuzione client locale per Windows Server Essentials o Windows Server Essentials, è possibile connettere i computer al server senza aggiungerli al dominio di Windows Server Essentials. Questo metodo non è disponibile per tutti i sistemi operativi client supportati e le funzionalità quali Criteri di gruppo e le reti private virtuali (VPN, Virtual Private Network), che necessitano della connessione di un computer al dominio, non saranno disponibili. Per informazioni sui requisiti e istruzioni, vedere [Connettere i computer a un server di Windows Server Essentials senza aggiungerli al dominio](Get-Connected-in-Windows-Server-Essentials.md#BKMK_10).  
 
- Per istruzioni dettagliate per la connessione di un computer al server che esegue Windows Server Essentials, vedere [Connect computers to the server](Get-Connected-in-Windows-Server-Essentials.md#BKMK_9).  
+ Per istruzioni dettagliate per la connessione di un computer al server che esegue Windows Server Essentials, vedere [Connettere i computer al server](Get-Connected-in-Windows-Server-Essentials.md#BKMK_9).  
 
 >  In una distribuzione client locale per Windows Server Essentials o Windows Server Essentials, è possibile connettere i computer al server senza aggiungerli al dominio di Windows Server Essentials. Questo metodo non è disponibile per tutti i sistemi operativi client supportati e le funzionalità quali Criteri di gruppo e le reti private virtuali (VPN, Virtual Private Network), che necessitano della connessione di un computer al dominio, non saranno disponibili. Per informazioni sui requisiti e istruzioni, vedere [Connettere i computer a un server di Windows Server Essentials senza aggiungerli al dominio](Get-Connected-in-Windows-Server-Essentials.md#BKMK_10).  
 
- Per istruzioni dettagliate per la connessione di un computer al server che esegue Windows Server Essentials, vedere [Connect computers to the server](Get-Connected-in-Windows-Server-Essentials.md#BKMK_9).  
+ Per istruzioni dettagliate per la connessione di un computer al server che esegue Windows Server Essentials, vedere [Connettere i computer al server](Get-Connected-in-Windows-Server-Essentials.md#BKMK_9).  
 
 
 ###  <a name="BKMK_3"></a>Prerequisiti per la connessione di un computer Mac alla rete  
@@ -483,7 +483,7 @@ ms.locfileid: "70866943"
     -    Windows 7 Professional (x86 e x64), Windows 7 Enterprise (x86 e x64), Windows 7 Ultimate (x86 e x64)  
 
 
--   Il computer deve soddisfare tutti gli altri requisiti per i computer client in Windows Server Essentials. Per altre informazioni, vedere [Prerequisites for connecting a computer to the server](Get-Connected-in-Windows-Server-Essentials.md#BKMK_2).  
+-   Il computer deve soddisfare tutti gli altri requisiti per i computer client in Windows Server Essentials. Per altre informazioni, vedere [Prerequisiti per la connessione di un computer al server](Get-Connected-in-Windows-Server-Essentials.md#BKMK_2).  
 
 
 -   Per abilitare una connessione senza aggiunta al dominio, è necessario accedere al computer con un account appartenente al gruppo Administrators locale.  
@@ -632,7 +632,7 @@ ms.locfileid: "70866943"
 6.  Attendere la disinstallazione del programma. Dopo la rimozione del software, il **Connettore Windows Server Essentials** non sarà più incluso nell'elenco di programmi o aggiornamenti installati. Inoltre, i collegamenti alla finestra di avvio e al dashboard non vengono più visualizzati sul desktop del computer.  
 
 > [!NOTE]
-> - La disinstallazione del software Connettore non rimuove il computer dall'elenco di computer visualizzati nella scheda **DISPOSITIVI** del dashboard. Per rimuovere il computer dal dashboard, vedere [Remove a computer from the server](../manage/Manage-Devices-in-Windows-Server-Essentials.md#BKMK_3).  
+> - La disinstallazione del software Connettore non rimuove il computer dall'elenco di computer visualizzati nella scheda **DISPOSITIVI** del dashboard. Per rimuovere il computer dal dashboard, vedere [Rimuovere un computer dal server](../manage/Manage-Devices-in-Windows-Server-Essentials.md#BKMK_3).  
 >   -   Quando si disinstalla il software Connettore, le cartelle condivise nel computer client mappate al server non saranno eliminate. È necessario eliminare manualmente le cartelle condivise mappate al server.  
 > 
 > -   La disinstallazione del software Connettore non separa il computer dal dominio originale. È necessario separare manualmente il computer da dominio. Per ulteriori informazioni, vedere [Remove a computer from a Windows domain](Get-Connected-in-Windows-Server-Essentials.md#BKMK_8).  
@@ -647,7 +647,7 @@ ms.locfileid: "70866943"
 
 2. Separare il computer dal dominio di Windows Server Essentials e aggiungerlo al gruppo di lavoro. Per istruzioni dettagliate sull'aggiunta di Windows a un gruppo di lavoro, [Creare un gruppo di lavoro o aggiungervi un computer](https://windows.microsoft.com/windows7/Join-or-create-a-workgroup).  
 
-3. Rimuovere il computer dal server tramite il dashboard. Per le istruzioni dettagliate, vedere [Remove a computer from the server](../manage/Manage-Devices-in-Windows-Server-Essentials.md#BKMK_3).  
+3. Rimuovere il computer dal server tramite il dashboard. Per le istruzioni dettagliate, vedere [Rimuovere un computer dal server](../manage/Manage-Devices-in-Windows-Server-Essentials.md#BKMK_3).  
 
    Per riconnettere al server un computer disconnesso in precedenza dalla rete di server di Windows Server Essentials, è necessario completare i passaggi seguenti:  
 
