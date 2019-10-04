@@ -1,41 +1,41 @@
 ---
 title: Bilanciamento carico di rete
-description: In questo argomento, ti offriamo una panoramica del bilanciamento carico di rete \(NLB\) funzionalità in Windows Server 2016. È possibile utilizzare Bilanciamento carico di rete per gestire due o più server come un singolo cluster virtuale. Bilanciamento carico di rete consente di migliorare la disponibilità e scalabilità delle applicazioni server Internet come quelli usati sul web, FTP, firewall, proxy, rete privata virtuale \(VPN\)e altri mission\-server critici.
+description: In questo argomento viene fornita una panoramica della funzionalità di bilanciamento carico di rete \(NLB @ no__t-1 in Windows Server 2016. È possibile utilizzare NLB per gestire due o più server come un singolo cluster virtuale. Bilanciamento carico di rete consente di migliorare la disponibilità e la scalabilità delle applicazioni server Internet, ad esempio quelle utilizzate in Web, FTP, firewall, proxy, rete privata virtuale \(VPN @ no__t-1 e altri server mission @ no__t-2critical.
 manager: dougkim
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking-nlb
 ms.topic: article
 ms.assetid: 244a4b48-06e5-4796-8750-a50e4f88ac72
 ms.author: pashort
 author: shortpatti
 ms.date: 09/13/2018
-ms.openlocfilehash: 0ea129fe2230332c0099d735f064768bce9fc50c
-ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
+ms.openlocfilehash: 4d79b6f29fbe64633bf04604ad586aff3dd86edf
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66812273"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71405851"
 ---
 # <a name="network-load-balancing"></a>Bilanciamento carico di rete
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016
 
-In questo argomento, ti offriamo una panoramica del bilanciamento carico di rete \(NLB\) funzionalità in Windows Server 2016. È possibile utilizzare Bilanciamento carico di rete per gestire due o più server come un singolo cluster virtuale. Bilanciamento carico di rete consente di migliorare la disponibilità e scalabilità delle applicazioni server Internet come quelli usati sul web, FTP, firewall, proxy, rete privata virtuale \(VPN\)e altri mission\-server critici.  
+In questo argomento viene fornita una panoramica della funzionalità di bilanciamento carico di rete \(NLB @ no__t-1 in Windows Server 2016. È possibile utilizzare NLB per gestire due o più server come un singolo cluster virtuale. Bilanciamento carico di rete consente di migliorare la disponibilità e la scalabilità delle applicazioni server Internet, ad esempio quelle utilizzate in Web, FTP, firewall, proxy, rete privata virtuale \(VPN @ no__t-1 e altri server mission @ no__t-2critical.  
 
 > [!NOTE]
-> Windows Server 2016 include un nuovo ispirata Azure Software Load Balancer \(SLB\) come componente di Software Defined Networking \(SDN\) dell'infrastruttura. Usare SLB invece di bilanciamento carico di rete se si usa SDN, Usa i carichi di lavoro non-Windows, necessario NAT in uscita \(NAT\), o livello 3 è necessario \(L3\) o il bilanciamento del carico non basati su TCP. È possibile continuare a usare bilanciamento carico di rete con Windows Server 2016 per le distribuzioni non SDN. Per altre informazioni sul bilanciamento del carico software, vedere [bilanciamento del carico Software (SLB) per SDN](../sdn/technologies/network-function-virtualization/Software-Load-Balancing--SLB--for-SDN.md).
+> Windows Server 2016 include un nuovo software ispirato ad Azure Load Balancer \(SLB @ no__t-1 come componente dell'infrastruttura software defined networking \(SDN @ no__t-3. Utilizzare SLB anziché bilanciamento carico di rete se si utilizza SDN, si utilizzano carichi di lavoro non Windows, è necessario Network Address Translation in uscita \(NAT @ no__t-1 o è necessario il livello 3 \(L3 @ no__t-3 o il bilanciamento del carico non basato su TCP. È possibile continuare a usare bilanciamento carico di rete con Windows Server 2016 per le distribuzioni non SDN. Per ulteriori informazioni su SLB, vedere [bilanciamento del carico software (SLB) per Sdn](../sdn/technologies/network-function-virtualization/Software-Load-Balancing--SLB--for-SDN.md).
 
-Il bilanciamento del carico di rete \(NLB\) funzionalità distribuisce il traffico tra più server utilizzando il protocollo TCP\/protocollo di rete IP. Combinando due o più computer che eseguono le applicazioni in un singolo cluster virtuale, Bilanciamento carico di rete offre affidabilità e prestazioni per server web e altri mission\-server critici.  
+La funzionalità Bilanciamento carico di rete \(NLB @ no__t-1 distribuisce il traffico tra più server utilizzando il protocollo di rete TCP @ no__t-2IP. Combinando due o più computer che eseguono applicazioni in un singolo cluster virtuale, bilanciamento carico di rete offre affidabilità e prestazioni per i server Web e altri server mission @ no__t-0critical.  
   
 I server inclusi in un cluster Bilanciamento del carico di rete sono denominati *host*e ogni host esegue una copia separata delle applicazioni server. Le richieste client in ingresso vengono distribuite da Bilanciamento carico di rete tra gli host del cluster. È possibile configurare il carico che deve essere gestito da ogni host. È inoltre possibile aggiungere host al cluster in modo dinamico per gestire un incremento del carico. Bilanciamento carico di rete può inoltre indirizzare tutto il traffico a un unico host designato, denominato *host predefinito*.  
   
-Bilanciamento carico di rete consente di associare a tutti i computer del cluster lo stesso set di indirizzi IP del cluster, mantenendo un set di indirizzi IP dedicati univoci per ogni host. Per il carico\-bilanciato delle applicazioni, quando un host ha esito negativo o è offline, il carico viene automaticamente ridistribuito tra i computer ancora operativi. Quando il computer offline è pronto, può essere aggiunto nuovamente al cluster in modo trasparente e riottenere la propria parte del carico di lavoro, consentendo agli altri computer del cluster di gestire una minore quantità di traffico.  
+Bilanciamento carico di rete consente di associare a tutti i computer del cluster lo stesso set di indirizzi IP del cluster, mantenendo un set di indirizzi IP dedicati univoci per ogni host. Per le applicazioni Load @ no__t-0balanced, quando un host non riesce o passa alla modalità offline, il carico viene automaticamente ridistribuito tra i computer ancora operativi. Quando il computer offline è pronto, può essere aggiunto nuovamente al cluster in modo trasparente e riottenere la propria parte del carico di lavoro, consentendo agli altri computer del cluster di gestire una minore quantità di traffico.  
   
 ## <a name="practical-applications"></a>Applicazioni pratiche  
-Bilanciamento carico di rete è utile per garantire che senza stato applicazioni, ad esempio server web che eseguono Internet Information Services \(IIS\), sono disponibile con tempi di inattività minimi e che siano scalabili \(aggiungendo altri server come l'aumento del carico\). Nelle sezioni seguenti viene descritto il modo in cui Bilanciamento carico di rete supporta la disponibilità elevata, la scalabilità e la gestibilità dei server in cluster che eseguono tali applicazioni.  
+Bilanciamento carico di rete è utile per garantire che le applicazioni senza stato, ad esempio i server Web che eseguono Internet Information Services \(IIS @ no__t-1, siano disponibili con tempi di inattività minimi e siano scalabili \(da l'aggiunta di server aggiuntivi come carico aumenta @ no__t-3. Nelle sezioni seguenti viene descritto il modo in cui Bilanciamento carico di rete supporta la disponibilità elevata, la scalabilità e la gestibilità dei server in cluster che eseguono tali applicazioni.  
   
 ### <a name="high-availability"></a>Disponibilità elevata  
-Un sistema a disponibilità elevata offre un livello accettabile e affidabile di servizio con tempo di inattività minimo. Per garantire la disponibilità elevata, Bilanciamento carico di rete include compilato\-nella funzionalità che può essere automaticamente:  
+Un sistema a disponibilità elevata offre un livello accettabile e affidabile di servizio con tempo di inattività minimo. Per garantire un'elevata disponibilità, NLB include le funzionalità predefinite di @ no__t-0cm che possono essere automaticamente:  
   
 -   Rilevamento di host del cluster con errori o offline e ripristino.  
   
@@ -46,11 +46,11 @@ Un sistema a disponibilità elevata offre un livello accettabile e affidabile di
 ### <a name="scalability"></a>Scalabilità  
 La scalabilità indica la possibilità di espansione di un computer, un servizio o un'applicazione allo scopo di soddisfare crescenti esigenze in termini di prestazioni. Per i cluster di Bilanciamento carico di rete, la scalabilità rappresenta la possibilità di aggiungere in modo incrementale uno o più sistemi a un cluster esistente quando il carico complessivo del cluster ne supera le capacità. Per supportare la scalabilità, Bilanciamento carico di rete consente di eseguire le operazioni seguenti:  
   
--   Bilanciare le richieste di carico nel cluster di bilanciamento carico di rete per TCP singole\/servizi IP.  
+-   Bilanciare le richieste di carico nel cluster NLB per i singoli servizi TCP @ no__t-0IP.  
   
 -   Supporto di un massimo di 32 computer in un singolo cluster.  
   
--   Bilanciare le richieste di carico più server \(dallo stesso client o tramite svariati client\) tra più host nel cluster.  
+-   Bilanciare più richieste di carico del server @no__t 0from lo stesso client o da diversi client @ no__t-1 tra più host del cluster.  
   
 -   Aggiunta di host al cluster Bilanciamento carico di rete in base all'aumento del carico, senza provocare errori nel cluster.  
   
@@ -61,17 +61,17 @@ La scalabilità indica la possibilità di espansione di un computer, un servizio
 ### <a name="manageability"></a>Gestibilità  
 Per supportare la gestibilità, Bilanciamento carico di rete consente di eseguire le operazioni seguenti:  
   
--   Gestire e configurare più cluster di bilanciamento carico di rete e i cluster host da un singolo computer utilizzando Gestione bilanciamento carico di rete o la [cmdlet di bilanciamento del carico di rete (NLB) in Windows PowerShell](https://technet.microsoft.com/library/hh801274.aspx).
+-   Gestire e configurare più cluster NLB e gli host del cluster da un singolo computer utilizzando Gestione bilanciamento carico di rete o i [cmdlet di bilanciamento carico di rete (NLB) in Windows PowerShell](https://technet.microsoft.com/library/hh801274.aspx).
   
 -   Impostazione del comportamento di bilanciamento del carico per una singola porta IP o un gruppo di porte utilizzando regole di gestione delle porte.  
   
--   Definizione di regole di porta diverse per ogni sito Web. Se si usa lo stesso set di carico\-bilanciate server per più applicazioni o siti Web, le regole di porta sono basati su indirizzo IP virtuale di destinazione \(utilizzando cluster virtuali\).  
+-   Definizione di regole di porta diverse per ogni sito Web. Se si usa lo stesso set di Server Load @ no__t-0balanced per più applicazioni o siti Web, le regole di porta sono basate sull'indirizzo IP virtuale di destinazione @no__t cluster virtuali 1using @ no__t-2.  
 
--   Indirizzare tutte le richieste client a un singolo host usando facoltativo, singolo\-ospitare le regole. Le richieste client vengono indirizzate da Bilanciamento carico di rete a un determinato host che esegue applicazioni specifiche.  
+-   Indirizzare tutte le richieste client a un singolo host usando regole facoltative Single @ no__t-0host. Le richieste client vengono indirizzate da Bilanciamento carico di rete a un determinato host che esegue applicazioni specifiche.  
 
 -   Blocco dell'accesso di rete indesiderato a determinate porte IP.  
 
--   Abilitare Internet Group Management Protocol \(IGMP\) supporto nei cluster host per controllare la porta di commutazione \(in cui vengono inviati i pacchetti di rete in ingresso a tutte le porte del commutatore\) quando si opera in modalità multicast.  
+-   Abilitare il supporto del protocollo di gestione dei gruppi Internet \(IGMP @ no__t-1 negli host del cluster per controllare il Flood delle porte di commutazione @no__t-i pacchetti di rete in ingresso 2where vengono inviati a tutte le porte del Commuter @ no__t-3 quando si opera in modalità multicast.  
 
 -   Avvio, arresto e controllo delle azioni di Bilanciamento carico di rete in modalità remota utilizzando i comandi o gli script di Windows PowerShell.  
 
@@ -79,20 +79,20 @@ Per supportare la gestibilità, Bilanciamento carico di rete consente di eseguir
 
 ## <a name="important-functionality"></a>Funzionalità importanti  
  
-Bilanciamento carico di rete viene installato come un componente driver di rete standard di Windows Server. Le operazioni sono trasparenti per il protocollo TCP\/stack di rete IP. La figura seguente mostra la relazione tra Bilanciamento carico di rete e altri componenti software in una configurazione tipica.  
+Bilanciamento carico di rete viene installato come componente driver di rete standard di Windows Server. Le relative operazioni sono trasparenti per lo stack di rete TCP @ no__t-0IP. Nella figura seguente viene illustrata la relazione tra NLB e altri componenti software in una configurazione tipica.  
   
-![Bilanciamento del carico di rete e altri componenti software](../media/NLB/nlb.jpg)  
+![Bilanciamento carico di rete e altri componenti software](../media/NLB/nlb.jpg)  
   
-Di seguito sono le principali funzionalità di bilanciamento carico di rete.  
+Di seguito sono riportate le funzionalità principali di NLB.  
   
 - Per l'esecuzione di Bilanciamento carico di rete non sono necessarie modifiche all'hardware.  
   
 - Sono disponibili gli Strumenti per Bilanciamento carico di rete per la configurazione e la gestione di più cluster e di tutti gli host da un unico computer locale o remoto.  
   
-- Consente ai client di accedere al cluster usando un unico nome Internet logico e un indirizzo IP virtuale, che è noto come indirizzo IP del cluster \(mantiene i singoli nomi di ogni computer\). Bilanciamento carico di rete supporta più indirizzi IP virtuali per server multihomed.  
+- Consente ai client di accedere al cluster utilizzando un unico nome Internet logico e un indirizzo IP virtuale, noto come indirizzo IP del cluster \(IT mantiene i singoli nomi per ogni computer @ no__t-1. Bilanciamento carico di rete supporta più indirizzi IP virtuali per server multihomed.  
   
 > [!NOTE]  
-> Quando si distribuiscono le macchine virtuali come cluster virtuale, Bilanciamento carico di rete richiede che i server siano multihomed per disporre di più indirizzi IP virtuali.  
+> Quando si distribuiscono macchine virtuali come cluster virtuali, NLB non richiede che i server siano multihomed per disporre di più indirizzi IP virtuali.  
   
 - Bilanciamento carico di rete può essere associato a più schede di rete. In questo modo è possibile configurare più cluster indipendenti in ogni host. Il supporto per più schede di rete è diverso rispetto ai cluster virtuali, poiché i cluster virtuali consentono di configurare più cluster in un'unica scheda di rete.  
   
@@ -103,7 +103,7 @@ Di seguito sono le principali funzionalità di bilanciamento carico di rete.
 -   Consente di disconnettere i computer a scopo di manutenzione preventiva senza influenzare le operazioni cluster negli altri host.  
   
 ## <a name="hardware-requirements"></a>Requisiti hardware  
-Di seguito sono i requisiti hardware per eseguire un cluster Bilanciamento carico di rete.  
+Di seguito sono riportati i requisiti hardware per l'esecuzione di un cluster NLB.  
   
 -   Tutti gli host del cluster devono risiedere nella stessa subnet.  
   
@@ -111,49 +111,49 @@ Di seguito sono i requisiti hardware per eseguire un cluster Bilanciamento caric
   
 -   Tutte le schede di rete di ogni cluster devono essere multicast o unicast. Bilanciamento carico di rete non supporta un ambiente misto di modalità unicast e multicast in un singolo cluster.  
   
--   Se si usa la modalità unicast, la scheda di rete che viene utilizzata per gestire i client\-al\-traffico del cluster deve supportare modificandone il controllo di accesso multimediale \(MAC\) indirizzo.  
+-   Se si utilizza la modalità unicast, la scheda di rete utilizzata per gestire il traffico client @ no__t-0to @ no__t-1cluster deve supportare la modifica dell'indirizzo Media Access Control \(MAC @ no__t-3.  
   
 ## <a name="software-requirements"></a>Requisiti software  
-Di seguito sono i requisiti software per l'esecuzione di un cluster Bilanciamento carico di rete.  
+Di seguito sono riportati i requisiti software per l'esecuzione di un cluster NLB.  
   
--   Solo il protocollo TCP\/IP può essere usato nella scheda per il quale bilanciamento carico di rete è abilitata in ogni host. Non aggiungere altri protocolli \(ad esempio IPX\) a questo adapter.  
+-   È possibile utilizzare solo TCP @ no__t-0IP sull'adapter per il quale NLB è abilitato in ogni host. Non aggiungere altri protocolli, ad esempio @no__t 0per, IPX @ no__t-1 a questo adapter.  
   
 -   Gli indirizzi IP dei server nel cluster devono essere statici.  
   
 > [!NOTE]  
-> Bilanciamento carico di rete non supporta Dynamic Host Configuration Protocol \(DHCP\). Bilanciamento carico di rete disabilita il protocollo DHCP in ogni interfaccia che configura.  
+> NLB non supporta Dynamic Host Configuration Protocol \(DHCP @ no__t-1. Bilanciamento carico di rete disabilita il protocollo DHCP in ogni interfaccia che configura.  
   
 ## <a name="installation-information"></a>Informazioni sull'installazione  
-È possibile installare Bilanciamento carico di rete con Server Manager o i comandi di Windows PowerShell per Bilanciamento carico di rete.
+È possibile installare NLB utilizzando Server Manager o i comandi di Windows PowerShell per NLB.
 
-Facoltativamente, è possibile installare gli Strumenti Bilanciamento carico di rete per gestire un cluster Bilanciamento carico di rete locale o remoto. Gli strumenti includono Gestione bilanciamento carico di rete e i comandi di PowerShell di Windows di bilanciamento carico di rete.
+Facoltativamente, è possibile installare gli Strumenti Bilanciamento carico di rete per gestire un cluster Bilanciamento carico di rete locale o remoto. Gli strumenti includono Gestione bilanciamento carico di rete e i comandi di Windows PowerShell per NLB.
 
 ### <a name="installation-with-server-manager"></a>Installazione con Server Manager
 
-In Server Manager, è possibile usare l'aggiunta guidata ruoli e funzionalità per aggiungere il **bilanciamento carico di rete** funzionalità. Dopo aver completato la procedura guidata, Bilanciamento carico di rete viene installato e non è necessario riavviare il computer.
+In Server Manager, è possibile utilizzare l'aggiunta guidata ruoli e funzionalità per aggiungere la funzionalità **bilanciamento carico di rete** . Quando si completa la procedura guidata, NLB viene installato e non è necessario riavviare il computer.
 
 
 ### <a name="installation-with-windows-powershell"></a>Installazione con Windows PowerShell  
 
-Per installare Bilanciamento carico di rete tramite Windows PowerShell, eseguire il comando seguente al prompt di Windows PowerShell con privilegi elevati nel computer in cui si vuole installare Bilanciamento carico di rete.
+Per installare NLB usando Windows PowerShell, eseguire il comando seguente a un prompt di Windows PowerShell con privilegi elevati nel computer in cui si vuole installare Bilanciamento carico di sistema.
 
     
     Install-WindowsFeature NLB -IncludeManagementTools
     
-Al termine dell'installazione, non è necessario alcun riavvio del computer.
+Al termine dell'installazione, non è necessario riavviare il computer.
 
 Per altre informazioni, vedere [Install-WindowsFeature](https://docs.microsoft.com/powershell/module/servermanager/install-windowsfeature?view=win10-ps).
 
-### <a name="network-load-balancing-manager"></a>Gestione del bilanciamento del carico di rete
+### <a name="network-load-balancing-manager"></a>Gestione bilanciamento carico di rete
 Per aprire Gestione bilanciamento carico di rete in Server Manager, fare clic su **Strumenti** e quindi fare clic su **Gestione bilanciamento carico di rete**.
   
 ## <a name="additional-resources"></a>Risorse aggiuntive  
-Nella tabella seguente vengono forniti collegamenti a informazioni aggiuntive sulla funzionalità Bilanciamento carico di rete.  
+Nella tabella seguente vengono forniti i collegamenti a informazioni aggiuntive sulla funzionalità NLB.  
   
 |Tipo di contenuto|Riferimenti|  
 |----------------|--------------|  
-|Distribuzione|[Guida alla distribuzione di bilanciamento del carico di rete](https://technet.microsoft.com/library/cc754833(WS.10).aspx) &#124; [configurazione di bilanciamento carico di rete con servizi Terminal](https://technet.microsoft.com/library/cc771300(v=WS.10).aspx)|  
-|Operazioni|[Gestione dei cluster di bilanciamento carico di rete](https://technet.microsoft.com/library/cc753954(WS.10).aspx) &#124; [impostando i parametri di bilanciamento del carico di rete](https://technet.microsoft.com/library/cc731619(WS.10).aspx) &#124; [controllare gli host in cluster di bilanciamento carico di rete](https://technet.microsoft.com/library/cc770870(WS.10).aspx)|  
-|Risoluzione dei problemi|[Risoluzione dei problemi dei cluster di bilanciamento del carico di rete](https://technet.microsoft.com/library/cc732592(WS.10).aspx) &#124; [NLB Cluster Events and Errors](https://technet.microsoft.com/library/cc731678(WS.10).aspx)|
-|Strumenti e impostazioni|[I cmdlet di PowerShell di Windows di bilanciamento del carico di rete](https://go.microsoft.com/fwlink/p/?LinkId=238123)|
-|Risorse della community|[Disponibilità elevata \(Clustering\) Forum](https://go.microsoft.com/fwlink/p/?LinkId=230641)
+|Distribuzione|[Guida](https://technet.microsoft.com/library/cc754833(WS.10).aspx) &#124; alla distribuzione di bilanciamento carico [di rete configurazione del bilanciamento del carico di rete con servizi Terminal](https://technet.microsoft.com/library/cc771300(v=WS.10).aspx)|  
+|Operazioni|[Gestione dei cluster](https://technet.microsoft.com/library/cc753954(WS.10).aspx) &#124; di bilanciamento carico di rete [impostazione dei parametri](https://technet.microsoft.com/library/cc731619(WS.10).aspx) &#124; [di bilanciamento carico di rete controllo degli host in cluster di bilanciamento carico di rete](https://technet.microsoft.com/library/cc770870(WS.10).aspx)|  
+|Risoluzione dei problemi|[Risoluzione dei problemi relativi ai cluster](https://technet.microsoft.com/library/cc732592(WS.10).aspx) &#124; di bilanciamento carico di rete bilanciamento carico [di rete eventi ed errori](https://technet.microsoft.com/library/cc731678(WS.10).aspx)|
+|Strumenti e impostazioni|[Cmdlet di Windows PowerShell per bilanciamento carico di rete](https://go.microsoft.com/fwlink/p/?LinkId=238123)|
+|Risorse della community|[Forum sulla disponibilità elevata \(Clustering @ no__t-2](https://go.microsoft.com/fwlink/p/?LinkId=230641)

@@ -1,9 +1,9 @@
 ---
 title: Configurare la qualità del servizio (QoS) per una scheda di rete della macchina virtuale tenant
-description: Quando si configura QoS per una scheda di rete della macchina virtuale tenant, è possibile scegliere tra Data Center bridging DCB o software defined networking Sdn QoS.
+description: Quando si configura QoS per una scheda di rete della macchina virtuale tenant, è possibile scegliere tra Data Center \(bridging\)DCB o software defined \(networking\) Sdn QoS.
 manager: dougkim
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-sdn
@@ -13,16 +13,16 @@ ms.assetid: 6d783ff6-7dd5-496c-9ed9-5c36612c6859
 ms.author: pashort
 author: shortpatti
 ms.date: 08/23/2018
-ms.openlocfilehash: 99ef286b91bec4bcb008bfd9f62003e75a5a5921
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 1074525abe375e78ab0d2065ce8e98f894f50c61
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70870023"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71355848"
 ---
 # <a name="configure-quality-of-service-qos-for-a-tenant-vm-network-adapter"></a>Configurare la qualità del servizio (QoS) per una scheda di rete della macchina virtuale tenant
 
->Si applica a Windows Server (Canale semestrale), Windows Server 2016
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016
 
 Quando si configura QoS per una scheda di rete della macchina virtuale tenant, è possibile scegliere tra Data Center \(bridging\)DCB o software defined \(networking\) Sdn QoS.
 
@@ -32,7 +32,7 @@ Quando si configura QoS per una scheda di rete della macchina virtuale tenant, �
 
 Applicare tutte le impostazioni QoS SDN tramite le impostazioni della porta delle proprietà dell'interfaccia di rete. Per ulteriori informazioni, fare riferimento alla tabella riportata di seguito.
 
-|Nome dell'elemento|Descrizione|
+|Nome elemento|Descrizione|
 |------------|-----------| 
 |macSpoofing| Consente alle macchine virtuali di modificare l' \(origine\) Media Access Control indirizzo Mac nei pacchetti in uscita in un indirizzo Mac non assegnato alla macchina virtuale.<p>Valori consentiti:<ul><li>Abilitato: usare un indirizzo MAC diverso.</li><li>Disabilitato: usare solo l'indirizzo MAC assegnato.</li></ul>|
 |arpGuard| Consente di passare attraverso la porta solo gli indirizzi ARP Guard specificati in ArpFilter.<p>Valori consentiti:<ul><li>Abilitato-consentito</li><li>Disabled-non consentito</li></ul>|
