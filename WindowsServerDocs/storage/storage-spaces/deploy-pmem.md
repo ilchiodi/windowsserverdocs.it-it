@@ -10,24 +10,23 @@ ms.topic: article
 author: adagashe
 ms.date: 3/26/2019
 ms.localizationpriority: ''
-ms.openlocfilehash: 497fa201c500919fc857d25166d37ce87613d0f0
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 549cc6dbeec3d414e886f6ebf32315ae13627812
+ms.sourcegitcommit: de71970be7d81b95610a0977c12d456c3917c331
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70872015"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71940811"
 ---
 ---
 # <a name="understand-and-deploy-persistent-memory"></a>Comprendere e distribuire memoria persistente
 
->Si applica a Windows Server 2019
+>Si applica a: Windows Server 2019
 
 La memoria persistente (o PMem) è un nuovo tipo di tecnologia di memoria che offre una combinazione univoca di capacità e persistenza di grandi dimensioni. Questo argomento fornisce informazioni di base su PMem e i passaggi per distribuirlo con Windows Server 2019 con Spazi di archiviazione diretta.
 
 ## <a name="background"></a>Sfondo
 
-PMem è un tipo di DRAM non volatile (NVDIMM) con la velocità della DRAM, ma mantiene il contenuto della memoria attraverso i cicli di alimentazione (il contenuto della memoria rimane anche quando l'alimentazione del sistema si interrompe in caso di interruzione imprevista dell'alimentazione, arresto avviato dall'utente, arresto anomalo del sistema, e così via). Per questo motivo, la ripresa dal punto in cui è stato interrotto è notevolmente più veloce, perché non è necessario ricaricare il contenuto della RAM. Un'altra caratteristica univoca è che PMem è indirizzabile ai byte, il che significa che è possibile usarlo anche come risorsa di archiviazione (per questo motivo è possibile che PMem venga definito memoria della classe di archiviazione).
-
+PMem è un tipo di RAM non volatile (NVDIMM) che mantiene il contenuto tramite cicli di alimentazione. Il contenuto della memoria rimane anche quando l'alimentazione del sistema si interrompe in caso di interruzione imprevista dell'alimentazione, arresto avviato dall'utente, arresto anomalo del sistema e così via. Questa caratteristica univoca significa che è anche possibile usare PMem come risorsa di archiviazione. per questo motivo è possibile che PMem venga indicato come "memoria della classe di archiviazione".
 
 Per visualizzare alcuni di questi vantaggi, esaminiamo la demo di Microsoft Ignite 2018:
 
@@ -57,13 +56,13 @@ La tabella seguente presenta i numeri di prestazioni completi:
 
 ### <a name="supported-hardware"></a>Hardware supportato
 
-La tabella seguente mostra l'hardware di memoria permanente supportato per Windows Server 2019 e Windows Server 2016. Si noti che Intel Optane supporta specificamente sia la modalità di memoria sia la modalità app-Direct. Windows Server 2019 supporta operazioni in modalità mista.
+La tabella seguente mostra l'hardware di memoria permanente supportato per Windows Server 2019 e Windows Server 2016. Si noti che Intel Optane supporta sia la memoria (ad esempio volatile) che app Direct (ovvero modalità permanenti).
 
 | Tecnologia di memoria permanente                                      | Windows Server 2016 | Windows Server 2019 |
 |-------------------------------------------------------------------|--------------------------|--------------------------|
-| **NVDIMM-N** in modalità app-Direct                                       | Supportato                | Supportato                |
-| **Intel Optane™ DC Persistent Memory** in modalità app-Direct             | Non supportato            | Supportato                |
-| **Memoria persistente Intel Optane™ controller** di dominio in modalità di memoria a due livelli (2LM) | Non supportato            | Supportato                |
+| **NVDIMM-N** in modalità persistente                                  | Supportato                | Supportato                |
+| **Memoria persistente Intel Optane™ controller** di dominio in modalità app diretta             | Non supportato            | Supportato                |
+| **Memoria persistente Intel Optane™ controller** di dominio in modalità memoria | Supportato            | Supportato                |
 
 A questo punto, è possibile approfondire la configurazione della memoria persistente.
 
@@ -71,7 +70,7 @@ A questo punto, è possibile approfondire la configurazione della memoria persis
 
 ### <a name="understanding-interleave-sets"></a>Informazioni sui set di interfoliazione
 
-Tenere presente che NVDIMM-N risiede in uno slot standard DIMM (memoria), inserendo i dati più vicini al processore, riducendo così la latenza e il recupero di prestazioni migliori. Per eseguire questa operazione, un set di Interleave è quando due o più NVDIMMs creano un set di interfoliazione a N vie per fornire operazioni di lettura/scrittura a strisce per una maggiore velocità effettiva. Le configurazioni più comuni sono l'interfoliazione bidirezionale o a 4 vie.
+Tenere presente che un NVDIMM risiede in uno slot standard DIMM (memoria), inserendo i dati più vicini al processore, riducendo di conseguenza la latenza e il recupero di prestazioni migliori. Per eseguire questa operazione, un set di Interleave è quando due o più NVDIMMs creano un set di interfoliazione a N vie per fornire operazioni di lettura/scrittura a strisce per una maggiore velocità effettiva. Le configurazioni più comuni sono l'interfoliazione bidirezionale o a 4 vie.
 
 I set con interfoliazione possono spesso essere creati in un BIOS della piattaforma per fare in modo che più dispositivi di memoria permanenti vengano visualizzati come un singolo disco logico in Windows Server. Ogni disco logico di memoria persistente contiene un set di dispositivi fisici con interfoliazione eseguendo:
 

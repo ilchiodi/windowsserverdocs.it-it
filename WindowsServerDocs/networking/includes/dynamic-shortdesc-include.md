@@ -2,14 +2,14 @@
 author: shortpatti
 ms.author: pashort
 ms.date: 10/02/2018
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms:topic: include
-ms.openlocfilehash: 073851440302a84396582baf2c4e41bcf26af812
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: ba2723e4387620154187fe20c3bd80c5ce3fc929
+ms.sourcegitcommit: 73898afec450fb3c2f429ca373f6b48a74b19390
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59820042"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71935093"
 ---
-Con carichi dinamici e in uscita vengono distribuiti in base a un hash degli indirizzi IP e porte TCP. In modalità dinamica ribilancia anche viene caricato in tempo reale in modo che un determinato flusso in uscita può spostarsi avanti e indietro tra i membri del team. Connessioni in entrata carichi, d'altra parte, vengono distribuite esattamente come porta Hyper-V. In breve, la modalità dinamica utilizza gli aspetti migliori di Hash indirizzo e porta Hyper-V ed è la modalità di bilanciamento del carico prestazioni più alto. 
+Con i carichi dinamici, i carichi in uscita vengono distribuiti in base a un hash delle porte e degli indirizzi IP TCP. La modalità dinamica ribilancia inoltre i caricamenti in tempo reale in modo che un determinato flusso in uscita possa spostarsi tra i membri del team. I caricamenti in ingresso, invece, vengono distribuiti allo stesso modo della porta Hyper-V. In breve, la modalità dinamica utilizza gli aspetti migliori dell'hash degli indirizzi e della porta Hyper-V ed è la modalità di bilanciamento del carico con prestazioni più elevate. 
 

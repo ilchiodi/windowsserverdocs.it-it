@@ -9,12 +9,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: mas
-ms.openlocfilehash: 29e3785d1c004d669e0060854acb6af1d2953644
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: fb91ca583fd71a7fbe38369606d2dcc4a816d8aa
+ms.sourcegitcommit: 73898afec450fb3c2f429ca373f6b48a74b19390
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71357919"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71935010"
 ---
 # <a name="privileged-access-workstations"></a>Workstation con accesso con privilegi
 
@@ -511,66 +511,136 @@ In questa sezione verrà creato un nuovo oggetto Criteri di gruppo "PAW Configur
 In questa sezione verranno configurati Criteri di gruppo per impedire agli account amministrativi con privilegi di accedere a host di livello inferiore.
 
 1. Creare il nuovo oggetto Criteri di gruppo **Restrict Workstation Logon** (Limita accesso workstation): questa impostazione impedisce agli account amministratore di livello 0 e 1 di accedere alle workstation standard.  Questo oggetto Criteri di gruppo deve essere collegato all'unità organizzativa di primo livello "workstation" e avere le impostazioni seguenti:
-   * In computer Computer\criteri\impostazioni Windows\Impostazioni protezione\Criteri locali\Assegnazione Rights Utente\impedisci accedi come processo batch, selezionare **Definisci queste impostazioni dei criteri** e aggiungere i gruppi di livello 0 e 1:     Enterprise Admins Domain Admins Schema Admins DOMAIN\Administrators account operatori di backup operatori di stampa operatori server operatori di dominio controller di dominio di sola lettura Criteri di gruppo autori proprietari ators
+   * In computer Computer\criteri\impostazioni Windows\Impostazioni protezione\Criteri locali\Assegnazione Rights Utente\impedisci accedi come processo batch, selezionare **Definisci queste impostazioni dei criteri** e aggiungere i gruppi di livello 0 e 1:
+     ```
+     Enterprise Admins
+     Domain Admins
+     Schema Admins
+     DOMAIN\Administrators
+     Account Operators
+     Backup Operators
+     Print Operators
+     Server Operators
+     Domain Controllers
+     Read-Only Domain Controllers
+     Group Policy Creators Owners
+     Cryptographic Operators
+     ```
 
-         > [!NOTE]
-         > Built-in Tier 0 Groups, see Tier 0 equivalency for more details.
+     > [!NOTE]
+     > Gruppi di livello 0 predefiniti. per ulteriori informazioni, vedere equivalenza di livello 0.
 
          Other Delegated Groups
 
-         > [!NOTE]
-         > Any custom created groups with effective Tier 0 access, see Tier 0 equivalency for more details.
+     > [!NOTE]
+     > Per altri dettagli, vedere l'equivalenza di livello 0 per tutti i gruppi creati personalizzati con accesso effettivo di livello 0.
 
          Tier 1 Admins
 
-         > [!NOTE]
-         > This Group was created earlier in Phase 1.
+     > [!NOTE]
+     > Questo gruppo è stato creato in precedenza nella fase 1.
 
-   * In computer Computer\criteri\impostazioni Windows\Impostazioni protezione\Criteri locali\Assegnazione diritti Utente\impedisci accedi come servizio, selezionare **Definisci queste impostazioni dei criteri** e aggiungere i gruppi di livello 0 e 1:     Enterprise Admins Domain Admins Schema Admins DOMAIN\Administrators account operatori di backup operatori di stampa operatori server operatori di dominio controller di dominio di sola lettura Criteri di gruppo autori proprietari ators
+   * In computer Computer\criteri\impostazioni Windows\Impostazioni protezione\Criteri locali\Assegnazione diritti Utente\impedisci accedi come servizio, selezionare **Definisci queste impostazioni dei criteri** e aggiungere i gruppi di livello 0 e 1:
+     ```
+     Enterprise Admins
+     Domain Admins
+     Schema Admins
+     DOMAIN\Administrators
+     Account Operators
+     Backup Operators
+     Print Operators
+     Server Operators
+     Domain Controllers
+     Read-Only Domain Controllers
+     Group Policy Creators Owners
+     Cryptographic Operators
+     ```
 
-         > [!NOTE]
-         > Note: Built-in Tier 0 Groups, see Tier 0 equivalency for more details.
+     > [!NOTE]
+     > Nota: Gruppi di livello 0 predefiniti. per ulteriori informazioni, vedere equivalenza di livello 0.
 
          Other Delegated Groups
 
-         > [!NOTE]
-         > Note: Any custom created groups with effective Tier 0 access, see Tier 0 equivalency for more details.
+     > [!NOTE]
+     > Nota: Per altri dettagli, vedere l'equivalenza di livello 0 per tutti i gruppi creati personalizzati con accesso effettivo di livello 0.
 
          Tier 1 Admins
 
-         > [!NOTE]
-         > Note: This Group was created earlier in Phase 1
+     > [!NOTE]
+     > Nota: Questo gruppo è stato creato in precedenza nella fase 1
 
 2. Crea il nuovo oggetto Criteri di gruppo **accesso server limitazione** : questa impostazione impedisce agli account amministratore di livello 0 di accedere ai server di livello 1.  Questo oggetto Criteri di gruppo deve essere collegato all'unità organizzativa di primo livello "server di livello 1" e avere le impostazioni seguenti:
-   * In computer Computer\criteri\impostazioni Windows\Impostazioni protezione\Criteri locali\Assegnazione Rights Utente\impedisci accedi come processo batch selezionare **Definisci queste impostazioni dei criteri** e aggiungere i gruppi di livello 0:     Enterprise Admins Domain Admins Schema Admins DOMAIN\Administrators account operatori di backup operatori di stampa operatori server operatori di dominio controller di dominio di sola lettura Criteri di gruppo autori proprietari ators
+   * In computer Computer\criteri\impostazioni Windows\Impostazioni protezione\Criteri locali\Assegnazione Rights Utente\impedisci accedi come processo batch selezionare **Definisci queste impostazioni dei criteri** e aggiungere i gruppi di livello 0:
+     ```
+     Enterprise Admins
+     Domain Admins
+     Schema Admins
+     DOMAIN\Administrators
+     Account Operators
+     Backup Operators
+     Print Operators
+     Server Operators
+     Domain Controllers
+     Read-Only Domain Controllers
+     Group Policy Creators Owners
+     Cryptographic Operators
+     ```
 
-         > [!NOTE]
-         > Built-in Tier 0 Groups, see Tier 0 equivalency for more details.
-
-         Other Delegated Groups
-
-         > [!NOTE]
-         > Any custom created groups with effective Tier 0 access, see Tier 0 equivalency for more details.
-
-   * In computer Computer\criteri\impostazioni Windows\Impostazioni protezione\Criteri locali\Assegnazione diritti Utente\impedisci accedi come servizio, selezionare **Definisci queste impostazioni dei criteri** e aggiungere i gruppi di livello 0:     Enterprise Admins Domain Admins Schema Admins DOMAIN\Administrators account operatori di backup operatori di stampa operatori server operatori di dominio controller di dominio di sola lettura Criteri di gruppo autori proprietari ators
-
-         > [!NOTE]
-         > Built-in Tier 0 Groups, see Tier 0 equivalency for more details.
-
-         Other Delegated Groups
-
-         > [!NOTE]
-         > Any custom created groups with effective Tier 0 access, see Tier 0 equivalency for more details.
-
-   * In computer Computer\criteri\impostazioni Windows\Impostazioni protezione\Criteri locali\Assegnazione Rights Utente\impedisci accedi localmente selezionare **Definisci le impostazioni dei criteri** e Aggiungi i gruppi di livello 0:     Enterprise Admins Domain Admins Schema Admins account operatori di backup operatori di stampa operatori server operatori di dominio controller di dominio di sola lettura Criteri di gruppo creatori proprietari degli operatori di crittografia
-
-         > [!NOTE]
-         > Note: Built-in Tier 0 Groups, see Tier 0 equivalency for more details.
+     > [!NOTE]
+     > Gruppi di livello 0 predefiniti. per ulteriori informazioni, vedere equivalenza di livello 0.
 
          Other Delegated Groups
 
-         > [!NOTE]
-         > Note: Any custom created groups with effective Tier 0 access, see Tier 0 equivalency for more details.
+     > [!NOTE]
+     > Per altri dettagli, vedere l'equivalenza di livello 0 per tutti i gruppi creati personalizzati con accesso effettivo di livello 0.
+
+   * In computer Computer\criteri\impostazioni Windows\Impostazioni protezione\Criteri locali\Assegnazione diritti Utente\impedisci accedi come servizio, selezionare **Definisci queste impostazioni dei criteri** e aggiungere i gruppi di livello 0:
+     ```
+     Enterprise Admins
+     Domain Admins
+     Schema Admins
+     DOMAIN\Administrators
+     Account Operators
+     Backup Operators
+     Print Operators
+     Server Operators
+     Domain Controllers
+     Read-Only Domain Controllers
+     Group Policy Creators Owners
+     Cryptographic Operators
+     ```
+
+     > [!NOTE]
+     > Gruppi di livello 0 predefiniti. per ulteriori informazioni, vedere equivalenza di livello 0.
+
+         Other Delegated Groups
+
+     > [!NOTE]
+     > Per altri dettagli, vedere l'equivalenza di livello 0 per tutti i gruppi creati personalizzati con accesso effettivo di livello 0.
+
+   * In computer Computer\criteri\impostazioni Windows\Impostazioni protezione\Criteri locali\Assegnazione Rights Utente\impedisci accedi localmente selezionare **Definisci le impostazioni dei criteri** e Aggiungi i gruppi di livello 0:
+     ```
+     Enterprise Admins
+     Domain Admins
+     Schema Admins
+     DOMAIN\Administrators
+     Account Operators
+     Backup Operators
+     Print Operators
+     Server Operators
+     Domain Controllers
+     Read-Only Domain Controllers
+     Group Policy Creators Owners
+     Cryptographic Operators
+     ```
+
+     > [!NOTE]
+     > Nota: Gruppi di livello 0 predefiniti. per ulteriori informazioni, vedere equivalenza di livello 0.
+
+         Other Delegated Groups
+
+     > [!NOTE]
+     > Nota: Per altri dettagli, vedere l'equivalenza di livello 0 per tutti i gruppi creati personalizzati con accesso effettivo di livello 0.
 
 #### <a name="deploy-your-paws"></a>Distribuire le workstation PAW
 

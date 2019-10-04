@@ -6,12 +6,12 @@ ms.technology: storage
 author: JasonGerend
 manager: elizapo
 ms.author: jgerend
-ms.openlocfilehash: 12410d619245153f759b54e7a8aff257888f04dc
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 92fe505c3ae7d76f7a8d5bd9d2ed0ce845159fde
+ms.sourcegitcommit: de71970be7d81b95610a0977c12d456c3917c331
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71386069"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71940752"
 ---
 # <a name="dfs-replication-frequently-asked-questions-faq"></a>Replica DFS: Domande frequenti
 
@@ -217,7 +217,7 @@ No. I gruppi di replica possono estendersi tra domini all'interno di una singola
 
 ### <a name="what-are-the-supported-limits-of-dfs-replication"></a>Quali sono i limiti supportati di Replica DFS?
 
-L'elenco seguente fornisce un set di linee guida per la scalabilità che sono state testate da Microsoft in Windows Server 2012 R2:
+L'elenco seguente fornisce un set di linee guida per la scalabilità che sono state testate da Microsoft e si applicano a Windows Server 2012 R2, Windows Server 2016 e Windows Server 2019
 
   - Dimensioni di tutti i file replicati in un server: 100 terabyte.  
       
@@ -228,7 +228,7 @@ L'elenco seguente fornisce un set di linee guida per la scalabilità che sono st
 
 
 > [!IMPORTANT]
-> Quando si creano gruppi di replica con un numero elevato di file o dimensioni, è consigliabile esportare un clone del database e usare tecniche di pre-seeding per ridurre al minimo la durata della replica iniziale. Per ulteriori informazioni, vedere <A href="http://blogs.technet.com/b/filecab/archive/2013/08/21/dfs-replication-initial-sync-in-windows-server-2012-r2-attack-of-the-clones.aspx">replica DFS sincronizzazione iniziale in Windows Server 2012 R2: Attacco dei cloni</A>. 
+> Quando si creano gruppi di replica con un numero elevato di file o dimensioni, è consigliabile esportare un clone del database e usare tecniche di pre-seeding per ridurre al minimo la durata della replica iniziale. Per ulteriori informazioni, vedere [replica DFS sincronizzazione iniziale in Windows Server 2012 R2: Attacco dei cloni](https://techcommunity.microsoft.com/t5/Storage-at-Microsoft/DFS-Replication-Initial-Sync-in-Windows-Server-2012-R2-Attack-of/ba-p/424877). 
 <br>
 
 

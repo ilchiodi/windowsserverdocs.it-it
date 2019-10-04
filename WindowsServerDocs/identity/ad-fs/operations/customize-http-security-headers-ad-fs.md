@@ -9,12 +9,12 @@ ms.date: 02/19/2019
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: e1042ad4dae0b023c9816dff798c25b05b60eccf
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 0685e0935a031b2f73474d59b025b70fc735902d
+ms.sourcegitcommit: 73898afec450fb3c2f429ca373f6b48a74b19390
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71407441"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71935038"
 ---
 # <a name="customize-http-security-response-headers-with-ad-fs-2019"></a>Personalizzare le intestazioni di risposta di sicurezza HTTP con AD FS 2019 
  
@@ -53,7 +53,7 @@ Set-AdfsResponseHeaders -EnableResponseHeaders $false
 ### <a name="http-strict-transport-security-hsts"></a>HTTP Strict-Transport-Security (HSTS) 
 HSTS è un meccanismo di criteri di sicurezza Web che consente di attenuare gli attacchi di downgrade del protocollo e il Hijack dei cookie per i servizi con endpoint HTTP e HTTPS. Consente ai server Web di dichiarare che i Web browser (o altri agenti utente conformi) devono interagire con esso solo usando HTTPS e mai tramite il protocollo HTTP.  
  
-Tutti gli endpoint AD FS per il traffico di autenticazione Web vengono aperti esclusivamente tramite HTTPS. Di conseguenza, AD FS Attenua efficacemente le minacce fornite dal meccanismo del criterio di sicurezza del trasporto HTTP Strict (per impostazione predefinita, non esiste alcun downgrade a HTTP poiché non sono presenti listener in HTTP). L'intestazione può essere personalizzata impostando i parametri seguenti 
+Tutti gli endpoint AD FS per il traffico di autenticazione Web vengono aperti esclusivamente tramite HTTPS. Di conseguenza, AD FS Attenua efficacemente le minacce fornite dal meccanismo del criterio di sicurezza del trasporto HTTP Strict (per impostazione predefinita, non esiste alcun downgrade a HTTP poiché non sono presenti listener in HTTP). L'intestazione può essere personalizzata impostando i parametri seguenti:
  
 - **Max-Age =&lt;expire-time&gt;**  : la scadenza (in secondi) specifica per quanto tempo il sito deve essere accessibile solo tramite HTTPS. Il valore predefinito e consigliato è 31536000 secondi (1 anno).  
 - **includeSubDomains** : parametro facoltativo. Se specificato, la regola HSTS si applica anche a tutti i sottodomini.  
@@ -107,7 +107,7 @@ Set-AdfsResponseHeaders -RemoveHeaders "X-Frame-Options"
 ```
 
 ### <a name="x-xss-protection"></a>X-XSS-Protection 
-Questa intestazione della risposta di sicurezza HTTP viene utilizzata per arrestare il caricamento delle pagine Web quando vengono rilevati attacchi di scripting tra siti (XSS) dai browser. Questa operazione viene definita filtro XSS. L'intestazione può essere impostata su uno dei valori seguenti 
+Questa intestazione della risposta di sicurezza HTTP viene utilizzata per arrestare il caricamento delle pagine Web quando vengono rilevati attacchi di scripting tra siti (XSS) dai browser. Questa operazione viene definita filtro XSS. L'intestazione può essere impostata su uno dei valori seguenti:
  
 - **0** : Disabilita il filtro XSS. Non consigliato.  
 - **1** : Abilita il filtro XSS. Se viene rilevato un attacco XSS, la pagina verrà purificata dal browser.   
@@ -138,7 +138,7 @@ Web browser sicurezza impedisce a una pagina Web di effettuare richieste tra le 
 Per comprendere meglio la richiesta CORS, viene illustrato uno scenario in cui un'applicazione a pagina singola (SPA) deve chiamare un'API Web con un dominio diverso. Inoltre, si consideri che l'API e la SPA sono configurate in ADFS 2019 e AD FS è abilitato CORS, ad esempio AD FS possibile identificare le intestazioni CORS nella richiesta HTTP, convalidare i valori di intestazione e includere le intestazioni CORS appropriate nella risposta (informazioni dettagliate su come abilitare e configurare CORS in AD FS 2019 nella sezione relativa alla personalizzazione di CORS riportata di seguito). Flusso di esempio: 
 
 1. L'utente accede a SPA tramite il browser client e viene reindirizzato a AD FS endpoint auth per l'autenticazione. Poiché SPA è configurato per il flusso di concessione implicito, Request restituisce un token di accesso + ID al browser dopo la corretta autenticazione.  
-2. Dopo l'autenticazione dell'utente, il codice JavaScript front-end incluso in SPA effettua una richiesta di accesso all'API Web. La richiesta viene reindirizzata a AD FS con le intestazioni seguenti
+2. Dopo l'autenticazione dell'utente, il codice JavaScript front-end incluso in SPA effettua una richiesta di accesso all'API Web. La richiesta viene reindirizzata a AD FS con le intestazioni seguenti:
     - Opzioni: descrive le opzioni di comunicazione per la risorsa di destinazione 
     - Origin: include l'origine dell'API Web
     - Access-Control-request-method: identifica il metodo HTTP (ad esempio, DELETE) da usare quando viene effettuata la richiesta effettiva 
@@ -146,11 +146,11 @@ Per comprendere meglio la richiesta CORS, viene illustrato uno scenario in cui u
     
    >[!NOTE]
    >La richiesta CORS è simile a una richiesta HTTP standard, tuttavia la presenza di un'intestazione di origine segnala che la richiesta in ingresso è correlata a CORS. 
-3. AD FS verifica che l'origine dell'API Web inclusa nell'intestazione sia elencata nelle origini attendibili configurate in AD FS (informazioni dettagliate su come modificare le origini attendibili nella sezione relativa alla personalizzazione di CORS di seguito). AD FS quindi risponde con le intestazioni seguenti.  
+3. AD FS verifica che l'origine dell'API Web inclusa nell'intestazione sia elencata nelle origini attendibili configurate in AD FS (informazioni dettagliate su come modificare le origini attendibili nella sezione relativa alla personalizzazione di CORS di seguito). AD FS risponde quindi con le intestazioni seguenti:  
     - Access-Control-Allow-Origin: valore uguale a quello dell'intestazione Origin 
     - Access-Control-Allow-Method: valore uguale a quello dell'intestazione Access-Control-request-method 
     - Access-Control-Allow-Headers-Value uguale a quello dell'intestazione Access-Control-Request-Headers 
-4. Il browser invia la richiesta effettiva, incluse le intestazioni seguenti 
+4. Browser invia la richiesta effettiva, incluse le intestazioni seguenti:
     - Metodo HTTP (ad esempio, DELETE) 
     - Origin: include l'origine dell'API Web 
     - Tutte le intestazioni incluse nell'intestazione della risposta Access-Control-Allow-Headers 
@@ -199,7 +199,7 @@ Se una direttiva è elencata in modo esplicito, il valore specificato sostituisc
 ```PowerShell
 Set-AdfsResponseHeaders -SetHeaderName "Content-Security-Policy" -SetHeaderValue "default-src ‘self'; img-src *" 
 ```
-È possibile definire le origini seguenti per i criteri default-src 
+È possibile definire le origini seguenti per i criteri src predefiniti:
  
 - ' self ': la specifica di questa opzione consente di limitare l'origine del contenuto da caricare nell'origine della pagina Web 
 - ' unsafe-inline ': se si specifica questo criterio, è possibile usare JavaScript e CSS inline 
@@ -223,7 +223,7 @@ Una volta impostato, la nuova intestazione viene inviata nella risposta AD FS (f
  
 ![Fiddler](media/customize-http-security-headers-ad-fs/header2.png)
 
-## <a name="web-browswer-compatibility"></a>Compatibilità browser lo Web
+## <a name="web-browser-compatibility"></a>Compatibilità Web browser
 Utilizzare la tabella e i collegamenti seguenti per determinare quali Web browser sono compatibili con ognuna delle intestazioni di risposta di sicurezza.
 
 |Intestazioni di risposta di sicurezza HTTP|Compatibilità browser|
@@ -236,5 +236,5 @@ Utilizzare la tabella e i collegamenti seguenti per determinare quali Web browse
 
 ## <a name="next"></a>Avanti
 
-- [Usare AD FS guida troublehshooting](https://aka.ms/adfshelp/troubleshooting )
+- [Usare AD FS Guida alla risoluzione dei problemi](https://aka.ms/adfshelp/troubleshooting )
 - [Risoluzione dei problemi relativi ad AD FS](../../ad-fs/troubleshooting/ad-fs-tshoot-overview.md)

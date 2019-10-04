@@ -7,13 +7,13 @@ ms.assetid: f4b4d1a8-bf6d-4881-9150-ddeca8b48038
 manager: dongill
 author: rpsqrd
 ms.technology: security-guarded-fabric
-ms.date: 08/29/2018
-ms.openlocfilehash: b3e6aadbcbf2f2b826ca97d4ebb58c3736528b59
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.date: 09/25/2019
+ms.openlocfilehash: e8f4a3696ec5096281ba1ffd130aa97004530cc1
+ms.sourcegitcommit: de71970be7d81b95610a0977c12d456c3917c331
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71386525"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71940740"
 ---
 # <a name="obtain-certificates-for-hgs"></a>Ottenere i certificati per HGS
 
@@ -81,7 +81,7 @@ Sia gli host Hyper-V che i nodi HGS devono considerare attendibile il certificat
 
 Proprietà certificato SSL | Valore obbligatorio
 -------------------------|---------------
-Nome oggetto             | Nome del cluster HGS (nome di rete distribuita). Si tratta della concatenazione del nome del servizio HGS fornito a `Initialize-HgsServer` e al nome di dominio HGS.
+Nome oggetto             | Nome del cluster HGS, noto come nome di rete distribuita o FQDN dell'oggetto computer virtuale. Si tratta della concatenazione del nome del servizio HGS fornito a `Initialize-HgsServer` e al nome di dominio HGS.
 Nome alternativo oggetto | Se si usa un nome DNS diverso per raggiungere il cluster HGS (ad esempio, se si trova dietro un servizio di bilanciamento del carico), assicurarsi di includere i nomi DNS nel campo SAN della richiesta di certificato.
 
 Le opzioni per specificare questo certificato durante l'inizializzazione del server HGS sono descritte in [configurare il primo nodo HGS](guarded-fabric-initialize-hgs.md).

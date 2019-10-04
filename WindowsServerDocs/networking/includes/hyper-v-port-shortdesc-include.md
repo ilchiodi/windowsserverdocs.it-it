@@ -2,13 +2,13 @@
 author: shortpatti
 ms.author: pashort
 ms.date: 10/02/2018
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms:topic: include
-ms.openlocfilehash: 761deb136ebd4ec22dfeebc47b4eeb7650594d89
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 01f231ca730a19ac0e7e868bcb7180377830afe1
+ms.sourcegitcommit: 73898afec450fb3c2f429ca373f6b48a74b19390
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59863712"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71935051"
 ---
-Porta Hyper-V, i gruppi NIC configurati negli host Hyper-V di concedere a indirizzi MAC indipendenti le macchine virtuali.  La macchina virtuale il porting o l'indirizzo MAC di macchine virtuali connesse al commutatore Hyper-V, è utilizzabile per dividere il traffico di rete tra i membri del gruppo NIC. Non è possibile configurare i gruppi NIC nelle macchine virtuali create con la modalità di bilanciamento del carico porta Hyper-V. In alternativa, usare la modalità Hash indirizzo. 
+Con la porta Hyper-V, i team NIC configurati in host Hyper-V assegnano agli indirizzi MAC indipendenti dalle macchine virtuali.  Per dividere il traffico di rete tra i membri del gruppo NIC, è possibile usare l'indirizzo MAC delle VM o la macchina virtuale connessa al commutire Hyper-V. Non è possibile configurare i team NIC creati all'interno delle VM con la modalità di bilanciamento del carico della porta Hyper-V. Usare invece la modalità hash indirizzo. 

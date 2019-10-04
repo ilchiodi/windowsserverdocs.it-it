@@ -8,12 +8,12 @@ ms.date: 07/09/2019
 ms.topic: article
 ms.prod: windows-server
 ms.technology: storage
-ms.openlocfilehash: 391430b75670f207520a7d972b54ba293616d0e1
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 150c9f1e70df4f634886ea65efd9c61ef075f26a
+ms.sourcegitcommit: de71970be7d81b95610a0977c12d456c3917c331
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71393913"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71940703"
 ---
 # <a name="storage-migration-service-known-issues"></a>Problemi noti del servizio migrazione archiviazione
 
@@ -257,6 +257,13 @@ Quando si tenta di eseguire l'inventario con l'agente di orchestrazione del serv
 
 Per aggirare questo problema, installare "strumenti di gestione cluster di failover" (strumenti di gestione del cluster di failover) nel server che esegue l'agente di orchestrazione del servizio di migrazione archiviazione. 
 
+## <a name="error-there-are-no-more-endpoints-available-from-the-endpoint-mapper-when-running-inventory-against-a-windows-server-2003-source-computer"></a>Errore "non sono disponibili altri endpoint dal mapper degli endpoint" durante l'esecuzione dell'inventario in un computer di origine Windows Server 2003
+
+Quando si tenta di eseguire l'inventario con il server agente di orchestrazione del servizio di migrazione archiviazione con patch con l'aggiornamento cumulativo [KB4512534](https://support.microsoft.com/help/4512534/windows-10-update-kb4512534) o versione successiva, viene visualizzato l'errore seguente:
+
+    There are no more endpoints available from the endpoint mapper  
+
+Per aggirare questo problema, disinstallare temporaneamente l'aggiornamento cumulativo di KB4512534 (e qualsiasi altro che lo ha sostituito) dal computer agente di orchestrazione del servizio di migrazione archiviazione. Al termine della migrazione, reinstallare l'aggiornamento cumulativo più recente.  
 
 ## <a name="see-also"></a>Vedere anche
 

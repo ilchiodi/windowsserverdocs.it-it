@@ -6,14 +6,14 @@ ms.author: dacuo
 manager: dougkim
 ms.date: 10/17/2018
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking
-ms.openlocfilehash: 2b8c6148af21e94e4a56661402f36dcb2e636461
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 73922a07d8d5396aa9ced377bfc3c9be97a9950d
+ms.sourcegitcommit: 73898afec450fb3c2f429ca373f6b48a74b19390
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70871836"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71935105"
 ---
 ## <a name="windows-server-2016-improvements"></a>Miglioramenti di Windows Server 2016
 
@@ -49,25 +49,25 @@ Di seguito vengono descritte le modifiche apportate alla configurazione predefin
 |Role|Impostazione|Windows Server 2016|Windows 10|Windows Server 2012 R2</br>Windows Server 2008 R2</br>Windows 10|
 |---|---|---|---|---|
 |**Autonomo/nano server**||||
-| |*Server di ora*|time.windows.com|ND|time.windows.com|
-| |*Frequenza di polling*|64-1024 secondi|ND|Una volta alla settimana|
-| |*Frequenza di aggiornamento dell'orologio*|Una volta al secondo|ND|Una volta all'ora|
+| |*Server di ora*|time.windows.com|N/D|time.windows.com|
+| |*Frequenza di polling*|64-1024 secondi|N/D|Una volta alla settimana|
+| |*Frequenza di aggiornamento dell'orologio*|Una volta al secondo|N/D|Una volta all'ora|
 |**Client autonomo**||||
-| |*Server di ora*|ND|time.windows.com|time.windows.com|
-| |*Frequenza di polling*|ND|Una volta al giorno|Una volta alla settimana|
-| |*Frequenza di aggiornamento dell'orologio*|ND|Una volta al giorno|Una volta alla settimana|
+| |*Server di ora*|N/D|time.windows.com|time.windows.com|
+| |*Frequenza di polling*|N/D|Una volta al giorno|Una volta alla settimana|
+| |*Frequenza di aggiornamento dell'orologio*|N/D|Una volta al giorno|Una volta alla settimana|
 |**Controller di dominio**||||
-| |*Server di ora*|PDC/GTIMESERV|ND|PDC/GTIMESERV|
-| |*Frequenza di polling*|64-1024 secondi|ND|1024-32768 secondi|
-| |*Frequenza di aggiornamento dell'orologio*|Una volta al giorno|ND|Una volta alla settimana|
+| |*Server di ora*|PDC/GTIMESERV|N/D|PDC/GTIMESERV|
+| |*Frequenza di polling*|64-1024 secondi|N/D|1024-32768 secondi|
+| |*Frequenza di aggiornamento dell'orologio*|Una volta al giorno|N/D|Una volta alla settimana|
 |**Server membro di dominio**||||
-| |*Server di ora*|DC|ND|DC|
-| |*Frequenza di polling*|64-1024 secondi|ND|1024-32768 secondi|
-| |*Frequenza di aggiornamento dell'orologio*|Una volta al secondo|ND|Una volta ogni 5 minuti|
+| |*Server di ora*|DC|N/D|DC|
+| |*Frequenza di polling*|64-1024 secondi|N/D|1024-32768 secondi|
+| |*Frequenza di aggiornamento dell'orologio*|Una volta al secondo|N/D|Una volta ogni 5 minuti|
 |**Client membro di dominio**||||
-| |*Server di ora*|ND|DC|DC|
-| |*Frequenza di polling*|ND|1204-32768 secondi|1024-32768 secondi|
-| |*Frequenza di aggiornamento dell'orologio*|ND|Una volta ogni 5 minuti|Una volta ogni 5 minuti|
+| |*Server di ora*|N/D|DC|DC|
+| |*Frequenza di polling*|N/D|1204-32768 secondi|1024-32768 secondi|
+| |*Frequenza di aggiornamento dell'orologio*|N/D|Una volta ogni 5 minuti|Una volta ogni 5 minuti|
 |**Guest Hyper-V**||||
 | |*Server di ora*|Sceglie l'opzione migliore in base allo strato di host e del server di tempo|Sceglie l'opzione migliore in base allo strato di host e del server di tempo|Il valore predefinito è host|
 | |*Frequenza di polling*|In base al ruolo precedente|In base al ruolo precedente|In base al ruolo precedente|
@@ -191,7 +191,7 @@ TIMESERV è un altro correlati dominio servizi di Flag che indica se un computer
 
 Se si desidera configurare un controller di dominio come un GTIMESERV, questo può essere configurato manualmente utilizzando il comando seguente.  In questo caso il controller di dominio utilizza un altro computer come l'orologio master.  Potrebbe trattarsi di un dispositivo o un computer dedicato.
 
-    w32tm /config /manualpeerlist:”master_clock1,0x8 master_clock2,0x8” /syncfromflags:manual /reliable:yes /update
+    w32tm /config /manualpeerlist:"master_clock1,0x8 master_clock2,0x8" /syncfromflags:manual /reliable:yes /update
 
 > [!NOTE]
 > Per ulteriori informazioni, vedere [configurare il servizio ora di Windows](https://technet.microsoft.com/library/cc731191.aspx)
@@ -329,7 +329,7 @@ Per ulteriori informazioni, vedere [come attivare la registrazione nel servizio 
 
     w32tm /debug /enable /file:C:\Windows\Temp\w32time-test.log /size:10000000 /entries:0-73,103,107,110
 
-### <a name="performance-monitor"></a>Monitoraggio delle prestazioni
+### <a name="performance-monitor"></a>Performance Monitor
 Il servizio ora di Windows Server 2016 Windows espone i contatori delle prestazioni che può essere usati per raccogliere la registrazione per il controllo.  Questi possono essere registrati in locale o remoto.  È possibile registrare l'Offset ora Computer e i contatori di ritardo di Round Trip.  
 E come un contatore delle prestazioni, è possibile monitorarli in modalità remota e creare avvisi tramite System Center Operations Manager.  È possibile utilizzare ad esempio, un avviso di allarme è quando l'Offset dell'ora si allontana dalla precisione desiderata.  Il [System Center Management Pack](https://social.technet.microsoft.com/wiki/contents/articles/15251.system-center-management-pack-authoring-guide.aspx) Per ulteriori informazioni.
 

@@ -7,16 +7,17 @@ ms.assetid: 424b8090-0692-49a6-9dc4-3c0e77d74b80
 manager: dongill
 author: rpsqrd
 ms.technology: security-guarded-fabric
-ms.openlocfilehash: be817a2c06b13af254b80090b9a7488209d4df0a
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.date: 09/25/2019
+ms.openlocfilehash: d34bbeee1a980aba76b5bed994be8db7fc8c8acf
+ms.sourcegitcommit: de71970be7d81b95610a0977c12d456c3917c331
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71403525"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71940815"
 ---
 # <a name="troubleshooting-the-host-guardian-service"></a>Risoluzione dei problemi relativi al servizio sorveglianza host
 
-> Si applica a: Windows Server (Canale semestrale), Windows Server 2016
+> Si applica a: Windows Server 2019, Windows Server (canale semestrale), Windows Server 2016
 
 Questo argomento descrive le risoluzioni ai problemi comuni riscontrati durante la distribuzione o il funzionamento di un server del servizio sorveglianza host (HGS) in un'infrastruttura sorvegliata.
 Se non si è certi della natura del problema, provare prima di tutto a eseguire la [diagnostica dell'infrastruttura sorvegliata](guarded-fabric-troubleshoot-diagnostics.md) sui server HGS e sugli host Hyper-V per circoscrivere le possibili cause.
@@ -80,6 +81,7 @@ $cert.Acl = $cert.Acl | Add-AccessRule $gMSA Read Allow
 
 Se le chiavi private del certificato sono supportate da un modulo di protezione hardware (HSM) o da un provider di archiviazione chiavi (KSP) personalizzato, il modello di autorizzazione dipenderà dal fornitore di software specifico.
 Per ottenere risultati ottimali, consultare la documentazione o il sito di supporto del fornitore per informazioni sul modo in cui vengono gestite le autorizzazioni per la chiave privata per il dispositivo o il software specifico.
+In tutti i casi, il gMSA usato da HGS richiede autorizzazioni di *lettura* per le chiavi private di crittografia, firma e certificato di comunicazione, in modo che sia possibile eseguire operazioni di firma e crittografia.
 
 Alcuni moduli di sicurezza hardware non supportano la concessione di account utente specifici per l'accesso a una chiave privata. ma consentono all'account del computer di accedere a tutte le chiavi in un set di chiavi specifico.
 Per tali dispositivi, è in genere sufficiente fornire al computer l'accesso alle chiavi e HGS sarà in grado di sfruttare tale connessione.
@@ -93,7 +95,7 @@ Per altre domande, contattare il produttore del modulo di protezione hardware pe
 Marchio/serie HSM      | Suggerimento
 ----------------------|-------------
 SafeNet Gemalto       | Verificare che la proprietà utilizzo chiave nel file di richiesta del certificato sia impostata su messaggi 0XA0, consentendo l'utilizzo del certificato per la firma e la crittografia. Inoltre, è necessario concedere all'account gMSA l'accesso in *lettura* alla chiave privata mediante lo strumento Gestione certificati locale (vedere i passaggi precedenti).
-nShield nCipher        | Verificare che ogni nodo HGS disponga dell'accesso all'ambiente di sicurezza contenente le chiavi di firma e di crittografia. Non è necessario configurare autorizzazioni specifiche per gMSA.
+nShield nCipher        | Verificare che ogni nodo HGS disponga dell'accesso all'ambiente di sicurezza contenente le chiavi di firma e di crittografia. Potrebbe inoltre essere necessario concedere all'gMSA l'accesso in *lettura* alla chiave privata mediante Gestione certificati locale (vedere la procedura precedente).
 CryptoServers Utimaco | Verificare che la proprietà utilizzo chiave nel file di richiesta del certificato sia impostata su 0x13, consentendo l'utilizzo del certificato per la crittografia, la decrittografia e la firma.
 
 ### <a name="certificate-requests"></a>Richieste di certificati
