@@ -8,12 +8,12 @@ ms.date: 08/19/2019
 ms.topic: article
 ms.prod: windows-server
 ms.technology: storage
-ms.openlocfilehash: a776920caa85c3ee133070d52b020c8ad3c799e1
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 6895c4b5f74beb237378060f82135d6f578986b7
+ms.sourcegitcommit: e92a78f8d307200e64617431a701b9112a9b4e48
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71403000"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71973859"
 ---
 # <a name="storage-migration-service-frequently-asked-questions-faq"></a>Domande frequenti sul servizio migrazione archiviazione
 
@@ -34,15 +34,15 @@ Il servizio migrazione archiviazione non consente la migrazione tra domini Activ
 
 ## <a name="are-clusters-supported-as-sources-or-destinations"></a>I cluster sono supportati come origini o destinazioni?
 
-Il servizio migrazione archiviazione attualmente non esegue la migrazione tra cluster in Windows Server 2019. Si prevede di aggiungere il supporto per i cluster in una versione futura del servizio migrazione archiviazione.
+Il servizio migrazione archiviazione supporta la migrazione da e verso i cluster dopo l'installazione dell'aggiornamento cumulativo [KB4513534](https://support.microsoft.com/help/4512534/windows-10-update-kb4512534) o degli aggiornamenti successivi. Ciò include la migrazione da un cluster di origine a un cluster di destinazione, nonché la migrazione da un server di origine autonomo a un cluster di destinazione per finalità di consolidamento dei dispositivi. 
 
 ## <a name="do-local-groups-and-local-users-migrate"></a>Migrare i gruppi locali e gli utenti locali?
 
-Il servizio migrazione archiviazione attualmente non esegue la migrazione di utenti locali o gruppi locali in Windows Server 2019. Si prevede di aggiungere il supporto per la migrazione di utenti e gruppi locali in una versione futura del servizio migrazione archiviazione.
+Il servizio migrazione archiviazione supporta la migrazione di utenti e gruppi locali dopo l'installazione dell'aggiornamento cumulativo [KB4513534](https://support.microsoft.com/help/4512534/windows-10-update-kb4512534) o degli aggiornamenti successivi. 
 
 ## <a name="is-domain-controller-migration-supported"></a>La migrazione del controller di dominio è supportata?
 
-Il servizio migrazione archiviazione attualmente non esegue la migrazione dei controller di dominio in Windows Server 2019. Come soluzione alternativa, se si dispone di più di un controller di dominio nel dominio Active Directory, abbassare di livello il controller di dominio prima di eseguirne la migrazione, quindi alzare di livello la destinazione al termine del trasferimento. Si prevede di aggiungere il supporto per la migrazione del controller di dominio in una versione futura del servizio migrazione archiviazione.
+Il servizio migrazione archiviazione attualmente non esegue la migrazione dei controller di dominio in Windows Server 2019. Come soluzione alternativa, se si dispone di più di un controller di dominio nel dominio Active Directory, abbassare di livello il controller di dominio prima di eseguirne la migrazione, quindi alzare di livello la destinazione al termine del trasferimento.
 
 ## <a name="what-attributes-are-migrated-by-the-storage-migration-service"></a>Quali attributi vengono migrati dal servizio migrazione archiviazione?
 
@@ -73,11 +73,11 @@ Il servizio migrazione archiviazione esegue la migrazione di tutti i flag, le im
 
 ## <a name="can-i-consolidate-multiple-servers-into-one-server"></a>È possibile consolidare più server in un unico server?
 
-La versione del servizio migrazione archiviazione fornita in Windows Server 2019 non supporta il consolidamento di più server in un unico server. Un esempio di consolidamento consiste nell'eseguire la migrazione di tre server di origine distinti, che possono avere gli stessi nomi di condivisione e percorsi di file locali, in un singolo server nuovo che ha virtualizzato i percorsi e le condivisioni per evitare sovrapposizioni o conflitti, quindi ha risposto a tutti e tre nomi di server e indirizzi IP precedenti. Questa funzionalità può essere aggiunta in una versione futura del servizio migrazione archiviazione. 
+La versione del servizio migrazione archiviazione fornita in Windows Server 2019 non supporta il consolidamento di più server in un unico server. Un esempio di consolidamento consiste nell'eseguire la migrazione di tre server di origine distinti, che possono avere gli stessi nomi di condivisione e percorsi di file locali, in un singolo server nuovo che ha virtualizzato i percorsi e le condivisioni per evitare sovrapposizioni o conflitti, quindi ha risposto a tutti e tre nomi di server e indirizzi IP precedenti. Tuttavia, è possibile eseguire la migrazione di server autonomi a più risorse file server in un singolo cluster. 
 
 ## <a name="can-i-migrate-from-sources-other-than-windows-server"></a>È possibile eseguire la migrazione da origini diverse da Windows Server?
 
-La versione del servizio migrazione archiviazione fornita in Windows Server 2019 supporta la migrazione da sistemi operativi Windows Server 2003 e versioni successive. È anche possibile eseguire la migrazione dello spazio di archiviazione da un server Linux o da un dispositivo che usa Samba; a tale scopo, eseguire il servizio migrazione archiviazione in un server che esegue Windows Server, versione 1903 o successiva.
+Il servizio migrazione archiviazione supporta la migrazione dai server Samba Linux dopo l'installazione dell'aggiornamento cumulativo [KB4513534](https://support.microsoft.com/help/4512534/windows-10-update-kb4512534) o degli aggiornamenti successivi. Vedere i requisiti per un elenco delle versioni di Samba supportate e delle distribuzioni di Linux.
 
 ## <a name="can-i-migrate-previous-file-versions"></a>È possibile eseguire la migrazione delle versioni precedenti del file?
 
@@ -129,7 +129,7 @@ La versione del servizio di migrazione archiviazione fornita in Windows Server 2
 Il servizio migrazione archiviazione usa un database Extensible Storage Engine (ESE) che viene installato per impostazione predefinita nella cartella Hidden c:\programdata\microsoft\storagemigrationservice Questo database aumenterà man mano che i processi vengono aggiunti e i trasferimenti vengono completati e possono utilizzare spazio su disco significativo dopo la migrazione di milioni di file se non si eliminano i processi. Se è necessario spostare il database, seguire questa procedura:
 
 1. Arrestare il servizio "servizio migrazione archiviazione" sul computer dell'agente di orchestrazione.
-2. Assumere la `%programdata%/Microsoft/StorageMigrationService` proprietà della cartella
+2. Assumere la proprietà della cartella `%programdata%/Microsoft/StorageMigrationService`
 3. Aggiungere l'account utente per avere il controllo completo su tale condivisione e su tutti i relativi file e sottocartelle.
 4. Spostare la cartella in un'altra unità sul computer dell'agente di orchestrazione.
 5. Impostare il seguente valore REG_SZ del registro di sistema:
@@ -145,7 +145,7 @@ Per inviare commenti e suggerimenti sul servizio migrazione archiviazione:
 
 - Usare lo strumento Hub di feedback incluso in Windows 10, facendo clic su "Suggerisci una funzionalità" e specificando la categoria "Windows Server" e la sottocategoria "migrazione archiviazione".
 - Usare il sito [Windows Server UserVoice](https://windowsserver.uservoice.com)
-- Posta elettronicasmsfeed@microsoft.com
+- Posta elettronica smsfeed@microsoft.com
 
 Per archiviare i bug:
 
