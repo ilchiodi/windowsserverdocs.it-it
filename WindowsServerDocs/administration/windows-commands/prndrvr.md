@@ -47,7 +47,7 @@ cscript prndrvr {-a | -d | -l | -x | -?} [-m <model>] [-v {0|1|2|3}]
 |-s \<ServerName >|Specifica il nome del computer remoto che ospita la stampante che si desidera gestire. Se non si specifica un computer, viene usato il computer locale.|
 |-u \<UserName >-w \<Password >|Specifica un account con le autorizzazioni per la connessione al computer che ospita la stampante che si desidera gestire. Tutti i membri del gruppo Administrators locale del computer di destinazione dispongono di queste autorizzazioni, ma è possibile concedere anche le autorizzazioni ad altri utenti. Se non si specifica un account, è necessario effettuare l'accesso con un account con le autorizzazioni necessarie per il funzionamento del comando.|
 |-h \<path >|Specifica il percorso del file del driver. Se non si specifica un percorso, viene utilizzato il percorso della posizione in cui è stato installato Windows.|
-|-i @no__t -0Filename. inf >|Specifica il percorso completo e il nome file per il driver che si desidera installare. Se non si specifica un nome di file, lo script usa uno dei file di Printer. inf della posta in arrivo nella sottodirectory INF della directory di Windows.<br /><br />Se il percorso del driver non è specificato, lo script cerca i file del driver nel file CAB del driver.|
+|-i \<Filename.inf>|Specifica il percorso completo e il nome file per il driver che si desidera installare. Se non si specifica un nome di file, lo script usa uno dei file di Printer. inf della posta in arrivo nella sottodirectory INF della directory di Windows.<br /><br />Se il percorso del driver non è specificato, lo script cerca i file del driver nel file CAB del driver.|
 |/?|Visualizza la guida al prompt dei comandi.|
 
 ## <a name="remarks"></a>Note

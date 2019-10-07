@@ -65,6 +65,7 @@
 #### [Utilizzare un plug-in del gateway personalizzato nell'estensione dello strumento](extend/guides/use-custom-gateway-plugin.md)
 #### [Creare un provider di connessione](extend/guides/create-connection-provider.md)
 #### [Modificare il comportamento di spostamento principale](extend/guides/modify-root-navigation.md)
+#### [Modifiche al tipo di connessione cluster in Windows Admin Center v1909](extend/guides/cluster-connection-change-wac-1909.md)
 #### [Controllare la visibilità dello strumento](extend/guides/dynamic-tool-display.md)
 #### [Stringhe e localizzazione](extend/guides/strings-localization.md)
 #### [Guida di stile di progettazione e testo dell'interfaccia utente](extend/guides/ui-text-style-guide.md)

@@ -295,7 +295,7 @@ ms.locfileid: "70866943"
 -   Distribuisce la VPN nel computer client e offre un'esperienza di clic singolo se la funzionalità VPN è abilitata in Windows Server Essentials o fornisce un'esperienza di connessione automatica se la funzionalità VPN è abilitata in Windows Server Essentials.  
 
 
- Per informazioni sulla connessione del computer al server, vedere [Connect computers to the server](Get-Connected-in-Windows-Server-Essentials.md#BKMK_9).  
+ Per informazioni sulla connessione del computer al server, vedere [Connettere i computer al server](Get-Connected-in-Windows-Server-Essentials.md#BKMK_9).  
 
 ###  <a name="BKMK_6"></a>Informazioni su nome utente e password di rete  
  È possibile ottenere informazioni su nome utente e password di rete dall'utente che gestisce il server. Queste credenziali possono essere usate per la connessione del computer al server e per accedere a informazioni dal server.  
@@ -546,7 +546,7 @@ ms.locfileid: "70866943"
     3.  Aggiornare la pagina Web.  
 
 
-    4.  Per connettere il secondo server a un server che esegue Windows Server Essentials, seguire le istruzioni disponibili in [Connect computers to the server](Get-Connected-in-Windows-Server-Essentials.md#BKMK_9).  
+    4.  Per connettere il secondo server a un server che esegue Windows Server Essentials, seguire le istruzioni disponibili in [Connettere i computer al server](Get-Connected-in-Windows-Server-Essentials.md#BKMK_9).  
 
 
 ~~~
@@ -598,7 +598,7 @@ ms.locfileid: "70866943"
 -   Abilitazione della possibilità di configurare e amministrare in modalità remota di Windows Server Essentials dal computer di casa.  
 
 
- Per istruzioni dettagliate sulla connessione del computer al server di Windows Server Essentials, vedere [Connect computers to the server](Get-Connected-in-Windows-Server-Essentials.md#BKMK_9).   
+ Per istruzioni dettagliate sulla connessione del computer al server di Windows Server Essentials, vedere [Connettere i computer al server](Get-Connected-in-Windows-Server-Essentials.md#BKMK_9).   
 
 
 ###  <a name="BKMK_12"></a>Spostare manualmente i dati e le impostazioni del computer  
@@ -656,7 +656,7 @@ ms.locfileid: "70866943"
 
 5. Separare il computer dal dominio di Windows Server Essentials e aggiungerlo al gruppo di lavoro. Per istruzioni dettagliate sull'aggiunta di Windows a un gruppo di lavoro, [Creare un gruppo di lavoro o aggiungervi un computer](https://windows.microsoft.com/windows7/Join-or-create-a-workgroup).  
 
-6. Connettere il computer al server tramite la procedura guidata Connessione del computer. Per le istruzioni dettagliate, vedere [Connect computers to the server](Get-Connected-in-Windows-Server-Essentials.md#BKMK_9).  
+6. Connettere il computer al server tramite la procedura guidata Connessione del computer. Per le istruzioni dettagliate, vedere [Connettere i computer al server](Get-Connected-in-Windows-Server-Essentials.md#BKMK_9).  
 
 ###  <a name="BKMK_Sleep"></a>Funzionamento del backup con le modalità sospensione e ibernazione  
  Se si seleziona l'opzione **Riattiva il computer per il backup** quando si connette un computer al server, il computer sarà riattivato automaticamente ogni giorno dalla modalità sospensione o ibernazione, in base a quanto specificato nella pianificazione del backup, in modo da permetterne il backup. Al termine del backup, il computer tornerà in modalità sospensione o ibernazione, in base alle rispettive impostazioni di risparmio energia. Se non si seleziona questa opzione, il server non eseguirà il backup del computer che si trova in modalità sospensione o ibernazione. Per ulteriori informazioni, vedere [Manage client backup](../manage/Manage-Client-Computer-Backup-in-Windows-Server-Essentials.md).  
