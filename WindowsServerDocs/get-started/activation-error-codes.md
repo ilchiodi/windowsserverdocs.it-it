@@ -1,21 +1,21 @@
 ---
-title: Risoluzione dei problemi relativi ai codici degli errori di attivazione
+title: Risolvere i codici di errore di attivazione di Windows
 description: Informazioni sulla risoluzione dei problemi relativi ai codici degli errori di attivazione
 ms.topic: article
-ms.date: 07/22/2019
+ms.date: 9/18/2019
 ms.technology: server-general
 ms.assetid: ''
 author: kaushika-msft
 ms.author: kaushika-msft; v-tea
 ms.localizationpriority: medium
-ms.openlocfilehash: 506aa5969228a17fe64581ec2a7143537b1fa05a
-ms.sourcegitcommit: af80963a1d16c0b836da31efd9c5caaaf6708133
+ms.openlocfilehash: 26b107264c9dfaca16ef445760089b8ac0ae8e22
+ms.sourcegitcommit: 9855d6b59b1f8722f39ae74ad373ce1530da0ccf
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68658867"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71960966"
 ---
-# <a name="troubleshooting-activation-error-codes"></a>Risoluzione dei problemi relativi ai codici degli errori di attivazione
+# <a name="resolve-windows-activation-error-codes"></a>Risolvere i codici di errore di attivazione di Windows
 
 > **Utenti domestici**  
 > Questo articolo è destinato a professionisti IT e agenti di supporto. Se hai bisogno di altre informazioni sui messaggi di errore di attivazione di Windows, vedi [Informazioni sugli errori di attivazione di Windows](https://support.microsoft.com/help/10738/windows-10-get-help-with-activation-errors).  
@@ -30,40 +30,162 @@ Per altre informazioni sull'attivazione dei contratti multilicenza per le versio
 
 ## <a name="summary-of-error-codes"></a>Riepilogo dei codici di errore
 
-|Codice errore |Messaggio di errore |Tipo di attivazione |
+|Codice errore |Messaggio di errore |Tipo di&nbsp;attivazione|
 |-----------|--------------|----------------|
+|[0x8004FE21](#0x8004fe21-this-computer-is-not-running-genuine-windows) |In questo computer non è in esecuzione una copia autentica di Windows.  |MAK<br />Client del Servizio di gestione delle chiavi |
+|[0x80070005](#0x80070005-access-denied) |Accesso negato: l'azione richiesta prevede privilegi elevati. |MAK<br />Client del Servizio di gestione delle chiavi<br />Host del Servizio di gestione delle chiavi |
+|[0x8007007b](#0x8007007b-dns-name-does-not-exist) |Nome DNS inesistente. |Client del Servizio di gestione delle chiavi |
+|[0x80070490](#0x80070490-the-product-key-you-entered-didnt-work) |Codice "Product Key" immesso non valido. Controllare il codice "Product Key" e riprovare. |MAK |
+|[0x800706BA](#0x800706ba-the-rpc-server-is-unavailable) |Server RPC non disponibile. |Client del Servizio di gestione delle chiavi |
+|[0x8007232A](#0x8007232a-dns-server-failure) |Errore del server DNS.  |Host del Servizio di gestione delle chiavi  |
+|[0x8007232B](#0x8007232b-dns-name-does-not-exist) |Nome DNS inesistente. |Client del Servizio di gestione delle chiavi |
+|[0x8007251D](#0x8007251d-no-records-found-for-dns-query) |Nessun record trovato per la query DNS specificata. |Client del Servizio di gestione delle chiavi |
+|[0x80092328](#0x80092328-dns-name-does-not-exist) |Nome DNS inesistente.  |Client del Servizio di gestione delle chiavi |
+|[0xC004B100](#0xc004b100-the-activation-server-determined-that-the-computer-could-not-be-activated) |Server di attivazione: impossibile attivare il computer. |MAK |
 |[0xC004C001](#0xc004c001-the-activation-server-determined-the-specified-product-key-is-invalid) |Server di attivazione: il "Product Key" specificato non è valido. |MAK|
 |[0xC004C003](#0xc004c003-the-activation-server-determined-the-specified-product-key-is-blocked) |Server di attivazione: il codice "Product Key" specificato è bloccato |MAK |
 |[0xC004C008](#0xc004c008-the-activation-server-determined-that-the-specified-product-key-could-not-be-used) |Server di attivazione: impossibile utilizzare il codice "Product Key" specificato. |Servizio di gestione delle chiavi |
-|[0xC004B100](#0xc004b100-the-activation-server-determined-that-the-computer-could-not-be-activated) |Server di attivazione: impossibile attivare il computer. |MAK |
 |[0xC004C020](#0xc004c020-the-activation-server-reported-that-the-multiple-activation-key-has-exceeded-its-limit) |Server di attivazione: è stato superato il limite massimo del codice ad attivazione multipla. |MAK |
 |[0xC004C021](#0xc004c021-the-activation-server-reported-that-the-multiple-activation-key-extension-limit-has-been-exceeded) |Server di attivazione: è stato superato il limite massimo di estensione del codice ad attivazione multipla. |MAK |
 |[0xC004F009](#0xc004f009-the-software-protection-service-reported-that-the-grace-period-expired) |Servizio di protezione software: il periodo di prova è scaduto. |MAK |
-|[0xC004F00F](#0xc004f00f-the-software-licensing-server-reported-that-the-hardware-id-binding-is-beyond-level-of-tolerance) |Servizio gestione licenze software: binding ID hardware oltre il livello di tolleranza. |Client MAK/Servizio di gestione delle chiavi/host Servizio di gestione delle chiavi |
-|[0xC004F014](#0xc004f014-the-software-protection-service-reported-that-the-product-key-is-not-available) |Servizio di protezione software: codice "Product Key" non disponibile. |Client MAK/Servizio di gestione delle chiavi |
-|[0xC004F02C](#0xc004f02c-the-software-protection-service-reported-that-the-format-for-the-offline-activation-data-is-incorrect) |Servizio di protezione software: il formato dei dati per l'attivazione offline non è corretto. |Client MAK/Servizio di gestione delle chiavi |
-|[0xC004F035](#0xc004f035-invalid-volume-license-key) |Questo codice di errore corrisponde all'errore "Servizio di protezione software: impossibile attivare il computer con un codice "Product Key" per contratti multilicenza..." Il testo dell'errore è corretto, ma ambiguo. Questo errore indica che nel computer manca un indicatore Windows nel BIOS, presente nei sistemi OEM per indicare i computer forniti con edizioni originali di Windows, che è un requisito per l'attivazione dei client del Servizio di gestione delle chiavi. Errore: Chiave per contratti multilicenza non valida. Per l'attivazione è necessario modificare il codice "Product Key" in un codice ad attivazione multipla o in un codice di tipo retail. Devi avere una licenza di sistema operativo valida E una licenza di aggiornamento Windows 7 per contratti multilicenza oppure una licenza completa per Windows 7 rilasciata da un rivenditore. QUALSIASI ALTRA INSTALLAZIONE DEL SOFTWARE COMPORTA LA VIOLAZIONE DEL CONTRATTO E DELLE LEGGI IN VIGORE SUL COPYRIGHT. |Client/host del Servizio di gestione delle chiavi |
+|[0xC004F00F](#0xc004f00f-the-software-licensing-server-reported-that-the-hardware-id-binding-is-beyond-level-of-tolerance) |Servizio gestione licenze software: binding ID hardware oltre il livello di tolleranza. |MAK<br />Client del Servizio di gestione delle chiavi<br />Host del Servizio di gestione delle chiavi |
+|[0xC004F014](#0xc004f014-the-software-protection-service-reported-that-the-product-key-is-not-available) |Servizio di protezione software: codice "Product Key" non disponibile. |MAK<br />Client del Servizio di gestione delle chiavi |
+|[0xC004F02C](#0xc004f02c-the-software-protection-service-reported-that-the-format-for-the-offline-activation-data-is-incorrect) |Servizio di protezione software: il formato dei dati per l'attivazione offline non è corretto. |MAK<br />Client del Servizio di gestione delle chiavi |
+|[0xC004F035](#0xc004f035-invalid-volume-license-key) |Servizio di protezione software: impossibile attivare il computer con un codice "Product Key" per contratti multilicenza. |Client del Servizio di gestione delle chiavi<br />Host del Servizio di gestione delle chiavi |
 |[0xC004F038](#0xc004f038-the-count-reported-by-your-key-management-service-kms-is-insufficient) |Servizio di protezione software: impossibile attivare il computer. Il conteggio restituito dal Servizio di gestione delle chiavi è insufficiente. Contattare l'amministratore del sistema. |Client del Servizio di gestione delle chiavi |
 |[0xC004F039](#0xc004f039-the-key-management-service-kms-is-not-enabled) |Servizio di protezione software: impossibile attivare il computer. Il Servizio di gestione delle chiavi non è abilitato. |Client del Servizio di gestione delle chiavi |
 |[0xC004F041](#0xc004f041-the-software-protection-service-determined-that-the-key-management-server-kms-is-not-activated) |Servizio di protezione software: il server di gestione delle chiavi non è attivato. Per attivarlo,  |Client del Servizio di gestione delle chiavi |
 |[0xC004F042](#0xc004f042-the-software-protection-service-determined-that-the-specified-key-management-service-kms-cannot-be-used) |Servizio di protezione software: impossibile utilizzare il servizio di gestione delle chiavi specificato. |Client del Servizio di gestione delle chiavi |
-|[0xC004F050](#0xc004f050-the-software-protection-service-reported-that-the-product-key-is-invalid) |Servizio di protezione software: codice "Product Key" non valido. |Servizio di gestione delle chiavi, client del Servizio di gestione delle chiavi, MAK |
-|[0xC004F051](#0xc004f051-the-software-protection-service-reported-that-the-product-key-is-blocked) |Servizio di protezione software: codice "Product Key" bloccato. |MAK/Servizio di gestione delle chiavi |
+|[0xC004F050](#0xc004f050-the-software-protection-service-reported-that-the-product-key-is-invalid) |Servizio di protezione software: codice "Product Key" non valido. |MAK<br />Servizio di gestione delle chiavi<br />Client del Servizio di gestione delle chiavi |
+|[0xC004F051](#0xc004f051-the-software-protection-service-reported-that-the-product-key-is-blocked) |Servizio di protezione software: codice "Product Key" bloccato. |MAK<br />Servizio di gestione delle chiavi |
 |[0xC004F064](#0xc004f064-the-software-protection-service-reported-that-the-non-genuine-grace-period-expired) |Servizio di protezione software: il periodo di tolleranza per copie non autentiche è scaduto. |MAK |
-|[0xC004F065](#0xc004f065-the-software-protection-service-reported-that-the-application-is-running-within-the-valid-non-genuine-period) |Servizio di protezione software: l'applicazione è in esecuzione entro il periodo valido per la copia non autentica. |Client MAK/Servizio di gestione delle chiavi |
+|[0xC004F065](#0xc004f065-the-software-protection-service-reported-that-the-application-is-running-within-the-valid-non-genuine-period) |Servizio di protezione software: l'applicazione è in esecuzione entro il periodo valido per la copia non autentica. |MAK<br />Client del Servizio di gestione delle chiavi |
 |[0xC004F06C](#0xc004f06c-the-request-timestamp-is-invalid) |Servizio di protezione software: impossibile attivare il computer. Il Servizio di gestione delle chiavi ha determinato che il timestamp della richiesta non è valido.  |Client del Servizio di gestione delle chiavi |
-|[0x80070005](#0x80070005-access-denied) |Accesso negato: l'azione richiesta prevede privilegi elevati. |Client Servizio di gestione delle chiavi/MAK/host Servizio di gestione delle chiavi |
-|[0x8007232A](#0x8007232a-dns-server-failure) |Errore del server DNS.  |Host del Servizio di gestione delle chiavi  |
-|[0x8007232B](#0x8007232b-dns-name-does-not-exist) |Nome DNS inesistente. |Client del Servizio di gestione delle chiavi |
-|[0x800706BA](#0x800706ba-the-rpc-server-is-unavailable) |Server RPC non disponibile. |Client del Servizio di gestione delle chiavi |
-|[0x8007251D](#0x8007251d-no-records-found-for-dns-query) |Nessun record trovato per la query DNS specificata. |Client del Servizio di gestione delle chiavi |
 |[0xC004F074](#0xc004f074-no-key-management-service-kms-could-be-contacted) |Servizio di protezione software: impossibile attivare il computer. Impossibile contattare un Servizio di gestione delle chiavi. Per altre informazioni vedere il registro eventi applicazioni.  |Client del Servizio di gestione delle chiavi |
-|[0x8004FE21](#0x8004fe21-this-computer-is-not-running-genuine-windows) |In questo computer non è in esecuzione una copia autentica di Windows.  |Client MAK/Servizio di gestione delle chiavi |
-|[0x80092328](#0x80092328-dns-name-does-not-exist) |Nome DNS inesistente.  |Client del Servizio di gestione delle chiavi |
-|[0x8007007b](#0x8007007b-dns-name-does-not-exist) |Nome DNS inesistente. |Client del Servizio di gestione delle chiavi |
-|[0x80070490](#0x80070490-the-product-key-you-entered-didnt-work) |Codice "Product Key" immesso non valido. Controllare il codice "Product Key" e riprovare. |MAK |
 
 ## <a name="causes-and-resolutions"></a>Cause e soluzioni
+
+### <a name="0x8004fe21-this-computer-is-not-running-genuine-windows"></a>0x8004FE21 In questo computer non è in esecuzione una copia autentica di Windows  
+
+#### <a name="possible-cause"></a>Possibile causa
+
+Questo problema può verificarsi per diversi motivi. Il motivo più probabile è dovuto all'installazione di Language Pack (MUI) in computer che eseguono edizioni di Windows non concesse in licenza per Language Pack aggiuntivi.  
+
+> [!NOTE]
+> Non si tratta necessariamente di un'indicazione di manomissione. Alcune applicazioni possono installare supporto multilingue anche quando l'edizione di Windows non è concessa in licenza per tali Language Pack.  
+
+Questo problema può verificarsi anche se Windows è stato modificato da malware per consentire l'installazione di altre funzionalità. Questo problema può essere dovuto anche al danneggiamento di alcuni file di sistema.  
+
+#### <a name="resolution"></a>Risoluzione
+
+Per risolvere questo problema, devi reinstallare il sistema operativo.  
+
+### <a name="0x80070005-access-denied"></a>0x80070005 Accesso negato
+
+Il testo completo di questo messaggio di errore è simile al seguente:
+
+> Accesso negato: l'azione richiesta prevede privilegi elevati.
+
+#### <a name="possible-cause"></a>Possibile causa
+
+Controllo dell'account utente impedisce l'esecuzione di processi di attivazione in una finestra del prompt dei comandi senza privilegi elevati.  
+
+#### <a name="resolution"></a>Risoluzione
+
+Esegui **slmgr.vbs** da un prompt dei comandi con privilegi elevati. A tale scopo, fai clic sul pulsante **Start**, fai clic con il pulsante destro del mouse su **Prompt dei comandi** e quindi scegli **Esegui come amministratore**.  
+
+### <a name="0x8007007b-dns-name-does-not-exist"></a>0x8007007b Nome DNS inesistente
+
+#### <a name="possible-cause"></a>Possibile causa
+
+Questo problema può verificarsi se il client del Servizio di gestione delle chiavi non trova i record di risorse SRV del Servizio di gestione delle chiavi in DNS.  
+
+#### <a name="resolution"></a>Risoluzione
+
+Per altre informazioni sulla risoluzione di questi problemi correlati a DNS, vedi [Procedure comuni per la risoluzione dei problemi relativi al Servizio di gestione delle chiavi e a DNS](common-troubleshooting-procedures-kms-dns.md).  
+
+### <a name="0x80070490-the-product-key-you-entered-didnt-work"></a>0x80070490 Il codice Product Key immesso non funziona
+
+Il testo completo di questo messaggio di errore è simile al seguente:
+> Il codice Product Key immesso non funziona. Controllare il codice "Product Key" e riprovare.  
+
+#### <a name="possible-cause"></a>Possibile causa
+
+Questo problema si verifica per l'immissione di un codice MAK non valido o a causa di un problema noto in Windows Server 2019.  
+
+#### <a name="resolution"></a>Risoluzione
+
+Per risolvere il problema e attivare il computer, esegui **slmgr -ipk <chiave 5x5>** in un prompt dei comandi con privilegi elevati.
+
+### <a name="0x800706ba-the-rpc-server-is-unavailable"></a>0x800706BA Server RPC non disponibile
+
+#### <a name="possible-cause"></a>Possibile causa
+
+Le impostazioni del firewall non sono configurate nell'host del Servizio di gestione delle chiavi oppure i record SRV DNS non sono aggiornati.  
+
+#### <a name="resolution"></a>Risoluzione
+
+Verifica che nell'host del Servizio di gestione delle chiavi sia abilitata l'eccezione del firewall per il Servizio di gestione delle chiavi (porta TCP 1688).
+
+Verifica che i record SRV DNS puntino a un host del Servizio di gestione delle chiavi valido. 
+
+Risolvere i problemi relativi alle connessioni di rete.  
+
+Per altre informazioni sulla risoluzione di questi problemi correlati a DNS, vedi [Procedure comuni per la risoluzione dei problemi relativi al Servizio di gestione delle chiavi e a DNS](common-troubleshooting-procedures-kms-dns.md).  
+
+### <a name="0x8007232a-dns-server-failure"></a>0x8007232A Errore del server DNS
+
+#### <a name="possible-cause"></a>Possibile causa
+
+Nel sistema si sono verificati problemi di rete o DNS.
+
+#### <a name="resolution"></a>Risoluzione
+
+Risolvere i problemi relativi alla rete e a DNS.  
+
+### <a name="0x8007232b-dns-name-does-not-exist"></a>0x8007232B Nome DNS inesistente
+
+#### <a name="possible-cause"></a>Possibile causa
+
+Il client del Servizio di gestione delle chiavi non trova i record di risorse SRV del server del Servizio di gestione delle chiavi in DNS.  
+
+#### <a name="resolution"></a>Risoluzione
+
+Verifica che sia stato installato un host del Servizio di gestione delle chiavi e che sia abilitata la pubblicazione DNS (impostazione predefinita). Se DNS non è disponibile, fai puntare il client del Servizio di gestione delle chiavi all'host del Servizio di gestione delle chiavi usando **slmgr.vbs /skms <*nome_host_Servizio_di_gestione_delle_chiavi*>** .  
+
+Se non disponi di un host del Servizio di gestione delle chiavi, richiedi e installa un codice MAK. Attiva quindi il sistema.
+
+Per altre informazioni sulla risoluzione di questi problemi correlati a DNS, vedi [Procedure comuni per la risoluzione dei problemi relativi al Servizio di gestione delle chiavi e a DNS](common-troubleshooting-procedures-kms-dns.md).  
+
+### <a name="0x8007251d-no-records-found-for-dns-query"></a>0x8007251D Nessun record trovato per la query DNS
+
+#### <a name="possible-cause"></a>Possibile causa
+
+Il client del Servizio di gestione delle chiavi non trova record SRV del Servizio di gestione delle chiavi in DNS.
+
+#### <a name="resolution"></a>Risoluzione
+
+Risolvere i problemi relativi alle connessioni di rete e a DNS. Per altre informazioni sulla risoluzione di questi problemi correlati a DNS, vedi [Procedure comuni per la risoluzione dei problemi relativi al Servizio di gestione delle chiavi e a DNS](common-troubleshooting-procedures-kms-dns.md).  
+
+### <a name="0x80092328-dns-name-does-not-exist"></a>0x80092328 Nome DNS inesistente
+
+#### <a name="possible-cause"></a>Possibile causa
+
+Questo problema può verificarsi se il client del Servizio di gestione delle chiavi non trova i record di risorse SRV del Servizio di gestione delle chiavi in DNS.
+
+#### <a name="resolution"></a>Risoluzione
+
+Per altre informazioni sulla risoluzione di questi problemi correlati a DNS, vedi [Procedure comuni per la risoluzione dei problemi relativi al Servizio di gestione delle chiavi e a DNS](common-troubleshooting-procedures-kms-dns.md).  
+
+### <a name="0xc004b100-the-activation-server-determined-that-the-computer-could-not-be-activated"></a>0xC004B100 Server di attivazione: impossibile attivare il computer
+
+#### <a name="possible-cause"></a>Possibile causa
+
+Il codice MAK non è supportato.  
+
+#### <a name="resolution"></a>Risoluzione
+
+Per risolvere questo problema, verifica che il codice MAK usato corrisponda a quello fornito da Microsoft. Per verificare che il codice MAK sia valido, contatta i [centri di attivazione delle licenze Microsoft](https://www.microsoft.com/en-us/Licensing/existing-customer/activation-centers).
 
 ### <a name="0xc004c001-the-activation-server-determined-the-specified-product-key-is-invalid"></a>0xC004C001 Server di attivazione: il codice "Product Key" specificato non è valido
 
@@ -94,16 +216,6 @@ La chiave del Servizio di gestione delle chiavi ha superato il limite di attivaz
 #### <a name="resolution"></a>Risoluzione
 
 Se hai bisogno di altre attivazioni, contatta i [centri di attivazione delle licenze Microsoft](https://www.microsoft.com/en-us/Licensing/existing-customer/activation-centers).  
-
-### <a name="0xc004b100-the-activation-server-determined-that-the-computer-could-not-be-activated"></a>0xC004B100 Server di attivazione: impossibile attivare il computer
-
-#### <a name="possible-cause"></a>Possibile causa
-
-Il codice MAK non è supportato.  
-
-#### <a name="resolution"></a>Risoluzione
-
-Per risolvere questo problema, verifica che il codice MAK usato corrisponda a quello fornito da Microsoft. Per verificare che il codice MAK sia valido, contatta i [centri di attivazione delle licenze Microsoft](https://www.microsoft.com/en-us/Licensing/existing-customer/activation-centers).
 
 ### <a name="0xc004c020-the-activation-server-reported-that-the-multiple-activation-key-has-exceeded-its-limit"></a>0xC004C020 Server di attivazione: è stato superato il limite massimo del codice ad attivazione multipla
 
@@ -175,15 +287,23 @@ Il testo completo di questo messaggio di errore è simile al seguente:
 
 > Errore: Chiave per contratti multilicenza non valida. Per l'attivazione è necessario modificare il codice "Product Key" in un codice ad attivazione multipla o in un codice di tipo retail. Devi avere una licenza di sistema operativo valida E una licenza di aggiornamento Windows 7 per contratti multilicenza oppure una licenza completa per Windows 7 rilasciata da un rivenditore. QUALSIASI ALTRA INSTALLAZIONE DEL SOFTWARE COMPORTA LA VIOLAZIONE DEL CONTRATTO E DELLE LEGGI IN VIGORE SUL COPYRIGHT.  
 
+Il testo dell'errore è corretto, ma ambiguo. Questo errore indica che nel BIOS del computer non è presente un marcatore di Windows che lo identifica come sistema OEM con un'edizione di Windows valida. Questa informazione è necessaria per l'attivazione dei client del Servizio di gestione delle chiavi. Il significato più specifico di questo codice è "Errore: Chiave per contratti multilicenza non valida."
+
 #### <a name="possible-cause"></a>Possibile causa
 
 Le edizioni Windows 7 per contratti multilicenza vengono concesse in licenza solo per l'aggiornamento. Microsoft non supporta l'installazione di un sistema operativo con contratto multilicenza in un computer in cui non è installato un sistema operativo originale.  
 
-Questo codice di errore indica quanto segue: "Servizio gestione licenze software: impossibile attivare il computer con un codice "Product Key" per contratti multilicenza..." Il testo dell'errore è corretto, ma ambiguo. Questo errore indica che nel computer manca un indicatore Windows nel BIOS. Questo indicatore viene visualizzato nei sistemi OEM per indicare i computer forniti insieme a edizioni di Windows originali. L'indicatore è necessario per l'attivazione del client del Servizio di gestione delle chiavi.  
-
 #### <a name="resolution"></a>Risoluzione
 
-Installa una versione originale di un sistema operativo Microsoft e quindi esegui l'attivazione usando un codice MAK.
+Per eseguire l'attivazione, è necessario completare una delle operazioni seguenti:
+
+- Sostituire il codice Product Key con un codice ad attivazione multipla (MAK) o un codice di tipo Retail. Devi avere una licenza di sistema operativo valida E una licenza di aggiornamento Windows 7 per contratti multilicenza oppure una licenza completa per Windows 7 rilasciata da un rivenditore.
+  > [!NOTE]
+  > Se durante il tentativo di attivazione viene restituito l'errore 0x80072EE2, usa in alternativa il metodo di attivazione telefonica illustrato di seguito.
+- Per eseguire l'attivazione telefonica, segui questa procedura:
+   1. Esegui **slmgr /dti** e prendi nota del valore dell'ID di installazione. </li>
+   1. Contatta i [centri di attivazione delle licenze Microsoft](https://www.microsoft.com/en-us/Licensing/existing-customer/activation-centers) e fornisci l'ID di installazione in modo da ricevere un ID di conferma.</li>
+   1. Per completare l'attivazione usando l'ID di conferma, esegui **slmgr /atp &lt;ID conferma&gt;** .
 
 ### <a name="0xc004f038-the-count-reported-by-your-key-management-service-kms-is-insufficient"></a>0xC004F038 Il conteggio restituito dal Servizio di gestione delle chiavi è insufficiente
 
@@ -290,70 +410,6 @@ La differenza tra l'ora di sistema nel computer client e l'ora nell'host del Ser
 
 Per risolvere questo problema, cambia l'ora di sistema nel client in modo da sincronizzarla con l'host del Sistema di gestione delle chiavi. È consigliabile usare un'origine di data e ora NTP (Network Time Protocol) o Active Directory Domain Services per la sincronizzazione dell'ora. Per questo errore viene usata l'ora UTP e non viene preso in considerazione il fuso orario.  
 
-### <a name="0x80070005-access-denied"></a>0x80070005 Accesso negato
-
-Il testo completo di questo messaggio di errore è simile al seguente:
-
-> Accesso negato: l'azione richiesta prevede privilegi elevati.
-
-#### <a name="possible-cause"></a>Possibile causa
-
-Controllo dell'account utente impedisce l'esecuzione di processi di attivazione in una finestra del prompt dei comandi senza privilegi elevati.  
-
-#### <a name="resolution"></a>Risoluzione
-
-Esegui **slmgr.vbs** da un prompt dei comandi con privilegi elevati. A tale scopo, fai clic sul pulsante **Start**, fai clic con il pulsante destro del mouse su **Prompt dei comandi** e quindi scegli **Esegui come amministratore**.  
-
-### <a name="0x8007232a-dns-server-failure"></a>0x8007232A Errore del server DNS
-
-#### <a name="possible-cause"></a>Possibile causa
-
-Nel sistema si sono verificati problemi di rete o DNS.
-
-#### <a name="resolution"></a>Risoluzione
-
-Risolvere i problemi relativi alla rete e a DNS.  
-
-### <a name="0x8007232b-dns-name-does-not-exist"></a>0x8007232B Nome DNS inesistente
-
-#### <a name="possible-cause"></a>Possibile causa
-
-Il client del Servizio di gestione delle chiavi non trova i record di risorse SRV del server del Servizio di gestione delle chiavi in DNS.  
-
-#### <a name="resolution"></a>Risoluzione
-
-Verifica che sia stato installato un host del Servizio di gestione delle chiavi e che sia abilitata la pubblicazione DNS (impostazione predefinita). Se DNS non è disponibile, fai puntare il client del Servizio di gestione delle chiavi all'host del Servizio di gestione delle chiavi usando **slmgr.vbs /skms <*nome_host_Servizio_di_gestione_delle_chiavi*>** .  
-
-Se non disponi di un host del Servizio di gestione delle chiavi, richiedi e installa un codice MAK. Attiva quindi il sistema.
-
-Per altre informazioni sulla risoluzione dei problemi correlati a DNS, vedi [Procedure comuni per la risoluzione dei problemi relativi al Servizio di gestione delle chiavi e a DNS](common-troubleshooting-procedures-kms-dns.md).  
-
-### <a name="0x800706ba-the-rpc-server-is-unavailable"></a>0x800706BA Server RPC non disponibile
-
-#### <a name="possible-cause"></a>Possibile causa
-
-Le impostazioni del firewall non sono configurate nell'host del Servizio di gestione delle chiavi oppure i record SRV DNS non sono aggiornati.  
-
-#### <a name="resolution"></a>Risoluzione
-
-Verifica che nell'host del Servizio di gestione delle chiavi sia abilitata l'eccezione del firewall per il Servizio di gestione delle chiavi (porta TCP 1688).
-
-Verifica che i record SRV DNS puntino a un host del Servizio di gestione delle chiavi valido. 
-
-Risolvere i problemi relativi alle connessioni di rete.  
-
-Per altre informazioni sulla risoluzione di questi problemi correlati a DNS, vedi [Procedure comuni per la risoluzione dei problemi relativi al Servizio di gestione delle chiavi e a DNS](common-troubleshooting-procedures-kms-dns.md).  
-
-### <a name="0x8007251d-no-records-found-for-dns-query"></a>0x8007251D Nessun record trovato per la query DNS
-
-#### <a name="possible-cause"></a>Possibile causa
-
-Il client del Servizio di gestione delle chiavi non trova record SRV del Servizio di gestione delle chiavi in DNS.
-
-#### <a name="resolution"></a>Risoluzione
-
-Risolvere i problemi relativi alle connessioni di rete e a DNS. Per altre informazioni sulla risoluzione di questi problemi correlati a DNS, vedi [Procedure comuni per la risoluzione dei problemi relativi al Servizio di gestione delle chiavi e a DNS](common-troubleshooting-procedures-kms-dns.md).  
-
 ### <a name="0xc004f074-no-key-management-service-kms-could-be-contacted"></a>0xC004F074 Impossibile contattare un servizio di gestione delle chiavi
 
 Il testo completo di questo messaggio di errore è simile al seguente:
@@ -369,51 +425,3 @@ Tutti i sistemi host del Servizio di gestione delle chiavi hanno restituito un e
 Nel registro eventi dell'applicazione identifica tutti gli eventi con ID evento 12288 associati al tentativo di attivazione. Risolvi gli errori di questi eventi.
 
 Per altre informazioni sulla risoluzione dei problemi correlati a DNS, vedi [Procedure comuni per la risoluzione dei problemi relativi al Servizio di gestione delle chiavi e a DNS](common-troubleshooting-procedures-kms-dns.md).  
-
-### <a name="0x8004fe21-this-computer-is-not-running-genuine-windows"></a>0x8004FE21 In questo computer non è in esecuzione una copia autentica di Windows  
-
-#### <a name="possible-cause"></a>Possibile causa
-
-Questo problema può verificarsi per diversi motivi. Il motivo più probabile è dovuto all'installazione di Language Pack (MUI) in computer che eseguono edizioni di Windows non concesse in licenza per Language Pack aggiuntivi.  
-
-> [!NOTE]
-> Non si tratta necessariamente di un'indicazione di manomissione. Alcune applicazioni possono installare supporto multilingue anche quando l'edizione di Windows non è concessa in licenza per tali Language Pack.  
-
-Questo problema può verificarsi anche se Windows è stato modificato da malware per consentire l'installazione di altre funzionalità. Questo problema può essere dovuto anche al danneggiamento di alcuni file di sistema.  
-
-#### <a name="resolution"></a>Risoluzione
-
-Per risolvere questo problema, devi reinstallare il sistema operativo.  
-
-### <a name="0x80092328-dns-name-does-not-exist"></a>0x80092328 Nome DNS inesistente
-
-#### <a name="possible-cause"></a>Possibile causa
-
-Questo problema può verificarsi se il client del Servizio di gestione delle chiavi non trova i record di risorse SRV del Servizio di gestione delle chiavi in DNS. 
-
-#### <a name="resolution"></a>Risoluzione
-
-Per altre informazioni sulla risoluzione di questi problemi correlati a DNS, vedi [Procedure comuni per la risoluzione dei problemi relativi al Servizio di gestione delle chiavi e a DNS](common-troubleshooting-procedures-kms-dns.md).  
-
-### <a name="0x8007007b-dns-name-does-not-exist"></a>0x8007007b Nome DNS inesistente
-
-#### <a name="possible-cause"></a>Possibile causa
-
-Questo problema può verificarsi se il client del Servizio di gestione delle chiavi non trova i record di risorse SRV del Servizio di gestione delle chiavi in DNS.  
-
-#### <a name="resolution"></a>Risoluzione
-
-Per altre informazioni sulla risoluzione di questi problemi correlati a DNS, vedi [Procedure comuni per la risoluzione dei problemi relativi al Servizio di gestione delle chiavi e a DNS](common-troubleshooting-procedures-kms-dns.md).  
-
-### <a name="0x80070490-the-product-key-you-entered-didnt-work"></a>0x80070490 Il codice Product Key immesso non funziona
-
-Il testo completo di questo messaggio di errore è simile al seguente:
-> Il codice Product Key immesso non funziona. Controllare il codice "Product Key" e riprovare.  
-
-#### <a name="possible-cause"></a>Possibile causa
-
-Questo problema si verifica per l'immissione di un codice MAK non valido o a causa di un problema noto in Windows Server 2019.  
-
-#### <a name="resolution"></a>Risoluzione
-
-Per risolvere il problema e attivare il computer, esegui **slmgr -ipk <chiave 5x5>** in un prompt dei comandi con privilegi elevati.

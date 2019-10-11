@@ -13,12 +13,12 @@ manager: daveba
 ms.author: helohr
 ms.date: 09/11/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 092804ea84ba2d0e68eede3a597cb354c53bb8bd
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: cc09a60882c481cea974508b0ef967aad0ed82fa
+ms.sourcegitcommit: de71970be7d81b95610a0977c12d456c3917c331
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71404201"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71940639"
 ---
 # <a name="whats-new-in-the-macos-client"></a>Novità del client macOS
 
@@ -189,7 +189,7 @@ Sono trascorse alcune settimane dall'ultimo aggiornamento, ma il team ha lavorat
 - Aggiunta del supporto per i certificati di endpoint di Desktop remoto contenenti chiavi asimmetriche a curva ellittica.
 - Correzione di un bug che impediva il download delle risorse gestite in alcuni scenari.
 - Risoluzione di un problema di ritaglio con il centro connessioni aggiunto in alto.
-- Correzione delle caselle di controllo nella finestra delle proprietà di visualizzazione per un migliore funzionamento in combinazione.
+- Correzione delle caselle di controllo nella scheda delle proprietà di visualizzazione nella finestra per l'aggiunta di un desktop per consentire una migliore interazione.
 - Il blocco delle proporzioni è ora disabilitato quando viene applicata la modifica della visualizzazione dinamica.
 - Risoluzione di problemi di compatibilità con l'infrastruttura di F5.
 - Aggiornamento della gestione delle password vuote per assicurare la visualizzazione dei messaggi corretti in fase di connessione.

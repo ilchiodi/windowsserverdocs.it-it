@@ -14,12 +14,12 @@ manager: dongill
 ms.author: elizapo
 ms.date: 07/16/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: 5b1dd3b728f941d9c3732abccf19363cf631284e
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 54ed455955053ebb234864f827759385ecf3d3c5
+ms.sourcegitcommit: 73898afec450fb3c2f429ca373f6b48a74b19390
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71387755"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71935033"
 ---
 # <a name="frequently-asked-questions-about-the-remote-desktop-clients"></a>Domande frequenti sui client Desktop remoto
 
@@ -166,7 +166,7 @@ Per utilizzare due o più schermate, eseguire le operazioni seguenti:
 2. Abilitare **utilizzare tutti i monitoraggi** e **schermo**.
 
 ### <a name="is-bi-directional-sound-supported"></a>Audio bidirezionale è supportata?
-Audio a monte (dal client al server, per microfoni) non è supportata dal Client Desktop remoto.
+L'audio bidirezionale può essere configurato nel client Windows per ogni singola connessione. Le impostazioni pertinenti sono accessibili nella sezione **Audio remoto** della scheda **Risorse locali**.
 
 ### <a name="what-can-i-do-if-the-sound-wont-play"></a>Cosa può fare se non riproduce il suono?
 Disconnette la sessione (non solo disconnettere, disconnettersi completamente) e quindi accedere di nuovo.

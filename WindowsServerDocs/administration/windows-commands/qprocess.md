@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: b3111d4e980395c1a7c971af715017d455e1a29c
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 51693f81e8e394df02bf35f1a6d91ed06b98e4bb
+ms.sourcegitcommit: c9d856c22b42d2a4fb8fe6acc6c5b6be673647f2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71384923"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72165048"
 ---
 # <a name="qprocess"></a>qprocess
 
@@ -32,6 +32,7 @@ Visualizza informazioni sui processi in esecuzione in un server Host sessione De
 ## <a name="remarks"></a>Note
 Questo comando è identico a quello del comando **query process** .
 
-#### <a name="additional-references"></a>Riferimenti aggiuntivi
-[query process](query-process.md)
-[sintassi della riga di comando chiave](command-line-syntax-key.md)@no__t-[3 &#40;Servizi Desktop remoto riferimento&#41; ai comandi di Servizi terminal](remote-desktop-services-terminal-services-command-reference.md)
+## <a name="additional-references"></a>Altri riferimenti
+[processo di query](query-process.md)  
+[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)  
+[Guida &#40;di riferimento&#41; ai comandi di Servizi Desktop remoto Servizi terminal](remote-desktop-services-terminal-services-command-reference.md)  

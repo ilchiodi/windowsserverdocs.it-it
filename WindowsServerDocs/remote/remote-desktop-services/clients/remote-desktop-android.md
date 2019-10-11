@@ -14,12 +14,12 @@ manager: daveba
 ms.author: helohr
 ms.date: 09/16/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: d11e8ad0cac1f9cf024097450e90d9be95d950b0
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 829608ae1a4c6b78b3b191f248ed4a4195500669
+ms.sourcegitcommit: de71970be7d81b95610a0977c12d456c3917c331
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71387763"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71940719"
 ---
 # <a name="get-started-with-the-android-client"></a>Introduzione al client Android
 
@@ -221,7 +221,7 @@ Il client utilizza i movimenti tocco standard. È inoltre possibile utilizzare i
 |---------------|----------------------|-------------------------------------------------------------------------|
 | Tocco diretto con  | Clic con il pulsante sinistro           | Tocco con un dito                                                     |
 | Tocco diretto con  | Clic con il pulsante destro del mouse          | Tocco e pressione con un dito, quindi rilascio                              |
-| Puntatore del mouse | Zoom                 | Avvicinamento di due dita per fare zoom avanti o allontanamento delle dita per fare zoom indietro |
+| Puntatore del mouse | Zoom                 | Avvicinamento di due dita per fare zoom indietro o allontanamento delle dita per fare zoom avanti |
 | Puntatore del mouse | Clic con il pulsante sinistro           | Tocco con un dito                                                     |
 | Puntatore del mouse | Clic con il pulsante sinistro e trascinamento  | Doppio tocco e pressione con un dito, quindi trascinamento                          |
 | Puntatore del mouse | Clic con il pulsante destro del mouse          | Tocco con due dita                                                    |

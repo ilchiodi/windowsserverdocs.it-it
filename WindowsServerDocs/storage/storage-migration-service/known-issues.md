@@ -4,16 +4,16 @@ description: Problemi noti e supporto per la risoluzione dei problemi per il ser
 author: nedpyle
 ms.author: nedpyle
 manager: siroy
-ms.date: 07/09/2019
+ms.date: 10/09/2019
 ms.topic: article
 ms.prod: windows-server
 ms.technology: storage
-ms.openlocfilehash: 150c9f1e70df4f634886ea65efd9c61ef075f26a
-ms.sourcegitcommit: de71970be7d81b95610a0977c12d456c3917c331
+ms.openlocfilehash: e3ec7ee787fb6fd2e8e9f59249a6c4013a76b377
+ms.sourcegitcommit: e2964a803cba1b8037e10d065a076819d61e8dbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71940703"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72252363"
 ---
 # <a name="storage-migration-service-known-issues"></a>Problemi noti del servizio migrazione archiviazione
 
@@ -48,7 +48,7 @@ Per risolvere, usare o eseguire l'aggiornamento a Windows Server 2019 Build 1809
 
 Quando si usa la versione 0,57 dell'estensione servizio migrazione archiviazione nell'interfaccia di amministrazione di Windows e si raggiunge la fase cutover, non è possibile selezionare un indirizzo IP statico per un indirizzo. Si è costretti a usare DHCP.
 
-Per risolvere questo problema, nell'interfaccia di amministrazione di Windows, cercare in **Impostazioni** > **estensioni** per un avviso che informa che il servizio di migrazione archiviazione della versione aggiornata 0.57.2 è disponibile per l'installazione. Potrebbe essere necessario riavviare la scheda del browser per l'interfaccia di amministrazione di Windows.
+Per risolvere questo problema, nell'interfaccia di amministrazione di Windows cercare in **Settings** > **Extensions** per un avviso che informa che il servizio di migrazione dell'archiviazione della versione aggiornata 0.57.2 è disponibile per l'installazione. Potrebbe essere necessario riavviare la scheda del browser per l'interfaccia di amministrazione di Windows.
 
 ## <a name="storage-migration-service-cutover-validation-fails-with-error-access-is-denied-for-the-token-filter-policy-on-destination-computer"></a>La convalida cutover del servizio migrazione archiviazione non riesce con l'errore "accesso negato per i criteri di filtro del token nel computer di destinazione"
 
@@ -225,7 +225,7 @@ Processo: ID foo2: Stato 20ac3f75-4945-41d1-9A79-d11dbb57798b: Errore non riusci
   Utente:          Computer servizio di rete:      FS02. Descrizione TailwindTraders.net: Non è stato possibile inventariare un computer.
 Processo: computer foo2: FS01. Stato TailwindTraders.net: Errore non riuscito: messaggio di errore-2147463168: Materiale sussidiario: Controllare l'errore dettagliato e verificare che siano soddisfatti i requisiti di inventario. L'inventario non è stato in grado di determinare alcun aspetto del computer di origine specificato. Il problema potrebbe essere dovuto a autorizzazioni o privilegi mancanti nell'origine o in una porta del firewall bloccata.
   
-Questo errore è causato da un difetto del codice nel servizio migrazione archiviazione quando si forniscono le credenziali di migrazione sotto forma di nome dell'entità utente (UPN), admeghan@contoso.comesempio ''. Il servizio dell'agente di orchestrazione del servizio migrazione archiviazione non è in grado di analizzare correttamente questo formato, causando un errore in una ricerca del dominio aggiunta per il supporto della migrazione del cluster in KB4512534 e 19H1.
+Questo errore è causato da un difetto del codice nel servizio migrazione archiviazione quando si forniscono le credenziali di migrazione sotto forma di nome dell'entità utente (UPN), ad esempio "meghan@contoso.com". Il servizio dell'agente di orchestrazione del servizio migrazione archiviazione non è in grado di analizzare correttamente questo formato, causando un errore in una ricerca del dominio aggiunta per il supporto della migrazione del cluster in KB4512534 e 19H1.
 
 Per aggirare questo problema, fornire le credenziali nel formato dominio\utente, ad esempio ' Contoso\Meghan '.
 
@@ -264,6 +264,28 @@ Quando si tenta di eseguire l'inventario con il server agente di orchestrazione 
     There are no more endpoints available from the endpoint mapper  
 
 Per aggirare questo problema, disinstallare temporaneamente l'aggiornamento cumulativo di KB4512534 (e qualsiasi altro che lo ha sostituito) dal computer agente di orchestrazione del servizio di migrazione archiviazione. Al termine della migrazione, reinstallare l'aggiornamento cumulativo più recente.  
+
+Si noti che in alcune circostanze, la disinstallazione di KB4512534 o degli aggiornamenti sostitutivi può causare il mancato avvio del servizio migrazione archiviazione. Per risolvere questo problema, è possibile eseguire il backup ed eliminare il database del servizio migrazione archiviazione:
+
+1.  Aprire un prompt dei comandi con privilegi elevati, in cui si è membri degli amministratori nel server dell'agente di orchestrazione del servizio di migrazione archiviazione ed eseguire:
+
+     ```
+     MD c:\ProgramData\Microsoft\StorageMigrationService\backup
+
+     ICACLS c:\ProgramData\Microsoft\StorageMigrationService\* /grant Administrators:(GA)
+
+     XCOPY c:\ProgramData\Microsoft\StorageMigrationService\* .\backup\*
+
+     DEL c:\ProgramData\Microsoft\StorageMigrationService\* /q
+
+     ICACLS c:\ProgramData\Microsoft\StorageMigrationService  /GRANT networkservice:F /T /C
+
+     ICACLS c:\ProgramData\Microsoft\StorageMigrationService /GRANT networkservice:(GA)F /T /C
+     ```
+   
+2.  Avviare il servizio migrazione archiviazione che creerà un nuovo database.
+
+
 
 ## <a name="see-also"></a>Vedere anche
 
