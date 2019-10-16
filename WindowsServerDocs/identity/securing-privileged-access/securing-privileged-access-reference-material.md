@@ -35,7 +35,7 @@ Il modello a livelli è composto da tre livelli e include solo gli account ammin
 
 ## <a name="containment-and-security-zones"></a>Aree di contenimento e sicurezza
 
-I livelli si riferiscono a un'area di sicurezza specifica. Sebbene siano state denominate in vari modi, le aree di sicurezza sono un approccio consolidato che fornisce il contenimento delle minacce per la sicurezza attraverso l'isolamento del livello di rete tra di essi. Il modello a livelli si integra con l'isolamento, fornendo il contenimento degli avversari all'interno di un'area di sicurezza in cui l'isolamento rete non è efficace. Le aree di sicurezza possono estendersi sia nelle infrastrutture cloud che in quelle cloud, come nell'esempio in cui i controller di dominio e i membri del dominio nello stesso dominio sono ospitati in locale e in Azure.
+I livelli si riferiscono a un'area di sicurezza specifica. Sebbene siano state denominate in vari modi, le aree di sicurezza sono un approccio consolidato che fornisce il contenimento delle minacce per la sicurezza attraverso l'isolamento del livello di rete tra di essi. Il modello a livelli si integra con l'isolamento, fornendo il contenimento degli avversari all'interno di un'area di sicurezza in cui l'isolamento rete non è efficace. Le aree di sicurezza possono estendersi sia nelle infrastrutture on-premises che in quelle cloud, come nell'esempio in cui i controller di dominio e i membri del dominio nello stesso dominio sono ospitati in locale e in Azure.
 
 ![Diagramma che illustra come le aree di sicurezza possono estendersi sia in locale che nell'infrastruttura cloud](../media/securing-privileged-access-reference-material/PAW_RM_Fig2.JPG)
 
