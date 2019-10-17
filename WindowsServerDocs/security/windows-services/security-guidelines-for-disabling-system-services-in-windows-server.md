@@ -1432,7 +1432,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Installazione**    |   Sempre installato
 |   **Tipo di avvio**   |   Automatico
 |   **Consiglio**  |   OK disabilitare se non si tratta di un server di stampa o di un controller di dominio.
-|   **Commenti**    |   In un controller di dominio, l'installazione del ruolo del controller di dominio aggiunge un thread per il servizio spooler che è responsabile dell'eliminazione degli oggetti coda di stampa obsoleti da Active Directory.  Se il servizio spooler non è in esecuzione su almeno un controller di dominio in ogni sito, Active Directory non è in grado di rimuovere le code precedenti che non esistono più. https://blogs.technet.microsoft.com/askperf/2008/11/18/disabling-unnecessary-services-a-word-to-the-wise/
+|   **Commenti**    |   In un controller di dominio, l'installazione del ruolo del controller di dominio aggiunge un thread per il servizio spooler che è responsabile dell'eliminazione degli oggetti coda di stampa obsoleti da Active Directory.  Se il servizio spooler non è in esecuzione su almeno un controller di dominio in ogni sito, Active Directory non è in grado di rimuovere le code precedenti che non esistono più. [https://blogs.technet.microsoft.com/askperf/2008/11/18/disabling-unnecessary-services-a-word-to-the-wise/](https://blogs.technet.microsoft.com/askperf/2008/11/18/disabling-unnecessary-services-a-word-to-the-wise/ )
 |||         
 
 <br />          
