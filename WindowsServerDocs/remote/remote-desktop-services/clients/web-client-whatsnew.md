@@ -11,14 +11,14 @@ ms.topic: article
 author: heidilohr
 manager: daveba
 ms.author: helohr
-ms.date: 09/11/2019
+ms.date: 10/18/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: d233708c6d206569f42f2a883bd342e90813f6a3
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: bcbd3292bcd4653a4568492a996d53c17f465aa8
+ms.sourcegitcommit: 9a6a692a7b2a93f52bb9e2de549753e81d758d28
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71404093"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72591049"
 ---
 # <a name="whats-new-in-the-web-client"></a>Novità del client Web
 
@@ -27,12 +27,22 @@ Aggiorniamo regolarmente il [client Web di Desktop remoto](remote-desktop-web-cl
 > [!NOTE]
 > Abbiamo modificato il sistema di controllo delle versioni per il client Web. A partire dalla versione 1.0.18.0, tutte le versioni del client Web conterranno numeri (nel formato "W.X.Y.Z"). I numeri di versione per il client Web di Desktop remoto terminano sempre con il valore 0, ad esempio W.X.Y.0. Ogni versione del client Web di Desktop virtuale Windows modificherà l'ultima cifra fino alla successiva versione del client Web di Desktop remoto, ad esempio 1.0.18.1.
 
+## <a name="updates-for-version-10200"></a>Aggiornamenti per la versione 1.0.20.0
+*Data di pubblicazione: 18/10/2019*
+
+- È stato aggiunto il supporto per le connessioni agli host Windows 7 e Windows Server 2008 R2.
+- È stato risolto il problema per cui alcune icone di app venivano visualizzate come riquadri trasparenti.
+- Sono stati risolti i problemi di connessione del browser Internet Explorer in Windows 7.
+- Sono stati risolti i problemi di disconnessione imprevisti che si verificavano durante il ridimensionamento del browser.
+- Sono stati introdotti miglioramenti all'accessibilità.
+- Sono state aggiornate le librerie di terze parti.
+
 ## <a name="updates-for-version-10180"></a>Aggiornamenti alla versione 1.0.18.0
 *Data di pubblicazione: 14/05/2019*
 
 - È stata aggiunta la configurazione del metodo di avvio delle risorse nella scheda Impostazioni, consentendo agli utenti di aprire le risorse nel browser o scaricare un file con estensione rdp da gestire con un altro client. Questa impostazione può essere configurata dall'amministratore. I dettagli riguardanti le configurazioni di amministratore per questa funzionalità sono disponibili nella [documentazione di installazione del client Web](remote-desktop-web-client-admin.md).
 - Sono stati risolti i problemi relativi al rendering del colore, abilitando la visualizzazione di colori più brillanti nella sessione remota.
-- È stata eseguita la revisione dei messaggi di errore relativi a errori del feed delle risorse remote. 
+- È stata eseguita la revisione dei messaggi di errore relativi a errori del feed delle risorse remote.
 - È stato aggiunto il supporto per più collegamenti di Office, ad esempio Incolla speciale (CTRL+ALT+V).
 - È stata aggiunta una combinazione di tasti che consente agli utenti di richiamare il tasto WINDOWS nella sessione remota (ALT+F3)
 - È stato aggiornato il messaggio di errore per gli utenti che tentano di autenticarsi usando una password scaduta.
@@ -105,4 +115,3 @@ Aggiorniamo regolarmente il [client Web di Desktop remoto](remote-desktop-web-cl
 - È stata aggiunta l'opzione per copiare e incollare testo dagli Appunti con **CTRL+C** e **CTRL+V**.
 - È stata aggiunta l'opzione per stampare un file con estensione pdf.
 - È stata implementata la localizzazione in 18 lingue.
- 
