@@ -51,6 +51,7 @@
 #### [Abilitare hardware di monitoraggio delle prestazioni Intel](hyper-v/manage/Performance-Monitoring-Hardware.md)
 #### [Spostare le macchine virtuali con migrazione in tempo reale](hyper-v/manage/Live-migration-overview.md)
 ##### [Panoramica della migrazione in tempo reale](hyper-v/manage/Live-migration-overview.md)
+
 ##### [Configurare gli host per la migrazione in tempo reale](hyper-v/deploy/Set-up-hosts-for-live-migration-without-Failover-Clustering.md) 
 ##### [Usare la migrazione in tempo reale senza clustering di failover](hyper-v/manage/Use-live-migration-without-Failover-Clustering-to-move-a-virtual-machine.md)
 
