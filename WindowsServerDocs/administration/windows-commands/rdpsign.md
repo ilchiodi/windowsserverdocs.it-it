@@ -13,19 +13,19 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 07/11/2018
-ms.openlocfilehash: aa1f8f8f31abd85a1ad106a3c4764fc4ccf74258
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 406563a07d3760c2846c201410f3a7b8f1c2829b
+ms.sourcegitcommit: b7f55949f166554614f581c9ddcef5a82fa00625
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71384775"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72588052"
 ---
 # <a name="rdpsign"></a>rdpsign
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Consente di firmare digitalmente un file Remote Desktop Protocol (RDP).
-Per esempi relativi all'uso di questo comando, vedere [esempi](#BKMK_examples).
+per esempi relativi all'uso di questo comando, vedere [esempi](#BKMK_examples).
 
 > [!NOTE]
 > In Windows Server 2008 R2, Servizi terminal si chiama ora Servizi Desktop remoto. Per informazioni sulle novità della versione più recente, vedere Novità di [Servizi Desktop remoto in Windows server 2012](https://technet.microsoft.com/library/hh831527) nella libreria TechNet di Windows Server.
@@ -39,14 +39,15 @@ rdpsign /sha1 <hash> [/q | /v |] [/l] <file_name.rdp>
 
 |Parametro|Descrizione|
 |-------|--------|
-|/SHA1 \<hash >|Specifica l'identificazione personale, ovvero l'hash Secure Hash Algorithm 1 (SHA1) del certificato di firma incluso nell'archivio certificati.|
+|/SHA1 \<hash >|Specifica l'identificazione personale, ovvero l'hash Secure Hash Algorithm 1 (SHA1) del certificato di firma incluso nell'archivio certificati. Usato in Windows Server 2012 R2 e versioni precedenti.|
+|/SHA256 \<hash >|Specifica l'identificazione personale, ovvero l'hash Secure Hash Algorithm 256 (SHA256) del certificato di firma incluso nell'archivio certificati. Sostituisce/SHA1 in Windows Server 2016 e versioni successive.|
 |/q|Modalità non interattiva. Nessun output quando il comando ha esito positivo e output minimo se il comando ha esito negativo.|
-|/v|Modalità dettagliata. Visualizza tutti gli avvisi, i messaggi e lo stato.|
+|/v|modalità dettagliata. Visualizza tutti gli avvisi, i messaggi e lo stato.|
 |/l|Verifica i risultati di firma e output senza sostituire effettivamente uno dei file di input.|
 |/?|Visualizza la guida al prompt dei comandi.|
 
-## <a name="remarks"></a>Note
--   L'identificazione personale del certificato SHA1 deve rappresentare un server di pubblicazione trusted con estensione RDP. Per ottenere l'identificazione personale del certificato, aprire lo snap-in certificati, fare doppio clic sul certificato che si desidera utilizzare (nell'archivio certificati del computer locale o nell'archivio certificati personali), fare clic sulla scheda **Dettagli** , quindi nella finestra **di Elenco campi** , fare clic su **identificazione personale**.
+## <a name="remarks"></a>Osservazioni
+-   L'identificazione personale del certificato SHA1 o SHA256 deve rappresentare un server di pubblicazione trusted con estensione RDP. Per ottenere l'identificazione personale del certificato, aprire lo snap-in certificati, fare doppio clic sul certificato che si desidera utilizzare (nell'archivio certificati del computer locale o nell'archivio certificati personali), fare clic sulla scheda **Dettagli** , quindi nella finestra **di Elenco campi** , fare clic su **identificazione personale**.
 
     > [!NOTE]
     > Quando si copia l'identificazione personale per l'utilizzo con lo strumento Rdpsign. exe, è necessario rimuovere tutti gli spazi.
@@ -70,5 +71,6 @@ rdpsign /sha1 <hash> [/q | /v |] [/l] <file_name.rdp>
   ```
   rdpsign /sha1 hash file1.rdp file2.rdp file3.rdp
   ```
-  ## <a name="see-also"></a>Vedere anche
-  [Sintassi della riga di comando chiave](command-line-syntax-key.md)@no__t-[1 &#40;Servizi Desktop remoto riferimento&#41; ai comandi di Servizi terminal](remote-desktop-services-terminal-services-command-reference.md)
+  ## <a name="see-also"></a>Vedi anche
+  [Chiave di sintassi della riga di comando](command-line-syntax-key.md) 
+  [riferimento ai comandi di &#40;Servizi Desktop remoto Servizi terminal&#41; ](remote-desktop-services-terminal-services-command-reference.md)

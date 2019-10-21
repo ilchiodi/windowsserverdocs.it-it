@@ -9,12 +9,12 @@ ms.date: 11/14/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 00f3851ce74a496bd530c8ea682ea312f8b06a0a
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: e3f320b67196a2400ebedbaeaf0a5b59969400e8
+ms.sourcegitcommit: b7f55949f166554614f581c9ddcef5a82fa00625
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71390929"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72588099"
 ---
 # <a name="demoting-domain-controllers-and-domains"></a>Domini e controller di dominio abbassamento
 
@@ -36,7 +36,7 @@ In questo argomento viene illustrato come rimuovere Servizi di dominio Active Di
 |||  
 |-|-|  
 |**Cmdlet ADDSDeployment e ServerManager**|Argomenti. Gli argomenti in **grassetto** sono obbligatori. Gli argomenti in *corsivo* possono essere specificati usando Windows PowerShell o la Configurazione guidata Servizi di dominio Active Directory.|  
-|Uninstall-AddsDomainController|-SkipPreChecks<br /><br />*-LocalAdministratorPassword*<br /><br />-Confirm<br /><br />***-Credential***<br /><br />-DemoteOperationMasterRole<br /><br />*-DNSDelegationRemovalCredential*<br /><br />-Force<br /><br />*-ForceRemoval*<br /><br />*-IgnoreLastDCInDomainMismatch*<br /><br />*-IgnoreLastDNSServerForZone*<br /><br />*-LastDomainControllerInDomain*<br /><br />-Norebootoncompletion<br /><br />*-RemoveApplicationPartitions*<br /><br />*-RemoveDNSDelegation*<br /><br />-RetainDCMetadata|  
+|Uninstall-ADDSDomainController|-SkipPreChecks<br /><br />*-LocalAdministratorPassword*<br /><br />-Confirm<br /><br />***-Credential***<br /><br />-DemoteOperationMasterRole<br /><br />*-DNSDelegationRemovalCredential*<br /><br />-Force<br /><br />*-ForceRemoval*<br /><br />*-IgnoreLastDCInDomainMismatch*<br /><br />*-IgnoreLastDNSServerForZone*<br /><br />*-LastDomainControllerInDomain*<br /><br />-Norebootoncompletion<br /><br />*-RemoveApplicationPartitions*<br /><br />*-RemoveDNSDelegation*<br /><br />-RetainDCMetadata|  
 |Uninstall-WindowsFeature/Remove-WindowsFeature|***-Nome***<br /><br />***-IncludeManagementTools***<br /><br />*-Riavvia*<br /><br />-Remove<br /><br />-Force<br /><br />-ComputerName<br /><br />-Credential<br /><br />-LogPath<br /><br />-Vhd|  
   
 > [!NOTE]  
@@ -104,7 +104,7 @@ Nella pagina **Credenziali** è possibile configurare le opzioni di abbassamento
    > [!WARNING]  
    > Non selezionare questa opzione se il controller di dominio non riesce a contattare altri controller di dominio e non vi è alcuna *soluzione ragionevole* per risolvere il problema di rete. L'abbassamento di livello forzato lascia orfani i metadati di Active Directory nei restanti controller di dominio della foresta. Inoltre tutte le modifiche non replicate nel rispettivo controller di dominio, come password o nuovi account utente, andranno perse. I metadati orfani sono la causa principale di una elevata percentuale di casi riportati al supporto tecnico Microsoft riguardanti i Servizi di dominio Active Directory, Exchange, SQL e altre applicazioni software.  
    >
-   > Quando si esegue l'abbassamento di livello forzato di un controller di dominio, è *necessario* effettuare immediatamente la pulizia dei metadati. Per i passaggi, esaminare [pulizia dei metadati del Server](https://technet.microsoft.com/library/cc816907(WS.10).aspx).  
+   > Quando si esegue l'abbassamento di livello forzato di un controller di dominio, è *necessario* effettuare immediatamente la pulizia dei metadati. Per i passaggi, esaminare [pulizia dei metadati del Server](ad-ds-metadata-cleanup.md).  
 
    ![Configurazione guidata di Active Directory Domain Services-rimozione forzata delle credenziali](media/Demoting-Domain-Controllers-and-Domains--Level-200-/ADDS_RRW_TR_ForceDemote.png)  
   
@@ -170,7 +170,7 @@ Ad esempio, è possibile richiedere manualmente una password usando il cmdlet **
 > [!WARNING]
 > Poiché le due opzioni precedenti non confermano la password, usare estrema cautela: la password non è visibile.
 
-È inoltre possibile specificare una stringa sicura come variabile di testo in chiaro convertita, anche se questo metodo è sconsigliato. Esempio:
+È inoltre possibile specificare una stringa sicura come variabile di testo in chiaro convertita, anche se questo metodo è sconsigliato. Ad esempio:
 
 ```
 -localadministratorpassword (convertto-securestring "Password1" -asplaintext -force)
@@ -188,12 +188,12 @@ La pagina **Conferma** mostra l'abbassamento di livello pianificato, ma non le o
 Fare clic su **Abbassa di livello** per eseguire il cmdlet di distribuzione di Servizi di dominio Active Directory seguente:
 
 ```
-Uninstall-DomainController
+Uninstall-ADDSDomainController
 ```
 
 Usare l'argomento facoltativo **Whatif** con il cmdlet **Uninstall-ADDSDomainController** e il cmdlet per rivedere le informazioni sulla configurazione. In questo modo è possibile visualizzare i valori espliciti e impliciti degli argomenti di un cmdlet.
 
-Esempio:
+Ad esempio:
 
 ![Esempio di disinstallazione di PowerShell-ADDSDomainController](media/Demoting-Domain-Controllers-and-Domains--Level-200-/ADDS_PSUninstall.png)
 
@@ -208,7 +208,7 @@ Quando la pagina **Abbassamento di livello** viene visualizzata, la configurazio
 * %systemroot%\debug\dcpromo.log
 * %systemroot%\debug\dcpromoui.log
 
-Dal momento che **Uninstall-AddsDomainController** e **Uninstall-WindowsFeature** hanno solo un'azione ciascuno, vengono visualizzati qui nella fase di conferma con gli argomenti obbligatori minimi. Premendo INVIO, viene avviato il processo di abbassamento di livello irrevocabile e viene riavviato il computer.
+Poiché **Uninstall-AddsDomainController** e **Uninstall-WindowsFeature** hanno solo un'azione a parte, vengono visualizzati qui nella fase di conferma con gli argomenti obbligatori minimi. Premendo INVIO, viene avviato il processo di abbassamento di livello irrevocabile e viene riavviato il computer.
 
 ![Esempio di disinstallazione di PowerShell-ADDSDomainController](media/Demoting-Domain-Controllers-and-Domains--Level-200-/ADDS_PSUninstallConfirm.png)
 

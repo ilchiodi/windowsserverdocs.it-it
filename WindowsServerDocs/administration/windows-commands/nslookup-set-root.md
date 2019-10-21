@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 08cf41ec9b6ac30699013112216a538dcf625fd5
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 5a1737275bf6321525bbba56cd4d6a77ef973423
+ms.sourcegitcommit: 9a6a692a7b2a93f52bb9e2de549753e81d758d28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71372842"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72591020"
 ---
 # <a name="nslookup-set-root"></a>nslookup set root
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Modifica il nome del server radice utilizzato per le query.
+Modifica il nome del server principale per le query.
 ## <a name="syntax"></a>Sintassi
 ```
 set root=<RootServer>
@@ -36,8 +36,8 @@ set root=<RootServer>
 |  <RootServer>   | Specifica il nuovo nome per il server radice. Il valore predefinito è ns.nic.ddn.mil. |
 | {Help &#124; ?} |              Viene visualizzato un breve riepilogo di **nslookup** sottocomandi.               |
 
-## <a name="remarks"></a>Note
+## <a name="remarks"></a>Osservazioni
 - Il sottocomando **set root** influiscono sul sottocomando **radice** .
   ## <a name="additional-references"></a>Riferimenti aggiuntivi
-  [Sintassi della riga di comando chiave](command-line-syntax-key.md)
-  [nslookup radice](nslookup-root.md)
+  [Chiave della sintassi della riga di comando](command-line-syntax-key.md) 
+  [radice nslookup](nslookup-root.md)

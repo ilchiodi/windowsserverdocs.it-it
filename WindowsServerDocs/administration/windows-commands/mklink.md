@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 9d930cbf7acbfceab16f2fa619aaaac6e789c131
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: b7a5f9b819f16d058feb1dee74a8408ed174e04c
+ms.sourcegitcommit: b7f55949f166554614f581c9ddcef5a82fa00625
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71373637"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72588045"
 ---
 # <a name="mklink"></a>mklink
 Crea un collegamento simbolico.
@@ -44,7 +44,7 @@ mklink [[/d] | [/h] | [/j]] <Link> <Target>
 
 ## <a name="BKMK_examples"></a>Esempi
 
-L'esempio follwing illustra la creazione e la rimozione di un collegamento simbolico denominato MyFile e MyFile. file dalla directory radice alla directory \Users\User1\Documents e un file di esempio. file che si trova nella directory:
+Nell'esempio seguente viene illustrata la creazione e la rimozione di un collegamento simbolico denominato MyFile e MyFile. file dalla directory radice alla directory \Users\User1\Documents e un file di esempio. file che si trova nella directory:
 ```
 mklink /d \MyFolder \Users\User1\Documents
 mklink /h \MyFile.file \User1\Documents\example.file

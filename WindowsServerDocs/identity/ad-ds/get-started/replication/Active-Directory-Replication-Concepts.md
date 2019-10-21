@@ -9,12 +9,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: d426b9923b569c8475862c1426a9dd310dc0b798
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: ccc1801ba325fec4d7273b503ccb799966122b99
+ms.sourcegitcommit: 9a6a692a7b2a93f52bb9e2de549753e81d758d28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71390554"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72591076"
 ---
 # <a name="active-directory-replication-concepts"></a>Concetti di replica di Active Directory
 
@@ -47,12 +47,12 @@ Un oggetto connessione è un oggetto Active Directory che rappresenta una connes
   
 L'oggetto Connection è un elemento figlio dell'oggetto Impostazioni NTDS nel server di destinazione. Per eseguire la replica tra due controller di dominio, l'oggetto server di uno deve disporre di un oggetto connessione che rappresenta la replica in ingresso dell'altro. Tutte le connessioni di replica per un controller di dominio vengono archiviate come oggetti connessione nell'oggetto Impostazioni NTDS. L'oggetto Connection identifica il server di origine della replica, contiene una pianificazione di replica e specifica un trasporto di replica.  
   
-Il controllo di coerenza informazioni (KCC) crea automaticamente oggetti connessione, ma è possibile crearli anche manualmente. Gli oggetti connessione creati da KCC vengono visualizzati nello snap-in siti e servizi Active Directory come **<automatically generated>** e sono considerati adeguati in condizioni operative normali. Gli oggetti connessione creati da un amministratore vengono creati manualmente. Un oggetto connessione creato manualmente viene identificato dal nome assegnato dall'amministratore al momento della creazione. Quando si modifica un oggetto connessione **<automatically generated>** , questo viene convertito in un oggetto di connessione modificato in modo amministrativo e l'oggetto viene visualizzato sotto forma di GUID. Il KCC non consente di apportare modifiche agli oggetti connessione manuali o modificati.  
+Il controllo di coerenza informazioni (KCC) crea automaticamente oggetti connessione, ma è possibile crearli anche manualmente. Gli oggetti connessione creati da KCC vengono visualizzati nello snap-in siti e servizi Active Directory come **<automatically generated>** e sono considerati adeguati in condizioni operative normali. Gli oggetti connessione creati da un amministratore vengono creati manualmente. Un oggetto connessione creato manualmente viene identificato dal nome assegnato dall'amministratore al momento della creazione. Quando si modifica un oggetto **<automatically generated>** connessione, questo viene convertito in un oggetto di connessione modificato in modo amministrativo e l'oggetto viene visualizzato sotto forma di GUID. Il KCC non consente di apportare modifiche agli oggetti connessione manuali o modificati.  
   
 ## <a name="BKMK_2"></a>KCC  
 KCC è un processo incorporato che viene eseguito su tutti i controller di dominio e genera la topologia di replica per la foresta Active Directory. KCC crea topologie di replica separate a seconda che si verifichi la replica all'interno di un sito (intrasito) o tra siti (tra siti). Il KCC consente inoltre di modificare dinamicamente la topologia per supportare l'aggiunta di nuovi controller di dominio, la rimozione di controller di dominio esistenti, lo spostamento dei controller di dominio da e verso i siti, la modifica di costi e pianificazioni e i controller di dominio temporaneamente non disponibile o in stato di errore.  
   
-All'interno di un sito, le connessioni tra i controller di dominio scrivibili sono sempre disposte in un anello bidirezionale, con connessioni di collegamento aggiuntive per ridurre la latenza nei siti di grandi dimensioni. D'altra parte, la topologia tra siti è una sovrapposizione di alberi con spanning, ovvero esiste una connessione tra siti tra due siti per ogni partizione di directory e in genere non contiene connessioni di collegamento. Per ulteriori informazioni sugli alberi con spanning e Active Directory topologia di replica, vedere riferimento tecnico per la topologia di replica Active Directory ([https://go.microsoft.com/fwlink/?LinkID=93578](https://go.microsoft.com/fwlink/?LinkID=93578)).  
+All'interno di un sito, le connessioni tra i controller di dominio scrivibili sono sempre disposte in un anello bidirezionale, con connessioni di collegamento aggiuntive per ridurre la latenza nei siti di grandi dimensioni. D'altra parte, la topologia tra siti è una sovrapposizione di alberi con spanning, ovvero esiste una connessione tra siti tra due siti per ogni partizione di directory e in genere non contiene connessioni di collegamento. Per ulteriori informazioni sugli alberi con spanning e Active Directory topologia di replica, vedere riferimento tecnico per la topologia di replica Active Directory ([ https://go.microsoft.com/fwlink/?LinkID=93578](https://go.microsoft.com/fwlink/?LinkID=93578)).  
   
 In ogni controller di dominio, KCC crea route di replica creando oggetti connessione in ingresso unidirezionali che definiscono le connessioni da altri controller di dominio. Per i controller di dominio nello stesso sito, KCC crea automaticamente oggetti connessione senza intervento amministrativo. Quando si dispone di più di un sito, si configurano i collegamenti di sito tra siti e un singolo KCC in ogni sito crea automaticamente anche le connessioni tra siti.  
   
@@ -64,7 +64,7 @@ Uno dei vantaggi della distribuzione di RODC in questo scenario è la replica un
   
 Tuttavia, una sfida amministrativa evidenziata dalla topologia hub-spoke nelle versioni precedenti del sistema operativo Windows Server è che dopo l'aggiunta di un nuovo controller di dominio testa di ponte nell'hub, non esiste alcun meccanismo automatico per ridistribuire connessioni di replica tra i controller di dominio ramo e i controller di dominio hub per sfruttare i vantaggi del nuovo controller di dominio hub.  
   
-Per i controller di dominio Windows Server 2003, è possibile ribilanciare il carico di lavoro usando uno strumento come Adlb. exe nella Guida alla distribuzione di una succursale di Windows Server 2003 ([https://go.microsoft.com/fwlink/?LinkID=28523](https://go.microsoft.com/fwlink/?LinkID=28523)).  
+Per i controller di dominio Windows Server 2003, è possibile ribilanciare il carico di lavoro usando uno strumento come Adlb. exe nella Guida alla distribuzione di una succursale di Windows Server 2003 ([ https://go.microsoft.com/fwlink/?LinkID=28523](https://go.microsoft.com/fwlink/?LinkID=28523)).  
   
 Per Windows Server 2008 RODC, il funzionamento normale di KCC fornisce un nuovo bilanciamento, che elimina la necessità di usare uno strumento aggiuntivo, ad esempio Adlb. exe. La nuova funzionalità è abilitata per impostazione predefinita. È possibile disabilitare questa impostazione aggiungendo la seguente chiave del registro di sistema nel controller di sola lettura:  
   
@@ -73,7 +73,7 @@ Per Windows Server 2008 RODC, il funzionamento normale di KCC fornisce un nuovo 
 **"Loadbalancing BH casuale consentito"**  
 **1 = abilitato (impostazione predefinita), 0 = disabilitato**  
   
-Per ulteriori informazioni sul funzionamento di questi miglioramenti KCC, vedere Planning and Deploying Active Directory Domain Services for Branchs ([https://go.microsoft.com/fwlink/?LinkId=107114](https://go.microsoft.com/fwlink/?LinkId=107114)).  
+Per ulteriori informazioni sul funzionamento di questi miglioramenti di KCC, vedere Planning and Deploying Active Directory Domain Services for Branch Succursal ([ https://go.microsoft.com/fwlink/?LinkId=107114](https://go.microsoft.com/fwlink/?LinkId=107114)).  
   
 ## <a name="BKMK_3"></a>Funzionalità di failover  
 I siti garantiscono che la replica venga instradata in caso di errori di rete e controller di dominio offline. Il KCC viene eseguito a intervalli specificati per modificare la topologia di replica per le modifiche che si verificano in servizi di dominio Active Directory, ad esempio quando vengono aggiunti nuovi controller di dominio e vengono creati nuovi siti. KCC esamina lo stato della replica delle connessioni esistenti per determinare se le connessioni non funzionano. Se una connessione non funziona a causa di un controller di dominio che ha avuto esito negativo, KCC compila automaticamente le connessioni temporanee ad altri partner di replica (se disponibili) per assicurarsi che la replica venga eseguita. Se non sono disponibili tutti i controller di dominio in un sito, KCC crea automaticamente le connessioni di replica tra i controller di dominio di un altro sito.  

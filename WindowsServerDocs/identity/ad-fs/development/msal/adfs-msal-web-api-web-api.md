@@ -9,10 +9,10 @@ ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
 ms.openlocfilehash: 106262b63b5aad0eddb08618eb808d2d9ff5b425
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.sourcegitcommit: b7f55949f166554614f581c9ddcef5a82fa00625
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
+ms.lasthandoff: 10/18/2019
 ms.locfileid: "71407805"
 ---
 # <a name="scenario-web-api-calling-web-api-on-behalf-of-scenario"></a>Scenario: API Web che chiama l'API Web (per conto dello scenario) 
@@ -26,7 +26,7 @@ Prima di leggere questo articolo, è necessario avere familiarità con i [concet
 
 
 - Un client (app Web), non rappresentato nel diagramma seguente, chiama un'API Web protetta e fornisce un bearer token JWT nell'intestazione http "Authorization". 
-- L'API Web protetta convalida il token e usa il metodo [AcquireTokenOnBehalfOf](https://docs.microsoft.com/en-us/dotnet/api/microsoft.identitymodel.clients.activedirectory.authenticationcontext.acquiretokenasync?view=azure-dotnet#Microsoft_IdentityModel_Clients_ActiveDirectory_AuthenticationContext_AcquireTokenAsync_System_String_Microsoft_IdentityModel_Clients_ActiveDirectory_ClientCredential_Microsoft_IdentityModel_Clients_ActiveDirectory_UserAssertion_) di MSAL per richiedere (da ad FS) un altro token, in modo che possa chiamare una seconda API Web (denominata API Web downstream) per conto dell'utente. 
+- L'API Web protetta convalida il token e usa il  method [ACQUIRETOKENONBEHALFOF](https://docs.microsoft.com/en-us/dotnet/api/microsoft.identitymodel.clients.activedirectory.authenticationcontext.acquiretokenasync?view=azure-dotnet#Microsoft_IdentityModel_Clients_ActiveDirectory_AuthenticationContext_AcquireTokenAsync_System_String_Microsoft_IdentityModel_Clients_ActiveDirectory_ClientCredential_Microsoft_IdentityModel_Clients_ActiveDirectory_UserAssertion_) MSAL per richiedere (da ad FS) un altro token, in modo che possa chiamare una seconda API Web (denominata API Web downstream) per conto dell'utente. 
 - L'API Web protetta usa questo token per chiamare un'API downstream. Può anche chiamare AcquireTokenSilentlater per richiedere token per altre API downstream (ma ancora per conto dello stesso utente). Quando necessario, AcquireTokenSilent aggiorna il token.  
  
      ![informazioni generali](media/adfs-msal-web-api-web-api/webapi1.png)
@@ -45,15 +45,15 @@ Questa sezione illustra come registrare l'app nativa come client pubblico e API 
 
   1. In gestione AD FS fare clic con il pulsante destro del mouse su **gruppi di applicazioni** e selezionare **Aggiungi gruppo di applicazioni**.  
   
-  2. Nella creazione guidata gruppo di applicazioni, per il **nome** immettere **WebApiToWebApi** e in **applicazioni client-server** selezionare l' **applicazione nativa che accede a un modello di API Web** . Fare clic su **Avanti**.
+  2. Nella creazione guidata gruppo di applicazioni, per il **nome** immettere **WebApiToWebApi** e in **applicazioni client-server** selezionare l' **applicazione nativa che accede a un modello di API Web** . Fai clic su **Next**.
 
       ![Registrazione dell'app](media/adfs-msal-web-api-web-api/webapi2.png)
 
-  3. Copia il **identificatore Client** valore. Verrà usato in un secondo momento come valore per **ClientID** nel file **app. config** dell'applicazione. Immettere quanto segue per l' **URI di reindirizzamento:**  - https://ToDoListClient. Fai clic su **Aggiungi**. Fare clic su **Avanti**. 
+  3. Copia il **identificatore Client** valore. Verrà usato in un secondo momento come valore per **ClientID** nel file **app. config** dell'applicazione. Immettere quanto segue per l' **URI di reindirizzamento:**  -  https://ToDoListClient. Fai clic su **Aggiungi**. Fai clic su **Next**. 
   
       ![Registrazione dell'app](media/adfs-msal-web-api-web-api/webapi3.png)
   
-  4. Nella schermata Configura API Web immettere l' **identificatore:** https://localhost:44321/. Fai clic su **Aggiungi**. Fare clic su **Avanti**. Questo valore verrà usato in un secondo momento nel file **app. config** e **Web.** config dell'applicazione.  
+  4. Nella schermata Configura API Web immettere l' **identificatore:** https://localhost:44321/. Fai clic su **Aggiungi**. Fai clic su **Next**. Questo valore verrà usato in un secondo momento nel file **app. config** e **Web.** config dell'applicazione.  
  
       ![Registrazione dell'app](media/adfs-msal-web-api-web-api/webapi4.png)
 
@@ -61,7 +61,7 @@ Questa sezione illustra come registrare l'app nativa come client pubblico e API 
   
       ![Registrazione dell'app](media/adfs-msal-web-api-web-api/webapi5.png)  
 
-  6. Nella schermata Configura autorizzazioni applicazione selezionare **OpenID** e **user_impersonation**. Fare clic su **Avanti**.  
+  6. Nella schermata Configura autorizzazioni applicazione selezionare **OpenID** e **user_impersonation**. Fai clic su **Next**.  
   
       ![Registrazione dell'app](media/adfs-msal-web-api-web-api/webapi6.png)  
 
@@ -143,11 +143,11 @@ Questa sezione illustra come registrare l'app nativa come client pubblico e API 
   29. Fare clic su OK in WebApiToWebApi-schermata delle proprietà dell'API Web
 
   30. Nella schermata delle proprietà di WebApiToWebApi selezionare Seleziona WebApiToWebApi-API Web 2 e fare clic su modifica.</br> 
-  ![Reg app](media/adfs-msal-web-api-web-api/webapi22.png)
+   ![App reg ](media/adfs-msal-web-api-web-api/webapi22.png)
 
   31. Nella schermata delle proprietà di WebApiToWebApi-Web API 2 Selezionare la scheda regole di trasformazione rilascio e fare clic su Aggiungi regola... 
 
-  32. In aggiunta guidata regola attestazione di trasformazione selezionare Invia attestazioni usando una regola personalizzata da dopdown e ![fare clic su Next app reg](media/adfs-msal-web-api-web-api/webapi23.png)
+  32. Nella procedura guidata Aggiungi regola attestazione di trasformazione selezionare Invia attestazioni mediante una regola personalizzata da dopdown e fare clic su Avanti ![App reg ](media/adfs-msal-web-api-web-api/webapi23.png)
 
   33. Immettere PassAllClaims in nome regola attestazione: campo e **x: [] = > problema (Claim = x);** regola attestazione nel campo **regola personalizzata:** e fare clic su **fine**.  
    
@@ -176,16 +176,16 @@ Questa sezione illustra come configurare un'API Web per chiamare un'altra API We
   4. Aprire il file Web. config in ToDoListService. Modificare quanto segue: 
        - Ida: audience-immettere il valore dell'identificatore client da #12 nella sezione relativa alla registrazione dell'app AD FS precedente
        - Ida: ClientID: immettere il valore dell'identificatore client da #12 nella registrazione dell'app nella sezione AD FS precedente. 
-       - Ida ClientSecret-immettere il segreto condiviso copiato da #13 nella registrazione dell'app in AD FS sezione precedente.
+       - Ida: ClientSecret-immettere il segreto condiviso copiato da #13 nella registrazione dell'app in AD FS sezione precedente.
        - Ida: RedirectUri-immettere il valore RedirectUri da #12 nella sezione precedente relativa alla AD FS registrazione dell'app. 
-       - Ida AdfsMetadataEndpoint-immettere https://[your AD FS hostname]/FederationMetadata/2007-06/FederationMetadata.XML 
+       - Ida: AdfsMetadataEndpoint-immettere https:///[nome host AD FS]/FederationMetadata/2007-06/FederationMetadata.XML 
        - Ida: OBOWebAPIBase-immettere il valore dell'identificatore da #19 nella sezione relativa alla registrazione dell'app AD FS precedente. 
        - Ida: Authority-immettere https:///[nome host AD FS]/ADFS 
   
           ![Reg app](media/adfs-msal-web-api-web-api/webapi26.png) 
 
  5. Aprire il file Web. config in WebAPIOBO. Modificare quanto segue: 
-       - Ida AdfsMetadataEndpoint-immettere https://[your AD FS hostname]/FederationMetadata/2007-06/FederationMetadata.XML 
+       - Ida: AdfsMetadataEndpoint-immettere https:///[nome host AD FS]/FederationMetadata/2007-06/FederationMetadata.XML 
        - Ida: audience-immettere il valore dell'identificatore client da #12 nella sezione relativa alla registrazione dell'app AD FS precedente 
  
           ![Reg app](media/adfs-msal-web-api-web-api/webapi27.png)
