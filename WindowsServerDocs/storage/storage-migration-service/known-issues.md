@@ -8,12 +8,12 @@ ms.date: 10/09/2019
 ms.topic: article
 ms.prod: windows-server
 ms.technology: storage
-ms.openlocfilehash: e3ec7ee787fb6fd2e8e9f59249a6c4013a76b377
-ms.sourcegitcommit: e2964a803cba1b8037e10d065a076819d61e8dbe
+ms.openlocfilehash: 830a2d99443938c25625211f590984819a20d566
+ms.sourcegitcommit: 40e4ba214954d198936341c4d6ce1916dc891169
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72252363"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72690447"
 ---
 # <a name="storage-migration-service-known-issues"></a>Problemi noti del servizio migrazione archiviazione
 
@@ -48,11 +48,11 @@ Per risolvere, usare o eseguire l'aggiornamento a Windows Server 2019 Build 1809
 
 Quando si usa la versione 0,57 dell'estensione servizio migrazione archiviazione nell'interfaccia di amministrazione di Windows e si raggiunge la fase cutover, non è possibile selezionare un indirizzo IP statico per un indirizzo. Si è costretti a usare DHCP.
 
-Per risolvere questo problema, nell'interfaccia di amministrazione di Windows cercare in **Settings** > **Extensions** per un avviso che informa che il servizio di migrazione dell'archiviazione della versione aggiornata 0.57.2 è disponibile per l'installazione. Potrebbe essere necessario riavviare la scheda del browser per l'interfaccia di amministrazione di Windows.
+Per risolvere questo problema, nell'interfaccia di amministrazione di Windows, cercare in **impostazioni**  > **estensioni** per un avviso che informa che è disponibile per l'installazione il servizio di migrazione archiviazione versione aggiornata 0.57.2. Potrebbe essere necessario riavviare la scheda del browser per l'interfaccia di amministrazione di Windows.
 
 ## <a name="storage-migration-service-cutover-validation-fails-with-error-access-is-denied-for-the-token-filter-policy-on-destination-computer"></a>La convalida cutover del servizio migrazione archiviazione non riesce con l'errore "accesso negato per i criteri di filtro del token nel computer di destinazione"
 
-Quando si esegue la convalida cutover, viene visualizzato l'errore "errore: Accesso negato per i criteri di filtro del token nel computer di destinazione. " Ciò si verifica anche se sono state fornite le credenziali di amministratore locale corrette per i computer di origine e di destinazione.
+Quando si esegue la convalida cutover, viene visualizzato l'errore "errore: accesso negato per i criteri di filtro del token nel computer di destinazione". Ciò si verifica anche se sono state fornite le credenziali di amministratore locale corrette per i computer di origine e di destinazione.
 
 Questo problema è causato da un errore del codice in Windows Server 2019. Il problema si verificherà quando si usa il computer di destinazione come agente di orchestrazione del servizio di migrazione archiviazione.
 
@@ -120,9 +120,9 @@ Questo problema è stato risolto in una versione successiva dell'interfaccia di 
 Quando si convalida un processo di trasferimento, vengono visualizzati gli avvisi seguenti:
 
  > **La credenziale dispone di privilegi amministrativi.**
- > Avviso: L'azione non è disponibile in modalità remota.
+ > Avviso: l'azione non è disponibile in modalità remota.
  > **Il proxy di destinazione è registrato.**
- > Avviso: Il proxy di destinazione non è stato trovato.
+ > Avviso: il proxy di destinazione non è stato trovato.
 
 Se il servizio proxy del servizio migrazione archiviazione non è stato installato nel computer di destinazione Windows Server 2019 o se il computer di destinazione è Windows Server 2016 o Windows Server 2012 R2, questo comportamento è da progettazione. Si consiglia di eseguire la migrazione a un computer Windows Server 2019 con il proxy installato per migliorare significativamente le prestazioni di trasferimento.  
 
@@ -130,8 +130,8 @@ Se il servizio proxy del servizio migrazione archiviazione non è stato installa
 
 Durante l'inventario o il trasferimento di file dai computer di origine a quello di destinazione, la migrazione dei file da cui un utente ha rimosso le autorizzazioni del gruppo Administrators non riesce. Esaminare il servizio migrazione archiviazione-il debug del proxy Mostra:
 
-  Nome registro:      Origine Microsoft-Windows-StorageMigrationService-proxy/debug:        Microsoft-Windows-StorageMigrationService-data proxy:          ID evento 2/26/2019 9:00:04 AM:      10000 Categoria attività: Nessun livello:         Parole chiave Error:      
-  Utente:          Computer servizio di rete: srv1.contoso.com Descrizione:
+  Nome registro: Microsoft-Windows-StorageMigrationService-proxy/debug Source: Microsoft-Windows-StorageMigrationService-proxy date: 2/26/2019 9:00:04 AM ID evento: 10000 Categoria attività: None Level: Error keywords:      
+  Utente: computer servizio di rete: srv1.contoso.com Descrizione:
 
   02/26/2019-09:00:04.860 [Error] errore di trasferimento per \\srv1. contoso. com\public\indy.png: (5) accesso negato.
 Analisi dello stack: in Microsoft. StorageMigration. proxy. Service. Transfer. FileDirUtils. OpenFile (String fileName, DesiredAccess desiredAccess, ShareMode SHAREMODE, CreationDisposition CreationDisposition, FlagsAndAttributes flagsAndAttributes) at Microsoft. StorageMigration. proxy. Service. Transfer. FileDirUtils. GetTargetFile (percorso stringa) in Microsoft. StorageMigration. proxy. Service. Transfer. FileDirUtils. GetTargetFile (file FileInfo) in Microsoft. StorageMigration. proxy. Service. Transfer. filetransfer. InitializeSourceFileInfo () in Microsoft. StorageMigration. proxy. Service. Transfer. filetransfer. Transfer () at Microsoft. StorageMigration. proxy. Service. Transfer. filetransfer. TryTransfer () [d:\os\src\base\dms\proxy\transfer\transferproxy\FileTransfer.cs:: TryTransfer:: 55]
@@ -171,7 +171,7 @@ Per aggirare questo problema, continuare a usare Robocopy per il [pre-seeding di
 
 Quando si tenta di scaricare i log degli errori o di trasferimento al termine di un'operazione di trasferimento, viene visualizzato un errore:
 
-  $jobname: Log di trasferimento: errore Ajax 404
+  $jobname: log di trasferimento: errore Ajax 404
 
 Questo errore è previsto se non è stata abilitata la regola del firewall "condivisione di file e stampanti (SMB-in)" sul server dell'agente di orchestrazione. Il download di file dell'interfaccia di amministrazione di Windows richiede la porta TCP/445 (SMB) nei computer connessi.  
 
@@ -199,14 +199,14 @@ Esaminando il registro eventi di StorageMigrationService/admin viene visualizzat
 
    Non è stato possibile trasferire l'archiviazione.
 
-   Processo ID Job1:  
-   Stato: Errore non riuscito: Messaggio di errore 36931: 
+   Processo: ID Job1:  
+   Stato: errore non riuscito: 36931 messaggio di errore: 
 
-   Materiale sussidiario: Controllare l'errore dettagliato e verificare che siano soddisfatti i requisiti di trasferimento. Il processo di trasferimento non è riuscito a trasferire i computer di origine e di destinazione. Il problema potrebbe essere dovuto al fatto che il computer dell'agente di orchestrazione non è riuscito a raggiungere i computer di origine o di destinazione, probabilmente a causa di una regola del firewall o
+   Indicazioni: controllare l'errore dettagliato e verificare che siano soddisfatti i requisiti di trasferimento. Il processo di trasferimento non è riuscito a trasferire i computer di origine e di destinazione. Il problema potrebbe essere dovuto al fatto che il computer dell'agente di orchestrazione non è riuscito a raggiungere i computer di origine o di destinazione, probabilmente a causa di una regola del firewall o
 
 L'analisi del log StorageMigrationService-proxy/debug Mostra:
 
-   07/02/2019-13:35:57.231 [errore] la convalida del trasferimento non è riuscita. ErrorCode 40961, l'endpoint di origine non è raggiungibile o non esiste oppure le credenziali di origine non sono valide o l'utente autenticato non dispone di autorizzazioni sufficienti per accedervi.
+   07/02/2019-13:35:57.231 [errore] la convalida del trasferimento non è riuscita. ErrorCode: 40961, endpoint di origine non è raggiungibile o non esiste oppure le credenziali di origine non sono valide o l'utente autenticato non dispone di autorizzazioni sufficienti per accedervi.
 in Microsoft. StorageMigration. proxy. Service. Transfer. TransferOperation. Validate () in Microsoft. StorageMigration. proxy. Service. Transfer. TransferRequestHandler. ProcessRequest (FileTransferRequest fileTransferRequest, Guid operationId)    [d:\os\src\base\dms\proxy\transfer\transferproxy\TransferRequestHandler.cs::
 
 Questo errore è previsto se l'account di migrazione non dispone almeno delle autorizzazioni di accesso di lettura per le condivisioni SMB. Per risolvere questo errore, aggiungere un gruppo di sicurezza contenente l'account di migrazione di origine alle condivisioni SMB nel computer di origine e concedergli la lettura, la modifica o il controllo completo. Al termine della migrazione, è possibile rimuovere questo gruppo.
@@ -215,15 +215,15 @@ Questo errore è previsto se l'account di migrazione non dispone almeno delle au
 
 Dopo l'installazione di [KB4512534](https://support.microsoft.com/en-us/help/4512534/windows-10-update-kb4512534) e il tentativo di eseguire l'inventario, l'inventario ha esito negativo con errori:
 
-  ECCEZIONE DA HRESULT: 0x80005000
+  ECCEZIONE da HRESULT: 0x80005000
   
-  Nome registro:      Microsoft-Windows-StorageMigrationService/admin Source:        Microsoft-Windows-StorageMigrationService Data:          9/9/2019 5:21:42 PM ID evento:      2503 Categoria attività: Nessun livello:         Parole chiave Error:      
-  Utente:          Computer servizio di rete:      FS02. Descrizione TailwindTraders.net: Non è stato possibile inventariare i computer.
-Processo: ID foo2: Stato 20ac3f75-4945-41d1-9A79-d11dbb57798b: Errore non riuscito: Messaggio di errore 36934: Inventario non riuscito per tutte le indicazioni sui dispositivi: Controllare l'errore dettagliato e verificare che siano soddisfatti i requisiti di inventario. Il processo non è riuscito a inventariare uno dei computer di origine specificati. Questo potrebbe essere dovuto al fatto che il computer dell'agente di orchestrazione non è riuscito a raggiungere la rete, probabilmente a causa di una regola del firewall o di autorizzazioni mancanti.
+  Nome registro: Microsoft-Windows-StorageMigrationService/admin Source: Microsoft-Windows-StorageMigrationService date: 9/9/2019 5:21:42 PM ID evento: 2503 Categoria attività: None Level: Error keywords:      
+  Utente: computer servizio di rete: FS02. Descrizione di TailwindTraders.net: non è stato possibile inventariare i computer.
+Processo: ID foo2:20ac3f75-4945-41d1-9A79-d11dbb57798b stato: errore non riuscito: 36934 messaggio di errore: inventario non riuscito per tutte le indicazioni sui dispositivi: controllare l'errore dettagliato e verificare che siano soddisfatti i requisiti di inventario. Il processo non è riuscito a inventariare uno dei computer di origine specificati. Questo potrebbe essere dovuto al fatto che il computer dell'agente di orchestrazione non è riuscito a raggiungere la rete, probabilmente a causa di una regola del firewall o di autorizzazioni mancanti.
   
-  Nome registro:      Microsoft-Windows-StorageMigrationService/admin Source:        Microsoft-Windows-StorageMigrationService Data:          9/9/2019 5:21:42 PM ID evento:      2509 Categoria attività: Nessun livello:         Parole chiave Error:      
-  Utente:          Computer servizio di rete:      FS02. Descrizione TailwindTraders.net: Non è stato possibile inventariare un computer.
-Processo: computer foo2: FS01. Stato TailwindTraders.net: Errore non riuscito: messaggio di errore-2147463168: Materiale sussidiario: Controllare l'errore dettagliato e verificare che siano soddisfatti i requisiti di inventario. L'inventario non è stato in grado di determinare alcun aspetto del computer di origine specificato. Il problema potrebbe essere dovuto a autorizzazioni o privilegi mancanti nell'origine o in una porta del firewall bloccata.
+  Nome registro: Microsoft-Windows-StorageMigrationService/admin Source: Microsoft-Windows-StorageMigrationService date: 9/9/2019 5:21:42 PM ID evento: 2509 Categoria attività: None Level: Error keywords:      
+  Utente: computer servizio di rete: FS02. Descrizione di TailwindTraders.net: non è stato possibile inventariare un computer.
+Processo: foo2 computer: FS01. Stato TailwindTraders.net: errore non riuscito: messaggio di errore-2147463168: informazioni aggiuntive: controllare l'errore dettagliato e verificare che i requisiti di inventario siano soddisfatti. L'inventario non è stato in grado di determinare alcun aspetto del computer di origine specificato. Il problema potrebbe essere dovuto a autorizzazioni o privilegi mancanti nell'origine o in una porta del firewall bloccata.
   
 Questo errore è causato da un difetto del codice nel servizio migrazione archiviazione quando si forniscono le credenziali di migrazione sotto forma di nome dell'entità utente (UPN), ad esempio "meghan@contoso.com". Il servizio dell'agente di orchestrazione del servizio migrazione archiviazione non è in grado di analizzare correttamente questo formato, causando un errore in una ricerca del dominio aggiunta per il supporto della migrazione del cluster in KB4512534 e 19H1.
 
@@ -270,6 +270,8 @@ Si noti che in alcune circostanze, la disinstallazione di KB4512534 o degli aggi
 1.  Aprire un prompt dei comandi con privilegi elevati, in cui si è membri degli amministratori nel server dell'agente di orchestrazione del servizio di migrazione archiviazione ed eseguire:
 
      ```
+     TAKEOWN /d /a /r /f c:\ProgramData\Microsoft\StorageMigrationService
+     
      MD c:\ProgramData\Microsoft\StorageMigrationService\backup
 
      ICACLS c:\ProgramData\Microsoft\StorageMigrationService\* /grant Administrators:(GA)
@@ -280,13 +282,13 @@ Si noti che in alcune circostanze, la disinstallazione di KB4512534 o degli aggi
 
      ICACLS c:\ProgramData\Microsoft\StorageMigrationService  /GRANT networkservice:F /T /C
 
-     ICACLS c:\ProgramData\Microsoft\StorageMigrationService /GRANT networkservice:(GA)F /T /C
+     ICACLS c:\ProgramData\Microsoft\StorageMigrationService /GRANT networkservice:(GA) /T /C
      ```
    
 2.  Avviare il servizio migrazione archiviazione che creerà un nuovo database.
 
 
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 - [Panoramica di servizio migrazione archiviazione](overview.md)
