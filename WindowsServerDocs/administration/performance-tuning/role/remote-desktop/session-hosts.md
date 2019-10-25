@@ -4,15 +4,15 @@ description: Linee guida per l'ottimizzazione delle prestazioni per Desktop remo
 ms.prod: windows-server
 ms.technology: performance-tuning-guide
 ms.topic: article
-ms.author: HammadBu; VladmiS
+ms.author: HammadBu; VladmiS; DenisGun
 author: phstee
-ms.date: 10/16/2017
-ms.openlocfilehash: c50c0c981362bd96ed3bf1c603cde6bfeec289f4
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.date: 10/22/2019
+ms.openlocfilehash: b439b0cbab66f98a1f74faeb7bff996b30a188d5
+ms.sourcegitcommit: 3262c5c7cece9f2adf2b56f06b7ead38754a451c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71385025"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72812337"
 ---
 # <a name="performance-tuning-remote-desktop-session-hosts"></a>Ottimizzazione delle prestazioni Desktop remoto host della sessione
 
@@ -40,7 +40,7 @@ Quindi, più processori logici in un sistema, minore è il margine del cuscino c
 
 ### <a name="memory-configuration"></a>Configurazione della memoria
 
-La configurazione della memoria dipende dalle applicazioni utilizzate dagli utenti; Tuttavia, la quantità di memoria necessaria può essere stimata utilizzando la formula seguente: TotalMem = OSMem + SessionMem \* NS
+La configurazione della memoria dipende dalle applicazioni utilizzate dagli utenti; Tuttavia, la quantità di memoria necessaria può essere stimata usando la formula seguente: TotalMem = OSMem + SessionMem \* NS
 
 OSMem è la quantità di memoria necessaria per l'esecuzione del sistema operativo (ad esempio immagini binarie di sistema, strutture di dati e così via), SessionMem è la quantità di processi di memoria in esecuzione in una sessione e NS è il numero di sessioni attive di destinazione. La quantità di memoria necessaria per una sessione è determinata principalmente dal set di riferimenti alla memoria privata per le applicazioni e i processi di sistema in esecuzione all'interno della sessione. Il codice condiviso o le pagine di dati hanno un effetto ridotto perché nel sistema è presente una sola copia.
 
@@ -130,9 +130,9 @@ Utilità di pianificazione consente di esaminare l'elenco delle attività pianif
 
 Le icone di notifica sul desktop possono avere meccanismi di aggiornamento piuttosto costosi. È necessario disabilitare le notifiche rimuovendo il componente che li registra dall'elenco di avvio o modificando la configurazione nelle app e nei componenti di sistema per disabilitarli. È possibile usare le **Icone di personalizzazione delle notifiche** per esaminare l'elenco di notifiche disponibili sul server.
 
-### <a name="remotefx-data-compression"></a>Compressione dei dati RemoteFX
+### <a name="remote-desktop-protocol-data-compression"></a>Compressione dei dati Remote Desktop Protocol
 
-Microsoft RemoteFX la compressione può essere configurata utilizzando Criteri di gruppo in **Configurazione Computer &gt; Modelli amministrativi &gt; componenti Windows &gt; Servizi Desktop remoto &gt; Host sessione Desktop remoto &gt; remoto Ambiente sessione &gt; configurare la compressione per i dati RemoteFX**. Sono possibili tre valori:
+Remote Desktop Protocol la compressione può essere configurata utilizzando Criteri di gruppo in **Configurazione Computer** &gt; **modelli amministrativi** &gt; **componenti Windows** **&gt; Servizi Desktop remoto &gt;** **Host sessione Desktop remoto** &gt; **ambiente della sessione remota** &gt; **configurare la compressione per i dati RemoteFX**. Sono possibili tre valori:
 
 -   **Ottimizzato per l'utilizzo di meno memoria** Utilizza la quantità minima di memoria per sessione, ma presenta il rapporto di compressione più basso e pertanto il consumo di larghezza di banda più elevato.
 
@@ -140,11 +140,11 @@ Microsoft RemoteFX la compressione può essere configurata utilizzando Criteri d
 
 -   **Ottimizzato per l'utilizzo della larghezza di banda di rete inferiore** Consente inoltre di ridurre l'utilizzo della larghezza di banda di rete a un costo di circa 2 MB per sessione. Se si vuole usare questa impostazione, è necessario valutare il numero massimo di sessioni ed eseguire il test a tale livello con questa impostazione prima di collocare il server in produzione.
 
-È anche possibile scegliere di non usare un algoritmo di compressione RemoteFX. La scelta di non utilizzare un algoritmo di compressione RemoteFX utilizzerà una maggiore larghezza di banda di rete ed è consigliabile solo se si utilizza un dispositivo hardware progettato per ottimizzare il traffico di rete. Anche se si sceglie di non usare un algoritmo di compressione RemoteFX, alcuni dati grafici verranno compressi.
+È anche possibile scegliere di non usare un algoritmo di compressione Remote Desktop Protocol, quindi è consigliabile usarlo con un dispositivo hardware progettato per ottimizzare il traffico di rete. Anche se si sceglie di non usare un algoritmo di compressione, alcuni dati grafici verranno compressi.
 
 ### <a name="device-redirection"></a>Reindirizzamento del dispositivo
 
-Il reindirizzamento del dispositivo può essere configurato usando Criteri di gruppo in **Configurazione Computer &gt; modelli amministrativi Componenti di Windows &gt; &gt; Servizi Desktop remoto &gt; Host sessione Desktop remoto &gt; dispositivo e risorsa Reindirizzamento** o utilizzando la casella proprietà **raccolta sessioni** in Server Manager.
+Il reindirizzamento del dispositivo può essere configurato usando Criteri di gruppo in **Configurazione Computer** &gt; **modelli amministrativi** &gt; **componenti Windows** &gt; Servizi Desktop remoto **&gt;** **remoto Host sessione Desktop** &gt; il **Reindirizzamento delle risorse e del dispositivo** o usando la casella proprietà **raccolta di sessioni** in Server Manager.
 
 In genere, il reindirizzamento dei dispositivi aumenta la quantità di connessioni del server Host sessione Desktop remoto della larghezza di banda usata perché i dati vengono scambiati tra i dispositivi nei computer client e i processi in esecuzione nella sessione del server. L'entità dell'aumento è una funzione della frequenza delle operazioni eseguite dalle applicazioni in esecuzione nel server sui dispositivi reindirizzati.
 
@@ -172,7 +172,7 @@ Quando ci si connette a qualsiasi computer, vengono applicate le impostazioni se
 
 -   **Mostra contenuto delle finestre durante il trascinamento** (disabilitazione del trascinamento della finestra completa: i: 1) quando questa impostazione è disabilitata, riduce la larghezza di banda visualizzando solo la cornice della finestra anziché tutto il contenuto quando la finestra viene trascinata.
 
--   **Animazione di menu e finestre** (Disattiva menu Animas: i: 1 e Disabilita impostazione cursore: i: 1): Quando queste impostazioni sono disabilitate, riduce la larghezza di banda disabilitando l'animazione nei menu (ad esempio, dissolvenza) e i cursori.
+-   **Animazione di menu e finestre** (Disattiva menu Animas: i: 1 e Disabilita impostazione cursore: i: 1): quando queste impostazioni sono disabilitate, riduce la larghezza di banda disabilitando l'animazione nei menu (ad esempio dissolvenza) e i cursori.
 
 -   **Smussatura dei caratteri** (Consenti smussatura dei caratteri: i: 0) controlla il supporto per il rendering del tipo di carattere ClearType. Quando ci si connette a computer che eseguono Windows 8 o Windows Server 2012 e versioni successive, l'abilitazione o la disabilitazione di questa impostazione non ha un impatto significativo sull'utilizzo della larghezza di banda. Tuttavia, per i computer che eseguono versioni precedenti a Windows 7 e Windows 2008 R2, l'abilitazione di questa impostazione influiscono significativamente sull'utilizzo della larghezza di banda di rete.
 
