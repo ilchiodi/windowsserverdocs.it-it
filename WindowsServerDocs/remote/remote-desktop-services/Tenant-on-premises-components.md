@@ -13,12 +13,12 @@ ms.topic: article
 ms.assetid: b3eebb38-a835-4fa6-9e41-1966014bf2cb
 author: lizap
 manager: dongill
-ms.openlocfilehash: a9ff1382d2a2e7e2acf0247fa2ba4ae8e9642162
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 5ae0a711d146de5b7eff272916cc7f06568848e6
+ms.sourcegitcommit: 3262c5c7cece9f2adf2b56f06b7ead38754a451c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71387837"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72812258"
 ---
 # <a name="tenant-on-premises-components"></a>Componenti tenant locali
 
@@ -30,7 +30,6 @@ Le informazioni seguenti descrivono i componenti locali che costituiscono la dis
 Per accedere a desktop e applicazioni ospitati, gli utenti devono usare client Desktop remoto che supportano Remote Desktop Protocol (RDP) 7.1 o versione successiva. In particolare, il client deve supportare Gateway Desktop remoto e Gestore connessione Desktop remoto. Per distribuire applicazioni sul desktop locale, il client deve anche supportare la funzionalità RemoteApp. Per ottenere una scalabilità gateway più elevata, il client deve supportare le connessioni di trasporto HTTP pure a Gateway Desktop remoto.  
   
 Altre informazioni:  
-[Dispositivi abilitati per RemoteFX](https://social.technet.microsoft.com/wiki/contents/articles/14534.remotefx-enabled-devices.aspx)  
 [Novità di Gateway Desktop remoto in Windows Server 2012 R2](https://blogs.technet.microsoft.com/enterprisemobility/2013/03/14/whats-new-in-windows-server-2012-remote-desktop-gateway/#transport)  
 [Client Desktop remoto Microsoft](https://technet.microsoft.com/library/dn473009.aspx)  
 [App Desktop remoto per Windows in Microsoft Store](https://apps.microsoft.com/windows/app/remote-desktop/051f560e-5e9b-4dad-8b2e-fa5e0b05a480)  

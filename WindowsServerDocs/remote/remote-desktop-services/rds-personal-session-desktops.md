@@ -10,14 +10,14 @@ ms.tgt_pltfrm: na
 ms.topic: article
 author: lizap
 ms.author: elizapo
-ms.date: 09/16/2016
+ms.date: 10/22/2019
 manager: dongill
-ms.openlocfilehash: 7429cd9cb87db310a716136c171de47cfe0892f2
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 9386733911ca81ad60d038854bd68e5603aae4cf
+ms.sourcegitcommit: 3262c5c7cece9f2adf2b56f06b7ead38754a451c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71387356"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72812279"
 ---
 # <a name="use-personal-session-desktops-with-remote-desktop-services"></a>Usare desktop sessione personali con Servizi Desktop remoto
 
@@ -100,6 +100,3 @@ Il cmdlet **Export-RDPersonalPersonalDesktopAssignment** esporta le associazioni
 
 
 Tutti i nuovi cmdlet supportano i parametri comuni -Verbose, -Debug, -ErrorAction, -ErrorVariable, -OutBuffer e -OutVariable. Per altre informazioni, vedere [about_CommonParameters](https://go.microsoft.com/fwlink/p/?LinkID=113216).
-
-## <a name="hardware-accelerated-graphics"></a>Grafica con accelerazione hardware
-Windows Server 2016 estende la tecnologia della scheda video 3D RemoteFX (vGPU) per supportare OpenGL e supporta macchine virtuali guest Windows Server 2016 utente singolo. Puoi combinare i desktop sessione personali con le nuove funzionalità vGPU per offrire supporto per le applicazioni ospitate che richiedono grafica accelerata. In alternativa, puoi combinare i desktop sessione personali con la nuova funzionalità di assegnazione di dispositivi discreti (DDA) per offrire anche supporto per le applicazioni ospitate che richiedono grafica accelerata.
