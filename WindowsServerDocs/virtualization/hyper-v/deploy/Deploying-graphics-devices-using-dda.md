@@ -9,16 +9,17 @@ ms.topic: article
 author: chrishuybregts
 ms.author: chrihu
 ms.assetid: 67a01889-fa36-4bc6-841d-363d76df6a66
-ms.openlocfilehash: 3b37abaf5a2341aff66ff0064ecc4f52faf47f06
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.date: 08/21/2019
+ms.openlocfilehash: 5466cecf9f11a53dc6e205f36d50d7b27b310ea1
+ms.sourcegitcommit: 81198fbf9e46830b7f77dcd345b02abb71ae0ac2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71393002"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72923872"
 ---
 # <a name="deploy-graphics-devices-using-discrete-device-assignment"></a>Distribuire dispositivi grafici con l'assegnazione di dispositivi discreti
 
->Si applica a: Microsoft Hyper-V Server 2016, Windows Server 2016, Windows Server 2019 Microsoft Hyper-V Server 2019  
+> Si applica a: Microsoft Hyper-V Server 2016, Windows Server 2016, Windows Server 2019 Microsoft Hyper-V Server 2019  
 
 A partire da Windows Server 2016, è possibile usare l'assegnazione di dispositivi discreti, o DDA, per passare un intero dispositivo PCIe a una macchina virtuale.  Questo consentirà l'accesso ad alte prestazioni a dispositivi come l' [archiviazione NVMe](./Deploying-storage-devices-using-dda.md) o schede grafiche all'interno di una macchina virtuale e la possibilità di sfruttare i driver nativi dei dispositivi.  Visitare il [piano per la distribuzione di dispositivi con l'assegnazione di dispositivi discreti](../plan/Plan-for-Deploying-Devices-using-Discrete-Device-Assignment.md) per altri dettagli sul funzionamento dei dispositivi, quali sono le possibili implicazioni della sicurezza e così via.
 
@@ -60,10 +61,10 @@ Alcuni componenti hardware offrono prestazioni migliori se la macchina virtuale 
 ## <a name="dismount-the-device-from-the-host-partition"></a>Smontare il dispositivo dalla partizione host
 ### <a name="optional---install-the-partitioning-driver"></a>Facoltativo: installare il driver di partizionamento
 L'assegnazione di un dispositivo discreto fornisce ai venditori hardware la possibilità di fornire un driver di mitigazione della sicurezza con i dispositivi.  Si noti che questo driver non corrisponde al driver di dispositivo che verrà installato nella macchina virtuale guest.  Il fornitore dell'hardware deve fornire questo driver, tuttavia, se lo fornisce, è necessario installarlo prima di smontare il dispositivo dalla partizione host.  Rivolgersi al fornitore dell'hardware per ulteriori informazioni su se hanno un driver di mitigazione
-> Se non viene fornito alcun driver di partizionamento, durante lo smontaggio è `-force` necessario usare l'opzione per ignorare l'avviso di sicurezza. Per altre informazioni sulle implicazioni di sicurezza di questa operazione, vedere [pianificare la distribuzione di dispositivi con l'assegnazione di dispositivi discreti](../plan/Plan-for-Deploying-Devices-using-Discrete-Device-Assignment.md).
+> Se non viene fornito alcun driver di partizionamento, durante lo smontaggio è necessario usare l'opzione `-force` per ignorare l'avviso di sicurezza. Per altre informazioni sulle implicazioni di sicurezza di questa operazione, vedere [pianificare la distribuzione di dispositivi con l'assegnazione di dispositivi discreti](../plan/Plan-for-Deploying-Devices-using-Discrete-Device-Assignment.md).
 
 ### <a name="locating-the-devices-location-path"></a>Individuazione del percorso del dispositivo
-Il percorso della posizione PCI è necessario per smontare e montare il dispositivo dall'host.  Un percorso di esempio è simile al seguente: `"PCIROOT(20)#PCI(0300)#PCI(0000)#PCI(0800)#PCI(0000)"`.  Altre informazioni sulla posizione del percorso sono disponibili qui: [Pianificare la distribuzione di dispositivi con l'assegnazione di dispositivi discreti](../plan/Plan-for-Deploying-Devices-using-Discrete-Device-Assignment.md).
+Il percorso della posizione PCI è necessario per smontare e montare il dispositivo dall'host.  Un percorso di esempio è simile al seguente: `"PCIROOT(20)#PCI(0300)#PCI(0000)#PCI(0800)#PCI(0000)"`.  Altre informazioni sulla posizione del percorso sono disponibili qui: pianificare la [distribuzione di dispositivi con l'assegnazione di dispositivi discreti](../plan/Plan-for-Deploying-Devices-using-Discrete-Device-Assignment.md).
 
 ### <a name="disable-the-device"></a>Disabilitare il dispositivo
 Con Device Manager o PowerShell, verificare che il dispositivo sia "disabilitato".  
@@ -99,7 +100,7 @@ Mount-VMHostAssignableDevice -LocationPath $locationPath
 ```
 È quindi possibile riabilitare il dispositivo in gestione dispositivi e il sistema operativo host sarà in grado di interagire nuovamente con il dispositivo.
 
-## <a name="examples"></a>Esempi
+## <a name="example"></a>Esempio
 
 ### <a name="mounting-a-gpu-to-a-vm"></a>Montaggio di una GPU in una macchina virtuale
 In questo esempio viene usato PowerShell per configurare una macchina virtuale denominata "ddatest1" per portare la prima GPU disponibile dal produttore NVIDIA e assegnarla alla macchina virtuale.  
@@ -131,3 +132,13 @@ Dismount-VMHostAssignableDevice -force -LocationPath $locationPath
 #Assign the device to the guest VM.
 Add-VMAssignableDevice -LocationPath $locationPath -VMName $vm
 ```
+
+## <a name="troubleshooting"></a>Risoluzione dei problemi
+
+Se è stata passata una GPU a una macchina virtuale, ma Desktop remoto o un'applicazione non riconosce la GPU, verificare la presenza dei seguenti problemi comuni:
+
+- Assicurarsi di aver installato la versione più recente del driver supportato del fornitore GPU e che il driver non stia segnalando gli errori controllando lo stato del dispositivo in Device Manager.
+- Verificare che il dispositivo disponga di spazio MMIO sufficiente allocato nella macchina virtuale. Per altre informazioni, vedere [MMIO Space](../plan/Plan-for-Deploying-Devices-using-Discrete-Device-Assignment.md#mmio-space).
+- Assicurarsi di usare una GPU supportata dal fornitore in questa configurazione. Alcuni fornitori, ad esempio, impediscono il funzionamento delle schede consumer quando vengono passate a una macchina virtuale.
+- Assicurarsi che l'applicazione in esecuzione supporti l'esecuzione all'interno di una macchina virtuale e che sia la GPU che i driver associati siano supportati dall'applicazione. Per alcune applicazioni sono disponibili elenchi di GPU e ambienti consentiti.
+- Se si usa il ruolo host sessione Desktop remoto o servizi MultiPoint di Windows sul Guest, è necessario assicurarsi che una voce di Criteri di gruppo specifica sia impostata in modo da consentire l'uso della GPU predefinita. Utilizzando un Criteri di gruppo oggetto applicato al Guest (o al Editor Criteri di gruppo locali nel guest), passare all'elemento Criteri di gruppo seguente: **Configurazione Computer** > **modelli di amministratore** > componenti di **Windows** > **Servizi Desktop remoto** > **host sessione Desktop remoto** > **ambiente sessione remota** > **utilizzare la scheda grafica predefinita hardware per tutte le sessioni di Servizi Desktop remoto**. Impostare questo valore su abilitato, quindi riavviare la macchina virtuale dopo aver applicato i criteri.

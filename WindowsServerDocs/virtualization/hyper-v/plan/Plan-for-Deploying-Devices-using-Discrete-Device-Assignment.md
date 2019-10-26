@@ -8,22 +8,22 @@ ms.tgt_pltfrm: na
 ms.topic: article
 author: chrishuybregts
 ms.author: chrihu
-ms.date: 02/06/2018
-ms.openlocfilehash: 7084f4951ebe1d1203f4c9e45bc5f73cc6487a84
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.date: 08/21/2019
+ms.openlocfilehash: 114dd87b86bfffd1070229af57ae65deea2c2db0
+ms.sourcegitcommit: 81198fbf9e46830b7f77dcd345b02abb71ae0ac2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71364189"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72923867"
 ---
 # <a name="plan-for-deploying-devices-using-discrete-device-assignment"></a>Pianificare la distribuzione di dispositivi con l'assegnazione di dispositivi discreti
 >Si applica a: Microsoft Hyper-V Server 2016, Windows Server 2016, Microsoft Hyper-V Server 2019, Windows Server 2019
 
 L'assegnazione di un dispositivo discreto consente di accedere direttamente all'hardware PCIe fisico da una macchina virtuale.  Questa guida illustra il tipo di dispositivi che possono usare l'assegnazione di dispositivi discreti, i requisiti di sistema host, le limitazioni imposte alle macchine virtuali e le implicazioni di sicurezza dell'assegnazione di dispositivi discreti.
 
-Per la versione iniziale dell'assegnazione di dispositivi discreti, Microsoft si è concentrata su due classi di dispositivi che sono formalmente supportate da Microsoft: Adattatori grafici e dispositivi di archiviazione NVMe.  È probabile che altri dispositivi lavorino e che i fornitori di hardware possano offrire i rapporti di supporto per tali dispositivi.  Per questi altri dispositivi, rivolgersi a tali fornitori di hardware per il supporto.
+Per la versione iniziale dell'assegnazione di dispositivi discreti, Microsoft si è concentrata su due classi di dispositivi che devono essere formalmente supportate da Microsoft: schede grafiche e dispositivi di archiviazione NVMe.  È probabile che altri dispositivi lavorino e che i fornitori di hardware possano offrire i rapporti di supporto per tali dispositivi.  Per questi altri dispositivi, rivolgersi a tali fornitori di hardware per il supporto.
 
-Se si è pronti per provare l'assegnazione di dispositivi discreti, è possibile passare alla [distribuzione di dispositivi grafici usando l'assegnazione di dispositivi discreti](../deploy/Deploying-graphics-devices-using-dda.md) o la distribuzione di dispositivi di archiviazione usando l'assegnazione di dispositivi [discreti](../deploy/Deploying-storage-devices-using-dda.md) per iniziare.
+Per informazioni sugli altri metodi di virtualizzazione GPU, vedere [pianificare l'accelerazione della GPU in Windows Server](plan-for-gpu-acceleration-in-windows-server.md). Se si è pronti per provare l'assegnazione di dispositivi discreti, è possibile passare alla [distribuzione di dispositivi grafici usando l'assegnazione di dispositivi discreti](../deploy/Deploying-graphics-devices-using-dda.md) o la distribuzione di dispositivi di archiviazione usando l'assegnazione di dispositivi [discreti](../deploy/Deploying-storage-devices-using-dda.md) per iniziare.
 
 ## <a name="supported-virtual-machines-and-guest-operating-systems"></a>Macchine virtuali e sistemi operativi guest supportati
 L'assegnazione di dispositivi discreti è supportata per le macchine virtuali di generazione 1 o 2.  Inoltre, i guest supportati includono Windows 10, Windows Server 2019, Windows Server 2016, Windows Server 2012r2 con [KB 3133690](https://support.microsoft.com/kb/3133690) applicati e varie distribuzioni del [sistema operativo Linux.](../supported-linux-and-freebsd-virtual-machines-for-hyper-v-on-windows.md)
@@ -52,7 +52,7 @@ A causa della natura del modo in cui viene implementata l'assegnazione di dispos
 - Uso della memoria dinamica
 - Aggiunta della macchina virtuale a un cluster a disponibilità elevata
 
-## <a name="security"></a>Security
+## <a name="security"></a>Sicurezza
 L'assegnazione di un dispositivo discreto passa l'intero dispositivo alla macchina virtuale.  Ciò significa che tutte le funzionalità del dispositivo sono accessibili dal sistema operativo guest. Alcune funzionalità, ad esempio l'aggiornamento del firmware, possono avere un impatto negativo sulla stabilità del sistema. Di conseguenza, molti avvisi vengono presentati all'amministratore quando si smonta il dispositivo dall'host. Si consiglia vivamente di usare l'assegnazione di dispositivi discreti solo se i tenant delle macchine virtuali sono attendibili.  
 
 Se l'amministratore desidera usare un dispositivo con un tenant non attendibile, i produttori di dispositivi hanno la possibilità di creare un driver di mitigazione del dispositivo che può essere installato nell'host.  Contattare il produttore del dispositivo per informazioni dettagliate sul fatto che forniscano un driver di mitigazione dei dispositivi.
@@ -113,42 +113,3 @@ Se il sistema non è configurato correttamente per supportare l'assegnazione di 
 Per ogni dispositivo individuato, lo strumento visualizzerà se può essere usato con l'assegnazione di dispositivi discreti. Se un dispositivo viene identificato come compatibile con l'assegnazione di un dispositivo discreto, lo script fornirà un motivo.  Quando un dispositivo viene identificato correttamente come compatibile, viene visualizzato il percorso del dispositivo.  Inoltre, se il dispositivo richiede [spazio MMIO](#mmio-space), verrà visualizzato anche.
 
 ![SurveyDDA. ps1](./images/hyper-v-surveydda-ps1.png)
-
-## <a name="frequently-asked-questions"></a>Domande frequenti
-
-### <a name="how-does-remote-desktops-remotefx-vgpu-technology-relate-to-discrete-device-assignment"></a>In che modo Desktop remoto la tecnologia vGPU di RemoteFX è correlata all'assegnazione di dispositivi discreti?
-Sono tecnologie completamente separate. Non è necessario installare RemoteFX vGPU per il funzionamento dell'assegnazione di dispositivi discreti. Inoltre, non è necessario installare altri ruoli. RemoteFX vGPU richiede l'installazione del ruolo RDVH affinché il driver RemoteFX vGPU sia presente nella macchina virtuale. Per l'assegnazione di dispositivi discreti, poiché il driver del fornitore dell'hardware verrà installato nella macchina virtuale, non è necessario che siano presenti ruoli aggiuntivi.  
-
-### <a name="ive-passed-a-gpu-into-a-vm-but-remote-desktop-or-an-application-isnt-recognizing-the-gpu"></a>È stata passata una GPU a una macchina virtuale, ma Desktop remoto o un'applicazione non riconosce la GPU
-Questa situazione può verificarsi per diversi motivi, ma sono elencati di seguito alcuni problemi comuni.
-- Verificare che sia installato il driver del fornitore della GPU più recente e che non venga segnalato un errore controllando lo stato del dispositivo nella Device Manager.
-- Verificare che il dispositivo disponga di [spazio di MMIO](#mmio-space) sufficiente per l'allocazione nella macchina virtuale.
-- Assicurarsi di usare una GPU supportata dal fornitore in questa configurazione. Alcuni fornitori, ad esempio, impediscono il funzionamento delle schede consumer quando vengono passate a una macchina virtuale.
-- Verificare che l'applicazione in esecuzione supporti l'esecuzione all'interno di una macchina virtuale e che sia la GPU che i driver associati siano supportati dall'applicazione. Alcune applicazioni includono elenchi di elementi consentiti di GPU e ambienti.
-- Se si usa il ruolo host sessione Desktop remoto o servizi MultiPoint di Windows sul Guest, sarà necessario assicurarsi che una voce di Criteri di gruppo specifica sia impostata per consentire l'uso della GPU predefinita. Utilizzando un Criteri di gruppo oggetto applicato al Guest (o al Editor Criteri di gruppo locali nel guest), passare al Criteri di gruppo elemento seguente:
-   - Configurazione computer
-   - Modelli di amministratore
-   - Componenti di Windows
-   - Servizi Desktop remoto
-   - Host sessione Desktop remoto
-   - Ambiente sessione remota
-   - Usare la scheda grafica predefinita hardware per tutte le sessioni di Servizi Desktop remoto
-
-    Impostare questo valore su abilitato, quindi riavviare la macchina virtuale dopo aver applicato i criteri.
-
-### <a name="can-discrete-device-assignment-take-advantage-of-remote-desktops-avc444-codec"></a>L'assegnazione di dispositivi discreti può trarre vantaggio dal codec AVC444 di Desktop remoto?
-Sì, visita questo post di Blog per altre informazioni: [Miglioramenti di Remote Desktop Protocol (RDP) 10 AVC/H. 264 in Windows 10 e Windows Server 2016 Technical Preview.](https://blogs.technet.microsoft.com/enterprisemobility/2016/01/11/remote-desktop-protocol-rdp-10-avch-264-improvements-in-windows-10-and-windows-server-2016-technical-preview/)
-
-### <a name="can-i-use-powershell-to-get-the-location-path"></a>È possibile usare PowerShell per ottenere il percorso?
-Sì, esistono diversi modi per eseguire questa operazione. Ecco un esempio:
-```
-#Enumerate all PNP Devices on the system
-$pnpdevs = Get-PnpDevice -presentOnly
-#Select only those devices that are Display devices manufactured by NVIDIA
-$gpudevs = $pnpdevs |where-object {$_.Class -like "Display" -and $_.Manufacturer -like "NVIDIA"}
-#Select the location path of the first device that's available to be dismounted by the host.
-$locationPath = ($gpudevs | Get-PnpDeviceProperty DEVPKEY_Device_LocationPaths).data[0]
-```
-
-### <a name="can-discrete-device-assignment-be-used-to-pass-a-usb-device-into-a-vm"></a>È possibile usare l'assegnazione di dispositivi discreti per passare un dispositivo USB a una macchina virtuale?
-Sebbene non siano ufficialmente supportati, i clienti hanno usato l'assegnazione di dispositivi discreti per eseguire questa operazione passando l'intero controller USB3 in una macchina virtuale.  Quando viene passato l'intero controller, anche ogni dispositivo USB collegato a tale controller sarà accessibile nella macchina virtuale.  Si noti che possono funzionare solo alcuni controller USB3 e che i controller USB2 non possono essere usati con l'assegnazione di dispositivi discreti.
