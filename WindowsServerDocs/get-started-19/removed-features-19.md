@@ -11,14 +11,14 @@ ms.topic: article
 author: jasongerend
 ms.author: jgerend
 manager: jasgro
-ms.date: 08/22/2019
+ms.date: 10/22/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 261023223b56e235320b7ad414fa91206420b1ed
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: a2d3a871165812ac3a27e65b5f52cc56a05c9efe
+ms.sourcegitcommit: 3262c5c7cece9f2adf2b56f06b7ead38754a451c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71360843"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72812289"
 ---
 # <a name="features-removed-or-planned-for-replacement-starting-windows-server-2019"></a>Funzionalità rimosse o pianificate per la sostituzione a partire da Windows Server 2019
 
@@ -41,6 +41,7 @@ In ogni versione di Windows Server vengono aggiunte nuove caratteristiche e funz
 | Digitalizzazione aziendale, denominata anche Gestione digitalizzazione distribuita|È corso la rimozione di questa funzionalità di digitalizzazione e gestione dello scanner in condizioni di sicurezza. Non esistono dispositivi che supportano questa funzionalità. |
 | Componenti di stampa, ora componenti facoltativi per le installazioni Server Core|Nelle versioni precedenti di Windows Server i componenti di stampa sono *disabilitati* per impostazione predefinita nell'opzione di installazione Server Core. In Windows Server 2016 questo è cambiato e tali componenti sono stati abilitati per impostazione predefinita. In Windows Server 2019 questi componenti di stampa sono di nuovo disabilitati per impostazione predefinita per Server Core. Per abilitare i componenti di stampa, puoi eseguire il cmdlet **Install-WindowsFeature Print-Server**. |
 | [Gestore connessione Desktop remoto e Host di virtualizzazione Desktop remoto](../remote/remote-desktop-services/desktop-hosting-service.md) in un'installazione Server Core|Nella maggior parte delle distribuzioni di Servizi Desktop remoto il percorso di questi ruoli è condiviso con Host sessione Desktop remoto, che richiede il server con Esperienza desktop. Pertanto, per garantire la coerenza con Host sessione Desktop remoto, stiamo apportando modifiche a questi ruoli imponendo anche per essi il requisito del server con Esperienza desktop. Questi ruoli di Servizi Desktop remoto non sono più disponibili per l'uso in un'[installazione Server Core](../administration/server-core/what-is-server-core.md). Se vuoi [distribuire questi ruoli nell'ambito dell'infrastruttura di Desktop remoto](../remote/remote-desktop-services/rds-deploy-infrastructure.md), puoi [installarli in Windows Server con Esperienza desktop](../get-started/getting-started-with-server-with-desktop-experience.md). <br/><br/>Questi ruoli sono inclusi anche nell'opzione di installazione Esperienza desktop di Windows Server 2019. |
+| [Scheda video 3D RemoteFX (vGPU)](../remote/remote-desktop-services/rds-remotefx-vgpu.md)|Stiamo sviluppando nuove opzioni di accelerazione grafica per gli ambienti virtualizzati. In alternativa, puoi anche usare l'[assegnazione di dispositivi discreti](../virtualization/hyper-v/plan/plan-for-deploying-devices-using-discrete-device-assignment.md). |
 
 ## <a name="features-were-no-longer-developing"></a>Funzionalità di cui è cessato lo sviluppo
 

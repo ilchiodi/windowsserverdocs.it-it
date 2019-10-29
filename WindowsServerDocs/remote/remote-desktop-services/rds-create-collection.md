@@ -7,18 +7,18 @@ ms.reviewer: na
 ms.suite: na
 ms.technology: remote-desktop-services
 ms.author: elizapo
-ms.date: 11/08/2016
+ms.date: 10/22/2019
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: ae9767e3-864a-4eb2-96c0-626759ce6d60
 author: lizap
 manager: dongill
-ms.openlocfilehash: cec1ae43b51b17da5617f95e13b839d4ecfbb40c
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 92af2b4e9fb174f1aa815256148ee8d5c7c7181a
+ms.sourcegitcommit: 3262c5c7cece9f2adf2b56f06b7ead38754a451c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71404009"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72812251"
 ---
 # <a name="create-a-remote-desktop-services-collection-for-desktops-and-apps-to-run"></a>Creare una raccolta di Servizi Desktop remoto per desktop e l'esecuzione di app
 
@@ -33,7 +33,7 @@ Prima di creare una raccolta è necessario scegliere il tipo di raccolta necessa
  
 Con una sessione in pool vari utenti accedono a un pool condiviso di risorse, mentre con una sessione desktop personale a ogni utente viene assegnato il proprio desktop dall'interno del pool. La sessione in pool offre una riduzione complessiva dei costi mentre le sessioni personali consentono agli utenti di personalizzare la propria esperienza desktop.
 
-Se è necessario condividere applicazioni con uso elevato di grafica ospitate, è possibile combinare i desktop delle sessioni personali con una GPU virtualizzata RemoteFX configurata per le accelerazioni grafiche. In alternativa, è possibile combinare i desktop di sessione personale con la nuova funzionalità di assegnazione di dispositivi discreti (DDA) per offrire inoltre un supporto alle applicazioni con grafica accelerata ospitate. Consultare la sezione [Quale tecnologia per la virtualizzazione della grafica è adatta alle tue esigenze?](rds-graphics-virtualization.md) per altre informazioni.
+Se devi condividere applicazioni ospitate con uso elevato di grafica, puoi combinare i desktop di sessioni personali con la nuova funzionalità di assegnazione di dispositivi discreti (DDA) per offrire anche supporto per le applicazioni ospitate che richiedono grafica accelerata. Consultare la sezione [Quale tecnologia per la virtualizzazione della grafica è adatta alle tue esigenze?](rds-graphics-virtualization.md) per altre informazioni.
 
 
 Indipendentemente dal tipo di raccolta scelto è possibile popolare tali raccolte con RemoteApp, che consente agli utenti di accedere e lavorare con programmi e risorse da qualsiasi dispositivo supportato, come se il programma fosse in esecuzione in locale.
