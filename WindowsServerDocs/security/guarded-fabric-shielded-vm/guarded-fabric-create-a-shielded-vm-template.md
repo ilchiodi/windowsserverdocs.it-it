@@ -8,16 +8,17 @@ manager: dongill
 author: rpsqrd
 ms.technology: security-guarded-fabric
 ms.date: 01/29/2019
-ms.openlocfilehash: 686fd2ed5969d191240bbd726f1d759e9974f08a
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 70014c04bbb4425fe3c3fd0379f10cf00abe00ee
+ms.sourcegitcommit: 4b4ff8d9e18b2ddcd1916ffa2cd58fffbed8e7ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71386683"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72986442"
 ---
 # <a name="create-a-windows-shielded-vm-template-disk"></a>Creare un disco modello di macchina virtuale schermata di Windows
 
->Si applica a: Windows Server 2019, Windows Server (canale semestrale), Windows Server 2016
+>Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2019
+
 
 Come per le macchine virtuali normali, è possibile creare un modello di macchina virtuale (ad esempio, un [modello di macchina virtuale in Virtual Machine Manager (VMM)](https://technet.microsoft.com/system-center-docs/vmm/manage/manage-library-add-vm-templates)) per semplificare la distribuzione di nuove macchine virtuali nell'infrastruttura da parte di tenant e amministratori usando un disco modello. Poiché le macchine virtuali schermate sono asset sensibili alla sicurezza, è necessario eseguire altri passaggi per creare un modello di macchina virtuale che supporti la schermatura. In questo argomento vengono illustrati i passaggi per creare un disco modello schermato e un modello di macchina virtuale in VMM.
 
@@ -27,13 +28,13 @@ Per comprendere il modo in cui questo argomento si integra nel processo generale
 
 Preparare innanzitutto un disco del sistema operativo che verrà quindi eseguito tramite la creazione guidata disco modello schermato. Questo disco verrà usato come disco del sistema operativo nelle macchine virtuali del tenant. È possibile usare qualsiasi strumento esistente per creare questo disco, ad esempio Microsoft Desktop Image Service Manager (DISM), oppure configurare manualmente una macchina virtuale con un VHDX vuoto e installare il sistema operativo su tale disco. Quando si configura il disco, è necessario rispettare i requisiti seguenti specifici per le macchine virtuali di seconda generazione e/o schermate: 
 
-| Requisito per VHDX | `Reason` |
+| Requisito per VHDX | Motivo |
 |-----------|----|
 |Deve essere un disco della tabella di partizione GUID (GPT) | Necessario per le macchine virtuali di seconda generazione per supportare UEFI|
-|Il tipo di disco deve essere di **base** anziché **dinamico**. <br>Nota: Si riferisce al tipo di disco logico, non alla funzionalità VHDX "ad espansione dinamica" supportata da Hyper-V. | BitLocker non supporta i dischi dinamici.|
+|Il tipo di disco deve essere di **base** anziché **dinamico**. <br>Nota: si riferisce al tipo di disco logico, non alla funzionalità VHDX "ad espansione dinamica" supportata da Hyper-V. | BitLocker non supporta i dischi dinamici.|
 |Il disco contiene almeno due partizioni. Una partizione deve includere l'unità in cui è installato Windows. Si tratta dell'unità che verrà crittografata da BitLocker. L'altra partizione è la partizione attiva, che contiene il bootloader e rimane non crittografata, in modo che il computer possa essere avviato.|Necessaria per BitLocker|
 |File system NTFS | Necessaria per BitLocker|
-|Il sistema operativo installato in VHDX è uno dei seguenti:<br>-Windows Server 2016, Windows Server 2012 R2 o Windows Server 2012 <br>-Windows 10, Windows 8.1, Windows 8| Necessaria per supportare le macchine virtuali di seconda generazione e il modello di avvio protetto Microsoft|
+|Il sistema operativo installato in VHDX è uno dei seguenti:<br>-Windows Server 2019, Windows Server 2016, Windows Server 2012 R2 o Windows Server 2012 <br>-Windows 10, Windows 8.1, Windows 8| Necessaria per supportare le macchine virtuali di seconda generazione e il modello di avvio protetto Microsoft|
 |Il sistema operativo deve essere generalizzato (eseguire Sysprep. exe) | Il provisioning dei modelli implica la specializzazione di macchine virtuali per il carico di lavoro di un tenant specifico| 
 
 > [!NOTE]
@@ -50,7 +51,7 @@ Per usare un disco modello con VM schermate, il disco deve essere preparato e cr
 > [!NOTE]
 > La creazione guidata disco modello modificherà il disco del modello specificato sul posto. È possibile creare una copia del VHDX non protetto prima di eseguire la procedura guidata per eseguire aggiornamenti al disco in un secondo momento. Non sarà possibile modificare un disco protetto con la creazione guidata disco modello.
 
-Eseguire i passaggi seguenti in un computer che esegue Windows Server 2016 (non deve essere un host sorvegliato o un server VMM):
+Eseguire i passaggi seguenti in un computer in cui è in esecuzione Windows Server 2016, Windows 10 (con strumenti di gestione remota del server, amministrazione remota del server installata) o versioni successive (non è necessario che sia un host sorvegliato o un server VMM):
 
 1. Copiare il VHDX generalizzato creato in [preparare un VHDX del sistema operativo](#prepare-an-operating-system-vhdx) nel server, se non è già presente.
 
@@ -92,7 +93,7 @@ Se si usa VMM, seguire i passaggi nelle sezioni rimanenti di questo argomento pe
 
 Se si usa VMM, dopo aver creato un disco modello, è necessario copiarlo in una condivisione di libreria VMM in modo che gli host possano scaricare e usare il disco durante il provisioning di nuove macchine virtuali. Utilizzare la seguente procedura per copiare il disco modello nella libreria VMM e quindi aggiornare la libreria.
 
-1. Copiare il file VHDX nella cartella della condivisione di libreria VMM. Se è stata usata la configurazione predefinita di VMM, copiare il disco modello in _\\ @ no__t-2\MSSCVMMLibrary\VHDs_.
+1. Copiare il file VHDX nella cartella della condivisione di libreria VMM. Se è stata usata la configurazione predefinita di VMM, copiare il disco modello in _\\<vmmserver>\MSSCVMMLibrary\VHDs_.
 
 2. Aggiornare il server di libreria. Aprire l'area di lavoro **libreria** , espandere **server di libreria**, fare clic con il pulsante destro del mouse sul server di libreria che si desidera aggiornare, quindi scegliere **Aggiorna**.
 
@@ -135,9 +136,10 @@ Una volta creato il modello, i tenant possono usarlo per creare nuove macchine v
 
 ## <a name="prepare-and-protect-the-vhdx-using-powershell"></a>Preparare e proteggere il VHDX usando PowerShell
 
-In alternativa all'esecuzione della creazione guidata disco modello, è possibile copiare il disco modello e il certificato in un computer che esegue strumenti di amministrazione remota del server ed eseguire [Protect-TemplateDisk @ no__t-1 per avviare il processo di firma.
+In alternativa all'esecuzione della creazione guidata disco modello, è possibile copiare il disco modello e il certificato in un computer che esegue strumenti di amministrazione remota del server ed eseguire [Protect-TemplateDisk](https://docs.microsoft.com/powershell/module/shieldedvmtemplate/protect-templatedisk?view=win10-ps
+) per avviare il processo di firma.
 Nell'esempio seguente vengono usate le informazioni sul nome e sulla versione specificate dai parametri _templateName_ e _Version_ .
-Il valore di VHDX fornito al parametro `-Path` verrà sovrascritto con il disco modello aggiornato, quindi assicurarsi di creare una copia prima di eseguire il comando.
+Le VHDX fornite al parametro `-Path` verranno sovrascritte con il disco modello aggiornato. Assicurarsi quindi di creare una copia prima di eseguire il comando.
 
 ```powershell
 # Replace "THUMBPRINT" with the thumbprint of your template disk signing certificate in the line below
@@ -165,7 +167,7 @@ Save-VolumeSignatureCatalog -TemplateDiskPath 'C:\temp\MyLinuxTemplate.vhdx' -Vo
 > [!div class="nextstepaction"]
 > [Creare un file di dati di schermatura](guarded-fabric-tenant-creates-shielding-data.md)
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 - [Procedura di configurazione del provider di servizi di hosting per host sorvegliati e macchine virtuali schermate](guarded-fabric-configuration-scenarios-for-shielded-vms-overview.md)
 - [Infrastruttura sorvegliata e macchine virtuali schermate](guarded-fabric-and-shielded-vms-top-node.md)
