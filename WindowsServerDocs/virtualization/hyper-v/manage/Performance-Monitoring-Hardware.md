@@ -1,6 +1,6 @@
 ---
-title: Abilitare l'hardware di monitoraggio delle prestazioni Intel in una macchina virtuale Hyper-V
-description: Come abilitare l'hardware di monitoraggio delle prestazioni di Intel in un computer Hyper-V. Viene inoltre illustrato come abilitare la migrazione in tempo reale degli effetti hardware di monitoraggio delle prestazioni.
+title: Enable Intel Performance Monitoring Hardware in a Hyper-V Virtual Machine
+description: How to enable Intel's Performance Monitoring Hardware in a Hyper-V Machine. Also touches on how enabling performance monitoring hardware effects live migration.
 ms.prod: windows-server
 ms.reviewer: ifufondu
 author: ifeomaufondu-ms
@@ -8,46 +8,58 @@ ms.author: ifufondu
 manager: chhuybre
 ms.topic: article
 ms.date: 09/20/2019
-ms.openlocfilehash: 6938739d7c8efdf60c859d2d5ea5bc63246ae4fe
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 515831df6b97271b52c4a715fd979f2afff4a3a1
+ms.sourcegitcommit: f73662069329b1abf6aa950c2a826bc113718857
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71364104"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73240351"
 ---
-# <a name="enable-intel-performance-monitoring-hardware-in-a-hyper-v-virtual-machine"></a>Abilitare l'hardware di monitoraggio delle prestazioni Intel in una macchina virtuale Hyper-V
+# <a name="enable-intel-performance-monitoring-hardware-in-a-hyper-v-virtual-machine"></a>Enable Intel Performance Monitoring Hardware in a Hyper-V virtual machine
 
-I processori Intel contengono funzionalità collettivamente denominate hardware di monitoraggio delle prestazioni, ad esempio PMU, PEBS, LBR. Queste funzionalità vengono usate dal software di ottimizzazione delle prestazioni, ad esempio Intel VTune Amplifier, per analizzare le prestazioni del software.  Prima di Windows Server 2019 e Windows 10 versione 1809, il sistema operativo host e le macchine virtuali guest Hyper-V non potevano utilizzare hardware di monitoraggio delle prestazioni quando Hyper-V è stato abilitato.  A partire da Windows Server 2019 e Windows 10 versione 1809, per impostazione predefinita il sistema operativo host può accedere all'hardware di monitoraggio delle prestazioni.  Le macchine virtuali guest Hyper-V non dispongono di accesso per impostazione predefinita, ma gli amministratori di Hyper-V possono scegliere di concedere l'accesso a una o più macchine virtuali guest.  In questo documento vengono descritti i passaggi necessari per esporre l'hardware di monitoraggio delle prestazioni alle macchine virtuali guest.
+Intel processors contain features collectively called performance monitoring hardware (e.g. PMU, PEBS, LBR). These features are used by performance tuning software like Intel VTune Amplifier to analyze software performance.  Prior to Windows Server 2019 and Windows 10 Version 1809, neither the host operating system nor Hyper-V guest virtual machines could use performance monitoring hardware when Hyper-V was enabled.  Starting with Windows Server 2019 and Windows 10 Version 1809, the host operating system has access to performance monitoring hardware by default.  Hyper-V guest virtual machines do not have access by default, but Hyper-V administrators may choose to grant access to one or more guest virtual machines.  This document describes the steps required to expose performance monitoring hardware to guest virtual machines.
 
 ## <a name="requirements"></a>Requisiti
 
-Per abilitare l'hardware di monitoraggio delle prestazioni in una macchina virtuale, è necessario:
+To enable performance monitoring hardware in a virtual machine, you'll need:
 
-- Processore Intel con hardware di monitoraggio delle prestazioni (ad esempio PMU, PEBS, IPT)
-- Windows Server 2019 o Windows 10 versione 1809 (aggiornamento di ottobre 2018) o versione successiva
-- Una macchina virtuale Hyper-V _senza_ [virtualizzazione annidata](https://docs.microsoft.com/virtualization/hyper-v-on-windows/user-guide/nested-virtualization) anch ' essa nello stato interrotto
- 
-## <a name="enabling-performance-monitoring-components-in-a-virtual-machine"></a>Abilitazione dei componenti di monitoraggio delle prestazioni in una macchina virtuale
+- An Intel processor with performance monitoring hardware (i.e. PMU, PEBS, LBR).  Refer to [this document]( https://software.intel.com/en-us/vtune-amplifier-cookbook-configuring-a-hyper-v-virtual-machine-for-hardware-based-hotspots-analysis) from Intel to determine which performance monitoring hardware your system supports.
+- Windows Server 2019 or Windows 10 Version 1809 (October 2018 Update) or later
+- A Hyper-V virtual machine _without_ [nested virtualization](https://docs.microsoft.com/virtualization/hyper-v-on-windows/user-guide/nested-virtualization) that is also in the stopped state
 
-Per abilitare diversi componenti di monitoraggio delle prestazioni per una macchina virtuale Guest specifica, `Set-VMProcessor` usare il cmdlet di PowerShell:
- 
+To enable upcoming Intel Processor Trace (IPT) performance monitoring hardware in a virtual machine, you’ll need:
+
+- An Intel processor that supports IPT and the PT2GPA feature.  Refer to [this document]( https://software.intel.com/en-us/vtune-amplifier-cookbook-configuring-a-hyper-v-virtual-machine-for-hardware-based-hotspots-analysis) from Intel to determine which performance monitoring hardware your system supports.
+- Windows Server version 1903 (SAC) or Windows 10 Version 1903 (May 2019 Update) or later
+- A Hyper-V virtual machine _without_ [nested virtualization](https://docs.microsoft.com/virtualization/hyper-v-on-windows/user-guide/nested-virtualization) that is also in the stopped state
+
+## <a name="enabling-performance-monitoring-components-in-a-virtual-machine"></a>Enabling performance monitoring components in a virtual machine
+
+To enable different performance monitoring components for a specific guest virtual machine, use the `Set-VMProcessor` PowerShell cmdlet while running as Administrator:
+
 ``` Powershell
-# Enable all components
+# Enable all components except IPT
 Set-VMProcessor MyVMName -Perfmon @("pmu", "lbr", "pebs")
 ```
- 
+
 ``` Powershell
 # Enable a specific component
 Set-VMProcessor MyVMName -Perfmon @("pmu")
 ```
- 
+
+``` Powershell
+# Enable IPT 
+Set-VMProcessor MyVMName -Perfmon @("ipt")
+```
+
 ``` Powershell
 # Disable all components
 Set-VMProcessor MyVMName -Perfmon @()
 ```
 > [!NOTE]
-> Quando si abilitano i componenti di monitoraggio `"pebs"` delle prestazioni, se `"pmu"` si specifica, è necessario specificare.  Inoltre, l'abilitazione di un componente non supportato dai processori fisici dell'host provocherà un errore di avvio della macchina virtuale.
- 
-## <a name="effects-of-enabling-performance-monitoring-hardware-on-saverestore-export-and-live-migration"></a>Effetti dell'abilitazione dell'hardware per il monitoraggio delle prestazioni in Salva/Ripristina, Esporta e migrazione in tempo reale
- 
-Microsoft non consiglia di eseguire la migrazione in tempo reale o di salvare/ripristinare le macchine virtuali con hardware di monitoraggio delle prestazioni tra sistemi con hardware Intel diverso. Il comportamento specifico dell'hardware di monitoraggio delle prestazioni è spesso non architettonico e cambia tra i sistemi hardware Intel.  Il trasferimento di una macchina virtuale in esecuzione tra sistemi diversi può causare un comportamento imprevedibile dei contatori non architetturali.
+> When enabling the performance monitoring components, if `"pebs"` is specified, then `"pmu"` must also be specified. PEBS is only supported on hardware that has a PMU Version >= 4. Enabling a component that is not supported by the host's physical processors will result in a virtual machine start failure.
+
+## <a name="effects-of-enabling-performance-monitoring-hardware-on-saverestore-export-and-live-migration"></a>Effects of enabling performance monitoring hardware on save/restore, export, and live migration
+
+Microsoft does not recommend live migrating or saving/restoring virtual machines with performance monitoring hardware between systems with different Intel hardware. The specific behavior of performance monitoring hardware is often non-architectural and changes between Intel hardware systems.  Moving a running virtual machine between different systems can result in unpredictable behavior of the non-architectural counters.
+

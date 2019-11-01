@@ -8,12 +8,12 @@ ms.date: 10/09/2019
 ms.topic: article
 ms.prod: windows-server
 ms.technology: storage
-ms.openlocfilehash: 597bcbe647bca3595dc8251ce4d6bf52265d8731
-ms.sourcegitcommit: 4b4ff8d9e18b2ddcd1916ffa2cd58fffbed8e7ef
+ms.openlocfilehash: 5889ae43c4b572ae75c8df10d0c47fc21337d558
+ms.sourcegitcommit: 9e123d475f3755218793a130dda88455eac9d4ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72986429"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73413261"
 ---
 # <a name="storage-migration-service-known-issues"></a>Problemi noti del servizio migrazione archiviazione
 
@@ -270,7 +270,7 @@ Si noti che in alcune circostanze, la disinstallazione di KB4512534 o degli aggi
 1.  Aprire un prompt dei comandi con privilegi elevati, in cui si è membri degli amministratori nel server dell'agente di orchestrazione del servizio di migrazione archiviazione ed eseguire:
 
      ```
-     TAKEOWN /d /a /r /f c:\ProgramData\Microsoft\StorageMigrationService
+     TAKEOWN /d y /a /r /f c:\ProgramData\Microsoft\StorageMigrationService
      
      MD c:\ProgramData\Microsoft\StorageMigrationService\backup
 
