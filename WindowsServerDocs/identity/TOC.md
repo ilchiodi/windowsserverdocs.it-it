@@ -20,7 +20,7 @@
 ##### [Linguaggio delle regole di trasformazione delle attestazioni](solution-guides/Claims-Transformation-Rules-Language.md)
 #### [Appendice A: Glossario del controllo dinamico degli accessi](solution-guides/appendix-A--Dynamic-Access-Control-Glossary.md)
 #### [Appendice B: Configurazione dell'ambiente di testing](solution-guides/appendix-B--Setting-Up-the-Test-Environment.md)
-
+### [Configurazione del Servizio Web di registrazione certificati per il rinnovo basato su chiave del certificato su una porta personalizzata](solution-guides/certificate-enrollment-certificate-key-based-renewal.md)
 
 ## [Active Directory Domain Services](ad-ds/active-directory-Domain-Services.md)
 
