@@ -8,12 +8,12 @@ ms.author: niwashbu
 ms.localizationpriority: medium
 ms.prod: windows-server
 ms.date: 02/15/2019
-ms.openlocfilehash: 68b5c7b2c5bc8e93d653514b2664d96b97b07a9e
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: fac17cd5975eeb699f205888edbe3f1c30b43394
+ms.sourcegitcommit: 1da993bbb7d578a542e224dde07f93adfcd2f489
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71406846"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73567144"
 ---
 # <a name="get-started-with-windows-admin-center"></a>Introduzione all'interfaccia di amministrazione di Windows
 
@@ -56,9 +56,9 @@ Dopo aver completato l'installazione dell'interfaccia di amministrazione di Wind
 
    ![](../media/launch/addserver0.png)
 
-2. Scegliere di aggiungere un server, un cluster di failover o una connessione cluster iperconvergente:
+2. Scegliere di aggiungere un server, un cluster, un PC Windows o una macchina virtuale di Azure:
     
-   ![](../media/launch/addserver1.png)
+   ![](../media/launch/ChooseConnectionType.png)
 
 3. Digitare il nome del server o del cluster da gestire e fare clic su **Invia**. Il server o il cluster verrà aggiunto all'elenco di connessioni nella pagina panoramica.
 
@@ -99,7 +99,7 @@ L'interfaccia di amministrazione di Windows supporta diversi meccanismi per l'au
 
 **Single Sign-on quando distribuito come servizio in Windows Server**
 
-Se l'interfaccia di amministrazione di Windows è stata installata in Windows Server, è necessaria una configurazione aggiuntiva per l'accesso Single Sign-on.  [Configurare l'ambiente per la delega](../configure/user-access-control.md)
+Se l'interfaccia di amministrazione di Windows è stata installata in Windows Server, è necessaria una configurazione aggiuntiva per Single Sign-On.  [Configurare l'ambiente per la delega](../configure/user-access-control.md)
 
 **--O--**
 
@@ -117,7 +117,7 @@ Se l'interfaccia di amministrazione di Windows è in esecuzione in modalità ser
 
 **Soluzione password amministratore locale (giri)**
 
-Se l'ambiente USA i [giri](https://technet.microsoft.com/mt227395.aspx)e l'interfaccia di amministrazione di Windows è installata nel PC Windows 10, è possibile usare le credenziali per l'autenticazione con il nodo gestito. **Se si usa questo scenario,** [inviare commenti e suggerimenti](http://aka.ms/WACFeedback).
+Se l'ambiente USA i [giri](https://technet.microsoft.com/mt227395.aspx)e l'interfaccia di amministrazione di Windows è installata nel PC Windows 10, è possibile usare le credenziali per l'autenticazione con il nodo gestito. **Se si usa questo scenario,** [fornire commenti e suggerimenti](https://aka.ms/WACFeedback).
 
 ## <a name="using-tags-to-organize-your-connections"></a>Uso dei tag per organizzare le connessioni
 
@@ -170,7 +170,7 @@ Il formato del file CSV inizia con le quattro intestazioni ```"name","type","tag
 
 **nome** è il nome di dominio completo (FQDN) della connessione
 
-il **tipo è il** tipo di connessione. Per le connessioni predefinite incluse nell'interfaccia di amministrazione di Windows, si userà uno dei seguenti elementi:
+il **tipo è il tipo di** connessione. Per le connessioni predefinite incluse nell'interfaccia di amministrazione di Windows, si userà uno dei seguenti elementi:
 
 | Tipo di connessione | Stringa di connessione |
 |------|-------------------------------|

@@ -8,21 +8,21 @@ ms.author: jeffrew
 ms.localizationpriority: medium
 ms.prod: windows-server
 ms.date: 06/07/2019
-ms.openlocfilehash: f4e772550aaba6fe9a4f78a6032eaabde4aeb0bf
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 0b4e02e6759bdb91ea51b5dcf5e1d0ae307d13b4
+ms.sourcegitcommit: 1da993bbb7d578a542e224dde07f93adfcd2f489
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71406866"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73567096"
 ---
 # <a name="troubleshooting-windows-admin-center"></a>Risoluzione dei problemi di Windows Admin Center
 
 > Si applica a: Windows Admin Center, Windows Admin Center Preview
 
 > [!Important]
-> Questa guida ti aiuterà a diagnosticare e risolvere i problemi che ti impediscono di utilizzare Windows Admin Center. Se si verifica un problema con uno strumento specifico, controlla se si tratta di un [problema noto.](http://aka.ms/wacknownissues)
+> Questa guida ti aiuterà a diagnosticare e risolvere i problemi che ti impediscono di utilizzare Windows Admin Center. Se si verifica un problema con uno strumento specifico, controlla se si tratta di un [problema noto.](https://aka.ms/wacknownissues)
 
-## <a name="installer-fails-with-message-_the-module-microsoftpowershelllocalaccounts-could-not-be-loaded_"></a>Errore del programma di installazione con messaggio: **_Non è stato possibile caricare il modulo ' Microsoft. PowerShell. le LocalAccounts '._**
+## <a name="installer-fails-with-message-_the-module-microsoftpowershelllocalaccounts-could-not-be-loaded_"></a>Errore del programma di installazione con messaggio:  **_Impossibile caricare il modulo ' Microsoft. PowerShell. le LocalAccounts '._**
 
 Questo problema può verificarsi se il percorso predefinito del modulo PowerShell è stato modificato o rimosso. Per risolvere il problema, assicurarsi che ```%SystemRoot%\system32\WindowsPowerShell\v1.0\Modules``` sia il **primo** elemento della variabile di ambiente PSModulePath. È possibile ottenere questo risultato con la seguente riga di PowerShell:
 
@@ -53,12 +53,6 @@ Questo problema può verificarsi se il percorso predefinito del modulo PowerShel
 
 ### <a name="if-youve-installed-windows-admin-center-as-a-gateway-on-windows-server"></a>Se hai installato Windows Admin Center come **gateway in Windows Server**
 
-* È stato eseguito l'aggiornamento da una versione precedente dell'interfaccia di amministrazione di Windows? Verificare che la regola del firewall non sia stata eliminata a causa di [questo problema noto](known-issues.md#upgrade). Usare il comando di PowerShell seguente per determinare se la regola esiste. In caso contrario, seguire [queste istruzioni](known-issues.md#upgrade) per ricrearlo.
-    
-    ```powershell
-    Get-NetFirewallRule -DisplayName "SmeInboundOpenException"
-    ```
-
 * [Verifica la versione di Windows](#check-the-windows-version) del client e del server.
 
 * Assicurati di usare Microsoft Edge o Google Chrome come Web browser.
@@ -66,7 +60,7 @@ Questo problema può verificarsi se il percorso predefinito del modulo PowerShel
 * Nel server aprire Gestione attività > Servizi e verificare che l'interfaccia di **amministrazione di ServerManagementGateway/Windows** sia in esecuzione.
 ![](../media/Service-TaskMan.PNG)
 
-* Testare la connessione di rete al gateway (sostituire \<values > con le informazioni della distribuzione)
+* Testare la connessione di rete al gateway (sostituire \<valori > con le informazioni della distribuzione)
 
     ```powershell
     Test-NetConnection -Port <port> -ComputerName <gateway> -InformationLevel Detailed
@@ -96,9 +90,9 @@ Questo problema può verificarsi se il percorso predefinito del modulo PowerShel
 
 * È possibile che siano state cancellate le impostazioni degli host attendibili. [Seguire queste istruzioni per aggiornare le impostazioni degli host attendibili.](#configure-trustedhosts) 
 
-## <a name="i-get-the-message-cant-connect-securely-to-this-page-this-might-be-because-the-site-uses-outdated-or-unsafe-tls-security-settings"></a>Ricevo il messaggio: "Impossibile connettersi in modo sicuro a questa pagina. Questo potrebbe essere dovuto al fatto che il sito Usa impostazioni di sicurezza TLS obsolete o non sicure.
+## <a name="i-get-the-message-cant-connect-securely-to-this-page-this-might-be-because-the-site-uses-outdated-or-unsafe-tls-security-settings"></a>Viene ricevuto il messaggio: "Impossibile connettersi in modo sicuro a questa pagina. Questo potrebbe essere dovuto al fatto che il sito Usa impostazioni di sicurezza TLS obsolete o non sicure.
 
-Il computer è limitato alle connessioni HTTP/2. L'interfaccia di amministrazione di Windows usa l'autenticazione integrata di Windows, che non è supportata in HTTP/2. Aggiungere i seguenti due valori del registro di sistema sotto il tasto ```HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Http\Parameters``` nel **computer che esegue il browser** per rimuovere la restrizione http/2:
+Il computer è limitato alle connessioni HTTP/2. L'interfaccia di amministrazione di Windows usa l'autenticazione integrata di Windows, che non è supportata in HTTP/2. Aggiungere i seguenti due valori del registro di sistema nella chiave ```HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Http\Parameters``` del **computer che esegue il browser** per rimuovere la restrizione http/2:
 
 ```
 EnableHttp2Cleartext=dword:00000000
@@ -111,11 +105,11 @@ Questi tre strumenti richiedono il protocollo WebSocket, che in genere è blocca
 
 ## <a name="i-can-connect-to-some-servers-but-not-others"></a>Posso connettermi ad alcuni server, ma non ad altri
 
-* Accedere al computer gateway localmente e provare a ```Enter-PSSession <machine name>``` in PowerShell, sostituendo \<machine nome > con il nome del computer che si sta tentando di gestire nell'interfaccia di amministrazione di Windows. 
+* Accedere al computer gateway localmente e provare a ```Enter-PSSession <machine name>``` in PowerShell, sostituendo \<nome computer > con il nome del computer che si sta tentando di gestire nell'interfaccia di amministrazione di Windows. 
 
 * Se l'ambiente utilizza un gruppo di lavoro anziché un dominio, vedi [Utilizzo di Windows Admin Center in un gruppo di lavoro](#using-windows-admin-center-in-a-workgroup).
 
-* **Uso degli account amministratore locale:** Se si usa un account utente locale che non è l'account Administrator predefinito, sarà necessario abilitare il criterio nel computer di destinazione eseguendo il comando seguente in PowerShell o al prompt dei comandi come amministratore nel computer di destinazione:
+* **Utilizzo degli account Administrator locali:** se usi un account utente locale che non è l'account predefinito Administrator, sarà necessario abilitare il criterio sul computer di destinazione eseguendo il seguente comando in PowerShell o in un prompt dei comandi come amministratore sul computer di destinazione:
 
     ```
     REG ADD HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1
@@ -199,7 +193,7 @@ netsh http delete urlacl url=https://+:443/
 
 Edge presenta [problemi noti](https://github.com/AzureAD/azure-activedirectory-library-for-js/wiki/Known-issues-on-Edge) relativi alle aree di sicurezza che influiscono sull'accesso di Azure nell'interfaccia di amministrazione di Windows. Se si verificano problemi durante l'uso delle funzionalità di Azure quando si usa Edge, provare ad aggiungere https://login.microsoftonline.com, https://login.live.com e l'URL del gateway come siti attendibili e ai siti consentiti per le impostazioni del blocco popup perimetrale sul browser lato client. 
 
-A tale scopo, effettuare le seguenti operazioni:
+A tale scopo, effettua le seguenti operazioni:
 1. Cerca **Opzioni Internet** nel menu Start di Windows
 2. Passare alla scheda **sicurezza**
 3. Nell'opzione **siti attendibili** fare clic sul pulsante **siti** e aggiungere gli URL nella finestra di dialogo visualizzata. È necessario aggiungere l'URL del gateway, nonché https://login.microsoftonline.com e https://login.live.com.
@@ -208,12 +202,12 @@ A tale scopo, effettuare le seguenti operazioni:
 
 ## <a name="having-an-issue-with-an-azure-related-feature"></a>Problemi con una funzionalità correlata ad Azure?
 
-Inviare un messaggio di posta elettronica a wacFeedbackAzure@microsoft.com con le informazioni seguenti:
+Inviare un messaggio di posta elettronica all'indirizzo wacFeedbackAzure@microsoft.com con le informazioni seguenti:
 * Informazioni generali sul problema dalle [domande elencate di seguito](#providing-feedback-on-issues).
 * Descrivere il problema e i passaggi necessari per riprodurre il problema. 
 * In precedenza è stato registrato il gateway in Azure usando lo script scaricabile New-AadApp. ps1, quindi è stato eseguito l'aggiornamento alla versione 1807? Oppure è stato registrato il gateway in Azure usando l'interfaccia utente dalle impostazioni del gateway > Azure?
 * L'account di Azure è associato a più directory/tenant?
-    * In caso affermativo: Quando si registra l'applicazione Azure AD nell'interfaccia di amministrazione di Windows, è stata usata la directory predefinita in Azure? 
+    * In caso affermativo: quando si registra l'applicazione Azure AD nell'interfaccia di amministrazione di Windows, è stata usata la directory predefinita in Azure? 
 * L'account Azure può accedere a più sottoscrizioni?
 * Per la sottoscrizione usata è stata applicata la fatturazione?
 * È stato effettuato l'accesso a più account Azure quando si è verificato il problema?
