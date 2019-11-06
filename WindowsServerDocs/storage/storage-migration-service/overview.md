@@ -1,25 +1,25 @@
 ---
 title: Panoramica di servizio migrazione archiviazione
-description: Il servizio di migrazione archiviazione semplifica la migrazione dei server a una versione più recente di Windows Server. Fornisce uno strumento grafico che archivia i dati nei server, quindi trasferisce i dati e la configurazione in server più recenti, tutto senza che le app o gli utenti debbano apportare alcuna modifica.
+description: Il servizio migrazione archiviazione semplifica la migrazione dello spazio di archiviazione in Windows Server o in Azure. Fornisce uno strumento grafico che archivia i dati nei server Windows e Linux e quindi trasferisce i dati ai server più recenti o alle macchine virtuali di Azure. Il servizio migrazione archiviazione consente inoltre di trasferire l'identità di un server al server di destinazione in modo che le app e gli utenti possano accedere ai propri dati senza modificare i collegamenti o i percorsi.
 author: jasongerend
 ms.author: jgerend
 manager: elizapo
-ms.date: 08/16/2019
+ms.date: 10/25/2019
 ms.topic: article
 ms.prod: windows-server
 ms.technology: storage
-ms.openlocfilehash: 022b0c3445c007960c490159f6580a702233ee41
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 712befacaf1d5bddd4f9bd993ce0d423b15cba36
+ms.sourcegitcommit: 4b4ff8d9e18b2ddcd1916ffa2cd58fffbed8e7ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71402980"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72986453"
 ---
 # <a name="storage-migration-service-overview"></a>Panoramica di servizio migrazione archiviazione
 
 >Si applica a: Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server (canale semestrale)
 
-Il servizio di migrazione archiviazione semplifica la migrazione dei server a una versione più recente di Windows Server. Fornisce uno strumento grafico che archivia i dati nei server, quindi trasferisce i dati e la configurazione in server più recenti, tutto senza che le app o gli utenti debbano apportare alcuna modifica.
+Il servizio migrazione archiviazione semplifica la migrazione dello spazio di archiviazione in Windows Server o in Azure. Fornisce uno strumento grafico che archivia i dati nei server Windows e Linux e quindi trasferisce i dati ai server più recenti o alle macchine virtuali di Azure. Il servizio migrazione archiviazione consente inoltre di trasferire l'identità di un server al server di destinazione in modo che le app e gli utenti possano accedere ai propri dati senza modificare i collegamenti o i percorsi.
 
 Questo argomento descrive il motivo per cui si vuole usare il servizio migrazione archiviazione, il funzionamento del processo di migrazione e i requisiti per i server di origine e di destinazione.
 
@@ -34,7 +34,7 @@ Usare il servizio migrazione archiviazione perché si dispone di un server o di 
 
 ![Diagramma che mostra il servizio migrazione archiviazione che esegue la migrazione dei file & configurazione dai server di origine ai server di destinazione, alle macchine virtuali di Azure o Sincronizzazione file di Azure.](media/overview/storage-migration-service-diagram.png)
 
-**Figura 1: Origini e destinazioni del servizio migrazione archiviazione**
+**Figura 1: origini e destinazioni del servizio migrazione archiviazione**
 
 ## <a name="how-the-migration-process-works"></a>Funzionamento del processo di migrazione
 
@@ -42,10 +42,10 @@ La migrazione è un processo in tre passaggi:
 
 1. **Server di inventario** per raccogliere informazioni sui file e sulla configurazione (mostrati nella figura 2).
 2. **Trasferire (copiare) i dati** dai server di origine ai server di destinazione.
-3. **Riduci ai nuovi server** (facoltativo).<br>I server di destinazione presuppongono le identità precedenti dei server di origine in modo che le app e gli utenti non debbano modificare alcun elemento. <br>I server di origine entrano in uno stato di manutenzione in cui contengono ancora gli stessi file che hanno sempre (i file non vengono mai rimossi dai server di origine) ma non sono disponibili per utenti e app. È quindi possibile rimuovere le autorizzazioni dei server per praticità.
+3. **Passare ai nuovi server** (facoltativo).<br>I server di destinazione presuppongono le identità precedenti dei server di origine in modo che le app e gli utenti non debbano modificare alcun elemento. <br>I server di origine entrano in uno stato di manutenzione in cui contengono ancora gli stessi file che hanno sempre (i file non vengono mai rimossi dai server di origine) ma non sono disponibili per utenti e app. È quindi possibile rimuovere le autorizzazioni dei server per praticità.
 
-![Screenshot che mostra un server pronto per essere](media/migrate/inventory.png)
-analizzato**figura 2: Server di inventario servizio migrazione archiviazione**
+![screenshot che mostra un server pronto per essere analizzato](media/migrate/inventory.png)
+**Figura 2: server di inventario del servizio migrazione archiviazione**
 
 ## <a name="requirements"></a>Requisiti
 
@@ -131,7 +131,7 @@ Le nuove funzionalità seguenti sono disponibili quando si esegue l'agente di or
 - Sincronizzazione semplificata tramite Sincronizzazione file di Azure delle condivisioni sottoposte a migrazione
 - Migrazione a nuove reti, ad esempio Azure
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 - [Eseguire la migrazione di un file server usando il servizio migrazione archiviazione](migrate-data.md)
 - [Domande frequenti sui servizi di migrazione archiviazione](faq.md)
