@@ -37,7 +37,7 @@ Tramite Desktop remoto è possibile connettersi al sistema MultiPoint Services d
   
 2.  Nella colonna **Computer** fare clic sul nome del computer per cui si vuole salvare le impostazioni di connessione in un file.  
   
-3.  In**attività*** nome computer * fare clic su **Salva connessioni al file**. Viene visualizzata la pagina **Save Connection Settings to File** (Salva le impostazioni di connessione in un file).  
+3.  In**attività** *nome computer* fare clic su **Salva connessioni al file**. Viene visualizzata la pagina **Save Connection Settings to File** (Salva le impostazioni di connessione in un file).  
   
 4.  Scegliere il tipo di file di connessione da creare e quindi fare clic su **OK**.  
   
