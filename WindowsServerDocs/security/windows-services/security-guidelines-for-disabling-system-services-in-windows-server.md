@@ -10,14 +10,14 @@ ms.date: 11/26/2018
 ms.assetid: b886b2fd-3567-4f0a-8aa3-4ba7923d2d21
 author: nirb
 ms.author: nirb
-ms.openlocfilehash: 175c4dbd23bac1822365ce80f05d69509d27321c
-ms.sourcegitcommit: 73898afec450fb3c2f429ca373f6b48a74b19390
+ms.openlocfilehash: 54352f47a31826b91b5696eb90104ca166a4299d
+ms.sourcegitcommit: 18f6b104e73e0397009283d55bee7984ac7ef0d1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71935025"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73632658"
 ---
-## <a name="guidance-on-disabling-system-services-on-windows-server-2016-with-desktop-experience"></a>Linee guida sulla sicurezza per la disabilitazione dei servizi in Windows Server 2016 con Esperienza desktop
+# <a name="guidance-on-disabling-system-services-on-windows-server-2016-with-desktop-experience"></a>Linee guida sulla sicurezza per la disabilitazione dei servizi in Windows Server 2016 con Esperienza desktop
 
 Si applica a: Windows Server 2016
 
@@ -47,7 +47,7 @@ Attività pianificate:
 
 Puoi anche accedere alle informazioni su tutti i servizi descritti in dettaglio in questo articolo visualizzando il foglio di calcolo di Microsoft Excel allegato: [Linee guida sulla sicurezza per la disabilitazione dei servizi di sistema in Windows Server 2016 con Esperienza desktop](https://msdnshared.blob.core.windows.net/media/2017/05/Service-management-WS2016.xlsx)
 
-<br />
+
 
 ### <a name="disabling-services-not-installed-by-default"></a>Disabilitazione dei servizi non installati per impostazione predefinita
 
@@ -57,10 +57,10 @@ Microsoft sconsiglia l'applicazione di criteri per disabilitare i servizi che no
 -  Uno standard di riferimento o un benchmark che disabilita un servizio di Windows non predefinito (ad esempio, W3SVC) darà ad alcuni revisori l'impressione errata che la tecnologia (ad esempio, IIS) sia intrinsecamente non sicura e non debba mai essere usata.
 -  Se la funzionalità (con il servizio) non viene mai installata, aggiunge semplicemente un carico superfluo allo standard di riferimento e al lavoro di verifica.
 
-<br />
+
 Per tutti i servizi di sistema elencati in questo documento, le due tabelle seguenti offrono una spiegazione delle colonne e dei consigli di Microsoft per l'abilitazione e la disabilitazione dei servizi di sistema in Windows Server 2016 con Esperienza desktop: 
 
-<br />
+
 
 ### <a name="explanation-of-columns"></a>Spiegazione delle colonne
 
@@ -68,12 +68,12 @@ Per tutti i servizi di sistema elencati in questo documento, le due tabelle segu
 |---|---|
 |**Descrizione del servizio**|   Descrizione del servizio, da sc.exe qdescription.|
 |**Nome** |Nome principale (interno) del servizio|
-|**Installazione** |Sempre installato: il servizio è incluso in Server Core e in Server con Esperienza desktop  <br /> Solo con Esperienza desktop: il servizio è incluso in Windows Server 2016 con Esperienza desktop, ma ***non*** in Server Core |
+|**Installazione** |Sempre installato: il servizio è incluso in Server Core e in Server con Esperienza desktop. Solo con Esperienza desktop: il servizio è incluso in Windows Server 2016 con Esperienza desktop, ma ***non*** in Server Core |
 |**Tipo di avvio**  |Tipo di avvio del servizio in Windows Server 2016|
 |**Consiglio** |Consiglio o raccomandazione di Microsoft sulla disabilitazione del servizio in Windows Server 2016 in una distribuzione aziendale tipica e gestita correttamente, in cui il server non viene usato in sostituzione del desktop per gli utenti finali.|
 |**Commenti** |Spiegazione aggiuntiva|
 
-<br />
+
 
 ### <a name="explanation-of-microsoft-recommendations"></a>Spiegazioni dei consigli di Microsoft
 
@@ -84,11 +84,11 @@ Per tutti i servizi di sistema elencati in questo documento, le due tabelle segu
 |**Già disabilitato**|  Il servizio è disabilitato per impostazione predefinita. Non è necessario applicarlo con criteri.|
 |**Opportuno disabilitare** |Il servizio non dovrebbe mai essere abilitato in un sistema gestito correttamente a livello aziendale.|
 
-<br />
+
 
 Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitazione dei servizi di sistema in Windows Server 2016 con Esperienza desktop:
 
-<br />
+
 
 ##  <a name="activex-installer-axinstsv"></a>ActiveX Installer (AxInstSV)
 
@@ -102,7 +102,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   OK disabilitare se la funzionalità non è necessaria. |
 
 
-<br />
+
 
 ## <a name="alljoyn-router-service"></a>Servizio router AllJoyn   
 
@@ -116,7 +116,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |       |
 | | |
 
-<br />
+
 
 ## <a name="app-readiness"></a>Preparazione app
 
@@ -130,7 +130,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 **Commenti**    |   
 | | |
 
-<br />
+
 
 ##  <a name="application-identity"></a>Identità applicazione
 
@@ -144,7 +144,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 **Commenti**    |   
 |||     
 
-<br />
+
 
 ##  <a name="application-information"></a>Informazioni applicazioni 
 
@@ -158,7 +158,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   Supporta l'elevazione dei privilegi di Controllo dell'account utente stesso desktop
 |||     
 
-<br />
+
 
 ##  <a name="application-layer-gateway-service"></a>Servizio Gateway di livello applicazione       
 
@@ -172,7 +172,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   
 |||     
 
-<br />
+
 
 ##  <a name="application-management"></a>Gestione applicazioni      
 
@@ -186,7 +186,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   
 |||         
 
-<br />          
+
 
 ##  <a name="appx-deployment-service-appxsvc"></a>Servizio di distribuzione AppX (AppXSVC)       
 
@@ -200,7 +200,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   
 |||         
 
-<br />          
+
 
 ## <a name="auto-time-zone-updater"></a>Strumento di aggiornamento automatico fuso orario           
 
@@ -214,7 +214,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   
 |||         
 
-<br />          
+
 
 ## <a name="background-intelligent-transfer-service"></a>Servizio trasferimento intelligente in background          
 
@@ -228,7 +228,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   
 |||         
 
-<br />          
+
 
 
 ## <a name="background-tasks-infrastructure-service"></a>Servizio infrastruttura attività in background      
@@ -243,7 +243,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   
 |||         
 
-<br />          
+
 
 ## <a name="base-filtering-engine"></a>Base Filtering Engine            
 
@@ -257,7 +257,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   
 |||         
 
-<br />          
+
 
 ## <a name="bluetooth-support-service"></a>Servizio di supporto Bluetooth            
 
@@ -271,7 +271,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   OK disabilitare se non è usato. Altro meccanismo di disabilitazione: https://technet.microsoft.com/library/dd252791.aspx
 |||         
 
-<br />          
+
 
 
 ## <a name="cdpusersvc"></a>CDPUserSvc           
@@ -286,7 +286,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   Modello di servizio utente
 |||         
 
-<br />          
+
 
 
 ##  <a name="certificate-propagation"></a>Propagazione certificati     
@@ -301,7 +301,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   
 |||         
 
-<br />          
+
 
 ##  <a name="client-license-service-clipsvc"></a>Servizio licenze client (ClipSVC)        
 
@@ -315,7 +315,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   
 |||         
 
-<br />          
+
 
 ## <a name="cng-key-isolation"></a>Isolamento chiavi CNG
 
@@ -329,7 +329,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   
 |||         
 
-<br />          
+
 
 ##  <a name="com-event-system"></a>COM+ Event System       
 
@@ -343,7 +343,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   
 |||         
 
-<br />          
+
 
 ##  <a name="com-system-application"></a>Applicazione di sistema COM+     
 
@@ -357,7 +357,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   
 |||         
 
-<br />          
+
 
 ##  <a name="computer-browser"></a>Browser di computer        
 
@@ -371,7 +371,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   
 |||         
 
-<br />          
+
 
 ## <a name="connected-devices-platform-service"></a>Servizio piattaforma dispositivi connessi       
 
@@ -385,7 +385,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   
 |||         
 
-<br />          
+
 
 ## <a name="connected-user-experiences-and-telemetry"></a>Esperienze utente connesse e telemetria     
 
@@ -399,7 +399,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   
 |||         
 
-<br />          
+
 
 ##  <a name="contact-data"></a>Dati contatti        
 
@@ -413,7 +413,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   Modello di servizio utente
 |||         
 
-<br />          
+
 
 ## <a name="coremessaging"></a>CoreMessaging            
 
@@ -427,7 +427,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   
 |||         
 
-<br />          
+
 
 ## <a name="credential-manager"></a>Gestione credenziali           
 
@@ -441,7 +441,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   
 |||         
 
-<br />          
+
 
 ## <a name="cryptographic-services"></a>Servizi di crittografia           
 
@@ -455,7 +455,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   
 |||         
 
-<br />          
+
 
 ## <a name="data-sharing-service"></a>Servizio di condivisione dati         
 
@@ -469,7 +469,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   
 |||         
 
-<br />          
+
 
 ## <a name="datacollectionpublishingservice"></a>DataCollectionPublishingService          
 
@@ -483,7 +483,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   
 |||         
 
-<br />          
+
 
 ## <a name="dcom-server-process-launcher"></a>Utilità di avvio processi server DCOM         
 
@@ -497,7 +497,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   
 |||         
 
-<br />
+
 
 ##  <a name="device-association-service"></a>Servizio associazione dispositivi      
 
@@ -511,7 +511,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   
 |||         
 
-<br />
+
 
 ##  <a name="device-install-service"></a>Servizio installazione dispositivi
 
@@ -525,7 +525,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |
 |||
 
-<br />          
+
 
 ##  <a name="device-management-enrollment-service"></a>Servizio di registrazione gestione dispositivi        
 
@@ -539,7 +539,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   
 |||         
 
-<br />          
+
 
 ## <a name="device-setup-manager"></a>Gestione configurazione dispositivi         
 
@@ -553,7 +553,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   
 |||         
 
-<br />          
+
 
 ## <a name="devquery-background-discovery-broker"></a>Gestore individuazione in background DevQuery         
 
@@ -567,7 +567,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   
 |||         
 
-<br />          
+
 
 ## <a name="dhcp-client"></a>Client DHCP          
 
@@ -581,7 +581,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   
 |||         
 
-<br />          
+
 
 ## <a name="diagnostic-policy-service"></a>Servizio Criteri di diagnostica            
 
@@ -595,7 +595,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   
 |||         
 
-<br />          
+
 
 ##  <a name="diagnostic-service-host"></a>Host servizio di diagnostica     
 
@@ -609,7 +609,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   
 |||         
 
-<br />          
+
 
 ## <a name="diagnostic-system-host"></a>Host sistema di diagnostica           
 
@@ -623,7 +623,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   
 |||         
 
-<br />          
+
 
 ##  <a name="distributed-link-tracking-client"></a>Manutenzione collegamenti distribuiti client            
 
@@ -637,7 +637,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   
 |||         
 
-<br />          
+
 
 ##  <a name="distributed-transaction-coordinator"></a>Distributed Transaction Coordinator     
 
@@ -651,7 +651,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   
 |||         
 
-<br />  
+
 
 ##  <a name="dmwappushsvc"></a>dmwappushsvc        
 
@@ -665,7 +665,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   Il servizio è obbligatorio sui dispositivi client per Intune, MDM e simili tecnologie di gestione, e per Filtro scrittura unificato. Non è necessario per il server.
 |||         
 
-<br />      
+
 
 ##  <a name="dns-client"></a>Client DNS      
 
@@ -679,7 +679,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   
 |||         
 
-<br />          
+
 
 ##  <a name="downloaded-maps-manager"></a>Gestione mappe scaricate     
 
@@ -693,7 +693,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   La disabilitazione causa l'interruzione delle app che si basano sul servizio. OK disabilitare se le app non si basano sul servizio.
 |||         
 
-<br />          
+
 
 ## <a name="embedded-mode"></a>Modalità incorporata            
 
@@ -707,7 +707,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   
 |||         
 
-<br />          
+
 
 ## <a name="encrypting-file-system-efs"></a>Encrypting File System (EFS)
 
@@ -721,7 +721,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**   |
 |||                 
 
-<br />  
+
 
 ## <a name="enterprise-app-management-service"></a>Servizio di gestione app aziendali            
 
@@ -735,7 +735,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   
 |||         
 
-<br />          
+
 
 ## <a name="extensible-authentication-protocol"></a>Extensible Authentication Protocol           
 
@@ -749,7 +749,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   
 |||         
 
-<br />          
+
 
 ## <a name="function-discovery-provider-host"></a>Host provider di individuazione funzioni         
 
@@ -763,7 +763,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   
 |||         
 
-<br />          
+
 
 ## <a name="function-discovery-resource-publication"></a>Pubblicazione risorse per individuazione      
 
@@ -777,7 +777,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   
 |||         
 
-<br />          
+
 
 ## <a name="geolocation-service"></a>Servizio di georilevazione          
 
@@ -791,7 +791,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   La disabilitazione causa l'interruzione delle app che si basano sul servizio. OK disabilitare se le app non si basano sul servizio.
 |||         
 
-<br />          
+
 
 ##  <a name="group-policy-client"></a>Client di Criteri di gruppo     
 
@@ -805,7 +805,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   
 |||         
 
-<br />          
+
 
 
 ## <a name="human-interface-device-service"></a>Servizio Human Interface Device           
@@ -820,7 +820,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   
 |||         
 
-<br />          
+
 
 ##  <a name="hv-host-service"></a>Servizio host hypervisor     
 
@@ -834,7 +834,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   Servizio di miglioramento delle prestazioni per le macchine virtuali guest. Attualmente è usato solo per le macchine virtuali popolate in modo esplicito, ma verrà usato in Application Guard.
 |||         
 
-<br />          
+
 
 ## <a name="hyper-v-data-exchange-service"></a>Servizio Scambio di dati Hyper-V        
 
@@ -848,7 +848,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   Vedi HvHost
 |||         
 
-<br />      
+
 
 ## <a name="hyper-v-guest-service-interface"></a>Interfaccia servizio guest Hyper-V          
 
@@ -862,7 +862,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   Vedi HvHost
 |||         
 
-<br />  
+
 
 ## <a name="hyper-v-guest-shutdown-service"></a>Servizio Arresto guest Hyper-V           
 
@@ -876,7 +876,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   Vedi HvHost
 |||         
 
-<br />
+
 
 ## <a name="hyper-v-heartbeat-service"></a>Servizio Heartbeat Hyper-V
 | | |
@@ -889,7 +889,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   Vedi HvHost
 |||
 
-<br />          
+
 
 ## <a name="hyper-v-powershell-direct-service"></a>Servizio Hyper-V PowerShell Direct            
 
@@ -903,7 +903,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   Vedi HvHost
 |||         
 
-<br />          
+
 
 ## <a name="hyper-v-remote-desktop-virtualization-service"></a>Servizio Virtualizzazione Desktop remoto Hyper-V            
 
@@ -917,7 +917,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   Vedi HvHost
 |||         
 
-<br />          
+
 
 ## <a name="hyper-v-time-synchronization-service"></a>Servizio Sincronizzazione ora Hyper-V         
 
@@ -931,7 +931,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   Vedi HvHost
 |||         
 
-<br />          
+
 
 ## <a name="hyper-v-volume-shadow-copy-requestor"></a>Richiedente Copia Shadow del volume Hyper-V         
 
@@ -945,7 +945,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   Vedi HvHost
 |||         
 
-<br />          
+
 
 ## <a name="ike-and-authip-ipsec-keying-modules"></a>Moduli di impostazione chiavi IPSec IKE e Auth-IP          
 
@@ -959,7 +959,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |    
 |||         
 
-<br />          
+
 
 ## <a name="interactive-services-detection"></a>Rilevamento servizi interattivi           
 
@@ -973,7 +973,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   
 |||         
 
-<br />  
+
 
 ## <a name="internet-connection-sharing-ics"></a>Condivisione connessione Internet (ICS)            
 
@@ -987,7 +987,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   È obbligatorio per i client usati come hotspot Wi-Fi e anche su entrambe le estremità della proiezione Miracast. Il servizio ICS può essere bloccato con l'impostazione per oggetti Criteri di gruppo "Proibisci l'uso della Condivisione connessione Internet nella rete del dominio DNS".
 |||         
 
-<br />          
+
 
 ## <a name="ip-helper"></a>Helper IP            
 
@@ -1001,7 +1001,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   
 |||         
 
-<br />          
+
 
 
 ##  <a name="ipsec-policy-agent"></a>Agente criteri IPsec      
@@ -1016,7 +1016,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   
 |||         
 
-<br />
+
 
 ##  <a name="kdc-proxy-server-service-kps"></a>Servizio Server proxy KDC (KPS)      
 
@@ -1030,7 +1030,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   
 |||         
 
-<br />          
+
 
 ## <a name="ktmrm-for-distributed-transaction-coordinator"></a>KtmRm per Distributed Transaction Coordinator            
 
@@ -1044,7 +1044,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   
 |||         
 
-<br />
+
 
 ##  <a name="link-layer-topology-discovery-mapper"></a>Mapper individuazione topologia livelli di collegamento        
 
@@ -1058,7 +1058,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   OK disabilitare se non sono presenti dipendenze dalla mappa di rete.
 |||         
 
-<br />
+
 
 ## <a name="local-session-manager"></a>Gestione sessioni locali                    
 
@@ -1072,7 +1072,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   
 |||                 
 
-<br />                  
+
 
 ## <a name="microsoft-r-diagnostics-hub-standard-collector"></a>Servizio Agente di raccolta standard hub diagnostica Microsoft (R)         
 
@@ -1086,7 +1086,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   
 |||         
 
-<br />
+
 
 ## <a name="microsoft-account-sign-in-assistant"></a>Assistente per l'accesso all'account Microsoft
 | | |
@@ -1099,7 +1099,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   Gli account Microsoft non sono disponibili su Windows Server.
 |||
 
-<br />          
+
 
 ##  <a name="microsoft-app-v-client"></a>Client Microsoft App-V      
 
@@ -1113,7 +1113,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   
 |||         
 
-<br />          
+
 
 ## <a name="microsoft-iscsi-initiator-service"></a>Servizio iniziatore iSCSI Microsoft            
 
@@ -1127,7 +1127,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   I dati di diagnostica indicano che il servizio viene usato sul client e sul server. La disabilitazione del servizio non offre alcun vantaggio.
 |||         
 
-<br />          
+
 
 ## <a name="microsoft-passport"></a>Microsoft Passport           
 
@@ -1141,7 +1141,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   È necessario per gli accessi PIN/Hello, che non sono supportati sul server.
 |||         
 
-<br />          
+
 
 ## <a name="microsoft-passport-container"></a>Contenitore Microsoft Passport         
 
@@ -1155,7 +1155,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   
 |||         
 
-<br />          
+
 
 ## <a name="microsoft-software-shadow-copy-provider"></a>Provider di copie shadow software Microsoft          
 
@@ -1169,7 +1169,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   
 |||         
 
-<br />          
+
 
 ## <a name="microsoft-storage-spaces-smp"></a>SMP spazi di archiviazione Microsoft         
 
@@ -1183,7 +1183,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   Senza questo servizio, le API di gestione dell'archiviazione non potranno essere eseguite. Esempio: "Get-WmiObject -class MSFT_Disk -Namespace Root\Microsoft\Windows\Storage".
 |||         
 
-<br />          
+
 
 ## <a name="nettcp-port-sharing-service"></a>Servizio di condivisione porta Net.Tcp         
 
@@ -1197,7 +1197,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   
 |||         
 
-<br />          
+
 
 ## <a name="netlogon"></a>Accesso rete         
 
@@ -1211,7 +1211,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   
 |||         
 
-<br />          
+
 
 ## <a name="network-connection-broker"></a>Gestore connessione rete            
 
@@ -1225,7 +1225,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   
 |||         
 
-<br />          
+
 
 ##  <a name="network-connections"></a>Connessioni di rete         
 
@@ -1239,7 +1239,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   
 |||         
 
-<br />          
+
 
 ##  <a name="network-connectivity-assistant"></a>Assistente connettività di rete      
 
@@ -1253,7 +1253,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   
 |||         
 
-<br />  
+
 
 ##  <a name="network-list-service"></a>Servizio Elenco reti        
 
@@ -1267,7 +1267,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   
 |||         
 
-<br />          
+
 
 ## <a name="network-location-awareness"></a>Riconoscimento presenza in rete           
 
@@ -1281,7 +1281,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   
 |||         
 
-<br />          
+
 
 ##  <a name="network-setup-service"></a>Servizio di installazione della rete       
 
@@ -1295,7 +1295,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   
 |||         
 
-<br />          
+
 
 ## <a name="network-store-interface-service"></a>Servizio Interfaccia archivio di rete      
 
@@ -1309,7 +1309,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   
 |||         
 
-<br />          
+
 
 ## <a name="offline-files"></a>File offline            
 
@@ -1323,7 +1323,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   
 |||         
 
-<br />          
+
 
 ## <a name="optimize-drives"></a>Ottimizza unità          
 
@@ -1337,7 +1337,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   
 |||         
 
-<br />
+
 
 ## <a name="performance-counter-dll-host"></a>Host DLL contatore prestazioni         
 
@@ -1351,7 +1351,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   
 |||         
 
-<br />          
+
 
 ## <a name="performance-logs--alerts"></a>Avvisi e registri di prestazioni            
 
@@ -1365,7 +1365,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   
 |||         
 
-<br />          
+
 
 ##  <a name="phone-service"></a>Servizio Telefono       
 
@@ -1379,7 +1379,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   Usato dalle app VoIP moderne.
 |||         
 
-<br />          
+
 
 ##      <a name="plug-and-play"></a>Plug and Play       
 
@@ -1393,7 +1393,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   
 |||         
 
-<br />          
+
 
 ## <a name="portable-device-enumerator-service"></a>Servizio enumeratore dispositivi mobili           
 
@@ -1407,7 +1407,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   
 |||         
 
-<br />          
+
 
 ## <a name="power"></a>Alimentazione            
 
@@ -1421,7 +1421,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   
 |||         
 
-<br />          
+
 
 ## <a name="print-spooler"></a>Spooler di stampa            
 
@@ -1435,7 +1435,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   In un controller di dominio, l'installazione del ruolo del controller di dominio aggiunge un thread per il servizio spooler che è responsabile dell'eliminazione degli oggetti coda di stampa obsoleti da Active Directory.  Se il servizio spooler non è in esecuzione su almeno un controller di dominio in ogni sito, Active Directory non è in grado di rimuovere le code precedenti che non esistono più. [https://blogs.technet.microsoft.com/askperf/2008/11/18/disabling-unnecessary-services-a-word-to-the-wise/](https://blogs.technet.microsoft.com/askperf/2008/11/18/disabling-unnecessary-services-a-word-to-the-wise/ )
 |||         
 
-<br />          
+
 
 ##  <a name="printer-extensions-and-notifications"></a>Estensioni e notifiche della stampante        
 
@@ -1449,7 +1449,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   
 |||         
 
-<br />          
+
 
 ##  <a name="problem-reports-and-solutions-control-panel-support"></a>Segnalazioni di problemi e soluzioni nel Pannello di controllo     
 
@@ -1463,7 +1463,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   
 |||         
 
-<br />          
+
 
 ##  <a name="program-compatibility-assistant-service"></a>Servizio Risoluzione problemi compatibilità programmi     
 
@@ -1477,7 +1477,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   
 |||         
 
-<br />          
+
 
 ##  <a name="quality-windows-audio-video-experience"></a>Servizio audio/video Windows di qualità      
 
@@ -1491,7 +1491,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   Servizio QoS sul lato client
 |||         
 
-<br />          
+
 
 ##      <a name="radio-management-service"></a>Servizio di gestione radio        
 
@@ -1505,7 +1505,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   
 |||         
 
-<br />          
+
 
 ## <a name="remote-access-auto-connection-manager"></a>Auto Connection Manager di Accesso remoto            
 
@@ -1519,7 +1519,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   
 |||         
 
-<br />          
+
 
 ## <a name="remote-access-connection-manager"></a>Connection Manager di Accesso remoto         
 
@@ -1533,7 +1533,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   
 |||         
 
-<br />          
+
 
 ## <a name="remote-desktop-configuration"></a>Configurazione di Desktop remoto         
 
@@ -1547,7 +1547,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   
 |||         
 
-<br />          
+
 
 ## <a name="remote-desktop-services"></a>Servizi Desktop remoto          
 
@@ -1561,7 +1561,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   
 |||         
 
-<br />          
+
 
 ##  <a name="remote-desktop-services-usermode-port-redirector"></a>Redirector porta UserMode di Servizi Desktop remoto        
 
@@ -1575,7 +1575,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   Supporta i reindirizzamenti sul lato server della connessione.
 |||         
 
-<br />          
+
 
 ## <a name="remote-procedure-call-rpc"></a>RPC (Remote Procedure Call)          
 
@@ -1589,7 +1589,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   
 |||         
 
-<br />          
+
 
 ##  <a name="remote-procedure-call-rpc-locator"></a>RPC Locator             
 
@@ -1603,7 +1603,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |       |
 |||             
 
-<br />              
+
 
 ## <a name="remote-registry"></a>Registro di sistema remoto          
 
@@ -1617,7 +1617,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   
 |||         
 
-<br />          
+
 
 ##  <a name="resultant-set-of-policy-provider"></a>Provider Gruppo di criteri risultante            
 
@@ -1631,7 +1631,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   
 |||         
 
-<br />          
+
 
 ## <a name="routing-and-remote-access"></a>Routing e Accesso remoto            
 
@@ -1645,7 +1645,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   Già disabilitato
 |||         
 
-<br />          
+
 
 ## <a name="rpc-endpoint-mapper"></a>Agente mapping endpoint RPC          
 
@@ -1659,7 +1659,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   
 |||         
 
-<br />          
+
 
 ##  <a name="secondary-logon"></a>Accesso secondario     
 
@@ -1673,7 +1673,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   
 |||         
 
-<br />          
+
 
 ##  <a name="secure-socket-tunneling-protocol-service"></a>Servizio SSTP (Secure Socket Tunneling Protocol)            
 
@@ -1687,7 +1687,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   La disabilitazione causa l'interruzione di RRAS.   |
 |||             
 
-<br />              
+
 
 ## <a name="security-accounts-manager"></a>Sistema di gestione degli account di sicurezza (SAM)            
 
@@ -1701,7 +1701,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   
 |||         
 
-<br />          
+
 
 ## <a name="sensor-data-service"></a>Servizio dati sensore  
 
@@ -1715,7 +1715,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   
 |||         
 
-<br />  
+
 
 ## <a name="sensor-monitoring-service"></a>Servizio monitoraggio sensori            
 
@@ -1729,8 +1729,6 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   
 |||         
 
-<br />
-
 ## <a name="sensor-service"></a>Servizio sensori
 
 | | |
@@ -1742,8 +1740,6 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Consiglio**  |   OK disabilitare
 |   **Commenti**    |
 |||
-  
-<br />          
 
 ## <a name="server"></a>Server           
 
@@ -1757,7 +1753,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   È necessario per la gestione remota, IPC$ e la condivisione di file SMB.
 |||         
 
-<br />          
+
 
 ## <a name="shell-hardware-detection"></a>Rilevamento hardware shell             
 
@@ -1771,7 +1767,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   
 |||         
 
-<br />          
+
 
 ## <a name="smart-card"></a>Smart card           
 
@@ -1785,7 +1781,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   
 |||         
 
-<br />          
+
 
 ## <a name="smart-card-device-enumeration-service"></a>Servizio di enumerazione dispositivo smart card                    
 
@@ -1799,7 +1795,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   È necessario quasi esclusivamente per le app WinRT.    |
 |||             
 
-<br />              
+
 
 ## <a name="smart-card-removal-policy"></a>Criterio rimozione smart card        
 
@@ -1813,7 +1809,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   
 |||         
 
-<br />          
+
 
 ## <a name="snmp-trap"></a>Trap SNMP            
 
@@ -1827,7 +1823,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   
 |||         
 
-<br />          
+
 
 ##  <a name="software-protection"></a>Protezione software             
 
@@ -1841,7 +1837,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   
 |||         
 
-<br />          
+
 
 ## <a name="special-administration-console-helper"></a>Helper console di amministrazione speciale        
 
@@ -1855,7 +1851,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   
 |||         
 
-<br />          
+
 
 ## <a name="spot-verifier"></a>Verifica errori NTFS            
 
@@ -1869,7 +1865,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   
 |||         
 
-<br />          
+
 
 ## <a name="ssdp-discovery"></a>Individuazione SSDP           
 
@@ -1883,7 +1879,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   
 |||         
 
-<br />          
+
 
 ## <a name="state-repository-service"></a>Servizio repository stati         
 
@@ -1897,7 +1893,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   
 |||         
 
-<br />          
+
 
 ##  <a name="still-image-acquisition-events"></a>Eventi acquisizione Still Image
 
@@ -1911,7 +1907,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   
 |||         
 
-<br />  
+
 
 ## <a name="storage-service"></a>Servizio di archiviazione          
 
@@ -1925,7 +1921,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   
 |||         
 
-<br />          
+
 
 ##  <a name="storage-tiers-management"></a>Gestione livelli di archiviazione        
 
@@ -1939,7 +1935,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   
 |||         
 
-<br />          
+
 
 ##  <a name="superfetch"></a>Ottimizzazione avvio          
 
@@ -1953,7 +1949,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   
 |||         
 
-<br />          
+
 
 ## <a name="sync-host"></a>Sincronizza host            
 
@@ -1967,7 +1963,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   Modello di servizio utente
 |||         
 
-<br />          
+
 
 ## <a name="system-event-notification-service"></a>Servizio di notifica eventi di sistema            
 
@@ -1981,7 +1977,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   
 |||         
 
-<br />          
+
 
 ## <a name="system-events-broker"></a>Gestore eventi di sistema             
 
@@ -1995,7 +1991,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   Anche se la descrizione sottintende che sia destinato solo alle app WinRT, il servizio è necessario per l'utilità di pianificazione, il servizio dell'infrastruttura di gestione e altri componenti interni.
 |||         
 
-<br />          
+
 
 ## <a name="task-scheduler"></a>Utilità di pianificazione           
 
@@ -2009,7 +2005,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   
 |||         
 
-<br />          
+
 
 ## <a name="tcpip-netbios-helper"></a>Helper NetBIOS di TCP/IP            
 
@@ -2023,7 +2019,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   
 |||         
 
-<br />          
+
 
 ##  <a name="telephony"></a>Telephony           
 
@@ -2037,7 +2033,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   La disabilitazione causa l'interruzione di RRAS.
 |||         
 
-<br />          
+
 
 ## <a name="themes"></a>Temi           
 
@@ -2051,7 +2047,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   Non è possibile impostare i temi di accessibilità quando il servizio è disabilitato.
 |||         
 
-<br />  
+
 
 ## <a name="tile-data-model-server"></a>Server modello dati sezioni           
 
@@ -2065,7 +2061,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   La disabilitazione del servizio causa l'interruzione del menu Start.
 |||         
 
-<br />          
+
 
 ##  <a name="time-broker"></a>Gestore tempo     
 
@@ -2079,7 +2075,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   Anche se la descrizione sottintende che sia destinato solo alle app WinRT, il servizio è necessario per l'utilità di pianificazione, il servizio dell'infrastruttura di gestione e altri componenti interni.
 |||         
 
-<br />          
+
 
 ## <a name="touch-keyboard-and-handwriting-panel-service"></a>Servizio tastiera virtuale e pannello per la grafia         
 
@@ -2093,7 +2089,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   
 |||         
 
-<br />          
+
 
 ## <a name="update-orchestrator-service-for-windows-update"></a>Servizio agente di orchestrazione aggiornamenti per Windows Update           
 
@@ -2107,7 +2103,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   La descrizione del servizio non è presente nella versione 1607. Windows Update (incluso WSUS) dipende da questo servizio.
 |||         
 
-<br />          
+
 
 ## <a name="upnp-device-host"></a>Host di dispositivi UPnP         
 
@@ -2121,7 +2117,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   
 |||         
 
-<br />          
+
 
 ## <a name="user-access-logging-service"></a>Servizio registrazione accessi utente          
 
@@ -2135,7 +2131,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   
 |||         
 
-<br />          
+
 
 ##  <a name="user-data-access"></a>Accesso dati utente        
 
@@ -2149,7 +2145,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   Modello di servizio utente
 |||         
 
-<br />          
+
 
 ## <a name="user-data-storage"></a>Archiviazione dati utente            
 
@@ -2163,7 +2159,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   Modello di servizio utente
 |||         
 
-<br />          
+
 
 ## <a name="user-experience-virtualization-service"></a>Servizio User Experience Virtualization           
 
@@ -2177,7 +2173,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   
 |||         
 
-<br />          
+
 
 ##  <a name="user-manager"></a>Gestione utenti        
 
@@ -2191,7 +2187,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   
 |||         
 
-<br />          
+
 
 ## <a name="user-profile-service"></a>Servizio profili utente         
 
@@ -2205,7 +2201,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   
 |||         
 
-<br />          
+
 
 ## <a name="virtual-disk"></a>Disco virtuale             
 
@@ -2219,7 +2215,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   
 |||         
 
-<br />          
+
 
 ## <a name="volume-shadow-copy"></a>Copia shadow del volume           
 
@@ -2233,7 +2229,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   
 |||         
 
-<br />          
+
 
 ##  <a name="walletservice"></a>WalletService           
 
@@ -2247,7 +2243,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   
 |||         
 
-<br />          
+
 
 ## <a name="windows-audio"></a>Audio di Windows            
 
@@ -2261,7 +2257,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   
 |||         
 
-<br />          
+
 
 ## <a name="windows-audio-endpoint-builder"></a>Generatore endpoint audio Windows           
 
@@ -2275,7 +2271,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   
 |||         
 
-<br />          
+
 
 ## <a name="windows-biometric-service"></a>Servizio di biometria Windows            
 
@@ -2289,7 +2285,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   
 |||         
 
-<br />          
+
 
 ##  <a name="windows-camera-frame-server"></a>Server di fotogrammi fotocamera Windows         
 
@@ -2303,7 +2299,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   
 |||         
 
-<br />          
+
 
 ## <a name="windows-connection-manager"></a>Gestione connessioni Windows           
 
@@ -2317,7 +2313,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   
 |||         
 
-<br />          
+
 
 ## <a name="windows-defender-network-inspection-service"></a>Servizio Controllo rete di Windows Defender          
 
@@ -2331,7 +2327,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   
 |||         
 
-<br />          
+
 
 ## <a name="windows-defender-service"></a>Servizio Windows Defender         
 
@@ -2345,7 +2341,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   
 |||         
 
-<br />          
+
 
 ## <a name="windows-driver-foundation---user-mode-driver-framework"></a>Windows Driver Foundation - Framework driver modalità utente           
 
@@ -2359,7 +2355,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   
 |||         
 
-<br />          
+
 
 ## <a name="windows-encryption-provider-host-service"></a>Servizio host del provider di crittografia di Windows     
 
@@ -2373,7 +2369,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   
 |||         
 
-<br />          
+
 
 ## <a name="windows-error-reporting-service"></a>Servizio Segnalazione errori Windows          
 
@@ -2387,7 +2383,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   Raccoglie e invia i dati di arresto anomalo/blocco usati da Microsoft e da fornitori di software o hardware indipendenti di terze parti. I dati vengono usati per diagnosticare i bug che causano l'arresto anomalo del sistema, che possono includere i bug di sicurezza. È necessario anche per la segnalazione di errori a un server interno.
 |||         
 
-<br />          
+
 
 ## <a name="windows-event-collector"></a>Raccolta eventi Windows          
 
@@ -2401,7 +2397,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   Raccoglie gli eventi ETW (inclusi gli eventi di sicurezza) per la gestibilità e la diagnostica.  Numerosi strumenti di terze parti e funzionalità si basano su questo servizio, inclusi gli strumenti di controllo della sicurezza.
 |||         
 
-<br />          
+
 
 ## <a name="windows-event-log"></a>Registro eventi di Windows            
 
@@ -2415,7 +2411,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   
 |||         
 
-<br />          
+
 
 ## <a name="windows-firewall"></a>Windows Firewall         
 
@@ -2429,7 +2425,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   
 |||         
 
-<br />          
+
 
 ##  <a name="windows-font-cache-service"></a>Servizio cache tipi di carattere Windows      
 
@@ -2443,7 +2439,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   
 |||         
 
-<br />          
+
 
 ## <a name="windows-image-acquisition-wia"></a>Acquisizione di immagini di Windows (WIA)          
 
@@ -2457,7 +2453,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   
 |||         
 
-<br />          
+
 
 ##  <a name="windows-insider-service"></a>Servizio Windows Insider     
 
@@ -2471,7 +2467,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   Il server non supporta la distribuzione di versioni di anteprima, pertanto si verifica una fase senza operazioni sul server. La funzionalità può essere disabilitata anche tramite Criteri di gruppo.
 |||         
 
-<br />          
+
 
 ##  <a name="windows-installer"></a>Windows Installer       
 
@@ -2485,7 +2481,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   
 |||         
 
-<br />          
+
 
 ## <a name="windows-license-manager-service"></a>Servizio Gestione licenze Windows          
 
@@ -2499,7 +2495,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   
 |||         
 
-<br />          
+
 
 ## <a name="windows-management-instrumentation"></a>Strumentazione gestione Windows (WMI)       
 
@@ -2513,7 +2509,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   
 |||         
 
-<br />          
+
 
 ##  <a name="windows-mobile-hotspot-service"></a>Servizio hotspot di Windows Mobile          
 
@@ -2527,7 +2523,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   
 |||         
 
-<br />          
+
 
 ## <a name="windows-modules-installer"></a>Programma di installazione dei moduli di Windows        
 
@@ -2541,7 +2537,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   
 |||         
 
-<br />          
+
 
 ## <a name="windows-push-notifications-system-service"></a>Servizio di sistema notifiche Push Windows            
 
@@ -2555,7 +2551,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   È necessario per i riquadri animati e per altre funzionalità.
 |||         
 
-<br />      
+
 
 ## <a name="windows-push-notifications-user-service"></a>Servizio utente notifica Push Windows          
 
@@ -2569,7 +2565,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   Modello di servizio utente
 |||         
 
-<br />
+
 
 ## <a name="windows-remote-management-ws-management"></a>Gestione remota Windows (WS-Management)
 | | |
@@ -2582,7 +2578,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   È necessario per la gestione remota.
 |||
 
-<br />          
+
 
 ##  <a name="windows-search"></a>Windows Search      
 
@@ -2596,7 +2592,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   
 |||         
 
-<br />          
+
 
 ##  <a name="windows-time"></a>Ora di Windows        
 
@@ -2610,7 +2606,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   
 |||         
 
-<br />          
+
 
 ## <a name="windows-update"></a>Windows Update           
 
@@ -2624,7 +2620,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   
 |||         
 
-<br />          
+
 
 ## <a name="winhttp-web-proxy-auto-discovery-service"></a>Servizio rilevamento automatico proxy WinHTTP         
 
@@ -2638,7 +2634,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   Qualsiasi implementazione che usa lo stack di rete può avere una dipendenza funzionale da questo servizio. Molte organizzazioni si basano su questo servizio per configurare il routing del proxy HTTP delle reti interne.  Senza questo servizio, le connessioni HTTP dalla rete interna a Internet avranno esito negativo.
 |||         
 
-<br />          
+
 
 ## <a name="wired-autoconfig"></a>Configurazione automatica reti cablate         
 
@@ -2652,7 +2648,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   
 |||         
 
-<br />          
+
 
 ## <a name="wmi-performance-adapter"></a>Scheda delle prestazioni WMI          
 
@@ -2666,7 +2662,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   
 |||         
 
-<br />          
+
 
 ## <a name="workstation"></a>Workstation          
 
@@ -2680,7 +2676,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   
 |||         
 
-<br />
+
 
 ## <a name="xbox-live-auth-manager"></a>Gestione autenticazione Xbox Live           
 
@@ -2694,7 +2690,7 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   
 |||         
 
-<br />          
+
 
 ## <a name="xbox-live-game-save"></a>Giochi salvati su Xbox Live          
 
@@ -2708,6 +2704,6 @@ Le tabelle seguenti presentano le linee guida sulla sicurezza per la disabilitaz
 |   **Commenti**    |   Questo servizio consente di sincronizzare i dati salvati su Xbox Live per i giochi abilitati.  Se il servizio viene arrestato, non sarà possibile caricare né scaricare i dati salvati su Xbox Live.
 |||         
 
-<br /> 
-<br /> 
+
+
 

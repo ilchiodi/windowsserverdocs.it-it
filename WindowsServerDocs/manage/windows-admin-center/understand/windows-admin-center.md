@@ -8,12 +8,12 @@ ms.author: harowl
 ms.date: 08/22/2019
 ms.localizationpriority: high
 ms.prod: windows-server
-ms.openlocfilehash: a2ff1d6a31715488c9c2dd2ed3421ea3d5e29085
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 3366a1ba1ed9405130d7c8a7b71ad51f7d917e51
+ms.sourcegitcommit: 1da993bbb7d578a542e224dde07f93adfcd2f489
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71356930"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73567112"
 ---
 # <a name="hello-windows-admin-center"></a>Introduzione a Windows Admin Center
 
@@ -23,11 +23,9 @@ Windows Admin Center è un'app distribuita in locale e basata su browser che con
 
 ## <a name="download-now"></a>Scarica subito
 
-[Come scegliere la versione più adatta](faq.md#what-is-windows-admin-center-preview-which-version-is-right-for-me)
+Visita Microsoft Evaluation Center per scaricare [Windows Admin Center](https://www.microsoft.com/evalcenter/evaluate-windows-admin-center) adesso.
 
-[Windows Admin Center **Preview** 1909](https://www.microsoft.com/en-us/software-download/windowsinsiderpreviewserver) - Include gli aggiornamenti delle funzionalità più recenti.
-
-[Windows Admin Center (versione 1904.1)](https://aka.ms/WACDownload) - Ampiamente convalidato e disponibile per il pubblico.
+Non lasciarti confondere dalla posizione in "Evaluation Center". Questa è la posizione in cui è possibile ottenere la versione disponibile a livello generale.
 
 [Novità](../overview.md#release-history)
 

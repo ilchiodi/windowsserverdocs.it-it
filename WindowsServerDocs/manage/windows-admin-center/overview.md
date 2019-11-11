@@ -8,12 +8,12 @@ ms.author: niwashbu
 ms.date: 09/18/2019
 ms.localizationpriority: high
 ms.prod: windows-server
-ms.openlocfilehash: e235c8013afa573712feaec75bbd1ca195c0e307
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: c914a472869f9887c83733d6aab614b5676d17d7
+ms.sourcegitcommit: 1da993bbb7d578a542e224dde07f93adfcd2f489
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71356995"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73567128"
 ---
 # <a name="windows-admin-center"></a>Windows Admin Center
 
@@ -25,9 +25,9 @@ ms.locfileid: "71356995"
 
 >[!VIDEO https://www.youtube.com/embed/PcQj6ZklmK0]
 
-![Infografica di Windows Admin Center](media/WAC1809Poster_thumb.PNG)
+![Infografica di Windows Admin Center](media/WAC1910Poster_thumb.PNG)
 
-[Scarica il PDF](https://github.com/MicrosoftDocs/windowsserverdocs/raw/master/WindowsServerDocs/manage/windows-admin-center/media/WindowsAdminCenter1809Poster.pdf)
+[Scarica il PDF](https://github.com/MicrosoftDocs/windowsserverdocs/raw/master/WindowsServerDocs/manage/windows-admin-center/media/WindowsAdminCenter1910Poster.pdf)
 
 ## <a name="quick-start"></a>Avvio rapido
 
@@ -86,6 +86,7 @@ Puoi rendere operativo Windows Admin Center nel tuo ambiente in pochi minuti:
             <ul>
             <li><a href="use/get-started.md">Avviare e aggiungere connessioni</a>
             <li><a href="use/manage-servers.md">Gestire i server</a>
+            <li><a href="use/deploy-hyperconverged-infrastructure.md">Distribuire l'infrastruttura iperconvergente</a>
             <li><a href="use/manage-hyper-converged.md">Gestire l'infrastruttura iperconvergente</a>
             <li><a href="use/manage-failover-clusters.md">Gestire i cluster di failover</a>
             <li><a href="use/manage-virtual-machines.md">Gestire le macchine virtuali</a>
@@ -129,11 +130,12 @@ Puoi rendere operativo Windows Admin Center nel tuo ambiente in pochi minuti:
 
 Informazioni sulle ultime funzionalità rilasciate:
 
+- Versione [1910](https://aka.ms/wac1910), ovvero la versione disponibile a livello generale più recente: introduzione di alcuni nuovi servizi ibridi di Azure e aggiunta di nuove funzionalità che in precedenza erano in anteprima per il canale di disponibilità a livello generale.
 - Versione [1909](https://aka.ms/wac1909): introduzione del tipo di connessione specifico delle macchine virtuali di Azure e unione dei tipi di connessione per i cluster di failover tradizionali e i cluster HCI.
 - Versione [1908](https://aka.ms/wac1908): aggiunta di aggiornamenti visivi, Packetmon, FlowLog Audit, onboarding di Monitoraggio di Azure per i cluster e supporto per WinRM su HTTPS (porta 5986).
 - Versione [1907](https://aka.ms/wac1907): aggiunta di collegamenti per la stima dei costi di Azure e miglioramenti apportati alle attività di importazione/esportazione e all'aggiunta di tag per le macchine virtuali.
 - Versione [1906](https://aka.ms/wac1906): aggiunta di attività di importazione/esportazione di macchine virtuali, cambio di account di Azure, connessioni da Azure, esperimenti con le impostazioni di connettività, miglioramenti delle prestazioni e strumento di profilatura delle prestazioni.
-- La versione 1904.1 è la versione disponibile a livello generale più recente: un aggiornamento di manutenzione per migliorare la stabilità dei plug-in gateway.
+- La versione 1904.1 era un aggiornamento di manutenzione per migliorare la stabilità dei plug-in di gateway.
 - La versione [1904](https://aka.ms/wac1904) era una versione disponibile a livello generale in cui è stato introdotto lo strumento dei servizi ibridi di Azure e sono state incluse funzionalità precedentemente in anteprima per il canale disponibile a livello generale.
 - Versione [1903](https://aka.ms/wac1903): aggiunta delle notifiche tramite posta elettronica da Monitoraggio di Azure, della possibilità di aggiungere connessioni server o PC da Active Directory e di nuovi strumenti per gestire Active Directory, DHCP e DNS.
 - Versione [1902](https://aka.ms/wac1902): aggiunta di un elenco di connessioni condivise e miglioramenti per la gestione di reti software-defined (SDN), inclusi nuovi strumenti SDN per gestire gli ACL, le connessioni gateway e le reti logiche.

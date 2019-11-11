@@ -11,14 +11,14 @@ ms.topic: article
 author: heidilohr
 manager: daveba
 ms.author: helohr
-ms.date: 09/24/2019
+ms.date: 10/31/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 961d636fb59b33d0c562ec25d13174abbe766606
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: aff7e6e1f37cad66530679ade024c089a4ba034e
+ms.sourcegitcommit: 1da993bbb7d578a542e224dde07f93adfcd2f489
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71404074"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73567170"
 ---
 # <a name="get-started-with-the-windows-desktop-client"></a>Introduzione al client desktop di Windows
 
@@ -33,9 +33,11 @@ Puoi usare il client Desktop remoto per il desktop di Windows per accedere a des
 
 ## <a name="install-the-client"></a>Installare il client
 
-Attualmente è possibile scaricare il client per Windows a 64 bit. Questo elenco verrà aggiornato quando il client sarà disponibile per altre versioni di Windows.
+Scegli il client che corrisponde alla tua versione di Windows:
 
-- [Client Windows a 64-bit](https://go.microsoft.com/fwlink/?linkid=2068602)
+- [Windows a 64 bit](https://go.microsoft.com/fwlink/?linkid=2068602)
+- [Anteprima di Windows a 32 bit](https://go.microsoft.com/fwlink/?linkid=2098960)
+- [Anteprima di Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2098961)
 
 Puoi installare il client per l'utente corrente, nel qual caso non sono richiesti diritti di amministratore, oppure l'amministratore può installare e configurare il client in modo che tutti gli utenti del dispositivo possano accedervi.
 
