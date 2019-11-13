@@ -47,12 +47,12 @@ Gli attributi di indicizzazione sono utili per la ricerca di oggetti con il nome
 
 - Grandi volumi di query con durata elevata causano il consumo e l'esaurimento dei thread LDAP ATQ. Monitorare i contatori delle prestazioni seguenti:
 
-    - **NTDS @ no__t-1Request latenza** : questo è soggetto al tempo necessario per l'elaborazione della richiesta. Active Directory timeout delle richieste dopo 120 secondi (impostazione predefinita), tuttavia, la maggior parte dovrebbe essere eseguita molto più velocemente e le query con esecuzione estremamente lunga dovrebbero essere nascoste nei numeri complessivi. Cercare le modifiche in questa linea di base, anziché le soglie assolute.
+    - **Latenza richiesta\\NTDS** : questo è soggetto al tempo necessario per l'elaborazione della richiesta. Active Directory timeout delle richieste dopo 120 secondi (impostazione predefinita), tuttavia, la maggior parte dovrebbe essere eseguita molto più velocemente e le query con esecuzione estremamente lunga dovrebbero essere nascoste nei numeri complessivi. Cercare le modifiche in questa linea di base, anziché le soglie assolute.
 
         > [!NOTE]
         > I valori elevati possono inoltre essere indicatori di ritardi nelle richieste di "inoltro" ad altri domini e controlli CRL.
 
-    - **NTDS @ no__t-1Estimated Queue Delay** : questo dovrebbe essere idealmente prossimo a 0 per ottenere prestazioni ottimali, in quanto ciò significa che le richieste non passano tempo in attesa di essere gestite.
+    - **NTDS\\ritardo della coda stimato** : questo dovrebbe essere idealmente prossimo a 0 per ottenere prestazioni ottimali, in quanto ciò significa che le richieste non passano tempo in attesa di essere servite.
 
 Questi scenari possono essere rilevati utilizzando uno o più degli approcci seguenti:
 
@@ -60,11 +60,11 @@ Questi scenari possono essere rilevati utilizzando uno o più degli approcci seg
 
 -   [Rilevamento di ricerche costose e inefficienti](https://msdn.microsoft.com/library/ms808539.aspx)
 
--   Active Directory insieme agenti di raccolta dati di diagnostica in Performance Monitor ([Son di SPA: Insiemi agenti di raccolta dati AD in Win2008 e oltre @ no__t-0)
+-   Active Directory insieme agenti di raccolta dati di diagnostica in Performance Monitor ([figlio di Spa: set agenti di raccolta dati ad in Win2008 e versioni successive](http://blogs.technet.com/b/askds/archive/2010/06/08/son-of-spa-ad-data-collector-sets-in-win2008-and-beyond.aspx))
 
 -   [Microsoft Server Performance Advisor](../../../server-performance-advisor/microsoft-server-performance-advisor.md) Pacchetto di Active Directory Advisor
 
--   Esegue la ricerca utilizzando un filtro oltre a "(objectClass = \*)" che utilizzano l'indice dei predecessori.
+-   Esegue la ricerca usando un filtro oltre a "(objectClass =\*)" che usano l'indice dei predecessori.
 
 ### <a name="other-index-considerations"></a>Altre considerazioni sugli indici
 
@@ -80,11 +80,11 @@ Questi scenari possono essere rilevati utilizzando uno o più degli approcci seg
 
 -   Gli indici di tupla sono necessari per supportare le stringhe di ricerca mediale e le stringhe di ricerca finale. Gli indici di tupla non sono necessari per le stringhe di ricerca iniziali.
 
-    -   Stringa di ricerca iniziale – (samAccountName = MYPC @ no__t-0)
+    -   Stringa di ricerca iniziale – (samAccountName = MYPC\*)
 
-    -   Stringa di ricerca mediana-(samAccountName = \*MYPC @ no__t-1)
+    -   Stringa di ricerca mediana-(samAccountName =\*MYPC\*)
 
-    -   Stringa di ricerca finale – (samAccountName = \*MYPC $)
+    -   Stringa di ricerca finale – (samAccountName =\*MYPC $)
 
 -   La creazione di un indice genererà l'I/O del disco durante la compilazione dell'indice. Questa operazione viene eseguita in un thread in background con priorità più bassa e le richieste in ingresso verranno classificate in ordine di priorità sulla compilazione dell'indice. Se la pianificazione della capacità per l'ambiente è stata eseguita correttamente, questa operazione dovrebbe essere trasparente. Tuttavia, gli scenari con gravi Scritture o un ambiente in cui il carico sull'archiviazione del controller di dominio è sconosciuto potrebbero compromettere l'esperienza del client ed essere eseguiti fuori orario.
 
@@ -98,7 +98,7 @@ Per ulteriori informazioni, vedere gli argomenti seguenti:
 
 -   [Attributi indicizzati](https://msdn.microsoft.com/library/windows/desktop/ms677112.aspx)
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 - [Ottimizzazione delle prestazioni di Active Directory Server](index.md)
 - [Considerazioni relative ai requisiti hardware](hardware-considerations.md)

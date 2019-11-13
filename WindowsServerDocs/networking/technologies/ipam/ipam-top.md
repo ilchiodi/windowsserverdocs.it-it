@@ -31,4 +31,4 @@ Gestione indirizzi IP è una suite integrata di strumenti che consentono la pian
 > -   [Novità di gestione indirizzi IP](../../technologies/ipam/What-s-New-in-IPAM.md)  
 > -   [Gestire Gestione indirizzi IP](../../technologies/ipam/Manage-IPAM.md)  
 > -   [Cmdlet del server Gestione indirizzi IP in Windows PowerShell](https://technet.microsoft.com/library/jj553807.aspx)  
-> -   Video: Server @no__t 0Windows 2016: Gestione DNS in IPAM @ no__t-0  
+> -   Video: [Windows Server 2016: gestione DNS in gestione](https://channel9.msdn.com/Blogs/windowsserver/Windows-Server-2016-DNS-management-in-IPAM) indirizzi IP  

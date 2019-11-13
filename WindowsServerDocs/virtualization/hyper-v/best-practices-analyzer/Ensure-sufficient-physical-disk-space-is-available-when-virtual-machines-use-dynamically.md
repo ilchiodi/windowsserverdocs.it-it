@@ -36,12 +36,12 @@ Nelle sezioni seguenti, corsivo indica il testo dell'interfaccia Utente visualiz
 *Una o più macchine virtuali utilizzano dischi rigidi virtuali a espansione dinamica.*  
   
 ## <a name="impact"></a>Impatto  
-i dischi rigidi virtuali a espansione @no__t 0Dynamically richiedono lo spazio disponibile nel volume host, in modo che lo spazio possa essere allocato quando si verificano scritture nei dischi rigidi virtuali. Se lo spazio disponibile è esaurito, è possibile che una macchina virtuale che si basa sull'archiviazione fisica potrebbe risentirne. Ciò influisca sulle macchine virtuali seguenti: *  
+*Per i dischi rigidi virtuali a espansione dinamica è necessario spazio disponibile sul volume di hosting, in modo che lo spazio possa essere allocato quando si verificano scritture nei dischi rigidi virtuali. Se lo spazio disponibile è esaurito, potrebbero essere interessate tutte le macchine virtuali che si basano sull'archiviazione fisica. Ciò influisca sulle macchine virtuali seguenti:*  
   
-@no__t 0list di macchine virtuali >  
+\<elenco di macchine virtuali >  
   
 ## <a name="resolution"></a>Risoluzione  
-*Monitor spazio disponibile su disco per garantire che lo spazio disponibile sia sufficiente per l'espansione. È consigliabile arrestare la macchina virtuale e utilizzare la modifica guidata disco nella console di gestione di Hyper-V per convertire ogni disco rigido virtuale a espansione dinamica per la macchina virtuale in un disco rigido virtuale a dimensione fissa.*  
+*Monitorare lo spazio disponibile su disco per garantire che lo spazio disponibile sia sufficiente per l'espansione. È consigliabile arrestare la macchina virtuale e utilizzare la modifica guidata disco nella console di gestione di Hyper-V per convertire ogni disco rigido virtuale a espansione dinamica per la macchina virtuale in un disco rigido virtuale a dimensione fissa.*  
   
 
 

@@ -38,10 +38,10 @@ Nelle sezioni seguenti, corsivo indica il testo dell'interfaccia Utente visualiz
 ## <a name="impact"></a>Impatto  
 *Le prestazioni di rete non sono ottimali nelle macchine virtuali seguenti:*  
   
-@no__t 0list di macchine virtuali >  
+\<elenco di macchine virtuali >  
   
 ## <a name="resolution"></a>Risoluzione  
-@no__t 0Cm il sistema operativo guest, eseguire le operazioni seguenti: Verificare che siano installati i driver appropriati e che siano abilitati tutti i dispositivi di rete e verificare la presenza di errori o avvisi nel registro eventi. *  
+*Nel sistema operativo guest eseguire le operazioni seguenti: verificare che siano installati i driver appropriati e che siano abilitati tutti i dispositivi di rete e verificare la presenza di errori o avvisi nel registro eventi.*  
   
 
 

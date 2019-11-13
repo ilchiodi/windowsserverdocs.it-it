@@ -26,15 +26,15 @@ ms.locfileid: "71404359"
  Windows Server 2016 e Windows Server 2012 combinano DirectAccess e la VPN del servizio Routing e accesso remoto (RRAS) in un singolo ruolo accesso remoto. Questa panoramica offre un'introduzione ai passaggi di configurazione necessari per distribuire una singola distribuzione multisito di accesso remoto di Windows Server 2016 o Windows Server 2012.  
   
   
--  Passaggio 1: [Distribuire un server DirectAccess singolo con impostazioni avanzate](https://technet.microsoft.com/windows-server-docs/networking/remote-access/directaccess/single-server-advanced/deploy-a-single-directaccess-server-with-advanced-settings). Questo passaggio include la pianificazione dell'infrastruttura necessaria per distribuire un singolo server. Include la pianificazione delle impostazioni di rete e del server, i requisiti dei certificati, le impostazioni DNS, la distribuzione del server dei percorsi di rete, i server di Gestione DirectAccess, le impostazioni di Active Directory e gli oggetti di Criteri di gruppo (GPO).  
+-  Passaggio 1: [distribuire un server DirectAccess singolo con impostazioni avanzate](https://technet.microsoft.com/windows-server-docs/networking/remote-access/directaccess/single-server-advanced/deploy-a-single-directaccess-server-with-advanced-settings). Questo passaggio include la pianificazione dell'infrastruttura necessaria per distribuire un singolo server. Include la pianificazione delle impostazioni di rete e del server, i requisiti dei certificati, le impostazioni DNS, la distribuzione del server dei percorsi di rete, i server di Gestione DirectAccess, le impostazioni di Active Directory e gli oggetti di Criteri di gruppo (GPO).  
   
--   [Passaggio 2: Pianificare la distribuzione del server RADIUS @ no__t-0  
+-   [Passaggio 2: pianificare la distribuzione del server RADIUS](Step-2-Plan-the-RADIUS-Server-Deployment.md)  
   
--   [Passaggio 3: Pianificare la distribuzione del certificato OTP @ no__t-0  
+-   [Passaggio 3: pianificare la distribuzione di certificati OTP](Step-3-Plan-OTP-Certificate-Deployment.md)  
   
--   [Passaggio 4: Pianificare OTP sul server di accesso remoto @ no__t-0  
+-   [Passaggio 4: pianificare l'OTP sul server di accesso remoto](Step-4-Plan-for-OTP-on-the-Remote-Access-Server.md)  
   
-Dopo aver completato questi passaggi di pianificazione, vedere [configurare l'accesso remoto con l'autenticazione OTP](https://technet.microsoft.com/windows-server-docs/networking/remote-access/ras/otp/configure/configure-ra-with-otp-authentication). Per informazioni sulla configurazione di una distribuzione multisito come modello di prova in un ambiente lab, vedere la guida al Lab [Test: Dimostrazione di DirectAccess con autenticazione OTP e RSA SecurID @ no__t-0.  
+Dopo aver completato questi passaggi di pianificazione, vedere [configurare l'accesso remoto con l'autenticazione OTP](https://technet.microsoft.com/windows-server-docs/networking/remote-access/ras/otp/configure/configure-ra-with-otp-authentication). Per informazioni sulla configurazione di una distribuzione multisito come modello di prova in un ambiente lab, vedere [Guida al Lab di test: dimostrazione di DirectAccess con autenticazione OTP e RSA SecurID](https://technet.microsoft.com/windows-server-docs/networking/remote-access/directaccess/tlg-otp-securid/test-lab-guide-demonstrate-directaccess-with-otp-authentication-and-rsa-securid).  
   
 
 

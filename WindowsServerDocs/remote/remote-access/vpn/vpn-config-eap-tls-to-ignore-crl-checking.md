@@ -26,8 +26,8 @@ ms.locfileid: "71388069"
 
 >Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows 10
 
-- [**Precedente** Passaggio 7. Opzionale Accesso condizionale per la connettività VPN con Azure AD](ad-ca-vpn-connectivity-windows10.md)
-- [**Prossimo** Passaggio 7.2. Creare certificati radice per l'autenticazione VPN con Azure AD](vpn-create-root-cert-for-vpn-auth-azure-ad.md)
+- [**Precedente:** Passaggio 7. Opzionale Accesso condizionale per la connettività VPN con Azure AD](ad-ca-vpn-connectivity-windows10.md)
+- [Passaggio **successivo:** Passaggio 7,2. Creare certificati radice per l'autenticazione VPN con Azure AD](vpn-create-root-cert-for-vpn-auth-azure-ad.md)
 
 >[!IMPORTANT]
 >Se si verifica un errore durante l'implementazione di questa modifica del registro di sistema, le connessioni IKEv2 che usano i certificati cloud con PEAP avranno esito negativo, ma le connessioni IKEv2 che usano i certificati di autenticazione client emessi dalla CA locale continueranno a funzionare.
@@ -45,7 +45,7 @@ Poiché il metodo di autenticazione è EAP-TLS, questo valore del registro di si
 
 1. Aprire **Regedit. exe** nel server NPS.
 
-2. Passare a **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\RasMan\PPP\EAP\13**.
+2. Passare a **HKEY_LOCAL_MACHINE \system\currentcontrolset\services\rasman\ppp\eap\13**.
 
 3. Selezionare **modifica > nuovo** e selezionare **valore DWORD (32-bit)** e immettere **IgnoreNoRevocationCheck**.
 
@@ -64,4 +64,4 @@ Per ulteriori informazioni, vedere [come abilitare o disabilitare il controllo d
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Passaggio 7.2. Creare certificati radice per l'autenticazione VPN con Azure AD @ no__t-0: In questo passaggio vengono configurati i certificati radice di accesso condizionale per l'autenticazione VPN con Azure AD, che consente di creare automaticamente un'app Cloud Server VPN nel tenant.
+[Passaggio 7,2. Creare certificati radice per l'autenticazione VPN con Azure AD](vpn-create-root-cert-for-vpn-auth-azure-ad.md): in questo passaggio vengono configurati i certificati radice di accesso condizionale per l'autenticazione VPN con Azure ad, che crea automaticamente un'app Cloud Server VPN nel tenant.

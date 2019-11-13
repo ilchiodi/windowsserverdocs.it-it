@@ -16,12 +16,12 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 09/27/2019
 ms.locfileid: "71368940"
 ---
-# <a name="appendix-m-document-links-and-recommended-reading"></a>Appendice M: Collegamenti ai documenti e lettura consigliata
+# <a name="appendix-m-document-links-and-recommended-reading"></a>Appendice M: Collegamenti a documenti e letture consigliate
 
 >Si applica a: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
   
-## <a name="appendix-m-document-links-and-recommended-reading"></a>Appendice M: Collegamenti ai documenti e lettura consigliata  
+## <a name="appendix-m-document-links-and-recommended-reading"></a>Appendice M: Collegamenti a documenti e letture consigliate  
   
 ### <a name="document-links"></a>Collegamenti ai documenti  
 La tabella seguente contiene un elenco di collegamenti a documenti esterni e i relativi URL, in modo che i lettori delle copie disco rigido di questo documento possano accedere a tali informazioni. I collegamenti vengono elencati nell'ordine in cui vengono visualizzati nel documento.  
@@ -40,7 +40,7 @@ La tabella seguente contiene un elenco di collegamenti a documenti esterni e i r
 |[supporto tecnico Microsoft articolo 814777](https://support.microsoft.com/kb/814777)|[https://support.microsoft.com/kb/814777](https://support.microsoft.com/kb/814777)|  
 |[Aprire il progetto di sicurezza dell'applicazione Web (OWASP)](https://www.owasp.org/index.php/Main_Page)|[https://www.owasp.org/index.php/Main_Page](https://www.owasp.org/index.php/Main_Page)|  
 |[Ciclo di vita dello sviluppo della sicurezza Microsoft](https://www.microsoft.com/security/sdl/default.aspx)|[https://www.microsoft.com/security/sdl/default.aspx](https://www.microsoft.com/security/sdl/default.aspx)|  
-|[Attenuazione degli attacchi pass-the-hash (PtH) e di altre tecniche di furto delle credenziali](https://download.microsoft.com/download/7/7/A/77ABC5BD-8320-41AF-863C-6ECFB10CB4B9/Mitigating%20Pass-the-Hash%20(PtH)%20Attacks%20and%20Other%20Credential%20Theft%20Techniques_English.pdf)|[Attacchi di https://download.microsoft.com/download/7/7/A/77ABC5BD-8320-41AF-863C-6ECFB10CB4B9/Mitigating pass-the-hash (PtH) e altro furto di credenziali Techniques_English. pdf](https://download.microsoft.com/download/7/7/A/77ABC5BD-8320-41AF-863C-6ECFB10CB4B9/Mitigating%20Pass-the-Hash%20(PtH)%20Attacks%20and%20Other%20Credential%20Theft%20Techniques_English.pdf)|  
+|[Attenuazione degli attacchi pass-the-hash (PtH) e di altre tecniche di furto delle credenziali](https://download.microsoft.com/download/7/7/A/77ABC5BD-8320-41AF-863C-6ECFB10CB4B9/Mitigating%20Pass-the-Hash%20(PtH)%20Attacks%20and%20Other%20Credential%20Theft%20Techniques_English.pdf)|[https://download.microsoft.com/download/7/7/A/77ABC5BD-8320-41AF-863C-6ECFB10CB4B9/Mitigating attacchi pass-the-hash (PtH) e altri furti di credenziali Techniques_English. pdf](https://download.microsoft.com/download/7/7/A/77ABC5BD-8320-41AF-863C-6ECFB10CB4B9/Mitigating%20Pass-the-Hash%20(PtH)%20Attacks%20and%20Other%20Credential%20Theft%20Techniques_English.pdf)|  
 |[Avversari determinati e attacchi mirati](https://www.microsoft.com/download/details.aspx?id=34793)|[https://www.microsoft.com/download/details.aspx?id=34793](https://www.microsoft.com/download/details.aspx?id=34793)|  
 |[Soluzione per la gestione della password dell'account amministratore predefinito tramite l'oggetto Criteri di gruppo](https://code.msdn.microsoft.com/windowsdesktop/Solution-for-management-of-ae44e789)|[https://code.msdn.microsoft.com/windowsdesktop/Solution-for-management-of-ae44e789](https://code.msdn.microsoft.com/windowsdesktop/Solution-for-management-of-ae44e789)|  
 |[supporto tecnico Microsoft articolo 817433](https://support.microsoft.com/?id=817433)|[https://support.microsoft.com/?id=817433](https://support.microsoft.com/?id=817433)|  
@@ -90,7 +90,7 @@ La tabella seguente contiene un elenco di collegamenti a documenti esterni e i r
 |[Gestione della retina CS](http://www.wideeyesecurity.com/products.asp)|[http://www.wideeyesecurity.com/products.asp](http://www.wideeyesecurity.com/products.asp)|  
 |[Lumen](http://www.lumension.com/?rpLeadSourceId=5009&gclid=CKuai_e13rMCFal7QgodMFkAyA)|[http://www.lumension.com/?rpLeadSourceId=5009&gclid=CKuai_e13rMCFal7QgodMFkAyA](http://www.lumension.com/?rpLeadSourceId=5009&gclid=CKuai_e13rMCFal7QgodMFkAyA)|  
 |[Gestione delle vulnerabilità di lumen](http://www.lumension.com/Solutions/Vulnerability-Management.aspx)|[http://www.lumension.com/Solutions/Vulnerability-Management.aspx](http://www.lumension.com/Solutions/Vulnerability-Management.aspx)|  
-|[Guida ai rischi e alle contromisure: Diritti utente @ no__t-0|[https://technet.microsoft.com/library/hh125917(v=ws.10).aspx](https://technet.microsoft.com/library/hh125917(v=ws.10).aspx)|  
+|[Guida alle minacce e alle contromisure: diritti utente](https://technet.microsoft.com/library/hh125917(v=ws.10).aspx)|[https://technet.microsoft.com/library/hh125917(v=ws.10).aspx](https://technet.microsoft.com/library/hh125917(v=ws.10).aspx)|  
 |[Attenuazione di minacce e vulnerabilità](https://technet.microsoft.com/library/cc755181(v=ws.10).aspx)|[https://technet.microsoft.com/library/cc755181(v=ws.10).aspx](https://technet.microsoft.com/library/cc755181(v=ws.10).aspx)|  
 |[Diritti utente](https://technet.microsoft.com/library/dd349804(v=WS.10).aspx)|[https://technet.microsoft.com/library/dd349804(v=WS.10).aspx](https://technet.microsoft.com/library/dd349804(v=WS.10).aspx)|  
 |[Accedere a gestione credenziali come chiamante attendibile](https://technet.microsoft.com/library/db585464-a2be-41b1-b781-e9845182f4b6(v=ws.10)#BKMK_2)|[https://technet.microsoft.com/library/db585464-a2be-41b1-b781-e9845182f4b6(v=ws.10)#BKMK_2](https://technet.microsoft.com/library/db585464-a2be-41b1-b781-e9845182f4b6(v=ws.10)#BKMK_2)|  
@@ -166,7 +166,7 @@ La tabella seguente contiene un elenco di collegamenti a documenti esterni e i r
 |[Procedure consigliate per la delega dell'amministrazione Active Directory](https://www.microsoft.com/download/details.aspx?id=21678) per Windows Server 2003|[https://www.microsoft.com/en-us/download/details.aspx?id=21678](https://www.microsoft.com/download/details.aspx?id=21678)|  
 |[Ciclo di vita supporto tecnico Microsoft](https://support.microsoft.com/lifecycle/)|[https://support.microsoft.com/common/international.aspx?RDPATH=%2flifecycle%2fdefault.aspx](https://support.microsoft.com/common/international.aspx?RDPATH=%2flifecycle%2fdefault.aspx)|  
 |[Active Directory specifica tecnica](https://msdn.microsoft.com/library/cc223122(v=prot.20).aspx)|[https://msdn.microsoft.com/library/cc223122(v=prot.20).aspx](https://msdn.microsoft.com/library/cc223122(v=prot.20).aspx)|  
-|messaggio @no__t 0Error quando gli utenti non amministratori a cui è stato delegato il controllo tentano di aggiungere computer a un controller di dominio basato su Windows Server 2003 o Windows Server 2008: "Accesso negato" ](https://support.microsoft.com/kb/932455)|[https://support.microsoft.com/kb/932455](https://support.microsoft.com/kb/932455)| 
+|[Messaggio di errore quando gli utenti non amministratori a cui è stato delegato il controllo tentano di aggiungere computer a un controller di dominio basato su Windows Server 2003 o Windows Server 2008: "accesso negato"](https://support.microsoft.com/kb/932455)|[https://support.microsoft.com/kb/932455](https://support.microsoft.com/kb/932455)| 
 |[Guida dettagliata al meccanismo di autenticazione per servizi di dominio Active Directory in Windows Server 2008 R2](https://technet.microsoft.com/library/dd378897(WS.10).aspx)|[https://technet.microsoft.com/library/dd378897(WS.10).aspx](https://technet.microsoft.com/library/dd378897(WS.10).aspx)|  
 |[Convalida KDC restrittiva](https://www.microsoft.com/download/details.aspx?id=6382)|[https://www.microsoft.com/download/details.aspx?id=6382](https://www.microsoft.com/download/details.aspx?id=6382)|  
   
@@ -189,7 +189,7 @@ La tabella seguente contiene un elenco di letture consigliate che consentono di 
 |[Procedure consigliate per la delega dell'amministrazione Active Directory](https://www.microsoft.com/download/details.aspx?id=21678) per Windows Server 2003|  
 |[Ciclo di vita supporto tecnico Microsoft](https://support.microsoft.com/lifecycle/)|  
 |[Active Directory specifiche tecniche](https://msdn.microsoft.com/library/cc223122(v=prot.20).aspx) -informazioni dsHeuristics|  
-|messaggio @no__t 0Error quando gli utenti non amministratori a cui è stato delegato il controllo tentano di aggiungere computer a un controller di dominio basato su Windows Server 2003 o Windows Server 2008: "Accesso negato" ](https://support.microsoft.com/kb/932455)|  
+|[Messaggio di errore quando gli utenti non amministratori a cui è stato delegato il controllo tentano di aggiungere computer a un controller di dominio basato su Windows Server 2003 o Windows Server 2008: "accesso negato"](https://support.microsoft.com/kb/932455)|  
 |[Guida alle procedure consigliate per la protezione delle installazioni di Active Directory. doc](https://go.microsoft.com/fwlink/?LinkId=140862)|  
 |[Guida alla sicurezza di Hyper-V](https://www.microsoft.com/download/details.aspx?id=16650)|  
 |[Guida dettagliata al meccanismo di autenticazione per servizi di dominio Active Directory in Windows Server 2008 R2](https://technet.microsoft.com/library/dd378897(WS.10).aspx).|  

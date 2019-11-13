@@ -22,8 +22,8 @@ ms.locfileid: "71388011"
 
 >Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows 10
 
-- [**Precedente** Passaggio 7.1. Configurare EAP-TLS per ignorare il controllo dell'elenco di revoche di certificati (CRL)](vpn-config-eap-tls-to-ignore-crl-checking.md)
-- [**Prossimo** Passaggio 7.3. Configurare i criteri di accesso condizionale](vpn-config-conditional-access-policy.md)
+- [**Precedente:** Passaggio 7,1. Configurare EAP-TLS per ignorare il controllo dell'elenco di revoche di certificati (CRL)](vpn-config-eap-tls-to-ignore-crl-checking.md)
+- [Passaggio **successivo:** Passaggio 7,3. Configurare i criteri di accesso condizionale](vpn-config-conditional-access-policy.md)
 
 In questo passaggio vengono configurati i certificati radice di accesso condizionale per l'autenticazione VPN con Azure AD, che consente di creare automaticamente un'app Cloud chiamata server VPN nel tenant. Per configurare l'accesso condizionale per la connettività VPN, è necessario:
 
@@ -49,8 +49,8 @@ Il client VPN invia quindi i problemi del certificato Azure AD alla VPN per la c
 4. Nella sezione **Gestisci** della pagina **accesso condizionale** fare clic su **connettività VPN (anteprima)** .
 5. Nella pagina **connettività VPN** fare clic su **nuovo certificato**.
 6. Nella **nuova** pagina, seguire questa procedura: a. Per **Seleziona durata**selezionare 1, 2 o 3 anni.
-   b. Selezionare **Create**.
+   b. Seleziona **Crea**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Passaggio 7.3. Configurare i criteri di accesso condizionale @ no__t-0: In questo passaggio si configureranno i criteri di accesso condizionale per la connettività VPN.
+[Passaggio 7,3. Configurare i criteri di accesso condizionale](vpn-config-conditional-access-policy.md): in questo passaggio si configurano i criteri di accesso condizionale per la connettività VPN.

@@ -37,10 +37,10 @@ Nelle sezioni seguenti, corsivo indica il testo dell'interfaccia Utente visualiz
 *Una rete di archiviazione (SAN) virtuale è stata configurata senza un'associazione a una scheda bus host (HBA).*  
   
 ## <a name="impact"></a>**Impatto**  
-@no__t macchina virtuale 0A non verrà avviata quando viene configurata con una scheda di Fibre Channel virtuale connessa a una SAN virtuale non configurata correttamente. Ciò influisca sulle San virtuali seguenti: *  
+*Una macchina virtuale non verrà avviata quando viene configurata con una scheda di Fibre Channel virtuale connessa a una SAN virtuale non configurata correttamente. Ciò influisca sulle San virtuali seguenti:*  
   
   
-@no__t 0list di San virtuali >  
+\<elenco di San virtuali >  
   
   
 ## <a name="resolution"></a>**Soluzione**  

@@ -38,13 +38,13 @@ Nelle sezioni seguenti, corsivo indica il testo dell'interfaccia Utente visualiz
   
 ## <a name="impact"></a>Impatto  
   
-i computer *Virtual non possono usare l'archiviazione collegata al controller SCSI. Ciò influisca sulle macchine virtuali seguenti:*  
+*Le macchine virtuali non possono utilizzare l'archiviazione collegata al controller SCSI. Ciò influisca sulle macchine virtuali seguenti:*  
   
-@no__t 0list di macchine virtuali >  
+\<elenco di macchine virtuali >  
   
 ## <a name="resolution"></a>Risoluzione  
   
-@no__t 0Shut la macchina virtuale e usare la console di gestione di Hyper-V per rimuovere il controller SCSI dalla macchina virtuale. Riavviare quindi la macchina virtuale. *  
+*Arrestare la macchina virtuale e usare la console di gestione di Hyper-V per rimuovere il controller SCSI dalla macchina virtuale. Quindi, riavviare la macchina virtuale.*  
   
 
 

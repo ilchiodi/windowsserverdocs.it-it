@@ -57,7 +57,7 @@ Queste tabelle contengono l'impostazione predefinita di Windows, le raccomandazi
 |**Notazione**|**Consiglio**|  
 |SÌ|Abilita in scenari generali|  
 |NO|**Non** abilitare in scenari generali|  
-|SE|Abilitare se necessario per uno scenario specifico o se un ruolo o una funzionalità per cui si desidera il controllo è installato nel computer|  
+|Se|Abilitare se necessario per uno scenario specifico o se un ruolo o una funzionalità per cui si desidera il controllo è installato nel computer|  
 |DC|Abilita nei controller di dominio|  
 |Vuoto|Nessuna raccomandazione|  
 
@@ -68,7 +68,7 @@ Queste tabelle contengono l'impostazione predefinita di Windows, le raccomandazi
 |Categoria o sottocategoria dei criteri di controllo|Impostazione predefinita di Windows<br /><br />Esito negativo|Raccomandazione Baseline<br /><br />Esito negativo|Raccomandazione più avanzata<br /><br />Esito negativo|  
 |----------------------------------------|------------------------------------------|--------------------------------------------------|--------------------------------------------------|  
 |**Accesso all'account**||||  
-|Controlla Convalida delle credenziali|No, no|Sì No|Sì, sì|  
+|Controllare la convalida delle credenziali|No, no|Sì No|Sì, sì|  
 |Controlla Servizio di autenticazione Kerberos|||Sì, sì|  
 |Controlla Operazioni ticket di servizio Kerberos|||Sì, sì|  
 |Controlla Altri eventi di accesso account|||Sì, sì|  
@@ -93,7 +93,7 @@ Queste tabelle contengono l'impostazione predefinita di Windows, le raccomandazi
 |Controlla Blocco account|Sì No||Sì No|  
 |Controlla attestazioni utente/dispositivo||||  
 |Controlla Modalità estesa IPsec||||  
-|Controlla Modalità principale IPsec|||SE|  
+|Controlla Modalità principale IPsec|||Se|  
 |Controlla Modalità rapida IPsec||||  
 |Controlla Fine sessione|Sì No|Sì No|Sì No|  
 |Controlla accesso <sup>1</sup>|Sì, sì|Sì, sì|Sì, sì|  
@@ -120,7 +120,7 @@ Queste tabelle contengono l'impostazione predefinita di Windows, le raccomandazi
 |Controlla Modifica criteri di autenticazione|Sì No|Sì No|Sì, sì|  
 |Controlla Modifica criteri di autorizzazione||||  
 |Controlla Modifica criteri Piattaforma filtro Windows||||  
-|Controlla Modifica criteri a livello di regola MPSSVC|||Yes  |  
+|Controlla Modifica criteri a livello di regola MPSSVC|||Sì  |  
 |Controlla Altri eventi di modifica criteri||||  
 |**Uso dei privilegi**||||  
 |Controlla Utilizzo privilegi non sensibili||||  
@@ -146,7 +146,7 @@ Queste tabelle contengono l'impostazione predefinita di Windows, le raccomandazi
 |Categoria o sottocategoria dei criteri di controllo|Impostazione predefinita di Windows<br /><br />Esito negativo|Raccomandazione Baseline<br /><br />Esito negativo|Raccomandazione più avanzata<br /><br />Esito negativo|  
 |----------------------------------------|------------------------------------------|--------------------------------------------------|--------------------------------------------------|  
 |**Accesso all'account**||||  
-|Controlla Convalida delle credenziali|No, no|Sì, sì|Sì, sì|  
+|Controllare la convalida delle credenziali|No, no|Sì, sì|Sì, sì|  
 |Controlla Servizio di autenticazione Kerberos|||Sì, sì|  
 |Controlla Operazioni ticket di servizio Kerberos|||Sì, sì|  
 |Controlla Altri eventi di accesso account|||Sì, sì|  
@@ -171,7 +171,7 @@ Queste tabelle contengono l'impostazione predefinita di Windows, le raccomandazi
 |Controlla Blocco account|Sì No||Sì No|  
 |Controlla attestazioni utente/dispositivo||||  
 |Controlla Modalità estesa IPsec||||  
-|Controlla Modalità principale IPsec|||SE|  
+|Controlla Modalità principale IPsec|||Se|  
 |Controlla Modalità rapida IPsec||||  
 |Controlla Fine sessione|Sì No|Sì No|Sì No|  
 |Controlla Accesso|Sì, sì|Sì, sì|Sì, sì|  
@@ -198,7 +198,7 @@ Queste tabelle contengono l'impostazione predefinita di Windows, le raccomandazi
 |Controlla Modifica criteri di autenticazione|Sì No|Sì No|Sì, sì|  
 |Controlla Modifica criteri di autorizzazione||||  
 |Controlla Modifica criteri Piattaforma filtro Windows||||  
-|Controlla Modifica criteri a livello di regola MPSSVC|||Yes  |  
+|Controlla Modifica criteri a livello di regola MPSSVC|||Sì  |  
 |Controlla Altri eventi di modifica criteri||||  
 |**Uso dei privilegi**||||  
 |Controlla Utilizzo privilegi non sensibili||||  
@@ -257,7 +257,7 @@ Un esempio del secondo evento è:
 
 Un numero aberrato di accessi non riusciti potrebbe indicare un attacco di individuazione della password. Per consentire a un'azienda di fornire un avviso per un numero insolitamente elevato di accessi non riusciti, è necessario che i livelli normali degli accessi non riusciti siano compresi nell'ambiente precedente a un evento di sicurezza dannoso.  
 
-Per un elenco completo degli eventi che è necessario includere quando si esegue il monitoraggio dei segnali di compromissione, vedere [Appendix L: Eventi da monitorare @ no__t-0.  
+Per un elenco completo degli eventi che è necessario includere quando si esegue il monitoraggio dei segnali di compromissione, vedere [Appendice L: eventi da monitorare](../../../ad-ds/plan/Appendix-L--Events-to-Monitor.md).  
 
 ## <a name="active-directory-objects-and-attributes-to-monitor"></a>Active Directory gli oggetti e gli attributi da monitorare  
 Di seguito sono riportati gli account, i gruppi e gli attributi che è necessario monitorare per facilitare il rilevamento dei tentativi di compromissione dell'installazione del Active Directory Domain Services.  
@@ -270,11 +270,11 @@ Di seguito sono riportati gli account, i gruppi e gli attributi che è necessari
 
 -   Account con privilegi e VIP in servizi di dominio Active Directory. Monitorare le modifiche, in particolare le modifiche apportate agli attributi nella scheda account, ad esempio CN, Name, sAMAccountName, userPrincipalName o userAccountControl. Oltre al monitoraggio degli account, limitare gli utenti che possono modificare gli account in un set ridotto di utenti amministrativi come possibile.  
 
-Vedere [Appendix L: Eventi per il monitoraggio di @ no__t-0 per un elenco di eventi consigliati da monitorare, le classificazioni critiche e un riepilogo dei messaggi di evento.  
+Vedere l' [Appendice L: eventi da monitorare](../../../ad-ds/plan/Appendix-L--Events-to-Monitor.md) per un elenco di eventi consigliati da monitorare, le classificazioni critiche e un riepilogo dei messaggi di evento.  
 
 -   Raggruppare i server in base alla classificazione dei propri carichi di lavoro, consentendo di identificare rapidamente i server che devono essere monitorati più accuratamente e configurati in modo più rigoroso  
 
--   Modifiche alle proprietà e all'appartenenza dei gruppi di servizi di dominio Active Directory seguenti: Enterprise Admins (EA), Domain Admins (DA), amministratori (BA) e Schema Admins (SA)  
+-   Modifiche alle proprietà e all'appartenenza dei seguenti gruppi di servizi di dominio Active Directory: Enterprise Admins (EA), Domain Admins (DA), amministratori (BA) e Schema Admins (SA)  
 
 -   Account con privilegi disabilitati (ad esempio account Administrator predefiniti in Active Directory e nei sistemi membro) per abilitare gli account  
 
@@ -298,12 +298,12 @@ Per ulteriori informazioni sul monitoraggio di servizi di dominio Active Directo
 ## <a name="general-list-of-security-event-id-recommendation-criticalities"></a>Elenco generale di criticità delle raccomandazioni ID evento sicurezza  
 Tutte le raccomandazioni relative agli ID evento sono corredate da una valutazione della criticità, come indicato di seguito:  
 
-**Alta** Gli ID evento con una classificazione di criticità elevata devono sempre e immediatamente essere avvisati e analizzati.  
+**Elevato:** Gli ID evento con una classificazione di criticità elevata devono sempre e immediatamente essere avvisati e analizzati.  
 
-**Media** Un ID evento con una classificazione di criticità media potrebbe indicare attività dannose, ma deve essere accompagnato da altre anomalie, ad esempio un numero insolito che si verifica in un determinato periodo di tempo, occorrenze impreviste o occorrenze in un computer che normalmente non si prevede di registrare l'evento. Un evento di criticità media può anche essere raccolto come metrica e confrontato nel tempo.  
+**Media:** Un ID evento con una classificazione di criticità media potrebbe indicare attività dannose, ma deve essere accompagnata da altre anomalie, ad esempio un numero insolito che si verifica in un determinato periodo di tempo, occorrenze impreviste o occorrenze in un computer che normalmente non dovrebbe registrare l'evento. Un evento di criticità media può anche essere raccolto come metrica e confrontato nel tempo.  
 
-**Basso** E l'ID evento con eventi di criticità bassa non devono raccogliere attenzione o causare avvisi, a meno che non siano correlati a eventi di criticità medio o elevato.  
+**Bassa:** E l'ID evento con eventi di criticità bassa non devono raccogliere attenzione o causare avvisi, a meno che non siano correlati a eventi di criticità medio o elevato.  
 
 Questi consigli hanno lo scopo di fornire una guida di base per l'amministratore. Prima dell'implementazione in un ambiente di produzione, è necessario esaminare accuratamente tutti i consigli.  
 
-Vedere [Appendix L: Eventi per il monitoraggio di @ no__t-0 per un elenco degli eventi consigliati da monitorare, le classificazioni critiche e un riepilogo dei messaggi di evento.  
+Fare riferimento all' [Appendice L: eventi da monitorare](../../../ad-ds/plan/Appendix-L--Events-to-Monitor.md) per un elenco degli eventi consigliati da monitorare, le classificazioni critiche e un riepilogo dei messaggi di evento.  

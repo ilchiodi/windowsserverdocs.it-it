@@ -24,8 +24,8 @@ ms.locfileid: "71404320"
 
 In questo passaggio si distribuisce il certificato radice di accesso condizionale come certificato radice attendibile per l'autenticazione VPN in Active Directory locale.
 
-- [**Precedente** Passaggio 7.3. Configurare i criteri di accesso condizionale](vpn-config-conditional-access-policy.md)
-- [**Prossimo** Passaggio 7.5. Creare profili VPNv2 basati su OMA-DM in dispositivi Windows 10](vpn-create-oma-dm-based-vpnv2-profiles.md)
+- [**Precedente:** Passaggio 7,3. Configurare i criteri di accesso condizionale](vpn-config-conditional-access-policy.md)
+- [Passaggio **successivo:** Passaggio 7,5. Creare profili VPNv2 basati su OMA-DM per i dispositivi Windows 10](vpn-create-oma-dm-based-vpnv2-profiles.md)
 
 1. Nella pagina **connettività VPN** selezionare **Scarica certificato**.
 
@@ -39,8 +39,8 @@ In questo passaggio si distribuisce il certificato radice di accesso condizional
 
    | Comando | Descrizione |
    | --- | --- |
-   | `certutil -dspublish -f VpnCert.cer RootCA` | Crea due contenitori **CA gen 1 radice VPN Microsoft** nei contenitori **CN = Aia** e **CN = Certification authoritys** e pubblica ogni certificato radice come valore sull'attributo _Cacertificate_ di both **radice VPN Microsoft Contenitori CA di generazione 1** . |
-   | `certutil -dspublish -f VpnCert.cer NTAuthCA` | Crea un contenitore **CN = NTAuthCertificates** nei contenitori **CN = Aia** e **CN = Certification authoritys** e pubblica ogni certificato radice come valore dell'attributo _Cacertificate_ di **CN = Contenitore NTAuthCertificates** . |
+   | `certutil -dspublish -f VpnCert.cer RootCA` | Crea due **contenitori CA gen 1 della radice VPN Microsoft** nei contenitori **CN = Aia** e **CN = Certification authoritys** e pubblica ogni certificato radice come valore dell'attributo _Cacertificate_ di entrambi i contenitori **CA della radice VPN Microsoft** . |
+   | `certutil -dspublish -f VpnCert.cer NTAuthCA` | Crea un contenitore **CN = NTAuthCertificates** nei contenitori **CN = Aia** e **CN = Certification authoritys** e pubblica ogni certificato radice come valore dell'attributo _Cacertificate_ del contenitore **CN = NTAuthCertificates** . |
    | `gpupdate /force` | Velocizza l'aggiunta dei certificati radice ai computer Windows Server e client. |
 
 3. Verificare che i certificati radice siano presenti nell'archivio NTauth aziendale e mostrare come attendibile:
@@ -59,4 +59,4 @@ In questo passaggio si distribuisce il certificato radice di accesso condizional
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Passaggio 7.5. Creare profili VPNv2 basati su OMA-DM per i dispositivi Windows 10 @ no__t-0: In questo passaggio è possibile creare profili VPNv2 basati su OMA usando Intune per distribuire i criteri di configurazione del dispositivo VPN. Se si vuole usare SCCM o uno script di PowerShell per creare profili VPNv2, vedere [le impostazioni di VPNV2 CSP](https://docs.microsoft.com/windows/client-management/mdm/vpnv2-csp) per altri dettagli.
+[Passaggio 7,5. Creare profili VPNv2 basati su OMA-DM per i dispositivi Windows 10](vpn-create-oma-dm-based-vpnv2-profiles.md): in questo passaggio è possibile creare profili VPNv2 basati su OMA-DM usando Intune per distribuire i criteri di configurazione del dispositivo VPN. Se si vuole usare SCCM o uno script di PowerShell per creare profili VPNv2, vedere [le impostazioni di VPNV2 CSP](https://docs.microsoft.com/windows/client-management/mdm/vpnv2-csp) per altri dettagli.

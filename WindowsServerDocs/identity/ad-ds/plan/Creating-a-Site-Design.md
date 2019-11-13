@@ -26,7 +26,7 @@ La creazione di una struttura di sito implica la scelta delle posizioni che dive
 
 Decidere per quali percorsi creare i siti, come indicato di seguito:  
   
-- Creare siti per tutte le posizioni in cui si prevede di collocare i controller di dominio. Per identificare le posizioni che includono i controller di dominio, fare riferimento alle informazioni documentate nel foglio di comando "selezione posizionamento controller di dominio" (DSSTOPO_4. doc).  
+- Creare siti per tutte le posizioni in cui si prevede di collocare i controller di dominio. Per identificare le posizioni che includono i controller di dominio, fare riferimento alle informazioni documentate nel foglio di DSSTOPO_4 relativo alla posizione del controller di dominio (. doc).  
 - Creare siti per i percorsi che includono i server che eseguono applicazioni che richiedono la creazione di un sito. Alcune applicazioni, ad esempio file system distribuito spazi dei nomi (DFSN), utilizzano oggetti sito per individuare i server più vicini ai client.  
 
    > [!NOTE]  
@@ -34,7 +34,7 @@ Decidere per quali percorsi creare i siti, come indicato di seguito:
 
 - Se un sito non è necessario per una località, aggiungere la subnet del percorso a un sito per il quale la posizione ha la velocità massima di Wide Area Network (WAN) e la larghezza di banda disponibile.  
   
-Percorsi dei documenti che diventeranno siti e indirizzi di rete e subnet mask all'interno di ogni percorso. Per un foglio di lavoro che fornirà supporto per la documentazione dei siti, vedere l'articolo [relativo ai supporti per i processi per Windows Server 2003 Deployment Kit](https://go.microsoft.com/fwlink/?LinkID=102558), scaricare Job_Aids_Designing_and_Deploying_Directory_and_Security_Services. zip e aprire "associazione delle subnet ai siti" (DSSTOPO_6. doc).  
+Percorsi dei documenti che diventeranno siti e indirizzi di rete e subnet mask all'interno di ogni percorso. Per un foglio di lavoro che fornirà supporto per la documentazione dei siti, vedere la pagina [relativa ai supporti per i processi per Windows Server 2003 Deployment Kit](https://go.microsoft.com/fwlink/?LinkID=102558), scaricare Job_Aids_Designing_and_Deploying_Directory_and_Security_Services. zip e aprire "associazione delle subnet ai siti" (DSSTOPO_6. doc).  
   
 ## <a name="creating-a-site-object-design"></a>Creazione di un progetto di oggetto sito
 
@@ -46,8 +46,8 @@ Per ulteriori informazioni sulla creazione di oggetti sito, vedere l'articolo [c
 
 Per ogni subnet IP e subnet mask associata a ogni percorso, pianificare la creazione di oggetti subnet in servizi di dominio Active Directory che rappresentano tutti gli indirizzi IP all'interno del sito.  
   
-Quando si crea un oggetto Active Directory subnet, le informazioni sulla subnet IP e sulla subnet mask della rete vengono convertite automaticamente nel formato della notazione della lunghezza del prefisso di rete <IP address> @ no__t-1 @ no__t-2. Ad esempio, l'indirizzo IP della rete versione 4 (IPv4) 172.16.4.0 con un subnet mask 255.255.252.0 viene visualizzato come 172.16.4.0/22. Oltre agli indirizzi IPv4, Windows Server 2008 supporta anche i prefissi di subnet IP versione 6 (IPv6), ad esempio 3FFE: FFFF: 0: C000::/64. Per ulteriori informazioni sulle subnet IP in ogni posizione, vedere il foglio di @no__t "posizioni e subnet" (DSSTOPO_2. doc) in [raccolta di informazioni di rete](../../ad-ds/plan/Collecting-Network-Information.md) e-1Appendix a: Percorsi e prefissi di subnet @ no__t-0.  
+Quando si crea un oggetto Active Directory subnet, le informazioni sulla subnet IP e sulla subnet mask della rete vengono convertite automaticamente nel formato della notazione della lunghezza del prefisso di rete <IP address>/<prefix length>. Ad esempio, l'indirizzo IP della rete versione 4 (IPv4) 172.16.4.0 con un subnet mask 255.255.252.0 viene visualizzato come 172.16.4.0/22. Oltre agli indirizzi IPv4, Windows Server 2008 supporta anche i prefissi di subnet IP versione 6 (IPv6), ad esempio 3FFE: FFFF: 0: C000::/64. Per ulteriori informazioni sulle subnet IP in ogni posizione, vedere il foglio di DSSTOPO_2 "posizioni e subnet" (. doc) in [raccolta di informazioni di rete](../../ad-ds/plan/Collecting-Network-Information.md) e [Appendice A: posizioni e prefissi di Subnet](Appendix-A--Locations-and-Subnet-Prefixes.md).  
   
-Associare ogni oggetto subnet a un oggetto sito facendo riferimento al foglio di DSSTOPO_6 "associazione delle subnet con i siti" (. doc) nella sezione "scelta dei percorsi che diventeranno siti" per determinare la subnet da associare al sito. Documentare il Active Directory oggetto subnet associato a ogni posizione nel foglio di "associazione di subnet con siti" (DSSTOPO_6. doc).  
+Associare ogni oggetto subnet a un oggetto sito facendo riferimento al foglio di DSSTOPO_6 "associazione delle subnet con i siti" (. doc) nella sezione "scelta dei percorsi che diventeranno siti" per determinare la subnet da associare al sito. Documentare il Active Directory oggetto subnet associato a ogni posizione nel foglio di "associazione delle subnet con i siti" (DSSTOPO_6. doc).  
   
 Per ulteriori informazioni su come creare oggetti subnet, vedere l'articolo [creare una subnet](https://go.microsoft.com/fwlink/?LinkId=107068).

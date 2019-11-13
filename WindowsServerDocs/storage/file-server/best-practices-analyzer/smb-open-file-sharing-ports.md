@@ -1,5 +1,5 @@
 ---
-title: SMB Le porte di condivisione file e stampanti devono essere aperte
+title: 'SMB: Le porte per la condivisione di file e stampanti devono essere aperte'
 TOCTitle: 'SMB: File and printer sharing ports should be open'
 ms.date: 07/02/2012
 ms.prod: windows-server
@@ -14,14 +14,14 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 09/27/2019
 ms.locfileid: "71385826"
 ---
-# <a name="smb-file-and-printer-sharing-ports-should-be-open"></a>SMB Le porte di condivisione file e stampanti devono essere aperte
+# <a name="smb-file-and-printer-sharing-ports-should-be-open"></a>SMB: Le porte per la condivisione di file e stampanti devono essere aperte
 
 
-Aggiornamento: 2 febbraio 2011
+Ultimo aggiornamento: 2 febbraio 2011
 
 Si applica a: Windows Server 2019, Windows Server 2016, Windows Server 2012 R2 e Windows Server 2012, Windows Server 2008 R2
 
-l'argomento *Stanziamento è progettato per risolvere un problema specifico identificato da un'analisi di Best Practices Analyzer. È necessario applicare le informazioni contenute in questo argomento solo ai computer in cui è stato Best Practices Analyzer eseguire i servizi file e si è verificato il problema trattato da questo argomento. Per ulteriori informazioni sulle procedure consigliate e le analisi, vedere @ no__t-0 [Best Practices Analyzer](http://go.microsoft.com/fwlink/?linkid=122786%0d%0a).
+*Questo argomento è destinato a risolvere un problema specifico identificato da un'analisi Best Practices Analyzer. È necessario applicare le informazioni contenute in questo argomento solo ai computer in cui è stato Best Practices Analyzer eseguire i servizi file e si è verificato il problema trattato da questo argomento. Per ulteriori informazioni sulle procedure consigliate e le analisi, vedere* [Best Practices Analyzer](http://go.microsoft.com/fwlink/?linkid=122786%0d%0a).
 
 
 <table>
@@ -40,7 +40,7 @@ l'argomento *Stanziamento è progettato per risolvere un problema specifico iden
 </tr>
 <tr class="odd">
 <td><p><strong>Gravità</strong></p></td>
-<td><p>Errore</p></td>
+<td><p>Error</p></td>
 </tr>
 <tr class="even">
 <td><p><strong>Categoria</strong></p></td>

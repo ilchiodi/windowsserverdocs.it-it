@@ -21,7 +21,7 @@ ms.locfileid: "71394376"
 
 In questo argomento viene illustrato come risolvere i problemi relativi al caricamento e allo scaricamento di profili utente mediante eventi e log di traccia. Le sezioni seguenti descrivono come usare i tre registri eventi che registrano le informazioni sul profilo utente.
 
-## <a name="step-1-checking-events-in-the-application-log"></a>Passaggio 1: Verifica degli eventi nel registro applicazioni
+## <a name="step-1-checking-events-in-the-application-log"></a>Passaggio 1: verifica degli eventi nel registro applicazioni
 
 Il primo passaggio per la risoluzione dei problemi relativi al caricamento e allo scaricamento di profili utente (inclusi i profili utente mobili) consiste nell'utilizzare Visualizzatore eventi per esaminare gli eventi di avviso e di errore che i record del servizio profili utente sono presenti nel registro applicazioni.
 
@@ -38,7 +38,7 @@ Di seguito viene illustrato come visualizzare gli eventi dei servizi profili ute
 >[!NOTE]
 >È possibile ignorare in modo sicuro l'evento 1530 "Windows ha rilevato che il file del registro di sistema è ancora in uso da altre applicazioni o servizi".
 
-## <a name="step-2-view-the-operational-log-for-the-user-profile-service"></a>Passaggio 2: Visualizzare il registro operativo per il servizio profili utente
+## <a name="step-2-view-the-operational-log-for-the-user-profile-service"></a>Passaggio 2: visualizzare il registro operativo per il servizio profili utente
 
 Se non è possibile risolvere il problema utilizzando solo il registro applicazioni, attenersi alla procedura seguente per visualizzare gli eventi del servizio profili utente nel registro operativo. Questo log mostra alcuni dei processi interni del servizio e consente di individuare il punto in cui si verifica il problema nel caricamento o nello scaricamento del profilo.
 
@@ -49,7 +49,7 @@ Di seguito viene illustrato come visualizzare il log operativo per il servizio p
 1. Nell'albero della console Visualizzatore eventi passare a **registri applicazioni e servizi**, quindi a **Microsoft**, **Windows**, **servizio profili utente**e quindi **operativo**.
 2. Esaminare gli eventi che si sono verificati al momento dell'errore o degli eventi di avviso indicati nel registro applicazioni.
 
-## <a name="step-3-enable-and-view-analytic-and-debug-logs"></a>Passaggio 3: Abilitare e visualizzare i log analitici e di debug
+## <a name="step-3-enable-and-view-analytic-and-debug-logs"></a>Passaggio 3: abilitare e visualizzare i log analitici e di debug
 
 Se è necessario un maggior numero di dettagli rispetto a quello fornito dal log operativo, è possibile abilitare i registri analitici e di debug nel computer interessato. Questo livello di registrazione è molto più dettagliato e deve essere disabilitato tranne quando si tenta di risolvere un problema.
 
@@ -58,10 +58,10 @@ Di seguito viene illustrato come abilitare e visualizzare i log analitici e di d
 1. Nel riquadro **azioni** di Visualizzatore eventi selezionare **Visualizza, quindi selezionare Mostra** **log analitici e di debug**.
 2. Passare a **registri applicazioni e servizi**, quindi **Microsoft**, **Windows**, **servizio profili utente**e quindi **diagnostica**.
 3. Selezionare **Abilita log** , quindi selezionare **Sì**. In questo modo viene abilitato il log di diagnostica, che avvia la registrazione.
-4. Se sono necessarie informazioni ancora più dettagliate, vedere [Step 4: Creazione e decodifica di una traccia @ no__t-0 per ulteriori informazioni sulla creazione di un log di traccia.
+4. Se sono necessarie informazioni ancora più dettagliate, vedere [passaggio 4: creazione e decodifica di una traccia](#step-4-creating-and-decoding-a-trace) per ulteriori informazioni su come creare un log di traccia.
 5. Al termine della risoluzione del problema, passare al log di **diagnostica** , selezionare **Disabilita log**, selezionare **Visualizza** , quindi deselezionare la casella di controllo Mostra **log analitici e debug** per nascondere la registrazione analitica e di debug.
 
-## <a name="step-4-creating-and-decoding-a-trace"></a>Passaggio 4: Creazione e decodifica di una traccia
+## <a name="step-4-creating-and-decoding-a-trace"></a>Passaggio 4: creazione e decodifica di una traccia
 
 Se non è possibile risolvere il problema utilizzando gli eventi, è possibile creare un log di traccia (un file ETL) durante la riproduzione del problema e quindi decodificarlo utilizzando i simboli pubblici del server dei simboli Microsoft. I log di traccia forniscono informazioni molto specifiche sulle operazioni eseguite dal servizio profili utente e consentono di individuare il punto in cui si è verificato l'errore.
 
@@ -70,7 +70,7 @@ La strategia migliore quando si usa la traccia ETL è acquisire prima di tutto i
 Di seguito viene illustrato come creare e decodificare una traccia per il servizio profili utente:
 
 1. Accedere al computer in cui si sono verificati i problemi dell'utente, utilizzando un account membro del gruppo Administrators locale.
-2. Da un prompt dei comandi con privilegi elevati, immettere i comandi seguenti, dove *\<Path @ no__t-2* è il percorso di una cartella locale creata in precedenza, ad esempio C: \\logs:
+2. Da un prompt dei comandi con privilegi elevati, immettere i comandi seguenti, dove *\<percorso\>* è il percorso di una cartella locale creata in precedenza, ad esempio C:\\Logs:
         
     ```PowerShell
     logman create trace -n RUP -o <Path>\RUP.etl -ets
@@ -84,7 +84,7 @@ Di seguito viene illustrato come creare e decodificare una traccia per il serviz
     ```PowerShell
     logman stop -n RUP -ets
     ```
-7. Digitare il comando seguente per esportare il file ETL in un file leggibile nella directory corrente (probabilmente la cartella Home o la cartella% WINDIR% \\System32):
+7. Digitare il comando seguente per esportare il file ETL in un file leggibile nella directory corrente (probabilmente la cartella Home o la cartella% WINDIR%\\system32):
     
     ```PowerShell
     Tracerpt <path>\RUP.etl

@@ -36,7 +36,7 @@ In Windows Server 2012 R2 e Windows Server 2012, la possibilità di configurare 
 
 Per informazioni dettagliate sulla delega vincolata nella forma introdotta in Windows Server 2003, vedere la pagina relativa alla [transizione al protocollo Kerberos e la delega vincolata](https://technet.microsoft.com/library/cc739587(v=ws.10)).
 
-L'implementazione di Windows Server 2012 R2 e Windows Server 2012 del protocollo Kerberos include estensioni specifiche per la delega vincolata.  L'estensione S4U2Proxy (Service for User to Proxy) consente a un servizio di usare il ticket del servizio Kerberos per fare in modo che un utente ottenga un ticket di servizio dal Centro distribuzione chiavi (KDC) a un servizio back-end. Queste estensioni consentono la configurazione della delega vincolata nell'account del servizio back-end, che può trovarsi in un altro dominio. Per ulteriori informazioni su queste estensioni, vedere [ @ no__t-1 MS-SFU @ no__t-2: estensioni del protocollo Kerberos: Service per User e la specifica del protocollo di delega vincolata @ no__t-0 in MSDN Library.
+L'implementazione di Windows Server 2012 R2 e Windows Server 2012 del protocollo Kerberos include estensioni specifiche per la delega vincolata.  L'estensione S4U2Proxy (Service for User to Proxy) consente a un servizio di usare il ticket del servizio Kerberos per fare in modo che un utente ottenga un ticket di servizio dal Centro distribuzione chiavi (KDC) a un servizio back-end. Queste estensioni consentono la configurazione della delega vincolata nell'account del servizio back-end, che può trovarsi in un altro dominio. Per ulteriori informazioni su queste estensioni, vedere [\[MS-SFU\]: estensione del protocollo Kerberos: specifica del protocollo per il servizio per utenti e la delega vincolata](https://msdn.microsoft.com/library/cc246071(PROT.13).aspx) in MSDN Library.
 
 **Applicazioni pratiche**
 
@@ -58,7 +58,7 @@ Viene inoltre spostata la decisione di stabilire se un server deve considerare a
 
 Una modifica nel protocollo sottostante consente la delega vincolata tra domini. L'implementazione di Windows Server 2012 R2 e Windows Server 2012 del protocollo Kerberos include estensioni per il protocollo S4U2Proxy (Service for user to proxy). Si tratta di un set di estensioni per il protocollo Kerberos che consente a un servizio di usare il ticket del servizio Kerberos per fare in modo che un utente ottenga un ticket di servizio dal Centro distribuzione chiavi (KDC) a un servizio back-end.
 
-Per informazioni sull'implementazione relative a queste estensioni, vedere [ @ no__t-1 MS-SFU @ no__t-2: estensioni del protocollo Kerberos: Service for user and vincolated delega Protocol Specification @ no__t-0 in MSDN.
+Per informazioni sull'implementazione relative a queste estensioni, vedere [\[MS-SFU\]: estensione del protocollo Kerberos: specifica del protocollo per il servizio per utenti e la delega vincolata](https://msdn.microsoft.com/library/cc246071(PROT.10).aspx) in MSDN.
 
 Per altre informazioni sulla sequenza di messaggi di base per la delega Kerberos con un ticket di concessione ticket (TGT) inoltrato a confronto con le estensioni S4U (Service for User), vedere la sezione [1.3.3 della panoramica del protocollo](https://msdn.microsoft.com/library/cc246080(v=prot.10).aspx) nel documento [MS-SFU] sulle estensioni del protocollo Kerberos: specifica del protocollo per il servizio per utenti e la delega vincolata.
 
@@ -81,9 +81,9 @@ Per configurare un servizio relativo alle risorse per consentire l'accesso a un 
 
 -   Per recuperare un elenco di entità, usare i cmdlet Get- **ADComputer**, **Get-ADServiceAccount**e **Get-ADUser** con il parametro **Properties PrincipalsAllowedToDelegateToAccount** .
 
--   Per configurare il servizio risorse, usare i cmdlet **New-ADComputer**, **New-ADServiceAccount**, **New-ADUser**, **set-ADComputer**, **Set-ADServiceAccount**e **set-aduser** con il **cmdlet Parametro PrincipalsAllowedToDelegateToAccount** .
+-   Per configurare il servizio risorse, usare i cmdlet **New-ADComputer**, **New-ADServiceAccount**, **New-ADUser**, **set-ADComputer**, **Set-ADServiceAccount**e **set-aduser** con il parametro **PrincipalsAllowedToDelegateToAccount** .
 
 ## <a name="BKMK_SOFT"></a>Requisiti software
 La delega vincolata basata sulle risorse può essere configurata solo in un controller di dominio che esegue Windows Server 2012 R2 e Windows Server 2012, ma può essere applicata in una foresta in modalità mista.
 
-È necessario applicare l'hotfix seguente a tutti i controller di dominio che eseguono Windows Server 2012 in domini di account utente nel percorso di riferimento tra i domini front-end e back-end che eseguono sistemi operativi precedenti a Windows Server:  Errore KDC_ERR_POLICY della delega vincolata basata sulle risorse in ambienti con controller di dominio basati su Windows Server 2008 R2 (https://support.microsoft.com/en-gb/help/2665790/resource-based-constrained-delegation-kdc-err-policy-failure-in-enviro).
+È necessario applicare l'hotfix seguente a tutti i controller di dominio che eseguono Windows Server 2012 in domini di account utente nel percorso di riferimento tra i domini front-end e back-end che eseguono sistemi operativi precedenti a Windows Server: la delega vincolata basata sulle risorse KDC_ERR_POLICY errori negli ambienti che dispongono di controller di dominio basati su Windows Server 2008 R2 (https://support.microsoft.com/en-gb/help/2665790/resource-based-constrained-delegation-kdc-err-policy-failure-in-enviro).

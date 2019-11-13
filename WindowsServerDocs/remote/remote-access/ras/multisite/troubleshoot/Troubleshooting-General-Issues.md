@@ -43,7 +43,7 @@ Come soluzione alternativa, usare i cmdlet di configurazione invece di usare la 
 > [!NOTE]  
 > Questo scenario non si verifica quando l'oggetto Criteri di gruppo del server del punto di ingresso corrente non è disponibile.  
   
-È possibile utilizzare il cmdlet `Get-DAEntryPointDC` per elencare tutti i controller di dominio in cui sono archiviati gli oggetti Criteri di gruppo del server e `Get-DAMultiSite` insieme a `Get-RemoteAccess` per recuperare un elenco completo degli oggetti Criteri di gruppo del server nella distribuzione. Esempio:  
+È possibile utilizzare il cmdlet `Get-DAEntryPointDC` per elencare tutti i controller di dominio che archiviano gli oggetti Criteri di gruppo del server e `Get-DAMultiSite` insieme ai `Get-RemoteAccess` per recuperare un elenco completo degli oggetti Criteri di gruppo del server nella distribuzione. Ad esempio:  
   
 ```  
 $ServerGpos = Get-DAEntryPointDC | ForEach-Object {   
@@ -78,7 +78,7 @@ Se un client è già stato aggiornato o il DCA non è configurato, spostare il c
   
 -   **Problema 1**  
   
-    **Errore ricevuto**. Impossibile raggiungere il controller di dominio < > Domain_Controller per < nome_server o entry_point_name >.  
+    **Errore ricevuto**. Impossibile raggiungere il controller di dominio < domain_controller > per < server_name o entry_point_name >.  
   
     **Causa**  
   
@@ -86,7 +86,7 @@ Se un client è già stato aggiornato o il DCA non è configurato, spostare il c
   
     **Soluzione**  
   
-    Seguire la procedura "per modificare il controller di dominio che gestisce gli oggetti Criteri di gruppo del server" descritto in [2,4. Configurare gli oggetti Criteri di gruppo @ no__t-0.  
+    Attenersi alla procedura "per modificare il controller di dominio che gestisce gli oggetti Criteri di gruppo del server" descritto in [2,4. Configurare gli oggetti Criteri](assetId:///b1960686-a81e-4f48-83f1-cc4ea484df43#ConfigGPOs)di gruppo.  
   
 -   **Problema 2**  
   
@@ -98,7 +98,7 @@ Se un client è già stato aggiornato o il DCA non è configurato, spostare il c
   
     **Soluzione**  
   
-    Attenersi alla procedura "per trasferire il ruolo emulatore PDC" descritta in [2,4. Configurare gli oggetti Criteri di gruppo @ no__t-0.  
+    Seguire la procedura "per trasferire il ruolo emulatore PDC" descritto in [2,4. Configurare gli oggetti Criteri](assetId:///b1960686-a81e-4f48-83f1-cc4ea484df43#ConfigGPOs)di gruppo.  
   
 
 

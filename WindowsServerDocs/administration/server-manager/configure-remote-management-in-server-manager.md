@@ -22,7 +22,7 @@ ms.locfileid: "71383207"
 ---
 # <a name="configure-remote-management-in-server-manager"></a>Configurare la gestione remota in Server Manager
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 In Windows Server, è possibile utilizzare Server Manager per eseguire attività di gestione su server remoti. la gestione remota è abilitata per impostazione predefinita nei server che eseguono Windows Server 2016. Per gestire un server in modalità remota tramite Server Manager, si aggiunge il server al pool di server di gestione Server.
 
@@ -34,7 +34,7 @@ Per gestire i server che eseguono versioni di Windows Server precedente a Window
 |----------|-----------|---------|
 | Windows Server 2012 R2 o Windows Server 2012 |-   [.NET Framework 4,6](https://www.microsoft.com/download/details.aspx?id=45497)<br />-   [Windows Management Framework 5,0](https://go.microsoft.com/fwlink/?LinkID=395058). Il pacchetto di download di Windows Management Framework 5.0 Aggiorna provider Strumentazione gestione Windows (WMI) su Windows Server 2012 R2, Windows Server 2012 e Windows Server 2008 R2. Il provider WMI aggiornati consentono a Server Manager di raccogliere informazioni sui ruoli e funzionalità installati sui server gestiti. Fino a quando non viene applicato l'aggiornamento, i server che eseguono Windows Server 2012 R2, Windows Server 2012 o Windows Server 2008 R2 con stato gestibilità **non accessibile**.<br />-L'aggiornamento delle prestazioni associati [articolo della Knowledge Base 2682011](https://go.microsoft.com/fwlink/p/?LinkID=245487) non è più necessario nei server che eseguono Windows Server 2012 R2 o Windows Server 2012.||
 | Windows Server 2008 R2 |-   [.NET Framework 4,5](https://www.microsoft.com/download/details.aspx?id=30653)<br />-   [Windows Management Framework 4,0](https://go.microsoft.com/fwlink/?LinkId=293881). Il pacchetto di download di Windows Management Framework 4.0 Aggiorna provider Strumentazione gestione Windows (WMI) in Windows Server 2008 R2. Il provider WMI aggiornati consentono a Server Manager di raccogliere informazioni sui ruoli e funzionalità installati sui server gestiti. Fino a quando non viene applicato l'aggiornamento, i server che eseguono Windows Server 2008 R2 con stato gestibilità **non accessibile**.<br />-L'aggiornamento delle prestazioni associati [articolo della Knowledge Base 2682011](https://go.microsoft.com/fwlink/p/?LinkID=245487) consente di raccogliere dati sulle prestazioni da Windows Server 2008 R2 Server Manager.||
-| Windows Server 2008 |-   [.NET Framework 4](https://www.microsoft.com/download/en/details.aspx?id=17718)<br />-   [Windows Management framework 3,0](https://go.microsoft.com/fwlink/p/?LinkID=229019) Windows management Framework 3,0 Download package updates Strumentazione gestione Windows (WMI) Providers in windows Server 2008. Il provider WMI aggiornati consentono a Server Manager di raccogliere informazioni sui ruoli e funzionalità installati sui server gestiti. Fino a quando non viene applicato l'aggiornamento, i server che eseguono Windows Server 2008 hanno uno stato di gestibilità **non accessibile: verificare che le versioni precedenti eseguano Windows Management Framework 3,0**.<br />-L'aggiornamento delle prestazioni associati [articolo della Knowledge Base 2682011](https://go.microsoft.com/fwlink/p/?LinkID=245487) consente di raccogliere dati sulle prestazioni da Windows Server 2008 Server Manager.||
+| Windows Server 2008 |-   [.NET Framework 4](https://www.microsoft.com/download/en/details.aspx?id=17718)<br />-   [Windows Management framework 3,0](https://go.microsoft.com/fwlink/p/?LinkID=229019) Windows management Framework 3,0 scaricare i provider degli aggiornamenti del pacchetto Strumentazione gestione Windows (WMI) in windows Server 2008. Il provider WMI aggiornati consentono a Server Manager di raccogliere informazioni sui ruoli e funzionalità installati sui server gestiti. Fino a quando non viene applicato l'aggiornamento, i server che eseguono Windows Server 2008 hanno uno stato di gestibilità **non accessibile: verificare che le versioni precedenti eseguano Windows Management Framework 3,0**.<br />-L'aggiornamento delle prestazioni associati [articolo della Knowledge Base 2682011](https://go.microsoft.com/fwlink/p/?LinkID=245487) consente di raccogliere dati sulle prestazioni da Windows Server 2008 Server Manager.||
 
 per informazioni dettagliate su come aggiungere server in gruppi di lavoro da gestire o gestire server remoti da un computer del gruppo di lavoro che esegue Server Manager, vedere [aggiungere server a Server Manager](add-servers-to-server-manager.md).
 
@@ -159,7 +159,7 @@ In Windows Server 2016, Server Manager si basa su gestione remota Windows (WinRM
 
 ### <a name="to-disable-remote-management-by-using-an-answer-file-during-unattended-installation"></a>Per disabilitare la gestione remota tramite un file di risposte durante l'installazione automatica
 
-1.  creare un file di risposte per l'installazione automatica per le installazioni di Windows Server 2016 usando Windows System Image Manager (Windows SIM). Per ulteriori informazioni sulla creazione di un file di risposte e sull'utilizzo di Windows SIM, vedere [che cos'è Windows System Image Manager?](https://technet.microsoft.com/library/cc766347.aspx) e [Step-by-Step: Distribuzione di base di Windows per i professionisti IT @ no__t-0.
+1.  creare un file di risposte per l'installazione automatica per le installazioni di Windows Server 2016 usando Windows System Image Manager (Windows SIM). Per altre informazioni sulla creazione di un file di risposte e sull'uso di Windows SIM, vedere [Che cos'è Windows System Image Manager?](https://technet.microsoft.com/library/cc766347.aspx) e [Guida dettagliata - Distribuzione Windows di base per i professionisti IT](https://technet.microsoft.com/library/dd349348.aspx).
 
 2.  Nel file di risposte individuare l'impostazione **Microsoft-Windows-Web-Services-for-Management-Core\EnableServerremoteManagement**.
 
@@ -187,9 +187,9 @@ Il numero di porta 5985 è quello predefinito per consentire comunicazione di Wi
 
 Per ulteriori informazioni su come configurare le impostazioni del listener WinRM, al prompt dei comandi digitare **winrm help config**e quindi premere INVIO.
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 [Aggiungere server a Server Manager](add-servers-to-server-manager.md)
-[Windows PowerShell: About_remote_Troubleshooting in windows Server TechCenter](https://technet.microsoft.com/library/dd347642.aspx)
+[windows PowerShell: about_remote_Troubleshooting nel TechCenter di Windows Server](https://technet.microsoft.com/library/dd347642.aspx)
 [Descrizione del controllo dell'account utente](https://support.microsoft.com/kb/951016)
 
 

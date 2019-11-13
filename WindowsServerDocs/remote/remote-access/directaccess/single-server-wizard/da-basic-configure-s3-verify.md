@@ -39,7 +39,7 @@ Questo argomento descrive come verificare di avere configurato correttamente la 
   
 ## <a name="BKMK_Links"></a>Passaggio precedente  
   
--   [Passaggio 2: Configurare il server DirectAccess @ no__t-0  
+-   [Passaggio 2: configurare il server DirectAccess](da-basic-configure-s2-server.md)  
   
 
 

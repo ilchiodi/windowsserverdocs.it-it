@@ -33,7 +33,7 @@ Negli argomenti di questa sezione vengono fornite informazioni sulla risoluzione
 Questa sezione descrive gli argomenti seguenti:
 
 - [Risolvere i problemi dello stack di SDN (Software Defined Networking) di Windows Server](https://docs.microsoft.com/windows-server/networking/sdn/troubleshoot/troubleshoot-windows-server-software-defined-networking-stack)
-- Post di Blog @no__t-risoluzione dei problemi di 0SDN: Errori di comunicazione UDP e modifica del certificato del controller di rete @ no__t-0
+- Post di Blog sulla [risoluzione dei problemi: errori di comunicazione UDP e modifica del certificato del controller di rete](https://techcommunity.microsoft.com/t5/Networking-Blog/SDN-Troubleshooting-UDP-Communication-failures-and-changing-the/ba-p/339694)
 - Post [di Blog sulla risoluzione dei problemi relativi ai certificati in SDN (Software Defined Networking)](https://techcommunity.microsoft.com/t5/Networking-Blog/Troubleshooting-certificate-issues-in-Software-Defined/ba-p/339671)
 - Post [di Blog come trovare l'indirizzo locale del gateway Sdn per il peering BGP in Windows Server 2016](https://techcommunity.microsoft.com/t5/Networking-Blog/How-to-find-the-SDN-gateway-local-address-for-BGP-peering-in/ba-p/339663)
 - Post [di Blog sulla configurazione delle impostazioni della larghezza di banda VPN del gateway RAS di Sdn in Virtual Machine Manager](https://techcommunity.microsoft.com/t5/Networking-Blog/Troubleshoot-Configuring-SDN-RAS-Gateway-VPN-Bandwidth-Settings/ba-p/339661)

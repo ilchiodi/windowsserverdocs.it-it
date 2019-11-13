@@ -85,7 +85,7 @@ Per configurare un cluster di accesso remoto, è necessario installare la funzio
   
 ## <a name="BKMK_Links"></a>Vedere anche  
   
--   [Passaggio 3: Configurare un cluster con carico bilanciato @ no__t-0  
+-   [Passaggio 3: configurare un cluster con carico bilanciato](Step-3-Configure-a-Load-Balanced-Cluster.md)  
   
 
 

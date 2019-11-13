@@ -17,9 +17,9 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 09/27/2019
 ms.locfileid: "71361697"
 ---
-# <a name="step-1-install-the-wsus-server-role"></a>Passaggio 1: Installare il ruolo server WSUS
+# <a name="step-1-install-the-wsus-server-role"></a>Passaggio 1: Installare il ruolo del server WSUS
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Il passaggio successivo della procedura di distribuzione del server WSUS prevede l'installazione del ruolo server WSUS. Nella sezione seguente viene illustrato come installare il ruolo server WSUS tramite Server Manager.
 
@@ -63,5 +63,5 @@ Il passaggio successivo della procedura di distribuzione del server WSUS prevede
 14. In **Server Manager**verificare se viene visualizzata una notifica che indica che è necessario riavviare il server. Il riavvio può essere necessario a seconda del ruolo server installato. Se il riavvio è necessario, assicurarsi di riavviare il server per completare l'installazione.
 
 > [!IMPORTANT]
-> A questo punto il processo di installazione è terminato, tuttavia, per fare in modo che WSUS funzioni, è necessario procedere con [Step 2: Configurare WSUS @ no__t-0.
+> A questo punto è terminato il processo di installazione, tuttavia per WSUS per il funzionamento è necessario procedere al [passaggio 2: configurare WSUS](2-configure-wsus.md).
 

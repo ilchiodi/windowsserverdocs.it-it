@@ -18,10 +18,10 @@ ms.locfileid: "71404280"
 ---
 # <a name="always-on-vpn-features-and-functionalities"></a>Funzionalità e funzionalità VPN di Always On
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows 10
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016, Windows 10
 
-- [**Precedente** Always On la distribuzione VPN per Windows Server e Windows 10 @ no__t-0
-- [**Prossimo** Informazioni sui miglioramenti di Always On VPN @ no__t-0
+- [**Precedente:** Always On la distribuzione VPN per Windows Server e Windows 10](always-on-vpn/deploy/always-on-vpn-deploy.md)
+- [Passaggio **successivo:** Informazioni sui miglioramenti apportati alla VPN Always On](../vpn/always-on-vpn/always-on-vpn-enhancements.md)
 
 In questo argomento vengono fornite informazioni sulle funzionalità e sulle funzionalità di Always On VPN.  Tuttavia, la tabella seguente non è un elenco esaustivo, ma include alcune delle funzionalità e delle funzionalità più comuni utilizzate nelle soluzioni di accesso remoto. 
 

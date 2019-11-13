@@ -36,9 +36,9 @@ Nelle sezioni seguenti, corsivo indica il testo visualizzato nello strumento Ana
 *La configurazione della memoria per una o più macchine virtuali potrebbe richiedere l'uso del paging intelligente se la macchina virtuale viene riavviata e il percorso specificato per il file di paging intelligente è il disco di sistema del server che esegue Hyper-V.*  
   
 ## <a name="impact"></a>Impatto  
-@no__t 0Use del disco di sistema per il paging intelligente potrebbe causare problemi al server che esegue Hyper-V. Ciò influiscono sulle macchine virtuali seguenti: *  
+*L'utilizzo del disco di sistema per il paging intelligente potrebbe causare problemi al server che esegue Hyper-V. Ciò influiscono sulle macchine virtuali seguenti:*  
   
-@no__t 0list di macchine virtuali >  
+\<elenco di macchine virtuali >  
   
 ## <a name="resolution"></a>Risoluzione  
 *Riconfigurare le macchine virtuali per archiviare i file di paging intelligente in un disco non di sistema.*  

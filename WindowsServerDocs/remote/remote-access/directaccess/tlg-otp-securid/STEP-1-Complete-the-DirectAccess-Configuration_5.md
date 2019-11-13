@@ -23,7 +23,7 @@ ms.locfileid: "71367569"
 
 >Si applica a: Windows Server (Canale semestrale), Windows Server 2016
 
-Il primo passaggio consiste nel completare la guida al Lab [Test: Dimostrazione della configurazione del singolo server DirectAccess con IPv4 misto e IPv6 @ no__t-0. Se sono già stati completati i passaggi della Guida al Lab di test e si è salvata un'immagine snapshot o disco del Lab di test, è possibile ripristinare lo snapshot o l'immagine e iniziare con il passaggio successivo.  
+Il primo passaggio consiste nel completare la [Guida al Lab di test: dimostrazione della configurazione del singolo server DirectAccess con IPv4 misto e IPv6](https://go.microsoft.com/fwlink/p/?LinkId=237004). Se sono già stati completati i passaggi della Guida al Lab di test e si è salvata un'immagine snapshot o disco del Lab di test, è possibile ripristinare lo snapshot o l'immagine e iniziare con il passaggio successivo.  
   
 
 

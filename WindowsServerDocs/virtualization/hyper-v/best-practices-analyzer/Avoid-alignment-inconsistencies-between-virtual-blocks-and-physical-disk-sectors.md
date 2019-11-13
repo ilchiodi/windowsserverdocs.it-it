@@ -36,12 +36,12 @@ Nelle sezioni seguenti, corsivo indica il testo dell'interfaccia Utente visualiz
 *Sono state rilevate incoerenze di allineamento per uno o più dischi rigidi virtuali.*  
   
 ### <a name="impact"></a>Impatto  
-@no__t 0If i dischi rigidi virtuali vengono archiviati su disco fisico con dimensioni di settore pari a 4K, la macchina virtuale o le applicazioni che usano il disco rigido virtuale potrebbero riscontrare problemi di prestazioni. Ciò influiscono sulle macchine virtuali seguenti: *  
+*Se i dischi rigidi virtuali vengono archiviati su disco fisico con dimensioni di settore pari a 4K, la macchina virtuale o le applicazioni che usano il disco rigido virtuale potrebbero riscontrare problemi di prestazioni. Ciò influiscono sulle macchine virtuali seguenti:*  
   
-@no__t 0list di macchine virtuali >  
+\<elenco di macchine virtuali >  
   
 ## <a name="resolution"></a>Risoluzione  
-@no__t 0Use la creazione guidata disco rigido virtuale per creare un nuovo disco rigido virtuale in formato VHD o VHDX e specificare il disco rigido virtuale esistente come disco di origine. Il nuovo disco rigido virtuale verrà creato con l'allineamento tra i blocchi virtuali e il disco fisico. *  
+*Utilizzare la creazione guidata disco rigido virtuale per creare un nuovo disco rigido virtuale in formato VHD o VHDX e specificare il disco rigido virtuale esistente come disco di origine. Il nuovo disco rigido virtuale verrà creato con l'allineamento tra i blocchi virtuali e il disco fisico.*  
   
 
 

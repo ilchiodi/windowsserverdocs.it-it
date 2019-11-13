@@ -25,11 +25,11 @@ ms.locfileid: "71404601"
 
 In questo argomento vengono illustrati i passaggi di configurazione necessari per distribuire un singolo server di accesso remoto che può essere utilizzato per la gestione remota dei client DirectAccess.  
   
--   [Passaggio 1: Configurare l'infrastruttura di accesso remoto @ no__t-0: In questo argomento viene descritto come configurare le impostazioni di rete e server, i requisiti dei certificati, le impostazioni DNS, la distribuzione del server dei percorsi di rete, i server di Gestione DirectAccess, le impostazioni di Active Directory e gli oggetti di Criteri di gruppo.  
+-   [Passaggio 1: configurare l'infrastruttura di accesso remoto](Step-1-Configure-the-Remote-Access-Infrastructure.md): in questo argomento viene descritto come configurare le impostazioni di rete e server, i requisiti dei certificati, le impostazioni DNS, la distribuzione del server dei percorsi di rete, i server di Gestione DirectAccess, le impostazioni di Active Directory e gli oggetti di criteri di gruppo.  
   
--   [Passaggio 2: Configurare il server di accesso remoto @ no__t-0: In questo argomento viene descritto come configurare i computer client DirectAccess, le impostazioni del server e i server dell'infrastruttura e dell'applicazione.  
+-   [Passaggio 2: configurare il server di accesso remoto](Step-2-Configure-the-Remote-Access-Server.md): in questo argomento viene descritto come configurare i computer client DirectAccess, le impostazioni del server e i server dell'infrastruttura e dell'applicazione.  
   
--   [Passaggio 3: Verificare la distribuzione @ no__t-0: In questo argomento viene descritto come verificare la distribuzione di.  
+-   [Passaggio 3: verificare la distribuzione](Step-3-Verify-the-Deployment_2.md): in questo argomento viene descritto come verificare la distribuzione.  
   
 
 

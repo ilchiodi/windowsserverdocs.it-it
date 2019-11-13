@@ -25,15 +25,15 @@ ms.locfileid: "71388636"
 
 Questa panoramica elenca i passaggi di configurazione necessari per distribuire un singolo server DirectAccess che esegue Windows Server 2016, Windows Server 2012 R2 o Windows Server 2012 con IPv4 e IPv6.  
   
--   [Passaggio 1: Configurare l'infrastruttura DirectAccess avanzata @ no__t-0.  
+-   [Passaggio 1: configurare l'infrastruttura DirectAccess avanzata](da-adv-configure-s1-infrastructure.md).  
   
     In questa fase, si configurano le impostazioni di rete e del server, i requisiti dei certificati, le impostazioni DNS (Domain Name System), la distribuzione del server dei percorsi di rete, i server di gestione DirectAccess, le impostazioni Active Directory e gli oggetti Criteri di gruppo.  
   
--   [Passaggio 2: Configurare server DirectAccess avanzati @ no__t-0.  
+-   [Passaggio 2: configurare i server DirectAccess avanzati](da-adv-configure-s2-servers.md).  
   
     In questa fase, si configurano i computer client DirectAccess, le impostazioni del server, i server dell'infrastruttura e i server applicazioni.  
   
--   [Passaggio 3: Verificare la distribuzione avanzata di DirectAccess @ no__t-0.  
+-   [Passaggio 3: verificare la distribuzione avanzata di DirectAccess](da-adv-configure-s3-verify.md).  
   
     Questo passaggio descrive i passaggi per la verifica della distribuzione.  
   

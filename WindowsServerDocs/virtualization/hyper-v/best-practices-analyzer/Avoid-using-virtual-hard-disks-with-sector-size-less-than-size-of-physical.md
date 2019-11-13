@@ -36,9 +36,9 @@ Nelle sezioni seguenti, corsivo indica il testo dell'interfaccia Utente visualiz
 *Uno o più dischi rigidi virtuali hanno dimensioni di settore fisico inferiori alle dimensioni del settore fisico dello spazio di archiviazione in cui si trova il file del disco rigido virtuale.*  
   
 ## <a name="impact"></a>**Impatto**  
-è possibile che si verifichino problemi @no__t 0Performance nella macchina virtuale o nell'applicazione che usa il disco rigido virtuale. Ciò influisca sulle macchine virtuali seguenti: *  
+*Potrebbero verificarsi problemi di prestazioni nella macchina virtuale o nell'applicazione che usano il disco rigido virtuale. Ciò influisca sulle macchine virtuali seguenti:*  
   
-@no__t 0list di macchine virtuali >  
+\<elenco di macchine virtuali >  
   
 ## <a name="resolution"></a>**Soluzione**  
 *Eseguire una delle operazioni seguenti:*  

@@ -25,13 +25,13 @@ ms.locfileid: "71367116"
 
  Windows Server 2016 combina DirectAccess e VPN RAS (Remote Access Service) in un singolo ruolo accesso remoto. Questa panoramica offre un'introduzione ai passaggi di configurazione necessari per distribuire una singola distribuzione multisito di accesso remoto di Windows Server 2016 o Windows Server 2012.  
   
--   Passaggio 1: [Distribuire un server DirectAccess singolo con impostazioni avanzate](https://technet.microsoft.com/windows-server-docs/networking/remote-access/directaccess/single-server-advanced/deploy-a-single-directaccess-server-with-advanced-settings). Installare e configurare un singolo server di accesso remoto. Per la distribuzione multisito è necessario installare un server singolo prima di configurare una distribuzione multisito.  
+-   Passaggio 1: [distribuire un server DirectAccess singolo con impostazioni avanzate](https://technet.microsoft.com/windows-server-docs/networking/remote-access/directaccess/single-server-advanced/deploy-a-single-directaccess-server-with-advanced-settings). Installare e configurare un singolo server di accesso remoto. Per la distribuzione multisito è necessario installare un server singolo prima di configurare una distribuzione multisito.  
   
--   [Passaggio 2: Configurare l'infrastruttura multisito @ no__t-0. Per una distribuzione multisito è necessario configurare altri siti di Active Directory e controller di dominio. Se non si utilizzano oggetti Criteri di gruppo configurati automaticamente, è necessario che siano necessari anche altri gruppi di sicurezza e oggetti di Criteri di gruppo (GPO).  
+-   [Passaggio 2: configurare l'infrastruttura multisito](Step-2-Configure-the-Multisite-Infrastructure.md). Per una distribuzione multisito è necessario configurare altri siti di Active Directory e controller di dominio. Se non si utilizzano oggetti Criteri di gruppo configurati automaticamente, è necessario che siano necessari anche altri gruppi di sicurezza e oggetti di Criteri di gruppo (GPO).  
   
--   [Passaggio 3: Configurare la distribuzione multisito @ no__t-0-installare il ruolo accesso remoto nei server di accesso remoto aggiuntivi, abilitare la distribuzione multisito e configurare i server aggiuntivi come punti di ingresso per la distribuzione.  
+-   [Passaggio 3: configurare la distribuzione multisito:](Step-3-Configure-the-Multisite-Deployment.md)installare il ruolo accesso remoto in server di accesso remoto aggiuntivi, abilitare la distribuzione multisito e configurare i server aggiuntivi come punti di ingresso per la distribuzione.  
   
--   [Passaggio 4: Verificare la distribuzione multisito @ no__t-0 
+-   [Passaggio 4: verificare la distribuzione multisito](Step-4-Verify-the-Multisite-Deployment.md) 
   
 
 

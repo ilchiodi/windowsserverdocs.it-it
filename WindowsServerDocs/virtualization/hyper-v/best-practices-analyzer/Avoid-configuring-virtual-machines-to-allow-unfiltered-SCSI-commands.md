@@ -40,13 +40,13 @@ Nelle sezioni seguenti, corsivo indica il testo dell'interfaccia Utente visualiz
   
 ## <a name="impact"></a>Impatto  
   
-il filtro del comando SCSI *Bypassing costituisce un rischio per la sicurezza. Questa configurazione deve essere abilitata solo se è necessaria per la compatibilità con le applicazioni di archiviazione in esecuzione nel sistema operativo guest. Le macchine virtuali seguenti sono configurate per consentire i comandi SCSI non filtrati:*  
+*Il bypass del filtro del comando SCSI costituisce un rischio per la sicurezza. Questa configurazione deve essere abilitata solo se è necessaria per la compatibilità con le applicazioni di archiviazione in esecuzione nel sistema operativo guest. Le macchine virtuali seguenti sono configurate per consentire i comandi SCSI non filtrati:*  
   
-@no__t 0list di nomi di macchina virtuale >  
+\<elenco dei nomi delle macchine virtuali >  
   
 ## <a name="resolution"></a>Risoluzione  
   
-@no__t: 0Contact il fornitore del sistema di archiviazione per determinare se questa configurazione è necessaria. Inoltre, se il sistema operativo di gestione o altri sistemi operativi guest sono compromessi o presentano un comportamento insolito, riconfigurare la macchina virtuale per bloccare i comandi. *  
+*Contattare il fornitore del sistema di archiviazione per determinare se questa configurazione è obbligatoria. Inoltre, se il sistema operativo di gestione o altri sistemi operativi guest sono compromessi o presentano un comportamento insolito, riconfigurare la macchina virtuale per bloccare i comandi.*  
   
 
 

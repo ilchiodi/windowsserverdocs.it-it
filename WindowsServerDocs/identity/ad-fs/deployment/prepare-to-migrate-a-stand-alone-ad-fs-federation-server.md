@@ -21,15 +21,15 @@ Per preparare la migrazione (stessa migrazione del server) a un server federativ
   
 Per esportare i dati di configurazione di ADFS, eseguire le attività seguenti:  
   
--   [Passaggio 1:  Esporta impostazioni del servizio @ no__t-0  
+-   [Passaggio 1: esportare le impostazioni del servizio](#step-1-export-service-settings)  
   
--   [Passaggio 2:  Esporta trust del provider di attestazioni @ no__t-0  
+-   [Passaggio 2: esportare i trust del provider di attestazioni](#step-2-export-claims-provider-trusts)  
   
--   [Passaggio 3:  Esporta relying party Trusts @ no__t-0  
+-   [Passaggio 3: esportare i trust relying party](#step-3-export-relying-party-trusts)  
   
--   [Passaggio 4:  Eseguire il backup degli archivi di attributi personalizzati @ no__t-0  
+-   [Passaggio 4: eseguire il backup degli archivi di attributi personalizzati](#step-4-back-up-custom-attribute-stores)  
   
--   [Passaggio 5:  Eseguire il backup delle personalizzazioni di pagine Web @ no__t-0  
+-   [Passaggio 5: eseguire il backup delle personalizzazioni di pagine Web](#step-5-back-up-webpage-customizations)  
   
 ## <a name="step-1-export-service-settings"></a>Passaggio 1: esportare le impostazioni del servizio  
  Per esportare le impostazioni del servizio, eseguire la procedura riportata di seguito:  
@@ -94,12 +94,12 @@ A tale scopo, aprire Windows PowerShell ed eseguire il comando seguente per aggi
   
 1.  È possibile usare Windows PowerShell per esportare i trust del provider di attestazioni. Aprire Windows PowerShell ed eseguire il comando seguente per aggiungere i cmdlet di AD FS alla sessione di Windows PowerShell: `PSH:>add-pssnapin “Microsoft.adfs.powershell”`. Eseguire quindi il comando seguente per esportare tutti i trust del provider di attestazioni: `PSH:>Get-ADFSClaimsProviderTrust | Out-File “.\cptrusts.txt”`.  
   
-## <a name="step-3-export-relying-party-trusts"></a>Passaggio 3: esportare i trust della relying party  
+## <a name="step-3-export-relying-party-trusts"></a>Passaggio 3: esportare i trust relying party  
  Per esportare i trust della relying party, eseguire la procedura riportata di seguito:  
   
 ### <a name="to-export-relying-party-trusts"></a>Per esportare attendibilità del componente  
   
-1.  Per esportare tutti i trust di relying party, aprire Windows PowerShell ed eseguire il comando seguente per aggiungere i cmdlet di AD FS alla sessione di Windows PowerShell: `PSH:>add-pssnapin “Microsoft.adfs.powershell”`. Eseguire quindi il comando seguente per esportare tutti i trust di relying party: `PSH:>Get-ADFSRelyingPartyTrust | Out-File “.\rptrusts.txt”`.  
+1.  Per esportare tutti i trust di relying party, aprire Windows PowerShell ed eseguire il comando seguente per aggiungere i cmdlet di AD FS alla sessione di Windows PowerShell: `PSH:>add-pssnapin “Microsoft.adfs.powershell”`. Eseguire quindi il comando seguente per esportare tutti i trust relying party:`PSH:>Get-ADFSRelyingPartyTrust | Out-File “.\rptrusts.txt”`.  
   
 ## <a name="step-4-back-up-custom-attribute-stores"></a>Passaggio 4: eseguire il backup degli archivi di attributi personalizzati  
  Per trovare informazioni sugli archivi di attributi personalizzati usati da ADFS, è possibile usare Windows PowerShell. Aprire Windows PowerShell ed eseguire il comando seguente per aggiungere i cmdlet di AD FS alla sessione di Windows PowerShell: `PSH:>add-pssnapin “Microsoft.adfs.powershell”`. Eseguire quindi il comando seguente per trovare informazioni sugli archivi di attributi personalizzati: `PSH:>Get-ADFSAttributeStore`. La procedura per aggiornare gli archivi di attributi personalizzati o eseguirne la migrazione varia.  
@@ -109,7 +109,7 @@ A tale scopo, aprire Windows PowerShell ed eseguire il comando seguente per aggi
 
 ## <a name="next-steps"></a>Passaggi successivi
  [Preparare la migrazione del server federativo AD FS 2,0](prepare-to-migrate-ad-fs-fed-server.md)   
- [Preparare la migrazione del proxy server federativo di AD FS 2,0](prepare-to-migrate-ad-fs-fed-proxy.md)   
+ [Preparare la migrazione del proxy server federativo AD FS 2,0](prepare-to-migrate-ad-fs-fed-proxy.md)   
  [Eseguire la migrazione del server federativo AD FS 2,0](migrate-the-ad-fs-fed-server.md)   
  [Eseguire la migrazione del proxy server federativo AD FS 2,0](migrate-the-ad-fs-2-fed-server-proxy.md)   
  [Eseguire la migrazione di Agenti Web di AD FS 1.1](migrate-the-ad-fs-web-agent.md)

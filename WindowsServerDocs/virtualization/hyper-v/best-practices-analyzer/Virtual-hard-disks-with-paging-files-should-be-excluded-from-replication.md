@@ -36,12 +36,12 @@ Nelle sezioni seguenti, corsivo indica il testo dell'interfaccia Utente visualiz
 *I file di paging devono essere esclusi dalla replica, ma non sono stati esclusi dischi.*  
   
 ## <a name="impact"></a>Impatto  
-i file @no__t 0Paging presentano un volume elevato di attività di input/output, che richiederà inutilmente risorse molto maggiori per partecipare alla replica. Ciò influisca sulle macchine virtuali seguenti: *  
+*I file di paging presentano un volume elevato di attività di input/output, che richiederà inutilmente risorse molto maggiori per partecipare alla replica. Ciò influisca sulle macchine virtuali seguenti:*  
   
-@no__t 0list di macchine virtuali >  
+\<elenco di macchine virtuali >  
   
 ## <a name="resolution"></a>Risoluzione  
-*If non è già stato fatto, creare un disco rigido virtuale distinto per il file di paging di Windows. Se è già stata completata la replica iniziale, utilizzare Hyper-V Manager per rimuovere la replica. Quindi, configurare di nuovo la replica ed escludere il disco rigido virtuale con il file di paging dalla replica.*  
+*Se non è già stato fatto, creare un disco rigido virtuale distinto per il file di paging di Windows. Se la replica iniziale è già stata completata, utilizzare la console di gestione di Hyper-V per rimuovere la replica. Quindi, configurare di nuovo la replica ed escludere il disco rigido virtuale con il file di paging dalla replica.*  
   
 
 

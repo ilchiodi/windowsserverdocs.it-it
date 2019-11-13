@@ -31,11 +31,11 @@ Dopo aver creato un ACL e averlo assegnato a una subnet virtuale, potrebbe esser
 
 In questo argomento viene illustrato come aggiungere un ACL a un'interfaccia di rete. Viene inoltre illustrato come rimuovere un ACL da un'interfaccia di rete tramite Windows PowerShell e l'API REST del controller di rete.
 
-- [Esempio: Aggiungere un ACL a un'interfaccia di rete @ no__t-0
-- [Esempio: Rimuovere un ACL da un'interfaccia di rete usando Windows PowerShell e l'API REST del controller di rete @ no__t-0
+- [Esempio: aggiungere un ACL a un'interfaccia di rete](#example-add-an-acl-to-a-network-interface)
+- [Esempio: rimuovere un ACL da un'interfaccia di rete usando Windows PowerShell e l'API REST del controller di rete](#example-remove-an-acl-from-a-network-interface-by-using-windows-powershell-and-the-network-controller-rest-api)
 
 
-## <a name="example-add-an-acl-to-a-network-interface"></a>Esempio: Aggiungere un ACL a un'interfaccia di rete
+## <a name="example-add-an-acl-to-a-network-interface"></a>Esempio: aggiungere un ACL a un'interfaccia di rete
 In questo esempio viene illustrato come aggiungere un ACL a una rete virtuale. 
 
 >[!TIP]
@@ -65,7 +65,7 @@ In questo esempio viene illustrato come aggiungere un ACL a una rete virtuale.
    new-networkcontrollernetworkinterface -ConnectionUri $uri -Properties $nic.properties -ResourceId $nic.resourceid
    ```
  
-## <a name="example-remove-an-acl-from-a-network-interface-by-using-windows-powershell-and-the-network-controller-rest-api"></a>Esempio: Rimuovere un ACL da un'interfaccia di rete usando Windows PowerShell e l'API REST del controller di rete
+## <a name="example-remove-an-acl-from-a-network-interface-by-using-windows-powershell-and-the-network-controller-rest-api"></a>Esempio: rimuovere un ACL da un'interfaccia di rete usando Windows PowerShell e l'API REST del controller di rete
 In questo esempio viene illustrato come rimuovere un ACL. La rimozione di un ACL applica il set predefinito di regole all'interfaccia di rete. Il set predefinito di regole consente tutto il traffico in uscita, ma blocca tutto il traffico in ingresso.
 
 >[!NOTE]

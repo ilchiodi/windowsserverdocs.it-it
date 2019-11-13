@@ -38,7 +38,7 @@ Il controllo di accesso in AD FS viene implementato con regole attestazione di a
 
 Per altre informazioni sulle opzioni e sulla logica di queste regole, vedere [When to Use an Authorization Claim Rule](https://technet.microsoft.com/library/ee913560.aspx).
 
-In AD FS in Windows Server 2012 R2, il controllo di accesso è migliorato con diversi fattori, inclusi i dati relativi a utenti, dispositivi, posizione e autenticazione. Ciò è possibile grazie alla disponibilità di una più ampia gamma di tipi di attestazione per le regole attestazione di autorizzazione.  In altre parole, in AD FS in Windows Server 2012 R2, è possibile applicare il controllo di accesso condizionale in base all'identità utente o all'appartenenza a un gruppo, al percorso di rete, al dispositivo (se è aggiunto all'area di lavoro). per altre informazioni, vedere [aggiungere un'area di lavoro da qualsiasi dispositivo per SSO e l'autenticazione a due fattori trasparente per tutte le applicazioni aziendali](../../ad-fs/operations/Join-to-Workplace-from-Any-Device-for-SSO-and-Seamless-Second-Factor-Authentication-Across-Company-Applications.md)) e lo stato di autenticazione (autenticazione a più fattori (multi-factor authentication).
+In AD FS in Windows Server 2012 R2, il controllo di accesso è migliorato con diversi fattori, inclusi i dati relativi a utenti, dispositivi, posizione e autenticazione. Ciò è possibile grazie alla disponibilità di una più ampia gamma di tipi di attestazione per le regole attestazione di autorizzazione.  In altre parole, in AD FS in Windows Server 2012 R2, è possibile applicare il controllo di accesso condizionale in base all'identità dell'utente o all'appartenenza a un gruppo, al percorso di rete, al dispositivo (se è stato aggiunto all'area di lavoro). per altre informazioni, vedere [aggiungere all'area di lavoro da qualsiasi dispositivo per SSO e autenticazione a due fattori trasparente per tutte le applicazioni aziendali](../../ad-fs/operations/Join-to-Workplace-from-Any-Device-for-SSO-and-Seamless-Second-Factor-Authentication-Across-Company-Applications.md).
 
 Il controllo dell'accesso condizionale in AD FS in Windows Server 2012 R2 offre i vantaggi seguenti:
 
@@ -50,7 +50,7 @@ Il controllo dell'accesso condizionale in AD FS in Windows Server 2012 R2 offre 
 
 -   Linguaggio esteso per le attestazioni e supporto di Windows PowerShell per gli scenari avanzati di controllo di accesso condizionale
 
--   Messaggi di "accesso negato" personalizzati (per applicazione relying party). Per altre informazioni, vedere [Customizing the AD FS Sign-in Pages](https://technet.microsoft.com/library/dn280950.aspx). La possibilità di personalizzare questi messaggi consente di spiegare i motivi per cui viene negato l'accesso e facilita inoltre la risoluzione autonoma del problema nei casi in cui è possibile, ad esempio richiedendo agli utenti di unire i loro dispositivi all'area di lavoro. Per altre informazioni, vedere [Accedere a una rete aziendale da qualsiasi dispositivo per SSO e l'autenticazione a due fattori trasparente per tutte le applicazioni aziendali](../../ad-fs/operations/Join-to-Workplace-from-Any-Device-for-SSO-and-Seamless-Second-Factor-Authentication-Across-Company-Applications.md).
+-   Messaggi di "accesso negato" personalizzati (per applicazione relying party). Per altre informazioni, vedere [Customizing the AD FS Sign-in Pages](https://technet.microsoft.com/library/dn280950.aspx). La possibilità di personalizzare questi messaggi consente di spiegare i motivi per cui viene negato l'accesso e facilita inoltre la risoluzione autonoma del problema nei casi in cui è possibile, ad esempio richiedendo agli utenti di unire i loro dispositivi all'area di lavoro. Per altre informazioni, vedere [Join to Workplace from Any Device for SSO and Seamless Second Factor Authentication Across Company Applications](../../ad-fs/operations/Join-to-Workplace-from-Any-Device-for-SSO-and-Seamless-Second-Factor-Authentication-Across-Company-Applications.md).
 
 La tabella seguente include tutti i tipi di attestazione disponibili in AD FS in Windows Server 2012 R2 da usare per l'implementazione del controllo di accesso condizionale.
 
@@ -62,9 +62,9 @@ La tabella seguente include tutti i tipi di attestazione disponibili in AD FS in
 |UPN|Nome dell'entità utente (UPN) dell'utente.|
 |Nome comune|Nome comune dell'utente.|
 |Indirizzo di posta elettronica AD FS 1.x|Indirizzo di posta elettronica dell'utente quando interagisce con AD FS 1.1 o AD FS 1.0.|
-|Group|Gruppo a cui appartiene l'utente.|
+|Gruppo|Gruppo a cui appartiene l'utente.|
 |UPN AD FS 1.x|UPN dell'utente quando interagisce con AD FS 1.1 o AD FS 1.0.|
-|Role|Ruolo dell'utente.|
+|Ruolo|Ruolo dell'utente.|
 |Surname|Cognome dell'utente.|
 |PPID|Identificatore privato dell'utente.|
 |ID nome|Identificatore nome SAML dell'utente.|
@@ -123,7 +123,7 @@ La tabella seguente include tutti i tipi di attestazione disponibili in AD FS in
 Le impostazioni disponibili offrono numerose soluzioni per gestire i rischi grazie all'implementazione del controllo di accesso condizionale.
 
 ### <a name="common-scenarios"></a>Scenari comuni
-Si supponga, ad esempio, un semplice scenario di implementazione del controllo di accesso condizionale in base ai dati di appartenenza a gruppi dell'utente per una particolare applicazione (relying party Trust). In altre parole, è possibile configurare una regola di autorizzazione di rilascio nel server federativo per consentire agli utenti che appartengono a un determinato gruppo nel dominio di Active Directory di accedere a una particolare applicazione protetta da AD FS.  Le istruzioni dettagliate (usando l'interfaccia utente e Windows PowerShell) per l'implementazione di questo scenario sono illustrate nella Guida [Walkthrough: Gestire i rischi con il controllo degli accessi condizionali @ no__t-0. Per completare i passaggi di questa procedura dettagliata, è necessario configurare un ambiente lab e seguire i passaggi descritti in [configurare l'ambiente lab per ad FS in Windows Server 2012 R2](../../ad-fs/deployment/Set-up-the-lab-environment-for-AD-FS-in-Windows-Server-2012-R2.md).
+Si supponga, ad esempio, un semplice scenario di implementazione del controllo di accesso condizionale in base ai dati di appartenenza a gruppi dell'utente per una particolare applicazione (relying party Trust). In altre parole, è possibile configurare una regola di autorizzazione di rilascio nel server federativo per consentire agli utenti che appartengono a un determinato gruppo nel dominio di Active Directory di accedere a una particolare applicazione protetta da AD FS.  Le istruzioni dettagliate per l'implementazione di questo scenario tramite l'interfaccia utente e Windows PowerShell sono disponibili in [Walkthrough Guide: Manage Risk with Conditional Access Control](../../ad-fs/operations/Walkthrough-Guide--Manage-Risk-with-Conditional-Access-Control.md). Per completare i passaggi di questa procedura dettagliata, è necessario configurare un ambiente lab e seguire i passaggi descritti in [configurare l'ambiente lab per ad FS in Windows Server 2012 R2](../../ad-fs/deployment/Set-up-the-lab-environment-for-AD-FS-in-Windows-Server-2012-R2.md).
 
 ### <a name="advanced-scenarios"></a>Scenari avanzati
 Altri esempi di implementazione del controllo di accesso condizionale in AD FS in Windows Server 2012 R2 includono quanto segue:
@@ -174,8 +174,9 @@ Altri esempi di implementazione del controllo di accesso condizionale in AD FS i
 
     ```
 
-## <a name="see-also"></a>Vedere anche
-[Procedura dettagliata: Gestire i rischi con il controllo degli accessi condizionali @ no__t-0 @ no__t-1[configurare l'ambiente lab per ad FS in Windows Server 2012 R2](../../ad-fs/deployment/Set-up-the-lab-environment-for-AD-FS-in-Windows-Server-2012-R2.md)
+## <a name="see-also"></a>Vedi anche
+[Guida allo scenario: gestire i rischi con il controllo degli accessi condizionali](../../ad-fs/operations/Walkthrough-Guide--Manage-Risk-with-Conditional-Access-Control.md)
+[configurare l'ambiente lab per ad FS in Windows Server 2012 R2](../../ad-fs/deployment/Set-up-the-lab-environment-for-AD-FS-in-Windows-Server-2012-R2.md)
 
 
 

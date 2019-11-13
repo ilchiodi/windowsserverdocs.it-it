@@ -39,7 +39,7 @@ In questo argomento viene descritto come verificare di avere configurato corrett
   
 ## <a name="BKMK_Links"></a>Passaggio precedente  
   
--   [Passaggio 2: Configurazione di server DirectAccess @ no__t-0  
+-   [Passaggio 2: configurazione di server DirectAccess](Step-2-Configuring-DirectAccess-Servers.md)  
   
 
 

@@ -25,10 +25,10 @@ Il modo migliore per implementare gli account utente in MultiPoint Services dipe
   
 -   **Account utente locali** : per una distribuzione di piccole dimensioni con pochi computer che eseguono Servizi MultiPoind e pochi utenti, potrebbe essere più pratico usare *account utente locali* creati in MultiPoint Services. È possibile creare un singolo account per ogni persona che utilizzerà il sistema o creare un account generico per ogni stazione, che chiunque può utilizzare per l'accesso. Gli amministratori di MultiPoint Services creano e gestiscono gli account utente locali tramite Gestione MultiPoint. Gli account locali possono essere amministratori, avere diritti amministrativi limitati o essere utenti normali senza accesso a MultiPoint Services desktop o MultiPoint Manager.  
   
--   **Account di dominio** : se nell'ambiente sono presenti molti computer che eseguono multipoint Services e molti utenti, probabilmente sarà più utile configurare un dominio Active Directory Domain Services \(AD DS @ no__t-2 e utilizzare gli *account utente di dominio*. che consentono a un utente di accedere al proprio profilo utente e alle proprie impostazioni da qualsiasi stazione nel dominio. Gli account utente di dominio devono essere creati nel controller di dominio da un amministratore di dominio.  
+-   **Account di dominio** : se nell'ambiente sono presenti molti computer che eseguono multipoint Services e molti utenti, probabilmente sarà più utile configurare un Active Directory Domain Services \(dominio di servizi di dominio Active\) directory e usare *account utente di dominio*, che consentono a un utente di accedere al proprio profilo utente e alle proprie impostazioni da qualsiasi stazione nel dominio. Gli account utente di dominio devono essere creati nel controller di dominio da un amministratore di dominio.  
   
 > [!NOTE]  
-> Le sezioni seguenti illustrano gli scenari che è possibile implementare per gli account utente locali in MultiPoint Services. Se si usano account utente di dominio, vedere lo scenario "uno o più server MultiPoint in un ambiente di rete di dominio" negli scenari [Example: Account utente di MultiPoint Services @ no__t-0.  
+> Le sezioni seguenti illustrano gli scenari che è possibile implementare per gli account utente locali in MultiPoint Services. Se si usano account utente di dominio, vedere lo scenario "uno o più server MultiPoint in un ambiente di rete di dominio" in [scenari di esempio: account utente di servizi multipoint](Example-scenarios--MultiPoint-Services-user-accounts.md).  
   
 ## <a name="planning-local-user-accounts"></a>Pianificazione degli account utente locali  
 Nelle sezioni seguenti vengono considerati i vantaggi, gli svantaggi e i requisiti per diversi modi di implementare account utente locali singoli o condivisi nell'ambiente Windows MultiPoint Services.  
@@ -38,7 +38,7 @@ Quando si creano account utente locali, è possibile scegliere tra due approcci.
   
 Dal punto di vista della gestione del sistema, l'assegnazione di utenti a uno specifico computer Servizi MultiPoint potrebbe essere più utile. Se, ad esempio, si dispone di due server MultiPoint con cinque stazioni ciascuno, è possibile creare account utente locali come illustrato nella tabella seguente.  
   
-**Table 1: Assegnazione di account utente locali a computer specifici che eseguono MultiPoint Services @ no__t-0  
+**Tabella 1: assegnazione di account utente locali a computer specifici che eseguono MultiPoint Services**  
   
 |Computer A|Computer B|  
 |--------------|--------------|  
@@ -52,7 +52,7 @@ In questo scenario ogni utente dispone di un singolo account in un determinato c
   
 Al contrario, è anche possibile replicare singoli account utente in tutti i computer che eseguono MultiPoint Services, come illustrato nella tabella seguente.  
   
-**Table 2: Replica degli account utente in tutti i computer che eseguono MultiPoint Services @ no__t-0  
+**Tabella 2: replica degli account utente in tutti i computer che eseguono MultiPoint Services**  
   
 |Computer A|Computer B|  
 |--------------|--------------|  
@@ -67,15 +67,15 @@ Un vantaggio di questo approccio consiste nel fatto che gli utenti dispongono di
 ### <a name="use-generic-local-user-accounts"></a>Usare account utente locali generici  
 Se il sistema MultiPoint Services non è connesso a un dominio e non si vuole creare un singolo account per ogni utente, è possibile creare account generici per ogni stazione. Se, ad esempio, si dispone di due computer che eseguono MultiPoint Services e cinque stazioni sono associate a ogni computer, è possibile decidere di creare account utente simili a quelli illustrati nella tabella seguente.  
   
-**Table 3: Creazione di account utente generici, un account per stazione @ no__t-0  
+**Tabella 3: creazione di account utente generici, un account per stazione**  
   
 |Computer A|Computer B|  
 |--------------|--------------|  
-|Computer_A-Station_01|Computer_B-Station_01|  
-|Computer_A-Station_02|Computer_B-Station_02|  
-|Computer_A-Station_03|Computer_B-Station_03|  
-|Computer_A-Station_04|Computer_B-Station_04|  
-|Computer_A-Station_05|Computer_B-Station_05|  
+|Computer_A Station_01|Computer_B Station_01|  
+|Computer_A Station_02|Computer_B Station_02|  
+|Computer_A Station_03|Computer_B Station_03|  
+|Computer_A Station_04|Computer_B Station_04|  
+|Computer_A Station_05|Computer_B Station_05|  
   
 In questo scenario, ogni account della stazione ha la stessa password e le password e i nomi degli account utente generici sono disponibili per tutti gli utenti. Un vantaggio di questo approccio consiste nel fatto che il sovraccarico della gestione degli account utente è probabilmente inferiore rispetto all'uso di singoli account, perché in genere sono presenti meno stazioni rispetto agli utenti. Inoltre, l'overhead causato dalla replica degli account utente in ogni server viene eliminato.  
   

@@ -27,7 +27,7 @@ Per altre informazioni sulle procedure consigliate e sulle analisi, vedere [Eseg
 |-|-|  
 |**Sistema operativo**|Windows Server 2016|  
 |**Prodotto/funzionalità**|Hyper-V|  
-|**Gravità**|Errore|  
+|**Gravità**|Error|  
 |**Categoria**|Configurazione|  
   
 Nelle sezioni seguenti, corsivo indica il testo dell'interfaccia Utente visualizzata nello strumento Analizzatore procedure consigliate per questo problema.  
@@ -36,12 +36,12 @@ Nelle sezioni seguenti, corsivo indica il testo dell'interfaccia Utente visualiz
 *Non è stato eseguito il backup di una o più macchine virtuali nell'ultima settimana.*  
   
 ## <a name="impact"></a>Impatto  
-è possibile che si verifichi una perdita di dati *Significant se la macchina virtuale rileva un problema e non esiste un backup recente. Ciò influisca sulle macchine virtuali seguenti:*  
+*È possibile che si verifichi una perdita di dati significativa se la macchina virtuale rileva un problema e non esiste un backup recente. Ciò influisca sulle macchine virtuali seguenti:*  
   
-@no__t 0list di macchine virtuali >  
+\<elenco di macchine virtuali >  
   
 ## <a name="resolution"></a>Risoluzione  
-@no__t 0Schedule un backup delle macchine virtuali da eseguire almeno una volta alla settimana. È possibile ignorare questa regola se questa macchina virtuale è una replica e la macchina virtuale primaria viene sottoposta a backup o se si tratta della macchina virtuale primaria ed è in corso il backup della relativa replica. *  
+*Pianificare un backup delle macchine virtuali per l'esecuzione almeno una volta alla settimana. È possibile ignorare questa regola se la macchina virtuale è una replica e la macchina virtuale primaria viene sottoposta a backup, oppure se si tratta della macchina virtuale primaria e della replica di cui viene eseguito il backup.*  
   
 
 

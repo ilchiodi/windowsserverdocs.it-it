@@ -48,15 +48,15 @@ In questo caso, il cookie inviato al client dal server viene usato anche dal ser
 ## <a name="how-the-cookie-pool-is-managed"></a>Come viene gestito il pool di cookie  
 Ovviamente, il server LDAP gestisce più di un client alla volta ed è anche possibile che più client alla volta avviino una query che richiede l'uso della cache dei cookie del server. Pertanto l'implementazione di Windows Server prevede di tenere traccia dell'utilizzo del pool di cookie e vengono applicati alcuni limiti in modo tale che il pool di cookie non richieda una quantità eccessiva di risorse. I limiti possono essere impostati dall'amministratore usando le seguenti impostazioni nei criteri LDAP. Le impostazioni predefinite e le spiegazioni sono:  
   
-**MinResultSets: 4 @ no__t-0  
+**MinResultSets: 4**  
   
 Il server LDAP non considera le dimensioni massime del pool descritte di seguito, se nella cache dei cookie del server è presente un numero inferiore di voci rispetto a MinResultSets.  
   
-**MaxResultSetSize: 262.144 byte @ no__t-0  
+**MaxResultSetSize: 262.144 byte**  
   
 Le dimensioni totali della cache dei cookie nel server non devono superare il numero massimo di MaxResultSetSize in byte. Altrimenti, vengono eliminati i cookie meno recenti fino a quando le dimensioni in byte del pool non sono inferiori a MaxResultSetSize o nel pool non sia presente un numero di cookie inferiore a MinResultSets. Ciò significa che usando le impostazioni predefinite, il server LDAP considera come valore ottimale un pool di 450 KB se sono archiviati solo 3 cookie.  
   
-**MaxResultSetsPerConn: 10 @ no__t-0  
+**MaxResultSetsPerConn: 10**  
   
 Il server LDAP non consente un numero di cookie maggiore di MaxResultSetsPerConn per ogni connessione LDAP nel pool.  
   

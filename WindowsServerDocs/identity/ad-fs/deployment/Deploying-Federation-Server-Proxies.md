@@ -18,7 +18,7 @@ ms.locfileid: "71408407"
 ---
 # <a name="deploying-federation-server-proxies"></a>Distribuzione di proxy server federativi
 
-Per distribuire i proxy server federativi in Active Directory Federation Services \(AD FS @ no__t-1, completare tutte le attività in [Checklist: Configurazione di un proxy server federativo @ no__t-0.  
+Per distribuire i proxy server federativi in Active Directory Federation Services \(AD FS\), completare tutte le attività in [elenco di controllo: configurazione di un proxy server federativo](Checklist--Setting-Up-a-Federation-Server-Proxy.md).  
   
 > [!NOTE]  
 > Quando si utilizza questo elenco di controllo, prima di iniziare le procedure per la configurazione dei server, è consigliabile leggere prima di tutto i riferimenti alle linee guida per la pianificazione del proxy server federativo nella [Guida alla progettazione di ad FS in Windows server 2012](https://technet.microsoft.com/library/dd807036.aspx) . L'elenco di controllo seguente fornisce una migliore comprensione del processo di progettazione e distribuzione per i proxy server federativi.  

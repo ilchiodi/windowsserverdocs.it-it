@@ -27,7 +27,7 @@ Per altre informazioni sulle procedure consigliate e le analisi, vedere [Best Pr
 |-|-|  
 |**Sistema operativo**|Windows Server 2016|  
 |**Prodotto/funzionalità**|Hyper-V|  
-|**Gravità**|Errore|  
+|**Gravità**|Error|  
 |**Categoria**|Configurazione|  
 
 Nelle sezioni seguenti, corsivo indica il testo dell'interfaccia Utente visualizzata nello strumento Analizzatore procedure consigliate per questo problema.
@@ -42,7 +42,7 @@ Nelle sezioni seguenti, corsivo indica il testo dell'interfaccia Utente visualiz
   
 ## <a name="resolution"></a>Risoluzione  
   
-@no__t 0Add più schede di rete per questo computer. Per riservare una scheda di rete per l'utilizzo esclusivo da parte del sistema operativo di gestione, non configurarla per l'uso con una rete virtuale esterna. *  
+*Aggiungere altre schede di rete a questo computer. Per riservare una scheda di rete per l'utilizzo esclusivo da parte del sistema operativo di gestione, non configurarla per l'utilizzo con una rete virtuale esterna.*  
   
 Per informazioni sull'aggiunta di una scheda di rete al computer, consultare la documentazione relativa al computer o alla scheda di rete. Quindi, per riservarlo esclusivamente per il sistema operativo di gestione, non connetterlo a un Commuter virtuale.   
   

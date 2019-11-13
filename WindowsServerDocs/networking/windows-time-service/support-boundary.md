@@ -62,7 +62,7 @@ Per ottenere l'accuratezza 1S per un computer di destinazione specifico rispetto
 
 ### <a name="target-accuracy-50-milliseconds"></a>Accuratezza della destinazione: 50 millisecondi
 
-Tutti i requisiti descritti nella sezione **Target Precision: 1 secondo @ no__t-0 si applica, tranne nel caso in cui i controlli più severi sono descritti in questa sezione.
+Tutti i requisiti descritti nella sezione **accuratezza della destinazione: 1 secondo** si applicano, tranne nei casi in cui i controlli più severi sono descritti in questa sezione.
 
 I requisiti aggiuntivi per ottenere l'accuratezza 50 ms per un sistema di destinazione specifico sono:
 
@@ -81,7 +81,7 @@ I requisiti aggiuntivi per ottenere l'accuratezza 50 ms per un sistema di destin
 
 ### <a name="target-accuracy-1-millisecond"></a>Accuratezza della destinazione: 1 millisecondo
 
-Tutti i requisiti descritti nelle sezioni @no__t 0Target-accuratezza: 1 secondo @ no__t-0 e precisione **Target: 50 millisecondi @ no__t-0 si applicano, tranne nei casi in cui i controlli più severi sono descritti in questa sezione.
+Tutti i requisiti descritti nelle sezioni **accuratezza della destinazione: 1 secondo** e **precisione della destinazione: 50 millisecondi** , tranne nei casi in cui i controlli più severi sono descritti in questa sezione.
 
 I requisiti aggiuntivi per ottenere l'accuratezza di 1 ms per un sistema di destinazione specifico sono:
 

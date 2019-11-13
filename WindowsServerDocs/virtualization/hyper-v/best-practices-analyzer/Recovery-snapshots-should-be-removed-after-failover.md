@@ -36,9 +36,9 @@ Nelle sezioni seguenti, corsivo indica il testo dell'interfaccia Utente visualiz
 *Una macchina virtuale di cui è stato eseguito il failover ha uno o più snapshot di ripristino.*  
   
 ## <a name="impact"></a>**Impatto**  
-@no__t 0Available spazio potrebbe esaurirsi sul disco fisico in cui sono archiviati i file di snapshot. In questo caso, è non possibile effettuare alcun operazioni disco nello spazio di archiviazione fisica. Qualsiasi macchina virtuale che si basa sull'archiviazione fisica potrebbe risentirne. Ciò influisca sulle macchine virtuali seguenti: *  
+*Lo spazio disponibile potrebbe esaurirsi sul disco fisico in cui sono archiviati i file di snapshot. In tal caso, non è possibile eseguire operazioni su disco aggiuntive sull'archiviazione fisica. Potrebbe essere interessata qualsiasi macchina virtuale che si basa sull'archiviazione fisica. Ciò influisca sulle macchine virtuali seguenti:*  
   
-@no__t 0list di macchine virtuali >  
+\<elenco di macchine virtuali >  
   
 ## <a name="resolution"></a>**Soluzione**  
 *Per ogni macchina virtuale sottoposta a failover, usare il cmdlet Complete-VMFailover di Windows PowerShell per rimuovere gli snapshot di ripristino e indicare il completamento del failover.*  

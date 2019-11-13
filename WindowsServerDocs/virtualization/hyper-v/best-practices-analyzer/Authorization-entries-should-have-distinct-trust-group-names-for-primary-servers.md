@@ -36,10 +36,10 @@ Nelle sezioni seguenti, corsivo indica il testo dell'interfaccia Utente visualiz
 *Il server accetterà le richieste di replica per la macchina virtuale di replica da qualsiasi server nell'elenco di autorizzazioni associato allo stesso tag di replica della macchina virtuale.*  
   
 ## <a name="impact"></a>**Impatto**  
-*There potrebbe essere un problema di privacy e sicurezza con una macchina virtuale che accetta la replica dai server primari appartenenti a diverse voci di autorizzazione. Ciò influisca sulle seguenti voci di autorizzazione: \<list delle voci di autorizzazione >*  
+*Potrebbero sussistere problemi di protezione e privacy con una macchina virtuale che accetta la replica dai server primari appartenenti a diverse voci di autorizzazione. Ciò influisca sulle seguenti voci di autorizzazione: \<elenco di voci di autorizzazione >*  
   
 ## <a name="resolution"></a>**Soluzione**  
-@no__t 0Use tag diversi nelle voci di autorizzazione per i server primari con macchine virtuali che non fanno parte dello stesso gruppo di sicurezza. Modificare le impostazioni di Hyper-V per configurare i tag di replica. *  
+*Utilizzare tag diversi nelle voci di autorizzazione per i server primari con macchine virtuali che non fanno parte dello stesso gruppo di sicurezza. Modificare le impostazioni di Hyper-V per configurare i tag di replica.*  
   
 
 

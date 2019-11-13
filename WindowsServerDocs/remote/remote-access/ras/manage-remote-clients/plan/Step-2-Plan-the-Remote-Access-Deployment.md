@@ -26,7 +26,7 @@ ms.locfileid: "71404581"
 Dopo aver pianificato l'infrastruttura che si intende usare per configurare il singolo server di accesso remoto per la gestione remota dei client DirectAccess, è possibile pianificare le impostazioni che verranno usate dalla configurazione guidata accesso remoto.  
   
 > [!NOTE]  
-> Prima di continuare con queste attività, vedere [Step 1: Pianificare l'infrastruttura di accesso remoto @ no__t-0.  
+> Prima di continuare con queste attività, vedere [passaggio 1: pianificare l'infrastruttura di accesso remoto](Step-1-Plan-the-Remote-Access-Infrastructure.md).  
   
 |Attività|Descrizione|  
 |----|--------|  
@@ -76,9 +76,9 @@ Le decisioni da prendere durante la pianificazione della distribuzione del serve
   
     Quando si distribuisce un server di accesso remoto, sono disponibili due topologie:  
   
-    -   **Due schede**: Con due schede di rete, l'accesso remoto può essere configurato con una scheda di rete connessa direttamente a Internet e l'altra connessa alla rete interna. In alternativa, il server viene installato dietro un dispositivo perimetrale, ad esempio un firewall o un router. In questa configurazione, una scheda di rete è connessa alla rete perimetrale e l'altra è connessa alla rete interna.  
+    -   **Due schede**: con due schede di rete, l'accesso remoto può essere configurato con una scheda di rete connessa direttamente a Internet e l'altra connessa alla rete interna. In alternativa, il server viene installato dietro un dispositivo perimetrale, ad esempio un firewall o un router. In questa configurazione, una scheda di rete è connessa alla rete perimetrale e l'altra è connessa alla rete interna.  
   
-    -   **Singola scheda di rete**: In questa configurazione il server di accesso remoto viene installato dietro un dispositivo perimetrale, ad esempio un firewall o un router. La scheda di rete viene connessa alla rete interna.  
+    -   **Singola scheda di rete**: in questa configurazione il server di accesso remoto viene installato dietro un dispositivo perimetrale, ad esempio un firewall o un router. La scheda di rete viene connessa alla rete interna.  
 
 -   **Schede di rete**  
   
@@ -96,9 +96,9 @@ Le decisioni da prendere durante la pianificazione della distribuzione del serve
   
     Per autenticare i client DirectAccess nel server di accesso remoto, è possibile scegliere uno dei metodi seguenti:  
   
-    -   **Autenticazione utente**: È possibile abilitare l'autenticazione utente con le credenziali Active Directory o con un'autenticazione a due fattori.  
+    -   **Autenticazione utente**: è possibile consentire agli utenti di eseguire l'autenticazione con Active Directory credenziali o con l'autenticazione a due fattori.  
   
-    -   **Autenticazione computer**: È possibile configurare l'autenticazione del computer per l'uso dei certificati. Oppure il server di accesso remoto può fungere da proxy per l'autenticazione Kerberos senza richiedere i certificati. 
+    -   **Autenticazione del computer**: è possibile configurare l'autenticazione del computer per l'uso dei certificati. Oppure il server di accesso remoto può fungere da proxy per l'autenticazione Kerberos senza richiedere i certificati. 
   
     -   **Client Windows 7** Per impostazione predefinita, i computer client che eseguono Windows 7 non possono connettersi a una distribuzione di accesso remoto che esegue Windows Server 2012. Se si dispone di client che eseguono Windows 7 nell'organizzazione che richiedono l'accesso remoto alle risorse interne, è possibile consentirne la connessione. Qualsiasi computer client al quale si intende concedere l'accesso alle risorse interne deve essere membro di un gruppo di sicurezza specificato nella Configurazione guidata client DirectAccess.  
   
@@ -118,9 +118,9 @@ Accesso remoto richiede tre tipi di server di infrastruttura:
   
 -   **Server di gestione** 
   
-## <a name="see-also"></a>Vedere anche  
+## <a name="see-also"></a>Vedi anche  
   
--   [Passaggio 1: Pianificare l'infrastruttura di accesso remoto](Step-1-Plan-the-Remote-Access-Infrastructure.md)  
+-   [Passaggio 1: pianificare l'infrastruttura di accesso remoto](Step-1-Plan-the-Remote-Access-Infrastructure.md)  
   
 
 

@@ -88,7 +88,7 @@ Le seguenti procedure consigliate di base sono comuni a tutte le installazioni d
     |Valore del parametro|Livello Sicurezza|Impostazione di protezione|  
     |-------------------|------------------|----------------------|  
     |Richiedi|Il server è completamente protetto.|La protezione estesa è applicata e sempre richiesta.|  
-    |Allow|Il server è parzialmente protetto.|La protezione estesa è applicata ai sistemi interessati se sono stati configurati per supportarla.|  
+    |Consenti|Il server è parzialmente protetto.|La protezione estesa è applicata ai sistemi interessati se sono stati configurati per supportarla.|  
     |Nessuno|Il server è vulnerabile.|La protezione estesa non è applicata.|  
   
 -   **Se si usano la registrazione e la traccia, assicurarsi che le informazioni riservate siano riservate.**  
@@ -129,7 +129,7 @@ Le seguenti procedure consigliate per la protezione sono specifiche per l'utiliz
   
 -   **Ridurre a icona la superficie di attacco del SQL Server.**  
   
-    Abilitare solo gli endpoint di SQL Server necessari. Per impostazione predefinita, SQL Server include un singolo endpoint TCP predefinito che non può essere rimosso. Per AD FS, è necessario abilitare questo endpoint TCP per l'autenticazione Kerberos. Per esaminare gli endpoint TCP correnti e verificare se a un'installazione di SQL sono state aggiunte altre porte TCP definite dall'utente, è possibile usare l'istruzione di query "SELECT * FROM sys.tcp_endpoints" in una sessione Transact-SQL (T-SQL). Per ulteriori informazioni sulla configurazione dell'endpoint SQL Server, vedere [How per: Configurare il motore di database per l'ascolto su più porte TCP @ no__t-0 (https://go.microsoft.com/fwlink/?LinkID=189231).  
+    Abilitare solo gli endpoint di SQL Server necessari. Per impostazione predefinita, SQL Server include un singolo endpoint TCP predefinito che non può essere rimosso. Per AD FS, è necessario abilitare questo endpoint TCP per l'autenticazione Kerberos. Per esaminare gli endpoint TCP correnti e verificare se a un'installazione di SQL sono state aggiunte altre porte TCP definite dall'utente, è possibile usare l'istruzione di query "SELECT * FROM sys.tcp_endpoints" in una sessione Transact-SQL (T-SQL). Per ulteriori informazioni sulla configurazione dell'endpoint SQL Server, vedere [procedura: configurare il motore di database per l'ascolto su più porte TCP](https://go.microsoft.com/fwlink/?LinkID=189231) (https://go.microsoft.com/fwlink/?LinkID=189231).  
   
 -   **Evitare di usare l'autenticazione basata su SQL.**  
   
@@ -149,5 +149,5 @@ Le seguenti procedure consigliate per la protezione sono specifiche per l'utiliz
   
     Per offrire un migliore isolamento di dati e servizi, si possono creare stored procedure per tutti i comandi di ricerca nell'archivio attributi. È possibile creare un ruolo del database al quale concedere poi l'autorizzazione di eseguire le stored procedure. Assegnare l'identità del servizio AD FS servizio Windows a questo ruolo del database. Il servizio di AD FS Windows non deve essere in grado di eseguire altre istruzioni SQL, ad eccezione delle stored procedure appropriate utilizzate per la ricerca di attributi. Il blocco dell'accesso al database SQL Server in questo modo riduce il rischio di un attacco tramite elevazione dei privilegi.  
   
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 [Guida alla progettazione di AD FS in Windows Server 2012](AD-FS-Design-Guide-in-Windows-Server-2012.md)

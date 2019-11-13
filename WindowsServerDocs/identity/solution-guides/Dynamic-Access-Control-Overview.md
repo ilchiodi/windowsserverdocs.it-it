@@ -92,7 +92,7 @@ Ogni controller di dominio deve avere la stessa impostazione dei criteri Modelli
 ### <a name="support-in-active-directory-to-store-user-and-device-claims-resource-properties-and-central-access-policy-objects"></a>Supporto di Active Directory per l'archiviazione di attestazioni utente e dispositivo, proprietà risorse e oggetti criteri di accesso centrale.  
   
 ### <a name="support-for-using-group-policy-to-deploy-central-access-policy-objects"></a>Supporto dell'uso dei criteri di gruppo per la distribuzione degli oggetti criteri di accesso centrale.  
-La seguente impostazione di Criteri di gruppo consente di distribuire oggetti Criteri di accesso centrale ai file server nell'organizzazione: **Computer Configuration\Policies\ Windows Windows\Impostazioni Sicurezza\file System\Central Access Policy**.  
+L'impostazione Criteri di gruppo **Configurazione computer\Criteri\Impostazioni di Windows\Impostazioni di sicurezza\File System\Criteri di accesso centrale** consente di distribuire gli oggetti criteri di accesso centrale ai file server dell'organizzazione.  
   
 ### <a name="support-for-claims-based-file-authorization-and-auditing-for-file-systems-by-using-group-policy-and-global-object-access-auditing"></a>Supporto di autorizzazione e controllo dei file basato sulle attestazioni per i file system tramite Criteri di gruppo e Controllo di accesso agli oggetti globale  
 È necessario abilitare il controllo dei criteri di accesso centrale con installazione di appoggio allo scopo di verificare l'effettivo accesso dei criteri di accesso centrale utilizzando le autorizzazioni proposte. È possibile configurare questa impostazione per il computer in **Configurazione avanzata dei criteri di controllo** nelle **Impostazioni di protezione** di un oggetto Criteri di gruppo. Dopo aver configurato l'impostazione di protezione nell'oggetto Criteri di gruppo, è possibile distribuire l'oggetto Criteri di gruppo nei computer della rete.  
@@ -128,7 +128,7 @@ Se le attestazioni vengono trasformate quando lasciano una foresta, tutti i cont
 Un file server che esegue Windows Server 2012 o Windows Server 2012 R2 deve avere un'impostazione dei Criteri di gruppo che stabilisca se è necessario ottenere le attestazioni utente per i token utente che non hanno attestazioni. L'impostazione predefinita è **Automatico**, pertanto l'impostazione dei Criteri di gruppo viene **attivata** se esiste un criterio centrale che contiene le attestazioni utente o le attestazioni dispositivo per tale file server. Se il file server contiene elenchi di controllo di accesso discrezionali che includono attestazioni utente, è necessario rendere **attiva** questa impostazione dei Criteri di gruppo in modo tale che il server richieda le attestazioni per conto degli utenti che forniscono attestazioni quando accedono al server.  
   
 ## <a name="additional-resource"></a>Risorsa aggiuntiva  
-Per informazioni sull'implementazione di soluzioni basate su questa tecnologia, vedere [Dynamic Access Control: Panoramica dello scenario @ no__t-0.  
+Per informazioni sull'implementazione di soluzioni basate su questa tecnologia, vedere [controllo dinamico degli accessi: Panoramica dello scenario](Dynamic-Access-Control--Scenario-Overview.md).  
   
 
 

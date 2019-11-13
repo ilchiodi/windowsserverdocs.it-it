@@ -23,7 +23,7 @@ ms.locfileid: "71407526"
 
 -   [Configurare l'ambiente lab per AD FS in Windows Server 2012 R2](../../ad-fs/deployment/Set-up-the-lab-environment-for-AD-FS-in-Windows-Server-2012-R2.md)
 
--   [Procedura dettagliata: Gestisci i rischi con Multi-Factor Authentication aggiuntive per le applicazioni sensibili](../../ad-fs/operations/Walkthrough-Guide--Manage-Risk-with-Additional-Multi-Factor-Authentication-for-Sensitive-Applications.md)
+-   [Guida allo scenario: gestire i rischi con ulteriori Multi-Factor Authentication per le applicazioni sensibili](../../ad-fs/operations/Walkthrough-Guide--Manage-Risk-with-Additional-Multi-Factor-Authentication-for-Sensitive-Applications.md)
 
 -   [Configurare metodi di autenticazione aggiuntivi per AD FS](../../ad-fs/operations/Configure-Additional-Authentication-Methods-for-AD-FS.md)
 
@@ -37,7 +37,7 @@ In questa guida sono disponibili le informazioni seguenti:
     > [!NOTE]
     > In AD FS in Windows Server 2012 R2 è possibile abilitare l'autenticazione a più fattori in base al percorso di rete, all'identità del dispositivo e all'identità utente o all'appartenenza a un gruppo.
 
-    Per istruzioni dettagliate per la configurazione e la verifica di questo scenario, vedere la guida [Walkthrough: Gestisci i rischi con Multi-Factor Authentication aggiuntive per](../../ad-fs/operations/Manage-Risk-with-Additional-Multi-Factor-Authentication-for-Sensitive-Applications.md)le applicazioni riservate.
+    Per istruzioni dettagliate per la configurazione e la verifica di questo scenario, vedere Guida alla procedura dettagliata [: gestire i rischi con ulteriori multi-factor authentication per le applicazioni riservate](../../ad-fs/operations/Manage-Risk-with-Additional-Multi-Factor-Authentication-for-Sensitive-Applications.md).
 
 ## <a name="BKMK_1"></a>Concetti chiave: meccanismi di autenticazione in AD FS
 
@@ -51,7 +51,7 @@ Active Directory Federation Services (AD FS) in Windows Server 2012 R2 offre agl
     -   Consentire l'autenticazione dei dispositivi per un'autenticazione a due fattori trasparente. In questo modo l'identità dell'utente viene collegata al dispositivo registrato usato per accedere alla risorsa, offrendo una verifica dell'identità composta più sicura prima dell'accesso alle risorse protette.
 
         > [!NOTE]
-        > Per altre informazioni sull'oggetto dispositivo, il servizio Registrazione dispositivi, Workplace Join e il dispositivo come autenticazione a due fattori trasparente e SSO, vedere [accedere a una rete aziendale da qualsiasi dispositivo per SSO e autenticazione a due fattori trasparente nell'azienda Applicazioni](Join-to-Workplace-from-Any-Device-for-SSO-and-Seamless-Second-Factor-Authentication-Across-Company-Applications.md).
+        > Per altre informazioni sull'oggetto dispositivo, il servizio Registrazione dispositivi, Workplace Join e il dispositivo come autenticazione a due fattori trasparente e SSO, vedere [accedere a una rete aziendale da qualsiasi dispositivo per SSO e autenticazione a due fattori trasparente per tutte le applicazioni aziendali](Join-to-Workplace-from-Any-Device-for-SSO-and-Seamless-Second-Factor-Authentication-Across-Company-Applications.md).
 
     -   Impostare il requisito di autenticazione a più fattori per l'accesso alla rete Extranet o in modo condizionale in base all'identità dell'utente, al percorso di rete o a un dispositivo usato per accedere alle risorse protette.
 
@@ -72,7 +72,7 @@ Un criterio di autenticazione globale si applica a tutte le relying party protet
 
 -   Impostazioni e metodi per l'autenticazione a più fattori
 
--   Abilitazione o meno dell'autenticazione dei dispositivi. Per altre informazioni, vedere [accedere a una rete aziendale da qualsiasi dispositivo per SSO e trasparente secondo fattore di autenticazione tra le applicazioni aziendali](../../ad-fs/operations/Join-to-Workplace-from-Any-Device-for-SSO-and-Seamless-Second-Factor-Authentication-Across-Company-Applications.md).
+-   Abilitazione o meno dell'autenticazione dei dispositivi. Per altre informazioni, vedere [Join to Workplace from Any Device for SSO and Seamless Second Factor Authentication Across Company Applications](../../ad-fs/operations/Join-to-Workplace-from-Any-Device-for-SSO-and-Seamless-Second-Factor-Authentication-Across-Company-Applications.md).
 
 I criteri di autenticazione per attendibilità del componente sono applicabili nello specifico ai tentativi di accesso a tale attendibilità del componente (applicazione o servizio). È possibile configurare le impostazioni seguenti per i criteri di autenticazione per attendibilità del componente:
 
@@ -94,7 +94,7 @@ Con la selezione di più di un metodo di autenticazione si consente agli utenti 
 È inoltre possibile abilitare l'autenticazione del dispositivo per l'autenticazione a due fattori trasparente. In questo modo l'identità dell'utente viene collegata al dispositivo registrato usato per accedere alla risorsa, offrendo una verifica dell'identità composta più sicura prima dell'accesso alle risorse protette.
 
 > [!NOTE]
-> Per altre informazioni sull'oggetto dispositivo, il servizio Registrazione dispositivi, Workplace Join e il dispositivo come autenticazione a due fattori trasparente e SSO, vedere [accedere a una rete aziendale da qualsiasi dispositivo per SSO e autenticazione a due fattori trasparente nell'azienda Applicazioni](../../ad-fs/operations/Join-to-Workplace-from-Any-Device-for-SSO-and-Seamless-Second-Factor-Authentication-Across-Company-Applications.md).
+> Per altre informazioni sull'oggetto dispositivo, il servizio Registrazione dispositivi, Workplace Join e il dispositivo come autenticazione a due fattori trasparente e SSO, vedere [accedere a una rete aziendale da qualsiasi dispositivo per SSO e autenticazione a due fattori trasparente per tutte le applicazioni aziendali](../../ad-fs/operations/Join-to-Workplace-from-Any-Device-for-SSO-and-Seamless-Second-Factor-Authentication-Across-Company-Applications.md).
 
 Se si specifica l'autenticazione di Windows (il metodo predefinito) per le risorse Intranet, le richieste di autenticazione utilizzano questo metodo in modo trasparente nei browser che supportano l'autenticazione di Windows.
 
@@ -123,32 +123,33 @@ In questo scenario si Abilita l'autenticazione a più fattori in base ai dati di
 
 Più in dettaglio, nello scenario verranno abilitati criteri di autenticazione per un'applicazione di test basata su attestazioni denominata **claimapp**, in base ai quali l'utente di Active Directory **Robert Hatley** dovrà eseguire l'autenticazione a più fattori dato che appartiene al gruppo di Active Directory **Finance**.
 
-Le istruzioni dettagliate per configurare e verificare questo scenario sono disponibili nella Guida [Walkthrough: Gestisci i rischi con Multi-Factor Authentication aggiuntive per](../../ad-fs/operations/Walkthrough-Guide--Manage-Risk-with-Additional-Multi-Factor-Authentication-for-Sensitive-Applications.md)le applicazioni riservate. Per completare i passaggi di questa procedura dettagliata, è necessario configurare un ambiente lab e seguire i passaggi descritti in [configurare l'ambiente lab per ad FS in Windows Server 2012 R2](../../ad-fs/deployment/Set-up-the-lab-environment-for-AD-FS-in-Windows-Server-2012-R2.md).
+Le istruzioni dettagliate per configurare e verificare questo scenario sono disponibili nella [Guida dettagliata: gestire i rischi con multi-factor authentication aggiuntive per le applicazioni riservate](../../ad-fs/operations/Walkthrough-Guide--Manage-Risk-with-Additional-Multi-Factor-Authentication-for-Sensitive-Applications.md). Per completare i passaggi di questa procedura dettagliata, è necessario configurare un ambiente lab e seguire i passaggi descritti in [configurare l'ambiente lab per ad FS in Windows Server 2012 R2](../../ad-fs/deployment/Set-up-the-lab-environment-for-AD-FS-in-Windows-Server-2012-R2.md).
 
 Altri scenari di abilitazione dell'autenticazione a più fattori in AD FS includono i seguenti:
 
--   Abilitare l'autenticazione a più fattori se la richiesta di accesso proviene dall'Extranet. È possibile modificare il codice presentato nella sezione "configurare i criteri di autenticazione a più fattori" della Guida [Walkthrough: Gestire i rischi con ulteriori Multi-Factor Authentication per le applicazioni sensibili @ no__t-0 con quanto segue:
+-   Abilitare l'autenticazione a più fattori se la richiesta di accesso proviene dall'Extranet. È possibile modificare il codice presentato nella sezione "configurare i criteri di autenticazione a più fattori" della [Guida dettagliata: gestire i rischi con ulteriori multi-factor authentication per le applicazioni riservate](../../ad-fs/operations/Walkthrough-Guide--Manage-Risk-with-Additional-Multi-Factor-Authentication-for-Sensitive-Applications.md) con gli elementi seguenti:
 
     ```
     'c:[type == "https://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork", value == "false"] => issue(type="https://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod", value = "https://schemas.microsoft.com/claims/multipleauthn" );'
     ```
 
--   Abilitare l'autenticazione a più fattori se la richiesta di accesso proviene da un dispositivo non unito all'area di lavoro.  È possibile modificare il codice presentato nella sezione "configurare i criteri di autenticazione a più fattori" della Guida [Walkthrough: Gestire i rischi con ulteriori Multi-Factor Authentication per le applicazioni sensibili @ no__t-0 con quanto segue:
+-   Abilitare l'autenticazione a più fattori se la richiesta di accesso proviene da un dispositivo non unito all'area di lavoro.  È possibile modificare il codice presentato nella sezione "configurare i criteri di autenticazione a più fattori" della [Guida dettagliata: gestire i rischi con ulteriori multi-factor authentication per le applicazioni riservate](../../ad-fs/operations/Walkthrough-Guide--Manage-Risk-with-Additional-Multi-Factor-Authentication-for-Sensitive-Applications.md) con gli elementi seguenti:
 
     ```
     'NOT EXISTS([type=="https://schemas.microsoft.com/2012/01/devicecontext/claims/registrationid"]) => issue (type="https://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod", value = "https://schemas.microsoft.com/claims/multipleauthn");'
 
     ```
 
--   Abilitare l'autenticazione a più fattori se l'accesso è eseguito da un utente con un dispositivo unito all'area di lavoro ma non registrato per l'utente. È possibile modificare il codice presentato nella sezione "configurare i criteri di autenticazione a più fattori" della Guida [Walkthrough: Gestire i rischi con ulteriori Multi-Factor Authentication per le applicazioni sensibili @ no__t-0 con quanto segue:
+-   Abilitare l'autenticazione a più fattori se l'accesso è eseguito da un utente con un dispositivo unito all'area di lavoro ma non registrato per l'utente. È possibile modificare il codice presentato nella sezione "configurare i criteri di autenticazione a più fattori" della [Guida dettagliata: gestire i rischi con ulteriori multi-factor authentication per le applicazioni riservate](../../ad-fs/operations/Walkthrough-Guide--Manage-Risk-with-Additional-Multi-Factor-Authentication-for-Sensitive-Applications.md) con gli elementi seguenti:
 
     ```
     'c:[type=="https://schemas.microsoft.com/2012/01/devicecontext/claims/isregistereduser", value == "false"] => issue (type="https://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod", value = "https://schemas.microsoft.com/claims/multipleauthn");'
 
     ```
 
-## <a name="see-also"></a>Vedere anche
-[Procedura dettagliata: Gestire i rischi con ulteriori Multi-Factor Authentication per le applicazioni sensibili @ no__t-0 @ no__t-1[configurare l'ambiente lab per ad FS in Windows Server 2012 R2](../../ad-fs/deployment/Set-up-the-lab-environment-for-AD-FS-in-Windows-Server-2012-R2.md)
+## <a name="see-also"></a>Vedi anche
+[Guida allo scenario: gestire i rischi con ulteriori multi-factor authentication per le applicazioni sensibili](../../ad-fs/operations/Walkthrough-Guide--Manage-Risk-with-Additional-Multi-Factor-Authentication-for-Sensitive-Applications.md)
+[configurare l'ambiente lab per ad FS in Windows Server 2012 R2](../../ad-fs/deployment/Set-up-the-lab-environment-for-AD-FS-in-Windows-Server-2012-R2.md)
 
 
 

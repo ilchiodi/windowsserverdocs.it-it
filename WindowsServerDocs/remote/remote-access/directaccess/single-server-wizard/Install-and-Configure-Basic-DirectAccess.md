@@ -25,11 +25,11 @@ ms.locfileid: "71404896"
 
 Questa panoramica offre un'introduzione ai passaggi di configurazione necessari per distribuire un singolo server DirectAccess che esegue le impostazioni di base di Windows Server 2016, Windows Server 2012 R2 o Windows Server 2012with.  
   
--   [Passaggio 1: Configurare l'infrastruttura DirectAccess di base @ no__t-0. Questo passaggio include la configurazione delle impostazioni della rete e del server, di DNS e di Active Directory.  
+-   [Passaggio 1: configurare l'infrastruttura DirectAccess di base](da-basic-configure-s1-infrastructure.md). Questo passaggio include la configurazione delle impostazioni della rete e del server, di DNS e di Active Directory.  
   
--   [Passaggio 2: Configurare il server DirectAccess di base @ no__t-0. Questo passaggio include la configurazione delle impostazioni dei computer client e del server DirectAccess.  
+-   [Passaggio 2: configurare il server DirectAccess di base](da-basic-configure-s2-server.md). Questo passaggio include la configurazione delle impostazioni dei computer client e del server DirectAccess.  
   
--   [Passaggio 3: Verificare le distribuzioni @ no__t-0. Include i passaggi per la verifica della distribuzione.  
+-   [Passaggio 3: verificare le distribuzioni](da-basic-configure-s3-verify.md). Include i passaggi per la verifica della distribuzione.  
   
 Prima di avviare la distribuzione, verificare i passaggi della pianificazione descritti in [Pianificare una distribuzione di base di DirectAccess](Plan-a-Basic-DirectAccess-Deployment.md).  
   

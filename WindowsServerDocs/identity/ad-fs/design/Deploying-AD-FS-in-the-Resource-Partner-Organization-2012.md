@@ -18,11 +18,11 @@ ms.locfileid: "71408134"
 ---
 # <a name="deploying-ad-fs-in-the-resource-partner-organization"></a>Distribuzione di AD FS nell'organizzazione partner risorse
 
-L'organizzazione partner risorse in Active Directory Federation Services \(AD FS @ no__t-1 rappresenta l'organizzazione i cui server Web possono essere protetti da una risorsa @ no__t-2side server federativo. Il server federativo nel partner risorse usa i token di sicurezza generati dal partner account per fornire attestazioni ai server Web che si trovano nel partner risorse.  
+L'organizzazione partner risorse in Active Directory Federation Services \(AD FS\) rappresenta l'organizzazione i cui server Web possono essere protetti da una risorsa\-server federativo lato. Il server federativo nel partner risorse usa i token di sicurezza generati dal partner account per fornire attestazioni ai server Web che si trovano nel partner risorse.  
   
 Negli scenari in cui è necessario fornire l'accesso alle applicazioni o ai servizi federati a molti utenti diversi, quando alcuni utenti risiedono in organizzazioni diverse, è possibile configurare il server federativo di risorsa in modo da poter distribuire più partner account.  
   
-Per ulteriori informazioni su come installare e configurare un'organizzazione partner risorse, vedere [Checklist: Configurazione dell'organizzazione partner risorse @ no__t-0.  
+Per altre informazioni su come installare e configurare un'organizzazione partner risorse, vedere [Checklist: Configuring the Resource Partner Organization](../../ad-fs/deployment/Checklist--Configuring-the-Resource-Partner-Organization.md).  
   
 ## <a name="in-this-section"></a>Contenuto della sezione  
   
@@ -33,5 +33,5 @@ Per ulteriori informazioni su come installare e configurare un'organizzazione pa
 -   [Determinare la strategia per le applicazioni federate nel partner risorse](Determine-Your-Federated-Application-Strategy-in-the-Resource-Partner.md)  
   
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 [Guida alla progettazione di AD FS in Windows Server 2012](AD-FS-Design-Guide-in-Windows-Server-2012.md)

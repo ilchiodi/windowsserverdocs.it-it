@@ -27,11 +27,11 @@ ms.locfileid: "71388757"
 
 La fase di pianificazione include i passaggi seguenti:  
   
--   [Passaggio 1: Pianificare l'infrastruttura DirectAccess @ no__t-0  
+-   [Passaggio 1: pianificare l'infrastruttura DirectAccess](step-1-plan-da-inf-davpn.md)  
   
     In questa fase, si descrive la pianificazione richiesta per configurare l'infrastruttura di rete prima di iniziare la distribuzione di Accesso remoto. È inclusa la pianificazione di rete e topologia del server, certificati, Domain Name System (DNS), configurazione di Active Directory e oggetti Criteri di gruppo e il server del percorso di rete DirectAccess.  
   
--   [Passaggio 2: Pianificare la distribuzione di DirectAccess @ no__t-0  
+-   [Passaggio 2: pianificare la distribuzione di DirectAccess](step-2-plan-da-davpn.md)  
   
     In questa fase viene descritta la pianificazione necessaria per preparare la distribuzione di Accesso remoto. È inclusa la pianificazione dei computer client di Accesso remoto, dei requisiti di autenticazione server e client e dei server di infrastruttura.  
   

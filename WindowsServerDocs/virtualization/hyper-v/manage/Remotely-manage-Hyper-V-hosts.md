@@ -79,7 +79,7 @@ Enable-PSRemoting
 
 Per Windows 8.1 e versioni precedenti, la gestione remota funziona solo quando l'host si trova nello stesso dominio e l'account utente locale si trova anche nell'host remoto.
 
-Per aggiungere un host Hyper-V remoto alla console di gestione di Hyper-V, selezionare **un altro computer** nella finestra di dialogo **Seleziona computer** e digitare il nome host, il nome NetBIOS o il nome di dominio completo dell'host remoto \(FQDN @ no__t-3.
+Per aggiungere un host Hyper-V remoto alla console di gestione di Hyper-V, selezionare **un altro computer** nella finestra di dialogo **Seleziona computer** e digitare il nome host dell'host remoto, il nome NetBIOS o il nome di dominio completo \(\)FQDN.
 
 La console di gestione di Hyper-V in Windows Server 2016 e Windows 10 offre più tipi di connessione remota rispetto alle versioni precedenti, descritti nelle sezioni riportate di seguito.  
 
@@ -138,7 +138,7 @@ Configurare quindi il computer che verrà usato per gestire l'host Hyper-V.
      Enable-WSManCredSSP -Role client -DelegateComputer "fqdn-of-hyper-v-host"
      ```
 1. Potrebbe anche essere necessario configurare i criteri di gruppo seguenti: 
-    * **Configurazione Computer** \> **modelli amministrativi** \> **delega credenziali** **@no__t-** 5 \> **consentire la delega di nuove credenziali con l'autenticazione server solo NTLM**
+    * **Configurazione Computer** \> **modelli amministrativi** \> la **delega delle credenziali** \> del **sistema** \> **consentire la delega di credenziali aggiornate con l'autenticazione server solo NTLM**
     * Fare clic su **Abilita** e aggiungere *WSMan/FQDN-of-Hyper-v-host*.
 1. Aprire **Hyper-V Manager**.
 1. Nel riquadro sinistro fare clic con il pulsante destro del mouse su console di **gestione di Hyper-V**.
@@ -153,7 +153,7 @@ Per informazioni dettagliate sui cmdlet, vedere [Set-Item](https://msdn.microsof
 
 Per usare uno strumento dell'interfaccia utente, scegliere quello appropriato per il sistema operativo del computer in cui verrà eseguita la console di gestione di Hyper-V:
 
-In Windows Server aprire Server Manager \> **gestisci** \> **Aggiungi ruoli e funzionalità**. Passare alla pagina **funzionalità** ed espandere **strumenti di amministrazione remota del server** \> strumenti di **amministrazione ruoli** \> **strumenti di gestione Hyper-V**. 
+In Windows Server aprire Server Manager \> **gestisci** \> **Aggiungi ruoli e funzionalità**. Passare alla pagina **funzionalità** ed espandere **strumenti di amministrazione remota del server** \> strumenti di **amministrazione ruoli** \> **strumenti di gestione di Hyper-V**. 
 
 In Windows, la console di gestione di Hyper-V è disponibile in [qualsiasi sistema operativo Windows che includa Hyper-v](https://msdn.microsoft.com/virtualization/hyperv_on_windows/quick_start/walkthrough_compatibility).
 
@@ -169,7 +169,7 @@ Per usare Windows PowerShell, eseguire il comando seguente come amministratore:
 add-windowsfeature rsat-hyper-v-tools
 ```
 
-## <a name="see-also"></a>Vedere anche  
+## <a name="see-also"></a>Vedi anche  
  
 [Installazione di Hyper-V](../get-started/Install-the-Hyper-V-role-on-Windows-Server.md) 
 

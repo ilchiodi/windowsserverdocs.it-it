@@ -38,13 +38,13 @@ Nelle sezioni seguenti, corsivo indica il testo dell'interfaccia Utente visualiz
   
 ## <a name="impact"></a>Impatto  
   
-i computer @no__t 0Virtual non possono usare l'archiviazione connessa a un controller di archiviazione disabilitato. Ciò influisca sulle macchine virtuali seguenti: *  
+*Le macchine virtuali non possono usare l'archiviazione connessa a un controller di archiviazione disabilitato. Ciò influisca sulle macchine virtuali seguenti:*  
   
-@no__t 0list di nomi di macchina virtuale >  
+\<elenco dei nomi delle macchine virtuali >  
   
 ## <a name="resolution"></a>Risoluzione  
   
-*Use Device Manager nel sistema operativo guest per abilitare tutti i controller di archiviazione. Se il controller di archiviazione non è necessario, utilizzare la console di gestione di Hyper-V per rimuoverlo dalla macchina virtuale.*  
+*Usare Device Manager nel sistema operativo guest per abilitare tutti i controller di archiviazione. Se il controller di archiviazione non è necessario, utilizzare Hyper-V Manager per rimuoverlo dalla macchina virtuale.*  
   
 Per istruzioni su come utilizzare Gestione dispositivi, vedere la Guida del sistema operativo guest. Per istruzioni su come rimuovere il controller di archiviazione, vedere la procedura seguente.  
   

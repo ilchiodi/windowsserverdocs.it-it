@@ -37,13 +37,13 @@ Quando si aggiunge un nuovo punto di ingresso a una distribuzione multisito è n
 Eseguire il comando specificando come parametro *RemoteAccessServer* il nome del server da aggiungere come punto di ingresso.  
   
 ## <a name="remote-access-is-not-configured"></a>Accesso remoto non configurato  
-**Errore ricevuto**. Accesso remoto non configurato in < nome_server >. Specificare il nome di un server che fa parte di una distribuzione multisito.  
+**Errore ricevuto**. Accesso remoto non configurato in < server_name >. Specificare il nome di un server che fa parte di una distribuzione multisito.  
   
 **Causa**  
   
 Accesso remoto non è configurato nel computer specificato dal parametro *ComputerName* o nel computer in cui viene eseguito il comando.  
   
-Quando si aggiunge un nuovo punto di ingresso a una distribuzione multisito, è necessario specificare due parametri: *ComputerName* e *RemoteAccessServer*. *ComputerName* è il nome di un server che fa già parte della distribuzione multisito, mentre *RemoteAccessServer* è il nome del server che si desidera aggiungere come nuovo punto di ingresso. Se il comando viene eseguito da un computer che fa già parte della distribuzione multisito, il parametro ComputerName non è obbligatorio.  
+Quando si aggiunge un nuovo punto di ingresso a una distribuzione multisito è necessario specificare due parametri: *ComputerName* e *RemoteAccessServer*. *ComputerName* è il nome di un server che fa già parte della distribuzione multisito, mentre *RemoteAccessServer* è il nome del server che si desidera aggiungere come nuovo punto di ingresso. Se il comando viene eseguito da un computer che fa già parte della distribuzione multisito, il parametro ComputerName non è obbligatorio.  
   
 **Soluzione**  
   
@@ -102,11 +102,11 @@ L'indirizzo ConnectTo e quello del server dei percorsi di rete sono identici.
 L'indirizzo ConnectTo deve essere risolvibile su Internet per consentire ai computer client di connettersi su IP-HTTPS. L'indirizzo del server dei percorsi di rete deve essere risolvibile nella rete aziendale ma non su Internet. Assicurarsi che l'indirizzo del server dei percorsi di rete non sia uguale all'indirizzo ConnectTo. Selezionare indirizzi differenti e riprovare.  
   
 ## <a name="directaccess-or-vpn-already-installed"></a>DirectAccess o VPN già installati  
-**Errore ricevuto**. È stata rilevata un'installazione VPN nel server < nome_server >. Specificare un server alternativo in cui non è installato Accesso remoto oppure rimuovere la configurazione VPN dal server.  
+**Errore ricevuto**. È stata rilevata un'installazione VPN nel server < server_name >. Specificare un server alternativo in cui non è installato Accesso remoto oppure rimuovere la configurazione VPN dal server.  
   
 Oppure  
   
-Accesso remoto è già installato nel server < nome_server >. Specificare un server alternativo in cui non viene eseguito DirectAccess oppure rimuovere la configurazione DirectAccess esistente dal server.  
+Accesso remoto è già installato nel server < server_name >. Specificare un server alternativo in cui non viene eseguito DirectAccess oppure rimuovere la configurazione DirectAccess esistente dal server.  
   
 **Causa**  
   
@@ -119,7 +119,7 @@ Per aggiungere un server a una distribuzione multisito è necessario installare 
 Eseguire il comando assicurandosi che nel server specificato nel parametro *RemoteAccessServer* non sia configurato DirectAccess o VPN.  
   
 ## <a name="ipsec-root-certificate"></a>Certificato radice IPsec  
-**Errore ricevuto**. Impossibile trovare il certificato radice IPsec configurato nel server < nome_server >.  
+**Errore ricevuto**. Impossibile trovare il certificato radice IPsec configurato nel server < server_name >.  
   
 **Causa**  
   
@@ -147,7 +147,7 @@ Quando si installa DirectAccess per la prima volta, la scheda di rete interna vi
   
     **Soluzione**  
   
-    Se l'intera rete interna è configurata con indirizzi IPv6 e IPv4, può essere opportuno optare per una distribuzione IPv6+IPv4, per poter usufruire dei vantaggi delle tecnologie IPv6. Vedere la sezione relativa alla transizione da una rete aziendale IPv4 a una rete aziendale IPv6 + IPv4 in [Step 3: Pianificare la distribuzione multisito @ no__t-0.  
+    Se l'intera rete interna è configurata con indirizzi IPv6 e IPv4, può essere opportuno optare per una distribuzione IPv6+IPv4, per poter usufruire dei vantaggi delle tecnologie IPv6. Vedere la sezione relativa alla transizione da una rete aziendale IPv4 a una rete aziendale IPv6 + IPv4 in [passaggio 3: pianificare la distribuzione multisito](assetId:///19d49dbf-1786-47bb-ab97-f0458c53d91d).  
   
 -   **Problema 2**  
   
@@ -191,7 +191,7 @@ Quando si installa DirectAccess per la prima volta, la scheda di rete interna vi
   
 -   **Problema 1**  
   
-    **Errore ricevuto**. Il dominio specificato nel parametro ServerGpoName < server_GPO > non esiste. Specificare invece il dominio < > domain_name.  
+    **Errore ricevuto**. Il dominio specificato nel parametro ServerGpoName < server_GPO > non esiste. Specificare invece il dominio < domain_name >.  
   
     **Causa**  
   
@@ -203,7 +203,7 @@ Quando si installa DirectAccess per la prima volta, la scheda di rete interna vi
   
 -   **Problema 2**  
   
-    **Errore ricevuto**. L'oggetto Criteri di gruppo del server deve trovarsi nel dominio del server di accesso remoto. Specificare il dominio < > domain_name nel parametro ServerGpoName.  
+    **Errore ricevuto**. L'oggetto Criteri di gruppo del server deve trovarsi nel dominio del server di accesso remoto. Specificare il < di dominio domain_name > nel parametro ServerGpoName.  
   
     **Causa**  
   
@@ -240,7 +240,7 @@ Se si aggiunge un suffisso del nome senza specificare un indirizzo del server, i
 Per risolvere questo errore, vedere Salvataggio delle impostazioni dell'oggetto Criteri di gruppo del server in [risoluzione dei problemi abilitati multisito](https://technet.microsoft.com/library/jj591658.aspx)  
   
 ## <a name="gpo-updates-cannot-be-applied"></a>Impossibile applicare gli aggiornamenti dell'oggetto Criteri di gruppo  
-**Avviso ricevuto**. Impossibile applicare gli aggiornamenti dell'oggetto Criteri di gruppo in < nome_server >. Le modifiche verranno applicate al prossimo aggiornamento dei criteri.  
+**Avviso ricevuto**. Impossibile applicare gli aggiornamenti dell'oggetto Criteri di gruppo in < server_name >. Le modifiche verranno applicate al prossimo aggiornamento dei criteri.  
   
 **Causa**  
   

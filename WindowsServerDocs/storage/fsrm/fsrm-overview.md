@@ -23,7 +23,7 @@ Gestione risorse file server è un servizio ruolo in Windows Server che consente
 
 Si tratta di un punto limitato, ma è stata anche [aggiunta la possibilità di disabilitare i journal delle modifiche](#whats-new) in Windows Server, versione 1803.
 
-## <a name="features"></a>Funzionalità
+## <a name="features"></a>Caratteristiche
 
 Gestione risorse file server include le funzionalità seguenti:
 
@@ -69,14 +69,14 @@ Per impedire che il file server Gestione risorse la creazione di un journal dell
       ```
     Ad esempio: `fsutil usn deletejournal /d c:`
 
-3. Aprire l'editor del registro di sistema, ad `regedit` esempio, digitando nella stessa sessione di PowerShell.
-4. Passare alla chiave seguente: **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\SrmSvc\Settings**
+3. Aprire l'editor del registro di sistema, ad esempio digitando `regedit` nella stessa sessione di PowerShell.
+4. Passare alla chiave seguente: **HKEY_LOCAL_MACHINE \system\currentcontrolset\services\srmsvc\settings**
 5. Per ignorare facoltativamente la creazione del journal delle modifiche per l'intero server (ignorare questo passaggio se si desidera disabilitarlo solo su volumi specifici):
     1. Fare clic con il pulsante destro del mouse sulla chiave **Settings** , quindi scegliere **nuovo** > **valore DWORD (32-bit)** . 
-    1. Assegnare un nome `SkipUSNCreationForSystem`al valore.
+    1. Denominare il valore `SkipUSNCreationForSystem`.
     1. Impostare il valore su **1** (in esadecimali).
 6. Per ignorare facoltativamente la creazione del journal delle modifiche per volumi specifici:
-    1. Ottenere i percorsi del volume che si vuole ignorare usando il `fsutil volume list` comando o il comando di PowerShell seguente:
+    1. Ottenere i percorsi del volume che si desidera ignorare utilizzando il comando `fsutil volume list` o il seguente comando di PowerShell:
         ```PowerShell
         Get-Volume | Format-Table DriveLetter,FileSystemLabel,Path
         ```
@@ -88,9 +88,9 @@ Per impedire che il file server Gestione risorse la creazione di un journal dell
                     System Reserved \\?\Volume{8d3c9e8a-0000-0000-0000-100000000000}\
         C                           \\?\Volume{8d3c9e8a-0000-0000-0000-501f00000000}\
        ```
-    2. Tornare all'editor del registro di sistema, fare clic con il pulsante destro del mouse sulla chiave **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\SrmSvc\Settings** , quindi scegliere **nuovo** **valore multistringa** > .
-    3. Assegnare un nome `SkipUSNCreationForVolumes`al valore.
-    4. Immettere il percorso di ogni volume in cui si ignora la creazione di un journal delle modifiche, inserendo ogni percorso in una riga separata. Esempio:
+    2. Tornare all'editor del registro di sistema, fare clic con il pulsante destro del mouse sulla chiave **HKEY_LOCAL_MACHINE \system\currentcontrolset\services\srmsvc\settings** , quindi scegliere **nuovo** > **valore multistringa**.
+    3. Denominare il valore `SkipUSNCreationForVolumes`.
+    4. Immettere il percorso di ogni volume in cui si ignora la creazione di un journal delle modifiche, inserendo ogni percorso in una riga separata. Ad esempio:
 
         ```
         \\?\Volume{8d3c9e8a-0000-0000-0000-100000000000}\
@@ -98,12 +98,12 @@ Per impedire che il file server Gestione risorse la creazione di un journal dell
         ```
 
         > [!NOTE] 
-        > L'editor del registro di sistema potrebbe indicare che sono state rimosse stringhe vuote, visualizzando questo avviso che è possibile ignorare: @no__t 0Apparecchiature per di tipo REG_MULTI_SZ non possono contenere stringhe vuote. Nell'editor del registro di sistema vengono rimosse tutte le stringhe vuote trovate.*
+        > L'editor del registro di sistema potrebbe indicare che sono state rimosse stringhe vuote, visualizzando questo avviso che è possibile ignorare: *i dati di tipo REG_MULTI_SZ non possono contenere stringhe vuote. Nell'editor del registro di sistema vengono rimosse tutte le stringhe vuote trovate.*
 
-7. Avviare il servizio SRMSVC. Ad esempio, in una sessione di PowerShell `Start-Service SrmSvc`immettere.
+7. Avviare il servizio SRMSVC. Ad esempio, in una sessione di PowerShell immettere `Start-Service SrmSvc`.
 
 
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 - [Controllo dinamico degli accessi](https://technet.microsoft.com/library/dn408191(v=ws.11).aspx) 

@@ -25,9 +25,9 @@ ms.locfileid: "71388605"
 
 Questo argomento descrive i passaggi di pianificazione necessari per distribuire un singolo server DirectAccess che esegue Windows Server 2016, Windows Server 2012 R2 o Windows Server 2012 con funzionalità di base:  
   
-1.  [Passaggio 1: Pianificare l'infrastruttura DirectAccess di base @ no__t-0: pianificare la topologia di rete e server, le impostazioni del firewall, i requisiti dei certificati, DNS e Active Directory.  
+1.  [Passaggio 1: pianificare l'infrastruttura DirectAccess di base](da-basic-plan-s1-infrastructure.md): pianificare la topologia di rete e server, le impostazioni del firewall, i requisiti dei certificati, DNS e Active Directory.  
   
-2.  [Passaggio 2: Pianificare la distribuzione di base di DirectAccess @ no__t-0-pianificare la distribuzione di client e server.  
+2.  [Passaggio 2: pianificare la distribuzione del](da-basic-plan-s2-deployment.md)client e del server del piano di distribuzione DirectAccess di base.  
   
 ## <a name="next-step"></a>Passaggio successivo  
 Dopo aver completato questi passaggi di pianificazione, si può iniziare la distribuzione del server. Per istruzioni, vedere [installare e configurare DirectAccess di base](Install-and-Configure-Basic-DirectAccess.md).  

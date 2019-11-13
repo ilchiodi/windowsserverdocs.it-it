@@ -27,7 +27,7 @@ Per altre informazioni sulle procedure consigliate e sulle analisi, vedere [Eseg
 |-|-|  
 |**Sistema operativo**|Windows Server 2016|  
 |**Prodotto/funzionalità**|Hyper-V|  
-|**Gravità**|Errore|  
+|**Gravità**|Error|  
 |**Categoria**|Configurazione|  
   
 Nelle sezioni seguenti, corsivo indica il testo dell'interfaccia Utente visualizzata nello strumento Analizzatore procedure consigliate per questo problema.  
@@ -36,9 +36,9 @@ Nelle sezioni seguenti, corsivo indica il testo dell'interfaccia Utente visualiz
 *Le macchine virtuali che partecipano alla replica possono essere configurate per l'utilizzo di un indirizzo IP specifico in caso di failover, ma solo se i servizi di integrazione sono installati nel sistema operativo guest della macchina virtuale.*  
   
 ## <a name="impact"></a>Impatto  
-@no__t 0Cm l'evento di un failover (pianificato, non pianificato o di test), la macchina virtuale di replica verrà riattivata in linea utilizzando lo stesso indirizzo IP della macchina virtuale primaria. Questa configurazione potrebbe causare problemi di connettività. Ciò influisca sulle macchine virtuali seguenti: *  
+*In caso di failover (pianificato, non pianificato o di test), la macchina virtuale di replica verrà resa online utilizzando lo stesso indirizzo IP della macchina virtuale primaria. Questa configurazione potrebbe causare problemi di connettività. Ciò influisca sulle macchine virtuali seguenti:*  
   
-@no__t 0list di macchine virtuali >  
+\<elenco di macchine virtuali >  
   
 ## <a name="resolution"></a>Risoluzione  
 *Usare Virtual Machine Connection per installare Integration Services nella macchina virtuale.*  

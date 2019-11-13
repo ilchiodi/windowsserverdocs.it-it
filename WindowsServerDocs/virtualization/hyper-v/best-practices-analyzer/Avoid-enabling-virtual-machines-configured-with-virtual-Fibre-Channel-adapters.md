@@ -37,7 +37,7 @@ Nelle sezioni seguenti, corsivo indica il testo dell'interfaccia Utente visualiz
 ## <a name="impact"></a>**Impatto**  
 *La migrazione in tempo reale delle macchine virtuali seguenti potrebbe causare la perdita di dati o l'I/O di interrupt per l'archiviazione:*  
   
-@no__t 0list di macchine virtuali >  
+\<elenco di macchine virtuali >  
   
 ## <a name="resolution"></a>**Soluzione**  
-@no__t 0Consider la cancellazione della proprietà WMI AllowReducedFcRedundancy nelle macchine virtuali interessate. Quando questa proprietà è deselezionata, è possibile eseguire una migrazione in tempo reale su macchine virtuali configurate con adapter Fibre Channel virtuali solo quando il numero di percorsi da Fibre Channel nella destinazione è uguale o superiore al numero di percorsi nell'origine. Questi controlli consentono di evitare la perdita di dati o l'interruzione dell'I/O nella risorsa di archiviazione. * 
+*Prendere in considerazione la cancellazione della proprietà WMI AllowReducedFcRedundancy nelle macchine virtuali interessate. Quando questa proprietà è deselezionata, è possibile eseguire una migrazione in tempo reale su macchine virtuali configurate con adapter Fibre Channel virtuali solo quando il numero di percorsi da Fibre Channel nella destinazione è uguale o superiore al numero di percorsi nell'origine. Questi controlli consentono di evitare la perdita di dati o l'interruzione dell'I/O nell'archiviazione.* 

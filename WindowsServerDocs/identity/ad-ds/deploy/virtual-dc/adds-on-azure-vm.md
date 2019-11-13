@@ -51,12 +51,12 @@ Lo script seguente può essere eseguito direttamente dalla portale di Azure. Se 
 | Nome variabile | Scopo |
 | :---: | :--- |
 | Con valori AdminUsername | Nome utente da configurare in ogni macchina virtuale come amministratore locale. |
-| adminPassword | Password non crittografata da configurare in ogni macchina virtuale come password dell'amministratore locale. |
-| resourceGroupName | Nome da usare per il gruppo di risorse. Non deve duplicare un nome esistente. |
+| AdminPassword | Password non crittografata da configurare in ogni macchina virtuale come password dell'amministratore locale. |
+| ResourceGroupName | Nome da usare per il gruppo di risorse. Non deve duplicare un nome esistente. |
 | Location | Nome della località di Azure in cui si vuole eseguire la distribuzione. Elenca le aree supportate per la sottoscrizione corrente usando `az account list-locations`. |
 | VNetName | Il nome da assegnare alla rete virtuale di Azure non deve duplicare un nome esistente. |
 | VNetAddress | Ambito IP da usare per la rete di Azure. Non deve duplicare un intervallo esistente. |
-| subnetName | Nome da assegnare alla subnet IP. Non deve duplicare un nome esistente. |
+| SubnetName | Nome da assegnare alla subnet IP. Non deve duplicare un nome esistente. |
 | SubnetAddress | Indirizzo subnet per i controller di dominio. Deve essere una subnet all'interno di VNet. |
 | Abilitate per | Nome del set di disponibilità a cui si aggiungeranno le macchine virtuali del controller di dominio. |
 | VMSize | Dimensioni standard della macchina virtuale di Azure disponibili nella posizione per la distribuzione. |
@@ -159,7 +159,8 @@ Se le macchine virtuali di Azure create come parte di questo processo saranno un
 
 Dopo aver innalzato di nuovo i controller di dominio in Azure, sarà necessario impostarli sui server DNS primari e secondari per la rete virtuale e tutti i server DNS locali verrebbero abbassati a terziario e oltre. Altre informazioni sulla modifica dei server DNS sono disponibili nell'articolo [creare, modificare o eliminare una rete virtuale](https://docs.microsoft.com/azure/virtual-network/manage-virtual-network#change-dns-servers).
 
-Per informazioni sull'estensione di una rete locale in Azure, vedere l'articolo [Creating una connessione VPN da sito a sito @ no__t-1.
+Per informazioni sull'estensione di una rete locale in Azure, vedere l'articolo creazione di [una connessione VPN da sito a sito](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal
+).
 
 ## <a name="configure-the-vms-and-install-active-directory-domain-services"></a>Configurare le macchine virtuali e installare Active Directory Domain Services
 
@@ -171,7 +172,7 @@ Connettersi a AZDC01 usando le credenziali specificate nello script.
 
 * Inizializzare e formattare il disco dati come F:
    * Aprire il menu Start e passare a **Gestione computer**
-   * Passare a **Storage** > **Disk Management**
+   * Passare ad **archiviazione** > **Gestione disco**
    * Inizializzare il disco come MBR
    * Creare un nuovo volume semplice e assegnare la lettera di unità F: è possibile specificare un'etichetta di volume se si desidera
 * Installare Active Directory Domain Services utilizzando Server Manager
@@ -201,7 +202,7 @@ Connettersi a AZDC02 usando le credenziali specificate nello script.
 
 * Inizializzare e formattare il disco dati come F:
    * Aprire il menu Start e passare a **Gestione computer**
-   * Passare a **Storage** > **Disk Management**
+   * Passare ad **archiviazione** > **Gestione disco**
    * Inizializzare il disco come MBR
    * Creare un nuovo volume semplice e assegnare la lettera di unità F: è possibile specificare un'etichetta di volume se si desidera
 * Installare Active Directory Domain Services utilizzando Server Manager

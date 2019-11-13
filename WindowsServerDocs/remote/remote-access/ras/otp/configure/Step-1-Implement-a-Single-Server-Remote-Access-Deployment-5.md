@@ -30,7 +30,7 @@ Prima di poter configurare l'accesso remoto con OTP, è necessario configurare u
   
 ## <a name="BKMK_Links"></a>Vedere anche  
   
--   [Passaggio 2: Configurare il server RADIUS @ no__t-0  
+-   [Passaggio 2: configurare il server RADIUS](Step-2-Configure-the-RADIUS-Server.md)  
   
 
 

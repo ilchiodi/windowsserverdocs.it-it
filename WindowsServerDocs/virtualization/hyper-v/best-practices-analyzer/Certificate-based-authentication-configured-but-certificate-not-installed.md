@@ -29,7 +29,7 @@ ms.locfileid: "71365196"
 |-|-|  
 |**Sistema operativo**|Windows Server 2016|  
 |**Prodotto/funzionalità**|Hyper-V|  
-|**Gravità**|Errore|  
+|**Gravità**|Error|  
 |**Categoria**|Configurazione|  
 
 Nelle sezioni seguenti, corsivo indica il testo dell'interfaccia Utente visualizzata nello strumento Analizzatore procedure consigliate per questo problema.
@@ -40,9 +40,9 @@ Nelle sezioni seguenti, corsivo indica il testo dell'interfaccia Utente visualiz
   
 ## <a name="impact"></a>Impatto  
   
-@no__t 0Cm l'evento di un failover del cluster o lo spostamento in un altro nodo, la replica Hyper-V viene sospesa se nel nuovo nodo non è installato anche il certificato appropriato. Ciò influisca sui nodi seguenti: *  
+*In caso di failover di un cluster o di spostamento in un altro nodo, la replica Hyper-V viene sospesa se nel nuovo nodo non è installato anche il certificato appropriato. Ciò influisca sui nodi seguenti:*  
   
-@no__t 0list dei nodi >  
+\<elenco dei nodi >  
   
 ## <a name="resolution"></a>Risoluzione  
   

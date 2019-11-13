@@ -43,13 +43,13 @@ Nelle sezioni seguenti, corsivo indica il testo dell'interfaccia Utente visualiz
   
 ## <a name="impact"></a>Impatto  
   
-@no__t 0Available spazio potrebbe esaurirsi sul disco fisico in cui sono archiviati i file di checkpoint. In questo caso, è non possibile effettuare alcun operazioni disco nello spazio di archiviazione fisica. Potrebbe essere interessata qualsiasi macchina virtuale che si basa sull'archiviazione fisica. *  
+*Lo spazio disponibile potrebbe esaurirsi sul disco fisico in cui sono archiviati i file di checkpoint. In tal caso, non è possibile eseguire operazioni su disco aggiuntive sull'archiviazione fisica. Potrebbe essere interessata qualsiasi macchina virtuale che si basa sull'archiviazione fisica.*  
   
 Se lo spazio fisico su disco è esaurito, tutte le macchine virtuali in esecuzione con checkpoint o dischi rigidi virtuali archiviati nel disco potrebbero essere sospese automaticamente. La console di gestione di Hyper-V Mostra lo stato di queste macchine virtuali come "sospeso-critico".  
   
 ## <a name="resolution"></a>Risoluzione  
   
-*If la macchina virtuale esegue un carico di lavoro del server in un ambiente di produzione, disconnettere la macchina virtuale e quindi usare la console di gestione di Hyper-V per applicare o eliminare i checkpoint. Per eliminare i checkpoint, è necessario arrestare la macchina virtuale per completare il processo.*  
+*Se la macchina virtuale esegue un carico di lavoro del server in un ambiente di produzione, portare offline la macchina virtuale e quindi usare la console di gestione di Hyper-V per applicare o eliminare i checkpoint. Per eliminare i checkpoint, è necessario arrestare la macchina virtuale per completare il processo.*  
   
 > [!NOTE]  
 > I checkpoint di produzione sono ora disponibili come alternativa ai checkpoint standard. Per informazioni dettagliate, vedere [scegliere tra i checkpoint standard o di produzione](../manage/Choose-between-standard-or-production-checkpoints-in-Hyper-V.md).  

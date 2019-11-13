@@ -15,21 +15,21 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 09/27/2019
 ms.locfileid: "71402774"
 ---
-# <a name="deploy-work-folders-with-ad-fs-and-web-application-proxy-step-5-set-up-clients"></a>Distribuire cartelle di lavoro con AD FS e il proxy dell'applicazione Web: Passaggio 5, configurazione dei client
+# <a name="deploy-work-folders-with-ad-fs-and-web-application-proxy-step-5-set-up-clients"></a>Distribuire Cartelle di lavoro con AD FS e Proxy applicazione Web: passaggio 5, configurare i client
 
 >Si applica a: Windows Server (Canale semestrale), Windows Server 2016
 
 Questo argomento descrive il quinto passaggio nella distribuzione di Cartelle di lavoro con Active Directory Federation Services (AD FS) e Proxy applicazione Web. È possibile trovare gli altri passaggi di questo processo negli argomenti seguenti:  
   
--   Cartelle di lavoro [Deploy con AD FS e proxy applicazione Web: Panoramica](deploy-work-folders-adfs-overview.md)  
+-   [Distribuire cartelle di lavoro con AD FS e il proxy dell'applicazione Web: Panoramica](deploy-work-folders-adfs-overview.md)  
   
--   Cartelle di lavoro [Deploy con AD FS e proxy applicazione Web: Passaggio 1, configurare AD FS @ no__t-0  
+-   [Distribuire cartelle di lavoro con AD FS e il proxy dell'applicazione Web: passaggio 1, configurazione AD FS](deploy-work-folders-adfs-step1.md)  
   
--   Cartelle di lavoro [Deploy con AD FS e proxy applicazione Web: Passaggio 2, AD FS lavoro post-configurazione @ no__t-0  
+-   [Distribuire cartelle di lavoro con AD FS e il proxy dell'applicazione Web: passaggio 2 AD FS lavoro di post-configurazione](deploy-work-folders-adfs-step2.md)  
   
--   Cartelle di lavoro [Deploy con AD FS e proxy applicazione Web: Passaggio 3: configurare cartelle di lavoro @ no__t-0  
+-   [Distribuire cartelle di lavoro con AD FS e il proxy dell'applicazione Web: passaggio 3, configurare cartelle di lavoro](deploy-work-folders-adfs-step3.md)  
   
--   Cartelle di lavoro [Deploy con AD FS e proxy applicazione Web: Passaggio 4: configurare il proxy dell'applicazione Web @ no__t-0  
+-   [Distribuire cartelle di lavoro con AD FS e il proxy dell'applicazione Web: passaggio 4, configurare il proxy dell'applicazione Web](deploy-work-folders-adfs-step4.md)  
   
 Utilizzare le procedure seguenti per configurare i client Windows aggiunti al dominio e non appartenenti a un dominio. È possibile utilizzare questi client per verificare se i file si sincronizzano correttamente tra Cartelle di lavoro dei client.  
   
@@ -50,7 +50,7 @@ Per installare i certificati, effettuare le seguenti operazioni:
   
 4.  Nella lista **Snap-in disponibili**, seleziona **Certificati**, quindi fai clic su **Aggiungi**. Verrà avviata la procedura guidata Snap\-in certificati.  
   
-5.  Selezionare **Account del computer** e quindi fare clic su **Avanti**.  
+5.  Seleziona **Account del computer** e quindi fai clic su **Avanti**.  
   
 6.  Seleziona **Computer locale: (il computer su cui è in esecuzione questa console)** , quindi fai clic su **Fine**.  
   
@@ -79,7 +79,7 @@ Per configurare cartelle di lavoro sul computer client, procedere come segue:
   
 2. Fare clic su **Installa Cartelle di lavoro**.  
   
-3. Nella pagina **immettere l'indirizzo di posta elettronica dell'ufficio** immettere l'indirizzo di posta elettronica dell'utente (ad esempio, user@contoso.com) o l'URL di cartelle di lavoro (nell'esempio di test, https: \//cartellelavoro. contoso. com), quindi fare clic su **Avanti**.  
+3. Nella pagina **immettere l'indirizzo di posta elettronica dell'ufficio** immettere l'indirizzo di posta elettronica dell'utente, ad esempio user@contoso.com, o l'URL di cartelle di lavoro (nell'esempio di test, https:\//workfolders.contoso.com), quindi fare clic su **Avanti**.  
   
 4. Se l'utente è connesso alla rete aziendale, l'autenticazione viene eseguita da Autenticazione integrata di Windows. Se l'utente non è connesso alla rete aziendale, l'autenticazione viene eseguita da AD FS (OAuth) e all'utente verranno richieste le credenziali. Immettere le credenziali e fare clic su **OK**.  
   
@@ -124,7 +124,7 @@ Quando si apre la nuova cartella di Cartelle di lavoro in questo client, è poss
   
 La procedura di distribuzione di Cartelle di lavoro, AD FS e Proxy applicazione Web tramite l'Interfaccia utente di Windows Server è conclusa.  
   
-## <a name="see-also"></a>Vedere anche  
+## <a name="see-also"></a>Vedi anche  
 [Panoramica di cartelle di lavoro](Work-Folders-Overview.md)  
   
 

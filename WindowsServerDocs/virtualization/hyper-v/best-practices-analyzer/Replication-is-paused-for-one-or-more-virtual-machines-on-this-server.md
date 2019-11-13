@@ -33,15 +33,15 @@ Per altre informazioni sulle procedure consigliate e sulle analisi, vedere [Eseg
 Nelle sezioni seguenti, corsivo indica il testo dell'interfaccia Utente visualizzata nello strumento Analizzatore procedure consigliate per questo problema.  
   
 ## <a name="issue"></a>Problema  
-@no__t 0Replication viene sospesa per una o più macchine virtuali. Quando la macchina virtuale primaria viene sospesa, tutte le modifiche che si verificano verranno accumulate e verranno inviate alla macchina virtuale di replica dopo la ripresa della replica. *  
+*La replica è stata sospesa per una o più macchine virtuali. Quando la macchina virtuale primaria viene sospesa, tutte le modifiche che si verificano verranno accumulate e verranno inviate alla macchina virtuale di replica dopo la ripresa della replica.*  
   
 ## <a name="impact"></a>Impatto  
-*As quando la replica viene sospesa, le modifiche accumulate presenti nella macchina virtuale primaria utilizzeranno lo spazio su disco disponibile nel server primario. Dopo la replica viene ripresa, potrebbe esserci un burst di grandi dimensioni di traffico di rete al server di Replica. Ciò influisca sulle macchine virtuali seguenti:*  
+*Fino a quando la replica viene sospesa, le modifiche accumulate che si verificano nella macchina virtuale primaria utilizzeranno lo spazio su disco disponibile nel server primario. Dopo che la replica è stata ripresa, potrebbe essere presente una grande quantità di traffico di rete per il server di replica. Ciò influisca sulle macchine virtuali seguenti:*  
   
-@no__t 0list di macchine virtuali >  
+\<elenco di macchine virtuali >  
   
 ## <a name="resolution"></a>Risoluzione  
-*Confirm che sospende la replica è stata progettata. Se la replica è stata sospesa per risolvere lo spazio su disco insufficiente o la connettività di rete, riprendere la replica non appena tali problemi vengono risolti.*  
+*Verificare che sia prevista la replica di sospensione. Se la replica è stata sospesa per risolvere lo spazio su disco insufficiente o la connettività di rete, riprendere la replica non appena tali problemi vengono risolti.*  
   
 
 

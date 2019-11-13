@@ -25,8 +25,8 @@ ms.locfileid: "71394551"
 
 Di seguito sono riportati i collegamenti alle guide al Lab di test per DirectAccess in Windows Server 2016, Windows Server 2012 R2 e Windows Server 2012.
 
-- [Guida al lab di test: Dimostrazione di DirectAccess in un cluster con bilanciamento carico di servizio di Windows @ no__t-0
+- [Guida al Lab di test: dimostrazione di DirectAccess in un cluster con bilanciamento carico di servizio di Windows](tlg-cluster-nlb/Test-Lab-Guide-Demonstrate-DirectAccess-in-a-Cluster-with-Windows-NLB.md)
 
-- [Guida al lab di test: Dimostrazione di una distribuzione multisito di DirectAccess @ no__t-0
+- [Guida al Lab di test: dimostrazione di una distribuzione multisito di DirectAccess](tlg-multisite/Test-Lab-Guide-Demonstrate-a-DirectAccess-Multisite-Deployment.md)
 
-- [Guida al lab di test: Dimostrazione di DirectAccess con autenticazione OTP e RSA SecurID @ no__t-0
+- [Guida al Lab di test: dimostrazione di DirectAccess con autenticazione OTP e RSA SecurID](tlg-otp-securid/Test-Lab-Guide-Demonstrate-DirectAccess-with-OTP-Authentication-and-RSA-SecurID.md)

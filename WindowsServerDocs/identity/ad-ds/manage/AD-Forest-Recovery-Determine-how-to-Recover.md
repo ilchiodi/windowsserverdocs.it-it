@@ -76,13 +76,13 @@ Scegliere un controller di dominio che soddisfi al meglio i criteri seguenti:
 - Un controller di dominio che era un server DNS (Domain Name System) prima dell'errore. Questo consente di risparmiare il tempo necessario per reinstallare DNS.
 - Se si usa anche servizi di distribuzione Windows, scegliere un controller di dominio non configurato per l'uso di sblocco di rete di BitLocker. In questo caso, lo sblocco di rete di BitLocker non è supportato per il primo controller di dominio ripristinato dal backup durante il ripristino di una foresta.
 
-   Lo sblocco di rete di BitLocker come *unica* protezione con chiave *non può* essere utilizzato nei controller di dominio in cui è stato distribuito Servizi di distribuzione Windows (WDS) perché in questo modo si ottiene uno scenario in cui il primo controller di dominio richiede il funzionamento di Active Directory e WDS per sbloccare. Tuttavia, prima di ripristinare il primo controller di dominio, Active Directory non è ancora disponibile per WDS, quindi non può essere sbloccato.
+   Lo sblocco di rete di BitLocker come *unica* protezione con chiave *non può* essere utilizzato nei controller di dominio in cui è stato distribuito Servizi di distribuzione Windows (WDS) perché questa operazione comporta uno scenario in cui il primo controller di dominio richiede il funzionamento di Active Directory e WDS per poterlo sbloccare. Tuttavia, prima di ripristinare il primo controller di dominio, Active Directory non è ancora disponibile per WDS, quindi non può essere sbloccato.
 
    Per determinare se un controller di dominio è configurato per l'utilizzo di sblocco di rete BitLocker, verificare che nella seguente chiave del registro di sistema venga identificato un certificato di sblocco di rete:
 
    HKEY_LOCAL_MACHINESoftwarePoliciesMicrosoftSystemCertificatesFVE_NKP
 
-Gestire le procedure di sicurezza per la gestione o il ripristino dei file di backup che includono Active Directory. L'urgenza che accompagna il ripristino della foresta può compromettere involontariamente le procedure consigliate per la sicurezza. Per ulteriori informazioni, vedere la sezione intitolata "definizione delle strategie di backup e ripristino del controller di dominio" nella Guida alle procedure di @no__t 0Best per la protezione di installazioni Active Directory e operazioni quotidiane: Parte II @ no__t-0.
+Gestire le procedure di sicurezza per la gestione o il ripristino dei file di backup che includono Active Directory. L'urgenza che accompagna il ripristino della foresta può compromettere involontariamente le procedure consigliate per la sicurezza. Per ulteriori informazioni, vedere la sezione intitolata "definizione delle strategie di backup e ripristino del controller di dominio" nella [Guida alle procedure consigliate per la protezione di installazioni Active Directory e operazioni quotidiane: parte II](https://technet.microsoft.com/library/bb727066.aspx).
 
 ## <a name="identify-the-current-forest-structure-and-dc-functions"></a>Identificare la struttura e le funzioni del controller di dominio correnti
 
@@ -92,13 +92,13 @@ Preparare una tabella che mostra le funzioni di ogni controller di dominio nel d
 
 |Nome controller di dominio|Sistema operativo|FSMO|GC|Controller di dominio di sola lettura|Backup|DNS|Server Core|VM|Con GenId VM|  
 |-------------|----------------------|----------|--------|----------|------------|---------|-----------------|--------|---------------|  
-|DC_1|Windows Server 2012|Master schema, Master per la denominazione dei domini|Yes|No|Yes|No|No|Yes|Yes|  
-|DC_2|Windows Server 2012|Nessuno|Yes|No|Yes|Yes|No|Yes|Yes|  
-|DC_3|Windows Server 2012|Master infrastrutture|No|No|No|Yes|Yes|Yes|Yes|  
-|DC_4|Windows Server 2012|Emulatore PDC, master RID|Yes|No|No|No|No|Yes|No|  
-|DC_5|Windows Server 2012|Nessuno|No|No|Yes|Yes|No|Yes|Yes|  
-|RODC_1|Windows Server 2008 R2|Nessuno|Yes|Yes|Yes|Yes|Yes|Yes|No|  
-|RODC_2|Windows Server 2008|Nessuno|Yes|Yes|No|Yes|Yes|Yes|No|  
+|DC_1|Windows Server 2012|Master schema, Master per la denominazione dei domini|Sì|No|Sì|No|No|Sì|Sì|  
+|DC_2|Windows Server 2012|Nessuno|Sì|No|Sì|Sì|No|Sì|Sì|  
+|DC_3|Windows Server 2012|Master infrastrutture|No|No|No|Sì|Sì|Sì|Sì|  
+|DC_4|Windows Server 2012|Emulatore PDC, master RID|Sì|No|No|No|No|Sì|No|  
+|DC_5|Windows Server 2012|Nessuno|No|No|Sì|Sì|No|Sì|Sì|  
+|RODC_1|Windows Server 2008 R2|Nessuno|Sì|Sì|Sì|Sì|Sì|Sì|No|  
+|RODC_2|Windows Server 2008|Nessuno|Sì|Sì|No|Sì|Sì|Sì|No|  
 
 Per ogni dominio nella foresta, identificare un singolo controller di dominio scrivibile che disponga di un backup attendibile del database Active Directory per quel dominio. Prestare attenzione quando si sceglie un backup per ripristinare un controller di dominio. Se il giorno e la motivo dell'errore sono circa noti, l'indicazione generale prevede l'uso di un backup eseguito pochi giorni prima di tale data.
   

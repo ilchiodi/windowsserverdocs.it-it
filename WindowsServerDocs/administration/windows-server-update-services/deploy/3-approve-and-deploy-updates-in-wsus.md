@@ -17,17 +17,17 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 09/27/2019
 ms.locfileid: "71361689"
 ---
-# <a name="step-3-approve-and-deploy-updates-in-wsus"></a>Passaggio 3: Approva e Distribuisci gli aggiornamenti in WSUS
+# <a name="step-3-approve-and-deploy-updates-in-wsus"></a>Passaggio 3: Approvare e distribuire gli aggiornamenti in Windows Server Update SERVICES
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 I computer inclusi in un gruppo di computer contattano automaticamente il server WSUS nelle successive 24 ore per ottenere aggiornamenti. È possibile utilizzare la funzionalità di generazione rapporti di WSUS per determinare se gli aggiornamenti sono stati distribuiti nei computer di test. Quando i test vengono completati correttamente è possibile approvare gli aggiornamenti per i gruppi di computer applicabili dell'organizzazione. Nell'elenco di controllo seguente sono descritti i passaggi per l'approvazione e la distribuzione di aggiornamenti mediante la console di gestione di Windows Server Update Services.
 
 |Attività|Descrizione|
 |----|--------|
-|[3,1. Approvare e distribuire gli aggiornamenti di WSUS @ no__t-0|Approvare e distribuire gli aggiornamenti di WSUS mediante la console di gestione di Windows Server Update Services.|
-|[3,2. Configurare le regole di approvazione automatica @ no__t-0|Configurare WSUS in modo da approvare automaticamente l'installazione degli aggiornamenti per i gruppi selezionati e come approvare le revisioni degli aggiornamenti esistenti.|
-|[3,3. Esaminare gli aggiornamenti installati con i report WSUS @ no__t-0|Esaminare gli aggiornamenti che sono stati installati, i computer che li hanno ricevuti e altre informazioni utilizzando la funzionalità di generazione rapporti di WSUS.|
+|[3,1. approvare e distribuire gli aggiornamenti di WSUS](3-approve-and-deploy-updates-in-wsus.md#BKM_3.1.)|Approvare e distribuire gli aggiornamenti di WSUS mediante la console di gestione di Windows Server Update Services.|
+|[3,2. configurare le regole di approvazione automatica](3-approve-and-deploy-updates-in-wsus.md#BKM_3.2.a.)|Configurare WSUS in modo da approvare automaticamente l'installazione degli aggiornamenti per i gruppi selezionati e come approvare le revisioni degli aggiornamenti esistenti.|
+|[3,3. esaminare gli aggiornamenti installati con i report WSUS](3-approve-and-deploy-updates-in-wsus.md#BKM_3.3.)|Esaminare gli aggiornamenti che sono stati installati, i computer che li hanno ricevuti e altre informazioni utilizzando la funzionalità di generazione rapporti di WSUS.|
 
 ## <a name="BKM_3.1."></a>3,1. Approvare e distribuire gli aggiornamenti di WSUS
 Utilizzare la procedura seguente per approvare e distribuire gli aggiornamenti.
@@ -69,7 +69,7 @@ Le approvazioni automatiche consentono di specificare come approvare automaticam
 
 5.  In **passaggio 2: modificare le proprietà**, fare clic su ognuna delle opzioni elencate, quindi selezionare le opzioni appropriate per ciascuna di esse.
 
-6.  In **Step 3: Specificare un nome @ no__t-0, digitare un nome per la regola e quindi fare clic su **OK**.
+6.  In  **passaggio 3: specificare un nome**, digitare un nome per la regola e quindi fare clic su **OK**.
 
 7.  Fare clic su **OK** per chiudere la finestra di dialogo Approvazioni automatiche.
 

@@ -61,12 +61,15 @@ La differenza tra i driver *l2bridge* e *l2tunnel* è la seguente:
 
 ## <a name="workflow"></a>Flusso di lavoro
 
-[1. Aggiungere più configurazioni IP a una risorsa NIC VM esistente tramite il controller di rete (host Hyper-V) ](#1-add-multiple-ip-configurations) @ no__t-1 @ no__t-22. Abilitare il proxy di rete nell'host per allocare gli indirizzi IP della CA per gli endpoint del contenitore (host Hyper-V) ](#2-enable-the-network-proxy) @ no__t-1 @ no__t-23. Installare il plug-in del cloud privato per assegnare gli indirizzi IP della CA agli endpoint del contenitore (VM host contenitore) ](#3-install-the-private-cloud-plug-in) @ no__t-1 @ no__t-24. Creare una rete *l2bridge* o *l2tunnel* usando Docker (VM host contenitore) ](#4-create-an-l2bridge-container-network)
+[1. aggiungere più configurazioni IP a una risorsa NIC esistente della macchina virtuale tramite il controller di rete (host Hyper-V)](#1-add-multiple-ip-configurations)
+[2. Abilitare il proxy di rete nell'host per allocare gli indirizzi IP della CA per gli endpoint del contenitore (host Hyper-V)](#2-enable-the-network-proxy)
+[3. Installare il plug-in del cloud privato per assegnare gli indirizzi IP della CA agli endpoint del contenitore (VM host contenitore)](#3-install-the-private-cloud-plug-in)
+[4. Creare una rete *l2bridge* o *l2tunnel* usando Docker (VM host contenitore)](#4-create-an-l2bridge-container-network)
 
 >[!NOTE]
 >Non sono supportate più configurazioni IP nelle risorse NIC della macchina virtuale create con System Center Virtual Machine Manager. Per questi tipi di distribuzioni è consigliabile creare la risorsa NIC della VM fuori banda usando il controller di rete PowerShell.
 
-### <a name="1-add-multiple-ip-configurations"></a>1. Aggiungere più configurazioni IP
+### <a name="1-add-multiple-ip-configurations"></a>1. aggiungere più configurazioni IP
 In questo passaggio si presuppone che la scheda di interfaccia di rete della VM della macchina virtuale tenant abbia una configurazione IP con indirizzo IP di 192.168.1.9 ed è collegata a un ID risorsa VNet di "VNet1" e alla risorsa della subnet VM di "Subnet1" nella subnet IP 192.168.1.0/24. Si aggiungono 10 indirizzi IP per i contenitori da 192.168.1.101-192.168.1.110.
 
 ```powershell
@@ -117,7 +120,7 @@ foreach ($i in 1..10)
 New-NetworkControllerNetworkInterface -ResourceId $vmnic.ResourceId -Properties $vmnic.Properties -ConnectionUri $uri
 ```
 
-### <a name="2-enable-the-network-proxy"></a>2. Abilitare il proxy di rete
+### <a name="2-enable-the-network-proxy"></a>2. abilitare il proxy di rete
 In questo passaggio viene abilitato il proxy di rete per l'allocazione di più indirizzi IP per la macchina virtuale host del contenitore. 
 
 Per abilitare il proxy di rete, eseguire lo script [ConfigureMCNP. ps1](https://github.com/Microsoft/SDN/blob/master/Containers/ConfigureMCNP.ps1) nell' **host Hyper-V** che ospita la macchina virtuale dell'host contenitore (tenant).
@@ -126,7 +129,7 @@ Per abilitare il proxy di rete, eseguire lo script [ConfigureMCNP. ps1](https://
 PS C:\> ConfigureMCNP.ps1
 ```
 
-### <a name="3-install-the-private-cloud-plug-in"></a>3. Installare il plug-in del cloud privato
+### <a name="3-install-the-private-cloud-plug-in"></a>3. installare il plug-in del cloud privato
 In questo passaggio viene installato un plug-in per consentire al HNS di comunicare con il proxy di rete nell'host Hyper-V.
 
 Per installare il plug-in, eseguire lo script [InstallPrivateCloudPlugin. ps1](https://github.com/Microsoft/SDN/blob/master/Containers/InstallPrivateCloudPlugin.ps1) nella **macchina virtuale dell'host contenitore (tenant)** .
@@ -136,7 +139,7 @@ Per installare il plug-in, eseguire lo script [InstallPrivateCloudPlugin. ps1](h
 PS C:\> InstallPrivateCloudPlugin.ps1
 ```
 
-### <a name="4-create-an-l2bridge-container-network"></a>4. Creare una rete di contenitori *l2bridge*
+### <a name="4-create-an-l2bridge-container-network"></a>4. creare una rete di contenitori *l2bridge*
 In questo passaggio si usa il comando `docker network create` nella **macchina virtuale dell'host contenitore (tenant)** per creare una rete l2bridge. 
 
 ```powershell

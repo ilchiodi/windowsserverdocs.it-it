@@ -31,11 +31,11 @@ In questo argomento vengono fornite informazioni sulla risoluzione dei problemi 
 Per risolvere questo errore, vedere Salvataggio delle impostazioni dell'oggetto Criteri di gruppo del server.  
   
 ## <a name="remote-access-is-not-configured"></a>Accesso remoto non configurato  
-**Errore ricevuto**. Accesso remoto non configurato in < nome_server >. Specificare il nome di un server che fa parte di una distribuzione multisito.  
+**Errore ricevuto**. Accesso remoto non configurato in < server_name >. Specificare il nome di un server che fa parte di una distribuzione multisito.  
   
 Oppure  
   
-Accesso remoto non configurato nel server < nome_server >. Specificare un computer in cui DirectAccess è abilitato.  
+Accesso remoto non è configurato nel server < server_name >. Specificare un computer in cui DirectAccess è abilitato.  
   
 **Causa**  
   
@@ -92,7 +92,7 @@ Assicurarsi che il computer remoto sia accessibile tramite RPC e che sia disponi
   
 -   **Problema 1**  
   
-    **Errore ricevuto**. Impossibile raggiungere il controller di dominio < > Domain_Controller. Controllare la connettività di rete e la disponibilità del server.  
+    **Errore ricevuto**. Impossibile raggiungere il controller di dominio < domain_controller >. Controllare la connettività di rete e la disponibilità del server.  
   
     **Causa**  
   
@@ -104,7 +104,7 @@ Assicurarsi che il computer remoto sia accessibile tramite RPC e che sia disponi
   
 -   **Problema 2**  
   
-    **Errore ricevuto**. Impossibile contattare il controller di dominio < Domain_Controller >.  
+    **Errore ricevuto**. Impossibile contattare il controller di dominio < domain_controller >.  
   
     **Causa**  
   
@@ -116,7 +116,7 @@ Assicurarsi che il computer remoto sia accessibile tramite RPC e che sia disponi
   
 -   **Problema 3**  
   
-    **Errore ricevuto**. Impossibile raggiungere il controller di dominio < > Domain_Controller per% 2! s!.  
+    **Errore ricevuto**. Impossibile raggiungere il controller di dominio < domain_controller > per %2! s!.  
   
     **Causa**  
   
@@ -124,7 +124,7 @@ Assicurarsi che il computer remoto sia accessibile tramite RPC e che sia disponi
   
     **Soluzione**  
   
-    Seguire la procedura "per modificare il controller di dominio che gestisce gli oggetti Criteri di gruppo del server" descritto in [2,4. Configurare gli oggetti Criteri di gruppo @ no__t-0.  
+    Attenersi alla procedura "per modificare il controller di dominio che gestisce gli oggetti Criteri di gruppo del server" descritto in [2,4. Configurare gli oggetti Criteri](assetId:///b1960686-a81e-4f48-83f1-cc4ea484df43#ConfigGPOs)di gruppo.  
   
 -   **Problema 4**  
   
@@ -136,10 +136,10 @@ Assicurarsi che il computer remoto sia accessibile tramite RPC e che sia disponi
   
     **Soluzione**  
   
-    Attenersi alla procedura "per trasferire il ruolo emulatore PDC" descritta in [2,4. Configurare gli oggetti Criteri di gruppo @ no__t-0.  
+    Seguire la procedura "per trasferire il ruolo emulatore PDC" descritto in [2,4. Configurare gli oggetti Criteri](assetId:///b1960686-a81e-4f48-83f1-cc4ea484df43#ConfigGPOs)di gruppo.  
   
 ## <a name="read-only-domain-controller"></a>Controller di dominio di sola lettura  
-**Errore ricevuto**. Il controller di dominio < > Domain_Controller è di sola lettura. Specificare un controller di dominio non di sola lettura.  
+**Errore ricevuto**. Il controller di dominio < domain_controller > è di sola lettura. Specificare un controller di dominio non di sola lettura.  
   
 **Causa**  
   
@@ -153,7 +153,7 @@ Quando si utilizza `Set-DAEntryPointDC`, il parametro *NewDC* viene utilizzato p
   
 -   **Problema 1**  
   
-    **Errore ricevuto**. Impossibile recuperare l'oggetto Criteri di gruppo < > GPO_name sul controller di dominio < previous_domain_controller > dal controller di dominio < replacement_domain_controller > perché non si trovano nello stesso dominio.  
+    **Errore ricevuto**. Impossibile recuperare l'oggetto Criteri di gruppo < GPO_name > sul controller di dominio < previous_domain_controller > dal controller di dominio < replacement_domain_controller > perché non si trovano nello stesso dominio.  
   
     **Causa**  
   
@@ -165,7 +165,7 @@ Quando si utilizza `Set-DAEntryPointDC`, il parametro *NewDC* viene utilizzato p
   
 -   **Problema 2**  
   
-    **Errore ricevuto**. Impossibile recuperare l'oggetto Criteri di gruppo < > GPO_name sul controller di dominio < previous_domain_controller > dal controller di dominio < replacement_domain_controller >. Attendere il completamento della replica del dominio e quindi riprovare.  
+    **Errore ricevuto**. Impossibile recuperare l'oggetto Criteri di gruppo < GPO_name > sul controller di dominio < previous_domain_controller > da un controller di dominio < replacement_domain_controller. Attendere il completamento della replica del dominio e quindi riprovare.  
   
     **Causa**  
   
@@ -177,7 +177,7 @@ Quando si utilizza `Set-DAEntryPointDC`, il parametro *NewDC* viene utilizzato p
   
 -   **Problema 3**  
   
-    **Errore ricevuto**. Non si dispone delle autorizzazioni necessarie per accedere all'oggetto Criteri di gruppo < > GPO_name.  
+    **Errore ricevuto**. Non si dispone delle autorizzazioni necessarie per accedere all'oggetto Criteri di gruppo < GPO_name >.  
   
     **Causa**  
   
@@ -188,7 +188,7 @@ Quando si utilizza `Set-DAEntryPointDC`, il parametro *NewDC* viene utilizzato p
     L'oggetto Criteri di gruppo esiste nel controller di dominio, ma non è possibile leggerlo. Assicurarsi di disporre delle autorizzazioni necessarie e riprovare.  
   
 ## <a name="entry-point-not-part-of-multisite-deployment"></a>Il punto di ingresso non fa parte della distribuzione multisito  
-**Errore ricevuto**. Il punto di ingresso < > entry_point_name non fa parte della distribuzione multisito. Specificare un valore alternativo.  
+**Errore ricevuto**. Il punto di ingresso < entry_point_name > non fa parte della distribuzione multisito. Specificare un valore alternativo.  
   
 **Causa**  
   
@@ -202,7 +202,7 @@ Assicurarsi che il nome del punto di ingresso sia digitato correttamente e che g
   
 -   **Problema 1**  
   
-    **Errore ricevuto**. Impossibile accedere al server < nome_server > nel punto di ingresso < entry_point_name >.  
+    **Errore ricevuto**. Impossibile accedere al server < server_name > nel punto di ingresso < entry_point_name >.  
   
     **Causa**  
   
@@ -214,7 +214,7 @@ Assicurarsi che il nome del punto di ingresso sia digitato correttamente e che g
   
 -   **Problema 2**  
   
-    **Errore ricevuto**. Non è possibile salvare le impostazioni nel registro di sistema nel server < nome_server > nel punto di ingresso < entry_point_name >.  
+    **Errore ricevuto**. Non è possibile salvare le impostazioni nel registro di sistema nel server < server_name > nel punto di ingresso < entry_point_name >.  
   
     **Causa**  
   
@@ -226,7 +226,7 @@ Assicurarsi che il nome del punto di ingresso sia digitato correttamente e che g
   
 -   **Problema 3**  
   
-    **Errore ricevuto**. Impossibile applicare gli aggiornamenti dell'oggetto Criteri di gruppo in < nome_server >. Le modifiche verranno applicate al prossimo aggiornamento dei criteri.  
+    **Errore ricevuto**. Impossibile applicare gli aggiornamenti dell'oggetto Criteri di gruppo in < server_name >. Le modifiche verranno applicate al prossimo aggiornamento dei criteri.  
   
     **Causa**  
   
@@ -237,7 +237,7 @@ Assicurarsi che il nome del punto di ingresso sia digitato correttamente e che g
     Qualsiasi server non aggiornato può essere visualizzato tramite **Stato configurazione** in **DASHBOARD** della Console di gestione Accesso remoto. Questa situazione non causa problemi funzionali. È comunque possibile eseguire `gpupdate /force` in qualsiasi server non aggiornato per recuperare immediatamente lo stato della configurazione.  
   
 ## <a name="problem-resolving-fqdn"></a>Problema durante la risoluzione del nome di dominio completo  
-**Errore ricevuto**. Impossibile accedere al server < nome_server > nel punto di ingresso < entry_point_name >.  
+**Errore ricevuto**. Impossibile accedere al server < server_name > nel punto di ingresso < entry_point_name >.  
   
 **Causa**  
   

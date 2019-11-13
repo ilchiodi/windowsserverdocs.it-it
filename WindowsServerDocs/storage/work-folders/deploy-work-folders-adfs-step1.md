@@ -15,21 +15,21 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 09/27/2019
 ms.locfileid: "71365792"
 ---
-# <a name="deploy-work-folders-with-ad-fs-and-web-application-proxy-step-1-set-up-ad-fs"></a>Distribuire cartelle di lavoro con AD FS e il proxy dell'applicazione Web: Passaggio 1, configurazione AD FS
+# <a name="deploy-work-folders-with-ad-fs-and-web-application-proxy-step-1-set-up-ad-fs"></a>Distribuire Cartelle di lavoro con AD FS e Proxy applicazione Web: passaggio 1, configurare AD FS
 
 >Si applica a: Windows Server (Canale semestrale), Windows Server 2016
 
 Questo argomento descrive il primo passaggio nella distribuzione di Cartelle di lavoro con Active Directory Federation Services (AD FS) e Proxy applicazione Web. È possibile trovare gli altri passaggi di questo processo negli argomenti seguenti:  
   
--   Cartelle di lavoro [Deploy con AD FS e proxy applicazione Web: Panoramica](deploy-work-folders-adfs-overview.md)  
+-   [Distribuire cartelle di lavoro con AD FS e il proxy dell'applicazione Web: Panoramica](deploy-work-folders-adfs-overview.md)  
   
--   Cartelle di lavoro [Deploy con AD FS e proxy applicazione Web: Passaggio 2, AD FS lavoro post-configurazione @ no__t-0  
+-   [Distribuire cartelle di lavoro con AD FS e il proxy dell'applicazione Web: passaggio 2 AD FS lavoro di post-configurazione](deploy-work-folders-adfs-step2.md)  
   
--   Cartelle di lavoro [Deploy con AD FS e proxy applicazione Web: Passaggio 3: configurare cartelle di lavoro @ no__t-0  
+-   [Distribuire cartelle di lavoro con AD FS e il proxy dell'applicazione Web: passaggio 3, configurare cartelle di lavoro](deploy-work-folders-adfs-step3.md)  
   
--   Cartelle di lavoro [Deploy con AD FS e proxy applicazione Web: Passaggio 4: configurare il proxy dell'applicazione Web @ no__t-0  
+-   [Distribuire cartelle di lavoro con AD FS e il proxy dell'applicazione Web: passaggio 4, configurare il proxy dell'applicazione Web](deploy-work-folders-adfs-step4.md)  
   
--   Cartelle di lavoro [Deploy con AD FS e proxy applicazione Web: Passaggio 5: configurare i client @ no__t-0  
+-   [Distribuire cartelle di lavoro con AD FS e il proxy dell'applicazione Web: passaggio 5, configurare i client](deploy-work-folders-adfs-step5.md)  
   
 > [!NOTE]
 >   Le istruzioni descritte in questa sezione si riferiscono a un ambiente Windows Server 2019 o Windows Server 2016. Se usi Windows Server 2012 R2, segui le [istruzioni di Windows Server 2012 R2](https://technet.microsoft.com/library/dn747208(v=ws.11).aspx).
@@ -104,7 +104,7 @@ Nell'esempio di test, i valori sono:
 La SAN enterpriseregistration è necessaria per Workplace Join.  
   
 ### <a name="set-the-server-ip-address"></a>Imposta l'indirizzo IP del server  
-Modifica l'indirizzo IP del server in un indirizzo IP statico. Per l'esempio di test, usare la classe IP A, che è 192.168.0.160/subnet mask: 255.255.0.0/gateway predefinito: 192.168.0.1/DNS preferito: 192.168.0.150 (indirizzo IP del controller di dominio @ no__t-0.  
+Modifica l'indirizzo IP del server in un indirizzo IP statico. Nell'esempio di test, utilizza la classe IP A, ovvero 192.168.0.160 / subnet mask: 255.255.0.0 / Gateway predefinito: 192.168.0.1 / DNS preferito: 192.168.0.150 (l'indirizzo IP del tuo controller di dominio\).  
   
 ## <a name="install-the-ad-fs-role-service"></a>Installare il servizio ruolo AD FS  
 Per installare AD FS, esegui le seguenti operazioni:  
@@ -182,9 +182,9 @@ $thumbprint = $cert.Thumbprint
 Install-ADFSFarm -CertificateThumbprint $thumbprint -FederationServiceDisplayName "Contoso Corporation" –FederationServiceName blueadfs.contoso.com -GroupServiceAccountIdentifier contoso\ADFSService$ -OverwriteConfiguration -ErrorAction Stop  
 ```  
   
-Passaggio successivo: Cartelle di lavoro [Deploy con AD FS e proxy applicazione Web: Passaggio 2, AD FS lavoro post-configurazione @ no__t-0  
+Passaggio successivo: [Distribuire Cartelle di lavoro con AD FS e Proxy dell'applicazione Web: passaggio 2, lavoro post-configurazione di AD FS](deploy-work-folders-adfs-step2.md)  
   
-## <a name="see-also"></a>Vedere anche  
+## <a name="see-also"></a>Vedi anche  
 [Panoramica di cartelle di lavoro](Work-Folders-Overview.md)  
   
 

@@ -201,7 +201,7 @@ Export-HgsServerState -Path C:\temp\HGSBackup.xml
 
 **Backup dei certificati**
 
-Il comando `Export-HgsServerState` eseguirà il backup dei certificati basati su PFX aggiunti a HGS al momento dell'esecuzione del comando.
+Il `Export-HgsServerState` comando eseguirà il backup dei certificati basati su PFX aggiunti a HGS al momento dell'esecuzione del comando.
 Se sono stati aggiunti certificati a HGS usando un'identificazione personale (tipica per i certificati non esportabili e supportati dall'hardware), sarà necessario eseguire manualmente il backup delle chiavi private per i certificati.
 Per identificare i certificati registrati con HGS ed è necessario eseguirne manualmente il backup, eseguire il comando di PowerShell seguente in qualsiasi nodo del server HGS funzionante.
 
@@ -260,7 +260,7 @@ Verrà richiesto di immettere la password specificata durante la creazione del b
 Import-HgsServerState -Path C:\Temp\HGSBackup.xml
 ```
 
-Se si desidera importare solo i criteri di attestazione attendibile per l'amministratore o i criteri di attestazione TPM, è possibile specificare i flag `-ImportActiveDirectoryModeState` o `-ImportTpmModeState` per [Import-HgsServerState](https://technet.microsoft.com/library/mt652168.aspx).
+Se si desidera importare solo criteri di attestazione attendibili per l'amministratore o criteri di attestazione TPM, è possibile eseguire questa operazione specificando il `-ImportActiveDirectoryModeState` o `-ImportTpmModeState` flag per [Import-HgsServerState](https://technet.microsoft.com/library/mt652168.aspx).
 
 Verificare che sia installato l'aggiornamento cumulativo più recente per Windows Server 2016 prima di eseguire `Import-HgsServerState`.
 In caso contrario, potrebbe verificarsi un errore di importazione.
@@ -317,7 +317,7 @@ Import-HgsServerState -Path .\temporaryExport.xml -Password $password
 ```
 
 Se è stato introdotto un nuovo criterio, questo verrà disabilitato per impostazione predefinita.
-Per abilitare il nuovo criterio, individuarlo nell'elenco dei criteri Microsoft (con prefisso "HGS_") e quindi abilitarlo usando i comandi seguenti:
+Per abilitare i nuovi criteri, è necessario innanzitutto trovarli nell'elenco dei criteri Microsoft (con prefisso ' HGS_') e quindi abilitarlo usando i comandi seguenti:
 
 ```powershell
 Get-HgsAttestationPolicy
@@ -355,13 +355,13 @@ Hgs_BitLockerEnabled           | Richiede l'abilitazione di BitLocker nell'host 
 Hgs_IommuEnabled               | Richiede che l'host disponga di un dispositivo IOMMU in uso per impedire attacchi di accesso diretto alla memoria. La disabilitazione di questo criterio e l'uso di host senza IOMMU abilitato possono esporre i segreti delle VM tenant per indirizzare gli attacchi alla memoria.
 Hgs_NoHibernation              | Richiede la disabilitazione della modalità di ibernazione nell'host Hyper-V. La disabilitazione di questo criterio potrebbe consentire agli host di salvare la memoria della macchina virtuale schermata in un file di ibernazione non crittografato.
 Hgs_NoDumps                    | Richiede che i dump della memoria siano disabilitati nell'host Hyper-V. Se si disabilita questo criterio, è consigliabile configurare la crittografia del dump per impedire che la memoria della macchina virtuale schermata venga salvata nei file di dump di arresto anomalo del sistema non crittografati.
-Hgs_DumpEncryption             | Richiede i dump della memoria, se abilitati nell'host Hyper-V, da crittografare con una chiave di crittografia considerata attendibile da HGS. Questo criterio non si applica se i dump non sono abilitati nell'host. Se questi criteri e *HGS @ no__t-1NoDumps* sono entrambi disabilitati, la memoria della macchina virtuale schermata potrebbe essere salvata in un file di dump non crittografato.
-Hgs_DumpEncryptionKey          | Criteri negativi per assicurarsi che gli host configurati per consentire i dump della memoria utilizzino una chiave di crittografia del file di dump definita dall'amministratore nota a HGS. Questo criterio non si applica quando *HGS @ no__t-1DumpEncryption* è disabilitato.
+Hgs_DumpEncryption             | Richiede i dump della memoria, se abilitati nell'host Hyper-V, da crittografare con una chiave di crittografia considerata attendibile da HGS. Questo criterio non si applica se i dump non sono abilitati nell'host. Se questi criteri e *Hgs\_i dump* sono entrambi disabilitati, la memoria della macchina virtuale schermata potrebbe essere salvata in un file di dump non crittografato.
+Hgs_DumpEncryptionKey          | Criteri negativi per assicurarsi che gli host configurati per consentire i dump della memoria utilizzino una chiave di crittografia del file di dump definita dall'amministratore nota a HGS. Questo criterio non si applica quando *Hgs\_DumpEncryption* è disabilitato.
 
 ### <a name="authorizing-new-guarded-hosts"></a>Autorizzazione di nuovi host sorvegliati
 Per autorizzare un nuovo host a diventare un host sorvegliato, ad esempio l'attestazione, HGS deve considerare attendibile l'host e, quando configurato per l'uso dell'attestazione TPM, il software in esecuzione su di esso.
 I passaggi per autorizzare un nuovo host variano in base alla modalità di attestazione per cui è attualmente configurato HGS.
-Per controllare la modalità di attestazione per l'infrastruttura sorvegliata, eseguire `Get-HgsServer` in qualsiasi nodo HGS.
+Per controllare la modalità di attestazione per l'infrastruttura sorvegliata, eseguire `Get-HgsServer` in un nodo HGS.
 
 #### <a name="software-configuration"></a>Configurazione software
 Nel nuovo host Hyper-V verificare che sia installato Windows Server 2016 Datacenter Edition.
@@ -423,7 +423,7 @@ Get-HgsAttestationBaselinePolicy -Path 'C:\temp\hardwareConfig01.tcglog'
 > Se viene visualizzato un errore che indica che l'host non ha superato la convalida e non è stato in grado di attestare, non preoccuparsi.
 > Si tratta di un controllo dei prerequisiti per assicurarsi che l'host possa eseguire macchine virtuali schermate e probabilmente significa che non è stato ancora applicato un criterio di integrità del codice o un'altra impostazione necessaria.
 > Leggere il messaggio di errore, apportare le modifiche suggerite, quindi riprovare.
-> In alternativa, è possibile ignorare la convalida in questo momento aggiungendo il flag `-SkipValidation` al comando.
+> In alternativa, è possibile ignorare la convalida in questo momento aggiungendo il flag di `-SkipValidation` al comando.
 
 Copiare la baseline TPM nel server HGS, quindi registrarla con il comando seguente.
 Si consiglia di utilizzare una convenzione di denominazione che consenta di comprendere la configurazione hardware e firmware di questa classe di host Hyper-V.
@@ -468,7 +468,7 @@ Add-HgsAttestationCiPolicy -Name 'WS2016-Hardware01' -Path 'C:\temp\ws2016-hardw
 
 **Aggiunta di una chiave di crittografia del dump della memoria**
 
-Quando il criterio *HGS @ no__t-1NoDumps* è disabilitato e il criterio *HGS @ no__t-3DumpEncryption* è abilitato, gli host sorvegliati possono disporre di dump di memoria (inclusi i dump di arresto anomalo del sistema) per essere abilitati finché tali dump sono crittografati. Gli host sorvegliati passeranno l'attestazione solo se i dump della memoria sono disabilitati o li crittografano con una chiave nota a HGS. Per impostazione predefinita, nessuna chiave di crittografia del dump viene configurata in HGS.
+Quando il criterio *Hgs\_Nodumpes* è disabilitato e *HGS\_* i criteri DumpEncryption sono abilitati, gli host sorvegliati possono disporre di dump della memoria (inclusi i dump di arresto anomalo) per essere abilitati finché tali dump sono crittografati. Gli host sorvegliati passeranno l'attestazione solo se i dump della memoria sono disabilitati o li crittografano con una chiave nota a HGS. Per impostazione predefinita, nessuna chiave di crittografia del dump viene configurata in HGS.
 
 Per aggiungere una chiave di crittografia del dump a HGS, usare il cmdlet `Add-HgsAttestationDumpPolicy` per fornire HGS con l'hash della chiave di crittografia del dump.
 Se si acquisisce una baseline TPM in un host Hyper-V configurato con la crittografia del dump, l'hash è incluso in tcglog e può essere fornito al cmdlet `Add-HgsAttestationDumpPolicy`.
@@ -491,13 +491,13 @@ Per ulteriori informazioni sulla [configurazione della crittografia dump negli h
 #### <a name="check-if-the-system-passed-attestation"></a>Controllare se il sistema ha superato l'attestazione
 Dopo aver registrato le informazioni necessarie con HGS, è necessario controllare se l'host supera l'attestazione.
 Nell'host Hyper-V appena aggiunto eseguire `Set-HgsClientConfiguration` e specificare gli URL corretti per il cluster HGS.
-Questi URL possono essere ottenuti eseguendo `Get-HgsServer` in qualsiasi nodo HGS.
+Questi URL possono essere ottenuti eseguendo `Get-HgsServer` su qualsiasi nodo HGS.
 
 ```powershell
 Set-HgsClientConfiguration -KeyProtectionServerUrl 'http://hgs.bastion.local/KeyProtection' -AttestationServerUrl 'http://hgs.bastion.local/Attestation'
 ```
 
-Se lo stato risultante non indica "IsHostGuarded: True "sarà necessario risolvere i problemi relativi alla configurazione.
+Se lo stato risultante non indica "IsHostGuarded: true", sarà necessario risolvere i problemi relativi alla configurazione.
 Nell'host che non ha superato l'attestazione, eseguire il comando seguente per ottenere un report dettagliato sui problemi che possono aiutare a risolvere l'attestazione non riuscita.
 
 ```powershell
@@ -505,7 +505,7 @@ Get-HgsTrace -RunDiagnostics -Detailed
 ```
 
 > [!IMPORTANT]
-> Se si usa Windows Server 2019 o Windows 10, versione 1809 e si usano criteri di integrità del codice, `Get-HgsTrace` può restituire un errore per la diagnostica **attiva del criterio di integrità del codice** .
+> Se si usa Windows Server 2019 o Windows 10, versione 1809 e si usano criteri di integrità del codice, `Get-HgsTrace` possibile che venga restituito un errore per la diagnostica **attiva del criterio di integrità del codice** .
 > Questo risultato può essere ignorato in modo sicuro quando è l'unica diagnostica non riuscita.
 
 ### <a name="review-attestation-policies"></a>Esaminare i criteri di attestazione
@@ -527,7 +527,7 @@ Disable-HgsAttestationPolicy -Name 'PolicyName'
 
 Analogamente, è possibile usare `Enable-HgsAttestationPolicy` per riabilitare i criteri.
 
-Se non è più necessario un criterio e si desidera rimuoverlo da tutti i nodi HGS, eseguire `Remove-HgsAttestationPolicy -Name 'PolicyName'` per eliminare definitivamente i criteri.
+Se non è più necessario un criterio e si desidera rimuoverlo da tutti i nodi HGS, eseguire `Remove-HgsAttestationPolicy -Name 'PolicyName'` per eliminare definitivamente il criterio.
 
 ## <a name="changing-attestation-modes"></a>Modifica delle modalità di attestazione
 Se l'infrastruttura sorvegliata è stata avviata usando un'attestazione attendibile dell'amministratore, è probabile che si voglia eseguire l'aggiornamento alla modalità di attestazione TPM molto più avanzata non appena si dispone di un numero sufficiente di host compatibili con TPM 2,0 nell'ambiente.
@@ -586,7 +586,7 @@ I due motivi più comuni per cui si aggiungono nuove chiavi a HGS sono i seguent
 
 Il processo per aggiungere le nuove chiavi è diverso in base al tipo di certificato usato.
 
-**Opzione 1: Aggiunta di un certificato archiviato in un modulo di protezione hardware @ no__t-0
+**Opzione 1: aggiunta di un certificato archiviato in un modulo di protezione hardware**
 
 L'approccio consigliato per la protezione delle chiavi di HGS consiste nell'usare i certificati creati in un modulo di protezione hardware (HSM).
 HSM assicurarsi che l'uso delle chiavi sia associato all'accesso fisico a un dispositivo sensibile alla sicurezza nel Data Center.
@@ -607,7 +607,7 @@ Consultare la documentazione del fornitore del modulo di protezione hardware per
     Add-HgsKeyProtectionCertificate -CertificateType Signing -Thumbprint "99887766554433221100FFEEDDCCBBAA"
     ```
 
-**Opzione 2: Aggiunta di certificati software non esportabili @ no__t-0
+**Opzione 2: aggiunta di certificati software non esportabili**
 
 Se si dispone di un certificato supportato da software emesso dall'azienda o da un'autorità di certificazione pubblica con una chiave privata non esportabile, sarà necessario aggiungere il certificato a HGS usando la relativa identificazione personale.
 1. Installare il certificato nel computer in base alle istruzioni dell'autorità di certificazione.
@@ -622,7 +622,7 @@ Se si dispone di un certificato supportato da software emesso dall'azienda o da 
 > Sarà necessario installare manualmente la chiave privata e concedere l'accesso in lettura all'account gMSA in ogni nodo HGS.
 > HGS non è in grado di replicare automaticamente le chiavi private per *i* certificati registrati dalla relativa identificazione personale.
 
-**Option 3: Aggiunta di certificati archiviati nei file PFX @ no__t-0
+**Opzione 3: aggiunta di certificati archiviati in file PFX**
 
 Se si dispone di un certificato supportato da software con una chiave privata esportabile che può essere archiviata nel formato di file PFX e protetto con una password, HGS può gestire automaticamente i certificati.
 I certificati aggiunti con i file PFX vengono replicati automaticamente in ogni nodo del cluster HGS e HGS protegge l'accesso alle chiavi private.

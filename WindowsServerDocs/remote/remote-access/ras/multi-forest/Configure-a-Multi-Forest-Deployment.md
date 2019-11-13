@@ -73,7 +73,7 @@ Per una configurazione OTP in una distribuzione a più foreste tenere presente i
   
 -   Foresta degli account: tutte le altre foreste nella topologia.  
   
-Per questa procedura è necessario lo script PKISync.ps1 di PowerShell. Vedere [AD CS: Script script PKISync. ps1 per la registrazione di certificati tra foreste @ no__t-0.  
+Per questa procedura è necessario lo script PKISync.ps1 di PowerShell. Vedere [Servizi certificati Active Directory: script PKISync.ps1 per registrazione certificato tra foreste](https://technet.microsoft.com/library/ff961506.aspx).  
   
 > [!NOTE]  
 > Questo argomento include cmdlet di esempio di Windows PowerShell che è possibile usare per automatizzare alcune delle procedure descritte. Per ulteriori informazioni, vedere [mediante i cmdlet](https://go.microsoft.com/fwlink/p/?linkid=230693).  
@@ -100,7 +100,7 @@ Per questa procedura è necessario lo script PKISync.ps1 di PowerShell. Vedere [
     certutil -config <Computer-Name>\<Root-CA-Name> -ca.cert <root-ca-cert-filename.cer>  
     ```  
   
-    Se si esegue il comando nella CA radice, è possibile omettere le informazioni sulla connessione,-config < nome-computer > \\ < radice-CA-Name >)  
+    Se si esegue il comando nella CA radice, è possibile omettere le informazioni sulla connessione,-config < nome computer >\\< radice-CA-Name >)  
   
     1.  Importare il certificato CA radice estratto nel precedente passaggio nella CA della foresta degli account eseguendo il comando seguente in un prompt dei comandi con privilegi elevati:  
   
@@ -108,7 +108,7 @@ Per questa procedura è necessario lo script PKISync.ps1 di PowerShell. Vedere [
         certutil -dspublish -f <root-ca-cert-filename.cer> RootCA  
         ```  
   
-    2.  Concedere le autorizzazioni di lettura/scrittura per i modelli di certificato della foresta delle risorse alla foresta \<Account @ no__t-1 @ no__t-2 < account amministratore @ no__t-3.  
+    2.  Concedere le autorizzazioni di lettura/scrittura per i modelli di certificato della foresta delle risorse alla foresta di account \<\>\\account amministratore <\>.  
   
     3.  Estrarre tutti i certificati CA globale (enterprise) della foresta delle risorse eseguendo questo comando da un prompt dei comandi con privilegi elevati:  
   
@@ -116,7 +116,7 @@ Per questa procedura è necessario lo script PKISync.ps1 di PowerShell. Vedere [
         certutil -config <Computer-Name>\<Enterprise-CA-Name> -ca.cert <enterprise-ca-cert-filename.cer>  
         ```  
   
-        Se si esegue il comando nella CA radice, è possibile omettere le informazioni sulla connessione,-config < nome-computer > \\ < radice-CA-Name >)  
+        Se si esegue il comando nella CA radice, è possibile omettere le informazioni sulla connessione,-config < nome computer >\\< radice-CA-Name >)  
   
     4.  Importare i certificati della CA globale (enterprise) estratti nel precedente passaggio nella CA della foresta degli account eseguendo il comando seguente in un prompt dei comandi con privilegi elevati:  
   

@@ -30,7 +30,7 @@ Prima di poter configurare una distribuzione multisito, è necessario configurar
   
 ## <a name="BKMK_Links"></a>Vedere anche  
   
--   [Passaggio 2: Configurare l'infrastruttura multisito @ no__t-0  
+-   [Passaggio 2: configurare l'infrastruttura multisito](Step-2-Configure-the-Multisite-Infrastructure.md)  
 
 
 

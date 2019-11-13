@@ -133,4 +133,4 @@ Nell'elenco seguente sono disponibili risorse aggiuntive sul Web relative a SMB 
 * [Distribuire Hyper-V tramite SMB](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/jj134187(v%3dws.11)>)
 * [Distribuire SMB multicanale](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn610980(v%3dws.11)>)
 * [Distribuzione di file server veloci ed efficienti per applicazioni server](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831723(v%3dws.11)>)
-* [SMB: Guida alla risoluzione dei problemi @ no__t-0
+* [SMB: Guida alla risoluzione dei problemi](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn659439(v%3dws.11)>)

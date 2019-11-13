@@ -25,9 +25,9 @@ ms.locfileid: "71404584"
 
 Negli argomenti seguenti vengono fornite le procedure di pianificazione per la distribuzione di un singolo server di accesso remoto che esegue che può essere utilizzato per la gestione remota dei client DirectAccess.  
   
-[Passaggio 1: Pianificare l'infrastruttura di accesso remoto @ no__t-0: Questo argomento consente di pianificare la topologia di rete e le impostazioni del server, i requisiti del firewall, i requisiti dei certificati, i requisiti di Domain Name System, il server dei percorsi di rete DirectAccess e la configurazione dei server di gestione Active Directory requisiti e creazione di Criteri di gruppo di oggetti.  
+[Passaggio 1: pianificare l'infrastruttura di accesso remoto](Step-1-Plan-the-Remote-Access-Infrastructure.md): in questo argomento è possibile pianificare la topologia di rete e le impostazioni del server, i requisiti del firewall, i requisiti dei certificati, Domain Name System requisiti, la configurazione dei server dei percorsi di rete e dei server di gestione di DirectAccess, i requisiti di Active Directory e la creazione di oggetti Criteri di gruppo  
   
-[Passaggio 2: Pianificare la distribuzione di accesso remoto @ no__t-0: Pianificare le configurazioni delle strategie di distribuzione client e server e dei server di infrastruttura.  
+[Passaggio 2: pianificare la distribuzione di accesso remoto](Step-2-Plan-the-Remote-Access-Deployment.md): pianificare le configurazioni di distribuzione di client e server e di server di infrastruttura.  
 
   
 

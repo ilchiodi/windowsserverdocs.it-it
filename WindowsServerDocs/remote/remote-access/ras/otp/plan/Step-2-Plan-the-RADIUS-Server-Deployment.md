@@ -40,7 +40,7 @@ Quando si pianifica un server RADIUS per l'autenticazione OTP, tenere presente q
   
 -   Quando si distribuisce il server RADIUS, si configura un segreto condiviso e il numero di porta per il traffico RADIUS. Prendere nota di questi dettagli; sono necessarie quando si configura il server di accesso remoto.  
   
-È possibile visualizzare una guida al Lab di test di esempio che configura l'autenticazione OTP con un server RSA SecurID in [Test Lab guide: Dimostrazione di DirectAccess con autenticazione OTP e RSA SecurID @ no__t-0.  
+È possibile visualizzare una guida al Lab di test di esempio che configura l'autenticazione OTP con un server RSA SecurID nella [Guida al Lab di test: dimostrazione di DirectAccess con autenticazione OTP e RSA SecurID](https://technet.microsoft.com/windows-server-docs/networking/remote-access/directaccess/tlg-otp-securid/test-lab-guide-demonstrate-directaccess-with-otp-authentication-and-rsa-securid).  
   
   
   

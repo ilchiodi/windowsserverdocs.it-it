@@ -20,8 +20,8 @@ ms.locfileid: "71388137"
 
 >Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows 10
 
-- [**Precedente** Accesso remoto @ no__t-0<br>
-- [**Prossimo** Informazioni sulle funzionalità e sulle funzionalità di Always On VPN @ no__t-0
+- [**Precedente:** Accesso remoto](../../../Remote-Access.md)<br>
+- [Passaggio **successivo:** Informazioni sulle funzionalità e sulle funzionalità di Always On VPN](../../vpn-map-da.md)
 
 Always On VPN fornisce un'unica soluzione coerente per l'accesso remoto e supporta dispositivi aggiunti a un dominio, non aggiunti a un dominio (gruppo di lavoro) o aggiunti a Azure AD, anche dispositivi di proprietà personale. Con VPN Always On, la connessione non deve essere esclusivamente di tipo utente o dispositivo, ma può essere una combinazione di entrambi. È ad esempio possibile abilitare l'autenticazione dei dispositivi per la gestione dei dispositivi remoti e quindi abilitare l'autenticazione utente per la connettività a servizi e siti aziendali interni.
 

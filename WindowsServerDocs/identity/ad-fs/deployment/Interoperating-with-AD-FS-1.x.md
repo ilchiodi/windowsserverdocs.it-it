@@ -18,15 +18,15 @@ ms.locfileid: "71359507"
 ---
 # <a name="interoperating-with-ad-fs-1x"></a>Interazione con AD FS 1.x
 
-Per l'interoperabilità tra Active Directory Federation Services \(AD FS @ no__t-1 in Windows Server® 2012 e AD FS 1. *x*, completare una o più delle attività seguenti, a seconda delle esigenze dell'organizzazione:  
+Per l'interoperabilità tra Active Directory Federation Services \(AD FS\) in Windows Server® 2012 e AD FS 1. *x*, completare una o più delle attività seguenti, a seconda delle esigenze dell'organizzazione:  
   
 -   Pianificare l'interoperabilità tra AD FS in Windows Server 2012 e versioni precedenti di AD FS e altre informazioni sul tipo di attestazione ID nome. Per ulteriori informazioni, vedere [pianificazione dell'interoperabilità con ad FS 1. x](https://technet.microsoft.com/library/ff678040.aspx).  
   
--   Se si invieranno attestazioni da un Servizio federativo di AD FS in Windows Server 2012 che può essere utilizzato da un AD FS 1. *x* servizio federativo, vedere [Checklist: Configurazione AD FS per inviare attestazioni a una AD FS 1. x Servizio federativo @ no__t-0.  
+-   Se si invieranno attestazioni da un Servizio federativo di AD FS in Windows Server 2012 che può essere utilizzato da un AD FS 1. *x* servizio federativo, vedere [Checklist: configuring ad FS to Send Claims to an ad FS 1. x servizio federativo](Checklist--Configuring-AD-FS-to-Send-Claims-to-an-AD-FS-1.x-Federation-Service.md).  
   
--   Se si invieranno attestazioni da un Servizio federativo di AD FS in Windows Server 2012 che può essere utilizzato da un'applicazione ospitata da un server Web che esegue il AD FS 1. *x* Claims @ no__t-1aware Web Agent, vedere [Checklist: Configurazione AD FS per inviare attestazioni a un agente Web in grado di riconoscere attestazioni AD FS 1. x @ no__t-0.  
+-   Se si invieranno attestazioni da un Servizio federativo di AD FS in Windows Server 2012 che può essere utilizzato da un'applicazione ospitata da un server Web che esegue il AD FS 1. *x* claims\-agente Web in grado di riconoscere, vedere [elenco di controllo: configurazione ad FS per inviare attestazioni a un agente Web in grado di riconoscere attestazioni ad FS 1. x](Checklist--Configuring-AD-FS-to-Send-Claims-to-an-AD-FS-1.x-Claims-Aware-Web-Agent.md).  
   
--   Se si invieranno attestazioni da un AD FS 1. *x* servizio federativo essere utilizzato da un Servizio federativo di ad FS in Windows Server 2012, vedere [Checklist: Configurazione di AD FS per l'utilizzo di attestazioni da AD FS 1. x @ no__t-0.  
+-   Se si invieranno attestazioni da un AD FS 1. *x* servizio federativo essere utilizzato da un Servizio federativo di ad FS in Windows Server 2012, vedere [elenco di controllo: configurazione ad FS per l'utilizzo di attestazioni da ad FS 1. x](Checklist--Configuring-AD-FS--to-Consume-Claims-from-AD-FS-1.x.md).  
   
 ## <a name="differences-between-federation-service-settings"></a>Differenze tra le impostazioni di Servizio federativo  
 Sebbene la maggior parte dei AD FS 1. *x* servizio federativo le impostazioni funzionano in modo analogo al servizio federativo ad FS nelle impostazioni di Windows Server 2012, alcuni nomi di impostazioni sono stati modificati. Nella tabella seguente sono elencati i nomi delle impostazioni per un AD FS 1. *x* servizio federativo e i relativi nomi equivalenti per un Servizio federativo di ad FS in Windows Server 2012.  
@@ -37,11 +37,11 @@ Sebbene la maggior parte dei AD FS 1. *x* servizio federativo le impostazioni fu
 |Partner risorse|Trust della relying party 
 |Applicazione|Trust della relying party  
 |Proprietà dell'applicazione|Proprietà attendibilità componente  
-|URL applicazione|Identificatore della relying party e URL dell'endpoint passivo WS @ no__t-0Federation  
+|URL applicazione|Identificatore della relying party e URL dell'endpoint passivo di WS\-Federation  
 |URI Servizio federativo|Identificatore del servizio federativo  
-|URL dell'endpoint Servizio federativo|URL dell'endpoint passivo WS @ no__t-0Federation  
+|URL dell'endpoint Servizio federativo|URL dell'endpoint passivo di WS\-Federation  
   
-## <a name="see-also"></a>Vedere anche  
+## <a name="see-also"></a>Vedi anche  
 [Interoperabilità AD FS e AD FS 1. x](https://go.microsoft.com/fwlink/?LinkId=200776)  
   
 

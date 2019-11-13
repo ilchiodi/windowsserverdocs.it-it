@@ -21,7 +21,7 @@ ms.locfileid: "71364945"
 
 >Si applica a: Windows Server 2016
 
-l'argomento *Stanziamento è progettato per risolvere un problema specifico identificato da un'analisi di Best Practices Analyzer. È consigliabile applicare le informazioni contenute in questo argomento solo ai computer in cui è stata eseguita la Best Practices Analyzer Hyper-V e si è verificato il problema trattato in questo argomento. Per ulteriori informazioni sulle procedure consigliate e le analisi, vedere @ no__t-0 [Best Practices Analyzer](https://go.microsoft.com/fwlink/?LinkId=122786).  
+*Questo argomento è destinato a risolvere un problema specifico identificato da un'analisi Best Practices Analyzer. È consigliabile applicare le informazioni contenute in questo argomento solo ai computer in cui è stata eseguita la Best Practices Analyzer Hyper-V e si è verificato il problema trattato in questo argomento. Per ulteriori informazioni sulle procedure consigliate e le analisi, vedere* [Best Practices Analyzer](https://go.microsoft.com/fwlink/?LinkId=122786).  
   
 |Proprietà|Dettagli|  
 |-|-|  

@@ -76,11 +76,11 @@ Questo articolo descrive le funzionalità disponibili in componenti quali core, 
 |-|-|
 |Dispositivo video specifico di Hyper-V|Questa funzionalità offre grafica a prestazioni elevate e risoluzione superiore per le macchine virtuali. Questo dispositivo non fornisce la modalità sessione avanzata o le funzionalità RemoteFX.|
 
-## <a name="miscellaneous"></a>Miscellaneous
+## <a name="miscellaneous"></a>Varie
 
 |**Funzionalità**|**Descrizione**|
 |-|-|
-|Scambio di KVP (coppia chiave-valore)|Questa funzionalità fornisce un servizio di scambio di coppie chiave/valore (KVP) per le macchine virtuali. In genere, gli amministratori usano il meccanismo KVP per eseguire operazioni di lettura e scrittura sui dati personalizzate in una macchina virtuale. Per ulteriori informazioni, vedere [Apparecchiature per Exchange: Uso di coppie chiave-valore per condividere informazioni tra l'host e il Guest in Hyper-V @ no__t-0.|
+|Scambio di KVP (coppia chiave-valore)|Questa funzionalità fornisce un servizio di scambio di coppie chiave/valore (KVP) per le macchine virtuali. In genere, gli amministratori usano il meccanismo KVP per eseguire operazioni di lettura e scrittura sui dati personalizzate in una macchina virtuale. Per ulteriori informazioni, vedere [scambio di dati: l'utilizzo di coppie chiave-valore per condividere informazioni tra l'host e guest in Hyper-V](https://technet.microsoft.com/library/dn798287.aspx).|
 |Interrupt non mascherabile|Con questa funzionalità, un amministratore può emettere interrupt non mascherabili (NMI) a una macchina virtuale. NMIs sono utili per ottenere i dump di arresto anomalo dei sistemi operativi che non rispondono a causa di bug dell'applicazione. I dump di arresto anomalo del sistema possono essere diagnosticati dopo il riavvio.|
 |Copia di file da host a Guest|Questa funzionalità consente di copiare i file dal computer fisico host alle macchine virtuali guest senza usare la scheda di rete. Per ulteriori informazioni, vedere [servizi Guest](https://technet.microsoft.com/library/dn798297(WS.11).aspx#BKMK_guest).|
 |comando lsvmbus|Questo comando ottiene informazioni sui dispositivi in Hyper-V Virtual Machine Bus (VMBus) simili a comandi di informazioni come lspci.|
@@ -94,7 +94,7 @@ Questo articolo descrive le funzionalità disponibili in componenti quali core, 
 |Avvio tramite UEFI|Questa funzionalità consente l'avvio delle macchine virtuali utilizzando Unified Extensible Firmware Interface (UEFI).<br /><br />Per ulteriori informazioni, vedere la [panoramica delle macchine virtuali di seconda generazione](https://technet.microsoft.com/library/dn282285.aspx).|
 |Avvio protetto|Questa funzionalità consente alle macchine virtuali di usare la modalità di avvio protetto basato su UEFI. Quando una macchina virtuale viene avviata in modalità protetta, diversi componenti del sistema operativo vengono verificati usando le firme presenti nell'archivio dati UEFI.<br /><br />Per ulteriori informazioni, vedere [avvio protetto](https://technet.microsoft.com/library/dn486875.aspx).|
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 * [Macchine virtuali CentOS e Red Hat Enterprise Linux supportate in Hyper-V](Supported-CentOS-and-Red-Hat-Enterprise-Linux-virtual-machines-on-Hyper-V.md)
 

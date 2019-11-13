@@ -28,15 +28,15 @@ Per ulteriori informazioni sull'autenticazione a più fattori e sui meccanismi d
 
 Questo scenario è suddiviso nelle sezioni seguenti:
 
--   [Passaggio 1: Configurazione dell'ambiente lab @ no__t-0
+-   [Passaggio 1: configurazione dell'ambiente lab](../../ad-fs/operations/Walkthrough-Guide--Manage-Risk-with-Conditional-Access-Control.md#BKMK_1)
 
--   [Passaggio 2: Verificare il meccanismo di autenticazione AD FS predefinito @ no__t-0
+-   [Passaggio 2: verificare il meccanismo di autenticazione AD FS predefinito](../../ad-fs/operations/Walkthrough-Guide--Manage-Risk-with-Additional-Multi-Factor-Authentication-for-Sensitive-Applications.md#BKMK_2)
 
--   [Passaggio 3: Configurare l'autenticazione a più fattori nel server federativo @ no__t-0
+-   [Passaggio 3: configurare l'autenticazione a più fattori nel server federativo](../../ad-fs/operations/Walkthrough-Guide--Manage-Risk-with-Additional-Multi-Factor-Authentication-for-Sensitive-Applications.md#BKMK_3)
 
--   [Passaggio 4: Verificare il meccanismo di autenticazione a più fattori @ no__t-0
+-   [Passaggio 4: verificare il meccanismo di autenticazione a più fattori](../../ad-fs/operations/Walkthrough-Guide--Manage-Risk-with-Additional-Multi-Factor-Authentication-for-Sensitive-Applications.md#BKMK_4)
 
-## <a name="BKMK_1"></a>Passaggio 1: Configurazione dell'ambiente di testing
+## <a name="BKMK_1"></a>Passaggio 1: configurazione dell'ambiente lab
 Per eseguire le procedure descritte in questo scenario, è necessario un ambiente con i componenti seguenti:
 
 -   Un dominio di Active Directory con un utente di test e account di gruppo in esecuzione in Windows Server 2012 R2 o un dominio di Active Directory in esecuzione in Windows Server 2008, Windows Server 2008 R2 o Windows Server 2012 con lo schema aggiornato a Windows Server 2012 R2
@@ -54,7 +54,7 @@ In questo ambiente, il server federativo rilascia le attestazioni richieste affi
 
 Per istruzioni su come configurare questo ambiente, vedere [configurare l'ambiente lab per ad FS in Windows Server 2012 R2](../../ad-fs/deployment/Set-up-the-lab-environment-for-AD-FS-in-Windows-Server-2012-R2.md).
 
-## <a name="BKMK_2"></a>Passaggio 2: Verificare il meccanismo di autenticazione predefinito di ADFS
+## <a name="BKMK_2"></a>Passaggio 2: verificare il meccanismo di autenticazione AD FS predefinito
 In questo passaggio verrà verificato il meccanismo di controllo degli accessi predefinito di ADFS, (**Autenticazione basata su form** per la rete Extranet e **Autenticazione di Windows** per la rete Intranet), in base al quale l'utente viene reindirizzato alla pagina di accesso ad ADFS, specifica le credenziali valide e ottiene l'accesso all'applicazione. È possibile usare l'account di Active Directory **Robert Hatley** e l'applicazione di esempio **ClaimApp** configurata in [configurare l'ambiente lab per ad FS in Windows Server 2012 R2](../../ad-fs/deployment/Set-up-the-lab-environment-for-AD-FS-in-Windows-Server-2012-R2.md).
 
 1.  Nel computer client aprire una finestra del browser e passare all'applicazione di esempio: **https://webserv1.contoso.com/claimapp** .
@@ -65,7 +65,7 @@ In questo passaggio verrà verificato il meccanismo di controllo degli accessi p
 
     Verrà concesso l'accesso all'applicazione.
 
-## <a name="BKMK_3"></a>Passaggio 3: Configurare l'autenticazione a più fattori nel server federativo
+## <a name="BKMK_3"></a>Passaggio 3: configurare l'autenticazione a più fattori nel server federativo
 Per la configurazione dell'autenticazione a più fattori in AD FS in Windows Server 2012 R2 sono disponibili due parti:
 
 -   [Selezionare un metodo di autenticazione aggiuntivo](../../ad-fs/operations/Walkthrough-Guide--Manage-Risk-with-Additional-Multi-Factor-Authentication-for-Sensitive-Applications.md#BKMK_5)
@@ -180,10 +180,10 @@ Dopo aver scaricato l'eseguibile per il server Windows Azure Multi-Factor Authen
 
 6.  Nell'elenco **Utenti** selezionare l'account **Robert Hatley** e fare clic su **Verifica**. Nella finestra **Utente test** specificare le credenziali per l'account **Robert Hatley** . Quando il telefono cellulare squilla, premere ' #' per completare la verifica dell'account.
 
-7.  Nell'interfaccia utente di **Multi-Factor Authentication Server** selezionare l'icona **ADFS** , assicurarsi che le caselle di controllo **Consenti registrazione utente**, **Consenti agli utenti di selezionare il metodo** (incluse le opzioni **Telefonata** e **SMS**), **Usa domande di sicurezza per il fallback** e **Abilita registrazione** siano selezionate, fare clic su **Installa scheda ADFS**e completare l'installazione guidata della scheda ADFS per l'autenticazione a più **fattori** .
+7.  Nell'interfaccia utente di **Multi-Factor Authentication Server** selezionare l'icona **ADFS** , assicurarsi che le caselle di controllo **Consenti registrazione utente**, **Consenti agli utenti di selezionare il metodo** (incluse le opzioni **Telefonata** e **SMS**), **Usa domande di sicurezza per il fallback** e **Abilita registrazione** siano selezionate, fare clic su **Installa scheda ADFS**e completare l'installazione guidata della scheda ADFS per l'autenticazione a più fattori .
 
     > [!NOTE]
-    > **L'installazione guidata della scheda ADFS per l'autenticazione a più fattori** crea un gruppo di sicurezza denominato **PhoneFactor Admins** in Active Directory e quindi aggiunge l'account del servizio ADFS del servizio federativo a questo gruppo.
+    > L'installazione guidata della scheda ADFS per l'autenticazione a più fattoricrea un gruppo di sicurezza denominato **PhoneFactor Admins** in Active Directory e quindi aggiunge l'account del servizio ADFS del servizio federativo a questo gruppo.
     > 
     > È consigliabile verificare nel controller di dominio l'effettiva creazione del gruppo **PhoneFactor Admins** e che l'account del servizio ADFS sia un membro di questo gruppo.
     > 
@@ -209,9 +209,9 @@ Per abilitare l'autenticazione a più fattori, è necessario configurare i crite
 
 2.  Nella pagina **Azioni** o facendo clic con il pulsante destro del mouse su **claimapp**selezionare **Modifica autenticazione a più fattori personalizzata**.
 
-3.  Nella finestra di dialogo per la modifica dell'attendibilità del componente **claimapp** fare clic sul pulsante **Aggiungi** accanto all'elenco **Utenti/Gruppi** . Digitare **Finance** per il nome del gruppo di Active Directory creato in [configurare l'ambiente lab per ad FS in Windows Server 2012 R2](../../ad-fs/deployment/Set-up-the-lab-environment-for-AD-FS-in-Windows-Server-2012-R2.md), quindi fare clic su **Controlla nomi**e quando il nome viene risolto fare clic su **OK**.
+3.  Nella finestra di dialogo per la modifica dell'attendibilità del componente claimapp fare clic sul pulsante **Aggiungi** accanto all'elenco **Utenti/Gruppi** . Digitare **Finance** per il nome del gruppo di Active Directory creato in [configurare l'ambiente lab per ad FS in Windows Server 2012 R2](../../ad-fs/deployment/Set-up-the-lab-environment-for-AD-FS-in-Windows-Server-2012-R2.md), quindi fare clic su **Controlla nomi**e quando il nome viene risolto fare clic su **OK**.
 
-4.  Fare clic su **OK** nella finestra di dialogo per la modifica dell'attendibilità del componente **claimapp**.
+4.  Fare clic su **OK** nella finestra di dialogo per la modifica dell'attendibilità del componente claimapp.
 
 ##### <a name="to-configure-the-mfa-policy-based-on-users-group-membership-data-for-claimapp--via-windows-powershell"></a>Per configurare i criteri di autenticazione a più fattori in base ai dati di appartenenza a gruppi dell'utente per ' ClaimApp ' tramite Windows PowerShell
 
@@ -232,7 +232,7 @@ Per abilitare l'autenticazione a più fattori, è necessario configurare i crite
     > [!NOTE]
     > Assicurarsi di sostituire <group_SID> con il valore del SID del gruppo **Finance** di Active Directory.
 
-## <a name="BKMK_4"></a>Passaggio 4: Verificare il meccanismo di autenticazione a più fattori
+## <a name="BKMK_4"></a>Passaggio 4: verificare il meccanismo di autenticazione a più fattori
 In questo passaggio verrà verificata la funzionalità di autenticazione a più fattori configurata nel passaggio precedente. È possibile usare la procedura seguente per verificare che l'utente di Active Directory **Robert Hatley** possa accedere all'applicazione di esempio e che in questo caso debba eseguire l'autenticazione a più fattori perché appartiene al gruppo **Finance** .
 
 1.  Nel computer client aprire una finestra del browser e passare all'applicazione di esempio: **https://webserv1.contoso.com/claimapp** .
@@ -243,11 +243,11 @@ In questo passaggio verrà verificata la funzionalità di autenticazione a più 
 
     A questo punto, tenendo conto dei criteri di autenticazione a più fattori configurati, all'utente verrà richiesto di eseguire un'ulteriore autenticazione. Il testo del messaggio predefinito è **Per motivi di sicurezza sono necessarie informazioni aggiuntive per verificare l'account** . Tuttavia, questo testo è completamente personalizzabile. Per altre informazioni su come personalizzare l'esperienza di accesso, vedere [Customizing the AD FS Sign-in Pages](https://technet.microsoft.com/library/dn280950.aspx).
 
-    Se è stata configurata l'autenticazione del certificato come metodo di autenticazione aggiuntivo, il testo del messaggio predefinito è **Select un certificato che si desidera utilizzare per l'autenticazione. Se si annulla l'operazione, chiudere il browser e riprovare.**
+    Se come metodo di autenticazione aggiuntivo è stata configurata l'autenticazione del certificato, il testo del messaggio predefinito è **Selezionare un certificato che si vuole usare per l'autenticazione. Se si annulla l'operazione, chiudere il browser e riprovare.**
 
     Se come metodo di autenticazione aggiuntivo è stato configurato Windows Azure Multi-Factor Authentication, il testo del messaggio predefinito è **Per completare l'autenticazione, verrà effettuata una chiamata al telefono dell'utente.** Per altre informazioni sulla firma con Windows Azure multi-Factor Authentication e sull'uso di varie opzioni per il metodo di verifica preferito, vedere [Panoramica di Windows Azure multi-Factor Authentication](https://technet.microsoft.com/library/dn249479.aspx).
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 [Gestire i rischi con ulteriori multi-factor authentication per le applicazioni sensibili](../../ad-fs/operations/Manage-Risk-with-Additional-Multi-Factor-Authentication-for-Sensitive-Applications.md)
 [configurare l'ambiente lab per ad FS in Windows Server 2012 R2](../../ad-fs/deployment/Set-up-the-lab-environment-for-AD-FS-in-Windows-Server-2012-R2.md)
 

@@ -20,11 +20,11 @@ ms.locfileid: "71408211"
   
  Per esportare i dati di configurazione di ADFS, eseguire le attività seguenti:  
   
--   [Passaggio 1: Esporta impostazioni del servizio @ no__t-0  
+-   [Passaggio 1: esportare le impostazioni del servizio](#step-1-export-service-settings)  
   
--   [Passaggio 2: Eseguire il backup degli archivi di attributi personalizzati @ no__t-0  
+-   [Passaggio 2: eseguire il backup degli archivi di attributi personalizzati](#step-2-back-up-custom-attribute-stores)  
   
--   [Passaggio 3: Eseguire il backup delle personalizzazioni di pagine Web @ no__t-0  
+-   [Passaggio 3: eseguire il backup delle personalizzazioni di pagine Web](#step-3-back-up-webpage-customizations)  
   
 ## <a name="step-1-export-service-settings"></a>Passaggio 1: esportare le impostazioni del servizio  
  Per esportare le impostazioni del servizio, eseguire la procedura riportata di seguito:  
@@ -64,7 +64,7 @@ Per trovare il valore Identity, esaminare la colonna **Accedi come** del **servi
   
 ## <a name="next-steps"></a>Passaggi successivi
  [Preparare la migrazione del server federativo AD FS 2,0](prepare-to-migrate-ad-fs-fed-server.md)   
- [Preparare la migrazione del proxy server federativo di AD FS 2,0](prepare-to-migrate-ad-fs-fed-proxy.md)   
+ [Preparare la migrazione del proxy server federativo AD FS 2,0](prepare-to-migrate-ad-fs-fed-proxy.md)   
  [Eseguire la migrazione del server federativo AD FS 2,0](migrate-the-ad-fs-fed-server.md)   
  [Eseguire la migrazione del proxy server federativo AD FS 2,0](migrate-the-ad-fs-2-fed-server-proxy.md)   
  [Eseguire la migrazione di Agenti Web di AD FS 1.1](migrate-the-ad-fs-web-agent.md)

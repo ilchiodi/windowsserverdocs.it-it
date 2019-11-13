@@ -86,12 +86,12 @@ I contatori delle prestazioni SMB seguenti sono stati introdotti in Windows Serv
 
 -   **Relazioni dei contatori delle prestazioni di disco fisico, SMB, CSV**
 
-    Per ulteriori informazioni sul modo in cui sono correlati i contatori del disco fisico, SMB e CSV FS (file system), vedere il post di Blog seguente: [Contatori delle prestazioni volume condiviso cluster](http://blogs.msdn.com/b/clustering/archive/2014/06/05/10531462.aspx).
+    Per ulteriori informazioni sul modo in cui sono correlati i contatori di disco fisico, SMB e CSV FS (file system), vedere il post di Blog seguente: [volume condiviso cluster contatori delle prestazioni](http://blogs.msdn.com/b/clustering/archive/2014/06/05/10531462.aspx).
 
 ## <a name="tuning-parameters-for-smb-file-servers"></a>Parametri di ottimizzazione per i file server SMB
 
 
-Le impostazioni del registro di sistema REG @ no__t-0DWORD seguenti possono influire sulle prestazioni dei file server SMB:
+Le seguenti impostazioni del registro di sistema REG\_DWORD possono influire sulle prestazioni dei file server SMB:
 
 - **Smb2CreditsMin** e **Smb2CreditsMax**
 
@@ -108,7 +108,7 @@ Le impostazioni del registro di sistema REG @ no__t-0DWORD seguenti possono infl
   > [!TIP]
   > Prima di Windows 10 e Windows Server 2016, il numero di crediti concesso al client variava dinamicamente tra Smb2CreditsMin e Smb2CreditsMax in base a un algoritmo che tentava di determinare il numero ottimale di crediti da concedere in base alla latenza di rete e utilizzo del credito. In Windows 10 e Windows Server 2016, il server SMB è stato modificato in modo da concedere crediti in modo non condizionale su richiesta fino al numero massimo di crediti configurato. Come parte di questa modifica, il meccanismo di limitazione del credito, che riduce le dimensioni della finestra di credito di ogni connessione quando il server è sotto pressione di memoria, è stato rimosso. L'evento di memoria insufficiente del kernel che ha attivato la limitazione delle richieste viene segnalato solo quando la memoria del server è insufficiente (< pochi MB) per essere inutile. Poiché il server non compatta più le finestre di credito, l'impostazione Smb2CreditsMin non è più necessaria e viene ora ignorata.
   > 
-  > È possibile monitorare le condivisioni client SMB @ no__t-0Credit Stalls/sec per verificare se sono presenti problemi con i crediti.
+  > È possibile monitorare le condivisioni client SMB\\/sec per verificare se sono presenti problemi relativi ai crediti.
 
 - **AdditionalCriticalWorkerThreads**
 
@@ -119,7 +119,7 @@ Le impostazioni del registro di sistema REG @ no__t-0DWORD seguenti possono infl
     Il valore predefinito è 0, che indica che non sono stati aggiunti thread di lavoro critici del kernel aggiuntivi. Questo valore influiscono sul numero di thread utilizzati dalla cache file system per le richieste read-ahead e write-behind. L'aumento di questo valore può consentire un maggior numero di I/O in coda nel sottosistema di archiviazione e può migliorare le prestazioni di I/O, in particolare nei sistemi con molti processori logici e hardware di archiviazione potente.
 
     >[!TIP]
-    > Potrebbe essere necessario aumentare il valore se la quantità di dati dirty di gestione cache (pagine della cache del contatore delle prestazioni @ no__t-0Dirty) sta crescendo per utilizzare una parte grande (oltre il 25%) di memoria o se il sistema sta eseguendo una grande quantità di I/o di lettura sincrona.
+    > Potrebbe essere necessario aumentare il valore se la quantità di dati dirty di gestione cache (cache del contatore delle prestazioni\\pagine dirty) cresce in modo da utilizzare una parte grande (oltre circa il 25%) di memoria o se il sistema sta eseguendo una grande quantità di I/o di lettura sincrona.
 
 - **MaxThreadsPerQueue**
 
@@ -130,7 +130,7 @@ Le impostazioni del registro di sistema REG @ no__t-0DWORD seguenti possono infl
   Il valore predefinito è 20. Se si aumenta questo valore, viene generato il numero di thread che possono essere utilizzati dal file server per soddisfare le richieste simultanee. Quando è necessario servire un numero elevato di connessioni attive e le risorse hardware, ad esempio la larghezza di banda di archiviazione, sono sufficienti, l'aumento del valore può migliorare la scalabilità, le prestazioni e i tempi di risposta del server.
 
   >[!TIP]
-  > Un'indicazione che può essere necessario aumentare il valore è se le code di lavoro di SMB2 stanno crescendo molto grande (il contatore delle prestazioni ' code di lavoro del server @ no__t-0Queue length @ no__t-1SMB2 NonBlocking \*' è costantemente superiore a ~ 100).
+  > Un'indicazione che può essere necessario aumentare il valore è se le code di lavoro SMB2 crescono molto grandi (le code di lavoro del server del contatore delle prestazioni\\lunghezza della coda\\\*non bloccanti ' è costantemente superiore a ~ 100).
 
   >[!Note]
   >In Windows 10 e Windows Server 2016, MaxThreadsPerQueue non è disponibile. Il numero di thread per un pool di thread sarà "20 * il numero di processori in un nodo NUMA".
@@ -148,7 +148,7 @@ Le impostazioni del registro di sistema REG @ no__t-0DWORD seguenti possono infl
 
 Le impostazioni seguenti consentono di ottimizzare un computer per file server le prestazioni in molti casi. Le impostazioni non sono ottimali o appropriate per tutti i computer. È consigliabile valutare l'impatto delle singole impostazioni prima di applicarle.
 
-| Parametro                       | Value | Predefinito |
+| Parametro                       | Valore | Impostazione predefinita |
 |---------------------------------|-------|---------|
 | AdditionalCriticalWorkerThreads | 64    | 0       |
 | MaxThreadsPerQueue              | 64    | 20      |
@@ -156,4 +156,4 @@ Le impostazioni seguenti consentono di ottimizzare un computer per file server l
 
 ### <a name="smb-client-performance-monitor-counters"></a>Contatori di performance monitor client SMB
 
-Per ulteriori informazioni sui contatori client SMB, vedere la pagina relativa al suggerimento del file server [Windows Server 2012: I nuovi contatori delle prestazioni del client SMB per condivisione forniscono informazioni dettagliate su no__t-0.
+Per altre informazioni sui contatori client SMB, vedere [Suggerimento per i file server di Windows server 2012: i nuovi contatori delle prestazioni del client SMB per condivisione forniscono informazioni dettagliate](http://blogs.technet.com/b/josebda/archive/2012/11/19/windows-server-2012-file-server-tip-new-per-share-smb-client-performance-counters-provide-great-insight.aspx).

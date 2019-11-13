@@ -31,19 +31,19 @@ Se non tutti i gruppi dell'organizzazione possono condividere una singola forest
 
 |Scenario|Connettività limitata|Isolamento dei dati|Autonomia dei dati|Isolamento del servizio|Autonomia del servizio|  
 |------------|------------------------|------------------|-----------------|---------------------|--------------------|  
-|[Scenario 1: Unisciti a una foresta esistente per l'autonomia dei dati @ no__t-0|No|No|Yes|No|No|  
-|[Scenario 2: Usare una foresta o un dominio aziendale per l'autonomia del servizio @ no__t-0|No|No|N/D|No|Yes|  
-|[Scenario 3: Usare una foresta aziendale o una foresta di risorse per l'isolamento dei servizi @ no__t-0|No|No|N/D|Yes|N/D|  
-|[Scenario 4: Usare una foresta organizzativa o una foresta con accesso limitato per l'isolamento dei dati @ no__t-0|N/D|Yes|N/D|N/D|N/D|  
-|[Scenario 5: Usare una foresta organizzativa o riconfigurare il firewall per la connettività limitata @ no__t-0|Yes|No|N/D|No|No|  
-|[Scenario 6: Usare una foresta o un dominio aziendale e riconfigurare il firewall per l'autonomia del servizio con connettività limitata @ no__t-0|Yes|No|N/D|No|Yes|  
-|[Scenario 7: Usare una foresta di risorse e riconfigurare il firewall per l'isolamento dei servizi con connettività limitata @ no__t-0|Yes|No|N/D|Yes|N/D|  
+|[Scenario 1: unire in join una foresta esistente per l'autonomia dei dati](#BKMK_1)|No|No|Sì|No|No|  
+|[Scenario 2: usare una foresta o un dominio aziendale per l'autonomia del servizio](#BKMK_2)|No|No|N/D|No|Sì|  
+|[Scenario 3: usare una foresta aziendale o una foresta di risorse per l'isolamento dei servizi](#BKMK_3)|No|No|N/D|Sì|N/D|  
+|[Scenario 4: usare una foresta organizzativa o una foresta con accesso limitato per l'isolamento dei dati](#BKMK_4)|N/D|Sì|N/D|N/D|N/D|  
+|[Scenario 5: usare una foresta organizzativa o riconfigurare il firewall per la connettività limitata](#BKMK_5)|Sì|No|N/D|No|No|  
+|[Scenario 6: usare una foresta o un dominio aziendale e riconfigurare il firewall per l'autonomia del servizio con connettività limitata](#BKMK_6)|Sì|No|N/D|No|Sì|  
+|[Scenario 7: usare una foresta di risorse e riconfigurare il firewall per l'isolamento dei servizi con connettività limitata](#BKMK_7)|Sì|No|N/D|Sì|N/D|  
 
-## <a name="BKMK_1"></a>Scenario 1: Unisciti a una foresta esistente per l'autonomia dei dati  
+## <a name="BKMK_1"></a>Scenario 1: unire in join una foresta esistente per l'autonomia dei dati  
 
 È possibile soddisfare un requisito per l'autonomia dei dati semplicemente ospitando il gruppo in unità organizzative (OU) in una foresta organizzativa esistente. Delegare il controllo sulle unità organizzative agli amministratori di dati di tale gruppo per ottenere l'autonomia dei dati. Per ulteriori informazioni sulla delega del controllo tramite le unità organizzative, vedere [creazione di un'unità organizzativa progettazione](../../ad-ds/plan/Creating-an-Organizational-Unit-Design.md).  
   
-## <a name="BKMK_2"></a>Scenario 2: Usare una foresta o un dominio aziendale per l'autonomia del servizio  
+## <a name="BKMK_2"></a>Scenario 2: usare una foresta o un dominio aziendale per l'autonomia del servizio  
 
 Se un gruppo dell'organizzazione identifica l'autonomia del servizio come requisito, è consigliabile riconsiderare prima questo requisito. Il raggiungimento dell'autonomia dei servizi consente di creare un sovraccarico di gestione e costi aggiuntivi per l'organizzazione. Verificare che il requisito per l'autonomia del servizio non sia semplicemente per praticità e che sia possibile giustificare i costi associati a questo requisito.  
   
@@ -55,7 +55,7 @@ Se un gruppo dell'organizzazione identifica l'autonomia del servizio come requis
 
 Per ulteriori informazioni sull'utilizzo di domini aziendali, vedere [utilizzo del modello di foresta di domini aziendali](../../ad-ds/plan/../../ad-ds/plan/Using-the-Organizational-Domain-Forest-Model.md).  
 
-## <a name="BKMK_3"></a>Scenario 3: Usare una foresta aziendale o una foresta di risorse per l'isolamento dei servizi  
+## <a name="BKMK_3"></a>Scenario 3: usare una foresta aziendale o una foresta di risorse per l'isolamento dei servizi  
 
 È possibile soddisfare un requisito per l'isolamento dei servizi effettuando una delle operazioni seguenti:  
 
@@ -77,7 +77,7 @@ Di seguito sono riportate alcune considerazioni sull'isolamento dei servizi:
 
 - L'isolamento dei servizi richiede la creazione di una foresta aggiuntiva. Valutare se il costo di gestione dell'infrastruttura per il supporto della foresta aggiuntiva supera i costi associati alla perdita di accesso alle risorse a causa di una foresta organizzativa non disponibile.  
 
-## <a name="BKMK_4"></a>Scenario 4: Usare una foresta organizzativa o una foresta con accesso limitato per l'isolamento dei dati  
+## <a name="BKMK_4"></a>Scenario 4: usare una foresta organizzativa o una foresta con accesso limitato per l'isolamento dei dati  
 
 È possibile ottenere l'isolamento dei dati eseguendo una delle operazioni seguenti:  
 
@@ -109,7 +109,7 @@ Di seguito sono riportate alcune considerazioni sulla creazione di foreste per l
    > [!NOTE]  
    > Se esiste una connettività di rete tra una foresta con accesso limitato e un'altra rete, esiste la possibilità che i dati nell'area con restrizioni vengano trasmessi all'altra rete.  
 
-## <a name="BKMK_5"></a>Scenario 5: Usare una foresta organizzativa o riconfigurare il firewall per la connettività limitata  
+## <a name="BKMK_5"></a>Scenario 5: usare una foresta organizzativa o riconfigurare il firewall per la connettività limitata  
 
 Per soddisfare i requisiti di connettività limitati, è possibile eseguire una delle operazioni seguenti:  
 
@@ -119,7 +119,7 @@ Per soddisfare i requisiti di connettività limitati, è possibile eseguire una 
 
 Per ulteriori informazioni sulla configurazione dei firewall per l'utilizzo con Active Directory Domain Services (AD DS), vedere [Active Directory in reti segmentate in base ai firewall](https://go.microsoft.com/fwlink/?LinkId=37928).  
 
-## <a name="BKMK_6"></a>Scenario 6: Usare una foresta o un dominio aziendale e riconfigurare il firewall per l'autonomia del servizio con connettività limitata  
+## <a name="BKMK_6"></a>Scenario 6: usare una foresta o un dominio aziendale e riconfigurare il firewall per l'autonomia del servizio con connettività limitata  
 
 Se un gruppo dell'organizzazione identifica l'autonomia del servizio come requisito, è consigliabile riconsiderare prima questo requisito. Il raggiungimento dell'autonomia dei servizi consente di creare un sovraccarico di gestione e costi aggiuntivi per l'organizzazione. Verificare che il requisito per l'autonomia del servizio non sia semplicemente per praticità e che sia possibile giustificare i costi associati a questo requisito.  
 
@@ -131,7 +131,7 @@ Se la connettività limitata è un problema e si dispone di un requisito per l'a
 
 È anche necessario aprire il firewall abbastanza per consentire il passaggio del traffico Active Directory. Per ulteriori informazioni sulla configurazione dei firewall per l'utilizzo con servizi di dominio Active Directory, vedere [Active Directory in reti segmentate in base ai firewall](https://go.microsoft.com/fwlink/?LinkId=37928).  
 
-## <a name="BKMK_7"></a>Scenario 7: Usare una foresta di risorse e riconfigurare il firewall per l'isolamento dei servizi con connettività limitata  
+## <a name="BKMK_7"></a>Scenario 7: usare una foresta di risorse e riconfigurare il firewall per l'isolamento dei servizi con connettività limitata  
 
 Se la connettività limitata è un problema e si dispone di un requisito per l'isolamento dei servizi, è possibile eseguire una delle operazioni seguenti:  
 

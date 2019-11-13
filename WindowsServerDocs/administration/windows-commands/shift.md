@@ -41,13 +41,13 @@ shift [/n <N>]
 |/n \<N >|Specifica di iniziare a spostare in corrispondenza dell'argomento *n*, dove *n* è qualsiasi valore compreso tra 0 e 8. Sono necessarie le estensioni dei comandi, abilitate per impostazione predefinita.|
 |/?|Visualizza la guida al prompt dei comandi.|
 
-## <a name="remarks"></a>Note
+## <a name="remarks"></a>Osservazioni
 
-- Il **comando shift** consente di modificare i valori dei parametri batch da **% 0** a **% 9** copiando ogni parametro in quello precedente. il valore di **% 1** viene copiato in **% 0**, il valore di **% 2** viene copiato in **% 1**e così via. Questa operazione è utile per la scrittura di un file batch che esegue la stessa operazione su un numero qualsiasi di parametri.
-- Se sono abilitate le estensioni dei comandi, il comando **Shift** supporta l'opzione della riga di comando **/n** . L'opzione **/n** specifica di iniziare lo spostamento in corrispondenza dell'ennesimo argomento, dove **n** è qualsiasi valore compreso tra 0 e 8. Ad esempio, **Shift/2** sposterebbe **% 3** in **% 2**, **% 4** in **% 3**e così via e lascerebbe **% 0** e **% 1** non interessato. Le estensioni dei comandi sono abilitate per impostazione predefinita.
-- È possibile utilizzare il comando **Shift** per creare un file batch in grado di accettare più di 10 parametri batch. Se nella riga di comando si specificano più di 10 parametri, quelli visualizzati dopo il decimo ( **% 9**) verranno spostati uno alla volta in **% 9**.
-- Il comando **Shift** non ha alcun effetto sul parametro batch **% @ no__t-3***.
-- Nessun comando di **spostamento** all'indietro. Dopo aver implementato il comando **Shift** , non è possibile recuperare il parametro batch ( **% 0**) esistente prima del turno.
+- Il **comando shift** consente di modificare i valori dei parametri batch da **%0** a **%9** copiando ogni parametro in quello precedente. il valore di **%1** viene copiato in **%0**, il valore di **%2** viene copiato in **%1**e così via. Questa operazione è utile per la scrittura di un file batch che esegue la stessa operazione su un numero qualsiasi di parametri.
+- Se sono abilitate le estensioni dei comandi, il comando **Shift** supporta l'opzione della riga di comando **/n** . L'opzione **/n** specifica di iniziare lo spostamento in corrispondenza dell'ennesimo argomento, dove **n** è qualsiasi valore compreso tra 0 e 8. Ad esempio, **Shift/2** sposterebbe **%3** in **%2**, **%4** in **%3**e così via e lascerebbe **%0** e **%1** non interessato. Le estensioni dei comandi sono abilitate per impostazione predefinita.
+- È possibile utilizzare il comando **Shift** per creare un file batch in grado di accettare più di 10 parametri batch. Se nella riga di comando si specificano più di 10 parametri, quelli visualizzati dopo il decimo ( **%9**) verranno spostati uno alla volta in **%9**.
+- Il comando **Shift** non ha alcun effetto sul parametro batch **%\\** *.
+- Nessun comando di **spostamento** all'indietro. Dopo aver implementato il comando **Shift** , non è possibile recuperare il parametro batch ( **%0**) esistente prima del turno.
 
 ## <a name="BKMK_examples"></a>Esempi
 
