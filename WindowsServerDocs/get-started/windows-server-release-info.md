@@ -5,16 +5,16 @@ ms.prod: windows-server
 ms.technology: server-general
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 05/21/2019
+ms.date: 11/12/2019
 author: jasongerend
 ms.author: jgerend
 ms.localizationpriority: high
-ms.openlocfilehash: 7b45f5e8fa7f2586f6fd3b5f49599928dee436e7
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: c27fd6652e86211449c1db0e69e88a604d659498
+ms.sourcegitcommit: b9ec35416a06854c1bc875a2b731d42a436fe313
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71391434"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73956049"
 ---
 # <a name="windows-server-release-information"></a>Informazioni sulle versioni di Windows Server
 
@@ -26,10 +26,10 @@ Canale semestrale offre ai clienti che vogliono attuare innovazioni l'opportunit
 
 | Rilascio di Windows Server | Versione | Build sistema operativo | Disponibilità | Data di fine del supporto Mainstream|Data di fine del supporto Extended |
 |----------------|---------|----------|----------|---------|----------|
+| Windows Server, versione 1909 (Canale semestrale) (Datacenter Core, Standard Core) | 1909  | 18363.418.191007-0143 | 12/11/2019 | 11/05/2021 | Vedi nota |
 | Windows Server, versione 1903 (Canale semestrale) (Datacenter Core, Standard Core) | 1903  | 18362.30.190401-1528 | 21/05/2019 | 08/12/2020 | Vedi nota |
 |Windows Server 2019 (Long-Term Servicing Channel) (Datacenter, Essentials, Standard)|1809|17763.107.1010129-1455|13/11/2018|09/01/2024|09/01/2029|
 |Windows Server, versione 1809 (Canale semestrale) (Datacenter Core, Standard Core)|1809|17763.107.1010129-1455|13/11/2018|12/05/2020|Vedi nota|
-| Windows Server, versione 1803 (Canale semestrale) (Datacenter, Standard)| 1803 |17134.1.180410-1804 |30/04/2018| 12/11/2019|Vedi nota|
 | Windows Server 2016 (Long-Term Servicing Channel)| 1607 | 14393.0 | 15/10/2016 |11/01/2022| 11/01/2027|
 
 > [!NOTE]

@@ -10,12 +10,12 @@ ms.date: 11/26/2018
 ms.assetid: b886b2fd-3567-4f0a-8aa3-4ba7923d2d21
 author: nirb
 ms.author: nirb
-ms.openlocfilehash: 54352f47a31826b91b5696eb90104ca166a4299d
-ms.sourcegitcommit: 18f6b104e73e0397009283d55bee7984ac7ef0d1
+ms.openlocfilehash: 1711eb94b622775feaf02f6bada596fe03b08ea9
+ms.sourcegitcommit: b8e120fc574450e9eee13e7315424137a43e6a6c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73632658"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74044801"
 ---
 # <a name="guidance-on-disabling-system-services-on-windows-server-2016-with-desktop-experience"></a>Linee guida sulla sicurezza per la disabilitazione dei servizi in Windows Server 2016 con Esperienza desktop
 
@@ -68,7 +68,7 @@ Per tutti i servizi di sistema elencati in questo documento, le due tabelle segu
 |---|---|
 |**Descrizione del servizio**|   Descrizione del servizio, da sc.exe qdescription.|
 |**Nome** |Nome principale (interno) del servizio|
-|**Installazione** |Sempre installato: il servizio è incluso in Server Core e in Server con Esperienza desktop. Solo con Esperienza desktop: il servizio è incluso in Windows Server 2016 con Esperienza desktop, ma ***non*** in Server Core |
+|**Installazione** | *Sempre installato*: il servizio è installato in Windows Server 2016 Core e Windows Server 2016 con Esperienza desktop. *Solo con Esperienza desktop*: il servizio è installato in Windows Server 2016 con Esperienza desktop, ma ***non*** è installato in Server Core. |
 |**Tipo di avvio**  |Tipo di avvio del servizio in Windows Server 2016|
 |**Consiglio** |Consiglio o raccomandazione di Microsoft sulla disabilitazione del servizio in Windows Server 2016 in una distribuzione aziendale tipica e gestita correttamente, in cui il server non viene usato in sostituzione del desktop per gli utenti finali.|
 |**Commenti** |Spiegazione aggiuntiva|

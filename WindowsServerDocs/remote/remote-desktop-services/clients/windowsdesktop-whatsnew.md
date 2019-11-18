@@ -11,14 +11,14 @@ ms.topic: article
 author: heidilohr
 manager: daveba
 ms.author: helohr
-ms.date: 10/31/2019
+ms.date: 11/12/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 6a8e66398bc61a69250b84101a3cb66f2c8f3548
-ms.sourcegitcommit: 1da993bbb7d578a542e224dde07f93adfcd2f489
+ms.openlocfilehash: db9c2b64e018b41b053974b5459bd320098a6d2d
+ms.sourcegitcommit: 315f015102c42c6fa7694e76adecdfb448390391
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73567064"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74019588"
 ---
 # <a name="whats-new-in-the-windows-desktop-client"></a>Novità del client desktop di Windows
 
@@ -30,14 +30,14 @@ Il client può essere configurato per [gruppi di utenti](windowsdesktop-admin.md
 
 |Gruppo di utenti |Versione  |
 |-----------|---------|
-|Public     |1.2.247  |
-|Insider    |1.2.428  |
+|Public     |1.2.431  |
+|Insider    |1.2.431  |
 
-## <a name="updates-for-version-12428"></a>Aggiornamenti per la versione 1.2.428
+## <a name="updates-for-version-12431"></a>Aggiornamenti per la versione 1.2.431
 
-*Data di pubblicazione: 31/10/2019*
+*Data di pubblicazione: 12/11/2019*
 
-- Sono ora disponibili le anteprime delle versioni a 32 bit e ARM64 del client.
+- Sono ora disponibili le versioni a 32 bit e ARM64 del client.
 - Il client ora salva le modifiche apportate alla barra di connessione, ad esempio la posizione, le dimensioni e lo stato bloccato, e applica tali modifiche alle varie sessioni.
 - Le finestre di dialogo relative alle informazioni del gateway e allo stato della connessione sono state aggiornate.
 - È stato risolto un problema che causava la richiesta contemporanea di due credenziali durante il tentativo di connessione dopo la scadenza del token di Azure Active Directory.

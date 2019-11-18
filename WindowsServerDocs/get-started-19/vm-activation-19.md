@@ -12,12 +12,12 @@ ms.topic: article
 author: lizap
 ms.author: elizapo
 ms.localizationpriority: medium
-ms.openlocfilehash: 8887f2419176dd187ab01fb4d04988000c7ba74d
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 43c0ce500058bd4115d58b68dc79068a52c0bb3e
+ms.sourcegitcommit: b9ec35416a06854c1bc875a2b731d42a436fe313
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71391909"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73956090"
 ---
 # <a name="automatic-virtual-machine-activation"></a>Attivazione automatica della macchina virtuale
 
@@ -88,7 +88,7 @@ Le chiavi di attivazione automatica della macchina virtuale seguenti possono ess
 |Standard|  TNK62-RXVTB-4P47B-2D623-4GF74|
 |Essentials|    2CTP7-NHT64-BP62M-FV6GG-HFV28|
  
-Le chiavi di attivazione automatica della macchina virtuale seguenti possono essere utilizzate per Windows Server 1809.
+Le chiavi di attivazione automatica della macchina virtuale seguenti possono essere usate per Windows Server, versioni 1909, 1903 e 1809.
 
 |Edizione|   Chiave di attivazione automatica della macchina virtuale|
 |-|-|
@@ -134,7 +134,7 @@ Il Registro di sistema (coppia chiave-valore) nel server di virtualizzazione for
 
   - Indirizzi RDP
 
-Per altre informazioni su come recuperare queste informazioni, vedere[Hyper-V Script: Looking at KVP GuestIntrinsicExchangeItems](http://blogs.msdn.com/b/virtual_pc_guy/archive/2008/11/18/hyper-v-script-looking-at-kvp-guestintrinsicexchangeitems.aspx) (Script Hyper-V: cercare KVP GuestIntrinsicExchangeItems).
+Per altre informazioni su come recuperare queste informazioni, vedere[Hyper-V Script: Looking at KVP GuestIntrinsicExchangeItems](https://blogs.msdn.com/b/virtual_pc_guy/archive/2008/11/18/hyper-v-script-looking-at-kvp-guestintrinsicexchangeitems.aspx) (Script Hyper-V: cercare KVP GuestIntrinsicExchangeItems).
 
 
 > [!NOTE]
