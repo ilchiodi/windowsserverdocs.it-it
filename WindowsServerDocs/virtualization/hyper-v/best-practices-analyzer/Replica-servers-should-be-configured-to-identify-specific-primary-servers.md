@@ -39,7 +39,7 @@ Nelle sezioni seguenti, corsivo indica il testo dell'interfaccia Utente visualiz
 *Tutta la replica da tutti i server primari viene archiviata in un'unica posizione, che può comportare problemi di sicurezza o di privacy.*  
   
 ## <a name="resolution"></a>Risoluzione  
-*Use console di gestione di Hyper-V per creare nuove voci di autorizzazione per i server primari specifici e specificare percorsi di archiviazione separati per ognuno di essi. È possibile utilizzare caratteri jolly per raggruppare i server primari nei set per ogni voce di autorizzazione.*  
+*Utilizzare la console di gestione di Hyper-V per creare nuove voci di autorizzazione per i server primari specifici e specificare percorsi di archiviazione separati per ognuno di essi. È possibile utilizzare caratteri jolly per raggruppare i server primari nei set per ogni voce di autorizzazione.*  
   
 #### <a name="create-authorization-entries-using-hyper-v-manager"></a>Creare le voci di autorizzazione utilizzando Gestione di Hyper-V  
   
@@ -83,7 +83,7 @@ Nelle sezioni seguenti, corsivo indica il testo dell'interfaccia Utente visualiz
 New-VMReplicationAuthorizationEntry server01.domain01.contoso.com D:\ReplicaVMStorage DEFAULT  
 ```  
   
-## <a name="see-also"></a>Vedere anche  
+## <a name="see-also"></a>Vedi anche  
 [New-VMReplicationAuthorizationEntry](https://technet.microsoft.com/library/hh848606.aspx)  
   
 

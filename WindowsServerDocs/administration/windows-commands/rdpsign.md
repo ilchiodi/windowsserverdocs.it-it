@@ -39,15 +39,15 @@ rdpsign /sha1 <hash> [/q | /v |] [/l] <file_name.rdp>
 
 |Parametro|Descrizione|
 |-------|--------|
-|/SHA1 \<hash >|Specifica l'identificazione personale, ovvero l'hash Secure Hash Algorithm 1 (SHA1) del certificato di firma incluso nell'archivio certificati. Usato in Windows Server 2012 R2 e versioni precedenti.|
-|/SHA256 \<hash >|Specifica l'identificazione personale, ovvero l'hash Secure Hash Algorithm 256 (SHA256) del certificato di firma incluso nell'archivio certificati. Sostituisce/SHA1 in Windows Server 2016 e versioni successive.|
+|> hash \</SHA1|Specifica l'identificazione personale, ovvero l'hash Secure Hash Algorithm 1 (SHA1) del certificato di firma incluso nell'archivio certificati. Usato in Windows Server 2012 R2 e versioni precedenti.|
+|> hash \</SHA256|Specifica l'identificazione personale, ovvero l'hash Secure Hash Algorithm 256 (SHA256) del certificato di firma incluso nell'archivio certificati. Sostituisce/SHA1 in Windows Server 2016 e versioni successive.|
 |/q|Modalità non interattiva. Nessun output quando il comando ha esito positivo e output minimo se il comando ha esito negativo.|
 |/v|modalità dettagliata. Visualizza tutti gli avvisi, i messaggi e lo stato.|
 |/l|Verifica i risultati di firma e output senza sostituire effettivamente uno dei file di input.|
 |/?|Visualizza la guida al prompt dei comandi.|
 
 ## <a name="remarks"></a>Osservazioni
--   L'identificazione personale del certificato SHA1 o SHA256 deve rappresentare un server di pubblicazione trusted con estensione RDP. Per ottenere l'identificazione personale del certificato, aprire lo snap-in certificati, fare doppio clic sul certificato che si desidera utilizzare (nell'archivio certificati del computer locale o nell'archivio certificati personali), fare clic sulla scheda **Dettagli** , quindi nella finestra **di Elenco campi** , fare clic su **identificazione personale**.
+-   L'identificazione personale del certificato SHA1 o SHA256 deve rappresentare un server di pubblicazione trusted con estensione RDP. Per ottenere l'identificazione personale del certificato, aprire lo snap-in certificati, fare doppio clic sul certificato che si desidera utilizzare (nell'archivio certificati del computer locale o nell'archivio certificati personali), fare clic sulla scheda **Dettagli** , quindi nell'elenco dei **campi** fare clic su **identificazione personale**.
 
     > [!NOTE]
     > Quando si copia l'identificazione personale per l'utilizzo con lo strumento Rdpsign. exe, è necessario rimuovere tutti gli spazi.
@@ -72,5 +72,5 @@ rdpsign /sha1 <hash> [/q | /v |] [/l] <file_name.rdp>
   rdpsign /sha1 hash file1.rdp file2.rdp file3.rdp
   ```
   ## <a name="see-also"></a>Vedi anche
-  [Chiave di sintassi della riga di comando](command-line-syntax-key.md) 
+  [Chiave di sintassi della riga di comando](command-line-syntax-key.md)
   [riferimento ai comandi di &#40;Servizi Desktop remoto Servizi terminal&#41; ](remote-desktop-services-terminal-services-command-reference.md)
