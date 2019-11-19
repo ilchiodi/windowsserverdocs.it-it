@@ -10,12 +10,12 @@ ms.topic: article
 ms.custom: it-pro
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: a52676ffc89c9fc5ce0eba4f44407e76520fef0a
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 0a2bbeeb459fd364db728579dc20015a2474fd25
+ms.sourcegitcommit: e5df3fd267352528eaab5546f817d64d648b297f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71407438"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74163097"
 ---
 # <a name="ad-fs-frequently-asked-questions-faq"></a>Domande frequenti su AD FS
 
@@ -71,9 +71,11 @@ AD FS supporta più configurazioni a più foreste e si basa sulla rete di trust 
 - Nel caso di un trust tra foreste unidirezionale, ad esempio una foresta perimetrale contenente identità partner, è consigliabile distribuire ADFS nella foresta Corp e trattare la foresta perimetrale come un altro trust del provider di attestazioni locale connesso tramite LDAP. In questo caso, l'autenticazione integrata di Windows non funzionerà per gli utenti della foresta perimetrale e sarà necessario eseguire l'autenticazione con password perché è l'unico meccanismo supportato per LDAP. Nel caso in cui non sia possibile eseguire questa opzione, è necessario configurare un altro ADFS nella foresta della rete perimetrale e aggiungerlo come trust del provider di attestazioni in ADFS nella foresta Corp. Gli utenti dovranno eseguire l'individuazione dell'area di autenticazione principale, ma l'autenticazione integrata di Windows e l'autenticazione con password funzioneranno. Apportare le modifiche appropriate nelle regole di rilascio in ADFS nella foresta perimetrale poiché ADFS nella foresta Corp non sarà in grado di ottenere informazioni utente aggiuntive sull'utente dalla foresta perimetrale.
 - Sebbene i trust a livello di dominio siano supportati e possano funzionare, si consiglia vivamente di eseguire il passaggio a un modello di trust a livello di foresta. Inoltre, è necessario assicurarsi che il routing UPN e la risoluzione del nome NETBIOS dei nomi debbano funzionare in modo accurato.
 
+>[!NOTE]  
+>Se l'autenticazione elettiva viene utilizzata con una configurazione di trust bidirezionale, assicurarsi che all'utente chiamante venga concessa l'autorizzazione "Consenti autenticazione" per l'account del servizio di destinazione. 
 
 
-## <a name="design"></a>Progettazione
+## <a name="design"></a>Progetta
 
 ### <a name="what-third-party-multi-factor-authentication-providers-are-available-for-ad-fs"></a>Quali sono i provider di autenticazione a più fattori di terze parti disponibili per AD FS?
 AD FS fornisce un meccanismo estensibile per l'integrazione dei provider di autenticazione a più fattori di terze parti. Non è disponibile alcun programma di certificazione per questa impostazione. Si presuppone che il fornitore abbia eseguito le convalide necessarie prima del rilascio. 
@@ -103,17 +105,17 @@ Per assicurarsi che i server AD FS e WAP negoziino solo i pacchetti di crittogra
 
 ## <a name="developer"></a>Sviluppatore
 
-### <a name="when-generating-an-id_token-with-adfs-for-a-user-authenticated-against-ad-how-is-the-sub-claim-generated-in-the-id_token"></a>Quando si genera un token ID con ADFS per un utente autenticato in Active Directory, come viene generata l'attestazione "Sub" in token ID?
+### <a name="when-generating-an-id_token-with-adfs-for-a-user-authenticated-against-ad-how-is-the-sub-claim-generated-in-the-id_token"></a>Quando si genera un id_token con ADFS per un utente autenticato in Active Directory, come viene generata l'attestazione "Sub" nel id_token?
 Il valore dell'attestazione "Sub" è l'hash dell'ID client + valore attestazione ancoraggio.
 
 ### <a name="what-is-the-lifetime-of-the-refresh-tokenaccess-token-when-the-user-logs-in-via-a-remote-claims-provider-trust-over-ws-fedsaml-p"></a>Qual è la durata del token di aggiornamento/token di accesso quando l'utente accede tramite un trust del provider di attestazioni remoto su WS-Fed/SAML-P?
 La durata del token di aggiornamento sarà la durata del token che ADFS ha ottenuto dal trust del provider di attestazioni remoto. La durata del token di accesso sarà la durata del token del relying party per cui viene emesso il token di accesso.
 
 ### <a name="i-need-to-return-profile-and-email-scopes-as-well-in-addition-to-the-openid-scope-can-i-obtain-additional-information-using-scopes-how-to-do-it-in-ad-fs"></a>È necessario restituire anche gli ambiti di profilo e di posta elettronica oltre all'ambito OpenId. È possibile ottenere informazioni aggiuntive usando gli ambiti? Come procedere in AD FS?
-È possibile usare token ID personalizzati per aggiungere informazioni rilevanti nel token ID stesso. Per ulteriori informazioni, vedere l'articolo [personalizzare le attestazioni da emettere in token ID](../development/Custom-Id-Tokens-in-AD-FS.md).
+È possibile utilizzare id_token personalizzati per aggiungere informazioni rilevanti nel id_token stesso. Per ulteriori informazioni, vedere l'articolo [personalizzare le attestazioni da emettere in id_token](../development/Custom-Id-Tokens-in-AD-FS.md).
 
 ### <a name="how-to-issue-json-blobs-inside-jwt-tokens"></a>Come rilasciare BLOB JSON all'interno di token JWT?
-Un ValueType speciale ("<http://www.w3.org/2001/XMLSchema#json>") e un carattere di escape (\x22) per questo è stato aggiunto in ad FS 2016. Nell'esempio seguente viene illustrata la regola di rilascio e anche l'output finale del token di accesso.
+Un ValueType speciale ("<http://www.w3.org/2001/XMLSchema#json>") e un carattere di escape (\x22) per questo è stato aggiunto in AD FS 2016. Nell'esempio seguente viene illustrata la regola di rilascio e anche l'output finale del token di accesso.
 
 Regola di rilascio di esempio:
 
@@ -131,11 +133,11 @@ Con AD FS sul server 2019, è ora possibile passare il valore della risorsa inco
 AD FS nel server 2019 supporta la chiave di prova per lo scambio di codice (PKCE) per il flusso di concessione del codice di autorizzazione OAuth
 
 ### <a name="what-permitted-scopes-are-supported-by-ad-fs"></a>Quali sono gli ambiti consentiti supportati da AD FS?
-- Aza: se si utilizzano le [estensioni del protocollo OAuth 2,0 per i client del broker](https://docs.microsoft.com/openspecs/windows_protocols/ms-oapxbc/2f7d8875-0383-4058-956d-2fb216b44706) e se il parametro scope contiene l'ambito "AZA", il server emette un nuovo token di aggiornamento primario e lo imposta nel campo refresh_token della risposta, oltre a impostare refresh_token_ campo expires_in per la durata del nuovo token di aggiornamento primario se ne viene applicato uno.
+- Aza: se si utilizzano le [estensioni del protocollo OAuth 2,0 per i client del broker](https://docs.microsoft.com/openspecs/windows_protocols/ms-oapxbc/2f7d8875-0383-4058-956d-2fb216b44706) e se il parametro scope contiene l'ambito "AZA", il server emette un nuovo token di aggiornamento primario e lo imposta nel campo refresh_token della risposta, nonché impostando il campo refresh_token_expires_in sulla durata del nuovo token di aggiornamento primario se ne viene applicato uno.
 - OpenID: consente all'applicazione di richiedere l'uso del protocollo di autorizzazione OpenID Connect.
-- logon_cert: l'ambito logon_cert consente a un'applicazione di richiedere certificati di accesso, che possono essere usati per accedere in modo interattivo agli utenti autenticati. Il server AD FS omette il parametro access_token dalla risposta e fornisce invece una catena di certificati CMS con codifica Base64 o una risposta PKI completa della CMC. Altre informazioni sono disponibili [qui](https://docs.microsoft.com/openspecs/windows_protocols/ms-oapx/32ce8878-7d33-4c02-818b-6c9164cc731e). 
+- logon_cert: l'ambito logon_cert consente a un'applicazione di richiedere certificati di accesso, che possono essere usati per accedere in modo interattivo agli utenti autenticati. Il server AD FS omette il parametro access_token dalla risposta e fornisce invece una catena di certificati CMS con codifica Base64 o una risposta PKI completa di CMC. Altre informazioni sono disponibili [qui](https://docs.microsoft.com/openspecs/windows_protocols/ms-oapx/32ce8878-7d33-4c02-818b-6c9164cc731e). 
 - user_impersonation: l'ambito user_impersonation è necessario per richiedere correttamente un token di accesso per conto di AD FS. Per informazioni dettagliate su come usare questo ambito, vedere [creare un'applicazione a più livelli usando il metodo (OBO) per l'uso di OAuth con AD FS 2016](../../ad-fs/development/ad-fs-on-behalf-of-authentication-in-windows-server.md).
-- vpn_cert: l'ambito vpn_cert consente a un'applicazione di richiedere certificati VPN, che possono essere usati per stabilire connessioni VPN con l'autenticazione EAP-TLS. Questa operazione non è più supportata.
+- vpn_cert: l'ambito vpn_cert consente a un'applicazione di richiedere certificati VPN, che possono essere usati per stabilire connessioni VPN usando l'autenticazione EAP-TLS. Questa operazione non è più supportata.
 - posta elettronica: consente all'applicazione di richiedere l'attestazione di posta elettronica per l'utente connesso. Questa operazione non è più supportata. 
 - profilo: consente all'applicazione di richiedere le attestazioni relative al profilo per l'utente di accesso. Questa operazione non è più supportata. 
 
@@ -185,13 +187,13 @@ Di seguito sono elencate le durate predefinite dei diversi cookie e token, oltre
 
 **Dispositivi registrati**
 
-- Cookie PRT e SSO: massimo 90 giorni, governato da PSSOLifeTimeMins. (Il dispositivo fornito viene usato almeno ogni 14 giorni, che è controllato da DeviceUsageWindow)
+- Cookie PRT e SSO: 90 giorni al massimo, governati da PSSOLifeTimeMins. (Il dispositivo fornito viene usato almeno ogni 14 giorni, che è controllato da DeviceUsageWindow)
 
 - Token di aggiornamento: calcolato in base alla precedente per garantire un comportamento coerente
 
 - access_token: 1 ora per impostazione predefinita, in base al relying party
 
-- token ID: uguale al token di accesso
+- id_token: uguale al token di accesso
 
 **Dispositivi non registrati**
 
@@ -202,7 +204,7 @@ Di seguito sono elencate le durate predefinite dei diversi cookie e token, oltre
 
 - access_token: 1 ora per impostazione predefinita, in base al relying party
 
-- token ID: uguale al token di accesso
+- id_token: uguale al token di accesso
 
 ### <a name="does-ad-fs-support-http-strict-transport-security-hsts"></a>AD FS supporta la sicurezza del trasporto HTTP Strict (HSTS)?  
 
@@ -217,8 +219,8 @@ Inoltre, AD FS 2016 (con le patch più aggiornate) e AD FS 2019 supportano la cr
 ### <a name="x-ms-forwarded-client-ip-does-not-contain-the-ip-of-the-client-but-contains-ip-of-the-firewall-in-front-of-the-proxy-where-can-i-get-the-right-ip-of-the-client"></a>X-MS-inoltro-client-IP non contiene l'indirizzo IP del client, ma contiene l'IP del firewall davanti al proxy. Dove è possibile ottenere l'indirizzo IP corretto del client?
 Non è consigliabile eseguire la terminazione SSL prima di WAP. Nel caso in cui la terminazione SSL venga eseguita davanti al WAP, l'indirizzo X-MS-inoltred-client-IP conterrà l'indirizzo IP del dispositivo di rete davanti a WAP. Di seguito è riportata una breve descrizione delle diverse attestazioni correlate all'IP supportate da AD FS:
  - x-MS-client-IP: IP di rete del dispositivo connesso al servizio STS.  Nel caso di una richiesta Extranet, questo contiene sempre l'indirizzo IP del WAP.
- - x-ms-inoltred-client-IP: Attestazione multivalore che conterrà tutti i valori trasmessi ad ADFS da Exchange Online e l'indirizzo IP del dispositivo connesso al WAP.
- - Userip: Per le richieste Extranet questa attestazione conterrà il valore di x-ms-inoltred-client-IP.  Per le richieste Intranet, questa attestazione conterrà lo stesso valore di x-MS-client-IP.
+ - x-ms-inoltred-client-IP: attestazione multivalore che conterrà tutti i valori trasmessi ad ADFS da Exchange Online e l'indirizzo IP del dispositivo connesso al WAP.
+ - Userip: per le richieste Extranet questa attestazione conterrà il valore di x-ms-inoltred-client-IP.  Per le richieste Intranet, questa attestazione conterrà lo stesso valore di x-MS-client-IP.
 
  Inoltre, in AD FS 2016 (con le patch più aggiornate) e versioni successive supportano anche l'acquisizione dell'intestazione x-inoltred-for. Qualsiasi servizio di bilanciamento del carico o dispositivo di rete che non è in uscita al livello 3 (IP viene mantenuto) dovrebbe aggiungere l'indirizzo IP del client in ingresso all'intestazione x-inoltred standard del settore. 
 
@@ -230,11 +232,11 @@ Questo evento viene registrato in genere per un accesso a risorse non valido su 
 
 ### <a name="why-am-i-seeing-a-warning-for-failure-to-add-the-ad-fs-service-account-to-the-enterprise-key-admins-group"></a>Perché viene visualizzato un avviso in cui si verifica un errore durante l'aggiunta dell'account del servizio AD FS al gruppo Enterprise Key Admins?
 Questo gruppo viene creato solo quando si trova nel dominio un controller di dominio Windows 2016 con il ruolo FSMO PDC. Per risolvere l'errore, è possibile creare manualmente il gruppo e attenersi alla seguente procedura per concedere l'autorizzazione necessaria dopo aver aggiunto l'account del servizio come membro del gruppo.
-1.  Aprire **Utenti e computer di Active Directory**.
+1.  Apri **Utenti e computer di Active Directory**.
 2.  Fare **clic con il pulsante destro del mouse** sul nome di dominio nel riquadro di spostamento e **scegliere** proprietà.
 3.  **Fare clic su** Sicurezza (se manca la scheda sicurezza, attivare funzionalità avanzate dal menu Visualizza).
 4.  **Fare clic su** Avanzate. **Fare clic su** Aggiungere. **Fare clic su** Selezionare un'entità.
-5.  Verrà visualizzata la finestra di dialogo Seleziona utente, computer, account servizio o gruppo.  Nella casella di testo immettere il nome dell'oggetto da selezionare digitare Key Admin Group.  Fare clic su OK.
+5.  Verrà visualizzata la finestra di dialogo Seleziona utente, computer, account servizio o gruppo.  Nella casella di testo immettere il nome dell'oggetto da selezionare digitare Key Admin Group.  Fai clic su OK.
 6.  Nella casella di riepilogo si applica a selezionare **oggetti utente discendenti**.
 7.  Utilizzando la barra di scorrimento, scorrere fino alla fine della pagina e **fare clic su** Cancella tutto.
 8.  Nella sezione **Proprietà** selezionare **Read MSDS-KeyCredentialLink** e **scrivere MSDS-KeyCredentialLink**.
@@ -299,7 +301,7 @@ Eseguire l'aggiornamento sul resto dei server AD FS e WAP in modo analogo.
 ### <a name="is-adfs-supported-when-web-application-proxy-wap-servers-are-behind-azure-web-application-firewallwaf"></a>ADFS è supportato quando i server proxy applicazione Web (WAP) sono protetti da Web Application Firewall (WAF) di Azure?
 ADFS e i server applicazioni Web supportano qualsiasi firewall che non esegue la terminazione SSL sull'endpoint. Inoltre, i server ADFS/WAP includono meccanismi integrati per impedire attacchi Web comuni, ad esempio script tra siti, proxy ADFS e soddisfano tutti i requisiti definiti dal [protocollo MS-ADFSPIP](https://msdn.microsoft.com/library/dn392811.aspx).
 
-### <a name="i-am-seeing-an-event-441-a-token-with-a-bad-token-binding-key-was-found-what-should-i-do-to-resolve-this"></a>Viene visualizzato un evento 441: È stato trovato un token con una chiave di associazione del token non valida. " Cosa devo fare per risolvere questo problema?
+### <a name="i-am-seeing-an-event-441-a-token-with-a-bad-token-binding-key-was-found-what-should-i-do-to-resolve-this"></a>Viene visualizzato un "evento 441: è stato trovato un token con una chiave di binding del token non valida". Cosa devo fare per risolvere questo problema?
 In AD FS 2016, l'associazione di token viene abilitata automaticamente e causa più problemi noti con scenari proxy e di federazione che generano questo errore. Per risolvere il problema, eseguire il comando PowerShell seguente e rimuovere il supporto per l'associazione di token.
 
 `Set-AdfsProperties -IgnoreTokenBinding $true`
