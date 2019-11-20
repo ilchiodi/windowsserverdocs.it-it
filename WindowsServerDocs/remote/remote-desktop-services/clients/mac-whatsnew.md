@@ -11,38 +11,100 @@ ms.topic: article
 author: heidilohr
 manager: daveba
 ms.author: helohr
-ms.date: 09/11/2019
+ms.date: 11/18/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: cc09a60882c481cea974508b0ef967aad0ed82fa
-ms.sourcegitcommit: de71970be7d81b95610a0977c12d456c3917c331
+ms.openlocfilehash: b44f7c14dce8a8c319f9240c24ebcd8e2d4f7202
+ms.sourcegitcommit: b60fdd2efa57ff23834a324b75de8fe245a7631f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71940639"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74166161"
 ---
 # <a name="whats-new-in-the-macos-client"></a>Novità del client macOS
 
 Il [client Desktop remoto per macOS](remote-desktop-mac.md) viene aggiornato regolarmente, con l'aggiunta di nuove funzionalità e la correzione dei problemi. Qui sono disponibili gli aggiornamenti più recenti.
 
-In caso di problemi, puoi contattarci tramite **Guida > Segnala un problema**.
+In caso di problemi, puoi contattarci tramite **Guida** > **Segnala un problema**.
+
+## <a name="updates-for-version-1034"></a>Aggiornamenti per la versione 10.3.4
+
+*Data di pubblicazione: 18/11/2019*
+
+Dopo aver attentamente esaminato il feedback fornito dai clienti, abbiamo realizzato una serie di correzioni di bug e aggiornamenti di funzionalità.
+
+- Quando ci si connette tramite un servizio Gateway Desktop remoto con l'autenticazione a più fattori, la connessione gateway verrà mantenuta aperta per evitare richieste multiple di autenticazione a più fattori.
+- L'interfaccia utente client è ora completamente accessibile dalla tastiera con supporto per VoiceOver.
+- I file copiati negli Appunti della sessione remota vengono ora trasferiti solo quando vengono incollati nel computer locale.
+- Gli URL copiati negli Appunti della sessione remota vengono ora incollati correttamente nel computer locale.
+- Il fattore di conversione della comunicazione remota per il supporto dei display Retina è ora disponibile per gli scenari a più monitor.
+- È stato risolto un problema di compatibilità dei server Desktop remoto basati su FreeRDP, che causava problemi di connettività negli scenari di reindirizzamento.
+- È stato affrontato il problema della compatibilità di reindirizzamento delle smart card nelle versioni future di Windows 10.
+- È stato risolto un problema specifico di macOS 10.15 per cui lo spazio disponibile per le cartelle reindirizzate veniva segnalato in modo errato.
+- Le connessioni PC pubblicate vengono rappresentate con una nuova icona nella scheda Aree di lavoro.
+- Il termine "feed" è stato sostituito con "aree di lavoro" e il termine "desktop" con "PC".
+- Sono stati corretti bug e incoerenze nella gestione degli account utente nell'interfaccia utente delle preferenze.
+- Sono state introdotte numerose correzioni di bug per consentire un funzionamento più semplice e affidabile.
+
+## <a name="updates-for-version-1033"></a>Aggiornamenti per la versione 10.3.3
+
+*Data di pubblicazione: 18/11/2019*
+
+Per la versione 10.3.3 è stato creato un aggiornamento delle funzionalità e sono stati corretti bug.
+
+Sono state prima aggiunte le impostazioni predefinite utente per disabilitare la smart card, gli Appunti, il microfono, la fotocamera e il reindirizzamento delle cartelle:
+
+- ClientSettings.DisableSmartcardRedirection
+- ClientSettings.DisableClipboardRedirection
+- ClientSettings.DisableMicrophoneRedirection
+- ClientSettings.DisableCameraRedirection
+- ClientSettings.DisableFolderRedirection
+
+Sono state quindi introdotte le correzioni di bug:
+
+- È stato risolto un problema che causava il mancato rilevamento dei ridimensionamenti della finestra di sessione a livello di codice.
+- È stato risolto un problema per cui il contenuto della finestra di sessione risultava di dimensioni ridotte durante la connessione in modalità finestra (con visualizzazione dinamica abilitata).
+- È stato corretto lo sfarfallio iniziale che si verificava durante la connessione a una sessione in modalità finestra con visualizzazione dinamica abilitata.
+- Sono stati corretti i problemi di grafica che si verificavano durante la connessione a Windows 7 dopo l'attivazione e/o la disattivazione di Adatta alla finestra con visualizzazione dinamica abilitata.
+- È stato corretto un bug che causava l'invio di un nome di dispositivo errato alla sessione remota (interrompendo il funzionamento delle licenze in alcune app di terze parti).
+- È stato risolto un problema per cui le finestre delle app remote occupavano un intero monitor quando venivano ingrandite.
+- È stato risolto un problema per cui l'interfaccia utente delle autorizzazioni di accesso veniva visualizzata al di sotto delle finestre locali.
+- È stata eseguita la pulizia di parte del codice di arresto per garantire che la chiusura del client avvenga in modo più affidabile.
+
+## <a name="updates-for-version-1032"></a>Aggiornamenti per la versione 10.3.2
+
+*Data di pubblicazione: 18/11/2019*
+
+In questa versione è stato corretto un bug che rendeva la visualizzazione a bassa risoluzione durante la connessione a una sessione.
+
+## <a name="updates-for-version-1031"></a>Aggiornamenti per la versione 10.3.1
+
+*Data di pubblicazione: 18/11/2019*
+
+Sono state create alcune correzioni per risolvere le regressioni che erano riuscite a insinuarsi nella versione 10.3.0.
+
+- Sono stati risolti i problemi di connettività dei server Gateway Desktop remoto che usavano chiavi asimmetriche a 4096 bit.
+- È stato corretto un bug che causava l'interruzione della risposta da parte del client durante il download delle risorse di feed.
+- È stato corretto un bug che causava l'arresto anomalo del client durante l'apertura.
+- È stato corretto un bug che causava l'arresto anomalo del client durante l'importazione di connessioni da Desktop remoto versione 8.
 
 ## <a name="updates-for-version-1030"></a>Aggiornamenti per la versione 10.3.0
+
 *Data di pubblicazione: 27/08/2019*
 
 Sono trascorse alcune settimane dall'ultimo aggiornamento, ma il team ha lavorato con grande impegno in questo periodo. La versione 10.3.0 offre alcune nuove funzionalità e numerose correzioni "under the hood".
 
- - È ora possibile reindirizzare la fotocamera al momento della connessione a Windows 10 1809, Windows Server 2019 e versioni successive.
- - In Mojave e Catalina è stata aggiunta una nuova finestra di dialogo che richiede l'autorizzazione all'uso del microfono e della fotocamera per il reindirizzamento del dispositivo.
- - Il flusso della sottoscrizione di feed è stato riscritto in modo da risultare più semplice e veloce.
- - Il reindirizzamento degli Appunti include ora il formato RTF (Rich Text Format).
- - Nell'area per l'immissione della password è disponibile una casella di controllo che consente di visualizzarla.
- - Sono stati risolti gli scenari in cui la finestra della sessione passava da un monitor all'altro.
- - In Connection Center (Centro connessioni) vengono visualizzate le icone di app remote con risoluzione elevata, se disponibili.
- - La combinazione di tasti CMD+A è ora mappata a CTRL+A quando vengono usati i tasti di scelta rapida per gli Appunti Mac.
- - La combinazione di tasti CMD+R consente ora di aggiornare tutti i feed sottoscritti.
- - Sono state aggiunte nuove opzioni di clic secondarie per espandere o comprimere tutti i gruppi o i feed in Connection Center (Centro connessioni).
- - È stata aggiunta una nuova opzione di clic secondaria per modificare le dimensioni dell'icona nella scheda dei feed in Connection Center (Centro connessioni).
- - Una nuova icona dell'app ha ora una grafica più semplice e pulita.
+- È ora possibile reindirizzare la fotocamera al momento della connessione a Windows 10 1809, Windows Server 2019 e versioni successive.
+- In Mojave e Catalina è stata aggiunta una nuova finestra di dialogo che richiede l'autorizzazione all'uso del microfono e della fotocamera per il reindirizzamento del dispositivo.
+- Il flusso della sottoscrizione di feed è stato riscritto in modo da risultare più semplice e veloce.
+- Il reindirizzamento degli Appunti include ora il formato RTF (Rich Text Format).
+- Nell'area per l'immissione della password è disponibile una casella di controllo che consente di visualizzarla.
+- Sono stati risolti gli scenari in cui la finestra della sessione passava da un monitor all'altro.
+- In Connection Center (Centro connessioni) vengono visualizzate le icone di app remote con risoluzione elevata, se disponibili.
+- La combinazione di tasti CMD+A è ora mappata a CTRL+A quando vengono usati i tasti di scelta rapida per gli Appunti Mac.
+- La combinazione di tasti CMD+R consente ora di aggiornare tutti i feed sottoscritti.
+- Sono state aggiunte nuove opzioni di clic secondarie per espandere o comprimere tutti i gruppi o i feed in Connection Center (Centro connessioni).
+- È stata aggiunta una nuova opzione di clic secondaria per modificare le dimensioni dell'icona nella scheda dei feed in Connection Center (Centro connessioni).
+- È stata introdotta una nuova icona di app più semplice e pulita.
 
 ## <a name="updates-for-version-10213"></a>Aggiornamenti alla versione 10.2.13
 
