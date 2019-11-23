@@ -23,9 +23,9 @@ ms.locfileid: "71367316"
 
 >Si applica a: Windows Server (Canale semestrale), Windows Server 2016
 
-**Nota:** Windows Server 2012 riunisce DirectAccess e il servizio Routing e Accesso remoto (RRAS) in un singolo ruolo Accesso remoto.  
+**Nota:** Windows Server 2012 combina DirectAccess e Routing e accesso remoto (RRAS) in un unico ruolo Accesso remoto.  
   
-In questo argomento viene descritto come configurare l'infrastruttura necessaria per una distribuzione avanzata di accesso remoto utilizzando un singolo server di accesso remoto in un ambiente misto IPv4 e IPv6. Prima di iniziare la procedura di distribuzione, assicurarsi di aver completato i passaggi di pianificazione descritti in [Step 1: Pianificare l'infrastruttura di accesso remoto @ no__t-0.  
+In questo argomento viene descritto come configurare l'infrastruttura necessaria per una distribuzione avanzata di accesso remoto utilizzando un singolo server di accesso remoto in un ambiente misto IPv4 e IPv6. Prima di iniziare la procedura di distribuzione, assicurarsi di aver completato i passaggi di pianificazione descritti in [passaggio 1: pianificare l'infrastruttura di accesso remoto](../plan/Step-1-Plan-the-Remote-Access-Infrastructure.md).  
   
 |Attività|Descrizione|  
 |----|--------|  
@@ -118,7 +118,7 @@ Si applicano le seguenti eccezioni del firewall a Internet per il traffico di ac
 ### <a name="remote-access-traffic"></a>Traffico di accesso remoto  
 Si applicano le seguenti eccezioni firewall di rete interna per il traffico di accesso remoto:  
   
--   ISATAP Protocollo 41 in entrata e in uscita  
+-   ISATAP: Protocollo 41 in entrata e in uscita  
   
 -   TCP/UDP per tutto il traffico IPv4 o IPv6  
   
@@ -198,7 +198,7 @@ Assicurarsi che il certificato del sito Web usato per l'autenticazione IP-HTTPS 
   
 ##### <a name="to-install-the-ip-https-certificate-from-an-internal-ca"></a>Per installare il certificato IP-HTTPS da una CA interna  
   
-1.  Sul server di Accesso remoto: Nella schermata **Start** Digitare**MMC. exe**, quindi premere INVIO.  
+1.  Nel server di accesso remoto: sul **avviare** digitare**mmc.exe**, e quindi premere INVIO.  
   
 2.  Nella console di MMC, nel **File** menu, fare clic su **Aggiungi/Rimuovi Snap-in**.  
   
@@ -231,7 +231,7 @@ Assicurarsi che il certificato del sito Web usato per l'autenticazione IP-HTTPS 
   
 ### <a name="NLS_DNS"></a>Per aggiungere il server dei percorsi di rete e il probe Web  
   
-1.  Nel server DNS della rete interna: Nel **avviare** digitare**dnsmgmt. msc**, quindi premere INVIO.  
+1.  Nel server DNS interni: sul **avviare** digitare**dnsmgmt. msc**, e quindi premere INVIO.  
   
 2.  Nel riquadro a sinistra della console **Gestore DNS** espandere la zona di ricerca diretta per il proprio dominio. Il pulsante destro del dominio e fare clic su **Nuovo Host (A o AAAA)** .  
   
@@ -243,7 +243,7 @@ Assicurarsi che il certificato del sito Web usato per l'autenticazione IP-HTTPS 
   
 6.  Fare clic su **Fine**.  
   
-](../../../../media/Step-1-Configure-the-Remote-Access-Infrastructure/PowerShellLogoSmall.gif)***<em>comandi equivalenti</em> di PowerShell per Windows PowerShell @no__t 0Windows***  
+![](../../../../media/Step-1-Configure-the-Remote-Access-Infrastructure/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em> per Windows PowerShell***  
   
 Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.  
   
@@ -315,7 +315,7 @@ Il server di Accesso remoto e tutti i computer client DirectAccess devono appart
   
 10. Fare clic su **Riavvia** quando richiesto.  
   
-](../../../../media/Step-1-Configure-the-Remote-Access-Infrastructure/PowerShellLogoSmall.gif)***<em>comandi equivalenti</em> di PowerShell per Windows PowerShell @no__t 0Windows***  
+![](../../../../media/Step-1-Configure-the-Remote-Access-Infrastructure/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em> per Windows PowerShell***  
   
 Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.  
   
@@ -370,7 +370,7 @@ Le impostazioni di DirectAccess contenute nell'oggetto Criteri di gruppo di comp
   
 7.  Nella finestra di dialogo **Selezionare utenti, contatti, computer o account di servizio** selezionare i computer client che si vogliono abilitare per DirectAccess e quindi fare clic su **OK**.  
   
-](../../../../media/Step-1-Configure-the-Remote-Access-Infrastructure/PowerShellLogoSmall.gif)**comandi equivalenti** di PowerShell per Windows PowerShell @no__t 0Windows  
+![](../../../../media/Step-1-Configure-the-Remote-Access-Infrastructure/PowerShellLogoSmall.gif)**comandi equivalenti di Windows PowerShell** per Windows PowerShell  
   
 Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.  
   
@@ -405,7 +405,7 @@ Se si utilizza un certificato privato o un certificato autofirmato, è necessari
   
 #### <a name="to-install-the-network-location-server-certificate-from-an-internal-ca"></a>Per installare il certificato del server dei percorsi di rete da una CA interna  
   
-1.  Sul server che ospiterà il sito Web del server dei percorsi di rete: Nella schermata **Start** Digitare**MMC. exe**, quindi premere INVIO.  
+1.  Sul server che ospiterà il sito Web server percorsi di rete: nel **avviare** digitare**mmc.exe**, quindi premere INVIO.  
   
 2.  Nella console di MMC, nel **File** menu, fare clic su **Aggiungi/Rimuovi Snap-in**.  
   
@@ -455,5 +455,5 @@ Se si utilizza un certificato privato o un certificato autofirmato, è necessari
   
 ## <a name="BKMK_Links"></a>Vedere anche  
   
--   [Passaggio 2: Configurare il server di accesso remoto](Step-2-Configure-the-Remote-Access-Server.md)
+-   [Passaggio 2: configurare il server di accesso remoto](Step-2-Configure-the-Remote-Access-Server.md)
 

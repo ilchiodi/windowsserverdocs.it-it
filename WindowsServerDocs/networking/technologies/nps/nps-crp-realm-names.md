@@ -26,7 +26,7 @@ L'attributo RADIUS nome utente è una stringa di caratteri che in genere contien
 
 In un altro esempio, se l'attributo RADIUS nome utente contiene il nome utente user1@example.com, User1 è il nome dell'account utente e example.com è il nome dell'area di autenticazione. I nomi dell'area di autenticazione possono essere presentati nel nome utente come prefisso o come suffisso:
 
-- **Example\user1**. In questo esempio, l' **esempio** relativo al nome dell'area di autenticazione è un prefisso. è anche il nome di un dominio Active Directory @ no__t-1 Domain Services @no__t 2AD DS @ no__t-3.
+- **Example\user1**. In questo esempio, l' **esempio** relativo al nome dell'area di autenticazione è un prefisso. Inoltre, è il nome di un Active Directory&reg; Domain Services \(dominio\) di servizi di dominio Active Directory.
 
 - <strong>user1@example.com</strong>. In questo esempio, il nome dell'area di autenticazione **example.com** è un suffisso; si tratta di un nome di dominio DNS o del nome di un dominio di servizi di dominio Active Directory.
 
@@ -58,9 +58,9 @@ Prima che il messaggio RADIUS venga elaborato localmente (quando NPS viene usato
 
 È possibile configurare le regole di manipolazione degli attributi per l'attributo User-Name per modificare quanto segue:
 
-- Rimuovere il nome dell'area di autenticazione dal nome utente \(also noto come Realm stripping @ no__t-1. Ad esempio, il nome utente user1@example.com viene modificato in User1.
+- Rimuovere il nome dell'area di autenticazione dal nome utente \(anche noto come\)di svuotamento dell'area di autenticazione. Ad esempio, il nome utente user1@example.com viene modificato in User1.
 
-- Modificare il nome dell'area di autenticazione, ma non la relativa sintassi. Il nome utente user1@example.com, ad esempio, viene modificato in user1@wcoast.example.com.
+- Modificare il nome dell'area di autenticazione, ma non la relativa sintassi. Ad esempio, il nome utente user1@example.com viene modificato in user1@wcoast.example.com.
 
 - Modificare la sintassi del nome dell'area di autenticazione. Ad esempio, il nome utente example\user1 viene modificato in user1@example.com.
 

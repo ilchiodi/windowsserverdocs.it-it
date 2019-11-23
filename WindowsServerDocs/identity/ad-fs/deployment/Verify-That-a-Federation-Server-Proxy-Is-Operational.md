@@ -19,7 +19,7 @@ ms.locfileid: "71359974"
 # <a name="verify-that-a-federation-server-proxy-is-operational"></a>Verificare il funzionamento di un proxy server federativo
 
 
-È possibile utilizzare la procedura seguente per verificare che il proxy server federativo possa comunicare con il Servizio federativo in Active Directory Federation Services \(AD FS @ no__t-1. Questa procedura viene eseguita dopo l'esecuzione della **Configurazione guidata del proxy server federativo di ad FS** per configurare il computer per l'esecuzione nel ruolo proxy server federativo. Per ulteriori informazioni su come eseguire questa procedura guidata, vedere [configurare un computer per il ruolo proxy server federativo](Configure-a-Computer-for-the-Federation-Server-Proxy-Role.md).  
+È possibile utilizzare la procedura seguente per verificare che il proxy server federativo sia in grado di comunicare con il Servizio federativo in Active Directory Federation Services \(AD FS\). Questa procedura viene eseguita dopo l'esecuzione della **Configurazione guidata del proxy server federativo di ad FS** per configurare il computer per l'esecuzione nel ruolo proxy server federativo. Per ulteriori informazioni su come eseguire questa procedura guidata, vedere [configurare un computer per il ruolo proxy server federativo](Configure-a-Computer-for-the-Federation-Server-Proxy-Role.md).  
   
 > [!IMPORTANT]  
 > Il risultato di questa verifica è la generazione di un evento specifico nel Visualizzatore eventi del computer proxy server federativo.  
@@ -32,13 +32,13 @@ Per completare questa procedura, è necessaria almeno l'appartenenza al gruppo *
   
 2.  Nella schermata **Start** Digitare**Visualizzatore eventi**e quindi premere INVIO.  
   
-3.  Nel riquadro dei dettagli fare doppio\-clic su **registri applicazioni e servizi**,\-fare doppio clic su **ad FS evento**, quindi fare clic su **Amministrazione**.  
+3.  Nel riquadro dei dettagli, fare doppio\-fare clic su **registri applicazioni e servizi**, fare doppio\-fare clic su **ad FS evento**, quindi fare clic su **Amministrazione**.  
   
 4.  Nella colonna **ID evento**, cercare l'evento ID 198.  
   
     Se il proxy server federativo è configurato correttamente, viene visualizzato un nuovo evento nel registro applicazioni di Visualizzatore eventi con l'ID evento 198. Questo evento verifica che il servizio proxy server federativo sia stato avviato correttamente e che ora sia online.  
   
 ## <a name="additional-references"></a>Altri riferimenti  
-[Elenco di controllo: Configurazione di un proxy server federativo](Checklist--Setting-Up-a-Federation-Server-Proxy.md)  
+[Elenco di controllo: configurazione di un proxy server federativo](Checklist--Setting-Up-a-Federation-Server-Proxy.md)  
   
 

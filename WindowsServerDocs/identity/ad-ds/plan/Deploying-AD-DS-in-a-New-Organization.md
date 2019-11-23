@@ -26,7 +26,7 @@ Nella figura seguente vengono illustrati i passaggi per la distribuzione di Wind
   
 ![distribuzione in una nuova organizzazione](media/Deploying-AD-DS-in-a-New-Organization/daa38971-86f2-4033-9442-0cdff9ecc48f.gif)  
   
-Per un elenco delle attività dettagliate che è possibile usare per pianificare e distribuire servizi di dominio Active Directory in una nuova organizzazione, vedere [Checklist: Distribuzione di servizi di dominio Active Directory in una nuova organizzazione @ no__t-0.  
+Per un elenco di attività dettagliate che è possibile utilizzare per pianificare e distribuire Active Directory in una nuova organizzazione, vedere [elenco di controllo: distribuzione di Active Directory in una nuova organizzazione](https://technet.microsoft.com/library/cc725897.aspx).  
   
 
 

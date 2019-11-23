@@ -27,7 +27,7 @@ Netsh offre inoltre una funzionalità di scripting che consente di eseguire un g
 
 ## <a name="netsh-contexts"></a>Contesti netsh
 
-Netsh interagisce con altri componenti del sistema operativo tramite la libreria Dynamic @ no__t-0link \(DLL @ no__t-2. 
+Netsh interagisce con altri componenti del sistema operativo tramite la libreria di collegamento Dynamic\-\(file di\) DLL. 
 
 Ogni DLL helper Netsh fornisce un ampio set di funzionalità, denominato *contesto*, che è un gruppo di comandi specifici per un ruolo o funzionalità del server di rete. Questi contesti estendono le funzionalità di netsh fornendo supporto per la configurazione e il monitoraggio per uno o più servizi, utilità o protocolli. Ad esempio, dhcpmon. dll fornisce netsh con il contesto e il set di comandi necessari per configurare e gestire i server DHCP.
 
@@ -94,7 +94,7 @@ Di seguito è riportato un output di esempio per questi comandi in un computer c
 
 I contesti netsh possono contenere sia i comandi che i contesti aggiuntivi, detti *sottocontesto*. Ad esempio, all'interno del contesto di routing, è possibile passare ai contesti IP e IPv6.
 
-Per visualizzare un elenco di comandi e contesti che è possibile utilizzare all'interno di un contesto, al prompt netsh digitare il nome del contesto, quindi digitare **/?** o della **Guida**. Per visualizzare, ad esempio, un elenco di sottocontesto e comandi che è possibile usare nel contesto di routing, al prompt dei comandi netsh \(that è, **netsh @ no__t-2**\), digitare uno dei seguenti:
+Per visualizzare un elenco di comandi e contesti che è possibile utilizzare all'interno di un contesto, al prompt netsh digitare il nome del contesto, quindi digitare **/?** o della **Guida**. Per visualizzare, ad esempio, un elenco di sottocontesto e comandi che è possibile usare nel contesto di routing, al prompt dei comandi netsh \(, ovvero **netsh&gt;** \), digitare uno dei seguenti elementi:
 
 **routing/?**
 
@@ -116,7 +116,7 @@ Per eseguire un comando netsh, è necessario avviare netsh dal prompt dei comand
 
 - Il testo in *corsivo* indica le informazioni che è necessario fornire durante la digitazione del comando. Ad esempio, se un comando ha un parametro denominato-*username*, è necessario digitare il nome utente effettivo.
 - Il testo in **grassetto** è costituito da informazioni che è necessario digitare esattamente come indicato durante la digitazione del comando.
-- Il testo seguito da un pulsante con i puntini di sospensione \(... \) è un parametro che può essere ripetuto più volte in una riga di comando.
+- Il testo seguito da un pulsante con i puntini di sospensione \(...\) è un parametro che può essere ripetuto più volte in una riga di comando.
 - Il testo racchiuso tra parentesi quadre [&nbsp;] è un elemento facoltativo.
 - Il testo tra parentesi graffe {&nbsp;} con scelte separate da una pipe fornisce un set di opzioni da cui è necessario selezionarne solo uno, ad esempio `{enable|disable}`.
 - Il testo formattato con il tipo di carattere Courier è codice o output del programma.
@@ -127,11 +127,11 @@ Per avviare la shell di rete e immettere netsh al prompt dei comandi o in Window
 
 ### <a name="netsh"></a>netsh
 
-Netsh è un'utilità di scripting da riga di comando che consente di visualizzare o modificare la configurazione di rete di un computer attualmente in esecuzione in locale o in remoto. Usato senza parametri, **netsh** apre il prompt dei comandi netsh. exe \( che è, **netsh @ no__t-3**\).
+Netsh è un'utilità di scripting da riga di comando che consente di visualizzare o modificare la configurazione di rete di un computer attualmente in esecuzione in locale o in remoto. Usato senza parametri, **netsh** apre il prompt dei comandi netsh. exe \(ovvero **netsh&gt;** \).
 
 #### <a name="syntax"></a>Sintassi
 
-**netsh**\[ **-a**&nbsp;*AliasFile*\] \[ **-c**&nbsp;*Context* 0 1 **-r**3*ComputerRemoto*5 6 **-u** 8  *NomeDominio @ no__t-20* 1 *nome utente* 3 4 **-p**6*password*8 @ no__t-29 @ No__t-30 1 {*NetshCommand*3 **-f**5*scriptfile*} 7
+**netsh**\[ **-a**&nbsp;*AliasFile*\] \[ **-c**&nbsp;*context* \] \[ **-r**&nbsp;*ComputerRemoto*\] \[ **-u** \[ *nomedominio\\* \] *nome utente* \] \[ **-p**&nbsp;*password* | \*\] \[{*NetshCommand* |  **-f**&nbsp; *ScriptFile*}\]
 
 #### <a name="parameters"></a>Parametri
 
@@ -168,7 +168,7 @@ Facoltativo. Specifica che si desidera eseguire il comando netsh in un account u
 
 ***`DomainName\\`***
 
-Facoltativo. Specifica il dominio in cui si trova l'account utente. Il valore predefinito è il dominio locale se *DomainName @ no__t-1* non è specificato.
+Facoltativo. Specifica il dominio in cui si trova l'account utente. Il valore predefinito è il dominio locale se *domainname\\* non è specificato.
 
 ***`UserName`***
 
@@ -199,7 +199,7 @@ Facoltativo. Specifica lo script che si desidera eseguire.
 Facoltativo. Visualizza la guida al prompt dei comandi netsh.
 
 > [!NOTE]
-> Se si specifica **`-r`** seguito da un altro comando, **netsh** esegue il comando nel computer remoto e quindi torna al prompt dei comandi cmd. exe. Se si specifica **`-r`** senza un altro comando, **netsh** si apre in modalità remota. Il processo è simile all'uso di **set machine** al prompt dei comandi netsh. Quando si usa **`-r`** , impostare solo il computer di destinazione per l'istanza corrente di **netsh** . Dopo aver chiuso e reimmetteto **netsh**, il computer di destinazione viene reimpostato come computer locale. È possibile eseguire comandi **netsh** in un computer remoto specificando un nome di computer archiviato in WINS, un nome UNC, un nome Internet che verrà risolto dal server DNS o un indirizzo IP.
+> Se si specifica **`-r`** seguito da un altro comando, **netsh** esegue il comando nel computer remoto e quindi torna al prompt dei comandi cmd. exe. Se si specifica **`-r`** senza un altro comando, **netsh** si apre in modalità remota. Il processo è simile all'uso di **set machine** al prompt dei comandi netsh. Quando si utilizza **`-r`** , impostare solo il computer di destinazione per l'istanza corrente di **netsh** . Dopo aver chiuso e reimmetteto **netsh**, il computer di destinazione viene reimpostato come computer locale. È possibile eseguire comandi **netsh** in un computer remoto specificando un nome di computer archiviato in WINS, un nome UNC, un nome Internet che verrà risolto dal server DNS o un indirizzo IP.
 
 **Digitazione dei valori stringa dei parametri per i comandi netsh**
 

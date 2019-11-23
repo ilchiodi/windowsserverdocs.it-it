@@ -1,5 +1,5 @@
 ---
-title: time
+title: ora
 description: Informazioni su come impostare e visualizzare l'ora di sistema.
 ms.custom: na
 ms.prod: windows-server
@@ -20,7 +20,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 09/27/2019
 ms.locfileid: "71369946"
 ---
-# <a name="time"></a>time
+# <a name="time"></a>ora
 
 
 
@@ -38,11 +38,11 @@ time [/t | [<HH>[:<MM>[:<SS>]] [am|pm]]]
 
 |Parametro|Descrizione|
 |---------|-----------|
-|\<HH > [: \<MM > [: \<SS > [. \<NN >]]] [AM @ no__t-16.00]|Imposta l'ora di sistema per la nuova ora specificata, in cui *HH* è espresso in ore (obbligatoria), *MM* in minuti e *SS* è espresso in secondi. *NN* può essere utilizzato per specificare i centesimi di secondo. Se **sono** o **pm** non è specificato, **ora** utilizza il formato di 24 ore per impostazione predefinita.|
+|\<HH > [:\<MM > [:\<SS > [.\<NN >]]] [AM\|PM]|Imposta l'ora di sistema per la nuova ora specificata, in cui *HH* è espresso in ore (obbligatoria), *MM* in minuti e *SS* è espresso in secondi. *NN* può essere utilizzato per specificare i centesimi di secondo. Se **sono** o **pm** non è specificato, **ora** utilizza il formato di 24 ore per impostazione predefinita.|
 |/t|Visualizza l'ora corrente senza richiedere una nuova ora.|
 |/?|Visualizza la guida al prompt dei comandi.|
 
-## <a name="remarks"></a>Note
+## <a name="remarks"></a>Osservazioni
 
 -   Per modificare l'ora corrente, è necessario disporre di credenziali amministrative.
 -   È necessario separare i valori per *HH*, *MM*, e *SS* con due punti (:). *SS* e *NN* devono essere separati da un punto (.).

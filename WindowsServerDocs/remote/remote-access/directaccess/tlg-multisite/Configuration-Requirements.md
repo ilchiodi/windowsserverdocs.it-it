@@ -29,11 +29,11 @@ Per configurare l'accesso remoto nel Lab di test sono necessari i componenti seg
   
 -   Nove computer o macchine virtuali che soddisfano i requisiti hardware minimi per Windows Server 2016, Windows Server 2012 R2 o Windows Server 2012; in tre di questi computer sono installate due schede di rete.  
   
--   Il disco del prodotto o i file per Windows 10 @ no__t-0 o Windows @ no__t-1 8.  
+-   Il disco del prodotto o i file per Windows 10&reg; o Windows&reg; 8.  
   
 -   Il disco del prodotto o i file per Windows 7 Ultimate.  
   
--   Tre computer o macchine virtuali che soddisfano i requisiti hardware minimi per Windows 10 @ no__t-0, Windows 8 o Windows 7; in uno di questi computer sono installate due schede di rete.  
+-   Tre computer o macchine virtuali che soddisfano i requisiti hardware minimi per Windows 10&reg;, Windows 8 o Windows 7. in uno di questi computer sono installate due schede di rete.  
   
 
 

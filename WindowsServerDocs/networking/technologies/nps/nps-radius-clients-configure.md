@@ -21,17 +21,17 @@ ms.locfileid: "71405298"
 
 È possibile utilizzare questo argomento per configurare i server di accesso alla rete come client RADIUS in server dei criteri di rete.
 
-Quando si aggiunge un nuovo server di accesso alla rete @no__t 0VPN, un punto di accesso wireless, un commutatore di autenticazione o un server di connessione remota @ no__t-1 alla rete, è necessario aggiungere il server come client RADIUS in server dei criteri di rete, quindi configurare il client RADIUS per comunicare con il server dei criteri di rete.
+Quando si aggiunge un nuovo server di accesso alla rete \(server VPN, un punto di accesso wireless, un commutatore di autenticazione o un server di connessione remota\) alla rete, è necessario aggiungere il server come client RADIUS in NPS, quindi configurare il client RADIUS in modo che comunichi con il server dei criteri di rete.
 
 >[!IMPORTANT]
->I computer client e i dispositivi, ad esempio computer portatili, tablet, telefoni e altri computer che eseguono sistemi operativi client, non sono client RADIUS. I client RADIUS sono server di accesso alla rete, ad esempio punti di accesso wireless, commutatori compatibili con 802.1 X, server VPN (Virtual Private Network) e server di connessione remota, perché utilizzano il protocollo RADIUS per comunicare con i server RADIUS, ad esempio i criteri di rete Server \(NPS @ no__t-1 server.
+>I computer client e i dispositivi, ad esempio computer portatili, tablet, telefoni e altri computer che eseguono sistemi operativi client, non sono client RADIUS. I client RADIUS sono server di accesso alla rete, ad esempio punti di accesso wireless, commutatori compatibili con 802.1 X, server VPN (Virtual Private Network) e server di connessione remota, perché utilizzano il protocollo RADIUS per comunicare con i server RADIUS, ad esempio server dei criteri di rete \(NPS\) server.
 
 Questo passaggio è necessario anche quando il server dei criteri di gruppo è membro di un gruppo di server RADIUS remoto configurato in un proxy NPS. In questa circostanza, oltre a eseguire i passaggi di questa attività sul proxy server dei criteri di gruppo, è necessario eseguire le operazioni seguenti:
 
 - Nel proxy NPS configurare un gruppo di server RADIUS remoti che contenga il server dei criteri di gruppo.
 - Nel server dei criteri di configurazione remoto configurare il proxy NPS come client RADIUS.
 
-Per eseguire le procedure descritte in questo argomento, è necessario disporre di almeno un server di accesso alla rete @no__t-server 0VPN, punto di accesso wireless, opzione di autenticazione o server di connessione remota @ no__t-1 o proxy server dei criteri di rete installato fisicamente nella rete.
+Per eseguire le procedure descritte in questo argomento, è necessario disporre di almeno un server di accesso alla rete \(server VPN, un punto di accesso wireless, un commutatore di autenticazione o un server di connessione remota\) o un proxy server dei criteri di rete installato fisicamente nella rete.
 
 ## <a name="configure-the-network-access-server"></a>Configurare il server di accesso alla rete
 
@@ -45,7 +45,7 @@ Questa procedura fornisce linee guida generali sulle impostazioni da usare per l
 2. In **server di autenticazione** o **server RADIUS**specificare i criteri di dominio in base all'indirizzo IP o al nome di dominio completo (FQDN), a seconda dei requisiti del server NAS. 
 3. In **segreto** o **segreto condiviso**digitare una password complessa. Quando si configura il NAS come client RADIUS in server dei criteri di accesso, si userà la stessa password, pertanto non è necessario dimenticarla.
 4. Se si usa PEAP o EAP come metodo di autenticazione, configurare il server NAS per l'uso dell'autenticazione EAP.
-5. Se si sta configurando un punto di accesso wireless, in **SSID**specificare un identificatore del set di servizi \(SSID @ no__t-2, che è una stringa alfanumerica che funge da nome di rete. Questo nome viene trasmesso dai punti di accesso ai client wireless ed è visibile agli utenti negli hotspot wireless fidelity \(Wi-Fi @ no__t-1.
+5. Se si sta configurando un punto di accesso wireless, in **SSID**specificare un identificatore del set di servizi \(SSID\), ovvero una stringa alfanumerica che funge da nome di rete. Questo nome viene trasmesso dai punti di accesso ai client wireless ed è visibile agli utenti presso gli hotspot wireless fidelity \(\) Wi-Fi.
 6. Se si sta configurando un punto di accesso wireless, in **802.1 x e WPA**, abilitare **l'autenticazione IEEE 802.1 x** se si desidera distribuire PEAP-MS-CHAP v2, PEAP-TLS o EAP-TLS.
 
 ## <a name="add-the-network-access-server-as-a-radius-client-in-nps"></a>Aggiungere il server di accesso alla rete come client RADIUS in server dei criteri di rete
@@ -64,8 +64,8 @@ Per completare questa procedura, è necessario essere un membro del **amministra
 6. In **nuovo client RADIUS**, in **segreto condiviso**, eseguire una delle operazioni seguenti:
     - Verificare che sia selezionata l'opzione **manuale** , quindi in **segreto condiviso**digitare la password complessa immessa anche sul NAS. Digitare nuovamente il segreto condiviso in **Conferma segreto condiviso**.
     - Selezionare **genera**, quindi fare clic su **genera** per generare automaticamente un segreto condiviso. Salvare il segreto condiviso generato per la configurazione sul NAS in modo che possa comunicare con il server dei criteri di server.
-7. In **nuovo client RADIUS**, in **Opzioni aggiuntive**, se si usano metodi di autenticazione diversi da EAP e PEAP e se il NAS supporta l'uso dell'attributo di autenticazione del messaggio, selezionare i **messaggi di richiesta di accesso devono contenere il messaggio Attributo Authenticator**.
-8. Fare clic su **OK**. Il NAS viene visualizzato nell'elenco dei client RADIUS configurati nel server dei criteri di server.
+7. In **nuovo client RADIUS**, in **Opzioni aggiuntive**, se si utilizzano metodi di autenticazione diversi da EAP e PEAP e se il NAS supporta l'utilizzo dell'attributo Message Authenticator, selezionare i messaggi di **richiesta di accesso devono contenere l'attributo Message Authenticator**.
+8. Fai clic su **OK**. Il NAS viene visualizzato nell'elenco dei client RADIUS configurati nel server dei criteri di server.
 
 ## <a name="configure-radius-clients-by-ip-address-range-in-windows-server-2016-datacenter"></a>Configurare i client RADIUS in base all'intervallo di indirizzi IP in Windows Server 2016 Datacenter
 
@@ -84,13 +84,13 @@ Per completare questa procedura, è necessario essere un membro del **amministra
 1. Nel server dei criteri di rete, in Server Manager, fare clic su **strumenti**e quindi su **Server dei criteri di rete**. Si apre la console NPS.
 2. Nella console NPS fare doppio clic su **client e server RADIUS**. Fare clic con il pulsante destro del mouse su **client RADIUS**, quindi scegliere **nuovo client RADIUS**.
 3. In **nuovo client RADIUS**, in **nome descrittivo**, digitare un nome visualizzato per la raccolta di NAS.
-4. In **Address \(IP o DNS @ no__t-2**Digitare l'intervallo di indirizzi IP per i client RADIUS usando il routing tra domini \(CIDR @ no__t-4 Notation. Ad esempio, se l'intervallo di indirizzi IP per il NAS è 10.10.0.0, digitare **10.10.0.0/16**.
+4. In **indirizzo \(IP o DNS\)** , digitare l'intervallo di indirizzi IP per i client RADIUS usando il routing tra domini \(notazione CIDR\). Ad esempio, se l'intervallo di indirizzi IP per il NAS è 10.10.0.0, digitare **10.10.0.0/16**.
 5. In **nuovo client RADIUS**, in **Fornitore**, specificare il nome del produttore NAS. Se non si è certi del nome del produttore NAS, selezionare **standard RADIUS**.
 6. In **nuovo client RADIUS**, in **segreto condiviso**, eseguire una delle operazioni seguenti:
     - Verificare che sia selezionata l'opzione **manuale** , quindi in **segreto condiviso**digitare la password complessa immessa anche sul NAS. Digitare nuovamente il segreto condiviso in **Conferma segreto condiviso**.
     - Selezionare **genera**, quindi fare clic su **genera** per generare automaticamente un segreto condiviso. Salvare il segreto condiviso generato per la configurazione sul NAS in modo che possa comunicare con il server dei criteri di server.
-7. In **nuovo client RADIUS**, in **Opzioni aggiuntive**, se si utilizzano metodi di autenticazione diversi da EAP e PEAP e se tutti i servizi NAS supportano l'utilizzo dell'attributo di autenticazione del messaggio, selezionare i **messaggi di richiesta di accesso devono contenere il Attributo dell'autenticatore del messaggio**.
-8. Fare clic su **OK**. I NAS vengono visualizzati nell'elenco dei client RADIUS configurati nel server dei criteri di server.
+7. In **nuovo client RADIUS**, in **Opzioni aggiuntive**, se si utilizzano metodi di autenticazione diversi da EAP e PEAP e se tutti i NAS supportano l'utilizzo dell'attributo di autenticazione del messaggio, selezionare i **messaggi di richiesta di accesso devono contenere l'attributo Message Authenticator**.
+8. Fai clic su **OK**. I NAS vengono visualizzati nell'elenco dei client RADIUS configurati nel server dei criteri di server.
 
 Per ulteriori informazioni, vedere [client RADIUS](nps-radius-clients.md).
 

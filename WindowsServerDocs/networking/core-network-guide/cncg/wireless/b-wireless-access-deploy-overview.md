@@ -19,14 +19,14 @@ ms.locfileid: "71356092"
 
 >Si applica a: Windows Server (Canale semestrale), Windows Server 2016
 
-Nella figura seguente sono illustrati i componenti necessari per distribuire l'accesso wireless autenticato tramite 802.1 X con PEAP @ no__t-0MS @ no__t-1CHAP V2.  
+Nella figura seguente sono illustrati i componenti necessari per distribuire l'accesso wireless autenticato tramite 802.1 X con PEAP\-MS\-CHAP v2.  
 
 ![Panoramica dell'infrastruttura di distribuzione 802.1 x](../../../media/8021X-Deploy-Overview/8021X-Deploy-Overview.jpg)
 
 ## <a name="wireless-access-deployment-components"></a>Componenti di distribuzione dell'accesso wireless
 Per questa distribuzione dell'accesso wireless è necessaria l'infrastruttura seguente:
 
-### <a name="8021x-capable-wireless-access-points"></a>802.1 x @ no__t-punti di accesso wireless 0capable
+### <a name="8021x-capable-wireless-access-points"></a>802.1 x\-punti di accesso wireless in grado di supportare
 Dopo aver installato i servizi di infrastruttura di rete richiesti che supportano la rete locale wireless, è possibile avviare il processo di progettazione per la posizione dei punti di accesso wireless. Il processo di progettazione della distribuzione dei punti di accesso wireless prevede i passaggi seguenti:
 
 - Identificare le aree di copertura per gli utenti wireless. Quando si identificano le aree di copertura, assicurarsi di stabilire se si desidera fornire il servizio wireless all'esterno dell'edificio e, in tal caso, determinare in particolare dove si trovano le aree esterne.
@@ -42,13 +42,13 @@ Per la distribuzione dell'accesso wireless sono necessari i seguenti elementi di
 
 #### <a name="users-and-computers"></a>Utenti e computer
 
-Utilizzare lo snap-in utenti e computer Active Directory @ no__t-0cm per creare e gestire gli account utente e per creare un gruppo di sicurezza wireless che includa ciascun membro del dominio a cui si desidera concedere l'accesso wireless.
+Utilizzare lo snap-in utenti e computer Active Directory\-in per creare e gestire gli account utente e per creare un gruppo di sicurezza wireless che includa ciascun membro del dominio a cui si desidera concedere l'accesso wireless.
 
-#### <a name="wireless-network-ieee-80211-policies"></a>Criteri di rete wireless \(IEEE 802.11 @ no__t-1
+#### <a name="wireless-network-ieee-80211-policies"></a>Criteri di rete wireless \(IEEE 802,11\)
 
-Per configurare i criteri applicati ai computer senza fili durante il tentativo di accesso alla rete, è possibile usare l'estensione Criteri di gruppo dei criteri di rete wireless \(IEEE 802.11 @ no__t-1.
+Per configurare i criteri applicati ai computer senza fili durante il tentativo di accesso alla rete, è possibile utilizzare la rete wireless \(IEEE 802,11\) i criteri di gestione Criteri di gruppo.
 
-In Editor Gestione Criteri di gruppo, quando si usa il pulsante destro del mouse su no__t-0click **Wireless Network \(IEEE 802.11 @ no__t-3**Policy, sono disponibili le due opzioni seguenti per il tipo di criterio wireless creato.
+In Editor Gestione Criteri di gruppo, quando si fa clic con il pulsante\-destro del mouse su **rete Wireless \(IEEE 802,11\) criteri**, sono disponibili le due opzioni seguenti per il tipo di criterio wireless creato.
 
 - **Creare un nuovo criterio di rete wireless per Windows Vista e versioni successive**
 
@@ -63,23 +63,23 @@ I criteri di rete wireless per Windows Vista e versioni successive consentono di
 
 Se si dispone di client wireless spostati in posizioni fisiche all'interno dell'organizzazione, ad esempio tra una sede centrale e una succursale, potrebbe essere necessario che i computer si connettano a più di una rete wireless. In questa situazione è possibile configurare un profilo wireless che contiene le impostazioni di sicurezza e connettività specifiche per ogni rete.
 
-Si supponga, ad esempio, che la società disponga di una rete wireless per la sede principale, con un identificatore del set di servizi \(SSID @ no__t-1 WlanCorp.
+Si supponga, ad esempio, che la società disponga di una rete wireless per l'ufficio principale aziendale, con un identificatore del set di servizi \(SSID\) WlanCorp.
 
 Anche la succursale dispone di una rete wireless a cui si desidera connettersi. La succursale dispone del SSID configurato come WlanBranch.
 
 In questo scenario, è possibile configurare un profilo per ogni rete, mentre i computer o altri dispositivi usati sia nella sede aziendale che nella succursale possono connettersi a una delle reti wireless quando sono fisicamente in un intervallo di copertura di rete.
 
-##### <a name="mixed-mode-wireless-networks"></a>Reti wireless miste @ no__t-0mode
+##### <a name="mixed-mode-wireless-networks"></a>Reti wireless in modalità\-mista
 
-In alternativa, si supponga che la rete disponga di una combinazione di computer e dispositivi wireless che supportano standard di sicurezza diversi. Probabilmente alcuni computer meno recenti hanno schede wireless che possono usare solo WPA @ no__t-0Enterprise, mentre i dispositivi più recenti possono usare lo standard WPA2 @ no__t-1Enterprise più sicuro.
+In alternativa, si supponga che la rete disponga di una combinazione di computer e dispositivi wireless che supportano standard di sicurezza diversi. Probabilmente alcuni computer meno recenti dispongono di schede wireless che possono usare solo WPA\-Enterprise, mentre i dispositivi più recenti possono usare il livello di WPA2\-Enterprise standard.
 
 È possibile creare due profili diversi che usano lo stesso SSID e le stesse impostazioni di sicurezza e connettività.
 
-In un profilo è possibile impostare l'autenticazione wireless su WPA2 @ no__t-0Enterprise con AES e nell'altro profilo è possibile specificare WPA @ no__t-1Enterprise con TKIP.
+In un profilo è possibile impostare l'autenticazione wireless su WPA2\-Enterprise con AES e nell'altro profilo è possibile specificare WPA\-Enterprise con TKIP.
 
-Questa funzionalità è comunemente nota come distribuzione mista @ no__t-0mode e consente ai computer di diversi tipi e funzionalità wireless di condividere la stessa rete wireless.
+Questa operazione è comunemente nota come distribuzione in modalità mista\-e consente ai computer di tipi diversi e funzionalità wireless di condividere la stessa rete wireless.
 
-### <a name="network-policy-server-nps"></a>Server dei criteri di rete \(NPS @ no__t-1
+### <a name="network-policy-server-nps"></a>Server dei criteri di rete \(NPS\)
 Server dei criteri di rete consente di creare e applicare criteri di accesso alla rete per l'autenticazione e l'autorizzazione delle richieste di connessione.
 
 Quando si usa server dei criteri di rete come server RADIUS, si configurano i server di accesso alla rete, ad esempio punti di accesso wireless, come client RADIUS in NPS. È inoltre possibile configurare i criteri di rete utilizzati da server dei criteri di rete per autenticare i client Access e autorizzare le richieste di connessione.  
@@ -91,7 +91,7 @@ Ai fini di questa guida, i computer client wireless sono computer e altri dispos
 
 Per impostazione predefinita, la funzionalità per 802,11 wireless è disabilitata nei computer che eseguono Windows Server.
 
-Per abilitare la connettività wireless nei computer che eseguono sistemi operativi server, è necessario installare e abilitare la funzionalità del servizio LAN wireless \(WLAN @ no__t-1 usando Windows PowerShell o l'aggiunta guidata ruoli e funzionalità in Server Manager.
+Per abilitare la connettività wireless nei computer che eseguono sistemi operativi server, è necessario installare e abilitare la funzionalità LAN wireless \(servizio\) WLAN usando Windows PowerShell o l'aggiunta guidata ruoli e funzionalità in Server Manager.
 
 Quando si installa la funzionalità del **servizio LAN wireless** , la nuova **configurazione automatica della WLAN** del servizio viene installata nei **Servizi**. Al termine dell'installazione, è necessario riavviare il server.
 

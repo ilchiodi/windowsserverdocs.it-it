@@ -24,7 +24,7 @@ ms.locfileid: "71403760"
 
   È possibile esplorare il Centro di amministrazione di Active Directory riquadro di spostamento utilizzando la visualizzazione albero, che è simile all'albero della console utenti e computer Active Directory oppure utilizzando la visualizzazione elenco.
 
- Se si usa la visualizzazione albero o la visualizzazione elenco, è possibile personalizzare il riquadro di spostamento Centro di amministrazione di Active Directory in qualsiasi momento aggiungendo diversi contenitori dal dominio locale o da qualsiasi dominio esterno \(that è, un dominio diverso dal dominio locale che ha una relazione di trust stabilita con il dominio locale @ no__t-1 al riquadro di spostamento come nodi separati. La personalizzazione del riquadro di spostamento Centro di amministrazione di Active Directory può consentire un accesso più rapido agli oggetti Active Directory. Per ulteriori informazioni, vedere [gestire domini diversi in centro di amministrazione di Active Directory](manage-different-domains-in-active-directory-administrative-center.md).
+ Se si usa la visualizzazione albero o la visualizzazione elenco, è possibile personalizzare il riquadro di spostamento di Centro di amministrazione di Active Directory in qualsiasi momento aggiungendo diversi contenitori dal dominio locale o da qualsiasi \(di dominio esterno, ovvero un dominio diverso dal dominio locale con una relazione di trust stabilita con il dominio locale\) al riquadro di spostamento come nodi separati. La personalizzazione del riquadro di spostamento Centro di amministrazione di Active Directory può consentire un accesso più rapido agli oggetti Active Directory. Per ulteriori informazioni, vedere [gestire domini diversi in centro di amministrazione di Active Directory](manage-different-domains-in-active-directory-administrative-center.md).
 
  Per personalizzare ulteriormente il riquadro di spostamento, è inoltre possibile rinominare o rimuovere i nodi aggiunti manualmente al riquadro di spostamento, creare duplicati di tali nodi oppure spostarli verso l'alto o verso il basso nel riquadro di spostamento.
 
@@ -33,7 +33,7 @@ ms.locfileid: "71403760"
 
 ### <a name="to-customize-the-active-directory-administrative-center-navigation-pane"></a>Per personalizzare il riquadro di spostamento Centro di amministrazione di Active Directory
 
-1. Nel riquadro di spostamento Centro di amministrazione di Active Directory, a destra @ no__t-0click il nodo che si desidera modificare. È possibile modificare la posizione o il nome del nodo oppure è possibile creare un duplicato del nodo.
+1. Nel riquadro di spostamento Centro di amministrazione di Active Directory\-fare clic con il pulsante destro del mouse sul nodo che si desidera modificare. È possibile modificare la posizione o il nome del nodo oppure è possibile creare un duplicato del nodo.
 
 2. Fare clic su uno dei comandi seguenti:
 
@@ -47,7 +47,7 @@ ms.locfileid: "71403760"
 
    -   **Sposta giù**
 
-   Utilizzando la visualizzazione elenco, è possibile sfruttare l'elenco di \(MRU @ no__t-1 usato più di recente. L'elenco MRU viene visualizzato automaticamente sotto un nodo di navigazione quando si visita almeno un contenitore in questo nodo di navigazione. È anche possibile visualizzare l'elenco MRU corrente espandendo la barra di navigazione nella parte superiore della finestra di Centro di amministrazione di Active Directory. L'elenco MRU contiene sempre gli ultimi tre contenitori visitati in un particolare nodo di navigazione. Ogni volta che si seleziona un determinato contenitore, tale contenitore viene aggiunto al primo posto dell'elenco dei contenitori utilizzati più di recente e l'ultimo contenitore visualizzato nell'elenco viene rimosso dall'elenco.
+   Utilizzando la visualizzazione elenco, è possibile sfruttare i vantaggi dell'elenco dei\) usati più di recente \(MRU. L'elenco MRU viene visualizzato automaticamente sotto un nodo di navigazione quando si visita almeno un contenitore in questo nodo di navigazione. È anche possibile visualizzare l'elenco MRU corrente espandendo la barra di navigazione nella parte superiore della finestra di Centro di amministrazione di Active Directory. L'elenco MRU contiene sempre gli ultimi tre contenitori visitati in un particolare nodo di navigazione. Ogni volta che si seleziona un determinato contenitore, tale contenitore viene aggiunto al primo posto dell'elenco dei contenitori utilizzati più di recente e l'ultimo contenitore visualizzato nell'elenco viene rimosso dall'elenco.
 
   
 

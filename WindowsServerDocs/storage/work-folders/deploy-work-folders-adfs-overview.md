@@ -15,7 +15,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 09/27/2019
 ms.locfileid: "71365918"
 ---
-# <a name="deploy-work-folders-with-ad-fs-and-web-application-proxy-overview"></a>Distribuire cartelle di lavoro con AD FS e il proxy dell'applicazione Web: Panoramica
+# <a name="deploy-work-folders-with-ad-fs-and-web-application-proxy-overview"></a>Distribuire Cartelle di lavoro con AD FS e Proxy dell'applicazione Web: Panoramica
 
 >Si applica a: Windows Server (Canale semestrale), Windows Server 2016
 
@@ -37,7 +37,7 @@ Per seguire le procedure e gli esempi in questi argomenti, è necessario che i c
   
 -   Una foresta di AD DS con estensioni dello schema in Windows Server 2012 R2 per supportare il riferimento automatico di computer e dispositivi al file server corretto quando si usano più file server. È preferibile che DNS sia attivato nella foresta, ma non è obbligatorio.  
   
--   Un controller di dominio: Un server con il ruolo Servizi di dominio Active Directory abilitato e configurato con un dominio (per l'esempio di test, contoso.com).  
+-   Un controller di dominio: un server che ha abilitato il ruolo di Active Directory Domain Services ed è configurato con un dominio (per l'esempio di test, contoso.com).  
   
     Un controller di dominio che esegua almeno Windows Server 2012 R2 è necessario per supportare la registrazione dei dispositivi per Workplace Join. Se non si desidera utilizzare Workplace Join, è possibile eseguire Windows Server 2012 nel controller di dominio.  
   
@@ -51,7 +51,7 @@ Per seguire le procedure e gli esempi in questi argomenti, è necessario che i c
   
 Per l'ambiente di test che illustriamo in questa guida, dovresti avere la topologia visualizzata nel seguente diagramma. I computer possono essere fisici o macchine virtuali. 
   
-![Il diagramma che mostra i segmenti di rete Internet, della rete perimetrale e di Contoso. Nel segmento Internet: Client2 nella rete perimetrale: un server WAP; nel segmento contoso: Server di cartelle di lavoro, un controller di dominio, un server di AD FS e CLIENT1](media/deploy-work-folders-adfs/WF_ADFS_WAP_Diagram.png)
+![Il diagramma che mostra i segmenti di rete Internet, della rete perimetrale e di Contoso. Nel segmento Internet: Client2; nella rete perimetrale: un server WAP. nel segmento Contoso: Server di Cartelle di lavoro, un controller di dominio, un server AD FS e Client1](media/deploy-work-folders-adfs/WF_ADFS_WAP_Diagram.png)
 
 ## <a name="deployment-overview"></a>Cenni preliminari sulla distribuzione  
 In questo gruppo di argomenti, verranno illustrati esempi dettagliati di configurazione di AD FS, Proxy applicazione Web e di Cartelle di lavoro in un ambiente di test. I componenti verranno configurati in questo ordine:  
@@ -69,17 +69,17 @@ Inoltre, userai uno script di Windows PowerShell per creare certificati autofirm
 ## <a name="deployment-steps"></a>Fasi di distribuzione  
 Per eseguire la distribuzione tramite l'interfaccia utente di Windows Server, segui i passaggi illustrati in questi argomenti:  
   
--   Cartelle di lavoro [Deploy con AD FS e proxy applicazione Web: Passaggio 1, configurare AD FS @ no__t-0  
+-   [Distribuire cartelle di lavoro con AD FS e il proxy dell'applicazione Web: passaggio 1, configurazione AD FS](deploy-work-folders-adfs-step1.md)  
   
--   Cartelle di lavoro [Deploy con AD FS e proxy applicazione Web: Passaggio 2, AD FS lavoro post-configurazione @ no__t-0  
+-   [Distribuire cartelle di lavoro con AD FS e il proxy dell'applicazione Web: passaggio 2 AD FS lavoro di post-configurazione](deploy-work-folders-adfs-step2.md)  
   
--   Cartelle di lavoro [Deploy con AD FS e proxy applicazione Web: Passaggio 3: configurare cartelle di lavoro @ no__t-0  
+-   [Distribuire cartelle di lavoro con AD FS e il proxy dell'applicazione Web: passaggio 3, configurare cartelle di lavoro](deploy-work-folders-adfs-step3.md)  
   
--   Cartelle di lavoro [Deploy con AD FS e proxy applicazione Web: Passaggio 4: configurare il proxy dell'applicazione Web @ no__t-0  
+-   [Distribuire cartelle di lavoro con AD FS e il proxy dell'applicazione Web: passaggio 4, configurare il proxy dell'applicazione Web](deploy-work-folders-adfs-step4.md)  
   
--   Cartelle di lavoro [Deploy con AD FS e proxy applicazione Web: Passaggio 5: configurare i client @ no__t-0  
+-   [Distribuire cartelle di lavoro con AD FS e il proxy dell'applicazione Web: passaggio 5, configurare i client](deploy-work-folders-adfs-step5.md)  
 
-## <a name="see-also"></a>Vedere anche  
+## <a name="see-also"></a>Vedi anche  
 [Panoramica di cartelle di lavoro](Work-Folders-Overview.md)  
 [Progettazione di un'implementazione di Cartelle di lavoro](Plan-Work-Folders.md)  
 [Distribuzione di Cartelle di lavoro](Deploy-Work-Folders.md)  

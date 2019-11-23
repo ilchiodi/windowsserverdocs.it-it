@@ -21,7 +21,7 @@ ms.locfileid: "71405247"
 
 WINS (Windows Internet Name Service) è un servizio legacy di registrazione e risoluzione dei nomi di computer che esegue il mapping dei nomi NetBIOS dei computer a indirizzi IP.
 
-Se WINS non è ancora stato distribuito nella rete, non distribuire WINS, ma distribuire Domain Name System \(DNS @ no__t-1. DNS fornisce anche servizi di registrazione e risoluzione dei nomi di computer e include molti vantaggi aggiuntivi rispetto a WINS, ad esempio l'integrazione con Active Directory Domain Services.
+Se WINS non è ancora stato distribuito nella rete, non distribuire WINS, ma distribuire Domain Name System \(\)DNS. DNS fornisce anche servizi di registrazione e risoluzione dei nomi di computer e include molti vantaggi aggiuntivi rispetto a WINS, ad esempio l'integrazione con Active Directory Domain Services.
 
 Per ulteriori informazioni, vedere [Domain Name System (DNS)](https://docs.microsoft.com/windows-server/networking/dns/dns-top)
 

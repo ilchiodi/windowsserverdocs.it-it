@@ -72,7 +72,7 @@ Spazi di archiviazione diretta è stato progettato per due opzioni di distribuzi
 
 ![Spazi di archiviazione diretta fornisce l'archiviazione tramite la funzionalità File server di scalabilità orizzontale alle macchine virtuali Hyper-V in un altro server o cluster](media/storage-spaces-direct-in-windows-server-2016/converged-minimal.png)
 
-### <a name="hyper-converged"></a>Con iperconvergenza
+### <a name="hyper-converged"></a>Iperconvergente
 
 **Un cluster per il calcolo e l'archiviazione.** L'opzione di distribuzione iperconvergente esegue macchine virtuali Hyper-V o database di SQL Server direttamente nei server fornendo archiviazione e archiviando i file nei volumi locali. In questo modo, non è più necessario configurare l'accesso e le autorizzazioni per il file server e si riducono i costi per l'hardware per le distribuzioni di piccole e medie imprese o uffici remoti/succursali. Vedere [Deploy spazi di archiviazione diretta](deploy-storage-spaces-direct.md).
 
@@ -112,7 +112,7 @@ Sono presenti [più cluster 10.000](https://blogs.technet.microsoft.com/filecab/
 
 Visitare [Microsoft.com/HCI](https://www.microsoft.com/hci) per leggere le storie:
 
-[@no__t 1Grid dei logo dei clienti](media/storage-spaces-direct-in-windows-server-2016/customer-stories.png)](https://www.microsoft.com/hci)
+[Griglia di ![dei logo dei clienti](media/storage-spaces-direct-in-windows-server-2016/customer-stories.png)](https://www.microsoft.com/hci)
 
 ## <a name="management-tools"></a>Strumenti di gestione
 
@@ -125,11 +125,11 @@ Per gestire e/o monitorare Spazi di archiviazione diretta, è possibile usare gl
 | Windows PowerShell                                                        | Riga di comando | Inclusa |
 | [System Center Virtual Machine Manager (SCVMM)](https://technet.microsoft.com/system-center-docs/vmm/manage/manage-storage-spaces-direct-vmm) <br>& [Operations Manager (SCOM)](https://www.microsoft.com/download/details.aspx?id=54700) | Grafica    | A pagamento     |
 
-## <a name="get-started"></a>Attività iniziali
+## <a name="get-started"></a>Informazioni di base
 
 Prova Spazi di archiviazione diretta [in Microsoft Azure](https://blogs.technet.microsoft.com/filecab/2016/05/05/s2dazuretp5/) o scarica una copia di valutazione con licenza di 180 giorni di Windows Server da [Windows Server Valutazioni](https://go.microsoft.com/fwlink/?linkid=842602).
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 - [Tolleranza di errore ed efficienza di archiviazione](storage-spaces-fault-tolerance.md)
 - [Replica di archiviazione](../storage-replica/storage-replica-overview.md)

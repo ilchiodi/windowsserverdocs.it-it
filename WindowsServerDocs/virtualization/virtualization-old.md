@@ -21,11 +21,11 @@ ms.locfileid: "71364042"
 >Si applica a: Windows Server (Canale semestrale), Windows Server 2016 
 
 >[!TIP]
-> Cerchi informazioni sull'installazione delle versioni precedenti di Windows Server? vedere le altre [librerie di Windows Server](/previous-versions/windows/) in docs.microsoft.com. Puoi anche [cercare nel sito](https://docs.microsoft.com/search/index?search=Windows+Server&dataSource=previousVersions) informazioni specifiche.
+> Cerchi informazioni sull'installazione delle versioni precedenti di Windows Server? Vedi le nostre altre [librerie di Windows Server](/previous-versions/windows/) in docs.microsoft.com. Puoi anche [cercare nel sito](https://docs.microsoft.com/search/index?search=Windows+Server&dataSource=previousVersions) informazioni specifiche.
 
 <img src="../media/landing-icons/virtualization.png" style='float:left; padding:.5em;' alt="Icon showing a box with spokes"> la virtualizzazione in Windows Server 2016 è una delle tecnologie fondamentali necessarie per creare l'infrastruttura software-defined. Oltre a funzionalità di rete e archiviazione, la virtualizzazione offre la flessibilità di cui hai bisogno per attivare i carichi di lavoro per i clienti.
 
-Le tecnologie di virtualizzazione di Windows Server includono aggiornamenti per Hyper-V, Commuter virtuale Hyper-V e infrastruttura sorvegliata e macchine virtuali schermate \(VMs @ no__t-1, che migliorano la sicurezza, la scalabilità e l'affidabilità. Gli aggiornamenti per il clustering di failover, la rete e archiviazione rendono ancora più semplice distribuire e gestire queste tecnologie se utilizzata con Hyper-V. 
+Le tecnologie di virtualizzazione di Windows Server includono aggiornamenti per Hyper-V, Commuter virtuale Hyper-V, infrastruttura sorvegliata e macchine virtuali schermate \(VM\), che migliorano la sicurezza, la scalabilità e l'affidabilità. Gli aggiornamenti per il clustering di failover, la rete e archiviazione rendono ancora più semplice distribuire e gestire queste tecnologie se utilizzata con Hyper-V. 
 
 
 <ul class="cardsI panelContent">
@@ -60,7 +60,7 @@ Le tecnologie di virtualizzazione di Windows Server includono aggiornamenti per 
                     </div>
                     <div class="cardText">
                         <h3>Windows 10 per l'azienda: modalità di utilizzo di dispositivi per lavoro</h3>
-                        <p>La tecnologia Hyper-V fornisce le risorse di elaborazione tramite la virtualizzazione hardware. Hyper-V consente di creare una versione software del computer, che prende il nome di macchina virtuale e sulla quale è possibile eseguire un sistema operativo e applicazioni. È possibile eseguire più macchine virtuali nello stesso momento e possono creare ed eliminarli in base alle esigenze. </p>
+                        <p>La tecnologia Hyper-V fornisce le risorse di elaborazione tramite la virtualizzazione hardware. Hyper-V crea una versione del software di un computer, denominata macchina virtuale, che usi per eseguire un sistema operativo e applicazioni. È possibile eseguire più macchine virtuali nello stesso momento e possono creare ed eliminarli in base alle esigenze. </p>
                     </div>
                 </div>
             </div>
@@ -80,7 +80,7 @@ Le tecnologie di virtualizzazione di Windows Server includono aggiornamenti per 
                     </div>
                     <div class="cardText">
                         <h3>Microsoft Hyper-V Server</h3>
-                        <p>La tecnologia Hyper-V fornisce le risorse di elaborazione tramite la virtualizzazione hardware. Hyper-V consente di creare una versione software del computer, che prende il nome di macchina virtuale e sulla quale è possibile eseguire un sistema operativo e applicazioni. È possibile eseguire più macchine virtuali nello stesso momento e possono creare ed eliminarli in base alle esigenze. </p>
+                        <p>La tecnologia Hyper-V fornisce le risorse di elaborazione tramite la virtualizzazione hardware. Hyper-V crea una versione del software di un computer, denominata macchina virtuale, che usi per eseguire un sistema operativo e applicazioni. È possibile eseguire più macchine virtuali nello stesso momento e possono creare ed eliminarli in base alle esigenze. </p>
                     </div>
                 </div>
             </div>
@@ -103,9 +103,9 @@ Le tecnologie di virtualizzazione di Windows Server includono aggiornamenti per 
                         <h3>Commutatore virtuale Hyper-V</h3>
                         <p>Il commutatore virtuale Hyper-V è un commutatore di rete Ethernet di livello 2 basato su software, incluso in tutte le versioni di Hyper-V.</p>
 
-                        <p>Il commutatore virtuale Hyper-V è disponibile nella console di gestione Hyper-V dopo aver installato il ruolo server Hyper-V.</p>
+                        <p>Il commutatore virtuale Hyper-V è disponibile nella console di gestione Hyper-V una volta installato il ruolo server Hyper-V.</p>
 
-                        <p>Il commutatore virtuale Hyper-V include funzionalità estendibili e gestibili a livello di programmazione, che consentono la connessione delle macchine virtuali alle reti virtuali e alla rete fisica.</p> 
+                        <p>Il commutatore virtuale Hyper-V include funzionalità estendibili e gestibili a livello di programmazione che consentono la connessione delle macchine virtuali alle reti virtuali e alla rete fisica.</p> 
 
                         <p>Il commutatore virtuale Hyper-V supporta inoltre l'imposizione di criteri per sicurezza, l'isolamento e i livelli di servizio.</p>
                     </div>
@@ -128,7 +128,7 @@ Le tecnologie di virtualizzazione di Windows Server includono aggiornamenti per 
                     </div>
                     <div class="cardText">
                         <h3>Contenitori di Windows</h3>
-                        <p>Con i contenitori di Windows è possibile eseguire la virtualizzazione a livello di sistema operativo, che consente l'esecuzione di più applicazioni isolate in un unico sistema. Nella funzionalità sono inclusi due diversi tipi di runtime di contenitori, ognuno con un diverso livello di isolamento dell'applicazione.</p>
+                        <p>I contenitori di Windows forniscono la virtualizzazione a livello di sistema operativo che consente a più applicazioni isolate di essere eseguite su un unico sistema. Nella funzionalità sono inclusi due diversi tipi di runtime di contenitori, ognuno con un diverso livello di isolamento dell'applicazione.</p>
                     </div>
                 </div>
             </div>
@@ -139,7 +139,7 @@ Le tecnologie di virtualizzazione di Windows Server includono aggiornamenti per 
 
 
 
-## <a name="related"></a>Risorse correlate
+## <a name="related"></a>Informazioni correlate
 
 Hyper-V richiede hardware specifico per creare l'ambiente di virtualizzazione. Per informazioni dettagliate, vedere [requisiti di sistema per Hyper-V in Windows Server 2016](./hyper-v/system-requirements-for-hyper-v-on-windows.md). 
 

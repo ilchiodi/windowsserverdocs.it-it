@@ -76,7 +76,7 @@ Il motivo più comune per cui si modifica l'orario in cui devono essere eseguiti
     </thead>
     <tbody>
         <tr>
-            <td>Type</td>
+            <td>Tipo</td>
             <td>Il tipo di processo che deve essere pianificato</td>
             <td>
                 <ul>
@@ -100,7 +100,7 @@ Il motivo più comune per cui si modifica l'orario in cui devono essere eseguiti
             <td>Questo valore consente al sistema di determinare la modalità di allocazione del tempo della CPU. <em>Alto</em> userà più tempo della CPU, <em>Basso</em> ne userà il minimo.</td>
         </tr>
         <tr>
-            <td>Days</td>
+            <td>Giorni</td>
             <td>I giorni in cui il processo è pianificato</td>
             <td>Matrice di numeri interi da 0 a 6 che rappresenta i giorni della settimana:<ul>
                 <li>0 = domenica</li>
@@ -162,7 +162,7 @@ Il motivo più comune per cui si modifica l'orario in cui devono essere eseguiti
             <td>Si vuole ripristinare manualmente i file che risiedono in sezioni danneggiate del disco.</td>
         </tr>
         <tr>
-            <td>Start</td>
+            <td>Inizio</td>
             <td>Specifica l'ora in cui un processo deve iniziare</td>
             <td><code>System.DateTime</code></td>
             <td>La parte relativa alla <em>Data</em> del <code>System.Datetime</code> fornito per l' <em>avvio</em> è irrilevante (purché&#39;sia nel passato), ma la parte relativa all' <em>ora</em> specifica quando avviare il processo.</td>
@@ -208,7 +208,7 @@ I motivi principali per cui si modificano le impostazioni di volume per il tipo 
     <tbody>
         <tr>
             <td>ChunkRedundancyThreshold</td>
-            <td>Numero di volte in cui si fa riferimento a un blocco prima che un blocco venga duplicato nella sezione hotspot dell'Archivio blocchi. Il valore della sezione hotspot è che i blocchi &quot;hot @ no__t-1 a cui si fa riferimento spesso hanno più percorsi di accesso per migliorare i tempi di accesso.</td>
+            <td>Numero di volte in cui si fa riferimento a un blocco prima che un blocco venga duplicato nella sezione hotspot dell'Archivio blocchi. Il valore della sezione hotspot è che i cosiddetti &quot;blocchi Hot&quot; a cui si fa riferimento spesso hanno più percorsi di accesso per migliorare i tempi di accesso.</td>
             <td>Numeri interi positivi</td>
             <td>Il motivo principale per cui si modifica questo numero è incrementare la percentuale di riduzione per i volumi con elevata duplicazione. In generale, il valore predefinito (100) rappresenta l'impostazione consigliata e non è&#39;necessario modificarlo.</td>
         </tr>
@@ -318,7 +318,7 @@ Ad esempio, è possibile disattivare completamente Garbage Collection. Altre inf
 </table>
 
 ## <a id="faq"></a>Domande frequenti
-<a id="faq-use-responsibly"></a>**I ha modificato un'impostazione di deduplicazione dati e ora i processi sono lenti o non sono finiti oppure le prestazioni del carico di lavoro sono diminuite. Perché?**  
+<a id="faq-use-responsibly"></a>**È stata modificata un'impostazione di deduplicazione dati e ora i processi sono lenti o non sono finiti oppure le prestazioni del carico di lavoro sono diminuite. Perché?**  
 Queste impostazioni offrono un notevole controllo sul modo in cui viene eseguita la deduplicazione dei dati. Usarle in modo responsabile e [monitorare le prestazioni](run.md#monitoring-dedup).
 
 <a id="faq-running-dedup-jobs-manually"></a>**Si desidera eseguire un processo di deduplicazione dati in questo momento, ma non si desidera creare una nuova pianificazione. è possibile eseguire questa operazione?**  

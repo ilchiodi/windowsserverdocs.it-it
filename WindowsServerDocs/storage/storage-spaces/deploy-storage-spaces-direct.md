@@ -47,13 +47,13 @@ Raccogliere le informazioni seguenti:
 
 ## <a name="step-1-deploy-windows-server"></a>Passaggio 1: Distribuire Windows Server
 
-### <a name="step-11-install-the-operating-system"></a>Passaggio 1,1: Installare il sistema operativo
+### <a name="step-11-install-the-operating-system"></a>Passaggio 1,1: installare il sistema operativo
 
 Il primo passaggio consiste nell'installare Windows Server in tutti i server che saranno presenti nel cluster. Spazi di archiviazione diretta richiede Windows Server 2016 Datacenter Edition. È possibile usare l'opzione di installazione dei componenti di base del server o server con esperienza desktop.
 
 Quando si installa Windows Server utilizzando l'installazione guidata, è possibile scegliere tra *Windows Server* (che fa riferimento a Server Core) e *Windows Server (server con esperienza desktop)* , che equivale all'opzione di installazione *completa* disponibile in Windows Server 2012 R2. Se non si sceglie, si otterrà l'opzione di installazione dei componenti di base del server. Per ulteriori informazioni, vedere [Opzioni di installazione per Windows Server 2016](../../get-started/Windows-Server-2016.md).
 
-### <a name="step-12-connect-to-the-servers"></a>Passaggio 1,2: Connettersi ai server
+### <a name="step-12-connect-to-the-servers"></a>Passaggio 1,2: connettersi ai server
 
 Questa guida è incentrata sull'opzione di installazione dei componenti di base del server e sulla distribuzione/gestione remota da un sistema di gestione separato, che deve disporre di:
 
@@ -90,9 +90,9 @@ Immettere la sessione PS e usare il nome del server o l'indirizzo IP del nodo a 
 >   
 > Per svuotare l'elenco, digitare `Clear-Item WSMAN:\Localhost\Client\TrustedHost`.  
 
-### <a name="step-13-join-the-domain-and-add-domain-accounts"></a>Passaggio 1,3: Aggiunta al dominio e aggiunta di account di dominio
+### <a name="step-13-join-the-domain-and-add-domain-accounts"></a>Passaggio 1,3: aggiungere il dominio e aggiungere gli account di dominio
 
-Fino a questo momento sono stati configurati i singoli server con l'account amministratore locale, `<ComputerName>\Administrator`.
+Fino a questo momento sono stati configurati i singoli server con l'account Administrator locale `<ComputerName>\Administrator`.
 
 Per gestire Spazi di archiviazione diretta, è necessario aggiungere i server a un dominio e usare un account di dominio Active Directory Domain Services appartenente al gruppo Administrators in ogni server.
 
@@ -108,7 +108,7 @@ Se l'account amministratore di archiviazione non è un membro del gruppo Domain 
 Net localgroup Administrators <Domain\Account> /add
 ```
 
-### <a name="step-14-install-roles-and-features"></a>Passaggio 1,4: Installare ruoli e funzionalità
+### <a name="step-14-install-roles-and-features"></a>Passaggio 1,4: installare ruoli e funzionalità
 
 Il passaggio successivo consiste nell'installare i ruoli del server in ogni server. A tale scopo, è possibile usare l'interfaccia di [amministrazione di Windows](../../manage/windows-admin-center/use/manage-servers.md), [Server Manager](../../administration/server-manager/install-or-uninstall-roles-role-services-or-features.md)) o PowerShell. Ecco i ruoli da installare:
 
@@ -150,8 +150,8 @@ Spazi di archiviazione diretta richiede una rete a larghezza di banda elevata e 
 Windows Server 2016 introduce il SET (switch-Embedded Teaming) nel Commuter virtuale Hyper-V. Ciò consente di usare le stesse porte NIC fisiche per tutto il traffico di rete durante l'uso di RDMA, riducendo il numero di porte NIC fisiche necessarie. Il gruppo switch-Embedded è consigliato per Spazi di archiviazione diretta.
 
 Interconnessioni del nodo Switched o Switched
-- Passa È necessario configurare correttamente i commutatori di rete per gestire la larghezza di banda e il tipo di rete. Se si usa RDMA che implementa il protocollo RoCE, la configurazione del dispositivo di rete e del Commuter è ancora più importante.
-- Senza interruttore I nodi possono essere interconnessi usando connessioni dirette, evitando l'uso di un'opzione. È necessario che ogni nodo disponga di una connessione diretta a tutti gli altri nodi del cluster.
+- Commutazione: i commutatori di rete devono essere configurati correttamente per gestire la larghezza di banda e il tipo di rete. Se si usa RDMA che implementa il protocollo RoCE, la configurazione del dispositivo di rete e del Commuter è ancora più importante.
+- Switching: i nodi possono essere interconnessi usando connessioni dirette, evitando l'uso di un'opzione. È necessario che ogni nodo disponga di una connessione diretta a tutti gli altri nodi del cluster.
 
 Per istruzioni su come configurare la rete per Spazi di archiviazione diretta, vedere la guida alla distribuzione di una scheda di interfaccia di rete con [convergenza e RDMA Guest per Windows Server 2016](https://github.com/Microsoft/SDN/blob/master/Diagnostics/S2D%20WS2016_ConvergedNIC_Configuration.docx).
 
@@ -159,7 +159,7 @@ Per istruzioni su come configurare la rete per Spazi di archiviazione diretta, v
 
 I passaggi seguenti vengono eseguiti in un sistema di gestione con la stessa versione dei server da configurare. I passaggi seguenti non devono essere eseguiti in modalità remota tramite una sessione di PowerShell, ma vengono invece eseguiti in una sessione di PowerShell locale nel sistema di gestione, con autorizzazioni amministrative.
 
-### <a name="step-31-clean-drives"></a>Passaggio 3,1: Pulisci unità
+### <a name="step-31-clean-drives"></a>Passaggio 3,1: pulire le unità
 
 Prima di abilitare Spazi di archiviazione diretta, assicurarsi che le unità siano vuote: nessuna partizione precedente o altri dati. Eseguire lo script seguente, sostituendo i nomi dei computer, per rimuovere tutte le partizioni obsolete o altri dati.
 
@@ -202,7 +202,7 @@ Count Name                          PSComputerName
 10    ATA ST4000NM0033              Server04
 ```
 
-### <a name="step-32-validate-the-cluster"></a>Passaggio 3,2: Convalidare il cluster
+### <a name="step-32-validate-the-cluster"></a>Passaggio 3,2: convalidare il cluster
 
 In questo passaggio si eseguirà lo strumento di convalida del cluster per assicurarsi che i nodi del server siano configurati correttamente per la creazione di un cluster con Spazi di archiviazione diretta. Quando la convalida del cluster (`Test-Cluster`) viene eseguita prima della creazione del cluster, esegue i test che verificano che la configurazione appaia adatta per funzionare correttamente come cluster di failover. Nell'esempio riportato di seguito viene utilizzato il parametro `-Include`, quindi vengono specificate le categorie specifiche dei test. Ciò assicura che i test specifici di Spazi di archiviazione diretta siano inclusi nella convalida.
 
@@ -216,7 +216,7 @@ Test-Cluster –Node <MachineName1, MachineName2, MachineName3, MachineName4> �
 
 In questo passaggio verrà creato un cluster con i nodi convalidati per la creazione del cluster nel passaggio precedente tramite il cmdlet di PowerShell seguente.
 
-Quando si crea il cluster, viene visualizzato un avviso indicante che si sono verificati problemi durante la creazione del ruolo del cluster che ne può impedire l'avvio. Per altre informazioni, visualizzare il file di report seguente". È possibile ignorare questo avviso. È causato dalla non disponibilità di dischi per il quorum del cluster. Si consiglia di configurare un controllo di condivisione file o un controllo cloud dopo la creazione del cluster.
+Quando si crea il cluster, viene visualizzato un avviso indicante che si sono verificati problemi durante la creazione del ruolo del cluster che ne può impedire l'avvio. Per ulteriori informazioni, visualizzare il file del rapporto seguente". È possibile ignorare questo avviso. È causato dalla non disponibilità di dischi per il quorum del cluster. Si consiglia di configurare un controllo di condivisione file o un controllo cloud dopo la creazione del cluster.
 
 > [!Note]
 > Se i server usano indirizzi IP statici, modificare il comando seguente in modo da riflettere l'indirizzo IP statico aggiungendo il parametro seguente e specificando l'indirizzo IP: -StaticAddress &lt;X.X.X.X&gt;.
@@ -227,7 +227,7 @@ Quando si crea il cluster, viene visualizzato un avviso indicante che si sono ve
 
 Dopo aver creato il cluster, la replica della voce DNS per il nome del cluster può richiedere tempo. Il tempo richiesto dipende dall'ambiente e dalla configurazione della replica DNS. Se la risoluzione del cluster non ha esito positivo, nella maggior parte dei casi è possibile usare il nome del computer di un nodo che è membro attivo del cluster al posto del nome del cluster.
 
-### <a name="step-34-configure-a-cluster-witness"></a>Passaggio 3,4: Configurare un server di controllo del mirroring
+### <a name="step-34-configure-a-cluster-witness"></a>Passaggio 3,4: configurare un server di controllo del mirroring
 
 Si consiglia di configurare un server di controllo del mirroring per il cluster, in modo che i cluster con tre o più server siano in grado di resistere a due server in errore o offline. Per una distribuzione a due server è necessario un server di controllo del mirroring. in caso contrario, il server offline causa anche l'indisponibilità dell'altro. Con questi sistemi, come controllo è possibile usare una condivisione file o un cloud di controllo. 
 
@@ -236,15 +236,15 @@ Per altre info, vedi i seguenti argomenti:
 - [Configurare e gestire il quorum](../../failover-clustering/manage-cluster-quorum.md)
 - [Distribuire un cloud di controllo per un cluster di failover](../../failover-clustering/deploy-cloud-witness.md)
 
-### <a name="step-35-enable-storage-spaces-direct"></a>Passaggio 3,5: Abilitare Spazi di archiviazione diretta
+### <a name="step-35-enable-storage-spaces-direct"></a>Passaggio 3.5: Abilitare Spazi di archiviazione diretta
 
-Dopo aver creato il cluster, usare il cmdlet di PowerShell `Enable-ClusterStorageSpacesDirect`, che consente di impostare il sistema di archiviazione in modalità di Spazi di archiviazione diretta ed eseguire automaticamente le operazioni seguenti:
+Dopo aver creato il cluster, usare il cmdlet `Enable-ClusterStorageSpacesDirect` PowerShell, che consente di impostare il sistema di archiviazione in modalità di Spazi di archiviazione diretta ed eseguire automaticamente le operazioni seguenti:
 
--   **Creare un pool:** Crea un singolo pool di grandi dimensioni con un nome simile a "S2D in CLUSTER1".
+-   **Crea un pool:** crea un singolo pool di grandi dimensioni con un nome simile a "S2D on Cluster1".
 
--   **Configura le cache di Spazi di archiviazione diretta:** Se è disponibile più di un tipo di supporto (unità) per Spazi di archiviazione diretta uso, Abilita i dispositivi più veloci come la cache (lettura e scrittura nella maggior parte dei casi)
+-   **Configura la cache di Spazi di archiviazione diretta:** se sono disponibili più tipi di supporto (unità) per l'uso di Spazi di archiviazione diretta, abilita il dispositivo di cache più veloce (nella maggior parte dei casi, in lettura e in scrittura).
 
--   **Livelli** Crea due livelli come livelli predefiniti. Uno è denominato "Capacità" e l'altro "Prestazioni". Il cmdlet analizza i dispositivi e configura ogni livello con una combinazione di tipi di dispositivi e resilienza.
+-   **Livelli:** Crea due livelli come livelli predefiniti. Uno è denominato "Capacità" e l'altro "Prestazioni". Il cmdlet analizza i dispositivi e configura ogni livello con una combinazione di tipi di dispositivi e resilienza.
 
 Eseguire il comando seguente dal sistema di gestione in una finestra di comandi di PowerShell aperta con privilegi di amministratore. Il nome del cluster corrisponde al cluster creato nei passaggi precedenti. Se questo comando viene eseguito localmente in uno dei nodi, il parametro -CimSession non è necessario.
 
@@ -256,9 +256,9 @@ Per abilitare Spazi di archiviazione diretta tramite il comando precedente, è a
 
 Al termine dell'esecuzione di questo comando, che può richiedere alcuni minuti, il sistema è pronto per la creazione dei volumi.
 
-### <a name="step-36-create-volumes"></a>Passaggio 3,6: Creare volumi
+### <a name="step-36-create-volumes"></a>Passaggio 3.6: Creare volumi
 
-È consigliabile usare il cmdlet `New-Volume` in quanto fornisce l'esperienza più veloce e semplice. Questo cmdlet singolo crea automaticamente il disco virtuale, lo divide in partizioni e lo formatta, crea il volume con il nome corrispondente e lo aggiunge ai volumi condivisi del cluster, tutto in un unico, semplice passaggio.
+È consigliabile usare il cmdlet `New-Volume` perché fornisce un'esperienza più veloce e intuitiva. Questo cmdlet singolo crea automaticamente il disco virtuale, lo divide in partizioni e lo formatta, crea il volume con il nome corrispondente e lo aggiunge ai volumi condivisi del cluster, tutto in un unico, semplice passaggio.
 
 Per ulteriori informazioni, consulta [Creazione di volumi in Spazi di archiviazione diretta](create-volumes.md).
 
@@ -268,7 +268,7 @@ Facoltativamente, è possibile abilitare la cache del volume condiviso cluster (
 
 L'abilitazione della cache CSV riduce la quantità di memoria disponibile per l'esecuzione di macchine virtuali in un cluster iperconvergente, quindi è necessario bilanciare le prestazioni di archiviazione con la memoria disponibile per i dischi rigidi virtuali.
 
-Per impostare le dimensioni della cache CSV, aprire una sessione di PowerShell nel sistema di gestione con un account che disponga di autorizzazioni di amministratore per il cluster di archiviazione, quindi utilizzare questo script, modificando le variabili `$ClusterName` e `$CSVCacheSize`, in questo esempio viene impostato un valore 2 GB di cache CSV per Server):
+Per impostare le dimensioni della cache CSV, aprire una sessione di PowerShell nel sistema di gestione con un account che disponga di autorizzazioni di amministratore per il cluster di archiviazione, quindi utilizzare questo script, modificando le variabili `$ClusterName` e `$CSVCacheSize` in base alle esigenze (in questo esempio viene impostata una cache CSV da 2 GB per Server):
 
 ```PowerShell
 $ClusterName = "StorageSpacesDirect1"
@@ -283,19 +283,19 @@ Write-Output "$ClusterName CSV cache size: $CSVCurrentCacheSize MB"
 
 Per altre informazioni, vedere [uso della cache di lettura CSV in memoria](csv-cache.md).
 
-### <a name="step-38-deploy-virtual-machines-for-hyper-converged-deployments"></a>Passaggio 3,8: Distribuire macchine virtuali per distribuzioni iperconvergenti
+### <a name="step-38-deploy-virtual-machines-for-hyper-converged-deployments"></a>Passaggio 3,8: distribuire macchine virtuali per distribuzioni iperconvergenti
 
 Se si distribuisce un cluster iperconvergente, l'ultimo passaggio consiste nel eseguire il provisioning di macchine virtuali nel cluster Spazi di archiviazione diretta.
 
-I file della macchina virtuale devono essere archiviati nello spazio dei nomi CSV dei sistemi (esempio: c: \\ClusterStorage @ no__t-1Volume1) proprio come le macchine virtuali in cluster nei cluster di failover.
+I file della macchina virtuale devono essere archiviati nello spazio dei nomi CSV dei sistemi (esempio: c:\\ClusterStorage\\volume1) proprio come le macchine virtuali in cluster nei cluster di failover.
 
 È possibile usare strumenti predefiniti o altri strumenti per gestire l'archiviazione e le macchine virtuali, ad esempio System Center Virtual Machine Manager.
 
-## <a name="step-4-deploy-scale-out-file-server-for-converged-solutions"></a>Passaggio 4: Distribuisci File server di scalabilità orizzontale per soluzioni convergenti
+## <a name="step-4-deploy-scale-out-file-server-for-converged-solutions"></a>Passaggio 4: distribuire File server di scalabilità orizzontale per le soluzioni convergenti
 
 Se si sta distribuendo una soluzione convergente, il passaggio successivo consiste nel creare un'istanza di File server di scalabilità orizzontale e configurare alcune condivisioni file. Se si distribuisce un cluster iperconvergente, si è pronti e non è necessaria questa sezione.
 
-### <a name="step-41-create-the-scale-out-file-server-role"></a>Passaggio 4,1: Creare il ruolo File server di scalabilità orizzontale
+### <a name="step-41-create-the-scale-out-file-server-role"></a>Passaggio 4,1: creare il ruolo File server di scalabilità orizzontale
 
 Il passaggio successivo per la configurazione dei servizi cluster per la file server consiste nel creare il ruolo di file server cluster, ovvero quando si crea l'istanza di File server di scalabilità orizzontale in cui sono ospitate le condivisioni file continuamente disponibili.
 
@@ -316,16 +316,16 @@ Il passaggio successivo per la configurazione dei servizi cluster per la file se
   
 #### <a name="to-create-a-scale-out-file-server-role-by-using-windows-powershell"></a>Per creare un ruolo di File server di scalabilità orizzontale usando Windows PowerShell
 
- In una sessione di Windows PowerShell connessa al cluster di file server, immettere i comandi seguenti per creare il ruolo File server di scalabilità orizzontale, modificare *FSCLUSTER* in modo che corrisponda al nome del cluster e *SOFS* in modo che corrisponda al nome che si vuole assegnare al Ruolo File server di scalabilità orizzontale:
+ In una sessione di Windows PowerShell connessa al cluster di file server, immettere i comandi seguenti per creare il ruolo File server di scalabilità orizzontale, modificare *FSCLUSTER* in modo che corrisponda al nome del cluster e *SOFS* in modo che corrisponda al nome che si vuole assegnare al ruolo file server di scalabilità orizzontale:
 
 ```PowerShell
 Add-ClusterScaleOutFileServerRole -Name SOFS -Cluster FSCLUSTER
 ```
 
 > [!NOTE]
->  Dopo aver creato il ruolo del cluster, potrebbero verificarsi ritardi di propagazione della rete che potrebbero impedire la creazione di condivisioni file su di esso per alcuni minuti o potenzialmente più lunghi. Se il ruolo SOFS ha esito negativo immediatamente e non si avvia, è possibile che l'oggetto computer del cluster non disponga delle autorizzazioni necessarie per creare un account computer per il ruolo SOFS. Per informazioni, vedere questo post di Blog: [Non è possibile avviare file server di scalabilità orizzontale ruolo con gli ID evento 1205, 1069 e 1194](http://www.aidanfinn.com/?p=14142).
+>  Dopo aver creato il ruolo del cluster, potrebbero verificarsi ritardi di propagazione della rete che potrebbero impedire la creazione di condivisioni file su di esso per alcuni minuti o potenzialmente più lunghi. Se il ruolo SOFS ha esito negativo immediatamente e non si avvia, è possibile che l'oggetto computer del cluster non disponga delle autorizzazioni necessarie per creare un account computer per il ruolo SOFS. Per informazioni, vedere questo post di Blog: il [ruolo file server di scalabilità orizzontale non viene avviato con gli ID evento 1205, 1069 e 1194](http://www.aidanfinn.com/?p=14142).
 
-### <a name="step-42-create-file-shares"></a>Passaggio 4,2: Crea condivisioni file
+### <a name="step-42-create-file-shares"></a>Passaggio 4,2: creare condivisioni file
 
 Dopo aver creato i dischi virtuali e averli aggiunti a CSVs, è possibile creare condivisioni file su di essi, una condivisione file per ogni volume condiviso cluster per ogni disco virtuale. System Center Virtual Machine Manager (VMM) è probabilmente il modo più pratico per eseguire questa operazione perché gestisce automaticamente le autorizzazioni, ma se non è presente nell'ambiente, è possibile utilizzare Windows PowerShell per automatizzare parzialmente la distribuzione.
 
@@ -386,7 +386,7 @@ CD $ScriptFolder
 
 Dopo aver distribuito il file server in cluster, è consigliabile testare le prestazioni della soluzione usando carichi di lavoro sintetici prima di attivare i carichi di lavoro reali. Ciò consente di verificare che la soluzione venga eseguita correttamente e di risolvere eventuali problemi persistenti prima di aggiungere la complessità dei carichi di lavoro. Per altre informazioni, vedere [testare le prestazioni di spazi di archiviazione usando carichi di lavoro sintetici](https://technet.microsoft.com/library/dn894707.aspx).
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 -   [Spazi di archiviazione diretta in Windows Server 2016](storage-spaces-direct-overview.md)
 -   [Comprendere la cache in Spazi di archiviazione diretta](understand-the-cache.md)

@@ -19,14 +19,14 @@ ms.locfileid: "71405304"
 
 >Si applica a: Windows Server (Canale semestrale), Windows Server 2016
 
-È possibile utilizzare la procedura seguente per configurare le porte utilizzate da server dei criteri di rete per il traffico di autenticazione e accounting di Remote Authentication Dial-In User Service \(RADIUS @ no__t-1.
+È possibile utilizzare la procedura seguente per configurare le porte utilizzate da server dei criteri di rete per Remote Authentication Dial-In User Service \(RADIUS\) il traffico di autenticazione e accounting.
 
-Per impostazione predefinita, NPS è in ascolto del traffico RADIUS sulle porte 1812, 1813, 1645 e 1646 sia per il protocollo Internet versione 6 \(IPv6 @ no__t-1 che per IPv4 per tutte le schede di rete installate.
+Per impostazione predefinita, il server dei criteri di rete è in ascolto del traffico RADIUS sulle porte 1812, 1813, 1645 e 1646 sia per il protocollo Internet versione 6 \(IPv6\) sia per IPv4 per tutte le schede di rete installate.
 
 >[!NOTE]
 >Se si disinstalla IPv4 o IPv6 in una scheda di rete, NPS non monitora il traffico RADIUS per il protocollo non installato.
 
-I valori di porta 1812 per l'autenticazione e 1813 per l'accounting sono porte standard RADIUS definite da Internet Engineering Task Force \(IETF @ no__t-1 nelle RFC 2865 e 2866. Per impostazione predefinita, tuttavia, molti server di accesso utilizzano le porte 1645 per le richieste di autenticazione e 1646 per le richieste di accounting. Indipendentemente dai numeri di porta che si decide di utilizzare, assicurarsi che NPS e il server di accesso siano configurati per l'utilizzo degli stessi.
+I valori di porta 1812 per l'autenticazione e 1813 per l'accounting sono porte standard RADIUS definite da Internet Engineering Task Force \(IETF\) nelle RFC 2865 e 2866. Per impostazione predefinita, tuttavia, molti server di accesso utilizzano le porte 1645 per le richieste di autenticazione e 1646 per le richieste di accounting. Indipendentemente dai numeri di porta che si decide di utilizzare, assicurarsi che NPS e il server di accesso siano configurati per l'utilizzo degli stessi.
 
 >IMPORTANTE Se non si utilizzano i numeri di porta RADIUS predefiniti, è necessario configurare le eccezioni nel firewall per il computer locale in modo da consentire il traffico RADIUS sulle nuove porte. Per altre informazioni, vedere [configurare i firewall per il traffico RADIUS](nps-firewalls-configure.md).
 

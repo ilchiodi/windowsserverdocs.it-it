@@ -15,9 +15,9 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 09/27/2019
 ms.locfileid: "71406354"
 ---
-# <a name="move-and-resize-the-hosted-cache-optional"></a>Spostare e ridimensionare la cache ospitata \(Optional @ no__t-1
+# <a name="move-and-resize-the-hosted-cache-optional"></a>Spostare e ridimensionare la cache ospitata \(facoltativo\)
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 È possibile utilizzare questa procedura per spostare la cache ospitata per l'unità e la cartella che si preferisce e per specificare la quantità di spazio su disco che il server cache ospitata può utilizzare per la cache ospitata.
 
@@ -57,6 +57,6 @@ Per eseguire questa procedura, è necessario essere membri del gruppo Administra
 
     -   DataCache | CacheFileDirectoryPath: Visualizza il percorso del disco rigido che corrisponde al valore fornito con il parametro – MoveTo del comando SetBCCache. Ad esempio, se è stato specificato il valore d\\datacache, di valore viene visualizzato nell'output del comando.
 
-    -   DataCache | MaxCacheSizeAsPercentageOfDiskVolume: Visualizza il numero che corrisponde al valore specificato con il parametro – percentuale del comando SetBCCache. Ad esempio, se il valore 20, tale valore viene visualizzato nell'output del comando.
+    -   DataCache | MaxCacheSizeAsPercentageOfDiskVolume: Visualizza il numero che corrisponde al valore fornito con – parametro percentuale del comando SetBCCache. Ad esempio, se il valore 20, tale valore viene visualizzato nell'output del comando.
 
 Per continuare con questa Guida, vedere [Prehash e Preload contenuto sul Server Cache ospitata & #40; facoltativo & #41;](7-Bc-Prehash-Preload.md).

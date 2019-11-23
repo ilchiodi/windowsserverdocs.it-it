@@ -18,7 +18,7 @@ ms.locfileid: "71405562"
 ---
 # <a name="configure-network-policy-server-accounting"></a>Configurare le funzionalità di accounting del Server dei criteri di rete
 
-Sono disponibili tre tipi di registrazione per server \(dei criteri di rete NPS:\)
+Sono disponibili tre tipi di registrazione per server dei criteri di rete \(NPS\):
 
 - **Registrazione degli eventi**. Utilizzato principalmente per il controllo e la risoluzione dei problemi relativi ai tentativi di connessione. È possibile configurare la registrazione degli eventi NPS ottenendo le proprietà NPS nella console NPS.
 
@@ -53,9 +53,9 @@ Per ulteriori informazioni sull'interpretazione dei file di log, vedere [interpr
 
 Per evitare che i file di log compilano l'unità disco rigido, è consigliabile mantenerli in una partizione separata dalla partizione di sistema. Di seguito vengono fornite ulteriori informazioni sulla configurazione dell'accounting per NPS:
 
-- Per inviare i dati del file di log per la raccolta da parte di un altro processo, è possibile configurare NPS per la scrittura in un named pipe. Per utilizzare named pipe, impostare la cartella del file di \\log su \\.\pipe o ComputerName\pipe. Il programma server named pipe crea una named pipe denominata \\.\pipe\iaslog.log per accettare i dati. In crea un nuovo file di log della finestra di dialogo Proprietà file locale selezionare mai (dimensioni file illimitate) quando si utilizzano named pipe.
+- Per inviare i dati del file di log per la raccolta da parte di un altro processo, è possibile configurare NPS per la scrittura in un named pipe. Per usare named pipe, impostare la cartella del file di log su \\.\pipe o \\ComputerName\pipe. Il programma server named pipe crea una named pipe denominata \\.\pipe\iaslog.log per accettare i dati. In crea un nuovo file di log della finestra di dialogo Proprietà file locale selezionare mai (dimensioni file illimitate) quando si utilizzano named pipe.
 
-- È possibile creare la directory dei file di registro usando le variabili di ambiente di sistema, anziché le variabili utente, ad esempio% SystemDrive%,% SystemRoot% e% windir%. Il percorso seguente, ad esempio, utilizzando la variabile di ambiente% windir%, individua il file di log nella directory di sistema nella sottocartella \System32\Logs (ovvero%windir%\System32\Logs @ no__t-0.
+- È possibile creare la directory dei file di registro usando le variabili di ambiente di sistema, anziché le variabili utente, ad esempio% SystemDrive%,% SystemRoot% e% windir%. Ad esempio, il seguente percorso, usando la variabile di ambiente% windir%, individua il file di log nella directory di sistema nella sottocartella \System32\Logs, ovvero%windir%\System32\Logs\).
 
 - Il cambio di formati di file di log non comporta la creazione di un nuovo log. Se si modificano i formati dei file di log, il file attivo al momento della modifica conterrà una combinazione dei due formati (i record all'inizio del log avranno il formato precedente e i record alla fine del log avranno il nuovo formato).
 
@@ -75,20 +75,20 @@ Per eseguire questa procedura, è necessaria almeno l'appartenenza al gruppo **D
 5. In **azione registrazione non riuscita**selezionare **se la registrazione ha esito negativo, eliminare le richieste di connessione** se si desidera che NPS interrompa l'elaborazione dei messaggi di richiesta di accesso quando i file di log sono pieni o non disponibili per qualche motivo. Se si desidera che NPS continui a elaborare le richieste di connessione in caso di errore di registrazione, non selezionare questa casella di controllo.
 6. Nella finestra di dialogo **Proprietà file di registro** fare clic sulla scheda **file di log** .
 7. Nella scheda **file di log** , in **directory**, digitare il percorso in cui archiviare i file di log di NPS. Il percorso predefinito è la cartella Systemroot\system32\logfiles.<br>Se non si specifica un'istruzione percorso completo nella **directory del file di log**, viene utilizzato il percorso predefinito. Ad esempio, se si digita **NPSLogFile** nella **directory del file di log**, il file si trova in%systemroot%\System32\NPSLogFile.
-8. In **formato**fare clic su **DTS conforme**. Se si preferisce, è possibile selezionare invece un formato di file legacy, ad **esempio \(legacy\) ODBC** o legacy **IAS \(\)** .<br>I tipi di file legacy **ODBC** e **IAS** contengono un subset delle informazioni inviate dal server dei criteri di gruppo al relativo database SQL Server. Il formato XML del tipo di file **conforme a DTS** è identico al formato XML utilizzato da NPS per importare dati nel database SQL Server. Pertanto, il formato di file **conforme a DTS** fornisce un trasferimento più efficiente e completo dei dati nel database di SQL Server standard per NPS.
+8. In **formato**fare clic su **DTS conforme**. Se si preferisce, è possibile selezionare invece un formato di file legacy, ad esempio **ODBC \(legacy\)** o **IAS \(legacy\)** .<br>I tipi di file legacy **ODBC** e **IAS** contengono un subset delle informazioni inviate dal server dei criteri di gruppo al relativo database SQL Server. Il formato XML del tipo di file **conforme a DTS** è identico al formato XML utilizzato da NPS per importare dati nel database SQL Server. Pertanto, il formato di file **conforme a DTS** fornisce un trasferimento più efficiente e completo dei dati nel database di SQL Server standard per NPS.
 9. In **Crea un nuovo file di log**, per configurare NPS per l'avvio di nuovi file di log a intervalli specificati, fare clic sull'intervallo che si desidera utilizzare:
     - Per un'attività di registrazione e volume di transazioni complesse, fare clic su **giornaliera**.
     - Per volumi di transazioni e attività di registrazione minori, fare clic su **settimanale** o **mensile**.
-    - Per archiviare tutte le transazioni in un unico file di log, fare clic su **dimensioni \(\)file mai illimitate**.
+    - Per archiviare tutte le transazioni in un unico file di log, fare clic su **mai \(dimensioni file illimitate\)** .
     - Per limitare le dimensioni di ogni file di log, fare clic su **quando il file di log raggiunge questa dimensione**, quindi digitare le dimensioni del file, dopo la creazione di un nuovo log. Le dimensioni predefinite sono pari a 10 megabyte (MB).
-10. Se si desidera che il server dei criteri di ricerca elimini i vecchi file di log per creare spazio su disco per i nuovi file di log quando il disco rigido è vicino alla capacità, assicurarsi che **se il disco è pieno, eliminare i file di registro precedenti** . Questa opzione non è disponibile, tuttavia, se il valore di **Crea un nuovo file di log** non è **mai \(illimitato\)** , le dimensioni del file. Inoltre, se il file di log meno recente è il file di log corrente, non viene eliminato.
+10. Se si desidera che il server dei criteri di ricerca elimini i vecchi file di log per creare spazio su disco per i nuovi file di log quando il disco rigido è vicino alla capacità, assicurarsi che **se il disco è pieno, eliminare i file di registro precedenti** . Questa opzione non è disponibile, tuttavia, se il valore di **Crea un nuovo file di log** non viene **mai \(dimensioni file illimitate\)** . Inoltre, se il file di log meno recente è il file di log corrente, non viene eliminato.
 
 ## <a name="configure-nps-sql-server-logging"></a>Configurare la registrazione SQL Server NPS
 
 È possibile utilizzare questa procedura per registrare i dati di accounting RADIUS in un database locale o remoto che esegue Microsoft SQL Server.
 
 >[!NOTE]
->NPS formatta i dati di contabilità come un documento XML che invia alla **report_event** stored procedure nel database di SQL Server designato in NPS. Per il corretto funzionamento della registrazione SQL Server, è necessario disporre di una stored procedure denominata **report_event** nel database SQL Server che possa ricevere e analizzare i documenti XML da NPS.
+>NPS formatta i dati di contabilità come un documento XML che invia al **report_event** stored procedure nel database SQL Server designato in NPS. Per il corretto funzionamento della registrazione SQL Server, è necessario disporre di una stored procedure denominata **report_event** nel database SQL Server in grado di ricevere e analizzare i documenti XML da NPS.
 
 Per completare questa procedura, è necessaria almeno l'appartenenza al gruppo Domain Admins o a un gruppo equivalente.
 
@@ -130,9 +130,9 @@ Ping nome utente può essere aggiunto alla chiave del registro di sistema seguen
 
 `HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\IAS\Parameters`
 
-- **Nome**:`ping user-name`
-- **Tipo**:`REG_SZ`
-- **Dati**:  *Nome utente*
+- **Nome**: `ping user-name`
+- **Tipo**: `REG_SZ`
+- **Dati**: *nome utente*
 
 >[!TIP]
 >Per indicare più di un nome utente per un valore **ping nome utente** , immettere un modello di nome, ad esempio un nome DNS, inclusi i caratteri jolly, nei **dati**.

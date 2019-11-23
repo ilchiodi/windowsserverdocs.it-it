@@ -18,7 +18,7 @@ ms.locfileid: "71359575"
 ---
 # <a name="install-the-federation-service-proxy-role-service"></a>Installare il servizio ruolo proxy del servizio federativo
 
-Dopo aver configurato un computer con le applicazioni e i certificati prerequisiti, si è pronti per installare il servizio ruolo Proxy servizio federativo di Active Directory Federation Services \(AD FS @ no__t-1. È possibile utilizzare la procedura seguente per installare il servizio ruolo Proxy servizio federativo. Quando si installa il servizio ruolo Proxy servizio federativo in un computer, il computer diventa un proxy server federativo.  
+Dopo aver configurato un computer con le applicazioni e i certificati prerequisiti, si è pronti per installare il servizio ruolo Proxy servizio federativo di Active Directory Federation Services \(AD FS\). È possibile utilizzare la procedura seguente per installare il servizio ruolo Proxy servizio federativo. Quando si installa il servizio ruolo Proxy servizio federativo in un computer, il computer diventa un proxy server federativo.  
   
 Per completare questa procedura, è necessaria almeno l'appartenenza al gruppo **Administrators** oppure a un gruppo equivalente nel computer locale.  Informazioni dettagliate sull'utilizzo degli account appropriati e appartenenze [dominio gruppi predefiniti locali e](https://go.microsoft.com/fwlink/?LinkId=83477).   
   
@@ -30,7 +30,7 @@ Per completare questa procedura, è necessaria almeno l'appartenenza al gruppo *
   
 3.  Nella pagina **Prima di iniziare**, fare clic su **Avanti**.  
   
-4.  Nella pagina **Selezione tipo di installazione** fare clic su **Role @ no__t-2based o feature @ no__t-3based Installation**, quindi fare clic su **Next**.  
+4.  Nella pagina **Selezione tipo di installazione** fare clic su **\-basata su ruoli o su\-installazione basata su funzionalità**, quindi fare clic su **Avanti**.  
   
 5.  Nella pagina **Selezione server di destinazione** fare clic su **selezionare un server dal pool di server**, verificare che il computer di destinazione sia evidenziato, quindi fare clic su **Avanti**.  
   
@@ -57,8 +57,8 @@ Per completare questa procedura, è necessaria almeno l'appartenenza al gruppo *
 
   
 ## <a name="additional-references"></a>Altri riferimenti  
-[Elenco di controllo: Configurazione di un server federativo](Checklist--Setting-Up-a-Federation-Server.md)  
+[Elenco di controllo: configurazione di un server federativo](Checklist--Setting-Up-a-Federation-Server.md)  
   
-[Elenco di controllo: Configurazione di un proxy server federativo](Checklist--Setting-Up-a-Federation-Server-Proxy.md)  
+[Elenco di controllo: configurazione di un proxy server federativo](Checklist--Setting-Up-a-Federation-Server-Proxy.md)  
   
 

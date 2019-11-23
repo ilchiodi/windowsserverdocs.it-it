@@ -28,18 +28,18 @@ Questo argomento spiega come abilitare le proprietà delle risorse in Active Dir
   
 **Contenuto del documento**  
   
--   [Passaggio 1: Creare definizioni di proprietà delle risorse @ no__t-0  
+-   [Passaggio 1: creare definizioni delle proprietà delle risorse](assetId:///4a96cdaf-0081-4824-aab8-f0d51be501ac#BKMK_Step1)  
   
--   [Passaggio 2: Creare una regola di classificazione del contenuto stringa @ no__t-0  
+-   [Passaggio 2: creare una regola di classificazione del contenuto stringa](assetId:///4a96cdaf-0081-4824-aab8-f0d51be501ac#BKMK_Step2)  
   
--   [Passaggio 3: Creare una regola di classificazione del contenuto di un'espressione regolare @ no__t-0  
+-   [Passaggio 3: creare una regola di classificazione del contenuto di un'espressione regolare](assetId:///4a96cdaf-0081-4824-aab8-f0d51be501ac#BKMK_Step3)  
   
--   [Passaggio 4: Verificare che i file siano classificati @ no__t-0  
+-   [Passaggio 4: verificare che i file siano classificati](Deploy-Automatic-File-Classification--Demonstration-Steps-.md#BKMK_Step4)  
   
 > [!NOTE]  
 > Questo argomento include cmdlet di esempio di Windows PowerShell che è possibile usare per automatizzare alcune delle procedure descritte. Per ulteriori informazioni, vedere [mediante i cmdlet](https://go.microsoft.com/fwlink/p/?linkid=230693).  
   
-## <a name="BKMK_Step1"></a>Passaggio 1: Creare definizioni delle proprietà delle risorse  
+## <a name="BKMK_Step1"></a>Passaggio 1: creare definizioni delle proprietà delle risorse  
 Le proprietà delle risorse Impatto e Informazioni personali vengono abilitate in modo che Infrastruttura di classificazione file possa usarle per contrassegnare i file analizzati in una cartella di rete condivisa.  
   
 [Eseguire questo passaggio con Windows PowerShell](assetId:///4a96cdaf-0081-4824-aab8-f0d51be501ac#BKMK_PSstep1)  
@@ -56,7 +56,7 @@ Le proprietà delle risorse Impatto e Informazioni personali vengono abilitate i
   
 5.  Fare clic con il pulsante destro del mouse su **Informazioni personali** e quindi scegliere **Abilita**.  
   
-![solution guide i](media/Deploy-Automatic-File-Classification--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em>***  
+![la soluzione guida i](media/Deploy-Automatic-File-Classification--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em>***  
   
 Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.  
   
@@ -65,7 +65,7 @@ Set-ADResourceProperty '"Enabled:$true '"Identity:'CN=Impact_MS,CN=Resource Prop
 Set-ADResourceProperty '"Enabled:$true '"Identity:'CN=PII_MS,CN=Resource Properties,CN=Claims Configuration,CN=Services,CN=Configuration,DC=contoso,DC=com'  
 ```  
   
-## <a name="BKMK_Step2"></a>Passaggio 2: Creare una regola di classificazione di contenuto di tipo stringa  
+## <a name="BKMK_Step2"></a>Passaggio 2: creare una regola di classificazione del contenuto stringa  
 Una regola di classificazione di contenuto di tipo stringa cerca una stringa specifica in un file. Se la stringa viene trovata, il valore di una proprietà della risorsa può essere configurato. In questo esempio, si verrà analizzato ogni file in una cartella condivisa di rete e cercare la stringa "Contoso Confidential". Se la stringa viene trovata, il file associato viene classificato come ad alto impatto aziendale.  
   
 [Eseguire questo passaggio con Windows PowerShell](assetId:///4a96cdaf-0081-4824-aab8-f0d51be501ac#BKMK_PSstep2)  
@@ -107,7 +107,7 @@ Una regola di classificazione di contenuto di tipo stringa cerca una stringa spe
   
 13. Nella scheda **Tipo valutazione** selezionare la casella di controllo **Rivaluta i valori di proprietà esistenti**, quindi fare clic su **Sovrascrivi il valore esistente** e infine su **OK**.  
   
-![solution guide i](media/Deploy-Automatic-File-Classification--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em>***  
+![la soluzione guida i](media/Deploy-Automatic-File-Classification--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em>***  
   
 Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.  
   
@@ -118,7 +118,7 @@ Set-FsrmClassification -Continuous -schedule $AutomaticClassificationScheduledTa
 New-FSRMClassificationRule -Name 'Contoso Confidential' -Property "Impact_MS" -PropertyValue "3000" -Namespace @('D:\Finance Documents') -ClassificationMechanism "Content Classifier" -Parameters @("StringEx=Min=1;Expr=Contoso Confidential") -ReevaluateProperty Overwrite  
 ```  
   
-## <a name="BKMK_Step3"></a>Passaggio 3: Creare una regola di classificazione di contenuto di tipo espressione regolare  
+## <a name="BKMK_Step3"></a>Passaggio 3: creare una regola di classificazione del contenuto di un'espressione regolare  
 Una regola di classificazione di contenuto di tipo espressione regolare cerca in un file una stringa corrispondente all'espressione regolare. Se una stringa di questo tipo viene trovata, il valore di una proprietà della risorsa può essere configurato. In questo esempio verrà analizzato ogni file contenuto in una cartella condivisa alla ricerca di una stringa corrispondente allo schema di un codice fiscale (XXX-XX-XXXX). Se lo schema viene trovato, il file associato viene classificato come contenente informazioni personali.  
   
 [Eseguire questo passaggio con Windows PowerShell](assetId:///4a96cdaf-0081-4824-aab8-f0d51be501ac#BKMK_PSstep3)  
@@ -149,13 +149,13 @@ Una regola di classificazione di contenuto di tipo espressione regolare cerca in
   
 9. Nella colonna **Tipo espressione** selezionare **Espressione regolare**.  
   
-10. Nella colonna **espressione** Digitare **^ (?! 000) ([0-7] \d @ no__t-2 | 7 ([0-7] \d | 7 [012])) ([-]?) (?! 00) \d\d\3 (?! 0000) \d @ no__t-3 $**  
+10. Nella colonna **espressione** Digitare **^ (?! 000) ([0-7] \d{2}| 7 ([0-7] \d | 7 [012])) ([-]?) (?! 00) \d\d\3 (?! 0000) \d{4}$**  
   
 11. Nella colonna **N. minimo occorrenze** digitare **10**e quindi fare clic su **OK**.  
   
 12. Nella scheda **Tipo valutazione** selezionare la casella di controllo **Rivaluta i valori di proprietà esistenti**, quindi fare clic su **Sovrascrivi il valore esistente** e infine su **OK**.  
   
-![solution guide i](media/Deploy-Automatic-File-Classification--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em>***  
+![la soluzione guida i](media/Deploy-Automatic-File-Classification--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em>***  
   
 Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.  
   
@@ -163,7 +163,7 @@ Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione 
 New-FSRMClassificationRule -Name "PII Rule" -Property "PII_MS" -PropertyValue "5000" -Namespace @('D:\Finance Documents') -ClassificationMechanism "Content Classifier" -Parameters @("RegularExpressionEx=Min=10;Expr=^(?!000)([0-7]\d{2}|7([0-7]\d|7[012]))([ -]?)(?!00)\d\d\3(?!0000)\d{4}$") -ReevaluateProperty Overwrite  
 ```  
   
-## <a name="BKMK_Step4"></a>Passaggio 4: Verificare che i file siano classificati correttamente  
+## <a name="BKMK_Step4"></a>Passaggio 4: verificare che i file siano classificati correttamente  
 È possibile verificare che i file siano classificati correttamente visualizzando le proprietà di un file creato nella cartella specificata nelle regole di classificazione.  
   
 #### <a name="to-verify-that-the-files-are-classified-correctly"></a>Per verificare che i file siano classificati correttamente  
@@ -176,7 +176,7 @@ New-FSRMClassificationRule -Name "PII Rule" -Property "PII_MS" -PropertyValue "5
   
     3.  Chiudere il Rapporto classificazione automatica.  
   
-    4.  A questo scopo è possibile eseguire il comando di Windows PowerShell seguente: **Start-FSRMClassification ' "RunDuration 0-Confirm: $false**  
+    4.  È possibile farlo tramite Windows PowerShell con il comando seguente: **FSRMClassification inizio ' "valore di RunDuration 0 - confermare: $false**  
   
 2.  Passare alla cartella specificata nelle regole di classificazione, ad esempio D:\Finance Documents.  
   
@@ -186,7 +186,7 @@ New-FSRMClassificationRule -Name "PII Rule" -Property "PII_MS" -PropertyValue "5
   
 ## <a name="BKMK_Links"></a>Vedere anche  
   
--   [Scenario: Comprendere i dati mediante la classificazione](Scenario--Get-Insight-into-Your-Data-by-Using-Classification.md)  
+-   [Scenario: ottenere informazioni dettagliate sui dati tramite la classificazione](Scenario--Get-Insight-into-Your-Data-by-Using-Classification.md)  
   
 -   [Pianificare la classificazione automatica dei file](https://docs.microsoft.com/previous-versions/orphan-topics/ws.11/jj574209(v%3dws.11))  
 

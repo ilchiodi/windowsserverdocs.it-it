@@ -33,7 +33,7 @@ Di solito, una nuova installazione del sistema operativo richiede un firewall e 
 |---------------------------|-------------|  
 |DHCP|Attivato|  
 |Port forwarding|Occorre inoltrare le seguenti porte all'indirizzo del server:<br /><br /> -80 (per la configurazione ospitata, usare solo 443)<br />-443|  
-|Supporto UPnP|È necessario abilitare il supporto UPnP per fornire la configurazione router più semplice per il cliente e la migliore esperienza utente durante l'installazione.<br /><br /> **Avviso:** L'architettura UPnP può causare rischi di protezione se rimane attivata.|  
+|Supporto UPnP|È necessario abilitare il supporto UPnP per fornire la configurazione router più semplice per il cliente e la migliore esperienza utente durante l'installazione.<br /><br /> **Avviso:** L'architettura UPnP può comportare un rischio per la sicurezza se viene lasciata abilitata.|  
   
  Oltre alle impostazioni di preconfigurazione di base del router, è possibile completare le seguenti attività per garantire un'esperienza utente più integrata in termini di gestione del router:  
   
@@ -48,7 +48,7 @@ Di solito, una nuova installazione del sistema operativo richiede un firewall e 
 > [!NOTE]
 >  Per altre informazioni sulla configurazione di connessioni wireless, vedere [Configure Support for a Wireless Network](Configure-Support-for-a-Wireless-Network.md).  
   
-## <a name="see-also"></a>Vedere anche  
+## <a name="see-also"></a>Vedi anche  
  [Introduzione con Windows Server Essentials ADK](Getting-Started-with-the-Windows-Server-Essentials-ADK.md)   
  [Creazione e personalizzazione dell'immagine](Creating-and-Customizing-the-Image.md)   
  [Personalizzazioni aggiuntive](Additional-Customizations.md)   

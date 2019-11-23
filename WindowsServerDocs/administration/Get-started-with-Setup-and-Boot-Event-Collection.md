@@ -41,13 +41,13 @@ In precedenza, questi eventi sono stati impossibili da monitorare, poiché l'inf
   
 -   Quando il sistema diventa disponibile per l'accesso, i punti di connessione con un controller di dominio, il completamento dell'avvio del servizio e la disponibilità delle condivisioni di rete  
   
-Il computer dell'agente di raccolta deve eseguire Windows Server 2016 (può essere in dei Server con la modalità di esperienza Desktop o Server Core). Il computer di destinazione deve essere in esecuzione Windows 10 o Windows Server 2016. È inoltre possibile eseguire questo servizio in una macchina virtuale che è ospitata in un computer che è **non** in esecuzione Windows Server 2016. Le seguenti combinazioni di agente di raccolta dati virtualizzati e computer di destinazione è attualmente possibile usare:  
+Il computer dell'agente di raccolta deve eseguire Windows Server 2016 (può essere Server con la modalità di esperienza Desktop o Server Core). Il computer di destinazione deve essere in esecuzione Windows 10 o Windows Server 2016. È inoltre possibile eseguire questo servizio in una macchina virtuale che è ospitata in un computer che è **non** in esecuzione Windows Server 2016. Le seguenti combinazioni di agente di raccolta dati virtualizzati e computer di destinazione è attualmente possibile usare:  
   
 |Host di virtualizzazione|Macchina virtuale dell'agente di raccolta|Macchina virtuale di destinazione|  
 |-----------------------|-----------------------------|--------------------------|  
 |Windows 8.1|sì|sì|  
 |Windows 10|sì|sì|  
-|Windows Server 2016|sì|sì|  
+|Windows Server 2016|sì|sì|  
 |Windows Server 2012 R2|sì|no|  
   
 ## <a name="installing-the-collector-service"></a>L'installazione del servizio agente di raccolta dati  
@@ -105,7 +105,7 @@ In ogni computer di destinazione, è necessario abilitare prima il trasporto di 
   
     `Enable-SbecBcd -ComputerName <target_name> -CollectorIP <ip> -CollectorPort <port> -Key <a.b.c.d>`  
   
-    Qui < target_name > è il nome del computer di destinazione, \<ip > è l'indirizzo IP del computer di raccolta. \<port > è il numero di porta in cui verrà eseguito l'agente di raccolta. La chiave < a.b.c. d > è una chiave di crittografia richiesto per la comunicazione, che comprende quattro stringhe alfanumeriche separate da punti. La stessa chiave viene utilizzata sul computer agente. Se non si immette una chiave, il sistema genera una chiave casuale. sarà necessaria per il computer dell'agente di raccolta, quindi prendere nota di esso.  
+    Qui < target_name > è il nome del computer di destinazione, \<ip > è l'indirizzo IP del computer di raccolta. \<porta > è il numero di porta in cui verrà eseguito l'agente di raccolta. La chiave < a.b.c. d > è una chiave di crittografia richiesto per la comunicazione, che comprende quattro stringhe alfanumeriche separate da punti. La stessa chiave viene utilizzata nel computer di raccolta. Se non si immette una chiave, il sistema genera una chiave casuale. sarà necessaria per il computer dell'agente di raccolta, quindi prendere nota di esso.  
   
 6.  Se si dispone già di un computer agente configurare, aggiornare il file di configurazione sul computer agente con le informazioni per il nuovo computer di destinazione. Vedere la sezione "Configurazione del computer dell'agente di raccolta" per informazioni dettagliate.  
   
@@ -117,15 +117,15 @@ In ogni computer di destinazione, è necessario abilitare prima il trasporto di 
   
     **bcdedit/eventsettings NET HostIP: 1.2.3.4 porta: 50000 chiave: a. b. c. d**  
   
-    Di seguito "1.2.3.4" è un esempio; Sostituire con l'indirizzo IP del computer di raccolta. Sostituire anche "50000" con il numero di porta in cui verrà eseguito l'agente di raccolta e "a.b.c. d" con la chiave di crittografia richiesto per la comunicazione. La stessa chiave viene utilizzata sul computer agente. Se non si immette una chiave, il sistema genera una chiave casuale. sarà necessaria per il computer dell'agente di raccolta, quindi prendere nota di esso.  
+    Di seguito "1.2.3.4" è un esempio; Sostituire con l'indirizzo IP del computer di raccolta. Sostituire anche "50000" con il numero di porta in cui verrà eseguito l'agente di raccolta e "a.b.c. d" con la chiave di crittografia richiesto per la comunicazione. La stessa chiave viene utilizzata nel computer di raccolta. Se non si immette una chiave, il sistema genera una chiave casuale. sarà necessaria per il computer dell'agente di raccolta, quindi prendere nota di esso.  
   
 2.  Se si dispone già di un computer agente configurare, aggiornare il file di configurazione sul computer agente con le informazioni per il nuovo computer di destinazione. Vedere la sezione "Configurazione del computer dell'agente di raccolta" per informazioni dettagliate.  
   
 **Ora che il trasporto eventi è abilitato, è necessario consentire al sistema di inviare effettivamente gli eventi ETW tramite il trasporto.**  
   
-##### <a name="to-enable-sending-of-etw-events-through-the-transport-remotely"></a>Per consentire l'invio di eventi ETW tramite il trasporto in modalità remota  
+##### <a name="to-enable-sending-of-etw-events-through-the-transport-remotely"></a>Per abilitare l'invio di eventi ETW tramite il trasporto in remoto  
   
-1.  Sul computer agente, aprire un prompt di Windows PowerShell con privilegi elevato.  
+1.  Nel computer di raccolta, apri un prompt dei comandi di Windows PowerShell con privilegi elevati.  
   
 2.  Eseguire `Enable-SbecAutologger -ComputerName <target_name>`, dove < target_name > è il nome del computer di destinazione.  
   
@@ -150,7 +150,7 @@ Se il computer di destinazione ha più di una scheda di rete, il driver KDNET sc
   
 1.  Nel computer di destinazione, aprire Gestione dispositivi espandere **le schede di rete**, individuare la scheda di rete si desidera utilizzare e farvi clic.  
   
-2.  Nel menu visualizzato, fare clic su **proprietà**, quindi fare clic sui **Dettagli** scheda. Espandere il menu di **proprietà** campo, individuare **informazioni sul percorso** (l'elenco è probabilmente non in ordine alfabetico) e quindi fare clic su. Il valore sarà una stringa nel formato **bus PCI X, dispositivo Y, Z funzione**. Prendere nota del X.Y.Z; Questi sono i parametri bus, che è necessario per il comando seguente.  
+2.  Nel menu visualizzato, fai clic su **Proprietà**e quindi sulla scheda **Dettagli**. Espandi il menu nel campo **Proprietà** , scorri l'elenco per trovare **Informazioni sulla posizione** (l'elenco probabilmente non è in ordine alfabetico) e quindi fai clic su di esso. Il valore sarà rappresentato da una stringa nel formato **PCI bus X, device Y, function Z**. Prendi nota di X.Y.Z; si tratta dei parametri bus necessari per il comando seguente.  
   
 3.  Eseguire uno dei seguenti comandi:  
   
@@ -173,16 +173,16 @@ Per controllare le impostazioni nel computer di destinazione, aprire un prompt d
   
 Controllare inoltre che sia stata abilitata **organizzazione di eventi / bcdedit**, poiché **/debug** e **organizzazione di eventi /** si escludono a vicenda. È possibile eseguire solo uno o l'altro. Analogamente, è possibile combinare /eventsettings con /debug o /dbgsettings con l'organizzazione di eventi /.  
   
-Si noti inoltre che la raccolta degli eventi non funziona se è impostato su una porta seriale.  
+Nota inoltre che la raccolta degli eventi non funziona se impostata su una porta seriale.  
   
 ### <a name="configuring-the-collector-computer"></a>Configurazione del computer dell'agente di raccolta  
 Il servizio agente di raccolta riceve gli eventi e li salva nel file ETL. Questi file ETL possono essere letti da altri strumenti, ad esempio il Visualizzatore eventi, i cmdlet di Windows PowerShell, Wevtutil e Message Analyzer.  
   
 Poiché il formato ETW non consente di specificare il nome di computer di destinazione, gli eventi per ogni computer di destinazione devono essere salvati in un file separato. Gli strumenti di visualizzazione potrebbero mostrare un nome di computer, ma sarà il nome del computer in cui viene eseguito lo strumento.  
   
-Più precisamente, ogni computer di destinazione viene assegnato un anello di file ETL. Ogni nome di file include un indice da 000 a un valore massimo che si configura (fino a 999). Quando il file raggiunge la dimensione massima configurata, si passa gli eventi di scrittura al file successivo. Dopo il file più alto possibile passa indietro per file di indice 000. In questo modo, i file vengono automaticamente riciclati, limitare l'utilizzo di spazio su disco. È inoltre possibile impostare criteri di conservazione esterni aggiuntivi per limitare ulteriormente l'utilizzo del disco; ad esempio, è possibile eliminare i file più vecchi di un determinato numero di giorni.  
+Più precisamente, ogni computer di destinazione viene assegnato un anello di file ETL. Ogni nome di file include un indice da 000 a un valore massimo che si configura (fino a 999). Quando il file raggiunge la dimensione massima configurata, passa gli eventi di scrittura sul file successivo. Dopo il file più alto possibile passa indietro per file di indice 000. In questo modo, i file vengono automaticamente riciclati, limitando l'utilizzo dello spazio su disco. È inoltre possibile impostare criteri di conservazione esterni aggiuntivi per limitare ulteriormente l'utilizzo del disco; ad esempio, è possibile eliminare i file più vecchi di un determinato numero di giorni.  
   
-File ETL raccolti vengono in genere memorizzati nella directory **c:\ProgramData\Microsoft\BootEventCollector\Etl** (che potrebbero disporre di ulteriori sottodirectory). È possibile trovare il file di log più recente tramite l'ordinamento per l'ora dell'ultima modifica. È inoltre disponibile un log di stato (in genere in **c:\ProgramData\Microsoft\BootEventCollector\Logs**), che registra ogni volta che l'agente di raccolta attiva la scrittura di un nuovo file.  
+File ETL raccolti vengono in genere memorizzati nella directory **c:\ProgramData\Microsoft\BootEventCollector\Etl** (che potrebbero disporre di ulteriori sottodirectory). Puoi trovare il file di registro più recente ordinando in base all'ora dell'ultima modifica. È inoltre disponibile un log di stato (in genere in **c:\ProgramData\Microsoft\BootEventCollector\Logs**), che registra ogni volta che l'agente di raccolta attiva la scrittura di un nuovo file.  
   
 È inoltre disponibile un log collector, che registra le informazioni sull'agente di raccolta stesso. È possibile mantenere questo file di registro in formato ETW (in cui gli eventi vengono segnalati al servizio Registro di Windows; l'impostazione predefinita) o in un file (in genere in **c:\ProgramData\Microsoft\BootEventCollector\Logs**). Utilizzo di un file può essere utile se si desidera abilitare la modalità dettagliata che generano una grande quantità di dati. È inoltre possibile impostare il log per scrivere un output standard eseguendo l'agente di raccolta dalla riga di comando.  
   
@@ -202,7 +202,7 @@ Una delle decisioni che è necessario apportare consiste nell'impostare un limit
   
 Esistono diversi aspetti da tenere in mente riguardo il file di configurazione:  
   
--   L'indirizzo di computer di destinazione. È possibile utilizzare l'indirizzo IPv4, un indirizzo MAC o un GUID SMBIOS. Tenere presente questi fattori quando si sceglie l'indirizzo da utilizzare:  
+-   L'indirizzo di computer di destinazione. Puoi utilizzare il suo indirizzo IPv4, un indirizzo MAC o un GUID SMBIOS. Tenere presente questi fattori quando si sceglie l'indirizzo da utilizzare:  
   
     -   L'indirizzo IPv4 funziona meglio con l'assegnazione degli indirizzi IP statico. Tuttavia, gli indirizzi IP anche statici devono essere disponibili tramite il protocollo DHCP.  
   
@@ -222,7 +222,7 @@ Esistono diversi aspetti da tenere in mente riguardo il file di configurazione:
   
 1.  Aprire un prompt di Windows PowerShell con privilegi elevato e passare alla directory % SystemDrive%\ProgramData\Microsoft\BootEventCollector\Config.  
   
-2.  Tipo `notepad .\newconfig.xml` e premere INVIO.  
+2.  Digita `notepad .\newconfig.xml` e premi INVIO.  
   
 3.  Nella finestra del blocco note, copiare questa configurazione di esempio:  
   
@@ -255,7 +255,7 @@ Esistono diversi aspetti da tenere in mente riguardo il file di configurazione:
     >   
     > Il \<comuni > elemento raggruppa più destinazioni che specifica gli elementi di configurazione comuni, molto come un gruppo di utenti può essere utilizzato per specificare le autorizzazioni per gli utenti più comuni.  
     >   
-    > Il \<collectorport > elemento definisce il numero di porta UDP in ascolto l'agente di raccolta dei dati in ingresso. Questa è la stessa porta, come specificato nel passaggio di configurazione di destinazione per Bcdedit. L'agente di raccolta supporta solo una porta e tutte le destinazioni devono connettersi alla stessa porta.  
+    > Il \<collectorport > elemento definisce il numero di porta UDP in ascolto l'agente di raccolta dei dati in ingresso. Questa è la stessa porta specificata nel passaggio di configurazione di destinazione per Bcdedit. L'agente di raccolta supporta solo una porta e tutte le destinazioni devono connettersi alla stessa porta.  
     >   
     > Il \<server d'inoltro > elemento specifica come verranno inoltrati eventi ETW ricevuti dal computer di destinazione. Esiste un solo tipo di server d'inoltro, che li scrive i file ETL. I parametri specificano il modello di nome file, il limite delle dimensioni di ogni file dell'anello e la dimensione dell'anello per ogni computer. L'impostazione "toxml" Specifica che gli eventi ETW verranno scritto in formato binario come sono stati ricevuti, senza conversione in formato XML. Vedere la sezione "Conversione degli eventi XML" per informazioni sulla scelta tra conferisce gli eventi in formato XML o non. Il modello di nome file contiene le sostituzioni: {computer} per {n. 3} e il nome del computer per l'indice del file nell'anello.  
     >   
@@ -275,8 +275,8 @@ Se il comando di Windows PowerShell per applicare automaticamente una nuova conf
   
 -   In un prompt dei comandi comuni: **sc stop BootEventCollector; sc start BootEventCollector**  
   
-## <a name="configuring-nano-server-as-a-target-computer"></a>Configurazione di Nano Server come un computer di destinazione  
-L'interfaccia minima offerto da Nano Server può talvolta rendere difficili da diagnosticare problemi di. È possibile configurare l'immagine di Nano Server per partecipare nel programma di installazione e la raccolta degli eventi di avvio automatico, l'invio di dati di diagnostica in un computer agente di raccolta senza ulteriori interventi da parte dell'utente. A tale scopo, effettuare le operazioni seguenti:  
+## <a name="configuring-nano-server-as-a-target-computer"></a>Configurazione di Nano Server come computer di destinazione  
+L'interfaccia minima offerto da Nano Server può talvolta rendere difficile diagnosticare i problemi ad esso relativi. Puoi configurare l'immagine di Nano Server per partecipare automaticamente a Raccolta eventi di configurazione e avvio, inviando dati di diagnostica a un computer di raccolta senza ulteriore intervento da parte tua. A tale scopo, effettuare le operazioni seguenti:  
   
 #### <a name="to-configure-nano-server-as-a-target-computer"></a>Per configurare Nano Server come un computer di destinazione  
   
@@ -284,13 +284,13 @@ L'interfaccia minima offerto da Nano Server può talvolta rendere difficili da d
   
 2.  Configurare un computer agente di raccolta come nella sezione "Configurazione del computer dell'agente di raccolta" di questo argomento.  
   
-3.  Aggiungere le chiavi del Registro di sistema AutoLogger per consentire l'invio di messaggi diagnostico. A tale scopo, montare il disco rigido Virtuale Nano Server creata nel passaggio 1, caricare l'hive del Registro di sistema e quindi aggiungere alcune chiavi del Registro di sistema. In questo esempio, l'immagine di Nano Server è in C:\NanoServer; il percorso potrebbe essere diverso, quindi modificare di conseguenza i passaggi.  
+3.  Aggiungere le chiavi del Registro di sistema AutoLogger per consentire l'invio di messaggi diagnostico. A tale scopo, montare il disco rigido Virtuale Nano Server creata nel passaggio 1, caricare l'hive del Registro di sistema e quindi aggiungere alcune chiavi del Registro di sistema. In questo esempio, l'immagine Nano Server è in C:\NanoServer; il percorso può essere diverso, pertanto modifica la procedura di conseguenza.  
   
     1.  Sul computer agente, copiare il **... \Windows\System32\WindowsPowerShell\v1.0\Modules\BootEventCollector** cartella e incollarlo il **... \Windows\System32\WindowsPowerShell\v1.0\Modules** directory nel computer in uso per modificare il disco rigido Virtuale di Nano Server.  
   
     2.  Avviare una console di Windows PowerShell con autorizzazioni elevate ed eseguire `Import-Module BootEventCollector` .  
   
-    3.  Aggiornare il Registro di sistema di Nano Server VHD per abilitare AutoLoggers. A tale scopo, eseguire `Enable-SbecAutoLogger -Path C:\NanoServer\Workloads\IncludingWorkloads.vhd`. Aggiunge un elenco di base dell'impostazione più comuni e gli eventi di avvio; è possibile ricercare altre [sessioni di traccia di eventi controllo](https://msdn.microsoft.com/library/windows/desktop/aa363694(v=vs.85).aspx).  
+    3.  Aggiornare il Registro di sistema di Nano Server VHD per abilitare AutoLoggers. A tale scopo, eseguire `Enable-SbecAutoLogger -Path C:\NanoServer\Workloads\IncludingWorkloads.vhd`. In questo modo si aggiunge un elenco di base degli eventi di installazione e avvio più comuni; puoi cercarne altri in [Controllo di sessioni di Event Tracing](https://msdn.microsoft.com/library/windows/desktop/aa363694(v=vs.85).aspx).  
   
 4.  Aggiornare le impostazioni di avvio nell'immagine di Nano Server per abilitare il flag di eventi e impostare il computer agente per verificare gli eventi di diagnostica vengono inviati al server appropriato. Si noti l'indirizzo IPv4 del computer dell'agente di raccolta, la porta TCP e la chiave di crittografia configurato nel file Active.XML dell'agente di raccolta (descritto altrove in questo argomento). Usare questo comando in una console di Windows PowerShell con autorizzazioni elevate: `Enable-SbecBcd -Path C:\NanoServer\Workloads\IncludingWorkloads.vhd -CollectorIp 192.168.100.1 -CollectorPort 50000 -Key a.b.c.d`  
   
@@ -311,13 +311,13 @@ Il log per il servizio agente di raccolta dati stesso (che è diverso dal progra
   
 ||Errore|Descrizione dell'errore|Sintomo|Potenziale problema|  
 |-|---------|---------------------|-----------|---------------------|  
-|Dism.exe|87|L'opzione nome della funzionalità non è riconosciuto in questo contesto||-Questa situazione può verificarsi se il nome di funzionalità. Verificare di aver la versione corretta e riprovare.<br />-Verificare che questa funzionalità è disponibile nella versione del sistema operativo in uso. In Windows PowerShell, eseguire **dism /online /get-features &#124;? { $_-corrispondono "avvio"}** . Se non viene restituita alcuna corrispondenza, probabile che esegue una versione che non supporta questa funzionalità.|  
+|Dism.exe|87|L'opzione nome della funzionalità non è riconosciuto in questo contesto||-Questa situazione può verificarsi se il nome di funzionalità. Verificare di aver la versione corretta e riprovare.<br />-Verificare che questa funzionalità è disponibile nella versione del sistema operativo in uso. In Windows PowerShell, eseguire **dism /online /get-features & #124;? { $_-corrispondono "avvio"}** . Se non viene restituita alcuna corrispondenza, probabile che esegue una versione che non supporta questa funzionalità.|  
 |Dism.exe|0x800f080c|Funzionalità \<name > è sconosciuto.||Come sopra|  
   
 ### <a name="troubleshooting-the-collector"></a>Risoluzione dei problemi l'agente di raccolta  
   
 **Registrazione**  
-L'agente di raccolta registra i propri eventi come provider ETW Microsoft-Windows-BootEvent-agente di raccolta. È il primo punto che è possibile cercare la risoluzione dei problemi con l'agente di raccolta. È possibile ottenerli nel Visualizzatore eventi in registri applicazioni e servizi > Microsoft > Windows > BootEvent Collector > amministratore oppure è possibile leggerli in una finestra di comando con uno di questi comandi:  
+L'agente di raccolta registra i propri eventi come provider ETW Microsoft-Windows-BootEvent-agente di raccolta. È il primo posto in cui si dovrebbe cercare la soluzione dei problemi con l'agente di raccolta. È possibile ottenerli nel Visualizzatore eventi in registri applicazioni e servizi > Microsoft > Windows > BootEvent Collector > amministratore oppure è possibile leggerli in una finestra di comando con uno di questi comandi:  
   
 In un prompt dei comandi comuni: **wevtutil qe Microsoft-Windows-BootEvent-agente di raccolta/Admin**  
   
@@ -342,10 +342,10 @@ A livello di debug, potrebbe essere utile scrivere il log in un file anziché te
    Se viene restituito è disponibile una connessione di destinazione che il problema potrebbe essere nelle impostazioni di autologger. Se restituisce nothing, il problema è iniziare con la connessione KDNET. Per diagnosticare problemi di connessione KDNET, controllare la connessione da entrambe le estremità (vale a dire dall'agente di raccolta dati e dalla destinazione).  
   
 2. Per vedere diagnostica estesa dall'agente di raccolta dati, aggiungere questa opzione per il \<collector > elemento del file di configurazione:  
-   @no__t 0collector... minlog = "verbose" >  
+   raccolta \<... minlog = "verbose" >  
    In questo modo i messaggi relativi a ogni pacchetto ricevuto.  
 3. Controllare se i pacchetti vengono ricevuti affatto. Facoltativamente, è possibile scrivere il log in modalità dettagliata direttamente in un file anziché tramite ETW. A tale scopo, aggiungere quanto segue per il \<collector > elemento del file di configurazione:  
-   @no__t 0collector... minlog = "verbose" log = "c:\ProgramData\Microsoft\BootEventCollector\Logs\log.txt" >  
+   raccolta \<... minlog = "verbose" log = "c:\ProgramData\Microsoft\BootEventCollector\Logs\log.txt" >  
       
 4. Controllare i registri eventi per tutti i messaggi sui pacchetti ricevuti. Controllare se i pacchetti vengono ricevuti affatto. Se i pacchetti ricevuti ma non corretto, controllare i messaggi di evento per i dettagli.  
 5. Dal lato di destinazione, KDNET scrive alcune informazioni diagnostiche nel Registro di sistema. Cerca   

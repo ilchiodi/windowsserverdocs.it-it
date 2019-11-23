@@ -22,9 +22,9 @@ ms.locfileid: "71371534"
 ---
 # <a name="repair"></a>Ripristinare
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Ripristina il volume RAID @ no__t-05 con lo stato attivo sostituendo l'area disco non riuscita con il disco dinamico specificato.  
+Ripristina il volume RAID\-5 con lo stato attivo sostituendo l'area disco non riuscita con il disco dinamico specificato.  
   
   
   
@@ -38,11 +38,11 @@ repair disk=<n> [align=<n>] [noerr]
   
 | Parametro  |                                                                                             Descrizione                                                                                              |
 |------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Disk @ no__t-0 @ no__t-1  |                                                                 Specifica il disco dinamico che sostituirà la regione del disco non riuscita.                                                                 |
-| align @ no__t-0 @ no__t-1 |          Consente di allineare tutti gli extent volume o una partizione per il limite di allineamento più vicino. *n* è il numero di kilobyte \(KB\) dall'inizio del disco per il limite di allineamento più vicino.           |
-|   NOERR    | Solo per gli script. Quando si è verificato un errore, DiskPart continua a elaborare i comandi come se non si è verificato l'errore. Senza questo parametro, un errore causa DiskPart viene interrotto con un codice di errore. |
+| \=disco <n>  |                                                                 Specifica il disco dinamico che sostituirà la regione del disco non riuscita.                                                                 |
+| Allinea\=<n> |          Consente di allineare tutti gli extent volume o una partizione per il limite di allineamento più vicino. *n* è il numero di kilobyte \(KB\) dall'inizio del disco per il limite di allineamento più vicino.           |
+|   NOERR    | solo per gli script. Quando si è verificato un errore, DiskPart continua a elaborare i comandi come se non si è verificato l'errore. Senza questo parametro, un errore causa DiskPart viene interrotto con un codice di errore. |
   
-## <a name="remarks"></a>Note  
+## <a name="remarks"></a>Osservazioni  
   
 -   Il disco dinamico specificato deve disporre di spazio libero maggiore o uguale alla dimensione totale dell'area del disco RAID\-volume 5.  
   
@@ -55,7 +55,7 @@ Per sostituire il volume con lo stato attivo sostituendola con un disco dinamico
 repair disk=4  
 ```  
   
-#### <a name="additional-references"></a>Riferimenti aggiuntivi  
+#### <a name="additional-references"></a>riferimenti aggiuntivi  
 [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)  
   
 

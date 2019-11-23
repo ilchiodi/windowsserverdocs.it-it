@@ -22,7 +22,7 @@ ms.locfileid: "71366893"
 
 Questo argomento fornisce indicazioni su come pianificare i volumi in Spazi di archiviazione diretta per soddisfare le esigenze di capacità e prestazioni dei carichi di lavoro, inclusa la scelta del file system, del tipo di resilienza e delle dimensioni.
 
-## <a name="review-what-are-volumes"></a>Recensione Che cosa sono i volumi
+## <a name="review-what-are-volumes"></a>Revisione: Che cosa sono i volumi
 
 I volumi consentono di inserire i file necessari per i carichi di lavoro, ad esempio i file VHD o VHDX per le macchine virtuali Hyper-V. I volumi combinano le unità nel pool di archiviazione per introdurre i vantaggi di Spazi di archiviazione diretta in termini di tolleranza di errore, scalabilità e prestazioni.
 
@@ -31,7 +31,7 @@ I volumi consentono di inserire i file necessari per i carichi di lavoro, ad ese
 
 ![what-are-volumes](media/plan-volumes/what-are-volumes.png)
 
-Tutti i volumi sono accessibili da tutti i server del cluster nello stesso momento. Una volta creati, vengono visualizzati in **C:\ClusterStorage @ no__t-1** in tutti i server.
+Tutti i volumi sono accessibili da tutti i server del cluster nello stesso momento. Una volta creati, vengono visualizzati in **C:\ClusterStorage\\** in tutti i server.
 
 ![csv-folder-screenshot](media/plan-volumes/csv-folder-screenshot.png)
 
@@ -41,7 +41,7 @@ Consigliamo di creare un numero di volumi multiplo del numero di server nel clus
 
 È consigliabile limitare il numero totale di volumi per:
 
-| Windows Server 2016          | Windows Server 2019          |
+| Windows Server 2016          | Windows Server 2019          |
 |------------------------------|------------------------------|
 | Fino a 32 volumi per cluster | Fino a 64 volumi per cluster |
 
@@ -128,7 +128,7 @@ Nelle distribuzioni con tutti e tre i tipi di unità, solo le unità più veloci
 
 È consigliabile limitare le dimensioni di ogni volume a:
 
-| Windows Server 2016 | Windows Server 2019 |
+| Windows Server 2016 | Windows Server 2019 |
 | ------------------- | ------------------- |
 | Fino a 32 TB         | Fino a 64 TB         |
 
@@ -195,11 +195,11 @@ I quattro volumi occuperanno esattamente la capacità di archiviazione fisica di
 
 Per semplicità, questo esempio usa sempre unità decimali (in base 10), ovvero 1 TB = 1.000.000.000.000 byte. Tuttavia, le quantità di archiviazione in Windows vengono visualizzate in unità binarie (in base 2). Ogni unità da 2 TB, ad esempio, viene visualizzata come da 1,82 TiB in Windows. Analogamente, il pool di archiviazione da 128 TB viene visualizzato come da 116,41 TiB. Si tratta di un comportamento previsto.
 
-## <a name="usage"></a>Utilizzo
+## <a name="usage"></a>Usage
 
 Vedi [Creazione di volumi in Spazi di archiviazione diretta](create-volumes.md).
 
-### <a name="see-also"></a>Vedere anche
+### <a name="see-also"></a>Vedi anche
 
 - [Panoramica di Spazi di archiviazione diretta](storage-spaces-direct-overview.md)
 - [Scelta di unità per Spazi di archiviazione diretta](choosing-drives.md)

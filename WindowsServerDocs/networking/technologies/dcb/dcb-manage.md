@@ -19,7 +19,7 @@ ms.locfileid: "71405776"
 
 >Si applica a: Windows Server (Canale semestrale), Windows Server 2016
 
-Questo argomento fornisce istruzioni su come usare i comandi di Windows PowerShell per configurare Data Center Bridging \(DCB\) in una scheda di rete\-compatibile con DCB installata in un computer che esegue Windows Server 2016 o Windows 10.
+Questo argomento fornisce istruzioni su come usare i comandi di Windows PowerShell per configurare Data Center Bridging \(DCB\) in una scheda di rete compatibile con DCB\-installata in un computer che esegue Windows Server 2016 o Windows 10.
 
 ## <a name="install-dcb-in-windows-server-2016-or-windows-10"></a>Installare DCB in Windows Server 2016 o Windows 10
 
@@ -30,7 +30,7 @@ Per informazioni sui prerequisiti per l'uso di e su come installare DCB, vedere 
 
 Prima di Windows Server 2016, tutta la configurazione di DCB veniva applicata universalmente a tutte le schede di rete che supportavano DCB. 
 
-In Windows Server 2016 è possibile applicare le configurazioni DCB all'archivio criteri globale o ai singoli archivi\(\)criteri. Quando vengono applicati criteri singoli, sostituiscono tutte le impostazioni dei criteri globali.
+In Windows Server 2016 è possibile applicare le configurazioni DCB all'archivio criteri globale o a un singolo archivio criteri\(s\). Quando vengono applicati criteri singoli, sostituiscono tutte le impostazioni dei criteri globali.
 
 Le configurazioni di classe di traffico, PFC e assegnazione di priorità dell'applicazione a livello di sistema non vengono applicate alle schede di rete fino a quando non vengono eseguite le operazioni seguenti.
 
@@ -109,7 +109,7 @@ Per creare una classe di traffico, è possibile usare il comando **New-NetQosTra
     SMB  ETS   30   4Global
       
 
-Per impostazione predefinita, viene eseguito il mapping di tutti i valori 802.1 p a una classe di traffico predefinita, che presenta il 100% della larghezza di banda del collegamento fisico. Il comando **New-NetQosTrafficClass** crea una nuova classe di traffico a cui viene eseguito il mapping di tutti i pacchetti contrassegnati con il valore di priorità 4 802.1 p. L'algoritmo di selezione della trasmissione \(TSA @ no__t-1 è ETS e il 30% della larghezza di banda.
+Per impostazione predefinita, viene eseguito il mapping di tutti i valori 802.1 p a una classe di traffico predefinita, che presenta il 100% della larghezza di banda del collegamento fisico. Il comando **New-NetQosTrafficClass** crea una nuova classe di traffico a cui viene eseguito il mapping di tutti i pacchetti contrassegnati con il valore di priorità 4 802.1 p. L'algoritmo di selezione della trasmissione \(TSA\) è ETS e il 30% della larghezza di banda.
 
 È possibile creare fino a 7 nuove classi di traffico. Includendo la classe di traffico predefinita, nel sistema possono essere presenti al massimo 8 classi di traffico. Tuttavia, una scheda di rete con supporto per DCB potrebbe non supportare la maggior parte delle classi di traffico nell'hardware. Se si creano più classi di traffico rispetto a quelle che possono essere incluse in una scheda di rete e si Abilita DCB sulla scheda di rete, il driver miniport segnala un errore al sistema operativo. L'errore viene registrato nel registro eventi.
 
@@ -144,11 +144,11 @@ La somma delle prenotazioni della larghezza di banda per tutte le classi di traf
 
 Dopo aver creato una classe di traffico, è possibile modificarne le impostazioni in modo indipendente. Le impostazioni che è possibile modificare includono:
 
-1. Allocazione \(della larghezza di banda-BandwidthPercentage\)
+1. Allocazione della larghezza di banda \(-BandwidthPercentage\)
 
 2. TSA (\-algoritmo\)
 
-3. Mapping \(priorità-priorità\)
+3. Mapping priorità \(-priorità\)
 
 ### <a name="remove-a-traffic-class"></a>Rimuovere una classe di traffico
 
@@ -175,7 +175,7 @@ Dopo la rimozione di una classe di traffico, il valore 802.1 p mappato a tale cl
 
 Tutti gli esempi precedenti impostano i criteri globali. Di seguito sono riportati alcuni esempi di come è possibile impostare e ottenere i criteri per NIC. 
 
-Il campo "PolicySet" passa da globale a AdapterSpecific. Quando vengono visualizzati i criteri di AdapterSpecific, vengono \(visualizzati\) anche l'indice dell'\) interfaccia ifindex e il nome \(dell'interfaccia ifAlias.
+Il campo "PolicySet" passa da globale a AdapterSpecific. Quando vengono visualizzati i criteri di AdapterSpecific, vengono visualizzati anche l'indice dell'interfaccia \(ifIndex\) e il nome dell'interfaccia \(ifAlias\).
 
 ```
 PS C:\> Get-NetQosTrafficClass
@@ -476,12 +476,12 @@ Sono disponibili comandi di Windows PowerShell DCB per Windows Server 2016 e Win
 
 ### <a name="windows-server-2016-windows-powershell-commands-for-dcb"></a>Comandi di Windows PowerShell per Windows Server 2016 per DCB
 
-L'argomento seguente per Windows Server 2016 fornisce le descrizioni e la sintassi dei cmdlet di Windows PowerShell per tutti \(i\) cmdlet specifici di \(QoS\)\-del servizio Data Center Bridging DCB. I cmdlet sono elencati in ordine alfabetico, in base al verbo presente all'inizio del cmdlet.
+L'argomento seguente per Windows Server 2016 fornisce le descrizioni e la sintassi dei cmdlet di Windows PowerShell per tutti i Data Center Bridging \(DCB\) qualità del servizio \(QoS\)\-cmdlet specifici. I cmdlet sono elencati in ordine alfabetico, in base al verbo presente all'inizio del cmdlet.
 
 - [Modulo DcbQoS](https://technet.microsoft.com/itpro/powershell/windows/dcbqos/dcbqos)
 
 ### <a name="windows-server-2012-r2-windows-powershell-commands-for-dcb"></a>Comandi di Windows PowerShell per Windows Server 2012 R2 per DCB
 
-L'argomento seguente per Windows Server 2012 R2 fornisce le descrizioni e la sintassi dei cmdlet di Windows PowerShell per tutti \(i\) cmdlet specifici di \(QoS\)\-del servizio DCB di Data Center. I cmdlet sono elencati in ordine alfabetico, in base al verbo presente all'inizio del cmdlet.
+L'argomento seguente per Windows Server 2012 R2 fornisce le descrizioni e la sintassi dei cmdlet di Windows PowerShell per tutti i Data Center Bridging \(DCB\) qualità del servizio \(QoS\)\-cmdlet specifici. I cmdlet sono elencati in ordine alfabetico, in base al verbo presente all'inizio del cmdlet.
 
 - [Cmdlet di qualità del servizio (QoS) di Data Center Bridging (DCB) in Windows PowerShell](https://technet.microsoft.com/library/hh967440.aspx)

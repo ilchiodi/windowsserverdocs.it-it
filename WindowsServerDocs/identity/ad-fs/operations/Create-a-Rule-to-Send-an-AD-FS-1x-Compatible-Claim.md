@@ -18,7 +18,7 @@ ms.locfileid: "71407591"
 ---
 # <a name="create-a-rule-to-send-an-ad-fs-1x-compatible-claim"></a>Creare una regola per l'invio di un'attestazione compatibile di AD FS 1. x
 
-In situazioni in cui si usa Active Directory Federation Services \(AD FS @ no__t-1 per rilasciare attestazioni che verranno ricevute dai server federativi che eseguono AD FS 1,0 \(Windows Server 2003 R2 @ no__t-3 o AD FS 1,1 \(Windows Server 2008 o Windows Server 2008 R2 @ no__t-5, è necessario eseguire le operazioni seguenti:  
+In situazioni in cui si utilizza Active Directory Federation Services \(AD FS\) per rilasciare attestazioni che verranno ricevute dai server federativi che eseguono AD FS 1,0 \(Windows Server 2003 R2\) o AD FS 1,1 \(Windows Server 2008 o Windows Server 2008 R2\), è necessario eseguire le operazioni seguenti:  
   
 -   Creare una regola che invierà un tipo di attestazione ID nome con un formato di UPN, posta elettronica o nome comune.  
   
@@ -30,7 +30,7 @@ In situazioni in cui si usa Active Directory Federation Services \(AD FS @ no__t
   
     -   Nome comune  
   
-    -   Group  
+    -   Gruppo  
   
     -   Qualsiasi altro tipo di attestazione che inizia con https://schemas.xmlsoap.org/claims/, ad esempio https://schemas.xmlsoap.org/claims/EmployeeID  
   
@@ -63,11 +63,11 @@ A seconda delle esigenze dell'organizzazione, utilizzare una delle procedure rip
   
 7.  In **tipo di attestazione in ingresso**, selezionare **ID nome** nell'elenco.  
   
-8.  In **formato ID nome in ingresso**selezionare uno dei seguenti ad FS 1. *x*@no__t 2compatible i formati di attestazione dall'elenco:  
+8.  In **formato ID nome in ingresso**selezionare uno dei seguenti ad FS 1. *x*\-formati di attestazione compatibili nell'elenco:  
   
     -   **UPN**  
   
-    -   **E @ no__t-1Mail**  
+    -   **Posta elettronica\-**  
   
     -   **Nome comune**  
   
@@ -105,11 +105,11 @@ A seconda delle esigenze dell'organizzazione, utilizzare una delle procedure rip
   
 7.  In **tipo di attestazione in ingresso**, selezionare **ID nome** nell'elenco.  
   
-8.  In **formato ID nome in ingresso**selezionare uno dei seguenti ad FS 1. *x*@no__t 2compatible i formati di attestazione dall'elenco:  
+8.  In **formato ID nome in ingresso**selezionare uno dei seguenti ad FS 1. *x*\-formati di attestazione compatibili nell'elenco:  
   
     -   **UPN**  
   
-    -   **E @ no__t-1Mail**  
+    -   **Posta elettronica\-**  
   
     -   **Nome comune**  
   
@@ -149,11 +149,11 @@ A seconda delle esigenze dell'organizzazione, utilizzare una delle procedure rip
   
 8.  In **attestazione in uscita**, selezionare **ID nome** nell'elenco.  
   
-9. In **formato ID nome in uscita**selezionare uno dei seguenti ad FS 1. *x*@no__t 2compatible i formati di attestazione dall'elenco:  
+9. In **formato ID nome in uscita**selezionare uno dei seguenti ad FS 1. *x*\-formati di attestazione compatibili nell'elenco:  
   
     -   **UPN**  
   
-    -   **E @ no__t-1Mail**  
+    -   **Posta elettronica\-**  
   
     -   **Nome comune**  
   
@@ -163,7 +163,7 @@ A seconda delle esigenze dell'organizzazione, utilizzare una delle procedure rip
   
     -   **Sostituire un valore di attestazione in ingresso con un valore attestazione in uscita diverso**  
   
-    -   **Sostituire le attestazioni del suffisso e @ no__t-1mail in ingresso con un nuovo suffisso e @ no__t-2mail**  
+    -   **Sostituzione delle attestazioni dei suffissi di posta elettronica in ingresso e\-con un nuovo suffisso di posta elettronica\-**  
 ![Crea regola](media/Create-a-Rule-to-Send-an-AD-FS-1x-Compatible-Claim/adfs4.PNG)
 
 11. Fare clic su **Fine**, quindi fare clic su **OK** per salvare la regola.  
@@ -193,11 +193,11 @@ A seconda delle esigenze dell'organizzazione, utilizzare una delle procedure rip
   
 8.  In **attestazione in uscita**, selezionare **ID nome** nell'elenco.  
   
-9. In **formato ID nome in uscita**selezionare uno dei seguenti ad FS 1. *x*@no__t 2compatible i formati di attestazione dall'elenco:  
+9. In **formato ID nome in uscita**selezionare uno dei seguenti ad FS 1. *x*\-formati di attestazione compatibili nell'elenco:  
   
     -   **UPN**  
   
-    -   **E @ no__t-1Mail**  
+    -   **Posta elettronica\-**  
   
     -   **Nome comune**  
   
@@ -207,7 +207,7 @@ A seconda delle esigenze dell'organizzazione, utilizzare una delle procedure rip
   
     -   **Sostituire un valore di attestazione in ingresso con un valore attestazione in uscita diverso**  
   
-    -   **Sostituire le attestazioni del suffisso e @ no__t-1mail in ingresso con un nuovo suffisso e @ no__t-2mail**  
+    -   **Sostituzione delle attestazioni dei suffissi di posta elettronica in ingresso e\-con un nuovo suffisso di posta elettronica\-**  
 ![Crea regola](media/Create-a-Rule-to-Send-an-AD-FS-1x-Compatible-Claim/adfs4.PNG)    
 
 11. Fare clic su **Fine**, quindi fare clic su **OK** per salvare la regola.  
@@ -252,11 +252,11 @@ A seconda delle esigenze dell'organizzazione, utilizzare una delle procedure rip
   
 7.  In **tipo di attestazione in ingresso**, selezionare **ID nome** nell'elenco.  
   
-8.  In **formato ID nome in ingresso**selezionare uno dei seguenti ad FS 1. *x*@no__t 2compatible i formati di attestazione dall'elenco:  
+8.  In **formato ID nome in ingresso**selezionare uno dei seguenti ad FS 1. *x*\-formati di attestazione compatibili nell'elenco:  
   
     -   **UPN**  
   
-    -   **E @ no__t-1Mail**  
+    -   **Posta elettronica\-**  
   
     -   **Nome comune**  
   
@@ -303,11 +303,11 @@ A seconda delle esigenze dell'organizzazione, utilizzare una delle procedure rip
   
 8.  In **attestazione in uscita**, selezionare **ID nome** nell'elenco.  
   
-9. In **formato ID nome in uscita**selezionare uno dei seguenti ad FS 1. *x*@no__t 2compatible i formati di attestazione dall'elenco:  
+9. In **formato ID nome in uscita**selezionare uno dei seguenti ad FS 1. *x*\-formati di attestazione compatibili nell'elenco:  
   
     -   **UPN**  
   
-    -   **E @ no__t-1Mail**  
+    -   **Posta elettronica\-**  
   
     -   **Nome comune**  
   
@@ -317,7 +317,7 @@ A seconda delle esigenze dell'organizzazione, utilizzare una delle procedure rip
   
     -   **Sostituire un valore di attestazione in ingresso con un valore attestazione in uscita diverso**  
   
-    -   **Sostituire le attestazioni del suffisso e @ no__t-1mail in ingresso con un nuovo suffisso e @ no__t-2mail**  
+    -   **Sostituzione delle attestazioni dei suffissi di posta elettronica in ingresso e\-con un nuovo suffisso di posta elettronica\-**  
 ![Crea regola](media/Create-a-Rule-to-Send-an-AD-FS-1x-Compatible-Claim/adfs2.PNG)    
 
 11. Fare clic su **Fine**, quindi fare clic su **OK** per salvare la regola.  
@@ -325,9 +325,9 @@ A seconda delle esigenze dell'organizzazione, utilizzare una delle procedure rip
 ## <a name="additional-references"></a>Altri riferimenti 
 [Configurare le regole delle attestazioni](Configure-Claim-Rules.md)  
  
-[Elenco di controllo: Creazione di regole delle attestazioni per un'istanza di attendibilità del componente](https://technet.microsoft.com/library/ee913578.aspx)  
+[Elenco di controllo: creazione di regole attestazione per un trust della relying party](https://technet.microsoft.com/library/ee913578.aspx)  
 
-[Elenco di controllo: Creazione di regole delle attestazioni per un'istanza di attendibilità del provider di attestazioni](https://technet.microsoft.com/library/ee913564.aspx)  
+[Elenco di controllo: creazione di regole attestazione per un trust del provider di attestazioni](https://technet.microsoft.com/library/ee913564.aspx)  
   
 [Quando usare una regola attestazioni di autorizzazione](../../ad-fs/technical-reference/When-to-Use-an-Authorization-Claim-Rule.md)  
 

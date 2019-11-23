@@ -21,7 +21,7 @@ ms.locfileid: "71358294"
 ## <a name="change-the-illustration"></a>Modificare l'illustrazione  
 
 
-Per modificare l'illustrazione, l'elemento grafico a sinistra, visualizzato nella pagina Sign @ no__t-0cm, usare la sintassi e il cmdlet di Windows PowerShell seguenti.  
+Per modificare l'illustrazione, l'elemento grafico a sinistra, visualizzato nella pagina Sign\-in, usare la sintassi e il cmdlet di Windows PowerShell seguenti.  
 
 ![modifica illustrazione](media/AD-FS-user-sign-in-customization/ADFS_Blue_Custom2.png)
   

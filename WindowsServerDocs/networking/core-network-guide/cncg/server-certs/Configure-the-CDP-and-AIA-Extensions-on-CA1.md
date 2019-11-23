@@ -33,7 +33,7 @@ Per eseguire questa procedura, è necessario essere un membro del gruppo Domain 
     > [!NOTE]  
     > Se non si il nome computer CA1 e il nome di dominio è diverso da quello in questo esempio, il nome della CA è diverso. Il nome della CA è nel formato *dominio*-*NomeComputerCA*-CA.  
   
-3.  Fare clic sulla scheda **Estensioni**. Assicurarsi che Selezionare l'estensione è impostato su **il punto di distribuzione CRL (CDP)** , e il **specificare i percorsi da cui gli utenti possono ottenere un elenco di revoche di certificati (CRL)** , eseguire le operazioni seguenti:  
+3.  Fare clic sulla scheda **estensioni** . Assicurarsi che **Seleziona estensione** sia impostato su **punto di distribuzione CRL (CDP)** e in **specificare i percorsi da cui gli utenti possono ottenere un elenco di revoche di certificati (CRL)** , eseguire le operazioni seguenti:  
   
     1.  Selezionare la voce `file://\\<ServerDNSName>\CertEnroll\<CaName><CRLNameSuffix><DeltaCRLAllowed>.crl`, quindi fare clic su **rimuovere**. In **Conferma rimozione**, fare clic su **Sì**.  
   
@@ -47,7 +47,7 @@ Per eseguire questa procedura, è necessario essere un membro del gruppo Domain 
   
 6.  Nel **estensioni** Selezionare le caselle di controllo seguenti:  
   
-    -   @no__t 0Include in CRL. I client lo usano per trovare i percorsi Delta CRL @ no__t-0  
+    -   **Includi nei CRL. i client lo usano per trovare i percorsi Delta CRL**  
   
     -   **Includi nell'estensione CDP dei certificati emessi**  
   

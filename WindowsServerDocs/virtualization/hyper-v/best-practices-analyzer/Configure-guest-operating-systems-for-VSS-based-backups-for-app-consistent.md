@@ -25,7 +25,7 @@ Per altre informazioni sulle procedure consigliate e sulle analisi, vedere [Eseg
   
 |Proprietà|Dettagli|  
 |-|-|  
-|**Sistema operativo**|Windows Server 2016|  
+|**Sistema operativo**|Windows Server 2016|  
 |**Prodotto/funzionalità**|Hyper-V|  
 |**Gravità**|Errore|  
 |**Categoria**|Configurazione|  
@@ -36,9 +36,9 @@ Nelle sezioni seguenti, corsivo indica il testo dell'interfaccia Utente visualiz
 *Per gli snapshot coerenti con l'applicazione è necessario che i servizi copia shadow del volume (VSS) siano abilitati e configurati nei sistemi operativi guest delle macchine virtuali che partecipano alla replica.*  
   
 ## <a name="impact"></a>Impatto  
-*Even se nella configurazione della replica vengono specificati snapshot coerenti con l'applicazione, Hyper-V non li utilizzerà a meno che non sia configurato VSS. Ciò influisca sulle macchine virtuali seguenti:*  
+*Anche se nella configurazione della replica vengono specificati snapshot coerenti con l'applicazione, Hyper-V non li utilizzerà a meno che non sia configurato VSS. Ciò influisca sulle macchine virtuali seguenti:*  
   
-@no__t 0list di macchine virtuali >  
+\<elenco di macchine virtuali >  
   
 ## <a name="resolution"></a>Risoluzione  
 *Usare Virtual Machine Connection per installare Integration Services nella macchina virtuale.*  

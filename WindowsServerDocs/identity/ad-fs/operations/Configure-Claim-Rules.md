@@ -18,7 +18,7 @@ ms.locfileid: "71407675"
 ---
 # <a name="configure-claim-rules"></a>Configurare le regole di attestazione
 
-In un modello di identità Claims @ no__t-0based la funzione di Active Directory Federation Services \(AD FS @ no__t-2 come Federation Services consiste nell'emettere un token che contiene un set di attestazioni. Le regole attestazioni regolano le decisioni in relazione alle attestazioni che AD FS problemi. Le regole attestazioni e tutti i dati di configurazione del server vengono archiviati nel database di configurazione AD FS.  
+In un modello di identità basato su attestazioni\-, la funzione di Active Directory Federation Services \(AD FS\) come Federation Services consiste nell'emettere un token che contiene un set di attestazioni. Le regole attestazioni regolano le decisioni in relazione alle attestazioni che AD FS problemi. Le regole attestazioni e tutti i dati di configurazione del server vengono archiviati nel database di configurazione AD FS.  
   
 AD FS prende decisioni di rilascio basate sulle informazioni di identità fornite sotto forma di attestazioni e altre informazioni contestuali. A livello generale, AD FS funge da processore di regole prendendo un set di attestazioni come input, esegue una serie di trasformazioni e quindi restituisce un set di attestazioni diverso come output. 
 
@@ -41,5 +41,5 @@ Gli argomenti seguenti aiuteranno a creare le regole che AD FS elaborerà:
   
 -   [Creare una regola per inviare attestazioni mediante una regola personalizzata](Create-a-Rule-to-Send-Claims-Using-a-Custom-Rule.md)  
 
-## <a name="see-also"></a>Vedere anche  
+## <a name="see-also"></a>Vedi anche  
 [Operazioni di AD FS](../../ad-fs/AD-FS-2016-Operations.md) 

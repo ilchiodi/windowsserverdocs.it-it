@@ -16,19 +16,19 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 09/27/2019
 ms.locfileid: "71408648"
 ---
-# <a name="appendix-g-securing-administrators-groups-in-active-directory"></a>Appendice G: Protezione dei gruppi di amministratori in Active Directory
+# <a name="appendix-g-securing-administrators-groups-in-active-directory"></a>Appendice G: Protezione dei gruppi Administrators in Active Directory
 
 >Si applica a: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 
-## <a name="appendix-g-securing-administrators-groups-in-active-directory"></a>Appendice G: Protezione dei gruppi di amministratori in Active Directory  
-Come nel caso dei gruppi Enterprise Admins (EA) e Domain Admins (DA), l'appartenenza al gruppo Administrators predefinito (BA) dovrebbe essere obbligatoria solo negli scenari di compilazione o di ripristino di emergenza. Non devono essere presenti account utente giornalieri nel gruppo Administrators, ad eccezione dell'account Administrator predefinito per il dominio, se è stato protetto come descritto in [Appendix D: Protezione degli account amministratore predefiniti in Active Directory @ no__t-0.  
+## <a name="appendix-g-securing-administrators-groups-in-active-directory"></a>Appendice G: Protezione dei gruppi Administrators in Active Directory  
+Come nel caso dei gruppi Enterprise Admins (EA) e Domain Admins (DA), l'appartenenza al gruppo Administrators predefinito (BA) dovrebbe essere obbligatoria solo negli scenari di compilazione o di ripristino di emergenza. Non devono essere presenti account utente giornalieri nel gruppo Administrators, ad eccezione dell'account Administrator predefinito per il dominio, se è stato protetto come descritto in [Appendice D: protezione degli account amministratore predefiniti in Active Directory](../../../ad-ds/plan/security-best-practices/Appendix-D--Securing-Built-In-Administrator-Accounts-in-Active-Directory.md).  
 
 Gli amministratori sono, per impostazione predefinita, i proprietari della maggior parte degli oggetti di dominio Active Directory nei rispettivi domini. L'appartenenza a questo gruppo può essere obbligatoria negli scenari di compilazione o ripristino di emergenza in cui è richiesta la proprietà o la possibilità di assumere la proprietà degli oggetti. Inoltre, DAs ed EAs ereditare un numero di propri diritti e autorizzazioni per l'appartenenza predefinita nel gruppo Administrators. La nidificazione di gruppi predefinita per i gruppi con privilegi in Active Directory non deve essere modificata e il gruppo Administrators di ogni dominio deve essere protetto come descritto nelle istruzioni dettagliate seguenti.  
 
 Per il gruppo Administrators in ogni dominio nella foresta:  
 
-1.  Rimuovere tutti i membri dal gruppo Administrators, con la possibile eccezione dell'account Administrator predefinito per il dominio, purché sia stato protetto come descritto in [Appendix D: Protezione degli account amministratore predefiniti in Active Directory @ no__t-0.  
+1.  Rimuovere tutti i membri dal gruppo Administrators, con la possibile eccezione dell'account Administrator predefinito per il dominio, purché sia stato protetto come descritto in [Appendice D: protezione degli account amministratore predefiniti in Active Directory](../../../ad-ds/plan/security-best-practices/Appendix-D--Securing-Built-In-Administrator-Accounts-in-Active-Directory.md).  
 
 2.  Negli oggetti Criteri di gruppo collegati alle unità organizzative che contengono server membri e workstation in ogni dominio, il gruppo BA deve essere aggiunto ai seguenti diritti utente in **computer Computer\criteri\impostazioni Windows\Impostazioni protezione\Criteri Policies \ User Rights Assignment**:  
 
@@ -66,7 +66,7 @@ Per il gruppo Administrators in ogni dominio nella foresta:
 
 1.  In **Server Manager**fare clic su **strumenti**e quindi su **Gestione criteri di gruppo**.  
 
-2.  Nell'albero della console espandere &lt;Forest @ no__t-1\Domains @ no__t-2 @ no__t-3Domain @ no__t-4, quindi **criteri di gruppo oggetti** (dove &lt;Forest @ no__t-7 è il nome della foresta e &lt;Domain @ no__t-9 è il nome del dominio in cui si desidera impostare il Criteri di gruppo).  
+2.  Nell'albero della console espandere &lt;foresta&gt;\Domains\\&lt;dominio&gt;, quindi **criteri di gruppo oggetti** (dove &lt;foresta&gt; è il nome della foresta e &lt;dominio&gt; è il nome del dominio in cui si desidera impostare il criteri di gruppo).  
 
 3.  Nell'albero della console fare clic con il pulsante destro del mouse su **criteri di gruppo oggetti**, quindi scegliere **nuovo**.  
 
@@ -122,7 +122,7 @@ Per il gruppo Administrators in ogni dominio nella foresta:
 
 11. In **gestione criteri di gruppo**collegare l'oggetto Criteri di gruppo al server membro e alle unità organizzative della workstation effettuando le operazioni seguenti:  
 
-    1.  Passare al &lt;Forest @ no__t-1 > \Domains @ no__t-2 @ no__t-3Domain @ no__t-4 (dove &lt;Forest @ no__t-6 è il nome della foresta e &lt;Domain @ no__t-8 è il nome del dominio in cui si vuole impostare il Criteri di gruppo).  
+    1.  Passare alla foresta &lt;&gt;> \Domains\\&lt;dominio&gt; (dove &lt;foresta&gt; è il nome della foresta e &lt;dominio&gt; è il nome del dominio in cui si desidera impostare il Criteri di gruppo).  
 
     2.  Fare clic con il pulsante destro del mouse sull'unità organizzativa a cui verrà applicato l'oggetto Criteri di gruppo e scegliere **collega un oggetto Criteri**di gruppo  
 
@@ -150,13 +150,13 @@ Per il gruppo Administrators in ogni dominio nella foresta:
 
 1.  In **Server Manager**fare clic su **strumenti**e quindi su **Gestione criteri di gruppo**.  
 
-2.  Nell'albero della console espandere <Forest> \ Domains @ no__t-1 @ no__t-2, quindi **criteri di gruppo oggetti** (dove <Forest> è il nome della foresta e <Domain> è il nome del dominio in cui si desidera impostare il criteri di gruppo).  
+2.  Nell'albero della console espandere <Forest>\Domains\\<Domain>, quindi **criteri di gruppo oggetti** (dove <Forest> è il nome della foresta e <Domain> è il nome del dominio in cui si desidera impostare il criteri di gruppo).  
 
 3.  Nell'albero della console fare clic con il pulsante destro del mouse su **criteri di gruppo oggetti**, quindi scegliere **nuovo**.  
 
     ![proteggere i gruppi di amministratori](media/Appendix-G--Securing-Administrators-Groups-in-Active-Directory/SAD_89.gif)  
 
-4.  Nella finestra di dialogo **nuovo oggetto Criteri** di gruppo digitare <GPO Name> e fare clic su **OK** (dove <GPO Name> è il nome dell'oggetto Criteri di gruppo).  
+4.  Nella finestra di dialogo **nuovo oggetto Criteri** di gruppo digitare <GPO Name>e fare clic su **OK** (dove <GPO Name> è il nome di questo GPO).  
 
     ![proteggere i gruppi di amministratori](media/Appendix-G--Securing-Administrators-Groups-in-Active-Directory/SAD_90.gif)  
 
@@ -206,7 +206,7 @@ Per il gruppo Administrators in ogni dominio nella foresta:
 
 11. In **gestione criteri di gruppo**collegare l'oggetto Criteri di gruppo all'unità organizzativa controller di dominio effettuando le operazioni seguenti:  
 
-    1.  Passare al <Forest> \ Domains @ no__t-1 @ no__t-2 (dove <Forest> è il nome della foresta e <Domain> è il nome del dominio in cui si vuole impostare il Criteri di gruppo).  
+    1.  Passare al <Forest>\Domains\\<Domain> (dove <Forest> è il nome della foresta e <Domain> è il nome del dominio in cui si desidera impostare il Criteri di gruppo).  
 
     2.  Fare clic con il pulsante destro del mouse sull'unità organizzativa Domain Controllers e scegliere **collega un oggetto Criteri**di gruppo  
 
@@ -231,7 +231,7 @@ Da qualsiasi server membro o workstation che non è influenzato dall'oggetto Cri
 
     ![proteggere i gruppi di amministratori](media/Appendix-G--Securing-Administrators-Groups-in-Active-Directory/SAD_97.gif)  
 
-5.  Nella finestra del **prompt dei comandi** Digitare **net use \\ @ no__t-3 @ No__t-4Server Name @ no__t-5\c $** , dove \<Server Name @ no__t-7 è il nome del server membro o della workstation a cui si sta tentando di accedere attraverso la rete.  
+5.  Nella finestra del **prompt dei comandi** Digitare **net use \\\\nome server \<\>\c $** , dove \<nome server\> è il nome del server membro o della workstation a cui si sta tentando di accedere attraverso la rete.  
 
 6.  Lo screenshot seguente mostra il messaggio di errore che dovrebbe essere visualizzato.  
 
@@ -250,7 +250,7 @@ Accedere localmente da qualsiasi server membro o workstation interessato dall'og
 
 4.  Fare clic su **file**e quindi su **Salva con nome**.  
 
-5.  Nel campo **nome file** Digitare **@no__t 2. bat** (dove <Filename> è il nome del nuovo file batch).  
+5.  Nel campo **nome file** Digitare **<Filename>. bat** , dove <Filename> è il nome del nuovo file batch.  
 
 ###### <a name="schedule-a-task"></a>Pianificare un'attività  
 
@@ -271,7 +271,7 @@ Accedere localmente da qualsiasi server membro o workstation interessato dall'og
 
 7.  Nel campo **programma/script** fare clic su **Sfoglia**, individuare e selezionare il file batch creato nella sezione **creare un file batch** e fare clic su **Apri**.  
 
-8.  Fare clic su **OK**.  
+8.  Fai clic su **OK**.  
 
 9. Fare clic sulla scheda **Generale**.  
 
@@ -281,7 +281,7 @@ Accedere localmente da qualsiasi server membro o workstation interessato dall'og
 
 12. Selezionare **Esegui se l'utente è registrato onor not** e non **archiviare la password**. L'attività avrà accesso solo alle risorse del computer locale.  
 
-13. Fare clic su **OK**.  
+13. Fai clic su **OK**.  
 
 14. Verrà visualizzata una finestra di dialogo in cui vengono richieste le credenziali dell'account utente per l'esecuzione dell'attività.  
 

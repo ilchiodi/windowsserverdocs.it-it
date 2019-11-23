@@ -28,7 +28,7 @@ L'appartenenza a **amministratori**, o equivalente nel computer locale è il req
   
 2.  Nella pagina **Prima di iniziare**, fare clic su **Avanti**.  
   
-3.  Nella pagina **Selezione tipo di installazione** fare clic su **Role @ no__t-2based o feature @ no__t-3based Installation**, quindi fare clic su **Next**.  
+3.  Nella pagina **Selezione tipo di installazione** fare clic su **\-basata su ruoli o su\-installazione basata su funzionalità**, quindi fare clic su **Avanti**.  
   
 4.  Nella pagina **Selezione server di destinazione** fare clic su **Selezionare un server dal pool di server**, verificare che il computer di destinazione sia selezionato e quindi fare clic su **Avanti**.  
   
@@ -36,7 +36,7 @@ L'appartenenza a **amministratori**, o equivalente nel computer locale è il req
   
 6.  Nella pagina **Selezione funzionalità** fare clic sul pulsante **Avanti**. I prerequisiti richiesti sono preselezionati. Non è necessario selezionare altre funzionalità.  
   
-7.  Nella pagina **Active Directory Servizio federativo \(AD FS @ no__t-2** fare clic su **Avanti**.  
+7.  Nella pagina **Active Directory Servizio federativo \(AD FS\)** fare clic su **Avanti**.  
   
 8.  Dopo aver verificato le informazioni nella pagina **Conferma selezioni** per l'installazione, fare clic su **Installa**.  
   
@@ -46,7 +46,7 @@ L'appartenenza a **amministratori**, o equivalente nel computer locale è il req
   
 1.  Nel computer che si desidera configurare come server federativo aprire la finestra di comando di Windows PowerShell, quindi eseguire il comando seguente: `Install-windowsfeature adfs-federation –IncludeManagementTools`.  
   
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedi anche 
 
 [Distribuzione di AD FS](../../ad-fs/AD-FS-Deployment.md)  
 

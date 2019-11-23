@@ -23,14 +23,14 @@ Per eseguire questa procedura è richiesta almeno l'appartenenza al gruppo **Use
   
 ### <a name="to-verify-that-a-federation-server-is-operational"></a>Per verificare che un server federativo sia operativo  
   
-1.  Aprire una finestra del browser e nella barra degli indirizzi digitare il nome del server federativo e quindi aggiungerlo `federationmetadata/2007-06/federationmetadata.xml` a per passare all'endpoint dei metadati del servizio federativo. Ad esempio, `https://fs.contoso.com/federationmetadata/2007-06/federationmetadata.xml` .  
+1.  Aprire una finestra del browser e nella barra degli indirizzi digitare il nome dei server federativi, quindi aggiungerlo con `federationmetadata/2007-06/federationmetadata.xml` per passare all'endpoint dei metadati del servizio federativo. Ad esempio, `https://fs.contoso.com/federationmetadata/2007-06/federationmetadata.xml`.  
   
 Se nella finestra del browser è possibile vedere i metadati del server federativo senza errori o avvisi SSL, ciò indica che il server federativo è operativo.  
   
 2. È inoltre possibile passare alla pagina di accesso di ADFS (nome del servizio federativo con l'aggiunta di `adfs/ls/idpinitiatedsignon.htm`, ad esempio `https://fs.contoso.com/adfs/ls/idpinitiatedsignon.htm`).  Verrà visualizzata la pagina di accesso di ADFS nella quale è possibile accedere con le credenziali di amministratore di dominio.  
   
 > [!IMPORTANT]
->  Assicurarsi di configurare le impostazioni del browser in modo da considerare attendibile il ruolo del server federativo aggiungendo il nome del servizio `https://fs.contoso.com`federativo (ad esempio) all'area Intranet locale del browser.  
+>  Assicurarsi di configurare le impostazioni del browser in modo da considerare attendibile il ruolo del server federativo aggiungendo il nome del servizio federativo, ad esempio `https://fs.contoso.com`, all'area Intranet locale del browser.  
   
 ## <a name="next-steps"></a>Passaggi successivi
  [Eseguire la migrazione dei servizi ruolo Active Directory Federation Services a Windows Server 2012 R2](migrate-ad-fs-service-role-to-windows-server-r2.md)   

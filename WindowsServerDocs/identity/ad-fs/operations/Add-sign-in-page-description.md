@@ -20,7 +20,7 @@ ms.locfileid: "71407741"
 
 
 ## <a name="to-add-sign-in-page-description"></a>Per aggiungere accesso\-nella descrizione della pagina  
-Per aggiungere una descrizione della pagina Sign @ no__t-0cm alla pagina Sign @ no__t-1in, usare la sintassi e il cmdlet di Windows PowerShell seguenti.  
+Per aggiungere un segno\-nella descrizione della pagina alla pagina Sign\-in, usare la sintassi e il cmdlet di Windows PowerShell seguenti.  
 
 ![aggiungere l'accesso nella descrizione](media/AD-FS-user-sign-in-customization/ADFS_Blue_Custom2.png)
 

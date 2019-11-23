@@ -40,7 +40,7 @@ Con un picco recenti nel settore, contosogiftservices.com ha un numero elevato d
 
 Contoso Gift Services esegue un'analisi del sito e rileva che ogni sera tra le 18.00 e le 21.00 ora locale è presente un aumento del traffico verso il server Web di Seattle. Il server Web non può essere ridimensionato in modo da gestire l'aumento del traffico in queste ore di picco, causando un attacco Denial of Service ai clienti. 
 
-Per garantire che i clienti di contosogiftservices.com ottengano un'esperienza reattiva dal sito Web, contoso Gift Services decide che durante tali ore verrà affittata una macchina virtuale \(VM @ no__t-1 in Microsoft Azure per ospitare una copia del server Web.  
+Per garantire che i clienti di contosogiftservices.com ottengano un'esperienza reattiva dal sito Web, contoso Gift Services decide che durante tali ore verrà affittata una macchina virtuale \(VM\) su Microsoft Azure per ospitare una copia del server Web.  
 
 Contoso Gift Services ottiene un indirizzo IP pubblico da Azure per la macchina virtuale (192.68.31.44) e sviluppa l'automazione per distribuire il server Web ogni giorno in Azure tra 5-10 PM, consentendo un periodo di emergenza di un'ora.
 
@@ -100,7 +100,7 @@ Il passaggio successivo consiste nell'aggiungere i record che rappresentano l'ho
 
 In AzureZoneScope, il record www.contosogiftservices.com viene aggiunto con l'indirizzo IP 192.68.31.44, che si trova nel cloud pubblico di Azure. 
 
-Analogamente, nell'ambito di zona predefinito @no__t -0contosogiftservices. com @ no__t-1, viene aggiunto un record @no__t -2www. contosogiftservices. com @ no__t-3 con indirizzo IP 192.68.30.2 del server Web in esecuzione nel Data Center locale di Seattle.
+Analogamente, nell'ambito di zona predefinito \(contosogiftservices.com\), un record \(www.contosogiftservices.com\) viene aggiunto con l'indirizzo IP 192.68.30.2 del server Web in esecuzione nel Data Center locale di Seattle.
 
 Nel secondo cmdlet riportato di seguito, il parametro – ZoneScope non è incluso. Per questo motivo, i record vengono aggiunti nel ZoneScope predefinito. 
 

@@ -25,7 +25,7 @@ Per altre informazioni sulle procedure consigliate e sulle analisi, vedere [Eseg
   
 |Proprietà|Dettagli|  
 |-|-|  
-|**Sistema operativo**|Windows Server 2016|  
+|**Sistema operativo**|Windows Server 2016|  
 |**Prodotto/funzionalità**|Hyper-V|  
 |**Gravità**|Avviso|  
 |**Categoria**|Configurazione|  
@@ -38,10 +38,10 @@ Nelle sezioni seguenti, corsivo indica il testo dell'interfaccia Utente visualiz
 ## <a name="impact"></a>Impatto  
 *Il traffico di rete è bloccato su una o più schede di rete virtuali nelle macchine virtuali seguenti:*  
   
-@no__t 0list di macchine virtuali >  
+\<elenco di macchine virtuali >  
   
 ## <a name="resolution"></a>Risoluzione  
-*First, verificare che l'estensione obbligatoria sia stata installata nell'host e installare l'estensione, se necessario. Quindi, se l'estensione obbligatoria è disabilitata, usare gestione Commuter virtuale o il cmdlet di Windows PowerShell Enable-VMSwitchExtension per abilitare l'estensione.*  
+*Prima di tutto, verificare che l'estensione obbligatoria sia stata installata nell'host e installare l'estensione, se necessario. Quindi, se l'estensione obbligatoria è disabilitata, usare gestione Commuter virtuale o il cmdlet di Windows PowerShell Enable-VMSwitchExtension per abilitare l'estensione.*  
   
 
 

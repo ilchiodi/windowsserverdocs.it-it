@@ -30,7 +30,7 @@ I criteri di rete sono set di condizioni, vincoli e impostazioni che consentono 
 
 Quando si elaborano le richieste di connessione come server Remote Authentication Dial-In User Service (RADIUS), NPS esegue sia l'autenticazione che l'autorizzazione per la richiesta di connessione. Durante il processo di autenticazione, il server dei criteri di rete verifica l'identità dell'utente o del computer che si connette alla rete. Durante il processo di autorizzazione, NPS determina se l'utente o il computer è autorizzato ad accedere alla rete.
 
-Per eseguire queste decisioni, NPS usa i criteri di rete configurati nella console server dei criteri di rete. NPS esamina anche le proprietà di connessione remota dell'account utente in Active Directory @ no__t-0 Domain Services \(AD DS @ no__t-2 per eseguire l'autorizzazione.
+Per eseguire queste decisioni, NPS usa i criteri di rete configurati nella console server dei criteri di rete. NPS esamina anche le proprietà di connessione remota dell'account utente in Active Directory servizi di dominio&reg; \(servizi di dominio Active Directory\) per eseguire l'autorizzazione.
 
 ## <a name="network-policies---an-ordered-set-of-rules"></a>Criteri di rete-un set ordinato di regole
 

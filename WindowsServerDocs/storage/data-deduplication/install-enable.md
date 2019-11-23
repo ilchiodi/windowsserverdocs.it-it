@@ -30,15 +30,15 @@ In questo argomento viene descritto come installare [Deduplicazione dati](overvi
 
 ### <a id="install-dedup-via-server-manager"></a>Installare la deduplicazione dei dati usando Server Manager
 1. In Aggiunta guidata ruoli e funzionalità selezionare **Ruoli server** e quindi **Deduplicazione dati**.  
-Deduplicazione dati ![Install tramite Server Manager: selezionare Deduplicazione dati da ruoli server @ no__t-1
+![installare Deduplicazione dati tramite Server Manager: selezionare Deduplicazione dati dai ruoli del server](media/install-dedup-via-server-manager-1.png)
 2. Fare clic su **Avanti** fino a quando il pulsante **Installa** non è attivo e quindi fare clic su **Installa**.  
-Deduplicazione dati ![Install tramite Server Manager: fare clic su Installa @ no__t-1
+![installare Deduplicazione dati tramite Server Manager: fare clic su Installa](media/install-dedup-via-server-manager-2.png)
 
 ### <a id="install-dedup-via-powershell"></a>Installare la deduplicazione dati tramite PowerShell
 Per installare Deduplicazione dati, eseguire il comando di PowerShell seguente come amministratore:  
 `Install-WindowsFeature -Name FS-Data-Deduplication`
 
-Per installare la deduplicazione dei dati in un'installazione di Nano Server:
+Per installare Deduplicazione dati in un'installazione di Nano Server:
 
 1. Creare un'installazione di Nano Server con l'archiviazione installata come descritto in [Guida introduttiva a Nano Server](../../get-started/getting-started-with-nano-server.md).
 2. Da un server che esegue Windows Server 2016 in qualsiasi modalità diversa da Nano Server o da un PC Windows con installato [Strumenti di amministrazione remota del server](https://www.microsoft.com/download/details.aspx?id=45520) (RSAT), installare Deduplicazione dati con un riferimento esplicito all'istanza di Nano Server, sostituendo 'MyNanoServer' con il nome effettivo dell'istanza di Nano Server:  
@@ -47,7 +47,7 @@ Per installare la deduplicazione dei dati in un'installazione di Nano Server:
     ```  
     <br />
     <strong>--O--</strong>
-    @ NO__T-2<br />
+    <br />
     Connettersi in remoto all'istanza di Nano Server con la comunicazione remota di PowerShell e usare Gestione e manutenzione immagini distribuzione per installare Deduplicazione dati:  
     
     ```PowerShell
@@ -95,7 +95,7 @@ Per determinare se un carico di lavoro è idoneo alla deduplicazione, rispondere
     `Files excluded by policy: 20`  
     `Files excluded by error: 0`  
 
-2. @no__t 0What i modelli di I/O del carico di lavoro nel set di dati sono simili? Quali prestazioni sono disponibili per il carico di lavoro? **  
+2. **Quali sono i modelli di I/O del carico di lavoro per il set di dati? Quali prestazioni sono disponibili per il carico di lavoro?**  
      Deduplicazione dati consente di ottimizzare i file come un processo periodico, anziché quando il file viene scritto su disco. È quindi importante esaminare i modelli di lettura prevista del carico di lavoro per il volume deduplicato. Poiché Deduplicazione dati sposta il contenuto di file nell'archivio blocchi e tenta il più possibile di organizzare l'archivio blocchi per file, le operazioni di lettura offrono prestazioni ottimali quando vengono applicate a intervalli sequenziali di un file.  
 
     I carichi di lavoro simili ai database hanno in genere modelli di lettura più casuali rispetto ai modelli di lettura sequenziali poiché in genere i database non garantiscono che il layout del database sarà ottimale per tutte le query che possono essere eseguite. Dal momento che le sezioni dell'archivio blocchi potrebbero esistere in tutto il volume, l'accesso agli intervalli di dati nell'archivio blocchi per le query di database può introdurre una latenza maggiore. I carichi di lavoro a prestazioni elevate sono particolarmente sensibili a questa latenza maggiore mentre altri carichi di lavoro di tipo database possono non esserlo altrettanto.
@@ -115,13 +115,13 @@ Prima di abilitare la deduplicazione dei dati, è necessario scegliere il [tipo 
 
 #### <a id="enable-dedup-via-server-manager"></a>Abilitare la deduplicazione dei dati usando Server Manager
 1. Selezionare **Servizi file e archiviazione** in Server Manager.  
-Servizi file e archiviazione @no__t 0Click @ no__t-1
+![fare clic su Servizi file e archiviazione](media/enable-dedup-via-server-manager-1.PNG)
 2. Selezionare **Volumi** da **Servizi file e archiviazione**.  
-Volumi ![Click @ no__t-1
+![fare clic su volumi](media/enable-dedup-via-server-manager-2.png)
 3. Fare clic con il pulsante destro del mouse sul volume desiderato e selezionare **Configura deduplicazione dati**.  
-![Click configurare la deduplicazione dati @ no__t-1
+![fare clic su Configura Deduplicazione dati](media/enable-dedup-via-server-manager-3.png)
 4. Selezionare il **tipo di utilizzo** desiderato dalla casella di riepilogo a discesa e selezionare **OK**.  
-![Select il tipo di utilizzo desiderato dall'elenco a discesa @ no__t-1
+![selezionare il tipo di utilizzo desiderato nell'elenco a discesa](media/enable-dedup-via-server-manager-4.png)
 5. Se si sta eseguendo un carico di lavoro consigliato, la procedura termina qui. Per altri carichi di lavoro, vedere [Altre considerazioni](#enable-dedup-sometimes-considerations).
 
 > [!Note]  
@@ -147,7 +147,7 @@ Volumi ![Click @ no__t-1
 * Se il carico di lavoro non è caratterizzato da requisiti di risorse elevati o se il completamento dei processi di ottimizzazione è più importante delle richieste del carico di lavoro, [è possibile rettificare memoria, CPU e priorità dei processi di deduplicazione dei dati](advanced-settings.md#modifying-job-schedules).
 
 ## <a id="faq"></a>Domande frequenti
-**I vuole eseguire la deduplicazione dati nel set di dati per il carico di lavoro X. Questa operazione è supportata?**  
+**Si desidera eseguire la deduplicazione dati nel set di dati per il carico di lavoro X. Questa operazione è supportata?**  
 A parte i carichi di lavoro che [notoriamente non sono interoperabili con Deduplicazione dati](interop.md), l'integrità dei dati completa di Deduplicazione dati è supportata con tutti i carichi di lavoro. I carichi di lavoro consigliati sono supportati da Microsoft anche per le prestazioni. Le prestazioni di altri carichi di lavoro dipendono notevolmente dalle attività che eseguono sul server. È necessario determinare quale impatto ha Deduplicazione dati sul carico di lavoro in termini di prestazioni e se questo è accettabile per questo carico di lavoro.
 
 **Quali sono i requisiti di dimensionamento del volume per i volumi deduplicati?**  

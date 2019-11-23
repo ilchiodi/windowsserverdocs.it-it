@@ -29,7 +29,7 @@ Quando si avvia o si ottiene una configurazione utente o computer aggiornata Cri
 
 4. Il modulo di ispezione QoS recupera i criteri QoS utente o computer e li archivia.
 
-Quando viene creato un nuovo endpoint del livello di trasporto @no__t la connessione o il traffico UDP @ no__t-1, si verifica il processo seguente.
+Quando viene creato un nuovo endpoint del livello di trasporto \(connessione TCP o il traffico UDP\), si verifica il processo seguente.
 
 1. Il componente livello trasporto dello stack TCP/IP informa il modulo di ispezione QoS.
 
@@ -59,7 +59,7 @@ Quando viene inviato un pacchetto corrispondente a un endpoint del livello di tr
 
 7. Pacer. sys usa il numero di flusso del pacchetto per determinare se il pacchetto deve essere limitato e, in tal caso, Pianifica il pacchetto per l'invio.
 
-8. Pacer. sys mette il pacchetto immediatamente \(If non è presente alcuna limitazione del traffico @ no__t-1 o pianificata \(SE è presente la limitazione del traffico da @ no__t-3 a NDIS 6. x per la trasmissione tramite la scheda di rete appropriata.
+8. Pacer. sys consente di passare immediatamente al pacchetto \(se non è presente alcuna limitazione del traffico\) o come \(pianificata se è presente una limitazione del traffico\) a NDIS 6. x per la trasmissione tramite la scheda di rete appropriata.
 
 Questi processi di QoS basata su criteri offrono i vantaggi seguenti.
 

@@ -23,7 +23,7 @@ Il processo usato per distribuire l'accesso wireless si verifica in queste fasi:
 
 ## <a name="stage-1--ap-deployment"></a>Fase 1: distribuzione AP
 
-Pianificare, distribuire e configurare i punti di accesso per la connettività dei client wireless e per l'uso con server dei criteri di rete. A seconda della preferenza e delle dipendenze di rete, è possibile pre @ no__t-0configure impostazioni sui punti di accesso wireless prima di installarli nella rete oppure è possibile configurarli in modalità remota dopo l'installazione.
+Pianificare, distribuire e configurare i punti di accesso per la connettività dei client wireless e per l'uso con server dei criteri di rete. A seconda della preferenza e delle dipendenze di rete, è possibile pre\-configurare le impostazioni nei punti di accesso wireless prima di installarli nella rete oppure è possibile configurarli in modalità remota dopo l'installazione.
 
 ## <a name="stage-2--adds-group-configuration"></a>Fase 2: configurazione del gruppo di servizi di dominio Active Directory
 
@@ -38,11 +38,11 @@ Infine, aggiungere gli utenti ai gruppi di sicurezza degli utenti wireless appro
 
 ## <a name="stage-3--group-policy-configuration"></a>Fase 3: configurazione di Criteri di gruppo
 
-Configurare l'estensione dei criteri \(IEEE 802.11 @ no__t-1 per i criteri di Criteri di gruppo utilizzando Editor Gestione Criteri di gruppo Microsoft Management Console \(MMC @ no__t-3.
+Configurare la rete wireless \(IEEE 802,11\) criteri estensione di Criteri di gruppo utilizzando la Editor Gestione Criteri di gruppo Microsoft Management Console \(MMC\).
 
-Per configurare i computer Domain @ no__t-0member usando le impostazioni nei criteri di rete wireless, è necessario applicare Criteri di gruppo. Quando un computer viene aggiunto al dominio per la prima volta, Criteri di gruppo viene applicato automaticamente. Se vengono apportate modifiche ai Criteri di gruppo, le nuove impostazioni vengono applicate automaticamente:
+Per configurare i computer membri del\-di dominio utilizzando le impostazioni nei criteri di rete wireless, è necessario applicare Criteri di gruppo. Quando un computer viene aggiunto al dominio per la prima volta, Criteri di gruppo viene applicato automaticamente. Se vengono apportate modifiche ai Criteri di gruppo, le nuove impostazioni vengono applicate automaticamente:
 
-- Per Criteri di gruppo a intervalli pre @ no__t-0determined
+- Per Criteri di gruppo a intervalli prestabiliti\-
 
 - Se un utente di dominio si disconnette e quindi torna alla rete
 
@@ -62,7 +62,7 @@ Usare i computer client per connettersi alla rete.
 
 Per i computer membri del dominio che possono accedere alla LAN cablata, le impostazioni di configurazione wireless necessarie vengono applicate automaticamente quando Criteri di gruppo viene aggiornato.
 
-Se è stata abilitata l'impostazione in rete wireless \(IEEE 802.11 @ no__t-1 criteri per la connessione automatica quando il computer si trova all'interno di un intervallo di trasmissione della rete wireless, i computer wireless, dominio @ no__t-2joined verranno automaticamente tentativo di connessione alla LAN wireless.
+Se è stata abilitata l'impostazione in rete wireless \(IEEE 802,11\) criteri per la connessione automatica quando il computer si trova all'interno di un intervallo di trasmissione della rete wireless, i computer wireless, di dominio\-aggiunti verranno tentati automaticamente di connettersi alla LAN wireless.
 
 Per connettersi alla rete wireless, gli utenti devono fornire le credenziali di nome utente e password di dominio solo quando richiesto da Windows.
 

@@ -19,7 +19,7 @@ ms.locfileid: "71407573"
 # <a name="create-a-rule-to-transform-an-incoming-claim"></a>Creare una regola per trasformare un'attestazione in ingresso
 
 
-Utilizzando il trasforma un modello di regola **attestazione in ingresso** in Active Directory Federation Services \(AD FS @ no__t-2, è possibile selezionare un'attestazione in ingresso, modificare il tipo di attestazione e modificare il relativo valore attestazione. Ad esempio, è possibile utilizzare questo modello di regola per creare una regola che invia l'attestazione del ruolo con lo stesso valore di attestazione di un'attestazione in ingresso. È anche possibile usare questa regola per inviare un'attestazione di gruppo con un valore di attestazione per gli acquirenti quando esiste un'attestazione di gruppo in ingresso con un valore di amministratori oppure è possibile inviare solo il nome dell'entità utente \(UPN @ no__t-1 attestazioni che terminano con @fabrikam.  
+Utilizzando il trasforma un modello di regola **attestazione in ingresso** in Active Directory Federation Services \(ad FS\), è possibile selezionare un'attestazione in ingresso, modificare il tipo di attestazione e modificare il relativo valore attestazione. Ad esempio, è possibile utilizzare questo modello di regola per creare una regola che invia l'attestazione del ruolo con lo stesso valore di attestazione di un'attestazione in ingresso. È anche possibile usare questa regola per inviare un'attestazione di gruppo con un valore di attestazione per gli acquirenti quando è presente un'attestazione di gruppo in ingresso con un valore di amministratori oppure è possibile inviare solo il nome dell'entità utente \(UPN\) le attestazioni che terminano con @fabrikam.  
   
 È possibile utilizzare la procedura seguente per creare una regola attestazione con lo snap di gestione di ADFS\-in.  
   
@@ -47,7 +47,7 @@ L'appartenenza a **amministratori**, o equivalente nel computer locale è il req
   
     -   **Sostituire un valore di attestazione in ingresso con un valore attestazione in uscita diverso**  
   
-    -   **Sostituire le attestazioni del suffisso e @ no__t-1mail in ingresso con un nuovo suffisso e @ no__t-2mail**  
+    -   **Sostituzione delle attestazioni dei suffissi di posta elettronica in ingresso e\-con un nuovo suffisso di posta elettronica\-**  
 ![Crea regola](media/Create-a-Rule-to-Transform-an-Incoming-Claim/transform4.PNG)   
 
 7.  Fare clic sui **Fine** pulsante.  
@@ -81,7 +81,7 @@ L'appartenenza a **amministratori**, o equivalente nel computer locale è il req
   
     -   **Sostituire un valore di attestazione in ingresso con un valore attestazione in uscita diverso**  
   
-    -   **Sostituire le attestazioni del suffisso e @ no__t-1mail in ingresso con un nuovo suffisso e @ no__t-2mail**  
+    -   **Sostituzione delle attestazioni dei suffissi di posta elettronica in ingresso e\-con un nuovo suffisso di posta elettronica\-**  
 ![Crea regola](media/Create-a-Rule-to-Transform-an-Incoming-Claim/transform4.PNG)       
 
 7.  Fare clic sui **Fine** pulsante.  
@@ -122,7 +122,7 @@ L'appartenenza a **amministratori**, o equivalente nel computer locale è il req
   
     -   **Sostituire un valore di attestazione in ingresso con un valore attestazione in uscita diverso**  
   
-    -   **Sostituire le attestazioni del suffisso e @ no__t-1mail in ingresso con un nuovo suffisso e @ no__t-2mail**  
+    -   **Sostituzione delle attestazioni dei suffissi di posta elettronica in ingresso e\-con un nuovo suffisso di posta elettronica\-**  
 ![Crea regola](media/Create-a-Rule-to-Transform-an-Incoming-Claim/transform2.PNG)  
 
 > [!NOTE]  
@@ -130,16 +130,16 @@ L'appartenenza a **amministratori**, o equivalente nel computer locale è il req
 >   
 > Per ulteriori informazioni sugli scenari di controllo dinamico degli accessi, vedere [dinamica Guida del contenuto controllo accesso](../../solution-guides/dynamic-access-control--scenario-overview.md) o [tramite AD DS attestazioni con AD FS](https://technet.microsoft.com/library/hh831504.aspx).  
   
-7. Scegliere **Fine**.  
+7. Fare clic su **Fine**.  
   
 8. Nel **Modifica regole attestazione** la finestra di dialogo, fare clic su **OK** per salvare la regola.  
 
 ## <a name="additional-references"></a>Altri riferimenti 
 [Configurare le regole delle attestazioni](Configure-Claim-Rules.md)  
  
-[Elenco di controllo: Creazione di regole delle attestazioni per un'istanza di attendibilità del componente](https://technet.microsoft.com/library/ee913578.aspx)  
+[Elenco di controllo: creazione di regole attestazione per un trust della relying party](https://technet.microsoft.com/library/ee913578.aspx)  
 
-[Elenco di controllo: Creazione di regole delle attestazioni per un'istanza di attendibilità del provider di attestazioni](https://technet.microsoft.com/library/ee913564.aspx)  
+[Elenco di controllo: creazione di regole attestazione per un trust del provider di attestazioni](https://technet.microsoft.com/library/ee913564.aspx)  
   
 [Quando usare una regola attestazioni di autorizzazione](../../ad-fs/technical-reference/When-to-Use-an-Authorization-Claim-Rule.md)  
 

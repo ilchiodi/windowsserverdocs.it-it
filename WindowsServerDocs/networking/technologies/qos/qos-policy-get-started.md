@@ -19,7 +19,7 @@ ms.locfileid: "71405282"
 
 >Si applica a: Windows Server (Canale semestrale), Windows Server 2016
 
-È possibile usare gli argomenti seguenti per iniziare a usare la qualità del servizio \(QoS @ no__t-1 criterio.
+Per iniziare a usare la qualità del servizio \(criteri di\) QoS, è possibile usare gli argomenti seguenti.
 
 - [Funzionamento dei criteri QoS](qos-policy-works.md)
 - [Architettura dei criteri QoS](qos-policy-architecture.md)

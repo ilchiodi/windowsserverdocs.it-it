@@ -22,15 +22,15 @@ ms.locfileid: "71408690"
 
 
 ## <a name="appendix-f-securing-domain-admins-groups-in-active-directory"></a>Appendice F: Protezione dei gruppi Domain Admins in Active Directory  
-Come nel caso del gruppo Enterprise Admins (EA), l'appartenenza al gruppo Domain Admins (DA) dovrebbe essere obbligatoria solo negli scenari di compilazione o di ripristino di emergenza. Non devono essere presenti account utente giornalieri nel gruppo DA ad eccezione dell'account Administrator predefinito per il dominio, se è stato protetto come descritto in [Appendix D: Protezione degli account amministratore predefiniti in Active Directory @ no__t-0.  
+Come nel caso del gruppo Enterprise Admins (EA), l'appartenenza al gruppo Domain Admins (DA) dovrebbe essere obbligatoria solo negli scenari di compilazione o di ripristino di emergenza. Non devono essere presenti account utente giornalieri nel gruppo DA, ad eccezione dell'account Administrator predefinito per il dominio, se è stato protetto come descritto in [Appendice D: protezione degli account amministratore predefiniti in Active Directory](../../../ad-ds/plan/security-best-practices/Appendix-D--Securing-Built-In-Administrator-Accounts-in-Active-Directory.md).  
 
 Domain Admins sono, per impostazione predefinita, i membri del gruppo Administrators locale su tutti i server membri e le workstation nei rispettivi domini. Questo annidamento predefinito non deve essere modificato a scopo di supporto e ripristino di emergenza. Se gli amministratori di dominio sono stati rimossi dai gruppi Administrators locale sui server membri, il gruppo deve essere aggiunto al gruppo Administrators in ogni server membro e workstation nel dominio. Il gruppo Domain Admins del dominio deve essere protetto come descritto nelle istruzioni dettagliate riportate di seguito.  
 
 Per il gruppo Domain Admins in ogni dominio nella foresta:  
 
-1.  Rimuovere tutti i membri dal gruppo, con la possibile eccezione dell'account Administrator predefinito per il dominio, purché sia stato protetto come descritto in [Appendix D: Protezione degli account amministratore predefiniti in Active Directory @ no__t-0.  
+1.  Rimuovere tutti i membri dal gruppo, con la possibile eccezione dell'account Administrator predefinito per il dominio, purché sia stato protetto come descritto in [Appendice D: protezione degli account amministratore predefiniti in Active Directory](../../../ad-ds/plan/security-best-practices/Appendix-D--Securing-Built-In-Administrator-Accounts-in-Active-Directory.md).  
 
-2.  Negli oggetti Criteri di gruppo collegati alle unità organizzative che contengono server membri e workstation in ogni dominio, il gruppo DA deve essere aggiunto ai seguenti diritti utente in **computer Computer\criteri\impostazioni Windows\Impostazioni protezione\Criteri locali\Assegnazione diritti assegnati** :  
+2.  Negli oggetti Criteri di gruppo collegati alle unità organizzative che contengono server membri e workstation in ogni dominio, il gruppo DA deve essere aggiunto ai seguenti diritti utente in **computer Computer\criteri\impostazioni Windows\Impostazioni protezione\Criteri locali\Assegnazione diritti assegnati**:  
 
     -   Nega accesso al computer dalla rete  
 
@@ -62,17 +62,17 @@ Per il gruppo Domain Admins in ogni dominio nella foresta:
 
 1.  In **Server Manager**fare clic su **strumenti**e quindi su **Gestione criteri di gruppo**.  
 
-2.  Nell'albero della console espandere \<Forest @ no__t-1 @ no__t-2Domains @ no__t-3 @ no__t-4Domain @ no__t-5, quindi **criteri di gruppo oggetti** (dove \<Forest @ no__t-8 è il nome della foresta e \<Domain @ no__t-10 è il nome del dominio in cui si desidera impostare l'Criteri di gruppo).  
+2.  Nell'albero della console espandere \<foresta\>\\domini\\\<dominio\>, quindi **criteri di gruppo oggetti** (dove \<foresta\> è il nome della foresta e \<dominio\> è il nome del dominio in cui si desidera impostare il criteri di gruppo).  
 
 3.  Nell'albero della console fare clic con il pulsante destro del mouse su **criteri di gruppo oggetti**, quindi scegliere **nuovo**.  
 
     ![gruppi di amministratori di dominio sicuri](media/Appendix-F--Securing-Domain-Admins-Groups-in-Active-Directory/SAD_63.gif)  
 
-4.  Nella finestra di dialogo **nuovo oggetto Criteri** di gruppo digitare \<GPO nome @ no__t-2, quindi fare clic su **OK** (dove \<GPO nome @ no__t-5 è il nome di questo GPO).  
+4.  Nella finestra di dialogo **nuovo oggetto Criteri** di gruppo digitare \<nome GPO\>, quindi fare clic su **OK** (dove \<nome oggetto Criteri di gruppo\> è il nome dell'oggetto Criteri di gruppo).  
 
     ![gruppi di amministratori di dominio sicuri](media/Appendix-F--Securing-Domain-Admins-Groups-in-Active-Directory/SAD_64.gif)  
 
-5.  Nel riquadro dei dettagli fare clic con il pulsante destro del mouse su \<GPO nome @ no__t-1, quindi scegliere **modifica**.  
+5.  Nel riquadro dei dettagli fare clic con il pulsante destro del mouse su \<nome oggetto Criteri di gruppo\>, quindi scegliere **modifica**.  
 
 6.  Passare a **computer Computer\criteri\impostazioni Windows\Impostazioni protezione\Criteri criteri**e fare clic su **assegnazione diritti utente**.  
 
@@ -142,7 +142,7 @@ Per il gruppo Domain Admins in ogni dominio nella foresta:
 
 13. In Gestione Criteri di gruppo collegare l'oggetto Criteri di gruppo al server membro e alle unità organizzative della workstation effettuando le operazioni seguenti:  
 
-    1.  Passare al \<Forest @ no__t-1\Domains @ no__t-2 @ no__t-3Domain @ no__t-4 (dove \<Forest @ no__t-6 è il nome della foresta e \<Domain @ no__t-8 è il nome del dominio in cui si vuole impostare il Criteri di gruppo).  
+    1.  Passare alla foresta \<\>\Domains\\\<dominio\> (dove \<foresta\> è il nome della foresta e \<dominio\> è il nome del dominio in cui si desidera impostare il Criteri di gruppo).  
 
     2.  Fare clic con il pulsante destro del mouse sull'unità organizzativa a cui verrà applicato l'oggetto Criteri di gruppo e scegliere **collega un oggetto Criteri**di gruppo  
 
@@ -174,7 +174,7 @@ Da qualsiasi server membro o workstation che non è influenzato dall'oggetto Cri
 
     ![gruppi di amministratori di dominio sicuri](media/Appendix-F--Securing-Domain-Admins-Groups-in-Active-Directory/SAD_73.gif)  
 
-5.  Nella finestra del **prompt dei comandi** Digitare **net use \\ @ no__t-3 @ No__t-4Server Name @ no__t-5\c $** , dove \<Server Name @ no__t-7 è il nome del server membro o della workstation a cui si sta tentando di accedere attraverso la rete.  
+5.  Nella finestra del **prompt dei comandi** Digitare **net use \\\\nome server \<\>\c $** , dove \<nome server\> è il nome del server membro o della workstation a cui si sta tentando di accedere attraverso la rete.  
 
 6.  Lo screenshot seguente mostra il messaggio di errore che dovrebbe essere visualizzato.  
 
@@ -194,7 +194,7 @@ Accedere localmente da qualsiasi server membro o workstation interessato dall'og
 
 4.  Fare clic su **file**e quindi su **Salva con nome**.  
 
-5.  Nel campo nome **file** digitare **@no__t -2Filename\>.bat** (dove \<Filename @ no__t-5 è il nome del nuovo file batch).  
+5.  Nel campo nome **file** Digitare **\<filename\>. bat** (dove \<filename\> è il nome del nuovo file batch).  
 
 ###### <a name="schedule-a-task"></a>Pianificare un'attività  
 
@@ -207,7 +207,7 @@ Accedere localmente da qualsiasi server membro o workstation interessato dall'og
 
 3.  Nella barra dei menu **utilità di pianificazione** fare clic su **azione**e quindi su **Crea attività**.  
 
-4.  Nella finestra di dialogo **Crea attività** Digitare **\<Task nome @ no__t-3** (dove \<Task nome @ no__t-5 è il nome della nuova attività).  
+4.  Nella finestra di dialogo **Crea attività** Digitare **\<nome attività\>** (dove \<nome attività\> è il nome della nuova attività).  
 
 5.  Fare clic sulla scheda **azioni** e quindi su **nuovo**.  
 
@@ -215,7 +215,7 @@ Accedere localmente da qualsiasi server membro o workstation interessato dall'og
 
 7.  In **programma/script**fare clic su **Sfoglia**, individuare e selezionare il file batch creato nella sezione **creare un file batch** e fare clic su **Apri**.  
 
-8.  Fare clic su **OK**.  
+8.  Fai clic su **OK**.  
 
 9. Fare clic sulla scheda **Generale**.  
 
@@ -225,7 +225,7 @@ Accedere localmente da qualsiasi server membro o workstation interessato dall'og
 
 12. Selezionare **Esegui se l'utente è connesso o meno** e selezionare **non archiviare la password**. L'attività avrà accesso solo alle risorse del computer locale.  
 
-13. Fare clic su **OK**.  
+13. Fai clic su **OK**.  
 
 14. Verrà visualizzata una finestra di dialogo in cui vengono richieste le credenziali dell'account utente per l'esecuzione dell'attività.  
 

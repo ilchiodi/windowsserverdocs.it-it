@@ -16,22 +16,22 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 09/27/2019
 ms.locfileid: "71355443"
 ---
-# <a name="converged-network-interface-card-nic-configuration-guidance"></a>Scheda di interfaccia di rete convergente \(NIC @ no__t-1 Guida alla configurazione
+# <a name="converged-network-interface-card-nic-configuration-guidance"></a>Guida alla configurazione della scheda di interfaccia di rete convergente \(NIC\)
 
 >Si applica a: Windows Server (Canale semestrale), Windows Server 2016
 
-Scheda di interfaccia di rete convergente \(NIC @ no__t-1 consente di esporre RDMA tramite un host @ no__t-2partition virtuali NIC \(vNIC @ no__t-4 in modo che i servizi di partizione host possano accedere a accesso diretto a memoria remota \(RDMA @ no__t-6 sulle stesse schede NIC che i guest Hyper-V utilizzino per il traffico TCP/IP.
+Scheda di interfaccia di rete convergente \(NIC\) consente di esporre RDMA tramite una NIC virtuale\-partizione virtuale \(vNIC\) in modo che i servizi di partizione host possano accedere a accesso diretto a memoria remota \(RDMA\) sulle stesse schede di interfaccia di rete usate dagli utenti guest Hyper-V per il traffico TCP/IP.
 
-Prima della funzionalità NIC convergente, Management \(host Partition @ no__t-1 Services che volevano usare RDMA era necessario usare le schede di interfaccia di rete RDMA @ no__t-2capable dedicate, anche se la larghezza di banda era disponibile sulle schede di interfaccia di rete associate al Commuter virtuale Hyper-V.
+Prima della funzionalità NIC convergente, il Management \(partizione host\) i servizi che volevano usare RDMA erano necessari per usare le schede di interfaccia di rete di\-RDMA dedicate, anche se la larghezza di banda era disponibile sulle schede di interfaccia di rete associate al Commuter virtuale Hyper-V.
 
-Con la scheda di interfaccia di rete convergente, i due carichi di lavoro @no__t 0management gli utenti di RDMA e il traffico Guest @ no__t-1 possono condividere le stesse schede di interfaccia di rete fisiche, consentendo di installare meno schede di interfaccia di rete nei server.
+Con la scheda di interfaccia di rete convergente, i due carichi di lavoro \(gli utenti di gestione di RDMA e il traffico Guest\) possono condividere le stesse schede di interfaccia di rete fisiche, consentendo di installare un minor numero di schede di rete
 
-Quando si distribuisce una scheda di interfaccia di rete convergente con gli host Hyper-v di Windows Server 2016 e i commutatori virtuali Hyper-V, schede negli host Hyper-V espongono i servizi RDMA per ospitare i processi usando RDMA su qualsiasi tecnologia Ethernet @ no__t-0based RDMA.
+Quando si distribuisce una scheda di interfaccia di rete convergente con gli host Hyper-v di Windows Server 2016 e i commutatori virtuali Hyper-V, i schede negli host Hyper-V espongono i servizi RDMA per ospitare i processi che usano RDMA su qualsiasi tecnologia RDMA Ethernet basata su\-.
 
 >[!NOTE]
 >Per utilizzare la tecnologia NIC convergente, le schede di rete certificate nei server devono supportare RDMA.
 
-In questa guida sono disponibili due set di istruzioni, una per le distribuzioni in cui i server dispongono di una singola scheda di rete installata, ovvero una distribuzione di base di una scheda di interfaccia di rete convergente. e un altro set di istruzioni in cui i server dispongono di due o più schede di rete installate, ovvero una distribuzione di una scheda di interfaccia di rete convergente tramite un switch Embedded Teaming \(SET @ no__t-1 team delle schede di rete RDMA @ no__t-2capable.
+In questa guida sono disponibili due set di istruzioni, una per le distribuzioni in cui i server dispongono di una singola scheda di rete installata, ovvero una distribuzione di base di una scheda di interfaccia di rete convergente. e un altro set di istruzioni in cui i server dispongono di due o più schede di rete installate, ovvero una distribuzione di una scheda di interfaccia di rete convergente tramite un gruppo switch Embedded \(SET\) team di RDMA\-schede di rete in grado di supportare.
 
 
 ## <a name="prerequisites"></a>Prerequisiti
@@ -39,7 +39,7 @@ In questa guida sono disponibili due set di istruzioni, una per le distribuzioni
 Di seguito sono riportati i prerequisiti per le distribuzioni di base e Datacenter di una scheda di interfaccia di rete convergente.
 
 >[!NOTE]
->Per gli esempi forniti, viene usata una scheda Ethernet Mellanox ConnectX-3 Pro 40 Gbps, ma è possibile usare una delle schede di rete RDMA @ no__t-0capable certificate di Windows Server che supportano questa funzionalità. Per ulteriori informazioni sulle schede di rete compatibili, vedere [l'argomento relativo](https://www.windowsservercatalog.com/results.aspx?&bCatID=1468&cpID=0&avc=85&ava=0&avt=0&avq=46&OR=1)al catalogo di Windows Server.
+>Per gli esempi forniti, viene usata una scheda Ethernet Mellanox ConnectX-3 Pro 40 Gbps, ma è possibile usare una qualsiasi delle schede di rete Windows Server Certified\-RDMA che supportano questa funzionalità. Per ulteriori informazioni sulle schede di rete compatibili, vedere [l'argomento relativo](https://www.windowsservercatalog.com/results.aspx?&bCatID=1468&cpID=0&avc=85&ava=0&avt=0&avq=46&OR=1)al catalogo di Windows Server.
 
 ### <a name="basic-converged-nic-prerequisites"></a>Prerequisiti di base per NIC convergenti
 
@@ -56,7 +56,7 @@ Per eseguire i passaggi illustrati in questa guida per la configurazione NIC con
 - Due server che eseguono Windows Server 2016 Datacenter Edition o Windows Server 2016 Standard Edition.
 - Due schede di rete certificate con supporto per RDMA installate in ogni server.
 - Ruolo server Hyper-V installato in ogni server.
-- È necessario avere familiarità con switch Embedded Teaming \(SET @ no__t-1, una soluzione di gruppo NIC alternativa usata in ambienti che includono Hyper-V e lo stack SDN (Software Defined Networking) in Windows Server 2016. SET integra alcune funzionalità di gruppo NIC nel Commuter virtuale Hyper-V. Per ulteriori informazioni, vedere [accesso diretto a memoria remota (RDMA) e switch Embedded Teaming (set)](../../../virtualization/hyper-v-virtual-switch/RDMA-and-Switch-Embedded-Teaming.md).
+- È necessario avere familiarità con switch Embedded Teaming \(SET\), una soluzione di gruppo NIC alternativa utilizzata in ambienti che includono Hyper-V e lo stack SDN (Software Defined Networking) in Windows Server 2016. SET integra alcune funzionalità di gruppo NIC nel Commuter virtuale Hyper-V. Per ulteriori informazioni, vedere [accesso diretto a memoria remota (RDMA) e switch Embedded Teaming (set)](../../../virtualization/hyper-v-virtual-switch/RDMA-and-Switch-Embedded-Teaming.md).
 
 ## <a name="related-topics"></a>Argomenti correlati
 - [Configurazione NIC convergente con una singola scheda di rete](cnic-single.md)

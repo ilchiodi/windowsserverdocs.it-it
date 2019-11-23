@@ -25,7 +25,7 @@ Per altre informazioni sulle procedure consigliate e sulle analisi, vedere [Eseg
   
 |Proprietà|Dettagli|  
 |-|-|  
-|**Sistema operativo**|Windows Server 2016|  
+|**Sistema operativo**|Windows Server 2016|  
 |**Prodotto/funzionalità**|Hyper-V|  
 |**Gravità**|Avviso|  
 |**Categoria**|Configurazione|  
@@ -36,9 +36,9 @@ Nelle sezioni seguenti, corsivo indica il testo dell'interfaccia Utente visualiz
 *Per un disco rigido virtuale differenze con i dischi rigidi virtuali padre e figlio su volumi diversi è abilitata la qualità del servizio di archiviazione.*  
   
 ## <a name="impact"></a>**Impatto**  
-la configurazione *Stanziamento può comportare un comportamento imprevisto di qualità del servizio di archiviazione per il disco rigido virtuale differenze, oltre ad altri dischi rigidi virtuali nei volumi padre e figlio. Ciò influisca sui dischi rigidi virtuali seguenti:*  
+*Questa configurazione può comportare un comportamento imprevisto di qualità del servizio di archiviazione per il disco rigido virtuale differenze, nonché altri dischi rigidi virtuali nei volumi padre e figlio. Ciò influisca sui dischi rigidi virtuali seguenti:*  
   
-@no__t 0list di dischi rigidi virtuali >  
+\<elenco di dischi rigidi virtuali >  
   
 ## <a name="resolution"></a>**Soluzione**  
 *Disabilitare la qualità del servizio di archiviazione nei dischi rigidi virtuali a cui viene fatto riferimento oppure eseguire una migrazione dell'archiviazione per spostare il disco rigido virtuale padre e figlio nello stesso volume.*  

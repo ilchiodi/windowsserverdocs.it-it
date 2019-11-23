@@ -23,7 +23,7 @@ ms.locfileid: "71404568"
 
 >Si applica a: Windows Server (Canale semestrale), Windows Server 2016
 
-**Nota:** Windows Server 2012 riunisce DirectAccess e il servizio Routing e Accesso remoto (RRAS) in un singolo ruolo Accesso remoto.  
+**Nota:** Windows Server 2012 combina DirectAccess e Routing e accesso remoto (RRAS) in un unico ruolo Accesso remoto.  
   
 È possibile utilizzare le procedure seguenti per identificare i problemi operativi del server Accesso remoto, le relative cause e la risoluzione necessaria per correggere i problemi.  
   
@@ -91,7 +91,7 @@ Per ripristinare il servizio Helper IP sul server di accesso remoto, è possibil
   
 2.  Nell'elenco dei **servizi**, scorrere verso il basso e fare doppio clic su **Helper IP**, quindi fare clic su **avviare**.  
   
-](../../../media/Identify-and-resolve-Remote-Access-server-operations-problems/PowerShellLogoSmall.gif)***<em>comandi equivalenti</em> di PowerShell per Windows PowerShell @no__t 0Windows***  
+![](../../../media/Identify-and-resolve-Remote-Access-server-operations-problems/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em> per Windows PowerShell***  
   
 Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.  
   

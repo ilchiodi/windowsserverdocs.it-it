@@ -24,7 +24,7 @@ La federazione passiva si riferisce agli scenari in cui il browser viene reindir
 
 1.  Usando un Web browser, passare all'endpoint di metadati della Federazione AD FS.  Ad esempio: https://sts.contoso.com/FederationMetadata/2007-06/FederationMetadata.xml
 2. Il file XML dovrebbe essere scaricato localmente nel computer.
-3. Aprirlo e verificare che contenga informazioni simili a infomration: ![Passive @ no__t-1
+3. Aprirlo e verificare che contenga informazioni simili a quelle del infomration seguente: ![passive](media/ad-fs-tshoot-endpoints/meta2.png)
 
 ## <a name="ws-mex-test-active-test"></a>Test WS-MEX (test attivo)
 WS-MetaDataExchange è un protocollo di servizi Web e fa parte della roadmap di WS-Federation.  Usa un messaggio SOAP per richiedere i metadati.  Testando l'endpoint, è possibile determinare se il server AD FS sta rispondendo alle richieste Web per WS-MetaDataExchange.  Utilizzare la procedura seguente per testare l'endpoint.

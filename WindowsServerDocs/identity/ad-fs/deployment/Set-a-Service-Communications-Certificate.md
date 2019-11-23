@@ -19,30 +19,30 @@ ms.locfileid: "71408329"
 # <a name="set-a-service-communications-certificate"></a>Impostare un certificato per le comunicazioni di servizi
 
 
-Server federativi in Active Directory Federation Services \(AD FS @ no__t-1 usare il certificato di comunicazione del servizio per proteggere il traffico dei servizi Web per la comunicazione Secure Sockets Layer \(SSL @ no__t-3 con client Web o con server federativo proxy.
+Server federativi in Active Directory Federation Services \(AD FS\) utilizzare il certificato di comunicazione del servizio per proteggere il traffico dei servizi Web per Secure Sockets Layer \(la comunicazione SSL\) con client Web o con proxy server federativi.
 
 > [!NOTE]  
 > Il certificato di comunicazione del servizio non corrisponde a un certificato SSL. Per modificare il certificato SSL di AD FS, sarà necessario usare PowerShell. Seguire le istruzioni riportate in questo [articolo](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/manage-ssl-certificates-ad-fs-wap).
 
 
-È possibile utilizzare la procedura seguente per modificare il certificato di comunicazione del servizio con lo snap-in di gestione di AD FS @ no__t-0cm.  
+È possibile utilizzare la procedura seguente per modificare il certificato di comunicazione del servizio con lo snap-in di gestione AD FS\-in.  
 
 > [!NOTE]  
-> Lo snap-in di gestione AD FS @ no__t-0cm fa riferimento ai certificati di autenticazione server per i server federativi come certificati di comunicazione del servizio.  
+> Lo snap\-di gestione AD FS in fa riferimento ai certificati di autenticazione server per i server federativi come certificati di comunicazione del servizio.  
 
-Per completare questa procedura, è necessaria almeno l'appartenenza al gruppo **Administrators** oppure a un gruppo equivalente nel computer locale.  Per informazioni dettagliate sull'uso degli account appropriati e delle appartenenze a gruppi, vedere \( [gruppi predefiniti locali e](https://go.microsoft.com/fwlink/?LinkId=83477) di\/dominio http:\/\/go.Microsoft.com\/fwlink? LinkId\=83477\).   
+Per completare questa procedura, è necessaria almeno l'appartenenza al gruppo **Administrators** oppure a un gruppo equivalente nel computer locale.  Per informazioni dettagliate sull'uso degli account appropriati e delle appartenenze a gruppi, vedere [gruppi predefiniti locali e di dominio](https://go.microsoft.com/fwlink/?LinkId=83477) \(http:\/\/go.Microsoft.com\/fwlink\/? LinkId\=83477\).   
 
 ### <a name="to-set-a-service-communications-certificate"></a>Per impostare un certificato per le comunicazioni di servizio  
 
 1.  Nella schermata **Start** Digitare**ad FS Management**, quindi premere INVIO.  
 
-2.  Nell'albero della console, Double @ no__t-0click **Service**, quindi fare clic su **Certificates**.  
+2.  Nell'albero della console fare doppio\-fare clic su **servizio**, quindi fare clic su **certificati**.  
 
 3.  Nel riquadro **azioni** fare clic sul collegamento **set service Communications Certificate** .  
 
 4.  Nella finestra di dialogo **selezionare un certificato di comunicazione del servizio** passare al file del certificato che si desidera impostare come certificato di comunicazione del servizio, selezionare il file del certificato e quindi fare clic su **Apri**.  
 
 ## <a name="additional-references"></a>Altri riferimenti  
-[Elenco di controllo: Configurazione di un server federativo](Checklist--Setting-Up-a-Federation-Server.md)  
+[Elenco di controllo: configurazione di un server federativo](Checklist--Setting-Up-a-Federation-Server.md)  
 
 [Requisiti dei certificati per i server federativi](https://technet.microsoft.com/library/dd807040.aspx)  

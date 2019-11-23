@@ -23,13 +23,13 @@ ms.locfileid: "71405841"
 In questo argomento vengono fornite istruzioni su come installare il ruolo del server del controller di rete utilizzando Server Manager.
 
 >[!IMPORTANT]
->Non distribuire il ruolo del server del controller di rete negli host fisici. Per distribuire il controller di rete, è necessario installare il ruolo del server del controller di rete in una macchina virtuale Hyper-V \(VM @ no__t-1 installato in un host Hyper-V. Dopo aver installato il controller di rete nelle macchine virtuali in tre host Hyper @ no__t-0V diversi, è necessario abilitare gli host Hyper @ no__t-1V per Software Defined Networking \(SDN @ no__t-3 aggiungendo gli host al controller di rete usando Windows PowerShell comando **New-NetworkControllerServer**. In questo modo si Abilita il funzionamento del software SDN Load Balancer. Per ulteriori informazioni, vedere [New-NetworkControllerServer](https://technet.microsoft.com/itpro/powershell/windows/network-controller/new-networkcontrollerserver).
+>Non distribuire il ruolo del server del controller di rete negli host fisici. Per distribuire il controller di rete, è necessario installare il ruolo del server del controller di rete in una macchina virtuale Hyper-V \(VM\) installata in un host Hyper-V. Dopo aver installato il controller di rete in macchine virtuali in tre host Hyper\-V diversi, è necessario abilitare gli host Hyper\-V per Software Defined Networking \(SDN\) aggiungendo gli host al controller di rete usando il comando di Windows PowerShell **New-NetworkControllerServer**. In questo modo si Abilita il funzionamento del software SDN Load Balancer. Per ulteriori informazioni, vedere [New-NetworkControllerServer](https://technet.microsoft.com/itpro/powershell/windows/network-controller/new-networkcontrollerserver).
   
 Dopo aver installato il controller di rete, è necessario utilizzare i comandi di Windows PowerShell per la configurazione del controller di rete aggiuntivo. Per ulteriori informazioni, vedere [deploy Network controller using Windows PowerShell](../../deploy/Deploy-Network-Controller-using-Windows-PowerShell.md).  
   
 ### <a name="to-install-network-controller"></a>Per installare il controller di rete  
   
-1.  In Server Manager fare clic su **Gestione**e quindi su **Aggiungi ruoli e funzionalità**. Si apre la procedura guidata Aggiungi ruoli e funzionalità. Fare clic su **Avanti**.  
+1.  In Server Manager fare clic su **Gestione**e quindi su **Aggiungi ruoli e funzionalità**. Si apre la procedura guidata Aggiungi ruoli e funzionalità. Fai clic su **Next**.  
   
 2.  In **Selezione tipo di installazione**, Mantieni l'impostazione predefinita e fai clic su **Avanti**.  
   
@@ -51,7 +51,7 @@ Dopo aver installato il controller di rete, è necessario utilizzare i comandi d
   
 8.  Nel **controller di rete** fare clic su **Avanti**.  
   
-9. In **Conferma selezioni**per l'installazione rivedere le scelte effettuate. Per l'installazione del controller di rete è necessario riavviare il computer dopo l'esecuzione della procedura guidata. Per questo motivo, fare clic su **Riavvia automaticamente il server di destinazione, se necessario**. Verrà visualizzata la finestra di dialogo **Aggiunta guidata ruoli e funzionalità** . Scegliere **Sì**.  
+9. In **Conferma selezioni**per l'installazione rivedere le scelte effettuate. Per l'installazione del controller di rete è necessario riavviare il computer dopo l'esecuzione della procedura guidata. Per questo motivo, fare clic su **Riavvia automaticamente il server di destinazione, se necessario**. Verrà visualizzata la finestra di dialogo **Aggiunta guidata ruoli e funzionalità** . fare clic su **Sì**.  
   
     ![Aggiunta guidata ruoli e funzionalità](../../../media/Install-the-Network-Controller-server-role-using-Server-Manager/netc_install_11.jpg)  
   
@@ -63,7 +63,7 @@ Dopo aver installato il controller di rete, è necessario utilizzare i comandi d
   
     ![Server Manager](../../../media/Install-the-Network-Controller-server-role-using-Server-Manager/nc_013.jpg)  
   
-## <a name="see-also"></a>Vedere anche  
+## <a name="see-also"></a>Vedi anche  
 [Controller di rete](Network-Controller.md)  
   
 

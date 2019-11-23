@@ -26,13 +26,13 @@ ms.locfileid: "71357537"
   
 -   [Prerequisiti](assetId:///4a96cdaf-0081-4824-aab8-f0d51be501ac#BKMK_Prereqs)  
   
--   [Passaggio 1: Creare definizioni di proprietà delle risorse @ no__t-0  
+-   [Passaggio 1: creare definizioni delle proprietà delle risorse](assetId:///4a96cdaf-0081-4824-aab8-f0d51be501ac#BKMK_Step1)  
   
--   [Passaggio 2: Configurare le notifiche @ no__t-0  
+-   [Passaggio 2: configurare le notifiche](Deploy-Implementing-Retention-of-Information-on-File-Servers--Demonstration-Steps-.md#BKMK_Step2)  
   
--   [Passaggio 3: Creare un'attività di gestione file @ no__t-0  
+-   [Passaggio 3: creare un'attività di gestione file](assetId:///4a96cdaf-0081-4824-aab8-f0d51be501ac#BKMK_Step3)  
   
--   [Passaggio 4: Classificare manualmente un file @ no__t-0  
+-   [Passaggio 4: classificare manualmente un file](Deploy-Implementing-Retention-of-Information-on-File-Servers--Demonstration-Steps-.md#BKMK_Step4)  
   
 > [!NOTE]  
 > Questo argomento include cmdlet di esempio di Windows PowerShell che è possibile usare per automatizzare alcune delle procedure descritte. Per ulteriori informazioni, vedere [mediante i cmdlet](https://go.microsoft.com/fwlink/p/?linkid=230693).  
@@ -40,7 +40,7 @@ ms.locfileid: "71357537"
 ## <a name="prerequisites"></a>Prerequisiti  
 Per i passaggi in questo argomento si presuppone che sia disponibile un server SMTP configurato per notifiche relative alla scadenza di file.  
   
-## <a name="BKMK_Step1"></a>Passaggio 1: Creare definizioni delle proprietà delle risorse  
+## <a name="BKMK_Step1"></a>Passaggio 1: creare definizioni delle proprietà delle risorse  
 In questo passaggio si abilita il periodo di memorizzazione e le proprietà di esposizione al rilevamento delle risorse, in modo che Infrastruttura di classificazione file possa usare queste proprietà delle risorse per assegnare tag ai file analizzati in una cartella di rete condivisa.  
   
 [Eseguire questo passaggio con Windows PowerShell](assetId:///4a96cdaf-0081-4824-aab8-f0d51be501ac#BKMK_PSstep1)  
@@ -57,7 +57,7 @@ In questo passaggio si abilita il periodo di memorizzazione e le proprietà di e
   
 5.  Fare clic con il pulsante destro del mouse su **Esposizione al rilevamento**, quindi scegliere **Abilita**.  
   
-![solution guide i](media/Deploy-Implementing-Retention-of-Information-on-File-Servers--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em>***  
+![la soluzione guida i](media/Deploy-Implementing-Retention-of-Information-on-File-Servers--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em>***  
   
 Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.  
   
@@ -66,7 +66,7 @@ Set-ADResourceProperty -Enabled:$true -Identity:'CN=RetentionPeriod_MS,CN=Resour
 Set-ADResourceProperty -Enabled:$true -Identity:'CN=Discoverability_MS,CN=Resource Properties,CN=Claims Configuration,CN=Services,CN=Configuration,DC=contoso,DC=com'  
 ```  
   
-## <a name="BKMK_Step2"></a>Passaggio 2: Configurare le notifiche  
+## <a name="BKMK_Step2"></a>Passaggio 2: configurare le notifiche  
 In questo passaggio si usa Gestione risorse file server per configurare il server SMTP, l'indirizzo di posta elettronica predefinito dell'amministratore e l'indirizzo di posta elettronica predefinito da cui inviare i rapporti.  
   
 [Eseguire questo passaggio con Windows PowerShell](assetId:///4a96cdaf-0081-4824-aab8-f0d51be501ac#BKMK_PSstep2)  
@@ -89,9 +89,9 @@ In questo passaggio si usa Gestione risorse file server per configurare il serve
   
     -   Nel **"Da" indirizzo di posta elettronica predefinito** digitare l'indirizzo di posta elettronica che deve essere utilizzato per inviare le notifiche.  
   
-6.  Fare clic su **OK**.  
+6.  Fai clic su **OK**.  
   
-![solution guide i](media/Deploy-Implementing-Retention-of-Information-on-File-Servers--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em>***  
+![la soluzione guida i](media/Deploy-Implementing-Retention-of-Information-on-File-Servers--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em>***  
   
 Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.  
   
@@ -99,7 +99,7 @@ Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione 
 Set-FsrmSetting -SmtpServer IP address of SMTP server -FromEmailAddress "FromEmailAddress" -AdminEmailAddress "AdministratorEmailAddress"  
 ```  
   
-## <a name="BKMK_Step3"></a>Passaggio 3: Creare un'attività di gestione dei file  
+## <a name="BKMK_Step3"></a>Passaggio 3: creare un'attività di gestione file  
 In questo passaggio si usa la console di Gestione risorse file server per creare un'attività di gestione file che sarà eseguita l'ultimo giorno del mese e farà scadere tutti i file che soddisfano i criteri seguenti:  
   
 -   Il file non è classificato come sottoposto a blocco a fini giudiziari.  
@@ -140,9 +140,9 @@ In questo passaggio si usa la console di Gestione risorse file server per creare
   
 10. Nella scheda **Pianificazione** fare clic sull'opzione **Mensile** , quindi selezionare la casella di controllo **Ultimo** .  
   
-11. Fare clic su **OK**.  
+11. Fai clic su **OK**.  
   
-![solution guide i](media/Deploy-Implementing-Retention-of-Information-on-File-Servers--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em>***  
+![la soluzione guida i](media/Deploy-Implementing-Retention-of-Information-on-File-Servers--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em>***  
   
 Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.  
   
@@ -158,7 +158,7 @@ $schedule = New-FsrmScheduledTask -Time $date -Monthly @(-1)
 $fmj1=New-FSRMFileManagementJob -Name "Retention Task" -Namespace @('D:\Finance Documents') -Action $fmjexpiration -Schedule $schedule -Notification @($fmjNotification) -Condition @( $fmjCondition1, $fmjCondition2, $fmjCondition3)  
 ```  
   
-## <a name="BKMK_Step4"></a>Passaggio 4: Classificare manualmente un file  
+## <a name="BKMK_Step4"></a>Passaggio 4: classificare manualmente un file  
 In questo passaggio si classifica manualmente un file da sottoporre a blocco a fini giudiziari. La cartella padre di questo file sarà classificata con un periodo di memorizzazione a lungo termine.  
   
 #### <a name="to-manually-classify-a-file"></a>Per classificare manualmente un file  
@@ -185,7 +185,7 @@ In questo passaggio si classifica manualmente un file da sottoporre a blocco a f
   
 ## <a name="BKMK_Links"></a>Vedere anche  
   
--   [Scenario: Implementare la conservazione delle informazioni nei file server](Scenario--Implement-Retention-of-Information-on-File-Servers.md)  
+-   [Scenario: implementare la conservazione delle informazioni nei file server](Scenario--Implement-Retention-of-Information-on-File-Servers.md)  
   
 -   [Pianificare la conservazione delle informazioni nei file server](assetId:///edf13190-7077-455a-ac01-f534064a9e0c)  
   

@@ -64,8 +64,8 @@ Nella tabella seguente sono descritte le condizioni di singola espressione. Veng
 
 |                                                                                                                   Descrizione della condizione                                                                                                                    |                           Esempio di sintassi della condizione                            |
 |------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------|
-|               Questa regola ha una condizione per verificare la presenza di un'attestazione di input con un tipo<http://test/name>di attestazione specificato (""). Se un'attestazione corrispondente si trova nelle attestazioni di input, la regola copia l'attestazione corrispondente o le attestazioni nel set di attestazioni di output.               |         ``` c: [type == "http://test/name"] => issue(claim = c );```          |
-| Questa regola ha una condizione per verificare la presenza di un'attestazione di input con un tipo<http://test/name>di attestazione ("") e un valore di attestazione ("Terry") specificati. Se un'attestazione corrispondente si trova nelle attestazioni di input, la regola copia l'attestazione corrispondente o le attestazioni nel set di attestazioni di output. | ``` c: [type == "http://test/name", value == "Terry"] => issue(claim = c);``` |
+|               Questa regola ha una condizione per verificare la presenza di un'attestazione di input con un tipo di attestazione specificato ("<http://test/name>"). Se un'attestazione corrispondente si trova nelle attestazioni di input, la regola copia l'attestazione corrispondente o le attestazioni nel set di attestazioni di output.               |         ``` c: [type == "http://test/name"] => issue(claim = c );```          |
+| Questa regola ha una condizione per verificare la presenza di un'attestazione di input con un tipo di attestazione specificato ("<http://test/name>") e un valore di attestazione ("Terry"). Se un'attestazione corrispondente si trova nelle attestazioni di input, la regola copia l'attestazione corrispondente o le attestazioni nel set di attestazioni di output. | ``` c: [type == "http://test/name", value == "Terry"] => issue(claim = c);``` |
 
 Nella sezione successiva vengono illustrate le condizioni più complesse, incluse le condizioni per verificare la presenza di più attestazioni, le condizioni per controllare l'autorità emittente di un'attestazione e le condizioni per verificare i valori che corrispondono a un criterio di espressione regolare.  
 
@@ -82,7 +82,7 @@ Nella tabella seguente viene fornito un esempio di una normale condizione basata
 
 |Descrizione della condizione|Esempio di sintassi della condizione|  
 |-------------------------|----------------------------|  
-|Questa regola presenta una condizione che usa un'espressione regolare per verificare la presenza di un'attestazione di posta elettronica@fabrikam.comche termina con "". Se un'attestazione corrispondente viene trovata nelle attestazioni di input, la regola copia l'attestazione corrispondente nel set di attestazioni di output.|```c: [type  == "http://test/email", value  =~ "^. +@fabrikam.com$" ] => issue (claim  = c );```|  
+|Questa regola presenta una condizione che usa un'espressione regolare per verificare la presenza di un'attestazione di posta elettronica che termina con "@fabrikam.com". Se un'attestazione corrispondente viene trovata nelle attestazioni di input, la regola copia l'attestazione corrispondente nel set di attestazioni di output.|```c: [type  == "http://test/email", value  =~ "^. +@fabrikam.com$" ] => issue (claim  = c );```|  
 
 ### <a name="issuance-statements"></a>Istruzioni di rilascio  
 Le regole personalizzate vengono elaborate in base alle istruzioni di rilascio (*problema* o *aggiunta* ) programmate nella regola attestazioni. A seconda del risultato desiderato, l'istruzione di issue o add può essere scritta nella regola per popolare il set di attestazioni di input o il set di attestazioni di output. Una regola personalizzata che usa l'istruzione add in modo esplicito popola i valori di attestazione solo nel set di attestazioni di input mentre una regola attestazioni personalizzata che usa l'istruzione di emissione popola i valori di attestazione nel set di attestazioni di input e nel set di attestazioni di output. Può essere utile quando un valore attestazione deve essere usato solo dalle regole future nel set di regole attestazioni.  
@@ -98,7 +98,7 @@ Il corpo della regola rappresenta un'azione di rilascio di attestazioni. Esiston
 
     ```c:[type == "Name"] => issue(type = "Greeting", value = "Hello " + c.value);```  
 
--   **Istruzione add:** l'istruzione add crea una nuova attestazione che viene aggiunta solo alla raccolta di set di attestazioni di input. Ad esempio, l'istruzione seguente aggiunge una nuova attestazione al set di attestazioni di input:  
+-   **Aggiungere l'istruzione:** l'istruzione add crea una nuova attestazione che viene aggiunto solo alla raccolta di set di attestazione di input. Ad esempio, l'istruzione seguente aggiunge una nuova attestazione al set di attestazioni di input:  
 
     ```c:[type == "Name", value == "domain user"] => add(type = "Role", value = "Editor");``` 
 
@@ -108,9 +108,9 @@ L'istruzione di rilascio di una regola definisce quali attestazioni verranno ril
 
     -   *Copia attestazione*: la copia attestazione crea una copia dell'attestazione esistente nel set di attestazioni di output. Questo modulo di rilascio ha senso solo quando viene combinato con l'istruzione di rilascio "issue". Quando viene combinato con l'istruzione di rilascio "add", non ha alcun effetto.  
 
-    -   *Nuova attestazione*: Questo formato crea una nuova attestazione, dati i valori per varie proprietà di attestazione. È necessario specificare Claim.Type; tutte le altre proprietà di attestazione sono facoltative. L'ordine degli argomenti per questo modulo viene ignorato.  
+    -   *Nuova attestazione*: questo formato crea una nuova attestazione, dati i valori per varie proprietà di attestazione. È necessario specificare Claim.Type; tutte le altre proprietà di attestazione sono facoltative. L'ordine degli argomenti per questo modulo viene ignorato.  
 
--   **Archivio di attributi**: questo modulo consente di creare attestazioni con i valori che vengono recuperati da un archivio di attributi. È possibile creare più tipi di attestazione usando una singola istruzione di rilascio, che è importante per gli archivi di attributi che rendono le operazioni di I/O di rete o di input/output (I/O) durante il recupero di attributi. Quindi, è opportuno limitare il numero di roundtrip tra il motore dei criteri e l'archivio di attributi. È anche consentito creare più attestazioni per un determinato tipo di attestazione. Quando l'archivio di attributi restituisce più valori per un determinato tipo di attestazione, l'istruzione di rilascio crea automaticamente un'attestazione per ogni valore attestazione restituito. Un'implementazione dell'archivio di attributi usa gli argomenti dei parametri per sostituire i segnaposto nell'argomento query con i valori forniti negli argomenti dei parametri. I segnaposto utilizzano la stessa sintassi della funzione .NET String. Format (), ad esempio {1} {2},, e così via. L'ordine degli argomenti per questa forma di rilascio è importante e deve essere quello previsto nella grammatica seguente.  
+-   **Archivio di attributi**: questo modulo consente di creare attestazioni con i valori che vengono recuperati da un archivio di attributi. È possibile creare più tipi di attestazione usando una singola istruzione di rilascio, che è importante per gli archivi di attributi che rendono le operazioni di I/O di rete o di input/output (I/O) durante il recupero di attributi. Quindi, è opportuno limitare il numero di roundtrip tra il motore dei criteri e l'archivio di attributi. È anche consentito creare più attestazioni per un determinato tipo di attestazione. Quando l'archivio di attributi restituisce più valori per un determinato tipo di attestazione, l'istruzione di rilascio crea automaticamente un'attestazione per ogni valore attestazione restituito. Un'implementazione dell'archivio di attributi usa gli argomenti dei parametri per sostituire i segnaposto nell'argomento query con i valori forniti negli argomenti dei parametri. I segnaposto utilizzano la stessa sintassi della funzione .NET String. Format (), ad esempio {1}, {2}e così via. L'ordine degli argomenti per questa forma di rilascio è importante e deve essere quello previsto nella grammatica seguente.  
 
 La tabella seguente descrive alcune costruzioni di sintassi comuni per entrambi i tipi di istruzioni di rilascio nelle regole attestazioni.  
 
@@ -124,13 +124,13 @@ La tabella seguente descrive alcune costruzioni di sintassi comuni per entrambi 
 #### <a name="expressions"></a>Espressioni  
 Le espressioni vengono usate sul lato destro sia per i vincoli del selettore di attestazioni che per i parametri delle istruzioni di rilascio. Esistono vari tipi di espressioni supportati dalla lingua. Tutte le espressioni nella lingua sono basate su stringa, cioè usano stringhe come input e producono stringhe. I numeri o altri tipi di dati, come data/ora, non sono supportati nelle espressioni. I tipi di espressioni supportati dalla lingua sono i seguenti:  
 
--   Valore letterale stringa: Valore stringa, delimitato dal carattere virgoletta (") su entrambi i lati.  
+-   Valore letterale stringa: valore stringa, delimitato dal carattere virgoletta (") su entrambi i lati.  
 
 -   Concatenazione di stringhe di espressioni: il risultato è una stringa che viene prodotta dalla concatenazione dei valori di sinistra e di destra.  
 
--   Chiamata di funzione: La funzione è identificata da un identificatore e i parametri vengono passati come un elenco delimitato da virgole di espressioni racchiuse tra parentesi quadre ("()").  
+-   Chiamata di funzione: la funzione è identificata da un identificatore e i parametri vengono passati come un elenco delimitato da virgole di espressioni racchiuse tra parentesi quadre ("()").  
 
--   Accesso alla proprietà di un'attestazione sotto forma di nome della proprietà del punto di un nome di variabile: Risultato del valore della proprietà dell'attestazione identificata per una determinata valutazione della variabile. La variabile deve prima essere associata a un selettore di attestazioni per poter essere usata in questo modo. Non è consentito usare la variabile associata a un selettore di attestazioni all'interno dei vincoli per lo stesso selettore di attestazioni.  
+-   Accesso alla proprietà di un'attestazione sotto forma di nome della proprietà del punto della variabile: risultato del valore della proprietà dell'attestazione identificata per una determinata valutazione della variabile. La variabile deve prima essere associata a un selettore di attestazioni per poter essere usata in questo modo. Non è consentito usare la variabile associata a un selettore di attestazioni all'interno dei vincoli per lo stesso selettore di attestazioni.  
 
 Le proprietà di attestazione seguenti sono disponibili per l'accesso:  
 
@@ -144,7 +144,7 @@ Le proprietà di attestazione seguenti sono disponibili per l'accesso:
 
 -   Claim.ValueType  
 
--   Claim. Properties @ no__t-0property @ no__t-1Name @ no__t-2. questa proprietà restituisce una stringa vuota se la proprietà _name non è stata trovata nella raccolta delle proprietà dell'attestazione. )  
+-   Claim. Properties\[proprietà\_nome\] (questa proprietà restituisce una stringa vuota se la proprietà _name non è stata trovata nella raccolta delle proprietà dell'attestazione. )  
 
 È possibile usare la funzione RegexReplace per chiamare all'interno di un'espressione. Questa funzione abbina un'espressione di input al modello specificato. Se il modello corrisponde, l'output della corrispondenza viene sostituito con il valore di sostituzione.  
 

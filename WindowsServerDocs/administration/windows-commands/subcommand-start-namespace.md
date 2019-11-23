@@ -31,7 +31,7 @@ ms.locfileid: "71370755"
 > 
 > |          Parametro          |                                                                                                                                                                                             Descrizione                                                                                                                                                                                             |
 > |-----------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-> | /Namespace: <Namespace name> | Specifica il nome dello spazio dei nomi. Si noti che questo non è il nome descrittivo e deve essere univoco.<br /><br />**server di distribuzione**-   : La sintassi per il nome dello spazio dei nomi è/namspace: WDS: <Image group> @ no__t-1 @ no__t-2 @ no__t-3 @ no__t-4. Esempio: **WDS: ImageGroup1/install. wim/1**<br />**server di trasporto**-   : Questo nome deve corrispondere al nome assegnato allo spazio dei nomi al momento della creazione nel server. |
+> | /Namespace:<Namespace name> | Specifica il nome dello spazio dei nomi. Si noti che questo non è il nome descrittivo e deve essere univoco.<br /><br />**server di distribuzione**-   : la sintassi per il nome dello spazio dei nomi è/NAMSPACE: WDS:<Image group>/<Image name>/<Index>. Ad esempio: **WDS:ImageGroup1/install.wim/1**<br />**server di trasporto**-   : il nome deve corrispondere al nome assegnato allo spazio dei nomi al momento della creazione nel server. |
 > |   [/Server:<Server name>]   |                                                                                                           Specifica il nome del server. Può essere il nome NetBIOS oppure il nome di dominio completo. Se viene specificato alcun nome di server, verrà utilizzato il server locale.                                                                                                           |
 > 
 > ## <a name="BKMK_examples"></a>Esempi
@@ -40,7 +40,7 @@ ms.locfileid: "71370755"
 > wdsutil /start-Namespace /Namespace:"Custom Auto 1"
 > wdsutil /start-Namespace /Server:MyWDSServer /Namespace:"Custom Auto 1"
 > ```
-> #### <a name="additional-references"></a>Riferimenti aggiuntivi
+> #### <a name="additional-references"></a>riferimenti aggiuntivi
 > [Sintassi della riga di comando chiave](command-line-syntax-key.md)
 > [utilizzando il comando get-AllNamespaces](using-the-get-allnamespaces-command.md)
 > [utilizzando il comando nuovo spazio dei nomi](using-the-new-namespace-command.md)

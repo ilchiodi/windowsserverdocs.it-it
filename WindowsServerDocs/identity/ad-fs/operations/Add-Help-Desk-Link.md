@@ -20,7 +20,7 @@ ms.locfileid: "71358461"
 
 
 ## <a name="to-add-a-help-desk-link"></a>Per aggiungere un collegamento al supporto tecnico  
-Per aggiungere il collegamento help desk visualizzato nella pagina Sign @ no__t-0cm, usare la sintassi e il cmdlet di Windows PowerShell seguenti.  
+Per aggiungere il collegamento help desk visualizzato nella pagina\-di accesso, usare la sintassi e il cmdlet di Windows PowerShell seguenti.  
 
 ![aggiungere supporto tecnico](media/AD-FS-user-sign-in-customization/ADFS_Blue_Custom2.png)
   

@@ -137,7 +137,7 @@ Per configurare la distribuzione RSA, attenersi alla procedura seguente:
   
 9. Nella pagina **Verifica file di licenza** , fare clic su **Avanti**.  
   
-10. Nel campo **ID utente** digitare **amministratore**e nei campi **password** e **Conferma password** digitare una password complessa. Fare clic su **Avanti**.  
+10. Nel campo **ID utente** digitare **amministratore**e nei campi **password** e **Conferma password** digitare una password complessa. Fai clic su **Next**.  
   
 11. Nella schermata di selezione dei log accettare le impostazioni predefinite e fare clic su **Avanti**.  
   
@@ -187,7 +187,7 @@ Per configurare la distribuzione RSA, attenersi alla procedura seguente:
   
     7.  Nella sezione **Opzioni file token** della pagina **Distribuisci token software** deselezionare la casella di controllo **Abilita protezione copia** . Fare clic su **Nessuna password** e **quindi su Avanti**.  
   
-    8.  Nella sezione **file di download** della pagina **Distribuisci token software** fare clic su **Scarica ora**. Fare clic su **Salva**. Passare all'installazione di C:\RSA e fare clic su **Salva** e **Chiudi**.  
+    8.  Nella sezione **file di download** della pagina **Distribuisci token software** fare clic su **Scarica ora**. Fare clic su **Save**. Passare all'installazione di C:\RSA e fare clic su **Salva** e **Chiudi**.  
   
     9. Ridurre a icona la **console di sicurezza RSA** per usarla in seguito.  
   
@@ -229,7 +229,7 @@ Per configurare la distribuzione RSA, attenersi alla procedura seguente:
   
     2.  Digitare **Edge1** nel campo **nome host** e fare clic su **Risolvi IP**.  
   
-    3.  Si noti che l'indirizzo IP per EDGE1 è ora visualizzato nel campo **indirizzo IP** . Fare clic su **Salva**.  
+    3.  Si noti che l'indirizzo IP per EDGE1 è ora visualizzato nel campo **indirizzo IP** . Fare clic su **Save**.  
   
 11. Generare un file di configurazione per il server EDGE1 (AM_Config. zip).  
   
@@ -255,7 +255,7 @@ Per configurare la distribuzione RSA, attenersi alla procedura seguente:
   
     6.  Nella finestra di dialogo **download del file** fare clic su **Salva**, passare all'installazione di C:\RSA e fare clic su **Salva**. Fare clic su **Chiudi** nella finestra di dialogo **download completato** .  
   
-    7.  Dal supporto di RSA Authentication Manager copiare \auth_mgr\windows-x86_64\am\rsa-ace_nsload\win32-5.0-x86\agent_nsload.exe nell'installazione di C:\RSA.  
+    7.  Dalla copia multimediale di RSA Authentication Manager \ auth_mgr \Windows-x86_64 \am\rsa-ace_nsload \Win32-5.0-x86\ agent_nsload. exe all'installazione di C:\RSA.  
   
 ## <a name="BKMK_DAProbeUser"></a>Crea DAProbeUser  
   
@@ -268,7 +268,7 @@ Usare questa procedura per installare il token software SecurID in CLIENT1.
   
 #### <a name="install-securid-software-token"></a>Installare il token software SecurID  
   
-1.  Nel computer CLIENT1 creare la cartella C:\RSA files. Copiare il file Software_Tokens. zip dall'installazione di C:\RSA nel computer RSA ai file C:\RSA. Estrarre il file User1_000031701832. SDTID in C:\RSA files in CLIENT1.  
+1.  Nel computer CLIENT1 creare la cartella C:\RSA files. Copiare il file Software_Tokens. zip dall'installazione di C:\RSA nel computer RSA ai file C:\RSA. Estrarre il file User1_000031701832 file con estensione SDTID in C:\RSA in CLIENT1.  
   
 2.  Accedere a RSA SecurID software token source media e fare doppio clic su RSASECURIDTOKEN410 nella cartella **SecurID SoftwareToken client App** per avviare l'installazione di RSA SecurID. Se viene visualizzato il messaggio di **avviso Apri file-sicurezza** , fare clic su **Esegui**.  
   
@@ -284,7 +284,7 @@ Usare questa procedura per installare il token software SecurID in CLIENT1.
   
 8.  Fare clic su **Importa da file**.  
   
-9. Fare clic su **Sfoglia**, selezionare C:\RSA Files\User1_000031701832.SDTID e fare clic su **Apri**.  
+9. Fare clic su **Sfoglia**, selezionare file C:\RSA \ USER1_000031701832. SDTID e fare clic su **Apri**.  
   
 10. Fare clic su **OK** due volte.  
   
@@ -295,7 +295,7 @@ Usare questa procedura per configurare EDGE1 per l'esecuzione dell'autenticazion
   
 1. In EDGE1 aprire Esplora risorse e creare la cartella C:\RSA files. Passare al supporto di installazione di RSA ACE.  
   
-2. Copiare i file agent_nsload. exe, AM_Config. zip e EDGE1_NodeSecret. zip dal supporto RSA ai file C:\RSA.  
+2. Copiare i file agent_nsload. exe, AM_Config. zip e EDGE1_NodeSecret. zip dal supporto RSA nei file C:\RSA.  
   
 3. Estrarre il contenuto di entrambi i file zip nei percorsi seguenti:  
   
@@ -303,11 +303,11 @@ Usare questa procedura per configurare EDGE1 per l'esecuzione dell'autenticazion
   
    2.  C:\Windows\SysWOW64  
   
-4. Copiare agent_nsload. exe in C:\Windows\SysWOW64 @ no__t-0.  
+4. Copiare agent_nsload. exe in C:\Windows\SysWOW64\\.  
   
 5. Aprire un prompt dei comandi con privilegi elevati e passare a C:\Windows\SysWOW64.  
   
-6. Digitare **agent_nsload. exe-f nodesecret. REC-p <password>** , dove <password> è la password complessa creata durante la configurazione iniziale di RSA. Premi INVIO.  
+6. Digitare **agent_nsload. exe-f nodesecret. REC-p <password>** dove <password> è la password complessa creata durante la configurazione iniziale di RSA. Premi INVIO.  
   
 7. Copiare C:\Windows\SysWOW64\securid in C:\Windows\System32.  
   
@@ -324,7 +324,7 @@ Usare questa procedura per configurare OTP per DirectAccess e verificare la conf
   
 4.  Nella finestra **Configurazione DirectAccess** , in **passaggio 2: server di accesso remoto**, fare clic su **modifica**.  
   
-5.  Fare clic tre volte su **Avanti** e nella sezione **autenticazione** selezionare **autenticazione a due fattori** e **utilizzare OTP**e assicurarsi che l'opzione **Usa certificati computer** sia selezionata. Verificare che la CA radice sia impostata su **CN = Corp-App1-CA**. Fare clic su **Avanti**.  
+5.  Fare clic tre volte su **Avanti** e nella sezione **autenticazione** selezionare **autenticazione a due fattori** e **utilizzare OTP**e assicurarsi che l'opzione **Usa certificati computer** sia selezionata. Verificare che la CA radice sia impostata su **CN = Corp-App1-CA**. Fai clic su **Next**.  
   
 6.  Nella sezione **server RADIUS OTP** fare doppio clic sul campo **nome server** vuoto.  
   
@@ -333,9 +333,9 @@ Usare questa procedura per configurare OTP per DirectAccess e verificare la conf
     > [!NOTE]  
     > Se il server RADIUS si trova in un dominio diverso da quello del server di accesso remoto, il campo **nome server** deve specificare il nome di dominio completo (FQDN) del server RADIUS.  
   
-8.  Nella sezione **server CA OTP** selezionare App1.Corp.contoso.com e fare clic su **Aggiungi**. Fare clic su **Avanti**.  
+8.  Nella sezione **server CA OTP** selezionare App1.Corp.contoso.com e fare clic su **Aggiungi**. Fai clic su **Next**.  
   
-9. Nella pagina **modelli di certificato OTP** fare clic su **Sfoglia** per selezionare un modello di certificato usato per la registrazione dei certificati rilasciati per l'autenticazione OTP e nella finestra di dialogo **modelli di certificato** selezionare **DAOTPLogon** . Fare clic su **OK**. Fare clic su **Sfoglia** per selezionare un modello di certificato usato per registrare il certificato usato dal server di accesso remoto per firmare le richieste di registrazione del certificato OTP e nella finestra di dialogo **modelli di certificato** Selezionare **DAOTPRA**. Fare clic su **OK**. Fare clic su **Avanti**.  
+9. Nella pagina **modelli di certificato OTP** fare clic su **Sfoglia** per selezionare un modello di certificato usato per la registrazione dei certificati rilasciati per l'autenticazione OTP e nella finestra di dialogo **modelli di certificato** selezionare **DAOTPLogon**. Fai clic su **OK**. Fare clic su **Sfoglia** per selezionare un modello di certificato usato per registrare il certificato usato dal server di accesso remoto per firmare le richieste di registrazione del certificato OTP e nella finestra di dialogo **modelli di certificato** Selezionare **DAOTPRA**. Fare clic su **OK**. Fai clic su **Next**.  
   
 10. Nella pagina **installazione del server di accesso remoto** fare clic su **fine**e fare clic su **fine** nella **creazione guidata esperto DirectAccess**.  
   

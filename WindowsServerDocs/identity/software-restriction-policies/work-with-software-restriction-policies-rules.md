@@ -88,7 +88,7 @@ Esistono procedure diverse per l'abilitazione delle regole certificati a seconda
 
 2.  Nell'albero della console fare clic su **Opzioni di sicurezza** disponibili in impostazioni di sicurezza/Criteri locali.
 
-3.  Nel riquadro dei dettagli fare doppio clic su impostazioni **System: Usare le regole dei certificati nei file eseguibili di Windows per i criteri di restrizione software @ no__t-0.
+3.  Nel riquadro dei dettagli fare doppio clic su **Impostazioni di sistema: utilizza regole certificati con i file eseguibili di Windows per i criteri di restrizione software**.
 
 4.  Eseguire una delle operazioni seguenti e quindi fare clic su **OK**:
 
@@ -112,7 +112,7 @@ Esistono procedure diverse per l'abilitazione delle regole certificati a seconda
 
 7.  Nell'albero della console fare clic su **Opzioni di sicurezza** in *criteri OggettoCriteridiGruppo* [*nomecomputer*] criterio/Configurazione computer/impostazioni di Windows/impostazioni di sicurezza/Criteri locali/.
 
-8.  Nel riquadro dei dettagli fare doppio clic su impostazioni **System: Usare le regole dei certificati nei file eseguibili di Windows per i criteri di restrizione software @ no__t-0.
+8.  Nel riquadro dei dettagli fare doppio clic su **Impostazioni di sistema: utilizza regole certificati con i file eseguibili di Windows per i criteri di restrizione software**.
 
 9. Se questa impostazione dei criteri non è ancora stata definita, selezionare la casella di controllo **Definisci le impostazioni relative ai criteri**.
 
@@ -134,7 +134,7 @@ Esistono procedure diverse per l'abilitazione delle regole certificati a seconda
 
 5.  Nell'albero della console fare clic su **Opzioni di sicurezza** in *criteri OggettoCriteridiGruppo*[*nomecomputer*] criterio/computer configurazione/impostazioni di Windows/impostazioni di sicurezza/Criteri locali.
 
-6.  Nel riquadro dei dettagli fare doppio clic su impostazioni **System: Usare le regole dei certificati nei file eseguibili di Windows per i criteri di restrizione software @ no__t-0.
+6.  Nel riquadro dei dettagli fare doppio clic su **Impostazioni di sistema: utilizza regole certificati con i file eseguibili di Windows per i criteri di restrizione software**.
 
 7.  Se questa impostazione dei criteri non è ancora stata definita, selezionare la casella di controllo **Definisci le impostazioni relative ai criteri**.
 
@@ -150,7 +150,7 @@ Esistono procedure diverse per l'abilitazione delle regole certificati a seconda
 
 2.  Nell'albero della console fare clic su **Opzioni di sicurezza** in Criteri *OggettoCriteriDiGruppo* [*Nome computer*]/Configurazione computer/Impostazioni di Windows/Impostazioni sicurezza/Criteri locali.
 
-3.  Nel riquadro dei dettagli fare doppio clic su impostazioni **System: Usare le regole dei certificati nei file eseguibili di Windows per i criteri di restrizione software @ no__t-0.
+3.  Nel riquadro dei dettagli fare doppio clic su **Impostazioni di sistema: utilizza regole certificati con i file eseguibili di Windows per i criteri di restrizione software**.
 
 4.  Se questa impostazione dei criteri non è ancora stata definita, selezionare la casella di controllo **Definisci le impostazioni relative ai criteri**.
 
@@ -310,7 +310,7 @@ Dato che queste regole sono specificate in base al percorso, se un programma sof
 
 5.  In **percorso**incollare il nome della chiave del registro di sistema, seguito dal nome del valore.
 
-6.  Racchiudere il percorso del registro di sistema in segni di percentuale (%), ad esempio%HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\PlatformSDK\Directories\InstallDir%.
+6.  Racchiudere il percorso del registro di sistema in segni di percentuale (%), ad esempio% HKEY_LOCAL_MACHINE \SOFTWARE\Microsoft\PlatformSDK\Directories\InstallDir%.
 
 7.  In **livello di sicurezza**fare clic su non **consentito** o **senza restrizioni**.
 

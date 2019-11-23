@@ -66,7 +66,7 @@ Dopo aver configurato l'infrastruttura multisito seguire questi passaggi per con
 11.  Nella finestra di dialogo **Stato installazione** verificare che l'installazione sia stata completata correttamente e quindi fare clic su **Chiudi**.  
   
   
-](../../../../media/Step-3-Configure-the-Multisite-Deployment/PowerShellLogoSmall.gif)***<em>comandi equivalenti</em> di PowerShell per Windows PowerShell @no__t 0Windows***  
+![](../../../../media/Step-3-Configure-the-Multisite-Deployment/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em> per Windows PowerShell***  
 
   
 I passaggi 1-3 devono essere eseguiti manualmente e non vengono eseguiti utilizzando questo cmdlet Windows PowerShell.  
@@ -81,7 +81,7 @@ Install-WindowsFeature RemoteAccess -IncludeManagementTools
   
 #### <a name="to-grant-administrator-permissions"></a>Per concedere le autorizzazioni di amministratore  
   
-1.  Sul server di accesso remoto nel punto di ingresso aggiuntivo: Nella schermata **Start** digitare **Gestione computer**, quindi premere INVIO.  
+1.  Nel server di accesso remoto nel punto di ingresso aggiuntive: sul **avviare** digitare **Gestione Computer**, e quindi premere INVIO.  
   
 2.  Nel riquadro a sinistra, fare clic su **utenti e gruppi locali**.  
   
@@ -104,7 +104,7 @@ In ogni server di accesso remoto che verrà aggiunto alla distribuzione multisit
   
 #### <a name="to-obtain-an-ip-https-certificate"></a>Per ottenere un certificato IP-HTTPS  
   
-1.  In ogni server di accesso remoto: Nella schermata **Start** Digitare **MMC**, quindi premere INVIO. Se viene visualizzata la finestra di dialogo **Controllo account utente** , verificare che l'azione visualizzata sia quella desiderata e quindi fare clic su **Sì**.  
+1.  In ogni server di accesso remoto: sul **avviare** digitare **mmc**, quindi premere INVIO. Se viene visualizzata la finestra di dialogo **Controllo account utente** , verificare che l'azione visualizzata sia quella desiderata e quindi fare clic su **Sì**.  
   
 2.  Scegliere **Aggiungi/Rimuovi snap-in** dal menu **File**.  
   
@@ -142,7 +142,7 @@ Se si sceglie di configurare il server dei percorsi rete sul server di accesso r
   
 #### <a name="to-install-a-certificate-for-network-location"></a>Per installare un certificato per il percorso di rete  
   
-1.  Sul server di Accesso remoto: Nella schermata **Start** Digitare **MMC**, quindi premere INVIO. Se viene visualizzata la finestra di dialogo **Controllo account utente** , verificare che l'azione visualizzata sia quella desiderata e quindi fare clic su **Sì**.  
+1.  Nel server di accesso remoto: sul **avviare** digitare **mmc**, e quindi premere INVIO. Se viene visualizzata la finestra di dialogo **Controllo account utente** , verificare che l'azione visualizzata sia quella desiderata e quindi fare clic su **Sì**.  
   
 2.  Scegliere **Aggiungi/Rimuovi snap-in** dal menu **File**.  
   
@@ -180,7 +180,7 @@ Se si sceglie di configurare il server dei percorsi rete sul server di accesso r
   
 ### <a name="NLS"></a>Per creare i record DNS del server dei percorsi di rete  
   
-1.  Nel server DNS: Nella schermata **Start** Digitare **dnsmgmt. msc**, quindi premere INVIO.  
+1.  Nel server DNS: nel **avviare** digitare **dnsmgmt. msc**, quindi premere INVIO.  
   
 2.  Nel riquadro a sinistra di **gestore DNS** console, aprire l'area di ricerca diretta per la rete interna. Fare clic con il pulsante destro zona pertinente e fare clic su **Nuovo Host (A o AAAA)** .  
   
@@ -195,7 +195,7 @@ Se si sceglie di configurare il server dei percorsi rete sul server di accesso r
 7.  Ripetere questa procedura prima di aggiungere server come punti di ingresso aggiuntive nella distribuzione.  
   
 ## <a name="BKMK_Client"></a>3,5. Configurare i client DirectAccess per una distribuzione multisito  
-I computer client DirectAccess Windows devono essere membri di gruppi di sicurezza che definiscono l'associazione di DirectAccess. Prima di abilitata la funzionalità multisito, questi gruppi di sicurezza possono contenere sia i client Windows 8 e Windows 7 (se è stata selezionata la modalità "legacy" appropriato). Dopo aver abilitata la funzionalità multisito, gruppi di sicurezza client esistente, in modalità server singolo, vengono convertiti in gruppi di sicurezza per Windows 8 solo. Dopo aver abilitata la funzionalità multisito, i computer client DirectAccess Windows 7 devono essere spostati dedicato Windows 7 client gruppi di protezione (che sono associati a specifici punti di ingresso) o non sarà in grado di connettersi tramite DirectAccess. I client Windows 7, è necessario rimuovere dai gruppi di protezione esistente che ora sono gruppi di sicurezza di Windows 8. Attenzione:  I computer client Windows 7 che sono membri di gruppi di sicurezza client Windows 7 e Windows 8 perderanno la connettività remota e i client Windows 7 senza SP1 installato perderanno anche la connettività aziendale. Pertanto, tutti i computer client Windows 7 devono essere rimossa dai gruppi di protezione di Windows 8.  
+I computer client DirectAccess Windows devono essere membri di gruppi di sicurezza che definiscono l'associazione di DirectAccess. Prima di abilitata la funzionalità multisito, questi gruppi di sicurezza possono contenere sia i client Windows 8 e Windows 7 (se è stata selezionata la modalità "legacy" appropriato). Dopo aver abilitata la funzionalità multisito, gruppi di sicurezza client esistente, in modalità server singolo, vengono convertiti in gruppi di sicurezza per Windows 8 solo. Dopo aver abilitata la funzionalità multisito, i computer client DirectAccess Windows 7 devono essere spostati dedicato Windows 7 client gruppi di protezione (che sono associati a specifici punti di ingresso) o non sarà in grado di connettersi tramite DirectAccess. I client Windows 7, è necessario rimuovere dai gruppi di protezione esistente che ora sono gruppi di sicurezza di Windows 8. Attenzione: Windows 7 i computer client membri di gruppi di sicurezza in Windows 7 e Windows 8 client perderanno la connettività remota e i client Windows 7 senza SP1 installato perderanno la connettività dell'organizzazione. Pertanto, tutti i computer client Windows 7 devono essere rimossa dai gruppi di protezione di Windows 8.  
   
 #### <a name="remove--windows-7--clients-from-windows-8-security-groups"></a>Rimuovere i client Windows 7 da gruppi di sicurezza di Windows 8  
   
@@ -221,7 +221,7 @@ Per configurare una distribuzione multisito, abilitare la funzionalità multisit
   
 ### <a name="EnabledMultisite"></a>Per abilitare una configurazione multisito  
   
-1.  Sul server di accesso remoto esistente: Nella schermata **Start** digitare **RAMgmtUI. exe**, quindi premere INVIO. Se viene visualizzata la finestra di dialogo **Controllo account utente** , verificare che l'azione visualizzata sia quella desiderata e quindi fare clic su **Sì**.  
+1.  Sul server di accesso remoto esistente: nel **avviare** digitare **RAMgmtUI.exe**, quindi premere INVIO. Se viene visualizzata la finestra di dialogo **Controllo account utente** , verificare che l'azione visualizzata sia quella desiderata e quindi fare clic su **Sì**.  
   
 2.  Nella Console di gestione accesso remoto, fare clic su **configurazione**, e quindi la **attività** riquadro, fare clic su **abilitare multisito**.  
   
@@ -231,7 +231,7 @@ Per configurare una distribuzione multisito, abilitare la funzionalità multisit
   
 5.  Nel **la selezione del punto di ingresso** pagina, effettuare una delle operazioni seguenti:  
   
-    -   Fare clic su **assegnare automaticamente i punti di ingresso e consentire ai client di selezionare manualmente** per indirizzare automaticamente i computer client al punto di ingresso più adatto, consentendo anche di selezionare un punto di ingresso manualmente i computer client. Selezione del punto di inserimento manuale è disponibile solo per i computer Windows 8. Fare clic su **Avanti**.  
+    -   Fare clic su **assegnare automaticamente i punti di ingresso e consentire ai client di selezionare manualmente** per indirizzare automaticamente i computer client al punto di ingresso più adatto, consentendo anche di selezionare un punto di ingresso manualmente i computer client. Selezione del punto di inserimento manuale è disponibile solo per i computer Windows 8. Fai clic su **Next**.  
   
     -   Fare clic su **assegna automaticamente i punti di ingresso** automaticamente indirizzare i computer client al punto di ingresso più adatto e quindi fare clic su **Avanti**.  
   
@@ -260,7 +260,7 @@ Per configurare una distribuzione multisito, abilitare la funzionalità multisit
   
 10. Nel **Abilitazione della distribuzione multisito** la finestra di dialogo, fare clic su **Chiudi** e quindi scegliere la procedura guidata Abilita distribuzione multisito, **Chiudi**.  
   
-](../../../../media/Step-3-Configure-the-Multisite-Deployment/PowerShellLogoSmall.gif)***<em>comandi equivalenti</em> di PowerShell per Windows PowerShell @no__t 0Windows***  
+![](../../../../media/Step-3-Configure-the-Multisite-Deployment/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em> per Windows PowerShell***  
   
 Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.  
   
@@ -289,7 +289,7 @@ Dopo l'abilitazione della distribuzione multisito, è possibile aggiungere ulter
   
 ### <a name="AddEP"></a>Per aggiungere punti di ingresso alla distribuzione multisito  
   
-1.  Sul server di accesso remoto esistente: Nella schermata **Start** digitare **RAMgmtUI. exe**, quindi premere INVIO. Se viene visualizzata la finestra di dialogo **Controllo account utente** , verificare che l'azione visualizzata sia quella desiderata e quindi fare clic su **Sì**.  
+1.  Sul server di accesso remoto esistente: nel **avviare** digitare **RAMgmtUI.exe**, quindi premere INVIO. Se viene visualizzata la finestra di dialogo **Controllo account utente** , verificare che l'azione visualizzata sia quella desiderata e quindi fare clic su **Sì**.  
   
 2.  Nella Console di gestione accesso remoto, fare clic su **configurazione**, e quindi la **attività** riquadro, fare clic su **aggiungere un punto di ingresso**.  
   
@@ -302,7 +302,7 @@ Dopo l'abilitazione della distribuzione multisito, è possibile aggiungere ulter
   
 5.  Nel **topologia di rete** pagina, scegliere la topologia corrispondente con la topologia di rete del server di accesso remoto che si desidera aggiungere e quindi fare clic su **Avanti**.  
   
-6.  Nel **nome di rete o indirizzo IP** pagina **digitare il nome pubblico o l'indirizzo IP utilizzato dai client per connettersi al server di accesso remoto**, immettere il nome pubblico o l'indirizzo IP utilizzato dai client per connettersi al server di accesso remoto. Il nome pubblico corrisponde al nome soggetto del certificato IP-HTTPS. Nel caso in cui è stata implementata la topologia della rete perimetrale, l'indirizzo IP è quello della scheda esterna del server di accesso remoto. Fare clic su **Avanti**.  
+6.  Nel **nome di rete o indirizzo IP** pagina **digitare il nome pubblico o l'indirizzo IP utilizzato dai client per connettersi al server di accesso remoto**, immettere il nome pubblico o l'indirizzo IP utilizzato dai client per connettersi al server di accesso remoto. Il nome pubblico corrisponde al nome soggetto del certificato IP-HTTPS. Nel caso in cui è stata implementata la topologia della rete perimetrale, l'indirizzo IP è quello della scheda esterna del server di accesso remoto. Fai clic su **Next**.  
   
 7.  Nel **schede di rete** pagina, eseguire le operazioni seguenti:  
   
@@ -310,7 +310,7 @@ Dopo l'abilitazione della distribuzione multisito, è possibile aggiungere ulter
   
     -   Se si distribuisce una topologia con una scheda di rete, in **scheda di rete**, selezionare la scheda connessa alla rete interna.  
   
-8.  Nel **schede di rete** pagina **Selezionare il certificato utilizzato per autenticare le connessioni IP-HTTPS**, fare clic su **Sfoglia** per individuare e selezionare il certificato IP-HTTPS. Fare clic su **Avanti**.  
+8.  Nel **schede di rete** pagina **Selezionare il certificato utilizzato per autenticare le connessioni IP-HTTPS**, fare clic su **Sfoglia** per individuare e selezionare il certificato IP-HTTPS. Fai clic su **Next**.  
   
 9. Se IPv6 è configurato nella rete aziendale, nel **Configurazione prefissi** pagina **prefisso IPv6 assegnato ai computer client**, immettere un prefisso IP-HTTPS per assegnare indirizzi IPv6 ai computer client DirectAccess e fare clic su **Avanti**.  
   
@@ -342,7 +342,7 @@ Dopo l'abilitazione della distribuzione multisito, è possibile aggiungere ulter
   
 16. Ripetere questa procedura dal passaggio 2 per ogni punto di ingresso che si desidera aggiungere alla distribuzione multisita.  
   
-](../../../../media/Step-3-Configure-the-Multisite-Deployment/PowerShellLogoSmall.gif)***<em>comandi equivalenti</em> di PowerShell per Windows PowerShell @no__t 0Windows***  
+![](../../../../media/Step-3-Configure-the-Multisite-Deployment/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em> per Windows PowerShell***  
   
 Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.  
   
@@ -360,4 +360,4 @@ Add-DAClient -EntrypointName 'Edge2-Europe' -DownlevelGpoName @('corp.contoso.co
   
 ## <a name="BKMK_Links"></a>Vedere anche  
   
--   [Passaggio 2: Configurare l'infrastruttura multisito @ no__t-0
+-   [Passaggio 2: configurare l'infrastruttura multisito](Step-2-Configure-the-Multisite-Infrastructure.md)

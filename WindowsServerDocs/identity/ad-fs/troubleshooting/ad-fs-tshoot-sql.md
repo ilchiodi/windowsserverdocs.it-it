@@ -36,10 +36,10 @@ Un file Universal Data Link o UDL è fondamentalmente un file di testo che conti
 1. Aprire il blocco note e salvare il file come test. udl.  Assicurarsi di disporre di **tutti i file** selezionati nell'elenco a discesa per **Salva come tipo**.
 2. Fare doppio clic su test. UDL
 3. Immettere le informazioni seguenti: a. **Selezionare o immettere il nome di un server:**  Utilizzare l'origine dati dalla stringa di connessione sopra b. **Immettere le informazioni per l'accesso al server:**  Utilizzare l'account del servizio AD FS o un account che dispone delle autorizzazioni per accedere in remoto.  Se l'account è un account di Windows, utilizzare l'autenticazione integrata in caso contrario immettere il nome utente e la password.
-    c. **Selezionare il database nel server:** Usare il catalogo iniziale dalla stringa sopra indicata.  Esempio:  AdfsConfigurationV3.
-   Connessione ![Test @ no__t-1
+    c. **Selezionare il database nel server:** Usare il catalogo iniziale dalla stringa sopra indicata.  Esempio: AdfsConfigurationV3.
+   ![Test connessione](media/ad-fs-tshoot-sql/sql4.png)
 1. Fare clic su **Test connessione**.</br>
-![Success @ no__t-1
+![esito positivo](media/ad-fs-tshoot-sql/sql3.png)
 
 ## <a name="use-sql-server-management-studio-to-test-connectivity"></a>Usare SQL Server Management Studio per testare la connettività
 È anche possibile [scaricare](https://go.microsoft.com/fwlink/?linkid=864329) e installare SSMS per testare la connettività del database.
@@ -49,9 +49,9 @@ Un file Universal Data Link o UDL è fondamentalmente un file di testo che conti
 ![Installa](media/ad-fs-tshoot-sql/sql5.png)
 1. Aprire SSMS, immettere il nome del server.  Origine dati precedente.
 2. Utilizzare l'account del servizio AD FS o un account che dispone delle autorizzazioni per accedere in remoto.  Se l'account è un account di Windows, utilizzare l'autenticazione integrata in caso contrario immettere il nome utente e la password.
-![Connect @ no__t-1
+Connessione ![](media/ad-fs-tshoot-sql/sql6.png)
 1. Si noterà che il lato sinistro è popolato.  Espandere database e verificare che siano visualizzati i database di AD FS.
-![AD FS database @ no__t-1
+![AD FS database](media/ad-fs-tshoot-sql/sql7.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

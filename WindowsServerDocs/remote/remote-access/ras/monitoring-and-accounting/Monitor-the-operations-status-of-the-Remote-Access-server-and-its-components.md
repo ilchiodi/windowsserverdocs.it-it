@@ -23,7 +23,7 @@ ms.locfileid: "71404546"
 
 >Si applica a: Windows Server (Canale semestrale), Windows Server 2016
 
-**Nota:** Windows Server 2012 riunisce DirectAccess e il servizio Routing e Accesso remoto (RRAS) in un singolo ruolo Accesso remoto.  
+**Nota:** Windows Server 2012 combina DirectAccess e Routing e accesso remoto (RRAS) in un unico ruolo Accesso remoto.  
   
 È possibile utilizzare la console di gestione nel server di accesso remoto per monitorare lo stato delle operazioni.  
   
@@ -40,7 +40,7 @@ ms.locfileid: "71404546"
   
 4.  Fare clic su **Aggiorna** in **attività** nel riquadro destro per ricaricare lo stato delle operazioni. Lo stato delle operazioni viene aggiornato automaticamente ogni cinque minuti, ovvero l'intervallo di aggiornamento predefinito. Per modificare l'intervallo di aggiornamento predefinito, fare clic su **Configura intervallo di aggiornamento**.  
   
-](../../../media/Monitor-the-operations-status-of-the-Remote-Access-server-and-its-components/PowerShellLogoSmall.gif)***<em>comandi equivalenti</em> di PowerShell per Windows PowerShell @no__t 0Windows***  
+![](../../../media/Monitor-the-operations-status-of-the-Remote-Access-server-and-its-components/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em> per Windows PowerShell***  
   
 Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.  
   

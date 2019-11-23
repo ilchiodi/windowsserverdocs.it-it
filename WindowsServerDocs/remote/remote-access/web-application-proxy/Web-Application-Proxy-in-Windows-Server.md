@@ -19,9 +19,9 @@ ms.locfileid: "71404243"
 ---
 # <a name="web-application-proxy-in-windows-server"></a>Proxy applicazione Web in Windows Server
 
->Si applica a: Windows Server @ no__t-0 2016
+>Si applica a: Windows Server&reg; 2016
 
-il contenuto **Stanziamento è pertinente per la versione locale del proxy applicazione Web. Per abilitare l'accesso sicuro alle applicazioni locali tramite il cloud, vedere il [Azure ad contenuto del proxy dell'applicazione](https://azure.microsoft.com/documentation/articles/active-directory-application-proxy-get-started/).**  
+**Questo contenuto è pertinente per la versione locale del proxy applicazione Web. Per abilitare l'accesso sicuro alle applicazioni locali tramite il cloud, vedere il [Azure ad contenuto del proxy di applicazione](https://azure.microsoft.com/documentation/articles/active-directory-application-proxy-get-started/).**  
   
 In questa sezione vengono descritte le nuove e modificate nel Proxy applicazione Web per Windows Server 2016. Le nuove funzionalità e modifiche elencate di seguito sono quelli più probabilmente avranno il massimo impatto mentre si lavora con l'anteprima.  
   
@@ -57,7 +57,7 @@ In questa sezione vengono descritte le nuove e modificate nel Proxy applicazione
   
 - Propagazione dell'indirizzo IP del client per applicazioni back-end  
   
-## <a name="see-also"></a>Vedere anche  
+## <a name="see-also"></a>Vedi anche  
   
 -   [Novità di Windows Server 2016](https://technet.microsoft.com/library/dn765472.aspx)  
   

@@ -23,9 +23,9 @@ In questo argomento viene descritto come creare un cluster di failover usando lo
 
 È anche possibile distribuire un cluster scollegato da Active Directory. Con questo tipo di distribuzione è possibile creare un cluster di failover senza le autorizzazioni necessarie per creare oggetti computer in Servizi di dominio Active Directory o senza dover richiedere la pre-installazione degli oggetti computer in Servizi di dominio Active Directory. Questa opzione è disponibile solo tramite Windows PowerShell ed è consigliata solo per scenari specifici. Per ulteriori informazioni, vedere [Distribuire un cluster scollegato da Active Directory](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn265970(v=ws.11)).
 
-#### <a name="checklist-create-a-failover-cluster"></a>Elenco di controllo: Creare un cluster di failover
+#### <a name="checklist-create-a-failover-cluster"></a>Elenco di controllo: creare un cluster di failover
 
-| Stato | Attività | Riferimenti |
+| Stato | Attività | Riferimento |
 | ---    | ---  | ---       |
 | ☐    | Verificare i prerequisiti | [Verificare i prerequisiti](#verify-the-prerequisites) |
 | ☐    | Installare la funzionalità Clustering di failover in tutti i server da aggiungere come nodi del cluster | [Installare la funzionalità clustering di failover](#install-the-failover-clustering-feature) |
@@ -95,7 +95,7 @@ Prima di creare il cluster di failover è consigliabile eseguire la convalida de
     Nella pagina Convalida in corso verrà visualizzato lo stato dei test in esecuzione.
 7. Nella pagina **Riepilogo** eseguire una delle operazioni seguenti:
     
-      - Se i risultati indicano che i test sono stati completati correttamente e la configurazione è adatta per il clustering e si desidera creare immediatamente il cluster, assicurarsi che la casella di controllo **Crea il cluster ora utilizzando i nodi convalidati** sia selezionata, quindi Selezionare **fine**. Procedere quindi al passaggio 4 della procedura [Creare il cluster di failover](#create-the-failover-cluster).
+      - Se i risultati indicano che i test sono stati completati correttamente e la configurazione è adatta per il clustering e si vuole creare il cluster immediatamente, assicurarsi che la casella di controllo **Crea il cluster ora utilizzando i nodi convalidati** sia selezionata e quindi fare clic su **fine**. Procedere quindi al passaggio 4 della procedura [Creare il cluster di failover](#create-the-failover-cluster).
       - Se i risultati indicano la presenza di avvisi o errori, selezionare **Visualizza report** per visualizzare i dettagli e determinare quali problemi devono essere corretti. Tenere presente che un avviso per un test di convalida specifico indica che quell'aspetto del cluster di failover può essere supportato, ma che potrebbe non rispettare le procedure consigliate.
         
         > [!NOTE]
@@ -123,7 +123,7 @@ Per completare questo passaggio, assicurarsi che l'account utente usato per l'ac
     1. Nella casella **Nome cluster** immettere il nome che si vuole usare per amministrare il cluster. Prima di procedere, tuttavia, prendere nota delle informazioni seguenti:
         
           - Durante la creazione del cluster, questo nome verrà registrato come oggetto computer del cluster (anche noto come *oggetto nome cluster* o *CNO*) in Servizi di dominio Active Directory. Se si specifica un nome NetBIOS per il cluster, l'oggetto CNO viene creato nello stesso percorso in cui risiedono gli altri oggetti computer per i nodi del cluster. Questo può essere il contenitore Computer predefinito o un'unità organizzativa.
-          - Per specificare un percorso diverso per l'oggetto CNO, è possibile immettere il nome distinto di un'unità organizzativa nella casella **Nome cluster**. Esempio: *CN=NomeCluster, OU=Cluster, DC=Contoso, DC=com*.
+          - Per specificare un percorso diverso per l'oggetto CNO, è possibile immettere il nome distinto di un'unità organizzativa nella casella **Nome cluster**. Ad esempio: *CN=NomeCluster, OU=Cluster, DC=Contoso, DC=com*.
           - Se un amministratore di dominio ha pre-installato l'oggetto CNO in un'unità organizzativa differente rispetto a quella in cui risiedono i nodi del cluster, specificare il nome distinto fornito dall'amministratore.
     2. Se il server non dispone di un adattatore di rete configurato per usare DHCP, è necessario configurare uno o più indirizzi IP statici per il cluster di failover. Selezionare la casella di controllo accanto a ogni rete da usare per la gestione del cluster. Selezionare il campo **Indirizzo** accanto a una rete selezionata, quindi immettere l'indirizzo IP che si desidera assegnare al cluster. Questo indirizzo (o questi indirizzi) IP verranno associati al nome del cluster in ambito DNS (Domain Name System).
     3. Al termine, fare clic su **Avanti**.
@@ -193,7 +193,7 @@ Test-Cluster –Node Server1, Server2
 ```
 
 > [!NOTE]
-> Il cmdlet **test-cluster** restituisce i risultati in un file di log nella directory di lavoro corrente. Esempio: C:\Users @ no__t-0username > \AppData\Local\Temp.
+> Il cmdlet **test-cluster** restituisce i risultati in un file di log nella directory di lavoro corrente. Ad esempio: C:\Users\<username > \AppData\Local\Temp.
 
 Nell'esempio seguente viene creato un cluster di failover denominato *MyCluster* con i nodi *Server1* e *Server2*, viene assegnato l'indirizzo IP statico *192.168.1.12*e viene infine aggiunta tutta l'archiviazione idonea al cluster di failover.
 
@@ -215,7 +215,7 @@ New-Cluster -Name CN=MyCluster,OU=Cluster,DC=Contoso,DC=com -Node Server1, Serve
 
 Per esempi su come aggiungere i ruoli del cluster, vedere argomenti quali [Add-ClusterFileServerRole](https://docs.microsoft.com/powershell/module/failoverclusters/add-clusterfileserverrole?view=win10-ps) e [Add-ClusterGenericApplicationRole](https://docs.microsoft.com/powershell/module/failoverclusters/add-clustergenericapplicationrole?view=win10-ps).
 
-## <a name="more-information"></a>Altre informazioni
+## <a name="more-information"></a>Ulteriori informazioni
 
   - [Clustering di failover](failover-clustering.md)
   - [Distribuire un cluster Hyper-V](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/jj863389(v%3dws.11)>)

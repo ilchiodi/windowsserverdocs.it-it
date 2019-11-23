@@ -48,7 +48,7 @@ Usare quindi l'opzione **/AddFile** per aggiungere uno o più file al processo d
 
 Usare l'opzione **/AddFile** per aggiungere un file al processo. Ripetere questa chiamata per ogni file che si desidera aggiungere. Se più processi usano myDownloadJob come nome, è necessario sostituire myDownloadJob con il GUID del processo per identificare in modo univoco il processo.
 
-**Bitsadmin/AddFile myDownloadJob https://downloadsrv/10mb.zip c: @no__t -210MB. zip**
+**Bitsadmin/AddFile myDownloadJob https://downloadsrv/10mb.zip c:\\10 MB. zip**
 
 Per attivare il processo nella coda di trasferimento, usare l'opzione **/Resume** .
 

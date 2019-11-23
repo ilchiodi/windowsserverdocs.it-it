@@ -39,11 +39,11 @@ expose <ShadowID> {<Drive:> | <Share> | <MountPoint>}
 |Parametro|Descrizione|
 |---------|-----------|
 |IDShadow|Specifica l'ID di ombreggiatura della copia shadow che si desidera esporre.|
-|\<Drive: >|Espone la copia shadow specificata come lettera di unità (ad esempio, P:).|
-|\<Share >|Espone la copia shadow specificata in una condivisione, ad esempio \\ @ no__t-1*MachineName*\).|
-|\<MountPoint >|Espone la copia shadow specificata a un punto di montaggio, ad esempio C:\shadowcopy @ no__t-0.|
+|Unità \<: >|Espone la copia shadow specificata come lettera di unità (ad esempio, P:).|
+|Condivisione \<>|Espone la copia shadow specificata in una condivisione, ad esempio \\\\*MachineName*\).|
+|\<MountPoint >|Espone la copia shadow specificata a un punto di montaggio, ad esempio C:\shadowcopy\).|
 
-## <a name="remarks"></a>Note
+## <a name="remarks"></a>Osservazioni
 
 -   È possibile utilizzare un alias esistente o una variabile di ambiente al posto di *IDShadow*. Utilizzare **aggiungere** senza parametri per visualizzare gli alias esistenti.
 

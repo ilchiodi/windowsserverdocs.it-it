@@ -15,7 +15,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 09/27/2019
 ms.locfileid: "71405790"
 ---
-# <a name="install-data-center-bridging-dcb-in-windows-server-2016-or-windows-10"></a>Installare Data Center Bridging \(DCB @ no__t-1 in Windows Server 2016 o Windows 10
+# <a name="install-data-center-bridging-dcb-in-windows-server-2016-or-windows-10"></a>Installare Data Center Bridging \(DCB\) in Windows Server 2016 o Windows 10
 
 >Si applica a: Windows Server (Canale semestrale), Windows Server 2016
 
@@ -30,8 +30,8 @@ Di seguito sono riportati i prerequisiti per la configurazione e la gestione di 
 È possibile usare i comandi di DCB di questa guida nei sistemi operativi seguenti.
 
 - Windows Server (Canale semestrale)
-- Windows Server 2016
-- Windows 10 \(tutti Versions @ no__t-1
+- Windows Server 2016
+- Windows 10 \(tutte le versioni\)
 
 I sistemi operativi seguenti includono versioni precedenti di DCB che non sono compatibili con i comandi usati nella documentazione di DCB per Windows Server 2016 e Windows 10.
 
@@ -42,8 +42,8 @@ I sistemi operativi seguenti includono versioni precedenti di DCB che non sono c
 
 Di seguito è riportato un elenco dei requisiti hardware per DCB.
 
-- DCB @ no__t-0capable Ethernet Network Adapter @ no__t-1S @ no__t-2 deve essere installato nei computer che forniscono Windows Server 2016 DCB.
-- DCB @ no__t-i commutatori hardware 0capable devono essere distribuiti nella rete.
+- È necessario installare DCB\-scheda di rete Ethernet\(s\) nei computer che forniscono Windows Server 2016 DCB.
+- DCB\-i commutatori hardware idonei devono essere distribuiti nella rete.
 
 
 ## <a name="install-dcb-in-windows-server-2016"></a>Installare DCB in Windows Server 2016
@@ -75,13 +75,13 @@ Per eseguire queste procedure, è necessario essere un membro di **Administrator
 1. In Server Manager, in DC1 fare clic su **Gestisci**, quindi su **Aggiungi ruoli e funzionalità**. Viene avviata l'Aggiunta guidata ruoli e funzionalità.
 2. In **Prima di iniziare** fare clic su **Avanti**.
 3. In **Select Installation Type**, assicurarsi che **installazione basata su ruoli o basata su funzionalità** sia selezionata e quindi fare clic su **Avanti**.
-4. In **Selezione server di destinazione** assicurarsi che sia selezionata l'opzione **Selezionare un server dal pool di server**. Assicurarsi che in **Pool di server** sia selezionato il computer locale. Fare clic su **Avanti**.
+4. In **Selezione server di destinazione** assicurarsi che sia selezionata l'opzione **Selezionare un server dal pool di server**. Assicurarsi che in **Pool di server** sia selezionato il computer locale. Fai clic su **Next**.
 5. In **Selezione ruoli server**, fare clic su **Avanti**.
 6. In **Selezione funzionalità**, in **funzionalità**, fare clic su **Data Center Bridging**. Verrà visualizzata una finestra di dialogo in cui viene chiesto se si desidera aggiungere le funzionalità richieste di DCB. Fare clic su **Aggiungi funzionalità**.
 7. In **Selezionare le funzionalità**, fare clic su **Avanti**. 
 8. 7.In **confermare le selezioni**per l'installazione, fare clic su **Installa**. Il **lo stato dell'installazione** pagina Visualizza stato durante il processo di installazione. Quando viene visualizzato il messaggio indicante che l'installazione è riuscita, fare clic su **Chiudi**.
 
-### <a name="configure-the-kernel-debugger-to-allow-qos-optional"></a>Configurare il debugger del kernel per consentire QoS \(Optional @ no__t-1
+### <a name="configure-the-kernel-debugger-to-allow-qos-optional"></a>Configurare il debugger del kernel per consentire QoS \(facoltativo\)
 
  Per impostazione predefinita, i debugger del kernel bloccano NetQos. Indipendentemente dal metodo usato per installare DCB, se nel computer è installato un debugger del kernel, è necessario configurare il debugger in modo da consentire l'abilitazione e la configurazione di QoS eseguendo il comando seguente.
 

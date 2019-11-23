@@ -18,24 +18,24 @@ ms.locfileid: "71359558"
 ---
 # <a name="import-a-server-authentication-certificate-to-the-default-web-site"></a>Importare un certificato di autenticazione server nel sito Web predefinito
 
-Dopo aver ottenuto un certificato di autenticazione server da un'autorità di certificazione \(CA @ no__t-1, è necessario installare manualmente il certificato nel sito Web predefinito per ogni server federativo o proxy server federativo in una server farm.  
+Dopo aver ottenuto un certificato di autenticazione server da un'autorità di certificazione \(CA\), è necessario installare manualmente il certificato nel sito Web predefinito per ogni server federativo o proxy server federativo in un server farm.  
   
 Per i server Web, è necessario installare manualmente il certificato di autenticazione server nel sito Web appropriato o nella directory virtuale in cui risiede l'applicazione federata.  
   
 Se si configura una farm, assicurarsi di eseguire questa procedura in modo identico, usando le stesse identiche impostazioni, in ogni server della farm.  
   
 > [!NOTE]  
-> Lo snap-in di gestione AD FS @ no__t-0cm fa riferimento ai certificati di autenticazione server per i server federativi come certificati di comunicazione del servizio.  
+> Lo snap\-di gestione AD FS in fa riferimento ai certificati di autenticazione server per i server federativi come certificati di comunicazione del servizio.  
   
 Per completare questa procedura, è necessaria almeno l'appartenenza al gruppo **Administrators** oppure a un gruppo equivalente nel computer locale.  Informazioni dettagliate sull'utilizzo degli account appropriati e appartenenze [dominio gruppi predefiniti locali e](https://go.microsoft.com/fwlink/?LinkId=83477).   
   
 ### <a name="to-import-a-server-authentication-certificate-to-the-default-web-site"></a>Per importare un certificato di autenticazione server nel sito Web predefinito  
   
-1.  Nella schermata **Start** digitare**Internet Information Services \(IIS @ No__t-3 Manager**, quindi premere INVIO.  
+1.  Nella schermata **Start** digitare**Internet Information Services \(IIS\) Manager**, quindi premere INVIO.  
   
 2.  Nell'albero della console fare clic su **Nome computer**.  
   
-3.  Nel riquadro centrale, Double @ no__t-0click **Server Certificates**.  
+3.  Nel riquadro centrale, fare doppio\-fare clic su **certificati server**.  
   
 4.  Nel riquadro **Azioni** fare clic su **Importa**.  
   
@@ -46,9 +46,9 @@ Per completare questa procedura, è necessaria almeno l'appartenenza al gruppo *
 7.  Immettere una password per il certificato e quindi fare clic su **OK**.  
   
 ## <a name="additional-references"></a>Altri riferimenti  
-[Elenco di controllo: Configurazione di un server federativo](Checklist--Setting-Up-a-Federation-Server.md)  
+[Elenco di controllo: configurazione di un server federativo](Checklist--Setting-Up-a-Federation-Server.md)  
   
-[Elenco di controllo: Configurazione di un proxy server federativo](Checklist--Setting-Up-a-Federation-Server-Proxy.md)  
+[Elenco di controllo: configurazione di un proxy server federativo](Checklist--Setting-Up-a-Federation-Server-Proxy.md)  
   
 [Requisiti dei certificati per i server federativi](https://technet.microsoft.com/library/dd807040.aspx)  
   

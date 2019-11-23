@@ -35,6 +35,7 @@ Gli stessi strumenti sono disponibili come estensione dello strumento anche quan
 
 L'estensione dello strumento per i cluster di failover e i cluster iperconvergenti fornisce un dashboard che visualizza lo stato generale dell'integrità hardware del cluster, gli avvisi di stato, lo stato di coerenza del firmware e il report, il consumo di energia e la temperatura e la ventola e l'alimentatore stato di integrità.
 
-![Lenovo Extension @ no__t-1 @ no__t-2Lenovo Extension @ no__t-3
+![estensione Lenovo](../../media/extend-case-study-lenovo/lenovo-4.png)
+![estensione Lenovo](../../media/extend-case-study-lenovo/lenovo-5.png)
 
 Altre informazioni sulle offerte di Lenovo XClarity Integrator per l'interfaccia di amministrazione di Windows nel [sito Web di Lenovo](https://support.lenovo.com/us/en/solutions/ht507549).

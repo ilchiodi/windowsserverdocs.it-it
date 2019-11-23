@@ -28,13 +28,13 @@ Questi sono solo i comandi e i rispettivi usi; è necessario determinare le port
 >[!IMPORTANT]
 >Verificare che i criteri VLAN e no-drop siano impostati per la priorità di configurazione di SMB.
 
-## <a name="arista-switch-dcs-7050s-64-eos-4137m"></a>Arista switch \(dcs @ no__t-17050s @ no__t-264, EOS @ no__t-34.13.7 M @ no__t-4
+## <a name="arista-switch-dcs-7050s-64-eos-4137m"></a>Arista switch \(controller di dominio\-7050s\-64, EOS\-4.13.7 M\)
 
-1.  en \(go alla modalità di amministrazione, in genere richiede una password @ no__t-1
-2.  config \(to immettere in modalità di configurazione @ no__t-1
-3.  Mostra Run \(shows Current running Configuration @ no__t-1
+1.  in \(passare alla modalità di amministrazione, in genere richiede una password\)
+2.  configurare \(per accedere alla modalità di configurazione\)
+3.  Mostra esecuzione \(Mostra la configurazione in esecuzione corrente\)
 4.  individuare le porte di commutazione a cui sono connesse le schede di rete. In questi esempi, sono 14/1, 15/1, 16/1, 17/1.
-5.  int ETH 14/1, 15/1, 16/1, 17/1 \(enter in modalità di configurazione per queste porte @ no__t-1
+5.  int ETH 14/1, 15/1, 16/1, 17/1 \(attivare la modalità di configurazione per queste porte\)
 6.  IEEE in modalità DCBX
 7.  priorità-modalità di controllo del flusso in
 8.  VLAN nativa trunk switchport 225
@@ -42,19 +42,19 @@ Questi sono solo i comandi e i rispettivi usi; è necessario determinare le port
 10. Trunk modalità switchport
 11. priorità-flusso-controllo priorità 3 no-drop
 12. cos attendibilità QoS
-13. Mostra eseguire \(verify che la configurazione sia correttamente impostata sulle porte @ no__t-1
-14. WR \(to fare in modo che le impostazioni vengano mantenute tra switch reboot @ no__t-1
+13. Mostra esecuzione \(verificare che la configurazione sia correttamente impostata sulle porte\)
+14. WR \(fare in modo che le impostazioni vengano mantenute tra il riavvio del cambio\)
 
 ### <a name="tips"></a>Consigli
 1.  No #command # nega un comando
-2.  Come aggiungere una nuova VLAN: int VLAN 100 \(If Storage Network è on VLAN 100 @ no__t-1
+2.  Come aggiungere una nuova VLAN: int VLAN 100 \(se la rete di archiviazione si trova nella VLAN 100\)
 3.  Come verificare le VLAN esistenti: Mostra VLAN
-4.  Per ulteriori informazioni sulla configurazione dell'opzione Arista, cercare online per: Manuale di Arista EOS
+4.  Per ulteriori informazioni sulla configurazione del commutire Arista, cercare online per: Arista EOS Manual
 5.  Usare questo comando per verificare le impostazioni di PFC: Mostra priorità-dettagli dei contatori di controllo del flusso
 
 --- 
 
-## <a name="dell-switch-s4810-ftos-99-00"></a>Switch Dell \(S4810, FTOS 9,9 \(0.0 @ no__t-2 @ no__t-3
+## <a name="dell-switch-s4810-ftos-99-00"></a>Switch Dell \(S4810, FTOS 9,9 \(0,0\)\)
 
     
     !
@@ -74,7 +74,7 @@ Questi sono solo i comandi e i rispettivi usi; è necessario determinare le port
     
 --- 
 
-## <a name="cisco-switch-nexus-3132-version-602u61"></a>Switch Cisco \(Nexus 3132, versione 6.0 @ no__t-12 @ no__t-2U6 @ no__t-31 @ no__t-4 @ no__t-5
+## <a name="cisco-switch-nexus-3132-version-602u61"></a>Switch Cisco \(Nexus 3132, versione 6,0\(2\)U6\(1\)\)
 
 ### <a name="global"></a>Globale
     

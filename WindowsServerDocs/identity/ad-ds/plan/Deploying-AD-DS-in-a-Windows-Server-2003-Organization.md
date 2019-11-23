@@ -33,7 +33,7 @@ Nella figura seguente vengono illustrati i passaggi per la distribuzione di Wind
   
 Consolidamento dei domini di risorse e account che vengono aggiornati sul posto da un ambiente Windows Server 2003 come parte della distribuzione di Windows Server 2008 Active Directory potrebbe essere necessario tra insiemi di strutture o intraforest ristrutturazione di dominio. Ristrutturazione dei domini di Active Directory tra foreste consente di ridurre la complessità della rappresentazione dell'organizzazione in Active Directory, e consente di ridurre i costi amministrativi associati. Ristrutturazione dei domini di Active Directory all'interno di un insieme di strutture consente di ridurre il carico amministrativo per l'organizzazione di riduzione del traffico di replica, riducendo la quantità di utente e l'amministrazione di gruppo che è necessario e semplificare l'amministrazione dei criteri di gruppo. Per ulteriori informazioni, vedere la guida alla migrazione di il numero di versione 3.1 ([https://go.microsoft.com/fwlink/?LinkId=93678](https://go.microsoft.com/fwlink/?LinkId=93678)).  
   
-Per un elenco delle attività dettagliate che è possibile usare per pianificare e distribuire servizi di dominio Active Directory in un'organizzazione che esegue Windows Server 2003 Active Directory, vedere [Checklist: Distribuzione di servizi di dominio Active Directory in un'organizzazione Windows Server 2003 @ no__t-0.  
+Per un elenco di attività dettagliate che è possibile utilizzare per pianificare e distribuire Active Directory in un'organizzazione che esegue Windows Server 2003 Active Directory, vedere [elenco di controllo: distribuzione di Active Directory in un'organizzazione di Windows Server 2003](https://technet.microsoft.com/library/cc771407.aspx).  
   
 
 

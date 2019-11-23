@@ -31,25 +31,25 @@ Per completare questa procedura, è necessaria almeno l'appartenenza al gruppo *
 1. In Server Manager, fare clic su **strumenti**, quindi selezionare **Gestione ADFS**.  
   
 2.  In **azioni**, fare clic su **Aggiungi attendibilità**.  
-![relying entità @ no__t-1   
+![relying party](media/Create-a-Relying-Party-Trust/addtrust1.PNG)   
 
 3.  Nel **iniziale** scegliere pagina **grado di riconoscere attestazioni Non** e fare clic su **avviare**.  
-![relying entità @ no__t-1 
+![relying party](media/Create-a-Non-Claims-Aware-Relying-Party-Trust/addnon1.PNG) 
   
 4.  Nel **Specifica nome visualizzato** digitare un nome in **nome visualizzato**, in **note** digitare una descrizione per questo trust della relying party e quindi fare clic su **Avanti**.  
-![relying entità @ no__t-1
+![relying party](media/Create-a-Non-Claims-Aware-Relying-Party-Trust/addnon2.PNG)
 
 5. Nella pagina **Configura identificatori** specificare uno o più identificatori per la relying party, fare clic su **Aggiungi** per aggiungerli all'elenco, quindi fare clic su **Avanti**.  
-![relying entità @ no__t-1
+![relying party](media/Create-a-Non-Claims-Aware-Relying-Party-Trust/addnon3.PNG)
 
 6.  Nel **scegliere Criteri di controllo di accesso** Selezionare un criterio e fare clic su **Avanti**.  Per ulteriori informazioni sui criteri di controllo di accesso, vedere [criteri di controllo di accesso in ADFS](Access-Control-Policies-in-AD-FS.md). 
-![relying entità @ no__t-1
+![relying party](media/Create-a-Non-Claims-Aware-Relying-Party-Trust/addnon4.PNG)
 
 7. Nel **Aggiunta attendibilità** pagina, controllare le impostazioni e quindi fare clic su **Avanti** per salvare la relying party trust informazioni.  
-   ![relying entità @ no__t-1 
+   ![relying party](media/Create-a-Non-Claims-Aware-Relying-Party-Trust/addnon5.PNG) 
 
 8. Nella pagina **Fine** fare clic su **Chiudi**. Con questa azione viene visualizzata automaticamente la finestra di dialogo **Modifica regole attestazione**.  
-![relying entità @ no__t-1  
+![relying party](media/Create-a-Non-Claims-Aware-Relying-Party-Trust/addnon6.PNG)  
   
-## <a name="see-also"></a>Vedere anche  
+## <a name="see-also"></a>Vedi anche  
 [Operazioni di AD FS](../../ad-fs/AD-FS-2016-Operations.md) 

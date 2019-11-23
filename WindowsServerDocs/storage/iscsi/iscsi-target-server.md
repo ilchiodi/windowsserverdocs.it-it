@@ -23,13 +23,13 @@ Questo argomento fornisce una breve panoramica del server di destinazione iSCSI,
 
 Server di destinazione iSCSI è la soluzione ideale nei casi seguenti:
 
-* **Avvio di rete e senza dischi**   di tramite schede di rete che supportano l'avvio o un caricatore software, è possibile distribuire centinaia di server senza dischi. Con Server di destinazione iSCSI, la distribuzione è veloce. Nei test interni Microsoft sono stati distribuiti 256 computer in 34 minuti. Usando dischi rigidi virtuali differenze, è possibile risparmiare fino al 90% dello spazio di archiviazione usato per le immagini del sistema operativo. Questa soluzione è ideale per grandi distribuzioni di immagini di sistema operativo identiche, ad esempio su macchine virtuali che eseguono Hyper-V o in cluster HPC (High Performance Computing).
+*    di **avvio di rete e senza dischi** usando schede di rete che supportano l'avvio o un caricatore software, è possibile distribuire centinaia di server senza dischi. Con Server di destinazione iSCSI, la distribuzione è veloce. Nei test interni Microsoft sono stati distribuiti 256 computer in 34 minuti. Usando dischi rigidi virtuali differenze, è possibile risparmiare fino al 90% dello spazio di archiviazione usato per le immagini del sistema operativo. Questa soluzione è ideale per grandi distribuzioni di immagini di sistema operativo identiche, ad esempio su macchine virtuali che eseguono Hyper-V o in cluster HPC (High Performance Computing).
 
-* **Archiviazione di applicazioni Server**@no__t le applicazioni 1Some richiedono l'archiviazione a blocchi. Server di destinazione iSCSI può fornire a queste applicazioni un'archiviazione a blocchi continuamente disponibile. Dato che l'archiviazione è accessibile in remoto, consente inoltre di consolidare l'archiviazione a blocchi per sedi centrali o succursali.
+* **Archiviazione di applicazioni Server**   alcune applicazioni richiedono l'archiviazione a blocchi. Server di destinazione iSCSI può fornire a queste applicazioni un'archiviazione a blocchi continuamente disponibile. Dato che l'archiviazione è accessibile in remoto, consente inoltre di consolidare l'archiviazione a blocchi per sedi centrali o succursali.
 
-* **Archiviazione eterogenea**@no__t server di destinazione 1iSCSI supporta iniziatori iSCSI non Microsoft, semplificando la condivisione dell'archiviazione nei server in un ambiente software misto.
+* **Archiviazione eterogenea**   server di destinazione iSCSI supporta iniziatori iSCSI non Microsoft, semplificando la condivisione dello spazio di archiviazione nei server in un ambiente software misto.
 
-* **Ambienti di sviluppo, test, dimostrazione e lab**@no__t 1when server di destinazione iSCSI è abilitato, un computer che esegue il sistema operativo Windows Server diventa un dispositivo di archiviazione a blocchi accessibile dalla rete. Questa soluzione è utile per il testing delle applicazioni prima della distribuzione in una rete SAN (Storage Area Network).
+* **Ambienti di sviluppo, test, dimostrazione e lab**   quando è abilitato il server di destinazione iSCSI, un computer che esegue il sistema operativo Windows Server diventa un dispositivo di archiviazione a blocchi accessibile dalla rete. Questa soluzione è utile per il testing delle applicazioni prima della distribuzione in una rete SAN (Storage Area Network).
 
 ## <a name="block-storage-requirements"></a>Requisiti di archiviazione a blocchi
 
@@ -37,7 +37,7 @@ Abilitando Server di destinazione iSCSI per fornire archiviazione a blocchi, è 
 
 Se si abilita il clustering guest, è necessario fornire l'archiviazione a blocchi. Tutti i server che eseguono software Windows Server con Server di destinazione iSCSI possono fornire l'archiviazione a blocchi.
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 [Archiviazione a blocchi di destinazione iSCSI, procedura](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh848268(v%3dws.11))  
 [Novità di server di destinazione iSCSI in Windows Server](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn305893(v%3dws.11))

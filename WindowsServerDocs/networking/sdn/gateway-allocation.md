@@ -22,7 +22,7 @@ ms.locfileid: "71406125"
 
 In Windows Server 2016, la larghezza di banda dei singoli tunnel per IPsec, GRE e L3 era un rapporto tra la capacità totale del gateway. I clienti forniranno quindi la capacità del gateway in base alla larghezza di banda TCP standard prevista dalla VM del gateway.
 
-Inoltre, la larghezza di banda massima del tunnel IPsec sul gateway è stata limitata a (3/20) la capacità \*Gateway fornita dal cliente. Se, ad esempio, si imposta la capacità del gateway su 100 Mbps, la capacità del tunnel IPsec sarà 150 Mbps. I rapporti equivalenti per i tunnel GRE e L3 sono rispettivamente 1/5 e 1/2.
+Inoltre, la larghezza di banda massima del tunnel IPsec sul gateway è stata limitata a (3/20)\*capacità del gateway fornita dal cliente. Se, ad esempio, si imposta la capacità del gateway su 100 Mbps, la capacità del tunnel IPsec sarà 150 Mbps. I rapporti equivalenti per i tunnel GRE e L3 sono rispettivamente 1/5 e 1/2.
 
 Sebbene questo funzionava per la maggior parte delle distribuzioni, il modello a rapporto fisso non era appropriato per ambienti con velocità effettiva elevata. Anche quando le velocità di trasferimento dei dati sono elevate (ad indicare più di 40 Gbps), la velocità effettiva massima dei tunnel del gateway SDN è limitata a causa di fattori interni.
 
@@ -60,15 +60,15 @@ Ad esempio, se si allocano 2 Gbps di velocità effettiva IPsec a un cliente:
 
 Capacità rimanente disponibile sul gateway = capacità totale del gateway-rapporto velocità effettiva IPsec * velocità effettiva IPsec allocata (capacità utilizzata)
 
-&nbsp; @ no__t-1 @ no__t-2 @ no__t-3 @ no__t-4 @ no__t-525-5 * 2 = 15 Gbps
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;25-5 * 2 = 15 Gbps
 
 Velocità effettiva IPsec rimanente che è possibile allocare sul gateway 
 
-&nbsp; @ no__t-1 @ no__t-2 @ no__t-3 @ no__t-4 @ no__t-55-2 = 3 Gbps
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5-2 = 3 Gbps
 
 Velocità effettiva rimanente del GRE che è possibile allocare sul gateway = capacità rimanente del rapporto velocità effettiva gateway/GRE 
 
-&nbsp; @ no__t-1 @ no__t-2 @ no__t-3 @ no__t-4 @ no__t-515 * 3/5 = 9 Gbps
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;15 * 3/5 = 9 Gbps
 
 Il rapporto di velocità effettiva varia a seconda della capacità totale del gateway. Una cosa da notare è che è necessario impostare la capacità totale per la larghezza di banda TCP disponibile per la macchina virtuale del gateway. Se nel gateway sono ospitate più macchine virtuali, è necessario modificare di conseguenza la capacità totale del gateway.
 
@@ -76,7 +76,7 @@ Inoltre, se la capacità del gateway è inferiore alla capacità totale del tunn
 
 ## <a name="windows-server-2016-behavior"></a>Comportamento di Windows Server 2016
 
-L'algoritmo di calcolo della capacità del gateway per Windows Server 2016 rimane invariato. In Windows Server 2016, la larghezza di banda massima del tunnel IPsec è stata limitata a (3/20) @no__t 0gateway su un gateway. I rapporti equivalenti per i tunnel GRE e L3 sono rispettivamente 1/5 e 1/2.
+L'algoritmo di calcolo della capacità del gateway per Windows Server 2016 rimane invariato. In Windows Server 2016, la larghezza di banda massima del tunnel IPsec è stata limitata a (3/20)\*capacità del gateway in un gateway. I rapporti equivalenti per i tunnel GRE e L3 sono rispettivamente 1/5 e 1/2.
 
 Se si esegue l'aggiornamento da Windows Server 2016 a Windows Server 2019:
 

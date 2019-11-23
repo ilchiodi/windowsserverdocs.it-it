@@ -29,8 +29,8 @@ ms.locfileid: "71407476"
 
 1.  Per creare un account aziendale aggiunto al dispositivo con aggiunta all'area di lavoro, sarà necessario installare Azure Authenticator applicazione nel dispositivo. L'URL seguente contiene istruzioni su come installare l'app Azure Authenticator nel dispositivo Android e aggiungere un account aziendale. L'account aziendale rende il dispositivo Android in un dispositivo attendibile e fornisce l'accesso Single Sign-on (SSO) alle applicazioni nel dispositivo. È possibile usare il dispositivo attendibile per accedere alle applicazioni Web e alle applicazioni line-of-business moderne, come consigliato dall'amministratore IT. Per ulteriori informazioni, vedere [Azure Authenticator per Android](https://docs.microsoft.com/azure/multi-factor-authentication/end-user/microsoft-authenticator-app-how-to).
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 [Aggiunta all'area di lavoro da qualsiasi dispositivo per SSO e autenticazione a due fattori trasparente per tutte le applicazioni aziendali](Join-to-Workplace-from-Any-Device-for-SSO-and-Seamless-Second-Factor-Authentication-Across-Company-Applications.md)
-[configurazione dell'accesso condizionale locale con registrazione dispositivo Azure Active Directory servizio](https://docs.microsoft.com/azure/active-directory/active-directory-device-registration-on-premises-setup)
+[la configurazione dell'accesso condizionale locale tramite registrazione dispositivo Azure Active Directory servizio](https://docs.microsoft.com/azure/active-directory/active-directory-device-registration-on-premises-setup)
 
 

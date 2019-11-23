@@ -19,7 +19,7 @@ ms.locfileid: "71402196"
 
 > Si applica a: Windows Server 2019, Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2, Windows Server 2008
 
-Quando si crea uno spazio dei nomi, devi scegliere uno dei due tipi di spazio dei nomi: ovvero uno spazio dei nomi autonomo o uno spazio dei nomi basato su dominio. Inoltre, se si sceglie uno spazio dei nomi basato su dominio, è necessario scegliere una modalità dello spazio dei nomi: Modalità server di Windows 2000 o Windows Server 2008.
+Quando si crea uno spazio dei nomi, devi scegliere uno dei due tipi di spazio dei nomi: ovvero uno spazio dei nomi autonomo o uno spazio dei nomi basato su dominio. Inoltre, se si sceglie uno spazio dei nomi basato su dominio, è necessario scegliere una modalità dello spazio dei nomi, ovvero la modalità server di Windows 2000 o Windows Server 2008.
 
 ## <a name="choosing-a-namespace-type"></a>Scelta di un tipo di spazio dei nomi
 
@@ -59,17 +59,17 @@ Nella tabella seguente vengono descritte le caratteristiche di ogni tipo e modal
 
 |Caratteristica|Spazio dei nomi autonomo|Spazio dei nomi basato su dominio (modalità Windows 2000 Server) |Spazio dei nomi basato su dominio (modalità Windows Server 2008) | 
 |---|---|---|---|
-|Percorso dello spazio dei nomi|\\ @ no__t-1*ServerName\RootName* |\\ @ no__t-1*NetBIOSDomainName\RootName* <br />\\ @ no__t-1*DNSDomainName\RootName*|\\ @ no__t-1*NetBIOSDomainName\RootName* <br /> \\ @ no__t-1*DNSDomainName\RootName*|
+|Percorso dello spazio dei nomi|\\\ *ServerName\RootName* |\\\ *NetBIOSDomainName\RootName* <br />\\\ *DNSDomainName\RootName*|\\\ *NetBIOSDomainName\RootName* <br /> \\\ *DNSDomainName\RootName*|
 |Percorso di archiviazione delle informazioni dello spazio dei nomi|Nel Registro di sistema e in una cache in memoria nel server dello spazio dei nomi|In AD DS e in una cache in memoria in ogni server dello spazio dei nomi|In AD DS e in una cache in memoria in ogni server dello spazio dei nomi|
 |Consigli per le dimensioni dello spazio dei nomi|Lo spazio dei nomi può contenere più di 5.000 cartelle con destinazioni e il limite consigliato è di 50.000 cartelle con destinazioni|Le dimensioni dell'oggetto dello spazio dei nomi in AD DS devono essere inferiori a 5 megabyte (MB) per mantenere la compatibilità con i controller di dominio che non eseguono Windows Server 2008. Questo significa che non devono essere presenti più di circa 5.000 cartelle con destinazioni.|Lo spazio dei nomi può contenere più di 5.000 cartelle con destinazioni e il limite consigliato è di 50.000 cartelle con destinazioni |
 |Livello di funzionalità della foresta AD DS minimo|AD DS non è necessario|Windows 2000|Windows Server 2003|
 |Livello di funzionalità del dominio AD DS minimo|AD DS non è necessario|Windows 2000 misto|Windows Server 2008|
 |Server dello spazio dei nomi supportati minimi|Windows 2000 Server|Windows 2000 Server|Windows Server 2008|
-|Supporto per l'enumerazione basata sull'accesso (se abilitata)|Sì, richiede il server dello spazio dei nomi di Windows Server 2008|No|Yes|
+|Supporto per l'enumerazione basata sull'accesso (se abilitata)|Sì, richiede il server dello spazio dei nomi di Windows Server 2008|No|Sì|
 |Metodi supportati per assicurare la disponibilità dello spazio dei nomi|Creare uno spazio dei nomi autonomo in un cluster di failover.|Usare più server dello spazio dei nomi per ospitare lo spazio dei nomi. (I server dello spazio dei nomi devono essere nello stesso dominio.)|Usare più server dello spazio dei nomi per ospitare lo spazio dei nomi. (I server dello spazio dei nomi devono essere nello stesso dominio.)|
 |Supporto per usare Replica DFS per replicare le destinazioni cartella|Supportati quando vengono aggiunti a un dominio AD DS|Supportato|Supportato|
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 -   [Distribuzione di Spazi dei nomi DFS](deploying-dfs-namespaces.md)
 -   [Eseguire la migrazione di uno spazio dei nomi basato su dominio alla modalità Windows Server 2008](migrate-a-domain-based-namespace-to-windows-server-2008-mode.md)

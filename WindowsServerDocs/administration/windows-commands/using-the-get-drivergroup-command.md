@@ -22,7 +22,7 @@ ms.locfileid: "71363176"
 ---
 # <a name="using-the-get-drivergroup-command"></a>Utilizzando il comando get-DriverGroup
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Visualizza informazioni sui gruppi di driver in un server.
 ## <a name="syntax"></a>Sintassi
@@ -43,6 +43,6 @@ wdsutil /Get-DriverGroup /DriverGroup:printerdrivers /Show:PackageMetaData
 ```
 wdsutil /Get-DriverGroup /DriverGroup:printerdrivers /Server:MyWdsServer /Show:Filters
 ```
-#### <a name="additional-references"></a>Riferimenti aggiuntivi
-[Chiave della sintassi della riga di comando](command-line-syntax-key.md)
-[tramite il comando Get-AllDriverGroups](using-the-get-alldrivergroups-command.md)
+#### <a name="additional-references"></a>riferimenti aggiuntivi
+
+della [chiave della sintassi della riga di comando](command-line-syntax-key.md) [tramite il comando Get-AllDriverGroups](using-the-get-alldrivergroups-command.md)

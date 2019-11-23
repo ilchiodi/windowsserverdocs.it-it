@@ -19,19 +19,19 @@ ms.locfileid: "71356030"
 
 >Si applica a: Windows Server (Canale semestrale), Windows Server 2016
 
-È possibile usare questo argomento per sfruttare le funzionalità di gestione del traffico dei criteri DNS per le distribuzioni Split @ no__t-0brain con Active Directory le zone DNS integrate in Windows Server 2016.
+È possibile usare questo argomento per sfruttare le funzionalità di gestione del traffico dei criteri DNS per le distribuzioni\-Brain con Active Directory le zone DNS integrate in Windows Server 2016.
 
-In Windows Server 2016, il supporto per i criteri DNS viene esteso per Active Directory zone DNS integrate. Active Directory integrazione offre funzionalità di disponibilità elevata di più no__t 0master al server DNS. 
+In Windows Server 2016, il supporto per i criteri DNS viene esteso per Active Directory zone DNS integrate. Active Directory integrazione offre funzionalità di disponibilità elevata per più\-master per il server DNS. 
 
-In precedenza, questo scenario richiedeva che gli amministratori DNS mantenessero due server DNS diversi, ciascuno dei quali fornisce servizi a ogni set di utenti, interno ed esterno. Se solo pochi record all'interno della zona erano divisi @ no__t-0brained o entrambe le istanze della zona (interna ed esterna) venivano delegate allo stesso dominio padre, questo è diventato un enigma di gestione.
+In precedenza, questo scenario richiedeva che gli amministratori DNS mantenessero due server DNS diversi, ciascuno dei quali fornisce servizi a ogni set di utenti, interno ed esterno. Se solo pochi record all'interno della zona venivano divisi\-brained o entrambe le istanze della zona (interna ed esterna) venivano delegate allo stesso dominio padre, questo è diventato un enigma di gestione.
 
 > [!NOTE]
-> - Le distribuzioni DNS sono divise @ no__t-0brain quando sono presenti due versioni di una singola zona, una versione per gli utenti interni nell'Intranet dell'organizzazione e una versione per gli utenti esterni, che in genere sono utenti su Internet.
-> - L'argomento [usare i criteri DNS per la distribuzione di DNS split-brain](split-brain-DNS-deployment.md) spiega come usare i criteri DNS e gli ambiti di zona per distribuire un sistema DNS split @ no__t-1brain in un singolo server DNS Windows Server 2016.
+> - Le distribuzioni DNS sono divise\-Brain quando sono presenti due versioni di una singola zona, una versione per gli utenti interni nell'Intranet dell'organizzazione e una versione per gli utenti esterni, che in genere sono utenti su Internet.
+> - L'argomento [usare i criteri DNS per la distribuzione di DNS split-brain](split-brain-DNS-deployment.md) spiega come usare i criteri DNS e gli ambiti di zona per distribuire un sistema dns Split\-Brain in un singolo server DNS Windows Server 2016.
 
 
 
-##  <a name="example-split-brain-dns-in-active-directory"></a>Esempio di Split @ no__t-0Brain DNS in Active Directory
+##  <a name="example-split-brain-dns-in-active-directory"></a>Esempio di suddivisione del DNS\-Brain in Active Directory
 
 Questo esempio usa una società fittizia, contoso, che gestisce un sito Web di carriera presso www.career.contoso.com.
 
@@ -43,7 +43,7 @@ In assenza di criteri DNS, l'amministratore deve ospitare queste due zone in ser
 
 Uso dei criteri DNS queste zone possono ora essere ospitate nello stesso server DNS.
 
-Se il server DNS per contoso.com è Active Directory integrato ed è in ascolto su due interfacce di rete, l'amministratore DNS contoso può seguire la procedura descritta in questo argomento per ottenere una distribuzione di Split @ no__t-0brain.
+Se il server DNS per contoso.com è Active Directory integrato ed è in ascolto su due interfacce di rete, l'amministratore DNS contoso può seguire la procedura descritta in questo argomento per ottenere una distribuzione\-Brain divisa.
 
 L'amministratore DNS configura le interfacce del server DNS con i seguenti indirizzi IP.
 
@@ -54,7 +54,7 @@ Nella figura seguente viene illustrato questo scenario.
 
 ![Distribuzione DNS integrata di AD Split Brain](../../media/DNS-SB-AD/DNS-SB-AD.jpg)
 
-## <a name="how-dns-policy-for-split-brain-dns-in-active-directory-works"></a>Funzionamento del criterio DNS per Split @ no__t-0Brain DNS in Active Directory
+## <a name="how-dns-policy-for-split-brain-dns-in-active-directory-works"></a>Come funzionano i criteri DNS per il DNS split\-Brain in Active Directory
 
 Quando il server DNS è configurato con i criteri DNS necessari, ogni richiesta di risoluzione dei nomi viene valutata in base ai criteri nel server DNS.
 
@@ -64,7 +64,7 @@ Se l'interfaccia server su cui viene ricevuta la query corrisponde a uno qualsia
 
 Quindi, in questo esempio, le query DNS per www.career.contoso.com ricevute sull'IP privato (10.0.0.56) ricevono una risposta DNS che contiene un indirizzo IP interno; e le query DNS ricevute sull'interfaccia di rete pubblica ricevono una risposta DNS che contiene l'indirizzo IP pubblico nell'ambito di zona predefinito (corrisponde alla normale risoluzione delle query).  
 
-Il supporto per gli aggiornamenti e lo scavenging di DNS dinamici \(DDNS @ no__t-1 è supportato solo nell'ambito della zona predefinita. Poiché i client interni sono serviti dall'ambito di zona predefinito, gli amministratori DNS di Contoso possono continuare a usare i meccanismi esistenti (DNS dinamico o statico) per aggiornare i record in contoso.com. Per gli ambiti di zona non @ no__t-0Valore predefinito \(such come ambito esterno in questo esempio @ no__t-2, il supporto per DDNS o lo scavenging non è disponibile.
+Il supporto per il DNS dinamico \(gli aggiornamenti del\) DDNS e lo scavenging è supportato solo nell'ambito della zona predefinita. Poiché i client interni sono serviti dall'ambito di zona predefinito, gli amministratori DNS di Contoso possono continuare a usare i meccanismi esistenti (DNS dinamico o statico) per aggiornare i record in contoso.com. Per gli ambiti di zona predefiniti non\-\(ad esempio l'ambito esterno in questo esempio\), il supporto per DDNS o lo scavenging non è disponibile.
 
 ### <a name="high-availability-of-policies"></a>Disponibilità elevata dei criteri
 
@@ -82,7 +82,7 @@ Per ulteriori informazioni, vedere gli argomenti di riferimento di Windows Power
 - [Add-DnsServerQueryResolutionPolicy](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverqueryresolutionpolicy?view=win10-ps)
 
 
-## <a name="how-to-configure-dns-policy-for-split-brain-dns-in-active-directory"></a>Come configurare i criteri DNS per il DNS split @ no__t-0Brain in Active Directory
+## <a name="how-to-configure-dns-policy-for-split-brain-dns-in-active-directory"></a>Come configurare i criteri DNS per il DNS split\-Brain in Active Directory
 
 Per configurare la distribuzione DNS split-brain usando i criteri DNS, è necessario usare le sezioni seguenti, che forniscono istruzioni dettagliate per la configurazione.
 
@@ -112,11 +112,11 @@ Per ulteriori informazioni, vedere [Aggiungi DnsServerZoneScope](https://docs.mi
 
 ### <a name="add-records-to-the-zone-scopes"></a>Aggiungere record per gli ambiti di zona
 
-Il passaggio successivo consiste nell'aggiungere i record che rappresentano l'host del server Web nei due ambiti di zona: External e default \(per Internal clients @ no__t-1. 
+Il passaggio successivo consiste nell'aggiungere i record che rappresentano l'host del server Web nei due ambiti di zona: \(esterno e predefinito per i client interni\). 
 
-Nell'ambito dell'area interna predefinita, il record www.career.contoso.com viene aggiunto con l'indirizzo IP 10.0.0.39, che è un indirizzo IP privato; nell'ambito della zona esterna, lo stesso record @no__t -0www. career. contoso. com @ no__t-1 viene aggiunto con l'indirizzo IP pubblico 65.55.39.10. 
+Nell'ambito dell'area interna predefinita, il record www.career.contoso.com viene aggiunto con l'indirizzo IP 10.0.0.39, che è un indirizzo IP privato; nell'ambito della zona esterna viene aggiunto lo stesso record \(www.career.contoso.com\) con l'indirizzo IP pubblico 65.55.39.10. 
 
-I record \(both nell'ambito dell'area interna predefinita e l'ambito della zona esterna @ no__t-1 verranno replicati automaticamente nel dominio con i rispettivi ambiti di zona.
+I record \(sia nell'ambito di zona interna predefinito che nell'ambito della zona esterna\) verranno replicati automaticamente nel dominio con i rispettivi ambiti di zona.
 
 È possibile usare il comando di esempio seguente per aggiungere record agli ambiti di zona nel server DNS.
 
@@ -134,7 +134,7 @@ Per ulteriori informazioni, vedere [Aggiungi DnsServerResourceRecord](https://do
 Una volta identificate le interfacce server per la rete esterna e la rete interna e sono stati creati gli ambiti di zona, è necessario creare criteri DNS che connettono gli ambiti di zona interni ed esterni.
 
 > [!NOTE]
-> Questo esempio usa il parametro di interfaccia server \(The-ServerInterface nel comando di esempio seguente @ no__t-1 come criterio per distinguere tra i client interni ed esterni. Un altro metodo per distinguere i client esterni e interni consiste nell'usare le subnet client come criteri. Se è possibile identificare le subnet a cui appartengono i client interni, è possibile configurare i criteri DNS per distinguerli in base alla subnet del client. Per informazioni su come configurare la gestione del traffico usando i criteri di subnet client, vedere [usare i criteri DNS per la gestione del traffico basata sulla posizione geografica con i server primari](primary-geo-location.md).
+> In questo esempio viene utilizzata l'interfaccia server \(parametro-ServerInterface nel comando di esempio seguente\) come criterio per distinguere tra i client interni ed esterni. Un altro metodo per distinguere i client esterni e interni consiste nell'usare le subnet client come criteri. Se è possibile identificare le subnet a cui appartengono i client interni, è possibile configurare i criteri DNS per distinguerli in base alla subnet del client. Per informazioni su come configurare la gestione del traffico usando i criteri di subnet client, vedere [usare i criteri DNS per la gestione del traffico basata sulla posizione geografica con i server primari](primary-geo-location.md).
 
 Dopo aver configurato i criteri, quando viene ricevuta una query DNS sull'interfaccia pubblica, la risposta viene restituita dall'ambito esterno della zona. 
 

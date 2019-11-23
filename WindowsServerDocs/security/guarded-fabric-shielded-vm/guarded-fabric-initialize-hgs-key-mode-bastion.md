@@ -43,5 +43,5 @@ Install-ADServiceAccount -Identity 'HGSgMSA'
 Initialize-HgsServer -UseExistingDomain -ServiceAccount 'HGSgMSA' -JeaReviewersGroup 'HgsJeaReviewers' -JeaAdministratorsGroup 'HgsJeaAdmins' -HgsServiceName 'HgsService' -ClusterName 'HgsCluster' -SigningCertificatePath '.\signCert.pfx' -SigningCertificatePassword $signPass -EncryptionCertificatePath '.\encCert.pfx' -EncryptionCertificatePassword $encryptionCertPass -TrustHostKey
 ```
 
-Se si usano i certificati installati nel computer locale (ad esempio certificati supportati da HSM e certificati non esportabili), usare invece i parametri `-SigningCertificateThumbprint` e `-EncryptionCertificateThumbprint`.
+Se si usano i certificati installati nel computer locale (ad esempio certificati con supporto HSM e certificati non esportabili), usare invece il `-SigningCertificateThumbprint` e `-EncryptionCertificateThumbprint` parametri.
 

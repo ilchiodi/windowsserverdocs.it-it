@@ -18,7 +18,7 @@ ms.locfileid: "71407624"
 ---
 # <a name="create-a-rule-to-permit-all-users"></a>Creare una regola per consentire tutti gli utenti
 
-In Windows Server 2016, è possibile utilizzare un **criteri di controllo di accesso** per creare una regola che consentirà tutti gli utenti di accedere a una relying party.  In Windows Server 2012 R2, usando il modello di regola **Consenti tutti gli utenti** in Active Directory Federation Services \(AD FS @ no__t-2, è possibile creare una regola di autorizzazione che consentirà a tutti gli utenti di accedere al relying party. 
+In Windows Server 2016, è possibile utilizzare un **criteri di controllo di accesso** per creare una regola che consentirà tutti gli utenti di accedere a una relying party.  In Windows Server 2012 R2, usando il modello di regola **Consenti tutti gli utenti** in Active Directory Federation Services \(ad FS\), è possibile creare una regola di autorizzazione che consentirà a tutti gli utenti di accedere al relying party. 
 
 È possibile utilizzare regole di autorizzazione aggiuntive per limitare ulteriormente l'accesso. Agli utenti che hanno ricevuto l'autorizzazione di accesso alla relying parti da parte del Servizio federativo potrebbe comunque essere negato l'accesso dalla stessa relying party.  
   
@@ -59,7 +59,7 @@ Per completare questa procedura, è necessaria almeno l'appartenenza al gruppo *
 ## <a name="additional-references"></a>Altri riferimenti 
 [Configurare le regole delle attestazioni](Configure-Claim-Rules.md)  
  
-[Elenco di controllo: Creazione di regole delle attestazioni per un'istanza di attendibilità del componente](https://technet.microsoft.com/library/ee913578.aspx)  
+[Elenco di controllo: creazione di regole attestazione per un trust della relying party](https://technet.microsoft.com/library/ee913578.aspx)  
   
 [Quando usare una regola attestazioni di autorizzazione](../../ad-fs/technical-reference/When-to-Use-an-Authorization-Claim-Rule.md)  
 

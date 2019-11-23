@@ -20,24 +20,24 @@ ms.locfileid: "71360327"
 
 
 
-Per consentire ai client della rete aziendale di accedere correttamente a un server federativo utilizzando l'autenticazione integrata di Windows, è necessario creare un record di risorse host \(A @ no__t-1 nel Domain Name System aziendale \(DNS @ no__t-3 che risolve il nome host del server federativo di account \(per esempio, FS. fabrikam. com @ no__t-5 all'indirizzo IP del server federativo o del cluster di server federativo. È possibile utilizzare la procedura seguente per aggiungere un host \(A @ no__t-1 record di risorse al DNS aziendale per un server federativo.  
+Per consentire ai client della rete aziendale di accedere correttamente a un server federativo utilizzando l'autenticazione integrata di Windows, è necessario creare un host \(un record di risorse di\) nella Domain Name System aziendale \(DNS\) che risolve il nome host del server federativo di account \(ad esempio, fs.fabrikam.com\) all'indirizzo IP del server federativo o del cluster di server federativo. È possibile utilizzare la procedura seguente per aggiungere un host \(un\) record di risorse al DNS aziendale per un server federativo.  
   
 L'appartenenza a **amministratori**, o equivalente è il requisito minimo necessario per completare questa procedura.  Informazioni dettagliate sull'utilizzo degli account appropriati e appartenenze [dominio gruppi predefiniti locali e](https://go.microsoft.com/fwlink/?LinkId=83477).   
   
-### <a name="to-add-a-host-a-resource-record-to-corporate-dns-for-a-federation-server"></a>Per aggiungere un host \(A @ no__t-1 record di risorse al DNS aziendale per un server federativo  
+### <a name="to-add-a-host-a-resource-record-to-corporate-dns-for-a-federation-server"></a>Per aggiungere un host \(un\) record di risorse al DNS aziendale per un server federativo  
   
-1.  In un server DNS per la rete aziendale, aprire lo snap-in DNS @ no__t-0cm.  
+1.  In un server DNS per la rete aziendale, aprire lo snap\-DNS in.  
   
 2.  Nell'albero della console, a destra\-fare clic sulla zona di ricerca diretta applicabile e quindi fare clic su **Nuovo Host \(A o AAAA\)** .  
   
-3.  In **nome**Digitare solo il nome computer del server federativo o del cluster di server federativo. ad esempio, per il nome di dominio completo \(FQDN @ no__t-2 fs.fabrikam.com, digitare **FS**.  
+3.  In **nome**Digitare solo il nome computer del server federativo o del cluster di server federativo. ad esempio, per il nome di dominio completo \(FQDN\) fs.fabrikam.com, digitare **FS**.  
   
 4.  In **indirizzo IP**, digitare l'indirizzo IP del server federativo o del cluster di server federativo, ad esempio 192.168.1.4.  
   
-5.  Fare clic su **Aggiungi host**.  
+5.  Fai clic su **Aggiungi host**.  
   
 ## <a name="additional-references"></a>Altri riferimenti  
-[Elenco di controllo: Configurazione di un server federativo](Checklist--Setting-Up-a-Federation-Server.md)  
+[Elenco di controllo: configurazione di un server federativo](Checklist--Setting-Up-a-Federation-Server.md)  
   
 [Requisiti per la risoluzione dei nomi per i server federativi](https://technet.microsoft.com/library/dd807055.aspx)  
   

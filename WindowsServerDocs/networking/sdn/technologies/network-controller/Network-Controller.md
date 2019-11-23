@@ -34,23 +34,23 @@ Il Controller di rete permette di automatizzare la configurazione dell'infrastru
 
 ## <a name="bkmk_overview"></a>Panoramica sul controller di rete
 
-Il controller di rete è un ruolo del server a disponibilità elevata e scalabile e fornisce un Application Programming Interface \(API @ no__t-1 che consente al controller di rete di comunicare con la rete e una seconda API che consente di comunicare con Controller di rete.
+Il controller di rete è un ruolo del server a disponibilità elevata e scalabile e fornisce un Application Programming Interface \(API\) che consente al controller di rete di comunicare con la rete e una seconda API che consente di comunicare con il controller di rete.
 
 È possibile distribuire il controller di rete in ambienti di dominio e non di dominio. Negli ambienti di dominio, il controller di rete autentica gli utenti e i dispositivi di rete mediante Kerberos. negli ambienti non di dominio, è necessario distribuire i certificati per l'autenticazione.
 
 >[!IMPORTANT]
->Non distribuire il ruolo del server del controller di rete negli host fisici. Per distribuire il controller di rete, è necessario installare il ruolo del server del controller di rete in una macchina virtuale Hyper-V \(VM @ no__t-1 installato in un host Hyper-V. Dopo aver installato il controller di rete nelle macchine virtuali in tre host Hyper @ no__t-0V diversi, è necessario abilitare gli host Hyper @ no__t-1V per Software Defined Networking \(SDN @ no__t-3 aggiungendo gli host al controller di rete usando Windows PowerShell comando **New-NetworkControllerServer**. In questo modo si Abilita il funzionamento del software SDN Load Balancer. Per ulteriori informazioni, vedere [New-NetworkControllerServer](https://technet.microsoft.com/itpro/powershell/windows/network-controller/new-networkcontrollerserver).
+>Non distribuire il ruolo del server del controller di rete negli host fisici. Per distribuire il controller di rete, è necessario installare il ruolo del server del controller di rete in una macchina virtuale Hyper-V \(VM\) installata in un host Hyper-V. Dopo aver installato il controller di rete in macchine virtuali in tre host Hyper\-V diversi, è necessario abilitare gli host Hyper\-V per Software Defined Networking \(SDN\) aggiungendo gli host al controller di rete usando il comando di Windows PowerShell **New-NetworkControllerServer**. In questo modo si Abilita il funzionamento del software SDN Load Balancer. Per ulteriori informazioni, vedere [New-NetworkControllerServer](https://technet.microsoft.com/itpro/powershell/windows/network-controller/new-networkcontrollerserver).
 
 Il Controller di rete comunica con dispositivi, servizi e componenti di rete mediante l'API Southbound. L'API Southbound permette al Controller di rete di individuare dispositivi di rete, rilevare configurazioni dei servizi e raccogliere tutte le informazioni necessarie sulla rete. L'API Southbound offre anche al Controller di rete un percorso per l'invio di informazioni all'infrastruttura di rete, ad esempio modifiche apportate alla configurazione.
 
 L'API Northbound del Controller di rete permette di raccogliere informazioni sulla rete dal Controller di rete e usarle per monitorare e configurare la rete.
 
-Il controller di rete API in Nord consente di configurare, monitorare, risolvere i problemi e distribuire nuovi dispositivi in rete usando Windows PowerShell, l'API Representational State Transfer \(REST @ no__t-1 o un'applicazione di gestione con un'interfaccia grafica interfaccia utente, ad esempio System Center Virtual Machine Manager.
+Il controller di rete API in Nord consente di configurare, monitorare, risolvere i problemi e distribuire nuovi dispositivi in rete usando Windows PowerShell, il trasferimento di stato di representational \(l'API REST\) o un'applicazione di gestione con un'interfaccia utente grafica, ad esempio System Center Virtual Machine Manager.
 
 >[!NOTE]
 >L'API Northbound del Controller di rete viene implementata come interfaccia REST.
 
-È possibile gestire la rete del data center con il controller di rete usando le applicazioni di gestione, ad esempio System Center Virtual Machine Manager \(SCVMM @ no__t-1 e System Center Operations Manager \(SCOM @ no__t-3, perché il controller di rete consente di configurare, monitorare, programmare e risolvere i problemi relativi all'infrastruttura di rete controllata.
+È possibile gestire la rete del data center con il controller di rete utilizzando le applicazioni di gestione, ad esempio System Center Virtual Machine Manager \(SCVMM\)e System Center Operations Manager \(SCOM\), poiché il controller di rete consente di configurare, monitorare, programmare e risolvere i problemi relativi all'infrastruttura di rete controllata.
 
 Se si usa Windows PowerShell, l'API REST o un'applicazione di gestione, sarà possibile usare il Controller di rete per gestire l'infrastruttura di rete fisica e virtuale seguente:
 
@@ -58,7 +58,7 @@ Se si usa Windows PowerShell, l'API REST o un'applicazione di gestione, sarà po
 
 - Firewall del data center
 
-- Servizio di accesso remoto \(RAS @ no__t-1 gateway multi-tenant, gateway virtuali e pool di gateway
+- Servizio di accesso remoto \(RAS\) gateway multi-tenant, gateway virtuali e pool di gateway
 
 - Bilanciamento del carico software
 
@@ -66,7 +66,7 @@ La figura seguente mostra un amministratore che usa uno strumento di gestione ch
 
 ![Panoramica sul controller di rete](../../../media/Network-Controller/NetController_overview.png)  
 
-Se si distribuisce il controller di rete in un ambiente di testing, è possibile eseguire il ruolo del server del controller di rete in una macchina virtuale Hyper-V \(VM @ no__t-1 installato in un host Hyper-V.
+Se si distribuisce il controller di rete in un ambiente di testing, è possibile eseguire il ruolo del server del controller di rete in una macchina virtuale Hyper-V \(\) VM installata in un host Hyper-V.
 
 Per la disponibilità elevata in data center di grandi dimensioni, è possibile distribuire un cluster con tre VM installate in tre o più host Hyper-V. Per altre informazioni, vedere [disponibilità elevata del controller di rete](network-controller-high-availability.md).
 
@@ -128,7 +128,7 @@ Per altre informazioni sul gateway RAS, vedere [gateway RAS per Sdn](../../../sd
 
 ## <a name="network-controller-deployment-options"></a>Opzioni di distribuzione del controller di rete
 
-Per distribuire il controller di rete usando System Center Virtual Machine Manager \(VMM @ no__t-1, vedere [configurare un controller di rete Sdn nell'infrastruttura VMM](https://technet.microsoft.com/system-center-docs/vmm/scenario/sdn-network-controller).
+Per distribuire il controller di rete usando System Center Virtual Machine Manager \(\)VMM, vedere [configurare un controller di rete Sdn nell'infrastruttura VMM](https://technet.microsoft.com/system-center-docs/vmm/scenario/sdn-network-controller).
 
 Per distribuire il controller di rete usando gli script, vedere [distribuire un'infrastruttura software defined Network usando gli script](../../deploy/Deploy-a-Software-Defined-Network-infrastructure-using-scripts.md).
 

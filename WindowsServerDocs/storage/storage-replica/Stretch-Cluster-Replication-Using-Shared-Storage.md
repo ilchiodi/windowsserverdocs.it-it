@@ -36,7 +36,7 @@ Questa procedura dettagliata usa l'ambiente seguente come esempio:
 
 ![Immagine che illustra due nodi della sede di Redmond di cui viene eseguita la replica con due nodi dello stesso cluster della sede di Bellevue](./media/Stretch-Cluster-Replication-Using-Shared-Storage/Storage_SR_StretchClusterExample.png)  
 
-**FIGURE 1:  Replica di archiviazione in un cluster esteso @ no__t-0  
+**Figura 1: replica di archiviazione in un cluster esteso**  
 
 ## <a name="prerequisites"></a>Prerequisiti  
 -   Foresta di Active Directory Domain Services (non è necessario eseguire Windows Server 2016).  
@@ -182,7 +182,7 @@ Ora si creerà un cluster di failover normale. Dopo la configurazione, la conval
    7. Aggiungere le risorse di archiviazione online a tale ruolo vuoto denominato **Nuovo ruolo (2)** .
    8. Tutte le risorse di archiviazione sono ora montate con lettere di unità e possono valutare il cluster con `Test-SRTopology`.
 
-       Esempio:
+       Ad esempio:
 
            MD c:\temp  
 
@@ -220,7 +220,7 @@ Ora si creerà un cluster di failover normale. Dopo la configurazione, la conval
 
 14. **(Facoltativo)** Configurare reti di cluster e Active Directory per accelerare il failover del sito DNS. È possibile usare le reti definite da software Hyper-V, VLAN estese, i dispositivi di astrazione rete, TTL DNS ridotti e altre tecniche comuni.
 
-    Per ulteriori informazioni, vedere la sessione di Microsoft Ignite: Un post di Blog sull' [estensione dei cluster di failover e sull'uso di replica di archiviazione in Windows Server vNext](http://channel9.msdn.com/Events/Ignite/2015/BRK3487) e sul post di Blog relativo all' [Abilitazione delle notifiche delle modifiche tra siti](http://blogs.technet.com/b/qzaidi/archive/2010/09/23/enable-change-notifications-between-sites-how-and-why.aspx) .  
+    Per altre informazioni, rivedere la sessione di Microsoft Ignite [Stretching Failover Clusters and Using Storage Replica in Windows Server vNext](http://channel9.msdn.com/Events/Ignite/2015/BRK3487) (Estensione dei cluster di failover e uso della replica di archiviazione in Windows Server vNext) e il post di blog [Enable Change Notifications between Sites - How and Why?](http://blogs.technet.com/b/qzaidi/archive/2010/09/23/enable-change-notifications-between-sites-how-and-why.aspx) (Abilitare le notifiche di modifica tra i siti - Come e perché?).  
 
 15. **(Facoltativo)** Configurare la resilienza della macchina virtuale in modo che i guest non vengano sospesi a lungo durante gli errori dei nodi. In questo modo eseguiranno il failover nella nuova archiviazione di origine di replica entro 10 secondi.  
 
@@ -249,7 +249,7 @@ Ora si creerà un cluster di failover normale. Dopo la configurazione, la conval
    Set-ClusterResourceDependency -Resource “Cluster Name” -Dependency “[Cluster IP Address] or [NewIPAddress]”
    ```  
 
-3. Configurare un controllo di condivisione file o un controllo cloud (Azure) nel cluster che punta a una condivisione ospitata nel controller di dominio o un altro server indipendente. Esempio:  
+3. Configurare un controllo di condivisione file o un controllo cloud (Azure) nel cluster che punta a una condivisione ospitata nel controller di dominio o un altro server indipendente. Ad esempio:  
 
    ```PowerShell  
    Set-ClusterQuorum -FileShareWitness \\someserver\someshare  
@@ -287,7 +287,7 @@ Ora si creerà un cluster di failover normale. Dopo la configurazione, la conval
 
 9. **(Facoltativo)** Configurare reti di cluster e Active Directory per accelerare il failover del sito DNS. È possibile usare le reti definite da software Hyper-V, VLAN estese, i dispositivi di astrazione rete, TTL DNS ridotti e altre tecniche comuni.  
 
-   Per ulteriori informazioni, vedere la sessione di Microsoft Ignite: [Estensione di cluster di failover e uso di replica di archiviazione in Windows Server vNext](http://channel9.msdn.com/Events/Ignite/2015/BRK3487) e [Abilitazione delle notifiche di modifica tra siti: come e perché](http://blogs.technet.com/b/qzaidi/archive/2010/09/23/enable-change-notifications-between-sites-how-and-why.aspx).  
+   Per altre informazioni, rivedere la sessione di Microsoft Ignite [Stretching Failover Clusters and Using Storage Replica in Windows Server vNext](http://channel9.msdn.com/Events/Ignite/2015/BRK3487) (Estensione dei cluster di failover e uso della replica di archiviazione in Windows Server vNext) e [Enable Change Notifications between Sites - How and Why?](http://blogs.technet.com/b/qzaidi/archive/2010/09/23/enable-change-notifications-between-sites-how-and-why.aspx) (Abilitare le notifiche di modifica tra i siti - Come e perché?).  
 
 10. **(Facoltativo)** Configurare la resilienza della macchina virtuale in modo che i guest non vengano sospesi a lungo durante gli errori dei nodi. In questo modo eseguiranno il failover nella nuova archiviazione di origine di replica entro 10 secondi.  
 
@@ -340,11 +340,11 @@ Ora si creerà un cluster di failover normale. Dopo la configurazione, la conval
 
 11. Selezionare un disco che diventi il volume di dati e fare clic su **Avanti**.  
 
-12. Rivedere le impostazioni e fare clic su **Avanti**. Scegliere **Fine**.  
+12. Rivedere le impostazioni e fare clic su **Avanti**. Fare clic su **Fine**.  
 
 13. Fare clic con il pulsante destro del mouse sul nuovo ruolo file server e scegliere **Aggiungi condivisione file**. Continuare la procedura guidata per configurare le condivisioni.  
 
-14. Facoltativo: Aggiungere un altro ruolo file server che usa l'altra risorsa di archiviazione in questo sito.  
+14. Facoltativo: aggiungere un altro ruolo file server che usi l'altra risorsa di archiviazione in questo sito.  
 
 15. Configurare il riconoscimento dei siti del cluster esteso in modo che i server SR-SRV01 e SR-SRV02 si trovino nel sito Redmond, SRV03 SR e SR-SRV04 si trovino nel sito Bellevue e Redmond diventi preferito per la proprietà del nodo dell'archiviazione di origine e delle macchine virtuali:  
 
@@ -390,7 +390,7 @@ Per altre informazioni, rivedere la sessione di Microsoft Ignite [Stretching Fai
     ```
 
 
-3. Configurare un controllo di condivisione file o un controllo cloud (Azure) nel cluster che punta a una condivisione ospitata nel controller di dominio o un altro server indipendente. Esempio:  
+3. Configurare un controllo di condivisione file o un controllo cloud (Azure) nel cluster che punta a una condivisione ospitata nel controller di dominio o un altro server indipendente. Ad esempio:  
 
     ```PowerShell
     Set-ClusterQuorum -FileShareWitness \\someserver\someshare
@@ -407,7 +407,7 @@ Per altre informazioni, rivedere la sessione di Microsoft Ignite [Stretching Fai
 
 5. Assicurati che la rete di cluster sia stata configurata correttamente.  
 
-6.  Configurare un ruolo File server. Esempio:
+6.  Configurare un ruolo File server. Ad esempio:
 
     ```PowerShell  
     Get-ClusterResource  
@@ -604,7 +604,7 @@ Se si replica un carico di lavoro di una risorsa Disco fisico come file server p
         Get-WinEvent -ProviderName Microsoft-Windows-StorageReplica | FL  
         ```  
 
-    4.  In alternativa, il gruppo del server di destinazione per la replica indica in qualsiasi momento il numero di byte rimanenti da copiare, inoltre è possibile eseguire query tramite PowerShell. Esempio:  
+    4.  In alternativa, il gruppo del server di destinazione per la replica indica in qualsiasi momento il numero di byte rimanenti da copiare, inoltre è possibile eseguire query tramite PowerShell. Ad esempio:  
 
         ```PowerShell  
         (Get-SRGroup).Replicas | Select-Object numofbytesremaining  
@@ -699,23 +699,23 @@ Di seguito sono riportate le indicazioni su come gestire e utilizzare il cluster
 
     -   \Statistiche I/O partizione Replica archiviazione(*)\Numero richieste ultima scrittura log  
 
-    -   \Statistiche I/O partizione Replica archiviazione(*)\ Lunghezza media coda scaricamento  
+    -   \Statistiche I/O partizione Replica archiviazione(*)\Lunghezza media coda scaricamento  
 
     -   \Statistiche I/O partizione Replica archiviazione(*)\Lunghezza coda scaricamento corrente  
 
     -   \Statistiche I/O partizione Replica archiviazione(*)\Numero richieste scrittura applicazione  
 
-    -   \Statistiche I/O partizione Replica archiviazione(*)\ Numero medio di richieste per scrittura di log  
+    -   \Statistiche I/O partizione Replica archiviazione(*)\Numero medio di richieste per scrittura di log  
 
-    -   \Statistiche I/O partizione Replica archiviazione(*)\ Latenza media scrittura app  
+    -   \Statistiche I/O partizione Replica archiviazione(*)\Latenza media scrittura app  
 
-    -   \Statistiche I/O partizione Replica archiviazione(*)\ Latenza media lettura app  
+    -   \Statistiche I/O partizione Replica archiviazione(*)\Latenza media lettura app  
 
     -   \Statistiche Replica archiviazione(*)\RPO destinazione  
 
     -   \Statistiche Replica archiviazione(*)\RPO corrente  
 
-    -   \Statistiche Replica archiviazione(*)\ Lunghezza media coda log  
+    -   \Statistiche Replica archiviazione(*)\Lunghezza media coda log  
 
     -   \Statistiche Replica archiviazione(*)\Lunghezza coda log corrente  
 
@@ -723,11 +723,11 @@ Di seguito sono riportate le indicazioni su come gestire e utilizzare il cluster
 
     -   \Statistiche Replica archiviazione(*)\Totale byte inviati  
 
-    -   \Statistiche Replica archiviazione(*)\ Latenza media invio rete  
+    -   \Statistiche Replica archiviazione(*)\Latenza media invio rete  
 
     -   \Statistiche Replica archiviazione(*)\Stato replica  
 
-    -   \Statistiche Replica archiviazione(*)\ Latenza media round trip messaggio  
+    -   \Statistiche Replica archiviazione(*)\Latenza media round trip messaggio  
 
     -   \Statistiche Replica archiviazione\Tempo trascorso ultimo ripristino  
 
@@ -796,9 +796,9 @@ Di seguito sono riportate le indicazioni su come gestire e utilizzare il cluster
 - [Panoramica di replica archiviazione](storage-replica-overview.md)  
 - [Replica archiviazione da server a server](server-to-server-storage-replication.md)  
 - [Replica di archiviazione da cluster a cluster](cluster-to-cluster-storage-replication.md)  
-- [Replica di archiviazione: Problemi noti](storage-replica-known-issues.md) 
-- [Replica di archiviazione: domande frequenti](storage-replica-frequently-asked-questions.md)  
+- [Replica archiviazione: problemi noti](storage-replica-known-issues.md) 
+- [Replica archiviazione: domande frequenti](storage-replica-frequently-asked-questions.md)  
 
-## <a name="see-also"></a>Vedere anche  
+## <a name="see-also"></a>Vedi anche  
 - [Windows Server 2016](../../get-started/windows-server-2016.md)  
 - [Spazi di archiviazione diretta in Windows Server 2016](../storage-spaces/storage-spaces-direct-overview.md)

@@ -21,17 +21,17 @@ ms.lasthandoff: 09/27/2019
 ms.locfileid: "71403320"
 ---
 # <a name="user-account-control-overview"></a>Panoramica del controllo dell'account utente
-Controllo account utente \(UAC @ no__t-1 è un componente fondamentale della visione generale della sicurezza di Microsoft.  Il controllo dell'account utente consente di ridurre l'impatto di programmi dannosi.
+Controllo account utente \(\) UAC è un componente fondamentale della visione generale della sicurezza di Microsoft.  Il controllo dell'account utente consente di ridurre l'impatto di programmi dannosi.
 
 ## <a name="BKMK_OVER"></a>Descrizione della funzionalità
-Controllo account utente consente a tutti gli utenti di accedere al proprio computer con un account utente standard. I processi avviati con un token utente standard possono eseguire le attività con i diritti di accesso concessi a un utente standard. Esplora risorse, ad esempio, eredita automaticamente le autorizzazioni a livello di utente standard. Inoltre, tutti i programmi eseguiti con Esplora risorse \(per esempio, da Double @ no__t-1clicking un collegamento all'applicazione @ no__t-2 vengono eseguiti anche con il set standard di autorizzazioni utente. Molte applicazioni, incluse quelle incluse nel sistema operativo stesso, sono progettate per funzionare correttamente in questo modo.
+Controllo account utente consente a tutti gli utenti di accedere al proprio computer con un account utente standard. I processi avviati con un token utente standard possono eseguire le attività con i diritti di accesso concessi a un utente standard. Esplora risorse, ad esempio, eredita automaticamente le autorizzazioni a livello di utente standard. Inoltre, tutti i programmi eseguiti con Esplora risorse \(ad esempio, facendo doppio\-facendo clic su un collegamento all'applicazione\) eseguiti anche con il set di autorizzazioni utente standard. Molte applicazioni, incluse quelle incluse nel sistema operativo stesso, sono progettate per funzionare correttamente in questo modo.
 
 Altre applicazioni, in particolare quelle che non sono state progettate specificamente con le impostazioni di sicurezza, spesso richiedono autorizzazioni aggiuntive per l'esecuzione corretta. Questi tipi di programmi sono detti applicazioni legacy. Inoltre, le azioni, ad esempio l'installazione di un nuovo software e la modifica della configurazione di programmi come Windows Firewall, richiedono più autorizzazioni rispetto a quelle disponibili per un account utente standard.
 
 Quando un'applicazione deve essere eseguita con più di diritti utente standard, UAC può ripristinare i gruppi di utenti aggiuntivi nel token. Ciò consente all'utente di avere il controllo esplicito dei programmi che apportano modifiche a livello di sistema al computer o al dispositivo.
 
 ## <a name="BKMK_APP"></a>Applicazioni pratiche
-La modalità Approvazione amministratore nel controllo dell'account utente consente di impedire l'installazione automatica di programmi dannosi senza la conoscenza di un amministratore. Consente inoltre di proteggere le modifiche involontarie del sistema @ no__t-0wide. Infine, questa modalità può essere usata per applicare un livello superiore di conformità nella quale gli amministratori devono fornire esplicitamente il consenso o le credenziali per ogni processo amministrativo.
+La modalità Approvazione amministratore nel controllo dell'account utente consente di impedire l'installazione automatica di programmi dannosi senza la conoscenza di un amministratore. Consente inoltre di proteggere dal sistema involontario\-modifiche di ampio livello. Infine, questa modalità può essere usata per applicare un livello superiore di conformità nella quale gli amministratori devono fornire esplicitamente il consenso o le credenziali per ogni processo amministrativo.
 
 
 

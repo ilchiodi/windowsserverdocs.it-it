@@ -42,7 +42,7 @@ Save-VolumeSignatureCatalog -TemplateDiskPath "C:\temp\MyTemplateDisk.vhdx" -Vol
 Per ogni tessuto di virtualizzazione in cui si vuole eseguire la macchina virtuale schermata, è necessario ottenere i metadati del tutore per i cluster HGS di Fabric.
 Il provider di hosting dovrebbe essere in grado di fornire queste informazioni.
 
-Se ci si trova in un ambiente aziendale e si è in grado di comunicare con il server HGS, i metadati di Guardian sono disponibili all'indirizzo *http://\<HGSCLUSTERNAME @ no__t-2/DataProtection/Service/Metadata/2014-07/Metadata. XML*
+Se ci si trova in un ambiente aziendale e si è in grado di comunicare con il server HGS, i metadati del Guardian sono disponibili all'indirizzo *http://\<HGSCLUSTERNAME\>/KeyProtection/Service/Metadata/2014-07/Metadata.XML*
 
 ## <a name="create-shielding-data-pdk-file"></a>Crea file di dati di schermatura (PDK)
 
@@ -80,7 +80,7 @@ Nell'host sorvegliato installare il modulo di PowerShell per gli strumenti di in
 Install-Module GuardedFabricTools -Repository PSGallery -MinimumVersion 1.0.0
 ```
 
-È anche possibile scaricare il modulo in un altro computer che dispone di accesso a Internet e copiare il modulo risultante in `C:\Program Files\WindowsPowerShell\Modules` nell'host sorvegliato.
+È anche possibile scaricare il modulo in un altro computer che dispone di accesso a Internet e copiare il modulo risultante per `C:\Program Files\WindowsPowerShell\Modules` nell'host sorvegliato.
 
 ```powershell
 Save-Module GuardedFabricTools -Repository PSGallery -MinimumVersion 1.0.0 -Path C:\temp\
@@ -105,7 +105,7 @@ New-ShieldedVM -Name 'MyStaticIPVM' -TemplateDiskPath 'C:\temp\MyTemplateDisk.vh
 
 ```
 
-Se il disco del modello contiene un sistema operativo basato su Linux, includere il flag `-Linux` quando si esegue il comando:
+Se il disco del modello contiene un sistema operativo basato su Linux, includere il flag di `-Linux` durante l'esecuzione del comando:
 
 ```powershell
 New-ShieldedVM -Name 'MyLinuxVM' -TemplateDiskPath 'C:\temp\MyTemplateDisk.vhdx' -ShieldingDataFilePath 'C:\temp\Contoso.pdk' -Wait -Linux

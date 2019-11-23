@@ -22,11 +22,11 @@ ms.locfileid: "71371907"
 ---
 # <a name="query-process"></a>processo di query
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Visualizza informazioni sui processi in esecuzione in un server Host sessione Desktop remoto (host sessione Desktop remoto).
 È possibile utilizzare questo comando per individuare i programmi eseguiti da un utente specifico e anche gli utenti che eseguono un programma specifico.
-Per esempi relativi all'uso di questo comando, vedere [esempi](#BKMK_examples).
+per esempi relativi all'uso di questo comando, vedere [esempi](#BKMK_examples).
 > [!NOTE]
 > In Windows Server 2008 R2, Servizi terminal si chiama ora Servizi Desktop remoto. Per informazioni sulle novità della versione più recente, vedere Novità di [Servizi Desktop remoto in Windows server 2012](https://technet.microsoft.com/library/hh831527) nella libreria TechNet di Windows Server.
 > ## <a name="syntax"></a>Sintassi
@@ -41,14 +41,14 @@ Per esempi relativi all'uso di questo comando, vedere [esempi](#BKMK_examples).
 > |     <ProcessID>      |                                   Specifica l'ID numerico che identifica il processo su cui si desidera eseguire la query.                                   |
 > |      <UserName>      |                                       Specifica il nome dell'utente di cui si desidera visualizzare i processi.                                       |
 > |    <SessionName>     |                                     Specifica il nome della sessione di cui si desidera visualizzare i processi.                                      |
-> |       /ID: <nn>       |                                      Specifica l'ID della sessione di cui si desidera visualizzare i processi.                                       |
+> |       /ID:<nn>       |                                      Specifica l'ID della sessione di cui si desidera visualizzare i processi.                                       |
 > |    <ProgramName>     |                     Specifica il nome del programma di cui si desidera eseguire una query sui processi. L'estensione exe è obbligatoria.                     |
 > | /server:<ServerName> | Specifica il server Host sessione Desktop remoto di cui si desidera visualizzare i processi. Se non è specificato, viene utilizzato il server in cui si è attualmente connessi. |
 > |          /?          |                                                     Visualizza la guida al prompt dei comandi.                                                     |
 > 
-> ## <a name="remarks"></a>Note
+> ## <a name="remarks"></a>Osservazioni
 > - Gli amministratori hanno accesso completo a tutte le funzioni di **processo di query** .
-> - Se non si specifica il*nome utente*< >, <*sessionname*>, **/ID:** <*nn*>, <*ProgramName*> o **\\** * parametri, **query process** Visualizza solo i processi che appartiene all'utente corrente.
+> - Se non si specifica il*nome utente*< >, <*sessionname*>, **/ID:** <*nn*>, <*ProgramName*> o **\\** * parametri, **query process** Visualizza solo i processi che appartengono all'utente corrente.
 > - Se viene specificata una sessione, è necessario che identifichi una sessione attiva.
 > - il **processo di query** restituisce le informazioni seguenti:
 >   -   Utente proprietario del processo
@@ -66,6 +66,7 @@ Per esempi relativi all'uso di questo comando, vedere [esempi](#BKMK_examples).
 >   ```
 >   query process /ID:2
 >   ```
->   #### <a name="additional-references"></a>Riferimenti aggiuntivi
+>   #### <a name="additional-references"></a>riferimenti aggiuntivi
 >   [Sintassi della riga di comando chiave](command-line-syntax-key.md)
->   [query](query.md)@no__t-[3 &#40;Servizi Desktop remoto riferimento&#41; ai comandi di Servizi terminal](remote-desktop-services-terminal-services-command-reference.md)
+>   [query](query.md)
+>   [Servizi Desktop remoto &#40;riferimento&#41; ai comandi di Servizi terminal](remote-desktop-services-terminal-services-command-reference.md)

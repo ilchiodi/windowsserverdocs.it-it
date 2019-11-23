@@ -171,7 +171,7 @@ Ciascuno di questi tipi di sincronizzazione è descritto nella sezione seguente.
 Sincronizzazione basata su una gerarchia di dominio utilizza la gerarchia dei domini di Active Directory per trovare un'origine affidabile con cui sincronizzare l'ora. In base alla gerarchia di dominio, il servizio ora di Windows determina l'accuratezza di ogni server di riferimento ora. In una foresta di Windows Server 2003, il computer che contiene il dominio primario (PDC) controller emulatore ruolo master operazioni, che si trova nel dominio radice della foresta, ricopre la posizione di origine dell'ora migliore, a meno che non è stata configurata un'altra origine ora affidabile. Nella figura seguente viene illustrato un percorso di sincronizzazione dell'ora tra i computer in una gerarchia di dominio.  
   
 **Sincronizzazione dell'ora in una gerarchia di servizi di dominio Active Directory**  
-![Windows Time @ no__t-1
+![ora di Windows](../media/Windows-Time-Service/How-the-Windows-Time-Service-Works/trnt_ntw_adhc.gif)
   
 #### <a name="reliable-time-source-configuration"></a>Configurazione dell'origine ora affidabile  
 Un computer in cui è configurato per essere un'origine ora affidabile è identificato come radice del servizio ora di. La radice del servizio ora è il server autorevole per il dominio e in genere è configurata per recuperare l'ora da un server NTP esterno o un dispositivo hardware. Un server può essere configurato come origine ora affidabile per ottimizzare il trasferimento dell'ora in tutta la gerarchia di dominio. Se un controller di dominio è configurato per essere un'origine ora affidabile, servizio Accesso rete annuncia il controller di dominio come origine ora affidabile quando si connette alla rete. Quando altri controller di dominio cercano un'origine dell'ora per la sincronizzazione con, essi scegliere un'origine affidabile innanzitutto se è disponibile.  
@@ -257,12 +257,12 @@ Il servizio ora di Windows comunica in una rete per identificare le origini di o
   
 **Assegnazioni delle porte per il servizio ora di Windows**  
   
-|Nome del servizio|UDP|TCP|  
+|Nome servizio|UDP|TCP|  
 |----------------|-------|-------|  
 |NTP|123|N/D|  
 |SNTP|123|N/D|  
   
-## <a name="see-also"></a>Vedere anche  
+## <a name="see-also"></a>Vedi anche  
 [Riferimento tecnico per il servizio ora di windows](windows-time-service-tech-ref.md)
-[strumenti e impostazioni del servizio ora di Windows](Windows-Time-Service-Tools-and-Settings.md)
+[strumenti e impostazioni del servizio ora di windows](Windows-Time-Service-Tools-and-Settings.md)
 [articolo 902229 della Microsoft Knowledge base](https://go.microsoft.com/fwlink/?LinkId=186066)

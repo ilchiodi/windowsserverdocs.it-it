@@ -18,17 +18,17 @@ ms.locfileid: "71407832"
 ---
 # <a name="web-sso-design"></a>Soluzione di accesso Single Sign-On Web
 
-Nella progettazione Web single @ no__t-0Sign @ no__t-1Sulla Barra \(SSO @ no__t-3 Active Directory Federation Services \(AD FS @ no__t-5, gli utenti devono eseguire l'autenticazione una sola volta per accedere a più applicazioni o servizi AD FS @ no__t-6secured. In questa soluzione tutti gli utenti sono esterni e non esiste alcun trust federativo perché non sono presenti organizzazioni partner. In genere, si distribuisce questo tipo di progettazione quando si desidera fornire singoli consumer o clienti l'accesso a una o più applicazioni o servizi di Active Directory protetta con ADFS su Internet, come illustrato nella figura seguente.  
+Nel\-Web Single Sign\-on \(SSO\) design in Active Directory Federation Services \(ad FS\), gli utenti devono eseguire l'autenticazione una sola volta per accedere a più AD FS\-applicazioni o servizi protetti. In questa soluzione tutti gli utenti sono esterni e non esiste alcun trust federativo perché non sono presenti organizzazioni partner. In genere, si distribuisce questo tipo di progettazione quando si desidera fornire singoli consumer o clienti l'accesso a una o più applicazioni o servizi di Active Directory protetta con ADFS su Internet, come illustrato nella figura seguente.  
   
 ![progettazione di Web sso](media/adfs2_WebSSODesign.gif)  
   
-Con il progetto Web SSO, un'organizzazione che in genere ospita un'applicazione AD FS @ no__t-0secured o un servizio in una rete perimetrale può mantenere un archivio separato di account dei clienti nella rete perimetrale, rendendo più semplice isolare gli account dei clienti da account del dipendente.  
+Con il progetto Web SSO, un'organizzazione che in genere ospita un AD FS\-applicazione o servizio protetto in una rete perimetrale può mantenere un archivio separato di account dei clienti nella rete perimetrale, rendendo più semplice isolare gli account dei clienti dagli account dei dipendenti.  
   
-È possibile gestire gli account locali per i clienti nella rete perimetrale usando Active Directory Domain Services \(AD DS @ no__t-1, SQL Server o un archivio attributi personalizzato.  
+È possibile gestire gli account locali per i clienti nella rete perimetrale utilizzando Active Directory Domain Services \(AD DS\), SQL Server o un archivio attributi personalizzato.  
   
 Questa soluzione coincide con l'obiettivo di distribuzione in [Provide Your Active Directory Users Access to Your Claims-Aware Applications and Services](Provide-Your-Active-Directory-Users-Access-to-Your-Claims-Aware-Applications-and-Services.md).  
   
-Per un elenco delle attività dettagliate che è possibile usare per pianificare e distribuire il progetto Web SSO, vedere [Checklist: Implementazione di un progetto Web SSO @ no__t-0.  
+Per un elenco di attività dettagliate che è possibile utilizzare per pianificare e distribuire il progetto Web SSO, vedere [elenco di controllo: implementazione di un progetto Web SSO](../../ad-fs/deployment/Checklist--Implementing-a-Web-SSO-Design.md).  
   
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 [Guida alla progettazione di AD FS in Windows Server 2012](AD-FS-Design-Guide-in-Windows-Server-2012.md)

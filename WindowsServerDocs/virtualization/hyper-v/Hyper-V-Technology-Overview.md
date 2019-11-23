@@ -90,7 +90,7 @@ Hyper-V include anche gli strumenti per la gestione e la connettività. È possi
 
 - Console di gestione di Hyper-V
 - [Modulo Hyper-V per Windows PowerShell](https://docs.microsoft.com/powershell/module/hyper-v/index)
-- [Virtual Machine Connection](https://docs.microsoft.com/windows-server/virtualization/hyper-v/learn-more/hyper-v-virtual-machine-connect) \(Sometimes denominato VMConnect @ no__t-2
+- La [connessione alla macchina virtuale](https://docs.microsoft.com/windows-server/virtualization/hyper-v/learn-more/hyper-v-virtual-machine-connect) \(talvolta denominata VMConnect\)
 - [Windows PowerShell Direct](manage/Manage-Windows-virtual-machines-with-PowerShell-Direct.md)
 
 ## <a name="related-technologies"></a>Tecnologie correlate

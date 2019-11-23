@@ -63,9 +63,9 @@ Per configurare l'accesso remoto per l'uso dell'autenticazione a due fattori e O
     > [!NOTE]  
     > Dopo aver abilitato OTP sul server di accesso remoto, se si disabilita OTP deselezionando **use OTP**, le estensioni ISAPI e CGI verranno disinstallate nel server.  
   
-4.  Se è necessario il supporto di Windows 7, selezionare la casella **di controllo Abilita computer client Windows 7 per la connessione tramite DirectAccess** . Nota: Come illustrato nella sezione relativa alla pianificazione, per il supporto di DirectAccess con OTP i client Windows 7 devono avere installato DCA 2,0.  
+4.  Se è necessario il supporto di Windows 7, selezionare la casella **di controllo Abilita computer client Windows 7 per la connessione tramite DirectAccess** . Nota: come illustrato nella sezione relativa alla pianificazione, i client Windows 7 devono avere il DCA 2,0 installato per supportare DirectAccess con OTP.  
   
-5.  Fare clic su **Avanti**.  
+5.  Fai clic su **Next**.  
   
 6.  Nella sezione **server RADIUS OTP** fare doppio clic sul campo **nome server** vuoto.  
   
@@ -74,14 +74,14 @@ Per configurare l'accesso remoto per l'uso dell'autenticazione a due fattori e O
     > [!NOTE]  
     > Se il server RADIUS si trova in un dominio diverso da quello del server di accesso remoto, il campo **nome server** deve specificare il nome di dominio completo (FQDN) del server RADIUS.  
   
-8.  Nella sezione **server CA OTP** selezionare i server CA da usare per la registrazione dei certificati di autenticazione client OTP, quindi fare clic su **Aggiungi**. Fare clic su **Avanti**.  
+8.  Nella sezione **server CA OTP** selezionare i server CA da usare per la registrazione dei certificati di autenticazione client OTP, quindi fare clic su **Aggiungi**. Fai clic su **Next**.  
   
 9. Nella sezione **modelli di certificato OTP** fare clic su **Sfoglia** per selezionare il modello di certificato usato per la registrazione dei certificati rilasciati per l'autenticazione OTP.  
   
     > [!NOTE]  
     > Il modello di certificato per i certificati OTP rilasciati dalla CA aziendale deve essere configurato senza l'opzione "non includere le informazioni di revoca nei certificati rilasciati". Se questa opzione viene selezionata durante la creazione del modello di certificato, i computer client OTP non riusciranno ad accedere correttamente.  
   
-    Fare clic su **Sfoglia** per selezionare un modello di certificato usato per registrare il certificato usato dal server di accesso remoto per firmare le richieste di registrazione del certificato OTP. Fare clic su **OK**. Fare clic su **Avanti**.  
+    Fare clic su **Sfoglia** per selezionare un modello di certificato usato per registrare il certificato usato dal server di accesso remoto per firmare le richieste di registrazione del certificato OTP. Fai clic su **OK**. Fai clic su **Next**.  
   
 10. Se è necessario esentare utenti specifici da DirectAccess con OTP, nella sezione **esenzioni OTP** selezionare non **richiedere agli utenti del gruppo di sicurezza specificato di eseguire l'autenticazione con l'autenticazione a due fattori**. Fare clic su **gruppo di sicurezza** e selezionare il gruppo di sicurezza creato per le esenzioni OTP.  
   
@@ -105,7 +105,7 @@ Per configurare l'accesso remoto per l'uso dell'autenticazione a due fattori e O
   
 Per configurare l'accesso remoto per OTP usando i comandi di PowerShell:  
   
-](../../../../media/Step-3-Configure-the-Remote-Access-Server-for-OTP/PowerShellLogoSmall.gif)**comandi equivalenti** di PowerShell per Windows PowerShell @no__t 0Windows  
+![](../../../../media/Step-3-Configure-the-Remote-Access-Server-for-OTP/PowerShellLogoSmall.gif)**comandi equivalenti di Windows PowerShell** per Windows PowerShell  
   
 Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.  
   
@@ -150,7 +150,7 @@ Per consentire l'accesso temporaneo agli utenti con smart card inutilizzabili, e
   
 Per concedere l'accesso a un utente che non può utilizzare smart card, aggiungere temporaneamente l'account utente al gruppo di sicurezza Active Directory. Se la smart card è utilizzabile, rimuovere l'account utente dal gruppo.  
   
-### <a name="under-the-covers-smart-card-authorization"></a>Dettagli: autorizzazione di smart card  
+### <a name="under-the-covers-smart-card-authorization"></a>Dietro le quinte: autorizzazione per Smart Card  
 L'autorizzazione delle smart card si verifica abilitando l'autorizzazione in modalità tunnel nella regola di protezione delle connessioni del tunnel della Intranet del server DirectAccess per un ID di sicurezza (SID) specifico basato su Kerberos. Per l'autorizzazione di smart card, si tratta del ben noto SID (S-1-5-65-1), che effettua il mapping agli accessi basati su smart card. Questo SID è presente in un token Kerberos del client DirectAccess e viene definito "certificato dell'organizzazione" quando è configurato nelle impostazioni di autorizzazione della modalità tunnel IPsec globale.  
   
 Quando si Abilita l'autorizzazione della smart card nel passaggio 2 della configurazione guidata DirectAccess, la configurazione guidata DirectAccess configura l'impostazione di autorizzazione della modalità tunnel IPsec globale con questo SID per l'oggetto Criteri di gruppo del server DirectAccess. Per visualizzare questa configurazione nello snap-in Windows Firewall con sicurezza avanzata per l'oggetto server Criteri di gruppo DirectAccess, eseguire le operazioni seguenti:  

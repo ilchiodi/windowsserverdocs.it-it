@@ -41,7 +41,7 @@ HNV è un blocco predefinito fondamentale della soluzione SDN (Software Defined 
   
 Il nuovo controller di rete Microsoft effettua il push dei criteri di HNV a un agente host in esecuzione in ogni host usando il protocollo OVSDB (Open vSwitch Database Management Protocol) come interfaccia di sud (SBI). L'agente host archivia questi criteri usando una personalizzazione dello [schema VTEP](https://github.com/openvswitch/ovs/blob/master/vtep/vtep.ovsschema) e le regole di flusso complesse programmi in un motore di flusso a prestazioni elevate nel commutire Hyper-V.  
   
-Il motore di flusso all'interno del Commuter Hyper-V è lo stesso motore usato in Microsoft Azure @ no__t-0, che è stato testato su larga scala nel cloud Microsoft Azure pubblico. Inoltre, l'intero stack SDN attraverso il controller di rete e il provider di risorse di rete (informazioni presto disponibili) sono coerenti con Microsoft Azure, in modo da offrire la potenza del Microsoft Azure cloud pubblico all'azienda e al servizio di hosting clienti del provider.  
+Il motore di flusso all'interno del Commuter Hyper-V è lo stesso motore usato in Microsoft Azure&trade;, che è stato testato su larga scala nel cloud Microsoft Azure pubblico. Inoltre, l'intero stack SDN attraverso il controller di rete e il provider di risorse di rete (informazioni presto disponibili) sono coerenti con Microsoft Azure, in modo da offrire la potenza del Microsoft Azure cloud pubblico all'azienda e al servizio di hosting clienti del provider.  
   
 > [!NOTE]  
 > Per ulteriori informazioni su OVSDB, vedere la [specifica RFC 7047](https://www.rfc-editor.org/info/rfc7047).  
@@ -59,7 +59,7 @@ Windows Server 2016 include un servizio di bilanciamento del carico software (SL
 ### <a name="L2"></a>Intestazioni IEEE Ethernet conformi  
 HNV implementa le intestazioni Ethernet L2 corrette per garantire l'interoperabilità con appliance virtuali e fisiche di terze parti che dipendono da protocolli standard del settore. Microsoft garantisce che tutti i pacchetti trasmessi abbiano valori conformi in tutti i campi per garantire l'interoperabilità. Inoltre, il supporto per i frame Jumbo (MTU > 1780) nella rete L2 fisica sarà necessario per tenere conto dell'overhead dei pacchetti introdotto dai protocolli di incapsulamento (NVGRE, VXLAN), assicurando al contempo le macchine virtuali guest collegate a una rete virtuale HNV MTU 1514.  
   
-## <a name="see-also"></a>Vedere anche  
+## <a name="see-also"></a>Vedi anche  
   
 -   [Panoramica di Virtualizzazione rete Hyper-V](hyperv-network-virtualization-overview-windows-server.md)  
   

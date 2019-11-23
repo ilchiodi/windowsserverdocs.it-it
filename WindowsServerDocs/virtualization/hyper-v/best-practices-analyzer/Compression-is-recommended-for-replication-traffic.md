@@ -25,7 +25,7 @@ Per altre informazioni sulle procedure consigliate e sulle analisi, vedere [Eseg
   
 |Proprietà|Dettagli|  
 |-|-|  
-|**Sistema operativo**|Windows Server 2016|  
+|**Sistema operativo**|Windows Server 2016|  
 |**Prodotto/funzionalità**|Hyper-V|  
 |**Gravità**|Avviso|  
 |**Categoria**|Configurazione|  
@@ -36,12 +36,12 @@ Nelle sezioni seguenti, corsivo indica il testo dell'interfaccia Utente visualiz
 *Il traffico di replica inviato attraverso la rete dal server primario al server di replica non è compresso.*  
   
 ## <a name="impact"></a>Impatto  
-il traffico *Replication utilizzerà più larghezza di banda del necessario. Ciò influisca sulle macchine virtuali seguenti:*  
+*Il traffico di replica utilizzerà più larghezza di banda del necessario. Ciò influisca sulle macchine virtuali seguenti:*  
   
-@no__t 0list di macchine virtuali >  
+\<elenco di macchine virtuali >  
   
 ## <a name="resolution"></a>Risoluzione  
-*Configure replica Hyper-V per comprimere i dati trasmessi in rete nelle impostazioni della macchina virtuale nella console di gestione di Hyper-V. Per eseguire la compressione è inoltre possibile utilizzare strumenti esterni a Hyper-V.*  
+*Configurare la replica Hyper-V per comprimere i dati trasmessi in rete nelle impostazioni della macchina virtuale nella console di gestione di Hyper-V. Per eseguire la compressione, è inoltre possibile utilizzare strumenti esterni a Hyper-V.*  
   
 
 

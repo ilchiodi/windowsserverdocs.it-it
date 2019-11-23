@@ -18,7 +18,7 @@ ms.locfileid: "71408024"
 ---
 # <a name="planning-federation-server-placement"></a>Pianificazione del posizionamento del server federativo
 
-Il componente più importante di una distribuzione Active Directory Federation Services \(AD FS @ no__t-1 è il server federativo. È pertanto importante pianificare con attenzione la strategia di posizionamento del server federativo, incluse le posizioni e i casi in cui distribuire i server federativi. Le informazioni negli argomenti seguenti consentono di determinare quando e dove creare un server federativo o un server farm di Federazione e se utilizzare tale server federativo nel ruolo partner account, nel ruolo di partner risorse o in entrambi i casi:  
+Il componente più importante di un Active Directory Federation Services \(AD FS distribuzione\) è il server federativo. È pertanto importante pianificare con attenzione la strategia di posizionamento del server federativo, incluse le posizioni e i casi in cui distribuire i server federativi. Le informazioni negli argomenti seguenti consentono di determinare quando e dove creare un server federativo o un server farm di Federazione e se utilizzare tale server federativo nel ruolo partner account, nel ruolo di partner risorse o in entrambi i casi:  
   
 -   [Rivedere il ruolo del server federativo nel partner account](Review-the-Role-of-the-Federation-Server-in-the-Account-Partner.md)  
   
@@ -39,6 +39,6 @@ Il componente più importante di una distribuzione Active Directory Federation S
   
 Per esempi di come un server federativo può essere inserito in uno dei due scenari principali di progettazione di AD FS, vedere [mapping degli obiettivi di distribuzione a una progettazione di ad FS](Mapping-Your-Deployment-Goals-to-an-AD-FS-Design.md).  
   
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 [Guida alla progettazione di AD FS in Windows Server 2012](AD-FS-Design-Guide-in-Windows-Server-2012.md)
 

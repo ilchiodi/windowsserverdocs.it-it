@@ -46,7 +46,7 @@ La tabella seguente elenca i parametri per il cmdlet **Export-NpsConfiguration**
 
 |Parametro|Descrizione|
 |---------|-----------|
-|`Path`|Specifica il nome e il percorso del file XML in cui si desidera esportare la configurazione NPS.|
+|Percorso|Specifica il nome e il percorso del file XML in cui si desidera esportare la configurazione NPS.|
 
 **Credenziali amministrative**
 
@@ -76,7 +76,7 @@ Per altre informazioni, vedere [Import-NpsConfiguration](https://technet.microso
 
 ## <a name="export-and-import-the-nps-configuration-by-using-netsh"></a>Esportare e importare la configurazione NPS tramite Netsh
 
-È possibile utilizzare la shell di rete \(Netsh @ no__t-1 per esportare la configurazione del server dei criteri di rete utilizzando il comando **netsh nps export** .
+È possibile utilizzare la shell di rete \(netsh\) per esportare la configurazione del server dei criteri di rete utilizzando il comando **netsh nps export** .
 
 Quando si esegue il comando **netsh nps import** , il server dei criteri di server viene aggiornato automaticamente con le impostazioni di configurazione aggiornate. Non è necessario arrestare il server dei criteri di server nel computer di destinazione per eseguire il comando **netsh nps import** . Tuttavia, se la console NPS o lo snap-in MMC NPS è aperto durante l'importazione della configurazione, le modifiche apportate alla configurazione del server non saranno visibili finché non si aggiorna la visualizzazione. 
 
@@ -95,7 +95,7 @@ Per completare questa procedura, è necessario essere un membro del gruppo Admin
 
 3. Al prompt **netsh NPS** Digitare **Export filename =** "*path\file.XML*" **exportPSK = Yes**, dove *percorso* è il percorso della cartella in cui si desidera salvare il file di configurazione NPS e *file* è il nome del file XML che si desidera salvare. Premi INVIO. 
 
-In questo modo vengono archiviate le impostazioni di configurazione \(including impostazioni del registro di sistema @ no__t-1 in un file XML. Il percorso può essere relativo o assoluto oppure può essere un Universal Naming Convention percorso \(UNC @ no__t-1. Dopo aver premuto INVIO, viene visualizzato un messaggio che indica se l'esportazione nel file è stata completata correttamente.
+Archivia le impostazioni di configurazione \(incluse le impostazioni del registro di sistema\) in un file XML. Il percorso può essere relativo o assoluto oppure può essere un Universal Naming Convention \(percorso UNC\). Dopo aver premuto INVIO, viene visualizzato un messaggio che indica se l'esportazione nel file è stata completata correttamente.
 
 4. Copiare il file creato nel server dei criteri di server di destinazione.
 

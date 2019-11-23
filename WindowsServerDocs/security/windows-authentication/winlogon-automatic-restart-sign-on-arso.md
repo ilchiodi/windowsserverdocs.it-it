@@ -74,7 +74,7 @@ Al riavvio, l'utente verrà automaticamente connesso tramite il meccanismo autol
   
     -   Può essere abilitato solo se BitLocker è abilitato  
   
-## <a name="group-policy-sign-in-last-interactive-user-automatically-after-a-system-initiated-restart"></a>Criteri di gruppo: Ultimo utente interattivo di accesso automatico dopo un riavvio avviato dal sistema  
+## <a name="group-policy-sign-in-last-interactive-user-automatically-after-a-system-initiated-restart"></a>Criteri di gruppo: ultimo utente interattivo di accesso automatico dopo un riavvio avviato dal sistema  
 In Windows 8.1/Windows Server 2012 R2, l'accesso automatico dell'utente della schermata di blocco dopo un riavvio del Windows Update è acconsentito esplicitamente per gli SKU del server ed escludere gli SKU dei client.  
   
 **Percorso criterio:** Configurazione computer > criteri > Modelli amministrativi > componenti di Windows > opzione di accesso a Windows  
@@ -93,7 +93,7 @@ Se si disabilita questa impostazione di criteri, il dispositivo non archivia le 
   
 **Editor del registro di sistema**  
   
-|Nome valore|Type|Data|  
+|Nome valore|Tipo|Data|  
 |-------|----|----|  
 |DisableAutomaticRestartSignOn|DWORD|0<br /><br />**Esempio:**<br /><br />0 (abilitato)<br /><br />1 (disabilitato)|  
   
@@ -143,9 +143,9 @@ Una sessione utente esistente può essere mantenuta anche se disabilitata.  Il r
 Le ore di accesso e i controlli padre possono impedire la creazione di una nuova sessione utente.  Se si verifica un riavvio durante questa finestra, l'utente non sarà autorizzato a eseguire l'accesso.  Sono presenti criteri aggiuntivi che causano il blocco o la disconnessione come azione di conformità.  Questo può essere problematico per molti casi figlio in cui il blocco dell'account può verificarsi tra il tempo di sospensione e il riattivazione, in particolare se la finestra di manutenzione si trova in genere durante questo periodo di tempo.  
   
 ## <a name="additional-resources"></a>Risorse aggiuntive  
-**Table SEQ Table \\ @ no__t-2 ARABIC 3: Glossario al riavvio Winlogon @ no__t-0  
+**Tabella SEQ tabella \\\* arabo 3: al riavvio Winlogon Glossario**  
   
-|Nome|Definizione|  
+|Termine|Definizione|  
 |----|-------|  
 |Autologon|L'accesso automatico è una funzionalità presente in Windows per diverse versioni.  Si tratta di una funzionalità documentata di Windows che include anche strumenti come l'accesso automatico per Windows v 3.01  *[http:/technet. Microsoft. com/sysinternals/bb963905. aspx](https://technet.microsoft.com/sysinternals/bb963905.aspx)*<br /><br />Consente a un singolo utente del dispositivo di accedere automaticamente senza immettere le credenziali. Le credenziali vengono configurate e archiviate nel registro di sistema come segreto LSA crittografato.|  
   

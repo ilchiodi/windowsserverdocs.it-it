@@ -139,7 +139,7 @@ Di seguito è riportato un elenco di messaggi di avviso dei criteri QoS.
 |**Gravità**|Avviso|  
 |**SymbolicName**|EVENT_EQOS_WARNING_TEST_1|  
 |**Lingua**|Inglese|  
-|**Messaggio**|EQOS: * * * testing @ no__t-0 @ no__t-1 @ no__t-2 [, con una stringa] "% 2".|  
+|**Messaggio**|EQOS: * * * test\*\*\*[, con una stringa] "%2".|  
   
 |||  
 |-|-|  
@@ -147,7 +147,7 @@ Di seguito è riportato un elenco di messaggi di avviso dei criteri QoS.
 |**Gravità**|Avviso|  
 |**SymbolicName**|EVENT_EQOS_WARNING_TEST_2|  
 |**Lingua**|Inglese|  
-|**Messaggio**|EQOS: * * * testing @ no__t-0 @ no__t-1 @ no__t-2 [, con due stringhe, string1 è] "% 2" [, string2 è] "% 3".|  
+|**Messaggio**|EQOS: * * * test\*\*\*[, con due stringhe, string1 è] "%2" [, string2 è] "%3".|  
   
 |||  
 |-|-|  
@@ -155,7 +155,7 @@ Di seguito è riportato un elenco di messaggi di avviso dei criteri QoS.
 |**Gravità**|Avviso|  
 |**SymbolicName**|EVENT_EQOS_WARNING_MACHINE_POLICY_VERSION|  
 |**Lingua**|Inglese|  
-|**Messaggio**|Il numero di versione del criterio QoS del computer "% 2" non è valido. Questo criterio non verrà applicato.|  
+|**Messaggio**|Il numero di versione del criterio QoS del computer "%2" non è valido. Questo criterio non verrà applicato.|  
   
 |||  
 |-|-|  
@@ -163,7 +163,7 @@ Di seguito è riportato un elenco di messaggi di avviso dei criteri QoS.
 |**Gravità**|Avviso|  
 |**SymbolicName**|EVENT_EQOS_WARNING_USER_POLICY_VERSION|  
 |**Lingua**|Inglese|  
-|**Messaggio**|Il numero di versione del criterio QoS utente "% 2" non è valido. Questo criterio non verrà applicato.|  
+|**Messaggio**|Il numero di versione del criterio QoS utente "%2" non è valido. Questo criterio non verrà applicato.|  
   
 |||  
 |-|-|  
@@ -171,7 +171,7 @@ Di seguito è riportato un elenco di messaggi di avviso dei criteri QoS.
 |**Gravità**|Avviso|  
 |**SymbolicName**|EVENT_EQOS_WARNING_MACHINE_POLICY_PROFILE_NOT_SPECIFIED|  
 |**Lingua**|Inglese|  
-|**Messaggio**|Il criterio QoS del computer "% 2" non specifica un valore DSCP o una frequenza di limitazione. Questo criterio non verrà applicato.|  
+|**Messaggio**|Il criterio QoS del computer "%2" non specifica un valore DSCP o una frequenza di limitazione. Questo criterio non verrà applicato.|  
   
 |||  
 |-|-|  
@@ -179,7 +179,7 @@ Di seguito è riportato un elenco di messaggi di avviso dei criteri QoS.
 |**Gravità**|Avviso|  
 |**SymbolicName**|EVENT_EQOS_WARNING_USER_POLICY_PROFILE_NOT_SPECIFIED|  
 |**Lingua**|Inglese|  
-|**Messaggio**|Il criterio QoS utente "% 2" non specifica un valore DSCP o una frequenza di limitazione. Questo criterio non verrà applicato.|  
+|**Messaggio**|Il criterio QoS utente "%2" non specifica un valore DSCP o una frequenza di limitazione. Questo criterio non verrà applicato.|  
   
 |||  
 |-|-|  
@@ -187,7 +187,7 @@ Di seguito è riportato un elenco di messaggi di avviso dei criteri QoS.
 |**Gravità**|Avviso|  
 |**SymbolicName**|EVENT_EQOS_WARNING_MACHINE_POLICY_QUOTA_EXCEEDED|  
 |**Lingua**|Inglese|  
-|**Messaggio**|È stato superato il numero massimo di criteri QoS del computer. I criteri QoS "% 2" e i criteri QoS del computer successivi non verranno applicati.|  
+|**Messaggio**|È stato superato il numero massimo di criteri QoS del computer. I criteri QoS "%2" e i criteri QoS del computer successivi non verranno applicati.|  
   
 |||  
 |-|-|  
@@ -195,7 +195,7 @@ Di seguito è riportato un elenco di messaggi di avviso dei criteri QoS.
 |**Gravità**|Avviso|  
 |**SymbolicName**|EVENT_EQOS_WARNING_USER_POLICY_QUOTA_EXCEEDED|  
 |**Lingua**|Inglese|  
-|**Messaggio**|È stato superato il numero massimo di criteri QoS utente. I criteri QoS "% 2" e i criteri QoS utente successivi non verranno applicati.|  
+|**Messaggio**|È stato superato il numero massimo di criteri QoS utente. I criteri QoS "%2" e i criteri QoS utente successivi non verranno applicati.|  
   
 |||  
 |-|-|  
@@ -203,7 +203,7 @@ Di seguito è riportato un elenco di messaggi di avviso dei criteri QoS.
 |**Gravità**|Avviso|  
 |**SymbolicName**|EVENT_EQOS_WARNING_MACHINE_POLICY_CONFLICT|  
 |**Lingua**|Inglese|  
-|**Messaggio**|Il criterio QoS del computer "% 2" è potenzialmente in conflitto con altri criteri QoS. Vedere la documentazione per le regole relative ai criteri che verranno applicati.|  
+|**Messaggio**|Il criterio QoS del computer "%2" è potenzialmente in conflitto con altri criteri QoS. Vedere la documentazione per le regole relative ai criteri che verranno applicati.|  
   
 |||  
 |-|-|  
@@ -211,7 +211,7 @@ Di seguito è riportato un elenco di messaggi di avviso dei criteri QoS.
 |**Gravità**|Avviso|  
 |**SymbolicName**|EVENT_EQOS_WARNING_USER_POLICY_CONFLICT|  
 |**Lingua**|Inglese|  
-|**Messaggio**|I criteri QoS utente "% 2" potenzialmente sono in conflitto con altri criteri QoS. Vedere la documentazione per le regole relative ai criteri che verranno applicati.|  
+|**Messaggio**|I criteri QoS utente "%2" potenzialmente sono in conflitto con altri criteri QoS. Vedere la documentazione per le regole relative ai criteri che verranno applicati.|  
   
 |||  
 |-|-|  
@@ -219,7 +219,7 @@ Di seguito è riportato un elenco di messaggi di avviso dei criteri QoS.
 |**Gravità**|Avviso|  
 |**SymbolicName**|EVENT_EQOS_WARNING_MACHINE_POLICY_NO_FULLPATH_APPNAME|  
 |**Lingua**|Inglese|  
-|**Messaggio**|Il criterio QoS del computer "% 2" è stato ignorato perché non è possibile elaborare il percorso dell'applicazione. Il percorso dell'applicazione potrebbe non essere valido, contenere una lettera di unità non valida o contenere un'unità mappata alla rete.|  
+|**Messaggio**|Il criterio QoS del computer "%2" è stato ignorato perché non è possibile elaborare il percorso dell'applicazione. Il percorso dell'applicazione potrebbe non essere valido, contenere una lettera di unità non valida o contenere un'unità mappata alla rete.|  
   
 |||  
 |-|-|  
@@ -227,7 +227,7 @@ Di seguito è riportato un elenco di messaggi di avviso dei criteri QoS.
 |**Gravità**|Avviso|  
 |**SymbolicName**|EVENT_EQOS_WARNING_USER_POLICY_NO_FULLPATH_APPNAME|  
 |**Lingua**|Inglese|  
-|**Messaggio**|Il criterio QoS utente "% 2" è stato ignorato perché non è possibile elaborare il percorso dell'applicazione. Il percorso dell'applicazione potrebbe non essere valido, contenere una lettera di unità non valida o contenere un'unità mappata alla rete.|  
+|**Messaggio**|Il criterio QoS utente "%2" è stato ignorato perché non è possibile elaborare il percorso dell'applicazione. Il percorso dell'applicazione potrebbe non essere valido, contenere una lettera di unità non valida o contenere un'unità mappata alla rete.|  
   
 ## <a name="error-messages"></a>Messaggi di errore  
 
@@ -239,7 +239,7 @@ Di seguito è riportato un elenco di messaggi di errore dei criteri QoS.
 |**Gravità**|Errore|  
 |**SymbolicName**|EVENT_EQOS_ERROR_MACHINE_POLICY_REFERESH|  
 |**Lingua**|Inglese|  
-|**Messaggio**|Non è stato possibile aggiornare i criteri QoS del computer. Codice di errore: "% 2".|  
+|**Messaggio**|Non è stato possibile aggiornare i criteri QoS del computer. Codice di errore: "%2".|  
   
 |||  
 |-|-|  
@@ -247,7 +247,7 @@ Di seguito è riportato un elenco di messaggi di errore dei criteri QoS.
 |**Gravità**|Errore|  
 |**SymbolicName**|EVENT_EQOS_ERROR_USER_POLICY_REFERESH|  
 |**Lingua**|Inglese|  
-|**Messaggio**|Non è stato possibile aggiornare i criteri QoS utente. Codice di errore: "% 2".|  
+|**Messaggio**|Non è stato possibile aggiornare i criteri QoS utente. Codice di errore: "%2".|  
   
 |||  
 |-|-|  
@@ -255,7 +255,7 @@ Di seguito è riportato un elenco di messaggi di errore dei criteri QoS.
 |**Gravità**|Errore|  
 |**SymbolicName**|EVENT_EQOS_ERROR_OPENING_MACHINE_POLICY_ROOT_KEY|  
 |**Lingua**|Inglese|  
-|**Messaggio**|QoS non è riuscito ad aprire la chiave radice a livello di computer per i criteri QoS. Codice di errore: "% 2".|  
+|**Messaggio**|QoS non è riuscito ad aprire la chiave radice a livello di computer per i criteri QoS. Codice di errore: "%2".|  
   
 |||  
 |-|-|  
@@ -263,7 +263,7 @@ Di seguito è riportato un elenco di messaggi di errore dei criteri QoS.
 |**Gravità**|Errore|  
 |**SymbolicName**|EVENT_EQOS_ERROR_OPENING_USER_POLICY_ROOT_KEY|  
 |**Lingua**|Inglese|  
-|**Messaggio**|QoS non è riuscito ad aprire la chiave radice a livello di utente per i criteri QoS. Codice di errore: "% 2".|  
+|**Messaggio**|QoS non è riuscito ad aprire la chiave radice a livello di utente per i criteri QoS. Codice di errore: "%2".|  
   
 |||  
 |-|-|  
@@ -271,7 +271,7 @@ Di seguito è riportato un elenco di messaggi di errore dei criteri QoS.
 |**Gravità**|Errore|  
 |**SymbolicName**|EVENT_EQOS_ERROR_MACHINE_POLICY_KEYNAME_TOO_LONG|  
 |**Lingua**|Inglese|  
-|**Messaggio**|Un criterio QoS del computer supera la lunghezza massima consentita per il nome. Il criterio offensivo è elencato sotto la chiave radice dei criteri QoS a livello di computer, con indice "% 2".|  
+|**Messaggio**|Un criterio QoS del computer supera la lunghezza massima consentita per il nome. Il criterio offensivo è elencato sotto la chiave radice dei criteri QoS a livello di computer, con indice "%2".|  
   
 |||  
 |-|-|  
@@ -279,7 +279,7 @@ Di seguito è riportato un elenco di messaggi di errore dei criteri QoS.
 |**Gravità**|Errore|  
 |**SymbolicName**|EVENT_EQOS_ERROR_USER_POLICY_KEYNAME_TOO_LONG|  
 |**Lingua**|Inglese|  
-|**Messaggio**|Un criterio QoS utente supera la lunghezza massima consentita per il nome. Il criterio offensivo è elencato sotto la chiave radice dei criteri QoS a livello di utente, con indice "% 2".|  
+|**Messaggio**|Un criterio QoS utente supera la lunghezza massima consentita per il nome. Il criterio offensivo è elencato sotto la chiave radice dei criteri QoS a livello di utente, con indice "%2".|  
   
 |||  
 |-|-|  
@@ -287,7 +287,7 @@ Di seguito è riportato un elenco di messaggi di errore dei criteri QoS.
 |**Gravità**|Errore|  
 |**SymbolicName**|EVENT_EQOS_ERROR_MACHINE_POLICY_KEYNAME_SIZE_ZERO|  
 |**Lingua**|Inglese|  
-|**Messaggio**|Un criterio QoS del computer ha un nome di lunghezza zero. Il criterio offensivo è elencato sotto la chiave radice dei criteri QoS a livello di computer, con indice "% 2".|  
+|**Messaggio**|Un criterio QoS del computer ha un nome di lunghezza zero. Il criterio offensivo è elencato sotto la chiave radice dei criteri QoS a livello di computer, con indice "%2".|  
   
 |||  
 |-|-|  
@@ -295,7 +295,7 @@ Di seguito è riportato un elenco di messaggi di errore dei criteri QoS.
 |**Gravità**|Errore|  
 |**SymbolicName**|EVENT_EQOS_ERROR_USER_POLICY_KEYNAME_SIZE_ZERO|  
 |**Lingua**|Inglese|  
-|**Messaggio**|Un criterio QoS utente ha un nome di lunghezza zero. Il criterio offensivo è elencato sotto la chiave radice dei criteri QoS a livello di utente, con indice "% 2".|  
+|**Messaggio**|Un criterio QoS utente ha un nome di lunghezza zero. Il criterio offensivo è elencato sotto la chiave radice dei criteri QoS a livello di utente, con indice "%2".|  
   
 |||  
 |-|-|  
@@ -303,7 +303,7 @@ Di seguito è riportato un elenco di messaggi di errore dei criteri QoS.
 |**Gravità**|Errore|  
 |**SymbolicName**|EVENT_EQOS_ERROR_OPENING_MACHINE_POLICY_SUBKEY|  
 |**Lingua**|Inglese|  
-|**Messaggio**|QoS non è riuscito ad aprire la sottochiave del registro di sistema per un criterio QoS del computer. Il criterio è elencato sotto la chiave radice dei criteri QoS a livello di computer, con indice "% 2".|  
+|**Messaggio**|QoS non è riuscito ad aprire la sottochiave del registro di sistema per un criterio QoS del computer. Il criterio è elencato sotto la chiave radice dei criteri QoS a livello di computer, con indice "%2".|  
   
 |||  
 |-|-|  
@@ -311,7 +311,7 @@ Di seguito è riportato un elenco di messaggi di errore dei criteri QoS.
 |**Gravità**|Errore|  
 |**SymbolicName**|EVENT_EQOS_ERROR_OPENING_USER_POLICY_SUBKEY|  
 |**Lingua**|Inglese|  
-|**Messaggio**|QoS non è riuscito ad aprire la sottochiave del registro di sistema per un criterio QoS utente. Il criterio è elencato sotto la chiave radice dei criteri QoS a livello di utente, con indice "% 2".|  
+|**Messaggio**|QoS non è riuscito ad aprire la sottochiave del registro di sistema per un criterio QoS utente. Il criterio è elencato sotto la chiave radice dei criteri QoS a livello di utente, con indice "%2".|  
   
 |||  
 |-|-|  
@@ -319,7 +319,7 @@ Di seguito è riportato un elenco di messaggi di errore dei criteri QoS.
 |**Gravità**|Errore|  
 |**SymbolicName**|EVENT_EQOS_ERROR_PROCESSING_MACHINE_POLICY_FIELD|  
 |**Lingua**|Inglese|  
-|**Messaggio**|QoS non è riuscito a leggere o convalidare il campo "% 2" per i criteri QoS del computer "% 3".|  
+|**Messaggio**|QoS non è riuscito a leggere o convalidare il campo "%2" per i criteri QoS del computer "%3".|  
   
 |||  
 |-|-|  
@@ -327,7 +327,7 @@ Di seguito è riportato un elenco di messaggi di errore dei criteri QoS.
 |**Gravità**|Errore|  
 |**SymbolicName**|EVENT_EQOS_ERROR_PROCESSING_USER_POLICY_FIELD|  
 |**Lingua**|Inglese|  
-|**Messaggio**|QoS non è riuscito a leggere o convalidare il campo "% 2" per i criteri QoS utente "% 3".|  
+|**Messaggio**|QoS non è riuscito a leggere o convalidare il campo "%2" per i criteri QoS utente "%3".|  
   
 |||  
 |-|-|  
@@ -335,7 +335,7 @@ Di seguito è riportato un elenco di messaggi di errore dei criteri QoS.
 |**Gravità**|Errore|  
 |**SymbolicName**|EVENT_EQOS_ERROR_SETTING_TCP_AUTOTUNING|  
 |**Lingua**|Inglese|  
-|**Messaggio**|QoS non è riuscito a leggere o impostare il livello di velocità effettiva TCP in ingresso. codice errore: "% 2".|  
+|**Messaggio**|QoS non è riuscito a leggere o impostare il livello di velocità effettiva TCP in ingresso. codice errore: "%2".|  
   
 |||  
 |-|-|  
@@ -343,7 +343,7 @@ Di seguito è riportato un elenco di messaggi di errore dei criteri QoS.
 |**Gravità**|Errore|  
 |**SymbolicName**|EVENT_EQOS_ERROR_SETTING_APP_MARKING|  
 |**Lingua**|Inglese|  
-|**Messaggio**|QoS non è riuscito a leggere o impostare l'impostazione di sostituzione del contrassegno DSCP. codice errore: "% 2".|  
+|**Messaggio**|QoS non è riuscito a leggere o impostare l'impostazione di sostituzione del contrassegno DSCP. codice errore: "%2".|  
 
 Per l'argomento successivo di questa guida, vedere [domande frequenti sui criteri QoS](qos-policy-faq.md).
 

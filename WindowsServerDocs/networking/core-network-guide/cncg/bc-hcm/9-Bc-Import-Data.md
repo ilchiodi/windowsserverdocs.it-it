@@ -15,9 +15,9 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 09/27/2019
 ms.locfileid: "71356199"
 ---
-# <a name="import-data-packages-on-the-hosted-cache-server-optional"></a>Importare i pacchetti di dati nel server cache ospitata \(Optional @ no__t-1
+# <a name="import-data-packages-on-the-hosted-cache-server-optional"></a>Importare i pacchetti di dati nel server cache ospitata \(facoltativo\)
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 È possibile utilizzare questa procedura per importare i pacchetti di dati e a precaricare contenuto nei server cache ospitata.
 

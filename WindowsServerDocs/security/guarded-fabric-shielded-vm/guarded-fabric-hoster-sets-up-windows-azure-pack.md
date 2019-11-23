@@ -50,9 +50,9 @@ Installare e configurare Windows Azure Pack (WAP) nel computer in cui si vuole o
 
 2.  Scaricare e installare l' [installazione guidata piattaforma Web](https://www.microsoft.com/web/downloads/platform.aspx). Se il computer non è connesso a Internet, seguire le [istruzioni per l'installazione offline](http://www.iis.net/learn/install/web-platform-installer/web-platform-installer-v4-command-line-webpicmdexe-rtw-release).
 
-3.  Aprire l'installazione guidata piattaforma Web e trovare **Windows Azure Pack: Il portale e l'API Express @ no__t-0 nella scheda **prodotti** . Fare clic su **Aggiungi**, quindi su **Installa** nella parte inferiore della finestra.
+3.  Aprire l'installazione guidata piattaforma Web e trovare **Windows Azure Pack: portale e API Express** nella scheda **prodotti** . fare clic su **Aggiungi**e quindi su **Installa** nella parte inferiore della finestra.
 
-4.  Proseguire con l'installazione. Al termine dell'installazione, nel Web browser verrà aperto il sito di configurazione (*https://&lt;wapserver @ no__t-2:30101/* ). In questo sito Web, fornire informazioni su SQL Server e completare la configurazione di WAP.
+4.  Proseguire con l'installazione. Al termine dell'installazione, nel Web browser verrà aperto il sito di configurazione (*https://&lt;wapserver&gt;: 30101/* ). In questo sito Web, fornire informazioni su SQL Server e completare la configurazione di WAP.
 
 Per informazioni sulla configurazione di Windows Azure Pack, vedere [Install an Express Deployment of Windows Azure Pack](https://technet.microsoft.com/dn296439.aspx).
 
@@ -63,7 +63,7 @@ Per informazioni sulla configurazione di Windows Azure Pack, vedere [Install an 
 
 Prima di usare Windows Azure Pack, è necessario che sia già installato e configurato per l'infrastruttura.
 
-1.  Passare al portale di amministrazione di Windows Azure Pack in *https://&lt;wapserver @ no__t-2:30091*e quindi accedere con le credenziali di amministratore.
+1.  Passare al portale di amministrazione di Windows Azure Pack in *https://&lt;wapserver&gt;: 30091*, quindi accedere con le credenziali di amministratore.
 
 2.  Nel riquadro sinistro fare clic su **Cloud VM**.
 
@@ -113,7 +113,7 @@ Per consentire ai tenant di creare macchine virtuali in WAP, è innanzitutto nec
 
     A questo punto, Windows Azure Pack è configurato e i tenant saranno in grado di sottoscrivere il piano appena creato e distribuire le macchine virtuali schermate. Per ulteriori passaggi che i tenant devono completare, vedere [macchine virtuali schermate per i tenant-distribuzione di una macchina virtuale schermata usando Windows Azure Pack](guarded-fabric-shielded-vm-windows-azure-pack.md).
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 - [Procedura di configurazione del provider di servizi di hosting per host sorvegliati e macchine virtuali schermate](guarded-fabric-configuration-scenarios-for-shielded-vms-overview.md)
 - [Infrastruttura sorvegliata e macchine virtuali schermate](guarded-fabric-and-shielded-vms-top-node.md)

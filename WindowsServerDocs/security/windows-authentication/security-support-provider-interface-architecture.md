@@ -89,9 +89,9 @@ Questo provider è incluso per impostazione predefinita nelle versioni indicate 
 
 -   [Microsoft Kerberos (Windows)](https://msdn.microsoft.com/library/aa378747(VS.85).aspx)
 
--   [ @ NO__T-1 MS-KILE @ NO__T-2: Estensioni del protocollo Kerberos @ no__t-0
+-   [\[MS-KILE\]: estensioni del protocollo Kerberos](https://msdn.microsoft.com/library/cc233855(PROT.10).aspx)
 
--   [ @ NO__T-1 MS-SFU @ NO__T-2: estensioni del protocollo Kerberos: Specifica del protocollo per il servizio per utenti e la delega vincolata @ no__t-0
+-   [\[MS-SFU\]: estensioni del protocollo Kerberos: specifica del protocollo per il servizio per utenti e la delega vincolata](https://msdn.microsoft.com/library/cc246071(PROT.13).aspx)
 
 -   [SSP/AP Kerberos (Windows)](https://msdn.microsoft.com/library/aa377942(VS.85).aspx)
 
@@ -114,7 +114,7 @@ I sistemi operativi Windows supportati possono utilizzare il provider di servizi
 
 -   Servizio RPC (Remote Procedure Call) o servizio DCOM sicuro
 
-Percorso:%windir%\Windows\System32\msv1_0.dll
+Percorso:%windir%\Windows\System32\ msv1_0. dll
 
 Questo provider è incluso per impostazione predefinita nelle versioni indicate nell'elenco **si applica a** all'inizio di questo argomento, oltre a windows Server 2003 e Windows XP.
 
@@ -145,7 +145,7 @@ Questo provider è incluso per impostazione predefinita nelle versioni indicate 
 
 -   [Autenticazione Microsoft Digest (Windows)](https://msdn.microsoft.com/library/aa378745(VS.85).aspx)
 
--   [ @ NO__T-1 MS-DPSP @ NO__T-2: Estensioni del protocollo digest @ no__t-0
+-   [\[MS-DPSP\]: estensioni del protocollo digest](https://msdn.microsoft.com/library/cc227906(PROT.13).aspx)
 
 ### <a name="BKMK_SchannelSSP"></a>Security Support Provider Schannel
 Il canale sicuro (Schannel) viene utilizzato per l'autenticazione server basata sul Web, ad esempio quando un utente tenta di accedere a un server Web protetto.
@@ -183,7 +183,7 @@ Questo provider è incluso per impostazione predefinita nelle versioni indicate 
 
 -   [Riferimento tecnico per TLS/SSL](https://technet.microsoft.com/library/cc784149(v=ws.10).aspx)
 
--   [ @ NO__T-1 MS-TLSP @ NO__T-2: Transport Layer Security (TLS) profile @ no__t-0
+-   [\[MS-TLSP\]: profilo Transport Layer Security (TLS)](https://msdn.microsoft.com/library/dd207968(PROT.13).aspx)
 
 ### <a name="BKMK_NegoSSP"></a>Negozia provider di supporto per la sicurezza
 Il meccanismo SPNEGO (Simple and Protected GSS-API Negotiation Mechanism) costituisce la base per Negotiate SSP, whichcan essere utilizzato per negoziare un protocollo di autenticazione specifico. Quando un'applicazione esegue una chiamata a SSPI per accedere a una rete, può specificare un SSP per elaborare la richiesta. Se l'applicazione specifica il SSP Negotiate, analizza la richiesta e sceglie il provider appropriato per gestire la richiesta, in base ai criteri di sicurezza configurati dal cliente.
@@ -200,9 +200,9 @@ Questo provider è incluso per impostazione predefinita nelle versioni indicate 
 
 -   [Negozi Microsoft (Windows)](https://msdn.microsoft.com/library/aa378748(VS.85).aspx)
 
--   [ @ NO__T-1 MS-SPNG @ NO__T-2: Simple and Protected GSS-API Negotiation Mechanism (SPNEGO) Extensions @ no__t-0
+-   [\[MS-SPNG\]: estensioni SPNEGO (Simple and Protected GSS-API Negotiation Mechanism)](https://msdn.microsoft.com/library/cc247021(PROT.13).aspx)
 
--   [ @ NO__T-1 MS-N2HT @ NO__T-2: Negotiate and Nego2 HTTP Authentication Protocol Specification @ no__t-0
+-   [\[MS-N2HT\]: specifica del protocollo di autenticazione HTTP Negotiate e Nego2](https://msdn.microsoft.com/library/dd303576(PROT.13).aspx)
 
 ### <a name="BKMK_CredSSP"></a>Provider di supporto per la sicurezza delle credenziali
 Il provider di servizi di sicurezza delle credenziali (CredSSP) fornisce un'esperienza utente Single Sign-On (SSO) per l'avvio di nuove sessioni di Servizi terminal e di Servizi Desktop remoto. CredSSP consente alle applicazioni di delegare le credenziali degli utenti dal computer client (tramite il provider di servizi condivisi sul lato client) al server di destinazione (tramite il provider di servizi condivisi sul lato server), in base ai criteri del client. I criteri CredSSP vengono configurati tramite Criteri di gruppo e la delega delle credenziali è disattivata per impostazione predefinita.
@@ -213,7 +213,7 @@ Questo provider è incluso per impostazione predefinita nelle versioni indicate 
 
 **Risorse aggiuntive per le credenziali SSP**
 
--   [ @ NO__T-1 MS-CSSP @ NO__T-2: Specifica del protocollo CredSSP (Credential Security Support Provider) @ no__t-0
+-   [\[MS-CSSP\]: specifica del protocollo CredSSP (Credential Security Support Provider)](https://msdn.microsoft.com/library/cc226764(PROT.13).aspx)
 
 -   [Provider di servizi di sicurezza delle credenziali e SSO per l'accesso a Servizi terminal](https://technet.microsoft.com/library/cc749211(v=ws.10).aspx)
 
@@ -284,7 +284,7 @@ L'opzione Negotiate può essere usata per consentire al client e al server di pr
 
     -   Se il computer client non supporta nessuno dei protocolli elencati, lo scambio di autenticazione ha esito negativo.
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 [Architettura di Autenticazione di Windows](https://technet.microsoft.com/library/dn169024(v=ws.10).aspx)
 
 

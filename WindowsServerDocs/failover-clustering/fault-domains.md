@@ -26,7 +26,7 @@ Il clustering di failover consente a più server di interagire per garantire un'
 I concetti di domini di errore e tolleranza di errore sono strettamente correlati. Un dominio di errore è un set di componenti hardware che condividono un singolo punto di errore. Per un sistema a tolleranza di errore a un certo livello sono necessari più domini di errore per tale livello. Ad esempio, per una tolleranza di errore di rack, i server e i dati devono essere distribuiti in più rack.
 
 Questo breve video presenta una panoramica dei domini di errore in Windows Server 2016:  
-[@no__t 1Click questa immagine per guardare una panoramica dei domini di errore in Windows Server 2016](media/Fault-Domains-in-Windows-Server-2016/Part-1-Fault-Domains-Overview.jpg)](https://channel9.msdn.com/Blogs/windowsserver/Fault-Domain-Awareness-in-WS2016-Part-1-Overview)
+[![fare clic su questa immagine per visualizzare una panoramica dei domini di errore in Windows Server 2016](media/Fault-Domains-in-Windows-Server-2016/Part-1-Fault-Domains-Overview.jpg)](https://channel9.msdn.com/Blogs/windowsserver/Fault-Domain-Awareness-in-WS2016-Part-1-Overview)
 
 ### <a name="fault-domain-awareness-in-windows-server-2019"></a>Consapevolezza del dominio di errore in Windows Server 2019
 
@@ -58,7 +58,7 @@ Sono disponibili quattro livelli canonici di domini di errore: sito, rack, chass
 
 ![Diagramma dei diversi livelli di domini di errore](media/Fault-Domains-in-Windows-Server-2016/levels-of-fault-domains.png)
 
-## <a name="usage"></a>Utilizzo  
+## <a name="usage"></a>Usage  
 È possibile usare PowerShell o il markup XML per specificare i domini di errore. Entrambi gli approcci sono equivalenti e offrono funzionalità complete.
 
 >[!IMPORTANT]
@@ -72,9 +72,9 @@ Windows Server 2016 introduce i cmdlet seguenti per lavorare con i domini di err
 * `Remove-ClusterFaultDomain`
 
 Questo breve video illustra l'uso di questi cmdlet.
-[![Click questa immagine per guardare un breve video sull'uso dei cmdlet del dominio di errore del cluster](media/Fault-Domains-in-Windows-Server-2016/Part-2-Using-PowerShell.jpg)](https://channel9.msdn.com/Blogs/windowsserver/Fault-Domain-Awareness-in-WS2016-Part-2-Using-PowerShell)
+[![fare clic su questa immagine per guardare un breve video sull'utilizzo dei cmdlet del dominio di errore del cluster](media/Fault-Domains-in-Windows-Server-2016/Part-2-Using-PowerShell.jpg)](https://channel9.msdn.com/Blogs/windowsserver/Fault-Domain-Awareness-in-WS2016-Part-2-Using-PowerShell)
 
-Utilizzare `Get-ClusterFaultDomain` per visualizzare la topologia del dominio di errore corrente. Questo comando elenca tutti i nodi del cluster, oltre a qualsiasi chassis, rack o siti creati. È possibile applicare un filtro usando parametri come **-Type** o **-Name**, ma non è obbligatorio.
+Usare `Get-ClusterFaultDomain` per visualizzare la topologia del dominio di errore corrente. Questo comando elenca tutti i nodi del cluster, oltre a qualsiasi chassis, rack o siti creati. È possibile applicare un filtro usando parametri come **-Type** o **-Name**, ma non è obbligatorio.
 
 ```PowerShell
 Get-ClusterFaultDomain
@@ -82,7 +82,7 @@ Get-ClusterFaultDomain -Type Rack
 Get-ClusterFaultDomain -Name "server01.contoso.com"
 ```
 
-Usare `New-ClusterFaultDomain` per creare nuovi chassis, rack o siti. Sono necessari i parametri `-Type` e `-Name`. I valori possibili per `-Type` sono `Chassis`, `Rack` e `Site`. Il `-Name` può essere qualsiasi stringa. Per i domini di errore di tipo `Node`, il nome deve essere il nome effettivo del nodo, come impostato automaticamente.
+Usare `New-ClusterFaultDomain` per creare nuovi chassis, rack o siti. I parametri `-Type` e `-Name` sono obbligatori. I valori possibili per `-Type` sono `Chassis`, `Rack`e `Site`. Il `-Name` può essere qualsiasi stringa. Per `Node` domini di errore di tipo, il nome deve essere il nome effettivo del nodo, come impostato automaticamente.
 
 ```PowerShell
 New-ClusterFaultDomain -Type Chassis -Name "Chassis 007"
@@ -91,9 +91,9 @@ New-ClusterFaultDomain -Type Site -Name "Shanghai"
 ```
 
 > [!IMPORTANT]  
-> Windows Server non è in grado di verificare che i domini di errore creati corrispondano a qualsiasi elemento nel mondo reale, fisico. Questo può sembrare ovvio, ma è importante comprenderlo. Se tutti i nodi sono fisicamente in un singolo rack, la creazione di due domini di errore `-Type Rack` nel software non offre automaticamente la tolleranza di errore dei rack. Gli amministratori sono responsabili per garantire che la topologia creata usando questi cmdlet corrisponda alla disposizione effettiva dell'hardware.
+> Windows Server non è in grado di verificare che i domini di errore creati corrispondano a qualsiasi elemento nel mondo reale, fisico. Questo può sembrare ovvio, ma è importante comprenderlo. Se, nel mondo fisico, i nodi si trovano in un rack, quindi la creazione di due `-Type Rack` domini di errore nel software non fornisce magicamente la tolleranza di errore del rack. Gli amministratori sono responsabili per garantire che la topologia creata usando questi cmdlet corrisponda alla disposizione effettiva dell'hardware.
 
-Usare `Set-ClusterFaultDomain` per spostare un dominio di errore in un altro. I termini "padre" e "figlio" vengono comunemente usati per descrivere la relazione di nidificazione. Sono necessari i parametri `-Name` e `-Parent`. In `-Name` specificare il nome del dominio di errore che si sta muovendo; in `-Parent` specificare il nome della destinazione. Per spostare contemporaneamente più domini di errore, elencare i relativi nomi.
+Usare `Set-ClusterFaultDomain` per spostare un dominio di errore in un altro. I termini "padre" e "figlio" vengono comunemente usati per descrivere la relazione di nidificazione. I parametri `-Name` e `-Parent` sono obbligatori. In `-Name`specificare il nome del dominio di errore che si sta muovendo; in `-Parent`specificare il nome della destinazione. Per spostare contemporaneamente più domini di errore, elencare i relativi nomi.
 
 ```PowerShell
 Set-ClusterFaultDomain -Name "server01.contoso.com" -Parent "Rack A"
@@ -105,7 +105,7 @@ Set-ClusterFaultDomain -Name "Rack A", "Rack B", "Rack C", "Rack D" -Parent "Sha
 
 È possibile visualizzare le relazioni padre-figlio nell'output di `Get-ClusterFaultDomain`, nelle colonne `ParentName` e `ChildrenNames`.
 
-È inoltre possibile utilizzare `Set-ClusterFaultDomain` per modificare alcune proprietà di domini di errore. Ad esempio, è possibile fornire i metadati facoltativi `-Location` o `-Description` per qualsiasi dominio di errore. Se specificate, queste informazioni vengono incluse nell'invio di avvisi sull'hardware dal servizio di integrità. È anche possibile rinominare i domini di errore usando il parametro `-NewName`. Non rinominare i domini di errore di tipo `Node`.
+È anche possibile usare `Set-ClusterFaultDomain` per modificare alcune proprietà di domini di errore. Ad esempio, è possibile fornire i metadati facoltativi `-Location` o `-Description` per qualsiasi dominio di errore. Se specificate, queste informazioni vengono incluse nell'invio di avvisi sull'hardware dal servizio di integrità. È anche possibile rinominare i domini di errore usando il parametro `-NewName`. Non rinominare i domini di errore di tipo `Node`.
 
 ```PowerShell
 Set-ClusterFaultDomain -Name "Rack A" -Location "Building 34, Room 4010"
@@ -113,7 +113,7 @@ Set-ClusterFaultDomain -Type Node -Description "Contoso XYZ Server"
 Set-ClusterFaultDomain -Name "Shanghai" -NewName "China Region"
 ```
 
-Usare `Remove-ClusterFaultDomain` per rimuovere lo chassis, i rack o i siti creati. Il parametro `-Name` è obbligatorio. Non è possibile rimuovere un dominio di errore contenente elementi figlio, ovvero rimuovere gli elementi figlio oppure spostarli all'esterno utilizzando `Set-ClusterFaultDomain`. Per spostare un dominio di errore all'esterno di tutti gli altri domini di errore, impostare la relativa `-Parent` sulla stringa vuota (""). Non è possibile rimuovere i domini di errore di tipo `Node`. Per spostare contemporaneamente più domini di errore, elencare i relativi nomi.
+Usare `Remove-ClusterFaultDomain` per rimuovere lo chassis, i rack o i siti creati. Il parametro `-Name` è obbligatorio. Non è possibile rimuovere un dominio di errore contenente elementi figlio, ovvero rimuovere gli elementi figlio o spostarli all'esterno utilizzando `Set-ClusterFaultDomain`. Per spostare un dominio di errore all'esterno di tutti gli altri domini di errore, impostare la relativa `-Parent` sulla stringa vuota (""). Non è possibile rimuovere `Node` domini di errore di tipo. Per spostare contemporaneamente più domini di errore, elencare i relativi nomi.
 
 ```PowerShell
 Set-ClusterFaultDomain -Name "server01.contoso.com" -Parent ""
@@ -125,9 +125,9 @@ I domini di errore possono essere specificati tramite una sintassi XML. Si consi
 
 Questo breve video illustra l'uso di markup XML per specificare i domini di errore.
 
-[@no__t 1Click questa immagine per guardare un breve video su come usare XML per specificare i domini di errore](media/Fault-Domains-in-Windows-Server-2016/Part-3-Using-XML-Markup.jpg)](https://channel9.msdn.com/Blogs/windowsserver/Fault-Domain-Awareness-in-WS2016-Part-3-Using-XML)
+[![fare clic su questa immagine per guardare un breve video su come usare XML per specificare i domini di errore](media/Fault-Domains-in-Windows-Server-2016/Part-3-Using-XML-Markup.jpg)](https://channel9.msdn.com/Blogs/windowsserver/Fault-Domain-Awareness-in-WS2016-Part-3-Using-XML)
 
-In PowerShell eseguire il cmdlet seguente: `Get-ClusterFaultDomainXML`. Questo comando restituisce il dominio di errore corrente per il cluster, in formato XML. Riflette ogni `<Node>` individuato, racchiuso tra tag di apertura e chiusura `<Topology>`.  
+In PowerShell eseguire il cmdlet seguente: `Get-ClusterFaultDomainXML`. Questo comando restituisce il dominio di errore corrente per il cluster, in formato XML. Riflette ogni `<Node>`individuato, racchiuso tra tag di apertura e chiusura `<Topology>`.  
 
 Eseguire il comando seguente per salvare l'output in un file.  
 
@@ -135,13 +135,13 @@ Eseguire il comando seguente per salvare l'output in un file.
 Get-ClusterFaultDomainXML | Out-File <Path>  
 ```
 
-Aprire il file e aggiungere i tag `<Site>`, `<Rack>` e `<Chassis>` per specificare il modo in cui questi nodi vengono distribuiti tra siti, rack e chassis. Ogni tag deve essere identificato da un **nome** univoco. Per i nodi, è necessario mantenere il nome specificato automaticamente.  
+Aprire il file e aggiungere `<Site>`, `<Rack>`e `<Chassis>` tag per specificare il modo in cui questi nodi vengono distribuiti tra siti, rack e chassis. Ogni tag deve essere identificato da un **nome** univoco. Per i nodi, è necessario mantenere il nome specificato automaticamente.  
 
 > [!IMPORTANT]  
 > Anche se tutti i tag aggiuntivi sono facoltativi, devono comunque essere conformi alla gerarchia transitiva Site &gt; Rack &gt; Chassis &gt; Node e chiusi in maniera corretta.  
 Oltre al nome, i descrittori `Location="..."` e `Description="..."` possono essere aggiunti a qualsiasi tag.  
 
-#### <a name="example-two-sites-one-rack-each"></a>Esempio: Due siti, un rack ciascuno  
+#### <a name="example-two-sites-one-rack-each"></a>Esempio: due siti con un rack ciascuno  
 
 ```XML
 <Topology>  
@@ -185,15 +185,15 @@ $xml = Get-Content <Path> | Out-String
 Set-ClusterFaultDomainXML -XML $xml
 ```
 
-Questa guida presenta solo due esempi, ma i tag `<Site>`, `<Rack>`, `<Chassis>` e `<Node>` possono essere combinati e abbinati in molti altri modi per riflettere la topologia fisica della distribuzione, qualunque sia il possibile. Questi esempi illustrano la flessibilità dei tag e il valore dei descrittori di percorso con testo libero per evitare ambiguità.  
+Questa guida presenta solo due esempi, ma i tag `<Site>`, `<Rack>`, `<Chassis>`e `<Node>` possono essere combinati e associati in molti altri modi per riflettere la topologia fisica della distribuzione, indipendentemente dal fatto che sia possibile. Questi esempi illustrano la flessibilità dei tag e il valore dei descrittori di percorso con testo libero per evitare ambiguità.  
 
-### <a name="optional-location-and-description-metadata"></a>Facoltativo: Metadati di percorso e descrizione
+### <a name="optional-location-and-description-metadata"></a>Facoltativo: percorso e descrizione metadati
 
 È possibile specificare i metadati della **posizione** o della **Descrizione** facoltativi per qualsiasi dominio di errore. Se specificate, queste informazioni vengono incluse nell'invio di avvisi sull'hardware dal servizio di integrità. In questo breve video viene illustrato il valore di aggiunta di tali descrittori.
 
-[![Click per visualizzare un breve video che illustra il valore dell'aggiunta dei descrittori di località ai domini di errore](media/Fault-Domains-in-Windows-Server-2016/part-4-location-description.jpg)](https://channel9.msdn.com/Blogs/windowsserver/Fault-Domain-Awareness-in-WS2016-Part-4-Location-Description)
+[![fare clic per visualizzare un breve video che illustra il valore dell'aggiunta dei descrittori di località ai domini di errore](media/Fault-Domains-in-Windows-Server-2016/part-4-location-description.jpg)](https://channel9.msdn.com/Blogs/windowsserver/Fault-Domain-Awareness-in-WS2016-Part-4-Location-Description)
 
-## <a name="see-also"></a>Vedere anche  
+## <a name="see-also"></a>Vedi anche  
 - [Introduzione a Windows Server 2019](https://docs.microsoft.com/windows-server/get-started-19/get-started-19)  
 - [Introduzione a Windows Server 2016](https://docs.microsoft.com/windows-server/get-started/server-basics)  
 -   [Panoramica di Spazi di archiviazione diretta](../storage/storage-spaces/storage-spaces-direct-overview.md) 

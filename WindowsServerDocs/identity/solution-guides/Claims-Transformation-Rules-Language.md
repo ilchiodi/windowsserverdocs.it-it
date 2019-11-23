@@ -29,16 +29,16 @@ A seconda della configurazione delle attestazioni e dei requisiti inseriti nel t
 In questo argomento vengono illustrati brevemente la sintassi e la semantica del linguaggio delle regole di trasformazione delle attestazioni in Active Directory e le considerazioni da effettuare durante la creazione dei criteri. Sono disponibili diversi set di regole di esempio per iniziare ed esempi di sintassi non corretta e dei messaggi generati, per consentire di decifrare i messaggi di errore quando si creano le regole.  
   
 ## <a name="tools-for-authoring-claims-transformation-policies"></a>Strumenti per la creazione di criteri di trasformazione delle attestazioni  
-**Cmdlet di Windows PowerShell per Active Directory**: Si tratta della modalità preferita e consigliata per creare e impostare i criteri di trasformazione delle attestazioni. Questi cmdlet forniscono opzioni per i criteri semplici e verificano le regole impostate per i criteri più complessi.  
+**Cmdlet di Windows PowerShell per Active Directory**: si tratta della modalità preferita e consigliata per creare e impostare i criteri di trasformazione delle attestazioni. Questi cmdlet forniscono opzioni per i criteri semplici e verificano le regole impostate per i criteri più complessi.  
   
-**LDAP**: I criteri di trasformazione delle attestazioni possono essere modificati in Active Directory tramite Lightweight Directory Access Protocol (LDAP). Tuttavia, questa operazione non è consigliata perché i criteri hanno diversi componenti complessi e gli strumenti usati non possono convalidare i criteri prima di scriverli in Active Directory. Questo potrebbe richiedere una notevole quantità di tempo per diagnosticare i problemi.  
+**LDAP**: i criteri di trasformazione delle attestazioni possono essere modificati in Active Directory tramite Lightweight Directory Access Protocol (LDAP). Tuttavia, questa operazione non è consigliata perché i criteri hanno diversi componenti complessi e gli strumenti usati non possono convalidare i criteri prima di scriverli in Active Directory. Questo potrebbe richiedere una notevole quantità di tempo per diagnosticare i problemi.  
   
 ## <a name="active-directory-claims-transformation-rules-language"></a>Lingua delle regole di trasformazione delle attestazioni Active Directory  
   
 ### <a name="syntax-overview"></a>Cenni preliminari sulla sintassi  
 Ecco una breve panoramica della sintassi e della semantica del linguaggio:  
   
--   Il set di regole di trasformazione delle attestazioni è costituito da zero o più regole. Ogni regola ha due parti attive: **Selezionare l'elenco di condizioni** e l' **azione della regola**. Se l' **elenco Seleziona condizione** restituisce true, viene eseguita l'azione della regola corrispondente.  
+-   Il set di regole di trasformazione delle attestazioni è costituito da zero o più regole. Ogni regola ha due parti attive: **selezionare l'elenco di condizioni** e l' **azione della regola**. Se l' **elenco Seleziona condizione** restituisce true, viene eseguita l'azione della regola corrispondente.  
   
 -   L'elenco di condizioni **Select** include zero o più **condizioni SELECT**. Tutte le **condizioni Select** devono restituire true affinché l' **elenco SELECT Condition** restituisca true.  
   
@@ -67,11 +67,11 @@ ISSUE (TYPE= "EmpType", VALUE = C1.VALUE, VALUETYPE = C1.VALUETYPE) == Rule Acti
 ### <a name="runtime-operation"></a>Operazione di runtime  
 È importante comprendere il funzionamento in fase di esecuzione delle trasformazioni delle attestazioni per creare le regole in modo efficace. L'operazione di runtime usa tre set di attestazioni:  
   
-1.  **Set di attestazioni di input**: Set di attestazioni di input assegnato all'operazione di trasformazione delle attestazioni.  
+1.  **Set di attestazioni di input**: set di attestazioni di input assegnato all'operazione di trasformazione delle attestazioni.  
   
-2.  **Set di attestazioni funzionante**: Attestazioni intermedie che vengono lette e scritte durante la trasformazione delle attestazioni.  
+2.  **Working Claims set**: attestazioni intermedie che vengono lette e scritte durante la trasformazione delle attestazioni.  
   
-3.  **Set di attestazioni di output**: Output dell'operazione di trasformazione delle attestazioni.  
+3.  **Output Claims set**: output dell'operazione di trasformazione delle attestazioni.  
   
 Ecco una breve panoramica dell'operazione di trasformazione delle attestazioni di runtime:  
   
@@ -91,7 +91,7 @@ Ecco una breve panoramica dell'operazione di trasformazione delle attestazioni d
   
 È possibile scrivere trasformazioni di attestazioni complesse in base al comportamento di runtime precedente.  
   
-**Esempio: Operazione di runtime @ no__t-0  
+**Esempio: operazione di runtime**  
   
 In questo esempio viene illustrata l'operazione di runtime di una trasformazione delle attestazioni che utilizza due regole.  
   
@@ -135,7 +135,7 @@ Di seguito sono riportate una sintassi speciale per le regole:
   
 2.  Empty Select Condition list = = ogni attestazione corrisponde all'elenco di condizioni Select  
   
-    **Esempio: Elenco di condizioni Select vuoto @ no__t-0  
+    **Esempio: elenco di condizioni Select vuote**  
   
     La regola seguente corrisponde a ogni attestazione nella working set.  
   
@@ -145,7 +145,7 @@ Di seguito sono riportate una sintassi speciale per le regole:
   
 3.  Empty Select matching list = = ogni attestazione corrisponde all'elenco di condizioni Select  
   
-    **Esempio: Condizioni di corrispondenza vuote @ no__t-0  
+    **Esempio: Condizioni di corrispondenza vuote**  
   
     La regola seguente corrisponde a ogni attestazione nella working set. Questa è la regola di base "Allow-all" Se viene usata da sola.  
   
@@ -153,7 +153,7 @@ Di seguito sono riportate una sintassi speciale per le regole:
     C1:[] => Issule (claim = C1);  
     ```  
   
-## <a name="security-considerations"></a>Considerazioni relative alla sicurezza  
+## <a name="security-considerations"></a>Considerazioni sulla sicurezza  
 **Attestazioni che entrano in una foresta**  
   
 Le attestazioni presentate dalle entità in ingresso a una foresta devono essere controllate accuratamente per garantire che vengano consentite o rilasciate solo le attestazioni corrette. Le attestazioni non corrette possono compromettere la sicurezza della foresta e questo dovrebbe essere una considerazione migliore quando si creano criteri di trasformazione per le attestazioni che entrano in una foresta.  
@@ -184,7 +184,7 @@ Active Directory non è in grado di determinare lo scopo in questo caso e passa 
   
 4.  Se un'azione della regola fa riferimento a un identificatore che non è stato usato nella parte relativa all'elenco di condizioni SELECT della regola, si tratta di un utilizzo non valido. Questo potrebbe causare un errore di sintassi.  
   
-    **Esempio: Riferimento all'identificatore errato @ no__t-0  
+    **Esempio: riferimento all'identificatore errato**  
     Nella regola seguente viene illustrato un identificatore errato utilizzato nell'azione della regola.  
   
     ```  
@@ -233,9 +233,9 @@ In questa sezione vengono illustrati alcuni esempi di regole scritte con sintass
   
    Questo esempio contiene un punto e virgola utilizzato in modo errato al posto di due punti.   
    **Messaggio di errore:**  
-   *POLICY0002: Non è stato possibile analizzare i dati dei criteri.*  
-   numero *Line: 1, numero di colonna: 2, token di errore:;. Riga:' C1; [] = > problema (Claim = C1); ".*  
-   errore *Parser: 'POLICY0030: Errore di sintassi,';' imprevisto. previsto uno dei seguenti:':' .'*  
+   *POLICY0002: non è stato possibile analizzare i dati dei criteri.*  
+   *Numero riga: 1, numero di colonna: 2, token di errore:;. Riga:' C1; [] = > problema (Claim = C1); ".*  
+   *Errore del parser:' POLICY0030: errore di sintassi,';' imprevisto. è previsto uno dei seguenti elementi:':'.*  
   
 2. Esempio:  
   
@@ -245,7 +245,7 @@ In questa sezione vengono illustrati alcuni esempi di regole scritte con sintass
   
    In questo esempio, il Tag Identifier nell'istruzione Copy rilascio non è definito.   
    **Messaggio di errore**:   
-   *POLICY0011: Nessuna condizione nella regola attestazione corrisponde al tag Condition specificato in CopyIssuanceStatement:' C2'.*  
+   *POLICY0011: nessuna condizione nella regola attestazione corrisponde al tag Condition specificato in CopyIssuanceStatement:' C2'.*  
   
 3. Esempio:  
   
@@ -255,9 +255,9 @@ In questa sezione vengono illustrati alcuni esempi di regole scritte con sintass
   
    "bool" non è un terminale nel linguaggio e non è un ValueType valido. I terminali validi sono elencati nel messaggio di errore seguente.   
    **Messaggio di errore:**  
-   *POLICY0002: Non è stato possibile analizzare i dati dei criteri.*  
+   *POLICY0002: non è stato possibile analizzare i dati dei criteri.*  
    Numero riga: 1, numero di colonna: 39, token di errore: "bool". Riga:' C1: [tipo = = "x1", valore = = "1", ValueType = = "bool"] = > problema (Claim = C1);'.   
-   errore *Parser: 'POLICY0030: Errore di sintassi,' STRING ' imprevisto. previsto uno dei seguenti elementi: ' INT64_TYPE '' UINT64_TYPE '' STRING_TYPE '' BOOLEAN_TYPE '' IDENTIFIER '*  
+   *Errore del parser:' POLICY0030: errore di sintassi,' STRING ' imprevisto. è previsto uno dei seguenti elementi:' INT64_TYPE '' UINT64_TYPE '' STRING_TYPE '' BOOLEAN_TYPE '' IDENTIFIER '*  
   
 4. Esempio:  
   
@@ -267,8 +267,8 @@ In questa sezione vengono illustrati alcuni esempi di regole scritte con sintass
   
    Il numero **1** in questo esempio non è un token valido nel linguaggio e tale utilizzo non è consentito in una condizione corrispondente. Deve essere racchiuso tra virgolette doppie per renderla una stringa.   
    **Messaggio di errore:**  
-   *POLICY0002: Non è stato possibile analizzare i dati dei criteri.*  
-   numero *Line: 1, numero di colonna: 23, token di errore: 1. Riga:' C1: [tipo = = "x1", valore = = 1, ValueType = = "bool"] = > problema (Claim = C1);'.*  @ no__t-errore 1Parser: 'POLICY0029: Input imprevisto. </em>  
+   *POLICY0002: non è stato possibile analizzare i dati dei criteri.*  
+   *Numero di riga: 1, numero di colonna: 23, token di errore: 1. riga:' C1: [tipo = = "x1", valore = = 1, ValueType = = "bool"] = > problema (Claim = C1);'.* <em>Errore del parser:' POLICY0029: input imprevisto.</em>  
   
 5. Esempio:  
   
@@ -280,10 +280,10 @@ In questa sezione vengono illustrati alcuni esempi di regole scritte con sintass
   
    In questo esempio è stato usato un segno di uguale doppio (= =) invece di un singolo segno di uguale (=).   
    **Messaggio di errore:**  
-   *POLICY0002: Non è stato possibile analizzare i dati dei criteri.*  
-   numero *Line: 1, numero di colonna: 91, token di errore: = =. Riga:' C1: [tipo = = "x1", valore = = "1",*  
+   *POLICY0002: non è stato possibile analizzare i dati dei criteri.*  
+   *Numero riga: 1, numero di colonna: 91, token di errore: = =. Riga:' C1: [tipo = = "x1", valore = = "1",*  
    *ValueType = = "Boolean"] = > problema (tipo = C1. tipo, valore = "0", ValueType = = "Boolean"); ".*  
-   errore *Parser: 'POLICY0030: Errore di sintassi .' = =' imprevisto. previsto uno dei seguenti:' ='*  
+   *Errore del parser:' POLICY0030: errore di sintassi,' = =' imprevisto. è previsto uno dei seguenti elementi:' ='*  
   
 6. Esempio:  
   
@@ -321,7 +321,7 @@ La tabella seguente elenca il set completo di stringhe terminali e i terminali d
 |ValueType|VALUE_TYPE|  
 |attestazione|ATTESTAZIONE|  
 |"[_A-za-z] [_A-Za-z0-9] *"|IDENTIFICATORE|  
-|"\\" [^ \\ "\n] * \\" "|STRINGA|  
+|"\\" [^\\"\n] *\\" "|STRINGA|  
 |UInt64|UINT64_TYPE|  
 |Int64|INT64_TYPE|  
 |stringa|STRING_TYPE|  

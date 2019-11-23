@@ -24,7 +24,7 @@ ms.locfileid: "71380807"
 
 Annulla tutti i processi nella coda di trasferimento a cui appartiene l'utente corrente.
 
-**BITSAdmin 1,5 e versioni precedenti**: Se si dispone dei privilegi di amministratore, **reimpostare** cancels tutti i processi nella coda. L'opzione/AllUsers non è supportata.
+**BITSAdmin 1,5 e versioni precedenti**: se si dispone di privilegi di amministratore, **reimpostare** Annulla tutti i processi nella coda. L'opzione/AllUsers non è supportata.
 
 ## <a name="syntax"></a>Sintassi
 
@@ -38,7 +38,7 @@ bitsadmin /Reset [/AllUsers]
 |---------|-----------|
 |AllUsers|Facoltativo: Annulla tutti i processi nella coda.|
 
-## <a name="remarks"></a>Note
+## <a name="remarks"></a>Osservazioni
 
 È necessario disporre dei privilegi di amministratore per utilizzare il **AllUsers** parametro.
 

@@ -42,15 +42,15 @@ Lo scenario seguente illustra il modo in cui può essere configurato un cluster 
 
 Nell'elenco seguente vengono descritte le funzionalità di configurazione di cartelle condivise integrate nel clustering di failover di:
 
-- La visualizzazione ha come ambito solo le cartelle condivise in cluster (nessuna combinazione con cartelle condivise non in cluster): Quando un utente Visualizza cartelle condivise specificando il percorso di un file server cluster, la visualizzazione includerà solo le cartelle condivise che fanno parte del ruolo di file server specifico. Esclude le cartelle condivise non in cluster e condivide parte di ruoli di file server distinti che si trovano in un nodo del cluster.
+- La visualizzazione ha come ambito solo le cartelle condivise cluster (nessuna combinazione con cartelle condivise non cluster): quando un utente Visualizza cartelle condivise specificando il percorso di un file server cluster, la visualizzazione includerà solo le cartelle condivise che fanno parte del file specifico ruolo del server. Esclude le cartelle condivise non in cluster e condivide parte di ruoli di file server distinti che si trovano in un nodo del cluster.
 
-- Enumerazione basata sull'accesso: l'enumerazione basata sull'accesso consente di nascondere una cartella specifica nella visualizzazione degli utenti. Anziché consentire agli utenti di visualizzare la cartella senza potervi accedere, è possibile evitare che la vedano. È possibile configurare l'enumerazione basata sull'accesso per una cartella condivisa in cluster in modo analogo a una cartella condivisa non in cluster.
+- Enumerazione basata sull'accesso: è possibile usare l'enumerazione basata sull'accesso per nascondere una cartella specificata dalla visualizzazione degli utenti. Anziché consentire agli utenti di visualizzare la cartella senza potervi accedere, è possibile evitare che la vedano. È possibile configurare l'enumerazione basata sull'accesso per una cartella condivisa in cluster in modo analogo a una cartella condivisa non in cluster.
 
-- Accesso offline: l'accesso non in linea, ovvero la memorizzazione nella cache, viene configurato nello stesso modo sia per una cartella condivisa in cluster che per una cartella condivisa non in cluster.
+- Accesso offline: è possibile configurare l'accesso offline (memorizzazione nella cache) per una cartella condivisa in cluster in modo analogo a una cartella condivisa non cluster.
 
-- I dischi del cluster vengono sempre riconosciuti come parte del cluster: Se si utilizza l'interfaccia del cluster di failover, Esplora risorse o lo snap-in Gestione condivisione e archiviazione, Windows riconosce se un disco è stato designato come nell'archivio cluster. Se un disco di questo tipo è già stato configurato in Gestione cluster di failover come parte di un file server cluster, è possibile usare una delle interfacce citate in precedenza per creare una condivisione sul disco. Se il disco non è stato configurato come parte di un file server del cluster, non sarà possibile creare accidentalmente una condivisione nel disco. Verrà infatti visualizzato un messaggio di errore in cui viene indicato che prima di condividere il disco è necessario configurarlo come parte di un file server del cluster.
+- I dischi in cluster vengono sempre riconosciuti come parte del cluster: indipendentemente dal fatto che si utilizzi l'interfaccia del cluster di failover, Esplora risorse o lo snap-in Gestione condivisione e archiviazione, Windows riconosce se un disco è stato designato come nell'archivio cluster. Se un disco di questo tipo è già stato configurato in Gestione cluster di failover come parte di un file server cluster, è possibile usare una delle interfacce citate in precedenza per creare una condivisione sul disco. Se il disco non è stato configurato come parte di un file server del cluster, non sarà possibile creare accidentalmente una condivisione nel disco. Verrà infatti visualizzato un messaggio di errore in cui viene indicato che prima di condividere il disco è necessario configurarlo come parte di un file server del cluster.
 
-- Integrazione dei servizi per il file System di rete: Il ruolo file server in Windows Server include il servizio ruolo facoltativo denominato servizi per NFS (Network File System). Se si installa il servizio ruolo e si configurano cartelle condivise mediante Servizi per NFS, sarà possibile creare un file server del cluster che supporti i client basati su UNIX.
+- Integrazione dei servizi per il file System di rete: il ruolo file server in Windows Server include il servizio ruolo facoltativo denominato servizi per NFS (Network File System). Se si installa il servizio ruolo e si configurano cartelle condivise mediante Servizi per NFS, sarà possibile creare un file server del cluster che supporti i client basati su UNIX.
 
 ## <a name="requirements-for-a-two-node-failover-cluster"></a>Requisiti di un cluster di failover a due nodi
 
@@ -62,7 +62,7 @@ Affinché un cluster di failover in Windows Server 2016 o Windows Server 2019 ve
 
 Per un cluster di failover a due nodi, saranno necessari gli elementi seguenti.
 
-- **Server** Si consiglia di utilizzare i computer corrispondenti con componenti uguali o simili.  I server per un cluster di failover a due nodi devono eseguire la stessa versione di Windows Server. Devono anche avere gli stessi aggiornamenti software (patch).
+- **Server:** Si consiglia di utilizzare i computer corrispondenti con componenti uguali o simili.  I server per un cluster di failover a due nodi devono eseguire la stessa versione di Windows Server. Devono anche avere gli stessi aggiornamenti software (patch).
 
 - **Cavi e schede di rete:** L'hardware di rete, come gli altri componenti nella soluzione cluster di failover, deve essere compatibile con Windows Server 2016 o Windows Server 2019. Se si utilizza iSCSI, le schede di rete devono essere dedicate alla comunicazione di rete o a iSCSI, non a entrambe. Evitare singoli punti di errore nell'infrastruttura di rete utilizzata per la connessione dei nodi del cluster. A tale scopo, è possibile eseguire diverse procedure. È possibile connettere i nodi cluster con più reti distinte. In alternativa, è possibile connettere i nodi cluster con una rete costruita con schede di rete in gruppo, commutatori ridondanti, router ridondanti o hardware simile che rimuova singoli punti di errore.
 
@@ -70,10 +70,10 @@ Per un cluster di failover a due nodi, saranno necessari gli elementi seguenti.
    > Se i nodi del cluster sono connessi a una singola rete, la rete supererà il requisito di ridondanza nella convalida guidata configurazione.  Tuttavia, il report includerà un avviso indicante che la rete non deve avere un singolo punto di errore.
 
 - **Controller del dispositivo o adattatori appropriati per l'archiviazione:**
-    - **SCSI o Fibre Channel collegato seriale:** in caso di utilizzo di SAS o Fibre Channel, in tutti i server del cluster, è preferibile che tutti i componenti dello stack di archiviazione siano identici. È necessario che i componenti software MPIO (Multipath I/O) e DSM (Device Specific Module) siano identici.  È consigliabile che i controller dei dispositivi di archiviazione di massa, ossia la scheda bus host (HBA) e i relativi driver e firmware, collegati all'archiviazione cluster siano identici. Se si utilizzano schede HBA diverse, è opportuno verificare con il fornitore dell'archiviazione che vengano eseguite le configurazioni supportate o consigliate.
-    - **iSCSI** Se si utilizza iSCSI, ogni server del cluster deve disporre di una o più schede di rete o schede bus host dedicate all'archiviazione ISCSI. La rete utilizzata per iSCSI non può essere utilizzata per la comunicazione di rete. In tutti i server del cluster, le schede di rete utilizzate per eseguire la connessione alla destinazione di archiviazione iSCSI devono essere identiche ed è consigliabile utilizzare Gigabit Ethernet o versione successiva.  
+    - **SCSI o Fibre Channel collegato seriale:** Se si usa SCSI o Fibre Channel collegato seriale, in tutti i server del cluster tutti i componenti dello stack di archiviazione dovrebbero essere identici. È necessario che i componenti software MPIO (Multipath I/O) e DSM (Device Specific Module) siano identici.  È consigliabile che i controller dei dispositivi di archiviazione di massa, ossia la scheda bus host (HBA) e i relativi driver e firmware, collegati all'archiviazione cluster siano identici. Se si utilizzano schede HBA diverse, è opportuno verificare con il fornitore dell'archiviazione che vengano eseguite le configurazioni supportate o consigliate.
+    - **iSCSI:** Se si utilizza iSCSI, ogni server del cluster deve disporre di una o più schede di rete o schede bus host dedicate all'archiviazione ISCSI. La rete utilizzata per iSCSI non può essere utilizzata per la comunicazione di rete. In tutti i server del cluster, le schede di rete utilizzate per eseguire la connessione alla destinazione di archiviazione iSCSI devono essere identiche ed è consigliabile utilizzare Gigabit Ethernet o versione successiva.  
 
-- **Archiviazione** È necessario usare l'archiviazione condivisa certificata per Windows Server 2016 o Windows Server 2019.
+- **Archiviazione:** È necessario usare l'archiviazione condivisa certificata per Windows Server 2016 o Windows Server 2019.
   
     Per un cluster di failover a due nodi, l'archiviazione deve contenere almeno due volumi separati (lun) se si utilizza un disco di controllo per il quorum. Il disco di controllo è un disco dell'archiviazione cluster progettato per contenere una copia del database di configurazione del cluster. Per questo esempio di cluster a due nodi, la configurazione del quorum sarà maggioranza dei nodi e dei dischi. Maggioranza dei nodi e dei dischi significa che i nodi e il disco di controllo contengono ciascuno copie della configurazione del cluster e il cluster dispone del quorum, purché sia disponibile una maggioranza (due di tre) di queste copie. L'altro volume (LUN) conterrà i file condivisi dagli utenti.
 
@@ -91,29 +91,29 @@ Quando si distribuisce una rete di archiviazione (SAN) con un cluster di failove
 
 - **Confermare la certificazione dello spazio di archiviazione:** Utilizzando il sito del [Catalogo di Windows Server](https://www.windowsservercatalog.com/default.aspx) , verificare che la risorsa di archiviazione del fornitore, inclusi driver, firmware e software, sia certificata per windows server 2016 o windows server 2019.
 
-- **Isolare i dispositivi di archiviazione, un cluster per dispositivo:** i server di cluster diversi non devono essere in grado di accedere agli stessi dispositivi di archiviazione. Nella maggior parte dei casi, un LUN utilizzato per un insieme di server del cluster deve essere isolato da tutti gli altri server tramite mascheramento o suddivisione in zone dei LUN.
+- **Isolare i dispositivi di archiviazione, un cluster per dispositivo:** I server di cluster diversi non devono essere in grado di accedere agli stessi dispositivi di archiviazione. Nella maggior parte dei casi, un LUN utilizzato per un insieme di server del cluster deve essere isolato da tutti gli altri server tramite mascheramento o suddivisione in zone dei LUN.
 
-- **Prendere in considerazione l'uso del software Multipath I/O:** in un'infrastruttura di archiviazione a elevata disponibilità è possibile distribuire cluster di failover con più schede HBA mediante software Multipath I/O. In questo modo viene fornito il livello più elevato di ridondanza e disponibilità. La soluzione a percorsi multipli deve essere basata su Microsoft Multipath I/O (MPIO). Il fornitore dell'hardware di archiviazione può fornire un modulo DSM (Device Specific Module) MPIO per l'hardware, sebbene Windows Server 2016 e Windows Server 2019 includano uno o più DSM come parte del sistema operativo.
+- **Prendere in considerazione l'uso del software Multipath I/O:** In un'infrastruttura di archiviazione a disponibilità elevata è possibile distribuire I cluster di failover con più schede bus host usando il software Multipath I/O. In questo modo viene fornito il livello più elevato di ridondanza e disponibilità. La soluzione a percorsi multipli deve essere basata su Microsoft Multipath I/O (MPIO). Il fornitore dell'hardware di archiviazione può fornire un modulo DSM (Device Specific Module) MPIO per l'hardware, sebbene Windows Server 2016 e Windows Server 2019 includano uno o più DSM come parte del sistema operativo.
 
 ## <a name="network-infrastructure-and-domain-account-requirements"></a>Requisiti degli account di dominio e dell'infrastruttura di rete
 
 Per un cluster di failover a due nodi, saranno necessari l'infrastruttura di rete seguente e un account amministrativo con le autorizzazioni di dominio indicate di seguito.
 
-- **Impostazioni di rete e indirizzi IP:** se si utilizzano schede di rete identiche per una rete, utilizzare impostazioni di comunicazioni identiche (ad esempio, Velocità, Mod. Duplex, Controllo di flusso e Tipo di supporto). Confrontare inoltre le impostazioni della scheda di rete e del commutatore a cui è connessa, quindi verificare che non esistano conflitti.
+- **Impostazioni di rete e indirizzi IP:** Quando si utilizzano schede di rete identiche per una rete, utilizzare anche impostazioni di comunicazione identiche su tali schede (ad esempio, velocità, modalità duplex, controllo di flusso e tipo di supporto). Confrontare inoltre le impostazioni della scheda di rete e del commutatore a cui è connessa, quindi verificare che non esistano conflitti.
 
     In caso di reti private non indirizzate al resto dell'infrastruttura di rete, verificare che ogni rete privata utilizzi una subnet univoca. Questa condizione è necessaria anche nel caso in cui a ogni scheda di rete sia stato associato un indirizzo IP univoco. Se ad esempio si dispone di un nodo cluster in un ufficio centrale che impiega una rete fisica e di un altro nodo in una succursale che utilizza una rete fisica separata, non specificare 10.0.0.0/24 per entrambe le reti, anche nel caso in cui a ogni scheda sia stato associato un indirizzo IP univoco.
 
     Per ulteriori informazioni sulle schede di rete, vedere Requisiti hardware per un cluster di failover a due nodi, più indietro in questa guida.
 
-- **DNS** i server nel cluster devono utilizzare DNS per la risoluzione dei nomi. È possibile utilizzare il protocollo di aggiornamento dinamico del DNS.
+- **DNS:** Per la risoluzione dei nomi, i server nel cluster devono usare Domain Name System (DNS). È possibile utilizzare il protocollo di aggiornamento dinamico del DNS.
 
-- **Ruolo di dominio:** tutti i server nel cluster devono trovarsi all'interno dello stesso dominio Active Directory. È consigliabile che tutti i server del cluster dispongano dello stesso ruolo di dominio (server membro o controller di dominio). Il ruolo consigliato è server membro.
+- **Ruolo di dominio:** Tutti i server nel cluster devono trovarsi nello stesso dominio Active Directory. È consigliabile che tutti i server del cluster dispongano dello stesso ruolo di dominio (server membro o controller di dominio). Il ruolo consigliato è server membro.
 
-- **Controller di dominio:** è consigliabile che i server del cluster siano server membri. In tal caso, sarà necessario disporre di un server aggiuntivo che funga da controller di dominio nel dominio che contiene il cluster di failover.
+- **Controller di dominio:** È consigliabile che i server del cluster siano server membri. In tal caso, sarà necessario disporre di un server aggiuntivo che funga da controller di dominio nel dominio che contiene il cluster di failover.
 
-- **Client** come per il test, è possibile connettere uno o più client della rete al cluster di failover creato e osservare gli effetti sul client quando si sposta il file server del cluster o se ne esegue il failover da un nodo del cluster all'altro.
+- **Client:** Se necessario per il test, è possibile connettere uno o più client in rete al cluster di failover creato e osservare l'effetto su un client quando si sposta o si esegue il failover del file server cluster da un nodo del cluster all'altro.
 
-- **Account per l'amministrazione del cluster:** la prima volta che si crea un cluster o vi si aggiungono server, è necessario eseguire l'accesso al dominio con un account provvisto di autorizzazioni e diritti di amministratore su tutti i server del cluster. Non è necessario che si tratti di un account Domain Admins, ma può trattarsi di un account Domain Users appartenente al gruppo Administrators in entrambi i server del cluster. Inoltre, se l'account non è un account Domain Admins, all'account o al gruppo di cui l'account è membro è necessario assegnare le autorizzazioni **Crea oggetti computer** e **Leggi tutte le proprietà** nell'unità organizzativa del dominio (OU) che verrà si trova in.
+- **Account per l'amministrazione del cluster:** Quando si crea un cluster o si aggiungono server per la prima volta, è necessario effettuare l'accesso al dominio con un account che disponga di diritti e autorizzazioni di amministratore su tutti i server del cluster. Non è necessario che si tratti di un account Domain Admins, ma può trattarsi di un account Domain Users appartenente al gruppo Administrators in entrambi i server del cluster. Inoltre, se l'account non è un account Domain Admins, all'account o al gruppo di cui l'account è membro è necessario assegnare le autorizzazioni **Crea oggetti computer** e **Leggi tutte le proprietà** nell'unità organizzativa del dominio in cui si trova.
 
 ## <a name="steps-for-installing-a-two-node-file-server-cluster"></a>Procedura per l'installazione di un cluster di file server a due nodi
 
@@ -121,7 +121,7 @@ Per installare un cluster di failover di file server a due nodi è necessario co
 
 Passaggio 1: connettere i server del cluster alle reti e all'archiviazione
 
-Passaggio 2: installare la funzionalità di cluster di failover
+Passaggio 2: installare la funzionalità cluster di failover
 
 Passaggio 3: convalidare la configurazione del cluster
 
@@ -159,7 +159,7 @@ Per un cluster del file server a due nodi, quando si connettono i server all'arc
 
 9. Controllare il formato di tutti i LUN o i volumi esposti. È consigliabile utilizzare NTFS per il formato. Per il disco di controllo l'utilizzo di NTFS è obbligatorio.
 
-### <a name="step-2-install-the-file-server-role-and-failover-cluster-feature"></a>Passaggio 2: Installare il ruolo di file server e la funzionalità del cluster di failover
+### <a name="step-2-install-the-file-server-role-and-failover-cluster-feature"></a>Passaggio 2: installare il ruolo di file server e la funzionalità del cluster di failover
 
 In questo passaggio verrà installato il ruolo file server e la funzionalità cluster di failover. In entrambi i server deve essere in esecuzione Windows Server 2016 o Windows Server 2019.
 
@@ -252,11 +252,11 @@ Prima di creare un cluster, è consigliabile convalidare la configurazione. La c
     ```PowerShell
     Test-Cluster -Node "NODE1","NODE2"
     ```
-4. Per visualizzare i risultati dei test dopo aver chiuso la procedura guidata, vedere il file specificato (in SystemRoot\Cluster\Reports @ no__t-0, quindi apportare le modifiche necessarie alla configurazione ed eseguire di nuovo i test.
+4. Per visualizzare i risultati dei test dopo aver chiuso la procedura guidata, vedere il file specificato (in SystemRoot\Cluster\Reports\), quindi apportare le modifiche necessarie alla configurazione ed eseguire di nuovo i test.
 
 Per ulteriori informazioni, vedere [convalida di una configurazione del cluster di failover](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/jj134244(v=ws.11)).
 
-### <a name="step-4-create-the-cluster"></a>Passaggio 4: Creare il Cluster
+### <a name="step-4-create-the-cluster"></a>Passaggio 4: creare il cluster
 
 Di seguito viene creato un cluster da computer e configurazione.
 

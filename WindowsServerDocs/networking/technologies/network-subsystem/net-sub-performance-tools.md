@@ -26,13 +26,13 @@ In questo argomento sono incluse le sezioni relative allo strumento per il traff
 
 ##  <a name="bkmk_tuning"></a>Strumento di traffico da client a server
 
-Il traffico da client a server \(ctsTraffic @ no__t-1 offre la possibilità di creare e verificare il traffico di rete.
+Il traffico da client a server \(ctsTraffic\) Tool offre la possibilità di creare e verificare il traffico di rete.
 
 Per ulteriori informazioni e per scaricare lo strumento, vedere [ctsTraffic (traffico da client a server)](https://github.com/Microsoft/ctsTraffic).
   
 ##  <a name="bkmk_size"></a>Dimensioni della finestra TCP/IP
 
-Per gli adapter da 1 GB, le impostazioni visualizzate nella tabella precedente dovrebbero fornire una velocità effettiva corretta, perché NTttcp imposta le dimensioni predefinite della finestra TCP su 64 K attraverso un'opzione di processore logico specifica \(SO_RCVBUF @ no__t-1 per la connessione. Ciò garantisce prestazioni ottimali in una rete a bassa latenza.  
+Per gli adapter da 1 GB, le impostazioni visualizzate nella tabella precedente forniscono una corretta velocità effettiva, perché NTttcp imposta le dimensioni predefinite della finestra TCP su 64 K tramite un'opzione specifica del processore logico \(SO_RCVBUF\) per la connessione. Ciò garantisce prestazioni ottimali in una rete a bassa latenza.  
 
 Al contrario, per le reti a latenza elevata o per gli adapter da 10 GB, il valore predefinito delle dimensioni della finestra TCP per NTttcp produce prestazioni inferiori rispetto a quelle ottimali. In entrambi i casi, è necessario modificare le dimensioni della finestra TCP per consentire un prodotto con un ritardo maggiore della larghezza di banda.  
 
@@ -40,7 +40,7 @@ Al contrario, per le reti a latenza elevata o per gli adapter da 10 GB, il valor
 
 ##  <a name="bkmk_advisor"></a>Microsoft Server Performance Advisor
 
-Microsoft Server Performance Advisor \(SPA @ no__t-1 consente agli amministratori IT di raccogliere le metriche per identificare, confrontare e diagnosticare i potenziali problemi di prestazioni in Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 o Distribuzione di Windows Server 2008. 
+Microsoft Server Performance Advisor \(SPA\) consente agli amministratori IT di raccogliere le metriche per identificare, confrontare e diagnosticare i potenziali problemi di prestazioni in una distribuzione di Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 o Windows Server 2008. 
 
 SPA genera report e grafici di diagnostica completi e fornisce indicazioni utili per analizzare rapidamente i problemi e sviluppare azioni correttive.  
   

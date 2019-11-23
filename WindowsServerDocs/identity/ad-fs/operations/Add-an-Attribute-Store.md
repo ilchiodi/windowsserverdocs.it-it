@@ -19,7 +19,7 @@ ms.locfileid: "71358390"
 # <a name="add-an-attribute-store"></a>Aggiungere un archivio attributi
 
 
-Gli account utente e i computer che richiedono l'accesso a una risorsa protetta da Active Directory Federation Services \(AD FS @ no__t-1 vengono archiviati in un archivio di attributi, ad esempio Active Directory Domain Services \(AD DS @ no__t-3. Il motore di rilascio delle attestazioni utilizza gli archivi di attributi per raccogliere dati che sono necessari emettere attestazioni. Dati da archivi di attributi viene quindi proiettati come attestazioni.  
+Gli account utente e i computer che richiedono l'accesso a una risorsa protetta da Active Directory Federation Services \(AD FS\) vengono archiviati in un archivio di attributi, ad esempio Active Directory Domain Services \(servizi di dominio Active Directory\). Il motore di rilascio delle attestazioni utilizza gli archivi di attributi per raccogliere dati che sono necessari emettere attestazioni. Dati da archivi di attributi viene quindi proiettati come attestazioni.  
   
 È possibile utilizzare la procedura seguente per aggiungere un archivio attributi per il servizio federativo.  
   
@@ -46,7 +46,7 @@ Per completare questa procedura, è necessaria almeno l'appartenenza al gruppo *
  
 ![aggiungere l'archivio di attributi](media/Add-an-Attribute-Store/addstore2.PNG) 
 
-4. Fare clic su **OK**.  
+4. Fai clic su **OK**.  
   
 ## <a name="additional-references"></a>Altri riferimenti  
 

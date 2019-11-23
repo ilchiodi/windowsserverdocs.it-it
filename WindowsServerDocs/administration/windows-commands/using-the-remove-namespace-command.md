@@ -22,7 +22,7 @@ ms.locfileid: "71362787"
 ---
 # <a name="using-the-remove-namespace-command"></a>Utilizzando il comando remove-spazio dei nomi
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Rimuove uno spazio dei nomi personalizzato.
 ## <a name="syntax"></a>Sintassi
@@ -32,7 +32,7 @@ wdsutil /remove-Namespace /Namespace:<Namespace name> [/Server:<Server name>] [/
 ## <a name="parameters"></a>Parametri
 |Parametro|Descrizione|
 |-------|--------|
-|/Namespace: <Namespace name>|Specifica il nome dello spazio dei nomi. Non è il nome descrittivo e deve essere univoco.<br /><br />**servizio ruolo server di distribuzione**-   : La sintassi per il nome dello spazio dei nomi è/namespace: WDS: <ImageGroup> @ no__t-1 @ no__t-2 @ no__t-3 @ no__t-4. Esempio: **WDS: ImageGroup1/install. wim/1**<br />**servizio ruolo server di trasporto**-   : Questo valore deve corrispondere al nome assegnato allo spazio dei nomi al momento della creazione nel server.|
+|/Namespace:<Namespace name>|Specifica il nome dello spazio dei nomi. Non è il nome descrittivo e deve essere univoco.<br /><br />**servizio ruolo server di distribuzione**-   : la sintassi per il nome dello spazio dei nomi è/namespace: WDS:<ImageGroup>/<ImageName>/<Index>. Ad esempio: **WDS:ImageGroup1/install.wim/1**<br />**servizio ruolo server di trasporto**-   : questo valore deve corrispondere al nome assegnato allo spazio dei nomi al momento della creazione nel server.|
 |[/Server:<Server name>]|Specifica il nome del server. Questo può essere il nome NetBIOS o il nome di dominio completo (FQDN). Se viene specificato alcun nome di server, viene utilizzato il server locale.|
 |/Force|rimuove immediatamente lo spazio dei nomi e termina tutti i client. Si noti che, a meno che non si specifichi **/Force**, i client esistenti possono completare il trasferimento, ma non è possibile aggiungere nuovi client.|
 ## <a name="BKMK_examples"></a>Esempi
@@ -44,7 +44,7 @@ Per forzare la terminazione di tutti i client, digitare:
 ```
 wdsutil /remove-Namespace /Server:MyWDSServer /Namespace:"Custom Auto 1" /force
 ```
-#### <a name="additional-references"></a>Riferimenti aggiuntivi
+#### <a name="additional-references"></a>riferimenti aggiuntivi
 [Sintassi della riga di comando chiave](command-line-syntax-key.md)
 [utilizzando il comando get-AllNamespaces](using-the-get-allnamespaces-command.md)
 [utilizzando il comando nuovo spazio dei nomi](using-the-new-namespace-command.md)

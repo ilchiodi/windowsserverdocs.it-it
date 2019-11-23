@@ -25,7 +25,7 @@ Per altre informazioni sulle procedure consigliate e sulle analisi, vedere [Eseg
   
 |Proprietà|Dettagli|  
 |-|-|  
-|**Sistema operativo**|Windows Server 2016|  
+|**Sistema operativo**|Windows Server 2016|  
 |**Prodotto/funzionalità**|Hyper-V|  
 |**Gravità**|Avviso|  
 |**Categoria**|Configurazione|  
@@ -36,9 +36,9 @@ Nelle sezioni seguenti, corsivo indica il testo dell'interfaccia Utente visualiz
 *Alcune funzionalità di accelerazione hardware non vengono utilizzate*  
   
 ## <a name="impact"></a>Impatto  
-la configurazione *Stanziamento può causare un utilizzo complessivo della CPU superiore al necessario. Le prestazioni di rete potrebbero non essere ottimali nelle macchine virtuali seguenti:*  
+*Questa configurazione potrebbe causare un utilizzo complessivo della CPU superiore al necessario. Le prestazioni di rete potrebbero non essere ottimali nelle macchine virtuali seguenti:*  
   
-@no__t 0list di macchine virtuali >  
+\<elenco di macchine virtuali >  
   
 ## <a name="resolution"></a>Risoluzione  
 *Prendere in considerazione la configurazione della scheda di rete virtuale per SR-IOV se l'hardware fisico supporta SR-IOV e se questa configurazione non è in conflitto con le funzionalità di rete richieste dalla macchina virtuale.*  

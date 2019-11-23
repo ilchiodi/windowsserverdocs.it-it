@@ -51,7 +51,7 @@ A volte si verificano errori di replica a causa di interruzioni intenzionali. Ad
 
 Se gli errori di replica vengono segnalati da un controller di dominio che tenta di eseguire la replica con un controller di dominio compilato in un sito di gestione temporanea ed è attualmente offline in attesa della distribuzione nel sito di produzione finale (un sito remoto, ad esempio una succursale ), è possibile tenere conto di tali errori di replica. Per evitare la separazione di un controller di dominio dalla topologia di replica per periodi prolungati, causando errori continui fino alla riconnessione del controller di dominio, è consigliabile aggiungere tali computer inizialmente come server membri e utilizzare l'installazione dal supporto ( INSTALLAZIONE da supporto) per installare Active Directory Domain Services (AD DS). È possibile utilizzare lo strumento da riga di comando Ntdsutil per creare supporti di installazione che è possibile archiviare su supporti rimovibili (CD, DVD o altri supporti) e spedire al sito di destinazione. Quindi, è possibile usare il supporto di installazione di per installare servizi di dominio Active Directory nei controller di dominio del sito, senza usare la replica. 
 
-### <a name="hardware-failures-or-upgradestitle"></a>Errori hardware o aggiornamenti @ no__t-0
+### <a name="hardware-failures-or-upgradestitle"></a>Errori hardware o aggiornamenti</title>
 
 Se si verificano problemi di replica in seguito a un errore hardware, ad esempio un errore di una scheda madre, un sottosistema del disco o un disco rigido, inviare una notifica al proprietario del server in modo che il problema hardware possa essere risolto.
 
@@ -81,12 +81,12 @@ Per impostazione predefinita, gli oggetti Impostazioni NTDS eliminati vengono ri
 
 Se si escludono disconnessioni intenzionali, errori hardware e controller di dominio Windows 2000 obsoleti, il resto dei problemi di replica ha quasi sempre una delle cause principali seguenti:
 
-- Connettività di rete: La connessione di rete potrebbe non essere disponibile oppure le impostazioni di rete non sono configurate correttamente.
-- Risoluzione dei nomi: Gli errori di configurazione DNS sono una delle cause comuni degli errori di replica.
-- Autenticazione e autorizzazione: Problemi di autenticazione e autorizzazione provocano errori di "accesso negato" quando un controller di dominio tenta di connettersi al partner di replica.
-- Database di directory (Archivio): Il database di directory potrebbe non essere in grado di elaborare le transazioni in modo sufficientemente rapido per restare al passo con i timeout di replica.
-- Motore di replica: Se le pianificazioni della replica tra siti sono troppo brevi, le code di replica potrebbero essere troppo grandi per essere elaborate nel tempo richiesto dalla pianificazione della replica in uscita. In questo caso, la replica di alcune modifiche può essere bloccata per un tempo indefinito, a sufficienza per superare la durata di rimozione definitiva.
-- Topologia di replica: I controller di dominio devono disporre di collegamenti tra siti in servizi di dominio Active Directory che eseguono il mapping a connessioni con Wide Area Network reale (WAN) o VPN (Virtual Private Network). Se si creano oggetti in servizi di dominio Active Directory per la topologia di replica che non sono supportati dalla topologia del sito effettiva della rete, la replica che richiede la topologia non configurata correttamente ha esito negativo.
+- Connettività di rete: la connessione di rete potrebbe non essere disponibile oppure le impostazioni di rete non sono configurate correttamente.
+- Risoluzione dei nomi: le configurazioni errate del DNS sono una delle cause comuni degli errori di replica.
+- Autenticazione e autorizzazione: problemi di autenticazione e autorizzazione provocano errori di "accesso negato" quando un controller di dominio tenta di connettersi al partner di replica.
+- Database di directory (Archivio): il database di directory potrebbe non essere in grado di elaborare le transazioni abbastanza rapidamente da soddisfare i timeout di replica.
+- Motore di replica: se le pianificazioni della replica tra siti sono troppo brevi, le code di replica potrebbero essere troppo grandi per essere elaborate nel tempo richiesto dalla pianificazione della replica in uscita. In questo caso, la replica di alcune modifiche può essere bloccata per un tempo indefinito, a sufficienza per superare la durata di rimozione definitiva.
+- Topologia di replica: i controller di dominio devono disporre di collegamenti tra siti in servizi di dominio Active Directory che eseguono il mapping a connessioni con Wide Area Network reale (WAN) o VPN (Virtual Private Network). Se si creano oggetti in servizi di dominio Active Directory per la topologia di replica che non sono supportati dalla topologia del sito effettiva della rete, la replica che richiede la topologia non configurata correttamente ha esito negativo.
 
 ## <a name="general-approach-to-fixing-problems"></a>Approccio generale alla risoluzione dei problemi
 
@@ -102,7 +102,7 @@ Usare l'approccio generale seguente per correggere i problemi di replica:
 
 Per ulteriori informazioni su come forzare la rimozione di servizi di dominio Active Directory, vedere [forzare la rimozione di un controller di dominio](https://go.microsoft.com/fwlink/?LinkId=128291).
 
-## <a name="using-repadmin-to-retrieve-replication-statustitle"></a>Utilizzo di Repadmin per recuperare lo stato della replica @ no__t-0
+## <a name="using-repadmin-to-retrieve-replication-statustitle"></a>Utilizzo di Repadmin per recuperare lo stato della replica</title>
 
 Lo stato della replica è un modo importante per valutare lo stato del servizio directory. Se la replica funziona senza errori, si conoscono i controller di dominio online. Si sa anche che i sistemi e i servizi seguenti sono in funzione:
 
@@ -128,7 +128,7 @@ Strumenti:
 
 ### <a name="to-generate-a-repadmin-showrepl-spreadsheet-for-domain-controllers"></a>Per generare un foglio di calcolo repadmin/showrepl per i controller di dominio
 
-1. Aprire una finestra del prompt dei comandi come amministratore. Nel menu Start, fare clic con il pulsante destro del mouse su prompt dei comandi e quindi scegliere Esegui come amministratore. Se viene visualizzata la finestra di dialogo controllo account utente, specificare le credenziali Enterprise Admins, se necessario, e quindi fare clic su continua.
+1. Aprire un prompt dei comandi come amministratore: nel menu Start, fare clic con il pulsante destro del mouse su prompt dei comandi e quindi scegliere Esegui come amministratore. Se viene visualizzata la finestra di dialogo controllo account utente, specificare le credenziali Enterprise Admins, se necessario, e quindi fare clic su continua.
 2. Al prompt dei comandi digitare il comando seguente e quindi premere INVIO: `repadmin /showrepl * /csv > showrepl.csv`
 3. Aprire Excel.
 4. Fare clic sul pulsante Office, fare clic su Apri, passare a showrepl. csv e quindi fare clic su Apri.
@@ -160,7 +160,7 @@ Per identificare Active Directory problemi di replica, usare il comando <system>
 
 |Errore repadmin|Causa principale|Soluzione|
 | --- | --- | --- |
-|Il tempo trascorso dall'ultima replica con il server ha superato la durata dell'oggetto contrassegnato per la rimozione definitiva.|Un controller di dominio non ha superato la replica in ingresso con il controller di dominio di origine denominato per un periodo di tempo sufficiente perché un'eliminazione sia stata rimossa definitivamente, replicata e sottoposta a Garbage Collection da Active Directory Domain Services.|ID evento 2042: È trascorso troppo tempo da quando questo computer ha effettuato la replica|
+|Il tempo trascorso dall'ultima replica con il server ha superato la durata dell'oggetto contrassegnato per la rimozione definitiva.|Un controller di dominio non ha superato la replica in ingresso con il controller di dominio di origine denominato per un periodo di tempo sufficiente perché un'eliminazione sia stata rimossa definitivamente, replicata e sottoposta a Garbage Collection da Active Directory Domain Services.|ID evento 2042: è trascorso troppo tempo dalla replica di questo computer|
 |Nessun Neighbor in ingresso.|Se non viene visualizzato alcun elemento nella sezione "elementi adiacenti in ingresso" dell'output generato da repadmin/showrepl, il controller di dominio non è stato in grado di stabilire collegamenti di replica con un altro controller di dominio.|Correzione dei problemi di connettività della replica (ID evento 1925)| 
 |Accesso negato.|Esiste un collegamento di replica tra due controller di dominio, ma la replica non può essere eseguita correttamente a causa di un errore di autenticazione.|Correzione dei problemi di sicurezza della replica| 
 |L'ultimo tentativo di < > di data e ora non è riuscito con "il nome dell'account di destinazione non è corretto".|Questo problema può essere correlato a problemi di connettività, DNS o autenticazione. Se si tratta di un errore DNS, il controller di dominio locale non è riuscito a risolvere il nome DNS basato sull'identificatore univoco globale (GUID) del partner di replica.|Correzione dei problemi di ricerca DNS di replica (ID evento 1925, 2087, 2088) correzione dei problemi di sicurezza della replica correzione dei problemi di connettività della replica (ID evento 1925)| 
@@ -186,4 +186,4 @@ Per ulteriori informazioni sui concetti relativi alla replica, vedere [Active Di
   
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per ulteriori informazioni, inclusi gli articoli di supporto specifici per i codici di errore, vedere l'articolo del supporto tecnico: [Risoluzione degli errori comuni di replica di Active Directory](https://support.microsoft.com/help/3108513)
+Per altre informazioni, inclusi gli articoli di supporto specifici per i codici di errore, vedere l'articolo relativo al supporto per la [risoluzione degli errori comuni di replica Active Directory](https://support.microsoft.com/help/3108513)

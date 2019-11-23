@@ -34,7 +34,7 @@ Il modello consente di inserire il codice in una delle tre fasi di AD FS pipelin
 
 3.  **Post-autenticazione** : consente di creare plug-in per la valutazione del rischio dopo che l'utente ha fornito le credenziali e ad FS ha eseguito l'autenticazione. In questa fase, oltre al contesto della richiesta, al contesto di sicurezza e al contesto del protocollo, sono disponibili anche informazioni sul risultato dell'autenticazione (esito positivo o negativo). Il plug-in è in grado di valutare il Punteggio di rischio in base alle informazioni disponibili e di passare il Punteggio di rischio alle regole attestazioni e criteri per un'ulteriore valutazione. 
 
-Per comprendere meglio come creare un plug-in di valutazione dei rischi ed eseguirlo in linea con AD FS processo, viene creato un plug-in di esempio che blocca le richieste provenienti da determinati indirizzi IP **Extranet** identificati come rischiosi, registra il plug-in con ad FS e infine testa il funzionalità. 
+Per comprendere meglio come creare un plug-in di valutazione dei rischi ed eseguirlo in linea con AD FS processo, viene creato un plug-in di esempio che blocca le richieste provenienti da determinati indirizzi IP **Extranet** identificati come rischiosi, registra il plug-in con ad FS e infine testa la funzionalità. 
 
 >[!NOTE]
 >Questa procedura dettagliata è solo per illustrare come è possibile creare un plug-in di esempio. Non si tratta di una soluzione pronta per la creazione di una soluzione aziendale.  
@@ -65,43 +65,43 @@ Nella procedura riportata di seguito viene illustrata la creazione di una DLL pl
 
 3. Aprire il progetto `ThreatDetectionModule.sln` con Visual Studio
 
-4. `Microsoft.IdentityServer.dll` Rimuovere da Esplora soluzioni come illustrato di seguito:</br>
-   ![modello](media/ad-fs-risk-assessment-model/risk2.png)
+4. Rimuovere il `Microsoft.IdentityServer.dll` da Esplora soluzioni, come mostrato di seguito:</br>
+   modello di ![](media/ad-fs-risk-assessment-model/risk2.png)
 
-5. Aggiungere un `Microsoft.IdentityServer.dll` riferimento a del ad FS come illustrato di seguito
+5. Aggiungere un riferimento al `Microsoft.IdentityServer.dll` della AD FS, come illustrato di seguito
 
-   a.   Fare clic con il pulsante destro del mouse su **riferimenti** in **Esplora soluzioni** e selezionare **Aggiungi riferimento...**</br> 
-   ![modello](media/ad-fs-risk-assessment-model/risk3.png)
+   a.   Fare clic con il pulsante destro del mouse su **riferimenti** in **Esplora soluzioni** e selezionare **Aggiungi riferimento...**</br>modello di  
+   ![](media/ad-fs-risk-assessment-model/risk3.png)
    
-   b.   Nella finestra **Gestione riferimenti** selezionare **Sfoglia**. Nel **selezionare i file a cui fare riferimento...** Dialog, selezionare `Microsoft.IdentityServer.dll` dalla cartella di installazione di ad FS (nel mio caso **C:\Windows\ADFS**) e fare clic su **Aggiungi**.
+   b.   Nella finestra **Gestione riferimenti** selezionare **Sfoglia**. Nel **selezionare i file a cui fare riferimento...** dialogo, selezionare `Microsoft.IdentityServer.dll` dalla cartella di installazione di AD FS (nel mio caso **C:\Windows\ADFS**) e fare clic su **Aggiungi**.
    
    >[!NOTE]
-   >Nel mio caso, sto compilando il plug-in nel server AD FS stesso. Se l'ambiente di sviluppo si trova in un server diverso, `Microsoft.IdentityServer.dll` copiare dalla cartella di installazione di ad FS in ad FS server nella casella di sviluppo.</br> 
+   >Nel mio caso, sto compilando il plug-in nel server AD FS stesso. Se l'ambiente di sviluppo si trova in un server diverso, copiare il `Microsoft.IdentityServer.dll` dalla cartella di installazione di AD FS in AD FS server nella casella di sviluppo.</br> 
    
    ![modello](media/ad-fs-risk-assessment-model/risk4.png)
    
-   c.   Fare clic su **OK** nella finestra **Gestione riferimenti** dopo avere `Microsoft.IdentityServer.dll` verificato che sia selezionata la casella di controllo</br>
-   ![modello](media/ad-fs-risk-assessment-model/risk5.png)
+   c.   Fare clic su **OK** nella finestra **Gestione riferimenti** dopo avere verificato `Microsoft.IdentityServer.dll` selezionata la casella di controllo</br>
+   modello di ![](media/ad-fs-risk-assessment-model/risk5.png)
  
 6. Tutte le classi e i riferimenti sono ora disponibili per eseguire una compilazione.   Tuttavia, poiché l'output di questo progetto è una dll, dovrà essere installato nella **global assembly cache**o nella GAC del server di ad FS e la dll deve essere firmata per prima. Questa operazione può essere eseguita come indicato di seguito:
 
    a.   **Fare clic con il pulsante destro del mouse** sul nome del progetto ThreatDetectionModule. Dal menu fare clic su **Proprietà**.</br>
-   ![modello](media/ad-fs-risk-assessment-model/risk6.png)
+   modello di ![](media/ad-fs-risk-assessment-model/risk6.png)
    
    b.   Nella pagina **Proprietà** fare clic su **firma**, a sinistra, quindi selezionare la casella di controllo contrassegnata come **Firma assembly**. Dal menu **a discesa Scegli un file chiave con nome sicuro**: selezionare **< nuovo... >**</br>
-   ![modello](media/ad-fs-risk-assessment-model/risk7.png)
+   modello di ![](media/ad-fs-risk-assessment-model/risk7.png)
 
    c.   Nella finestra di **dialogo Crea chiave con nome sicuro**Digitare un nome (è possibile scegliere qualsiasi nome) per la chiave, deselezionare la casella di controllo **Proteggi file di chiave con password**. Fare clic su **OK**.
-   ![modello](media/ad-fs-risk-assessment-model/risk8.png)</br>
+   modello di ![](media/ad-fs-risk-assessment-model/risk8.png)</br>
  
    d.   Salvare il progetto come illustrato di seguito</br>
-   ![modello](media/ad-fs-risk-assessment-model/risk9.png)
+   modello di ![](media/ad-fs-risk-assessment-model/risk9.png)
 
 7. Compilare il progetto facendo clic su **Compila** e quindi su **Ricompila soluzione** come illustrato di seguito.</br>
-   ![modello](media/ad-fs-risk-assessment-model/risk10.png)
+   modello di ![](media/ad-fs-risk-assessment-model/risk10.png)
  
    Controllare la **finestra di output**nella parte inferiore della schermata per verificare se si sono verificati errori</br>
-   ![modello](media/ad-fs-risk-assessment-model/risk11.png)
+   modello di ![](media/ad-fs-risk-assessment-model/risk11.png)
 
 
 Il plug-in (dll) è ora pronto per l'uso e si trova nella cartella **\bin\Debug** della cartella del progetto (in questo caso, **C:\extensions\ThreatDetectionModule\bin\Debug\ThreatDetectionModule.dll**). 
@@ -110,20 +110,20 @@ Il passaggio successivo consiste nel registrare questa dll con AD FS, in modo ch
 
 ### <a name="register-the-plug-in-dll-with-ad-fs"></a>Registrare la dll del plug-in con AD FS
 
-È necessario registrare la dll in ad FS usando il `Register-AdfsThreatDetectionModule` comando di PowerShell nel server ad FS, tuttavia, prima di eseguire la registrazione, è necessario ottenere il token di chiave pubblica. Questo token di chiave pubblica è stato creato al momento della creazione della chiave e ha firmato la dll con tale chiave. Per informazioni sul token di chiave pubblica per la dll, è possibile usare **sn. exe** come indicato di seguito.
+È necessario registrare la dll in AD FS usando il comando `Register-AdfsThreatDetectionModule` PowerShell nel server AD FS, tuttavia, prima di eseguire la registrazione, è necessario ottenere il token di chiave pubblica. Questo token di chiave pubblica è stato creato al momento della creazione della chiave e ha firmato la dll con tale chiave. Per informazioni sul token di chiave pubblica per la dll, è possibile usare **sn. exe** come indicato di seguito.
 
 1. Copiare il file dll dalla cartella **\bin\Debug** in un altro percorso (in caso di copia in **C:\Extensions**)
 
-2. Avviare il **prompt dei comandi per gli sviluppatori** per Visual Studio e passare alla directory che contiene il file **sn. exe** (nel mio caso la directory è **c:\Programmi (x86) \Microsoft SDKs\Windows\v10.0A\bin\NETFX 4.7.2 Tools**) ![Model](media/ad-fs-risk-assessment-model/risk12.png)
+2. Avviare il **prompt dei comandi per gli sviluppatori** per Visual Studio e passare alla directory contenente il file **sn. exe** (nel mio caso la directory è **C:\Programmi (x86) \microsoft SDKs\Windows\v10.0A\bin\NETFX 4.7.2 Tools**) ![Model](media/ad-fs-risk-assessment-model/risk12.png)
 
-3. Eseguire il comando **sn** con il parametro **-T** e il percorso del file (nel mio caso `SN -T “C:\extensions\ThreatDetectionModule.dll”`) modello ![](media/ad-fs-risk-assessment-model/risk13.png)</br>
+3. Eseguire il comando **sn** con il parametro **-T** e il percorso del file (nel mio caso `SN -T “C:\extensions\ThreatDetectionModule.dll”`) ![modello](media/ad-fs-risk-assessment-model/risk13.png)</br>
    Il comando fornirà il token di chiave pubblica (per me, il **token di chiave pubblica è 714697626ef96b35**)
 
 4. Aggiungere la dll alla **global assembly cache** del server ad FS la procedura consigliata consiste nel creare un programma di installazione appropriato per il progetto e utilizzare il programma di installazione per aggiungere il file alla GAC. Un'altra soluzione consiste nell'utilizzare **gacutil. exe** (ulteriori informazioni su **gacutil. exe** disponibili [qui](https://docs.microsoft.com/dotnet/framework/tools/gacutil-exe-gac-tool)) nel computer di sviluppo.  Poiché ho installato Visual Studio sullo stesso server AD FS, utilizzerò **gacutil. exe** come indicato di seguito
 
    a.   In Prompt dei comandi per gli sviluppatori per Visual Studio e passare alla directory contenente il file **gacutil. exe** (in questo caso la directory è **c:\Programmi (x86) \Microsoft SDKs\Windows\v10.0A\bin\NETFX 4.7.2 Tools**)
 
-   b.   Esegui il modello del comando **gacutil** (nel `Gacutil /IF C:\extensions\ThreatDetectionModule.dll`mio ![caso)](media/ad-fs-risk-assessment-model/risk14.png)
+   b.   Eseguire il comando **gacutil** (nel mio caso `Gacutil /IF C:\extensions\ThreatDetectionModule.dll`) ![modello](media/ad-fs-risk-assessment-model/risk14.png)
  
    >[!NOTE]
    >Se si dispone di una farm di AD FS, è necessario eseguire la precedente in ogni AD FS server della farm. 
@@ -156,7 +156,7 @@ Il file dll è ora registrato con AD FS e pronto per l'uso.
 ### <a name="testing-the-plug-in"></a>Test del plug-in
 
 1. Aprire il file **authconfig. csv** creato in precedenza (nel mio caso nel percorso **C:\Extensions**) e aggiungere gli **indirizzi IP Extranet** che si desidera bloccare. Ogni IP deve trovarsi su una riga separata e non devono essere presenti spazi alla fine</br>
-   ![modello](media/ad-fs-risk-assessment-model/risk18.png)
+   modello di ![](media/ad-fs-risk-assessment-model/risk18.png)
  
 2. Salvare e chiudere il file
 
@@ -175,20 +175,20 @@ Il file dll è ora registrato con AD FS e pronto per l'uso.
 
    Per questa dimostrazione, utilizzerò [ad FS strumento di attestazione X-Ray](https://adfshelp.microsoft.com/ClaimsXray/TokenRequest) per avviare una richiesta. Per usare lo strumento X-Ray, seguire le istruzioni 
 
-   Immettere l'istanza del server federativo e il pulsante di autenticazione di hit **test** .</br> 
-   ![modello](media/ad-fs-risk-assessment-model/risk15.png) 
+   Immettere l'istanza del server federativo e il pulsante di autenticazione di hit **test** .</br>modello di  
+   ![](media/ad-fs-risk-assessment-model/risk15.png) 
 
 5. L'autenticazione è bloccata come illustrato di seguito.</br>
-   ![modello](media/ad-fs-risk-assessment-model/risk16.png)
+   modello di ![](media/ad-fs-risk-assessment-model/risk16.png)
  
 Ora che si è appreso come compilare e registrare il plug-in, è possibile eseguire la procedura dettagliata del codice del plug-in per comprendere l'implementazione usando le nuove interfacce e classi introdotte con il modello. 
 
 ## <a name="plug-in-code-walkthrough"></a>Procedura dettagliata del codice del plug-in
 
 Aprire il progetto `ThreatDetectionModule.sln` con Visual Studio e quindi aprire il file principale **UserRiskAnalyzer.cs** da **Esplora soluzioni** a destra della schermata</br>
-![modello](media/ad-fs-risk-assessment-model/risk17.png)
+modello di ![](media/ad-fs-risk-assessment-model/risk17.png)
  
-Il file contiene la classe principale UserRiskAnalyzer che implementa la classe astratta [ThreatDetectionModule](https://docs.microsoft.com/dotnet/api/microsoft.identityserver.public.threatdetectionframework.threatdetectionmodule?view=adfs-2019) e l'interfaccia [IRequestReceivedThreatDetectionModule](https://docs.microsoft.com/dotnet/api/microsoft.identityserver.public.threatdetectionframework.irequestreceivedthreatdetectionmodule?view=adfs-2019) per leggere l'IP dal contesto della richiesta, confrontare l'IP ottenuto con gli IP caricato dal database AD FS e richiesta di blocco se è presente una corrispondenza IP. Esaminare più in dettaglio questi tipi
+Il file contiene la classe principale UserRiskAnalyzer che implementa la classe astratta [ThreatDetectionModule](https://docs.microsoft.com/dotnet/api/microsoft.identityserver.public.threatdetectionframework.threatdetectionmodule?view=adfs-2019) e l'interfaccia [IRequestReceivedThreatDetectionModule](https://docs.microsoft.com/dotnet/api/microsoft.identityserver.public.threatdetectionframework.irequestreceivedthreatdetectionmodule?view=adfs-2019) per leggere l'IP dal contesto della richiesta, confrontare l'IP ottenuto con gli IP caricati da ad FS DB e bloccare la richiesta in caso di corrispondenza IP. Esaminare più in dettaglio questi tipi
 
 ### <a name="threatdetectionmodule-abstract-class"></a>Classe astratta ThreatDetectionModule
 
@@ -209,16 +209,16 @@ public abstract class ThreatDetectionModule
 ```
 La classe include i metodi e le proprietà seguenti.
 
-|Metodo |Type|Definizione|
+|Metodo |Tipo|Definizione|
 |-----|-----|-----| 
-|[OnAuthenticationPipelineLoad](https://docs.microsoft.com/dotnet/api/microsoft.identityserver.public.threatdetectionframework.threatdetectionmodule.onauthenticationpipelineload?view=adfs-2019) |vuoto|Chiamata eseguita da AD FS quando il plug-in viene caricato nella relativa pipeline| 
-|[OnAuthenticationPipelineUnload](https://docs.microsoft.com/dotnet/api/microsoft.identityserver.public.threatdetectionframework.threatdetectionmodule.onauthenticationpipelineunload?view=adfs-2019) |vuoto|Chiamata eseguita da AD FS quando il plug-in viene scaricato dalla relativa pipeline| 
-|[OnConfigurationUpdate](https://docs.microsoft.com/dotnet/api/microsoft.identityserver.public.threatdetectionframework.threatdetectionmodule.onconfigurationupdate?view=adfs-2019)| vuoto|Chiamata eseguita da AD FS all'aggiornamento della configurazione |
+|[OnAuthenticationPipelineLoad](https://docs.microsoft.com/dotnet/api/microsoft.identityserver.public.threatdetectionframework.threatdetectionmodule.onauthenticationpipelineload?view=adfs-2019) |Vuoto|Chiamata eseguita da AD FS quando il plug-in viene caricato nella relativa pipeline| 
+|[OnAuthenticationPipelineUnload](https://docs.microsoft.com/dotnet/api/microsoft.identityserver.public.threatdetectionframework.threatdetectionmodule.onauthenticationpipelineunload?view=adfs-2019) |Vuoto|Chiamata eseguita da AD FS quando il plug-in viene scaricato dalla relativa pipeline| 
+|[OnConfigurationUpdate](https://docs.microsoft.com/dotnet/api/microsoft.identityserver.public.threatdetectionframework.threatdetectionmodule.onconfigurationupdate?view=adfs-2019)| Vuoto|Chiamata eseguita da AD FS all'aggiornamento della configurazione |
 |**Proprietà** |**Tipo** |**Definizione**|
-|[NomeFornitore](https://docs.microsoft.com/dotnet/api/microsoft.identityserver.public.threatdetectionframework.threatdetectionmodule.vendorname?view=adfs-2019)|String |Ottiene il nome del fornitore che possiede il plug-in|
-|[ModuleIdentifier](https://docs.microsoft.com/dotnet/api/microsoft.identityserver.public.threatdetectionframework.threatdetectionmodule.moduleidentifier?view=adfs-2019)|String |Ottiene l'identificatore del plug-in|
+|[NomeFornitore](https://docs.microsoft.com/dotnet/api/microsoft.identityserver.public.threatdetectionframework.threatdetectionmodule.vendorname?view=adfs-2019)|Stringa |Ottiene il nome del fornitore che possiede il plug-in|
+|[ModuleIdentifier](https://docs.microsoft.com/dotnet/api/microsoft.identityserver.public.threatdetectionframework.threatdetectionmodule.moduleidentifier?view=adfs-2019)|Stringa |Ottiene l'identificatore del plug-in|
 
-Nel plug-in di esempio vengono utilizzati i metodi [OnAuthenticationPipelineLoad](https://docs.microsoft.com/dotnet/api/microsoft.identityserver.public.threatdetectionframework.threatdetectionmodule.onauthenticationpipelineload?view=adfs-2019) e [OnConfigurationUpdate](https://docs.microsoft.com/dotnet/api/microsoft.identityserver.public.threatdetectionframework.threatdetectionmodule.onconfigurationupdate?view=adfs-2019) per leggere gli IP predefiniti da ad FS DB. [OnAuthenticationPipelineLoad](https://docs.microsoft.com/dotnet/api/microsoft.identityserver.public.threatdetectionframework.threatdetectionmodule.onauthenticationpipelineload?view=adfs-2019) viene chiamato quando il plug-in viene registrato con ad FS mentre [OnConfigurationUpdate](https://docs.microsoft.com/dotnet/api/microsoft.identityserver.public.threatdetectionframework.threatdetectionmodule.onconfigurationupdate?view=adfs-2019) viene chiamato quando il file con estensione CSV viene `Import-AdfsThreatDetectionModuleConfiguration` importato tramite il cmdlet. 
+Nel plug-in di esempio vengono utilizzati i metodi [OnAuthenticationPipelineLoad](https://docs.microsoft.com/dotnet/api/microsoft.identityserver.public.threatdetectionframework.threatdetectionmodule.onauthenticationpipelineload?view=adfs-2019) e [OnConfigurationUpdate](https://docs.microsoft.com/dotnet/api/microsoft.identityserver.public.threatdetectionframework.threatdetectionmodule.onconfigurationupdate?view=adfs-2019) per leggere gli IP predefiniti da ad FS DB. [OnAuthenticationPipelineLoad](https://docs.microsoft.com/dotnet/api/microsoft.identityserver.public.threatdetectionframework.threatdetectionmodule.onauthenticationpipelineload?view=adfs-2019) viene chiamato quando il plug-in viene registrato con ad FS mentre [OnConfigurationUpdate](https://docs.microsoft.com/dotnet/api/microsoft.identityserver.public.threatdetectionframework.threatdetectionmodule.onconfigurationupdate?view=adfs-2019) viene chiamato quando il file con estensione CSV viene importato tramite il cmdlet `Import-AdfsThreatDetectionModuleConfiguration`. 
 
 #### <a name="irequestreceivedthreatdetectionmodule-interface"></a>Interfaccia IRequestReceivedThreatDetectionModule
 
@@ -260,7 +260,7 @@ IList<Claim> additionalClams
 );
 }
 ```
-L'interfaccia include il metodo [EvaluatePreAuthentication](https://docs.microsoft.com/dotnet/api/microsoft.identityserver.public.threatdetectionframework.ipreauthenticationthreatdetectionmodule.evaluatepreauthentication?view=adfs-2019) che consente di usare le informazioni passate in RequestContext [RequestContext](https://docs.microsoft.com/dotnet/api/microsoft.identityserver.public.threatdetectionframework.requestcontext?view=adfs-2019), [SecurityContext SecurityContext](https://docs.microsoft.com/dotnet/api/microsoft.identityserver.public.threatdetectionframework.securitycontext?view=adfs-2019), [ProtocolContext ProtocolContext](https://docs.microsoft.com/dotnet/api/microsoft.identityserver.public.threatdetectionframework.protocolcontext?view=adfs-2019)e [IList<Claim> additionalClams](https://docs.microsoft.com/dotnet/api/system.collections.generic.ilist-1?view=netframework-4.7.2) parametri di input per scrivere la logica di valutazione dei rischi di pre-autenticazione. 
+L'interfaccia include il metodo [EvaluatePreAuthentication](https://docs.microsoft.com/dotnet/api/microsoft.identityserver.public.threatdetectionframework.ipreauthenticationthreatdetectionmodule.evaluatepreauthentication?view=adfs-2019) che consente di usare le informazioni passate in RequestContext [RequestContext](https://docs.microsoft.com/dotnet/api/microsoft.identityserver.public.threatdetectionframework.requestcontext?view=adfs-2019), [SecurityContext SecurityContext](https://docs.microsoft.com/dotnet/api/microsoft.identityserver.public.threatdetectionframework.securitycontext?view=adfs-2019), [ProtocolContext ProtocolContext](https://docs.microsoft.com/dotnet/api/microsoft.identityserver.public.threatdetectionframework.protocolcontext?view=adfs-2019)e [IList<Claim>](https://docs.microsoft.com/dotnet/api/system.collections.generic.ilist-1?view=netframework-4.7.2) parametri di input di additionalClams per scrivere la logica di valutazione dei rischi di pre-autenticazione. 
 
 >[!NOTE]
 >Per l'elenco delle proprietà passate con ogni tipo di contesto, vedere le definizioni di classe [RequestContext](https://docs.microsoft.com/dotnet/api/microsoft.identityserver.public.threatdetectionframework.requestcontext?view=adfs-2019), [SecurityContext](https://docs.microsoft.com/dotnet/api/microsoft.identityserver.public.threatdetectionframework.securitycontext?view=adfs-2019)e [ProtocolContext](https://docs.microsoft.com/dotnet/api/microsoft.identityserver.public.threatdetectionframework.protocolcontext?view=adfs-2019) . 
@@ -287,7 +287,7 @@ IList<Claim> additionalClams
 }
 ```
 
-L'interfaccia include il metodo [EvaluatePostAuthentication](https://docs.microsoft.com/dotnet/api/microsoft.identityserver.public.threatdetectionframework.ipostauthenticationthreatdetectionmodule.evaluatepostauthentication?view=adfs-2019) che consente di usare le informazioni passate in RequestContext [RequestContext](https://docs.microsoft.com/dotnet/api/microsoft.identityserver.public.threatdetectionframework.requestcontext?view=adfs-2019), [SecurityContext SecurityContext](https://docs.microsoft.com/dotnet/api/microsoft.identityserver.public.threatdetectionframework.securitycontext?view=adfs-2019), [ProtocolContext ProtocolContext](https://docs.microsoft.com/dotnet/api/microsoft.identityserver.public.threatdetectionframework.protocolcontext?view=adfs-2019), e [IList<Claim> additionalClams](https://docs.microsoft.com/dotnet/api/system.collections.generic.ilist-1?view=netframework-4.7.2) i parametri di input per scrivere la logica di valutazione dei rischi post-autenticazione. 
+L'interfaccia include il metodo [EvaluatePostAuthentication](https://docs.microsoft.com/dotnet/api/microsoft.identityserver.public.threatdetectionframework.ipostauthenticationthreatdetectionmodule.evaluatepostauthentication?view=adfs-2019) che consente di usare le informazioni passate in RequestContext [RequestContext](https://docs.microsoft.com/dotnet/api/microsoft.identityserver.public.threatdetectionframework.requestcontext?view=adfs-2019), [SecurityContext SecurityContext](https://docs.microsoft.com/dotnet/api/microsoft.identityserver.public.threatdetectionframework.securitycontext?view=adfs-2019), [ProtocolContext ProtocolContext](https://docs.microsoft.com/dotnet/api/microsoft.identityserver.public.threatdetectionframework.protocolcontext?view=adfs-2019)e [IList<Claim>](https://docs.microsoft.com/dotnet/api/system.collections.generic.ilist-1?view=netframework-4.7.2) parametri di input di additionalClams per scrivere la logica di valutazione dei rischi post-autenticazione. 
 
 >[!NOTE]
 > Per un elenco completo delle proprietà passate con ogni tipo di contesto, vedere le definizioni delle classi [RequestContext](https://docs.microsoft.com/dotnet/api/microsoft.identityserver.public.threatdetectionframework.requestcontext?view=adfs-2019), [SecurityContext](https://docs.microsoft.com/dotnet/api/microsoft.identityserver.public.threatdetectionframework.securitycontext?view=adfs-2019)e [ProtocolContext](https://docs.microsoft.com/dotnet/api/microsoft.identityserver.public.threatdetectionframework.protocolcontext?view=adfs-2019) . 

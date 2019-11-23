@@ -39,15 +39,15 @@ waitfor [/t <Timeout>] <SignalName>
 
 |       Parametro       |                                                                                         Descrizione                                                                                          |
 |-----------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|    /s \<Computer >     | Specifica il nome o l'indirizzo IP di un computer remoto (non utilizzare barre rovesciate). Il valore predefinito è il computer locale. Questo parametro si applica a tutti i file e le cartelle specificati nel comando. |
-| /u [\<Domain > \] @ no__t-2 |                              Esegue lo script utilizzando le credenziali dell'account utente specificato. Per impostazione predefinita, il valore di **aspetter** usa le credenziali dell'utente corrente.                               |
-|   /p [\<Password >]    |                                                    Specifica la password dell'account utente specificato nella **/u** parametro.                                                     |
+|    /s \<computer >     | Specifica il nome o l'indirizzo IP di un computer remoto (non utilizzare barre rovesciate). Il valore predefinito è il computer locale. Questo parametro si applica a tutti i file e le cartelle specificati nel comando. |
+| /u [\<dominio >\]<User> |                              Esegue lo script utilizzando le credenziali dell'account utente specificato. Per impostazione predefinita, il valore di **aspetter** usa le credenziali dell'utente corrente.                               |
+|   /p [\<> password]    |                                                    Specifica la password dell'account utente specificato nella **/u** parametro.                                                     |
 |          /si          |                                                                        Invia il segnale specificato attraverso la rete.                                                                        |
-|     /t \<Timeout >     |                                              Specifica il numero di secondi di attesa per un segnale. Per impostazione predefinita **, wait attende** per un periodo illimitato.                                               |
-|     \<SignalName >     |                                                Specifica il **segnale che wait** attende o Invia. *Signalname* non distingue tra maiuscole e minuscole.                                                 |
+|     /t \<timeout >     |                                              Specifica il numero di secondi di attesa per un segnale. Per impostazione predefinita **, wait attende** per un periodo illimitato.                                               |
+|     \<Signalname >     |                                                Specifica il **segnale che wait** attende o Invia. *Signalname* non distingue tra maiuscole e minuscole.                                                 |
 |          /?           |                                                                             Visualizza la guida al prompt dei comandi.                                                                             |
 
-## <a name="remarks"></a>Note
+## <a name="remarks"></a>Osservazioni
 
 -   I nomi dei segnali non possono superare i 225 caratteri. I caratteri validi includono a-z, A-Z, 0-9 e il set di caratteri ASCII esteso (128-255).
 -   Se non si usa **/s**, il segnale viene trasmesso a tutti i sistemi di un dominio. Se si usa **/s**, il segnale viene inviato solo al sistema specificato.

@@ -84,7 +84,7 @@ Dopo che le impostazioni di Criteri di gruppo sono state applicate, è possibile
   
 #### <a name="to-verify-that-the-global-object-access-policy-has-been-applied"></a>Per verificare che il criterio di controllo di accesso agli oggetti globale sia stato applicato  
   
-1.  Accedere al computer client CLIENT1 come Contoso\MReid. Passare alla cartella HYPERLINK "file:///\\ @ no__t-1 @ no__t-2\ID_AD_FILE1 @ no__t-3\Finance" \\ \ FILE1\Finance Documents e modificare Word Document 2.  
+1.  Accedere al computer client CLIENT1 come Contoso\MReid. Passare alla cartella HYPERLINK "file:///\\\\\\\ ID_AD_FILE1\\\Finance" \\\ FILE1\Finance Documents e modificare Word Document 2.  
   
 2.  Accedere al file server FILE1 come contoso\administrator. Aprire il visualizzatore eventi, passare a **Registri di Windows**, selezionare **Sicurezza** e confermare che le attività eseguite siano segnalate negli eventi di controllo **4656** e **4663** (anche se non erano stati impostati SACL di controllo espliciti su cartelle o file creati, modificati ed eliminati).  
   
@@ -93,7 +93,7 @@ Dopo che le impostazioni di Criteri di gruppo sono state applicate, è possibile
   
 ## <a name="BKMK_Links"></a>Vedere anche  
   
--   [Scenario: Controllo dell'accesso ai file](Scenario--File-Access-Auditing.md)  
+-   [Scenario: controllo di accesso ai file](Scenario--File-Access-Auditing.md)  
   
 -   [Pianificare il controllo dell'accesso ai file](Plan-for-File-Access-Auditing.md)  
   

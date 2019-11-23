@@ -39,7 +39,7 @@ Prima di iniziare questa installazione, è necessario acquisire una serie di sot
 
 -   Windows Server in esecuzione come Active Directory
 
-    Vedere [Step-by-Step: Configurazione di Active Directory in Windows Server 2016](https://blogs.technet.microsoft.com/canitpro/2017/02/22/step-by-step-setting-up-active-directory-in-windows-server-2016/), per informazioni sulla configurazione di Active Directory.
+    Per informazioni sulla configurazione di Active Directory, vedere [Step-by-Step: Setting up Active Directory in Windows Server 2016](https://blogs.technet.microsoft.com/canitpro/2017/02/22/step-by-step-setting-up-active-directory-in-windows-server-2016/).
 
 -   Windows Server 2016 aggiunto al dominio in esecuzione come server di stampa
     
@@ -61,11 +61,11 @@ Prima di iniziare questa installazione, è necessario acquisire una serie di sot
 
 Questa guida descrive cinque (5) passaggi di installazione:
 
-- Passaggio 1: Installare Azure AD Connect per la sincronizzazione tra Azure AD e AD locale
-- Passaggio 2: Installare un pacchetto di stampa cloud ibrido nel server di stampa
-- Passaggio 3: Installare applicazione Azure proxy (AAP) con la delega vincolata Kerberos (delega vincolata Kerberos)
-- Passaggio 4: Configurare i criteri MDM necessari
-- Passaggio 5: Pubblica stampanti condivise
+- Passaggio 1: installare Azure AD Connect per la sincronizzazione tra Azure AD e AD locale
+- Passaggio 2: installare il pacchetto di stampa cloud ibrido nel server di stampa
+- Passaggio 3: installare applicazione Azure proxy (AAP) con la delega vincolata Kerberos (delega vincolata Kerberos)
+- Passaggio 4: configurare i criteri MDM necessari
+- Passaggio 5: pubblicare stampanti condivise
 
 ### <a name="step-1---install-azure-ad-connect-to-sync-between-azure-ad-and-on-premises-ad"></a>Passaggio 1: installare Azure AD Connect per la sincronizzazione tra Azure AD e AD locale
 1. Nel computer Windows Server Active Directory scaricare il software Azure AD Connect
@@ -76,13 +76,13 @@ Questa guida descrive cinque (5) passaggi di installazione:
 
 1. Installare i moduli di PowerShell per la stampa cloud ibrida
    - Eseguire i comandi seguenti da un prompt dei comandi di PowerShell con privilegi elevati
-      - `find-module -Name "PublishCloudPrinter"`per verificare che il computer sia in grado di raggiungere il PowerShell Gallery (PSGallery)
+      - `find-module -Name "PublishCloudPrinter"` per verificare che il computer sia in grado di raggiungere il PowerShell Gallery (PSGallery)
       - `install-module -Name "PublishCloudPrinter"`
 
-     > NOTA: È possibile che venga visualizzato un messaggio che informa che "PSGallery" è un repository non attendibile.  Immettere "y" per continuare l'installazione.
+     > Nota: è possibile che venga visualizzato un messaggio che informa che "PSGallery" è un repository non attendibile.  Immettere "y" per continuare l'installazione.
 
 2. Installare la soluzione di stampa cloud ibrida
-    - Nello stesso prompt dei comandi di PowerShell con privilegi elevati, passare alla directory`C:\Program Files\WindowsPowerShell\Modules\PublishCloudPrinter\1.0.0.0`
+    - Nello stesso prompt dei comandi di PowerShell con privilegi elevati, passare alla directory `C:\Program Files\WindowsPowerShell\Modules\PublishCloudPrinter\1.0.0.0`
     - Esegui <br>
         `CloudPrintDeploy.ps1 -AzureTenant <Domain name used by Azure AD Connect> -AzureTenantGuid <Azure AD Directory ID>`
 3. Configurare 2 endpoint IIS per il supporto di SSL
@@ -95,10 +95,10 @@ Questa guida descrive cinque (5) passaggi di installazione:
    - Eseguire il comando seguente per installare i pacchetti<br>
    `Install-Package system.data.sqlite [-requiredversion x.x.x.x] -providername nuget`
 
-   > NOTA: È consigliabile scaricare e installare la versione più recente lasciando l'opzione "-requiredversion".
+   > Nota: è consigliabile scaricare e installare la versione più recente lasciando l'opzione "-requiredversion".
 
-5. Copiare le DLL SQLite nella cartella MopriaCloudService webapp \<bin\> (**C:\\Inetpub\\\\wwwroot MopriaCloudService\\bin**): <br>
-   - I file binari SQLite devono trovarsi\\in "\\programmi\\PackageManagement\\pacchetti NuGet"
+5. Copiare le DLL SQLite nella cartella MopriaCloudService webapp \<bin\> (**C:\\inetpub\\wwwroot\\MopriaCloudService\\bin**): <br>
+   - I file binari SQLite devono trovarsi in "\\programmi\\PackageManagement\\pacchetti NuGet\\"
 
            \\System.Data.SQLite.**Core**.x.x.x.x\\lib\\net46\\System.Data.SQLite.dll
            --\> \<bin\>\\System.Data.SQLite.dll  
@@ -113,7 +113,7 @@ Questa guida descrive cinque (5) passaggi di installazione:
 
    > Nota: x. x.x. è la versione di SQLite installata in precedenza.
 
-6. Aggiornare il `c:\inetpub\wwwroot\MopriaCloudService\web.config` file in modo da includere la versione SQLite x. x. x. x nelle \<seguenti\>\> sezioni di assembly di runtime/:\<
+6. Aggiornare il file di `c:\inetpub\wwwroot\MopriaCloudService\web.config` in modo da includere la versione SQLite x. x.x. nel \<\>di runtime seguente /\<le sezioni di\> di associazione:
 
        <dependentAssembly>
        assemblyIdentity name="System.Data.SQLite" culture="neutral" publicKeyToken="db937bc2d44ff139" /
@@ -133,9 +133,9 @@ Questa guida descrive cinque (5) passaggi di installazione:
        </dependentAssembly>
 
 7. Creare il database SQLite:
-    -  Scaricare e installare i file binari degli strumenti SQLite da<https://www.sqlite.org/>
-    -  Passare a **c:\\Inetpub\\wwwroot\\directory\\database MopriaCloudService**
-    -  Eseguire il comando seguente per creare il database in questa directory:`sqlite3.exe MopriaDeviceDb.db ".read MopriaSQLiteDb.sql"`
+    -  Scaricare e installare i file binari degli strumenti SQLite da <https://www.sqlite.org/>
+    -  Passare a **c:\\inetpub\\wwwroot\\MopriaCloudService\\database** directory
+    -  Eseguire il comando seguente per creare il database in questa directory: `sqlite3.exe MopriaDeviceDb.db ".read MopriaSQLiteDb.sql"`
     -  Da Esplora file, aprire le proprietà del file MopriaDeviceDb. DB per aggiungere utenti/gruppi autorizzati alla pubblicazione nel database Mopria nella scheda sicurezza
         - Consigliare solo l'aggiunta del gruppo di utenti amministratore richiesto.
 8. Registrare l'app Web 2 con Azure AD per supportare l'autenticazione OAuth2
@@ -148,7 +148,7 @@ Questa guida descrive cinque (5) passaggi di installazione:
         - URL di accesso = "<http://MopriaDiscoveryService/CloudPrint>"
      3. Ripeti per l'applicazione client nativa
         -   Quando si specifica il nome dell'app, assicurarsi di selezionare "applicazione client nativa" come "tipo di applicazione".
-        -   URI di reindirizzamento = "\<https://Services-Machine-\>endpoint/redirectUrl"
+        -   URI di reindirizzamento = "https://\<Services-Machine-endpoint\>/RedirectUrl"
      4. Passare all'app client nativa "Settings" (impostazioni)
         -   Copiare il valore "ID applicazione" da usare per i passaggi di installazione successivi
         -   Selezionare "autorizzazioni necessarie"
@@ -159,7 +159,7 @@ Questa guida descrive cinque (5) passaggi di installazione:
             5.  Verificare che l'opzione "autorizzazioni delegate" per ogni endpoint dell'app sia abilitata
             6.  Assicurarsi di fare clic sul pulsante "fine" nella parte inferiore
             7.  Fare clic su "Concedi autorizzazioni", dopo l'aggiunta di entrambi gli endpoint.  Selezionare "Sì" quando viene richiesto di approvare la richiesta.
-        -   Passare a "URI di reindirizzamento" e aggiungere gli URI di reindirizzamento seguenti all'elenco:`ms-appx-web://Microsoft.AAD.BrokerPlugin/\<NativeClientAppID\>`
+        -   Passare a "URI di reindirizzamento" e aggiungere gli URI di reindirizzamento seguenti all'elenco: `ms-appx-web://Microsoft.AAD.BrokerPlugin/\<NativeClientAppID\>`
             `ms-appx-web://Microsoft.AAD.BrokerPlugin/S-1-15-2-3784861210-599250757-1266852909-3189164077-45880155-1246692841-283550366`
 
 ### <a name="step-3---install-azure-application-proxy-aap-with-kerberos-constrained-delegation-kcd"></a>Passaggio 3: installare applicazione Azure proxy (AAP) con la delega vincolata Kerberos (delega vincolata Kerberos)
@@ -177,20 +177,20 @@ Questa guida descrive cinque (5) passaggi di installazione:
     - Selezionare **Usa un qualsiasi protocollo di autenticazione.**
     - In **servizi ai quali l'account può presentare credenziali delegate**
         - Aggiungere il valore per l'identità SPN del computer che esegue i servizi (MopriaDiscoveryService e servizio MicrosoftEnterpriseCloudPrint)
-            - Per SPN immettere il nome SPN del computer stesso, ad esempio "Host/\<MachineName\>.\< Dominio\>"<br>
+            - Per nome SPN, immettere il nome SPN del computer stesso, ad esempio "HOST/\<MachineName\>.\<\>di dominio "<br>
                 `HOST/appServer.Contoso.com`
 4. Tornare al portale di gestione dei tenant di AAD e aggiungere i proxy dell'applicazione
    - Passare alla scheda **applicazioni aziendali**
    - Fare clic su **nuova applicazione**
    - Selezionare l' **applicazione locale** e compilare i campi
-       - Nome: Nome desiderato
-       - URL interno: Si tratta dell'URL interno del servizio cloud di individuazione Mopria a cui il computer WAP può accedere
-       - URL esterno: Configurare in base alle esigenze dell'organizzazione
+       - Nome: qualsiasi nome desiderato
+       - URL interno: URL interno del servizio cloud di individuazione Mopria a cui il computer WAP può accedere
+       - URL esterno: configurare in base alle esigenze dell'organizzazione
        - Metodo di preautenticazione: Azure Active Directory
 
-     >   Nota: Se non vengono trovate tutte le impostazioni precedenti, aggiungere il proxy con le impostazioni disponibili e quindi selezionare il proxy di applicazione appena creato e passare alla scheda **proxy applicazione** e aggiungere tutte le informazioni sopra riportate.
+     >   Nota: se non si trovano tutte le impostazioni precedenti, aggiungere il proxy con le impostazioni disponibili e quindi selezionare il proxy di applicazione appena creato e passare alla scheda **proxy applicazione** e aggiungere tutte le informazioni sopra riportate.
 
-   - Al termine della creazione, tornare ad **applicazioni** -> aziendali**tutte le applicazioni**, selezionare la nuova applicazione appena creata
+   - Al termine della creazione, tornare ad **applicazioni aziendali** -> **tutte le applicazioni**, selezionare la nuova applicazione appena creata
    - Passare a **Single Sign-on**, assicurarsi che la "modalità Single Sign-on" sia impostata su "autenticazione integrata di Windows".
    - Impostare "SPN applicazione interna" sul nome SPN specificato nel passaggio 3,3, sopra
    - Verificare che l'identità di accesso delegata sia impostata su "nome entità utente"
@@ -221,16 +221,16 @@ Questa guida descrive cinque (5) passaggi di installazione:
 ### <a name="step-4---configure-the-required-mdm-policies"></a>Passaggio 4: configurare i criteri MDM necessari
 - Accedere al provider MDM
 - Trovare il gruppo di criteri Enterprise Cloud Print e configurare i criteri seguendo le linee guida riportate di seguito:
-  - CloudPrintOAuthAuthority = https://login.microsoftonline.com/\<Azure ID directory ad\>
+  - CloudPrintOAuthAuthority = https://login.microsoftonline.com/\<Azure ID directory AD\>
   - CloudPrintOAuthClientId = valore "ID applicazione" dell'app Web nativa registrata nel portale di gestione di Azure AD
   - CloudPrinterDiscoveryEndPoint = URL esterno del servizio di individuazione Mopria applicazione Azure proxy creato nel passaggio 3,3 (deve essere esattamente lo stesso ma senza il carattere finale/)
   - MopriaDiscoveryResourceId = URL esterno del servizio di individuazione Mopria applicazione Azure proxy creato nel passaggio 3,4 (deve essere esattamente lo stesso, incluso il carattere finale/)
   - CloudPrintResourceId = URL esterno del servizio Enterprise Cloud Print applicazione Azure proxy creato nel passaggio 3,5 (deve essere esattamente lo stesso, incluso il percorso/)
-  - DiscoveryMaxPrinterLimit = \<valore intero positivo\>
+  - DiscoveryMaxPrinterLimit = \<un numero intero positivo\>
 
->   Nota: Se si usa Microsoft Intune servizio, è possibile trovare queste impostazioni nella categoria "stampante cloud".
+>   Nota: se si usa Microsoft Intune Service, è possibile trovare queste impostazioni nella categoria "Cloud Printer".
 
-|Nome visualizzato di Intune                     |Criteri                         |
+|Nome visualizzato di Intune                     |Condizione                         |
 |----------------------------------------|-------------------------------|
 |URL di individuazione stampanti                   |CloudPrinterDiscoveryEndpoint  |
 |URL autorità di accesso alla stampante            |CloudPrintOAuthAuthority       |
@@ -239,13 +239,13 @@ Questa guida descrive cinque (5) passaggi di installazione:
 |Numero massimo di stampanti da interrogare (solo per dispositivi mobili)  |DiscoveryMaxPrinterLimit       |
 |URI della risorsa del servizio di individuazione stampanti  |MopriaDiscoveryResourceId      |
 
->   Nota: Se il gruppo di criteri di stampa cloud non è disponibile, ma il provider MDM supporta le impostazioni URI OMA, è possibile impostare gli stessi criteri.  Per ulteriori informazioni, fare riferimento a questo <a href="https://docs.microsoft.com/windows/client-management/mdm/policy-csp-enterprisecloudprint#enterprisecloudprint-cloudprintoauthauthority">articolo</a> .
+>   Nota: se il gruppo di criteri di stampa cloud non è disponibile, ma il provider MDM supporta le impostazioni URI OMA, è possibile impostare gli stessi criteri.  Per ulteriori informazioni, fare riferimento a questo <a href="https://docs.microsoft.com/windows/client-management/mdm/policy-csp-enterprisecloudprint#enterprisecloudprint-cloudprintoauthauthority">articolo</a> .
 
 - URI OMA
     - `CloudPrintOAuthAuthority = ./Vendor/MSFT/Policy/Config/EnterpriseCloudPrint/CloudPrintOAuthAuthority`
-        - Valore = `https://login.microsoftonline.com/` \<ID directory Azure ad\>
+        - Valore = `https://login.microsoftonline.com/`\<Azure AD ID directory\>
     - `CloudPrintOAuthClientId = ./Vendor/MSFT/Policy/Config/EnterpriseCloudPrint/CloudPrintOAuthClientId`
-        - Valore = \<Azure ad ID applicazione dell'app nativa\>
+        - Value = \<ID applicazione Azure AD app nativa\>
     - `CloudPrinterDiscoveryEndPoint = ./Vendor/MSFT/Policy/Config/EnterpriseCloudPrint/CloudPrinterDiscoveryEndPoint`
         - Valore = URL esterno del servizio di individuazione Mopria applicazione Azure proxy creato nel passaggio 3,3 (deve essere esattamente lo stesso, ma senza il carattere finale/)
     - `MopriaDiscoveryResourceId = ./Vendor/MSFT/Policy/Config/EnterpriseCloudPrint/MopriaDiscoveryResourceId`
@@ -253,7 +253,7 @@ Questa guida descrive cinque (5) passaggi di installazione:
     - `CloudPrintResourceId = ./Vendor/MSFT/Policy/Config/EnterpriseCloudPrint/CloudPrintResourceId`
         - Value = URL esterno del servizio Enterprise Cloud Print applicazione Azure proxy creato nel passaggio 3,5 (deve essere esattamente lo stesso, incluso il carattere finale/)
     - `DiscoveryMaxPrinterLimit = ./Vendor/MSFT/Policy/Config/EnterpriseCloudPrint/DiscoveryMaxPrinterLimit`
-        - Value = \<valore intero positivo\>
+        - Value = \<un numero intero positivo\>
 
 ### <a name="step-5---publish-desired-shared-printers"></a>Passaggio 5: pubblicare le stampanti condivise desiderate
 1. Installare la stampante desiderata nel server di stampa
@@ -261,21 +261,21 @@ Questa guida descrive cinque (5) passaggi di installazione:
 3. Selezionare il set di utenti desiderato a cui concedere l'accesso
 4. Salvare le modifiche e chiudere la finestra delle proprietà della stampante
 5. Da un computer di aggiornamento di Windows 10 Fall Creator, aprire un prompt dei comandi di Windows PowerShell con privilegi elevati
-   1. Eseguire i comandi seguenti
-      - `find-module -Name "PublishCloudPrinter"`per verificare che il computer sia in grado di raggiungere il PowerShell Gallery (PSGallery)
+   1. Esegui questi comandi
+      - `find-module -Name "PublishCloudPrinter"` per verificare che il computer sia in grado di raggiungere il PowerShell Gallery (PSGallery)
       - `install-module -Name "PublishCloudPrinter"`
 
-        >   NOTA: È possibile che venga visualizzato un messaggio che informa che "PSGallery" è un repository non attendibile.  Immettere "y" per continuare l'installazione.
+        >   Nota: è possibile che venga visualizzato un messaggio che informa che "PSGallery" è un repository non attendibile.  Immettere "y" per continuare l'installazione.
 
       - Publish-CloudPrinter
         - Printer = nome della stampante condivisa definito
         - Produttore = produttore della stampante
         - Model = modello di stampante
-        - OrgLocation = stringa JSON che specifica la posizione della stampante, ad esempio:`{"attrs": [{"category":"country", "vs":"USA", "depth":0}, {"category":"organization", "vs":"Microsoft", "depth":1}, {"category":"site", "vs":"Redmond, WA", "depth":2}, {"category":"building", "vs":"Building 1", "depth":3}, {"category":"floor\_number", "vn":1, "depth":4}, {"category":"room\_name", "vs":"1111", "depth":5}]}`
-        - SDDL = stringa SDDL che rappresenta le autorizzazioni per la stampante. Questa operazione può essere ottenuta modificando la scheda sicurezza delle proprietà della stampante in modo appropriato e quindi eseguendo il comando seguente in un prompt dei comandi:`(Get-Printer PrinterName -full).PermissionSDDL`
-            Es. "G:DUD: (A; OICI; FA;;; WD) "
+        - OrgLocation = stringa JSON che specifica la posizione della stampante, ad esempio: `{"attrs": [{"category":"country", "vs":"USA", "depth":0}, {"category":"organization", "vs":"Microsoft", "depth":1}, {"category":"site", "vs":"Redmond, WA", "depth":2}, {"category":"building", "vs":"Building 1", "depth":3}, {"category":"floor\_number", "vn":1, "depth":4}, {"category":"room\_name", "vs":"1111", "depth":5}]}`
+        - SDDL = stringa SDDL che rappresenta le autorizzazioni per la stampante. Questa operazione può essere ottenuta modificando la scheda sicurezza Proprietà stampante in modo appropriato e quindi eseguendo il comando seguente in un prompt dei comandi: `(Get-Printer PrinterName -full).PermissionSDDL`
+            ad esempio "G:DUD: (A; OICI; FA;;; WD) "
 
-          > NOTA: È necessario aggiungere **`O:BA`** come prefisso al risultato dal comando del prompt dei comandi precedente prima di impostare il valore come impostazione SDDL.  Esempio: SDDL =`O:BAG:DUD:(A;OICI;FA;;;WD)`
+          > Nota: è necessario aggiungere **`O:BA`** come prefisso al risultato del comando del prompt dei comandi precedente, prima di impostare il valore come impostazione SDDL.  Esempio: SDDL = `O:BAG:DUD:(A;OICI;FA;;;WD)`
 
         - DiscoveryEndpoint = URL esterno del servizio di individuazione Mopria applicazione Azure proxy creato nel passaggio 3,4
         - PrintServerEndpoint = URL esterno del servizio Enterprise Cloud Print applicazione Azure proxy creato nel passaggio 3,5
@@ -283,17 +283,17 @@ Questa guida descrive cinque (5) passaggi di installazione:
         - AzureTenantGuid = ID directory del tenant di Azure AD
         - DiscoveryResourceId = [optional] ID applicazione del servizio cloud di individuazione Mopria proxy
 
-        > NOTA: È possibile immettere anche tutti i valori dei parametri obbligatori nella riga di comando.<br>
+        > Nota: è possibile immettere anche tutti i valori dei parametri obbligatori nella riga di comando.<br>
         **Publish-CloudPrinter** Sintassi del comando di PowerShell: <br>
-        Publish-CloudPrinter-Printer \<string @ no__t-1-Manufacturer \<string @ no__t-3-Model \<string @ no__t-5-OrgLocation \<string @ no__t-7-SDDL \<string @ no__t-9-DiscoveryEndpoint \>0string @ no__t-11- PrintServerEndpoint 2string @ no__t-13-AzureClientId 4string @ no__t-15-AzureTenantGuid 6string @ no__t-17 [-DiscoveryResourceId 8string @ no__t-19] <br>
-        Comando di esempio:`publish-cloudprinter -Printer EcpPrintTest -Manufacturer Microsoft -Model FilePrinterEcp -OrgLocation '{"attrs": [{"category":"country", "vs":"USA", "depth":0}, {"category":"organization", "vs":"MyCompany", "depth":1}, {"category":"site", "vs":"MyCity, State", "depth":2}, {"category":"building", "vs":"Building 1", "depth":3}, {"category":"floor\_number", "vn":1, "depth":4}, {"category":"room\_name", "vs":"1111", "depth":5}]}' -Sddl "O:BAG:DUD:(A;OICI;FA;;;WD)" -DiscoveryEndpoint https://<services-machine-endpoint>/mcs -PrintServerEndpoint https://<services-machine-endpoint>/ecp -AzureClientId <Native Web App ID> -AzureTenantGuid <Azure AD Directory ID> -DiscoveryResourceId <Proxied Mopria Discovery Cloud Service App ID>`
+        Publish-CloudPrinter-Printer \<String\>-Manufacturer \<String\>-Model \<String\>-OrgLocation \<String\>-SDDL \<String\>-DiscoveryEndpoint \<String\>-PrintServerEndpoint \<String\>-AzureClientId \<String\>-AzureTenantGuid \<String\> [-DiscoveryResourceId \<String\>] <br>
+        Comando di esempio: `publish-cloudprinter -Printer EcpPrintTest -Manufacturer Microsoft -Model FilePrinterEcp -OrgLocation '{"attrs": [{"category":"country", "vs":"USA", "depth":0}, {"category":"organization", "vs":"MyCompany", "depth":1}, {"category":"site", "vs":"MyCity, State", "depth":2}, {"category":"building", "vs":"Building 1", "depth":3}, {"category":"floor\_number", "vn":1, "depth":4}, {"category":"room\_name", "vs":"1111", "depth":5}]}' -Sddl "O:BAG:DUD:(A;OICI;FA;;;WD)" -DiscoveryEndpoint https://<services-machine-endpoint>/mcs -PrintServerEndpoint https://<services-machine-endpoint>/ecp -AzureClientId <Native Web App ID> -AzureTenantGuid <Azure AD Directory ID> -DiscoveryResourceId <Proxied Mopria Discovery Cloud Service App ID>`
 
 
 ## <a name="verifying-the-deployment"></a>Verifica della distribuzione
 In un dispositivo Azure AD Unito in cui sono configurati i criteri MDM:
 - Aprire un Web browser e passare a https://&lt;Services-Machine-endpoint&gt;/MCS/Services (URL esterno per l'endpoint di individuazione)
 - Verrà visualizzato il testo JSON che descrive il set di funzionalità di questo endpoint
-- Passare a "Impostazioni sistema operativo\> -dispositivi\> -stampanti & scanner"
+- Passare a "Impostazioni sistema operativo-dispositivi\>-\> stampanti & scanner"
     - Verrà visualizzato il collegamento "Cerca stampanti cloud"
     - Fare clic sul collegamento
     - Fare clic sul collegamento "selezionare un percorso di ricerca"
@@ -302,4 +302,4 @@ In un dispositivo Azure AD Unito in cui sono configurati i criteri MDM:
     - Selezionare stampante e fare clic sul pulsante **Aggiungi dispositivo**
     - Una volta completata l'installazione della stampante, stamparla sulla stampante dall'app preferita
 
->   Nota: Se si usa la stampante "EcpPrintTest", è possibile trovare il file di output nel computer del server di stampa nel\\percorso\\"C: ECPTestOutput EcpTestPrint. XPS".
+>   Nota: se si usa la stampante "EcpPrintTest", è possibile trovare il file di output nel computer del server di stampa nel percorso "C:\\ECPTestOutput\\EcpTestPrint. XPS".

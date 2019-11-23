@@ -95,7 +95,7 @@ L'assegnazione di voti per tutti i nodi del cluster può essere verificata trami
 
 ## <a name="general-recommendations-for-quorum-configuration"></a>Indicazioni generali per la configurazione quorum
 
-Il software del cluster configura automaticamente il quorum per un nuovo cluster, in base al numero di nodi configurati e la disponibilità dell'archiviazione condivisa. Questa è in genere la configurazione quorum più appropriata per questo tipo di cluster. È comunque consigliabile verificare la configurazione quorum dopo la creazione del cluster prima di passare il cluster in produzione. Per visualizzare la configurazione dettagliata del quorum del cluster, è possibile usare la convalida guidata configurazione o il cmdlet di Windows PowerShell per il [cluster di test](https://docs.microsoft.com/powershell/module/failoverclusters/test-cluster?view=win10-ps) per eseguire il test **Convalida configurazione quorum** . In Gestione cluster di failover la configurazione quorum di base viene visualizzata nelle informazioni di riepilogo per il cluster selezionato. in alternativa, è possibile esaminare le informazioni sulle risorse del quorum restituite quando si esegue il [Get-ClusterQuorum](https://docs.microsoft.com/powershell/module/failoverclusters/get-clusterquorum?view=win10-ps) di Windows PowerShell cmdlet.
+Il software del cluster configura automaticamente il quorum per un nuovo cluster, in base al numero di nodi configurati e la disponibilità dell'archiviazione condivisa. Questa è in genere la configurazione quorum più appropriata per questo tipo di cluster. È comunque consigliabile verificare la configurazione quorum dopo la creazione del cluster prima di passare il cluster in produzione. Per visualizzare la configurazione dettagliata del quorum del cluster, è possibile usare la convalida guidata configurazione o il cmdlet di Windows PowerShell per il [cluster di test](https://docs.microsoft.com/powershell/module/failoverclusters/test-cluster?view=win10-ps) per eseguire il test **Convalida configurazione quorum** . In Gestione cluster di failover la configurazione quorum di base viene visualizzata nelle informazioni di riepilogo per il cluster selezionato. in alternativa, è possibile esaminare le informazioni sulle risorse del quorum restituite quando si esegue il cmdlet [Get-ClusterQuorum](https://docs.microsoft.com/powershell/module/failoverclusters/get-clusterquorum?view=win10-ps) di Windows PowerShell.
 
 In qualsiasi momento è possibile eseguire il test **Convalida configurazione quorum** per confermare che la configurazione del quorum è ottimale per il cluster. L'output del test indica se è consigliabile una modifica nella configurazione quorum e mostra le impostazioni ottimali. Se è consigliata una modifica, è possibile usare la Configurazione guidata quorum del cluster per applicare le impostazioni consigliate.
 
@@ -125,7 +125,7 @@ Per eseguire questa procedura, è necessaria almeno l'appartenenza al gruppo **A
 ### <a name="change-the-quorum-configuration-in-a-failover-cluster-by-using-failover-cluster-manager"></a>Modificare la configurazione quorum in un cluster di failover utilizzando Gestione cluster di failover
 
 1. In Gestione cluster di failover selezionare o specificare il cluster da modificare.
-2. Con il cluster selezionato, in **azioni**selezionare **altre azioni**, quindi selezionare **Configura impostazioni quorum del cluster**. Sarà visualizzata la Configurazione guidata quorum del cluster. Selezionare **Avanti**.
+2. Con il cluster selezionato, in **azioni**selezionare **altre azioni**, quindi selezionare **Configura impostazioni quorum del cluster**. Sarà visualizzata la Configurazione guidata quorum del cluster. Seleziona **Avanti**.
 3. Nella pagina **Selezione opzione configurazione quorum** selezionare una delle tre opzioni di configurazione e completare i passaggi relativi all'opzione selezionata. Prima di configurare le impostazioni del quorum, è possibile verificare le opzioni disponibili. Per ulteriori informazioni sulle opzioni, vedere [informazioni sul quorum](#understanding-quorum), più indietro in questo argomento.
 
     - Per consentire al cluster di reimpostare automaticamente le impostazioni del quorum ottimali per la configurazione corrente del cluster, selezionare **Usa impostazioni tipiche** e quindi completare la procedura guidata.
@@ -155,9 +155,9 @@ Per eseguire questa procedura, è necessaria almeno l'appartenenza al gruppo **A
       4. Se si seleziona l'opzione per la configurazione di un disco di controllo, nella pagina **Configurazione risorsa di archiviazione di controllo** selezionare il volume di archiviazione da assegnare come disco di controllo e quindi completare la procedura guidata.
       5. Se si seleziona l'opzione per la configurazione di una condivisione file di controllo, nella pagina **Configurazione condivisione file di controllo** digitare o selezionare una condivisione file che sarà usata come risorsa di controllo, quindi completare la procedura guidata.
 
-4. Selezionare **Avanti**. Confermare le selezioni nella pagina di conferma visualizzata, quindi fare clic su **Avanti**.
+4. Seleziona **Avanti**. Confermare le selezioni nella pagina di conferma visualizzata, quindi fare clic su **Avanti**.
 
-Quando viene eseguita la procedura guidata e viene visualizzata la pagina **Riepilogo** , se si desidera visualizzare un report delle attività eseguite dalla procedura guidata, selezionare **Visualizza report**. Il report più recente rimarrà nella cartella <em>systemroot</em> **\\Cluster @ no__t-3Reports** con il nome **QuorumConfiguration. mht**.
+Quando viene eseguita la procedura guidata e viene visualizzata la pagina **Riepilogo** , se si desidera visualizzare un report delle attività eseguite dalla procedura guidata, selezionare **Visualizza report**. Il report più recente rimarrà nella cartella <em>systemroot</em> **\\cluster\\Reports** con il nome **QuorumConfiguration. mht**.
 
 > [!NOTE]
 > Dopo la configurazione del quorum del cluster, è consigliabile eseguire il test **Convalida configurazione quorum** per verificare le impostazioni aggiornate del quorum.
@@ -178,7 +178,7 @@ L'esempio seguente modifica la configurazione quorum nel cluster locale in una c
 Set-ClusterQuorum -NodeAndDiskMajority "Cluster Disk 2"
 ```
 
-L'esempio seguente modifica la configurazione quorum nel cluster locale in una configurazione a maggioranza di nodi con configurazione di controllo. La risorsa di condivisione file denominata *\\ @ no__t-2CONTOSO-FS @ no__t-3fsw* è configurata come condivisione file di controllo.
+L'esempio seguente modifica la configurazione quorum nel cluster locale in una configurazione a maggioranza di nodi con configurazione di controllo. La risorsa di condivisione file denominata *\\\\contoso-FS\\FSW* è configurata come condivisione file di controllo.
 
 ```PowerShell
 Set-ClusterQuorum -NodeAndFileShareMajority "\\fileserver\fsw"
@@ -280,7 +280,7 @@ In questa configurazione il cluster è costituito da due o più siti che possono
 
 La tabella seguente include un riepilogo di considerazioni e suggerimenti per questa configurazione.
 
-| Elemento  | Descrizione  |
+| Item  | Descrizione  |
 | ---------| ---------|
 | Numero di voti di nodo per sito     | Deve essere uguale       |
 | Assegnazione di voti al nodo     |  Non rimuovere voti di nodo perché tutti i nodi sono ugualmente importanti       |
@@ -298,7 +298,7 @@ In questa configurazione il cluster è costituito da un sito primario, *SiteA*, 
 
 La tabella seguente include un riepilogo di considerazioni e suggerimenti per questa configurazione.
 
-| Elemento   |Descrizione  |
+| Item   |Descrizione  |
 | ---------| ---------|
 | Numero di voti di nodo per sito     |  <ul><li> I voti di nodo non devono essere rimossi dai nodi nel sito primario, **SiteA**</li><li>I voti di nodo devono essere rimossi dai nodi nel sito di backup, **SiteB**</li><li>In caso di interruzione a lungo termine in **SiteA**, i voti devono essere assegnati ai nodi in **SiteB** per abilitare una maggioranza del quorum in tale sito come parte del ripristino.</li>       |
 | Gestione dinamica del quorum     |  Deve essere abilitata       |
@@ -310,7 +310,7 @@ La tabella seguente include un riepilogo di considerazioni e suggerimenti per qu
 - Solo i nodi in *SiteA* sono configurati inizialmente con voti di quorum. Ciò è necessario per assicurare che lo stato dei nodi in *SiteB* non influisca sul quorum del cluster.
 - La procedura di ripristino dipende dalla capacità di *SiteA* di sostenere un errore temporaneo o un errore a lungo termine.
 
-## <a name="more-information"></a>Altre informazioni
+## <a name="more-information"></a>Ulteriori informazioni
 
 * [Clustering di failover](failover-clustering.md)
 * [Cmdlet di Windows PowerShell per i cluster di failover](https://docs.microsoft.com/powershell/module/failoverclusters/?view=win10-ps)

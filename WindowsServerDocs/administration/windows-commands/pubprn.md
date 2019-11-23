@@ -22,7 +22,7 @@ ms.locfileid: "71372008"
 ---
 # <a name="pubprn"></a>pubprn
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Pubblica una stampante in servizi di dominio Active Directory.
 
@@ -37,26 +37,26 @@ cscript pubprn {<ServerName> | <UNCprinterpath>}
 |-------|--------|
 |\<ServerName >|Specifica il nome del server Windows che ospita la stampante che si desidera pubblicare. Se non si specifica un computer, viene usato il computer locale.|
 |\<UNCprinterpath >|Percorso Universal Naming Convention (UNC) della stampante condivisa che si desidera pubblicare.|
-|"LDAP://CN = <Container>, DC = <Container>"|Specifica il percorso del contenitore in servizi di dominio Active Directory in cui si desidera pubblicare la stampante.|
+|"LDAP://CN =<Container>, DC =<Container>"|Specifica il percorso del contenitore in servizi di dominio Active Directory in cui si desidera pubblicare la stampante.|
 |/?|Visualizza la guida al prompt dei comandi.|
 
-## <a name="remarks"></a>Note
--   Il comando **pubprn** è uno script Visual Basic che si trova nella directory%WINdir%\System32\printing_Admin_Scripts @ no__t-1 @ no__t-2. Per usare questo comando, al prompt dei comandi digitare **cscript** seguito dal percorso completo del file pubprn o passare alla cartella appropriata. Esempio:
+## <a name="remarks"></a>Osservazioni
+-   Il comando **pubprn** è uno script Visual Basic che si trova nella directory%windir%\system32\. printing_Admin_Scripts\\<language>. Per usare questo comando, al prompt dei comandi digitare **cscript** seguito dal percorso completo del file pubprn o passare alla cartella appropriata. Ad esempio:
     ```
     cscript %WINdir%\System32\printing_Admin_Scripts\en-US\pubprn
     ```
 -   Se le informazioni fornite contengono spazi, racchiudere il testo tra virgolette, ad esempio `"computer Name"`.
 
 ## <a name="BKMK_examples"></a>Esempi
-Per pubblicare tutte le stampanti nel computer \\ \ server1 nel contenitore di contenitori del dominio MyDomain.company.Com, digitare:
+Per pubblicare tutte le stampanti nel computer \\\Server1 nel contenitore di contenitori di dominio MyDomain.company.Com, digitare:
 ```
 cscript Ppubprn Server1 "LDAP://CN=MyContainer,DC=MyDomain,DC=company,DC=Com"
 ```
-Per pubblicare la stampante stampa laserprinter1 nel server \\ \ server1 nel contenitore di contenitori del dominio MyDomain.company.Com, digitare:
+Per pubblicare la stampante stampa laserprinter1 nel server di \\\Server1 nel contenitore di contenuti del dominio MyDomain.company.Com, digitare:
 ```
 cscript Ppubprn \\Server1\Laserprinter1 "LDAP://CN=MyContainer,DC=MyDomain,DC=company,DC=Com"
 ```
 
-#### <a name="additional-references"></a>Riferimenti aggiuntivi
-Informazioni di[riferimento sui comandi di stampa](print-command-reference.md) 
- per la sintassi della riga di [comando](command-line-syntax-key.md)
+#### <a name="additional-references"></a>riferimenti aggiuntivi
+[Chiave della sintassi della riga di comando](command-line-syntax-key.md)
+[riferimento al comando stampa](print-command-reference.md)

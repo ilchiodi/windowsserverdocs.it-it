@@ -53,7 +53,7 @@ Per elencare gli elementi del backup eseguito il 31 marzo 2013 alle 9:00, digita
 ```
 wbadmin get items -version:03/31/2013-09:00
 ```
-Per elencare gli elementi del backup di Server01 eseguito il 30 aprile 2013 alle 9:00. e archiviato in \\ @ no__t-1servername\share, digitare:
+Per elencare gli elementi del backup di Server01 eseguito il 30 aprile 2013 alle 9:00. e archiviato in \\\\servername\share, digitare:
 ```
 wbadmin get items -version:04/30/2013-09:00 -backupTarget:\\servername\share -machine:server01
 ```

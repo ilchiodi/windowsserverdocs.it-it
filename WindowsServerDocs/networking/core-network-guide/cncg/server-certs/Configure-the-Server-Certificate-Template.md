@@ -19,7 +19,7 @@ ms.locfileid: "71356765"
 
 >Si applica a: Windows Server (Canale semestrale), Windows Server 2016
 
-È possibile utilizzare questa procedura per configurare il modello di certificato utilizzato da Active Directory Servizi certificati @ no__t-0 (AD CS) come base per i certificati server registrati nei server della rete.  
+È possibile utilizzare questa procedura per configurare il modello di certificato utilizzato da Active Directory&reg; Servizi certificati (AD CS) come base per i certificati server registrati nei server della rete.  
   
 Durante la configurazione di questo modello, è possibile specificare i server per Active Directory gruppo che deve ricevere automaticamente un certificato server da AD CS.   
   

@@ -17,7 +17,7 @@ ms.locfileid: "71394163"
 ---
 # <a name="create-a-quota-template"></a>Creare un modello quota
 
-> Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2
+> Si applica a: Windows Server (Canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2
 
 In un *modello quota* vengono definiti il limite di spazio, il tipo di quota (rigida o flessibile) e facoltativamente un insieme di notifiche da generare automaticamente quando vengono raggiunti i limiti di soglia per l'utilizzo delle quote.
 
@@ -67,7 +67,7 @@ Ad esempio, è possibile configurare le soglie per inviare un messaggio di posta
 
    - Per inviare notifiche agli amministratori quando viene raggiunta una soglia, selezionare la casella di controllo **Invia posta elettronica agli amministratori seguenti** e quindi immettere i nomi degli account amministrativi che riceveranno le notifiche. Usare il formato <em>account@domain</em> e separare gli account con un punto e virgola.
    - Per inviare messaggi di posta elettronica alla persona che ha salvato il file che ha raggiunto la soglia di quota, selezionare la casella di controllo **Invia messaggio di posta elettronica all'utente che ha superato la soglia**.
-   - Per configurare il messaggio, modificare la riga dell'oggetto e il corpo del messaggio predefiniti forniti. Il testo tra parentesi quadre inserisce informazioni sulle variabili in relazione all'evento di quota che ha generato la notifica. Ad esempio, la variabile **\[Source Io Owner @ no__t-2** inserisce il nome dell'utente che ha salvato il file che ha raggiunto la soglia di quota. Per inserire altre variabili nel testo, fare clic su **Inserisci variabile**.
+   - Per configurare il messaggio, modificare la riga dell'oggetto e il corpo del messaggio predefiniti forniti. Il testo tra parentesi quadre inserisce informazioni sulle variabili in relazione all'evento di quota che ha generato la notifica. Ad esempio, il **proprietario di io di origine\[\]** variabile inserisce il nome dell'utente che ha salvato il file che ha raggiunto la soglia di quota. Per inserire altre variabili nel testo, fare clic su **Inserisci variabile**.
    - Per configurare le intestazioni aggiuntive (inclusi i campi Da, Cc, Ccn e Rispondi a), fare clic su **Intestazioni messaggio aggiuntive**.
 
 4. Per registrare un evento:
@@ -88,7 +88,7 @@ Ad esempio, è possibile configurare le soglie per inviare un messaggio di posta
 
 8. Ripetere questi passaggi se si desidera configurare soglie di notifica aggiuntive per il modello quota.
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 -   [Gestione delle quote](quota-management.md)
 -    [Impostazione delle opzioni di Gestione risorse file server](setting-file-server-resource-manager-options.md)

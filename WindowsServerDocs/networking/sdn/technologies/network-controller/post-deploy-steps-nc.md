@@ -19,11 +19,11 @@ ms.locfileid: "71355622"
 
 Quando si installa il controller di rete, è possibile scegliere le distribuzioni Kerberos o non Kerberos.
 
-Per le distribuzioni non @ no__t-0Kerberos, è necessario configurare i certificati.
+Per le distribuzioni non\-Kerberos, è necessario configurare i certificati.
 
 ## <a name="configure-certificates-for-non-kerberos-deployments"></a>Configurare i certificati per le distribuzioni non Kerberos
 
-Se i computer o le macchine virtuali \(VMs @ no__t-1 per il controller di rete e il client di gestione non sono Domain @ no__t-2joined, è necessario configurare l'autenticazione del certificato @ no__t-3based completando i passaggi seguenti.
+Se i computer o le macchine virtuali \(VM\) per il controller di rete e il client di gestione non sono aggiunti a un dominio\-, è necessario configurare l'autenticazione basata su\-dei certificati completando i passaggi seguenti.
 
 - Creare un certificato nel controller di rete per l'autenticazione del computer. Il nome del soggetto del certificato deve corrispondere al nome DNS del computer o della macchina virtuale del controller di rete.
 
@@ -31,7 +31,7 @@ Se i computer o le macchine virtuali \(VMs @ no__t-1 per il controller di rete e
   
 - Registrare un certificato nel computer del controller di rete o nella macchina virtuale. Il certificato deve soddisfare i requisiti seguenti.
   
-    -  Sia lo scopo di autenticazione del server che lo scopo di autenticazione client devono essere configurati in utilizzo chiavi avanzato \(EKU @ no__t-1 o estensioni criteri di applicazione. L'identificatore di oggetto per l'autenticazione del server è 1.3.6.1.5.5.7.3.1. L'identificatore di oggetto per l'autenticazione client è 1.3.6.1.5.5.7.3.2.
+    -  Sia lo scopo di autenticazione del server che lo scopo di autenticazione client devono essere configurati in utilizzo chiavi avanzato \(\) EKU o estensioni di criteri di applicazione. L'identificatore di oggetto per l'autenticazione del server è 1.3.6.1.5.5.7.3.1. L'identificatore di oggetto per l'autenticazione client è 1.3.6.1.5.5.7.3.2.
   
     - Il nome del soggetto del certificato deve essere risolto in:
   

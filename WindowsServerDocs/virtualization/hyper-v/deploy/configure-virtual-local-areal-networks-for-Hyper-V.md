@@ -19,7 +19,7 @@ ms.lasthandoff: 09/27/2019
 ms.locfileid: "71364284"
 ---
 # <a name="configure-virtual-local-area-networks-for-hyper-v"></a>Configurare le reti locali virtuali per Hyper-V
-Le reti locali virtuali \(VLANs @ no__t-1 offrono un modo per isolare il traffico di rete. Le VLAN sono configurate in commutatori e router che supportano 802.1 q. Se si configurano più VLAN e si desidera che si verifichi la comunicazione tra di esse, sarà necessario configurare i dispositivi di rete in modo da consentirne l'esecuzione. 
+Le reti locali virtuali \(VLAN\) offrono un modo per isolare il traffico di rete. Le VLAN sono configurate in commutatori e router che supportano 802.1 q. Se si configurano più VLAN e si desidera che si verifichi la comunicazione tra di esse, sarà necessario configurare i dispositivi di rete in modo da consentirne l'esecuzione. 
 
 Per configurare le VLAN, è necessario quanto segue:  
   
@@ -30,7 +30,7 @@ Nell'host verrà configurato il Commuter virtuale per consentire il traffico di 
   
 #### <a name="to-allow-a-virtual-switch-to-use-a-vlan"></a>Per consentire a un commutire virtuale di usare una VLAN  
   
-1.  Aprire Hyper @ no__t-0V Manager.  
+1.  Aprire la console di gestione di Hyper\-V.  
   
 2.  Scegliere **gestione Commutiri virtuali**dal menu azioni.  
   
@@ -42,7 +42,7 @@ Nell'host verrà configurato il Commuter virtuale per consentire il traffico di 
   
 #### <a name="to-allow-a-virtual-machine-to-use-a-vlan"></a>Per consentire a una macchina virtuale di usare una VLAN  
   
-1.  Aprire Hyper @ no__t-0V Manager.  
+1.  Aprire la console di gestione di Hyper\-V.  
   
 2.  Nel riquadro dei risultati, in **macchine virtuali**, selezionare la macchina virtuale appropriata e quindi fare clic con il pulsante destro del mouse su **Impostazioni**.  
 
@@ -54,8 +54,8 @@ Se la macchina virtuale deve usare più VLAN, eseguire una delle operazioni segu
   
 -   Connettere più schede di rete virtuali ai commutatori virtuali appropriati e assegnare gli ID VLAN. Assicurarsi di configurare correttamente gli indirizzi IP e che il traffico che si vuole indirizzare tramite la VLAN usi anche l'indirizzo IP corretto.  
   
--   Configurare la scheda di Word della rete virtuale in modalità trunk usando il [set @ no__t-1VMNetworkAdapterVlan](https://technet.microsoft.com/library/hh848475.aspx) cmdlet.
+-   Configurare la scheda di Word della rete virtuale in modalità trunk usando il [Set\-VMNetworkAdapterVlan](https://technet.microsoft.com/library/hh848475.aspx) cmdlet.
   
-## <a name="see-also"></a>Vedere anche  
+## <a name="see-also"></a>Vedi anche  
  
-[Commuter virtuale Hyper @ no__t-1V](https://technet.microsoft.com/windows-server-docs/networking/technologies/hyper-v-virtual-switch/hyper-v-virtual-switch)
+[Commuter virtuale Hyper\-V](https://technet.microsoft.com/windows-server-docs/networking/technologies/hyper-v-virtual-switch/hyper-v-virtual-switch)

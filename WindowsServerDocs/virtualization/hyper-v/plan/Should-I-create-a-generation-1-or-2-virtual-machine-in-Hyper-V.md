@@ -20,7 +20,7 @@ ms.locfileid: "71364083"
 ---
 # <a name="should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v"></a>È necessario creare una macchina virtuale di generazione 1 o 2 in Hyper-V?
 
->Si applica a: Windows 10, Windows Server 2016, Microsoft Hyper-V Server 2016, Windows Server 2019 Microsoft Hyper-V Server 2019
+>Si applica a: Windows 10, Windows Server 2016, Microsoft Hyper-V Server 2016, Windows Server 2019, Microsoft Hyper-V Server 2019
 
 > [!NOTE]
 > Se si prevede di caricare sempre una macchina virtuale (VM) Windows da locale a Microsoft Azure, le VM di prima e di seconda generazione nel formato di file VHD e sono supportati un disco a dimensione fissa. Per altre informazioni sulle funzionalità di generazione 2 supportate in Azure, vedere [macchine virtuali di seconda generazione in Azure](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2) . Per ulteriori informazioni sul caricamento di un disco rigido virtuale Windows o VHDX, vedere [preparare un disco rigido virtuale Windows o VHDX per il caricamento in Azure](https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image).
@@ -60,7 +60,7 @@ La tabella seguente illustra le versioni di Windows a 64 bit che è possibile us
 |versioni di Windows a 64 bit|Prima generazione|Seconda generazione|  
 |-------------------------------|----------------|----------------|  
 | Windows Server 2019 |&#10004;|&#10004;|  
-| Windows Server 2016 |&#10004;|&#10004;|  
+| Windows Server 2016 |&#10004;|&#10004;|  
 | Windows Server 2012 R2 |&#10004;|&#10004;|  
 | Windows Server 2012 |&#10004;|&#10004;|  
 |Windows Server 2008 R2|&#10004;| &#10006;|  
@@ -81,7 +81,7 @@ La tabella seguente illustra le versioni di Windows a 32 bit che è possibile us
 
 ### <a name="centos-and-red-hat-enterprise-linux-guest-operating-system-support"></a>Supporto del sistema operativo guest CentOS e Red Hat Enterprise Linux
 
-La tabella seguente illustra le versioni di Red Hat Enterprise Linux \(RHEL @ no__t-1 e CentOS che è possibile usare come sistema operativo guest per le macchine virtuali di prima e seconda generazione.
+La tabella seguente illustra le versioni di Red Hat Enterprise Linux \(RHEL\) e CentOS che è possibile usare come sistema operativo guest per le macchine virtuali di prima e seconda generazione.
 
 |Versioni del sistema operativo|Prima generazione|Seconda generazione|  
 |-----------------------------|----------------|----------------|  
@@ -251,7 +251,7 @@ Per aggiungere una porta COM:
 > [!NOTE]  
 > Le porte COM configurate non sono elencate nelle impostazioni di una macchina virtuale nella console di gestione di Hyper-V.
 
-## <a name="see-also"></a>Vedere anche  
+## <a name="see-also"></a>Vedi anche  
 
 - [Macchine virtuali Linux e FreeBSD in Hyper-V](../Supported-Linux-and-FreeBSD-virtual-machines-for-Hyper-V-on-Windows.md)
 - [Usare le risorse locali nella macchina virtuale Hyper-V con VMConnect](../learn-more/Use-local-resources-on-Hyper-V-virtual-machine-with-VMConnect.md)

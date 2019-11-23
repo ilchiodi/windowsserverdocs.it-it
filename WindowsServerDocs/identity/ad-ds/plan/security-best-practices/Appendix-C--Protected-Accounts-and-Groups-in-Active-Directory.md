@@ -16,11 +16,11 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 09/27/2019
 ms.locfileid: "71408729"
 ---
-# <a name="appendix-c-protected-accounts-and-groups-in-active-directory"></a>Appendice C: Account e gruppi protetti in Active Directory
+# <a name="appendix-c-protected-accounts-and-groups-in-active-directory"></a>Appendice C: Account protetti e gruppi in Active Directory
 
 >Si applica a: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-## <a name="appendix-c-protected-accounts-and-groups-in-active-directory"></a>Appendice C: Account e gruppi protetti in Active Directory
+## <a name="appendix-c-protected-accounts-and-groups-in-active-directory"></a>Appendice C: Account protetti e gruppi in Active Directory
 
 All'interno Active Directory, un set predefinito di account e gruppi con privilegi elevati viene considerato come account e gruppi protetti. Con la maggior parte degli oggetti in Active Directory, gli amministratori delegati (gli utenti a cui sono state delegate le autorizzazioni per la gestione di oggetti Active Directory) possono modificare le autorizzazioni per gli oggetti, inclusa la modifica delle autorizzazioni per consentire la modifica delle appartenenze di i gruppi, ad esempio.  
 
@@ -32,7 +32,7 @@ La tabella seguente contiene i gruppi protetti in Active Directory elencati dal 
 
 #### <a name="protected-accounts-and-groups-in-active-directory-by-operating-system"></a>Account e gruppi protetti in Active Directory dal sistema operativo
 
-| Windows Server 2003 RTM | Windows Server 2003 SP1 + | Windows Server 2012, <br> Windows Server 2008 R2, <br> Windows Server 2008 | Windows Server 2016 |
+| Windows Server 2003 RTM | Windows Server 2003 SP1 + | Windows Server 2012, <br> Windows Server 2008 R2, <br> Windows Server 2008 | Windows Server 2016 |
 | --- | --- | --- | --- |
 |Account Operators|Account Operators|Account Operators|Account Operators|
 |Administrator|Administrator|Administrator|Administrator|
@@ -88,11 +88,11 @@ Le procedure per l'esecuzione manuale di SDProp nei sistemi operativi precedenti
 
    ![account e gruppi protetti](media/Appendix-C--Protected-Accounts-and-Groups-in-Active-Directory/SAD_10.png)  
 
-4. Verificare che la connessione sia stata eseguita correttamente, come indicato da **Dn: (RootDSE)**  nella schermata seguente, fare clic su **connessione** e quindi su **associa**.  
+4. Verificare che la connessione sia stata eseguita correttamente, come indicato da **DN: (RootDSE)** nello screenshot seguente, fare clic su **connessione** e fare clic su **associa**.  
 
    ![account e gruppi protetti](media/Appendix-C--Protected-Accounts-and-Groups-in-Active-Directory/SAD_11.png)  
 
-5. Nella finestra di dialogo **associa** Digitare le credenziali di un account utente che dispone dell'autorizzazione per modificare l'oggetto RootDSE. Se si è connessi con tale utente, è possibile selezionare **associa come** utente attualmente connesso. Scegliere **OK**.  
+5. Nella finestra di dialogo **associa** Digitare le credenziali di un account utente che dispone dell'autorizzazione per modificare l'oggetto RootDSE. Se si è connessi con tale utente, è possibile selezionare **associa come** utente attualmente connesso. Fare clic su **OK**.  
 
    ![account e gruppi protetti](media/Appendix-C--Protected-Accounts-and-Groups-in-Active-Directory/SAD_12.png)  
 
@@ -107,7 +107,7 @@ Le procedure per l'esecuzione manuale di SDProp nei sistemi operativi precedenti
 8. Nella finestra di dialogo modifica compilata fare clic su Esegui e verificare che le modifiche apportate all'oggetto AdminSDHolder siano visualizzate su tale oggetto.  
 
 > [!NOTE]  
-> Per informazioni sulla modifica di AdminSDHolder per consentire agli account senza privilegi designati di modificare l'appartenenza dei gruppi protetti, vedere [Appendix I: Creazione di account di gestione per account e gruppi protetti in Active Directory @ no__t-0.  
+> Per informazioni sulla modifica di AdminSDHolder per consentire agli account senza privilegi designati di modificare l'appartenenza dei gruppi protetti, vedere [appendice I: creazione di account di gestione per gli account protetti e i gruppi in Active Directory](../../../ad-ds/manage/component-updates/Appendix-I--Creating-Management-Accounts-for-Protected-Accounts-and-Groups-in-Active-Directory.md).  
 
 Se si preferisce eseguire manualmente SDProp tramite LDIFDE o uno script, è possibile creare una voce di modifica, come illustrato di seguito:  
 
@@ -127,11 +127,11 @@ Se si preferisce eseguire manualmente SDProp tramite LDIFDE o uno script, è pos
 
    ![account e gruppi protetti](media/Appendix-C--Protected-Accounts-and-Groups-in-Active-Directory/SAD_17.gif)  
 
-4. Verificare che la connessione sia stata eseguita correttamente, come indicato da **Dn: (RootDSE)**  nella schermata seguente, fare clic su **connessione** e quindi su **associa**.  
+4. Verificare che la connessione sia stata eseguita correttamente, come indicato da **DN: (RootDSE)** nello screenshot seguente, fare clic su **connessione** e fare clic su **associa**.  
 
    ![account e gruppi protetti](media/Appendix-C--Protected-Accounts-and-Groups-in-Active-Directory/SAD_18.gif)  
 
-5. Nella finestra di dialogo **associa** Digitare le credenziali di un account utente che dispone dell'autorizzazione per modificare l'oggetto RootDSE. Se si è connessi con tale utente, è possibile selezionare **associa come utente attualmente connesso**. Scegliere **OK**.  
+5. Nella finestra di dialogo **associa** Digitare le credenziali di un account utente che dispone dell'autorizzazione per modificare l'oggetto RootDSE. Se si è connessi con tale utente, è possibile selezionare **associa come utente attualmente connesso**. Fare clic su **OK**.  
 
    ![account e gruppi protetti](media/Appendix-C--Protected-Accounts-and-Groups-in-Active-Directory/SAD_19.gif)  
 

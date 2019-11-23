@@ -21,7 +21,7 @@ ms.locfileid: "71405478"
 
 È possibile utilizzare questo argomento per creare e configurare i criteri di richiesta di connessione che definiscono se il server dei criteri di server locale elabora le richieste di connessione o le invia al server RADIUS remoto per l'elaborazione.
 
-I criteri di richiesta di connessione sono set di condizioni e impostazioni che consentono agli amministratori di rete di designare i server Remote Authentication Dial-In User Service (RADIUS) che eseguono l'autenticazione e l'autorizzazione delle richieste di connessione il server che esegue il server dei criteri di rete \(NPS @ no__t-1 riceve da client RADIUS.
+I criteri di richiesta di connessione sono set di condizioni e impostazioni che consentono agli amministratori di rete di designare i server Remote Authentication Dial-In User Service (RADIUS) che eseguono l'autenticazione e l'autorizzazione delle richieste di connessione che il server che esegue Server dei criteri di rete \(NPS\) riceve dai client RADIUS.
 
 Il criterio di richiesta di connessione predefinito usa NPS come server RADIUS ed elabora tutte le richieste di autenticazione in locale.
 

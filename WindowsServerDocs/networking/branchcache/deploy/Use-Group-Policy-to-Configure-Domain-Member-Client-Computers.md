@@ -39,13 +39,13 @@ In questa sezione contiene le procedure seguenti.
   
 1.  In un computer su cui è installato il ruolo server Servizi di dominio Active Directory, in Server Manager, fare clic su **strumenti**, quindi fare clic su **Gestione criteri di gruppo**. Viene aperta la console di gestione Criteri di gruppo.  
   
-2.  Nella console Gestione Criteri di gruppo espandere il percorso seguente: **Foresta:** *example.com*, **domini**, *example.com*, **criteri di gruppo oggetti**, dove *example.com* è il nome del dominio in cui si trovano gli account di computer client BranchCache che si desidera configurare.  
+2.  Nella console di gestione di Criteri di gruppo espandere il percorso seguente: **foresta:** *example.com*, **domini**, *example.com*, **criteri di gruppo oggetti**, dove *example.com* è il nome del dominio in cui si trovano gli account computer client BranchCache che si desidera configurare.  
   
-3.  Fare doppio clic su **oggetti Criteri di gruppo**, quindi fare clic su **nuovo**. Verrà visualizzata la finestra di dialogo **Nuovo oggetto Criteri di gruppo**. In **nome**, digitare un nome per il nuovo oggetto (criteri di gruppo). Ad esempio, se si desidera assegnare all'oggetto il nome Computer client con BranchCache, digitare **Computer client con BranchCache**. Fare clic su **OK**.  
+3.  Fare doppio clic su **oggetti Criteri di gruppo**, quindi fare clic su **nuovo**. Verrà visualizzata la finestra di dialogo **Nuovo oggetto Criteri di gruppo**. In **nome**, digitare un nome per il nuovo oggetto (criteri di gruppo). Ad esempio, se si desidera assegnare all'oggetto il nome Computer client con BranchCache, digitare **Computer client con BranchCache**. Fai clic su **OK**.  
   
 4.  Nella console Gestione criteri di gruppo, assicurarsi che **oggetti Criteri di gruppo** sia selezionata e nel riquadro dei dettagli fare doppio clic su oggetto Criteri di gruppo appena creato. Ad esempio, se è denominato computer Client BranchCache oggetto Criteri di gruppo, fare doppio clic su **computer Client con BranchCache**. Fare clic su **modificare**. Si apre la console Editor Gestione Criteri di gruppo.  
   
-5.  Nella console di Editor Gestione Criteri di gruppo espandere il percorso seguente: **Configurazione computer**, **Criteri**, **Modelli amministrativi: Definizioni dei criteri (file ADMX) recuperate dal computer locale @ no__t-0, **rete**, **BranchCache**.  
+5.  Nella console di Editor Gestione criteri di gruppo, espandere il percorso seguente: **Configurazione Computer**, **criteri**, **modelli amministrativi: definizioni di criteri (file ADMX) recuperate dal computer locale**, **rete**, **BranchCache**.  
   
 6.  Fare clic su **BranchCache**, quindi nel riquadro dei dettagli, fare doppio clic su **Attiva BranchCache**. Verrà visualizzata la finestra di dialogo impostazione criterio.  
   
@@ -66,15 +66,15 @@ In questa sezione contiene le procedure seguenti.
   
 ## <a name="bkmk_inbound"></a>Per configurare Windows Firewall con regole di traffico in ingresso con sicurezza avanzata  
   
-1.  Nella console Gestione Criteri di gruppo espandere il percorso seguente: **Foresta:** *example.com*, **domini**, *example.com*, **criteri di gruppo oggetti**, dove *example.com* è il nome del dominio in cui si trovano gli account di computer client BranchCache che si desidera configurare.  
+1.  Nella console di gestione di Criteri di gruppo espandere il percorso seguente: **foresta:** *example.com*, **domini**, *example.com*, **criteri di gruppo oggetti**, dove *example.com* è il nome del dominio in cui si trovano gli account computer client BranchCache che si desidera configurare.  
   
 2.  Nella console Gestione criteri di gruppo, assicurarsi che **oggetti Criteri di gruppo** sia selezionata e nel riquadro dei dettagli fare doppio clic su computer client con BranchCache oggetto Criteri di gruppo creato in precedenza. Ad esempio, se è denominato computer Client BranchCache oggetto Criteri di gruppo, fare doppio clic su **computer Client con BranchCache**. Fare clic su **modificare**. Si apre la console Editor Gestione Criteri di gruppo.  
   
-3.  Nella console di Editor Gestione Criteri di gruppo espandere il percorso seguente: **Configurazione computer**, **criteri**, **impostazioni di Windows**, **impostazioni di sicurezza**, **Windows Firewall con sicurezza avanzata**, **Windows Firewall con sicurezza avanzata-LDAP**, regole in **ingresso**.  
+3.  Nella console di Editor Gestione criteri di gruppo, espandere il percorso seguente: **Configurazione Computer**, **criteri**, **le impostazioni di Windows**, **le impostazioni di sicurezza**, **Windows Firewall con sicurezza avanzata**, **Windows Firewall con sicurezza avanzata - LDAP**, **Regole connessioni in entrata**.  
   
 4.  Fare clic con il pulsante destro del mouse su **Regole in entrata** e quindi scegliere **Nuova regola**. Verrà visualizzata la Creazione guidata nuova regola connessioni in entrata.  
   
-5.  In **tipo di regola**, fare clic su **predefinito**, espandere l'elenco di scelte e quindi fare clic su **BranchCache - recupero contenuto (utilizza HTTP)** . Fare clic su **Avanti**.  
+5.  In **tipo di regola**, fare clic su **predefinito**, espandere l'elenco di scelte e quindi fare clic su **BranchCache - recupero contenuto (utilizza HTTP)** . Fai clic su **Next**.  
   
 6.  In **regole predefinite**, fare clic su **Avanti**.  
   
@@ -85,7 +85,7 @@ In questa sezione contiene le procedure seguenti.
   
 8.  Per creare l'eccezione del firewall WS-Discovery, fare nuovamente clic con il pulsante destro del mouse su **Regole in entrata**, quindi scegliere **Nuova regola**. Verrà visualizzata la Creazione guidata nuova regola connessioni in entrata.  
   
-9. In **tipo di regola**, fare clic su **predefinito**, espandere l'elenco di scelte e quindi fare clic su **BranchCache - individuazione Peer (utilizza WSD)** . Fare clic su **Avanti**.  
+9. In **tipo di regola**, fare clic su **predefinito**, espandere l'elenco di scelte e quindi fare clic su **BranchCache - individuazione Peer (utilizza WSD)** . Fai clic su **Next**.  
   
 10. In **regole predefinite**, fare clic su **Avanti**.  
   
@@ -98,7 +98,7 @@ In questa sezione contiene le procedure seguenti.
   
 1.  Nella console Editor Gestione Criteri di gruppo fare clic con il pulsante destro del mouse su **Regole in uscita** e quindi scegliere **Nuova regola**. Verrà visualizzata la Creazione guidata nuova regola connessioni in uscita.  
   
-2.  In **tipo di regola**, fare clic su **predefinito**, espandere l'elenco di scelte e quindi fare clic su **BranchCache - recupero contenuto (utilizza HTTP)** . Fare clic su **Avanti**.  
+2.  In **tipo di regola**, fare clic su **predefinito**, espandere l'elenco di scelte e quindi fare clic su **BranchCache - recupero contenuto (utilizza HTTP)** . Fai clic su **Next**.  
   
 3.  In **regole predefinite**, fare clic su **Avanti**.  
   
@@ -109,7 +109,7 @@ In questa sezione contiene le procedure seguenti.
   
 5.  Per creare l'eccezione del firewall WS-Discovery, fare nuovamente clic con il pulsante destro del mouse su **Regole in uscita**, quindi scegliere **Nuova regola**. Verrà visualizzata la Creazione guidata nuova regola connessioni in uscita.  
   
-6.  In **tipo di regola**, fare clic su **predefinito**, espandere l'elenco di scelte e quindi fare clic su **BranchCache - individuazione Peer (utilizza WSD)** . Fare clic su **Avanti**.  
+6.  In **tipo di regola**, fare clic su **predefinito**, espandere l'elenco di scelte e quindi fare clic su **BranchCache - individuazione Peer (utilizza WSD)** . Fai clic su **Next**.  
   
 7.  In **regole predefinite**, fare clic su **Avanti**.  
   

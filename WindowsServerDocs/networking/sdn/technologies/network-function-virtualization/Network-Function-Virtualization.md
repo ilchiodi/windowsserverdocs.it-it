@@ -23,7 +23,7 @@ ms.locfileid: "71355655"
 
 >Si applica a: Windows Server (Canale semestrale), Windows Server 2016
 
-È possibile usare questo argomento per informazioni sulla virtualizzazione delle funzioni di rete, che consente di distribuire appliance di rete virtuale, ad esempio firewall del centro dati, gateway RAS multi-tenant e bilanciamento del carico software \(SLB @ no__t-1 multiplexer \(MUX @ No_ _T-3.
+È possibile usare questo argomento per informazioni sulla virtualizzazione delle funzioni di rete, che consente di distribuire appliance di rete virtuale, ad esempio firewall del centro dati, gateway RAS multi-tenant e bilanciamento del carico software \(SLB\) multiplexer \(MUX\).
   
 >[!NOTE]  
 >Oltre a questo argomento, è disponibile la seguente documentazione relativa alla virtualizzazione delle funzioni di rete.  
@@ -36,7 +36,7 @@ Nei data center definiti dal software odierno, le funzioni di rete eseguite da a
 Microsoft ha incluso un gateway autonomo come appliance virtuale a partire da Windows Server 2012 R2. Per altre informazioni, vedere [Windows Server Gateway](https://technet.microsoft.com/library/dn313101.aspx). Con Windows Server 2016 Microsoft continua ad espandersi e investire nel mercato della virtualizzazione delle funzioni di rete.  
   
 ## <a name="virtual-appliance-benefits"></a>Vantaggi dell'appliance virtuale  
-Un appliance virtuale è dinamico e facile da modificare perché si tratta di una macchina virtuale predefinita e personalizzata. Può trattarsi di una o più macchine virtuali in pacchetto, aggiornate e gestite come unità. Insieme a SDN (Software Defined Networking), avrai la flessibilità e la flessibilità necessarie nell'infrastruttura di oggi basata sul cloud. Esempio:  
+Un appliance virtuale è dinamico e facile da modificare perché si tratta di una macchina virtuale predefinita e personalizzata. Può trattarsi di una o più macchine virtuali in pacchetto, aggiornate e gestite come unità. Insieme a SDN (Software Defined Networking), avrai la flessibilità e la flessibilità necessarie nell'infrastruttura di oggi basata sul cloud. Ad esempio:  
   
 -   SDN presenta la rete come risorsa dinamica e in pool.  
   

@@ -18,7 +18,7 @@ ms.locfileid: "71358144"
 ---
 # <a name="create-a-rule-to-pass-through-or-filter-an-incoming-claim"></a>Creare una regola per Pass-Through o filtrare un'attestazione in ingresso
 
-Usando il pass-through o filtrare un modello di regola attestazione in ingresso in Active Directory Federation Services \(AD FS @ no__t-1, è possibile passare tutte le attestazioni in ingresso con un tipo di attestazione selezionato. È inoltre possibile filtrare i valori delle attestazioni in ingresso con un tipo di attestazione selezionato. Ad esempio, è possibile utilizzare questo modello di regola per creare una regola che invierà tutte le attestazioni di gruppo in ingresso. È anche possibile usare questa regola per inviare solo il nome dell'entità utente \(UPN @ no__t-1 attestazioni che terminano con @fabrikam.  
+Utilizzando il pass-through o filtrare un modello di regola attestazione in ingresso in Active Directory Federation Services \(AD FS\), è possibile passare tutte le attestazioni in ingresso con un tipo di attestazione selezionato. È inoltre possibile filtrare i valori delle attestazioni in ingresso con un tipo di attestazione selezionato. Ad esempio, è possibile utilizzare questo modello di regola per creare una regola che invierà tutte le attestazioni di gruppo in ingresso. È anche possibile usare questa regola per inviare solo il nome dell'entità utente \(UPN\) le attestazioni che terminano con @fabrikam.  
   
 È possibile utilizzare la procedura seguente per creare una regola attestazione con lo snap di gestione di ADFS\-in.  
   

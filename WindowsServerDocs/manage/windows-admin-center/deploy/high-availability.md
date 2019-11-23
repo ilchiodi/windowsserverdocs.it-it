@@ -9,7 +9,7 @@ ms.localizationpriority: medium
 ms.prod: windows-server
 ms.openlocfilehash: 6ae7bd9ed7aee5835ac1f53b9e10879ad8824f52
 ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 09/27/2019
 ms.locfileid: "71406947"
@@ -31,16 +31,16 @@ ms.locfileid: "71406947"
 
 ## <a name="install-windows-admin-center-on-a-failover-cluster"></a>Installare l'interfaccia di amministrazione di Windows in un cluster di failover
 
-1. Copiare lo script ```Install-WindowsAdminCenterHA.ps1``` in un nodo del cluster. Scaricare o copiare il file con estensione msi di Windows Admin Center nello stesso nodo.
+1. Copiare lo script di ```Install-WindowsAdminCenterHA.ps1``` in un nodo del cluster. Scaricare o copiare il file con estensione msi di Windows Admin Center nello stesso nodo.
 2. Connettersi al nodo tramite RDP ed eseguire lo script ```Install-WindowsAdminCenterHA.ps1``` da tale nodo con i parametri seguenti:
     - `-clusterStorage`: percorso locale della Volume condiviso cluster per archiviare i dati dell'interfaccia di amministrazione di Windows.
-    - `-clientAccessPoint`: scegliere un nome che si userà per accedere all'interfaccia di amministrazione di Windows. Se ad esempio si esegue lo script con il parametro `-clientAccessPoint contosoWindowsAdminCenter`, sarà possibile accedere al servizio Windows Admin Center visitando `https://contosoWindowsAdminCenter.<domain>.com`
-    - `-staticAddress`: Facoltativo. Uno o più indirizzi statici per il servizio generico cluster. 
-    - `-msiPath`: Percorso del file con estensione msi di Windows Admin Center.
-    - `-certPath`: Facoltativo. Percorso di un file con estensione pfx del certificato.
-    - `-certPassword`: Facoltativo. Una password SecureString per il certificato. pfx fornito in `-certPath`
-    - `-generateSslCert`: Facoltativo. Se non si desidera fornire un certificato firmato, includere questo flag di parametro per generare un certificato autofirmato. Si noti che il certificato autofirmato scadrà tra 60 giorni.
-    - `-portNumber`: Facoltativo. Se non si specifica una porta, il servizio gateway viene distribuito sulla porta 443 (HTTPS). Per usare una porta diversa, specificare in questo parametro. Si noti che se si usa una porta personalizzata, ad eccezione di 443, sarà possibile accedere all'interfaccia di amministrazione di Windows passando a https://\<clientAccessPoint @ no__t-1: \<Port @ no__t-3.
+    - `-clientAccessPoint`: scegliere un nome che si userà per accedere all'interfaccia di amministrazione di Windows. Se, ad esempio, si esegue lo script con il parametro `-clientAccessPoint contosoWindowsAdminCenter`, sarà possibile accedere al servizio Windows Admin Center visitando `https://contosoWindowsAdminCenter.<domain>.com`
+    - `-staticAddress`: facoltativo. Uno o più indirizzi statici per il servizio generico cluster. 
+    - `-msiPath`: il percorso del file con estensione msi di Windows Admin Center.
+    - `-certPath`: facoltativo. Percorso di un file con estensione pfx del certificato.
+    - `-certPassword`: facoltativo. Una password SecureString per il certificato. pfx fornito in `-certPath`
+    - `-generateSslCert`: facoltativo. Se non si desidera fornire un certificato firmato, includere questo flag di parametro per generare un certificato autofirmato. Si noti che il certificato autofirmato scadrà tra 60 giorni.
+    - `-portNumber`: facoltativo. Se non si specifica una porta, il servizio gateway viene distribuito sulla porta 443 (HTTPS). Per usare una porta diversa, specificare in questo parametro. Si noti che se si usa una porta personalizzata, ad eccezione di 443, sarà possibile accedere all'interfaccia di amministrazione di Windows passando a https://\<clientAccessPoint\>:\<porta\>.
 
 > [!NOTE]
 > Lo script ```Install-WindowsAdminCenterHA.ps1``` supporta i parametri ```-WhatIf ``` e ```-Verbose```
@@ -62,11 +62,11 @@ $certPassword = Read-Host -AsSecureString
 
 ## <a name="update-an-existing-high-availability-installation"></a>Aggiornare un'installazione a disponibilità elevata esistente
 
-Usare lo stesso script ```Install-WindowsAdminCenterHA.ps1``` per aggiornare la distribuzione a disponibilità elevata, senza perdere i dati di connessione.
+Usare lo stesso script di ```Install-WindowsAdminCenterHA.ps1``` per aggiornare la distribuzione a disponibilità elevata, senza perdere i dati di connessione.
 
 ### <a name="update-to-a-new-version-of-windows-admin-center"></a>Eseguire l'aggiornamento a una nuova versione dell'interfaccia di amministrazione di Windows
 
-Quando viene rilasciata una nuova versione dell'interfaccia di amministrazione di Windows, è sufficiente eseguire di nuovo lo script ```Install-WindowsAdminCenterHA.ps1``` con solo il parametro ```msiPath```:
+Quando viene rilasciata una nuova versione dell'interfaccia di amministrazione di Windows, è sufficiente eseguire di nuovo lo script di ```Install-WindowsAdminCenterHA.ps1``` con il parametro ```msiPath```:
 
 ```powershell
 .\Install-WindowsAdminCenterHA.ps1 -msiPath '.\WindowsAdminCenter.msi' -Verbose
@@ -88,7 +88,7 @@ $certPassword = Read-Host -AsSecureString
 .\Install-WindowsAdminCenterHA.ps1 -msiPath ".\WindowsAdminCenter.msi" -certPath "cert.pfx" -certPassword $certPassword -Verbose
 ``` 
 
-## <a name="uninstall"></a>Disinstallare
+## <a name="uninstall"></a>Disinstallazione
 
 Per disinstallare la distribuzione a disponibilità elevata di Windows Admin Center dal cluster di failover, passare il parametro ```-Uninstall``` allo script ```Install-WindowsAdminCenterHA.ps1```.
 

@@ -79,7 +79,7 @@ Quando si ottiene il certificato del sito Web da utilizzare per il server dei pe
 3.  Per il campo punti di distribuzione CRL, utilizzare un punto di distribuzione CRL accessibile dai client DirectAccess connessi alla Intranet.  
   
 ### <a name="322dns-for-the-network-location-server"></a>3.2.2 DNS per il server dei percorsi di rete  
-Se si ospita il server dei percorsi di rete nel server di accesso remoto, è necessario aggiungere una voce DNS per il sito Web del server dei percorsi di rete per ogni punto di ingresso nella distribuzione. Tenere presente quanto segue:  
+Se si ospita il server dei percorsi di rete nel server di accesso remoto, è necessario aggiungere una voce DNS per il sito Web del server dei percorsi di rete per ogni punto di ingresso nella distribuzione. Tieni presente quanto segue:  
   
 -   Il nome soggetto del primo certificato server dei percorsi di rete nella distribuzione multisito viene usato come URL del server dei percorsi di rete per tutti i punti di ingresso, quindi il nome del soggetto e l'URL del server dei percorsi di rete non possono corrispondere al nome del computer del primo server di accesso remoto nella distribuzione. Deve essere un FQDN dedicato per il server dei percorsi di rete.  
   
@@ -162,11 +162,11 @@ In una distribuzione multisito simmetrica il routing viene applicato usando Tere
   
    3. Prefisso Teredo (facoltativo). Questo prefisso è pertinente solo se il server di accesso remoto è configurato con due indirizzi IPv4 pubblici consecutivi nella scheda esterna. Il prefisso è basato sul primo indirizzo IPv4 pubblico della coppia di indirizzi. Se, ad esempio, gli indirizzi esterni sono:  
   
-      1. www\.xxx.yyy.zzz  
+      1. www\.xxx. yyy. zzz  
   
-      2. www\.xxx.yyy.zzz + 1  
+      2. www\.xxx. yyy. zzz + 1  
   
-      Quindi il prefisso Teredo da configurare è 2001:0: WWXX: YYZZ::/64, dove WWXX: YYZZ è la rappresentazione esadecimale dell'indirizzo IPv4 www\.xxx.yyy.zzz.  
+      Quindi il prefisso Teredo da configurare è 2001:0: WWXX: YYZZ::/64, dove WWXX: YYZZ è la rappresentazione esadecimale dell'indirizzo IPv4 www\.xxx. yyy. zzz.  
   
       Si noti che è possibile usare lo script seguente per calcolare il prefisso Teredo:  
   
@@ -247,7 +247,7 @@ Non è possibile eseguire la transizione da una rete aziendale solo IPv4 a una r
     > [!NOTE]  
     > Quando si installa una distribuzione di DirectAccess aggiuntiva insieme a una corrente, assicurarsi che due punti di ingresso non condividano lo stesso prefisso client.  
     >   
-    > Se si installa DirectAccess tramite la procedura guidata Introduzione o con il cmdlet `Install-RemoteAccess`, accesso remoto imposta automaticamente il prefisso client del primo punto di ingresso nella distribuzione su un valore predefinito di < subnet IPv6 @ no__t-1prefix >: 1000::/64. Se necessario, è necessario modificare il prefisso.  
+    > Se si installa DirectAccess tramite la procedura guidata di Introduzione o con il cmdlet `Install-RemoteAccess`, accesso remoto imposta automaticamente il prefisso client del primo punto di ingresso nella distribuzione su un valore predefinito di < prefisso\_subnet IPv6 >: 1000::/64. Se necessario, è necessario modificare il prefisso.  
   
 2.  Rimuovere i gruppi di sicurezza client scelti dalla prima distribuzione.  
   
@@ -256,7 +256,7 @@ Non è possibile eseguire la transizione da una rete aziendale solo IPv4 a una r
     > [!IMPORTANT]  
     > Per mantenere la connettività client durante il processo, è necessario aggiungere i gruppi di sicurezza alla seconda distribuzione immediatamente dopo averli rimossi dalla prima. Ciò garantisce che i client non verranno aggiornati con due o zero oggetti Criteri di gruppo DirectAccess. I client inizieranno a usare la seconda distribuzione dopo il recupero e l'aggiornamento dell'oggetto Criteri di gruppo del client.  
   
-4.  Facoltativo: Rimuovere i punti di ingresso di DirectAccess dalla prima distribuzione e aggiungere tali server come nuovi punti di ingresso nel secondo.  
+4.  Facoltativo: rimuovere i punti di ingresso di DirectAccess dalla prima distribuzione e aggiungere i server come nuovi punti di ingresso nel secondo.  
   
 Al termine della transizione, è possibile disinstallare la prima distribuzione di DirectAccess. Quando si disinstalla, è possibile che si verifichino i problemi seguenti:  
   
@@ -270,7 +270,7 @@ Al termine della transizione, è possibile disinstallare la prima distribuzione 
   
     -   Indirizzo IP::: 1  
   
-    -   Digitare:  AAAA  
+    -   Tipo: AAAA  
   
   
   

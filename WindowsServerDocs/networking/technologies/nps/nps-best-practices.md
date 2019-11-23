@@ -1,5 +1,5 @@
 ---
-title: Procedure consigliate per il Server dei criteri di rete
+title: Procedure consigliate per il server dei criteri di rete
 description: Questo argomento descrive le procedure consigliate per la distribuzione e la gestione di server dei criteri di rete in Windows Server 2016.
 manager: brianlic
 ms.prod: windows-server
@@ -15,15 +15,15 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 09/27/2019
 ms.locfileid: "71405492"
 ---
-# <a name="network-policy-server-best-practices"></a>Procedure consigliate per il Server dei criteri di rete
+# <a name="network-policy-server-best-practices"></a>Procedure consigliate per il server dei criteri di rete
 
 >Si applica a: Windows Server (Canale semestrale), Windows Server 2016
 
-È possibile utilizzare questo argomento per informazioni sulle procedure consigliate per la distribuzione e la gestione di server dei criteri di rete \(NPS @ no__t-1.
+È possibile utilizzare questo argomento per informazioni sulle procedure consigliate per la distribuzione e la gestione di server dei criteri di rete \(server dei criteri di rete\).
 
 Nelle sezioni seguenti vengono fornite le procedure consigliate per diversi aspetti della distribuzione di NPS.
 
-## <a name="accounting"></a>contabilità
+## <a name="accounting"></a>Contabilità
 
 Di seguito sono riportate le procedure consigliate per la registrazione di NPS.
 
@@ -35,7 +35,7 @@ Esistono due tipi di contabilità, o registrazione, in NPS:
 
 Per sfruttare al meglio la registrazione NPS:
 
-- Attivare la registrazione \(initially @ no__t-1 per i record di autenticazione e accounting. Modificare queste selezioni dopo avere determinato le informazioni appropriate per l'ambiente in uso.
+- Attivare la registrazione \(inizialmente\) per i record di autenticazione e di accounting. Modificare queste selezioni dopo avere determinato le informazioni appropriate per l'ambiente in uso.
 
 - Verificare che la registrazione eventi sia configurata con una capacità sufficiente per gestire i log.
 
@@ -55,8 +55,8 @@ Per ulteriori informazioni, vedere [configurare l'accounting del server dei crit
 
 Di seguito sono riportate le procedure consigliate per l'autenticazione.
 
-- Usare metodi di autenticazione basati su certificati, ad esempio Protected Extensible Authentication Protocol \(PEAP @ no__t-1 ed Extensible Authentication Protocol \(EAP @ no__t-3 per l'autenticazione avanzata. Non usare i metodi di autenticazione solo password perché sono vulnerabili a una serie di attacchi e non sono sicuri. Per l'autenticazione wireless sicura, è consigliabile usare PEAP @ no__t-0MS @ no__t-1CHAP V2, perché il server dei criteri di rete dimostra la propria identità ai client wireless usando un certificato del server, mentre gli utenti dimostrano la propria identità con il nome utente e la password.  Per ulteriori informazioni sull'utilizzo del server dei criteri di rete nella distribuzione wireless, vedere [distribuire l'accesso wireless autenticato con 802.1 x basato su password](https://technet.microsoft.com/windows-server-docs/networking/core-network-guide/cncg/wireless/a-deploy-8021x-wireless-access).
-- Distribuire la propria autorità di certificazione \(CA @ no__t-1 con Active Directory @ no__t-2 Certificate Services \(AD CS @ no__t-4 quando si usano metodi di autenticazione avanzata basati su certificati, ad esempio PEAP e EAP, che richiedono l'uso di un server certificato in NPSs. È anche possibile usare la CA per registrare i certificati del computer e i certificati utente. Per ulteriori informazioni sulla distribuzione di certificati server nei server dei criteri di rete e di accesso remoto, vedere [distribuire certificati server per le distribuzioni wireless e cablate 802.1 x](https://technet.microsoft.com/windows-server-docs/networking/core-network-guide/cncg/server-certs/deploy-server-certificates-for-802.1x-wired-and-wireless-deployments).
+- Usare metodi di autenticazione basati su certificato, ad esempio Protected Extensible Authentication Protocol \(PEAP\) ed Extensible Authentication Protocol \(EAP\) per l'autenticazione avanzata. Non usare i metodi di autenticazione solo password perché sono vulnerabili a una serie di attacchi e non sono sicuri. Per l'autenticazione wireless sicura, è consigliabile usare PEAP\-MS\-CHAP v2, perché il server dei criteri di rete dimostra la propria identità ai client wireless usando un certificato del server, mentre gli utenti dimostrano la propria identità con il nome utente e la password.  Per ulteriori informazioni sull'utilizzo del server dei criteri di rete nella distribuzione wireless, vedere [distribuire l'accesso wireless autenticato con 802.1 x basato su password](https://technet.microsoft.com/windows-server-docs/networking/core-network-guide/cncg/wireless/a-deploy-8021x-wireless-access).
+- Distribuire la propria autorità di certificazione \(CA\) con Active Directory&reg; Servizi certificati \(AD CS\) quando si usano metodi di autenticazione avanzati basati su certificati, ad esempio PEAP e EAP, che richiedono l'uso di un certificato del server in NPSs. È anche possibile usare la CA per registrare i certificati del computer e i certificati utente. Per ulteriori informazioni sulla distribuzione di certificati server nei server dei criteri di rete e di accesso remoto, vedere [distribuire certificati server per le distribuzioni wireless e cablate 802.1 x](https://technet.microsoft.com/windows-server-docs/networking/core-network-guide/cncg/server-certs/deploy-server-certificates-for-802.1x-wired-and-wireless-deployments).
 
 > [!IMPORTANT]
 > Server dei criteri di rete non supporta l'utilizzo dei caratteri ASCII estesi all'interno delle password.
@@ -85,9 +85,9 @@ Di seguito sono riportate le procedure consigliate per l'ottimizzazione delle pr
 
 - Per ottimizzare i tempi di risposta dell'autenticazione e dell'autorizzazione server dei criteri di rete e ridurre il traffico di rete, installare NPS in un controller di dominio.
 
-- Quando si utilizzano nomi di entità universali \(UPNs @ no__t-1 o Windows Server 2008 e Windows Server 2003, il server dei criteri di dominio usa il catalogo globale per autenticare gli utenti. Per ridurre al minimo il tempo necessario per eseguire questa operazione, installare NPS in un server di catalogo globale o in un server che si trova nella stessa subnet del server di catalogo globale.
+- Quando vengono utilizzati i nomi di entità universali \(UPN\) o i domini di Windows Server 2008 e Windows Server 2003, NPS utilizza il catalogo globale per autenticare gli utenti. Per ridurre al minimo il tempo necessario per eseguire questa operazione, installare NPS in un server di catalogo globale o in un server che si trova nella stessa subnet del server di catalogo globale.
 
-- Quando sono configurati gruppi di server RADIUS remoti e, in criteri di richiesta di connessione server dei criteri di rete, è possibile deselezionare la casella di controllo **registra informazioni sull'accounting nei server del gruppo di server RADIUS remoto seguente** . questi gruppi vengono comunque inviati alla rete. Server \(NAS @ no__t-2 avviare e arrestare i messaggi di notifica. Viene creato un traffico di rete non necessario. Per eliminare il traffico, disabilitare l'invio di notifiche NAS per i singoli server in ogni gruppo di server RADIUS remoti deselezionando la casella di controllo **Invia notifiche di avvio e arresto della rete al server** .
+- Quando sono configurati gruppi di server RADIUS remoti e, in criteri di richiesta di connessione server dei criteri di rete, è possibile deselezionare la casella di controllo **registra informazioni sull'accounting nei server del gruppo di server RADIUS remoto seguente** . questi gruppi vengono comunque inviati al server di accesso alla rete \(NAS\) avviare e arrestare i messaggi di notifica. Viene creato un traffico di rete non necessario. Per eliminare il traffico, disabilitare l'invio di notifiche NAS per i singoli server in ogni gruppo di server RADIUS remoti deselezionando la casella di controllo **Invia notifiche di avvio e arresto della rete al server** .
 
 ## <a name="using-nps-in-large-organizations"></a>Uso di NPS in organizzazioni di grandi dimensioni
 
@@ -97,7 +97,7 @@ Di seguito sono riportate le procedure consigliate per l'utilizzo di server dei 
 
 - Usare un nome di entità utente per fare riferimento agli utenti quando possibile. Un utente può avere lo stesso nome dell'entità utente indipendentemente dall'appartenenza al dominio. Questa procedura fornisce scalabilità che potrebbe essere necessaria per le organizzazioni con un numero elevato di domini.
 
-- Se è stato installato il server dei criteri di rete \(NPS @ no__t-1 in un computer diverso da un controller di dominio e il server dei criteri di rete riceve un numero elevato di richieste di autenticazione al secondo, è possibile migliorare le prestazioni dei server dei criteri di rete aumentando il numero di Concurrent autenticazioni consentite tra il server dei criteri di dominio e il controller di dominio. Per altre informazioni, vedere l'articolo relativo alla 
+- Se è stato installato Server dei criteri di rete \(NPS\) in un computer diverso da un controller di dominio e il server dei criteri di rete riceve un numero elevato di richieste di autenticazione al secondo, è possibile migliorare le prestazioni di NPS aumentando il numero di autenticazioni simultanee consentite tra il server dei criteri di rete e il controller di dominio Per altre informazioni, vedere l'articolo relativo alla 
 
 ## <a name="security-issues"></a>Problemi di sicurezza
 
@@ -105,7 +105,7 @@ Di seguito sono riportate le procedure consigliate per ridurre i problemi di sic
 
 Quando si amministra un server dei criteri di rete in modalità remota, non inviare dati sensibili o riservati (ad esempio, segreti o password condivise) sulla rete in testo non crittografato. Per l'amministrazione remota di NPSs sono disponibili due metodi:
 
-- Utilizzare Servizi Desktop remoto per accedere al server dei criteri di accesso. Quando si utilizza Servizi Desktop remoto, i dati non vengono inviati tra il client e il server. Solo l'interfaccia utente del server (ad esempio, il desktop del sistema operativo e l'immagine della console server dei criteri di rete) viene inviata al client di Servizi Desktop remoto, denominato Connessione Desktop remoto in Windows @ no__t-0 10. Il client invia l'input della tastiera e del mouse, che viene elaborato localmente dal server in cui è abilitato Servizi Desktop remoto. Quando Servizi Desktop remoto utenti eseguono l'accesso, possono visualizzare solo le singole sessioni client gestite dal server e sono indipendenti tra loro. Inoltre, Connessione Desktop remoto fornisce la crittografia a 128 bit tra client e server.
+- Utilizzare Servizi Desktop remoto per accedere al server dei criteri di accesso. Quando si utilizza Servizi Desktop remoto, i dati non vengono inviati tra il client e il server. Solo l'interfaccia utente del server (ad esempio, il desktop del sistema operativo e l'immagine della console server dei criteri di rete) viene inviata al client di Servizi Desktop remoto, denominato Connessione Desktop remoto in Windows&reg; 10. Il client invia l'input della tastiera e del mouse, che viene elaborato localmente dal server in cui è abilitato Servizi Desktop remoto. Quando Servizi Desktop remoto utenti eseguono l'accesso, possono visualizzare solo le singole sessioni client gestite dal server e sono indipendenti tra loro. Inoltre, Connessione Desktop remoto fornisce la crittografia a 128 bit tra client e server.
 
 - Usare Internet Protocol Security (IPsec) per crittografare i dati riservati. È possibile utilizzare IPsec per crittografare le comunicazioni tra il server dei criteri di server e il computer client remoto utilizzato per amministrare NPS. Per amministrare il server in modalità remota, è possibile installare il [strumenti di amministrazione remota del server per Windows 10](https://www.microsoft.com/download/details.aspx?id=45520) nel computer client. Dopo l'installazione, utilizzare Microsoft Management Console (MMC) per aggiungere lo snap-in NPS alla console di.
 

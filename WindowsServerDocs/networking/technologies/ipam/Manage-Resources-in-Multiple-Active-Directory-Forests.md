@@ -32,7 +32,7 @@ Per avviare il processo di individuazione per diverse foreste di Active Director
 ![Configurare l'individuazione server](../../media/Manage-Resources-in-Multiple-Active-Directory-Forests/ipam_serverdiscovery.jpg)  
 
 >[!NOTE]
->Per Criteri di gruppo @ no__t-0based provisioning per uno scenario di Active Directory tra foreste, assicurarsi di eseguire il cmdlet di Windows PowerShell seguente nel server di gestione indirizzi IP e non nei controller di dominio trusting. Ad esempio, se il server di gestione indirizzi IP viene aggiunto alla foresta corp.contoso.com e la foresta trusting è fabrikam.com, è possibile eseguire il cmdlet di Windows PowerShell seguente nel server di gestione indirizzi IP in corp.contoso.com per Criteri di gruppo @ no__t-0based provisioning nel foresta fabrikam.com. Per eseguire questo cmdlet, è necessario essere un membro del gruppo Domain Admins nella foresta fabrikam.com.
+>Per Criteri di gruppo provisioning basato su\-per uno scenario Active Directory tra foreste, assicurarsi di eseguire il cmdlet di Windows PowerShell seguente nel server di gestione indirizzi IP e non nei controller di dominio trusting. Ad esempio, se il server di gestione indirizzi IP viene aggiunto alla foresta corp.contoso.com e la foresta trusting è fabrikam.com, è possibile eseguire il cmdlet di Windows PowerShell seguente nel server di gestione indirizzi IP in corp.contoso.com per Criteri di gruppo provisioning basato su\-nella foresta fabrikam.com. Per eseguire questo cmdlet, è necessario essere un membro del gruppo Domain Admins nella foresta fabrikam.com.
 
     
     Invoke-IpamGpoProvisioning -Domain fabrikam.COM -GpoPrefixName IPAMSERVER -IpamServerFqdn IPAM.CORP.CONTOSO.COM

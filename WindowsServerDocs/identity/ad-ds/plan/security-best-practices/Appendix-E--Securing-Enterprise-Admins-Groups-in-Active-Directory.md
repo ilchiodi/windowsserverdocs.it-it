@@ -22,13 +22,13 @@ ms.locfileid: "71408712"
 
 
 ## <a name="appendix-e-securing-enterprise-admins-groups-in-active-directory"></a>Appendice E: Protezione dei gruppi Enterprise Admins in Active Directory  
-Il gruppo Enterprise Admins (EA), che è ospitato nel dominio radice della foresta, non deve contenere alcun utente su base giornaliera, con la possibile eccezione dell'account amministratore del dominio radice, purché sia protetto come descritto in [Appendix D: Protezione degli account amministratore predefiniti in Active Directory @ no__t-0.  
+Il gruppo Enterprise Admins (EA), che si trova nel dominio radice della foresta, non deve contenere alcun utente su base giornaliera, con la possibile eccezione dell'account amministratore del dominio radice, purché sia protetto come descritto in [Appendice D: protezione degli account amministratore predefiniti in Active Directory](../../../ad-ds/plan/security-best-practices/Appendix-D--Securing-Built-In-Administrator-Accounts-in-Active-Directory.md).  
 
 Enterprise Admins sono, per impostazione predefinita, i membri del gruppo Administrators in ogni dominio della foresta. Non è consigliabile rimuovere il gruppo EA dai gruppi Administrators in ogni dominio perché, in caso di scenario di ripristino di emergenza di una foresta, i diritti EA saranno probabilmente necessari. Il gruppo Enterprise Admins della foresta deve essere protetto come descritto in dettaglio nelle istruzioni dettagliate riportate di seguito.  
 
 Per il gruppo Enterprise Admins nella foresta:  
 
-1.  Negli oggetti Criteri di gruppo collegati alle unità organizzative che contengono server membri e workstation in ogni dominio, il gruppo Enterprise Admins deve essere aggiunto ai seguenti diritti utente in **computer Computer\criteri\impostazioni Windows\Impostazioni protezione\Criteri locali\Assegnazione Rights Assegnazioni**:  
+1.  Negli oggetti Criteri di gruppo collegati alle unità organizzative che contengono server membri e workstation in ogni dominio, il gruppo Enterprise Admins deve essere aggiunto ai seguenti diritti utente in **computer Computer\criteri\impostazioni Windows\Impostazioni protezione\Criteri locali\Assegnazione diritti assegnati**:  
 
     -   Nega accesso al computer dalla rete  
 
@@ -68,7 +68,7 @@ Per il gruppo Enterprise Admins nella foresta:
 
 1.  In **Server Manager**fare clic su **strumenti**e quindi su **Gestione criteri di gruppo**.  
 
-2.  Nell'albero della console espandere <Forest> \ Domains @ no__t-1 @ no__t-2, quindi **criteri di gruppo oggetti** (dove <Forest> è il nome della foresta e <Domain> è il nome del dominio in cui si desidera impostare il criteri di gruppo).  
+2.  Nell'albero della console espandere <Forest>\Domains\\<Domain>, quindi **criteri di gruppo oggetti** (dove <Forest> è il nome della foresta e <Domain> è il nome del dominio in cui si desidera impostare il criteri di gruppo).  
 
     > [!NOTE]  
     > In una foresta che contiene più domini, è necessario creare un oggetto Criteri di gruppo simile in ogni dominio che richiede la sicurezza del gruppo Enterprise Admins.  
@@ -77,11 +77,11 @@ Per il gruppo Enterprise Admins nella foresta:
 
     ![proteggere i gruppi di amministratori dell'organizzazione](media/Appendix-E--Securing-Enterprise-Admins-Groups-in-Active-Directory/SAD_46.gif)  
 
-4.  Nella finestra di dialogo **nuovo oggetto Criteri** di gruppo digitare <GPO Name> e fare clic su **OK** (dove <GPO Name> è il nome dell'oggetto Criteri di gruppo).  
+4.  Nella finestra di dialogo **nuovo oggetto Criteri** di gruppo digitare <GPO Name>e fare clic su **OK** (dove <GPO Name> è il nome di questo GPO).  
 
     ![proteggere i gruppi di amministratori dell'organizzazione](media/Appendix-E--Securing-Enterprise-Admins-Groups-in-Active-Directory/SAD_47.gif)  
 
-5.  Nel riquadro dei dettagli fare clic con il pulsante destro del mouse su <GPO Name> e scegliere **modifica**.  
+5.  Nel riquadro dei dettagli fare clic con il pulsante destro del mouse su <GPO Name>, quindi scegliere **modifica**.  
 
 6.  Passare a **computer Computer\criteri\impostazioni Windows\Impostazioni protezione\Criteri criteri**e fare clic su **assegnazione diritti utente**.  
 
@@ -163,7 +163,7 @@ Per il gruppo Enterprise Admins nella foresta:
 
 13. In **gestione criteri di gruppo**collegare l'oggetto Criteri di gruppo al server membro e alle unità organizzative della workstation effettuando le operazioni seguenti:  
 
-    1.  Passare al <Forest> \ Domains @ no__t-1 @ no__t-2 (dove <Forest> è il nome della foresta e <Domain> è il nome del dominio in cui si vuole impostare il Criteri di gruppo).  
+    1.  Passare al <Forest>\Domains\\<Domain> (dove <Forest> è il nome della foresta e <Domain> è il nome del dominio in cui si desidera impostare il Criteri di gruppo).  
 
     2.  Fare clic con il pulsante destro del mouse sull'unità organizzativa a cui verrà applicato l'oggetto Criteri di gruppo e scegliere **collega un oggetto Criteri**di gruppo  
 
@@ -197,7 +197,7 @@ Da qualsiasi server membro o workstation che non è influenzato dall'oggetto Cri
 
     ![proteggere i gruppi di amministratori dell'organizzazione](media/Appendix-E--Securing-Enterprise-Admins-Groups-in-Active-Directory/SAD_56.gif)  
 
-5.  Nella finestra del **prompt dei comandi** Digitare **net use \\ @ no__t-3 @ No__t-4Server Name @ no__t-5\c $** , dove \<Server Name @ no__t-7 è il nome del server membro o della workstation a cui si sta tentando di accedere attraverso la rete.  
+5.  Nella finestra del **prompt dei comandi** Digitare **net use \\\\nome server \<\>\c $** , dove \<nome server\> è il nome del server membro o della workstation a cui si sta tentando di accedere attraverso la rete.  
 
 6.  Lo screenshot seguente mostra il messaggio di errore che dovrebbe essere visualizzato.  
 
@@ -217,7 +217,7 @@ Accedere localmente da qualsiasi server membro o workstation interessato dall'og
 
 4.  Fare clic su **file**e quindi su **Salva con nome**.  
 
-5.  Nella casella nome **file** Digitare **@no__t 2. bat** (dove <Filename> è il nome del nuovo file batch).  
+5.  Nella casella nome **file** Digitare **<Filename>. bat** , dove <Filename> è il nome del nuovo file batch.  
 
 ##### <a name="schedule-a-task"></a>Pianificare un'attività  
 
@@ -238,7 +238,7 @@ Accedere localmente da qualsiasi server membro o workstation interessato dall'og
 
 7.  In **programma/script**fare clic su **Sfoglia**, individuare e selezionare il file batch creato nella sezione **creare un file batch** e fare clic su **Apri**.  
 
-8.  Fare clic su **OK**.  
+8.  Fai clic su **OK**.  
 
 9. Fare clic sulla scheda **Generale**.  
 
@@ -248,7 +248,7 @@ Accedere localmente da qualsiasi server membro o workstation interessato dall'og
 
 12. Selezionare **Esegui se l'utente è connesso o meno** e selezionare **non archiviare la password**. L'attività avrà accesso solo alle risorse del computer locale.  
 
-13. Fare clic su **OK**.  
+13. Fai clic su **OK**.  
 
 14. Verrà visualizzata una finestra di dialogo in cui vengono richieste le credenziali dell'account utente per l'esecuzione dell'attività.  
 

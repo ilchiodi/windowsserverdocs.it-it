@@ -30,13 +30,13 @@ Se si distribuisce DirectAccess con la replica SYSVOL di FRS, si rischia l'elimi
   
 Se si prevede di distribuire DirectAccess, è necessario utilizzare controller di dominio che eseguono sistemi operativi successivi a Windows Server 2003 R2 ed è necessario utilizzare DFS-R.  
   
-Per informazioni sulla migrazione da FRS a DFS-R, vedere la guida alla migrazione della replica [SYSVOL: FRS per Replica DFS](https://technet.microsoft.com/library/dd640019(v=ws.10).aspx).  
+Per informazioni sulla migrazione da FRS a DFS-R, vedere la [Guida alla migrazione della replica di SYSVOL: FRS to replica DFS](https://technet.microsoft.com/library/dd640019(v=ws.10).aspx).  
   
 ## <a name="bkmk_nap"></a>Protezione accesso alla rete per i client DirectAccess  
 Protezione accesso alla rete (NAP) viene usato per determinare se i computer client remoti soddisfano i criteri IT prima di concedere l'accesso alla rete aziendale. NAP è stato deprecato in Windows Server 2012 R2 e non è incluso in Windows Server 2016. Per questo motivo, non è consigliabile avviare una nuova distribuzione di DirectAccess con protezione accesso alla rete. È consigliabile usare un metodo diverso per il controllo di endpoint per la sicurezza dei client DirectAccess.  
   
 ## <a name="bkmk_multi"></a>Supporto multisito per i client Windows 7  
-Quando DirectAccess è configurato in una distribuzione multisito, Windows 10 @ no__t-0, Windows @ no__t-1 8,1 e Windows @ no__t-2 8 client hanno la possibilità di connettersi al sito più vicino.  I computer client Windows 7 @ no__t-0 non hanno la stessa funzionalità. La selezione del sito per i client Windows 7 è impostata su un sito specifico al momento della configurazione dei criteri e questi client si connetteranno sempre al sito designato, indipendentemente dalla loro posizione.  
+Quando DirectAccess è configurato in una distribuzione multisito, i client Windows 10&reg;, Windows&reg; 8,1 e Windows&reg; 8 hanno la possibilità di connettersi al sito più vicino.  Windows 7&reg; i computer client non hanno la stessa funzionalità. La selezione del sito per i client Windows 7 è impostata su un sito specifico al momento della configurazione dei criteri e questi client si connetteranno sempre al sito designato, indipendentemente dalla loro posizione.  
   
 ## <a name="bkmk_user"></a>Controllo degli accessi in base all'utente  
 I criteri DirectAccess sono basati su computer, non sulla base dell'utente. La specifica dei criteri utente DirectAccess per controllare l'accesso alla rete aziendale non è supportata.  
@@ -45,7 +45,7 @@ I criteri DirectAccess sono basati su computer, non sulla base dell'utente. La s
 DirectAccess può essere configurato tramite la configurazione guidata DirectAccess, la console di gestione accesso remoto o i cmdlet di Windows PowerShell per accesso remoto. Non è supportato l'utilizzo di un metodo diverso dalla configurazione guidata DirectAccess per configurare DirectAccess, ad esempio la modifica di oggetti DirectAccess Criteri di gruppo direttamente o la modifica manuale delle impostazioni dei criteri predefinite nel server o nel client. Queste modifiche possono causare una configurazione inutilizzabile.  
   
 ## <a name="bkmk_kerb"></a>Autenticazione KerbProxy  
-Quando si configura un server DirectAccess con la procedura guidata Introduzione, il server DirectAccess viene configurato automaticamente per usare l'autenticazione KerbProxy per l'autenticazione del computer e dell'utente. Per questo motivo, è consigliabile usare la procedura guidata Introduzione solo per le distribuzioni a sito singolo in cui vengono distribuiti solo i client Windows 10 @ no__t-0, Windows 8.1 o Windows 8.  
+Quando si configura un server DirectAccess con la procedura guidata Introduzione, il server DirectAccess viene configurato automaticamente per usare l'autenticazione KerbProxy per l'autenticazione del computer e dell'utente. Per questo motivo, è consigliabile usare la procedura guidata Introduzione solo per le distribuzioni a sito singolo in cui vengono distribuiti solo i client Windows 10&reg;, Windows 8.1 o Windows 8.  
   
 Inoltre, le funzionalità seguenti non devono essere usate con l'autenticazione di KerbProxy:  
   

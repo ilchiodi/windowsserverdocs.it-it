@@ -25,7 +25,7 @@ Per altre informazioni sulle procedure consigliate e sulle analisi, vedere [Eseg
   
 |Proprietà|Dettagli|  
 |-|-|  
-|**Sistema operativo**|Windows Server 2016|  
+|**Sistema operativo**|Windows Server 2016|  
 |**Prodotto/funzionalità**|Hyper-V|  
 |**Gravità**|Errore|  
 |**Categoria**|Configurazione|  
@@ -38,7 +38,7 @@ Nelle sezioni seguenti, corsivo indica il testo dell'interfaccia Utente visualiz
 ## <a name="impact"></a>**Impatto**  
 *Il sistema operativo guest nelle macchine virtuali seguenti potrebbe non essere eseguito o potrebbe non essere eseguito in modo affidabile:*  
   
-@no__t 0list di macchine virtuali >  
+\<elenco di macchine virtuali >  
   
 ## <a name="resolution"></a>**Soluzione**  
 *Usare la console di gestione di Hyper-V per aumentare la memoria minima per almeno 256 MB e la memoria di avvio e la quantità massima di memoria per almeno 512 MB per questa macchina virtuale.*  
@@ -55,7 +55,7 @@ Nelle sezioni seguenti, corsivo indica il testo dell'interfaccia Utente visualiz
   
 5.  In **la memoria dinamica**,  modificare il **RAM minima** su almeno 256 MB e **RAM massima** a 512 MB.  
   
-6.  Fare clic su **OK**.  
+6.  Fai clic su **OK**.  
   
 ### <a name="increase-memory-using-windows-powershell"></a>Aumentare la memoria con Windows PowerShell  
   

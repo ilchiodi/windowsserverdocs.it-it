@@ -25,7 +25,7 @@ Per altre informazioni sulle procedure consigliate e sulle analisi, vedere [Eseg
   
 |Proprietà|Dettagli|  
 |-|-|  
-|**Sistema operativo**|Windows Server 2016|  
+|**Sistema operativo**|Windows Server 2016|  
 |**Prodotto/funzionalità**|Hyper-V|  
 |**Gravità**|Avviso|  
 |**Categoria**|Configurazione|  
@@ -36,12 +36,12 @@ Nelle sezioni seguenti, corsivo indica il testo dell'interfaccia Utente visualiz
 *Potrebbe non essere previsto un limite alla quantità di larghezza di banda di rete che la replica può utilizzare.*  
   
 ## <a name="impact"></a>Impatto  
-la larghezza di banda *Network può diventare completamente dominata dal traffico di replica, che influisce su altre attività di rete critiche. Ciò influisca sulle porte seguenti:*  
+*La larghezza di banda di rete può diventare completamente dominata dal traffico di replica, che influisce su altre attività di rete critiche. Ciò influisca sulle porte seguenti:*  
   
-@no__t 0list di macchine virtuali >  
+\<elenco di macchine virtuali >  
   
 ## <a name="resolution"></a>Risoluzione  
-*If si usa un altro metodo per limitare il traffico di rete, è possibile ignorare questo problema. In caso contrario, usare Criteri di gruppo editor per configurare un criterio che limiterà il traffico di rete alla porta pertinente del server di replica.*  
+*Se si usa un altro metodo per limitare il traffico di rete, è possibile ignorare questo problema. In caso contrario, usare Criteri di gruppo editor per configurare un criterio che limiterà il traffico di rete alla porta pertinente del server di replica.*  
   
   
 

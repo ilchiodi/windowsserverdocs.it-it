@@ -78,7 +78,7 @@ wbadmin start systemstaterecovery
   ```
   wbadmin start systemstaterecovery -version:03/31/2013-09:00
   ```  
-- Per eseguire un ripristino del backup dello stato del sistema da 30/04/2013 alle 9:00. archiviati nella risorsa condivisa \\ @ no__t-1servername\share per Server01, digitare:  
+- Per eseguire un ripristino del backup dello stato del sistema da 30/04/2013 alle 9:00. archiviati nella risorsa condivisa \\\\servername\share per Server01, digitare:  
   ```
   wbadmin start systemstaterecovery -version:04/30/2013-09:00 -backupTarget:\\servername\share -machine:server01
   ```

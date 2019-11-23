@@ -24,7 +24,7 @@ ms.locfileid: "71380284"
 
 Se non è possibile avviare BITS, usare questa opzione per correggere i problemi noti con diverse versioni di BITS.
 
-**BITSAdmin 1,5 e versioni precedenti:**  Not supportati.
+**BITSAdmin 1,5 e versioni precedenti:**  non supportato.
 
 ## <a name="syntax"></a>Sintassi
 
@@ -38,7 +38,7 @@ bitsadmin /Util /RepairService [/Force]
 |---------|-----------|
 |Force|Facoltativo: Elimina e ricrea il servizio.|
 
-## <a name="remarks"></a>Note
+## <a name="remarks"></a>Osservazioni
 
 Questa opzione risolve gli errori correlati alla configurazione e alle dipendenze del servizio non corrette nei servizi Windows (ad esempio LANManworkstation) e nella directory di rete. Questa opzione genera un output che indica se i problemi sono stati risolti.
 

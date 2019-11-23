@@ -23,9 +23,9 @@ ms.locfileid: "71405971"
 
 >Si applica a: Windows Server (Canale semestrale), Windows Server 2016
 
-Se si lavora per un provider di servizi cloud \(CSP @ no__t-1 o Enterprise che prevede la distribuzione di Software Defined Networking \(SDN @ no__t-3 in Windows Server 2016, è possibile fornire servizi DNS ai carichi di lavoro tenant ospitati usando DNS interno @no__ t-4iDNS @ no__t-5, integrato con SDN.
+Se si lavora per un provider di servizi cloud \(CSP\) o Enterprise che prevede la distribuzione di Software Defined Networking \(SDN\) in Windows Server 2016, è possibile fornire servizi DNS ai carichi di lavoro tenant ospitati usando DNS interno \(IDN\), che è integrato con SDN.
 
-Le macchine virtuali ospitate \(VMs @ no__t-1 e le applicazioni richiedono che il DNS comunichi all'interno delle proprie reti e con risorse esterne su Internet. Con IDN, è possibile fornire ai tenant i servizi di risoluzione dei nomi DNS per lo spazio dei nomi locale isolato e per le risorse Internet.
+Le macchine virtuali ospitate \(VM\) e le applicazioni richiedono che il DNS comunichi all'interno delle proprie reti e con risorse esterne su Internet. Con IDN, è possibile fornire ai tenant i servizi di risoluzione dei nomi DNS per lo spazio dei nomi locale isolato e per le risorse Internet.
 
 Poiché il servizio IDN non è accessibile da reti virtuali tenant, ad eccezione del proxy IDN, il server non è vulnerabile a attività dannose nelle reti tenant.
 
@@ -54,7 +54,7 @@ i server IDN sono i server autorevoli per le zone DNS interne e fungono anche da
 
 Tutti i nomi host per le macchine virtuali nelle reti virtuali vengono archiviati come record di risorse DNS nella stessa zona. Se ad esempio si distribuisce IDN per una zona denominata Contoso. local, i record di risorse DNS per le macchine virtuali in tale rete vengono archiviati nella zona contoso. local.
 
-I nomi di dominio completi della macchina virtuale tenant \(FQDNs @ no__t-1 sono costituiti dal nome del computer e dalla stringa del suffisso DNS per la rete virtuale, in formato GUID. Ad esempio, se si dispone di una VM tenant denominata TENANT1 che si trova nella rete virtuale Contoso, local, il nome di dominio completo della macchina virtuale è TENANT1. *VN-GUID*. contoso. local, dove *VN-GUID* è la stringa del suffisso DNS per la rete virtuale.
+I nomi di dominio completi della macchina virtuale tenant \(FQDN\) sono costituiti dal nome del computer e dalla stringa del suffisso DNS per la rete virtuale, in formato GUID. Ad esempio, se si dispone di una VM tenant denominata TENANT1 che si trova nella rete virtuale Contoso, local, il nome di dominio completo della macchina virtuale è TENANT1. *VN-GUID*. contoso. local, dove *VN-GUID* è la stringa del suffisso DNS per la rete virtuale.
 
 >[!NOTE]
 >Se si è un amministratore dell'infrastruttura, è possibile usare il CSP o l'infrastruttura DNS aziendale come server IDN anziché distribuire i nuovi server DNS in modo specifico per l'uso come server IDN. Se si distribuiscono nuovi server per IDN o si usa l'infrastruttura esistente, IDN si basa su Active Directory per garantire la disponibilità elevata. I server IDN devono pertanto essere integrati con Active Directory.
@@ -82,12 +82,12 @@ Di seguito è riportato un riepilogo dei passaggi necessari per distribuire IDN.
 >[!NOTE]
 >Se SDN è stato distribuito usando gli script, non è necessario eseguire una di queste operazioni. La procedura viene fornita solo a scopo informativo e di risoluzione dei problemi.
 
-### <a name="step-1-deploy-dns"></a>Passaggio 1: Distribuire DNS
+### <a name="step-1-deploy-dns"></a>Passaggio 1: distribuire DNS
 È possibile distribuire un server DNS usando il comando di Windows PowerShell di esempio seguente.
     
     Install-WindowsFeature DNS -IncludeManagementTools
     
-### <a name="step-2-configure-idns-information-in-network-controller"></a>Passaggio 2: Configurare le informazioni IDN nel controller di rete
+### <a name="step-2-configure-idns-information-in-network-controller"></a>Passaggio 2: configurare le informazioni IDN nel controller di rete
 Questo segmento di script è una chiamata REST effettuata dall'amministratore al controller di rete, per informarla sulla configurazione della zona IDN, ad esempio l'indirizzo IP del iDNSServer e la zona utilizzata per ospitare i nomi IDN. 
 
 ```
@@ -114,7 +114,7 @@ Method: PUT
 >[!NOTE]
 >Si tratta di un estratto dalla sezione **Configuration ConfigureIDns** in SDNExpress. ps1. Per altre informazioni, vedere [distribuire un'infrastruttura software defined Network usando gli script](https://technet.microsoft.com/windows-server-docs/networking/sdn/deploy/deploy-a-software-defined-network-infrastructure-using-scripts).
 
-### <a name="step-3-configure-the-idns-proxy-service"></a>Passaggio 3: Configurare il servizio proxy IDN
+### <a name="step-3-configure-the-idns-proxy-service"></a>Passaggio 3: configurare il servizio proxy IDN
 Il servizio proxy IDN viene eseguito in ogni host Hyper-V, fornendo il Bridge tra le reti virtuali dei tenant e la rete fisica in cui si trovano i server IDN. È necessario creare le seguenti chiavi del registro di sistema in ogni host Hyper-V.
 
 
@@ -150,7 +150,7 @@ Il servizio proxy IDN viene eseguito in ogni host Hyper-V, fornendo il Bridge tr
 
 **Indirizzo del server IDN:** Elenco delimitato da virgole di server IDN.
 
-- Chiave del Registro di sistema: HKLM\SYSTEM\CurrentControlSet\Services\DNSProxy\Parameters
+- Chiave del registro di sistema: HKLM\SYSTEM\CurrentControlSet\Services\DNSProxy\Parameters
 - VALUENAME = "server d'inoltri"
 - ValueData = "10.0.0.9"
 - ValueType = "stringa"
@@ -160,7 +160,7 @@ Il servizio proxy IDN viene eseguito in ogni host Hyper-V, fornendo il Bridge tr
 >[!NOTE]
 >Si tratta di un estratto dalla sezione **Configuration ConfigureIDnsProxy** in SDNExpress. ps1. Per altre informazioni, vedere [distribuire un'infrastruttura software defined Network usando gli script](https://technet.microsoft.com/windows-server-docs/networking/sdn/deploy/deploy-a-software-defined-network-infrastructure-using-scripts).
 
-### <a name="step-4-restart-the-network-controller-host-agent-service"></a>Passaggio 4: Riavviare il servizio agente host del controller di rete
+### <a name="step-4-restart-the-network-controller-host-agent-service"></a>Passaggio 4: riavviare il servizio agente host del controller di rete
 Per riavviare il servizio agente host del controller di rete, è possibile utilizzare il comando di Windows PowerShell seguente.
     
     Restart-Service nchostagent -Force

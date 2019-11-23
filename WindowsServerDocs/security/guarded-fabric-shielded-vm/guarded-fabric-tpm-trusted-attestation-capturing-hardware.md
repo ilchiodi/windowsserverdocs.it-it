@@ -19,7 +19,7 @@ ms.locfileid: "71403518"
 
 >Si applica a: Windows Server 2019, Windows Server (canale semestrale), Windows Server 2016
 
-La modalità TPM usa un identificatore TPM (detto anche identificatore della piattaforma o chiave di verifica dell'autenticità \[EKpub @ no__t-1) per iniziare a determinare se un determinato host è autorizzato come "sorvegliato". Questa modalità di attestazione utilizza misure di avvio protetto e di integrità del codice per garantire che un determinato host Hyper-V sia in uno stato integro ed esegua solo codice attendibile. Per comprendere che cosa è e non è integro, è necessario che l'attestazione acquisisca gli elementi seguenti:
+La modalità TPM usa un identificatore TPM (detto anche identificatore della piattaforma o chiave di verifica dell'autenticità \[EKpub\]) per iniziare a determinare se un determinato host è autorizzato come "sorvegliato". Questa modalità di attestazione utilizza misure di avvio protetto e di integrità del codice per garantire che un determinato host Hyper-V sia in uno stato integro ed esegua solo codice attendibile. Per comprendere che cosa è e non è integro, è necessario che l'attestazione acquisisca gli elementi seguenti:
 
 1.  Identificatore TPM (EKpub)
 
@@ -45,7 +45,7 @@ Un host può attestare solo se tutti gli elementi (EKPub + TPM Baseline + CI cri
 
 1.  Nel dominio infrastruttura verificare che il TPM in ogni host sia pronto per l'uso, ovvero che il TPM sia inizializzato e che la proprietà sia stata ottenuta. È possibile controllare lo stato del TPM aprendo la console di gestione TPM (TPM. msc) o eseguendo **Get-TPM** in una finestra di Windows PowerShell con privilegi elevati. Se il TPM non è nello stato **pronto** , sarà necessario inizializzarlo e impostarne la proprietà. Questa operazione può essere eseguita nella console di gestione TPM o eseguendo **Initialize-TPM**.
 
-2.  In ogni host sorvegliato, eseguire il comando seguente in una console di Windows PowerShell con privilegi elevati per ottenere il relativo EKpub. Per `<HostName>`, sostituire il nome host univoco con un elemento appropriato per identificare questo host. può essere il nome host o il nome usato da un servizio di inventario dell'infrastruttura, se disponibile. Per praticità, denominare il file di output usando il nome dell'host.
+2.  In ogni host sorvegliato, eseguire il comando seguente in una console di Windows PowerShell con privilegi elevati per ottenere il relativo EKpub. Per `<HostName>`, sostituire il nome host univoco con un elemento appropriato per identificare l'host, che può essere il nome host o il nome usato da un servizio di inventario dell'infrastruttura, se disponibile. Per praticità, denominare il file di output usando il nome dell'host.
 
     ```powershell
     (Get-PlatformIdentifier -Name '<HostName>').InnerXml | Out-file <Path><HostName>.xml -Encoding UTF8
@@ -64,7 +64,7 @@ Un host può attestare solo se tutti gli elementi (EKPub + TPM Baseline + CI cri
     > Se si verifica un errore durante l'aggiunta di un identificatore TPM relativo a un certificato della chiave di verifica dell'autenticità (EKCert) non attendibile, verificare che i [certificati radice TPM attendibili siano stati aggiunti](guarded-fabric-install-trusted-tpm-root-certificates.md) al nodo HGS.
     > Alcuni fornitori di TPM, inoltre, non utilizzano EKCerts.
     > È possibile verificare se manca un EKCert aprendo il file XML in un editor, ad esempio Blocco note, e verificando la presenza di un messaggio di errore che indica che non è stato trovato alcun EKCert.
-    > In tal caso e si considera attendibile che il TPM nel computer è autentico, è possibile usare il parametro `-Force` per aggiungere l'identificatore host a HGS. In Windows Server 2019 è necessario usare anche il parametro `-PolicyVersion v1` quando si usa `-Force`. In questo modo si crea un criterio coerente con il comportamento di Windows Server 2016 e sarà necessario usare `-PolicyVersion v1` quando si registrano il criterio CI e la baseline del TPM.
+    > In tal caso e si considera attendibile che il TPM nel computer è autentico, è possibile usare il parametro `-Force` per aggiungere l'identificatore host a HGS. In Windows Server 2019 è necessario usare anche il parametro `-PolicyVersion v1` quando si usa `-Force`. In questo modo si crea un criterio coerente con il comportamento di Windows Server 2016 e sarà necessario usare `-PolicyVersion v1` durante la registrazione del criterio CI e della baseline del TPM.
 
 ## <a name="create-and-apply-a-code-integrity-policy"></a>Creare e applicare un criterio di integrità del codice
 
@@ -74,8 +74,8 @@ Ogni host sorvegliato deve avere un criterio di integrità del codice applicato 
 
 A partire da Windows Server versione 1709, i criteri di integrità del codice di esempio sono inclusi in Windows in C:\Windows\schemas\CodeIntegrity\ExamplePolicies. Per Windows Server è consigliabile usare due criteri:
 
-- **AllowMicrosoft**: Consente tutti i file firmati da Microsoft. Questo criterio è consigliato per le applicazioni server, ad esempio SQL o Exchange, o se il server viene monitorato dagli agenti pubblicati da Microsoft.
-- **DefaultWindows_Enforced**: Consente solo i file forniti in Windows e non consente altre applicazioni rilasciate da Microsoft, ad esempio Office. Questo criterio è consigliato per i server che eseguono solo ruoli predefiniti del server e funzionalità quali Hyper-V. 
+- **AllowMicrosoft**: consente tutti i file firmati da Microsoft. Questo criterio è consigliato per le applicazioni server, ad esempio SQL o Exchange, o se il server viene monitorato dagli agenti pubblicati da Microsoft.
+- **DefaultWindows_Enforced**: consente solo i file forniti in Windows e non consente altre applicazioni rilasciate da Microsoft, ad esempio Office. Questo criterio è consigliato per i server che eseguono solo ruoli predefiniti del server e funzionalità quali Hyper-V. 
 
 È consigliabile creare prima di tutto il criterio CI in modalità controllo (registrazione) per verificare se non è presente alcun elemento, quindi applicare i criteri per i carichi di lavoro di produzione host. 
 
@@ -128,11 +128,11 @@ Per altre informazioni sui livelli di regola dei criteri CI disponibili, vedere 
     >[!NOTE]
     >Prestare attenzione quando si applicano i criteri CI agli host e quando si aggiornano i software in questi computer. I driver in modalità kernel non conformi ai criteri CI possono impedire l'avvio del computer. 
 
-6.  Fornire il file binario (in questo esempio, HW1CodeIntegrity @ no__t-0enforced. p7b) all'amministratore di HGS.
+6.  Fornire il file binario (in questo esempio HW1CodeIntegrity\_applicato p7b) all'amministratore di HGS.
 
 7.  Nel dominio HGS copiare i criteri di integrità del codice in un server HGS ed eseguire il comando seguente.
 
-    Per `<PolicyName>`, specificare un nome per il criterio CI che descrive il tipo di host a cui si applica. Una procedura consigliata consiste nel denominarla dopo la marca/modello del computer e qualsiasi configurazione software speciale in esecuzione su di essa.<br>Per `<Path>`, specificare il percorso e il nome file del criterio di integrità del codice.
+    Per `<PolicyName>`, specificare un nome per il criterio CI che descrive il tipo di host a cui si applica. Una procedura consigliata consiste nel denominarla dopo la marca/modello del computer e qualsiasi configurazione software speciale in esecuzione su di essa.<br>Per `<Path>`, specificare il percorso e il nome del file dei criteri di integrità del codice.
 
     ```powershell
     Add-HgsAttestationCIPolicy -Path <Path> -Name '<PolicyName>'

@@ -22,11 +22,11 @@ ms.locfileid: "71380102"
 ---
 # <a name="bitsadmin"></a>bitsadmin
 
-> **Si applica a**: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows 10
+> **Si applica a**: Windows Server (canale semestrale), windows server 2016, windows Server 2012 R2, windows Server 2012, Windows 10
 
-Bitsadmin è uno strumento da riga di comando che è possibile usare per creare download o caricare processi e monitorarne lo stato di avanzamento. Lo strumento Bitsadmin usa le opzioni per identificare le attività da eseguire.  Per ottenere un elenco di opzioni, è possibile chiamare `bitsadmin /?` o `bitsadmin /HELP`.
+Bitsadmin è uno strumento da riga di comando che è possibile usare per creare download o caricare processi e monitorarne lo stato di avanzamento. Lo strumento Bitsadmin usa le opzioni per identificare le attività da eseguire.  È possibile chiamare `bitsadmin /?` o `bitsadmin /HELP` per ottenere un elenco di opzioni.
 
-Per la maggior parte delle opzioni è necessario un parametro \<Job @ no__t-1 impostato sul nome visualizzato o sul GUID del processo. Si noti che il nome visualizzato di un processo potrebbe non essere univoco. Le opzioni **/create** e **/List** restituiscono il GUID di un processo.
+Per la maggior parte delle opzioni è necessario un \<processo\> parametro impostato sul nome visualizzato o sul GUID del processo. Si noti che il nome visualizzato di un processo potrebbe non essere univoco. Le opzioni **/create** e **/List** restituiscono il GUID di un processo.
 
 Per impostazione predefinita, è possibile accedere alle informazioni sui processi personali. Per accedere alle informazioni per i processi di un altro utente, è necessario disporre dei privilegi di amministratore. Se il processo è stato creato con privilegi elevati, è necessario eseguire Bitsadmin da una finestra con privilegi elevati. in caso contrario, si avrà accesso in sola lettura al processo.
 

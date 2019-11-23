@@ -31,7 +31,7 @@ Un amministratore dell'infrastruttura deve verificare che gli host Hyper-V possa
 
 3. Configurare gli URL di attestazione e protezione delle chiavi dell'host:
 
-    - **Tramite Windows PowerShell**: È possibile configurare gli URL di attestazione e protezione delle chiavi eseguendo il comando seguente in una console di Windows PowerShell con privilegi elevati. Per &lt;FQDN @ no__t-1, usare il nome di dominio completo (FQDN) del cluster HGS, ad esempio HGS. Bastion. local, oppure chiedere all'amministratore di HGS di eseguire il cmdlet **Get-HgsServer** sul server HGS per recuperare gli URL.
+    - **Tramite Windows PowerShell**: è possibile configurare gli URL di attestazione e protezione delle chiavi eseguendo il comando seguente in una console di Windows PowerShell con privilegi elevati. Per &lt;FQDN&gt;, usare il nome di dominio completo (FQDN) del cluster HGS (ad esempio, HGS. Bastion. local o chiedere all'amministratore di HGS di eseguire il cmdlet **Get-HgsServer** nel server HGS per recuperare gli URL).
 
         ```PowerShell
         Set-HgsClientConfiguration -AttestationServerUrl 'http://<FQDN>/Attestation' -KeyProtectionServerUrl 'http://<FQDN>/KeyProtection'
@@ -39,7 +39,7 @@ Un amministratore dell'infrastruttura deve verificare che gli host Hyper-V possa
 
         Per configurare un server HGS di fallback, ripetere questo comando e specificare gli URL di fallback per i servizi di attestazione e protezione delle chiavi. Per altre informazioni, vedere [configurazione di fallback](guarded-fabric-manage-branch-office.md#fallback-configuration).
 
-    - **Tramite VMM**: Se si usa System Center 2016-Virtual Machine Manager (VMM), è possibile configurare gli URL di attestazione e di protezione con chiave in VMM. Per informazioni dettagliate, vedere [configurare le impostazioni di HGS globali](https://technet.microsoft.com/system-center-docs/vmm/scenario/guarded-hosts#configure-global-hgs-settings) nel **provisioning di host sorvegliati in VMM**.
+    - **Tramite VMM**: se si usa System Center 2016-Virtual Machine Manager (VMM), è possibile configurare gli URL di attestazione e di protezione con chiave in VMM. Per informazioni dettagliate, vedere [configurare le impostazioni di HGS globali](https://technet.microsoft.com/system-center-docs/vmm/scenario/guarded-hosts#configure-global-hgs-settings) nel **provisioning di host sorvegliati in VMM**.
 
     >**Note**
     > - Se l'amministratore di HGS ha [abilitato HTTPS nel server HGS](guarded-fabric-configure-hgs-https.md), iniziare gli url con `https://`.
@@ -62,7 +62,7 @@ Un amministratore dell'infrastruttura deve verificare che gli host Hyper-V possa
     ```
 
     > [!IMPORTANT]
-    > Se si usa Windows Server 2019 o Windows 10, versione 1809 e si usano criteri di integrità del codice, `Get-HgsTrace` restituiscono un errore per la diagnostica **attiva dei criteri di integrità del codice** .
+    > Se si usa Windows Server 2019 o Windows 10, versione 1809 e si usano criteri di integrità del codice, `Get-HgsTrace` restituisce un errore per la diagnostica **attiva dei criteri di integrità del codice** .
     > Questo risultato può essere ignorato in modo sicuro quando è l'unica diagnostica non riuscita.
 
 ## <a name="next-step"></a>Passaggio successivo
@@ -70,7 +70,7 @@ Un amministratore dell'infrastruttura deve verificare che gli host Hyper-V possa
 > [!div class="nextstepaction"]
 > [Distribuire macchine virtuali schermate](guarded-fabric-configuration-scenarios-for-shielded-vms-overview.md)
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 - [Distribuire il servizio sorveglianza host (HGS)](guarded-fabric-deploying-hgs-overview.md)
 - [Distribuire macchine virtuali schermate](guarded-fabric-configuration-scenarios-for-shielded-vms-overview.md)

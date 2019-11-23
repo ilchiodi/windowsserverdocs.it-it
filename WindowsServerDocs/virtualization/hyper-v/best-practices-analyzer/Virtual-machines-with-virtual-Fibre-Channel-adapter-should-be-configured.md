@@ -25,7 +25,7 @@ Per altre informazioni sulle procedure consigliate e sulle analisi, vedere [Eseg
   
 |Proprietà|Dettagli|  
 |-|-|  
-|**Sistema operativo**|Windows Server 2016|  
+|**Sistema operativo**|Windows Server 2016|  
 |**Prodotto/funzionalità**|Hyper-V|  
 |**Gravità**|Informazioni|  
 |**Categoria**|Configurazione|  
@@ -36,9 +36,9 @@ Nelle sezioni seguenti, corsivo indica il testo dell'interfaccia Utente visualiz
 *Una o più macchine virtuali non dispongono di una connessione a disponibilità elevata per l'archiviazione basata su Fibre Channel perché tali macchine virtuali sono configurate con una scheda Fibre Channel virtuale connessa a una sola scheda bus host (HBA).*  
   
 ## <a name="impact"></a>**Impatto**  
-*A errore della scheda bus host potrebbe bloccare la connessione Fibre Channel tra l'archiviazione e le macchine virtuali. Ciò influisca sulle macchine virtuali seguenti:*  
+*Un errore della scheda bus host potrebbe bloccare la connessione Fibre Channel tra l'archiviazione e le macchine virtuali. Ciò influisca sulle macchine virtuali seguenti:*  
   
-@no__t 0list di macchine virtuali >  
+\<elenco di macchine virtuali >  
   
 ## <a name="resolution"></a>**Soluzione**  
 *Aggiungere un'altra connessione dalla macchina virtuale alla scheda bus host e configurare Multipath I/O (MPIO) nel sistema operativo guest per stabilire connessioni di Fibre Channel ridondanti.*  

@@ -21,7 +21,7 @@ ms.locfileid: "71406224"
 
 Questa guida è destinata agli amministratori DNS, di rete e di sistema.  
   
-Criteri DNS è una nuova funzionalità per DNS in Windows Server @ no__t-0 2016. È possibile usare questa guida per informazioni su come usare i criteri DNS per controllare il modo in cui un server DNS elabora le query di risoluzione dei nomi in base a parametri diversi definiti nei criteri.   
+Criteri DNS è una nuova funzionalità per DNS in Windows Server&reg; 2016. È possibile usare questa guida per informazioni su come usare i criteri DNS per controllare il modo in cui un server DNS elabora le query di risoluzione dei nomi in base a parametri diversi definiti nei criteri.   
   
 Questa guida contiene informazioni generali sui criteri DNS, oltre a scenari di criteri DNS specifici che forniscono istruzioni su come configurare il comportamento del server DNS per realizzare gli obiettivi, inclusa la gestione del traffico basata sulla posizione geografica per i database primari e server DNS secondari, disponibilità elevata dell'applicazione, DNS "Split Brain" e altro ancora.  
   

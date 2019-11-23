@@ -18,12 +18,12 @@ ms.locfileid: "71407991"
 ---
 # <a name="planning-your-deployment"></a>Pianificazione della distribuzione
 
-Quando si pianifica la collaborazione tra @ no__t-0organizational \(federation @ no__t-2based @ no__t-3 con Active Directory Federation Services \(AD FS @ no__t-5, determinare innanzitutto se l'organizzazione ospiterà una risorsa Web a cui accedere da altri organizzazioni in Internet o se si fornirà l'accesso alla risorsa Web per i dipendenti dell'organizzazione. Questa determinazione influiscono sul modo in cui si distribuisce AD FS ed è fondamentale per la pianificazione dell'infrastruttura AD FS.  
+Quando si pianifica la collaborazione tra\-\(di Federazione\-basata\) usando Active Directory Federation Services \(ad FS\), determinare prima di tutto se l'organizzazione ospiterà una risorsa Web a cui accedere da altre organizzazioni in Internet o se si fornirà l'accesso alla risorsa Web per i dipendenti dell'organizzazione. Questa determinazione influiscono sul modo in cui si distribuisce AD FS ed è fondamentale per la pianificazione dell'infrastruttura AD FS.  
   
 > [!NOTE]  
 > Assicurarsi che il ruolo dell'organizzazione nel contratto di federazione sia ben chiaro a tutte le parti.  
   
-Per il [progetto SSO Web federativo](Federated-Web-SSO-Design.md), ad FS usa termini quali il *partner account* \(also definito provider di *identità* nello snap-in di gestione ad FS @ no__t-4in @ no__t-5 e il *partner risorse* \(also indicato come  *relying party* nello snap-in gestione ad FS @ no__t-9in @ no__t-10 per distinguere l'organizzazione che ospita gli account 1The account partner @ no__t-12 dall'organizzazione che ospita la risorsa Web @ no__t-13based risorse 4a partner @ no__t-15.  
+Per la soluzione di accesso Single Sign-on [Web federativo](Federated-Web-SSO-Design.md), ad FS usa termini quali il *partner account* \(detto anche *provider di identità* nello snap-in di gestione ad FS\-in\) e il *partner risorse* \(anche definito *relying party* nello snap-in ad FS Management\-in\) per distinguere l'organizzazione che ospita gli account \(\) del partner account dall'organizzazione che ospita le risorse basate su\-Web \(\)del partner risorse.  
   
 Nel [Web SSO Design](Web-SSO-Design.md)l'organizzazione riveste entrambi i ruoli di partner account e di partner risorse, perché fornisce ai suoi utenti l'accesso alle sue applicazioni.  
   
@@ -41,7 +41,7 @@ Negli argomenti seguenti vengono illustrati alcuni dei concetti AD FS dell'organ
   
 -   [Distribuzione di AD FS nell'organizzazione partner risorse](Deploying-AD-FS-in-the-Resource-Partner-Organization-2012.md)  
   
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 [Guida alla progettazione di AD FS in Windows Server 2012](AD-FS-Design-Guide-in-Windows-Server-2012.md)
 
 

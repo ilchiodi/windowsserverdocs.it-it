@@ -19,7 +19,7 @@ ms.locfileid: "71404673"
 
 >Si applica a: Windows Server (Canale semestrale), Windows Server 2016
 
-Windows Server 2016 fornisce aggiornamenti per Generic Routing Encapsulation \(GRE @ no__t-1 funzionalità di tunneling per il gateway RAS.  
+Windows Server 2016 fornisce aggiornamenti per Generic Routing Encapsulation \(la funzionalità di tunnel\) GRE per il gateway RAS.  
   
 GRE è un protocollo di tunneling leggero in grado di incapsulare un'ampia gamma di protocolli a livello di rete all'interno di collegamenti point-to-point virtuali in un sistema Internetwork IP (Internet Protocol, protocollo Internet). L'implementazione di Microsoft GRE può incapsulare IPv4 e IPv6.  
   
@@ -27,11 +27,11 @@ I tunnel GRE sono utili in molti scenari perché:
   
 -   Sono conformi a Lightweight e RFC 2890, rendendolo interoperabile con diversi dispositivi fornitore  
   
--   È possibile usare Border Gateway Protocol \(BGP @ no__t-1 per il routing dinamico  
+-   È possibile usare Border Gateway Protocol \(\) BGP per il routing dinamico  
   
--   È possibile configurare i gateway RAS multitenant GRE da usare con Software Defined Networking \(SDN @ no__t-1
+-   È possibile configurare i gateway RAS multitenant GRE da usare con Software Defined Networking \(SDN\)
   
--   È possibile usare System Center Virtual Machine Manager per gestire i gateway RAS di GRE @ no__t-0based
+-   È possibile usare System Center Virtual Machine Manager per gestire i gateway RAS basati su\-GRE
   
 -   È possibile ottenere fino a 2,0 Gbps di velocità effettiva in una macchina virtuale a 6 core configurata come gateway RAS GRE
   
@@ -104,13 +104,13 @@ Questo scenario può essere usato per integrare i dispositivi di terze parti, ad
   
 ## <a name="configuration-and-deployment"></a>Configurazione e distribuzione
 
-Un tunnel GRE viene esposto come protocollo aggiuntivo all'interno di un'interfaccia S2S. Viene implementato in modo analogo come un tunnel S2S IPSec descritto nel Blog di rete seguente: [Gateway VPN da sito a sito (S2S) multi-tenant con Windows Server 2012 R2](https://blogs.technet.com/b/networking/archive/2013/09/29/multi-tenant-site-to-site-s2s-vpn-gateway-with-windows-server-2012-r2.aspx)  
+Un tunnel GRE viene esposto come protocollo aggiuntivo all'interno di un'interfaccia S2S. Viene implementato in modo analogo a un tunnel S2S IPSec descritto nel Blog di rete seguente: [gateway VPN da sito a sito (S2S) multi-tenant con Windows Server 2012 R2](https://blogs.technet.com/b/networking/archive/2013/09/29/multi-tenant-site-to-site-s2s-vpn-gateway-with-windows-server-2012-r2.aspx)  
   
 Vedere l'argomento seguente per un esempio che distribuisce i gateway, inclusi i gateway del tunnel GRE:  
   
 [Distribuire un'infrastruttura software defined Network usando gli script](../../../networking/sdn/deploy/Deploy-a-Software-Defined-Network-infrastructure-using-scripts.md)
   
-## <a name="more-information"></a>Altre informazioni
+## <a name="more-information"></a>Ulteriori informazioni
 
 Per ulteriori informazioni sulla distribuzione di gateway S2S, vedere gli argomenti seguenti:  
   
@@ -118,7 +118,7 @@ Per ulteriori informazioni sulla distribuzione di gateway S2S, vedere gli argome
   
 -   [Border Gateway Protocol &#40;BGP&#41;](../bgp/Border-Gateway-Protocol-BGP.md)  
   
--   @no__t 0New! Guida alla distribuzione di RAS multitenant gateway di Windows Server 2012 R2 @ no__t-0  
+-   [Nuovo! Guida alla distribuzione di RAS multitenant gateway di Windows Server 2012 R2](https://blogs.technet.com/b/wsnetdoc/archive/2014/03/26/new-windows-server-2012-r2-RAS-multitenant-gateway-deployment-guide.aspx)  
   
 -   [Distribuire Border Gateway Protocol (BGP) con RAS multi-tenant gateway](https://blogs.technet.com/b/wsnetdoc/archive/2014/04/03/deploy-border-gateway-protocol-bgp-with-the-RAS-multitenant-gateway.aspx)  
   

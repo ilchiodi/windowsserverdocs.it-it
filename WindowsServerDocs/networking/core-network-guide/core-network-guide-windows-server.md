@@ -20,7 +20,7 @@ ms.locfileid: "71356071"
 
 >Si applica a: Windows Server, Windows Server 2016
 
-In questo argomento viene fornita una panoramica delle linee guida principali per la rete di Windows Server @ no__t-0 2016 e sono incluse le sezioni seguenti.  
+In questo argomento viene fornita una panoramica delle linee guida principali per la rete di Windows Server&reg; 2016 e sono incluse le sezioni seguenti.  
   
 -   [Introduzione alla rete di Windows Server Core](#bkmk_intro)  
   

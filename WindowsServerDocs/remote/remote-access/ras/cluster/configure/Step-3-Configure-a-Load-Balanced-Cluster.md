@@ -51,7 +51,7 @@ Dopo la preparazione server per il cluster, configurare il bilanciamento del car
   
 3.  Nel riquadro centrale della console, nel **passaggio 2 DirectAccess Server** area, fare clic su **modificare**.  
   
-4.  Fare clic su **Configurazione prefissi**. Nel **Configurazione prefissi** pagina **prefisso IPv6 assegnato ai computer client DirectAccess**, immettere il prefisso IPv6 utilizzato per i computer client DirectAccess con una lunghezza di subnet di 59, ad esempio, **2001:db8:1:1000:: 59**. Se sono stati inoltre abilitata la VPN con IPv6, quindi verrà visualizzato un prefisso IPv6 e la lunghezza della subnet devono essere modificati e 59. Fare clic su **Avanti**.  
+4.  Fare clic su **Configurazione prefissi**. Nel **Configurazione prefissi** pagina **prefisso IPv6 assegnato ai computer client DirectAccess**, immettere il prefisso IPv6 utilizzato per i computer client DirectAccess con una lunghezza di subnet di 59, ad esempio, **2001:db8:1:1000:: 59**. Se sono stati inoltre abilitata la VPN con IPv6, quindi verrà visualizzato un prefisso IPv6 e la lunghezza della subnet devono essere modificati e 59. Fai clic su **Next**.  
   
 5.  Nel riquadro centrale della console, fare clic su **Fine**.  
   
@@ -69,9 +69,9 @@ Dopo la preparazione server per il cluster, configurare il bilanciamento del car
   
 4.  Si è scelto in passaggi di pianificazione in base:  
   
-    1.  Bilanciamento carico di Windows: Nella pagina **metodo di bilanciamento del carico** fare clic su **Usa bilanciamento carico di rete (NLB) di Windows**, quindi fare clic su **Avanti**.  
+    1.  Bilanciamento carico di RETE di Windows: Sul **metodo di bilanciamento del carico** pagina, fare clic su **utilizzare Windows rete bilanciamento carico (NLB)** , e quindi fare clic su **Avanti**.  
   
-    2.  Servizio di bilanciamento del carico esterno: Nella pagina **metodo di bilanciamento del carico** fare clic su **Usa un servizio di bilanciamento del carico esterno**, quindi fare clic su **Avanti**.  
+    2.  Bilanciamento del carico esterno: sul **metodo di bilanciamento del carico** pagina, fare clic su **utilizzare un servizio di bilanciamento del carico esterno**, e quindi fare clic su **Avanti**.  
   
 5.  In una distribuzione di adapter singola rete, nel **indirizzi IP dedicati** pagina, eseguire le operazioni seguenti e quindi fare clic su **Avanti**:  
   
@@ -100,7 +100,7 @@ Dopo la preparazione server per il cluster, configurare il bilanciamento del car
     > [!NOTE]  
     > Se viene utilizzato il bilanciamento del carico esterno, annotare gli indirizzi IP virtuali e inserirle in servizi di bilanciamento del carico esterno.  
   
-](../../../../media/Step-3-Configure-a-Load-Balanced-Cluster/PowerShellLogoSmall.gif)***<em>comandi equivalenti</em> di PowerShell per Windows PowerShell @no__t 0Windows***  
+![](../../../../media/Step-3-Configure-a-Load-Balanced-Cluster/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em> per Windows PowerShell***  
   
 Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.  
   
@@ -247,7 +247,7 @@ Appartenenza al gruppo locale **amministratori** o gruppo equivalente, è il req
   
 12. Nel **aggiunta e rimozione di server** la finestra di dialogo, fare clic su **Chiudi**.  
   
-](../../../../media/Step-3-Configure-a-Load-Balanced-Cluster/PowerShellLogoSmall.gif)***<em>comandi equivalenti</em> di PowerShell per Windows PowerShell @no__t 0Windows***  
+![](../../../../media/Step-3-Configure-a-Load-Balanced-Cluster/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em> per Windows PowerShell***  
   
 Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.  
   
@@ -277,7 +277,7 @@ Add-RemoteAccessLoadBalancerNode -RemoteAccessServer <server name>
   
 7.  Nel **aggiunta e rimozione di server** la finestra di dialogo, fare clic su **Chiudi**.  
   
-](../../../../media/Step-3-Configure-a-Load-Balanced-Cluster/PowerShellLogoSmall.gif)***<em>comandi equivalenti</em> di PowerShell per Windows PowerShell @no__t 0Windows***  
+![](../../../../media/Step-3-Configure-a-Load-Balanced-Cluster/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em> per Windows PowerShell***  
   
 Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.  
   
@@ -298,7 +298,7 @@ Remove-RemoteAccessLoadBalancerNode -RemoteAccessServer <server name>
   
 4.  Nel **disabilitare il bilanciamento del carico** la finestra di dialogo, fare clic su **Chiudi**.  
   
-](../../../../media/Step-3-Configure-a-Load-Balanced-Cluster/PowerShellLogoSmall.gif)***<em>comandi equivalenti</em> di PowerShell per Windows PowerShell @no__t 0Windows***  
+![](../../../../media/Step-3-Configure-a-Load-Balanced-Cluster/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em> per Windows PowerShell***  
   
 Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.  
   
@@ -317,7 +317,7 @@ Fare clic su **rimuovere impostazioni di configurazione** rimuoverà bilanciamen
   
 ## <a name="BKMK_Links"></a>Vedere anche  
   
--   [Passaggio 4: Verifica del cluster @ no__t-0  
+-   [Passaggio 4: verifica del cluster](Step-4-Verify-the-Cluster.md)  
   
 
 

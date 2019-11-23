@@ -38,6 +38,6 @@ set root=<RootServer>
 
 ## <a name="remarks"></a>Osservazioni
 - Il sottocomando **set root** influiscono sul sottocomando **radice** .
-  ## <a name="additional-references"></a>Riferimenti aggiuntivi
-  [Chiave della sintassi della riga di comando](command-line-syntax-key.md) 
+  ## <a name="additional-references"></a>riferimenti aggiuntivi
+  [Chiave della sintassi della riga di comando](command-line-syntax-key.md)
   [radice nslookup](nslookup-root.md)

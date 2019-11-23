@@ -19,14 +19,14 @@ ms.locfileid: "71405411"
 
 >Si applica a: Windows Server (Canale semestrale), Windows Server 2016
 
-Tutti i certificati usati per l'autenticazione di accesso alla rete con Extensible Authentication Protocol @ no__t-0Transport Layer Security \(EAP @ no__t-2TLS @ no__t-3, Protected Extensible Authentication Protocol @ no__t-4Transport Layer Security \(PEAP @ no__t-6TLS @ no__t-7 e PEAP @ no__t-8Microsoft Challenge Handshake Authentication Protocol versione 2 \(MS @ no__t-10CHAP V2 @ no__t-11 devono soddisfare i requisiti per i certificati X. 509 e funzionano per le connessioni che usano il socket sicuro Sicurezza a livello di livello/trasporto (SSL/TLS). I certificati client e server hanno requisiti aggiuntivi.
+Tutti i certificati utilizzati per l'autenticazione dell'accesso alla rete con Extensible Authentication Protocol\-Transport Layer Security \(EAP\-TLS\), Protected Extensible Authentication Protocol\-Transport Layer Security \(PEAP\-TLS\)e PEAP\-Microsoft Challenge Handshake Authentication Protocol versione 2 \(MS\-CHAP v2\) devono soddisfare i requisiti per i certificati X. 509 e funzionano per le connessioni che utilizzano Secure Socket Layer/Transport Level Security (SSL/TLS). I certificati client e server hanno requisiti aggiuntivi.
 
 >[!IMPORTANT]
->In questo argomento vengono fornite le istruzioni per la configurazione dei modelli di certificato. Per usare queste istruzioni, è necessario aver distribuito l'infrastruttura a chiave pubblica \(PKI @ no__t-1 con Active Directory Servizi certificati \(AD CS @ no__t-3.
+>In questo argomento vengono fornite le istruzioni per la configurazione dei modelli di certificato. Per usare queste istruzioni, è necessario avere distribuito l'infrastruttura a chiave pubblica \(infrastruttura a chiave pubblica (PKI)\) con servizi certificati Active Directory \(AD CS\).
 
 ## <a name="minimum-server-certificate-requirements"></a>Requisiti minimi del certificato server
 
-Con PEAP @ no__t-0MS @ no__t-1CHAP V2, PEAP @ no__t-2TLS o EAP @ no__t-3TLS come metodo di autenticazione, il server dei criteri di server deve usare un certificato del server che soddisfi i requisiti minimi del certificato server. 
+Con PEAP\-MS\-CHAP v2, PEAP\-TLS o EAP\-TLS come metodo di autenticazione, il server dei criteri di server deve usare un certificato server che soddisfi i requisiti minimi del certificato server. 
 
 I computer client possono essere configurati per convalidare i certificati server utilizzando l'opzione **convalida certificato server** nel computer client o in criteri di gruppo. 
 
@@ -50,10 +50,10 @@ Il computer client accetta il tentativo di autenticazione del server quando il c
     3. Fare clic sulla scheda **crittografia** e assicurarsi di configurare quanto segue:
        - **Categoria provider:** Provider di archiviazione chiavi
        - **Nome algoritmo:** RSA
-       - **Provider** Provider di crittografia della piattaforma Microsoft
-       - **Dimensioni minime chiave:** 2048
+       - **Provider:** Provider di crittografia della piattaforma Microsoft
+       - **Dimensioni minime della chiave:** 2048
        - **Algoritmo hash:** SHA2
-    4. Fare clic su **Avanti**.
+    4. Fai clic su **Next**.
 
 - L'estensione del nome alternativo del soggetto (SubjectAltName), se utilizzata, deve contenere il nome DNS del server. Per configurare il modello di certificato con il nome del Domain Name System (DNS) del server di iscrizione: 
 
@@ -76,27 +76,27 @@ Per altre informazioni, vedere [distribuire certificati server per le distribuzi
 
 Con EAP-TLS o PEAP-TLS, il server accetta il tentativo di autenticazione client quando il certificato soddisfa i requisiti seguenti:
 
-- Il certificato client viene emesso da una CA globale (Enterprise) o mappato a un account utente o computer in Active Directory Domain Services \(AD DS @ no__t-1.
+- Il certificato client viene emesso da una CA globale (Enterprise) o mappato a un account utente o computer in Active Directory Domain Services \(\)di servizi di dominio Active Directory.
 
-- Il certificato utente o computer nel client si concatena a una CA radice attendibile, include lo scopo di autenticazione client nelle estensioni EKU \(The identificatore oggetto per l'autenticazione client è 1.3.6.1.5.5.7.3.2 @ no__t-1 e non ha esito negativo né i controlli eseguita da CryptoAPI e specificate nei criteri di accesso remoto o nei criteri di rete, né nei controlli dell'identificatore di oggetto certificato specificati nei criteri di rete NPS.
+- Il certificato utente o computer nel client viene concatenato a una CA radice attendibile, include lo scopo di autenticazione client nelle estensioni EKU \(l'identificatore di oggetto per l'autenticazione client è 1.3.6.1.5.5.7.3.2\)e non ha esito negativo né i controlli eseguiti da CryptoAPI né quelli specificati nei criteri di accesso remoto o di rete né nei controlli identificatore oggetto certificato specificati nei criteri di rete NPS.
 
 - Il client 802.1 X non usa certificati basati sul Registro di sistema che sono certificati con accesso tramite smart card o protetti da password.
 
-- Per i certificati utente, il nome alternativo del soggetto \(SubjectAltName @ no__t-1 Extension nel certificato contiene il nome dell'entità utente \(UPN @ no__t-3. Per configurare l'UPN in un modello di certificato:
+- Per i certificati utente, il nome alternativo del soggetto \(SubjectAltName\) Extension nel certificato contiene il nome dell'entità utente \(UPN\). Per configurare l'UPN in un modello di certificato:
 
     1. Aprire Modelli di certificato.
     2. Nel riquadro dei dettagli fare clic con il pulsante destro del mouse sul modello di certificato che si desidera modificare e quindi scegliere **Proprietà**.
     3. Fare clic sulla scheda **nome soggetto** , quindi fare clic su **compila da questa Active Directory informazioni**.
-    4. In **includere le seguenti informazioni nel nome soggetto alternativo**selezionare **nome entità utente \(UPN @ no__t-3**.
+    4. In **includere le seguenti informazioni nel nome soggetto alternativo**selezionare **nome entità utente \(UPN\)** .
 
-- Per i certificati del computer, il nome alternativo del soggetto \(SubjectAltName @ no__t-1 Extension nel certificato deve contenere il nome di dominio completo \(FQDN @ no__t-3 del client, denominato anche *nome DNS*. Per configurare questo nome nel modello di certificato:
+- Per i certificati del computer, il nome alternativo del soggetto \(estensione SubjectAltName\) nel certificato deve contenere il nome di dominio completo \(FQDN\) del client, denominato anche *nome DNS*. Per configurare questo nome nel modello di certificato:
 
     1. Aprire Modelli di certificato.
     2. Nel riquadro dei dettagli fare clic con il pulsante destro del mouse sul modello di certificato che si desidera modificare e quindi scegliere **Proprietà**.
     3. Fare clic sulla scheda **nome soggetto** , quindi fare clic su **compila da questa Active Directory informazioni**.
     4. In **includere le seguenti informazioni nel nome soggetto alternativo**selezionare **nome DNS**.
 
-Con PEAP @ no__t-0TLS e EAP @ no__t-1TLS, i client visualizzano un elenco di tutti i certificati installati nello snap-in certificati, con le eccezioni seguenti:
+Con PEAP\-TLS e EAP\-TLS, i client visualizzano un elenco di tutti i certificati installati nello snap-in certificati, con le eccezioni seguenti:
 
 - I client senza fili non visualizzano certificati di accesso con smart card e basati sul Registro di sistema. 
 

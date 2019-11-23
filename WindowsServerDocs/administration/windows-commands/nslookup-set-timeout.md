@@ -22,7 +22,7 @@ ms.locfileid: "71372760"
 ---
 # <a name="nslookup-set-timeout"></a>nslookup set timeout
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 modifica il numero iniziale di secondi di attesa di una risposta a una richiesta di ricerca.
 ## <a name="syntax"></a>Sintassi
@@ -36,13 +36,13 @@ set timeout=<Number>
 |    <Number>     | Specifica il numero di secondi di attesa di una risposta. Il numero predefinito di secondi di attesa è 5. |
 | {Help &#124; ?} |                      Viene visualizzato un breve riepilogo di **nslookup** sottocomandi.                       |
 
-## <a name="remarks"></a>Note
+## <a name="remarks"></a>Osservazioni
 - Quando una risposta a una richiesta non viene ricevuta entro il periodo di tempo specificato, il timeout viene raddoppiato e la richiesta viene inviata di nuovo. È possibile utilizzare il comando **imposta tentativi** per controllare il numero di tentativi.
   ## <a name="BKMK_examples"></a>Esempi
   Nell'esempio seguente viene impostato il timeout per ottenere una risposta a 2 secondi:
   ```
   set timeout=2
   ```
-  ## <a name="additional-references"></a>Riferimenti aggiuntivi
+  ## <a name="additional-references"></a>riferimenti aggiuntivi
   [Chiave della sintassi della riga di comando](command-line-syntax-key.md)
-  [nslookup set di tentativi](nslookup-set-retry.md)
+  [nuovo tentativo set nslookup](nslookup-set-retry.md)

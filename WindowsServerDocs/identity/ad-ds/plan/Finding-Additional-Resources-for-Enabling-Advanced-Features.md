@@ -22,9 +22,9 @@ ms.locfileid: "71408817"
 
 È possibile trovare la documentazione seguente su Active Directory Domain Services (AD DS) nella raccolta di documentazione tecnica su Windows Server 2008:  
   
--   Per ulteriori informazioni sulla distribuzione di un dominio radice della foresta di Windows Server 2008, vedere [distribuzione di un dominio radice della foresta di Windows server 2008 \[LH @ no__t-2](assetId:///92406e8d-dc1c-4740-a00a-2c4032896dd1).  
+-   Per ulteriori informazioni sulla distribuzione di un dominio radice della foresta di Windows Server 2008, vedere [distribuzione di un dominio radice della foresta di Windows server 2008 \[LH\]](assetId:///92406e8d-dc1c-4740-a00a-2c4032896dd1).  
   
--   Per ulteriori informazioni sull'aggiornamento di un dominio di Active Directory a Windows Server 2008, vedere [aggiornamento di domini di Active Directory a domini di servizi di dominio Active Directory di Windows server 2008 \[LH @ no__t-2](assetId:///9c91be5f-df14-40b2-b176-2b1852a51e61).  
+-   Per ulteriori informazioni sull'aggiornamento di un dominio di Active Directory a Windows Server 2008, vedere [aggiornamento dei domini di Active Directory ai domini di servizi di dominio Active Directory di Windows server 2008 \[LH\]](assetId:///9c91be5f-df14-40b2-b176-2b1852a51e61).  
   
 -   Per ulteriori informazioni sulla distribuzione di servizi di dominio Active Directory, vedere la guida dettagliata a Windows Server 2008 Active Directory Domain Services installazione e rimozione ([https://go.microsoft.com/fwlink/?LinkId=100492](https://go.microsoft.com/fwlink/?LinkId=100492)).  
   

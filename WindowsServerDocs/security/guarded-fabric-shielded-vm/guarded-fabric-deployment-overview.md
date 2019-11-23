@@ -69,19 +69,19 @@ Immaginiamo questo scenario: è presente un'infrastruttura di Hyper-V esistente,
 
 ![Infrastruttura di Hyper-V esistente](../media/Guarded-Fabric-Shielded-VM/guarded-fabric-existing-hyper-v.png)
 
-## <a name="step-1-deploy-the-hyper-v-hosts-running-windows-server-2016"></a>Passaggio 1: Distribuire gli host Hyper-V che eseguono Windows Server 2016 
+## <a name="step-1-deploy-the-hyper-v-hosts-running-windows-server-2016"></a>Passaggio 1: distribuire gli host Hyper-V che eseguono Windows Server 2016 
 
 Gli host Hyper-V devono eseguire Windows Server 2016 Datacenter Edition o versione successiva. Se si esegue l'aggiornamento degli host, è possibile [eseguire l'aggiornamento](https://technet.microsoft.com/windowsserver/dn527667.aspx) da Standard Edition a Datacenter Edition.
 
 ![Aggiornare gli host Hyper-V](../../security/media/Guarded-Fabric-Shielded-VM/guarded-fabric-deployment-step-one-upgrade-hyper-v.png)
 
-## <a name="step-2-deploy-the-host-guardian-service-hgs"></a>Passaggio 2: Distribuire il servizio sorveglianza host (HGS)
+## <a name="step-2-deploy-the-host-guardian-service-hgs"></a>Passaggio 2: distribuire il servizio sorveglianza host (HGS)
 
 Installare quindi il ruolo del server HGS e distribuirlo come cluster a tre nodi, come nell'esempio di relecloud.com nell'immagine seguente. Sono necessari tre cmdlet di PowerShell:
 
-- Per aggiungere il ruolo HGS, usare`Install-WindowsFeature` 
-- Per installare HGS, usare`Install-HgsServer` 
-- Per inizializzare HGS con la modalità di attestazione scelta, usare`Initialize-HgsServer` 
+- Per aggiungere il ruolo HGS, usare `Install-WindowsFeature` 
+- Per installare HGS, usare `Install-HgsServer` 
+- Per inizializzare HGS con la modalità di attestazione scelta, usare `Initialize-HgsServer` 
 
 Se i server Hyper-V esistenti non soddisfano i prerequisiti per la modalità TPM (ad esempio, non hanno TPM 2,0), è possibile inizializzare HGS usando l'attestazione basata su amministratore (modalità AD), che richiede un trust Active Directory con il dominio dell'infrastruttura. 
 
@@ -89,7 +89,7 @@ In questo esempio contoso inizialmente viene distribuito in modalità AD per sod
 
 ![Installare HGS](../media/Guarded-Fabric-Shielded-VM/guarded-fabric-deployment-step-two-deploy-hgs.png)
 
-## <a name="step-3-extract-identities-hardware-baselines-and-code-integrity-policies"></a>Passaggio 3: Estrarre le identità, le linee di base hardware e i criteri di integrità del codice
+## <a name="step-3-extract-identities-hardware-baselines-and-code-integrity-policies"></a>Passaggio 3: estrarre le identità, le linee di base hardware e i criteri di integrità del codice
 
 Il processo di estrazione delle identità dagli host Hyper-V dipende dalla modalità di attestazione utilizzata.
 
@@ -105,16 +105,16 @@ Detto un altro modo, i rigorosi passaggi di convalida usati per la modalità TPM
 
 Per la modalità TPM sono necessari tre elementi: 
 
-1.  Una _chiave_ di verifica dell'autenticità pubblica (o _EKPUB_) dal TPM 2,0 in ogni host Hyper-V. Per acquisire EKpub, usare `Get-PlatformIdentifier`. 
-2.  Una _baseline hardware_. Se ognuno degli host Hyper-V è identico, è sufficiente una singola linea di base. In caso contrario, sarà necessario uno per ogni classe di hardware. La linea di base è sotto forma di file di log del gruppo di calcolo attendibile, o TCGlog. Il TCGlog contiene tutto ciò che l'host ha fatto, dal firmware UEFI al kernel, fino a quando l'host è stato completamente avviato. Per acquisire la baseline hardware, installare il ruolo Hyper-V e la funzionalità di supporto di sorveglianza host per Hyper- `Get-HgsAttestationBaselinePolicy`v e usare. 
-3.  _Criteri di integrità del codice_. Se ognuno degli host Hyper-V è identico, è sufficiente un singolo criterio CI. In caso contrario, sarà necessario uno per ogni classe di hardware. Windows Server 2016 e Windows 10 sono entrambi dotati di un nuovo tipo di applicazione per i criteri CI, denominati _integrità del codice applicato dall'hypervisor (hvci obbligatoria)_ . HVCI obbligatoria fornisce un'imposizione avanzata e garantisce che a un host sia consentita l'esecuzione solo dei file binari consentiti da un amministratore attendibile. Queste istruzioni vengono incapsulate in un criterio CI aggiunto a HGS. HGS misura i criteri CI di ogni host prima che siano autorizzati a eseguire macchine virtuali schermate. Per acquisire un criterio CI, usare `New-CIPolicy`. Il criterio deve quindi essere convertito nel formato binario usando `ConvertFrom-CIPolicy`.
+1.  Una _chiave_ di verifica dell'autenticità pubblica (o _EKPUB_) dal TPM 2,0 in ogni host Hyper-V. Per acquisire il EKpub, utilizzare `Get-PlatformIdentifier`. 
+2.  Una _baseline hardware_. Se ognuno degli host Hyper-V è identico, è sufficiente una singola linea di base. In caso contrario, sarà necessario uno per ogni classe di hardware. La linea di base è sotto forma di file di log del gruppo di calcolo attendibile, o TCGlog. Il TCGlog contiene tutto ciò che l'host ha fatto, dal firmware UEFI al kernel, fino a quando l'host è stato completamente avviato. Per acquisire la baseline hardware, installare il ruolo Hyper-V e la funzionalità di supporto di sorveglianza host per Hyper-V e usare `Get-HgsAttestationBaselinePolicy`. 
+3.  _Criteri di integrità del codice_. Se ognuno degli host Hyper-V è identico, è sufficiente un singolo criterio CI. In caso contrario, sarà necessario uno per ogni classe di hardware. Windows Server 2016 e Windows 10 sono entrambi dotati di un nuovo tipo di applicazione per i criteri CI, denominati _integrità del codice applicato dall'hypervisor (hvci obbligatoria)_ . HVCI obbligatoria fornisce un'imposizione avanzata e garantisce che a un host sia consentita l'esecuzione solo dei file binari consentiti da un amministratore attendibile. Queste istruzioni vengono incapsulate in un criterio CI aggiunto a HGS. HGS misura i criteri CI di ogni host prima che siano autorizzati a eseguire macchine virtuali schermate. Per acquisire un criterio CI, utilizzare `New-CIPolicy`. Il criterio deve quindi essere convertito nel formato binario usando `ConvertFrom-CIPolicy`.
 
 ![Estrai identità, linea di base e criteri CI](../media/Guarded-Fabric-Shielded-VM/guarded-fabric-deployment-step-three-extract-identity-baseline-ci-policy.png)
 
 Questo è tutto: l'infrastruttura sorvegliata è compilata in termini di infrastruttura per l'esecuzione.  
 A questo punto è possibile creare un disco modello di macchina virtuale schermato e un file di dati di schermatura in modo che sia possibile eseguire il provisioning di macchine virtuali schermate in modo semplice e sicuro. 
 
-## <a name="step-4-create-a-template-for-shielded-vms"></a>Passaggio 4: Creare un modello per le macchine virtuali schermate
+## <a name="step-4-create-a-template-for-shielded-vms"></a>Passaggio 4: creare un modello per le macchine virtuali schermate
 
 Un modello di macchina virtuale schermata protegge i dischi modello creando una firma del disco in un momento attendibile noto. 
 Se il disco del modello viene successivamente infettato da malware, la firma sarà diversa dal modello originale che verrà rilevata dal processo di provisioning della VM schermato protetto. 
@@ -137,7 +137,7 @@ Ciò consente agli utenti di identificare in modo sicuro i dischi attendibili sp
 
 Prima di iniziare, esaminare i [requisiti del disco del modello](guarded-fabric-create-a-shielded-vm-template.md) . 
 
-## <a name="step-5-create-a-shielding-data-file"></a>Passaggio 5: Creare un file di dati di schermatura 
+## <a name="step-5-create-a-shielding-data-file"></a>Passaggio 5: creare un file di dati di schermatura 
 
 Un file di dati di schermatura, noto anche come file con estensione PDK, acquisisce informazioni riservate sulla macchina virtuale, ad esempio la password dell'amministratore. 
 
@@ -157,7 +157,7 @@ Il file di dati di schermatura include anche l'impostazione dei criteri di sicur
 
 È possibile aggiungere componenti di gestione facoltativi come VMM o Windows Azure Pack. Se si vuole creare una macchina virtuale senza installare tali componenti, vedere [procedura dettagliata: creazione di VM schermate senza VMM](https://blogs.technet.microsoft.com/datacentersecurity/2016/06/06/step-by-step-creating-shielded-vms-without-vmm/).
 
-## <a name="step-6-create-a-shielded-vm"></a>Passaggio 6: Creare una macchina virtuale schermata
+## <a name="step-6-create-a-shielded-vm"></a>Passaggio 6: creare una macchina virtuale schermata
 
 La creazione di macchine virtuali schermate è leggermente diversa rispetto alle normali macchine virtuali. In Windows Azure Pack, l'esperienza è ancora più semplice rispetto alla creazione di una normale VM perché è sufficiente specificare un nome, un file di dati di schermatura (che contiene le altre informazioni sulla specializzazione) e la rete VM. 
 

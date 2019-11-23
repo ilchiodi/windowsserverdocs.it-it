@@ -19,7 +19,7 @@ ms.locfileid: "71405333"
 
 >Si applica a: Windows Server (Canale semestrale), Windows Server 2016
 
-Quando si distribuisce il server dei criteri di rete \(NPS @ no__t-1 come server di Remote Authentication Dial-In User Service (RADIUS), NPS esegue l'autenticazione, l'autorizzazione e l'accounting per le richieste di connessione per il dominio locale e per i domini che considerano attendibile il dominio locale. È possibile usare queste linee guida di pianificazione per semplificare la distribuzione RADIUS.
+Quando si distribuisce un server dei criteri di rete \(NPS\) come server Remote Authentication Dial-In User Service (RADIUS), NPS esegue l'autenticazione, l'autorizzazione e l'accounting per le richieste di connessione per il dominio locale e per i domini che considerano attendibile il dominio locale. È possibile usare queste linee guida di pianificazione per semplificare la distribuzione RADIUS.
 
 Queste linee guida di pianificazione non includono le circostanze in cui si desidera distribuire NPS come proxy RADIUS. Quando si distribuisce NPS come proxy RADIUS, NPS Invia le richieste di connessione a un server che esegue NPS o altri server RADIUS in domini remoti, domini non trusted o entrambi. 
 
@@ -62,7 +62,7 @@ I client RADIUS sono server di accesso alla rete, ad esempio punti di accesso wi
 >[!IMPORTANT]
 >I client di Access, ad esempio i computer client, non sono client RADIUS. Solo i server di accesso alla rete e i server proxy che supportano il protocollo RADIUS sono client RADIUS.
 
-Inoltre, sia i punti di accesso wireless che i commutatori devono essere in grado di supportare l'autenticazione 802.1 X. Se si desidera distribuire Extensible Authentication Protocol \(EAP @ no__t-1 o Protected Extensible Authentication Protocol \(PEAP @ no__t-3, i punti di accesso e i commutatori devono supportare l'utilizzo di EAP.
+Inoltre, sia i punti di accesso wireless che i commutatori devono essere in grado di supportare l'autenticazione 802.1 X. Se si desidera distribuire Extensible Authentication Protocol \(EAP\) o Protected Extensible Authentication Protocol \(PEAP\), i punti di accesso e i commutatori devono supportare l'utilizzo di EAP.
 
 Per testare l'interoperabilità di base per le connessioni PPP per i punti di accesso wireless, configurare il punto di accesso e il client di accesso per l'uso di Password Authentication Protocol (PAP). Usare protocolli di autenticazione basati su PPP aggiuntivi, ad esempio PEAP, fino a quando non sono stati testati quelli che si intende usare per l'accesso alla rete.
 
@@ -80,7 +80,7 @@ Durante la pianificazione dei client RADIUS, è possibile usare i passaggi segue
 
 NPS supporta sia i metodi di autenticazione basati su password che quelli basati sui certificati. Tuttavia, non tutti i server di accesso alla rete supportano gli stessi metodi di autenticazione. In alcuni casi, potrebbe essere necessario distribuire un metodo di autenticazione diverso in base al tipo di accesso alla rete.
 
-Ad esempio, potrebbe essere necessario distribuire l'accesso wireless e VPN per l'organizzazione, ma usare un metodo di autenticazione diverso per ogni tipo di accesso: EAP-TLS per le connessioni VPN, a causa della sicurezza avanzata fornita da EAP con Transport Layer Security (EAP-TLS) e PEAP-MS-CHAP v2 per le connessioni wireless 802.1 X.
+Ad esempio, potrebbe essere necessario distribuire l'accesso wireless e VPN per l'organizzazione, ma usare un metodo di autenticazione diverso per ogni tipo di accesso: EAP-TLS per le connessioni VPN, a causa della sicurezza avanzata che EAP con Transport Layer Security (EAP-TLS) fornisce e PEAP-MS-CHAP v2 per le connessioni wireless 802.1 X.
 
 Il protocollo PEAP con Microsoft Challenge Handshake Authentication Protocol versione 2 (PEAP-MS-CHAP v2) fornisce una funzionalità denominata riconnessione rapida progettata appositamente per l'uso con computer portatili e altri dispositivi wireless. La riconnessione rapida consente ai client wireless di spostarsi tra punti di accesso wireless nella stessa rete senza essere riautenticati ogni volta che si associano a un nuovo punto di accesso. Questo offre un'esperienza migliore per gli utenti wireless e consente loro di spostarsi tra i punti di accesso senza dover digitare nuovamente le proprie credenziali.
 Grazie alla riconnessione rapida e alla sicurezza fornita da PEAP-MS-CHAP v2, PEAP-MS-CHAP v2 è una scelta logica come metodo di autenticazione per le connessioni wireless.
@@ -97,7 +97,7 @@ Sia PEAP-MS-CHAP v2 che EAP-TLS sono metodi di autenticazione basati sui certifi
 
 EAP-TLS usa i certificati per l'autenticazione client e server e richiede la distribuzione di un'infrastruttura a chiave pubblica (PKI) nell'organizzazione. La distribuzione di un'infrastruttura a chiave pubblica può essere complessa e richiede una fase di pianificazione indipendente dalla pianificazione dell'utilizzo di NPS come server RADIUS.
 
-Con EAP-TLS, NPS registra un certificato server da un'autorità di certificazione \(CA @ no__t-1 e il certificato viene salvato nel computer locale nell'archivio certificati. Durante il processo di autenticazione, l'autenticazione server si verifica quando il server dei criteri di server invia il proprio certificato server al client di accesso per dimostrare la propria identità al client Access. Il client di accesso esamina varie proprietà del certificato per determinare se il certificato è valido ed è appropriato per l'utilizzo durante l'autenticazione del server. Se il certificato del server soddisfa i requisiti minimi del certificato del server e viene emesso da un'autorità di certificazione che il client di accesso considera attendibile, il server dei criteri di accesso viene autenticato dal client.
+Con EAP-TLS, NPS registra un certificato server da un'autorità di certificazione \(CA\)e il certificato viene salvato nel computer locale nell'archivio certificati. Durante il processo di autenticazione, l'autenticazione server si verifica quando il server dei criteri di server invia il proprio certificato server al client di accesso per dimostrare la propria identità al client Access. Il client di accesso esamina varie proprietà del certificato per determinare se il certificato è valido ed è appropriato per l'utilizzo durante l'autenticazione del server. Se il certificato del server soddisfa i requisiti minimi del certificato del server e viene emesso da un'autorità di certificazione che il client di accesso considera attendibile, il server dei criteri di accesso viene autenticato dal client.
 
 Analogamente, l'autenticazione client si verifica durante il processo di autenticazione quando il client invia il certificato client al server dei criteri di server per dimostrare la propria identità al server dei criteri di server. Il server dei criteri di dominio esamina il certificato e se il certificato client soddisfa i requisiti minimi del certificato client e viene emesso da una CA considerata attendibile dal server dei criteri di accesso, il client di accesso viene autenticato correttamente dal server dei criteri di dominio.
 
@@ -157,7 +157,7 @@ Durante la pianificazione dei criteri di rete, è possibile utilizzare i passagg
 
 ## <a name="plan-nps-accounting"></a>Pianificare l'accounting NPS
 
-NPS offre la possibilità di registrare i dati di accounting RADIUS, ad esempio le richieste di autenticazione utente e accounting, in tre formati: Il formato IAS, il formato compatibile con il database e la registrazione Microsoft SQL Server. 
+NPS offre la possibilità di registrare i dati di accounting RADIUS, ad esempio le richieste di autenticazione e accounting degli utenti, in tre formati: formato IAS, formato compatibile con il database e registrazione Microsoft SQL Server. 
 
 Formato IAS e formato compatibile con il database creare file di log nel server dei criteri di accesso locale in formato file di testo. 
 
@@ -195,9 +195,9 @@ Durante la pianificazione per l'accounting NPS utilizzando i file di log locali,
 
 NPS SQL Server la registrazione viene utilizzata quando sono necessarie informazioni sullo stato della sessione, per la creazione di report e l'analisi dei dati, nonché per centralizzare e semplificare la gestione dei dati contabili.
 
-Server dei criteri di rete consente di utilizzare SQL Server registrazione per registrare le richieste di autenticazione e accounting degli utenti ricevute da uno o più server di accesso alla rete a un'origine dati in un computer in cui è in esecuzione il Microsoft SQL Server Desktop Engine \(MSDE 2000 @ no__t-1 o qualsiasi versione di SQL Server successiva alla SQL Server 2000.
+Server dei criteri di rete consente di usare SQL Server registrazione per registrare le richieste di autenticazione e accounting degli utenti ricevute da uno o più server di accesso alla rete a un'origine dati in un computer che esegue Microsoft SQL Server Desktop Engine \(MSDE 2000\)o qualsiasi versione di SQL Server successiva a SQL Server 2000.
 
-I dati di contabilità vengono passati da server dei criteri di database in formato XML a una stored procedure nel database, che supporta sia Structured Query Language \(SQL @ no__t-1 che XML \(SQLXML @ no__t-3. La registrazione delle richieste di autenticazione e accounting degli utenti in un database di SQL Server conforme a XML consente a più NPSs di avere un'origine dati.
+I dati di contabilità vengono passati da server dei criteri di database in formato XML a una stored procedure nel database, che supporta sia il linguaggio di query strutturato \(SQL\) che XML \(SQLXML\). La registrazione delle richieste di autenticazione e accounting degli utenti in un database di SQL Server conforme a XML consente a più NPSs di avere un'origine dati.
 
 ### <a name="key-steps"></a>Passaggi principali
 

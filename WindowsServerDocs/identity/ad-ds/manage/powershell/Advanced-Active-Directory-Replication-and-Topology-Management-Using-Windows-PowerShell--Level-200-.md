@@ -39,7 +39,7 @@ In questo argomento vengono illustrati in dettaglio i nuovi cmdlet di gestione d
 8.  [Topologia](../../../ad-ds/manage/powershell/Advanced-Active-Directory-Replication-and-Topology-Management-Using-Windows-PowerShell--Level-200-.md#BKMK_Topo)  
   
 ## <a name="BKMK_Intro"></a>Introduzione  
-Windows Server 2012 estende il modulo Active Directory per Windows PowerShell con 25 nuovi cmdlet che consentono di gestire la replica e la topologia della foresta. Prima di questo, era necessario usare i sostantivi **@no__t 1-ADObject** generici o chiamare funzioni .NET.  
+Windows Server 2012 estende il modulo Active Directory per Windows PowerShell con 25 nuovi cmdlet che consentono di gestire la replica e la topologia della foresta. Prima di questo, era necessario usare i sostantivi **\*-ADObject** generici o chiamare funzioni .NET.  
   
 Come tutti i cmdlet di Windows PowerShell per Active Directory, questa nuova funzionalità richiede l'installazione del [servizio Gateway di gestione di Active Directory](https://www.microsoft.com/download/details.aspx?displaylang=en&id=2852) in almeno un controller di dominio (preferibilmente in tutti).  
   
@@ -82,7 +82,7 @@ Per un elenco completo di tutti i cmdlet di Windows PowerShell per Active Direct
 Get-command -module ActiveDirectory  
 ```  
   
-Per un elenco completo di tutti gli argomenti dei cmdlet di Windows PowerShell per Active Directory, fare riferimento alla guida. Esempio:  
+Per un elenco completo di tutti gli argomenti dei cmdlet di Windows PowerShell per Active Directory, fare riferimento alla guida. Ad esempio:  
   
 ```  
 Get-help New-ADReplicationSite  
@@ -102,7 +102,7 @@ Inoltre, i cmdlet seguenti implementano un nuovo set di parametri di **Target**,
   
 -   **Get-ADReplicationUpToDatenessVectorTable**  
   
-L'argomento **Target** accetta un elenco separato da virgole di stringhe che identificano i server, i siti, i domini o le foreste di destinazione specificati dall'argomento **Scope** . È consentito anche un asterisco (\*), che indica tutti i server inclusi nell'ambito specificato. Se non viene specificato alcun ambito, implica tutti i server nella foresta dell'utente corrente. L'argomento **Scope** specifica la latitudine della ricerca. I valori accettabili sono **Server**, **Site**, **Domain** e **Forest**. EnumerationServer **specifica il server che enumera l'elenco di controller di dominio specificati in** Target **e** Scope **.** Funziona come l'argomento **Server** e richiede che nel server specificato sia in esecuzione Servizi Web Active Directory.  
+L'argomento **Target** accetta un elenco separato da virgole di stringhe che identificano i server, i siti, i domini o le foreste di destinazione specificati dall'argomento **Scope** . È consentito anche un asterisco (\*) e indica tutti i server inclusi nell'ambito specificato. Se non viene specificato alcun ambito, implica tutti i server nella foresta dell'utente corrente. L'argomento **Scope** specifica la latitudine della ricerca. I valori accettabili sono **Server**, **Site**, **Domain** e **Forest**. EnumerationServer **specifica il server che enumera l'elenco di controller di dominio specificati in** Target **e** Scope **.** Funziona come l'argomento **Server** e richiede che nel server specificato sia in esecuzione Servizi Web Active Directory.  
   
 Per illustrare i nuovi cmdlet, di seguito vengono forniti alcuni scenari di esempio che mostrano le funzionalità impossibili da eseguire con repadmin.exe. Grazie a queste illustrazioni, le possibilità amministrative diventano ovvie. Per informazioni sui requisiti di utilizzo specifici, consultare la guida relativa ai cmdlet.  
   
@@ -228,7 +228,7 @@ Mentre Repadmin.exe funziona bene per restituire le informazioni relative alla t
   
 Ad esempio, dopo l'espansione rapida di nuove succursali, in combinazione con il consolidamento delle altre, potrebbe essere necessario implementare centinaia di modifiche del sito in base alla sede fisica, alle modifiche alla rete e ai nuovi requisiti in termini di capacità. Invece di usare Dssites.msc e Adsiedit.msc per apportare le modifiche, è possibile automatizzare le operazioni. Questo è particolarmente utile quando si inizia con un foglio di calcolo di dati fornito dai team della rete e delle strutture.  
   
-I cmdlet **Get-Adreplication @ no__t-1*** restituiscono informazioni sulla topologia di replica e sono utili per il pipelining nei cmdlet **set-Adreplication @ no__t-3*** in blocco. I cmdlet **Get** non modificano i dati, visualizzano solo i dati o creano oggetti della sessione di Windows PowerShell che possono essere sottoposti a pipeline ai cmdlet **set-Adreplication @ no__t-2***. I cmdlet **New** e **Remove** sono utili per creare o rimuovere oggetti della topologia di Active Directory.  
+I cmdlet **Get-Adreplication\\** * restituiscono informazioni sulla topologia di replica e sono utili per il pipelining nei cmdlet **Set-Adreplication\\** * in blocco. I cmdlet **Get** non modificano i dati, visualizzano solo i dati o creano oggetti della sessione di Windows PowerShell che possono essere sottoposti a pipeline ai cmdlet **Set-Adreplication\\** *. I cmdlet **New** e **Remove** sono utili per creare o rimuovere oggetti della topologia di Active Directory.  
   
 È ad esempio possibile creare nuovi siti tramite un file CSV:  
   
@@ -267,7 +267,7 @@ get-adreplicationsite -filter * -property subnets | where-object {!$_.subnets -e
   
 ![Gestione avanzata con PowerShell](media/Advanced-Active-Directory-Replication-and-Topology-Management-Using-Windows-PowerShell--Level-200-/ADDS_PSNewADReplSiteFiltrer.png)  
   
-## <a name="see-also"></a>Vedere anche  
+## <a name="see-also"></a>Vedi anche  
 [Introduzione alla gestione della topologia e della replica di &#40;Active Directory con il livello 100 di Windows PowerShell&#41;](../../../ad-ds/manage/powershell/Introduction-to-Active-Directory-Replication-and-Topology-Management-Using-Windows-PowerShell--Level-100-.md)  
   
 

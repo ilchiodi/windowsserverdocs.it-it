@@ -25,7 +25,7 @@ Ogni guida complementare consente di conseguire uno specifico obiettivo dopo ave
 
 Se la distribuzione del dominio di Active Directory e della rete core è stata completata prima di aver consultato la Guida alla rete core, è comunque utile consultare le Guide complementari prima di aggiungere funzionalità alla rete. La Guida alla rete core può essere utilizzata semplicemente come elenco di riferimento dei prerequisiti, tenendo conto che per distribuire funzionalità aggiuntive con le Guide complementari è necessario che la rete soddisfi i prerequisiti indicati nella Guida alla rete core.
 
-## <a name="core-network-companion-guide-deploy-server-certificates-for-8021x-wired-and-wireless-deployments"></a>Guida complementare alla rete core+++: Distribuire i certificati server per le distribuzioni wireless e cablate 802.1X 
+## <a name="core-network-companion-guide-deploy-server-certificates-for-8021x-wired-and-wireless-deployments"></a>Guida complementare alla rete core: Distribuzione dei certificati Server per 802.1 X cablate e Wireless distribuzioni 
 
 In questa guida complementare viene illustrato come si basano su rete core distribuendo certificati server per i computer che eseguono Server dei criteri di rete \(NPS\), servizio di accesso remoto \(RAS\), o entrambi.
 
@@ -38,11 +38,11 @@ I certificati server sono necessari quando si distribuiscono metodi di autentica
 - Possibilità di estendere l'utilizzo dei certificati per scopi aggiuntivi
   
 Per istruzioni su come distribuire i certificati del server, vedere [distribuire certificati Server per le distribuzioni Wireless e cablate 802.1 X](server-certs/Deploy-Server-Certificates-for-802.1X-Wired-and-Wireless-Deployments.md).  
-## <a name="core-network-companion-guide-deploy-password-based-8021x-authenticated-wireless-access"></a>Guida complementare alla rete core+++: Distribuire l'accesso wireless autenticato 802.1 basato su password
+## <a name="core-network-companion-guide-deploy-password-based-8021x-authenticated-wireless-access"></a>Guida complementare alla rete core: Distribuzione basata su Password accesso autenticato 802.1 X Wireless
 
-In questa guida complementare viene illustrato come si basano su una rete di base fornendo istruzioni su come distribuire Institute of Electrical and Electronics Engineers \(IEEE\) 802.1 X\-accesso wireless IEEE 802.11 con Protected Extensible Authentication {1>protocollo<1}-Microsoft Challenge Handshake Authentication Protocol versione 2 autenticato \(PEAP\-MS\-CHAP v2\).
+In questa guida complementare viene illustrato come si basano su una rete di base fornendo istruzioni su come distribuire Institute of Electrical and Electronics Engineers \(IEEE\) 802.1 X\-accesso wireless IEEE 802.11 con Protected Extensible Authentication \{1\>protocollo\<1\}-Microsoft Challenge Handshake Authentication Protocol versione 2 autenticato \(PEAP\-MS\-CHAP v2\).
 
-Il metodo di autenticazione PEAP @ no__t-0MS @ no__t-1CHAP V2 richiede che i server di autenticazione che eseguono Server dei criteri di rete \(NPS @ no__t-3 presentino client wireless con un certificato server per dimostrare l'identità del server dei criteri di rete al client, tuttavia l'utente l'autenticazione non viene eseguita tramite un certificato, ma gli utenti forniscono il nome utente e la password di dominio.
+Il metodo di autenticazione PEAP\-MS\-CHAP v2 richiede che i server di autenticazione che eseguono Server dei criteri di rete \(server dei criteri di rete\) presentino client wireless con un certificato server per dimostrare l'identità del server dei criteri di rete al client, tuttavia l'autenticazione utente non viene eseguita tramite un certificato. gli utenti forniscono invece il nome utente e la password di dominio.
 
 Poiché il protocollo PEAP\-MS\-CHAP v2 richiede che gli utenti di fornire credenziali basate su password, piuttosto che un certificato durante il processo di autenticazione, è in genere più semplice e meno costoso da distribuire EAP\-TLS o PEAP\-TLS.
 
@@ -53,7 +53,7 @@ Prima di utilizzare questa Guida alla distribuzione dell'accesso senza fili con 
 
 Per istruzioni su come distribuire un accesso senza fili con PEAP\-MS\-CHAP v2, vedere [basato su Password distribuire accesso autenticato 802.1 X Wireless](wireless/a-deploy-8021X-wireless-access.md).
 
-## <a name="core-network-companion-guide-deploy-branchcache-hosted-cache-mode"></a>Guida complementare alla rete core+++: Distribuire la modalità Cache ospitata BranchCache
+## <a name="core-network-companion-guide-deploy-branchcache-hosted-cache-mode"></a>Guida complementare alla rete core: Distribuzione in modalità Cache ospitata di BranchCache
 
 In questa guida complementare viene illustrato come distribuire BranchCache in modalità di Cache ospitata in uno o più filiali.
 

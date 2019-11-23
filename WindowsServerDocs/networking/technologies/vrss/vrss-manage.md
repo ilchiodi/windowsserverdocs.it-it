@@ -19,7 +19,7 @@ ms.locfileid: "71405163"
 ---
 # <a name="manage-vrss"></a>Gestire vRSS
 
-In questo argomento vengono usati i comandi di Windows PowerShell per gestire vRSS in macchine virtuali \(VMs @ no__t-1 e negli host Hyper @ no__t-2V.
+In questo argomento vengono usati i comandi di Windows PowerShell per gestire vRSS in macchine virtuali \(VM\) e negli host Hyper\-V.
 
 >[!NOTE]
 >Per ulteriori informazioni sui comandi descritti in questo argomento, vedere [comandi di Windows PowerShell per RSS e vRSS](vrss-wps.md).
@@ -43,7 +43,7 @@ Set-NetAdapterVmq
 
 ## <a name="vrss-on-hyper-v-switch-ports"></a>vRSS sulle porte del Commuter Hyper-V
 
-Nell'host Hyper-V è necessario abilitare anche vRSS sulla porta del Commuter virtuale Hyper @ no__t-0V.
+Nell'host Hyper-V è necessario abilitare anche vRSS sulla porta del Commuter virtuale Hyper\-V.
 
 **Visualizzare le impostazioni correnti:**
 
@@ -55,13 +55,13 @@ Get-VMNetworkAdapter -ManagementOS | fl
     
 Entrambe le impostazioni seguenti devono essere **true**. 
 
-- VrssEnabledRequested: True
-- VrssEnabled: True
+- VrssEnabledRequested: true
+- VrssEnabled: true
     
 >[!IMPORTANT]
->In alcune condizioni di limitazione delle risorse, una porta del Commuter virtuale Hyper @ no__t-0V potrebbe non essere in grado di abilitare questa funzionalità. Si tratta di una condizione temporanea e la funzionalità può diventare disponibile in un momento successivo.
+>In alcune condizioni di limitazione delle risorse, una porta del Commuter virtuale Hyper\-V potrebbe non essere in grado di abilitare questa funzionalità. Si tratta di una condizione temporanea e la funzionalità può diventare disponibile in un momento successivo.
 >
->Se **VrssEnabled** è **true**, la funzionalità è abilitata per questa porta del commutire virtuale Hyper @ no__t-2V, ovvero per questa macchina virtuale o vNIC.
+>Se **VrssEnabled** è **true**, la funzionalità è abilitata per la porta del Commuter virtuale Hyper\-V, ovvero per questa macchina virtuale o vNIC.
 
 **Configurare le impostazioni della porta di commutazione vRSS:**
 
@@ -88,7 +88,7 @@ Set-NetAdapterRss
 ```
 
 >[!NOTE]
-> L'impostazione del profilo all'interno della macchina virtuale non influisca sulla pianificazione del lavoro. Hyper @ no__t-0V prende tutte le decisioni di pianificazione e ignora il profilo all'interno della macchina virtuale.
+> L'impostazione del profilo all'interno della macchina virtuale non influisca sulla pianificazione del lavoro. Hyper\-V prende tutte le decisioni di pianificazione e ignora il profilo all'interno della macchina virtuale.
 
 ## <a name="disable-vrss"></a>Disabilitare vRSS
 
@@ -97,21 +97,21 @@ Set-NetAdapterRss
 - Disabilitare VMQ per la scheda di interfaccia di rete fisica o la macchina virtuale.
 
   >[!CAUTION]
-  >La disabilitazione di VMQ sulla scheda di interfaccia di rete fisica influisca fortemente sulla capacità dell'host Hyper @ no__t-0V di gestire i pacchetti in ingresso.
+  >La disabilitazione di VMQ sulla scheda di interfaccia di rete fisica influisca gravemente sulla capacità dell'host Hyper\-V di gestire i pacchetti in ingresso.
 
-- Disabilitare vRSS per una macchina virtuale nella porta del commutire virtuale Hyper @ no__t-0V nell'host Hyper @ no__t-1V.
+- Disabilitare vRSS per una macchina virtuale nella porta del commutire virtuale Hyper\-V nell'host Hyper\-V.
 
    ```PowerShell
    Set-VMNetworkAdapter <vm-name> -VrssEnabled $FALSE
    ```
 
-- Disabilitare vRSS per un host vNIC nella porta del Commuter virtuale Hyper @ no__t-0V nell'host Hyper @ no__t-1V.
+- Disabilitare vRSS per un host vNIC sulla porta del Commuter virtuale Hyper\-V nell'host Hyper\-V.
 
    ```PowerShell
    Set-VMNetworkAdapter -ManagementOS -VrssEnabled $FALSE
    ```
 
-- Disabilitare RSS nella macchina virtuale \(or host vNIC @ no__t-1 all'interno della VM \(OR nell'host @ no__t-3
+- Disabilitare RSS nella macchina virtuale \(o host vNIC\) all'interno della VM \(o nell'host\)
 
    ```PowerShell
    Disable-NetAdapterRSS *

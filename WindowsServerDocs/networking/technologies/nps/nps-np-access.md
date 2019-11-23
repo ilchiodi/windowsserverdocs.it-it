@@ -31,7 +31,7 @@ Le impostazioni delle autorizzazioni di accesso hanno l'effetto seguente:
 Viene inoltre concessa o negata l'autorizzazione di accesso in base alla configurazione delle proprietà di connessione remota di ogni account utente.
 
 >[!NOTE]
->Gli account utente e le relative proprietà, ad esempio le proprietà di connessione, vengono configurati in Active Directory utenti e computer oppure nello snap-in utenti e gruppi locali di Microsoft Management Console \(MMC @ no__t-1, a seconda che sia attivo o meno Directory @ no__t-2 Domain Services (AD DS) installata.
+>Gli account utente e le relative proprietà, ad esempio le proprietà di accesso remoto, vengono configurati in Active Directory utenti e computer oppure nello snap-in utenti e gruppi locali di Microsoft Management Console \(MMC\) snap-in, a seconda che sia installato Active Directory&reg; Domain Services (AD DS).
 
 L'impostazione dell'account utente **autorizzazione di accesso alla rete**, che è configurata nelle proprietà di connessione degli account utente, sostituisce l'impostazione di autorizzazione di accesso ai criteri di rete. Quando l'autorizzazione di accesso alla rete per un account utente è impostata sull'opzione **Controlla l'accesso tramite criteri di rete NPS** , l'impostazione delle autorizzazioni di accesso ai criteri di rete determina se all'utente viene concesso o negato l'accesso.
 
@@ -61,11 +61,11 @@ Le proprietà di connessione degli account utente contengono quanto segue:
 
 Per supportare più tipi di connessioni per le quali NPS fornisce l'autenticazione e l'autorizzazione, potrebbe essere necessario disabilitare l'elaborazione delle proprietà di connessione remota dell'account utente. Questa operazione può essere eseguita per supportare scenari in cui non sono necessarie proprietà remote specifiche.
 
-Ad esempio, le proprietà ID chiamante, callback, indirizzo IP statico e route statiche sono progettate per un client che esegue la connessione a un server di accesso alla rete \(NAS @ no__t-1, non per i client che si connettono ai punti di accesso wireless. Un punto di accesso wireless che riceve queste impostazioni in un messaggio RADIUS da server dei criteri di rete potrebbe non essere in grado di elaborarle, il che può causare la disconnessione del client wireless.
+Ad esempio, le proprietà ID chiamante, callback, indirizzo IP statico e route statiche sono progettate per un client che esegue la connessione a un server di accesso alla rete \(NAS\), non per i client che si connettono ai punti di accesso wireless. Un punto di accesso wireless che riceve queste impostazioni in un messaggio RADIUS da server dei criteri di rete potrebbe non essere in grado di elaborarle, il che può causare la disconnessione del client wireless.
 
-Quando il server dei criteri di rete fornisce l'autenticazione e l'autorizzazione per gli utenti che eseguono la connessione e accedono alla rete aziendale tramite punti di accesso wireless, è necessario configurare le proprietà di connessione in modo che supportino le connessioni remote @no__t impostazione di 0BY Proprietà di connessione @ no__t-1 o connessioni wireless \(da non imposta le proprietà della connessione remota @ no__t-3.
+Quando server dei criteri di rete fornisce l'autenticazione e l'autorizzazione per gli utenti che eseguono la connessione e accedono alla rete aziendale tramite punti di accesso wireless, è necessario configurare le proprietà di connessione per supportare le connessioni remote \(impostando le proprietà di connessione\) o le connessioni wireless \(non impostando le proprietà di connessione\).
 
-È possibile utilizzare server dei criteri di rete per abilitare l'elaborazione delle proprietà di connessione per l'account utente in alcuni scenari \(such come dial-in @ no__t-1 e per disabilitare l'elaborazione delle proprietà Remote in altri scenari \(Such come 802.1 X wireless e l'opzione di autenticazione @ no__t-3.
+È possibile utilizzare il server dei criteri di rete per abilitare l'elaborazione delle proprietà di connessione per l'account utente in alcuni scenari \(ad esempio\) di connessione remota e per disabilitare l'elaborazione delle proprietà di connessione remota in altri scenari \(come 802.1 X wireless e commutatore di autenticazione\).
 
 Per gestire il controllo di accesso alla rete tramite i gruppi e l'impostazione delle autorizzazioni di accesso per i criteri di rete, è anche possibile usare le **proprietà della connessione remota dell'account utente** . Quando si seleziona la casella **di controllo Ignora proprietà della connessione all'account utente** , l'autorizzazione di accesso alla rete per l'account utente viene ignorata.
 

@@ -21,7 +21,7 @@ ms.locfileid: "71405266"
 
 >Si applica a: Windows Server (Canale semestrale), Windows Server 2016
 
-RSS virtuale \(vRSS @ no__t-1 richiede Coda macchine virtuali supporto \(VMQ @ no__t-3 dalla scheda fisica. Se VMQ è disabilitato o non è supportato, Receive-Side Scaling virtuale è disabilitato. 
+RSS virtuale \(vRSS\) richiede Coda macchine virtuali \(supporto\) VMQ dalla scheda fisica. Se VMQ è disabilitato o non è supportato, Receive-Side Scaling virtuale è disabilitato. 
 
 Per altre informazioni, vedere [pianificare l'uso di vRSS](vrss-plan.md).
 
@@ -53,7 +53,7 @@ Usare le procedure seguenti per abilitare vRSS usando Windows PowerShell o Devic
 
 7.  Verificare che la selezione in **valore** sia **abilitata**. 
 
-8.  Fare clic su **OK**.
+8.  Fai clic su **OK**.
   
 > [!NOTE]
 > Nella scheda **Avanzate** alcune schede di rete visualizzano anche il numero di code RSS supportate dall'adapter.

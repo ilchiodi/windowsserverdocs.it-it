@@ -43,7 +43,7 @@ Per trovare il certificato SSL, aprire la console di gestione di Internet Inform
 È necessario esportare il certificato SSL utilizzato dal servizio federativo e la relativa chiave privata in un file con estensione pfx. Per altre informazioni, vedere [Esportare la parte di chiave privata di un certificato di autenticazione server](export-the-private-key-portion-of-a-server-authentication-certificate.md).  
   
 > [!NOTE]
->  Se si prevede di distribuire il servizio Device Registration come parte dell'esecuzione del AD FS in Windows Server 2012 R2, è necessario ottenere un nuovo certificato SSL. Per altre informazioni, vedere [Enroll an SSL Certificate per AD FS](enroll-an-ssl-certificate-for-ad-fs.md) e [configurare un server federativo con Device Registration Service](configure-a-federation-server-with-device-registration-service.md).  
+>  Se si prevede di distribuire il servizio Device Registration come parte dell'esecuzione del AD FS in Windows Server 2012 R2, è necessario ottenere un nuovo certificato SSL. Per altre informazioni, vedere [registrare un certificato SSL per ad FS](enroll-an-ssl-certificate-for-ad-fs.md) e [configurare un server federativo con Device Registration Service](configure-a-federation-server-with-device-registration-service.md).  
   
 Per visualizzare i certificati per la firma di token, la decrittografia di token e le comunicazioni di servizi utilizzati, eseguire il comando seguente di Windows PowerShell per creare un elenco di tutti i certificati in uso in un file:  
   
@@ -103,14 +103,14 @@ Get-ADFSClaimDescription | Out-File “.\claimtypes.txt”`.
   
 ###  <a name="to-export-claims-provider-trusts-and-relying-party-trusts"></a>Per esportare le attendibilità del provider di attestazioni e del componente  
   
-1.  Per esportare AD FS attendibilità del provider di attestazioni e relying party trust, è necessario accedere come amministratore (Tuttavia, non come amministratore di dominio) al server federativo ed eseguire il seguente script di Windows PowerShell che si trova in **media/server_support cartella/ADFS** del CD di installazione di Windows Server 2012 R2: `export-federationconfiguration.ps1`.  
+1.  Per esportare AD FS trust del provider di attestazioni e relying party trust, è necessario accedere come amministratore (Tuttavia, non come amministratore di dominio) nel server federativo ed eseguire il seguente script di Windows PowerShell che si trova nella cartella **media/server_support/ADFS** del CD di installazione di windows Server 2012 R2: `export-federationconfiguration.ps1`.  
   
 > [!IMPORTANT]
 >  Lo script di esportazione accetta i parametri seguenti:  
 > 
-> - FederationConfiguration. ps1-PATH < stringa @ no__t-0 [-ComputerName < stringa @ no__t-1] [-Credential < PSCredential @ no__t-2] [-Force] [-CertificatePassword < SecureString @ no__t-3]  
->   -   FederationConfiguration. ps1-PATH < String @ no__t-0 [-ComputerName < String @ no__t-1] [-Credential < PSCredential @ no__t-2] [-Force] [-CertificatePassword < SecureString @ no__t-3] [-RelyingPartyTrustIdentifier < stringa [] >] [-ClaimsProviderTrustIdentifier < stringa [] >]  
->   -   FederationConfiguration. ps1-PATH < stringa @ no__t-0 [-ComputerName < stringa @ no__t-1] [-Credential < PSCredential @ no__t-2] [-Force] [-CertificatePassword < SecureString @ no__t-3] [-RelyingPartyTrustName < stringa [] >] [- ClaimsProviderTrustName < String [] >]  
+> - FederationConfiguration. ps1-PATH < String\> [-ComputerName < String\>] [-Credential < PSCredential\>] [-Force] [-CertificatePassword < SecureString\>]  
+>   -   FederationConfiguration. ps1-PATH < String\> [-ComputerName < String\>] [-Credential < PSCredential\>] [-Force] [-CertificatePassword < SecureString\>] [-RelyingPartyTrustIdentifier < stringa [] >] [-ClaimsProviderTrustIdentifier < stringa [] >]  
+>   -   FederationConfiguration. ps1-PATH < String\> [-ComputerName < String\>] [-Credential < PSCredential\>] [-Force] [-CertificatePassword < SecureString\>] [-RelyingPartyTrustName < stringa [] >] [-ClaimsProviderTrustName < stringa [] >]  
 > 
 >   **-RelyingPartyTrustIdentifier <string[]>** : il cmdlet esporta solo i trust della relying party con gli identificatori specificati nella matrice di stringhe. Per impostazione predefinita non viene esportata alcuna attendibilità del componente. Se non si specificano i parametri RelyingPartyTrustIdentifier, ClaimsProviderTrustIdentifier, RelyingPartyTrustName e ClaimsProviderTrustName, lo script esporterà tutte le attendibilità del componente e del provider di attestazioni.  
 > 
@@ -120,17 +120,17 @@ Get-ADFSClaimDescription | Out-File “.\claimtypes.txt”`.
 > 
 >   **-ClaimsProviderTrustName <string[]>** : il cmdlet esporta solo i trust del provider di attestazioni con i nomi specificati nella matrice di stringhe. Per impostazione predefinita non viene esportata alcuna attendibilità del provider di attestazioni.  
 > 
->   **-PATH < String\>**  -il percorso di una cartella che conterrà i file esportati.  
+>   **-Path < string\>** -il percorso di una cartella che conterrà i file esportati.  
 > 
->   **-ComputerName < stringa\>**  -specifica il nome host del server STS. Il valore predefinito è il computer locale. Se si esegue la migrazione da ADFS 2.0 o ADFS in Windows Server 2012 ad ADFS in Windows Server 2012 R2, questo è il nome host del server ADFS legacy.  
+>   **-Computername < stringa\>** -specifica il nome host del server STS. Il valore predefinito è il computer locale. Se si esegue la migrazione da ADFS 2.0 o ADFS in Windows Server 2012 ad ADFS in Windows Server 2012 R2, questo è il nome host del server ADFS legacy.  
 > 
->   **-Credential < PSCredential\>**  -specifica un account utente che dispone dell'autorizzazione per eseguire questa azione. Il valore predefinito è l'utente corrente.  
+>   **-Credential < PSCredential\>** -specifica un account utente che dispone dell'autorizzazione per eseguire questa azione. Il valore predefinito è l'utente corrente.  
 > 
 >   **-Force** – specifica di non richiedere la conferma dell'utente.  
 > 
->   **-CertificatePassword < SecureString\>**  -specifica una password per l'esportazione delle chiavi private dei certificati ad FS. Se questo parametro non viene specificato, lo script richiederà una password se è necessario esportare un certificato ADFS con chiave privata.  
+>   **-CertificatePassword < SecureString\>** -specifica una password per l'esportazione delle chiavi private dei certificati ad FS. Se questo parametro non viene specificato, lo script richiederà una password se è necessario esportare un certificato ADFS con chiave privata.  
 > 
->   **Input**: Nessuno  
+>   **Input**: nessuno  
 > 
 >   **Output**: stringa - questo cmdlet restituisce il percorso della cartella di esportazione. È possibile reindirizzare l'oggetto restituito a Import-FederationConfiguration.  
   
@@ -193,9 +193,9 @@ import-federationconfiguration.ps1
 > [!IMPORTANT]
 >  Lo script di importazione accetta i parametri seguenti:  
 > 
-> - FederationConfiguration. ps1-PATH < stringa @ no__t-0 [-ComputerName < stringa @ no__t-1] [-Credential < PSCredential @ no__t-2] [-Force] [-LogPath < stringa @ no__t-3] [-CertificatePassword < SecureString @ no__t-4]  
->   -   FederationConfiguration. ps1-PATH < stringa @ no__t-0 [-ComputerName < stringa @ no__t-1] [-Credential < PSCredential @ no__t-2] [-Force] [-LogPath < stringa @ no__t-3] [-CertificatePassword < SecureString @ no__t-4] [- RelyingPartyTrustIdentifier < String [] >] [-ClaimsProviderTrustIdentifier < String [] >  
->   -   FederationConfiguration. ps1-PATH < stringa @ no__t-0 [-ComputerName < stringa @ no__t-1] [-Credential < PSCredential @ no__t-2] [-Force] [-LogPath < stringa @ no__t-3] [-CertificatePassword < SecureString @ no__t-4] [- RelyingPartyTrustName < String [] >] [-ClaimsProviderTrustName < String [] >]  
+> - FederationConfiguration. ps1-PATH < String\> [-ComputerName < String\>] [-Credential < PSCredential\>] [-Force] [-LogPath < String\>] [-CertificatePassword < SecureString\>]  
+>   -   FederationConfiguration. ps1-PATH < String\> [-ComputerName < String\>] [-Credential < PSCredential\>] [-Force] [-LogPath < String\>] [-CertificatePassword < SecureString\>] [-RelyingPartyTrustIdentifier < stringa [] >] [-ClaimsProviderTrustIdentifier < stringa [] >  
+>   -   FederationConfiguration. ps1-PATH < String\> [-ComputerName < String\>] [-Credential < PSCredential\>] [-Force] [-LogPath < String\>] [-CertificatePassword < SecureString\>] [-RelyingPartyTrustName < stringa [] >] [-ClaimsProviderTrustName < stringa [] >]  
 > 
 >   **-RelyingPartyTrustIdentifier <string[]>** - the cmdlet only imports relying party trusts whose identifiers are specified in the string array. Per impostazione predefinita NON viene importata alcuna attendibilità del componente. Se non si specificano i parametri RelyingPartyTrustIdentifier, ClaimsProviderTrustIdentifier, RelyingPartyTrustName e ClaimsProviderTrustName, lo script importerà tutte le attendibilità del componente e del provider di attestazioni.  
 > 
@@ -205,21 +205,21 @@ import-federationconfiguration.ps1
 > 
 >   **-ClaimsProviderTrustName <string[]>** : il cmdlet importa solo i trust del provider di attestazioni con i nomi specificati nella matrice di stringhe. Per impostazione predefinita NON viene importata alcuna attendibilità del provider di attestazioni.  
 > 
->   **-PATH < String\>**  -il percorso di una cartella che contiene i file di configurazione da importare.  
+>   **-Path < string\>** -il percorso di una cartella che contiene i file di configurazione da importare.  
 > 
->   **-LogPath < stringa\>**  : il percorso di una cartella che conterrà il file di log di importazione. In questa cartella verrà creato un file di log denominato "import.log".  
+>   **-LogPath < stringa\>** : il percorso di una cartella che conterrà il file di log di importazione. In questa cartella verrà creato un file di log denominato "import.log".  
 > 
->   **-ComputerName < stringa\>**  -specifica il nome host del server STS. Il valore predefinito è il computer locale. Se si esegue la migrazione da ADFS 2.0 o ADFS in Windows Server 2012 ad ADFS in Windows Server 2012 R2, questo parametro deve essere impostato sul nome host del server ADFS legacy.  
+>   **-Computername < stringa\>** -specifica il nome host del server STS. Il valore predefinito è il computer locale. Se si esegue la migrazione da ADFS 2.0 o ADFS in Windows Server 2012 ad ADFS in Windows Server 2012 R2, questo parametro deve essere impostato sul nome host del server ADFS legacy.  
 > 
 >   **-Credential < PSCredential\>** -specifica un account utente che dispone dell'autorizzazione per eseguire questa azione. Il valore predefinito è l'utente corrente.  
 > 
 >   **-Force** – specifica di non richiedere la conferma dell'utente.  
 > 
->   **-CertificatePassword < SecureString\>**  -specifica una password per l'importazione delle chiavi private dei certificati di ad FS. Se questo parametro non viene specificato, lo script richiederà una password se è necessario importare un certificato ADFS con chiave privata.  
+>   **-CertificatePassword < SecureString\>** -specifica una password per l'importazione delle chiavi private dei certificati ad FS. Se questo parametro non viene specificato, lo script richiederà una password se è necessario importare un certificato ADFS con chiave privata.  
 > 
 >   **Input:** stringa - questo comando accetta il percorso della cartella di importazione come input. È possibile reindirizzare Export-FederationConfiguration su questo comando.  
 > 
->   **Output:** No.  
+>   **Output:** nessuno.  
   
 Eventuali spazi finali nella proprietà WSFedEndpoint di un'attendibilità del componente potrebbero causare errori per lo script di importazione. In questo caso, rimuovere manualmente gli spazi dal file prima dell'importazione. Queste voci, ad esempio, potrebbero causare errori:  
   
@@ -245,7 +245,7 @@ Eventuali spazi finali nella proprietà WSFedEndpoint di un'attendibilità del c
   
 4. Configurare tutte le impostazioni personalizzate per gli endpoint ADFS. Nella console di gestione ADFS selezionare **Endpoint**. Controllare gli endpoint ADFS abilitati confrontandoli con l'elenco degli endpoint ADFS abilitati esportato su file durante i preparativi della migrazione di ADFS.  
   
-    \-E  
+    \- e-  
   
     Configurare eventuali descrizioni di attestazioni personalizzate. Nella console di gestione ADFS selezionare **Descrizioni attestazione**. Controllare l'elenco delle descrizioni di attestazioni AD FS confrontandole con l'elenco delle descrizioni esportato su file durante i preparativi della migrazione di AD FS. Aggiungere le eventuali descrizioni di attestazioni personalizzate incluse nel file, ma non nell'elenco predefinito in ADFS. Si noti che l'identificatore di attestazione nella console di gestione corrisponde a ClaimType nel file.  
   
@@ -257,11 +257,11 @@ Eventuali spazi finali nella proprietà WSFedEndpoint di un'attendibilità del c
   
        -   AD FS in Windows Server 2012 R2 include un file **%systemroot%\ADFS\Microsoft.IdentityServer.ServiceHost.exe.config** . Creare un elemento con la stessa sintassi dell'elemento del file **Web. config** : `<useRelayStateForIdpInitiatedSignOn enabled="true" />`. Includere questo elemento come parte della sezione **< Microsoft. IdentityServer. web >** del file **Microsoft. IdentityServer. ServiceHost. exe. config** .  
   
-   -   Se **< persistIdentityProviderInformation Enabled = "true&#124;false" lifetimeInDays = "90" enablewhrPersistence = "true&#124;false"/\>**  è stato aggiunto al file **Web. config** nel ad FS 2,0 o ad FS in Windows Server 2012 Farm, è necessario configurare le proprietà del servizio seguenti nella AD FS della farm di Windows Server 2012 R2:  
+   -   Se **< persistIdentityProviderInformation Enabled = "true&#124;false" lifetimeInDays = "90" enablewhrPersistence = "true&#124;false"/\>** è stato aggiunto al file **web. config** nella ad FS 2,0 o ad FS nella farm di Windows Server 2012, è necessario configurare le proprietà del servizio seguenti nell'ad FS della farm di Windows Server 2012 R2:  
   
-       1.  In AD FS in Windows Server 2012 R2, eseguire il comando di Windows PowerShell seguente `Set-AdfsWebConfig –HRDCookieEnabled –HRDCookieLifetime`:.  
+       1.  In AD FS in Windows Server 2012 R2, eseguire il comando di Windows PowerShell seguente: `Set-AdfsWebConfig –HRDCookieEnabled –HRDCookieLifetime`.  
   
-   -   Se **< singleSignOn Enabled = "true&#124;false"/\>**  è stato aggiunto al file **Web. config** nella ad FS 2,0 o ad FS nella farm di Windows Server 2012, non è necessario impostare alcuna proprietà del servizio aggiuntiva nel ad FS in Windows Server 2012 Farm R2. Single Sign-on è abilitato per impostazione predefinita nella farm di Windows Server 2012 R2 AD FS.  
+   -   Se **< singleSignOn Enabled = "true&#124;false"/\>** è stato aggiunto al file **web. config** nella ad FS 2,0 o AD FS nella farm di Windows Server 2012, non è necessario impostare le proprietà del servizio aggiuntive nell'AD FS della farm di Windows Server 2012 R2. Single Sign-on è abilitato per impostazione predefinita nella farm di Windows Server 2012 R2 AD FS.  
   
    -   Se le impostazioni di Localauthenticationtypes al sono state aggiunte al file **Web. config** nella ad FS 2,0 o ad FS nella farm di windows Server 2012, è necessario configurare le proprietà del servizio seguenti nel ad FS della farm di windows Server 2012 R2:  
   

@@ -21,7 +21,7 @@ ms.locfileid: "71361489"
 ---
 # <a name="viewing-and-managing-updates"></a>Visualizzazione e gestione degli aggiornamenti
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Per visualizzare e gestire gli aggiornamenti, è possibile utilizzare la console di WSUS.
 
@@ -74,9 +74,9 @@ Nel **aggiornamenti** pagina, è possibile eseguire le operazioni seguenti:
 
 4.  In **passaggio 2: modificare le proprietà**fare clic sulle parole sottolineate per selezionare i valori desiderati.
 
-5.  In **Step 3: Specificare un nome @ no__t-0, assegnare un nome alla nuova visualizzazione.
+5.  In **passaggio 3: specificare un nome**, denominare la nuova vista.
 
-6.  Fare clic su **OK**.
+6.  Fai clic su **OK**.
 
 La nuova visualizzazione verrà visualizzato nel riquadro di visualizzazione albero in aggiornamenti. Verrà visualizzato, ad esempio le visualizzazioni standard, nel riquadro centrale quando si seleziona.
 
@@ -123,11 +123,11 @@ Si noti che è possibile eseguire questa procedura in un solo aggiornamento alla
 ## <a name="managing-updates-with-wsus"></a>Gestione degli aggiornamenti con WSUS
 Gli aggiornamenti vengono utilizzati per l'aggiornamento o fornendo una sostituzione completa per il software installato in un computer. Ogni aggiornamento è disponibile in Microsoft Update è costituito da due componenti:
 
--   Metadati Fornisce informazioni sull'aggiornamento. Ad esempio, i metadati forniscono informazioni per le proprietà di un aggiornamento, consentendo di individuare per quali l'aggiornamento è utile. Inoltre, i metadati includono condizioni di licenza Software Microsoft. Il pacchetto di metadati scaricato per un aggiornamento è in genere molto inferiore rispetto al pacchetto di file di aggiornamento effettivo.
+-   Metadati: Fornisce informazioni sull'aggiornamento. Ad esempio, i metadati forniscono informazioni per le proprietà di un aggiornamento, consentendo di individuare per quali l'aggiornamento è utile. Inoltre, i metadati includono condizioni di licenza Software Microsoft. Il pacchetto di metadati scaricato per un aggiornamento è in genere molto inferiore rispetto al pacchetto di file di aggiornamento effettivo.
 
--   File di aggiornamento: File effettivi necessari per installare un aggiornamento in un computer.
+-   Aggiornare i file: I file effettivi necessari per installare un aggiornamento in un computer.
 
-Quando gli aggiornamenti vengono sincronizzati con il server WSUS, i metadati e i file di aggiornamento vengono archiviati in due posizioni diverse. I metadati vengono archiviati nel database WSUS. File di aggiornamento possono essere archiviati nel server WSUS o nei server di Microsoft Update, a seconda di come è stato configurato le opzioni di sincronizzazione. Se si sceglie di archiviare i file di aggiornamento sul server di Microsoft Update, vengono scaricati solo i metadati al momento della sincronizzazione. approvare gli aggiornamenti tramite la console WSUS e quindi i computer client ottengono i file di aggiornamento direttamente da Microsoft Update al momento dell'installazione. Per ulteriori informazioni sulle opzioni per l'archiviazione degli aggiornamenti, vedere sezione [1.3. Scegliere una strategia di archiviazione WSUS @ no__t-0 del passaggio 1: Preparare la distribuzione WSUS nella Guida alla distribuzione di WSUS.
+Quando gli aggiornamenti vengono sincronizzati con il server WSUS, i metadati e i file di aggiornamento vengono archiviati in due posizioni diverse. I metadati vengono archiviati nel database WSUS. File di aggiornamento possono essere archiviati nel server WSUS o nei server di Microsoft Update, a seconda di come è stato configurato le opzioni di sincronizzazione. Se si sceglie di archiviare i file di aggiornamento sul server di Microsoft Update, vengono scaricati solo i metadati al momento della sincronizzazione. approvare gli aggiornamenti tramite la console WSUS e quindi i computer client ottengono i file di aggiornamento direttamente da Microsoft Update al momento dell'installazione. Per ulteriori informazioni sulle opzioni per l'archiviazione degli aggiornamenti, vedere la sezione [1,3. Scegliere una strategia di archiviazione WSUS](../plan/plan-your-wsus-deployment.md#13-choose-a-wsus-storage-strategy) del passaggio 1: preparare la distribuzione WSUS nella Guida alla distribuzione di WSUS.
 
 Verrà impostazione e l'esecuzione di sincronizzazioni, aggiunta di computer e gruppi di computer e la distribuzione degli aggiornamenti a intervalli regolari. Nell'elenco seguente vengono forniti esempi di attività generali che potrebbe intraprendere nell'aggiornamento dei computer con Windows Server Update SERVICES.
 

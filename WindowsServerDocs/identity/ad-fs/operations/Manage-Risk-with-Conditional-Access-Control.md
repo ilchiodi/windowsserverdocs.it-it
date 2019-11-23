@@ -100,7 +100,7 @@ La tabella seguente include tutti i tipi di attestazione disponibili in AD FS in
 |Utilizzo chiavi|Uno degli utilizzi chiavi del certificato.|
 |Non dopo|Data nell'ora locale dopo la quale un certificato non è più valido.|
 |Non prima|Data nell'ora locale in cui un certificato diventa valido.|
-|Criteri certificato|Criteri secondo i quali è stato emesso il certificato.|
+|Criteri del certificato|Criteri secondo i quali è stato emesso il certificato.|
 |Chiave pubblica|Chiave pubblica del certificato.|
 |Dati non elaborati certificato|Dati non elaborati del certificato.|
 |Nome alternativo soggetto|Uno dei nomi alternativi del certificato.|

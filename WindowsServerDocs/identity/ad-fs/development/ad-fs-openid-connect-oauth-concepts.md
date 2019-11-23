@@ -34,7 +34,7 @@ Il diagramma seguente fornisce la relazione più semplice tra gli attori:
 ## <a name="application-types"></a>Tipi di applicazioni 
  
 
-|Tipo di applicazione|Descrizione|Role|
+|Tipo di applicazione|Descrizione|Ruolo|
 |-----|-----|-----|
 |Applicazione nativa|Detto anche **client pubblico**, deve essere un'app client eseguita in un PC o un dispositivo e con cui l'utente interagisce.|Token richieste dal server di autorizzazione (AD FS) per l'accesso utente alle risorse. Invia richieste HTTP alle risorse protette, utilizzando il token come intestazioni HTTP.| 
 |Applicazione server (app Web)|Un'applicazione web che viene eseguito in un server ed è in genere accessibili agli utenti tramite un browser. Poiché è in grado di gestire le credenziali o il segreto client, viene talvolta definito **client riservato**. |Token richieste dal server di autorizzazione (AD FS) per l'accesso utente alle risorse. Prima di richiedere un token, il client (app Web) deve eseguire l'autenticazione con il segreto. | 
@@ -47,20 +47,20 @@ Ogni client OAuth (app nativa o Web) o risorsa (API Web) configurata con AD FS d
 ## <a name="security-tokens"></a>Token di sicurezza 
  
 L'autenticazione moderna usa i tipi di token seguenti: 
-- **token ID**: Token JWT emesso dal server di autorizzazione (AD FS) e utilizzato dal client. Le attestazioni nel token ID contengono informazioni sull'utente, in modo che il client possa utilizzarlo.  
-- **access_token**: Token JWT emesso dal server di autorizzazione (AD FS) e destinato a essere utilizzato dalla risorsa. L'attestazione 'aud' o gruppo di destinatari di questo token deve corrispondere all'identificatore della risorsa o dell'API Web.  
-- **refresh_token**: Si tratta di un token emesso da AD FS per il client da usare quando è necessario aggiornare token ID e access_token. Il token è opaco per il client e può essere utilizzato solo da AD FS.  
+- **id_token**: token JWT emesso dal server di autorizzazione (ad FS) e utilizzato dal client. Le attestazioni nel token ID contengono informazioni sull'utente, in modo che il client possa utilizzarlo.  
+- **access_token**: token JWT emesso dal server di autorizzazione (ad FS) e destinato a essere utilizzato dalla risorsa. L'attestazione 'aud' o gruppo di destinatari di questo token deve corrispondere all'identificatore della risorsa o dell'API Web.  
+- **refresh_token**: token emesso da ad FS per l'uso da parte del client quando è necessario aggiornare il id_token e access_token. Il token è opaco per il client e può essere utilizzato solo da AD FS.  
 
 ## <a name="scopes"></a>Ambiti 
  
 Durante la registrazione di una risorsa in AD FS, è possibile configurare gli ambiti in modo da consentire AD FS di eseguire azioni specifiche. Oltre a configurare l'ambito, è necessario inviare anche il valore dell'ambito nella richiesta di AD FS per eseguire l'azione. Ad esempio, l'amministratore deve configurare l'ambito come OpenID durante la registrazione delle risorse e l'applicazione (client) deve inviare l'ambito = OpenID nella richiesta di autenticazione per AD FS per emettere un token ID. Di seguito sono riportati i dettagli sugli ambiti disponibili in AD FS 
  
-- Aza: se si utilizzano le [estensioni del protocollo OAuth 2,0 per i client Broker](https://docs.microsoft.com/openspecs/windows_protocols/ms-oapxbc/2f7d8875-0383-4058-956d-2fb216b44706)  e se il parametro scope contiene l'ambito "AZA", il server emette un nuovo token di aggiornamento primario e lo imposta nel campo refresh_token della risposta, nonché impostando il refresh_ campo token_expires_in per la durata del nuovo token di aggiornamento primario se ne viene applicato uno. 
+- Aza: se si utilizzano le [estensioni del protocollo OAuth 2,0 per i client Broker](https://docs.microsoft.com/openspecs/windows_protocols/ms-oapxbc/2f7d8875-0383-4058-956d-2fb216b44706) e se il parametro scope contiene l'ambito "AZA", il server emette un nuovo token di aggiornamento primario e lo imposta nel campo refresh_token della risposta, nonché impostando il campo refresh_token_expires_in sulla durata del nuovo token di aggiornamento primario, se ne viene applicato uno. 
 - OpenID: consente all'applicazione di richiedere l'uso del protocollo di autorizzazione OpenID Connect. 
-- logon_cert: l'ambito logon_cert consente a un'applicazione di richiedere certificati di accesso, che possono essere usati per accedere in modo interattivo agli utenti autenticati. Il server AD FS omette il parametro access_token dalla risposta e fornisce invece una catena di certificati CMS con codifica Base64 o una risposta PKI completa della CMC. Altre informazioni sono disponibili [qui](https://docs.microsoft.com/en-us/openspecs/windows_protocols/ms-oapx/32ce8878-7d33-4c02-818b-6c9164cc731e).
+- logon_cert: l'ambito logon_cert consente a un'applicazione di richiedere certificati di accesso, che possono essere usati per accedere in modo interattivo agli utenti autenticati. Il server AD FS omette il parametro access_token dalla risposta e fornisce invece una catena di certificati CMS con codifica Base64 o una risposta PKI completa di CMC. Altre informazioni sono disponibili [qui](https://docs.microsoft.com/en-us/openspecs/windows_protocols/ms-oapx/32ce8878-7d33-4c02-818b-6c9164cc731e).
 - user_impersonation: l'ambito user_impersonation è necessario per richiedere correttamente un token di accesso per conto di AD FS. Per informazioni dettagliate su come usare questo ambito, vedere la pagina relativa alla creazione di un'applicazione a più livelli con l'uso [di OAuth con AD FS 2016](ad-fs-on-behalf-of-authentication-in-windows-server.md). 
 - allatclaims: l'ambito allatclaims consente all'applicazione di richiedere le attestazioni nel token di accesso da aggiungere anche nel token ID.   
-- vpn_cert: l'ambito vpn_cert consente a un'applicazione di richiedere certificati VPN, che possono essere usati per stabilire connessioni VPN con l'autenticazione EAP-TLS. Questa operazione non è più supportata. 
+- vpn_cert: l'ambito vpn_cert consente a un'applicazione di richiedere certificati VPN, che possono essere usati per stabilire connessioni VPN usando l'autenticazione EAP-TLS. Questa operazione non è più supportata. 
 - posta elettronica: consente all'applicazione di richiedere l'attestazione di posta elettronica per l'utente connesso.  
 - profilo: consente all'applicazione di richiedere le attestazioni relative al profilo per l'utente di accesso.  
 
@@ -106,9 +106,9 @@ I token di sicurezza (ID e token di accesso) rilasciati da AD FS contengono atte
 ## <a name="types-of-libraries"></a>Tipi di librerie 
   
 Con AD FS vengono usati due tipi di librerie: 
-- **Librerie client**: I client nativi e le app server usano le librerie client per acquisire i token di accesso per chiamare una risorsa, ad esempio un'API Web. Microsoft Authentication Library (MSAL) è la libreria client più recente e consigliata quando si usa AD FS 2019. È consigliabile Active Directory Authentication Library (ADAL) per AD FS 2016.  
+- **Librerie client**: i client nativi e le app server usano le librerie client per acquisire i token di accesso per chiamare una risorsa, ad esempio un'API Web. Microsoft Authentication Library (MSAL) è la libreria client più recente e consigliata quando si usa AD FS 2019. È consigliabile Active Directory Authentication Library (ADAL) per AD FS 2016.  
 
-- **Librerie middleware del server**: Le app Web usano le librerie middleware del server per l'accesso utente. Le API Web utilizzano le librerie middleware del server per convalidare i token inviati dai client nativi o da altri server. OWIN (Open Web Interface for .NET) è la libreria middleware consigliata. 
+- **Librerie middleware server**: le app Web usano le librerie middleware del server per l'accesso utente. Le API Web utilizzano le librerie middleware del server per convalidare i token inviati dai client nativi o da altri server. OWIN (Open Web Interface for .NET) è la libreria middleware consigliata. 
 
 ## <a name="customize-id-token-additional-claims-in-id-token"></a>Personalizzare il token ID (altre attestazioni nel token ID)
  
@@ -131,7 +131,7 @@ In alcuni scenari è possibile che l'app Web (client) necessiti di altre attesta
 
 ![Opzione Personalizzazione del token AD FS 2](media/adfs-modern-auth-concepts/option2.png)
 
-Per comprendere meglio come configurare un'app Web in ADFS per acquisire un token ID personalizzato, vedere [personalizzare le attestazioni da emettere in token ID quando si usa OpenID Connect o OAuth con AD FS 2016 o versione successiva](Custom-Id-Tokens-in-AD-FS.md).
+Per comprendere meglio come configurare un'app Web in ADFS per acquisire un token ID personalizzato, vedere [personalizzare le attestazioni da emettere in id_token quando si usa OpenID Connect o OAuth con AD FS 2016 o versione successiva](Custom-Id-Tokens-in-AD-FS.md).
 
 ## <a name="single-log-out"></a>Disconnessione singola
 

@@ -28,13 +28,13 @@ Per comprendere il modo in cui questo argomento si integra nel processo generale
 
 1.  Prima di iniziare la procedura, verificare che si trovi in un host Hyper-V che esegue Windows Server 2016 con i ruoli e le funzionalità seguenti installati:
 
-    - Role
+    - Ruolo
 
         - Hyper-V
 
-    - Funzionalità
+    - Caratteristiche
 
-        - Strumenti di amministrazione remota del server @ no__t-0Feature strumenti di amministrazione @ no__t-1Shielded VM Tools
+        - Strumenti di amministrazione della funzionalità di Strumenti di amministrazione remota del server\\\\strumenti di VM schermate
 
     > [!NOTE]
     > L'host usato qui *non* deve essere un host nell'infrastruttura sorvegliata. Si tratta di un host separato in cui le VM vengono preparate prima di essere spostate nell'infrastruttura sorvegliata.
@@ -51,9 +51,9 @@ Per comprendere il modo in cui questo argomento si integra nel processo generale
 
 4.  Per importare la chiave di sorveglianza, che sarà necessaria in una procedura successiva, eseguire il comando seguente.
 
-    Per &lt;Path @ no__t-1 @ no__t-2Filename @ no__t-3, sostituire il percorso e il nome file del file XML salvato nel passaggio precedente, ad esempio: **C: @no__t -1temp\\GuardianKey.xml**
+    Per &lt;percorso&gt;&lt;filename&gt;, sostituire il percorso e il nome file del file XML salvato nel passaggio precedente, ad esempio: **C:\\temp\\GuardianKey. XML**
 
-    Per &lt;GuardianName @ no__t-1, specificare un nome per il provider di hosting o il data center aziendale, ad esempio **HostingProvider1**. Registrare il nome per la procedura successiva.
+    Per &lt;Guardianname&gt;, specificare un nome per il provider di hosting o il data center aziendale, ad esempio **HostingProvider1**. Registrare il nome per la procedura successiva.
 
     Include **-AllowUntrustedRoot** solo se il server HGS è stato configurato con certificati autofirmati. Questi certificati fanno parte del servizio di protezione delle chiavi in HGS.
 
@@ -65,19 +65,19 @@ In questa procedura verrà creata una macchina virtuale nell'host Hyper-V e verr
 
 Come parte della procedura, si creerà una protezione con chiave che contiene due elementi importanti:
 
--   **Proprietario**: Nella protezione con chiave, o più probabilmente, il gruppo in cui si lavora, che condivide gli elementi di sicurezza, ad esempio i certificati, viene identificato come "proprietario" della macchina virtuale. L'identità del proprietario è rappresentata da un certificato che, se si eseguono i comandi come illustrato, viene generato come certificato autofirmato. Facoltativamente, è possibile usare invece un certificato supportato dall'infrastruttura PKI e omettere il parametro **-AllowUntrustedRoot** nei comandi.
+-   **Proprietario**: nella protezione con chiave, o più probabilmente, il gruppo in cui si lavora, che condivide gli elementi di sicurezza, ad esempio i certificati, viene identificato come "proprietario" della macchina virtuale. L'identità del proprietario è rappresentata da un certificato che, se si eseguono i comandi come illustrato, viene generato come certificato autofirmato. Facoltativamente, è possibile usare invece un certificato supportato dall'infrastruttura PKI e omettere il parametro **-AllowUntrustedRoot** nei comandi.
 
--   **Tutori**: Inoltre, nella protezione con chiave, il provider di hosting o il data center aziendale (che esegue HGS e host sorvegliati) viene identificato come "tutore". Il Guardian è rappresentato dalla chiave di sorveglianza importata nella procedura precedente, [Importa la configurazione di Guardian nel server Hyper-V tenant](#import-the-guardian-configuration-on-the-tenant-hyper-v-server).
+-   **Tutori**: anche nella protezione con chiave, il provider di hosting o il data center aziendale (che esegue HGS e host sorvegliati) viene identificato come "tutore". Il Guardian è rappresentato dalla chiave di sorveglianza importata nella procedura precedente, [Importa la configurazione di Guardian nel server Hyper-V tenant](#import-the-guardian-configuration-on-the-tenant-hyper-v-server).
 
 Per un'illustrazione della protezione con chiave, che è un elemento in un file di dati di schermatura, vedere [che cos'è la schermatura dei dati e perché è necessaria?](guarded-fabric-and-shielded-vms.md#what-is-shielding-data-and-why-is-it-necessary).
 
 1. Per creare una nuova macchina virtuale di seconda generazione in un host Hyper-V tenant, eseguire il comando seguente.
 
-   Per &lt;ShieldedVMname @ no__t-1, specificare un nome per la macchina virtuale, ad esempio: **ShieldVM1**
+   Per &lt;&gt;ShieldedVMname, specificare un nome per la macchina virtuale, ad esempio: **ShieldVM1**
     
-   Per &lt;VHDPath @ no__t-1, specificare un percorso in cui archiviare i VHDX della macchina virtuale, ad esempio: **C: \\VMs @ no__t-2ShieldVM1\\ShieldVM1.vhdx**
+   Per &lt;&gt;VHDPath, specificare un percorso in cui archiviare il VHDX della macchina virtuale, ad esempio: **C:\\vm\\ShieldVM1\\ShieldVM1. vhdx**
     
-   Per &lt;nnGB @ no__t-1, specificare una dimensione per il VHDX, ad esempio: **60GB**
+   Per &lt;&gt;nnGB, specificare una dimensione per il VHDX, ad esempio: **60 GB**
 
        New-VM -Generation 2 -Name "<ShieldedVMname>" -NewVHDPath <VHDPath>.vhdx -NewVHDSizeBytes <nnGB>
 
@@ -87,7 +87,7 @@ Per un'illustrazione della protezione con chiave, che è un elemento in un file 
 
 4. Per creare una nuova protezione con chiave, descritta all'inizio di questa sezione, eseguire il comando seguente.
 
-   Per &lt;GuardianName @ no__t-1, usare il nome specificato nella procedura precedente, ad esempio: **HostingProvider1**
+   Per &lt;Guardianname&gt;, usare il nome specificato nella procedura precedente, ad esempio: **HostingProvider1**
 
    Includere **-AllowUntrustedRoot** per consentire i certificati autofirmati.
 
@@ -99,7 +99,7 @@ Per un'illustrazione della protezione con chiave, che è un elemento in un file 
 
    Se si desidera che più di un Data Center sia in grado di eseguire la macchina virtuale schermata (ad esempio, un sito di ripristino di emergenza e un provider di cloud pubblico), è possibile fornire un elenco di tutori al parametro **-Guardian** . Per ulteriori informazioni, vedere [New-HgsKeyProtector] (https://docs.microsoft.com/powershell/module/hgsclient/new-hgskeyprotector?view=win10-ps.
 
-5. Per abilitare vTPM usando la protezione con chiave, eseguire il comando seguente. Per &lt;ShieldedVMname @ no__t-1, usare lo stesso nome di macchina virtuale usato nei passaggi precedenti.
+5. Per abilitare vTPM usando la protezione con chiave, eseguire il comando seguente. Per &lt;&gt;ShieldedVMname, usare lo stesso nome di macchina virtuale usato nei passaggi precedenti.
 
        $VMName="<ShieldedVMname>"
 
@@ -130,7 +130,7 @@ Per un'illustrazione della protezione con chiave, che è un elemento in un file 
 
     Importare la macchina virtuale schermata usando la console di gestione di Hyper-V o Windows PowerShell. Per poter avviare la macchina virtuale, è necessario importare il file di configurazione della macchina virtuale dal proprietario della macchina virtuale. Ciò è dovuto al fatto che la protezione con chiave e il TPM virtuale della VM vengono archiviati nel file di configurazione. Se la macchina virtuale è configurata per l'esecuzione nell'infrastruttura sorvegliata, dovrebbe essere in grado di avviarsi correttamente.
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 - [Procedura di configurazione del provider di servizi di hosting per host sorvegliati e macchine virtuali schermate](guarded-fabric-configuration-scenarios-for-shielded-vms-overview.md)
 - [Infrastruttura sorvegliata e macchine virtuali schermate](guarded-fabric-and-shielded-vms-top-node.md)

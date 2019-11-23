@@ -18,11 +18,11 @@ ms.locfileid: "71408058"
 ---
 # <a name="federation-server-farm-using-wid"></a>Server farm federativa che usa Database interno di Windows
 
-La topologia predefinita per Active Directory Federation Services \(AD FS @ no__t-1 è una Federazione server farm, usando il database interno di Windows \(WID @ no__t-3. In questa topologia AD FS utilizza WID come archivio per il database di configurazione AD FS per tutti i server federativi aggiunti a tale farm. La farm replica e mantiene i dati del servizio federativo nel database di configurazione di tutti i server della farm. ADFS in Windows Server 2012 R2 consente alle organizzazioni con un massimo di 100 trust della relying party per configurare federation server farm con database interno di Windows server fino a 30.  
+La topologia predefinita per Active Directory Federation Services \(AD FS\) è un server farm di federazione, utilizzando il database interno di Windows \(WID\). In questa topologia AD FS utilizza WID come archivio per il database di configurazione AD FS per tutti i server federativi aggiunti a tale farm. La farm replica e mantiene i dati del servizio federativo nel database di configurazione di tutti i server della farm. ADFS in Windows Server 2012 R2 consente alle organizzazioni con un massimo di 100 trust della relying party per configurare federation server farm con database interno di Windows server fino a 30.  
   
-La creazione del primo server federativo in una farm crea anche un nuovo servizio federativo. Quando si utilizza WID per il database di configurazione di AD FS, il primo server federativo creato nella farm viene definito *server federativo primario*. Questo significa che questo computer è configurato con una copia\/di lettura scrittura del database di configurazione ad FS.  
+La creazione del primo server federativo in una farm crea anche un nuovo servizio federativo. Quando si utilizza WID per il database di configurazione di AD FS, il primo server federativo creato nella farm viene definito *server federativo primario*. Questo significa che questo computer è configurato con una copia di lettura\/scrittura del database di configurazione AD FS.  
   
-Tutti gli altri server federativi configurati per questa farm sono definiti *server federativi secondari* , poiché devono replicare tutte le modifiche apportate nel server federativo primario alle\-copie di sola lettura del ad FS database di configurazione archiviato localmente.  
+Tutti gli altri server federativi configurati per questa farm sono definiti *server federativi secondari* , poiché devono replicare tutte le modifiche apportate nel server federativo primario per la lettura\-solo le copie del database di configurazione ad FS archiviate localmente.  
   
 > [!IMPORTANT]  
 > È consigliabile utilizzare almeno due server federativi in un carico\-configurazione bilanciato.  
@@ -45,7 +45,7 @@ Questa sezione vengono descritte varie considerazioni sui destinatari, vantaggi 
   
 -   Fornisce l'accesso SSO per gli utenti interni  
   
--   Ridondanza dei dati e \(servizio federativo ogni server federativo replica le modifiche in altri server federativi della stessa farm\)  
+-   Ridondanza dei dati e Servizio federativo \(ogni server federativo replica le modifiche in altri server federativi nella stessa farm\)  
   
 -   WID è incluso in Windows; non è quindi necessario acquistare SQL Server  
   
@@ -77,7 +77,7 @@ L'host di bilanciamento carico di RETE può utilizzare le impostazioni definite 
   
 Per ulteriori informazioni su come configurare l'ambiente di rete per l'utilizzo con i server federativi, vedere la sezione requisiti di risoluzione dei nomi in [requisiti per ADFS](AD-FS-Requirements.md).  
   
-## <a name="see-also"></a>Vedere anche  
+## <a name="see-also"></a>Vedi anche  
 [Pianificare la topologia di distribuzione di AD FS](Plan-Your-AD-FS-Deployment-Topology.md)  
 [Guida alla progettazione di AD FS in Windows Server 2012 R2](AD-FS-Design-Guide-in-Windows-Server-2012-R2.md)  
   

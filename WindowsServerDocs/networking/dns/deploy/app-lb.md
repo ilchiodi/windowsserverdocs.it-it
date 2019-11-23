@@ -33,7 +33,7 @@ Questo esempio usa una società fittizia, contoso Gift Services, che fornisce se
 
 Il sito Web di contosogiftservices.com è ospitato in più data center che dispongono di indirizzi IP diversi.
 
-In America del Nord, che è il mercato primario per contoso Gift Services, il sito Web è ospitato in tre data center: Chicago, IL, Dallas, TX e Seattle, WA.
+In America del Nord, ovvero il mercato primario per contoso Gift Services, il sito Web è ospitato in tre data center: Chicago, IL, Dallas, TX e Seattle, WA.
 
 Il server Web Seattle dispone della migliore configurazione hardware e può gestire il carico doppio degli altri due siti. Contoso Gift Services desidera che il traffico delle applicazioni venga indirizzato nel modo seguente.
 
@@ -54,7 +54,7 @@ Pertanto, per ogni quattro query ricevute dal server DNS, risponde con due rispo
 
 Un possibile problema con il bilanciamento del carico con criteri DNS è la memorizzazione nella cache dei record DNS da parte del client DNS e del resolver/LDNS, che possono interferire con il bilanciamento del carico perché il client o il resolver non inviano una query al server DNS.
 
-È possibile attenuare l'effetto di questo comportamento usando un valore minimo di @ no__t-0to @ no__t-1Live \(TTL @ no__t-3 per i record DNS che devono essere sottoposte a bilanciamento del carico.
+Per attenuare l'effetto di questo comportamento, è possibile usare un\-di tempo ridotto per\-il valore\) Live \(TTL per i record DNS che devono essere sottoposte a bilanciamento del carico.
 
 ### <a name="how-to-configure-application-load-balancing"></a>Come configurare il bilanciamento del carico dell'applicazione
 
@@ -85,9 +85,9 @@ A questo punto è necessario aggiungere i record che rappresentano l'host del se
 
 In **SeattleZoneScope**è possibile aggiungere il record www.contosogiftservices.com con l'indirizzo IP 192.0.0.1 che si trova nel Data Center di Seattle.
 
-In **ChicagoZoneScope**è possibile aggiungere lo stesso record @no__t -1www. contosogiftservices. com @ no__t-2 con indirizzo IP 182.0.0.1 nel Data Center di Chicago.
+In **ChicagoZoneScope**è possibile aggiungere lo stesso record \(www.contosogiftservices.com\) con indirizzo IP 182.0.0.1 nel Data Center di Chicago.
 
-Analogamente, in **DallasZoneScope**è possibile aggiungere un record @no__t -1www. contosogiftservices. com @ no__t-2 con indirizzo IP 162.0.0.1 nel Data Center di Chicago.
+Analogamente, in **DallasZoneScope**è possibile aggiungere un record \(www.contosogiftservices.com\) con indirizzo IP 162.0.0.1 nel Data Center di Chicago.
 
 È possibile utilizzare i seguenti comandi di Windows PowerShell per aggiungere record per gli ambiti di zona.
     
@@ -107,7 +107,7 @@ Dopo aver creato le partizioni (ambiti di zona) ed è stato aggiunto un record, 
 È possibile usare i comandi seguenti di Windows PowerShell per creare un criterio DNS che bilancia il traffico delle applicazioni tra questi tre Data Center.
 
 >[!NOTE]
->Nel comando di esempio seguente, espressione – ZoneScope "SeattleZoneScope, 2; ChicagoZoneScope, 1; DallasZoneScope, 1 "Configura il server DNS con una matrice che include la combinazione di parametri \<ZoneScope @ no__t-1 \<weight @ no__t-3.
+>Nel comando di esempio seguente, espressione – ZoneScope "SeattleZoneScope, 2; ChicagoZoneScope, 1; DallasZoneScope, 1 "Configura il server DNS con una matrice che include la combinazione di parametri \<ZoneScope\>,\<Weight\>.
     
     Add-DnsServerQueryResolutionPolicy -Name "AmericaPolicy" -Action ALLOW -ZoneScope "SeattleZoneScope,2;ChicagoZoneScope,1;DallasZoneScope,1" -ZoneName "contosogiftservices.com"
     

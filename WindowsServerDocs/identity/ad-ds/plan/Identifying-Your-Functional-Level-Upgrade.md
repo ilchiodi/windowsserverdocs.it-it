@@ -55,7 +55,7 @@ Per utilizzare tutte le funzionalità a livello di foresta e di dominio in Windo
   
 -   Introdurre nella foresta i controller di dominio basati su Windows Server 2008 o Windows Server 2008 R2 appena installati, quindi disattivare tutti i controller di dominio che eseguono Windows 2000.  
   
--   Eseguire un aggiornamento sul posto di tutti i controller di dominio esistenti che eseguono Windows 2000 nella foresta ai controller di dominio che eseguono Windows Server 2003. Eseguire quindi un aggiornamento sul posto di tali controller di dominio a Windows Server 2008 o Windows Server 2008 R2. Per ulteriori informazioni, vedere [aggiornamento dei domini Active Directory ai domini di servizi di dominio Active Directory di Windows Server 2008 \[LH @ no__t-2](assetId:///9c91be5f-df14-40b2-b176-2b1852a51e61).  
+-   Eseguire un aggiornamento sul posto di tutti i controller di dominio esistenti che eseguono Windows 2000 nella foresta ai controller di dominio che eseguono Windows Server 2003. Eseguire quindi un aggiornamento sul posto di tali controller di dominio a Windows Server 2008 o Windows Server 2008 R2. Per altre informazioni, vedere [aggiornamento dei domini Active Directory ai domini di servizi di dominio Active Directory di Windows Server 2008 \[LH\]](assetId:///9c91be5f-df14-40b2-b176-2b1852a51e61).  
   
     > [!IMPORTANT]  
     >  Windows Server 2008 R2 è un sistema operativo basato su x64. Se nel server è in esecuzione una versione basata su x64 di Windows Server 2003, è possibile eseguire correttamente un aggiornamento sul posto del sistema operativo del computer a Windows Server 2008 R2. Se nel server è in esecuzione una versione basata su x86 di Windows Server 2003, non è possibile eseguire l'aggiornamento di questo computer a Windows Server 2008 R2.  
@@ -67,7 +67,7 @@ Per utilizzare le funzionalità a livello di dominio di Windows Server 2008 o Wi
   
 Dopo aver sostituito tutti i controller di dominio basati su Windows 2000 nella foresta con controller di dominio che eseguono Windows Server 2008 o Windows Server 2008 R2, è possibile aumentare il livello di funzionalità della foresta a Windows Server 2008 o Windows Server 2008 R2. In questo modo, viene generato automaticamente il livello di funzionalità di tutti i domini della foresta impostati su Windows 2000 native o versione successiva a Windows Server 2008 o Windows Server 2008 R2.  
   
-Per ulteriori informazioni sull'aumento dei livelli di funzionalità della foresta e del dominio e per le procedure per l'esecuzione di tali attività, vedere [distribuzione di un dominio radice della foresta di Windows Server 2008 \[LH @ no__t-2](assetId:///92406e8d-dc1c-4740-a00a-2c4032896dd1).  
+Per ulteriori informazioni sull'aumento dei livelli di funzionalità della foresta e del dominio e per le procedure per l'esecuzione di tali attività, vedere [distribuzione di un dominio radice della foresta Windows Server 2008 \[LH\]](assetId:///92406e8d-dc1c-4740-a00a-2c4032896dd1).  
   
 ## <a name="upgrading-functional-levels-in-a-windows-server-2003-active-directory-forest"></a>Aggiornamento di livelli di funzionalità in una foresta di Active Directory Windows Server 2003  
 In un ambiente Windows Server 2003 costituito solo da controller di dominio basati su Windows Server 2003, i livelli di funzionalità sono impostati per impostazione predefinita sui livelli seguenti e rimangono a questi livelli fino a quando non vengono aumentati manualmente:  
@@ -80,7 +80,7 @@ Per utilizzare tutte le funzionalità a livello di foresta e di dominio in Windo
   
 -   Introdurre un controller di dominio basato su Windows Server 2008 o Windows Server 2008 R2 appena installato nella foresta, quindi disattivare tutti i controller di dominio che eseguono Windows Server 2003 o aggiornarli a Windows Server 2008 o Windows Server 2008 R2.  
   
--   Eseguire un aggiornamento sul posto di tutti i controller di dominio esistenti che eseguono Windows Server 2003 ai controller di dominio che eseguono Windows Server 2008 o Windows Server 2008 R2. Per ulteriori informazioni, vedere [aggiornamento dei domini Active Directory ai domini di servizi di dominio Active Directory di Windows Server 2008 \[LH @ no__t-2](assetId:///9c91be5f-df14-40b2-b176-2b1852a51e61).  
+-   Eseguire un aggiornamento sul posto di tutti i controller di dominio esistenti che eseguono Windows Server 2003 ai controller di dominio che eseguono Windows Server 2008 o Windows Server 2008 R2. Per altre informazioni, vedere [aggiornamento dei domini Active Directory ai domini di servizi di dominio Active Directory di Windows Server 2008 \[LH\]](assetId:///9c91be5f-df14-40b2-b176-2b1852a51e61).  
   
 > [!IMPORTANT]  
 >  Windows Server 2008 R2 è un sistema operativo basato su x64. Se nel server è in esecuzione una versione basata su x64 di Windows Server 2003, è possibile eseguire correttamente un aggiornamento sul posto del sistema operativo del computer a Windows Server 2008 R2. Se nel server è in esecuzione una versione x86 di Windows Server 2003, non è possibile aggiornare questo computer per eseguire Windows Server 2008 R2.  
@@ -92,7 +92,7 @@ Per usare tutte le funzionalità a livello di dominio di Windows Server 2008 o W
   
 Dopo l'aggiornamento di tutti i controller di dominio basati su Windows Server 2003 nella foresta a Windows Server 2008 o Windows Server 2008 R2, è possibile aumentare il livello di funzionalità della foresta a Windows Server 2008 o Windows Server 2008 R2. In questo modo, viene generato automaticamente il livello di funzionalità di tutti i domini della foresta impostati su Windows Server 2003 a Windows Server 2008 o Windows Server 2008 R2.  
   
-Per ulteriori informazioni sull'aumento dei livelli di funzionalità della foresta e del dominio e per le procedure per l'esecuzione di tali attività, vedere [distribuzione di un dominio radice della foresta di Windows Server 2008 \[LH @ no__t-2](assetId:///92406e8d-dc1c-4740-a00a-2c4032896dd1).  
+Per ulteriori informazioni sull'aumento dei livelli di funzionalità della foresta e del dominio e per le procedure per l'esecuzione di tali attività, vedere [distribuzione di un dominio radice della foresta Windows Server 2008 \[LH\]](assetId:///92406e8d-dc1c-4740-a00a-2c4032896dd1).  
   
 ## <a name="upgrading-functional-levels-in-a-new-windows-server-2008-forest"></a>Aggiornamento di livelli di funzionalità in una nuova foresta Windows Server 2008  
 Quando si installa il primo controller di dominio in una nuova foresta Windows Server 2008, i livelli di funzionalità vengono impostati per impostazione predefinita sui livelli seguenti e rimangono a questi livelli fino a quando non vengono aumentati manualmente:  
@@ -106,7 +106,7 @@ I livelli di funzionalità sono impostati su questi livelli predefiniti per offr
 > [!IMPORTANT]  
 > Se la foresta opera a livello di funzionalità di Windows Server 2008 e si tenta di installare Active Directory in un server membro basato su Windows Server 2003 o in un server membro basato su Windows 2000, l'installazione non riesce.  
   
-Per ulteriori informazioni sull'aumento dei livelli di funzionalità della foresta e del dominio e per le procedure per l'esecuzione di tali attività, vedere [distribuzione di un dominio radice della foresta di Windows Server 2008 \[LH @ no__t-2](assetId:///92406e8d-dc1c-4740-a00a-2c4032896dd1).  
+Per ulteriori informazioni sull'aumento dei livelli di funzionalità della foresta e del dominio e per le procedure per l'esecuzione di tali attività, vedere [distribuzione di un dominio radice della foresta Windows Server 2008 \[LH\]](assetId:///92406e8d-dc1c-4740-a00a-2c4032896dd1).  
   
 ## <a name="upgrading-functional-levels-in-a-new-windows-server-2008-r2-forest"></a>Aggiornamento di livelli di funzionalità in una nuova foresta di Windows Server 2008 R2  
 Quando si installa il primo controller di dominio in una nuova foresta di Windows Server 2008 R2, i livelli di funzionalità vengono impostati per impostazione predefinita sui livelli seguenti e rimangono a questi livelli fino a quando non vengono aumentati manualmente:  
@@ -120,7 +120,7 @@ I livelli di funzionalità sono impostati su questi livelli predefiniti per offr
 > [!IMPORTANT]  
 > Se la foresta opera al livello di funzionalità di Windows Server 2008 R2 e si tenta di installare Active Directory in un server membro basato su Windows Server 2008 o Windows Server 2003 oppure su un server membro basato su Windows 2000, l'installazione non riesce.  
   
-Per ulteriori informazioni sull'aumento dei livelli di funzionalità della foresta e del dominio e per le procedure per l'esecuzione di tali attività, vedere [distribuzione di un dominio radice della foresta di Windows Server 2008 \[LH @ no__t-2](assetId:///92406e8d-dc1c-4740-a00a-2c4032896dd1).  
+Per ulteriori informazioni sull'aumento dei livelli di funzionalità della foresta e del dominio e per le procedure per l'esecuzione di tali attività, vedere [distribuzione di un dominio radice della foresta Windows Server 2008 \[LH\]](assetId:///92406e8d-dc1c-4740-a00a-2c4032896dd1).  
   
 > [!NOTE]  
 > Sebbene sia necessario installare la versione 3.1 in Windows Server 2008, è possibile usare la versione 3.1 per eseguire la migrazione degli oggetti a un dominio ospitato da uno o più controller di dominio Windows Server 2008 R2. Per ulteriori informazioni, vedere l' [articolo 976659](https://go.microsoft.com/fwlink/?LinkId=180398) della Microsoft Knowledge Base (https://go.microsoft.com/fwlink/?LinkId=180398).  

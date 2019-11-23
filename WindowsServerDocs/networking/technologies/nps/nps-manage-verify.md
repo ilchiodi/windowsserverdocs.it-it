@@ -53,7 +53,7 @@ Per eseguire queste procedure, è necessario essere un membro del gruppo **Admin
 
     a. Fare doppio clic su **NPS (local)** , fare doppio clic su **client e server RADIUS**, fare clic su **client RADIUS**, quindi nel riquadro dei dettagli fare doppio clic sul client RADIUS che si desidera modificare.
 
-    b. In **Proprietà**client RADIUS, in **Indirizzo \(IP o DNS @ no__t-3**, digitare il nuovo indirizzo IP del proxy NPS.
+    b. In **Proprietà**client RADIUS, in **Indirizzo \(ip o DNS\)** , digitare il nuovo indirizzo IP del proxy NPS.
 
 4. Se il proxy NPS è stato configurato per l'uso di SQL Server la registrazione, verificare che la connettività tra il computer che esegue SQL Server e il proxy NPS funzioni ancora correttamente.
 

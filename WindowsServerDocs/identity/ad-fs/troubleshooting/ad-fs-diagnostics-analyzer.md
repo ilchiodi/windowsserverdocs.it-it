@@ -30,7 +30,7 @@ Passare a [ad FS Help Diagnostics Analyzer (https://aka.ms/adfsdiagnosticsanalyz
 
 ![Strumento AD FS Diagnostics Analyzer nella Guida di AD FS](media/ad-fs-diagonostics-analyzer/home.png)
 
-## <a name="step-1-setup-the-adfstoolbox-module-on-ad-fs-server"></a>Passaggio 1: Configurare il modulo ADFSToolbox nel server AD FS
+## <a name="step-1-setup-the-adfstoolbox-module-on-ad-fs-server"></a>Passaggio 1: configurare il modulo ADFSToolbox nel server AD FS
 
 Per eseguire l' [analizzatore di diagnostica](https://aka.ms/adfsdiagnosticsanalyzer), è necessario installare il modulo ADFSToolbox di PowerShell. Se il server AD FS dispone di connettività a Internet, è possibile installare il modulo ADFSToolbox direttamente da PowerShell Gallery. In caso di assenza di connettività a Internet, è possibile installarla manualmente. 
 
@@ -66,7 +66,7 @@ Il modulo ADFSToolbox deve essere copiato manualmente nei server AD FS o WAP. Se
     Import-Module ADFSToolbox -Force
     ```
 
-## <a name="step-2-execute-the-diagnostics-cmdlet"></a>Passaggio 2: Eseguire il cmdlet Diagnostics
+## <a name="step-2-execute-the-diagnostics-cmdlet"></a>Passaggio 2: eseguire il cmdlet di diagnostica
 
 ![Strumento Analizzatore diagnostica AD FS-eseguire e caricare i risultati](media/ad-fs-diagonostics-analyzer/step2_v2.png)
 
@@ -82,11 +82,11 @@ In un server 2016 o versione successiva AD FS Farm, il comando leggerà l'elenco
     Export-AdfsDiagnosticsFile -ServerNames @("adfs1.contoso.com", "adfs2.contoso.com")
 ```
 
-Il risultato è un file JSON creato nella stessa directory in cui è stato eseguito il comando. Il nome del file è AdfsDiagnosticsFile-\<timestamp @ no__t-1. Un nome file di esempio è AdfsDiagnosticsFile-07312019-184201. JSON.
+Il risultato è un file JSON creato nella stessa directory in cui è stato eseguito il comando. Il nome del file è AdfsDiagnosticsFile-\<timestamp\>. Un nome file di esempio è AdfsDiagnosticsFile-07312019-184201. JSON.
 
-## <a name="step-3-upload-the-diagnostics-file"></a>Passaggio 3: Caricare il file di diagnostica
+## <a name="step-3-upload-the-diagnostics-file"></a>Passaggio 3: caricare il file di diagnostica
 
-Nel passaggio 3 in [https://aka.ms/adfsdiagnosticsanalyzer](https://aka.ms/adfsdiagnosticsanalyzer) usare il browser file per selezionare il file di risultati da caricare.
+Nel passaggio 3 [https://aka.ms/adfsdiagnosticsanalyzer](https://aka.ms/adfsdiagnosticsanalyzer) usare il browser file per selezionare il file di risultati da caricare.
 
 Per completare il caricamento, fare clic su **carica** .
 
@@ -94,26 +94,26 @@ Eseguendo l'accesso con un account Microsoft, i risultati della diagnostica poss
 
 ![Strumento Analizzatore diagnostica AD FS-accedere](media/ad-fs-diagonostics-analyzer/sign_in_step.png)
 
-## <a name="step-4-view-diagnostics-analysis-and-resolve-any-issues"></a>Passaggio 4: Visualizza analisi diagnostica e risolvi eventuali problemi
+## <a name="step-4-view-diagnostics-analysis-and-resolve-any-issues"></a>Passaggio 4: visualizzare l'analisi diagnostica e risolvere eventuali problemi
 
 Sono disponibili cinque sezioni dei risultati del test:
 
-1. Non riuscita: Questa sezione contiene un elenco di test non riusciti. Ogni risultato è costituito da:
-2. Avviso: Questa sezione contiene un elenco di test che hanno generato un avviso. Questi problemi non provocheranno probabilmente problemi di autenticazione su una scala più ampia, ma devono essere risolti al più presto.
-3. Passato Questa sezione contiene l'elenco dei test che sono stati superati e non hanno elementi di azione per l'utente.
-4. Non eseguito: Questa sezione contiene l'elenco dei test che non è stato possibile eseguire a causa di informazioni mancanti.
-5. Non applicabile: Questa sezione contiene l'elenco dei test non eseguiti perché non sono applicabili per il server specifico in cui è stato eseguito il comando.
+1. Operazione non riuscita: questa sezione contiene un elenco di test non riusciti. Ogni risultato è costituito da:
+2. Avviso: in questa sezione è contenuto un elenco di test che hanno generato un avviso. Questi problemi non provocheranno probabilmente problemi di autenticazione su una scala più ampia, ma devono essere risolti al più presto.
+3. Passato: questa sezione contiene l'elenco dei test passati e non hanno elementi di azione per l'utente.
+4. Non eseguito: questa sezione contiene l'elenco dei test che non è stato possibile eseguire a causa di informazioni mancanti.
+5. Non applicabile: questa sezione contiene l'elenco dei test non eseguiti perché non sono applicabili per il server specifico in cui è stato eseguito il comando.
 
-@no__t-strumento Analizzatore diagnostica FS di 0AD-elenco risultati test @ no__t-1 ogni risultato del test viene visualizzato con i dettagli che descrivono il test e la risoluzione dei passaggi:
+![strumento Analizzatore AD FS diagnostica-elenco risultati test](media/ad-fs-diagonostics-analyzer/step3a_v3.png) ogni risultato del test viene visualizzato con i dettagli che descrivono il test e la risoluzione dei passaggi:
 
-1. Nome test: Nome del test eseguito
+1. Nome test: nome del test eseguito
 2. Descrizione: Descrizione del test.
 3. Dettagli: Descrizione dell'operazione complessiva eseguita durante il test
-4. Passaggi per la risoluzione del problema: Procedura consigliata per risolvere il problema evidenziato dal test
+4. Procedure di risoluzione: i passaggi suggeriti per risolvere il problema evidenziato dal test
 
 ![Strumento Analizzatore diagnostica AD FS-risoluzione degli errori](media/ad-fs-diagonostics-analyzer/step3b_v3.png)
 
-## <a name="next"></a>Avanti
+## <a name="next"></a>Next
 
 - [Usare AD FS guida troublehshooting](https://aka.ms/adfshelp/troubleshooting )
 - [Risoluzione dei problemi relativi ad AD FS](ad-fs-tshoot-overview.md)

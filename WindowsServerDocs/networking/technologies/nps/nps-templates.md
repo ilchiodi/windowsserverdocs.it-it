@@ -19,7 +19,7 @@ ms.locfileid: "71405313"
 
 >Si applica a: Windows Server (Canale semestrale), Windows Server 2016
 
-I modelli server dei criteri di rete \(NPS @ no__t-1 consentono di creare elementi di configurazione, ad esempio Remote Authentication Dial-In User Service \(RADIUS @ no__t-3 client o segreti condivisi, che è possibile riutilizzare nel server dei criteri di rete locale ed esportare per l'utilizzo in altri NPSs.
+Server dei criteri di rete \(NPS\) modelli consentono di creare elementi di configurazione, ad esempio Remote Authentication Dial-In User Service \(RADIUS\) client o segreti condivisi, che è possibile riutilizzare nel server dei criteri di rete locale ed esportare per l'utilizzo in altri NPSs.
 
 I modelli NPS sono progettati per ridurre la quantità di tempo e costi necessari per configurare NPS in uno o più server. I tipi di modello NPS seguenti sono disponibili per la configurazione nella gestione dei modelli:
 
@@ -31,7 +31,7 @@ I modelli NPS sono progettati per ridurre la quantità di tempo e costi necessar
 
 La configurazione di un modello è diversa rispetto alla configurazione diretta di NPS. La creazione di un modello non influisce sulla funzionalità del server dei criteri di server. È solo quando si seleziona il modello nella posizione appropriata nella console NPS che il modello influisca sulla funzionalità NPS. 
 
-Ad esempio, se si configura un client RADIUS nella console server dei criteri di rete in client e server RADIUS, è stata modificata la configurazione del server dei criteri di rete ed è stato effettuato un passaggio nella configurazione del server dei criteri di rete per comunicare con uno dei server di accesso alla rete \(NAS's @ no__t-1. il passaggio successivo \(The consiste nel configurare il server NAS per la comunicazione con NPS. \) Tuttavia, se si configura un nuovo modello di client RADIUS nella console NPS in **Gestione modelli** anziché creare un nuovo client RADIUS in **client e server RADIUS**, è stato creato un modello, ma non è stato modificato il server dei criteri di server. funzionalità ancora. Per modificare la funzionalità NPS, è necessario selezionare il modello dalla posizione corretta nella console NPS.
+Ad esempio, se si configura un client RADIUS nella console server dei criteri di rete in client e server RADIUS, è stata modificata la configurazione del server dei criteri di rete ed è stato effettuato un passaggio nella configurazione del server dei criteri di rete per comunicare con uno dei server di accesso alla rete \(\)del NAS. \(il passaggio successivo consiste nel configurare il server NAS per la comunicazione con NPS.\) tuttavia, se si configura un nuovo modello di client RADIUS nella console NPS in **Gestione modelli** anziché creare un nuovo client RADIUS in **client e server RADIUS**, è stato creato un modello, ma non è ancora stata modificata la funzionalità NPS. Per modificare la funzionalità NPS, è necessario selezionare il modello dalla posizione corretta nella console NPS.
 
 ## <a name="creating-templates"></a>Creazione di modelli
 

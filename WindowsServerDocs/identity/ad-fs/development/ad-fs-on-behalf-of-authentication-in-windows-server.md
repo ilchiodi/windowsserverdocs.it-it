@@ -21,7 +21,7 @@ ms.locfileid: "71407818"
 
 In questa procedura dettagliata vengono fornite istruzioni per l'implementazione di un'autenticazione di (OBO) con AD FS in Windows Server 2016 TP5 o versione successiva. Per altre informazioni sull'autenticazione di OBO [, vedere ad FS i flussi OpenID Connect/OAuth e gli scenari di applicazione](../../ad-fs/overview/ad-fs-openid-connect-oauth-flows-scenarios.md)
 
->AVVISO: L'esempio che è possibile compilare qui è esclusivamente a scopo didattico. Queste istruzioni sono per l'implementazione più semplice, più minima possibile esporre gli elementi necessari del modello. L'esempio potrebbe non includere tutti gli aspetti della gestione degli errori e altri riguardano funzionalità e si concentra SOLO nella Guida il completamento dell'autenticazione OBO.
+>AVVISO: L'esempio che è possibile compilare qui è solo a scopo didattico. Queste istruzioni sono per l'implementazione più semplice, più minima possibile esporre gli elementi necessari del modello. L'esempio potrebbe non includere tutti gli aspetti della gestione degli errori e altri riguardano funzionalità e si concentra SOLO nella Guida il completamento dell'autenticazione OBO.
 
 ## <a name="overview"></a>Panoramica
 
@@ -62,9 +62,9 @@ Nell'esempio viene inoltre utilizzato v 11.0 LocalDB di SQL. Installazione del d
 ## <a name="setting-up-the-environment"></a>Impostazione dell'ambiente
 Verrà utilizzato con una configurazione di base:
 
-1. **CONTROLLER**DI DOMINIO: Controller di dominio per il dominio in cui verrà ospitato AD FS
-2. **Server ad FS**: Server AD FS per il dominio
-3. **Computer di sviluppo**: Il computer in cui è installato Visual Studio e verrà sviluppato l'esempio
+1. **Controller di dominio**: controller di dominio per il dominio in cui verrà ospitato ADFS
+2. **Server ADFS**: il Server ADFS per il dominio
+3. **Computer di sviluppo**: computer in cui è installato Visual Studio e sviluppo di esempio
 
 È possibile, se si desidera, utilizzare solo due macchine. Uno per il controller di dominio/ADFS e l'altra per lo sviluppo dell'esempio.
 
@@ -85,8 +85,8 @@ Dalla shell o della riga di comando:
 
 Non appena si apre la soluzione WebAPI-OnBehalfOf-DotNet. sln, si noterà che nella soluzione sono presenti due progetti
 
-* **ToDoListClient**: Questa funzione fungerà da client OpenID con cui l'utente interagisce
-* **ToDoListService**: Si tratta dell'APP/servizio WebServer di livello intermedio che interagisce con un altro back-end WebAPI OBO l'utente autenticato
+* **ToDoListClient**: questo fungerà da client che l'utente verrà interagisce con OpenID
+* **ToDoListService**: questo verrà l'APP server Web di livello intermedio / Service che verrà interagisce con un altro back-end WebAPI OBO l'utente autenticato
 
 Come può notare, è necessario aggiungere un altro progetto in un secondo momento verrà utilizzato come la risorsa che verrà utilizzata da ToDoListService di livello intermedio.
 
@@ -102,7 +102,7 @@ Aprire la MMC di gestione di ADFS e aggiungere un nuovo gruppo di applicazioni. 
 
 Fare clic su Avanti e verrà visualizzata la pagina per fornire informazioni sull'applicazione Client. Assegnare un nome appropriato per il client App in ADFS. Copiare l'identificatore client e salvarlo in un punto che è possibile accedere in seguito, quando ciò è richiesto nella configurazione dell'applicazione in visual studio.
 
->Nota: L'URI di reindirizzamento può essere qualsiasi URI arbitrario perché non viene effettivamente utilizzato in caso di client nativi
+>Nota: L'URI di reindirizzamento può essere qualsiasi URI arbitrario come non viene effettivamente utilizzato in caso di client nativi
 
 ![AD FS OBO](media/AD-FS-On-behalf-of-Authentication-in-Windows-Server-2016/ADFS_OBO11.PNG)
 
@@ -274,10 +274,10 @@ Continuare con il resto della procedura guidata stessa come quando è stato conf
 * Aprire il file Web. config
 * Modificare le seguenti chiavi
 
-| Chiave                      | Value                                                                                                                                                                                                                   |
+| Chiave                      | Valore                                                                                                                                                                                                                   |
 |:-------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| ida: pubblico             | ID del ToDoListService come specificato AD FS durante la configurazione di ToDoListService WebAPI, ad esempio https://localhost:44321/                                                                                         |
-| ida: ClientID             | ID del ToDoListService come specificato AD FS durante la configurazione di ToDoListService WebAPI, ad esempio <https://localhost:44321/> </br>**È molto importante che Ida: audience e Ida: ClientID corrispondano tra loro** |
+| ida: pubblico             | ID del ToDoListService come specificato per AD FS durante la configurazione di ToDoListService WebAPI, ad esempio https://localhost:44321/                                                                                         |
+| ida: ClientID             | ID del ToDoListService come specificato per AD FS durante la configurazione di ToDoListService WebAPI, ad esempio <https://localhost:44321/> </br>**È molto importante che Ida: audience e Ida: ClientID corrispondano tra loro** |
 | ida: ClientSecret         | Questo è il segreto che ADFS generate momento di configurare il client ToDoListService in ADFS                                                                                                                   |
 | Ida: AdfsMetadataEndpoint | Si tratta dell'URL dei metadati di AD FS, ad esempio https://fs.anandmsft.com/federationmetadata/2007-06/federationmetadata.xml                                                                                             |
 | ida: OBOWebAPIBase        | Si tratta dell'indirizzo di base che verrà usato per chiamare l'API back-end, ad esempio https://localhost:44300                                                                                                                     |
@@ -494,10 +494,10 @@ Su operazione completata correttamente verrà visualizzato l'elemento è stato a
 ![AD FS OBO](media/AD-FS-On-behalf-of-Authentication-in-Windows-Server-2016/ADFS_OBO27.PNG)
 
 È inoltre possibile visualizzare le tracce dettagliate su Fiddler. Avviare Fiddler e abilitare la decrittografia HTTPS. Noterete che abbiamo effettuare due richieste all'endpoint /adfs/oautincludes.
-Nella prima interazione si presenta il codice di accesso all'endpoint token e si ottiene un token di accesso per https://localhost:44321/ ![ AD FS OBO @ no__t-2
+Nella prima interazione si presenta il codice di accesso all'endpoint token e si ottiene un token di accesso per https://localhost:44321/ ![AD FS OBO](media/AD-FS-On-behalf-of-Authentication-in-Windows-Server-2016/ADFS_OBO22.PNG)
 
-Nella seconda interazione con l'endpoint token si noterà che **requested_token_use** è impostato come **on_behalf_of** e si usa il token di accesso ottenuto per il servizio Web di livello intermedio, ad esempio https://localhost:44321/ come asserzione per ottenere il token per conto dell'utente.
-![AD FS OBO @ NO__T-1
+Nella seconda interazione con l'endpoint token, è possibile osservare che è stato impostato **requested_token_use** come **on_behalf_of** e si usa il token di accesso ottenuto per il servizio Web di livello intermedio, ad esempio https://localhost:44321/ come asserzione per ottenere il token per conto di.
+![AD FS OBO](media/AD-FS-On-behalf-of-Authentication-in-Windows-Server-2016/ADFS_OBO23.PNG)
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Sviluppo di AD FS](../../ad-fs/AD-FS-Development.md)  

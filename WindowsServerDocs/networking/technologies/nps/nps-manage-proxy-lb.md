@@ -19,13 +19,13 @@ ms.locfileid: "71405422"
 
 Si applica a: Windows Server 2016
 
-I client RADIUS (Remote Authentication Dial-in User Service), che sono server di accesso alla rete, ad esempio server VPN (Virtual Private Network) e punti di accesso wireless, creano richieste di connessione e le inviano ai server RADIUS, ad esempio NPS. In alcuni casi, un server dei criteri di accesso può ricevere troppe richieste di connessione contemporaneamente, causando un peggioramento delle prestazioni o un sovraccarico. Quando si esegue l'overload di un server dei criteri di rete, è consigliabile aggiungere altri NPSs alla rete e configurare il bilanciamento del carico. Quando si distribuiscono uniformemente le richieste di connessione in ingresso tra più NPSs per impedire l'overload di uno o più NPSs, viene chiamato bilanciamento del carico.
+I client Remote Authentication Dial-In User Service (RADIUS), che sono server di accesso alla rete, ad esempio server VPN (Virtual Private Network) e punti di accesso wireless, creano richieste di connessione e le inviano a server RADIUS come NPS. In alcuni casi, un server dei criteri di accesso può ricevere troppe richieste di connessione contemporaneamente, causando un peggioramento delle prestazioni o un sovraccarico. Quando si esegue l'overload di un server dei criteri di rete, è consigliabile aggiungere altri NPSs alla rete e configurare il bilanciamento del carico. Quando si distribuiscono uniformemente le richieste di connessione in ingresso tra più NPSs per impedire l'overload di uno o più NPSs, viene chiamato bilanciamento del carico.
 
 Il bilanciamento del carico è particolarmente utile per:
 
-- Le organizzazioni che usano Extensible Authentication Protocol-Transport Layer Security \(EAP-TLS @ no__t-1 o Protected Extensible Authentication Protocol \(PEAP @ no__t-3-TLS per l'autenticazione. Poiché questi metodi di autenticazione usano i certificati per l'autenticazione server e per l'autenticazione di computer client o utente, il carico su proxy e server RADIUS è più pesante rispetto a quando vengono usati metodi di autenticazione basati su password.
+- Le organizzazioni che usano Extensible Authentication Protocol-Transport Layer Security \(EAP-TLS\) o Protected Extensible Authentication Protocol \(PEAP\)-TLS per l'autenticazione. Poiché questi metodi di autenticazione usano i certificati per l'autenticazione server e per l'autenticazione di computer client o utente, il carico su proxy e server RADIUS è più pesante rispetto a quando vengono usati metodi di autenticazione basati su password.
 - Organizzazioni che devono sostenere la disponibilità continua del servizio.
-- Provider di servizi Internet \(ISPs @ no__t-1 che esternalizzano l'accesso VPN per altre organizzazioni. I servizi VPN in outsourcing possono generare un volume elevato di traffico di autenticazione.
+- Provider di servizi Internet \(provider di servizi Internet\) che esternalizzano l'accesso VPN per altre organizzazioni. I servizi VPN in outsourcing possono generare un volume elevato di traffico di autenticazione.
 
 Esistono due metodi che è possibile usare per bilanciare il carico delle richieste di connessione inviate al NPSs:
 
@@ -53,7 +53,7 @@ Prima di configurare il bilanciamento del carico, creare un piano di distribuzio
 
 Per configurare NPS affinché funga da server proxy e inoltro delle richieste di connessione dai client RADIUS ai server RADIUS remoti, è necessario eseguire le operazioni seguenti:
 
-1. Distribuire i client RADIUS @no__t-server 0VPN, server di connessione remota, server Gateway Servizi terminal, commutatori di autenticazione 802.1 X e punti di accesso wireless 802.1 X @ no__t-1 e configurarli per l'invio di richieste di connessione ai server proxy server dei criteri di rete.
+1. Distribuire i client RADIUS \(server VPN, server di connessione remota, server gateway di Servizi terminal, commutatori di autenticazione 802.1 X e punti di accesso wireless 802.1 X\) e configurarli per l'invio di richieste di connessione ai server proxy server dei criteri di rete.
 
 2. Nel proxy server dei criteri di rete configurare i server di accesso alla rete come client RADIUS. Per altre informazioni, vedere [configurare i client RADIUS](https://docs.microsoft.com/windows-server/networking/technologies/nps/nps-radius-clients-configure).
 

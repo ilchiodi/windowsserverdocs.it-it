@@ -19,7 +19,7 @@ ms.locfileid: "71359095"
 # <a name="mapping-your-deployment-goals-to-an-ad-fs-design"></a>Mapping degli obiettivi di distribuzione a una progettazione ADFS
 
 
-Dopo aver esaminato gli obiettivi di distribuzione esistenti di Active Directory Federation Services \(AD FS @ no__t-1 e aver determinato gli obiettivi correlati alla distribuzione, è possibile eseguire il mapping di tali obiettivi a una specifica progettazione di AD FS. Per altre informazioni su AD FS obiettivi di distribuzione predefiniti, vedere [identificazione degli obiettivi di distribuzione di ad FS](Identifying-Your-AD-FS-Deployment-Goals.md).  
+Al termine della verifica del Active Directory Federation Services esistente \(AD FS obiettivi di distribuzione\) e si determinano gli obiettivi correlati alla distribuzione, è possibile eseguire il mapping di tali obiettivi a una specifica progettazione di AD FS. Per altre informazioni su AD FS obiettivi di distribuzione predefiniti, vedere [identificazione degli obiettivi di distribuzione di ad FS](Identifying-Your-AD-FS-Deployment-Goals.md).  
   
 Usare la tabella seguente per determinare quale progettazione di AD FS viene mappata alla combinazione appropriata di obiettivi di distribuzione AD FS per l'organizzazione. Questa tabella si riferisce solo alle due progettazioni di AD FS principali, come descritto in questa guida. Tuttavia, è possibile creare una progettazione di AD FS ibrida o personalizzata usando qualsiasi combinazione degli obiettivi di distribuzione AD FS per soddisfare le esigenze dell'organizzazione.  
   
@@ -27,9 +27,9 @@ Usare la tabella seguente per determinare quale progettazione di AD FS viene map
 |---------------------------------------------------------------------------|----------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------|  
 |[Fornire agli utenti di Active Directory l'accesso ai servizi e alle applicazioni in grado di riconoscere attestazioni](Provide-Your-Active-Directory-Users-Access-to-Your-Claims-Aware-Applications-and-Services.md)|No|Sì, nel partner account|  
 |[Fornire agli utenti di Active Directory l'accesso ai servizi e alle applicazioni di altre organizzazioni](Provide-Your-Active-Directory-Users-Access-to-the-Applications-and-Services-of-Other-Organizations.md)|No|Sì, facoltativo nel partner account|  
-|[Fornire agli utenti di un'altra organizzazione l'accesso ai propri servizi e alle applicazioni in grado di riconoscere attestazioni](Provide-Users-in-Another-Organization-Access-to-Your-Claims-Aware-Applications-and-Services.md)|Yes|Yes|  
+|[Fornire agli utenti di un'altra organizzazione l'accesso ai propri servizi e alle applicazioni in grado di riconoscere attestazioni](Provide-Users-in-Another-Organization-Access-to-Your-Claims-Aware-Applications-and-Services.md)|Sì|Sì|  
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 [Guida alla progettazione di AD FS in Windows Server 2012](AD-FS-Design-Guide-in-Windows-Server-2012.md)
   
 

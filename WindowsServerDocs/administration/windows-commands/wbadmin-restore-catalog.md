@@ -47,7 +47,7 @@ wbadmin restore catalog
 |-machine|Specifica il nome del computer in cui si desidera ripristinare il catalogo di backup per. Utilizzare backup per più computer sono stati archiviati nella stessa posizione. Deve essere utilizzato quando **- backupTarget** specificato.|
 |-quiet|Esegue il sottocomando senza alcuna richiesta visualizzata all'utente.|
 
-## <a name="remarks"></a>Note
+## <a name="remarks"></a>Osservazioni
 
 Se il percorso in cui vengono archiviati i backup (disco, DVD o cartella condivisa remota) è danneggiato o perso e non può essere utilizzato per ripristinare il catalogo di backup, utilizzare **wbadmin delete catalogo** per eliminare il catalogo danneggiato. In questo caso, è necessario creare un nuovo backup una volta eliminato il catalogo di backup.
 
@@ -57,7 +57,7 @@ Per ripristinare un catalogo da un backup archiviato su disco d, digitare:
 ```
 wbadmin restore catalog -backupTarget:d
 ```
-Per ripristinare un catalogo da un backup archiviato nella cartella condivisa \\ @ no__t-1servername\share di Server01, digitare:
+Per ripristinare un catalogo da un backup archiviato nella cartella condivisa \\\\servername\share di Server01, digitare:
 ```
 wbadmin restore catalog -backupTarget:\\servername\share -machine:server01
 ```

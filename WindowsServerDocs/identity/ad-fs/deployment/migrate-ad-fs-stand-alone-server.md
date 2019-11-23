@@ -38,7 +38,7 @@ Man mano che la procedura guidata procede, usare le informazioni raccolte durant
  |**Opzione di input della configurazione guidata del server federativo**|**Usare il valore seguente**| 
 |-----|-----| 
 |**Certificato SSL** nella pagina **Specifica il nome del servizio federativo**|Selezionare il certificato SSL con il nome soggetto e l'identificazione personale registrati durante la preparazione per la migrazione del server federativo di ADFS.|  
-|**Account del servizio** e **Password** nella pagina **Specifica account del servizio**|Immettere le informazioni sull'account del servizio registrate durante la preparazione per la migrazione del server federativo di ADFS. **Nota:**  Se si seleziona l'opzione relativa al server federativo autonomo nella seconda pagina della procedura guidata, come account del servizio verrà usato automaticamente SERVIZIO DI RETE.|  
+|**Account del servizio** e **Password** nella pagina **Specifica account del servizio**|Immettere le informazioni sull'account del servizio registrate durante la preparazione per la migrazione del server federativo di ADFS. **Nota:**  Se si seleziona server federativo autonomo nella seconda pagina della procedura guidata, servizio di rete viene utilizzato automaticamente come account del servizio.|  
   
 > [!IMPORTANT] 
 > È possibile utilizzare questo metodo solo se si utilizza database interno di Windows per archiviare il database di configurazione di AD FS per il server federativo autonomo o una farm di AD FS a nodo singolo.  
@@ -57,7 +57,7 @@ Di seguito è riportato un esempio di come utilizzare Windows PowerShell per cre
 > [!NOTE]
 >  Questo passaggio è richiesto solo se si sta migrando un server federativo autonomo o una farm Database interno di Windows a nodo singolo.  Se il server federativo usa un database di SQL Server come archivio di configurazione, le impostazioni del servizio e le relazioni di trust verranno conservate nel database.  
   
-5. Aggiornare le pagine Web di AD FS. Si tratta di un passaggio manuale. Se è stato eseguito il backup delle pagine Web personalizzate AD FS durante la preparazione per la migrazione, usare i dati di backup per sovrascrivere le pagine Web predefinite AD FS create per impostazione predefinita nella directory **%SystemDrive%\Inetpub\Adfs\Ls** in seguito al ad FS configurazione in Windows Server 2012.  
+5. Aggiornare le pagine Web di AD FS. Si tratta di un passaggio manuale. Se è stato eseguito il backup delle pagine Web personalizzate AD FS durante la preparazione per la migrazione, usare i dati di backup per sovrascrivere le pagine Web predefinite AD FS create per impostazione predefinita nella directory **%SystemDrive%\Inetpub\Adfs\Ls** in seguito alla configurazione di ad FS in Windows Server 2012.  
   
 6. Ripristinare le eventuali personalizzazioni di ADFS rimanenti, ad esempio gli archivi di attributi personalizzati.  
   
@@ -88,7 +88,7 @@ Per cambiare i certificati di decrittografia di token o di firma di token da cer
 
 ## <a name="next-steps"></a>Passaggi successivi
  [Preparare la migrazione del server federativo AD FS 2,0](prepare-to-migrate-ad-fs-fed-server.md)   
- [Preparare la migrazione del proxy server federativo di AD FS 2,0](prepare-to-migrate-ad-fs-fed-proxy.md)   
+ [Preparare la migrazione del proxy server federativo AD FS 2,0](prepare-to-migrate-ad-fs-fed-proxy.md)   
  [Eseguire la migrazione del server federativo AD FS 2,0](migrate-the-ad-fs-fed-server.md)   
  [Eseguire la migrazione del proxy server federativo AD FS 2,0](migrate-the-ad-fs-2-fed-server-proxy.md)   
  [Eseguire la migrazione di Agenti Web di AD FS 1.1](migrate-the-ad-fs-web-agent.md)

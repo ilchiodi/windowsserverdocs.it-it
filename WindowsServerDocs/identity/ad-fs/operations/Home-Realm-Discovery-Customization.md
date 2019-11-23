@@ -30,7 +30,7 @@ Quando il client di ADFS richiede innanzitutto una risorsa, il server federativo
 
 
 ## <a name="configure-identity-provider-to-use-certain-email-suffixes"></a>Configurare il provider di identità per l'uso di determinati suffissi di posta elettronica  
-Un'organizzazione può creare una federazione con più provider di attestazioni. AD FS ora fornisce agli amministratori la funzionalità in @ no__t-0box per elencare i suffissi, ad esempio @us.contoso.com, @eu.contoso.com, supportati da un provider di attestazioni e abilitarlo per il suffisso @ no__t-3based Discovery. Con questa configurazione, gli utenti finali possono digitare nel proprio account aziendale e AD FS seleziona automaticamente il provider di attestazioni corrispondente.  
+Un'organizzazione può creare una federazione con più provider di attestazioni. AD FS ora fornisce agli amministratori la funzionalità di\-box per elencare i suffissi, ad esempio @us.contoso.com@eu.contoso.com, supportati da un provider di attestazioni e abilitarlo per l'individuazione basata su suffisso\-. Con questa configurazione, gli utenti finali possono digitare nel proprio account aziendale e AD FS seleziona automaticamente il provider di attestazioni corrispondente.  
   
 Per configurare un provider di identità \(IDP\), ad esempio `fabrikam`, per utilizzare determinati suffissi di posta elettronica, utilizzare il cmdlet di Windows PowerShell e la sintassi seguente.  
   
@@ -38,7 +38,7 @@ Per configurare un provider di identità \(IDP\), ad esempio `fabrikam`, per uti
 `Set-AdfsClaimsProviderTrust -TargetName fabrikam -OrganizationalAccountSuffix @("fabrikam.com";"fabrikam2.com") ` 
  
 >[!NOTE]
-> Quando si esegue la Federazione tra due server AD FS, impostare la proprietà PromptLoginFederation nell'attendibilità del provider di attestazioni su ForwardPromptAndHintsOverWsFederation.  In modo che AD FS inoltrerà il login_hint e i all'IDP.  È possibile eseguire questa operazione eseguendo il cmdlet di PowerShell seguente:
+> Quando si esegue la Federazione tra due server AD FS, impostare la proprietà PromptLoginFederation nell'attendibilità del provider di attestazioni su ForwardPromptAndHintsOverWsFederation.  In questo modo AD FS inoltrerà il login_hint e i al provider di identità.  È possibile eseguire questa operazione eseguendo il cmdlet di PowerShell seguente:
 >
 >`Set-AdfsclaimsProviderTrust -PromptLoginFederation ForwardPromptAndHintsOverWsFederation`
 

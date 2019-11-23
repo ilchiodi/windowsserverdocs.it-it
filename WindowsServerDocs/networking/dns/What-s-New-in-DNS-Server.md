@@ -34,16 +34,16 @@ In Windows Server 2016, Server DNS offre supporto avanzato nelle aree seguenti.
   
 ## <a name="dns-policies"></a>Criteri DNS
 
-È possibile usare i criteri DNS per la gestione del traffico basata sulla posizione geografica, le risposte DNS intelligenti basate sull'ora del giorno, per gestire un singolo server DNS configurato per la distribuzione Split @ no__t-0brain, l'applicazione di filtri alle query DNS e altro ancora. Gli elementi seguenti forniscono maggiori dettagli su queste funzionalità.
+È possibile usare i criteri DNS per la gestione del traffico basata sulla posizione geografica, le risposte DNS intelligenti basate sull'ora del giorno, per gestire un singolo server DNS configurato per la distribuzione di Split\-Brain, l'applicazione di filtri alle query DNS e altro ancora. Gli elementi seguenti forniscono maggiori dettagli su queste funzionalità.
 
 -   **Bilanciamento del carico dell'applicazione.** Quando sono state distribuite più istanze di un'applicazione in posizioni diverse, è possibile usare i criteri DNS per bilanciare il carico del traffico tra le diverse istanze dell'applicazione, allocando dinamicamente il carico del traffico per l'applicazione.
 
--   **Geo @ no__t: gestione del traffico basata su 1Location.** È possibile usare i criteri DNS per consentire ai server DNS primari e secondari di rispondere alle query del client DNS in base alla posizione geografica del client e alla risorsa a cui il client sta tentando di connettersi, fornendo al client l'indirizzo IP del più vicino risorse. 
+-   **Gestione del traffico basata sulla posizione geo\-geografica.** È possibile usare i criteri DNS per consentire ai server DNS primari e secondari di rispondere alle query del client DNS in base alla posizione geografica del client e alla risorsa a cui il client sta tentando di connettersi, fornendo al client l'indirizzo IP del più vicino risorse. 
 
--   **Split Brain DNS.** Con il DNS split @ no__t-0brain, i record DNS vengono suddivisi in ambiti di zona diversi nello stesso server DNS e i client DNS ricevono una risposta a seconda che i client siano client interni o esterni. È possibile configurare il DNS split @ no__t-0brain per Active Directory zone integrate o per le zone in server DNS autonomi.
+-   **Split Brain DNS.** Con il DNS split\-Brain, i record DNS vengono suddivisi in ambiti di zona diversi nello stesso server DNS e i client DNS ricevono una risposta a seconda che i client siano client interni o esterni. È possibile configurare il DNS split\-Brain per Active Directory zone integrate o per le zone in server DNS autonomi.
 
 -   **Filtro.** È possibile configurare i criteri DNS per creare filtri di query in base ai criteri forniti. I filtri query nei criteri DNS consentono di configurare il server DNS per rispondere in modo personalizzato in base alla query DNS e al client DNS che invia la query DNS. 
--   **Analisi.** È possibile usare i criteri DNS per reindirizzare i client DNS dannosi a un indirizzo IP diverso da @ no__t-0existent anziché indirizzarli al computer che tentano di raggiungere.
+-   **Analisi.** È possibile usare i criteri DNS per reindirizzare i client DNS dannosi a un indirizzo IP non\-esistente anziché indirizzarli al computer che tentano di raggiungere.
 
 -   **Reindirizzamento basato sull'ora del giorno.** È possibile usare i criteri DNS per distribuire il traffico delle applicazioni tra diverse istanze distribuite geograficamente di un'applicazione usando criteri DNS basati sull'ora del giorno. 
   
@@ -75,7 +75,7 @@ Per ulteriori informazioni, vedere la [Guida allo scenario dei criteri DNS](depl
   
 ## <a name="dane-support"></a>Supporto DANE
 
-È possibile usare il supporto danese \(RFC 6394 e 6698 @ no__t-1 per specificare ai client DNS la CA da cui devono essere rilasciati i certificati per i nomi dei domini ospitati nel server DNS. Questo impedisce un tipo di attacco man-in-the-middle in cui un utente è in grado di danneggiare una cache DNS e scegliere un nome DNS per il proprio indirizzo IP.  
+È possibile usare il supporto di DANE \(RFC 6394 e 6698\) per specificare ai client DNS quale CA dovrebbero prevedere che i certificati vengano emessi da per i nomi dei domini ospitati nel server DNS. Questo impedisce un tipo di attacco man-in-the-middle in cui un utente è in grado di danneggiare una cache DNS e scegliere un nome DNS per il proprio indirizzo IP.  
   
 Si supponga ad esempio si ospita un sito Web protetto che utilizza SSL in www.contoso.com mediante un certificato da un'autorità noto denominato CA1. Qualcuno potrebbe ancora essere in grado di ottenere un certificato per www.contoso.com da un diverso, non in modo-noti, certificato autorità denominata CA2. Quindi, l'entità che ospita il sito Web www.contoso.com fittizio potrebbe essere in grado di danneggiare la cache DNS di un client o server in modo da puntare www.contoto.com al rispettivo sito fittizio. L'utente finale verrà visualizzato un certificato da CA2, può semplicemente confermare e connettersi al sito fittizio. Con DANE, il client potrebbe effettuare una richiesta al server DNS per contoso.com che richiede il record TLSA e informazioni che il certificato per www.contoso.com è problemi da CA1. Se viene visualizzata con un certificato da un'altra CA, la connessione viene interrotta.  
   
@@ -150,7 +150,7 @@ Per ulteriori informazioni, vedere gli argomenti di riferimento sui comandi di W
 - [Modulo DnsServer](https://docs.microsoft.com/powershell/module/dnsserver/?view=win10-ps)
 - [Modulo DnsClient](https://docs.microsoft.com/powershell/module/dnsclient/?view=win10-ps)
 
-## <a name="see-also"></a>Vedere anche  
+## <a name="see-also"></a>Vedi anche  
   
 -   [Novità del client DNS](What-s-New-in-DNS-Client.md)  
   

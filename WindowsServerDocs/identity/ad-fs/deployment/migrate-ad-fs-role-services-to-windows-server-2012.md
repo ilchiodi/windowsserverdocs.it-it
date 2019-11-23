@@ -75,9 +75,9 @@ Di seguito vengono fornite istruzioni sulla migrazione dei servizi ruolo seguent
 |AD FS 2,0 server federativo installato in Windows Server 2008 o Windows Server 2008 R2|È supportata la migrazione nello stesso server. Per altre informazioni, vedere:<br /><br /> [Preparare la migrazione del server federativo di AD FS 2.0](prepare-to-migrate-ad-fs-fed-server.md)<br /><br /> [Eseguire la migrazione del server federativo di AD FS 2.0](migrate-the-ad-fs-fed-server.md)|  
 |AD FS 2,0 proxy server federativo installato in Windows Server 2008 o Windows Server 2008 R2|È supportata la migrazione nello stesso server.  Per altre informazioni, vedi:<br /><br /> [Preparare la migrazione del proxy server federativo di AD FS 2.0](prepare-to-migrate-ad-fs-fed-proxy.md)<br /><br /> [Eseguire la migrazione del proxy server federativo di AD FS 2.0](migrate-the-ad-fs-2-fed-server-proxy.md)|  
   
-## <a name="see-also"></a>Vedere anche  
+## <a name="see-also"></a>Vedi anche  
  [Preparare la migrazione del server federativo AD FS 2,0](prepare-to-migrate-ad-fs-fed-server.md)   
- [Preparare la migrazione del proxy server federativo di AD FS 2,0](prepare-to-migrate-ad-fs-fed-proxy.md)   
+ [Preparare la migrazione del proxy server federativo AD FS 2,0](prepare-to-migrate-ad-fs-fed-proxy.md)   
  [Eseguire la migrazione del server federativo AD FS 2,0](migrate-the-ad-fs-fed-server.md)   
  [Eseguire la migrazione del proxy server federativo AD FS 2,0](migrate-the-ad-fs-2-fed-server-proxy.md)   
  [Eseguire la migrazione di Agenti Web di AD FS 1.1](migrate-the-ad-fs-web-agent.md)

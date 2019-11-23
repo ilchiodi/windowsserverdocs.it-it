@@ -22,16 +22,16 @@ ms.locfileid: "71405756"
 
 È possibile utilizzare questo argomento per informazioni sulle nuove opzioni di selezione della subnet DHCP.
 
-DHCP supporta ora l'opzione 82 \(Sub-Option 5 @ no__t-1. È possibile utilizzare queste opzioni per consentire ai client proxy DHCP e agli agenti di inoltro di richiedere un indirizzo IP per una subnet specifica e da un intervallo di indirizzi IP e un ambito specifici.  Per ulteriori informazioni, vedere l' **opzione 82 sub option 5**: [RFC 3527 link Selection sub-option for the Relay Agent Information option for estensione DHCPv4](https://tools.ietf.org/html/rfc3527).
+DHCP supporta ora l'opzione 82 \(opzione secondaria 5\). È possibile utilizzare queste opzioni per consentire ai client proxy DHCP e agli agenti di inoltro di richiedere un indirizzo IP per una subnet specifica e da un intervallo di indirizzi IP e un ambito specifici.  Per altri dettagli, vedere **opzione 82 sub option 5**: [RFC 3527 link Selection sub-option for the Relay Agent Information option for estensione DHCPv4](https://tools.ietf.org/html/rfc3527).
 
 Se si usa un agente di inoltro DHCP configurato con l'opzione DHCP 82, l'opzione secondaria 5, l'agente di inoltro può richiedere un lease di indirizzi IP per i client DHCP da un intervallo di indirizzi IP specifico.
 
 
-## <a name="option-82-sub-option-5-link-selection-sub-option"></a>Opzione 82 sub 5: Opzione di selezione collegamento
+## <a name="option-82-sub-option-5-link-selection-sub-option"></a>Opzione 82 sub option 5: link Selection sub option
 
 L'opzione secondaria selezione collegamento agente di inoltro consente a un agente di inoltro DHCP di specificare una subnet IP da cui il server DHCP deve assegnare gli indirizzi IP e le opzioni.
 
-In genere, gli agenti di inoltro DHCP si basano sul campo indirizzo IP del gateway \(GIADDR @ no__t-1 per comunicare con i server DHCP. Tuttavia, GIADDR è limitato dalle due funzioni operative:
+In genere, gli agenti di inoltro DHCP si basano sull'indirizzo IP del gateway \(campo\) GIADDR per comunicare con i server DHCP. Tuttavia, GIADDR è limitato dalle due funzioni operative:
 
 1. Per informare il server DHCP sulla subnet su cui risiede il client DHCP che richiede il lease di indirizzi IP.
 2. Per informare il server DHCP dell'indirizzo IP da utilizzare per comunicare con l'agente di inoltro.
@@ -49,6 +49,6 @@ L'opzione di selezione dei collegamenti dell'opzione 82 è utile in questa situa
 
 ### <a name="use-case-scenario"></a>Scenario caso d'uso
 
-In questo scenario, in una rete dell'organizzazione sono inclusi sia un server DHCP sia un punto di accesso wireless \(AP @ no__t-1 per gli utenti guest. Gli indirizzi IP dei client guest vengono assegnati dal server DHCP dell'organizzazione. Tuttavia, a causa delle restrizioni dei criteri del firewall, il server DHCP non può accedere alla rete wireless guest o ai client wireless con messaggi broadcase.
+In questo scenario, in una rete dell'organizzazione sono inclusi sia un server DHCP sia un punto di accesso wireless \(AP\) per gli utenti guest. Gli indirizzi IP dei client guest vengono assegnati dal server DHCP dell'organizzazione. Tuttavia, a causa delle restrizioni dei criteri del firewall, il server DHCP non può accedere alla rete wireless guest o ai client wireless con messaggi broadcase.
 
 Per risolvere questa restrizione, il punto di accesso viene configurato con l'opzione di selezione del collegamento Sub 5 per specificare la subnet da cui si desidera che l'indirizzo IP sia allocato per i client Guest, mentre in GIADDR specifica anche l'indirizzo IP dell'interfaccia interna che conduce al rete aziendale.

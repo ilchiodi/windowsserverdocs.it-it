@@ -190,11 +190,11 @@ Quando il file modificato viene richiesto da un altro client in una succursale, 
 
 |Funzionalità|Ubicazione del computer|Elemento di BranchCache da installare|
 |-----------------|---------------------|------------------------------------|
-|Server di contenuti @no__t-server applicazioni basato su 0BITS @ no__t-1|Sede centrale o data center cloud|Funzionalità BranchCache|
-|Server di contenuti @no__t-server 0Web @ no__t-1|Sede centrale o data center cloud|Funzionalità BranchCache|
-|Server di contenuti @no__t-server 0file usando il protocollo SMB @ no__t-1|Sede centrale o data center cloud|Servizio ruolo BranchCache per file di rete del ruolo server Servizi file.|
+|Server di contenuti \(server applicazioni basato su BITS\)|Sede centrale o data center cloud|Funzionalità BranchCache|
+|Server di contenuti \(server Web\)|Sede centrale o data center cloud|Funzionalità BranchCache|
+|Server di contenuti \(file server utilizzando il protocollo SMB\)|Sede centrale o data center cloud|Servizio ruolo BranchCache per file di rete del ruolo server Servizi file.|
 |Server cache ospitata|Succursale|Funzionalità BranchCache con modalità server cache ospitata abilitata|
-|Computer client abilitato per BranchCache|Succursale|Non è necessaria alcuna installazione; è sufficiente abilitare BranchCache e una modalità BranchCache \(distributed o Hosted @ no__t-1 nel client|
+|Computer client abilitato per BranchCache|Succursale|Non è necessaria alcuna installazione; è sufficiente abilitare BranchCache e una modalità BranchCache \(\) distribuita o ospitata sul client|
 
 Per installare il servizio ruolo o la funzionalità, aprire Server Manager e selezionare i computer in cui si desidera abilitare la funzionalità BranchCache. In Server Manager fare clic su **Gestione**e quindi su **Aggiungi ruoli e funzionalità**. Verrà visualizzata l' **Aggiunta guidata ruoli e funzionalità** . Durante la procedura guidata selezionare le opzioni seguenti:
 
@@ -322,19 +322,19 @@ Inoltre, BranchCache gestisce le informazioni sul contenuto con lo stesso livell
 
 Il flusso di informazioni sul contenuto e contenuto effettivo è suddiviso in quattro fasi:
 
-1.  processi [BranchCache: Richiedi contenuto @ no__t-0
+1.  [Processi BranchCache: contenuto della richiesta](#BKMK_8)
 
-2.  processi [BranchCache: Individuare il contenuto @ no__t-0
+2.  [Processi di BranchCache: individuazione del contenuto](#BKMK_9)
 
-3.  processi [BranchCache: Recuperare il contenuto @ no__t-0
+3.  [Processi di BranchCache: recuperare il contenuto](#BKMK_10)
 
-4.  processi [BranchCache: Contenuto della cache @ no__t-0
+4.  [Processi di BranchCache: contenuto della cache](#BKMK_11)
 
 Nelle sezioni seguenti sono descritte tali fasi.
 
-## <a name="BKMK_8"></a>Processi di BranchCache: richiedere il contenuto
+## <a name="BKMK_8"></a>Processi BranchCache: contenuto della richiesta
 
-Nella prima fase, il computer client nella succursale richiede il contenuto, quale un file o una pagina Web, a un server di contenuti in una posizione remota, ad esempio una sede centrale. Il server di contenuti verifica che il computer client sia autorizzato a ricevere il contenuto richiesto. Se il computer client è autorizzato e sia il server di contenuti che il client sono BranchCache @ no__t-0enabled, il server di contenuti genera le informazioni sul contenuto.
+Nella prima fase, il computer client nella succursale richiede il contenuto, quale un file o una pagina Web, a un server di contenuti in una posizione remota, ad esempio una sede centrale. Il server di contenuti verifica che il computer client sia autorizzato a ricevere il contenuto richiesto. Se il computer client è autorizzato e sia il server di contenuti che il client sono abilitati per BranchCache\-abilitati, il server di contenuti genera le informazioni sul contenuto.
 
 Il server di contenuti invia quindi le informazioni sul contenuto al computer client usando lo stesso protocollo che verrebbe usato per il contenuto effettivo. 
 
@@ -352,7 +352,7 @@ La minaccia principale a questo livello è rappresentata dal rischio per il segr
 
 Questo assicura che un'entità che non dispone del segreto server non possa individuare il contenuto effettivo in un blocco di dati. Il segreto di segmento viene trattato con lo stesso grado di sicurezza del segmento non crittografato perché, conoscendo il segreto di segmento per un determinato segmento, un'entità può ottenere il segmento dai peer e quindi decrittografarlo. La conoscenza del segreto server non produce immediatamente un particolare testo non crittografato, ma può essere usata per ricavare alcuni tipi di dati dal testo crittografato e quindi esporre alcuni dati parzialmente noti a un attacco di forza bruta volto a indovinarli. Il segreto server deve quindi essere mantenuto riservato.
   
-## <a name="BKMK_9"></a>Processi di BranchCache: individuare il contenuto
+## <a name="BKMK_9"></a>Processi di BranchCache: individuazione del contenuto
 
 Quando ha ricevuto le informazioni sul contenuto, il computer client usa l'ID del segmento per individuare il contenuto richiesto nella cache della succursale locale, a prescindere dal fatto che tale cache sia distribuita tra computer client o si trovi in un server cache ospitata.
 
@@ -376,7 +376,7 @@ Il contenuto ricevuto viene aggiunto alla cache locale sul computer client o su 
 
 Quando un computer client individua il contenuto desiderato sull'host del contenuto, che è un server cache ospitata o un computer client in modalità cache distribuita, il computer client inizia il processo di recupero del contenuto.
 
-Prima di tutto, il computer client invia una richiesta all'host del contenuto per il primo blocco che richiede. La richiesta contiene l'ID del segmento e l'intervallo di blocchi che identificano il contenuto desiderato. Poiché viene restituito un solo blocco, l'intervallo di blocchi contiene un unico blocco (le richieste di blocchi multipli non sono attualmente supportate). Il client archivia inoltre la richieste nel proprio elenco locale di richieste da evadere.  
+Prima di tutto, il computer client invia una richiesta all'host del contenuto per il primo blocco che richiede. La richiesta contiene l'ID del segmento e l'intervallo di blocchi che identificano il contenuto desiderato. Poiché viene restituito un solo blocco, l'intervallo di blocchi contiene un unico blocco (Le richieste di blocchi multipli non sono attualmente supportate). Il client archivia inoltre la richiesta nell'elenco locale di richieste in attesa.  
 
 Quando riceve un messaggio di richiesta valido da un client, l'host del contenuto verifica se il blocco specificato nella richiesta è presente nella cache del contenuto dell'host del contenuto.
 
@@ -421,7 +421,7 @@ Le minacce principali per la sicurezza a questo livello includono:
 
     *Un client viene sovraccaricato di richieste di dati*. Nei protocolli di BranchCache sono incorporati contatori e timer di gestione delle code per impedire il sovraccarico dei client.
 
-## <a name="BKMK_11"></a>Processi di BranchCache: memorizzare contenuti nella cache
+## <a name="BKMK_11"></a>Processi di BranchCache: contenuto della cache
 
 Nei computer client in modalità cache distribuita o nei server cache ospitata ubicati nelle succursali, le cache di contenuti si arricchiscono nel tempo, man mano che viene recuperato il contenuto sui collegamenti WAN.
 

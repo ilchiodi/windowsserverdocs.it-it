@@ -76,31 +76,31 @@ Quando si crea un file Unattend. XML per le macchine virtuali schermate, tenere 
 
     | Elemento sostituibile | Stringa di sostituzione |
     |-----------|-----------|
-    | ComputerName        | @ComputerName @      |
-    | Fuso orario            | @TimeZone @          |
-    | ProductKey          | @ProductKey @        |
-    | IPAddr4-1           | @IP4Addr-1 @         |
-    | IPAddr6-1           | @IP6Addr-1 @         |
-    | MACAddr-1           | @MACAddr-1 @         |
-    | Prefisso-1-1          | @Prefix-1-1 @        |
-    | NextHop-1-1         | @NextHop-1-1 @       |
-    | Prefisso-1-2          | @Prefix-1-2 @        |
-    | NextHop-1-2         | @NextHop-1-2 @       |
+    | ComputerName        | @ComputerName@      |
+    | Fuso orario            | @TimeZone@          |
+    | ProductKey          | @ProductKey@        |
+    | IPAddr4-1           | @IP4Addr-1@         |
+    | IPAddr6-1           | @IP6Addr-1@         |
+    | MACAddr-1           | @MACAddr-1@         |
+    | Prefisso-1-1          | @Prefix-1-1@        |
+    | NextHop-1-1         | @NextHop-1-1@       |
+    | Prefisso-1-2          | @Prefix-1-2@        |
+    | NextHop-1-2         | @NextHop-1-2@       |
 
     Se è presente più di una scheda di interfaccia di rete, è possibile aggiungere più stringhe di sostituzione per la configurazione IP incrementando la prima cifra. Ad esempio, per impostare l'indirizzo IPv4, la subnet e il gateway per 2 schede di rete, è necessario usare le stringhe di sostituzione seguenti:
 
     | Stringa di sostituzione | Esempio di sostituzione |
     |---------------------|----------------------|
-    | @IP4Addr-1 @         | 192.168.1.10         |
-    | @MACAddr-1 @         | Ethernet             |
-    | @Prefix-1-1 @        | 192.168.1.0/24       |
-    | @NextHop-1-1 @       | 192.168.1.254        |
-    | @IP4Addr-2 @         | 10.0.20.30           |
-    | @MACAddr-2 @         | Ethernet 2           |
-    | @Prefix-2-1 @        | 10.0.20.0/24         |
-    | @NextHop-2-1 @       | 10.0.20.1            |
+    | @IP4Addr-1@         | 192.168.1.10         |
+    | @MACAddr-1@         | Ethernet             |
+    | @Prefix-1-1@        | 192.168.1.0/24       |
+    | @NextHop-1-1@       | 192.168.1.254        |
+    | @IP4Addr-2@         | 10.0.20.30           |
+    | @MACAddr-2@         | Ethernet 2           |
+    | @Prefix-2-1@        | 10.0.20.0/24         |
+    | @NextHop-2-1@       | 10.0.20.1            |
 
-Quando si usano le stringhe di sostituzione, è importante assicurarsi che le stringhe vengano popolate durante il processo di provisioning della macchina virtuale. Se una stringa come @ProductKey @ non viene fornita in fase di distribuzione, lasciando vuoto il nodo &lt;ProductKey @ no__t-2 nel file di installazione automatica, il processo di specializzazione avrà esito negativo e non sarà possibile connettersi alla macchina virtuale.
+Quando si usano le stringhe di sostituzione, è importante assicurarsi che le stringhe vengano popolate durante il processo di provisioning della macchina virtuale. Se una stringa come @ProductKey@ non viene fornita in fase di distribuzione, lasciando vuoto il &lt;ProductKey&gt; nodo nel file di installazione automatica, il processo di specializzazione avrà esito negativo e non sarà possibile connettersi alla macchina virtuale.
 
 Si noti inoltre che le stringhe di sostituzione correlate alla rete verso la fine della tabella vengono utilizzate solo se si utilizzano i pool di indirizzi IP statici di VMM. Il provider di servizi di hosting dovrebbe essere in grado di indicare se queste stringhe di sostituzione sono obbligatorie. Per ulteriori informazioni sugli indirizzi IP statici nei modelli VMM, vedere gli argomenti seguenti nella documentazione di VMM:
 
@@ -161,13 +161,13 @@ Ottenere i file di metadati tutor per ogni infrastruttura sorvegliata in cui si 
 
 Eseguire la creazione guidata file di dati di schermatura per creare un file di dati di schermatura (PDK). Qui verranno aggiunti il certificato RDP, il file di installazione automatica, i cataloghi delle firme dei volumi, il custode del proprietario e i metadati di sorveglianza scaricati ottenuti nel passaggio precedente.
 
-1. Installare **Strumenti di amministrazione remota del server &gt; strumenti di amministrazione della funzionalità &gt; strumenti di VM schermate** nel computer utilizzando Server Manager o il seguente comando di Windows PowerShell:
+1. Installare **Strumenti di amministrazione remota del server &gt; strumenti di amministrazione delle funzionalità &gt; gli strumenti di VM schermate** nel computer usando Server Manager o il comando di Windows PowerShell seguente:
 
     ```powershell
     Install-WindowsFeature RSAT-Shielded-VM-Tools
     ```
 
-2. Aprire la creazione guidata file di dati di schermatura dalla sezione strumenti di amministrazione del menu Start o eseguendo il seguente file eseguibile **C: \\Windows @ no__t-2System32\\ShieldingDataFileWizard.exe**.
+2. Aprire la creazione guidata file di dati di schermatura dalla sezione strumenti di amministrazione del menu Start o eseguendo l'eseguibile seguente **C:\\Windows\\System32\\ShieldingDataFileWizard. exe**.
 
 3. Nella prima pagina usare la seconda casella di selezione dei file per scegliere un percorso e un nome file per il file di dati di schermatura. In genere, è necessario assegnare un nome a un file di dati di schermatura dopo l'entità che possiede le macchine virtuali create con i dati di schermatura (ad esempio HR, IT, Finance) e il ruolo del carico di lavoro in esecuzione, ad esempio file server, server Web o qualsiasi altro elemento configurato dal file di installazione automatica. Lasciare il pulsante di opzione impostato su **schermatura dei dati per i modelli schermati**.
 
@@ -200,7 +200,7 @@ Eseguire la creazione guidata file di dati di schermatura per creare un file di 
 
 6. Nella pagina **valori di specializzazione** fare clic su **Sfoglia** per selezionare il file Unattend. XML che verrà usato per specializzare le macchine virtuali.
 
-    Usare il pulsante **Aggiungi** nella parte inferiore per aggiungere eventuali file aggiuntivi al PDK necessario durante il processo di specializzazione. Se, ad esempio, il file di installazione automatica installa un certificato RDP nella macchina virtuale (come descritto in [generare un file di risposte tramite la funzione New-ShieldingDataAnswerFile](guarded-fabric-sample-unattend-xml-file.md)), è necessario aggiungere il file pfx del certificato RDP e RDPCertificateConfig. ps1. script qui. Si noti che tutti i file specificati verranno copiati automaticamente in C: \\temp @ no__t-1 nella macchina virtuale creata. Il file di installazione automatica dovrebbe aspettarsi che i file si trovino in tale cartella quando vi si fa riferimento in base al percorso.
+    Usare il pulsante **Aggiungi** nella parte inferiore per aggiungere eventuali file aggiuntivi al PDK necessario durante il processo di specializzazione. Se, ad esempio, il file di installazione automatica installa un certificato RDP nella macchina virtuale (come descritto in [generare un file di risposte tramite la funzione New-ShieldingDataAnswerFile](guarded-fabric-sample-unattend-xml-file.md)), è necessario aggiungere il file pfx del certificato RDP e lo script RDPCertificateConfig. ps1. Si noti che tutti i file specificati verranno copiati automaticamente in C:\\Temp\\ nella macchina virtuale creata. Il file di installazione automatica dovrebbe aspettarsi che i file si trovino in tale cartella quando vi si fa riferimento in base al percorso.
 
 7. Controllare le selezioni effettuate nella pagina successiva, quindi fare clic su **genera**.
 
@@ -255,7 +255,7 @@ Infine, se sono presenti altri file che devono accompagnare il file di risposte 
 
 Per informazioni su altri modi per configurare il file di dati di schermatura, vedere la documentazione del cmdlet [New-ShieldingDataFile](https://docs.microsoft.com/powershell/module/shieldedvmdatafile/New-ShieldingDataFile?view=win10-ps) e [New-VolumeIDQualifier](https://docs.microsoft.com/powershell/module/shieldedvmdatafile/New-VolumeIDQualifier?view=win10-ps) .
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 - [Distribuire macchine virtuali schermate](guarded-fabric-configuration-scenarios-for-shielded-vms-overview.md)
 - [Infrastruttura sorvegliata e macchine virtuali schermate](guarded-fabric-and-shielded-vms-top-node.md)

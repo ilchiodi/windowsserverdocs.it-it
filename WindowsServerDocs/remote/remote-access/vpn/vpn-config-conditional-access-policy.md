@@ -26,18 +26,18 @@ ms.locfileid: "71404350"
 
 >Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows 10
 
-- [**Precedente** Passaggio 7.2. Creare certificati radice per l'autenticazione VPN con Azure AD](vpn-create-root-cert-for-vpn-auth-azure-ad.md)
-- [**Prossimo** Passaggio 7.4. Distribuire i certificati radice di accesso condizionale in AD locale @ no__t-0
+- [**Precedente:** Passaggio 7,2. Creare certificati radice per l'autenticazione VPN con Azure AD](vpn-create-root-cert-for-vpn-auth-azure-ad.md)
+- [Passaggio **successivo:** Passaggio 7,4. Distribuire i certificati radice di accesso condizionale ad Active Directory locale](vpn-deploy-cond-access-root-cert-to-on-premise-ad.md)
 
 In questo passaggio si configureranno i criteri di accesso condizionale per la connettività VPN. Quando viene creato il primo certificato radice nel pannello "connettività VPN", viene creata automaticamente un'applicazione cloud "server VPN" nel tenant.
 
 Creare un criterio di accesso condizionale assegnato al gruppo utenti VPN e definire l'ambito dell' **app Cloud** nel **server VPN**:
 
-- **Utenti**: Utenti VPN
-- **App Cloud**: Server VPN
+- **Utenti**: utenti VPN
+- **App Cloud**: server VPN
 - **Grant (controllo di accesso)** : "Richiedi autenticazione a più fattori". Se lo si desidera, è possibile utilizzare altri controlli.
 
-**Procedura** Questo passaggio illustra la creazione dei criteri di accesso condizionale di base.  Se lo si desidera, è possibile utilizzare condizioni e controlli aggiuntivi.
+**Procedura:** Questo passaggio illustra la creazione dei criteri di accesso condizionale di base.  Se lo si desidera, è possibile utilizzare condizioni e controlli aggiuntivi.
 
 
 1. Nella pagina **accesso condizionale** fare clic su **Aggiungi**nella barra degli strumenti in alto.
@@ -94,4 +94,4 @@ Creare un criterio di accesso condizionale assegnato al gruppo utenti VPN e defi
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-[Passaggio 7.4. Distribuire i certificati radice di accesso condizionale in AD locale @ no__t-0: In questo passaggio si distribuisce il certificato radice di accesso condizionale come certificato radice attendibile per l'autenticazione VPN in Active Directory locale.
+[Passaggio 7,4. Distribuire i certificati radice di accesso condizionale in AD locale](vpn-deploy-cond-access-root-cert-to-on-premise-ad.md): in questo passaggio si distribuisce il certificato radice di accesso condizionale come certificato radice attendibile per l'autenticazione VPN in Active Directory locale.

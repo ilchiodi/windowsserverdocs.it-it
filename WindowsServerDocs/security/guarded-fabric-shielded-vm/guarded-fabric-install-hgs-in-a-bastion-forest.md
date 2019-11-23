@@ -130,19 +130,19 @@ Controllare gli oggetti Criteri di gruppo per le seguenti impostazioni e seguire
 
 **Percorso criterio:** Configurazione computer\Impostazioni di Windows\Impostazioni protezione\Criteri locali\Assegnazione diritti assegnati
 
-**Nome criterio:** Nega accesso al computer dalla rete
+**Nome criterio:** Nega l'accesso al computer dalla rete
 
 **Valore obbligatorio:** Verificare che il valore non blocchi gli accessi di rete per tutti gli account locali. Tuttavia, è possibile bloccare in modo sicuro gli account di amministratore locale.
 
-**Motivo** Il clustering di failover si basa su un account locale non amministratore denominato CLIUSR per gestire i nodi del cluster. Se si blocca l'accesso alla rete per questo utente, il cluster non funzionerà correttamente.
+**Motivo:** Il clustering di failover si basa su un account locale non amministratore denominato CLIUSR per gestire i nodi del cluster. Se si blocca l'accesso alla rete per questo utente, il cluster non funzionerà correttamente.
 
 ### <a name="kerberos-encryption"></a>Crittografia Kerberos
 
-**Percorso criterio:** Configurazione computer\Impostazioni Windows\Impostazioni sicurezza\Criteri locali\Opzioni di sicurezza
+**Percorso criterio:** Configurazione computer\Impostazioni di Windows\Impostazioni protezione\Criteri locali\Opzioni opzioni
 
-**Nome criterio:** Sicurezza di rete: Configurare i tipi di crittografia consentiti per Kerberos
+**Nome criterio:** Sicurezza di rete: configurare i tipi di crittografia consentiti per Kerberos
 
-**Azione**: Se questo criterio è configurato, è necessario aggiornare l'account gMSA con [Set-ADServiceAccount](https://docs.microsoft.com/powershell/module/addsadministration/set-adserviceaccount?view=win10-ps) per usare solo i tipi di crittografia supportati in questo criterio. Ad esempio, se il criterio consente solo AES128 @ no__t-0HMAC @ no__t-1SHA1 e AES256 @ no__t-2HMAC @ no__t-3SHA1, è necessario eseguire `Set-ADServiceAccount -Identity HGSgMSA -KerberosEncryptionType AES128,AES256`.
+**Azione**: se questo criterio è configurato, è necessario aggiornare l'account gMSA con [Set-ADServiceAccount](https://docs.microsoft.com/powershell/module/addsadministration/set-adserviceaccount?view=win10-ps) per usare solo i tipi di crittografia supportati in questo criterio. Se, ad esempio, il criterio consente solo AES128\_HMAC\_SHA1 e AES256\_HMAC\_SHA1, è consigliabile eseguire `Set-ADServiceAccount -Identity HGSgMSA -KerberosEncryptionType AES128,AES256`.
 
 
 

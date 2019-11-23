@@ -18,9 +18,9 @@ ms.locfileid: "71408372"
 ---
 # <a name="implementing-your-ad-fs-design-plan"></a>Implementazione del piano di progettazione di AD FS
 
-I requisiti e le condizioni ambientali seguenti sono fattori importanti nell'implementazione del piano di progettazione Active Directory Federation Services \(AD FS @ no__t-1:  
+I requisiti e le condizioni ambientali seguenti sono fattori importanti nell'implementazione della Active Directory Federation Services \(AD FS piano di progettazione\):  
   
--   **Partner supportati:** In genere si usa AD FS per collaborare con le organizzazioni partner. Per stabilire la Federazione delle identità, determinare le organizzazioni con cui si desidera creare una relazione. Dopo la distribuzione di una linea di base AD FS, l'utilizzo dei partner comporta l'aggiunta di partner, l'eliminazione di partner e l'aggiornamento delle informazioni sui partner. Le modifiche alle relazioni possono verificarsi per diversi motivi. Ad esempio, la distribuzione di AD FS potrebbe richiedere aggiornamenti della partnership se il partner cambia significativamente l'azienda, l'organizzazione diventa parte di un'organizzazione più grande o di una Federazione di organizzazioni oppure l'organizzazione viene acquisita da un'altra azienda. In qualsiasi scenario in cui si esegue la Federazione delle identità da più domini, è necessario essere a conoscenza dei domini \(partners @ no__t-1 attualmente supportati e di tutti i domini aggiuntivi che rappresentano i potenziali partner.  
+-   **Partner supportati:** In genere si usa AD FS per collaborare con le organizzazioni partner. Per stabilire la Federazione delle identità, determinare le organizzazioni con cui si desidera creare una relazione. Dopo la distribuzione di una linea di base AD FS, l'utilizzo dei partner comporta l'aggiunta di partner, l'eliminazione di partner e l'aggiornamento delle informazioni sui partner. Le modifiche alle relazioni possono verificarsi per diversi motivi. Ad esempio, la distribuzione di AD FS potrebbe richiedere aggiornamenti della partnership se il partner cambia significativamente l'azienda, l'organizzazione diventa parte di un'organizzazione più grande o di una Federazione di organizzazioni oppure l'organizzazione viene acquisita da un'altra azienda. In uno scenario in cui si esegue la Federazione delle identità da più domini, sarà necessario conoscerne i domini \(\) attualmente supportati e tutti i domini aggiuntivi che rappresentano i potenziali partner.  
   
 -   **Tipi di servizi e applicazioni supportati:** Per alcune applicazioni e servizi è necessario l'accesso alle risorse del sistema operativo, mentre altre sono in grado di riconoscere le attestazioni. È importante comprendere i tipi di applicazioni e servizi che AD FS supporta per poter formulare i requisiti amministrativi.  
   
@@ -37,6 +37,6 @@ Il passaggio successivo dell'implementazione della progettazione consiste nel de
   
 Utilizzare i seguenti elenchi di controllo padre in questa sezione della Guida per acquisire familiarità con le attività di distribuzione per l'implementazione della progettazione AD FS preferita dell'organizzazione:  
   
--   [Elenco di controllo: Implementazione di un progetto di Web SSO](Checklist--Implementing-a-Web-SSO-Design.md)  
+-   [Elenco di controllo: implementazione di un progetto Web SSO](Checklist--Implementing-a-Web-SSO-Design.md)  
   
--   [Elenco di controllo: Implementazione di un progetto di Web SSO federativo](Checklist--Implementing-a-Federated-Web-SSO-Design.md)  
+-   [Elenco di controllo: implementazione di un progetto Web SSO federato](Checklist--Implementing-a-Federated-Web-SSO-Design.md)  

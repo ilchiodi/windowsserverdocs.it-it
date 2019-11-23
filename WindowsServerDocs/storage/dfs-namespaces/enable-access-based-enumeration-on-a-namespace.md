@@ -51,7 +51,7 @@ Puoi abilitare l'enumerazione basata sull'accesso in uno spazio dei nomi tramite
 
 1.  Apri una finestra del prompt dei comandi in un server con installato il servizio ruolo **File system distribuito** o la funzionalità **Strumenti per File system distribuito (DFS)** .
 
-2.  Digitare il comando seguente, dove *< namespace @ no__t-1root >* è la radice dello spazio dei nomi:
+2.  Digitare il comando seguente, dove *< spazio dei nomi\_radice >* è la radice dello spazio dei nomi:
 
     ```  
     dfsutil property abe enable \\ <namespace_root>
@@ -80,13 +80,13 @@ Puoi controllare quali utenti e gruppi possono visualizzare le singole cartelle 
 
 1. Apri una finestra del prompt dei comandi in un server con installato il servizio ruolo **File system distribuito** o la funzionalità **Strumenti per File system distribuito (DFS)** .
 
-2. Digitare il comando seguente, dove *&lt;DFSPath @ no__t-2* è il percorso della cartella DFS (collegamento), *< dominio @ no__t-4Account >* è il nome dell'account utente o di gruppo e *(...)* viene sostituito con altre voci di controllo di accesso ( ACE):
+2. Digitare il comando seguente, dove *&lt;DFSPath&gt;* è il percorso della cartella DFS (collegamento), *< dominio\\account >* è il nome dell'account utente o di gruppo e *(...)* viene sostituito con voci di controllo di accesso (ACE) aggiuntive:
 
    ```
    dfsutil property sd grant <DFSPath> DOMAIN\Account:R (...) Protect Replace
    ```
 
-   Ad esempio, per sostituire le autorizzazioni esistenti con le autorizzazioni che consentono ai gruppi Domain Admins e CONTOSO @ no__t-0Trainers di leggere (R) l'accesso alla cartella \\contoso. office\public\training, digitare il comando seguente:
+   Ad esempio, per sostituire le autorizzazioni esistenti con autorizzazioni che consentano ai gruppi Domain Admins e CONTOSO\\trainers di leggere (R) l'accesso alla cartella \\contoso. office\public\training, digitare il comando seguente:
 
    ```
    dfsutil property sd grant \\contoso.office\public\training "CONTOSO\Domain Admins":R CONTOSO\Trainers:R Protect Replace 
@@ -101,7 +101,7 @@ Puoi controllare quali utenti e gruppi possono visualizzare le singole cartelle 
 |[Reimpostazione SD della proprietà Dfsutil](https://msdn.microsoft.com/library/dd759150(v=ws.11).aspx) |Rimuove tutte le autorizzazioni dalla cartella.|
 |[Dfsutil proprietà SD revoca](https://msdn.microsoft.com/library/dd759150(v=ws.11).aspx)| Rimuove una voce di controllo di accesso per l'utente o il gruppo dalla cartella. |
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 -   [Creare uno spazio dei nomi DFS](create-a-dfs-namespace.md)
 -   [Delegare le autorizzazioni di gestione per Spazi dei nomi DFS](delegate-management-permissions-for-dfs-namespaces.md)

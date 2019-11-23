@@ -18,7 +18,7 @@ ms.locfileid: "71408089"
 ---
 # <a name="federation-server-farm-using-wid-and-proxies"></a>Server farm federativa che usa Database interno di Windows e proxy
 
-Questa topologia di distribuzione per Active Directory Federation Services \(AD FS @ no__t-1 è identica alla server farm federativa con la topologia di database interno di Windows \(WID @ no__t-3, ma aggiunge i proxy server federativi alla rete perimetrale a supportare utenti esterni. I proxy server federativi reindirizzano le richieste di autenticazione client provengono dall'esterno della rete aziendale per la server farm federativa.  
+Questa topologia di distribuzione per Active Directory Federation Services \(AD FS\) è identica alla Federazione server farm con database interno di Windows \(topologia di\) WID, ma aggiunge i proxy server federativi alla rete perimetrale per supportare gli utenti esterni. I proxy server federativi reindirizzano le richieste di autenticazione client provengono dall'esterno della rete aziendale per la server farm federativa.  
   
 ## <a name="deployment-considerations"></a>Considerazioni sulla distribuzione  
 Questa sezione vengono descritte varie considerazioni sui destinatari, vantaggi e limitazioni di cui è associate a questa topologia di distribuzione.  
@@ -48,5 +48,5 @@ La figura seguente mostra la server farm federativa esistente con topologia data
   
 Per ulteriori informazioni su come configurare l'ambiente di rete per l'utilizzo con i server federativi o server federativi, vedere [requisiti di risoluzione dei nomi per i server federativi](Name-Resolution-Requirements-for-Federation-Servers.md) o [nome requisiti di risoluzione per i proxy Server federativi](Name-Resolution-Requirements-for-Federation-Server-Proxies.md).  
   
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 [Guida alla progettazione di AD FS in Windows Server 2012](AD-FS-Design-Guide-in-Windows-Server-2012.md)

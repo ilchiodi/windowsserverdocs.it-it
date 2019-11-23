@@ -49,7 +49,7 @@ Questo evento viene registrato all'avvio del servizio ora di Windows (W32Time) e
 |Descrizione dell'evento |Avvio servizio |
 |Dettagli |Si verifica all'avvio di W32Time |
 |Dati registrati |<ul><li>Ora corrente in formato UTC</li><li>Numero di cicli correnti</li><li>Configurazione di W32Time</li><li>Configurazione del provider di servizi temporali</li><li>Frequenza di clock</li></ul> |
-|Meccanismo di limitazione  |No. Questo evento viene generato ogni volta che il servizio viene avviato. |
+|Meccanismo di limitazione  |Nessuno. Questo evento viene generato ogni volta che il servizio viene avviato. |
 
 **Esempio:**
 ```
@@ -79,7 +79,7 @@ Questo evento viene registrato quando il servizio ora di Windows (W32Time) viene
 |Descrizione dell'evento |Arresto servizio |
 |Dettagli |Si verifica all'arresto di W32Time |
 |Dati registrati |<ul><li>Ora corrente in formato UTC</li><li>Numero di cicli correnti</li></ul> |
-|Meccanismo di limitazione  |No. Questo evento viene generato ogni volta che il servizio viene arrestato. |
+|Meccanismo di limitazione  |Nessuno. Questo evento viene generato ogni volta che il servizio viene arrestato. |
 
 **Testo di esempio:** 
 `W32time service is stopping at 2018-03-01T05:42:13.944Z (UTC), System Tick Count 6370250.`
@@ -119,7 +119,7 @@ Questa operazione registra ogni istanza quando l'ora di sistema viene modificata
 |||
 |---|---|
 |Descrizione dell'evento |L'ora di sistema è impostata |
-|Meccanismo di limitazione  |No.<br><br>Questo problema si verifica raramente nei sistemi con sincronizzazione del tempo ragionevole e si vuole registrarlo ogni volta che si verifica. L'impostazione TimeJumpAuditOffset viene ignorata durante la registrazione di questo evento perché tale impostazione è stata progettata per limitare gli eventi nel registro eventi di sistema di Windows. |
+|Meccanismo di limitazione  |Nessuno.<br><br>Questo problema si verifica raramente nei sistemi con sincronizzazione del tempo ragionevole e si vuole registrarlo ogni volta che si verifica. L'impostazione TimeJumpAuditOffset viene ignorata durante la registrazione di questo evento perché tale impostazione è stata progettata per limitare gli eventi nel registro eventi di sistema di Windows. |
 
 # <a name="262tab262"></a>[262](#tab/262)
 
@@ -135,7 +135,7 @@ Questa operazione registra ogni istanza quando l'ora di sistema viene modificata
 |---|---|
 |Descrizione dell'evento |Modificare le impostazioni del servizio ora o l'elenco di provider di tempo caricati. |
 |Dettagli |La rilettura delle impostazioni di W32Time può causare la modifica in memoria di alcune impostazioni critiche, che possono influire sull'accuratezza complessiva della sincronizzazione dell'ora.<br><br>W32Time registra ogni occorrenza durante la rilettura delle impostazioni che fornisce il potenziale impatto sulla sincronizzazione dell'ora. |
-|Meccanismo di limitazione  |No.<br><br>Questo evento si verifica solo quando un aggiornamento di un amministratore o un GP modifica i provider di tempo e quindi attiva W32Time. Si vuole registrare ogni istanza di modifica delle impostazioni. |
+|Meccanismo di limitazione  |Nessuno.<br><br>Questo evento si verifica solo quando un aggiornamento di un amministratore o un GP modifica i provider di tempo e quindi attiva W32Time. Si vuole registrare ogni istanza di modifica delle impostazioni. |
 
 
 # <a name="264tab264"></a>[264](#tab/264)
@@ -152,7 +152,7 @@ Questa operazione registra ogni istanza quando l'ora di sistema viene modificata
 |---|---|
 |Descrizione dell'evento |Modifiche al numero dello strato o dell'origine del servizio temporale |
 |Dettagli |L'origine e il numero dello strato W32Time ora sono fattori importanti nella tracciabilità temporale ed è necessario registrare tutte le modifiche apportate a tali elementi. Se W32Time non dispone di un'origine di tempo e non è stata configurata come origine dell'ora affidabile, l'annuncio verrà interrotto come server di ora e per progettazione risponderà alle richieste con alcuni parametri non validi. Questo evento è fondamentale per tenere traccia delle modifiche dello stato in una topologia NTP. |
-|Meccanismo di limitazione  |No. |
+|Meccanismo di limitazione  |Nessuno. |
 
 
 # <a name="266tab266"></a>[266](#tab/266)

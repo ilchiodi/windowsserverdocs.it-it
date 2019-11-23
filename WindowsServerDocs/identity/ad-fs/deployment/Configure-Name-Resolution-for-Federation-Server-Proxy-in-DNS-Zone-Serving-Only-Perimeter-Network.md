@@ -19,7 +19,7 @@ ms.locfileid: "71408436"
 # <a name="configure-name-resolution-for-a-federation-server-proxy-in-a-dns-zone-that-serves-only-the-perimeter-network"></a>Configurare la risoluzione dei nomi per un proxy server federativo in una zona DNS che serve solo la rete perimetrale
 
 
-In modo che la risoluzione dei nomi possa funzionare correttamente per un server federativo in uno scenario Active Directory Federation Services \(AD FS @ no__t-1 in cui una o più Domain Name System \(DNS @ no__t-3 zone servono solo la rete perimetrale, quanto segue le attività devono essere completate:  
+In modo che la risoluzione dei nomi possa funzionare correttamente per un server federativo in un Active Directory Federation Services \(AD FS\) scenario in cui una o più Domain Name System \(le zone DNS\) servono solo la rete perimetrale, è necessario completare le attività seguenti:  
   
 -   File degli host proxy server federativo deve essere aggiornato per aggiungere l'indirizzo IP di un server federativo.  
   
@@ -63,10 +63,10 @@ L'appartenenza a **amministratori**, o equivalente è il requisito minimo necess
   
 4.  In **indirizzo IP**, digitare l'indirizzo IP per il nuovo server federativo, ad esempio, **131.107.27.68**.  
   
-5.  Fare clic su **Aggiungi host**.  
+5.  Fai clic su **Aggiungi host**.  
   
 ## <a name="additional-references"></a>Altri riferimenti  
-[Elenco di controllo: Configurazione di un proxy server federativo](Checklist--Setting-Up-a-Federation-Server-Proxy.md)  
+[Elenco di controllo: configurazione di un proxy server federativo](Checklist--Setting-Up-a-Federation-Server-Proxy.md)  
   
 [Requisiti per la risoluzione dei nomi per i proxy server federativi](https://technet.microsoft.com/library/dd807055.aspx)  
   

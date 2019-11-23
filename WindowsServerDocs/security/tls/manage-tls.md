@@ -39,7 +39,7 @@ Le modifiche apportate all'ordine del pacchetto di crittografia TLS diverranno e
 
 Per configurare l'ordine predefinito del pacchetto di crittografia TLS, è possibile usare le impostazioni di Criteri di gruppo dell'ordine dei pacchetti di crittografia SSL.
 
-1. Dal console Gestione criteri di gruppo passare a **configurazione** > computer**modelli amministrativi** > **reti** > **configurazione SSL impostazioni**.
+1. Dal Console Gestione Criteri di gruppo passare a **Configurazione Computer** > **Modelli amministrativi** > **reti** > impostazioni di **configurazione SSL**.
 2. Fare doppio clic su **Order suite di crittografia SSL**, quindi fare clic sull'opzione **Enabled** .
 3. Fare clic con il pulsante destro del mouse su **gruppi di crittografia SSL** e scegliere **Seleziona tutto** dal menu a comparsa.
 
@@ -123,8 +123,8 @@ Il processo per la distribuzione di una curva è:
 
 1.  In Windows 10 e Windows Server 2016, utilizzare **certutil. exe** per aggiungere una nuova curva denominata registrata a Windows.
 2.  Dallo stesso computer aprire il Console Gestione Criteri di gruppo (GPMC), creare un nuovo oggetto Criteri di gruppo e modificarlo.
-3.  Passare a **Configurazione computer | Preferenze | Impostazioni di Windows | Registro di sistema**.  Fare clic con il pulsante destro del mouse su **Registry**. Passare il puntatore su **nuovo** e selezionare **elemento della raccolta**. Rinominare l'elemento della raccolta in modo che corrisponda al nome della curva. Verrà creato un elemento della raccolta del registro di sistema per ogni chiave del registro di sistema in *HKEY_LOCAL_MACHINE\CurrentControlSet\Control\Cryptography\ECCParameters*.
-4.  Configurare la raccolta del registro di sistema per le preferenze di Criteri di gruppo appena creata aggiungendo un nuovo **elemento del registro** di sistema per ogni valore del registro di sistema elencato in *HKEY_LOCAL_MACHINE\CurrentControlSet\Control\Cryptography\ECCParameters @ no__t-2curveName]* .
+3.  Passare a **Configurazione computer | Preferenze | Impostazioni di Windows | Registro di sistema**.  Fare clic con il pulsante destro del mouse su **Registry**. Passare il puntatore su **nuovo** e selezionare **elemento della raccolta**. Rinominare l'elemento della raccolta in modo che corrisponda al nome della curva. Verrà creato un elemento della raccolta del registro di sistema per ogni chiave del registro di sistema in *HKEY_LOCAL_MACHINE \currentcontrolset\control\cryptography\eccparameters*.
+4.  Configurare la raccolta del registro di sistema per le preferenze di Criteri di gruppo appena creata aggiungendo un nuovo **elemento del registro** di sistema per ogni valore del registro di sistema elencato in *HKEY_LOCAL_MACHINE \currentcontrolset\control\cryptography\eccparameters\[curvename]* .
 5.  Distribuire l'oggetto Criteri di gruppo contenente Criteri di gruppo elemento della raccolta registro di sistema nei computer Windows 10 e Windows Server 2016 che devono ricevere le nuove curve denominate.
 
     ![GPP distribuisce le curve](../media/Transport-Layer-Security-protocol/gpp-distribute-curves.png)

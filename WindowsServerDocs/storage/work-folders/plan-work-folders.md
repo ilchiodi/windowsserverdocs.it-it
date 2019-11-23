@@ -18,7 +18,7 @@ ms.locfileid: "71365738"
 ---
 # <a name="planning-a-work-folders-deployment"></a>Pianificazione di una distribuzione di Cartelle di lavoro
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows 10, Windows 8.1, Windows 7
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows 10, Windows 8.1, Windows 7
 
 In questo argomento viene illustrato il processo di progettazione per un'implementazione di Cartelle di lavoro supponendo che l'utente disponga delle conoscenze seguenti:  
   
@@ -74,7 +74,7 @@ Per Cartelle di lavoro, è necessario che i computer client soddisfino i requisi
   
 -   I computer con Windows 7 devono eseguire una delle edizioni seguenti di Windows:  
   
-    -   Windows 7 Professional  
+    -   Windows 7 Professional  
   
     -   Windows 7 Ultimate  
   
@@ -128,7 +128,7 @@ Per Cartelle di lavoro, è necessario che i computer client soddisfino i requisi
   È inoltre possibile utilizzare Criteri di gruppo per forzare la configurazione di Cartelle di lavoro per utente o per computer, anche se questa operazione causa la sincronizzazione di Cartelle di lavoro in ogni computer a cui un utente accede (se si utilizza l'impostazione del criterio per utente) e impedisce agli utenti di specificare una posizione alternativa per Cartelle di lavoro nel proprio computer (ad esempio in una scheda microSD per risparmiare spazio di archiviazione nell'unità principale). Prima di forzare la configurazione automatica, è pertanto consigliabile valutare attentamente le proprie esigenze.  
   
 ### <a name="windows-intune"></a>Windows Intune  
- Windows Intune fornisce un livello di sicurezza e gestibilità non altrimenti disponibile per i dispositivi che non fanno parte del dominio. È possibile utilizzare Windows Intune per configurare e gestire i dispositivi personali degli utenti, ad esempio i tablet che si connettono a Cartelle di lavoro tramite Internet. Windows Intune può fornire i dispositivi con l'URL del server di sincronizzazione da usare. in caso contrario, gli utenti devono immettere l'indirizzo di posta elettronica dell'ufficio per cercare le impostazioni (se si pubblica un URL di cartelle di lavoro pubbliche nel formato https://workfolders. <em>contoso.com</em>) oppure immettere direttamente l'URL del server di sincronizzazione.  
+ Windows Intune fornisce un livello di sicurezza e gestibilità non altrimenti disponibile per i dispositivi che non fanno parte del dominio. È possibile utilizzare Windows Intune per configurare e gestire i dispositivi personali degli utenti, ad esempio i tablet che si connettono a Cartelle di lavoro tramite Internet. Windows Intune può fornire i dispositivi con l'URL del server di sincronizzazione da usare. in caso contrario, gli utenti devono immettere l'indirizzo di posta elettronica dell'ufficio per cercare le impostazioni (se si pubblica un URL di cartelle di lavoro pubbliche sotto forma di https://workfolders. <em>contoso.com</em>) oppure immettere direttamente l'URL del server di sincronizzazione.  
   
  Se non si distribuisce Windows Intune, gli utenti devono configurare manualmente i dispositivi esterni, operazione che può causare l'aumento delle richieste di assistenza al personale dell'help desk.  
   
@@ -250,10 +250,10 @@ L'insieme di domande elencate di seguito possono essere utilizzate dai clienti p
 ## <a name="next-steps"></a>Passaggi successivi  
  Dopo aver progettato l'implementazione di Cartelle di lavoro, è possibile passare alla distribuzione di Cartelle di lavoro. Per ulteriori informazioni, vedere [Distribuzione di Cartelle di lavoro](deploy-work-folders.md).  
   
-## <a name="see-also"></a>Vedere anche  
+## <a name="see-also"></a>Vedi anche  
  Per altre informazioni correlate, vedere le risorse seguenti.  
   
 |Tipo di contenuto|Riferimenti|  
 |------------------|----------------|  
-|**Valutazione del prodotto**|-   [Cartelle di lavoro](work-folders-overview.md)<br />[cartelle di lavoro -    per Windows 7](http://blogs.technet.com/b/filecab/archive/2014/04/24/work-folders-for-windows-7.aspx) (post di Blog)|  
-|**Distribuzione**|-   [Progettazione di un'implementazione di cartelle di lavoro](plan-work-folders.md)<br />-   [distribuzione di cartelle di lavoro](deploy-work-folders.md)<br />-   [Distribuzione di cartelle di lavoro con AD FS e proxy applicazione Web (WAP)](deploy-work-folders-adfs-overview.md)<br />- [distribuzione di cartelle di lavoro con Azure ad proxy di applicazione](https://blogs.technet.microsoft.com/filecab/2017/05/31/enable-remote-access-to-work-folders-using-azure-active-directory-application-proxy/)<br />[considerazioni sulle prestazioni @no__t 0 per le distribuzioni di cartelle di lavoro](https://blogs.technet.com/b/filecab/archive/2013/11/01/performance-considerations-for-large-scale-work-folders-deployments.aspx)<br />[cartelle di lavoro -    per Windows 7 (download di 64 bit)](https://www.microsoft.com/download/details.aspx?id=42558)<br />[cartelle di lavoro -    per Windows 7 (download di 32 bit)](https://www.microsoft.com/download/details.aspx?id=42559)<br />-   [Distribuzione Lab di test di cartelle di lavoro](http://blogs.technet.com/b/filecab/archive/2013/07/10/work-folders-test-lab-deployment.aspx) (post di Blog)|
+|**Valutazione del prodotto**|[cartelle di lavoro](work-folders-overview.md) -   <br />-   [cartelle di lavoro per Windows 7](http://blogs.technet.com/b/filecab/archive/2014/04/24/work-folders-for-windows-7.aspx) (post di Blog)|  
+|**Distribuzione**|-   [progettazione di un'implementazione di cartelle di lavoro](plan-work-folders.md)<br />-   la [distribuzione di cartelle di lavoro](deploy-work-folders.md)<br />-   [la distribuzione di cartelle di lavoro con ad FS e proxy applicazione Web (WAP)](deploy-work-folders-adfs-overview.md)<br />- [la distribuzione di cartelle di lavoro con Azure ad proxy di applicazione](https://blogs.technet.microsoft.com/filecab/2017/05/31/enable-remote-access-to-work-folders-using-azure-active-directory-application-proxy/)<br />[considerazioni sulle prestazioni -   per le distribuzioni di cartelle di lavoro](https://blogs.technet.com/b/filecab/archive/2013/11/01/performance-considerations-for-large-scale-work-folders-deployments.aspx)<br />-   [cartelle di lavoro per Windows 7 (download di 64 bit)](https://www.microsoft.com/download/details.aspx?id=42558)<br />-   [cartelle di lavoro per Windows 7 (download di 32 bit)](https://www.microsoft.com/download/details.aspx?id=42559)<br />-   la [distribuzione del Lab di test di cartelle di lavoro](http://blogs.technet.com/b/filecab/archive/2013/07/10/work-folders-test-lab-deployment.aspx) (post di Blog)|

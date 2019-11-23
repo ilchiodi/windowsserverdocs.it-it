@@ -51,12 +51,12 @@ Nei computer che eseguono Windows Server 2012 o Windows 8 è possibile creare e 
 ### <a name="interoperability"></a>Funzionalità rimosse o deprecate
 Per Windows Server 2012, per impostazione predefinita i cmdlet di Windows PowerShell gestiscono gli account del servizio gestiti del gruppo anziché gli account del servizio gestiti del server.
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 -   [Panoramica degli account del servizio gestiti del gruppo](group-managed-service-accounts-overview.md)
 
 -   [Panoramica di Active Directory Domain Services](active-directory-domain-services-overview.md)
 
--   Account del servizio [Managed: Informazioni, implementazione, procedure consigliate e risoluzione dei problemi @ no__t-0
+-   [Account del servizio gestiti: informazioni, implementazione, procedure consigliate e risoluzione dei problemi](http://blogs.technet.com/b/askds/archive/20../managed-service-accounts-understanding-implementing-best-practices-and-troubleshooting.aspx)
 
 

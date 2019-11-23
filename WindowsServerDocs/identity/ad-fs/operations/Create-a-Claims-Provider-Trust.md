@@ -27,48 +27,48 @@ L'appartenenza a **amministratori**, o equivalente nel computer locale è il req
 1.  In Server Manager, fare clic su **strumenti**, quindi selezionare **Gestione ADFS**.  
   
 2.  In **azioni**fare clic su **Aggiungi attendibilità provider di attestazioni**.  
-![claims provider trust @ no__t-1   
+![attendibilità provider di attestazioni](media/Create-a-Claims-Provider-Trust/addclaim1.PNG)   
   
-3.  Nella pagina **iniziale** fare clic **Avvia**. 
-![claims provider trust @ no__t-1    
+3.  Nella pagina iniziale fare clic **Avvia**. 
+![attendibilità provider di attestazioni](media/Create-a-Claims-Provider-Trust/addclaim2.PNG)    
   
 4.  Nella pagina **Seleziona origine dati** fare clic su **Immetti dati sull'attendibilità del provider di attestazioni manualmente** e quindi scegliere **Avanti**.  
-![claims provider trust @ no__t-1     
+![attendibilità provider di attestazioni](media/Create-a-Claims-Provider-Trust/addclaim3.PNG)     
 
 5.  Nel **Specifica nome visualizzato** digitare un **nome visualizzato**, in **note**, digitare una descrizione per questa attendibilità del provider di attestazioni e quindi fare clic su **Avanti**.  
-![claims provider trust @ no__t-1     
+![attendibilità provider di attestazioni](media/Create-a-Claims-Provider-Trust/addclaim4.PNG)     
 
 6.  Nel **Configura URL** specificare il **URL protocollo passivo WS-Federation** se applicabile e fare clic su **Avanti**.
-![claims provider trust @ no__t-1     
+![attendibilità provider di attestazioni](media/Create-a-Claims-Provider-Trust/addclaim5.PNG)     
 
 8. Nella pagina **Configura identificatore** in **Identificatore dell'attendibilità del provider di attestazioni** digitare l'identificatore appropriato e quindi fare clic su **Avanti**.  
-![claims provider trust @ no__t-1    
+![attendibilità provider di attestazioni](media/Create-a-Claims-Provider-Trust/addclaim6.PNG)    
 
 9. Nel **Configura certificati** pagina, fare clic su **Aggiungi** per individuare un file di certificato e aggiungerlo all'elenco dei certificati e quindi fare clic su **Avanti**.  
-![claims provider trust @ no__t-1    
+![attendibilità provider di attestazioni](media/Create-a-Claims-Provider-Trust/addclaim7.PNG)    
 
 10. Nella pagina **Aggiunta attendibilità** fare clic su **Avanti** per salvare le informazioni sull'attendibilità del provider di attestazioni.  
-![claims provider trust @ no__t-1    
+![attendibilità provider di attestazioni](media/Create-a-Claims-Provider-Trust/addclaim8.PNG)    
 
 11. Nella pagina **Fine** fare clic su **Chiudi**. Con questa azione viene visualizzata automaticamente la finestra di dialogo **Modifica regole attestazione**. Per ulteriori informazioni su come procedere con l'aggiunta di regole attestazioni per questa attendibilità del provider di attestazioni, vedere i seguenti riferimenti aggiuntivi.  
-![claims provider trust @ no__t-1
+![attendibilità provider di attestazioni](media/Create-a-Claims-Provider-Trust/addclaim9.PNG)
 
 ## <a name="to-create-a-claims-provider-trust-using-federation-metadata"></a>Per creare un trust di provider di attestazioni tramite i metadati della federazione
 Per aggiungere un nuovo provider di attestazioni trust, tramite lo snap-in di gestione di ADFS, tramite l'importazione automatica dei dati di configurazione sul partner dai metadati di federazione che ha pubblicato il partner a una rete locale o a Internet, eseguire la procedura seguente in un server federativo nell'organizzazione partner risorse.
 
 >[!NOTE]
->Sebbene sia stata molto pratica comune usare i certificati con nomi host non qualificati, ad esempio https: \//MyServer, questi certificati non hanno alcun valore di sicurezza e possono consentire a un utente malintenzionato di rappresentare una Servizio federativo che pubblica la Federazione metadati. Pertanto, quando si eseguono query sui metadati di federazione, è consigliabile utilizzare solo un nome di dominio completo, ad esempio `https://myserver.contoso.com`.
+>Sebbene sia stata molto pratica comune usare i certificati con nomi host non qualificati, ad esempio https:\//MyServer, questi certificati non hanno alcun valore di sicurezza e possono consentire a un utente malintenzionato di rappresentare una Servizio federativo che pubblica metadati federativi. Pertanto, quando si eseguono query sui metadati di federazione, è consigliabile utilizzare solo un nome di dominio completo, ad esempio `https://myserver.contoso.com`.
 
 1.  In Server Manager, fare clic su **strumenti**, quindi selezionare **Gestione ADFS**.  
   
 2.  In **azioni**fare clic su **Aggiungi attendibilità provider di attestazioni**.  
-![claims provider trust @ no__t-1   
+![attendibilità provider di attestazioni](media/Create-a-Claims-Provider-Trust/addclaim1.PNG)   
   
-3.  Nella pagina **iniziale** fare clic **Avvia**. 
-![claims provider trust @ no__t-1    
+3.  Nella pagina iniziale fare clic **Avvia**. 
+![attendibilità provider di attestazioni](media/Create-a-Claims-Provider-Trust/addclaim2.PNG)    
   
 4.  Nella pagina **Seleziona origine dati** fare clic su **Importa dati sul provider di attestazioni pubblicati online o in una rete locale**. Federazione digitare l'indirizzo di metadati (nome host o URL), il **URL metadati federazione** o host, assegnare un nome per il partner e quindi fare clic su **Avanti**.
-![claims provider trust @ no__t-1    
+![attendibilità provider di attestazioni](media/Create-a-Claims-Provider-Trust/addclaim10.PNG)    
 
 5.  Tipo di pagina Specifica nome visualizzato un **nome visualizzato**, in note digitare una descrizione per questa attendibilità del provider di attestazioni e quindi fare clic su **Avanti**.
 
@@ -80,10 +80,10 @@ Per aggiungere un nuovo provider di attestazioni trust, tramite lo snap-in di ge
 
     
 ## <a name="additional-references"></a>Altri riferimenti  
-[Elenco di controllo: Configurazione dell'organizzazione partner risorse @ no__t-0  
+[Elenco di controllo: configurazione dell'organizzazione partner risorse](../../ad-fs/deployment/Checklist--Configuring-the-Resource-Partner-Organization.md)  
   
-[Elenco di controllo: Creazione di regole delle attestazioni per un'istanza di attendibilità del provider di attestazioni](../../ad-fs/deployment/Checklist--Creating-Claim-Rules-for-a-Claims-Provider-Trust.md)  
+[Elenco di controllo: creazione di regole attestazione per un trust del provider di attestazioni](../../ad-fs/deployment/Checklist--Creating-Claim-Rules-for-a-Claims-Provider-Trust.md)  
   
-## <a name="see-also"></a>Vedere anche  
+## <a name="see-also"></a>Vedi anche  
 [Operazioni di AD FS](../../ad-fs/AD-FS-2016-Operations.md) 
   

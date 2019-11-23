@@ -61,7 +61,7 @@ In questo argomento viene descritto come configurare le impostazioni client e se
   
 8.  Nella finestra di dialogo **Stato installazione** verificare che l'installazione sia stata completata correttamente e quindi fare clic su **Chiudi**.  
   
-](../../../../media/Step-2-Configure-the-Remote-Access-Server/PowerShellLogoSmall.gif)***<em>comandi equivalenti</em> di PowerShell per Windows PowerShell @no__t 0Windows***  
+![](../../../../media/Step-2-Configure-the-Remote-Access-Server/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em> per Windows PowerShell***  
   
 Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.  
   
@@ -83,7 +83,7 @@ Sono disponibili tre opzioni che è possibile utilizzare per distribuire accesso
   
 #### <a name="to-configure-the-deployment-type"></a>Per configurare il tipo di distribuzione  
   
-1.  Nel server di Accesso remoto, aprire la Console di gestione Accesso remoto: Nella schermata **Start** Digitare, digitare **Remote Access Management Console**e quindi premere INVIO. Se viene visualizzata la finestra di dialogo **Controllo account utente** , verificare che l'azione visualizzata sia quella desiderata e quindi fare clic su **Sì**.  
+1.  Nel server di accesso remoto, aprire la console di gestione accesso remoto: sul **avviare** dello schermo, tipo, tipo **Console Gestione accesso remoto**, quindi premere INVIO. Se viene visualizzata la finestra di dialogo **Controllo account utente** , verificare che l'azione visualizzata sia quella desiderata e quindi fare clic su **Sì**.  
   
 2.  Nella Console di gestione accesso remoto, nel riquadro centrale, fare clic su **eseguire Configurazione guidata accesso remoto**.  
   
@@ -115,7 +115,7 @@ Per effettuarne il provisioning allo scopo di usare DirectAccess, un computer cl
         > [!NOTE]  
         > Quando è abilitata la risoluzione dei nomi locali, gli utenti che eseguono il NCA possono risolvere nomi con i server DNS configurati nel computer client DirectAccess.  
   
-6.  Scegliere **Fine**.  
+6.  Fare clic su **Fine**.  
   
 ## <a name="BKMK_Server"></a>Configurare il server di accesso remoto  
 Per distribuire accesso remoto, è necessario configurare il server che fungerà da server di accesso remoto con il codice seguente:  
@@ -142,7 +142,7 @@ Per distribuire accesso remoto, è necessario configurare il server che fungerà
   
     -   Certificato IP-HTTPS. Questo è in base al nome pubblico per la distribuzione impostate durante il passaggio precedente della procedura guidata. Se la procedura guidata non rileva il certificato IP-HTTPS corretto, fare clic su **Sfoglia** selezionare manualmente il certificato corretto.  
   
-4.  Fare clic su **Avanti**.  
+4.  Fai clic su **Next**.  
   
 5.  Nel **Configurazione prefissi** pagina (in questa pagina è visibile solo se viene rilevato IPv6 nella rete interna), la procedura guidata rileva automaticamente le impostazioni IPv6 utilizzati nella rete interna. Se la distribuzione richiede prefissi aggiuntivi, configurare i prefissi IPv6 per la rete interna, un prefisso IPv6 da assegnare ai computer client DirectAccess e un prefisso IPv6 da assegnare ai computer client VPN.  
   
@@ -152,7 +152,7 @@ Per distribuire accesso remoto, è necessario configurare il server che fungerà
   
     -   Per abilitare i computer client che eseguono Windows 7 alla connessione tramite DirectAccess, selezionare il **attivare Windows 7 ai computer client di connettersi tramite DirectAccess** casella di controllo. In questo tipo di distribuzione deve essere usata anche l'autenticazione del certificato computer.  
   
-7.  Scegliere **Fine**.  
+7.  Fare clic su **Fine**.  
   
 ## <a name="BKMK_Infra"></a>Configurare i server di infrastruttura  
 Per configurare i server dell'infrastruttura in una distribuzione di accesso remoto, è necessario configurare quanto segue:  
@@ -175,11 +175,11 @@ Per configurare i server dell'infrastruttura in una distribuzione di accesso rem
   
 3.  Nel **DNS** pagina, nella tabella, immettere i suffissi di nomi aggiuntivi che verranno applicati come esenzioni criteri tabella (Risoluzione dei nomi). Selezionare un'opzione di risoluzione del nome locale e quindi fare clic su **Avanti**.  
   
-4.  Nel **elenco ricerca suffissi DNS** pagina, il server di accesso remoto rileva automaticamente i suffissi di dominio nella distribuzione. Utilizzare il **Aggiungi** e **rimuovere** pulsanti per creare l'elenco dei suffissi di dominio che si desiderano utilizzare. Per aggiungere un nuovo suffisso di dominio, in **nuovo suffisso**, immettere il suffisso e quindi fare clic su **Aggiungi**. Fare clic su **Avanti**.  
+4.  Nel **elenco ricerca suffissi DNS** pagina, il server di accesso remoto rileva automaticamente i suffissi di dominio nella distribuzione. Utilizzare il **Aggiungi** e **rimuovere** pulsanti per creare l'elenco dei suffissi di dominio che si desiderano utilizzare. Per aggiungere un nuovo suffisso di dominio, in **nuovo suffisso**, immettere il suffisso e quindi fare clic su **Aggiungi**. Fai clic su **Next**.  
   
 5.  Nel **Management** pagina, aggiungere server di gestione che non vengono rilevate automaticamente e quindi fare clic su **Avanti**. Accesso remoto aggiunge automaticamente i controller di dominio e i server System Center Configuration Manager.  
   
-6.  Scegliere **Fine**.  
+6.  Fare clic su **Fine**.  
   
 ## <a name="BKMK_App"></a>Configurare i server applicazioni  
 In una distribuzione completa di accesso remoto, la configurazione server applicazioni è un'attività facoltativa. In questo scenario per la gestione remota dei client DirectAccess, server applicazioni non vengono utilizzati e questo passaggio è grigio per indicare che non è attivo. Fare clic su **Fine** per applicare la configurazione.  
@@ -205,7 +205,7 @@ Al termine, la configurazione di accesso remoto di **revisione di accesso remoto
   
 ## <a name="BKMK_Links"></a>Vedere anche  
   
--   [Passaggio 3: Verificare la distribuzione](Step-3-Verify-the-Deployment_2.md)  
+-   [Passaggio 3: verificare la distribuzione](Step-3-Verify-the-Deployment_2.md)  
   
   
 

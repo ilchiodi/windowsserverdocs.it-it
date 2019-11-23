@@ -26,10 +26,10 @@ ms.locfileid: "71406036"
 
 Le macchine virtuali connesse a una rete virtuale possono usare solo gli indirizzi IP assegnati dal controller di rete per comunicare sulla rete.  Per il corretto funzionamento delle tecnologie di clustering che richiedono un indirizzo IP mobile, ad esempio il clustering di failover Microsoft, sono necessari alcuni passaggi aggiuntivi.
 
-Il metodo per fare in modo che l'indirizzo IP mobile raggiungibile è usare un Load Balancer software \(SLB @ no__t-1 Virtual IP \(VIP @ no__t-3.  Il servizio di bilanciamento del carico software deve essere configurato con un probe di integrità su una porta sull'IP in modo che SLB indirizza il traffico al computer che attualmente ha tale indirizzo IP.
+Il metodo per rendere la portabile IP mobile raggiungibile consiste nell'usare un software Load Balancer \(SLB\) indirizzo IP virtuale \(VIP\).  Il servizio di bilanciamento del carico software deve essere configurato con un probe di integrità su una porta sull'IP in modo che SLB indirizza il traffico al computer che attualmente ha tale indirizzo IP.
 
 
-## <a name="example-load-balancer-configuration"></a>Esempio: Configurazione del servizio di bilanciamento del carico
+## <a name="example-load-balancer-configuration"></a>Esempio: configurazione del servizio di bilanciamento del carico
 
 Questo esempio presuppone che siano già state create le VM che diventeranno nodi del cluster e che siano collegate a una rete virtuale.  Per informazioni aggiuntive, vedere [creare una macchina virtuale e connettersi a una rete virtuale del tenant o a una VLAN](https://technet.microsoft.com/windows-server-docs/networking/sdn/manage/create-a-tenant-vm).  
 
@@ -50,7 +50,7 @@ In questo esempio viene creato un indirizzo IP virtuale (192.168.2.100) per rapp
    $LoadBalancerProperties = new-object Microsoft.Windows.NetworkController.LoadBalancerProperties
    ```
 
-3. Creare un indirizzo IP front @ no__t-0end.
+3. Creare un indirizzo IP front\-end.
 
    ```PowerShell
    $LoadBalancerProperties.frontendipconfigurations += $FrontEnd = new-object Microsoft.Windows.NetworkController.LoadBalancerFrontendIpConfiguration
@@ -63,7 +63,7 @@ In questo esempio viene creato un indirizzo IP virtuale (192.168.2.100) per rapp
    $FrontEnd.properties.privateIPAllocationMethod = "Static"
    ```
 
-4. Creare un pool back @ no__t-0end per contenere i nodi del cluster.
+4. Creare un pool back\-end per contenere i nodi del cluster.
 
    ```PowerShell
    $BackEnd = new-object Microsoft.Windows.NetworkController.LoadBalancerBackendAddressPool
@@ -132,7 +132,7 @@ In questo esempio viene creato un indirizzo IP virtuale (192.168.2.100) per rapp
 
 9. Opzionale Se si usa un cluster di failover Microsoft, continuare con l'esempio successivo. 
 
-## <a name="example-2-configuring-a-microsoft-failover-cluster"></a>Esempio 2 Configurazione di un cluster di failover Microsoft
+## <a name="example-2-configuring-a-microsoft-failover-cluster"></a>Esempio 2: configurazione di un cluster di failover Microsoft
 
 Per configurare un cluster di failover, è possibile utilizzare i passaggi seguenti.
 

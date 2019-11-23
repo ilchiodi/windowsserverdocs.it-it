@@ -23,10 +23,10 @@ ms.locfileid: "71404645"
 
 >Si applica a: Windows Server (Canale semestrale), Windows Server 2016
 
-Windows Server 2016 e Windows Server 2012 combinano DirectAccess e il servizio di accesso remoto \(RAS @ no__t-1 VPN in un singolo ruolo accesso remoto. È possibile distribuire accesso remoto in diversi scenari aziendali. Questa panoramica offre un'introduzione allo scenario aziendale per la distribuzione di più server di accesso remoto in un cluster con bilanciamento del carico di rete di Windows \(NLB @ no__t-1 o con un servizio di bilanciamento del carico esterno \(ELB @ no__t-3, ad esempio F5 Big @ no__t-4IP.  
+Windows Server 2016 e Windows Server 2012 combinano DirectAccess e il servizio di accesso remoto \(RAS\) VPN in un singolo ruolo accesso remoto. È possibile distribuire accesso remoto in diversi scenari aziendali. Questa panoramica offre un'introduzione allo scenario aziendale per la distribuzione di più server di accesso remoto in un cluster con carico bilanciato con bilanciamento carico di rete di Windows \(NLB\) o con un servizio di bilanciamento del carico esterno \(ELB\), ad esempio F5 Big\-IP.  
 
 ## <a name="BKMK_OVER"></a>Descrizione dello scenario  
-Una distribuzione di cluster raccoglie più server di accesso remoto in una singola unità, che funge quindi da singolo punto di contatto per i computer client remoti che si connettono tramite DirectAccess o VPN alla rete aziendale interna usando l'IP virtuale esterno @no__ t-0VIP @ no__t-1 indirizzo del cluster di accesso remoto.  Il traffico verso il cluster viene sottoposta a bilanciamento del carico usando il bilanciamento del carico di Windows o un servizio di bilanciamento del carico esterno @no__t 0such come F5 Big @ no__t-1IP @ no__t-2.  
+Una distribuzione di cluster raccoglie più server di accesso remoto in una singola unità, che funge quindi da singolo punto di contatto per i computer client remoti che si connettono tramite DirectAccess o VPN alla rete aziendale interna usando l'indirizzo IP virtuale esterno \(indirizzo VIP\) del cluster di accesso remoto.  Il traffico verso il cluster viene sottoposta a bilanciamento del carico usando il bilanciamento del carico di Windows o un servizio di bilanciamento del carico esterno \(come F5 Big\-IP\).  
 
 ## <a name="prerequisites"></a>Prerequisiti  
 Prima di iniziare a distribuire questo scenario, esaminare l'elenco dei requisiti importanti:  
@@ -43,9 +43,9 @@ Prima di iniziare a distribuire questo scenario, esaminare l'elenco dei requisit
 
 -   I nodi con carico bilanciato devono trovarsi nella stessa subnet IPv4.  
 
--   Nelle distribuzioni ELB, se è necessaria la gestione in uscita, i client DirectAccess non possono usare @ no__t-0Teredo. Per la comunicazione end @ no__t-0to @ no__t-1end è possibile usare solo IPHTTPS.  
+-   Nelle distribuzioni ELB, se è necessaria la gestione in uscita, i client DirectAccess non possono usare&nbsp;Teredo. È possibile utilizzare solo IPHTTPS per terminare la comunicazione\-end\-.  
 
--   Verificare che siano installati tutti gli hotfix noti di NLB @ no__t-0ELB.  
+-   Verificare che siano installati tutti gli hotfix noti\/ELB.  
 
 -   La tecnologia ISATAP non è supportata nella rete aziendale. Se si usa la tecnologia ISATAP, rimuoverla e usare la connettività IPv6 nativa.  
 
@@ -63,17 +63,17 @@ La raccolta di più server in un cluster di server fornisce quanto segue:
 
 -   Scalabilità. Un singolo server di accesso remoto offre un livello limitato di affidabilità del server e prestazioni scalabili. Raggruppando le risorse di due o più server in un unico cluster, si aumenta la capacità per numero di utenti e velocità effettiva.  
 
--   Disponibilità elevata. Un cluster fornisce disponibilità elevata per l'accesso always @ no__t-0on. Se un server nel cluster non riesce, gli utenti remoti possono continuare ad accedere alla rete aziendale usando un altro server nel cluster. Tutti i server del cluster hanno lo stesso set di indirizzi IP virtuali del cluster \(VIP @ no__t-1, pur mantenendo un indirizzo IP dedicato e univoco per ogni server.  
+-   Disponibilità elevata. Un cluster fornisce disponibilità elevata per Always\-all'accesso. Se un server nel cluster non riesce, gli utenti remoti possono continuare ad accedere alla rete aziendale usando un altro server nel cluster. Tutti i server del cluster hanno lo stesso set di indirizzi IP virtuali del cluster \(indirizzi VIP\), mantenendo comunque un indirizzo IP dedicato e univoco per ogni server.  
 
--   Ease @ no__t-0of @ no__t-1management. Un cluster consente la gestione di più server come singola entità. Le impostazioni condivise possono essere impostate facilmente in tutti i server cluster. Le impostazioni di accesso remoto possono essere gestite da qualsiasi server nel cluster oppure in remoto usando Strumenti di amministrazione remota del server \(RSAT @ no__t-1. L'intero cluster può anche essere monitorato da una sola Console di gestione Accesso remoto.  
+-   Semplifica la\-della gestione\-. Un cluster consente la gestione di più server come singola entità. Le impostazioni condivise possono essere impostate facilmente in tutti i server cluster. Le impostazioni di accesso remoto possono essere gestite da qualsiasi server nel cluster oppure in remoto usando Strumenti di amministrazione remota del server \(strumenti di amministrazione remota dei\). L'intero cluster può anche essere monitorato da una sola Console di gestione Accesso remoto.  
 
 ## <a name="BKMK_NEW"></a>Ruoli e funzionalità inclusi in questo scenario  
 Nella tabella seguente sono elencati i ruoli e le funzionalità richiesti per lo scenario.  
 
-|Ruolo @ no__t-0feature|Modalità di supporto dello scenario|  
+|Funzionalità\/ruoli|Modalità di supporto dello scenario|  
 |---------|-----------------|  
-|Ruolo Accesso remoto|Il ruolo viene installato e disinstallato tramite la console di Server Manager. Include DirectAccess, che in precedenza era una funzionalità di Windows Server 2008 R2, e servizi routing e accesso remoto \(RRAS @ no__t-1, che in precedenza era un servizio ruolo in servizi di accesso e criteri di rete \(NPAS @ no__t-3 ruolo del server. Il ruolo Accesso remoto è costituito da due componenti:<br /><br />-Always On VPN e servizi di routing e accesso remoto \(RRAS @ no__t-1 VPN: DirectAccess e VPN vengono gestiti insieme nella console di gestione accesso remoto.<br />Funzionalità di routing di Routing RRAS routing e accesso REMOTO vengono gestite nella console di Routing e accesso remoto legacy.<br /><br />Le dipendenze sono le seguenti:<br /><br />-Internet Information Services \(IIS @ no__t-1 Web Server: questa funzionalità è necessaria per configurare il server dei percorsi di rete e il probe Web predefinito.<br />-Windows Database-Used interna per l'accounting locale sul server di accesso remoto.|  
-|Funzionalità Strumenti di Gestione Accesso remoto|Questa funzionalità viene installata come segue:<br /><br />-Viene installato per impostazione predefinita in un server di accesso remoto quando è installato il ruolo Accesso remoto e supporta l'interfaccia utente della console di gestione remota.<br />-Può essere installata facoltativamente in un server non è in esecuzione il ruolo di server di accesso remoto. In questo caso viene utilizzata per la gestione remota di un computer di Accesso remoto che esegue DirectAccess e VPN.<br /><br />La funzionalità Strumenti di Gestione Accesso remoto è costituita dai seguenti elementi:<br /><br />-Accesso remoto GUI e strumenti da riga di comando<br />-Modulo di accesso remoto per Windows PowerShell<br /><br />Le dipendenze includono:<br /><br />-Console Gestione criteri di gruppo<br />-RAS Connection Manager Administration Kit \(CMAK @ no__t-1<br />-Windows PowerShell 3.0<br />-Infrastruttura e strumenti di gestione grafico|  
+|Ruolo Accesso remoto|Il ruolo viene installato e disinstallato tramite la console di Server Manager. Include sia DirectAccess, che in precedenza era una funzionalità di Windows Server 2008 R2, che servizi routing e accesso remoto \(RRAS\), che in precedenza era un servizio ruolo in servizi di accesso e criteri di rete \(NPAS\) ruolo del server. Il ruolo Accesso remoto è costituito da due componenti:<br /><br />-Always On VPN e servizi di routing e accesso remoto \(RRAS\) VPN: DirectAccess e VPN vengono gestiti insieme nella console di gestione accesso remoto.<br />Funzionalità di routing di Routing RRAS routing e accesso REMOTO vengono gestite nella console di Routing e accesso remoto legacy.<br /><br />Le dipendenze sono le seguenti:<br /><br />-Internet Information Services \(server Web IIS\): questa funzionalità è necessaria per configurare il server dei percorsi di rete e il probe Web predefinito.<br />-Windows Database-Used interna per l'accounting locale sul server di accesso remoto.|  
+|Funzionalità Strumenti di Gestione Accesso remoto|Questa funzionalità viene installata come segue:<br /><br />-Viene installato per impostazione predefinita in un server di accesso remoto quando è installato il ruolo Accesso remoto e supporta l'interfaccia utente della console di gestione remota.<br />-Può essere installata facoltativamente in un server non è in esecuzione il ruolo di server di accesso remoto. In questo caso viene utilizzata per la gestione remota di un computer di Accesso remoto che esegue DirectAccess e VPN.<br /><br />La funzionalità Strumenti di Gestione Accesso remoto è costituita dai seguenti elementi:<br /><br />-Accesso remoto GUI e strumenti da riga di comando<br />-Modulo di accesso remoto per Windows PowerShell<br /><br />Le dipendenze includono:<br /><br />-Console Gestione criteri di gruppo<br />-RAS Connection Manager Administration Kit \(CMAK\)<br />-Windows PowerShell 3.0<br />-Infrastruttura e strumenti di gestione grafico|  
 |Bilanciamento carico di rete|Questa funzionalità fornisce il bilanciamento del carico in un cluster usando il Bilanciamento carico di rete di Windows.|  
 
 ## <a name="BKMK_HARD"></a>Requisiti hardware  
@@ -81,7 +81,7 @@ I requisiti hardware per questo scenario includono i seguenti.
 
 -   Almeno due computer che soddisfino i requisiti hardware per Windows Server 2012.  
 
--   Per lo scenario di Load Balancer esterno, è necessario hardware dedicato \(i. e. F5 BigIP @ no__t-1.  
+-   Per lo scenario di Load Balancer esterno, è necessario hardware dedicato \(ad esempio F5 BigIP\).  
 
 -   Per testare lo scenario, è necessario disporre di almeno un computer che esegue Windows 10 configurato come client VPN Always On.   
 
@@ -90,30 +90,30 @@ Per questo scenario sono presenti numerosi requisiti.
 
 -   Requisiti software per una distribuzione a server singolo. Per ulteriori informazioni, vedere la pagina relativa alla [distribuzione di un server DirectAccess singolo con impostazioni avanzate](../../directaccess/single-server-advanced/Deploy-a-Single-DirectAccess-Server-with-Advanced-Settings.md). Un singolo accesso remoto).  
 
--   Oltre ai requisiti software per un singolo server, esistono diversi requisiti del cluster @ no__t-0specific:  
+-   Oltre ai requisiti software per un server singolo, esistono diversi cluster\-requisiti specifici:  
 
-    -   In ogni server cluster il nome del soggetto del certificato IP @ no__t-0HTTPS deve corrispondere all'indirizzo ConnectTo. Una distribuzione cluster supporta una combinazione di certificati con caratteri jolly e non @ no__t-0wildcard nei server del cluster.  
+    -   In ogni server cluster il nome del soggetto del certificato HTTPS IP\-deve corrispondere all'indirizzo ConnectTo. Una distribuzione cluster supporta una combinazione di certificati con caratteri jolly e non\-nei server del cluster.  
 
     -   Se il server dei percorsi di rete è installato sul server di Accesso remoto, su ogni server cluster dovrà avere lo stesso nome soggetto. Inoltre, il nome del certificato del server dei percorsi di rete non deve essere lo stesso di qualsiasi altro server nella distribuzione di DirectAccess.  
 
-    -   I certificati IP @ no__t-0HTTPS e del server dei percorsi di rete devono essere emessi utilizzando lo stesso metodo con cui è stato emesso il certificato per il singolo server. Se, ad esempio, il singolo server utilizza un'autorità di certificazione pubblica \(CA @ no__t-1, tutti i server del cluster devono disporre di un certificato emesso da una CA pubblica. In alternativa, se il singolo server usa un certificato self @ no__t-0signed per IP @ no__t-1HTTPS, tutti i server nel cluster devono eseguire lo stesso modo.  
+    -   I certificati IP\-HTTPS e del server dei percorsi di rete devono essere emessi utilizzando lo stesso metodo con cui è stato emesso il certificato per il singolo server. Ad esempio, se il singolo server usa un'autorità di certificazione pubblica \(CA\), tutti i server nel cluster devono disporre di un certificato emesso da una CA pubblica. In alternativa, se il singolo server usa un certificato auto\-firmato per IP\-HTTPS, tutti i server nel cluster devono eseguire le stesse operazioni.  
 
     -   Il prefisso IPv6 assegnato ai computer client DirectAccess nei cluster di server deve essere di 59 bit. Se VPN è abilitato, anche il prefisso VPN deve essere di 59 bit.  
 
 ## <a name="KnownIssues"></a>Problemi noti  
 Di seguito sono riportati alcuni problemi noti durante la configurazione di uno scenario cluster:  
 
--   Dopo la configurazione di DirectAccess in una distribuzione IPv4 @ no__t-0only con una singola scheda di rete e dopo l'indirizzo IPv6 predefinito DNS64 \(Il che contiene ": 3333::" \) viene configurato automaticamente nella scheda di rete, tentando di abilitare Load @ no__t-3balancing tramite la console di gestione accesso remoto comporta la richiesta all'utente di fornire un DIP IPv6. Se viene fornito un DIP IPv6, la configurazione non riesce dopo aver fatto clic su **Commit** con l'errore: Parametro non corretto.  
+-   Dopo la configurazione di DirectAccess in un\-IPv4 solo la distribuzione con una singola scheda di rete e dopo il DNS64 predefinito \(l'indirizzo IPv6 che contiene ": 3333::"\) viene configurato automaticamente nella scheda di rete, il tentativo di abilitare il bilanciamento del carico\-tramite la console di gestione accesso remoto comporta la richiesta all'utente di fornire un DIP IPv6. Se si specifica un DIP IPv6, la configurazione non riesce dopo aver fatto clic su **Commit** e viene visualizzato l'errore Parametro non corretto.  
 
     Per risolvere il problema:  
 
     1.  Scaricare gli script di backup e ripristino da [Backup e ripristino della configurazione di Accesso remoto](https://gallery.technet.microsoft.com/Back-up-and-Restore-Remote-e157e6a6).  
 
-    2.  Eseguire il backup degli oggetti Criteri di gruppo di accesso remoto usando il backup di script scaricato @ no__t-0RemoteAccess. ps1  
+    2.  Eseguire il backup degli oggetti Criteri di gruppo di accesso remoto usando lo script di backup scaricato\-RemoteAccess. ps1  
 
-    3.  Provare ad abilitare il bilanciamento del carico fino al passaggio in cui si verifica un errore. Nella finestra di dialogo Abilita bilanciamento del carico, espandere l'area dei dettagli, fare clic con il pulsante destro del mouse su no__t-0click nell'area dei dettagli e quindi fare clic su **copia script**.  
+    3.  Provare ad abilitare il bilanciamento del carico fino al passaggio in cui si verifica un errore. Nella finestra di dialogo Abilita bilanciamento del carico, espandere l'area dei dettagli, fare clic con il pulsante destro del mouse\-fare clic nell'area dei dettagli e quindi fare clic su **copia script**.  
 
-    4.  Aprire Blocco note e incollare il contenuto degli Appunti. Esempio:  
+    4.  Aprire Blocco note e incollare il contenuto degli Appunti. Ad esempio:  
 
         ```  
         Set-RemoteAccessLoadBalancer -InternetDedicatedIPAddress @('10.244.4.19 /255.255.255.0','fdc4:29bd:abde:3333::2/128') -InternetVirtualIPAddress @('fdc4:29bd:abde:3333::1/128', '10.244.4.21 /255.255.255.0') -ComputerName 'DA1.domain1.corp.contoso.com' -Verbose  
@@ -121,7 +121,7 @@ Di seguito sono riportati alcuni problemi noti durante la configurazione di uno 
 
     5.  Chiudere eventuali finestre di dialogo di Accesso remoto aperte e chiudere la Console di gestione Accesso remoto.  
 
-    6.  Modificare il testo incollato e rimuovere gli indirizzi IPv6. Esempio:  
+    6.  Modificare il testo incollato e rimuovere gli indirizzi IPv6. Ad esempio:  
 
         ```  
         Set-RemoteAccessLoadBalancer -InternetDedicatedIPAddress @('10.244.4.19 /255.255.255.0') -InternetVirtualIPAddress @('10.244.4.21 /255.255.255.0') -ComputerName 'DA1.domain1.corp.contoso.com' -Verbose  
@@ -129,6 +129,6 @@ Di seguito sono riportati alcuni problemi noti durante la configurazione di uno 
 
     7.  In una finestra di PowerShell con privilegi elevati, eseguire il comando del passaggio precedente.  
 
-    8.  Se il cmdlet ha esito negativo mentre è in esecuzione \(not a causa di valori di input non corretti @ no__t-1, eseguire il comando Restore @ no__t-2RemoteAccess. ps1 e seguire le istruzioni per assicurarsi che l'integrità della configurazione originale venga mantenuta.  
+    8.  Se il cmdlet ha esito negativo mentre è in esecuzione \(non a causa di valori di input non corretti\), eseguire il comando Restore\-RemoteAccess. ps1 e seguire le istruzioni per assicurarsi che l'integrità della configurazione originale venga mantenuta.  
 
     9. È ora possibile riaprire la Console di gestione Accesso remoto.  

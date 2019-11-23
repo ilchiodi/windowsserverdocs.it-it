@@ -208,7 +208,7 @@ Assicurarsi che il certificato del sito Web usato per l'autenticazione IP-HTTPS 
   
 ##### <a name="to-install-the-ip-https-certificate-from-an-internal-ca"></a>Per installare il certificato IP-HTTPS da una CA interna  
   
-1.  Nel server DirectAccess: Nella schermata **Start** Digitare**MMC. exe**, quindi premere INVIO.  
+1.  Nel server DirectAccess: sul **avviare** digitare**mmc.exe**, quindi premere INVIO.  
   
 2.  Nella console di MMC, nel **File** menu, fare clic su **Aggiungi/Rimuovi Snap-in**.  
   
@@ -243,7 +243,7 @@ Assicurarsi che il certificato del sito Web usato per l'autenticazione IP-HTTPS 
   
 ### <a name="NLS_DNS"></a>Per creare il server dei percorsi di rete  
   
-1.  Nel server DNS della rete interna: Nel **avviare** digitare**dnsmgmt. msc**, quindi premere INVIO.  
+1.  Nel server DNS interni: sul **avviare** digitare**dnsmgmt. msc**, e quindi premere INVIO.  
   
 2.  Nel riquadro a sinistra della console **Gestore DNS** espandere la zona di ricerca diretta per il proprio dominio. Fare clic con il pulsante destro del mouse sul dominio e fare clic su **Nuovo host (A o AAAA)** .  
   
@@ -263,7 +263,7 @@ Assicurarsi che il certificato del sito Web usato per l'autenticazione IP-HTTPS 
   
 5.  Nel **DNS** la finestra di dialogo, fare clic su **OK**, e quindi fare clic su **eseguita**.  
   
-](../../../media/Step-1-Configuring-DirectAccess-Infrastructure/PowerShellLogoSmall.gif)***<em>comandi equivalenti</em> di PowerShell per Windows PowerShell @no__t 0Windows***  
+![](../../../media/Step-1-Configuring-DirectAccess-Infrastructure/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em> per Windows PowerShell***  
   
 Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.  
   
@@ -335,7 +335,7 @@ Il server DirectAccess e tutti i computer client DirectAccess devono essere aggi
   
 10. Quando viene richiesto di riavviare il computer, fare clic su **Riavvia ora**.  
   
-](../../../media/Step-1-Configuring-DirectAccess-Infrastructure/PowerShellLogoSmall.gif)***<em>comandi equivalenti</em> di PowerShell per Windows PowerShell @no__t 0Windows***  
+![](../../../media/Step-1-Configuring-DirectAccess-Infrastructure/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em> per Windows PowerShell***  
   
 Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.  
   
@@ -424,7 +424,7 @@ Dopo che l'amministratore di Accesso remoto completa le modifiche alla configura
   
     10. Nella pagina **Analisi del backup**, scegliere **Avanti**, quindi fare clic su **Fine**.  
   
-](../../../media/Step-1-Configuring-DirectAccess-Infrastructure/PowerShellLogoSmall.gif)***<em>comandi equivalenti</em> di PowerShell per Windows PowerShell @no__t 0Windows***  
+![](../../../media/Step-1-Configuring-DirectAccess-Infrastructure/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em> per Windows PowerShell***  
   
 Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.  
   
@@ -469,7 +469,7 @@ Le impostazioni di DirectAccess contenute nell'oggetto Criteri di gruppo di comp
   
 6.  Nella finestra di dialogo **Selezionare utenti, contatti, computer o account di servizio** selezionare i computer client che si vogliono abilitare per DirectAccess e quindi fare clic su **OK**.  
   
-](../../../media/Step-1-Configuring-DirectAccess-Infrastructure/PowerShellLogoSmall.gif)**comandi equivalenti** di PowerShell per Windows PowerShell @no__t 0Windows  
+![](../../../media/Step-1-Configuring-DirectAccess-Infrastructure/PowerShellLogoSmall.gif)**comandi equivalenti di Windows PowerShell** per Windows PowerShell  
   
 Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.  
   
@@ -501,7 +501,7 @@ Per entrambi i tipi di certificato, sono necessari i seguenti elementi, se non e
   
 #### <a name="to-install-the-network-location-server-certificate-from-an-internal-ca"></a>Per installare il certificato del server dei percorsi di rete da una CA interna  
   
-1.  Sul server che ospiterà il sito Web del server dei percorsi di rete: Nella schermata **Start** Digitare**MMC. exe**, quindi premere INVIO.  
+1.  Sul server che ospiterà il sito Web server percorsi di rete: nel **avviare** digitare**mmc.exe**, quindi premere INVIO.  
   
 2.  Nella console di MMC, nel **File** menu, fare clic su **Aggiungi/Rimuovi Snap-in**.  
   
@@ -555,7 +555,7 @@ Per entrambi i tipi di certificato, sono necessari i seguenti elementi, se non e
   
 ## <a name="BKMK_Links"></a>Passaggio successivo  
   
--   [Passaggio 2: Configurare i server avanzati di DirectAccess](da-adv-configure-s2-servers.md)  
+-   [Passaggio 2: configurare i server DirectAccess avanzati](da-adv-configure-s2-servers.md)  
   
 
 

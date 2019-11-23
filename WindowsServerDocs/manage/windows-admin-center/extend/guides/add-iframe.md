@@ -33,9 +33,9 @@ Aggiungere al progetto un nuovo [modulo vuoto](add-module.md) , a cui verrà agg
 
 A questo punto si aggiungerà un iFrame al nuovo modulo vuoto appena creato.
 
-In \src\app @ no__t-0 passare alla cartella del modulo, quindi aprire il file ```{!module-name}.component.html```, disponibile con la convenzione di denominazione seguente:
+In \src\app\, accedere alla cartella del modulo, quindi aprire il file ```{!module-name}.component.html```, disponibile con la convenzione di denominazione seguente:
 
-| Value | Spiegazione | Nome del file di esempio |
+| Valore | Spiegazione | Nome del file di esempio |
 | ----- | ----------- | ------- |
 | ```{!module-name}``` | Nome del modulo (lettere minuscole, spazi sostituiti da trattini) | ```manage-foo-works-portal.component.html``` |
     

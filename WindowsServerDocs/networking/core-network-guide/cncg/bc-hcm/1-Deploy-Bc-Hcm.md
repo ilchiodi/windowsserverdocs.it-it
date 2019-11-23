@@ -17,7 +17,7 @@ ms.locfileid: "71356374"
 ---
 # <a name="deploy-branchcache-hosted-cache-mode"></a>Distribuire la modalità Cache ospitata BranchCache
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 La Guida alla rete di Windows Server 2016 Core vengono fornite istruzioni per la pianificazione e distribuzione dei componenti di base necessari per una rete completamente funzionante e un nuovo Active Directory&reg; dominio in una nuova foresta.
 
@@ -71,7 +71,7 @@ Si tratta di una guida complementare alla Guida di Windows Server 2016 Core Netw
 
 ## <a name="bkmk_about"></a>Informazioni su questa guida
 
-Questa guida è destinata agli amministratori di rete e di sistema che hanno seguito le istruzioni riportate nella Guida alla rete core di Windows Server 2016 o nella Guida alla rete core di Windows Server 2012 per distribuire una rete core o per coloro che hanno distribuito in precedenza il tecnologie incluse nella Guida alla rete core, tra cui Active Directory Domain Services \(AD DS @ no__t-1, Domain Name Service \(DNS @ no__t-3, Dynamic Host Configuration Protocol \(DHCP @ no__t-5 e TCP @ no__t-6IP V4.
+Questa guida è destinata agli amministratori di rete e di sistema che hanno seguito le istruzioni riportate nella Guida alla rete core di Windows Server 2016 o nella Guida alla rete core di Windows Server 2012 per distribuire una rete core o per coloro che hanno distribuito in precedenza le tecnologie incluse nella Guida alla rete core, tra cui Active Directory Domain Services \(AD DS\), Domain Name Service \(DNS\), Dynamic Host Configuration Protocol \(DHCP e TCP\)\/
 
 È consigliabile vedere le guide alla progettazione e alla distribuzione per ognuna delle tecnologie usate in questo scenario di distribuzione. Queste guide consentono di determinare se questo scenario di distribuzione fornisce la configurazione e i servizi necessari per la rete dell'organizzazione.
 
@@ -84,7 +84,7 @@ In questa Guida non fornisce informazioni sulla distribuzione di connessioni WAN
 Questa Guida non fornisce inoltre indicazioni sull'hardware che è necessario usare quando si distribuisce un server cache ospitata. È possibile eseguire altre applicazioni e servizi nel server cache ospitata, ma è necessario determinare, in base a carico di lavoro, funzionalità hardware e dimensioni delle succursali, se si vuole installare il server cache ospitata BranchCache in un computer specifico e quanto spazio su disco allocare per la cache.  
 In questa guida vengono fornite istruzioni per configurare i computer che eseguono Windows 7. Se si dispone di computer client che eseguono Windows 7 nelle succursali, è necessario configurarli tramite le procedure che sono diverse da quelli forniti in questa guida per i computer client che eseguono Windows 10, Windows 8.1 e Windows 8.
   
-Inoltre, se si dispone di computer che eseguono Windows 7, è necessario configurare il server cache ospitata con un certificato server emesso da un'autorità di certificazione attendibili i computer client. \(If tutti i computer client eseguono Windows 10, Windows 8.1 o Windows 8, non è necessario configurare il server cache ospitata con un certificato server. \) 
+Inoltre, se si dispone di computer che eseguono Windows 7, è necessario configurare il server cache ospitata con un certificato server emesso da un'autorità di certificazione attendibili i computer client. \(se tutti i computer client eseguono Windows 10, Windows 8.1 o Windows 8, non è necessario configurare il server cache ospitata con un certificato del server.\) 
 > [!IMPORTANT]
 > Se i server cache ospitata esegue Windows Server 2008 R2, utilizzare Windows Server 2008 R2 [Guida alla distribuzione di BranchCache](https://technet.microsoft.com/library/ee649232(v=ws.10).aspx) invece di questa Guida alla distribuzione di BranchCache in modalità cache ospitata. Applicare le impostazioni di criteri di gruppo che sono descritti nella Guida a tutti i client di BranchCache che eseguono versioni di Windows da Windows 7 per Windows 10. Attenersi alla procedura riportata in questa Guida non è possibile configurare i computer che eseguono Windows Server 2008 R2.
 

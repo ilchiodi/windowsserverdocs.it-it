@@ -100,7 +100,7 @@ In Windows Server 2019 è disponibile un nuovo ruolo di file server con scalabil
 
 Le considerazioni seguenti si applicano a un ruolo SOFS dell'infrastruttura:
 
-1.  In un cluster di failover può essere presente al massimo un solo ruolo cluster SOFS di infrastruttura. Il ruolo SOFS dell'infrastruttura viene creato specificando il parametro switch " **-Infrastructure**" per il cmdlet **Add-ClusterScaleOutFileServerRole** .  Esempio:
+1.  In un cluster di failover può essere presente al massimo un solo ruolo cluster SOFS di infrastruttura. Il ruolo SOFS dell'infrastruttura viene creato specificando il parametro switch " **-Infrastructure**" per il cmdlet **Add-ClusterScaleOutFileServerRole** .  Ad esempio:
 
         Add-ClusterScaleoutFileServerRole -Name "my_infra_sofs_name" -Infrastructure
 
@@ -325,55 +325,55 @@ Ad esempio, il comando per rimuovere il cluster CLUSTER1 dai set di cluster sar�
 
 ## <a name="frequently-asked-questions-faq"></a>Domande frequenti
 
-**Domanda** Nel set di cluster sono limitati a usare solo cluster iperconvergenti? <br>
-**Risposta** No.  È possibile combinare Spazi di archiviazione diretta con i cluster tradizionali.
+**Domanda:** Nel set di cluster sono limitati a usare solo cluster iperconvergenti? <br>
+**Risposta:** No.  È possibile combinare Spazi di archiviazione diretta con i cluster tradizionali.
 
-**Domanda** È possibile gestire il set di cluster tramite System Center Virtual Machine Manager? <br>
-**Risposta** System Center Virtual Machine Manager attualmente non supporta i set di cluster <br><br> **Domanda** I cluster Windows Server 2012 R2 o 2016 possono coesistere nello stesso set di cluster? <br>
-**Domanda** È possibile eseguire la migrazione dei carichi di lavoro dai cluster Windows Server 2012 R2 o 2016 semplicemente se tali cluster si aggiungono allo stesso set di cluster? <br>
-**Risposta** I set di cluster sono una nuova tecnologia introdotta in Windows Server 2019, pertanto non esiste nelle versioni precedenti. I cluster basati su sistema operativo legacy non possono essere aggiunti a un set di cluster. Tuttavia, la tecnologia di aggiornamento in sequenza del sistema operativo del cluster deve fornire la funzionalità di migrazione che si sta cercando aggiornando questi cluster a Windows Server 2019.
+**Domanda:** È possibile gestire il set di cluster tramite System Center Virtual Machine Manager? <br>
+**Risposta:** System Center Virtual Machine Manager attualmente non supporta i set di cluster <br><br> **Domanda:** I cluster Windows Server 2012 R2 o 2016 possono coesistere nello stesso set di cluster? <br>
+**Domanda:** È possibile eseguire la migrazione dei carichi di lavoro dai cluster Windows Server 2012 R2 o 2016 semplicemente se tali cluster si aggiungono allo stesso set di cluster? <br>
+**Risposta:** I set di cluster sono una nuova tecnologia introdotta in Windows Server 2019, pertanto non esiste nelle versioni precedenti. I cluster basati su sistema operativo legacy non possono essere aggiunti a un set di cluster. Tuttavia, la tecnologia di aggiornamento in sequenza del sistema operativo del cluster deve fornire la funzionalità di migrazione che si sta cercando aggiornando questi cluster a Windows Server 2019.
 
-**Domanda** I set di cluster possono ridimensionare l'archiviazione o il calcolo (da solo)? <br>
-**Risposta** Sì, aggiungendo semplicemente un cluster Hyper-V con spazio di archiviazione diretto o tradizionale. Con i set di cluster, si tratta di una semplice modifica del rapporto tra calcolo e archiviazione anche in un set di cluster iperconvergente.
+**Domanda:** I set di cluster possono ridimensionare l'archiviazione o il calcolo (da solo)? <br>
+**Risposta:** Sì, aggiungendo semplicemente un cluster Hyper-V con spazio di archiviazione diretto o tradizionale. Con i set di cluster, si tratta di una semplice modifica del rapporto tra calcolo e archiviazione anche in un set di cluster iperconvergente.
 
-**Domanda** Quali sono gli strumenti di gestione per i set di cluster <br>
-**Risposta** PowerShell o WMI in questa versione.
+**Domanda:** Quali sono gli strumenti di gestione per i set di cluster <br>
+**Risposta:** PowerShell o WMI in questa versione.
 
-**Domanda** In che modo è possibile usare la migrazione in tempo reale tra cluster con processori di generazioni diverse?  <br>
-**Risposta** I set di cluster non sono compatibili con le differenze del processore e sostituiscono quelle attualmente supportate da Hyper-V.  Pertanto, è necessario utilizzare la modalità di compatibilità del processore con migrazioni rapide.  Il Consiglio per i set di cluster consiste nell'utilizzare lo stesso hardware del processore all'interno di ogni singolo cluster, nonché l'intero set di cluster per le migrazioni in tempo reale tra i cluster.
+**Domanda:** In che modo è possibile usare la migrazione in tempo reale tra cluster con processori di generazioni diverse?  <br>
+**Risposta:** I set di cluster non sono compatibili con le differenze del processore e sostituiscono quelle attualmente supportate da Hyper-V.  Pertanto, è necessario utilizzare la modalità di compatibilità del processore con migrazioni rapide.  Il Consiglio per i set di cluster consiste nell'utilizzare lo stesso hardware del processore all'interno di ogni singolo cluster, nonché l'intero set di cluster per le migrazioni in tempo reale tra i cluster.
 
-**Domanda** Il cluster può impostare automaticamente il failover delle macchine virtuali in caso di errore del cluster?  <br>
-**Risposta** In questa versione, le macchine virtuali del set di cluster possono essere migrate solo manualmente tra i cluster. ma non è possibile eseguire il failover automatico. 
+**Domanda:** Il cluster può impostare automaticamente il failover delle macchine virtuali in caso di errore del cluster?  <br>
+**Risposta:** In questa versione, le macchine virtuali del set di cluster possono essere migrate solo manualmente tra i cluster. ma non è possibile eseguire il failover automatico. 
 
-**Domanda** Come è possibile garantire che l'archiviazione sia resiliente agli errori del cluster? <br>
-**Risposta** Usare la soluzione di replica di archiviazione tra cluster (SR) tra i cluster di membri per realizzare la resilienza dell'archiviazione in caso di errori del cluster.
+**Domanda:** Come è possibile garantire che l'archiviazione sia resiliente agli errori del cluster? <br>
+**Risposta:** Usare la soluzione di replica di archiviazione tra cluster (SR) tra i cluster di membri per realizzare la resilienza dell'archiviazione in caso di errori del cluster.
 
-**Domanda** Si usa la replica di archiviazione (SR) per eseguire la replica tra I cluster di membri. I percorsi UNC dello spazio dei nomi del set di cluster cambiano nel failover SR alla destinazione di replica Spazi di archiviazione diretta cluster? <br>
-**Risposta** In questa versione, la modifica del riferimento dello spazio dei nomi del set di cluster non si verifica con il failover SR. Microsoft sa se questo scenario è fondamentale per l'utente e come si prevede di usarlo.
+**Domanda:** Si usa la replica di archiviazione (SR) per eseguire la replica tra I cluster di membri. I percorsi UNC dello spazio dei nomi del set di cluster cambiano nel failover SR alla destinazione di replica Spazi di archiviazione diretta cluster? <br>
+**Risposta:** In questa versione, la modifica del riferimento dello spazio dei nomi del set di cluster non si verifica con il failover SR. Microsoft sa se questo scenario è fondamentale per l'utente e come si prevede di usarlo.
 
-**Domanda** È possibile eseguire il failover delle macchine virtuali tra domini di errore in una situazione di ripristino di emergenza (ad eccezione del fatto che l'intero dominio di errore è stato arrestato)? <br>
-**Risposta** No. si noti che il failover tra cluster all'interno di un dominio di errore logico non è ancora supportato. 
+**Domanda:** È possibile eseguire il failover delle macchine virtuali tra domini di errore in una situazione di ripristino di emergenza (ad eccezione del fatto che l'intero dominio di errore è stato arrestato)? <br>
+**Risposta:** No. si noti che il failover tra cluster all'interno di un dominio di errore logico non è ancora supportato. 
 
-**Domanda** Il cluster può estendersi sui cluster in più siti o domini DNS? <br> 
-**Risposta** Si tratta di uno scenario non testato e non pianificato immediatamente per il supporto di produzione. Microsoft sa se questo scenario è fondamentale per l'utente e come si prevede di usarlo.
+**Domanda:** Il cluster può estendersi sui cluster in più siti o domini DNS? <br>**risposta  
+:** si tratta di uno scenario non testato e non pianificato immediatamente per il supporto di produzione. Microsoft sa se questo scenario è fondamentale per l'utente e come si prevede di usarlo.
 
-**Domanda** Il set di cluster funziona con IPv6? <br>
-**Risposta** Sia IPv4 che IPv6 sono supportati con i set di cluster come per i cluster di failover.
+**Domanda:** Il set di cluster funziona con IPv6? <br>
+**Risposta:** Sia IPv4 che IPv6 sono supportati con i set di cluster come per i cluster di failover.
 
-**Domanda** Quali sono i requisiti della foresta Active Directory per i set di cluster <br>
-**Risposta** Tutti i cluster membro devono trovarsi nella stessa foresta di Active Directory.
+**Domanda:** Quali sono i requisiti della foresta Active Directory per i set di cluster <br>
+**Risposta:** Tutti i cluster membro devono trovarsi nella stessa foresta di Active Directory.
 
-**Domanda** Quanti cluster o nodi possono far parte di un singolo set di cluster? <br>
-**Risposta** In Windows Server 2019 i set di cluster sono stati testati e sono supportati fino a 64 nodi totali del cluster. Tuttavia, il cluster imposta la scalabilità dell'architettura a limiti molto più grandi e non è un elemento hardcoded per un limite. Microsoft sa se la scalabilità più ampia è fondamentale per l'utente e il modo in cui si prevede di usarla.
+**Domanda:** Quanti cluster o nodi possono far parte di un singolo set di cluster? <br>
+**Risposta:** In Windows Server 2019 i set di cluster sono stati testati e sono supportati fino a 64 nodi totali del cluster. Tuttavia, il cluster imposta la scalabilità dell'architettura a limiti molto più grandi e non è un elemento hardcoded per un limite. Microsoft sa se la scalabilità più ampia è fondamentale per l'utente e il modo in cui si prevede di usarla.
 
-**Domanda** Tutti i cluster Spazi di archiviazione diretta in un set di cluster formano un singolo pool di archiviazione? <br>
-**Risposta** No. Spazi di archiviazione diretta tecnologia opera comunque all'interno di un singolo cluster e non tra i cluster membro in un set di cluster.
+**Domanda:** Tutti i cluster Spazi di archiviazione diretta in un set di cluster formano un singolo pool di archiviazione? <br>
+**Risposta:** No. Spazi di archiviazione diretta tecnologia opera comunque all'interno di un singolo cluster e non tra i cluster membro in un set di cluster.
 
-**Domanda** Lo spazio dei nomi del set di cluster è a disponibilità elevata? <br>
-**Risposta** Sì, lo spazio dei nomi del set di cluster viene fornito tramite un server dello spazio dei nomi SOFS a disponibilità continua (CA) in esecuzione nel cluster di gestione. Microsoft consiglia di disporre di un numero sufficiente di macchine virtuali dai cluster membro per renderlo resiliente agli errori localizzati a livello di cluster. Tuttavia, per tenere conto di errori irreversibili non previsti, ad esempio tutte le macchine virtuali nel cluster di gestione si arrestano contemporaneamente, le informazioni di riferimento vengono memorizzate nella cache in modo permanente in ogni nodo del set di cluster, anche in caso di riavvio.
+**Domanda:** Lo spazio dei nomi del set di cluster è a disponibilità elevata? <br>
+**Risposta:** Sì, lo spazio dei nomi del set di cluster viene fornito tramite un server dello spazio dei nomi SOFS a disponibilità continua (CA) in esecuzione nel cluster di gestione. Microsoft consiglia di disporre di un numero sufficiente di macchine virtuali dai cluster membro per renderlo resiliente agli errori localizzati a livello di cluster. Tuttavia, per tenere conto di errori irreversibili non previsti, ad esempio tutte le macchine virtuali nel cluster di gestione si arrestano contemporaneamente, le informazioni di riferimento vengono memorizzate nella cache in modo permanente in ogni nodo del set di cluster, anche in caso di riavvio.
  
-**Domanda** L'accesso di archiviazione basato su spazio dei nomi rallenta le prestazioni di archiviazione in un set di cluster? <br>
-**Risposta** No. Lo spazio dei nomi del set di cluster offre uno spazio dei nomi di riferimento sovrapposto all'interno di un cluster, concettualmente come file system distribuito spazi dei nomi (DFSN) A differenza di DFSN, tutti i metadati del riferimento dello spazio dei nomi del set di cluster vengono compilati automaticamente e aggiornati automaticamente in tutti i nodi senza alcun intervento da parte dell'amministratore, quindi non si verifica alcun sovraccarico delle prestazioni nel percorso di accesso di archiviazione. 
+**Domanda:** L'accesso di archiviazione basato su spazio dei nomi rallenta le prestazioni di archiviazione in un set di cluster? <br>
+**Risposta:** No. Lo spazio dei nomi del set di cluster offre uno spazio dei nomi di riferimento sovrapposto all'interno di un cluster, concettualmente come file system distribuito spazi dei nomi (DFSN) A differenza di DFSN, tutti i metadati del riferimento dello spazio dei nomi del set di cluster vengono compilati automaticamente e aggiornati automaticamente in tutti i nodi senza alcun intervento da parte dell'amministratore, quindi non si verifica alcun sovraccarico delle prestazioni nel percorso di accesso di archiviazione. 
 
-**Domanda** Come è possibile eseguire il backup dei metadati del set di cluster? <br>
-**Risposta** Questa guida è identica a quella del cluster di failover. Il backup dello stato del sistema eseguirà il backup anche dello stato del cluster.  Tramite Windows Server Backup, è possibile eseguire il ripristino di un solo database cluster del nodo, che non dovrebbe mai essere necessario a causa di una serie di logica di correzione automatica, oppure eseguire un ripristino autorevole per eseguire il rollback dell'intero database del cluster in tutti i nodi. Nel caso dei set di cluster, Microsoft consiglia di eseguire un ripristino autorevole per primo sul cluster membro e quindi il cluster di gestione, se necessario.
+**Domanda:** Come è possibile eseguire il backup dei metadati del set di cluster? <br>
+**Risposta:** Questa guida è identica a quella del cluster di failover. Il backup dello stato del sistema eseguirà il backup anche dello stato del cluster.  Tramite Windows Server Backup, è possibile eseguire il ripristino di un solo database cluster del nodo, che non dovrebbe mai essere necessario a causa di una serie di logica di correzione automatica, oppure eseguire un ripristino autorevole per eseguire il rollback dell'intero database del cluster in tutti i nodi. Nel caso dei set di cluster, Microsoft consiglia di eseguire un ripristino autorevole per primo sul cluster membro e quindi il cluster di gestione, se necessario.

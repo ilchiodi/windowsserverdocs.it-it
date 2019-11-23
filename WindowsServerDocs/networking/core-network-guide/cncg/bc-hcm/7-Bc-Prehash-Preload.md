@@ -15,9 +15,9 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 09/27/2019
 ms.locfileid: "71356248"
 ---
-# <a name="prehash-and-preload-content-on-the-hosted-cache-server-optional"></a>Prehash e precaricamento del contenuto nel server cache ospitata \(Optional @ no__t-1
+# <a name="prehash-and-preload-content-on-the-hosted-cache-server-optional"></a>Prehash e precaricamento del contenuto nel server cache ospitata \(facoltativo\)
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 È possibile utilizzare le procedure descritte in questa sezione per prehash content nei server di contenuti, aggiungere il contenuto ai pacchetti di dati e quindi precaricare il contenuto nei server cache ospitata. 
 

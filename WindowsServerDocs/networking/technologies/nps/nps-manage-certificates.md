@@ -19,17 +19,17 @@ ms.locfileid: "71396203"
 
 >Si applica a: Windows Server (Canale semestrale), Windows Server 2016
 
-Se si distribuisce un metodo di autenticazione basato su certificati, ad esempio Extensible Authentication Protocol @ no__t-0Transport Layer Security \(EAP @ no__t-2TLS @ no__t-3, Protected Extensible Authentication Protocol @ no__t-4Transport Layer Security @no__ t-5PEAP @ no__t-6TLS @ no__t-7 e PEAP @ no__t-8Microsoft Challenge Handshake Authentication Protocol versione 2 \(MS @ no__t-10CHAP V2 @ no__t-11, è necessario registrare un certificato server in tutti i NPSs. Il certificato del server deve:
+Se si distribuisce un metodo di autenticazione basato su certificati, ad esempio Extensible Authentication Protocol\-Transport Layer Security \(EAP\-TLS\), Protected Extensible Authentication Protocol\-Transport Layer Security \(PEAP\-TLS\)e PEAP\-Microsoft Challenge Handshake Authentication Protocol versione 2 \(MS\-CHAP v2\), è necessario registrare un certificato server in tutti i NPSs. Il certificato del server deve:
 
 - Soddisfare i requisiti minimi del certificato server come descritto in [configurare i modelli di certificato per i requisiti PEAP e EAP](nps-manage-cert-requirements.md)
 
-- Essere emesso da un'autorità di certificazione \(CA @ no__t-1 considerata attendibile dai computer client. Una CA è considerata attendibile quando il relativo certificato è presente nell'archivio certificati delle autorità di certificazione radice attendibili per l'utente corrente e il computer locale.
+- Essere emesso da un'autorità di certificazione \(\) CA considerata attendibile dai computer client. Una CA è considerata attendibile quando il relativo certificato è presente nell'archivio certificati delle autorità di certificazione radice attendibili per l'utente corrente e il computer locale.
 
-Le istruzioni seguenti consentono di gestire i certificati NPS nelle distribuzioni in cui la CA radice attendibile è una CA di terze parti, ad esempio VeriSign, oppure è un'autorità di certificazione distribuita per l'infrastruttura a chiave pubblica \(PKI @ no__t-1 tramite Active Directory Servizi certificati \(AD CS @ no__t-3.
+Le istruzioni seguenti consentono di gestire i certificati NPS nelle distribuzioni in cui la CA radice attendibile è un'autorità di certificazione di terze parti, ad esempio VeriSign, oppure è un'autorità di certificazione distribuita per l'infrastruttura a chiave pubblica \(infrastruttura a chiave pubblica (PKI)\) utilizzando Servizi certificati Active Directory \(AD CS\).
 
 ## <a name="change-the-cached-tls-handle-expiry"></a>Modificare la scadenza dell'handle TLS memorizzato nella cache
 
-Durante i processi di autenticazione iniziali per EAP @ no__t-0TLS, PEAP @ no__t-1TLS e PEAP @ no__t-2 ms @ no__t-3CHAP V2, NPS memorizza nella cache una parte delle proprietà di connessione TLS del client che si connette. Il client memorizza nella cache anche una parte delle proprietà di connessione TLS di NPS.
+Durante i processi di autenticazione iniziale per EAP\-TLS, PEAP\-TLS e PEAP\-MS\-CHAP v2, NPS memorizza nella cache una parte delle proprietà di connessione TLS del client di connessione. Il client memorizza nella cache anche una parte delle proprietà di connessione TLS di NPS.
 
 Ogni singola raccolta di queste proprietà di connessione TLS viene chiamata handle TLS.
 
@@ -50,7 +50,7 @@ Ad esempio, potrebbe essere necessario ridurre il tempo di scadenza dell'handle 
 
 ## <a name="configure-the-tls-handle-expiry-time-on-client-computers"></a>Configurare l'ora di scadenza dell'handle TLS nei computer client
 
-È possibile utilizzare questa procedura per modificare la quantità di tempo in cui i computer client memorizzano nella cache l'handle TLS di un server dei criteri di server. Dopo aver autenticato un server dei criteri di server, i computer client memorizzano nella cache le proprietà di connessione TLS di NPS come handle TLS. L'handle TLS ha una durata predefinita di 10 ore \(36.000.000 millisecondi @ no__t-1. È possibile aumentare o diminuire l'ora di scadenza dell'handle TLS utilizzando la procedura riportata di seguito.
+È possibile utilizzare questa procedura per modificare la quantità di tempo in cui i computer client memorizzano nella cache l'handle TLS di un server dei criteri di server. Dopo aver autenticato un server dei criteri di server, i computer client memorizzano nella cache le proprietà di connessione TLS di NPS come handle TLS. La durata predefinita dell'handle TLS è di 10 ore \(36 milioni millisecondi\). È possibile aumentare o diminuire l'ora di scadenza dell'handle TLS utilizzando la procedura riportata di seguito.
 
 L'appartenenza a **amministratori**, o equivalente è il requisito minimo necessario per completare questa procedura.
 
@@ -61,7 +61,7 @@ L'appartenenza a **amministratori**, o equivalente è il requisito minimo necess
 
 1. In un server dei criteri di server, aprire l'editor del registro.
 
-2. Passare alla chiave del registro di sistema **HKEY @ no__t-1LOCAL @ no__t-2MACHINE\System\CurrentControlSet\Control\SecurityProviders\SCHANNEL**
+2. Passare alla chiave del registro di sistema **HKEY\_LOCAL\_MACHINE\System\CurrentControlSet\Control\SecurityProviders\SCHANNEL**
 
 3. Scegliere **nuovo**dal menu **modifica** e quindi fare clic su **chiave**.
 
@@ -73,7 +73,7 @@ L'appartenenza a **amministratori**, o equivalente è il requisito minimo necess
 
 ## <a name="configure-the-tls-handle-expiry-time-on-npss"></a>Configurare l'ora di scadenza dell'handle TLS in NPSs
 
-Usare questa procedura per modificare la quantità di tempo per cui NPSs memorizza nella cache il handle TLS dei computer client. Dopo l'autenticazione di un client di Access, NPSs memorizza nella cache le proprietà di connessione TLS del computer client come handle TLS. L'handle TLS ha una durata predefinita di 10 ore \(36.000.000 millisecondi @ no__t-1. È possibile aumentare o diminuire l'ora di scadenza dell'handle TLS utilizzando la procedura riportata di seguito.
+Usare questa procedura per modificare la quantità di tempo per cui NPSs memorizza nella cache il handle TLS dei computer client. Dopo l'autenticazione di un client di Access, NPSs memorizza nella cache le proprietà di connessione TLS del computer client come handle TLS. La durata predefinita dell'handle TLS è di 10 ore \(36 milioni millisecondi\). È possibile aumentare o diminuire l'ora di scadenza dell'handle TLS utilizzando la procedura riportata di seguito.
 
 L'appartenenza a **amministratori**, o equivalente è il requisito minimo necessario per completare questa procedura.
 
@@ -84,7 +84,7 @@ L'appartenenza a **amministratori**, o equivalente è il requisito minimo necess
 
 1. In un server dei criteri di server, aprire l'editor del registro.
 
-2. Passare alla chiave del registro di sistema **HKEY @ no__t-1LOCAL @ no__t-2MACHINE\System\CurrentControlSet\Control\SecurityProviders\SCHANNEL**
+2. Passare alla chiave del registro di sistema **HKEY\_LOCAL\_MACHINE\System\CurrentControlSet\Control\SecurityProviders\SCHANNEL**
 
 3. Scegliere **nuovo**dal menu **modifica** e quindi fare clic su **chiave**.
 
@@ -106,7 +106,7 @@ Per completare questa procedura, è necessario essere un membro del gruppo **Use
 
 ### <a name="to-obtain-the-sha-1-hash-of-a-trusted-root-ca-certificate"></a>Per ottenere l'hash SHA-1 di un certificato CA radice attendibile
 
-1. Nella finestra di dialogo Esegui o Windows PowerShell digitare **MMC**, quindi premere INVIO. Verrà aperto Microsoft Management Console \(MMC @ no__t-1. In MMC fare clic su **file**, quindi su **Aggiungi/Rimuovi Snap\in**. Il **Aggiungi o Rimuovi Snap-in** viene visualizzata la finestra di dialogo.
+1. Nella finestra di dialogo Esegui o Windows PowerShell digitare **MMC**, quindi premere INVIO. Verrà aperto Microsoft Management Console \(MMC\). In MMC fare clic su **file**, quindi su **Aggiungi/Rimuovi Snap\in**. Il **Aggiungi o Rimuovi Snap-in** viene visualizzata la finestra di dialogo.
 
 2. In **Aggiungi o rimuovi snap-in** fare doppio clic su **Certificati** in **Snap-in disponibili**. Verrà visualizzata la procedura guidata snap-in certificati. Fare clic su **Account del computer** e quindi su **Avanti**.
 
@@ -122,9 +122,9 @@ Per completare questa procedura, è necessario essere un membro del gruppo **Use
 
 8. Nell'elenco dei campi scorrere fino a e selezionare **identificazione personale**.
 
-9. Nel riquadro inferiore viene visualizzata la stringa esadecimale che corrisponde all'hash SHA-1 del certificato. Selezionare l'hash SHA-1, quindi premere il tasto di scelta rapida di Windows per il comando copy \(CTRL @ no__t-1C @ no__t-2 per copiare l'hash negli Appunti di Windows.
+9. Nel riquadro inferiore viene visualizzata la stringa esadecimale che corrisponde all'hash SHA-1 del certificato. Selezionare l'hash SHA-1, quindi premere il tasto di scelta rapida di Windows per il comando copy \(CTRL\+C\) per copiare l'hash negli Appunti di Windows.
 
-10. Aprire il percorso in cui si desidera incollare l'hash SHA-1, individuare correttamente il cursore, quindi premere il tasto di scelta rapida di Windows per il comando Incolla \(CTRL @ no__t-1V @ no__t-2. 
+10. Aprire il percorso in cui si desidera incollare l'hash SHA-1, individuare correttamente il cursore, quindi premere il tasto di scelta rapida di Windows per il comando Incolla \(CTRL\+V\). 
 
 Per ulteriori informazioni sui certificati e sui server dei criteri di server, vedere [configurare i modelli di certificato per i requisiti PEAP e EAP](nps-manage-cert-requirements.md).
 

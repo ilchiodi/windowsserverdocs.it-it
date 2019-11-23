@@ -22,7 +22,7 @@ ms.locfileid: "71402986"
 Server di destinazione iSCSI in Windows Server è in grado di avviare centinaia di computer da una singola immagine del sistema operativo archiviata in una posizione centralizzata. Si ottengono così miglioramenti a livello di efficienza, gestibilità, disponibilità e sicurezza.  
   
 ## <a name="BKMK_OVER"></a>Descrizione della funzionalità  
-Utilizzando dischi rigidi virtuali differenze \(VHDs @ no__t-1, è possibile utilizzare una singola immagine del sistema operativo \(Il "immagine master" \) per avviare fino a 256 computer. Si supponga, ad esempio, di aver distribuito Windows Server con un'immagine del sistema operativo di circa 20 GB e di aver usato due unità disco con mirroring per agire come volume di avvio. Sarebbero stati necessari circa 10 TB di spazio di archiviazione per la sola l'immagine del sistema operativo per l'avvio di 256 computer. Con Server di destinazione iSCSI, verranno usati 40 GB per l'immagine di base del sistema operativo e 2 GB per i dischi rigidi virtuali differenze per ogni istanza del server, per un totale di 552 GB per le immagini del sistema operativo. Ciò significa un risparmio di oltre il 90% di spazio di archiviazione per le sole immagini del sistema operativo.  
+Utilizzando dischi rigidi virtuali differenze \(\)VHD, è possibile utilizzare una singola immagine del sistema operativo \(l'\) "immagine master" per avviare fino a 256 computer. Si supponga, ad esempio, di aver distribuito Windows Server con un'immagine del sistema operativo di circa 20 GB e di aver usato due unità disco con mirroring per agire come volume di avvio. Sarebbero stati necessari circa 10 TB di spazio di archiviazione per la sola l'immagine del sistema operativo per l'avvio di 256 computer. Con Server di destinazione iSCSI, verranno usati 40 GB per l'immagine di base del sistema operativo e 2 GB per i dischi rigidi virtuali differenze per ogni istanza del server, per un totale di 552 GB per le immagini del sistema operativo. Ciò significa un risparmio di oltre il 90% di spazio di archiviazione per le sole immagini del sistema operativo.  
   
 ## <a name="BKMK_APP"></a>Applicazioni pratiche  
 L'uso di un'immagine del sistema operativo controllata offre i vantaggi seguenti:  
@@ -37,7 +37,7 @@ L'uso di un'immagine del sistema operativo controllata offre i vantaggi seguenti
 > Diversi fornitori offrono una soluzione di avvio \(SAN\), che può essere usata da Server di destinazione iSCSI in Windows Server su hardware di base.  
   
 ## <a name="BKMK_HARD"></a>Requisiti hardware  
-Server di destinazione iSCSI non richiede hardware speciale per la verifica funzionale. Nei data center con grandi distribuzioni @ no__t-0scale, la progettazione deve essere convalidata in base a hardware specifico. Per riferimento, i test interni di Microsoft hanno indicato che per una distribuzione di 256 computer è necessario 15.000 @ no__t-0RPM disks in una configurazione RAID 10 per l'archiviazione. Una larghezza di banda di 10 GB è ottimale. Una stima generale è di 60 server di avvio iSCSI per ogni scheda di rete da 1 GB.  
+Server di destinazione iSCSI non richiede hardware speciale per la verifica funzionale. Nei data center con distribuzioni di grandi dimensioni\-la progettazione deve essere convalidata in base a hardware specifico. Per riferimento, i test interni di Microsoft hanno indicato che per una distribuzione di 256 computer è necessario 15.000\-RPM disks in una configurazione RAID 10 per l'archiviazione. Una larghezza di banda di 10 GB è ottimale. Una stima generale è di 60 server di avvio iSCSI per ogni scheda di rete da 1 GB.  
   
 Per questo scenario non è necessaria una scheda di rete ed è possibile usare un caricatore di avvio software \(ad esempio il firmware di avvio open source iPXE\).  
   
@@ -47,7 +47,7 @@ Per questo scenario non è necessaria una scheda di rete ed è possibile usare u
 > [!NOTE]
 > L'avvio di Nano Server da iSCSI (da un'implementazione Windows Server di destinazione iSCSI o un'implementazione di teze parti) non è supportato.
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 * [Server di destinazione iSCSI](https://technet.microsoft.com/library/hh848272(v=ws.11).aspx)
 * [cmdlet dell'iniziatore iSCSI](https://technet.microsoft.com/library/hh826099(v=wps.640).aspx)
 * [cmdlet per server di destinazione iSCSI](https://technet.microsoft.com/library/jj612803(v=wps.630).aspx)

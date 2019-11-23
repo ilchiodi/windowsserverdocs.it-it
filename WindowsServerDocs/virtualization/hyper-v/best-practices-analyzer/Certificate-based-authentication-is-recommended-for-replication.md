@@ -25,7 +25,7 @@ Per altre informazioni sulle procedure consigliate e sulle analisi, vedere [Eseg
   
 |Proprietà|Dettagli|  
 |-|-|  
-|**Sistema operativo**|Windows Server 2016|  
+|**Sistema operativo**|Windows Server 2016|  
 |**Prodotto/funzionalità**|Hyper-V|  
 |**Gravità**|Avviso|  
 |**Categoria**|Configurazione|  
@@ -36,12 +36,12 @@ Nelle sezioni seguenti, corsivo indica il testo dell'interfaccia Utente visualiz
 *Una o più macchine virtuali selezionate per la replica sono configurate per l'autenticazione Kerberos.*  
   
 ## <a name="impact"></a>**Impatto**  
-il traffico di rete della replica *The dal server primario al server di replica non è crittografato. Ciò influisca sulle macchine virtuali seguenti:*  
+*Il traffico di rete di replica dal server primario al server di replica non è crittografato. Ciò influisca sulle macchine virtuali seguenti:*  
   
-@no__t 0list di macchine virtuali >  
+\<elenco di macchine virtuali >  
   
 ## <a name="resolution"></a>**Soluzione**  
-*If viene usato un altro metodo per eseguire la crittografia, è possibile ignorare questa operazione. In caso contrario, modificare le impostazioni della macchina virtuale per scegliere l'autenticazione basata su certificati.*  
+*Se viene usato un altro metodo per eseguire la crittografia, è possibile ignorare questa operazione. In caso contrario, modificare le impostazioni della macchina virtuale per scegliere l'autenticazione basata su certificati.*  
   
 
 

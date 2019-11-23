@@ -25,7 +25,7 @@ Per altre informazioni sulle procedure consigliate e sulle analisi, vedere [Eseg
   
 |Proprietà|Dettagli|  
 |-|-|  
-|**Sistema operativo**|Windows Server 2016|  
+|**Sistema operativo**|Windows Server 2016|  
 |**Prodotto/funzionalità**|Hyper-V|  
 |**Gravità**|Configurazione|  
 |**Categoria**|Errore|  
@@ -40,7 +40,7 @@ Nelle sezioni seguenti, corsivo indica il testo dell'interfaccia Utente visualiz
   
 *Microsoft non supporta la configurazione delle macchine virtuali seguenti:*  
   
-@no__t 0list di nomi di macchina virtuale >  
+\<elenco dei nomi delle macchine virtuali >  
   
 ## <a name="resolution"></a>Risoluzione  
   

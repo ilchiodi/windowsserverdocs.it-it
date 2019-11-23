@@ -19,16 +19,16 @@ ms.locfileid: "71405933"
 
 >Si applica a: Windows Server (Canale semestrale), Windows Server 2016
 
-È possibile utilizzare questo argomento per informazioni sulla configurazione della disponibilità elevata e della scalabilità del controller di rete per Software Defined Networking \(SDN @ no__t-1.
+È possibile usare questo argomento per informazioni sulla configurazione della disponibilità elevata e della scalabilità del controller di rete per Software Defined Networking \(SDN\).
 
-Quando si distribuisce SDN nel Data Center, è possibile usare il controller di rete per distribuire, monitorare e gestire in modo centralizzato molti elementi di rete, inclusi i gateway RAS, i bilanciamento del carico software, i criteri di rete virtuale per la comunicazione tenant, il firewall del Data Center criteri, qualità del servizio \(QoS @ no__t-1 per i criteri SDN, i criteri di rete ibrida e altro ancora.
+Quando si distribuisce SDN nel Data Center, è possibile usare il controller di rete per distribuire, monitorare e gestire in modo centralizzato molti elementi di rete, inclusi i gateway RAS, i servizi di bilanciamento del carico software, i criteri di rete virtuale per la comunicazione dei tenant, i criteri del firewall dei Data Center, la qualità del servizio \(QoS\) per i criteri SDN, i criteri di rete ibrida
 
 Poiché il controller di rete è l'elemento fondamentale della gestione SDN, è essenziale per le distribuzioni del controller di rete fornire disponibilità elevata e la possibilità di aumentare o ridurre facilmente i nodi del controller di rete con le esigenze del Data Center.
 
 Sebbene sia possibile distribuire il controller di rete come cluster a computer singolo, per la disponibilità elevata e il failover è necessario distribuire il controller di rete in un cluster con più computer con un minimo di tre computer.
 
 >[!NOTE]
->È possibile distribuire il controller di rete nei computer server o nelle macchine virtuali \(VMs @ no__t-1 che eseguono Windows Server 2016 Datacenter Edition. Se si distribuisce il controller di rete nelle macchine virtuali, le macchine virtuali devono essere in esecuzione in host Hyper-V che eseguono anche Datacenter Edition. Il controller di rete non è disponibile in Windows Server 2016 Standard Edition.
+>È possibile distribuire il controller di rete in computer server o in macchine virtuali \(VM\) che eseguono Windows Server 2016 Datacenter Edition. Se si distribuisce il controller di rete nelle macchine virtuali, le macchine virtuali devono essere in esecuzione in host Hyper-V che eseguono anche Datacenter Edition. Il controller di rete non è disponibile in Windows Server 2016 Standard Edition.
 
 ## <a name="network-controller-as-a-service-fabric-application"></a>Controller di rete come applicazione Service Fabric
 
@@ -45,7 +45,7 @@ L'applicazione controller di rete è costituita da più servizi di Service Fabri
 
 Ogni servizio Service Fabric ha una replica primaria e due repliche secondarie. La replica del servizio primaria elabora le richieste, mentre le due repliche del servizio secondarie forniscono una disponibilità elevata nei casi in cui la replica primaria è disabilitata o non disponibile per qualche motivo.
 
-Nella figura seguente viene illustrato un controller di rete Service Fabric cluster con cinque computer. Quattro servizi vengono distribuiti tra i cinque computer: Servizio firewall, servizio gateway, bilanciamento del carico software \(SLB @ no__t-1 Service e rete virtuale \(Vnet @ no__t-3 Service.  Ognuno dei quattro servizi include una replica del servizio primaria e due repliche del servizio secondarie.
+Nella figura seguente viene illustrato un controller di rete Service Fabric cluster con cinque computer. Quattro servizi vengono distribuiti tra i cinque computer: servizio firewall, servizio gateway, bilanciamento del carico software \(servizio di\) SLB e rete virtuale \(servizio\) vnet.  Ognuno dei quattro servizi include una replica del servizio primaria e due repliche del servizio secondarie.
 
 ![Cluster Service Fabric del controller di rete](../../../media/Network-Controller-HA/Network-Controller-HA.jpg)
 
@@ -62,11 +62,11 @@ Poiché il controller di rete è il nucleo di una rete di Data Center, deve esse
 
 ### <a name="persistent-storage"></a>Archiviazione permanente
 
-Per la configurazione e lo stato dell'applicazione controller di rete sono previsti requisiti di archiviazione di grandi dimensioni. L'applicazione deve essere inoltre utilizzabile nelle interruzioni pianificate e non pianificate. A tale scopo, Service Fabric fornisce un archivio chiave-valore \(KVS @ no__t-1 che è un archivio replicato, transazionale e permanente.
+Per la configurazione e lo stato dell'applicazione controller di rete sono previsti requisiti di archiviazione di grandi dimensioni. L'applicazione deve essere inoltre utilizzabile nelle interruzioni pianificate e non pianificate. A tale scopo, Service Fabric fornisce un archivio chiave-valore \(KVS\) che è un archivio replicato, transazionale e permanente.
 
 ### <a name="modularity"></a>Modularità
 
-Il controller di rete è progettato con un'architettura modulare, con ognuno dei servizi di rete, ad esempio il servizio reti virtuali e il servizio firewall, compilato @ no__t-0cm come singoli servizi. 
+Il controller di rete è progettato con un'architettura modulare, con ognuno dei servizi di rete, ad esempio il servizio di reti virtuali e il servizio firewall, compilati\-come singoli servizi. 
 
 Questa architettura di applicazione offre i vantaggi seguenti.
 
@@ -80,7 +80,7 @@ Service Fabric modularità utilizza gli schemi del modello di servizio per massi
 
 ## <a name="network-controller-deployment-options"></a>Opzioni di distribuzione del controller di rete
 
-Per distribuire il controller di rete usando System Center Virtual Machine Manager \(VMM @ no__t-1, vedere [configurare un controller di rete Sdn nell'infrastruttura VMM](https://technet.microsoft.com/system-center-docs/vmm/scenario/sdn-network-controller).
+Per distribuire il controller di rete usando System Center Virtual Machine Manager \(\)VMM, vedere [configurare un controller di rete Sdn nell'infrastruttura VMM](https://technet.microsoft.com/system-center-docs/vmm/scenario/sdn-network-controller).
 
 Per distribuire il controller di rete usando gli script, vedere [distribuire un'infrastruttura software defined Network usando gli script](../../deploy/Deploy-a-Software-Defined-Network-infrastructure-using-scripts.md).
 

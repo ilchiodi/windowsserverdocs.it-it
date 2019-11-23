@@ -27,7 +27,7 @@ ms.locfileid: "71364915"
   
 |Proprietà|Dettagli|  
 |-|-|  
-|**Sistema operativo**|Windows Server 2016|  
+|**Sistema operativo**|Windows Server 2016|  
 |**Prodotto/funzionalità**|Hyper-V|  
 |**Gravità**|Avviso|  
 |**Categoria**|Configurazione|  
@@ -44,7 +44,7 @@ Il dispositivo video Microsoft Virtual Machine bus è una scheda video virtuale 
   
 *Le prestazioni video per le macchine virtuali seguenti saranno ridotte:*  
   
-@no__t 0list di nomi di macchina virtuale >  
+\<elenco dei nomi delle macchine virtuali >  
   
 ## <a name="resolution"></a>Risoluzione  
   

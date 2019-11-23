@@ -25,7 +25,7 @@ Per altre informazioni sulle procedure consigliate e sulle analisi, vedere [Eseg
   
 |Proprietà|Dettagli|  
 |-|-|  
-|**Sistema operativo**|Windows Server 2016|  
+|**Sistema operativo**|Windows Server 2016|  
 |**Prodotto/funzionalità**|Hyper-V|  
 |**Gravità**|Avviso|  
 |**Categoria**|Configurazione|  
@@ -36,12 +36,12 @@ Nelle sezioni seguenti, corsivo indica il testo dell'interfaccia Utente visualiz
 *Una o più macchine virtuali utilizzano dischi rigidi virtuali differenze.*  
   
 ## <a name="impact"></a>Impatto  
-i dischi rigidi virtuali *Differencing richiedono lo spazio disponibile nel volume di hosting, in modo che lo spazio possa essere allocato quando si verificano scritture nei dischi rigidi virtuali. Se lo spazio disponibile è esaurito, è possibile che una macchina virtuale che si basa sull'archiviazione fisica potrebbe risentirne. Ciò influisca sulle macchine virtuali seguenti:*  
+*Per i dischi rigidi virtuali differenze è necessario spazio disponibile sul volume di hosting, in modo che lo spazio possa essere allocato quando si verificano scritture nei dischi rigidi virtuali. Se lo spazio disponibile è esaurito, potrebbero essere interessate tutte le macchine virtuali che si basano sull'archiviazione fisica. Ciò influisca sulle macchine virtuali seguenti:*  
   
-@no__t 0list di macchine virtuali >  
+\<elenco di macchine virtuali >  
   
 ## <a name="resolution"></a>Risoluzione  
-*Monitor spazio disponibile su disco per garantire che lo spazio disponibile sia sufficiente per l'espansione del disco rigido virtuale. Considerare l'unione dei dischi rigidi virtuali differenze nel relativo elemento padre. In Hyper-V Manager, controllare il disco differenze per determinare il disco rigido virtuale padre. Se si esegue l'unione di un disco differenze in un disco padre che è condiviso da altri dischi differenze, tale azione danneggerà la relazione tra gli altri dischi differenze e il disco padre, rendendo inutilizzabile. Dopo aver verificato che il disco rigido virtuale padre non è condiviso, è possibile utilizzare la modifica guidata disco per unire il disco differenze al disco rigido virtuale padre.*  
+*Monitorare lo spazio disponibile su disco per garantire che lo spazio disponibile sia sufficiente per l'espansione del disco rigido virtuale. Provare a unire i dischi rigidi virtuali differenze nell'elemento padre. Nella console di gestione di Hyper-V, controllare il disco differenze per determinare il disco rigido virtuale padre. Se si unisce un disco differenze a un disco padre condiviso da altri dischi differenze, tale azione danneggerà la relazione tra gli altri dischi differenze e il disco padre, rendendoli inutilizzabili. Dopo aver verificato che il disco rigido virtuale padre non è condiviso, è possibile utilizzare la modifica guidata disco per unire il disco differenze al disco rigido virtuale padre.*  
   
 
 

@@ -33,7 +33,7 @@ Nella figura seguente viene illustrato il modello di comunicazione per NFS.
 
 ### <a name="tuning-parameters-for-nfs-file-servers"></a>Parametri di ottimizzazione per i file server NFS
 
-Le impostazioni del registro di sistema REG @ no__t-0DWORD seguenti possono influire sulle prestazioni dei file server NFS:
+Le seguenti impostazioni del registro di sistema REG\_DWORD possono influire sulle prestazioni dei file server NFS:
 
 -   **OptimalReads**
 
@@ -41,7 +41,7 @@ Le impostazioni del registro di sistema REG @ no__t-0DWORD seguenti possono infl
     HKLM\System\CurrentControlSet\Services\NfsServer\Parameters\OptimalReads
     ```
 
-    Il valore predefinito è 0. Questo parametro determina se i file vengono aperti per il FILE @ no__t-0RANDOM @ no__t-1ACCESS o per il FILE @ no__t-2SEQUENTIAL @ no__t-3ONLY, a seconda delle caratteristiche di I/O del carico di lavoro. Impostare questo valore su 1 per forzare l'apertura dei file per il FILE @ no__t-0RANDOM @ no__t-1ACCESS. Il FILE @ no__t-0RANDOM @ no__t-1ACCESS impedisce la prelettura del file system e del gestore della cache.
+    Il valore predefinito è 0. Questo parametro determina se i file vengono aperti per FILE\_accesso casuale\_o per FILE\_solo\_SEQUENZIAli, a seconda delle caratteristiche di I/O del carico di lavoro. Impostare questo valore su 1 per forzare l'apertura dei file per FILE\_accesso casuale\_. FILE\_accesso casuale\_impedisce la prelettura del file system e del gestore della cache.
 
     >[!NOTE]
     > Questa impostazione deve essere valutata attentamente perché potrebbe avere un impatto potenziale sull'aumento della cache di file di sistema.
@@ -53,7 +53,7 @@ Le impostazioni del registro di sistema REG @ no__t-0DWORD seguenti possono infl
     HKLM\System\CurrentControlSet\Services\NfsServer\Parameters\RdWrHandleLifeTime
     ```
 
-    Il valore predefinito è 5. Questo parametro controlla la durata di una voce della cache NFS nella cache dell'handle di file. Il parametro fa riferimento alle voci della cache a cui è associato un handle di file NTFS aperto. La durata effettiva è approssimativamente uguale a RdWrHandleLifeTime moltiplicato per RdWrThreadSleepTime. Il valore minimo è 1 e il valore massimo è 60.
+    L'impostazione predefinita è 5. Questo parametro controlla la durata di una voce della cache NFS nella cache dell'handle di file. Il parametro fa riferimento alle voci della cache a cui è associato un handle di file NTFS aperto. La durata effettiva è approssimativamente uguale a RdWrHandleLifeTime moltiplicato per RdWrThreadSleepTime. Il valore minimo è 1 e il valore massimo è 60.
 
 -   **RdWrNfsHandleLifeTime**
 
@@ -61,7 +61,7 @@ Le impostazioni del registro di sistema REG @ no__t-0DWORD seguenti possono infl
     HKLM\System\CurrentControlSet\Services\NfsServer\Parameters\RdWrNfsHandleLifeTime
     ```
 
-    Il valore predefinito è 5. Questo parametro controlla la durata di una voce della cache NFS nella cache dell'handle di file. Il parametro fa riferimento alle voci della cache a cui non è associato un handle di file NTFS aperto. Services for NFS usa queste voci di cache per archiviare gli attributi di file per un file senza mantenere un handle aperto con la file system. La durata effettiva è approssimativamente uguale a RdWrNfsHandleLifeTime moltiplicato per RdWrThreadSleepTime. Il valore minimo è 1 e il valore massimo è 60.
+    L'impostazione predefinita è 5. Questo parametro controlla la durata di una voce della cache NFS nella cache dell'handle di file. Il parametro fa riferimento alle voci della cache a cui non è associato un handle di file NTFS aperto. Services for NFS usa queste voci di cache per archiviare gli attributi di file per un file senza mantenere un handle aperto con la file system. La durata effettiva è approssimativamente uguale a RdWrNfsHandleLifeTime moltiplicato per RdWrThreadSleepTime. Il valore minimo è 1 e il valore massimo è 60.
 
 -   **RdWrNfsReadHandlesLifeTime**
 
@@ -69,7 +69,7 @@ Le impostazioni del registro di sistema REG @ no__t-0DWORD seguenti possono infl
     HKLM\System\CurrentControlSet\Services\NfsServer\Parameters\RdWrNfsReadHandlesLifeTime
     ```
 
-    Il valore predefinito è 5. Questo parametro controlla la durata di una voce della cache di lettura NFS nella cache degli handle di file. La durata effettiva è approssimativamente uguale a RdWrNfsReadHandlesLifeTime moltiplicato per RdWrThreadSleepTime. Il valore minimo è 1 e il valore massimo è 60.
+    L'impostazione predefinita è 5. Questo parametro controlla la durata di una voce della cache di lettura NFS nella cache degli handle di file. La durata effettiva è approssimativamente uguale a RdWrNfsReadHandlesLifeTime moltiplicato per RdWrThreadSleepTime. Il valore minimo è 1 e il valore massimo è 60.
 
 -   **RdWrThreadSleepTime**
 
@@ -77,7 +77,7 @@ Le impostazioni del registro di sistema REG @ no__t-0DWORD seguenti possono infl
     HKLM\System\CurrentControlSet\Services\NfsServer\Parameters\RdWrThreadSleepTime
     ```
 
-    Il valore predefinito è 5. Questo parametro controlla l'intervallo di attesa prima di eseguire il thread di pulizia nella cache dell'handle di file. Il valore è in cicli e non è deterministico. Un segno di selezione è equivalente a circa 100 nanosecondi. Il valore minimo è 1 e il valore massimo è 60.
+    L'impostazione predefinita è 5. Questo parametro controlla l'intervallo di attesa prima di eseguire il thread di pulizia nella cache dell'handle di file. Il valore è in cicli e non è deterministico. Un segno di selezione è equivalente a circa 100 nanosecondi. Il valore minimo è 1 e il valore massimo è 60.
 
 -   **FileHandleCacheSizeinMB**
 
@@ -85,7 +85,7 @@ Le impostazioni del registro di sistema REG @ no__t-0DWORD seguenti possono infl
     HKLM\System\CurrentControlSet\Services\NfsServer\Parameters\FileHandleCacheSizeinMB
     ```
 
-    Il valore predefinito è 4. Questo parametro specifica la quantità massima di memoria che deve essere utilizzata dalle voci della cache dell'handle di file. Il valore minimo è 1 e il valore massimo è 1 @ no__t-01024 @ no__t-11024 @ no__t-21024 (1073741824).
+    Il valore predefinito è 4. Questo parametro specifica la quantità massima di memoria che deve essere utilizzata dalle voci della cache dell'handle di file. Il valore minimo è 1 e il valore massimo è 1\*1024\*1024\*1024 (1073741824).
 
 -   **LockFileHandleCacheInMemory**
 

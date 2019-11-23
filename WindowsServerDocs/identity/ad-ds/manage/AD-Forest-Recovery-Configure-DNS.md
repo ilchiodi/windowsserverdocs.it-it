@@ -39,15 +39,15 @@ Completare i passaggi di installazione e configurazione seguenti.
 5. Nella schermata **ruoli server** selezionare **server DNS**, se richiesto, fare clic su **Aggiungi funzionalità** e quindi su **Avanti**.
 6. Nella schermata **funzionalità** fare clic su **Avanti**.
 7. Leggere le informazioni nella pagina **server DNS** e quindi fare clic su **Avanti**.
-   @no__t-server 0DNS @ no__t-1  
+   Server DNS ![](media/AD-Forest-Recovery-Configure-DNS/dns1.png)  
 8. Nella pagina **conferma** verificare che il ruolo server DNS venga installato e quindi fare clic su **Installa**. 
 
 ### <a name="to-configure-the-dns-server-service"></a>Per configurare il servizio server DNS
 
 1. Aprire Server Manager, fare clic su **strumenti** e quindi su **DNS**.
-   @no__t-server 0DNS @ no__t-1
+   Server DNS ![](media/AD-Forest-Recovery-Configure-DNS/dns2.png)
 2. Creare zone DNS per gli stessi nomi di dominio DNS ospitati nei server DNS prima del malfunzionamento critico. Per ulteriori informazioni, vedere la pagina relativa all'aggiunta di una zona di ricerca diretta ([https://go.microsoft.com/fwlink/?LinkId=74574](https://go.microsoft.com/fwlink/?LinkId=74574)).
-3. Configurare i dati DNS esistenti prima del malfunzionamento critico. Esempio:  
+3. Configurare i dati DNS esistenti prima del malfunzionamento critico. Ad esempio:  
 
    - Configurare le zone DNS da archiviare in servizi di dominio Active Directory. Per ulteriori informazioni, vedere Modificare il tipo di zona ([https://go.microsoft.com/fwlink/?LinkId=74579](https://go.microsoft.com/fwlink/?LinkId=74579)).
    - Configurare la zona DNS autorevole per i record di risorse del localizzatore controller di dominio (DC Locator) per consentire l'aggiornamento dinamico protetto. Per ulteriori informazioni, vedere Consenti solo aggiornamenti dinamici protetti ([https://go.microsoft.com/fwlink/?LinkId=74580](https://go.microsoft.com/fwlink/?LinkId=74580)).

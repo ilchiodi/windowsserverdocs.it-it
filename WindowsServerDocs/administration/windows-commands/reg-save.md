@@ -38,19 +38,19 @@ reg save <KeyName> <FileName> [/y]
 
 |Parametro|Descrizione|
 |---------|-----------|
-|\<KeyName >|Specifica il percorso completo della sottochiave. Per specificare i computer remoti, includere il nome del computer (nel formato \\ @ no__t-1ComputerName @ no__t-2 come parte del *nome*della pagina. Se si omette \\ @ no__t-1ComputerName \, l'operazione viene impostata sul computer locale per impostazione predefinita. Il *KeyName* deve includere una chiave radice valido. Le chiavi radice valide per il computer locale sono: HKLM, HKCU, HKCR, HKU e HKCC. Se viene specificato un computer remoto, le chiavi radice valide sono: HKLM e HKU.|
-|\<> FileName|Specifica il nome e percorso del file che viene creato. Se viene specificato alcun percorso, viene utilizzato il percorso corrente.|
+|\<nome della >|Specifica il percorso completo della sottochiave. Per specificare i computer remoti, includere il nome del computer (nel formato \\\\ComputerName\) come parte del *nome*della pagina. Se si omette \\\\nomecomputer \ l'operazione viene impostata sul computer locale per impostazione predefinita. Il *KeyName* deve includere una chiave radice valido. Le chiavi principali valide per il computer locale sono: HKLM, HKCU, HKCR, HKU e HKCC. Se viene specificato un computer remoto, le chiavi principali valide sono: HKLM e HKU.|
+|\<FileName >|Specifica il nome e percorso del file che viene creato. Se viene specificato alcun percorso, viene utilizzato il percorso corrente.|
 |/y|Sovrascrive un file esistente con il nome *FileName* senza chiedere conferma.|
 |/?|Visualizza la Guida per **reg salvare** al prompt dei comandi.|
 
-## <a name="remarks-optional-section"></a>@No__t sezione Osservazioni-0optional >
+## <a name="remarks-optional-section"></a>Osservazioni \<sezione facoltativa >
 
 -   Nella tabella seguente sono elencati i valori restituiti per il **reg salvare** operazione.
 
-|Value|Descrizione|
+|Valore|Descrizione|
 |-----|-----------|
-|0|Riuscito|
-|1|Errore|
+|0|Operazione completata con successo|
+|1|Operazione non riuscita|
 -   Prima di modificare le voci del Registro di sistema, salvare la sottochiave padre con il **reg salvare** operazione. Se la modifica non riesce, ripristinare la sottochiave originale con la **ripristino reg** operazione.
 
 ## <a name="BKMK_examples"></a>Esempi

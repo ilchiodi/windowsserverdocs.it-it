@@ -43,7 +43,7 @@ ms.locfileid: "70865039"
 ## <a name="partition-configuration"></a>Configurazione delle partizioni  
  Durante la configurazione iniziale per il server, nella partizione dati più grande del Disco 0 viene creato un gruppo di cartelle server predefinite che includono cartelle condivise e una cartella di backup del computer client.  
   
-## <a name="see-also"></a>Vedere anche  
+## <a name="see-also"></a>Vedi anche  
 
  [Introduzione con Windows Server Essentials ADK](Getting-Started-with-the-Windows-Server-Essentials-ADK.md)   
  [Creazione e personalizzazione dell'immagine](Creating-and-Customizing-the-Image.md)   
