@@ -25,7 +25,7 @@ Per altre informazioni sulle procedure consigliate e sulle analisi, vedere [Eseg
   
 |Proprietà|Dettagli|  
 |-|-|  
-|**Sistema operativo**|Windows Server 2016|  
+|**Sistema operativo**|Windows Server 2016|  
 |**Prodotto/funzionalità**|Hyper-V|  
 |**Gravità**|Avviso|  
 |**Categoria**|Operazioni|  
@@ -36,9 +36,9 @@ Nelle sezioni seguenti, corsivo indica il testo dell'interfaccia Utente visualiz
 *La risincronizzazione della replica per le macchine virtuali primarie non è pianificata per le ore non di punta.*  
   
 ## <a name="impact"></a>Impatto  
-*The più a lungo una macchina virtuale si trova in uno stato che richiede la risincronizzazione, più a lungo i file di log di replica aumentano e le modifiche non replicate si verificano nelle macchine virtuali primarie. Ciò influisca sulle macchine virtuali seguenti:*  
+*Più a lungo una macchina virtuale si trova in uno stato che richiede la risincronizzazione, più è grande la crescita dei file di log di replica e le modifiche non replicate vengono eseguite nelle macchine virtuali primarie. Ciò influisca sulle macchine virtuali seguenti:*  
   
-@no__t 0list di macchine virtuali >  
+\<elenco di macchine virtuali >  
   
 ## <a name="resolution"></a>Risoluzione  
 *Utilizzare la console di gestione di Hyper-V per modificare le impostazioni di replica per la macchina virtuale in modo da eseguire automaticamente la risincronizzazione durante gli orari di minore utilizzo.*  

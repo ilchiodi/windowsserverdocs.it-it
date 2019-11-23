@@ -38,18 +38,18 @@ reg load KeyName FileName
 
 |Parametro|Descrizione|
 |---------|-----------|
-|\<KeyName >|Specifica il percorso completo della sottochiave da caricare. Per specificare i computer remoti, includere il nome del computer (nel formato \\ @ no__t-1ComputerName @ no__t-2 come parte del *nome*della pagina. Se si omette \\ @ no__t-1ComputerName \, l'operazione viene impostata sul computer locale per impostazione predefinita. Il *KeyName* deve includere una chiave radice valido. Le chiavi radice valide per il computer locale sono: HKLM, HKCU, HKCR, HKU e HKCC. Se viene specificato un computer remoto, le chiavi radice valide sono: HKLM e HKU.|
-|\<> FileName|Specifica il nome e percorso del file da caricare. Questo file deve essere creato in anticipo usando il **reg salvare** operazione e l'estensione hiv.|
+|\<nome della >|Specifica il percorso completo della sottochiave da caricare. Per specificare i computer remoti, includere il nome del computer (nel formato \\\\ComputerName\) come parte del *nome*della pagina. Se si omette \\\\nomecomputer \ l'operazione viene impostata sul computer locale per impostazione predefinita. Il *KeyName* deve includere una chiave radice valido. Le chiavi principali valide per il computer locale sono: HKLM, HKCU, HKCR, HKU e HKCC. Se viene specificato un computer remoto, le chiavi principali valide sono: HKLM e HKU.|
+|\<FileName >|Specifica il nome e percorso del file da caricare. Questo file deve essere creato in anticipo usando il **reg salvare** operazione e l'estensione hiv.|
 |/?|Visualizza la Guida per **Carico reg** al prompt dei comandi.|
 
-## <a name="remarks"></a>Note
+## <a name="remarks"></a>Osservazioni
 
 Nella tabella seguente sono elencati i valori restituiti per il **Carico reg** operazione.
 
-|Value|Descrizione|
+|Valore|Descrizione|
 |-----|-----------|
-|0|Riuscito|
-|1|Errore|
+|0|Operazione completata con successo|
+|1|Operazione non riuscita|
 
 ## <a name="BKMK_examples"></a>Esempi
 

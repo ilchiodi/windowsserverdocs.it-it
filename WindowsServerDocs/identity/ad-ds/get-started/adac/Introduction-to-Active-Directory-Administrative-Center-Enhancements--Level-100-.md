@@ -36,7 +36,7 @@ In Windows Server 2003 Active Directory e Servizi di dominio Active Directory di
 
 A partire da Windows Server 2008 R2, il Cestino per Active Directory si basa sull'infrastruttura esistente di recupero degli oggetti contrassegnati per la rimozione definitiva e amplia le possibilità di salvaguardare e recuperare oggetti Active Directory eliminati in modo accidentale.
 
-Quando si attiva il Cestino per Active Directory, vengono mantenuti tutti gli attributi con valori di collegamento e non di collegamento degli oggetti Active Directory eliminati e gli oggetti vengono interamente ripristinati nello stesso stato logico coerente in cui si trovavano immediatamente prima dell'eliminazione. Gli account utente ripristinati, ad esempio, ottengono di nuovo automaticamente tutte le appartenenze ai gruppi e i diritti di accesso corrispondenti di cui disponevano all'interno del dominio e tra domini immediatamente prima dell'eliminazione. Il Cestino per Active Directory supporta gli ambienti Servizi di dominio Active Directory e Active Directory Lightweight Directory Services. Per una descrizione dettagliata del Cestino Active Directory, vedere [What's New in servizi di dominio Active Directory: Active Directory il cestino @ no__t-0.
+Quando si attiva il Cestino per Active Directory, vengono mantenuti tutti gli attributi con valori di collegamento e non di collegamento degli oggetti Active Directory eliminati e gli oggetti vengono interamente ripristinati nello stesso stato logico coerente in cui si trovavano immediatamente prima dell'eliminazione. Gli account utente ripristinati, ad esempio, ottengono di nuovo automaticamente tutte le appartenenze ai gruppi e i diritti di accesso corrispondenti di cui disponevano all'interno del dominio e tra domini immediatamente prima dell'eliminazione. Il Cestino per Active Directory supporta gli ambienti Servizi di dominio Active Directory e Active Directory Lightweight Directory Services. Per una descrizione dettagliata del Cestino di Active Directory, vedere [Novità di Servizi di dominio Active Directory: Cestino per Active Directory](https://technet.microsoft.com/library/dd391916(WS.10).aspx).
 
 **Novità** In Windows Server 2012 e versioni successive, la funzionalità Active Directory Cestino è stata migliorata con una nuova interfaccia utente grafica che consente agli utenti di gestire e ripristinare gli oggetti eliminati. Gli utenti possono infatti visualizzare un elenco di oggetti eliminati e ripristinarli nei percorsi originali o a scelta.
 
@@ -55,15 +55,15 @@ Se si prevede di abilitare Active Directory Cestino in Windows Server, tenere pr
 
 Nei passaggi seguenti si userà centro di attività per eseguire le seguenti attività di Active Directory Cestino in Windows Server 2012:
 
-- [Passaggio 1: Aumentare il livello di funzionalità della foresta @ no__t-0
-- [Passaggio 2: Enable cestino @ no__t-0
-- [Passaggio 3: Creare utenti di test, gruppo e unità organizzativa @ no__t-0
-- [Passaggio 4: Ripristinare oggetti eliminati @ no__t-0
+- [Passaggio 1: aumentare il livello di funzionalità della foresta](../../../ad-ds/get-started/adac/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-.md#bkmk_raise_ffl)
+- [Passaggio 2: abilitare il cestino](../../../ad-ds/get-started/adac/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-.md#bkmk_enable_recycle_bin)
+- [Passaggio 3: creare utenti, gruppo e unità organizzativa di prova](../../../ad-ds/get-started/adac/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-.md#bkmk_create_test_env)
+- [Passaggio 4: ripristinare gli oggetti eliminati](../../../ad-ds/get-started/adac/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-.md#bkmk_restore_del_obj)
 
 > [!NOTE]
 > Per eseguire i passaggi seguenti, è necessario essere membri del gruppo Enterprise Admins o disporre di autorizzazioni equivalenti.
 
-### <a name="bkmk_raise_ffl"></a>Passaggio 1: Aumentare il livello di funzionalità della foresta
+### <a name="bkmk_raise_ffl"></a>Passaggio 1: aumentare il livello di funzionalità della foresta
 
 In questo passaggio si aumenterà il livello di funzionalità della foresta. Prima di abilitare Active Directory Cestino, è necessario aumentare il livello di funzionalità della foresta di destinazione in modo che sia Windows Server 2008 R2 almeno.
 
@@ -75,7 +75,7 @@ In questo passaggio si aumenterà il livello di funzionalità della foresta. Pri
 
 3. Fare clic sul dominio di destinazione nel riquadro di spostamento a sinistra e nel riquadro **Attività** fare clic su **Aumenta livello di funzionalità foresta**. Selezionare un livello di funzionalità della foresta almeno Windows Server 2008 R2 o versione successiva, quindi fare clic su **OK**.
 
-![Intro ai](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em> per il centro di amministrazione di Active Directory***
+![Introduzione ai](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em> per il centro di amministrazione di Active Directory***
 
 Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.
 
@@ -85,7 +85,7 @@ Set-ADForestMode -Identity contoso.com -ForestMode Windows2008R2Forest -Confirm:
 
 Per l'argomento **-Identity** specificare il nome di dominio DNS completo.
 
-### <a name="bkmk_enable_recycle_bin"></a>Passaggio 2: Abilitare il Cestino
+### <a name="bkmk_enable_recycle_bin"></a>Passaggio 2: abilitare il cestino
 
 In questo passaggio si abiliterà il Cestino per ripristinare oggetti eliminati in Servizi di directory Active Directory.
 
@@ -99,7 +99,7 @@ In questo passaggio si abiliterà il Cestino per ripristinare oggetti eliminati 
 
 4. Premere F5 per aggiornare Centro di amministrazione di Active Directory.
 
-![Intro ai](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em> per il centro di amministrazione di Active Directory***
+![Introduzione ai](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em> per il centro di amministrazione di Active Directory***
 
 Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.
 
@@ -107,7 +107,7 @@ Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione 
 Enable-ADOptionalFeature -Identity 'CN=Recycle Bin Feature,CN=Optional Features,CN=Directory Service,CN=Windows NT,CN=Services,CN=Configuration,DC=contoso,DC=com' -Scope ForestOrConfigurationSet -Target 'contoso.com'
 ```
 
-### <a name="bkmk_create_test_env"></a>Passaggio 3: Creare utenti, gruppo e unità organizzativa di prova
+### <a name="bkmk_create_test_env"></a>Passaggio 3: creare utenti, gruppo e unità organizzativa di prova
 
 Nelle procedure seguenti si creeranno due utenti di prova. Si creerà quindi un gruppo di prova al quale aggiungere gli utenti di prova. Si creerà infine un'unità organizzativa.
 
@@ -142,7 +142,7 @@ Nelle procedure seguenti si creeranno due utenti di prova. Si creerà quindi un 
 5. Fare clic su **group1**e quindi nel riquadro **Attività** fare clic su **Proprietà**.
 6. Fare clic su **Membri**e su **Aggiungi**, digitare **test1;test2**e quindi fare clic su **OK**.
 
-![Intro ai](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em> per il centro di amministrazione di Active Directory***
+![Introduzione ai](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em> per il centro di amministrazione di Active Directory***
 
 Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.
 
@@ -159,7 +159,7 @@ Add-ADGroupMember -Identity group1 -Member test1
 
    - **NameOU1**
 
-![Intro ai](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em> per il centro di amministrazione di Active Directory***
+![Introduzione ai](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em> per il centro di amministrazione di Active Directory***
 
 Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.
 
@@ -169,7 +169,7 @@ New-ADGroup -Name "group1" -SamAccountName group1 -GroupCategory Security -Group
 New-ADOrganizationalUnit -Name OU1 -Path "DC=fabrikam,DC=com"
 ```
 
-### <a name="bkmk_restore_del_obj"></a>Passaggio 4: Ripristinare gli oggetti eliminati
+### <a name="bkmk_restore_del_obj"></a>Passaggio 4: ripristinare gli oggetti eliminati
 
 Nelle procedure seguenti gli oggetti eliminati presenti nel contenitore **Oggetti eliminati** verranno ripristinati nel percorso originale e in un percorso diverso.
 
@@ -181,7 +181,7 @@ Nelle procedure seguenti gli oggetti eliminati presenti nel contenitore **Oggett
 
 3. Selezionare gli utenti **test1** e **test2**, fare clic su **Elimina** nel riquadro **Attività** e quindi fare clic su **Sì** per confermare l'eliminazione.
 
-    ![Intro ai](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em> per il centro di amministrazione di Active Directory***
+    ![Introduzione ai](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em> per il centro di amministrazione di Active Directory***
 
     Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.
 
@@ -198,7 +198,7 @@ Nelle procedure seguenti gli oggetti eliminati presenti nel contenitore **Oggett
 
 Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.
 
-![Intro ai](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em> per il centro di amministrazione di Active Directory***
+![Introduzione ai](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em> per il centro di amministrazione di Active Directory***
 
 ```powershell
 Get-ADObject -Filter 'Name -Like "*test*"' -IncludeDeletedObjects | Restore-ADObject
@@ -218,7 +218,7 @@ Get-ADObject -Filter 'Name -Like "*test*"' -IncludeDeletedObjects | Restore-ADOb
 
 6. Per confermare che gli oggetti sono stati ripristinati in **OU1**, passare al dominio di destinazione, fare doppio clic su **OU1** e verificare che gli account utente sono inclusi nell'elenco.
 
-![Intro ai](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em> per il centro di amministrazione di Active Directory***
+![Introduzione ai](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em> per il centro di amministrazione di Active Directory***
 
 Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.
 
@@ -230,7 +230,7 @@ Get-ADObject -Filter 'Name -Like "*test*"' -IncludeDeletedObjects | Restore-ADOb
 
 Il sistema operativo Windows Server 2008 consente alle organizzazioni di definire criteri password e di blocco account diversi a seconda del gruppo di utenti di un dominio. Nei domini di Active Directory di versioni precedenti a Windows Server 2008 è possibile applicare un solo criterio password e di blocco account a tutti gli utenti del dominio. Tali criteri vengono specificati nei criteri di dominio predefiniti del dominio. Di conseguenza, per definire impostazioni diverse per le password e il blocco degli account a seconda dei gruppi di utenti, le organizzazioni devono creare un filtro password o distribuire più domini, opzioni entrambe onerose.
 
-È ora possibile utilizzare criteri granulari per le password per specificare più criteri password in un unico dominio e applicare restrizioni diverse per i criteri password e di blocco account a seconda dei gruppi di utenti di un dominio. È ad esempio possibile applicare impostazioni più rigide ad account con privilegi e impostazioni meno rigide per gli account di altri utenti. In altri casi è opportuno applicare criteri password speciali per gli account le cui password vengono sincronizzate con altre origini dati. Per una descrizione dettagliata dei criteri granulari per le password, vedere [AD DS: Criteri granulari per le password @ no__t-0
+È ora possibile utilizzare criteri granulari per le password per specificare più criteri password in un unico dominio e applicare restrizioni diverse per i criteri password e di blocco account a seconda dei gruppi di utenti di un dominio. È ad esempio possibile applicare impostazioni più rigide ad account con privilegi e impostazioni meno rigide per gli account di altri utenti. In altri casi è opportuno applicare criteri password speciali per gli account le cui password vengono sincronizzate con altre origini dati. Per una descrizione dettagliata dei criteri granulari per le password, vedere [Servizi di dominio Active Directory: Criteri granulari per le password](https://technet.microsoft.com/library/cc770394(WS.10).aspx)
 
 **Novità**
 
@@ -251,17 +251,17 @@ Se si prevede di usare i criteri granulari per le password in Windows Server 201
 
 Nei passaggi seguenti si utilizzerà Centro di amministrazione di Active Directory per eseguire le attività seguenti relative ai criteri granulari per le password:
 
-- [Passaggio 1: Aumentare il livello di funzionalità del dominio @ no__t-0
-- [Passaggio 2: Creare utenti di test, gruppo e unità organizzativa @ no__t-0
-- [Passaggio 3: Creare un nuovo criterio granulare per le password @ no__t-0
-- [Passaggio 4: Visualizzare un set di criteri risultante per un utente @ no__t-0
-- [Passaggio 5: Modificare i criteri granulari per le password @ no__t-0
-- [Passaggio 6: Eliminare i criteri granulari per le password @ no__t-0
+- [Passaggio 1: aumentare il livello di funzionalità del dominio](../../../ad-ds/get-started/adac/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-.md#bkmk_raise_dfl)
+- [Passaggio 2: creare utenti, gruppo e unità organizzativa di prova](../../../ad-ds/get-started/adac/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-.md#bkmk2_test_fgpp)
+- [Passaggio 3: creare nuovi criteri granulari per le password](../../../ad-ds/get-started/adac/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-.md#bkmk_create_fgpp)
+- [Passaggio 4: visualizzare un set di criteri risultante per un utente](../../../ad-ds/get-started/adac/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-.md#bkmk_view_resultant_fgpp)
+- [Passaggio 5: modificare i criteri granulari per le password](../../../ad-ds/get-started/adac/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-.md#bkmk_edit_fgpp)
+- [Passaggio 6: eliminare i criteri granulari per le password](../../../ad-ds/get-started/adac/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-.md#bkmk_delete_fgpp)
 
 > [!NOTE]
 > Per eseguire i passaggi seguenti, è necessario essere membri del gruppo Domain Admins o disporre di autorizzazioni equivalenti.
 
-#### <a name="bkmk_raise_dfl"></a>Passaggio 1: Aumentare il livello di funzionalità del dominio
+#### <a name="bkmk_raise_dfl"></a>Passaggio 1: aumentare il livello di funzionalità del dominio
 
 Nella procedura seguente si aumenterà il livello di funzionalità del dominio di destinazione a Windows Server 2008 o versione successiva. Per abilitare i criteri granulari per le password, è necessario un livello di funzionalità del dominio di Windows Server 2008 o versione successiva.
 
@@ -273,7 +273,7 @@ Nella procedura seguente si aumenterà il livello di funzionalità del dominio d
 
 3. Fare clic sul dominio di destinazione nel riquadro di spostamento a sinistra, quindi nel riquadro **Attività** fare clic su **Aumenta livello di funzionalità dominio**. Selezionare un livello di funzionalità della foresta almeno Windows Server 2008 o versione successiva, quindi fare clic su **OK**.
 
-![Intro ai](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em> per il centro di amministrazione di Active Directory***
+![Introduzione ai](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em> per il centro di amministrazione di Active Directory***
 
 Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.
 
@@ -281,11 +281,11 @@ Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione 
 Set-ADDomainMode -Identity contoso.com -DomainMode 3
 ```
 
-#### <a name="bkmk2_test_fgpp"></a>Passaggio 2: Creare utenti, gruppo e unità organizzativa di prova
+#### <a name="bkmk2_test_fgpp"></a>Passaggio 2: creare utenti, gruppo e unità organizzativa di prova
 
-Per creare gli utenti e il gruppo di test necessari per questo passaggio, seguire le procedure disponibili qui: [Passaggio 3: Creare utenti di test, gruppo e unità organizzativa @ no__t-0 (non è necessario creare l'unità organizzativa per dimostrare i criteri granulari per le password).
+Per creare gli utenti e il gruppo di test necessari per questo passaggio, seguire le procedure riportate di seguito: [Step 3: Create Test Users, Group and Organizational Unit](../../../ad-ds/get-started/adac/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-.md#bkmk_create_test_env) (non è necessario creare l'unità organizzativa per dimostrare i criteri granulari per le password).
 
-#### <a name="bkmk_create_fgpp"></a>Passaggio 3: Creare un nuovo criterio granulare per le password
+#### <a name="bkmk_create_fgpp"></a>Passaggio 3: creare nuovi criteri granulari per le password
 
 Nella procedura seguente si creerà un nuovo criterio granulare per le password utilizzando l'interfaccia utente di Centro di amministrazione di Active Directory.
 
@@ -309,7 +309,7 @@ Nella procedura seguente si creerà un nuovo criterio granulare per le password 
 
 6. Fare clic su **OK** per completare la creazione.
 
-![Intro ai](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em> per il centro di amministrazione di Active Directory***
+![Introduzione ai](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em> per il centro di amministrazione di Active Directory***
 
 Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.
 
@@ -318,9 +318,9 @@ New-ADFineGrainedPasswordPolicy TestPswd -ComplexityEnabled:$true -LockoutDurati
 Add-ADFineGrainedPasswordPolicySubject TestPswd -Subjects group1
 ```
 
-#### <a name="bkmk_view_resultant_fgpp"></a>Passaggio 4: Visualizzare un insieme risultante di criteri per un utente
+#### <a name="bkmk_view_resultant_fgpp"></a>Passaggio 4: visualizzare un set di criteri risultante per un utente
 
-Nella procedura seguente vengono visualizzate le impostazioni della password risultanti per un utente membro del gruppo a cui è stato assegnato un criterio granulare per le password in [Step 3: Creare un nuovo criterio granulare per le password @ no__t-0.
+Nella procedura seguente si visualizzeranno le impostazioni password risultanti per un utente membro del gruppo a cui è stato assegnato un criterio granulare per le password in [Step 3: Create a new fine-grained password policy](../../../ad-ds/get-started/adac/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-.md#bkmk_create_fgpp).
 
 ##### <a name="to-view-a-resultant-set-of-policies-for-a-user"></a>Per visualizzare un insieme risultante di criteri per un utente
 
@@ -328,13 +328,13 @@ Nella procedura seguente vengono visualizzate le impostazioni della password ris
 
 2. Fare clic su **Gestisci**e su **Aggiungi nodi di spostamento** . Selezionare il dominio di destinazione appropriato nella finestra di dialogo **Aggiungi nodi di spostamento** e quindi fare clic su **OK**.
 
-3. Selezionare un utente **test1** appartenente al gruppo **Group1** a cui è stato associato un criterio granulare per le password con in [step 3: Creare un nuovo criterio granulare per le password @ no__t-0.
+3. Selezionare un utente **test1** appartenente al gruppo **group1** a cui è stato associato un criterio granulare per le password in [Passaggio 3: Creare nuovi criteri granulari per le password](../../../ad-ds/get-started/adac/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-.md#bkmk_create_fgpp).
 
 4. Fare clic su **Visualizza impostazioni password risultanti** nel riquadro **Attività**.
 
 5. Esaminare i criteri di impostazione password e quindi fare clic su **Annulla**.
 
-![Intro ai](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em> per il centro di amministrazione di Active Directory***
+![Introduzione ai](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em> per il centro di amministrazione di Active Directory***
 
 Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.
 
@@ -342,9 +342,9 @@ Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione 
 Get-ADUserResultantPasswordPolicy test1
 ```
 
-#### <a name="bkmk_edit_fgpp"></a>Passaggio 5: Modificare un criterio granulare per le password
+#### <a name="bkmk_edit_fgpp"></a>Passaggio 5: modificare i criteri granulari per le password
 
-Nella procedura seguente si modificherà il criterio granulare per le password creato in [Step 3: Creare un nuovo criterio granulare per le password @ no__t-0
+Nella procedura seguente si modificherà il criterio granulare per le password creato in [Passaggio 3: Creare nuovi criteri granulari per le password](../../../ad-ds/get-started/adac/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-.md#bkmk_create_fgpp).
 
 ##### <a name="to-edit-a-fine-grained-password-policy"></a>Per modificare un criterio granulare per le password
 
@@ -354,13 +354,13 @@ Nella procedura seguente si modificherà il criterio granulare per le password c
 
 3. Nel **riquadro di spostamento** di Centro di amministrazione di Active Directory espandere **Sistema** e fare clic su **Contenitore Impostazioni password**.
 
-4. Selezionare i criteri granulari per le password creati in [Step 3: Creare un nuovo criterio granulare per le password @ no__t-0 e fare clic su **Proprietà** nel riquadro **attività** .
+4. Selezionare i criteri granulari per le password creati in [Step 3: Create a new fine-grained password policy](../../../ad-ds/get-started/adac/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-.md#bkmk_create_fgpp) e fare clic su **Proprietà** nel riquadro **Attività** .
 
 5. In **Imponi cronologia delle password** modificare il valore di **Numero di password memorizzate** in **30**.
 
-6. Fare clic su **OK**.
+6. Fai clic su **OK**.
 
-![Intro ai](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em> per il centro di amministrazione di Active Directory***
+![Introduzione ai](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em> per il centro di amministrazione di Active Directory***
 
 Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.
 
@@ -368,7 +368,7 @@ Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione 
 Set-ADFineGrainedPasswordPolicy TestPswd -PasswordHistoryCount:"30"
 ```
 
-#### <a name="bkmk_delete_fgpp"></a>Passaggio 6: Eliminare criteri granulari per le password
+#### <a name="bkmk_delete_fgpp"></a>Passaggio 6: eliminare i criteri granulari per le password
 
 ##### <a name="to-delete-a-fine-grained-password-policy"></a>Per eliminare criteri granulari per le password
 
@@ -378,7 +378,7 @@ Set-ADFineGrainedPasswordPolicy TestPswd -PasswordHistoryCount:"30"
 
 3. Nel riquadro di spostamento di Centro di amministrazione di Active Directory espandere **Sistema** e fare clic sul contenitore **Impostazioni password**.
 
-4. Selezionare i criteri granulari per le password creati in [Step 3: Creare un nuovo criterio granulare per le password @ no__t-0 e nel riquadro **attività** fare clic su **Proprietà**.
+4. Selezionare i criteri granulari per le password creati in [Step 3: Create a new fine-grained password policy](../../../ad-ds/get-started/adac/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-.md#bkmk_create_fgpp) e fare clic su **Proprietà** nel riquadro **Attività**.
 
 5. Deselezionare la casella di controllo **Proteggi da eliminazioni accidentali** e fare clic su **OK**.
 
@@ -386,7 +386,7 @@ Set-ADFineGrainedPasswordPolicy TestPswd -PasswordHistoryCount:"30"
 
 7. Fare clic su **OK** nella finestra di dialogo di conferma.
 
-![Intro ai](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em> per il centro di amministrazione di Active Directory***
+![Introduzione ai](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em> per il centro di amministrazione di Active Directory***
 
 Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.
 
@@ -434,6 +434,6 @@ Nella procedura seguente si utilizzerà il Visualizzatore della cronologia di Wi
 
     È ad esempio possibile modificare il comando per aggiungere un utente diverso a **group1** oppure aggiungere **test1** a un gruppo diverso.
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 [Gestione avanzata di servizi di dominio &#40;Active Directory con livello centro di amministrazione di Active Directory 200&#41;](Advanced-AD-DS-Management-Using-Active-Directory-Administrative-Center--Level-200-.md)

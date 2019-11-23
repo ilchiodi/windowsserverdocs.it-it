@@ -40,23 +40,23 @@ more [/c] [/p] [/s] [/t<N>] [+<N>] [<Files>]
 
 |           Parametro            |                               Descrizione                               |
 |--------------------------------|-------------------------------------------------------------------------|
-|           \<Command >           |      Specifica un comando per il quale si desidera visualizzare l'output.      |
+|           Comando \<>           |      Specifica un comando per il quale si desidera visualizzare l'output.      |
 |               /c               |               Cancella lo schermo prima di visualizzare una pagina.               |
-|               / p               |                      Espande i caratteri del feed di form.                      |
+|               /p               |                      Espande i caratteri del feed di form.                      |
 |               /s               |          Visualizza più righe vuote come una singola riga vuota.          |
-|             /t @ no__t-0N >             |         Visualizza le schede come numero di spazi specificato da *N*.         |
-|             + @ NO__T-1N >              |     Visualizza il primo file a partire dalla riga specificata da *N*.     |
-| [\<Drive >:] [\<Path >] \<FileName > |          Specifica il percorso e il nome di un file da visualizzare.          |
-|            \<Files >            | Specifica un elenco di file da visualizzare. Separare i nomi di file con uno spazio. |
+|             /t\<N >             |         Visualizza le schede come numero di spazi specificato da *N*.         |
+|             +\<N >              |     Visualizza il primo file a partire dalla riga specificata da *N*.     |
+| [\<unità >:] [\<percorso >]\<FileName > |          Specifica il percorso e il nome di un file da visualizzare.          |
+|            File di \<>            | Specifica un elenco di file da visualizzare. Separare i nomi di file con uno spazio. |
 |               /?               |                  Visualizza la guida al prompt dei comandi.                   |
 
-## <a name="remarks"></a>Note
+## <a name="remarks"></a>Osservazioni
 
 -   I sottocomandi seguenti sono accettati al prompt **più** (`-- More --`). 
 
     | Chiave | Azione |
     | --- | ------ |
-    | BARRA SPAZIATRICE | Consente di visualizzare la pagina successiva. |
+    | BARRA spaziatrice | Consente di visualizzare la pagina successiva. |
     | INVIO | Consente di visualizzare la riga successiva. |
     | f | Consente di visualizzare il file successivo. |
     | q | Chiude il comando **more** . |

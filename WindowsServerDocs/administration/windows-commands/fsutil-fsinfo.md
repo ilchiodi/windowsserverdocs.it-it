@@ -37,7 +37,7 @@ fsutil fsinfo [volumeinfo] <RootPath>
 
 |Parametro|Descrizione|
 |-------------|---------------|
-|Unità|Elenca tutte le unità del computer.|
+|unità|Elenca tutte le unità del computer.|
 |DriveType|Esegue una query su un'unità e ne elenca il tipo, ad esempio l'unità CD-ROM.|
 |ntfsinfo|Elenca le informazioni sul volume specifico NTFS per il volume specificato, ad esempio il numero di settori, i cluster totali, i cluster gratuiti e l'inizio e la fine della zona MFT.|
 |sectorinfo|Elenca le informazioni sulle dimensioni e sull'allineamento del settore dell'hardware.|

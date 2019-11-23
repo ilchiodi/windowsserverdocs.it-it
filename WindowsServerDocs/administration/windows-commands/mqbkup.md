@@ -22,7 +22,7 @@ ms.locfileid: "71373506"
 ---
 # <a name="mqbkup"></a>mqbkup
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Consente di eseguire il backup dei file di messaggi MSMQ e delle impostazioni del registro di sistema in un dispositivo di archiviazione e di ripristinare i messaggi e le impostazioni archiviati in precedenza.   
 Il servizio MSMQ locale viene arrestato sia dal backup che dall'operazione di ripristino. Se il servizio MSMQ è stato avviato in anticipo, l'utilità tenterà di riavviare il servizio MSMQ alla fine del backup o dell'operazione di ripristino. Se il servizio è già stato arrestato prima di eseguire l'utilità, non viene eseguito alcun tentativo di riavviare il servizio.  
@@ -36,7 +36,7 @@ mqbkup {/b | /r} <folder path_to_storage_device>
 |-------|--------|  
 |/ b|Specifica l'operazione di backup|  
 |/r|Specifica l'operazione di ripristino|  
-|< cartella path_to_storage @ no__t-0device >|Specifica il percorso in cui sono archiviati i file dei messaggi MSMQ e le impostazioni del registro di sistema|  
+|< cartella path_to_storage\_dispositivo >|Specifica il percorso in cui sono archiviati i file dei messaggi MSMQ e le impostazioni del registro di sistema|  
 |/?|Visualizza la guida al prompt dei comandi.|  
 ## <a name="BKMK_Examples"></a>Esempi  
 Per eseguire il backup di tutti i file di messaggi MSMQ e le impostazioni del registro di sistema e archiviarli nella cartella *Msmqbkup* nell'unità C:.  
@@ -53,5 +53,5 @@ Per ripristinare i messaggi MSMQ e le impostazioni del registro di sistema:
 mqbkup /r c:\msmqbkup  
 ```  
 I percorsi delle cartelle utilizzate per archiviare i file di messaggi MSMQ vengono archiviati nel registro di sistema. In questo modo, l'utilità ripristinerà i file di messaggi MSMQ alle cartelle specificate nel registro di sistema e non alle cartelle di archiviazione utilizzate prima dell'operazione di ripristino. Se le cartelle specificate nel registro di sistema non esistono, l'operazione di ripristino li creerà automaticamente. Se le directory delle cartelle esistono e non sono vuote, l'utilità richiede l'autorizzazione per eliminare il contenuto corrente di queste cartelle.  
-## <a name="additional-references"></a>Riferimenti aggiuntivi  
+## <a name="additional-references"></a>riferimenti aggiuntivi  
 -   [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)  

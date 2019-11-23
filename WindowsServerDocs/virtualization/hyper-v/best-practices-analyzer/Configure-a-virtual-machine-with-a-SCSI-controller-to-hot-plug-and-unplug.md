@@ -27,7 +27,7 @@ ms.locfileid: "71365067"
   
 |Proprietà|Dettagli|  
 |-|-|  
-|**Sistema operativo**|Windows Server 2016|  
+|**Sistema operativo**|Windows Server 2016|  
 |**Prodotto/funzionalità**|Hyper-V|  
 |**Gravità**|Avviso|  
 |**Categoria**|Configurazione|  
@@ -42,13 +42,13 @@ Nelle sezioni seguenti, corsivo indica il testo dell'interfaccia Utente visualiz
   
 *Non sarà possibile collegare o scollegare a caldo l'archiviazione per le macchine virtuali seguenti:*  
   
-@no__t 0list di nomi di macchina virtuale >  
+\<elenco dei nomi delle macchine virtuali >  
   
 La possibilità di inserimento o scollegare a caldo archiviazione rende più semplice gestire le esigenze di archiviazione di una macchina virtuale senza tempi di inattività. Prima di poter aggiungere o rimuovere spazio di archiviazione, è necessario arrestare le macchine virtuali senza controller SCSI.  
   
 ## <a name="resolution"></a>Risoluzione  
   
-*If non è necessario eseguire il plug-in o scollegare a caldo lo spazio di archiviazione per questa macchina virtuale. non è richiesta alcuna azione. In caso contrario, arrestare la macchina virtuale e aggiungere un controller SCSI alla configurazione.*  
+*Se non è necessario eseguire il plug-in o scollegare a caldo lo spazio di archiviazione per questa macchina virtuale, non è necessaria alcuna azione. In caso contrario, arrestare la macchina virtuale e aggiungere un controller SCSI alla configurazione.*  
   
 Per utilizzare un controller SCSI a caldo e a caldo scollegare archiviazione, il sistema operativo guest deve essere in esecuzione la versione corrente di integration services.  
   

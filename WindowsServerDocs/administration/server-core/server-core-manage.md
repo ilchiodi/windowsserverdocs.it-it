@@ -30,7 +30,7 @@ ms.locfileid: "71383403"
 
 Quando si lavora con Server Core, è necessario tenere presenti alcune limitazioni e suggerimenti importanti:
 
-- Se si chiudono tutte le finestre del prompt dei comandi e si desidera aprire una nuova finestra del prompt dei comandi, è possibile eseguire questa operazione da Gestione attività. Premere **CTRL @ no__t-1ALT @ no__t-2DELETE**, fare clic su **Avvia Gestione attività**, fare clic su **altre informazioni > File > Esegui**, quindi digitare **cmd. exe**. Digitare **PowerShell. exe** per aprire una finestra di comando di PowerShell. In alternativa, è possibile disconnettersi e quindi eseguire di nuovo l'accesso.
+- Se si chiudono tutte le finestre del prompt dei comandi e si desidera aprire una nuova finestra del prompt dei comandi, è possibile eseguire questa operazione da Gestione attività. Premere **CTRL\+ALT\+Elimina**, fare clic su **Avvia Gestione attività**, fare clic su **altri dettagli > File > Esegui**, quindi digitare **cmd. exe**. Digitare **PowerShell. exe** per aprire una finestra di comando di PowerShell. In alternativa, è possibile disconnettersi e quindi eseguire di nuovo l'accesso.
 - Qualsiasi comando o strumento tenti di avviare Esplora risorse non funzionerà. Ad esempio, l'esecuzione di **Start.** da un prompt dei comandi non funzionerà.
 - Non è disponibile alcun supporto per il rendering HTML o la Guida HTML in Server Core.
 - Server Core supporta Windows Installer in modalità non interattiva, in modo che sia possibile installare strumenti e utilità da file di Windows Installer. Quando si installano pacchetti di Windows Installer in Server Core, usare l'opzione **/qb** per visualizzare l'interfaccia utente di base.

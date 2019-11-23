@@ -22,9 +22,9 @@ ms.locfileid: "71378385"
 ---
 # <a name="dfsdiag-testsites"></a>TestSites Dfsdiag
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Controlla la configurazione dei siti di servizi di dominio Active Directory \(AD DS @ no__t-1 verificando che i server che fungono da server dello spazio dei nomi o cartella \(Link @ no__t-3 abbiano le stesse associazioni di sito in tutti i controller di dominio.  
+Controlla la configurazione dei servizi di dominio Active Directory \(i siti di\) AD DS verificando che i server che fungono da server dello spazio dei nomi o cartella \(collegamento\) destinazioni dispongano delle stesse associazioni di sito in tutti i controller di dominio.  
   
   
   
@@ -38,10 +38,10 @@ dfsdiag /TestSites </Machine:<server name>| /DFSpath:<namespace root or DFS fold
   
 |Parametro|Descrizione|  
 |-------|--------|  
-|\/Machine: <server name>|Il nome del server in cui si desidera verificare l'associazione del sito.|  
-|\/DFSpath: <namespace root or DFS folder>|Il File System distribuito o dello spazio dei nomi radice \(DFS\) cartella \(collegamento\) con le destinazioni per il quale verificare l'associazione del sito.|  
-|\/Recurse|Enumera e verifica le associazioni di sito per tutte le destinazioni cartella sotto la radice dello spazio dei nomi specificato.|  
-|\/Full|Verifica che servizi di dominio Active Directory e il registro di sistema del server contengano le stesse informazioni di associazione del sito.|  
+|Computer \/:<server name>|Il nome del server in cui si desidera verificare l'associazione del sito.|  
+|\/DFSpath:<namespace root or DFS folder>|Il File System distribuito o dello spazio dei nomi radice \(DFS\) cartella \(collegamento\) con le destinazioni per il quale verificare l'associazione del sito.|  
+|recurse \/|Enumera e verifica le associazioni di sito per tutte le destinazioni cartella sotto la radice dello spazio dei nomi specificato.|  
+|\/completo|Verifica che servizi di dominio Active Directory e il registro di sistema del server contengano le stesse informazioni di associazione del sito.|  
   
 ## <a name="BKMK_Examples"></a>Esempi  
 Per TBD, digitare:  
@@ -62,7 +62,7 @@ Per TBD, digitare:
 dfsdiag /TestSites /DFSpath:\\Contoso.com\Namespace2 /Recurse /Full  
 ```  
   
-## <a name="additional-references"></a>Riferimenti aggiuntivi  
+## <a name="additional-references"></a>riferimenti aggiuntivi  
   
 -   [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)  
   

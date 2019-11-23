@@ -25,7 +25,7 @@ Per altre informazioni sulle procedure consigliate e sulle analisi, vedere [Eseg
   
 |Proprietà|Dettagli|  
 |-|-|  
-|**Sistema operativo**|Windows Server 2016|  
+|**Sistema operativo**|Windows Server 2016|  
 |**Prodotto/funzionalità**|Hyper-V|  
 |**Gravità**|Avviso|  
 |**Categoria**|Configurazione|  
@@ -38,7 +38,7 @@ Nelle sezioni seguenti, corsivo indica il testo dell'interfaccia Utente visualiz
 ## <a name="impact"></a>**Impatto**  
 *Windows non è in grado di sfruttare tutti i vantaggi degli offload hardware disponibili sulle schede di rete seguenti:*  
   
-@no__t 0list di schede di rete >  
+\<elenco di schede di rete >  
   
 ## <a name="resolution"></a>**Soluzione**  
 *Abilitare VMQ con il cmdlet Enable-NetAdapterVmq di Windows PowerShell o usando l'interfaccia utente delle proprietà avanzate per la scheda di rete.*  

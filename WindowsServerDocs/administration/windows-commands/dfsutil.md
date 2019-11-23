@@ -22,7 +22,7 @@ ms.locfileid: "71377984"
 ---
 # <a name="dfsutil"></a>Dfsutil
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Il comando dfsutil gestisce spazi dei nomi DFS, server e client. i comandi dfsutil utilizzano la terminologia file system distribuito originale, con la terminologia degli spazi dei nomi DFS aggiornata fornita come spiegazione per la maggior parte dei comandi.
 
@@ -49,23 +49,23 @@ command </parameter> </param2>
 |[Cache Dfsutil](dfsutil-cache.md)|Visualizza o scarica la cache del client.|
 |[oldcli Dfsutil](dfsutil-oldcli.md)|Usare il comando Dfsutil \/oldcli per usare la sintassi Dfsutil originale.|
 
-## <a name="remarks-optional-section"></a>Osservazioni <optional section>
-Se si specifica un oggetto \(such come server dello spazio dei nomi @ no__t-1 alla fine di un comando, la maggior parte dei comandi visualizzerà le informazioni sull'oggetto senza richiedere altri parametri o comandi. Ad esempio, quando si usa il comando radice Dfsutil, è possibile aggiungere una radice dello spazio dei nomi al comando per visualizzare le informazioni sulla radice.
+## <a name="remarks-optional-section"></a><optional section> osservazioni
+Se si specifica un oggetto \(come un server dello spazio dei nomi\) alla fine di un comando, la maggior parte dei comandi visualizzerà le informazioni sull'oggetto senza richiedere ulteriori parametri o comandi. Ad esempio, quando si usa il comando radice Dfsutil, è possibile aggiungere una radice dello spazio dei nomi al comando per visualizzare le informazioni sulla radice.
 
 ## <a name="BKMK_Examples"></a>Esempi
-&lt;Here è la posizione in cui inserire una descrizione dettagliata dell'esempio. &gt;
+&lt;qui è possibile inserire una descrizione dettagliata dell'esempio.&gt;
 
 ```
 This /is /the /example /of /calling /command /with /parameters
 ```
 
-&lt;Here è la posizione in cui inserire una descrizione dettagliata di un altro esempio. &gt;
+&lt;qui è possibile inserire una descrizione dettagliata di un altro esempio.&gt;
 
 ```
 This /is /a:different /example
 ```
 
-## <a name="additional-references"></a>Riferimenti aggiuntivi
+## <a name="additional-references"></a>riferimenti aggiuntivi
 
 -   [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
 

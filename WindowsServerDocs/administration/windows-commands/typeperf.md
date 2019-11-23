@@ -41,30 +41,30 @@ typeperf -qx [object] [options]
 
 |Parametro|Descrizione|
 |---------|-----------|
-|\<counter [...]] >|Specifica i contatori delle prestazioni da monitorare.|
+|contatore \<[...]] >|Specifica i contatori delle prestazioni da monitorare.|
 
 > [!NOTE]
-> **\<counter >** è il nome completo di un contatore delle prestazioni nel formato *\\ @ no__t-4Computer\Object (istanza) \Contatore* , ad esempio **\\ @ No__t-7Server1\Processor (0) @no__t tempo utente**.
+> **\<contatore >** è il nome completo di un contatore delle prestazioni nel formato *\\\\Computer\Object (istanza) \Contatore* , ad esempio **\\\\Server1\Processor (0)\% tempo utente**.
 
 ## <a name="options"></a>Opzioni
 
 |                   Opzione                   |                                                         Descrizione                                                          |
 |--------------------------------------------|------------------------------------------------------------------------------------------------------------------------------|
 |                     -?                     |                                               Vengono visualizzate sensibile al contesto della Guida.                                               |
-| -f \<CSV @ no__t-1TSV @ no__t-2BIN @ no__t-3SQL > |                                    Specifica il formato del file di output. Il valore predefinito è CSV.                                     |
+| -f \<CSV&verbar;TSV&verbar;BIN&verbar;SQL > |                                    Specifica il formato del file di output. Il valore predefinito è CSV.                                     |
 |              -CF \<filename >               |              Specifica un file contenente un elenco di contatori delle prestazioni da monitorare, con un contatore per riga.               |
 |             -si < [[hh:] mm:] ss >             |                                  Specifica l'intervallo di campionamento. Il valore predefinito è un secondo.                                   |
-|               -o \<filename >               |     Specifica il percorso del file di output o del database SQL. Il valore predefinito è STDOUT (scritto nella finestra di comando).      |
-|                -q [oggetto]                 | Visualizza un elenco di contatori installati (nessuna istanza). Per elencare i contatori per un oggetto, includere il nome dell'oggetto. \* @ NO__T-1 @ NO__T-2EXAMPLE |
+|               -o \<nomefile >               |     Specifica il percorso del file di output o del database SQL. Il valore predefinito è STDOUT (scritto nella finestra di comando).      |
+|                -q [oggetto]                 | Visualizza un elenco di contatori installati (nessuna istanza). Per elencare i contatori per un oggetto, includere il nome dell'oggetto. ESEMPIO di \*\*\* |
 |                -QX [oggetto]                |        Visualizza un elenco di contatori installati con le istanze. Per elencare i contatori per un oggetto, includere il nome dell'oggetto.        |
-|               -SC \<samples >               |             Specifica il numero di campioni da raccogliere. Per impostazione predefinita, vengono raccolti i dati fino a quando non si preme CTRL + C.              |
-|            -config \<nomefile >             |                                    Specifica un file di impostazioni che contiene le opzioni di comando.                                     |
+|               -SC \<esempi >               |             Specifica il numero di campioni da raccogliere. Per impostazione predefinita, vengono raccolti i dati fino a quando non si preme CTRL + C.              |
+|            -config \<filename >             |                                    Specifica un file di impostazioni che contiene le opzioni di comando.                                     |
 |            -s \<computer_name >             |                   Specifica un computer remoto per il monitoraggio se non è specificato alcun computer nel percorso del contatore.                    |
 |                     -y                     |                                        Rispondere Sì a tutte le domande senza chiedere conferma.                                        |
 
 ## <a name="BKMK_EXAMPLES"></a>Esempi
 
-- Nell'esempio seguente vengono scritti i valori per il contatore delle prestazioni del computer locale **\\ @ no__t-2Processor (_ Total) \% tempo processore** alla finestra di comando in un intervallo di campionamento predefinito di 1 secondo fino a quando non si preme CTRL + C.  
+- Nell'esempio seguente vengono scritti i valori per il contatore delle prestazioni del computer locale **\\processore \\(_Total)\% tempo processore** alla finestra di comando in un intervallo di campionamento predefinito di 1 secondo fino a quando non si preme CTRL + C.  
   ```
   typeperf "\Processor(_Total)\% Processor Time"
   ```  

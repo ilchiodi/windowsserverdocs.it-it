@@ -33,9 +33,9 @@ Il modulo ADCSAdministration di Windows PowerShell è stato introdotto in Window
 -   Restore-CARoleService  
   
 ## <a name="backup-caroleservice"></a>Backup-CARoleService  
-**Table SEQ Table \\ @ no__t-2 ARABIC 17: Cmdlet di Windows PowerShell per il backup e il ripristino @ no__t-0  
+**Tabella SEQ Table \\\* arabo 17: cmdlet di Windows PowerShell per il backup e il ripristino**  
   
-Cmdlet **ADCSAdministration: Backup-CARoleService @ no__t-0  
+**Cmdlet di ADCSAdministration: backup-CARoleService**  
   
 |Argomenti: gli argomenti in **grassetto** sono obbligatori|Descrizione|  
 |------------------------------------------------|---------------|  
@@ -43,9 +43,9 @@ Cmdlet **ADCSAdministration: Backup-CARoleService @ no__t-0
 |-Solo per la|-Eseguire il backup del certificato della CA senza il database<br /><br />**Esempio:**<br /><br />Backup-CARoleService c:\adcsbackup3-solo per le tue|  
 |-Password|-Specifica la password per proteggere i certificati e le chiavi private della CA<br />-Deve essere una stringa sicura<br />-Non valido con il parametro-DatabaseOnly<br /><br />Esempio:<br /><br />Backup-CARoleService c:\adcsbackup4-password (read-host-prompt "password:"-AsSecureString)<br /><br />Backup-CARoleService c:\adcsbackup5-password (ConvertTo-SecureString "Pa55w0rd!" -AsPlainText-Force)|  
 |-DatabaseOnly|-Eseguire il backup del database senza il certificato della CA<br /><br />Backup-CARoleService c:\adcsbackup6-DatabaseOnly|  
-|-Force|1.  Consente di sovrascrivere il backup che preesiste nel percorso specificato nel parametro-path<br /><br />Backup-CARoleService c:\adcsbackup1-Force|  
+|-Force|1. consente di sovrascrivere il backup che preesiste nel percorso specificato nel parametro-path<br /><br />Backup-CARoleService c:\adcsbackup1-Force|  
 |-Incrementale|-Eseguire un backup incrementale<br /><br />Backup-CARoleService c:\adcsbackup7-incrementale|  
-|-KeepLog|1.  Indica al comando di memorizzare i file di log. Se l'opzione non è specificata, i file di log vengono troncati per impostazione predefinita, eccetto nello scenario incrementale<br /><br />Backup-CARoleService c:\adcsbackup7-KeepLog|  
+|-KeepLog|1. indica al comando di memorizzare i file di log. Se l'opzione non è specificata, i file di log vengono troncati per impostazione predefinita, eccetto nello scenario incrementale<br /><br />Backup-CARoleService c:\adcsbackup7-KeepLog|  
   
 ### <a name="-password-secure-string"></a>-Password <Secure String>  
 Se si usa il parametro-password, la password specificata deve essere una stringa sicura.  Usare il cmdlet **Read-Host** per avviare un prompt interattivo per l'immissione di una password sicura oppure usare il cmdlet **ConvertTo-SecureString** per specificare la password inline.  
@@ -65,7 +65,7 @@ Backup-CARoleService c:\adcsbackup5 -Password (ConvertTo-SecureString "Pa55w0rd!
 ```  
   
 ## <a name="restore-caroleservice"></a>Restore-CARoleService  
-Cmdlet **ADCSAdministration: Restore-CARoleService @ no__t-0  
+**Cmdlet di ADCSAdministration: Restore-CARoleService**  
   
 |Argomenti: gli argomenti in **grassetto** sono obbligatori|Descrizione|  
 |------------------------------------------------|---------------|  
@@ -80,15 +80,15 @@ Se la funzione ConvertTo-SecureString ha esito negativo quando si usa il cmdlet 
   
 ![Backup e ripristino della CA](media/CA-Backup-and-Restore-Windows-PowerShell-cmdlets/GTR_ADDS_BackupCARole.gif)  
   
-**Table SEQ Table \\ @ no__t-2 ARABIC 18: Errori comuni @ no__t-0  
+**Tabella SEQ tabella \\\* arabo 18: errori comuni**  
   
 |Azione|Errore|Commento|  
 |----------|---------|-----------|  
-|**Restore-CARoleService C:\ADCSBackup**|Restore-CARoleService: Il processo non può accedere al file perché è in uso da un altro processo. (Eccezione da HRESULT:<br /><br />0x80070020|Arrestare il servizio Servizi certificati Active Directory prima di eseguire il cmdlet Restore-CARoleService|  
-|**Restore-CARoleService C:\ADCSBackup**|Restore-CARoleService: La directory non è vuota. (Eccezione da HRESULT: 0x80070091)|Usare il parametro-Force per sovrascrivere le chiavi preesistenti|  
+|**Restore-CARoleService C:\ADCSBackup**|Restore-CARoleService: il processo non può accedere al file perché è in uso da un altro processo. (Eccezione da HRESULT:<br /><br />0x80070020|Arrestare il servizio Servizi certificati Active Directory prima di eseguire il cmdlet Restore-CARoleService|  
+|**Restore-CARoleService C:\ADCSBackup**|Restore-CARoleService: la directory non è vuota. (Eccezione da HRESULT: 0x80070091)|Usare il parametro-Force per sovrascrivere le chiavi preesistenti|  
 |**Backup-CARoleService C:\ADCSBackup-password (read-host-prompt "password:"-AsSecureString)-DatabaseOnly**|Backup-CARoleService: Impossibile risolvere il set di parametri utilizzando i parametri denominati specificati.|Il parametro-password viene usato solo per proteggere le chiavi private e pertanto non è valido quando non si esegue il backup|  
 |**Restore-CARoleService C:\ADCSBack15-password (read-host-prompt "password:"-AsSecureString)-DatabaseOnly**|Restore-CARoleService: Impossibile risolvere il set di parametri utilizzando i parametri denominati specificati.|Il parametro-password viene usato solo per proteggere le chiavi private e pertanto non è valido se non viene ripristinato|  
-|**Restore-CARoleService C:\ADCSBack14-password (read-host-prompt "password:"-AsSecureString)**|Restore-CARoleService: Impossibile trovare il file specificato. (Eccezione da HRESULT: 0x80070002|Il percorso specificato non contiene un backup del database valido.  Probabilmente il percorso non è valido oppure il backup è stato effettuato con l'opzione-KeysOnly?|  
+|**Restore-CARoleService C:\ADCSBack14-password (read-host-prompt "password:"-AsSecureString)**|Restore-CARoleService: il sistema non è in grado di trovare il file specificato. (Eccezione da HRESULT: 0x80070002)|Il percorso specificato non contiene un backup del database valido.  Probabilmente il percorso non è valido oppure il backup è stato effettuato con l'opzione-KeysOnly?|  
   
 ## <a name="additional-resources"></a>Risorse aggiuntive  
 [Guida alla migrazione di Servizi certificati Active Directory](https://technet.microsoft.com/library/ee126170(v=ws.10).aspx)  
@@ -97,7 +97,7 @@ Se la funzione ConvertTo-SecureString ha esito negativo quando si usa il cmdlet 
   
 [Ripristino del database e della configurazione CA nel server di destinazione](https://technet.microsoft.com/library/ee126140(v=ws.10).aspx#BKMK_RestoreCA)  
   
-## <a name="try-this-backup-the-ca-in-your-lab-using-windows-powershell"></a>Provare: Eseguire il backup della CA nel Lab usando Windows PowerShell  
+## <a name="try-this-backup-the-ca-in-your-lab-using-windows-powershell"></a>Esercitazione: eseguire il backup della CA nel Lab usando Windows PowerShell  
   
 1.  Usare i comandi in questa lezione per eseguire il backup del database CA e della chiave privata protetta con una password.  
   

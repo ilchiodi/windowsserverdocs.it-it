@@ -35,11 +35,11 @@ Per eseguire la migrazione di una farm WID a Windows Server 2012, seguire questa
 È possibile creare la configurazione di AD FS originale utilizzando la **Configurazione guidata server federativo di ad FS** per aggiungere un server federativo a una farm di database interno di database. Per altre informazioni, vedere [Aggiungere un server federativo a una server farm federativa](add-a-federation-server-to-a-federation-server-farm.md).  
   
 > [!NOTE]
-> Quando si raggiunge la pagina **specificare il server federativo primario e un account del servizio** nella **Configurazione guidata del server federativo di ad FS**, immettere il nome del server federativo primario della farm wid e assicurarsi di immettere l'account del servizio. informazioni registrate durante la preparazione per la migrazione del AD FS. Per ulteriori informazioni, vedere [preparazione alla migrazione del server federativo AD FS 2,0](prepare-to-migrate-a-wid-farm.md). 
+> Quando si raggiunge la pagina **specificare il server federativo primario e un account del servizio** nella **Configurazione guidata del server federativo di ad FS**, immettere il nome del server federativo primario della farm wid e assicurarsi di immettere le informazioni sull'account del servizio registrate durante la preparazione per la migrazione del ad FS. Per ulteriori informazioni, vedere [preparazione alla migrazione del server federativo AD FS 2,0](prepare-to-migrate-a-wid-farm.md). 
 >  
 > Quando si raggiunge la pagina **specifica il nome del servizio federativo** , assicurarsi di selezionare lo stesso certificato SSL registrato nella pagina "prepararsi per la migrazione di una farm wid" in [preparare la migrazione del Server federativo ad FS 2,0](prepare-to-migrate-a-wid-farm.md).  
   
-5. Aggiornare le pagine Web di ADFS nel server Se è stato eseguito il backup delle pagine Web personalizzate AD FS durante la preparazione per la migrazione, è necessario usare i dati di backup per sovrascrivere le pagine Web predefinite AD FS create per impostazione predefinita nella directory **%SystemDrive%\Inetpub\Adfs\Ls** in seguito al ad FS configurazione in Windows Server 2012.  
+5. Aggiornare le pagine Web di ADFS nel server Se è stato eseguito il backup delle pagine Web personalizzate AD FS durante la preparazione per la migrazione, è necessario usare i dati di backup per sovrascrivere le pagine Web predefinite AD FS create per impostazione predefinita nella directory **%SystemDrive%\Inetpub\Adfs\Ls** in seguito alla configurazione ad FS in Windows Server 2012.  
   
 6. Aggiungere il server appena aggiornato a Windows Server 2012 al servizio di bilanciamento del carico.  
   
@@ -65,7 +65,7 @@ Per eseguire la migrazione di una farm WID a Windows Server 2012, seguire questa
 >  
 > Quando si raggiunge la pagina **specifica il nome del servizio federativo** , assicurarsi di selezionare lo stesso certificato SSL registrato in [preparare la migrazione del Server federativo ad FS 2,0](prepare-to-migrate-a-wid-farm.md).  
   
-13. Aggiornare le pagine Web di AD FS in questo ultimo server della farm WID. Se è stato eseguito il backup delle pagine Web personalizzate AD FS durante la preparazione per la migrazione, usare i dati di backup per sovrascrivere le pagine Web predefinite AD FS create per impostazione predefinita nella directory **%SystemDrive%\Inetpub\Adfs\Ls** in seguito al ad FS configurazione in Windows Server 2012.  
+13. Aggiornare le pagine Web di AD FS in questo ultimo server della farm WID. Se è stato eseguito il backup delle pagine Web personalizzate AD FS durante la preparazione per la migrazione, usare i dati di backup per sovrascrivere le pagine Web predefinite AD FS create per impostazione predefinita nella directory **%SystemDrive%\Inetpub\Adfs\Ls** in seguito alla configurazione di ad FS in Windows Server 2012.  
   
 14. Aggiungere l'ultimo server della farm WID appena aggiornato a Windows Server 2012 al servizio di bilanciamento del carico.  
   
@@ -73,7 +73,7 @@ Per eseguire la migrazione di una farm WID a Windows Server 2012, seguire questa
   
 ## <a name="next-steps"></a>Passaggi successivi
  [Preparare la migrazione del server federativo AD FS 2,0](prepare-to-migrate-ad-fs-fed-server.md)   
- [Preparare la migrazione del proxy server federativo di AD FS 2,0](prepare-to-migrate-ad-fs-fed-proxy.md)   
+ [Preparare la migrazione del proxy server federativo AD FS 2,0](prepare-to-migrate-ad-fs-fed-proxy.md)   
  [Eseguire la migrazione del server federativo AD FS 2,0](migrate-the-ad-fs-fed-server.md)   
  [Eseguire la migrazione del proxy server federativo AD FS 2,0](migrate-the-ad-fs-2-fed-server-proxy.md)   
  [Eseguire la migrazione di Agenti Web di AD FS 1.1](migrate-the-ad-fs-web-agent.md)

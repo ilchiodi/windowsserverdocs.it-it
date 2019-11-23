@@ -25,7 +25,7 @@ Per altre informazioni sulle procedure consigliate e le analisi, vedere [Best Pr
   
 |Proprietà|Dettagli|  
 |-|-|  
-|**Sistema operativo**|Windows Server 2016|  
+|**Sistema operativo**|Windows Server 2016|  
 |**Prodotto/funzionalità**|Hyper-V|  
 |**Gravità**|Avviso|  
 |**Categoria**|Configurazione|  
@@ -40,11 +40,11 @@ Nelle sezioni seguenti, corsivo indica il testo dell'interfaccia Utente visualiz
   
 *Alcune funzionalità non saranno disponibili per le macchine virtuali seguenti:*  
   
-@no__t 0list di nomi di macchina virtuale >  
+\<elenco dei nomi delle macchine virtuali >  
   
 ## <a name="resolution"></a>Risoluzione  
   
-*If questo comportamento è intenzionale, non è necessaria alcuna azione ulteriore. In caso contrario, è consigliabile offrire tutti i servizi di integrazione nelle impostazioni di queste macchine virtuali.*  
+*Se questo comportamento è intenzionale, non è necessaria alcuna azione aggiuntiva. In caso contrario, è consigliabile offrire tutti i servizi di integrazione nelle impostazioni di queste macchine virtuali.*  
   
 La disponibilità di alcuni servizi di integrazione può essere gestita tramite impostazioni della macchina virtuale.   
   

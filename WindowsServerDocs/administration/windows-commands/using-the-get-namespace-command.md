@@ -22,7 +22,7 @@ ms.locfileid: "71363076"
 ---
 # <a name="using-the-get-namespace-command"></a>Utilizzando il comando get-spazio dei nomi
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Visualizza informazioni su uno spazio dei nomi personalizzato.
 ## <a name="syntax"></a>Sintassi
@@ -38,7 +38,7 @@ wdsutil /Get-Namespace /Namespace:<Namespace name> [/Server:<Server name>] [/det
 
 |               Parametro               |                                                                                                                                                                                         Descrizione                                                                                                                                                                                          |
 |---------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|      /Namespace: <Namespace name>      | Specifica il nome dello spazio dei nomi. Si noti che questo non è il nome descrittivo e deve essere univoco.<br /><br />-Server di distribuzione: La sintassi per il nome dello spazio dei nomi è/namspace: WDS: <ImageGroup> @ no__t-1 @ no__t-2 @ no__t-3 @ no__t-4. Esempio: **WDS: ImageGroup1/install. wim/1**<br />-Server trasporto: Questo valore deve corrispondere al nome assegnato allo spazio dei nomi quando è stato creato nel server. |
+|      /Namespace:<Namespace name>      | Specifica il nome dello spazio dei nomi. Si noti che questo non è il nome descrittivo e deve essere univoco.<br /><br />-Server di distribuzione: la sintassi per il nome dello spazio dei nomi è/namspace: WDS:<ImageGroup>/<ImageName>/<Index>. Ad esempio: **WDS:ImageGroup1/install.wim/1**<br />-Server trasporto: questo valore deve corrispondere al nome assegnato allo spazio dei nomi quando è stato creato nel server. |
 |        [/Server:<Server name>]        |                                                                                                             Specifica il nome del server. Questo può essere il nome NetBIOS o il nome di dominio completo (FQDN). Se viene specificato alcun nome di server, viene utilizzato il server locale.                                                                                                              |
 | [/Show: client] o [/Details: client] |                                                                                                                                                  Visualizza informazioni sui computer client connessi allo spazio dei nomi specificato.                                                                                                                                                  |
 
@@ -50,9 +50,9 @@ wdsutil /Get-Namespace /Namespace:"Custom Auto 1"
 Per visualizzare informazioni su uno spazio dei nomi e i client connessi, digitare uno dei seguenti:
 - Windows Server 2008: `wdsutil /Get-Namespace /Server:MyWDSServer /Namespace:"Custom Auto 1" /Show:Clients`
 - Windows Server 2008 R2: `wdsutil /Get-Namespace /Server:MyWDSServer /Namespace:"Custom Auto 1" /details:Clients`
-  #### <a name="additional-references"></a>Riferimenti aggiuntivi
+  #### <a name="additional-references"></a>riferimenti aggiuntivi
   [Chiave della sintassi della riga di comando](command-line-syntax-key.md)
-  [usando il comando get-allnamespaces](using-the-get-allnamespaces-command.md)
+  usando il comando [get-allnamespaces](using-the-get-allnamespaces-command.md)
   [usando il comando New-Namespace](using-the-new-namespace-command.md)
   [usando il comando Remove-Namespace](using-the-remove-namespace-command.md)
-  [sottocomando: Start-](subcommand-start-namespace.md) Namespace
+  [sottocomando: Start-Namespace](subcommand-start-namespace.md)

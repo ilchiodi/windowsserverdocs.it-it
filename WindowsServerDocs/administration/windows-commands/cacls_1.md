@@ -22,7 +22,7 @@ ms.locfileid: "71379949"
 ---
 # <a name="cacls"></a>cacls
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Visualizza o modifica gli elenchi di controllo di accesso discrezionale (DACL) sui file specificati.  
 ## <a name="syntax"></a>Sintassi  
@@ -40,13 +40,13 @@ cacls <filename> [/t] [/m] [/l] [/s[:sddl]] [/e] [/c] [/g user:<perm>] [/r user 
 |         /s: SDDL         |                                       sostituisce gli ACL con quelli specificati nella stringa SDDL (non valido con **/e**, **/g**, **/r**, **/p**o **/d**).                                        |
 |           /e            |                                                                                 modificare l'ACL anziché sostituirlo.                                                                                  |
 |           /c            |                                                                                 Continua in presenza di errori di accesso negato.                                                                                  |
-|    utente/g: \<perm @ no__t-1     |   Concedere i diritti di accesso utente specificati.<br /><br />Valori validi per l'autorizzazione:<br /><br />-n-none<br />-r-lettura<br />-w-Write<br />-c-modifica (scrittura)<br />-f-controllo completo   |
+|    utente/g:\<\> Perm     |   Concedere i diritti di accesso utente specificati.<br /><br />Valori validi per l'autorizzazione:<br /><br />-n-none<br />-r-lettura<br />-w-Write<br />-c-modifica (scrittura)<br />-f-controllo completo   |
 |      /r (utente) [...]      |                                                                  Revoca i diritti di accesso dell'utente specificato (valido solo con **/e**).                                                                   |
-| [/p utente: \<perm @ no__t-1 [...] | sostituisce i diritti di accesso dell'utente specificato.<br /><br />Valori validi per l'autorizzazione:<br /><br />-n-none<br />-r-lettura<br />-w-Write<br />-c-modifica (scrittura)<br />-f-controllo completo |
+| [/p utente:\<Perm\> [...] | sostituisce i diritti di accesso dell'utente specificato.<br /><br />Valori validi per l'autorizzazione:<br /><br />-n-none<br />-r-lettura<br />-w-Write<br />-c-modifica (scrittura)<br />-f-controllo completo |
 |     [/d utente [...]      |                                                                                    Negare l'accesso utente specificato.                                                                                     |
 |           /?            |                                                                                Visualizza la guida al prompt dei comandi.                                                                                |
 
-## <a name="remarks"></a>Note  
+## <a name="remarks"></a>Osservazioni  
 - Questo comando è stato deprecato. Usare invece [icacls](icacls.md) .  
 - Usare la tabella seguente per interpretare i risultati:  
 
@@ -57,15 +57,15 @@ cacls <filename> [/t] [/m] [/l] [/s[:sddl]] [/e] [/c] [/g user:<perm>] [/r user 
   |        CI         |           Il contenitore eredita. Questa cartella e le relative sottocartelle.            |
   |        IO         | Solo ereditarietà. La voce ACE non si applica al file o alla directory corrente. |
   | Nessun messaggio di output |                          Solo questa cartella.                          |
-  |     OI CI      |                 Questa cartella, le sottocartelle e i file.                 |
-  |   OI CI IO    |                     Solo sottocartelle e file.                      |
-  |     CI IO      |                          Solo sottocartelle.                           |
-  |     OI IO      |                             Solo file.                             |
+  |     OI Ci      |                 Questa cartella, le sottocartelle e i file.                 |
+  |   OI Ci Io    |                     Solo sottocartelle e file.                      |
+  |     Ci Io      |                          Solo sottocartelle.                           |
+  |     OI Io      |                             Solo file.                             |
 
 
-- È possibile utilizzare caratteri jolly ( **?** e **\\ @ no__t-2**) per specificare più file.  
+- È possibile utilizzare caratteri jolly ( **?** e **\\\*** ) per specificare più file.  
 - È possibile specificare più di un utente.  
 
-#### <a name="additional-references"></a>Riferimenti aggiuntivi  
+#### <a name="additional-references"></a>riferimenti aggiuntivi  
 -   [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)   
 -   [icacls](icacls.md)  

@@ -18,7 +18,7 @@ ms.locfileid: "71396381"
 ---
 # <a name="use-regular-expressions-in-nps"></a>Usare espressioni regolari nel Server dei criteri di rete
 
-> Si applica a:  Windows Server 2019, Windows Server 2016, Windows Server (Canale semestrale)
+> Si applica a: Windows Server 2019, Windows Server 2016, Windows Server (canale semestrale)
 
 In questo argomento viene illustrato l'utilizzo di espressioni regolari per la corrispondenza dei criteri in NPS in Windows Server. È possibile usare questa sintassi per specificare le condizioni degli attributi dei criteri di rete e delle aree di autenticazione RADIUS.
 
@@ -37,26 +37,26 @@ In questo argomento viene illustrato l'utilizzo di espressioni regolari per la c
 |     `.`     |                                                           Corrisponde a qualsiasi carattere singolo eccetto un carattere di nuova riga.                                                           |                                                                 &nbsp;                                                                  |
 | `(pattern)` |                         Corrisponde a "pattern" e ricorda la corrispondenza.<br />Per trovare la corrispondenza con i caratteri letterali `(` e `)` (parentesi), utilizzare `\(` o `\)`.                         |                                                                 &nbsp;                                                                  |
 |   `x | y `  |                                                                               Corrisponde a x o y.                                                          |
-|   `{n} `    |                                                          Corrisponde esattamente a n volte \(n è un valore diverso da @ no__t-1negative @ no__t-2.                                                           |               `/o{2}/ does not match the "o" in "Bob," but matches the first two instances of the letter o in "foooood."`               |
-|   `{n,}`    |                                                          Corrisponde a almeno n volte \(n è un numero intero non @ no__t-1negative @ no__t-2.                                                          | `/o{2,}/ does not match the "o" in "Bob" but matches all of the instances of the letter o in "foooood." /o{1,}/ is equivalent to /o+/.` |
-|   `{n,m}`   |                                                Corrisponde a almeno n e al massimo m volte \(m e n sono numeri interi non @ no__t-1negative @ no__t-2.                                                |                               `/o{1,3}/ matches the first three instances of the letter o in "fooooood."`                               |
-|   `[xyz]`   |                                                       Corrisponde a uno qualsiasi dei caratteri racchiusi @no__t set di caratteri 0A @ no__t-1.                                                        |                                                  `/[abc]/ matches the "a" in "plain."`                                                  |
-|  `[^xyz]`   |                                                  Corrisponde a qualsiasi carattere non racchiuso \(A negativo set di caratteri @ no__t-1.                                                  |                                                 `/[^abc]/ matches the "p" in "plain."`                                                  |
-|    `\b`     |                                                              Corrisponde a un confine di parola @no__t esempio 0per, uno spazio @ no__t-1.                                                               |                                              `/ea*r\b/ matches the "er" in "never early."`                                              |
+|   `{n} `    |                                                          Corrisponde esattamente a n volte \(n è un\)intero non\-negativo.                                                           |               `/o{2}/ does not match the "o" in "Bob," but matches the first two instances of the letter o in "foooood."`               |
+|   `{n,}`    |                                                          Corrisponde a almeno n volte \(n è un\)intero non\-negativo.                                                          | `/o{2,}/ does not match the "o" in "Bob" but matches all of the instances of the letter o in "foooood." /o{1,}/ is equivalent to /o+/.` |
+|   `{n,m}`   |                                                Corrisponde a almeno n e al massimo m volte \(m e n sono numeri interi non\-negativi\).                                                |                               `/o{1,3}/ matches the first three instances of the letter o in "fooooood."`                               |
+|   `[xyz]`   |                                                       Corrisponde a uno qualsiasi dei caratteri racchiusi \(un set di caratteri\).                                                        |                                                  `/[abc]/ matches the "a" in "plain."`                                                  |
+|  `[^xyz]`   |                                                  Corrisponde a qualsiasi carattere non racchiuso \(un set di caratteri negativi\).                                                  |                                                 `/[^abc]/ matches the "p" in "plain."`                                                  |
+|    `\b`     |                                                              Corrisponde a un confine di parola \(ad esempio, uno spazio\).                                                               |                                              `/ea*r\b/ matches the "er" in "never early."`                                              |
 |    `\B`     |                                                                         Corrisponde a un confine non alfanumerico.                                                                          |                                             `/ea*r\B/ matches the "ear" in "never early."`                                              |
-|    `\d`     |                                                       Corrisponde a un carattere di cifra \(equivalent a cifre comprese tra 0 e 9 @ no__t-1.                                                        |                                                                 &nbsp;                                                                  |
-|    `\D`     |                                                           Corrisponde a un carattere non numerico \(equivalent a `[^0-9]` @ no__t-2.                                                           |                                                                 &nbsp;                                                                  |
+|    `\d`     |                                                       Corrisponde a un carattere di cifra \(equivalente a cifre comprese tra 0 e 9\).                                                        |                                                                 &nbsp;                                                                  |
+|    `\D`     |                                                           Corrisponde a un carattere non numerico \(equivalente `[^0-9]`\).                                                           |                                                                 &nbsp;                                                                  |
 |    `\f`     |                                                                        Corrisponde a un carattere di avanzamento del modulo.                                                                        |                                                                 &nbsp;                                                                  |
 |    `\n`     |                                                                        Corrisponde a un carattere di avanzamento riga.                                                                        |                                                                 &nbsp;                                                                  |
 |    `\r`     |                                                                     Corrisponde a un carattere di ritorno a capo.                                                                     |                                                                 &nbsp;                                                                  |
-|    `\s`     |                                   Corrisponde a qualsiasi carattere di spazio vuoto, incluso lo spazio, la scheda e il feed di form \(equivalent a `[ \f\n\r\t\v]` @ no__t-2.                                   |                                                                 &nbsp;                                                                  |
-|    `\S`     |                                                  Trova la corrispondenza di qualsiasi carattere diverso da uno spazio vuoto \(equivalent per `[^ \f\n\r\t\v]` @ no__t-2.                                                   |                                                                 &nbsp;                                                                  |
+|    `\s`     |                                   Corrisponde a qualsiasi carattere di spazio vuoto, incluso lo spazio, la scheda e il feed di form \(equivalenti al `[ \f\n\r\t\v]`\).                                   |                                                                 &nbsp;                                                                  |
+|    `\S`     |                                                  Trova la corrispondenza di qualsiasi carattere diverso da uno spazio vuoto \(equivalente a `[^ \f\n\r\t\v]`\).                                                   |                                                                 &nbsp;                                                                  |
 |    `\t`     |                                                                           Corrisponde a un carattere di tabulazione.                                                                           |                                                                 &nbsp;                                                                  |
 |    `\v`     |                                                                      Corrisponde a un carattere di tabulazione verticale.                                                                       |                                                                 &nbsp;                                                                  |
-|    `\w`     |                                              Corrisponde a qualsiasi carattere alfanumerico, incluso il carattere di sottolineatura \(equivalent per `[A-Za-z0-9_]` @ no__t-2.                                              |                                                                 &nbsp;                                                                  |
-|    `\W`     |                                           Corrisponde a qualsiasi carattere non @ no__t-0word, escluso il carattere di sottolineatura \(equivalent con `[^A-Za-z0-9_]` @ no__t-3.                                           |                                                                 &nbsp;                                                                  |
-|   `\num`    | Indica che corrisponde a \( @ no__t-1, dove num è un numero intero positivo @ no__t-2.  Questa opzione può essere utilizzata solo nella casella di testo **Sostituisci** quando si configura la manipolazione degli attributi. |                                       `\1` sostituisce quello archiviato nella prima corrispondenza memorizzata.                                       |
-|   `/n/ `    |                      Consente l'inserimento di codici ASCII in espressioni regolari \( @ no__t-1, dove n è un valore di escape ottale, esadecimale o decimale @ no__t-2.                       |                                                                 &nbsp;                                                                  |
+|    `\w`     |                                              Corrisponde a qualsiasi carattere alfanumerico, incluso il carattere di sottolineatura \(equivalente a `[A-Za-z0-9_]`\).                                              |                                                                 &nbsp;                                                                  |
+|    `\W`     |                                           Corrisponde a qualsiasi carattere alfanumerico non\-, escluso il carattere di sottolineatura \(equivalente a `[^A-Za-z0-9_]`\).                                           |                                                                 &nbsp;                                                                  |
+|   `\num`    | Fa riferimento a corrispondenze \(`?num`, dove num è un numero intero positivo\).  Questa opzione può essere utilizzata solo nella casella di testo **Sostituisci** quando si configura la manipolazione degli attributi. |                                       `\1` sostituisce quello archiviato nella prima corrispondenza memorizzata.                                       |
+|   `/n/ `    |                      Consente l'inserimento di codici ASCII in espressioni regolari \(`?n`, dove n è un valore di escape ottale, esadecimale o decimale\).                       |                                                                 &nbsp;                                                                  |
 
 ## <a name="examples-for-network-policy-attributes"></a>Esempi per gli attributi dei criteri di rete
 
@@ -76,23 +76,23 @@ Negli esempi seguenti viene descritto l'uso della sintassi di corrispondenza dei
 
 **Per rimuovere la parte dell'area di autenticazione dell'attributo del nome utente**
 
-In uno scenario di connessione remota in outsourcing in cui un provider di servizi Internet \(ISP @ no__t-1 instrada le richieste di connessione a un'organizzazione NPS, il proxy RADIUS ISP potrebbe richiedere un nome di area di autenticazione per indirizzare la richiesta di autenticazione. Tuttavia, il server dei criteri di dominio potrebbe non riconoscere la parte del nome dell'area di autenticazione del nome utente. Pertanto, il nome dell'area di autenticazione deve essere rimosso dal proxy RADIUS del provider di servizi Internet prima che venga inviato all'organizzazione NPS.
+In uno scenario di connessione remota in outsourcing, in cui un provider di servizi Internet \(ISP\) instrada le richieste di connessione a un server dei criteri di rete, il proxy RADIUS ISP potrebbe richiedere un nome dell'area di autenticazione per instradare la richiesta di autenticazione. Tuttavia, il server dei criteri di dominio potrebbe non riconoscere la parte del nome dell'area di autenticazione del nome utente. Pertanto, il nome dell'area di autenticazione deve essere rimosso dal proxy RADIUS del provider di servizi Internet prima che venga inviato all'organizzazione NPS.
 
-- Trovare: @microsoft @ no__t-1com
+- Trova: @microsoft\.com
 
 - Sostituisci:
 
 **Per sostituire <em>user@example.microsoft.com</em> con _example. Microsoft. com\utente_**
 
-- Trova: `(.*)@(.*)`
+- Trova:`(.*)@(.*)`
 
-- Sostituisci: `$2\$1`
+- Sostituisci:`$2\$1`
 
 
 
-**Per sostituire _dominio\utente_ con _specific_domain\user_**
+**Per sostituire _dominio\utente_ con _specific_domain \Configurazione_**
 
-- Trova: `(.*)\\(.*)`
+- Trova:`(.*)\\(.*)`
 
 - Sostituisci: *specific_domain*`\$2`
 
@@ -100,7 +100,7 @@ In uno scenario di connessione remota in outsourcing in cui un provider di servi
 
 <strong>Per sostituire l' *utente* con *user@specific_domain</strong>*
 
-- Trova: `$`
+- Trova:`$`
 
 - Sostituisci: @*specific_domain*
 

@@ -25,7 +25,7 @@ Per altre informazioni sulle procedure consigliate e sulle analisi, vedere [Eseg
   
 |Proprietà|Dettagli|  
 |-|-|  
-|**Sistema operativo**|Windows Server 2016|  
+|**Sistema operativo**|Windows Server 2016|  
 |**Prodotto/funzionalità**|Hyper-V|  
 |**Gravità**|Avviso|  
 |**Categoria**|Configurazione|  
@@ -36,7 +36,7 @@ Nelle sezioni seguenti, corsivo indica il testo dell'interfaccia Utente visualiz
 *Alcuni commutatori virtuali sono associati a un'interfaccia del team, ma l'interfaccia del team non passa il traffico su tutte le VLAN ai commutatori virtuali.*  
   
 ## <a name="impact"></a>**Impatto**  
-*I commutatori virtuali seguenti non possono accedere a tutte le VLAN: \n @ no__t-1*  
+*I commutatori virtuali seguenti non possono accedere a tutte le VLAN: \n{0}*  
   
 ## <a name="resolution"></a>**Soluzione**  
 *Usare Server Manager o il cmdlet di Windows PowerShell set-NetLbfoTeamNic per reimpostare l'interfaccia del team sulla modalità predefinita.*  

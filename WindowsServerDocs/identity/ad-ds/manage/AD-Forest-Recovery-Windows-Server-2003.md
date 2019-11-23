@@ -61,7 +61,7 @@ Per ridurre il tempo necessario per reinstallare il software, determinare se le 
 3. Selezionare il sistema operativo che si desidera avviare in modalità di ripristino.  
 4. Accedere come amministratore. è possibile utilizzare solo un account computer locale, ma non è disponibile alcuna opzione di accesso al dominio.  
 5. Al prompt dei comandi digitare **Ntbackup**, quindi premere INVIO.  
-6. Nella pagina di **benvenuto** fare clic su **modalità avanzata**e quindi selezionare la scheda **Ripristina e gestisci supporti** . (Non selezionare **Ripristino guidato**).  
+6. Nella pagina di **benvenuto** fare clic su **modalità avanzata**e quindi selezionare la scheda **Ripristina e gestisci supporti** . non selezionare **Ripristino guidato**.  
 7. Selezionare il file di backup appropriato da cui eseguire il ripristino e verificare che siano selezionate le caselle di controllo **stato del sistema** e del **disco di sistema** .  
 8. Fare clic su **Avvia ripristino**.  
 9. Al termine dell'operazione di ripristino, riavviare il computer.  
@@ -77,7 +77,7 @@ Usare la procedura seguente per eseguire un ripristino autorevole (noto anche co
    > [!NOTE]
    > Contrassegnare i dati ripristinati come dati primari nel backup equivale a impostare la voce **BurFlags** su D4 sotto la seguente sottochiave del registro di sistema:  
    >   
-   > **Set di repliche HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\NtFrs\Parameters\Cumulative @ no__t-1** *GUID*  
+   > **HKEY_LOCAL_MACHINE set di repliche \system\currentcontrolset\services\ntfrs\parameters\cumulative\\** *GUID*  
 
 4. Al termine dell'operazione di ripristino, riavviare il computer.  
   
@@ -100,7 +100,7 @@ Se il controller di dominio ripristinato dal backup esegue Windows Server 2003, 
 
 5. Fare clic sul pulsante **Start**, scegliere **tutti i programmi**, **strumenti di amministrazione**e quindi fare clic su **DNS**.  
 6. Creare zone DNS per gli stessi nomi di dominio DNS ospitati nei server DNS prima del malfunzionamento critico. Per ulteriori informazioni, vedere la pagina relativa all'aggiunta di una zona di ricerca diretta ([https://go.microsoft.com/fwlink/?LinkId=74574](https://go.microsoft.com/fwlink/?LinkId=74574)).  
-7. Configurare i dati DNS esistenti prima del malfunzionamento critico. Esempio:  
+7. Configurare i dati DNS esistenti prima del malfunzionamento critico. Ad esempio:  
 
    - Configurare le zone DNS da archiviare in servizi di dominio Active Directory. Per ulteriori informazioni, vedere Modificare il tipo di zona ([https://go.microsoft.com/fwlink/?LinkId=74579](https://go.microsoft.com/fwlink/?LinkId=74579)).  
    - Configurare la zona DNS autorevole per i record di risorse del localizzatore controller di dominio (DC Locator) per consentire l'aggiornamento dinamico protetto. Per ulteriori informazioni, vedere Consenti solo aggiornamenti dinamici protetti ([https://go.microsoft.com/fwlink/?LinkId=74580](https://go.microsoft.com/fwlink/?LinkId=74580)).  

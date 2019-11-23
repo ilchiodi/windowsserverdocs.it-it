@@ -23,7 +23,7 @@ ms.locfileid: "71396356"
 
 ## <a name="add-a-network-policy"></a>Aggiungere un criterio di rete
 
-Server dei criteri di rete \(NPS @ no__t-1 USA i criteri di rete e le proprietà di accesso remoto degli account utente per determinare se una richiesta di connessione è autorizzata a connettersi alla rete.
+Server dei criteri di rete \(NPS\) usa i criteri di rete e le proprietà di accesso remoto degli account utente per determinare se una richiesta di connessione è autorizzata a connettersi alla rete.
 
 È possibile utilizzare questa procedura per configurare un nuovo criterio di rete nella console server dei criteri di rete o nella console di accesso remoto.
 
@@ -44,7 +44,7 @@ Quando si utilizza la creazione guidata nuovo criterio di rete per creare un cri
 
 Nella pagina **autorizzazioni di accesso** è necessario selezionare **accesso concesso** se si desidera che i criteri consentano agli utenti di connettersi alla rete. Per impedire che gli utenti si connettano alla rete, selezionare **accesso negato**. 
 
-Se si desidera che le autorizzazioni di accesso siano determinate dalle proprietà di connessione remota dell'account utente in Active Directory @ no__t-0 Domain Services \(AD DS @ no__t-2, è possibile selezionare la casella **di controllo accesso determinato da proprietà di connessione utente** .
+Se si desidera che le autorizzazioni di accesso siano determinate dalle proprietà di connessione dell'account utente in Active Directory&reg; Domain Services \(servizi di dominio Active Directory\), è possibile selezionare la casella **di controllo accesso è determinato da proprietà di connessione utente** .
 
 Per eseguire questa procedura, è necessaria almeno l'appartenenza al gruppo **Domain Admins** o a un gruppo equivalente.
 
@@ -58,10 +58,10 @@ Per eseguire questa procedura, è necessaria almeno l'appartenenza al gruppo **D
 
 ## <a name="create-network-policies-for-dial-up-or-vpn-with-a-wizard"></a>Creare criteri di rete per la connessione remota o VPN con una procedura guidata
 
-È possibile utilizzare questa procedura per creare i criteri di richiesta di connessione e i criteri di rete necessari per distribuire server di connessione remota o rete privata virtuale \(VPN @ no__t-1 server come Remote Authentication Dial-In User Service \(RADIUS @ no__t-3 client per il server RADIUS NPS.
+È possibile utilizzare questa procedura per creare i criteri di richiesta di connessione e i criteri di rete necessari per distribuire server di connessione remota o rete privata virtuale \(server VPN\) come Remote Authentication Dial-In User Service \(RADIUS\) client al server RADIUS Server dei criteri di rete.
 
 >[!NOTE]
->I computer client, ad esempio computer portatili e altri computer che eseguono sistemi operativi client, non sono client RADIUS. I client RADIUS sono server di accesso alla rete, ad esempio punti di accesso wireless, commutatori di autenticazione 802.1 X, rete privata virtuale \(VPN @ no__t-1 server e server di connessione remota, perché questi dispositivi usano il protocollo RADIUS per comunicare con RADIUS Server, ad esempio NPSs.
+>I computer client, ad esempio computer portatili e altri computer che eseguono sistemi operativi client, non sono client RADIUS. I client RADIUS sono server di accesso alla rete, ad esempio punti di accesso wireless, commutatori di autenticazione 802.1 X, rete privata virtuale \(server VPN\) e server di connessione remota, perché questi dispositivi usano il protocollo RADIUS per comunicare con i server RADIUS, ad esempio NPSs.
 
 In questa procedura viene illustrato come aprire la creazione guidata nuova connessione remota o rete privata virtuale in server dei criteri di rete.
 
@@ -117,7 +117,7 @@ Per eseguire questa procedura, è necessaria almeno l'appartenenza al gruppo **D
 
 ## <a name="configure-nps-to-ignore-user-account-dial-in-properties"></a>Configurare NPS per ignorare le proprietà di connessione remota dell'account utente
 
-Utilizzare questa procedura per configurare un criterio di rete NPS per ignorare le proprietà di accesso remoto degli account utente in Active Directory durante il processo di autorizzazione. Gli account utente in Active Directory utenti e computer dispongono di proprietà di connessione remota che i server dei criteri di rete valutano durante il processo di autorizzazione, a meno che la proprietà **autorizzazioni di accesso alla rete** dell'account utente non sia impostata per **controllare l'accesso tramite criteri di rete NPS** . 
+Utilizzare questa procedura per configurare un criterio di rete NPS per ignorare le proprietà di accesso remoto degli account utente in Active Directory durante il processo di autorizzazione. Gli account utente in Active Directory utenti e computer dispongono di proprietà di connessione remota che i server dei criteri di rete valutano durante il processo di autorizzazione, a meno che la proprietà **autorizzazioni di accesso alla rete** dell'account utente non sia impostata per **controllare l'accesso tramite criteri di rete NPS**. 
 
 Esistono due casi in cui potrebbe essere necessario configurare NPS per ignorare le proprietà di accesso remoto degli account utente in Active Directory:
 
@@ -171,7 +171,7 @@ L'appartenenza a **amministratori**, o equivalente è il requisito minimo necess
 
 6. In **Aggiungi attributo RADIUS standard**, in attributi, scorrere fino a e aggiungere gli attributi seguenti:
 
-    - **Tunnel-Media Type**. Selezionare un valore appropriato per le selezioni precedenti effettuate per il criterio. Se, ad esempio, i criteri di rete configurati sono criteri wireless, selezionare **Value: 802 (include tutti i formati di formato canonico di 802 Media Plus Ethernet)** .
+    - **Tunnel-Media Type**. Selezionare un valore appropriato per le selezioni precedenti effettuate per il criterio. Se, ad esempio, il criterio di rete che si sta configurando è un criterio wireless, selezionare **valore: 802 (include tutti i formati 802 Media Plus Ethernet Canonical)** .
 
     - **Tunnel-Pvt-Group-ID**. Immettere il numero intero che rappresenta il numero VLAN a cui verranno assegnati i membri del gruppo. 
 
@@ -194,7 +194,7 @@ L'appartenenza a **amministratori**, o equivalente è il requisito minimo necess
 
 In alcuni casi, i router o i firewall eliminano i pacchetti perché sono configurati per rimuovere i pacchetti che richiedono la frammentazione.
 
-Quando si distribuisce il server dei criteri di rete con i criteri di rete che usano il protocollo di autenticazione estendibile \(EAP @ no__t-1 con Transport Layer Security \(TLS @ no__t-3 o EAP-TLS, come metodo di autenticazione, unità di trasmissione massima predefinita \(MTU @ No_ _T-5 che NPS USA per i payload EAP è 1500 byte. 
+Quando si distribuisce il server dei criteri di rete con i criteri di rete che usano il protocollo di autenticazione estendibile \(EAP\) con Transport Layer Security \(TLS\)o EAP-TLS, come metodo di autenticazione, l'unità di trasmissione massima predefinita \(MTU\) che NPS USA per i payload EAP è 1500 byte. 
 
 Questa dimensione massima per il payload EAP può creare messaggi RADIUS che richiedono la frammentazione da parte di un router o di un firewall tra il server dei criteri di server e un client RADIUS. In tal caso, un router o un firewall posizionato tra il client RADIUS e il server dei criteri di rete potrebbe eliminare automaticamente alcuni frammenti, causando un errore di autenticazione e l'impossibilità del client di accesso di connettersi alla rete.
 

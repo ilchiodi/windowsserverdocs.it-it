@@ -44,10 +44,10 @@ La registrazione dell'inventario software può fornire supporto agli amministrat
 
 -   Aggregazione delle informazioni di inventario software e server per un'ampia gamma di scenari di gestione delle risorse software abilitando la funzionalità di registrazione dell'inventario software di ogni server e scegliendo un URI di destinazione del server Web e l'identificazione personale del certificato per l'autenticazione.
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 [Aggregatore di Registrazione inventario software](https://technet.microsoft.com/library/mt572043.aspx)<br>
 [Gestire Registrazione inventario software](manage-software-inventory-logging.md)<br>
 [Cmdlet di registrazione inventario software in Windows PowerShell](https://technet.microsoft.com/library/dn283390.aspx)<br>
 [Microsoft Assessment and Planning Toolkit](https://www.microsoft.com/download/en/details.aspx?id=7826)
-[Volume Activation Management Tool](http://blogs.technet.com/b/volume-licensing/)
+[strumento di gestione dell'attivazione dei contratti multilicenza](http://blogs.technet.com/b/volume-licensing/)
 

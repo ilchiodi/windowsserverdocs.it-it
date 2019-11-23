@@ -40,7 +40,7 @@ Nella tabella seguente viene fornita una panoramica dei passaggi che è possibil
 
 2. Se la procedura guidata non viene avviata automaticamente, fare clic con il pulsante destro del mouse sul nodo server nell'albero routing e accesso remoto e quindi scegliere **Abilita DirectAccess**.
 
-3. Fare clic su **Avanti**.
+3. Fai clic su **Next**.
 
 ## <a name="configure-directaccess-clients"></a>Configurare i client DirectAccess
 
@@ -54,7 +54,7 @@ Per effettuarne il provisioning allo scopo di usare DirectAccess, un computer cl
 
 4. Selezionare la casella di controllo **Usa Imponi tunneling** per indirizzare tutto il traffico del client (verso la rete interna e Internet) attraverso il server di Accesso remoto.
 
-5. Fare clic su **Avanti**.
+5. Fai clic su **Next**.
 
 ## <a name="configure-the-network-topology"></a>Configurare la topologia di rete
 
@@ -70,7 +70,7 @@ Per i client DNS è possibile configurare un elenco di ricerca dei suffissi del 
 
 2. Digitare un nuovo nome di suffisso in **nuovo suffisso** e quindi fare clic su **Aggiungi**. Inoltre, è possibile modificare l'ordine di ricerca e rimuovere i suffissi dai **suffissi di dominio da utilizzare**.
 
->Si noti In uno scenario di spazio dei nomi non contiguo \(where uno o più computer del dominio hanno un suffisso DNS che non corrisponde al dominio Active Directory a cui appartengono i computer @ no__t-1, è necessario assicurarsi che l'elenco di ricerca sia personalizzato in modo da includere tutte le richieste suffissi. La Configurazione guidata Accesso remoto configura per impostazione predefinita il nome DNS di Active Directory come suffisso DNS primario nel client. L'amministratore dovrà assicurarsi di aggiungere il suffisso DNS usato dai client per la risoluzione dei nomi.
+>Si noti In uno scenario di spazio dei nomi non contiguo \(in cui uno o più computer del dominio hanno un suffisso DNS che non corrisponde al dominio Active Directory a cui appartengono i computer\), è necessario assicurarsi che l'elenco di ricerca sia personalizzato in modo da includere tutti i suffissi richiesti. La Configurazione guidata Accesso remoto configura per impostazione predefinita il nome DNS di Active Directory come suffisso DNS primario nel client. L'amministratore dovrà assicurarsi di aggiungere il suffisso DNS usato dai client per la risoluzione dei nomi.
 
 Per i computer e i server, il seguente comportamento di ricerca DNS predefinito è predeterminato e utilizzato per il completamento e la risoluzione di nomi brevi e non qualificati. Quando l'elenco di ricerca dei suffissi è vuoto o non specificato, il suffisso DNS primario del computer viene aggiunto a nomi non qualificati brevi e viene usata una query DNS per risolvere il nome di dominio completo risultante. 
 

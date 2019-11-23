@@ -22,7 +22,7 @@ ms.locfileid: "71382447"
 ---
 # <a name="auditpol-backup"></a>backup auditpol
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Esegue il backup delle impostazioni dei criteri di controllo del sistema, delle impostazioni dei criteri di controllo per utente per tutti gli utenti e di tutte le opzioni di controllo in un file di testo con valori delimitati da virgole (CSV).
 
@@ -37,7 +37,7 @@ auditpol /backup /file:<filename>
 |   /file   | Specifica il nome del file in cui verrà eseguito il backup dei criteri di controllo. |
 |    /?     |                    Visualizza la guida al prompt dei comandi.                     |
 
-## <a name="remarks"></a>Note
+## <a name="remarks"></a>Osservazioni
 per le operazioni di backup per i criteri per utente e i criteri di sistema, è necessario disporre dell'autorizzazione di controllo completo o di scrittura per tale set di oggetti nel descrittore di sicurezza. È anche possibile eseguire operazioni di backup possedendo il diritto utente **Gestione registro di controllo e protezione** (SeSecurityPrivilege). Tuttavia, questo diritto consente un accesso aggiuntivo che non è necessario per eseguire l'operazione di elenco.
 ## <a name="BKMK_examples"></a>Esempi
 Per eseguire il backup delle impostazioni dei criteri di controllo per utente per tutti gli utenti, le impostazioni dei criteri di controllo del sistema e tutte le opzioni di controllo in un file di testo in formato CSV denominato AuditPolicy. csv, digitare:
@@ -46,6 +46,6 @@ auditpol /backup /file:C:\auditpolicy.csv
 ```
 > [!NOTE]
 > Se non viene specificata alcuna unità, viene utilizzata la directory corrente.
-> #### <a name="additional-references"></a>Riferimenti aggiuntivi
+> #### <a name="additional-references"></a>riferimenti aggiuntivi
 > [Chiave della sintassi della riga di comando](command-line-syntax-key.md)
-> [auditpol restore](auditpol-restore.md)
+> [Restore auditpol](auditpol-restore.md)

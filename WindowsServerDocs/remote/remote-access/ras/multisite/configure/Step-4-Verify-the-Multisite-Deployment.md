@@ -37,7 +37,7 @@ Questo argomento descrive come verificare di avere configurato correttamente la 
   
     Dovrebbe essere possibile accedere a tutte le risorse aziendali tramite ciascun server multisito.  
   
-4.  Connettere un computer client Windows 7 @ no__t-0 alla rete aziendale e ottenere i criteri di gruppo.  
+4.  Connettere un computer client Windows 7&reg; alla rete aziendale e ottenere i criteri di gruppo.  
   
 5.  Connettere il computer client Windows 7 alla rete esterna e tentare di accedere alle risorse interne.  
   

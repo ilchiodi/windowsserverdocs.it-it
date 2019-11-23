@@ -22,9 +22,9 @@ ms.locfileid: "71372074"
 ---
 # <a name="prnmngr"></a>prnmngr
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-aggiunge, Elimina ed elenca stampanti o connessioni stampanti, oltre a impostare e visualizzare la stampante predefinita.
+Aggiunge, Elimina ed elenca stampanti o connessioni stampanti, oltre a impostare e visualizzare la stampante predefinita.
 
 ## <a name="syntax"></a>Sintassi
 ```
@@ -45,14 +45,14 @@ cscript Prnmngr {-a | -d | -x | -g | -t | -l | -?}[c] [-s <ServerName>]
 |              -l               |                                                                                                         elenca tutte le stampanti installate nel server specificato dal parametro **-s** . Se non si specifica un server, Windows elenca le stampanti installate nel computer locale.                                                                                                         |
 |               c               |                                                                                                                                      Specifica che il parametro si applica alle connessioni della stampante. Può essere usato con i parametri **-a** e **-x** .                                                                                                                                      |
 |        -s <ServerName>        |                                                                                                                  Specifica il nome del computer remoto che ospita la stampante che si desidera gestire. Se non si specifica un computer, viene usato il computer locale.                                                                                                                  |
-|       -p \<printerName >       |                                                                                                                                                                Specifica il nome della stampante che si desidera gestire.                                                                                                                                                                 |
+|       -p \<PrinterName >       |                                                                                                                                                                Specifica il nome della stampante che si desidera gestire.                                                                                                                                                                 |
 |     -m \<DrivermodelName >     |                                                                                                          Specifica (per nome) il driver che si desidera installare. I driver sono spesso denominati per il modello di stampante supportato. Per ulteriori informazioni, vedere la documentazione della stampante.                                                                                                           |
-|        -r \<PortName >         |                                                                         Specifica la porta a cui è connessa la stampante. Se si tratta di una porta parallela o seriale, usare l'ID della porta (ad esempio, LPT1: o COM1:). Se si tratta di una porta TCP/IP, utilizzare il nome della porta specificato quando la porta è stata aggiunta.                                                                          |
-| -u \<UserName >-w \<Password > | Specifica un account con le autorizzazioni per la connessione al computer che ospita la stampante che si desidera gestire. Tutti i membri del gruppo Administrators locale del computer di destinazione dispongono di queste autorizzazioni, ma è possibile concedere anche le autorizzazioni ad altri utenti. Se non si specifica un account, è necessario effettuare l'accesso con un account con le autorizzazioni necessarie per il funzionamento del comando. |
+|        -r \<Portaname >         |                                                                         Specifica la porta a cui è connessa la stampante. Se si tratta di una porta parallela o seriale, usare l'ID della porta (ad esempio, LPT1: o COM1:). Se si tratta di una porta TCP/IP, utilizzare il nome della porta specificato quando la porta è stata aggiunta.                                                                          |
+| -u \<nome utente >-w \<password > | Specifica un account con le autorizzazioni per la connessione al computer che ospita la stampante che si desidera gestire. Tutti i membri del gruppo Administrators locale del computer di destinazione dispongono di queste autorizzazioni, ma è possibile concedere anche le autorizzazioni ad altri utenti. Se non si specifica un account, è necessario effettuare l'accesso con un account con le autorizzazioni necessarie per il funzionamento del comando. |
 |              /?               |                                                                                                                                                                           Visualizza la guida al prompt dei comandi.                                                                                                                                                                            |
 
-## <a name="remarks"></a>Note
--   Il comando **prndrvr** è uno script Visual Basic che si trova nella directory%WINdir%\System32\printing_Admin_Scripts @ no__t-1 @ no__t-2. Per usare questo comando, al prompt dei comandi digitare **cscript** seguito dal percorso completo del file **prnmngr** o passare alla cartella appropriata. Esempio:
+## <a name="remarks"></a>Osservazioni
+-   Il comando **prndrvr** è uno script Visual Basic che si trova nella directory%windir%\system32\. printing_Admin_Scripts\\<language>. Per usare questo comando, al prompt dei comandi digitare **cscript** seguito dal percorso completo del file **prnmngr** o passare alla cartella appropriata. Ad esempio:
     ```
     cscript %WINdir%\System32\printing_Admin_Scripts\en-US\prnmngr
     ```
@@ -68,6 +68,6 @@ Per eliminare la stampante denominata colorprinter_2 dal computer remoto denomin
 cscript prnmngr -d -s HRServer -p colorprinter_2 
 ```
 
-#### <a name="additional-references"></a>Riferimenti aggiuntivi
-Informazioni di[riferimento sui comandi di stampa](print-command-reference.md) 
- per la sintassi della riga di [comando](command-line-syntax-key.md)
+#### <a name="additional-references"></a>riferimenti aggiuntivi
+[Chiave della sintassi della riga di comando](command-line-syntax-key.md)
+[riferimento al comando stampa](print-command-reference.md)

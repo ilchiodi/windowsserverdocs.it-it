@@ -39,7 +39,7 @@ ms.locfileid: "71368992"
   
 ![il controllo della riga di comando](media/Command-line-process-auditing/GTR_ADDS_Event4688.gif)  
   
-**Figura SEQ figura \\ @ no__t-2 4688 arabo 16 evento**  
+**Figura SEQ figura \\\* arabo 16 evento 4688**  
   
 Esaminare l'evento ID 4688 aggiornato in REF _Ref366427278 \h figura 16.  Prima di questa aggiornare nessuna delle informazioni per **riga di comando processo** viene registrato.  A causa di questa registrazione aggiuntiva ora noteremo che è stato avviato il processo wscript.exe non solo, ma che è stato inoltre utilizzato per eseguire uno script VB.  
   
@@ -49,9 +49,9 @@ Per osservare gli effetti di questo aggiornamento, è necessario abilitare due i
 ### <a name="you-must-have-audit-process-creation-auditing-enabled-to-see-event-id-4688"></a>È necessario che il controllo è attivato per verificare l'evento ID 4688 la creazione del processo di controllo.  
 Per abilitare i criteri di creazione del processo di controllo, modificare i criteri di gruppo seguente:  
   
-**Percorso criterio:** Configurazione computer > criteri > impostazioni di Windows > impostazioni di sicurezza > configurazione di controllo avanzata > rilevamento dettagliato  
+**Percorso di criteri:** Configurazione Computer > Criteri > Impostazioni di Windows > Impostazioni di sicurezza > Configurazione avanzata di controllo > analisi dettagliata  
   
-**Nome criterio:** Controlla Creazione di processi  
+**Nome del criterio:** la creazione del processo di controllo  
   
 **Supportato in:** Windows 7 e versioni successive  
   
@@ -61,12 +61,12 @@ Questa impostazione di criteri di protezione determina se il sistema operativo g
   
 Questi eventi di controllo consente di comprendere come viene utilizzato un computer e tenere traccia delle attività dell'utente.  
   
-Volume evento: Da basso a medio, a seconda dell'utilizzo del sistema  
+Volume di eventi: bassa a supporto, a seconda dell'utilizzo del sistema  
   
-**Predefinita** Non configurato  
+**Valore predefinito:** non configurato  
   
-### <a name="in-order-to-see-the-additions-to-event-id-4688-you-must-enable-the-new-policy-setting-include-command-line-in-process-creation-events"></a>Per visualizzare le aggiunte all'ID evento 4688, è necessario abilitare la nuova impostazione dei criteri: Includere la riga di comando nel elaborare gli eventi di creazione  
-**Tabella SEQ tabella \\ @ no__t-2 l'impostazione dei criteri di elaborazione della riga di comando in arabo 19**  
+### <a name="in-order-to-see-the-additions-to-event-id-4688-you-must-enable-the-new-policy-setting-include-command-line-in-process-creation-events"></a>Per visualizzare le aggiunte all'evento 4688 ID, è necessario abilitare la nuova impostazione di criteri: includono una riga di comando di elaborare gli eventi di creazione  
+**Tabella SEQ tabella \\\* l'impostazione dei criteri del processo della riga di comando di 19 arabo**  
   
 |Configurazione dei criteri|Dettagli|  
 |------------------------|-----------|  
@@ -74,7 +74,7 @@ Volume evento: Da basso a medio, a seconda dell'utilizzo del sistema
 |**Impostazione**|**Includi riga di comando negli eventi di creazione del processo**|  
 |**Impostazione predefinita**|Non configurata (non abilitata)|  
 |**Supportato in:**|?|  
-|**Descrizione**|Questa impostazione di criterio determina quali informazioni vengono registrate negli eventi di controllo di sicurezza quando viene creato un nuovo processo.<br /><br />Questa impostazione si applica solo quando il criterio di creazione del processo di controllo è abilitato. Se si abilita questa impostazione di criteri, che le informazioni della riga di comando per ogni processo verranno registrate in testo normale nel registro eventi di protezione come parte dell'evento di creazione del processo di controllo 4688, "un nuovo processo creato," sulla workstation e server in cui viene applicata questa impostazione di criteri.<br /><br />Se si disabilita o non si configura questa impostazione di criteri, le informazioni del processo della riga di comando non includerà negli eventi di creazione del processo di controllo.<br /><br />Valore predefinito: Non configurato<br /><br />Nota: Quando questa impostazione dei criteri è abilitata, qualsiasi utente con accesso per leggere gli eventi di sicurezza sarà in grado di leggere gli argomenti della riga di comando per qualsiasi processo creato correttamente. Argomenti della riga di comando possono contenere informazioni riservate o private, ad esempio password o dati utente.|  
+|**Descrizione**|Questa impostazione di criterio determina quali informazioni vengono registrate negli eventi di controllo di sicurezza quando viene creato un nuovo processo.<br /><br />Questa impostazione si applica solo quando il criterio di creazione del processo di controllo è abilitato. Se si abilita questa impostazione di criteri, che le informazioni della riga di comando per ogni processo verranno registrate in testo normale nel registro eventi di protezione come parte dell'evento di creazione del processo di controllo 4688, "un nuovo processo creato," sulla workstation e server in cui viene applicata questa impostazione di criteri.<br /><br />Se si disabilita o non si configura questa impostazione di criteri, le informazioni del processo della riga di comando non includerà negli eventi di creazione del processo di controllo.<br /><br />Valore predefinito: Non configurato<br /><br />Nota: Quando questa impostazione di criterio è abilitata, qualsiasi utente con accesso per leggere che gli eventi di sicurezza sarà in grado di leggere gli argomenti della riga di comando per qualsiasi correttamente creato processo. Argomenti della riga di comando possono contenere informazioni riservate o private, ad esempio password o dati utente.|  
   
 ![il controllo della riga di comando](media/Command-line-process-auditing/GTR_ADDS_IncludeCLISetting.gif)  
   
@@ -95,7 +95,7 @@ La procedura seguente illustra come evitare conflitti, bloccando l'applicazione 
   
 4.  Fare doppio clic su impostazioni di sicurezza, fare doppio clic su criteri locali e quindi su opzioni di sicurezza.  
   
-5.  Fare doppio clic su audit: Forzare le impostazioni della sottocategoria dei criteri di controllo (Windows Vista o versione successiva) per sostituire le impostazioni di categoria dei criteri di controllo e fare clic su Definisci questa impostazione.  
+5.  Fare doppio clic sul controllo: Forza subcategory criteri di controllo (Windows Vista o versioni successive) per eseguire l'override delle impostazioni di categoria di criteri di controllo e quindi fare clic su Definisci questa impostazione.  
   
 6.  Fare clic su attivato e quindi fare clic su OK.  
   
@@ -106,7 +106,7 @@ La procedura seguente illustra come evitare conflitti, bloccando l'applicazione 
   
 [AppLocker: domande frequenti](https://technet.microsoft.com/library/ee619725(v=ws.10).aspx)  
   
-## <a name="try-this-explore-command-line-process-auditing"></a>Provare: Esplorazione del controllo del processo della riga di comando  
+## <a name="try-this-explore-command-line-process-auditing"></a>Procedura: Esplorare controllo dell'elaborazione della riga di comando  
   
 1.  Abilitare **la creazione del processo di controllo** eventi e verificare la configurazione dei criteri di controllo avanzate non viene sovrascritto.  
   

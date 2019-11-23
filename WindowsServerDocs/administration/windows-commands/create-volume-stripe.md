@@ -22,7 +22,7 @@ ms.locfileid: "71379141"
 ---
 # <a name="create-volume-stripe"></a>Crea Stripe del volume
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 consente di creare un volume con striping utilizzando due o più dischi dinamici specificati.  
   
@@ -41,12 +41,12 @@ create volume stripe [size=<n>] disk=<n>,<n>[,<n>,...] [align=<n>] [noerr]
   
 |         Parametro         |                                                                                                                            Descrizione                                                                                                                            |
 |---------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|         dimensioni @ no__t-0 @ no__t-1         |             La quantità di spazio su disco, in megabyte \(MB\), che verrà occupata dal volume in ciascun disco. Se si specifica alcuna dimensione, il nuovo volume occuperà lo spazio libero rimanente nel disco più piccolo e un'uguale quantità di spazio su ogni disco successivo.             |
-| Disk @ no__t-0 @ no__t-1, <n> @ no__t-3, <n>,... \] |                                  I dischi dinamici in cui viene creato il volume con striping. Sono necessari almeno due dischi dinamici per creare un volume con striping. In ogni disco viene allocata una quantità di spazio uguale a **size @ no__t-1 @ no__t-2** .                                   |
-|        align @ no__t-0 @ no__t-1         | Consente di allineare tutti gli extent di volume per il limite di allineamento più vicino. In genere utilizzata con il numero di unità logica RAID hardware \(LUN\) matrici per migliorare le prestazioni. *n* è il numero di kilobyte \(KB\) dall'inizio del disco per il limite di allineamento più vicino. |
-|           NOERR           |                               Solo per gli script. Quando si è verificato un errore, DiskPart continua a elaborare i comandi come se non si è verificato l'errore. Senza questo parametro, un errore causa DiskPart viene interrotto con un codice di errore.                                |
+|         dimensioni\=<n>         |             La quantità di spazio su disco, in megabyte \(MB\), che verrà occupata dal volume in ciascun disco. Se si specifica alcuna dimensione, il nuovo volume occuperà lo spazio libero rimanente nel disco più piccolo e un'uguale quantità di spazio su ogni disco successivo.             |
+| disco\=<n>,<n>\[,<n>,...\] |                                  I dischi dinamici in cui viene creato il volume con striping. Sono necessari almeno due dischi dinamici per creare un volume con striping. In ogni disco viene allocata una quantità di spazio uguale alle **dimensioni\=<n>** .                                   |
+|        Allinea\=<n>         | Consente di allineare tutti gli extent di volume per il limite di allineamento più vicino. In genere utilizzata con il numero di unità logica RAID hardware \(LUN\) matrici per migliorare le prestazioni. *n* è il numero di kilobyte \(KB\) dall'inizio del disco per il limite di allineamento più vicino. |
+|           NOERR           |                               solo per gli script. Quando si è verificato un errore, DiskPart continua a elaborare i comandi come se non si è verificato l'errore. Senza questo parametro, un errore causa DiskPart viene interrotto con un codice di errore.                                |
   
-## <a name="remarks"></a>Note  
+## <a name="remarks"></a>Osservazioni  
   
 -   Dopo aver creato il volume, lo stato attivo passa automaticamente al nuovo volume.  
   
@@ -57,7 +57,7 @@ Per creare un volume con striping di 1000 MB di dimensioni, sui dischi 1 e 2, di
 create volume stripe size=1000 disk=1,2  
 ```  
   
-#### <a name="additional-references"></a>Riferimenti aggiuntivi  
+#### <a name="additional-references"></a>riferimenti aggiuntivi  
 [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)  
   
 

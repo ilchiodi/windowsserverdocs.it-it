@@ -39,16 +39,16 @@ comp [<Data1>] [<Data2>] [/d] [/a] [/l] [/n=<Number>] [/c]
 |Parametro|Descrizione|
 |---------|-----------|
 |\<Data1 >|Specifica il percorso e nome del primo file o set di file che si desidera confrontare. È possibile utilizzare caratteri jolly ( **&#42;** e **?** ) per specificare più file.|
-|\<Data2 >|Specifica il percorso e nome del secondo file o set di file che si desidera confrontare. È possibile utilizzare caratteri jolly ( **&#42;** e **?** ) per specificare più file.|
+|\<data2 >|Specifica il percorso e nome del secondo file o set di file che si desidera confrontare. È possibile utilizzare caratteri jolly ( **&#42;** e **?** ) per specificare più file.|
 |/d|Visualizza le differenze in formato decimale. (Il formato predefinito è esadecimale).|
 |/a|Visualizza le differenze come caratteri.|
 |/l|Visualizza il numero della riga in cui viene riscontrata una differenza, invece di visualizzare l'offset di byte.|
-|/n = \<Number >|Confronta solo il numero di righe che vengono specificate per ogni file, anche se i file sono di dimensioni diverse.|
+|/n = numero\<>|Confronta solo il numero di righe che vengono specificate per ogni file, anche se i file sono di dimensioni diverse.|
 |/c|Esegue un confronto senza tale distinzione.|
 |/ [offline]|Elabora i file con il set di attributi non in linea.|
 |/?|Visualizza la Guida al prompt dei comandi.|
 
-## <a name="remarks"></a>Note
+## <a name="remarks"></a>Osservazioni
 
 -   Come il comando **comp** identifica le informazioni non corrispondenti
 
@@ -93,7 +93,7 @@ comp [<Data1>] [<Data2>] [/d] [/a] [/l] [/n=<Number>] [/c]
 
 ## <a name="BKMK_examples"></a>Esempi
 
-Per confrontare il contenuto della directory C:\Rapporti con la directory di backup \\ @ no__t-1Sales\Backup\April, digitare:
+Per confrontare il contenuto della directory C:\Rapporti con la directory di backup \\\\Sales\Backup\April, digitare:
 ```
 comp c:\reports \\sales\backup\april
 ```

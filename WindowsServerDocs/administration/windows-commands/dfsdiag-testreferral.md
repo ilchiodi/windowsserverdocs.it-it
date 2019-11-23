@@ -22,19 +22,19 @@ ms.locfileid: "71378365"
 ---
 # <a name="dfsdiag-testreferral"></a>TestReferral Dfsdiag
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Controlla File System distribuito \(DFS\) riferimenti eseguendo i test seguenti:  
   
 -   Quando si usa il parametro DFSpath senza argomenti, questo comando convalida che l'elenco di riferimenti includa tutti i domini trusted.  
   
--   Quando si specifica un dominio, il comando esegue un controllo di integrità dei controller di dominio \(dfsdiag \/testdcs @ no__t-2 e testa le associazioni del sito e la cache di dominio dell'host locale.  
+-   Quando si specifica un dominio, il comando esegue un controllo di integrità dei controller di dominio \(Dfsdiag \/testdcs\) e testa le associazioni del sito e la cache di dominio dell'host locale.  
   
--   Quando si specifica un dominio e \\SYSvol o \\NETLOGON, oltre a eseguire gli stessi controlli di integrità di quando si specifica un dominio, il comando verifica che la durata (TTL) \(TTL @ no__t-3 dei riferimenti SYSvol o NETLOGON corrisponda al valore predefinito 900 secondi.  
+-   Quando si specifica un dominio e \\SYSvol o \\NETLOGON, oltre a eseguire gli stessi controlli di integrità di quando si specifica un dominio, il comando verifica che la durata \(TTL\) dei riferimenti di SYSvol o NETLOGON corrisponda al valore predefinito di 900 secondi.  
   
--   Quando si specifica una radice dello spazio dei nomi, oltre a eseguire gli stessi controlli di integrità di quando si specifica un dominio, il comando esegue un controllo della configurazione DFS \(dfsdiag \/TestDFSConfig @ no__t-2 e un controllo di integrità dello spazio dei nomi \(dfsdiag @no__ t-4TestDFSIntegrity @ no__t-5.  
+-   Quando si specifica una radice dello spazio dei nomi, oltre a eseguire gli stessi controlli di integrità di quando si specifica un dominio, il comando esegue un controllo della configurazione DFS \(Dfsdiag \/TestDFSConfig\) e un controllo di integrità dello spazio dei nomi \(Dfsdiag \/TestDFSIntegrity\).  
   
--   Quando si specifica una cartella DFS \(link @ no__t-1, oltre a eseguire gli stessi controlli di integrità di quando si specifica una radice dello spazio dei nomi, il comando convalida la configurazione del sito per le destinazioni cartella \(dfsdiag \/testsites @ no__t-4 e convalida Associazione sito dell'host locale.  
+-   Quando si specifica una cartella DFS \(collegamento\), oltre a eseguire gli stessi controlli di integrità di quando si specifica una radice dello spazio dei nomi, il comando convalida la configurazione del sito per le destinazioni cartella \(Dfsdiag \/testsites\) e convalida l'associazione sito dell'host locale.  
   
   
   
@@ -48,8 +48,8 @@ dfsdiag /TestReferral /DFSpath:<DFS path for getting referrals> [/Full]
   
 |Parametro|Descrizione|  
 |-------|--------|  
-|\/DFSpath: <path for getting referrals>|Il percorso DFS può essere uno dei seguenti:<br /><br />-    @ no__t-1blank @ no__t-2: Verifica i domini trusted.<br />-    @ no__t-1 @ no__t-2Domain: Riferimenti del controller di dominio.<br />-    @ no__t-1 @ no__t-2Domain @ no__t-3SYSvol: Riferimenti SYSvol.<br />-    @ no__t-1 @ no__t-2Domain @ no__t-3NETLOGON: Riferimenti NETLOGON.<br />-    @ no__t-1 @ no__t-2 @ no__t-3 @ no__t-4 @ no__t-5: Riferimenti alla radice dello spazio dei nomi.<br />-    @ no__t-1 @ no__t-2 @ no__t-3 @ no__t-4 @ no__t-5 @ no__t-6 @ no__t-7: Cartella DFS \(link @ no__t-1 riferimenti.|  
-|\/Full|Applicabile solo a riferimenti dominio radice. Verifica la coerenza delle informazioni di associazione del sito tra il registro di sistema e servizi di dominio Active Directory \(AD DS @ no__t-1.|  
+|\/DFSpath:<path for getting referrals>|Il percorso DFS può essere uno dei seguenti:<br /><br />-   \(\)vuoto: verifica i domini trusted.<br />-   \\\\dominio: riferimenti del controller di dominio.<br />-   \\\\dominio\\SYSvol: riferimenti SYSvol.<br />-   \\\\dominio\\NETLOGON: riferimenti NETLOGON.<br />-   \\\\<Domain or server>\\<Namespace Root>: riferimenti radice dello spazio dei nomi.<br />-   \\\\<Domain or server>\\<Namespace root>\\<DFS folder>: cartella DFS \(collegamento\) riferimenti.|  
+|\/completo|Applicabile solo a riferimenti dominio radice. Verifica la coerenza delle informazioni di associazione del sito tra il registro di sistema e i servizi di dominio Active Directory \(\)AD DS.|  
   
 ## <a name="BKMK_Examples"></a>Esempi  
 Per TBD, digitare:  
@@ -64,7 +64,7 @@ Per TBD, digitare:
 dfsdiag /TestReferral /DFSpath:  
 ```  
   
-## <a name="additional-references"></a>Riferimenti aggiuntivi  
+## <a name="additional-references"></a>riferimenti aggiuntivi  
   
 -   [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)  
   

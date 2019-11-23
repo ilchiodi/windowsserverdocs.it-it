@@ -38,9 +38,9 @@ set [no]debug
 |-------------|--------------------------------------------------------------|
 | **nodebug** | Disattiva la modalità di debug. La sintassi predefinita è **nodebug**. |
 |  **debug**  |                   Attiva la modalità di debug.                   |
-|  \* @ no__t-1 {Guida  |                            ?} \* @ no__t-1                            |
+|  \*\*{Help  |                            ?}\*\*                            |
 
-## <a name="remarks"></a>Note
+## <a name="remarks"></a>Osservazioni
 
 -   Con la modalità di debug attivata, vengono stampate ulteriori informazioni sul pacchetto inviato al server e la risposta risultante.
 

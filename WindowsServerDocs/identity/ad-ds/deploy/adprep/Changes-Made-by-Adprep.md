@@ -30,9 +30,9 @@ In questo argomento vengono descritte le modifiche apportate da Adprep. exe in W
   
 -   [Aggiornamenti dello schema](../../../ad-ds/deploy/Schema-Updates.md)  
   
-## <a name="see-also"></a>Vedere anche  
-@no__t-server 0Windows 2008 R2: Appendice delle modifiche apportate a adprep. exe per supportare servizi di dominio Active Directory @ no__t-0  
-Server @no__t 0Windows 2008: Appendice delle modifiche apportate a adprep. exe per supportare servizi di dominio Active Directory @ no__t-0  
+## <a name="see-also"></a>Vedi anche  
+[Windows Server 2008 R2: Appendice delle modifiche apportate a adprep. exe per supportare servizi di dominio Active Directory](https://technet.microsoft.com/library/dd378876.aspx)  
+[Windows Server 2008: Appendice delle modifiche apportate a adprep. exe per supportare servizi di dominio Active Directory](https://technet.microsoft.com/library/cc770703.aspx)  
   
 
 

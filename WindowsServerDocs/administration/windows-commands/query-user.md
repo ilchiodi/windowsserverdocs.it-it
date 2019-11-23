@@ -22,10 +22,10 @@ ms.locfileid: "71384874"
 ---
 # <a name="query-user"></a>utente query
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Visualizza informazioni sulle sessioni utente in un server Host sessione Desktop remoto (host sessione Desktop remoto).
-Per esempi relativi all'uso di questo comando, vedere [esempi](#BKMK_examples).
+per esempi relativi all'uso di questo comando, vedere [esempi](#BKMK_examples).
 > [!NOTE]
 > In Windows Server 2008 R2, Servizi terminal si chiama ora Servizi Desktop remoto. Per informazioni sulle novità della versione più recente, vedere Novità di [Servizi Desktop remoto in Windows server 2012](https://technet.microsoft.com/library/hh831527) nella libreria TechNet di Windows Server.
 > ## <a name="syntax"></a>Sintassi
@@ -42,7 +42,7 @@ Per esempi relativi all'uso di questo comando, vedere [esempi](#BKMK_examples).
 > | /server:<ServerName> | Specifica il server Host sessione Desktop remoto su cui si desidera eseguire la query. In caso contrario, viene utilizzato il server Host sessione Desktop remoto corrente. |
 > |          /?          |                                        Visualizza la guida al prompt dei comandi.                                         |
 > 
-> ## <a name="remarks"></a>Note
+> ## <a name="remarks"></a>Osservazioni
 > - È possibile utilizzare questo comando per verificare se un utente specifico è connesso a un server Host sessione Desktop remoto specifico. **query user** restituisce le informazioni seguenti:
 >   -   Nome dell'utente
 >   -   Nome della sessione nel server Host sessione Desktop remoto
@@ -63,6 +63,7 @@ Per esempi relativi all'uso di questo comando, vedere [esempi](#BKMK_examples).
 >   ```
 >   query user USER1 /server:SERver1
 >   ```
->   #### <a name="additional-references"></a>Riferimenti aggiuntivi
+>   #### <a name="additional-references"></a>riferimenti aggiuntivi
 >   [Sintassi della riga di comando chiave](command-line-syntax-key.md)
->   [query](query.md)@no__t-[3 &#40;Servizi Desktop remoto riferimento&#41; ai comandi di Servizi terminal](remote-desktop-services-terminal-services-command-reference.md)
+>   [query](query.md)
+>   [Servizi Desktop remoto &#40;riferimento&#41; ai comandi di Servizi terminal](remote-desktop-services-terminal-services-command-reference.md)

@@ -38,12 +38,12 @@ unexpose {<ShadowID> | <Drive:> | <Share> | <MountPoint>}
 
 |Parametro|Descrizione|
 |---------|-----------|
-|\<ShadowID >|Unexposes la copia shadow specificata per l'ID di Shadow specificato.|
-|\<Drive: >|Non espone la copia shadow associata alla lettera di unità specificata (ad esempio, l'unità P).|
-|\<Share >|Non espone la copia shadow associata alla condivisione specificata, ad esempio \\ @ no__t-1*MachineName*\).|
-|\<MountPoint >|Non espone la copia shadow associata al punto di montaggio specificato (ad esempio, C:\shadowcopy @ no__t-0.|
+|\<IDShadow >|Unexposes la copia shadow specificata per l'ID di Shadow specificato.|
+|Unità \<: >|Non espone la copia shadow associata alla lettera di unità specificata (ad esempio, l'unità P).|
+|Condivisione \<>|Non espone la copia shadow associata alla condivisione specificata, ad esempio \\\\*MachineName*\).|
+|\<MountPoint >|Non espone la copia shadow associata al punto di montaggio specificato, ad esempio C:\shadowcopy\).|
 
-## <a name="remarks"></a>Note
+## <a name="remarks"></a>Osservazioni
 
 -   È possibile utilizzare un alias esistente o una variabile di ambiente al posto di *IDShadow*. Utilizzare **aggiungere** senza parametri per visualizzare gli alias esistenti.
 

@@ -47,25 +47,25 @@ findstr [/b] [/e] [/l | /r] [/s] [/i] [/x] [/v] [/n] [/m] [/o] [/p] [/f:<File>] 
 |/n|Visualizza il numero di ogni riga corrispondente.|
 |/m|Se un file contiene una corrispondenza, viene stampato solo il nome del file.|
 |/o|Offset carattere viene stampato prima di ogni riga corrispondente.|
-|/ p|Ignora i file con caratteri non stampabili.|
+|/p|Ignora i file con caratteri non stampabili.|
 |/ [offline]|Non ignorare i file che sono impostato l'attributo non in linea.|
-|/f: \<File >|Ottiene un elenco di file dal file specificato.|
-|/c: \<String >|Utilizza il testo specificato come stringa di ricerca letterale.|
-|/g: \<File >|Ottiene ricerca stringhe dal file specificato.|
-|/d: \<DirList >|Cerca l'elenco di directory specificato. Ogni directory devono essere separati da un punto e virgola (;), ad esempio `dir1;dir2;dir3`.|
-|/a: \<ColorAttribute >|Specifica gli attributi di colore con due cifre esadecimali. Tipo `color /?` Per ulteriori informazioni.|
-|\<Strings >|Specifica il testo da cercare nella *FileName*. Obbligatorio.|
-|[\<Drive >:] [<Path>] <FileName> [...]|Specifica il percorso e un file o file da cercare. Nome di almeno un file è obbligatorio.|
+|/f:\<file >|Ottiene un elenco di file dal file specificato.|
+|/c:\<stringa >|Utilizza il testo specificato come stringa di ricerca letterale.|
+|/g:\<file >|Ottiene ricerca stringhe dal file specificato.|
+|/d:\<DirList >|Cerca l'elenco di directory specificato. Ogni directory devono essere separati da un punto e virgola (;), ad esempio `dir1;dir2;dir3`.|
+|/a:\<ColorAttribute >|Specifica gli attributi di colore con due cifre esadecimali. Tipo `color /?` Per ulteriori informazioni.|
+|Stringhe di \<>|Specifica il testo da cercare nella *FileName*. Obbligatorio.|
+|[\<unità >:] [<Path>]<FileName>[...]|Specifica il percorso e un file o file da cercare. Nome di almeno un file è obbligatorio.|
 |/?|Visualizza la Guida al prompt dei comandi.|
 
-## <a name="remarks"></a>Note
+## <a name="remarks"></a>Osservazioni
 
 - Tutti **findstr** devono precedere le opzioni della riga di comando *stringhe* e *FileName* nella stringa di comando.
 - Espressioni regolari utilizzano sia i caratteri letterali e metacaratteri per individuare modelli di testo, anziché stringhe di caratteri esatte. Un carattere letterale è un carattere che non hanno un significato speciale nella sintassi delle espressioni regolari, corrisponde a un'occorrenza del carattere desiderato. Ad esempio, lettere e numeri sono caratteri letterali. Un metacarattere è un simbolo con un significato speciale (un operatore o delimitatore) nella sintassi delle espressioni regolari.
 
   Nella tabella seguente sono elencati i metacaratteri che **findstr** accetta.  
 
-  |Metacaratteri|Value|
+  |Metacaratteri|Valore|
   |-------------|-----|
   |.|Jolly: qualsiasi carattere|
   |*|Ripeti: zero o più occorrenze del carattere precedente o della classe|
@@ -75,8 +75,8 @@ findstr [/b] [/e] [/l | /r] [/s] [/i] [/x] [/v] [/n] [/m] [/o] [/p] [/f:<File>] 
   |[^ classe]|Classe inversa: qualsiasi carattere non in un set|
   |[x-y]|Intervallo: qualsiasi carattere compreso nell'intervallo specificato|
   |\x|Escape: utilizzo letterale di una metacarattere x|
-  |stringa \\ <|Posizione nella parola: inizio della parola|
-  |stringa @ no__t-0|Posizione nella parola: fine della parola|
+  |stringa \\<|Posizione nella parola: inizio della parola|
+  |\> stringa|Posizione nella parola: fine della parola|
 
   I caratteri speciali nella sintassi delle espressioni regolari sono della massima potenza quando vengono utilizzati insieme. Ad esempio, utilizzare la seguente combinazione del carattere jolly (.) e ripetere il carattere (*) per cercare una stringa di caratteri:
 

@@ -80,9 +80,9 @@ Nella prima pagina della creazione guidata criteri QoS è possibile specificare 
 
 2. Facoltativamente, usare **specifica il valore DSCP** per abilitare il contrassegno DSCP, quindi configurare un valore DSCP compreso tra 0 e 63.
 
-3. È possibile utilizzare **Specifica velocità in uscita** per abilitare la limitazione della velocità del traffico e configurare la velocità. Il valore della velocità di limitazione deve essere maggiore di 1 ed è possibile specificare unità di kilobyte al secondo \(Kbps\) o megabyte al secondo \(Mbps\).
+3. È possibile utilizzare **Specifica velocità in uscita** per abilitare la limitazione della velocità del traffico e configurare la velocità. Il valore della velocità di limitazione deve essere maggiore di 1 ed è possibile specificare unità di kilobyte al secondo \(KBps\) o megabyte al secondo \(MBps\).
 
-4. Fare clic su **Avanti**.
+4. Fai clic su **Next**.
 
 ### <a name="wizard-page-2---application-name"></a>Pagina 2 della procedura guidata-nome applicazione
 
@@ -99,11 +99,11 @@ Nella seconda pagina della procedura guidata per i criteri QoS è possibile appl
 >[!NOTE]
 >Il percorso dell'applicazione non può includere un percorso che viene risolto in un collegamento simbolico.
 
-L'URL deve essere conforme allo [standard RFC 1738](https://tools.ietf.org/html/rfc1738), nel `http[s]://<hostname\>:<port\>/<url-path>`formato. È possibile usare un carattere jolly `‘*'`,, `<hostname>` per `https://training.\*/, https://\*.\*`e/ `<port>`o, ad esempio, ma il carattere jolly non può indicare una sottostringa di `<hostname>` o `<port>`.
+L'URL deve essere conforme allo [standard RFC 1738](https://tools.ietf.org/html/rfc1738), sotto forma di `http[s]://<hostname\>:<port\>/<url-path>`. È possibile utilizzare un carattere jolly, `‘*'`, per `<hostname>` e/o `<port>`, ad esempio `https://training.\*/, https://\*.\*`, ma il carattere jolly non può indicare una sottostringa di `<hostname>` o `<port>`.
 
-In altre parole, `https://my\*site/` né né `https://\*training\*/` sono validi. 
+In altre parole, né `https://my\*site/` né `https://\*training\*/` sono validi. 
 
-Facoltativamente, è possibile selezionare **Includi sottodirectory e file** per eseguire la corrispondenza in tutte le sottodirectory e i file dopo un URL. Se, ad esempio, questa opzione è selezionata e l'URL `https://training`è, i criteri QoS prenderanno` https://training/video` in considerazione le richieste per una corrispondenza corretta.
+Facoltativamente, è possibile selezionare **Includi sottodirectory e file** per eseguire la corrispondenza in tutte le sottodirectory e i file dopo un URL. Se, ad esempio, questa opzione è selezionata e l'URL è `https://training`, i criteri QoS prenderanno in considerazione le richieste di` https://training/video` una corrispondenza corretta.
 
 #### <a name="to-configure-the-application-name-page-of-the-qos-policy-wizard"></a>Per configurare la pagina Nome applicazione della creazione guidata criterio QoS
 
@@ -111,7 +111,7 @@ Facoltativamente, è possibile selezionare **Includi sottodirectory e file** per
 
 2. Se si seleziona **Solo le applicazioni con questo nome di eseguibile**, specificare un nome di eseguibile che termina con l'estensione exe.
 
-3. Fare clic su **Avanti**.
+3. Fai clic su **Next**.
 
 ### <a name="wizard-page-3---ip-addresses"></a>Pagina 3 della procedura guidata-indirizzi IP
 
@@ -123,13 +123,13 @@ Nella terza pagina della creazione guidata criteri QoS è possibile specificare 
 
 Se si seleziona **Solo per il prefisso o l'indirizzo IP di origine seguente** o **Solo per il prefisso o l'indirizzo IP di destinazione seguente**, è necessario digitare uno dei valori seguenti:
 
-- Un indirizzo IPv4, ad esempio`192.168.1.1`
+- Un indirizzo IPv4, ad esempio `192.168.1.1`
 
-- Prefisso di indirizzo IPv4 che utilizza la notazione della lunghezza del prefisso di rete, ad esempio`192.168.1.0/24`
+- Prefisso di indirizzo IPv4 che utilizza la notazione della lunghezza del prefisso di rete, ad esempio `192.168.1.0/24`
 
-- Un indirizzo IPv6, ad esempio`3ffe:ffff::1`
+- Un indirizzo IPv6, ad esempio `3ffe:ffff::1`
 
-- Un prefisso di indirizzo IPv6, ad esempio`3ffe:ffff::/48`
+- Prefisso di indirizzo IPv6, ad esempio `3ffe:ffff::/48`
 
 Se si seleziona **solo per l'indirizzo IP di origine seguente** e **solo per l'indirizzo IP di destinazione seguente**, entrambi gli indirizzi o i prefissi di indirizzo devono essere basati su IPv4 o IPv6.
 
@@ -147,7 +147,7 @@ Questo è vero perché l'indirizzo IP di origine è l'indirizzo del server HTTP 
 
 4. Se è stata selezionata **l'opzione solo per il seguente indirizzo IP di destinazione**, specificare un indirizzo o un prefisso IPv4 o IPv6 corrispondente al tipo di indirizzo o prefisso specificato per l'indirizzo di origine.
 
-5.  Fare clic su **Avanti**.  
+5.  Fai clic su **Next**.  
 
 ### <a name="wizard-page-4---protocols-and-ports"></a>Pagina 4 della procedura guidata-protocolli e porte
 
@@ -240,7 +240,7 @@ Le impostazioni avanzate di QoS forniscono controlli aggiuntivi che consentono a
   
 2.  Fare clic con il pulsante destro del mouse su **criteri QoS**, quindi scegliere **impostazioni QoS avanzate**.
 
-     Nella figura seguente sono illustrate le due schede Advanced QoS Settings: **Traffico TCP in ingresso** e **override del contrassegno DSCP**.
+     Nella figura seguente sono illustrate le due schede Advanced QoS Settings: **traffico TCP in ingresso** e **override del contrassegno DSCP**.
   
 > [!NOTE]
 >  Le impostazioni QoS avanzate sono impostazioni Criteri di gruppo a livello di computer.
@@ -270,7 +270,7 @@ La dimensione effettiva della finestra può essere un valore uguale o minore del
 
 3.  Collegare l'oggetto Criteri di gruppo all'unità organizzativa.
 
-#### <a name="advanced-qos-settings-dscp-marking-override"></a>Impostazioni QoS avanzate: Override contrassegno DSCP
+#### <a name="advanced-qos-settings-dscp-marking-override"></a>Impostazioni QoS avanzate: override del contrassegno DSCP
 
 L'override del contrassegno DSCP limita la capacità delle applicazioni di specificare, o "Mark", valori DSCP diversi da quelli specificati nei criteri QoS. Specificando che le applicazioni sono autorizzate a impostare i valori DSCP, le applicazioni possono impostare valori DSCP diversi da zero. 
 
@@ -280,7 +280,7 @@ Per impostazione predefinita, i computer che eseguono Windows Server 2016, Windo
 
 ##### <a name="wireless-multimedia-and-dscp-values"></a>Multimedia wireless e valori DSCP
 
-Il [Wi-Fi Alliance](https://go.microsoft.com/fwlink/?LinkId=160769) ha stabilito una certificazione per Multimedia wireless \(WMM @ no__t-2 che definisce quattro categorie di accesso \(WMM_AC @ no__t-4 per la definizione delle priorità del traffico di rete trasmesso su una rete wireless Wi @ No__t-5FI. Le categorie di accesso \(includono l'ordine di priorità\)più alta a quella più bassa: voce, video, sforzo ottimale e sfondo, rispettivamente abbreviato come vo, vi, be e BK. La specifica WMM definisce quali valori DSCP corrispondono a ognuna delle quattro categorie di accesso:
+Il [Wi-Fi Alliance](https://go.microsoft.com/fwlink/?LinkId=160769) ha stabilito una certificazione per le Multimedia wireless \(WMM\) che definisce quattro categorie di accesso \(WMM_AC\) per la definizione delle priorità del traffico di rete trasmesso su una rete wireless Wi\-Fi. Le categorie di accesso includono \(in ordine di priorità più alta a quella più bassa\): voce, video, massimo sforzo e sfondo; rispettivamente abbreviato come VO, VI, BE e BK. La specifica WMM definisce quali valori DSCP corrispondono a ognuna delle quattro categorie di accesso:
   
 |Valore DSCP|Categoria di accesso WMM|
 |----------|-------------------|
@@ -289,7 +289,7 @@ Il [Wi-Fi Alliance](https://go.microsoft.com/fwlink/?LinkId=160769) ha stabilito
 |24-31, 0-7|Massimo sforzo (BE)|
 |8-23|Sfondo (BK)|
 
-È possibile creare criteri QoS che usano questi valori DSCP per garantire che i computer portatili con\-™ Wi-Fi Certified per le schede wireless WMM ricevano la gestione\-con priorità quando sono associati ai punti di accesso con certificazione Wi-Fi per WMM.
+È possibile creare criteri QoS che usano questi valori DSCP per assicurarsi che i computer portatili con™ certificati Wi\-Fi per le schede wireless WMM ricevano la gestione con priorità quando sono associati a Wi\-Fi Certified per i punti di accesso WMM.
   
 ### <a name="BKMK_precedencerules"></a>Regole di precedenza dei criteri QoS
 
@@ -297,7 +297,7 @@ Analogamente alle priorità degli oggetti Criteri di gruppo, i criteri QoS hanno
 
 In generale, prevale il criterio QoS con le condizioni più corrispondenti. Quando si applicano più criteri QoS, le regole rientrano in tre categorie: a livello di utente e a livello di computer; applicazione rispetto alla rete quintupla; e tra i quintupla di rete.
 
-Per *quintupla di rete*, si intende l'indirizzo IP di origine, l'indirizzo IP di destinazione, la porta di origine \(, la porta\)di destinazione e il protocollo TCP/UDP.  
+Per *quintupla di rete*, si intende l'indirizzo IP di origine, l'indirizzo IP di destinazione, la porta di origine, la porta di destinazione e il protocollo \(\)TCP/UDP.  
 
  **I criteri QoS a livello di utente hanno la precedenza sui criteri QoS a livello di computer**
 
@@ -312,13 +312,13 @@ Quando più criteri QoS corrispondono al traffico specifico, vengono applicati i
 
 In alternativa, è possibile che più criteri QoS si applichino allo stesso traffico specificando condizioni non sovrapposte. Tra le condizioni delle applicazioni e la rete quintupla, i criteri che specificano l'applicazione sono considerati più specifici e vengono applicati. 
 
-Ad esempio, policy_A specifica solo un nome di applicazione (app. exe) e policy_B specifica l'indirizzo IP di destinazione 192.168.1.0/24. Quando questi criteri QoS sono in conflitto @no__t -0app. exe invia il traffico a un indirizzo IP compreso nell'intervallo 192.168.4.0/24 @ no__t-1, viene applicato policy_A.
+Ad esempio, policy_A specifica solo un nome di applicazione (app. exe) e policy_B specifica l'indirizzo IP di destinazione 192.168.1.0/24. Quando questi criteri QoS sono in conflitto \(app. exe invia il traffico a un indirizzo IP compreso nell'intervallo di 192.168.4.0/24\), policy_A viene applicato.
 
  **Una maggiore specificità ha la precedenza all'interno della rete quintupla**
 
 Per i conflitti dei criteri all'interno della rete quintupla, i criteri con le condizioni più corrispondenti hanno la precedenza. Si supponga, ad esempio, che policy_C specifichi l'indirizzo IP di origine "any", l'indirizzo IP di destinazione 10.0.0.1, la porta di origine "any", la porta di destinazione "any" e il protocollo "TCP". 
 
-Si supponga quindi che policy_D specifichi l'indirizzo IP di origine "any", l'indirizzo IP di destinazione 10.0.0.1, la porta di origine "any", la porta di destinazione 80 e il protocollo "TCP". Quindi policy_C e policy_D corrispondono entrambe alle connessioni alla destinazione 10.0.0.1:80. Poiché i criteri QoS applicano i criteri con le condizioni di corrispondenza più specifiche, in questo esempio policy_D ha la precedenza.  
+Si supponga quindi che policy_D specifichi l'indirizzo IP di origine "any", l'indirizzo IP di destinazione 10.0.0.1, la porta di origine "any", la porta di destinazione 80 e il protocollo "TCP". Quindi policy_C e policy_D entrambe le connessioni corrispondono a 10.0.0.1 di destinazione: 80. Poiché i criteri QoS applicano i criteri con le condizioni di corrispondenza più specifiche, in questo esempio policy_D avrà la precedenza.  
   
 Tuttavia, i criteri QoS potrebbero avere un numero di condizioni uguale. Ad esempio, diversi criteri possono specificare una sola parte (ma non la stessa) del quintupla di rete. Tra la rete quintupla, l'ordine seguente è dalla precedenza superiore a quella più bassa:
 

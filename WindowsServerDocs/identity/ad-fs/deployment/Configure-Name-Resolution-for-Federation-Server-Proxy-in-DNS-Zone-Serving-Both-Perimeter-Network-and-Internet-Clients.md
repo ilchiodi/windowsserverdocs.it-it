@@ -19,7 +19,7 @@ ms.locfileid: "71359827"
 # <a name="configure-name-resolution-for-a-federation-server-proxy-in-a-dns-zone-that-serves-both-the-perimeter-network-and-internet-clients"></a>Configurare la risoluzione dei nomi per un proxy server federativo in una zona DNS che serve sia la rete perimetrale sia i client Internet
 
 
-In modo che la risoluzione dei nomi possa funzionare correttamente per un proxy server federativo in uno scenario Active Directory Federation Services \(AD FS @ no__t-1 in cui una o più Domain Name System \(DNS @ no__t-3 zone servono sia la rete perimetrale che Internet client, è necessario completare le attività seguenti:  
+In modo che la risoluzione dei nomi possa funzionare correttamente per un proxy server federativo in un Active Directory Federation Services \(AD FS\) scenario in cui una o più Domain Name System \(le zone\) DNS servono sia la rete perimetrale che i client Internet, è necessario completare le attività seguenti:  
   
 -   Per risolvere che nome per il proxy server federativo host tutte le richieste client Internet per ADFS è necessario configurare DNS nella zona Internet che è possibile controllare. A tale scopo, si aggiunge un host \(A\) record di risorse per la zona DNS Internet per il proxy server federativo.  
   
@@ -46,7 +46,7 @@ L'appartenenza a **amministratori**, o equivalente è il requisito minimo necess
   
 4.  In **indirizzo IP**, digitare l'indirizzo IP per il nuovo proxy server federativo, ad esempio, 131.107.27.68.  
   
-5.  Fare clic su **Aggiungi host**.  
+5.  Fai clic su **Aggiungi host**.  
   
 ## <a name="add-a-host-a-resource-record-to-the-perimeter-dns-zone-for-a-federation-server-proxy"></a>Aggiungere un host \(A\) record di risorse per la zona DNS perimetrale per un proxy server federativo  
 In modo che le richieste client Internet possono essere elaborate correttamente dai proxy server federativo e raggiungano il server federativo dopo che vengono risolte nella zona DNS Internet, è necessario creare un host \(A\) record di risorse nella zona DNS perimetrale. Questo record di risorse consente di risolvere il nome host del server federativo di account \(ad esempio, fs. Fabrikam.com\) all'indirizzo IP del server federativo di account \(ad esempio, 192.168.1.4\) nella rete aziendale.  
@@ -66,10 +66,10 @@ L'appartenenza a **amministratori**, o equivalente è il requisito minimo necess
   
 4.  Nel **indirizzo IP** nella casella di testo digitare l'indirizzo IP di un indirizzo per il server federativo nella rete aziendale, ad esempio, 192.168.1.4.  
   
-5.  Fare clic su **Aggiungi host**.  
+5.  Fai clic su **Aggiungi host**.  
   
 ## <a name="additional-references"></a>Altri riferimenti  
-[Elenco di controllo: Configurazione di un proxy server federativo](Checklist--Setting-Up-a-Federation-Server-Proxy.md)  
+[Elenco di controllo: configurazione di un proxy server federativo](Checklist--Setting-Up-a-Federation-Server-Proxy.md)  
   
 [Requisiti per la risoluzione dei nomi per i proxy server federativi](https://technet.microsoft.com/library/dd807055.aspx)  
   

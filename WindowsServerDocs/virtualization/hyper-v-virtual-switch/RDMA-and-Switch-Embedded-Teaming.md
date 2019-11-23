@@ -15,11 +15,11 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 09/27/2019
 ms.locfileid: "71365686"
 ---
-# <a name="remote-direct-memory-access-rdma-and-switch-embedded-teaming-set"></a>Accesso diretto a memoria remota \(RDMA @ no__t-1 e switch Embedded Teaming \(IMPOSTARE @ no__t-3
+# <a name="remote-direct-memory-access-rdma-and-switch-embedded-teaming-set"></a>Accesso diretto a memoria remota \(RDMA\) e switch Embedded Teaming \(SET\)
 
 >Si applica a: Windows Server (Canale semestrale), Windows Server 2016
 
-Questo argomento fornisce informazioni sulla configurazione di accesso diretto a memoria remota \(RDMA @ no__t-1 interfacce con Hyper-V in Windows Server 2016, oltre a informazioni su switch Embedded Teaming \(IMPOSTARE @ no__t-3.  
+In questo argomento vengono fornite informazioni sulla configurazione dell'accesso diretto a memoria remota \(RDMA\) interfacce con Hyper-V in Windows Server 2016, oltre a informazioni su switch Embedded Teaming \(SET\).  
 
 > [!NOTE]
 > Oltre a questo argomento, è disponibile il seguente switch Embedded Teaming content. 
@@ -38,11 +38,11 @@ Nell'immagine seguente vengono illustrate le modifiche apportate all'architettur
 
 ![Modifiche dell'architettura](../media/RDMA-and-SET/rdma_over.jpg)
 
-Le sezioni seguenti forniscono istruzioni su come usare i comandi di Windows PowerShell per abilitare Data Center Bridging (DCB), creare un Commuter virtuale Hyper-V con una scheda di interfaccia di rete virtuale RDMA \(vNIC @ no__t-1 e creare un Commuti virtuale Hyper-V con SET e RDMA schede.
+Nelle sezioni seguenti vengono fornite istruzioni su come utilizzare i comandi di Windows PowerShell per abilitare Data Center Bridging (DCB), creare un commutire virtuale Hyper-V con una scheda di interfaccia di rete virtuale RDMA \(vNIC\)e creare un Commuti virtuale Hyper-V con SET e RDMA schede.
 
-### <a name="enable-data-center-bridging-dcb"></a>Abilitare Data Center Bridging \(DCB @ no__t-1
+### <a name="enable-data-center-bridging-dcb"></a>Abilitare Data Center Bridging \(DCB\)
 
-Prima di usare una versione di RDMA Ethernet \(roce\) convergente RDMA, è necessario abilitare DCB.  Sebbene non sia necessario per il protocollo Internet wide area RDMA \(iWARP @ no__t-1 Networks, il test ha determinato che tutte le tecnologie RDMA basate su Ethernet funzionano meglio con DCB. Per questo motivo, è consigliabile usare DCB anche per le distribuzioni RDMA iWARP.
+Prima di usare qualsiasi RDMA Ethernet \(RoCE\) versione di RDMA, è necessario abilitare DCB.  Sebbene non sia necessario per il protocollo Internet wide area RDMA \(iWARP\) reti, il test ha determinato che tutte le tecnologie RDMA basate su Ethernet funzionano meglio con DCB. Per questo motivo, è consigliabile usare DCB anche per le distribuzioni RDMA iWARP.
 
 I comandi di esempio di Windows PowerShell seguenti illustrano come abilitare e configurare DCB per SMB diretto.
 
@@ -96,7 +96,7 @@ Verificare le funzionalità di RDMA:
 
 ###  <a name="bkmk_set-rdma"></a>Creazione di un Commuter virtuale Hyper-V con SET e RDMA schede
 
-Per usare RDMA funzionalità sulle schede di rete virtuali dell'host Hyper-V \(vNICs @ no__t-1 in un Commuter virtuale Hyper-V che supporta il gruppo di RDMA, è possibile usare questi comandi di Windows PowerShell di esempio.
+Per usare RDMA funzionalità sulle schede di rete virtuali dell'host Hyper-V \(schede\) in un Commuter virtuale Hyper-V che supporta il gruppo di RDMA, è possibile usare questi comandi di Windows PowerShell di esempio.
 
     New-VMSwitch -Name SETswitch -NetAdapterName "SLOT 2","SLOT 3" -EnableEmbeddedTeaming $true
 
@@ -146,7 +146,7 @@ In questa sezione viene fornita una panoramica di switch Embedded Teaming (SET) 
 
 ## <a name="bkmk_over"></a>Panoramica SET
 
-SET è una soluzione di gruppo NIC alternativa che è possibile usare in ambienti che includono Hyper-V e lo stack software defined networking \(SDN @ no__t-1 in Windows Server 2016. SET integra alcune funzionalità di gruppo NIC nel Commuter virtuale Hyper-V.
+SET è una soluzione di gruppo NIC alternativa che è possibile usare in ambienti che includono Hyper-V e il Software Defined Networking \(SDN\) stack in Windows Server 2016. SET integra alcune funzionalità di gruppo NIC nel Commuter virtuale Hyper-V.
 
 SET consente di raggruppare una o otto schede di rete Ethernet fisiche in una o più schede di rete virtuali basate su software. Queste schede di rete virtuali garantiscono prestazioni elevate e tolleranza di errore in caso di errore delle schede di rete.
 
@@ -173,42 +173,42 @@ Il SET è disponibile in tutte le versioni di Windows Server 2016 che includono 
 
 ## <a name="bkmk_nics"></a>NIC supportate per SET
 
-È possibile usare qualsiasi scheda di interfaccia di rete Ethernet che ha superato la qualifica hardware di Windows e il logo \(WHQL @ no__t-1 test in un gruppo SET in Windows Server 2016. Per impostare è necessario che tutte le schede di rete che sono membri di un team di SET siano identiche \(i. e., lo stesso produttore, lo stesso modello, lo stesso firmware e il driver @ no__t-1. SET supporta tra una e otto schede di rete in un team.
+È possibile usare qualsiasi scheda di interfaccia di rete Ethernet che abbia superato il logo e la qualifica hardware di Windows \(WHQL\) test in un team di SET in Windows Server 2016. Per impostare è necessario che tutte le schede di rete che sono membri di un team di SET siano identiche \(ad esempio lo stesso produttore, lo stesso modello, lo stesso firmware e lo stesso driver\). SET supporta tra una e otto schede di rete in un team.
   
 ## <a name="bkmk_compat"></a>CONFIGURARE la compatibilità con le tecnologie di rete di Windows Server
 
 Il SET è compatibile con le tecnologie di rete seguenti in Windows Server 2016.
 
-- Data Center Bridging \(DCB @ no__t-1
+- Data Center Bridging \(DCB\)
   
 - Virtualizzazione rete Hyper-V: NV-GRE e VxLAN sono entrambi supportati in Windows Server 2016.  
-- Offload del checksum sul lato ricezione \(IPv4, IPv6, TCP @ no__t-1-sono supportati se uno dei membri del team SET li supporta.
+- Offload del checksum sul lato di ricezione \(IPv4, IPv6,\) TCP. questi sono supportati se uno dei membri del team SET li supporta.
 
-- Accesso diretto a memoria remota \(RDMA @ no__t-1
+- Accesso diretto a memoria remota \(RDMA\)
 
-- Single Root I/O Virtualization \(SR-IOV @ no__t-1
+- Single Root I/O Virtualization \(SR-IOV\)
 
-- Offload di checksum sul lato trasmissione \(IPv4, IPv6, TCP @ no__t-1-sono supportati se tutti i membri del team impostati li supportano.
+- Offload del checksum lato trasmissione \(IPv4, IPv6, TCP\): sono supportati se tutti i membri del team impostati li supportano.
 
-- Code di macchine virtuali \(VMQ @ no__t-1
+- Code di macchine virtuali \(VMQ\)
 
-- Receive-Side Scaling virtuale \(RSS @ no__t-1
+- Receive-Side Scaling virtuale \(RSS\)
 
 Il SET non è compatibile con le tecnologie di rete seguenti in Windows Server 2016.
 
-- autenticazione 802.1 x. i pacchetti 802.1 x Extensible Authentication Protocol \(EAP @ no__t-1 vengono eliminati automaticamente dal Commuter virtuale Hyper @ no__t-2V in scenari di impostazione.
+- autenticazione 802.1 x. 802.1 x Extensible Authentication Protocol \(EAP\) i pacchetti vengono automaticamente eliminati dal Commuter virtuale Hyper\-V negli scenari di impostazione.
  
-- Offload attività IPsec \(IPsecTO @ no__t-1. Si tratta di una tecnologia legacy che non è supportata dalla maggior parte delle schede di rete e da dove esiste, è disabilitata per impostazione predefinita.
+- Offload attività IPsec \(\)IPsecTO. Si tratta di una tecnologia legacy che non è supportata dalla maggior parte delle schede di rete e da dove esiste, è disabilitata per impostazione predefinita.
 
-- Uso di QoS @no__t -0pacer. exe @ no__t-1 in host o nei sistemi operativi nativi. Questi scenari QoS non sono scenari Hyper @ no__t-0V, quindi le tecnologie non si intersecano. Inoltre, QoS è disponibile ma non è abilitato per impostazione predefinita. è necessario abilitare intenzionalmente QoS.
+- Uso di QoS \(pacemaker. exe\) in host o nei sistemi operativi nativi. Questi scenari QoS non sono scenari Hyper\-V, quindi le tecnologie non si intersecano. Inoltre, QoS è disponibile ma non è abilitato per impostazione predefinita. è necessario abilitare intenzionalmente QoS.
 
-- Ricezione Unione lato \(RSC @ no__t-1. RSC viene disabilitato automaticamente da Hyper @ no__t-0V Virtual Switch.
+- Receive-Side coalesing \(RSC\). RSC viene disabilitato automaticamente dal Commuter virtuale Hyper\-V.
 
-- Receive-Side Scaling \(RSS @ no__t-1. Poiché Hyper-V usa le code per VMQ e VMMQ, RSS viene sempre disabilitato quando si crea un commutire virtuale.
+- Receive-Side Scaling \(\)RSS. Poiché Hyper-V usa le code per VMQ e VMMQ, RSS viene sempre disabilitato quando si crea un commutire virtuale.
 
 - TCP Chimney Offload. Questa tecnologia è disabilitata per impostazione predefinita.
 
-- QoS della macchina virtuale \(VM-QoS @ no__t-1. La funzionalità QoS della macchina virtuale è disponibile ma è disabilitata per impostazione predefinita. Se si configura la funzionalità QoS della macchina virtuale in un ambiente SET, le impostazioni QoS provocheranno risultati imprevedibili.
+- QoS della macchina virtuale \(\)di QoS. La funzionalità QoS della macchina virtuale è disponibile ma è disabilitata per impostazione predefinita. Se si configura la funzionalità QoS della macchina virtuale in un ambiente SET, le impostazioni QoS provocheranno risultati imprevedibili.
 
 ## <a name="bkmk_modes"></a>IMPOSTARE le modalità e le impostazioni
 
@@ -260,20 +260,20 @@ VMQ e SET funzionano bene insieme ed è necessario abilitare VMQ quando si usa H
 > [!NOTE]
 > SET Visualizza sempre il numero totale di code disponibili in tutti i membri del team impostati. Nel gruppo NIC questa operazione viene definita modalità Sum-of-queues.
 
-Per la maggior parte delle schede di rete sono disponibili code che possono essere utilizzate per Receive-Side Scaling \(RSS @ no__t-1 o VMQ, ma non entrambi nello stesso momento.
+La maggior parte delle schede di rete include code che possono essere usate per Receive-Side Scaling \(\) RSS o VMQ, ma non entrambe contemporaneamente.
   
 Alcune impostazioni di VMQ sembrano essere impostazioni per le code RSS ma sono in realtà impostazioni sulle code generiche usate da RSS e da VMQ a seconda della funzionalità attualmente in uso. Ogni scheda di interfaccia di rete ha, nelle proprietà avanzate, i valori per `*RssBaseProcNumber` e `*MaxRssProcessors`.
 
 Di seguito sono riportate alcune impostazioni VMQ che garantiscono prestazioni di sistema migliori.
 
-- Idealmente, ogni scheda di interfaccia di rete deve avere il `*RssBaseProcNumber` impostato su un numero pari maggiore o uguale a due (2). Ciò è dovuto al fatto che il primo processore fisico, Core 0 \(logical 0 e 1 @ no__t-1, in genere esegue la maggior parte dell'elaborazione del sistema, in modo che l'elaborazione della rete venga eliminata dal processore fisico. 
+- Idealmente, ogni scheda di interfaccia di rete deve avere il `*RssBaseProcNumber` impostato su un numero pari maggiore o uguale a due (2). Questo è dovuto al fatto che il primo processore fisico, Core 0 \(processori logici 0 e 1\), in genere esegue la maggior parte dell'elaborazione del sistema, in modo da evitare che l'elaborazione della rete venga evitata da questo processore fisico. 
 
 >[!NOTE]
 >Alcune architetture di computer non hanno due processori logici per processore fisico, quindi per tali macchine il processore di base deve essere maggiore o uguale a 1. In caso di dubbi, si supponga che l'host usi un processore logico 2 per ogni architettura del processore fisico.
 
-- I processori dei membri del team devono essere, nel senso che è pratico, non sovrapposto. Ad esempio, in un host a 4 core \(8 processori logici @ no__t-1 con un team di due schede di rete 10Gbps, è possibile impostare la prima per l'uso del processore di base 2 e per l'uso di 4 core. il secondo verrebbe impostato in modo da usare il processore di base 6 e usare 2 Core.
+- I processori dei membri del team devono essere, nel senso che è pratico, non sovrapposto. Ad esempio, in un host con 4 core \(8 processori logici\) con un team di due schede di rete 10Gbps, è possibile impostare la prima per l'uso del processore di base 2 e per l'uso di 4 core. il secondo verrebbe impostato in modo da usare il processore di base 6 e usare 2 Core.
 
-## <a name="bkmk_hnv"></a>SET e virtualizzazione rete Hyper-V \(HNV @ no__t-2
+## <a name="bkmk_hnv"></a>SET e virtualizzazione rete Hyper-V \(HNV\)
 
 Il SET è completamente compatibile con la virtualizzazione rete Hyper-V in Windows Server 2016. Il sistema di gestione di HNV fornisce informazioni al driver di SET che consente a di distribuire il carico del traffico di rete in modo che sia ottimizzato per il traffico HNV.
   
@@ -283,11 +283,11 @@ Live Migration è supportato in Windows Server 2016.
 
 ## <a name="bkmk_mac"></a>Indirizzo MAC usato nei pacchetti trasmessi
 
-Quando si configura un team SET con la distribuzione dinamica del carico, i pacchetti da un'unica origine \(such come singola VM @ no__t-1 vengono distribuiti simultaneamente tra più membri del team. 
+Quando si configura un team SET con la distribuzione dinamica del carico, i pacchetti da una singola origine \(come una singola macchina virtuale\) vengono distribuiti simultaneamente tra più membri del team. 
 
 Per impedire che i commutatori siano confusi e per evitare la visualizzazione di avvisi MAC, impostare sostituisce l'indirizzo MAC di origine con un indirizzo MAC diverso nei frame trasmessi ai membri del team diversi dal membro del team creata un'affinità. Per questo motivo, ogni membro del team usa un indirizzo MAC diverso e i conflitti di indirizzi MAC vengono evitati, a meno che non si verifichino errori.
 
-Quando viene rilevato un errore nella scheda di interfaccia di rete primaria, il software SET Teaming inizia a usare l'indirizzo MAC della macchina virtuale nel membro del team scelto per fungere da membro del team creata un'affinità temporaneo \(i. e., quello che ora verrà visualizzato come interfaccia della VM @ No_ _T-1.
+Quando viene rilevato un errore nella scheda di interfaccia di rete primaria, il software SET Teaming inizia a usare l'indirizzo MAC della macchina virtuale nel membro del team scelto per fungere da membro del team creata un'affinità temporaneo \(ad esempio, quello che ora viene visualizzato come l'interfaccia della macchina virtuale\).
 
 Questa modifica si applica solo al traffico che verrà inviato al membro del team creata un'affinità della macchina virtuale con l'indirizzo MAC di origine della macchina virtuale. Il traffico continua a essere inviato con qualsiasi indirizzo MAC di origine usato prima dell'errore.
 
@@ -313,7 +313,7 @@ Di seguito sono elencati gli elenchi che descrivono il comportamento di sostituz
   
 ## <a name="bkmk_manage"></a>Gestione di un team di SET
 
-È consigliabile usare System Center Virtual Machine Manager \(VMM @ no__t-1 per gestire i team del SET. Tuttavia, è anche possibile usare Windows PowerShell per gestire il SET. Le sezioni seguenti forniscono i comandi di Windows PowerShell che è possibile usare per gestire i SET.
+È consigliabile utilizzare System Center Virtual Machine Manager \(\) VMM per gestire i team di SET, tuttavia è anche possibile utilizzare Windows PowerShell per gestire i SET. Le sezioni seguenti forniscono i comandi di Windows PowerShell che è possibile usare per gestire i SET.
 
 Per informazioni su come creare un gruppo di SET usando VMM, vedere la sezione "configurare un commutatore logico" nell'argomento della libreria VMM di System Center [creare commutatori logici](https://docs.microsoft.com/system-center/vmm/network-switch).
   
@@ -365,9 +365,9 @@ Set-VMSwitchTeam -Name TeamedvSwitch -LoadBalancingAlgorithm Dynamic
 ```  
 ### <a name="affinitizing-virtual-interfaces-to-physical-team-members"></a>Interfacce virtuali affinità fra per i membri del team fisico
 
-SET consente di creare un'affinità tra un'interfaccia virtuale \(i. e., la porta del Commuter virtuale Hyper-V @ no__t-1 e una delle schede di interfaccia di rete fisiche del team. 
+SET consente di creare un'affinità tra un'interfaccia virtuale \(ad esempio la porta del Commuter virtuale Hyper-V\) e una delle schede di interfaccia di rete fisiche del team. 
 
-Se, ad esempio, si creano due host schede per SMB @ no__t-0Direct, come nella sezione [creare un Commutire virtuale Hyper-V con set e RDMA schede](#bkmk_set-rdma), è possibile assicurarsi che i due schede usino membri del team diversi. 
+Ad esempio, se si creano due host schede per SMB\-Direct, come nella sezione [creare un Commutire virtuale Hyper-V con set e RDMA schede](#bkmk_set-rdma), è possibile assicurarsi che i due schede usino membri del team diversi. 
 
 Aggiungendo allo script in questa sezione, è possibile usare i comandi di Windows PowerShell seguenti.
 

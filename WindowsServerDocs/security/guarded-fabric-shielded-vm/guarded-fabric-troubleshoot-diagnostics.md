@@ -30,7 +30,7 @@ La documentazione dei cmdlet usati in questo argomento è reperibile in [TechNet
 ```PowerShell
 Get-HgsTrace -RunDiagnostics -Detailed
 ```
-Questo consente di rilevare automaticamente il ruolo dell'host corrente e di diagnosticare eventuali problemi rilevanti che possono essere rilevati automaticamente.  Tutti i risultati generati durante questo processo vengono visualizzati a causa della presenza dell'opzione `-Detailed`.
+Questo consente di rilevare automaticamente il ruolo dell'host corrente e di diagnosticare eventuali problemi rilevanti che possono essere rilevati automaticamente.  Tutti i risultati generati durante questo processo vengono visualizzati a causa della presenza dell'opzione di `-Detailed`.
 
 Nella parte restante di questo argomento verrà fornita una procedura dettagliata sull'utilizzo avanzato di `Get-HgsTrace` per eseguire operazioni quali la diagnosi di più host contemporaneamente e il rilevamento di errori di configurazione complessi tra i nodi.
 
@@ -49,16 +49,16 @@ Ogni host di destinazione della diagnostica viene definito "destinazione della t
 Gli amministratori possono iniziare le attività di diagnostica eseguendo `Get-HgsTrace`.  Questo comando esegue due funzioni distinte in base alle opzioni fornite in fase di esecuzione: raccolta di tracce e diagnosi.  Queste due combinazioni costituiscono l'intero strumento di diagnostica dell'infrastruttura sorvegliata.  Sebbene non sia richiesto in modo esplicito, la diagnostica più utile richiede tracce che possono essere raccolte solo con le credenziali di amministratore nella destinazione di traccia.  Se l'utente che esegue la raccolta di tracce non dispone di privilegi sufficienti, le tracce che richiedono l'elevazione dei privilegi avranno esito negativo mentre tutte le altre verranno superate.  Questo consente la diagnosi parziale nel caso in cui un operatore con privilegi limitati esegua la valutazione. 
 
 ### <a name="trace-collection"></a>Raccolta di tracce
-Per impostazione predefinita, `Get-HgsTrace` raccoglie le tracce e le salva in una cartella temporanea.  Le tracce hanno il formato di una cartella, denominata dopo l'host di destinazione, compilata con file formattati in modo specifico che descrivono come viene configurato l'host.  Le tracce contengono anche i metadati che descrivono come è stata richiamata la diagnostica per raccogliere le tracce.  Questi dati vengono utilizzati dalla diagnostica per riattivare le informazioni sull'host durante l'esecuzione di una diagnosi manuale.
+Per impostazione predefinita, `Get-HgsTrace` raccoglierà solo le tracce e le salverà in una cartella temporanea.  Le tracce hanno il formato di una cartella, denominata dopo l'host di destinazione, compilata con file formattati in modo specifico che descrivono come viene configurato l'host.  Le tracce contengono anche i metadati che descrivono come è stata richiamata la diagnostica per raccogliere le tracce.  Questi dati vengono utilizzati dalla diagnostica per riattivare le informazioni sull'host durante l'esecuzione di una diagnosi manuale.
 
 Se necessario, le tracce possono essere esaminate manualmente.  Tutti i formati sono leggibili (XML) o possono essere ispezionati prontamente usando gli strumenti standard (ad esempio, i certificati X509 e le estensioni di Windows Crypto Shell).  Si noti tuttavia che le tracce non sono progettate per la diagnosi manuale ed è sempre più efficace elaborare le tracce con le funzionalità di diagnostica di `Get-HgsTrace`.
 
-I risultati dell'esecuzione della raccolta di tracce non indicano l'integrità di un determinato host.  Indica semplicemente che le tracce sono state raccolte correttamente.  Per determinare se le tracce indicano un ambiente con errori, è necessario utilizzare le funzionalità di diagnostica di `Get-HgsTrace`.
+I risultati dell'esecuzione della raccolta di tracce non indicano l'integrità di un determinato host.  Indica semplicemente che le tracce sono state raccolte correttamente.  È necessario utilizzare le funzionalità di diagnostica di `Get-HgsTrace` per determinare se le tracce indicano un ambiente con errori.
 
 Utilizzando il parametro `-Diagnostic`, è possibile limitare la raccolta di tracce solo alle tracce necessarie per il funzionamento della diagnostica specificata.  In questo modo si riduce la quantità di dati raccolti, nonché le autorizzazioni necessarie per richiamare la diagnostica.
 
 ### <a name="diagnosis"></a>Diagnosi
-Le tracce raccolte possono essere diagnosticate `Get-HgsTrace` il percorso delle tracce tramite il parametro `-Path` e specificando l'opzione `-RunDiagnostics`.  @No__t-0, inoltre, può eseguire la raccolta e la diagnosi in un unico passaggio, specificando l'opzione `-RunDiagnostics` e un elenco di destinazioni di traccia.  Se non viene fornita alcuna destinazione di traccia, il computer corrente viene usato come destinazione implicita, con il ruolo dedotto esaminando i moduli di Windows PowerShell installati.
+Le tracce raccolte possono essere diagnosticate `Get-HgsTrace` il percorso delle tracce tramite il parametro `-Path` e specificando l'opzione di `-RunDiagnostics`.  Inoltre, `Get-HgsTrace` possibile eseguire la raccolta e la diagnosi in un unico passaggio fornendo l'opzione `-RunDiagnostics` e un elenco di destinazioni di traccia.  Se non viene fornita alcuna destinazione di traccia, il computer corrente viene usato come destinazione implicita, con il ruolo dedotto esaminando i moduli di Windows PowerShell installati.
 
 La diagnosi fornirà i risultati in un formato gerarchico che mostra quali destinazioni di traccia, set di diagnostica e singoli diagnostica sono responsabili di un errore specifico.  Gli errori includono suggerimenti per la correzione e la risoluzione se è possibile stabilire quale azione sarà eseguita successivamente.  Per impostazione predefinita, i risultati di passaggio e irrilevante sono nascosti.  Per visualizzare tutti gli elementi testati dalla diagnostica, specificare l'opzione `-Detailed`.  Verranno visualizzati tutti i risultati indipendentemente dal relativo stato.
 
@@ -75,7 +75,7 @@ La diagnosi fornirà i risultati in un formato gerarchico che mostra quali desti
 
 Per impostazione predefinita, `Get-HgsTrace` sarà destinata al localhost, ovvero la posizione in cui viene richiamato il cmdlet.  Questa operazione viene definita destinazione locale implicita.  La destinazione locale implicita viene utilizzata solo quando non viene specificata alcuna destinazione nel parametro `-Target` e non vengono rilevate tracce preesistenti nel `-Path`.
 
-La destinazione locale implicita usa l'inferenza del ruolo per determinare il ruolo riprodotto dall'host corrente nell'infrastruttura sorvegliata.  Si basa sui moduli di Windows PowerShell installati che corrispondono approssimativamente alle funzionalità installate nel sistema.  La presenza del modulo `HgsServer` farà sì che la destinazione della traccia prenda il ruolo `HostGuardianService` e la presenza del modulo `HgsClient` provocherà il ruolo `GuardedHost` da parte della destinazione della traccia.  È possibile che in un determinato host siano presenti entrambi i moduli, nel qual caso verranno trattati sia come `HostGuardianService` che come `GuardedHost`.
+La destinazione locale implicita usa l'inferenza del ruolo per determinare il ruolo riprodotto dall'host corrente nell'infrastruttura sorvegliata.  Si basa sui moduli di Windows PowerShell installati che corrispondono approssimativamente alle funzionalità installate nel sistema.  La presenza del modulo `HgsServer` farà sì che la destinazione della traccia prenda il ruolo `HostGuardianService` e la presenza del modulo `HgsClient` provocherà il ruolo `GuardedHost`della destinazione di traccia.  È possibile che in un determinato host siano presenti entrambi i moduli, nel qual caso verranno trattati sia come `HostGuardianService` sia come `GuardedHost`.
 
 Pertanto, la chiamata predefinita della diagnostica per la raccolta di tracce in locale:
 ```PowerShell
@@ -86,7 +86,7 @@ Get-HgsTrace
 New-HgsTraceTarget -Local | Get-HgsTrace
 ```
 > [!TIP]
-> `Get-HgsTrace` può accettare destinazioni tramite la pipeline o direttamente tramite il parametro `-Target`.  Non esiste alcuna differenza tra le due operazioni.
+> `Get-HgsTrace` possibile accettare destinazioni tramite la pipeline o direttamente tramite il parametro `-Target`.  Non esiste alcuna differenza tra le due operazioni.
 
 ### <a name="remote-diagnosis-using-trace-targets"></a>Diagnosi remota tramite destinazioni di traccia
 
@@ -102,7 +102,7 @@ Diagnosi remota usa la comunicazione remota di Windows PowerShell per tutti gli 
 > [!NOTE]
 > Nella maggior parte dei casi, è necessario che il localhost faccia parte della stessa foresta Active Directory e che venga usato un nome host DNS valido.  Se l'ambiente utilizza un modello federativo più complesso o si desidera utilizzare indirizzi IP diretti per la connettività, potrebbe essere necessario eseguire una configurazione aggiuntiva, ad esempio l'impostazione degli [host attendibili](https://technet.microsoft.com/library/ff700227.aspx)WinRM.
 
-È possibile verificare che la creazione di un'istanza di una destinazione di traccia sia corretta e configurata per l'accettazione delle connessioni utilizzando il cmdlet `Test-HgsTraceTarget`:
+È possibile verificare la corretta creazione di un'istanza di una destinazione di traccia e configurarla per l'accettazione delle connessioni tramite il cmdlet `Test-HgsTraceTarget`:
 ```PowerShell
 $server = New-HgsTraceTarget -HostName "hgs-01.secure.contoso.com" -Role HostGuardianService -Credential (Enter-Credential)
 $server | Test-HgsTraceTarget
@@ -118,7 +118,7 @@ Quando si esegue una diagnosi remota da un utente con privilegi sufficienti per 
 
 #### <a name="using-windows-powershell-just-enough-administration-jea-and-diagnostics"></a>Uso di Windows PowerShell just enough Administration (JEA) e diagnostica
 
-Diagnosi remota supporta l'uso di endpoint di Windows PowerShell vincolati da JEA. Per impostazione predefinita, le destinazioni della traccia remota si connetteranno utilizzando l'endpoint predefinito `microsoft.powershell`.  Se la destinazione della traccia ha il ruolo `HostGuardianService`, tenterà anche di usare l'endpoint `microsoft.windows.hgs` configurato al momento dell'installazione di HGS.
+Diagnosi remota supporta l'uso di endpoint di Windows PowerShell vincolati da JEA. Per impostazione predefinita, le destinazioni della traccia remota si connetteranno utilizzando l'endpoint `microsoft.powershell` predefinito.  Se la destinazione della traccia ha il ruolo di `HostGuardianService`, tenterà anche di usare l'endpoint `microsoft.windows.hgs` configurato al momento dell'installazione di HGS.
 
 Se si desidera utilizzare un endpoint personalizzato, è necessario specificare il nome della configurazione di sessione durante la costruzione della destinazione di traccia utilizzando il parametro `-PSSessionConfigurationName`, come indicato di seguito:
 
@@ -128,7 +128,7 @@ New-HgsTraceTarget -HostName "hgs-01.secure.contoso.com" -Role HostGuardianServi
 
 #### <a name="diagnosing-multiple-hosts"></a>Diagnosi di più host
 
-È possibile passare più destinazioni di traccia a `Get-HgsTrace` in una sola volta.  Questo include una combinazione di destinazioni locali e remote.  Ogni destinazione verrà tracciata a turno, quindi le tracce da ogni destinazione verranno diagnosticate simultaneamente.  Lo strumento di diagnostica può utilizzare la conoscenza più approfondita della distribuzione per identificare le complesse configurazioni errate tra nodi che altrimenti non verrebbero rilevabili.  L'uso di questa funzionalità richiede solo la creazione di tracce da più host contemporaneamente (nel caso di diagnosi manuale) o la destinazione di più host quando si chiama `Get-HgsTrace` (in caso di diagnosi remota).
+È possibile passare più destinazioni di traccia per `Get-HgsTrace` in una sola volta.  Questo include una combinazione di destinazioni locali e remote.  Ogni destinazione verrà tracciata a turno, quindi le tracce da ogni destinazione verranno diagnosticate simultaneamente.  Lo strumento di diagnostica può utilizzare la conoscenza più approfondita della distribuzione per identificare le complesse configurazioni errate tra nodi che altrimenti non verrebbero rilevabili.  L'uso di questa funzionalità richiede solo la creazione di tracce da più host contemporaneamente (nel caso di diagnosi manuale) o la destinazione di più host durante la chiamata di `Get-HgsTrace` (in caso di diagnosi remota).
 
 Di seguito è riportato un esempio di uso della diagnosi remota per valutare un'infrastruttura composta da due nodi HGS e due host sorvegliati, in cui uno degli host sorvegliati viene usato per avviare `Get-HgsTrace`.
 
@@ -154,7 +154,7 @@ Prima di eseguire la diagnosi manuale, è necessario assicurarsi che gli amminis
 
 I passaggi per eseguire una diagnosi manuale sono i seguenti:
 
-1. Richiedere che ogni amministratore host esegua `Get-HgsTrace` specificando una @no__t Nota-1 e l'elenco di diagnostica che si intende eseguire sulle tracce risultanti.  Esempio:
+1. Richiedere che ogni amministratore host esegua `Get-HgsTrace` specificando una `-Path` nota e l'elenco di diagnostica che si intende eseguire sulle tracce risultanti.  Ad esempio:
 
    ```PowerShell
    Get-HgsTrace -Path C:\Traces -Diagnostic Networking,BestPractices
@@ -179,7 +179,7 @@ I passaggi per eseguire una diagnosi manuale sono i seguenti:
          |- [..]
       ```
 
-4. Eseguire la diagnostica, specificando il percorso della cartella di traccia assemblata nel parametro `-Path` e specificando l'opzione `-RunDiagnostics`, nonché la diagnostica per cui è stato richiesto agli amministratori di raccogliere le tracce.  Il sistema di diagnostica presuppone che non possa accedere agli host trovati all'interno del percorso e tenterà quindi di usare solo le tracce pre-raccolte.  Se sono presenti tracce mancanti o danneggiate, la diagnostica avrà esito negativo solo per i test interessati e continuerà normalmente.  Esempio:
+4. Eseguire la diagnostica, specificando il percorso della cartella di traccia assemblata nel parametro di `-Path` e specificando l'opzione di `-RunDiagnostics`, nonché la diagnostica per cui è stato richiesto agli amministratori di raccogliere le tracce.  Il sistema di diagnostica presuppone che non possa accedere agli host trovati all'interno del percorso e tenterà quindi di usare solo le tracce pre-raccolte.  Se sono presenti tracce mancanti o danneggiate, la diagnostica avrà esito negativo solo per i test interessati e continuerà normalmente.  Ad esempio:
 
    ```PowerShell
    Get-HgsTrace -RunDiagnostics -Diagnostic Networking,BestPractices -Path ".\FabricTraces"

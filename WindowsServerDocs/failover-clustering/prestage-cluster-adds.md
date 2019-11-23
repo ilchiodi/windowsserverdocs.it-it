@@ -29,7 +29,7 @@ Quando si crea un cluster di failover mediante la Creazione guidata cluster o Wi
 
 Per creare automaticamente l'oggetto nome cluster, l'utente che crea il cluster di failover deve disporre dell'autorizzazione **Crea oggetti computer** per l'unità organizzativa (OU) o il contenitore in cui risiedono i server che costituiranno il cluster. Per consentire a un utente o a un gruppo di creare un cluster senza disporre di tale autorizzazione, un utente con le autorizzazioni appropriate in Servizi di dominio Active Directory (in genere, un amministratore di dominio) può pre-installare l'oggetto nome cluster in Servizi di dominio Active Directory. Questo inoltre conferisce all'amministratore di dominio maggiore controllo sulla convenzione di denominazione utilizzata per il cluster, nonché sull'unità organizzativa in cui vengono creati gli oggetti cluster.
 
-## <a name="step-1-prestage-the-cno-in-ad-ds"></a>Passaggio 1: Pre-installare il oggetto nome cluster in servizi di dominio Active Directory
+## <a name="step-1-prestage-the-cno-in-ad-ds"></a>Passaggio 1: pre-installare l'oggetto nome cluster in Servizi di dominio Active Directory
 
 Prima di iniziare, verificare di disporre delle informazioni seguenti:
 
@@ -59,9 +59,9 @@ Come procedura consigliata, creare un'unità organizzativa per gli oggetti clust
 
 ![Oggetto nome cluster disabilitato nell'unità organizzativa Cluster di esempio](media/prestage-cluster-adds/disabled-cno-in-the-example-clusters-ou.png)
 
-**Figure 1. OGGETTO nome cluster disabilitato nell'unità organizzativa cluster di esempio @ no__t-0
+**Figura 1. OGGETTO nome cluster disabilitato nell'unità organizzativa cluster di esempio**
 
-## <a name="step-2-grant-the-user-permissions-to-create-the-cluster"></a>Passaggio 2: Concedere all'utente le autorizzazioni per creare il cluster
+## <a name="step-2-grant-the-user-permissions-to-create-the-cluster"></a>Passaggio 2: concedere all'utente le autorizzazioni per creare il cluster
 
 È necessario configurare le autorizzazioni in modo che l'account utente che verrà utilizzato per creare il cluster di failover disponga delle autorizzazioni Controllo completo per l'oggetto nome cluster.
 
@@ -77,26 +77,26 @@ Ecco come concedere all'utente le autorizzazioni per creare il cluster:
   
    ![Concessione del controllo completo all'utente o al gruppo che creerà il cluster](media/prestage-cluster-adds/granting-full-control-to-the-user-create-the-cluster.png)
   
-   @no__t 0Figure 2. Concessione del controllo completo all'utente o al gruppo che creerà il cluster @ no__t-0
-6. Scegliere **OK**.
+   **Figura 2. Concessione del controllo completo all'utente o al gruppo che creerà il cluster**
+6. Seleziona **OK**.
 
 Dopo l'esecuzione di questo passaggio, l'utente a cui sono state concesse le autorizzazioni potrà creare il cluster di failover. Se però l'oggetto nome cluster si trova in un'unità organizzativa, l'utente potrà creare ruoli del cluster che richiedono un punto di accesso client solo dopo che è stato eseguito il passaggio 3.
 
 >[!NOTE]
 >Se l'oggetto nome cluster si trova nel contenitore Computer predefinito, un amministratore di cluster può creare fino a 10 oggetti computer virtuale senza ulteriori attività di configurazione. Per aggiungere più di 10 oggetti computer virtuale, è necessario concedere esplicitamente all'oggetto nome cluster l'autorizzazione **Crea oggetti computer** per il contenitore Computer.
 
-## <a name="step-3-grant-the-cno-permissions-to-the-ou-or-prestage-vcos-for-clustered-roles"></a>Passaggio 3: Concedere le autorizzazioni oggetto nome cluster per l'unità organizzativa o pre-installare VCO per i ruoli del cluster
+## <a name="step-3-grant-the-cno-permissions-to-the-ou-or-prestage-vcos-for-clustered-roles"></a>Passaggio 3: concedere all'oggetto nome cluster le autorizzazioni per l'unità organizzativa o pre-installare gli oggetti computer virtuale per i ruoli del cluster
 
 Quando si crea un ruolo del cluster con un punto di accesso client, il cluster crea un oggetto computer virtuale nella stessa unità organizzativa dell'oggetto nome cluster. Affinché questa operazione venga eseguita automaticamente, è necessario che l'oggetto nome cluster disponga delle autorizzazioni per la creazione di oggetti computer nell'unità organizzativa.
 
 Se l'oggetto nome cluster è stato pre-installato in Servizi di dominio Active Directory, sarà possibile procedere in uno dei modi seguenti per creare gli oggetti computer virtuale:
 
-- Opzione 1: [Concedere le autorizzazioni oggetto nome cluster all'unità organizzativa](#grant-the-cno-permissions-to-the-ou). Se si sceglie questa opzione, il cluster potrà creare automaticamente gli oggetti computer virtuale in Servizi di dominio Active Directory. Un amministratore del cluster di failover potrà pertanto creare ruoli del cluster senza dover richiedere la pre-installazione di oggetti computer virtuale in Servizi di dominio Active Directory.
+- Opzione 1: [concedere all'oggetto nome cluster le autorizzazioni per l'unità organizzativa](#grant-the-cno-permissions-to-the-ou). Se si sceglie questa opzione, il cluster potrà creare automaticamente gli oggetti computer virtuale in Servizi di dominio Active Directory. Un amministratore del cluster di failover potrà pertanto creare ruoli del cluster senza dover richiedere la pre-installazione di oggetti computer virtuale in Servizi di dominio Active Directory.
 
 >[!NOTE]
 >Per eseguire la procedura relativa a questa opzione è richiesta almeno l'appartenenza al gruppo **Domain Admins** o a un gruppo equivalente.
 
-- Opzione 2: [Pre-installare un VCO per un ruolo del cluster](#prestage-a-vco-for-a-clustered-role). Scegliere questa opzione se è necessario pre-installare gli account per i ruoli del server a causa dei requisiti da soddisfare nell'organizzazione. È ad esempio possibile avere la necessità di controllare la convenzione di denominazione oppure quali ruoli del cluster vengono creati.
+- Opzione 2: [pre-installare un oggetto VCO per un ruolo del cluster](#prestage-a-vco-for-a-clustered-role). Scegliere questa opzione se è necessario pre-installare gli account per i ruoli del server a causa dei requisiti da soddisfare nell'organizzazione. È ad esempio possibile avere la necessità di controllare la convenzione di denominazione oppure quali ruoli del cluster vengono creati.
 
 >[!NOTE]
 >Per eseguire la procedura relativa a questa opzione è richiesta almeno l'appartenenza al gruppo **Account Operators**.
@@ -104,7 +104,7 @@ Se l'oggetto nome cluster è stato pre-installato in Servizi di dominio Active D
 ### <a name="grant-the-cno-permissions-to-the-ou"></a>Concedere le autorizzazioni oggetto nome cluster all'unità organizzativa
 
 1. In Utenti e computer di Active Directory verificare che nel menu **Visualizza** sia selezionata la voce **Funzionalità avanzate**.
-2. Fare clic con il pulsante destro del mouse sull'unità organizzativa in cui è stato creato il oggetto nome cluster in [Step 1: Pre-installare il oggetto nome cluster in servizi di dominio Active Directory @ no__t-0, quindi selezionare **Proprietà**.
+2. Fare clic con il pulsante destro del mouse sull'unità organizzativa in cui è stato creato il oggetto nome cluster nel [passaggio 1: pre-installare il oggetto nome cluster in servizi di dominio Active Directory](#step-1-prestage-the-cno-in-ad-ds), quindi selezionare **Proprietà**.
 3. Nella scheda **sicurezza** selezionare **Avanzate**.
 4. Nella finestra di dialogo **impostazioni di sicurezza avanzate** selezionare **Aggiungi**.
 5. Accanto a **entità**selezionare **selezionare un'entità**.
@@ -115,7 +115,7 @@ Se l'oggetto nome cluster è stato pre-installato in Servizi di dominio Active D
 
    ![Concessione dell'autorizzazione Crea oggetti computer all'oggetto nome cluster](media/prestage-cluster-adds/granting-create-computer-objects-permission-to-the-cno.png)
 
-   **Figure 3. Concessione dell'autorizzazione Create computer objects a oggetto nome cluster @ no__t-0
+   **Figura 3. Concessione dell'autorizzazione Crea oggetti computer a oggetto nome cluster**
 10. Selezionare **OK** fino a tornare allo snap-in Active Directory utenti e computer.
 
 Un amministratore nel cluster di failover potrà ora creare ruoli del cluster con punti di accesso client e connettere le risorse.
@@ -132,11 +132,11 @@ Un amministratore nel cluster di failover potrà ora creare ruoli del cluster co
 8. Nella finestra di dialogo **Seleziona utente, computer, account servizio o gruppi** selezionare tipi di **oggetto**, selezionare la casella di controllo **computer** e quindi fare clic su **OK**.
 9. In **immettere i nomi degli oggetti da selezionare**immettere il nome del oggetto nome cluster, selezionare **Controlla nomi**e quindi fare clic su **OK**. Se viene visualizzato un messaggio di avviso indicante che sta per essere aggiunto un oggetto disabilitato, fare clic su **OK**.
 10. Verificare che l'oggetto nome cluster sia selezionato e quindi accanto a **Controllo completo** selezionare la casella di controllo **Consenti**.
-11. Scegliere **OK**.
+11. Seleziona **OK**.
 
 Un amministratore nel cluster di failover potrà ora creare il ruolo del cluster con un punto di accesso client corrispondente al nome dell'oggetto computer virtuale pre-installato e connettere la risorsa.
 
-## <a name="more-information"></a>Altre informazioni
+## <a name="more-information"></a>Ulteriori informazioni
 
 - [Clustering di failover](failover-clustering.md)
 - [Configurazione di account di cluster in Active Directory](configure-ad-accounts.md)

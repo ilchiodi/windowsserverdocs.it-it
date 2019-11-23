@@ -45,13 +45,13 @@ openfiles /disconnect [/s <System> [/u [<Domain>\]<UserName> [/p [<Password>]]]]
 
 |            Parametro             |                                                                                                                                 Descrizione                                                                                                                                  |
 |----------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|           /s \<System >           | Specifica il sistema remoto a cui connettersi (per nome o indirizzo IP). Non utilizzare le barre rovesciate. Se non si utilizza il **/s** opzione, il comando viene eseguito nel computer locale per impostazione predefinita. Questo parametro si applica a tutti i file e cartelle in cui sono specificate nel comando. |
-|    /u [\<Domain > \] @ no__t-2     |                                                          Esegue il comando utilizzando le autorizzazioni dell'account utente specificato. Se non si utilizza il **/u** opzione, le autorizzazioni sono utilizzate per impostazione predefinita di sistema.                                                           |
-|         /p [\<Password >]         |                                               Specifica la password dell'account utente specificato nella **/u** (opzione). Se non si utilizza il **/p** opzione, un prompt della password viene visualizzata quando viene eseguito il comando.                                                |
-|        /ID \<OpenFileID >         |                                       Disconnette i file aperti per l'ID del file specificato. Con questo parametro è **&#42;** possibile usare il carattere jolly ().</br>Nota: Per trovare l'ID del file, è possibile usare il comando **openfiles/query** .                                       |
-|         /a \<AccessedBy >         |                                                Disconnette tutti i file aperti associati con il nome utente specificato nella *utenteconnesso* parametro. Con questo parametro è **&#42;** possibile usare il carattere jolly ().                                                 |
+|           /s \<sistema >           | Specifica il sistema remoto a cui connettersi (per nome o indirizzo IP). Non utilizzare le barre rovesciate. Se non si utilizza il **/s** opzione, il comando viene eseguito nel computer locale per impostazione predefinita. Questo parametro si applica a tutti i file e cartelle in cui sono specificate nel comando. |
+|    /u [\<dominio >\]<UserName>     |                                                          Esegue il comando utilizzando le autorizzazioni dell'account utente specificato. Se non si utilizza il **/u** opzione, le autorizzazioni sono utilizzate per impostazione predefinita di sistema.                                                           |
+|         /p [\<> password]         |                                               Specifica la password dell'account utente specificato nella **/u** (opzione). Se non si utilizza il **/p** opzione, un prompt della password viene visualizzata quando viene eseguito il comando.                                                |
+|        /ID \<OpenFileID >         |                                       Disconnette i file aperti per l'ID del file specificato. Con questo parametro è **&#42;** possibile usare il carattere jolly ().</br>Nota: è possibile usare il comando **openfiles/query** per trovare l'ID file.                                       |
+|         /a \<utenteconnesso >         |                                                Disconnette tutti i file aperti associati con il nome utente specificato nella *utenteconnesso* parametro. Con questo parametro è **&#42;** possibile usare il carattere jolly ().                                                 |
 | /o {Read \| scrittura \| lettura/scrittura} |                                               Disconnette tutti i file aperti con il valore della modalità di apertura specificato. I valori validi sono di lettura, scrittura o lettura/scrittura. Con questo parametro è **&#42;** possibile usare il carattere jolly ().                                                |
-|         /op \<OpenFile >          |                                                           Disconnette tutte le connessioni di aprire file creati da un nome di file specifico. Con questo parametro è **&#42;** possibile usare il carattere jolly ().                                                           |
+|         /op \<> OpenFile          |                                                           Disconnette tutte le connessioni di aprire file creati da un nome di file specifico. Con questo parametro è **&#42;** possibile usare il carattere jolly ().                                                           |
 |                /?                |                                                                                                                     Visualizza la guida al prompt dei comandi.                                                                                                                     |
 
 ### <a name="examples"></a>Esempi
@@ -68,7 +68,7 @@ Per disconnettere tutti i file e directory con la modalità di lettura/scrittura
 ```
 openfiles /disconnect /o read/write
 ```
-Per disconnettere la directory con il nome file aperto "C:\TestShare @ no__t-0, indipendentemente dall'utente che vi accede, digitare:
+Per disconnettere la directory con il nome file aperto "C:\TestShare\", indipendentemente dall'utente che vi accede, digitare:
 ```
 openfiles /disconnect /a * /op "c:\testshare\"
 ```
@@ -91,10 +91,10 @@ openfiles /query [/s <System> [/u [<Domain>\]<UserName> [/p [<Password>]]]] [/fo
 
 |          Parametro           |                                                                                                                                 Descrizione                                                                                                                                  |
 |------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|         /s \<System >         | Specifica il sistema remoto a cui connettersi (per nome o indirizzo IP). Non utilizzare le barre rovesciate. Se non si utilizza il **/s** opzione, il comando viene eseguito nel computer locale per impostazione predefinita. Questo parametro si applica a tutti i file e cartelle in cui sono specificate nel comando. |
-|  /u [\<Domain > \] @ no__t-2   |                                                          Esegue il comando utilizzando le autorizzazioni dell'account utente specificato. Se non si utilizza il **/u** opzione, le autorizzazioni sono utilizzate per impostazione predefinita di sistema.                                                           |
-|       /p [\<Password >]       |                                               Specifica la password dell'account utente specificato nella **/u** (opzione). Se non si utilizza il **/p** opzione, un prompt della password viene visualizzata quando viene eseguito il comando.                                                |
-| [/fo {TABLE \| LIST \| CSV}] |                             Visualizza l'output nel formato specificato. I valori validi per *formato* sono:</br>TAVOLO:  Visualizza l'output in una tabella.</br>ELENCO Visualizza l'output in un elenco.</br>CSV Visualizza l'output nel formato con valori delimitati da virgole.                              |
+|         /s \<sistema >         | Specifica il sistema remoto a cui connettersi (per nome o indirizzo IP). Non utilizzare le barre rovesciate. Se non si utilizza il **/s** opzione, il comando viene eseguito nel computer locale per impostazione predefinita. Questo parametro si applica a tutti i file e cartelle in cui sono specificate nel comando. |
+|  /u [\<dominio >\]<UserName>   |                                                          Esegue il comando utilizzando le autorizzazioni dell'account utente specificato. Se non si utilizza il **/u** opzione, le autorizzazioni sono utilizzate per impostazione predefinita di sistema.                                                           |
+|       /p [\<> password]       |                                               Specifica la password dell'account utente specificato nella **/u** (opzione). Se non si utilizza il **/p** opzione, un prompt della password viene visualizzata quando viene eseguito il comando.                                                |
+| [/fo {TABLE \| LIST \| CSV}] |                             Visualizza l'output nel formato specificato. I valori validi per *formato* sono:</br>TABELLA: Visualizza l'output in una tabella.</br>ELENCO: Visualizza l'output in un elenco.</br>CSV: Visualizza l'output in formato valori separati da virgola.                              |
 |             /NH              |                                                                                Omette le intestazioni di colonna nell'output. Valido solo quando il **/fo** parametro è impostato su **TABELLA** o **CSV**.                                                                                 |
 |              /v              |                                                                                                       Specifica le informazioni dettagliate visualizzate nell'output.                                                                                                        |
 |              /?              |                                                                                                                     Visualizza la guida al prompt dei comandi.                                                                                                                     |
@@ -135,10 +135,10 @@ openfiles /local [on | off]
 
 |Parametro|Descrizione|
 |---------|-----------|
-|[in \| off]|Abilita o disabilita il flag globale Maintain Objects List, che tiene traccia di handle di file locali di sistema.|
+|[on \| off]|Abilita o disabilita il flag globale Maintain Objects List, che tiene traccia di handle di file locali di sistema.|
 |/?|Visualizza la guida al prompt dei comandi.|
 
-### <a name="remarks"></a>Note
+### <a name="remarks"></a>Osservazioni
 
 -   Abilitare il flag globale Maintain Objects List può rallentare il sistema.
 -   Le modifiche apportate mediante la **su** o **off** opzione diventano effettive solo dopo il riavvio del sistema.

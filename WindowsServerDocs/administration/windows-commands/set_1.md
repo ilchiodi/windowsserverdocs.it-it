@@ -40,15 +40,15 @@ set /a <Variable>=<Expression>
 
 |Parametro|Descrizione|
 |---------|-----------|
-|\<Variable >|Specifica la variabile di ambiente per impostare o modificare.|
-|\<String >|Specifica la stringa da associare alla variabile di ambiente specificato.|
-|/ p|Imposta il valore di *variabile* a una riga di input immessi dall'utente.|
-|\<PromptString >|Facoltativo. Specifica un messaggio per richiedere l'input dell'utente. Questo parametro viene utilizzato con il **/p** opzione della riga di comando.|
+|\<variabile >|Specifica la variabile di ambiente per impostare o modificare.|
+|\<stringa >|Specifica la stringa da associare alla variabile di ambiente specificato.|
+|/p|Imposta il valore di *variabile* a una riga di input immessi dall'utente.|
+|\<StringaPrompt >|Facoltativo. Specifica un messaggio per richiedere l'input dell'utente. Questo parametro viene utilizzato con il **/p** opzione della riga di comando.|
 |/a|Set *stringa* su un'espressione numerica valutata.|
-|\<Expression >|Specifica un'espressione numerica. Vedere la sezione Osservazioni per gli operatori validi che possono essere utilizzati in *espressione*.|
+|Espressione \<>|Specifica un'espressione numerica. Vedere la sezione Osservazioni per gli operatori validi che possono essere utilizzati in *espressione*.|
 |/?|Visualizza la guida al prompt dei comandi.|
 
-## <a name="remarks"></a>Note
+## <a name="remarks"></a>Osservazioni
 
 - Utilizzando **impostare** con le estensioni abilitate
 
@@ -71,7 +71,7 @@ set /a <Variable>=<Expression>
 
   Nella tabella seguente sono elencati gli operatori supportati per **/a** in ordine decrescente di precedenza.  
 
-  |        Operator         | Operazione eseguita  |
+  |        Operatore         | Operazione eseguita  |
   |-------------------------|----------------------|
   |           ( )           |       Raggruppamento       |
   |          ! ~ -          |        Unario         |
@@ -81,10 +81,10 @@ set /a <Variable>=<Expression>
   |            &            |     AND bit per bit      |
   |            ^            | OR esclusivo |
   |                         |                      |
-  | =  @ no__t-1 =/=% = + =-= & = ^ = |      = < < = > > =       |
+  | = \*=/=% = + =-= & = ^ = |      = < < = > > =       |
   |            ,            | Separatore di espressione |
 
-  Se si usano gli operatori logici ( **&&** o **||** ) o modulo ( **%** ), racchiudere la stringa di espressione tra virgolette. Qualsiasi stringa non numerica nell'espressione è considerati i nomi delle variabili di ambiente e i relativi valori vengono convertiti in numeri prima di essere elaborati. Se si specifica un nome di variabile di ambiente che non è definito nell'ambiente corrente, viene assegnato un valore pari a zero, che consente di eseguire operazioni aritmetiche con valori di variabili di ambiente senza utilizzare % per recuperare un valore.
+  Se si usano gli operatori logici ( **&&** o **||** ) o modulo ( **%** ), racchiudere la stringa dell'espressione tra virgolette. Qualsiasi stringa non numerica nell'espressione è considerati i nomi delle variabili di ambiente e i relativi valori vengono convertiti in numeri prima di essere elaborati. Se si specifica un nome di variabile di ambiente che non è definito nell'ambiente corrente, viene assegnato un valore pari a zero, che consente di eseguire operazioni aritmetiche con valori di variabili di ambiente senza utilizzare % per recuperare un valore.
 
   Se si esegue **set /a** dalla riga di comando all'esterno di uno script di comandi, viene visualizzato il valore finale dell'espressione.
 
@@ -135,7 +135,7 @@ set testVar=test^^1
 > ```
 > In questo comando viene elaborato, la stringa C:\Inc sostituisce **% include %** .
 
-È inoltre possibile utilizzare **impostare** in un file batch che aggiunge una nuova directory alla variabile di ambiente PATH. Esempio:
+È inoltre possibile utilizzare **impostare** in un file batch che aggiunge una nuova directory alla variabile di ambiente PATH. Ad esempio:
 ```
 @echo off
 rem ADDPATH.BAT adds a new directory

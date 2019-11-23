@@ -22,9 +22,9 @@ ms.locfileid: "71379013"
 ---
 # <a name="create-partition-efi"></a>creare una partizione EFI
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Nei computer Itanium @ no__t-0based crea una partizione di sistema Extensible Firmware Interface \(EFI @ no__t-2 su una tabella di partizione GUID \(gpt @ no__t-4 disco.  
+Nei computer basati su Itanium\-crea una partizione Extensible Firmware Interface \(EFI\) System in una tabella di partizione GUID \(disco GPT\).  
   
   
   
@@ -38,11 +38,11 @@ create partition efi [size=<n>] [offset=<n>] [noerr]
   
 |  Parametro  |                                                                                             Descrizione                                                                                              |
 |-------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|  dimensioni @ no__t-0 @ no__t-1  |                         Le dimensioni della partizione in megabyte \(MB\). Se si specifica alcuna dimensione, la partizione continua fino a quando non sia disponibile spazio libero non è più nell'area corrente.                         |
+|  dimensioni\=<n>  |                         Le dimensioni della partizione in megabyte \(MB\). Se si specifica alcuna dimensione, la partizione continua fino a quando non sia disponibile spazio libero non è più nell'area corrente.                         |
 | offset\=<n> |             L'offset in kilobyte \(KB\), in cui viene creata la partizione. Se l'offset non è specificato, la partizione viene inserita nel primo extent del disco di dimensioni sufficienti.              |
-|    NOERR    | Solo per gli script. Quando si è verificato un errore, DiskPart continua a elaborare i comandi come se non si è verificato l'errore. Senza questo parametro, un errore causa DiskPart viene interrotto con un codice di errore. |
+|    NOERR    | solo per gli script. Quando si è verificato un errore, DiskPart continua a elaborare i comandi come se non si è verificato l'errore. Senza questo parametro, un errore causa DiskPart viene interrotto con un codice di errore. |
   
-## <a name="remarks"></a>Note  
+## <a name="remarks"></a>Osservazioni  
   
 -   Dopo che la partizione è stata creata, lo stato attivo viene assegnato alla nuova partizione.  
   
@@ -55,7 +55,7 @@ Per creare una partizione EFI di 1000 MB sul disco selezionato, digitare:
 create partition efi size=1000  
 ```  
   
-#### <a name="additional-references"></a>Riferimenti aggiuntivi  
+#### <a name="additional-references"></a>riferimenti aggiuntivi  
 [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)  
   
 

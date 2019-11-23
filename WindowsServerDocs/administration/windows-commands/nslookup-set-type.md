@@ -22,7 +22,7 @@ ms.locfileid: "71372884"
 ---
 # <a name="nslookup-set-type"></a>nslookup set type
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Modifica il tipo di record di risorse per la query.
 ## <a name="syntax"></a>Sintassi
@@ -30,9 +30,9 @@ Modifica il tipo di record di risorse per la query.
 set type=<ResourceRecordtype>
 ```
 ## <a name="parameters"></a>Parametri
-<ResourceRecordtype>Specifica un tipo di record di risorse DNS. Il tipo di record di risorse predefinito è. Nella tabella seguente sono elencati i valori validi per questo comando.
+<ResourceRecordtype> specifica un tipo di record di risorse DNS. Il tipo di record di risorse predefinito è. Nella tabella seguente sono elencati i valori validi per questo comando.
 
-| Value |                                                   Descrizione                                                   |
+| Valore |                                                   Descrizione                                                   |
 |-------|-----------------------------------------------------------------------------------------------------------------|
 |   A   |                                      Specifica un indirizzo&#39;IP del computer                                      |
 |  QUALSIASI  |                                     Specifica un indirizzo&#39;IP del computer.                                      |
@@ -54,9 +54,9 @@ set type=<ResourceRecordtype>
 | {Guida |                                                       ?}                                                        |
 
 Viene visualizzato un breve riepilogo di <strong>nslookup</strong> sottocomandi.
-## <a name="remarks"></a>Note
+## <a name="remarks"></a>Osservazioni
 - Il comando <strong>set Type</strong> esegue la stessa funzione del comando <strong>set querytype</strong> .
 - Per ulteriori informazioni sui tipi di record di risorse, vedere Request for Comment (RFC) 1035.
-  ## <a name="additional-references"></a>Riferimenti aggiuntivi
-  <a href="command-line-syntax-key.md" data-raw-source="[Command-Line Syntax Key](command-line-syntax-key.md)">Chiave della sintassi della riga di comando</a><a href="nslookup-set-querytype.md" data-raw-source="[nslookup set querytype](nslookup-set-querytype.md)">nslookup set querytype</a> 
-  
+  ## <a name="additional-references"></a>riferimenti aggiuntivi
+  <a href="command-line-syntax-key.md" data-raw-source="[Command-Line Syntax Key](command-line-syntax-key.md)">Chiave della sintassi della riga di comando</a>
+  <a href="nslookup-set-querytype.md" data-raw-source="[nslookup set querytype](nslookup-set-querytype.md)">nslookup set querytype</a>

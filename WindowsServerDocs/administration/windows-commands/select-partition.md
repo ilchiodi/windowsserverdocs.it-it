@@ -22,7 +22,7 @@ ms.locfileid: "71371067"
 ---
 # <a name="select-partition"></a>Seleziona partizione
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Seleziona la partizione specificata e sposta lo stato attivo su di essa. Questo comando può essere utilizzato anche per visualizzare la partizione che attualmente ha lo stato attivo sul disco selezionato.  
   
@@ -38,9 +38,9 @@ select partition=<n>
   
 |   Parametro    |                                                                                    Descrizione                                                                                    |
 |----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Partition @ no__t-0 @ no__t-1 | Il numero di partizione che deve ricevere lo stato attivo. È possibile visualizzare i numeri per tutte le partizioni del disco attualmente selezionato in precedenza tramite il **elenco partizione** comando DiskPart. |
+| \=partizione <n> | Il numero di partizione che deve ricevere lo stato attivo. È possibile visualizzare i numeri per tutte le partizioni del disco attualmente selezionato in precedenza tramite il **elenco partizione** comando DiskPart. |
   
-## <a name="remarks"></a>Note  
+## <a name="remarks"></a>Osservazioni  
   
 -   Prima di poter selezionare una partizione è innanzitutto necessario selezionare un disco utilizzando il **disco selezionare** comando.  
   
@@ -63,7 +63,7 @@ Per visualizzare la partizione che attualmente ha lo stato attivo sul disco sele
 select partition  
 ```  
   
-#### <a name="additional-references"></a>Riferimenti aggiuntivi  
+#### <a name="additional-references"></a>riferimenti aggiuntivi  
 [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)  
   
 

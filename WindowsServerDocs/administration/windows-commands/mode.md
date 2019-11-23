@@ -46,17 +46,17 @@ mode com<M>[:] [baud=<B>] [parity=<P>] [data=<D>] [stop=<S>] [to={on|off}] [xon=
 
 |  Parametro  |                                                                                                                                                                                     Descrizione                                                                                                                                                                                     |
 |-------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Com @ no__t-0M > [:]  |                                                                                                                                                      Specifica il numero della porta di comunicazione asincrona prncnfg. vbshronous.                                                                                                                                                      |
-|  baud = \<B >  | Specifica la velocità di trasmissione in bit al secondo. Nella tabella seguente sono elencate le abbreviazioni valide per *B* e le relative tariffe.</br>-   **11** = 110 baud</br>-   **15** = 150 baud</br>-   **30** = 300 baud</br>-   **60** = 600 baud</br>-   **12** = 1200 baud</br>-   **24** = 2400 baud</br>-   **48** = 4800 baud</br>-   **96** = 9600 baud</br>-   **19** = 19.200 baud |
-| parità = \<P > |                              Specifica il modo in cui il sistema usa il bit di parità per verificare la presenza di errori di trasmissione. Nella tabella seguente sono elencati i valori validi per *P*. Il valore predefinito è **e**. Non tutti i computer supportano i valori **m** e **s**.</br>-   **n** = nessuna</br>-   **e** = pari</br>-   **o** = dispari</br>-   **m** = contrassegno</br>-   **s** = spazio                              |
-|  Data = \<D >  |                                                                                                    Specifica il numero di bit di dati in un carattere. I valori validi per **d** sono compresi tra 5 e 8. Il valore predefinito è 7. Non tutti i computer supportano i valori 5 e 6.                                                                                                     |
-|  Stop = \< >  |                                                                                  Specifica il numero di bit di arresto che definiscono la fine di un carattere: 1, 1,5 o 2. Se la velocità in baud è 110, il valore predefinito è 2. In caso contrario, il valore predefinito è 1. Non tutti i computer supportano il valore 1,5.                                                                                   |
+| Com\<M > [:]  |                                                                                                                                                      Specifica il numero della porta di comunicazione asincrona prncnfg. vbshronous.                                                                                                                                                      |
+|  baud =\<B >  | Specifica la velocità di trasmissione in bit al secondo. Nella tabella seguente sono elencate le abbreviazioni valide per *B* e le relative tariffe.</br>-   **11** = 110 baud</br>-   **15** = 150 baud</br>-   **30** = 300 baud</br>-   **60** = 600 baud</br>-   **12** = 1200 baud</br>-   **24** = 2400 baud</br>-   **48** = 4800 baud</br>-   **96** = 9600 baud</br>-   **19** = 19.200 baud |
+| parità =\<P > |                              Specifica il modo in cui il sistema usa il bit di parità per verificare la presenza di errori di trasmissione. Nella tabella seguente sono elencati i valori validi per *P*. Il valore predefinito è **e**. Non tutti i computer supportano i valori **m** e **s**.</br>-   **n** = None</br>-   **e** = even</br>-   **o** = dispari</br>-   **m** = contrassegno</br>-   **s** = spazio                              |
+|  Data =\<D >  |                                                                                                    Specifica il numero di bit di dati in un carattere. I valori validi per **d** sono compresi tra 5 e 8. Il valore predefinito è 7. Non tutti i computer supportano i valori 5 e 6.                                                                                                     |
+|  Stop =\<S >  |                                                                                  Specifica il numero di bit di arresto che definiscono la fine di un carattere: 1, 1,5 o 2. Se la velocità in baud è 110, il valore predefinito è 2. In caso contrario, il valore predefinito è 1. Non tutti i computer supportano il valore 1,5.                                                                                   |
 |   a = {on    |                                                                                                                                                                                        off                                                                                                                                                                                         |
 |   XOn = {on   |                                                                                                                                                                                        off                                                                                                                                                                                         |
 |  odsr = {on   |                                                                                                                                                                                        off                                                                                                                                                                                         |
 |  PTOM = {on   |                                                                                                                                                                                        off                                                                                                                                                                                         |
-|   DTR = {on   |                                                                                                                                                                                         Disattivato                                                                                                                                                                                         |
-|   RTS = {on   |                                                                                                                                                                                         Disattivato                                                                                                                                                                                         |
+|   DTR = {on   |                                                                                                                                                                                         disabilitato                                                                                                                                                                                         |
+|   RTS = {on   |                                                                                                                                                                                         disabilitato                                                                                                                                                                                         |
 |  IDSR = {on   |                                                                                                                                                                                        off                                                                                                                                                                                         |
 |     /?      |                                                                                                                                                                        Visualizza la guida al prompt dei comandi.                                                                                                                                                                         |
 
@@ -72,11 +72,11 @@ mode [<Device>] [/status]
 
 |Parametro|Descrizione|
 |---------|-----------|
-|\<Device >|Specifica il nome del dispositivo per il quale si desidera visualizzare lo stato.|
+|> \<dispositivo|Specifica il nome del dispositivo per il quale si desidera visualizzare lo stato.|
 |/status|Richiede lo stato di tutte le stampanti parallele reindirizzate. È possibile abbreviare l'opzione della riga di comando **/status** come **/sta**.|
 |/?|Visualizza la guida al prompt dei comandi.|
 
-### <a name="remarks"></a>Note
+### <a name="remarks"></a>Osservazioni
 
 Se utilizzata senza parametri, in **modalità** viene visualizzato lo stato di tutti i dispositivi installati nel sistema.
 
@@ -92,11 +92,11 @@ mode lpt<N>[:]=com<M>[:]
 
 |Parametro|Descrizione|
 |---------|-----------|
-|LPT @ no__t-0N > [:]|Obbligatorio. Specifica la porta parallela. I valori validi per *N* sono compresi tra 1 e 3.|
-|com @ no__t-0M > [:]|Obbligatorio. Specifica la porta seriale. I valori validi per *M* sono compresi tra 1 e 4.|
+|LPT\<N > [:]|Obbligatorio. Specifica la porta parallela. I valori validi per *N* sono compresi tra 1 e 3.|
+|com\<M > [:]|Obbligatorio. Specifica la porta seriale. I valori validi per *M* sono compresi tra 1 e 4.|
 |/?|Visualizza la guida al prompt dei comandi.|
 
-### <a name="remarks"></a>Note
+### <a name="remarks"></a>Osservazioni
 
 Per reindirizzare la stampa, è necessario essere membri del gruppo Administrators.
 
@@ -128,9 +128,9 @@ mode <Device> codepage [/status]
 
 |Parametro|Descrizione|
 |---------|-----------|
-|\<Device >|Obbligatorio. Specifica il dispositivo per cui si desidera selezionare una tabella codici. CON è l'unico nome valido per un dispositivo.|
+|> \<dispositivo|Obbligatorio. Specifica il dispositivo per cui si desidera selezionare una tabella codici. CON è l'unico nome valido per un dispositivo.|
 |tabella codici Select =|Obbligatorio. Specifica la tabella codici da usare con il dispositivo specificato. È possibile abbreviare **codepage** **SELECT** come **CP** **SEL**.|
-|\<YYY >|Obbligatorio. Specifica il numero della tabella codici da selezionare. L'elenco seguente mostra ogni tabella codici supportata e il paese/area geografica o la lingua.</br>437: Stati Uniti</br>850: Multilingue (latino I)</br>852: Slavo (latino II)</br>855: Cirillico (russo)</br>857: Turco</br>860: Portoghese</br>861: Islandese</br>863: Francese (Canada)</br>865: Area lingue nordiche</br>866: Russo</br>869: Greco moderno|
+|> \<YYY|Obbligatorio. Specifica il numero della tabella codici da selezionare. L'elenco seguente mostra ogni tabella codici supportata e il paese/area geografica o la lingua.</br>437: Stati Uniti</br>850: multilingue (alfabeto latino)</br>852: slave (Latin II)</br>855: cirillico (Russo)</br>857: turco</br>860: Portoghese</br>861: islandese</br>863: canadese-francese</br>865: Nordic</br>866: russo</br>869: greco moderno|
 |CodePage|Obbligatorio. Visualizza il numero di tabelle codici (se presenti) selezionate per il dispositivo specificato.|
 |/status|Visualizza il numero delle tabelle codici correnti selezionate per il dispositivo specificato. È possibile abbreviare **/status** in **/sta**. Indica se si specifica **/status**, la tabella codici della **modalità** Visualizza i numeri delle tabelle codici selezionate per il dispositivo specificato.|
 |/?|Visualizza la guida al prompt dei comandi.|
@@ -148,8 +148,8 @@ mode con[:] [cols=<C>] [lines=<N>]
 |Parametro|Descrizione|
 |---------|-----------|
 |con [:]|Obbligatorio. Indica che la modifica viene applicata alla finestra del prompt dei comandi.|
-|colonne = \<C >|Specifica il numero di colonne nel buffer dello schermo del prompt dei comandi.|
-|righe = \<N >|Specifica il numero di righe nel buffer dello schermo del prompt dei comandi.|
+|colonne =\<C >|Specifica il numero di colonne nel buffer dello schermo del prompt dei comandi.|
+|righe =\<N >|Specifica il numero di righe nel buffer dello schermo del prompt dei comandi.|
 |/?|Visualizza la guida al prompt dei comandi.|
 
 ## <a name="BKMK_6"></a>Per impostare la frequenza velocità ripetizione della tastiera
@@ -165,11 +165,11 @@ mode con[:] [rate=<R> delay=<D>]
 |Parametro|Descrizione|
 |---------|-----------|
 |con [:]|Obbligatorio. Fa riferimento alla tastiera.|
-|frequenza = \<R >|Specifica la frequenza con cui un carattere viene ripetuto sullo schermo quando si tiene premuto un tasto.|
-|ritardo = \<D >|Specifica la quantità di tempo che deve trascorrere dopo che è stato premuto un tasto e premuto prima che l'output dei caratteri si ripeta.|
+|frequenza =\<R >|Specifica la frequenza con cui un carattere viene ripetuto sullo schermo quando si tiene premuto un tasto.|
+|ritardo =\<D >|Specifica la quantità di tempo che deve trascorrere dopo che è stato premuto un tasto e premuto prima che l'output dei caratteri si ripeta.|
 |/?|Visualizza la guida al prompt dei comandi.|
 
-### <a name="remarks"></a>Note
+### <a name="remarks"></a>Osservazioni
 
 - La frequenza velocità ripetizione è la frequenza con cui un carattere si ripete quando si tiene premuto il tasto per tale carattere. La frequenza velocità ripetizione ha due componenti, la frequenza e il ritardo. Alcune tastiere non riconoscono questo comando.
 - Uso di **rate =** <em>R</em>

@@ -22,7 +22,7 @@ ms.locfileid: "71392313"
 ---
 # <a name="tsprof"></a>tsprof
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Copia le informazioni di configurazione utente di Servizi Desktop remoto da un utente a un altro.
 Le informazioni di configurazione dell'utente Servizi Desktop remoto vengono visualizzate nelle estensioni Servizi Desktop remoto a utenti e gruppi locali e utenti e computer di Active Directory.
@@ -45,17 +45,17 @@ tsprof /q {/domain:<DomainName> | /local} <UserName>
 |Parametro|Descrizione|
 |-------|--------|
 |/Update|Aggiorna le informazioni sul percorso del profilo per <*nome utente*> nel dominio <*DomainName*> per <*filePath*>.|
-|/Domain: > \<DomainName|Specifica il nome del dominio in cui viene applicata l'operazione.|
+|/Domain:\<NomeDominio >|Specifica il nome del dominio in cui viene applicata l'operazione.|
 |/ locale|Applica l'operazione solo agli account utente locali.|
-|/profile: > \<path|Specifica il percorso del profilo come visualizzato nelle estensioni Servizi Desktop remoto in utenti e gruppi locali e in utenti e computer di Active Directory.|
-|\<UserName >|Specifica il nome dell'utente per il quale si desidera aggiornare o il percorso del profilo del server di query.|
-|/Copy|Copia le informazioni di configurazione dell'utente da \<*SourceUser*> a \<*UtenteDestinazione*> e aggiorna le informazioni sul percorso del profilo per \<*UtenteDestinazione*>*a \<* propercorso >. Sia \<*SourceUser*> che \<*UtenteDestinazione*> devono essere locali o devono trovarsi nel dominio \<*DomainName*>.|
+|/profile: > percorso\<|Specifica il percorso del profilo come visualizzato nelle estensioni Servizi Desktop remoto in utenti e gruppi locali e in utenti e computer di Active Directory.|
+|Nome utente \<>|Specifica il nome dell'utente per il quale si desidera aggiornare o il percorso del profilo del server di query.|
+|/Copy|Copia le informazioni di configurazione utente da \<*SourceUser*> a \<*UtenteDestinazione*> e aggiorna le informazioni sul percorso del profilo per \<*UtenteDestinazione*> *per \<* propercorso >. Entrambe \<*SourceUser*> e \<*UtenteDestinazione*> devono essere locali o devono essere presenti nel dominio \<*DomainName*>.|
 |\<Src_usr >|Specifica il nome dell'utente da cui si desidera copiare le informazioni di configurazione utente.|
 |\<Dest_usr >|Specifica il nome dell'utente a cui si desidera copiare le informazioni di configurazione utente.|
 |/q|Visualizza il percorso del profilo corrente dell'utente per il quale si desidera eseguire una query il percorso del profilo del server.|
 |/?|Visualizza la guida al prompt dei comandi.|
 
-## <a name="remarks"></a>Note
+## <a name="remarks"></a>Osservazioni
 -   Il comando **tsprof** è disponibile solo se è stato installato il servizio ruolo Terminal Server in un computer che esegue il servizio ruolo Host sessione Desktop remoto o windows Server 2008 in un computer che esegue windows Server 2008 R2.
 
 ## <a name="BKMK_examples"></a>Esempi
@@ -69,4 +69,5 @@ tsprof /q {/domain:<DomainName> | /local} <UserName>
     ```
 
 #### <a name="additional-references"></a>Altri riferimenti
-[Sintassi della riga di comando chiave](command-line-syntax-key.md)@no__t-[1 &#40;Servizi Desktop remoto riferimento&#41; ai comandi di Servizi terminal](remote-desktop-services-terminal-services-command-reference.md)
+[Chiave di sintassi della riga di comando](command-line-syntax-key.md)
+[riferimento ai comandi di &#40;Servizi Desktop remoto Servizi terminal&#41; ](remote-desktop-services-terminal-services-command-reference.md)

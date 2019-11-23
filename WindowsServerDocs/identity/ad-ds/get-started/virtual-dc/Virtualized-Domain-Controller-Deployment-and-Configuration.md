@@ -62,9 +62,9 @@ Per informazioni sui prodotti di virtualizzazione, con indicazioni se supportano
 |||  
 |-|-|  
 |**Prodotto di virtualizzazione**|**Supporta i controller di dominio virtualizzati e VMGID**|  
-|**Server Microsoft Windows Server 2012 con funzionalità Hyper-V**|Yes|  
-|**Server Hyper-V di Microsoft Windows Server 2012**|Yes|  
-|**Microsoft Windows 8 con funzionalità client Hyper-V**|Yes|  
+|**Server Microsoft Windows Server 2012 con funzionalità Hyper-V**|Sì|  
+|**Server Hyper-V di Microsoft Windows Server 2012**|Sì|  
+|**Microsoft Windows 8 con funzionalità client Hyper-V**|Sì|  
 |**Windows Server 2008 R2 e Windows Server 2008**|No|  
 |**Soluzioni di virtualizzazione non Microsoft**|Contattare il fornitore|  
   
@@ -91,34 +91,34 @@ Nessuna di queste operazioni è inclusa nella semantica dell'ID di generazione V
 >   
 > Dopo il ripristino di uno snapshot, i delta di modifiche in precedenza non replicate che derivano dal controller di dominio dopo lo snapshot vanno persi definitivamente. Il ripristino sicuro implementa il ripristino automatizzato non autorevole *solo* per evitare la quarantena accidentale di controller di dominio.  
   
-Per altre informazioni su bolle USN e oggetti residui, vedere [Troubleshooting Active Directory operazioni che hanno esito negativo con errore 8606: "Sono stati assegnati attributi insufficienti per creare un oggetto" ](https://support.microsoft.com/kb/2028495).  
+Per altre informazioni su bolle USN e oggetti residui, vedere [Risoluzione dei problemi delle operazioni di Active Directory che non riescono con l'errore 8606: "Attributi insufficienti per la creazione di un oggetto"](https://support.microsoft.com/kb/2028495).  
   
 ## <a name="BKMK_VDCCloning"></a>Clonazione di controller di dominio virtualizzati  
 La clonazione di un controller di dominio virtualizzato richiede diversi passaggi e fasi, sia che si usino strumenti grafici o Windows PowerShell. In generale, le tre fasi principali sono:  
   
 **Preparare l'ambiente**  
   
--   Passaggio 1: Verificare che l'hypervisor supporti l'ID di generazione VM e quindi la clonazione.  
+-   Passaggio 1: Verificare che l'hypervisor supporti l'ID di generazione VM e quindi la clonazione  
   
--   Passaggio 2: Verificare che il ruolo emulatore PDC sia ospitato da un controller di dominio che esegue Windows Server 2012 e che sia online e raggiungibile dal controller di dominio clonato durante la clonazione.  
+-   Passaggio 2: Verificare che il ruolo emulatore PDC è ospitato da un controller di dominio che esegue Windows Server 2012 e che sia online e raggiungibili dal controller di dominio clonato durante la clonazione.  
   
 **Preparare il controller di dominio di origine**  
   
--   Passaggio 3: Autorizzare il controller di dominio di origine per la clonazione.  
+-   Passaggio 3: Autorizzare il controller di dominio di origine per la clonazione  
   
--   Passaggio 4: Rimuovere servizi o programmi incompatibili o aggiungerli al file CustomDCCloneAllowList.xml.  
+-   Passaggio 4: Rimuovere servizi o programmi incompatibili o aggiungerli al file CustomDCCloneAllowList.xml  
   
--   Passaggio 5: Creare il file DCCloneConfig.xml.  
+-   Passaggio 5: Creare il file DCCloneConfig.xml  
   
--   Passaggio 6: Portare offline il controller di dominio di origine.  
+-   Passaggio 6: Portare offline il controller di dominio di origine  
   
 **Creare il controller di dominio clonato**  
   
--   Passaggio 7: Copiare o esportare la VM di origine e aggiungere l'XML, se non è già stato copiato.  
+-   Passaggio 7: Copiare o esportare la macchina virtuale di origine e aggiungere l'XML, se non è già stato copiato  
   
--   Passaggio 8: Creare una nuova macchina virtuale dalla copia.  
+-   Passaggio 8: Creare una nuova macchina virtuale dalla copia  
   
--   Passaggio 9: Avviare la nuova macchina virtuale per iniziare la clonazione.  
+-   Passaggio 9: Avviare la nuova macchina virtuale per iniziare la clonazione  
   
 Non esistono differenze procedurali nell'operazione quando si usano strumenti grafici come la console di gestione di Hyper-V o strumenti da riga di comando come Windows PowerShell, quindi i passaggi vengono presentati solo una volta con entrambe le interfacce. Questo argomento fornisce esempi di Windows PowerShell per consentire di esplorare l'automazione end-to-end del processo di clonazione, ma non sono necessari per i passaggi. In Windows Server 2012 non sono inclusi strumenti grafici di gestione per i controller di dominio virtualizzati.  
   
@@ -546,7 +546,7 @@ copy-item <xml file path><destination path>\dccloneconfig.xml
 dismount-vhd <disk path>  
 ```  
   
-Esempio:  
+Ad esempio:  
   
 ![Distribuzione di controller di dominio virtualizzati](media/Virtualized-Domain-Controller-Deployment-and-Configuration/ADDS_VDC_PSMountVHD.png)  
   
@@ -640,15 +640,15 @@ Get-VMSnapshot
 Remove-VMSnapshot  
 ```  
   
-Esempio:  
+Ad esempio:  
   
 ![Distribuzione di controller di dominio virtualizzati](media/Virtualized-Domain-Controller-Deployment-and-Configuration/ADDS_VDC_PSGetVMSnap.png)  
   
 > [!WARNING]
 > Assicurarsi che, quando si importa il computer, gli indirizzi MAC statici non siano stati assegnati al controller di dominio di origine. Se viene clonato un computer di origine con un indirizzo MAC statico, i computer copiati non invieranno né riceveranno correttamente traffico di rete. Impostare un nuovo indirizzo MAC univoco, statico o dinamico, se questo è il caso. È possibile verificare se una VM usa indirizzi MAC statici con il comando:  
 > 
-> **Get-VM-VMName**   
->  ***test-VM* | Get-VMNetworkAdapter | FL \\** *  
+>   **Get-VM-VMName**  
+>  ***test-VM* | Get-VMNetworkAdapter | \\** *  
   
 ### <a name="step-9---clone-the-new-virtual-machine"></a>Passaggio 9 - Creare la nuova macchina virtuale  
 Facoltativamente, prima di iniziare la clonazione, avviare il controller di dominio di origine offline. Assicurarsi che l'emulatore PDC sia online, in ogni caso.  
@@ -664,7 +664,7 @@ Se si usa Windows PowerShell per avviare una VM, il nuovo cmdlet del modulo Hype
 Start-VM  
 ```  
   
-Esempio:  
+Ad esempio:  
   
 ![Distribuzione di controller di dominio virtualizzati](media/Virtualized-Domain-Controller-Deployment-and-Configuration/ADDS_VDC_PSStartVM.png)  
   

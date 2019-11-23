@@ -52,13 +52,13 @@ Le funzionalità di Windows e le applicazioni che usano VSS includono quanto seg
 
 Una soluzione VSS completa richiede tutte le parti di base seguenti:
 
-**Servizio VSS parte**del sistema operativo Windows che garantisce che gli altri componenti possano comunicare correttamente tra loro e interagiscono.   
+Il **servizio VSS**   parte del sistema operativo Windows che garantisce che gli altri componenti possano comunicare correttamente tra loro e interagiscono.
 
-**VSS richiedente**   il software che richiede la creazione effettiva di copie shadow (o altre operazioni di alto livello, ad esempio l'importazione o l'eliminazione). In genere, si tratta dell'applicazione di backup. L'utilità Windows Server Backup e l'applicazione System Center Data Protection Manager sono richiedenti VSS. I richiedenti non Microsoft® VSS includono quasi tutto il software di backup eseguito in Windows.
+Il **richiedente VSS**   il software che richiede la creazione effettiva di copie shadow (o altre operazioni di alto livello, ad esempio l'importazione o l'eliminazione). In genere, si tratta dell'applicazione di backup. L'utilità Windows Server Backup e l'applicazione System Center Data Protection Manager sono richiedenti VSS. I richiedenti non Microsoft® VSS includono quasi tutto il software di backup eseguito in Windows.
 
-**VSS Writer il componente**che garantisce la presenza di un set di dati coerente per il backup.    Questa operazione viene in genere fornita come parte di un'applicazione line-of-business, ad esempio SQL Server® o Exchange Server. I writer VSS per diversi componenti di Windows, ad esempio il registro di sistema, sono inclusi nel sistema operativo Windows. I writer VSS non Microsoft sono inclusi in molte applicazioni per Windows che devono garantire la coerenza dei dati durante il backup.
+**VSS writer**   il componente che garantisce la presenza di un set di dati coerente per il backup. Questa operazione viene in genere fornita come parte di un'applicazione line-of-business, ad esempio SQL Server® o Exchange Server. I writer VSS per diversi componenti di Windows, ad esempio il registro di sistema, sono inclusi nel sistema operativo Windows. I writer VSS non Microsoft sono inclusi in molte applicazioni per Windows che devono garantire la coerenza dei dati durante il backup.
 
-**Provider VSS il**componentechecreaegestiscelecopieshadow   . Questo problema può verificarsi nel software o nell'hardware. Il sistema operativo Windows include un provider VSS che usa copy-on-Write. Se si usa una rete di archiviazione (SAN), è importante installare il provider hardware VSS per la SAN, se disponibile. Un provider hardware Scarica l'attività di creazione e gestione di una copia shadow dal sistema operativo host.
+Il **provider VSS**   il componente che crea e gestisce le copie shadow. Questo problema può verificarsi nel software o nell'hardware. Il sistema operativo Windows include un provider VSS che usa copy-on-Write. Se si usa una rete di archiviazione (SAN), è importante installare il provider hardware VSS per la SAN, se disponibile. Un provider hardware Scarica l'attività di creazione e gestione di una copia shadow dal sistema operativo host.
 
 Il diagramma seguente illustra il modo in cui il servizio VSS coordina i richiedenti, i writer e i provider per creare una copia shadow di un volume.
 
@@ -106,11 +106,11 @@ Per creare una copia shadow, il richiedente, il writer e il provider eseguono le
 
 Un provider di copia shadow hardware o software usa uno dei metodi seguenti per la creazione di una copia shadow:
 
-**Copia completa questo**metodo esegue una copia completa (denominata "copia completa" o "Clona") del volume originale in un determinato momento.    Questa copia è di sola lettura.
+**Completa copia**   questo metodo esegue una copia completa (denominata "copia completa" o "Clona") del volume originale in un determinato momento. Questa copia è di sola lettura.
 
-**Copy-on-Write**   questo metodo non copia il volume originale. Esegue invece una copia differenziale copiando tutte le modifiche (richieste di I/O di scrittura completate) che vengono effettuate al volume dopo un determinato momento.
+**Copy-on-write**   questo metodo non copia il volume originale. Esegue invece una copia differenziale copiando tutte le modifiche (richieste di I/O di scrittura completate) che vengono effettuate al volume dopo un determinato momento.
 
-**Reindirizzamento-on-Write**   questo metodo non copia il volume originale e non esegue alcuna modifica al volume originale dopo un determinato momento. Esegue invece una copia differenziale reindirizzando tutte le modifiche a un volume diverso.
+**Redirect-on-write**   questo metodo non copia il volume originale e non esegue alcuna modifica al volume originale dopo un determinato momento. Esegue invece una copia differenziale reindirizzando tutte le modifiche a un volume diverso.
 
 ## <a name="complete-copy"></a>Copia completa
 
@@ -136,7 +136,7 @@ Nel metodo Copy-on-Write, quando si verifica una modifica al volume originale (m
 </colgroup>
 <thead>
 <tr class="header">
-<th>Time</th>
+<th>Tempo</th>
 <th>Dati di origine (stato e dati)</th>
 <th>Copia Shadow (stato e dati)</th>
 </tr>
@@ -160,7 +160,7 @@ Nel metodo Copy-on-Write, quando si verifica una modifica al volume originale (m
 </tbody>
 </table>
 
-**Tabella 1**   metodo Copy-on-Write per la creazione di copie shadow
+**Tabella 1**   il metodo Copy-on-Write per la creazione di copie shadow
 
 Il metodo Copy-on-Write è un metodo rapido per la creazione di una copia shadow, perché copia solo i dati modificati. I blocchi copiati nell'area diff possono essere combinati con i dati modificati nel volume originale per ripristinare lo stato del volume prima che siano state apportate le modifiche. Se sono presenti molte modifiche, il metodo Copy-on-Write può diventare costoso.
 
@@ -177,7 +177,7 @@ Nel metodo di reindirizzamento in scrittura, ogni volta che il volume originale 
 </colgroup>
 <thead>
 <tr class="header">
-<th>Time</th>
+<th>Tempo</th>
 <th>Dati di origine (stato e dati)</th>
 <th>Copia Shadow (stato e dati)</th>
 </tr>
@@ -195,13 +195,13 @@ Nel metodo di reindirizzamento in scrittura, ogni volta che il volume originale 
 </tr>
 <tr class="odd">
 <td><p>T2</p></td>
-<td><p>Dati originali invariati: 1 2 3 4 5</p></td>
+<td><p>Dati originali non modificati: 1 2 3 4 5</p></td>
 <td><p>Differenze e indice archiviati nella copia shadow: 3'</p></td>
 </tr>
 </tbody>
 </table>
 
-**Tabella 2**   metodo di reindirizzamento in scrittura per la creazione di copie shadow
+**Tabella 2**   il metodo di reindirizzamento in scrittura per la creazione di copie shadow
 
 Come il metodo Copy-on-Write, il metodo Redirect-on-Write è un metodo rapido per la creazione di una copia shadow, perché copia solo le modifiche apportate ai dati. I blocchi copiati nell'area diff possono essere combinati con i dati non modificati nel volume originale per creare una copia completa e aggiornata dei dati. Se sono presenti molte richieste di I/O di lettura, il metodo di reindirizzamento in scrittura può diventare costoso.
 
@@ -227,7 +227,7 @@ Un provider di copie shadow basato su software deve mantenere una visualizzazion
 
 Un provider di software è applicabile a una gamma più ampia di piattaforme di archiviazione rispetto a un provider basato su hardware e dovrebbe funzionare anche con dischi di base o volumi logici. Un volume logico è un volume creato combinando spazio libero da due o più dischi. Diversamente dalle copie shadow dell'hardware, i provider software utilizzano le risorse del sistema operativo per gestire la copia shadow.
 
-Per altre informazioni sui dischi di base, vedere [che cosa sono i dischi e i volumi di base?](http://go.microsoft.com/fwlink/?linkid=180894) (http://go.microsoft.com/fwlink/?LinkId=180894) su TechNet).
+Per altre informazioni sui dischi di base, vedere [che cosa sono i dischi e i volumi di base?](http://go.microsoft.com/fwlink/?linkid=180894) (http://go.microsoft.com/fwlink/?LinkId=180894) su TechNet.
 
 ### <a name="system-provider"></a>Provider di sistema
 
@@ -298,7 +298,7 @@ La risincronizzazione LUN è diversa dallo scambio di LUN. Uno scambio LUN è un
 
 Copie shadow per cartelle condivise usa il Servizio Copia Shadow del volume per fornire copie temporizzate dei file che si trovano in una risorsa di rete condivisa, ad esempio un file server. Con copie shadow per cartelle condivise, gli utenti possono ripristinare rapidamente i file eliminati o modificati archiviati nella rete. Poiché possono eseguire questa operazione senza l'assistenza dell'amministratore, copie shadow per cartelle condivise possibile aumentare la produttività e ridurre i costi amministrativi.
 
-Per ulteriori informazioni su copie shadow per cartelle condivise, vedere [copie shadow per cartelle condivise](http://go.microsoft.com/fwlink/?linkid=180898) (http://go.microsoft.com/fwlink/?LinkId=180898) su TechNet).
+Per ulteriori informazioni su copie shadow per cartelle condivise, vedere [copie shadow per cartelle condivise](http://go.microsoft.com/fwlink/?linkid=180898) (http://go.microsoft.com/fwlink/?LinkId=180898) su TechNet.
 
 ### <a name="data-mining-by-using-transportable-shadow-copies"></a>Data mining tramite copie shadow trasportabili
 
@@ -316,7 +316,7 @@ Con il Servizio Copia Shadow del volume e un array di archiviazione con un provi
 
 ![](media/volume-shadow-copy-service/Ee923636.633752e0-92f6-49a7-9348-f451b1dc0ed7(WS.10).jpg)
 
-**Figura 3**   creazione e trasporto di copie shadow tra due server
+**Figura 3**   creazione e il trasporto di copie shadow tra due server
 
 
 > [!NOTE]
@@ -384,7 +384,7 @@ Per escludere file specifici dalle copie shadow, usare la chiave del registro di
 > <LI>I file vengono eliminati da una copia shadow in base al massimo sforzo. Ciò significa che non è garantito che vengano eliminati.<BR><BR></LI></UL>
 
 
-Per ulteriori informazioni, vedere [esclusione di file dalle copie shadow](http://go.microsoft.com/fwlink/?linkid=180904) (http://go.microsoft.com/fwlink/?LinkId=180904) su MSDN).
+Per ulteriori informazioni, vedere [esclusione di file dalle copie shadow](http://go.microsoft.com/fwlink/?linkid=180904) (http://go.microsoft.com/fwlink/?LinkId=180904) su MSDN.
 
 ### <a name="my-non-microsoft-backup-program-failed-with-a-vss-error-what-can-i-do"></a>Il programma di backup non Microsoft non è riuscito con un errore VSS. Cosa posso fare?
 
@@ -392,7 +392,7 @@ Consultare la sezione supporto tecnico del sito Web della società che ha creato
 
 Gli amministratori di sistema possono utilizzare le informazioni sulla risoluzione dei problemi del servizio Copia Shadow del volume nel sito Web Microsoft TechNet Library seguente per raccogliere informazioni diagnostiche sui problemi correlati a VSS.
 
-Per ulteriori informazioni, vedere [servizio Copia Shadow del volume](http://go.microsoft.com/fwlink/?linkid=180905) (http://go.microsoft.com/fwlink/?LinkId=180905) su TechNet).
+Per ulteriori informazioni, vedere [servizio Copia Shadow del volume](http://go.microsoft.com/fwlink/?linkid=180905) (http://go.microsoft.com/fwlink/?LinkId=180905) su TechNet.
 
 ### <a name="what-is-the-diff-area"></a>Che cos'è la "area diff"?
 
@@ -431,7 +431,7 @@ Il numero massimo di copie shadow software per ogni volume è 512. Per impostazi
 
 Digitare il comando **vssadmin resize shadowstorage** .
 
-Per ulteriori informazioni, vedere [vssadmin resize shadowstorage](http://go.microsoft.com/fwlink/?linkid=180906) (http://go.microsoft.com/fwlink/?LinkId=180906) su TechNet).
+Per ulteriori informazioni, vedere [vssadmin resize shadowstorage](http://go.microsoft.com/fwlink/?linkid=180906) (http://go.microsoft.com/fwlink/?LinkId=180906) su TechNet.
 
 ### <a name="what-happens-when-i-run-out-of-space"></a>Cosa accade quando si esaurisce lo spazio?
 
@@ -450,15 +450,15 @@ Il sistema operativo Windows offre gli strumenti seguenti per l'utilizzo di VSS:
 
 DiskShadow è un richiedente del servizio Copia Shadow del volume che è possibile usare per gestire tutti gli snapshot hardware e software che è possibile avere in un sistema. DiskShadow include comandi come i seguenti:
 
-  - **elenco**: Elenca i writer VSS, i provider VSS e le copie shadow  
+  - **elenco**: elenca i writer VSS, i provider VSS e le copie shadow  
       
-  - **Crea**: Crea una nuova copia shadow  
+  - **Crea**: crea una nuova copia shadow  
       
-  - **importazione**: Importa una copia shadow trasportabile  
+  - **importazione**: importa una copia shadow trasportabile  
       
-  - **esporre**: Espone una copia shadow permanente (ad esempio, come lettera di unità)  
+  - **Expose**: espone una copia shadow persistente, ad esempio una lettera di unità.  
       
-  - **Ripristina**: Ripristina un volume a una copia shadow specificata  
+  - **Annulla**: ripristina un volume a una copia shadow specificata  
       
 
 Questo strumento è destinato ai professionisti IT, ma può risultare utile anche per il test di un provider VSS writer o VSS.
@@ -471,15 +471,15 @@ VssAdmin viene utilizzato per creare, eliminare ed elencare le informazioni sull
 
 VssAdmin include comandi come i seguenti:
 
-  - **Crea ombreggiatura**: Crea una nuova copia shadow  
+  - **Crea ombreggiatura**: crea una nuova copia shadow  
       
-  - **Elimina ombreggiature**: Elimina le copie shadow  
+  - **Elimina ombre**: Elimina le copie shadow  
       
-  - **provider elenco**: Elenca tutti i provider VSS registrati  
+  - **list providers**: elenca tutti i provider VSS registrati  
       
-  - **elencare i writer**: Elenca tutti i writer VSS sottoscritti  
+  - **Elenca writer**: elenca tutti i writer VSS sottoscritti  
       
-  - **ridimensionare shadowstorage**: Modifica le dimensioni massime dell'area di archiviazione della copia shadow  
+  - **resize shadowstorage**: modifica le dimensioni massime dell'area di archiviazione della copia shadow  
       
 
 VssAdmin può essere utilizzato solo per amministrare le copie shadow create dal provider software di sistema.
@@ -524,7 +524,7 @@ Per ulteriori informazioni, vedere la voce seguente sul sito Web MSDN:
 
 **MinDiffAreaFileSize** in [chiavi del registro di sistema per il backup e il ripristino](http://go.microsoft.com/fwlink/?linkid=180910) (http://go.microsoft.com/fwlink/?LinkId=180910)
 
-`##`#' Versioni del sistema operativo supportate
+Versioni del sistema operativo supportate da `##`#'
 
 Nella tabella seguente sono elencate le versioni minime del sistema operativo supportate per le funzionalità VSS.
 
@@ -625,6 +625,6 @@ Nella tabella seguente sono elencate le versioni minime del sistema operativo su
 </tbody>
 </table>
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 [Servizio Copia Shadow del volume nel centro per sviluppatori Windows](https://docs.microsoft.com/windows/desktop/vss/volume-shadow-copy-service-overview)

@@ -22,11 +22,11 @@ ms.locfileid: "71384907"
 ---
 # <a name="query-session"></a>sessione di query
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Visualizza informazioni sulle sessioni in un server di host sessione Desktop remoto (host sessione Desktop remoto).
 L'elenco include informazioni non solo sulle sessioni attive, ma anche su altre sessioni eseguite dal server.
-Per esempi relativi all'uso di questo comando, vedere [esempi](#BKMK_examples).
+per esempi relativi all'uso di questo comando, vedere [esempi](#BKMK_examples).
 > [!NOTE]
 > In Windows Server 2008 R2, Servizi terminal si chiama ora Servizi Desktop remoto. Per informazioni sulle novità della versione più recente, vedere Novità di [Servizi Desktop remoto in Windows server 2012](https://technet.microsoft.com/library/hh831527) nella libreria TechNet di Windows Server.
 > ## <a name="syntax"></a>Sintassi
@@ -47,7 +47,7 @@ Per esempi relativi all'uso di questo comando, vedere [esempi](#BKMK_examples).
 > |       /Counter       | Visualizza le informazioni sui contatori correnti, incluso il numero totale di sessioni create, disconnesse e riconnesse. |
 > |          /?          |                                         Visualizza la guida al prompt dei comandi.                                          |
 > 
-> ## <a name="remarks"></a>Note
+> ## <a name="remarks"></a>Osservazioni
 > - Un utente può sempre eseguire una query sulla sessione a cui l'utente è attualmente connesso. Per eseguire una query su altre sessioni, l'utente deve disporre dell'autorizzazione di accesso speciale per informazioni sulle query.
 > - Se non si specifica una sessione usando <*sessionname*>, <*UserName*> o <*SessionID*>, **Session query** Visualizza le informazioni su tutte le sessioni attive nel sistema.
 > - Quando la **sessione di query** restituisce informazioni, viene visualizzato un simbolo di maggiore (>) prima della sessione corrente. Di seguito è riportato l'output di esempio per la **sessione di query**:
@@ -70,6 +70,7 @@ Per esempi relativi all'uso di questo comando, vedere [esempi](#BKMK_examples).
 >   ```
 >   query session modeM02
 >   ```
->   #### <a name="additional-references"></a>Riferimenti aggiuntivi
+>   #### <a name="additional-references"></a>riferimenti aggiuntivi
 >   [Sintassi della riga di comando chiave](command-line-syntax-key.md)
->   [query](query.md)@no__t-[3 &#40;Servizi Desktop remoto riferimento&#41; ai comandi di Servizi terminal](remote-desktop-services-terminal-services-command-reference.md)
+>   [query](query.md)
+>   [Servizi Desktop remoto &#40;riferimento&#41; ai comandi di Servizi terminal](remote-desktop-services-terminal-services-command-reference.md)

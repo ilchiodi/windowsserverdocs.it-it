@@ -23,7 +23,7 @@ Utilizzare **netsh http** per eseguire query e configurare parametri e impostazi
 >[!TIP]
 >Se si usa Windows PowerShell in un computer che esegue Windows Server 2016 o Windows 10, digitare **netsh** e premere INVIO. Al prompt dei comandi netsh digitare **http** e premere INVIO per ottenere il prompt http netsh.
 >
->&nbsp; @ no__t-1 @ no__t-2 @ no__t-3 @ no__t-4 @ no__t-5 @ no__t-6netsh http @ no__t-7
+>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;netsh http\>
 
 I comandi netsh http disponibili sono:
 
@@ -98,7 +98,7 @@ add sslcert [ ipport= ] IPAddress:port [ certhash= ] CertHash [ appid= ] GUID [ 
 |         **RevocationFreshnessTime**          | Specifica l'intervallo di tempo, in secondi, per verificare la presenza di un elenco di revoche di certificati (CRL) aggiornato. Se questo valore è zero, il nuovo CRL viene aggiornato solo se quello precedente scade. | Facoltativo |
 |           **urlretrievaltimeout**            |                            Specifica l'intervallo di timeout (in millisecondi) dopo il tentativo di recuperare l'elenco di revoche di certificati per l'URL remoto.                            | Facoltativo |
 |             **sslctlidentifier**             |                Specifica l'elenco delle autorità emittenti di certificati che possono essere attendibili. Questo elenco può essere un subset delle autorità emittenti di certificati considerate attendibili dal computer.                 | Facoltativo |
-|             **sslctlstorename**              |                                                Specifica il nome dell'archivio certificati in LOCAL_MACHINE in cui è archiviato SslCtlIdentifier.                                                | Facoltativo |
+|             **sslctlstorename**              |                                                Specifica il nome dell'archivio certificati in LOCAL_MACHINE dove è archiviato SslCtlIdentifier.                                                | Facoltativo |
 |              **dsmapperusage**               |                                                        Specifica se i Mapper DS sono abilitati o disabilitati. Il valore predefinito è Disabled.                                                         | Facoltativo |
 |          **clientcertnegotiation**           |                                              Specifica se la negoziazione del certificato è abilitata o disabilitata. Il valore predefinito è Disabled.                                               | Facoltativo |
 
@@ -156,8 +156,8 @@ add urlacl [ url= ] URL [ [user=] User [ [ listen= ] yes | no [ delegate= ] yes 
 |--------------|--------------------------------------------------------------------------------------------------------------------------------------------------|----------|
 |   **url**    |                                          Specifica il Uniform Resource Locator completo (URL).                                           | Obbligatorio |
 |   **user**   |                                                      Specifica il nome dell'utente o del gruppo di utenti                                                       | Obbligatorio |
-|  **ascoltare**  | Specifica uno dei valori seguenti: Sì: Consente all'utente di registrare gli URL. Rappresenta il valore predefinito. No: Nega all'utente la registrazione degli URL. | Facoltativo |
-| **Delegato** |  Specifica uno dei valori seguenti: Sì: Consenti all'utente di delegare gli URL No: Negare all'utente la delega degli URL. Rappresenta il valore predefinito.  | Facoltativo |
+|  **ascoltare**  | Specifica uno dei valori seguenti: Sì: consente all'utente di registrare gli URL. Rappresenta il valore predefinito. No: nega all'utente la registrazione degli URL. | Facoltativo |
+| **Delegato** |  Specifica uno dei valori seguenti: Sì: consente all'utente di delegare gli URL No: nega all'utente la delega degli URL. Rappresenta il valore predefinito.  | Facoltativo |
 |   **SDDL**   |                                                Specifica una stringa SDDL che descrive l'elenco DACL.                                                 | Facoltativo |
 
 ---
@@ -166,10 +166,10 @@ add urlacl [ url= ] URL [ [user=] User [ [ listen= ] yes | no [ delegate= ] yes 
 
 Di seguito sono riportati quattro esempi del comando **add urlacl** .
 
-- add urlacl url = https://+:80/MyUri User = DOMAIN @ no__t-1user
-- Aggiungi URL urlacl = <https://www.contoso.com:80/MyUri> utente = dominio @ no__t-1user ascolto = Sì
-- add urlacl url = <https://www.contoso.com:80/MyUri> User = DOMAIN @ no__t-1user delegate = No
-- Aggiungi URL urlacl = https://+:80/MyUri SDDL =...
+- Aggiungi URL urlacl =https://+:80/MyUri utente = dominio\\utente
+- Aggiungi URL urlacl =<https://www.contoso.com:80/MyUri> utente = dominio\\utente ascolto = Sì
+- Aggiungi URL urlacl =<https://www.contoso.com:80/MyUri> utente = dominio\\utente delegato = No
+- Aggiungi URL urlacl =https://+:80/MyUri SDDL =...
 
 ---
 
@@ -196,7 +196,7 @@ delete cache [ [ url= ] URL [ [recursive= ] yes | no ]
 
 Di seguito sono riportati due esempi del comando **delete cache** .
 
-- Elimina URL cache = <https://www.contoso.com:80/myresource/> ricorsivo = Sì
+- Elimina URL cache =<https://www.contoso.com:80/myresource/> ricorsivo = Sì
 - Elimina cache
 
 ---
@@ -312,8 +312,8 @@ delete urlacl [ url= ] URL
 
 Di seguito sono riportati due esempi del comando **delete urlacl** .
 
-- Elimina URL urlacl = https://+:80/MyUri
-- Elimina URL urlacl = <https://www.contoso.com:80/MyUri>
+- Elimina URL urlacl =https://+:80/MyUri
+- Elimina URL urlacl =<https://www.contoso.com:80/MyUri>
 
 ---
 
@@ -352,7 +352,7 @@ show cachestate [ [url= ] URL]
 
 Di seguito sono riportati due esempi del comando **Mostra capetto** :
 
-- Mostra URL capetto = <https://www.contoso.com:80/myresource>
+- Mostra URL di capetto =<https://www.contoso.com:80/myresource>
 - Mostra capetto
 
 ---
@@ -462,8 +462,8 @@ show urlacl [ [url= ] URL]
 
 Di seguito sono riportati tre esempi del comando **show urlacl** .
 
-- Mostra URL urlacl = https://+:80/MyUri
-- Mostra URL urlacl = <https://www.contoso.com:80/MyUri>
+- Mostra URL urlacl =https://+:80/MyUri
+- Mostra URL urlacl =<https://www.contoso.com:80/MyUri>
 - Mostra urlacl
 
 ---

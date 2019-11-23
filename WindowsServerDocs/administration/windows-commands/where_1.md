@@ -38,14 +38,14 @@ where [/r <Dir>] [/q] [/f] [/t] [$<ENV>:|<Path>:]<Pattern>[ ...]
 
 |Parametro|Descrizione|
 |---------|-----------|
-|/r \<Dir >|Indica una ricerca ricorsiva, a partire dalla directory specificata.|
+|/r \<dir >|Indica una ricerca ricorsiva, a partire dalla directory specificata.|
 |/q|Restituisce un codice di uscita (**0** di esito positivo, **1** errore) senza visualizzare l'elenco di file corrispondenti.|
 |/f|Visualizza i risultati del **in** comando tra virgolette.|
 |/t|Visualizza le dimensioni del file e la data dell'ultima modifica e l'ora di ogni file corrispondente.|
-|[$ \<ENV >: \| @ no__t-2Path >:] \<Pattern > [...]|Specifica il criterio di ricerca per i file devono corrispondere. È necessario almeno un criterio e il modello può includere caratteri jolly ( **&#42;** e **?** ). Per impostazione predefinita, **in** esamina la directory corrente e i percorsi specificati nella variabile di ambiente PATH. È possibile specificare un percorso diverso per la ricerca utilizzando il formato $*ENV*:*modello* (dove *ENV* è una variabile di ambiente esistente che contiene uno o più percorsi) o utilizzando il formato *percorso*:*modello* (dove *percorso* è il percorso della directory in cui cercare). Questi formati facoltativi non devono essere utilizzati con il **/r** opzione della riga di comando.|
+|[$\<ENV >:\|percorso \<>:]\<pattern > [...]|Specifica il criterio di ricerca per i file devono corrispondere. È necessario almeno un criterio e il modello può includere caratteri jolly ( **&#42;** e **?** ). Per impostazione predefinita, **in** esamina la directory corrente e i percorsi specificati nella variabile di ambiente PATH. È possibile specificare un percorso diverso per la ricerca utilizzando il formato $*ENV*:*modello* (dove *ENV* è una variabile di ambiente esistente che contiene uno o più percorsi) o utilizzando il formato *percorso*:*modello* (dove *percorso* è il percorso della directory in cui cercare). Questi formati facoltativi non devono essere utilizzati con il **/r** opzione della riga di comando.|
 |/?|Visualizza la guida al prompt dei comandi.|
 
-## <a name="remarks"></a>Note
+## <a name="remarks"></a>Osservazioni
 
 -   Se non si specifica un'estensione nome file, le estensioni elencate nella variabile di ambiente PATHEXT vengono aggiunti al modello per impostazione predefinita.
 -   **Dove** possibile eseguire ricerche ricorsive, visualizzare informazioni sui file, ad esempio data o la dimensione e accettare le variabili di ambiente al posto di percorsi su computer locali.

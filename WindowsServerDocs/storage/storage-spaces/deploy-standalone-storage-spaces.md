@@ -34,7 +34,7 @@ Nella seguente figura è illustrato il flusso di lavoro per gli spazi di archivi
 
 ![Flusso di lavoro per spazi di archiviazione](media/deploy-standalone-storage-spaces/storage-spaces-workflow.png)
 
-**Figura 1: Flusso di lavoro di spazi di archiviazione @ no__t-0
+**Figura 1: flusso di lavoro di spazi di archiviazione**
 
 >[!NOTE]
 >Questo argomento include cmdlet di esempio di Windows PowerShell che è possibile usare per automatizzare alcune delle procedure descritte. Per altre informazioni, vedere [PowerShell](https://docs.microsoft.com/powershell/scripting/powershell-scripting?view=powershell-6).

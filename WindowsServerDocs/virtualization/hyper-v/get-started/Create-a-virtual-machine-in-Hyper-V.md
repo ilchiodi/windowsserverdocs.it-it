@@ -20,7 +20,7 @@ ms.locfileid: "71364252"
 ---
 # <a name="create-a-virtual-machine-in-hyper-v"></a>Creare una macchina virtuale in Hyper-V
 
->Si applica a: Windows 10, Windows Server 2016, Microsoft Hyper-V Server 2016, Windows Server 2019 Microsoft Hyper-V Server 2019
+>Si applica a: Windows 10, Windows Server 2016, Microsoft Hyper-V Server 2016, Windows Server 2019, Microsoft Hyper-V Server 2019
 
 Informazioni su come creare una macchina virtuale utilizzando Hyper-V Manager in modo che Windows PowerShell e le opzioni quando si crea una macchina virtuale in Hyper-V Manager.  
 
@@ -70,7 +70,7 @@ Informazioni su come creare una macchina virtuale utilizzando Hyper-V Manager in
        New-VM -Name <Name> -MemoryStartupBytes <Memory> -BootDevice <BootDevice> -VHDPath <VHDPath> -Path <Path> -Generation <Generation> -Switch <SwitchName>  
        ```  
 
-       Esempio:  
+       Ad esempio:  
 
        ```  
        New-VM -Name Win10VM -MemoryStartupBytes 4GB -BootDevice VHD -VHDPath .\VMs\Win10.vhdx -Path .\VMData -Generation 2 -Switch ExternalSwitch  
@@ -92,7 +92,7 @@ Informazioni su come creare una macchina virtuale utilizzando Hyper-V Manager in
    Start-VM -Name <Name>  
    ```  
 
-   Esempio:  
+   Ad esempio:  
 
    ```  
    Start-VM -Name Win10VM  
@@ -109,15 +109,15 @@ Nella tabella seguente sono elencate le opzioni selezionate quando si crea una m
 
 |Page|Valore predefinito per Windows 10 e Windows Server 2016|Altre opzioni|  
 |--------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------|  
-|**Impostazione nome e percorso**|Nome:  Nuova macchina virtuale.<br /><br />Percorso:  **C:\ProgramData\Microsoft\Windows\Hyper-V @ no__t-1**.|È inoltre possibile immettere il proprio nome e scegliere un altro percorso per la macchina virtuale.<br /><br />Si tratta in cui verranno archiviati i file di configurazione macchina virtuale.|  
+|**Impostazione nome e percorso**|Nome: Nuova macchina virtuale.<br /><br />Percorso:  **c:\programdata\microsoft\windows\hyper-v.\\** .|È inoltre possibile immettere il proprio nome e scegliere un altro percorso per la macchina virtuale.<br /><br />Si tratta in cui verranno archiviati i file di configurazione macchina virtuale.|  
 |**Impostazione generazione**|Prima generazione|È inoltre possibile scegliere di creare una macchina virtuale di generazione 2. Per ulteriori informazioni, vedere [è necessario creare una macchina virtuale di generazione 1 o 2 in Hyper-V.](../plan/Should-I-create-a-generation-1-or-2-virtual-machine-in-Hyper-V.md)|  
 |**Assegnazione memoria**|Memoria di avvio: 1024 MB<br /><br />La memoria dinamica: **non selezionata**|È possibile impostare la memoria di avvio da 32MB a 5902MB.<br /><br />È inoltre possibile utilizzare la memoria dinamica. Per ulteriori informazioni, vedere [Panoramica della memoria dinamica di Hyper-V](https://technet.microsoft.com/library/hh831766.aspx).|  
 |**Configurazione rete**|Non è connesso|È possibile selezionare una connessione di rete per la macchina virtuale utilizzare un elenco dei commutatori virtuali esistenti. Vedere [creare un commutatore virtuale per le macchine virtuali Hyper-V](Create-a-virtual-switch-for-Hyper-V-virtual-machines.md).|  
-|**Connessione disco rigido virtuale**|Crea un disco rigido virtuale<br /><br />Nome: <*vmname*> vhdx<br /><br />**Località**: **Dischi rigidi C:\utenti\public\documents\hyper-V\Virtual Hard @ no__t-1**<br /><br />**Dimensioni**: 127 GB|È inoltre possibile utilizzare un disco rigido virtuale esistente oppure attendere e collegare un disco rigido virtuale in un secondo momento.|  
+|**Connessione disco rigido virtuale**|Crea un disco rigido virtuale<br /><br />Nome: <*vmname*> vhdx<br /><br />**Percorso**: **dischi rigidi C:\Users\Public\Documents\Hyper-V\Virtual\\**<br /><br />**Dimensioni**: 127GB|È inoltre possibile utilizzare un disco rigido virtuale esistente oppure attendere e collegare un disco rigido virtuale in un secondo momento.|  
 |**Opzioni di installazione**|Installare un sistema operativo in un secondo momento|Queste opzioni modificare l'ordine di avvio della macchina virtuale in modo che è possibile installare da un file ISO, disco floppy o un servizio di installazione di rete, ad esempio servizi di distribuzione Windows (WDS).|  
-|**Riepilogo**|Visualizza le opzioni che si sono scelto, in modo che sia possibile verificare che siano corrette.<br /><br />-Nome<br />-Generazione<br />-Memoria<br />-Rete<br />: Disco rigido<br />-Sistema operativo|**Punta** È possibile copiare il riepilogo dalla pagina e incollarlo nella posta elettronica o altrove per tenere traccia delle macchine virtuali.|  
+|**Riepilogo**|Visualizza le opzioni che si sono scelto, in modo che sia possibile verificare che siano corrette.<br /><br />-Nome<br />-Generazione<br />-Memoria<br />-Rete<br />: Disco rigido<br />-Sistema operativo|**Suggerimento:** è possibile copiare il riepilogo dalla pagina e incollarlo nel messaggio di posta elettronica o altrove che consentono di tenere traccia delle macchine virtuali.|  
 
-## <a name="see-also"></a>Vedere anche  
+## <a name="see-also"></a>Vedi anche  
 
 - [Nuova macchina virtuale](https://technet.microsoft.com/library/hh848537.aspx)  
 

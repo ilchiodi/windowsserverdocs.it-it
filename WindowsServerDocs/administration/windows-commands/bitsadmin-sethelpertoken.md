@@ -23,7 +23,7 @@ ms.locfileid: "71380575"
 
 Imposta il token primario del prompt dei comandi corrente (o un token dell'account utente locale arbitrario, se specificato) come [token Helper](/windows/desktop/bits/helper-tokens-for-bits-transfer-jobs)del processo di trasferimento BITS.
 
-**BITS 3,0 e versioni precedenti**: Non supportati.
+**BITS 3,0 e versioni precedenti**: non supportato.
 
 ## <a name="syntax"></a>Sintassi
 
@@ -36,7 +36,7 @@ bitsadmin /SetHelperToken <Job> [\<username@domain\> \<password\>]
 |Parametro|Descrizione|
 |---------|-----------|
 |Job|Nome visualizzato o GUID del processo.|
-|\< @ no__t-1 @ no__t-2 \<password @ no__t-4|Facoltativo @ no__t-0The le credenziali di un account utente locale il cui token deve essere utilizzato.|
+|\<username@domain\> \<password\>|Facoltativo&mdash;le credenziali di un account utente locale il cui token deve essere utilizzato.|
 
 #### <a name="additional-references"></a>Altri riferimenti
 

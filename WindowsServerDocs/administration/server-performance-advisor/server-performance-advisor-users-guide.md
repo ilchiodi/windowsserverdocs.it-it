@@ -173,7 +173,7 @@ Poiché gli utenti possono creare e gestire i database con SPA, l'account utente
 
 ### <a href="" id="bkmk-setupspa"></a>Configurazione di SPA
 
-SPA è incluso in un pacchetto di file con estensione cab che include tutti i file binari per il Framework SPA, i cmdlet di Windows PowerShell utilizzati negli scenari avanzati e i pacchetti di Advisor seguenti: Sistema operativo core, Hyper-V, Active Directory e IIS. Dopo aver estratto il file CAB in una cartella, è necessaria alcuna installazione aggiuntiva. Tuttavia, per eseguire l'applicazione a singola PAGINA, è necessario abilitare la raccolta dati dal server di destinazione come segue:
+SPA è incluso in un pacchetto con estensione cab che include tutti i file binari per il Framework SPA, i cmdlet di Windows PowerShell usati in scenari avanzati e i pacchetti di Advisor seguenti: sistema operativo principale, Hyper-V, Active Directory e IIS. Dopo aver estratto il file CAB in una cartella, è necessaria alcuna installazione aggiuntiva. Tuttavia, per eseguire l'applicazione a singola PAGINA, è necessario abilitare la raccolta dati dal server di destinazione come segue:
 
 * Per eseguire la raccolta dei dati erano messe a Disposizione, l'account utente utilizzato per eseguire la console SPA deve essere parte del gruppo di sicurezza Administrators sul server di destinazione. Se il server di destinazione e la console nello stesso dominio, account utente di dominio deve essere parte del gruppo di sicurezza Administrators sul server di destinazione. Se il server di destinazione e la console non sono nello stesso dominio, creare un account utente con privilegi amministrativi nel server di destinazione con gli stessi nome utente e password dell'account utente utilizzato per eseguire la console SPA.
 
@@ -196,7 +196,7 @@ La console SPA usa lo stesso account per leggere i log e importarli nel database
 
 * Attivare l'individuazione di rete nella console e in ognuno dei server di destinazione.
 
-* Se il server di destinazione non è aggiunto a un dominio, abilitare l'impostazione del registro di sistema seguente: **HKLM @ no__t-1SOFTWARE @ no__t-2Microsoft @ no__t-3Windows @ no__t-4Currentversion @ no__t-5Policies @ no__t-6system @ no__t-** 7LocalAccountTokenFilterPolicy.
+* Se il server di destinazione non è aggiunto a un dominio, abilitare la seguente impostazione del registro di **sistema: HKLM\\SOFTWARE\\Microsoft\\Windows\\Currentversion\\Policies\\system\\LocalAccountTokenFilterPolicy**.
 
 **Nota** Per impostazione predefinita, SPA scrive i log di diagnostica nella cartella in cui si trova SpaConsole. exe. Se SPA è installato nella cartella programmi, SPA è in grado di scrivere il log solo quando SpaConsole. exe viene eseguito come amministratore.
 
@@ -222,7 +222,7 @@ Dopo tutto è configurato, è possibile creare il primo progetto di applicazione
 
     * Aggiungere server all'elenco di server di destinazione
 
-3.  Fare clic su **Avanti**. Nella pagina **Crea database progetto** viene chiesto di specificare il nome dell'istanza di Microsoft SQL Server in cui si desidera creare il database. Ad esempio, se si trova nello stesso computer della console di, è possibile usare **localhost @ no__t-1 @ no__t-2YOUR SQL Server Name @ no__t-3**.
+3.  Fai clic su **Next**. Nella pagina **Crea database progetto** viene chiesto di specificare il nome dell'istanza di Microsoft SQL Server in cui si desidera creare il database. Se, ad esempio, si trova nello stesso computer della console di, è possibile utilizzare **localhost\\&lt;il nome del server SQL&gt;** .
 
     **Nota** Il nome dell'istanza predefinita per un'installazione di SQL Server 2008 R2 Express è SQLEXPRESS. Predefinito in genere per un'istanza di SQL Server 2008 R2 Express è installato nel computer locale, il database verrà impostato su **localhost\\SQLExpress**. Tuttavia, si sia stato modificato durante l'installazione di SQL Server, pertanto è necessario utilizzare il nome dell'istanza SQL Server corretto.
 
@@ -238,7 +238,7 @@ Dopo tutto è configurato, è possibile creare il primo progetto di applicazione
 
 6.  Nella pagina **Crea database di progetto** fare clic su **Avanti**. La prima volta che si usa la procedura guidata crea un database e genera tutte le stored procedure, le funzioni e lo schema del database correlati a SPA nel database. Questo passaggio potrebbe richiedere alcuni secondi a seconda della velocità di hardware e di rete.
 
-    **Nota** se questo passaggio ha esito negativo, viene visualizzato un messaggio di errore. Di seguito sono riportati alcuni dei problemi comuni: La console di non è in grado di connettersi all'istanza SQL Server, privilegi insufficienti per la creazione del database oppure il nome del database esiste già.
+    **Nota** se questo passaggio ha esito negativo, viene visualizzato un messaggio di errore. Alcuni dei problemi più comuni sono: Console non può connettersi all'istanza di SQL Server, dispone di privilegi sufficienti per creare database, o il nome del database esiste già.
 
      
 
@@ -254,7 +254,7 @@ Dopo tutto è configurato, è possibile creare il primo progetto di applicazione
 
      
 
-9.  Nella pagina **Aggiungi server** , per ogni server da aggiungere all'elenco dei server di destinazione, è necessario compilare due campi obbligatori: **Nome del server** e del **percorso della condivisione file**.
+9.  Nella pagina **Aggiungi server** , per ogni server da aggiungere all'elenco dei server di destinazione, è necessario compilare due campi obbligatori: **il nome del server** e il **percorso della condivisione file**.
 
     **Nota** Esiste anche un campo **remark** , che viene usato principalmente per classificare o trovare il server. In casi in cui si dispone di molti server, è possibile importare un file di elenco delimitato da virgole (CSV) che contiene il nome del server, la cartella dei risultati e il campo è facoltativo. Il campo del **contrassegno** viene usato per descrivere il server e il termine può essere usato per filtrare i server per la raccolta dei dati. Se si inizializzano i server tramite il file con estensione CSV, un errore di analisi all'interno del file non caricherà i server.
 
@@ -271,7 +271,7 @@ Dopo tutto è configurato, è possibile creare il primo progetto di applicazione
 
 Dopo aver configurato il database, è possibile eseguire l'analisi delle prestazioni sui server.
 
-Ogni volta che viene avviata la console SPA, l'ultimo progetto che è stato utilizzato dall'utente corrente viene aperto automaticamente. La finestra principale contiene un elenco di server. Ogni server dispone di quattro proprietà: Nome del server, risultato dell'analisi, stato corrente e contrassegno.
+Ogni volta che viene avviata la console SPA, l'ultimo progetto che è stato utilizzato dall'utente corrente viene aperto automaticamente. La finestra principale contiene un elenco di server. Ogni server dispone di quattro proprietà: il nome del server, il risultato dell'analisi, lo stato corrente e il contrassegno.
 
 * **Nome del server** il nome del server, che è l'identificatore per il server. Non esistono nomi duplicati sono consentiti.
 
@@ -302,7 +302,7 @@ Per eseguire l'analisi delle prestazioni nei server di destinazione, selezionare
 ## <a href="" id="bkmk-viewingreports"></a>Visualizzazione di report
 
 
-In SPA sono disponibili tre tipi di report di analisi delle prestazioni: Report singolo, report affiancato, tendenze e grafici cronologici.
+In SPA, esistono tre tipi di report di analisi delle prestazioni: singolo report, report, side-by-side e tendenza e grafici cronologici.
 
 Dopo l'esecuzione dell'analisi delle prestazioni, viene generato un report per ogni Pack advisor eseguire sul computer di destinazione. Dall'elenco di server nella finestra principale, è possibile espandere **risultato dell'analisi** per visualizzare tutti i pacchetti di advisor che sono stati eseguiti nel server specifico. È possibile scegliere un nome di report per visualizzare un singolo report.
 
@@ -340,7 +340,7 @@ Un singolo report contiene una sezione di notifica e le sezioni di dati.
 
 La sezione notifica è costituito da un set di regole di analisi delle prestazioni. Ogni notifica contiene alcune origini dati, alcuni valori di soglia e la logica di business. Quando si esegue l'analisi delle prestazioni, la logica di business valuta le origini dati con le soglie per determinare se la regola positivo o negativo. In caso contrario, viene visualizzato un avviso per informare l'utente su un potenziale problema di prestazioni. Fornisce inoltre indicazioni che consentono di risolvere il problema. La sezione notifica è sempre la prima tabulazione nella vista del singolo report.
 
-La sezione notifica è divisa in due parti: **Avvisi** e **altre notifiche**.
+La sezione notifica è suddivisa in due parti: **avviso** e **altre notifiche**.
 
 Se l'origine dati per una regola soddisfa determinate condizioni in base alle impostazioni della logica e della soglia, viene visualizzato un avviso nell'area di **avviso** . Un avviso include le parti seguenti:
 
@@ -464,7 +464,7 @@ Nuovi pacchetti di advisor possono essere rilasciati da Microsoft o da sviluppat
 
 **Per eseguire il provisioning di un nuovo pacchetto di Advisor**
 
-1.  copiare tutto il contenuto del pacchetto di Advisor nella directory *% SpaRoot%* \\APs.
+1.  copiare tutto il contenuto del pacchetto di Advisor nella directory *% SpaRoot%* \\APS.
 
 2.  Nella finestra principale, fare clic su **configurazione**, quindi fare clic su **configurare Pack di Advisor**. Il **configurare Pack di Advisor** verrà visualizzata la finestra di dialogo.
 
@@ -557,7 +557,7 @@ SPA offre funzionalità di base per la gestione dei server di destinazione. È p
 
      
 
-4.  Se si vuole usare SPA con un numero elevato di server, SPA supporta un formato con valori delimitati da virgole (CSV) per l'importazione. Il file deve contenere almeno due campi: Percorso del **Server** e della **condivisione file**. Il terzo campo, **remark** è facoltativo, ma è consigliabile organizzare i server. È inoltre possibile esportare l'elenco dei server in un file CSV per determinare il formato appropriato o eseguire il backup della configurazione del server.
+4.  Se si vuole usare SPA con un numero elevato di server, SPA supporta un formato con valori delimitati da virgole (CSV) per l'importazione. Il file deve contenere almeno due campi: **Server** e **percorso di condivisione File**. Il terzo campo, **remark** è facoltativo, ma è consigliabile organizzare i server. È inoltre possibile esportare l'elenco dei server in un file CSV per determinare il formato appropriato o eseguire il backup della configurazione del server.
 
 ### <a name="searching-and-filtering"></a>Ricerca e filtro
 
@@ -590,8 +590,8 @@ Nella tabella seguente vengono descritti i cmdlet di SPA Windows PowerShell:
 | ------ | ------- | ------ |
 | Inizio SpaAnalysis | **-Nomeserver** Nome del server di destinazione.<br>**-AdvisorPackName** Nome completo del pacchetto di Advisor da accodare nel server. Quando è pianificata l'esecuzione di più di un pacchetto allo stesso tempo, il valore del parametro deve essere formattato come AP1name, AP2name.<br>**-Durata** Durata della raccolta dei dati.<br>**-Credential** Credenziali utente per l'account che esegue la raccolta di dati nel server di destinazione.<br>**-SqlInstanceName** Nome dell'istanza di SQL Server.<br>**-SQLDatabaseName** Nome del database del progetto SPA. | Avvia una sessione di raccolta dati SPA nel server specificato. |
 | Stop-SpaAnalysis | **-SqlInstanceName** Nome dell'istanza di SQL Server.<br>**-SQLDatabaseName** Nome del database del progetto SPA.<br>**-Nomeserver** Nome del server di destinazione. | Tenta di arrestare una sessione SPA in esecuzione. Se una sessione è già completa, viene restituito senza eseguire alcuna operazione. |
-| Get-SpaServer | **-SqlInstanceName** Nome dell'istanza di SQL Server.<br>**-SQLDatabaseName** Nome del database del progetto SPA. | Ottiene l'elenco di server nel database. Restituisce un elenco di oggetti, incluse le proprietà seguenti: Nome, stato, FileShare e contrassegno. |
-| Get-SpaAdvisorPacks | **-SqlInstanceName** Nome dell'istanza di SQL Server<br>**-SQLDatabaseName** Nome del database del progetto SPA | Ottiene l'elenco di Service pack di advisor nel database. Restituisce un elenco di oggetti, incluse le proprietà seguenti: Name, DisplayName, Author e Version. |
+| Get-SpaServer | **-SqlInstanceName** Nome dell'istanza di SQL Server.<br>**-SQLDatabaseName** Nome del database del progetto SPA. | Ottiene l'elenco di server nel database. Restituisce un elenco di oggetti, tra cui queste proprietà: nome, stato, condivisione file e osservazioni. |
+| Get-SpaAdvisorPacks | **-SqlInstanceName** Nome dell'istanza di SQL Server<br>**-SQLDatabaseName** Nome del database del progetto SPA | Ottiene l'elenco di Service pack di advisor nel database. Restituisce un elenco di oggetti, tra cui queste proprietà: Name, DisplayName, autore e versione. |
 
 Windows PowerShell offre la possibilità di passare le credenziali tramite i file crittografati per abilitare gli scenari di automazione. Per altre informazioni sull'uso di file crittografati per passare le credenziali a un cmdlet, vedere [creare script di Windows PowerShell che accettano le credenziali](https://technet.microsoft.com/magazine/ff714574.aspx).
 
@@ -717,7 +717,7 @@ SQL Server Express dispone di una dimensione massima di 10 GB per un database ut
 
 ### <a name="sql-server-express-log-size-and-disk-capacity"></a>SQL Server Express dimensioni e il disco capacità registro
 
-Se si utilizza SQL Server Express, il database utente è limitato a 10 GB, ma il file di log corrispondente può superare 70 GB. Per questi motivi, è consigliabile più di 100 GB di spazio libero su disco per SQL Server Express. Questo spazio su disco dovrebbe essere sufficiente per archiviare circa i report da 20.000 a 30.000. Questo file di log è denominato SPADB\_log.ldf e si trova in **% Program Files% \\Microsoft SQL Server @ no__t-3MSSQL10. SQLEXPRESS @ no__t-4MSSQL @ no__t-5DatA**.
+Se si utilizza SQL Server Express, il database utente è limitato a 10 GB, ma il file di log corrispondente può superare 70 GB. Per questi motivi, è consigliabile più di 100 GB di spazio libero su disco per SQL Server Express. Questo spazio su disco dovrebbe essere sufficiente per archiviare circa i report da 20.000 a 30.000. Questo file di log è denominato SPADB\_log. ldf e si trova in **% Program Files%\\Microsoft SQL Server\\MSSQL10. SQLEXPRESS\\MSSQL\\DatA**.
 
 ### <a name="failure-to-connect-to-target-server"></a>Impossibile connettersi al server di destinazione
 
@@ -729,7 +729,7 @@ Se non è possibile creare un set di raccolta dati di PLA nel messaggio del serv
 
 * Assicurarsi che il **gli avvisi e registri di prestazioni** servizio è in esecuzione
 
-* L'impostazione di sicurezza **Network Access: Non consentire l'archiviazione di password e credenziali per l'autenticazione di rete @ no__t-0 è disabilitata. L'impostazione di sicurezza deve essere disabilitato perché SPA deve utilizzare le credenziali utente per creare il Set di raccolta dati nel server di destinazione.
+* L'impostazione di protezione **accesso alla rete: non consentire l'archiviazione delle password e credenziali per l'autenticazione di rete** è disabilitato. L'impostazione di sicurezza deve essere disabilitato perché SPA deve utilizzare le credenziali utente per creare il Set di raccolta dati nel server di destinazione.
 
 ### <a href="" id="running-spa-against-the-console-"></a>Esecuzione di SPA sulla console
 

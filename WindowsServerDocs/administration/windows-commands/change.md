@@ -22,7 +22,7 @@ ms.locfileid: "71379549"
 ---
 # <a name="change"></a>change
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 modifica le impostazioni del server host sessione Desktop remoto (host sessione Desktop remoto) per gli accessi, i mapping delle porte COM e la modalità di installazione.
 > [!NOTE]
@@ -41,5 +41,6 @@ modifica le impostazioni del server host sessione Desktop remoto (host sessione 
 > |  [change port](change-port.md)  |                elenca o modifica i mapping delle porte COM in modo che siano compatibili con le applicazioni MS-DOS.                |
 > |  [change user](change-user.md)  |                            modifica la modalità di installazione per il server Host sessione Desktop remoto.                             |
 > 
-> #### <a name="additional-references"></a>Riferimenti aggiuntivi
-> [Sintassi della riga di comando chiave](command-line-syntax-key.md)@no__t-[1 &#40;Servizi Desktop remoto riferimento&#41; ai comandi di Servizi terminal](remote-desktop-services-terminal-services-command-reference.md)
+> #### <a name="additional-references"></a>riferimenti aggiuntivi
+> [Chiave di sintassi della riga di comando](command-line-syntax-key.md)
+> [riferimento ai comandi di &#40;Servizi Desktop remoto Servizi terminal&#41; ](remote-desktop-services-terminal-services-command-reference.md)

@@ -28,7 +28,7 @@ La deduplicazione dei dati, spesso denominata deduplicazione per brevità, è un
 
 ## <a name="why-is-dedup-useful"></a>Perché la deduplicazione dei dati è utile?
 
-La deduplicazione dei dati consente agli amministratori di archiviazione di ridurre i costi associati alla duplicazione dei dati. I set di dati di grandi dimensioni hanno spesso **<u>molti</u>** dati duplicati, che aumentano i costi di archiviazione. Esempio:
+La deduplicazione dei dati consente agli amministratori di archiviazione di ridurre i costi associati alla duplicazione dei dati. I set di dati di grandi dimensioni hanno spesso **<u>molti</u>** dati duplicati, che aumentano i costi di archiviazione. Ad esempio:
 
 - Le condivisioni file utente possono contenere molte copie dello stesso file o di file simili.
 - I guest di virtualizzazione possono essere quasi identici da una macchina virtuale a un'altra.
@@ -36,7 +36,7 @@ La deduplicazione dei dati consente agli amministratori di archiviazione di ridu
 
 Il risparmio di spazio ottenibile con la deduplicazione dei dati dipende dal set di dati o dal carico di lavoro del volume. I set di dati con duplicazione elevata potrebbero registrare percentuali di ottimizzazione fino al 95% o una riduzione di 20 volte dell'uso dello spazio di archiviazione. Nella tabella seguente sono illustrati i vantaggi in termini di risparmio di spazio offerti dalla deduplicazione per vari tipi di contenuto:
 
-| Scenario       | Content                                        | Risparmio di spazio tipico |
+| Scenario       | Contenuto                                        | Risparmio di spazio tipico |
 |----------------|------------------------------------------------|-----------------------|
 | Documenti degli utenti | Documenti aziendali, foto, musica, video e così via  | 30-50%                |
 | Condivisioni di distribuzione | File binari del software, file CAB, simboli e così via | 70-80%                |
@@ -48,8 +48,8 @@ Il risparmio di spazio ottenibile con la deduplicazione dei dati dipende dal set
     <tbody>
         <tr>
             <td style="text-align:center;min-width:150px;vertical-align:center;"><img src="media/overview-clustered-gpfs.png" alt="Illustration of file servers" /></td>
-            <td style="vertical-align:top">file server per scopi 
-                <b>General @ no__t-1<br />
+            <td style="vertical-align:top">
+                <b>File server per utilizzo generico</b><br />
 I file server per utilizzo generico sono file server che possono contenere i tipi di condivisioni seguenti: <ul>
                     <li>Condivisioni del team</li>
                     <li>Home directory utente</li>
@@ -61,26 +61,28 @@ I file server per utilizzo generico sono buoni candidati per la deduplicazione d
         </tr>
         <tr>
             <td style="text-align:center;min-width:150px;vertical-align:center;"><img src="media/overview-vdi.png" alt="Illustration of VDI servers" /></td>
-            <td style="vertical-align:top">@no__t-distribuzioni di 0Virtualized Desktop Infrastructure (VDI) @ no__t-1<br />
+            <td style="vertical-align:top">
+                <b>Distribuzioni di VDI (Virtual Desktop Infrastructure)</b><br />
 I server VDI, ad esempio <a href="https://technet.microsoft.com/library/cc725560.aspx">Servizi Desktop remoto</a>, costituiscono un’opzione poco impegnativa per le organizzazioni per eseguire il provisioning di computer desktop agli utenti. Esistono molti motivi per cui le organizzazioni si affidano a questa tecnologia: <ul>
-                    <li><b>Distribuzione applicazione</b>: È possibile distribuire rapidamente le applicazioni nell'azienda. Ciò è molto utile quando si hanno applicazioni che vengono aggiornate di frequente, usate raramente o difficili da gestire.</li>
-                    <li><b>Consolidamento delle applicazioni</b>: Quando si installano ed eseguono applicazioni da un set di macchine virtuali gestite centralmente, si elimina la necessità di aggiornare le applicazioni nei computer client. Questa opzione riduce anche la quantità di larghezza di banda necessaria per accedere alle applicazioni.</li>
-                    <li><b>Accesso remoto</b>: Gli utenti possono accedere alle applicazioni aziendali da dispositivi quali computer domestici, chioschi multimediali, hardware a basso consumo e sistemi operativi diversi da Windows.</li>
-                    <li><b>Accesso alle succursali</b>: Le distribuzioni VDI possono fornire migliori prestazioni dell'applicazione per i dipendenti delle succursali che necessitano dell'accesso agli archivi dati centralizzati. Le applicazioni a elevato uso di dati talvolta non hanno protocolli client/server ottimizzati per connessioni a bassa velocità.</li>
+                    <li><b>Distribuzione di applicazioni</b>: è possibile distribuire rapidamente le applicazioni nell'organizzazione. Ciò è molto utile quando si hanno applicazioni che vengono aggiornate di frequente, usate raramente o difficili da gestire.</li>
+                    <li><b>Consolidamento delle applicazioni</b>: quando si installano ed eseguono applicazioni da un set di macchine virtuali gestite centralmente, si elimina la necessità di aggiornare le applicazioni nei computer client. Questa opzione riduce anche la quantità di larghezza di banda necessaria per accedere alle applicazioni.</li>
+                    <li><b>Accesso remoto</b>: gli utenti possono accedere alle applicazioni aziendali da dispositivi quali computer di casa, chioschi multimediali, hardware a basso consumo e sistemi operativi diversi da Windows.</li>
+                    <li><b>Accesso delle succursali</b>: le distribuzioni VDI possono offrire prestazioni ottimizzate per i dipendenti delle succursali che necessitano dell'accesso agli archivi dati centralizzati. Le applicazioni a elevato uso di dati talvolta non hanno protocolli client/server ottimizzati per connessioni a bassa velocità.</li>
                 </ul>
 Le distribuzioni VDI sono ottime candidate per la deduplicazione dei dati perché i dischi rigidi virtuali che consentono il funzionamento dei desktop remoti per gli utenti sono essenzialmente identici. La deduplicazione dei dati può essere utile anche per il cosiddetto <em>boot storm</em> della VDI, la riduzione delle prestazioni di archiviazione quando molti utenti eseguono l'accesso al desktop nello stesso momento, all'inizio della giornata.
             </td>
         </tr>
         <tr>
             <td style="text-align:center;min-width:150px;vertical-align:center;"><img src="media/overview-backup.png" alt="Illustration of backup applications" /></td>
-            <td style="vertical-align:top">destinazioni @no__t 0Backup, ad esempio le applicazioni di backup virtualizzato @ no__t-1<br />
+            <td style="vertical-align:top">
+                <b>Destinazioni di backup, ad esempio le applicazioni di backup virtualizzate</b><br />
 Le applicazioni di backup, ad esempio <a href="https://technet.microsoft.com/library/hh758173.aspx">Microsoft Data Protection Manager (DPM)</a>, sono ottime candidate per la deduplicazione dei dati, vista la duplicazione significativa tra gli snapshot di backup.
             </td>
         </tr>
         <tr>
             <td style="text-align:center;min-width:150px;vertical-align:center;"><img src="media/overview-other.png" alt="Illustration of other workloads" /></td>
-            <td style="vertical-align:top">carichi di lavoro 
-                <b>Other @ no__t-1<br />
+            <td style="vertical-align:top">
+                <b>Altri carichi di lavoro</b><br />
                 <a href="install-enable.md#enable-dedup-candidate-workloads" data-raw-source="[Other workloads may also be excellent candidates for Data Deduplication](install-enable.md#enable-dedup-candidate-workloads)">Anche altri carichi di lavoro possono essere adatti alla deduplicazione dei dati</a>.
             </td>
         </tr>

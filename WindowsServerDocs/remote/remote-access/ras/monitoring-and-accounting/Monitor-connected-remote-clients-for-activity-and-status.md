@@ -40,7 +40,7 @@ ms.locfileid: "71367262"
   
 4.  Verrà visualizzato l'elenco degli utenti connessi al server di accesso remoto e le relative statistiche dettagliate. Fare clic sulla prima riga nell'elenco corrispondente a un client. Quando si seleziona una riga, nel riquadro di anteprima viene visualizzata l'attività dell'utente remoto.  
   
-](../../../media/Monitor-connected-remote-clients-for-activity-and-status/PowerShellLogoSmall.gif)***<em>comandi equivalenti</em> di PowerShell per Windows PowerShell @no__t 0Windows***  
+![](../../../media/Monitor-connected-remote-clients-for-activity-and-status/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em> per Windows PowerShell***  
   
 Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.  
   
@@ -50,11 +50,11 @@ PS> Get-RemoteAccessConnectionStatistics
   
 Le statistiche utente possono essere filtrate, in base alle selezioni dei criteri, usando i campi indicati nella tabella seguente.  
   
-|Nome campo|Value|  
+|Nome campo|Valore|  
 |-------|-----|  
-|Nome utente|Nome utente o alias dell'utente remoto. I caratteri jolly possono essere utilizzati per selezionare un gruppo di utenti, ad esempio contoso @ no__t-0 * o \* \ Administrator.|  
+|Nome utente|Nome utente o alias dell'utente remoto. I caratteri jolly possono essere usati per selezionare un gruppo di utenti, ad esempio contoso\\* o \*\Administrator.|  
 |Hostname|Nome dell'account computer del computer remoto. È possibile specificare anche un indirizzo IPv4 o IPv6.|  
-|Type|DirectAccess o VPN. Se si seleziona DirectAccess, vengono elencati tutti gli utenti remoti connessi tramite DirectAccess. Se si seleziona VPN, vengono elencati tutti gli utenti remoti connessi tramite VPN.|  
+|Tipo|DirectAccess o VPN. Se si seleziona DirectAccess, vengono elencati tutti gli utenti remoti connessi tramite DirectAccess. Se si seleziona VPN, vengono elencati tutti gli utenti remoti connessi tramite VPN.|  
 |indirizzo ISP|Indirizzo IPv4 o IPv6 dell'utente remoto.|  
 |Indirizzo IPv4|Indirizzo IPv4 interno del tunnel che connette l'utente remoto alla rete aziendale.|  
 |Indirizzo IPv6|Indirizzo IPv6 interno del tunnel che connette l'utente remoto alla rete aziendale.|  

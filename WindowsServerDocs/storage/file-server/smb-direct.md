@@ -21,7 +21,7 @@ ms.locfileid: "71394463"
 
 Windows Server 2012 R2, Windows Server 2012 e Windows Server 2016 includono una funzionalità denominata SMB diretto, che supporta l'uso di schede di rete con funzionalità accesso diretto a memoria remota (RDMA). Le schede di rete con RDMA sono in grado di funzionare alla massima velocità con una latenza molto bassa e un utilizzo minimo della CPU. Nei carichi di lavoro come Hyper-V o Microsoft SQL Server, ciò consente di assimilare un file server remoto a un archivio locale. SMB diretto include:
 
-- Velocità effettiva maggiore: sfrutta tutta la velocità effettiva delle reti ad alta velocità in cui le schede di rete coordinano il trasferimento di grandi quantità di dati alla velocità della linea.
+- Maggiore velocità di trasmissione, perché sfrutta per intero la velocità di trasmissione delle reti ad alta velocità, in cui le schede di rete coordinano il trasferimento di grandi quantità di dati alla velocità di collegamento.
 - Bassa latenza: offre tempi di risposta alle richieste di rete molto rapidi, rendendo l'archiviazione file remota veloce quanto l'archiviazione a blocchi collegata direttamente.
 - Basso utilizzo della CPU: usa meno cicli della CPU durante il trasferimento dei dati in rete, lasciando più potenza a disposizione delle applicazioni server.
 
@@ -121,8 +121,8 @@ Ecco come verificare la funzionalità di failover di SMB diretto:
 >[!NOTE]
 >Per evitare errori a eventuali carichi di lavoro che non utilizzano SMB diretto, assicurarsi che non ve ne siano altri che utilizzano il percorso di rete scollegato.
 
-## <a name="more-information"></a>Altre informazioni
+## <a name="more-information"></a>Ulteriori informazioni
 
 - [Panoramica di Server Message Block](file-server-smb-overview.md)
-- Server @no__t 0Increasing, archiviazione e disponibilità di rete: Panoramica dello scenario](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831437(v%3dws.11)>)
+- [Aumento della disponibilità di server, archiviazione e rete: Panoramica dello scenario](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831437(v%3dws.11)>)
 - [Distribuire Hyper-V tramite SMB](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/jj134187(v%3dws.11)>)

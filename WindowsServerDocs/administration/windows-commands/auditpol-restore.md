@@ -1,6 +1,6 @@
 ---
 title: ripristino auditpol
-description: Windows Commands Topic for **auditpol restore** -Ripristina le impostazioni dei criteri di controllo del sistema, le impostazioni dei criteri di controllo per utente per tutti gli utenti e tutte le opzioni di controllo da un file sintatticamente coerente con il formato di file con valori delimitati da virgole (CSV) usato dall'opzione/backup.
+description: Windows Commands Topic for **auditpol restore** -Ripristina le impostazioni dei criteri di controllo del sistema, le impostazioni dei criteri di controllo per ogni utente per tutti gli utenti e tutte le opzioni di controllo da un file sintatticamente coerente con il formato di file con valori delimitati da virgole (CSV) usato dall'opzione/backup.
 ms.custom: na
 ms.prod: windows-server
 ms.reviewer: na
@@ -22,7 +22,7 @@ ms.locfileid: "71382407"
 ---
 # <a name="auditpol-restore"></a>ripristino auditpol
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Ripristina le impostazioni dei criteri di controllo del sistema, le impostazioni dei criteri di controllo per utente per tutti gli utenti e tutte le opzioni di controllo da un file sintatticamente coerente con il formato di file con valori delimitati da virgole (CSV) usato dall'opzione/backup.
 
@@ -35,13 +35,13 @@ auditpol /restore /file:<filename>
 |-------|--------|
 |/file|Specifica il file da cui ripristinare i criteri di controllo. Il file deve essere stato creato usando l'opzione/backup o deve essere sintatticamente coerente con il formato di file CSV usato dall'opzione/backup.|
 |/?|Visualizza la guida al prompt dei comandi.|
-## <a name="remarks"></a>Note
+## <a name="remarks"></a>Osservazioni
 per le operazioni di ripristino per i criteri per utente e i criteri di sistema, è necessario disporre dell'autorizzazione di controllo completo o di scrittura per tale set di oggetti nel descrittore di sicurezza. È anche possibile eseguire l'operazione di ripristino possedendo il diritto utente **Gestione registro di controllo e protezione** (SeSecurityPrivilege). SeSecurityPrivilege è utile per il ripristino del descrittore di sicurezza in caso di errore accidentale o di attacchi dannosi.
 ## <a name="BKMK_examples"></a>Esempi
 Per ripristinare le impostazioni dei criteri di controllo del sistema, le impostazioni dei criteri di controllo per utente per tutti gli utenti e tutte le opzioni di controllo da un file denominato AuditPolicy. csv creato con il comando/backup, digitare:
 ```
 auditpol /restore /file:c:\auditpolicy.csv
 ```
-#### <a name="additional-references"></a>Riferimenti aggiuntivi
+#### <a name="additional-references"></a>riferimenti aggiuntivi
 [Chiave della sintassi della riga di comando](command-line-syntax-key.md)
 [backup auditpol](auditpol-backup.md)

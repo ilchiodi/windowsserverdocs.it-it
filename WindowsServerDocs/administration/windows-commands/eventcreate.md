@@ -36,17 +36,17 @@ eventcreate [/s <Computer> [/u <Domain\User> [/p <Password>]] {[/l {APPLICATION|
 
 |Parametro|Descrizione|
 |---------|-----------|
-|/s \<Computer >|Specifica il nome o l'indirizzo IP di un computer remoto (non utilizzare barre rovesciate). Il valore predefinito è il computer locale.|
-|/u \<Domain \ utente >|Esegue il comando con le autorizzazioni dell'account dell'utente specificato da \<User > o < dominio\utente >. Il valore predefinito è le autorizzazioni dell'oggetto utente nel computer eseguendo il comando connesso.|
+|/s \<computer >|Specifica il nome o l'indirizzo IP di un computer remoto (non utilizzare barre rovesciate). Il valore predefinito è il computer locale.|
+|/u \<dominio\utente >|Esegue il comando con le autorizzazioni dell'account dell'utente specificato da \<utente > o < dominio\utente >. Il valore predefinito è le autorizzazioni dell'oggetto utente nel computer eseguendo il comando connesso.|
 |/p \<password >|Specifica la password dell'account utente specificato nella **/u** parametro.|
-|/l {APPLICATION @ no__t-0SYSTEM}|Specifica il nome del registro eventi in cui verrà creato l'evento. I nomi di log valido sono APPLICAZIONI e SISTEMA.|
-|/so \<SrcName >|Specifica l'origine da utilizzare per l'evento. Un'origine valida può essere qualsiasi stringa e deve rappresentare l'applicazione o componente che genera l'evento.|
-|/t {ERROR @ no__t-0WARNING @ no__t-1INFORMATION @ no__t-2</br>SUCCESSAUDIT @ NO__T-0FAILUREAUDIT}|Specifica il tipo di evento da creare. I tipi validi sono ERRORE, AVVISO, INFORMAZIONI, SUCCESSAUDIT e FAILUREAUDIT.|
-|/ID \<EventID >|Specifica l'ID evento per l'evento. Un ID valido è qualsiasi numero compreso tra 1 e 1000.|
-|/d \<Description >|Specifica la descrizione da utilizzare per l'evento appena creato.|
+|/l {APPLICATION\|SYSTEM}|Specifica il nome del registro eventi in cui verrà creato l'evento. I nomi di log valido sono APPLICAZIONI e SISTEMA.|
+|/so \<NomeOrigine >|Specifica l'origine da utilizzare per l'evento. Un'origine valida può essere qualsiasi stringa e deve rappresentare l'applicazione o componente che genera l'evento.|
+|/t {ERROR\|avviso\|informazioni\|</br>SUCCESSAUDIT\|FAILUREAUDIT}|Specifica il tipo di evento da creare. I tipi validi sono ERRORE, AVVISO, INFORMAZIONI, SUCCESSAUDIT e FAILUREAUDIT.|
+|/ID \<EventId >|Specifica l'ID evento per l'evento. Un ID valido è qualsiasi numero compreso tra 1 e 1000.|
+|/d Descrizione \<>|Specifica la descrizione da utilizzare per l'evento appena creato.|
 |/?|Visualizza la guida al prompt dei comandi.|
 
-## <a name="remarks"></a>Note
+## <a name="remarks"></a>Osservazioni
 
 -   Eventi personalizzati non possono essere scritti nel Registro di protezione.
 

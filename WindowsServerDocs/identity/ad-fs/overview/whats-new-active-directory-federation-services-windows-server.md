@@ -34,9 +34,9 @@ Di seguito è riportato un breve riepilogo degli aggiornamenti per gli account d
 I seguenti miglioramenti di sicurezza aggiuntivi sono disponibili nella AD FS 2019:
 - **Remote PSH using smartcard login** : i clienti possono ora usare le smart card per connettersi in remoto ad ADFS tramite PSH e usarle per gestire tutte le funzioni PSH, inclusi i cmdlet PSH a più nodi.
 - **Personalizzazione dell'intestazione HTTP** : i clienti possono ora personalizzare le intestazioni HTTP emesse durante le risposte ad ADFS. Sono incluse le intestazioni seguenti
-     - HSTS In questo modo gli endpoint ADFS possono essere utilizzati solo sugli endpoint HTTPS per applicare un browser conforme
-     - x-frame-options: Consente agli amministratori di ADFS di consentire a relying party specifici di incorporare gli iFrame per le pagine di accesso interattivo ad ADFS. Questa operazione deve essere utilizzata con cautela e solo per gli host HTTPS. 
-     - Intestazione futura: È possibile configurare anche intestazioni future aggiuntive. 
+     - HSTS: in questo modo si comunica che gli endpoint ADFS possono essere utilizzati solo su endpoint HTTPS per applicare un browser conforme
+     - x-frame-options: consente agli amministratori di ADFS di consentire a relying party specifici di incorporare gli iFrame per le pagine di accesso interattivo ad ADFS. Questa operazione deve essere utilizzata con cautela e solo per gli host HTTPS. 
+     - Intestazione futura: è possibile configurare anche intestazioni future aggiuntive. 
 
 Per altre informazioni, vedere [personalizzare le intestazioni di risposta di sicurezza http con AD FS 2019](../../ad-fs/operations/customize-http-security-headers-ad-fs.md) 
 
@@ -52,7 +52,7 @@ Le funzionalità di autenticazione e criteri seguenti sono disponibili AD FS 201
 In AD FS 2019 sono stati apportati i miglioramenti seguenti per l'accesso SSO:
 
 - [Impaginato UX con tema centrato](../operations/AD-FS-paginated-sign-in.md) -ADFS ora è stato spostato in un flusso di UX impaginato che consente ad ADFS di convalidare e fornire un'esperienza di accesso più uniforme. ADFS ora usa un'interfaccia utente centrata, anziché il lato destro dello schermo. Per allinearsi a questa esperienza, potrebbe essere necessario un logo e immagini di sfondo più recenti. Questo rispecchia anche le funzionalità offerte in Azure AD.
-- correzione di @no__t 0Bug: Stato SSO persistente per i dispositivi WIN10 quando si esegue l'autenticazione PRT @ no__t-0, questo risolve un problema per cui lo stato dell'autenticazione a più fattori non è persistente quando si usa l'autenticazione PRT per i dispositivi Windows 10. Il risultato del problema era che gli utenti finali ricevevano spesso la richiesta di credenziali di secondo fattore (multi-factor Credential). La correzione rende anche l'esperienza coerente quando l'autenticazione del dispositivo viene eseguita correttamente tramite il meccanismo TLS del client e via PRT. 
+- **Correzione di bug: stato SSO persistente per i dispositivi WIN10 quando si esegue l'autenticazione PRT**   Questo risolve un problema per cui lo stato dell'autenticazione a più fattori non è stato persistente quando si usa l'autenticazione PRT per i dispositivi Windows 10. Il risultato del problema era che gli utenti finali ricevevano spesso la richiesta di credenziali di secondo fattore (multi-factor Credential). La correzione rende anche l'esperienza coerente quando l'autenticazione del dispositivo viene eseguita correttamente tramite il meccanismo TLS del client e via PRT. 
 
 
 ### <a name="suppport-for-building-modern-line-of-business-apps"></a>Supporto per la creazione di applicazioni line-of-business moderne
@@ -60,9 +60,9 @@ Il seguente supporto per la compilazione di app LOB moderne è stato aggiunto a 
 
  - **Flusso/profilo del dispositivo OAuth** : ad FS supporta ora il profilo di flusso del dispositivo OAuth per eseguire gli accessi nei dispositivi che non dispongono di una superficie di attacco dell'interfaccia utente per supportare esperienze di accesso avanzate. Ciò consente all'utente di completare l'esperienza di accesso in un dispositivo diverso. Questa funzionalità è necessaria per l'esperienza dell'interfaccia della riga di comando di Azure in Azure Stack e può essere usata in altri casi. 
  - La **rimozione del parametro ' Resource '** -ad FS ha rimosso la necessità di specificare un parametro di risorsa che sia in linea con le specifiche OAuth correnti. I client possono ora specificare l'identificatore del trust della relying party come parametro di ambito, oltre alle autorizzazioni richieste. 
- - **Intestazioni di CORS nelle risposte ad FS** : i clienti possono ora compilare applicazioni a pagina singola che consentono alle librerie js lato client di convalidare la firma del token ID eseguendo una query per le chiavi di firma dal documento di individuazione OIDC ad FS. 
+ - **Intestazioni CORS nelle risposte ad FS** : i clienti possono ora compilare applicazioni a pagina singola che consentono alle librerie js lato client di convalidare la firma del id_token eseguendo una query per le chiavi di firma dal documento di individuazione OIDC in ad FS. 
  - **Supporto di PKCE** : ad FS aggiunge il supporto di PKCE per fornire un flusso del codice di autenticazione protetto in OAuth. In questo modo viene aggiunto un ulteriore livello di sicurezza a questo flusso per impedire il hijack del codice e la riproduzione da un client diverso. 
- - correzione di @no__t 0Bug: Send X5T and Kid Claim @ no__t-0-si tratta di una correzione di bug secondaria. AD FS ora invia anche l'attestazione "Kid" per indicare l'hint ID chiave per la verifica della firma. In precedenza AD FS stata inviata solo come attestazione "X5T".
+ - **Correzione di bug: inviare l'attestazione X5T e Kid** . si tratta di una correzione di bug secondaria. AD FS ora invia anche l'attestazione "Kid" per indicare l'hint ID chiave per la verifica della firma. In precedenza AD FS stata inviata solo come attestazione "X5T".
 
 ### <a name="supportability-improvements"></a>Miglioramenti al supporto tecnico
 I seguenti miglioramenti al supporto tecnico non fanno parte di AD FS 2019:
@@ -76,14 +76,14 @@ Gli aggiornamenti della distribuzione seguenti sono ora inclusi nel AD FS 2019:
 
 ### <a name="saml-updates"></a>Aggiornamenti SAML
 L'aggiornamento SAML seguente è AD FS 2019:
-- correzione di @no__t 0Bug: Correzione dei bug nella Federazione aggregata @ no__t-0-sono state apportate numerose correzioni di bug per il supporto di Federazione aggregato (ad esempio, non comune). Sono state apportate le correzioni seguenti: 
-  - Miglioramento della scalabilità per entità di grandi dimensioni nel documento di metadati della Federazione aggregato. In precedenza, questa operazione avrebbe esito negativo con l'errore "ADMIN0017". 
+- **Correzione di bug: correzione di bug nella Federazione aggregata** . sono state apportate numerose correzioni di bug sul supporto di Federazione aggregato (ad esempio, insolito). Sono state apportate le correzioni seguenti: 
+  - Miglioramento della scalabilità per entità di grandi dimensioni nel documento di metadati di Federazione aggregato. in precedenza, l'errore avrebbe avuto esito negativo con l'errore "ADMIN0017". 
   - Eseguire una query usando il parametro ' ScopeGroupID ' tramite il cmdlet Get-AdfsRelyingPartyTrustsGroup PSH. 
   - Gestione delle condizioni di errore circa entityID duplicati
 
 
 ### <a name="azure-ad-style-resource-specification-in-scope-parameter"></a>Specifica della risorsa di tipo Azure AD nel parametro di ambito 
-In precedenza, AD FS necessario che la risorsa e l'ambito desiderati siano in un parametro separato in qualsiasi richiesta di autenticazione. Ad esempio, una tipica richiesta OAuth avrà un aspetto simile al seguente: 7 **https:&#47;&#47;FS.contoso.com/ADFS/OAuth2/Authorize? </br>response_type = code & client_id = claimsxrayclient & Resource = urn: Microsoft: </br>adfs: claimsxray & scope = OAuth & redirect_uri = https:&#47; &#47; adfshelp.microsoft.com/</br> ClaimsXray/TokenResponse & prompt = login**
+In precedenza, AD FS necessario che la risorsa e l'ambito desiderati siano in un parametro separato in qualsiasi richiesta di autenticazione. Ad esempio, una tipica richiesta OAuth avrà un aspetto simile al seguente: 7 **https:&#47;&#47;FS.contoso.com/ADFS/OAuth2/Authorize?</br>response_type = code & client_id = claimsxrayclient & Resource = urn: Microsoft:</br>ADFS: claimsxray & scope = OAuth & redirect_uri =&#47;&#47;https: adfshelp.Microsoft.com/</br> claimsxray/TokenResponse & prompt = login**
  
 Con AD FS sul server 2019, è ora possibile passare il valore della risorsa incorporato nel parametro scope. Questo è coerente con il modo in cui è possibile eseguire l'autenticazione anche per Azure AD. 
 
@@ -100,7 +100,7 @@ Per sfruttare il supporto PKCE, questa specifica aggiunge parametri aggiuntivi a
 
 ![Proofkey](media/whats-new-in-active-directory-federation-services-for-windows-server-2016/adfs2019.png)
 
-R. Il client crea e registra un segreto denominato "code_verifier" e deriva una versione trasformata "t (code_verifier)" (denominata "code_challenge"), che viene inviata nella richiesta di autorizzazione OAuth 2,0 insieme al metodo di trasformazione "T_M". 
+A. Il client crea e registra un segreto denominato "code_verifier" e deriva una versione trasformata "t (code_verifier)" (definita "code_challenge"), che viene inviata nella richiesta di autorizzazione OAuth 2,0 insieme al metodo di trasformazione "t_m". 
 
 B. L'endpoint di autorizzazione risponde come di consueto, ma registra "t (code_verifier)" e il metodo di trasformazione. 
 
@@ -110,11 +110,11 @@ D. Il AD FS trasforma "code_verifier" e lo confronta con "t (code_verifier)" da 
 
 #### <a name="faq"></a>Domande frequenti 
 **D.** È possibile passare il valore della risorsa come parte del valore dell'ambito, ad esempio il modo in cui le richieste vengono eseguite su Azure AD? 
-</br>**UN.** Con AD FS sul server 2019, è ora possibile passare il valore della risorsa incorporato nel parametro scope. Il parametro scope può ora essere organizzato come un elenco separato da spazi in cui ogni voce è una struttura come risorsa/ambito. Per esempio  
+</br>**Un.** Con AD FS sul server 2019, è ora possibile passare il valore della risorsa incorporato nel parametro scope. Il parametro scope può ora essere organizzato come un elenco separato da spazi in cui ogni voce è una struttura come risorsa/ambito. Per esempio  
 **< creare una richiesta di esempio valida >**
 
 **D.** AD FS supporta l'estensione PKCE?
-</br>**UN.** AD FS nel server 2019 supporta la chiave di prova per lo scambio di codice (PKCE) per il flusso di concessione del codice di autorizzazione OAuth 
+</br>**Un.** AD FS nel server 2019 supporta la chiave di prova per lo scambio di codice (PKCE) per il flusso di concessione del codice di autorizzazione OAuth 
 
 ## <a name="whats-new-in-active-directory-federation-services-for-windows-server-2016"></a>Novità di Active Directory Federation Services per Windows Server 2016   
 Se si sta cercando informazioni sulle versioni precedenti di ADFS, vedere gli articoli seguenti:  

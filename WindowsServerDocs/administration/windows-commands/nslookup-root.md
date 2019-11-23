@@ -22,7 +22,7 @@ ms.locfileid: "71373395"
 ---
 # <a name="nslookup-root"></a>nslookup root
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 imposta il server predefinito sul server per la radice dello spazio dei nomi di dominio di Domain Name System (DNS).
 ## <a name="syntax"></a>Sintassi
@@ -35,8 +35,8 @@ root
 |-----------------|-------------------------------------------------------|
 | {Help &#124; ?} | Viene visualizzato un breve riepilogo di **nslookup** sottocomandi. |
 
-## <a name="remarks"></a>Note
+## <a name="remarks"></a>Osservazioni
 - Attualmente, viene usato il server dei nomi ns.nic.ddn.mil. Questo comando è un sinonimo di lserver ns.nic.ddn.mil. È possibile modificare il nome del server radice con il comando **Imposta radice** .
-  ## <a name="additional-references"></a>Riferimenti aggiuntivi
+  ## <a name="additional-references"></a>riferimenti aggiuntivi
   [Chiave della sintassi della riga di comando](command-line-syntax-key.md)
-  [nslookup Imposta radice](nslookup-set-root.md)
+  [nslookup set root](nslookup-set-root.md)

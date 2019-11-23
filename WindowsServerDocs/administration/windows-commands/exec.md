@@ -36,9 +36,9 @@ exec <ScriptFile.cmd>
 
 |Parametro|Descrizione|
 |---------|-----------|
-|@no__t -0ScriptFile. cmd >|Specifica il file di script da eseguire.|
+|\<ScriptFile. cmd >|Specifica il file di script da eseguire.|
 
-## <a name="remarks"></a>Note
+## <a name="remarks"></a>Osservazioni
 
 -   Questo comando viene utilizzato per duplicare o ripristinare i dati come parte di un backup o sequenza di ripristino.
 -   Se lo script non riesce, viene restituito un errore e viene chiuso DiskShadow.

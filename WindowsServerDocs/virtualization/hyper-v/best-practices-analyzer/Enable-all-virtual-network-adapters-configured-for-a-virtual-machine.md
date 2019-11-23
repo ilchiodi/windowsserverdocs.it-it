@@ -25,7 +25,7 @@ Per altre informazioni sulle procedure consigliate e le analisi, vedere [Best Pr
   
 |Proprietà|Dettagli|  
 |-|-|  
-|**Sistema operativo**|Windows Server 2016|  
+|**Sistema operativo**|Windows Server 2016|  
 |**Prodotto/funzionalità**|Hyper-V|  
 |**Gravità**|Avviso|  
 |**Categoria**|Configurazione|  
@@ -40,11 +40,11 @@ Nelle sezioni seguenti, corsivo indica il testo dell'interfaccia Utente visualiz
   
 *Le macchine virtuali seguenti potrebbero non avere connettività di rete:*  
   
-@no__t 0list di nomi di macchina virtuale >  
+\<elenco dei nomi delle macchine virtuali >  
   
 ## <a name="resolution"></a>Risoluzione  
   
-*Use Device Manager nel sistema operativo guest per abilitare tutte le schede di rete virtuali. Se l'adapter non è necessario, utilizzare la console di gestione di Hyper-V per rimuoverlo dalla macchina virtuale.*  
+*Utilizzare Device Manager nel sistema operativo guest per abilitare tutte le schede di rete virtuali. Se l'adapter non è necessario, utilizzare la console di gestione di Hyper-V per rimuoverlo dalla macchina virtuale.*  
   
 
 

@@ -57,7 +57,7 @@ I contatori delle prestazioni seguenti sono rilevanti per l'utilizzo delle risor
   
   - Lunghezza coda di output  
   
-    Questo contatore è la lunghezza della coda di pacchetti di output \(cm pacchetti @ no__t-1. Se è più lungo di 2, si verificano ritardi. È necessario trovare il collo di bottiglia ed eliminarlo, se possibile. Poiché NDIS Accoda le richieste, questa lunghezza deve essere sempre 0.  
+    Questo contatore corrisponde alla lunghezza della coda di pacchetti di output \(nei pacchetti\). Se è più lungo di 2, si verificano ritardi. È necessario trovare il collo di bottiglia ed eliminarlo, se possibile. Poiché NDIS Accoda le richieste, questa lunghezza deve essere sempre 0.  
   
 - Informazioni sul processore  
   

@@ -17,7 +17,7 @@ ms.locfileid: "71394392"
 ---
 # <a name="define-file-groups-for-screening"></a>Definire gruppi di file per lo screening
 
-> Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2
+> Si applica a: Windows Server (Canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2
 
 Un *gruppo di file* viene utilizzato per definire uno spazio dei nomi per uno screening dei file, l'eccezione screening dei file o il rapporto di archiviazione **File in base a gruppo di file** È costituito da un set di modelli di nomi di file, che vengono raggruppati in base a quanto segue:
 
@@ -41,11 +41,11 @@ Un *gruppo di file* viene utilizzato per definire uno spazio dei nomi per uno sc
 
     -   Per ogni set di file che si desidera includere nel gruppo di file, nella casella **File da includere**, immettere un modello di nome file e quindi fare clic su **Aggiungi**.
     -   Per ogni set di file che si desidera escludere dal gruppo di file, nella casella **File da escludere**, immettere un modello di nome file e quindi fare clic su **Aggiungi**.
-        Si noti che si applicano le regole con caratteri jolly standard, ad esempio **@no__t 1. exe** seleziona tutti i file eseguibili.
+        Si noti che si applicano le regole con caratteri jolly standard, ad esempio **\*. exe** seleziona tutti i file eseguibili.
 
-5.  Fare clic su **OK**.
+5.  Fai clic su **OK**.
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 -   [Gestione screening dei file](file-screening-management.md)
 -   [Creare uno screening dei file](create-file-screen.md)

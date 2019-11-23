@@ -15,16 +15,16 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 09/27/2019
 ms.locfileid: "71356023"
 ---
-# <a name="use-dns-policy-for-split-brain-dns-deployment"></a>Usare i criteri DNS per la distribuzione DNS split @ no__t-0Brain
+# <a name="use-dns-policy-for-split-brain-dns-deployment"></a>Usare i criteri DNS per la distribuzione DNS split\-Brain
 
 >Si applica a: Windows Server 2016
 
-È possibile usare questo argomento per informazioni su come configurare i criteri DNS in Windows Server @ no__t-0 2016 per le distribuzioni DNS "Split Brain", in cui sono disponibili due versioni di una singola zona, una per gli utenti interni della Intranet dell'organizzazione e una per gli utenti esterni, che sono in genere gli utenti su Internet.
+È possibile usare questo argomento per informazioni su come configurare i criteri DNS in Windows Server&reg; 2016 per le distribuzioni DNS "Split Brain", in cui sono disponibili due versioni di una singola zona, una per gli utenti interni della Intranet dell'organizzazione e una per gli utenti esterni, che in genere sono utenti di Internet.
 
 >[!NOTE]
->Per informazioni su come usare i criteri DNS per la distribuzione DNS split @ no__t-0brain con Active Directory Integrated Zone DNS, vedere [usare i criteri DNS per il DNS split-brain in Active Directory](dns-sb-with-ad.md).
+>Per informazioni su come usare i criteri DNS per la distribuzione DNS split\-Brain con Active Directory Zone DNS integrato, vedere [usare i criteri DNS per DNS split-brain in Active Directory](dns-sb-with-ad.md).
 
-In precedenza, questo scenario richiedeva che gli amministratori DNS mantenessero due server DNS diversi, ciascuno dei quali fornisce servizi a ogni set di utenti, interno ed esterno. Se solo pochi record all'interno della zona erano divisi @ no__t-0brained o entrambe le istanze della zona (interna ed esterna) venivano delegate allo stesso dominio padre, questo è diventato un enigma di gestione. 
+In precedenza, questo scenario richiedeva che gli amministratori DNS mantenessero due server DNS diversi, ciascuno dei quali fornisce servizi a ogni set di utenti, interno ed esterno. Se solo pochi record all'interno della zona venivano divisi\-brained o entrambe le istanze della zona (interna ed esterna) venivano delegate allo stesso dominio padre, questo è diventato un enigma di gestione. 
 
 Un altro scenario di configurazione per la distribuzione Split-Brain è il controllo della ricorsione selettiva per la risoluzione dei nomi DNS. In alcuni casi, è previsto che i server DNS dell'organizzazione eseguano la risoluzione ricorsiva su Internet per gli utenti interni, mentre devono fungere anche da server dei nomi autorevoli per gli utenti esterni e bloccarne la ricorsione. 
 
@@ -158,7 +158,7 @@ Nella figura seguente viene illustrato questo scenario.
 
 Se viene ricevuta una query per la quale il server DNS contoso è non autorevole, ad esempio per www.microsoft.com, la richiesta di risoluzione dei nomi viene valutata in base ai criteri nel server DNS. 
 
-Poiché queste query non rientrano in nessuna zona, i criteri a livello di zona \(AS definiti nell'esempio di Split Brain @ no__t-1 non vengono valutati. 
+Poiché queste query non rientrano in nessuna zona, i criteri a livello di zona \(come definito nell'esempio Split Brain\) non vengono valutati. 
 
 Il server DNS valuta i criteri di ricorsione e le query ricevute sull'interfaccia privata corrispondono a **SplitBrainRecursionPolicy**. Questo criterio punta a un ambito di ricorsione in cui è attivata la ricorsione.
 
@@ -179,7 +179,7 @@ Per configurare il controllo della ricorsione selettiva DNS usando i criteri DNS
 
 Gli ambiti di ricorsione sono istanze univoche di un gruppo di impostazioni che controllano la ricorsione in un server DNS. Un ambito di ricorsione contiene un elenco di server d'attesa e specifica se è abilitata la ricorsione. Un server DNS può avere molti ambiti di ricorsione. 
 
-L'impostazione di ricorsione legacy e l'elenco dei server d'inoltri sono detti ambito di ricorsione predefinito. Non è possibile aggiungere o rimuovere l'ambito di ricorsione predefinito, identificato dal nome punto \( "." \).
+L'impostazione di ricorsione legacy e l'elenco dei server d'inoltri sono detti ambito di ricorsione predefinito. Non è possibile aggiungere o rimuovere l'ambito di ricorsione predefinito, identificato dal nome punto \("."\).
 
 In questo esempio l'impostazione di ricorsione predefinita è disabilitata, mentre viene creato un nuovo ambito di ricorsione per i client interni in cui è abilitata la ricorsione
 

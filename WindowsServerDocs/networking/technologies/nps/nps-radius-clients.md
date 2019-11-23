@@ -19,10 +19,10 @@ ms.locfileid: "71396004"
 
 >Si applica a: Windows Server (Canale semestrale), Windows Server 2016
 
-Un server di accesso alla rete \(NAS @ no__t-1 è un dispositivo che fornisce un certo livello di accesso a una rete più ampia. Un NAS che usa un'infrastruttura RADIUS è anche un client RADIUS, che invia le richieste di connessione e i messaggi di contabilità a un server RADIUS per l'autenticazione, l'autorizzazione e l'accounting.
+Un server di accesso alla rete \(NAS\) è un dispositivo che fornisce un certo livello di accesso a una rete più ampia. Un NAS che usa un'infrastruttura RADIUS è anche un client RADIUS, che invia le richieste di connessione e i messaggi di contabilità a un server RADIUS per l'autenticazione, l'autorizzazione e l'accounting.
 
 >[!NOTE]
->I computer client, ad esempio computer portatili e altri computer che eseguono sistemi operativi client, non sono client RADIUS. I client RADIUS sono server di accesso alla rete, ad esempio punti di accesso wireless, commutatori di autenticazione 802.1 X, rete privata virtuale \(VPN @ no__t-1 server e server di connessione remota, perché utilizzano il protocollo RADIUS per comunicare con i server RADIUS, ad esempio come server dei criteri di rete \(NPS @ no__t-3 server.
+>I computer client, ad esempio computer portatili e altri computer che eseguono sistemi operativi client, non sono client RADIUS. I client RADIUS sono server di accesso alla rete, ad esempio punti di accesso wireless, commutatori di autenticazione 802.1 X, rete privata virtuale \(server VPN\) e server di connessione remota, perché utilizzano il protocollo RADIUS per comunicare con server RADIUS, ad esempio server dei criteri di rete \(server dei criteri di rete\).
 
 Per distribuire NPS come server RADIUS o proxy RADIUS, è necessario configurare i client RADIUS in NPS.
 
@@ -65,7 +65,7 @@ Quando si configura un client RADIUS in NPS, è possibile definire le proprietà
 
 ### <a name="ip-address"></a>L'indirizzo IP
 
-Il protocollo Internet versione 4 \(IPv4 @ no__t-1 o il Domain Name System \(DNS @ no__t-3 nome del client RADIUS.
+Il protocollo Internet versione 4 \(indirizzo IPv4\) o il nome del\) Domain Name System \(DNS del client RADIUS.
 
 ### <a name="client-vendor"></a>Client-fornitore
 
@@ -77,10 +77,10 @@ Stringa di testo utilizzata come password tra i client RADIUS, i server RADIUS e
 
 ### <a name="message-authenticator-attribute"></a>Attributo dell'autenticatore del messaggio
 
-Descritto in RFC 2869, "RADIUS Extensions", a Message Digest 5 \(MD5 @ no__t-1 hash dell'intero messaggio RADIUS. Se è presente l'attributo dell'autenticatore del messaggio RADIUS, viene verificato. Se la verifica ha esito negativo, il messaggio RADIUS viene ignorato. Se le impostazioni client richiedono l'attributo Authenticator del messaggio e non sono presenti, il messaggio RADIUS viene ignorato. È consigliabile utilizzare l'attributo Authenticator del messaggio.
+Descritto in RFC 2869, "RADIUS Extensions", a Message Digest 5 \(MD5\) hash dell'intero messaggio RADIUS. Se è presente l'attributo dell'autenticatore del messaggio RADIUS, viene verificato. Se la verifica ha esito negativo, il messaggio RADIUS viene ignorato. Se le impostazioni client richiedono l'attributo Authenticator del messaggio e non sono presenti, il messaggio RADIUS viene ignorato. È consigliabile utilizzare l'attributo Authenticator del messaggio.
 
 >[!NOTE]
->L'attributo Authenticator del messaggio è obbligatorio e abilitato per impostazione predefinita quando si usa l'autenticazione Extensible Authentication Protocol \(EAP @ no__t-1. 
+>L'attributo dell'autenticatore del messaggio è obbligatorio e abilitato per impostazione predefinita quando si usa l'autenticazione Extensible Authentication Protocol \(EAP\). 
 
 Per ulteriori informazioni su NPS, vedere [Server dei criteri di rete (NPS)](nps-top.md).
 

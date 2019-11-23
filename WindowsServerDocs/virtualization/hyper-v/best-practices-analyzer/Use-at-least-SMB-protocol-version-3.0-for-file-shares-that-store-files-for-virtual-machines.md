@@ -25,7 +25,7 @@ Per altre informazioni sulle procedure consigliate e sulle analisi, vedere [Eseg
   
 |Proprietà|Dettagli|  
 |-|-|  
-|**Sistema operativo**|Windows Server 2016|  
+|**Sistema operativo**|Windows Server 2016|  
 |**Prodotto/funzionalità**|Hyper-V|  
 |**Gravità**|Errore|  
 |**Categoria**|Configurazione|  
@@ -36,9 +36,9 @@ Nelle sezioni seguenti, corsivo indica il testo dell'interfaccia Utente visualiz
 *I file della macchina virtuale o i file del disco rigido virtuale sono archiviati in una condivisione file che non supporta almeno la versione 3,0 del protocollo SMB.*  
   
 ## <a name="impact"></a>**Impatto**  
-*Microsoft non supporta questa configurazione. Ciò influisca sulle macchine virtuali seguenti:*  
+*Questa configurazione non è supportata da Microsoft. Ciò influisca sulle macchine virtuali seguenti:*  
   
-@no__t 0list di macchine virtuali >  
+\<elenco di macchine virtuali >  
   
 ## <a name="resolution"></a>**Soluzione**  
 *Spostare i file in una condivisione file che utilizza almeno la versione 3,0 del protocollo SMB.*  

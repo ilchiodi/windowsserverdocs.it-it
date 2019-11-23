@@ -38,9 +38,9 @@ Gli utenti con privilegi amministrativi possono eseguire attività che riguardan
 Una considerazione importante sugli account utente è che a ogni account utente è allocata una libreria **Documenti** univoca di Esplora risorse che include la cartella **Documenti**. Se gli utenti standard del sistema MultiPoint Services archiviano documenti privati nella libreria **Documenti** in Esplora risorse, dovranno anch'essi accedere al sistema MultiPoint Services usando nome utente e password univoci noti solo a loro. Per altre informazioni sull'archiviazione di documenti in Esplora risorse, vedere l'argomento [Gestire file utente](Manage-User-Files.md).  
   
 > [!TIP]  
-> Per una maggiore sicurezza del sistema, tutte le password degli utenti devono essere password complesse. Una password complessa non può essere facilmente indovinata o incrinata, è costituita da almeno otto caratteri, non contiene il nome dell'account utente o parte di esso e contiene almeno tre delle quattro categorie di caratteri seguenti: caratteri maiuscoli, minuscoli caratteri, numeri e simboli trovati in una tastiera (ad esempio!, @, #).  
+> Per una maggiore sicurezza del sistema, tutte le password degli utenti devono essere password complesse. Una password complessa non può essere facilmente indovinata o incrinata, è costituita da almeno otto caratteri, non contiene il nome dell'account utente o parte di esso e contiene almeno tre delle quattro categorie di caratteri seguenti: caratteri maiuscoli, caratteri minuscoli, numeri e simboli trovati in una tastiera (ad esempio!, @, #).  
   
-## <a name="see-also"></a>Vedere anche  
+## <a name="see-also"></a>Vedi anche  
 [Creare un account utente con privilegi amministrativi](Create-an-Administrative-User-Account.md)  
 [Creare un account utente standard](Create-a-Standard-User-Account.md)  
 [Gestire i file utente](Manage-User-Files.md)

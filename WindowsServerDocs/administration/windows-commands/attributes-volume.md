@@ -22,7 +22,7 @@ ms.locfileid: "71382579"
 ---
 # <a name="attributes-volume"></a>volume attributi
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Visualizza, imposta o cancella gli attributi di un volume.  
   
@@ -40,17 +40,17 @@ attributes volume [{set | clear}] [{hidden | readonly | nodefaultdriveletter | s
 |-------|--------|  
 |set|Imposta l'attributo specificato del volume con lo stato attivo.|  
 |clear|Cancella l'attributo specificato del volume con lo stato attivo.|  
-|readonly|Specifica che il volume viene letto @ no__t-0only.|  
+|readonly|Specifica che il volume viene letto solo\-.|  
 |nascosto|Specifica che il volume è nascosto.|  
 |NODEFAULTDRIVELETTER|Specifica che il volume non riceve una lettera di unità per impostazione predefinita.|  
 |ShadowCopy|Specifica che il volume è un volume di copia shadow.|  
-|NOERR|Solo per gli script. Quando si è verificato un errore, DiskPart continua a elaborare i comandi come se non si è verificato l'errore. Senza questo parametro, un errore causa DiskPart viene interrotto con un codice di errore.|  
+|NOERR|solo per gli script. Quando si è verificato un errore, DiskPart continua a elaborare i comandi come se non si è verificato l'errore. Senza questo parametro, un errore causa DiskPart viene interrotto con un codice di errore.|  
   
-## <a name="remarks"></a>Note  
+## <a name="remarks"></a>Osservazioni  
   
--   Nel record di avvio principale di base \(MBR @ no__t-1 disks, i parametri **Hidden**, **ReadOnly**e **nodefaultdriveletter** si applicano a tutti i volumi sul disco.  
+-   Nel record di avvio principale di base \(i dischi\) MBR, i parametri **Hidden**, **ReadOnly**e **nodefaultdriveletter** si applicano a tutti i volumi sul disco.  
   
--   Nella tabella di partizione GUID di base \(gpt @ no__t-1 dischi e nei dischi MBR e GPT dinamici i parametri **Hidden**, **ReadOnly**e **nodefaultdriveletter** si applicano solo al volume selezionato.  
+-   Nella tabella di partizione GUID di base \(dischi\) GPT e nei dischi MBR e GPT dinamici i parametri **Hidden**, **ReadOnly**e **nodefaultdriveletter** si applicano solo al volume selezionato.  
   
 -   È necessario selezionare un volume affinché il comando **volume attributi** abbia esito positivo. Utilizzare il **Selezionare volume** comando per selezionare un volume e spostare lo stato attivo a esso.  
   
@@ -61,19 +61,19 @@ Per visualizzare gli attributi correnti sul volume selezionato, digitare:
 attributes volume  
 ```  
   
-Per impostare il volume selezionato come nascosto e leggere @ no__t-0only, digitare:  
+Per impostare il volume selezionato come nascosto e leggere\-solo, digitare:  
   
 ```  
 attributes volume set hidden readonly  
 ```  
   
-Per rimuovere gli attributi Hidden e Read @ no__t-0only nel volume selezionato, digitare:  
+Per rimuovere gli attributi Hidden e Read\-solo nel volume selezionato, digitare:  
   
 ```  
 attributes volume clear hidden readonly  
 ```  
   
-#### <a name="additional-references"></a>Riferimenti aggiuntivi  
+#### <a name="additional-references"></a>riferimenti aggiuntivi  
 [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)  
   
 

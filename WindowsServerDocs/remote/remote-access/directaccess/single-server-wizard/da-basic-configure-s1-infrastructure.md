@@ -121,7 +121,7 @@ Quando si utilizzano altri firewall, applicare le eccezioni firewall delle rete 
   
 5.  Fare clic su **Fine**.  
   
-](../../../media/Step-1-Configure-the-DirectAccess-Infrastructure/PowerShellLogoSmall.gif)***<em>comandi equivalenti</em> di PowerShell per Windows PowerShell @no__t 0Windows***  
+![](../../../media/Step-1-Configure-the-DirectAccess-Infrastructure/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em> per Windows PowerShell***  
 
 Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.  
   
@@ -149,7 +149,7 @@ Il server di Accesso remoto e tutti i computer client DirectAccess devono appart
   
 1.  In Server Manager fare clic su **Server locale**. Nel riquadro dei dettagli fare clic sul collegamento accanto a **Nome computer**.  
   
-2.  Nella finestra di dialogo **Proprietà del sistema** fare clic sulla scheda **Nome computer** . Nella scheda **Nome computer** , fare clic su **Modifica**.  
+2.  Nella finestra di dialogo **proprietà del sistema** fare clic sulla scheda **nome computer** . Nella scheda **nome computer** fare clic su **Cambia**.  
   
 3.  Per cambiare anche il nome computer quando si aggiunge il server al dominio, digitarlo in **Nome computer**. In **Membro di** fare clic su **Dominio** e quindi digitare il nome del dominio a cui si desidera aggiungere il server, ad esempio corp.contoso.com, e quindi fare clic su **OK**.  
   
@@ -183,7 +183,7 @@ Il server di Accesso remoto e tutti i computer client DirectAccess devono appart
   
 9. Nel **le proprietà di sistema** la finestra di dialogo, fare clic su Chiudi. Fare clic su **Riavvia** quando richiesto.  
   
-](../../../media/Step-1-Configure-the-DirectAccess-Infrastructure/PowerShellLogoSmall.gif)***<em>comandi equivalenti</em> di PowerShell per Windows PowerShell @no__t 0Windows***  
+![](../../../media/Step-1-Configure-the-DirectAccess-Infrastructure/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em> per Windows PowerShell***  
   
 Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.  
   
@@ -227,7 +227,7 @@ Le impostazioni di DirectAccess contenute negli oggetti Criteri di gruppo di com
   
 6.  Nel **Seleziona utenti, contatti, computer o gli account del servizio** finestra di dialogo, selezionare i computer client che si desidera abilitare per DirectAccess e quindi fare clic su **OK**.  
   
-](../../../media/Step-1-Configure-the-DirectAccess-Infrastructure/PowerShellLogoSmall.gif)**comandi equivalenti** di PowerShell per Windows PowerShell @no__t 0Windows  
+![](../../../media/Step-1-Configure-the-DirectAccess-Infrastructure/PowerShellLogoSmall.gif)**comandi equivalenti di Windows PowerShell** per Windows PowerShell  
   
 Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.  
   
@@ -238,7 +238,7 @@ Add-ADGroupMember -Identity DirectAccess_clients_group_name -Members <computer_n
   
 ## <a name="BKMK_Links"></a>Passaggio successivo  
   
--   [Passaggio 2: Configurare il server di base di DirectAccess](da-basic-configure-s2-server.md)  
+-   [Passaggio 2: configurare il server DirectAccess di base](da-basic-configure-s2-server.md)  
   
 
 

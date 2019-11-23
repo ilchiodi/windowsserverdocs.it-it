@@ -22,7 +22,7 @@ ms.locfileid: "71383225"
 ---
 # <a name="create-and-manage-server-groups"></a>creare e gestire gruppi di server
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 In questo argomento viene descritto come creare gruppi personalizzati, definiti dall'utente di server in Server Manager in Windows Server.
 
@@ -71,8 +71,8 @@ I server possono essere membri di più gruppi.
 
 3.  Dopo aver completato le modifiche del gruppo, fare clic su **OK**.
 
-## <a name="see-also"></a>Vedere anche
-[aggiungere server a Server Manager](add-servers-to-server-manager.md)
+## <a name="see-also"></a>Vedi anche
+[Aggiungi server a Server Manager](add-servers-to-server-manager.md)
 [Server Manager](server-manager.md)
 
 

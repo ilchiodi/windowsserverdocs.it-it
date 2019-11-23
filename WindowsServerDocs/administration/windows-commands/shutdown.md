@@ -43,17 +43,17 @@ shutdown [/i | /l | /s | /r | /a | /p | /h | /e] [/f] [/m \\<ComputerName>] [/t 
 |/s|Arresta il computer.|
 |/r|Riavvia il computer dopo l'arresto.|
 |/a|Interrompe un arresto del sistema. Valido solo durante il periodo di timeout. Per usare **/a**, è necessario usare anche l'opzione **/m** .|
-|/ p|Disattiva solo il computer locale (non un computer remoto), senza alcun periodo di timeout o avviso. È possibile utilizzare **/p** solo con **/d** o **/f**. Se il computer non supporta la funzionalità di spegnimento, viene arrestato quando si utilizza **/p**, ma la potenza del computer rimarrà attiva.|
+|/p|Disattiva solo il computer locale (non un computer remoto), senza alcun periodo di timeout o avviso. È possibile utilizzare **/p** solo con **/d** o **/f**. Se il computer non supporta la funzionalità di spegnimento, viene arrestato quando si utilizza **/p**, ma la potenza del computer rimarrà attiva.|
 |/h|Consente di attivare la modalità di ibernazione del computer locale, se l'ibernazione è abilitata. È possibile usare **/h** solo con **/f**.|
 |/e|Consente di documentare il motivo dell'arresto imprevisto nel computer di destinazione.|
-|/f|Impone la chiusura delle applicazioni in esecuzione senza utenti di avviso.</br>Attenzione: L'uso dell'opzione **/f** può causare la perdita di dati non salvati.|
-|/m \\ @ no__t-1 @ no__t-2ComputerName >|Specifica il computer di destinazione. Non può essere usato con l'opzione **/l** .|
+|/f|Impone la chiusura delle applicazioni in esecuzione senza utenti di avviso.</br>Attenzione: l'uso dell'opzione **/f** potrebbe causare la perdita di dati non salvati.|
+|/m \\\\\<nomecomputer >|Specifica il computer di destinazione. Non può essere usato con l'opzione **/l** .|
 |/t \<XXX >|Imposta il periodo di timeout o il ritardo su *xxx* secondi prima di un riavvio o di un arresto. In questo modo viene visualizzato un avviso nella console locale. È possibile specificare 0-600 secondi. Se non si utilizza **/t**, il periodo di timeout è di 30 secondi per impostazione predefinita.|
-|/d [p @ no__t-0U:] \<XX >: \<YY >|Elenca il motivo del riavvio o dell'arresto del sistema. I valori dei parametri sono i seguenti:</br>**p** indica che è stato pianificato il riavvio o l'arresto.</br>**u** indica che il motivo è definito dall'utente.</br>Nota: Se non si specifica **p** o **u** , il riavvio o l'arresto non è pianificato.</br>*XX* specifica il numero di motivo principale (intero positivo inferiore a 256).</br>*AA* Specifica il numero di motivo secondario (intero positivo inferiore a 65536).|
-|/c "\<Comment >"|Consente di immettere un commento dettagliato sul motivo dell'arresto. Per prima cosa, è necessario usare l'opzione **/d** . È necessario racchiudere i commenti tra virgolette. È possibile utilizzare un massimo di 511 caratteri.|
+|/d [p\|u:]\<XX >:\<AA >|Elenca il motivo del riavvio o dell'arresto del sistema. I valori dei parametri sono i seguenti:</br>**p** indica che è stato pianificato il riavvio o l'arresto.</br>**u** indica che il motivo è definito dall'utente.</br>Nota: se non si specifica **p** o **u** , il riavvio o l'arresto non è pianificato.</br>*XX* specifica il numero di motivo principale (intero positivo inferiore a 256).</br>*AA* Specifica il numero di motivo secondario (intero positivo inferiore a 65536).|
+|/c "\<commento >"|Consente di immettere un commento dettagliato sul motivo dell'arresto. Per prima cosa, è necessario usare l'opzione **/d** . È necessario racchiudere i commenti tra virgolette. È possibile utilizzare un massimo di 511 caratteri.|
 |/?|Visualizza la guida al prompt dei comandi, incluso un elenco dei motivi principali e secondari definiti nel computer locale.|
 
-## <a name="remarks"></a>Note
+## <a name="remarks"></a>Osservazioni
 
 -   È necessario che gli utenti dispongano dell'arresto del diritto utente del **sistema** per arrestare un computer locale o remoto gestito che sta usando il comando **Shutdown** .
 -   Gli utenti devono essere membri del gruppo Administrators per aggiungere annotazioni a un arresto imprevisto di un computer locale o gestito in remoto. Se il computer di destinazione è aggiunto a un dominio, i membri del gruppo Domain Admins potrebbero essere in grado di eseguire questa procedura. Per altre informazioni, vedere:  
@@ -65,11 +65,11 @@ shutdown [/i | /l | /s | /r | /a | /p | /h | /e] [/f] [/m \\<ComputerName>] [/t 
 
 ## <a name="BKMK_examples"></a>Esempi
 
-Per forzare le applicazioni a chiudere e riavviare il computer locale dopo un ritardo di un minuto con il motivo "applicazione: Manutenzione (pianificata) "e il commento" riconfigurazione di MyApp. exe "tipo:
+Per forzare le applicazioni a chiudere e riavviare il computer locale dopo un ritardo di un minuto con il motivo "applicazione: manutenzione (pianificata)" e il commento "riconfigurazione di MyApp. exe" tipo:
 ```
 shutdown /r /t 60 /c "Reconfiguring myapp.exe" /f /d p:4:1
 ```
-Per riavviare il computer remoto \\ @ no__t-1ServerName con gli stessi parametri, digitare:
+Per riavviare il computer remoto \\\\nomeserver con gli stessi parametri, digitare:
 ```
 shutdown /r /m \\servername /t 60 /c "Reconfiguring myapp.exe" /f /d p:4:1
 ```

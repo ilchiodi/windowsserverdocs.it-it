@@ -23,17 +23,17 @@ Per impostazione predefinita, AD FS in Windows 2016 non è abilitata la pagina d
 
 1.  Apri Windows PowerShell
 2.  Immettere: `Get-AdfsProperties` e premere INVIO
-3.  Verificare che **EnableIdpInitiatedSignonPage** sia impostato su false ![False @ no__t-2
+3.  Verificare che **EnableIdpInitiatedSignonPage** sia impostato su false ![false](media/ad-fs-tshoot-initiatedsignon/idp2.png)
 4.  In PowerShell immettere: `Set-AdfsProperties -EnableIdpInitiatedSignonPage $true`
 5.  Non verrà visualizzata una conferma, quindi immettere di nuovo Get-AdfsProperties e verificare che **EnableIdpInitatedSignonPage** sia impostato su true.
-![True @ no__t-1
+![True](media/ad-fs-tshoot-initiatedsignon/idp4.png)
 
 ## <a name="test-authentication"></a>Test di autenticazione
 Usare la procedura seguente per testare AD FS autenticazione con la pagina di accesso avviata da IDP.
 
-1.  Aprire un Web browser e passare alla pagina di accesso IDP.  Esempio https://sts.contoso.com/adfs/ls/idpinitiatedsignon.htm
+1.  Aprire un Web browser e passare alla pagina di accesso IDP.  Esempio: https://sts.contoso.com/adfs/ls/idpinitiatedsignon.htm
 2.  Verrà richiesto di eseguire l'accesso.  Immettere le credenziali.
-![Sign-on @ no__t-1
+](media/ad-fs-tshoot-initiatedsignon/idp5.png) di accesso ![
 3.  Se l'operazione ha esito positivo, è necessario aver eseguito l'accesso.
 
 
@@ -42,14 +42,14 @@ Usare la procedura seguente per testare AD FS autenticazione con la pagina di ac
 
 1.  In un client Windows 10 fare clic su Start e digitare Opzioni Internet e selezionare Opzioni Internet.
 2.   Fare clic sulla scheda sicurezza, su Intranet locale e quindi sul pulsante siti.
-![Seamless @ no__t-1
+![](media/ad-fs-tshoot-initiatedsignon/idp8.png) trasparente
 1.  Fare clic su Avanzate.
 2.  Immettere l'URL e fare clic su Aggiungi.  Fare clic su Chiudi.
-![Add URL @ no__t-1
+![Aggiungi URL](media/ad-fs-tshoot-initiatedsignon/idp9.png)
 1.  Fare clic su Ok.  Fare clic su Ok.  Questa operazione dovrebbe chiudere le opzioni Internet.
-2.  Aprire un Web browser e passare alla pagina di accesso IDP.  Esempio https://sts.contoso.com/adfs/ls/idpinitiatedsignon.htm
+2.  Aprire un Web browser e passare alla pagina di accesso IDP.  Esempio: https://sts.contoso.com/adfs/ls/idpinitiatedsignon.htm
 3.  Fare clic sul pulsante Accedi.  Si dovrebbe accedere automaticamente e non verranno richieste le credenziali.
-![Seamless @ no__t-1
+![](media/ad-fs-tshoot-initiatedsignon/idp6.png) trasparente
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -36,16 +36,16 @@ takeown [/s <Computer> [/u [<Domain>\]<User name> [/p [<Password>]]]] /f <File n
 
 |Parametro|Descrizione|
 |---------|-----------|
-|/s \<Computer >|Specifica il nome o l'indirizzo IP di un computer remoto (non utilizzare barre rovesciate). L'impostazione predefinita è il computer locale. Questo parametro si applica a tutti i file e le cartelle specificati nel comando.|
-|/u [\<Domain > \] @ no__t-2|Esegue lo script con le autorizzazioni dell'account utente specificato. Il valore predefinito è le autorizzazioni di sistema.|
-|/p [\<Password >]|Specifica la password dell'account utente specificato nella **/u** parametro.|
-|/f nome \<File >|Specifica il nome file o il modello di nome di directory. È possibile usare il carattere jolly * quando si specifica il criterio. È anche possibile usare la sintassi *sharename*\*FileName *.|
+|/s \<computer >|Specifica il nome o l'indirizzo IP di un computer remoto (non utilizzare barre rovesciate). L'impostazione predefinita è il computer locale. Questo parametro si applica a tutti i file e le cartelle specificati nel comando.|
+|/u [\<dominio >\]<User name>|Esegue lo script con le autorizzazioni dell'account utente specificato. Il valore predefinito è le autorizzazioni di sistema.|
+|/p [\<> password]|Specifica la password dell'account utente specificato nella **/u** parametro.|
+|/f \<nome file >|Specifica il nome file o il modello di nome di directory. È possibile usare il carattere jolly * quando si specifica il criterio. È anche possibile usare la sintassi *sharename*\*filename *.|
 |/a|Assegna la proprietà al gruppo Administrators anziché all'utente corrente.|
 |/r|Esegue un'operazione ricorsiva su tutti i file nella directory e nelle sottodirectory specificate.|
-|/d {Y \| N}|Disattiva la richiesta di conferma visualizzata quando l'utente corrente non dispone dell'autorizzazione "elenco cartelle" per una directory specificata e utilizza invece il valore predefinito specificato. I valori validi per l'opzione **/d** sono i seguenti:</br>Y Assumere la proprietà della directory.</br>N Ignorare la directory.</br>Si noti che è necessario usare questa opzione in combinazione con l'opzione **/r** .|
+|/d {Y \| N}|Disattiva la richiesta di conferma visualizzata quando l'utente corrente non dispone dell'autorizzazione "elenco cartelle" per una directory specificata e utilizza invece il valore predefinito specificato. I valori validi per l'opzione **/d** sono i seguenti:</br>-Y: assume la proprietà della directory.</br>-N: ignora la directory.</br>Si noti che è necessario usare questa opzione in combinazione con l'opzione **/r** .|
 |/?|Visualizza la guida al prompt dei comandi.|
 
-## <a name="remarks"></a>Note
+## <a name="remarks"></a>Osservazioni
 
 -   Questo comando viene in genere utilizzato nei file batch.
 -   Se il parametro **/a** non è specificato, la proprietà del file viene assegnata all'utente attualmente connesso al computer.

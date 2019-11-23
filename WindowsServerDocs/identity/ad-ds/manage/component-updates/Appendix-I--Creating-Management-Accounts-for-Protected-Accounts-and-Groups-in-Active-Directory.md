@@ -16,7 +16,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 09/27/2019
 ms.locfileid: "71369210"
 ---
-# <a name="appendix-i-creating-management-accounts-for-protected-accounts-and-groups-in-active-directory"></a>Appendice I: Creazione di account di gestione per account e gruppi protetti in Active Directory
+# <a name="appendix-i-creating-management-accounts-for-protected-accounts-and-groups-in-active-directory"></a>Appendice I: Creazione di account di gestione per gli account protetti e i gruppi in Active Directory
 
 >Si applica a: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
@@ -42,7 +42,7 @@ La creazione di account che possono essere utilizzati per gestire l'appartenenza
 È necessario testare accuratamente tutte queste procedure e modificarle in base alle esigenze dell'ambiente prima di implementarle in un ambiente di produzione. È inoltre necessario verificare che tutte le impostazioni funzionino come previsto (alcune procedure di test sono fornite in questa appendice) ed è necessario testare uno scenario di ripristino di emergenza in cui gli account di gestione non sono disponibili per l'uso per popolare gruppi protetti per il ripristino. scopi. Per ulteriori informazioni sul backup e il ripristino di Active Directory, vedere la [Guida dettagliata al backup e al ripristino di servizi di dominio Active Directory](https://technet.microsoft.com/library/cc771290(v=ws.10).aspx).  
   
 > [!NOTE]  
-> Implementando i passaggi descritti in questa appendice, verranno creati account che saranno in grado di gestire l'appartenenza di tutti i gruppi protetti in ogni dominio, non solo i gruppi di Active Directory con privilegi più elevati, ad esempio EAs, DAs e BAs. Per ulteriori informazioni sui gruppi protetti in Active Directory, vedere [Appendix C: Account e gruppi protetti in Active Directory @ no__t-0.  
+> Implementando i passaggi descritti in questa appendice, verranno creati account che saranno in grado di gestire l'appartenenza di tutti i gruppi protetti in ogni dominio, non solo i gruppi di Active Directory con privilegi più elevati, ad esempio EAs, DAs e BAs. Per ulteriori informazioni sui gruppi protetti in Active Directory, vedere [Appendice C: account protetti e gruppi in Active Directory](../../../ad-ds/plan/security-best-practices/Appendix-C--Protected-Accounts-and-Groups-in-Active-Directory.md).  
   
 ### <a name="step-by-step-instructions-for-creating-management-accounts-for-protected-groups"></a>Istruzioni dettagliate per la creazione di account di gestione per i gruppi protetti  
   
@@ -60,7 +60,7 @@ Per creare un gruppo per abilitare e disabilitare gli account di gestione, segui
   
     ![creazione di account di gestione](media/Appendix-I--Creating-Management-Accounts-for-Protected-Accounts-and-Groups-in-Active-Directory/SAD_116.png)  
   
-3.  Fare clic con il pulsante destro del mouse sul gruppo appena creato, fare clic su **Proprietà**e selezionare la scheda **Oggetto** . Nella finestra di dialogo **Proprietà oggetto** del gruppo selezionare **Proteggi oggetto da eliminazioni accidentali**, che non solo impedirà agli utenti autorizzati diversamente di eliminare il gruppo, ma anche di trasferirlo in un'altra ou a meno che l'attributo non sia il primo deselezionato.  
+3.  Fare clic con il pulsante destro del mouse sul gruppo appena creato, scegliere **Proprietà**e fare clic sulla scheda **oggetto** . Nella finestra di dialogo **Proprietà oggetto** del gruppo selezionare **Proteggi oggetto da eliminazioni accidentali**, che non solo impedirà agli utenti autorizzati diversamente di eliminare il gruppo, ma anche di trasferirlo in un'altra ou a meno che l'attributo non venga prima deselezionato.  
   
     ![creazione di account di gestione](media/Appendix-I--Creating-Management-Accounts-for-Protected-Accounts-and-Groups-in-Active-Directory/SAD_117.png)  
   
@@ -71,7 +71,7 @@ Per creare un gruppo per abilitare e disabilitare gli account di gestione, segui
   
     ![creazione di account di gestione](media/Appendix-I--Creating-Management-Accounts-for-Protected-Accounts-and-Groups-in-Active-Directory/SAD_118.png)  
   
-5.  Se non è ancora stato fatto, nella console **Active Directory utenti e computer** fare clic su **Visualizza** e selezionare **funzionalità avanzate**. Fare clic con il pulsante destro del mouse sul gruppo appena creato, scegliere **Proprietà**e quindi fare clic sulla scheda **sicurezza** . Nella scheda **Sicurezza** fare clic su **Avanzate**.  
+5.  Se non è ancora stato fatto, nella console **Active Directory utenti e computer** fare clic su **Visualizza** e selezionare **funzionalità avanzate**. Fare clic con il pulsante destro del mouse sul gruppo appena creato, scegliere **Proprietà**e quindi fare clic sulla scheda **sicurezza** . Nella scheda **sicurezza** fare clic su **Avanzate**.  
   
     ![creazione di account di gestione](media/Appendix-I--Creating-Management-Accounts-for-Protected-Accounts-and-Groups-in-Active-Directory/SAD_119.png)  
   
@@ -135,12 +135,12 @@ Per creare gli account di gestione, seguire questa procedura:
 
 8. Fare clic sulla scheda **account** .  
 
-9. Nel campo **Opzioni account** selezionare l' **account è sensibile e non può essere delegata** flag, selezionare il **questo account supporta la crittografia AES 128 bit Kerberos** e/o l'account supporta il flag di **crittografia AES 256 Kerberos** , e fare clic su **OK**.  
+9. Nel campo **Opzioni account** selezionare l' **account è sensibile e non può essere delegata** flag, selezionare il **questo account supporta la crittografia AES 128 bit Kerberos** e/o l'account supporta il flag di **crittografia AES 256 Kerberos** e fare clic su **OK**.  
 
    ![creazione di account di gestione](media/Appendix-I--Creating-Management-Accounts-for-Protected-Accounts-and-Groups-in-Active-Directory/SAD_124.png)  
 
    > [!NOTE]  
-   > Poiché questo account, analogamente ad altri account, avrà una funzione limitata ma potente, l'account deve essere utilizzato solo in host amministrativi protetti. Per tutti gli host amministrativi protetti nell'ambiente in uso, è consigliabile implementare l'impostazione Criteri di gruppo **Network Security: Configurare i tipi di crittografia consentiti per Kerberos @ no__t-0 per consentire solo i tipi di crittografia più sicuri che è possibile implementare per gli host protetti.  
+   > Poiché questo account, analogamente ad altri account, avrà una funzione limitata ma potente, l'account deve essere utilizzato solo in host amministrativi protetti. Per tutti gli host amministrativi protetti nell'ambiente in uso, è consigliabile implementare l'impostazione Criteri di gruppo **sicurezza di rete: configurare i tipi di crittografia consentiti per Kerberos** per consentire solo i tipi di crittografia più sicuri che è possibile implementare per gli host protetti.  
    >
    > Sebbene l'implementazione di tipi di crittografia più sicuri per gli host non rilevi gli attacchi con furto di credenziali, l'utilizzo e la configurazione appropriati degli host protetti. L'impostazione di tipi di crittografia più avanzati per gli host utilizzati solo da account con privilegi riduce semplicemente la superficie di attacco complessiva dei computer.  
    >
@@ -186,7 +186,7 @@ Per creare gli account di gestione, seguire questa procedura:
 
 19. Digitare **negato controller** di sola lettura Password gruppo di replica nella finestra di dialogo **Seleziona utenti, contatti, computer** e fare clic su **Controlla nomi**. Quando il nome del gruppo è sottolineato nel selettore oggetti, fare clic su **OK** e verificare che l'account sia ora un membro dei due gruppi visualizzati nello screenshot seguente. Non aggiungere l'account a gruppi protetti.  
 
-20. Fare clic su **OK**.  
+20. Fai clic su **OK**.  
 
     ![creazione di account di gestione](media/Appendix-I--Creating-Management-Accounts-for-Protected-Accounts-and-Groups-in-Active-Directory/SAD_129.png)  
 
@@ -233,7 +233,7 @@ Per creare gli account di gestione, seguire questa procedura:
   
 È invece possibile creare un gruppo al quale si delegano i diritti per popolare e non popolare i gruppi protetti, ma sarà necessario proteggere il gruppo e gli account inseriti. Poiché nella directory sono presenti pochissimi account a cui viene concessa la possibilità di gestire l'appartenenza dei gruppi protetti, la creazione di singoli account potrebbe essere l'approccio più semplice.  
   
-Indipendentemente dal modo in cui si sceglie di creare un gruppo in cui si inseriscono gli account di gestione, è necessario assicurarsi che ogni account sia protetto come descritto in precedenza. È inoltre consigliabile implementare restrizioni degli oggetti Criteri di gruppo simili a quelle descritte in [Appendix D: Protezione degli account amministratore predefiniti in Active Directory @ no__t-0.  
+Indipendentemente dal modo in cui si sceglie di creare un gruppo in cui si inseriscono gli account di gestione, è necessario assicurarsi che ogni account sia protetto come descritto in precedenza. È inoltre consigliabile implementare restrizioni degli oggetti Criteri di gruppo simili a quelle descritte in [Appendice D: protezione degli account amministratore predefiniti in Active Directory](../../../ad-ds/plan/security-best-practices/Appendix-D--Securing-Built-In-Administrator-Accounts-in-Active-Directory.md).  
   
 ##### <a name="auditing-management-accounts"></a>Controllo degli account di gestione
 
@@ -247,7 +247,7 @@ Per ulteriori informazioni sulle impostazioni di configurazione di controllo con
 
 In questa procedura vengono configurate le autorizzazioni per l'oggetto AdminSDHolder del dominio per consentire agli account di gestione appena creati di modificare l'appartenenza dei gruppi protetti nel dominio. Questa procedura non può essere eseguita tramite un'interfaccia utente grafica (GUI).  
   
-Come illustrato in [Appendix C: Gli account e i gruppi protetti nel Active Directory @ no__t-0, l'ACL nell'oggetto AdminSDHolder di un dominio viene effettivamente "copiato" negli oggetti protetti quando viene eseguita l'attività SDProp. I gruppi e gli account protetti non ereditano le autorizzazioni dall'oggetto AdminSDHolder; le autorizzazioni vengono impostate in modo esplicito in modo che corrispondano a quelle nell'oggetto AdminSDHolder. Pertanto, quando si modificano le autorizzazioni per l'oggetto AdminSDHolder, è necessario modificarle per gli attributi appropriati per il tipo di oggetto protetto di destinazione.  
+Come illustrato nell' [Appendice C: account e gruppi protetti in Active Directory](../../../ad-ds/plan/security-best-practices/Appendix-C--Protected-Accounts-and-Groups-in-Active-Directory.md), l'ACL nell'oggetto AdminSDHolder di un dominio viene effettivamente "copiato" negli oggetti protetti quando viene eseguita l'attività SDPROP. I gruppi e gli account protetti non ereditano le autorizzazioni dall'oggetto AdminSDHolder; le autorizzazioni vengono impostate in modo esplicito in modo che corrispondano a quelle nell'oggetto AdminSDHolder. Pertanto, quando si modificano le autorizzazioni per l'oggetto AdminSDHolder, è necessario modificarle per gli attributi appropriati per il tipo di oggetto protetto di destinazione.  
   
 In questo caso, verranno concessi gli account di gestione appena creati per consentire la lettura e la scrittura dell'attributo members sugli oggetti Group. Tuttavia, l'oggetto AdminSDHolder non è un oggetto gruppo e gli attributi di gruppo non vengono esposti nell'editor ACL grafico. Per questo motivo, le modifiche alle autorizzazioni vengono implementate tramite l'utilità della riga di comando DSACLS. Per concedere le autorizzazioni per gli account di gestione (disabilitati) per modificare l'appartenenza dei gruppi protetti, seguire questa procedura:  
   
@@ -286,7 +286,7 @@ In questo caso, verranno concessi gli account di gestione appena creati per cons
   
    Per ulteriori informazioni sull'utilizzo di **dsacls**, digitare dsacls senza parametri al prompt dei comandi.  
   
-   Se sono stati creati più account di gestione per il dominio, è necessario eseguire il comando DSACLS per ogni account. Una volta completata la configurazione dell'ACL nell'oggetto AdminSDHolder, è necessario forzare l'esecuzione di SDProp o attendere il completamento dell'esecuzione pianificata. Per informazioni su come forzare l'esecuzione di SDProp, vedere "esecuzione manuale di SDProp" in [Appendix C: Account e gruppi protetti in Active Directory @ no__t-0.  
+   Se sono stati creati più account di gestione per il dominio, è necessario eseguire il comando DSACLS per ogni account. Una volta completata la configurazione dell'ACL nell'oggetto AdminSDHolder, è necessario forzare l'esecuzione di SDProp o attendere il completamento dell'esecuzione pianificata. Per informazioni su come forzare l'esecuzione di SDProp, vedere "esecuzione manuale di SDProp" nell' [Appendice C: account protetti e gruppi in Active Directory](../../../ad-ds/plan/security-best-practices/Appendix-C--Protected-Accounts-and-Groups-in-Active-Directory.md).  
   
    Quando SDProp è stato eseguito, è possibile verificare che le modifiche apportate all'oggetto AdminSDHolder siano state applicate ai gruppi protetti nel dominio. Non è possibile verificare questa impostazione visualizzando l'ACL nell'oggetto AdminSDHolder per i motivi descritti in precedenza, ma è possibile verificare che le autorizzazioni siano state applicate visualizzando gli ACL nei gruppi protetti.  
   
@@ -317,7 +317,7 @@ Ora che sono stati creati e configurati gli account di gestione che possono modi
   
 ##### <a name="test-the-group-that-will-enable-and-disable-management-accounts"></a>Testare il gruppo che consentirà di abilitare e disabilitare gli account di gestione
   
-1.  Per testare l'abilitazione di un account di gestione e la reimpostazione della password, accedere a una workstation amministrativa protetta con un account membro del gruppo creato in [Appendix I: Creazione di account di gestione per account e gruppi protetti in Active Directory @ no__t-0.  
+1.  Per testare l'abilitazione di un account di gestione e la reimpostazione della password, accedere a una workstation amministrativa protetta con un account membro del gruppo creato nell' [appendice I: creazione di account di gestione per gli account protetti e i gruppi in Active Directory](../../../ad-ds/manage/component-updates/Appendix-I--Creating-Management-Accounts-for-Protected-Accounts-and-Groups-in-Active-Directory.md).  
   
     ![creazione di account di gestione](media/Appendix-I--Creating-Management-Accounts-for-Protected-Accounts-and-Groups-in-Active-Directory/SAD_142.gif)  
   

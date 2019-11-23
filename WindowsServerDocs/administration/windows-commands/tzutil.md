@@ -22,7 +22,7 @@ ms.locfileid: "71392310"
 ---
 # <a name="tzutil"></a>tzutil
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Visualizza l'utilità fuso orario di Windows. 
 ## <a name="syntax"></a>Sintassi
@@ -34,10 +34,10 @@ tzutil [/?] [/g] [/s <timeZoneID>[_dstoff]] [/l]
 |-------|--------|
 |/?|Visualizza la guida al prompt dei comandi.|
 |/g|Visualizza l'ID del fuso orario corrente.|
-|/s \<timeZoneID > [_dstoff]|Imposta il fuso orario corrente usando l'ID del fuso orario specificato. Il suffisso **_dstoff** Disabilita le regolazioni dell'ora legale per il fuso orario, se applicabile.|
-|/l|Elenca tutti gli ID di fuso orario e i nomi visualizzati validi. L'output sarà:<br /><br />-    @ no__t-nome 1Visualizzare ><br />-    @ no__t-ID zona 1time >|
+|/s \<timeZoneID > [_dstoff]|Imposta il fuso orario corrente usando l'ID del fuso orario specificato. Il suffisso **_dstoff** Disabilita le regolazioni dell'ora legale per il fuso orario (se applicabile).|
+|/l|Elenca tutti gli ID di fuso orario e i nomi visualizzati validi. L'output sarà:<br /><br />-   \<nome visualizzato ><br />-   \<ID fuso orario >|
 
-## <a name="remarks"></a>Note
+## <a name="remarks"></a>Osservazioni
 Un codice di uscita pari a **0** indica che il comando è stato completato correttamente.
 
 ## <a name="BKMK_Examples"></a>Esempi
@@ -53,6 +53,6 @@ Per impostare il fuso orario corrente sull'ora solare Pacifico e disabilitare le
 ```
 tzutil /s Pacific Standard time_dstoff
 ```
-## <a name="additional-references"></a>Riferimenti aggiuntivi
+## <a name="additional-references"></a>riferimenti aggiuntivi
 -   [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
 

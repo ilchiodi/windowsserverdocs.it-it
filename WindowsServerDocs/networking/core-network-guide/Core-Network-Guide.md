@@ -119,7 +119,7 @@ TCP/IP in Windows Server 2016 è il seguente:
 
 Il servizio TCP/IP include utilità TCP/IP di base che consentono ai computer basati su Windows di connettersi e condividere informazioni con altri sistemi Microsoft e non Microsoft, quali:
 
--    Windows Server 2016
+-    Windows Server 2016
 
 -   Windows 10
 
@@ -285,10 +285,10 @@ Nella tabella seguente vengono forniti gli elementi di configurazione per Active
 |------------------------|-------------------|
 |Nome DNS completo|Esempi:<br /><br />-corp.contoso.com<br />-example.com|
 |Livello di funzionalità della foresta|-Windows Server 2008 <br />-Windows Server 2008 R2 <br />-Windows Server 2012 <br />-Windows Server 2012 R2 <br />-Windows Server 2016|
-|Percorso della cartella per il database di Servizi di dominio Active Directory|E:\Configuration @ no__t-0<br /><br />In alternativa accettare il percorso predefinito.|
-|Percorso della cartella per i file di registro di Servizi di dominio Active Directory|E:\Configuration @ no__t-0<br /><br />In alternativa accettare il percorso predefinito.|
-|Percorso della cartella SYSVOL di Servizi di dominio Active Directory|E:\Configuration @ no__t-0<br /><br />In alternativa accettare il percorso predefinito.|
-|Password di amministratore modalità ripristino servizi directory|**J @ no__t-1p2leO4 $ F**|
+|Percorso della cartella per il database di Servizi di dominio Active Directory|\\ E:\Configuration<br /><br />In alternativa accettare il percorso predefinito.|
+|Percorso della cartella per i file di registro di Servizi di dominio Active Directory|\\ E:\Configuration<br /><br />In alternativa accettare il percorso predefinito.|
+|Percorso della cartella SYSVOL di Servizi di dominio Active Directory|\\ E:\Configuration<br /><br />In alternativa accettare il percorso predefinito.|
+|Password di amministratore modalità ripristino servizi directory|**J\*p2leO4 $ F**|
 |Nome file di risposte (facoltativo)|**DS_AnswerFile AD**|
 
 #### <a name="planning-dns-zones"></a>Pianificazione delle zone DNS
@@ -401,7 +401,7 @@ Per risolvere questo problema, è possibile creare un intervallo di esclusione p
 #### <a name="planning-tcpip-static-configuration"></a>Pianificazione della configurazione degli indirizzi TCP/IP statici
 Alcuni dispositivi, ad esempio i router, i server DHCP e i server DNS, devono essere configurati con un indirizzo IP statico. Nella rete potrebbero essere presenti anche altri dispositivi, ad esempio stampanti, che si desidera abbiano sempre lo stesso indirizzo IP. Creare un elenco dei dispositivi da configurare in modo statico per ogni subnet, quindi pianificare l'intervallo di esclusione da utilizzare sul server DHCP per garantire che quest'ultimo non assegni in lease l'indirizzo IP di un dispositivo configurato in modo statico. L'intervallo di esclusione è una sequenza limitata di indirizzi IP all'interno di un ambito, che viene esclusa dalle offerte del servizio DHCP. Gli indirizzi inclusi in un intervallo di esclusione non possono essere offerti dal server ai client DHCP della rete.
 
-Se a una determinata subnet è associato l'intervallo di indirizzi IP da 192.168.0.1 a 192.168.0.254 e sono presenti dieci dispositivi che si desidera configurare con un indirizzo IP statico, per l'ambito 192.168.0.*x* sarà possibile creare un intervallo di esclusione contenente dieci o più indirizzi IP, ad esempio da 192.168.0.1 a 192.168.0.15.
+Se l'intervallo di indirizzi IP per una subnet è compreso tra 192.168.0.1 e 192.168.0.254, ad esempio, ed è necessario configurare dieci dispositivi con un indirizzo IP statico, è possibile creare un intervallo di esclusione per l'ambito 192.168.0.*x* comprendente dieci o più indirizzi IP: da 192.168.0.1 a 192.168.0.15.
 
 In questo esempio dieci degli indirizzi IP esclusi vengono utilizzati per configurare i server e gli altri dispositivi con gli indirizzi IP statici, mentre altri cinque indirizzi IP restano a disposizione per l'eventuale configurazione statica di nuovi dispositivi aggiunti in seguito. Con questo intervallo di esclusione, il server DHCP ha ancora a disposizione gli indirizzi compresi tra 192.168.0.16 e 192.168.0.254.
 
@@ -412,7 +412,7 @@ Nella tabella seguente vengono forniti gli elementi di configurazione di esempio
 |Binding connessioni di rete|Ethernet|
 |Impostazioni server DNS|DC1.corp.contoso.com|
 |Indirizzo IP del server DNS preferito|10.0.0.2|
-|Valori per la finestra di dialogo Aggiunta ambito<br /><br />1.  Nome dell'ambito<br />2.  Indirizzo IP iniziale<br />3.  Indirizzo IP finale<br />4.  Subnet mask<br />5.  Gateway predefinito (facoltativo)<br />6.  Durata del lease|1.  Subnet principale<br />2.10.0.0.1<br />3.10.0.0.254<br />4.255.255.255.0<br />5.10.0.0.1<br />6. 8 giorni|
+|Valori per la finestra di dialogo Aggiunta ambito<br /><br />1. nome ambito<br />2. indirizzo IP iniziale<br />3. indirizzo IP finale<br />4. subnet mask<br />5. gateway predefinito (facoltativo)<br />6. durata lease|1. subnet primaria<br />2.10.0.0.1<br />3.10.0.0.254<br />4.255.255.255.0<br />5.10.0.0.1<br />6. 8 giorni|
 |Modalità operativa server DHCP IPv6|Non abilitato|
 
 ## <a name="BKMK_deployment"></a>Distribuzione di rete core
@@ -615,21 +615,21 @@ I risultati di questo comando vengono visualizzati in Windows PowerShell e dovre
 
 3.  In **Select Installation Type**, assicurarsi che **installazione basata su ruoli o basata su funzionalità** sia selezionata e quindi fare clic su **Avanti**.
 
-4.  In **Selezione server di destinazione** assicurarsi che sia selezionata l'opzione **Selezionare un server dal pool di server**. Assicurarsi che in **Pool di server** sia selezionato il computer locale. Fare clic su **Avanti**.
+4.  In **Selezione server di destinazione** assicurarsi che sia selezionata l'opzione **Selezionare un server dal pool di server**. Assicurarsi che in **Pool di server** sia selezionato il computer locale. Fai clic su **Next**.
 
-5.  In **Selezione ruoli server** fare clic su **Servizi di dominio Active Directory** in **Ruoli**. In **Aggiungere le funzionalità necessarie per Servizi di dominio Active Directory** fare clic su **Aggiungi funzionalità**. Fare clic su **Avanti**.
+5.  In **Selezione ruoli server** fare clic su **Servizi di dominio Active Directory** in **Ruoli**. In **Aggiungere le funzionalità necessarie per Servizi di dominio Active Directory** fare clic su **Aggiungi funzionalità**. Fai clic su **Next**.
 
 6.  In **Selezione funzionalità** fare clic su **Avanti**, quindi in **Servizi di dominio Active Directory** esaminare le informazioni fornite e quindi fare clic su **Avanti**.
 
 7.  In **Conferma selezioni per l'installazione**, fare clic su **installare**. Nella pagina di stato dell'installazione viene visualizzato lo stato di avanzamento del processo di installazione. Al termine del processo, nei dettagli del messaggio fare clic su **Alza di livello il server a controller di dominio**. Si apre la Configurazione guidata Servizi di dominio Active Directory.
 
-8.  In **Configurazione distribuzione** selezionare **Nuova foresta**. In **nome di dominio radice**, digitare il nome di dominio completo (FQDN) per il dominio. Ad esempio, se il nome del DOMINIO è corp.contoso.com, digitare **corp.contoso.com**. Fare clic su **Avanti**.
+8.  In **Configurazione distribuzione** selezionare **Nuova foresta**. In **nome di dominio radice**, digitare il nome di dominio completo (FQDN) per il dominio. Ad esempio, se il nome del DOMINIO è corp.contoso.com, digitare **corp.contoso.com**. Fai clic su **Next**.
 
-9. In **Opzioni controller di dominio** specificare il livello di funzionalità della foresta e del dominio che si desidera utilizzare in **Selezionare il livello di funzionalità della nuova foresta e del dominio radice**. In **specificare funzionalità del controller di dominio**, assicurarsi che **server Domain Name System (DNS)** e **catalogo globale (GC)** siano selezionate. In **Password** e **Conferma password** digitare la password per la modalità ripristino servizi directory. Fare clic su **Avanti**.
+9. In **Opzioni controller di dominio** specificare il livello di funzionalità della foresta e del dominio che si desidera utilizzare in **Selezionare il livello di funzionalità della nuova foresta e del dominio radice**. In **specificare funzionalità del controller di dominio**, assicurarsi che **server Domain Name System (DNS)** e **catalogo globale (GC)** siano selezionate. In **Password** e **Conferma password** digitare la password per la modalità ripristino servizi directory. Fai clic su **Next**.
 
 10. In **Opzioni DNS**, fare clic su **Avanti**.
 
-11. In **Opzioni aggiuntive** verificare il nome NetBIOS che è assegnato al dominio e modificarlo solo se necessario. Fare clic su **Avanti**.
+11. In **Opzioni aggiuntive** verificare il nome NetBIOS che è assegnato al dominio e modificarlo solo se necessario. Fai clic su **Next**.
 
 12. In **Percorsi**, in **Specificare il percorso del database di Servizi di dominio Active Directory, dei file di log e di SYSVOL**, eseguire una delle operazioni seguenti:
 
@@ -637,11 +637,11 @@ I risultati di questo comando vengono visualizzati in Windows PowerShell e dovre
 
     -   Digitare i percorsi che si desidera utilizzare per **cartella Database**, **cartella file di registro**, e **cartella SYSVOL**.
 
-13. Fare clic su **Avanti**.
+13. Fai clic su **Next**.
 
 14. In **Verifica opzioni** verificare le impostazioni selezionate.
 
-15. Se si desidera esportare le impostazioni in uno script di Windows PowerShell, fare clic su **visualizzare script**. Lo script viene aperto in Blocco note e può essere salvato nel percorso di cartelle desiderato. Fare clic su **Avanti**. In **Controllo dei prerequisiti** vengono confermate le impostazioni selezionate. Al termine del controllo fare clic su **Installa**. Al prompt di Windows fare clic su **Chiudi**. Il server viene riavviato per completare l'installazione di servizi di dominio Active Directory e DNS.
+15. Se si desidera esportare le impostazioni in uno script di Windows PowerShell, fare clic su **visualizzare script**. Lo script viene aperto in Blocco note e può essere salvato nel percorso di cartelle desiderato. Fai clic su **Next**. In **Controllo dei prerequisiti** vengono confermate le impostazioni selezionate. Al termine del controllo fare clic su **Installa**. Al prompt di Windows fare clic su **Chiudi**. Il server viene riavviato per completare l'installazione di servizi di dominio Active Directory e DNS.
 
 16. Per verificare se l'installazione è riuscita, visualizzare la console di Server Manager dopo il riavvio del server. I servizi di dominio Active Directory e DNS verranno visualizzati nel riquadro sinistro, come gli elementi evidenziati nell'immagine seguente.
 
@@ -683,7 +683,7 @@ Per eseguire questa procedura è necessaria almeno l'appartenenza al gruppo **Do
 
 7.  Modificare **nome completo** aggiungendo le iniziali o invertire l'ordine di nome e cognome.
 
-8.  In **nome accesso utente**, digitare il nome di accesso utente. Fare clic su **Avanti**.
+8.  In **nome accesso utente**, digitare il nome di accesso utente. Fai clic su **Next**.
 
 9. In **nuovo oggetto - utente**, in **Password** e **Conferma password**, digitare la password dell'utente e quindi selezionare le opzioni appropriate.
 
@@ -735,19 +735,19 @@ L'appartenenza a **Domain Admins** è il requisito minimo necessario per eseguir
 
 5.  In **Tipo di zona** selezionare **Zona primaria**.
 
-6.  Se il server DNS è un controller di dominio scrivibile, assicurarsi che sia selezionata l'opzione **Archivia la zona in Active Directory**. Fare clic su **Avanti**.
+6.  Se il server DNS è un controller di dominio scrivibile, assicurarsi che sia selezionata l'opzione **Archivia la zona in Active Directory**. Fai clic su **Next**.
 
-7.  In **Ambito di replica zona Active Directory** selezionare **In tutti i server DNS eseguiti nei controller di dominio del dominio seguente**, a meno che non sia opportuno selezionare un'altra opzione per un motivo specifico. Fare clic su **Avanti**.
+7.  In **Ambito di replica zona Active Directory** selezionare **In tutti i server DNS eseguiti nei controller di dominio del dominio seguente**, a meno che non sia opportuno selezionare un'altra opzione per un motivo specifico. Fai clic su **Next**.
 
-8.  Nel primo **Nome zona di ricerca inversa** selezionare **zona di ricerca inversa IPv4**. Fare clic su **Avanti**.
+8.  Nel primo **Nome zona di ricerca inversa** selezionare **zona di ricerca inversa IPv4**. Fai clic su **Next**.
 
 9. Nella seconda pagina **Nome della zona di ricerca inversa** selezionare una delle opzioni seguenti:
 
     -   In **ID di rete** digitare l'ID della rete per l'intervallo di indirizzi IP. Se ad esempio l'intervallo di indirizzi IP è compreso tra 10.0.0.1 e 10.0.0.254, digitare **10.0.0**.
 
-    -   In **Nome zona di ricerca inversa**, viene aggiunto automaticamente il nome di zona di ricerca inversa IPv4. Fare clic su **Avanti**.
+    -   In **Nome zona di ricerca inversa**, viene aggiunto automaticamente il nome di zona di ricerca inversa IPv4. Fai clic su **Next**.
 
-10. In **aggiornamento dinamico**, selezionare il tipo di aggiornamenti dinamici che si desidera consentire. Fare clic su **Avanti**.
+10. In **aggiornamento dinamico**, selezionare il tipo di aggiornamenti dinamici che si desidera consentire. Fai clic su **Next**.
 
 11. In **completare la creazione guidata nuova zona**, rivedere le scelte effettuate e quindi fare clic su **Fine**.
 
@@ -777,11 +777,11 @@ In tutti i server che si desidera distribuire, ad eccezione del server che esegu
 
 3.  In **Nome computer** fare clic su **Dominio** in **Membro di**, quindi digitare il nome del dominio a cui si desidera aggiungere il computer. Se ad esempio il nome del dominio è corp.contoso.com, digitare **corp.contoso.com**.
 
-4.  Fare clic su **OK**. Il **la protezione di Windows** verrà visualizzata la finestra di dialogo.
+4.  Fai clic su **OK**. Il **la protezione di Windows** verrà visualizzata la finestra di dialogo.
 
-5.  In **Cambiamenti dominio/nome Computer**, in **nome utente**, digitare il nome utente e in **Password**, digitare la password e quindi fare clic su **OK**. Viene visualizzata la finestra di dialogo **Cambiamenti dominio/nome computer**, che contiene un messaggio di benvenuto. Fare clic su **OK**.
+5.  In **Cambiamenti dominio/nome Computer**, in **nome utente**, digitare il nome utente e in **Password**, digitare la password e quindi fare clic su **OK**. Viene visualizzata la finestra di dialogo **Cambiamenti dominio/nome computer**, che contiene un messaggio di benvenuto. Fai clic su **OK**.
 
-6.  Nella finestra di dialogo **Cambiamenti dominio/nome computer** viene visualizzato un messaggio per segnalare che è necessario riavviare il computer in modo da rendere effettive le modifiche. Fare clic su **OK**.
+6.  Nella finestra di dialogo **Cambiamenti dominio/nome computer** viene visualizzato un messaggio per segnalare che è necessario riavviare il computer in modo da rendere effettive le modifiche. Fai clic su **OK**.
 
 7.  Nella scheda **Nome computer** della finestra di dialogo **Proprietà del sistema** fare clic su **Chiudi**. Viene visualizzata la finestra di dialogo **Microsoft Windows**, che contiene un messaggio per segnalare nuovamente la necessità di riavviare il computer in modo da rendere effettive le modifiche. Fare clic su **Riavvia**.
 
@@ -853,13 +853,13 @@ Per eseguire questa procedura è necessaria almeno l'appartenenza al gruppo **Do
 
 3.  In **Select Installation Type**, assicurarsi che **installazione basata su ruoli o basata su funzionalità** sia selezionata e quindi fare clic su **Avanti**.
 
-4.  In **Selezione server di destinazione** assicurarsi che sia selezionata l'opzione **Selezionare un server dal pool di server**. Assicurarsi che in **Pool di server** sia selezionato il computer locale. Fare clic su **Avanti**.
+4.  In **Selezione server di destinazione** assicurarsi che sia selezionata l'opzione **Selezionare un server dal pool di server**. Assicurarsi che in **Pool di server** sia selezionato il computer locale. Fai clic su **Next**.
 
-5.  In **Selezione ruoli Server**, in **ruoli**, selezionare **Server DHCP**. In **Aggiungere le funzionalità necessarie per Server DHCP** fare clic su **Aggiungi funzionalità**. Fare clic su **Avanti**.
+5.  In **Selezione ruoli Server**, in **ruoli**, selezionare **Server DHCP**. In **Aggiungere le funzionalità necessarie per Server DHCP** fare clic su **Aggiungi funzionalità**. Fai clic su **Next**.
 
 6.  In **Selezione funzionalità** fare clic su **Avanti**, quindi in **Server DHCP** esaminare le informazioni fornite e quindi fare clic su **Avanti**.
 
-7.  In **Conferma selezioni per l'installazione**, fare clic su **Riavvia automaticamente il server di destinazione se necessario**. Quando viene chiesto di confermare la selezione, fare clic su **Sì**, quindi fare clic su **installare**. Il **lo stato dell'installazione** pagina Visualizza stato durante il processo di installazione. Al termine del processo, il messaggio "configurazione necessaria. Installazione completata in *nomecomputer*"viene visualizzato, in cui *nomecomputer* è il nome del computer su cui è installato il Server DHCP. Nella finestra del messaggio fare clic su **Completa configurazione DHCP**. Si apre Configurazione guidata post-installazione DHCP. Fare clic su **Avanti**.
+7.  In **Conferma selezioni per l'installazione**, fare clic su **Riavvia automaticamente il server di destinazione se necessario**. Quando viene chiesto di confermare la selezione, fare clic su **Sì**, quindi fare clic su **installare**. Il **lo stato dell'installazione** pagina Visualizza stato durante il processo di installazione. Al termine del processo, il messaggio "configurazione necessaria. Installazione completata in *nomecomputer*"viene visualizzato, in cui *nomecomputer* è il nome del computer su cui è installato il Server DHCP. Nella finestra del messaggio fare clic su **Completa configurazione DHCP**. Si apre Configurazione guidata post-installazione DHCP. Fai clic su **Next**.
 
 8.  In **Autorizzazione** specificare le credenziali che si desidera utilizzare per autorizzare il server DHCP in Servizi di dominio Active Directory, quindi fare clic su **Commit**. Al termine dell'autorizzazione fare clic su **Chiudi**.
 
@@ -890,7 +890,7 @@ Per eseguire questa procedura è necessaria almeno l'appartenenza al gruppo **DH
 
     3.  Se necessario, modificare i valori di **Lunghezza** o **Subnet mask** nel modo appropriato per lo schema di indirizzamento.
 
-    4.  Fare clic su **Avanti**.
+    4.  Fai clic su **Next**.
 
 8.  In **Aggiungi esclusioni**, eseguire le operazioni seguenti:
 
@@ -950,11 +950,11 @@ Per eseguire questa procedura è necessaria almeno l'appartenenza al gruppo **DH
 
 5.  In **Cambiamenti dominio/nome Computer** , in **membro del**, fare clic su **dominio**, e quindi digitare il nome del dominio di cui si desidera aggiungere. Se ad esempio il nome del dominio è corp.contoso.com, digitare **corp.contoso.com**.
 
-6.  Fare clic su **OK**. Il **la protezione di Windows** verrà visualizzata la finestra di dialogo.
+6.  Fai clic su **OK**. Il **la protezione di Windows** verrà visualizzata la finestra di dialogo.
 
-7.  In **Cambiamenti dominio/nome Computer**, in **nome utente**, digitare il nome utente e in **Password**, digitare la password e quindi fare clic su **OK**. Viene visualizzata la finestra di dialogo **Cambiamenti dominio/nome computer**, che contiene un messaggio di benvenuto. Fare clic su **OK**.
+7.  In **Cambiamenti dominio/nome Computer**, in **nome utente**, digitare il nome utente e in **Password**, digitare la password e quindi fare clic su **OK**. Viene visualizzata la finestra di dialogo **Cambiamenti dominio/nome computer**, che contiene un messaggio di benvenuto. Fai clic su **OK**.
 
-8.  Nella finestra di dialogo **Cambiamenti dominio/nome computer** viene visualizzato un messaggio per segnalare che è necessario riavviare il computer in modo da rendere effettive le modifiche. Fare clic su **OK**.
+8.  Nella finestra di dialogo **Cambiamenti dominio/nome computer** viene visualizzato un messaggio per segnalare che è necessario riavviare il computer in modo da rendere effettive le modifiche. Fai clic su **OK**.
 
 9. Nella scheda **Nome computer** della finestra di dialogo **Proprietà del sistema** fare clic su **Chiudi**. Viene visualizzata la finestra di dialogo **Microsoft Windows**, che contiene un messaggio per segnalare nuovamente la necessità di riavviare il computer in modo da rendere effettive le modifiche. Fare clic su **Riavvia**.
 
@@ -970,11 +970,11 @@ Per eseguire questa procedura è necessaria almeno l'appartenenza al gruppo **DH
 
 5.  In **Cambiamenti dominio/nome Computer** , in **membro del**, fare clic su **dominio**, e quindi digitare il nome del dominio di cui si desidera aggiungere. Se ad esempio il nome del dominio è corp.contoso.com, digitare **corp.contoso.com**.
 
-6.  Fare clic su **OK**. Il **la protezione di Windows** verrà visualizzata la finestra di dialogo.
+6.  Fai clic su **OK**. Il **la protezione di Windows** verrà visualizzata la finestra di dialogo.
 
-7.  In **Cambiamenti dominio/nome Computer**, in **nome utente**, digitare il nome utente e in **Password**, digitare la password e quindi fare clic su **OK**. Viene visualizzata la finestra di dialogo **Cambiamenti dominio/nome computer**, che contiene un messaggio di benvenuto. Fare clic su **OK**.
+7.  In **Cambiamenti dominio/nome Computer**, in **nome utente**, digitare il nome utente e in **Password**, digitare la password e quindi fare clic su **OK**. Viene visualizzata la finestra di dialogo **Cambiamenti dominio/nome computer**, che contiene un messaggio di benvenuto. Fai clic su **OK**.
 
-8.  Nella finestra di dialogo **Cambiamenti dominio/nome computer** viene visualizzato un messaggio per segnalare che è necessario riavviare il computer in modo da rendere effettive le modifiche. Fare clic su **OK**.
+8.  Nella finestra di dialogo **Cambiamenti dominio/nome computer** viene visualizzato un messaggio per segnalare che è necessario riavviare il computer in modo da rendere effettive le modifiche. Fai clic su **OK**.
 
 9. Nella scheda **Nome computer** della finestra di dialogo **Proprietà del sistema** fare clic su **Chiudi**. Viene visualizzata la finestra di dialogo **Microsoft Windows**, che contiene un messaggio per segnalare nuovamente la necessità di riavviare il computer in modo da rendere effettive le modifiche. Fare clic su **Riavvia**.
 
@@ -1009,7 +1009,7 @@ Nelle sezioni seguenti sono disponibili informazioni sull'aggiunta dei Server de
 #### <a name="BKMK_deployNPS1"></a>Distribuzione di NPS1
 Server dei criteri di rete viene installato come passaggio preliminare alla distribuzione di altre tecnologie di accesso alla rete, ad esempio server di rete privata virtuale (VPN), punti di accesso wireless e commutatori di autenticazione 802.1X.
 
-Server dei criteri di rete consente di configurare e gestire centralmente i criteri di rete con le seguenti funzionalità: Server Remote Authentication Dial-In User Service (RADIUS) e proxy RADIUS.
+Server dei criteri di rete consente di configurare e gestire centralmente i criteri di rete con le funzionalità seguenti: Remote Authentication Dial-In User Service (RADIUS) Server e proxy RADIUS.
 
 Server dei criteri di rete è un componente facoltativo in una rete core, tuttavia è consigliabile installarlo in presenza di una qualsiasi delle condizioni seguenti:
 
@@ -1050,7 +1050,7 @@ Di seguito sono riportati i passaggi chiave per la pianificazione, che dovranno 
 È possibile utilizzare questa procedura per installare Server dei criteri di rete (NPS) tramite l'aggiunta guidata ruoli e funzionalità. Server dei criteri di rete è un servizio ruolo del ruolo server Servizi di accesso e criteri di rete.
 
 > [!NOTE]
-> Per impostazione predefinita, Server dei criteri di rete rimane in ascolto del traffico RADIUS sulle porte 1812, 1813, 1645 e 1646 di tutte le schede di rete installate. Se Windows Firewall con sicurezza avanzata è abilitata quando si installa NPS, le eccezioni del firewall per queste porte vengono create automaticamente durante il processo di installazione sia per il protocollo Internet versione 6 \(IPv6 @ no__t-1 che per il traffico IPv4. Se i server di accesso di rete sono configurati per l'invio di traffico RADIUS su porte diverse da quelle predefinite, rimuovere le eccezioni create durante l'installazione dei criteri di RETE in Windows Firewall con sicurezza avanzata e creare eccezioni per le porte utilizzate per il traffico RADIUS.
+> Per impostazione predefinita, Server dei criteri di rete rimane in ascolto del traffico RADIUS sulle porte 1812, 1813, 1645 e 1646 di tutte le schede di rete installate. Se Windows Firewall con sicurezza avanzata è abilitata quando si installa NPS, le eccezioni del firewall per queste porte vengono create automaticamente durante il processo di installazione sia per il protocollo Internet versione 6 \(IPv6\) che per il traffico IPv4. Se i server di accesso di rete sono configurati per l'invio di traffico RADIUS su porte diverse da quelle predefinite, rimuovere le eccezioni create durante l'installazione dei criteri di RETE in Windows Firewall con sicurezza avanzata e creare eccezioni per le porte utilizzate per il traffico RADIUS.
 
 **Credenziali amministrative**
 
@@ -1072,13 +1072,13 @@ Per completare questa procedura, è necessario essere un membro del **Domain Adm
 
 3.  In **Select Installation Type**, assicurarsi che **installazione basata su ruoli o basata su funzionalità** sia selezionata e quindi fare clic su **Avanti**.
 
-4.  In **Selezione server di destinazione** assicurarsi che sia selezionata l'opzione **Selezionare un server dal pool di server**. Assicurarsi che in **Pool di server** sia selezionato il computer locale. Fare clic su **Avanti**.
+4.  In **Selezione server di destinazione** assicurarsi che sia selezionata l'opzione **Selezionare un server dal pool di server**. Assicurarsi che in **Pool di server** sia selezionato il computer locale. Fai clic su **Next**.
 
 5.  In **Selezione ruoli server**, in **ruoli**, selezionare **servizi di accesso e criteri di rete**. Verrà visualizzata una finestra di dialogo in cui viene chiesto se aggiungere funzionalità richieste per servizi di accesso e criteri di rete. Fare clic su **Aggiungi funzionalità necessarie**e quindi su **Avanti**.
 
 6.  In **Selezione funzionalità** fare clic su **Avanti**, quindi in **Servizi di accesso e criteri di rete** esaminare le informazioni fornite e quindi fare clic su **Avanti**.
 
-7.  In **Selezione servizi ruolo** fare clic su **Server dei criteri di rete**.  In **aggiungere le funzionalità necessarie per Server dei criteri di rete**, fare clic su **Aggiungi funzionalità**. Fare clic su **Avanti**.
+7.  In **Selezione servizi ruolo** fare clic su **Server dei criteri di rete**.  In **aggiungere le funzionalità necessarie per Server dei criteri di rete**, fare clic su **Aggiungi funzionalità**. Fai clic su **Next**.
 
 8.  In **Conferma selezioni per l'installazione**, fare clic su **Riavvia automaticamente il server di destinazione se necessario**. Quando viene chiesto di confermare la selezione, fare clic su **Sì**, quindi fare clic su **installare**. Nella pagina di stato dell'installazione viene visualizzato lo stato di avanzamento del processo di installazione. Al termine del processo, il messaggio "Installazione completata in *nomecomputer*" viene visualizzato, in cui *nomecomputer* è il nome del computer su cui è installato Server dei criteri di rete. Fare clic su **Chiudi**.
 
@@ -1321,11 +1321,11 @@ L'appartenenza a **gli utenti del dominio**, o equivalente è il requisito minim
 
 5.  In **Nome computer** selezionare **Dominio** in **Membro di** e quindi digitare il nome del dominio a cui si desidera aggiungere il computer. Se ad esempio il nome del dominio è corp.contoso.com, digitare **corp.contoso.com**.
 
-6.  Fare clic su **OK**. Il **la protezione di Windows** verrà visualizzata la finestra di dialogo.
+6.  Fai clic su **OK**. Il **la protezione di Windows** verrà visualizzata la finestra di dialogo.
 
-7.  In **Cambiamenti dominio/nome Computer**, in **nome utente**, digitare il nome utente e in **Password**, digitare la password e quindi fare clic su **OK**. Viene visualizzata la finestra di dialogo **Cambiamenti dominio/nome computer**, che contiene un messaggio di benvenuto. Fare clic su **OK**.
+7.  In **Cambiamenti dominio/nome Computer**, in **nome utente**, digitare il nome utente e in **Password**, digitare la password e quindi fare clic su **OK**. Viene visualizzata la finestra di dialogo **Cambiamenti dominio/nome computer**, che contiene un messaggio di benvenuto. Fai clic su **OK**.
 
-8.  Nella finestra di dialogo **Cambiamenti dominio/nome computer** viene visualizzato un messaggio per segnalare che è necessario riavviare il computer in modo da rendere effettive le modifiche. Fare clic su **OK**.
+8.  Nella finestra di dialogo **Cambiamenti dominio/nome computer** viene visualizzato un messaggio per segnalare che è necessario riavviare il computer in modo da rendere effettive le modifiche. Fai clic su **OK**.
 
 9. Nella scheda **Nome computer** della finestra di dialogo **Proprietà del sistema** fare clic su **Chiudi**. Viene visualizzata la finestra di dialogo **Microsoft Windows**, che contiene un messaggio per segnalare nuovamente la necessità di riavviare il computer in modo da rendere effettive le modifiche. Fare clic su **Riavvia**.
 
@@ -1344,11 +1344,11 @@ L'appartenenza a **gli utenti del dominio**, o equivalente è il requisito minim
 
 5.  In **Nome computer** selezionare **Dominio** in **Membro di** e quindi digitare il nome del dominio a cui si desidera aggiungere il computer. Se ad esempio il nome del dominio è corp.contoso.com, digitare **corp.contoso.com**.
 
-6.  Fare clic su **OK**. Il **la protezione di Windows** verrà visualizzata la finestra di dialogo.
+6.  Fai clic su **OK**. Il **la protezione di Windows** verrà visualizzata la finestra di dialogo.
 
-7.  In **Cambiamenti dominio/nome Computer**, in **nome utente**, digitare il nome utente e in **Password**, digitare la password e quindi fare clic su **OK**. Viene visualizzata la finestra di dialogo **Cambiamenti dominio/nome computer**, che contiene un messaggio di benvenuto. Fare clic su **OK**.
+7.  In **Cambiamenti dominio/nome Computer**, in **nome utente**, digitare il nome utente e in **Password**, digitare la password e quindi fare clic su **OK**. Viene visualizzata la finestra di dialogo **Cambiamenti dominio/nome computer**, che contiene un messaggio di benvenuto. Fai clic su **OK**.
 
-8.  Nella finestra di dialogo **Cambiamenti dominio/nome computer** viene visualizzato un messaggio per segnalare che è necessario riavviare il computer in modo da rendere effettive le modifiche. Fare clic su **OK**.
+8.  Nella finestra di dialogo **Cambiamenti dominio/nome computer** viene visualizzato un messaggio per segnalare che è necessario riavviare il computer in modo da rendere effettive le modifiche. Fai clic su **OK**.
 
 9. Nella scheda **Nome computer** della finestra di dialogo **Proprietà del sistema** fare clic su **Chiudi**. Viene visualizzata la finestra di dialogo **Microsoft Windows**, che contiene un messaggio per segnalare nuovamente la necessità di riavviare il computer in modo da rendere effettive le modifiche. Fare clic su **Riavvia**.
 
@@ -1426,9 +1426,9 @@ Gli elementi di configurazione di pre-installazione elenco nelle tabelle seguent
 
 -   [Rinominare il computer](#BKMK_rename)
 
-|Elemento di configurazione|Valore di esempio|Value|
+|Elemento di configurazione|Valore di esempio|Valore|
 |----------------------|-----------------|---------|
-|Il nome del computer|DC1||
+|Nome del computer|DC1||
 
 ##### <a name="ad-ds-and-dns-installation-configuration-items"></a>Elementi di configurazione di installazione di Active Directory e DNS
 Elementi di configurazione per la procedura di distribuzione di rete di Windows Server Core [installare Active Directory e DNS per una nuova foresta](#BKMK_installAD-DNS):
@@ -1437,9 +1437,9 @@ Elementi di configurazione per la procedura di distribuzione di rete di Windows 
 |-----------------------|------------------|----------|
 |Nome DNS completo|corp.contoso.com||
 |Livello di funzionalità della foresta|Windows Server 2003||
-|Percorso della cartella per il database di Servizi di dominio Active Directory|E:\Configuration @ no__t-0<br /><br />In alternativa accettare il percorso predefinito.||
-|Percorso della cartella per i file di registro di Servizi di dominio Active Directory|E:\Configuration @ no__t-0<br /><br />In alternativa accettare il percorso predefinito.||
-|Percorso della cartella SYSVOL di Servizi di dominio Active Directory|E:\Configuration @ no__t-0<br /><br />In alternativa accettare il percorso predefinito.||
+|Percorso della cartella per il database di Servizi di dominio Active Directory|\\ E:\Configuration<br /><br />In alternativa accettare il percorso predefinito.||
+|Percorso della cartella per i file di registro di Servizi di dominio Active Directory|\\ E:\Configuration<br /><br />In alternativa accettare il percorso predefinito.||
+|Percorso della cartella SYSVOL di Servizi di dominio Active Directory|\\ E:\Configuration<br /><br />In alternativa accettare il percorso predefinito.||
 |Password di amministratore modalità ripristino servizi directory|J*p2leO4$F||
 |Nome file di risposte (facoltativo)|DS_AnswerFile di Active Directory||
 
@@ -1471,9 +1471,9 @@ Gli elementi di configurazione di pre-installazione elenco nelle tabelle seguent
 
 -   [Rinominare il computer](#BKMK_rename)
 
-|Elemento di configurazione|Valore di esempio|Value|
+|Elemento di configurazione|Valore di esempio|Valore|
 |----------------------|-----------------|---------|
-|Il nome del computer|DHCP1||
+|Nome del computer|DHCP1||
 
 ##### <a name="dhcp-installation-configuration-items"></a>Elementi di configurazione per l'installazione di DHCP
 Gli elementi di configurazione per la procedura di distribuzione di una rete core basata su Windows Server sono illustrati in [Installazione di DHCP (Dynamic Host Configuration Protocol)](#BKMK_installDHCP):
@@ -1515,7 +1515,7 @@ Elementi di configurazione per la procedura di distribuzione di rete di Windows 
 |Subnet mask|255.255.255.0||
 |Indirizzo IP iniziale dell'intervallo di esclusione|10.0.1.1||
 |Indirizzo IP finale dell'intervallo di esclusione|10.0.1.15||
-|Durata del lease<br /><br />Days<br /><br />Ore<br /><br />Minuti|-8<br />-   0<br />-   0||
+|Durata del lease<br /><br />Giorni<br /><br />Ore<br /><br />Minuti|-8<br />-   0<br />-   0||
 |Router (gateway predefinito)<br /><br />L'indirizzo IP|10.0.1.1||
 |Dominio padre DNS|corp.contoso.com||
 |Server DNS<br /><br />L'indirizzo IP|10.0.0.2||
@@ -1538,9 +1538,9 @@ Le seguenti tre tabelle elencano gli elementi di configurazione pre-installazion
 
 -   [Rinominare il computer](#BKMK_rename)
 
-|Elemento di configurazione|Valore di esempio|Value|
+|Elemento di configurazione|Valore di esempio|Valore|
 |----------------------|-----------------|---------|
-|Il nome del computer|NPS1||
+|Nome del computer|NPS1||
 
 ##### <a name="network-policy-server-installation-configuration-items"></a>Elementi di configurazione per l'installazione di Server dei criteri di rete
 Gli elementi di configurazione per le procedure di distribuzione del server dei criteri di rete di Windows Server Core [installano server dei criteri di rete](#BKMK_installNPS) e [registrano il server dei criteri di rete nel dominio predefinito](#BKMK_registerNPS)

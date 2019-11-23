@@ -22,7 +22,7 @@ ms.locfileid: "71371844"
 ---
 # <a name="query"></a>query
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Visualizza informazioni su processi, sessioni e server di host sessione Desktop remoto (host sessione Desktop remoto).
 
@@ -45,5 +45,6 @@ query user
 |[termserver query](query-termserver.md)|Visualizza un elenco di tutti i server Host sessione Desktop remoto nella rete.|
 |[utente query](query-user.md)|Visualizza informazioni sulle sessioni utente in un server Host sessione Desktop remoto.|
 
-#### <a name="additional-references"></a>Riferimenti aggiuntivi
-[Sintassi della riga di comando chiave](command-line-syntax-key.md)@no__t-[1 &#40;Servizi Desktop remoto riferimento&#41; ai comandi di Servizi terminal](remote-desktop-services-terminal-services-command-reference.md)
+#### <a name="additional-references"></a>riferimenti aggiuntivi
+[Chiave di sintassi della riga di comando](command-line-syntax-key.md)
+[riferimento ai comandi di &#40;Servizi Desktop remoto Servizi terminal&#41; ](remote-desktop-services-terminal-services-command-reference.md)

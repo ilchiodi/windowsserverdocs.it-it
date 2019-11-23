@@ -25,7 +25,7 @@ Per altre informazioni sulle procedure consigliate e sulle analisi, vedere [Eseg
   
 |Proprietà|Dettagli|
 |-|-|  
-|**Sistema operativo**|Windows Server 2016|  
+|**Sistema operativo**|Windows Server 2016|  
 |**Prodotto/funzionalità**|Hyper-V|  
 |**Gravità**|Avviso|  
 |**Categoria**|Configurazione|  
@@ -38,7 +38,7 @@ Nelle sezioni seguenti, corsivo indica il testo dell'interfaccia Utente visualiz
 ## <a name="impact"></a>**Impatto**  
 *I commutatori virtuali seguenti potrebbero non avere accesso alle VLAN e alla larghezza di banda utilizzata da altre interfacce del team:*  
   
-@no__t 0list dei commutatori virtuali >  
+\<elenco di commutatori virtuali >  
   
 ## <a name="resolution"></a>**Soluzione**  
 *Usare il cmdlet Remove-NetLbfoTeamNic di Windows PowerShell per rimuovere tutte le interfacce del team dal team diverso dall'interfaccia del team predefinita.*  

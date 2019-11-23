@@ -25,7 +25,7 @@ Per altre informazioni sulle procedure consigliate e sulle analisi, vedere [Eseg
   
 |Proprietà|Dettagli|  
 |-|-|  
-|**Sistema operativo**|Windows Server 2016| 
+|**Sistema operativo**|Windows Server 2016| 
 |**Prodotto/funzionalità**|Hyper-V|  
 |**Gravità**|Avviso|  
 |**Categoria**|Operazioni|  
@@ -36,9 +36,9 @@ Nelle sezioni seguenti, corsivo indica il testo dell'interfaccia Utente visualiz
 *Nessun failover di test in almeno un mese.*  
   
 ## <a name="impact"></a>Impatto  
-*There non è in grado di confermare che un failover pianificato o non pianificato avrà esito positivo oppure le operazioni del carico di lavoro continueranno correttamente dopo un failover. Ciò influisca sulle macchine virtuali seguenti:*  
+*Non è possibile confermare che un failover pianificato o non pianificato avrà esito positivo oppure le operazioni del carico di lavoro continueranno correttamente dopo un failover. Ciò influisca sulle macchine virtuali seguenti:*  
   
-@no__t 0list di macchine virtuali >  
+\<elenco di macchine virtuali >  
   
 ## <a name="resolution"></a>Risoluzione  
 *Utilizzare la console di gestione di Hyper-V per eseguire un failover di test.*  

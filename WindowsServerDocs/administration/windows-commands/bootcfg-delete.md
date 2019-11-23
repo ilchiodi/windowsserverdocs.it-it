@@ -22,7 +22,7 @@ ms.locfileid: "71380014"
 ---
 # <a name="bootcfg-delete"></a>bootcfg delete
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Elimina una voce del sistema operativo nella sezione [Operating Systems] del file Boot. ini.
 
@@ -32,12 +32,12 @@ bootcfg /delete [/s <computer> [/u <Domain>\<User> /p <Password>]] [/id <OSEntry
 ```
 ## <a name="parameters"></a>Parametri
 
-|         Nome         |                                                                                             Definizione                                                                                              |
+|         Termine         |                                                                                             Definizione                                                                                              |
 |----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |    /s <computer>     |                                         Specifica il nome o l'indirizzo IP di un computer remoto (non utilizzare barre rovesciate). Il valore predefinito è il computer locale.                                          |
-| /u <Domain>\\<User>  | Esegue il comando con le autorizzazioni dell'account dell'utente specificato da <User>or <Domain> @ no__t-2 @ no__t-3. Il valore predefinito è le autorizzazioni dell'oggetto utente nel computer eseguendo il comando connesso. |
+| /u <Domain>\\<User>  | Esegue il comando con le autorizzazioni dell'account dell'utente specificato da <User>o <Domain>\\<User>. Il valore predefinito è le autorizzazioni dell'oggetto utente nel computer eseguendo il comando connesso. |
 |    /p <Password>     |                                                        Specifica la password dell'account utente specificato nella **/u** parametro.                                                        |
-| /ID <OSEntryLineNum> |        Specifica il numero di riga voce del sistema operativo in della sezione [operating systems] del file Boot. ini da eliminare. La prima riga dopo la sezione [operating systems] sezione di intestazione è 1.        |
+| <OSEntryLineNum>/ID |        Specifica il numero di riga voce del sistema operativo in della sezione [operating systems] del file Boot. ini da eliminare. La prima riga dopo la sezione [operating systems] sezione di intestazione è 1.        |
 |          /?          |                                                                                Visualizza la guida al prompt dei comandi.                                                                                 |
 
 ## <a name="BKMK_examples"></a>Esempi
@@ -46,5 +46,5 @@ Gli esempi seguenti illustrano come utilizzare il **bootcfg /delete**comando:
 bootcfg /delete /id 1
 bootcfg /delete /s srvmain /u maindom\hiropln /p p@ssW23 /id 3
 ```
-#### <a name="additional-references"></a>Riferimenti aggiuntivi
+#### <a name="additional-references"></a>riferimenti aggiuntivi
 [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

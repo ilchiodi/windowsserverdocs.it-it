@@ -21,9 +21,9 @@ ms.locfileid: "71381573"
 ---
 # <a name="bitsadmin-gethelpertokenflags"></a>gethelpertokenflags Bitsadmin
 
-Restituisce i flag di utilizzo per un [token helper](/windows/desktop/bits/helper-tokens-for-bits-transfer-jobs)  che è associato a un processo di trasferimento BITS.
+Restituisce i flag di utilizzo per un [token helper](/windows/desktop/bits/helper-tokens-for-bits-transfer-jobs) associato a un processo di trasferimento BITS.
 
-**BITS 3,0 e versioni precedenti**: Non supportati.
+**BITS 3,0 e versioni precedenti**: non supportato.
 
 ## <a name="syntax"></a>Sintassi
 
@@ -37,7 +37,7 @@ bitsadmin /GetHelperTokenFlags <Job>
 |---------|-----------|
 |Job|Nome visualizzato o il GUID del processo|
 
-## <a name="remarks"></a>Note
+## <a name="remarks"></a>Osservazioni
 
 Tra i possibili valori restituiti sono inclusi i seguenti.
 

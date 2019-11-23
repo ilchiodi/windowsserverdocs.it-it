@@ -41,28 +41,28 @@ cmd [/c|/k] [/s] [/q] [/d] [/a|/u] [/t:{<B><F>|<F>}] [/e:{on|off}] [/f:{on|off}]
 |/d|Disattiva l'esecuzione dei comandi di esecuzione automatica.|
 |/a|Formatta l'output del comando interno a una pipe o un file come American National Standards Institute (ANSI).|
 |/u|Formatta l'output del comando interno a una pipe o un file come Unicode.|
-|/t: {\<B @ no__t-1 @ no__t-2F @ no__t-3 @ no__t-4 @ no__t-5F @ no__t-6}|Imposta lo sfondo (*B*) e di primo piano (*F*) i colori.|
+|/t: {\<B\>\<F\>\|\<F\>}|Imposta lo sfondo (*B*) e di primo piano (*F*) i colori.|
 |/e: in|Attiva le estensioni del comando.|
 |/e: off|Disabilita le estensioni ai comandi.|
 |/f: in|Consente il completamento del nome file e directory.|
 |/f: off|Disabilita il completamento del nome file e directory.|
 |/v: in|Consente di ritardare l'espansione della variabile di ambiente.|
 |/v: off|Disabilita ritardata espansione della variabile di ambiente.|
-|\<String >|Specifica il comando che si desidera eseguire.|
+|\<stringa >|Specifica il comando che si desidera eseguire.|
 |/?|Visualizza la guida al prompt dei comandi.|
 
-Nella tabella seguente sono elencate le cifre esadecimali valide che è possibile utilizzare come valori per \<B @ no__t-1 e \<F @ no__t-3
+Nella tabella seguente sono elencate le cifre esadecimali valide che è possibile utilizzare come valori per \<B\> e \<F\>
 
-|Value|Colore|
+|Valore|Colore|
 |-----|-----|
-|0|Nero|
+|0|Black|
 |1|Blu|
 |2|Verde|
-|3|Aqua|
-|4|Rosso|
+|3|Verde acqua|
+|4|Rossa|
 |5|Viola|
 |6|Giallo|
-|7|Bianco|
+|7|Vuoto|
 |8|Grigio|
 |9|Azzurro|
 |a|Verde chiaro|
@@ -72,11 +72,11 @@ Nella tabella seguente sono elencate le cifre esadecimali valide che è possibil
 |e|Giallo|
 |f|Sfondo bianco|
 
-## <a name="remarks"></a>Note
+## <a name="remarks"></a>Osservazioni
 
 -   Uso di più comandi
 
-    Per usare più comandi per \<String >, separarli dal separatore di comandi **&&** e racchiuderli tra virgolette. Esempio:
+    Per usare più comandi per \<stringa >, separarli dal separatore di comandi **&&** e racchiuderli tra virgolette. Ad esempio:
 
     ```
     "<Command>&&<Command>&&<Command>"
@@ -96,9 +96,9 @@ Nella tabella seguente sono elencate le cifre esadecimali valide che è possibil
 
     Se non si specifica **/d** nella *stringa*, cmd. exe cercherà le sottochiavi del registro di sistema seguenti:
 
-    **HKEY_LOCAL_MACHINE\Software\Microsoft\Command Processor\AutoRun\REG_SZ**
+    **HKEY_LOCAL_MACHINE \Software\Microsoft\Command Processor\AutoRun\ REG_SZ**
 
-    **HKEY_CURRENT_USER\Software\Microsoft\Command Processor\AutoRun\REG_EXPAND_SZ**
+    **HKEY_CURRENT_USER \Software\Microsoft\Command Processor\AutoRun\ REG_EXPAND_SZ**
 
     Se sono presenti una o entrambe le sottochiavi del registro di sistema, vengono eseguite prima di tutte le altre variabili.
 
@@ -107,13 +107,13 @@ Nella tabella seguente sono elencate le cifre esadecimali valide che è possibil
 
 -   Abilitazione e disabilitazione delle estensioni del comando
 
-    Le estensioni dei comandi sono abilitate per impostazione predefinita in Windows XP. È possibile disabilitarli per un determinato processo utilizzando **/e: off**. È possibile abilitare o disabilitare le estensioni per tutte le opzioni della riga di comando **cmd** in un computer o una sessione utente impostando i valori **REG_DWORD** seguenti:
+    Le estensioni dei comandi sono abilitate per impostazione predefinita in Windows XP. È possibile disabilitarli per un determinato processo utilizzando **/e: off**. È possibile abilitare o disabilitare le estensioni per tutte le opzioni della riga di comando **cmd** in un computer o una sessione utente impostando i valori di **REG_DWORD** seguenti:
 
-    **HKEY_LOCAL_MACHINE\Software\Microsoft\Command Processor\EnableExtensions\REG_DWORD**
+    **HKEY_LOCAL_MACHINE \Software\Microsoft\Command Processor\EnableExtensions\ REG_DWORD**
 
-    **HKEY_CURRENT_USER\Software\Microsoft\Command Processor\EnableExtensions\REG_DWORD**
+    **HKEY_CURRENT_USER \Software\Microsoft\Command Processor\EnableExtensions\ REG_DWORD**
 
-    Impostare il valore **REG_DWORD** su **0 × 1** (abilitato) o **0 × 0** (disabilitato) nel registro di sistema utilizzando Regedit. exe. Specificato dall'utente e impostazioni avranno precedenza sulle impostazioni del computer e le opzioni della riga di comando hanno la precedenza sulle impostazioni del Registro di sistema.
+    Impostare il valore di **REG_DWORD** su **0 × 1** (abilitato) o **0 × 0** (disabilitato) nel registro di sistema utilizzando Regedit. exe. Specificato dall'utente e impostazioni avranno precedenza sulle impostazioni del computer e le opzioni della riga di comando hanno la precedenza sulle impostazioni del Registro di sistema.
 
 > [!CAUTION]
 > La modifica non corretta del Registro di sistema potrebbe danneggiare gravemente il sistema. Prima di apportare modifiche al Registro di sistema, si consiglia di effettuare il backup di tutti i dati importanti presenti sul computer.
@@ -143,17 +143,17 @@ Nella tabella seguente sono elencate le cifre esadecimali valide che è possibil
     Se si Abilita l'espansione della variabile di ambiente ritardata, è possibile usare il carattere punto esclamativo per sostituire il valore di una variabile di ambiente in fase di esecuzione.
 -   Abilitazione del completamento del nome file e directory
 
-    Il completamento del nome file e directory non è abilitato per impostazione predefinita. È possibile abilitare o disabilitare il completamento del nome file per un particolare processo della **cmd** comando **/f**{**su**|**off**}. È possibile abilitare o disabilitare il completamento del nome file e directory per tutti i processi del comando **cmd** in un computer o per una sessione di accesso utente impostando i valori **REG_DWORD** seguenti:
+    Il completamento del nome file e directory non è abilitato per impostazione predefinita. È possibile abilitare o disabilitare il completamento del nome file per un particolare processo della **cmd** comando **/f**{**su**|**off**}. È possibile abilitare o disabilitare il completamento del nome file e directory per tutti i processi del comando **cmd** in un computer o per una sessione di accesso utente impostando i valori di **REG_DWORD** seguenti:
 
-    **HKEY_LOCAL_MACHINE\Software\Microsoft\Command Processor\CompletionChar\REG_DWORD**
+    **HKEY_LOCAL_MACHINE \Software\Microsoft\Command Processor\CompletionChar\ REG_DWORD**
 
-    **HKEY_LOCAL_MACHINE\Software\Microsoft\Command Processor\PathCompletionChar\REG_DWORD**
+    **HKEY_LOCAL_MACHINE \Software\Microsoft\Command Processor\PathCompletionChar\ REG_DWORD**
 
-    **HKEY_CURRENT_USER\Software\Microsoft\Command Processor\CompletionChar\REG_DWORD**
+    **HKEY_CURRENT_USER \Software\Microsoft\Command Processor\CompletionChar\ REG_DWORD**
 
-    **HKEY_CURRENT_USER\Software\Microsoft\Command Processor\PathCompletionChar\REG_DWORD**
+    **HKEY_CURRENT_USER \Software\Microsoft\Command Processor\PathCompletionChar\ REG_DWORD**
 
-    Per impostare il valore **REG_DWORD** , eseguire regedit. exe e usare il valore esadecimale di un carattere di controllo per una funzione specifica (ad esempio, **0 × 9** è Tab e **0 × 08** è Backspace). Specificato dall'utente e impostazioni avranno precedenza sulle impostazioni del computer e le opzioni della riga di comando hanno la precedenza sulle impostazioni del Registro di sistema.
+    Per impostare il valore di **REG_DWORD** , eseguire regedit. exe e usare il valore esadecimale di un carattere di controllo per una funzione specifica (ad esempio, **0 × 9** è Tab e **0 × 08** è Backspace). Specificato dall'utente e impostazioni avranno precedenza sulle impostazioni del computer e le opzioni della riga di comando hanno la precedenza sulle impostazioni del Registro di sistema.
 
 > [!CAUTION]
 > La modifica non corretta del Registro di sistema potrebbe danneggiare gravemente il sistema. Prima di apportare modifiche al Registro di sistema, si consiglia di effettuare il backup di tutti i dati importanti presenti sul computer.

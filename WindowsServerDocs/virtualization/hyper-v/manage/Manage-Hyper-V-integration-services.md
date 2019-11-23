@@ -190,21 +190,21 @@ I servizi di integrazione Linux vengono in genere forniti attraverso il kernel L
     ```
   
    I daemon di Integration Services che potrebbero essere elencati includono quanto segue. Se non sono presenti, potrebbero non essere supportati nel sistema o potrebbero non essere installati. Per informazioni dettagliate, vedere [macchine virtuali Linux e FreeBSD supportate per Hyper-V in Windows](https://technet.microsoft.com/library/dn531030.aspx).  
-   - **hv_vss_daemon**: Questo daemon è necessario per creare backup di macchine virtuali Linux in tempo reale.
-   - **hv_kvp_daemon**: Questo daemon consente di impostare ed eseguire query sulle coppie chiave-valore intrinseche ed estrinseche.
-   - **hv_fcopy_daemon**: Questo daemon implementa un servizio di copia file tra host e Guest.  
+   - **hv_vss_daemon**: questo daemon è necessario per creare backup di macchine virtuali Linux in tempo reale.
+   - **hv_kvp_daemon**: questo daemon consente di impostare ed eseguire query sulle coppie chiave-valore intrinseche ed estrinseche.
+   - **hv_fcopy_daemon**: questo daemon implementa un servizio di copia file tra host e Guest.  
 
 ### <a name="examples"></a>Esempi
 
 Questi esempi illustrano l'arresto e l'avvio del daemon KVP, denominato `hv_kvp_daemon`.
 
-1. Usare l'ID processo \(PID @ no__t-1 per arrestare il processo del daemon. Per trovare il PID, esaminare la seconda colonna dell'output o usare `pidof`. I daemon Hyper-V vengono eseguiti come root, quindi sono necessarie le autorizzazioni radice.
+1. Usare l'ID processo \(PID\) per arrestare il processo del daemon. Per trovare il PID, esaminare la seconda colonna dell'output o usare `pidof`. I daemon Hyper-V vengono eseguiti come root, quindi sono necessarie le autorizzazioni radice.
 
     ``` BASH
     sudo kill -15 `pidof hv_kvp_daemon`
     ```
 
-1. Per verificare che tutti i processi `hv_kvp_daemon` siano finiti, eseguire:
+1. Per verificare che tutti i `hv_kvp_daemon` processo siano finiti, eseguire:
 
     ```
     ps -ef | hv
@@ -216,7 +216,7 @@ Questi esempi illustrano l'arresto e l'avvio del daemon KVP, denominato `hv_kvp_
     sudo hv_kvp_daemon
     ``` 
 
-1. Per verificare che il processo `hv_kvp_daemon` sia elencato con un nuovo ID processo, eseguire:
+1. Per verificare che il processo di `hv_kvp_daemon` sia elencato con un nuovo ID processo, eseguire:
 
     ```
     ps -ef | hv
@@ -239,7 +239,7 @@ Questi esempi illustrano l'arresto e l'avvio del daemon KVP, denominato `hv_kvp_
 | Windows 7 | Windows Update | Richiede il servizio di integrazione Scambio di dati.* |
 | Windows Vista (SP 2) | Windows Update | Richiede il servizio di integrazione Scambio di dati.* |
 | - | | |
-| Windows Server 2016 | Windows Update | |
+| Windows Server 2016 | Windows Update | |
 | Windows Server, Canale semestrale | Windows Update | |
 | Windows Server 2012 R2 | Windows Update | |
 | Windows Server 2012 | Windows Update | Richiede il servizio di integrazione Scambio di dati.* |
@@ -263,7 +263,7 @@ Questi esempi illustrano l'arresto e l'avvio del daemon KVP, denominato `hv_kvp_
 | Windows Vista (SP 2) | Disco dei servizi di integrazione | Vedere [le istruzioni](#install-or-update-integration-services)riportate di seguito. |
 | Windows XP (SP 2, SP 3) | Disco dei servizi di integrazione | Vedere [le istruzioni](#install-or-update-integration-services)riportate di seguito. |
 | - | | |
-| Windows Server 2016 | Windows Update | |
+| Windows Server 2016 | Windows Update | |
 | Windows Server, Canale semestrale | Windows Update | |
 | Windows Server 2012 R2 | Windows Update | |
 | Windows Server 2012 | Disco dei servizi di integrazione | Vedere [le istruzioni](#install-or-update-integration-services)riportate di seguito. |

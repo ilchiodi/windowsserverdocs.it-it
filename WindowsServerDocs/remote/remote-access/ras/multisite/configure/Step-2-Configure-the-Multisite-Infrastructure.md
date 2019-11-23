@@ -60,7 +60,7 @@ Per ulteriori informazioni, vedere [aggiunta di un sito alla foresta](https://te
   
 8.  Chiudere siti e servizi Active Directory.  
   
-](../../../../media/Step-2-Configure-the-Multisite-Infrastructure/PowerShellLogoSmall.gif)***<em>comandi equivalenti</em> di PowerShell per Windows PowerShell @no__t 0Windows***  
+![](../../../../media/Step-2-Configure-the-Multisite-Infrastructure/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em> per Windows PowerShell***  
   
 Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.  
   
@@ -169,7 +169,7 @@ Una distribuzione multisito richiede un gruppo di sicurezza aggiuntive per i com
   
 8.  Ripetere questa procedura per creare un gruppo di sicurezza per ogni punto di ingresso in base alle esigenze.  
   
-](../../../../media/Step-2-Configure-the-Multisite-Infrastructure/PowerShellLogoSmall.gif)***<em>comandi equivalenti</em> di PowerShell per Windows PowerShell @no__t 0Windows***  
+![](../../../../media/Step-2-Configure-the-Multisite-Infrastructure/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em> per Windows PowerShell***  
   
 Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.  
   
@@ -334,6 +334,6 @@ Per ottimizzare i tempi di distribuzione della configurazione, effettuare una de
   
 ## <a name="BKMK_Links"></a>Vedere anche  
   
--   [Passaggio 3: Configurare la distribuzione multisito @ no__t-0  
--   [Passaggio 1: Implementare una distribuzione di accesso remoto a server singolo @ no__t-0  
+-   [Passaggio 3: configurare la distribuzione multisito](Step-3-Configure-the-Multisite-Deployment.md)  
+-   [Passaggio 1: implementare una distribuzione di accesso remoto a server singolo](Step-1-Implement-a-Single-Server-Remote-Access-Deployment.md)  
 

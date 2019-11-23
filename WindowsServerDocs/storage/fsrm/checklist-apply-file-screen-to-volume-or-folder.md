@@ -25,11 +25,11 @@ Per applicare uno screening dei file a un volume o una cartella, utilizzare l'el
 2. Abilitare la registrazione degli eventi di screening dei file nel database di controllo se si prevede di generare rapporti screening dei.
 [Configurare il rapporto screening dei file](configure-file-screen-audit.md)
 
-3. Valutare quali sono i tipi di file archiviati candidati per le regole di screening. È possibile utilizzare i rapporti nel nodo **Gestione rapporti di archiviazione** per fornire i dati. (Ad esempio, eseguire un report file in base a gruppo di file o un report file di grandi dimensioni su richiesta per identificare i file che occupano grandi quantità di spazio su disco). [Generare rapporti su richiesta](generate-reports-on-demand.md) 
+3. Valutare quali sono i tipi di file archiviati candidati per le regole di screening. È possibile utilizzare i rapporti nel nodo **Gestione rapporti di archiviazione** per fornire i dati. Ad esempio, eseguire un rapporto File in base a gruppo di file o un rapporto File di grandi dimensioni su richiesta per identificare i file che occupano grandi quantità di spazio su disco. [Generare rapporti su richiesta](generate-reports-on-demand.md) 
 
 4. Esaminare i gruppi di file preconfigurati oppure creare un nuovo gruppo di file per applicare un criterio di screening specifico all'interno dell'organizzazione. [Definire gruppi di file per lo screening](define-file-groups-for-screening.md)  
 
-5. Esaminare le proprietà dei modelli di screening dei file disponibili. In **Gestione screening dei file**fare clic sul nodo **modelli di schermata file** . [Modificare le proprietà del modello di schermata del File](edit-file-screen-template-properties.md) 
+5. Esaminare le proprietà dei modelli di screening dei file disponibili. In **Gestione screening dei file**fare clic sul nodo **modelli di schermata file** . [Modificare le proprietà del modello della schermata File](edit-file-screen-template-properties.md) 
 <br />
  -Oppure-
  <br /> Creare un nuovo modello di screening dei file per applicare un criterio di archiviazione all'interno dell'organizzazione.  [Creare un modello di screening dei file](create-file-screen-template.md) 
@@ -44,4 +44,4 @@ Per applicare uno screening dei file a un volume o una cartella, utilizzare l'el
 
 
 > [!NOTE]
-> Per limitare l'archiviazione in un volume o una cartella, vedere [Checklist: applicare una quota a un volume o una cartella](checklist-apply-file-screen-to-volume-or-folder.md)
+> Per limitare l'archiviazione su un volume o una cartella, vedere [Elenco di controllo: applicare una quota a un volume o una cartella](checklist-apply-file-screen-to-volume-or-folder.md)

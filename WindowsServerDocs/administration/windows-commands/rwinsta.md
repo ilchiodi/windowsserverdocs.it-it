@@ -22,16 +22,17 @@ ms.locfileid: "71371369"
 ---
 # <a name="rwinsta"></a>rwinsta
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Consente di reimpostare (eliminare) una sessione in un server Host sessione Desktop remoto (host sessione Desktop remoto).
 
 > [!NOTE]
 > In Windows Server 2008 R2, Servizi terminal si chiama ora Servizi Desktop remoto. Per informazioni sulle novità della versione più recente, vedere Novità di [Servizi Desktop remoto in Windows server 2012](https://technet.microsoft.com/library/hh831527) nella libreria TechNet di Windows Server.
 
-## <a name="remarks"></a>Note
+## <a name="remarks"></a>Osservazioni
 Questo comando corrisponde al comando **Reimposta sessione** .
 
-#### <a name="additional-references"></a>Riferimenti aggiuntivi
-[reset session](reset-session.md)
-[sintassi della riga di comando chiave](command-line-syntax-key.md)@no__t-[3 &#40;Servizi Desktop remoto riferimento&#41; ai comandi di Servizi terminal](remote-desktop-services-terminal-services-command-reference.md)
+#### <a name="additional-references"></a>riferimenti aggiuntivi
+[reimposta](reset-session.md)
+della [chiave della sintassi della riga di comando](command-line-syntax-key.md)
+[ &#40;Servizi Desktop remoto&#41; riferimento ai comandi di Servizi terminal](remote-desktop-services-terminal-services-command-reference.md)

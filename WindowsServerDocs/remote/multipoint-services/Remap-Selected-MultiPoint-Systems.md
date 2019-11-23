@@ -24,7 +24,7 @@ ms.locfileid: "71389403"
 La modifica del mapping delle stazioni in Dashboard MultiPoint consente di associare tastiere e mouse ai monitor. Le stazioni utente locali sono sospese mentre è in corso la modifica del mapping del sistema MultiPoint Server.  
   
 > [!CAUTION]  
-> La modifica del mapping è una procedura usato solitamente per la risoluzione dei problemi. Le impostazioni della stazione, ad esempio il nome e le informazioni auto @ no__t-0logon, vengono cancellate durante il processo di modifica del mapping.  
+> La modifica del mapping è una procedura usato solitamente per la risoluzione dei problemi. Le impostazioni della stazione, ad esempio il nome e le informazioni di accesso automatico\-, vengono cancellate durante il processo di modifica del mapping.  
   
 #### <a name="to-remap-a-multipoint-services-system"></a>Per modificare il mapping di un sistema MultiPoint  
   

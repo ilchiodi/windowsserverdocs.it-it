@@ -22,11 +22,11 @@ Si applica a AD FS 2016 e versioni successive
 
 |Scenario|Scenario procedurale con esempi|Flusso/concessione OAuth 2,0|Tipo di client|
 |-----|-----|-----|-----|
-|App a singola pagina</br> | &bull;[Esempio di utilizzo di adal](../development/Single-Page-Application-with-AD-FS.md)|[Implicita](#implicit-grant-flow)|Public| 
-|App Web che esegue l'accesso degli utenti</br> | &bull;[Esempio di utilizzo di OWIN](../development/enabling-openid-connect-with-ad-fs.md)|[Codice di autorizzazione](#authorization-code-grant-flow)|Pubblico, riservato|  
-|App native chiama API Web</br>|&bull;[Esempio di utilizzo di MSAL](../development/msal/adfs-msal-native-app-web-api.md)</br>&bull;[Esempio di utilizzo di adal](../development/native-client-with-ad-fs.md)|[Codice di autorizzazione](#authorization-code-grant-flow)|Public|   
-|App Web chiama API Web</br>|&bull;[Esempio di utilizzo di MSAL](../development/msal/adfs-msal-web-app-web-api.md)</br>&bull;[Esempio di utilizzo di adal](../development/enabling-oauth-confidential-clients-with-ad-fs.md)|[Codice di autorizzazione](#authorization-code-grant-flow)|Riservate| 
-|API Web chiama un'altra API Web per conto di (OBO) dell'utente</br>|&bull;[Esempio di utilizzo di MSAL](../development/msal/adfs-msal-web-api-web-api.md)</br>&bull;[Esempio di utilizzo di adal](../development/ad-fs-on-behalf-of-authentication-in-windows-server.md)|[On-behalf-of](#on-behalf-of-flow)|L'app Web funziona come riservata| 
+|App a singola pagina</br> | Esempio di &bull; [con adal](../development/Single-Page-Application-with-AD-FS.md)|[Implicita](#implicit-grant-flow)|Public| 
+|App Web che esegue l'accesso degli utenti</br> | Esempio di &bull; [con OWIN](../development/enabling-openid-connect-with-ad-fs.md)|[Codice di autorizzazione](#authorization-code-grant-flow)|Pubblico, riservato|  
+|App native chiama API Web</br>|Esempio di &bull; [con MSAL](../development/msal/adfs-msal-native-app-web-api.md)</br>Esempio di &bull; [con adal](../development/native-client-with-ad-fs.md)|[Codice di autorizzazione](#authorization-code-grant-flow)|Public|   
+|App Web chiama API Web</br>|Esempio di &bull; [con MSAL](../development/msal/adfs-msal-web-app-web-api.md)</br>Esempio di &bull; [con adal](../development/enabling-oauth-confidential-clients-with-ad-fs.md)|[Codice di autorizzazione](#authorization-code-grant-flow)|Riservate| 
+|API Web chiama un'altra API Web per conto di (OBO) dell'utente</br>|Esempio di &bull; [con MSAL](../development/msal/adfs-msal-web-api-web-api.md)</br>Esempio di &bull; [con adal](../development/ad-fs-on-behalf-of-authentication-in-windows-server.md)|[On-behalf-of](#on-behalf-of-flow)|L'app Web funziona come riservata| 
 |App daemon chiama API Web||[Credenziali client](#client-credentials-grant-flow)|Riservate| 
 |L'app Web chiama l'API Web usando l'utente credenziali||[Credenziali password del proprietario della risorsa](#resource-owner-password-credentials-grant-flow-not-recommended)|Pubblico, riservato| 
 |API Web per chiamate app non in browser||[Codice dispositivo](#device-code-flow)|Pubblico, riservato| 
@@ -45,7 +45,7 @@ Il diagramma seguente illustra l'aspetto dell'intero flusso di accesso implicito
 
 ### <a name="request-id-token-and-access-token"></a>Token ID richiesta e token di accesso 
  
-Per firmare inizialmente l'utente nell'app, è possibile inviare una richiesta di autenticazione OpenID Connect e ottenere token ID e il token di accesso dall'endpoint AD FS.  
+Per firmare inizialmente l'utente nell'app, è possibile inviare una richiesta di autenticazione OpenID Connect e ottenere id_token e il token di accesso dall'endpoint AD FS.  
  
 ```
 // Line breaks for legibility only 
@@ -63,22 +63,22 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 |Parametro|Obbligatorio/facoltativo|Descrizione| 
 |-----|-----|-----|
 |client_id|necessarie|ID dell'applicazione (client) assegnato dall'AD FS all'app.| 
-|response_type|necessarie|Deve includere `id_token` per l'accesso OpenID Connect. Può inoltre includere response_type @ no__t-0. L'uso di token consente all'app di ricevere immediatamente un token di accesso dall'endpoint di autorizzazione senza dover effettuare una seconda richiesta all'endpoint del token.| 
-|redirect_uri|necessarie|Redirect_uri dell'app, in cui le risposte di autenticazione possono essere inviate e ricevute dall'app. Deve corrispondere esattamente a uno dei Reindirizzamento configurati in AD FS.| 
-|nonce|necessarie|Valore incluso nella richiesta, generato dall'app, che verrà incluso nel token ID risultante come attestazione. L'app può quindi verificare questo valore per attenuare gli attacchi di riproduzione del token. Il valore è in genere una stringa casuale univoca che può essere usata per identificare l'origine della richiesta. Obbligatorio solo quando viene richiesto un token ID.|
-|scope|facoltative|Elenco di ambiti separati da spazi. Per OpenID Connect, deve includere l'ambito `openid`.|
-|resource|facoltative|URL dell'API Web.</br>Nota: se si usa la libreria client MSAL, il parametro della risorsa non viene inviato. L'URL della risorsa viene invece inviato come parte del parametro Scope:`scope = [resource url]//[scope values e.g., openid]`</br>Se la risorsa non viene passata qui o nell'ambito di ADFS utilizzerà una risorsa predefinita urn: Microsoft: UserInfo. non è possibile personalizzare i criteri delle risorse UserInfo, ad esempio l'autenticazione a più fattori, il rilascio o i criteri di autorizzazione.| 
-|response_mode|facoltative| Specifica il metodo da usare per inviare di nuovo il token risultante all'app. Il valore predefinito è `fragment`.| 
-|state|facoltative|Valore incluso nella richiesta che verrà restituito anche nella risposta del token. Può trattarsi di una stringa di qualsiasi contenuto desiderato. Per evitare attacchi di richiesta intersito falsa, viene in genere usato un valore univoco generato in modo casuale. Lo stato viene anche usato per codificare le informazioni sullo stato dell'utente nell'app prima che venga eseguita la richiesta di autenticazione, ad esempio la pagina o la vista in cui si trovava.| 
-|prompt|facoltative|Indica il tipo di interazione dell'utente richiesto. Gli unici valori validi al momento sono login e None.</br>- `prompt=login` impone all'utente di immettere le credenziali per la richiesta, negando l'accesso Single Sign-on. </br>- `prompt=none` è l'opposto: garantisce che all'utente non venga visualizzata alcuna richiesta interattiva. Se la richiesta non può essere completata automaticamente tramite Single-Sign-on, AD FS restituirà un errore interaction_required.| 
-|login_hint|facoltative|Può essere usato per pre-compilare il campo nome utente/indirizzo di posta elettronica della pagina di accesso per l'utente, se si conosce il proprio nome utente prima del tempo. Spesso le app utilizzeranno questo parametro durante la riautenticazione, avendo già estratto il nome utente da un accesso precedente usando l' `upn` attestazione `id_token`di.| 
-|domain_hint|facoltative|Se incluso, ignorerà il processo di individuazione basato su dominio utilizzato dall'utente nella pagina di accesso, ottenendo un'esperienza utente leggermente più semplificata.| 
+|response_type|necessarie|Deve includere `id_token` per l'accesso OpenID Connect. Può includere anche il response_type `token`. L'uso di token consente all'app di ricevere immediatamente un token di accesso dall'endpoint di autorizzazione senza dover effettuare una seconda richiesta all'endpoint del token.| 
+|redirect_uri|necessarie|Il redirect_uri dell'app, in cui le risposte di autenticazione possono essere inviate e ricevute dall'app. Deve corrispondere esattamente a uno dei redirect_uris configurati in AD FS.| 
+|nonce|necessarie|Valore incluso nella richiesta, generato dall'app, che verrà incluso nell'id_token risultante come attestazione. L'app può quindi verificare questo valore per attenuare gli attacchi di riproduzione del token. Il valore è in genere una stringa casuale univoca che può essere usata per identificare l'origine della richiesta. Obbligatorio solo quando viene richiesto un id_token.|
+|ambito|facoltativo|Elenco di ambiti separati da spazi. Per OpenID Connect, deve includere l'ambito `openid`.|
+|risorse|facoltativo|URL dell'API Web.</br>Nota: se si usa la libreria client MSAL, il parametro della risorsa non viene inviato. L'URL della risorsa viene invece inviato come parte del parametro di ambito: `scope = [resource url]//[scope values e.g., openid]`</br>Se la risorsa non viene passata qui o nell'ambito di ADFS utilizzerà una risorsa predefinita urn: Microsoft: UserInfo. non è possibile personalizzare i criteri delle risorse UserInfo, ad esempio l'autenticazione a più fattori, il rilascio o i criteri di autorizzazione.| 
+|response_mode|facoltativo| Specifica il metodo da usare per inviare di nuovo il token risultante all'app. Il valore predefinito è `fragment`.| 
+|state|facoltativo|Valore incluso nella richiesta che verrà restituito anche nella risposta del token. Può trattarsi di una stringa di qualsiasi contenuto desiderato. Per evitare attacchi di richiesta intersito falsa, viene in genere usato un valore univoco generato in modo casuale. Lo stato viene anche usato per codificare le informazioni sullo stato dell'utente nell'app prima che venga eseguita la richiesta di autenticazione, ad esempio la pagina o la vista in cui si trovava.| 
+|prompt|facoltativo|Indica il tipo di interazione dell'utente richiesto. Gli unici valori validi al momento sono login e None.</br>- `prompt=login` forza l'utente a immettere le proprie credenziali per la richiesta, negando l'accesso Single Sign-on. </br>- `prompt=none` è l'opposto, assicurerà che all'utente non venga visualizzata alcuna richiesta interattiva. Se la richiesta non può essere completata automaticamente tramite Single-Sign-on, AD FS restituirà un errore interaction_required.| 
+|login_hint|facoltativo|Può essere usato per pre-compilare il campo nome utente/indirizzo di posta elettronica della pagina di accesso per l'utente, se si conosce il proprio nome utente prima del tempo. Spesso le app utilizzeranno questo parametro durante la riautenticazione, avendo già estratto il nome utente da un accesso precedente usando l'attestazione   `upn`da `id_token`.| 
+|domain_hint|facoltativo|Se incluso, ignorerà il processo di individuazione basato su dominio utilizzato dall'utente nella pagina di accesso, ottenendo un'esperienza utente leggermente più semplificata.| 
 
-A questo punto, all'utente verrà richiesto di immettere le credenziali e completare l'autenticazione. Una volta che l'utente esegue l'autenticazione, l'endpoint AD FS autorizzazione restituirà una risposta all'app in corrispondenza del redirect_uri indicato, usando il metodo specificato nel parametro response_mode.  
+A questo punto, all'utente verrà richiesto di immettere le credenziali e completare l'autenticazione. Una volta che l'utente esegue l'autenticazione, l'endpoint di autorizzazione AD FS restituirà una risposta all'app in corrispondenza del redirect_uri indicato, usando il metodo specificato nel parametro response_mode.  
  
 ### <a name="successful-response"></a>Risposta riuscita 
  
-Una risposta con esito positivo con `response_mode=fragment and response_type=id_token+token` avrà un aspetto simile al seguente  
+Una risposta con esito positivo utilizzando `response_mode=fragment and response_type=id_token+token` ha un aspetto simile al seguente  
  
 ```
 // Line breaks for legibility only 
@@ -95,19 +95,19 @@ access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZEstZnl0aEV...
 
 |Parametro|Descrizione| 
 |-----|-----|
-|access_token|Incluso se response_type include @ no__t-0.|
-|token_type|Incluso se response_type include @ no__t-0. Sarà sempre Bearer.| 
-|expires_in| Incluso se response_type include @ no__t-0. Indica il numero di secondi di validità del token, per scopi di memorizzazione nella cache.| 
-|scope| Indica gli ambiti per i quali access_token sarà valido.|  
-|token ID|Incluso se response_type include @ no__t-0. Un token JSON Web firmato (JWT). L'app può decodificare i segmenti di questo token per richiedere informazioni sull'utente che ha eseguito l'accesso. L'app può memorizzare nella cache i valori e visualizzarli, ma non deve basarsi su di essi per i limiti di autorizzazione o di sicurezza.| 
+|access_token|Incluso se response_type include `token`.|
+|token_type|Incluso se response_type include `token`. Sarà sempre Bearer.| 
+|expires_in| Incluso se response_type include `token`. Indica il numero di secondi di validità del token, per scopi di memorizzazione nella cache.| 
+|ambito| Indica gli ambiti per i quali la access_token sarà valida.|  
+|id_token|Incluso se response_type include `id_token`. Un token JSON Web firmato (JWT). L'app può decodificare i segmenti di questo token per richiedere informazioni sull'utente che ha eseguito l'accesso. L'app può memorizzare nella cache i valori e visualizzarli, ma non deve basarsi su di essi per i limiti di autorizzazione o di sicurezza.| 
 |state|Se nella richiesta è incluso un parametro di stato, lo stesso valore dovrebbe essere visualizzato nella risposta. L'app deve verificare che i valori dello stato nella richiesta e nella risposta siano identici.|
 
 ### <a name="refresh-tokens"></a>Token di aggiornamento 
-La concessione implicita non fornisce token di aggiornamento. Sia `id_tokens`che scadranno dopo un breve periodo di tempo, quindi l'app deve essere preparata ad aggiornare periodicamente questi token. `access_tokens` Per aggiornare entrambi i tipi di token, è possibile eseguire la stessa richiesta iframe nascosta precedente usando il `prompt=none` parametro per controllare il comportamento della piattaforma di identità. Se si desidera ricevere un `new id_token`, assicurarsi di utilizzare. `response_type=id_token` 
+La concessione implicita non fornisce token di aggiornamento. Sia `id_tokens` che `access_tokens` scadranno dopo un breve periodo di tempo, quindi l'app deve essere preparata ad aggiornare periodicamente questi token. Per aggiornare entrambi i tipi di token, è possibile eseguire la stessa richiesta iframe nascosta precedente usando il parametro `prompt=none` per controllare il comportamento della piattaforma di identità. Se si vuole ricevere una `new id_token`, assicurarsi di usare `response_type=id_token`. 
 
 ## <a name="authorization-code-grant-flow"></a>Flusso di concessione del codice di autorizzazione 
  
-La concessione del codice di autorizzazione OAuth 2,0 può essere usata nelle app Web per ottenere l'accesso alle risorse protette, ad esempio le API Web. Il flusso del codice di autorizzazione OAuth 2,0 è descritto nella [sezione 4,1 della specifica oauth 2,0](https://tools.ietf.org/html/rfc6749). Viene usato per eseguire l'autenticazione e l'autorizzazione nella maggior parte dei tipi di app, tra cui app Web e app installate in modo nativo. Il flusso consente alle app di acquisire in modo sicuro i token che possono essere usate per accedere alle risorse che considerano attendibile AD FS.  
+La concessione del codice di autorizzazione OAuth 2,0 può essere usata nelle app Web per ottenere l'accesso alle risorse protette, ad esempio le API Web. Il flusso del codice di autorizzazione OAuth 2,0 è descritto nella [sezione 4,1 della specifica oauth 2,0](https://tools.ietf.org/html/rfc6749). Viene usato per eseguire l'autenticazione e l'autorizzazione nella maggior parte dei tipi di app, tra cui app Web e app installate in modo nativo. Il flusso consente alle app di acquisire in modo sicuro access_tokens che possono essere usate per accedere alle risorse attendibili AD FS.  
  
 ### <a name="protocol-diagram"></a>Diagramma di protocollo 
  
@@ -136,18 +136,18 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 |-----|-----|-----| 
 |client_id|necessarie|ID dell'applicazione (client) assegnato dall'AD FS all'app.|  
 |response_type|necessarie| Deve includere il codice per il flusso del codice di autorizzazione.| 
-|redirect_uri|necessarie|Dell' `redirect_uri` app, in cui le risposte di autenticazione possono essere inviate e ricevute dall'app. Deve corrispondere esattamente a uno dei Reindirizzamento registrati nella AD FS per il client.|  
-|resource|facoltative|URL dell'API Web.</br>Nota: se si usa la libreria client MSAL, il parametro della risorsa non viene inviato. L'URL della risorsa viene invece inviato come parte del parametro Scope:`scope = [resource url]//[scope values e.g., openid]`</br>Se la risorsa non viene passata qui o nell'ambito di ADFS utilizzerà una risorsa predefinita urn: Microsoft: UserInfo. non è possibile personalizzare i criteri delle risorse UserInfo, ad esempio l'autenticazione a più fattori, il rilascio o i criteri di autorizzazione.| 
-|scope|facoltative|Elenco di ambiti separati da spazi.|
-|response_mode|facoltative|Specifica il metodo da usare per inviare di nuovo il token risultante all'app. Può essere uno dei seguenti: </br>-query </br>-frammento </br>- form_post</br>`query` fornisce il codice come parametro della stringa di query nell'URI di reindirizzamento. Se si sta richiedendo il codice, è possibile usare query, Fragment o form_post.  `form_post` @ no__t-1executes un POST contenente il codice per l'URI di reindirizzamento.|
-|state|facoltative|Valore incluso nella richiesta che verrà restituito anche nella risposta del token. Può trattarsi di una stringa di qualsiasi contenuto desiderato. Per evitare attacchi di richiesta intersito falsa, viene in genere usato un valore univoco generato in modo casuale. Il valore può anche codificare le informazioni sullo stato dell'utente nell'app prima che venga eseguita la richiesta di autenticazione, ad esempio la pagina o la vista in cui si trovava.|
-|prompt|facoltative|Indica il tipo di interazione dell'utente richiesto. Gli unici valori validi al momento sono login e None.</br>- `prompt=login` impone all'utente di immettere le credenziali per la richiesta, negando l'accesso Single Sign-on. </br>- `prompt=none` è l'opposto: garantisce che all'utente non venga visualizzata alcuna richiesta interattiva. Se la richiesta non può essere completata automaticamente tramite Single-Sign-on, AD FS restituirà un errore interaction_required.|
-|login_hint|facoltative|Può essere usato per precompilare il campo nome utente/indirizzo di posta elettronica della pagina di accesso per l'utente, se si conosce in anticipo il nome utente. Spesso le app utilizzeranno questo parametro durante la riautenticazione, avendo già estratto il nome utente da un accesso precedente usando l' `upn`attestazione `id_token`di.|
-|domain_hint|facoltative|Se incluso, ignorerà il processo di individuazione basato su dominio utilizzato dall'utente nella pagina di accesso, ottenendo un'esperienza utente leggermente più semplificata.|
-|code_challenge_method|facoltative|Metodo utilizzato per codificare code_verifier per il parametro code_challenge. Il valore può essere uno dei seguenti: </br>-normale </br>- S256 </br>Se è escluso, si presuppone che code_challenge sia testo normale se @ no__t-0 @ no__t-1is è incluso. AD FS supporta sia Plain che S256. Per ulteriori informazioni, vedere [PKCE RFC](https://tools.ietf.org/html/rfc7636).|
-|code_challenge|facoltative| Usato per proteggere il codice di autorizzazione concesso tramite la chiave di prova per lo scambio di codice (PKCE) da un client nativo. Obbligatorio se `code_challenge_method` è incluso. Per ulteriori informazioni, vedere [PKCE RFC](https://tools.ietf.org/html/rfc7636)|
+|redirect_uri|necessarie|Il `redirect_uri` dell'app, in cui le risposte di autenticazione possono essere inviate e ricevute dall'app. Deve corrispondere esattamente a uno dei redirect_uris registrati nell'AD FS per il client.|  
+|risorse|facoltativo|URL dell'API Web.</br>Nota: se si usa la libreria client MSAL, il parametro della risorsa non viene inviato. L'URL della risorsa viene invece inviato come parte del parametro di ambito: `scope = [resource url]//[scope values e.g., openid]`</br>Se la risorsa non viene passata qui o nell'ambito di ADFS utilizzerà una risorsa predefinita urn: Microsoft: UserInfo. non è possibile personalizzare i criteri delle risorse UserInfo, ad esempio l'autenticazione a più fattori, il rilascio o i criteri di autorizzazione.| 
+|ambito|facoltativo|Elenco di ambiti separati da spazi.|
+|response_mode|facoltativo|Specifica il metodo da usare per inviare di nuovo il token risultante all'app. Può essere uno dei seguenti: </br>-query </br>-frammento </br>-form_post</br>`query` fornisce il codice come parametro della stringa di query nell'URI di reindirizzamento. Se si sta richiedendo il codice, è possibile usare query, frammenti o form_post. `form_post` esegue un POST contenente il codice nell'URI di reindirizzamento.|
+|state|facoltativo|Valore incluso nella richiesta che verrà restituito anche nella risposta del token. Può trattarsi di una stringa di qualsiasi contenuto desiderato. Per evitare attacchi di richiesta intersito falsa, viene in genere usato un valore univoco generato in modo casuale. Il valore può anche codificare le informazioni sullo stato dell'utente nell'app prima che venga eseguita la richiesta di autenticazione, ad esempio la pagina o la vista in cui si trovava.|
+|prompt|facoltativo|Indica il tipo di interazione dell'utente richiesto. Gli unici valori validi al momento sono login e None.</br>- `prompt=login` forza l'utente a immettere le proprie credenziali per la richiesta, negando l'accesso Single Sign-on. </br>- `prompt=none` è l'opposto, assicurerà che all'utente non venga visualizzata alcuna richiesta interattiva. Se la richiesta non può essere completata automaticamente tramite Single-Sign-on, AD FS restituirà un errore interaction_required.|
+|login_hint|facoltativo|Può essere usato per precompilare il campo nome utente/indirizzo di posta elettronica della pagina di accesso per l'utente, se si conosce in anticipo il nome utente. Spesso le app utilizzeranno questo parametro durante la riautenticazione, avendo già estratto il nome utente da un accesso precedente usando l'attestazione `upn`da `id_token`.|
+|domain_hint|facoltativo|Se incluso, ignorerà il processo di individuazione basato su dominio utilizzato dall'utente nella pagina di accesso, ottenendo un'esperienza utente leggermente più semplificata.|
+|code_challenge_method|facoltativo|Metodo utilizzato per codificare il code_verifier per il parametro di code_challenge. Il valore può essere uno dei seguenti: </br>-normale </br>- S256 </br>Se è escluso, si presuppone che code_challenge sia testo normale se è incluso `code_challenge` . AD FS supporta sia Plain che S256. Per ulteriori informazioni, vedere [PKCE RFC](https://tools.ietf.org/html/rfc7636).|
+|code_challenge|facoltativo| Usato per proteggere il codice di autorizzazione concesso tramite la chiave di prova per lo scambio di codice (PKCE) da un client nativo. Obbligatorio se è incluso `code_challenge_method` . Per ulteriori informazioni, vedere [PKCE RFC](https://tools.ietf.org/html/rfc7636)|
 
-A questo punto, all'utente verrà richiesto di immettere le credenziali e completare l'autenticazione. Una volta che l'utente esegue l'autenticazione, il ad FS restituirà una risposta all'app in `redirect_uri`corrispondenza dell'oggetto indicato, usando il `response_mode`metodo specificato nel parametro.  
+A questo punto, all'utente verrà richiesto di immettere le credenziali e completare l'autenticazione. Una volta che l'utente esegue l'autenticazione, il AD FS restituirà una risposta all'app in corrispondenza del `redirect_uri`indicato, usando il metodo specificato nel parametro `response_mode` .  
  
 ### <a name="successful-response"></a>Risposta riuscita 
  
@@ -162,12 +162,12 @@ code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...
 
 |Parametro|Descrizione|
 |-----|-----|
-|code|Oggetto `authorization_code` richiesto dall'app. L'app può usare il codice di autorizzazione per richiedere un token di accesso per la risorsa di destinazione. I codici hanno sono di breve durata, in genere scadono dopo circa 10 minuti.|
-|state|Se nella `state` richiesta è incluso un parametro, lo stesso valore dovrebbe essere visualizzato nella risposta. L'app deve verificare che i valori dello stato nella richiesta e nella risposta siano identici.|
+|code|`authorization_code` richiesta dall'app. L'app può usare il codice di autorizzazione per richiedere un token di accesso per la risorsa di destinazione. Authorization_codes sono di breve durata, in genere scadono dopo circa 10 minuti.|
+|state|Se nella richiesta è incluso un parametro `state`, lo stesso valore dovrebbe essere visualizzato nella risposta. L'app deve verificare che i valori dello stato nella richiesta e nella risposta siano identici.|
 
 ### <a name="request-an-access-token"></a>Richiedere un token di accesso 
  
-Ora che è stato acquisito un `authorization_code` e a cui è stata concessa l'autorizzazione da parte dell'utente, è possibile `access_token`riscattare il codice per un alla risorsa desiderata. A tale scopo, inviare una richiesta POST all'endpoint/token:  
+Ora che è stata acquisita una `authorization_code` a cui è stata concessa l'autorizzazione da parte dell'utente, è possibile riscattare il codice per un `access_token` alla risorsa desiderata. A tale scopo, inviare una richiesta POST all'endpoint/token:  
  
 ```
 // Line breaks for legibility only 
@@ -187,10 +187,10 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 |-----|-----|-----| 
 |client_id|necessarie|ID dell'applicazione (client) assegnato dall'AD FS all'app.| 
 |grant_type|necessarie|Deve essere `authorization_code` per il flusso del codice di autorizzazione.| 
-|code|necessarie|Oggetto `authorization_code` acquisito nella prima parte del flusso.| 
-|redirect_uri|necessarie|Stesso `redirect_uri` valore utilizzato per `authorization_code`acquisire.| 
-|client_secret|obbligatorio per le app Web|Il segreto dell'applicazione creato durante la registrazione dell'app in AD FS. Non è consigliabile usare il segreto dell'applicazione in un'app nativa perché i segreti client non può essere archiviato in modo affidabile nei dispositivi. È necessario per le app Web e le API Web, che hanno la possibilità di archiviare il client_secret in modo sicuro sul lato server. Il segreto client deve essere codificato in URL prima dell'invio. Queste app possono anche usare un'autenticazione basata su chiave firmando un JWT e aggiungendolo come parametro client_assertion.| 
-|code_verifier|facoltative|Lo stesso `code_verifier` usato per ottenere autorizzazione. Obbligatorio se PKCE è stato usato nella richiesta di concessione del codice di autorizzazione. Per ulteriori informazioni, vedere [PKCE RFC](https://tools.ietf.org/html/rfc7636).</br>Nota: si applica a AD FS 2019 e versioni successive| 
+|code|necessarie|`authorization_code` acquisita nella prima parte del flusso.| 
+|redirect_uri|necessarie|Lo stesso valore `redirect_uri` usato per acquisire l'`authorization_code`.| 
+|client_secret|obbligatorio per le app Web|Il segreto dell'applicazione creato durante la registrazione dell'app in AD FS. Non è consigliabile usare il segreto dell'applicazione in un'app nativa perché client_secrets non può essere archiviato in modo affidabile nei dispositivi. È necessario per le app Web e le API Web, che hanno la possibilità di archiviare il client_secret in modo sicuro sul lato server. Il segreto client deve essere codificato in URL prima dell'invio. Queste app possono anche usare un'autenticazione basata su chiave firmando un JWT e aggiungendolo come parametro client_assertion.| 
+|code_verifier|facoltativo|Lo stesso `code_verifier` usato per ottenere l'authorization_code. Obbligatorio se PKCE è stato usato nella richiesta di concessione del codice di autorizzazione. Per ulteriori informazioni, vedere [PKCE RFC](https://tools.ietf.org/html/rfc7636).</br>Nota: si applica a AD FS 2019 e versioni successive| 
 
 ### <a name="successful-response"></a>Risposta riuscita 
  
@@ -213,9 +213,9 @@ Una risposta di token corretta avrà un aspetto simile al seguente:
 |access_token|Token di accesso richiesto. L'app può usare questo token per l'autenticazione alla risorsa protetta (API Web).| 
 |token_type|Indica il valore del tipo di token. L'unico tipo supportato da AD FS è Bearer.
 |expires_in|Tempo di validità del token di accesso (in secondi).
-|token di aggiornamento|Un token di aggiornamento OAuth 2,0. L'app può usare questo token per acquisire token di accesso aggiuntivi dopo la scadenza del token di accesso corrente. Token sono di lunga durata e possono essere usati per mantenere l'accesso alle risorse per lunghi periodi di tempo.| 
+|token di aggiornamento|Un token di aggiornamento OAuth 2,0. L'app può usare questo token per acquisire token di accesso aggiuntivi dopo la scadenza del token di accesso corrente. Refresh_tokens sono di lunga durata e possono essere usati per mantenere l'accesso alle risorse per lunghi periodi di tempo.| 
 |refresh_token_expires_in|Tempo di validità del token di aggiornamento (in secondi).| 
-|token ID|Un token Web JSON (JWT). L'app può decodificare i segmenti di questo token per richiedere informazioni sull'utente che ha eseguito l'accesso. L'app può memorizzare nella cache i valori e visualizzarli, ma non deve basarsi su di essi per i limiti di autorizzazione o di sicurezza.|
+|id_token|Un token Web JSON (JWT). L'app può decodificare i segmenti di questo token per richiedere informazioni sull'utente che ha eseguito l'accesso. L'app può memorizzare nella cache i valori e visualizzarli, ma non deve basarsi su di essi per i limiti di autorizzazione o di sicurezza.|
 
 ### <a name="use-the-access-token"></a>Usare il token di accesso 
  
@@ -227,11 +227,11 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZn
 
 ### <a name="refresh-the-access-token"></a>Aggiornare il token di accesso 
  
-I token sono di breve durata ed è necessario aggiornarli dopo la scadenza per continuare ad accedere alle risorse. È possibile eseguire questa operazione inviando un'altra richiesta POST a @ no__t-0 @ no__t-1endpoint, questa volta specificando il refresh_token anziché il codice. I token di aggiornamento sono validi per tutte le autorizzazioni per cui il client ha già ricevuto il token di accesso. 
+Access_tokens sono di breve durata ed è necessario aggiornarli dopo la scadenza per continuare ad accedere alle risorse. È possibile eseguire questa operazione inviando un'altra richiesta POST all'endpoint `/token` , questa volta specificando il refresh_token anziché il codice. I token di aggiornamento sono validi per tutte le autorizzazioni per cui il client ha già ricevuto il token di accesso. 
  
 I token di aggiornamento non hanno durata specificata. In genere, la durata dei token di aggiornamento è relativamente lunga. In alcuni casi, tuttavia, i token di aggiornamento scadono, vengono revocati o non dispongono di privilegi sufficienti per l'azione desiderata. L'applicazione deve prevedere e gestire correttamente gli errori restituiti dall'endpoint di rilascio dei token.  
  
-Anche se i token di aggiornamento non vengono revocati quando vengono usati per acquisire nuovi token di accesso, è prevedibile rimuovere il vecchio token di aggiornamento. La specifica OAuth 2,0 indica: "Il server di autorizzazione può emettere un nuovo token di aggiornamento, nel qual caso il client deve rimuovere il token di aggiornamento precedente e sostituirlo con il nuovo token di aggiornamento. Il server di autorizzazione può revocare il token di aggiornamento precedente dopo aver emesso un nuovo token di aggiornamento per il client ". 
+Anche se i token di aggiornamento non vengono revocati quando vengono usati per acquisire nuovi token di accesso, è prevedibile rimuovere il vecchio token di aggiornamento. La specifica OAuth 2,0 indica: "il server di autorizzazione può emettere un nuovo token di aggiornamento, nel qual caso il client deve rimuovere il token di aggiornamento precedente e sostituirlo con il nuovo token di aggiornamento. Il server di autorizzazione può revocare il token di aggiornamento precedente dopo aver emesso un nuovo token di aggiornamento per il client ". 
  
 ```
 // Line breaks for legibility only 
@@ -251,10 +251,10 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 |-----|-----|-----|
 |client_id|necessarie|ID dell'applicazione (client) assegnato dall'AD FS all'app.| 
 |grant_type|necessarie|Deve essere `refresh_token` per questa parte del flusso del codice di autorizzazione.| 
-|resource|facoltative|URL dell'API Web.</br>Nota: se si usa la libreria client MSAL, il parametro della risorsa non viene inviato. L'URL della risorsa viene invece inviato come parte del parametro Scope:`scope = [resource url]//[scope values e.g., openid]`</br>Se la risorsa non viene passata qui o nell'ambito di ADFS utilizzerà una risorsa predefinita urn: Microsoft: UserInfo. non è possibile personalizzare i criteri delle risorse UserInfo, ad esempio l'autenticazione a più fattori, il rilascio o i criteri di autorizzazione.|
-|scope|facoltative|Elenco di ambiti separati da spazi.| 
-|token di aggiornamento|necessarie|Refresh_token acquisito nella seconda parte del flusso.| 
-|client_secret|obbligatorio per le app Web| Il segreto dell'applicazione creato nel portale di registrazione delle app per l'app. Non deve essere usato in un'app nativa, perché i segreti client non può essere archiviato in modo affidabile nei dispositivi. È necessario per le app Web e le API Web, che hanno la possibilità di archiviare il client_secret in modo sicuro sul lato server. Queste app possono anche usare un'autenticazione basata su chiave firmando un JWT e aggiungendolo come parametro client_assertion.|
+|risorse|facoltativo|URL dell'API Web.</br>Nota: se si usa la libreria client MSAL, il parametro della risorsa non viene inviato. L'URL della risorsa viene invece inviato come parte del parametro di ambito: `scope = [resource url]//[scope values e.g., openid]`</br>Se la risorsa non viene passata qui o nell'ambito di ADFS utilizzerà una risorsa predefinita urn: Microsoft: UserInfo. non è possibile personalizzare i criteri delle risorse UserInfo, ad esempio l'autenticazione a più fattori, il rilascio o i criteri di autorizzazione.|
+|ambito|facoltativo|Elenco di ambiti separati da spazi.| 
+|token di aggiornamento|necessarie|Refresh_token acquisita nella seconda parte del flusso.| 
+|client_secret|obbligatorio per le app Web| Il segreto dell'applicazione creato nel portale di registrazione delle app per l'app. Non deve essere usato in un'app nativa, perché client_secrets non può essere archiviato in modo affidabile nei dispositivi. È necessario per le app Web e le API Web, che hanno la possibilità di archiviare il client_secret in modo sicuro sul lato server. Queste app possono anche usare un'autenticazione basata su chiave firmando un JWT e aggiungendolo come parametro client_assertion.|
 
 ### <a name="successful-response"></a>Risposta riuscita 
 Una risposta di token corretta avrà un aspetto simile al seguente: 
@@ -274,25 +274,25 @@ Una risposta di token corretta avrà un aspetto simile al seguente:
 |access_token|Token di accesso richiesto. L'app può usare questo token per l'autenticazione alla risorsa protetta, ad esempio un'API Web.| 
 |token_type|Indica il valore del tipo di token. L'unico tipo supportato da AD FS è Bearer|
 |expires_in|Tempo di validità del token di accesso (in secondi).|
-|scope|Ambiti per i quali access_token è valido.| 
-|token di aggiornamento|Un token di aggiornamento OAuth 2,0. L'app può usare questo token per acquisire token di accesso aggiuntivi dopo la scadenza del token di accesso corrente. Token sono di lunga durata e possono essere usati per mantenere l'accesso alle risorse per lunghi periodi di tempo.| 
+|ambito|Ambiti per i quali il access_token è valido.| 
+|token di aggiornamento|Un token di aggiornamento OAuth 2,0. L'app può usare questo token per acquisire token di accesso aggiuntivi dopo la scadenza del token di accesso corrente. Refresh_tokens sono di lunga durata e possono essere usati per mantenere l'accesso alle risorse per lunghi periodi di tempo.| 
 |refresh_token_expires_in|Tempo di validità del token di aggiornamento (in secondi).| 
-|token ID|Un token Web JSON (JWT). L'app può decodificare i segmenti di questo token per richiedere informazioni sull'utente che ha eseguito l'accesso. L'app può memorizzare nella cache i valori e visualizzarli, ma non deve basarsi su di essi per i limiti di autorizzazione o di sicurezza.|
+|id_token|Un token Web JSON (JWT). L'app può decodificare i segmenti di questo token per richiedere informazioni sull'utente che ha eseguito l'accesso. L'app può memorizzare nella cache i valori e visualizzarli, ma non deve basarsi su di essi per i limiti di autorizzazione o di sicurezza.|
 
 ## <a name="on-behalf-of-flow"></a>Flusso per conto di 
  
 Il flusso di servizio (OBO) di OAuth 2,0 serve il caso d'uso in cui un'applicazione richiama un servizio o un'API Web, che a sua volta deve chiamare un'altra API del servizio/Web. L'idea è propagare l'identità e le autorizzazioni dell'utente delegato tramite la catena di richieste. Affinché il servizio di livello intermedio effettui richieste autenticate al servizio downstream, deve proteggere un token di accesso dal AD FS per conto dell'utente.  
  
 ### <a name="protocol-diagram"></a>Diagramma di protocollo 
-Si supponga che l'utente sia stato autenticato in un'applicazione usando il flusso di concessione del codice di autorizzazione OAuth 2,0 descritto in precedenza. A questo punto, l'applicazione ha un token di accesso per l'API A (token A) con le attestazioni dell'utente e il consenso per accedere all'API Web di livello intermedio (API A). Verificare che il client richieda l'ambito user_impersonation nel token. A questo punto, l'API a deve effettuare una richiesta autenticata all'API Web downstream (API B). 
+Si supponga che l'utente sia stato autenticato in un'applicazione usando il flusso di concessione del codice di autorizzazione OAuth 2,0 descritto in precedenza. A questo punto, l'applicazione ha un token di accesso per l'API A (token A) con le attestazioni dell'utente e il consenso per accedere all'API Web di livello intermedio (API A). Verificare che il client richieda user_impersonation ambito nel token. A questo punto, l'API a deve effettuare una richiesta autenticata all'API Web downstream (API B). 
 
 I passaggi che seguono costituiscono il flusso OBO e vengono spiegati con la guida del diagramma seguente. 
 
 ![Flusso per conto di](media/adfs-scenarios-for-developers/obo.png)
 
   1. L'applicazione client effettua una richiesta all'API A con il token A.  
-  Nota: Durante la configurazione del flusso OBO in ad FS assicurarsi `user_impersonation` che l'ambito sia selezionato e `user_impersonation` che il client esegua l'ambito della richiesta nella richiesta. 
-  2. L'API A esegue l'autenticazione all'endpoint di rilascio del token AD FS e richiede un token per accedere all'API B. Nota: Durante la configurazione di questo flusso in AD FS assicurarsi che l'API A venga registrata anche come applicazione server con ClientID con lo stesso valore dell'ID risorsa nell'API A. Per altri dettagli, vedere l'articolo relativo all'aggiunta di un collegamento per conto dell'esempio.  
+  Nota: durante la configurazione del flusso di OBO in AD FS assicurarsi che l'ambito `user_impersonation` sia selezionato e che il client esegua `user_impersonation` ambito nella richiesta. 
+  2. L'API A esegue l'autenticazione all'endpoint di rilascio del token AD FS e richiede un token per accedere all'API B. Nota: durante la configurazione di questo flusso in AD FS assicurarsi che l'API A sia registrata anche come applicazione server con ClientID con lo stesso valore dell'ID risorsa nell'API A. Per altri dettagli, vedere l'articolo relativo all'aggiunta di un collegamento per conto dell'esempio.  
   3. L'endpoint di rilascio dei token AD FS convalida le credenziali dell'API A con il token A e rilascia il token di accesso per l'API B (token B). 
   4. Il token B è impostato nell'intestazione dell'autorizzazione della richiesta all'API B. 
   5. I dati della risorsa protetta vengono restituiti dall'API B. 
@@ -302,7 +302,7 @@ I passaggi che seguono costituiscono il flusso OBO e vengono spiegati con la gui
 Per richiedere un token di accesso, effettuare un POST HTTP all'endpoint del token AD FS con i parametri seguenti.  
 
 
-### <a name="first-case-access-token-request-with-a-shared-secret"></a>Primo caso: Richiesta di token di accesso con un segreto condiviso 
+### <a name="first-case-access-token-request-with-a-shared-secret"></a>Primo caso: richiesta di token di accesso con un segreto condiviso 
  
 Quando si usa un segreto condiviso, una richiesta di token di accesso da servizio a servizio contiene i parametri seguenti: 
 
@@ -313,13 +313,13 @@ Quando si usa un segreto condiviso, una richiesta di token di accesso da servizi
 |client_id|necessarie|ID client configurato quando si registra la prima API Web come app Server (app di livello intermedio). Deve corrispondere all'ID risorsa usato nella prima parte, ovvero l'URL della prima API Web.| 
 |client_secret|necessarie|Il segreto dell'applicazione creato durante la registrazione dell'app Sever in AD FS.| 
 |asserzione|necessarie|Valore del token utilizzato nella richiesta.|  
-|requested_token_use|necessarie|Specifica la modalità di elaborazione della richiesta. Nel flusso di OBO, il valore deve essere impostato su on_behalf_of| 
-|resource|necessarie|ID risorsa fornito durante la registrazione della prima API Web come app Server (app di livello intermedio). L'ID risorsa deve essere l'URL della seconda app di livello intermedio dell'API Web che chiamerà per conto del client.|
-|scope|facoltative|Elenco di ambiti separati da spazi per la richiesta di token.| 
+|requested_token_use|necessarie|Specifica la modalità di elaborazione della richiesta. Nel flusso OBO, il valore deve essere impostato su on_behalf_of| 
+|risorse|necessarie|ID risorsa fornito durante la registrazione della prima API Web come app Server (app di livello intermedio). L'ID risorsa deve essere l'URL della seconda app di livello intermedio dell'API Web che chiamerà per conto del client.|
+|ambito|facoltativo|Elenco di ambiti separati da spazi per la richiesta di token.| 
 
 #### <a name="example"></a>Esempio 
  
-L'esempio `HTTP POST` seguente richiede un token di accesso e un token di aggiornamento 
+Il `HTTP POST` seguente richiede un token di accesso e un token di aggiornamento 
  
 ```
 //line breaks for legibility only 
@@ -337,7 +337,7 @@ grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer
 &scope=openid    
 ```
 
-### <a name="second-case-access-token-request-with-a-certificate"></a>Secondo caso: Richiesta di token di accesso con un certificato 
+### <a name="second-case-access-token-request-with-a-certificate"></a>Secondo caso: richiesta di token di accesso con un certificato 
  
 Una richiesta di token di accesso da servizio a servizio con un certificato contiene i parametri seguenti: 
 
@@ -349,9 +349,9 @@ Una richiesta di token di accesso da servizio a servizio con un certificato cont
 |client_assertion_type|necessarie|Il valore deve essere urn: IETF: params: OAuth: client-Assertion-Type: JWT-Bearer.| 
 |client_assertion|necessarie|Un'asserzione (un token JSON Web) che è necessario creare e firmare con il certificato registrato come credenziale per l'applicazione.|  
 |asserzione|necessarie|Valore del token utilizzato nella richiesta.| 
-|requested_token_use|necessarie|Specifica la modalità di elaborazione della richiesta. Nel flusso di OBO, il valore deve essere impostato su on_behalf_of| 
-|resource|necessarie|ID risorsa fornito durante la registrazione della prima API Web come app Server (app di livello intermedio). L'ID risorsa deve essere l'URL della seconda app di livello intermedio dell'API Web che chiamerà per conto del client.|
-|scope|facoltative|Elenco di ambiti separati da spazi per la richiesta di token.|
+|requested_token_use|necessarie|Specifica la modalità di elaborazione della richiesta. Nel flusso OBO, il valore deve essere impostato su on_behalf_of| 
+|risorse|necessarie|ID risorsa fornito durante la registrazione della prima API Web come app Server (app di livello intermedio). L'ID risorsa deve essere l'URL della seconda app di livello intermedio dell'API Web che chiamerà per conto del client.|
+|ambito|facoltativo|Elenco di ambiti separati da spazi per la richiesta di token.|
 
 
 Si noti che i parametri sono quasi uguali a quelli del caso della richiesta da parte di un segreto condiviso, ad eccezione del fatto che il parametro client_secret viene sostituito da due parametri: client_assertion_type e client_assertion. 
@@ -383,10 +383,10 @@ Una risposta con esito positivo è una risposta OAuth 2,0 JSON con i parametri s
 |Parametro|Descrizione|
 |-----|-----| 
 |token_type|Indica il valore del tipo di token. L'unico tipo supportato da AD FS è Bearer. | 
-|scope|L'ambito di accesso concesso nel token.| 
+|ambito|L'ambito di accesso concesso nel token.| 
 |expires_in|Intervallo di tempo, in secondi, in cui il token di accesso è valido.| 
 |access_token|Token di accesso richiesto. Il servizio chiamante può usare questo token per l'autenticazione al servizio ricevente.| 
-|token ID|Un token Web JSON (JWT). L'app può decodificare i segmenti di questo token per richiedere informazioni sull'utente che ha eseguito l'accesso. L'app può memorizzare nella cache i valori e visualizzarli, ma non deve basarsi su di essi per i limiti di autorizzazione o di sicurezza.| 
+|id_token|Un token Web JSON (JWT). L'app può decodificare i segmenti di questo token per richiedere informazioni sull'utente che ha eseguito l'accesso. L'app può memorizzare nella cache i valori e visualizzarli, ma non deve basarsi su di essi per i limiti di autorizzazione o di sicurezza.| 
 |token di aggiornamento|Token di aggiornamento per il token di accesso richiesto. Il servizio chiamante può usare questo token per richiedere un altro token di accesso dopo la scadenza del token di accesso corrente.|
 |Refresh_token_expires_in|Periodo di tempo, in secondi, in cui il token di aggiornamento è valido. 
 
@@ -430,9 +430,9 @@ Il diagramma seguente illustra il flusso di concessione delle credenziali client
 
 ### <a name="request-a-token"></a>Richiedere un token 
  
-Per ottenere un token usando la concessione delle credenziali client, inviare una `POST` richiesta all'endpoint ad FS/token:  
+Per ottenere un token usando la concessione delle credenziali client, inviare una richiesta `POST` all'endpoint di AD FS/token:  
  
-### <a name="first-case-access-token-request-with-a-shared-secret"></a>Primo caso: Richiesta di token di accesso con un segreto condiviso 
+### <a name="first-case-access-token-request-with-a-shared-secret"></a>Primo caso: richiesta di token di accesso con un segreto condiviso 
  
 ```
 POST /adfs/oauth2/token HTTP/1.1            
@@ -449,11 +449,11 @@ client_id=535fb089-9ff3-47b6-9bfb-4f1264799865
 |Parametro|Obbligatorio/facoltativo|Descrizione|
 |-----|-----|-----| 
 |client_id|necessarie|ID dell'applicazione (client) assegnato dall'AD FS all'app.| 
-|scope|facoltative|Elenco di ambiti separati da spazi a cui si desidera che l'utente acconsente.| 
+|ambito|facoltativo|Elenco di ambiti separati da spazi a cui si desidera che l'utente acconsente.| 
 |client_secret|necessarie|Il segreto client generato per l'app nel portale di registrazione delle app. Il segreto client deve essere codificato in URL prima dell'invio.| 
 |grant_type|necessarie|Deve essere impostato su `client_credentials`.|
 
-### <a name="second-case-access-token-request-with-a-certificate"></a>Secondo caso: Richiesta di token di accesso con un certificato 
+### <a name="second-case-access-token-request-with-a-certificate"></a>Secondo caso: richiesta di token di accesso con un certificato 
 
 ``` 
 POST /adfs/oauth2/token HTTP/1.1                
@@ -474,8 +474,8 @@ Content-Type: application/x-www-form-urlencoded
 |client_assertion_type|necessarie|Il valore deve essere impostato su urn: IETF: params: OAuth: client-Assertion-Type: JWT-Bearer.| 
 |client_assertion|necessarie|Un'asserzione (un token JSON Web) che è necessario creare e firmare con il certificato registrato come credenziale per l'applicazione.|  
 |grant_type|necessarie|Deve essere impostato su `client_credentials`.|
-|client_id|facoltative|ID dell'applicazione (client) assegnato dall'AD FS all'app. Questo fa parte di client_assertion, quindi non è necessario passarlo qui.| 
-|scope|facoltative|Elenco di ambiti separati da spazi a cui si desidera che l'utente acconsente.| 
+|client_id|facoltativo|ID dell'applicazione (client) assegnato dall'AD FS all'app. Questo fa parte di client_assertion, quindi non è necessario passarlo qui.| 
+|ambito|facoltativo|Elenco di ambiti separati da spazi a cui si desidera che l'utente acconsente.| 
 
 ### <a name="use-a-token"></a>Usare un token 
  
@@ -519,9 +519,9 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 |-----|-----|-----|
 |client_id|necessarie|ID client| 
 |grant_type|necessarie|Deve essere impostato su password.| 
-|userName|necessarie|Indirizzo di posta elettronica dell'utente| 
+|nomeutente|necessarie|Indirizzo di posta elettronica dell'utente| 
 |password|necessarie|Password dell'utente.| 
-|scope|facoltative|Elenco di ambiti separati da spazi.|
+|ambito|facoltativo|Elenco di ambiti separati da spazi.|
 
 ### <a name="successful-authentication-response"></a>Risposta di autenticazione riuscita 
 Nell'esempio seguente viene illustrata una risposta di token riuscita: 
@@ -542,10 +542,10 @@ Nell'esempio seguente viene illustrata una risposta di token riuscita:
 |Parametro|Descrizione| 
 |-----|-----|
 |token_type|Sempre impostato su Bearer.| 
-|scope|Se è stato restituito un token di accesso, questo parametro elenca gli ambiti per i quali il token di accesso è valido.| 
+|ambito|Se è stato restituito un token di accesso, questo parametro elenca gli ambiti per i quali il token di accesso è valido.| 
 |expires_in|Numero di secondi per cui il token di accesso incluso è valido.| 
 |access_token|Rilasciato per gli ambiti richiesti.| 
-|token ID|Un token Web JSON (JWT). L'app può decodificare i segmenti di questo token per richiedere informazioni sull'utente che ha eseguito l'accesso. L'app può memorizzare nella cache i valori e visualizzarli, ma non deve basarsi su di essi per i limiti di autorizzazione o di sicurezza.| 
+|id_token|Un token Web JSON (JWT). L'app può decodificare i segmenti di questo token per richiedere informazioni sull'utente che ha eseguito l'accesso. L'app può memorizzare nella cache i valori e visualizzarli, ma non deve basarsi su di essi per i limiti di autorizzazione o di sicurezza.| 
 |refresh_token_expires_in|Numero di secondi per cui il token di aggiornamento incluso è valido.| 
 |token di aggiornamento|Viene emesso se il parametro di ambito originale include offline_access.|
 
@@ -578,7 +578,7 @@ scope=openid
 |Parametro|Condizione|Descrizione|
 |-----|-----|-----| 
 |client_id|necessarie|ID dell'applicazione (client) assegnato dall'AD FS all'app.| 
-|scope|facoltative|Elenco di ambiti separati da spazi.|
+|ambito|facoltativo|Elenco di ambiti separati da spazi.|
 
 ### <a name="device-authorization-response"></a>Risposta di autorizzazione del dispositivo 
 Una risposta con esito positivo sarà un oggetto JSON contenente le informazioni necessarie per consentire all'utente di eseguire l'accesso. 
@@ -588,14 +588,14 @@ Una risposta con esito positivo sarà un oggetto JSON contenente le informazioni
 |-----|-----| 
 |device_code|Stringa estesa utilizzata per verificare la sessione tra il client e il server di autorizzazione. Il client usa questo parametro per richiedere il token di accesso dal server di autorizzazione.| 
 |user_code|Una stringa breve mostrata all'utente usato per identificare la sessione in un dispositivo secondario.| 
-|verification_uri|URI a cui l'utente deve accedere con user_code per eseguire l'accesso.| 
-|verification_uri_complete|URI a cui l'utente deve accedere con user_code per eseguire l'accesso. Questa operazione è precompilata con user_code in modo che l'utente non debba immettere user_code| 
-|expires_in|Il numero di secondi prima della scadenza di device_code e user_code.| 
-|Intervallo|Numero di secondi di attesa del client tra le richieste di polling.| 
+|verification_uri|URI a cui l'utente deve accedere con la user_code per eseguire l'accesso.| 
+|verification_uri_complete|URI a cui l'utente deve accedere con la user_code per eseguire l'accesso. Questa operazione è precompilata con user_code in modo che l'utente non debba immettere user_code| 
+|expires_in|Il numero di secondi prima della scadenza del device_code e del user_code.| 
+|intervallo|Numero di secondi di attesa del client tra le richieste di polling.| 
 |messaggio|Stringa leggibile con le istruzioni per l'utente. Questo può essere localizzato includendo un parametro di query nella richiesta del modulo? MKT = XX-XX, compilando il codice delle impostazioni cultura della lingua appropriato.  
 
 ### <a name="authenticating-the-user"></a>Autenticazione dell'utente 
-Dopo aver ricevuto user_code e verification_uri, il client li visualizza all'utente, indicando loro di eseguire l'accesso con il telefono cellulare o il browser per PC. Inoltre, il client può usare un codice a matrice o un meccanismo simile per visualizzare il verfication_uri_complete, che eseguirà il passaggio di immissione di user_code per l'utente. Mentre l'utente esegue l'autenticazione in verification_uri, il client deve eseguire il polling dell'endpoint/token per il token richiesto usando device_code. 
+Dopo aver ricevuto il user_code e verification_uri, il client li visualizza all'utente, indicando loro di eseguire l'accesso con il telefono cellulare o il browser per PC. Inoltre, il client può utilizzare un codice a matrice o un meccanismo simile per visualizzare il verfication_uri_complete, che eseguirà il passaggio di immissione del user_code per l'utente. Mentre l'utente esegue l'autenticazione all'verification_uri, il client deve eseguire il polling dell'endpoint/token per il token richiesto usando il device_code. 
 
 ```
 POST https://adfs.contoso.com /adfs/oauth2/token 
@@ -611,7 +611,7 @@ device_code: GMMhmHCXhWEzkobqIHGG_EnNYYsAkukHspeYUk9E8
 |-----|-----|-----| 
 |grant_type|necessarie|Deve essere urn: IETF: params: OAuth: Grant-Type: device_code| 
 |client_id|necessarie|Deve corrispondere al client_id usato nella richiesta iniziale.| 
-|code|necessarie|Device_code restituito nella richiesta di autorizzazione del dispositivo.|
+|code|necessarie|Il device_code restituito nella richiesta di autorizzazione del dispositivo.|
 
 ### <a name="successful-authentication-response"></a>Risposta di autenticazione riuscita 
 Una risposta di token corretta avrà un aspetto simile al seguente:  
@@ -620,10 +620,10 @@ Una risposta di token corretta avrà un aspetto simile al seguente:
 |Parametro|Descrizione|
 |-----|-----| 
 |token_type|Sempre "Bearer.| 
-|scope|Se è stato restituito un token di accesso, verranno elencati gli ambiti per i quali il token di accesso è valido.| 
+|ambito|Se è stato restituito un token di accesso, verranno elencati gli ambiti per i quali il token di accesso è valido.| 
 |expires_in|Numero di secondi prima del quale il token di accesso incluso è valido per.| 
 |access_token|Rilasciato per gli ambiti richiesti.| 
-|token ID|Viene emesso se il parametro di ambito originale include l'ambito OpenID.| 
+|id_token|Viene emesso se il parametro di ambito originale include l'ambito OpenID.| 
 |token di aggiornamento|Viene emesso se il parametro di ambito originale include offline_access.| 
 |refresh_token_expires_in|Numero di secondi prima del quale il token di aggiornamento incluso è valido per.| 
 

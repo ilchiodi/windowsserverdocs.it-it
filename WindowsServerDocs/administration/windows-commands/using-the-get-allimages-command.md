@@ -22,7 +22,7 @@ ms.locfileid: "71363504"
 ---
 # <a name="using-the-get-allimages-command"></a>Utilizzando il comando get-AllImages
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Recupera informazioni su tutte le immagini in un server.
 ## <a name="syntax"></a>Sintassi
@@ -33,7 +33,7 @@ wdsutil /Get-AllImages [/Server:<Server name>] /Show:{Boot | Install | LegacyRis
 |Parametro|Descrizione|
 |-------|--------|
 |[/Server:<Server name>]|Specifica il nome del server. Può essere il nome NetBIOS oppure il nome di dominio completo. Se viene specificato alcun nome di server, verrà utilizzato il server locale.|
-|/: Mostra {Avvio &#124; Installa &#124; LegacyRis &#124; All}|-   **boot** restituisce solo le immagini di avvio.<br />-   **Install** restituisce le immagini di installazione e le informazioni sui gruppi di immagini che li contengono.<br />-   **LegacyRis** restituisce solo le immagini di servizi di installazione remota (RIS).<br />@no__t 0 restituisce**tutte** le informazioni sull'immagine d'avvio, installare le informazioni sulle immagini (incluse le informazioni sui gruppi di immagini) e le informazioni sull'immagine RIS.|
+|/: Mostra {Avvio & #124; Installa & #124; LegacyRis & #124; All}|-   **boot** restituisce solo le immagini di avvio.<br />-   **Install** restituisce le immagini di installazione e le informazioni sui gruppi di immagini che li contengono.<br />-   **LegacyRis** restituisce solo le immagini dei servizi di installazione remota (RIS).<br />-   restituisce tutte le informazioni sull'immagine **d'** avvio, installare le informazioni sulle immagini (incluse le informazioni sui gruppi di immagini) e le informazioni sull'immagine di RIS.|
 |[/detailed]|Indica che tutti i metadati delle immagini da ogni immagine devono essere restituito. Se si omette questa opzione, il comportamento predefinito è per restituire solo il nome dell'immagine, descrizione e nome file.|
 ## <a name="BKMK_examples"></a>Esempi
 Per visualizzare informazioni sulle immagini, digitare uno dei seguenti:
@@ -41,10 +41,11 @@ Per visualizzare informazioni sulle immagini, digitare uno dei seguenti:
 wdsutil /Get-AllImages /Show:Install
 wdsutil /verbose /Get-AllImages /Server:MyWDSServer /Show:All /detailed
 ```
-#### <a name="additional-references"></a>Riferimenti aggiuntivi
+#### <a name="additional-references"></a>riferimenti aggiuntivi
 [Chiave della sintassi della riga di comando](command-line-syntax-key.md)
- usando il comando[add-image](using-the-add-image-command.md)
- usando il comando[Copy-Image](using-the-copy-image-command.md)
- usando il comando[Export-Image](using-the-export-image-command.md)
-[usando il comando Remove-Image](using-the-remove-image-command.md)
-[usando il comando Comando Replace-Image](using-the-replace-image-command.md)1[sottocomando: Set-Image](subcommand-set-image.md)
+usando il comando [add-](using-the-add-image-command.md) image
+[usando il comando copy-image](using-the-copy-image-command.md)
+usando il comando [Export-](using-the-export-image-command.md) image
+usando il comando [Remove-Image](using-the-remove-image-command.md)
+[usando il comando Replace-Image](using-the-replace-image-command.md)
+[sottocomando: Set-Image](subcommand-set-image.md)

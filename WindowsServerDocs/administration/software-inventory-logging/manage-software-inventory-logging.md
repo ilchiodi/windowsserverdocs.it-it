@@ -33,7 +33,7 @@ Questo documento descrive come gestire la registrazione dell'inventario software
 > [!NOTE] 
 > Verificare che [WMF 4.0](https://www.microsoft.com/en-us/download/details.aspx?id=40855) sia installato prima di applicare il pacchetto di aggiornamento seguente.
 
--  Pacchetto di aggiornamento WMF 4,0 per Windows Server 2012: [KB 3119938](https://support.microsoft.com/en-us/kb/3119938)
+-  Pacchetto di aggiornamento di WMF 4.0 per Windows Server 2012: [KB 3119938](https://support.microsoft.com/en-us/kb/3119938)
 
 - **Windows Server 2008 R2 SP1**
 
@@ -44,7 +44,7 @@ Questo documento descrive come gestire la registrazione dell'inventario software
 - Richiede [.NET Framework 4.5](https://www.microsoft.com/en-us/download/details.aspx?id=30653)
 
 
-- Pacchetto di aggiornamento WMF 4,0 per Windows Server 2008 R2: [KB 3109118](https://support.microsoft.com/en-us/kb/3109118)
+- Pacchetto di aggiornamento di WMF 4.0 per Windows Server 2008 R2: [KB 3109118](https://support.microsoft.com/en-us/kb/3109118)
 
 
 Ci sono due metodi principali per eseguire l'inventario con questa funzionalità:  
@@ -140,17 +140,17 @@ Se la funzionalità Registrazione inventario software è stata avviata da un amm
 ## <a name="BKMK_Step3"></a>Visualizzazione dei dati di registrazione inventario software  
 Oltre ai cmdlet di PowerShell descritti nella sezione precedente, per raccogliere i dati di Registrazione inventario software è possibile usare altri sei cmdlet:  
   
--   **[Get-SilComputer](https://technet.microsoft.com/library/dn283392.aspx)** : mostra i valori temporizzati per dati specifici correlati al server e al sistema operativo, nonché il nome host o FQDN dell'host fisico, se disponibile.  
+-   **[Get-SilComputer](https://technet.microsoft.com/library/dn283392.aspx)** : Visualizza i valori temporizzati per i dati specifici relativi al server e al sistema operativo, nonché il nome di dominio completo o il nome host dell'host fisico, se disponibile.  
   
--   **[Get-SilComputerIdentity (KB 3000850)](https://technet.microsoft.com/library/dn858074.aspx)** : mostra gli identificatori usati da SIL per i singoli server.  
+-   **[Get-SilComputerIdentity (KB 3000850)](https://technet.microsoft.com/library/dn858074.aspx)** : Visualizza gli identificatori usati da SIL per i singoli server.  
   
--   **[Get-SilData](https://technet.microsoft.com/library/dn283388.aspx)** : mostra una raccolta temporizzata di tutti i dati di Registrazione inventario software.  
+-   **[Get-SilData](https://technet.microsoft.com/library/dn283388.aspx)** : Visualizza una raccolta temporizzata di tutti i dati di registrazione inventario software.  
   
--   **[Get-SilSoftware](https://technet.microsoft.com/library/dn283397.aspx)** : mostra l'identità temporizzata di tutto il software installato nel computer.  
+-   **[Get-SilSoftware](https://technet.microsoft.com/library/dn283397.aspx)** : Visualizza l'identità temporizzata di tutto il software installato nel computer.  
   
--   **[Get-SilUalAccess](https://technet.microsoft.com/library/dn283389.aspx)** : mostra il numero totale di richieste univoche di dispositivi client e di utenti client del server degli ultimi due giorni.  
+-   **[Get-SilUalAccess](https://technet.microsoft.com/library/dn283389.aspx)** : Visualizza il numero totale di richieste univoche di dispositivi client e di utenti client del server di due giorni prima.  
   
--   **[Get-SilWindowsUpdate](https://technet.microsoft.com/library/dn283393.aspx)** : mostra l'elenco temporizzato di tutti gli aggiornamenti di Windows installati nel computer.  
+-   **[Get-SilWindowsUpdate](https://technet.microsoft.com/library/dn283393.aspx)** : Visualizza l'elenco temporizzato di tutti gli aggiornamenti di Windows installati nel computer.  
   
 Uno scenario di caso di utilizzo tipico per i cmdlet di Registrazione inventario software è il caso in cui un amministratore richiede a Registrazione inventario software una raccolta temporizzata di tutti i dati della registrazione con [Get-SilSoftware](https://technet.microsoft.com/library/dn283397.aspx).  
   
@@ -208,9 +208,9 @@ Registrazione inventario software non è progettato come componente cruciale. È
   
 1. In PowerShell arrestare Registrazione inventario software con il comando **[Stop-SilLogging](https://technet.microsoft.com/library/dn283394.aspx)** .  
   
-2. Aprire Esplora risorse.  
+2. Apri Esplora risorse.  
   
-3. Vai a **\Windows\System32\Logfiles\SIL\\**  
+3. Passare a **\Windows\System32\Logfiles\SIL\\**  
   
 4. Eliminare tutti i file nella cartella.  
   
@@ -221,7 +221,7 @@ Registrazione inventario software archivia temporaneamente le raccolte orarie de
 > Se per qualsiasi motivo è necessario un aggiornamento o un'installazione di ripristino del sistema operativo, i file di registro archiviati in locale andranno persi.  Se questi dati sono fondamentali per le operazioni, è consigliabile eseguire il backup prima dell'installazione del nuovo sistema operativo. Dopo il ripristino o l'aggiornamento, è sufficiente ripristinare i dati nello stesso percorso.  
   
 > [!NOTE]  
-> Se per qualsiasi motivo la gestione della durata di conservazione dei dati registrati localmente da SIL diventa importante, è possibile configurarla modificando il valore del registro di sistema qui: \HKEY_LOCAL_MACHINE @ no__t-0SOFTWARE\Microsoft\Windows\SoftwareInventoryLogging. Il valore predefinito è '30 ' per 30 giorni.  
+> Se per qualsiasi motivo la gestione della durata di conservazione dei dati registrati localmente da SIL diventa importante, è possibile configurarla modificando il valore del registro di sistema qui: \ HKEY_LOCAL_MACHINE\\SOFTWARE\Microsoft\Windows\SoftwareInventoryLogging. Il valore predefinito è '30 ' per 30 giorni.  
   
 ## <a name="BKMK_Step6"></a>Lettura dei dati registrati e pubblicati da registrazione inventario software  
 I dati registrati da registrazione inventario software, archiviati localmente (in caso di esito negativo dell'URI di destinazione) o i dati che vengono trasmessi correttamente al server di aggregazione di destinazione, vengono archiviati in un file binario (per i dati di ogni giorno). Per visualizzare questi dati in PowerShell, usare il cmdlet [Import-BinaryMiLog](https://technet.microsoft.com/library/dn262592.aspx) .  
@@ -235,16 +235,16 @@ Tutti i dati archiviati in locale in un server Windows (solo nel caso in cui la 
   
 ## <a name="BKMK_Step8"></a>Uso delle impostazioni di data e ora in registrazione inventario software di Windows Server 2012 R2  
   
--   Quando si usa [Set-SilLogging](https://technet.microsoft.com/library/dn283387.aspx) -TimeOfDay per impostare l'ora di esecuzione della registrazione SIL, è necessario specificare una data e un'ora. Verrà impostata la data del calendario e la registrazione non verrà eseguita fino a quando non viene raggiunta la data, in base all'ora di sistema locale.  
+-   Quando si usa [Set-SilLogging](https://technet.microsoft.com/library/dn283387.aspx) -TimeOfDay per impostare l'ora di esecuzione della registrazione SIL, è necessario specificare una data e un'ora. Verrà impostata la data del calendario e la registrazione non verrà eseguita fino a quando non viene raggiunta la data, nell'ora di sistema locale.  
   
 -   Quando si usa [Get-SilSoftware](https://technet.microsoft.com/library/dn283397.aspx)o [Get-SilWindowsUpdate](https://technet.microsoft.com/library/dn283393.aspx), "InstallDate" mostrerà sempre 12:00:00, un valore non significativo.  
   
--   Quando si usa [Get-SilUalAccess](https://technet.microsoft.com/library/dn283389.aspx), "SampleDate" visualizzerà sempre 11:59:00, un valore non significativo.  La data corrisponde alla data pertinente per le query dei cmdlet.  
+-   Quando si usa [Get-SilUalAccess](https://technet.microsoft.com/library/dn283389.aspx), "SampleDate" visualizzerà sempre 11:59:00, un valore non significativo.  Date sono i dati pertinenti per queste query di cmdlet.  
   
 ## <a name="BKMK_Step10"></a>Abilitazione e configurazione di registrazione inventario software in un disco rigido virtuale montato  
 Registrazione inventario software supporta anche la configurazione e l'abilitazione in macchine virtuali offline. Gli usi pratici per questo scopo sono la configurazione di un'installazione di "immagine Gold" per la distribuzione in più data center, nonché la configurazione delle immagini degli utenti finali da una distribuzione locale a una distribuzione cloud.  
   
-Per supportare questi tipi di uso, Registrazione inventario software dispone di voci del Registro di sistema associate a ogni opzione configurabile.  Questi valori del registro di sistema si trovano in \HKEY_LOCAL_MACHINE @ no__t-0SOFTWARE\Microsoft\Windows\SoftwareInventoryLogging.  
+Per supportare questi tipi di uso, Registrazione inventario software dispone di voci del Registro di sistema associate a ogni opzione configurabile.  Questi valori del registro di sistema si trovano in \ HKEY_LOCAL_MACHINE\\SOFTWARE\Microsoft\Windows\SoftwareInventoryLogging.  
   
 |||||  
 |-|-|-|-|  
@@ -252,7 +252,7 @@ Per supportare questi tipi di uso, Registrazione inventario software dispone di 
 |Funzionalità di avvio/arresto|CollectionState|1 o 0|[Start-SilLogging](https://technet.microsoft.com/library/dn283391.aspx), [Stop-SilLogging](https://technet.microsoft.com/library/dn283394.aspx)|  
 |Specifica il punto di aggregazione di destinazione nella rete|TargetUri|string|[Set-SilLogging](https://technet.microsoft.com/library/dn283387.aspx) -TargetURI|  
 |Specifica l'hash o l'identificazione personale del certificato usato per l'autenticazione SSL per il server Web di destinazione|CertificateThumbprint|string|[Set-SilLogging](https://technet.microsoft.com/library/dn283387.aspx) -CertificateThumbprint|  
-|Specifica la data e l'ora in cui la funzionalità deve essere avviata (se il valore impostato è nel futuro in base all'ora di sistema locale)|CollectionTime|Valore predefinito:  2000-01-01T03:00:00|[Set-SilLogging](https://technet.microsoft.com/library/dn283387.aspx) -TimeOfDay|  
+|Specifica la data e l'ora in cui la funzionalità deve essere avviata (se il valore impostato è nel futuro in base all'ora di sistema locale)|CollectionTime|Valore predefinito: 2000-01-01T03:00:00|[Set-SilLogging](https://technet.microsoft.com/library/dn283387.aspx) -TimeOfDay|  
   
 Per modificare questi valori in un disco rigido virtuale offline (sistema operativo VM non in esecuzione), il disco rigido virtuale deve prima di tutto essere montato e quindi è possibile usare i comandi seguenti per apportare modifiche:  
   
@@ -280,12 +280,12 @@ Con l'aggiornamento [KB 3000850](https://support.microsoft.com/kb/3000850)sono s
 > [!NOTE]  
 > Questa funzionalità è stata rimossa con l'installazione dell'aggiornamento [KB 3000850](https://support.microsoft.com/kb/3000850) .  
   
-Quando si usa registrazione inventario software in un host Hyper-V di Windows Server 2012 R2, è possibile recuperare i dati SIL dai guest Windows Server 2012 R2 eseguiti localmente, se la registrazione SIL è stata avviata nei guest. Tuttavia, questo è possibile solo quando si usano i cmdlet di PowerShell Get-SilData e Publish-SilData ed è possibile solo con WIndows Server 2012 R2 sia nell'host che nel guest.  Lo scopo di questa funzionalità è quello di consentire agli amministratori di datacenter che forniscono VM guest ai tenant, o ad altre entità di una grande azienda, di acquisire i dati dell'inventario software nell'host hypervisor e successivamente inoltrare tutti i dati a un aggregatore (o un URI di destinazione).  
+Quando si usa registrazione inventario software in un host Hyper-V di Windows Server 2012 R2, è possibile recuperare i dati SIL dai guest Windows Server 2012 R2 eseguiti localmente, se la registrazione SIL è stata avviata nei guest. Tuttavia, questo è possibile solo quando si usano i cmdlet di PowerShell Get-SilData e Publish-SilData ed è possibile solo con WIndows Server 2012 R2 sia nell'host che nel guest.  Lo scopo di questa funzionalità è quello di consentire agli amministratori data center che forniscono macchine virtuali guest ai tenant o ad altre entità di un'azienda di grandi dimensioni di acquisire i dati dell'inventario software nell'host hypervisor e successivamente di trasmettere tutti i dati a un aggregatore (o URI di destinazione).  
   
-Di seguito sono riportati due esempi dell'aspetto dell'output nella console di PowerShell (molto abbreviato) in un host Hyper-V di Windows Server 2012 R2 che esegue una VM guest Windows Server 2012 R2 con registrazione SIL avviata.  Si noterà nel primo esempio, che usa solo Get-SilData, che l'output contiene tutti i dati dell'host, come previsto.  Sono inclusi anche tutti i dati SIL del guest, ma in formato compresso.  Per espandere e visualizzare i dati del guest, tagliare e incollare il frammento di codice usato nel secondo esempio riportato di seguito.  Agli oggetti dati SIL del guest sarà sempre associato il GUID di VM.  
+Di seguito sono riportati due esempi dell'aspetto dell'output nella console di PowerShell (molto abbreviato) in un host Hyper-V di Windows Server 2012 R2 che esegue una VM guest Windows Server 2012 R2 con registrazione SIL avviata.  Si noterà che il primo esempio, che usa solo Get-SilData, restituirà tutti i dati dall'host come previsto.  Sono inclusi anche tutti i dati SIL del Guest, ma in formato compresso.  Per espandere e visualizzare i dati dal Guest, è sufficiente tagliare e incollare il frammento di codice usato nel secondo esempio riportato di seguito.  Agli oggetti dati SIL del guest sarà sempre associato il GUID della macchina virtuale all'interno dell'oggetto.  
   
 > [!NOTE]  
-> Poiché i dati SIL vengono trasmessi nella console, quando si usa il cmdlet Get-SilData nei flussi di dati, l'ordine degli oggetti nell'output non sarà sempre prevedibile.  Nei due esempi seguenti il testo è stato codificato con colori diversi (blu per i dati dell'host fisico e verde per i dati del guest virtuale) solo come strumento illustrativo per questo documento.  
+> Poiché i dati SIL vengono trasmessi nella console, quando si usa il cmdlet Get-SilData nei flussi di dati, l'ordine degli oggetti nell'output non sarà sempre prevedibile.  Nei due esempi seguenti il testo è stato codificato a colori (blu per i dati dell'host fisico e verde per i dati del guest virtuale) solo come strumento illustrativo per questo documento.  
   
 **Esempio di output 1**  
   
@@ -295,7 +295,7 @@ Di seguito sono riportati due esempi dell'aspetto dell'output nella console di P
   
 ![](../media/software-inventory-logging/SILHyper-VExample2.png)  
   
-## <a name="see-also"></a>Vedere anche  
+## <a name="see-also"></a>Vedi anche  
 [Introduzione alla registrazione dell'inventario software](get-started-with-software-inventory-logging.md)  
 [Aggregatore di Registrazione inventario software](software-inventory-logging-aggregator.md)  
 [Cmdlet di registrazione inventario software in Windows PowerShell](https://technet.microsoft.com/library/dn283390.aspx)  

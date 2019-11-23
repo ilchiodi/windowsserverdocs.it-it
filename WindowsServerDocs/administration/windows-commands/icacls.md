@@ -37,26 +37,26 @@ icacls <Directory> [/substitute <SidOld> <SidNew> [...]] [/restore <ACLfile> [/c
 
 |Parametro|Descrizione|
 |---------|-----------|
-|\<> FileName|Specifica il file per cui visualizzare gli elenchi DACL.|
-|\<Directory >|Specifica la directory per cui visualizzare gli elenchi DACL.|
+|\<FileName >|Specifica il file per cui visualizzare gli elenchi DACL.|
+|> Directory \<|Specifica la directory per cui visualizzare gli elenchi DACL.|
 |/t|Esegue l'operazione su tutti i file specificati nella directory corrente e nelle relative sottodirectory.|
 |/c|L'operazione continuerà nonostante eventuali errori nel file. Verranno ancora visualizzati messaggi di errore.|
 |/l|Esegue l'operazione su un collegamento simbolico e la relativa destinazione.|
 |/q|Elimina i messaggi di esito positivo.|
 |[/Save \<ACLfile > [/t] [/c] [/l] [/q]]|Archivia gli elenchi DACL per tutti i file corrispondenti in *ACLfile* per un utilizzo successivo con **/ripristino**.|
-|[/SetOwner \<Username > [/t] [/c] [/l] [/q]]|Modifica il proprietario di tutti i file corrispondenti all'utente specificato.|
-|[/findSID \<Sid > [/t] [/c] [/l] [/q]]|Trova tutti i file corrispondenti che contengono un DACL citare in modo esplicito l'identificatore specificato di sicurezza (SID).|
+|[/SetOwner \<username > [/t] [/c] [/l] [/q]]|Modifica il proprietario di tutti i file corrispondenti all'utente specificato.|
+|[/findSID \<SID > [/t] [/c] [/l] [/q]]|Trova tutti i file corrispondenti che contengono un DACL citare in modo esplicito l'identificatore specificato di sicurezza (SID).|
 |[/ verificare [/t] [/c] [/l] [/q]]|Trova tutti i file con gli ACL non canonico o hanno lunghezze non coerente con i conteggi ACE (voce di controllo di accesso).|
 |[/Reset [/t] [/c] [/l] [/q]]|Sostituisce gli ACL predefinito ereditata ACL per tutti i file corrispondenti.|
-|[/dy [: r] \<Sid >: <Perm> [...]]|Concede specificato diritti di accesso utente. Autorizzazioni di sostituiscono le autorizzazioni precedentemente concesse esplicite.</br>Senza **: r**, le autorizzazioni vengono aggiunte a qualsiasi precedentemente concesse le autorizzazioni esplicite.|
-|[/Deny \<Sid >: <Perm> [...]]|Nega in modo esplicito i diritti di accesso utente specificato. L'impostazione esplicita Nega ACE viene aggiunto per le autorizzazioni indicate e vengono rimosse le stesse autorizzazioni in qualsiasi autorizzazione esplicita.|
-|[/Remove [: g @ no__t-0: d]] \<Sid > [...]] /t /c /l /q|Rimuove tutte le occorrenze del SID specificato dall'elenco DACL.</br>**: g** Rimuove tutte le occorrenze di concessione dei diritti per il SID specificato.</br>**: d** Rimuove tutte le occorrenze dei diritti negato l'accesso al SID specificato.|
-|[/setintegritylevel [(CI) (OI)] \<Level >: <Policy> [...]]|Aggiunge una voce ACE di integrità in modo esplicito per tutti i file corrispondenti. *Livello* viene specificato come:</br>-   **L**[ow]</br>-   **M**[edium]</br>-   **H**[IGH]</br>Opzioni di ereditarietà per l'integrità ACE possono precedere il livello e vengono applicate solo alla directory.|
+|[/dy [: r] \<SID >:<Perm>[...]]|Concede specificato diritti di accesso utente. Autorizzazioni di sostituiscono le autorizzazioni precedentemente concesse esplicite.</br>Senza **: r**, le autorizzazioni vengono aggiunte a qualsiasi precedentemente concesse le autorizzazioni esplicite.|
+|[/Deny \<SID >:<Perm>[...]]|Nega in modo esplicito i diritti di accesso utente specificato. L'impostazione esplicita Nega ACE viene aggiunto per le autorizzazioni indicate e vengono rimosse le stesse autorizzazioni in qualsiasi autorizzazione esplicita.|
+|[/Remove [: g\|:d]] \<SID > [...]] /t /c /l /q|Rimuove tutte le occorrenze del SID specificato dall'elenco DACL.</br>**: g** Rimuove tutte le occorrenze di concessione dei diritti per il SID specificato.</br>**: d** Rimuove tutte le occorrenze dei diritti negato l'accesso al SID specificato.|
+|[/setintegritylevel [(CI) (OI)] livello\<>:<Policy>[...]]|Aggiunge una voce ACE di integrità in modo esplicito per tutti i file corrispondenti. *Livello* viene specificato come:</br>-   **L**[ow]</br>-   **M**[edium]</br>-   **H**[IGH]</br>Opzioni di ereditarietà per l'integrità ACE possono precedere il livello e vengono applicate solo alla directory.|
 |[/substitute \<SidOld > <SidNew> [...]]|Sostituisce un SID esistente (*SidOld*) con un nuovo SID (*SidNew*). Richiede il *Directory* parametro.|
 |/Restore \<ACLfile > [/c] [/l] [/q]|Si applica stored DACL da *ACLfile* ai file nella directory specificata. Richiede il *Directory* parametro.|
-|/InheritanceLevel: [e @ no__t-0D @ no__t-1R]|Imposta il livello di ereditarietà: <br>  **e** -Abilita enheritance <br>**d** : Disabilita l'ereditarietà e copia le voci ACE <br>**r** -rimuove tutte le voci ACE ereditate
+|/InheritanceLevel: [e\|d\|r]|Imposta il livello di ereditarietà: <br>  **e** -Abilita enheritance <br>**d** : Disabilita l'ereditarietà e copia le voci ACE <br>**r** -rimuove tutte le voci ACE ereditate
 
-## <a name="remarks"></a>Note
+## <a name="remarks"></a>Osservazioni
 
 -   SID potrebbero essere in qualsiasi formato di nome descrittivo o numerici. Se si usa un formato numerico, applicare il carattere **&#42;** jolly all'inizio del SID.
 -   **Icacls** mantiene l'ordine canonico delle voci ACE come:  

@@ -44,19 +44,19 @@ Lo scenario con **cluster esteso** consente la configurazione di computer e dell
 
 ![Diagramma che mostra due nodi del cluster di New York che usa Replica di archiviazione per replicare l'archiviazione con due nodi in New Jersey](./media/Storage-Replica-Overview/Storage_SR_StretchCluster.png)  
 
-**FIGURE 1: Replica di archiviazione in un cluster esteso con replica archiviazione @ no__t-0  
+**Figura 1: replica di archiviazione in un cluster esteso con replica archiviazione**  
 
 Lo scenario **da cluster a cluster** consente la replica tra due cluster distinti, in cui un cluster replica in modo sincrono o asincrono con un altro cluster. Questo scenario può usare Spazi di archiviazione diretta e Spazi di archiviazione con LUN collegati tramite dispositivi di archiviazione SAS condivisi, SAN e iSCSI. Viene gestito con l'interfaccia di amministrazione di Windows e PowerShell e richiede l'intervento manuale per il failover. 
 
 ![Diagramma che mostra un cluster di Los Angeles che usa Replica di archiviazione per replicare l'archiviazione con un cluster diverso a Las Vegas](./media/Storage-Replica-Overview/Storage_SR_ClustertoCluster.png)  
 
-**FIGURE 2: Replica di archiviazione da cluster a cluster con replica archiviazione @ no__t-0  
+**Figura 2: replica di archiviazione da cluster a cluster con replica archiviazione**  
 
 Lo scenario **da server a server** consente la replica sincrona e asincrona tra due server autonomi, usando Spazi di archiviazione con LUN collegati tramite dispositivi di archiviazione SAS condivisi, SAN e iSCSI e unità locali. Viene gestito con l'interfaccia di amministrazione di Windows e PowerShell e richiede l'intervento manuale per il failover.  
 
 ![Diagramma che mostra la replica di un server in Building 5 con un server in Building 9](./media/Storage-Replica-Overview/Storage_SR_ServertoServer.png)  
 
-**FIGURE 3: Replica di archiviazione da server a server con replica archiviazione @ no__t-0  
+**Figura 3: replica di archiviazione da server a server con replica archiviazione**  
 
 > [!NOTE]
 > È inoltre possibile configurare la replica da server a sé stesso usando quattro volumi separati in un computer. Tuttavia, questa guida non illustra questo scenario.  
@@ -87,24 +87,24 @@ Replica archiviazione include le funzionalità seguenti:
 
 | Funzionalità | Dettagli |
 | ----------- | ----------- |  
-| Type | Basata su host |
-| Sincrono | Yes |
-| Asincrono | Yes |
-| Indipendente dall'hardware di archiviazione | Yes |
+| Tipo | Basata su host |
+| Sincrono | Sì |
+| Asincrona | Sì |
+| Indipendente dall'hardware di archiviazione | Sì |
 | Unità di replica | Volume (partizione) |
-| Creazione di un cluster esteso di Windows Server | Yes |
-| Replica da server a server | Yes |
-| Replica da cluster a cluster | Yes |
+| Creazione di un cluster esteso di Windows Server | Sì |
+| Replica da server a server | Sì |
+| Replica da cluster a cluster | Sì |
 | Transport | SMB3 |
-| Rete | TCP/IP o RDMA |
-| Supporto per vincoli di rete | Yes |
+| Network | TCP/IP o RDMA |
+| Supporto per vincoli di rete | Sì |
 | RDMA* | iWARP, InfiniBand, RoCE v2 |
 | Requisiti firewall per la porta di rete della replica | Porta IANA singola (TCP 445 o 5445) |
 | Multipath/multicanale | Sì (SMB3) |
 | Supporto per Kerberos | Sì (SMB3) |
 | Crittografia e firma tramite rete|Sì (SMB3) |
-| Failover in base al volume consentiti | Yes |
-| Supporto di archiviazione con thin provisioning | Yes |
+| Failover in base al volume consentiti | Sì |
+| Supporto di archiviazione con thin provisioning | Sì |
 | Interfaccia utente di gestione inclusa | PowerShell, Gestione cluster di failover |
 
 *Potrebbe richiedere apparecchiature e cablaggi prolungati aggiuntivi.  
@@ -140,7 +140,7 @@ Quando si verificano operazioni di scrittura dell'applicazione nella copia dei d
 
 | Modalità | Diagramma | Passaggi |
 | -------- | ----------- | --------- |
-| **Sincrono**<br /><br />Perdita di dati pari a zero<br /><br />RPO | ![Diagramma che mostra come Replica di archiviazione scrive dati in modalità di replica sincrona](./media/Storage-Replica-Overview/Storage_SR_SynchronousV2.png) | 1.  L'applicazione scrive i dati<br />2.  I dati del log vengono scritti e replicati nel sito remoto<br />3.  I dati del log vengono scritti nel sito remoto<br />4.  Riconoscimento dal sito remoto<br />5.  Scrittura dell'applicazione riconosciuta<br /><br />t & T1: Dati scaricati nel volume, i log scrivono sempre |
+| **Sincrono**<br /><br />Perdita di dati pari a zero<br /><br />RPO | ![Diagramma che mostra come Replica di archiviazione scrive dati in modalità di replica sincrona](./media/Storage-Replica-Overview/Storage_SR_SynchronousV2.png) | 1.  L'applicazione scrive i dati<br />2.  I dati del log vengono scritti e replicati nel sito remoto<br />3.  I dati del log vengono scritti nel sito remoto<br />4.  Riconoscimento dal sito remoto<br />5.  Scrittura dell'applicazione riconosciuta<br /><br />t & t1: dati scaricati nel volume, log scrivono sempre |
 
 ### <a name="asynchronous-replication"></a>Replica asincrona
 
@@ -152,7 +152,7 @@ Con il suo RPO maggiore di zero, la replica asincrona è meno adatta per le solu
 
 | Modalità | Diagramma | Passaggi |
 | -------- | ----------- | --------- |
-| **Asincrona**<br /><br />Perdita di dati quasi pari a zero<br /><br />(dipende da vari fattori)<br /><br />RPO | ![Diagramma che mostra come Replica di archiviazione scrive dati in modalità di replica asincrona](./media/Storage-Replica-Overview/Storage_SR_AsynchronousV2.png)|1.  L'applicazione scrive i dati<br />2.  Dati del log scritti<br />3.  Scrittura dell'applicazione riconosciuta<br />4.  Dati replicati al sito remoto<br />5.  Dati del log scritti nel sito remoto<br />6.  Riconoscimento dal sito remoto<br /><br />t & T1: Dati scaricati nel volume, i log scrivono sempre |
+| **Asincrona**<br /><br />Perdita di dati quasi pari a zero<br /><br />(dipende da vari fattori)<br /><br />RPO | ![Diagramma che mostra come Replica di archiviazione scrive dati in modalità di replica asincrona](./media/Storage-Replica-Overview/Storage_SR_AsynchronousV2.png)|1.  L'applicazione scrive i dati<br />2.  Dati del log scritti<br />3.  Scrittura dell'applicazione riconosciuta<br />4.  Dati replicati al sito remoto<br />5.  Dati del log scritti nel sito remoto<br />6.  Riconoscimento dal sito remoto<br /><br />t & t1: dati scaricati nel volume, log scrivono sempre |
 
 ### <a name="key-evaluation-points-and-behaviors"></a>Punti di valutazione chiave e comportamenti  
 
@@ -188,12 +188,12 @@ Questa guida usa frequentemente i termini seguenti:
 
 Per un elenco delle nuove funzionalità di replica di archiviazione in Windows Server 2019, vedere Novità di [archiviazione](../whats-new-in-storage.md#storage-replica2019)
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 - [Replica del cluster esteso tramite l'archiviazione condivisa](stretch-cluster-replication-using-shared-storage.md)  
 - [Replica archiviazione da server a server](server-to-server-storage-replication.md)  
 - [Replica di archiviazione da cluster a cluster](cluster-to-cluster-storage-replication.md)  
-- [Replica di archiviazione: Problemi noti](storage-replica-known-issues.md)  
-- [Replica di archiviazione: domande frequenti](storage-replica-frequently-asked-questions.md)  
+- [Replica archiviazione: problemi noti](storage-replica-known-issues.md)  
+- [Replica archiviazione: domande frequenti](storage-replica-frequently-asked-questions.md)  
 - [Spazi di archiviazione diretta in Windows Server 2016](../storage-spaces/storage-spaces-direct-overview.md)
 - [Supporto di Windows IT Pro](https://www.microsoft.com/itpro/windows/support)

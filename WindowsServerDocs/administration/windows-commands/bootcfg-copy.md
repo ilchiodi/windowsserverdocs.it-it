@@ -22,7 +22,7 @@ ms.locfileid: "71380124"
 ---
 # <a name="bootcfg-copy"></a>bootcfg copy
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Crea una copia di una voce di avvio esistente, a cui è possibile aggiungere opzioni della riga di comando.
 
@@ -35,10 +35,10 @@ bootcfg /copy [/s <computer> [/u <Domain>\<User> /p <Password>]] [/d <Descriptio
 |      Parametro       |                                                                                             Descrizione                                                                                             |
 |----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |    /s <computer>     |                                         Specifica il nome o l'indirizzo IP di un computer remoto (non utilizzare barre rovesciate). Il valore predefinito è il computer locale.                                          |
-| /u <Domain>\\<User>  | Esegue il comando con le autorizzazioni dell'account dell'utente specificato da <User>or <Domain> @ no__t-2 @ no__t-3. Il valore predefinito è le autorizzazioni dell'oggetto utente nel computer eseguendo il comando connesso. |
+| /u <Domain>\\<User>  | Esegue il comando con le autorizzazioni dell'account dell'utente specificato da <User>o <Domain>\\<User>. Il valore predefinito è le autorizzazioni dell'oggetto utente nel computer eseguendo il comando connesso. |
 |    /p <Password>     |                                                        Specifica la password dell'account utente specificato nella **/u** parametro.                                                        |
 |   /d <Description>   |                                                                    Specifica la descrizione per la nuova voce del sistema operativo.                                                                    |
-| /ID <OSEntryLineNum> |         Specifica il numero di riga voce del sistema operativo in della sezione [operating systems] del file Boot. ini da copiare. La prima riga dopo la sezione [operating systems] sezione di intestazione è 1.         |
+| <OSEntryLineNum>/ID |         Specifica il numero di riga voce del sistema operativo in della sezione [operating systems] del file Boot. ini da copiare. La prima riga dopo la sezione [operating systems] sezione di intestazione è 1.         |
 |          /?          |                                                                                Visualizza la guida al prompt dei comandi.                                                                                 |
 
 ## <a name="BKMK_examples"></a>Esempi
@@ -46,5 +46,5 @@ Gli esempi seguenti illustrano come utilizzare il **bootcfg /copy** comando per 
 ```
 bootcfg /copy /d "\ABC Server\" /id 1
 ```
-#### <a name="additional-references"></a>Riferimenti aggiuntivi
+#### <a name="additional-references"></a>riferimenti aggiuntivi
 [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

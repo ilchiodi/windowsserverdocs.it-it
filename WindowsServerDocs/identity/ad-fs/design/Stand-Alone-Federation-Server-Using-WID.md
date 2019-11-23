@@ -18,7 +18,7 @@ ms.locfileid: "71358960"
 ---
 # <a name="stand-alone-federation-server-using-wid"></a>Server federativo autonomo che usa Database interno di Windows
 
-Un server federativo stand @ no__t-0alone in Active Directory Federation Services \(AD FS @ no__t-2 è costituito da un singolo server che ospita un Servizio federativo configurato per l'uso del database interno di Windows \(WID @ no__t-4. Questa topologia ADFS è per i laboratori di test. Non è consigliabile per gli ambienti di produzione perché ha un limite di un solo server federativo e non può essere utilizzato per la scalabilità verticale a più server.  
+Un server federativo autonomo\-in Active Directory Federation Services \(AD FS\) è costituito da un singolo server che ospita un Servizio federativo configurato per l'uso del database interno di Windows \(WID\). Questa topologia ADFS è per i laboratori di test. Non è consigliabile per gli ambienti di produzione perché ha un limite di un solo server federativo e non può essere utilizzato per la scalabilità verticale a più server.  
   
 Se si desidera aggiungere altri server federativi a un ambiente di laboratorio, è necessario ricompilare il servizio federativo da zero distribuendo le topologie illustrate più avanti in questa sezione. È pertanto consigliabile utilizzare questa topologia per un laboratorio di test o un modello di prova\-di\-ambiente della rete di test privato in cui un server federativo singolo è adeguato, come illustrato nella figura seguente.  
   
@@ -37,10 +37,10 @@ Questa sezione vengono descritte varie considerazioni sui destinatari, vantaggi 
   
 ### <a name="what-are-the-limitations-of-using-this-topology"></a>Quali sono le limitazioni dell'utilizzo di questa topologia?  
   
--   Un solo server federativo per Servizio federativo funzionalità di \(NO per la scalabilità verticale a una farm @ no__t-1  
+-   Un solo server federativo per Servizio federativo \(nessuna funzionalità per la scalabilità verticale a una farm\)  
   
--   @No__t non ridondante-0only è presente una singola istanza del database di configurazione AD FS @ no__t-1  
+-   Non ridondante \(è presente una sola istanza del database di configurazione AD FS\)  
   
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 [Guida alla progettazione di AD FS in Windows Server 2012](AD-FS-Design-Guide-in-Windows-Server-2012.md)

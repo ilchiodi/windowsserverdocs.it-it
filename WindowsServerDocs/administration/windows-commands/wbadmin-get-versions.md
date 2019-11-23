@@ -45,7 +45,7 @@ wbadmin get versions
 |-backupTarget|Specifica il percorso di archiviazione che contiene i backup che si desidera visualizzare i dettagli per. Utilizzare per l'elenco dei backup archiviati in tale percorso di destinazione. I percorsi di destinazione di backup possono essere collegate localmente le unità disco, volumi, cartelle condivise remote, supporti rimovibili come unità DVD o altri supporti ottici. Se **wbadmin ottenere versioni** viene eseguito nello stesso computer in cui è stato creato il backup, questo parametro non è necessaria. Tuttavia, questo parametro è obbligatorio per ottenere informazioni su un backup creato da un altro computer.|
 |-machine|Specifica il computer che si desidera visualizzare dettagli backup per. Utilizzarlo quando nello stesso percorso di archiviazione dei backup di più computer. Deve essere utilizzato quando **- backupTarget** specificato.|
 
-## <a name="remarks"></a>Note
+## <a name="remarks"></a>Osservazioni
 
 Per elencare gli elementi disponibili per il ripristino da un backup specifico, utilizzare **wbadmin ottenere elementi**.
 
@@ -55,7 +55,7 @@ Per visualizzare un elenco di backup disponibili che vengono archiviati nel volu
 ```
 wbadmin get versions -backupTarget:h:
 ```
-Per visualizzare un elenco dei backup disponibili archiviati nella cartella condivisa remota \\ @ no__t-1servername\share per il computer Server01, digitare:
+Per visualizzare un elenco dei backup disponibili archiviati nella cartella condivisa remota \\\\servername\share per il computer Server01, digitare:
 ```
 wbadmin get versions -backupTarget:\\servername\share -machine:server01
 ```

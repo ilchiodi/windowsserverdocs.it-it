@@ -25,7 +25,7 @@ Per altre informazioni sulle procedure consigliate e sulle analisi, vedere [Eseg
   
 |Proprietà|Dettagli|  
 |-|-|  
-|**Sistema operativo**|Windows Server 2016|  
+|**Sistema operativo**|Windows Server 2016|  
 |**Prodotto/funzionalità**|Hyper-V|  
 |**Gravità**|Avviso|  
 |**Categoria**|Configurazione|  
@@ -36,12 +36,12 @@ Nelle sezioni seguenti, corsivo indica il testo dell'interfaccia Utente visualiz
 *Una o più macchine virtuali riscontrano problemi con il driver necessario per memoria dinamica nel sistema operativo guest.*  
   
 ## <a name="impact"></a>Impatto  
-il sistema operativo guest *The nelle macchine virtuali seguenti potrebbe non essere eseguito o potrebbe non essere eseguito in modo inaffidabile perché Hyper-V non è in grado di regolare la memoria in modo dinamico per rispondere alle modifiche della richiesta di memoria. Ciò influisca sulle macchine virtuali seguenti:*  
+*Il sistema operativo guest nelle macchine virtuali seguenti potrebbe non essere eseguito o potrebbe non essere eseguito in modo affidabile perché Hyper-V non è in grado di regolare la memoria in modo dinamico per rispondere alle modifiche della richiesta di memoria. Ciò influisca sulle macchine virtuali seguenti:*  
   
-@no__t 0list di macchine virtuali >  
+\<elenco di macchine virtuali >  
   
 ## <a name="resolution"></a>Risoluzione  
-*Stanziamento è un comportamento previsto se la macchina virtuale viene avviata. Se la macchina virtuale non viene avviata, assicurarsi che Integration Services venga aggiornato alla versione più recente e che il sistema operativo guest supporti memoria dinamica.*  
+*Si tratta di un comportamento previsto se la macchina virtuale viene avviata. Se la macchina virtuale non viene avviata, assicurarsi che Integration Services venga aggiornato alla versione più recente e che il sistema operativo guest supporti memoria dinamica.*  
   
 A partire da Windows Server 2016, i servizi di integrazione vengono forniti tramite Windows Update. Verificare che le macchine virtuali sono configurate per ricevere gli aggiornamenti per ottenere la versione più recente di integration services.  
   

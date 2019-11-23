@@ -15,7 +15,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 09/27/2019
 ms.locfileid: "71401913"
 ---
-# <a name="network-shell-netsh-example-batch-file"></a>Shell di rete \(Netsh @ no__t-1 file batch di esempio
+# <a name="network-shell-netsh-example-batch-file"></a>Shell di rete \(netsh\) file batch di esempio
 
 Si applica a: Windows Server 2016
 
@@ -23,17 +23,17 @@ Si applica a: Windows Server 2016
 
 ## <a name="example-batch-file-overview"></a>Panoramica del file batch di esempio
 
-È possibile utilizzare i comandi Netsh per Windows Internet Name Service \(WINS @ no__t-1 in file batch e altri script per automatizzare le attività. Nell'esempio di file batch riportato di seguito viene illustrato come utilizzare i comandi Netsh per WINS per eseguire una serie di attività correlate.
+È possibile utilizzare i comandi Netsh per Windows Internet Name Service \(WINS\) in file batch e altri script per automatizzare le attività. Nell'esempio di file batch riportato di seguito viene illustrato come utilizzare i comandi Netsh per WINS per eseguire una serie di attività correlate.
 
-In questo file batch di esempio, WINS @ no__t-0A è un server WINS con indirizzo IP 192.168.125.30 e WINS @ no__t-1B è un server WINS con indirizzo IP 192.168.0.189.
+In questo file batch di esempio, WINS\-A è un server WINS con l'indirizzo IP 192.168.125.30 e WINS\-B è un server WINS con indirizzo IP 192.168.0.189.
 
 Il file batch di esempio esegue le attività seguenti.
 
-- Aggiunge un record di nome dinamico con indirizzo IP 192.168.0.205, MY @ no__t-0RECORD \[04h @ no__t-2, a WINS @ no__t-3A
-- Imposta WINS @ no__t-0B come partner di replica push/pull di WINS @ no__t-1A
-- Si connette a WINS @ no__t-0B e quindi imposta WINS @ no__t-1A come partner di replica push/pull di WINS @ no__t-2B
-- Avvia una replica push da WINS @ no__t-0A a WINS @ no__t-1B
-- Si connette a WINS @ no__t-0B per verificare che il nuovo record, MY @ no__t-1RECORD, sia stato replicato correttamente
+- Aggiunge un record di nome dinamico con indirizzo IP 192.168.0.205, MY\_RECORD \[04h\], a WINS\-
+- Imposta WINS\-B come partner di replica push/pull di WINS\-A
+- Si connette a WINS\-B, quindi imposta WINS\-A come partner di replica push/pull di WINS\-B
+- Avvia una replica push da WINS\-a WINS\-B
+- Si connette a WINS\-B per verificare che il nuovo record, MY\_RECORD, è stato replicato correttamente
 
 ## <a name="netsh-example-batch-file"></a>File batch di esempio netsh
 
@@ -73,7 +73,7 @@ Nel file batch di esempio seguente, le righe contenenti commenti sono precedute 
 
 Nella sezione seguente sono elencati i comandi **Netsh WINS** utilizzati in questa procedura di esempio.
 
-- **Server**. Sposta il contesto del comando WINS corrente @ no__t-0line sul server specificato mediante il nome o l'indirizzo IP.
+- **Server**. Sposta il comando WINS corrente\-contesto di riga al server specificato mediante il nome o l'indirizzo IP.
 - **aggiungere il nome**. Registra un nome nel server WINS.
 - **Aggiungi partner**. Aggiunge un partner di replica nel server WINS.
 - **push init**. Avvia e invia un trigger push a un server WINS.

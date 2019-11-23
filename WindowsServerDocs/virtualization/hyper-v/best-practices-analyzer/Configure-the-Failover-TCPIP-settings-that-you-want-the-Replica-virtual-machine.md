@@ -24,7 +24,7 @@ Per altre informazioni sulle procedure consigliate e sulle analisi, vedere [Eseg
   
 |Proprietà|Dettagli|  
 |-|-|  
-|**Sistema operativo**|Windows Server 2016|  
+|**Sistema operativo**|Windows Server 2016|  
 |**Prodotto/funzionalità**|Hyper-V|  
 |**Gravità**|Avviso|  
 |**Categoria**|Configurazione|  
@@ -35,9 +35,9 @@ Nelle sezioni seguenti, corsivo indica il testo dell'interfaccia Utente visualiz
 *Le macchine virtuali di replica configurate con un indirizzo IP statico devono essere configurate per usare un indirizzo IP diverso dalla controparte della macchina virtuale primaria in caso di failover.*  
   
 ## <a name="impact"></a>Impatto  
-*Clients con il carico di lavoro supportato dalla macchina virtuale primaria potrebbe non essere in grado di connettersi alla macchina virtuale di replica dopo un failover. Inoltre, indirizzo IP originale della macchina virtuale primaria non saranno valido nella topologia di rete macchina virtuale di Replica. Ciò influisca sulle macchine virtuali seguenti:*  
+*I client che usano il carico di lavoro supportato dalla macchina virtuale primaria potrebbero non essere in grado di connettersi alla macchina virtuale di replica dopo un failover. Inoltre, l'indirizzo IP originale della macchina virtuale primaria non sarà valido nella topologia di rete della macchina virtuale di replica. Ciò influisca sulle macchine virtuali seguenti:*  
   
-@no__t 0list di macchine virtuali >  
+\<elenco di macchine virtuali >  
   
 ## <a name="resolution"></a>Risoluzione  
 *Utilizzare la console di gestione di Hyper-V per configurare l'indirizzo IP che la macchina virtuale di replica deve utilizzare in caso di failover.*  

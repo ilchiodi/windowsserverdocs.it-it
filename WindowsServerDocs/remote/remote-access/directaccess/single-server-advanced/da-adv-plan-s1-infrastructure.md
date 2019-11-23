@@ -66,7 +66,7 @@ In questa sezione viene spiegato come pianificare la rete, incluse le seguenti o
   
     ||Scheda di rete esterna|Scheda di rete interna|Requisiti di routing|  
     |-|--------------|--------------|------------|  
-    |Internet IPv4 e Intranet IPv4|Configurare due indirizzi IPv4 pubblici statici consecutivi con le subnet mask appropriate (richiesto solo per Teredo).<br/><br/>Configurare anche l'indirizzo IPv4 del gateway predefinito del firewall Internet o del router del provider di servizi Internet (ISP) locale. **Nota:** Il server DirectAccess necessita di due indirizzi IPv4 pubblici consecutivi per poter essere usato come server Teredo e i client basati su Windows possono usare il server DirectAccess per rilevare il tipo di dispositivo NAT da cui sono protetti.|Configurare quanto segue:<br/><br/>-Un indirizzo intranet IPv4 con subnet mask appropriata.<br/>-Il suffisso DNS specifico della connessione dello spazio dei nomi intranet. Configurare anche un server DNS nell'interfaccia interna. **Attenzione:** Non configurare un gateway predefinito in alcuna interfaccia Intranet.|Per configurare il server DirectAccess affinché possa raggiungere tutte le subnet nella rete IPv4 interna, eseguire le operazioni seguenti:<br/><br/>: Elenca gli spazi di indirizzi IPv4 per tutti i percorsi nella rete intranet.<br/>-Utilizzare il **route aggiungere -p** o**netsh interface ipv4 aggiungere route** comando per aggiungere gli spazi degli indirizzi IPv4 come route statiche nella tabella di routing IPv4 del server DirectAccess.|  
+    |Internet IPv4 e Intranet IPv4|Configurare due indirizzi IPv4 pubblici statici consecutivi con le subnet mask appropriate (richiesto solo per Teredo).<br/><br/>Configurare anche l'indirizzo IPv4 del gateway predefinito del firewall Internet o del router del provider di servizi Internet (ISP) locale. **Nota:** il server DirectAccess richiede due indirizzi IPv4 pubblici consecutivi in modo che possa fungere da server Teredo e i client basati su Windows possono utilizzare il server DirectAccess per rilevare il tipo di dispositivo NAT da cui sono protetti.|Configurare quanto segue:<br/><br/>-Un indirizzo intranet IPv4 con subnet mask appropriata.<br/>-Il suffisso DNS specifico della connessione dello spazio dei nomi intranet. Configurare anche un server DNS nell'interfaccia interna. **Attenzione:** non si configura un gateway predefinito in alcuna interfaccia intranet.|Per configurare il server DirectAccess affinché possa raggiungere tutte le subnet nella rete IPv4 interna, eseguire le operazioni seguenti:<br/><br/>: Elenca gli spazi di indirizzi IPv4 per tutti i percorsi nella rete intranet.<br/>-Utilizzare il **route aggiungere -p** o**netsh interface ipv4 aggiungere route** comando per aggiungere gli spazi degli indirizzi IPv4 come route statiche nella tabella di routing IPv4 del server DirectAccess.|  
     |Internet IPv6 e Intranet IPv6|Configurare quanto segue:<br/><br/>-Utilizzare la configurazione degli indirizzi fornita dall'ISP.<br/>-Utilizzare il **Route Print** comando per verificare se esiste una route IPv6 predefinita che punta al router ISP nella tabella di routing IPv6.<br/>-Determinare se i router ISP e intranet stanno usando le preferenze del router predefinite descritte in RFC 4191 e una preferenza predefinita superiore rispetto ai router intranet locali.<br/>    Se entrambe queste condizioni sono vere, non sono richieste altre configurazioni per la route predefinita. La preferenza superiore per il router ISP garantisce che la route IPv6 predefinita attiva del server DirectAccess punta alla rete Internet IPv6.<br/><br/>Poiché il server DirectAccess è un router IPv6, se si ha un'infrastruttura IPv6 nativa, anche l'interfaccia Internet può raggiungere i controller di dominio sulla Intranet. In questo caso, aggiungere filtri pacchetti al controller di dominio nella rete perimetrale per impedire la connettività all'indirizzo IPv6 dell'interfaccia con connessione Internet del server DirectAccess.|Configurare quanto segue:<br/><br/>-Se non si utilizza livelli di preferenza predefiniti, è possibile configurare le interfacce intranet utilizzando il comando seguente**netsh interface ipv6 set InterfaceIndex ignoredefaultroutes = abilitato**.<br/>    Il comando verifica che route predefinite aggiuntive che puntano ai router della Intranet non verranno aggiunte alla tabella di routing IPv6. È possibile ottenere l'indice dell'interfaccia delle interfacce intranet utilizzando il comando seguente: **netsh interface ipv6 show interface**.|Se si ha una Intranet IPv6, per configurare il server DirectAccess affinché possa raggiungere tutti i percorsi IPv6, eseguire le operazioni seguenti:<br/><br/>: Elenca gli spazi degli indirizzi IPv6 per tutti i percorsi nella rete intranet.<br/>-Utilizzare il **netsh interface ipv6 aggiungere route** comando per aggiungere gli spazi degli indirizzi IPv6 come route statiche nella tabella di routing IPv6 del server DirectAccess.|  
     |Internet IPv4 e Intranet IPv6|Il server DirectAccess inoltra il traffico della route IPv6 predefinita usando la scheda Microsoft 6to4 a un relay 6to4 nella rete Internet IPv4. È possibile configurare un server DirectAccess per l'indirizzo IPv4 della scheda Microsoft 6to4 usando il comando seguente: `netsh interface ipv6 6to4 set relay name=<ipaddress> state=enabled`.|||  
   
@@ -84,7 +84,7 @@ Per gestire i client DirectAccess remoti è necessario IPv6. IPv6 consente ai se
 > - Non è necessario usare IPv6 nella rete per supportare le connessioni avviate dai computer client DirectAccess alle risorse IPv4 nella rete dell'organizzazione. Per questo scopo, viene usato NAT64/DNS64.  
 > - Se non si gestiscono client DirectAccess remoti, non è necessario distribuire IPv6.  
 > - Il protocollo ISATAP (Intra-Site Automatic Tunnel Addressing Protocol) non è supportato nelle distribuzioni DirectAccess.  
-> - Quando si usa IPv6, è possibile abilitare le query dei record di risorse dell'host IPv6 (AAAA) per DNS64 con il seguente comando di Windows PowerShell:   **Set-NetDnsTransitionConfiguration -OnlySendAQuery $false**.  
+> - Quando si utilizza IPv6, è possibile abilitare IPv6 le query risorse dei record host (AAAA) per DNS64 con il seguente comando di Windows PowerShell:   **NetDnsTransitionConfiguration Set - OnlySendAQuery $false**.  
   
 ### <a name="113-plan-for-force-tunneling"></a>1.1.3 Pianificare il tunneling forzato
 
@@ -375,7 +375,7 @@ Di seguito sono descritti i requisiti per DNS quando si distribuisce DirectAcces
   
 -   Usare un server DNS che supporti gli aggiornamenti dinamici. Si possono usare server DNS che non supportano gli aggiornamenti dinamici, ma è necessario aggiornare manualmente le voci nei server.  
   
--   Il nome di dominio completo per i punti di distribuzione CRL accessibili da Internet deve essere risolvibile con i server DNS Internet. Se, ad esempio, l'URL <https://crl.contoso.com/crld/corp-DC1-CA.crl> si trova nel campo **punti di distribuzione CRL** del certificato IP-HTTPS del server DirectAccess, è necessario assicurarsi che il nome di dominio completo CRLD.contoso.com sia risolvibile mediante server DNS Internet.  
+-   Il nome di dominio completo per i punti di distribuzione CRL accessibili da Internet deve essere risolvibile con i server DNS Internet. Se ad esempio <https://crl.contoso.com/crld/corp-DC1-CA.crl> URL si trova nel campo **punti di distribuzione elenco di revoche** di certificati del certificato IP-HTTPS del server DirectAccess, è necessario assicurarsi che il nome di dominio completo CRLD.contoso.com sia risolvibile mediante server DNS Internet.  
   
 ### <a name="142-plan-for-local-name-resolution"></a>1.4.2 Pianificare la risoluzione dei nomi locali  
 Quando si pianifica la risoluzione dei nomi locali, tenere presenti i seguenti problemi:  
@@ -396,7 +396,7 @@ Nei seguenti casi, potrebbe essere necessario creare regole NRPT aggiuntive:
   
 **Nomi con etichetta singola**  
   
-I nomi con etichetta singola, ad esempio <https://paycheck>, vengono talvolta utilizzati per i server Intranet. Se è richiesto un nome con etichetta singola ed è configurato un elenco di ricerca dei suffissi DNS, i suffissi DNS nell'elenco vengono aggiunti al nome con etichetta singola. Ad esempio, quando un utente in un computer membro del dominio corp.contoso.com digita <https://paycheck> nel Web browser, il nome di dominio completo (FQDN) costruito come nome è paycheck.corp.contoso.com. Per impostazione predefinita, il suffisso aggiunto si basa sul suffisso DNS primario del client computer.  
+I nomi con etichetta singola, ad esempio <https://paycheck>, vengono talvolta utilizzati per i server Intranet. Se è richiesto un nome con etichetta singola ed è configurato un elenco di ricerca dei suffissi DNS, i suffissi DNS nell'elenco vengono aggiunti al nome con etichetta singola. Ad esempio, quando un utente in un computer che è membro dei tipi di dominio corp.contoso.com <https://paycheck> nel Web browser, il nome di dominio completo (FQDN) costruito come nome è paycheck.corp.contoso.com. Per impostazione predefinita, il suffisso aggiunto si basa sul suffisso DNS primario del client computer.  
   
 > [!NOTE]  
 > In uno scenario di spazio dei nomi indipendente (in cui uno o più computer del dominio hanno un suffisso DNS non corrispondente al dominio Active Directory a cui appartengono i computer), verificare che l'elenco di ricerca sia personalizzato e includa tutti i suffissi richiesti. Per impostazione predefinita, la Configurazione guidata accesso remoto configura il nome DNS di Active Directory come suffisso DNS primario nel client. Aggiungere il suffisso DNS emesso dai client per la risoluzione dei nomi.  
@@ -585,10 +585,10 @@ Le impostazioni DirectAccess configurate durante la configurazione di Accesso re
 > [!NOTE]  
 > Dopo aver configurato DirectAccess in modo da usare specifici oggetti Criteri di gruppo, non sarà possibile configurarlo in modo da usarne altri.  
   
-Se si usano oggetti Criteri di gruppo configurati automaticamente o manualmente, è necessario aggiungere un criterio per il rilevamento dei collegamenti lenti se i client usano le reti 3G. Percorso per **Policy: Configurare Criteri di gruppo rilevamento collegamento lento @ no__t-0 è: **Configurazione computer/Criteri/Modelli amministrativi/Sistema/Criteri di gruppo**.  
+Se si usano oggetti Criteri di gruppo configurati automaticamente o manualmente, è necessario aggiungere un criterio per il rilevamento dei collegamenti lenti se i client usano le reti 3G. Il percorso per **Criteri: Configura rilevamento collegamento lento Criteri di gruppo** è: **Computer configuration/Polices/Administrative Templates/System/Group Policy**.  
   
 > [!CAUTION]  
-> Usare la procedura seguente per eseguire il backup di tutti gli oggetti Criteri di gruppo di Accesso remoto prima di eseguire i cmdlet DirectAccess: [Backup e ripristino della configurazione di Accesso remoto](https://go.microsoft.com/fwlink/?LinkID=257928).  
+> Utilizzare la procedura seguente per eseguire il backup tutti i GPO di accesso remoto prima di eseguire i cmdlet di DirectAccess: [backup e ripristino configurazione di accesso remoto](https://go.microsoft.com/fwlink/?LinkID=257928).  
   
 Se non esistono autorizzazioni corrette (elencate nelle seguenti sezioni) per il collegamento degli oggetti Criteri di gruppo, viene emesso un avviso. L'operazione di Accesso remoto continua, ma il collegamento non verrà eseguito. Se viene emesso questo avviso non verranno creati automaticamente i collegamenti, nemmeno dopo che saranno state aggiunte le autorizzazioni. L'amministratore dovrà invece creare i collegamenti manualmente.  
   
@@ -675,7 +675,7 @@ Questa configurazione viene illustrata nel seguente diagramma.
 ### <a name="185-recover-from-a-deleted-gpo"></a>1.8.5 Eseguire un ripristino da un oggetto Criteri di gruppo eliminato  
 Se un oggetto Criteri di gruppo del client, del server DirectAccess o del server applicazioni è stato eliminato per errore e non è disponibile un backup, è necessario rimuovere le impostazioni di configurazione e riconfigurarle. Se è disponibile un backup sarà possibile ripristinare l'oggetto Criteri di gruppo.  
   
-La Console di gestione Accesso remoto visualizza il seguente messaggio di errore: **Impossibile trovare l'oggetto Criteri di gruppo (nome oggetto Criteri**di gruppo). Per rimuovere le impostazioni di configurazione eseguire la procedura seguente:  
+Nella console di gestione accesso remoto viene visualizzato il messaggio di errore seguente: **Impossibile trovare l'oggetto Criteri di gruppo (nome GPO)** . Per rimuovere le impostazioni di configurazione eseguire la procedura seguente:  
   
 1.  Eseguire il cmdlet di Windows PowerShell **Uninstall-remoteaccess**.  
   
@@ -685,7 +685,7 @@ La Console di gestione Accesso remoto visualizza il seguente messaggio di errore
   
 ## <a name="next-steps"></a>Passaggi successivi  
   
--   [Passaggio 2: Pianificare le distribuzioni di DirectAccess @ no__t-0  
+-   [Passaggio 2: pianificare le distribuzioni di DirectAccess](da-adv-plan-s2-deployments.md)  
   
 
 

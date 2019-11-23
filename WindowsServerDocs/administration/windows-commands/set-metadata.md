@@ -36,8 +36,8 @@ set metadata [<Drive>:][<Path>]<MetaData.cab>
 
 |Parametro|Descrizione|
 |---------|-----------|
-|[\<Drive >:] [<Path>]|Specifica il percorso per creare il file di metadati.|
-|@no__t -0MetaData. cab >|Specifica il nome del file cab per archiviare i metadati di creazione dell'ombreggiatura.|
+|[\<unità >:] [<Path>]|Specifica il percorso per creare il file di metadati.|
+|\<metadati. cab >|Specifica il nome del file cab per archiviare i metadati di creazione dell'ombreggiatura.|
 
 #### <a name="additional-references"></a>Altri riferimenti
 

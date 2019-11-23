@@ -55,9 +55,9 @@ wbadmin start sysrecovery
 |-backupTarget|Specifica il percorso di archiviazione che contiene il backup o il backup che si desidera ripristinare. Questo parametro è utile quando il percorso di archiviazione è diverso da in cui sono in genere archiviati i backup del computer.|
 |-machine|Specifica il nome del computer in cui si desidera ripristinare. Questo parametro è utile quando più computer sottoposte a backup nello stesso percorso. Deve essere utilizzato quando il **- backupTarget** parametro specificato.|
 |-restoreAllVolumes|Ripristina tutti i volumi del backup selezionato. Se questo parametro viene omesso, vengono recuperati solo critici (volumi contenenti i componenti del sistema di stato e il sistema operativo). Questo parametro è utile quando è necessario ripristinare i volumi non critici durante il ripristino di sistema.|
-|-recreateDisks|Ripristina una configurazione del disco allo stato esistente al momento della creazione del backup.</br>Avviso: Questo parametro Elimina tutti i dati nei volumi che ospitano i componenti del sistema operativo. Inoltre potrebbe eliminare dati da volumi di dati.|
+|-recreateDisks|Ripristina una configurazione del disco allo stato esistente al momento della creazione del backup.</br>Avviso: questo parametro Elimina tutti i dati nei volumi che ospitano i componenti del sistema operativo. Inoltre potrebbe eliminare dati da volumi di dati.|
 |-excludeDisks|Valido solo quando viene specificato con il **- recreateDisks** parametro e deve essere di input come elenco delimitato da virgole di identificatori disco (come indicato nell'output di **wbadmin ottenere dischi**). Esclusi i dischi non sono partizionati o formattati. Questo parametro consente di conservare i dati nei dischi che si preferisce non modificati durante l'operazione di ripristino.|
-|-skipBadClusterCheck|Ignora il controllo dei dischi di ripristino per informazioni sul cluster non valida. Se esegue il ripristino a un server alternativo o hardware, si consiglia di non utilizzare questo parametro. È possibile eseguire manualmente **/b chkdsk** presenti sui dischi di ripristino in qualsiasi momento per verificare la presenza di cluster danneggiati e aggiornare di conseguenza le informazioni sul file system.</br>Avviso: Fino a quando non si esegue **chkdsk** come descritto, i cluster danneggiati segnalati nel sistema ripristinato potrebbero non essere accurati.|
+|-skipBadClusterCheck|Ignora il controllo dei dischi di ripristino per informazioni sul cluster non valida. Se esegue il ripristino a un server alternativo o hardware, si consiglia di non utilizzare questo parametro. È possibile eseguire manualmente **/b chkdsk** presenti sui dischi di ripristino in qualsiasi momento per verificare la presenza di cluster danneggiati e aggiornare di conseguenza le informazioni sul file system.</br>Avviso: fino a quando non si esegue **chkdsk** come descritto, i cluster danneggiati segnalati nel sistema ripristinato potrebbero non essere accurati.|
 |-quiet|Esegue il comando senza alcuna richiesta visualizzata all'utente.|
 
 ## <a name="BKMK_examples"></a>Esempi
@@ -66,7 +66,7 @@ Per avviare le informazioni di ripristino dalla copia di backup è stato eseguit
 ```
 wbadmin start sysrecovery -version:03/31/2013-09:00 -backupTarget:d:
 ```
-Per avviare il recupero delle informazioni dal backup eseguito il 30 aprile 2013 alle ore 9:00, che si trova nella cartella condivisa \\ @ no__t-1servername\shared: per Server01, digitare:
+Per avviare il recupero delle informazioni dal backup eseguito il 30 aprile 2013 alle ore 9:00, che si trova nella cartella condivisa \\\\servername\shared: per Server01, digitare:
 ```
 wbadmin start sysrecovery -version:04/30/2013-09:00 -backupTarget:\\servername\share -machine:server01
 ```

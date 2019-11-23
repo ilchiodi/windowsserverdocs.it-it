@@ -43,11 +43,11 @@ scwcmd transform /p:<Policyfile.xml> /g:<GPODisplayName>
 
 |Parametro|Descrizione|
 |---------|-----------|
-|/p: @no__t -0Policyfile. XML >|Specifica il percorso e il nome del file di criteri XML che deve essere applicato. Questo parametro deve essere specificato.|
-|/g: \<GPODisplayName >|Specifica il nome visualizzato dell'oggetto Criteri di gruppo. Questo parametro deve essere specificato.|
+|/p:\<policyFile. XML >|Specifica il percorso e il nome del file di criteri XML che deve essere applicato. Questo parametro deve essere specificato.|
+|/g:\<GPODisplayName >|Specifica il nome visualizzato dell'oggetto Criteri di gruppo. Questo parametro deve essere specificato.|
 |/?|Visualizza la guida al prompt dei comandi.|
 
-## <a name="remarks"></a>Note
+## <a name="remarks"></a>Osservazioni
 
 Scwcmd.exe è disponibile solo nei computer che eseguono Windows Server 2008 R2, Windows Server 2008 o Windows Server 2003.
 

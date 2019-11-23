@@ -76,18 +76,18 @@ Il modello si aprirà in una finestra separata in cui saranno disponibili altre 
     > [!NOTE]  
     > Se il sistema MultiPoint Services non è in modalità stazione, è necessario riavviarlo per completare la procedura.  
   
-2.  Selezionare il modello di desktop virtuale nel riquadro di sinistra @ no__t-0hand. Il modello è denominato <prefix –t>.  
+2.  Selezionare il modello di desktop virtuale nel riquadro a sinistra\-. Il modello è denominato <prefix –t>.  
   
 3.  In Template Tasks (Attività modello) fare clic su **Create virtual desktop stations** (Crea stazioni di desktop virtuali), quindi selezionare **OK**.  
   
     La creazione della stazione di desktop virtuale richiede diversi minuti.  
   
     > [!NOTE]  
-    > Se una delle stazioni locali è attualmente connessa a una sessione @ no__t-0based Virtual Desktop, è necessario disconnettersi da tali stazioni per potersi connettere a una delle stazioni di desktop virtuali appena create.  
+    > Se una delle stazioni locali è attualmente connessa a una sessione\-desktop virtuale basato su, è necessario disconnettersi da tali stazioni per potersi connettere a una delle stazioni di desktop virtuali appena create.  
   
 ### <a name="validate-the-newly-created-customized-virtual-station-desktops"></a>Convalidare le stazioni desktop virtuali personalizzate appena create  
   
-È possibile convalidare i desktop della stazione virtuale personalizzata accedendo a una o più stazioni di desktop virtuali usando un account amministratore locale o un account di dominio, quindi verificare che i desktop virtuali @ no__t-0based della nuova VM funzionino correttamente.  
+È possibile convalidare i desktop della stazione virtuale personalizzata accedendo a una o più stazioni di desktop virtuali usando un account amministratore locale o un account di dominio, quindi verificare che i nuovi desktop virtuali basati su\-VM funzionino correttamente.  
   
 ## <a name="disable-virtual-desktops"></a>Disabilitare i desktop virtuali  
   

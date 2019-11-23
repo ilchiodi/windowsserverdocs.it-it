@@ -37,7 +37,7 @@ L'ottimizzazione delle prestazioni del sottosistema di rete, in particolare per 
   
 3. **Stack di protocolli**. Lo stack di protocolli implementa protocolli quali TCP/IP e UDP/IP. Questi livelli espongono l'interfaccia del livello di trasporto per i livelli al di sopra di essi.
   
-4. **Driver di sistema**. Si tratta in genere di client che usano un'interfaccia TDX (Transport data Extension) o un kernel Winsock (WSK) per esporre le interfacce alle applicazioni in modalità utente. L'interfaccia WSK è stata introdotta in Windows Server 2008 e Windows @ no__t-0 vista ed è esposta da AFD. sys. L'interfaccia consente di migliorare le prestazioni eliminando il cambio tra la modalità utente e la modalità kernel.
+4. **Driver di sistema**. Si tratta in genere di client che usano un'interfaccia TDX (Transport data Extension) o un kernel Winsock (WSK) per esporre le interfacce alle applicazioni in modalità utente. L'interfaccia WSK è stata introdotta in Windows Server 2008 e Windows&reg; vista ed è esposta da AFD. sys. L'interfaccia consente di migliorare le prestazioni eliminando il cambio tra la modalità utente e la modalità kernel.
   
 5. **Applicazioni in modalità utente**. Si tratta in genere di soluzioni Microsoft o di applicazioni personalizzate.
 

@@ -45,7 +45,7 @@ Server dei criteri di rete consente di configurare e gestire centralmente l'aute
 - **Accounting RADIUS**. È possibile configurare NPS per registrare gli eventi in un file di log locale o in un'istanza locale o remota di Microsoft SQL Server. Per ulteriori informazioni, vedere la pagina relativa alla [registrazione di NPS](#nps-logging).
 
 > [!IMPORTANT]
-> Protezione accesso alla rete \(NAP @ no__t-1, Autorità registrazione integrità \(HRA @ no__t-3 e protocollo Host Credential Authorization \(HCAP @ no__t-5 sono stati deprecati in Windows Server 2012 R2 e non sono disponibili in Windows Server 2016. Se si dispone di una distribuzione di protezione accesso alla rete con sistemi operativi precedenti a Windows Server 2016, non è possibile eseguire la migrazione della distribuzione NAP a Windows Server 2016.
+> Protezione accesso alla rete \(NAP\), Autorità registrazione integrità \(Autorità registrazione integrità\)e protocollo Host Credential Authorization Protocol \(HCAP\) sono stati deprecati in Windows Server 2012 R2 e non sono disponibili in Windows Server 2016. Se si dispone di una distribuzione di protezione accesso alla rete con sistemi operativi precedenti a Windows Server 2016, non è possibile eseguire la migrazione della distribuzione NAP a Windows Server 2016.
 
 È possibile configurare NPS con qualsiasi combinazione di queste funzionalità. È ad esempio possibile configurare un server dei criteri di rete come server RADIUS per le connessioni VPN e anche come proxy RADIUS per l'inoltro di alcune richieste di connessione ai membri di un gruppo di server RADIUS remoti per l'autenticazione e l'autorizzazione in un altro dominio.
 
@@ -68,19 +68,19 @@ Nelle sezioni seguenti vengono fornite informazioni più dettagliate su NPS come
 
 ### <a name="radius-server"></a>Server RADIUS
 
-Server dei criteri di rete è l'implementazione Microsoft dello standard RADIUS specificato da Internet Engineering Task Force \(IETF @ no__t-1 nelle RFC 2865 e 2866. Come server RADIUS, server dei criteri di rete esegue l'autenticazione, l'autorizzazione e l'accounting della connessione centralizzata per molti tipi di accesso alla rete, tra cui wireless, switch di autenticazione, connessione remota e rete privata virtuale \(VPN @ no__t-1 accesso remoto e connessioni da router a router.
+Server dei criteri di rete è l'implementazione Microsoft dello standard RADIUS specificato da Internet Engineering Task Force \(IETF\) in RFC 2865 e 2866. Come server RADIUS, server dei criteri di rete esegue l'autenticazione, l'autorizzazione e la contabilità centralizzata della connessione per molti tipi di accesso alla rete, tra cui wireless, commutatore di autenticazione, connessione remota e rete privata virtuale \(VPN\) accesso remoto e connessioni da router a router.
 
 > [!NOTE]
 > Per informazioni sulla distribuzione di server dei criteri di rete come server RADIUS, vedere [distribuire un server dei criteri di rete](nps-deploy.md).
 
 NPS consente l'uso di un set eterogeneo di apparecchiature wireless, Switch, Remote Access o VPN. È possibile usare NPS con il servizio di accesso remoto, disponibile in Windows Server 2016.
 
-NPS usa un dominio Active Directory Domain Services \(AD DS @ no__t-1 o il database degli account utente di gestione degli account di protezione (SAM) locale per autenticare le credenziali utente per i tentativi di connessione. Quando un server che esegue NPS è membro di un dominio di servizi di dominio Active Directory, NPS usa il servizio directory come database degli account utente e fa parte di una soluzione Single Sign-On. Lo stesso set di credenziali viene usato per il controllo di accesso alla rete \(authenticating e l'autorizzazione dell'accesso a una rete @ no__t-1 e per accedere a un dominio di servizi di dominio Active Directory.
+NPS utilizza un Active Directory Domain Services \(dominio AD DS\) o il database degli account utente di gestione degli account di protezione (SAM) locale per autenticare le credenziali utente per i tentativi di connessione. Quando un server che esegue NPS è membro di un dominio di servizi di dominio Active Directory, NPS usa il servizio directory come database degli account utente e fa parte di una soluzione Single Sign-On. Lo stesso set di credenziali viene utilizzato per il controllo di accesso alla rete \(l'autenticazione e l'autorizzazione dell'accesso a una rete\) e per accedere a un dominio di servizi di dominio Active Directory.
 
 > [!NOTE]
 > NPS usa le proprietà di connessione remota dell'account utente e dei criteri di rete per autorizzare una connessione.
 
-I provider di servizi Internet \(ISPs @ no__t-1 e le organizzazioni che gestiscono l'accesso alla rete hanno la maggiore sfida di gestire tutti i tipi di accesso alla rete da un singolo punto di amministrazione, indipendentemente dal tipo di apparecchiature di accesso alla rete usate. Lo standard RADIUS supporta questa funzionalità in ambienti omogenei ed eterogenei. RADIUS è un protocollo client-server che consente alle apparecchiature di accesso alla rete, utilizzate come client RADIUS, di inviare richieste di autenticazione e accounting a un server RADIUS.
+I provider di servizi Internet \(ISP\) e le organizzazioni che gestiscono l'accesso alla rete hanno la maggiore sfida di gestire tutti i tipi di accesso alla rete da un singolo punto di amministrazione, indipendentemente dal tipo di apparecchiature di accesso alla rete usate. Lo standard RADIUS supporta questa funzionalità in ambienti omogenei ed eterogenei. RADIUS è un protocollo client-server che consente alle apparecchiature di accesso alla rete, utilizzate come client RADIUS, di inviare richieste di autenticazione e accounting a un server RADIUS.
 
 Un server RADIUS ha accesso alle informazioni sull'account utente e può controllare le credenziali di autenticazione dell'accesso alla rete. Se le credenziali dell'utente vengono autenticate e il tentativo di connessione è autorizzato, il server RADIUS autorizza l'accesso utente in base alle condizioni specificate e quindi registra la connessione di accesso alla rete in un log contabilità. L'uso di RADIUS consente ai dati di autenticazione, autorizzazione e accounting di accesso alla rete di essere raccolti e mantenuti in una posizione centrale, anziché in ogni server di accesso.
 
@@ -99,7 +99,7 @@ Nella figura seguente viene illustrato il server dei criteri di accesso come ser
 
 ### <a name="radius-proxy"></a>Proxy RADIUS
 
-Come proxy RADIUS, NPS invia i messaggi di autenticazione e accounting ai server dei criteri di server e ad altri server RADIUS. È possibile utilizzare server dei criteri di rete come proxy RADIUS per fornire il routing dei messaggi RADIUS tra client RADIUS \(also chiamati server di accesso alla rete @ no__t-1 e server RADIUS che eseguono l'autenticazione, l'autorizzazione e l'accounting per il tentativo di connessione. 
+Come proxy RADIUS, NPS invia i messaggi di autenticazione e accounting ai server dei criteri di server e ad altri server RADIUS. È possibile utilizzare server dei criteri di rete come proxy RADIUS per fornire il routing dei messaggi RADIUS tra i client RADIUS \(anche detti server di accesso alla rete\) e i server RADIUS che eseguono l'autenticazione, l'autorizzazione e l'accounting per il tentativo di connessione. 
 
 Quando viene usato come proxy RADIUS, server dei criteri di servizio è un punto di routing o di routing centrale attraverso il quale vengono inviati i messaggi di accesso e accounting RADIUS. NPS registra le informazioni in un log di contabilità sui messaggi che vengono inviati.
 
@@ -139,7 +139,7 @@ Gli esempi di configurazione seguenti illustrano come è possibile configurare N
 
 **NPS come server RADIUS con server di contabilità remoto**. In questo esempio, il server dei criteri di gruppo locale non è configurato per eseguire l'accounting e i criteri di richiesta di connessione predefiniti vengono rivisti in modo che i messaggi di accounting RADIUS vengano inviati a un server dei criteri di gruppo o un altro server RADIUS in un gruppo di server RADIUS remoto Sebbene i messaggi di contabilità vengano inviati, i messaggi di autenticazione e autorizzazione non vengono inviati e il server dei criteri di dominio locale esegue queste funzioni per il dominio locale e per tutti i domini trusted.
 
-**NPS con RADIUS remoto al mapping degli utenti di Windows**. In questo esempio, NPS funge sia da server RADIUS sia come proxy RADIUS per ogni singola richiesta di connessione tramite l'inoltro della richiesta di autenticazione a un server RADIUS remoto utilizzando un account utente di Windows locale per l'autorizzazione. Questa configurazione viene implementata configurando il raggio remoto in attributo mapping utenti Windows come condizione dei criteri di richiesta di connessione. \(Cm, è necessario creare un account utente localmente nel server RADIUS con lo stesso nome dell'account utente remoto sul quale viene eseguita l'autenticazione da parte del server RADIUS remoto. \)
+**NPS con RADIUS remoto al mapping degli utenti di Windows**. In questo esempio, NPS funge sia da server RADIUS sia come proxy RADIUS per ogni singola richiesta di connessione tramite l'inoltro della richiesta di autenticazione a un server RADIUS remoto utilizzando un account utente di Windows locale per l'autorizzazione. Questa configurazione viene implementata configurando il raggio remoto in attributo mapping utenti Windows come condizione dei criteri di richiesta di connessione. \(inoltre, è necessario creare un account utente localmente nel server RADIUS con lo stesso nome dell'account utente remoto sul quale viene eseguita l'autenticazione da parte del server RADIUS remoto.\)
 
 ## <a name="configuration"></a>Configurazione
 

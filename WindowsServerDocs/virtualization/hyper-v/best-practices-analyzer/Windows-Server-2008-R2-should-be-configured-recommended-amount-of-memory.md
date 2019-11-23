@@ -25,7 +25,7 @@ Per altre informazioni sulle procedure consigliate e le analisi, vedere [Best Pr
   
 |Proprietà|Dettagli|  
 |-|-|  
-|**Sistema operativo**|Windows Server 2016|  
+|**Sistema operativo**|Windows Server 2016|  
 |**Prodotto/funzionalità**|Hyper-V|  
 |**Gravità**|Avviso|  
 |**Categoria**|Configurazione|  
@@ -38,9 +38,9 @@ Nelle sezioni seguenti, corsivo indica il testo dell'interfaccia Utente visualiz
   
 ## <a name="impact"></a>Impatto  
   
-il sistema operativo guest *The e le applicazioni potrebbero non funzionare correttamente. Potrebbe non essere disponibile memoria sufficiente per eseguire più applicazioni contemporaneamente. Ciò influisca sulle macchine virtuali seguenti:*  
+*Il sistema operativo guest e le applicazioni potrebbero non funzionare correttamente. Potrebbe non essere disponibile memoria sufficiente per eseguire più applicazioni contemporaneamente. Ciò influisca sulle macchine virtuali seguenti:*  
   
-@no__t 0list di nomi di macchina virtuale >  
+\<elenco dei nomi delle macchine virtuali >  
   
 ## <a name="resolution"></a>Risoluzione  
   
@@ -70,7 +70,7 @@ il sistema operativo guest *The e le applicazioni potrebbero non funzionare corr
 Set-VMMemory <MyVM> -StartupBytes 2GB  
 ```  
   
-## <a name="see-also"></a>Vedere anche  
+## <a name="see-also"></a>Vedi anche  
 [Set-VMMemory](https://technet.microsoft.com/library/hh848572.aspx)  
   
 

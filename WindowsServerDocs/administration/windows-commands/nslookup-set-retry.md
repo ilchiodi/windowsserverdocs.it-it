@@ -22,7 +22,7 @@ ms.locfileid: "71372864"
 ---
 # <a name="nslookup-set-retry"></a>nslookup set retry
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Imposta il numero di tentativi.
 ## <a name="syntax"></a>Sintassi
@@ -36,8 +36,8 @@ set retry=<Number>
 |    <Number>     | Specifica il nuovo valore per il numero di tentativi. Il numero predefinito di tentativi è 4. |
 | {Help &#124; ?} |                 Viene visualizzato un breve riepilogo di **nslookup** sottocomandi.                  |
 
-## <a name="remarks"></a>Note
+## <a name="remarks"></a>Osservazioni
 - Quando una risposta a una richiesta non viene ricevuta entro un determinato intervallo di tempo, il periodo di timeout viene raddoppiato e la richiesta viene inviata nuovamente. Il valore Retry controlla il numero di volte in cui una richiesta viene inviata di nuovo prima di rinunciare. È possibile modificare il periodo di timeout con il sottocomando **set timeout** .
-  ## <a name="additional-references"></a>Riferimenti aggiuntivi
-  [Chiave della sintassi della riga di comando](command-line-syntax-key.md)
-  [nslookup set timeout](nslookup-set-timeout.md)
+  ## <a name="additional-references"></a>riferimenti aggiuntivi
+  [Chiave sintassi della riga di comando](command-line-syntax-key.md)
+  [timeout set nslookup](nslookup-set-timeout.md)

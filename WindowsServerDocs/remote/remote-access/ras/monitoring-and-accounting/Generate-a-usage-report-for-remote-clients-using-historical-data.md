@@ -23,7 +23,7 @@ ms.locfileid: "71367248"
 
 >Si applica a: Windows Server (Canale semestrale), Windows Server 2016
 
-**Nota:** Windows Server 2012 riunisce DirectAccess e il servizio Routing e Accesso remoto (RRAS) in un singolo ruolo Accesso remoto.  
+**Nota:** Windows Server 2012 combina DirectAccess e Routing e accesso remoto (RRAS) in un unico ruolo Accesso remoto.  
   
 La console di gestione nel server di accesso remoto consente di generare un report di utilizzo per i client remoti che accede al server. Per generare un report di utilizzo per i client remoti, è innanzitutto necessario abilitare accounting sul server di accesso remoto. Dopo aver generato il report, è possibile utilizzare il dashboard di monitoraggio che è disponibile nella console di gestione nel server di accesso remoto per visualizzare le statistiche di carico sul server.  
   
@@ -59,7 +59,7 @@ La console di gestione nel server di accesso remoto consente di generare un repo
 >   
 > Accounting di accesso remoto si basa sul concetto di **sessioni**. A differenza di un **connessione**,  **sessione** è identificata da una combinazione di nome utente e all'indirizzo IP del client remoto. Ad esempio, se un tunnel del computer è costituito dal client remoto, denominato Client1, una sessione verrà creata e archiviata nel database di accounting. Quando si passa a un utente denominato User1 si connette da tale client dopo un certo tempo, ma il tunnel del computer è ancora attivo, la sessione viene registrata come una sessione separata. La distinzione di sessioni consiste nel mantenere la distinzione tra tunnel del computer e utente tunnel.  
   
-](../../../media/Generate-a-usage-report-for-remote-clients-using-historical-data/PowerShellLogoSmall.gif)***<em>comandi equivalenti</em> di PowerShell per Windows PowerShell @no__t 0Windows***  
+![](../../../media/Generate-a-usage-report-for-remote-clients-using-historical-data/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em> per Windows PowerShell***  
   
 Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.  
   

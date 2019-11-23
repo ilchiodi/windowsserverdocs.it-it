@@ -52,7 +52,7 @@ Prima di iniziare il processo di aggiornamento in sequenza del sistema operativo
 - L'aggiornamento di un cluster di Spazi di archiviazione diretta a Windows Server, versione 1709 non è supportato.
 - Se il carico di lavoro del cluster è macchine virtuali Hyper-V o File server di scalabilità orizzontale, è possibile prevedere un aggiornamento senza tempi di inattività.
 - Verificare che i nodi Hyper-V dispongano di CPU che supportano la tabella di indirizzamento di secondo livello (stecca) utilizzando uno dei metodi seguenti:  
-        -Esaminare il [Are è compatibile con la stecca? WP8 SDK Tip 01 @ no__t-0 articolo che descrive due metodi per verificare se una CPU supporta le stecche  
+        -Verificare [che sia compatibile con le doghe? Articolo WP8 SDK Tip 01](http://blogs.msdn.com/b/devfish/archive/2012/11/06/are-you-slat-compatible-wp8-sdk-tip-01.aspx) che descrive due metodi per verificare se una CPU supporta le stecche  
         -Scaricare lo strumento [Coreinfo v 3.31](https://technet.microsoft.com/sysinternals/cc835722) per determinare se una CPU supporta la stecca.
 
 ## <a name="cluster-transition-states-during-cluster-os-rolling-upgrade"></a>Stati di transizione del cluster durante l'aggiornamento in sequenza del sistema operativo cluster
@@ -61,8 +61,8 @@ In questa sezione vengono descritti i vari Stati di transizione del cluster di W
 
 Per garantire che i carichi di lavoro del cluster siano in esecuzione durante il processo di aggiornamento in sequenza del sistema operativo del cluster, lo scorrimento di un carico di lavoro del cluster da un nodo Windows Server 2012 R2 al nodo Windows Server 2016 funziona come se entrambi i nodi eseguissero il sistema operativo Windows Server 2012 R2. Quando i nodi di Windows Server 2016 vengono aggiunti al cluster, funzionano in modalità di compatibilità con Windows Server 2012 R2. Una nuova modalità concettuale del cluster, denominata "modalità mista del sistema operativo", consente l'esistenza di nodi di versioni diverse nello stesso cluster (vedere la figura 1).  
 
-![Illustration che illustra le tre fasi di un aggiornamento in sequenza del sistema operativo del cluster: tutti i nodi Windows Server 2012 R2, modalità sistema operativo misto e tutti i nodi Windows Server 2016 @ no__t-1  
-**Figura 1: Transizioni di stato del sistema operativo del cluster @ no__t-0  
+![illustrazione che mostra le tre fasi di un aggiornamento in sequenza del sistema operativo del cluster: tutti i nodi Windows Server 2012 R2, modalità sistema operativo misto e tutti i nodi Windows Server 2016](media/Cluster-Operating-System-Rolling-Upgrade/Clustering_RollingUpgrade_Overview.png)  
+**Figura 1: transizioni dello stato del sistema operativo del cluster**  
 
 Un cluster Windows Server 2012 R2 entra in modalità sistema operativo misto quando un nodo Windows Server 2016 viene aggiunto al cluster. Il processo è completamente reversibile: i nodi di Windows Server 2016 possono essere rimossi dal cluster e i nodi di Windows Server 2012 R2 possono essere aggiunti al cluster in questa modalità. Il "punto di nessun ritorno" si verifica quando il cmdlet di PowerShell Update-ClusterFunctionalLevel viene eseguito nel cluster. Affinché il cmdlet abbia esito positivo, tutti i nodi devono essere Windows Server 2016 e tutti i nodi devono essere online.  
 
@@ -72,33 +72,33 @@ In questa sezione vengono illustrate e descritte le quattro diverse fasi di un c
 
 "Stage 1" è lo stato iniziale. si inizia con un cluster di Windows Server 2012 R2.  
 
-![Illustration che mostra lo stato iniziale: tutti i nodi Windows Server 2012 R2 @ no__t-1  
-**Figura 2: Stato iniziale: Cluster di failover di Windows Server 2012 R2 (fase 1)**  
+![illustrazione che mostra lo stato iniziale: tutti i nodi Windows Server 2012 R2](media/Cluster-Operating-System-Rolling-Upgrade/Cluster_RollingUpgrade_Stage1.png)  
+**Figura 2: stato iniziale: cluster di failover di Windows Server 2012 R2 (fase 1)**  
 
 In "fase 2", due nodi sono stati sospesi, svuotati, rimossi, riformattati e installati con Windows Server 2016.  
 
-![Illustration che mostra il cluster in modalità sistema operativo misto: dal cluster a 4 nodi di esempio, due nodi eseguono Windows Server 2016 e due nodi eseguono Windows Server 2012 R2 @ no__t-1  
-**Figura 3: Stato intermedio: Modalità del sistema operativo mista: Cluster di failover di Windows Server 2012 R2 e Windows Server 2016 (fase 2)**  
+![illustrazione che mostra il cluster in modalità sistema operativo misto: dal cluster a 4 nodi di esempio, due nodi eseguono Windows Server 2016 e due nodi eseguono Windows Server 2012 R2](media/Cluster-Operating-System-Rolling-Upgrade/Cluster_RollingUpgrade_Stage2.png)  
+**Figura 3: stato intermedio: modalità mista del sistema operativo: Windows Server 2012 R2 e Windows Server 2016 failover cluster (fase 2)**  
 
 In "fase 3" tutti i nodi del cluster sono stati aggiornati a Windows Server 2016 e il cluster è pronto per essere aggiornato con il cmdlet Update-ClusterFunctionalLevel di PowerShell.  
 
 > [!NOTE]  
 > In questa fase il processo può essere completamente invertito e i nodi di Windows Server 2012 R2 possono essere aggiunti a questo cluster.  
 
-@no__t 0Illustration Mostra che il cluster è stato completamente aggiornato a Windows Server 2016 ed è pronto per il cmdlet Update-ClusterFunctionalLevel per portare il livello di funzionalità del cluster a Windows Server 2016 @ no__t-1  
-**Figura 4: Stato intermedio: Tutti i nodi aggiornati a Windows Server 2016, pronti per Update-ClusterFunctionalLevel (fase 3)**  
+![illustrazione che mostra che il cluster è stato completamente aggiornato a Windows Server 2016 ed è pronto per il cmdlet Update-ClusterFunctionalLevel per portare il livello di funzionalità del cluster fino a Windows Server 2016](media/Cluster-Operating-System-Rolling-Upgrade/Cluster_RollingUpgrade_Stage3.png)  
+**Figura 4: stato intermedio: tutti i nodi aggiornati a Windows Server 2016, pronti per Update-ClusterFunctionalLevel (fase 3)**  
 
 Dopo l'esecuzione di Update-ClusterFunctionalLevelcmdlet, il cluster entra in "fase 4", in cui è possibile usare nuove funzionalità del cluster di Windows Server 2016.  
 
-@no__t 0Illustration che indica che l'aggiornamento del sistema operativo in sequenza del cluster è stato completato correttamente. tutti i nodi sono stati aggiornati a Windows Server 2016 e il cluster è in esecuzione nel livello funzionale del cluster di Windows Server 2016 @ no__t-1  
-**Figura 5: Stato finale: Cluster di failover di Windows Server 2016 (fase 4)**  
+![illustrazione che mostra che l'aggiornamento del sistema operativo in sequenza del cluster è stato completato correttamente. tutti i nodi sono stati aggiornati a Windows Server 2016 e il cluster è in esecuzione al livello di funzionalità del cluster Windows Server 2016](media/Cluster-Operating-System-Rolling-Upgrade/Cluster_RollingUpgrade_Stage4.png)  
+**Figura 5: stato finale: cluster di failover di Windows Server 2016 (fase 4)**  
 
 ## <a name="cluster-os-rolling-upgrade-process"></a>Processo di aggiornamento in sequenza del sistema operativo del cluster
 
 Questa sezione descrive il flusso di lavoro per l'esecuzione dell'aggiornamento in sequenza del sistema operativo cluster.  
 
-![Illustration che mostra il flusso di lavoro per l'aggiornamento di un cluster @ no__t-1  
-**Figure 6: Flusso di lavoro del processo di aggiornamento in sequenza del sistema operativo cluster @ no__t-0  
+![illustrazione che illustra il flusso di lavoro per l'aggiornamento di un cluster](media/Cluster-Operating-System-Rolling-Upgrade/Clustering_RollingUpgrade_Workflow.png)  
+**Figura 6: flusso di lavoro del processo di aggiornamento in sequenza del sistema operativo cluster**  
 
 L'aggiornamento in sequenza del sistema operativo del cluster include i passaggi seguenti:  
 
@@ -108,35 +108,35 @@ L'aggiornamento in sequenza del sistema operativo del cluster include i passaggi
     3. Verificare che tutti i backup del carico di lavoro siano stati completati e prendere in considerazione il backup del cluster. Arrestare le operazioni di backup durante l'aggiunta di nodi al cluster.  
     4. Verificare che tutti i nodi del cluster siano online/running/up usando il cmdlet [`Get-ClusterNode`](https://docs.microsoft.com/powershell/module/failoverclusters/Get-ClusterNode?view=win10-ps) (vedere la figura 7).  
 
-        ![Screencap che mostra i risultati dell'esecuzione del cmdlet Get-ClusterNode @ no__t-1  
-        **Figure 7: Determinazione dello stato del nodo tramite il cmdlet Get-ClusterNode @ no__t-0  
+        ![screencap che mostra i risultati dell'esecuzione del cmdlet Get-ClusterNode](media/Cluster-Operating-System-Rolling-Upgrade/Cluster_RollingUpgrade_GetClusterNode.png)  
+        **Figura 7: determinazione dello stato del nodo tramite il cmdlet Get-ClusterNode**  
 
     5. Se si eseguono aggiornamenti compatibile con cluster, verificare se aggiornamento compatibile con cluster è attualmente in esecuzione usando l'interfaccia utente di **aggiornamento compatibile con cluster** o il cmdlet [`Get-CauRun`](https://docs.microsoft.com/powershell/module/clusterawareupdating/Get-CauRun?view=win10-ps) (vedere la figura 8). Arrestare aggiornamento compatibile con cluster usando il cmdlet [`Disable-CauClusterRole`](https://docs.microsoft.com/powershell/module/clusterawareupdating/Disable-CauClusterRole?view=win10-ps) (vedere la figura 9) per impedire che i nodi vengano sospesi e svuotati da aggiornamento compatibile con cluster durante il processo di aggiornamento in sequenza del sistema operativo del cluster.  
 
-        ![Screencap che mostra l'output del cmdlet Get-CauRun @ no__t-1  
-        **Figure 8: Uso del cmdlet [`Get-CauRun`](https://docs.microsoft.com/powershell/module/clusterawareupdating/Get-CauRun?view=win10-ps) per determinare se gli aggiornamenti compatibili con cluster sono in esecuzione nel cluster @ no__t-2  
+        ![screencap che mostra l'output del cmdlet Get-CauRun](media/Cluster-Operating-System-Rolling-Upgrade/Cluster_RollingUpgrade_GetCAU.png)  
+        **Figura 8: uso del cmdlet [`Get-CauRun`](https://docs.microsoft.com/powershell/module/clusterawareupdating/Get-CauRun?view=win10-ps) per determinare se gli aggiornamenti compatibili con cluster sono in esecuzione nel cluster**  
 
-        ![Screencap che mostra l'output del cmdlet Disable-CauClusterRole @ no__t-1  
-        **Figure 9: Disabilitare il ruolo aggiornamenti in grado di riconoscere cluster usando il cmdlet [`Disable-CauClusterRole`](https://docs.microsoft.com/powershell/module/clusterawareupdating/Disable-CauClusterRole?view=win10-ps) @ no__t-2  
+        ![screencap che mostra l'output del cmdlet Disable-CauClusterRole](media/Cluster-Operating-System-Rolling-Upgrade/Cluster_RollingUpgrade_DisableCAU.png)  
+        **Figura 9: disabilitazione del ruolo aggiornamenti in grado di riconoscere cluster con il cmdlet [`Disable-CauClusterRole`](https://docs.microsoft.com/powershell/module/clusterawareupdating/Disable-CauClusterRole?view=win10-ps)**  
 
 2. Per ogni nodo del cluster, completare le operazioni seguenti:  
     1. Utilizzando l'interfaccia utente di gestione cluster, selezionare un nodo e utilizzare la **pausa |** Opzione di menu Svuota per svuotare il nodo (vedere la figura 10) o usare il cmdlet [`Suspend-ClusterNode`](https://docs.microsoft.com/powershell/module/failoverclusters/Suspend-ClusterNode?view=win10-ps) (vedere la figura 11).  
 
-        ![Screencap che Mostra come svuotare i ruoli con l'interfaccia utente di gestione cluster @ no__t-1  
-        **Figure 10: Svuotamento dei ruoli da un nodo con Gestione cluster di failover @ no__t-0  
+        ![screencap che illustra come svuotare i ruoli con l'interfaccia utente di gestione cluster](media/Cluster-Operating-System-Rolling-Upgrade/Cluster_RollingUpgrade_FCM_DrainRoles.png)  
+        **Figura 10: svuotamento dei ruoli da un nodo con Gestione cluster di failover**  
 
-        ![Screencap che mostra l'output del cmdlet Suspend-ClusterNode @ no__t-1  
-        **Figure 11: Svuotamento dei ruoli da un nodo con il cmdlet [`Suspend-ClusterNode`](https://docs.microsoft.com/powershell/module/failoverclusters/Suspend-ClusterNode?view=win10-ps) @ no__t-2  
+        ![screencap che mostra l'output del cmdlet Suspend-ClusterNode](media/Cluster-Operating-System-Rolling-Upgrade/Cluster_RollingUpgrade_SuspendNode.png)  
+        **Figura 11: svuotamento dei ruoli da un nodo con il cmdlet [`Suspend-ClusterNode`](https://docs.microsoft.com/powershell/module/failoverclusters/Suspend-ClusterNode?view=win10-ps)**  
 
     2.  Utilizzando l'interfaccia utente di gestione cluster, **rimuovere** il nodo sospeso dal cluster oppure utilizzare il cmdlet [`Remove-ClusterNode`](https://docs.microsoft.com/powershell/module/failoverclusters/Remove-ClusterNode?view=win10-ps) .  
 
-        ![Screencap che mostra l'output del cmdlet Remove-ClusterNode @ no__t-1  
-        **Figure 12: Rimuovere un nodo dal cluster usando il cmdlet [`Remove-ClusterNode`](https://docs.microsoft.com/powershell/module/failoverclusters/Remove-ClusterNode?view=win10-ps) @ no__t-2  
+        ![screencap che mostra l'output del cmdlet Remove-ClusterNode](media/Cluster-Operating-System-Rolling-Upgrade/Cluster_RollingUpgrade_RemoveNode.png)  
+        **Figura 12: rimuovere un nodo dal cluster usando [`Remove-ClusterNode`](https://docs.microsoft.com/powershell/module/failoverclusters/Remove-ClusterNode?view=win10-ps) cmdlet**  
 
-    3.  Riformattare l'unità di sistema ed eseguire un'installazione "Pulisci sistema operativo" di Windows Server 2016 sul nodo usando il **Custom: Installare solo Windows (avanzate)**  installazione (vedere la figura 13) opzione in Setup. exe. Evitare di selezionare il **Upgrade: Installare Windows e salvare i file, le impostazioni e le applicazioni @ no__t-0 poiché l'aggiornamento in sequenza del sistema operativo del cluster non favorisce l'aggiornamento sul posto.  
+    3.  Riformattare l'unità di sistema ed eseguire un'installazione "Pulisci sistema operativo" di Windows Server 2016 sul nodo usando l'installazione **personalizzata: installa solo Windows (opzione avanzata)** (vedere la figura 13) in Setup. exe. Evitare di selezionare l'opzione **installa Windows e Mantieni file, impostazioni e applicazioni** perché l'aggiornamento in sequenza del sistema operativo del cluster non favorisce l'aggiornamento sul posto.  
 
-        @no__t 0Screencap dell'installazione guidata di Windows Server 2016 che mostra l'opzione di installazione personalizzata selezionata @ no__t-1  
-        **Figure 13: Opzioni di installazione disponibili per Windows Server 2016 @ no__t-0  
+        ![screencap dell'installazione guidata di Windows Server 2016 che mostra l'opzione di installazione personalizzata selezionata](media/Cluster-Operating-System-Rolling-Upgrade/Cluster_RollingUpgrade_InstallOption.png)  
+        **Figura 13: opzioni di installazione disponibili per Windows Server 2016**  
 
     4.  Aggiungere il nodo al dominio di Active Directory appropriato.  
     5.  Aggiungere gli utenti appropriati al gruppo Administrators.  
@@ -159,26 +159,26 @@ L'aggiornamento in sequenza del sistema operativo del cluster include i passaggi
 
         Verificare che il nome dei commutiri virtuali usati sia identico per tutti i nodi host Hyper-V nel cluster.  
 
-        ![Screencap che mostra il percorso della finestra di dialogo Gestione Commuter virtuale Hyper-V @ no__t-1  
-        **Figure 14: Gestione commutiri virtuali @ no__t-0  
+        ![screencap che mostra il percorso della finestra di dialogo Gestione commutiri virtuali Hyper-V](media/Cluster-Operating-System-Rolling-Upgrade/Cluster_RollingUpgrade_VMSwitch.png)  
+        **Figura 14: gestione commutiri virtuali**  
 
     12. In un nodo Windows Server 2016 (non usare un nodo Windows Server 2012 R2) usare il Gestione cluster di failover (vedere la figura 15) per connettersi al cluster.  
 
-        ![Screencap che mostra la finestra di dialogo Seleziona cluster @ no__t-1  
-        **Figure 15: Aggiunta di un nodo al cluster con Gestione cluster di failover @ no__t-0  
+        ![screencap che mostra la finestra di dialogo Seleziona cluster](media/Cluster-Operating-System-Rolling-Upgrade/Cluster_RollingUpgrade_AddNode.png)  
+        **Figura 15: aggiunta di un nodo al cluster con Gestione cluster di failover**  
 
     13. Usare l'interfaccia utente di Gestione cluster di failover o il cmdlet [`Add-ClusterNode`](https://docs.microsoft.com/powershell/module/failoverclusters/Add-ClusterNode?view=win10-ps) (vedere la figura 16) per aggiungere il nodo al cluster.  
 
-        ![Screencap che mostra l'output del cmdlet Add-ClusterNode @ no__t-1  
-        **Figure 16: Aggiunta di un nodo al cluster con [`Add-ClusterNode`](https://docs.microsoft.com/powershell/module/failoverclusters/Add-ClusterNode?view=win10-ps) cmdlet @ no__t-2  
+        ![screencap che mostra l'output del cmdlet Add-ClusterNode](media/Cluster-Operating-System-Rolling-Upgrade/Cluster_RollingUpgrade_AddNode3.png)  
+        **Figura 16: aggiunta di un nodo al cluster con [`Add-ClusterNode`](https://docs.microsoft.com/powershell/module/failoverclusters/Add-ClusterNode?view=win10-ps) cmdlet**  
 
         > [!NOTE]  
         > Quando il primo nodo Windows Server 2016 viene aggiunto al cluster, il cluster entra in modalità "mixed-OS" e le risorse principali del cluster vengono spostate nel nodo Windows Server 2016. Un cluster in modalità "mixed-OS" è un cluster completamente funzionante in cui i nuovi nodi vengono eseguiti in modalità di compatibilità con i nodi precedenti. La modalità "mixed-OS" è una modalità transitoria per il cluster. Non è destinato a essere permanente e i clienti dovrebbero aggiornare tutti i nodi del cluster entro quattro settimane.  
 
     14. Dopo che il nodo Windows Server 2016 è stato aggiunto al cluster, è possibile (facoltativamente) spostare parte del carico di lavoro del cluster nel nodo appena aggiunto per poter ribilanciare il carico di lavoro nel cluster, come indicato di seguito:
 
-        ![Screencap che mostra l'output del cmdlet Move-ClusterVirtualMachineRole @ no__t-1  
-        **Figure 17: Trasferimento di un carico di lavoro del cluster (ruolo VM del cluster) tramite il cmdlet [`Move-ClusterVirtualMachineRole`](https://docs.microsoft.com/powershell/module/failoverclusters/Move-ClusterVirtualMachineRole?view=win10-ps) @ no__t-2  
+        ![screencap che mostra l'output del cmdlet Move-ClusterVirtualMachineRole](media/Cluster-Operating-System-Rolling-Upgrade/Cluster_RollingUpgrade_MoveVMRole.png)  
+        **Figura 17: trasferimento di un carico di lavoro del cluster (ruolo VM del cluster) tramite il cmdlet [`Move-ClusterVirtualMachineRole`](https://docs.microsoft.com/powershell/module/failoverclusters/Move-ClusterVirtualMachineRole?view=win10-ps)**  
 
         1. Usare **Live Migration** dal gestione cluster di failover per le macchine virtuali o il cmdlet [`Move-ClusterVirtualMachineRole`](https://docs.microsoft.com/powershell/module/failoverclusters/Move-ClusterVirtualMachineRole?view=win10-ps) (vedere la figura 17) per eseguire una migrazione in tempo reale delle macchine virtuali.  
 
@@ -197,14 +197,14 @@ L'aggiornamento in sequenza del sistema operativo del cluster include i passaggi
 
     1.  Usando l'interfaccia utente di Gestione cluster di failover o il cmdlet [`Get-ClusterGroup`](https://docs.microsoft.com/powershell/module/failoverclusters/Get-ClusterGroup?view=win10-ps) , verificare che tutti i ruoli del cluster siano in esecuzione nel cluster come previsto. Nell'esempio seguente non viene usata l'archiviazione disponibile, ma viene usato il formato CSV, di conseguenza, l'archiviazione disponibile Visualizza uno stato **offline** (vedere la figura 18).  
 
-        ![Screencap che mostra l'output del cmdlet Get-ClusterGroup @ no__t-1  
-        **Figure 18: Verifica per verificare che tutti i gruppi di cluster (ruoli del cluster) siano in esecuzione utilizzando il cmdlet [`Get-ClusterGroup`](https://docs.microsoft.com/powershell/module/failoverclusters/Get-ClusterGroup?view=win10-ps) @ no__t-2  
+        ![screencap che mostra l'output del cmdlet Get-ClusterGroup](media/Cluster-Operating-System-Rolling-Upgrade/Cluster_RollingUpgrade_GetClusterGroup.png)  
+        **Figura 18: verifica per determinare se tutti i gruppi di cluster (ruoli del cluster) sono in esecuzione usando il cmdlet [`Get-ClusterGroup`](https://docs.microsoft.com/powershell/module/failoverclusters/Get-ClusterGroup?view=win10-ps)**  
 
     2.  Verificare che tutti i nodi del cluster siano online e in esecuzione usando il cmdlet [`Get-ClusterNode`](https://docs.microsoft.com/powershell/module/failoverclusters/Get-ClusterNode?view=win10-ps) .  
     3.  Eseguire il cmdlet [`Update-ClusterFunctionalLevel`](https://technet.microsoft.com/library/mt589702.aspx) . non deve essere restituito alcun errore (vedere la figura 19).  
 
-        ![Screencap che mostra l'output del cmdlet Update-ClusterFunctionalLevel @ no__t-1  
-        **Figure 19: Aggiornamento del livello di funzionalità di un cluster tramite PowerShell @ no__t-0  
+        ![screencap che mostra l'output del cmdlet Update-ClusterFunctionalLevel](media/Cluster-Operating-System-Rolling-Upgrade/Cluster_RollingUpgrade_SelectFunctionalLevel.png)  
+        **Figura 19: aggiornamento del livello di funzionalità di un cluster con PowerShell**  
 
     4.  Dopo l'esecuzione del cmdlet [`Update-ClusterFunctionalLevel`](https://docs.microsoft.com/powershell/module/failoverclusters/Update-ClusterFunctionalLevel?view=win10-ps) , sono disponibili nuove funzionalità.  
 
@@ -212,8 +212,8 @@ L'aggiornamento in sequenza del sistema operativo del cluster include i passaggi
 
     1. Se in precedenza è stato eseguito aggiornamento compatibile con cluster, riavviarlo usando l'interfaccia utente di aggiornamento compatibile con cluster o usare il cmdlet [`Enable-CauClusterRole`](https://docs.microsoft.com/powershell/module/clusterawareupdating/Enable-CauClusterRole?view=win10-ps) (vedere la figura 20).  
 
-        ![Screencap che mostra l'output di Enable-CauClusterRole @ no__t-1  
-        **Figure 20: Abilitare il ruolo aggiornamento compatibile con cluster usando il cmdlet [`Enable-CauClusterRole`](https://docs.microsoft.com/powershell/module/clusterawareupdating/Enable-CauClusterRole?view=win10-ps) @ no__t-2  
+        ![screencap che mostra l'output del](media/Cluster-Operating-System-Rolling-Upgrade/Cluster_RollingUpgrade_EnableCAUClusterRole.png) Enable-CauClusterRole  
+        **Figura 20: abilitare il ruolo degli aggiornamenti compatibili con il cluster usando il cmdlet [`Enable-CauClusterRole`](https://docs.microsoft.com/powershell/module/clusterawareupdating/Enable-CauClusterRole?view=win10-ps)**  
 
     2. Riprendere le operazioni di backup.  
 
@@ -223,13 +223,13 @@ L'aggiornamento in sequenza del sistema operativo del cluster include i passaggi
 
     2. In ogni nodo host Hyper-V nel cluster usare il cmdlet [`Get-VMHostSupportedVersion`](https://docs.microsoft.com/powershell/module/hyper-v/Get-VMHostSupportedVersion?view=win10-ps) per visualizzare le versioni di configurazione della macchina virtuale Hyper-v supportate dall'host.  
 
-        ![Screencap che mostra l'output del cmdlet Get-VMHostSupportedVersion @ no__t-1  
-        **Figure 21: Visualizzazione delle versioni di configurazione della macchina virtuale Hyper-V supportate dall'host @ no__t-0  
+        ![screencap che mostra l'output del cmdlet Get-VMHostSupportedVersion](media/Cluster-Operating-System-Rolling-Upgrade/Clustering_GetVMHostSupportVersion.png)  
+        **Figura 21: visualizzazione delle versioni di configurazione della macchina virtuale Hyper-V supportate dall'host**  
 
    3. In ogni nodo host Hyper-V nel cluster è possibile aggiornare le versioni di configurazione della macchina virtuale Hyper-V pianificando una breve finestra di manutenzione con gli utenti, eseguendo il backup, disattivando le macchine virtuali ed eseguendo il cmdlet [`Update-VMVersion`](https://docs.microsoft.com/powershell/module/hyper-v/Update-VMVersion?view=win10-ps) (vedere la figura 22). Questa operazione aggiornerà la versione della macchina virtuale e attiverà nuove funzionalità di Hyper-V, eliminando la necessità di aggiornamenti futuri dei componenti di integrazione Hyper-V (IC). Questo cmdlet può essere eseguito dal nodo Hyper-V che ospita la macchina virtuale oppure è possibile usare il parametro `-ComputerName` per aggiornare la versione della macchina virtuale in modalità remota. In questo esempio viene aggiornata la versione di configurazione di VM1 da 5,0 a 7,0 per sfruttare le numerose nuove funzionalità di Hyper-V associate a questa versione di configurazione della macchina virtuale, ad esempio i checkpoint di produzione (backup coerenti con l'applicazione) e la macchina virtuale binaria file di configurazione.  
 
-       ![Screencap che mostra il cmdlet Update-VMVersion in Action @ no__t-1  
-       **Figure 22: Aggiornamento di una versione di VM con il cmdlet Update-VMVersion di PowerShell @ no__t-0  
+       ![screencap che mostra il cmdlet Update-VMVersion in azione](media/Cluster-Operating-System-Rolling-Upgrade/Cluster_RollingUpgrade_StopVM.png)  
+       **Figura 22: aggiornamento di una versione di macchina virtuale con il cmdlet di PowerShell Update-VMVersion**  
 
 6. È possibile aggiornare i pool di archiviazione usando il cmdlet di PowerShell [Update-StoragePool](https://docs.microsoft.com/powershell/module/storage/Update-StoragePool?view=win10-ps) . si tratta di un'operazione online.  
 
@@ -254,9 +254,9 @@ Sebbene siano destinati a scenari basati su cloud privato, in particolare Hyper-
     Sì, prima di avviare il processo di aggiornamento in sequenza del sistema operativo del cluster, verificare che tutti i nodi del cluster siano aggiornati con gli aggiornamenti software più recenti.  
 
 **È possibile eseguire il cmdlet [`Update-ClusterFunctionalLevel`](https://docs.microsoft.com/powershell/module/failoverclusters/Update-ClusterFunctionalLevel?view=win10-ps) mentre i nodi sono spenti o sospesi?**  
-    No. Per il corretto funzionamento del cmdlet [`Update-ClusterFunctionalLevel`](https://docs.microsoft.com/powershell/module/failoverclusters/Update-ClusterFunctionalLevel?view=win10-ps) , tutti i nodi del cluster devono essere attivi e in appartenenza.  
+    No. Per il corretto funzionamento del cmdlet di [`Update-ClusterFunctionalLevel`](https://docs.microsoft.com/powershell/module/failoverclusters/Update-ClusterFunctionalLevel?view=win10-ps) , è necessario che tutti i nodi del cluster siano attivati e in appartenenza.  
 
-Aggiornamento in sequenza del sistema operativo del cluster @no__t 0Does per qualsiasi carico di lavoro del cluster? Funziona per SQL Server? **  
+**L'aggiornamento in sequenza del sistema operativo del cluster funziona per qualsiasi carico di lavoro del cluster? Funziona per SQL Server?**  
     Sì, l'aggiornamento in sequenza del sistema operativo cluster funziona per qualsiasi carico di lavoro del cluster. Tuttavia, si tratta solo di tempi di inattività per Hyper-V e cluster di file server di scalabilità orizzontale. La maggior parte degli altri carichi di lavoro comporta tempi di inattività (in genere un paio di minuti) quando eseguono il failover e il failover è necessario almeno una volta durante il processo di aggiornamento in sequenza del sistema operativo del cluster.  
 
 **È possibile automatizzare questo processo usando PowerShell?**  
@@ -277,7 +277,7 @@ Aggiornamento in sequenza del sistema operativo del cluster @no__t 0Does per qua
 **È possibile usare System Center 2016 Virtual Machine Manager (SCVMM) per automatizzare il processo di aggiornamento in sequenza del sistema operativo del cluster?**  
     Sì, è possibile automatizzare il processo di aggiornamento in sequenza del sistema operativo del cluster usando VMM in System Center 2016.  
 
-## <a name="see-also"></a>Vedere anche  
--   [Note sulla versione: problemi importanti di Windows Server 2016](../get-started/Release-Notes--Important-Issues-in-Windows-Server-2016-Technical-Preview.md)  
+## <a name="see-also"></a>Vedi anche  
+-   [Note sulla versione: problemi importanti in Windows Server 2016](../get-started/Release-Notes--Important-Issues-in-Windows-Server-2016-Technical-Preview.md)  
 -   [Novità di Windows Server 2016](../get-started/What-s-New-in-windows-server-2016.md)  
 -   [Novità del clustering di failover in Windows Server](whats-new-in-failover-clustering.md)  

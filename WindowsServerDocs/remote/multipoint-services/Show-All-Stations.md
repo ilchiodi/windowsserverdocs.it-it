@@ -21,7 +21,7 @@ ms.lasthandoff: 09/27/2019
 ms.locfileid: "71389315"
 ---
 # <a name="show-all-stations"></a>Visualizzare tutte le stazioni
-In qualità di amministratore del sistema MultiPoint Services, può essere necessario visualizzare tutte le stazioni connesse al sistema, incluse le stazioni non @ no__t-0active o disconnesse. Ad esempio, in base al contratto di licenza, potrebbe essere necessario controllare il numero di stazioni connesse al sistema MultiPoint Services. È possibile visualizzare queste informazioni tramite Gestione MultiPoint.  
+In qualità di amministratore del sistema MultiPoint Services, può essere necessario visualizzare tutte le stazioni connesse al sistema, incluse le stazioni non\-attive o disconnesse. Ad esempio, in base al contratto di licenza, potrebbe essere necessario controllare il numero di stazioni connesse al sistema MultiPoint Services. È possibile visualizzare queste informazioni tramite Gestione MultiPoint.  
   
 1.  In modalità normale fare clic sulla scheda **Desktops** (Desktop).  
   

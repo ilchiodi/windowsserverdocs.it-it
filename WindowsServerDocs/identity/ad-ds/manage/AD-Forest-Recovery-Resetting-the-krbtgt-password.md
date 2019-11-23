@@ -33,7 +33,7 @@ Utilizzare la seguente procedura per reimpostare la password di KRBTGT per il do
 2. Fare clic su **Visualizza**, quindi su **Funzionalità avanzate**.
 3. Nell'albero della console fare doppio clic sul contenitore di dominio, quindi fare clic su **utenti**.
 4. Nel riquadro dei dettagli fare clic con il pulsante destro del mouse sull'account utente **krbtgt** , quindi scegliere **Reimposta password**.
-   ![Reset password @ no__t-1
+   ![reimpostare la password](media/AD-Forest-Recovery-Resetting-the-krbtgt-password/resetpass1.png)
 5. In **nuova password**Digitare una nuova password, digitare nuovamente la password in **Conferma password**e quindi fare clic su **OK**. La password specificata non è significativa perché il sistema genererà automaticamente una password complessa indipendentemente dalla password specificata.
   
 > [!NOTE]

@@ -22,7 +22,7 @@ ms.locfileid: "71378883"
 ---
 # <a name="create-volume-simple"></a>Crea volume semplice
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 consente di creare un volume semplice sul disco dinamico specificato.  
   
@@ -41,12 +41,12 @@ create volume simple [size=<n>] [disk=<n>] [align=<n>] [noerr]
   
 | Parametro  |                                                                                                                            Descrizione                                                                                                                            |
 |------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| dimensioni @ no__t-0 @ no__t-1  |                                                                  Le dimensioni del volume in megabyte \(MB\). Se si specifica alcuna dimensione, il nuovo volume occuperà lo spazio rimanente sul disco.                                                                   |
-| Disk @ no__t-0 @ no__t-1  |                                                                                Disco dinamico in cui viene creato il volume. Se non viene specificato alcun disco, viene utilizzato il disco corrente.                                                                                |
-| align @ no__t-0 @ no__t-1 | Consente di allineare tutti gli extent di volume per il limite di allineamento più vicino. In genere utilizzata con il numero di unità logica RAID hardware \(LUN\) matrici per migliorare le prestazioni. *n* è il numero di kilobyte \(KB\) dall'inizio del disco per il limite di allineamento più vicino. |
-|   NOERR    |                               Solo per gli script. Quando si è verificato un errore, DiskPart continua a elaborare i comandi come se non si è verificato l'errore. Senza questo parametro, un errore causa DiskPart viene interrotto con un codice di errore.                                |
+| dimensioni\=<n>  |                                                                  Le dimensioni del volume in megabyte \(MB\). Se si specifica alcuna dimensione, il nuovo volume occuperà lo spazio rimanente sul disco.                                                                   |
+| \=disco <n>  |                                                                                Disco dinamico in cui viene creato il volume. Se non viene specificato alcun disco, viene utilizzato il disco corrente.                                                                                |
+| Allinea\=<n> | Consente di allineare tutti gli extent di volume per il limite di allineamento più vicino. In genere utilizzata con il numero di unità logica RAID hardware \(LUN\) matrici per migliorare le prestazioni. *n* è il numero di kilobyte \(KB\) dall'inizio del disco per il limite di allineamento più vicino. |
+|   NOERR    |                               solo per gli script. Quando si è verificato un errore, DiskPart continua a elaborare i comandi come se non si è verificato l'errore. Senza questo parametro, un errore causa DiskPart viene interrotto con un codice di errore.                                |
   
-## <a name="remarks"></a>Note  
+## <a name="remarks"></a>Osservazioni  
   
 -   Dopo aver creato il volume, lo stato attivo passa automaticamente al nuovo volume.  
   
@@ -57,7 +57,7 @@ Per creare un volume di 1000 MB, le dimensioni su disco 1, digitare:
 create volume simple size=1000 disk=1  
 ```  
   
-#### <a name="additional-references"></a>Riferimenti aggiuntivi  
+#### <a name="additional-references"></a>riferimenti aggiuntivi  
 [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)  
   
 

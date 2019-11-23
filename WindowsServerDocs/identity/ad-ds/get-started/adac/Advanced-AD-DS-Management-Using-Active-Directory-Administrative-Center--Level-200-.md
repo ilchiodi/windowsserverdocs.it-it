@@ -98,7 +98,7 @@ Il Cestino di Active Directory conserva tutti gli oggetti eliminati nella forest
   
 Nel contenitore **Oggetti eliminati** sono visualizzati tutti gli oggetti che si possono ripristinare in quella partizione del dominio. Gli oggetti eliminati più vecchi di **msDS-deletedObjectLifetime** sono noti come oggetti riciclati. Gli oggetti riciclati non sono visualizzati nel Centro di amministrazione di Active Directory e non è possibile ripristinare questi oggetti tramite il Centro di amministrazione di Active Directory.  
   
-Per una spiegazione più approfondita dell'architettura del cestino e delle regole di elaborazione, vedere il cestino di Active Directory [The: Informazioni, implementazione, procedure consigliate e risoluzione dei problemi @ no__t-0.  
+Per una spiegazione più approfondita dell'architettura del Cestino e delle regole di elaborazione, vedere il post di blog relativo al [cestino di Active Directory: informazioni, implementazione, procedure consigliate e risoluzione dei problemi.](http://blogs.technet.com/b/askds/archive/2009/08/27/the-ad-recycle-bin-understanding-implementing-best-practices-and-troubleshooting.aspx)  
   
 Il Centro di amministrazione di Active Directory limita artificialmente il numero predefinito di oggetti restituito da un contenitore a 20.000 oggetti. Per aumentare questo limite fino a 100.000 oggetti, fare clic sul menu **Gestisci** e quindi su **Opzioni elenco elementi da gestire**.  
   
@@ -122,11 +122,11 @@ L'operazione di ripristino supporta tutte le opzioni dei criteri di filtro stand
 - Nome  
 - Data di eliminazione  
 - Ultimo padre noto  
-- Type  
+- Tipo  
 - Descrizione  
-- City  
+- Città  
 - Paese/area geografica  
-- department  
+- Reparto  
 - ID dipendente  
 - Nome  
 - Posizione  
@@ -202,7 +202,7 @@ Filtrare in base a tutti gli utenti Sales. Tenere premuti i tasti CTRL e A per s
   
 Se l'unità organizzativa **Sales** contiene unità organizzative figlio indipendenti, è necessario ripristinare le unità organizzative figlio prima di ripristinare i relativi oggetti figlio e così via.  
   
-Per ripristinare tutti gli oggetti eliminati annidati specificando un contenitore padre eliminato, vedere [Appendix B: Ripristinare più oggetti Active Directory eliminati (script di esempio) ](https://technet.microsoft.com/library/dd379504(WS.10).aspx).  
+Per ripristinare tutti gli oggetti eliminati annidati specificando un contenitore padre eliminato, vedere [Appendice B: Ripristinare più oggetti Active Directory eliminati (script di esempio)](https://technet.microsoft.com/library/dd379504(WS.10).aspx).  
   
 Il cmdlet di Windows PowerShell per Active Directory per il ripristino degli oggetti eliminati è:  
 
@@ -450,7 +450,7 @@ Di seguito sono illustrati gli errori visualizzati quando non sono disponibili i
 |Errore|Operazione|
 | --- | --- |  
 |"Impossibile connettersi ad alcun dominio. Aggiornare la pagina o riprovare quando sarà disponibile una connessione."|Visualizzato all'avvio del Centro di amministrazione di Active Directory|
-|"Impossibile trovare un server disponibile nel dominio *<NetBIOS domain name>* in cui è in esecuzione il servizio Web di Active Directory (ADWS)"|Visualizzato quando si tenta di selezionare un nodo di dominio nell'applicazione Centro di amministrazione di Active Directory|
+|"Impossibile trovare un server disponibile nel dominio *<NetBIOS domain name>* che esegue il servizio Web di Active Directory (ADWS)"|Visualizzato quando si tenta di selezionare un nodo di dominio nell'applicazione Centro di amministrazione di Active Directory|
   
 Per risolvere questo problema, eseguire la procedura seguente:  
   
@@ -484,6 +484,6 @@ Per risolvere questo problema, eseguire la procedura seguente:
   
 4. Installare NetMon o un'altra utilità di acquisizione di rete nel computer in cui è in esecuzione il Centro di amministrazione di Active Directory e nel controller di dominio restituito da NLTEST. Raccogliere acquisizioni di rete simultanee da entrambi i computer da quando viene avviato il Centro di amministrazione di Active Directory fino a quando non viene visualizzato l'errore, quindi arrestare le acquisizioni. Verificare che il client sia in grado di inviare e ricevere dal controller di dominio sulla porta TCP 9389. Se i pacchetti vengono inviati ma non vengono recapitati o vengono recapitati e il controller di dominio risponde ma non raggiungono mai il client, è probabile che sia presente un firewall tra i computer nella rete che ignora i pacchetti su quella porta. Il firewall può essere sia software che hardware e può essere parte di un software di protezione degli endpoint (antivirus) di terze parti.  
   
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 [Cestino di AD, criteri granulari per le password e cronologia di PowerShell](../../../ad-ds/get-started/adac/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-.md)  

@@ -122,7 +122,7 @@ Il gruppo di attributi nome utente contiene l'attributo nome utente. Utilizzando
 Le impostazioni dei criteri di richiesta di connessione sono un set di proprietà applicate a un messaggio RADIUS in ingresso. Le impostazioni sono costituite dai gruppi di proprietà seguenti.
 
 - Authentication
-- contabilità
+- Contabilità
 - Manipolazione degli attributi
 - Richiesta di invio
 - Avanzate
@@ -134,9 +134,9 @@ Le sezioni seguenti forniscono ulteriori dettagli su queste impostazioni.
 Utilizzando questa impostazione, è possibile ignorare le impostazioni di autenticazione configurate in tutti i criteri di rete ed è possibile designare i metodi e i tipi di autenticazione necessari per la connessione alla rete.
 
 >[!IMPORTANT]
->Se si configura un metodo di autenticazione nei criteri di richiesta di connessione che è meno sicuro rispetto al metodo di autenticazione configurato nei criteri di rete, viene eseguito l'override del metodo di autenticazione più sicuro configurato nei criteri di rete. Ad esempio, se si dispone di un criterio di rete che richiede l'uso di Protected Extensible Authentication Protocol-Microsoft Challenge Handshake Authentication Protocol versione 2 \(PEAP-MS-CHAP v2 @ no__t-1, che è un'autenticazione basata su password per proteggere il wireless e configurare un criterio di richiesta di connessione per consentire l'accesso non autenticato, il risultato è che nessun client è necessario per l'autenticazione tramite PEAP-MS-CHAP v2. In questo esempio, a tutti i client che si connettono alla rete viene concesso l'accesso non autenticato.
+>Se si configura un metodo di autenticazione nei criteri di richiesta di connessione che è meno sicuro rispetto al metodo di autenticazione configurato nei criteri di rete, viene eseguito l'override del metodo di autenticazione più sicuro configurato nei criteri di rete. Ad esempio, se si dispone di un criterio di rete che richiede l'uso di Protected Extensible Authentication Protocol-Microsoft Challenge Handshake Authentication Protocol versione 2 \(PEAP-MS-CHAP v2\), che è un metodo di autenticazione basato su password per Secure wireless e si configura anche un criterio di richiesta di connessione per consentire l'accesso non autenticato, il risultato è che nessun client deve eseguire l'autenticazione tramite PEAP-MS-CHAP v2 In questo esempio, a tutti i client che si connettono alla rete viene concesso l'accesso non autenticato.
 
-### <a name="accounting"></a>contabilità
+### <a name="accounting"></a>Contabilità
 
 Utilizzando questa impostazione, è possibile configurare i criteri di richiesta di connessione per l'invio di informazioni di contabilità a un server dei criteri di gruppo o un altro server RADIUS in un gruppo di server RADIUS remoti, in modo che il gruppo di server RADIUS remoto esegua
 
@@ -158,7 +158,7 @@ Se si desidera che le informazioni di contabilità siano registrate in modalità
 L'elaborazione della regola trova e Sostituisci viene eseguita per uno degli attributi precedenti prima che il messaggio RADIUS sia soggetto a impostazioni di autenticazione e accounting. Le regole di manipolazione degli attributi si applicano solo a un singolo attributo. Non è possibile configurare le regole di manipolazione degli attributi per ogni attributo. Inoltre, l'elenco degli attributi che è possibile modificare è un elenco statico; non è possibile aggiungere all'elenco di attributi disponibili per la manipolazione.
 
 >[!NOTE]
->Se si usa il protocollo di autenticazione MS-CHAP v2, non è possibile modificare l'attributo del nome utente se il criterio di richiesta di connessione viene usato per l'invio del messaggio RADIUS. L'unica eccezione si verifica quando viene utilizzata una barra rovesciata (\) e la modifica influiscono solo sulle informazioni a sinistra. Viene in genere utilizzato un carattere barra rovesciata per indicare un nome di dominio (le informazioni a sinistra del carattere barra rovesciata) e un nome di account utente all'interno del dominio (le informazioni a destra del carattere barra rovesciata). In questo caso, sono consentite solo le regole di manipolazione degli attributi che modificano o sostituiscono il nome di dominio.
+>Se si usa il protocollo di autenticazione MS-CHAP v2, non è possibile modificare l'attributo del nome utente se il criterio di richiesta di connessione viene usato per l'invio del messaggio RADIUS. L'unica eccezione si verifica quando viene utilizzata una barra rovesciata (\) carattere e la manipolazione influiscono solo sulle informazioni a sinistra. Viene in genere utilizzato un carattere barra rovesciata per indicare un nome di dominio (le informazioni a sinistra del carattere barra rovesciata) e un nome di account utente all'interno del dominio (le informazioni a destra del carattere barra rovesciata). In questo caso, sono consentite solo le regole di manipolazione degli attributi che modificano o sostituiscono il nome di dominio.
 
 Per esempi di come modificare il nome dell'area di autenticazione nell'attributo nome utente, vedere la sezione "esempi per la manipolazione del nome dell'area di autenticazione nell'attributo nome utente" nell'argomento [usare le espressioni regolari in NPS](nps-crp-reg-expressions.md).
 
@@ -175,7 +175,7 @@ Per esempi di come modificare il nome dell'area di autenticazione nell'attributo
 >[!NOTE]
 >Non è possibile usare questa opzione di autenticazione quando il protocollo di autenticazione del client di accesso è MS-CHAP v2 o Extensible Authentication Protocol-Transport Layer Security (EAP-TLS), che forniscono entrambi l'autenticazione reciproca. Nell'autenticazione reciproca il client di accesso dimostra che si tratta di un client di accesso valido al server di autenticazione (NPS) e il server di autenticazione dimostra che si tratta di un server di autenticazione valido per il client di accesso. Quando si utilizza questa opzione di autenticazione, viene restituito il messaggio di accesso-accettazione. Tuttavia, il server di autenticazione non fornisce la convalida per il client di accesso e l'autenticazione reciproca non riesce.
 
-Per esempi relativi all'uso di espressioni regolari per creare regole di routing che inoltrino messaggi RADIUS con un nome dell'area di autenticazione specificato a un gruppo di server RADIUS remoti, vedere la sezione "esempio per l'inoltro di messaggi RADIUS da parte di un server proxy" nell'argomento [utilizzo di regular Espressioni in NPS](nps-crp-reg-expressions.md).
+Per esempi relativi all'uso di espressioni regolari per creare regole di routing che inoltrino messaggi RADIUS con un nome dell'area di autenticazione specificato a un gruppo di server RADIUS remoti, vedere la sezione "esempio per l'inoltro dei messaggi RADIUS da un server proxy" nell'argomento [usare le espressioni regolari in NPS](nps-crp-reg-expressions.md).
 
 ### <a name="advanced"></a>Avanzate
 

@@ -37,23 +37,23 @@ A seconda dello scenario, utilizzare una delle procedure riportate di seguito pe
   
 1. Avviare Installazione di Windows, specificare il formato di lingua, ora e valuta e le opzioni della tastiera, quindi fare clic su **Avanti**. 
 2. Fai clic su **Ripristina il computer**.
-   ![Server Restore @ no__t-1
+   Ripristino del server ![](media/AD-Forest-Recovery-Perform-a-Full-Recovery/restore1.png)
 3. Fai clic su **Risoluzione dei problemi**.</br>
-   ![Server Restore @ no__t-1
+   Ripristino del server ![](media/AD-Forest-Recovery-Perform-a-Full-Recovery/restore2.png)
 4. Fare clic su **Ripristino immagine del sistema**.</br>
-   ![Server Restore @ no__t-1
+   Ripristino del server ![](media/AD-Forest-Recovery-Perform-a-Full-Recovery/restore3.png)
 5. Fare clic su **Windows Server 2016**. 
-   ![Server Restore @ no__t-1
+   Ripristino del server ![](media/AD-Forest-Recovery-Perform-a-Full-Recovery/restore4.png)
 6. Se si ripristina il backup locale più recente, fare clic su **Usa l'immagine del sistema più recente disponibile (scelta consigliata)** e fare clic su **Avanti**.
-   ![Server Restore @ no__t-1
+   Ripristino del server ![](media/AD-Forest-Recovery-Perform-a-Full-Recovery/restore5.png)
 7. A questo punto, verrà fornita un'opzione per:
    -  Formattare e partizionare i dischi
    -  Installare i driver
    -  Deselezionare le funzionalità **Avanzate** per il riavvio automatico e il controllo degli errori del disco. Queste sono abilitate per impostazione predefinita.
-   ![Server Restore @ no__t-1
-8. Fare clic su **Avanti**.
-9. Scegliere **Fine**. Verrà chiesto se si è certi di voler continuare. Scegliere **Sì**. 
-   ![Server Restore @ no__t-1 
+   Ripristino del server ![](media/AD-Forest-Recovery-Perform-a-Full-Recovery/restore6.png)
+8. Fai clic su **Next**.
+9. Fare clic su **Fine**. Verrà chiesto se si è certi di voler continuare. fare clic su **Sì**. 
+   Ripristino del server ![](media/AD-Forest-Recovery-Perform-a-Full-Recovery/restore11.png) 
 10. Al termine dell'operazione, eseguire un ripristino autorevole di SYSVOL, come descritto in [ad Forest Recovery-esecuzione di una sincronizzazione autorevole di DFSR-Replicated SYSVOL](AD-Forest-Recovery-Authoritative-Recovery-SYSVOL.md).
 
 ## <a name="perform-a-full-server-restore-with-any-image-local-or-remote"></a>Eseguire un ripristino completo del server con qualsiasi immagine locale o remota
@@ -64,19 +64,19 @@ A seconda dello scenario, utilizzare una delle procedure riportate di seguito pe
 4. Se si ripristina il backup locale più recente, fare clic su **selezionare un'immagine del sistema** e fare clic su **Avanti**.
 5. A questo punto è possibile selezionare il percorso del backup che si desidera ripristinare. Se l'immagine è locale, è possibile selezionarla dall'elenco. 
 6. Se l'immagine si trova in una condivisione di rete, selezionare **Avanzate**. È anche possibile selezionare **Avanzate** se è necessario installare un driver.
-   ![Server Restore @ no__t-1
+   Ripristino del server ![](media/AD-Forest-Recovery-Perform-a-Full-Recovery/restore7.png)
 7. Se si esegue il ripristino dalla rete dopo aver fatto clic su **Avanzate** , selezionare **Cerca un'immagine del sistema in rete**. Potrebbe essere richiesto di ripristinare la connettività di rete. Fare clic su OK. </br>
-   ![Server Restore @ no__t-1
-8. Digitare il percorso UNC del percorso della condivisione di backup, ad esempio \\ \ server1\backups, quindi fare clic su **OK**. È anche possibile digitare l'indirizzo IP del server di destinazione, ad esempio \\ \ 192.168.1.3 \ backups. 
-   ![Server Restore @ no__t-1
+   Ripristino del server ![](media/AD-Forest-Recovery-Perform-a-Full-Recovery/restore8.png)
+8. Digitare il percorso UNC del percorso della condivisione di backup, ad esempio \\\server1\backups, quindi fare clic su **OK**. È anche possibile digitare l'indirizzo IP del server di destinazione, ad esempio \\\192.168.1.3\backups. 
+   Ripristino del server ![](media/AD-Forest-Recovery-Perform-a-Full-Recovery/restore9.png)
 9. Digitare le credenziali necessarie per accedere alla condivisione e fare clic su OK. 
 10. **Selezionare ora la data e l'ora dell'immagine del sistema da ripristinare** e fare clic su **Avanti**.
 11. A questo punto, verrà fornita un'opzione per:
     - Formattare e partizionare i dischi
     - Installare i driver
     - Deselezionare le funzionalità **Avanzate** per il riavvio automatico e il controllo degli errori del disco. Queste sono abilitate per impostazione predefinita.
-12. Fare clic su **Avanti**.
-13. Scegliere **Fine**. Verrà chiesto se si è certi di voler continuare. Scegliere **Sì**.  
+12. Fai clic su **Next**.
+13. Fare clic su **Fine**. Verrà chiesto se si è certi di voler continuare. fare clic su **Sì**.  
 14. Al termine dell'operazione, eseguire un ripristino autorevole di SYSVOL, come descritto in [ad Forest Recovery-esecuzione di una sincronizzazione autorevole di DFSR-Replicated SYSVOL](AD-Forest-Recovery-Authoritative-Recovery-SYSVOL.md).
 
 ## <a name="enabling-the-network-adapter-for-a-network-backup"></a>Abilitazione della scheda di rete per un backup di rete
@@ -120,7 +120,7 @@ Se è necessario abilitare una scheda di rete dal prompt dei comandi per eseguir
    set address "Name of Network Adapter" static IPv4 Address SubnetMask IPv4 Gateway Address 1  
    ```  
 
-   Esempio:  
+   Ad esempio:  
   
    ```  
    set address "Local Area Connection" static 192.168.1.2 255.0.0.0 192.168.1.1 1  

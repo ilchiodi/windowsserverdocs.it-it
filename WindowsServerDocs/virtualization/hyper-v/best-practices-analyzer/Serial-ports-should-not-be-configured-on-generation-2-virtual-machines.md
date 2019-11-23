@@ -25,7 +25,7 @@ Per altre informazioni sulle procedure consigliate e sulle analisi, vedere [Eseg
   
 |Proprietà|Dettagli|  
 |-|-|  
-|**Sistema operativo**|Windows Server 2016|  
+|**Sistema operativo**|Windows Server 2016|  
 |**Prodotto/funzionalità**|Hyper-V|  
 |**Gravità**|Avviso|  
 |**Categoria**|Configurazione|  
@@ -38,10 +38,10 @@ Nelle sezioni seguenti, corsivo indica il testo dell'interfaccia Utente visualiz
 ## <a name="impact"></a>**Impatto**  
 *Le prestazioni potrebbero essere influenzate dalle macchine virtuali seguenti:*  
   
-@no__t 0list di macchine virtuali >  
+\<elenco di macchine virtuali >  
   
 ## <a name="resolution"></a>**Soluzione**  
-*If questo comportamento è intenzionale, non è necessaria alcuna azione ulteriore. In caso contrario, provare a usare la console di gestione di Hyper-V o Windows PowerShell per rimuovere la stringa di connessione dalle porte seriali della macchina virtuale.*  
+*Se questo comportamento è intenzionale, non è necessaria alcuna azione aggiuntiva. In caso contrario, provare a usare la console di gestione di Hyper-V o Windows PowerShell per rimuovere la stringa di connessione dalle porte seriali della macchina virtuale.*  
   
 
 

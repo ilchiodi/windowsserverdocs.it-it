@@ -22,7 +22,7 @@ ms.locfileid: "71379908"
 ---
 # <a name="bootcfg-query"></a>bootcfg query
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Esegue query e Visualizza [caricatore di avvio] e le voci da Boot. ini di sezione [operating systems].
 
@@ -32,14 +32,14 @@ bootcfg /query [/s <computer> [/u <Domain>\<User> /p <Password>]]
 ```
 ## <a name="parameters"></a>Parametri
 
-|        Nome         |                                                                                             Definizione                                                                                              |
+|        Termine         |                                                                                             Definizione                                                                                              |
 |---------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |    /s <computer>    |                                         Specifica il nome o l'indirizzo IP di un computer remoto (non utilizzare barre rovesciate). Il valore predefinito è il computer locale.                                          |
-| /u <Domain>\\<User> | Esegue il comando con le autorizzazioni dell'account dell'utente specificato da <User>or <Domain> @ no__t-2 @ no__t-3. Il valore predefinito è le autorizzazioni dell'oggetto utente nel computer eseguendo il comando connesso. |
+| /u <Domain>\\<User> | Esegue il comando con le autorizzazioni dell'account dell'utente specificato da <User>o <Domain>\\<User>. Il valore predefinito è le autorizzazioni dell'oggetto utente nel computer eseguendo il comando connesso. |
 |    /p <Password>    |                                                        Specifica la password dell'account utente specificato nella **/u** parametro.                                                        |
 |         /?          |                                                                                Visualizza la guida al prompt dei comandi.                                                                                 |
 
-##### <a name="remarks"></a>Note
+##### <a name="remarks"></a>Osservazioni
 - Di seguito è riportato un esempio di **bootcfg /query** output:
   ```
   Boot Loader Settings
@@ -62,5 +62,5 @@ bootcfg /query [/s <computer> [/u <Domain>\<User> /p <Password>]]
   bootcfg /query /s srvmain /u maindom\hiropln /p p@ssW23
   bootcfg /query /u hiropln /p p@ssW23
   ```
-  #### <a name="additional-references"></a>Riferimenti aggiuntivi
+  #### <a name="additional-references"></a>riferimenti aggiuntivi
   [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

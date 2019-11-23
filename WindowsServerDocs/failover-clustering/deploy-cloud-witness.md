@@ -27,7 +27,7 @@ Cloud Witness è un tipo di quorum di controllo del cluster di failover che usa 
 Nella figura 1 viene illustrata una configurazione del quorum del cluster di failover esteso multisito con Windows Server 2016. In questa configurazione di esempio (Figura 1) sono presenti 2 nodi in 2 Data Center (detti siti). Si noti che è possibile che un cluster si estenda su più di 2 Data Center. Ogni data center può inoltre avere più di due nodi. Una tipica configurazione del quorum del cluster in questa configurazione (SLA di failover automatico) assegna a ogni nodo un voto. Un ulteriore voto viene assegnato al quorum di controllo per consentire l'esecuzione del cluster anche se uno dei data center riscontra un'interruzione dell'alimentazione. La matematica è semplice: sono disponibili 5 voti totali ed è necessario disporre di 3 voti per il cluster per mantenerne l'esecuzione.  
 
 ![Condivisione file di controllo in un terzo sito separato con 2 nodi in 2 altri siti](media/Deploy-a-Cloud-Witness-for-a-Failover-Cluster/CloudWitness_1.png "condivisione file") di controllo  
-**Figura 1: Uso di una condivisione file di controllo come quorum di controllo @ no__t-0  
+**Figura 1: uso di una condivisione file di controllo come quorum di controllo**  
 
 In caso di interruzione dell'alimentazione in un Data Center, per fornire la stessa opportunità per il cluster in un altro Data Center per mantenerla in esecuzione, è consigliabile ospitare il quorum di controllo in una posizione diversa dai due data center. Ciò significa in genere che richiede un terzo data center separato (sito) per ospitare un file server che sta eseguendo il backup della condivisione file usata come quorum di controllo (condivisione file di controllo).  
 
@@ -42,12 +42,12 @@ Questo approccio presenta vantaggi significativi:
 4. $Cost in corso molto basso per l'account di archiviazione (dati molto piccoli scritti per ogni file BLOB, il file BLOB è stato aggiornato una sola volta quando viene modificato lo stato dei nodi del cluster).  
 5. Tipo di risorsa del server di controllo del cloud incorporato.  
 
-![Diagram che illustra un cluster con estensione multisito con server di controllo del mirroring come quorum di controllo @ no__t-1  
-**Figura 2: Cluster con estensione multisito con server di controllo del mirroring come quorum di controllo @ no__t-0  
+![diagramma che illustra un cluster con estensione multisito con il server di controllo del mirroring come quorum di controllo](media/Deploy-a-Cloud-Witness-for-a-Failover-Cluster/CloudWitness_2.png)  
+**Figura 2: cluster con estensione multisito con il controllo del cloud come server di controllo del quorum**  
 
 Come illustrato nella figura 2, non è disponibile un terzo sito separato obbligatorio. Il mirroring del cloud, come qualsiasi altro quorum di controllo, ottiene un voto e può partecipare ai calcoli del quorum.  
 
-## <a name="CloudWitnessSupportedScenarios"></a>Cloud Witness: Scenari supportati per il tipo di server di controllo singolo
+## <a name="CloudWitnessSupportedScenarios"></a>Cloud Witness: scenari supportati per il tipo di server di controllo singolo
 Se si dispone di una distribuzione di cluster di failover, in cui tutti i nodi possono raggiungere Internet (per estensione di Azure), è consigliabile configurare un cloud di controllo come risorsa di controllo del quorum.  
 
 Di seguito sono riportati alcuni degli scenari supportati dall'uso di cloud Witness come server di controllo del quorum:  
@@ -96,8 +96,8 @@ Quando si crea un account Archiviazione di Microsoft Azure, questo viene associa
 
 Nel portale di Azure passare all'account di archiviazione, fare clic su **tutte le impostazioni** e quindi su **chiavi di accesso** per visualizzare, copiare e rigenerare le chiavi di accesso dell'account. Il pannello chiavi di accesso include anche le stringhe di connessione preconfigurate usando le chiavi primarie e secondarie che è possibile copiare per usare nelle applicazioni (vedere la figura 4).
 
-@no__t 0Snapshot della finestra di dialogo Gestisci chiavi di accesso in Microsoft Azure @ no__t-1  
-**Figura 4: Chiavi di accesso alle archiviazione @ no__t-0
+![snapshot della finestra di dialogo Gestisci chiavi di accesso in Microsoft Azure](media/Deploy-a-Cloud-Witness-for-a-Failover-Cluster/CloudWitness_4.png)  
+**Figura 4: chiavi di accesso alle archiviazione**
 
 ### <a name="view-and-copy-endpoint-url-links"></a>Visualizzare e copiare i collegamenti all'URL dell'endpoint  
 Quando si crea un account di archiviazione, gli URL seguenti vengono generati usando il formato: `https://<Storage Account Name>.<Storage Type>.<Endpoint>`  
@@ -110,8 +110,8 @@ Cloud Witness usa sempre il **BLOB** come tipo di archiviazione. Azure usa **. C
 #### <a name="to-view-and-copy-endpoint-url-links"></a>Per visualizzare e copiare i collegamenti dell'URL dell'endpoint
 Nel portale di Azure passare all'account di archiviazione, fare clic su **tutte le impostazioni** e quindi fare clic su **Proprietà** per visualizzare e copiare gli URL dell'endpoint (vedere la figura 5).  
 
-@no__t 0Snapshot dei collegamenti dell'endpoint del server di controllo del cloud di controllo @ no__t-1  
-**Figura 5: Collegamenti URL endpoint di controllo cloud @ no__t-0
+![snapshot dei collegamenti dell'endpoint del server di controllo del cloud](media/Deploy-a-Cloud-Witness-for-a-Failover-Cluster/CloudWitness_5.png)  
+**Figura 5: collegamenti all'URL dell'endpoint di controllo cloud**
 
 Per altre informazioni sulla creazione e la gestione degli account di archiviazione di Azure, vedere [informazioni sugli account di archiviazione di Azure](https://azure.microsoft.com/documentation/articles/storage-create-storage-account/)
 
@@ -121,17 +121,17 @@ La configurazione di cloud Witness è perfettamente integrata nella configurazio
 ### <a name="to-configure-cloud-witness-as-a-quorum-witness"></a>Per configurare il server di controllo del mirroring come quorum di controllo
 1. Avviare Gestione cluster di failover.
 2. Fare clic con il pulsante destro del mouse sul cluster-> **altre azioni** -> **configurare le impostazioni del quorum del cluster** (vedere la figura 6). Verrà avviata la configurazione guidata quorum del cluster.  
-    ![Snapshot del percorso del menu per le impostazioni del quorum del cluster configura nell'interfaccia utente di Gestione cluster di failover @ no__t-1 **Figure 6. Impostazioni quorum del cluster @ no__t-0
+    ![snapshot del percorso del menu per le impostazioni del quorum del cluster configura nell'interfaccia utente di Gestione cluster di failover](media/Deploy-a-Cloud-Witness-for-a-Failover-Cluster/CloudWitness_7.png) **Figura 6. Impostazioni quorum del cluster**
 
 3. Nella pagina **selezione configurazioni quorum** selezionare **Seleziona il quorum** di controllo (vedere la figura 7).  
 
-    @no__t 0Snapshot del pulsante di opzione ' selezionare il quotrum di controllo ' nella procedura guidata del quorum del cluster @ no__t-1  
-    @no__t 0Figure 7. Selezionare la configurazione quorum @ no__t-0
+    ![snapshot del pulsante di opzione "selezionare il quotrum Witness" nella procedura guidata quorum del cluster](media/Deploy-a-Cloud-Witness-for-a-Failover-Cluster/CloudWitness_8.png)  
+    **Figura 7. Selezionare la configurazione quorum**
 
 4. Nella pagina **selezione quorum** di controllo selezionare **configura un cloud di** controllo (vedere la figura 8).  
 
-    @no__t 0Snapshot del pulsante di opzione appropriato per selezionare un cloud Witness @ no__t-1  
-    **Figure 8. Selezionare il quorum di controllo @ no__t-0  
+    ![snapshot del pulsante di opzione appropriato per selezionare un cloud di controllo](media/Deploy-a-Cloud-Witness-for-a-Failover-Cluster/CloudWitness_9.png)  
+    **Figura 8. Selezionare il quorum di controllo**  
 
 5. Nella pagina **Configura cloud Witness** immettere le informazioni seguenti:  
    1. (Parametro obbligatorio) Nome dell'account di archiviazione di Azure.  
@@ -140,18 +140,18 @@ La configurazione di cloud Witness è perfettamente integrata nella configurazio
        2. Quando si ruota la chiave di accesso primaria, usare la chiave di accesso secondaria (vedere la figura 5).  
    3. (Parametro facoltativo) Se si intende usare un endpoint di servizio di Azure diverso (ad esempio il servizio Microsoft Azure in Cina), aggiornare il nome del server dell'endpoint.  
 
-      ![Snapshot del riquadro Configurazione di cloud Witness nella procedura guidata del quorum del cluster @ no__t-1  
-      **Figure 9: Configurare il cloud Witness @ no__t-0
+      ![snapshot del riquadro Configurazione del server di controllo del cloud nella procedura guidata quorum del cluster](media/Deploy-a-Cloud-Witness-for-a-Failover-Cluster/CloudWitness_10.png)  
+      **Figura 9: configurare il server di controllo del cloud**
 
 6. Una volta completata la configurazione di cloud Witness, è possibile visualizzare la risorsa del server di controllo appena creata nella snap-in Gestione cluster di failover (vedere la figura 10).
 
-    configurazione di @no__t 0Successful di cloud Witness @ no__t-1  
-    **Figure 10: La configurazione di cloud Witness è riuscita @ no__t-0
+    ![configurazione corretta del server di controllo del cloud](media/Deploy-a-Cloud-Witness-for-a-Failover-Cluster/CloudWitness_11.png)  
+    **Figura 10: configurazione corretta del server di controllo del cloud**
 
 ### <a name="configuring-cloud-witness-using-powershell"></a>Configurazione di cloud Witness con PowerShell  
 Il comando di PowerShell set-ClusterQuorum esistente presenta nuovi parametri aggiuntivi corrispondenti a cloud Witness.  
 
-È possibile configurare il cloud Witness usando il comando [`Set-ClusterQuorum` seguente di](https://technet.microsoft.com/library/ee461013.aspx) PowerShell:  
+È possibile configurare il cloud Witness usando il [`Set-ClusterQuorum`](https://technet.microsoft.com/library/ee461013.aspx) comando PowerShell seguente:  
 
 ```PowerShell
 Set-ClusterQuorum -CloudWitness -AccountName <StorageAccountName> -AccessKey <StorageAccountAccessKey>
@@ -172,5 +172,5 @@ Quando si configura un server di controllo del mirroring come quorum di controll
 ### <a name="proxy-considerations-with-cloud-witness"></a>Considerazioni sul proxy con Cloud Witness  
 Cloud Witness usa HTTPS (porta predefinita 443) per stabilire la comunicazione con il servizio BLOB di Azure. Verificare che la porta HTTPS sia accessibile tramite il proxy di rete.
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 - [Novità del clustering di failover in Windows Server](whats-new-in-failover-clustering.md)

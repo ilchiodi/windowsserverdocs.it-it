@@ -21,7 +21,7 @@ La combinazione per il risparmio di energia predefinita **bilancia** usa la **ve
 Tuttavia, il **tempo di risposta** potrebbe aumentare in modo esponenziale con un aumento dell'utilizzo. Attualmente, il requisito del tempo di risposta rapido è aumentato significativamente. Anche se Microsoft ha suggerito agli utenti di passare alla combinazione per il risparmio di energia a **prestazioni elevate** quando necessitano di tempi di risposta rapidi, alcuni utenti non vogliono perdere il vantaggio energetico durante i livelli di carico leggero e medio. Di conseguenza, Microsoft fornisce il seguente set di modifiche dei parametri suggerite per i carichi di lavoro che richiedono tempi di risposta rapidi.
 
 
-| Parametro | Descrizione | Default Value | Valore proposto |
+| Parametro | Descrizione | Valore predefinito | Valore proposto |
 |------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Soglia di aumento delle prestazioni del processore | Soglia di utilizzo oltre la quale è necessario aumentare la frequenza | 90 | 60 |
 | Soglia di riduzione delle prestazioni del processore | Soglia di utilizzo al di sotto della quale la frequenza diminuisce | 80 | 40 |
@@ -45,7 +45,7 @@ Questa modifica è basata sull'analisi delle prestazioni e del compromesso di al
 
 ## <a name="specpower--java-workload"></a>SPECpower: carico di lavoro JAVA
 
-[SPECpower @ no__t-1ssj2008](http://spec.org/power_ssj2008/), il benchmark delle specifiche standard del settore più diffuso per le caratteristiche di potenza e prestazioni del server, viene usato per controllare l'effetto sull'alimentazione. Poiché usa la **velocità effettiva** solo come metrica delle prestazioni, la combinazione per il risparmio di energia predefinita **equilibrata** offre la migliore efficienza energetica.
+[SPECpower\_ssj2008](http://spec.org/power_ssj2008/), il benchmark delle specifiche standard del settore più diffuso per le caratteristiche di potenza e prestazioni del server, viene usato per controllare l'effetto sull'alimentazione. Poiché usa la **velocità effettiva** solo come metrica delle prestazioni, la combinazione per il risparmio di energia predefinita **equilibrata** offre la migliore efficienza energetica.
 
 La modifica proposta del parametro usa una potenza leggermente superiore alla luce (ad esempio, < = 20%) livelli di carico. Tuttavia, con il livello di carico più elevato, la differenza aumenta e inizia a consumare la stessa potenza della combinazione per il risparmio di energia a **prestazioni elevate** dopo il livello di carico del 60%. Per usare i parametri di modifica proposti, è necessario che gli utenti siano a conoscenza del costo dell'energia a livelli di carico medio-alto durante la pianificazione della capacità del rack.
 
@@ -64,7 +64,7 @@ Viene configurato un [cluster di failover] e sono stati usati Diskspd per genera
 >[!Important]
 >A partire da processori Intel [Broadwell] che eseguono Windows Server 2016, la maggior parte delle decisioni relative al risparmio di energia del processore vengono apportate al processore anziché al livello del sistema operativo per ottenere un adattamento più rapido alle modifiche del carico di lavoro. I parametri PPM legacy usati dal sistema operativo hanno un effetto minimo sulle decisioni relative alla frequenza effettiva, tranne per indicare al processore se è opportuno ottimizzare il consumo di energia o le prestazioni o la limitazione delle frequenze minime e massime. Di conseguenza, la modifica del parametro PPM proposto è destinata solo ai sistemi pre-Broadwell.
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 - [Considerazioni sulle prestazioni dell'hardware del server](../index.md)
 - [Considerazioni sull'alimentazione dell'hardware del server](../power.md)
 - [Risparmio energia e ottimizzazione delle prestazioni](power-performance-tuning.md)

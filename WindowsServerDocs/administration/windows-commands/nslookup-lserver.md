@@ -22,7 +22,7 @@ ms.locfileid: "71373085"
 ---
 # <a name="nslookup-lserver"></a>nslookup lserver
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Imposta il server predefinito sul dominio di Domain Name System (DNS) specificato.
 ## <a name="syntax"></a>Sintassi
@@ -36,8 +36,8 @@ lserver <DNSDomain>
 |   <DNSDomain>   | Specifica il nuovo dominio DNS per il server predefinito.  |
 | {Help &#124; ?} | Viene visualizzato un breve riepilogo di **nslookup** sottocomandi. |
 
-## <a name="remarks"></a>Note
+## <a name="remarks"></a>Osservazioni
 - Il comando **lserver** usa il server iniziale per cercare le informazioni sul dominio DNS specificato. Questo si differenzia dal comando **Server** , che usa il server predefinito corrente.
-  ## <a name="additional-references"></a>Riferimenti aggiuntivi
-  [Sintassi della riga di comando chiave](command-line-syntax-key.md)
-  [nslookup server](nslookup-server.md)
+  ## <a name="additional-references"></a>riferimenti aggiuntivi
+  [Chiave della sintassi della riga di comando](command-line-syntax-key.md)
+  [Server nslookup](nslookup-server.md)

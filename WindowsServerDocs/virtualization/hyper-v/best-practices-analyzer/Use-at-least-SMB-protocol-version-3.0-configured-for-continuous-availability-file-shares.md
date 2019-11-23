@@ -25,7 +25,7 @@ Per altre informazioni sulle procedure consigliate e sulle analisi, vedere [Eseg
   
 |Proprietà|Dettagli|  
 |-|-|  
-|**Sistema operativo**|Windows Server 2016|  
+|**Sistema operativo**|Windows Server 2016|  
 |**Prodotto/funzionalità**|Hyper-V|  
 |**Gravità**|Avviso|  
 |**Categoria**|Configurazione|  
@@ -36,9 +36,9 @@ Nelle sezioni seguenti, corsivo indica il testo dell'interfaccia Utente visualiz
 *I file della macchina virtuale o del disco rigido virtuale vengono archiviati in una condivisione di file di rete non configurata con la funzionalità di disponibilità continua della versione 3,0 del protocollo SMB.*  
   
 ## <a name="impact"></a>**Impatto**  
-*Microsoft non consiglia questa configurazione perché potrebbe influisca sulla disponibilità delle macchine virtuali tramite il server. Ciò influisca sulle macchine virtuali seguenti:*  
+*Questa configurazione non è consigliata da Microsoft perché potrebbe influisca sulla disponibilità delle macchine virtuali tramite il server. Ciò influisca sulle macchine virtuali seguenti:*  
   
-@no__t 0list di macchine virtuali >  
+\<elenco di macchine virtuali >  
   
 ## <a name="resolution"></a>**Soluzione**  
 Effettua una delle seguenti operazioni:  

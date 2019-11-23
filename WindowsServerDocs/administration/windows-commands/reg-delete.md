@@ -38,21 +38,21 @@ Reg delete <KeyName> [{/v ValueName | /ve | /va}] [/f]
 
 |Parametro|Descrizione|
 |---------|-----------|
-|\<KeyName >|Specifica il percorso completo della sottochiave o voce da eliminare. Per specificare un computer remoto, includere il nome del computer (nel formato \\ @ no__t-1ComputerName @ no__t-2 come parte del *nome*della pagina. Se si omette \\ @ no__t-1ComputerName \, l'operazione viene impostata sul computer locale per impostazione predefinita. Il *KeyName* deve includere una chiave radice valido. Le chiavi radice valide per il computer locale sono: HKLM, HKCU, HKCR, HKU e HKCC. Se viene specificato un computer remoto, le chiavi radice valide sono: HKLM e HKU.|
-|/v \<ValueName >|Elimina una voce specifica della sottochiave. Se non viene specificato alcun valore, verranno eliminate tutti i movimenti e le sottochiavi della sottochiave.|
+|\<nome della >|Specifica il percorso completo della sottochiave o voce da eliminare. Per specificare un computer remoto, includere il nome del computer (nel formato \\\\nomecomputer\) come parte del *nome*della pagina. Se si omette \\\\nomecomputer \ l'operazione viene impostata sul computer locale per impostazione predefinita. Il *KeyName* deve includere una chiave radice valido. Le chiavi principali valide per il computer locale sono: HKLM, HKCU, HKCR, HKU e HKCC. Se viene specificato un computer remoto, le chiavi principali valide sono: HKLM e HKU.|
+|/v \<valore >|Elimina una voce specifica della sottochiave. Se non viene specificato alcun valore, verranno eliminate tutti i movimenti e le sottochiavi della sottochiave.|
 |/ve|Specifica che verranno eliminate solo le voci che non hanno alcun valore.|
 |/va|Elimina tutte le voci nella sottochiave specificata. Sottochiave sotto la sottochiave specificata non vengono eliminati.|
 |/f|Elimina la sottochiave del Registro di sistema esistente o una voce senza chiedere conferma.|
 |/?|Visualizza la Guida per **reg delete** al prompt dei comandi.|
 
-## <a name="remarks"></a>Note
+## <a name="remarks"></a>Osservazioni
 
 Nella tabella seguente sono elencati i valori restituiti per il **reg delete** operazione.
 
-|Value|Descrizione|
+|Valore|Descrizione|
 |-----|-----------|
-|0|Riuscito|
-|1|Errore|
+|0|Operazione completata con successo|
+|1|Operazione non riuscita|
 
 ## <a name="BKMK_examples"></a>Esempi
 

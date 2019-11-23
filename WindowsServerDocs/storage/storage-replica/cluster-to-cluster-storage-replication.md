@@ -39,7 +39,7 @@ Questa procedura dettagliata usa l'ambiente seguente come esempio:
 
 ![Diagramma che mostra un ambiente di esempio con un cluster nel sito Redmond in replica con un cluster nel sito Bellevue](./media/Cluster-to-Cluster-Storage-Replication/SR_ClustertoCluster.png)  
 
-**FIGURE 1: Replica da cluster a cluster @ no__t-0  
+**Figura 1: replica da cluster a cluster**  
 
 ## <a name="prerequisites"></a>Prerequisiti  
 
@@ -55,7 +55,7 @@ Questa procedura dettagliata usa l'ambiente seguente come esempio:
 
 Molti di questi requisiti possono essere determinati usando il cmdlet `Test-SRTopology`. Se si installano le funzionalità Replica archiviazione o Strumenti di gestione di Replica archiviazione in almeno un server è possibile accedere a questo strumento. Non è necessario configurare Replica archiviazione perché usi questo strumento, ma è necessario installare il cmdlet. Altre informazioni sono incluse nei passaggi seguenti.  
 
-## <a name="step-1-provision-operating-system-features-roles-storage-and-network"></a>Passaggio 1: Effettuare il provisioning di sistema operativo, funzionalità, ruoli, archiviazione e rete
+## <a name="step-1-provision-operating-system-features-roles-storage-and-network"></a>Passaggio 1: effettuare il provisioning di sistema operativo, funzionalità, ruoli, archiviazione e rete
 
 1.  Installare Windows Server in tutti e quattro i nodi del server con un tipo di installazione di Windows Server **(esperienza desktop)** . 
 
@@ -109,7 +109,7 @@ Molti di questi requisiti possono essere determinati usando il cmdlet `Test-SRTo
     > -   Il volume di log deve essere almeno 8GB per impostazione predefinita e può essere maggiore o minore in base ai requisiti del log.
     > -   Quando si usa Spazi di archiviazione diretta (Spazi di archiviazione diretta) con una cache NVME o SSD, si verifica un aumento della latenza maggiore di quello previsto quando si configura la replica di replica di archiviazione tra Spazi di archiviazione diretta cluster. La modifica della latenza è proporzionalmente superiore a quella visualizzata quando si usa NVME e SSD in una configurazione Performance + Capacity e nessun livello HDD o livello di capacità.
 
-    Questo problema si verifica a causa di limitazioni dell'architettura nel meccanismo di log di SR combinato con la latenza estremamente bassa di NVME rispetto ai supporti più lenti. Quando si usa Spazi di archiviazione diretta Spazi di archiviazione diretta cache, tutte le operazioni di i/o dei log SR, insieme a tutte le operazioni di i/o di lettura/scrittura recenti, si verificheranno nella cache e mai nei livelli di prestazioni o capacità. Ciò significa che tutte le attività SR si verificano sullo stesso supporto di velocità. questa configurazione non è supportata. vedere https://aka.ms/srfaq per i consigli dei log. 
+    Questo problema si verifica a causa di limitazioni dell'architettura nel meccanismo di log di SR combinato con la latenza estremamente bassa di NVME rispetto ai supporti più lenti. Quando si usa Spazi di archiviazione diretta Spazi di archiviazione diretta cache, tutte le operazioni di i/o dei log SR, insieme a tutte le operazioni di i/o di lettura/scrittura recenti, si verificheranno nella cache e mai nei livelli di prestazioni o capacità. Ciò significa che tutte le attività SR avvengono sullo stesso supporto di velocità. questa configurazione non è supportata. vedere https://aka.ms/srfaq per i consigli dei log. 
 
     Quando si usa Spazi di archiviazione diretta con HDD, non è possibile disabilitare o evitare la cache. Come soluzione alternativa, se si usano solo SSD e NVME, è possibile configurare solo i livelli di prestazioni e capacità. Se si usa questa configurazione e si posizionano i log SR sul livello di prestazioni solo con i volumi di dati che si trattano solo del livello di capacità, si eviterà il problema di latenza elevata descritto in precedenza. È possibile eseguire la stessa operazione con una combinazione di SSD più veloci e più lente e senza NVME.
 
@@ -149,14 +149,14 @@ Molti di questi requisiti possono essere determinati usando il cmdlet `Test-SRTo
    ```
 
      > [!IMPORTANT]
-     > Quando si usa un server di prova privo di carichi di operazioni I/O di scrittura nel volume di origine specificato durante il periodo di valutazione, considerare l'aggiunta di un carico di lavoro o non verrà generato un report utile. È necessario eseguire il test con carichi di lavoro simili alla produzione per poter visualizzare i numeri reali e le dimensioni consigliate del registro. In alternativa, è sufficiente copiare alcuni file nel volume di origine durante il test o scaricare ed eseguire [DISKSPD](https://gallery.technet.microsoft.com/DiskSpd-a-robust-storage-6cd2f223) per generare operazioni di I/O di scrittura. Ad esempio, un campione con un carico di lavoro di I/O di scrittura basso per cinque minuti per il volume D: :  
+     > Quando usi un server di prova privo di carichi di operazioni I/O di scrittura nel volume di origine specificato durante il periodo di valutazione, considera l'aggiunta di un carico di lavoro o non verrà generato un report utile. È necessario eseguire il test con carichi di lavoro simili alla produzione per poter visualizzare i numeri reali e le dimensioni consigliate del registro. In alternativa, è sufficiente copiare alcuni file nel volume di origine durante il test o scaricare ed eseguire [DISKSPD](https://gallery.technet.microsoft.com/DiskSpd-a-robust-storage-6cd2f223) per generare operazioni di I/O di scrittura. Ad esempio, un campione con un carico di lavoro di I/O di scrittura basso per cinque minuti per il volume D: :  
      > `Diskspd.exe -c1g -d300 -W5 -C5 -b8k -t2 -o2 -r -w5 -h d:\test.dat`  
 
 4. Esaminare il report **TestSrTopologyReport.html** per verificare che siano soddisfatti i requisiti di Replica archiviazione.  
 
    ![Schermata che mostra i risultati del report della topologia di replica](./media/Cluster-to-Cluster-Storage-Replication/SRTestSRTopologyReport.png)      
 
-## <a name="step-2-configure-two-scale-out-file-server-failover-clusters"></a>Passaggio 2: Configurare due cluster di failover con un file server di scalabilità orizzontale  
+## <a name="step-2-configure-two-scale-out-file-server-failover-clusters"></a>Passaggio 2: configurare due cluster di failover con un file server di scalabilità orizzontale  
 Ora verranno creati due cluster di failover normale. Dopo la configurazione, la convalida e la fase di test, i cluster verranno replicati usando Replica archiviazione. È possibile eseguire tutti i passaggi seguenti nei nodi del cluster direttamente o da un computer di gestione remota che contiene il Strumenti di amministrazione remota del server di Windows Server.  
 
 ### <a name="graphical-method"></a>Metodo grafico  
@@ -195,7 +195,7 @@ Ora verranno creati due cluster di failover normale. Dopo la configurazione, la 
     New-Cluster -Name SR-SRVCLUSB -Node SR-SRV03,SR-SRV04 -StaticAddress <your IP here>  
     ```  
 
-3.  Configurare un controllo di condivisione file o un controllo cloud (Azure) in ogni cluster che punta a una condivisione ospitata nel controller di dominio o un altro server indipendente. Esempio:  
+3.  Configurare un controllo di condivisione file o un controllo cloud (Azure) in ogni cluster che punta a una condivisione ospitata nel controller di dominio o un altro server indipendente. Ad esempio:  
 
     ```PowerShell  
     Set-ClusterQuorum -FileShareWitness \\someserver\someshare  
@@ -209,7 +209,7 @@ Ora verranno creati due cluster di failover normale. Dopo la configurazione, la 
 
 4.  Creare i file server in cluster con scalabilità orizzontale in entrambi i cluster seguendo le istruzioni della sezione [Configurare il file server di scalabilità orizzontale](https://technet.microsoft.com/library/hh831718.aspx)  
 
-## <a name="step-3-set-up-cluster-to-cluster-replication-using-windows-powershell"></a>Passaggio 3: Configurare la replica da cluster a cluster usando Windows PowerShell  
+## <a name="step-3-set-up-cluster-to-cluster-replication-using-windows-powershell"></a>Passaggio 3: configurare la replica da cluster a cluster con Windows PowerShell  
 Ora la replica da cluster a cluster verrà configurata usando Windows PowerShell. È possibile eseguire tutti i passaggi seguenti nei nodi direttamente o da un computer di gestione remota che contiene Windows Server Strumenti di amministrazione remota del server  
 
 1. Concedere al primo cluster l'accesso completo all'altro cluster eseguendo il cmdlet **Grant-SRAccess** su qualsiasi nodo del primo cluster oppure in remoto.  Windows Server Strumenti di amministrazione remota del server
@@ -272,7 +272,7 @@ Ora la replica da cluster a cluster verrà configurata usando Windows PowerShell
            Number of Bytes Recovered: 68583161856  
            Elapsed Time (seconds): 117  
        ```
-   3. In alternativa, il gruppo del server di destinazione per la replica indica in qualsiasi momento il numero di byte rimanenti da copiare, inoltre è possibile eseguire query tramite PowerShell. Esempio:
+   3. In alternativa, il gruppo del server di destinazione per la replica indica in qualsiasi momento il numero di byte rimanenti da copiare, inoltre è possibile eseguire query tramite PowerShell. Ad esempio:
 
       ```PowerShell
       (Get-SRGroup).Replicas | Select-Object numofbytesremaining
@@ -296,7 +296,7 @@ Ora la replica da cluster a cluster verrà configurata usando Windows PowerShell
    > [!NOTE]
    > Il disco del cluster di destinazione verrà sempre visualizzato come **Online (Nessun accesso)** quando viene replicato.  
 
-## <a name="step-4-manage-replication"></a>Passaggio 4: Gestire la replica
+## <a name="step-4-manage-replication"></a>Passaggio 4: gestire la replica
 
 Ora è possibile usare e gestire la replica da cluster a cluster. È possibile eseguire tutti i passaggi seguenti nei nodi del cluster direttamente o da un computer di gestione remota che contiene il Strumenti di amministrazione remota del server di Windows Server.  
 
@@ -310,23 +310,23 @@ Ora è possibile usare e gestire la replica da cluster a cluster. È possibile e
 
     -   \Statistiche I/O partizione Replica archiviazione(*)\Numero richieste ultima scrittura log  
 
-    -   \Statistiche I/O partizione Replica archiviazione(*)\ Lunghezza media coda scaricamento  
+    -   \Statistiche I/O partizione Replica archiviazione(*)\Lunghezza media coda scaricamento  
 
     -   \Statistiche I/O partizione Replica archiviazione(*)\Lunghezza coda scaricamento corrente  
 
     -   \Statistiche I/O partizione Replica archiviazione(*)\Numero richieste scrittura applicazione  
 
-    -   \Statistiche I/O partizione Replica archiviazione(*)\ Numero medio di richieste per scrittura di log  
+    -   \Statistiche I/O partizione Replica archiviazione(*)\Numero medio di richieste per scrittura di log  
 
-    -   \Statistiche I/O partizione Replica archiviazione(*)\ Latenza media scrittura app  
+    -   \Statistiche I/O partizione Replica archiviazione(*)\Latenza media scrittura app  
 
-    -   \Statistiche I/O partizione Replica archiviazione(*)\ Latenza media lettura app  
+    -   \Statistiche I/O partizione Replica archiviazione(*)\Latenza media lettura app  
 
     -   \Statistiche Replica archiviazione(*)\RPO destinazione  
 
     -   \Statistiche Replica archiviazione(*)\RPO corrente  
 
-    -   \Statistiche Replica archiviazione(*)\ Lunghezza media coda log  
+    -   \Statistiche Replica archiviazione(*)\Lunghezza media coda log  
 
     -   \Statistiche Replica archiviazione(*)\Lunghezza coda log corrente  
 
@@ -334,11 +334,11 @@ Ora è possibile usare e gestire la replica da cluster a cluster. È possibile e
 
     -   \Statistiche Replica archiviazione(*)\Totale byte inviati  
 
-    -   \Statistiche Replica archiviazione(*)\ Latenza media invio rete  
+    -   \Statistiche Replica archiviazione(*)\Latenza media invio rete  
 
     -   \Statistiche Replica archiviazione(*)\Stato replica  
 
-    -   \Statistiche Replica archiviazione(*)\ Latenza media round trip messaggio  
+    -   \Statistiche Replica archiviazione(*)\Latenza media round trip messaggio  
 
     -   \Statistiche Replica archiviazione\Tempo trascorso ultimo ripristino  
 
@@ -387,11 +387,11 @@ Ora è possibile usare e gestire la replica da cluster a cluster. È possibile e
     > [!NOTE]  
     > Replica archiviazione smonta i volumi di destinazione. Questo comportamento è da progettazione.
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 -   [Panoramica di replica archiviazione](storage-replica-overview.md) 
 -   [Replica del cluster esteso tramite l'archiviazione condivisa](stretch-cluster-replication-using-shared-storage.md)  
 -   [Replica archiviazione da server a server](server-to-server-storage-replication.md)  
--   [Replica di archiviazione: Problemi noti](storage-replica-known-issues.md)  
--   [Replica di archiviazione: domande frequenti](storage-replica-frequently-asked-questions.md)  
+-   [Replica archiviazione: problemi noti](storage-replica-known-issues.md)  
+-   [Replica archiviazione: domande frequenti](storage-replica-frequently-asked-questions.md)  
 -   [Spazi di archiviazione diretta in Windows Server 2016](../storage-spaces/storage-spaces-direct-overview.md)  

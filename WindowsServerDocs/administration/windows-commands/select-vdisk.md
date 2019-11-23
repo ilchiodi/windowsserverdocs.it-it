@@ -22,9 +22,9 @@ ms.locfileid: "71384187"
 ---
 # <a name="select-vdisk"></a>Seleziona vdisk
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Seleziona il disco rigido virtuale specificato \(VHD @ no__t-1 e sposta lo stato attivo a esso.  
+Seleziona il disco rigido virtuale specificato \(\) VHD e sposta lo stato attivo a esso.  
   
 > [!NOTE]  
 > Questo comando è disponibile solo per Windows 7 e Windows Server 2008 R2.  
@@ -39,7 +39,7 @@ select vdisk file=<full path> [noerr]
   
 |Parametro|Descrizione|  
 |-------|--------|  
-|file @ no__t-0 @ no__t-1|Specifica il nome di file e percorso completo di un file di disco rigido Virtuale esistente.|  
+|file\=<full path>|Specifica il nome di file e percorso completo di un file di disco rigido Virtuale esistente.|  
 |NOERR|Utilizzato solo per gli script. Quando si è verificato un errore, DiskPart continua a elaborare i comandi come se non si è verificato l'errore. Senza questo parametro, un errore causa DiskPart viene interrotto con un codice di errore.|  
   
 ## <a name="BKMK_examples"></a>Esempi  
@@ -49,7 +49,7 @@ Per spostare lo stato attivo per il disco rigido Virtuale denominato test. vhd, 
 select vdisk file="c:\test\test.vhd"  
 ```  
   
-#### <a name="additional-references"></a>Riferimenti aggiuntivi  
+#### <a name="additional-references"></a>riferimenti aggiuntivi  
   
 -   [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)  
   

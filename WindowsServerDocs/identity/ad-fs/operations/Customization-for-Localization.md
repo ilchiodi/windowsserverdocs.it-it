@@ -21,7 +21,7 @@ ms.locfileid: "71357983"
 
 È possibile localizzare il contenuto in lingue diverse dall'inglese. In caso di localizzazione, tenere presenti le seguenti considerazioni.  
   
-Dopo aver personalizzato il contenuto, gli elementi personalizzati avranno la precedenza, quindi è necessario applicarli a tutte le lingue che si prevede di supportare. Tutto il contenuto personalizzato accetta un parametro con le impostazioni locali. Quando si configura il contenuto localizzato, configurarlo con un paese @ no__t-0less impostazioni locali prima, ad esempio, "en", prima di configurare un paese e una regione @ no__t-1specific impostazioni locali come "en @ no__t-2Inglese USA".  
+Dopo aver personalizzato il contenuto, gli elementi personalizzati avranno la precedenza, quindi è necessario applicarli a tutte le lingue che si prevede di supportare. Tutto il contenuto personalizzato accetta un parametro con le impostazioni locali. Quando si configura il contenuto localizzato, è necessario configurarlo con un paese\-meno impostazioni locali, ad esempio, "en", prima di configurare un paese e una regione\-impostazioni locali specifiche, ad esempio "en\-US".  
   
 Di seguito sono riportati altri esempi di codice.  
   

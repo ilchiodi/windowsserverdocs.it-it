@@ -39,7 +39,7 @@ PnPUnattend.exe auditSystem [/help] [/?] [/h] [/s] [/L]
 |/L|Facoltativo. Specifica di visualizzare le informazioni di log per questo comando nel prompt dei comandi.|
 |/?|Facoltativo. Visualizza la guida per questo comando al prompt dei comandi.|
 
-## <a name="remarks"></a>Note
+## <a name="remarks"></a>Osservazioni
 
 La preparazione preliminare è obbligatoria. Prima di utilizzare questo comando, è necessario completare le attività seguenti:
 
@@ -47,8 +47,8 @@ La preparazione preliminare è obbligatoria. Prima di utilizzare questo comando,
 2. Scaricare ed estrarre il pacchetto driver per il dispositivo. Copiare il contenuto della sottocartella che contiene il file INF per la versione del sistema operativo ed eventuali sottocartelle nella cartella video creata. Ad esempio, copiare i file del driver video in C:\Drivers\Video.
 3. Aggiungere una variabile di percorso dell'ambiente di sistema alla cartella creata nel passaggio 1, ad esempio **C:\Drivers\Video**.
 4. Creare la chiave del registro di sistema seguente e quindi, per la chiave **DriverPaths** creata, impostare i **dati del valore** su **1**.
-5. Per Windows® 7 esplorare il percorso del registro di sistema: **HKEY_LOCAL_Machine\Software\Microsoft\Windows NT\CurrentVersion @ no__t-1**, quindi creare le chiavi: **UnattendSettings\PnPUnattend\DriverPaths @ no__t-1**
-6. Per Windows Vista, passare al percorso del registro di sistema: **HK_LM\Software\Microsoft\Windows NT\CurrentVersion @ no__t-1**, quindi creare le chiavi = **\UnattendSettings\PnPUnattend\DriverPaths**.
+5. Per Windows® 7 esplorare il percorso del registro di sistema: **HKEY_LOCAL_Machine \Software\microsoft\windows NT\CurrentVersion\\** , quindi creare le chiavi: **UnattendSettings\PnPUnattend\DriverPaths\\**
+6. Per Windows Vista, passare al percorso del registro di sistema: **HK_LM \Software\microsoft\windows NT\CurrentVersion\\** , quindi creare le chiavi = **\UnattendSettings\PnPUnattend\DriverPaths**.
 
 ## <a name="examples"></a>Esempi
 

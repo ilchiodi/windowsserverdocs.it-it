@@ -110,17 +110,17 @@ La procedura guidata di installazione di Servizi di dominio Active Directory ver
   
 I prerequisiti di adprep includono, ad esempio:  
 
-- Verifica delle credenziali per adprep: se è necessario eseguire adprep, la procedura guidata di installazione verifica che l'utente abbia diritti sufficienti per eseguire le operazioni di Adprep necessarie.  
-- Verifica della disponibilità del master schema: se la procedura guidata di installazione rileva che è necessario eseguire adprep /forestprep, verifica che il master schema sia online e se non lo è genera un errore.  
-- Verifica della disponibilità del master infrastrutture: se la procedura guidata di installazione rileva che è necessario eseguire adprep /forestprep, verifica che il master infrastrutture sia online e se non lo è genera un errore.
+- Verifica delle credenziali per adprep: se è necessario eseguire adprep, la procedura guidata di installazione verifica che l'utente disponga dei diritti necessari per eseguire le operazioni di adprep opportune.  
+- Verifica della disponibilità del master schema: se la procedura guidata di installazione rileva che è necessario eseguire adprep /forestprep, verifica che il master schema sia online e, se non lo è, non completa l'operazione.  
+- Verifica della disponibilità del master infrastrutture: se la procedura guidata di installazione rileva che è necessario eseguire adprep /domainprep, verifica che il master infrastrutture sia online e, se non lo è, non non completa l'operazione.
 
 Di seguito sono elencate altre verifiche dei prerequisiti che sono state ereditate dalla procedura guidata legacy, Installazione guidata Active Directory (dcpromo.exe):  
 
-- Verifica del nome della foresta: assicura che il nome della foresta sia valido e non esista già.  
-- Verifica del nome NetBIOS: controlla che il nome NetBIOS specificato sia valido e non sia in conflitto con nomi esistenti.  
-- Verifica del percorso dei componenti: verifica che i percorsi di SYSVOL, dei log e del database di Active Directory siano validi e che lo spazio su disco sia sufficiente.  
-- Verifica del nome del dominio figlio: assicura che il nome del dominio padre e il nome del nuovo dominio figlio siano validi e non siano in conflitto con i domini esistenti.  
-- Verifica del nome del dominio albero: assicura che il nome dell'albero specificato sia valido e non esista già.  
+- Verifica del nome della foresta: assicura che il nome della foresta è valido e non esiste già.  
+- Verifica del nome NetBIOS: assicura che il nome NetBIOS specificato è valido e non causa conflitti con nomi esistenti.  
+- Verifica del percorso dei componenti: assicura che i percorsi di database, registri e SYSVOL relativi ad Active Directory sono validi e che lo spazio disponibile sul disco è sufficiente.  
+- Verifica del nome del dominio figlio: assicura che il nome del dominio padre e il nome del nuovo dominio figlio sono validi e non causano conflitti con i domini esistenti.  
+- Verifica del nome del dominio albero: assicura che il nome dell'albero specificato è valido e non esiste già.  
 
 ## <a name="BKMK_SystemReqs"></a>Requisiti di sistema
 
@@ -176,7 +176,7 @@ In questa sezione sono elencati alcuni dei problemi che influiscono sull'install
 
    In questo caso è necessario eseguire il cmdlet ADDSDeployment separatamente dal cmdlet che non supporta i processi a 64 bit nativi.  
 
-- È disponibile un nuovo file system in Windows Server 2012 denominato Resilient file System. Non archiviare il database di Active Directory, i file di log o SYSVOL su un volume di dati in formato ReFS (Resilient File System). Per ulteriori informazioni su ReFS, vedere [Building file system di prossima generazione per Windows: ReFS @ no__t-0.  
+- È disponibile un nuovo file system in Windows Server 2012 denominato Resilient file System. Non archiviare il database di Active Directory, i file di log o SYSVOL su un volume di dati in formato ReFS (Resilient File System). Per altre informazioni su ReFS, vedere il post di blog relativo alla [creazione del file system di prossima generazione per Windows: ReFS](http://blogs.msdn.com/b/b8/archive/2012/01/16/building-the-next-generation-file-system-for-windows-refs.aspx).  
 - In Server Manager, i server che eseguono servizi di dominio Active Directory o altri ruoli server in un'installazione Server Core e sono stati aggiornati a Windows Server 2012, il ruolo del server può essere visualizzato con stato rosso, anche se vengono raccolti gli eventi e lo stato come previsto. Possono essere interessati anche i server che eseguono un'installazione dei componenti di base del server di una versione preliminare di Windows Server 2012.  
 
 ### <a name="active-directory-domain-services-installation-hangs-if-an-error-prevents-critical-replication"></a>L'installazione di Servizi di dominio Active Directory si blocca se un errore impedisce la replica della parte critica.

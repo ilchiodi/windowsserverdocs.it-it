@@ -17,7 +17,7 @@ ms.lasthandoff: 09/27/2019
 ms.locfileid: "71385424"
 ---
 # <a name="when-to-use-a-transform-claim-rule"></a>Quando usare una regola attestazioni di trasformazione
-È possibile usare questa regola in Active Directory Federation Services \(AD FS @ no__t-1 quando è necessario eseguire il mapping di un tipo di attestazione in ingresso a un tipo di attestazione in uscita e quindi applicare un'azione che determini quale output deve essere eseguito in base ai valori originati nel attestazione in ingresso. Quando si usa questa regola, si consente l'ingresso o si trasformano le attestazioni corrispondenti alla logica della regola seguente, in base all'opzione configurata nella regola, come descritto nella tabella seguente.  
+È possibile utilizzare questa regola in Active Directory Federation Services \(AD FS\) quando è necessario eseguire il mapping di un tipo di attestazione in ingresso a un tipo di attestazione in uscita e quindi applicare un'azione che determinerà l'output deve essere eseguito in base ai valori originati nell'attestazione in ingresso. Quando si usa questa regola, si consente l'ingresso o si trasformano le attestazioni corrispondenti alla logica della regola seguente, in base all'opzione configurata nella regola, come descritto nella tabella seguente.  
   
 |Opzione della regola|Logica della regola|  
 |---------------|--------------|  

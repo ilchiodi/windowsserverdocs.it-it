@@ -29,6 +29,6 @@ Per la configurazione di DirectAccess nel Lab di test sono necessari i component
   
 -   Sei computer o macchine virtuali che soddisfano i requisiti hardware minimi per Windows Server 2016, Windows Server 2012 R2 o Windows Server 2012; due di questi computer dispongono di due schede di rete installate.  
   
--   Il disco del prodotto o i file per Windows 10 @ no__t-0 o Windows @ no__t-1 8.  
+-   Il disco del prodotto o i file per Windows 10&reg; o Windows&reg; 8.  
   
--   Due computer o macchine virtuali che soddisfano i requisiti hardware minimi per Windows 10 @ no__t-0 o Windows @ no__t-1 8; in uno di questi computer sono installate due schede di rete.
+-   Due computer o macchine virtuali che soddisfano i requisiti hardware minimi per Windows 10&reg; o Windows&reg; 8; in uno di questi computer sono installate due schede di rete.

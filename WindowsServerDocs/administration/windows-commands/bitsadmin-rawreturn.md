@@ -30,11 +30,11 @@ Restituisce i dati appropriati per l'analisi.
 bitsadmin /RawReturn
 ```
 
-## <a name="remarks"></a>Note
+## <a name="remarks"></a>Osservazioni
 
 Rimuove i caratteri di nuova riga e la formattazione dall'output.
 
-In genere, si usa questo comando insieme alle opzioni **create** e **Get @ no__t-2*** per ricevere solo il valore. È necessario specificare questa opzione prima di altre opzioni.
+In genere, si usa questo comando insieme alle opzioni **create** e **Get\\** * per ricevere solo il valore. È necessario specificare questa opzione prima di altre opzioni.
 
 ## <a name="BKMK_examples"></a>Esempi
 

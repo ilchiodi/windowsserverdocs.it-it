@@ -37,11 +37,11 @@ Quando l'amministratore dell'infrastruttura acquisisce le informazioni, aggiunge
     > Se si verifica un errore durante l'aggiunta di un identificatore TPM relativo a un certificato della chiave di verifica dell'autenticità (EKCert) non attendibile, verificare che i [certificati radice TPM attendibili siano stati aggiunti](guarded-fabric-install-trusted-tpm-root-certificates.md) al nodo HGS.
     > Alcuni fornitori di TPM, inoltre, non utilizzano EKCerts.
     > È possibile verificare se manca un EKCert aprendo il file XML in un editor, ad esempio Blocco note, e verificando la presenza di un messaggio di errore che indica che non è stato trovato alcun EKCert.
-    > Se questo è il caso e si considera attendibile l'autenticità del TPM nel computer, è possibile usare il flag `-Force` per ignorare questo controllo di sicurezza e aggiungere l'identificatore host a HGS.
+    > Se questo è il caso e si considera attendibile l'autenticità del TPM nel computer, è possibile usare il flag `-Force` per eseguire l'override di questo controllo di sicurezza e aggiungere l'identificatore host a HGS.
 
-2. Ottenere i criteri di integrità del codice creati dall'amministratore dell'infrastruttura per gli host, in formato binario (@no__t 0. p7b). Copiarlo in un server HGS. Eseguire quindi il comando seguente.
+2. Ottenere i criteri di integrità del codice creati dall'amministratore dell'infrastruttura per gli host, in formato binario (\*. p7b). Copiarlo in un server HGS. Eseguire quindi il comando seguente.
 
-    Per `<PolicyName>`, specificare un nome per il criterio CI che descrive il tipo di host a cui si applica. Una procedura consigliata consiste nel denominarla dopo la marca/modello del computer e qualsiasi configurazione software speciale in esecuzione su di essa.<br>Per `<Path>`, specificare il percorso e il nome file del criterio di integrità del codice.
+    Per `<PolicyName>`, specificare un nome per il criterio CI che descrive il tipo di host a cui si applica. Una procedura consigliata consiste nel denominarla dopo la marca/modello del computer e qualsiasi configurazione software speciale in esecuzione su di essa.<br>Per `<Path>`, specificare il percorso e il nome del file dei criteri di integrità del codice.
 
     ```powershell
     Add-HgsAttestationCIPolicy -Path <Path> -Name '<PolicyName>'

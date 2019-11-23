@@ -22,7 +22,7 @@ ms.locfileid: "71383906"
 ---
 # <a name="showmount"></a>showmount
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 È possibile usare **showmount** per visualizzare le directory montate.  
   
@@ -32,13 +32,13 @@ showmount {-e|-a|-d} <Server>
 ```
 
 ## <a name="description"></a>Descrizione  
-Il comando **showmount** @ no__t-1line Utility Visualizza informazioni sui file system montati esportati da server per NFS nel computer specificato dal *Server*. Se il *Server* non è specificato, **showmount** Visualizza informazioni sul computer in cui viene eseguito il comando **showmount** .  
+Il comando **showmount**\-riga Utility Visualizza informazioni sui file system montati esportati da server per NFS nel computer specificato dal *Server*. Se il *Server* non è specificato, **showmount** Visualizza informazioni sul computer in cui viene eseguito il comando **showmount** .  
   
 È necessario specificare una delle opzioni seguenti:  
   
 - **\-e** -Visualizza tutti i file system esportati nel server.  
-- **\-a** -Visualizza tutti i client di Network File System \(NFS @ no__t-3 e le directory nel server montata da ognuno di essi.  
-- **\-D** -Visualizza tutte le directory nel server attualmente montate dai client NFS.  
+- **\-a** -Visualizza tutti i client \(NFS\) di file System di rete e le directory nel server in cui è installato.  
+- **\-d** -Visualizza tutte le directory nel server attualmente montate dai client NFS.  
   
-## <a name="see-also"></a>Vedere anche  
+## <a name="see-also"></a>Vedi anche  
 [Informazioni di riferimento sui comandi di Servizi per NFS](services-for-network-file-system-command-reference.md)  

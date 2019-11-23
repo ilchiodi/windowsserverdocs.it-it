@@ -22,13 +22,13 @@ ms.locfileid: "71378445"
 ---
 # <a name="dfsdiag-testdcs"></a>TestDCs Dfsdiag
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Controlla la configurazione dei controller di dominio eseguendo i test seguenti su ogni controller di dominio nel dominio specificato:  
   
--   Verifica che il servizio dello spazio dei nomi file system distribuito \(DFS @ no__t-1 sia in esecuzione e che il tipo di avvio sia impostato su automatico.  
+-   Verifica che il file system distribuito \(servizio spazio dei nomi DFS\) sia in esecuzione e che il tipo di avvio sia impostato su automatico.  
   
--   Verifica il supporto dei riferimenti di Site @ no__t-0costed per NETLOGON e SYSvol.  
+-   Verifica il supporto per i riferimenti di Site\-costosi per NETLOGON e SYSvol.  
   
 -   Verifica la coerenza dell'associazione del sito in base al nome host e all'indirizzo IP.  
   
@@ -44,10 +44,10 @@ dfsdiag /TestDCs [/Domain:<Domain name>]
   
 |Parametro|Descrizione|  
 |-------|--------|  
-|\/Domain: <Domain name>|Dominio a cui si desidera verificare.|  
+|\/dominio:<Domain name>|Dominio a cui si desidera verificare.|  
   
-## <a name="remarks"></a>Note  
-\/Domain è un parametro facoltativo. Il valore predefinito è il dominio locale appartenente a host locale.  
+## <a name="remarks"></a>Osservazioni  
+\/dominio è un parametro facoltativo. Il valore predefinito è il dominio locale appartenente a host locale.  
   
 ## <a name="BKMK_Examples"></a>Esempi  
 Per verificare la configurazione dei controller di dominio nel dominio Contoso.com, digitare:  
@@ -56,7 +56,7 @@ Per verificare la configurazione dei controller di dominio nel dominio Contoso.c
 dfsdiag /TestDCs /Domain:Contoso.com  
 ```  
   
-## <a name="additional-references"></a>Riferimenti aggiuntivi  
+## <a name="additional-references"></a>riferimenti aggiuntivi  
   
 -   [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)  
   

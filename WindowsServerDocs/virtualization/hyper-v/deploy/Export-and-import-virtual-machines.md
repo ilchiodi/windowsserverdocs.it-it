@@ -16,7 +16,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 09/27/2019
 ms.locfileid: "71392982"
 ---
->Si applica a: Windows 10, Windows Server 2016, Microsoft Hyper-V Server 2016, Windows Server 2019 Microsoft Hyper-V Server 2019
+>Si applica a: Windows 10, Windows Server 2016, Microsoft Hyper-V Server 2016, Windows Server 2019, Microsoft Hyper-V Server 2019
 
 # <a name="export-and-import-virtual-machines"></a>Esportazione e importazione di macchine virtuali
 
@@ -38,7 +38,7 @@ Al termine dell'esportazione, è possibile visualizzare tutti i file esportati n
 
 ### <a name="using-powershell"></a>Mediante PowerShell
 
-Aprire una sessione come amministratore ed eseguire un comando simile al seguente, dopo aver sostituito \<VM @ no__t-1 e \<path @ no__t-3:
+Aprire una sessione come amministratore ed eseguire un comando simile al seguente, dopo aver sostituito \<nome VM\> e \<percorso\>:
 
 ```powershell
 Export-VM -Name \<vm name\> -Path \<path\>
@@ -58,7 +58,7 @@ Per importare una macchina virtuale:
 
 1. Dal menu **azioni** nella console di gestione di Hyper-V fare clic su **Importa macchina virtuale**.
 
-2. Fare clic su **Avanti**.
+2. Fai clic su **Next**.
 
 3. Selezionare la cartella che contiene i file esportati e fare clic su **Avanti**.
 
@@ -66,7 +66,7 @@ Per importare una macchina virtuale:
 
 5. Scegliere il tipo di importazione e fare clic su **Avanti**. Per le descrizioni, vedere [tipi di importazione](#import-types), più avanti.
 
-6. Scegliere **Fine**.
+6. Fare clic su **Fine**.
 
 ### <a name="import-using-powershell"></a>Importazione tramite PowerShell
 

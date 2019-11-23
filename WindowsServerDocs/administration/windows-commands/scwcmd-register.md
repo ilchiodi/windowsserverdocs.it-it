@@ -36,23 +36,23 @@ scwcmd register /kbname:<MyApp> [/kbfile:<kb.xml>] [/kb:<path>] [/d]
 
 |Parametro|Descrizione|
 |---------|-----------|
-|/kbname: > \<MyApp|Specifica il nome con cui verrà registrato l'estensione del Database di configurazione di sicurezza. Questo parametro deve essere specificato.|
-|/kbfile: @no__t -0Kb. XML >|Specifica il percorso e il nome del file di Database di configurazione di sicurezza che verrà utilizzato per estendere o personalizzare il Database di configurazione di sicurezza base. Per verificare che il file di Database di configurazione di protezione sia conforme con lo schema di Sicurezza, utilizzare il file di definizione dello schema %windir%\security\KBRegistrationInfo.xsd. È necessario specificare questa opzione a meno che il **/d** parametro specificato.|
-|/KB: > \<Path|Specifica il percorso della directory che contiene i file di Database di configurazione Guidata sicurezza da aggiornare. Se questa opzione non è specificata, viene utilizzato %windir%\security\msscw\kbs.|
-|/d|Annulla la registrazione di un'estensione di Database di configurazione di sicurezza dal Database di configurazione di sicurezza. L'estensione per annullare la registrazione è specificato dal parametro /kbname. (Il **/kbfile** parametro non deve essere specificato.) Viene specificato il Database di configurazione di protezione per annullare la registrazione dell'estensione per il **/kb** parametro.|
+|/kbname:\<MyApp >|Specifica il nome con cui verrà registrato l'estensione del Database di configurazione di sicurezza. Questo parametro deve essere specificato.|
+|/kbfile:\<KB. XML >|Specifica il percorso e il nome del file di Database di configurazione di sicurezza che verrà utilizzato per estendere o personalizzare il Database di configurazione di sicurezza base. Per verificare che il file di Database di configurazione di protezione sia conforme con lo schema di Sicurezza, utilizzare il file di definizione dello schema %windir%\security\KBRegistrationInfo.xsd. È necessario specificare questa opzione a meno che il **/d** parametro specificato.|
+|/KB: > percorso\<|Specifica il percorso della directory che contiene i file di Database di configurazione Guidata sicurezza da aggiornare. Se questa opzione non è specificata, viene utilizzato %windir%\security\msscw\kbs.|
+|/d|Annulla la registrazione di un'estensione di Database di configurazione di sicurezza dal Database di configurazione di sicurezza. L'estensione per annullare la registrazione è specificato dal parametro /kbname. (Il parametro **/kbfile** non deve essere specificato). Il database di configurazione della sicurezza per cui annullare la registrazione dell'estensione viene specificato dal parametro **/KB** .|
 |/?|Visualizza la guida al prompt dei comandi.|
 
-## <a name="remarks"></a>Note
+## <a name="remarks"></a>Osservazioni
 
 Scwcmd.exe è disponibile solo nei computer che eseguono Windows Server 2008 R2, Windows Server 2008 o Windows Server 2003.
 
 ## <a name="BKMK_Examples"></a>Esempi
 
-Per registrare il file di database di configurazione di sicurezza denominato SCWKBForMyApp. XML con il nome MyApp nel percorso \\ @ no__t-1kbserver\kb, digitare:
+Per registrare il file di database di configurazione di sicurezza denominato SCWKBForMyApp. XML con il nome MyApp nel percorso \\\\kbserver\kb, digitare:
 ```
 scwcmd register /kbfile:d:\SCWKBForMyApp.xml /kbname:MyApp /kb:\\kbserver\kb
 ```
-Per annullare la registrazione del database di configurazione di sicurezza MyApp disponibile in \\ @ no__t-1kbserver\kb, digitare:
+Per annullare la registrazione del database di configurazione di sicurezza MyApp disponibile in \\\\kbserver\kb, digitare:
 ```
 scwcmd register /d /kbname:MyApp /kb:\\kbserver\kb
 ```

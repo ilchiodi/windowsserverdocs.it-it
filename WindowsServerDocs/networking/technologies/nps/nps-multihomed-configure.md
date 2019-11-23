@@ -23,9 +23,9 @@ ms.locfileid: "71396077"
 
 Quando si utilizzano più schede di rete in un server che esegue Server dei criteri di rete, è possibile configurare quanto segue:
 
-- Le schede di rete che eseguono e non inviano e ricevono Remote Authentication Dial-In User Service il traffico \(RADIUS @ no__t-1.
-- Per ogni scheda di rete, se il server dei criteri di rete monitora il traffico RADIUS su protocollo Internet versione 4 \(IPv4 @ no__t-1, IPv6 o sia IPv4 che IPv6.
-- Numeri di porta UDP su cui il traffico RADIUS viene inviato e ricevuto in base al protocollo @no__t 0IPv4 o IPv6 @ no__t-1, per ogni scheda di rete.
+- Le schede di rete che eseguono e non inviano e ricevono Remote Authentication Dial-In User Service \(raggio\) traffico.
+- Per ogni scheda di rete, se il server dei criteri di rete monitora il traffico RADIUS sul protocollo Internet versione 4 \(\)IPv4, IPv6 o sia IPv4 che IPv6.
+- Numeri di porta UDP su cui il traffico RADIUS viene inviato e ricevuto per protocollo \(IPv4 o IPv6\)per ogni scheda di rete.
 
 Per impostazione predefinita, NPS è in ascolto del traffico RADIUS sulle porte 1812, 1813, 1645 e 1646 sia per IPv6 che per IPv4 per tutte le schede di rete installate. Poiché il server dei criteri di rete utilizza automaticamente tutte le schede di rete per il traffico RADIUS, è sufficiente specificare le schede di rete che si desidera utilizzare per il traffico RADIUS quando si desidera impedire a NPS di utilizzare una scheda di rete specifica.
 
@@ -42,8 +42,8 @@ In un altro esempio, se nel server dei criteri di rete sono installate tre sched
 
 Per configurare il server dei criteri di rete per l'ascolto e l'invio di traffico RADIUS su una scheda di rete, utilizzare la sintassi seguente nella finestra di dialogo proprietà di server dei criteri di rete nella console server dei criteri di rete:
 
-- Sintassi del traffico IPv4: IPAddress: portaUDP, dove IPAddress è l'indirizzo IPv4 configurato nella scheda di rete su cui si vuole inviare il traffico RADIUS e portaUDP è il numero di porta RADIUS che si vuole usare per l'autenticazione RADIUS o il traffico di contabilità.
-- Sintassi del traffico IPv6: [IPv6Address]: PortaUDP, in cui sono richieste le parentesi quadre IPv6Address, IPv6Address è l'indirizzo IPv6 configurato nella scheda di rete su cui si vuole inviare il traffico RADIUS e portaUDP è il numero di porta RADIUS che si vuole usare per l'autenticazione RADIUS o traffico di contabilità.
+- Sintassi del traffico IPv4: IPAddress: portaUDP, dove IPAddress è l'indirizzo IPv4 configurato nella scheda di rete su cui si vuole inviare il traffico RADIUS e portaUDP è il numero di porta RADIUS che si vuole usare per l'autenticazione o l'accounting RADIUS traffico.
+- Sintassi del traffico IPv6: [IPv6Address]: portaUDP, in cui sono richieste le parentesi quadre IPv6Address, IPv6Address è l'indirizzo IPv6 configurato nella scheda di rete su cui si vuole inviare il traffico RADIUS e portaUDP è il numero di porta RADIUS desiderato da usare per il traffico di autenticazione o di accounting RADIUS.
 
 I caratteri seguenti possono essere usati come delimitatori per la configurazione delle informazioni sull'indirizzo IP e sulla porta UDP:
 

@@ -22,7 +22,7 @@ ms.locfileid: "71372727"
 ---
 # <a name="nslookup-set"></a>nslookup set
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Modifica impostazioni di configurazione che influiscono sulla modalità funzione di ricerca.
 ## <a name="syntax"></a>Sintassi
@@ -37,8 +37,8 @@ set <KeyWord>[=<Value>]
 |     <Value>     |                                                                                      Specifica il valore dell'impostazione di configurazione nslookup per ogni sottocomando.                                                                                      |
 | {Help &#124; ?} |                                                                                               Viene visualizzato un breve riepilogo di **nslookup** sottocomandi.                                                                                               |
 
-## <a name="remarks"></a>Note
+## <a name="remarks"></a>Osservazioni
 Usare **set all** per visualizzare un elenco delle impostazioni correnti.
-## <a name="additional-references"></a>Riferimenti aggiuntivi
-[Chiave della sintassi della riga di comando](command-line-syntax-key.md)[nslookup set all](nslookup-set-all.md) 
-
+## <a name="additional-references"></a>riferimenti aggiuntivi
+[Chiave della sintassi della riga di comando](command-line-syntax-key.md)
+[nslookup set all](nslookup-set-all.md)

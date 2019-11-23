@@ -31,7 +31,7 @@ Ogni dominio dispone di un oggetto **CN = RID Manager $, CN = System, DC**=<*Dom
   
 - Valore di esempio: 4611686014132422708  
 - Parte bassa: 2100 (inizio del pool di RID successivo da allocare)  
-- Parte superiore: 1073741823 (numero totale di RID che è possibile creare in un dominio)  
+- Parte superiore: 1073741823 (numero totale di RID che possono essere creati in un dominio)  
   
 Quando si aumenta il valore dell'Integer grande, si aumenta il valore della parte inferiore. Se ad esempio si aggiunge 100.000 al valore di esempio 4611686014132422708 per la somma 4611686014132522708, la nuova parte bassa sarà 102100. Ciò indica che il successivo pool di RID che verrà allocato dal master RID inizierà con 102100 anziché 2100. 
   
@@ -39,18 +39,18 @@ Quando si aumenta il valore dell'Integer grande, si aumenta il valore della part
 
 1. Aprire Server Manager, fare clic su **strumenti** e quindi su **ADSI Edit**.
 2. Fare clic con il pulsante destro del mouse, scegliere **Connetti a** e Connetti Esegui il contesto dei nomi predefinito e fare clic su **OK**.
-   ![ADSI Edit @ no__t-1 
-3. Individuare il percorso del nome distinto seguente: **CN = RID Manager $, CN = System, DC = <domain name>** .
-   ![ADSI Edit @ no__t-1 
+   ![ADSI Edit](media/AD-Forest-Recovery-Raise-RID-Pool/adsi1.png) 
+3. Individuare il percorso del nome distinto seguente: **CN = RID Manager $, CN = System, DC =<domain name>** .
+   ![ADSI Edit](media/AD-Forest-Recovery-Raise-RID-Pool/adsi2.png) 
 3. Fare clic con il pulsante destro del mouse e selezionare le proprietà di CN = RID Manager $. 
 4. Selezionare l'attributo **rIDAvailablePool**, fare clic su **modifica**, quindi copiare il valore Integer grande negli Appunti.
-   ![ADSI Edit @ no__t-1  
+   ![ADSI Edit](media/AD-Forest-Recovery-Raise-RID-Pool/adsi3.png)  
 5. Avviare il calcolatore e scegliere **modalità scientifica**dal menu **Visualizza** . 
 6. Aggiungere 100.000 al valore corrente.
-   ![ADSI Edit @ no__t-1 
+   ![ADSI Edit](media/AD-Forest-Recovery-Raise-RID-Pool/adsi4.png) 
 7. Usare Ctrl + c oppure il comando **Copy** dal menu **Edit (modifica** ) per copiare il valore negli Appunti. 
 8. Incollare questo nuovo valore nella finestra di dialogo modifica di ADSIEdit. 
-   ![ADSI Edit @ no__t-1 
+   ![ADSI Edit](media/AD-Forest-Recovery-Raise-RID-Pool/adsi5.png) 
 9. Fare clic su **OK** nella finestra di dialogo e **applicare** nella finestra delle proprietà per aggiornare l'attributo **rIDAvailablePool** . 
   
 ### <a name="to-raise-the-value-of-available-rid-pools-using-ldp"></a>Per aumentare il valore dei pool di RID disponibili mediante LDP  
@@ -58,20 +58,20 @@ Quando si aumenta il valore dell'Integer grande, si aumenta il valore della part
 1. Al prompt dei comandi digitare il comando seguente e quindi premere INVIO:  
    **LDP**  
 2. Fare clic su **connessione**, fare clic su **Connetti**, digitare il nome di gestione rid, quindi fare clic su **OK**. 
-   ![LDP @ NO__T-1
+   ![LDP](media/AD-Forest-Recovery-Raise-RID-Pool/ldp1.png)
 3. Fare clic su **connessione**, su **Binding**, selezionare **associa con credenziali** e digitare le credenziali amministrative, quindi fare clic su **OK**. 
-   ![LDP @ NO__T-1
-4. Fare clic su **Visualizza**, su **albero** e quindi digitare il percorso del nome distinto seguente:  CN = RID Manager $, CN = System, DC =*nome dominio*  
-   ![LDP @ NO__T-1
+   ![LDP](media/AD-Forest-Recovery-Raise-RID-Pool/ldp2.png)
+4. Fare clic su **Visualizza**, su **albero** e quindi digitare il percorso del nome distinto seguente: CN = RID Manager $, CN = System, DC =*Domain Name*  
+   ![LDP](media/AD-Forest-Recovery-Raise-RID-Pool/ldp3.png)
 5. Fare clic su **Sfoglia**e quindi su **modifica**. 
 6. Aggiungere 100.000 al valore corrente di **rIDAvailablePool** , quindi digitare la somma in **values**. 
-7. In **DN**Digitare `cn=RID Manager$,cn=System,dc=` *< nome di dominio @ no__t-3*. 
-8. In **attributo modifica voce**Digitare `rIDAvailablePool`. 
+7. In **DN**digitare `cn=RID Manager$,cn=System,dc=` *< nome di dominio\>* . 
+8. In **modifica attributo voce**Digitare `rIDAvailablePool`. 
 9. Selezionare **Sostituisci** come operazione, quindi fare clic su **invio**.
-   ![LDP @ NO__T-1 
+   ![LDP](media/AD-Forest-Recovery-Raise-RID-Pool/ldp4.png) 
 10. Fare clic su **Esegui** per eseguire l'operazione. Fare clic su **Chiudi**.
-11. Per convalidare la modifica, fare clic su **Visualizza**, su **albero**, quindi digitare il percorso del nome distinto seguente:   CN = RID Manager $, CN = System, DC =*nome dominio*.   Controllare l'attributo **rIDAvailablePool** . 
-   ![LDP @ NO__T-1
+11. Per convalidare la modifica, fare clic su **Visualizza**, su **albero**, quindi digitare il seguente percorso nome distinto: CN = RID Manager $, CN = System, DC =*nome dominio*.   Controllare l'attributo **rIDAvailablePool** . 
+   ![LDP](media/AD-Forest-Recovery-Raise-RID-Pool/ldp5.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

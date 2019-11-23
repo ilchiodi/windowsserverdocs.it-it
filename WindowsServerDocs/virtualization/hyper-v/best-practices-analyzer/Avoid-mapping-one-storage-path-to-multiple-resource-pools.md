@@ -25,7 +25,7 @@ Per altre informazioni sulle procedure consigliate e sulle analisi, vedere [Eseg
   
 |Proprietà|Dettagli|  
 |-|-|  
-|**Sistema operativo**|Windows Server 2016|  
+|**Sistema operativo**|Windows Server 2016|  
 |**Prodotto/funzionalità**|Hyper-V|  
 |**Gravità**|Avviso|  
 |**Categoria**|Operazioni|  
@@ -38,7 +38,7 @@ Nelle sezioni seguenti, corsivo indica il testo dell'interfaccia Utente visualiz
 ## <a name="impact"></a>**Impatto**  
 *Per il tipo di pool di archiviazione specificato, i pool padre e figlio seguenti condividono lo stesso percorso di archiviazione:*  
   
-@no__t 0list dei pool >  
+\<elenco di pool >  
   
 ## <a name="resolution"></a>**Soluzione**  
 *Usare Windows PowerShell per riconfigurare i pool di risorse di archiviazione in modo che più pool non usino lo stesso percorso di archiviazione.*  

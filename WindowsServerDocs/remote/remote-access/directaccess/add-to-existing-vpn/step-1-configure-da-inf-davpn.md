@@ -23,7 +23,7 @@ ms.locfileid: "71388774"
 
 >Si applica a: Windows Server (Canale semestrale), Windows Server 2016
 
-In questo argomento viene descritto come configurare l'infrastruttura necessaria per l'abilitazione di DirectAccess in una distribuzione VPN esistente. Prima di iniziare la procedura di distribuzione, assicurarsi di aver completato i passaggi di pianificazione descritti in [Step 1: Pianificare l'infrastruttura DirectAccess @ no__t-0.  
+In questo argomento viene descritto come configurare l'infrastruttura necessaria per l'abilitazione di DirectAccess in una distribuzione VPN esistente. Prima di iniziare la procedura di distribuzione, assicurarsi di aver completato i passaggi di pianificazione descritti in [passaggio 1: pianificare infrastruttura DirectAccess](Step-1-Plan-DirectAccess-Infrastructure.md).  
   
 |Attività|Descrizione|  
 |----|--------|  
@@ -144,7 +144,7 @@ Assicurarsi che il certificato del sito Web usato per l'autenticazione IP-HTTPS 
   
 ##### <a name="to-install-the-ip-https-certificate-from-an-internal-ca"></a>Per installare il certificato IP-HTTPS da una CA interna  
   
-1.  Sul server di Accesso remoto: Nella schermata **Start** Digitare**MMC. exe**, quindi premere INVIO.  
+1.  Nel server di accesso remoto: sul **avviare** digitare**mmc.exe**, e quindi premere INVIO.  
   
 2.  Nella console di MMC, nel **File** menu, fare clic su **Aggiungi/Rimuovi Snap-in**.  
   
@@ -179,7 +179,7 @@ Assicurarsi che il certificato del sito Web usato per l'autenticazione IP-HTTPS 
   
 ### <a name="NLS_DNS"></a>Per creare i record DNS del server dei percorsi di rete e del probe Web  
   
-1.  Nel server DNS della rete interna: Nella schermata **Start** Digitare * * dnsmgmt. msc * *, quindi premere INVIO.  
+1.  Nel server DNS della rete interna: nella schermata **Start** Digitare * * dnsmgmt. msc * *, quindi premere INVIO.  
   
 2.  Nel riquadro a sinistra della console **Gestore DNS** espandere la zona di ricerca diretta per il proprio dominio. Fare clic con il pulsante destro del mouse sul dominio e fare clic su **Nuovo host (A o AAAA)** .  
   
@@ -189,7 +189,7 @@ Assicurarsi che il certificato del sito Web usato per l'autenticazione IP-HTTPS 
   
 5.  Fare clic su **Fine**.  
 
-](../../../media/Step-1-Configure-the-DirectAccess-Infrastructure_3/PowerShellLogoSmall.gif)***<em>comandi equivalenti</em> di PowerShell per Windows PowerShell @no__t 0Windows***  
+![](../../../media/Step-1-Configure-the-DirectAccess-Infrastructure_3/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em> per Windows PowerShell***  
   
 Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.  
   
@@ -233,7 +233,7 @@ Il server di Accesso remoto e tutti i computer client DirectAccess devono appart
   
 9. Nel **le proprietà di sistema** la finestra di dialogo, fare clic su Chiudi. Fare clic su **Riavvia** quando richiesto.  
   
-](../../../media/Step-1-Configure-the-DirectAccess-Infrastructure_3/PowerShellLogoSmall.gif)***<em>comandi equivalenti</em> di PowerShell per Windows PowerShell @no__t 0Windows***  
+![](../../../media/Step-1-Configure-the-DirectAccess-Infrastructure_3/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em> per Windows PowerShell***  
   
 Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.  
   
@@ -277,7 +277,7 @@ Le impostazioni di DirectAccess contenute nell'oggetto Criteri di gruppo di comp
   
 6.  Nel **Seleziona utenti, contatti, computer o gli account del servizio** finestra di dialogo, selezionare i computer client che si desidera abilitare per DirectAccess e quindi fare clic su **OK**.  
   
-](../../../media/Step-1-Configure-the-DirectAccess-Infrastructure_3/PowerShellLogoSmall.gif)**comandi equivalenti** di PowerShell per Windows PowerShell @no__t 0Windows  
+![](../../../media/Step-1-Configure-the-DirectAccess-Infrastructure_3/PowerShellLogoSmall.gif)**comandi equivalenti di Windows PowerShell** per Windows PowerShell  
   
 Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.  
   
@@ -307,7 +307,7 @@ Il server dei percorsi di rete deve trovarsi su un server con elevata disponibil
   
 #### <a name="to-install-the-network-location-server-certificate-from-an-internal-ca"></a>Per installare il certificato del server dei percorsi di rete da una CA interna  
   
-1.  Sul server che ospiterà il sito Web del server dei percorsi di rete: Nella schermata **Start** Digitare**MMC. exe**, quindi premere INVIO.  
+1.  Sul server che ospiterà il sito Web server percorsi di rete: nel **avviare** digitare**mmc.exe**, quindi premere INVIO.  
   
 2.  Nella console di MMC, nel **File** menu, fare clic su **Aggiungi/Rimuovi Snap-in**.  
   

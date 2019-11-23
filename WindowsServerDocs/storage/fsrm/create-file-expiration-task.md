@@ -17,13 +17,13 @@ ms.locfileid: "71394234"
 ---
 # <a name="create-a-file-expiration-task"></a>Creare un'attività di scadenza dei file
 
-> Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2
+> Si applica a: Windows Server (Canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2
 
 La procedura indicata di seguito illustra il processo di creazione di un'attività di gestione dei file in scadenza. Le attività di gestione dei file in scadenza consentono di spostare tutti i file corrispondenti a determinati criteri in una directory di scadenza specificata, in cui un amministratore può quindi eseguire il backup di questi file ed eliminarli.
 
 Quando viene eseguita un'attività di gestione dei file in scadenza, viene creata una nuova directory nella directory dei file in scadenza, raggruppata in base al nome del server sul quale è stata eseguita l'attività.
 
-Il nome della nuova directory è basato sul nome dell'attività di gestione dei file e sull'ora in cui è stata eseguita. Quando si trova un file scaduto, viene spostato nella nuova directory, preservando la struttura originale della directory.
+Il nome della nuova directory è basato sul nome dell'attività di gestione dei file e sull'ora in cui è stata eseguita. Quando viene trovato un file scaduto, questo viene spostato nella nuova directory, conservando la struttura di directory originale.
 
 ## <a name="to-create-a-file-expiration-task"></a>Per creare un'attività di gestione dei file in scadenza
 
@@ -61,7 +61,7 @@ Il nome della nuova directory è basato sul nome dell'attività di gestione dei 
 
      - Per inviare un messaggio di posta elettronica all'utente i cui file stanno per scadere, selezionare la casella di controllo **Invia messaggio di posta elettronica all'utente i cui file stanno per scadere**.
 
-     - Per configurare il messaggio, modificare la riga dell'oggetto e il corpo del messaggio predefiniti forniti. Il testo tra parentesi quadre inserisce informazioni sulle variabili in relazione all'evento di quota che ha generato la notifica. Ad esempio, il **proprietario del file \[Source @ no__t-2** variabile inserisce il nome dell'utente il cui file sta per scadere. Per inserire altre variabili nel testo, fare clic su **Inserisci variabile**.
+     - Per configurare il messaggio, modificare la riga dell'oggetto e il corpo del messaggio predefiniti forniti. Il testo tra parentesi quadre inserisce informazioni sulle variabili in relazione all'evento di quota che ha generato la notifica. Ad esempio, il **\[proprietario del file di origine\]** variabile inserisce il nome dell'utente il cui file sta per scadere. Per inserire altre variabili nel testo, fare clic su **Inserisci variabile**.
 
      - Per allegare un elenco dei file che stanno per scadere, fare clic su **Allega a elenco di file inviati per posta elettronica su cui verrà eseguita l'azione** e digitare o selezionare un valore per **Numero massimo di file nell'elenco**.
 
@@ -96,7 +96,7 @@ Il nome della nuova directory è basato sul nome dell'attività di gestione dei 
 
 8. Nella scheda **Pianificazione** fare clic su **Crea pianificazione**, quindi, nella finestra di dialogo **Pianificazione**, fare clic su **Nuovo**. Verrà visualizzata una pianificazione predefinita impostata per ogni giorno alle 09:00, ma è possibile modificarla. Al termine della configurazione della pianificazione, fare clic su **OK** e quindi fare clic nuovamente su **OK**.
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 -   [Gestione delle classificazioni](classification-management.md)
 -   [Attività di gestione file](file-management-tasks.md)

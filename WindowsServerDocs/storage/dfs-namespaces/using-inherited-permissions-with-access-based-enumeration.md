@@ -19,7 +19,7 @@ ms.locfileid: "71402132"
 
 > Si applica a: Windows Server 2019, Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2, Windows Server 2008
 
-Per impostazione predefinita, le autorizzazioni usate per una cartella DFS vengono ereditate dal file system locale del server dello spazio dei nomi. Le autorizzazioni vengono ereditate dalla directory radice dell'unità di sistema e concedono le autorizzazioni di lettura del gruppo DOMAIN @ no__t-0Users. Di conseguenza, anche dopo l'abilitazione dell'enumerazione basata sull'accesso, tutte le cartelle dello spazio dei nomi rimangano visibili a tutti gli utenti del dominio.
+Per impostazione predefinita, le autorizzazioni usate per una cartella DFS vengono ereditate dal file system locale del server dello spazio dei nomi. Le autorizzazioni vengono ereditate dalla directory radice dell'unità di sistema e assicurano al dominio\\utenti autorizzazioni di lettura del gruppo. Di conseguenza, anche dopo l'abilitazione dell'enumerazione basata sull'accesso, tutte le cartelle dello spazio dei nomi rimangano visibili a tutti gli utenti del dominio.
 
 ## <a name="advantages-and-limitations-of-inherited-permissions"></a>Vantaggi e limitazioni delle autorizzazioni ereditate
 
@@ -58,6 +58,6 @@ Per limitare gli utenti che possono visualizzare una cartella DFS, devi eseguire
 
 4.  Per modificare le autorizzazioni ereditate per cartelle o radici dello spazio dei nomi in uno spazio dei nomi DFS, usa Esplora risorse o il comando **ICacls**.
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 -   [Creare uno spazio dei nomi DFS](create-a-dfs-namespace.md)

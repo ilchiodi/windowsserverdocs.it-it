@@ -36,10 +36,10 @@ Xcopy <Source> [<Destination>] [/w] [/p] [/c] [/v] [/q] [/f] [/l] [/g] [/d [:MM-
 
 |Parametro|Descrizione|
 |---------|-----------|
-|\<Source >|Obbligatorio. Specifica il percorso e i nomi dei file che si desidera copiare. Questo parametro deve includere un'unità o un percorso.|
-|[\<Destination >]|Specifica la destinazione dei file che si desidera copiare. Questo parametro può includere una lettera di unità e due punti, un nome di directory, un nome di file o una combinazione di questi.|
+|> origine \<|Obbligatorio. Specifica il percorso e i nomi dei file che si desidera copiare. Questo parametro deve includere un'unità o un percorso.|
+|[\<> di destinazione]|Specifica la destinazione dei file che si desidera copiare. Questo parametro può includere una lettera di unità e due punti, un nome di directory, un nome di file o una combinazione di questi.|
 |/w|Visualizza il messaggio seguente e attende la risposta prima di iniziare a copiare i file:</br>**Premere un tasto qualsiasi per iniziare a copiare i file**|
-|/ p|Viene richiesto di confermare se si desidera creare ogni file di destinazione.|
+|/p|Viene richiesto di confermare se si desidera creare ogni file di destinazione.|
 |/c|Ignora gli errori.|
 |/v|Verifica che ogni file venga scritto nel file di destinazione per assicurarsi che i file di destinazione siano identici a quelli dei file di origine.|
 |/q|Evita la visualizzazione dei messaggi **xcopy** .|
@@ -68,7 +68,7 @@ Xcopy <Source> [<Destination>] [/w] [/p] [/c] [/v] [/q] [/f] [/l] [/g] [/d [:MM-
 |/j|Copia i file senza memorizzare nel buffer. Consigliato per file di grandi dimensioni. Questo parametro è stato aggiunto in Windows Server 2008 R2.|
 |/?|Visualizza la guida al prompt dei comandi.|
 
-## <a name="remarks"></a>Note
+## <a name="remarks"></a>Osservazioni
 
 - Utilizzando **/z**
 
@@ -123,31 +123,31 @@ Premere F se si desidera che il file o i file vengano copiati in un file. Premer
 
 ## <a name="examples"></a>Esempi
 
-**1.** Per copiare tutti i file e le sottodirectory (incluse eventuali sottodirectory vuote) dall'unità a all'unità B, digitare:
+**1.** per copiare tutti i file e le sottodirectory (incluse eventuali sottodirectory vuote) dall'unità a all'unità B, digitare:
 
 ```
 xcopy a: b: /s /e 
 ```
 
-**2.** Per includere tutti i file di sistema o nascosti nell'esempio precedente, aggiungere l'opzione della riga di comando<strong>/h</strong> come indicato di seguito:
+**2.** per includere tutti i file di sistema o nascosti nell'esempio precedente, aggiungere l'opzione della riga di comando<strong>/h</strong> come indicato di seguito:
 
 ```
 xcopy a: b: /s /e /h
 ```
 
-**3.** Per aggiornare i file nella directory \Rapporti con i file nella directory \Operaz che sono stati modificati a partire dal 29 dicembre 1993, digitare:
+**3.** per aggiornare i file nella directory \Rapporti con i file nella directory \Operaz che sono stati modificati a partire dal 29 dicembre 1993, digitare:
 
 ```
 xcopy \rawdata \reports /d:12-29-1993
 ```
 
-**4.** Per aggiornare tutti i file presenti in \Rapporti nell'esempio precedente, indipendentemente dalla data, digitare:
+**4.** per aggiornare tutti i file presenti in \Rapporti nell'esempio precedente, indipendentemente dalla data, digitare:
 
 ```
 xcopy \rawdata \reports /u
 ```
 
-**5.** Per ottenere un elenco dei file da copiare con il comando precedente, ovvero senza copiare effettivamente i file, digitare:
+**5.** per ottenere un elenco dei file da copiare con il comando precedente, ovvero senza copiare effettivamente i file, digitare:
 
 ```
 xcopy \rawdata \reports /d:12-29-1993 /l > xcopy.out
@@ -155,19 +155,19 @@ xcopy \rawdata \reports /d:12-29-1993 /l > xcopy.out
 
 Il file xcopy. out elenca tutti i file che devono essere copiati.
 
-**6.** Per copiare la directory \Customer e tutte le sottodirectory nella directory \\ @ no__t-1Public\Address sull'unità di rete H:, mantenere l'attributo di sola lettura e quando viene creato un nuovo file in H:, digitare:
+**6.** per copiare la directory \Customer e tutte le sottodirectory nella directory \\\\Public\Address sull'unità di rete H:, mantenere l'attributo di sola lettura e quando viene creato un nuovo file in h:, digitare:
 
 ```
 xcopy \customer h:\public\address /s /e /k /p
 ```
 
-**7.** Per eseguire il comando precedente, assicurarsi che **xcopy** crei la directory \Indiriz se non esiste ed elimini il messaggio visualizzato quando si crea una nuova directory, aggiungere l'opzione della riga di comando **/i** come indicato di seguito:
+**7.** per eseguire il comando precedente, assicurarsi che **xcopy** crei la directory \Indiriz se non esiste ed elimini il messaggio visualizzato quando si crea una nuova directory, aggiungere l'opzione della riga di comando **/i** come indicato di seguito:
 
 ```
 xcopy \customer h:\public\address /s /e /k /p /i
 ```
 
-**8.** È possibile creare un programma batch per eseguire operazioni **xcopy** e utilizzare il comando batch **if** per elaborare il codice di uscita se si verifica un errore. Ad esempio, il programma batch seguente usa parametri sostituibili per i parametri di origine e destinazione **xcopy** :
+**8.** è possibile creare un programma batch per eseguire operazioni **xcopy** e utilizzare il comando batch **if** per elaborare il codice di uscita se si verifica un errore. Ad esempio, il programma batch seguente usa parametri sostituibili per i parametri di origine e destinazione **xcopy** :
 
 ```
 @echo off
@@ -194,9 +194,9 @@ Per usare il programma batch precedente per copiare tutti i file nella directory
 copyit c:\prgmcode b:
 ```
 
-L'interprete dei comandi sostituisce **C:\Prgmcode** per *% 1* e **B:** per *% 2*, quindi utilizza **xcopy** con le opzioni della riga di comando **/e** e **/s** . Se **xcopy** rileva un errore, il programma batch legge il codice di uscita e passa all'etichetta indicata nell'istruzione **if ERRORLEVEL** appropriata, quindi Visualizza il messaggio appropriato e termina dal programma batch.
+L'interprete dei comandi sostituisce **C:\Prgmcode** per *%1* e **B:** per *%2*, quindi utilizza **xcopy** con le opzioni della riga di comando **/e** e **/s** . Se **xcopy** rileva un errore, il programma batch legge il codice di uscita e passa all'etichetta indicata nell'istruzione **if ERRORLEVEL** appropriata, quindi Visualizza il messaggio appropriato e termina dal programma batch.
 
-**9.** Questo esempio Mostra tutte le directory non vuote, oltre ai file il cui nome corrisponde al modello specificato con il simbolo asterisco.
+**9.** in questo esempio tutte le directory non vuote, oltre ai file il cui nome corrisponde al modello specificato con il simbolo asterisco.
 
 ```
 xcopy .\toc*.yml ..\..\Copy-To\ /S /Y
@@ -208,7 +208,7 @@ rem  .\d2\toc.yml
 rem  3 File(s) copied
 ```
 
-Nell'esempio precedente, questo particolare valore del parametro di origine **. @no__t -1toc\*.yml** copia gli stessi 3 file anche se i due caratteri **di percorso. \\** sono stati rimossi. Tuttavia, non viene copiato alcun file se il carattere jolly asterisco è stato rimosso dal parametro source, rendendolo semplicemente **. @no__t -1toc. yml**.
+Nell'esempio precedente, questo particolare valore del parametro di origine **.\\sommario\*. yml** copia gli stessi 3 file anche se i due caratteri di percorso **.\\** sono stati rimossi. Tuttavia, non viene copiato alcun file se il carattere jolly asterisco è stato rimosso dal parametro source, rendendolo semplicemente **.\\TOC. yml**.
 
 #### <a name="additional-references"></a>Altri riferimenti
 

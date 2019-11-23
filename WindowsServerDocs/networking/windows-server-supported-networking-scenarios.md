@@ -18,11 +18,11 @@ ms.locfileid: "71395703"
 ---
 # <a name="windows-server-supported-networking-scenarios"></a>Scenari di rete supportati in Windows Server
 
->Si applica a: Windows Server \(Semi-canale annuale @ no__t-1, Windows Server 2016
+>Si applica a: Windows Server \(\)del canale semestrale, Windows Server 2016
 
 In questo argomento vengono fornite informazioni sugli scenari supportati e non supportati che è possibile o non è possibile eseguire con questa versione di Windows Server 2016.  
 >[!IMPORTANT]
->Per tutti gli scenari di produzione, usare i driver hardware firmati più recenti del produttore di apparecchiature originale \(OEM @ no__t-1 o un fornitore di hardware indipendente \(IHV @ no__t-3.
+>Per tutti gli scenari di produzione, usare i driver hardware firmati più recenti del produttore di apparecchiature originale \(OEM\) o un fornitore di hardware indipendente \(IHV\).
   
 ## <a name="bkmk_supp"></a>Scenari di rete supportati
 
@@ -38,7 +38,7 @@ In questa sezione sono incluse informazioni sugli scenari di rete supportati per
   
 -   [Scenari di gruppo NIC](#bkmk_nicteam)
 
-- [Switch Embedded Teaming \(SET @ no__t-2 scenari](#bkmk_set)
+- [IMPOSTARE gli scenari di\) \(gruppo incorporato](#bkmk_set)
   
 ### <a name="bkmk_sdn"></a>Scenari SDN (Software Defined Networking)
  
@@ -86,7 +86,7 @@ Per ulteriori informazioni, vedere [virtualizzazione delle funzioni di rete](sdn
   
 ### <a name="bkmk_netp"></a>Scenari della piattaforma di rete
 
-Per gli scenari in questa sezione il team di rete di Windows Server supporta l'utilizzo di qualsiasi driver Windows Server 2016 Certified. Per assicurarsi di disporre degli aggiornamenti più recenti dei driver, verificare con la scheda di interfaccia di rete \(NIC @ no__t-1.
+Per gli scenari in questa sezione il team di rete di Windows Server supporta l'utilizzo di qualsiasi driver Windows Server 2016 Certified. Verificare con la scheda di interfaccia di rete \(NIC\) produttore per assicurarsi di disporre degli aggiornamenti dei driver più recenti.
   
 Gli scenari della piattaforma di rete consentono di:  
   
@@ -169,7 +169,7 @@ Gli scenari di gruppo NIC consentono di:
 
 Per ulteriori informazioni, vedere [Gruppo NIC](technologies/nic-teaming/NIC-Teaming.md). 
 
-### <a name="bkmk_set"></a>Switch Embedded Teaming \(SET @ no__t-2 scenari
+### <a name="bkmk_set"></a>IMPOSTARE gli scenari di\) \(gruppo incorporato
 
 SET è una soluzione di gruppo NIC alternativa che è possibile usare in ambienti che includono Hyper-V e lo stack SDN (Software Defined Networking) in Windows Server 2016. SET integra alcune funzionalità di gruppo NIC nel Commuter virtuale Hyper-V. 
 

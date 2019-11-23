@@ -23,9 +23,9 @@ ms.locfileid: "71388325"
 
 >Si applica a: Windows Server (Canale semestrale), Windows Server 2016
 
-CLIENT2 è un computer Windows 7 @ no__t-0 usato per illustrare la compatibilità con le versioni precedenti di accesso remoto in esecuzione nei server Windows Server 2016.  
+CLIENT2 è un computer Windows 7&reg; usato per illustrare la compatibilità con le versioni precedenti di accesso remoto in esecuzione nei server Windows Server 2016.  
   
-1. Per installare il sistema operativo in CLIENT2. Installare Windows @ no__t-0 7 Enterprise o Windows @ no__t-1 7 Ultimate su CLIENT2.  
+1. Per installare il sistema operativo in CLIENT2. Installare Windows&reg; 7 Enterprise o Windows&reg; 7 Ultimate in CLIENT2.  
   
 2. Per aggiungere CLIENT2 al dominio CORP. Aggiungere CLIENT2 al dominio corp.contoso.com.  
   

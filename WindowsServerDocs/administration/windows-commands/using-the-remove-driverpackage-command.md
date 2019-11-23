@@ -22,10 +22,10 @@ ms.locfileid: "71362815"
 ---
 # <a name="using-the-remove-driverpackage-command"></a>Utilizzando il comando remove /InfFile
 
-> Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> Si applica a: Windows Server (Canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 > 
 > 
-> Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> Si applica a: Windows Server (Canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Rimuove un pacchetto driver da un server.
 ## <a name="syntax"></a>Sintassi
@@ -48,6 +48,6 @@ wdsutil /remove-DriverPackage /PackageId:{4D36E972-E325-11CE-Bfc1-08002BE10318}
 ```
 wdsutil /remove-DriverPackage /Server:MyWdsServer /DriverPackage:MyDriverPackage
 ```
-#### <a name="additional-references"></a>Riferimenti aggiuntivi
+#### <a name="additional-references"></a>riferimenti aggiuntivi
 [Sintassi della riga di comando chiave](command-line-syntax-key.md)
 [utilizzando il comando remove-DriverPackages](using-the-remove-driverpackages-command.md)

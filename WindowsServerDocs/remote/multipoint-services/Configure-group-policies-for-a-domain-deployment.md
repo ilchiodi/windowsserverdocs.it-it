@@ -32,24 +32,24 @@ L'account utente WMSshell è un account di sistema usato da MultiPoint Services 
 > [!NOTE]  
 > Per informazioni su come aggiornare i criteri di gruppo, vedere [Editor criteri di gruppo locali](https://technet.microsoft.com/library/dn265982.aspx).  
   
-**POLITICA** Configurazione utente > modelli amministrativi > Pannello di controllo > **personalizzazione**  
+**Criterio:** Configurazione utente > modelli amministrativi > Pannello di controllo > **personalizzazione**  
   
 Assegnare i valori seguenti:  
   
 |Impostazione|Valori|  
 |-----------|----------|  
-|Abilita screen saver|Disabilitata|  
-|Timeout screen saver|Disabilitata<br /><br />Secondi: xxx|  
-|Proteggi screen saver con password|Disabilitata|  
+|Abilita screen saver|Disabled|  
+|Timeout screen saver|Disabled<br /><br />Secondi: xxx|  
+|Proteggi screen saver con password|Disabled|  
   
-**POLITICA** Configurazione computer > impostazioni di Windows > impostazioni di sicurezza > criteri locali > Assegnazione diritti utente > **Consenti accesso locale**  
+**Criterio:** Configurazione computer > impostazioni di Windows > impostazioni di sicurezza > criteri locali > Assegnazione diritti utente > **Consenti accesso locale**  
   
 |Impostazione|Valori|  
 |-----------|----------|  
 |Consenti accesso locale|Verificare che l'elenco di account includa l'account WMSshell.<br /><br />**Nota:** Per impostazione predefinita, l'account WMSshell è un membro del gruppo Users. Se il gruppo Users è presente nell'elenco e WMSshell è un membro del gruppo Users, non è necessario aggiungere l'account WMSshell all'elenco.|  
   
 > [!IMPORTANT]  
-> Quando si impostano criteri di gruppo, assicurarsi che i criteri non interferiscano con aggiornamenti automatici e segnalazione errori Windows nel server MultiPoint. Queste impostazioni vengono impostate dalle impostazioni di **installazione** **automatica e automatica segnalazione errori Windows** selezionate durante l'installazione di Windows MultiPoint Server, configurate in Gestione MultiPoint mediante **Modifica impostazioni server**o configurato in aggiornamenti pianificati per la protezione del disco.  
+> Quando si impostano criteri di gruppo, assicurarsi che i criteri non interferiscano con aggiornamenti automatici e segnalazione errori Windows nel server MultiPoint. Queste impostazioni vengono impostate dalle impostazioni di **installazione** **automatica e automatica segnalazione errori Windows** selezionate durante l'installazione di Windows MultiPoint Server, configurate in Gestione MultiPoint mediante **Modifica impostazioni server**o configurate in aggiornamenti pianificati per la protezione del disco.  
   
 ## <a name="update-the-registry"></a>Aggiornare il registro di sistema  
 Per la distribuzione di un dominio di MultiPoint Services, è necessario aggiornare le sottochiavi del registro di sistema seguenti.  
@@ -63,7 +63,7 @@ Per la distribuzione di un dominio di MultiPoint Services, è necessario aggiorn
   
 2.  Nel riquadro sinistro individuare e selezionare la sottochiave del registro di sistema seguente:  
   
-    HKEY_USERS @ no__t-0SIDofWMSshell > \Software\Policies\Microsoft\Windows\Control Panel\Desktop  
+    HKEY_USERS\<SIDofWMSshell > \Software\Policies\Microsoft\Windows\Control Panel\Desktop  
   
     dove '<SIDofWMSshell>' è l'ID di sicurezza (SID) per l'account WMSshell. Per informazioni su come identificare il SID, vedere [come associare un nome utente a un ID di sicurezza (SID)](https://support.microsoft.com/kb/154599).  
   

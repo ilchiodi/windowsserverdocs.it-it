@@ -38,7 +38,7 @@ sc [<ServerName>] query [<ServiceName>] [type= {driver | service | all}] [type= 
 
 |       Parametro        |                                                                                                                          Descrizione                                                                                                                          |
 |------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|     \<ServerName >      |                       Specifica il nome del server remoto in cui si trova il servizio. Il nome deve usare il formato Universal Naming Convention (UNC), ad esempio \\ @ no__t-1myserver. Per eseguire SC. exe localmente, omettere questo parametro.                        |
+|     \<ServerName >      |                       Specifica il nome del server remoto in cui si trova il servizio. Il nome deve usare il formato Universal Naming Convention (UNC), ad esempio \\\\MyServer. Per eseguire SC. exe localmente, omettere questo parametro.                        |
 |     \<ServiceName >     |                                      Specifica il nome del servizio restituito dal **getkeyname** operazione. Questo **query** parametro non viene utilizzato in combinazione con altri **query** parametri (diverso da *ServerName*).                                      |
 |     tipo = {driver      |                                                                                                                            servizio                                                                                                                            |
 |       tipo = {proprietario       |                                                                                                                             condividi                                                                                                                             |
@@ -48,10 +48,10 @@ sc [<ServerName>] query [<ServiceName>] [type= {driver | service | all}] [type= 
 |  gruppo = \<GroupName >   |                                                                             Specifica il gruppo di servizio da enumerare. Per impostazione predefinita, vengono enumerati tutti i gruppi (**gruppo = ""** ).                                                                              |
 |           /?           |                                                                                                             Visualizza la guida al prompt dei comandi.                                                                                                              |
 
-## <a name="remarks"></a>Note
+## <a name="remarks"></a>Osservazioni
 
 - Senza uno spazio tra un parametro e il relativo valore (ovvero, **tipo = proprio**, non **tipo = proprio**), l'operazione avrà esito negativo.
-- Nell'operazione di **query** vengono visualizzate le informazioni seguenti relative a un servizio: SERVICE_NAME (nome della sottochiave del registro di sistema del servizio), tipo, stato (nonché gli Stati che non sono disponibili), WIN32_EXIT_B, SERVICE_EXIT_B, CHECKPOINT e WAIT_HINT.
+- Il **query** operazione consente di visualizzare le informazioni seguenti relative a un servizio: SERVICE_NAME (nome della sottochiave del Registro di sistema del servizio), TIPO, STATO (e gli Stati che non sono disponibili), WIN32_EXIT_B, SERVICE_EXIT_B, CHECKPOINT e WAIT_HINT.
 - Il **tipo =** parametro può essere utilizzato due volte in alcuni casi. La prima occorrenza del **tipo =** parametro specifica se eseguire una query di servizi, driver o entrambi (**tutti**). La seconda occorrenza del **tipo =** parametro specifica un tipo di **creare** operazione per restringere ulteriormente l'ambito della query.
 - Quando il risultato visualizzato da un **query** comando supera le dimensioni del buffer di enumerazione, viene visualizzato un messaggio simile al seguente:  
   ```

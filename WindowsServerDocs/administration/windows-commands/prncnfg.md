@@ -22,7 +22,7 @@ ms.locfileid: "71372144"
 ---
 # <a name="prncnfg"></a>prncnfg
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Configura o Visualizza le informazioni di configurazione relative a una stampante.
 
@@ -37,20 +37,20 @@ cscript Prncnfg {-g | -t | -x | -?} [-S <ServerName>] [-P <printerName>] [-z <Ne
 |-g|Visualizza le informazioni di configurazione relative a una stampante.|
 |-t|Configura una stampante.|
 |-x|Rinomina una stampante.|
-|-S \<ServerName @ no__t-1|Specifica il nome del computer remoto che ospita la stampante che si desidera gestire. Se non si specifica un computer, viene usato il computer locale.|
-|-P \<printerName @ no__t-1|Specifica il nome della stampante che si desidera gestire. Obbligatorio.|
-|-z \<NewprinterName @ no__t-1|Specifica il nuovo nome della stampante. Richiede i parametri **-x** e **-P** .|
-|-u \<UserName @ no__t-1-w \<Password @ no__t-3|Specifica un account con le autorizzazioni per la connessione al computer che ospita la stampante che si desidera gestire. Tutti i membri del gruppo Administrators locale del computer di destinazione dispongono di queste autorizzazioni, ma è possibile concedere anche le autorizzazioni ad altri utenti. Se non si specifica un account, è necessario effettuare l'accesso con un account con le autorizzazioni necessarie per il funzionamento del comando.|
-|-r \<PortName @ no__t-1|Specifica la porta a cui è connessa la stampante. Se si tratta di una porta parallela o seriale, usare l'ID della porta (ad esempio, LPT1 o COM1). Se si tratta di una porta TCP/IP, utilizzare il nome della porta specificato quando la porta è stata aggiunta.|
-|-l \<Location @ no__t-1|Specifica il percorso della stampante, ad esempio "Copy Room".|
-|-h \<Sharename @ no__t-1|Specifica il nome della condivisione della stampante.|
-|-m \<Comment @ no__t-1|Specifica la stringa di commento della stampante.|
-|-f \<SeparatorFileName @ no__t-1|Specifica un file che contiene il testo visualizzato nella pagina separatore.|
-|-y \<Datatype @ no__t-1|Specifica i tipi di dati che la stampante può accettare.|
-|-St \<starttime @ no__t-1|Configura la stampante per la disponibilità limitata. Specifica l'ora del giorno in cui è disponibile la stampante. Se si invia un documento a una stampante quando non è disponibile, il documento viene mantenuto (con spooling) finché la stampante non diventa disponibile. È necessario specificare l'ora come orario a 24 ore. Ad esempio, per specificare 11:00, digitare **2300**.|
-|-UT \<Endtime @ no__t-1|Configura la stampante per la disponibilità limitata. Specifica l'ora del giorno in cui la stampante non è più disponibile. Se si invia un documento a una stampante quando non è disponibile, il documento viene mantenuto (con spooling) finché la stampante non diventa disponibile. È necessario specificare l'ora come orario a 24 ore. Ad esempio, per specificare 11:00, digitare **2300**.|
-|-o \<Priority @ no__t-1|Specifica una priorità utilizzata dallo spooler per indirizzare i processi di stampa nella coda di stampa. Una coda di stampa con una priorità più alta riceve tutti i processi prima di qualsiasi coda con una priorità più bassa.|
-|-i \<DefaultPriority @ no__t-1|Specifica la priorità predefinita assegnata a ogni processo di stampa.|
+|-S \<nomeserver\>|Specifica il nome del computer remoto che ospita la stampante che si desidera gestire. Se non si specifica un computer, viene usato il computer locale.|
+|-P \<PrinterName\>|Specifica il nome della stampante che si desidera gestire. Obbligatorio.|
+|-z \<NewprinterName\>|Specifica il nuovo nome della stampante. Richiede i parametri **-x** e **-P** .|
+|-u \<nome utente\>-w \<password\>|Specifica un account con le autorizzazioni per la connessione al computer che ospita la stampante che si desidera gestire. Tutti i membri del gruppo Administrators locale del computer di destinazione dispongono di queste autorizzazioni, ma è possibile concedere anche le autorizzazioni ad altri utenti. Se non si specifica un account, è necessario effettuare l'accesso con un account con le autorizzazioni necessarie per il funzionamento del comando.|
+|-r \<Portaname\>|Specifica la porta a cui è connessa la stampante. Se si tratta di una porta parallela o seriale, usare l'ID della porta (ad esempio, LPT1 o COM1). Se si tratta di una porta TCP/IP, utilizzare il nome della porta specificato quando la porta è stata aggiunta.|
+|-l \<percorso\>|Specifica il percorso della stampante, ad esempio "Copy Room".|
+|-h \<ShareName\>|Specifica il nome della condivisione della stampante.|
+|-m \<commento\>|Specifica la stringa di commento della stampante.|
+|-f \<SeparatorFileName\>|Specifica un file che contiene il testo visualizzato nella pagina separatore.|
+|-y \<DataType\>|Specifica i tipi di dati che la stampante può accettare.|
+|-St \<StartTime\>|Configura la stampante per la disponibilità limitata. Specifica l'ora del giorno in cui è disponibile la stampante. Se si invia un documento a una stampante quando non è disponibile, il documento viene mantenuto (con spooling) finché la stampante non diventa disponibile. È necessario specificare l'ora come orario a 24 ore. Ad esempio, per specificare 11:00, digitare **2300**.|
+|-UT \<EndTime\>|Configura la stampante per la disponibilità limitata. Specifica l'ora del giorno in cui la stampante non è più disponibile. Se si invia un documento a una stampante quando non è disponibile, il documento viene mantenuto (con spooling) finché la stampante non diventa disponibile. È necessario specificare l'ora come orario a 24 ore. Ad esempio, per specificare 11:00, digitare **2300**.|
+|-o \<priorità\>|Specifica una priorità utilizzata dallo spooler per indirizzare i processi di stampa nella coda di stampa. Una coda di stampa con una priorità più alta riceve tutti i processi prima di qualsiasi coda con una priorità più bassa.|
+|-i \<DefaultPriority\>|Specifica la priorità predefinita assegnata a ogni processo di stampa.|
 |{+&#124;-} condiviso|Specifica se la stampante è condivisa in rete.|
 |{+&#124;-} diretta|Specifica se il documento deve essere inviato direttamente alla stampante senza che venga eseguito lo spooling.|
 |{+&#124;-} pubblicato|Specifica se la stampante deve essere pubblicata in Active Directory. Se si pubblica la stampante, altri utenti possono cercarla in base alla posizione e alle funzionalità, ad esempio la stampa a colori e la graffatura.|
@@ -64,8 +64,8 @@ cscript Prncnfg {-g | -t | -x | -?} [-S <ServerName>] [-P <printerName>] [-z <Ne
 |{+ &#124; -} EnableBIDI|Specifica se la stampante invia informazioni sullo stato allo spooler.|
 |/?|Visualizza la guida al prompt dei comandi.|
 
-## <a name="remarks"></a>Note
--   Il comando **prncnfg** è uno script Visual Basic che si trova nella directory%WINdir%\System32\printing_Admin_Scripts @ no__t-1 @ no__t-2. Per usare questo comando, al prompt dei comandi digitare **cscript** seguito dal percorso completo del file prncnfg o passare alla cartella appropriata. Esempio:
+## <a name="remarks"></a>Osservazioni
+-   Il comando **prncnfg** è uno script Visual Basic che si trova nella directory%windir%\system32\. printing_Admin_Scripts\\<language>. Per usare questo comando, al prompt dei comandi digitare **cscript** seguito dal percorso completo del file prncnfg o passare alla cartella appropriata. Ad esempio:
     ```
     cscript %WINdir%\System32\printing_Admin_Scripts\en-US\prncnfg
     ```
@@ -87,6 +87,6 @@ Per modificare il nome di una stampante nel computer remoto denominato ServerRU 
 cscript prncnfg -x -S HRServer -P colorprinter_2 -z "colorprinter 3" 
 ```
 
-#### <a name="additional-references"></a>Riferimenti aggiuntivi
-Informazioni di[riferimento sui comandi di stampa](print-command-reference.md) 
- per la sintassi della riga di [comando](command-line-syntax-key.md)
+#### <a name="additional-references"></a>riferimenti aggiuntivi
+[Chiave della sintassi della riga di comando](command-line-syntax-key.md)
+[riferimento al comando stampa](print-command-reference.md)

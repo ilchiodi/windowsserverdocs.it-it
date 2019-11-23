@@ -21,7 +21,7 @@ ms.locfileid: "71396434"
 
 È possibile utilizzare questo argomento per istruzioni sulla configurazione di autenticazioni simultanee del server dei criteri di rete.
 
-Se è stato installato il server dei criteri di rete \(NPS @ no__t-1 in un computer diverso da un controller di dominio e il server dei criteri di rete riceve un numero elevato di richieste di autenticazione al secondo, è possibile migliorare le prestazioni dei server dei criteri di rete aumentando il numero di Concurrent autenticazioni consentite tra il server dei criteri di dominio e il controller di dominio.
+Se è stato installato Server dei criteri di rete \(NPS\) in un computer diverso da un controller di dominio e il server dei criteri di rete riceve un numero elevato di richieste di autenticazione al secondo, è possibile migliorare le prestazioni di NPS aumentando il numero di autenticazioni simultanee consentite tra il server dei criteri di rete e il controller di dominio
 
 A tale scopo, è necessario modificare la chiave del registro di sistema seguente: 
 

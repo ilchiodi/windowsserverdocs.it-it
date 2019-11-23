@@ -63,7 +63,7 @@ Il diagramma seguente illustra il processo di configurazione di Servizi di domin
   
 Per eseguire l'operazione di gestione temporanea di un account computer di un controller di dominio di sola lettura, aprire Centro di amministrazione di Active Directory (**Dsac.exe**). Fare clic sul nome del dominio nel riquadro di spostamento. Fare doppio clic su **Controller di dominio** nell'elenco degli elementi da gestire. Fare clic su **Creazione preliminare di un account controller di dominio di sola lettura** nel riquadro delle attività.  
   
-Per ulteriori informazioni sulla centro di amministrazione di Active Directory, vedere la pagina relativa alla [Gestione avanzata di &#40;servizi di&#41; dominio Active Directory utilizzando centro di amministrazione di Active Directory Level 200](../../../ad-ds/get-started/adac/Advanced-AD-DS-Management-Using-Active-Directory-Administrative-Center--Level-200-.md) ed esaminare @no__t 3Active centro di amministrazione della directory: Introduzione @ no__t-0.  
+Per ulteriori informazioni su Centro di amministrazione di Active Directory, vedere [Avanzate AD DS gestione utilizzando Active Directory centro di amministrazione di & #40; Livello 200 & #41;](../../../ad-ds/get-started/adac/Advanced-AD-DS-Management-Using-Active-Directory-Administrative-Center--Level-200-.md) ed esaminare [Centro di amministrazione di Active Directory: Guida introduttiva](https://technet.microsoft.com/library/dd560651(WS.10).aspx).  
   
 Se si ha esperienza nella creazione di controller di dominio di sola lettura, si noterà che l'installazione guidata ha la stessa interfaccia grafica del precedente snap-in Utenti e computer di Active Directory di Windows Server 2008 e usa lo stesso codice, che include l'esportazione della configurazione nel formato di file di installazione automatica usato da dcpromo obsoleto.  
   
@@ -229,7 +229,7 @@ Install-AddsDomainController
 ### <a name="domain-controller-options"></a>Opzioni controller di dominio  
 ![Installare RODC](media/Install-a-Windows-Server-2012-Active-Directory-Read-Only-Domain-Controller--RODC---Level-200-/ADDS_SMI_TR_Stage2DCOptions.png)  
   
-Il **Opzioni Controller di dominio** pagina Mostra le opzioni per il nuovo controller di dominio. Quando questa pagina viene caricata, la Configurazione guidata Servizi di dominio Active Directory invia una query LDAP a un controller di dominio esistente per cercare gli account non occupati. Se la query trova un controller di dominio non occupato account computer che condivide lo stesso nome del computer corrente, quindi la procedura guidata visualizza un messaggio informativo nella parte superiore della pagina che legge "**nella directory è presente un account creato in precedenza che corrisponde al nome del server di destinazione. Scegliere se utilizzare tale account o reinstallare il controller di dominio**. " La procedura guidata usa **Usa account di controller di dominio di sola lettura esistente** come configurazione predefinita.  
+Il **Opzioni Controller di dominio** pagina Mostra le opzioni per il nuovo controller di dominio. Quando questa pagina viene caricata, la Configurazione guidata Servizi di dominio Active Directory invia una query LDAP a un controller di dominio esistente per cercare gli account non occupati. Se la query trova un account computer del controller di dominio non occupato che condivide lo stesso nome del computer corrente, la procedura guidata visualizza un messaggio informativo nella parte superiore della pagina che legge "**un account di controller di dominio di sola lettura creato in precedenza che corrisponde al nome del server di destinazione esiste nella directory. Scegliere se utilizzare l'account RODC esistente o reinstallare il controller di dominio**. La procedura guidata usa **Usa account di controller di dominio di sola lettura esistente** come configurazione predefinita.  
   
 > [!IMPORTANT]  
 > È possibile usare l'opzione **Reinstalla controller di dominio** quando si è verificato un problema fisico in un controller di dominio di cui non è possibile ripristinare la funzionalità. In questo modo è possibile risparmiare tempo quando si configura il controller di dominio di sostituzione, perché l'account computer del controller di dominio e i metadati dell'oggetto vengono lasciati in Active Directory. Installare il nuovo computer con lo *stesso nome*e innalzarlo di livello come controller di dominio nel dominio. Il **reinstallare questo controller di dominio** opzione non è disponibile se sono stati rimossi i metadati dell'oggetto controller di dominio da Active Directory (pulizia dei metadati).  
@@ -278,7 +278,7 @@ Ad esempio, è possibile utilizzare il cmdlet **Read-Host** per richiedere all'u
 -safemodeadministratorpassword (convertto-securestring "Password1" -asplaintext -force)  
 ```  
   
-Infine, è possibile archiviare la password offuscata in un file e quindi riutilizzarla in seguito, senza visualizzare mai la password non crittografata. Esempio:  
+Infine, è possibile archiviare la password offuscata in un file e quindi riutilizzarla in seguito, senza visualizzare mai la password non crittografata. Ad esempio:  
   
 ```  
 $file = "c:\pw.txt"  
@@ -328,7 +328,7 @@ Nella pagina **Percorsi** è possibile sostituire i percorsi predefiniti delle c
 ### <a name="review-options-and-view-script"></a>Verifica opzioni e Visualizza script  
 ![Installare RODC](media/Install-a-Windows-Server-2012-Active-Directory-Read-Only-Domain-Controller--RODC---Level-200-/ADDS_SMI_TR_Stage2ReviewOptions.png)  
   
-Nella pagina **Verifica opzioni** è possibile convalidare le impostazioni e accertarsi se soddisfano i requisiti prima di iniziare l'installazione. Questa non è l'ultima possibilità per interrompere l'installazione utilizzando Server Manager. La pagina consente semplicemente di rivedere e confermare le impostazioni prima di proseguire con la configurazione. La pagina **Verifica opzioni** di Server Manager include inoltre un pulsante opzionale **Visualizza script** , che consente di creare un file di testo Unicode contenente la configurazione ADDSDeployment corrente come singolo script di Windows PowerShell. In questo modo è possibile utilizzare l'interfaccia grafica di Server Manager come strumento di distribuzione di Windows PowerShell. Utilizzare la Configurazione guidata Servizi di dominio Active Directory per configurare le opzioni, esportare la configurazione e annullare la procedura guidata. Questo processo crea un esempio valido e sintatticamente corretto che può essere utilizzato direttamente o successivamente modificato. Esempio:  
+Nella pagina **Verifica opzioni** è possibile convalidare le impostazioni e accertarsi se soddisfano i requisiti prima di iniziare l'installazione. Questa non è l'ultima possibilità per interrompere l'installazione utilizzando Server Manager. La pagina consente semplicemente di rivedere e confermare le impostazioni prima di proseguire con la configurazione. La pagina **Verifica opzioni** di Server Manager include inoltre un pulsante opzionale **Visualizza script** , che consente di creare un file di testo Unicode contenente la configurazione ADDSDeployment corrente come singolo script di Windows PowerShell. In questo modo è possibile utilizzare l'interfaccia grafica di Server Manager come strumento di distribuzione di Windows PowerShell. Utilizzare la Configurazione guidata Servizi di dominio Active Directory per configurare le opzioni, esportare la configurazione e annullare la procedura guidata. Questo processo crea un esempio valido e sintatticamente corretto che può essere utilizzato direttamente o successivamente modificato. Ad esempio:  
   
 ```  
 #  
@@ -495,7 +495,7 @@ Ad esempio, è possibile utilizzare il cmdlet **Read-Host** per richiedere all'u
 -safemodeadministratorpassword (convertto-securestring "Password1" -asplaintext -force)  
 ```  
   
-Infine, è possibile archiviare la password offuscata in un file e quindi riutilizzarla in seguito, senza visualizzare mai la password non crittografata. Esempio:  
+Infine, è possibile archiviare la password offuscata in un file e quindi riutilizzarla in seguito, senza visualizzare mai la password non crittografata. Ad esempio:  
   
 ```  
 $file = "c:\pw.txt"  
@@ -607,7 +607,7 @@ L'argomento del cmdlet di ADDSDeployment per Opzioni aggiuntive è:
   
 Nella pagina **Verifica opzioni** è possibile convalidare le impostazioni e accertarsi se soddisfano i requisiti prima di iniziare l'installazione. Questa non è l'ultima possibilità per interrompere l'installazione utilizzando Server Manager. La pagina consente semplicemente di rivedere e confermare le impostazioni prima di proseguire con la configurazione.  
   
-La pagina **Verifica opzioni** di Server Manager include inoltre un pulsante opzionale **Visualizza script** , che consente di creare un file di testo Unicode contenente la configurazione ADDSDeployment corrente come singolo script di Windows PowerShell. In questo modo è possibile utilizzare l'interfaccia grafica di Server Manager come strumento di distribuzione di Windows PowerShell. Utilizzare la Configurazione guidata Servizi di dominio Active Directory per configurare le opzioni, esportare la configurazione e annullare la procedura guidata. Questo processo crea un esempio valido e sintatticamente corretto che può essere utilizzato direttamente o successivamente modificato. Esempio:  
+La pagina **Verifica opzioni** di Server Manager include inoltre un pulsante opzionale **Visualizza script** , che consente di creare un file di testo Unicode contenente la configurazione ADDSDeployment corrente come singolo script di Windows PowerShell. In questo modo è possibile utilizzare l'interfaccia grafica di Server Manager come strumento di distribuzione di Windows PowerShell. Utilizzare la Configurazione guidata Servizi di dominio Active Directory per configurare le opzioni, esportare la configurazione e annullare la procedura guidata. Questo processo crea un esempio valido e sintatticamente corretto che può essere utilizzato direttamente o successivamente modificato. Ad esempio:  
   
 ```  
 #  

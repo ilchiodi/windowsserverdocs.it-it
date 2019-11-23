@@ -22,10 +22,10 @@ ms.locfileid: "71392340"
 ---
 # <a name="tskill"></a>tskill
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Termina un processo in esecuzione in una sessione in un server Host sessione Desktop remoto (host sessione Desktop remoto).
-Per esempi relativi all'uso di questo comando, vedere [esempi](#BKMK_examples).
+per esempi relativi all'uso di questo comando, vedere [esempi](#BKMK_examples).
 
 > [!NOTE]
 > In Windows Server 2008 R2, Servizi terminal si chiama ora Servizi Desktop remoto. Per informazioni sulle novità della versione più recente, vedere Novità di [Servizi Desktop remoto in Windows server 2012](https://technet.microsoft.com/library/hh831527) nella libreria TechNet di Windows Server.
@@ -39,15 +39,15 @@ tskill {<ProcessID> | <ProcessName>} [/server:<ServerName>] [/id:<SessionID> | /
 
 |Parametro|Descrizione|
 |-------|--------|
-|\<ProcessID >|Specifica l'ID del processo che si desidera terminare.|
+|> ProcessId \<|Specifica l'ID del processo che si desidera terminare.|
 |\<ProcessName >|Specifica il nome del processo che si desidera terminare. Questo parametro può includere caratteri jolly.|
-|/Server: \<ServerName >|Specifica il server terminal che contiene il processo che si desidera terminare. Se **/Server** non è specificato, viene utilizzato il server Host sessione Desktop remoto corrente.|
-|/ID: > \<SessionID|Termina il processo in esecuzione nella sessione specificata.|
+|/Server:\<ServerName >|Specifica il server terminal che contiene il processo che si desidera terminare. Se **/Server** non è specificato, viene utilizzato il server Host sessione Desktop remoto corrente.|
+|/ID:\<SessionID >|Termina il processo in esecuzione nella sessione specificata.|
 |/a|Termina il processo in esecuzione in tutte le sessioni.|
 |/v|Visualizza le informazioni sulle azioni eseguite.|
 |/?|Visualizza la guida al prompt dei comandi.|
 
-## <a name="remarks"></a>Note
+## <a name="remarks"></a>Osservazioni
 - È possibile usare **tskill** per terminare solo i processi che appartengono all'utente, a meno che non si sia un amministratore. Gli amministratori hanno accesso completo a tutte le funzioni **tskill** e possono terminare i processi in esecuzione in altre sessioni utente.
 - Quando tutti i processi in esecuzione in una sessione terminano, termina anche la sessione.
 - Se si usano i parametri *ProcessName* e **/Server:** <em>ServerName</em> , è necessario specificare anche il parametro **/ID:** <em>SessionID</em> o **/a** .
@@ -62,4 +62,5 @@ tskill {<ProcessID> | <ProcessName>} [/server:<ServerName>] [/id:<SessionID> | /
   tskill explorer /id:5
   ```
   #### <a name="additional-references"></a>Altri riferimenti
-  [Sintassi della riga di comando chiave](command-line-syntax-key.md)@no__t-[1 &#40;Servizi Desktop remoto riferimento&#41; ai comandi di Servizi terminal](remote-desktop-services-terminal-services-command-reference.md)
+  [Chiave di sintassi della riga di comando](command-line-syntax-key.md)
+  [riferimento ai comandi di &#40;Servizi Desktop remoto Servizi terminal&#41; ](remote-desktop-services-terminal-services-command-reference.md)

@@ -48,7 +48,7 @@ Get-StorageNode -Name <Name> | Get-StorageHealthReport -Count <Count>
 
 ### <a name="connect"></a>Connetti
 
-Per eseguire una query sulla Servizio integrità, è necessario stabilire una **CimSession** con il cluster. A tale scopo, sono necessari alcuni elementi disponibili solo in .NET completo, ovvero non è possibile eseguire facilmente questa operazione direttamente da un'app Web o per dispositivi mobili. Questi esempi di codice useranno C @ no__t-0, la scelta più semplice per questo livello di accesso ai dati.
+Per eseguire una query sulla Servizio integrità, è necessario stabilire una **CimSession** con il cluster. A tale scopo, sono necessari alcuni elementi disponibili solo in .NET completo, ovvero non è possibile eseguire facilmente questa operazione direttamente da un'app Web o per dispositivi mobili. Questi esempi di codice useranno C\#, la scelta più semplice per questo livello di accesso ai dati.
 
 ``` 
 ...
@@ -80,7 +80,7 @@ Il nome utente specificato deve essere un amministratore locale del computer di 
 
 Con la **CimSession** stabilita, è possibile eseguire una query Strumentazione gestione Windows (WMI) nel cluster.
 
-Prima di poter ottenere errori o metriche, è necessario ottenere istanze di diversi oggetti rilevanti. In primo luogo, **MSFT @ no__t-1StorageSubSystem** che rappresenta spazi di archiviazione diretta nel cluster. Usando questo, è possibile ottenere ogni **MSFT @ no__t-1StorageNode** nel cluster e ogni **MSFT @ no__t-3Volume**, ovvero i volumi di dati. Infine, sarà necessario anche **MSFT @ no__t-1StorageHealth**, il servizio integrità stesso.
+Prima di poter ottenere errori o metriche, è necessario ottenere istanze di diversi oggetti rilevanti. In primo luogo, **MSFT\_StorageSubSystem** che rappresenta spazi di archiviazione diretta nel cluster. Utilizzando questa, è possibile ottenere ogni **msft\_StorageNode** nel cluster e ogni **volume MSFT\_** , ovvero i volumi di dati. Infine, sarà necessario anche **MSFT\_StorageHealth**, il servizio integrità stesso.
 
 ```
 CimInstance Cluster;
@@ -209,14 +209,14 @@ Inutile dirlo, queste metriche possono essere visualizzate, archiviate in un dat
 
 Ogni esempio di metrica è un "report" che contiene molti "record" corrispondenti a singole metriche.
 
-Per lo schema completo, esaminare le classi **MSFT @ no__t-1StorageHealthReport** e **MSFT @ no__t-3HealthRecord** in *StorageWMI. mof*.
+Per lo schema completo, esaminare le classi **msft\_StorageHealthReport** e **MSFT\_HealthRecord** in *StorageWMI. mof*.
 
 Ogni metrica dispone solo di tre proprietà, in base a questa tabella.
 
 | **Proprietà** | **Esempio**       |
 | -------------|-------------------|
 | Nome         | IOLatencyAverage  |
-| Value        | 0,00021           |
+| Valore        | 0,00021           |
 | Unità        | 3                 |
 
 Unità = {0, 1, 2, 3, 4}, dove 0 = "byte", 1 = "BytesPerSecond", 2 = "CountPerSecond", 3 = "secondi" o 4 = "percentuale".
@@ -282,6 +282,6 @@ Di seguito sono riportate le metriche disponibili per ogni ambito di Windows Ser
 | IOThroughputTotal   | 1         |
 | IOThroughputWrite   | 1         |
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 - [Servizio integrità in Windows Server 2016](health-service-overview.md)
