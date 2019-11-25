@@ -18,7 +18,7 @@ ms.locfileid: "71408103"
 ---
 # <a name="federated-web-sso-design"></a>Progetto SSO Web federativo
 
-Il progetto federativo Web single @ no__t-0Sign @ no__t-1Sulla Barra \(SSO @ no__t-3 Active Directory Federation Services \(AD FS @ no__t-5 implica una comunicazione sicura che si estende su più firewall, reti perimetrali e nome @ no__t-6resolution Server, oltre all'intera infrastruttura di routing Internet.  
+Il\-Web federativo Single Sign\-on \(SSO\) design in Active Directory Federation Services \(ad FS\) include comunicazioni sicure che si estendono su più firewall, reti perimetrali e server di risoluzione dei nomi\-, oltre all'intera infrastruttura di routing Internet.  
   
 Questa progettazione è utilizzata in genere, quando due organizzazioni accettano creare una relazione di trust federativa per consentire agli utenti di un'organizzazione \(organizzazione partner account\) per accedere alle Web\-basato su applicazioni o servizi, che sono protetti da ADFS, all'interno dell'organizzazione \(organizzazione partner risorse\).  
   
@@ -43,7 +43,7 @@ Contoso è il provider di risorse. La parte di Contoso di Web SSO federativo rag
   
 -   [Fornire agli utenti di Active Directory l'accesso ai servizi e alle applicazioni in grado di riconoscere attestazioni](Provide-Your-Active-Directory-Users-Access-to-Your-Claims-Aware-Applications-and-Services.md)  
   
-Per un elenco delle attività dettagliate che è possibile usare per pianificare e distribuire il progetto Web SSO federativo, vedere [Checklist: Implementazione di un progetto Web SSO federativo @ no__t-0.  
+Per un elenco delle attività dettagliate che si possono usare per pianificare e distribuire la soluzione di accesso Single Sign-On Web federativo, vedere [Checklist: Implementing a Federated Web SSO Design](../../ad-fs/deployment/Checklist--Implementing-a-Federated-Web-SSO-Design.md).  
   
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 [Guida alla progettazione di AD FS in Windows Server 2012](AD-FS-Design-Guide-in-Windows-Server-2012.md)

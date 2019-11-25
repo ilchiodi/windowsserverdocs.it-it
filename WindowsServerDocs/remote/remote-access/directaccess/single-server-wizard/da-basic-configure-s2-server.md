@@ -53,7 +53,7 @@ Per distribuire Accesso remoto, è necessario installare il ruolo Accesso remoto
   
 7.  Nella finestra di dialogo **Stato installazione** verificare che l'installazione sia stata completata correttamente e quindi fare clic su **Chiudi**.  
   
-](../../../media/Step-2-Configure-the-DirectAccess-Server/PowerShellLogoSmall.gif)***<em>comandi equivalenti</em> di PowerShell per Windows PowerShell @no__t 0Windows***  
+![](../../../media/Step-2-Configure-the-DirectAccess-Server/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em> per Windows PowerShell***  
   
 Il cmdlet o i cmdlet di Windows PowerShell seguenti installano il ruolo accesso remoto: 
 
@@ -90,12 +90,12 @@ Il cmdlet o i cmdlet di Windows PowerShell seguenti installano il ruolo accesso 
   
 3.  Fare clic su **distribuire DirectAccess solo**.  
   
-4.  Selezionare la topologia della configurazione di rete e digitare il nome pubblico a cui si connetteranno i client di accesso remoto. Fare clic su **Avanti**.  
+4.  Selezionare la topologia della configurazione di rete e digitare il nome pubblico a cui si connetteranno i client di accesso remoto. Fai clic su **Next**.  
   
     > [!NOTE]  
     > Per impostazione predefinita, la procedura Attività iniziali guidate consente di distribuire DirectAccess in tutti i computer portatili e notebook nel dominio applicando un filtro WMI all'oggetto Criteri di gruppo delle impostazioni client.  
   
-5.  Scegliere **Fine**.  
+5.  Fare clic su **Fine**.  
   
 6.  Poiché in questa distribuzione non viene usata alcuna infrastruttura a chiave pubblica (PKI), se i certificati non vengono trovati la procedura guidata effettua automaticamente il provisioning di certificati autofirmati per IP-HTTPS e il server dei percorsi di rete e abilita automaticamente il proxy Kerberos. oltre a NAT64 e DNS64 per la traduzione dei protocolli nell'ambiente solo IPv4. Dopo che la procedura guidata ha applicato la configurazione, fare clic su **Chiudi**.  
   
@@ -121,7 +121,7 @@ Il cmdlet o i cmdlet di Windows PowerShell seguenti installano il ruolo accesso 
   
 ## <a name="BKMK_Links"></a>Passaggio precedente  
   
--   [Passaggio 1: Configurare l'infrastruttura di DirectAccess](Step-1-Configure-the-DirectAccess-Infrastructure.md)  
+-   [Passaggio 1: configurare l'infrastruttura DirectAccess](Step-1-Configure-the-DirectAccess-Infrastructure.md)  
   
 ## <a name="next-step"></a>Passaggio successivo  
   
