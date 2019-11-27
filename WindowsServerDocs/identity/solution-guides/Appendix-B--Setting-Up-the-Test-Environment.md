@@ -122,7 +122,7 @@ Creare una macchina virtuale da usare come controller di dominio (DC1). Installa
 
 11. Nella pagina **Configurazione distribuzione** fare clic su **Aggiungi una nuova foresta**, digitare il nome del dominio radice, **contoso.com**, e quindi fare clic su **Avanti**.  
 
-12. Nella pagina **Opzioni controller di dominio** selezionare i livelli di funzionalità dominio e foresta come Windows Server 2012, specificare la password della modalità ripristino servizi directory <strong>pass@word1</strong>, quindi fare clic su **Avanti**.  
+12. Nella pagina **Opzioni controller di dominio** selezionare i livelli di funzionalità dominio e foresta come Windows Server 2012, specificare la password della modalità ripristino servizi directory <strong>pass@word1</strong>e quindi fare clic su **Avanti**.  
 
 13. Nella pagina **Opzioni DNS** fare clic su **Avanti**.  
 
@@ -164,13 +164,13 @@ Creare gli utenti seguenti mediante Centro di amministrazione di Active Director
 4. Creare gli utenti seguenti con gli attributi indicati:  
 
 
-   |       Utente       |  Nome utente  |     Indirizzo di posta elettronica      | department |      Group       | Paese/area geografica |
+   |       Utente       |  Nome utente  |     Indirizzo e-mail      | Reparto |      Gruppo       | Paese/area geografica |
    |------------------|------------|------------------------|------------|------------------|----------------|
-   | Myriam Delesalle | MDelesalle | MDelesalle@contoso.com |  Finanza   |                  |       US       |
-   |    Miles Reid    |   MReid    |   MReid@contoso.com    |  Finanza   |   FinanceAdmin   |       US       |
-   |   Esther Valle   |   EValle   |   EValle@contoso.com   | Operazioni | FinanceException |       US       |
-   |   Maira Wenzel   |  MWenzel   |  MWenzel@contoso.com   |     RU     |                  |       US       |
-   |     Jeff Low     |    JLow    |    JLow@contoso.com    |     RU     |                  |       US       |
+   | Myriam Delesalle | MDelesalle | MDelesalle@contoso.com |  Finanza   |                  |       Stati Uniti       |
+   |    Miles Reid    |   MReid    |   MReid@contoso.com    |  Finanza   |   FinanceAdmin   |       Stati Uniti       |
+   |   Esther Valle   |   EValle   |   EValle@contoso.com   | Operazioni | FinanceException |       Stati Uniti       |
+   |   Maira Wenzel   |  MWenzel   |  MWenzel@contoso.com   |     RU     |                  |       Stati Uniti       |
+   |     Jeff Low     |    JLow    |    JLow@contoso.com    |     RU     |                  |       Stati Uniti       |
    |    RMS Server    |    rms     |    rms@contoso.com     |            |                  |                |
 
    Per altre informazioni sulla creazione di gruppi di sicurezza, vedere [Creare un nuovo gruppo](https://technet.microsoft.com/library/dd861305.aspx) sul sito Web di Windows Server.  
@@ -245,7 +245,7 @@ Quando si creano quote e screening dei file, è possibile inviare notifiche tram
 
 3. Nella scheda **Notifiche posta elettronica** , in Nome server SMTP o indirizzo IP, digitare il nome host o l'indirizzo IP del server SMTP che inoltrerà le notifiche tramite posta elettronica.  
 
-4. Se si desidera notificare periodicamente a determinati amministratori gli eventi di quota o di screening dei file, in **destinatari amministratori predefiniti**Digitare l'indirizzo di posta elettronica, ad esempio fileadmin@contoso.com. Usare il formato account@domain e usare un punto e virgola per separare più account.  
+4. Se si desidera notificare periodicamente a determinati amministratori gli eventi di quota o di screening dei file, in **destinatari amministratori predefiniti**Digitare ogni indirizzo di posta elettronica, ad esempio fileadmin@contoso.com. Usare il formato account@domaine usare i punti e virgola per separare più account.  
 
 #### <a name="create-groups-on-file1"></a>Creare gruppi in FILE1  
 
@@ -275,7 +275,7 @@ Quando si creano quote e screening dei file, è possibile inviare notifiche tram
     -   **Workbook2. xlsx**  
 
     -   Sul desktop creare una cartella denominata Regular Expressions. Nella cartella creare un documento di testo denominato **RegEx-SSN**. Digitare il contenuto seguente nel file, quindi salvare e chiudere il file:   
-        ^(?!000)([0-7]\d{2}|7([0-7]\d|7[012]))([ -]?)(?!00)\d\d\3(?!0000)\d{4}$  
+        ^(?!000)([0-7]\d{4}|7([0-7]\d|7[012]))([ -]?)(?!00)\d\d\3(?!0000)\d{4}$  
 
 3.  Condividere la cartella D:\Finance Documents come Finance Documents e concedere a tutti l'accesso in lettura e scrittura alla condivisione.  
 
@@ -335,7 +335,7 @@ Aggiungere Active Directory Rights Management Services (AD RMS) e tutte le funzi
 
 21. Nella schermata **Archivio chiavi cluster** fare clic su **Avanti**.  
 
-22. Nelle caselle **password e** **Conferma password** della schermata della password della **chiave del cluster** Digitare <strong>pass@word1</strong>, quindi fare clic su **Avanti**.  
+22. Nelle caselle **password e** **Conferma password** della schermata della password della **chiave del cluster** Digitare <strong>pass@word1</strong>e quindi fare clic su **Avanti**.  
 
 23. Nella schermata **Sito Web cluster** verificare che l'opzione **Sito Web predefinito** sia selezionata e quindi fare clic su **Avanti**.  
 
@@ -347,7 +347,7 @@ Aggiungere Active Directory Rights Management Services (AD RMS) e tutte le funzi
 
 27. Nella schermata **Conferma** fare clic su **Installa**.  
 
-28. Nella schermata **Risultati** fare clic su **Chiudi** e quindi ancora su **Chiudi** nella schermata **Stato dell'installazione**. Al termine, disconnettersi e accedere come contoso\rms usando la password specificata (<strong>pass@word1</strong>).  
+28. Nella schermata **Risultati** fare clic su **Chiudi** e quindi ancora su **Chiudi** nella schermata **Stato dell'installazione**. Al termine, disconnettersi e accedere come contoso\rms usando la password fornita (<strong>pass@word1</strong>).  
 
 29. Avviare la console AD RMS e passare a **Modelli di criteri per i diritti di utilizzo**.  
 
@@ -369,7 +369,7 @@ Aggiungere Active Directory Rights Management Services (AD RMS) e tutte le funzi
 
 33. Fare clic sulle schede rimanenti senza apportare modifiche e quindi fare clic su **Fine**. Eseguire l'accesso come CONTOSO\Administrator.  
 
-34. Passare alla cartella C:\Inetpub\Wwwroot @ no__t-0_wmcs\certification, selezionare il file ServerCertification. asmx e aggiungere gli utenti autenticati per avere le autorizzazioni di lettura e scrittura per il file.  
+34. Individuare la cartella C:\Inetpub\Wwwroot\\_wmcs \certification, selezionare il file ServerCertification. asmx e aggiungere gli utenti autenticati affinché dispongano delle autorizzazioni di lettura e scrittura per il file.  
 
 35. Aprire Windows PowerShell ed eseguire `Get-FsrmRmsTemplate`. Verificare di riuscire a vedere il modello RMS creato nei passaggi precedenti di questa procedura con questo comando.  
 
@@ -530,9 +530,9 @@ Configurare Microsoft Exchange Server in questo computer. Per altre informazioni
 
    - Server della posta in uscita: indirizzo IP statico di of SRV1  
 
-   - Nome utente:fileadmin@contoso.com  
+   - Nome utente: fileadmin@contoso.com  
 
-   - Ricorda password: Selezione  
+   - Ricorda password: selezionare  
 
 4. Creare un collegamento ad Outlook sul desktop di contoso\administrator.  
 
@@ -540,7 +540,7 @@ Configurare Microsoft Exchange Server in questo computer. Per altre informazioni
 
 6. Eliminare gli eventuali messaggi di prova generati.  
 
-7. Creare una nuova scorciatoia sul desktop per tutti gli utenti della macchina virtuale client che punta ai documenti \\ \ FILE1\Finance.  
+7. Creare una nuova scorciatoia sul desktop per tutti gli utenti della macchina virtuale client che punta a \\documenti \FILE1\Finance.  
 
 8. Riavviare se necessario.  
 
@@ -596,7 +596,7 @@ Configurare Microsoft Exchange Server in questo computer. Per altre informazioni
 
 11. Nella pagina **Configurazione distribuzione** fare clic su **Aggiungi una nuova foresta**, digitare il nome del dominio radice, **adatum.com**, e quindi fare clic su **Avanti**.  
 
-12. Nella pagina **Opzioni controller di dominio** selezionare i livelli di funzionalità dominio e foresta come Windows Server 2012, specificare la password della modalità ripristino servizi directory <strong>pass@word1</strong>, quindi fare clic su **Avanti**.  
+12. Nella pagina **Opzioni controller di dominio** selezionare i livelli di funzionalità dominio e foresta come Windows Server 2012, specificare la password della modalità ripristino servizi directory <strong>pass@word1</strong>e quindi fare clic su **Avanti**.  
 
 13. Nella pagina **Opzioni DNS** fare clic su **Avanti**.  
 
@@ -748,11 +748,11 @@ Creare l'utente Jeff low con la password <strong>pass@word1</strong>e assegnare 
 
 5. Nella finestra di dialogo **Voce autorizzazione per Autorizzazioni** fare clic su **Aggiungi condizione**, quindi immettere le condizioni seguenti: [**User**] [**Company**] [**Equals**] [**Value**] [**Adatum**]. Le autorizzazioni devono essere **Modifica, Lettura/esecuzione, Lettura, Scrittura**.  
 
-6. Fare clic su **OK**.  
+6. Fai clic su **OK**.  
 
 7. Fare tre volte clic su **OK** per completare la procedura, quindi tornare al Centro di amministrazione di Active Directory.  
 
-   ![solution guide i](media/Appendix-B--Setting-Up-the-Test-Environment/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em>***  
+   ![la soluzione guida i](media/Appendix-B--Setting-Up-the-Test-Environment/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em>***  
 
    Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.  
 
@@ -829,11 +829,11 @@ Creare un nuovo volume NTFS in FILE1 e quindi creare la cartella seguente: D:\Ea
 
 4. Aprire Esplora risorse e passare a D:\EARNINGS. Fare clic con il pulsante destro del mouse sulla cartella **Earnings** e quindi scegliere **Proprietà**.  
 
-5. Fare clic sulla scheda **Classificazione**. Selezionare Companye quindi selezionare **Adatum** nel campo **Valore** .  
+5. Fare clic sulla scheda **classificazione** . Selezionare **società**, quindi selezionare **adatum** nel campo **valore** .  
 
 6. Fare clic su **Modifica**, selezionare **Adatum Only Access Policy** nel menu a discesa e quindi fare clic su **Applica**.  
 
-7. Fare clic sulla scheda **Sicurezza**, quindi su **Avanzate** e infine fare clic sulla scheda **Criteri centrali**. La voce **AdatumEmployeeAccessRule** dovrebbe essere elencata. È possibile espanderla per visualizzate tutte le autorizzazioni impostate durante la creazione della regola in Active Directory.  
+7. Fare clic sulla scheda **sicurezza** , su **Avanzate**e quindi sulla scheda **criteri centrali** . Verrà visualizzato l'elenco **AdatumEmployeeAccessRule** . È possibile espanderla per visualizzate tutte le autorizzazioni impostate durante la creazione della regola in Active Directory.  
 
 8. Fare clic su **OK** per tornare a Esplora risorse.  
 
