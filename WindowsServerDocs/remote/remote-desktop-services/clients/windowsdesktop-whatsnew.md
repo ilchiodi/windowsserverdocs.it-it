@@ -11,14 +11,14 @@ ms.topic: article
 author: heidilohr
 manager: daveba
 ms.author: helohr
-ms.date: 11/12/2019
+ms.date: 11/20/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: db9c2b64e018b41b053974b5459bd320098a6d2d
-ms.sourcegitcommit: 315f015102c42c6fa7694e76adecdfb448390391
+ms.openlocfilehash: 54994aad08c2f428b429082ed450235ed8bbe7e7
+ms.sourcegitcommit: 244b89505c5131dfdb90628857cc7e31741c84c2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74019588"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74265921"
 ---
 # <a name="whats-new-in-the-windows-desktop-client"></a>Novità del client desktop di Windows
 
@@ -31,11 +31,22 @@ Il client può essere configurato per [gruppi di utenti](windowsdesktop-admin.md
 |Gruppo di utenti |Versione  |
 |-----------|---------|
 |Public     |1.2.431  |
-|Insider    |1.2.431  |
+|Insider    |1.2.524  |
+
+## <a name="updates-for-version-12524"></a>Aggiornamenti per la versione 1.2.524
+
+*Data di pubblicazione: 20/11/2019*
+
+Download: [Windows 64-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4e7Nj), [Windows 32-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4dZCo), [Windows ARM64](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4dX1s)
+
+- Puoi ora accedere alle informazioni sugli aggiornamenti direttamente con il pulsante Altre opzioni nella barra dei comandi nella parte superiore del client.
+- Puoi ora lasciare un feedback dalla barra dei comandi del client.
 
 ## <a name="updates-for-version-12431"></a>Aggiornamenti per la versione 1.2.431
 
 *Data di pubblicazione: 12/11/2019*
+
+Download: [Windows 64-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE48kow), [Windows 32-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE48koA), [Windows ARM64](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE48zYj)
 
 - Sono ora disponibili le versioni a 32 bit e ARM64 del client.
 - Il client ora salva le modifiche apportate alla barra di connessione, ad esempio la posizione, le dimensioni e lo stato bloccato, e applica tali modifiche alle varie sessioni.
@@ -55,15 +66,12 @@ Il client può essere configurato per [gruppi di utenti](windowsdesktop-admin.md
 
 *Data di pubblicazione: 17/09/2019*
 
-- È stato risolto un problema di arresto anomalo del sistema che si verificava al momento dell'autenticazione durante una connessione.
-- È stato risolto un problema di arresto anomalo del sistema che si verificava durante la chiusura del client.
-
-## <a name="updates-for-version-12246"></a>Aggiornamenti per la versione 1.2.246
-
-*Data di pubblicazione: 28/08/2019*
+Download: [Windows a 64 bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3LkSa)
 
 - Sono state migliorate le lingue di fallback per la versione localizzata. Ad esempio, FR-CA verrà visualizzato correttamente in francese anziché in inglese.
 - Quando viene rimossa una sottoscrizione, il client ora rimuove correttamente da Gestione credenziali le credenziali salvate.
 - Dopo l'avvio, il processo di aggiornamento del client ora è automatico e, al termine, il client viene riavviato.
 - Il client ora può essere usato in Windows 10 in modalità S.
 - È stato risolto un problema a causa del quale il processo di aggiornamento aveva esito negativo per gli utenti con uno spazio nel nome utente.
+- È stato risolto un problema di arresto anomalo del sistema che si verificava al momento dell'autenticazione durante una connessione.
+- È stato risolto un problema di arresto anomalo del sistema che si verificava durante la chiusura del client.

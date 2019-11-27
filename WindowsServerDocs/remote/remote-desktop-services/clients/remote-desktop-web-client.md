@@ -8,12 +8,12 @@ ms.date: 08/27/2019
 ms.topic: article
 author: Heidilohr
 ms.localizationpriority: medium
-ms.openlocfilehash: 69beba2c59617da5b501dc55e2509e41ce4ee3fd
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 6c37c28fded08ba68e46a10a534ee0269c714938
+ms.sourcegitcommit: 89aea00fe0e00fc8b1a6e20af36ad04df8c9fe5b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71404119"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74189465"
 ---
 # <a name="get-started-with-the-web-client"></a>Introduzione al client Web
 
@@ -58,6 +58,10 @@ Seguire questa procedura per stampare dal client Web:
 ## <a name="copy-and-paste-from-the-remote-desktop-web-client"></a>Copiare e incollare dal client Web di Desktop remoto
 
 Il client Web attualmente supporta la funzione di copia e incolla solo per testo. I file non possono essere copiati o incollati da e verso il client Web. Inoltre, è possibile usare solo **Ctrl+C** e **Ctrl+V** per copiare e incollare il testo.
+
+## <a name="use-an-input-method-editor-ime-in-the-remote-session"></a>Usare un Input Method Editor (IME) nella sessione remota
+
+Per usare un Input Method Editor per immettere caratteri complessi nella sessione remota, selezionare l'icona a forma di ingranaggio nella barra di spostamento per aprire il pannello laterale **Impostazioni** e impostare l'interruttore **Abilita Input Method Editor** su **Attiva**. È necessario che Input Method Editor sia installato e abilitato nella sessione remota. 
 
 ## <a name="get-help-with-the-web-client"></a>Ottenere assistenza per il client Web
 

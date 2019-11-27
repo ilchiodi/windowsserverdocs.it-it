@@ -1,6 +1,6 @@
 ---
 title: Distribuire Windows Server Update Services
-description: 'Argomento Windows Server Update Service (WSUS): Panoramica del processo di distribuzione con i collegamenti ai quattro passaggi da eseguire'
+description: 'Argomento di Windows Server Update Services (WSUS): Panoramica del processo di distribuzione con collegamenti ai quattro passaggi da eseguire'
 ms.prod: windows-server
 ms.reviewer: na
 ms.technology: manage-wsus
@@ -12,14 +12,14 @@ manager: dongill
 ms.date: 10/16/2017
 ms.openlocfilehash: e3e6bcd5f90d1a7df2a35dda45b4bf8951940815
 ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 09/27/2019
 ms.locfileid: "71361685"
 ---
 # <a name="deploy-windows-server-update-services"></a>Distribuire Windows Server Update Services
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Windows Server Update Services (WSUS) consente agli amministratori IT di distribuire gli aggiornamenti dei prodotti Microsoft più recenti. WSUS è un ruolo del server di Windows Server che può essere installato per gestire e distribuire gli aggiornamenti. Un server WSUS può fungere da origine degli aggiornamenti per altri server WSUS all'interno dell'organizzazione. Quando il server WSUS svolge questa funzione, viene chiamato server upstream.  
 

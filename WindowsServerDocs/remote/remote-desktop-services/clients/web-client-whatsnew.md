@@ -11,14 +11,14 @@ ms.topic: article
 author: heidilohr
 manager: daveba
 ms.author: helohr
-ms.date: 10/18/2019
+ms.date: 11/15/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: bcbd3292bcd4653a4568492a996d53c17f465aa8
-ms.sourcegitcommit: 9a6a692a7b2a93f52bb9e2de549753e81d758d28
+ms.openlocfilehash: 41f5bd7be03e61471683d5fc04df9ee10bc09e58
+ms.sourcegitcommit: 89aea00fe0e00fc8b1a6e20af36ad04df8c9fe5b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72591049"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74189481"
 ---
 # <a name="whats-new-in-the-web-client"></a>Novità del client Web
 
@@ -26,6 +26,14 @@ Aggiorniamo regolarmente il [client Web di Desktop remoto](remote-desktop-web-cl
 
 > [!NOTE]
 > Abbiamo modificato il sistema di controllo delle versioni per il client Web. A partire dalla versione 1.0.18.0, tutte le versioni del client Web conterranno numeri (nel formato "W.X.Y.Z"). I numeri di versione per il client Web di Desktop remoto terminano sempre con il valore 0, ad esempio W.X.Y.0. Ogni versione del client Web di Desktop virtuale Windows modificherà l'ultima cifra fino alla successiva versione del client Web di Desktop remoto, ad esempio 1.0.18.1.
+
+## <a name="updates-for-version-10210"></a>Aggiornamenti per la versione 1.0.21.0
+*Data di pubblicazione: 15/11/2019*
+
+- È stato aggiunto il supporto per l'uso di Input Method Editor (IME) nella sessione remota per inserire caratteri complessi.
+- È stata corretta una regressione che impediva agli utenti di eseguire azioni di copia e incolla nella sessione remota con i dispositivi macOS.
+- È stata corretta una regressione che comportava l'invio della chiave Windows locale alla sessione remota su Firefox.
+- È stato aggiunto il collegamento alla modifica della password di RDWeb quando è abilitato dall'amministratore.
 
 ## <a name="updates-for-version-10200"></a>Aggiornamenti per la versione 1.0.20.0
 *Data di pubblicazione: 18/10/2019*

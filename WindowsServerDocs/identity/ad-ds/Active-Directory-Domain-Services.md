@@ -11,7 +11,7 @@ ms.prod: windows-server
 ms.technology: identity-adds
 ms.openlocfilehash: 52f77e2cb60be66d8be2e3927fe0f97c2c945994
 ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 09/27/2019
 ms.locfileid: "71391018"
@@ -25,7 +25,7 @@ In questa pagina è possibile trovare collegamenti a contenuti di servizi di dom
 
 
 * [Novità di Active Directory Domain Services](../whats-new-active-directory-domain-services.md)  
-* [Introduzione di servizi di dominio Active Directory](../ad-ds/AD-DS-Getting-Started.md)   
+* [Guida introduttiva a Servizi di dominio Active Directory](../ad-ds/AD-DS-Getting-Started.md)   
 * [Pianificazione e progettazione di Active Directory Domain Services](../ad-ds/plan/AD-DS-Design-and-Planning.md)  
 * [Distribuzione di Active Directory Domain Services](../ad-ds/deploy/AD-DS-Deployment.md)  
 * [Operazioni di Active Directory Domain Services](../ad-ds/manage/component-updates/AD-DS-Operations.md)   

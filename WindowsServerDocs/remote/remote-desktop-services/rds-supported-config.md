@@ -13,12 +13,12 @@ ms.topic: article
 ms.assetid: c925c7eb-6880-411f-8e59-bd0f57cc5fc3
 author: lizap
 manager: dongill
-ms.openlocfilehash: 7d4641e2bb40a9a70264c68d0268208a30f36a69
-ms.sourcegitcommit: 3262c5c7cece9f2adf2b56f06b7ead38754a451c
+ms.openlocfilehash: e501d550e5371c668f7e243f00106a0b79f694dc
+ms.sourcegitcommit: 214847318401cebdcb7f1924a731b4439c9d8a24
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72812307"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74187880"
 ---
 # <a name="supported-configurations-for-remote-desktop-services"></a>Configurazioni supportate per Servizi Desktop remoto
 
@@ -55,7 +55,7 @@ In Windows Server 2016 non è più previsto un limite per il numero di istanze d
 
 ## <a name="support-for-graphics-processing-unit-gpu-acceleration"></a>Supporto per l'accelerazione GPU
 
-Servizi Desktop remoto supporta sistemi dotati di GPU. Le applicazioni che richiedono la GPU possono essere usate tramite la connessione remota. Inoltre, è possibile abilitare il rendering e la codifica con accelerazione GPU per migliorare le prestazioni e la scalabilità delle app.
+Servizi Desktop remoto supporta sistemi dotati di GPU. Le applicazioni che richiedono una GPU possono essere usate tramite la connessione remota. Inoltre, è possibile abilitare il rendering e la codifica con accelerazione GPU per migliorare le prestazioni e la scalabilità delle app.
 
 Gli host sessione di Servizi Desktop remoto e i sistemi operativi client a singola sessione possono sfruttare i vantaggi offerti da GPU fisiche o virtuali presentate al sistema operativo in molti modi, incluse le [dimensioni delle macchine virtuali ottimizzate per la GPU di Azure](/en-us/azure/virtual-machines/windows/sizes-gpu), da GPU disponibili per il server RDSH fisico, da vGPU RemoteFX (solo in Windows Server 2016) e da GPU presentate alle macchine virtuali da hypervisor supportati.
 
@@ -63,7 +63,7 @@ Vedi [Qual è la tecnologia per la virtualizzazione della grafica più adatta?](
 
 I fornitori di GPU possono avere uno schema di gestione delle licenze separato per gli scenari RDSH o limitare l'uso della GPU nel sistema operativo server. Verifica i requisiti con il tuo fornitore preferito.
 
-Le GPU presentate da una piattaforma cloud o un hypervisor non Microsoft devono avere driver firmati digitalmente da WHQL e forniti dal fornitore della GPU.
+Le GPU presentate da una piattaforma cloud o un hypervisor non Microsoft devono avere driver firmati digitalmente da WHQL e distribuiti dal fornitore della GPU.
 
 ### <a name="remote-desktop-session-host-support-for-gpus"></a>Supporto dell'host sessione Desktop remoto per le GPU
 
