@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/12/2016
-ms.openlocfilehash: 8086ce329c532e07363fd22fe424a9a1dda04250
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 45fe605228189f49d40543e5da703f9afe0d962e
+ms.sourcegitcommit: 4a03f263952c993dfdf339dd3491c73719854aba
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71386891"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74791194"
 ---
 # <a name="getting-started-with-group-managed-service-accounts"></a>Guida introduttiva alla funzionalità Account del servizio gestiti del gruppo
 
@@ -56,14 +56,14 @@ Quando un computer client si connette a un servizio ospitato in una server farm 
 
 I servizi consentono di scegliere tra le entità seguenti, ognuna delle quali presenta determinate limitazioni.
 
-|Entità|`Scope`|Servizi supportati|Gestione delle password|
+|Entità|Ambito|Servizi supportati|Gestione delle password|
 |-------|-----|-----------|------------|
 |Account computer del sistema Windows|Domain|Limitato a un server aggiunto al dominio|Gestite dal computer|
 |Account computer senza sistema Windows|Domain|Qualsiasi server aggiunto al dominio|Nessuno|
-|Account virtuale|Locale|Limitato a un server|Gestite dal computer|
+|Account virtuale|Locali|Limitato a un server|Gestite dal computer|
 |Account del servizio gestito (autonomo) Windows 7|Domain|Limitato a un server aggiunto al dominio|Gestite dal computer|
 |Account utente|Domain|Qualsiasi server aggiunto al dominio|Nessuno|
-|Account del servizio gestito del gruppo|Domain|Qualsiasi server aggiunto al dominio di Windows Server 2012|Gestite dal controller di dominio e recuperate dall'host|
+|Account del servizio gestito di gruppo|Domain|Qualsiasi server aggiunto al dominio di Windows Server 2012|Gestite dal controller di dominio e recuperate dall'host|
 
 Non è possibile condividere tra più sistemi un account computer Windows o un account del servizio gestito autonomo (sMSA) Windows 7 o account virtuali. Se si configura un account per i servizi da condividere in server farm, è necessario scegliere un account utente o un account computer diverso da quello del sistema Windows. In entrambi i casi, questi account non dispongono della funzionalità di gestione delle password come singolo punto di controllo. Si crea quindi un problema perché ogni organizzazione deve elaborare una soluzione costosa per aggiornare le chiavi del servizio in Active Directory e distribuirle a tutte le istanze di tali servizi.
 
@@ -142,7 +142,7 @@ Nella distribuzione di una nuova server farm, l'amministratore del servizio dovr
 
 -   L'intervallo di modifica della password (per impostazione predefinita è di 30 giorni).
 
-### <a name="BKMK_Step1"></a>Passaggio 1: Provisioning degli account del servizio gestiti del gruppo
+### <a name="BKMK_Step1"></a>Passaggio 1: provisioning degli account del servizio gestito del gruppo
 È possibile creare un gMSA solo se lo schema della foresta è stato aggiornato a Windows Server 2012, la chiave radice master per Active Directory è stata distribuita ed è presente almeno un controller di dominio Windows Server 2012 nel dominio in cui verrà creato il gMSA.
 
 Per eseguire le procedure seguenti, è necessaria almeno l'appartenenza ai gruppi **Domain Admins** o **Account Operators** o la capacità di creare oggetti msDS-GroupManagedServiceAccount.
@@ -157,7 +157,7 @@ Per eseguire le procedure seguenti, è necessaria almeno l'appartenenza ai grupp
 
     |Parametro|Stringa|Esempio|
     |-------|-----|------|
-    |Nome|Nome dell'account|ITFarm1|
+    |Name|Nome dell'account|ITFarm1|
     |DNSHostName|Nome host DNS del servizio|ITFarm1.contoso.com|
     |KerberosEncryptionType|Qualsiasi tipo di crittografia supportata dai server host|RC4, AES128, AES256|
     |ManagedPasswordIntervalInDays|Intervallo di modifica della password espresso in giorni (se non è indicato, l'intervallo predefinito è di 30 giorni)|90|
@@ -172,9 +172,8 @@ Per eseguire le procedure seguenti, è necessaria almeno l'appartenenza ai grupp
 
     Immettere il comando su una singola riga, anche se le parole potrebbero tornare automaticamente a capo e quindi apparire su più righe a causa dei limiti di formattazione.
 
-    ```
-    New-ADServiceAccount ITFarm1 -DNSHostName ITFarm1.contoso.com -PrincipalsAllowedToRetrieveManagedPassword ITFarmHosts -KerberosEncryptionType RC4, AES128, AES256 -ServicePrincipalNames http/ITFarm1.contoso.com/contoso.com, http/ITFarm1.contoso.com/contoso, http/ITFarm1/contoso.com, http/ITFarm1/contoso
-
+    ```Powershell
+    New-ADServiceAccount ITFarm1 -DNSHostName ITFarm1.contoso.com -PrincipalsAllowedToRetrieveManagedPassword ITFarmHosts$ -KerberosEncryptionType RC4, AES128, AES256 -ServicePrincipalNames http/ITFarm1.contoso.com/contoso.com, http/ITFarm1.contoso.com/contoso, http/ITFarm1/contoso.com, http/ITFarm1/contoso
     ```
 
 Per eseguire questa procedura, è necessaria almeno l'appartenenza ai gruppi **Domain Admins** o **Account Operators** o la possibilità di creare oggetti msDS-GroupManagedServiceAccount. Per altre informazioni sull'uso degli account appropriati e sull'appartenenza a gruppi, vedere [Gruppi predefiniti locali e di dominio](https://technet.microsoft.com/library/dd728026(WS.10).aspx).
@@ -189,7 +188,7 @@ Per eseguire questa procedura, è necessaria almeno l'appartenenza ai gruppi **D
 
     |Parametro|Stringa|Esempio|
     |-------|-----|------|
-    |Nome|Nome dell'account|ITFarm1|
+    |Name|Nome dell'account|ITFarm1|
     |ManagedPasswordIntervalInDays|Intervallo di modifica della password espresso in giorni (se non è indicato, l'intervallo predefinito è di 30 giorni)|75|
     |PrincipalsAllowedToRetrieveManagedPassword|Gli account computer degli host membri o il gruppo di sicurezza a cui appartengono gli host membri|ITFarmHosts|
 
@@ -198,12 +197,11 @@ Per eseguire questa procedura, è necessaria almeno l'appartenenza ai gruppi **D
 
 **Esempio**
 
+```PowerShell
+New-ADServiceAccount ITFarm1 -RestrictToOutboundAuthenticationOnly - PrincipalsAllowedToRetrieveManagedPassword ITFarmHosts$
 ```
-New-ADServiceAccount ITFarm1 -RestrictToOutboundAuthenticationOnly - PrincipalsAllowedToRetrieveManagedPassword ITFarmHosts
 
-```
-
-### <a name="BKMK_ConfigureServiceIdentity"></a>Passaggio 2: Configurazione del servizio Identità applicazione del servizio
+### <a name="BKMK_ConfigureServiceIdentity"></a>Passaggio 2: configurazione del servizio dell'applicazione di identità del servizio
 Per configurare i servizi in Windows Server 2012, vedere la documentazione della funzionalità seguente:
 
 -   Pool di applicazioni IIS
@@ -255,21 +253,19 @@ Per eseguire questa procedura, è necessaria almeno l'appartenenza ai gruppi **D
 
 |Parametro|Stringa|Esempio|
 |-------|-----|------|
-|Nome|Nome dell'account|ITFarm1|
+|Name|Nome dell'account|ITFarm1|
 |PrincipalsAllowedToRetrieveManagedPassword|Gli account computer degli host membri o il gruppo di sicurezza a cui appartengono gli host membri|Host1, Host2, Host3|
 
 **Esempio**
 
 Per aggiungere host membri, digitare i comandi seguenti e premere INVIO.
 
-```
+```PowerShell
 Get-ADServiceAccount [-Name] ITFarm1 -PrincipalsAllowedToRetrieveManagedPassword
-
 ```
 
-```
-Set-ADServiceAccount [-Name] ITFarm1 -PrincipalsAllowedToRetrieveManagedPassword Host1,Host2,Host3
-
+```PowerShell
+Set-ADServiceAccount [-Name] ITFarm1 -PrincipalsAllowedToRetrieveManagedPassword Host1$,Host2$,Host3$
 ```
 
 ## <a name="BKMK_Update_gMSA"></a>Aggiornamento delle proprietà dell'account del servizio gestito del gruppo
@@ -315,24 +311,22 @@ Per eseguire questa procedura, è necessaria almeno l'appartenenza ai gruppi **D
 
 |Parametro|Stringa|Esempio|
 |-------|-----|------|
-|Nome|Nome dell'account|ITFarm1|
+|Name|Nome dell'account|ITFarm1|
 |PrincipalsAllowedToRetrieveManagedPassword|Gli account computer degli host membri o il gruppo di sicurezza a cui appartengono gli host membri|Host1, Host3|
 
 **Esempio**
 
 Per rimuovere host membri, digitare i comandi seguenti e premere INVIO.
 
-```
+```PowerShell
 Get-ADServiceAccount [-Name] ITFarm1 -PrincipalsAllowedToRetrieveManagedPassword
-
 ```
 
+```PowerShell
+Set-ADServiceAccount [-Name] ITFarm1 -PrincipalsAllowedToRetrieveManagedPassword Host1$,Host3$
 ```
-Set-ADServiceAccount [-Name] ITFarm1 -PrincipalsAllowedToRetrieveManagedPassword Host1,Host3
 
-```
-
-### <a name="BKMK_RemoveGMSA"></a>Passaggio 2: Rimozione di un account del servizio gestito del gruppo dal sistema
+### <a name="BKMK_RemoveGMSA"></a>Passaggio 2: rimozione di un account del servizio gestito del gruppo dal sistema
 Rimuovere dall'host membro le credenziali dell'account del servizio gestito del gruppo memorizzate nella cache usando il cmdlet Uninstall-ADServiceAccount o l'API NetRemoveServiceAccount nel sistema host.
 
 Per completare queste procedure è necessaria almeno l'appartenenza al gruppo **Administrators** oppure a un gruppo equivalente.
@@ -349,7 +343,7 @@ Per completare queste procedure è necessaria almeno l'appartenenza al gruppo **
 
     Per rimuovere le credenziali memorizzate nella cache di un account del servizio gestito del gruppo denominato ITFarm1, digitare ad esempio il comando seguente e quindi premere INVIO:
 
-    ```
+    ```PowerShell
     Uninstall-ADServiceAccount ITFarm1
     ```
 
@@ -360,6 +354,3 @@ Per altre informazioni sul cmdlet Uninstall-ADServiceAccount, al prompt dei coma
 ## <a name="BKMK_Links"></a>Vedere anche
 
 -   [Panoramica degli account del servizio gestiti del gruppo](group-managed-service-accounts-overview.md)
-
-
-

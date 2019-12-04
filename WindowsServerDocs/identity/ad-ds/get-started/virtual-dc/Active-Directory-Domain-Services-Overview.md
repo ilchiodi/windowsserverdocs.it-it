@@ -9,12 +9,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 84ce4986d27884f817eb5e632ac8dc1c5a22b922
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 2d5630ece940e5bd7895510c245d14b67c847a70
+ms.sourcegitcommit: 4a03f263952c993dfdf339dd3491c73719854aba
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71390477"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74791131"
 ---
 # <a name="active-directory-domain-services-overview"></a>Panoramica di Active Directory Domain Services
 
@@ -23,7 +23,7 @@ ms.locfileid: "71390477"
 
 Una directory è una struttura gerarchica che archivia le informazioni sugli oggetti sulla rete. Un servizio directory, ad esempio Active Directory Domain Services (AD DS), fornisce i metodi per archiviare i dati della directory e renderli disponibili agli utenti e agli amministratori di rete. Ad esempio, servizi di dominio Active Directory archivia le informazioni sugli account utente, ad esempio nomi, password, numeri di telefono e così via, e consente ad altri utenti autorizzati della stessa rete di accedere a tali informazioni.
 
-Active Directory archivia le informazioni sugli oggetti sulla rete e semplifica la ricerca e l'utilizzo di queste informazioni da parte degli amministratori e degli utenti. Active Directory utilizza un archivio dati strutturato come base per un'organizzazione logica gerarchica delle informazioni di directory.
+Active Directory archivia le informazioni relative agli oggetti sulla rete e semplifica la ricerca e l'uso di queste informazioni da parte degli amministratori e degli utenti. Active Directory usa un archivio dati strutturato come base per un'organizzazione logica e gerarchica delle informazioni di directory.
 
 Questo archivio dati, noto anche come directory, contiene informazioni sugli oggetti Active Directory. Questi oggetti includono in genere risorse condivise, ad esempio server, volumi, stampanti e account utente e computer di rete. Per altre informazioni sull'archivio dati Active Directory, vedere [archivio dati di directory](https://technet.microsoft.com/library/cc736627(v=ws.10).aspx).
 

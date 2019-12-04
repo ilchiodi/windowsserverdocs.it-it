@@ -8,12 +8,12 @@ ms.assetid: 04fdfa54-6600-43d4-8945-35f75e15275a
 manager: brianlic
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: ac717555d1ab751600527e294d32f10d1f05bfa5
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 4b8f10ab7b3da05fbefabb735ee2b8bb4ef1cb8a
+ms.sourcegitcommit: effbc183bf4b370905d95c975626c1ccde057401
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71395876"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74781348"
 ---
 # <a name="manage-qos-policy"></a>Gestisci criteri QoS
 
@@ -253,7 +253,7 @@ Impostando un livello di velocità effettiva inferiore sulla scheda **traffico T
   
 La finestra di ricezione TCP è cambiata in Windows Server 2012, Windows 8, Windows Server 2008 R2, Windows Server 2008 e Windows Vista da versioni precedenti di Windows. Le versioni precedenti di Windows limitavano la finestra del lato di ricezione TCP a un massimo di 64 kilobyte (KB), mentre Windows Server 2012, Windows 8, Windows Server 2008 R2, Windows Server 2008 e Windows Vista ridimensionavano dinamicamente la finestra sul lato di ricezione fino a 16 megabyte (MB ). Nel controllo del traffico TCP in ingresso è possibile controllare il livello di velocità effettiva in ingresso impostando il valore massimo che la finestra di ricezione TCP può aumentare. I livelli corrispondono ai valori massimi seguenti. 
   
-|Livello di velocità effettiva in ingresso|Massimo|  
+|Livello di velocità effettiva in ingresso|Valore massimo|  
 |------------------------|-------|  
 |0|64 KB|
 |1|256 KB|

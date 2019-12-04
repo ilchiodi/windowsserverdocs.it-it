@@ -12,12 +12,12 @@ ms.topic: article
 ms.assetid: 7ce84c9f-fd1f-4463-8fc7-d2f33344a2c9
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: db10f784f383938edb29b18d7e8febf869378abc
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 831f484db8325bf9a27e9065ac5cf74913d0805c
+ms.sourcegitcommit: 4a03f263952c993dfdf339dd3491c73719854aba
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71404568"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74791168"
 ---
 # <a name="identify-and-resolve-remote-access-server-operations-problems"></a>Identificare e risolvere i problemi di operazioni del server di accesso remoto
 
@@ -76,7 +76,7 @@ La disattivazione del servizio Helper IP causerà un errore grave nel server di 
   
     **Soluzione**  
   
-    1.  Per assicurarsi che il servizio sia in esecuzione, digitare **Get-Service iphlpsc** al prompt dei comandi Windows PowerShell.  
+    1.  Per assicurarsi che il servizio sia in esecuzione, digitare **Get-Service iphlpsvc** al prompt di Windows PowerShell.  
   
     2.  Per abilitare il servizio, digitare **Start-Service iphlpsvc** da un prompt di Windows PowerShell con privilegi elevato.  
   
@@ -95,9 +95,6 @@ Per ripristinare il servizio Helper IP sul server di accesso remoto, è possibil
   
 Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.  
   
-```  
+```PowerShell
 PS> Get-RemoteAccessHealth | Where-Object {$_.Component -eq "IP-HTTPS"} | Format-List -Property *  
-```  
-  
-
-
+```

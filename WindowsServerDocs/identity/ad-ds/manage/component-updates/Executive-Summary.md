@@ -9,12 +9,12 @@ ms.date: 05/08/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: a24c88f5469890f12f821b9f729c7d283b687f43
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 53f51d3a7a777ae378ce733ea9e66de66da5351a
+ms.sourcegitcommit: effbc183bf4b370905d95c975626c1ccde057401
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71389896"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74781338"
 ---
 # <a name="executive-summary"></a>Schema riepilogativo
 
@@ -59,7 +59,7 @@ Sono inclusi gli argomenti seguenti:
 -   **Account attraenti per il furto di credenziali** : gli attacchi con furto di credenziali sono quelli in cui un utente malintenzionato ottiene inizialmente l'accesso con privilegi a un computer in una rete e quindi usa gli strumenti disponibili gratuitamente per estrarre le credenziali dalle sessioni di altri account connessi.   
     In questa sezione sono inclusi i seguenti elementi:  
   
-    -   **Attività che aumentano la probabilità di compromissione** : poiché la destinazione del furto di credenziali è in genere costituita da account di dominio con privilegi elevati e account di tipo "persona molto importante", è importante che gli amministratori siano consapevoli delle attività che aumentano la probabilità di successo di un attacco con furto di credenziali. Queste attività sono:  
+    -   Le **attività che aumentano la probabilità di compromissione** , perché la destinazione del furto di credenziali sono in genere account di dominio con privilegi elevati e account "molto importanti" (VIP), è importante che gli amministratori siano consapevoli delle attività che aumentano la probabilità di successo di un attacco con furto di credenziali. Queste attività sono:  
   
         -   Accesso a computer non protetti con account con privilegi  
   
@@ -114,7 +114,7 @@ In questa sezione sono inclusi i seguenti elementi:
   
     -   Non dimenticare la sicurezza fisica durante la progettazione e l'implementazione di host amministrativi protetti.  
   
--   **Protezione dei controller di dominio da attacchi** : se un utente malintenzionato ottiene l'accesso con privilegi a un controller di dominio, tale utente può modificare, danneggiare ed eliminare definitivamente il database Active Directory e, per estensione, tutti i sistemi e gli account gestiti per Active Directory.  
+-   **Protezione dei controller di dominio da attacchi** : se un utente malintenzionato ottiene l'accesso con privilegi a un controller di dominio, tale utente può modificare, danneggiare ed eliminare definitivamente il database Active Directory e, per estensione, tutti i sistemi e gli account gestiti da Active Directory.  
   
 In questa sezione sono inclusi gli argomenti seguenti:  
   
@@ -131,7 +131,7 @@ In questa sezione sono inclusi gli argomenti seguenti:
   
 -   **Criteri di controllo di Windows** : i registri eventi di sicurezza di Windows includono categorie e sottocategorie che determinano quali eventi di sicurezza vengono rilevati e registrati.  
   
--   **Raccomandazioni sui criteri di controllo** : questa sezione descrive le impostazioni dei criteri di controllo predefiniti di Windows, le impostazioni dei criteri di controllo consigliate da Microsoft e consigli più aggressivi per le organizzazioni da usare per controllare i server critici e workstation.  
+-   **Raccomandazioni sui criteri di controllo** : questa sezione descrive le impostazioni dei criteri di controllo predefiniti di Windows, le impostazioni dei criteri di controllo consigliate da Microsoft e consigli più aggressivi per le organizzazioni da usare per controllare i server e le workstation critiche.  
   
 ## <a name="planning-for-compromise"></a>Pianificazione del compromesso  
 Questa sezione contiene raccomandazioni che consentono alle organizzazioni di prepararsi per un compromesso prima che avvenga, implementare i controlli in grado di rilevare un evento di compromissione prima che si verifichi una violazione completa e fornire linee guida per la risposta e il ripristino per i casi in cui un compromesso completo della directory viene raggiunto dagli utenti malintenzionati. In questa sezione sono inclusi gli argomenti seguenti:  
@@ -160,7 +160,7 @@ Questa sezione contiene raccomandazioni che consentono alle organizzazioni di pr
   
         -   **Classificare tutti i Active Directory** i proprietari di dati aziendali devono fornire la classificazione dei dati in Active Directory. All'interno del modello di classificazione dei dati, è necessario includere la classificazione per i dati di Active Directory seguenti:  
   
-            -   **Sistemi** : classificare i popolamenti dei server, il loro sistema operativo, le applicazioni in esecuzione su di essi e i proprietari it e aziendali del record.  
+            -   **Sistemi** : classificare i popolamenti dei server, il sistema operativo, il loro ruolo, le applicazioni in esecuzione su di essi e i proprietari it e aziendali del record.  
   
             -   **Applicazioni** : classificare le applicazioni in base alle funzionalità, alla base utente e al sistema operativo.  
   
@@ -174,26 +174,26 @@ Le procedure sono elencate in ordine di priorità approssimativo, ovvero. i nume
   
 ||**Procedura consigliata**|**Tattica o strategica**|**Preventivo o detective**|  
 |-|-|-|-|  
-|1|Applicazione patch.|Tattico|Prevenzione|  
-|2|Applicare patch ai sistemi operativi.|Tattico|Prevenzione|  
+|1|Applicazione patch.|Tattico|Preventive|  
+|2|Applicare patch ai sistemi operativi.|Tattico|Preventive|  
 |3|Distribuisci e aggiorna tempestivamente il software antivirus e antimalware in tutti i sistemi e monitora i tentativi di rimozione o disabilitazione.|Tattico|Entrambi|  
 |4|Monitorare gli oggetti Active Directory sensibili per i tentativi di modifica e Windows per gli eventi che potrebbero indicare un tentativo di compromissione.|Tattico|Rilevamento|  
 |5|Proteggi e monitora gli account per gli utenti che hanno accesso ai dati sensibili|Tattico|Entrambi|  
-|6|Impedire l'utilizzo di account avanzati nei sistemi non autorizzati.|Tattico|Prevenzione|  
-|7|Eliminare l'appartenenza permanente a gruppi con privilegi elevati.|Tattico|Prevenzione|  
-|8|Implementare i controlli per concedere l'appartenenza temporanea a gruppi con privilegi quando necessario.|Tattico|Prevenzione|  
-|9|Implementare host amministrativi protetti.|Tattico|Prevenzione|  
-|10|Utilizzare l'elenco elementi consentiti dell'applicazione nei controller di dominio, negli host amministrativi e in altri sistemi sensibili.|Tattico|Prevenzione|  
+|6|Impedire l'utilizzo di account avanzati nei sistemi non autorizzati.|Tattico|Preventive|  
+|7|Eliminare l'appartenenza permanente a gruppi con privilegi elevati.|Tattico|Preventive|  
+|8|Implementare i controlli per concedere l'appartenenza temporanea a gruppi con privilegi quando necessario.|Tattico|Preventive|  
+|9|Implementare host amministrativi protetti.|Tattico|Preventive|  
+|10|Utilizzare l'elenco elementi consentiti dell'applicazione nei controller di dominio, negli host amministrativi e in altri sistemi sensibili.|Tattico|Preventive|  
 |11|Identificare le risorse critiche e classificare in ordine di priorità la sicurezza e il monitoraggio.|Tattico|Entrambi|  
-|12|Implementare i controlli di accesso con privilegi minimi e basati sui ruoli per l'amministrazione della directory, l'infrastruttura di supporto e i sistemi aggiunti a un dominio.|Strategico|Prevenzione|  
-|13|Isolare i sistemi e le applicazioni legacy.|Tattico|Prevenzione|  
-|14|Rimuovere le autorizzazioni di sistemi e applicazioni legacy.|Strategico|Prevenzione|  
-|15|Implementare programmi del ciclo di vita dello sviluppo sicuro per applicazioni personalizzate.|Strategico|Prevenzione|  
-|16|Implementare la gestione della configurazione, verificare regolarmente la conformità e valutare le impostazioni con ogni nuova versione hardware o software.|Strategico|Prevenzione|  
+|12|Implementare i controlli di accesso con privilegi minimi e basati sui ruoli per l'amministrazione della directory, l'infrastruttura di supporto e i sistemi aggiunti a un dominio.|Strategico|Preventive|  
+|13|Isolare i sistemi e le applicazioni legacy.|Tattico|Preventive|  
+|14|Rimuovere le autorizzazioni di sistemi e applicazioni legacy.|Strategico|Preventive|  
+|15|Implementare programmi del ciclo di vita dello sviluppo sicuro per applicazioni personalizzate.|Strategico|Preventive|  
+|16|Implementare la gestione della configurazione, verificare regolarmente la conformità e valutare le impostazioni con ogni nuova versione hardware o software.|Strategico|Preventive|  
 |17|Esegui la migrazione di asset critici a foreste incontaminate con requisiti di sicurezza e monitoraggio rigorosi.|Strategico|Entrambi|  
-|18|Semplifica la sicurezza per gli utenti finali.|Strategico|Prevenzione|  
-|19|Usare firewall basati su host per controllare e proteggere le comunicazioni.|Tattico|Prevenzione|  
-|20|Dispositivi patch.|Tattico|Prevenzione|  
+|18|Semplifica la sicurezza per gli utenti finali.|Strategico|Preventive|  
+|19|Usare firewall basati su host per controllare e proteggere le comunicazioni.|Tattico|Preventive|  
+|20|Dispositivi patch.|Tattico|Preventive|  
 |21|Implementare la gestione del ciclo di vita incentrata sull'azienda per le risorse IT.|Strategico|N/D|  
 |22|Crea o aggiorna i piani di ripristino degli eventi imprevisti.|Strategico|N/D|  
   

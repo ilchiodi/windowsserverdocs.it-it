@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 1fb0875c972f8259b47f48ef84ed486fc678d8b0
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 3e481048c23e634869b0238188d4a0ef8b49cb3e
+ms.sourcegitcommit: effbc183bf4b370905d95c975626c1ccde057401
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71370895"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74781308"
 ---
 # <a name="start"></a>start
 
@@ -31,27 +31,28 @@ Per esempi di utilizzo di questo comando, vedere [Esempi](#BKMK_examples).
 ## <a name="syntax"></a>Sintassi
 
 ```
-start ["<Title>"] [/d <Path>] [/i] [{/min | /max}] [{/separate | /shared}] [{/low | /normal | /high | /realtime | /abovenormal | belownormal}] [/affinity <HexAffinity>] [/wait] [/b {<Command> | <Program>} [<Parameters>]]
+start ["<Title>"] [/d <Path>] [/i] [{/min | /max}] [{/separate | /shared}] [{/low | /normal | /high | /realtime | /abovenormal | belownormal}] [/affinity <HexAffinity>] [/wait] [/elevate] [/b {<Command> | <Program>} [<Parameters>]]
 ```
 
 ## <a name="parameters"></a>Parametri
 
 |Parametro|Descrizione|
 |---------|-----------|
-|"\<Title >"|Specifica il titolo da visualizzare nella barra del titolo di finestra prompt dei comandi.|
-|/d \<Path >|Specifica la directory di avvio.|
+|"\<> titolo"|Specifica il titolo da visualizzare nella barra del titolo di finestra prompt dei comandi.|
+|/d \<percorso >|Specifica la directory di avvio.|
 |/i|Passa l'ambiente di avvio Cmd.exe alla nuova finestra prompt dei comandi. Se **/i** non viene specificato, viene usato l'ambiente corrente.|
 |/min \|/max|Specifica per ridurre al minimo ( **/min**) o ottimizzare (**Max**) la nuova finestra prompt dei comandi.|
 |/separate \|/documenti condivisi|Avvia i programmi a 16 bit in uno spazio di memoria separato ( **/separate**) o spazio di memoria condivisa ( **/ condiviso**). Queste opzioni non sono supportate nelle piattaforme a 64 bit.|
 |/Low \|/Normal \|/High \|/realtime \|/AboveNormal \|/BelowNormal|Avvia un'applicazione nella classe di priorità specificata. I valori di classe di priorità validi sono **/basso**, **/normale**, **/elevata**, **/realtime**, **/abovenormal**, e **/belownormal**.|
 |/Affinity \<HexAffinity >|Applica la maschera di affinità di processore specificato (espressa come numero esadecimale) per la nuova applicazione.|
 |/Wait|Avvia un'applicazione e attende la fine.|
+|/elevate|Esegue l'applicazione come amministratore.|
 |/ b|Avvia un'applicazione senza aprire una nuova finestra prompt dei comandi. CTRL + C viene ignorato a meno che l'applicazione consente l'elaborazione di CTRL + C. Utilizzare CTRL + INTERR per interrompere l'applicazione.|
-|/b \<Command > \| \<Program >|Specifica il comando o un programma di avvio.|
-|\<Parameters >|Specifica i parametri da passare per il comando o programma.|
+|/b \<comando > \| \<Program >|Specifica il comando o un programma di avvio.|
+|Parametri \<|Specifica i parametri da passare per il comando o programma.|
 |/?|Visualizza la guida al prompt dei comandi.|
 
-## <a name="remarks"></a>Note
+## <a name="remarks"></a>Osservazioni
 
 - È possibile eseguire eseguibili tramite la relativa associazione file digitando il nome del file come un comando.
 - Quando si esegue un comando che contiene la stringa "CMD" come primo token senza un qualificatore di estensione o un percorso, "CMD" viene sostituito con il valore della variabile COMSPEC. Questo impedisce agli utenti di prelievo **cmd** dalla directory corrente.

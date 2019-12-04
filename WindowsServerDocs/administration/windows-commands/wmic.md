@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: e9840bc20ddf6193241fe36055698e2bd3222496
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: f5096ab82ebbd01cb4f3a7dc0cf0b15e4b9fae8e
+ms.sourcegitcommit: effbc183bf4b370905d95c975626c1ccde057401
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71361880"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74781328"
 ---
 # <a name="wmic"></a>wmic
 
@@ -31,7 +31,7 @@ Per esempi di utilizzo di questo comando, vedere [Esempi](#BKMK_examples).
 ## <a name="syntax"></a>Sintassi
 
 ```
-command </parameter>
+wmic </parameter>
 ```
 
 ## <a name="sub-commands"></a>Comandi secondari
@@ -42,16 +42,8 @@ I comandi secondari seguenti sono sempre disponibili:
 |-----------|-----------|
 |classe|Viene eseguito l'escape dalla modalità alias predefinita di WMIC per accedere direttamente alle classi nello schema WMI.|
 |path|Viene eseguito l'escape dalla modalità alias predefinita di WMIC per accedere direttamente alle istanze nello schema WMI.|
-|Contesto|Consente di visualizzare i valori correnti di tutti i commutatori globali.|
-|[uscire \| uscita]|Chiude la shell dei comandi WMIC.|
-
-## <a name="parameters"></a>Parametri
-
-|Parametro|Descrizione|
-|---------|-----------|
-|</parameter>|\<Concise Description, inizia con un verbo. >|
-|</param2>|\<Another concise, inizia con un verbo. >|
-
+|contesto|Consente di visualizzare i valori correnti di tutti i commutatori globali.|
+|[uscire \| uscire]|Chiude la shell dei comandi WMIC.|
 
 ## <a name="BKMK_examples"></a>Esempi
 
