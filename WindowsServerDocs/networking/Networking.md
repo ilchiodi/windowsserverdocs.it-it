@@ -10,12 +10,12 @@ manager: dougkim
 ms.author: pashort
 author: shortpatti
 ms.localizationpriority: medium
-ms.openlocfilehash: ac6d9abf96348a596fbd2f886cb67b5d97f686e2
-ms.sourcegitcommit: cbf0c7c37797c22af989639fac82fc0eee94497f
+ms.openlocfilehash: f3b580b108677b391065ad83f61e52504fe9ac91
+ms.sourcegitcommit: 68483ee9284285f5643dd67dce06f5a102cb9469
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74700154"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74823841"
 ---
 # <a name="networking"></a>Funzionalità di rete di
 
@@ -252,7 +252,7 @@ Grazie a questa coerenza, le applicazioni sono ora più scalabili e possono esse
             </div>
         </div>
     </li>
-    <hr />
+   <hr />
     <li>
         <div class="cardSize">
             <div class="cardPadding">
@@ -263,7 +263,7 @@ Grazie a questa coerenza, le applicazioni sono ora più scalabili e possono esse
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3><a href="dns/dns-top.md">&gt;&quot;Domain Name System (DNS)</a></h3>
+                        <h3><a href="dns/dns-top.md">Domain Name System (DNS)</a></h3>
                         <hr />
                         <p>Domain Name System (DNS) è una delle suite di protocolli standard di settore che includono TCP/IP e insieme il client DNS e il server DNS forniscono servizi di risoluzione dei nomi di mapping di indirizzi IP da nome computer a computer e utenti.</p>
                     </div>
@@ -382,8 +382,8 @@ Grazie a questa coerenza, le applicazioni sono ora più scalabili e possono esse
                         <p>Le tecnologie di ottimizzazione e offload di rete in Windows Server 2016 includono funzionalità e tecnologie per solo software (SO, Software Only), funzionalità e tecnologie per software e hardware (SH, Software e Hardware) integrate e funzionalità e tecnologie per solo hardware (HO, Hardware Only).</p>
                         <p>È disponibile anche la documentazione relativa alle tecnologie di ottimizzazione e offload seguente:<p>
                         <hr />
-                         
-                        <a href="technologies/conv-nic/cnic-top.md">di rete ad alte prestazioni</a><hr />
+                        <a href="technologies/conv-nic/cnic-top.md">Scheda di interfaccia di rete (NIC) convergente</a>
+                        <hr />
                          di 
                         <a href="technologies/dcb/dcb-top.md">Data Center Bridging (DCB)</a><hr />
                      di 
@@ -519,8 +519,8 @@ Grazie a questa coerenza, le applicazioni sono ora più scalabili e possono esse
                     <div class="cardText">
                         <h3><a href="../remote/remote-access/remote-access.md">Accesso remoto</a></h3>
                         <hr />
-                        <p>È possibile utilizzare le tecnologie di accesso remoto, ad esempio DirectAccess e la rete privata virtuale (VPN), per fornire agli utenti remoti la connettività alle risorse di rete interne. Inoltre, è possibile utilizzare l'accesso remoto per il routing della rete locale (LAN) e per il proxy dell'applicazione Web. che rende disponibili funzionalità di proxy inverso per le applicazioni Web all'interno della rete aziendale, in modo da consentire agli utenti con qualsiasi dispositivo di accedere a tali applicazioni dall'esterno della rete aziendale.</p>
-                        <p>Per ulteriori informazioni su proxy applicazione Web, che è un servizio ruolo del ruolo del server accesso remoto, vedere <a href="https://docs.microsoft.com/windows-server/remote/remote-access/web-application-proxy/web-application-proxy-windows-server">proxy applicazione Web in Windows server 2016</a></p>
+                        <p>È possibile utilizzare le tecnologie di accesso remoto, ad esempio DirectAccess e la rete privata virtuale (VPN), per fornire agli utenti remoti la connettività alle risorse di rete interne. In addition, you can use Remote Access for local area network (LAN) routing, and for Web Application Proxy. che rende disponibili funzionalità di proxy inverso per le applicazioni Web all'interno della rete aziendale, in modo da consentire agli utenti con qualsiasi dispositivo di accedere a tali applicazioni dall'esterno della rete aziendale.</p>
+                        <p>For more information about Web Application Proxy, which is a role service of the Remote Access server role, see <a href="https://docs.microsoft.com/windows-server/remote/remote-access/web-application-proxy/web-application-proxy-windows-server">Web Application Proxy in Windows Server 2016</a></p>
                     </div>
                 </div>
             </div>
@@ -537,10 +537,10 @@ Grazie a questa coerenza, le applicazioni sono ora più scalabili e possono esse
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3><a href="https://docs.microsoft.com/virtualization/windowscontainers/container-networking/architecture">Rete di contenitori di Windows</a></h3>
+                        <h3><a href="https://docs.microsoft.com/virtualization/windowscontainers/container-networking/architecture">Windows Container Networking</a></h3>
                         <hr />
                         <p>Rete di contenitori di Windows ti consente di creare e gestire le reti per la connessione di endpoint contenitore su host Windows 10 e Windows Server, utilizzando flussi di lavoro e strumenti standard di settore. Le reti di contenitori di Windows supportano più topologie, tra cui reti private, L2 piatte e L3 reindirizzate.</p>
-                        <p>Sono supportate anche le sovrimpressioni che è possibile creare localmente nell'host usando Docker, Kubernetes o Windows PowerShell tramite plug-in che comunicano con il servizio di rete host Windows (HNS). È possibile creare e gestire reti di cluster a più nodi tramite sistemi di orchestrazione di livello superiore tramite la comunicazione tramite un agente locale per il HNS di ciascun nodo.</p>
+                        <p>Also supported are overlays that you can create locally on the host by using Docker, Kubernetes, or Windows PowerShell through plugins that communicate with the Windows Host Networking Service (HNS). You can create and manage multi-node cluster networks through higher level orchestration systems by communicating through a local agent to each node's HNS.</p>
                     </div>
                 </div>
             </div>
@@ -560,9 +560,9 @@ Grazie a questa coerenza, le applicazioni sono ora più scalabili e possono esse
                         <h3><a href="../remote/remote-access/vpn/vpn-top.md">Rete privata virtuale (VPN)</a></h3>
                         <hr />
                         <p>DirectAccess e VPN è un servizio ruolo del ruolo del server Accesso remoto.</p>
-                        <p>Quando si installa accesso remoto come server VPN, è possibile usare la rete privata virtuale (VPN) per fornire ai dipendenti remoti le connessioni alla rete aziendale attraverso Internet, mantenendo al tempo stesso la privacy delle informazioni con le connessioni crittografate .</p>
+                        <p>When you install Remote Access as a VPN server, you can use Virtual Private Networking (VPN) to provide your remote employees with connections to your organization network across the Internet - while also maintaining information privacy with encrypted connections.</p>
                         <p> Con una VPN per l'accesso remoto in Windows Server, e computer client Windows 10, puoi distribuire una VPN Always On. Una VPN Always On ti consente di gestire i client VPN remoti sempre connessi, agevolando al contempo i lavoratori remoti, che non dovranno più connettersi e disconnettersi manualmente dalla VPN alla rete dell'organizzazione.</p>
-                        <p>Per altre informazioni, vedere <a href="https://docs.microsoft.com/windows-server/remote/remote-access/vpn/always-on-vpn/deploy/always-on-vpn-deploy">Guida alla distribuzione di accesso remoto always on VPN per Windows Server 2016 e Windows 10</a></p>
+                        <p>For more information, see <a href="https://docs.microsoft.com/windows-server/remote/remote-access/vpn/always-on-vpn/deploy/always-on-vpn-deploy">Remote Access Always On VPN Deployment Guide for Windows Server 2016 and Windows 10</a></p>
                     </div>
                 </div>
             </div>
@@ -576,4 +576,4 @@ Le risorse sulla rete per i sistemi operativi precedenti a Windows Server 2016 s
 
 - [Panoramica delle reti](https://technet.microsoft.com/library/hh831357.aspx) - Windows Server 2012 e Windows Server 2012 R2
 - [Funzionalità di rete](https://technet.microsoft.com/library/cc753940) - Windows Server 2008 e Windows Server 2008 R2
-- [Contenuti ritirati di Windows server 2003 Windows server 2003/2003 R2](https://www.microsoft.com/download/details.aspx?id=53314)
+- Windows Server 2003 [Windows Server 2003/2003 R2 Retired Content](https://www.microsoft.com/download/details.aspx?id=53314)
