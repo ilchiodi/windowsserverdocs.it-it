@@ -11,5 +11,5 @@
 ## [Sicurezza e controllo](security/security-and-assurance.md)
 ## [Archiviazione](storage/storage.md)
 ## [Virtualizzazione](virtualization/virtualization.md)
-## [Risoluzione dei problemi](troubleshoot/windows-server-support-solutions.md)
+## [Risoluzione dei problemi](troubleshoot/windows-server-troubleshooting.md)
 ## [Altre versioni di Windows Server](windows-server-versions.md)
