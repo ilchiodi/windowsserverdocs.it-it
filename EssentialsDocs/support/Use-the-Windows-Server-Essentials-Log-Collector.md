@@ -1,6 +1,6 @@
 ---
 title: Usare Windows Server Essentials Log Collector
-description: Viene descritto come utilizzare Windows Server Essentials
+description: Viene descritto come usare Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
 ms.prod: windows-server-2016-essentials
@@ -12,42 +12,42 @@ ms.assetid: c6985518-b42d-4cfb-9761-eaa75306b6d7
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: ba5c0de9d8689c63c95ea3410a74fc9a7289aeab
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: df467921f8a8f5633d2b0bd792885fe2c9ae2212
+ms.sourcegitcommit: a937eb17915a4a0e444a36ddb0fac9c9771cfbfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66435995"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74877906"
 ---
 # <a name="use-the-windows-server-essentials-log-collector"></a>Usare Windows Server Essentials Log Collector
 
 >Si applica a: Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
 
-Quando si siano risolvendo i problemi dei computer, un rappresentante del cliente servizio supporto tecnico Microsoft potrebbe chiedere di raccogliere i log dal server, i computer in rete, o entrambi usando Windows Server Essentials Log Collector.  
+Durante la risoluzione dei problemi relativi al computer, un rappresentante del servizio supporto tecnico clienti Microsoft potrebbe richiedere di raccogliere i log da server, computer in rete o entrambi usando l'agente di raccolta log di Windows Server Essentials.  
   
  Log Collector copia registri di programmi, registri di revisori eventi e informazioni sull'ambiente correlato in un unico file zip in un percorso specificato. È possibile eseguire Log Collector direttamente dal server o da uno dei computer in rete oppure usando una connessione remota ai computer.  
   
 > [!NOTE]
-> - Log Collector non analizza i problemi della rete e non apporta modifiche ad alcun server o computer in rete. Per informazioni su come risolvere i problemi relativi alla rete, vedere la documentazione della Guida per il prodotto server.  
->   -   In questa Guida, i computer in rete, diversi dal server, vengono chiamati i computer di rete.  
->   -   [Scaricare il pacchetto di installazione di Windows Server Essentials Log Collector](https://go.microsoft.com/fwlink/?LinkID=266341).  
+>Log Collector non analizza i problemi della rete e non apporta modifiche ad alcun server o computer in rete. Per informazioni su come risolvere i problemi relativi alla rete, vedere la documentazione della Guida per il prodotto server.  
+>In questa guida, i computer della rete, diversi dal server, sono denominati computer di rete.  
+>[Scaricare il pacchetto di installazione di Windows Server Essentials Log Collector](https://www.microsoft.com/download/details.aspx?id=34821).  
   
  Per installare ed eseguire Log Collector, attenersi ai passaggi negli argomenti seguenti:  
   
 
-1.  [Installare l'agente di raccolta Log](Install-the-Windows-Server-Essentials-Log-Collector.md)  
+1. [Installare Log Collector](Install-the-Windows-Server-Essentials-Log-Collector.md)  
   
-2.  [Eseguire Log Collector](Run-the-Windows-Server-Essentials-Log-Collector.md)  
+2. [Eseguire Log Collector](Run-the-Windows-Server-Essentials-Log-Collector.md)  
 
-1.  [Installare l'agente di raccolta Log](../support/Install-the-Windows-Server-Essentials-Log-Collector.md)  
+3. [Installare Log Collector](../support/Install-the-Windows-Server-Essentials-Log-Collector.md)  
   
-2.  [Eseguire Log Collector](../support/Run-the-Windows-Server-Essentials-Log-Collector.md)  
+4. [Eseguire Log Collector](../support/Run-the-Windows-Server-Essentials-Log-Collector.md)  
 
-  
+
 ## <a name="environment-information-collected"></a>Informazioni sull'ambiente raccolte  
  Per ogni computer di rete o server specificato, Log Collector raccoglie le seguenti informazioni sull'ambiente e le inserisce nel file della raccolta dei registri.  
   
--   Versione del sistema operativo  
+-   Operating system version  
   
 -   Produttore e descrizione della CPU  
   
@@ -112,7 +112,7 @@ Quando si siano risolvendo i problemi dei computer, un rappresentante del client
   
 ### <a name="server-logs-and-registry-information"></a>Informazioni sui registri e sul Registro di sistema del server  
   
--   Registri del prodotto server, da < ProgramData\>\Microsoft\Windows Server\Logs  
+-   Log dei prodotti server, da < ProgramData\>\Microsoft\Windows Server\Logs  
   
 -   Attività pianificate  
   
@@ -128,21 +128,21 @@ Quando si siano risolvendo i problemi dei computer, un rappresentante del client
   
 -   File di log di Panther  
   
--   Servizi  
+-   Servizi,  
   
 -   Chiavi del Registro di sistema, da  
   
-    -   \\\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Server\  
+    -   \\\ HKEY_LOCAL_MACHINE server \SOFTWARE\Microsoft\Windows \  
   
-    -   \\\HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\DevicesProviderSvc  
+    -   \\\ HKEY_LOCAL_MACHINE \SYSTEM\CurrentControlSet\Services\DevicesProviderSvc  
   
-    -   \\\HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\DomainManagerProviderSvc  
+    -   \\\ HKEY_LOCAL_MACHINE \SYSTEM\CurrentControlSet\Services\DomainManagerProviderSvc  
   
 ### <a name="network-computer-logs-and-registry-information"></a>Informazioni sui registri e sul Registro di sistema dei computer di rete  
   
--   Registri del prodotto computer di rete in < ProgramData\>\Microsoft\Windows Server\Logs  
+-   Log del prodotto del computer di rete in < ProgramData\>\Microsoft\Windows Server\Logs  
   
--   File di avvisi di integrità in < ProgramData\>Server\Data  
+-   File degli avvisi di integrità al < ProgramData\>\Microsoft\Windows Server\Data  
   
 -   Registri di Windows Update  
   
@@ -150,7 +150,7 @@ Quando si siano risolvendo i problemi dei computer, un rappresentante del client
   
 -   Informazioni sulle attività pianificate  
   
--   Le chiavi del Registro di sistema da \\\HKEY_LOCAL_MACHINE \SOFTWARE\Microsoft\Windows Server\  
+-   Chiavi del registro di sistema da \\\ HKEY_LOCAL_MACHINE server \SOFTWARE\Microsoft\Windows \  
   
 ## <a name="logs-for-computers-that-do-not-run-a-version-of-the-windows-operating-system"></a>Registri per i computer che non eseguono una versione del sistema operativo Windows  
  Log Collector non raccoglie file di log dai computer che non eseguono una versione del sistema operativo Windows. Per i computer non Windows, copiare manualmente i seguenti file di log nella stessa posizione in cui si archiviano i file di Log Collector.  
@@ -159,14 +159,14 @@ Quando si siano risolvendo i problemi dei computer, un rappresentante del client
   
 -   Library/Logs/Windows Server.log  
   
--   Library/Logs/CrashReporter/LaunchPad-< nnn\> (copiare tutti LaunchPad-< nnn\>file crash)  
+-   Library/Logs/CrashReporter/LaunchPad-< nnn\> (copiare tutti i file LaunchPad-< nnn\>. crash)  
   
--   Library/Logs/DiagnosticReports/LaunchPad-< nnn\> (copiare tutti LaunchPad-< nnn\>file crash)  
+-   Library/Logs/DiagnosticReports/LaunchPad-< nnn\> (copiare tutti i file LaunchPad-< nnn\>. crash)  
   
-## <a name="see-also"></a>Vedere anche  
+## <a name="see-also"></a>Vedi anche  
   
 
--   [Risolvere gli errori dell'agente di raccolta Log](Troubleshoot-Windows-Server-Essentials-Log-Collector-Errors.md)
+-   [Risolvere gli errori dell'agente di raccolta log](Troubleshoot-Windows-Server-Essentials-Log-Collector-Errors.md)
 
--   [Risolvere gli errori dell'agente di raccolta Log](../support/Troubleshoot-Windows-Server-Essentials-Log-Collector-Errors.md)
+-   [Risolvere gli errori dell'agente di raccolta log](../support/Troubleshoot-Windows-Server-Essentials-Log-Collector-Errors.md)
 
