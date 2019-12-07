@@ -7,36 +7,35 @@ author: nwashburn-ms
 ms.author: niwashbu
 ms.localizationpriority: medium
 ms.prod: windows-server
-ms.date: 06/07/2019
-ms.openlocfilehash: 144c57bba621ee1b94a66914f8d9b6c0292f8b03
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.date: 12/02/2019
+ms.openlocfilehash: d4046cc10a5e0fdc12cfb9587eef10d4263c2ddd
+ms.sourcegitcommit: 7c7fc443ecd0a81bff6ed6dbeeaf4f24582ba339
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71406875"
+ms.lasthandoff: 12/07/2019
+ms.locfileid: "74904025"
 ---
 # <a name="what-type-of-installation-is-right-for-you"></a>Che tipo di installazione è adatto alle tue esigenze?
 
->Si applica a: Windows Admin Center, Windows Admin Center Preview
-
 Questo argomento descrive le diverse opzioni di installazione per l'interfaccia di amministrazione di Windows, inclusa l'installazione di in un PC Windows 10 o Windows Server per l'uso da parte di più amministratori. Per installare l'interfaccia di amministrazione di Windows in una macchina virtuale in Azure, vedere Distribuire l'interfaccia [di amministrazione di Windows in Azure](../azure/deploy-wac-in-azure.md).
 
-## <a name="installation-types"></a>Installazione Tipi
+## <a name="installation-types"></a>Installazione: tipi
+
+![img](../media/deployment-options/install-options.PNG)
 
 | Client locale                                | Server gateway                                  | Server gestito                               | Cluster di failover                           |
 |---------------------------------------------|-------------------------------------------------|----------------------------------------------|--------------------------------------------|
-| ![IMG](../media/deployment-options/W10.PNG) | ![IMG](../media/deployment-options/gateway.PNG) | ![IMG](../media/deployment-options/node.PNG) | ![IMG](../media/deployment-options/HA.png) |
-| Installare in un client Windows 10 locale con connettività ai server gestiti.  Ideale per gli scenari di avvio rapido, test, ad hoc o su scala ridotta. |Installare in un server gateway designato e accedere da qualsiasi browser client con connettività al server gateway.  Ideale per scenari su larga scala. | Installare direttamente in un server gestito allo scopo di gestire se stesso o un cluster in cui è un nodo membro.  Ideale per gli scenari distribuiti. | Eseguire la distribuzione in un cluster di failover per abilitare la disponibilità elevata del servizio gateway. Ideale per gli ambienti di produzione per garantire la resilienza del servizio di gestione. |
+| [Installare](../deploy/install.md) in un client Windows 10 locale con connettività ai server gestiti.  Ideale per gli scenari di avvio rapido, test, ad hoc o su scala ridotta. |[Installare](../deploy/install.md) in un server gateway designato e accedere da qualsiasi browser client con connettività al server gateway.  Ideale per scenari su larga scala. | [Installare](../deploy/install.md) direttamente in un server gestito allo scopo di gestire se stesso o un cluster in cui è un nodo membro.  Ideale per gli scenari distribuiti. | Eseguire la [distribuzione](#high-availability) in un cluster di failover per abilitare la disponibilità elevata del servizio gateway. Ideale per gli ambienti di produzione per garantire la resilienza del servizio di gestione. |
 
-## <a name="installation-supported-operating-systems"></a>Installazione Sistemi operativi supportati
+## <a name="installation-supported-operating-systems"></a>Installazione: sistemi operativi supportati
 
 È possibile **installare** l'interfaccia di amministrazione di Windows nei sistemi operativi Windows seguenti:
 
-| **Piattaforma**                       | **Modalità di installazione** |
+| **Platform**                       | **Modalità di installazione** |
 | -----------------------------------| --------------------- |
-| Windows 10, versione 1709 o successiva  | Client locale |
+| Windows 10                         | Client locale |
 | Canale semestrale Windows Server | Server gateway, server gestito, cluster di failover |
-| Windows Server 2016                | Server gateway, server gestito, cluster di failover |
+| Windows Server 2016                | Server gateway, server gestito, cluster di failover |
 | Windows Server 2019                | Server gateway, server gestito, cluster di failover |
 
 Per gestire l'interfaccia di amministrazione di Windows:
@@ -45,27 +44,27 @@ Per gestire l'interfaccia di amministrazione di Windows:
 - **In altri scenari:** Connettersi al gateway dell'interfaccia di amministrazione di Windows in un computer diverso da un browser client tramite il relativo URL, ad esempio `https://servername.contoso.com`
 
 > [!WARNING]
-> L'installazione dell'interfaccia di amministrazione di Windows in un controller di dominio non è supportata. [Altre informazioni sulle procedure consigliate per la sicurezza del controller di dominio](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/securing-domain-controllers-against-attack). 
+> L'installazione dell'interfaccia di amministrazione di Windows in un controller di dominio non è supportata. [Altre informazioni sulle procedure consigliate per la sicurezza del controller di dominio](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/securing-domain-controllers-against-attack).
 
-## <a name="installation-supported-web-browsers"></a>Installazione Web browser supportati
+## <a name="installation-supported-web-browsers"></a>Installazione: Web browser supportati
 
-Microsoft Edge e Google Chrome sono testati e supportati in Windows 10. Altri Web browser, inclusi Internet Explorer e Firefox, non fanno attualmente parte della matrice di test e pertanto non sono *ufficialmente* supportati. Questi browser possono avere problemi nell'esecuzione dell'interfaccia di amministrazione di Windows. Ad esempio, Firefox ha il proprio archivio certificati, quindi è necessario importare il certificato `Windows Admin Center Client` in Firefox per usare l'interfaccia di amministrazione di Windows in Windows 10. Per informazioni dettagliate, vedere [problemi noti specifici del browser](../support/known-issues.md#browser-specific-issues).
+Microsoft Edge (incluso [Microsoft Edge Insider](https://microsoftedgeinsider.com)) e Google Chrome sono testati e supportati in Windows 10. Altri Web browser, inclusi Internet Explorer e Firefox, non fanno attualmente parte della matrice di test e pertanto non sono *ufficialmente* supportati. Questi browser possono avere problemi nell'esecuzione dell'interfaccia di amministrazione di Windows. Ad esempio, Firefox ha il proprio archivio certificati, quindi è necessario importare il certificato `Windows Admin Center Client` in Firefox per usare l'interfaccia di amministrazione di Windows in Windows 10. Per informazioni dettagliate, vedere [problemi noti specifici del browser](../support/known-issues.md#browser-specific-issues).
 
-## <a name="management-target-supported-operating-systems"></a>Destinazione di gestione: Sistemi operativi supportati
+## <a name="management-target-supported-operating-systems"></a>Destinazione di gestione: sistemi operativi supportati
 
 È possibile **gestire** i sistemi operativi Windows seguenti usando l'interfaccia di amministrazione di Windows:
 
-| Versione | Gestisci *nodo* tramite *Server Manager* | Gestire il *cluster* tramite *Gestione cluster di failover* | Gestire *HCI* tramite *Gestione cluster HCI* |
-| ------------------------- |--------------- | ----- | ------------------------ |
-| Windows 10, versione 1709 o successiva | Sì (tramite Gestione computer) | N/D | N/D |
-| Canale semestrale Windows Server | Yes | Yes | N/D |
-| Windows Server 2019 | Yes | Yes | Yes |
-| Windows Server 2016 | Yes | Yes | Sì, con l' [aggiornamento cumulativo più recente](../use/manage-hyper-converged.md#prepare-your-windows-server-2016-cluster-for-windows-admin-center) |
-| Microsoft Hyper-V Server 2016 | Yes | Yes | N/D |
-| Windows Server 2012 R2 | Yes | Yes | N/D |
-| Microsoft Hyper-V Server 2012 R2 | Yes | Yes | N/D |
-| Windows Server 2012 | Yes | Yes | N/D |
-| Windows Server 2008 R2 | Sì, funzionalità limitate | N/D | N/D |
+| Versione | Gestisci *nodo* tramite *Server Manager* | Gestire tramite *Gestione cluster* |
+| ------------------------- |--------------- | ----- |
+| Windows 10 | Sì (tramite Gestione computer) | N/D |
+| Canale semestrale Windows Server | Sì | Sì |
+| Windows Server 2019 | Sì | Sì |
+| Windows Server 2016 | Sì | Sì, con l' [aggiornamento cumulativo più recente](../use/manage-hyper-converged.md#prepare-your-windows-server-2016-cluster-for-windows-admin-center) |
+| Microsoft Hyper-V Server 2016 | Sì | Sì |
+| Windows Server 2012 R2 | Sì | Sì |
+| Microsoft Hyper-V Server 2012 R2 | Sì | Sì |
+| Windows Server 2012 | Sì | Sì |
+| Windows Server 2008 R2 | Sì, funzionalità limitate | N/D |
 
 > [!NOTE]
 > L'interfaccia di amministrazione di Windows richiede le funzionalità di PowerShell che non sono incluse in Windows Server 2008 R2, 2012 e 2012 R2. Se si intende gestirli con l'interfaccia di amministrazione di Windows, è necessario installare Windows Management Framework (WMF) versione 5,1 o successiva in tali server.

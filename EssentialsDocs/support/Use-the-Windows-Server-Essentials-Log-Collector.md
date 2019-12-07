@@ -12,12 +12,12 @@ ms.assetid: c6985518-b42d-4cfb-9761-eaa75306b6d7
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: df467921f8a8f5633d2b0bd792885fe2c9ae2212
-ms.sourcegitcommit: a937eb17915a4a0e444a36ddb0fac9c9771cfbfa
+ms.openlocfilehash: 3bc43b08df30d03f29d9f343b7d6ed4d63c85eda
+ms.sourcegitcommit: 39244de670f712857a5fdd56630e95d57b7001a5
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/06/2019
-ms.locfileid: "74877906"
+ms.locfileid: "74897666"
 ---
 # <a name="use-the-windows-server-essentials-log-collector"></a>Usare Windows Server Essentials Log Collector
 
@@ -30,6 +30,7 @@ Durante la risoluzione dei problemi relativi al computer, un rappresentante del 
 > [!NOTE]
 >Log Collector non analizza i problemi della rete e non apporta modifiche ad alcun server o computer in rete. Per informazioni su come risolvere i problemi relativi alla rete, vedere la documentazione della Guida per il prodotto server.  
 >In questa guida, i computer della rete, diversi dal server, sono denominati computer di rete.  
+>
 >[Scaricare il pacchetto di installazione di Windows Server Essentials Log Collector](https://www.microsoft.com/download/details.aspx?id=34821).  
   
  Per installare ed eseguire Log Collector, attenersi ai passaggi negli argomenti seguenti:  

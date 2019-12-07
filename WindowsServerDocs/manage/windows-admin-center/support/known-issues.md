@@ -8,12 +8,12 @@ ms.author: jeffrew
 ms.localizationpriority: medium
 ms.prod: windows-server
 ms.date: 06/07/2019
-ms.openlocfilehash: 23943c9567f371f7598c7dcda6db434760cabeab
-ms.sourcegitcommit: 1da993bbb7d578a542e224dde07f93adfcd2f489
+ms.openlocfilehash: c05987360256f7b7ed58911c1ded86586fc8b3aa
+ms.sourcegitcommit: 7c7fc443ecd0a81bff6ed6dbeeaf4f24582ba339
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73567090"
+ms.lasthandoff: 12/07/2019
+ms.locfileid: "74903903"
 ---
 # <a name="windows-admin-center-known-issues"></a>Problemi noti di Windows Admin Center
 
@@ -82,7 +82,7 @@ Digita `$PSVersiontable` in PowerShell per verificare che WMF 5.1 o versione suc
 
 Se non è installato, puoi [scaricare e installare WMF 5.1](https://www.microsoft.com/en-us/download/details.aspx?id=54616).
 
-## <a name="role-based-access-control-rbac"></a>Controllo degli accessi in base al ruolo (RBAC)
+## <a name="role-based-access-control-rbac"></a>Controllo dell'accesso basato sui ruoli (RBAC)
 
 - La distribuzione di Controllo degli accessi in base al ruolo non verrà completata sui computer configurati per utilizzare Controllo di applicazioni di Windows Defender (WDAC, in precedenza noto come integrità del codice) [16568455]
 
@@ -189,9 +189,9 @@ La soluzione Gestione computer contiene un sottoinsieme degli strumenti della so
 
 - Se si usa un account Microsoft ([MSA](https://account.microsoft.com/account/)) o si usa Azure Active Directory (AAD) per accedere al computer Windows 10, è necessario usare "Manage-As" per fornire le credenziali per un account amministratore locale [16568455]
 
-- Quando provi a gestire il localhost, ti verrà richiesto di elevare il processo di gateway. Se fai clic su **no** nel popup Controllo dell'account utente che segue, Windows Admin Center non sarà in grado di visualizzarlo nuovamente. In questo caso, chiudi il processo di gateway facendo clic con il pulsante destro del mouse sull'icona di Windows Admin Center nella barra delle applicazioni e scegli Esci, quindi riavvia Windows Admin Center dal menu Start.
+- Quando provi a gestire il localhost, ti verrà richiesto di elevare il processo di gateway. Se si fa clic su **No** nella finestra popup controllo dell'account utente che segue, è necessario annullare il tentativo di connessione e ricominciare.
 
-- Windows 10 non dispone di PowerShell/WinRM in remoto per impostazione predefinita
+- Per impostazione predefinita, Windows 10 non dispone di comunicazione remota WinRM/PowerShell.
   
   - Per abilitare la gestione di Windows 10 Client, devi eseguire il comando ```Enable-PSRemoting``` da un prompt dei comandi di PowerShell con privilegi elevati.
 
@@ -226,4 +226,4 @@ Per aggiornare l'app Azure Active Directory, è possibile eseguire una delle due
 I servizi di gestione di Azure, tra cui monitoraggio di Azure, Azure Gestione aggiornamenti e il Centro sicurezza di Azure, usano lo stesso agente per un server locale: il Microsoft Monitoring Agent. Azure Gestione aggiornamenti dispone di un set più limitato di aree supportate e richiede che l'area di lavoro Log Analytics sia collegata a un account di automazione di Azure. A causa di questa limitazione, se si vuole configurare più servizi nell'interfaccia di amministrazione di Windows, è necessario configurare prima Azure Gestione aggiornamenti, quindi il Centro sicurezza di Azure o il monitoraggio di Azure. Se sono stati configurati tutti i servizi di gestione di Azure che usano il Microsoft Monitoring Agent e quindi si prova a configurare Azure Gestione aggiornamenti usando l'interfaccia di amministrazione di Windows, l'interfaccia di amministrazione di Windows consentirà solo di configurare Azure Gestione aggiornamenti se il le risorse collegate al Microsoft Monitoring Agent supportano Gestione aggiornamenti di Azure. In caso contrario, sono disponibili due opzioni:
 
 1. Passare al pannello di controllo > Microsoft Monitoring Agent per [disconnettere il server dalle soluzioni di gestione di Azure esistenti](https://docs.microsoft.com/azure/azure-monitor/platform/log-faq#q-how-do-i-stop-an-agent-from-communicating-with-log-analytics) , ad esempio monitoraggio di Azure o il Centro sicurezza di Azure. Configurare quindi Gestione aggiornamenti di Azure nell'interfaccia di amministrazione di Windows. Successivamente, è possibile tornare indietro per configurare le altre soluzioni di gestione di Azure tramite l'interfaccia di amministrazione di Windows senza problemi.
-2. È possibile [configurare manualmente le risorse di Azure necessarie per gestione aggiornamenti di Azure](https://docs.microsoft.com/azure/automation/automation-update-management) e quindi [aggiornare manualmente il Microsoft Monitoring Agent](https://docs.microsoft.com/azure/azure-monitor/platform/agent-manage#adding-or-removing-a-workspace) (al di fuori dell'interfaccia di amministrazione di Windows) per aggiungere la nuova area di lavoro corrispondente alla soluzione Gestione aggiornamenti si desidera utilizzare.
+2. È possibile [configurare manualmente le risorse di Azure necessarie per gestione aggiornamenti di Azure](https://docs.microsoft.com/azure/automation/automation-update-management) e quindi [aggiornare manualmente il Microsoft Monitoring Agent](https://docs.microsoft.com/azure/azure-monitor/platform/agent-manage#adding-or-removing-a-workspace) (al di fuori dell'interfaccia di amministrazione di Windows) per aggiungere la nuova area di lavoro corrispondente alla soluzione Gestione aggiornamenti che si vuole usare.

@@ -8,12 +8,12 @@ ms.author: jeffrew
 ms.date: 04/12/2019
 ms.localizationpriority: medium
 ms.prod: windows-server
-ms.openlocfilehash: 42216375d1784a5bc853994a9de7cff72920088d
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 1da4df284febbf18b5796322868451c45ab247ab
+ms.sourcegitcommit: 7c7fc443ecd0a81bff6ed6dbeeaf4f24582ba339
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71357319"
+ms.lasthandoff: 12/07/2019
+ms.locfileid: "74903933"
 ---
 # <a name="deploy-windows-admin-center-in-azure"></a>Distribuire l'interfaccia di amministrazione di Windows in Azure
 
@@ -26,8 +26,8 @@ ms.locfileid: "71357319"
 ### <a name="prerequisites"></a>Prerequisiti
 
 * Configurare l'account in [Azure cloud Shell](https://shell.azure.com). Se è la prima volta che si usa Cloud Shell, verrà chiesto di associare o creare un account di archiviazione di Azure con Cloud Shell.
-* In un Cloud Shell di **PowerShell** passare alla Home directory:```PS Azure:\> cd ~```
-* Per caricare il ```Deploy-WACAzVM.ps1``` file, trascinarlo e rilasciarlo dal computer locale in un punto qualsiasi della finestra cloud Shell.
+* In un Cloud Shell di **PowerShell** passare alla Home directory: ```PS Azure:\> cd ~```
+* Per caricare il file di ```Deploy-WACAzVM.ps1```, trascinarlo e rilasciarlo dal computer locale in qualsiasi punto della finestra di Cloud Shell.
 
 Se si specifica un certificato personalizzato:
 
@@ -41,7 +41,7 @@ Se si specifica un certificato personalizzato:
 
 * **Credential** -[PSCredential] specifica le credenziali per la macchina virtuale.
 
-* **PercorsoMSI** -[String] specifica il percorso locale del file MSI dell'interfaccia di amministrazione di Windows quando si distribuisce l'interfaccia di amministrazione di Windows in una macchina virtuale esistente. Il valore predefinito è la versione http://aka.ms/WACDownload di se omessa.
+* **PercorsoMSI** -[String] specifica il percorso locale del file MSI dell'interfaccia di amministrazione di Windows quando si distribuisce l'interfaccia di amministrazione di Windows in una macchina virtuale esistente. Il valore predefinito è la versione di https://aka.ms/WACDownload Se omesso.
 
 * **VAULTNAME** -[String] specifica il nome dell'insieme di credenziali delle chiavi che contiene il certificato.
 
@@ -89,7 +89,7 @@ $Image = "Win2016Datacenter"
 $Credential = Get-Credential
 ```
 
-#### <a name="example-1-use-the-script-to-deploy-wac-gateway-on-a-new-vm-in-a-new-virtual-network-and-resource-group-use-the-msi-from-akamswacdownload-and-a-self-signed-cert-from-the-msi"></a>Esempio 1: Usare lo script per distribuire il gateway WAC in una nuova VM in una nuova rete virtuale e in un nuovo gruppo di risorse. Usare MSI da aka.ms/WACDownload e un certificato autofirmato dall'identità del servizio gestito.
+#### <a name="example-1-use-the-script-to-deploy-wac-gateway-on-a-new-vm-in-a-new-virtual-network-and-resource-group-use-the-msi-from-akamswacdownload-and-a-self-signed-cert-from-the-msi"></a>Esempio 1: usare lo script per distribuire il gateway WAC in una nuova VM in una nuova rete virtuale e in un nuovo gruppo di risorse. Usare MSI da aka.ms/WACDownload e un certificato autofirmato dall'identità del servizio gestito.
 
 ```PowerShell
 $scriptParams = @{
@@ -103,7 +103,7 @@ $scriptParams = @{
 ./Deploy-WACAzVM.ps1 @scriptParams
 ```
 
-#### <a name="example-2-same-as-1-but-using-a-certificate-from-azure-key-vault"></a>Esempio 2 Come #1, ma usando un certificato da Azure Key Vault.
+#### <a name="example-2-same-as-1-but-using-a-certificate-from-azure-key-vault"></a>Esempio 2: come #1, ma usando un certificato da Azure Key Vault.
 
 ```PowerShell
 $scriptParams = @{
@@ -118,7 +118,7 @@ $scriptParams = @{
 ./Deploy-WACAzVM.ps1 @scriptParams
 ```
 
-#### <a name="example-3-using-a-local-msi-on-an-existing-vm-to-deploy-wac"></a>Esempio 3: Uso di un'identità del servizio gestito locale in una macchina virtuale esistente per distribuire WAC.
+#### <a name="example-3-using-a-local-msi-on-an-existing-vm-to-deploy-wac"></a>Esempio 3: uso di un'identità del servizio gestito locale in una macchina virtuale esistente per distribuire WAC.
 
 ```PowerShell
 $MsiPath = "C:\Users\<username>\Downloads\WindowsAdminCenter<version>.msi"
@@ -147,7 +147,7 @@ Set-AzNetworkSecurityGroup -NetworkSecurityGroup $newNSG
 ### <a name="requirements-for-managed-azure-vms"></a>Requisiti per le macchine virtuali di Azure gestite
 
 La porta 5985 (WinRM su HTTP) deve essere aperta e avere un listener attivo.
-Per aggiornare i nodi gestiti, è possibile usare il codice riportato di seguito in Azure Cloud Shell. ```$ResourceGroupName```e ```$Name``` usano le stesse variabili dello script di distribuzione, ma è necessario usare l'oggetto ```$Credential``` specifico per la macchina virtuale che si sta gestendo.
+Per aggiornare i nodi gestiti, è possibile usare il codice riportato di seguito in Azure Cloud Shell. ```$ResourceGroupName``` e ```$Name``` usano le stesse variabili dello script di distribuzione, ma è necessario usare il ```$Credential``` specifico per la macchina virtuale che si sta gestendo.
 
 ```powershell
 Enable-AzVMPSRemoting -ResourceGroupName $ResourceGroupName -Name $Name
@@ -190,10 +190,10 @@ Prima di installare l'interfaccia di amministrazione di Windows nella macchina v
 A questo punto, dovrebbe essere possibile accedere all'interfaccia di amministrazione di Windows da un browser moderno (Edge o Chrome) nel computer locale passando al nome DNS della VM del gateway. 
 
 > [!NOTE]
-> Se è stata selezionata una porta diversa da 443, è possibile accedere al centro di amministrazione di Windows passando\<al nome DNS https://della\>VM\<: porta personalizzata\>
+> Se è stata selezionata una porta diversa da 443, è possibile accedere al centro di amministrazione di Windows passando a https://\<nome DNS della VM\>:\<porta personalizzata\>
 
 Quando si tenta di accedere all'interfaccia di amministrazione di Windows, il browser richiederà le credenziali per accedere alla macchina virtuale in cui è installato l'interfaccia di amministrazione di Windows. Qui sarà necessario immettere le credenziali presenti nel gruppo utenti locali o Administrators locale della macchina virtuale. 
 
-Per aggiungere altre macchine virtuali in VNet, assicurarsi che WinRM sia in esecuzione nelle VM di destinazione eseguendo il comando seguente in PowerShell o il prompt dei comandi nella macchina virtuale di destinazione:`winrm quickconfig`
+Per aggiungere altre macchine virtuali in VNet, assicurarsi che WinRM sia in esecuzione nelle VM di destinazione eseguendo il comando seguente in PowerShell o il prompt dei comandi nella macchina virtuale di destinazione: `winrm quickconfig`
 
 Se la macchina virtuale di Azure non è stata aggiunta a un dominio, la macchina virtuale si comporta come un server in un gruppo di lavoro, quindi è necessario assicurarsi di aver preso in considerazione l'uso dell'interfaccia di [amministrazione di Windows in un gruppo di](../support/troubleshooting.md#using-windows-admin-center-in-a-workgroup)lavoro.

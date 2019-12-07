@@ -5,15 +5,15 @@ ms.technology: manage
 ms.topic: article
 author: nwashburn-ms
 ms.author: niwashbu
-ms.date: 03/07/2019
+ms.date: 11/21/2019
 ms.localizationpriority: medium
 ms.prod: windows-server
-ms.openlocfilehash: c7f436ea9b2baa00294ccef52a5d7a27c7247e4a
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 9a116cc9d86dfe0bb4450efa0f18580a062af722
+ms.sourcegitcommit: 7c7fc443ecd0a81bff6ed6dbeeaf4f24582ba339
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71406782"
+ms.lasthandoff: 12/07/2019
+ms.locfileid: "74903720"
 ---
 # <a name="manage-servers-with-windows-admin-center"></a>Gestire i server con l'interfaccia di amministrazione di Windows
 
@@ -23,7 +23,7 @@ ms.locfileid: "71406782"
 > Novità di Windows Admin Center
 > [Ulteriori informazioni su Windows Admin Center](../understand/windows-admin-center.md) o [Scarica ora](https://aka.ms/windowsadmincenter).
 
-## <a name="managing-windows-server-machines"></a>Gestione di computer Windows Server
+## <a name="managing-windows-server-machines"></a>Gestione delle macchine di Windows Server
 
 È possibile aggiungere singoli server che eseguono Windows Server 2012 o versioni successive all'interfaccia di amministrazione di Windows per gestire il server con un set completo di strumenti, tra cui certificati, dispositivi, eventi, processi, ruoli e funzionalità, aggiornamenti, macchine virtuali e altro ancora.
 
@@ -62,10 +62,12 @@ Per le connessioni server sono disponibili gli strumenti seguenti:
 | [Firewall](#firewall) | Visualizzare e modificare le regole del firewall |
 | [App installate](#installed-apps) | Visualizzare e rimuovere le app installate |
 | [Utenti e gruppi locali](#local-users-and-groups) | Visualizzare e modificare gruppi e utenti locali |
-| [Rete](#network) | Visualizzare e modificare i dispositivi di rete |
+| [Network](#network) | Visualizzare e modificare i dispositivi di rete |
+| [Monitoraggio pacchetti](https://aka.ms/wac1908) | Monitorare i pacchetti di rete |
+| [Performance Monitor](https://aka.ms/perfmon-blog) | Visualizzare i contatori delle prestazioni e i report |
 | [PowerShell](#powershell) | Interagire con il server tramite PowerShell |
 | [Processi](#processes) | Visualizzare e modificare i processi in esecuzione |
-| [Del registro](#registry) | Visualizzare e modificare le voci del registro di sistema |
+| [Registry](#registry) | Visualizzare e modificare le voci del registro di sistema |
 | [Desktop remoto](#remote-desktop) | Interagire con il server tramite Desktop remoto |
 | [Ruoli e funzionalità](#roles-and-features) | Visualizzazione e modifica di ruoli e funzionalità |
 | [Attività pianificate](#scheduled-tasks) | Visualizzare e modificare le attività pianificate |
@@ -83,7 +85,7 @@ Per le connessioni server sono disponibili gli strumenti seguenti:
 
 **Panoramica** consente di visualizzare lo stato corrente della CPU, della memoria e delle prestazioni di rete, nonché di eseguire operazioni e modificare le impostazioni in un computer o un server di destinazione.
 
-### <a name="features"></a>Funzionalità
+### <a name="features"></a>Caratteristiche
 
 In Server Manager panoramica sono supportate le funzionalità seguenti:
 
@@ -91,7 +93,7 @@ In Server Manager panoramica sono supportate le funzionalità seguenti:
 - Visualizza attività CPU
 - Visualizza attività memoria
 - Visualizzare l'attività di rete
-- Riavvia server
+- Riavviare il server
 - Arresta server
 - Abilita metrica disco nel server
 - Modifica ID computer nel server
@@ -103,16 +105,16 @@ In Server Manager panoramica sono supportate le funzionalità seguenti:
 
 **Active Directory** è un'anteprima anticipata disponibile nel feed di [estensione](../configure/using-extensions.md).
 
-### <a name="features"></a>Funzionalità
+### <a name="features"></a>Caratteristiche
 
 Sono disponibili le seguenti Active Directory gestione:
 
 - Crea utente
-- Crea gruppo
+- Creazione di un gruppo
 - Ricerca di utenti, computer e gruppi
 - Riquadro dei dettagli per utenti, computer e gruppi se selezionato nella griglia
 - Azioni griglia globale utenti, computer e gruppi (Disabilita/Abilita, Rimuovi)
-- Reimpostare la password utente
+- Reimpostazione delle password utente
 - Oggetti utente: configurare le proprietà di base & le appartenenze ai gruppi
 - Oggetti computer: configurare la delega in un singolo computer
 - Oggetti gruppo: Gestisci appartenenza (Aggiungi/Rimuovi 1 utente alla volta)  
@@ -126,7 +128,7 @@ Il **backup** consente di proteggere il server Windows da danneggiamenti, attacc
 
 [Inviare commenti e suggerimenti per il backup nell'interfaccia di amministrazione di Windows](https://aka.ms/backup-wac-feedback)
 
-### <a name="features"></a>Funzionalità
+### <a name="features"></a>Caratteristiche
 
 Le funzionalità seguenti sono supportate nel backup:
 
@@ -141,14 +143,14 @@ Le funzionalità seguenti sono supportate nel backup:
 
 I **certificati** consentono di gestire gli archivi certificati in un computer o in un server.
 
-### <a name="features"></a>Funzionalità
+### <a name="features"></a>Caratteristiche
 
 Nei certificati sono supportate le funzionalità seguenti:
 
 - Esplorare e cercare i certificati esistenti
 - Visualizza i dettagli del certificato
-- Esporta certificati
-- Rinnova certificati
+- Esportare i certificati
+- Rinnovare i certificati
 - Richiedi nuovi certificati
 - Elimina certificati
 
@@ -164,12 +166,12 @@ Nei certificati sono supportate le funzionalità seguenti:
 
 I **dispositivi** consentono di gestire i dispositivi connessi in un computer o un server.
 
-### <a name="features"></a>Funzionalità
+### <a name="features"></a>Caratteristiche
 
 Nei dispositivi sono supportate le funzionalità seguenti:
 
 - Esplorare e cercare i dispositivi
-- Visualizza i dettagli del dispositivo
+- Visualizzazione dei dettagli del dispositivo
 - Disabilitare un dispositivo
 - Aggiornare il driver in un dispositivo
 
@@ -179,7 +181,7 @@ Nei dispositivi sono supportate le funzionalità seguenti:
 
 **DHCP** consente di gestire i dispositivi connessi in un computer o un server.
 
-### <a name="features"></a>Funzionalità
+### <a name="features"></a>Caratteristiche
 
 - Creazione/configurazione/visualizzazione degli ambiti IPV4 e IPV6
 - Creare esclusioni di indirizzi e configurare l'indirizzo IP iniziale e finale
@@ -191,7 +193,7 @@ Nei dispositivi sono supportate le funzionalità seguenti:
 
 **DNS** consente di gestire i dispositivi connessi in un computer o un server.
 
-### <a name="features"></a>Funzionalità
+### <a name="features"></a>Caratteristiche
 
 - Visualizzare i dettagli delle zone di ricerca diretta DNS, delle zone di ricerca inversa e dei record DNS
 - Creare zone di ricerca diretta (primaria, secondaria o stub) e configurare le proprietà della zona di ricerca diretta
@@ -202,16 +204,16 @@ Nei dispositivi sono supportate le funzionalità seguenti:
 
 [**Visualizza commenti e suggerimenti e funzionalità proposte per DHCP**](https://windowsserver.uservoice.com/forums/295071/filters/top?category_id=319162&query=%5BDNS%5D).
 
-## <a name="events"></a>Events
+## <a name="events"></a>Eventi
 
 **Gli eventi** consentono di gestire i registri eventi in un computer o un server.
 
-### <a name="features"></a>Funzionalità
+### <a name="features"></a>Caratteristiche
 
 Negli eventi sono supportate le funzionalità seguenti:
 
 - Esplorare e cercare gli eventi
-- Visualizza dettagli evento
+- Visualizzare i dettagli degli eventi
 - Cancella gli eventi dal log
 - Esporta eventi dal log
 
@@ -221,13 +223,13 @@ Negli eventi sono supportate le funzionalità seguenti:
 
 **File** consente di gestire file e cartelle in un computer o un server.
 
-### <a name="features"></a>Funzionalità
+### <a name="features"></a>Caratteristiche
 
 Nei file sono supportate le funzionalità seguenti:
 
 - Sfogliare file e cartelle
 - Ricerca di un file o di una cartella
-- Crea una nuova cartella
+- Creare una nuova cartella
 - Eliminare un file o una cartella
 - Scaricare un file o una cartella
 - Caricare un file o una cartella
@@ -243,7 +245,7 @@ Nei file sono supportate le funzionalità seguenti:
 
 Il **Firewall** consente di gestire le impostazioni e le regole del firewall in un computer o un server.
 
-### <a name="features"></a>Funzionalità
+### <a name="features"></a>Caratteristiche
 
 Nel firewall sono supportate le funzionalità seguenti:
 
@@ -252,7 +254,7 @@ Nel firewall sono supportate le funzionalità seguenti:
 - Visualizzare le regole del firewall in uscita
 - Cerca regole firewall
 - Visualizza i dettagli della regola del firewall
-- Creare una nuova regola del firewall
+- Creazione di una nuova regola del firewall
 - Abilitare o disabilitare una regola del firewall
 - Eliminare una regola del firewall
 - Modificare le proprietà di una regola del firewall
@@ -269,7 +271,7 @@ Nel firewall sono supportate le funzionalità seguenti:
 
 **Utenti e gruppi locali** consentono di gestire i gruppi di sicurezza e gli utenti presenti localmente in un computer o un server.
 
-### <a name="features"></a>Funzionalità
+### <a name="features"></a>Caratteristiche
 
 Le funzionalità seguenti sono supportate in utenti e gruppi locali:
 
@@ -277,7 +279,7 @@ Le funzionalità seguenti sono supportate in utenti e gruppi locali:
 - Creare un nuovo utente o gruppo
 - Gestire l'appartenenza a un gruppo di un utente
 - Eliminare un utente o un gruppo
-- Modificare la password di un utente
+- Modifica la password di un utente
 - Modificare le proprietà di un utente o di un gruppo
 
 [**Visualizza commenti e suggerimenti e funzionalità proposte per utenti e gruppi locali**](https://windowsserver.uservoice.com/forums/295071/filters/top?category_id=319162&query=%5BLocal%20users%20and%20Groups%5D)
@@ -286,7 +288,7 @@ Le funzionalità seguenti sono supportate in utenti e gruppi locali:
 
 **Rete** consente di gestire i dispositivi e le impostazioni di rete in un computer o un server.
 
-### <a name="features"></a>Funzionalità
+### <a name="features"></a>Caratteristiche
 
 Le funzionalità seguenti sono supportate in rete:
 
@@ -301,7 +303,7 @@ Le funzionalità seguenti sono supportate in rete:
 
 **PowerShell** consente di interagire con un computer o un server tramite una sessione di PowerShell.
 
-### <a name="features"></a>Funzionalità
+### <a name="features"></a>Caratteristiche
 
 In PowerShell sono supportate le funzionalità seguenti:
 
@@ -314,7 +316,7 @@ In PowerShell sono supportate le funzionalità seguenti:
 
 **Processi** consente di gestire i processi in esecuzione in un computer o un server.
 
-### <a name="features"></a>Funzionalità
+### <a name="features"></a>Caratteristiche
 
 Nei processi sono supportate le funzionalità seguenti:
 
@@ -331,7 +333,7 @@ Nei processi sono supportate le funzionalità seguenti:
 
 Il **Registro di sistema** consente di gestire le chiavi e i valori del registro di sistema in un computer o un server.
 
-### <a name="features"></a>Funzionalità
+### <a name="features"></a>Caratteristiche
 
 Nel registro di sistema sono supportate le funzionalità seguenti:
 
@@ -345,7 +347,7 @@ Nel registro di sistema sono supportate le funzionalità seguenti:
 
 **Desktop remoto** consente di interagire con un computer o un server tramite una sessione desktop interattiva.
 
-### <a name="features"></a>Funzionalità
+### <a name="features"></a>Caratteristiche
 
 In Desktop remoto sono supportate le funzionalità seguenti:
 
@@ -359,7 +361,7 @@ In Desktop remoto sono supportate le funzionalità seguenti:
 
 **Ruoli e funzionalità** consente di gestire ruoli e funzionalità in un server.
 
-### <a name="features"></a>Funzionalità
+### <a name="features"></a>Caratteristiche
 
 Le funzionalità seguenti sono supportate in ruoli e funzionalità:
 
@@ -374,7 +376,7 @@ Le funzionalità seguenti sono supportate in ruoli e funzionalità:
 
 Le **attività pianificate** consentono di gestire le attività pianificate in un computer o un server.
 
-### <a name="features"></a>Funzionalità
+### <a name="features"></a>Caratteristiche
 
 Le funzionalità seguenti sono supportate nelle attività pianificate:
 
@@ -386,11 +388,11 @@ Le funzionalità seguenti sono supportate nelle attività pianificate:
 
 [**Visualizza commenti e suggerimenti e funzionalità proposte per le attività pianificate**](https://windowsserver.uservoice.com/forums/295071/filters/top?category_id=319162&query=%5BScheduled%20Tasks%5D).
 
-## <a name="services"></a>Servizi
+## <a name="services"></a>Servizi,
 
 I **Servizi** consentono di gestire i servizi in un computer o in un server.
 
-### <a name="features"></a>Funzionalità
+### <a name="features"></a>Caratteristiche
 
 Nei servizi sono supportate le funzionalità seguenti:
 
@@ -406,7 +408,7 @@ Nei servizi sono supportate le funzionalità seguenti:
 
 **Settings** è una posizione centralizzata per la gestione delle impostazioni in un computer o in un server.
 
-### <a name="features"></a>Funzionalità
+### <a name="features"></a>Caratteristiche
 
 - Visualizza e modifica le variabili di ambiente di sistema e utente
 - Visualizzare la configurazione per il monitoraggio degli avvisi da [monitoraggio di Azure](azure-monitor.md)
@@ -419,7 +421,7 @@ Nei servizi sono supportate le funzionalità seguenti:
 
 **Archiviazione** consente di gestire i dispositivi di archiviazione in un computer o un server.
 
-### <a name="features"></a>Funzionalità
+### <a name="features"></a>Caratteristiche
 
 Le funzionalità seguenti sono supportate nell'archiviazione:
 
@@ -454,7 +456,7 @@ Usare **replica archiviazione** per gestire la replica di archiviazione da serve
 ## <a name="system-insights"></a>Informazioni dettagliate di sistema
 
 **System Insights** introduce l'analisi predittiva in modo nativo in Windows Server per contribuire a migliorare le informazioni sul funzionamento del server.
-[Ottenere una panoramica di System Insights](http://aka.ms/systeminsights)
+[Ottenere una panoramica di System Insights](https://aka.ms/systeminsights)
 
 >[!NOTE]
 >System Insights richiede Windows Server 2019.
@@ -463,7 +465,7 @@ Usare **replica archiviazione** per gestire la replica di archiviazione da serve
 
 **Aggiornamenti** consente di gestire gli aggiornamenti di Microsoft e/o Windows in un computer o un server.
 
-### <a name="features"></a>Funzionalità
+### <a name="features"></a>Caratteristiche
 
 Negli aggiornamenti sono supportate le funzionalità seguenti:
 
@@ -479,11 +481,11 @@ Negli aggiornamenti sono supportate le funzionalità seguenti:
 
 Vedere [gestione delle macchine virtuali con l'interfaccia di amministrazione di Windows](manage-virtual-machines.md)
 
-## <a name="virtual-switches"></a>Commutatori virtuali
+## <a name="virtual-switches"></a>Switch virtuali
 
 **Commutatori virtuali** consente di gestire i commutatori virtuali Hyper-V in un computer o un server.
 
-### <a name="features"></a>Funzionalità
+### <a name="features"></a>Caratteristiche
 
 In commutatori virtuali sono supportate le funzionalità seguenti:
 
