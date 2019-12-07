@@ -9,12 +9,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: mas
-ms.openlocfilehash: fb91ca583fd71a7fbe38369606d2dcc4a816d8aa
-ms.sourcegitcommit: 73898afec450fb3c2f429ca373f6b48a74b19390
+ms.openlocfilehash: 2625097c56e6b2121cbdac45e1cc5f86972e4898
+ms.sourcegitcommit: 68483ee9284285f5643dd67dce06f5a102cb9469
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71935010"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74823854"
 ---
 # <a name="privileged-access-workstations"></a>Workstation con accesso con privilegi
 
@@ -516,7 +516,7 @@ In questa sezione verranno configurati Criteri di gruppo per impedire agli accou
      Enterprise Admins
      Domain Admins
      Schema Admins
-     DOMAIN\Administrators
+     BUILTIN\Administrators
      Account Operators
      Backup Operators
      Print Operators
@@ -545,7 +545,7 @@ In questa sezione verranno configurati Criteri di gruppo per impedire agli accou
      Enterprise Admins
      Domain Admins
      Schema Admins
-     DOMAIN\Administrators
+     BUILTIN\Administrators
      Account Operators
      Backup Operators
      Print Operators
@@ -575,7 +575,7 @@ In questa sezione verranno configurati Criteri di gruppo per impedire agli accou
      Enterprise Admins
      Domain Admins
      Schema Admins
-     DOMAIN\Administrators
+     BUILTIN\Administrators
      Account Operators
      Backup Operators
      Print Operators
@@ -599,7 +599,7 @@ In questa sezione verranno configurati Criteri di gruppo per impedire agli accou
      Enterprise Admins
      Domain Admins
      Schema Admins
-     DOMAIN\Administrators
+     BUILTIN\Administrators
      Account Operators
      Backup Operators
      Print Operators
@@ -623,7 +623,7 @@ In questa sezione verranno configurati Criteri di gruppo per impedire agli accou
      Enterprise Admins
      Domain Admins
      Schema Admins
-     DOMAIN\Administrators
+     BUILTIN\Administrators
      Account Operators
      Backup Operators
      Print Operators
@@ -635,7 +635,7 @@ In questa sezione verranno configurati Criteri di gruppo per impedire agli accou
      ```
 
      > [!NOTE]
-     > Nota: Gruppi di livello 0 predefiniti. Per altri dettagli, vedere Equivalenza di livello 0.
+     > Nota: gruppi di livello 0 predefiniti. Per altri dettagli, vedere Equivalenza di livello 0.
 
          Other Delegated Groups
 
