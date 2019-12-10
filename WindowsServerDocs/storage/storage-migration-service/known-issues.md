@@ -8,12 +8,12 @@ ms.date: 10/09/2019
 ms.topic: article
 ms.prod: windows-server
 ms.technology: storage
-ms.openlocfilehash: 46a1e2aa8c116f79c164448ab5644a7dda9607c8
-ms.sourcegitcommit: ac9946deb4fa70203a9b05e0386deb4244b8ca55
+ms.openlocfilehash: 9abe199399e577eb06044377c30d5a2dc0e35dd1
+ms.sourcegitcommit: e817a130c2ed9caaddd1def1b2edac0c798a6aa2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74310375"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74945233"
 ---
 # <a name="storage-migration-service-known-issues"></a>Problemi noti del servizio migrazione archiviazione
 
@@ -64,11 +64,11 @@ Questo problema è stato risolto in una versione successiva di Windows Server.
 
 Quando si usa l'interfaccia di amministrazione di Windows o PowerShell per scaricare il log degli errori dettagliati per le operazioni di trasferimento, viene visualizzato un errore:
 
- >   Log di trasferimento: verificare che la condivisione file sia consentita nel firewall. : Questa operazione di richiesta inviata a NET. TCP://localhost: 28940/SMS/Service/1/Transfer non ha ricevuto una risposta entro il timeout configurato (00:01:00). Il tempo allocato a questa operazione potrebbe essere una parte di un timeout più lungo. È possibile che il servizio stia ancora elaborando l'operazione o che il servizio non sia stato in grado di inviare un messaggio di risposta. Prendere in considerazione l'aumento del timeout dell'operazione (eseguendo il cast del canale/proxy a IContextChannel e impostando la proprietà OperationTimeout) e verificare che il servizio sia in grado di connettersi al client.
+ >   Log di trasferimento: verificare che la condivisione file sia consentita nel firewall. : Questa operazione di richiesta inviata a NET. TCP://localhost: 28940/SMS/Service/1/Transfer non ha ricevuto una risposta entro il timeout configurato (00:01:00). È possibile che la durata consentita per l'operazione fosse una porzione di un timeout più lungo. È possibile che il servizio stia ancora elaborando l'operazione o che il servizio non sia stato in grado di inviare un messaggio di risposta. Prendere in considerazione l'aumento del timeout dell'operazione (eseguendo il cast del canale/proxy a IContextChannel e impostando la proprietà OperationTimeout) e verificare che il servizio sia in grado di connettersi al client.
 
 Questo problema è causato da un numero molto elevato di file trasferiti che non possono essere filtrati nel timeout predefinito di un minuto consentito dal servizio migrazione archiviazione. 
 
-Per ovviare a questo problema:
+Per risolvere questo problema:
 
 1. Sul computer dell'agente di orchestrazione, modificare il file *%systemroot%\SMS\Microsoft.StorageMigration.Service.exe.config* utilizzando Notepad. exe per modificare "SendTimeout nell'elemento" dal valore predefinito di 1 minuto a 10 minuti.
 
@@ -125,7 +125,7 @@ Per risolvere questo problema, installare [Windows Update 2 aprile 2019, ovvero 
 
 Quando si usa il servizio migrazione archiviazione per trasferire i file in una nuova destinazione, quindi si configura il Replica DFS (DFSR) per replicare i dati con un server DFSR esistente tramite la replica con seeding o la clonazione del database DFSR, tutti i file experiemce un hash mancata corrispondenza e replica eseguita di nuovo. I flussi di dati, i flussi di sicurezza, le dimensioni e gli attributi sembrano essere perfettamente corrispondenti dopo l'uso di SMS per trasferirli. L'analisi dei file con ICACLS o il log di debug per la clonazione del database DFSR rivela:
 
-File di origine:
+Source file (File di origine):
 
   d:\test\Source icacls:
 
@@ -313,6 +313,13 @@ Questo problema è causato da una regressione nell'aggiornamento [KB4512534](htt
   - Se il trasferimento è già bloccato: accedere al computer di origine e abilitare DHCP sulle interfacce di rete, dopo aver verificato che un ambito DHCP copra tale subnet. Quando il computer di origine acquisisce un indirizzo IP fornito da DHCP, SMS procederà con il taglio in modo normale.
   
 In entrambe le soluzioni alternative, dopo il completamento del trasferimento, è possibile impostare un indirizzo IP statico nel computer di origine precedente, in base alle esigenze e all'arresto dell'utilizzo di DHCP.   
+
+## <a name="slower-than-expected-re-transfer-performance"></a>Prestazioni di ritrasferimento previste più lente
+
+Dopo aver completato un trasferimento, dopo aver eseguito un nuovo trasferimento degli stessi dati, è possibile che non si verifichi un notevole miglioramento del tempo di trasferimento anche quando sono stati modificati pochi dati nel frattempo nel server di origine.
+
+Si tratta di un comportamento previsto quando si trasferisce un numero molto elevato di file e cartelle nidificate. La dimensione dei dati non è pertinente. Sono stati apportati miglioramenti a questo comportamento in [KB4512534](https://support.microsoft.com/help/4512534/windows-10-update-kb4512534) e si continua a ottimizzare le prestazioni di trasferimento. Per ottimizzare ulteriormente le prestazioni, vedere [ottimizzazione delle prestazioni di inventario e trasferimento](https://docs.microsoft.com/windows-server/storage/storage-migration-service/faq#optimizing-inventory-and-transfer-performance).
+
 
 ## <a name="see-also"></a>Vedi anche
 

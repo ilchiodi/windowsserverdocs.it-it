@@ -8,12 +8,12 @@ ms.author: harowl
 ms.date: 09/19/2018
 ms.localizationpriority: medium
 ms.prod: windows-server
-ms.openlocfilehash: 448a8fb3e4340752b673b06f86d5d49211b6b147
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: d8758342752ac71c5b700682d4c0f4317dc4cb4e
+ms.sourcegitcommit: e817a130c2ed9caaddd1def1b2edac0c798a6aa2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71357364"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74945216"
 ---
 # <a name="configuring-azure-integration"></a>Configurazione dell'integrazione di Azure
 
@@ -25,8 +25,30 @@ Per consentire al gateway dell'interfaccia di amministrazione di Windows di comu
 
 ## <a name="register-your-gateway-with-azure"></a>Registrare il gateway con Azure
 
-La prima volta che si tenta di usare una funzionalità di integrazione di Azure nell'interfaccia di amministrazione di Windows, verrà richiesto di registrare il gateway in Azure. È anche possibile registrare il gateway passando alla scheda **Azure** in impostazioni dell'interfaccia di amministrazione di Windows.
+La prima volta che si tenta di usare una funzionalità di integrazione di Azure nell'interfaccia di amministrazione di Windows, verrà richiesto di registrare il gateway in Azure. È anche possibile registrare il gateway passando alla scheda **Azure** in impostazioni dell'interfaccia di amministrazione di Windows. Si noti che solo gli amministratori del gateway Windows Admin Center possono registrare il gateway dell'interfaccia di amministrazione di Windows con Azure. [Altre informazioni sulle autorizzazioni utente e amministratore di Windows Admin Center](../configure/user-access-control.md#gateway-access-role-definitions).
 
 La procedura guidata nel prodotto creerà un'app Azure AD nella directory, che consente all'interfaccia di amministrazione di Windows di comunicare con Azure. Per visualizzare l'app Azure AD creata automaticamente, passare alla scheda **Azure** delle impostazioni dell'interfaccia di amministrazione di Windows. Il collegamento ipertestuale **Visualizza in Azure** consente di visualizzare l'app Azure AD nel portale di Azure. 
 
-L'app Azure AD creata viene usata per tutti i punti di integrazione di Azure nell'interfaccia di amministrazione di Windows, inclusa l' [autenticazione Azure ad per il gateway](../configure/user-access-control.md#azure-active-directory).
+L'app Azure AD creata viene usata per tutti i punti di integrazione di Azure nell'interfaccia di amministrazione di Windows, inclusa l' [autenticazione Azure ad per il gateway](../configure/user-access-control.md#azure-active-directory). Centro di amministrazione di Windows configura automaticamente le autorizzazioni necessarie per creare e gestire le risorse di Azure per conto dell'utente:
+
+- Azure Active Directory Graph
+    - Directory.AccessAsUser.All
+    - User.Read
+- Gestione servizi di Azure
+    - user_impersonation
+
+### <a name="manual-azure-ad-app-configuration"></a>Configurazione manuale dell'app Azure AD
+
+Se si vuole configurare manualmente un'app Azure AD, anziché usare l'app Azure AD creata automaticamente dall'interfaccia di amministrazione di Windows durante il processo di registrazione del gateway, è necessario eseguire le operazioni seguenti.
+
+1. Concedere all'app Azure AD le autorizzazioni API richieste sopra elencate. È possibile eseguire questa operazione passando all'app Azure AD nel portale di Azure. Passare alla portale di Azure > **Azure Active Directory** ** > registrazioni app > selezionare** l'app Azure ad che si vuole usare. Quindi alla scheda **autorizzazioni API** e aggiungere le autorizzazioni API elencate in precedenza.
+2. Aggiungere l'URL del gateway dell'interfaccia di amministrazione di Windows agli URL di risposta (noti anche come URI di reindirizzamento). Passare all'app Azure AD, quindi passare a **manifest**. Trovare la chiave "replyUrlsWithType" nel manifesto. All'interno della chiave aggiungere un oggetto contenente due chiavi: "URL" e "Type". La chiave "URL" deve avere un valore dell'URL del gateway dell'interfaccia di amministrazione di Windows, aggiungendo un carattere jolly alla fine. Il valore della chiave "Type" deve essere "Web". Ad esempio:
+
+    ```json
+    "replyUrlsWithType": [
+            {
+                    "url": "http://localhost:6516/*",
+                    "type": "Web"
+            }
+    ],
+    ```

@@ -1,22 +1,22 @@
 ---
-title: Stato Spazi di archiviazione diretta e stato operativo
+title: Spazi di archiviazione e Spazi di archiviazione diretta stato operativo
 description: Come trovare e comprendere i diversi Stati di integrità e operativi di Spazi di archiviazione diretta e spazi di archiviazione (inclusi i dischi fisici, i pool e i dischi virtuali) e le operazioni da eseguire su di essi.
 keywords: Spazi di archiviazione, scollegato, disco virtuale, disco fisico, danneggiato
 author: jasongerend
 ms.author: jgerend
-ms.date: 10/17/2018
+ms.date: 12/06/2019
 ms.topic: article
 ms.prod: windows-server
 ms.technology: storage-spaces
 manager: brianlic
-ms.openlocfilehash: 4b525555333a8aeee416e9ab55981c17137a52ea
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 40e820971f9d2ab0ba48fe30b100f07302ed7206
+ms.sourcegitcommit: e817a130c2ed9caaddd1def1b2edac0c798a6aa2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71365992"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74945274"
 ---
-# <a name="troubleshoot-storage-spaces-direct-health-and-operational-states"></a>Risolvere i problemi di Spazi di archiviazione diretta stato operativo
+# <a name="troubleshoot-storage-spaces-and-storage-spaces-direct-health-and-operational-states"></a>Risolvere i problemi relativi a spazi di archiviazione e Spazi di archiviazione diretta stato operativo
 
 > Si applica a: Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server (canale semestrale), Windows 10, Windows 8.1
 
@@ -52,9 +52,9 @@ Le sezioni seguenti elencano l'integrità e gli stati operativi.
 
 ### <a name="pool-health-state-healthy"></a>Stato di integrità del pool: integro
 
-|Stato operativo    |Descrizione|
-|---------            |---------  |
-|OK|Il pool di archiviazione è integro.|
+| Stato operativo    | Descrizione |
+| ---------            | ---------  |
+| OK | Il pool di archiviazione è integro. |
 
 ### <a name="pool-health-state-warning"></a>Stato di integrità del pool: avviso
 
@@ -70,7 +70,7 @@ Quando un pool di archiviazione si trova nello stato di integrità **sconosciuto
 
 |Stato operativo    |Motivo di sola lettura |Descrizione|
 |---------            |---------       |--------   |
-|Sola lettura|Incompleto|Questa situazione può verificarsi se il pool di archiviazione perde il proprio [quorum](understand-quorum.md), il che significa che la maggior parte delle unità nel pool non è riuscita o è offline per qualche motivo. Quando un pool perde il quorum, spazi di archiviazione imposta automaticamente la configurazione del pool in sola lettura fino a quando le unità non saranno più disponibili.<br><br>**Azione** <br>1. Riconnettere le unità mancanti e, se si usa Spazi di archiviazione diretta, portare online tutti i server. <br>2. impostare di nuovo il pool su lettura/scrittura aprendo una sessione di PowerShell con autorizzazioni amministrative e digitando:<br><br> <code>Get-StoragePool <PoolName> -IsPrimordial $False \| Set-StoragePool -IsReadOnly $false</code>|
+|Sola lettura|Incompleto|Questa situazione può verificarsi se il pool di archiviazione perde il proprio [quorum](understand-quorum.md), il che significa che la maggior parte delle unità nel pool non è riuscita o è offline per qualche motivo. Quando un pool perde il quorum, spazi di archiviazione imposta automaticamente la configurazione del pool in sola lettura fino a quando le unità non saranno più disponibili.<br><br>**Azione:** <br>1. Riconnettere le unità mancanti e, se si usa Spazi di archiviazione diretta, portare online tutti i server. <br>2. impostare di nuovo il pool su lettura/scrittura aprendo una sessione di PowerShell con autorizzazioni amministrative e digitando:<br><br> <code>Get-StoragePool <PoolName> -IsPrimordial $False \| Set-StoragePool -IsReadOnly $false</code>|
 ||Condizione|Un amministratore ha impostato il pool di archiviazione in modalità di sola lettura.<br><br>**Azione:** Per impostare un pool di archiviazione in cluster per l'accesso in lettura/scrittura in Gestione cluster di failover, passare a **pool**, fare clic con il pulsante destro del mouse sul pool, quindi scegliere **porta online**.<br><br>Per gli altri server e PC, aprire una sessione di PowerShell con autorizzazioni amministrative e quindi digitare:<br><br><code>Get-StoragePool <PoolName> \| Set-StoragePool -IsReadOnly $false</code><br><br> |
 ||Starting|È in corso l'avvio di spazi di archiviazione o l'attesa della connessione delle unità nel pool. Si tratta di uno stato temporaneo. Una volta avviato completamente, il pool deve passare a uno stato operativo diverso.<br><br>**Azione:** Se il pool rimane nello stato *iniziale* , verificare che tutte le unità del pool siano connesse correttamente.|
 
@@ -110,7 +110,7 @@ Quando il disco virtuale si trova in uno stato di **avviso** , significa che una
 
 |Stato operativo    |Descrizione|
 |---------            |---------          |
-|Nel servizio            |Windows sta ripristinando il disco virtuale, ad esempio dopo l'aggiunta o la rimozione di un'unità. Al termine della riparazione, il disco virtuale dovrebbe tornare allo stato di integrità OK.|
+|In servizio            |Windows sta ripristinando il disco virtuale, ad esempio dopo l'aggiunta o la rimozione di un'unità. Al termine della riparazione, il disco virtuale dovrebbe tornare allo stato di integrità OK.|
 |Incompleto           |La resilienza del disco virtuale è ridotta perché una o più unità hanno avuto esito negativo o sono mancanti. Tuttavia, le unità mancanti contengono copie aggiornate dei dati.<br><br> **Azione**: <br>1. Riconnettere le unità mancanti, sostituire eventuali unità non riuscite e, se si usa Spazi di archiviazione diretta, portare online tutti i server offline. <br>2. se non si usa Spazi di archiviazione diretta, ripristinare il disco virtuale usando il cmdlet [Repair-VirtualDisk](https://technet.microsoft.com/itpro/powershell/windows/storage/repair-virtualdisk) .<br> Spazi di archiviazione diretta avvia automaticamente un ripristino se necessario dopo la riconnessione o la sostituzione di un'unità.|
 |Ridotto             |La resilienza del disco virtuale è ridotta perché una o più unità hanno avuto esito negativo o sono mancanti ed è presente una copia obsoleta dei dati in queste unità. <br><br>**Azione**: <br> 1. Riconnettere le unità mancanti, sostituire eventuali unità non riuscite e, se si usa Spazi di archiviazione diretta, portare online tutti i server offline. <br> 2. se non si usa Spazi di archiviazione diretta, ripristinare il disco virtuale usando il cmdlet [Repair-VirtualDisk](https://technet.microsoft.com/itpro/powershell/windows/storage/repair-virtualdisk) . <br>Spazi di archiviazione diretta avvia automaticamente un ripristino se necessario dopo la riconnessione o la sostituzione di un'unità.|
 
@@ -142,7 +142,7 @@ Le sezioni seguenti descrivono gli Stati di integrità in cui può trovarsi un'u
 |Stato operativo    |Descrizione|
 |---------            |---------          |
 |OK|L'unità è integra.|
-|Nel servizio|L'unità esegue alcune operazioni interne di manutenzione. Al termine dell'azione, l'unità dovrebbe tornare allo stato di integrità *OK* .|
+|In servizio|L'unità esegue alcune operazioni interne di manutenzione. Al termine dell'azione, l'unità dovrebbe tornare allo stato di integrità *OK* .|
 
 ### <a name="drive-health-state-warning"></a>Stato di integrità dell'unità: avviso
 
@@ -151,7 +151,7 @@ Un'unità nello stato di avviso può leggere e scrivere dati correttamente, ma p
 |Stato operativo    |Descrizione|
 |---------            |---------          |
 |Comunicazione persa|Unità mancante. Se si usa Spazi di archiviazione diretta, il problema potrebbe essere dovuto al fatto che un server è inattivo.<br><br>**Azione**: se si usa spazi di archiviazione diretta, riportare tutti i server online. Se il problema persiste, riconnettere l'unità, sostituirla o provare a ottenere informazioni di diagnostica dettagliate su questa unità attenendosi alla procedura descritta nella sezione risoluzione dei problemi con Segnalazione errori Windows > si è [verificato un timeout del disco fisico](../../failover-clustering/troubleshooting-using-wer-reports.md#physical-disk-timed-out).|
-|Rimozione dal pool|Lo spazio di archiviazione è in corso di rimozione dell'unità dal pool di archiviazione. <br><br> Si tratta di uno stato temporaneo. Una volta completata la rimozione, se l'unità è ancora collegata al sistema, l'unità passa a un altro stato operativo, in genere OK, in un pool primordiale.|
+|Rimozione dal pool|Lo spazio di archiviazione è in corso di rimozione dell'unità dal pool di archiviazione. <br><br> Questo stato è temporaneo. Una volta completata la rimozione, se l'unità è ancora collegata al sistema, l'unità passa a un altro stato operativo, in genere OK, in un pool primordiale.|
 |Avvio della modalità di manutenzione|Spazi di archiviazione è in corso di inserimento dell'unità in modalità manutenzione dopo che un amministratore ha attivato la modalità manutenzione per l'unità. Si tratta di uno stato temporaneo. l'unità dovrebbe presto trovarsi nello stato *modalità manutenzione* .|
 |In modalità manutenzione|Un amministratore ha inserito l'unità in modalità di manutenzione, bloccando le letture e le Scritture dall'unità. Questa operazione viene in genere eseguita prima di aggiornare il firmware dell'unità o quando si verificano errori.<br><br>**Azione**: per disattivare la modalità di manutenzione dell'unità, usare il cmdlet [Disable-StorageMaintenanceMode](https://technet.microsoft.com/itpro/powershell/windows/storage/disable-storagemaintenancemode) .|
 |Arresto della modalità di manutenzione|La modalità di manutenzione è stata disattivata da un amministratore e spazi di archiviazione è in corso per riportare online l'unità. Si tratta di uno stato temporaneo. l'unità dovrebbe presto trovarsi in un altro stato, idealmente *integro*.|
@@ -167,7 +167,7 @@ Non è attualmente possibile scrivere o accedere a un'unità nello stato non int
 |Stato operativo    |Descrizione|
 |---------            |---------          |
 |Non utilizzabile|Questa unità non può essere usata da spazi di archiviazione. Per altre informazioni, vedere [spazi di archiviazione diretta requisiti hardware](storage-spaces-direct-hardware-requirements.md); Se non si usa Spazi di archiviazione diretta, vedere [Panoramica di spazi di archiviazione](https://technet.microsoft.com/library/hh831739(v=ws.11).aspx#Requirements).|
-|Split|L'unità è stata separata dal pool.<br><br>**Azione**: ripristinare l'unità, cancellando tutti i dati dall'unità e aggiungendoli di nuovo al pool come unità vuota. A tale scopo, aprire una sessione di PowerShell come amministratore, eseguire il cmdlet [Reset-PhysicalDisk](https://technet.microsoft.com/itpro/powershell/windows/storage/reset-physicaldisk) , quindi eseguire [Repair-VirtualDisk](https://technet.microsoft.com/itpro/powershell/windows/storage/repair-virtualdisk). <br><br>Per ottenere informazioni di diagnostica dettagliate su questa unità, seguire i passaggi descritti in risoluzione dei problemi utilizzando Segnalazione errori Windows > [disco fisico non è stato possibile portare online](../../failover-clustering/troubleshooting-using-wer-reports.md#physical-disk-failed-to-come-online).|
+|divisione|L'unità è stata separata dal pool.<br><br>**Azione**: ripristinare l'unità, cancellando tutti i dati dall'unità e aggiungendoli di nuovo al pool come unità vuota. A tale scopo, aprire una sessione di PowerShell come amministratore, eseguire il cmdlet [Reset-PhysicalDisk](https://technet.microsoft.com/itpro/powershell/windows/storage/reset-physicaldisk) , quindi eseguire [Repair-VirtualDisk](https://technet.microsoft.com/itpro/powershell/windows/storage/repair-virtualdisk). <br><br>Per ottenere informazioni di diagnostica dettagliate su questa unità, seguire i passaggi descritti in risoluzione dei problemi utilizzando Segnalazione errori Windows > [disco fisico non è stato possibile portare online](../../failover-clustering/troubleshooting-using-wer-reports.md#physical-disk-failed-to-come-online).|
 |Metadati non aggiornati|Negli spazi di archiviazione sono stati trovati metadati obsoleti sull'unità.<br><br>**Azione**: dovrebbe essere uno stato temporaneo. Se l'unità non esegue la transizione a OK, è possibile eseguire [Repair-VirtualDisk](https://technet.microsoft.com/itpro/powershell/windows/storage/repair-virtualdisk) per avviare un'operazione di ripristino sui dischi virtuali interessati. Se il problema persiste, è possibile reimpostare l'unità con il cmdlet [Reset-PhysicalDisk](https://technet.microsoft.com/itpro/powershell/windows/storage/reset-physicaldisk) , cancellare tutti i dati dall'unità, quindi eseguire [Repair-VirtualDisk](https://technet.microsoft.com/itpro/powershell/windows/storage/repair-virtualdisk).|
 |Metadati non riconosciuti|Negli spazi di archiviazione sono stati trovati metadati non riconosciuti sull'unità, che in genere significa che l'unità contiene metadati di un pool diverso.<br><br>**Azione**: per eliminare l'unità e aggiungerla al pool corrente, reimpostare l'unità. Per reimpostare l'unità, aprire una sessione di PowerShell come amministratore, eseguire il cmdlet [Reset-PhysicalDisk](https://technet.microsoft.com/itpro/powershell/windows/storage/reset-physicaldisk) , quindi eseguire [Repair-VirtualDisk](https://technet.microsoft.com/itpro/powershell/windows/storage/repair-virtualdisk).|
 |Supporti non riusciti|L'unità non è riuscita e non verrà più usata da spazi di archiviazione.<br><br>**Azione**: sostituire l'unità. <br><br>Per ottenere informazioni di diagnostica dettagliate su questa unità, seguire i passaggi descritti in risoluzione dei problemi utilizzando Segnalazione errori Windows > [disco fisico non è stato possibile portare online](../../failover-clustering/troubleshooting-using-wer-reports.md#physical-disk-failed-to-come-online).|
