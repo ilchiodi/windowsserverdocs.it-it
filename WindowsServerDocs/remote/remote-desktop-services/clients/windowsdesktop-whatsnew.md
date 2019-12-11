@@ -11,14 +11,14 @@ ms.topic: article
 author: heidilohr
 manager: daveba
 ms.author: helohr
-ms.date: 11/20/2019
+ms.date: 12/04/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 54994aad08c2f428b429082ed450235ed8bbe7e7
-ms.sourcegitcommit: 244b89505c5131dfdb90628857cc7e31741c84c2
+ms.openlocfilehash: 5526d401ba26cabcaccfc0b88df9b0e69f8149a5
+ms.sourcegitcommit: 3d76683718ec6f38613f552f518ebfc6a5db5401
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74265921"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74829603"
 ---
 # <a name="whats-new-in-the-windows-desktop-client"></a>Novità del client desktop di Windows
 
@@ -30,17 +30,21 @@ Il client può essere configurato per [gruppi di utenti](windowsdesktop-admin.md
 
 |Gruppo di utenti |Versione  |
 |-----------|---------|
-|Public     |1.2.431  |
-|Insider    |1.2.524  |
+|Public     |1.2.535  |
+|Insider    |1.2.535  |
 
-## <a name="updates-for-version-12524"></a>Aggiornamenti per la versione 1.2.524
+## <a name="updates-for-version-12535"></a>Aggiornamenti per la versione 1.2.535
 
-*Data di pubblicazione: 20/11/2019*
+*Data di pubblicazione: 04/12/2019*
 
-Download: [Windows 64-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4e7Nj), [Windows 32-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4dZCo), [Windows ARM64](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4dX1s)
+Download: [Windows 64-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4k7jH), [Windows 32-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4k7jL), [Windows ARM64](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4k27O)
 
 - Puoi ora accedere alle informazioni sugli aggiornamenti direttamente con il pulsante Altre opzioni nella barra dei comandi nella parte superiore del client.
 - Puoi ora lasciare un feedback dalla barra dei comandi del client.
+- L'opzione Feedback viene ora visualizzata solo se è disponibile Hub di Feedback.
+- È stato verificato che la notifica di aggiornamento non venga visualizzata quando le notifiche sono state disabilitate tramite criteri.
+- È stato corretto un errore che impediva l'avvio di alcuni file RDP.
+- È stato corretto l'arresto anomalo del sistema all'avvio del client causato dal danneggiamento di alcune impostazioni permanenti.
 
 ## <a name="updates-for-version-12431"></a>Aggiornamenti per la versione 1.2.431
 

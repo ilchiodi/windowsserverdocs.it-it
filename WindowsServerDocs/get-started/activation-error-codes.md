@@ -8,12 +8,12 @@ ms.assetid: ''
 author: kaushika-msft
 ms.author: kaushika-msft; v-tea
 ms.localizationpriority: medium
-ms.openlocfilehash: 26b107264c9dfaca16ef445760089b8ac0ae8e22
-ms.sourcegitcommit: 9855d6b59b1f8722f39ae74ad373ce1530da0ccf
+ms.openlocfilehash: d4d9a8917bf455d8ed84207e2f9ecc6d13d01c3d
+ms.sourcegitcommit: b18ee742662b24b25d29ef1079b1c49f220f1d57
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71960966"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74691869"
 ---
 # <a name="resolve-windows-activation-error-codes"></a>Risolvere i codici di errore di attivazione di Windows
 
@@ -22,11 +22,19 @@ ms.locfileid: "71960966"
 
 Questo articolo fornisce informazioni per la risoluzione dei problemi per rispondere ai messaggi di errore che puoi ricevere quando tenti di usare un codice ad attivazione multipla (MAK) o il Servizio di gestione delle chiavi per eseguire l'attivazione di contratti multilicenza in uno o più computer basati su Windows. Cerca il codice di errore nella tabella seguente e quindi seleziona il collegamento per visualizzare altre informazioni sul codice di errore e su come risolverlo.
 
-Per altre informazioni sull'attivazione dei contratti multilicenza, vedi [Pianificare l'attivazione dei contratti multilicenza](https://docs.microsoft.com/en-us/windows/deployment/volume-activation/plan-for-volume-activation-client).
+Per altre informazioni sull'attivazione dei contratti multilicenza, vedi [Pianificare l'attivazione dei contratti multilicenza](https://docs.microsoft.com/windows/deployment/volume-activation/plan-for-volume-activation-client).
 
 Per altre informazioni sull'attivazione dei contratti multilicenza per le versioni correnti e recenti di Windows, vedi [Attivazione dei contratti multilicenza [client]](https://docs.microsoft.com/windows/deployment/volume-activation/volume-activation-windows-10).
 
 Per altre informazioni sull'attivazione dei contratti multilicenza per le versioni precedenti di Windows, vedi l'articolo 929712 della Knowledge Base  [Informazioni sull'attivazione dei contratti multilicenza per Windows Vista, Windows Server 2008, Windows Server 2008 R2 e Windows 7](https://support.microsoft.com/en-us/help/929712/volume-activation-information-for-windows-vista-windows-server-2008-wi).
+
+## <a name="diagnostic-tool"></a>Strumento di diagnostica
+
+L'Assistente di supporto e ripristino di Microsoft semplifica la risoluzione dei problemi relativi all'attivazione mediante il Servizio di gestione delle chiavi di Windows. Scarica lo strumento di diagnostica da [qui](https://aka.ms/SaRA-WindowsActivation).
+
+Questo strumento proverà ad attivare Windows. Se viene restituito un codice di errore di attivazione, verranno visualizzate soluzioni mirate per i codici di errore conosciuti.
+
+Sono supportati i codici di errore seguenti: 0xC004F038, 0xC004F039, 0xC004F041, 0xC004F074, 0xC004C008.
 
 ## <a name="summary-of-error-codes"></a>Riepilogo dei codici di errore
 

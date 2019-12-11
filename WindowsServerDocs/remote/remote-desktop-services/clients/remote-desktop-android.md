@@ -12,14 +12,14 @@ ms.assetid: 64f038e1-40ec-4c67-938b-72edea49e5d8
 author: heidilohr
 manager: daveba
 ms.author: helohr
-ms.date: 09/16/2019
+ms.date: 12/02/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 829608ae1a4c6b78b3b191f248ed4a4195500669
-ms.sourcegitcommit: de71970be7d81b95610a0977c12d456c3917c331
+ms.openlocfilehash: a1349f1181cdf2ead51a263a3ba62c1789c76b3b
+ms.sourcegitcommit: cbf0c7c37797c22af989639fac82fc0eee94497f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71940719"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74700164"
 ---
 # <a name="get-started-with-the-android-client"></a>Introduzione al client Android
 
@@ -33,7 +33,7 @@ Segui le informazioni riportate di seguito per iniziare. In caso di dubbi, vedi 
 > - Vuoi informazioni sulle nuove versioni per il client Android? Vedi [Novità del client Android](android-whatsnew.md).
 > - Il client Android supporta i dispositivi che eseguono Android 4.1 e versioni successive, nonché Chromebook con ChromeOS 53 e versioni successive. Altre informazioni sulle applicazioni Android in Chrome sono disponibili [qui](https://sites.google.com/a/chromium.org/dev/chromium-os/chrome-os-systems-supporting-android-apps).
 
-## <a name="get-the-remote-desktop-client-and-start-using-it"></a>Ottenere il client Desktop remoto e iniziare a usarlo
+## <a name="set-up-the-remote-desktop-client-for-android"></a>Configurare il client Desktop remoto per Android
 
 ### <a name="download-the-remote-desktop-client-from-the-google-play-store"></a>Scarica il client Desktop remoto da Google Play Store.
 
@@ -44,7 +44,7 @@ Di seguito viene illustrato come configurare il client Desktop remoto in un disp
 3. Aggiungi una [connessione Desktop remoto](#add-a-remote-desktop-connection) o [risorse remote](#add-remote-resources). Una connessione ti consente di connetterti direttamente a un PC Windows, mentre le risorse remote ti consentono di accedere alle app e ai desktop pubblicati da un amministratore.
 
 > [!NOTE]
-> Se vuoi provare le nuove funzionalità in anteprima, puoi scaricare il client [Microsoft Remote Desktop Beta](https://play.google.com/store/apps/details?id=com.microsoft.rdc.android.beta) da Google Play Store.
+> Se vuoi testare le nuove funzionalità prima del rilascio, ti consigliamo di scaricare il client [Microsoft Remote Desktop Beta](https://play.google.com/store/apps/details?id=com.microsoft.rdc.android.beta) da Google Play Store.
 
 ### <a name="add-a-remote-desktop-connection"></a>Aggiungere una connessione Desktop remoto
 
@@ -67,9 +67,9 @@ Per creare una connessione Desktop remoto:
    - **Redirect local storage** (Reindirizza archiviazione locale) consente il reindirizzamento dell'archiviazione locale. Questa opzione è disabilitata per impostazione predefinita.
 5. Al termine, tocca **Salva**.
 
-È necessario modificare queste impostazioni? Tocca il menu extra ( **...** ) accanto al nome del desktop e quindi **Modifica**.
+È necessario modificare queste impostazioni? Tocca il menu **Altre opzioni** ( **...** ) accanto al nome del desktop e quindi **Modifica**.
 
-Vuoi rimuovere la connessione? Tocca di nuovo il menu extra ( **...** ) e quindi **Rimuovi**.
+Vuoi rimuovere la connessione? Tocca di nuovo il menu **Altre opzioni** ( **...** ) e quindi **Rimuovi**.
 
 >[!TIP]
 > Se viene visualizzato l'errore 0xf07 relativo a una password errata ("La connessione al PC remoto non è riuscita perché la password associata all'account utente è scaduta"), modifica la password e riprova.
@@ -78,7 +78,7 @@ Vuoi rimuovere la connessione? Tocca di nuovo il menu extra ( **...** ) e quindi
 
 Le risorse remote sono programmi RemoteApp, desktop basati su sessione e desktop virtuali pubblicati dall'amministratore. Il client Android supporta le risorse pubblicate dalle distribuzioni di **Servizi Desktop remoto** e **Desktop virtuale Windows**. Per aggiungere risorse remote:
 
-1. Nel Centro connessioni tocca **+** e quindi **Remote Resource Feed** (Feed risorse remote).
+1. In Connection Center (Centro connessioni) tocca **+** e quindi **Remote Resource Feed** (Feed risorse remote).
 2. Immetti un valore in **Feed URL** (URL del feed). Può essere un URL o un indirizzo e-mail:
    - Il valore di **URL** corrisponde al server di Accesso Web Desktop remoto fornito dall'amministratore. Se accedi alle risorse da Desktop virtuale Windows, puoi usare `https://rdweb.wvd.microsoft.com`.
    - Se prevedi di usare **Email**, immetti l'indirizzo e-mail in questo campo. In questo modo indichi al client di cercare un server di Accesso Web Desktop remoto associato all'indirizzo e-mail, se configurato dall'amministratore.
@@ -97,13 +97,13 @@ Per Rimuovere le risorse remote:
 2. Toccare **rimuovere**.
 3. Conferma la rimozione.
 
-### <a name="widgets--pin-a-saved-desktop-to-your-home-screen"></a>Widget – Pin un desktop salvato nella schermata iniziale
+### <a name="use-a-widget-to-pin-a-saved-desktop-to-your-home-screen"></a>Usare un widget per aggiungere un desktop salvato alla schermata iniziale
 
 Il client Desktop remoto supporta l'aggiunta di connessioni alla schermata iniziale tramite la funzionalità widget di Android. La procedura per aggiungere un widget dipende dal tipo di dispositivo Android in uso e al sistema operativo. Ecco il modo più comune per aggiungere un widget:
 
 1. Tocca **App** per avviare il menu delle app.
 2. Tocca **Widget**.
-3. Scorri tra i widget e cerca l'icona di Desktop remoto con la descrizione "Pin Remote Desktop" (Blocca Desktop remoto).
+3. Scorri tra i widget e cerca l'icona Desktop remoto con la descrizione seguente: "Pin Remote Desktop" (Aggiungi Desktop remoto).
 4. Tenendo premuta widget Desktop remoto e spostarlo sullo schermo principale.
 5. Rilasciando l'icona, visualizzerai i desktop remoti salvati. Scegliere la connessione che si desidera salvare nella schermata iniziale.
 
@@ -114,14 +114,14 @@ Ora è possibile avviare la connessione desktop remoto direttamente dalla scherm
 
 ## <a name="manage-general-app-settings"></a>Gestire le impostazioni delle app generali
 
-Per modificare le impostazioni delle app generali, tocca **Impostazioni** e quindi **Generale** nel Centro connessioni.
+Per modificare le impostazioni generali dell'app, vai a Connection Center (Centro connessioni), tocca **Impostazioni** e quindi **Generale**.
 
 Puoi definire le impostazioni generali seguenti:
 
 - **Show Desktop Previews** (Mostra anteprime desktop): ti consente di visualizzare un'anteprima di un desktop nel Centro connessioni prima della connessione. Questa opzione è attivata per impostazione predefinita.
 - **Pinch to zoom remote session** (Avvicina le dita per eseguire lo zoom della sessione remota): ti consente di usare i movimenti di avvicinamento delle dita per fare lo zoom. Se l'app che usi tramite Desktop remoto supporta il multitouch (introdotto in Windows 8), disabilita questa funzionalità.
 - Abilita **Use scancode input when available** (Usa input codice tasto quando disponibile) se l'app remota non risponde correttamente all'input da tastiera inviato come codice tasto. Se questa opzione è disabilitata, l'input viene inviato come Unicode.
-- **Help improve Remote Desktop** (Contribuisci al miglioramento di Desktop remoto): invia dati anonimi a Microsoft. Questi dati vengono usati per migliorare il client. Per altre informazioni su come vengono gestiti questi dati anonimi privati, vedi l'[Informativa sulla privacy di Microsoft](https://privacy.microsoft.com/privacystatement). Questa opzione è attivata per impostazione predefinita.
+- **Help improve Remote Desktop** (Contribuisci al miglioramento di Desktop remoto): invia dati anonimi a Microsoft relativi al modo con cui usi Desktop remoto per Android. Questi dati vengono usati per migliorare il client. Per altre informazioni sull'informativa sulla privacy e sui tipi di dati raccolti, vedi l'[Informativa sulla privacy di Microsoft](https://privacy.microsoft.com/privacystatement). Questa opzione è attivata per impostazione predefinita.
 
 ## <a name="manage-display-settings"></a>Gestire le impostazioni dello schermo
 
@@ -130,28 +130,30 @@ Per modificare le impostazioni dello schermo, tocca **Impostazioni** e quindi **
 Puoi definire le impostazioni dello schermo seguenti:
 
 - **Orientamento**: consente di impostare l'orientamento preferito (orizzontale o verticale) per la sessione.
+  
   >[!NOTE]
-  > Se ti connetti a un PC che esegue Windows 8 o una versione precedente di Windows, la sessione non verrà ridimensionata correttamente se cambia l'orientamento del dispositivo. La soluzione migliore consiste nel disconnetterti dal PC e quindi riconnetterti con l'orientamento desiderato. L'ideale sarebbe aggiornare il PC a Windows 10.
+  > Se ti connetti a un PC che esegue Windows 8 o una versione precedente, la sessione non verrà ridimensionata correttamente se cambia l'orientamento del dispositivo. Per un corretto ridimensionamento del client, disconnettiti dal PC e quindi riconnettiti con l'orientamento desiderato. Puoi garantire un corretto ridimensionamento anche usando un PC con Windows 10.
 
 - **Risoluzione**: consente di impostare la risoluzione remota da usare per le connessioni desktop a livello globale. Se hai già impostato una risoluzione personalizzata per una singola connessione, questa impostazione non modificherà tale risoluzione.
+  
   >[!NOTE]
-  >Quando modifichi una delle impostazioni di visualizzazione, le nuove impostazioni vengono applicate solo alle nuove connessioni stabilite. Per visualizzare la modifica in una sessione a cui ti sei già connesso, disconnettiti e quindi connettiti di nuovo.
+  >Quando modifichi le impostazioni dello schermo, tali modifiche si applicano solo alle nuove connessioni effettuate dopo la modifica dell'impostazione. Per applicare le modifiche alla sessione a cui sei attualmente connesso, aggiorna la sessione disconnettendoti e riconnettendoti.
 
 ## <a name="manage-your-rd-gateways"></a>Gestire Gateway Desktop remoto
 
 Gateway Desktop remoto ti consente di connetterti a un computer remoto in una rete privata da qualsiasi posizione su Internet. È possibile creare e gestire il gateway tramite il client Desktop remoto.
 
-Per impostare un nuovo gateway:
+Per configurare un nuovo Gateway Desktop remoto:
 
 1. Nel Centro connessioni tocca **Impostazioni** e quindi **Gateways** (Gateway).
-1. Toccare **+** per aggiungere un nuovo gateway.
-1. Immettere le informazioni seguenti:
+2. Toccare **+** per aggiungere un nuovo gateway.
+3. Immettere le informazioni seguenti:
    - Immetti il nome del computer da usare come gateway in **Nome server**. Puoi usare il nome di un computer Windows, un nome di dominio Internet o un indirizzo IP. Puoi anche aggiungere informazioni sulla porta al nome del server (ad esempio: RDGateway:443 o 10.0.0.1:443).
    - Seleziona l'**account utente** che userai per accedere a Gateway Desktop remoto.
      - Seleziona **Use desktop user account** (Usa account utente desktop) per usare le stesse credenziali specificate per il PC remoto.
-     - Seleziona **Add User Account** (Aggiungi account utente) per salvare un account usato di frequente, evitando così di dover immettere le credenziali ogni volta che esegui l'accesso. Segui queste istruzioni per [gestire gli account utente](#manage-your-user-accounts).
+     - Seleziona **Add User Account** (Aggiungi account utente) per salvare un account usato di frequente, evitando così di dover immettere le credenziali ogni volta che esegui l'accesso. Per altre informazioni, vedi [Gestire gli account utente](#manage-your-user-accounts).
 
-Per eliminare un gateway:
+Per eliminare un Gateway Desktop remoto:
 
 1. Nel Centro connessioni tocca **Impostazioni** e quindi **Gateways** (Gateway).
 2. Toccare e tenere un gateway nell'elenco per selezionarlo. Puoi selezionare più gateway contemporaneamente.
@@ -159,9 +161,9 @@ Per eliminare un gateway:
 
 ## <a name="manage-your-user-accounts"></a>Gestire gli account utente
 
-Quando ci si connette a una risorsa remota o desktop, è possibile salvare gli account utente per selezionare nuovamente.
+Puoi salvare gli account utente da usare ogni volta che ti connetti a un desktop remoto o a risorse remote.
 
-Per creare un nuovo account utente:
+Per salvare un account utente:
 
 1. Nel Centro connessioni, toccare **impostazioni**, e quindi toccare **gli account utente**.
 2. Toccare **+** per aggiungere un nuovo account utente.
@@ -170,20 +172,20 @@ Per creare un nuovo account utente:
    - **Password**: la password per l'utente specificato. Ogni account utente che si desidera salvare da utilizzare per le connessioni remote deve avere una password associata.
 4. Al termine, tocca **Salva**.
 
-Per eliminare un account utente:
+Per eliminare un account utente salvato:
 
 1. Nel Centro connessioni, toccare **impostazioni**, e quindi toccare **gli account utente**.
-2. Toccare e tenere un account utente nell'elenco per selezionarlo. È possibile selezionare più utenti.
+2. Toccare e tenere un account utente nell'elenco per selezionarlo. Puoi selezionare più utenti contemporaneamente.
 3. Toccare il Cestino per eliminare l'utente selezionato.
 
 ## <a name="navigate-the-remote-desktop-session"></a>Esplorare la sessione Desktop remoto
 
-Quando si avvia una connessione desktop remoto, sono disponibili strumenti che è possibile utilizzare per passare la sessione.
+Ecco una breve introduzione su come aprire ed esplorare la sessione di Desktop remoto.
 
 ### <a name="start-a-remote-desktop-connection"></a>Avviare una connessione Desktop remoto
 
-1. Tocca la connessione Desktop remoto per avviare la sessione.
-2. Se viene chiesto di verificare il certificato per il desktop remoto, tocca **Connetti**. È inoltre possibile selezionare **non visualizzare più questo messaggio per le connessioni al computer** sempre accettare il certificato.
+1. Tocca **il nome della connessione Desktop remoto** per avviare la sessione.
+2. Se viene chiesto di verificare il certificato per il desktop remoto, tocca **Connetti**. Puoi anche selezionare **Non visualizzare più questo messaggio per le connessioni a questo computer** per accettare il certificato per impostazione predefinita.
 
 ### <a name="connection-bar"></a>Barra delle connessioni
 
@@ -200,7 +202,7 @@ Consente di barra di connessione di accedere ai controlli di spostamento aggiunt
 
 È possibile avere più connessioni aperti per più computer contemporaneamente. Toccare la barra delle connessioni per visualizzare la barra di selezione di sessione sul lato sinistro della schermata. La barra di selezione di sessione ti consente di visualizzare le connessioni aperte e di passare da una all'altra.
 
-Quando sei connesso a risorse remote, puoi passare da un'app all'altra all'interno di tale sessione toccando il menu di espansione **>** e scegliendo un elemento dall'elenco di elementi disponibili.
+Quando sei connesso a risorse remote, puoi passare da un'app all'altra all'interno di tale sessione toccando il menu di espansione ( **>** ) e scegliendo un elemento dall'elenco di elementi disponibili.
 
 Per avviare una nuova sessione nell'ambito della connessione corrente, tocca **Avvia nuova** e quindi scegli un elemento dall'elenco degli elementi disponibili.
 

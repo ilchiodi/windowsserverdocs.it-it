@@ -6,12 +6,12 @@ contributor: maertendMSFT
 author: maertendMSFT
 title: Configurazione del server OpenSSH per Windows
 ms.product: w10
-ms.openlocfilehash: ed9f3653c79f1329b1334f52fe14c1184bc99539
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: fa3d40617a04c092403d9d2e018bd2eb82d20cd9
+ms.sourcegitcommit: effbc183bf4b370905d95c975626c1ccde057401
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70866864"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74781318"
 ---
 # <a name="openssh-key-management"></a>Gestione delle chiavi OpenSSH
 
@@ -135,7 +135,7 @@ Dopo aver completato questi passaggi, ogni volta che è necessaria una chiave pr
 
 ## <a name="deploying-the-public-key"></a>Distribuzione della chiave pubblica
 
-Per usare la chiave utente creata in precedenza, è necessario inserire la chiave pubblica nel server in un file di testo denominato *authorized_keys* in users\username\ssh. Per facilitare questa operazione, gli strumenti OpenSSH includono scp, un'utilità di trasferimento file sicura.
+Per usare la chiave utente creata in precedenza, è necessario inserire la chiave pubblica nel server in un file di testo denominato *authorized_keys* in users\username\.ssh\.. Per facilitare questa operazione, gli strumenti OpenSSH includono scp, un'utilità di trasferimento file sicura.
 
 Sposta il contenuto della chiave pubblica (~\.ssh\id_ed25519.pub) in un file di testo denominato authorized_keys in ~\.ssh\ su server/host.
 

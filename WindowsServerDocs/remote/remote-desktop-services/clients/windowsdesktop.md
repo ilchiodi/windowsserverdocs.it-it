@@ -11,18 +11,18 @@ ms.topic: article
 author: heidilohr
 manager: daveba
 ms.author: helohr
-ms.date: 11/12/2019
+ms.date: 11/18/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 2f786a1db0854ae89c1ceb23942793deb7f608e1
-ms.sourcegitcommit: 315f015102c42c6fa7694e76adecdfb448390391
+ms.openlocfilehash: e71aa2b1cccda85e0bf6f8a80ad68013346b30d4
+ms.sourcegitcommit: 3d76683718ec6f38613f552f518ebfc6a5db5401
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74019606"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74829614"
 ---
 # <a name="get-started-with-the-windows-desktop-client"></a>Introduzione al client desktop di Windows
 
->Si applica a: Windows 10 e Windows 7
+>Si applica a: Windows 10, Windows 10 IoT Enterprise e Windows 7
 
 Puoi usare il client Desktop remoto per il desktop di Windows per accedere a desktop e app di Windows in remoto da un altro dispositivo Windows.
 
@@ -33,7 +33,7 @@ Puoi usare il client Desktop remoto per il desktop di Windows per accedere a des
 
 ## <a name="install-the-client"></a>Installare il client
 
-Scegli il client che corrisponde alla tua versione di Windows:
+Scegli il client corrispondente alla versione di Windows. Il nuovo client Desktop remoto (MSRDC) supporta dispositivi client Windows 10, Windows 10 IoT Enterprise e Windows 7. 
 
 - [Windows a 64 bit](https://go.microsoft.com/fwlink/?linkid=2068602)
 - [Windows a 32 bit](https://go.microsoft.com/fwlink/?linkid=2098960)
