@@ -10,12 +10,12 @@ author: jasongerend
 ms.author: jgerend
 manager: dougkim
 ms.localizationpriority: medium
-ms.openlocfilehash: b3f531325c338224d7ac69e46a9d16c9d236ee87
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 5e13886395040619a7509c3cf896112288c48115
+ms.sourcegitcommit: e817a130c2ed9caaddd1def1b2edac0c798a6aa2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71360364"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74945211"
 ---
 # <a name="features-removed-or-deprecated-in--windows-server-2016"></a>Funzionalità rimosse o deprecate in Windows Server 2016
 
@@ -79,7 +79,7 @@ Le seguenti caratteristiche e funzionalità sono deprecate a partire da questa v
 
 -   **Scregedit.exe** è deprecato. Se si dispone di script che dipendono da Scregedit.exe, modificarli in modo da usare i metodi Reg.exe o Windows PowerShell.  
 
--   **Sconfig.exe** è deprecato. Usare invece Windows PowerShell.  
+-   **Sconfig.exe** è deprecato. Usare invece [Sconfig.cmd](https://docs.microsoft.com/windows-server/get-started/sconfig-on-ws2016). 
 
 ### <a name="netcfg-custom-apis"></a>API personalizzate di NetCfg
 
