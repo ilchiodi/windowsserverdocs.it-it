@@ -8,12 +8,12 @@ ms.author: jgerend
 ms.technology: storage
 ms.date: 09/10/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: 6c54fee98247b1ce0aa3ef3a2502cf18f314e763
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: edf714bc0d6b39dbe7c5e800e953d7820fe9abc5
+ms.sourcegitcommit: bfe9c5f7141f4f2343a4edf432856f07db1410aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71394372"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75352604"
 ---
 # <a name="enable-optimized-moves-of-redirected-folders"></a>Abilita spostamento ottimizzato di cartelle reindirizzate
 
@@ -30,7 +30,7 @@ Lo spostamento ottimizzato prevede i requisiti seguenti:
 - Il reindirizzamento cartelle deve essere configurato. Per ulteriori informazioni, vedere la pagina relativa alla [distribuzione del reindirizzamento cartelle con file offline](deploy-folder-redirection.md).
 - I computer client devono eseguire Windows 10, Windows 8.1, Windows 8, Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012 o Windows Server (canale semestrale).
 
-## <a name="step-1-enable-optimized-move-in-group-policy"></a>Passaggio 1: Abilita spostamento ottimizzato in Criteri di gruppo
+## <a name="step-1-enable-optimized-move-in-group-policy"></a>Passaggio 1: abilitare lo spostamento ottimizzato in Criteri di gruppo
 
 Per ottimizzare la rilocazione dei dati di Reindirizzamento cartelle, utilizzare Criteri di gruppo per abilitare l'impostazione dei criteri di **modifica del percorso del server** per il reindirizzamento delle cartelle per l'oggetto Criteri di gruppo appropriato (GPO) nella cache file offline. La configurazione di questa impostazione di criteri su **disabilitato** o **non configurato** fa in modo che il client copi tutto il contenuto di Reindirizzamento cartelle nel nuovo percorso e quindi elimini il contenuto dal percorso precedente se il percorso del server viene modificato.
 
@@ -41,9 +41,9 @@ Di seguito viene illustrato come abilitare lo stato di trasferimento ottimizzato
 3. Fare clic con **il pulsante destro del mouse su Abilita spostamento ottimizzato del contenuto nella cache file offline in modifica percorso server Reindirizzamento cartelle**, quindi scegliere **modifica**.
 4. Selezionare **abilitato**e quindi fare clic su **OK**.
 
-## <a name="step-2-relocate-the-file-share-for-redirected-folders"></a>Passaggio 2: Spostare la condivisione file per le cartelle reindirizzate
+## <a name="step-2-relocate-the-file-share-for-redirected-folders"></a>Passaggio 2: spostare la condivisione file per le cartelle reindirizzate
 
-Quando si trasferisce la condivisione file che contiene le cartelle reindirizzate degli utenti, viene importato per adottare le precauzioni necessarie per assicurarsi che le cartelle vengano rilocate correttamente.
+Quando si trasferisce la condivisione file che contiene le cartelle reindirizzate degli utenti, è importante prendere le precauzioni per assicurarsi che le cartelle vengano rilocate correttamente.
 
 >[!IMPORTANT]
 >Se i file degli utenti sono in uso o se lo stato completo del file non viene mantenuto nello spostamento, gli utenti potrebbero subire prestazioni ridotte durante la copia dei file in rete, i conflitti di sincronizzazione generati da File offline o persino la perdita di dati.
@@ -59,7 +59,7 @@ Quando si trasferisce la condivisione file che contiene le cartelle reindirizzat
 
     Gli utenti funzioneranno offline usando File offline fino al completamento dello spostamento e riceveranno le impostazioni di Reindirizzamento cartelle aggiornate da Criteri di gruppo.
 
-3. Usando un account con privilegi di backup, spostare il contenuto della condivisione file nel nuovo percorso usando un metodo che conserva i timestamp dei file, ad esempio un'utilità di backup e ripristino. Per utilizzare il comando **Robocopy** , aprire un prompt dei comandi con privilegi elevati, quindi digitare il comando seguente ```<Source>``` , dove è il percorso corrente della condivisione file e ```<Destination>``` è il nuovo percorso:
+3. Usando un account con privilegi di backup, spostare il contenuto della condivisione file nel nuovo percorso usando un metodo che conserva i timestamp dei file, ad esempio un'utilità di backup e ripristino. Per utilizzare il comando **Robocopy** , aprire un prompt dei comandi con privilegi elevati, quindi digitare il comando seguente, dove ```<Source>``` è il percorso corrente della condivisione file e ```<Destination>``` è il nuovo percorso:
 
     ```PowerShell
     Robocopy /B <Source> <Destination> /Copyall /MIR /EFSRAW

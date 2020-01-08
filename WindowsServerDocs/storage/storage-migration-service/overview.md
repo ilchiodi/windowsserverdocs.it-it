@@ -8,12 +8,12 @@ ms.date: 10/25/2019
 ms.topic: article
 ms.prod: windows-server
 ms.technology: storage
-ms.openlocfilehash: 5963035846814f2ec3fd3417e629f71b146cc73e
-ms.sourcegitcommit: ac9946deb4fa70203a9b05e0386deb4244b8ca55
+ms.openlocfilehash: 968122612845a9be105ca7d3231edc0faa039e76
+ms.sourcegitcommit: bfe9c5f7141f4f2343a4edf432856f07db1410aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74310376"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75352682"
 ---
 # <a name="storage-migration-service-overview"></a>Panoramica di servizio migrazione archiviazione
 
@@ -54,7 +54,7 @@ Per usare il servizio migrazione archiviazione, è necessario quanto segue:
 - Un **server di origine** o un **cluster di failover** per la migrazione di file e dati da
 - Un **server di destinazione** che esegue Windows Server 2019 (cluster o autonomo) per la migrazione a. Anche Windows Server 2016 e Windows Server 2012 R2 funzionano ma sono più lenti al 50%
 - Un server dell'agente di **orchestrazione** che esegue Windows Server 2019 per gestire la migrazione  <br>Se si esegue la migrazione solo di alcuni server e uno dei server esegue Windows Server 2019, è possibile usarlo come agente di orchestrazione. Se si esegue la migrazione di più server, è consigliabile usare un server dell'agente di orchestrazione separato.
-- Un **PC o un server [](../../manage/windows-admin-center/understand/windows-admin-center.md) che esegue** l'interfaccia di amministrazione di Windows per eseguire l'interfaccia utente del servizio migrazione archiviazione, a meno che non si preferisca usare PowerShell per gestire la migrazione. L'interfaccia di amministrazione di Windows e la versione di Windows Server 2019 devono essere entrambe almeno la versione 1809.
+- Un **PC o un server che esegue [l'interfaccia di amministrazione di Windows](../../manage/windows-admin-center/understand/windows-admin-center.md)** per eseguire l'interfaccia utente del servizio migrazione archiviazione, a meno che non si preferisca usare PowerShell per gestire la migrazione. L'interfaccia di amministrazione di Windows e la versione di Windows Server 2019 devono essere entrambe almeno la versione 1809.
 
 Si consiglia vivamente che l'agente di orchestrazione e i computer di destinazione dispongano di almeno due core o due vCPU e almeno 2 GB di memoria. Le operazioni di inventario e trasferimento sono notevolmente più veloci con più processori e memoria.
 
@@ -66,7 +66,7 @@ Si consiglia vivamente che l'agente di orchestrazione e i computer di destinazio
 - Per i computer di origine e di destinazione devono essere abilitate le seguenti regole firewall in *ingresso* (anche se è possibile che siano già state abilitate):
   - Condivisione di file e stampanti (SMB-In)
   - Servizio Netlogon (NP-in)
-  - Strumentazione gestione Windows (DCOM-in)
+  - Strumentazione gestione Windows (DCOM-In)
   - Strumentazione gestione Windows (WMI-In)
   
   > [!TIP]
@@ -81,10 +81,10 @@ Il server di origine deve eseguire uno dei sistemi operativi seguenti:
 
 - Windows Server, Canale semestrale
 - Windows Server 2019
-- Windows Server 2016
-- Windows Server 2012 R2
+- Windows Server 2016
+- Windows Server 2012 R2
 - Windows Server 2012
-- Windows Server 2008 R2
+- Windows Server 2008 R2
 - Windows Server 2008
 - Windows Server 2003 R2
 - Windows Server 2003
@@ -96,7 +96,7 @@ Il server di origine deve eseguire uno dei sistemi operativi seguenti:
 - Windows Server 2016 Essentials
 - Windows Server 2019 Essentials
 - Windows Storage Server 2008
-- Windows Storage Server 2008 R2
+- Windows Storage Server 2008 R2
 - Windows Storage Server 2012
 - Windows Storage Server 2012 R2
 - Windows Storage Server 2016
@@ -105,7 +105,7 @@ Nota: Windows Small Business Server e Windows Server Essentials sono controller 
 
 È possibile eseguire la migrazione dei seguenti tipi di origine aggiuntivi se l'agente di orchestrazione esegue Windows Server, versione 1903 o successiva o se l'agente di orchestrazione esegue una versione precedente di Windows Server con [KB4512534](https://support.microsoft.com/help/4512534/windows-10-update-kb4512534) installato:
 
-- Cluster di failover
+- Cluster di failover che eseguono Windows Server 2012, Windows Server 2012 R2, Windows Server 2016, Windows Server 2019
 - Server Linux che usano Samba. Sono stati testati gli elementi seguenti:
     - CentOS 7
     - Debian GNU/Linux 8
@@ -120,8 +120,8 @@ Il server di destinazione deve eseguire uno dei sistemi operativi seguenti:
 
 - Windows Server, Canale semestrale
 - Windows Server 2019
-- Windows Server 2016
-- Windows Server 2012 R2
+- Windows Server 2016
+- Windows Server 2012 R2
 
 > [!TIP]
 > I server di destinazione che eseguono Windows Server 2019 o Windows Server, il canale semestrale o versioni successive hanno il doppio delle prestazioni di trasferimento delle versioni precedenti di Windows Server. Questo miglioramento delle prestazioni è dovuto all'inclusione di un servizio proxy del servizio di migrazione archiviazione integrato, che apre anche le porte del firewall necessarie se non sono già aperte.
