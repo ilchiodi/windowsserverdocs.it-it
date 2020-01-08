@@ -7,14 +7,14 @@ ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.date: 08/19/2019
+ms.date: 12/20/2019
 description: Argomenti nuovi e aggiornati nella documentazione di archiviazione locale per Windows Server per professionisti IT.
-ms.openlocfilehash: ce937dfb5c6c0b46c8085cbb202590567ea829d3
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: d50d4ca5b49b7f895fad3d3866226f95c55ae485
+ms.sourcegitcommit: bfe9c5f7141f4f2343a4edf432856f07db1410aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71393926"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75352780"
 ---
 # <a name="change-history-for-storage-topics-in-windows-server"></a>Cronologia delle modifiche per gli argomenti relativi all'archiviazione in Windows Server
 
@@ -24,7 +24,16 @@ Questo argomento elenca gli argomenti nuovi e aggiornati nella documentazione di
 
 > Se si sta cercando la cronologia degli aggiornamenti per Windows Server, vedere la cronologia degli aggiornamenti di Windows [10 e Windows server 2019](https://support.microsoft.com/help/4464619) o la [cronologia degli aggiornamenti di Windows Server 2016](https://support.microsoft.com/help/4000825/windows-10-and-windows-server-2016-update-history).
 
-## <a name="august-2019"></a>2019 agosto
+## <a name="december-2019"></a>Dicembre 2019
+
+| Argomento nuovo o modificato                                        | Descrizione |
+| ---                                                         | ---           |
+| [Risoluzione dei problemi relativi a Gestione disco](disk-management/troubleshooting-disk-management.md)| Modificato per perfezionare ulteriormente le linee guida, in base alle richieste dei clienti.|
+| [Estendere un volume in Gestione disco](disk-management/extend-a-basic-volume.md) | Aggiunta di linee guida in risposta ai suggerimenti dei clienti. |
+| [Convertire nuovamente un disco dinamico in un disco di base](disk-management/change-a-dynamic-disk-back-to-a-basic-disk.md) | È stato corretto un errore nella riga di comando e sono state aggiunte alcune informazioni in base ai commenti e suggerimenti dei clienti. |
+
+
+## <a name="august-2019"></a>Agosto 2019
 
 | Argomento nuovo o modificato                                        | Descrizione |
 | ---                                                         | ---           |
@@ -45,7 +54,7 @@ Questo argomento elenca gli argomenti nuovi e aggiornati nella documentazione di
 |[Creare volumi](storage-spaces/create-volumes.md)| Aggiunta di passaggi e video per la creazione di un volume nell'interfaccia di amministrazione di Windows.|
 |[Estendere volumi](storage-spaces/resize-volumes.md)| Aggiunta di passaggi e video per il ridimensionamento di un volume nell'interfaccia di amministrazione di Windows.|
 
-## <a name="march-2019"></a>2019 marzo
+## <a name="march-2019"></a>Marzo 2019
 
 |Argomento nuovo o modificato                                        |Descrizione|
 |---                                                         |---           |
@@ -81,9 +90,9 @@ Questo argomento elenca gli argomenti nuovi e aggiornati nella documentazione di
 |---                                                         |---           |
 |[Resilienza annidata](storage-spaces/nested-resiliency.md)    | Nuovo argomento    |
 |[Problemi noti del servizio migrazione archiviazione](storage-migration-service/known-issues.md)   | Nuovo argomento    |
-|[Replica DFS: Domande frequenti](dfs-replication/dfsr-faq.md)|Migrazione dalla libreria [versioni precedenti](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2003/)|
+|[Replica DFS: domande frequenti](dfs-replication/dfsr-faq.md)|Migrazione dalla libreria [versioni precedenti](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2003/)|
 |[Eseguire la migrazione della replica SYSVOL nella replica DFS](dfs-replication/migrate-sysvol-to-dfsr.md)|Migrazione dalla libreria [versioni precedenti](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/)|
-|[SMB: Le porte per la condivisione di file e stampanti devono essere aperte](file-server/best-practices-analyzer/smb-open-file-sharing-ports.md)|Migrazione dalla libreria [versioni precedenti](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/)|
+|[SMB: le porte di condivisione file e stampanti devono essere aperte](file-server/best-practices-analyzer/smb-open-file-sharing-ports.md)|Migrazione dalla libreria [versioni precedenti](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/)|
 |[Servizio Copia Shadow del volume](file-server/volume-shadow-copy-service.md)|Migrazione dalla libreria [versioni precedenti](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/)|
 
 ## <a name="october-2018"></a>Ottobre 2018
@@ -164,7 +173,7 @@ Questo argomento elenca gli argomenti nuovi e aggiornati nella documentazione di
 |Argomento nuovo o modificato|Descrizione|
 |---|---|
 |[Modificare una lettera di unità](disk-management/change-a-drive-letter.md)|Nuovo argomento.|
-|[Risoluzione dei problemi relativi a Gestione disco](disk-management/troubleshooting-disk-management.md)|Riscritto lo [stato di un disco non è inizializzato o il disco non è interamente presente](disk-management/troubleshooting-disk-management.md#a-disks-status-is-not-initialized-or-the-disk-is-missing) nella sezione per aggiungere passaggi di risoluzione dei problemi completi, in base alle richieste del cliente.|
+|[Risoluzione dei problemi relativi a Gestione disco](disk-management/troubleshooting-disk-management.md)|Riscritto lo [stato di un disco non è inizializzato o il disco non è interamente presente](disk-management/troubleshooting-disk-management.md#disks-that-are-missing-or-not-initialized-plus-general-troubleshooting-steps) nella sezione per aggiungere passaggi di risoluzione dei problemi completi, in base alle richieste del cliente.|
 |[Inizializzare nuovi dischi](disk-management/initialize-new-disks.md)|Riscritto per tentare di semplificare la comprensione e la risoluzione delle domande dei clienti.|
 |[Pianificazione di volumi in Spazi di archiviazione diretta](storage-spaces/plan-volumes.md)|Aggiunta di una tabella che riepiloga i tipi di resilienza disponibili nei cluster a quattro nodi e di dimensioni maggiori.|
 |[Panoramica di ReFS](refs/refs-overview.md)|Sono stati chiariti i carichi di lavoro consigliati per la parità con accelerazione con mirroring e sono stati corretti i file e le dimensioni del volume supportati per ReFS e NTFS.|

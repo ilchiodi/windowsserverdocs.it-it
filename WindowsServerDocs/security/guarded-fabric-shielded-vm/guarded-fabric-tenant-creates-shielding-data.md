@@ -8,12 +8,12 @@ manager: dongill
 author: rpsqrd
 ms.technology: security-guarded-fabric
 ms.date: 09/25/2019
-ms.openlocfilehash: 1ae6f881e1bd4b9b317e5622f18958f25f692eec
-ms.sourcegitcommit: de71970be7d81b95610a0977c12d456c3917c331
+ms.openlocfilehash: 26ff5e27494e2f42a0c8e4d28e2b9820f8d19e6a
+ms.sourcegitcommit: 471464a674a53c468a2f1e28575c91245ce9badf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71940799"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75548181"
 ---
 # <a name="shielded-vms-for-tenants---creating-shielding-data-to-define-a-shielded-vm"></a>VM schermate per i tenant-creazione di dati di schermatura per definire una macchina virtuale schermata
 
@@ -91,13 +91,13 @@ Quando si crea un file Unattend. XML per le macchine virtuali schermate, tenere 
 
     | Stringa di sostituzione | Esempio di sostituzione |
     |---------------------|----------------------|
-    | @IP4Addr-1@         | 192.168.1.10         |
+    | @IP4Addr-1@         | 192.168.1.10/24      |
     | @MACAddr-1@         | Ethernet             |
-    | @Prefix-1-1@        | 192.168.1.0/24       |
+    | @Prefix-1-1@        | 24                   |
     | @NextHop-1-1@       | 192.168.1.254        |
-    | @IP4Addr-2@         | 10.0.20.30           |
+    | @IP4Addr-2@         | 10.0.20.30/24        |
     | @MACAddr-2@         | Ethernet 2           |
-    | @Prefix-2-1@        | 10.0.20.0/24         |
+    | @Prefix-2-1@        | 24                   |
     | @NextHop-2-1@       | 10.0.20.1            |
 
 Quando si usano le stringhe di sostituzione, è importante assicurarsi che le stringhe vengano popolate durante il processo di provisioning della macchina virtuale. Se una stringa come @ProductKey@ non viene fornita in fase di distribuzione, lasciando vuoto il &lt;ProductKey&gt; nodo nel file di installazione automatica, il processo di specializzazione avrà esito negativo e non sarà possibile connettersi alla macchina virtuale.
