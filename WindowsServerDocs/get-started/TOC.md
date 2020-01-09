@@ -1,4 +1,4 @@
-# Inizia subito
+# Operazioni preliminari
 ## [Introduzione a Windows Server 2016](Server-Basics.md)
 ## [Novità di Windows Server](whats-new-in-windows-server.md)
 ### [Novità di Windows Server 2019](../get-started-19/whats-new-19.md)
@@ -8,6 +8,7 @@
 ## [Confronto dei canali di manutenzione](..\get-started-19\servicing-channels-19.md)
 ## [Installazione e aggiornamento delle versioni di Windows Server](Installation-and-Upgrade.md)
 ## [Eseguire l'aggiornamento di Windows Server 2008 e Windows Server 2008 R2](modernize-windows-server-2008.md)
+### [Aggiornamenti della sicurezza estesi per Windows Server 2008/2008 R2](extended-security-updates.md)
 ### [Caricare un'immagine specializzata di Windows Server 2008/2008 R2 su Azure](uploading-specialized-WS08-image-to-azure.md)
 ## [Migrazione dei ruoli e delle funzionalità di Windows Server](Migrate-Roles-and-Features.md)
 ## [Requisiti di sistema di Windows Server 2016](System-Requirements.md)
@@ -30,7 +31,7 @@
 ### Soluzioni ai problemi di attivazione comuni
 #### [Risolvere i codici di errore di attivazione di Windows](activation-error-codes.md)
 #### [Attivazione tramite KMS: problemi noti](activation-troubleshoot-KMS-issues.md)
-#### [Attivazione tramite MAK: problemi noti](activation-troubleshoot-MAK-issues.md)
+#### [Attivazione tramite codice ad attivazione multipla: problemi noti](activation-troubleshoot-MAK-issues.md)
 #### [Linee guida per la risoluzione dei problemi di attivazione correlati al DNS](common-troubleshooting-procedures-kms-dns.md)
 #### [Ricompilare il file Tokens.dat](activation-rebuild-tokens-dat-file.md)
 ### [Esempio: Risoluzione dei problemi di attivazione dei client con attivazione basata su Active Directory](activation-troubleshoot-adba-clients.md)

@@ -2,8 +2,7 @@
 ## [Usare Windows Admin Center per gestire l'ambiente (novità)](../manage/windows-admin-center/overview.md)
 ## Gestire gli ambienti e i sistemi Windows Server
 ### [Gestire Hybrid Cloud Print di Windows Server](hybrid-cloud-print/hybrid-cloud-print-overview.md)
-#### [Distribuire Hybrid Cloud Print di Windows Server con la preautenticazione](hybrid-cloud-print/hybrid-cloud-print-deploy.md)
-#### [Distribuire Hybrid Cloud Print di Windows Server con autenticazione pass-through](hybrid-cloud-print/hybrid-cloud-print-deploy-passthrough.md)
+#### [Distribuire Hybrid Cloud Print di Windows Server](hybrid-cloud-print/hybrid-cloud-print-deploy.md)
 ### [Che cos'è l'opzione di installazione dei componenti di base del server?](server-core/what-is-server-core.md)
 #### [Che cos'è incluso nell'opzione di installazione dei componenti di base del server?](server-core/server-core-roles-and-services.md)
 #### [Attività di amministrazione di base in Server Core](server-core/server-core-administer.md)
@@ -54,7 +53,7 @@
 #### [Aggiunta e sviluppo di funzionalità](..\manage\system-insights\adding-and-developing-capabilities.md)
 ##### [Aggiunta, rimozione e aggiornamento di funzionalità](..\manage\system-insights\add-remove-update-capabilities.md)
 ##### [Scelta di origini dati per le funzionalità](..\manage\system-insights\data-sources.md)
-#### [DOMANDE FREQUENTI](..\manage\system-insights\faq.md)
+#### [Domande frequenti](..\manage\system-insights\faq.md)
 ### [Raccogliere gli eventi con Raccolta eventi di configurazione e avvio](Get-started-with-Setup-and-Boot-Event-Collection.md)
 ### [Raccogliere informazioni sul software Registrazione inventario software (SIL)](software-inventory-logging/get-started-with-software-inventory-logging.md)
 #### [Gestire Registrazione inventario software](software-inventory-logging/manage-software-inventory-logging.md)
