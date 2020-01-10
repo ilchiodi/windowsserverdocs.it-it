@@ -12,12 +12,12 @@ ms.topic: article
 ms.assetid: ba4de2a4-f237-4b14-a8a7-0b06bfcd89ad
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 2cd84949dddf75730aca6302f1244f784b5933d0
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: b6b8ebfe0a6b42fe174d4b376b981641f043cf58
+ms.sourcegitcommit: 3d5a8357491b6bbd180d1238ea98f23bfc544ac7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71388570"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75827678"
 ---
 # <a name="step-1-configure-the-basic-directaccess-infrastructure"></a>Passaggio 1 configurare l'infrastruttura DirectAccess di base
 
@@ -82,7 +82,7 @@ Configurare il routing nella rete aziendale come segue:
 -   Configurare manualmente le route IPv4 e IPv6 dell'organizzazione sui server di Accesso remoto. Aggiungere una route pubblicata in modo che tutto il traffico con il prefisso IPv6 di un'organizzazione (/48) sia inoltrato alla rete interna. In aggiunta, per il traffico IPv4, aggiungere route esplicite in modo che il traffico IPv4 venga inoltrato alla rete interna.  
   
 ## <a name="ConfigFirewalls"></a>Configurare i firewall  
-Se si utilizzano altri firewall nella propria distribuzione, applicare le eccezioni firewall con connessione Internet seguenti per il traffico di Accesso remoto quando il server di Accesso remoto si trova nella rete IPv4 Internet:  
+Se si usano altri firewall nella propria distribuzione, applicare le eccezioni firewall con connessione Internet seguenti per il traffico di Accesso remoto quando il server di Accesso remoto si trova nella rete IPv4 Internet:  
   
 -   6to4 il traffico IP - protocollo 41 in entrata e in uscita.  
   
@@ -113,13 +113,13 @@ Quando si utilizzano altri firewall, applicare le eccezioni firewall delle rete 
   
 1.  Nel server DNS di rete interna, eseguire **dnsmgmt. msc** e quindi premere INVIO.  
   
-2.  Nel riquadro a sinistra della console **Gestore DNS** espandere la zona di ricerca diretta per il proprio dominio. Fare clic con il pulsante destro del mouse sul dominio e fare clic su **Nuovo host (A o AAAA)** .  
+2.  Nel riquadro a sinistra di **gestore DNS** console, espandere la zona di ricerca diretta per il dominio. Fare clic con il pulsante destro del dominio e fare clic su **Nuovo Host (A o AAAA)** .  
   
-3.  Nella finestra di dialogo **Nuovo host**, nella casella **Nome (se vuoto, utilizza il nome del dominio padre)** , immettere il nome DNS del sito Web del server dei percorsi di rete (cioè il nome usato dai client DirectAccess per connettersi al server dei percorsi di rete). Nel **indirizzo IP** casella, immettere l'indirizzo IPv4 del server dei percorsi di rete e quindi fare clic su **Aggiungi Host**. Nel **DNS** la finestra di dialogo, fare clic su **OK**.  
+3.  Nel **Nuovo Host** della finestra di dialogo di **nome (utilizza nome del dominio padre se vuoto)** immettere il nome DNS per il sito Web server percorsi di rete (questo è il nome utilizzano dai client DirectAccess per connettersi al server dei percorsi di rete). Nel **indirizzo IP** casella, immettere l'indirizzo IPv4 del server dei percorsi di rete e quindi fare clic su **Aggiungi Host**. Nel **DNS** la finestra di dialogo, fare clic su **OK**.  
   
-4.  Nella finestra di dialogo **Nuovo host**, nella casella **Nome (se vuoto, utilizza il nome del dominio padre)** , immettere il nome DNS del probe Web (il nome del probe Web predefinito è directaccess-webprobehost). Nella casella **Indirizzo IP** immettere l'indirizzo IPv4 del probe Web e quindi fare clic su **Aggiungi host**. Ripetere questa procedura per directaccess-corpconnectivityhost e per qualsiasi strumento di verifica della connettività creato manualmente. Nel **DNS** la finestra di dialogo, fare clic su **OK**.  
+4.  Nel **Nuovo Host** della finestra di dialogo di **nome (utilizza nome del dominio padre se vuoto)** immettere il nome DNS del probe web (il nome del probe web predefinito è directaccess-webprobehost). Nel **indirizzo IP** casella, immettere l'indirizzo IPv4 del probe web e quindi fare clic su **Aggiungi Host**. Ripetere questa procedura per directaccess-corpconnectivityhost e per qualsiasi strumento di verifica della connettività creato manualmente. Nel **DNS** la finestra di dialogo, fare clic su **OK**.  
   
-5.  Fare clic su **Fine**.  
+5.  Fai clic su **Fine**.  
   
 ![](../../../media/Step-1-Configure-the-DirectAccess-Infrastructure/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em> per Windows PowerShell***  
 
@@ -147,11 +147,11 @@ Il server di Accesso remoto e tutti i computer client DirectAccess devono appart
   
 #### <a name="to-join-the-remote-access-server-to-a-domain"></a>Per aggiungere il server di accesso remoto a un dominio  
   
-1.  In Server Manager fare clic su **Server locale**. Nel riquadro dei dettagli fare clic sul collegamento accanto a **Nome computer**.  
+1.  In Server Manager, fare clic su **Server locale**. Nel riquadro dei dettagli fare clic sul collegamento accanto a **Nome computer**.  
   
 2.  Nella finestra di dialogo **proprietà del sistema** fare clic sulla scheda **nome computer** . Nella scheda **nome computer** fare clic su **Cambia**.  
   
-3.  Per cambiare anche il nome computer quando si aggiunge il server al dominio, digitarlo in **Nome computer**. In **Membro di** fare clic su **Dominio** e quindi digitare il nome del dominio a cui si desidera aggiungere il server, ad esempio corp.contoso.com, e quindi fare clic su **OK**.  
+3.  Per cambiare anche il nome computer quando si aggiunge il server al dominio, digitarlo in **Nome computer**. In **Membro di**fare clic su **Dominio**e quindi digitare il nome del dominio a cui si desidera aggiungere il server, ad esempio corp.contoso.com, e quindi fare clic su **OK**.  
   
 4.  Quando viene richiesta l'immissione di nome utente e password, digitare il nome utente e la password di un utente che disponga delle autorizzazioni necessarie per aggiungere computer al dominio e quindi fare clic su **OK**.  
   
@@ -169,11 +169,11 @@ Il server di Accesso remoto e tutti i computer client DirectAccess devono appart
   
 2.  Pulsante destro del mouse sull'icona del Computer e quindi fare clic su **proprietà**.  
   
-3.  Nella pagina **Sistema** fare clic su **Impostazioni di sistema avanzate**.  
+3.  Nel **sistema** pagina, fare clic su **impostazioni di sistema avanzate**.  
   
-4.  Nella scheda **Nome computer** della finestra di dialogo **Proprietà del sistema** fare clic su **Cambia**.  
+4.  Nel **le proprietà di sistema** della finestra di dialogo di **nome Computer** fare clic su **Modifica**.  
   
-5.  In **nome Computer**, digitare il nome del computer se si modifica anche il nome del computer quando si aggiunge il server al dominio. In **Membro di** fare clic su **Dominio** e quindi digitare il nome del dominio a cui si desidera aggiungere il server, ad esempio corp.contoso.com, e quindi fare clic su **OK**.  
+5.  In **nome Computer**, digitare il nome del computer se si modifica anche il nome del computer quando si aggiunge il server al dominio. In **Membro di**fare clic su **Dominio**e quindi digitare il nome del dominio a cui si desidera aggiungere il server, ad esempio corp.contoso.com, e quindi fare clic su **OK**.  
   
 6.  Quando viene richiesta l'immissione di nome utente e password, digitare il nome utente e la password di un utente che disponga delle autorizzazioni necessarie per aggiungere computer al dominio e quindi fare clic su **OK**.  
   
@@ -208,7 +208,10 @@ Per creare un oggetto Criteri di gruppo, vedere [creare e modificare un oggetto 
 > 4.  Se il collegamento all'unità organizzativa non è stato eseguito prima di eseguire la procedura guidata DirectAccess, al termine della configurazione l'amministratore potrà collegare gli oggetti Criteri di gruppo DirectAccess alle unità organizzative richieste. Il collegamento al dominio può essere rimosso. I passaggi per il collegamento di un oggetto Criteri di gruppo per un'unità organizzativa sono reperibili [qui](https://technet.microsoft.com/library/cc732979.aspx)  
   
 > [!NOTE]  
-> Se un oggetto Criteri di gruppo è stato creato manualmente, è possibile durante la configurazione di DirectAccess che l'oggetto Criteri di gruppo non sarà disponibile. L'oggetto Criteri di gruppo potrebbe non essere stato replicato sul controller di dominio più vicino al computer di gestione. In questo caso, l'amministratore può attendere il completamento della replica o forzarla.  
+> Se un oggetto Criteri di gruppo è stato creato manualmente, è possibile durante la configurazione di DirectAccess che l'oggetto Criteri di gruppo non sarà disponibile. L'oggetto Criteri di gruppo potrebbe non essere stato replicato sul controller di dominio più vicino al computer di gestione. In questo caso, l'amministratore può attendere il completamento della replica o forzarla.
+
+> [!Warning]
+> Non è supportato l'utilizzo di un metodo diverso dalla configurazione guidata DirectAccess per configurare DirectAccess, ad esempio la modifica di oggetti DirectAccess Criteri di gruppo direttamente o la modifica manuale delle impostazioni dei criteri predefinite nel server o nel client.
   
 ## <a name="ConfigSGs"></a>Configurare i gruppi di sicurezza  
 Le impostazioni di DirectAccess contenute negli oggetti Criteri di gruppo di computer client vengono applicate solo ai computer che sono membri dei gruppi di sicurezza specificati durante la configurazione di accesso remoto.  

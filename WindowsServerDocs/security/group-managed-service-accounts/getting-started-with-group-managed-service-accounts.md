@@ -1,5 +1,5 @@
 ---
-title: Guida introduttiva alla funzionalità Account del servizio gestiti del gruppo
+title: Getting Started with Group Managed Service Accounts
 description: Sicurezza di Windows Server
 ms.custom: na
 ms.prod: windows-server
@@ -13,14 +13,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/12/2016
-ms.openlocfilehash: 45fe605228189f49d40543e5da703f9afe0d962e
-ms.sourcegitcommit: 4a03f263952c993dfdf339dd3491c73719854aba
+ms.openlocfilehash: f3f3e1724ddb92ee3622a599fbc19fb8ca2a5803
+ms.sourcegitcommit: 3d5a8357491b6bbd180d1238ea98f23bfc544ac7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74791194"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75827688"
 ---
-# <a name="getting-started-with-group-managed-service-accounts"></a>Guida introduttiva alla funzionalità Account del servizio gestiti del gruppo
+# <a name="getting-started-with-group-managed-service-accounts"></a>Getting Started with Group Managed Service Accounts
 
 >Si applica a: Windows Server (Canale semestrale), Windows Server 2016
 
@@ -111,7 +111,7 @@ Per eseguire i comandi di Windows PowerShell utilizzati per amministrare account
 
 Per istruzioni su come creare la chiave, vedere [creare la chiave radice KDS di servizi di distribuzione chiavi](create-the-key-distribution-services-kds-root-key.md). La chiave radice per Active Directory con il Servizio distribuzione chiavi Microsoft (kdssvc.dll).
 
-**Vita**
+**Ciclo di vita**
 
 In genere, il ciclo di vita di una server farm in cui è usata la funzionalità Account del servizio gestito del gruppo prevede le attività seguenti:
 
@@ -145,7 +145,11 @@ Nella distribuzione di una nuova server farm, l'amministratore del servizio dovr
 ### <a name="BKMK_Step1"></a>Passaggio 1: provisioning degli account del servizio gestito del gruppo
 È possibile creare un gMSA solo se lo schema della foresta è stato aggiornato a Windows Server 2012, la chiave radice master per Active Directory è stata distribuita ed è presente almeno un controller di dominio Windows Server 2012 nel dominio in cui verrà creato il gMSA.
 
-Per eseguire le procedure seguenti, è necessaria almeno l'appartenenza ai gruppi **Domain Admins** o **Account Operators** o la capacità di creare oggetti msDS-GroupManagedServiceAccount.
+Per eseguire le procedure seguenti, è necessaria almeno l'appartenenza ai gruppi **Domain Admins**o **Account Operators** o la capacità di creare oggetti msDS-GroupManagedServiceAccount.
+
+> [!NOTE]
+> Un valore per il parametro-Name è sempre obbligatorio (se si specifica-Name o not), con-DNSHostName,-RestrictToSingleComputer e-RestrictToOutboundAuthentication come requisiti secondari per i tre scenari di distribuzione.    
+
 
 #### <a name="BKMK_CreateGMSA"></a>Per creare un gMSA con il cmdlet New-ADServiceAccount
 
@@ -153,21 +157,21 @@ Per eseguire le procedure seguenti, è necessaria almeno l'appartenenza ai grupp
 
 2.  Al prompt dei comandi di Windows PowerShell, digitare i comandi seguenti e quindi premere INVIO. (Il modulo Active Directory verrà caricato automaticamente.)
 
-    **New-ADServiceAccount [-name] <string>-DNSHostName <string> [-KerberosEncryptionType <ADKerberosEncryptionType>] [-ManagedPasswordIntervalInDays < Nullable [Int32] >] [-PrincipalsAllowedToRetrieveManagedPassword < ADPrincipal [] >]-SamAccountName <string>-ServicePrincipalNames < stringa [] >**
+    **New-ADServiceAccount [-name] &lt;String&gt;-DNSHostName &lt;String&gt; [-KerberosEncryptionType &lt;ADKerberosEncryptionType&gt;] [-ManagedPasswordIntervalInDays < Nullable [Int32] >] [-PrincipalsAllowedToRetrieveManagedPassword < ADPrincipal [] >] [-SamAccountName &lt;stringa&gt;] [-ServicePrincipalNames < stringa [] >]**
 
     |Parametro|Stringa|Esempio|
     |-------|-----|------|
     |Name|Nome dell'account|ITFarm1|
     |DNSHostName|Nome host DNS del servizio|ITFarm1.contoso.com|
-    |KerberosEncryptionType|Qualsiasi tipo di crittografia supportata dai server host|RC4, AES128, AES256|
+    |KerberosEncryptionType|Qualsiasi tipo di crittografia supportata dai server host|None, RC4, AES128, AES256|
     |ManagedPasswordIntervalInDays|Intervallo di modifica della password espresso in giorni (se non è indicato, l'intervallo predefinito è di 30 giorni)|90|
     |PrincipalsAllowedToRetrieveManagedPassword|Gli account computer degli host membri o il gruppo di sicurezza a cui appartengono gli host membri|ITFarmHosts|
     |SamAccountName|Nome NetBIOS del servizio se diverso dal Nome|ITFarm1|
-    |ServicePrincipalNames|Nomi dell'entità servizio (SPN) per il servizio|http/ITFarm1.contoso.com/contoso.com, http/ITFarm1.contoso.com/contoso, http/ITFarm1/contoso.com, http/ITFarm1/contoso|
+    |ServicePrincipalNames|Nomi dell'entità servizio (SPN) per il servizio|http/ITFarm1. contoso. com/contoso. com, http/ITFarm1. contoso. com/contoso, http/ITFarm1/contoso. com, http/ITFarm1/contoso, MSSQLSvc/ITFarm1. contoso. com: 1433, MSSQLSvc/ITFarm1. contoso. com: INST01|
 
     > [!IMPORTANT]
     > È possibile impostare l'intervallo di modifica della password solo in fase di creazione. Per modificare l'intervallo, è necessario creare un nuovo account del servizio gestito del gruppo e impostarlo al momento della creazione.
-
+   
     **Esempio**
 
     Immettere il comando su una singola riga, anche se le parole potrebbero tornare automaticamente a capo e quindi apparire su più righe a causa dei limiti di formattazione.
@@ -176,7 +180,7 @@ Per eseguire le procedure seguenti, è necessaria almeno l'appartenenza ai grupp
     New-ADServiceAccount ITFarm1 -DNSHostName ITFarm1.contoso.com -PrincipalsAllowedToRetrieveManagedPassword ITFarmHosts$ -KerberosEncryptionType RC4, AES128, AES256 -ServicePrincipalNames http/ITFarm1.contoso.com/contoso.com, http/ITFarm1.contoso.com/contoso, http/ITFarm1/contoso.com, http/ITFarm1/contoso
     ```
 
-Per eseguire questa procedura, è necessaria almeno l'appartenenza ai gruppi **Domain Admins** o **Account Operators** o la possibilità di creare oggetti msDS-GroupManagedServiceAccount. Per altre informazioni sull'uso degli account appropriati e sull'appartenenza a gruppi, vedere [Gruppi predefiniti locali e di dominio](https://technet.microsoft.com/library/dd728026(WS.10).aspx).
+Per eseguire questa procedura, è necessaria almeno l'appartenenza ai gruppi **Domain Admins**o **Account Operators**o la possibilità di creare oggetti msDS-GroupManagedServiceAccount. Per altre informazioni sull'uso degli account appropriati e sull'appartenenza a gruppi, vedere [Gruppi predefiniti locali e di dominio](https://technet.microsoft.com/library/dd728026(WS.10).aspx).
 
 ##### <a name="to-create-a-gmsa-for-outbound-authentication-only-using-the-new-adserviceaccount-cmdlet"></a>Per creare un account del servizio gestito del gruppo per l'autenticazione in uscita usando solo il cmdlet New-ADServiceAccount
 
@@ -184,7 +188,7 @@ Per eseguire questa procedura, è necessaria almeno l'appartenenza ai gruppi **D
 
 2.  Al prompt dei comandi del modulo Active Directory per Windows PowerShell, digitare i comandi seguenti, quindi premere INVIO:
 
-    **New-ADServiceAccount [-name] <string>-RestrictToOutboundAuthenticationOnly [-ManagedPasswordIntervalInDays < Nullable [Int32] >] [-PrincipalsAllowedToRetrieveManagedPassword < ADPrincipal [] >]**
+    **New-ADServiceAccount [-name] &lt;String&gt;-RestrictToOutboundAuthenticationOnly [-ManagedPasswordIntervalInDays < Nullable [Int32] >] [-PrincipalsAllowedToRetrieveManagedPassword < ADPrincipal [] >]**
 
     |Parametro|Stringa|Esempio|
     |-------|-----|------|
@@ -194,8 +198,8 @@ Per eseguire questa procedura, è necessaria almeno l'appartenenza ai gruppi **D
 
     > [!IMPORTANT]
     > È possibile impostare l'intervallo di modifica della password solo in fase di creazione. Per modificare l'intervallo, è necessario creare un nuovo account del servizio gestito del gruppo e impostarlo al momento della creazione.
-
-**Esempio**
+    
+  **Esempio**
 
 ```PowerShell
 New-ADServiceAccount ITFarm1 -RestrictToOutboundAuthenticationOnly - PrincipalsAllowedToRetrieveManagedPassword ITFarmHosts$
@@ -245,11 +249,11 @@ Per eseguire questa procedura, è necessaria almeno l'appartenenza ai gruppi **D
 
 2.  Al prompt dei comandi del modulo Active Directory per Windows PowerShell, digitare i comandi seguenti, quindi premere INVIO:
 
-    **Get-ADServiceAccount [-name] <string>-PrincipalsAllowedToRetrieveManagedPassword**
+    **Get-ADServiceAccount [-name] &lt;stringa&gt;-PrincipalsAllowedToRetrieveManagedPassword**
 
 3.  Al prompt dei comandi del modulo Active Directory per Windows PowerShell, digitare i comandi seguenti, quindi premere INVIO:
 
-    **Set-ADServiceAccount [-name] <string>-PrincipalsAllowedToRetrieveManagedPassword < ADPrincipal [] >**
+    **Set-ADServiceAccount [-name] &lt;stringa&gt;-PrincipalsAllowedToRetrieveManagedPassword < ADPrincipal [] >**
 
 |Parametro|Stringa|Esempio|
 |-------|-----|------|
@@ -276,7 +280,7 @@ Aprire il modulo Active Directory per Windows PowerShell e impostare le propriet
 Per altre informazioni su come impostare queste proprietà, vedere [Set-ADServiceAccount](https://technet.microsoft.com/library/ee617252.aspx) nella libreria TechNet Library o digitare **Get-Help Set-ADServiceAccount** al prompt dei comandi del modulo Active Directory per Windows PowerShell e premere INVIO.
 
 ## <a name="BKMK_DecommMemberHosts"></a>Rimozione di host membri da un server farm esistente
-Per eseguire queste procedure, è necessaria almeno l'appartenenza al gruppo **Domain Admins** o la possibilità di rimuovere membri dall'oggetto gruppo di sicurezza.
+Per eseguire queste procedure, è necessaria almeno l'appartenenza al gruppo **Domain Admins**o la possibilità di rimuovere membri dall'oggetto gruppo di sicurezza.
 
 ### <a name="step-1-remove-member-host-from-gmsa"></a>Passaggio 1: Rimuovere host membri dall'account del servizio gestito del gruppo
 Se si utilizzano gruppi di sicurezza per la gestione di host membri, rimuovere l'account computer per l'host membro ritirato dal gruppo di sicurezza a cui appartengono gli host membri di gMSA utilizzando uno dei metodi seguenti.
@@ -303,11 +307,11 @@ Per eseguire questa procedura, è necessaria almeno l'appartenenza ai gruppi **D
 
 2.  Al prompt dei comandi del modulo Active Directory per Windows PowerShell, digitare i comandi seguenti, quindi premere INVIO:
 
-    **Get-ADServiceAccount [-name] <string>-PrincipalsAllowedToRetrieveManagedPassword**
+    **Get-ADServiceAccount [-name] &lt;stringa&gt;-PrincipalsAllowedToRetrieveManagedPassword**
 
 3.  Al prompt dei comandi del modulo Active Directory per Windows PowerShell, digitare i comandi seguenti, quindi premere INVIO:
 
-    **Set-ADServiceAccount [-name] <string>-PrincipalsAllowedToRetrieveManagedPassword < ADPrincipal [] >**
+    **Set-ADServiceAccount [-name] &lt;stringa&gt;-PrincipalsAllowedToRetrieveManagedPassword < ADPrincipal [] >**
 
 |Parametro|Stringa|Esempio|
 |-------|-----|------|
@@ -329,7 +333,7 @@ Set-ADServiceAccount [-Name] ITFarm1 -PrincipalsAllowedToRetrieveManagedPassword
 ### <a name="BKMK_RemoveGMSA"></a>Passaggio 2: rimozione di un account del servizio gestito del gruppo dal sistema
 Rimuovere dall'host membro le credenziali dell'account del servizio gestito del gruppo memorizzate nella cache usando il cmdlet Uninstall-ADServiceAccount o l'API NetRemoveServiceAccount nel sistema host.
 
-Per completare queste procedure è necessaria almeno l'appartenenza al gruppo **Administrators** oppure a un gruppo equivalente.
+Per completare queste procedure è necessaria almeno l'appartenenza al gruppo **Administrators**oppure a un gruppo equivalente.
 
 ##### <a name="to-remove-a-gmsa-using-the-uninstall-adserviceaccount-cmdlet"></a>Per rimuovere un account del servizio gestito del gruppo con il cmdlet Uninstall-ADServiceAccount
 
@@ -337,7 +341,7 @@ Per completare queste procedure è necessaria almeno l'appartenenza al gruppo **
 
 2.  Al prompt dei comandi del modulo Active Directory per Windows PowerShell, digitare i comandi seguenti, quindi premere INVIO:
 
-    **Uninstall-ADServiceAccount < ADServiceAccount >**
+    **Uninstall-ADServiceAccount &lt;ADServiceAccount&gt;**
 
     **Esempio**
 
