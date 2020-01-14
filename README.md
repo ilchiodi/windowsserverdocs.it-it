@@ -1,34 +1,38 @@
 # <a name="windows-server-documentation"></a>Documentazione di Windows Server
 
-Benvenuti nella documentazione di open source di Microsoft Windows Server. Contribuire all'open source è oltre la semplice che forniscono gli aggiornamenti, è anche inviando commenti e suggerimenti quando si verifica un problema.
+Benvenuti nella documentazione Open Source di Microsoft Windows Server. La collaborazione alla documentazione open source non si limita a fornire aggiornamenti, ma anche a segnalare gli eventuali problemi.
 
-## <a name="public-vs-private-repo-contributions"></a>Pubblico e i contributi a repository privato
+## <a name="public-vs-private-repo-contributions"></a>Contributi pubblici e di repository privati
 
-Esistono due posizioni distinte, in cui vengono conservati contenuti tecnici di Windows Server. Uno dei percorsi è pubblico (windowsserverdocs) mentre l'altra privata (windowsserverdocs-richiesta pull). Identità dell'utente determina la posizione a cui vuole:
+Sono disponibili due posizioni separate in cui si mantiene contenuto tecnico di Windows Server. Uno dei percorsi è Public (windowsserverdocs) mentre l'altro è privato (windowsserverdocs-PR). Determinare il percorso a cui si contribuisce:
 
-- **Non sono dipendenti Microsoft.** Qualità di dipendente non Microsoft, è necessario contribuire al percorso pubblico. Per informazioni su come eseguire questa operazione, vedere la [aggiunta come contributo alla documentazione tecnica di Windows Server](https://github.com/MicrosoftDocs/windowsserverdocs/blob/master/CONTRIBUTING.md) articolo.
+- **Non sono un dipendente Microsoft.** In qualità di dipendente non Microsoft, è necessario contribuire al percorso pubblico. Per informazioni su come eseguire questa operazione, vedere l'articolo relativo alla [documentazione tecnica di Windows Server](https://github.com/MicrosoftDocs/windowsserverdocs/blob/master/CONTRIBUTING.md) .
 
-- **Sono dipendenti Microsoft.** Qualità di dipendente Microsoft, sono disponibili opzioni, basate su ciò che si sta tentando di eseguire:
+- **Sono un dipendente Microsoft.** In qualità di dipendente Microsoft, sono disponibili opzioni basate su ciò che si sta tentando di eseguire:
 
-    - **Creare un nuovo articolo.** Per creare un nuovo articolo, è necessario creare e configurare gli strumenti e un account GitHub, fork e clonazione del repository windowsserverdocs-richiesta pull, impostare il ramo remoto, creare l'articolo e infine creare una nuova richiesta pull per l'approvazione e pubblicazione. Per queste istruzioni, vedere la [creare nuovi articoli di Windows Server tramite GitHub e Visual Studio Code](https://github.com/MicrosoftDocs/windowsserverdocs/blob/master/Contributor-guide/create-new-using-github.md) articolo.
+    - **Creare un nuovo articolo.** Per creare un nuovo articolo, è necessario creare e configurare l'account GitHub e gli strumenti, creare un fork e clonare il repository windowsserverdocs-PR, configurare il ramo remoto, creare l'articolo e infine creare una nuova richiesta pull per l'approvazione e la pubblicazione. Per queste istruzioni, vedere l'articolo [creare nuovi articoli su Windows Server con GitHub e Visual Studio Code](https://github.com/MicrosoftDocs/windowsserverdocs/blob/master/Contributor-guide/create-new-using-github.md) .
 
-    - **Apportare le modifiche estese a un articolo esistente.** Per apportare modifiche sostanziali a un articolo esistente, è possibile seguire le istruzioni riportate nel [modifica di un articolo di Windows Server esistente tramite GitHub e Visual Studio Code](https://github.com/MicrosoftDocs/windowsserverdocs/blob/master/Contributor-guide/edit-existing-using-github.md) articolo.
+    - **Apportare modifiche di grandi dimensioni a un articolo esistente.** Per apportare modifiche sostanziali a un articolo esistente, è possibile seguire le istruzioni nell'articolo [modificare un articolo di Windows Server esistente usando GitHub e Visual Studio Code](https://github.com/MicrosoftDocs/windowsserverdocs/blob/master/Contributor-guide/edit-existing-using-github.md) .
 
-    - **Apportare piccole modifiche a un articolo esistente.** Per apportare piccole modifiche a un articolo esistente, è possibile seguire le istruzioni riportate nel [aggiornano gli articoli di Windows Server esistenti usando un web browser e GitHub](https://github.com/MicrosoftDocs/windowsserverdocs/blob/master/Contributor-guide/github-browser-updates.md) articolo.
+    - **Apportare modifiche minime a un articolo esistente.** Per apportare modifiche minime a un articolo esistente, è possibile seguire le istruzioni riportate nell'articolo [aggiornare gli articoli di Windows Server esistenti usando un Web browser e GitHub](https://github.com/MicrosoftDocs/windowsserverdocs/blob/master/Contributor-guide/github-browser-updates.md) .
 
-## <a name="windowsserverdocs-pr-private-and-windowsserverdocs-public"></a>WindowsServerDocs-pr (privata) e windowsserverdocs (pubblico)
+## <a name="windowsserverdocs-pr-private-and-windowsserverdocs-public"></a>WindowsServerDocs-PR (privato) e WindowsServerDocs (pubblico)
 
-Questi repository vengono gestiti attivamente e include il codice sorgente per il contenuto di Windows Server pubblicate a [docs.microsoft.com](https://docs.microsoft.com):
+Questi repository sono attivamente gestiti e includono il contenuto di origine per Windows Server pubblicato in [docs.Microsoft.com](https://docs.microsoft.com):
 
-- [Home page di Windows Server](https://docs.microsoft.com/windows-server/)
+- [Windows Server home page](https://docs.microsoft.com/windows-server/)
 - [Windows Server 2019](https://docs.microsoft.com/windows-server/get-started-19/get-started-19)
 - [Windows Server 2016](https://docs.microsoft.com/windows-server/get-started/server-basics)
-- [Essentials Server 2016 and Essentials Server 2019](https://docs.microsoft.com/windows-server-essentials/get-started/get-started)
+- [Server Essentials 2016 e Essentials server 2019](https://docs.microsoft.com/windows-server-essentials/get-started/get-started)
+
+## <a name="markdown-info"></a>Informazioni Markdown
+
+Per informazioni sull'uso di Markdown in Docs.microsoft.com, vedere la [documentazione di riferimento per Markdown](https://review.docs.microsoft.com/help/contribute/markdown-reference?branch=master). La versione accessibile pubblicamente di questo contenuto è la seguente: [documentazione pubblica Markdown di riferimento](https://docs.microsoft.com/contribute/how-to-write-use-markdown).
 
 ## <a name="license"></a>Licenza
 
-Consultare [LICENSE](https://github.com/MicrosoftDocs/windowsserverdocs-pr/blob/master/LICENSE), [LICENSE-CODE](https://github.com/MicrosoftDocs/windowsserverdocs-pr/blob/master/LICENSE-CODE) e [ThirdPartyNotices](https://github.com/MicrosoftDocs/windowsserverdocs-pr/blob/master/ThirdPartyNotices) per tutte le informazioni sulle licenze.
+Per tutte le informazioni relative alle licenze, vedere le sezioni [LICENSE](https://github.com/MicrosoftDocs/windowsserverdocs-pr/blob/master/LICENSE), [LICENSE-CODE](https://github.com/MicrosoftDocs/windowsserverdocs-pr/blob/master/LICENSE-CODE) e [ThirdPartyNotices](https://github.com/MicrosoftDocs/windowsserverdocs-pr/blob/master/ThirdPartyNotices).
 
-## <a name="code-of-conduct"></a>Codice di condotta
+## <a name="code-of-conduct"></a>Codice di comportamento
 
-Questo progetto ha adottato il [Microsoft codice di comportamento Open Source](https://opensource.microsoft.com/codeofconduct/). Per altre informazioni vedere la [codice di domande frequenti sul comportamento](https://opensource.microsoft.com/codeofconduct/faq/) oppure contattare [ opencode@microsoft.com ](mailto:opencode@microsoft.com) eventuali altre domande o commenti.
+Questo progetto ha adottato il [codice di comportamento open source Microsoft](https://opensource.microsoft.com/codeofconduct/). Per altre informazioni, vedere [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) (Domande frequenti sul codice di comportamento) o contattare [opencode@microsoft.com](mailto:opencode@microsoft.com) per domande o commenti.

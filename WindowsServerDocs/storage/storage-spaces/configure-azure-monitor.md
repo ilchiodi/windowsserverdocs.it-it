@@ -3,20 +3,18 @@ title: Informazioni e configurazione di monitoraggio di Azure
 description: Informazioni dettagliate sulla configurazione di monitoraggio di Azure e su come configurare gli avvisi di posta elettronica e SMS per il cluster con spazi di archiviazione diretta in Windows Server 2016 e 2019.
 keywords: Spazi di archiviazione diretta, monitoraggio di Azure, notifiche, posta elettronica, SMS
 ms.assetid: ''
-ms.prod: ''
+ms.prod: windows-server-threshold
 ms.author: adagashe
 ms.technology: storage-spaces
 ms.topic: article
 author: adagashe
-ms.date: 3/26/2019
-ms.localizationpriority: ''
-ms.openlocfilehash: 4a11ad670bdd26cdc771bb5ae357db4928995bb8
-ms.sourcegitcommit: bfe9c5f7141f4f2343a4edf432856f07db1410aa
+ms.date: 01/10/2020
+ms.openlocfilehash: 933a22dad76f80b8ff76f604089bfd7c9bf3e207
+ms.sourcegitcommit: 76469d1b7465800315eaca3e0c7f0438fc3939ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75352615"
----
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75919974"
 ---
 # <a name="use-azure-monitor-to-send-emails-for-health-service-faults"></a>Usare monitoraggio di Azure per inviare messaggi di posta elettronica per gli errori di Servizio integrità
 
@@ -26,6 +24,14 @@ Monitoraggio di Azure ottimizza la disponibilità e le prestazioni delle applica
 
 Questa operazione è particolarmente utile per il cluster iperconvergente locale. Con monitoraggio di Azure integrato, sarà possibile configurare messaggi di posta elettronica, SMS e altri avvisi per eseguire il ping quando si verifica un errore nel cluster (o quando si vuole contrassegnare un'altra attività in base ai dati raccolti). Di seguito viene illustrato brevemente il funzionamento di monitoraggio di Azure, come installare monitoraggio di Azure e come configurarlo per l'invio di notifiche.
 
+Se si usa System Center, vedere la [Spazi di archiviazione diretta Management Pack](https://www.microsoft.com/download/details.aspx?id=100782) che monitora i cluster di windows server 2019 e windows server 2016 spazi di archiviazione diretta.
+
+Il Management Pack include le funzionalità seguenti:
+
+* Monitoraggio dell'integrità e delle prestazioni del disco fisico
+* Monitoraggio dello stato e delle prestazioni del nodo di archiviazione
+* Monitoraggio dello stato e delle prestazioni del pool di archiviazione
+* Tipo di resilienza del volume e stato della deduplicazione
 
 ## <a name="understanding-azure-monitor"></a>Informazioni su monitoraggio di Azure
 
@@ -234,11 +240,11 @@ Esaminiamo ora un esempio per la creazione di un avviso.
 10. Fare clic su **OK** per completare la creazione del gruppo di azioni. 
 11. Fare clic su **Crea regola di avviso** per completare la creazione della regola di avviso. L'esecuzione inizia immediatamente.<br><br> ![Completamento della creazione della nuova regola di avviso](media/configure-azure-monitor/alert-rule-01.png)<br> 
 
-## <a name="see-alerts"></a>Visualizza avvisi
+### <a name="example-alert"></a>Avviso di esempio
 
 Come riferimento, questo è l'aspetto di un avviso di esempio in Azure.
 
-![Gif dell'avviso in Azure "](media/configure-azure-monitor/alert.gif)
+![Gif dell'avviso in Azure](media/configure-azure-monitor/alert.gif)
 
 Di seguito è riportato un esempio del messaggio di posta elettronica che verrà inviato da monitoraggio di Azure:
 

@@ -8,12 +8,12 @@ ms.date: 05/08/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: networking
-ms.openlocfilehash: c45ac44448326ec3a236a685387b7969d21aa607
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 04d39f222fbbc7943cc2074a857a76f38832935d
+ms.sourcegitcommit: 76469d1b7465800315eaca3e0c7f0438fc3939ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71395655"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75919874"
 ---
 # <a name="windows-time-service-technical-reference"></a>Riferimento tecnico per Windows Time Service
 >Si applica a: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows 10 o versione successiva
@@ -31,17 +31,15 @@ Sebbene originariamente progettato per fornire la sincronizzazione dell'orologio
 I protocolli temporali comunicano tra due computer per scambiare informazioni sull'ora e quindi utilizzano tali informazioni per sincronizzare gli orologi. Con il protocollo ora servizio ora di Windows, un client richiede informazioni sull'ora da un server e sincronizza l'orologio in base alle informazioni ricevute.
   
 Il servizio ora di Windows usa NTP per facilitare la sincronizzazione dell'ora in una rete. NTP è un protocollo di tempo Internet che include gli algoritmi di disciplina necessari per la sincronizzazione degli orologi. NTP è un protocollo di tempo più preciso rispetto al protocollo SNTP (Simple Network Time Protocol) utilizzato in alcune versioni di Windows. Tuttavia, W32Time continua a supportare SNTP per consentire la compatibilità con le versioni precedenti dei computer che eseguono servizi ora basati su SNTP come Windows 2000.
-<!-- maybe this should be its own topic under the Tech Ref section -->
 ## <a name="where-to-find-windows-time-service-configuration-related-information"></a>Dove trovare le informazioni relative alla configurazione del servizio ora di Windows  
 In questa guida **non** viene illustrata la configurazione del servizio ora di Windows. In Microsoft TechNet e nella Microsoft Knowledge base sono disponibili diversi argomenti che illustrano le procedure per la configurazione del servizio ora di Windows. Se sono necessarie informazioni di configurazione, gli argomenti seguenti consentono di individuare le informazioni appropriate.  
-<!-- should this be an if/then table -->
--   Per configurare il servizio ora di Windows per l'emulatore del controller di dominio primario (PDC) radice della foresta, vedere:  
+-   Per configurare il servizio ora di Windows per l'emulatore del controller di dominio primario (PDC) radice della foresta, vedere:
   
     -   [Configurare il servizio ora di Windows nell'emulatore PDC nel dominio radice della foresta](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731191%28v=ws.10%29) 
   
     -   [Configurazione di un'origine dell'ora per la foresta](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/cc794823%28v%3dws.10%29) 
   
-    -   Articolo della Microsoft Knowledge base 816042, [come configurare un server di ora autorevole in Windows Server](https://go.microsoft.com/fwlink/?LinkID=60402), che descrive le impostazioni di configurazione per i computer che eseguono windows Server 2008 R2, windows Server 2008, windows Server 2003 e Windows Server 2003 R2.  
+    -   Articolo della Microsoft Knowledge base 816042, [come configurare un server di ora autorevole in Windows Server](https://go.microsoft.com/fwlink/?LinkID=60402), che descrive le impostazioni di configurazione per i computer che eseguono windows Server 2008 R2, windows Server 2008, windows Server 2003 e windows Server 2003 R2.  
   
 -   Per configurare il servizio ora di Windows in qualsiasi client o server membro del dominio o anche per i controller di dominio non configurati come emulatore PDC radice della foresta, vedere [configurare un computer client per la sincronizzazione automatica dell'ora di dominio](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/cc816884%28v%3dws.10%29).  
   
@@ -52,9 +50,9 @@ In questa guida **non** viene illustrata la configurazione del servizio ora di W
   
 -   Per configurare il servizio ora di Windows in un computer host in cui viene eseguito un ambiente virtuale, vedere l'articolo 816042 della Microsoft Knowledge base, [come configurare un server di ora autorevole in Windows Server](https://go.microsoft.com/fwlink/?LinkID=60402). Se si utilizza un prodotto di virtualizzazione non Microsoft, assicurarsi di consultare la documentazione del fornitore del prodotto.  
   
--   Per configurare il servizio ora di Windows in un controller di dominio in esecuzione in una macchina virtuale, è consigliabile disabilitare parzialmente la sincronizzazione dell'ora tra il sistema host e il sistema operativo guest che funge da controller di dominio. In questo modo, il controller di dominio Guest può sincronizzare l'ora per la gerarchia di domini, ma protegge dalla presenza di uno sfasamento dell'ora se viene ripristinato da uno stato salvato. Per ulteriori informazioni, vedere l'articolo 976924 della Microsoft Knowledge base, [che riceve gli ID evento del servizio ora di Windows 24, 29 e 38 in un controller di dominio virtualizzato in esecuzione su un server host basato su Windows server 2008 con Hyper-V](https://go.microsoft.com/fwlink/?LinkID=192236) e [distribuzione Considerazioni per i controller di dominio virtualizzati](https://go.microsoft.com/fwlink/?LinkID=192235).  
+-   Per configurare il servizio ora di Windows in un controller di dominio in esecuzione in una macchina virtuale, è consigliabile disabilitare parzialmente la sincronizzazione dell'ora tra il sistema host e il sistema operativo guest che funge da controller di dominio. In questo modo, il controller di dominio Guest può sincronizzare l'ora per la gerarchia di domini, ma protegge dalla presenza di uno sfasamento dell'ora se viene ripristinato da uno stato salvato. Per ulteriori informazioni, vedere l'articolo 976924 della Microsoft Knowledge base, [che riceve gli ID evento del servizio ora di Windows 24, 29 e 38 in un controller di dominio virtualizzato in esecuzione su un server host basato su Windows server 2008 con Hyper-V](https://go.microsoft.com/fwlink/?LinkID=192236) e [considerazioni sulla distribuzione per i controller di dominio virtualizzati](https://go.microsoft.com/fwlink/?LinkID=192235).  
   
--   Per configurare il servizio ora di Windows in un controller di dominio che funge da emulatore PDC radice della foresta eseguito anche in un computer virtuale, seguire le stesse istruzioni per un computer fisico come descritto in [configurare il servizio ora di Windows nel PDC emulatore nel dominio radice della foresta](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731191%28v=ws.10%29).  
+-   Per configurare il servizio ora di Windows in un controller di dominio che funge da emulatore PDC radice della foresta eseguito anche in un computer virtuale, seguire le stesse istruzioni per un computer fisico come descritto in [configurare il servizio ora di Windows nell'emulatore PDC nel dominio radice della foresta](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731191%28v=ws.10%29).  
   
 -   Per configurare il servizio ora di Windows in un server membro che esegue come computer virtuale, utilizzare la gerarchia temporale del dominio come descritto in [configurare un computer client per la sincronizzazione automatica dell'ora di dominio](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/cc816884%28v%3dws.10%29).
 
@@ -67,5 +65,5 @@ In questa guida **non** viene illustrata la configurazione del servizio ora di W
 - [Miglioramenti dell'accuratezza dell'ora per Windows Server 2016](windows-server-2016-improvements.md)  
 - [Funzionamento del servizio ora di Windows](How-the-Windows-Time-Service-Works.md)  
 - [Strumenti e impostazioni del servizio Ora di Windows](Windows-Time-Service-Tools-and-Settings.md)  
-- [Supporto dei limiti per configurare il servizio ora di Windows per ambienti ad alta precisione](support-boundary.md)
+- [Support boundary to configure the Windows Time service for high-accuracy environments](support-boundary.md) (Limiti del supporto per la configurazione del servizio Ora di Windows per gli ambienti ad alta precisione)
 - [Articolo 902229 della Microsoft Knowledge base](https://go.microsoft.com/fwlink/?LinkId=186066)
