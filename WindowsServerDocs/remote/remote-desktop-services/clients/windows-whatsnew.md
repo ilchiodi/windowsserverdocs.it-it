@@ -11,18 +11,27 @@ ms.topic: article
 author: heidilohr
 manager: daveba
 ms.author: helohr
-ms.date: 09/11/2019
+ms.date: 01/02/2020
 ms.localizationpriority: medium
-ms.openlocfilehash: e6d57f2feb5b21385cf247856be05f752ddee0cd
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 8b97b7a22d59727bedd6bdbd67a19087612ebfa0
+ms.sourcegitcommit: 8cf04db0bc44fd98f4321dca334e38c6573fae6c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71404091"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75653046"
 ---
 # <a name="whats-new-in-the-windows-store-client"></a>Novità del client Windows Store
 
 Il [client Windows Store](windows.md) viene aggiornato regolarmente aggiungendo nuove funzionalità e risolvendo i problemi. Qui sono disponibili gli aggiornamenti più recenti.
+
+## <a name="updates-for-version-1011107"></a>Aggiornamenti per la versione 10.1.1107
+
+*Data di pubblicazione: 04/09/2019*
+
+- Ora puoi copiare i file tra PC locali e remoti.
+- Ora puoi usare l'indirizzo di posta elettronica per accedere alle risorse remote (se abilitate dall'amministratore).
+- Ora puoi modificare le assegnazioni dell'account utente per i feed di risorse remote.
+- L'app ora mostra l'icona corretta per i file con estensione rdp assegnati a questa app in Esplora file anziché un'icona predefinita vuota.
 
 ## <a name="updates-for-version-1011098"></a>Aggiornamenti alla versione 10.1.1098
 
@@ -43,7 +52,7 @@ Il [client Windows Store](windows.md) viene aggiornato regolarmente aggiungendo 
 - Correggere un blocco durante la riconnessione dopo che il client viene ridotto a icona.
 - Consentire il trascinamento dei desktop in un punto qualsiasi di un gruppo.
 - Assicurarsi di avviare una connessione dai risultati della jump list in una finestra separata quando necessario.
-- Altre correzioni di errori.
+- Altre correzioni di bug.
 
 ## <a name="updates-for-version-1011060"></a>Aggiornamenti alla versione 10.1.1060
 
@@ -53,7 +62,7 @@ Il [client Windows Store](windows.md) viene aggiornato regolarmente aggiungendo 
 - Corretto un arresto anomalo durante il passaggio tra desktop virtuali in locale.
 - Quando una sessione viene spostata in un altro monitor, ora viene anche aggiornato il fattore di ridimensionamento della sessione.
 - Gestire le chiavi di sistema aggiuntive, ad esempio AltGr.
-- Altre correzioni di errori.
+- Altre correzioni di bug.
 
 ## <a name="updates-for-version-1011046"></a>Aggiornamenti alla versione 10.1.1046
 
@@ -66,4 +75,4 @@ Il [client Windows Store](windows.md) viene aggiornato regolarmente aggiungendo 
 *Data di pubblicazione: 04/02/2018*
 
 - Sono stati introdotti aggiornamenti per risolvere la correzione oracolo di crittografia CredSSP descritta in CVE-2018-0886.
-- Altre correzioni di errori.
+- Altre correzioni di bug.

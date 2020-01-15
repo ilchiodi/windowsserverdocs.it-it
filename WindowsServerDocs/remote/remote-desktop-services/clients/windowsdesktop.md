@@ -11,14 +11,14 @@ ms.topic: article
 author: heidilohr
 manager: daveba
 ms.author: helohr
-ms.date: 11/18/2019
+ms.date: 01/04/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: e71aa2b1cccda85e0bf6f8a80ad68013346b30d4
-ms.sourcegitcommit: 3d76683718ec6f38613f552f518ebfc6a5db5401
+ms.openlocfilehash: 09010878e2381e8f1f00d6883a6871fcd69a48be
+ms.sourcegitcommit: 28b71d779386cd31e1511217aa1a6f3ab186bf9b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74829614"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75682442"
 ---
 # <a name="get-started-with-the-windows-desktop-client"></a>Introduzione al client desktop di Windows
 
@@ -33,7 +33,7 @@ Puoi usare il client Desktop remoto per il desktop di Windows per accedere a des
 
 ## <a name="install-the-client"></a>Installare il client
 
-Scegli il client corrispondente alla versione di Windows. Il nuovo client Desktop remoto (MSRDC) supporta dispositivi client Windows 10, Windows 10 IoT Enterprise e Windows 7. 
+Scegli il client corrispondente alla versione di Windows. Il nuovo client Desktop remoto (MSRDC) supporta dispositivi client Windows 10, Windows 10 IoT Enterprise e Windows 7.
 
 - [Windows a 64 bit](https://go.microsoft.com/fwlink/?linkid=2068602)
 - [Windows a 32 bit](https://go.microsoft.com/fwlink/?linkid=2098960)
@@ -118,9 +118,24 @@ Il client userà le impostazioni configurate dall'amministratore, a meno che tu 
 - **Change the size of the text and apps** (Cambia le dimensioni di testo e app) specifica le dimensioni del contenuto della sessione. Questa impostazione si applica solo in caso di connessione a Windows 8.1 e versioni successive oppure a Windows Server 2012 R2 e versioni successive. Questa impostazione viene disabilitata automaticamente se la risoluzione è impostata sull'aggiornamento in caso di ridimensionamento.
 - **Fit session to window** (Adatta la sessione alla finestra) determina la modalità di visualizzazione della sessione quando la risoluzione del desktop remoto non corrisponde alle dimensioni della finestra locale. Se questa impostazione è abilitata, il contenuto della sessione verrà ridimensionato in modo da entrare nella finestra mantenendo comunque le proporzioni della sessione. Se è disabilitata, verranno visualizzate barre di scorrimento o aree nere quando la risoluzione e le dimensioni della finestra non corrispondono.
 
-## <a name="provide-feedback"></a>Fornire feedback
+## <a name="provide-feedback"></a>Inviare feedback
 
-Puoi inviare eventuali suggerimenti su una funzionalità o segnalare un problema Usa l'[Hub di Feedback](feedback-hub://?tabid=2&contextid=883) per inviarci le tue impressioni. Puoi accedere all'Hub di Feedback anche tramite il client:
+Hai suggerimenti su una funzionalità o vuoi segnalare un problema? Usa l'[Hub di Feedback](feedback-hub://?tabid=2&contextid=883) per inviarci le tue impressioni. Puoi accedere ad Hub di Feedback anche tramite il client:
 
-1. Dal Centro connessioni, tocca il menu extra ( **...** ) sulla barra dei comandi nella parte superiore del client.
-2. Scegli **Feedback** dal menu a discesa per aprire l'Hub di Feedback.
+1. Dal Centro connessioni tocca l'opzione **Invia feedback** sulla barra dei comandi nella parte superiore del client per aprire l'app Hub di Feedback.
+2. Immetti le informazioni necessarie nei campi **Riepilogo** e **Dettagli**. Al termine, tocca **Avanti**.
+3. Indica se si tratta di un **problema** o di un **suggerimento**.
+4. Verifica se la categoria si trova in **App** > **Desktop remoto**. In tal caso, tocca **Avanti**.
+5. Esamina gli argomenti di feedback esistenti per verificare se qualcun altro ha segnalato lo stesso problema. In caso contrario, seleziona **Make a new bug** (Crea un nuovo bug) e quindi tocca **Avanti**.
+6. Nella pagina successiva puoi specificare altre informazioni per consentire la risoluzione del problema. Puoi scrivere informazioni più dettagliate, inviare screenshot e persino creare una registrazione del problema per mostrarci cosa è successo. Per eseguire una registrazione, seleziona **Avvia registrazione** e quindi esegui le operazioni fino al momento in cui si è verificato il problema. Al termine, torna a Hub di Feedback e seleziona **Interrompi registrazione**.
+7. Dopo aver inserito tutte le informazioni necessarie, tocca **Invia**.
+8. Nella pagina "Grazie per i commenti e suggerimenti" tocca **Share my feedback** (Condividi feedback) per generare un collegamento al feedback inviato che puoi condividere con altri in base alle esigenze.
+
+### <a name="access-client-logs"></a>Accedere ai log del client
+
+Quando si esamina un problema, possono essere necessari i log del client.
+
+Per recuperare i log del client:
+
+1. Apri **Esplora file**.
+2. Passa alla cartella **%temp%\DiagOutputDir\RdClientAutoTrace**.

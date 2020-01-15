@@ -11,31 +11,38 @@ ms.topic: article
 author: heidilohr
 manager: daveba
 ms.author: helohr
-ms.date: 09/11/2019
+ms.date: 12/13/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 0a13c7ccb7e1c72534ef63ba6d09f3055af174cb
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 1edc7c78e2abe5fe4e2bf9cd2c48a6a19d89dbdd
+ms.sourcegitcommit: bfe9c5f7141f4f2343a4edf432856f07db1410aa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71387774"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75351835"
 ---
 # <a name="whats-new-in-the-ios-client"></a>Novità del client iOS
 
-Aggiorniamo regolarmente il [client di Desktop remoto per iOS](remote-desktop-ios.md) aggiungendo nuove funzionalità e risolvendo i problemi. Qui sono disponibili gli aggiornamenti più recenti.
+Aggiorniamo regolarmente il [client di Desktop remoto per iOS](remote-desktop-ios.md) aggiungendo nuove funzionalità e risolvendo i problemi. In questa pagina sono disponibili gli ultimi aggiornamenti.
 
-## <a name="remote-desktop-ios-beta-client"></a>Client Desktop remoto iOS beta
+## <a name="updates-for-version-1000"></a>Aggiornamenti per la versione 10.0.0
 
-*Data di pubblicazione: 02/20/2019*
+*Data di pubblicazione: 13/12/2019*
 
-Il [client Desktop remoto iOS beta](remote-desktop-ios.md#download-the-remote-desktop-ios-beta-client-from-apple-testflight) è ora disponibile in TestFlight. Durante il test del client iOS beta, tenere presente che questa è una versione non definitiva del nuovo client iOS e non è garantito che sia stabile come le versioni di produzione. Continueremo a aggiornare regolarmente il client con correzioni e nuove funzionalità. Diverse funzionalità del client iOS beta sono evidenziate di seguito:
+È passato un anno dall'ultimo aggiornamento del client Desktop remoto per iOS. Tuttavia, è ora disponibile un nuovo entusiasmante aggiornamento e molti altri verranno rilasciati regolarmente. Novità della versione 10.0.0:
 
-- Esperienza migliorata nei dispositivi iOS più recenti.
-- Supporto per i mouse fisici Swiftpoint GT e ProPoint. Vedere l'[elenco dei dispositivi di input supportati](remote-desktop-ios.md#supported-input-devices) per il client iOS beta.
-- Supporto per [Desktop virtuale Windows](https://aka.ms/wvd).
-- Reindirizzamento di archiviazione microfono e iPhone.
-- Supporto per AVC420 e AVC444.
-- Supporto per l'accelerazione hardware bare metal.
+- Supporto per il servizio Desktop virtuale Windows.
+- Nuova interfaccia utente del Centro connessioni.
+- Nuova interfaccia utente in sessione per il passaggio tra app e PC collegati.
+- Nuovo layout per la tastiera su schermo ausiliaria.
+- Supporto per la tastiera esterna migliorato.
+- Supporto per il mouse Bluetooth SwiftPoint.
+- Supporto per il reindirizzamento del microfono.
+- Supporto per il reindirizzamento dell'archiviazione locale.
+- Supporto per il reindirizzamento della fotocamera (disponibile solo per Windows 10, versione 1809 o successiva).
+- Supporto per i nuovi dispositivi iPhone e iPad.
+- Supporto per i temi scuro e chiaro.
+- Controllo della capacità di blocco del telefono quando è collegato a un'app o a un PC remoto.
+- Compressione della barra di connessione in sessione tenendo premuto il pulsante del logo Desktop remoto.
 
 ## <a name="updates-for-version-8142"></a>Aggiornamenti alla versione 8.1.42
 
@@ -47,4 +54,8 @@ Il [client Desktop remoto iOS beta](remote-desktop-ios.md#download-the-remote-de
 
 *Data di pubblicazione: 03/28/2018*
 
-- Sono stati introdotti aggiornamenti per risolvere la correzione oracolo di crittografia CredSSP descritta in CVE-2018-0886.
+- Aggiornamenti per la correzione oracolo di crittografia CredSSP descritta in CVE-2018-0886.
+
+## <a name="how-to-report-issues"></a>Come segnalare i problemi
+
+Ci impegniamo a migliorare questa app e a valorizzare il tuo feedback. Per segnalare problemi, puoi passare a **Impostazioni** > **Segnala un problema** nel client.

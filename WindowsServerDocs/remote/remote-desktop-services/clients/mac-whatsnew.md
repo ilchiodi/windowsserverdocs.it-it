@@ -11,20 +11,53 @@ ms.topic: article
 author: heidilohr
 manager: daveba
 ms.author: helohr
-ms.date: 11/18/2019
+ms.date: 01/06/2020
 ms.localizationpriority: medium
-ms.openlocfilehash: b44f7c14dce8a8c319f9240c24ebcd8e2d4f7202
-ms.sourcegitcommit: b60fdd2efa57ff23834a324b75de8fe245a7631f
+ms.openlocfilehash: 614962cacbc29a26b0db246812ad17e24fc9859e
+ms.sourcegitcommit: fdb3412a6139ca62913606fa18036a91c093cd51
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74166161"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75688116"
 ---
 # <a name="whats-new-in-the-macos-client"></a>Novità del client macOS
 
 Il [client Desktop remoto per macOS](remote-desktop-mac.md) viene aggiornato regolarmente, con l'aggiunta di nuove funzionalità e la correzione dei problemi. Qui sono disponibili gli aggiornamenti più recenti.
 
-In caso di problemi, puoi contattarci tramite **Guida** > **Segnala un problema**.
+In caso di problemi, puoi sempre contattarci passando a **Guida** > **Segnala un problema**.
+
+## <a name="updates-for-version-1037"></a>Aggiornamenti per la versione 10.3.7
+
+*Data di pubblicazione: 06/01/2020*
+
+Nell'ultimo aggiornamento dell'anno, abbiamo ottimizzato il codice e abbiamo corretto i comportamenti seguenti:
+
+- La copia di elementi dalla sessione remota alla condivisione di rete o all'unità USB non crea più file vuoti.
+- La specifica di una password vuota in un account utente non comporta più l'invio di una doppia richiesta di certificato.
+
+## <a name="updates-for-version-1036"></a>Aggiornamenti per la versione 10.3.6
+
+*Data di pubblicazione: 06/01/2020*
+
+In questa versione, abbiamo risolto il problema che comportava la creazione di file di lunghezza zero per ogni azione di copia di una cartella dalla sessione remota al computer locale eseguendo l'operazione di copia e incolla del file.
+
+## <a name="updates-for-version-1035"></a>Aggiornamenti per la versione 10.3.5
+
+*Data di pubblicazione: 06/01/2020*
+
+Abbiamo effettuato questo aggiornamento grazie alle segnalazioni ricevute. In questa versione, abbiamo apportato le modifiche seguenti:
+
+- Le cartelle reindirizzate possono ora essere contrassegnate come di sola lettura per impedire la modifica del contenuto nella sessione remota.
+- Abbiamo risolto un errore 0x607 che si verificava durante la connessione tramite RPC su scenari Gateway Desktop remoto HTTPS.
+- Abbiamo corretto i casi in cui agli utenti venivano inviate due richieste di credenziali.
+- Abbiamo corretto i casi in cui gli utenti ricevevano due volte la richiesta di avviso del certificato.
+- Abbiamo aggiunto l'euristica per migliorare lo scorrimento basato su trackpad.
+- Il client non visualizza più il gruppo "Saved Desktops" (Desktop salvati) se non sono presenti gruppi creati dall'utente.
+- Abbiamo aggiornato l'interfaccia utente per i riquadri nella visualizzazione PC.
+- Abbiamo corretto l'indirizzamento degli arresti anomali inviati a Microsoft tramite la telemetria dell'applicazione.
+
+> [!NOTE]
+> In questa versione, accettiamo feedback per il client Mac solo tramite [UserVoice](https://remotedesktop.uservoice.com/forums/287834-remote-desktop-for-mac).
 
 ## <a name="updates-for-version-1034"></a>Aggiornamenti per la versione 10.3.4
 
