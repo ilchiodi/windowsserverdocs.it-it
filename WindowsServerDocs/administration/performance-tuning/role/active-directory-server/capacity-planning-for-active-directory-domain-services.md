@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: v-tea; kenbrunf
 author: Teresa-Motiv
 ms.date: 7/3/2019
-ms.openlocfilehash: 8b17d7f5c7774c1c332d49962b14fe31128f1a27
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: c1cad3242d3abf2838a5aaf71d21c68152bc9b7f
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71370427"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75947273"
 ---
 # <a name="capacity-planning-for-active-directory-domain-services"></a>Pianificazione della capacità per Active Directory Domain Services
 
@@ -79,10 +79,10 @@ Tenendo presenti queste considerazioni, il ciclo di pianificazione della capacit
 
 Per ottimizzare le prestazioni, assicurarsi che i componenti principali siano selezionati correttamente e ottimizzati per i caricamenti dell'applicazione:
 
-1. Memoria
-1. Network
-1. Archiviazione
-1. Processore
+1. Memory
+1. Rete
+1. Archiviazione:
+1. Responsabile del trattamento
 1. Accesso rete
 
 I requisiti di archiviazione di base di servizi di dominio Active Directory e il comportamento generale del software client ben scritto consentono agli ambienti con un numero di 10.000 di 20.000 utenti di rinunciare a un notevole investimento nella pianificazione della capacità per quanto riguarda l'hardware fisico, come quasi tutti i server moderni il sistema di classe gestirà il carico. Detto questo, nella tabella seguente viene riepilogato come valutare un ambiente esistente per selezionare l'hardware appropriato. Ogni componente viene analizzato in dettaglio nelle sezioni successive per consentire agli amministratori di servizi di dominio Active Directory di valutare la propria infrastruttura usando le indicazioni di base e le entità specifiche dell'ambiente.
@@ -102,8 +102,8 @@ In generale:
 | Component | Stime |
 |-|-|
 |Dimensioni di archiviazione/database|da 40 KB a 60 KB per ogni utente|
-|RAM|Dimensioni del database<br />Raccomandazioni del sistema operativo di base<br />Applicazioni di terze parti|
-|Network|1 GB|
+|RAM|Dimensioni del database<br />Raccomandazioni del sistema operativo di base<br />Applicazioni di terzi|
+|Rete|1 GB|
 |CPU|1000 utenti simultanei per ogni core|
 
 #### <a name="high-level-evaluation-criteria"></a>Criteri di valutazione di alto livello
@@ -112,8 +112,8 @@ In generale:
 |-|-|-|
 |Dimensioni di archiviazione/database|La sezione intitolata "per attivare la registrazione dello spazio su disco liberato dalla deframmentazione" nei [limiti di archiviazione](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-2000-server/cc961769(v=technet.10))| |
 |Prestazioni di archiviazione/database|<ul><li>"Disco logico ( *\<\>unità del database NTDS*) \Avg letture disco/sec," "disco logico ( *\<unità\>di database NTDS*) \Avg disco/sec," "disco logico ( *\<unità di database NTDS )\>* \Avg/sec disco "</li><li>"Disco logico ( *\<\>unità del database NTDS*) \ Reads/sec," "disco logico ( *\<unità\>del database NTDS*) \ scritture/sec," "disco logico ( *\<unità\>deldatabaseNTDS*) \ Trasferimenti/sec "</li></ul>|<ul><li>L'archiviazione presenta due aspetti da affrontare<ul><li>Spazio disponibile, che, con le dimensioni della data odierna basata su mandrino e archiviazione basata su SSD, è irrilevante per la maggior parte degli ambienti AD.</li> <li>Operazioni di i/o (input/output) disponibili: in molti ambienti questa operazione viene spesso trascurata. Tuttavia è importante valutare solo gli ambienti in cui non è disponibile RAM sufficiente per caricare l'intero database NTDS in memoria.</li></ul><li>L'archiviazione può essere un argomento complesso e deve coinvolgere le competenze del fornitore dell'hardware per il dimensionamento corretto. In particolare con scenari più complessi, ad esempio gli scenari SAN, NAS e iSCSI. Tuttavia, in generale, il costo per Gigabyte di archiviazione è spesso in opposizione diretta ai costi per IO:<ul><li>RAID 5 ha un costo inferiore per Gigabyte rispetto a RAID 1, ma RAID 1 ha un costo inferiore per i/o</li><li>I dischi rigidi basati su mandrino hanno un costo inferiore per Gigabyte, ma le SSD hanno un costo inferiore per i/o</li></ul><li>Dopo il riavvio del computer o del servizio Active Directory Domain Services, la cache Extensible Storage Engine (ESE) è vuota e le prestazioni saranno vincolate dal disco mentre la cache viene riscaldata.</li><li>Nella maggior parte degli ambienti AD è possibile leggere I/O intensivo in un modello casuale sui dischi, negando gran parte dei vantaggi della memorizzazione nella cache e delle strategie di ottimizzazione per la lettura.  Inoltre, AD ha una cache di dimensioni superiori in memoria rispetto alla maggior parte delle cache del sistema di archiviazione.</li></ul>
-|RAM|<ul><li>Dimensioni del database</li><li>Raccomandazioni del sistema operativo di base</li><li>Applicazioni di terze parti</li></ul>|<ul><li>L'archiviazione è il componente più lento in un computer. Maggiore è il numero che può essere residente in RAM, minore è la necessità di passare al disco.</li><li>Assicurarsi che venga allocata una quantità di RAM sufficiente per archiviare il sistema operativo, gli agenti (antivirus, backup, monitoraggio), il database NTDS e la crescita nel tempo.</li><li>Per gli ambienti in cui la massimizzazione della quantità di RAM non è economicamente conveniente (ad esempio, percorsi satellite) o non fattibile (il DIT è troppo grande), fare riferimento alla sezione archiviazione per assicurarsi che le dimensioni dell'archiviazione siano corrette.</li></ul>|
-|Network|<ul><li>"Interfaccia di rete (\*) \Byte ricevuti/sec"</li><li>"Interfaccia di rete (\*) \Byte inviati/sec"|<ul><li>In generale, il traffico inviato da un controller di dominio supera molto il traffico inviato a un controller di dominio.</li><li>Poiché una connessione Ethernet comcambiata è full duplex, il traffico di rete in ingresso e in uscita deve essere ridimensionato in modo indipendente.</li><li>Il consolidamento del numero di controller di dominio aumenterà la quantità di larghezza di banda utilizzata per inviare risposte alle richieste client per ogni controller di dominio, ma sarà abbastanza vicino a lineare per il sito nel suo complesso.</li><li>Se si rimuovono i controller di dominio del percorso satellite, non dimenticare di aggiungere la larghezza di banda per il controller di dominio satellite nei controller di dominio dell'hub e di usarla per valutare la quantità di traffico WAN.</li></ul>|
+|RAM|<ul><li>Dimensioni del database</li><li>Raccomandazioni del sistema operativo di base</li><li>Applicazioni di terzi</li></ul>|<ul><li>L'archiviazione è il componente più lento in un computer. Maggiore è il numero che può essere residente in RAM, minore è la necessità di passare al disco.</li><li>Assicurarsi che venga allocata una quantità di RAM sufficiente per archiviare il sistema operativo, gli agenti (antivirus, backup, monitoraggio), il database NTDS e la crescita nel tempo.</li><li>Per gli ambienti in cui la massimizzazione della quantità di RAM non è economicamente conveniente (ad esempio, percorsi satellite) o non fattibile (il DIT è troppo grande), fare riferimento alla sezione archiviazione per assicurarsi che le dimensioni dell'archiviazione siano corrette.</li></ul>|
+|Rete|<ul><li>"Interfaccia di rete (\*) \Byte ricevuti/sec"</li><li>"Interfaccia di rete (\*) \Byte inviati/sec"|<ul><li>In generale, il traffico inviato da un controller di dominio supera molto il traffico inviato a un controller di dominio.</li><li>Poiché una connessione Ethernet comcambiata è full duplex, il traffico di rete in ingresso e in uscita deve essere ridimensionato in modo indipendente.</li><li>Il consolidamento del numero di controller di dominio aumenterà la quantità di larghezza di banda utilizzata per inviare risposte alle richieste client per ogni controller di dominio, ma sarà abbastanza vicino a lineare per il sito nel suo complesso.</li><li>Se si rimuovono i controller di dominio del percorso satellite, non dimenticare di aggiungere la larghezza di banda per il controller di dominio satellite nei controller di dominio dell'hub e di usarla per valutare la quantità di traffico WAN.</li></ul>|
 |CPU|<ul><li>"Disco logico ( *\<unità del database NTDS\>* ) \Avg letture disco/sec"</li><li>"Elaborazione (LSASS)\\% tempo processore"</li></ul>|<ul><li>Dopo aver eliminato l'archiviazione come collo di bottiglia, risolvere la quantità di potenza di calcolo necessaria.</li><li>Sebbene non sia perfettamente lineare, il numero di core del processore utilizzati in tutti i server all'interno di un ambito specifico, ad esempio un sito, può essere usato per misurare il numero di processori necessari per supportare il carico totale del client. Aggiungere il requisito minimo necessario per mantenere il livello di servizio corrente in tutti i sistemi all'interno dell'ambito.</li><li>Modifiche della velocità del processore, incluse le modifiche relative al risparmio energia, i numeri di impatto derivati dall'ambiente corrente. In genere, non è possibile valutare con precisione il modo in cui un processore da 2,5 GHz a un processore a 3 GHz ridurrà il numero di CPU necessarie.</li></ul>|
 |Accesso rete|<ul><li>"Netlogon (\*) \Semaphore acquisisce"</li><li>Timeout di "Netlogon (\*) \Semaphore"</li><li>"Netlogon (\*) \Latenza tempo di attesa del semaforo"</li></ul>|<ul><li>Canale sicuro accesso rete/MaxConcurrentAPI influiscono solo sugli ambienti con autenticazione NTLM e/o convalida PAC. La convalida PAC è attiva per impostazione predefinita nelle versioni del sistema operativo precedenti a Windows Server 2008. Si tratta di un'impostazione client, di conseguenza i controller di dominio saranno interessati fino a quando non viene disattivato in tutti i sistemi client.</li><li>Gli ambienti con autenticazione con attendibilità significativa, che include i trust tra foreste, presentano maggiori rischi se non vengono ridimensionati correttamente.</li><li>I consolidamenti dei server aumenteranno la concorrenza dell'autenticazione tra trust.</li><li>È necessario gestire i picchi, ad esempio i failover del cluster, quando gli utenti eseguono di nuovo l'autenticazione in massa nel nuovo nodo del cluster.</li><li>Potrebbe essere necessario ottimizzare i singoli sistemi client (ad esempio un cluster).</li></ul>|
 
@@ -169,13 +169,13 @@ Evitare il overcommit della memoria nell'host. L'obiettivo fondamentale di ottim
 
 Nel corso del tempo, è possibile fare in modo che un numero maggiore di dati venga aggiunto al database e che il server sarà in produzione da 3 a 5 anni. In base a una stima della crescita del 33%, 16 GB sarebbero una quantità ragionevole di RAM da inserire in un server fisico. In una macchina virtuale, data la facilità con cui è possibile modificare le impostazioni e la RAM può essere aggiunta alla macchina virtuale, a partire da 12 GB il piano di monitoraggio e aggiornamento in futuro è ragionevole.
 
-## <a name="network"></a>Network
+## <a name="network"></a>Rete
 
 ### <a name="evaluating"></a>Valutazione
 In questa sezione viene illustrata la valutazione delle richieste relative al traffico di replica, che è incentrato sul traffico che attraversa la rete WAN ed è trattato in modo approfondito nel [traffico di replica Active Directory](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-2000-server/bb742457(v=technet.10)), rispetto alla valutazione della larghezza di banda totale e della capacità di rete necessaria, inclusione di query client, criteri di gruppo applicazioni e così via. Per gli ambienti esistenti, questo può essere raccolto usando i contatori delle prestazioni "Network\*Interface () \Byte received/sec" e "Network\*(Interface ) \Byte Sent/sec". Intervalli di campionamento per i contatori dell'interfaccia di rete in 15, 30 o 60 minuti. Un valore inferiore sarà in genere troppo volatile per le misurazioni valide; un valore maggiore consiste nel smussare le operazioni di lettura giornaliera.
 
 > [!NOTE]
-> Generalmente, la maggior parte del traffico di rete in un controller di dominio è in uscita perché il controller di dominio risponde alle query client. Questo è il motivo per cui è necessario concentrarsi sul traffico in uscita, sebbene sia consigliabile valutare ogni ambiente anche per il traffico in ingresso. Gli stessi approcci possono essere usati per gestire e verificare i requisiti del traffico di rete in ingresso. Per ulteriori informazioni, vedere l'articolo della Knowledge base [929851: l'intervallo di porte dinamiche predefinito per TCP/IP è stato modificato in Windows Vista e in Windows Server 2008](http://support.microsoft.com/kb/929851).
+> Generalmente, la maggior parte del traffico di rete in un controller di dominio è in uscita perché il controller di dominio risponde alle query client. Questo è il motivo per cui è necessario concentrarsi sul traffico in uscita, sebbene sia consigliabile valutare ogni ambiente anche per il traffico in ingresso. Gli stessi approcci possono essere usati per gestire e verificare i requisiti del traffico di rete in ingresso. Per ulteriori informazioni, vedere l'articolo della Knowledge base [929851: l'intervallo di porte dinamiche predefinito per TCP/IP è stato modificato in Windows Vista e in Windows Server 2008](https://support.microsoft.com/kb/929851).
 
 ### <a name="bandwidth-needs"></a>Esigenze di larghezza di banda
 
@@ -241,12 +241,12 @@ CONTROLLER DI DOMINIO 2|6,25 MB/s|
 
 Come sempre, nel corso del tempo è possibile fare in modo che il carico del client aumenti e che la crescita venga pianificata nel modo più appropriato possibile. La quantità consigliata per la pianificazione di potrebbe consentire una crescita stimata nel traffico di rete del 50%.
 
-## <a name="storage"></a>Archiviazione
+## <a name="storage"></a>Archiviazione:
 
 La pianificazione dell'archiviazione costituisce due componenti:
 
 - Capacità o dimensioni di archiviazione
-- Prestazioni
+- Performance
 
 Una notevole quantità di tempo e documentazione viene spesa per la pianificazione della capacità, lasciando le prestazioni spesso completamente trascurate. Con i costi hardware correnti, la maggior parte degli ambienti non è sufficientemente grande che uno di questi è effettivamente un problema e la raccomandazione di "inserire la quantità di RAM come le dimensioni del database" in genere copre il resto, sebbene possa essere eccessivo per le località satellite più grandi ambienti.
 
@@ -260,8 +260,8 @@ L'unica indicazione da considerare è garantire che il 110% delle dimensioni NTD
 
 La prima e più importante considerazione è la valutazione delle dimensioni di NTDS. dit e SYSVOL. Queste misure consentiranno di dimensionare sia il disco fisso che l'allocazione di RAM. A causa del costo relativamente basso di questi componenti, non è necessario che la matematica sia rigorosa e precisa. Il contenuto relativo alla valutazione di questa operazione sia per gli ambienti esistenti che per quelli nuovi è disponibile nella serie di [archiviazione dati](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-2000-server/cc961771(v=technet.10)) . In particolare, fare riferimento agli articoli seguenti:
 
-- **Per gli ambienti esistenti &ndash;** La sezione intitolata "per attivare la registrazione dello spazio su disco liberato dalla deframmentazione" nell'articolo [limiti di archiviazione](https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-2000-server/cc961769(v=technet.10)).
-- **Per i nuovi ambienti &ndash;** L'articolo intitolato [stime di crescita per Active Directory utenti e unità organizzative](https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-2000-server/cc961779(v=technet.10)).
+- **Per gli ambienti esistenti &ndash;** La sezione intitolata "per attivare la registrazione dello spazio su disco liberato dalla deframmentazione" nell'articolo [limiti di archiviazione](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-2000-server/cc961769(v=technet.10)).
+- **Per i nuovi ambienti &ndash;** L'articolo intitolato [stime di crescita per Active Directory utenti e unità organizzative](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-2000-server/cc961779(v=technet.10)).
 
   > [!NOTE]
   > Gli articoli sono basati sulle stime delle dimensioni dei dati effettuate al momento del rilascio di Active Directory in Windows 2000. Utilizzare le dimensioni degli oggetti che riflettono le dimensioni effettive degli oggetti nell'ambiente in uso.
@@ -290,7 +290,7 @@ In uno scenario in cui vengono allocati più file di disco rigido virtuale (VHD)
 > [!NOTE]
 > Questa archiviazione necessaria è aggiunta allo spazio di archiviazione necessario per SYSVOL, il sistema operativo, il file di paging, i file temporanei, i dati locali memorizzati nella cache, ad esempio i file del programma di installazione, e le applicazioni.
 
-### <a name="storage-performance"></a>Prestazioni di archiviazione
+### <a name="storage-performance"></a>Prestazioni dell'archiviazione
 
 #### <a name="evaluating-performance-of-storage"></a>Valutazione delle prestazioni di archiviazione
 
@@ -320,7 +320,7 @@ Questi devono essere campionati in intervalli di 15/30/60 minuti per il benchmar
 #### <a name="evaluating-the-results"></a>Valutazione dei risultati
 
 > [!NOTE]
-> Lo stato attivo si basa sulle letture del database poiché questo è in genere il componente più complesso, la stessa logica può essere applicata alle Scritture nel file di log sostituendo disco logico ( *\<NTDS log\>* ) \Avg Disk sec/Write e disco logico (*Log\<NTDS) \ scritture/sec):\>*
+> Lo stato attivo si basa sulle letture del database poiché questo è in genere il componente più complesso, la stessa logica può essere applicata alle Scritture nel file di log sostituendo disco logico ( *\<NTDS log\>* ) \Avg Disk sec/Write e disco logico (*Log\>NTDS) \ scritture/sec):\<*
 >  
 > - Disco logico ( *\<NTDS\>* ) \Avg disco/sec indica se l'archiviazione corrente è adeguatamente dimensionata o meno.  Se i risultati sono approssimativamente uguali al tempo di accesso al disco per il tipo di disco, disco logico ( *\<NTDS\>* ) \ Reads/sec è una misura valida.  Controllare le specifiche del produttore per lo spazio di archiviazione nel back-end, ma gli intervalli validi per disco logico ( *\<NTDS\>* ) \Avg Disk sec/Read saranno approssimativamente:
 >   - 7200 – da 9 a 12,5 millisecondi (MS)
@@ -353,15 +353,15 @@ Determinazione della quantità di I/O necessaria per un sistema integro in condi
 
 - Disco logico ( *\<unità del database NTDS\>* ) \ trasferimenti/sec durante il periodo di picco di 15 minuti 
 - Per determinare la quantità di I/O necessaria per l'archiviazione in cui viene superata la capacità dell'archiviazione sottostante:
-  >*IOPS necessari* = (disco logico ( *\<unità\>del database NTDS*) \Avg disco/ &divide;  *\<\>* sec/lettura media sec/lettura disco&times;) disco logico ( *\< Unità\>di database NTDS*) \ lettura/sec
+  >*IOPS necessari* = (disco logico ( *\<unità\>del database NTDS*) \Avg disco/ &divide; &times; *\<\>sec/lettura media sec/lettura disco*) disco logico ( *\< Unità\>di database NTDS*) \ lettura/sec
 
-|Contatore|Valore|
+|Contatore|Value|
 |-|-|
 |Disco logico effettivo ( *\<unità di database NTDS\>* ) disco/sec/trasferimento \Avg|.02 secondi (20 millisecondi)|
 |Disco logico di destinazione ( *\<unità di database NTDS\>* ) \Avg disco/sec|.01 secondi|
 |Moltiplicatore per la modifica nell'IO disponibile|0,02 &divide; 0,01 = 2|  
   
-|Nome del valore|Valore|
+|Nome del valore|Value|
 |-|-|
 |Disco logico ( *\<unità del database NTDS\>* ) \ trasferimenti/sec|400|
 |Moltiplicatore per la modifica nell'IO disponibile|2|
@@ -412,7 +412,7 @@ Sfortunatamente, a causa della grande variabilità delle applicazioni client che
 
 Come indicato in precedenza, quando si pianifica la capacità per un intero sito, l'obiettivo è quello di definire un progetto con una progettazione della capacità di *N* + 1, in modo che l'errore di un sistema durante il periodo di picco consenta la continuazione del servizio con un livello di qualità ragionevole. Ciò significa che in uno scenario "*N*", il carico di tutte le caselle dovrebbe essere inferiore al 100% (migliore ancora, minore di 80%) durante i periodi di picco.
 
-Inoltre, se le applicazioni e i client nel sito usano le procedure consigliate per individuare i controller di dominio (ovvero l'uso della [funzione DsGetDcName](http://msdn.microsoft.com/en-us/library/windows/desktop/ms675983(v=vs.85).aspx)), i client devono essere distribuiti in modo relativamente uniforme con picchi temporanei secondari a causa di un numero qualsiasi di fattori.
+Inoltre, se le applicazioni e i client nel sito usano le procedure consigliate per individuare i controller di dominio (ovvero l'uso della [funzione DsGetDcName](https://msdn.microsoft.com/library/windows/desktop/ms675983(v=vs.85).aspx)), i client devono essere distribuiti in modo relativamente uniforme con picchi temporanei secondari a causa di un numero qualsiasi di fattori.
 
 Nell'esempio seguente vengono eseguiti i presupposti seguenti:
 
@@ -461,7 +461,7 @@ Al massimo carico, Lsass utilizza circa il 485% di una CPU o 4,85 CPU in esecuzi
 
 ### <a name="when-to-tune-ldap-weights"></a>Quando ottimizzare i pesi LDAP
 
-Esistono diversi scenari in cui è necessario prendere in considerazione l'ottimizzazione di [LdapSrvWeight](https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-2000-server/cc957291(v=technet.10)) . Nel contesto della pianificazione della capacità, questa operazione viene eseguita quando il caricamento dell'applicazione o dell'utente non è bilanciato in modo uniforme oppure i sistemi sottostanti non sono bilanciati in modo uniforme in termini di funzionalità. I motivi per evitare la pianificazione della capacità esulano dall'ambito di questo articolo.
+Esistono diversi scenari in cui è necessario prendere in considerazione l'ottimizzazione di [LdapSrvWeight](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-2000-server/cc957291(v=technet.10)) . Nel contesto della pianificazione della capacità, questa operazione viene eseguita quando il caricamento dell'applicazione o dell'utente non è bilanciato in modo uniforme oppure i sistemi sottostanti non sono bilanciati in modo uniforme in termini di funzionalità. I motivi per evitare la pianificazione della capacità esulano dall'ambito di questo articolo.
 
 Esistono due motivi comuni per ottimizzare i pesi LDAP:
 
@@ -488,9 +488,9 @@ Utilizzando l'esempio del profilo di [comportamento del sito di destinazione](#t
 
 | |Informazioni sul processore\\ %utilità processore &nbsp;(_Total)<br />Utilizzo con impostazioni predefinite|Nuovo LdapSrvWeight|Nuovo utilizzo stimato|
 |-|-|-|-|
-|4-DC CPU 1|40|100|30|
-|4-DC CPU 2|40|100|30|
-|8-CPU DC 3|20|200|30|
+|4-DC CPU 1|40|100|30%|
+|4-DC CPU 2|40|100|30%|
+|8-CPU DC 3|20|200|30%|
 
 Tuttavia, prestare attenzione a questi scenari. Come si può notare in precedenza, i calcoli matematici sembrano molto interessanti e graziosi su carta. Tuttavia, in questo articolo, la pianificazione di uno scenario "*N* + 1" è di importanza fondamentale. L'effetto di un controller di dominio in modalità offline deve essere calcolato per ogni scenario. Nello scenario immediatamente precedente, in cui la distribuzione del carico è pari, per garantire un carico del 60% durante uno scenario "*N*", con il carico bilanciato in modo uniforme tra tutti i server, la distribuzione sarà ottimale perché i rapporti rimarranno coerenti. Esaminando lo scenario di ottimizzazione dell'emulatore PDC e in generale qualsiasi scenario in cui il carico di utenti o applicazioni non è bilanciato, l'effetto è molto diverso:
 
@@ -540,7 +540,7 @@ Per impostazione predefinita, esistono diverse applicazioni che utilizzano l'aut
 
 Queste applicazioni possono causare un carico significativo per l'autenticazione NTLM, che può influire significativamente sul controller di dominio, specialmente quando gli utenti e le risorse si trovano in domini diversi.
 
-Esistono diversi approcci alla gestione del carico di attendibilità incrociato, che in pratica vengono utilizzati in combinazione anziché in uno scenario esclusivo o/o. Le opzioni possibili sono:
+Esistono diversi approcci alla gestione del carico di attendibilità incrociato, che in pratica vengono utilizzati in combinazione anziché in uno scenario esclusivo o/o. Di seguito sono elencate le opzioni possibili:
 
 - Ridurre l'autenticazione client tra attendibilità individuando i servizi utilizzati da un utente nello stesso dominio in cui risiede l'utente.
 - Aumentare il numero di canali protetti disponibili. Questo è rilevante per il traffico tra foreste e tra foreste e sono noti come trust di collegamento.
@@ -550,7 +550,7 @@ Per l'ottimizzazione di **MaxConcurrentApi** in un server esistente, l'equazione
 
 > *New_MaxConcurrentApi_setting* &ge; (*semaphore_acquires*  +  *semaphore_time-outs*) &times; *average_semaphore_hold_time* &divide; *time_collection_length*
 
-Per ulteriori informazioni, vedere [l'articolo della Knowledge base 2688798: come eseguire l'ottimizzazione delle prestazioni per l'autenticazione NTLM tramite l'impostazione MaxConcurrentApi](http://support.microsoft.com/kb/2688798).
+Per ulteriori informazioni, vedere [l'articolo della Knowledge base 2688798: come eseguire l'ottimizzazione delle prestazioni per l'autenticazione NTLM tramite l'impostazione MaxConcurrentApi](https://support.microsoft.com/kb/2688798).
 
 ## <a name="virtualization-considerations"></a>Considerazioni sulla virtualizzazione
 
@@ -558,7 +558,7 @@ None, si tratta di un'impostazione di ottimizzazione del sistema operativo.
 
 ### <a name="calculation-summary-example"></a>Esempio di riepilogo del calcolo
 
-|Tipo di dati|Valore|
+|Tipo di dati|Value|
 |-|-|
 |Il semaforo acquisisce (minimo)|6\.161|
 |Il semaforo acquisisce (massimo)|6\.762|
@@ -574,13 +574,13 @@ Per questo sistema per questo periodo di tempo, i valori predefiniti sono accett
 
 In questo articolo è stato illustrato che la pianificazione e la scalabilità vanno verso le destinazioni di utilizzo. Di seguito è riportato un grafico di riepilogo delle soglie consigliate che è necessario monitorare per assicurarsi che i sistemi funzionino entro le soglie di capacità appropriate. Tenere presente che non si tratta di soglie per le prestazioni, ma le soglie per la pianificazione della capacità. Un server che opera in eccesso di queste soglie funziona, ma è il momento di iniziare a convalidare il comportamento di tutte le applicazioni. In caso affermativo, è il momento di iniziare a valutare gli aggiornamenti hardware o altre modifiche di configurazione.
 
-|Categoria|Contatore delle prestazioni|Intervallo/campionamento|Destinazione|Avviso|
+|Categoria|Contatore delle prestazioni|Intervallo/campionamento|Target|Warning|
 |-|-|-|-|-|
-|Processore|Informazioni sul processore (_Total)\\% Processor Utility|60 min|40%|60%|
+|Responsabile del trattamento|Informazioni sul processore (_Total)\\% Processor Utility|60 min|40%|60%|
 |RAM (Windows Server 2008 R2 o versioni precedenti)|Memoria\mbyte MB|< 100 MB|N/D|< 100 MB|
-|RAM (Windows Server 2012)|Durata media cache standby Memory\Long-Term|30 minuti|Deve essere testato|Deve essere testato|
-|Network|Interfaccia di rete (\*) \Byte inviati/sec<br /><br />\Byte di interfaccia di rete (\*) ricevuti/sec|30 minuti|40%|60%|
-|Archiviazione|Disco logico ( *\<unità di database NTDS\>* ) \Avg disco/sec<br /><br />Disco logico ( *\<unità di database NTDS\>* ) \Avg disco/sec|60 min|10 ms|15 ms|
+|RAM (Windows Server 2012)|Durata media cache standby Memory\Long-Term|30 min.|Deve essere testato|Deve essere testato|
+|Rete|Interfaccia di rete (\*) \Byte inviati/sec<br /><br />\Byte di interfaccia di rete (\*) ricevuti/sec|30 min.|40%|60%|
+|Archiviazione:|Disco logico ( *\<unità di database NTDS\>* ) \Avg disco/sec<br /><br />Disco logico ( *\<unità di database NTDS\>* ) \Avg disco/sec|60 min|10 ms|15 ms|
 |Servizi AD|Tempo di attesa del semaforo \Latenza di Netlogon (\*)|60 min|0|1 secondo|
 
 ## <a name="appendix-a-cpu-sizing-criteria"></a>Appendice A: criteri di dimensionamento CPU
@@ -603,7 +603,7 @@ Poiché i sistemi server moderni hanno più processori, più processori multicor
 
 ### <a name="thread-level-parallelism"></a>Parallelismo a livello di thread
 
-Ogni thread è un'attività indipendente, perché ogni thread ha un proprio stack e istruzioni. Poiché servizi di dominio Active Directory è multithread e il numero di thread disponibili può essere ottimizzato usando la [modalità di visualizzazione e impostazione dei criteri LDAP in Active Directory tramite Ntdsutil. exe](http://support.microsoft.com/kb/315071), la scalabilità è ottimale in più processori logici.
+Ogni thread è un'attività indipendente, perché ogni thread ha un proprio stack e istruzioni. Poiché servizi di dominio Active Directory è multithread e il numero di thread disponibili può essere ottimizzato usando la [modalità di visualizzazione e impostazione dei criteri LDAP in Active Directory tramite Ntdsutil. exe](https://support.microsoft.com/kb/315071), la scalabilità è ottimale in più processori logici.
 
 ### <a name="data-level-parallelism"></a>Parallelismo a livello di dati
 
@@ -648,9 +648,9 @@ Tornando all'analogia di guida usata in precedenza in questa sezione:
 Questo è il motivo per cui le medie a lungo termine per la capacità stimate in modo prudenziale al 40% consentono una stanza principale per i picchi anomali del carico, a prescindere dal fatto che i picchi transitori (ad esempio le query hardcoded eseguite per alcuni minuti) o i picchi anomali nel carico generale (la mattina di il primo giorno dopo un lungo weekend.
 
 L'istruzione precedente considera la percentuale di calcolo del tempo del processore identica alla normativa di utilizzo è una semplificazione della semplicità del lettore generale. Per quelli più rigorosamente matematici:  
-- Conversione del [PERF_100NSEC_TIMER_INV](https://docs.microsoft.com/en-us/previous-versions/windows/embedded/ms901169(v=msdn.10))
-  - *B* = il numero di intervalli di 100-NS per il thread "inattivo" trascorre sul processore logico. Modifica della variabile "*X*" nel calcolo [PERF_100NSEC_TIMER_INV](https://docs.microsoft.com/en-us/previous-versions/windows/embedded/ms901169(v=msdn.10))
-  - *T* = numero totale di intervalli di 100-NS in un intervallo di tempo specificato. Modifica della variabile "*Y*" nel calcolo [PERF_100NSEC_TIMER_INV](https://docs.microsoft.com/en-us/previous-versions/windows/embedded/ms901169(v=msdn.10)) .
+- Conversione del [PERF_100NSEC_TIMER_INV](https://docs.microsoft.com/previous-versions/windows/embedded/ms901169(v=msdn.10))
+  - *B* = il numero di intervalli di 100-NS per il thread "inattivo" trascorre sul processore logico. Modifica della variabile "*X*" nel calcolo [PERF_100NSEC_TIMER_INV](https://docs.microsoft.com/previous-versions/windows/embedded/ms901169(v=msdn.10))
+  - *T* = numero totale di intervalli di 100-NS in un intervallo di tempo specificato. Modifica della variabile "*Y*" nel calcolo [PERF_100NSEC_TIMER_INV](https://docs.microsoft.com/previous-versions/windows/embedded/ms901169(v=msdn.10)) .
   - *U* k = percentuale di utilizzo del processore logico per "thread inattivo" o% tempo di inattività.  
 - Uso della matematica:
   - *U* k = 1 –% tempo processore
@@ -662,7 +662,7 @@ L'istruzione precedente considera la percentuale di calcolo del tempo del proces
 
 La matematica precedente può determinare il numero di processori logici necessari in un sistema sembra estremamente complesso. Questo è il motivo per cui l'approccio al dimensionamento dei sistemi è mirato alla determinazione dell'utilizzo massimo della destinazione in base al carico corrente e al calcolo del numero di processori logici necessari per ottenere tale valore. Inoltre, anche se le velocità del processore logico avranno un impatto significativo sulle prestazioni, l'efficienza della cache, i requisiti di coerenza della memoria, la pianificazione e la sincronizzazione dei thread e il carico del client non bilanciato avrà un impatto significativo sui prestazioni che variano in base al server. Con il costo relativamente economico della potenza di calcolo, il tentativo di analizzare e determinare il numero perfetto di CPU necessarie diventa un esercizio accademico superiore a quello che fornisce valore aziendale.
 
-Il 40% non è un requisito difficile e rapido. si tratta di un inizio ragionevole. Diversi consumer di Active Directory richiedono diversi livelli di velocità di risposta. Potrebbero verificarsi scenari in cui gli ambienti possono essere eseguiti al 80% o al 90% come una media sostenuta, in quanto i tempi di attesa maggiori per l'accesso al processore non influiscano in modo significativo sulle prestazioni del client. È importante ripetere l'iterazione che nel sistema sono presenti molte aree molto più lente rispetto al processore logico nel sistema, incluso l'accesso alla RAM, l'accesso al disco e la trasmissione della risposta sulla rete. Tutti questi elementi devono essere ottimizzati insieme. Esempi:
+Il 40% non è un requisito difficile e rapido. si tratta di un inizio ragionevole. Diversi consumer di Active Directory richiedono diversi livelli di velocità di risposta. Potrebbero verificarsi scenari in cui gli ambienti possono essere eseguiti al 80% o al 90% come una media sostenuta, in quanto i tempi di attesa maggiori per l'accesso al processore non influiscano in modo significativo sulle prestazioni del client. È importante ripetere l'iterazione che nel sistema sono presenti molte aree molto più lente rispetto al processore logico nel sistema, incluso l'accesso alla RAM, l'accesso al disco e la trasmissione della risposta sulla rete. Tutti questi elementi devono essere ottimizzati insieme. Di seguito sono riportati alcuni esempi.
 
 - L'aggiunta di più processori a un sistema che esegue il 90% che è associato a un disco probabilmente non consentirà di migliorare significativamente le prestazioni. Un'analisi più approfondita del sistema probabilmente identificherà che ci sono molti thread che non sono ancora in esecuzione nel processore perché sono in attesa del completamento di operazioni di I/O.
 - La risoluzione dei problemi legati al disco implica potenzialmente che i thread che in precedenza spendevano molto tempo in uno stato di attesa non saranno più in uno stato di attesa per I/O e ci sarà una maggiore concorrenza per il tempo di CPU, il che significa che l'utilizzo del 90% nell'esempio precedente passerà a 100% (perché non può andare più in alto). Entrambi i componenti devono essere ottimizzati in combinazione.
@@ -769,9 +769,9 @@ Una volta identificati i componenti, è possibile calcolare la quantità di dati
   
   |I/O supportati dalla dimensione del bus SCSI per blocco|Dimensioni blocco 2 KB|Dimensioni blocco da 8 KB (AD Jet) (SQL Server 7.0/SQL Server 2000)
   |-|-|-|
-  |20 MB/s|10,000|2\.500|
-  |40 MB/s|20.000|5\.000|
-  |128 MB/s|65.536|16.384|
+  |20 MB/s|10,000|2,500|
+  |40 MB/s|20.000|5000|
+  |128 MB/s|65,536|16.384|
   |320 MB/s|160.000|40.000|
 
   Come può essere determinato da questo grafico, nello scenario presentato, indipendentemente dall'uso, il bus non sarà mai un collo di bottiglia, in quanto il numero massimo di mandrini è 100 I/O, ben al di sotto delle soglie sopra riportate.
@@ -822,7 +822,7 @@ Quando il rapporto tra le letture e le Scritture e il numero di assi è noto, l'
 
 > *IOPS massimo per mandrino* &times;2 mandrini &times; [( *%legge*  +  *%scrive*) &divide; ( *%legge* + 2 &times; *%scrive*)] = *Total IOPS*
 
-RAID 1 + 0, si comporta esattamente come RAID 1 per quanto riguarda le spese di lettura e scrittura. Tuttavia, l'i/O viene ora sottoposto a striping in ogni set con mirroring. Se  
+RAID 1 + 0, si comporta esattamente come RAID 1 per quanto riguarda le spese di lettura e scrittura. Tuttavia, l'i/O viene ora sottoposto a striping in ogni set con mirroring. Se l'opzione  
 
 > *IOPS massimo per mandrino* &times;2 mandrini &times; [( *%legge*  +  *%scrive*) &divide; ( *%legge* + 2 &times; *%scrive*)] = *Total IOPS*  
 

@@ -9,12 +9,12 @@ ms.date: 06/05/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 517582661374c388d44362538da6933a916b0039
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 7ae66fd47953017652ed1e753279e344e0a6c478
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71407756"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75949416"
 ---
 # <a name="access-control-policies-in-windows-server-2012-r2-and-windows-server-2012-ad-fs"></a>Criteri di controllo degli accessi in Windows Server 2012 R2 e Windows Server 2012 AD FS
 
@@ -41,11 +41,11 @@ Per risolvere il problemi, aggiornare tutti i criteri che negano l'attestazione 
 
 Ad esempio, la regola seguente:
 
-`c1:[Type == "http://custom/ipoutsiderange", Value == "true"] && c2:[Type == "http://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-endpoint-absolute-path", Value != "/adfs/ls/"] => issue(Type = "http://schemas.microsoft.com/authorization/claims/deny", Value = " DenyUsersWithClaim");`  
+`c1:[Type == "http://custom/ipoutsiderange", Value == "true"] && c2:[Type == "https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-endpoint-absolute-path", Value != "/adfs/ls/"] => issue(Type = "https://schemas.microsoft.com/authorization/claims/deny", Value = " DenyUsersWithClaim");`  
 
 verrà aggiornato a:
 
-`c1:[Type == "http://custom/ipoutsiderange", Value == "true"] && c2:[Type == "http://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-endpoint-absolute-path", Value != "(/adfs/ls/)|(/adfs/services/trust/2005/windowstransport)|(/adfs/services/trust/13/windowstransport)|(/adfs/services/trust/2005/usernamemixed)|(/adfs/services/trust/13/usernamemixed)|(/adfs/services/trust/2005/certificatemixed)|(/adfs/services/trust/13/certificatemixed)"] => issue(Type = "http://schemas.microsoft.com/authorization/claims/deny", Value = " DenyUsersWithClaim");`
+`c1:[Type == "http://custom/ipoutsiderange", Value == "true"] && c2:[Type == "https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-endpoint-absolute-path", Value != "(/adfs/ls/)|(/adfs/services/trust/2005/windowstransport)|(/adfs/services/trust/13/windowstransport)|(/adfs/services/trust/2005/usernamemixed)|(/adfs/services/trust/13/usernamemixed)|(/adfs/services/trust/2005/certificatemixed)|(/adfs/services/trust/13/certificatemixed)"] => issue(Type = "https://schemas.microsoft.com/authorization/claims/deny", Value = " DenyUsersWithClaim");`
 
 
 
@@ -80,10 +80,10 @@ I criteri descritti in questo articolo devono essere sempre usati con un altro m
 4.  Nella pagina **Seleziona modello di regola** , in **modello di regola attestazione**, selezionare **Invia attestazioni mediante una regola personalizzata**, quindi fare clic su **Avanti**.  
 
 5.  Nella pagina **Configura regola** , in **Nome regola attestazione**, digitare il nome visualizzato per questa regola, ad esempio "se esiste un'attestazione IP al di fuori dell'intervallo desiderato, negare". In **regola personalizzata**Digitare o incollare la sintassi del linguaggio delle regole attestazioni seguente (sostituire il valore precedente per "x-ms-inoltred-client-IP" con un'espressione IP valida):  
-`c1:[Type == "http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork", Value == "false"] && c2:[Type == "http://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-forwarded-client-ip", Value =~ "^(?!192\.168\.1\.77|10\.83\.118\.23)"] => issue(Type = "http://schemas.microsoft.com/authorization/claims/deny", Value = " DenyUsersWithClaim");` </br>
-6.  Fare clic su **Fine**. Verificare che la nuova regola venga visualizzata nell'elenco regole di autorizzazione rilascio prima della regola predefinita **Consenti accesso a tutti gli utenti** (la regola nega avrà la precedenza anche se viene visualizzata in precedenza nell'elenco).  Se non si ha la regola di accesso consentito predefinita, è possibile aggiungerne una alla fine dell'elenco usando il linguaggio delle regole attestazioni come indicato di seguito:  </br>
+`c1:[Type == "https://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork", Value == "false"] && c2:[Type == "https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-forwarded-client-ip", Value =~ "^(?!192\.168\.1\.77|10\.83\.118\.23)"] => issue(Type = "https://schemas.microsoft.com/authorization/claims/deny", Value = " DenyUsersWithClaim");` </br>
+6.  Fai clic su **Fine**. Verificare che la nuova regola venga visualizzata nell'elenco regole di autorizzazione rilascio prima della regola predefinita **Consenti accesso a tutti gli utenti** (la regola nega avrà la precedenza anche se viene visualizzata in precedenza nell'elenco).  Se non si ha la regola di accesso consentito predefinita, è possibile aggiungerne una alla fine dell'elenco usando il linguaggio delle regole attestazioni come indicato di seguito:  </br>
 
-    `c:[] => issue(Type = "http://schemas.microsoft.com/authorization/claims/permit", Value = "true"); ` 
+    `c:[] => issue(Type = "https://schemas.microsoft.com/authorization/claims/permit", Value = "true"); ` 
 
 7.  Per salvare le nuove regole, nella finestra di dialogo **modifica regole attestazione** fare clic su **OK**. L'elenco risultante avrà un aspetto simile al seguente.  
 
@@ -104,9 +104,9 @@ I criteri descritti in questo articolo devono essere sempre usati con un altro m
 
 5.  Nella pagina **Configura regola** , in **Nome regola attestazione**, digitare il nome visualizzato per questa regola, ad esempio "se esiste un'attestazione IP al di fuori dell'intervallo desiderato, emettere ipoutsiderange claim". In **regola personalizzata**Digitare o incollare la sintassi del linguaggio delle regole attestazioni seguente (sostituire il valore precedente per "x-ms-inoltred-client-IP" con un'espressione IP valida):  
 
-    `c1:[Type == "http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork", Value == "false"] && c2:[Type == "http://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-forwarded-client-ip", Value =~ "^(?!192\.168\.1\.77|10\.83\.118\.23)"] => issue(Type = "http://custom/ipoutsiderange", Value = "true");`  
+    `c1:[Type == "https://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork", Value == "false"] && c2:[Type == "https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-forwarded-client-ip", Value =~ "^(?!192\.168\.1\.77|10\.83\.118\.23)"] => issue(Type = "http://custom/ipoutsiderange", Value = "true");`  
 
-6.  Fare clic su **Fine**. Verificare che la nuova regola venga visualizzata nell'elenco **regole di autorizzazione rilascio** .  
+6.  Fai clic su **Fine**. Verificare che la nuova regola venga visualizzata nell'elenco **regole di autorizzazione rilascio** .  
 
 7.  Quindi, nella scheda **regole di autorizzazione rilascio** della finestra di dialogo **modifica regole attestazione** fare clic su **Aggiungi regola** per avviare di nuovo la creazione guidata regola attestazione.  
 
@@ -116,10 +116,10 @@ I criteri descritti in questo articolo devono essere sempre usati con un altro m
 
 
 ~~~
-`c1:[Type == "http://custom/ipoutsiderange", Value == "true"] && c2:[Type == "http://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-client-application", Value != "Microsoft.Exchange.ActiveSync"] => issue(Type = "http://schemas.microsoft.com/authorization/claims/deny", Value = "DenyUsersWithClaim");`  
+`c1:[Type == "http://custom/ipoutsiderange", Value == "true"] && c2:[Type == "https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-client-application", Value != "Microsoft.Exchange.ActiveSync"] => issue(Type = "https://schemas.microsoft.com/authorization/claims/deny", Value = "DenyUsersWithClaim");`  
 ~~~
 
-10. Fare clic su **Fine**. Verificare che la nuova regola venga visualizzata nell'elenco **regole di autorizzazione rilascio** .  
+10. Fai clic su **Fine**. Verificare che la nuova regola venga visualizzata nell'elenco **regole di autorizzazione rilascio** .  
 
 11. Quindi, nella scheda **regole di autorizzazione rilascio** della finestra di dialogo **modifica regole attestazione** fare clic su **Aggiungi regola** per avviare di nuovo la creazione guidata regola attestazione.  
 
@@ -128,10 +128,10 @@ I criteri descritti in questo articolo devono essere sempre usati con un altro m
 13. Nella pagina **Configura regola** , in **Nome regola attestazione**, digitare il nome visualizzato per questa regola, ad esempio "controlla se l'attestazione dell'applicazione esiste". In **regola personalizzata**Digitare o incollare la sintassi del linguaggio delle regole attestazioni seguente:  
 
    ```  
-   NOT EXISTS([Type == "http://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-client-application"]) => add(Type = "http://custom/xmsapplication", Value = "fail");  
+   NOT EXISTS([Type == "https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-client-application"]) => add(Type = "http://custom/xmsapplication", Value = "fail");  
    ```  
 
-14. Fare clic su **Fine**. Verificare che la nuova regola venga visualizzata nell'elenco **regole di autorizzazione rilascio** .  
+14. Fai clic su **Fine**. Verificare che la nuova regola venga visualizzata nell'elenco **regole di autorizzazione rilascio** .  
 
 15. Quindi, nella scheda **regole di autorizzazione rilascio** della finestra di dialogo **modifica regole attestazione** fare clic su **Aggiungi regola** per avviare di nuovo la creazione guidata regola attestazione.  
 
@@ -139,8 +139,8 @@ I criteri descritti in questo articolo devono essere sempre usati con un altro m
 
 17. Nella pagina **Configura regola** , in **Nome regola attestazione**, digitare il nome visualizzato per questa regola, ad esempio "nega utenti con ipoutsiderange true e applicazione non riuscita". In **regola personalizzata**Digitare o incollare la sintassi del linguaggio delle regole attestazioni seguente:  
 
-`c1:[Type == "http://custom/ipoutsiderange", Value == "true"] && c2:[Type == "http://custom/xmsapplication", Value == "fail"] => issue(Type = "http://schemas.microsoft.com/authorization/claims/deny", Value = "DenyUsersWithClaim");`</br>  
-18. Fare clic su **Fine**. Verificare che la nuova regola venga visualizzata immediatamente sotto la regola precedente e prima della regola Consenti accesso a tutti gli utenti nell'elenco regole di autorizzazione rilascio (la regola di negazione avrà la precedenza anche se viene visualizzata in precedenza nell'elenco).  </br>Se non si ha la regola di accesso consentito predefinita, è possibile aggiungerne una alla fine dell'elenco usando il linguaggio delle regole attestazioni come indicato di seguito:</br></br>      `c:[] => issue(Type = "http://schemas.microsoft.com/authorization/claims/permit", Value = "true");`</br></br>
+`c1:[Type == "http://custom/ipoutsiderange", Value == "true"] && c2:[Type == "http://custom/xmsapplication", Value == "fail"] => issue(Type = "https://schemas.microsoft.com/authorization/claims/deny", Value = "DenyUsersWithClaim");`</br>  
+18. Fai clic su **Fine**. Verificare che la nuova regola venga visualizzata immediatamente sotto la regola precedente e prima della regola Consenti accesso a tutti gli utenti nell'elenco regole di autorizzazione rilascio (la regola di negazione avrà la precedenza anche se viene visualizzata in precedenza nell'elenco).  </br>Se non si ha la regola di accesso consentito predefinita, è possibile aggiungerne una alla fine dell'elenco usando il linguaggio delle regole attestazioni come indicato di seguito:</br></br>      `c:[] => issue(Type = "https://schemas.microsoft.com/authorization/claims/permit", Value = "true");`</br></br>
 19. Per salvare le nuove regole, nella finestra di dialogo **modifica regole attestazione** fare clic su OK. L'elenco risultante avrà un aspetto simile al seguente.  
 
     ![Regole di autorizzazione di rilascio](media/Access-Control-Policies-W2K12/clientaccess2.png )  
@@ -158,8 +158,8 @@ I criteri descritti in questo articolo devono essere sempre usati con un altro m
 4.  Nella pagina **Seleziona modello di regola** , in **modello di regola attestazione**, selezionare **Invia attestazioni mediante una regola personalizzata**, quindi fare clic su **Avanti**.  
 
 5.  Nella pagina **Configura regola** , in **Nome regola attestazione**, digitare il nome visualizzato per questa regola, ad esempio "se esiste un'attestazione IP al di fuori dell'intervallo desiderato, emettere ipoutsiderange claim". In **regola personalizzata**Digitare o incollare la sintassi del linguaggio delle regole attestazioni seguente (sostituire il valore precedente per "x-ms-inoltred-client-IP" con un'espressione IP valida):  </br>
-`c1:[Type == "http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork", Value == "false"] && c2:[Type == "http://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-forwarded-client-ip", Value =~ "^(?!192\.168\.1\.77|10\.83\.118\.23)"] => issue(Type = "http://custom/ipoutsiderange", Value = "true");`   
-6.  Fare clic su **Fine**. Verificare che la nuova regola venga visualizzata nell'elenco **regole di autorizzazione rilascio** .  
+`c1:[Type == "https://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork", Value == "false"] && c2:[Type == "https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-forwarded-client-ip", Value =~ "^(?!192\.168\.1\.77|10\.83\.118\.23)"] => issue(Type = "http://custom/ipoutsiderange", Value = "true");`   
+6.  Fai clic su **Fine**. Verificare che la nuova regola venga visualizzata nell'elenco **regole di autorizzazione rilascio** .  
 
 7.  Quindi, nella scheda **regole di autorizzazione rilascio** della finestra di dialogo **modifica regole attestazione** fare clic su **Aggiungi regola** per avviare di nuovo la creazione guidata regola attestazione.  
 
@@ -169,12 +169,12 @@ I criteri descritti in questo articolo devono essere sempre usati con un altro m
 
 
 ~~~
-`c1:[Type == "http://custom/ipoutsiderange", Value == "true"] && c2:[Type == "http://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-endpoint-absolute-path", Value != "/adfs/ls/"] => issue(Type = "http://schemas.microsoft.com/authorization/claims/deny", Value = " DenyUsersWithClaim");`  
+`c1:[Type == "http://custom/ipoutsiderange", Value == "true"] && c2:[Type == "https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-endpoint-absolute-path", Value != "/adfs/ls/"] => issue(Type = "https://schemas.microsoft.com/authorization/claims/deny", Value = " DenyUsersWithClaim");`  
 ~~~
 
-10. Fare clic su **Fine**. Verificare che la nuova regola venga visualizzata nell'elenco regole di autorizzazione rilascio prima della regola predefinita **Consenti accesso a tutti gli utenti** (la regola nega avrà la precedenza anche se viene visualizzata in precedenza nell'elenco).  </br></br> Se non si ha la regola di accesso consentito predefinita, è possibile aggiungerne una alla fine dell'elenco usando il linguaggio delle regole attestazioni come indicato di seguito:  
+10. Fai clic su **Fine**. Verificare che la nuova regola venga visualizzata nell'elenco regole di autorizzazione rilascio prima della regola predefinita **Consenti accesso a tutti gli utenti** (la regola nega avrà la precedenza anche se viene visualizzata in precedenza nell'elenco).  </br></br> Se non si ha la regola di accesso consentito predefinita, è possibile aggiungerne una alla fine dell'elenco usando il linguaggio delle regole attestazioni come indicato di seguito:  
 
-   `c:[] => issue(Type = "http://schemas.microsoft.com/authorization/claims/permit", Value = "true");`
+   `c:[] => issue(Type = "https://schemas.microsoft.com/authorization/claims/permit", Value = "true");`
 
 11. Per salvare le nuove regole, nella finestra di dialogo **modifica regole attestazione** fare clic su **OK**. L'elenco risultante avrà un aspetto simile al seguente.  
 
@@ -197,10 +197,10 @@ I criteri descritti in questo articolo devono essere sempre usati con un altro m
 
 
 ~~~
-`c1:[Type == "http://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-forwarded-client-ip", Value =~ "^(?!192\.168\.1\.77|10\.83\.118\.23)"] && c2:[Type == "http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork", Value == "false"] => issue(Type = "http://custom/ipoutsiderange", Value = "true");`  
+`c1:[Type == "https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-forwarded-client-ip", Value =~ "^(?!192\.168\.1\.77|10\.83\.118\.23)"] && c2:[Type == "https://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork", Value == "false"] => issue(Type = "http://custom/ipoutsiderange", Value = "true");`  
 ~~~
 
-6. Fare clic su **Fine**. Verificare che la nuova regola venga visualizzata nell'elenco **regole di autorizzazione rilascio** .  
+6. Fai clic su **Fine**. Verificare che la nuova regola venga visualizzata nell'elenco **regole di autorizzazione rilascio** .  
 
 7. Quindi, nella scheda **regole di autorizzazione rilascio** della finestra di dialogo **modifica regole attestazione** fare clic su **Aggiungi regola** per avviare di nuovo la creazione guidata regola attestazione.  
 
@@ -208,9 +208,9 @@ I criteri descritti in questo articolo devono essere sempre usati con un altro m
 
 9. Nella pagina **Configura regola** , in **Nome regola attestazione**, digitare il nome visualizzato per questa regola, ad esempio "check Group SID". In **regola personalizzata**Digitare o incollare la sintassi del linguaggio delle regole attestazioni seguente (sostituire "groupsid" con il SID effettivo del gruppo Active Directory in uso):  
 
-    `NOT EXISTS([Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid", Value == "S-1-5-32-100"]) => add(Type = "http://custom/groupsid", Value = "fail");`  
+    `NOT EXISTS([Type == "https://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid", Value == "S-1-5-32-100"]) => add(Type = "http://custom/groupsid", Value = "fail");`  
 
-10. Fare clic su **Fine**. Verificare che la nuova regola venga visualizzata nell'elenco **regole di autorizzazione rilascio** .  
+10. Fai clic su **Fine**. Verificare che la nuova regola venga visualizzata nell'elenco **regole di autorizzazione rilascio** .  
 
 11. Quindi, nella scheda **regole di autorizzazione rilascio** della finestra di dialogo **modifica regole attestazione** fare clic su **Aggiungi regola** per avviare di nuovo la creazione guidata regola attestazione.  
 
@@ -218,11 +218,11 @@ I criteri descritti in questo articolo devono essere sempre usati con un altro m
 
 13. Nella pagina **Configura regola** , in **Nome regola attestazione**, digitare il nome visualizzato per questa regola, ad esempio "nega utenti con ipoutsiderange true e GroupSid fail". In **regola personalizzata**Digitare o incollare la sintassi del linguaggio delle regole attestazioni seguente:  
 
-   `c1:[Type == "http://custom/ipoutsiderange", Value == "true"] && c2:[Type == "http://custom/groupsid", Value == "fail"] => issue(Type = "http://schemas.microsoft.com/authorization/claims/deny", Value = "DenyUsersWithClaim");`  
+   `c1:[Type == "http://custom/ipoutsiderange", Value == "true"] && c2:[Type == "http://custom/groupsid", Value == "fail"] => issue(Type = "https://schemas.microsoft.com/authorization/claims/deny", Value = "DenyUsersWithClaim");`  
 
-14. Fare clic su **Fine**. Verificare che la nuova regola venga visualizzata immediatamente sotto la regola precedente e prima della regola Consenti accesso a tutti gli utenti nell'elenco regole di autorizzazione rilascio (la regola di negazione avrà la precedenza anche se viene visualizzata in precedenza nell'elenco).  </br></br>Se non si ha la regola di accesso consentito predefinita, è possibile aggiungerne una alla fine dell'elenco usando il linguaggio delle regole attestazioni come indicato di seguito:  
+14. Fai clic su **Fine**. Verificare che la nuova regola venga visualizzata immediatamente sotto la regola precedente e prima della regola Consenti accesso a tutti gli utenti nell'elenco regole di autorizzazione rilascio (la regola di negazione avrà la precedenza anche se viene visualizzata in precedenza nell'elenco).  </br></br>Se non si ha la regola di accesso consentito predefinita, è possibile aggiungerne una alla fine dell'elenco usando il linguaggio delle regole attestazioni come indicato di seguito:  
 
-   `c:[] => issue(Type = "http://schemas.microsoft.com/authorization/claims/permit", Value = "true");`  
+   `c:[] => issue(Type = "https://schemas.microsoft.com/authorization/claims/permit", Value = "true");`  
 
 15. Per salvare le nuove regole, nella finestra di dialogo **modifica regole attestazione** fare clic su OK. L'elenco risultante avrà un aspetto simile al seguente.  
 
@@ -296,7 +296,7 @@ I criteri descritti in questo articolo devono essere sempre usati con un altro m
  AD FS in Windows Server 2012 R2 fornisce informazioni sul contesto della richiesta usando i tipi di attestazione seguenti:  
 
 ### <a name="x-ms-forwarded-client-ip"></a>X-MS-Inoltred-client-IP  
- Tipo di attestazione: `http://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-forwarded-client-ip`  
+ Tipo di attestazione: `https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-forwarded-client-ip`  
 
  Questa attestazione AD FS rappresenta un "tentativo migliore" di verificare l'indirizzo IP dell'utente (ad esempio, il client Outlook) che effettua la richiesta. Questa attestazione può contenere più indirizzi IP, incluso l'indirizzo di ogni proxy che ha inviato la richiesta.  Questa attestazione viene popolata da un HTTP. Il valore dell'attestazione può essere uno dei seguenti:  
 
@@ -318,7 +318,7 @@ I criteri descritti in questo articolo devono essere sempre usati con un altro m
 >  Exchange Online supporta attualmente solo indirizzi IPV4. non supporta gli indirizzi IPV6.  
 
 ### <a name="x-ms-client-application"></a>X-MS-client-applicazione  
- Tipo di attestazione: `http://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-client-application`  
+ Tipo di attestazione: `https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-client-application`  
 
  Questa attestazione AD FS rappresenta il protocollo utilizzato dal client finale, che corrisponde liberamente all'applicazione utilizzata.  Questa attestazione viene popolata da un'intestazione HTTP attualmente impostata solo da Exchange Online, che popola l'intestazione quando passa la richiesta di autenticazione a AD FS. A seconda dell'applicazione, il valore di questa attestazione sarà uno dei seguenti:  
 
@@ -345,7 +345,7 @@ I criteri descritti in questo articolo devono essere sempre usati con un altro m
     -   Microsoft. Exchange. IMAP  
 
 ### <a name="x-ms-client-user-agent"></a>X-MS-Client-User-Agent  
- Tipo di attestazione: `http://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-client-user-agent`  
+ Tipo di attestazione: `https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-client-user-agent`  
 
  Questa attestazione AD FS fornisce una stringa per rappresentare il tipo di dispositivo utilizzato dal client per accedere al servizio. Questo può essere usato quando i clienti vogliono impedire l'accesso per determinati dispositivi, ad esempio tipi specifici di smartphone.  I valori di esempio per questa attestazione includono (ma non sono limitati) i valori riportati di seguito.  
 
@@ -368,19 +368,19 @@ I criteri descritti in questo articolo devono essere sempre usati con un altro m
   È anche possibile che questo valore sia vuoto.  
 
 ### <a name="x-ms-proxy"></a>X-MS-proxy  
- Tipo di attestazione: `http://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-proxy`  
+ Tipo di attestazione: `https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-proxy`  
 
  Questa attestazione AD FS indica che la richiesta è passata attraverso il proxy dell'applicazione Web.  Questa attestazione viene popolata dal proxy dell'applicazione Web, che consente di popolare l'intestazione quando si passa la richiesta di autenticazione al back-end Servizio federativo. AD FS quindi la converte in un'attestazione.  
 
  Il valore dell'attestazione è il nome DNS del proxy dell'applicazione Web che ha superato la richiesta.  
 
 ### <a name="insidecorporatenetwork"></a>InsideCorporateNetwork  
- Tipo di attestazione: `http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork`  
+ Tipo di attestazione: `https://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork`  
 
  Analogamente al tipo di attestazione x-MS-proxy precedente, questo tipo di attestazione indica se la richiesta ha superato il proxy dell'applicazione Web. Diversamente da x-MS-proxy, insidecorporatenetwork è un valore booleano true che indica una richiesta diretta al servizio federativo dall'interno della rete aziendale.  
 
 ### <a name="x-ms-endpoint-absolute-path-active-vs-passive"></a>X-MS-endpoint-Absolute-Path (attivo rispetto a passivo)  
- Tipo di attestazione: `http://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-endpoint-absolute-path`  
+ Tipo di attestazione: `https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-endpoint-absolute-path`  
 
  Questo tipo di attestazione può essere utilizzato per determinare le richieste originate da client "attivi" (avanzati) rispetto ai client "passivi" (basati su Web browser). In questo modo è possibile consentire le richieste esterne da applicazioni basate su browser, ad esempio Outlook Accesso Web, SharePoint Online o il portale di Office 365, mentre le richieste provenienti da client avanzati come Microsoft Outlook sono bloccate.  
 

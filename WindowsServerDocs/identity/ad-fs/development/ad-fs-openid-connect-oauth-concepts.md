@@ -8,12 +8,12 @@ ms.date: 08/09/2019
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 0e680e07ce1ee27a73791e310a71b85ad76d6318
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 26c1635d4218c7d33377b6b8a90bc96ea4ad37b3
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71358757"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75948787"
 ---
 # <a name="ad-fs-openid-connectoauth-concepts"></a>Concetti di AD FS OpenID Connect/OAuth
 Si applica a AD FS 2016 e versioni successive
@@ -57,7 +57,7 @@ Durante la registrazione di una risorsa in AD FS, è possibile configurare gli a
  
 - Aza: se si utilizzano le [estensioni del protocollo OAuth 2,0 per i client Broker](https://docs.microsoft.com/openspecs/windows_protocols/ms-oapxbc/2f7d8875-0383-4058-956d-2fb216b44706) e se il parametro scope contiene l'ambito "AZA", il server emette un nuovo token di aggiornamento primario e lo imposta nel campo refresh_token della risposta, nonché impostando il campo refresh_token_expires_in sulla durata del nuovo token di aggiornamento primario, se ne viene applicato uno. 
 - OpenID: consente all'applicazione di richiedere l'uso del protocollo di autorizzazione OpenID Connect. 
-- logon_cert: l'ambito logon_cert consente a un'applicazione di richiedere certificati di accesso, che possono essere usati per accedere in modo interattivo agli utenti autenticati. Il server AD FS omette il parametro access_token dalla risposta e fornisce invece una catena di certificati CMS con codifica Base64 o una risposta PKI completa di CMC. Altre informazioni sono disponibili [qui](https://docs.microsoft.com/en-us/openspecs/windows_protocols/ms-oapx/32ce8878-7d33-4c02-818b-6c9164cc731e).
+- logon_cert: l'ambito logon_cert consente a un'applicazione di richiedere certificati di accesso, che possono essere usati per accedere in modo interattivo agli utenti autenticati. Il server AD FS omette il parametro access_token dalla risposta e fornisce invece una catena di certificati CMS con codifica Base64 o una risposta PKI completa di CMC. Altre informazioni sono disponibili [qui](https://docs.microsoft.com/openspecs/windows_protocols/ms-oapx/32ce8878-7d33-4c02-818b-6c9164cc731e).
 - user_impersonation: l'ambito user_impersonation è necessario per richiedere correttamente un token di accesso per conto di AD FS. Per informazioni dettagliate su come usare questo ambito, vedere la pagina relativa alla creazione di un'applicazione a più livelli con l'uso [di OAuth con AD FS 2016](ad-fs-on-behalf-of-authentication-in-windows-server.md). 
 - allatclaims: l'ambito allatclaims consente all'applicazione di richiedere le attestazioni nel token di accesso da aggiungere anche nel token ID.   
 - vpn_cert: l'ambito vpn_cert consente a un'applicazione di richiedere certificati VPN, che possono essere usati per stabilire connessioni VPN usando l'autenticazione EAP-TLS. Questa operazione non è più supportata. 
@@ -66,7 +66,7 @@ Durante la registrazione di una risorsa in AD FS, è possibile configurare gli a
 
 ## <a name="claims"></a>Attestazioni 
  
-I token di sicurezza (ID e token di accesso) rilasciati da AD FS contengono attestazioni o asserzioni di informazioni sull'oggetto autenticato. Le applicazioni possono utilizzare attestazioni per varie attività, tra cui: 
+I token di sicurezza (ID e token di accesso) rilasciati da AD FS contengono attestazioni o asserzioni di informazioni sull'oggetto autenticato. Le applicazioni possono usare le attestazioni per varie attività, tra cui: 
 - Convalidare il token 
 - Identificare il tenant di directory dell'oggetto 
 - Visualizzare le informazioni utente 
@@ -108,7 +108,7 @@ I token di sicurezza (ID e token di accesso) rilasciati da AD FS contengono atte
 Con AD FS vengono usati due tipi di librerie: 
 - **Librerie client**: i client nativi e le app server usano le librerie client per acquisire i token di accesso per chiamare una risorsa, ad esempio un'API Web. Microsoft Authentication Library (MSAL) è la libreria client più recente e consigliata quando si usa AD FS 2019. È consigliabile Active Directory Authentication Library (ADAL) per AD FS 2016.  
 
-- **Librerie middleware server**: le app Web usano le librerie middleware del server per l'accesso utente. Le API Web utilizzano le librerie middleware del server per convalidare i token inviati dai client nativi o da altri server. OWIN (Open Web Interface for .NET) è la libreria middleware consigliata. 
+- **Librerie middleware server**: le app Web usano le librerie middleware del server per l'accesso utente. e dalle API Web per convalidare i token inviati da client nativi o altri server. OWIN (Open Web Interface for .NET) è la libreria middleware consigliata. 
 
 ## <a name="customize-id-token-additional-claims-in-id-token"></a>Personalizzare il token ID (altre attestazioni nel token ID)
  

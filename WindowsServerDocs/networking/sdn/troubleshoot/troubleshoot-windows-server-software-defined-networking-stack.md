@@ -9,12 +9,12 @@ ms.assetid: 9be83ed2-9e62-49e8-88e7-f52d3449aac5
 ms.author: pashort
 author: JMesser81
 ms.date: 08/14/2018
-ms.openlocfilehash: 22dcfb318a0e60bd1694496288f3e63b2780d643
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 2782419f0c3d99e7ec7f4ee3389f174df400bd55
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71355498"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75949922"
 ---
 # <a name="troubleshoot-the-windows-server-software-defined-networking-stack"></a>Risolvere i problemi dello stack di SDN (Software Defined Networking) di Windows Server
 
@@ -45,7 +45,7 @@ La maggior parte degli errori può essere classificata in un set ridotto di clas
 
 Prima di illustrare i flussi di lavoro per la risoluzione dei problemi per ognuno di questi tipi di errori, esaminare gli strumenti di diagnostica disponibili.   
 
-Per usare gli strumenti di diagnostica del controller di rete (percorso di controllo), è necessario prima installare la funzionalità di strumenti di amministrazione remota di NetworkController e importare il modulo ``NetworkControllerDiagnostics``:  
+Per usare gli strumenti di diagnostica del controller di rete (percorso), è necessario prima installare la funzionalità NetworkController e importare il modulo ``NetworkControllerDiagnostics``:  
 
 ```  
 Add-WindowsFeature RSAT-NetworkController -IncludeManagementTools  
@@ -67,7 +67,7 @@ Questi cmdlet sono documentati in TechNet nell' [argomento cmdlet di diagnostica
 ### <a name="hyper-v-host-diagnostics"></a>Diagnostica host Hyper-V  
 Questi cmdlet sono documentati in TechNet nell' [argomento cmdlet di diagnostica di virtualizzazione rete Hyper-V (HNV)](https://docs.microsoft.com/powershell/module/hnvdiagnostics/). Consentono di identificare i problemi del percorso dati tra le macchine virtuali tenant (est/ovest) e il traffico in ingresso tramite un indirizzo VIP SLB (Nord/Sud). 
 
-_Debug-VirtualMachineQueueOperation_, _Get-CustomerRoute_, _Get-PACAMapping_, _Get-ProviderAddress_, _Get-VMNetworkAdapterPortId_, _Get-VMSwitchExternalPortId_e  _Test-EncapOverheadSettings_ sono tutti test locali che possono essere eseguiti da qualsiasi host Hyper-V. Gli altri cmdlet richiamano i test del percorso dati tramite il controller di rete e pertanto necessitano dell'accesso al controller di rete come descried sopra.
+I test di _debug-VirtualMachineQueueOperation_, _Get-CustomerRoute_, _Get-PACAMapping_, _Get-ProviderAddress_, _Get-VMNetworkAdapterPortId_, _Get-VMSwitchExternalPortId_e _test-EncapOverheadSettings_ sono tutti test locali che possono essere eseguiti da qualsiasi host Hyper-V. Gli altri cmdlet richiamano i test del percorso dati tramite il controller di rete e pertanto necessitano dell'accesso al controller di rete come descried sopra.
 
 ### <a name="github"></a>GitHub
 Il [repository GitHub Microsoft/Sdn](https://github.com/microsoft/sdn) include una serie di script di esempio e flussi di lavoro che si basano su questi cmdlet predefiniti. In particolare, gli script di diagnostica sono reperibili nella cartella [diagnostica](https://github.com/Microsoft/sdn/diagnostics) . Per contribuire a questi script, inviare richieste pull.
@@ -121,7 +121,7 @@ Message:          Host is not Connected.
 La tabella seguente mostra l'elenco dei codici di errore, dei messaggi e delle azioni di completamento da eseguire in base allo stato di configurazione osservato.
 
 
-| **Codice**| **Messaggio**| **Azione**|  
+| **Codice**| **Message**| **Azione**|  
 |--------|-----------|----------|  
 | Sconosciuta| Errore sconosciuto| |  
 | HostUnreachable                       | Il computer host non è raggiungibile | Controllare la connettività di rete di gestione tra il controller di rete e l'host |  
@@ -168,7 +168,7 @@ netstat -anp tcp |findstr 6640
   TCP    10.127.132.153:50023   10.127.132.211:6640    ESTABLISHED
 ```
 #### <a name="check-host-agent-services"></a>Controllare i servizi dell'agente host
-Il controller di rete comunica con due servizi dell'agente host negli host Hyper-V: Agente host SLB e agente host NC. È possibile che uno o entrambi i servizi non siano in esecuzione. Controllare lo stato e riavviare se non sono in esecuzione.
+Il controller di rete comunica con due servizi dell'agente host negli host Hyper-V: agente host SLB e agente host NC. È possibile che uno o entrambi i servizi non siano in esecuzione. Controllare lo stato e riavviare se non sono in esecuzione.
 
 ```none
 Get-Service SlbHostAgent
@@ -237,7 +237,7 @@ Properties       : Microsoft.Windows.NetworkController.ServerProperties
 *Correzione* Se si usano script SDNExpress o la distribuzione manuale, aggiornare la chiave HostId nel registro di sistema in modo che corrisponda all'ID istanza della risorsa server. Riavviare l'agente host del controller di rete nell'host Hyper-V (server fisico) se si utilizza VMM, eliminare il server Hyper-V da VMM e rimuovere la chiave del registro di sistema HostId. Quindi, aggiungere nuovamente il server tramite VMM.
 
 
-Verificare che le identificazioni personali dei certificati X. 509 utilizzate dall'host Hyper-V (il nome host sarà il nome del soggetto del certificato) per la comunicazione (a sud) tra l'host Hyper-V (servizio agente host NC) e i nodi del controller di rete siano uguali. Verificare inoltre che il certificato REST del controller di rete abbia il nome del soggetto *CN = <FQDN or IP>* .
+Verificare che le identificazioni personali dei certificati X. 509 utilizzate dall'host Hyper-V (il nome host sarà il nome del soggetto del certificato) per la comunicazione (a sud) tra l'host Hyper-V (servizio agente host NC) e i nodi del controller di rete siano uguali. Verificare inoltre che il certificato REST del controller di rete abbia il nome del soggetto *CN =<FQDN or IP>* .
 
 ```  
 # On Hyper-V Host
@@ -290,7 +290,7 @@ Collecting Diagnostics data from NC Nodes
 ```
 
 >[!NOTE]
->Il percorso di output predefinito sarà il < working_directory > Directory \NCDiagnostics\. La directory di output predefinita può essere modificata utilizzando il parametro `-OutputDirectory`. 
+>Il percorso di output predefinito sarà il < working_directory > Directory \NCDiagnostics\. La directory di output predefinita può essere modificata tramite il parametro `-OutputDirectory`. 
 
 Le informazioni sullo stato di configurazione di SLB sono disponibili nel file _Diagnostics-slbstateResults. JSON_ in questa directory.
 
@@ -606,11 +606,11 @@ Eseguire una query sull'API REST del controller di rete disponibile nell'ambient
     $uri = "https://sa18n30nc.sa18.nttest.microsoft.com"
     Get-NetworkControllerAccessControlList -ConnectionUri $uri 
 
-# <a name="look-at-ip-configuration-and-virtual-subnets-which-are-referencing-this-acl"></a>Esaminare la configurazione IP e le subnet virtuali che fanno riferimento a questo ACL
+## <a name="look-at-ip-configuration-and-virtual-subnets-which-are-referencing-this-acl"></a>Esaminare la configurazione IP e le subnet virtuali che fanno riferimento a questo ACL
 
 1. Hosting Eseguire ``Get-ProviderAddress`` in entrambi gli host Hyper-V che ospitano le due macchine virtuali tenant in questione, quindi eseguire ``Test-LogicalNetworkConnection`` o ``ping -c <compartment>`` dall'host Hyper-V per convalidare la connettività sulla rete logica del provider HNV
 2.  Hosting Verificare che le impostazioni MTU siano corrette negli host Hyper-V e in qualsiasi dispositivo di cambio di livello 2 tra gli host Hyper-V. Eseguire ``Test-EncapOverheadValue`` in tutti gli host Hyper-V in questione. Verificare inoltre che tutti gli switch di livello 2 tra siano impostati su un valore MTU pari a almeno 1674 byte per tenere conto del sovraccarico massimo di 160 byte.  
-3.  Hosting Se gli indirizzi IP PA non sono presenti e/o la connettività CA è interruppe, verificare che il criterio di rete sia stato ricevuto. Eseguire ``Get-PACAMapping`` per verificare se le regole di incapsulamento e i mapping della CA-PA necessari per la creazione di reti virtuali sovrapposte sono stabiliti correttamente.  
+3.  Hosting Se gli indirizzi IP PA non sono presenti e/o la connettività CA è interruppe, verificare che il criterio di rete sia stato ricevuto. Eseguire ``Get-PACAMapping`` per verificare se le regole di incapsulamento e i mapping CA-PA necessari per la creazione di reti virtuali sovrapposte sono stabiliti correttamente.  
 4.  Hosting Verificare che l'agente host del controller di rete sia connesso al controller di rete. Eseguire ``netstat -anp tcp |findstr 6640`` per verificare se il   
 5.  Hosting Verificare che l'ID host in HKLM/corrisponda all'ID istanza delle risorse server che ospitano le macchine virtuali tenant.  
 6. Hosting Verificare che l'ID del profilo di porta corrisponda all'ID istanza delle interfacce di rete VM delle macchine virtuali tenant.  
@@ -641,7 +641,7 @@ Con le impostazioni predefinite, è consigliabile disporre di almeno 75 GB di sp
 
 - **Posizione del log centralizzata**.  È possibile modificare il percorso per archiviare tutti i log, con il parametro ``DiagnosticLogLocation``.  
 - **Credenziali per accedere al percorso del log**.  È possibile modificare le credenziali per accedere al percorso del log, con il parametro ``LogLocationCredential``.  
-- **Passa alla registrazione locale**.  Se è stata specificata la posizione centralizzata per archiviare i log, è possibile tornare alla registrazione localmente nei nodi del controller di rete con il parametro ``UseLocalLogLocation`` (non consigliato a causa di requisiti di spazio su disco elevati).  
+- **Passa alla registrazione locale**.  Se è stata specificata la posizione centralizzata per archiviare i log, è possibile tornare alla registrazione localmente nei nodi del controller di rete con il parametro ``UseLocalLogLocation`` (scelta non consigliata a causa di requisiti di spazio su disco elevati).  
 - **Ambito di registrazione**.  Per impostazione predefinita, vengono raccolti tutti i log. È possibile modificare l'ambito per raccogliere solo i registri del cluster del controller di rete.  
 - **Livello di registrazione**.  Il livello di registrazione predefinito è informativo. È possibile modificarlo in errore, avviso o dettagliato.  
 - **Tempo di invecchiamento del log**.  I log vengono archiviati in modo circolare. Per impostazione predefinita, si disporrà di 3 giorni di registrazione dei dati, sia che si usi la registrazione locale o la registrazione centralizzata. È possibile modificare questo limite di tempo con il parametro **LogTimeLimitInDays** .  
@@ -668,7 +668,7 @@ Se un utente ha eseguito il cmdlet _debug-NetworkController_ , saranno disponibi
 
 #### <a name="slbm-fabric-errors-hosting-service-provider-actions"></a>Errori dell'infrastruttura SLBM (azioni del provider di servizi di hosting)
 
-1.  Verificare che il software Load Balancer Manager (SLBM) sia funzionante e che i livelli di orchestrazione siano in grado di comunicare tra loro: SLBM-> SLB mux e SLBM-> gli agenti host SLB. Eseguire [DumpSlbRestState](https://github.com/Microsoft/SDN/blob/master/Diagnostics/DumpSlbRestState.ps1) da qualsiasi nodo con accesso all'endpoint REST del controller di rete.  
+1.  Verificare che il software Load Balancer Manager (SLBM) sia funzionante e che i livelli di orchestrazione siano in grado di comunicare tra loro: SLBM-> SLB mux e SLBM-> SLB agenti host. Eseguire [DumpSlbRestState](https://github.com/Microsoft/SDN/blob/master/Diagnostics/DumpSlbRestState.ps1) da qualsiasi nodo con accesso all'endpoint REST del controller di rete.  
 2.  Convalidare il *SDNSLBMPerfCounters* in PerfMon in una delle VM del nodo del controller di rete (preferibilmente il nodo del controller di rete primario-Get-NetworkControllerReplica):
     1.  Il motore è Load Balancer (LB) connesso a SLBM? (*SLBM LBEngine configurazioni totali* > 0)  
     2.  SLBM conosce almeno i propri endpoint? (*Endpoint VIP totali* > = 2)  
@@ -682,13 +682,13 @@ Se un utente ha eseguito il cmdlet _debug-NetworkController_ , saranno disponibi
         1.  Ad esempio: # Mostra istanza BGP  
 4.  Convalidare i contatori *SlbMuxPerfCounters* e *SLBMUX* in Perfmon nella VM SLB Mux
 5.  Controllare lo stato della configurazione e gli intervalli VIP nella risorsa software Load Balancer Manager  
-    1.  Get-NetworkControllerLoadBalancerConfiguration-ConnectionUri < https://<FQDN or IP> | ConvertTo-JSON-Depth 8 (controllare gli intervalli VIP nei pool IP e verificare che SLBM self-VIP (*LoadBalanacerManagerIPAddress*) e tutti gli indirizzi VIP per i tenant siano compresi in questi intervalli)  
+    1.  Get-NetworkControllerLoadBalancerConfiguration-ConnectionUri < https://<FQDN or IP>| ConvertTo-JSON-Depth 8 (controllare gli intervalli VIP nei pool IP e verificare che SLBM self-VIP (*LoadBalanacerManagerIPAddress*) e tutti gli indirizzi VIP per i tenant siano compresi in questi intervalli)  
         1. Get-NetworkControllerIpPool-NetworkId "< ID di risorsa di rete logica VIP per indirizzi IP pubblici/privati >"-SubnetId "< ID di risorsa della subnet logica VIP per i VIP pubblici/privati >"-ResourceId "<IP Pool Resource Id>"-ConnectionUri $uri | ConvertTo-JSON-Depth 8 
     2.  Debug-NetworkControllerConfigurationState-  
 
 Se uno dei controlli precedenti ha esito negativo, anche lo stato del tenant SLB sarà in modalità di errore.  
 
-@No__t di **correzione**-1  
+  di **monitoraggio e aggiornamento**  
 In base alle seguenti informazioni di diagnostica presentate, correggere quanto segue:  
 * Verificare che i multiplexer SLB siano connessi  
   * Risolvere i problemi relativi ai certificati  

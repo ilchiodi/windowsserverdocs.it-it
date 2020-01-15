@@ -8,12 +8,12 @@ manager: alanth
 author: justinha
 ms.technology: security-crdential-protection-and-management
 ms.date: 11/09/2016
-ms.openlocfilehash: 64018f7f118086f3d290cb1ffa9b8d2b3e81c27c
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 21c2d3d79653bd02fea9d2ac0d09bd18690a388f
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71386275"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75949741"
 ---
 # <a name="preventing-kerberos-change-password-that-uses-rc4-secret-keys"></a>Impedire a Kerberos di modificare la password tramite chiavi segrete RC4
 
@@ -31,13 +31,13 @@ Nei sistemi operativi Windows designati nell'elenco si applica a all'inizio di q
 
     [!NOTE]
     Si è verificato un problema noto con la disabilitazione di RC4 che può causare il riavvio del sistema. Vedere gli hotfix seguenti:
-    - [Windows Server 2012 R2](https://support.microsoft.com/en-us/kb/3038261)
-    - [Windows Server 2012](https://support.microsoft.com/en-us/kb/3086213)
+    - [Windows Server 2012 R2](https://support.microsoft.com/kb/3038261)
+    - [Windows Server 2012](https://support.microsoft.com/kb/3086213)
     - Nessun hotfix disponibile per le versioni precedenti di Windows Server
 
 - Distribuire i domini impostati sul livello di funzionalità del dominio Windows Server 2012 R2 o versione successiva e configurare gli utenti come membri del gruppo di sicurezza utenti protetti. Dal momento che questa funzionalità consente di evitare solo l'utilizzo di RC4 nel protocollo Kerberos, vedere le risorse nella sezione [vedere anche](#see-also) .
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 - Per informazioni su come evitare l'utilizzo del tipo di crittografia RC4 nei domini di Windows Server 2012 R2, vedere [gruppo di sicurezza utenti protetti](/../credentials-protection-and-management/protected-users-security-group.md)e [come configurare gli account protetti](/../credentials-protection-and-management/how-to-configure-protected-accounts.md).
 

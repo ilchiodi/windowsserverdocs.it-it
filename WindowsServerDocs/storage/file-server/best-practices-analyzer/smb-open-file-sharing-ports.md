@@ -7,12 +7,12 @@ ms.technology: storage
 author: JasonGerend
 manager: elizapo
 ms.author: jgerend
-ms.openlocfilehash: 22cd926fdb873538631a6f6850157dceb5a020d7
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 80cc75f983d4593e4ee98309d1fa39c024b7b379
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71385826"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75950290"
 ---
 # <a name="smb-file-and-printer-sharing-ports-should-be-open"></a>SMB: Le porte per la condivisione di file e stampanti devono essere aperte
 
@@ -21,7 +21,7 @@ Ultimo aggiornamento: 2 febbraio 2011
 
 Si applica a: Windows Server 2019, Windows Server 2016, Windows Server 2012 R2 e Windows Server 2012, Windows Server 2008 R2
 
-*Questo argomento è destinato a risolvere un problema specifico identificato da un'analisi Best Practices Analyzer. È necessario applicare le informazioni contenute in questo argomento solo ai computer in cui è stato Best Practices Analyzer eseguire i servizi file e si è verificato il problema trattato da questo argomento. Per ulteriori informazioni sulle procedure consigliate e le analisi, vedere* [Best Practices Analyzer](http://go.microsoft.com/fwlink/?linkid=122786%0d%0a).
+*Questo argomento è destinato a risolvere un problema specifico identificato da un'analisi Best Practices Analyzer. È necessario applicare le informazioni contenute in questo argomento solo ai computer in cui è stato Best Practices Analyzer eseguire i servizi file e si è verificato il problema trattato da questo argomento. Per ulteriori informazioni sulle procedure consigliate e le analisi, vedere* [Best Practices Analyzer](https://go.microsoft.com/fwlink/?linkid=122786%0d%0a).
 
 
 <table>
@@ -40,7 +40,7 @@ Si applica a: Windows Server 2019, Windows Server 2016, Windows Server 2012 R2 e
 </tr>
 <tr class="odd">
 <td><p><strong>Gravità</strong></p></td>
-<td><p>Error</p></td>
+<td><p>Errore di</p></td>
 </tr>
 <tr class="even">
 <td><p><strong>Categoria</strong></p></td>
@@ -71,7 +71,7 @@ Il requisito minimo per completare questa procedura è l'appartenenza al gruppo 
 
 3.  In **Regole connessioni in ingresso**individuare le regole **condivisione file e stampanti (NB-Session-in)** e **condivisione file e stampanti (SMB-in)** .
 
-4.  Per ogni regola, fare clic con il pulsante destro del mouse sulla regola e quindi scegliere **Abilita regola**.
+4.  Su ogni regola fare clic con il pulsante destro del mouse e quindi fare clic su **Abilita regola**.
 
 ## <a name="additional-references"></a>Altri riferimenti
 

@@ -8,12 +8,12 @@ ms.author: jgerend
 ms.technology: storage
 ms.date: 04/05/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: ae1b23244f141cd0806ee14d3c40117ba72aeebb
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: a7c37638e25fc0d16447ab57bf369255dab9c859
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71402058"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75950254"
 ---
 # <a name="folder-redirection-offline-files-and-roaming-user-profiles-overview"></a>Panoramica di reindirizzamento cartelle, file offline e profili utente mobili
 
@@ -67,7 +67,7 @@ La modalità sempre offline offre i vantaggi seguenti:
 
 Prima di Windows 8, Windows Server 2012, gli utenti eseguivano la transizione tra le modalità online e offline, a seconda della disponibilità e delle condizioni della rete, anche quando la modalità di collegamento lento (nota anche come modalità di connessione lenta) era abilitata e impostata su 1 millisecondo. soglia di latenza.
 
-Con la modalità always offline, i computer non passano mai alla modalità online quando è configurata l'impostazione di configurazione Criteri di gruppo a **collegamento lento** e il parametro soglia di **latenza** è impostato su 1 millisecondo. Le modifiche vengono sincronizzate in background ogni 120 minuti per impostazione predefinita, ma la sincronizzazione è configurabile tramite l'impostazione di Criteri di gruppo **Configura sincronizzazione in background**.
+Con la modalità always offline, i computer non passano mai alla modalità online quando è configurata l'impostazione di configurazione Criteri di gruppo a **collegamento lento** e il parametro soglia di **latenza** è impostato su 1 millisecondo. Le modifiche vengono sincronizzate in background ogni 120 minuti per impostazione predefinita, ma la sincronizzazione è configurabile tramite l'impostazione di Criteri di gruppo **Configure Background Sync** .
 
 Per altre informazioni, vedere [Enable the Always Offline Mode to Provide Faster Access to Files](enable-always-offline.md).
 
@@ -108,7 +108,7 @@ Esistono quattro vantaggi principali della designazione di computer primari per 
 Per limitare il download dei dati utente privati nei computer primari, le tecnologie di reindirizzamento cartelle e profili utente mobili eseguono i controlli logici seguenti al momento dell'accesso a un computer:
 
 1. Il sistema operativo Windows controlla le nuove impostazioni di Criteri di gruppo (**Scarica profili mobili solo nei computer primari** e **Reindirizza cartelle solo nei computer primari**) per stabilire se l'attributo **msDS-Primary-computer** in Active Directory Domain Services (ad DS) deve influenzare la decisione di eseguire il roaming del profilo dell'utente o applicare il reindirizzamento cartelle.
-2. Se l'impostazione dei criteri consente il supporto dei computer primari, Windows verifica che lo schema di Servizi di dominio Active Directory supporti l'attributo **msDS-Primary-Computer**. In caso affermativo, Windows stabilisce se il computer a cui sta accedendo l'utente è designato come computer primario, come segue:
+2. Se l'impostazione dei criteri consente il supporto dei computer primari, Windows verifica che lo schema di Servizi di dominio Active Directory supporti l'attributo **msDS-Primary-Computer** . In caso affermativo, Windows stabilisce se il computer a cui sta accedendo l'utente è designato come computer primario, come segue:
     1. Se il computer è uno dei computer primari dell'utente, Windows applica i profili utente mobili e le impostazioni di Reindirizzamento cartelle.
     2. Se il computer non è uno dei computer primari dell'utente, viene caricato il profilo locale memorizzato nella cache dell'utente, se presente, oppure viene creato un nuovo profilo locale. Vengono inoltre rimosse eventuali cartelle reindirizzate esistenti, in base all'azione di rimozione specificata dall'impostazione di Criteri di gruppo applicata in precedenza e mantenuta nella configurazione locale di reindirizzamento cartelle.
 
@@ -125,14 +125,14 @@ Per designare i computer primari, l'ambiente deve soddisfare i requisiti seguent
 - È necessario aggiornare lo schema di Active Directory Domain Services (AD DS) per includere lo schema e le condizioni di Windows Server 2012 (l'installazione di un controller di dominio Windows Server 2012 o versione successiva aggiorna automaticamente lo schema). Per ulteriori informazioni sull'aggiornamento dello schema di servizi di dominio Active Directory, vedere [aggiornare controller di dominio a Windows Server 2016](../../identity/ad-ds/deploy/upgrade-domain-controllers.md).
 - I computer client devono eseguire Windows 10, Windows 8.1, Windows 8, Windows Server 2019, Windows Server 2016, Windows Server 2012 R2 o Windows Server 2012 ed essere aggiunti al dominio Active Directory che si sta gestendo.
 
-## <a name="more-information"></a>Ulteriori informazioni
+## <a name="more-information"></a>Altre informazioni
 
-Per altre informazioni correlate, vedere le risorse seguenti.
+Per altre informazioni correlate, vedi le risorse seguenti.
 
 | Tipo di contenuto | Riferimenti |
 | --- | --- |
 | Valutazione del prodotto | [Supporto degli Information Worker con servizi file e archiviazione affidabili](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831495(v%3dws.11)>)<br>[Novità di file offline](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ff183315(v=ws.10)>) (Windows 7 e windows Server 2008 R2)<br>[Novità di File offline per Windows Vista](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-vista/cc749449(v=ws.10)>)<br>[Modifiche apportate a file offline in Windows Vista](<https://technet.microsoft.com/library/2007.11.offline.aspx>) (TechNet Magazine) |
-| Distribuzione | [Distribuire il reindirizzamento cartelle, File offline e i profili utente mobili](deploy-folder-redirection.md)<br>[Implementazione di una soluzione di centralizzazione dei dati per gli utenti finali: Reindirizzamento cartelle e File offline convalida e distribuzione della tecnologia](http://download.microsoft.com/download/3/0/1/3019A3DA-2F41-4F2D-BBC9-A6D24C4C68C4/Implementing%20an%20End-User%20Data%20Centralization%20Solution.docx)<br>[Guida alla gestione della distribuzione dei dati utente mobili](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-vista/cc766489(v=ws.10)>)<br>[Guida dettagliata alla configurazione di nuove funzionalità File non in linea per computer Windows 7](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ff633429(v=ws.10)>)<br>[Uso del reindirizzamento cartelle](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc753996(v=ws.11)>)<br>[Implementazione del reindirizzamento cartelle](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2003/cc737434(v=ws.10)>) (Windows Server 2003) |
+| Distribuzione | [Distribuire il reindirizzamento cartelle, File offline e i profili utente mobili](deploy-folder-redirection.md)<br>[Implementazione di una soluzione di centralizzazione dei dati per gli utenti finali: Reindirizzamento cartelle e File offline convalida e distribuzione della tecnologia](https://download.microsoft.com/download/3/0/1/3019A3DA-2F41-4F2D-BBC9-A6D24C4C68C4/Implementing%20an%20End-User%20Data%20Centralization%20Solution.docx)<br>[Guida alla gestione della distribuzione dei dati utente mobili](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-vista/cc766489(v=ws.10)>)<br>[Guida dettagliata alla configurazione di nuove funzionalità File non in linea per computer Windows 7](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ff633429(v=ws.10)>)<br>[Uso del reindirizzamento cartelle](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc753996(v=ws.11)>)<br>[Implementazione del reindirizzamento cartelle](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2003/cc737434(v=ws.10)>) (Windows Server 2003) |
 | Strumenti e impostazioni | [File offline su MSDN](https://msdn.microsoft.com/library/cc296092.aspx)<br>Guida di [riferimento a File offline criteri di gruppo](https://msdn.microsoft.com/library/ms878937.aspx) (Windows 2000) |
 | Risorse della community | [Forum su Servizi file e archiviazione](https://social.technet.microsoft.com/forums/windowsserver/home?forum=winserverfiles)<br>[Salve, Scripting Guy! Come è possibile utilizzare la funzionalità File offline di Windows?](<https://blogs.technet.microsoft.com/heyscriptingguy/2009/06/02/hey-scripting-guy-how-can-i-enable-and-disable-offline-files/>)<br>[Salve, Scripting Guy! Come è possibile abilitare e disabilitare File offline?](<https://blogs.technet.microsoft.com/heyscriptingguy/2009/06/02/hey-scripting-guy-how-can-i-enable-and-disable-offline-files/>) |
 | Tecnologie correlate|[Identità e accesso in Windows Server](../../identity/identity-and-access.md)<br>[Archiviazione in Windows Server](../storage.md)<br>[Accesso remoto e gestione del server](../../remote/index.md) |

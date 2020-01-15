@@ -8,12 +8,12 @@ ms.topic: article
 author: jasongerend
 ms.date: 06/07/2019
 description: Questo articolo descrive Spazi dei nomi DFS, ovvero un servizio ruolo di Windows Server che consente di raggruppare le cartelle condivise situate in server diversi in uno o più spazi dei nomi strutturati logicamente.
-ms.openlocfilehash: 33fe25d2298d210ee37f9193a50fa77ed39bd2b4
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: f4ff1bc394ddb57a290e5ffab1a89f596fc48d05
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71402227"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75949720"
 ---
 # <a name="dfs-namespaces-overview"></a>Informazioni generali su Spazi dei nomi DFS
 
@@ -21,14 +21,14 @@ ms.locfileid: "71402227"
 
 Spazi dei nomi DFS è un servizio ruolo di Windows Server che consente di raggruppare le cartelle condivise situate in server diversi in uno o più spazi dei nomi strutturati logicamente. In questo modo gli utenti hanno a disposizione una vista virtuale di cartelle condivise in cui file situati in più server sono accessibili da un unico percorso, come illustrato nella figura riportata di seguito:
 
-![Elementi della tecnologia degli spazi dei nomi DFS](media/dfs-overview.png)
+![Elementi della tecnologia di Spazi dei nomi DFS](media/dfs-overview.png)
 
 Di seguito viene riportata una descrizione degli elementi che costituiscono uno spazio dei nomi DFS:
 
 - **Server dello spazio dei nomi**: un server dello spazio dei nomi ospita uno spazio dei nomi. Il server dello spazio dei nomi può essere un server membro o un controller di dominio.
-- **Radice dello spazio dei nomi**: la radice dello spazio dei nomi è il punto di partenza dello spazio dei nomi. Nella figura precedente, il nome della radice è Public e il percorso dello spazio dei nomi è \\ \\Contoso\\public. Questo tipo di spazio dei nomi è uno spazio dei nomi basato su dominio poiché inizia con un nome di dominio, ad esempio contoso, e i relativi metadati vengono archiviati in Active Directory Domain Services (AD DS). Sebbene nella figura precedente venga illustrato un unico server dello spazio dei nomi, uno spazio dei nomi basato sul dominio può essere ospitato in più server dello spazio dei nomi per aumentare la disponibilità dello spazio dei nomi.
+- **Radice dello spazio dei nomi**: la radice dello spazio dei nomi è il punto di partenza dello spazio dei nomi. Nella figura precedente, il nome della radice è Public e il percorso dello spazio dei nomi è \\\\contoso\\public. Questo tipo di spazio dei nomi è uno spazio dei nomi basato su dominio poiché inizia con un nome di dominio, ad esempio contoso, e i relativi metadati vengono archiviati in Active Directory Domain Services (AD DS). Sebbene nella figura precedente venga illustrato un unico server dello spazio dei nomi, uno spazio dei nomi basato sul dominio può essere ospitato in più server dello spazio dei nomi per aumentare la disponibilità dello spazio dei nomi.
 - **Cartella**: le cartelle senza destinazioni cartella aggiungono struttura e gerarchia allo spazio dei nomi e le cartelle con destinazioni cartella forniscono agli utenti contenuto effettivo. Quando gli utenti accedono a una cartella con destinazioni cartella nello spazio dei nomi, il computer client riceve un riferimento che lo reindirizza in modo trasparente a una delle destinazioni cartella.
-- **Destinazioni cartella**: una destinazione cartella è il percorso UNC (Universal Naming Convention) di una cartella condivisa o un altro spazio dei nomi associato a una cartella in uno spazio dei nomi. La destinazione cartella è l'ubicazione dove vengono archiviati dati e contenuto. Nella figura precedente, la cartella denominata Strumenti ha due destinazioni cartella, una a Londra e una a New York, e la cartella denominata Guide di formazione ha un'unica destinazione cartella in New York. \\Un utente che accede a \\Contoso\\Public\\software \\ \\\\Tools viene reindirizzato in modo trasparente alla cartella condivisa LDN-SVR-01 Tools o\\ Strumenti NYC-SVR-\\01, a seconda del sito in cui si trova attualmente l'utente. \\ \\
+- **Destinazioni cartella**: una destinazione cartella è il percorso UNC (Universal Naming Convention) di una cartella condivisa o un altro spazio dei nomi associato a una cartella in uno spazio dei nomi. La destinazione cartella è l'ubicazione dove vengono archiviati dati e contenuto. Nella figura precedente, la cartella denominata Strumenti ha due destinazioni cartella, una a Londra e una a New York, e la cartella denominata Guide di formazione ha un'unica destinazione cartella in New York. Un utente che accede a \\\\contoso\\public\\software\\Tools viene reindirizzato in modo trasparente alla cartella condivisa \\\\LDN-SVR-01\\Tools o \\\\NYC-SVR-01\\Tools, a seconda del sito in cui si trova attualmente l'utente.
 
 In questo argomento viene illustrato come installare il DFS, le novità e dove trovare le informazioni di valutazione e distribuzione.
 
@@ -43,8 +43,8 @@ Un server dello spazio dei nomi è un controller di dominio o server membro che 
 I server che eseguono i seguenti sistemi operativi possono ospitare più spazi dei nomi basati sul dominio oltre a un singolo spazio dei nomi autonomo. 
 
 - Windows Server 2019
-- Windows Server 2016
-- Windows Server 2012 R2
+- Windows Server 2016
+- Windows Server 2012 R2
 - Windows Server 2012
 - Windows Server 2008 R2 Datacenter ed Enterprise Edition
 - Windows Server (Canale semestrale)
@@ -69,7 +69,7 @@ Installare spazi dei nomi DFS usando l'interfaccia di [amministrazione di Window
 
 ### <a name="to-install-dfs-by-using-server-manager"></a>Per installare il file system DFS tramite Server Manager
 
-1. Aprire Server Manager, fare clic su **Gestione** e quindi su **Aggiungi ruoli e funzionalità**. Verrà visualizzata l'Aggiunta guidata ruoli e funzionalità.
+1. Aprire Server Manager, fare clic su **Gestione**e quindi su **Aggiungi ruoli e funzionalità**. Verrà visualizzata l'Aggiunta guidata ruoli e funzionalità.
 
 2. Nella pagina **Selezione dei server** selezionare il server o il disco rigido virtuale (VHD) di una macchina virtuale offline in cui si desidera installare il file system DFS.
 
@@ -77,7 +77,7 @@ Installare spazi dei nomi DFS usando l'interfaccia di [amministrazione di Window
 
     - Per installare il servizio Spazi dei nomi DFS, nella pagina **Ruoli server** selezionare **Spazi dei nomi DFS**.
 
-    - Per installare solo gli Strumenti di gestione DFS, nella pagina **Funzionalità** espandere **Strumenti di amministrazione remota del server**, **Strumenti di amministrazione ruoli**, **Strumenti per Servizi file** e quindi selezionare **Strumenti di gestione DFS**.
+    - Per installare solo gli Strumenti di gestione DFS, nella pagina **Funzionalità** espandere **Strumenti di amministrazione remota del server**, **Strumenti di amministrazione ruoli**, **Strumenti per Servizi file**e quindi selezionare **Strumenti di gestione DFS**.
 
          Tramite**Strumenti di gestione DFS** vengono installati lo snap-in Gestione DFS, il modulo Spazi dei nomi DFS per Windows PowerShell e gli strumenti da riga di comando, ma non viene installato alcun servizio DFS nel server.
 
@@ -89,7 +89,7 @@ Aprire una sessione di Windows PowerShell con diritti utente elevati, quindi dig
 Install-WindowsFeature <name>
 ```
 
-| Servizio ruolo o funzionalità | Nome |
+| Servizio ruolo o funzionalità | Name |
 | ----------------------- | ---- |
 | Spazi dei nomi DFS          | `FS-DFS-Namespace` |
 | Strumenti di gestione DFS    | `RSAT-DFS-Mgmt-Con` |
@@ -116,16 +116,16 @@ L'uso di Spazi dei nomi DFS su una macchina virtuale in Microsoft Azure è stato
 
 Per altre informazioni introduttive sulle macchine virtuali di Azure, vedi la [documentazione delle macchine virtuali di Azure](https://docs.microsoft.com/azure/virtual-machines/).
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
-Per altre informazioni correlate, vedere le risorse seguenti.
+Per altre informazioni correlate, vedi le risorse seguenti.
 
 | Tipo di contenuto        | Riferimenti |
 | ------------------  | ----------------|
 | **Valutazione del prodotto** | [Novità di spazi dei nomi DFS e Replica DFS in Windows Server](https://technet.microsoft.com/library/dn281957(v=ws.11).aspx) |
-| **Distribuzione**    | [Considerazioni sulla scalabilità dello spazio dei nomi DFS](http://blogs.technet.com/b/filecab/archive/2012/08/26/dfs-namespace-scalability-considerations.aspx) |
+| **Distribuzione**    | [Considerazioni sulla scalabilità dello spazio dei nomi DFS](https://blogs.technet.com/b/filecab/archive/2012/08/26/dfs-namespace-scalability-considerations.aspx) |
 | **Operazioni**    | [Spazi dei nomi DFS: domande frequenti](https://technet.microsoft.com/library/ee404780.aspx) |
 | **Risorse della community** | [Forum TechNet di servizi file e archiviazione](https://social.technet.microsoft.com/forums/winserverfiles/threads/) |
-| **Protocolli**        | [Protocolli di servizi file in Windows Server](https://msdn.microsoft.com/library/cc239318.aspx) Deprecato |
+| **Protocolli**        | [Protocolli di servizi file in Windows Server](https://msdn.microsoft.com/library/cc239318.aspx) (deprecato) |
 | **Tecnologie correlate** | [Clustering di failover](../../failover-clustering/failover-clustering-overview.md)|
 | **Supporto tecnico** | [Supporto di Windows IT Pro](https://www.microsoft.com/itpro/windows/support)|

@@ -9,12 +9,12 @@ ms.topic: article
 ms.prod: windows-server
 ms.technology: storage-replica
 manager: mchad
-ms.openlocfilehash: 26eba76c836d1157f4d4c10d7a989a3a7dcc1538
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 806857d5de067c0f4640344ed80338b474dd758e
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71393834"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75950067"
 ---
 # <a name="cluster-to-cluster-storage-replica-cross-region-in-azure"></a>Replica di archiviazione da cluster a cluster tra aree in Azure
 
@@ -23,7 +23,7 @@ ms.locfileid: "71393834"
 È possibile configurare il cluster per le repliche di archiviazione del cluster per le applicazioni tra aree in Azure. Negli esempi seguenti viene usato un cluster a due nodi, ma la replica di archiviazione da cluster a cluster non è limitata a un cluster a due nodi. L'illustrazione seguente è un cluster con spazio di archiviazione diretto a due nodi che può comunicare tra loro, si trovano nello stesso dominio e sono tra più aree.
 
 Guardare il video seguente per una procedura dettagliata completa del processo.
-> [!video https://www.microsoft.com/en-us/videoplayer/embed/RE26xeW]
+> [!video https://www.microsoft.com/videoplayer/embed/RE26xeW]
 
 ![Il diagramma dell'architettura che mostra C2C SR in Azure con la stessa area.](media/Cluster-to-cluster-azure-cross-region/architecture.png)
 > [!IMPORTANT]
@@ -59,7 +59,7 @@ Guardare il video seguente per una procedura dettagliata completa del processo.
       - Aggiungere almeno due dischi gestiti a ogni computer
       - Installare il clustering di failover e la funzionalità di replica di archiviazione
 
-   Creare due macchine virtuali (**azcross1**, **azcross2**) nel gruppo di risorse (**SR-AZCROSS**) usando la rete virtuale (**AZCROSS-VNET**) e il gruppo di sicurezza di rete (**AZCROSS-NSG**) nel set di disponibilità (**AZCROSS-As**) . Assegnare un indirizzo IP pubblico standard a ogni macchina virtuale durante la creazione
+   Creare due macchine virtuali (**azcross1**, **azcross2**) nel gruppo di risorse (**SR-AZCROSS**) usando la rete virtuale (**AZCROSS-VNET**) e il gruppo di sicurezza di rete (**AZCROSS-NSG**) nel set di disponibilità (**AZCROSS-As**). Assegnare un indirizzo IP pubblico standard a ogni macchina virtuale durante la creazione
       - Aggiungere almeno due dischi gestiti a ogni computer
       - Installare il clustering di failover e la funzionalità di replica di archiviazione
 
@@ -96,13 +96,13 @@ Guardare il video seguente per una procedura dettagliata completa del processo.
       - azlbr1 = > IP front-end: 10.3.0.100 (preleva un indirizzo IP non usato dalla subnet della rete virtuale (**az2az-VNET**))
       - Creare il pool back-end per ogni servizio di bilanciamento del carico. Aggiungere i nodi del cluster associati.
       - Creare un probe di integrità: porta 59999
-      - Creare una regola di bilanciamento del carico: Consenti le porte a disponibilità elevata, con IP mobile abilitato.
+      - Creare una regola di bilanciamento del carico: consentire le porte a disponibilità elevata, con IP mobile abilitato.
 
    Fornire l'indirizzo IP del cluster come indirizzo IP privato statico per il servizio di bilanciamento del carico. 
       - azlbazcross = > IP front-end: 10.0.0.10 (preleva un indirizzo IP non usato dalla subnet della rete virtuale (**azcross-VNET**))
       - Creare il pool back-end per ogni servizio di bilanciamento del carico. Aggiungere i nodi del cluster associati.
       - Creare un probe di integrità: porta 59999
-      - Creare una regola di bilanciamento del carico: Consenti le porte a disponibilità elevata, con IP mobile abilitato. 
+      - Creare una regola di bilanciamento del carico: consentire le porte a disponibilità elevata, con IP mobile abilitato. 
 
 9. Creare un [gateway di rete virtuale](https://ms.portal.azure.com/#create/Microsoft.VirtualNetworkGateway-ARM) per la connettività da VNET a vnet.
 
@@ -128,7 +128,7 @@ Guardare il video seguente per una procedura dettagliata completa del processo.
 
     Eseguirlo una sola volta da un nodo qualsiasi del cluster, per ogni cluster. 
     
-    In questo esempio, assicurarsi di modificare "ILBIP" in base ai valori di configurazione. Eseguire il comando seguente da un nodo qualsiasi **az2az1**/**az2az2**
+    In questo esempio, assicurarsi di modificare "ILBIP" in base ai valori di configurazione. Eseguire il comando seguente da un nodo **az2az1**/**az2az2**
 
     ```PowerShell
      $ClusterNetworkName = "Cluster Network 1" # Cluster network name (Use Get-ClusterNetwork on Windows Server 2012 or higher to find the name. And use Get-ClusterResource to find the IPResourceName).
@@ -138,7 +138,7 @@ Guardare il video seguente per una procedura dettagliata completa del processo.
      Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$ILBIP";"ProbePort"=$ProbePort;"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";”ProbeFailureThreshold”=5;"EnableDhcp"=0}  
     ```
 
-12. Eseguire il comando seguente da un nodo qualsiasi **azcross1**/**azcross2**
+12. Eseguire il comando seguente da un nodo **azcross1**/**azcross2**
     ```PowerShell
      $ClusterNetworkName = "Cluster Network 1" # Cluster network name (Use Get-ClusterNetwork on Windows Server 2012 or higher to find the name. And use Get-ClusterResource to find the IPResourceName).
      $IPResourceName = "Cluster IP Address" # IP Address cluster resource name.
@@ -190,7 +190,7 @@ Guardare il video seguente per una procedura dettagliata completa del processo.
       - Percorso volume:-c:\ClusterStorage\DataDiskCross
       - Percorso log:-g:
 
-Eseguire il comando:
+Eseguire il comando seguente:
 
 ```powershell
 PowerShell

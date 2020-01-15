@@ -8,12 +8,12 @@ ms.topic: article
 ms.assetid: a255a4a5-c1a0-4edc-b41a-211bae397e3c
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 5449c9e96a5a9ecd08ca35e703a76927f4e27158
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 9f611f61150508d9170a6fe6757844bc29759886
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71356023"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75950478"
 ---
 # <a name="use-dns-policy-for-split-brain-dns-deployment"></a>Usare i criteri DNS per la distribuzione DNS split\-Brain
 
@@ -28,7 +28,7 @@ In precedenza, questo scenario richiedeva che gli amministratori DNS mantenesser
 
 Un altro scenario di configurazione per la distribuzione Split-Brain è il controllo della ricorsione selettiva per la risoluzione dei nomi DNS. In alcuni casi, è previsto che i server DNS dell'organizzazione eseguano la risoluzione ricorsiva su Internet per gli utenti interni, mentre devono fungere anche da server dei nomi autorevoli per gli utenti esterni e bloccarne la ricorsione. 
 
-In questo argomento sono incluse le sezioni seguenti.
+Questo argomento include le sezioni seguenti.
 
 - [Esempio di distribuzione di DNS split brain](#bkmk_sbexample)
 - [Esempio di controllo di ricorsione selettiva DNS](#bkmk_recursion)
@@ -156,13 +156,13 @@ Nella figura seguente viene illustrato questo scenario.
 
 ### <a name="bkmk_recursionhow"></a>Funzionamento del controllo di ricorsione selettiva DNS
 
-Se viene ricevuta una query per la quale il server DNS contoso è non autorevole, ad esempio per www.microsoft.com, la richiesta di risoluzione dei nomi viene valutata in base ai criteri nel server DNS. 
+Se viene ricevuta una query per la quale il server DNS contoso è non autorevole, ad esempio per https://www.microsoft.com, la richiesta di risoluzione dei nomi viene valutata in base ai criteri nel server DNS. 
 
 Poiché queste query non rientrano in nessuna zona, i criteri a livello di zona \(come definito nell'esempio Split Brain\) non vengono valutati. 
 
 Il server DNS valuta i criteri di ricorsione e le query ricevute sull'interfaccia privata corrispondono a **SplitBrainRecursionPolicy**. Questo criterio punta a un ambito di ricorsione in cui è attivata la ricorsione.
 
-Il server DNS esegue quindi la ricorsione per ottenere la risposta per www.microsoft.com da Internet e memorizza nella cache la risposta localmente. 
+Il server DNS esegue quindi la ricorsione per ottenere la risposta per https://www.microsoft.com da Internet e memorizza nella cache la risposta localmente. 
 
 Se la query viene ricevuta sull'interfaccia esterna, nessun criterio DNS corrisponde e viene applicata l'impostazione di ricorsione predefinita, che in questo caso è **disabilitata** .
 

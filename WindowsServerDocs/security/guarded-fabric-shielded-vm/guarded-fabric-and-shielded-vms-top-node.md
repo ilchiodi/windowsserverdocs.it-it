@@ -9,12 +9,12 @@ author: rpsqrd
 ms.author: justinha
 ms.technology: security-guarded-fabric
 ms.date: 08/29/2018
-ms.openlocfilehash: c06432a039341978956066344710920652187b97
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: f23d0be0d860695b014f57fd55d8e321e81a70ca
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71403667"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75950333"
 ---
 # <a name="guarded-fabric-and-shielded-vms"></a>Infrastruttura sorvegliata e macchine virtuali schermate
 
@@ -27,12 +27,12 @@ Uno degli obiettivi più importanti di fornire un ambiente ospitato è garantire
 
 ## <a name="videos-blog-and-overview-topic-about-guarded-fabrics-and-shielded-vms"></a>Video, Blog e panoramica sulle infrastrutture sorvegliate e sulle VM schermate
 
-- Video: [Come proteggere l'infrastruttura di virtualizzazione da minacce interne con Windows Server 2019](https://myignite.techcommunity.microsoft.com/sessions/64690)
+- Video: [come proteggere l'infrastruttura di virtualizzazione da minacce interne con Windows Server 2019](https://myignite.techcommunity.microsoft.com/sessions/64690)
 - Video: [Introduzione alle macchine virtuali schermate in Windows Server 2016](https://channel9.msdn.com/Shows/Mechanics/Introduction-to-Shielded-Virtual-Machines-in-Windows-Server-2016)
-- Video: [Approfondimento sulle VM schermate con Windows Server 2016 Hyper-V](https://channel9.msdn.com/events/Ignite/2016/BRK3124)
-- Video: [Distribuzione di VM schermate e di un'infrastruttura sorvegliata con Windows Server 2016](https://mva.microsoft.com/en-US/training-courses/deploying-shielded-vms-and-a-guarded-fabric-with-windows-server-2016-17131?l=WFLef7vUD_4604300474)
+- Video: [esaminare le VM schermate con Windows Server 2016 Hyper-V](https://channel9.msdn.com/events/Ignite/2016/BRK3124)
+- Video: [distribuzione di VM schermate e di un'infrastruttura sorvegliata con Windows Server 2016](https://mva.microsoft.com/training-courses/deploying-shielded-vms-and-a-guarded-fabric-with-windows-server-2016-17131?l=WFLef7vUD_4604300474)
 - Blog: [Blog sulla sicurezza di datacenter e cloud privato](https://blogs.technet.microsoft.com/datacentersecurity/)
-- Panoramica: [Panoramica dell'infrastruttura sorvegliata e delle macchine virtuali schermate](Guarded-Fabric-and-Shielded-VMs.md)
+- Panoramica: [infrastruttura sorvegliata e macchine virtuali schermate](Guarded-Fabric-and-Shielded-VMs.md)
 
 ## <a name="planning-topics"></a>Argomenti sulla pianificazione
 

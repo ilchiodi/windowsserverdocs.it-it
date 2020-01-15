@@ -9,12 +9,12 @@ ms.topic: article
 ms.prod: windows-server
 ms.technology: storage-replica
 manager: mchad
-ms.openlocfilehash: 55d9c600c86b6b64efdb5c7d4437697539f887ae
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 3e620b5597a2d25a7bb02daf80c5812d25f6a987
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71402947"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75950030"
 ---
 # <a name="cluster-to-cluster-storage-replica-within-the-same-region-in-azure"></a>Replica di archiviazione da cluster a cluster nella stessa area di Azure
 
@@ -25,10 +25,10 @@ ms.locfileid: "71402947"
 Guarda i video seguenti per una procedura dettagliata completa del processo.
 
 Parte 1
-> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE26f2Y]
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE26f2Y]
 
 Seconda parte
-> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE269Pq]
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE269Pq]
 
 ![Il diagramma dell'architettura che mostra la replica di archiviazione da cluster a cluster in Azure nella stessa area.](media/Cluster-to-cluster-azure-one-region/architecture.png)
 > [!IMPORTANT]
@@ -79,13 +79,13 @@ Seconda parte
     - azlbr1 = > IP front-end: 10.3.0.100 (preleva un indirizzo IP non usato dalla subnet della rete virtuale (**az2az-VNET**))
     - Creare il pool back-end per ogni servizio di bilanciamento del carico. Aggiungere i nodi del cluster associati.
     - Creare un probe di integrità: porta 59999
-    - Creare una regola di bilanciamento del carico: Consenti le porte a disponibilità elevata, con IP mobile abilitato. 
+    - Creare una regola di bilanciamento del carico: consentire le porte a disponibilità elevata, con IP mobile abilitato. 
    
     Fornire l'indirizzo IP del cluster come indirizzo IP privato statico per il servizio di bilanciamento del carico.
     - azlbr2 = > IP front-end: 10.3.0.101 (preleva un indirizzo IP non usato dalla subnet della rete virtuale (**az2az-VNET**))
     - Creare il pool back-end per ogni servizio di bilanciamento del carico. Aggiungere i nodi del cluster associati.
     - Creare un probe di integrità: porta 59999
-    - Creare una regola di bilanciamento del carico: Consenti le porte a disponibilità elevata, con IP mobile abilitato. 
+    - Creare una regola di bilanciamento del carico: consentire le porte a disponibilità elevata, con IP mobile abilitato. 
    
 12. In ogni nodo del cluster aprire la porta 59999 (Probe di integrità). 
    

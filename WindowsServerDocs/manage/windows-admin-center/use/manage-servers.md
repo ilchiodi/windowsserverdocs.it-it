@@ -8,12 +8,12 @@ ms.author: niwashbu
 ms.date: 11/21/2019
 ms.localizationpriority: medium
 ms.prod: windows-server
-ms.openlocfilehash: 9a116cc9d86dfe0bb4450efa0f18580a062af722
-ms.sourcegitcommit: 7c7fc443ecd0a81bff6ed6dbeeaf4f24582ba339
+ms.openlocfilehash: ddc8eea67cde9d6677836af1201e169c911e77e0
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/07/2019
-ms.locfileid: "74903720"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75950485"
 ---
 # <a name="manage-servers-with-windows-admin-center"></a>Gestire i server con l'interfaccia di amministrazione di Windows
 
@@ -21,7 +21,7 @@ ms.locfileid: "74903720"
 
 > [!Tip]
 > Novità di Windows Admin Center
-> [Ulteriori informazioni su Windows Admin Center](../understand/windows-admin-center.md) o [Scarica ora](https://aka.ms/windowsadmincenter).
+> [Scarica o Scopri di più sull'interfaccia di amministrazione di Windows](../overview.md).
 
 ## <a name="managing-windows-server-machines"></a>Gestione delle macchine di Windows Server
 
@@ -49,7 +49,7 @@ Per le connessioni server sono disponibili gli strumenti seguenti:
 
 | Strumento | Descrizione |
 | ---- | ----------- |
-| [Panoramica](#overview) | Visualizza i dettagli del server e controlla lo stato del server |
+| [Informazioni generali](#overview) | Visualizza i dettagli del server e controlla lo stato del server |
 | [Active Directory](#active-directory-preview) | Gestisci Active Directory |
 | [Backup](#backup) | Visualizzare e configurare backup di Azure |  
 | [Certificati](#certificates) | Visualizzare e modificare i certificati |
@@ -62,7 +62,7 @@ Per le connessioni server sono disponibili gli strumenti seguenti:
 | [Firewall](#firewall) | Visualizzare e modificare le regole del firewall |
 | [App installate](#installed-apps) | Visualizzare e rimuovere le app installate |
 | [Utenti e gruppi locali](#local-users-and-groups) | Visualizzare e modificare gruppi e utenti locali |
-| [Network](#network) | Visualizzare e modificare i dispositivi di rete |
+| [Rete](#network) | Visualizzare e modificare i dispositivi di rete |
 | [Monitoraggio pacchetti](https://aka.ms/wac1908) | Monitorare i pacchetti di rete |
 | [Performance Monitor](https://aka.ms/perfmon-blog) | Visualizzare i contatori delle prestazioni e i report |
 | [PowerShell](#powershell) | Interagire con il server tramite PowerShell |
@@ -109,7 +109,7 @@ In Server Manager panoramica sono supportate le funzionalità seguenti:
 
 Sono disponibili le seguenti Active Directory gestione:
 
-- Crea utente
+- Creazione di un utente
 - Creazione di un gruppo
 - Ricerca di utenti, computer e gruppi
 - Riquadro dei dettagli per utenti, computer e gruppi se selezionato nella griglia
@@ -417,7 +417,7 @@ Nei servizi sono supportate le funzionalità seguenti:
 - Visualizzare e modificare le impostazioni di controllo degli accessi in base al ruolo
 - Visualizzare e modificare le impostazioni dell'host Hyper-V, se applicabile
 
-## <a name="storage"></a>Archiviazione
+## <a name="storage"></a>Archiviazione:
 
 **Archiviazione** consente di gestire i dispositivi di archiviazione in un computer o un server.
 
@@ -471,7 +471,7 @@ Negli aggiornamenti sono supportate le funzionalità seguenti:
 
 - Visualizzare gli aggiornamenti di Windows o Microsoft disponibili
 - Visualizza un elenco di cronologia aggiornamenti
-- Installare gli aggiornamenti
+- Installa aggiornamenti
 - Verificare la disponibilità di aggiornamenti online da Microsoft Update
 - Gestire l'integrazione di [Azure Gestione aggiornamenti](https://docs.microsoft.com/azure/automation/automation-update-management)
 

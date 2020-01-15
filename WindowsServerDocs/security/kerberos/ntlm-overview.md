@@ -1,5 +1,5 @@
 ---
-title: Panoramica di NTLM
+title: NTLM Overview
 description: Sicurezza di Windows Server
 ms.custom: na
 ms.prod: windows-server
@@ -13,20 +13,20 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/12/2016
-ms.openlocfilehash: b8dec2877646fd2bfe00da9d5c9047e8edfd6f1d
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 74e6e05df037041b6c80239e26b39b5566474326
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71386262"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75949751"
 ---
-# <a name="ntlm-overview"></a>Panoramica di NTLM
+# <a name="ntlm-overview"></a>NTLM Overview
 
 >Si applica a: Windows Server (Canale semestrale), Windows Server 2016
 
 Questo argomento per i professionisti IT descrive NTLM, qualsiasi modifica alla funzionalità e fornisce collegamenti a risorse tecniche per l'autenticazione di Windows e NTLM per Windows Server 2012 e versioni precedenti.
 
-## <a name="BKMK_OVER"></a>Descrizione della funzionalità
+## <a name="BKMK_OVER"></a>Descrizione delle funzionalità
 L'autenticazione NTLM è una famiglia di protocolli di autenticazione inclusi in Windows Msv1\_0. dll. I protocolli di autenticazione NTLM comprendono LAN Manager versione 1 e 2 ed NTLM versione 1 e 2. I protocolli di autenticazione NTLM autenticano gli utenti e i computer in base a un meccanismo di risposta\/Challenge che dimostra a un server o a un controller di dominio che un utente è a conoscenza della password associata a un account. Quando viene utilizzato il protocollo NTLM, un server delle risorse deve eseguire una delle azioni seguenti per verificare l'identità di un computer o utente ogni volta che è necessario un nuovo token di accesso:
 
 -   Contattare un servizio di autenticazione del dominio nel controller di dominio per il dominio dell'account del computer o dell'utente, se l'account è un account di dominio.
@@ -57,7 +57,7 @@ Nella tabella seguente è riportato l'elenco delle risorse pertinenti per NTLM e
 |**Distribuzione**|[protezione estesa per l'autenticazione](https://support.microsoft.com/kb/968389)<br /><br />[Guida alla limitazione e al controllo dell'utilizzo di NTLM](https://technet.microsoft.com/library/jj865674(v=ws.10).aspx)<br /><br />[Domande al team di servizi directory: blocco NTLM e: metodologia di analisi delle applicazioni e controllo in Windows 7](https://blogs.technet.com/askds/archive/2009/10/08/ntlm-blocking-and-you-application-analysis-and-auditing-methodologies-in-windows-7.aspx)<br /><br />[Blog sull'autenticazione di Windows](https://blogs.technet.com/authentication/)<br /><br />[Configurazione di MaxConcurrentAPI per il passaggio NTLM\-tramite autenticazione](https://social.technet.microsoft.com/wiki/contents/articles/9759.configuring-maxconcurrentapi-for-ntlm-pass-through-authentication.aspx)|
 |**Sviluppo**|[Microsoft NTLM \(Windows\)](https://msdn.microsoft.com/library/aa378749(VS.85).aspx)<br /><br />[\[MS\-NLMP\]: NT LAN Manager \(la specifica del protocollo di autenticazione NTLM\)](https://msdn.microsoft.com/library/cc236621(PROT.10).aspx)<br /><br />[\[MS\-NNTP\]: NT LAN Manager \(autenticazione NTLM\): Network News Transfer Protocol \(NNTP\) Extension](https://msdn.microsoft.com/library/cc236774(PROT.10).aspx)<br /><br />[\[MS\-NTHT\]: specifica del protocollo NTLM su HTTP](https://msdn.microsoft.com/library/cc237488(PROT.10).aspx)|
 |**Risoluzione dei problemi**|Non ancora disponibile|
-|**Risorse della community**|[Questo cavallo è ancora morto: colli di bottiglia NTLM e runtime RPC](http://blogs.technet.com/b/askds/archive/2011/09/15/is-this-horse-dead-yet-ntlm-bottlenecks-and-the-rpc-runtime.aspx)|
+|**Risorse della community**|[Questo cavallo è ancora morto: colli di bottiglia NTLM e runtime RPC](https://blogs.technet.com/b/askds/archive/2011/09/15/is-this-horse-dead-yet-ntlm-bottlenecks-and-the-rpc-runtime.aspx)|
 
 
 

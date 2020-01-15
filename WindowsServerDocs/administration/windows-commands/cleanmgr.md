@@ -8,12 +8,12 @@ ms.author: jgerend
 manager: daveba
 ms.technology: storage-spaces
 ms.date: 06/20/2019
-ms.openlocfilehash: 20bc60abc747e6bab0ef59f38d0a392f18d75abe
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 0646922f409d4ea8abb85c927a329013e32016de
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71379381"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75947580"
 ---
 # <a name="cleanmgr"></a>cleanmgr
 
@@ -33,8 +33,8 @@ cleanmgr [/d <driveletter>] [/sageset:n]  [/sagerun:n] [/TUNEUP:n] [/LOWDISK] [/
 
 |      Parametro      |    Descrizione     |
 | ------------------- | ------------------ |
-|  /d \<driveletter >          | Specifica l'unità che si desidera venga pulita dal pulitura disco.<br>**Nota:** L'opzione/d non viene utilizzata con/sagerun: n. |
-| /sageset: n | Consente di visualizzare la finestra di dialogo Impostazioni pulitura disco e di creare anche una chiave del registro di sistema per archiviare le impostazioni selezionate. Il valore `n`, che è archiviato nel registro di sistema, consente di specificare le attività per l'esecuzione della pulitura del disco. Il valore `n` può essere qualsiasi valore intero compreso tra 0 e 65535. Per avere tutte le opzioni disponibili quando si usa l'opzione/sageset, specificare l'unità in cui è installato Windows.  |
+|  /d \<letteraunità >          | Specifica l'unità che si desidera venga pulita dal pulitura disco.<br>**Nota:** L'opzione/d non viene utilizzata con/sagerun: n. |
+| /sageset: n | Consente di visualizzare la finestra di dialogo Impostazioni pulitura disco e di creare anche una chiave del registro di sistema per archiviare le impostazioni selezionate. Il valore `n`, che è archiviato nel registro di sistema, consente di specificare le attività per l'esecuzione della pulitura del disco. Il valore di `n` può essere qualsiasi valore intero compreso tra 0 e 65535. Per avere tutte le opzioni disponibili quando si usa l'opzione/sageset, specificare l'unità in cui è installato Windows.  |
 |  /sagerun: n  |  Esegue le attività specificate assegnate al valore n se si usa l'opzione \sageset. Tutte le unità del computer vengono enumerate e il profilo selezionato viene eseguito in ogni unità.           |
 | /TUNEUP: n    | Eseguire/sageset e/sagerun per lo stesso `n`. |
 | /LOWDISK     | Eseguire con le impostazioni predefinite. |
@@ -81,7 +81,7 @@ Per eseguire Pulitura disco e includere le opzioni specificate con il comando cl
 cleanmgr /sagerun:1
 ```
 
-Per eseguire insieme ```cleanmgr /sageset:1``` e ```cleanmgr /sagerun:1```, digitare:
+Per eseguire ```cleanmgr /sageset:1``` e ```cleanmgr /sagerun:1``` insieme, digitare:
 
 ```
 cleanmgr /tuneup:1
@@ -89,4 +89,4 @@ cleanmgr /tuneup:1
 
 ## <a name="additional-references"></a>Altri riferimenti
 
-[Liberare spazio su disco in Windows 10](https://support.microsoft.com/en-us/help/12425/windows-10-free-up-drive-space)
+[Liberare spazio su disco in Windows 10](https://support.microsoft.com/help/12425/windows-10-free-up-drive-space)

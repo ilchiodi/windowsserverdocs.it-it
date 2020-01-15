@@ -8,12 +8,12 @@ manager: dongill
 author: rpsqrd
 ms.technology: security-guarded-fabric
 ms.date: 01/29/2019
-ms.openlocfilehash: 70014c04bbb4425fe3c3fd0379f10cf00abe00ee
-ms.sourcegitcommit: 4b4ff8d9e18b2ddcd1916ffa2cd58fffbed8e7ef
+ms.openlocfilehash: 04fdd52544b69d2c41abcbee00dd00b31bf5f21c
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72986442"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75949781"
 ---
 # <a name="create-a-windows-shielded-vm-template-disk"></a>Creare un disco modello di macchina virtuale schermata di Windows
 
@@ -59,7 +59,7 @@ Eseguire i passaggi seguenti in un computer in cui è in esecuzione Windows Serv
 
         Install-WindowsFeature RSAT-Shielded-VM-Tools -Restart
         
-    È anche possibile amministrare il server da un computer client in cui è stato installato [Windows 10 strumenti di amministrazione remota del server](https://www.microsoft.com/en-us/download/details.aspx?id=45520).
+    È anche possibile amministrare il server da un computer client in cui è stato installato [Windows 10 strumenti di amministrazione remota del server](https://www.microsoft.com/download/details.aspx?id=45520).
 
 3. Ottenere o creare un certificato per firmare il VSC per il VHDX che diventerà il disco modello per le nuove macchine virtuali schermate. I dettagli relativi a questo certificato verranno visualizzati ai tenant quando creeranno i file di dati di schermatura e autorizzano i dischi considerati attendibili. È quindi importante ottenere questo certificato da un'autorità di certificazione reciprocamente attendibile da te e dai tuoi tenant. Negli scenari aziendali in cui si è sia il provider di hosting che il tenant, è possibile prendere in considerazione l'emissione di questo certificato dall'infrastruttura a chiave pubblica (PKI).
 

@@ -9,12 +9,12 @@ ms.date: 08/07/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 00e307da35911189114257eea88ccaf90ceab1ae
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 6ec8ac4936889356ef92e82c0c89491e5c853a95
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71390720"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75949330"
 ---
 # <a name="advanced-ad-ds-management-using-active-directory-administrative-center-level-200"></a>Advanced AD DS Management Using Active Directory Administrative Center (Level 200)
 
@@ -92,13 +92,13 @@ In questa sezione viene usato l'esempio relativo a un dominio esistente denomina
   
 #### <a name="storage-and-filtering"></a>Archiviazione e filtro
 
-Il Cestino di Active Directory conserva tutti gli oggetti eliminati nella foresta. Salva gli oggetti in base all'attributo **msDS-deletedObjectLifetime**, che per impostazione predefinita corrisponde all'attributo **tombstoneLifetime** della foresta. In ogni foresta creata con Windows Server 2003 SP1 o versioni successive, il valore di **tombstoneLifetime** è pari a 180 giorni per impostazione predefinita. Nelle foreste aggiornate da Windows 2000 o installate con Windows Server 2003 (senza Service Pack) l'attributo tombstoneLifetime predefinito NON È IMPOSTATO e pertanto viene usato il valore predefinito interno di Windows di 60 giorni. Queste impostazioni sono configurabili. È possibile usare il Centro di amministrazione di Active Directory per ripristinare gli oggetti eliminati dalle partizioni del dominio della foresta. È necessario continuare a usare il cmdlet **Restore-ADObject** per ripristinare gli oggetti eliminati da altre partizioni, ad esempio la partizione di configurazione. L'abilitazione del Cestino di Active Directory rende visibile il contenitore **Oggetti eliminati** in ogni partizione del dominio nel Centro di amministrazione di Active Directory.  
+Il Cestino di Active Directory conserva tutti gli oggetti eliminati nella foresta. Salva gli oggetti in base all'attributo **msDS-deletedObjectLifetime** , che per impostazione predefinita corrisponde all'attributo **tombstoneLifetime** della foresta. In ogni foresta creata con Windows Server 2003 SP1 o versioni successive, il valore di **tombstoneLifetime** è pari a 180 giorni per impostazione predefinita. Nelle foreste aggiornate da Windows 2000 o installate con Windows Server 2003 (senza Service Pack) l'attributo tombstoneLifetime predefinito NON È IMPOSTATO e pertanto viene usato il valore predefinito interno di Windows di 60 giorni. Queste impostazioni sono configurabili. È possibile usare il Centro di amministrazione di Active Directory per ripristinare gli oggetti eliminati dalle partizioni del dominio della foresta. È necessario continuare a usare il cmdlet **Restore-ADObject** per ripristinare gli oggetti eliminati da altre partizioni, ad esempio la partizione di configurazione. L'abilitazione del Cestino di Active Directory rende visibile il contenitore **Oggetti eliminati** in ogni partizione del dominio nel Centro di amministrazione di Active Directory.  
   
 ![Gestione avanzata di servizi di dominio Active Directory](media/Advanced-AD-DS-Management-Using-Active-Directory-Administrative-Center--Level-200-/ADDS_ADAC_TR_DeletedObjectsContainer.png)  
   
 Nel contenitore **Oggetti eliminati** sono visualizzati tutti gli oggetti che si possono ripristinare in quella partizione del dominio. Gli oggetti eliminati più vecchi di **msDS-deletedObjectLifetime** sono noti come oggetti riciclati. Gli oggetti riciclati non sono visualizzati nel Centro di amministrazione di Active Directory e non è possibile ripristinare questi oggetti tramite il Centro di amministrazione di Active Directory.  
   
-Per una spiegazione più approfondita dell'architettura del Cestino e delle regole di elaborazione, vedere il post di blog relativo al [cestino di Active Directory: informazioni, implementazione, procedure consigliate e risoluzione dei problemi.](http://blogs.technet.com/b/askds/archive/2009/08/27/the-ad-recycle-bin-understanding-implementing-best-practices-and-troubleshooting.aspx)  
+Per una spiegazione più approfondita dell'architettura del Cestino e delle regole di elaborazione, vedere il post di blog relativo al [cestino di Active Directory: informazioni, implementazione, procedure consigliate e risoluzione dei problemi.](https://blogs.technet.com/b/askds/archive/2009/08/27/the-ad-recycle-bin-understanding-implementing-best-practices-and-troubleshooting.aspx)  
   
 Il Centro di amministrazione di Active Directory limita artificialmente il numero predefinito di oggetti restituito da un contenitore a 20.000 oggetti. Per aumentare questo limite fino a 100.000 oggetti, fare clic sul menu **Gestisci** e quindi su **Opzioni elenco elementi da gestire**.  
   
@@ -119,10 +119,10 @@ L'operazione di ripristino supporta tutte le opzioni dei criteri di filtro stand
 - *ANR (risoluzione del nome ambiguo: non elencato nel menu, ma ciò che viene usato quando si digita nella casella * * * * Filter * * * *)*  
 - Ultima modifica compresa nell'intervallo di date specificato  
 - L'oggetto è Utente/inetOrgPerson/Computer/Gruppo/Unità organizzativa  
-- Nome  
+- Name  
 - Data di eliminazione  
 - Ultimo padre noto  
-- Tipo  
+- Digita  
 - Descrizione  
 - Città  
 - Paese/area geografica  
@@ -217,7 +217,7 @@ La funzionalità del cmdlet **Restore-ADObject** non è stata modificata nel pas
 Nel tempo è possibile che nel contenitore Oggetti eliminati di medie e grandi imprese si accumulino oltre 20.000 (o perfino 100.000) oggetti e che risulti difficile visualizzarli tutti. Poiché il meccanismo di filtro nel Centro di amministrazione di Active Directory si basa sul filtro lato client, non è possibile visualizzare questi oggetti aggiuntivi. Per aggirare questa limitazione, è possibile eseguire una ricerca sul lato server nel modo seguente:  
   
 1. Fare clic con il pulsante destro del mouse sul contenitore **Oggetti eliminati** e scegliere **Cerca in questo nodo**.  
-2. Fare clic sulla freccia di espansione per visualizzare il menu **+Aggiungi criteri**, quindi selezionare e aggiungere **Ultima modifica compresa nell'intervallo di date specificato**. L'ora dell'ultima modifica (l'attributo **whenChanged**) rappresenta un'approssimazione dell'ora di modifica e, nella maggior parte degli ambienti, questi valori sono identici. Questa query consente di eseguire una ricerca sul lato server.  
+2. Fare clic sulla freccia di espansione per visualizzare il menu **+Aggiungi criteri** , quindi selezionare e aggiungere **Ultima modifica compresa nell'intervallo di date specificato**. L'ora dell'ultima modifica (l'attributo **whenChanged** ) rappresenta un'approssimazione dell'ora di modifica e, nella maggior parte degli ambienti, questi valori sono identici. Questa query consente di eseguire una ricerca sul lato server.  
 3. Individuare gli oggetti eliminati da ripristinare applicando altre opzioni di visualizzazione, filtro e ordinamento ai risultati e quindi ripristinarli normalmente.  
   
 ## <a name="BKMK_FGPP"></a>Configurazione e gestione dei criteri granulari per le password con Centro di amministrazione di Active Directory  
@@ -226,7 +226,7 @@ Nel tempo è possibile che nel contenitore Oggetti eliminati di medie e grandi i
 
 Nel Centro di amministrazione di Active Directory è possibile creare e gestire gli oggetti Criteri granulari per le password. In Windows Server 2008 è stata introdotta la funzionalità Criteri granulari per le password ma solo in Windows Server 2012 è stata aggiunta la prima interfaccia di gestione grafica per gestirla. I criteri granulari per le password si applicano a livello del dominio e consentono di sostituire la singola password di dominio richiesta da Windows Server 2003. La creazione di diversi criteri granulari per le password con impostazioni differenti consente di assegnare a singoli utenti o gruppi criteri per le password diversi in un dominio.  
   
-Per altre informazioni sulla gestione delle password, vedere [Guida dettagliata alla configurazione dei criteri specifici per le password e il blocco degli account per utenti di Servizi di dominio Active Directory (Windows Server 2008 R2)](https://technet.microsoft.com/library/cc770842(WS.10).aspx).  
+Per altre informazioni sui criteri granulari per le password, vedere [Guida dettagliata alla configurazione dei criteri specifici per le password e il blocco degli account per utenti di Servizi di dominio Active Directory (Windows Server 2008 R2)](https://technet.microsoft.com/library/cc770842(WS.10).aspx).  
   
 Nel riquadro di spostamento fare clic su Visualizzazione albero, selezionare il dominio e fare clic su **Sistema**, su **Contenitore Impostazioni password**. Nel riquadro Attività fare clic su **Nuovo** e infine su **Impostazioni password**.  
   
@@ -348,7 +348,7 @@ Creare il contenuto seguente:
 </system.diagnostics>
 ```
 
-I livelli di dettaglio per **DsacLogLevel** sono **Nessuno**, **Errore**, **Avviso**, **Info** e **Dettagliato**. Il nome del file di output è configurabile e viene scritto nella stessa cartella del file dsac.exe. L'output comunica maggiori informazioni sul funzionamento di ADAC, quali controller di dominio sono stati contattati, quali comandi di Windows PowerShell sono stati eseguiti, le risposte ricevute e altri dettagli.  
+I livelli di dettaglio per **DsacLogLevel** sono **Nessuno**, **Errore**, **Avviso**, **Info**e **Dettagliato**. Il nome del file di output è configurabile e viene scritto nella stessa cartella del file dsac.exe. L'output comunica maggiori informazioni sul funzionamento di ADAC, quali controller di dominio sono stati contattati, quali comandi di Windows PowerShell sono stati eseguiti, le risposte ricevute e altri dettagli.  
 
 Il livello di dettaglio INFO ad esempio restituisce tutti i risultati ad eccezione dei dettagli a livello di traccia:  
   
@@ -447,7 +447,7 @@ L'impostazione del livello Dettagliato consente inoltre di visualizzare gli stac
 
 Di seguito sono illustrati gli errori visualizzati quando non sono disponibili istanze per il servizio Servizi Web Active Directory:  
   
-|Errore|Operazione|
+|Errore di|Operazione|
 | --- | --- |  
 |"Impossibile connettersi ad alcun dominio. Aggiornare la pagina o riprovare quando sarà disponibile una connessione."|Visualizzato all'avvio del Centro di amministrazione di Active Directory|
 |"Impossibile trovare un server disponibile nel dominio *<NetBIOS domain name>* che esegue il servizio Web di Active Directory (ADWS)"|Visualizzato quando si tenta di selezionare un nodo di dominio nell'applicazione Centro di amministrazione di Active Directory|
@@ -480,7 +480,7 @@ Per risolvere questo problema, eseguire la procedura seguente:
    [Microsoft.ActiveDirectory.WebServices.exe]  
    ```
 
-   Se è in ascolto, verificare le regole di Windows Firewall e assicurarsi che sia consentito il traffico TCP in ingresso sulla porta 9389. Per impostazione predefinita, per i controller di dominio è abilitata la regola del firewall "Servizi Web Active Directory (TCP-In). Se non è in ascolto, verificare di nuovo che il servizio sia in esecuzione nel server e riavviarlo. Verificare che non vi siano altri processi già in ascolto sulla porta 9389.  
+   Se è in ascolto, verificare le regole di Windows Firewall e assicurarsi che sia consentito il traffico TCP in ingresso sulla porta 9389. Per impostazione predefinita, per i controller di dominio è abilitata la regola del firewall "Servizi Web Active Directory (TCP-In)". Se non è in ascolto, verificare di nuovo che il servizio sia in esecuzione nel server e riavviarlo. Verificare che non vi siano altri processi già in ascolto sulla porta 9389.  
   
 4. Installare NetMon o un'altra utilità di acquisizione di rete nel computer in cui è in esecuzione il Centro di amministrazione di Active Directory e nel controller di dominio restituito da NLTEST. Raccogliere acquisizioni di rete simultanee da entrambi i computer da quando viene avviato il Centro di amministrazione di Active Directory fino a quando non viene visualizzato l'errore, quindi arrestare le acquisizioni. Verificare che il client sia in grado di inviare e ricevere dal controller di dominio sulla porta TCP 9389. Se i pacchetti vengono inviati ma non vengono recapitati o vengono recapitati e il controller di dominio risponde ma non raggiungono mai il client, è probabile che sia presente un firewall tra i computer nella rete che ignora i pacchetti su quella porta. Il firewall può essere sia software che hardware e può essere parte di un software di protezione degli endpoint (antivirus) di terze parti.  
   

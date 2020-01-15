@@ -12,12 +12,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dougkim
 ms.date: 07/25/2018
-ms.openlocfilehash: 0977aa1fd9a6848bd7b85bb592b6a82556277e72
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 594c20cbfea521006de6d1ec69763669298376e6
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71361583"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75948526"
 ---
 >Si applica a: Windows Server 2012, Windows Server 2012 R2, Windows Server 2016
 
@@ -49,7 +49,7 @@ Da PowerShell (con privilegi elevati) eseguire:
 
 1. Fare clic con il pulsante destro del mouse su **SUSDB** -&gt; **attività** -&gt; fare clic su **Disconnetti**: ![image1](images/image1.png)
 2. Selezionare **Elimina connessioni esistenti** e fare clic su **OK** (facoltativo, se esistono connessioni attive).
-    ![Image2](images/image2.png)
+    ![image2](images/image2.png)
 
 #### <a name="using-command-prompt"></a>Dal prompt dei comandi
 
@@ -116,22 +116,22 @@ L'account **NT Authority\Network Service** deve essere elencato. In caso contrar
 ##### <a name="adding-nt-authoritynetwork-service-and-granting-it-rights"></a>Aggiunta di NT AUTHORITY\NETWORK SERVICE e concessione dei diritti it
 
 1. Fare clic con il pulsante destro del mouse su **accessi** e scegliere **nuovo account di accesso.**
-    ![image6](images/image6.png)
+    ![Image6](images/image6.png)
 2. Nella pagina **generale** compilare il **nome dell'account di accesso** (**NT Authority\Network Service**) e impostare il **database predefinito** su SUSDB.
-    ![image7](images/image7.png)
+    ![Image7](images/image7.png)
 3. Nella pagina **ruoli server** verificare che sia selezionata l'opzione **pubblica** e **sysadmin** .
-    ![image8](images/image8.png)
+    ![Immagine8](images/image8.png)
 4. Nella pagina **mapping utenti** :
     - In **utenti con mapping a questo account di accesso**: selezionare **SUSDB**
     - In **appartenenza a ruoli del database per: SUSDB**verificare che siano controllati gli elementi seguenti:
-        - **pubblico**
+        - **public**
         - **webService** ![Image9](images/image9.png)
-5. Fare clic su **OK**.
+5. Fare clic su **OK**
 
 A questo punto verrà visualizzato **NT Authority\Network Service** in account di accesso.
-![image10](images/image10.png)
+![Immagine10](images/image10.png)
 
-#### <a name="database-permissions"></a>Autorizzazioni database
+#### <a name="database-permissions"></a>Autorizzazioni per il database
 
 1. Fare clic con il pulsante destro del mouse su SUSDB
 2. Selezione **Proprietà**
@@ -147,7 +147,7 @@ L'account **NT Authority\Network Service** deve essere elencato.
     > [!TIP]
     > Nell'esempio seguente, il nome di dominio completo è **contosto.com** e il nome del computer WSUS è **WsusMachine**:
     >
-    > ![image11](images/image11.png)
+    > ![Immagine11](images/image11.png)
 
 4. Nella pagina **mapping** utenti selezionare il database **SUSDB** in **"utenti con mapping a questo account di accesso"**
 5. Controllare **WebService** in **"appartenenza a ruoli del database per: SUSDB"** : ![IMAGE12](images/image12.png)
@@ -158,7 +158,7 @@ L'account **NT Authority\Network Service** deve essere elencato.
 ### <a name="edit-the-registry-to-point-wsus-to-the-sql-server-instance"></a>Modificare il registro di sistema per puntare WSUS all'istanza di SQL Server
 
 > [!IMPORTANT]
-> Segui con attenzione la procedura descritta in questa sezione. Se le modifiche al Registro di sistema vengono apportate in modo non corretto, possono verificarsi problemi gravi. Prima di modificarlo, [esegui il backup del Registro di sistema per il ripristino](https://support.microsoft.com/en-us/help/322756) nel caso in cui si verifichino problemi.
+> Segui con attenzione la procedura descritta in questa sezione. Se le modifiche al Registro di sistema vengono apportate in modo non corretto, possono verificarsi problemi gravi. Prima di modificarlo, [esegui il backup del Registro di sistema per il ripristino](https://support.microsoft.com/help/322756) nel caso in cui si verifichino problemi.
 
 1. Fare clic su **Start**, **Esegui**, digitare **regedit** e fare clic su **OK**.
 2. Individuare la chiave seguente: **HKEY_LOCAL_MACHINE \software\microsoft\updateservices\server\setup\sqlservername**

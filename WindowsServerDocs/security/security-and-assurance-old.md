@@ -11,19 +11,19 @@ ms.assetid: b886b2fd-3567-4f0a-8aa3-4ba7923d2d21
 author: coreyp-at-msft
 ms.author: coreyp
 ms.localizationpriority: medium
-ms.openlocfilehash: f43e638ca2ffbeafcbc8d23e55f5b03911eb0238
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: ee0d536eeea5943c0c0e69951a7733d7462b2d9e
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71402309"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75949738"
 ---
 # <a name="security-and-assurance-in-windows-server"></a>Sicurezza e controllo in Windows Server 
 
 >Si applica a: Windows Server (Canale semestrale), Windows Server 2016
 
 >[!TIP]
-> Cerchi informazioni sull'installazione delle versioni precedenti di Windows Server? vedere le altre [librerie di Windows Server](/previous-versions/windows/) in docs.microsoft.com. Puoi anche [cercare nel sito](https://docs.microsoft.com/search/index?search=Windows+Server&dataSource=previousVersions) informazioni specifiche.
+> Per informazioni sulle versioni precedenti di Windows Server, vedere le altre [librerie di Windows Server](/previous-versions/windows/) in docs.microsoft.com. È anche possibile cercare informazioni specifiche [in questo sito](https://docs.microsoft.com/search/index?search=Windows+Server&dataSource=previousVersions).
 
 <img src="../media/landing-icons/security.png" style='float:left; padding:.5em;' alt="Icon representing a lock"> La sicurezza e il controllo si basano su nuovi livelli di protezione integrati nel sistema operativo come ulteriore misura di protezione contro le violazioni della sicurezza. Consentono di bloccare gli attacchi dannosi e di migliorare la protezione di macchine virtuali, applicazioni e dati.
 
@@ -37,15 +37,15 @@ Questo è il blog centrale per i contenuti tecnici del team per la sicurezza dei
 ### <a name="addressing-emerging-threats-and-landscape-shiftshttpswwwyoutubecomwatchvb5jmyxywx1kfeatureyoutube"></a>[Affrontare le minacce emergenti e i turni orizzontali](https://www.youtube.com/watch?v=B5JMYxYWx1k&feature=youtu.be)
 In questo video di 6 minuti, Anders Vinberg fornisce una panoramica della strategia di sicurezza e controllo di Microsoft e illustra le tendenze del settore e i turni orizzontali in relazione alla sicurezza. Analizza quindi le iniziative principali di Microsoft relative alla protezione dei carichi di lavoro dall'infrastruttura sottostante e alla protezione da attacchi diretti da account con privilegi. Infine, nel caso di violazione, spiega come le nuove funzionalità di rilevamento e analisi forense consentano di identificare la minaccia.
 
-### <a name="protecting-your-datacenter-and-cloud-from-emerging-threats-blog-posthttpblogstechnetcombwindowsserverarchive20151118protecting-your-datacenter-and-cloud-november-updateaspx"></a>[Post di Blog sulla protezione del Data Center e del cloud da minacce emergenti](http://blogs.technet.com/b/windowsserver/archive/2015/11/18/protecting-your-datacenter-and-cloud-november-update.aspx)
-Questo post di blog illustra come è possibile usare le tecnologie di Microsoft per proteggere i centri dati e i cloud da minacce emergenti.                   
+### <a name="protecting-your-datacenter-and-cloud-from-emerging-threats-blog-posthttpsblogstechnetcombwindowsserverarchive20151118protecting-your-datacenter-and-cloud-november-updateaspx"></a>[Post di Blog sulla protezione del Data Center e del cloud da minacce emergenti](https://blogs.technet.com/b/windowsserver/archive/2015/11/18/protecting-your-datacenter-and-cloud-november-update.aspx)
+Questo post di blog illustra come usare le tecnologie Microsoft per proteggere i data center e i cloud da minacce emergenti.                   
 
-### <a name="security-and-assurance-overview-session-at-ignitehttpchannel9msdncomeventsignite2015brk2482"></a>[Sessione Panoramica di Security and Assurance in Ignite](http://channel9.msdn.com/events/ignite/2015/brk2482)
+### <a name="security-and-assurance-overview-session-at-ignitehttpschannel9msdncomeventsignite2015brk2482"></a>[Sessione Panoramica di Security and Assurance in Ignite](https://channel9.msdn.com/events/ignite/2015/brk2482)
 In questa sessione di Ignite vengono trattate le minacce persistenti, le violazioni interne, la criminalità informatica organizzata e la protezione della piattaforma Microsoft Cloud (in locale e servizi connessi con Azure). Include gli scenari per la protezione dei carichi di lavoro, i titolari di aziende di grandi dimensioni e i provider di servizi.                                                                   
 
 ## <a name="secure-virtualization-with-shielded-vms"></a>Virtualizzazione sicura con macchine virtuali schermate
 
-### <a name="shielded-vm-in-channel-9httpchannel9msdncomshowsmechanicsintroduction-to-shielded-virtual-machines-in-windows-server-2016"></a>[Macchina virtuale schermata su Channel 9](http://channel9.msdn.com/Shows/Mechanics/Introduction-to-Shielded-Virtual-Machines-in-Windows-Server-2016)
+### <a name="shielded-vm-in-channel-9httpschannel9msdncomshowsmechanicsintroduction-to-shielded-virtual-machines-in-windows-server-2016"></a>[Macchina virtuale schermata su Channel 9](https://channel9.msdn.com/Shows/Mechanics/Introduction-to-Shielded-Virtual-Machines-in-Windows-Server-2016)
 Una procedura dettagliata della tecnologia e dei vantaggi offerti dalle VM schermate.                           
 
 ### <a name="shielded-vm-demohttpswwwyoutubecomwatchvxip5qtk-7d8"></a>[Demo delle macchine virtuali schermate](https://www.youtube.com/watch?v=xip5Qtk-7d8)
@@ -54,7 +54,7 @@ Questo video di 4 minuti descrive il valore delle VM schermate e le differenze t
 ### <a name="shielded-virtual-machines-in-windows-server-video-walkthroughhttpmicrosoft-cloudcloudguidescomguidesshielded-virtual-machines-in-windows-serverhtm"></a>[Video della procedura dettagliata per le macchine virtuali schermate di Windows Server](http://microsoft-cloud.cloudguides.com/Guides/Shielded Virtual Machines in Windows Server.htm)
 Questo video dettagliato illustra come il servizio Sorveglianza host autorizza le macchine virtuali schermate in modo che i dati riservati siano protetti dall'accesso non autorizzato da parte degli amministratori di host Hyper-V.
 
-### <a name="harden-the-fabric-protecting-tenant-secrets-in-hyper-v-ignite-videohttpchannel9msdncomeventsignite2015brk3457"></a>[Rafforzare la protezione dell'infrastruttura: Protezione dei segreti Tenant in Hyper-V (video su Ignite)](http://channel9.msdn.com/events/ignite/2015/brk3457)
+### <a name="harden-the-fabric-protecting-tenant-secrets-in-hyper-v-ignite-videohttpschannel9msdncomeventsignite2015brk3457"></a>[Rafforzare l'infrastruttura: protezione dei segreti dei tenant in Hyper-V (Ignite video)](https://channel9.msdn.com/events/ignite/2015/brk3457)
 
 Questa presentazione di Ignite illustra i miglioramenti apportati in Hyper-V, Virtual Machine Manager e un nuovo ruolo del server di Sorveglianza host per abilitare le macchine virtuali schermate.                
 
@@ -68,19 +68,19 @@ Questa guida fornisce le procedure consigliate per l'esecuzione di macchine virt
 Questa guida fornisce informazioni su come risolvere i problemi che possono verificarsi nell'ambiente della VM schermata.
 
 ### <a name="shielded-vm-articlehttpwindowsitprocomhyper-vsuper-secure-hyper-v-environments-shielded-vms-2016"></a>[Articolo sulle macchine virtuali schermate](http://windowsitpro.com/hyper-v/super-secure-hyper-v-environments-shielded-vms-2016)
-Questo white paper offre una panoramica su come le VM schermate possano migliorare la protezione globale da eventuali manomissioni.                                         
+Questo white paper offre una panoramica su come le macchine virtuali schermate possano migliorare la sicurezza globale per evitare eventuali manomissioni.                                         
 
-## <a name="privileged-access-management"></a>la gestione degli accessi con privilegi)
+## <a name="privileged-access-management"></a>Privileged Access Management
 ### <a name="securing-privileged-accesshttpstechnetmicrosoftcomwindows-server-docssecuritysecuring-privileged-accesssecuring-privileged-access"></a>[Protezione dell'accesso con privilegi](https://technet.microsoft.com/windows-server-docs/security/securing-privileged-access/securing-privileged-access)
 Una guida di orientamento per proteggere l'accesso con privilegi. Questa guida di orientamento è strutturata in base all'esperienza combinata del team di sicurezza server, del team IT Microsoft, del team Azure e di Microsoft Consulting Services.                           
 
 ### <a name="just-in-time-administration-with-microsoft-identity-managerhttpstechnetmicrosoftcomlibrarymt150258aspx"></a>[Articolo relativo all'amministrazione Just in Time con Microsoft Identity Manager](https://technet.microsoft.com/library/mt150258.aspx)
 In questo articolo vengono illustrate le funzionalità di Microsoft Identity Manager, incluso il supporto per la gestione accessi con privilegi Just In Time (JIT).                                                                    
 
-### <a name="protecting-windows-and-microsoft-azure-active-directory-with-privileged-access-managementhttpchannel9msdncomeventsignite2015brk3873"></a>[Protezione di Windows e Microsoft Azure Active Directory con Privileged Access Management](http://channel9.msdn.com/events/ignite/2015/brk3873)
+### <a name="protecting-windows-and-microsoft-azure-active-directory-with-privileged-access-managementhttpschannel9msdncomeventsignite2015brk3873"></a>[Protezione di Windows e Microsoft Azure Active Directory con Privileged Access Management](https://channel9.msdn.com/events/ignite/2015/brk3873)
 Questa presentazione di Ignite descrive la strategia e gli investimenti di Windows Server, PowerShell, Active Directory, Identity Manager e Azure Active Directory di Microsoft per affrontare i rischi di accesso amministratore tramite un'autenticazione più efficace e per gestire l'accesso usando JIT (Just in Time) e JEA (Just Enough Administration).
 
-### <a name="just-enough-administration-articlehttpakamsjea"></a>[Articolo su JEA (Just Enough Administration)](http://aka.ms/JEA)
+### <a name="just-enough-administration-articlehttpsakamsjea"></a>[Articolo su JEA (Just Enough Administration)](https://aka.ms/JEA)
 Questo documento illustra le finalità e i dettagli tecnici di JEA (Just Enough Administration), un toolkit di PowerShell che consente alle organizzazioni di ridurre i rischi limitando l'accesso degli operatori per eseguire attività specifiche.
 
 ### <a name="just-enough-administration-demo-videohttpswwwyoutubecomwatchvxnbrbky9p20"></a>[Video dimostrativo su JEA (Just Enough Administration)](https://www.youtube.com/watch?v=xnBrbkY9P20)
@@ -88,7 +88,7 @@ Procedura dettagliata dimostrativa su Just Enough Administration.
 ## <a name="credential-protection"></a>Protezione delle credenziali
 
 ### <a name="protect-derived-domain-credentials-with-credential-guardhttpsdocsmicrosoftcomwindowssecurityidentity-protectioncredential-guardcredential-guard"></a>[Proteggere le credenziali di dominio derivate con Credential Guard](https://docs.microsoft.com/windows/security/identity-protection/credential-guard/credential-guard)
-Credential Guard usa la protezione basata su virtualizzazione per isolare i segreti in modo che solo il software di sistema con privilegi possa accedervi. L'accesso non autorizzato a questi segreti può produrre attacchi di furto delle credenziali come attacchi di tipo Pass-the-Hash o Pass-The-Ticket. Credential Guard impedisce questi attacchi proteggendo gli hash delle password NTLM e i ticket di concessione ticket Kerberos.
+Credential Guard usa la protezione basata su virtualizzazione per isolare i segreti in modo che solo il software di sistema con privilegi possa accedervi. L'accesso non autorizzato a questi segreti può provocare attacchi di furto delle credenziali, ad esempio Pass-the-Hash o Pass-The-Ticket. Credential Guard impedisce questi attacchi proteggendo gli hash delle password NTLM e tramite i ticket di concessione Kerberos.
 
 ### <a name="protect-remote-desktop-credentials-with-remote-credential-guardhttpsdocsmicrosoftcomwindowssecurityidentity-protectionremote-credential-guard"></a>[Proteggere le credenziali di Desktop remoto con Remote Credential Guard](https://docs.microsoft.com/windows/security/identity-protection/remote-credential-guard)
 Credential Guard remoto consente di proteggere le credenziali tramite una connessione Desktop remoto reindirizzando le richieste Kerberos al dispositivo che richiede la connessione. Fornisce inoltre il punto di accesso singolo per le sessioni Desktop remoto.                                                                                                        |
@@ -115,14 +115,14 @@ Windows Defender fornisce funzionalità di rilevamento attivo per bloccare i mal
 ### <a name="security-threat-analysis-using-microsoft-operations-management-suitehttpschannel9msdncomeventsignite2015brk3464"></a>[Analisi delle minacce di sicurezza tramite Microsoft Operations Management Suite](https://channel9.msdn.com/events/ignite/2015/brk3464)
 Questa presentazione di Ignite illustra come è possibile usare Operational Insights per eseguire l'analisi delle minacce alla sicurezza.
 
-### <a name="microsoft-operations-management-suite-omshttpswwwmicrosoftcomen-usserver-cloudoperations-management-suiteoverviewaspx"></a>[Microsoft Operations Management Suite (OMS)](https://www.microsoft.com/en-us/server-cloud/operations-management-suite/overview.aspx)
+### <a name="microsoft-operations-management-suite-omshttpswwwmicrosoftcomserver-cloudoperations-management-suiteoverviewaspx"></a>[Microsoft Operations Management Suite (OMS)](https://www.microsoft.com/server-cloud/operations-management-suite/overview.aspx)
 La soluzione di sicurezza e controllo Microsoft Operations Management Suite (OMS) elabora i registri di protezione e gli eventi del firewall in ambienti locali e cloud per analizzare e rilevare comportamenti dannosi.
 
 ### <a name="oms-and-windows-serverhttpswwwyoutubecomwatchv_sadw1dry2k"></a>[OMS e Windows Server](https://www.youtube.com/watch?v=_SaDw1dRy2k)
 Questo video di 3 minuti illustra in che modo OMS consente di rilevare potenziali comportamenti sospetti bloccati da Windows Server.  
 
-### <a name="microsoft-advanced-threat-analyticshttpblogstechnetcombadarchive20150722microsoft-advanced-threat-analytics-coming-next-monthaspx"></a>[Analisi avanzata delle minacce Microsoft](http://blogs.technet.com/b/ad/archive/2015/07/22/microsoft-advanced-threat-analytics-coming-next-month.aspx)
-Questo post di blog descrive Microsoft Advanced Threat Analytics, un prodotto locale che usa il traffico di rete Active Directory e i dati SIeM per rilevare i rischi potenziali e avvisare in merito.
+### <a name="microsoft-advanced-threat-analyticshttpsblogstechnetcombadarchive20150722microsoft-advanced-threat-analytics-coming-next-monthaspx"></a>[Analisi avanzata delle minacce Microsoft](https://blogs.technet.com/b/ad/archive/2015/07/22/microsoft-advanced-threat-analytics-coming-next-month.aspx)
+Questo post di blog descrive Microsoft Advanced Threat Analytics, un prodotto locale che usa il traffico di rete Active Directory e i dati SIEM per rilevare i rischi potenziali e avvisare in merito.
 
 ### <a name="microsoft-advanced-threat-analyticshttpswwwyoutubecomwatchv0na9fetrzfwlistpl8nfc9hageb5izgm8hvmrozethrpbdksw"></a>[Analisi avanzata delle minacce Microsoft](https://www.youtube.com/watch?v=0nA9FeTRZFw&list=PL8nfc9haGeb5IZGM8HvmRozetHRpBDKSw)
 In questo video di 3 minuti vengono presentate le informazioni generali sull'aggiunta delle funzionalità di analisi delle minacce in Windows Server da parte di Microsoft.                                                                                 |

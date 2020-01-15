@@ -8,12 +8,12 @@ ms.date: 08/19/2019
 ms.topic: article
 ms.prod: windows-server
 ms.technology: storage
-ms.openlocfilehash: 6895c4b5f74beb237378060f82135d6f578986b7
-ms.sourcegitcommit: e92a78f8d307200e64617431a701b9112a9b4e48
+ms.openlocfilehash: b7a6dd37cfc054ead153d274ffa7f0d13844305e
+ms.sourcegitcommit: 10331ff4f74bac50e208ba8ec8a63d10cfa768cc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71973859"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75953026"
 ---
 # <a name="storage-migration-service-frequently-asked-questions-faq"></a>Domande frequenti sul servizio migrazione archiviazione
 
@@ -42,7 +42,7 @@ Il servizio migrazione archiviazione supporta la migrazione di utenti e gruppi l
 
 ## <a name="is-domain-controller-migration-supported"></a>La migrazione del controller di dominio è supportata?
 
-Il servizio migrazione archiviazione attualmente non esegue la migrazione dei controller di dominio in Windows Server 2019. Come soluzione alternativa, se si dispone di più di un controller di dominio nel dominio Active Directory, abbassare di livello il controller di dominio prima di eseguirne la migrazione, quindi alzare di livello la destinazione al termine del trasferimento.
+Il servizio migrazione archiviazione attualmente non esegue la migrazione dei controller di dominio in Windows Server 2019. Come soluzione alternativa, se si dispone di più di un controller di dominio nel dominio Active Directory, abbassare di livello il controller di dominio prima di eseguirne la migrazione, quindi alzare di livello la destinazione al termine del trasferimento. Se si sceglie di eseguire la migrazione di un'origine o di una destinazione del controller di dominio, non sarà possibile eseguire il trasferimento. Quando si esegue la migrazione da o a un controller di dominio, non è mai necessario migrare utenti e gruppi.
 
 ## <a name="what-attributes-are-migrated-by-the-storage-migration-service"></a>Quali attributi vengono migrati dal servizio migrazione archiviazione?
 
@@ -59,17 +59,17 @@ Il servizio migrazione archiviazione esegue la migrazione di tutti i flag, le im
     - Limite utenti simultanei
     - Disponibile in modo continuo
     - Descrizione           
-    - Crittografa dati
+    - Crittografa i dati
     - Comunicazione remota delle identità
     - Infrastruttura
-    - Nome
-    - `Path`
-    - Ambito
+    - Name
+    - Percorso
+    - Con ambito
     - Nome dell'ambito
     - Descrittore di sicurezza
     - Copia shadow
     - Speciali
-    - Temporanea
+    - Temporaneo
 
 ## <a name="can-i-consolidate-multiple-servers-into-one-server"></a>È possibile consolidare più server in un unico server?
 
@@ -89,9 +89,9 @@ Il servizio di migrazione archiviazione contiene un motore di lettura e copia mu
 
 - **Usare Windows Server 2019 per il sistema operativo di destinazione.** Windows Server 2019 contiene il servizio proxy del servizio migrazione archiviazione. Quando si installa questa funzionalità e si esegue la migrazione a destinazioni di Windows Server 2019, tutti i trasferimenti funzionano come linea di visualizzazione diretta tra l'origine e la destinazione. Questo servizio viene eseguito nell'agente di orchestrazione durante il trasferimento se i computer di destinazione sono Windows Server 2012 R2 o Windows Server 2016, il che significa che i trasferimenti a doppio hop e saranno molto più lenti. Se sono in esecuzione più processi con le destinazioni di Windows Server 2012 R2 o Windows Server 2016, l'agente di orchestrazione diventa un collo di bottiglia. 
 
-- **Modifica i thread di trasferimento predefiniti.** Il servizio proxy del servizio migrazione archiviazione copia 8 file contemporaneamente in un determinato processo. È possibile aumentare il numero di thread di copia simultanei modificando il nome del valore REG_DWORD del registro di sistema seguente in Decimal in ogni nodo in cui è in esecuzione il proxy del servizio migrazione archiviazione:
+- **Modifica i thread di trasferimento predefiniti.** Il servizio proxy del servizio migrazione archiviazione copia 8 file contemporaneamente in un determinato processo. È possibile aumentare il numero di thread di copia simultanei modificando il seguente registro di sistema REG_DWORD nome valore in decimale in ogni nodo che esegue il proxy del servizio migrazione archiviazione:
 
-    HKEY_Local_Machine\Software\Microsoft\SMSProxy
+    HKEY_Local_Machine \Software\Microsoft\SMSProxy
     
     FileTransferThreadCount
 
@@ -110,7 +110,7 @@ Il servizio di migrazione archiviazione contiene un motore di lettura e copia mu
    - Una o più schede di rete configurate tramite gruppo NIC
    - Una o più schede di rete che supportano RDMA
 
-- **Aggiornare i driver.** Installare i driver più recenti per l'archiviazione e l'enclosure del fornitore, i driver HBA più recenti, il BIOS o il firmware UEFI più recente, i driver di rete del fornitore più recenti e i driver più recenti del chipset della scheda madre sull'origine, sulla destinazione e sull'agente di orchestrazione Server. Se necessario riavviare i nodi. Per la configurazione dell'archiviazione condivisa e dell'hardware di rete, consultare la documentazione del fornitore hardware.
+- **Aggiornare i driver.** Installare i driver più recenti per l'archiviazione e l'enclosure del fornitore, i driver HBA più recenti, i driver di rete del fornitore più recenti, i driver di rete più recenti e i driver del chipset della scheda madre più recenti sui server di origine, di destinazione e di agente di orchestrazione. Se necessario riavviare i nodi. Per la configurazione dell'archiviazione condivisa e dell'hardware di rete, consultare la documentazione del fornitore hardware.
 
 - **Abilitare l'elaborazione ad alte prestazioni.** Assicurarsi che le impostazioni BIOS/UEFI dei server abilitati consentano alte prestazioni, ad esempio la disabilitazione dei C-State, l'impostazione della velocità QPI, l'abilitazione di NUMA e l'impostazione della frequenza di memoria massima. Verificare che il risparmio energia in Windows Server sia impostato su prestazioni elevate. Riavviare se necessario. Non dimenticare di restituirli agli stati appropriati dopo il completamento della migrazione. 
 
@@ -134,7 +134,7 @@ Il servizio migrazione archiviazione usa un database Extensible Storage Engine (
 4. Spostare la cartella in un'altra unità sul computer dell'agente di orchestrazione.
 5. Impostare il seguente valore REG_SZ del registro di sistema:
 
-    HKEY_Local_Machine\Software\Microsoft\SMS DatabasePath = *percorso alla nuova cartella del database in un volume diverso* . 
+    HKEY_Local_Machine \Software\Microsoft\SMS DatabasePath = *percorso alla nuova cartella del database in un volume diverso* . 
 6. Verificare che il sistema disponga del controllo completo su tutti i file e le sottocartelle della cartella
 7. Rimuovere le autorizzazioni per gli account personali.
 8. Avviare il servizio "servizio migrazione archiviazione".
@@ -145,7 +145,7 @@ Per inviare commenti e suggerimenti sul servizio migrazione archiviazione:
 
 - Usare lo strumento Hub di feedback incluso in Windows 10, facendo clic su "Suggerisci una funzionalità" e specificando la categoria "Windows Server" e la sottocategoria "migrazione archiviazione".
 - Usare il sito [Windows Server UserVoice](https://windowsserver.uservoice.com)
-- Posta elettronica smsfeed@microsoft.com
+- Posta elettronica: smsfeed@microsoft.com
 
 Per archiviare i bug:
 
@@ -158,6 +158,6 @@ Per ottenere supporto:
  - Pubblicare un post nel [Forum di TechNet su Windows Server 2019](https://social.technet.microsoft.com/Forums/en-US/home?forum=ws2019&filter=alltypes&sort=lastpostdesc) 
  - Apri un caso di supporto tramite [supporto tecnico Microsoft](https://support.microsoft.com)
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 - [Panoramica di servizio migrazione archiviazione](overview.md)

@@ -6,12 +6,12 @@ ms.author: joflore
 ms.date: 04/19/2018
 ms.topic: article
 ms.prod: windows-server
-ms.openlocfilehash: 19e8eef008d3818c413808ab1f085a7cc247ec36
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 209e87b90656555062d9f7e343beedb0143c1df2
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71369503"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75949115"
 ---
 # <a name="virtualizing-domain-controllers-using-hyper-v"></a>Virtualizzazione di controller di dominio con Hyper-V
 
@@ -45,7 +45,7 @@ Per installare e usare il ruolo Hyper-V, è necessario disporre di quanto segue:
 3. Se possibile, i controller di dominio devono essere eseguiti su hardware ubicato in aree diverse del mondo. In questo modo, viene ridotto l'impatto che un disastro o un errore ha su un sito presso il quale sono ospitati i controller di dominio.  
 4. Gestire i controller di dominio fisici in ognuno dei domini. In questo modo, si riduce il rischio di un malfunzionamento della piattaforma di virtualizzazione che influisce su tutti i sistemi host che utilizzano tale piattaforma.  
 
-## <a name="security-considerations"></a>Considerazioni relative alla sicurezza
+## <a name="security-considerations"></a>Considerazioni sulla sicurezza
 
 Il computer host sul quale sono in esecuzione controller di dominio virtuali deve essere gestito con la stessa attenzione con cui vengono gestiti i controller di dominio scrivibili, anche se si tratta solo di un computer appartenente a un dominio o del gruppo di lavoro. Questo punto è essenziale ai fini della sicurezza. Un host gestito impropriamente è vulnerabile a un attacco di elevazione dei privilegi, che si verifica quando un utente malintenzionato ottiene accesso e privilegi di sistema non autorizzati né assegnati in modo legittimo. Un utente malintenzionato può utilizzare questo tipo di attacco per compromettere macchine virtuali, domini e foreste ospitate da tale computer.
 
@@ -64,7 +64,7 @@ Per ulteriori informazioni sulla protezione dei controller di dominio, vedere [l
 
 Grazie all'utilizzo delle macchine virtuali è possibile disporre di diversi tipi di configurazione per i controller di dominio. È necessario considerare con molta attenzione in che modo le macchine virtuali influiscano sui limiti e sui trust della propria topologia Active Directory. Nella tabella che segue vengono descritte le configurazioni possibili per un controller di dominio e un host (server Hyper-V) Active Directory e i relativi computer guest (macchine virtuali eseguite sul server Hyper-V).
 
-|Computer|Configurazione 1|Configuration 2|
+|Machine|Configurazione 1|Configuration 2|
 |-------|---------------|---------------|
 |Hyper-V|Computer membro o del gruppo di lavoro|Computer membro o del gruppo di lavoro|
 |Guest|Controller di dominio|Computer membro o del gruppo di lavoro|
@@ -83,7 +83,7 @@ Un file VHD di un controller di dominio virtuale equivale all'unità disco rigid
 
 Un vantaggio offerto dai controller di dominio di sola lettura è la possibilità di collocarli in posizioni in cui non è possibile garantire la sicurezza fisica, ad esempio le succursali. È possibile utilizzare Windows Crittografia unità BitLocker per proteggere i file VHD (non i file System) da compromettere nell'host tramite il furto del disco fisico. 
 
-## <a name="performance"></a>Prestazioni
+## <a name="performance"></a>Performance
 
 La nuova architettura microkernel a 64 bit offre prestazioni Hyper-V di gran lunga superiori rispetto alle piattaforme di virtualizzazione precedenti. Per prestazioni ottimali dell'host, l'host deve essere un'installazione Server Core di Windows Server 2008 o versioni successive e non deve avere ruoli server diversi da Hyper-V installato.
 
@@ -104,7 +104,7 @@ I test LDAP (Lightweight Directory Access Protocol) sono stati eseguiti su un co
 <thead>
 <tr class="header">
 <th>Misura</th>
-<th>Testa</th>
+<th>Testare</th>
 <th>Fisico</th>
 <th>Virtuale</th>
 <th>Delta</th>
@@ -176,7 +176,7 @@ Quando si monitorano le prestazioni delle macchine virtuali con Reliability and 
 
 Per ulteriori informazioni sull'ottimizzazione delle prestazioni di servizi di dominio Active Directory e Hyper-V, vedere [linee guida per l'ottimizzazione delle prestazioni per Windows Server 2016](../../../../administration/performance-tuning/index.md).
 
-Inoltre, non pianificare l'utilizzo di un VHD per un disco differenze su una macchina virtuale configurata come controller di dominio in quanto tale VHD può ridurre le prestazioni. Per ulteriori informazioni sui tipi di disco Hyper-V, inclusi i dischi differenze, vedere [creazione guidata nuovo disco rigido virtuale](http://go.microsoft.com/fwlink/?linkid=137279).
+Inoltre, non pianificare l'utilizzo di un VHD per un disco differenze su una macchina virtuale configurata come controller di dominio in quanto tale VHD può ridurre le prestazioni. Per ulteriori informazioni sui tipi di disco Hyper-V, inclusi i dischi differenze, vedere [creazione guidata nuovo disco rigido virtuale](https://go.microsoft.com/fwlink/?linkid=137279).
 
 Per ulteriori informazioni su servizi di dominio Active Directory negli ambienti di hosting virtuali, vedere [aspetti da considerare quando si ospitano Active Directory controller di dominio negli ambienti host virtuali](https://go.microsoft.com/fwlink/?linkid=141292) della Microsoft Knowledge base.
 
@@ -206,7 +206,7 @@ Le piattaforme di virtualizzazione, come Hyper-V, offrono alcune comode funziona
 
 System Center Virtual Machine Manager (VMM) 2008 offre una gestione unificata delle macchine fisiche e virtuali e consente inoltre di migrare una macchina fisica in una macchina virtuale. Questo processo è noto come conversione da macchina fisica a virtuale (conversione P2V). Durante il processo di conversione P2V, la nuova macchina virtuale e il controller di dominio fisico di cui viene eseguita la migrazione non devono essere in esecuzione contemporaneamente, per evitare una situazione di rollback degli USN, come descritto in [USN e rollback degli USN](#usn-and-usn-rollback).
 
-È consigliabile eseguire la conversione P2V utilizzando la modalità offline in modo che i dati di directory siano coerenti quando il controller di dominio viene riattivato. L'opzione della modalità offline è disponibile e consigliata nella Conversione guidata server fisico. Per una descrizione della differenza tra la modalità online e la modalità offline, [vedere P2V: conversione di computer fisici in macchine virtuali in VMM](https://go.microsoft.com/fwlink/?linkid=155072). Durante la conversione P2V, la macchina virtuale non deve essere connessa alla rete. La scheda di rete della macchina virtuale deve essere abilitata solo dopo che il processo di conversione P2V è stato completato e verificato. A questo punto, la macchina di origine fisica verrà disattivata. Non riconnettere la macchina di origine fisica alla rete prima di aver riformattato il disco rigido.
+È consigliabile eseguire la conversione P2V utilizzando la modalità offline in modo che i dati di directory siano coerenti quando il controller di dominio viene riattivato. L'opzione della modalità offline è disponibile e consigliata nella Conversione guidata server fisico. Per una descrizione della differenza tra la modalità online e la modalità offline, vedere [P2V: conversione di computer fisici in macchine virtuali in VMM](https://go.microsoft.com/fwlink/?linkid=155072). Durante la conversione P2V, la macchina virtuale non deve essere connessa alla rete. La scheda di rete della macchina virtuale deve essere abilitata solo dopo che il processo di conversione P2V è stato completato e verificato. A questo punto, la macchina di origine fisica verrà disattivata. Non riconnettere la macchina di origine fisica alla rete prima di aver riformattato il disco rigido.
 
 > [!NOTE]
 > Sono disponibili opzioni più sicure per creare nuovi controller di dominio virtuali che non eseguono i rischi derivanti dalla creazione di un rollback degli USN. Se è già presente almeno un controller di dominio virtuale, è possibile configurare un nuovo controller di dominio virtuale con una promozione regolare, una promozione dall'installazione dal supporto (installazione da supporto) e l'uso della clonazione del controller di dominio.
@@ -224,7 +224,7 @@ Questa operazione consente inoltre di evitare problemi relativi all'hardware o a
 
 È possibile utilizzare la migrazione P2V mediante VMM per creare ambienti di prova. L'utente può migrare i controller del dominio di produzione dalle macchine fisiche alle macchine virtuali per creare un ambiente di prova senza disconnettere permanentemente tali controller. L'ambiente di prova, tuttavia, deve trovarsi su una rete diversa da quella dell'ambiente di produzione se è richiesta la presenza di due istanze dello stesso controller di dominio. Quando si creano ambienti di prova mediante la migrazione P2V, è necessario prestare particolare attenzione onde evitare situazioni di rollback degli USN che possono influire sugli ambienti di prova e di produzione. Di seguito viene descritto un metodo utilizzabile per la creazione di ambienti di prova con P2V.
 
-Viene eseguita la migrazione di un controller di dominio in produzione da ogni dominio a una macchina virtuale di test usando P2V in base alle linee guida indicate nella sezione relativa alla migrazione da macchina fisica a virtuale. Le macchine fisiche di produzione e le macchine virtuali di prova devono trovarsi in reti diverse quando vengono riconnesse. Per evitare i rollback degli USN nell'ambiente di prova, è necessario disconnettere tutti i controller di dominio che devono essere migrati dalle macchine fisiche nelle macchine virtuali. A tale scopo, arrestare il servizio ntds o riavviare il computer in modalità ripristino servizi directory (DSRM).) Quando i controller di dominio sono offline, non introdurre nuovi aggiornamenti nell'ambiente. I computer devono rimanere in modalità offline durante la migrazione P2V. Nessuno dei computer dovrà essere riconnesso finché tutti i computer non saranno stati migrati completamente. Per altre informazioni sul rollback degli USN, vedere USN e rollback degli USN.
+Un controller del dominio di produzione viene migrato da ogni dominio in una macchina virtuale di prova utilizzando P2V in base alle linee guida riportate nella sezione Migrazione da macchina fisica a virtuale. Le macchine fisiche di produzione e le macchine virtuali di prova devono trovarsi in reti diverse quando vengono riconnesse. Per evitare i rollback degli USN nell'ambiente di prova, è necessario disconnettere tutti i controller di dominio che devono essere migrati dalle macchine fisiche nelle macchine virtuali. Questa operazione può essere eseguita arrestando il servizio NTDS o riavviando il computer in modalità ripristino servizi directory. Dopo che i controller di dominio sono offline, non è necessario introdurre nuovi aggiornamenti nell'ambiente. I computer devono rimanere in modalità offline durante la migrazione P2V. Nessuno dei computer dovrà essere riconnesso finché tutti i computer non saranno stati migrati completamente. Per altre informazioni sul rollback degli USN, vedere USN e rollback degli USN.
 
 I successivi controller di dominio di prova devono essere innalzati al livello di repliche nell'ambiente di prova.
 
@@ -237,7 +237,7 @@ Per disabilitare il provider di sincronizzazione dell'ora di Hyper-V, arrestare 
 > [!NOTE]
 > Questa guida è stata aggiornata di recente in modo da riflettere la raccomandazione corrente per sincronizzare l'ora per il controller di dominio guest solo dalla gerarchia di dominio, anziché la raccomandazione precedente per disabilitare parzialmente la sincronizzazione dell'ora tra l'host controller di dominio di sistema e Guest.
 
-## <a name="storage"></a>Archiviazione
+## <a name="storage"></a>Archiviazione:
 
 Per ottimizzare le prestazioni della macchina virtuale del controller di dominio e garantire la durabilità delle Scritture di Active Directory, usare i consigli seguenti per archiviare i file del sistema operativo, Active Directory e VHD:
 
@@ -247,7 +247,7 @@ Per ottimizzare le prestazioni della macchina virtuale del controller di dominio
   > Se si prevede di usare BitLocker per il Guest DC virtuale, è necessario assicurarsi che i volumi aggiuntivi siano configurati per il "sblocco automatico".
   > Altre informazioni sulla configurazione dello sblocco automatico sono disponibili in [Enable-BitLockerAutoUnlock](https://docs.microsoft.com/powershell/module/bitlocker/enable-bitlockerautounlock)
 
-- **Archiviazione host dei file VHD**. Consigli: i consigli per l'archiviazione host si riferiscono all'archiviazione dei file VHD. Per ottenere prestazioni ottimali, non archiviare i file VHD su un disco utilizzato di frequente da altri servizi o altre applicazioni, ad esempio il disco di sistema in cui è installato il sistema operativo Windows host. Archiviare ogni file VHD in una partizione separata dal sistema operativo host e dagli altri file VHD. La configurazione ideale prevede l'archiviazione di ogni VHD in un'unità fisica distinta.  
+- **Archiviazione host dei file VHD**. Indicazioni: indicazioni per l'archiviazione host indirizzi di archiviazione di file VHD. Per ottenere prestazioni ottimali, non archiviare i file VHD su un disco utilizzato di frequente da altri servizi o altre applicazioni, ad esempio il disco di sistema in cui è installato il sistema operativo Windows host. Archiviare ogni file VHD in una partizione separata dal sistema operativo host e dagli altri file VHD. La configurazione ideale prevede l'archiviazione di ogni VHD in un'unità fisica distinta.  
 
   Il sistema del disco fisico host deve inoltre soddisfare almeno **uno** dei criteri seguenti per soddisfare i requisiti di integrità dei dati del carico di lavoro virtualizzato:  
 
@@ -352,10 +352,10 @@ Se non è disponibile un backup dei dati di stato del sistema antecedente all'er
 ## <a name="to-restore-a-previous-version-of-a-virtual-domain-controller-vhd-without-system-state-data-backup"></a>Per ripristinare una versione precedente di un VHD del controller di dominio virtuale senza un backup dei dati di stato del sistema
 
 1. Utilizzando il VHD precedente, avviare il controller di dominio virtuale in modalità ripristino servizi directory, come descritto nella sezione precedente. Non consentire l'avvio del controller di dominio in modalità normale. Se non si nota la schermata di Windows Boot Manager e il controller di dominio inizia la procedura di avvio in modalità normale, spegnere la macchina virtuale per impedire che l'avvio venga completato. Per informazioni dettagliate sull'attivazione della modalità ripristino servizi directory, vedere la sezione precedente.
-2. Apri l'editor del Registro di sistema. A tale scopo, fare clic sul pulsante **Start**, scegliere **Esegui**, digitare **regedit** e quindi fare clic su OK. Se viene visualizzata la finestra di dialogo **Controllo account utente** , verificare che l'azione visualizzata sia quella desiderata e quindi fare clic su **Sì**. Nell'Editor del Registro di sistema espandere il percorso seguente: **HKEY\_LocalMachineSystem\\CurrentControlSet Services NTDSParameters\\.\\\\\_\\** Cercare il valore **DSA Previous Restore Count**. Se il valore esiste, annotarne l'impostazione. Se il valore non esiste, l'impostazione corrisponde a quella predefinita, ovvero zero. Se non è visualizzato alcun valore, non aggiungerlo.
+2. Apri l'editor del Registro di sistema. A tale scopo, fare clic sul pulsante **Start**, scegliere **Esegui**, digitare **regedit** e quindi fare clic su OK. Se viene visualizzata la finestra di dialogo **Controllo account utente** , verificare che l'azione visualizzata sia quella desiderata e quindi fare clic su **Sì**. Nell'editor del registro di sistema espandere il percorso seguente: **HKEY\_LOCAL\_MACHINE\\SYSTEM\\CurrentControlSet\\Services\\NTDS\\Parameters**. Cercare il valore **DSA Previous Restore Count**. Se il valore esiste, annotarne l'impostazione. Se il valore non esiste, l'impostazione corrisponde a quella predefinita, ovvero zero. Se non è visualizzato alcun valore, non aggiungerlo.
 3. Fare clic con il pulsante destro del mouse sulla chiave **Parametri**, scegliere **Nuovo** e quindi **Valore DWORD (32 bit)** .
 4. Digitare il nuovo nome **Database restored from backup** e quindi premere INVIO.
-5. Fare doppio clic sul valore appena creato per aprire la finestra di dialogo **Modifica valore DWORD (32 bit)** e quindi digitare **1** nella casella **Dati valore**. Il **database ripristinato dall'opzione di immissione del backup** è disponibile nei controller di dominio che eseguono Windows 2000 Server con Service Pack 4 (SP4), windows Server 2003 con gli aggiornamenti inclusi in [come rilevare e ripristinare da un rollback degli USN in Windows Server 2003, Windows Server 2008 e Windows Server 2008 R2](https://go.microsoft.com/fwlink/?linkid=137182) nella Microsoft Knowledge base installata e Windows server 2008.
+5. Fare doppio clic sul valore appena creato per aprire la finestra di dialogo **Modifica valore DWORD (32 bit)** e quindi digitare **1** nella casella **Dati valore**. L'opzione **database ripristinato da voce di backup** è disponibile nei controller di dominio che eseguono Windows 2000 Server con Service Pack 4 (SP4), windows Server 2003 con gli aggiornamenti inclusi in [come rilevare e ripristinare da un rollback degli USN in Windows Server 2003, Windows Server 2008 e Windows Server 2008 R2](https://go.microsoft.com/fwlink/?linkid=137182) nella Microsoft Knowledge base installata e Windows Server 2008.
 6. Riavviare il controller di dominio in modalità normale.
 7. Quando il controller di dominio viene riavviato, aprire Visualizzatore eventi. Per aprire il Visualizzatore eventi, fare clic su **Start**, scegliere **Pannello di controllo**, fare doppio clic su **Strumenti di amministrazione** e quindi su **Visualizzatore eventi**.
 8. Espandere **Registri applicazioni e servizi** e quindi fare clic sul registro **Servizi directory**. Verificare che gli eventi vengano visualizzati nel riquadro dei dettagli.
@@ -390,12 +390,12 @@ Per ogni partizione di directory archiviata da un controller di dominio di desti
 
 Le due tabelle di metadati di replica seguenti contengono USNs. I controller di dominio di origine e destinazione li utilizzano per filtrare gli aggiornamenti richiesti dal controller di dominio di destinazione.
 
-1. **Vettore di aggiornamento**: Tabella che il controller di dominio di destinazione gestisce per tenere traccia degli aggiornamenti di origine ricevuti da tutti i controller di dominio di origine. Quando un controller di dominio di destinazione richiede modifiche per una partizione di directory, offre il proprio vettore di aggiornamento al controller di dominio di origine. Il controller di dominio di origine utilizza quindi questo valore per filtrare gli aggiornamenti inviati al controller di dominio di destinazione. Il controller di dominio di origine invia il proprio vettore di aggiornamento alla destinazione al termine di un ciclo di replica riuscito per garantire che il controller di dominio di destinazione sappia che è sincronizzato con tutti i controller di dominio. gli aggiornamenti di origine e gli aggiornamenti sono allo stesso livello dell'origine.  
-2. **Limite massimo**: Valore che il controller di dominio di destinazione gestisce per tenere traccia delle modifiche più recenti ricevute da un controller di dominio di origine specifico per una partizione specifica. Il limite massimo impedisce al controller di dominio di origine di inviare le modifiche che il controller di dominio di destinazione ha già ricevuto.  
+1. **Vettore di**aggiornamento: una tabella che il controller di dominio di destinazione gestisce per tenere traccia degli aggiornamenti di origine ricevuti da tutti i controller di dominio di origine. Quando un controller di dominio di destinazione richiede modifiche per una partizione di directory, offre il proprio vettore di aggiornamento al controller di dominio di origine. Il controller di dominio di origine utilizza quindi questo valore per filtrare gli aggiornamenti inviati al controller di dominio di destinazione. Il controller di dominio di origine invia il proprio vettore di aggiornamento alla destinazione al termine di un ciclo di replica riuscito per garantire che il controller di dominio di destinazione sappia che è sincronizzato con tutti i controller di dominio. gli aggiornamenti di origine e gli aggiornamenti sono allo stesso livello dell'origine.  
+2. Limite **massimo**: valore che il controller di dominio di destinazione gestisce per tenere traccia delle modifiche più recenti ricevute da un controller di dominio di origine specifico per una partizione specifica. Il limite massimo impedisce al controller di dominio di origine di inviare le modifiche che il controller di dominio di destinazione ha già ricevuto.  
 
 ## <a name="directory-database-identity"></a>Identità database di directory
 
-Oltre agli USN, i controller di dominio tengono traccia del database di directory dei partner di replica di origine. L'identità del database di directory in esecuzione sul server viene gestita separatamente dall'identità dell'oggetto server stesso. L'identità del database di directory in ogni controller di dominio viene archiviata nell'attributo **invocationID** dell'oggetto Impostazioni NTDS, disponibile nel seguente percorso LDAP (Lightweight Directory Access Protocol): CN = NTDS Settings, CN = ServerName, CN = Servers, CN =*nomesito*, CN = Sites, CN = Configuration, DC =*DominioRadiceForesta*. L'identità dell'oggetto server viene archiviata nell'attributo **objectGUID** dell'oggetto Impostazioni NTDS e non cambia mai. Tuttavia, l'identità del database di directory viene modificata quando si verifica una procedura di ripristino dello stato del sistema nel server o quando viene aggiunta una partizione di directory applicativa, quindi rimossa e successivamente aggiunta nuovamente dal server. (altro scenario: quando un'istanza di HyperV attiva i relativi writer VSS in una partizione contenente un disco rigido virtuale di un controller di dominio virtuale, il Guest a sua volta attiva i propri writer VSS (lo stesso meccanismo utilizzato dal backup/ripristino precedente), causando un altro mezzo con cui invocationID è reimpostazione
+Oltre agli USN, i controller di dominio tengono traccia del database di directory dei partner di replica di origine. L'identità del database di directory in esecuzione sul server viene gestita separatamente dall'identità dell'oggetto server stesso. L'identità del database di directory in ogni controller di dominio viene archiviata nell'attributo **invocationID** dell'oggetto Impostazioni NTDS, disponibile nel seguente percorso LDAP (Lightweight Directory Access Protocol): CN = NTDS Settings, CN = ServerName, CN = Servers, CN =*nomesito*, CN = Sites, CN = Configuration, DC =*DominioRadiceForesta*. L'identità dell'oggetto server viene archiviata nell'attributo **objectGUID** dell'oggetto Impostazioni NTDS e non cambia mai. Tuttavia, l'identità del database di directory viene modificata quando si verifica una procedura di ripristino dello stato del sistema nel server o quando viene aggiunta una partizione di directory applicativa, quindi rimossa e successivamente aggiunta nuovamente dal server. (altro scenario: quando un'istanza di HyperV attiva i relativi writer VSS in una partizione che contiene un VHD del controller di dominio virtuale, il Guest a sua volta attiva i propri writer VSS (lo stesso meccanismo utilizzato dal backup/ripristino precedente), causando un altro mezzo con cui viene reimpostato il invocationID
 
 Di conseguenza, **invocationID** mette in correlazione un insieme di aggiornamenti di origine su un controller di dominio con una specifica versione del database di directory. Il vettore di aggiornamento e le tabelle del limite massimo utilizzano rispettivamente il GUID **invocationID** e DC, in modo che i controller di dominio conoscano la copia del database di Active Directory in arrivo le informazioni di replica.
 

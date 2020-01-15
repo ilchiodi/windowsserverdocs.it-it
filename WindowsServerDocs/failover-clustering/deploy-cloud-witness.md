@@ -9,12 +9,12 @@ ms.topic: article
 author: JasonGerend
 ms.date: 01/18/2019
 description: Come usare Microsoft Azure per ospitare il server di controllo del mirroring per un cluster di failover di Windows Server nel cloud, ovvero come distribuire un cloud di controllo.
-ms.openlocfilehash: 1f38a1a436cfced8637b743817dc1b3d150f7fa6
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: ad5ff47a72319fee7650d1d9c0d0616cfaaa22d3
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71369877"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75948169"
 ---
 # <a name="deploy-a-cloud-witness-for-a-failover-cluster"></a>Distribuire un cloud di controllo per un cluster di failover
 
@@ -26,7 +26,7 @@ Cloud Witness è un tipo di quorum di controllo del cluster di failover che usa 
 
 Nella figura 1 viene illustrata una configurazione del quorum del cluster di failover esteso multisito con Windows Server 2016. In questa configurazione di esempio (Figura 1) sono presenti 2 nodi in 2 Data Center (detti siti). Si noti che è possibile che un cluster si estenda su più di 2 Data Center. Ogni data center può inoltre avere più di due nodi. Una tipica configurazione del quorum del cluster in questa configurazione (SLA di failover automatico) assegna a ogni nodo un voto. Un ulteriore voto viene assegnato al quorum di controllo per consentire l'esecuzione del cluster anche se uno dei data center riscontra un'interruzione dell'alimentazione. La matematica è semplice: sono disponibili 5 voti totali ed è necessario disporre di 3 voti per il cluster per mantenerne l'esecuzione.  
 
-![Condivisione file di controllo in un terzo sito separato con 2 nodi in 2 altri siti](media/Deploy-a-Cloud-Witness-for-a-Failover-Cluster/CloudWitness_1.png "condivisione file") di controllo  
+![Condivisione file di controllo in un terzo sito separato con 2 nodi in altri due siti](media/Deploy-a-Cloud-Witness-for-a-Failover-Cluster/CloudWitness_1.png "Controllo di condivisione file")  
 **Figura 1: uso di una condivisione file di controllo come quorum di controllo**  
 
 In caso di interruzione dell'alimentazione in un Data Center, per fornire la stessa opportunità per il cluster in un altro Data Center per mantenerla in esecuzione, è consigliabile ospitare il quorum di controllo in una posizione diversa dai due data center. Ciò significa in genere che richiede un terzo data center separato (sito) per ospitare un file server che sta eseguendo il backup della condivisione file usata come quorum di controllo (condivisione file di controllo).  
@@ -75,15 +75,15 @@ Quando si usa lo stesso account di archiviazione di Azure per la configurazione 
 
 ### <a name="to-create-an-azure-storage-account"></a>Per creare un account di archiviazione di Azure
 
-1. Accedere al portale di [Azure](http://portal.azure.com).
-2. Nel menu hub selezionare Nuovo-> dati e archiviazione-> account di archiviazione.
+1. Accedere al [portale di Azure](https://portal.azure.com).
+2. Nel menu Hub selezionare Nuovo -> Dati e archiviazione -> Account di archiviazione.
 3. Nella pagina Crea un account di archiviazione eseguire le operazioni seguenti:
     1. Immettere un nome per l'account di archiviazione.
     <br>I nomi degli account di archiviazione devono avere una lunghezza compresa tra 3 e 24 caratteri e possono contenere solo numeri e lettere minuscole. Il nome dell'account di archiviazione deve essere univoco anche in Azure.
         
     2. Per **tipologia account**selezionare **utilizzo generico**.
     <br>Non è possibile usare un account di archiviazione BLOB per un cloud di controllo.
-    3. Per **prestazioni**, selezionare **standard**.
+    3. Per **Prestazioni** selezionare **Standard**.
     <br>Non è possibile usare archiviazione Premium di Azure per un cloud di controllo.
     2. Per la **replica**, selezionare **archiviazione con ridondanza locale (con ridondanza locale)** .
     <br>Il clustering di failover usa il file BLOB come punto di arbitraggio, che richiede alcune garanzie di coerenza durante la lettura dei dati. Pertanto, è necessario selezionare l' **archiviazione con ridondanza locale** per il tipo di **replica** .

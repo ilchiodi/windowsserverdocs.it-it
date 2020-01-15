@@ -8,12 +8,12 @@ ms.author: niwashbu
 ms.localizationpriority: medium
 ms.date: 09/18/2018
 ms.prod: windows-server
-ms.openlocfilehash: 2aff8c0e43c6813c543511e643471c9cd9bcc292
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 67bd2a476cedd6d522daeaae54081b02fd893fbd
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71357040"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75949971"
 ---
 # <a name="prepare-your-development-environment"></a>Preparare l'ambiente di sviluppo
 
@@ -30,8 +30,8 @@ Per preparare l'ambiente di sviluppo, effettua i passaggi seguenti:
 
 Per iniziare a sviluppare con l'SDK, scarica e installa i prerequisiti seguenti:
 
-* Interfaccia di [amministrazione di Windows](https://aka.ms/WACDownloadPage) (Versione di anteprima o GA)
-* Visual Studio o [Visual Studio Code](http://code.visualstudio.com)
+* Interfaccia di [amministrazione di Windows](https://aka.ms/WACDownloadPage) (versione GA o versione di anteprima)
+* Visual Studio o [Visual Studio Code](https://code.visualstudio.com)
 * [Gestione pacchetti di nodi](https://npmjs.com/get-npm) (8.12.0 o versione successiva)
 * [NuGet](https://www.nuget.org/downloads) (per la pubblicazione delle estensioni)
 
@@ -58,7 +58,7 @@ npm install -g windows-admin-center-cli
 ```
 
 >[!NOTE]
->È possibile installare una versione più recente @angular/clidi, tuttavia tenere presente che se si installa una versione successiva a 1.6.5, si riceverà un avviso durante il passaggio di compilazione Gulp che la versione dell'interfaccia della riga di comando locale non corrisponde alla versione installata.
+>È possibile installare una versione più recente di @angular/cli, tuttavia tenere presente che se si installa una versione maggiore di 1.6.5, si riceverà un avviso durante il passaggio di compilazione Gulp che la versione dell'interfaccia della riga di comando locale non corrisponde alla versione installata.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

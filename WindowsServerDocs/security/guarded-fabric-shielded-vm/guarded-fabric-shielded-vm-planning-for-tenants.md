@@ -7,12 +7,12 @@ ms.assetid: 392af37f-a02d-4d40-a25d-384211cbbfdd
 manager: dongill
 author: nirb-ms
 ms.technology: security-guarded-fabric
-ms.openlocfilehash: c439a53abea07041e69e50d5d5148dae95243265
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 255429960735d70ff3a4d260bd9090b95882b6bd
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71386434"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75949776"
 ---
 # <a name="guarded-fabric-and-shielded-vm-planning-guide-for-tenants"></a>Guida alla pianificazione dell'infrastruttura sorvegliata e della VM schermata per i tenant
 
@@ -74,7 +74,7 @@ Quando si crea una macchina virtuale schermata o supportata dalla crittografia o
 
 **Quanti file di dati di schermatura sono necessari?** È possibile usare un singolo file di dati di schermatura per creare ogni macchina virtuale schermata. Se, tuttavia, una determinata VM schermata richiede che uno dei quattro elementi sia diverso, è necessario un file di dati di schermatura aggiuntivo. Ad esempio, si potrebbe avere un file di dati di schermatura per il reparto IT e un file di dati di schermatura diverso per il reparto risorse umane perché la password di amministratore iniziale e i certificati RDP sono diversi.
 
-L'uso di file di dati di schermatura separati per ogni macchina virtuale schermata è possibile, non è necessariamente la scelta ottimale e deve essere eseguita per i motivi appropriati. Ad esempio, se ogni macchina virtuale schermata deve avere una password di amministratore diversa, prendere in considerazione l'uso di un servizio di gestione delle password o di uno strumento come la [soluzione di password di amministratore locale di Microsoft (giri)](https://www.microsoft.com/en-us/download/details.aspx?id=46899).
+L'uso di file di dati di schermatura separati per ogni macchina virtuale schermata è possibile, non è necessariamente la scelta ottimale e deve essere eseguita per i motivi appropriati. Ad esempio, se ogni macchina virtuale schermata deve avere una password di amministratore diversa, prendere in considerazione l'uso di un servizio di gestione delle password o di uno strumento come la [soluzione di password di amministratore locale di Microsoft (giri)](https://www.microsoft.com/download/details.aspx?id=46899).
 
 ## <a name="creating-a-shielded-vm-on-a-virtualization-fabric"></a>Creazione di una VM schermata in un'infrastruttura di virtualizzazione
 

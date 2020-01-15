@@ -8,12 +8,12 @@ ms.author: jol
 ms.date: 06/18/2018
 ms.localizationpriority: medium
 ms.prod: windows-server
-ms.openlocfilehash: 16e758f0a8746d41adcdafb2bc1be2d91a3fc29c
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: b7f015ac4c9906447069501bf0922b36306a51d7
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71406808"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75950492"
 ---
 # <a name="manage-failover-clusters-with-windows-admin-center"></a>Gestire i cluster di failover con l'interfaccia di amministrazione di Windows
 
@@ -21,12 +21,12 @@ ms.locfileid: "71406808"
 
 > [!Tip]
 > Novità di Windows Admin Center
-> [Ulteriori informazioni su Windows Admin Center](../understand/windows-admin-center.md) o [Scarica ora](https://aka.ms/windowsadmincenter).
+> [Scarica o Scopri di più sull'interfaccia di amministrazione di Windows](../overview.md).
 
 ## <a name="managing-failover-clusters"></a>Gestione dei cluster di failover
 Il [clustering di failover](https://docs.microsoft.com/windows-server/failover-clustering/failover-clustering-overview) è una funzionalità di Windows Server che consente di raggruppare più server in un cluster a tolleranza di errore per aumentare la disponibilità e la scalabilità di applicazioni e servizi, ad esempio file server di scalabilità orizzontale, Hyper-V e Microsoft SQL Server.
 
-Sebbene sia possibile gestire i nodi del cluster di failover come singoli server aggiungendoli come [connessioni server](manage-servers.md) nell'interfaccia di amministrazione di Windows, è anche possibile aggiungerli come cluster di failover per visualizzare e gestire risorse cluster, archiviazione, rete, nodi, ruoli, virtuali computer e commutatori virtuali.
+Sebbene sia possibile gestire i nodi del cluster di failover come singoli server aggiungendoli come [connessioni server](manage-servers.md) nell'interfaccia di amministrazione di Windows, è anche possibile aggiungerli come cluster di failover per visualizzare e gestire le risorse cluster, l'archiviazione, la rete, i nodi, i ruoli, le macchine virtuali e i commutatori virtuali.
 
 ![Schermata di panoramica del cluster di failover](../media/manage-failover-clusters/fcm-overview.png)
 
@@ -57,7 +57,7 @@ Per le connessioni del cluster di failover sono disponibili gli strumenti seguen
 | Ruoli | Gestire i ruoli del cluster o creare un ruolo vuoto |
 | Aggiornamenti | Gestire gli aggiornamenti compatibili con cluster (richiede [CredSSP](../understand/faq.md#does-windows-admin-center-use-credssp)) |
 | [Macchine virtuali](manage-virtual-machines.md) | Visualizzare e gestire le macchine virtuali |
-| Commutatori virtuali | Visualizzare e gestire i commutatori virtuali |
+| Switch virtuali | Visualizzare e gestire i commutatori virtuali |
 
 ## <a name="more-coming"></a>Ulteriori informazioni
 

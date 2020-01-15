@@ -15,12 +15,12 @@ ms.author: pashort
 author: shortpatti
 ms.localizationpriority: medium
 ms.reviewer: deverette
-ms.openlocfilehash: 67d8a66552f77a66e1689989f412a844ef527880
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 016d9d2dcc26572f8d248ef2f4a922da2e456b83
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71404330"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75949889"
 ---
 # <a name="step-75-create-oma-dm-based-vpnv2-profiles-to-windows-10-devices"></a>Passaggio 7.5. Creare profili VPNv2 basati su OMA-DM per i dispositivi Windows 10
 
@@ -35,7 +35,7 @@ In questo passaggio è possibile creare profili VPNv2 basati su OMA usando Intun
 
 Tutti gli elementi illustrati in questa sezione sono il requisito minimo necessario per eseguire la VPN con l'accesso condizionale. Non viene trattata la suddivisione del tunneling, usando WIP, creando profili di configurazione dei dispositivi Intune personalizzati per ottenere il funzionamento di AutoVPN o SSO. Integrare le impostazioni seguenti nel profilo VPN creato in precedenza nel [passaggio 5. Configurare il client Windows 10 Always On le connessioni VPN](always-on-vpn/deploy/vpn-deploy-client-vpn-connections.md).  In questo esempio, i criteri vengono integrati nel [configurare il client VPN usando i criteri di Intune](always-on-vpn/deploy/vpn-deploy-client-vpn-connections.md#configure-the-vpn-client-by-using-intune) . 
 
-**Prerequisiti**
+**Prerequisito:**
 
 Il computer client Windows 10 è già stato configurato con una connessione VPN con Intune.   
 
@@ -54,7 +54,7 @@ Il computer client Windows 10 è già stato configurato con una connessione VPN 
 3. Individuare la sezione che termina con **\</AcceptServerName >\</EapType >** e inserire la stringa seguente tra questi due valori per fornire al client VPN la logica per selezionare il certificato di accesso condizionale di AAD:
 
     ```XML
-    <TLSExtensions xmlns="http://www.microsoft.com/provisioning/EapTlsConnectionPropertiesV2"><FilteringInfo xmlns="http://www.microsoft.com/provisioning/EapTlsConnectionPropertiesV3"><EKUMapping><EKUMap><EKUName>AAD Conditional Access</EKUName><EKUOID>1.3.6.1.4.1.311.87</EKUOID></EKUMap></EKUMapping><ClientAuthEKUList Enabled="true"><EKUMapInList><EKUName>AAD Conditional Access</EKUName></EKUMapInList></ClientAuthEKUList></FilteringInfo></TLSExtensions>
+    <TLSExtensions xmlns="https://www.microsoft.com/provisioning/EapTlsConnectionPropertiesV2"><FilteringInfo xmlns="https://www.microsoft.com/provisioning/EapTlsConnectionPropertiesV3"><EKUMapping><EKUMap><EKUName>AAD Conditional Access</EKUName><EKUOID>1.3.6.1.4.1.311.87</EKUOID></EKUMap></EKUMapping><ClientAuthEKUList Enabled="true"><EKUMapInList><EKUName>AAD Conditional Access</EKUName></EKUMapInList></ClientAuthEKUList></FilteringInfo></TLSExtensions>
     ```
 
 4. Selezionare il pannello **accesso condizionale** e l' **accesso condizionale Toogle per la connessione VPN** **abilitata**.

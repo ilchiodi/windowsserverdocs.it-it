@@ -9,12 +9,12 @@ ms.date: 08/17/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 311789fdec160faeeeba0ecf26491d1e0cd6105d
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 76c34dc518f4578b4ae2ead3459f1d79c191b3d7
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71407393"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75949192"
 ---
 # <a name="ad-fs-single-sign-on-settings"></a>Impostazioni di AD FS Single Sign-on
 
@@ -46,7 +46,7 @@ Se il dispositivo non è registrato, ma un utente seleziona l'opzione "Mantieni 
   
  Come indicato in precedenza, gli utenti di dispositivi registrati riceveranno sempre un SSO permanente a meno che l'SSO permanente non sia disabilitato. Per i dispositivi non registrati, è possibile ottenere un SSO permanente abilitando la funzionalità "Mantieni l'accesso" (KMSI). 
  
- Per Windows Server 2012 R2, per abilitare ACCAVALLARE per lo scenario "Mantieni l'accesso", è necessario installare questo [hotfix](https://support.microsoft.com/en-us/kb/2958298/) che fa anche parte dell' [aggiornamento cumulativo di agosto 2014 per Windows RT 8,1, Windows 8.1 e Windows Server 2012 R2](https://support.microsoft.com/en-us/kb/2975719).   
+ Per Windows Server 2012 R2, per abilitare ACCAVALLARE per lo scenario "Mantieni l'accesso", è necessario installare questo [hotfix](https://support.microsoft.com/kb/2958298/) che fa anche parte dell' [aggiornamento cumulativo di agosto 2014 per Windows RT 8,1, Windows 8.1 e Windows Server 2012 R2](https://support.microsoft.com/kb/2975719).   
 
 Attività | PowerShell | Descrizione
 ------------ | ------------- | -------------
@@ -103,7 +103,7 @@ Set-AdfsProperties –KmsiLifetimeMins <Int32\>
 ## <a name="psso-revocation"></a>Revoca ACCAVALLARE  
  Per proteggere la sicurezza, AD FS rifiuterà qualsiasi cookie SSO permanente emesso in precedenza quando vengono soddisfatte le condizioni seguenti. In questo modo l'utente deve fornire le proprie credenziali per eseguire nuovamente l'autenticazione con AD FS. 
   
-- Password modifiche utente  
+- L'utente cambia la password  
   
 - L'impostazione SSO permanente è disabilitata in AD FS  
   
@@ -127,18 +127,18 @@ Set-AdfsProperties -PersistentSsoCutoffTime <DateTime>
 ```
   
 ## <a name="enable-psso-for-office-365-users-to-access-sharepoint-online"></a>Abilitare ACCAVALLARE per gli utenti di Office 365 per accedere a SharePoint Online  
- Quando ACCAVALLARE viene abilitato e configurato in AD FS, AD FS scriverà un cookie persistente dopo l'autenticazione dell'utente. Al successivo arrivo dell'utente, se un cookie persistente è ancora valido, un utente non deve fornire le credenziali per l'autenticazione. È anche possibile evitare la richiesta di autenticazione aggiuntiva per gli utenti di Office 365 e SharePoint Online configurando le seguenti due regole attestazioni in AD FS per attivare la persistenza in Microsoft Azure AD e SharePoint Online.  Per consentire agli utenti di ACCAVALLARE per Office 365 di accedere a SharePoint Online, è necessario installare questo [hotfix](https://support.microsoft.com/en-us/kb/2958298/) che fa anche parte dell' [aggiornamento cumulativo di agosto 2014 per Windows RT 8,1, Windows 8.1 e Windows Server 2012 R2](https://support.microsoft.com/en-us/kb/2975719).  
+ Quando ACCAVALLARE viene abilitato e configurato in AD FS, AD FS scriverà un cookie persistente dopo l'autenticazione dell'utente. Al successivo arrivo dell'utente, se un cookie persistente è ancora valido, un utente non deve fornire le credenziali per l'autenticazione. È anche possibile evitare la richiesta di autenticazione aggiuntiva per gli utenti di Office 365 e SharePoint Online configurando le seguenti due regole attestazioni in AD FS per attivare la persistenza in Microsoft Azure AD e SharePoint Online.  Per consentire agli utenti di ACCAVALLARE per Office 365 di accedere a SharePoint Online, è necessario installare questo [hotfix](https://support.microsoft.com/kb/2958298/) che fa anche parte dell' [aggiornamento cumulativo di agosto 2014 per Windows RT 8,1, Windows 8.1 e Windows Server 2012 R2](https://support.microsoft.com/kb/2975719).  
   
  Una regola di trasformazione rilascio per passare attraverso l'attestazione InsideCorporateNetwork  
   
 ```  
 @RuleTemplate = "PassThroughClaims"  
 @RuleName = "Pass through claim - InsideCorporateNetwork"  
-c:[Type == "http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork"]  
+c:[Type == "https://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork"]  
 => issue(claim = c);   
 A custom Issuance Transform rule to pass through the persistent SSO claim  
 @RuleName = "Pass Through Claim - Psso"  
-c:[Type == "http://schemas.microsoft.com/2014/03/psso"]  
+c:[Type == "https://schemas.microsoft.com/2014/03/psso"]  
 => issue(claim = c);  
   
 ```
@@ -163,7 +163,7 @@ Per riepilogare:
     <th>SÌ</th>
   </tr>
  <tr align="center">
-    <td>SSO =&gt;imposta token di aggiornamento =&gt;</td>
+    <td>SSO =&gt;impostare il token di aggiornamento =&gt;</td>
     <td>8 ore</td>
     <td>N/D</td>
     <td>N/D</td>
@@ -174,7 +174,7 @@ Per riepilogare:
   </tr>
 
  <tr align="center">
-    <td>Accavallare =&gt;imposta token di aggiornamento =&gt;</td>
+    <td>ACCAVALLARE =&gt;impostare il token di aggiornamento =&gt;</td>
     <td>N/D</td>
     <td>24 ore</td>
     <td>7 giorni</td>
@@ -199,7 +199,7 @@ Per riepilogare:
 **Dispositivo registrato?** Si ottiene un SSO ACCAVALLARE/persistente <br>
 **Dispositivo non registrato?** Si ottiene un SSO <br>
 **Dispositivo non registrato ma KMSI?** Si ottiene un SSO ACCAVALLARE/persistente <p>
-SE
+Se
  - [x] l'amministratore ha abilitato la funzionalità KMSI [e]
  - [x] l'utente fa clic sulla casella di controllo KMSI nella pagina di accesso ai moduli
  

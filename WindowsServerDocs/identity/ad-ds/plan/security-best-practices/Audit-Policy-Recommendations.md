@@ -9,12 +9,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: c902f9a438afd226dfb58dbde9f3c00d57b0ed58
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 6cecf2edcb834a963c706fa4a63e7d15b13f7888
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71408599"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75949624"
 ---
 # <a name="audit-policy-recommendations"></a>Suggerimenti per i criteri di controllo
 
@@ -34,15 +34,15 @@ Le impostazioni dei criteri di controllo di base seguenti sono consigliate per i
 ## <a name="recommended-audit-policies-by-operating-system"></a>Criteri di controllo consigliati per sistema operativo  
 In questa sezione sono contenute le tabelle in cui sono elencate le indicazioni sulle impostazioni di controllo applicabili ai sistemi operativi seguenti:  
 
--   Windows Server 2016 
+-   Windows Server 2016 
 
 -   Windows Server 2012  
 
--   Windows Server 2012 R2  
+-   Windows Server 2012 R2  
 
 -   Windows Server 2008  
 
--   Windows 10
+-   Windows 10
 
 -   Windows 8.1  
 
@@ -57,7 +57,7 @@ Queste tabelle contengono l'impostazione predefinita di Windows, le raccomandazi
 |**Notazione**|**Consiglio**|  
 |SÌ|Abilita in scenari generali|  
 |NO|**Non** abilitare in scenari generali|  
-|Se|Abilitare se necessario per uno scenario specifico o se un ruolo o una funzionalità per cui si desidera il controllo è installato nel computer|  
+|IF|Abilitare se necessario per uno scenario specifico o se un ruolo o una funzionalità per cui si desidera il controllo è installato nel computer|  
 |DC|Abilita nei controller di dominio|  
 |Vuoto|Nessuna raccomandazione|  
 
@@ -68,20 +68,20 @@ Queste tabelle contengono l'impostazione predefinita di Windows, le raccomandazi
 |Categoria o sottocategoria dei criteri di controllo|Impostazione predefinita di Windows<br /><br />Esito negativo|Raccomandazione Baseline<br /><br />Esito negativo|Raccomandazione più avanzata<br /><br />Esito negativo|  
 |----------------------------------------|------------------------------------------|--------------------------------------------------|--------------------------------------------------|  
 |**Accesso all'account**||||  
-|Controllare la convalida delle credenziali|No, no|Sì No|Sì, sì|  
+|Controlla Convalida credenziali|No, no|Sì No|Sì, sì|  
 |Controlla Servizio di autenticazione Kerberos|||Sì, sì|  
 |Controlla Operazioni ticket di servizio Kerberos|||Sì, sì|  
 |Controlla Altri eventi di accesso account|||Sì, sì|  
-|**Gestione degli account**||||  
+|**Gestione dell'account**||||  
 |Controlla Gestione gruppi di applicazioni||||  
 |Controlla Gestione account computer||Sì No|Sì, sì|  
 |Controlla Gestione gruppi di distribuzione||||  
-|Controllo Altri eventi di gestione account||Sì No|Sì, sì|  
-|Controllo Gestione gruppi di sicurezza||Sì No|Sì, sì|  
-|Controllo della Gestione account utente|Sì No|Sì No|Sì, sì|  
+|Controlla Altri eventi di gestione account||Sì No|Sì, sì|  
+|Controlla Gestione gruppi di sicurezza||Sì No|Sì, sì|  
+|Controlla Gestione account utente|Sì No|Sì No|Sì, sì|  
 |**Rilevamento dettagliato**||||  
 |Controlla Attività DPAPI|||Sì, sì|  
-|Controlla Creazione di processi||Sì No|Sì, sì|  
+|Creazione del processo di controllo||Sì No|Sì, sì|  
 |Controlla Chiusura di processi||||  
 |Controlla Eventi RPC||||  
 |**Accesso DS**||||  
@@ -126,7 +126,7 @@ Queste tabelle contengono l'impostazione predefinita di Windows, le raccomandazi
 |Controlla Utilizzo privilegi non sensibili||||  
 |Controlla Altri eventi di utilizzo dei privilegi||||  
 |Controlla Utilizzo privilegi sensibili||||  
-|**Sistema**||||  
+|**System** (Sistema)||||  
 |Controlla Driver IPSec||Sì, sì|Sì, sì|  
 |Controlla Altri eventi di sistema|Sì, sì|||  
 |Controlla Modifica stato sicurezza|Sì No|Sì, sì|Sì, sì|  
@@ -146,20 +146,20 @@ Queste tabelle contengono l'impostazione predefinita di Windows, le raccomandazi
 |Categoria o sottocategoria dei criteri di controllo|Impostazione predefinita di Windows<br /><br />Esito negativo|Raccomandazione Baseline<br /><br />Esito negativo|Raccomandazione più avanzata<br /><br />Esito negativo|  
 |----------------------------------------|------------------------------------------|--------------------------------------------------|--------------------------------------------------|  
 |**Accesso all'account**||||  
-|Controllare la convalida delle credenziali|No, no|Sì, sì|Sì, sì|  
+|Controlla Convalida credenziali|No, no|Sì, sì|Sì, sì|  
 |Controlla Servizio di autenticazione Kerberos|||Sì, sì|  
 |Controlla Operazioni ticket di servizio Kerberos|||Sì, sì|  
 |Controlla Altri eventi di accesso account|||Sì, sì|  
-|**Gestione degli account**||||  
+|**Gestione dell'account**||||  
 |Controlla Gestione gruppi di applicazioni||||  
 |Controlla Gestione account computer||Sì DC|Sì, sì|  
 |Controlla Gestione gruppi di distribuzione||||  
-|Controllo Altri eventi di gestione account||Sì, sì|Sì, sì|  
-|Controllo Gestione gruppi di sicurezza||Sì, sì|Sì, sì|  
-|Controllo della Gestione account utente|Sì No|Sì, sì|Sì, sì|  
+|Controlla Altri eventi di gestione account||Sì, sì|Sì, sì|  
+|Controlla Gestione gruppi di sicurezza||Sì, sì|Sì, sì|  
+|Controlla Gestione account utente|Sì No|Sì, sì|Sì, sì|  
 |**Rilevamento dettagliato**||||  
 |Controlla Attività DPAPI|||Sì, sì|  
-|Controlla Creazione di processi||Sì No|Sì, sì|  
+|Creazione del processo di controllo||Sì No|Sì, sì|  
 |Controlla Chiusura di processi||||  
 |Controlla Eventi RPC||||  
 |**Accesso DS**||||  
@@ -204,7 +204,7 @@ Queste tabelle contengono l'impostazione predefinita di Windows, le raccomandazi
 |Controlla Utilizzo privilegi non sensibili||||  
 |Controlla Altri eventi di utilizzo dei privilegi||||  
 |Controlla Utilizzo privilegi sensibili||||  
-|**Sistema**||||  
+|**System** (Sistema)||||  
 |Controlla Driver IPSec||Sì, sì|Sì, sì|  
 |Controlla Altri eventi di sistema|Sì, sì|||  
 |Controlla Modifica stato sicurezza|Sì No|Sì, sì|Sì, sì|  
@@ -285,13 +285,13 @@ Vedere l' [Appendice L: eventi da monitorare](../../../ad-ds/plan/Appendix-L--Ev
 ## <a name="additional-information-for-monitoring-active-directory-domain-services"></a>Informazioni aggiuntive per il monitoraggio Active Directory Domain Services  
 Per ulteriori informazioni sul monitoraggio di servizi di dominio Active Directory, vedere i collegamenti seguenti:  
   
--   Il [controllo dell'accesso agli oggetti globale è](http://blogs.technet.com/b/askds/archive/2011/03/10/global-object-access-auditing-is-magic.aspx) una funzionalità che fornisce informazioni sulla configurazione e l'uso della configurazione avanzata dei criteri di controllo aggiunti a Windows 7 e windows Server 2008 R2.  
+-   Il [controllo dell'accesso agli oggetti globale è](https://blogs.technet.com/b/askds/archive/2011/03/10/global-object-access-auditing-is-magic.aspx) una funzionalità che fornisce informazioni sulla configurazione e l'uso della configurazione avanzata dei criteri di controllo aggiunti a Windows 7 e windows Server 2008 R2.  
 
--   [Introduzione alle modifiche di controllo in windows 2008](http://blogs.technet.com/b/askds/archive/2007/10/19/introducing-auditing-changes-in-windows-2008.aspx) : introduce le modifiche di controllo apportate in Windows 2008.  
+-   [Introduzione alle modifiche di controllo in windows 2008](https://blogs.technet.com/b/askds/archive/2007/10/19/introducing-auditing-changes-in-windows-2008.aspx) : introduce le modifiche di controllo apportate in Windows 2008.  
 
--   [Trucchi di controllo interessanti in vista e 2008](http://blogs.technet.com/b/askds/archive/2007/11/16/cool-auditing-tricks-in-vista-and-2008.aspx) : vengono illustrate le nuove funzionalità interessanti del controllo in Windows Vista e windows Server 2008 che possono essere usate per la risoluzione dei problemi o per vedere cosa accade nell'ambiente.  
+-   [Trucchi di controllo interessanti in vista e 2008](https://blogs.technet.com/b/askds/archive/2007/11/16/cool-auditing-tricks-in-vista-and-2008.aspx) : vengono illustrate le nuove funzionalità interessanti del controllo in Windows Vista e windows Server 2008 che possono essere usate per la risoluzione dei problemi o per vedere cosa accade nell'ambiente.  
 
--   [Un'unica tappa per il controllo in Windows server 2008 e Windows Vista](http://blogs.technet.com/b/askds/archive/2008/03/27/one-stop-shop-for-auditing-in-windows-server-2008-and-windows-vista.aspx) : contiene una compilazione di funzionalità di controllo e informazioni contenute in windows Server 2008 e Windows Vista.  
+-   [Un'unica tappa per il controllo in Windows server 2008 e Windows Vista](https://blogs.technet.com/b/askds/archive/2008/03/27/one-stop-shop-for-auditing-in-windows-server-2008-and-windows-vista.aspx) : contiene una compilazione di funzionalità di controllo e informazioni contenute in windows Server 2008 e Windows Vista.  
 
 -   [Guida dettagliata al controllo di servizi di dominio Active Directory](https://technet.microsoft.com/library/a9c25483-89e2-4202-881c-ea8e02b4b2a5.aspx) : descrive la nuova funzionalità di controllo Active Directory Domain Services (ad DS) in Windows Server 2008. Sono inoltre disponibili procedure per l'implementazione di questa nuova funzionalità.  
 

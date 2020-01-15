@@ -8,12 +8,12 @@ ms.topic: get-started-article
 ms.assetid: 8dcb8cf9-0e08-4fdd-9d7e-ec577ce8d8a0
 author: kumudd
 ms.date: 10/10/2016
-ms.openlocfilehash: 0e848260dd4ba3b37d1351fba7c24dd3cd283e69
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 11d8abfc23cb0f192ed74a1082e83c8e0c8e87e9
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71393940"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75950091"
 ---
 # <a name="storage-quality-of-service"></a>QoS di archiviazione
 
@@ -45,7 +45,7 @@ QoS di archiviazione supporta due scenari di distribuzione:
 
     Per QoS di archiviazione è necessario che il cluster di failover sia presente nei server di archiviazione, ma i server di calcolo non devono per forza trovarsi in un cluster di failover. Tutti i server (usati sia per l'archiviazione che per il calcolo) devono eseguire Windows Server 2016.  
 
-    Se non si dispone di un File server di scalabilità orizzontale distribuito per scopi di valutazione, istruzioni dettagliate per crearne uno usando server esistenti o macchine virtuali sono riportate in [Windows Server 2012 R2 Storage: Step-by-step with Storage Spaces, SMB Scale-Out and Shared VHDX (Physical)](http://blogs.technet.com/b/josebda/archive/2013/07/31/windows-server-2012-r2-storage-step-by-step-with-storage-spaces-smb-scale-out-and-shared-vhdx-physical.aspx) (Archiviazione di Windows Server 2012 R2: dettagli su Spazi di archiviazione, SMB di scalabilità orizzontale e VHDX condiviso (fisico)).  
+    Se non si dispone di un File server di scalabilità orizzontale distribuito per scopi di valutazione, istruzioni dettagliate per crearne uno usando server esistenti o macchine virtuali sono riportate in [Windows Server 2012 R2 Storage: Step-by-step with Storage Spaces, SMB Scale-Out and Shared VHDX (Physical)](https://blogs.technet.com/b/josebda/archive/2013/07/31/windows-server-2012-r2-storage-step-by-step-with-storage-spaces-smb-scale-out-and-shared-vhdx-physical.aspx) (Archiviazione di Windows Server 2012 R2: dettagli su Spazi di archiviazione, SMB di scalabilità orizzontale e VHDX condiviso (fisico)).  
 
 -   **Hyper-V con volumi condivisi cluster.** Questo scenario richiede entrambi gli elementi seguenti:  
 
@@ -74,8 +74,8 @@ Quando le macchine virtuali apportano modifiche ai criteri di QoS di archiviazio
 |Flusso|Ogni handle di file aperto da un server Hyper-V in un file VHD o VHDX viene considerato un "flusso". Se una macchina virtuale ha due dischi rigidi virtuali collegati, disporrà di 1 flusso al cluster di server per ogni file. Se un file VHDX è condiviso con più macchine virtuali, avrà 1 flusso per ogni macchina virtuale.|  
 |InitiatorName|Nome della macchina virtuale che viene segnalata al File server di scalabilità orizzontale per ogni flusso.|  
 |InitiatorID|Un identificatore che corrisponde all'ID della macchina virtuale.  Può essere usato sempre per identificare i flussi singoli delle macchine virtuali anche se le macchine virtuali hanno lo stesso InitiatorName.|  
-|Condizione|I criteri di QoS di archiviazione vengono archiviati nel database del cluster e presentano le proprietà seguenti: PolicyId, MinimumIOPS, MaximumIOPS, ParentPolicy e PolicyType.|  
-|`PolicyId`|Identificatore univoco per un criterio.  Viene generato per impostazione predefinita, ma può essere specificato se lo si preferisce.|  
+|Criteri di|I criteri di QoS di archiviazione vengono archiviati nel database del cluster e presentano le proprietà seguenti: PolicyId, MinimumIOPS, MaximumIOPS, ParentPolicy e PolicyType.|  
+|PolicyId|Identificatore univoco per un criterio.  Viene generato per impostazione predefinita, ma può essere specificato se lo si preferisce.|  
 |MinimumIOPS|Numero minimo di operazioni di I/O normalizzate che verrà fornito da un criterio.  Noto anche come "Prenotazione".|  
 |MaximumIOPS|Numero massimo di operazioni di I/O normalizzate che verrà posto come limite da un criterio.  Noto anche come "Limite".|  
 |Aggregated |Un tipo di criteri in cui i valori MinimumIOPS & MaximumIOPS specificati e la larghezza di banda vengono condivisi tra tutti i flussi assegnati al criterio. Tutti i dischi rigidi virtuali che hanno assegnato il criterio in tale sistema di archiviazione dispongono di un'allocazione singola della larghezza di banda delle operazioni di I/O da condividere.|  
@@ -122,7 +122,7 @@ La funzionalità facoltativa **RSAT-Hyper-V-Tools** include il modulo Windows Po
 -   Windows PowerShell: Add-WindowsFeature RSAT-Hyper-V-Tools  
 
 #### <a name="deploy-virtual-machines-to-run-workloads-for-testing"></a>Distribuire le macchine virtuali che eseguono carichi di lavoro a scopo test  
-Sarà necessario disporre di alcune macchine virtuali archiviate nel File server di scalabilità orizzontale con carichi di lavoro pertinenti.  Per alcuni suggerimenti su come simulare il carico ed eseguire alcuni test di stress, vedere la pagina seguente in cui vengono illustrati uno strumento consigliato (DiskSpd) e alcuni usi di esempio: [DiskSpd, PowerShell and storage performance: measuring IOPs, throughput and latency for both local disks and SMB file shares](http://blogs.technet.com/b/josebda/archive/2014/10/13/diskspd-powershell-and-storage-performance-measuring-iops-throughput-and-latency-for-both-local-disks-and-smb-file-shares.aspx) (DiskSpd, PowerShell e prestazioni di archiviazione: misurazione delle operazioni di I/O, della velocità effettiva e della latenza per i dischi locali e le condivisioni di file SMB).  
+Sarà necessario disporre di alcune macchine virtuali archiviate nel File server di scalabilità orizzontale con carichi di lavoro pertinenti.  Per alcuni suggerimenti su come simulare il carico ed eseguire alcuni test di stress, vedere la pagina seguente in cui vengono illustrati uno strumento consigliato (DiskSpd) e alcuni usi di esempio: [DiskSpd, PowerShell and storage performance: measuring IOPs, throughput and latency for both local disks and SMB file shares](https://blogs.technet.com/b/josebda/archive/2014/10/13/diskspd-powershell-and-storage-performance-measuring-iops-throughput-and-latency-for-both-local-disks-and-smb-file-shares.aspx) (DiskSpd, PowerShell e prestazioni di archiviazione: misurazione delle operazioni di I/O, della velocità effettiva e della latenza per i dischi locali e le condivisioni di file SMB).  
 
 Gli scenari di esempio illustrati in questa guida includono cinque macchine virtuali. BuildVM1, BuildVM2, BuildVM3 e BuildVM4 eseguono un carico di lavoro desktop con domanda di archiviazione da bassa a moderata. TestVm1 esegue un benchmark di elaborazione di transazioni online con una domanda di archiviazione elevata.  
 

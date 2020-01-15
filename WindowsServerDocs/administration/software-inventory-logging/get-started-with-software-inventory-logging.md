@@ -13,12 +13,12 @@ author: brentfor
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: a38c984b2d81fc4db980a969ef0312109950b867
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: add11bf51570e3cafa2bd03ee3585de89f3eecab
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71383003"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75946963"
 ---
 # <a name="get-started-with-software-inventory-logging"></a>Introduzione alla registrazione dell'inventario software
 
@@ -26,8 +26,8 @@ ms.locfileid: "71383003"
 
  Registrazione inventario software raccoglie i dati di inventario software Microsoft in base ai singoli server. Prima di usare registrazione inventario software con Windows Server 2012 R2, assicurarsi che Windows Update [kb 3000850](https://support.microsoft.com/kb/3000850) e [KB 3060681](https://support.microsoft.com/kb/3060681) siano installati in ogni sistema che verrà incluso nell'inventario. Non è richiesto alcun Windows Update per Windows Server 2016. Inoltre, se si vuole usare la funzionalità di registrazione inventario software per l'invio dei dati a un server di aggregazione, assicurarsi di disporre di certificati SSL validi per la rete.
 
-## <a name="BKMK_OVER"></a>Descrizione della funzionalità
-Registrazione inventario software in Windows Server è una funzionalità costituita da una semplice serie di cmdlet PowerShell che consentono agli amministratori di server di recuperare un elenco del software Microsoft installato nei server. Offre anche la capacità di raccogliere e inoltrare periodicamente per l'aggregazione questi dati attraverso la rete a un server Web di destinazione usando il protocollo HTTPS. Con i comandi di PowerShell viene eseguita anche la gestione della funzionalità, principalmente per la raccolta oraria dei dati e per l'inoltro.
+## <a name="BKMK_OVER"></a>Descrizione delle funzionalità
+Registrazione inventario software in Windows Server è una funzionalità costituita da una semplice serie di cmdlet PowerShell che consentono agli amministratori di server di recuperare un elenco del software Microsoft installato nei server. Offre anche la capacità di raccogliere e inoltrare periodicamente questi dati attraverso la rete a un server Web di destinazione usando il protocollo HTTPS, ai fini dell'aggregazione. Con i comandi di PowerShell viene eseguita anche la gestione della funzionalità, principalmente per la raccolta oraria dei dati e per l'inoltro.
 
 > [!NOTE]
 > Un server di aggregazione che esegue un servizio Web può essere configurato separatamente, ma non viene distribuito con la funzionalità di registrazione dell'inventario software. Per altre informazioni, vedere [Software Inventory Logging Aggregator](software-inventory-logging-aggregator.md).
@@ -49,5 +49,5 @@ La registrazione dell'inventario software può fornire supporto agli amministrat
 [Gestire Registrazione inventario software](manage-software-inventory-logging.md)<br>
 [Cmdlet di registrazione inventario software in Windows PowerShell](https://technet.microsoft.com/library/dn283390.aspx)<br>
 [Microsoft Assessment and Planning Toolkit](https://www.microsoft.com/download/en/details.aspx?id=7826)
-[strumento di gestione dell'attivazione dei contratti multilicenza](http://blogs.technet.com/b/volume-licensing/)
+[strumento di gestione dell'attivazione dei contratti multilicenza](https://blogs.technet.com/b/volume-licensing/)
 

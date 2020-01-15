@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: TimWi; ChrisRob; HerbertM; KenBrumf;  MLeary; ShawnRab
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: ba3c9e8792b425fd24d01ab997a5f7c2ac573814
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 66c6f94f1f3fee924ba0d9a3bfa0c712d62bb095
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71370253"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75947113"
 ---
 # <a name="proper-placement-of-domain-controllers-and-site-considerations"></a>Posizionamento appropriato dei controller di dominio e delle considerazioni sul sito
 
@@ -34,7 +34,7 @@ I riferimenti sono il modo in cui le query LDAP vengono reindirizzate quando il 
 
 ## <a name="optimization-considerations-for-trusts"></a>Considerazioni sull'ottimizzazione per i trust
 
-In uno scenario con una foresta, i trust vengono elaborati in base alla gerarchia di domini seguente: Dominio-figlio-&gt; dominio figlio-&gt; foresta radice dominio-&gt; dominio figlio-&gt; dominio di grandi età. Ciò significa che i canali sicuri nella radice della foresta e in ogni elemento padre possono essere sottoposto a overload a causa dell'aggregazione delle richieste di autenticazione in transito nei controller di dominio nella gerarchia di trust. Questo può comportare ritardi nelle directory attive di grande dispersione geografica quando l'autenticazione deve anche transitare a collegamenti estremamente latenti per influire sul flusso precedente. Gli overload possono verificarsi in scenari di trust tra foreste e di livello inferiore. Le indicazioni seguenti si applicano a tutti gli scenari:
+In uno scenario di insieme di strutture, i trust vengono elaborati in base alla seguente gerarchia di domini: dominio principale-figlio-&gt; dominio figlio-&gt; dominio radice della foresta-&gt; dominio figlio-&gt; dominio di grandi età. Ciò significa che i canali sicuri nella radice della foresta e in ogni elemento padre possono essere sottoposto a overload a causa dell'aggregazione delle richieste di autenticazione in transito nei controller di dominio nella gerarchia di trust. Questo può comportare ritardi nelle directory attive di grande dispersione geografica quando l'autenticazione deve anche transitare a collegamenti estremamente latenti per influire sul flusso precedente. Gli overload possono verificarsi in scenari di trust tra foreste e di livello inferiore. Le indicazioni seguenti si applicano a tutti gli scenari:
 
 -   Ottimizzare correttamente il MaxConcurrentAPI per supportare il carico sul canale sicuro. Per ulteriori informazioni, vedere [come eseguire l'ottimizzazione delle prestazioni per l'autenticazione NTLM tramite l'impostazione MaxConcurrentApi](https://support.microsoft.com/kb/2688798/EN-US).
 
@@ -58,7 +58,7 @@ Gli scenari di trust tra domini sono un'area che è stata sempre un punto proble
 
     -   Per ulteriori informazioni sul funzionamento di DCLocator, vedere [la pagina relativa alla ricerca di un controller di dominio nel sito più vicino](https://technet.microsoft.com/library/cc978016.aspx).
 
-    -   Convergere i nomi dei siti tra i domini trusted e trusting per riflettere il controller di dominio nello stesso percorso. Verificare che i mapping degli indirizzi IP e delle subnet siano collegati correttamente ai siti in entrambe le foreste. Per altre informazioni, vedere [Domain Locator in un trust tra foreste](http://blogs.technet.com/b/askds/archive/2008/09/24/domain-locator-across-a-forest-trust.aspx).
+    -   Convergere i nomi dei siti tra i domini trusted e trusting per riflettere il controller di dominio nello stesso percorso. Verificare che i mapping degli indirizzi IP e delle subnet siano collegati correttamente ai siti in entrambe le foreste. Per altre informazioni, vedere [Domain Locator in un trust tra foreste](https://blogs.technet.com/b/askds/archive/2008/09/24/domain-locator-across-a-forest-trust.aspx).
 
     -   Verificare che le porte siano aperte, in base alle esigenze di DCLocator, per la posizione del controller di dominio. Se tra i domini esistono firewall, assicurarsi che i firewall siano configurati correttamente per tutti i trust. Se i firewall non sono aperti, il controller di dominio trusting tenterà comunque di accedere al dominio trusted. Se la comunicazione ha esito negativo per qualsiasi motivo, il controller di dominio trusting raggiungerà il timeout della richiesta al controller di dominio attendibile. Tuttavia, questi timeout possono richiedere alcuni secondi per richiesta e possono esaurire le porte di rete sul controller di dominio trusting se il volume delle richieste in ingresso è elevato. Il client può riscontrare il timeout di attesa per il controller di dominio come thread bloccati, che potrebbero tradursi in applicazioni bloccate (se l'applicazione esegue la richiesta nel thread in primo piano). Per ulteriori informazioni, vedere [come configurare un firewall per domini e trust](https://support.microsoft.com/kb/179442).
 
@@ -76,7 +76,7 @@ Per tutti gli scenari di attendibilità, le credenziali vengono indirizzate in b
 
 -   Disabilitare il passaggio delle richieste di autenticazione con il dominio NULL specificato in tutti i trust disponibili. [Il processo Lsass. exe potrebbe smettere di rispondere se si dispone di molti trust esterni in un controller di dominio Active Directory](https://support.microsoft.com/kb/923241/EN-US)
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 - [Ottimizzazione delle prestazioni di Active Directory Server](index.md)
 - [Considerazioni relative ai requisiti hardware](hardware-considerations.md)
 - [Considerazioni relative a LDAP](ldap-considerations.md)

@@ -1,5 +1,5 @@
 ---
-title: Software Inventory Logging Aggregator
+title: Aggregatore di Registrazione inventario software
 description: Viene descritto come installare e gestire software Inventory Logging aggregator
 ms.custom: na
 ms.prod: windows-server
@@ -13,21 +13,21 @@ author: brentfor
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 81dbfb89d2e72af57c070db8473fd3b0e521906c
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: e5834c07e0fdc9f826e3b02fd494c28b9e773ad8
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71382944"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75947006"
 ---
-# <a name="software-inventory-logging-aggregator"></a>Software Inventory Logging Aggregator
+# <a name="software-inventory-logging-aggregator"></a>Aggregatore di Registrazione inventario software
 
 >Si applica a: Windows Server 2012 R2
 
 ## <a name="what-is-software-inventory-logging-aggregator"></a>Che cos'è software Inventory Logging aggregator?
 SILA (Software Inventory Logging Aggregator) riceve, aggrega e produce report di base relativi al numero e ai tipi di software aziendale Microsoft installato nei server Windows in un data center.
 
-SILA è un software che si installa in Windows Server ma non è incluso nell’installazione di Windows Server. Per installare il software, scaricarlo gratuitamente dall'area download di Windows: [Software Inventory Logging Aggregator 1,0 per Windows Server](https://www.microsoft.com/en-us/download/details.aspx?id=49046)
+SILA è un software che si installa in Windows Server ma non è incluso nell’installazione di Windows Server. Per installare il software, scaricarlo gratuitamente dall’Area download Windows: [Software Inventory Logging Aggregator 1.0 per Windows Server](https://www.microsoft.com/download/details.aspx?id=49046)
 
 Il framework Registrazione inventario software è progettato per ridurre i costi operativi delle operazioni di inventario del software Microsoft distribuito in numerosi server in un ambiente IT. Questo Framework è costituito da due componenti, questo SIL aggregator e la funzionalità Windows Server, introdotti in Windows Server 2012 R2, software Inventory Logging (SIL). È possibile installare Software Inventory Logging Aggregator 1.0 in un server e ricevere i dati di inventario da qualsiasi server Windows configurato per l’inoltro dei dati tramite Registrazione inventario software. La progettazione consente agli amministratori dei data center di abilitare la funzionalità Registrazione inventario software di Windows Server nelle immagini master di Windows Server destinate alla distribuzione su larga scala all’interno del loro ambiente.  Questo pacchetto software è il punto di destinazione ed è progettato per essere installato presso i clienti per facilitare la registrazione dei dati di inventario nel tempo. Il software consente inoltre di creare periodicamente report di inventario di base in Microsoft Excel. I report di Software Inventory Logging Aggregator 1.0 includono il conteggio delle installazioni di Windows Server, System Center e SQL Server.
 
@@ -55,21 +55,21 @@ Dopo essere stato distribuito correttamente, Software Inventory Logging Aggregat
 
 -   Conteggio dei limiti massimi e identità delle macchine virtuali Windows Server in esecuzione simultanea (in host che eseguono un hypervisor) in ogni host, nel tempo
 
--   Numero massimo di limiti massimi e nome host dell'agente System Center gestito \(simultaneamente in ogni\) host sono presenti VM Windows Server, nel tempo
+-   Conteggio dei limiti massimi e nome host dell'agente di \(System Center gestito simultaneamente presente\) macchine virtuali Windows Server in ogni host, nel tempo
 
--   Nome degli agenti System Center installati nelle macchine virtuali conteggiate nel\-limite massimo gestito
+-   Nome degli agenti System Center installati nelle macchine virtuali conteggiate in un limite di\-elevato gestito
 
--   Conteggio e posizione delle installazioni di SQL Server nel \(tempo solo SKU ed edizioni che richiedono una licenza\)
+-   Conteggio e posizione delle installazioni di SQL Server nel tempo \(solo SKU ed edizioni che richiedono una licenza\)
 
--   Elenchi di software installati in\/installazione applicazioni
+-   Elenchi di software installati in Installazione applicazioni\/
 
 ### <a name="who-will-use-sil"></a>Chi usa Registrazione inventario software?
 
--   **Professionisti IT o amministratori di data center** che ricercano un metodo a basso costo per raccogliere utili dati di inventario software, in modo automatico, nel corso del tempo.
+-   **Professionisti IT o amministratori di data center**che ricercano un metodo a basso costo per raccogliere utili dati di inventario software, in modo automatico, nel corso del tempo.
 
 -   **Cio e controller finanziari**, che devono segnalare l'utilizzo del software aziendale Microsoft nelle distribuzioni it delle proprie organizzazioni.
 
-## <a name="getting-started"></a>Introduzione
+## <a name="getting-started"></a>Guida introduttiva
 **Prerequisiti**
 
 Software Inventory Logging Aggregator (SIL Aggregator) in almeno un server per l’aggregazione e i report, in una macchina virtuale o in un hardware fisico:
@@ -82,7 +82,7 @@ Software Inventory Logging Aggregator (SIL Aggregator) in almeno un server per l
 
 -   **Microsoft Excel** 2013 a 64 bit (facoltativo per l’installazione ma necessario per la creazione dei report)
 
--   Facoltativo: **5.5.0.5836 PowerCLI VMware** (necessario in ambienti VMware)
+-   Facoltativo: **VMware PowerCLI 5.5.0.5836** (necessario in ambienti VMware)
 
 >[!Note]
 >Quando si usa Windows Management Framework, si verifica un problema di compatibilità noto con WMF versione 5,1, solo in SIL Aggregator.  Non è necessario superare la versione 4,0 di WMF nei server in cui è installato SIL Aggregator.
@@ -121,13 +121,13 @@ Nell’host Windows Server che si desidera configurare per il polling tramite SI
 
 6.  Fare clic su **Sicurezza**.
 
-7.  Selezionare lo **spazio dei nomi cimv2** nel controllo TreeView **Spazio dei nomi**.
+7.  Selezionare lo **spazio dei nomi cimv2** nel controllo TreeView **Spazio dei nomi** .
 
 8.  Fare clic sul pulsante **Sicurezza**.
 
 9. Aggiungere il gruppo **Utenti gestione remota** nel formato **nomecomputer\nome gruppo**
 
-10. Fare clic su **OK**.
+10. Fai clic su **OK**.
 
 11. Nella finestra Sicurezza di **root\cimv2**, selezionare **Utenti gestione remota**.
 
@@ -146,7 +146,7 @@ Prima di procedere all’installazione di SIL Aggregator in un server Windows è
 
     -   Il nome del server Windows e del certificato devono corrispondere.
 
--   **Installazione di SQL Server Standard Edition** o installazione nel server remoto che si prevede di usare con il software.
+-   **Installazione di SQL Server Standard Edition**o installazione nel server remoto che si prevede di usare con il software.
 
     -   SIL Aggregator può essere usato con SQL Server 2012 sp2 e SQL Server 2014. Non è stata effettuata alcuna selezione particolare durante l’installazione di SQL Server.
 
@@ -156,13 +156,13 @@ Prima di procedere all’installazione di SIL Aggregator in un server Windows è
 
     -   Una volta installato, SQL Server Agent deve essere configurato per l’esecuzione automatica.
 
--   **Il ruolo del server IIS è aggiunto** con .Net Framework 4.5, Servizi WCF e Attivazione HTTP nella stessa struttura dell’**Aggiunta guidata ruoli e funzionalità**.
+-   **Il ruolo del server IIS è aggiunto** con .Net Framework 4.5, Servizi WCF e Attivazione HTTP nella stessa struttura dell’ **Aggiunta guidata ruoli e funzionalità**.
 
 -   **Accesso al server con un account con privilegi amministrativi** nel server.
 
 -   **Accesso al server con un account con privilegi sysadmin in SQL Server**, se è richiesta l’autenticazione di Windows
 
-    O
+    OPPURE
 
     Se si desidera usare l’autenticazione SQL, **disponibilità della password per un account con privilegi amministrativi per SQL**.
 
@@ -176,13 +176,13 @@ Prima di procedere all’installazione di SIL Aggregator in un server Windows è
 
 4.  In **Choose Features**, selezionare **Install Software Inventory Logging Aggregator e Reporting Module**, quindi fare clic su **Next**.
 
-    Per altre informazioni sull’installazione del solo modulo dei report, vedere `Publish-SilReport` nella sezione **Informazioni sui cmdlet di SIL Aggregator**.
+    Per altre informazioni sull’installazione del solo modulo dei report, vedere `Publish-SilReport` nella sezione **Informazioni sui cmdlet di SIL Aggregator** .
 
 5.  Dopo aver verificato tutti i prerequisiti, fare clic su **Next**.
 
 6.  In **Choose an Account Type**, selezionare l’ **utente locale** o **gMSA**, a seconda delle proprie preferenze.
 
-    Se si sceglie l’utente locale, viene creato un utente locale con una password complessa generata automaticamente. Questo account viene usato per tutti i servizi di SIL Aggregator e le operazioni su attività nel server locale.  Si consiglia di scegliere gMSA (Group Managed Service Accounts) se SIL Aggregator appartiene a un dominio Active Directory (Windows Server 2012 e versioni successive). Per ulteriori informazioni su gMSA, vedere: [Panoramica degli account del servizio gestiti del gruppo](https://technet.microsoft.com/library/hh831782.aspx)
+    Se si sceglie l’utente locale, viene creato un utente locale con una password complessa generata automaticamente. Questo account viene usato per tutti i servizi di SIL Aggregator e le operazioni su attività nel server locale.  Si consiglia di scegliere gMSA (Group Managed Service Accounts) se SIL Aggregator appartiene a un dominio Active Directory (Windows Server 2012 e versioni successive). Per altre informazioni su gMSA, vedere: [Panoramica degli account del servizio gestiti del gruppo](https://technet.microsoft.com/library/hh831782.aspx)
 
     -   Se si prevede di eseguire il database SQL Server in un server separato da SIL Aggregator è necessario scegliere l’opzione di account gMSA.
 
@@ -194,9 +194,9 @@ Prima di procedere all’installazione di SIL Aggregator in un server Windows è
 
 8.  Selezionare il tipo di autenticazione e fare clic su **Verify SQL**.
 
-9. Fare clic su **Next** e quindi in **Internet Information Services Server Details**, selezionare un numero di porta o confermare il valore predefinito.
+9. Fare clic su **Next**e quindi in **Internet Information Services Server Details**, selezionare un numero di porta o confermare il valore predefinito.
 
-10. Individuare il percorso del file con estensione **pfx**, digitare la password per il file PFX e fare clic su **Next**.
+10. Individuare il percorso del file con estensione **pfx** , digitare la password per il file PFX e fare clic su **Next**.
 
 11. Nella schermata finale viene visualizzato lo stato dell’installazione. Al termine dell’installazione, fare clic su **Finish**.
 
@@ -221,16 +221,16 @@ Prima di procedere all’installazione di SIL Aggregator in un server Windows è
 #### <a name="introduction-to-sil-aggregator-powershell-cmdlets"></a>Introduzione ai cmdlet di PowerShell di SIL Aggregator
 I comandi seguenti possono essere eseguiti dalla console di Windows PowerShell come amministratore.
 
-|Cmdlet di Windows PowerShell|Funzione|
+|Cmdlet di Windows PowerShell|Function|
 |-----------------------------|------------|
 |`Start-SilAggregator`|Avvia tutti i servizi e le attività di Software Inventory Logging Aggregator. Questa operazione è necessaria per consentire a SIL Aggregator di ricevere dati tramite HTTPS dai server in cui è stata avviata la funzionalità Registrazione inventario software.|
 |`Stop-SilAggregator`|Interrompe l’esecuzione di tutti i servizi e le attività di Software Inventory Logging Aggregator. Per le attività e i servizi in esecuzione potrebbe verificarsi un ritardo nell’esecuzione di questo comando.|
 |`Set-SilAggregator`|Consente all’amministratore di apportare modifiche alla configurazione di Software Inventory Logging Aggregator.|
-|`Add-SilVmHost`|Usato per aggiungere nomi host specifici o una matrice di nomi host di cui eseguire il polling a intervalli regolari \(, il valore predefinito è di un'\)ora.|
+|`Add-SilVmHost`|Usato per aggiungere nomi host specifici o una matrice di nomi host di cui eseguire il polling a intervalli regolari \(valore predefinito è di un'ora\).|
 |`Remove-SilVmHost`|Consente di rimuovere nomi host specifici o una matrice di nomi host di cui eseguire il polling a intervalli regolari.|
 |`Get-SilVMHost`|Consente di recuperare l’elenco degli host fisici il cui polling è configurato in Software Inventory Logging Aggregator per i dati relativi allo stato di esecuzione corrente delle macchine virtuali.|
 |`Get-SILAggregatorData`|Consente di recuperare i dati del database nella console PowerShell.|
-|`Publish-SilReport`|Usare per creare report dal database dei dati di Registrazione inventario software. **Nota:** L’elaborazione dei cubi in SIL Aggregator viene eseguita una volta al giorno. Per questa ragione i dati acquisiti in SIL Aggregator non vengono visualizzati nei report fino al giorno successivo.|
+|`Publish-SilReport`|Usare per creare report dal database dei dati di Registrazione inventario software. **Nota:** L'elaborazione dei cubi in SIL aggregator viene eseguita una volta al giorno. Per questa ragione i dati acquisiti in SIL Aggregator non vengono visualizzati nei report fino al giorno successivo.|
 
 #### <a name="suggested-order-to-start"></a>Ordine consigliato per iniziare
 Dopo aver installato Software Inventory Logging Aggregator nel server, aprire PowerShell come amministratore.
@@ -249,11 +249,11 @@ Dopo aver installato Software Inventory Logging Aggregator nel server, aprire Po
 
         -   Per impostazione predefinita, il polling viene avviato ogni ora, a partire dall’ora successiva all’esecuzione di `Start-SilAggregator` o un’ora dopo l’aggiunta di un host all’elenco di polling.  È possibile modificare l’intervallo di polling usando `Set-SilAggregator cmdlet`.
 
-        -   Questo cmdlet rileva automaticamente da un elenco di opzioni predefinite (vedere la sezione **Informazioni sui cmdlet di SIL Aggregator**) HostType e HyperVisorType corretti per l’host da aggiungere. Se il rilevamento non è possibile oppure le credenziali specificate non sono corrette, viene visualizzato un prompt. Se si accetta immettendo **Y**, l’host viene aggiunto e visualizzato come **Unknown** ma non ne viene eseguito il polling.
+        -   Questo cmdlet rileva automaticamente da un elenco di opzioni predefinite (vedere la sezione **Informazioni sui cmdlet di SIL Aggregator** ) HostType e HyperVisorType corretti per l’host da aggiungere. Se il rilevamento non è possibile oppure le credenziali specificate non sono corrette, viene visualizzato un prompt. Se si accetta immettendo **Y** , l’host viene aggiunto e visualizzato come **Unknown**ma non ne viene eseguito il polling.
 
     -   Eseguire `Set-SilAggregator –AddCertificateThumbprint` "identificazione personale del certificato client"
 
-        Questa operazione è necessaria per poter ricevere i dati tramite HTTPS da server Windows in cui è abilitata la funzionalità Registrazione inventario software. L’identificazione personale viene aggiunta all’elenco di identificazioni personali da cui SIL Aggregator accetta i dati. SIL Aggregator è progettato per accettare certificati di autenticazione client aziendali validi. Il certificato usato dovrà essere installato nell'  **\\archivio localmachine\MY (computer locale-> Personal**) nel server che invia i dati.
+        Questa operazione è necessaria per poter ricevere i dati tramite HTTPS da server Windows in cui è abilitata la funzionalità Registrazione inventario software. L’identificazione personale viene aggiunta all’elenco di identificazioni personali da cui SIL Aggregator accetta i dati. SIL Aggregator è progettato per accettare certificati di autenticazione client aziendali validi. Il certificato usato dovrà essere installato nell'archivio **\\localmachine\MY (computer locale-> personale**) nel server che invia i dati.
 
 -   Nei server Windows di cui deve essere eseguito l’inventario, aprire PowerShell come amministratore e eseguire i comandi seguenti:
 
@@ -284,7 +284,7 @@ Dopo aver installato Software Inventory Logging Aggregator nel server, aprire Po
 Dopo aver eseguito questi passaggi per l’aggiunta di host fisici in cui sono in esecuzione macchine virtuali Windows Server E aver abilitato la funzionalità Registrazione inventario software in questi server Windows, sarà possibile eseguire `Publish-SilReport –OpenReport` in qualsiasi momento in SIL Aggregator (è necessario aver installato Excel 2013). Si noti tuttavia che poiché il cubo di SQL Server Analysis Services esegue l’elaborazione una sola volta al giorno, i dati non sono disponibili nei report nella stessa giornata.
 
 ## <a name="architectural-overview"></a>Panoramica dell’architettura
-SIL funziona in modalità push e pull ed è costituito da due componenti che lavorano in parallelo: La funzionalità registrazione inventario software (SIL) in Windows Server e il file MSI scaricabile di software Inventory Logging Aggregator (SILA). I server da includere nell’inventario usando Registrazione inventario software eseguono il push dei dati dell’inventario in SIL Aggregator (ogni ora in momenti casuali all’interno di ogni ora). SIL Aggregator esegue a sua volta il polling o una query negli host hypervisor per eseguire il pull dei dati di inventario hardware ogni ora Per garantire la completa funzionalità di Registrazione inventario software è necessario configurare correttamente l’esecuzione del push e del pull. La configurazione può essere eseguita in qualsiasi ordine. Tuttavia, poiché l’elaborazione dei cubi in SIL Aggregator viene eseguita una volta al giorno, i dati acquisiti in SIL Aggregator tramite push o pull vengono visualizzati nei report il giorno successivo.
+Registrazione inventario software può essere eseguita in modalità push e in modalità pull e include due componenti eseguiti in parallelo: la funzionalità Registrazione inventario software di Windows Server e il file MSI scaricabile di Software Inventory Logging Aggregator (SILA). I server da includere nell’inventario usando Registrazione inventario software eseguono il push dei dati dell’inventario in SIL Aggregator (ogni ora in momenti casuali all’interno di ogni ora). SIL Aggregator esegue a sua volta il polling o una query negli host hypervisor per eseguire il pull dei dati di inventario hardware ogni ora Per garantire la completa funzionalità di Registrazione inventario software è necessario configurare correttamente l’esecuzione del push e del pull. La configurazione può essere eseguita in qualsiasi ordine. Tuttavia, poiché l’elaborazione dei cubi in SIL Aggregator viene eseguita una volta al giorno, i dati acquisiti in SIL Aggregator tramite push o pull vengono visualizzati nei report il giorno successivo.
 
 ![](../media/software-inventory-logging/SILA_Architecture.png)
 
@@ -310,7 +310,7 @@ Per eseguire questa procedura, sarà necessario un certificato SSL client valido
 
 -   `$firstAvailableDriveLetter = $availableDriveLetters[0]`
 
--   `New-PSDrive -Name $firstAvailableDriveLetter -PSProvider filesystem -root`**server\path da condividere, che include il file del certificato PFX > < \\** `-credential $mycreds`
+-   `New-PSDrive -Name $firstAvailableDriveLetter -PSProvider filesystem -root` **<\\server\path da condividere, che include il file del certificato pfx >** `-credential $mycreds`
 
 -   `Copy-Item ${firstAvailableDriveLetter}:\` **< file Certificate. pfx nella directory della nuova unità > c:\<percorso desiderato >**
 
@@ -318,7 +318,7 @@ Per eseguire questa procedura, sarà necessario un certificato SSL client valido
 
 -   `$mypwd = ConvertTo-SecureString -String "`**<password for the certificate pfx file>**`" -Force –AsPlainText`
 
--   `Import-PfxCertificate -FilePath c:\` **< location\\certificate. pfx >** `cert:\localMachine\my -Password $mypwd`
+-   `Import-PfxCertificate -FilePath c:\` **< percorso\\certificate. pfx >** `cert:\localMachine\my -Password $mypwd`
 
 -   `Set-sillogging –targeturi "https://` **<machinename of your SIL Aggregator>** `–certificatethumbprint`
 
@@ -361,7 +361,7 @@ I dati dei report vengono influenzati dal passaggio a un nuovo mese nel modo seg
 
 -   Le schede di riepilogo sono elenchi di riferimento rapido dell’inventario. Gli host e le macchine virtuali sono elencati nella stessa colonna.
 
--   Ignorare tutti i valori di colore grigio o che appaiono disattivati. Questi valori sono elementi della creazione di report dal cubo SSAS.
+-   Ignorare tutti i valori grigio o Dim. Si tratta di elementi della creazione di report dal cubo SSAS.
 
 -   Se una macchina virtuale è elencata con "sistema operativo sconosciuto", significa che aggregator non ha ricevuto un payload di dati completo da tale macchina virtuale tramite SIL su HTTPS.
 
@@ -375,7 +375,7 @@ I dati dei report vengono influenzati dal passaggio a un nuovo mese nel modo seg
 
 -   Nelle schede **Summary** e **Detail** i totali delle colonne relativi ai server Windows con esecuzione simultanea o ai server Windows gestiti indicano un totale di tutti i limiti massimi per tutti gli host sottostanti. Sono inclusi i server Windows che non sono host hypervisor e non hanno macchine virtuali in esecuzione, nonché i server che possono avere macchine virtuali in esecuzione ma sono "sconosciuti", perché non sono stati ricevuti dati dall'interno della macchina virtuale da SIL tramite HTTPS. I server sono inclusi nei totali per ragioni di praticità.
 
--   Nella sezione **SQL Server** della scheda **Dashboard** il totale delle installazioni di SQL Server è un riepilogo dei totali della versione del dashboard.  Questo può causare una discrepanza con il totale visualizzato nella scheda **SQL Detail** nei casi in cui sono installate più versioni di SQL in un singolo server.  A differenza della scheda **Detail**, nel dashboard il totale è separato per ogni server.  Le diverse versioni di SQL installate in un unico Windows Server vengono conteggiate come un solo elemento,  conformemente alle condizioni di licenza.
+-   Nella sezione **SQL Server** della scheda **Dashboard** il totale delle installazioni di SQL Server è un riepilogo dei totali della versione del dashboard.  Questo può causare una discrepanza con il totale visualizzato nella scheda **SQL Detail** nei casi in cui sono installate più versioni di SQL in un singolo server.  A differenza della scheda **Detail** , nel dashboard il totale è separato per ogni server.  Le diverse versioni di SQL installate in un unico Windows Server vengono conteggiate come un solo elemento,  conformemente alle condizioni di licenza.
 
 -   Nella sezione **Windows Server** della scheda **Dashboard** le righe **Other Hypervisor Hosts** e **Total Hypervisor Hosts** includono gli host fisici Windows Server che eseguono o NON eseguono Hyper-V.
 
@@ -401,13 +401,13 @@ Di seguito sono riportate le descrizioni delle singole colonne della scheda **Wi
 |Host Last Seen Date Time|Data e ora dell’ultima ricezione da parte di SIL Aggregator dei dati di inventario inviati tramite HTTPS dall’host fisico Windows Server.<br /><br />È possibile usare host fisici che eseguono Windows Server e HyperV per l’abilitazione di Registrazione inventario software e l’inoltro dei dati di inventario tramite HTTPS a SIL Aggregator.|
 
 ## <a name="sil-aggregator-cmdlets-detail"></a>Informazioni sui cmdlet di SIL Aggregator
-Di seguito sono fornite informazioni dettagliate sui cmdlet di SIL Aggregator. Per la documentazione completa dei cmdlet, vedere: [Cmdlet di PowerShell di SIL aggregator](https://technet.microsoft.com/library/mt548455.aspx)
+Di seguito sono fornite informazioni dettagliate sui cmdlet di SIL Aggregator. Per informazioni complete sui cmdlet, vedere [Cmdlet di PowerShell di SIL Aggregator](https://technet.microsoft.com/library/mt548455.aspx)
 
 ### <a name="publish-silreport"></a>Publish-SilReport
 
 -   Questo cmdlet, usato così com'è, creerà un report di registrazione inventario software e lo inserirà nella directory dei documenti dell'utente che ha eseguito l'accesso. è necessario Excel 2013 nel computer in cui viene eseguito il cmdlet.
 
--   Usato con il parametro `–OpenReport` , il cmdlet crea il report e lo apre in Excel per la visualizzazione.
+-   Usato con il parametro `–OpenReport`, il cmdlet crea il report e lo apre in Excel per la visualizzazione.
 
 -   Durante l’installazione di SIL Aggregator è possibile notare la disponibilità dell’opzione che consente di installare soltanto il modulo dei report. È possibile installare il modulo dei report nel sistema operativo di un client Windows, ad esempio Windows 8.1 o Windows 10. Ciò consente a un thin client, ad esempio un laptop o un tablet, di connettersi a un server di database di SIL Aggregator per la pubblicazione diretta dei report di Registrazione inventario software.
 
@@ -490,11 +490,11 @@ Il cmdlet `Set-SilAggregator` consente di:
 
 -   Questo cmdlet visualizza anche tutti i nomi host aggiunti tramite i dati provenienti dalle macchine virtuali, a condizione che sia disponibile dalla macchina virtuale. I nomi host sono inclusi nell’elenco senza alcun valore HostType o HypervisorType. Questi dati possono essere utili per associare le macchine virtuali e gli host non configurati per il polling.
 
--   Usare i parametri `–StartTime` e`–EndTime` per individuare quando gli host sono stati aggiunti per la prima volta o quando è stato eseguito l’ultimo polling.
+-   Usare i parametri `–StartTime` e `–EndTime` per individuare quando gli host sono stati aggiunti per la prima volta o quando è stato eseguito l’ultimo polling.
 
 ### <a name="remove-silvmhost"></a>Remove-SilVMHost
 
--   Questo cmdlet rimuove qualsiasi host dall’elenco degli host di cui eseguire il polling. Se un host viene rimosso, è possibile che l’host venga aggiunto nuovamente all’elenco da una macchina virtuale nell’host ma il polling non verrà eseguito con le credenziali corrette specificate con il cmdlet `Add-SilVMHost` .
+-   Questo cmdlet rimuove qualsiasi host dall’elenco degli host di cui eseguire il polling. Se un host viene rimosso, è possibile che l’host venga aggiunto nuovamente all’elenco da una macchina virtuale nell’host ma il polling non verrà eseguito con le credenziali corrette specificate con il cmdlet `Add-SilVMHost`.
 
 -   Se un host viene rimosso, viene rimosso dal polling ma non dai report. Poiché l’esecuzione del polling viene interrotta, l’host non sarà incluso nei report dei mesi successivi.
 
@@ -506,7 +506,7 @@ Il cmdlet `Set-SilAggregator` consente di:
 
     -   Assicurarsi che sia specificato **https://** nell’ **URI di destinazione** .
 
-    -   Verificare che siano stati installati tutti gli aggiornamenti di Windows Server (vedere i prerequisiti per Registrazione inventario software).  Un modo rapido per verificarli è cercarli usando il cmdlet seguente:`Get-SilWindowsUpdate *3060*, *3000*`
+    -   Verificare che siano stati installati tutti gli aggiornamenti di Windows Server (vedere i prerequisiti per Registrazione inventario software).  Un modo rapido per verificarli è cercarli usando il cmdlet seguente: `Get-SilWindowsUpdate *3060*, *3000*`
 
     -   Assicurarsi che il certificato usato per l’autenticazione in SIL Aggregator sia installato nel percorso corretto sul server locale di cui eseguire l’inventario con Registrazione inventario software (vedere la sezione Guida introduttiva).
 
@@ -516,7 +516,7 @@ Il cmdlet `Set-SilAggregator` consente di:
 
     -   Se tutti gli elementi indicati sono stati verificati, controllare che il certificato usato per l’installazione di SIL Aggregator sia valido e che il nome del certificato corrisponda al nome del server di SIL Aggregator. Quest’ultimo passaggio non è necessario se altri computer inoltrano correttamente i dati allo stesso SIL Aggregator.
 
-    -   È possibile controllare il percorso seguente per i file SIL memorizzati nella cache nel server che tenta di inoltrare/\\effettuare il\\push, \Windows\System32. LogFiles SIL. Se `SilLogging` è stato avviato ed è in esecuzione da più di un’ora oppure `Publish-SilData` è stato eseguito di recente e la cartella non contiene file, l’accesso a SIL Aggregator è stato eseguito correttamente.
+    -   È possibile controllare il percorso seguente per i file SIL memorizzati nella cache nel server che tenta di inoltrare/effettuare il push, \Windows\System32.\\LogFiles\\SIL. Se `SilLogging` è stato avviato ed è in esecuzione da più di un’ora oppure `Publish-SilData` è stato eseguito di recente e la cartella non contiene file, l’accesso a SIL Aggregator è stato eseguito correttamente.
 
 -   Assicurarsi che l’utente che ha eseguito l’accesso possa accedere al database SQL e a Analysis Services.
 
@@ -557,7 +557,7 @@ Dopo aver eseguito questa operazione è necessario aggiornare le credenziali usa
 Quando si desidera iniziare a eseguire l’inventario dei server nel proprio ambiente con un diverso SIL Aggregator, è sufficiente usare il cmdlet `Set-SilLogging –TargetUri` di Registrazione inventario software per modificare l’URI di destinazione e, se necessario, l’identificazione personale di certificato. Tenere presente che dopo aver eseguito questa operazione è necessario usare il cmdlet `Publish-SilData` almeno una volta per inoltrare un inventario completo al nuovo SIL Aggregator.
 
 ### <a name="changing-or-updating-certificates"></a>Modifica o aggiornamento dei certificati
-**PASSAGGI IMPORTANTI PER EVITARE LA PERDITA DI DATI:** Se è necessario modificare il certificato usato dai server per l'invio di dati a SIL aggregator, ma l'aggregatore di destinazione rimarrà invariato, attenersi alla procedura seguente per evitare una potenziale perdita di dati in transito verso l'aggregatore:
+**OPERAZIONI IMPORTANTI PER EVITARE LA PERDITA DI DATI:** quando è necessario modificare il certificato usato dai server per l’inoltro dei dati a SIL Aggregator e SIL Aggregator di destinazione è lo stesso, per evitare una potenziale perdita dei dati trasferiti eseguire i seguenti passaggi:
 
 -   In SIL Aggregator usare il cmdlet `Set-SilAggregator –AddCertificateThumbprint` per aggiungere la nuova identificazione personale a SIL Aggregator.
 
@@ -565,7 +565,7 @@ Quando si desidera iniziare a eseguire l’inventario dei server nel proprio amb
 
 -   In TUTTI i server che eseguono l’inoltro dei dati, usare il cmdlet `Set-SilLogging –CertificateThumbprint` per eseguire l’aggiornamento all’identificazione personale del nuovo certificato.
 
--   **CRITICO Solo dopo l'aggiornamento di tutti i server che inviano dati, rimuovere l'** identificazione personale precedente da SIL `Set-SilAggregator –RemoveCertificateThumbprint` aggregator usando il cmdlet. Se un server continua a eseguire l’inoltro usando un certificato rimosso da SIL Aggregator, **i dati vengono persi** senza essere inseriti nel database di SIL Aggregator. Questa operazione influisca solo sugli scenari in cui un server ha precedentemente eseguito l'invio di dati a SIL aggregator e il certificato viene quindi rimosso dall'elenco di identificazioni personali di SIL aggregator da cui accettare i dati.
+-   **MOLTO IMPORTANTE: soltanto dopo aver aggiornato tutti i server che eseguono l’inoltro dei dati, rimuovere l’identificazione personale precedente** da SIL Aggregator usando il cmdlet `Set-SilAggregator –RemoveCertificateThumbprint` . Se un server continua a eseguire l’inoltro usando un certificato rimosso da SIL Aggregator, **i dati vengono persi** senza essere inseriti nel database di SIL Aggregator. Questa operazione influisca solo sugli scenari in cui un server ha precedentemente eseguito l'invio di dati a SIL aggregator e il certificato viene quindi rimosso dall'elenco di identificazioni personali di SIL aggregator da cui accettare i dati.
 
 ## <a name="release-notes"></a>Note sulla versione
 
@@ -593,8 +593,8 @@ Quando si desidera iniziare a eseguire l’inventario dei server nel proprio amb
 
 -   Sebbene sia possibile aggiungere host Windows Server 2008 R2 e Windows Server 2012 all’elenco degli host di cui eseguire il polling, la presente versione 1.0 di SIL Aggregator supporta soltanto il polling di host Windows Server 2012 R2 per Windows/Hyper-V per i quali viene garantito il funzionamento corretto di tutte le funzionalità.  In particolare, è noto che durante l’esecuzione del polling di host Windows Server 2008 R2, è possibile che le macchine virtuali e gli host non corrispondano nei report di SIL Aggregator.
 
-## <a name="see-also"></a>Vedere anche
-[Software Inventory Logging Aggregator 1,0 per Windows Server](https://www.microsoft.com/en-us/download/details.aspx?id=49046)<br>
+## <a name="see-also"></a>Vedi anche
+[Software Inventory Logging Aggregator 1,0 per Windows Server](https://www.microsoft.com/download/details.aspx?id=49046)<br>
 [Cmdlet di PowerShell di SIL aggregator](https://technet.microsoft.com/library/mt548455.aspx)<br>
 [Cmdlet di PowerShell per SIL](https://technet.microsoft.com/library/dn283390.aspx)<br>
 [Panoramica di SIL](https://technet.microsoft.com/library/dn268301.aspx)<br>

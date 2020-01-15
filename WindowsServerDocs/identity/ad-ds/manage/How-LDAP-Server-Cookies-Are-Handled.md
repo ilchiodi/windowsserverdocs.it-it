@@ -9,12 +9,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: c825ae9c9b52068b58b99bc6ff597304c9643d17
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: ca63fa9504765b0376eb671b4decd67de7768f15
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71390076"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75948893"
 ---
 # <a name="how-ldap-server-cookies-are-handled"></a>Come vengono gestiti i cookie del server LDAP
 
@@ -126,7 +126,7 @@ Gli eventi 2898 e 2899 rappresentano l'unico modo per sapere se il server LDAP h
   
 Se nel controller di dominio o nel server LDAP viene visualizzato l'evento 2898, è consigliabile impostare MaxResultSetsPerConn su 25. In genere non si eseguono più di 25 ricerche di paging parallele in una singola connessione LDAP. Se l'evento 2898 persiste, provare a cercare la causa dell'errore nell'applicazione client LDAP. Potrebbe essere possibile che l'applicazione rimanga in qualche modo bloccata durante il recupero di altri risultati di paging lasciando il cookie in sospeso e riavviando quindi una nuova query. Per questo motivo è opportuno valutare se l'applicazione dispone di cookie sufficienti per lo scopo. È anche possibile aumentare il valore di MaxResultSetsPerConn impostando un valore maggiore di 25. Quando invece nei controller di dominio viene visualizzato l'evento 2899, la soluzione sarà diversa. Se il controller di dominio o il server LDAP viene eseguito in un computer con memoria sufficiente (diversi GB di memoria disponibile), è consigliabile impostare MaxResultsetSize su un valore maggiore di 250 MB nel server LDAP. Questo limite è sufficiente per soddisfare volumi elevati di ricerche di pagina LDAP anche in directory di dimensioni molto grandi.  
   
-Se l'evento 2899 persiste con un pool di 250 MB o più, è probabile che molti client con un numero elevato di oggetti restituiti abbiamo eseguito una query con un'elevata frequenza. I dati che è possibile raccogliere con il [Active Directory insieme agenti di raccolta dati](http://blogs.technet.com/b/askds/archive/2010/06/08/son-of-spa-ad-data-collector-sets-in-win2008-and-beyond.aspx) consentono di trovare query di paging ripetitive che mantengono occupato il server LDAP. Queste query vengono visualizzate con una serie di "voci restituite" corrispondenti alle dimensioni della pagina utilizzata.  
+Se l'evento 2899 persiste con un pool di 250 MB o più, è probabile che molti client con un numero elevato di oggetti restituiti abbiamo eseguito una query con un'elevata frequenza. I dati che è possibile raccogliere con il [Active Directory insieme agenti di raccolta dati](https://blogs.technet.com/b/askds/archive/2010/06/08/son-of-spa-ad-data-collector-sets-in-win2008-and-beyond.aspx) consentono di trovare query di paging ripetitive che mantengono occupato il server LDAP. Queste query vengono visualizzate con una serie di "voci restituite" corrispondenti alle dimensioni della pagina utilizzata.  
   
 Se possibile, è consigliabile esaminare la progettazione dell'applicazione e implementare un approccio diverso con una frequenza inferiore, un volume di dati e/o un minor numero di istanze client che eseguono query su questi dati. Nel caso delle applicazioni per le quali si dispone dell'accesso al codice sorgente, questa guida alla [creazione di applicazioni efficienti abilitate per Active Directory](https://msdn.microsoft.com/library/ms808539.aspx) può essere utile per comprendere il modo ottimale per accedere AD Active Directory.  
   

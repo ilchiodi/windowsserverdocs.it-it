@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: HammadBu; VladmiS; denisgun
 author: phstee
 ms.date: 10/22/2019
-ms.openlocfilehash: dbdf211138ddcd553171f3c8ce9c2e915ccf0057
-ms.sourcegitcommit: 3262c5c7cece9f2adf2b56f06b7ead38754a451c
+ms.openlocfilehash: 1b66f6404df5debee2a4c52ffc9166c8eabb9f81
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72812276"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75947123"
 ---
 # <a name="performance-tuning-remote-desktop-virtualization-hosts"></a>Ottimizzazione delle prestazioni Desktop remoto host di virtualizzazione
 
@@ -22,7 +22,7 @@ Windows Server supporta due tipi di desktop virtuali: desktop virtuali personali
 
 ## <a name="general-considerations"></a>Considerazioni generali
 
-### <a name="storage"></a>Archiviazione
+### <a name="storage"></a>Archiviazione:
 
 L'archiviazione è il collo di bottiglia delle prestazioni più probabile ed è importante ridimensionare lo spazio di archiviazione per gestire correttamente il carico di I/O generato dalle modifiche dello stato della macchina virtuale. Se un progetto pilota o una simulazione non è fattibile, è opportuno eseguire il provisioning di un mandrino del disco per quattro macchine virtuali attive. Usare le configurazioni del disco con prestazioni di scrittura ottimali, ad esempio RAID 1 + 0.
 
@@ -41,7 +41,7 @@ Enable-DedupVolume <volume> -UsageType HyperV
 > [!NOTE]
 > L'ottimizzazione della deduplicazione dei file aperti è supportata solo per scenari VDI con Hyper-V usando l'archiviazione remota tramite SMB 3,0.
 
-### <a name="memory"></a>Memoria
+### <a name="memory"></a>Memory
 
 L'utilizzo della memoria del server è determinato da tre fattori principali:
 
@@ -81,7 +81,7 @@ Questa configurazione di distribuzione assicura prestazioni convenienti in cui l
 
 ### <a name="csv-cache"></a>Cache CSV
 
-Il clustering di failover in Windows Server 2012 e versioni successive consente di memorizzare nella cache i volumi condivisi del cluster (CSV). Questa operazione è estremamente vantaggiosa per gli insiemi di desktop virtuali in pool in cui la maggior parte delle i/o di lettura proviene dal sistema operativo di gestione. La cache CSV fornisce prestazioni più elevate in base a diversi ordini di grandezza, perché memorizza nella cache i blocchi che vengono letti più di una volta e li recapita dalla memoria di sistema, riducendo l'i/O. Per ulteriori informazioni sulla cache CSV, vedere [come abilitare la cache CSV](http://blogs.msdn.com/b/clustering/archive/2012/03/22/10286676.aspx).
+Il clustering di failover in Windows Server 2012 e versioni successive consente di memorizzare nella cache i volumi condivisi del cluster (CSV). Questa operazione è estremamente vantaggiosa per gli insiemi di desktop virtuali in pool in cui la maggior parte delle i/o di lettura proviene dal sistema operativo di gestione. La cache CSV fornisce prestazioni più elevate in base a diversi ordini di grandezza, perché memorizza nella cache i blocchi che vengono letti più di una volta e li recapita dalla memoria di sistema, riducendo l'i/O. Per ulteriori informazioni sulla cache CSV, vedere [come abilitare la cache CSV](https://blogs.msdn.com/b/clustering/archive/2012/03/22/10286676.aspx).
 
 ### <a name="pooled-virtual-desktops"></a>Desktop virtuali in pool
 
@@ -96,7 +96,7 @@ Ogni servizio specifico deve essere valutato in modo appropriato prima di qualsi
 | Servizio                                      | Perché?                                                                                                                                                                                                      |
 |----------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Aggiornamento automatico                                  | I desktop virtuali in pool vengono aggiornati creando nuovamente il modello di desktop virtuale.                                                                                                                          |
-| File offline                                | I desktop virtuali sono sempre online e connessi da un punto di vista della rete.                                                                                                                         |
+| File non in linea                                | I desktop virtuali sono sempre online e connessi da un punto di vista della rete.                                                                                                                         |
 | Defrag in background                            | Le modifiche del file System vengono ignorate dopo l'accesso dell'utente (a causa di un rollback allo stato incontaminato o la ricreazione del modello di desktop virtuale, il che comporta la ricreazione di tutti i desktop virtuali in pool). |
 | Ibernazione o sospensione                           | Nessun concetto di questo tipo per VDI                                                                                                                                                                                   |
 | Dump memoria controllo bug                        | Nessun concetto di questo tipo per i desktop virtuali in pool. Uno stato incontaminato per il controllo dei bug.                                                                                       |
@@ -106,7 +106,7 @@ Ogni servizio specifico deve essere valutato in modo appropriato prima di qualsi
 | Condivisione connessione Internet                  | Servizio incentrato sul consumer                                                                                                                                                                                  |
 | Servizi estesi di Media Center               | Servizio incentrato sul consumer                                                                                                                                                                                  |
 > [!NOTE]
-> Questo elenco non è destinato a essere un elenco completo, perché le modifiche avranno effetto sugli obiettivi e sugli scenari previsti. Per altre informazioni, vedere la pagina relativa alle [pressioni per le presse, ottenere ora, lo script di ottimizzazione di Windows 8 VDI, cortesia di PFE!](http://blogs.technet.com/b/jeff_stokes/archive/2013/04/09/hot-off-the-presses-get-it-now-the-windows-8-vdi-optimization-script-courtesy-of-pfe.aspx).
+> Questo elenco non è destinato a essere un elenco completo, perché le modifiche avranno effetto sugli obiettivi e sugli scenari previsti. Per altre informazioni, vedere la pagina relativa alle [pressioni per le presse, ottenere ora, lo script di ottimizzazione di Windows 8 VDI, cortesia di PFE!](https://blogs.technet.com/b/jeff_stokes/archive/2013/04/09/hot-off-the-presses-get-it-now-the-windows-8-vdi-optimization-script-courtesy-of-pfe.aspx).
 
 
 > [!NOTE]

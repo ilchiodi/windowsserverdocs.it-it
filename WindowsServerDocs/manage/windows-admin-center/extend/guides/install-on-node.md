@@ -8,18 +8,18 @@ ms.author: niwashbu
 ms.date: 09/18/2018
 ms.localizationpriority: medium
 ms.prod: windows-server
-ms.openlocfilehash: c5c87be882a32958946198eb6ff1b9d7000577e7
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 3a93a1105862ffbf4fcbd1d23b15d9bcaa6010dc
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71385295"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75950508"
 ---
 # <a name="install-extension-payload-on-a-managed-node"></a>Installare il payload dell'estensione in un nodo gestito
 
 >Si applica a: Windows Admin Center, Windows Admin Center Preview
 
-## <a name="setup"></a>Configurazione
+## <a name="setup"></a>Installazione
 > [!NOTE]
 > Per seguire questa guida, è necessario compilare 1.2.1904.02001 o versione successiva. Per controllare il numero di build, aprire l'interfaccia di amministrazione di Windows e fare clic sul punto interrogativo in alto a destra.
 
@@ -30,9 +30,9 @@ Se non è già stato fatto, creare un' [estensione dello strumento](../develop-t
 | ```{!Company Name}``` | Nome della società (con spazi) | ```Contoso``` |
 | ```{!Tool Name}``` | Nome dello strumento (con spazi) | ```InstallOnNode``` |
 
-Nella cartella dell'estensione dello strumento creare una cartella ```Node``` (```{!Tool Name}\Node```). Qualsiasi elemento inserito in questa cartella verrà copiato nel nodo gestito quando si usa questa API. Aggiungere tutti i file necessari per il caso d'uso. 
+All'interno della cartella dell'estensione dello strumento creare una cartella di ```Node``` (```{!Tool Name}\Node```). Qualsiasi elemento inserito in questa cartella verrà copiato nel nodo gestito quando si usa questa API. Aggiungere tutti i file necessari per il caso d'uso. 
 
-Creare anche uno script ```{!Tool Name}\Node\installNode.ps1```. Questo script verrà eseguito nel nodo gestito dopo che tutti i file vengono copiati dalla cartella ```{!Tool Name}\Node``` al nodo gestito. Aggiungere qualsiasi logica aggiuntiva per il caso d'uso. Un esempio di file ```{!Tool Name}\Node\installNode.ps1```:
+Creare anche uno script ```{!Tool Name}\Node\installNode.ps1```. Questo script verrà eseguito nel nodo gestito dopo che tutti i file vengono copiati dalla cartella ```{!Tool Name}\Node``` al nodo gestito. Aggiungere qualsiasi logica aggiuntiva per il caso d'uso. Un esempio di file di ```{!Tool Name}\Node\installNode.ps1```:
 
 ``` ps1
 # Add logic for installing payload on managed node
@@ -138,13 +138,13 @@ L'ultimo passaggio consiste nel creare un pacchetto NuGet con i file aggiunti e 
 
 Se non è stato creato un pacchetto di estensione prima, attenersi alla Guida alle [estensioni di pubblicazione](../publish-extensions.md) . 
 > [!IMPORTANT]
-> Nel file. nuspec per questa estensione è importante che il valore ```<id>``` corrisponda al nome nel ```manifest.json``` del progetto e il ```<version>``` corrisponda a ciò che è stato aggiunto a ```\src\app\default.component.ts```. Aggiungere anche una voce sotto ```<files>```: 
+> Nel file. nuspec per questa estensione è importante che il valore ```<id>``` corrisponda al nome nel ```manifest.json``` del progetto e che il ```<version>``` corrisponda a ciò che è stato aggiunto a ```\src\app\default.component.ts```. Aggiungere inoltre una voce in ```<files>```: 
 > 
-> ```<file src="Node\**\*.*" target="Node" />``` (Indici per tabelle con ottimizzazione per la memoria).
+> ```<file src="Node\**\*.*" target="Node" />```.
 
 ``` xml
 <?xml version="1.0" encoding="utf-8"?>
-<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+<package xmlns="https://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
   <metadata>
     <id>contoso.install-on-node</id>
     <version>1.0.0</version>
@@ -165,4 +165,4 @@ Se non è stato creato un pacchetto di estensione prima, attenersi alla Guida al
 </package>
 ```
 
-Una volta creato il pacchetto, aggiungere un percorso al feed. Nel centro di amministrazione di Windows passare a Impostazioni > estensioni > feed e aggiungere il percorso in cui è presente il pacchetto. Al termine dell'installazione dell'estensione, sarà possibile fare clic sul pulsante ```install``` per chiamare l'API.  
+Una volta creato il pacchetto, aggiungere un percorso al feed. Nel centro di amministrazione di Windows passare a Impostazioni > estensioni > feed e aggiungere il percorso in cui è presente il pacchetto. Al termine dell'installazione dell'estensione, sarà possibile fare clic sul pulsante ```install``` e verrà chiamata l'API.  

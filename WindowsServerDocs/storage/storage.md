@@ -1,5 +1,5 @@
 ---
-title: Archiviazione
+title: 'Archiviazione:'
 description: ''
 author: JasonGerend
 manager: elizapo
@@ -11,22 +11,22 @@ ms.topic: landing-page
 ms.author: jgerend
 ms.localizationpriority: medium
 ms.date: 03/08/2019
-ms.openlocfilehash: eadac31cb623a15dd308f7e33f984fe1fb46ffe5
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 7e7fbd6ce3fcef6b0f8da88927d83f28d3fff0a8
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71365935"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75950221"
 ---
-# <a name="storage"></a>Archiviazione
+# <a name="storage"></a>Archiviazione:
 
 >Si applica a: Windows Server 2019, Windows Server 2016, Windows Server (Canale semestrale)
 
 >[!TIP]
-> Cerchi informazioni sull'installazione delle versioni precedenti di Windows Server? vedere le altre [librerie di Windows Server](/previous-versions/windows/) in docs.microsoft.com. Puoi anche [cercare nel sito](https://docs.microsoft.com/search/index?search=Windows+Server&dataSource=previousVersions) informazioni specifiche.
+> Per informazioni sulle versioni precedenti di Windows Server, vedere le altre [librerie di Windows Server](/previous-versions/windows/) in docs.microsoft.com. È anche possibile cercare informazioni specifiche [in questo sito](https://docs.microsoft.com/search/index?search=Windows+Server&dataSource=previousVersions).
 
 <hr />
-L'archiviazione in Windows Server offre funzionalità nuove e migliorate per i clienti di data center software-defined che usano principalmente carichi di lavoro virtualizzati. Windows Server offre inoltre un supporto completo per i clienti aziendali che usano file server con carichi di lavoro esistenti.
+L'archiviazione in Windows Server offre funzionalità nuove e migliorate per i clienti di data center software-defined che usano principalmente carichi di lavoro virtualizzati. Windows Server offre inoltre un supporto completo per i clienti aziendali che usano file server con carichi di lavoro esistenti.
 
 <hr />
 <ul class="cardsF panelContent">
@@ -41,7 +41,7 @@ L'archiviazione in Windows Server offre funzionalità nuove e migliorate per i c
                                             </div>
                                         </div>
                                         <div class="cardText">
-                                            <h2>Novità</h2>
+                                            <h2>Quali sono le novità?</h2>
                                             <p>Scopri le novità di archiviazione di Windows Server</p>
                                         </div>
                                     </div>
@@ -124,9 +124,9 @@ L'archiviazione in Windows Server offre funzionalità nuove e migliorate per i c
 <HR />
                         <p><h3><a href="refs/refs-overview.md">ReFS</a></h3> Un file system resiliente che ottimizza la disponibilità dei dati, si adatta in modo efficiente a set di dati molto grandi in diversi carichi di lavoro e fornisce l'integrità dei dati per mezzo della resilienza al danneggiamento (indipendentemente dagli errori software o hardware).<p>
 <HR />
-                        <p><h3><a href="file-server/file-server-smb-overview.md">Protocollo SMB (Server Message Block)</a></h3> Protocollo di condivisione file di rete che consente alle applicazioni in un computer di leggere e scrivere nei file e di richiedere servizi da programmi server in una rete di computer. Il protocollo SMB può essere usato in aggiunta al proprio protocollo TCP/IP o ad altri protocolli di rete. Usando il protocollo SMB, un'applicazione (o l'utente di un'applicazione) può accedere a file o ad altre risorse presso un server remoto. Ciò consente alle applicazioni di leggere, creare e aggiornare file nel server remoto. Può anche comunicare con qualsiasi programma server configurato per ricevere una richiesta client SMB.<p>
+                        <p><h3><a href="file-server/file-server-smb-overview.md">Protocollo Server Message Block (SMB)</a></h3> Protocollo di condivisione file di rete che consente alle applicazioni in un computer di leggere e scrivere nei file e di richiedere servizi da programmi server in una rete di computer. Il protocollo SMB può essere usato in aggiunta al proprio protocollo TCP/IP o ad altri protocolli di rete. Usando il protocollo SMB, un'applicazione (o l'utente di un'applicazione) può accedere a file o ad altre risorse presso un server remoto. Ciò consente alle applicazioni di leggere, creare e aggiornare file nel server remoto. Può anche comunicare con qualsiasi programma server configurato per ricevere una richiesta client SMB.<p>
 <HR />
-                        <p><h3><a href="storage-spaces/Storage-class-memory-health.md">Memoria della classe di archiviazione</a></h3> Offre prestazioni simili alla memoria del computer (molto veloce), ma con la persistenza dei dati delle unità di archiviazione normali. Windows gestisce la memoria della classe di archiviazione in modo simile alle unità normali solo con una velocità maggiore, ma esistono alcune differenze nella modalità in cui viene gestita l'integrità del dispositivo.<p>
+                        <p><h3><a href="storage-spaces/Storage-class-memory-health.md">Memoria della classe di archiviazione</a></h3> Offre prestazioni simili alla memoria del computer (molto veloce), ma con la persistenza dei dati delle unità di archiviazione normali. Windows gestisce la memoria della classe di archiviazione in modo simile alle unità normali, solo con una velocità maggiore, ma esistono alcune differenze nella modalità in cui viene gestita l'integrità del dispositivo.<p>
 <HR />
                         <p><h3><a href="https://technet.microsoft.com/library/cc766295(v=ws.10).aspx">Crittografia unità BitLocker</a></h3> Archivia i dati nei volumi in formato crittografato, anche se il computer viene manomesso o quando il sistema operativo non è in esecuzione. In questo modo è possibile tutelarsi da attacchi offline, ovvero da attacchi effettuati disabilitando o aggirando il sistema operativo installato oppure rimuovendo fisicamente il disco rigido per intervenire separatamente sui dati.<p>
 <HR />
@@ -146,4 +146,4 @@ L'archiviazione in Windows Server offre funzionalità nuove e migliorate per i c
 ## <a name="in-azure"></a>In Azure
 
 * [Archiviazione di Azure](https://azure.microsoft.com/documentation/services/storage/)
-* [Azure StorSimple](https://www.microsoft.com/en-us/cloud-platform/azure-storsimple)
+* [Azure StorSimple](https://www.microsoft.com/cloud-platform/azure-storsimple)

@@ -8,19 +8,19 @@ manager: dongill
 author: rpsqrd
 ms.technology: security-guarded-fabric
 ms.date: 08/29/2018
-ms.openlocfilehash: 7984d1c965c15f7d8c3f3abfdc99f01e3adc215f
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 2ab9d4afb6e4219c6e6aae23d2d58052f20d3998
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71403430"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75950319"
 ---
 # <a name="shielded-vms---preparing-a-vm-shielding-helper-vhd"></a>VM schermate: preparazione di un VHD dell'helper di schermatura della macchina virtuale
 
 >Si applica a: Windows Server 2019, Windows Server (canale semestrale), Windows Server 2016
 
 > [!IMPORTANT]
-> Prima di iniziare queste procedure, assicurarsi di aver installato l'aggiornamento cumulativo più recente per Windows Server 2016 o che usi la versione più recente di Windows 10 [strumenti di amministrazione remota del server](https://www.microsoft.com/en-us/download/details.aspx?id=45520). In caso contrario, le procedure non funzioneranno. 
+> Prima di iniziare queste procedure, assicurarsi di aver installato l'aggiornamento cumulativo più recente per Windows Server 2016 o che usi la versione più recente di Windows 10 [strumenti di amministrazione remota del server](https://www.microsoft.com/download/details.aspx?id=45520). In caso contrario, le procedure non funzioneranno. 
 
 Questa sezione illustra i passaggi eseguiti da un provider di servizi di hosting per abilitare il supporto per la conversione di macchine virtuali esistenti in VM schermate.
 
@@ -59,7 +59,7 @@ Nella console VMM aprire il riquadro Impostazioni e quindi ospitare le **imposta
 
 ![VMM-impostazioni del servizio sorveglianza host](../media/Guarded-Fabric-Shielded-VM/guarded-host-vmm-hgs-settings-01.png)
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 - [Procedura di configurazione del provider di servizi di hosting per host sorvegliati e macchine virtuali schermate](guarded-fabric-configuration-scenarios-for-shielded-vms-overview.md)
 - [Infrastruttura sorvegliata e macchine virtuali schermate](guarded-fabric-and-shielded-vms-top-node.md)

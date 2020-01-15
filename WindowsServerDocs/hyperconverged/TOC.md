@@ -6,4 +6,4 @@
 ## [Windows Admin Center](../manage/windows-admin-center/overview.md)
 ## [Connettersi ad Azure](../azure-hybrid-services/index.md)
 ## [Azure Stack HCI](https://docs.microsoft.com/azure-stack/operator/azure-stack-hci-overview)
-## [Software-defined per Windows Server](https://www.microsoft.com/en-us/cloud-platform/software-defined-datacenter)
+## [Software-defined per Windows Server](https://www.microsoft.com/cloud-platform/software-defined-datacenter)

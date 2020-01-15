@@ -10,24 +10,24 @@ ms.date: 10/17/2019
 ms.topic: landing-page
 author: kaushika-msft
 ms.author: kaushika
-ms.openlocfilehash: 829ae15495d54aca8c476909988ea5a44ea487e7
-ms.sourcegitcommit: 8a017624682fe0172076f9169a9fa17aa972907f
+ms.openlocfilehash: 5e6312075fffd62b599fb62f39cc94ca1f309a44
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74852628"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75950165"
 ---
 # <a name="troubleshooting-windows-server-components"></a>Risoluzione dei problemi relativi ai componenti di Windows Server
 
 >- [!TIP]
 > Per informazioni sulle versioni precedenti di Windows Server, Scopri le altre librerie di [Windows Server](/previous-versions/windows/) in docs.Microsoft.com. È anche possibile [eseguire la ricerca](https://docs.microsoft.com/search/index?search=Windows+Server&dataSource=previousVersions) di informazioni specifiche nel sito.
 
-Microsoft rilascia periodicamente entrambi gli aggiornamenti per Windows Server. Per garantire che i server ricevano gli aggiornamenti futuri, inclusi gli aggiornamenti della sicurezza, è importante mantenerli aggiornati. Per un elenco completo degli aggiornamenti rilasciati, vedere la cronologia degli aggiornamenti di [Windows 10 e Windows Server 2016](https://support.microsoft.com/en-us/help/4000825/windows-10-windows-server-2016-update-history) .
+Microsoft rilascia periodicamente entrambi gli aggiornamenti per Windows Server. Per garantire che i server ricevano gli aggiornamenti futuri, inclusi gli aggiornamenti della sicurezza, è importante mantenerli aggiornati. Per un elenco completo degli aggiornamenti rilasciati, vedere la cronologia degli aggiornamenti di [Windows 10 e Windows Server 2016](https://support.microsoft.com/help/4000825/windows-10-windows-server-2016-update-history) .
 
 Questa sezione contiene gli argomenti e i collegamenti avanzati per la risoluzione dei problemi relativi a Windows Server. Gli argomenti aggiuntivi verranno aggiunti non appena diventano disponibili.
 
 ## <a name="troubleshoot-activation"></a>Risoluzione dei problemi di attivazione
-- [Risoluzione dei problemi di attivazione dei contratti multilicenza per Windows](https://docs.microsoft.com/windows-server/get-started/activation-troubleshooting-guide)
+- [Attivazione dei contratti multilicenza per Windows](https://docs.microsoft.com/windows-server/get-started/activation-troubleshooting-guide)
 - [Linee guida per la risoluzione dei problemi relativi a KMS](https://docs.microsoft.com/windows-server/get-started/activation-troubleshoot-kms-general)
 - [Opzioni di Slmgr.vbs per ottenere informazioni sull'attivazione dei contratti multilicenza](https://docs.microsoft.com/windows-server/get-started/activation-slmgr-vbs-options)
 - [Risolvere i codici di errore di attivazione di Windows](https://docs.microsoft.com/windows-server/get-started/activation-error-codes)
@@ -83,7 +83,7 @@ Questa sezione contiene gli argomenti e i collegamenti avanzati per la risoluzio
 - [Risoluzione dei problemi relativi ai server DNS](https://docs.microsoft.com/windows-server/networking/dns/troubleshoot/troubleshoot-dns-server)
 
 ## <a name="troubleshoot-failover-cluster"></a>Risolvere i problemi del cluster di failover
-- [Risoluzione dei problemi relativi a un cluster di Failover con Segnalazione errori Windows](https://docs.microsoft.com/windows-server/failover-clustering/troubleshooting-using-wer-reports)
+- [Risoluzione dei problemi relativi a un cluster di failover con Segnalazione errori Windows](https://docs.microsoft.com/windows-server/failover-clustering/troubleshooting-using-wer-reports)
 - [Aggiornamento compatibile con cluster-domande frequenti](https://docs.microsoft.com/windows-server/failover-clustering/cluster-aware-updating-faq)
 
 ## <a name="troubleshoot-fsrm"></a>Risolvere i problemi relativi a FSRM
@@ -137,7 +137,7 @@ Questa sezione contiene gli argomenti e i collegamenti avanzati per la risoluzio
 ## <a name="troubleshoot-shielded-vm"></a>Risolvere i problemi della macchina virtuale schermata
 - [Risolvere i problemi relativi alle macchine virtuali schermate](https://docs.microsoft.com/windows-server/security/guarded-fabric-shielded-vm/guarded-fabric-troubleshoot-shielded-vms)
 
-## <a name="troubleshoot-software-restriction-policies"></a>Risolvere i problemi relativi ai criteri di restrizione software
+## <a name="troubleshoot-software-restriction-policies"></a>Risoluzione dei problemi relativi ai criteri di restrizione software
 - [Risolvere i problemi relativi ai criteri di restrizione software](https://docs.microsoft.com/windows-server/identity/software-restriction-policies/troubleshoot-software-restriction-policies)
 
 ## <a name="troubleshoot-storage-migration"></a>Risolvere i problemi di migrazione dell'archiviazione

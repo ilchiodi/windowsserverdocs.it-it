@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/12/2016
-ms.openlocfilehash: de4d64e3dbe4bc7c7cba32f066a696636632224d
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 82d0ce962dfab0f7c9e5180e4b471894f507fb26
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71403723"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75950340"
 ---
 # <a name="what39s-new-for-managed-service-accounts"></a>&#39;Novità per gli account dei servizi gestiti
 
@@ -31,7 +31,7 @@ L'account del servizio gestito è progettato per fornire servizi e attività, ad
 ## <a name="versions"></a>Novità relative agli account del servizio gestiti in Windows Server 2012 e Windows 8
 Di seguito vengono descritte le modifiche apportate alle funzionalità di MSA in Windows Server 2012 e Windows 8.
 
-### <a name="group-managed-service-accounts"></a>Account del servizio gestito di gruppo
+### <a name="group-managed-service-accounts"></a>Account del servizio gestiti del gruppo
 Quando per un server in un dominio è configurato un account di dominio, il computer client può eseguire l'autenticazione e la connessione al servizio in questione. In precedenza, solo due tipi di account erano in grado di fornire l'identità senza richiedere la gestione delle password. Questi tipi di account presentano tuttavia alcune limitazioni:
 
 -   L'account del computer è limitato a un server di dominio e le password sono gestite dal computer
@@ -57,6 +57,6 @@ Per Windows Server 2012, per impostazione predefinita i cmdlet di Windows PowerS
 
 -   [Panoramica di Active Directory Domain Services](active-directory-domain-services-overview.md)
 
--   [Account del servizio gestiti: informazioni, implementazione, procedure consigliate e risoluzione dei problemi](http://blogs.technet.com/b/askds/archive/20../managed-service-accounts-understanding-implementing-best-practices-and-troubleshooting.aspx)
+-   [Account del servizio gestiti: informazioni, implementazione, procedure consigliate e risoluzione dei problemi](https://blogs.technet.com/b/askds/archive/20../managed-service-accounts-understanding-implementing-best-practices-and-troubleshooting.aspx)
 
 

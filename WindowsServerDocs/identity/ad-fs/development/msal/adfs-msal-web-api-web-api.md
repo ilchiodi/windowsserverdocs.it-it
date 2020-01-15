@@ -8,25 +8,25 @@ ms.date: 08/09/2019
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 106262b63b5aad0eddb08618eb808d2d9ff5b425
-ms.sourcegitcommit: b7f55949f166554614f581c9ddcef5a82fa00625
+ms.openlocfilehash: 9fb1b91ff389f6abacccaa7464276fc8556c11c5
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "71407805"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75948910"
 ---
 # <a name="scenario-web-api-calling-web-api-on-behalf-of-scenario"></a>Scenario: API Web che chiama l'API Web (per conto dello scenario) 
 > Si applica a: AD FS 2019 e versioni successive 
  
 Informazioni su come creare un'API Web che chiama un'altra API Web per conto dell'utente.  
  
-Prima di leggere questo articolo, è necessario avere familiarità con i [concetti ad FS](../ad-fs-openid-connect-oauth-concepts.md) e il [flusso Behalf_Of](../../overview/ad-fs-openid-connect-oauth-flows-scenarios.md#on-behalf-of-flow)
+Prima di leggere questo articolo, è necessario avere familiarità con i [concetti di ad FS](../ad-fs-openid-connect-oauth-concepts.md) e con [Behalf_Of Flow](../../overview/ad-fs-openid-connect-oauth-flows-scenarios.md#on-behalf-of-flow)
 
 ## <a name="overview"></a>Panoramica 
 
 
 - Un client (app Web), non rappresentato nel diagramma seguente, chiama un'API Web protetta e fornisce un bearer token JWT nell'intestazione http "Authorization". 
-- L'API Web protetta convalida il token e usa il  method [ACQUIRETOKENONBEHALFOF](https://docs.microsoft.com/en-us/dotnet/api/microsoft.identitymodel.clients.activedirectory.authenticationcontext.acquiretokenasync?view=azure-dotnet#Microsoft_IdentityModel_Clients_ActiveDirectory_AuthenticationContext_AcquireTokenAsync_System_String_Microsoft_IdentityModel_Clients_ActiveDirectory_ClientCredential_Microsoft_IdentityModel_Clients_ActiveDirectory_UserAssertion_) MSAL per richiedere (da ad FS) un altro token, in modo che possa chiamare una seconda API Web (denominata API Web downstream) per conto dell'utente. 
+- L'API Web protetta convalida il token e usa il metodo MSAL [AcquireTokenOnBehalfOf](https://docs.microsoft.com/dotnet/api/microsoft.identitymodel.clients.activedirectory.authenticationcontext.acquiretokenasync?view=azure-dotnet#Microsoft_IdentityModel_Clients_ActiveDirectory_AuthenticationContext_AcquireTokenAsync_System_String_Microsoft_IdentityModel_Clients_ActiveDirectory_ClientCredential_Microsoft_IdentityModel_Clients_ActiveDirectory_UserAssertion_) per richiedere (da ad FS) un altro token in modo che possa, a sua volta, chiamare una seconda API Web (denominata API Web downstream) per conto dell'utente. 
 - L'API Web protetta usa questo token per chiamare un'API downstream. Può anche chiamare AcquireTokenSilentlater per richiedere token per altre API downstream (ma ancora per conto dello stesso utente). Quando necessario, AcquireTokenSilent aggiorna il token.  
  
      ![informazioni generali](media/adfs-msal-web-api-web-api/webapi1.png)
@@ -37,7 +37,7 @@ Per comprendere meglio come configurare per conto dello scenario di autenticazio
 
 - Strumenti client di GitHub 
 - AD FS 2019 o versione successiva configurata e in esecuzione 
-- Visual Studio 2013 o versione successiva 
+- Visual Studio 2013 o versioni successive 
  
 ## <a name="app-registration-in-ad-fs"></a>Registrazione dell'app in AD FS 
 
@@ -47,23 +47,23 @@ Questa sezione illustra come registrare l'app nativa come client pubblico e API 
   
   2. Nella creazione guidata gruppo di applicazioni, per il **nome** immettere **WebApiToWebApi** e in **applicazioni client-server** selezionare l' **applicazione nativa che accede a un modello di API Web** . Fai clic su **Next**.
 
-      ![Registrazione dell'app](media/adfs-msal-web-api-web-api/webapi2.png)
+      ![Registrazione delle app](media/adfs-msal-web-api-web-api/webapi2.png)
 
-  3. Copia il **identificatore Client** valore. Verrà usato in un secondo momento come valore per **ClientID** nel file **app. config** dell'applicazione. Immettere quanto segue per l' **URI di reindirizzamento:**  -  https://ToDoListClient. Fai clic su **Aggiungi**. Fai clic su **Next**. 
+  3. Copia il **identificatore Client** valore. Verrà usato in un secondo momento come valore per **ClientID** nel file **app. config** dell'applicazione. Immettere quanto segue per l' **URI di reindirizzamento:**  - https://ToDoListClient. Fai clic su **Aggiungi**. Fai clic su **Next**. 
   
-      ![Registrazione dell'app](media/adfs-msal-web-api-web-api/webapi3.png)
+      ![Registrazione delle app](media/adfs-msal-web-api-web-api/webapi3.png)
   
   4. Nella schermata Configura API Web immettere l' **identificatore:** https://localhost:44321/. Fai clic su **Aggiungi**. Fai clic su **Next**. Questo valore verrà usato in un secondo momento nel file **app. config** e **Web.** config dell'applicazione.  
  
-      ![Registrazione dell'app](media/adfs-msal-web-api-web-api/webapi4.png)
+      ![Registrazione delle app](media/adfs-msal-web-api-web-api/webapi4.png)
 
   5. Nella schermata applica criteri di controllo di accesso selezionare **Consenti tutti gli utenti** e fare clic su **Avanti**. 
   
-      ![Registrazione dell'app](media/adfs-msal-web-api-web-api/webapi5.png)  
+      ![Registrazione delle app](media/adfs-msal-web-api-web-api/webapi5.png)  
 
   6. Nella schermata Configura autorizzazioni applicazione selezionare **OpenID** e **user_impersonation**. Fai clic su **Next**.  
   
-      ![Registrazione dell'app](media/adfs-msal-web-api-web-api/webapi6.png)  
+      ![Registrazione delle app](media/adfs-msal-web-api-web-api/webapi6.png)  
 
   7. Nella schermata Riepilogo fare clic su **Avanti**. 
 
@@ -72,7 +72,7 @@ Questa sezione illustra come registrare l'app nativa come client pubblico e API 
 
   9. In gestione AD FS fare clic su **gruppi di applicazioni** e selezionare gruppo di applicazioni **WebApiToWebApi** . Fare clic con il pulsante destro del mouse e selezionare **Proprietà**. 
   
-      ![Registrazione dell'app](media/adfs-msal-web-api-web-api/webapi7.png)  
+      ![Registrazione delle app](media/adfs-msal-web-api-web-api/webapi7.png)  
 
   10. Nella schermata delle proprietà di WebApiToWebApi fare clic su **Aggiungi applicazione.** 
   
@@ -142,12 +142,12 @@ Questa sezione illustra come registrare l'app nativa come client pubblico e API 
 
   29. Fare clic su OK in WebApiToWebApi-schermata delle proprietà dell'API Web
 
-  30. Nella schermata delle proprietà di WebApiToWebApi selezionare Seleziona WebApiToWebApi-API Web 2 e fare clic su modifica.</br> 
-   ![App reg ](media/adfs-msal-web-api-web-api/webapi22.png)
+  30. Nella schermata delle proprietà di WebApiToWebApi selezionare Seleziona WebApiToWebApi-API Web 2 e fare clic su modifica.</br>](media/adfs-msal-web-api-web-api/webapi22.png) reg app ![ 
+  
 
   31. Nella schermata delle proprietà di WebApiToWebApi-Web API 2 Selezionare la scheda regole di trasformazione rilascio e fare clic su Aggiungi regola... 
 
-  32. Nella procedura guidata Aggiungi regola attestazione di trasformazione selezionare Invia attestazioni mediante una regola personalizzata da dopdown e fare clic su Avanti ![App reg ](media/adfs-msal-web-api-web-api/webapi23.png)
+  32. Nella procedura guidata Aggiungi regola attestazione di trasformazione selezionare Invia attestazioni usando una regola personalizzata da dopdown e fare clic su Avanti ![app reg](media/adfs-msal-web-api-web-api/webapi23.png)
 
   33. Immettere PassAllClaims in nome regola attestazione: campo e **x: [] = > problema (Claim = x);** regola attestazione nel campo **regola personalizzata:** e fare clic su **fine**.  
    
@@ -164,7 +164,7 @@ Questa sezione illustra come configurare un'API Web per chiamare un'altra API We
   
   2. Aprire l'esempio con Visual Studio 
   
-  3. Aprire il file app. config. Modificare quanto segue: 
+  3. Aprire il file App.config. Modificare quanto segue: 
        - Ida: Authority-immettere https:///[nome host AD FS]/ADFS/
        - Ida: ClientID: immettere il valore da #3 nella registrazione dell'app nella sezione AD FS precedente. 
        - Ida: RedirectUri-immettere il valore da #3 in registrazione app nella sezione AD FS precedente. 

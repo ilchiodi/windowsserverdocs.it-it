@@ -8,12 +8,12 @@ ms.date: 05/08/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: networking
-ms.openlocfilehash: 1399ed6a50085baa37f06c09b8c3e18ca8bca98b
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 2e8e9e86f81596c85219c37c07d8fd2e95cc3a49
+ms.sourcegitcommit: 10331ff4f74bac50e208ba8ec8a63d10cfa768cc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71395711"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75953092"
 ---
 # <a name="accurate-time-for-windows-server-2016"></a>Ora esatta per Windows Server 2016
 
@@ -22,7 +22,7 @@ ms.locfileid: "71395711"
 Il servizio ora di Windows è un componente che utilizza un modello di plug-in per i provider di sincronizzazione dell'ora di client e server.  Sono disponibili due provider client predefiniti in Windows e sono disponibili plug-in di terze parti. Un provider USA [NTP (RFC 1305)](https://tools.ietf.org/html/rfc1305) o [MS-NTP](https://msdn.microsoft.com/library/cc246877.aspx) per sincronizzare l'ora di sistema locale con un server di riferimento compatibile con NTP e/o MS-NTP. L'altro provider per Hyper-V e sincronizza le macchine virtuali (VM) per l'host Hyper-V.  Quando esistono più provider, Windows sceglierà il provider migliore usando prima di tutto il livello di strato, seguito da ritardo radice, dispersione radice e offset ora finale.
 
 > [!NOTE]
-> Per una rapida panoramica del servizio ora di Windows, vedere questo [video introduttivo di alto livello](https://aka.ms/WS2016TimeVideo).
+> Per una rapida panoramica del servizio Ora di Windows, guardare questo [video con informazioni generali di alto livello](https://aka.ms/WS2016TimeVideo).
 
 In questo argomento verrà illustrato... questi argomenti sono correlati all'abilitazione dell'ora esatta: 
 
@@ -39,14 +39,14 @@ In questo argomento verrà illustrato... questi argomenti sono correlati all'abi
 ## <a name="domain-hierarchy"></a>Gerarchia di domini
 Le configurazioni di dominio e autonoma funzionano in modo diverso.
 
-- I membri del dominio utilizzano un protocollo NTP protetto che utilizza l'autenticazione per garantire la sicurezza e l'autenticità del riferimento all'ora.  I membri del dominio sincronizzare con un orologio master determinato dalla gerarchia di domini e un sistema di punteggio.  In un dominio, esiste un livello gerarchico di stratums di tempo, in base al quale ogni controller di dominio punta a un controller di dominio padre con un più accurato strato di tempo.  La gerarchia viene risolto il PDC o un controller di dominio nella foresta radice o un controller di dominio con il flag GTIMESERV di dominio, che indica un Server valido per il dominio.  Vedere il [specificare un locale affidabile ora servizio utilizzando GTIMESERV](#GTIMESERV) sezione riportata di seguito.
+- I membri del dominio utilizzano un protocollo NTP protetto che utilizza l'autenticazione per garantire la sicurezza e l'autenticità del riferimento all'ora.  I membri del dominio sincronizzare con un orologio master determinato dalla gerarchia di domini e un sistema di punteggio.  In un dominio, esiste un livello gerarchico di stratums di tempo, in base al quale ogni controller di dominio punta a un controller di dominio padre con un più accurato strato di tempo.  La gerarchia viene risolto il PDC o un controller di dominio nella foresta radice o un controller di dominio con il flag GTIMESERV di dominio, che indica un Server valido per il dominio.  Vedere la sezione [specificare un servizio ora affidabile locale usando GTIMESERV di seguito.
 
 - Computer autonomi sono configurati per utilizzare time.windows.com per impostazione predefinita.  Questo nome viene risolto dal server DNS, che dovrebbe puntare a una risorsa di proprietà di Microsoft.  Come tutti i riferimenti di tempo in modalità remota, interruzioni della rete possono impedire la sincronizzazione.  Carica il traffico di rete e i percorsi di rete asimmetrico possono ridurre la precisione della sincronizzazione del tempo.  Per un'accuratezza di 1 MS, non è possibile dipendere da origini temporali remote.
 
 Poiché gli utenti guest Hyper-V disporrà di almeno due provider ora di Windows tra cui scegliere l'host ora NTP, è possibile visualizzare diversi comportamenti con dominio o autonomo durante l'esecuzione come guest.
 
 > [!NOTE] 
-> Per ulteriori informazioni sulla gerarchia del dominio e sul sistema di assegnazione dei punteggi, vedere "informazioni sul [servizio ora di Windows".](https://blogs.msdn.microsoft.com/w32time/2007/07/07/what-is-windows-time-service/) Post di Blog.
+> Per ulteriori informazioni sulla gerarchia del dominio e sul sistema di assegnazione dei punteggi, vedere "informazioni sul [servizio ora di Windows".](https://blogs.msdn.microsoft.com/w32time/2007/07/07/what-is-windows-time-service/) .
 
 > [!NOTE]
 > Strato è un concetto utilizzato nel provider di NTP e Hyper-V e il relativo valore indica la posizione di orologi nella gerarchia.  Lo strato 1 è riservato per l'orologio di livello più alto, mentre lo strato 0 è riservato per l'hardware presumendo che sia accurato e a cui non è associato un ritardo.  2 strato di comunicare con server strato 1, strato 3 per strato 2 e così via.  Mentre un strato inferiore indica spesso un orologio più accurato, è possibile trovare le discrepanze.  Inoltre, W32time accetta solo ora dalla strato 15 o di sotto.  Per visualizzare lo strato di un client, utilizzare *w32tm /query /status*.

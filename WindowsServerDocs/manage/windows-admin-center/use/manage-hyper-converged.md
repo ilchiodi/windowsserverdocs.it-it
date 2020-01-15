@@ -8,12 +8,12 @@ ms.author: jol
 ms.date: 03/01/2019
 ms.localizationpriority: medium
 ms.prod: windows-server
-ms.openlocfilehash: d692251e1ba0fef43e4eeee6f259f26f4347f3c0
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 6795464bfbadd12fc220e941ad2175eb83d0f050
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71356878"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75949947"
 ---
 # <a name="manage-hyper-converged-infrastructure-with-windows-admin-center"></a>Gestire l'infrastruttura iperconvergente con l'interfaccia di amministrazione di Windows
 
@@ -27,11 +27,11 @@ L'infrastruttura iperconvergente consolida le risorse di calcolo, archiviazione 
 > Si vuole acquisire un'infrastruttura iperconvergente? Microsoft consiglia le soluzioni [software-defined di Windows Server](https://microsoft.com/wssd) dei partner. Sono progettati, assemblati e convalidati in base all'architettura di riferimento per garantire la compatibilità e l'affidabilità, per poter essere operativi rapidamente.
 
 > [!IMPORTANT]
-> Alcune delle funzionalità descritte in questo articolo sono disponibili solo nell'anteprima dell'interfaccia di amministrazione di Windows. [Ricerca per categorie ottenere questa versione?](http://aka.ms/windowsadmincenter)
+> Alcune delle funzionalità descritte in questo articolo sono disponibili solo nell'anteprima dell'interfaccia di amministrazione di Windows. [Ricerca per categorie ottenere questa versione?](https://aka.ms/windowsadmincenter)
 
-## <a name="what-is-windows-admin-center"></a>Che cos'è Windows Admin Center
+## <a name="what-is-windows-admin-center"></a>Che cos'è Windows Admin Center?
 
-L'interfaccia di [amministrazione di Windows](../understand/windows-admin-center.md) è lo strumento di gestione di prossima generazione per Windows Server, il successore per gli strumenti "in-box" tradizionali come server Manager. È gratuito e può essere installato e usato senza una connessione Internet. È possibile usare l'interfaccia di amministrazione di Windows per gestire e monitorare l'infrastruttura iperconvergente che esegue Windows Server 2016 o Windows Server 2019.
+L'interfaccia di [amministrazione di Windows](../overview.md) è lo strumento di gestione di prossima generazione per Windows Server, il successore per gli strumenti "in-box" tradizionali come server Manager. È gratuito e può essere installato e usato senza una connessione Internet. È possibile usare l'interfaccia di amministrazione di Windows per gestire e monitorare l'infrastruttura iperconvergente che esegue Windows Server 2016 o Windows Server 2019.
 
 ![Dashboard del cluster iperconvergente](../media/manage-hyper-converged/hci-dashboard-v1809.png)
 
@@ -57,7 +57,7 @@ Per gestire il cluster come infrastruttura iperconvergente nell'interfaccia di a
 
 L'interfaccia di amministrazione di Windows per l'infrastruttura iperconvergente dipende dalle API di Gestione aggiunte dopo il rilascio di Windows Server 2016. Prima di poter gestire il cluster Windows Server 2016 con l'interfaccia di amministrazione di Windows, è necessario eseguire i due passaggi seguenti:
 
-1. Verificare che in ogni server del cluster sia installato l' [aggiornamento cumulativo 2018-05 per Windows server 2016 (KB4103723)](https://support.microsoft.com/help/4103723/windows-10-update-kb4103723) o versione successiva. Per scaricare e installare questo aggiornamento, passare a **Impostazioni** > **Aggiorna & sicurezza** > **Windows Update** e selezionare **Controlla aggiornamenti online da Microsoft Update**.
+1. Verificare che in ogni server del cluster sia installato l' [aggiornamento cumulativo 2018-05 per Windows server 2016 (KB4103723)](https://support.microsoft.com/help/4103723/windows-10-update-kb4103723) o versione successiva. Per scaricare e installare questo aggiornamento, passare a **impostazioni** > **aggiorna & sicurezza** > **Windows Update** e selezionare **Controlla aggiornamenti online da Microsoft Update**.
 2. Eseguire il cmdlet di PowerShell seguente come amministratore nel cluster:
 
 ```powershell
@@ -76,7 +76,7 @@ Se il cluster esegue Windows Server 2019, i passaggi precedenti non sono necessa
 È possibile configurare l'infrastruttura iperconvergente che esegue Windows Server 2016 o 2019 per l'uso di SDN (Software Defined Networking) con i passaggi seguenti:
 
 1. Preparare il disco rigido virtuale del sistema operativo che è lo stesso sistema operativo installato negli host di infrastruttura iperconvergenti. Questo VHD verrà usato per tutte le macchine virtuali NC/SLB/GW.
-2. Scaricare tutte le cartelle e i file in SDN Express [https://github.com/Microsoft/SDN/tree/master/SDNExpress](https://github.com/Microsoft/SDN/tree/master/SDNExpress)da.
+2. Scaricare tutte le cartelle e i file in SDN Express dal [https://github.com/Microsoft/SDN/tree/master/SDNExpress](https://github.com/Microsoft/SDN/tree/master/SDNExpress).
 3. Preparare una macchina virtuale diversa usando la console di distribuzione. Questa macchina virtuale dovrebbe essere in grado di accedere agli host SDN. Inoltre, è necessario che nella macchina virtuale sia installato lo strumento Hyper-V di strumenti di amministrazione remota del server.
 4. Copiare tutti gli elementi scaricati per SDN Express nella VM della console di distribuzione. E condividono la cartella **SDNExpress** . Verificare che ogni host possa accedere alla cartella condivisa **SDNExpress** , come definito nel file di configurazione riga 8:
    ```
@@ -92,7 +92,7 @@ Se il cluster esegue Windows Server 2019, i passaggi precedenti non sono necessa
 
 La distribuzione può richiedere circa 30 – 45 minuti.
 
-## <a name="get-started"></a>Attività iniziali
+## <a name="get-started"></a>Per iniziare
 
 Una volta distribuita l'infrastruttura iperconvergente, è possibile gestirla usando l'interfaccia di amministrazione di Windows.
 
@@ -153,7 +153,7 @@ In generale, il termine "iperconvergente" si riferisce all'esecuzione di Hyper-V
 
 L'interfaccia di amministrazione di Windows per l'infrastruttura iperconvergente dipende dalle API di gestione sviluppate dopo il rilascio di Windows Server 2016. Queste API vengono aggiunte nell' [aggiornamento cumulativo 2018-05 per Windows Server 2016 (KB4103723)](https://support.microsoft.com/help/4103723/windows-10-update-kb4103723), disponibile a partire dall'8 maggio 2018.
 
-### <a name="how-much-does-it-cost-to-use-windows-admin-center"></a>Quanto costa utilizzare Windows Admin Center?
+### <a name="how-much-does-it-cost-to-use-windows-admin-center"></a>Quanto costa usare Windows Admin Center?
 
 Windows Admin Center non comporta costi aggiuntivi oltre a Windows.
 
@@ -169,7 +169,7 @@ No.
 
 Anche se l'interfaccia di amministrazione di Windows offre un'integrazione potente e comoda con la Microsoft Azure cloud, l'esperienza di gestione e monitoraggio di base per l'infrastruttura iperconvergente è completamente in locale. Può essere installato e usato senza una connessione Internet.
 
-## <a name="things-to-try"></a>Elementi da provare
+## <a name="things-to-try"></a>Possibili soluzioni
 
 Se si è appena iniziato, di seguito sono riportate alcune esercitazioni rapide che consentono di apprendere come organizzare e funzionare il centro di amministrazione di Windows per l'infrastruttura iperconvergente. Si consiglia di valutare con attenzione gli ambienti di produzione. Questi video sono stati registrati con l'interfaccia di amministrazione di Windows versione 1804 e una build di anteprima Insider di Windows Server 2019.
 
@@ -187,7 +187,7 @@ Se si è appena iniziato, di seguito sono riportate alcune esercitazioni rapide 
 <table>
     <tr style="border: 0;">
         <td style="padding: 5px; border: 0;">
-            <strong>Crea volume, mirroring a tre vie</strong>
+            <strong>Crea volume, mirror a tre vie</strong>
             <iframe width="375" height="210" src="https://www.youtube-nocookie.com/embed/o66etKq70N8" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen="allowfullscreen"></iframe>
         </td>
         <td style="padding: 5px; border: 0;">
@@ -207,12 +207,12 @@ Se si è appena iniziato, di seguito sono riportate alcune esercitazioni rapide 
     </tr>
     <tr style="border: 0;">
         <td style="padding: 5px; border: 0;">
-            <strong>Espandi volume</strong>
-            <iframe width="375" height="210" src="https://www.youtube-nocookie.com/embed/hqyBzipBoTI" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen="allowfullscreen"></iframe>
+            <strong>Espandi
+             volume</strong><iframe width="375" height="210" src="https://www.youtube-nocookie.com/embed/hqyBzipBoTI" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen="allowfullscreen"></iframe>
         </td>
         <td style="padding: 5px; border: 0;">
-            <strong>Elimina volume</strong>
-            <iframe width="375" height="210" src="https://www.youtube-nocookie.com/embed/DbjF8r2F6Jo" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen="allowfullscreen"></iframe>
+            <strong>Elimina
+             volume</strong><iframe width="375" height="210" src="https://www.youtube-nocookie.com/embed/DbjF8r2F6Jo" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen="allowfullscreen"></iframe>
         </td>
     </tr>
 </table>
@@ -223,7 +223,7 @@ Se si è appena iniziato, di seguito sono riportate alcune esercitazioni rapide 
 2. Nella parte superiore dello strumento macchine virtuali scegliere la scheda **inventario** , quindi fare clic su **nuova** per creare una nuova macchina virtuale.
 3. Immettere il nome della macchina virtuale e scegliere tra le macchine virtuali di prima e seconda generazione.
 4. È può quindi scegliere quale host creare inizialmente la macchina virtuale o usare l'host consigliato.
-5. Scegliere un percorso per i file della macchina virtuale. Scegliere un volume dall'elenco a discesa o fare clic su **Sfoglia** per scegliere una cartella tramite la selezione cartelle. I file di configurazione della macchina virtuale e il file del disco rigido virtuale verranno salvati in una singola `\Hyper-V\[virtual machine name]` cartella nel percorso del volume o del percorso selezionato.
+5. Scegliere un percorso per i file della macchina virtuale. Scegliere un volume dall'elenco a discesa o fare clic su **Sfoglia** per scegliere una cartella tramite la selezione cartelle. I file di configurazione della macchina virtuale e il file del disco rigido virtuale verranno salvati in una singola cartella nel percorso `\Hyper-V\[virtual machine name]` del volume o del percorso selezionato.
 6. Scegliere il numero di processori virtuali, se si desidera abilitare la virtualizzazione annidata, configurare le impostazioni della memoria, le schede di rete, i dischi rigidi virtuali e scegliere se installare un sistema operativo da un file di immagine ISO o dalla rete.
 7. Fare clic su **Crea** per creare la macchina virtuale.
 8. Dopo aver creato la macchina virtuale e averla visualizzata nell'elenco delle macchine virtuali, è possibile avviare la macchina virtuale.
@@ -284,11 +284,11 @@ Sono tutti i tuoi commenti e suggerimenti! Il vantaggio più importante degli ag
 
 - [Inviare e votare le richieste di funzionalità in UserVoice](https://windowsserver.uservoice.com/forums/295071/category/319162?query=%5Bhci%5D)
 - [Partecipa al forum di Windows Admin Center su Microsoft Tech community](https://techcommunity.microsoft.com/t5/Windows-Server-Management/bd-p/WindowsServerManagement)
-- Invia un tweet a`@servermgmt`
+- Da Tweet a `@servermgmt`
 
-### <a name="see-also"></a>Vedere anche
+### <a name="see-also"></a>Vedi anche
 
-- [Windows Admin Center](../understand/windows-admin-center.md)
+- [Windows Admin Center](../overview.md)
 - [Spazi di archiviazione diretta](https://docs.microsoft.com/windows-server/storage/storage-spaces/storage-spaces-direct-overview)
 - [Hyper-V](https://docs.microsoft.com/windows-server/virtualization/hyper-v/hyper-v-on-windows-server)
 - [SDN (Software Defined Networking)](https://docs.microsoft.com/windows-server/networking/sdn/software-defined-networking)

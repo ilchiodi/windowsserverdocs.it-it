@@ -8,12 +8,12 @@ ms.author: niwashbu
 ms.localizationpriority: medium
 ms.prod: windows-server
 ms.date: 12/02/2019
-ms.openlocfilehash: d4046cc10a5e0fdc12cfb9587eef10d4263c2ddd
-ms.sourcegitcommit: 7c7fc443ecd0a81bff6ed6dbeeaf4f24582ba339
+ms.openlocfilehash: 503cd64cac0673829fe21bc15e8ad9d6a83bbb15
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/07/2019
-ms.locfileid: "74904025"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75950510"
 ---
 # <a name="what-type-of-installation-is-right-for-you"></a>Che tipo di installazione è adatto alle tue esigenze?
 
@@ -54,14 +54,14 @@ Microsoft Edge (incluso [Microsoft Edge Insider](https://microsoftedgeinsider.co
 
 È possibile **gestire** i sistemi operativi Windows seguenti usando l'interfaccia di amministrazione di Windows:
 
-| Versione | Gestisci *nodo* tramite *Server Manager* | Gestire tramite *Gestione cluster* |
+| Version | Gestisci *nodo* tramite *Server Manager* | Gestire tramite *Gestione cluster* |
 | ------------------------- |--------------- | ----- |
 | Windows 10 | Sì (tramite Gestione computer) | N/D |
 | Canale semestrale Windows Server | Sì | Sì |
 | Windows Server 2019 | Sì | Sì |
 | Windows Server 2016 | Sì | Sì, con l' [aggiornamento cumulativo più recente](../use/manage-hyper-converged.md#prepare-your-windows-server-2016-cluster-for-windows-admin-center) |
 | Microsoft Hyper-V Server 2016 | Sì | Sì |
-| Windows Server 2012 R2 | Sì | Sì |
+| Windows Server 2012 R2 | Sì | Sì |
 | Microsoft Hyper-V Server 2012 R2 | Sì | Sì |
 | Windows Server 2012 | Sì | Sì |
 | Windows Server 2008 R2 | Sì, funzionalità limitate | N/D |
@@ -71,9 +71,9 @@ Microsoft Edge (incluso [Microsoft Edge Insider](https://microsoftedgeinsider.co
 > 
 > Digita `$PSVersiontable` in PowerShell per verificare che WMF 5.1 o versione successiva sia installato. 
 > 
-> Se WMF non è installato, è possibile [scaricare wmf 5,1](https://www.microsoft.com/en-us/download/details.aspx?id=54616).
+> Se WMF non è installato, è possibile [scaricare wmf 5,1](https://www.microsoft.com/download/details.aspx?id=54616).
 
-## <a name="high-availability"></a>Disponibilità elevata
+## <a name="high-availability"></a>Elevata disponibilità
 
 È possibile abilitare la disponibilità elevata del servizio gateway distribuendo l'interfaccia di amministrazione di Windows in un modello attivo-passivo in un cluster di failover. Se si verifica un errore in uno dei nodi del cluster, l'interfaccia di amministrazione di Windows esegue correttamente il failover su un altro nodo, consentendo di continuare a gestire i server nell'ambiente in modo uniforme.
 

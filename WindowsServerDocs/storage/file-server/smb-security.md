@@ -8,12 +8,12 @@ ms.author: jgerend
 ms.technology: storage
 ms.date: 07/09/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: 7221d3ea94ff9f2d7fca8e95cee66597e2dc6270
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: d7b96574dcfc2a4417aa36780d7bd87c2556f61f
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71402063"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75950266"
 ---
 # <a name="smb-security-enhancements"></a>Miglioramenti della sicurezza SMB
 
@@ -86,11 +86,11 @@ La funzionalità di negoziazione del dialetto sicuro descritta nella sezione suc
 
 SMB 3,0 è in grado di rilevare attacchi man-in-the-Middle che tentano di effettuare il downgrade del protocollo SMB 2,0 o SMB 3,0 o delle funzionalità negoziate dal client e dal server. Quando il client o il server rileva un attacco di questo tipo, la connessione viene disconnessa e viene registrato l'ID evento 1005 nel registro eventi Microsoft-Windows-SmbServer/Operational. La negoziazione del dialetto sicuro non è in grado di rilevare o impedire il downgrade da SMB 2,0 o 3,0 a SMB 1,0. Per questo motivo, e per sfruttare le funzionalità complete della crittografia SMB, è consigliabile disabilitare il server SMB 1,0. Per ulteriori informazioni, vedere la pagina relativa alla [disabilitazione di SMB 1,0](#disabling-smb-10).
 
-La funzionalità di negoziazione del dialetto sicuro descritta nella sezione successiva impedisce a un attacco man-in-the-Middle di effettuare il downgrade di una connessione da SMB 3 a SMB 2 (che utilizzerebbe l'accesso non crittografato); Tuttavia, non impedisce il downgrade a SMB 1, che comporta anche l'accesso non crittografato. Per ulteriori informazioni sui potenziali problemi con le precedenti implementazioni non Windows di SMB, vedere la [Microsoft Knowledge base](http://support.microsoft.com/kb/2686098).
+La funzionalità di negoziazione del dialetto sicuro descritta nella sezione successiva impedisce a un attacco man-in-the-Middle di effettuare il downgrade di una connessione da SMB 3 a SMB 2 (che utilizzerebbe l'accesso non crittografato); Tuttavia, non impedisce il downgrade a SMB 1, che comporta anche l'accesso non crittografato. Per ulteriori informazioni sui potenziali problemi con le precedenti implementazioni non Windows di SMB, vedere la [Microsoft Knowledge base](https://support.microsoft.com/kb/2686098).
 
 ## <a name="new-signing-algorithm"></a>Nuovo algoritmo di firma
 
-SMB 3,0 usa un algoritmo di crittografia più recente per la firma: Advanced Encryption Standard (AES)-codice di autenticazione messaggi basato su crittografia (CMAC). SMB 2,0 ha utilizzato l'algoritmo di crittografia HMAC-SHA256 meno recente. AES-CMAC e AES-CCM possono accelerare significativamente la crittografia dei dati sulle CPU più moderne con supporto per le istruzioni AES. Per ulteriori informazioni, vedere [le nozioni di base sulla firma SMB](https://blogs.technet.microsoft.com/josebda/2010/12/01/the-basics-of-smb-signing-covering-both-smb1-and-smb2/).
+SMB 3,0 utilizza un algoritmo di crittografia più recente per la firma: Advanced Encryption Standard (AES)-basato su crittografia dei messaggi (CMAC). SMB 2,0 ha utilizzato l'algoritmo di crittografia HMAC-SHA256 meno recente. AES-CMAC e AES-CCM possono accelerare significativamente la crittografia dei dati sulle CPU più moderne con supporto per le istruzioni AES. Per ulteriori informazioni, vedere [le nozioni di base sulla firma SMB](https://blogs.technet.microsoft.com/josebda/2010/12/01/the-basics-of-smb-signing-covering-both-smb1-and-smb2/).
 
 ## <a name="disabling-smb-10"></a>Disabilitazione di SMB 1,0
 

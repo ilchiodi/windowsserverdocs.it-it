@@ -7,12 +7,12 @@ audience: ITPro
 ms.topic: article
 ms.author: delhan
 ms.date: 12/25/2019
-ms.openlocfilehash: 88f707cc02514dc13c212c6462c47e4d3a94b5f5
-ms.sourcegitcommit: 8cf04db0bc44fd98f4321dca334e38c6573fae6c
+ms.openlocfilehash: 433221f9846e9e071557b5537974b5739131742b
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75654582"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75949690"
 ---
 # <a name="advanced-troubleshooting-server-message-block-smb"></a>Funzionalità avanzate di risoluzione dei problemi di Server Message Block (SMB)
 
@@ -158,7 +158,7 @@ Il client SMB e il server SMB hanno una struttura dettagliata del registro event
 
 ## <a name="smb-related-system-files"></a>File di sistema correlati a SMB
 
-Questa sezione elenca i file di sistema correlati a SMB. Per aggiornare i file di sistema, verificare che sia installato l' [aggiornamento cumulativo](https://support.microsoft.com/en-us/help/4498140/windows-10-update-history) più recente.
+Questa sezione elenca i file di sistema correlati a SMB. Per aggiornare i file di sistema, verificare che sia installato l' [aggiornamento cumulativo](https://support.microsoft.com/help/4498140/windows-10-update-history) più recente.
 
 Binari client SMB elencati in **% windir%\\system32\\driver**:
 

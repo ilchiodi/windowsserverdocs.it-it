@@ -8,14 +8,14 @@ ms.date: 08/09/2019
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 870dbb4303d216f05bc372610f3121ff08fc8c25
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: f28e5feccb7544046104658585ab3f739f659957
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71407846"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75949500"
 ---
-# <a name="scenario-web-app-server-app-calling-web-api"></a>Scenario: App Web (app Server) che chiama l'API Web 
+# <a name="scenario-web-app-server-app-calling-web-api"></a>Scenario: app Web (app Server) che chiama l'API Web 
 >Si applica a: AD FS 2019 e versioni successive 
  
 Informazioni su come creare un'app Web per l'accesso degli utenti autenticati da AD FS 2019 e l'acquisizione di token tramite la [libreria MSAL](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki) per chiamare le API Web.  
@@ -26,7 +26,7 @@ Prima di leggere questo articolo, è necessario avere familiarità con i [concet
  
 ![Panoramica dell'API Web per la chiamata di app Web](media/adfs-msal-web-app-web-api/webapp1.png)
 
-In questo flusso si aggiunge l'autenticazione all'app Web (app Server), che può quindi accedere agli utenti e chiama un'API Web. Dall'app Web, per chiamare l'API Web, usare il metodo di acquisizione dei token [AcquireTokenByAuthorizationCode](https://docs.microsoft.com/en-us/dotnet/api/microsoft.identity.client.acquiretokenbyauthorizationcodeparameterbuilder?view=azure-dotnet) di MSAL. Si userà il flusso del codice di autorizzazione, archiviando il token acquisito nella cache dei token. Il controller acquisirà i token automaticamente dalla cache quando necessario. Se necessario, MSAL aggiorna il token. 
+In questo flusso si aggiunge l'autenticazione all'app Web (app Server), che può quindi accedere agli utenti e chiama un'API Web. Dall'app Web, per chiamare l'API Web, usare il metodo di acquisizione dei token [AcquireTokenByAuthorizationCode](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.acquiretokenbyauthorizationcodeparameterbuilder?view=azure-dotnet) di MSAL. Si userà il flusso di codice di autorizzazione, archiviando il token acquisito nella cache dei token. Il controller acquisirà quindi i token automaticamente dalla cache all'occorrenza. Se necessario, MSAL aggiorna il token. 
 
 App Web che chiamano API Web: 
 
@@ -41,25 +41,25 @@ Per comprendere meglio come registrare un'app Web in ADFS e configurarla per l'a
 
 - Strumenti client di GitHub 
 - AD FS 2019 o versione successiva configurata e in esecuzione 
-- Visual Studio 2013 o versione successiva 
+- Visual Studio 2013 o versioni successive 
  
 ## <a name="app-registration-in-ad-fs"></a>Registrazione dell'app in AD FS 
 Questa sezione illustra come registrare l'app Web come un client e un'API Web riservati come relying party (RP) in AD FS. 
 
   1. In gestione AD FS fare clic con il pulsante destro del mouse su **gruppi di applicazioni** e selezionare **Aggiungi gruppo di applicazioni**.  
-  2. Nella creazione guidata gruppo di applicazioni, per il **nome** immettere **WebAppToWebApi** e in **applicazioni client-server** selezionare l' **applicazione server che accede a un modello di API Web** . Fare clic su **Avanti**.  
+  2. Nella creazione guidata gruppo di applicazioni, per il **nome** immettere **WebAppToWebApi** e in **applicazioni client-server** selezionare l' **applicazione server che accede a un modello di API Web** . Fai clic su **Next**.  
   
       ![Aggiungi gruppo di applicazioni](media/adfs-msal-web-app-web-api/webapp2.png)
   
-  3. Copia il **identificatore Client** valore. Verrà usato in un secondo momento come valore per **Ida: ClientID** nel file **Web. config** delle applicazioni. Immettere quanto segue per l' **URI di reindirizzamento:**  - https://localhost:44326. Fai clic su Aggiungi. Fare clic su **Avanti**. 
+  3. Copia il **identificatore Client** valore. Verrà usato in un secondo momento come valore per **Ida: ClientID** nel file **Web. config** delle applicazioni. Immettere quanto segue per l' **URI di reindirizzamento:**  - https://localhost:44326. Fai clic su Aggiungi. Fai clic su **Next**. 
   
       ![Aggiungi gruppo di applicazioni](media/adfs-msal-web-app-web-api/webapp3.png)
   
-  4. Nella schermata Configura credenziali applicazione inserire un segno di spunta in **genera un segreto condiviso** e copiare il segreto. Che verrà usato in un secondo momento come valore per **Ida: ClientSecret** nel file **Web. config** delle applicazioni. Fare clic su **Avanti**.  
+  4. Nella schermata Configura credenziali applicazione inserire un segno di spunta in **genera un segreto condiviso** e copiare il segreto. Che verrà usato in un secondo momento come valore per **Ida: ClientSecret** nel file **Web. config** delle applicazioni. Fai clic su **Next**.  
   
       ![Aggiungi gruppo di applicazioni](media/adfs-msal-web-app-web-api/webapp4.png)
   
-  5. Nella schermata Configura API Web immettere l' **identificatore:** https://webapi. Fai clic su **Aggiungi**. Fare clic su **Avanti**. Questo valore verrà usato in un secondo momento per **Ida: GraphResourceId** nel file **Web. config** delle applicazioni. 
+  5. Nella schermata Configura API Web immettere l' **identificatore:** https://webapi. Fai clic su **Aggiungi**. Fai clic su **Next**. Questo valore verrà usato in un secondo momento per **Ida: GraphResourceId** nel file **Web. config** delle applicazioni. 
   
       ![Aggiungi gruppo di applicazioni](media/adfs-msal-web-app-web-api/webapp5.png)
   

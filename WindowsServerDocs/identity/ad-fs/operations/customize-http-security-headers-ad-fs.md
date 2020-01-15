@@ -9,19 +9,19 @@ ms.date: 02/19/2019
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 0685e0935a031b2f73474d59b025b70fc735902d
-ms.sourcegitcommit: 73898afec450fb3c2f429ca373f6b48a74b19390
+ms.openlocfilehash: 7fd06c06a2ea7af93b87c471f77b788ac51bddac
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71935038"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75949212"
 ---
 # <a name="customize-http-security-response-headers-with-ad-fs-2019"></a>Personalizzare le intestazioni di risposta di sicurezza HTTP con AD FS 2019 
  
 Per proteggersi da vulnerabilità di sicurezza comuni e fornire agli amministratori la possibilità di sfruttare i miglioramenti più recenti dei meccanismi di protezione basati su browser, AD FS 2019 ha aggiunto la funzionalità per personalizzare le intestazioni di risposta di sicurezza HTTP inviato dal AD FS. Questa operazione viene eseguita tramite l'introduzione di due nuovi cmdlet: `Get-AdfsResponseHeaders` e `Set-AdfsResponseHeaders`.  
 
 >[!NOTE]
->La funzionalità per personalizzare le intestazioni di risposta di sicurezza http (eccetto le intestazioni CORS) tramite `Get-AdfsResponseHeaders` i `Set-AdfsResponseHeaders` cmdlet di: ed è stata sottoposta a backporting a ad FS 2016. È possibile aggiungere la funzionalità alla AD FS 2016 installando [KB4493473](https://support.microsoft.com/en-us/help/4493473/windows-10-update-kb4493473) e [KB4507459](https://support.microsoft.com/en-us/help/4507459/windows-10-update-kb4507459). 
+>Funzionalità per personalizzare le intestazioni di risposta di sicurezza HTTP (eccetto le intestazioni CORS) tramite i cmdlet: `Get-AdfsResponseHeaders` e `Set-AdfsResponseHeaders` sono state sottoposte a backporting AD FS 2016. È possibile aggiungere la funzionalità alla AD FS 2016 installando [KB4493473](https://support.microsoft.com/help/4493473/windows-10-update-kb4493473) e [KB4507459](https://support.microsoft.com/help/4507459/windows-10-update-kb4507459). 
 
 In questo documento vengono illustrate le intestazioni di risposta di sicurezza usate di frequente per dimostrare come personalizzare le intestazioni inviate da AD FS 2019.   
  
@@ -40,11 +40,11 @@ Prima di illustrare le intestazioni, verranno esaminati alcuni scenari in cui vi
 
  
 ## <a name="http-security-response-headers"></a>Intestazioni di risposta di sicurezza HTTP 
-Le intestazioni di risposta sono incluse nella risposta HTTP in uscita inviata da AD FS a un Web browser. È possibile elencare le intestazioni usando `Get-AdfsResponseHeaders` il cmdlet come illustrato di seguito.  
+Le intestazioni di risposta sono incluse nella risposta HTTP in uscita inviata da AD FS a un Web browser. Le intestazioni possono essere elencate utilizzando il cmdlet `Get-AdfsResponseHeaders` come illustrato di seguito.  
 
 ![Risposta intestazione](media/customize-http-security-headers-ad-fs/header1.png)
 
-L' `ResponseHeaders` attributo nella schermata precedente identifica le intestazioni di sicurezza che verranno incluse ad FS in ogni risposta http. Le intestazioni di risposta verranno inviate solo se `ResponseHeadersEnabled` è impostato su `True` (valore predefinito). Il valore può essere impostato `False` su per evitare che ad FS includa le intestazioni di sicurezza nella risposta http. Questa operazione non è tuttavia consigliata.  A tale scopo, utilizzare quanto segue:
+L'attributo `ResponseHeaders` nella schermata precedente identifica le intestazioni di sicurezza che verranno incluse AD FS in ogni risposta HTTP. Le intestazioni di risposta verranno inviate solo se `ResponseHeadersEnabled` è impostato su `True` (valore predefinito). Il valore può essere impostato su `False` per impedire AD FS incluse le intestazioni di sicurezza nella risposta HTTP. Questa operazione non è tuttavia consigliata.  A tale scopo, utilizzare quanto segue:
 
 ```PowerShell
 Set-AdfsResponseHeaders -EnableResponseHeaders $false
@@ -55,11 +55,11 @@ HSTS è un meccanismo di criteri di sicurezza Web che consente di attenuare gli 
  
 Tutti gli endpoint AD FS per il traffico di autenticazione Web vengono aperti esclusivamente tramite HTTPS. Di conseguenza, AD FS Attenua efficacemente le minacce fornite dal meccanismo del criterio di sicurezza del trasporto HTTP Strict (per impostazione predefinita, non esiste alcun downgrade a HTTP poiché non sono presenti listener in HTTP). L'intestazione può essere personalizzata impostando i parametri seguenti:
  
-- **Max-Age =&lt;expire-time&gt;**  : la scadenza (in secondi) specifica per quanto tempo il sito deve essere accessibile solo tramite HTTPS. Il valore predefinito e consigliato è 31536000 secondi (1 anno).  
+- **Max-Age =&lt;scadenza-ora&gt;** : la scadenza (in secondi) specifica per quanto tempo il sito deve essere accessibile solo tramite HTTPS. Il valore predefinito e consigliato è 31536000 secondi (1 anno).  
 - **includeSubDomains** : parametro facoltativo. Se specificato, la regola HSTS si applica anche a tutti i sottodomini.  
  
 #### <a name="hsts-customization"></a>Personalizzazione di HSTS 
-Per impostazione predefinita, l'intestazione è abilitata e `max-age` impostata su 1 anno. Tuttavia, gli amministratori possono modificare il valore (riduzione della `max-age` validità massima non consigliata) o abilitare HSTS per i sottodomini `Set-AdfsResponseHeaders` tramite il cmdlet.  
+Per impostazione predefinita, l'intestazione è abilitata e `max-age` impostata su 1 anno; Tuttavia, gli amministratori possono modificare la `max-age` (non è consigliabile abbassare il valore max-age) o abilitare HSTS per i sottodomini tramite il cmdlet `Set-AdfsResponseHeaders`.  
  
 ```PowerShell
 Set-AdfsResponseHeaders -SetHeaderName "Strict-Transport-Security" -SetHeaderValue "max-age=<seconds>; includeSubDomains" 
@@ -71,7 +71,7 @@ Esempio:
 Set-AdfsResponseHeaders -SetHeaderName "Strict-Transport-Security" -SetHeaderValue "max-age=31536000; includeSubDomains" 
  ```
 
-Per impostazione predefinita, l'intestazione è inclusa nell' `ResponseHeaders` attributo. gli amministratori possono tuttavia rimuovere l'intestazione tramite il `Set-AdfsResponseHeaders` cmdlet.  
+Per impostazione predefinita, l'intestazione è inclusa nell'attributo `ResponseHeaders`; Tuttavia, gli amministratori possono rimuovere l'intestazione tramite il cmdlet `Set-AdfsResponseHeaders`.  
  
 ```PowerShell
 Set-AdfsResponseHeaders -RemoveHeaders "Strict-Transport-Security" 
@@ -82,14 +82,14 @@ AD FS per impostazione predefinita non consente alle applicazioni esterne di uti
  
 Tuttavia, in alcuni casi rari è possibile considerare attendibile un'applicazione specifica che richiede la pagina di accesso interattiva abilitata per iFrame AD FS. A questo scopo viene utilizzata l'intestazione ' X-frame-options '.  
  
-Questa intestazione della risposta di sicurezza http viene usata per comunicare con il browser se può eseguire il rendering di &lt;una&gt;pagina&gt;in un iframe frame/&lt;. L'intestazione può essere impostata su uno dei valori seguenti: 
+Questa intestazione della risposta di sicurezza HTTP viene usata per comunicare con il browser se può eseguire il rendering di una pagina in un frame &lt;&gt;/&lt;iframe&gt;. L'intestazione può essere impostata su uno dei valori seguenti: 
  
 - **Deny** : la pagina in un frame non verrà visualizzata. Si tratta dell'impostazione predefinita e consigliata.  
 - **SAMEORIGIN** : la pagina verrà visualizzata nel frame solo se l'origine è la stessa dell'origine della pagina Web. L'opzione non è molto utile a meno che tutti i predecessori si trovino anche nella stessa origine.  
-- **allow-from <specified origin>**  : la pagina verrà visualizzata solo nel frame se l'origine (ad esempio, https://www. ". com) corrisponde all'origine specifica nell'intestazione. 
+- **Consenti-da <specified origin>** : la pagina verrà visualizzata solo nel frame se l'origine, ad esempio https://www. ". com) corrisponde all'origine specifica nell'intestazione. 
 
 #### <a name="x-frame-options-customization"></a>Personalizzazione X-frame-options  
-Per impostazione predefinita, l'intestazione verrà impostata su Nega; Tuttavia, gli amministratori possono modificare il valore tramite il `Set-AdfsResponseHeaders` cmdlet.  
+Per impostazione predefinita, l'intestazione verrà impostata su Nega; Tuttavia, gli amministratori possono modificare il valore tramite il cmdlet `Set-AdfsResponseHeaders`.  
 ```PowerShell
 Set-AdfsResponseHeaders -SetHeaderName "X-Frame-Options" -SetHeaderValue "<deny/sameorigin/allow-from<specified origin>>" 
  ```
@@ -100,7 +100,7 @@ Esempio:
 Set-AdfsResponseHeaders -SetHeaderName "X-Frame-Options" -SetHeaderValue "allow-from https://www.example.com" 
  ```
 
-Per impostazione predefinita, l'intestazione è inclusa nell' `ResponseHeaders` attributo. gli amministratori possono tuttavia rimuovere l'intestazione tramite il `Set-AdfsResponseHeaders` cmdlet.  
+Per impostazione predefinita, l'intestazione è inclusa nell'attributo `ResponseHeaders`; Tuttavia, gli amministratori possono rimuovere l'intestazione tramite il cmdlet `Set-AdfsResponseHeaders`.  
 
 ```PowerShell
 Set-AdfsResponseHeaders -RemoveHeaders "X-Frame-Options" 
@@ -109,12 +109,12 @@ Set-AdfsResponseHeaders -RemoveHeaders "X-Frame-Options"
 ### <a name="x-xss-protection"></a>X-XSS-Protection 
 Questa intestazione della risposta di sicurezza HTTP viene utilizzata per arrestare il caricamento delle pagine Web quando vengono rilevati attacchi di scripting tra siti (XSS) dai browser. Questa operazione viene definita filtro XSS. L'intestazione può essere impostata su uno dei valori seguenti:
  
-- **0** : Disabilita il filtro XSS. Non consigliato.  
+- **0** : Disabilita il filtro XSS. Sconsigliato.  
 - **1** : Abilita il filtro XSS. Se viene rilevato un attacco XSS, la pagina verrà purificata dal browser.   
 - **1; mode = block** : Abilita il filtro XSS. Se viene rilevato un attacco XSS, il browser eviterà il rendering della pagina. Si tratta dell'impostazione predefinita e consigliata.  
 
 #### <a name="x-xss-protection-customization"></a>Personalizzazione X-XSS-Protection 
-Per impostazione predefinita, l'intestazione verrà impostata su 1; Mode = blocco; Tuttavia, gli amministratori possono modificare il valore tramite `Set-AdfsResponseHeaders` il cmdlet.  
+Per impostazione predefinita, l'intestazione verrà impostata su 1; Mode = blocco; Tuttavia, gli amministratori possono modificare il valore tramite il cmdlet `Set-AdfsResponseHeaders`.  
 
 ```PowerShell
 Set-AdfsResponseHeaders -SetHeaderName "X-XSS-Protection" -SetHeaderValue "<0/1/1; mode=block/1; report=<reporting-uri>>" 
@@ -126,14 +126,14 @@ Esempio:
 Set-AdfsResponseHeaders -SetHeaderName "X-XSS-Protection" -SetHeaderValue "1" 
  ```
 
-Per impostazione predefinita, l'intestazione è inclusa nell' `ResponseHeaders` attributo. Tuttavia, gli amministratori possono rimuovere l'intestazione tramite il `Set-AdfsResponseHeaders` cmdlet. 
+Per impostazione predefinita, l'intestazione è inclusa nell'attributo `ResponseHeaders`; Tuttavia, gli amministratori possono rimuovere l'intestazione tramite il cmdlet `Set-AdfsResponseHeaders`. 
 
 ```PowerShell
 Set-AdfsResponseHeaders -RemoveHeaders "X-XSS-Protection" 
 ```
 
 ### <a name="cross-origin-resource-sharing-cors-headers"></a>Intestazioni di condivisione risorse tra le origini (CORS) 
-Web browser sicurezza impedisce a una pagina Web di effettuare richieste tra le origini dall'interno degli script. Tuttavia, a volte potrebbe essere necessario accedere alle risorse in altre origini (domini). CORS è uno standard W3C che consente a un server di ridurre i criteri della stessa origine. Usando CORS, un server può consentire in modo esplicito alcune richieste tra origini e rifiutare altre.  
+Web browser sicurezza impedisce a una pagina Web di effettuare richieste tra le origini dall'interno degli script. Tuttavia, a volte potrebbe essere necessario accedere alle risorse in altre origini (domini). CORS è uno standard W3C che consente a un server di ridurre i criteri della stessa origine. Con CORS un server può consentire in modo esplicito alcune richieste multiorigine e rifiutarne altre.  
  
 Per comprendere meglio la richiesta CORS, viene illustrato uno scenario in cui un'applicazione a pagina singola (SPA) deve chiamare un'API Web con un dominio diverso. Inoltre, si consideri che l'API e la SPA sono configurate in ADFS 2019 e AD FS è abilitato CORS, ad esempio AD FS possibile identificare le intestazioni CORS nella richiesta HTTP, convalidare i valori di intestazione e includere le intestazioni CORS appropriate nella risposta (informazioni dettagliate su come abilitare e configurare CORS in AD FS 2019 nella sezione relativa alla personalizzazione di CORS riportata di seguito). Flusso di esempio: 
 
@@ -183,7 +183,7 @@ La personalizzazione dell'intestazione CSP comporta la modifica dei criteri di s
  
 La direttiva **default-src** viene usata per modificare le [direttive-src](https://developer.mozilla.org/docs/Web/HTTP/Headers/Content-Security-Policy/default-src) senza elencare in modo esplicito ogni direttiva. Nell'esempio seguente, ad esempio, il criterio 1 corrisponde al criterio 2.  
 
-Criteri 1 
+Criterio 1 
 ```PowerShell
 Set-AdfsResponseHeaders -SetHeaderName "Content-Security-Policy" -SetHeaderValue "default-src 'self'" 
 ```
@@ -205,7 +205,7 @@ Set-AdfsResponseHeaders -SetHeaderName "Content-Security-Policy" -SetHeaderValue
 - ' unsafe-inline ': se si specifica questo criterio, è possibile usare JavaScript e CSS inline 
 - ' unsafe-eval ': se si specifica questo criterio, è possibile usare il testo per i meccanismi JavaScript come EVAL 
 - ' none ': se si specifica questo valore, il contenuto di qualsiasi origine da caricare verrà limitato 
-- dati:-specifica dei dati: URI consente agli autori di contenuti di incorporare piccoli file inline nei documenti. Utilizzo non consigliato.  
+- Data:-specifica dei dati: gli URI consentono agli autori di contenuti di incorporare piccoli file inline nei documenti. Utilizzo non consigliato.  
  
 >[!NOTE]
 >AD FS usa JavaScript nel processo di autenticazione e pertanto Abilita JavaScript includendo le origini ' unsafe-inline ' è unsafe-eval ' nei criteri predefiniti.  
@@ -213,7 +213,7 @@ Set-AdfsResponseHeaders -SetHeaderName "Content-Security-Policy" -SetHeaderValue
 ### <a name="custom-headers"></a>Intestazioni personalizzate 
 Oltre alle intestazioni di risposta di sicurezza elencate in precedenza (HSTS, CSP, X-frame-options, X-XSS-Protection e CORS), AD FS 2019 fornisce la possibilità di impostare nuove intestazioni.  
  
-Esempio: Per impostare una nuova intestazione "TestHeader" con il valore "TestHeaderValue" 
+Esempio: per impostare una nuova intestazione "TestHeader" con il valore "TestHeaderValue" 
 
 ```PowerShell
 Set-AdfsResponseHeaders -SetHeaderName "TestHeader" -SetHeaderValue "TestHeaderValue" 
@@ -230,7 +230,7 @@ Utilizzare la tabella e i collegamenti seguenti per determinare quali Web browse
 |-----|-----|
 |HTTP Strict-Transport-Security (HSTS)|[Compatibilità del browser HSTS](https://developer.mozilla.org/docs/Web/HTTP/Headers/Strict-Transport-Security#Browser_compatibility)|
 |X-frame-options|[Compatibilità del browser X-frame-options](https://developer.mozilla.org/docs/Web/HTTP/Headers/X-Frame-Options#Browser_compatibility)| 
-|X-XSS-Protection|[Compatibilità del browser X-XSS-Protection](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-XSS-Protection#Browser_compatibility)| 
+|X-XSS-Protection|[Compatibilità del browser X-XSS-Protection](https://developer.mozilla.org/docs/Web/HTTP/Headers/X-XSS-Protection#Browser_compatibility)| 
 |Condivisione risorse tra le origini (CORS)|[Compatibilità del browser CORS](https://developer.mozilla.org/docs/Web/HTTP/CORS#Browser_compatibility) 
 |Criteri di sicurezza del contenuto (CSP)|[Compatibilità del browser CSP](https://developer.mozilla.org/docs/Web/HTTP/CSP#Browser_compatibility) 
 

@@ -9,12 +9,12 @@ ms.date: 07/17/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: active-directory-federation-services
-ms.openlocfilehash: 442aef6daccda2ab3e95690a82f43f642e5a3f73
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 96659164a9eea1784cb529c47dd58be70d546f80
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71358755"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75948738"
 ---
 # <a name="build-a-native-client-application-using-oauth-public-clients-with-ad-fs-2016-or-later"></a>Creazione di un'applicazione client nativa con client OAuth pubblici con AD FS 2016 o versione successiva
 
@@ -33,7 +33,7 @@ Di seguito sono un elenco di prerequisiti che sono necessarie prima del completa
 
 * Strumenti client di GitHub
 * AD FS in Windows Server 2016 o versioni successive
-* Visual Studio 2013 o versione successiva
+* Visual Studio 2013 o versioni successive
 
 ## <a name="creating-the-sample-walkthrough"></a>Creazione della procedura dettagliata di esempio
 
@@ -41,10 +41,10 @@ Di seguito sono un elenco di prerequisiti che sono necessarie prima del completa
 
 1. In gestione AD FS fare clic con il pulsante destro del mouse su **gruppi di applicazioni** e selezionare **Aggiungi gruppo di applicazioni**.
 
-2. Nella creazione guidata gruppo di applicazioni, per il nome immettere un nome che si preferisce, ad esempio NativeToDoListAppGroup. Selezionare l' **applicazione nativa che accede a un modello di API Web** . Fare clic su **Avanti**.
- ![Aggiungi gruppo di applicazioni](media/native-client-with-ad-fs-2016/addapplicationgroup1.png)
+2. Nella creazione guidata gruppo di applicazioni, per il nome immettere un nome che si preferisce, ad esempio NativeToDoListAppGroup. Selezionare l' **applicazione nativa che accede a un modello di API Web** . Fai clic su **Next**.
+ ![aggiungere il gruppo di applicazioni](media/native-client-with-ad-fs-2016/addapplicationgroup1.png)
 
-3. Nella pagina **native Application (applicazione nativa** ) prendere nota dell'identificatore generato da ad FS. Si tratta dell'ID con cui AD FS riconoscerà l'app client pubblica. Copia il **identificatore Client** valore. Verrà usato in un secondo momento come valore per **Ida: ClientID** nel codice dell'applicazione. Se si desidera, è possibile assegnare qualsiasi identificatore personalizzato qui. L'URI di reindirizzamento è qualsiasi valore arbitrario, ad esempio https://ToDoListClient put ![ Native App](media/native-client-with-ad-fs-2016/addapplicationgroup2.png)
+3. Nella pagina **native Application (applicazione nativa** ) prendere nota dell'identificatore generato da ad FS. Si tratta dell'ID con cui AD FS riconoscerà l'app client pubblica. Copia il **identificatore Client** valore. Verrà usato in un secondo momento come valore per **Ida: ClientID** nel codice dell'applicazione. Se si desidera, è possibile assegnare qualsiasi identificatore personalizzato qui. L'URI di reindirizzamento è qualsiasi valore arbitrario, ad esempio PUT https://ToDoListClient ![ app nativa](media/native-client-with-ad-fs-2016/addapplicationgroup2.png)
 
 4. Nella pagina **Configura API Web** impostare il valore dell'identificatore per l'API Web. Per questo esempio, deve essere il valore dell' **URL SSL** in cui si suppone che l'app Web sia in esecuzione. È possibile ottenere questo valore facendo clic sulle proprietà del progetto TooListServer nella soluzione. Verrà usato in un secondo momento come valore **todo: TodoListResourceId** nel file **app. config** dell'applicazione client nativa e anche come **todo: TodoListBaseAddress**.
 ![API Web](media/native-client-with-ad-fs-2016/addapplicationgroup3.png)
@@ -59,7 +59,7 @@ L'applicazione demo usa il valore nell'attestazione NameIdentifier in varie posi
 Per configurare la regola attestazioni, aprire il gruppo di applicazioni appena creato e fare doppio clic sull'API Web. Selezionare la scheda regole di trasformazione rilascio e quindi fare clic sul pulsante Aggiungi regola. Nella regola tipo di attestazione scegliere regola attestazione personalizzata e quindi aggiungere la regola attestazione, come illustrato di seguito.
 
 ```  
-c:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccountname", Issuer == "AD AUTHORITY"]
+c:[Type == "https://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccountname", Issuer == "AD AUTHORITY"]
  => issue(store = "Active Directory", types = ("http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier"), query = ";givenName;{0}", param = c.Value);
 ```
 
@@ -156,7 +156,7 @@ Fondamentalmente, viene configurata l'autenticazione per l'uso di AD FS e vengon
 Esecuzione dell'applicazione
 
 1. Nella soluzione NativeClient-DotNet, fare clic con il pulsante destro del mouse e passare a proprietà. Modificare il progetto di avvio come illustrato di seguito in più progetti di avvio e impostare TodoListClient e TodoListService su Start.
-![Proprietà della soluzione](media/native-client-with-ad-fs-2016/solutionproperties.png)
+Proprietà della soluzione ![](media/native-client-with-ad-fs-2016/solutionproperties.png)
 
 2.  Premere il pulsante F5 o selezionare debug > continua nella barra dei menu. Verrà avviata sia l'applicazione nativa che la WebAPI. Fare clic sul pulsante Accedi nell'applicazione nativa per visualizzare un accesso interattivo da AD AL e reindirizzare al servizio AD FS. Immettere le credenziali di un utente valido.
 ![Accesso](media/native-client-with-ad-fs-2016/sign-in.png)

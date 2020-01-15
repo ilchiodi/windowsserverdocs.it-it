@@ -9,11 +9,11 @@
 ### [Approfondimento sul bilanciamento del carico delle macchine virtuali](vm-load-balancing-deep-dive.md)
 ### [Set di cluster](../storage/storage-spaces/cluster-sets.md)
 ### [Affinità del cluster](cluster-affinity.md)
-## Pianificazione
+## Pianificare
 ### [Requisiti hardware](clustering-requirements.md)
 ### [Usare Volumi condivisi cluster](failover-cluster-csvs.md)
 ### [Uso di cluster di macchine virtuali guest](../storage/storage-spaces/storage-spaces-direct-in-vm.md)
-## Distribuzione
+## Distribuire
 ### [Creare un cluster di failover](create-failover-cluster.md)
 ### [Distribuire un file server a due nodi](deploy-two-node-clustered-file-server.md)
 ### [Pre-installare un cluster in Active Directory Domain Services](prestage-cluster-adds.md)
@@ -23,17 +23,18 @@
 ### [Distribuire una condivisione file di controllo](file-share-witness.md)
 ### [Aggiornamenti in sequenza del sistema operativo del cluster](cluster-operating-system-rolling-upgrade.md)
 ### [Aggiornamento di un cluster di failover nello stesso hardware](upgrade-option-same-hardware.md)
-## Gestione
+## Gestire
 ### [Aggiornamento compatibile con cluster](cluster-aware-updating.md)
 #### [Requisiti e procedure consigliate](cluster-aware-updating-requirements.md)
 #### [Opzioni avanzate](cluster-aware-updating-options.md)
-#### [DOMANDE FREQUENTI](cluster-aware-updating-faq.md)
+#### [Domande frequenti](cluster-aware-updating-faq.md)
 #### [Plug-in](cluster-aware-updating-plug-ins.md)
 ### [Servizio integrità](health-service-overview.md)
-#### [Rapporti](health-service-reports.md)
+#### [Segnalazioni](health-service-reports.md)
 #### [Errori](health-service-faults.md)
 #### [Azioni](health-service-actions.md)
 #### [Impostazioni](health-service-settings.md)
 ### [Migrazione del dominio del cluster](cluster-domain-migration.md)
 ### [Risoluzione dei problemi con Segnalazione errori Windows](troubleshooting-using-WER-reports.md)
+### [Eventi del registro di sistema del cluster](system-events.md)
 ## [Cronologia delle modifiche per argomenti relativi al clustering di failover](clustering-change-history.md)

@@ -7,12 +7,12 @@ ms.topic: article
 author: phstee
 ms.author: NedPyle; Danlo; DKruse
 ms.date: 4/14/2017
-ms.openlocfilehash: 5383d16ac4c98651aa6afe996dbad88a6d60ee7a
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 918d21139a068da1a46fbda1fa5034e14c8379c0
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71370229"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75947067"
 ---
 # <a name="performance-tuning-for-smb-file-servers"></a>Ottimizzazione delle prestazioni per i file server SMB
 
@@ -54,7 +54,7 @@ Per ulteriori informazioni su SMB multicanale, vedere la pagina relativa alla [d
 
 La scalabilità orizzontale SMB consente a SMB 3,0 in una configurazione cluster di visualizzare una condivisione in tutti i nodi di un cluster. Questa configurazione attiva/attiva consente di ridimensionare ulteriormente file server cluster, senza una configurazione complessa con più volumi, condivisioni e risorse cluster. La larghezza di banda massima della condivisione corrisponde alla larghezza di banda totale di tutti i nodi del cluster file server. La larghezza di banda totale non è più limitata dalla larghezza di banda di un singolo nodo del cluster, bensì dipende dalla capacità del sistema di archiviazione di supporto. È possibile aumentare la larghezza di banda totale mediante l'aggiunta di nodi.
 
-Per altre informazioni sulla scalabilità orizzontale SMB, vedere la [Panoramica di file server di scalabilità orizzontale per i dati delle applicazioni](https://technet.microsoft.com/library/hh831349.aspx) e il post di Blog per la scalabilità orizzontale o la scalabilità orizzontale [, ovvero la domanda](http://blogs.technet.com/b/filecab/archive/2013/12/05/to-scale-out-or-not-to-scale-out-that-is-the-question.aspx).
+Per altre informazioni sulla scalabilità orizzontale SMB, vedere la [Panoramica di file server di scalabilità orizzontale per i dati delle applicazioni](https://technet.microsoft.com/library/hh831349.aspx) e il post di Blog per la scalabilità orizzontale o la scalabilità orizzontale [, ovvero la domanda](https://blogs.technet.com/b/filecab/archive/2013/12/05/to-scale-out-or-not-to-scale-out-that-is-the-question.aspx).
 
 ### <a name="performance-counters-for-smb-30"></a>Contatori delle prestazioni per SMB 3,0
 
@@ -64,7 +64,7 @@ I contatori delle prestazioni SMB seguenti sono stati introdotti in Windows Serv
 
     Questi contatori visualizzano informazioni sulle condivisioni file nel server a cui si accede da un client che usa SMB 2,0 o versioni successive.
 
-    Se si ha familiarità con i contatori dei dischi normali in Windows, è possibile notare una certa somiglianza. Questo non è per errore. I contatori delle prestazioni delle condivisioni client SMB sono stati progettati per corrispondere esattamente ai contatori dei dischi. In questo modo è possibile riutilizzare facilmente le linee guida per l'ottimizzazione delle prestazioni del disco dell'applicazione attualmente disponibili. Per ulteriori informazioni sul mapping dei contatori, vedere il Blog relativo ai [contatori delle prestazioni del client per condivisione](http://blogs.technet.com/b/josebda/archive/2012/11/19/windows-server-2012-file-server-tip-new-per-share-smb-client-performance-counters-provide-great-insight.aspx).
+    Se si ha familiarità con i contatori dei dischi normali in Windows, è possibile notare una certa somiglianza. Questo non è per errore. I contatori delle prestazioni delle condivisioni client SMB sono stati progettati per corrispondere esattamente ai contatori dei dischi. In questo modo è possibile riutilizzare facilmente le linee guida per l'ottimizzazione delle prestazioni del disco dell'applicazione attualmente disponibili. Per ulteriori informazioni sul mapping dei contatori, vedere il Blog relativo ai [contatori delle prestazioni del client per condivisione](https://blogs.technet.com/b/josebda/archive/2012/11/19/windows-server-2012-file-server-tip-new-per-share-smb-client-performance-counters-provide-great-insight.aspx).
 
 -   **Condivisioni server SMB**
 
@@ -86,7 +86,7 @@ I contatori delle prestazioni SMB seguenti sono stati introdotti in Windows Serv
 
 -   **Relazioni dei contatori delle prestazioni di disco fisico, SMB, CSV**
 
-    Per ulteriori informazioni sul modo in cui sono correlati i contatori di disco fisico, SMB e CSV FS (file system), vedere il post di Blog seguente: [volume condiviso cluster contatori delle prestazioni](http://blogs.msdn.com/b/clustering/archive/2014/06/05/10531462.aspx).
+    Per ulteriori informazioni sul modo in cui sono correlati i contatori di disco fisico, SMB e CSV FS (file system), vedere il post di Blog seguente: [volume condiviso cluster contatori delle prestazioni](https://blogs.msdn.com/b/clustering/archive/2014/06/05/10531462.aspx).
 
 ## <a name="tuning-parameters-for-smb-file-servers"></a>Parametri di ottimizzazione per i file server SMB
 
@@ -148,7 +148,7 @@ Le seguenti impostazioni del registro di sistema REG\_DWORD possono influire sul
 
 Le impostazioni seguenti consentono di ottimizzare un computer per file server le prestazioni in molti casi. Le impostazioni non sono ottimali o appropriate per tutti i computer. È consigliabile valutare l'impatto delle singole impostazioni prima di applicarle.
 
-| Parametro                       | Valore | Impostazione predefinita |
+| Parametro                       | Value | Valore predefinito |
 |---------------------------------|-------|---------|
 | AdditionalCriticalWorkerThreads | 64    | 0       |
 | MaxThreadsPerQueue              | 64    | 20      |
@@ -156,4 +156,4 @@ Le impostazioni seguenti consentono di ottimizzare un computer per file server l
 
 ### <a name="smb-client-performance-monitor-counters"></a>Contatori di performance monitor client SMB
 
-Per altre informazioni sui contatori client SMB, vedere [Suggerimento per i file server di Windows server 2012: i nuovi contatori delle prestazioni del client SMB per condivisione forniscono informazioni dettagliate](http://blogs.technet.com/b/josebda/archive/2012/11/19/windows-server-2012-file-server-tip-new-per-share-smb-client-performance-counters-provide-great-insight.aspx).
+Per altre informazioni sui contatori client SMB, vedere [Suggerimento per i file server di Windows server 2012: i nuovi contatori delle prestazioni del client SMB per condivisione forniscono informazioni dettagliate](https://blogs.technet.com/b/josebda/archive/2012/11/19/windows-server-2012-file-server-tip-new-per-share-smb-client-performance-counters-provide-great-insight.aspx).

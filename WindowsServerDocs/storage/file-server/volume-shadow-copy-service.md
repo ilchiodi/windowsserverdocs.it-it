@@ -6,12 +6,12 @@ ms.technology: storage
 author: JasonGerend
 manager: elizapo
 ms.author: jgerend
-ms.openlocfilehash: 19e07504dad49c5e23cc49630015529e2a746aa7
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: f2e8d3bfb5ef907ffb522b5b7be31d1def3001c8
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71394453"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75949684"
 ---
 # <a name="volume-shadow-copy-service"></a>Servizio Copia Shadow del volume
 
@@ -39,13 +39,13 @@ VSS coordina le azioni necessarie per creare una copia shadow coerente (anche no
 
 Le funzionalità di Windows e le applicazioni che usano VSS includono quanto segue:
 
-  - [Windows Server Backup](http://go.microsoft.com/fwlink/?linkid=180891) (http://go.microsoft.com/fwlink/?LinkId=180891)  
+  - [Windows Server Backup](https://go.microsoft.com/fwlink/?linkid=180891) (https://go.microsoft.com/fwlink/?LinkId=180891)  
       
-  - [Copie shadow di cartelle condivise](http://go.microsoft.com/fwlink/?linkid=142874) (http://go.microsoft.com/fwlink/?LinkId=142874)  
+  - [Copie shadow di cartelle condivise](https://go.microsoft.com/fwlink/?linkid=142874) (https://go.microsoft.com/fwlink/?LinkId=142874)  
       
-  - [System Center Data Protection Manager](http://go.microsoft.com/fwlink/?linkid=180892) (http://go.microsoft.com/fwlink/?LinkId=180892)  
+  - [System Center Data Protection Manager](https://go.microsoft.com/fwlink/?linkid=180892) (https://go.microsoft.com/fwlink/?LinkId=180892)  
       
-  - [Ripristino configurazione di sistema](http://go.microsoft.com/fwlink/?linkid=180893) (http://go.microsoft.com/fwlink/?LinkId=180893)  
+  - [Ripristino configurazione di sistema](https://go.microsoft.com/fwlink/?linkid=180893) (https://go.microsoft.com/fwlink/?LinkId=180893)  
       
 
 ## <a name="how-volume-shadow-copy-service-works"></a>Funzionamento di Servizio Copia Shadow del volume
@@ -227,7 +227,7 @@ Un provider di copie shadow basato su software deve mantenere una visualizzazion
 
 Un provider di software è applicabile a una gamma più ampia di piattaforme di archiviazione rispetto a un provider basato su hardware e dovrebbe funzionare anche con dischi di base o volumi logici. Un volume logico è un volume creato combinando spazio libero da due o più dischi. Diversamente dalle copie shadow dell'hardware, i provider software utilizzano le risorse del sistema operativo per gestire la copia shadow.
 
-Per altre informazioni sui dischi di base, vedere [che cosa sono i dischi e i volumi di base?](http://go.microsoft.com/fwlink/?linkid=180894) (http://go.microsoft.com/fwlink/?LinkId=180894) su TechNet.
+Per altre informazioni sui dischi di base, vedere [che cosa sono i dischi e i volumi di base?](https://go.microsoft.com/fwlink/?linkid=180894) (https://go.microsoft.com/fwlink/?LinkId=180894) su TechNet.
 
 ### <a name="system-provider"></a>Provider di sistema
 
@@ -247,11 +247,11 @@ Il sistema operativo Windows include un set di writer VSS responsabili dell'enum
 
 Per ulteriori informazioni su questi writer, vedere i siti Web Microsoft seguenti:
 
-  - [Writer VSS in-box](http://go.microsoft.com/fwlink/?linkid=180895) (http://go.microsoft.com/fwlink/?LinkId=180895)  
+  - [Writer VSS in-box](https://go.microsoft.com/fwlink/?linkid=180895) (https://go.microsoft.com/fwlink/?LinkId=180895)  
       
-  - [Nuovi writer VSS predefiniti per Windows Server 2008 e Windows Vista SP1](http://go.microsoft.com/fwlink/?linkid=180896) (http://go.microsoft.com/fwlink/?LinkId=180896)  
+  - [Nuovi writer VSS predefiniti per Windows Server 2008 e Windows Vista SP1](https://go.microsoft.com/fwlink/?linkid=180896) (https://go.microsoft.com/fwlink/?LinkId=180896)  
       
-  - [Nuovi writer VSS predefiniti per Windows Server 2008 R2 e Windows 7](http://go.microsoft.com/fwlink/?linkid=180897) (http://go.microsoft.com/fwlink/?LinkId=180897)  
+  - [Nuovi writer VSS predefiniti per Windows Server 2008 R2 e Windows 7](https://go.microsoft.com/fwlink/?linkid=180897) (https://go.microsoft.com/fwlink/?LinkId=180897)  
       
 
 ## <a name="how-shadow-copies-are-used"></a>Modalità di utilizzo delle copie shadow
@@ -298,7 +298,7 @@ La risincronizzazione LUN è diversa dallo scambio di LUN. Uno scambio LUN è un
 
 Copie shadow per cartelle condivise usa il Servizio Copia Shadow del volume per fornire copie temporizzate dei file che si trovano in una risorsa di rete condivisa, ad esempio un file server. Con copie shadow per cartelle condivise, gli utenti possono ripristinare rapidamente i file eliminati o modificati archiviati nella rete. Poiché possono eseguire questa operazione senza l'assistenza dell'amministratore, copie shadow per cartelle condivise possibile aumentare la produttività e ridurre i costi amministrativi.
 
-Per ulteriori informazioni su copie shadow per cartelle condivise, vedere [copie shadow per cartelle condivise](http://go.microsoft.com/fwlink/?linkid=180898) (http://go.microsoft.com/fwlink/?LinkId=180898) su TechNet.
+Per ulteriori informazioni su copie shadow per cartelle condivise, vedere [copie shadow per cartelle condivise](https://go.microsoft.com/fwlink/?linkid=180898) (https://go.microsoft.com/fwlink/?LinkId=180898) su TechNet.
 
 ### <a name="data-mining-by-using-transportable-shadow-copies"></a>Data mining tramite copie shadow trasportabili
 
@@ -330,7 +330,7 @@ Il trasporto Servizio Copia Shadow del volume è una soluzione avanzata sui comp
 
 ## <a name="frequently-asked-questions"></a>Domande frequenti
 
-Queste domande frequenti rispondono alle domande sugli Servizio Copia Shadow del volume (VSS) per gli amministratori di sistema. Per informazioni sulle interfacce di programmazione dell'applicazione VSS, vedere [servizio Copia Shadow del volume](http://go.microsoft.com/fwlink/?linkid=180899) (http://go.microsoft.com/fwlink/?LinkId=180899) nella libreria del centro per sviluppatori Windows.
+Queste domande frequenti rispondono alle domande sugli Servizio Copia Shadow del volume (VSS) per gli amministratori di sistema. Per informazioni sulle interfacce di programmazione dell'applicazione VSS, vedere [servizio Copia Shadow del volume](https://go.microsoft.com/fwlink/?linkid=180899) (https://go.microsoft.com/fwlink/?LinkId=180899) nella libreria del centro per sviluppatori Windows.
 
 ### <a name="when-was-volume-shadow-copy-service-introduced-on-which-windows-operating-system-versions-is-it-available"></a>Quando è stato Servizio Copia Shadow del volume introdotto? In quali versioni del sistema operativo Windows è disponibile?
 
@@ -362,9 +362,9 @@ Dipende dal software di backup utilizzato. Se si crea una copia shadow in Window
 
 Per ulteriori informazioni, vedere i seguenti siti Web di Microsoft TechNet:
 
-  - [Ripristino configurazione di sistema](http://go.microsoft.com/fwlink/?linkid=157113) (http://go.microsoft.com/fwlink/?LinkID=157113)  
+  - [Ripristino configurazione di sistema](https://go.microsoft.com/fwlink/?linkid=157113) (https://go.microsoft.com/fwlink/?LinkID=157113)  
       
-  - [Windows Server Backup](http://go.microsoft.com/fwlink/?linkid=180891) (http://go.microsoft.com/fwlink/?LinkID=180891)  
+  - [Windows Server Backup](https://go.microsoft.com/fwlink/?linkid=180891) (https://go.microsoft.com/fwlink/?LinkID=180891)  
       
 
 ### <a name="can-i-exclude-files-from-a-shadow-copy-to-save-space"></a>È possibile escludere i file da una copia shadow per risparmiare spazio?
@@ -384,15 +384,15 @@ Per escludere file specifici dalle copie shadow, usare la chiave del registro di
 > <LI>I file vengono eliminati da una copia shadow in base al massimo sforzo. Ciò significa che non è garantito che vengano eliminati.<BR><BR></LI></UL>
 
 
-Per ulteriori informazioni, vedere [esclusione di file dalle copie shadow](http://go.microsoft.com/fwlink/?linkid=180904) (http://go.microsoft.com/fwlink/?LinkId=180904) su MSDN.
+Per ulteriori informazioni, vedere [esclusione di file dalle copie shadow](https://go.microsoft.com/fwlink/?linkid=180904) (https://go.microsoft.com/fwlink/?LinkId=180904) su MSDN.
 
-### <a name="my-non-microsoft-backup-program-failed-with-a-vss-error-what-can-i-do"></a>Il programma di backup non Microsoft non è riuscito con un errore VSS. Cosa posso fare?
+### <a name="my-non-microsoft-backup-program-failed-with-a-vss-error-what-can-i-do"></a>Il programma di backup non Microsoft non è riuscito con un errore VSS. Come è possibile procedere?
 
 Consultare la sezione supporto tecnico del sito Web della società che ha creato il programma di backup. Per risolvere il problema potrebbe essere disponibile un aggiornamento del prodotto che è possibile scaricare e installare. In caso contrario, contattare il reparto supporto tecnico aziendale.
 
 Gli amministratori di sistema possono utilizzare le informazioni sulla risoluzione dei problemi del servizio Copia Shadow del volume nel sito Web Microsoft TechNet Library seguente per raccogliere informazioni diagnostiche sui problemi correlati a VSS.
 
-Per ulteriori informazioni, vedere [servizio Copia Shadow del volume](http://go.microsoft.com/fwlink/?linkid=180905) (http://go.microsoft.com/fwlink/?LinkId=180905) su TechNet.
+Per ulteriori informazioni, vedere [servizio Copia Shadow del volume](https://go.microsoft.com/fwlink/?linkid=180905) (https://go.microsoft.com/fwlink/?LinkId=180905) su TechNet.
 
 ### <a name="what-is-the-diff-area"></a>Che cos'è la "area diff"?
 
@@ -431,7 +431,7 @@ Il numero massimo di copie shadow software per ogni volume è 512. Per impostazi
 
 Digitare il comando **vssadmin resize shadowstorage** .
 
-Per ulteriori informazioni, vedere [vssadmin resize shadowstorage](http://go.microsoft.com/fwlink/?linkid=180906) (http://go.microsoft.com/fwlink/?LinkId=180906) su TechNet.
+Per ulteriori informazioni, vedere [vssadmin resize shadowstorage](https://go.microsoft.com/fwlink/?linkid=180906) (https://go.microsoft.com/fwlink/?LinkId=180906) su TechNet.
 
 ### <a name="what-happens-when-i-run-out-of-space"></a>Cosa accade quando si esaurisce lo spazio?
 
@@ -441,9 +441,9 @@ Le copie shadow per il volume vengono eliminate, iniziando con la copia shadow m
 
 Il sistema operativo Windows offre gli strumenti seguenti per l'utilizzo di VSS:
 
-  - [DiskShadow](http://go.microsoft.com/fwlink/?linkid=180907) (http://go.microsoft.com/fwlink/?LinkId=180907)  
+  - [DiskShadow](https://go.microsoft.com/fwlink/?linkid=180907) (https://go.microsoft.com/fwlink/?LinkId=180907)  
       
-  - [Vssadmin](http://go.microsoft.com/fwlink/?linkid=84008) (http://go.microsoft.com/fwlink/?LinkId=84008)  
+  - [Vssadmin](https://go.microsoft.com/fwlink/?linkid=84008) (https://go.microsoft.com/fwlink/?LinkId=84008)  
       
 
 ### <a name="diskshadow"></a>DiskShadow
@@ -503,9 +503,9 @@ Questa chiave viene usata per specificare gli utenti che hanno accesso alle copi
 
 Per ulteriori informazioni, vedere le voci seguenti sul sito Web MSDN:
 
-  - [Considerazioni sulla sicurezza per i writer](http://go.microsoft.com/fwlink/?linkid=157739) (http://go.microsoft.com/fwlink/?LinkId=157739)  
+  - [Considerazioni sulla sicurezza per i writer](https://go.microsoft.com/fwlink/?linkid=157739) (https://go.microsoft.com/fwlink/?LinkId=157739)  
       
-  - [Considerazioni sulla sicurezza per i richiedenti](http://go.microsoft.com/fwlink/?linkid=180908) (http://go.microsoft.com/fwlink/?LinkId=180908)  
+  - [Considerazioni sulla sicurezza per i richiedenti](https://go.microsoft.com/fwlink/?linkid=180908) (https://go.microsoft.com/fwlink/?LinkId=180908)  
       
 
 ### <a name="maxshadowcopies"></a>MaxShadowCopies
@@ -514,7 +514,7 @@ Questa chiave specifica il numero massimo di copie shadow accessibili dal client
 
 Per ulteriori informazioni, vedere la voce seguente sul sito Web MSDN:
 
-**MaxShadowCopies** in [chiavi del registro di sistema per il backup e il ripristino](http://go.microsoft.com/fwlink/?linkid=180909) (http://go.microsoft.com/fwlink/?LinkId=180909)
+**MaxShadowCopies** in [chiavi del registro di sistema per il backup e il ripristino](https://go.microsoft.com/fwlink/?linkid=180909) (https://go.microsoft.com/fwlink/?LinkId=180909)
 
 ### <a name="mindiffareafilesize"></a>MinDiffAreaFileSize
 
@@ -522,7 +522,7 @@ Questa chiave specifica le dimensioni minime iniziali, in MB, dell'area di archi
 
 Per ulteriori informazioni, vedere la voce seguente sul sito Web MSDN:
 
-**MinDiffAreaFileSize** in [chiavi del registro di sistema per il backup e il ripristino](http://go.microsoft.com/fwlink/?linkid=180910) (http://go.microsoft.com/fwlink/?LinkId=180910)
+**MinDiffAreaFileSize** in [chiavi del registro di sistema per il backup e il ripristino](https://go.microsoft.com/fwlink/?linkid=180910) (https://go.microsoft.com/fwlink/?LinkId=180910)
 
 Versioni del sistema operativo supportate da `##`#'
 

@@ -8,12 +8,12 @@ ms.author: niwashbu
 ms.localizationpriority: medium
 ms.prod: windows-server
 ms.date: 02/15/2019
-ms.openlocfilehash: 1643568cd1a0cdbb693d773a8357d2c36b701fd3
-ms.sourcegitcommit: 7c7fc443ecd0a81bff6ed6dbeeaf4f24582ba339
+ms.openlocfilehash: fc8e6ffa39320cfc73bf3f5bd0a5bc765ded24b4
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/07/2019
-ms.locfileid: "74903979"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75950527"
 ---
 # <a name="get-started-with-windows-admin-center"></a>Introduzione all'interfaccia di amministrazione di Windows
 
@@ -21,7 +21,7 @@ ms.locfileid: "74903979"
 
 > [!Tip]
 > Novità di Windows Admin Center
-> [Ulteriori informazioni su Windows Admin Center](../understand/windows-admin-center.md) o [Scarica ora](https://aka.ms/windowsadmincenter).
+> [Ulteriori informazioni su Windows Admin Center](../overview.md) o [Scarica ora](https://aka.ms/windowsadmincenter).
 
 ## <a name="windows-admin-center-installed-on-windows-10"></a>Centro di amministrazione di Windows installato in Windows 10
 
@@ -97,7 +97,7 @@ L'interfaccia di amministrazione di Windows supporta diversi meccanismi per l'au
 
 È possibile usare le credenziali di Windows correnti per l'autenticazione con il nodo gestito. Si tratta dell'impostazione predefinita e l'interfaccia di amministrazione di Windows tenta di accedere quando si aggiunge un server. 
 
-**Single Sign-on quando distribuito come servizio in Windows Server**
+**Accesso Single Sign-On distribuito come servizio in Windows Server**
 
 Se l'interfaccia di amministrazione di Windows è stata installata in Windows Server, è necessaria una configurazione aggiuntiva per Single Sign-On.  [Configurare l'ambiente per la delega](../configure/user-access-control.md)
 

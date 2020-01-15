@@ -9,12 +9,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 8880f26acd8b32a4ab8a32ede067d158f2d6aed1
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 834aa2611ff2b965c9184524fa6782fb4477a4cd
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71369210"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75949130"
 ---
 # <a name="appendix-i-creating-management-accounts-for-protected-accounts-and-groups-in-active-directory"></a>Appendice I: Creazione di account di gestione per gli account protetti e i gruppi in Active Directory
 
@@ -81,7 +81,7 @@ Per creare un gruppo per abilitare e disabilitare gli account di gestione, segui
   
 7.  Nella scheda **sicurezza** rimuovere i gruppi a cui non è consentito accedere a questo gruppo. Se, ad esempio, non si vuole che gli utenti autenticati possano leggere il nome e le proprietà generali del gruppo, è possibile rimuovere tale voce ACE. È anche possibile rimuovere le voci ACE, ad esempio per gli operatori account e per l'accesso compatibile con il server precedente a Windows 2000. Tuttavia, è consigliabile lasciare il set minimo di autorizzazioni per gli oggetti. Lasciare intatte le voci ACE seguenti:  
   
-    -   AUTO  
+    -   SELF  
   
     -   SISTEMA  
   
@@ -133,7 +133,7 @@ Per creare gli account di gestione, seguire questa procedura:
 
 7. Fare clic con il pulsante destro del mouse sull'oggetto utente appena creato e scegliere **Proprietà**.  
 
-8. Fare clic sulla scheda **account** .  
+8. Fare clic sulla scheda **Account**.  
 
 9. Nel campo **Opzioni account** selezionare l' **account è sensibile e non può essere delegata** flag, selezionare il **questo account supporta la crittografia AES 128 bit Kerberos** e/o l'account supporta il flag di **crittografia AES 256 Kerberos** e fare clic su **OK**.  
 
@@ -144,7 +144,7 @@ Per creare gli account di gestione, seguire questa procedura:
    >
    > Sebbene l'implementazione di tipi di crittografia più sicuri per gli host non rilevi gli attacchi con furto di credenziali, l'utilizzo e la configurazione appropriati degli host protetti. L'impostazione di tipi di crittografia più avanzati per gli host utilizzati solo da account con privilegi riduce semplicemente la superficie di attacco complessiva dei computer.  
    >
-   > Per ulteriori informazioni sulla configurazione dei tipi di crittografia nei sistemi e negli account, vedere [configurazioni di Windows per il tipo di crittografia supportato da Kerberos](http://blogs.msdn.com/b/openspecification/archive/2011/05/31/windows-configurations-for-kerberos-supported-encryption-type.aspx).  
+   > Per ulteriori informazioni sulla configurazione dei tipi di crittografia nei sistemi e negli account, vedere [configurazioni di Windows per il tipo di crittografia supportato da Kerberos](https://blogs.msdn.com/b/openspecification/archive/2011/05/31/windows-configurations-for-kerberos-supported-encryption-type.aspx).  
    >
    > Queste impostazioni sono supportate solo nei computer che eseguono Windows Server 2012, Windows Server 2008 R2, Windows 8 o Windows 7.  
   

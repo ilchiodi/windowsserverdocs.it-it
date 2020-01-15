@@ -9,12 +9,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: dd265fecce06b849bd14d4d6b81503aba7311656
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 712fc6c4cf47b642cb2ab028fea693047d60c30e
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71390068"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75948869"
 ---
 # <a name="managing-rid-issuance"></a>Gestione del rilascio di RID
 
@@ -26,7 +26,7 @@ In questo argomento vengono illustrate le modifiche apportate al ruolo FSMO del 
   
 -   [Risoluzione dei problemi di rilascio RID](../../ad-ds/manage/Managing-RID-Issuance.md#BKMK_Tshoot)  
   
-Altre informazioni sono disponibili nel [Blog di nel](http://blogs.technet.com/b/askds/archive/2012/08/10/managing-rid-issuance-in-windows-server-2012.aspx).  
+Altre informazioni sono disponibili nel [Blog di nel](https://blogs.technet.com/b/askds/archive/2012/08/10/managing-rid-issuance-in-windows-server-2012.aspx).  
   
 ## <a name="BKMK_Manage"></a>Gestione del rilascio RID  
 Per impostazione predefinita, la capacità di un dominio è di circa un miliardo di entità di sicurezza, ad esempio utenti, gruppi e computer. Ovviamente non esistono domini con così tanti oggetti usati attivamente. Tuttavia, il Servizio Supporto Tecnico Clienti Microsoft ha trovato casi in cui:  
@@ -85,7 +85,7 @@ Dcdiag.exe /TEST:RidManager /v | find /i "Available RID Pool for the Domain"
   
 ```  
   
-Se si incrementa il pool di RID globale, il pool disponibile verrà impostato su 2.147.483.647 invece che sul valore predefinito 1.073.741.823. Esempio:  
+Se si incrementa il pool di RID globale, il pool disponibile verrà impostato su 2.147.483.647 invece che sul valore predefinito 1.073.741.823. Ad esempio:  
   
 ![Rilascio RID](media/Managing-RID-Issuance/ADDS_RID_TR_Dcdiag.png)  
   
@@ -255,54 +255,54 @@ I nuovi messaggi seguenti vengono registrati nel registro eventi di sistema sui 
   
 |||  
 |-|-|  
-|ID evento|16653|  
-|Source|Directory-Services-SAM|  
-|severity|Avviso|  
+|ID dell'evento|16653|  
+|Origine|Directory-Services-SAM|  
+|Gravità|Warning|  
 |Messaggio|Una dimensione del pool per gli identificatori di account (RID) configurata da un amministratore supera il limite massimo supportato. Quando il controller di dominio sarà il master RID, verrà utilizzato il valore massimo %1.<br /><br />Per ulteriori informazioni, vedere [Limite della dimensione del blocco RID](../../ad-ds/manage/../../ad-ds/manage/../../ad-ds/manage/../../ad-ds/manage/Managing-RID-Issuance.md#BKMK_RIDBlockMaxSize).|  
 |Note e risoluzione|Il valore massimo per la dimensione del blocco RID è ora 15000 nel sistema decimale (3A98 nel sistema esadecimale). Un controller di dominio non può richiedere più di 15.000 RID. Questo evento viene registrato a ogni bootstrap finché il valore viene impostato su un valore pari o inferiore a questo valore massimo.|  
   
 |||  
 |-|-|  
-|ID evento|16654|  
-|Source|Directory-Services-SAM|  
-|severity|Informativo|  
-|Messaggio|Un pool di identificatori di account (RID) è stato invalidato. Questa situazione può verificarsi nei seguenti casi previsti:<br /><br />1. Un controller di dominio viene ripristinato da un backup.<br /><br />2. Un controller di dominio in esecuzione in una macchina virtuale viene ripristinato da uno snapshot.<br /><br />3. Un amministratore ha invalidato manualmente il pool.<br /><br />Per altre informazioni, vedere https://go.microsoft.com/fwlink/?LinkId=226247.|  
+|ID dell'evento|16654|  
+|Origine|Directory-Services-SAM|  
+|Gravità|Informativo|  
+|Messaggio|Un pool di identificatori di account (RID) è stato invalidato. Questa situazione può verificarsi nei seguenti casi previsti:<br /><br />1. il backup viene ripristinato da un controller di dominio.<br /><br />2. un controller di dominio in esecuzione in una macchina virtuale viene ripristinato da uno snapshot.<br /><br />3. un amministratore ha invalidato manualmente il pool.<br /><br />Per ulteriori informazioni, vedere https://go.microsoft.com/fwlink/?LinkId=226247.|  
 |Note e risoluzione|Se questo evento è imprevisto, contattare tutti gli amministratori di dominio e determinare chi tra essi ha eseguito l'azione. Il registro eventi Servizi directory contiene anche altre informazioni su quando è stato eseguito uno di questi passaggi.|  
   
 |||  
 |-|-|  
-|ID evento|16655|  
-|Source|Directory-Services-SAM|  
-|severity|Informativo|  
+|ID dell'evento|16655|  
+|Origine|Directory-Services-SAM|  
+|Gravità|Informativo|  
 |Messaggio|Il limite massimo globale per gli identificatori di account (RID) è stato portato a %1.|  
 |Note e risoluzione|Se questo evento è imprevisto, contattare tutti gli amministratori di dominio e determinare chi tra essi ha eseguito l'azione. Questo evento evidenzia l'incremento della dimensione totale del pool di RID oltre il valore predefinito di 2<sup>30</sup> e non si verificherà automaticamente, ma solo in seguito a un'azione amministrativa.|  
   
 |||  
 |-|-|  
-|ID evento|16656|  
-|Source|Directory-Services-SAM|  
-|severity|Avviso|  
+|ID dell'evento|16656|  
+|Origine|Directory-Services-SAM|  
+|Gravità|Warning|  
 |Messaggio|Il limite massimo globale per gli identificatori di account (RID) è stato portato a %1.|  
-|Note e risoluzione|Azione necessaria: un pool di identificatori di account (RID) è stato allocato al controller di dominio corrente. Il valore del pool indica che il dominio ha utilizzato una parte considerevole degli identificatori di account disponibili.<br /><br />Verrà attivato un meccanismo di protezione quando il dominio raggiunge la soglia seguente di totale identificatori di account disponibili rimanenti:% 1.  Tale meccanismo impedirà la creazione di account finché non si riabiliterà manualmente l'allocazione di identificatori di account sul controller di dominio del master RID.<br /><br />Per altre informazioni, vedere https://go.microsoft.com/fwlink/?LinkId=228610.|  
+|Note e risoluzione|Azione necessaria: un pool di identificatori di account (RID) è stato allocato al controller di dominio corrente. Il valore del pool indica che il dominio ha utilizzato una parte considerevole degli identificatori di account disponibili.<br /><br />Verrà attivato un meccanismo di protezione quando il dominio raggiunge la soglia seguente di totale identificatori di account disponibili rimanenti: %1.  Tale meccanismo impedirà la creazione di account finché non si riabiliterà manualmente l'allocazione di identificatori di account sul controller di dominio del master RID.<br /><br />Per ulteriori informazioni, vedere https://go.microsoft.com/fwlink/?LinkId=228610.|  
   
 |||  
 |-|-|  
-|ID evento|16657|  
-|Source|Directory-Services-SAM|  
-|severity|Errore|  
-|Messaggio|Azione necessaria: il dominio ha utilizzato una parte considerevole degli identificatori di account (RID) disponibili. È stato attivato un meccanismo di protezione in quanto gli identificatori di account disponibili rimanenti sono meno di: X% [argomento del limite massimo artificiale].<br /><br />Tale meccanismo impedisce la creazione di account finché non si riabilita manualmente l'allocazione di identificatori di account sul controller di dominio del master RID.<br /><br />È estremamente importante eseguire determinate operazioni diagnostiche prima di riabilitare la creazione di account per garantire che il dominio non utilizzi gli identificatori di account in modo eccessivo. Eventuali problemi rilevati devono essere risolti prima di riabilitare la creazione di account.<br /><br />Se i problemi sottostanti che causano un tasso eccessivo di utilizzo degli identificatori di account non vengono diagnosticati e risolti, gli identificatori di account potrebbero esaurirsi nel dominio, dopo di che la creazione di account verrebbe disabilitata in modo permanente nel dominio.<br /><br />Per altre informazioni, vedere https://go.microsoft.com/fwlink/?LinkId=228610.|  
+|ID dell'evento|16657|  
+|Origine|Directory-Services-SAM|  
+|Gravità|Errore di|  
+|Messaggio|Azione necessaria: il dominio ha utilizzato una parte considerevole degli identificatori di account (RID) disponibili. È stato attivato un meccanismo di protezione perché gli identificatori di account disponibili rimanenti sono inferiori a: X% [argomento di Ceiling artificiale].<br /><br />Tale meccanismo impedisce la creazione di account finché non si riabilita manualmente l'allocazione di identificatori di account sul controller di dominio del master RID.<br /><br />È estremamente importante eseguire determinate operazioni diagnostiche prima di riabilitare la creazione di account per garantire che il dominio non utilizzi gli identificatori di account in modo eccessivo. Eventuali problemi rilevati devono essere risolti prima di riabilitare la creazione di account.<br /><br />Se i problemi sottostanti che causano un tasso eccessivo di utilizzo degli identificatori di account non vengono diagnosticati e risolti, gli identificatori di account potrebbero esaurirsi nel dominio, dopo di che la creazione di account verrebbe disabilitata in modo permanente nel dominio.<br /><br />Per ulteriori informazioni, vedere https://go.microsoft.com/fwlink/?LinkId=228610.|  
 |Note e risoluzione|Contattare tutti gli amministratori di dominio e informarli che non è possibile creare altre entità di sicurezza in questo dominio finché la protezione non viene sostituita. Per altre informazioni sulla sostituzione della protezione e sulla possibilità di incrementare il pool di RID generale, vedere [Sblocco della dimensione dello spazio del RID globale](../../ad-ds/manage/../../ad-ds/manage/../../ad-ds/manage/../../ad-ds/manage/Managing-RID-Issuance.md#BKMK_GlobalRidSpaceUnlock).|  
   
 |||  
 |-|-|  
-|ID evento|16658|  
-|Source|Directory-Services-SAM|  
-|severity|Avviso|  
-|Messaggio|Questo evento è un aggiornamento periodico sulla quantità totale rimanente di identificatori di account (RID) disponibili. Il numero di identificatori di account rimanenti è approssimativamente:% 1.<br /><br />Gli identificatori di account vengono utilizzati per la creazione di account e quando si esauriscono non è più possibile creare nuovi account nel dominio.<br /><br />Per altre informazioni, vedere https://go.microsoft.com/fwlink/?LinkId=228745.|  
+|ID dell'evento|16658|  
+|Origine|Directory-Services-SAM|  
+|Gravità|Warning|  
+|Messaggio|Questo evento è un aggiornamento periodico sulla quantità totale rimanente di identificatori di account (RID) disponibili. Il numero di identificatori di account rimanenti è approssimativamente: %1.<br /><br />Gli identificatori di account vengono utilizzati per la creazione di account e quando si esauriscono non è più possibile creare nuovi account nel dominio.<br /><br />Per ulteriori informazioni, vedere https://go.microsoft.com/fwlink/?LinkId=228745.|  
 |Note e risoluzione|Contattare tutti gli amministratori di dominio e informarli che l'utilizzo del RID ha superato un'attività cardine principale. Determinare se questo comportamento sia previsto o meno esaminando gli schemi di creazione del dominio trusted di sicurezza. In realtà questo evento è del tutto insolito, in quanto significa che sono stati allocati circa 100 milioni di RID.|  
   
-## <a name="see-also"></a>Vedere anche  
-[Gestione del rilascio del RID in Windows Server 2012](http://blogs.technet.com/b/askds/archive/2012/08/10/managing-rid-issuance-in-windows-server-2012.aspx)  
+## <a name="see-also"></a>Vedi anche  
+[Gestione del rilascio del RID in Windows Server 2012](https://blogs.technet.com/b/askds/archive/2012/08/10/managing-rid-issuance-in-windows-server-2012.aspx)  
   
 
 

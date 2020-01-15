@@ -9,12 +9,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: ba67a5fcc127bbe6ffce9454ff98fd3bc3725e55
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: e51b7ea151db1ca5d53a8cacef3b042e345175de
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71367706"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75949631"
 ---
 # <a name="monitoring-active-directory-for-signs-of-compromise"></a>Monitoraggio dei segnali di compromissione di Active Directory
 
@@ -32,10 +32,10 @@ Questa mancanza di monitoraggio dei registri eventi attivi rimane un punto di de
 
 Di seguito sono riportati i collegamenti al Blog di supporto Microsoft Official Enterprise. Il contenuto di questi blog fornisce consigli, indicazioni e consigli sul controllo che consentiranno di migliorare la sicurezza dell'infrastruttura di Active Directory e rappresentano una risorsa preziosa per la progettazione di un criterio di controllo.  
   
-* Il [controllo dell'accesso agli oggetti globale è](http://blogs.technet.com/b/askds/archive/2011/03/10/global-object-access-auditing-is-magic.aspx) un meccanismo di controllo denominato configurazione avanzata dei criteri di controllo, che è stato aggiunto a Windows 7 e windows Server 2008 R2, che consente di impostare i tipi di dati da controllare in modo semplice e non manipolare gli script e Auditpol. exe.  
-* [Introduzione alle modifiche di controllo in windows 2008](http://blogs.technet.com/b/askds/archive/2007/10/19/introducing-auditing-changes-in-windows-2008.aspx) : introduce le modifiche di controllo apportate in windows Server 2008.  
-* [Trucchi di controllo interessanti in vista e 2008](http://blogs.technet.com/b/askds/archive/2007/11/16/cool-auditing-tricks-in-vista-and-2008.aspx) : illustra le funzionalità di controllo interessanti di Windows Vista e windows Server 2008 che possono essere usate per la risoluzione dei problemi o per vedere cosa accade nell'ambiente.  
-* [Un'unica tappa per il controllo in Windows server 2008 e Windows Vista](http://blogs.technet.com/b/askds/archive/2008/03/27/one-stop-shop-for-auditing-in-windows-server-2008-and-windows-vista.aspx) : contiene una compilazione di funzionalità di controllo e informazioni contenute in windows Server 2008 e Windows Vista.  
+* Il [controllo dell'accesso agli oggetti globale è](https://blogs.technet.com/b/askds/archive/2011/03/10/global-object-access-auditing-is-magic.aspx) un meccanismo di controllo denominato configurazione avanzata dei criteri di controllo, che è stato aggiunto a Windows 7 e windows Server 2008 R2, che consente di impostare i tipi di dati da controllare in modo semplice e non manipolare gli script e Auditpol. exe.  
+* [Introduzione alle modifiche di controllo in windows 2008](https://blogs.technet.com/b/askds/archive/2007/10/19/introducing-auditing-changes-in-windows-2008.aspx) : introduce le modifiche di controllo apportate in windows Server 2008.  
+* [Trucchi di controllo interessanti in vista e 2008](https://blogs.technet.com/b/askds/archive/2007/11/16/cool-auditing-tricks-in-vista-and-2008.aspx) : illustra le funzionalità di controllo interessanti di Windows Vista e windows Server 2008 che possono essere usate per la risoluzione dei problemi o per vedere cosa accade nell'ambiente.  
+* [Un'unica tappa per il controllo in Windows server 2008 e Windows Vista](https://blogs.technet.com/b/askds/archive/2008/03/27/one-stop-shop-for-auditing-in-windows-server-2008-and-windows-vista.aspx) : contiene una compilazione di funzionalità di controllo e informazioni contenute in windows Server 2008 e Windows Vista.  
   
 I collegamenti seguenti forniscono informazioni sui miglioramenti apportati al controllo di Windows in Windows 8 e Windows Server 2012 e informazioni sul controllo di servizi di dominio Active Directory in Windows Server 2008.  
   
@@ -50,7 +50,7 @@ Prima di Windows Vista e Windows Server 2008, Windows aveva solo nove categorie 
 * Gestione account  
 * Accesso al servizio directory  
 * Eventi di accesso  
-* Accesso agli oggetti  
+* Accesso a oggetti  
 * Modifica dei criteri  
 * Uso dei privilegi  
 * Rilevamento processi  
@@ -114,7 +114,7 @@ Lo screenshot seguente mostra un esempio di Auditpol. exe che elenca i criteri d
 ![monitoraggio di Active Directory](media/Monitoring-Active-Directory-for-Signs-of-Compromise/SAD_5.gif)  
   
 > [!NOTE]  
-> Criteri di gruppo non segnala sempre accuratamente lo stato di tutti i criteri di controllo abilitati, mentre Auditpol. exe lo esegue. Per altri dettagli, vedere [ottenere i criteri di controllo effettivi in Windows 7 e 2008 R2](http://blogs.technet.com/b/askds/archive/2011/03/11/getting-the-effective-audit-policy-in-windows-7-and-2008-r2.aspx) .  
+> Criteri di gruppo non segnala sempre accuratamente lo stato di tutti i criteri di controllo abilitati, mentre Auditpol. exe lo esegue. Per altri dettagli, vedere [ottenere i criteri di controllo effettivi in Windows 7 e 2008 R2](https://blogs.technet.com/b/askds/archive/2011/03/11/getting-the-effective-audit-policy-in-windows-7-and-2008-r2.aspx) .  
   
 Ogni categoria principale ha più sottocategorie. Di seguito è riportato un elenco di categorie, le rispettive sottocategorie e una descrizione delle relative funzioni.  
   
@@ -190,7 +190,7 @@ Questa sottocategoria segnala quando si accede a un oggetto servizi di dominio A
 ##### <a name="directory-service-changes"></a>Modifiche al servizio directory  
 Questa sottocategoria segnala le modifiche agli oggetti in servizi di dominio Active Directory. I tipi di modifiche segnalati sono le operazioni di creazione, modifica, spostamento e annullamento dell'eliminazione eseguite su un oggetto. Il controllo delle modifiche del servizio directory, ove appropriato, indica i valori vecchi e nuovi delle proprietà modificate degli oggetti modificati. Solo gli oggetti con SACL comportano la generazione di eventi di controllo e solo quando vengono utilizzati in modo che corrispondano alle relative voci SACL. Alcuni oggetti e proprietà non causano la generazione di eventi di controllo a causa delle impostazioni della classe di oggetti nello schema. Questa sottocategoria si applica solo ai controller di dominio.  
   
-##### <a name="directory-service-replication"></a>Replica del servizio directory  
+##### <a name="directory-service-replication"></a>Replica servizio directory  
 Questa sottocategoria segnala quando la replica tra due controller di dominio inizia e termina.  
   
 ##### <a name="detailed-directory-service-replication"></a>Replica dettagliata del servizio directory  
@@ -198,7 +198,7 @@ Questa sottocategoria riporta informazioni dettagliate sulle informazioni replic
   
 #### <a name="logonlogoff"></a>Accesso/disconnessione  
   
-##### <a name="logon"></a>Accesso  
+##### <a name="logon"></a>Accedere  
 Questa sottocategoria segnala quando un utente tenta di accedere al sistema. Questi eventi si verificano nel computer a cui si accede. Per gli accessi interattivi, la generazione di questi eventi si verifica nel computer connesso a. Se si verifica un accesso di rete per accedere a una condivisione, questi eventi vengono generati nel computer che ospita la risorsa a cui si accede. Se questa impostazione è configurata su **Nessun controllo**, è difficile o Impossibile determinare quale utente ha effettuato l'accesso o ha tentato di accedere ai computer dell'organizzazione.  
   
 ##### <a name="network-policy-server"></a>Server dei criteri di rete  
@@ -256,7 +256,7 @@ Questa sottocategoria segnala quando un account utente o un servizio utilizza un
 ##### <a name="other-privilege-use-events"></a>Altri eventi di utilizzo dei privilegi  
 Questa impostazione dei criteri di sicurezza non è attualmente in uso.  
   
-#### <a name="object-access"></a>Accesso agli oggetti  
+#### <a name="object-access"></a>Accesso a oggetti  
   
 ##### <a name="file-system"></a>File system  
 Questa sottocategoria segnala quando si accede a file system oggetti. Solo file system oggetti con SACL possono generare eventi di controllo e solo quando vengono utilizzati in modo analogo alle relative voci SACL. Questa impostazione di criteri non provocherà il controllo di alcun evento. Determina se controllare l'evento di un utente che accede a un oggetto file system che dispone di un elenco di controllo di accesso di sistema (SACL) specificato, abilitando in modo efficace il controllo.  
@@ -355,7 +355,7 @@ Esempi di sintassi di Auditpol. exe:
 
 In Microsoft è disponibile uno [script di esempio](https://support.microsoft.com/kb/921469) per gli amministratori che desiderano impostare criteri di controllo avanzati utilizzando uno script anziché digitare manualmente ogni comando Auditpol. exe.  
   
-**Nota** Criteri di gruppo non segnala sempre accuratamente lo stato di tutti i criteri di controllo abilitati, mentre Auditpol. exe lo esegue. Per altri dettagli, vedere [ottenere i criteri di controllo effettivi in Windows 7 e windows 2008 R2](http://blogs.technet.com/b/askds/archive/2011/03/11/getting-the-effective-audit-policy-in-windows-7-and-2008-r2.aspx) .  
+**Nota** Criteri di gruppo non segnala sempre accuratamente lo stato di tutti i criteri di controllo abilitati, mentre Auditpol. exe lo esegue. Per altri dettagli, vedere [ottenere i criteri di controllo effettivi in Windows 7 e windows 2008 R2](https://blogs.technet.com/b/askds/archive/2011/03/11/getting-the-effective-audit-policy-in-windows-7-and-2008-r2.aspx) .  
   
 #### <a name="other-auditpol-commands"></a>Altri comandi auditpol
 

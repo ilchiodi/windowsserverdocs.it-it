@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/12/2016
-ms.openlocfilehash: 826769c1405648f37c86f97b4b9134871f4d30ed
-ms.sourcegitcommit: 4a03f263952c993dfdf339dd3491c73719854aba
+ms.openlocfilehash: 227d66dafffd67b0b2e4f67158498cf43c7b59f8
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74791180"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75950364"
 ---
 # <a name="protected-users-security-group"></a>Gruppo di sicurezza Utenti protetti
 
@@ -89,7 +89,7 @@ Quando l'utente connesso è un membro del gruppo utenti protetti, vengono applic
 - A partire da Windows 8.1 e Windows Server 2012 R2, Windows digest non memorizza nella cache le credenziali del testo normale dell'utente anche quando è abilitato il digest di Windows.
 
 > [!Note]
-> Dopo l'installazione di [Microsoft Security advisor 2871997](https://technet.microsoft.com/library/security/2871997) , Windows digest continuerà a memorizzare nella cache le credenziali fino alla configurazione della chiave del registro di sistema. Vedere l' [avviso di sicurezza Microsoft: aggiornamento per migliorare la protezione e la gestione delle credenziali: 13 maggio 2014](https://support.microsoft.com/en-us/help/2871997/microsoft-security-advisory-update-to-improve-credentials-protection-a) per istruzioni.
+> Dopo l'installazione di [Microsoft Security advisor 2871997](https://technet.microsoft.com/library/security/2871997) , Windows digest continuerà a memorizzare nella cache le credenziali fino alla configurazione della chiave del registro di sistema. Vedere l' [avviso di sicurezza Microsoft: aggiornamento per migliorare la protezione e la gestione delle credenziali: 13 maggio 2014](https://support.microsoft.com/help/2871997/microsoft-security-advisory-update-to-improve-credentials-protection-a) per istruzioni.
 
 - NTLM non memorizza nella cache le credenziali del testo normale dell'utente o la funzione unidirezionale NT (NTOWF).
 

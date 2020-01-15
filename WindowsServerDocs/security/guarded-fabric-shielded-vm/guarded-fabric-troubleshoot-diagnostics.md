@@ -7,12 +7,12 @@ ms.assetid: 07691d5b-046c-45ea-8570-a0a85c3f2d22
 manager: dongill
 author: huu
 ms.technology: security-guarded-fabric
-ms.openlocfilehash: deeaa7eab01dd5da6d997dd6ec039a3319e5c2b7
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 6db9ce1db139558bd1a7aa731cb12c1b227ead03
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71386460"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75949767"
 ---
 # <a name="troubleshooting-using-the-guarded-fabric-diagnostic-tool"></a>Risoluzione dei problemi con lo strumento di diagnostica dell'infrastruttura sorvegliata
 
@@ -24,7 +24,7 @@ La documentazione dei cmdlet usati in questo argomento è reperibile in [TechNet
 
 [!INCLUDE [Guarded fabric diagnostics tool](../../../includes/guarded-fabric-diagnostics-tool.md)] 
 
-# <a name="quick-start"></a>Avvio rapido
+## <a name="quick-start"></a>Avvio rapido
 
 È possibile diagnosticare un host sorvegliato o un nodo HGS chiamando il comando seguente da una sessione di Windows PowerShell con privilegi di amministratore locale:
 ```PowerShell

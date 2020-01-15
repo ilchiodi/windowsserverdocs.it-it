@@ -8,12 +8,12 @@ ms.author: jgerend
 ms.localizationpriority: medium
 ms.prod: windows-server
 ms.date: 05/31/2019
-ms.openlocfilehash: e76d1205c22d6ce484abc86ed5e3c74ac1010f29
-ms.sourcegitcommit: e817a130c2ed9caaddd1def1b2edac0c798a6aa2
+ms.openlocfilehash: b82d2eaa9283d99993102f1656262e2eda86cfff
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74945312"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75950120"
 ---
 # <a name="connecting-windows-server-to-azure-hybrid-services"></a>Connessione di Windows Server a servizi ibridi di Azure
 
@@ -31,7 +31,7 @@ Anche se puoi installare la maggior parte dei servizi ibridi tramite il portale 
 
 ## <a name="discover-integrated-services-in-the-azure-hybrid-services-tool"></a>Individuare servizi integrati nello strumento dei servizi ibridi di Azure
 
-Lo strumento dei servizi ibridi di Azure incluso in [Windows Admin Center](../understand/windows-admin-center.md) riunisce tutti i servizi integrati di Azure in un hub centralizzato in cui è possibile individuare facilmente tutti i servizi di Azure disponibili utili per l'ambiente locale o ibrido.  
+Lo strumento dei servizi ibridi di Azure incluso in [Windows Admin Center](../overview.md) riunisce tutti i servizi integrati di Azure in un hub centralizzato in cui è possibile individuare facilmente tutti i servizi di Azure disponibili utili per l'ambiente locale o ibrido.  
 
 ![Screenshot di Windows Admin Center con lo strumento dei servizi ibridi di Azure](../media/azure-services/ahs-discover.png)
 
@@ -155,7 +155,7 @@ Puoi sfruttare Azure Cloud Shell per ottenere un'esperienza Bash o PowerShell in
 Per altre informazioni, vedi [Panoramica di Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview).
 
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 
 - [Connettere Windows Admin Center ad Azure](azure-integration.md)
 - [Distribuire Windows Admin Center in Azure](deploy-wac-in-azure.md)

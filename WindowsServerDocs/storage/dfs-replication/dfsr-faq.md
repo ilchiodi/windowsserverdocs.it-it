@@ -1,32 +1,32 @@
 ---
-title: 'Replica DFS: Domande frequenti'
+title: Replica DFS - Domande frequenti
 ms.date: 06/18/2014
 ms.prod: windows-server
 ms.technology: storage
 author: JasonGerend
 manager: elizapo
 ms.author: jgerend
-ms.openlocfilehash: 92fe505c3ae7d76f7a8d5bd9d2ed0ce845159fde
-ms.sourcegitcommit: de71970be7d81b95610a0977c12d456c3917c331
+ms.openlocfilehash: e92ada07140b88ef4178a5aecdb263b825380c2d
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71940752"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75950287"
 ---
-# <a name="dfs-replication-frequently-asked-questions-faq"></a>Replica DFS: Domande frequenti
+# <a name="dfs-replication-frequently-asked-questions-faq"></a>Replica DFS - Domande frequenti
 
 
-Aggiornamento: 30 aprile 2019
+Ultimo aggiornamento: 30 aprile 2019
 
 Si applica a: Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2, Windows Server 2008
 
 Queste domande frequenti rispondono alle domande sulla replica di file system distribuito (DFS), nota anche come DFS-R o DFSR, per Windows Server.
 
-Per informazioni su Spazi dei nomi DFS, vedere il documento di [domande frequenti su Domande](https://technet.microsoft.com/library/ee404780)frequenti.
+Per informazioni sugli spazi dei nomi DFS, vedere [spazi dei nomi DFS: domande frequenti](https://technet.microsoft.com/library/ee404780).
 
 Per informazioni sulle novità di Replica DFS, vedere gli argomenti seguenti:
 
-  - [Panoramica di spazi dei nomi DFS e replica DFS](https://technet.microsoft.com/library/jj127250) (in Windows Server 2012)  
+  - [Panoramica di spazi dei nomi e replica DFS DFS](https://technet.microsoft.com/library/jj127250) (in Windows Server 2012)  
       
   - [Novità di file System distribuito](https://technet.microsoft.com/library/ee307957) argomento relativo [alle modifiche della funzionalità da Windows Server 2008 a Windows Server 2008 R2](https://technet.microsoft.com/library/dd391932)  
       
@@ -47,22 +47,22 @@ No. Replica DFS non comunica con il servizio Replica file (FRS). Replica DFS e F
 
 Sì, Replica DFS possibile sostituire FRS per la replica SYSVOL sui server che eseguono Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 o Windows Server 2008. I server che eseguono Windows Server 2003 R2 non supportano l'utilizzo di Replica DFS per replicare la cartella SYSVOL.
 
-Per ulteriori informazioni sulla replica di SYSVOL utilizzando replica DFS, vedere la Guida [alla migrazione della replica di SYSVOL: FRS per Replica DFS](https://technet.microsoft.com/library/dd640019).
+Per ulteriori informazioni sulla replica di SYSVOL utilizzando Replica DFS, vedere la [Guida alla migrazione della replica di SYSVOL: FRS to replica DFS](https://technet.microsoft.com/library/dd640019).
 
 ### <a name="can-i-upgrade-from-frs-to-dfs-replication-without-losing-configuration-settings"></a>È possibile eseguire l'aggiornamento da FRS a Replica DFS senza perdere le impostazioni di configurazione?
 
 Sì. Per eseguire la migrazione della replica da FRS a Replica DFS, vedere i documenti seguenti:
 
-  - Per eseguire la migrazione della replica di cartelle diverse dalla cartella SYSVOL [, vedere la Guida operativa di DFS: Migrazione da FRS a replica DFS](http://go.microsoft.com/fwlink/?linkid=192776) e [FRS2DFSR: un'utilità di migrazione da FRS a DFSR](http://go.microsoft.com/fwlink/?linkid=195437) (http://go.microsoft.com/fwlink/?LinkID=195437).  
+  - Per eseguire la migrazione della replica di cartelle diverse dalla cartella SYSVOL, vedere la [Guida operativa di DFS: migrazione da FRS a replica DFS](https://go.microsoft.com/fwlink/?linkid=192776) e [FRS2DFSR, un'utilità di migrazione da FRS a DFSR](https://go.microsoft.com/fwlink/?linkid=195437) (https://go.microsoft.com/fwlink/?LinkID=195437).  
       
-  - Per eseguire la migrazione della replica della cartella SYSVOL in replica DFS [, vedere Guida alla migrazione della replica di SYSVOL: FRS per Replica DFS](https://technet.microsoft.com/library/dd640019).  
+  - Per eseguire la migrazione della replica della cartella SYSVOL in Replica DFS, vedere [Guida alla migrazione della replica SYSVOL: FRS to replica DFS](https://technet.microsoft.com/library/dd640019).  
       
 
 ### <a name="can-i-use-dfs-replication-in-a-mixed-windowsunix-environment"></a>È possibile utilizzare Replica DFS in un ambiente misto Windows/UNIX?
 
 Sì. Sebbene Replica DFS supporti solo la replica di contenuto tra server che eseguono Windows Server, i client UNIX possono accedere alle condivisioni file nei server Windows. A tale scopo, installare i servizi per NFS (Network File System) nel server Replica DFS.
 
-È inoltre possibile utilizzare la funzionalità client SMB/CIFS inclusa in molti client UNIX per accedere direttamente alle condivisioni file di Windows, anche se questa funzionalità è spesso limitata o richiede modifiche all'ambiente Windows, ad esempio la disabilitazione della firma SMB tramite Criteri di gruppo).
+È inoltre possibile utilizzare la funzionalità client SMB/CIFS inclusa in molti client UNIX per accedere direttamente alle condivisioni file di Windows, anche se questa funzionalità è spesso limitata o richiede modifiche all'ambiente Windows, ad esempio la disabilitazione della firma SMB mediante Criteri di gruppo.
 
 Replica DFS interagisce con NFS in un server che esegue un sistema operativo Windows Server, ma non è possibile replicare un punto di montaggio NFS.
 
@@ -74,7 +74,7 @@ Sì. Replica DFS è supportata nei volumi di Servizio Copia Shadow del volume (V
 
 No, l'uso di Windows backup (Ntbackup. exe) in un computer che esegue Windows Server 2003 o versioni precedenti per eseguire il backup del contenuto di una cartella replicata in un computer che esegue Windows Server 2012, Windows Server 2008 R2 o Windows Server 2008 non è supportato.
 
-Per eseguire il backup dei file archiviati in una cartella replicata, utilizzare Windows Server Backup o Microsoft® System Center Data Protection Manager. Per informazioni sulle funzionalità di backup e ripristino in Windows Server 2008 R2 e Windows Server 2008, vedere [backup e ripristino](https://technet.microsoft.com/library/Cc754097). Per ulteriori informazioni, vedere [System Center Data Protection Manager](http://go.microsoft.com/fwlink/?linkid=182261) (http://go.microsoft.com/fwlink/?LinkId=182261).
+Per eseguire il backup dei file archiviati in una cartella replicata, utilizzare Windows Server Backup o Microsoft® System Center Data Protection Manager. Per informazioni sulle funzionalità di backup e ripristino in Windows Server 2008 R2 e Windows Server 2008, vedere [backup e ripristino](https://technet.microsoft.com/library/Cc754097). Per ulteriori informazioni, vedere [System Center Data Protection Manager](https://go.microsoft.com/fwlink/?linkid=182261) (https://go.microsoft.com/fwlink/?LinkId=182261).
 
 ### <a name="do-file-system-policies-impact-dfs-replication"></a>I criteri di file system influiscano Replica DFS?
 
@@ -101,7 +101,7 @@ Di seguito sono riportate le procedure consigliate per l'implementazione di sche
 
 ### <a name="is-dfs-replication-cluster-aware"></a>Il cluster è in grado di riconoscere Replica DFS?
 
-Sì, Replica DFS in Windows Server 2012 R2, Windows Server 2012 e Windows Server 2008 R2 includono la possibilità di aggiungere un cluster di failover come membro di un gruppo di replica. Per ulteriori informazioni, vedere [aggiungere un cluster di failover a un gruppo di replica](http://go.microsoft.com/fwlink/?linkid=155085) (http://go.microsoft.com/fwlink/?LinkId=155085). Il servizio Replica DFS nelle versioni di Windows precedenti a Windows Server 2008 R2 non è progettato per coordinarsi con un cluster di failover e il servizio non eseguirà il failover su un altro nodo.
+Sì, Replica DFS in Windows Server 2012 R2, Windows Server 2012 e Windows Server 2008 R2 includono la possibilità di aggiungere un cluster di failover come membro di un gruppo di replica. Per ulteriori informazioni, vedere [aggiungere un cluster di failover a un gruppo di replica](https://go.microsoft.com/fwlink/?linkid=155085) (https://go.microsoft.com/fwlink/?LinkId=155085). Il servizio Replica DFS nelle versioni di Windows precedenti a Windows Server 2008 R2 non è progettato per coordinarsi con un cluster di failover e il servizio non eseguirà il failover su un altro nodo.
 
 
 > [!NOTE]
@@ -121,11 +121,11 @@ Sì. Replica DFS replica i volumi in cui è abilitata l'archiviazione a istanza 
 
 È possibile utilizzare in modo sicuro Replica DFS e File offline insieme in scenari in cui è presente un solo utente alla volta che scrive nei file. Questa operazione è utile per gli utenti che si spostano tra due succursali e vogliono poter accedere ai file in un ramo o in modalità offline. File offline memorizza nella cache i file in locale per l'utilizzo offline e Replica DFS replica i dati tra le succursali.
 
-Non utilizzare Replica DFS con File offline in un ambiente multiutente, perché Replica DFS non fornisce alcun meccanismo di blocco distribuito o funzionalità di estrazione dei file. Se due utenti modificano lo stesso file contemporaneamente in server diversi, replica DFS sposta il file precedente nella cartella DfsrPrivate\\cartella ConflictAndDeleted (che si trova nel percorso locale della cartella replicata) durante la replica successiva.
+Non utilizzare Replica DFS con File offline in un ambiente multiutente, perché Replica DFS non fornisce alcun meccanismo di blocco distribuito o funzionalità di estrazione dei file. Se due utenti modificano lo stesso file contemporaneamente in server diversi, Replica DFS sposta il file precedente nella cartella DfsrPrivate\\cartella ConflictAndDeleted (che si trova nel percorso locale della cartella replicata) durante la replica successiva.
 
 ### <a name="what-antivirus-applications-are-compatible-with-dfs-replication"></a>Quali applicazioni antivirus sono compatibili con Replica DFS?
 
-Le applicazioni antivirus possono causare una replica eccessiva se le attività di analisi modificano i file in una cartella replicata. Per ulteriori informazioni, [testare l'interoperabilità delle applicazioni antivirus con replica DFS](http://go.microsoft.com/fwlink/?linkid=73990) (http://go.microsoft.com/fwlink/?LinkId=73990).
+Le applicazioni antivirus possono causare una replica eccessiva se le attività di analisi modificano i file in una cartella replicata. Per ulteriori informazioni, [testare l'interoperabilità delle applicazioni antivirus con replica DFS](https://go.microsoft.com/fwlink/?linkid=73990) (https://go.microsoft.com/fwlink/?LinkId=73990).
 
 ### <a name="what-are-the-benefits-of-using-dfs-replication-instead-of-windows-sharepoint-services"></a>Quali sono i vantaggi dell'utilizzo di Replica DFS anziché Windows SharePoint Services?
 
@@ -135,7 +135,7 @@ Windows® SharePoint® Services fornisce un coerenza rigoroso sotto forma di fun
 
 ### <a name="can-dfs-replication-replicate-between-branch-offices-without-a-vpn-connection"></a>È Replica DFS possibile eseguire la replica tra succursali senza una connessione VPN?
 
-Sì, supponendo che sia presente un collegamento WAN (Wide Area Network) privato (non Internet) che connette le succursali. Tuttavia, è necessario aprire le porte appropriate nei firewall esterni. Replica DFS utilizza l'agente mapping endpoint RPC (porta 135) e una porta temporanea assegnata in modo casuale sopra 1024. È possibile usare lo strumento da riga di comando **Dfsrdiag** per specificare una porta statica invece della porta temporanea. Per ulteriori informazioni su come specificare il mapper di endpoint RPC, vedere l' [articolo 154596](http://go.microsoft.com/fwlink/?linkid=73991) nella Microsoft Knowledge base (http://go.microsoft.com/fwlink/?LinkId=73991).
+Sì, supponendo che sia presente un collegamento WAN (Wide Area Network) privato (non Internet) che connette le succursali. Tuttavia, è necessario aprire le porte appropriate nei firewall esterni. Replica DFS utilizza l'agente mapping endpoint RPC (porta 135) e una porta temporanea assegnata in modo casuale sopra 1024. È possibile usare lo strumento da riga di comando **Dfsrdiag** per specificare una porta statica invece della porta temporanea. Per ulteriori informazioni su come specificare il mapper di endpoint RPC, vedere l' [articolo 154596](https://go.microsoft.com/fwlink/?linkid=73991) della Microsoft Knowledge Base (https://go.microsoft.com/fwlink/?LinkId=73991).
 
 ### <a name="can-dfs-replication-replicate-files-encrypted-with-the-encrypting-file-system"></a>È possibile Replica DFS replicare i file crittografati con i Encrypting File System?
 
@@ -145,7 +145,7 @@ No. Replica DFS non eseguirà la replica di file o cartelle crittografati con En
 
 Replica DFS possibile eseguire la replica in modo sicuro dei file di cartelle personali di Microsoft Outlook (pst) e di Microsoft Access solo se vengono archiviati per scopi di archiviazione e non sono accessibili attraverso la rete tramite un client come Outlook o Access (per aprire. pst o Access file, copiare prima i file in un dispositivo di archiviazione locale). I motivi sono i seguenti:
 
-  - L'apertura dei file. pst su connessioni di rete potrebbe causare il danneggiamento dei dati nei file. pst. Per ulteriori informazioni sui motivi per cui non è possibile accedere in modo sicuro ai file con estensione pst da una rete, vedere l' [articolo 297019](http://go.microsoft.com/fwlink/?linkid=125363) della Microsoft Knowledge base (http://go.microsoft.com/fwlink/?LinkId=125363).  
+  - L'apertura dei file. pst su connessioni di rete potrebbe causare il danneggiamento dei dati nei file. pst. Per ulteriori informazioni sui motivi per cui non è possibile accedere in modo sicuro ai file con estensione pst da una rete, vedere l' [articolo 297019](https://go.microsoft.com/fwlink/?linkid=125363) della Microsoft Knowledge Base (https://go.microsoft.com/fwlink/?LinkId=125363).  
       
   - i file con estensione pst e Access tendono a rimanere aperti per lunghi periodi di tempo durante l'accesso da un client come Outlook o Office Access. In questo modo si impedisce a Replica DFS di replicare questi file fino a quando non vengono chiusi.  
       
@@ -156,7 +156,7 @@ No. Replica DFS si basa su Active Directory® Domain Services per la configurazi
 
 ### <a name="can-more-than-one-folder-be-replicated-on-a-single-server"></a>È possibile replicare più di una cartella in un singolo server?
 
-Sì. Replica DFS possibile replicare numerose cartelle tra server. Verificare che ogni cartella replicata disponga di un percorso radice univoco e che non si sovrappongano. Ad esempio, d:\\Sales e d:\\contabilità possono essere i percorsi radice per due cartelle replicate, mentre i report\\d: Sales e\\d\\: Sales non possono essere i percorsi radice per due cartelle replicate.
+Sì. Replica DFS possibile replicare numerose cartelle tra server. Verificare che ogni cartella replicata disponga di un percorso radice univoco e che non si sovrappongano. Ad esempio, D:\\Sales e D:\\Accounting possono essere i percorsi radice per due cartelle replicate, ma D:\\Sales e D:\\Sales\\Reports non possono essere i percorsi radice per due cartelle replicate.
 
 ### <a name="does-dfs-replication-require-dfs-namespaces"></a>Replica DFS richiedono spazi dei nomi DFS?
 
@@ -168,7 +168,7 @@ No. Replica DFS non richiede in modo esplicito la sincronizzazione dell'ora tra 
 
 ### <a name="does-dfs-replication-support-replicating-an-entire-volume"></a>Replica DFS supporta la replica di un intero volume?
 
-Sì. Tuttavia, è necessario innanzitutto installare Windows Server 2003 Service Pack 2 o l'hotfix. Per ulteriori informazioni, vedere l' [articolo 920335](http://go.microsoft.com/fwlink/?linkid=76776) della Microsoft Knowledge base (http://go.microsoft.com/fwlink/?LinkId=76776). Inoltre, la replica di un intero volume può causare i problemi seguenti:
+Sì. Tuttavia, è necessario innanzitutto installare Windows Server 2003 Service Pack 2 o l'hotfix. Per ulteriori informazioni, vedere l' [articolo 920335](https://go.microsoft.com/fwlink/?linkid=76776) della Microsoft Knowledge Base (https://go.microsoft.com/fwlink/?LinkId=76776). Inoltre, la replica di un intero volume può causare i problemi seguenti:
 
   - Se il volume contiene un file di paging di Windows, la replica ha esito negativo e registra l'evento DFSR 4312 nel registro eventi di sistema.  
       
@@ -197,15 +197,15 @@ Sì. È possibile replicare file sparse. L'attributo **sparse** viene mantenuto 
 
 No. Replica DFS è un servizio eseguito con l'account di sistema locale, pertanto non è necessario accedere come amministratore per eseguire la replica. È tuttavia necessario essere un amministratore di dominio o locale dei file server interessati per apportare modifiche alla configurazione del Replica DFS.
 
-Per ulteriori informazioni, vedere "Replica DFS requisiti di sicurezza e delega" nel [delegare la capacità di gestire replica DFS](http://go.microsoft.com/fwlink/?linkid=182294) (http://go.microsoft.com/fwlink/?LinkId=182294).
+Per ulteriori informazioni, vedere "Replica DFS requisiti di sicurezza e delega" nel [delegare la capacità di gestire replica DFS](https://go.microsoft.com/fwlink/?linkid=182294) (https://go.microsoft.com/fwlink/?LinkId=182294).
 
 ### <a name="how-can-i-upgrade-or-replace-a-dfs-replication-member"></a>Come è possibile aggiornare o sostituire un membro Replica DFS?
 
-Per aggiornare o sostituire un membro di Replica DFS, vedere questo post di Blog sul Blog del team di Ask the Directory Services: [Sostituzione dell'hardware o del sistema operativo del membro DFSR](http://blogs.technet.com/b/askds/archive/2010/09/10/series-wrap-up-and-downloads-replacing-dfsr-member-hardware-or-os.aspx).
+Per aggiornare o sostituire un membro di Replica DFS, vedere questo post di Blog sul Blog del team di Ask the Directory Services: [sostituzione dell'hardware o del sistema operativo del membro DFSR](https://blogs.technet.com/b/askds/archive/2010/09/10/series-wrap-up-and-downloads-replacing-dfsr-member-hardware-or-os.aspx).
 
 ### <a name="is-dfs-replication-suitable-for-replicating-roaming-profiles"></a>Replica DFS è adatto per la replica di profili mobili?
 
-Sì. Alcuni scenari sono supportati quando si replicano i profili utente mobili. Per informazioni sugli scenari supportati, vedere la pagina relativa all' [istruzione di supporto di Microsoft relativa ai dati del profilo utente replicati](http://go.microsoft.com/fwlink/?linkid=201282) (http://go.microsoft.com/fwlink/?LinkId=201282).
+Sì. Alcuni scenari sono supportati quando si replicano i profili utente mobili. Per informazioni sugli scenari supportati, vedere la pagina relativa all' [istruzione di supporto di Microsoft relativa ai dati del profilo utente replicati](https://go.microsoft.com/fwlink/?linkid=201282) (https://go.microsoft.com/fwlink/?LinkId=201282).
 
 ### <a name="is-there-a-file-character-limit-or-limit-to-the-folder-depth"></a>È previsto un limite di caratteri di file o un limite alla profondità della cartella?
 
@@ -228,7 +228,7 @@ L'elenco seguente fornisce un set di linee guida per la scalabilità che sono st
 
 
 > [!IMPORTANT]
-> Quando si creano gruppi di replica con un numero elevato di file o dimensioni, è consigliabile esportare un clone del database e usare tecniche di pre-seeding per ridurre al minimo la durata della replica iniziale. Per ulteriori informazioni, vedere [replica DFS sincronizzazione iniziale in Windows Server 2012 R2: Attacco dei cloni](https://techcommunity.microsoft.com/t5/Storage-at-Microsoft/DFS-Replication-Initial-Sync-in-Windows-Server-2012-R2-Attack-of/ba-p/424877). 
+> Quando si creano gruppi di replica con un numero elevato di file o dimensioni, è consigliabile esportare un clone del database e usare tecniche di pre-seeding per ridurre al minimo la durata della replica iniziale. Per altre informazioni, vedere [replica DFS sincronizzazione iniziale in Windows Server 2012 R2: attacco dei cloni](https://techcommunity.microsoft.com/t5/Storage-at-Microsoft/DFS-Replication-Initial-Sync-in-Windows-Server-2012-R2-Attack-of/ba-p/424877). 
 <br>
 
 
@@ -247,17 +247,17 @@ L'elenco seguente include un set di linee guida per la scalabilità che sono sta
 <br>
 
 
-Per un elenco delle linee guida per la scalabilità testate da Microsoft per Windows Server 2003 R2, vedere [replica DFS linee guida sulla scalabilità](http://go.microsoft.com/fwlink/?linkid=75043) (http://go.microsoft.com/fwlink/?LinkId=75043).
+Per un elenco delle linee guida per la scalabilità testate da Microsoft per Windows Server 2003 R2, vedere [replica DFS linee guida sulla scalabilità](https://go.microsoft.com/fwlink/?linkid=75043) (https://go.microsoft.com/fwlink/?LinkId=75043).
 
 ### <a name="when-should-i-not-use-dfs-replication"></a>Quando non è consigliabile usare Replica DFS?
 
-Non utilizzare Replica DFS in un ambiente in cui più utenti aggiornano o modificano contemporaneamente gli stessi file in server diversi. Questa operazione può causare la replica DFS di spostare copie in conflitto dei file nella cartella DfsrPrivate\\cartella ConflictAndDeleted nascosta.
+Non utilizzare Replica DFS in un ambiente in cui più utenti aggiornano o modificano contemporaneamente gli stessi file in server diversi. Questa operazione può causare la Replica DFS di spostare copie in conflitto dei file nella cartella DfsrPrivate\\cartella ConflictAndDeleted nascosta.
 
 Quando più utenti devono modificare contemporaneamente gli stessi file in server diversi, utilizzare la funzionalità di estrazione dei file di Windows SharePoint Services per garantire che un solo utente stia lavorando su un file. Windows SharePoint Services 2,0 con Service Pack 2 è disponibile come parte di Windows Server 2003 R2. Windows SharePoint Services può essere scaricato dal sito Web Microsoft; non è incluso nelle versioni più recenti di Windows Server.
 
 ### <a name="why-is-a-schema-update-required-for-dfs-replication"></a>Perché è necessario un aggiornamento dello schema per Replica DFS?
 
-Replica DFS usa nuovi oggetti nel contesto dei nomi di dominio di Active Directory Domain Services per archiviare le informazioni di configurazione. Questi oggetti vengono creati quando si aggiorna lo schema di Active Directory Domain Services. Per ulteriori informazioni, vedere [la pagina relativa ai requisiti di revisione per replica DFS](http://go.microsoft.com/fwlink/?linkid=182264) (http://go.microsoft.com/fwlink/?LinkId=182264).
+Replica DFS usa nuovi oggetti nel contesto dei nomi di dominio di Active Directory Domain Services per archiviare le informazioni di configurazione. Questi oggetti vengono creati quando si aggiorna lo schema di Active Directory Domain Services. Per ulteriori informazioni, vedere la pagina relativa [ai requisiti di revisione per replica DFS](https://go.microsoft.com/fwlink/?linkid=182264) (https://go.microsoft.com/fwlink/?LinkId=182264).
 
 ## <a name="monitoring-and-management-tools"></a>Strumenti di monitoraggio e gestione
 
@@ -265,7 +265,7 @@ Replica DFS usa nuovi oggetti nel contesto dei nomi di dominio di Active Directo
 
 Sì. Sono disponibili tre modi per automatizzare i rapporti di stato:
 
-  - Usare il modulo DFSR di Windows PowerShell incluso in Windows Server 2012 R2 o DfsrAdmin. exe insieme alle attività pianificate per generare regolarmente report sull'integrità. Per ulteriori informazioni, vedere [automazione di replica DFS report](http://go.microsoft.com/fwlink/?linkid=74010) sull'integrità http://go.microsoft.com/fwlink/?LinkId=74010) (.  
+  - Usare il modulo DFSR di Windows PowerShell incluso in Windows Server 2012 R2 o DfsrAdmin. exe insieme alle attività pianificate per generare regolarmente report sull'integrità. Per ulteriori informazioni, vedere [automazione dei report sull'integrità di replica DFS](https://go.microsoft.com/fwlink/?linkid=74010) (https://go.microsoft.com/fwlink/?LinkId=74010).  
       
   - Utilizzare il Management Pack Replica DFS per System Center Operations Manager per creare avvisi basati su condizioni specificate.  
       
@@ -274,7 +274,7 @@ Sì. Sono disponibili tre modi per automatizzare i rapporti di stato:
 
 ### <a name="can-i-use-microsoft-system-center-operations-manager-to-monitor-dfs-replication"></a>È possibile utilizzare Microsoft System Center Operations Manager per monitorare Replica DFS?
 
-Sì. Per ulteriori informazioni, vedere il [Management Pack replica DFS per System Center Operations Manager 2007](http://go.microsoft.com/fwlink/?linkid=182265) nell'area download Microsoft (http://go.microsoft.com/fwlink/?LinkId=182265).
+Sì. Per ulteriori informazioni, vedere il [Management Pack replica DFS per System Center Operations Manager 2007](https://go.microsoft.com/fwlink/?linkid=182265) nell'area download Microsoft (https://go.microsoft.com/fwlink/?LinkId=182265).
 
 ### <a name="does-dfs-replication-support-remote-management"></a>Replica DFS supporta la gestione remota?
 
@@ -284,7 +284,7 @@ Gestione DFS è incluso in Windows Server 2012 R2, Windows Server 2012, Windows 
 
 
 > [!IMPORTANT]
-> Per visualizzare o gestire i gruppi di replica che contengono cartelle replicate di sola lettura o membri che sono cluster di failover, è necessario utilizzare la versione di gestione DFS inclusa in Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2, <a href="http://go.microsoft.com/fwlink/p/?linkid=238560">Remote Strumenti di amministrazione del server per Windows 8</a>o il <a href="https://technet.microsoft.com/library/ee449475">strumenti di amministrazione remota del server per Windows 7</a>. 
+> Per visualizzare o gestire i gruppi di replica che contengono cartelle replicate di sola lettura o membri che sono cluster di failover, è necessario utilizzare la versione di gestione DFS inclusa in Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2, il <a href="https://go.microsoft.com/fwlink/p/?linkid=238560">strumenti di amministrazione remota del server per Windows 8</a>o il <a href="https://technet.microsoft.com/library/ee449475">strumenti di amministrazione remota del server per Windows 7</a>. 
 <br>
 
 
@@ -294,7 +294,7 @@ No. Replica DFS dispone di un proprio set di strumenti di monitoraggio e diagnos
 
 ### <a name="how-can-files-be-recovered-from-the-conflictanddeleted-or-preexisting-folders"></a>In che modo è possibile ripristinare i file dalle cartelle cartella ConflictAndDeleted o preesistenti?
 
-Per ripristinare i file persi, ripristinare i file dalla cartella file system o dalla cartella condivisa usando la cronologia file, il comando **Ripristina versioni precedenti** in Esplora file o ripristinando i file dal backup. Per ripristinare i file direttamente dalla cartella cartella ConflictAndDeleted o PreExisting, usare `Get-DfsrPreservedFiles` i `Restore-DfsrPreservedFiles` cmdlet di e Windows PowerShell (inclusi nel modulo DFSR in Windows Server 2012 R2) o lo script di esempio [RestoreDFSR](http://code.msdn.microsoft.com/restoredfsr) da MSDN Raccolta di codice. Questo script è destinato esclusivamente al ripristino di emergenza e viene fornito così com'è, senza garanzie.
+Per ripristinare i file persi, ripristinare i file dalla cartella file system o dalla cartella condivisa usando la cronologia file, il comando **Ripristina versioni precedenti** in Esplora file o ripristinando i file dal backup. Per ripristinare i file direttamente dalla cartella cartella ConflictAndDeleted o preesistente, usare il `Get-DfsrPreservedFiles` e `Restore-DfsrPreservedFiles` cmdlet di Windows PowerShell (inclusi nel modulo DFSR in Windows Server 2012 R2) o lo script di esempio [RestoreDFSR](https://code.msdn.microsoft.com/restoredfsr) da MSDN Code Gallery. Questo script è destinato esclusivamente al ripristino di emergenza e viene fornito così com'è, senza garanzie.
 
 ### <a name="is-there-a-way-to-know-the-state-of-replication"></a>Esiste un modo per comprendere lo stato della replica?
 
@@ -311,7 +311,7 @@ Sì. Sono disponibili diversi modi per monitorare la replica:
   - Gli script possono utilizzare WMI per raccogliere informazioni sul backlog, manualmente o tramite MOM.  
       
 
-## <a name="performance"></a>Prestazioni
+## <a name="performance"></a>Performance
 
 ### <a name="does-dfs-replication-support-dial-up-connections"></a>Replica DFS supportano le connessioni remote?
 
@@ -331,7 +331,7 @@ No. Replica DFS utilizza la topologia definita dall'amministratore, indipendente
 
 ### <a name="how-can-i-improve-replication-performance"></a>Come è possibile migliorare le prestazioni della replica?
 
-Per informazioni sui diversi metodi di ottimizzazione delle prestazioni della replica, vedere l'articolo relativo all' [ottimizzazione delle prestazioni della replica in DFSR](http://blogs.technet.com/b/askds/archive/2010/03/31/tuning-replication-performance-in-dfsr-especially-on-win2008-r2.aspx) nel [Blog del team Ask the Directory Services](http://blogs.technet.com/b/askds/).
+Per informazioni sui diversi metodi di ottimizzazione delle prestazioni della replica, vedere l'articolo relativo all' [ottimizzazione delle prestazioni della replica in DFSR](https://blogs.technet.com/b/askds/archive/2010/03/31/tuning-replication-performance-in-dfsr-especially-on-win2008-r2.aspx) nel [Blog del team Ask the Directory Services](https://blogs.technet.com/b/askds/).
 
 ### <a name="how-does-dfs-replication-avoid-saturating-a-connection"></a>In che modo Replica DFS evitare di saturare una connessione?
 
@@ -430,39 +430,39 @@ Per utilizzare la RDC tra file, un membro della connessione di replica deve eseg
 </thead>
 <tbody>
 <tr class="even">
-<td><p>Windows Server 2012 R2</p></td>
+<td><p>Windows Server 2012 R2</p></td>
 <td><p>Sì<em></p></td>
 <td><p>Non disponibile</p></td>
-<td><p>Yes</em></p></td>
+<td><p>Sì</em></p></td>
 </tr>
 <tr class="odd">
 <td><p>Windows Server 2012</p></td>
-<td><p>Yes</p></td>
+<td><p>Sì</p></td>
 <td><p>Non disponibile</p></td>
-<td><p>Yes</p></td>
+<td><p>Sì</p></td>
 </tr>
 <tr class="even">
 <td><p>Windows Server 2008 R2</p></td>
 <td><p>No</p></td>
-<td><p>Yes</p></td>
-<td><p>Yes</p></td>
+<td><p>Sì</p></td>
+<td><p>Sì</p></td>
 </tr>
 <tr class="odd">
 <td><p>Windows Server 2008</p></td>
 <td><p>No</p></td>
-<td><p>Yes</p></td>
+<td><p>Sì</p></td>
 <td><p>No</p></td>
 </tr>
 <tr class="even">
 <td><p>Windows Server 2003 R2</p></td>
 <td><p>No</p></td>
-<td><p>Yes</p></td>
+<td><p>Sì</p></td>
 <td><p>No</p></td>
 </tr>
 </tbody>
 </table>
 
-\*Facoltativamente, è possibile disabilitare la RDC tra file in Windows Server 2012 R2.
+\* facoltativamente è possibile disabilitare la RDC tra file in Windows Server 2012 R2.
 
 ## <a name="replication-details"></a>Dettagli replica
 
@@ -474,52 +474,52 @@ No. Se è necessario modificare il percorso di una cartella replicata, è necess
 
 No, non è possibile configurare gli attributi di file che Replica DFS replica.
 
-Per un elenco di valori di attributo e delle relative descrizioni, vedere [attributi](http://go.microsoft.com/fwlink/?linkid=182268) di file http://go.microsoft.com/fwlink/?LinkId=182268) su MSDN (.
+Per un elenco di valori di attributo e delle relative descrizioni, vedere [attributi di file](https://go.microsoft.com/fwlink/?linkid=182268) in MSDN (https://go.microsoft.com/fwlink/?LinkId=182268).
 
-I valori di attributo seguenti vengono impostati tramite la `SetFileAttributes dwFileAttributes` funzione e vengono replicati dal replica DFS. Le modifiche apportate a questi valori di attributo attivano la replica degli attributi. Il contenuto del file non viene replicato, a meno che non si modifichi anche il contenuto. Per ulteriori informazioni, vedere la [funzione SetFileAttributes](http://go.microsoft.com/fwlink/?linkid=182269) in MSDN Library (http://go.microsoft.com/fwlink/?LinkId=182269).
+I valori di attributo seguenti vengono impostati tramite la funzione `SetFileAttributes dwFileAttributes` e vengono replicati da Replica DFS. Le modifiche apportate a questi valori di attributo attivano la replica degli attributi. Il contenuto del file non viene replicato, a meno che non si modifichi anche il contenuto. Per ulteriori informazioni, vedere la [funzione SetFileAttributes](https://go.microsoft.com/fwlink/?linkid=182269) in MSDN library (https://go.microsoft.com/fwlink/?LinkId=182269).
 
-  - \_ATTRIBUTO\_FILE NASCOSTO  
+  - ATTRIBUTO\_FILE\_nascosto  
       
-  - \_ATTRIBUTO\_FILE READONLY  
+  - ATTRIBUTO\_FILE\_READONLY  
       
-  - SISTEMA\_DI\_ATTRIBUTI DI FILE  
+  - FILE\_attributo\_sistema  
       
-  - ATTRIBUTO\_FILE\_NONCONTENUTO\_INDICIZZATO\_  
+  - L'attributo FILE\_non\_\_contenuto\_INDICIZZAto  
       
-  - \_ATTRIBUTO\_FILE OFFLINE  
+  - ATTRIBUTO\_FILE\_OFFLINE  
       
 
 I valori di attributo seguenti vengono replicati dal Replica DFS, ma non attivano la replica.
 
-  - ARCHIVIO\_ATTRIBUTI\_FILE  
+  - FILE\_attributo\_archivio  
       
-  - \_ATTRIBUTO\_FILE-NORMALE  
+  - ATTRIBUTO\_FILE\_normale  
       
 
-Anche i seguenti valori di attributo di file attivano la replica, anche se non possono `SetFileAttributes` essere impostati tramite la `GetFileAttributes` funzione (usare la funzione per visualizzare i valori dell'attributo).
+Anche i seguenti valori di attributo di file attivano la replica, anche se non possono essere impostati tramite la funzione `SetFileAttributes` (usare la funzione `GetFileAttributes` per visualizzare i valori dell'attributo).
 
-  - REPARSE\_\_POINT\_DELL'ATTRIBUTO FILE  
+  - FILE\_attributo\_\_punto di analisi  
       
 
 > [!NOTE]
 > Replica DFS non replica i valori dell'attributo reparse point, a meno che il tag reparse non sia IO_REPARSE_TAG_SYMLINK. I file con i tag IO_REPARSE_TAG_DEDUP, IO_REPARSE_TAG_SIS o IO_REPARSE_TAG_HSM reparse vengono replicati come file normali. Tuttavia, il tag di reparse e i buffer dei dati di analisi non vengono replicati in altri server perché il reparse point funziona solo sul sistema locale. 
 <br>
 
-  - \_ATTRIBUTO\_FILE COMPRESSO  
+  - ATTRIBUTO FILE\_\_compresso  
       
-  - \_ATTRIBUTO\_FILE CRITTOGRAFATO  
+  - ATTRIBUTO\_FILE\_CRITTOGRAFAto  
       
 
 > [!NOTE]
-> Replica DFS non replica i file crittografati tramite Encrypting File System (EFS). Replica DFS replica i file crittografati utilizzando un software non Microsoft, ma solo se non imposta il valore dell'attributo FILE_ATTRIBUTE_ENCRYPTED per il file. 
+> Replica DFS non replica i file crittografati tramite Encrypting File System (EFS). Replica DFS replica i file crittografati utilizzando un software non Microsoft, ma solo se non imposta il valore dell'attributo FILE_ATTRIBUTE_ENCRYPTED sul file. 
 <br>
 
-  - FILE\_\_SPARSE\_ATTRIBUTO FILE  
+  - FILE\_attributo\_FILE di\_SPARSe  
       
-  - DIRECTORY\_DEGLI\_ATTRIBUTI DI FILE  
+  - FILE\_attributo\_DIRECTORY  
       
 
-Replica DFS non replica il valore temporaneo\_dell'\_attributo file.
+Replica DFS non esegue la replica del FILE\_attributo\_valore temporaneo.
 
 ### <a name="can-i-control-which-member-is-replicated"></a>È possibile controllare quale membro è replicato?
 
@@ -529,11 +529,11 @@ Sì. È possibile scegliere una topologia quando si crea un gruppo di replica. I
 
 Sì. Replica DFS supporta la copia dei file in un membro del gruppo di replica prima della replica iniziale. Questa "pre-staging" può ridurre notevolmente la quantità di dati replicati durante la replica iniziale.
 
-La replica iniziale non deve replicare il contenuto quando i file differiscono solo per attributi reali o timestamp. Un attributo reale è un attributo che può essere impostato tramite la funzione `SetFileAttributes`Win32. Per ulteriori informazioni, vedere la [funzione SetFileAttributes](http://go.microsoft.com/fwlink/?linkid=182269) in MSDN Library (http://go.microsoft.com/fwlink/?LinkId=182269). Se due file sono diversi da altri attributi, ad esempio la compressione, il contenuto del file viene replicato.
+La replica iniziale non deve replicare il contenuto quando i file differiscono solo per attributi reali o timestamp. Un attributo reale è un attributo che può essere impostato dalla funzione Win32 `SetFileAttributes`. Per ulteriori informazioni, vedere la [funzione SetFileAttributes](https://go.microsoft.com/fwlink/?linkid=182269) in MSDN library (https://go.microsoft.com/fwlink/?LinkId=182269). Se due file sono diversi da altri attributi, ad esempio la compressione, il contenuto del file viene replicato.
 
 Per pre-installare un membro del gruppo di replica, copiare i file nella cartella appropriata nei server di destinazione, creare il gruppo di replica e quindi scegliere un membro primario. Scegliere il membro con i file più aggiornati da replicare perché il contenuto del membro primario è considerato "autorevole". Ciò significa che durante la replica iniziale, i file del membro primario sovrascriveranno sempre le altre versioni dei file su altri membri del gruppo di replica.
 
-Per informazioni sul pre-seeding e sulla clonazione del database DFSR, vedere [replica DFS sincronizzazione iniziale in Windows Server 2012 R2: Attacco dei cloni](http://blogs.technet.com/b/filecab/archive/2013/08/21/dfs-replication-initial-sync-in-windows-server-2012-r2-attack-of-the-clones.aspx).
+Per informazioni sul pre-seeding e sulla clonazione del database DFSR, vedere [replica DFS sincronizzazione iniziale in Windows Server 2012 R2: attacco dei cloni](https://blogs.technet.com/b/filecab/archive/2013/08/21/dfs-replication-initial-sync-in-windows-server-2012-r2-attack-of-the-clones.aspx).
 
 Per altre informazioni sulla replica iniziale, vedere [creare un gruppo di replica](https://technet.microsoft.com/library/cc725893).
 
@@ -541,11 +541,11 @@ Per altre informazioni sulla replica iniziale, vedere [creare un gruppo di repli
 
 Sì. Replica DFS si verificano tre problemi di FRS comuni:
 
-  - Wrapping del journal: Replica DFS esegue il ripristino dal diario in tempo reale. Ogni file o cartella esistente verrà contrassegnata come journalWrap ed è stata verificata in base al file system prima che la replica sia nuovamente abilitata. Durante il ripristino, questo volume non è disponibile per la replica in entrambe le direzioni.  
+  - Esegue il wrapping del journal: Replica DFS esegue il ripristino dal diario in tempo reale. Ogni file o cartella esistente verrà contrassegnata come journalWrap ed è stata verificata in base al file system prima che la replica sia nuovamente abilitata. Durante il ripristino, questo volume non è disponibile per la replica in entrambe le direzioni.  
       
-  - Replica eccessiva: Per evitare una replica eccessiva, Replica DFS usa un sistema di crediti.  
+  - Replica eccessiva: per evitare una replica eccessiva, Replica DFS usa un sistema di crediti.  
       
-  - Cartelle morphed: Per evitare i nomi di cartella morphed, replica DFS archivia i dati in conflitto in\\una cartella DfsrPrivate cartella ConflictAndDeleted nascosta, che si trova nel percorso locale della cartella replicata. Ad esempio, la creazione di più cartelle simultaneamente con nomi identici su server diversi replicati con FRS causa la ridenominazione della cartella o delle cartelle precedenti da parte di FRS. Replica DFS sposta invece le cartelle precedenti nel conflitto locale e nella cartella eliminata.  
+  - Cartelle morphed: per evitare i nomi di cartella morphed, Replica DFS archivia i dati in conflitto in una cartella DfsrPrivate\\cartella ConflictAndDeleted nascosta, che si trova nel percorso locale della cartella replicata. Ad esempio, la creazione di più cartelle simultaneamente con nomi identici su server diversi replicati con FRS causa la ridenominazione della cartella o delle cartelle precedenti da parte di FRS. Replica DFS sposta invece le cartelle precedenti nel conflitto locale e nella cartella eliminata.  
       
 
 ### <a name="does-dfs-replication-replicate-files-in-chronological-order"></a>Replica DFS replicare i file in ordine cronologico?
@@ -562,9 +562,9 @@ Se un'applicazione apre un file e crea un blocco di file su di esso (impedendone
       
   - Microsoft non supporta la creazione di collegamenti reali NTFS a o da file in una cartella replicata. questa operazione può causare problemi di replica con i file interessati. I file dei collegamenti reali vengono ignorati da Replica DFS e non vengono replicati. Anche i punti di giunzione non vengono replicati e Replica DFS registra l'evento 4406 per ogni punto di giunzione rilevato.  
       
-  - Gli unici reparse point replicati da replica DFS sono quelli che usano il tag\_del\_collegamento\_simbolico di reparse i/o. Tuttavia, replica DFS non garantisce che venga replicata anche la destinazione di un collegamento simbolico. Per ulteriori informazioni, vedere il [Blog del team di Ask the Directory Services](http://blogs.technet.com/b/askds/archive/2011/09/30/friday-mail-sack-super-slo-mo-edition.aspx).  
+  - Gli unici reparse point replicati da Replica DFS sono quelli che usano il tag di i/o\_reparse\_TAG\_collegamento simbolico; Tuttavia, Replica DFS non garantisce che venga replicata anche la destinazione di un collegamento simbolico. Per ulteriori informazioni, vedere il [Blog del team di Ask the Directory Services](https://blogs.technet.com/b/askds/archive/2011/09/30/friday-mail-sack-super-slo-mo-edition.aspx).  
       
-  - File con\_i/o reparse\_\_Tag deduplicazione,\_i/\_o\_reparse Tag SIS\_o io\_reparse\_Tag HSM reparse tag vengono replicati come file normali. I buffer di reparse tag e reparse data non vengono replicati in altri server perché il reparse point funziona solo sul sistema locale. Di conseguenza, Replica DFS possibile replicare le cartelle in volumi che usano la deduplicazione dati in Windows Server 2012 o Single Instance Storage (SIS), tuttavia, le informazioni di deduplicazione dati vengono gestite separatamente da ogni server in cui è abilitato il servizio ruolo.  
+  - I file con i/o\_TAG di reparse\_\_DEDUPLICAZIONE, IO\_reparse\_TAG\_SIS o IO\_reparse\_Tag\_HSM reparse tag vengono replicati come file normali. I buffer di reparse tag e reparse data non vengono replicati in altri server perché il reparse point funziona solo sul sistema locale. Di conseguenza, Replica DFS possibile replicare le cartelle in volumi che usano la deduplicazione dati in Windows Server 2012 o Single Instance Storage (SIS), tuttavia, le informazioni di deduplicazione dati vengono gestite separatamente da ogni server in cui è abilitato il servizio ruolo.  
       
 
 ### <a name="does-dfs-replication-replicate-timestamp-changes-if-no-other-changes-are-made-to-the-file"></a>Replica DFS replicare le modifiche del timestamp se non vengono apportate altre modifiche al file?
@@ -583,7 +583,7 @@ Sì. Replica DFS replica le modifiche delle autorizzazioni per file e cartelle. 
 
 ### <a name="does-dfs-replication-support-merging-text-files-in-the-event-of-a-conflict"></a>Replica DFS supporta l'Unione di file di testo in caso di conflitto?
 
-Replica DFS non unisce i file quando si verifica un conflitto. Tuttavia, tenta di mantenere la versione precedente del file nella cartella DfsrPrivate\\cartella ConflictAndDeleted nascosta nel computer in cui è stato rilevato il conflitto.
+Replica DFS non unisce i file quando si verifica un conflitto. Tuttavia, tenta di mantenere la versione precedente del file nella cartella Hidden DfsrPrivate\\cartella ConflictAndDeleted nel computer in cui è stato rilevato il conflitto.
 
 ### <a name="does-dfs-replication-use-encryption-when-transmitting-data"></a>Replica DFS utilizza la crittografia durante la trasmissione dei dati?
 
@@ -591,15 +591,15 @@ Sì. Replica DFS utilizza le connessioni RPC (Remote Procedure Call) con la crit
 
 ### <a name="is-it-possible-to-disable-the-use-of-encrypted-rpc"></a>È possibile disabilitare l'utilizzo di RPC crittografate?
 
-No. Il servizio Replica DFS utilizza RPC (Remote Procedure Call) su TCP per replicare i dati. Per proteggere i trasferimenti di dati su Internet, il servizio Replica DFS è progettato in modo da usare sempre la costante `RPC_C_AUTHN_LEVEL_PKT_PRIVACY`a livello di autenticazione. In questo modo si garantisce che la comunicazione RPC in Internet sia sempre crittografata. Pertanto, non è possibile disabilitare l'utilizzo di RPC crittografate da parte del servizio Replica DFS.
+No. Il servizio Replica DFS utilizza RPC (Remote Procedure Call) su TCP per replicare i dati. Per proteggere i trasferimenti di dati su Internet, il servizio Replica DFS è progettato in modo da usare sempre la costante a livello di autenticazione, `RPC_C_AUTHN_LEVEL_PKT_PRIVACY`. In questo modo si garantisce che la comunicazione RPC in Internet sia sempre crittografata. Pertanto, non è possibile disabilitare l'utilizzo di RPC crittografate da parte del servizio Replica DFS.
 
 Per ulteriori informazioni, vedere i siti Web Microsoft seguenti:
 
-  - [Riferimento tecnico RPC](http://go.microsoft.com/fwlink/?linkid=182278)  
+  - [Riferimento tecnico RPC](https://go.microsoft.com/fwlink/?linkid=182278)  
       
-  - [Informazioni sulla compressione differenziale remota](http://go.microsoft.com/fwlink/?linkid=182279)  
+  - [Informazioni sulla compressione differenziale remota](https://go.microsoft.com/fwlink/?linkid=182279)  
       
-  - [Costanti a livello di autenticazione](http://go.microsoft.com/fwlink/?linkid=182280)  
+  - [Costanti a livello di autenticazione](https://go.microsoft.com/fwlink/?linkid=182280)  
       
 
 ### <a name="how-are-simultaneous-replications-handled"></a>Come vengono gestite le repliche simultanee?
@@ -610,7 +610,7 @@ Per impostazione predefinita, un massimo di 16 (quattro in Windows Server 2003 R
 
 ### <a name="how-do-i-force-replication-or-polling"></a>Ricerca per categorie forzare la replica o il polling?
 
-È possibile forzare immediatamente la replica usando Gestione DFS, come descritto in [modificare le pianificazioni della replica](https://technet.microsoft.com/library/Cc732278). È anche possibile forzare la replica usando `Sync-DfsReplicationGroup` il cmdlet, incluso nel modulo DFSR di PowerShell introdotto con Windows Server 2012 R2 oppure il comando **Dfsrdiag SyncNow** . È possibile forzare il polling usando `Update-DfsrConfigurationFromAD` il cmdlet o il comando **Dfsrdiag PollAD** .
+È possibile forzare immediatamente la replica usando Gestione DFS, come descritto in [modificare le pianificazioni della replica](https://technet.microsoft.com/library/Cc732278). È anche possibile forzare la replica usando il cmdlet `Sync-DfsReplicationGroup`, incluso nel modulo DFSR di PowerShell introdotto con Windows Server 2012 R2 oppure il comando **Dfsrdiag SyncNow** . È possibile forzare il polling usando il cmdlet `Update-DfsrConfigurationFromAD` o il comando **Dfsrdiag PollAD** .
 
 ### <a name="is-it-possible-to-configure-a-quiet-time-between-replications-for-files-that-change-frequently"></a>È possibile configurare un tempo di attesa tra le repliche per i file che cambiano di frequente?
 
@@ -618,7 +618,7 @@ No. Se la pianificazione è aperta, Replica DFS replica le modifiche non appena 
 
 ### <a name="is-it-possible-to-configure-one-way-replication-with-dfs-replication"></a>È possibile configurare la replica unidirezionale con Replica DFS?
 
-Sì. Se si usa Windows Server 2012 o Windows Server 2008 R2, è possibile creare una cartella replicata di sola lettura che replica il contenuto tramite una connessione unidirezionale. Per ulteriori informazioni, vedere [rendere una cartella replicata di sola lettura su un particolare membro](http://go.microsoft.com/fwlink/?linkid=156740) (http://go.microsoft.com/fwlink/?LinkId=156740).
+Sì. Se si usa Windows Server 2012 o Windows Server 2008 R2, è possibile creare una cartella replicata di sola lettura che replica il contenuto tramite una connessione unidirezionale. Per ulteriori informazioni, vedere [creare una cartella replicata di sola lettura su un particolare membro](https://go.microsoft.com/fwlink/?linkid=156740) (https://go.microsoft.com/fwlink/?LinkId=156740).
 
 Non è supportata la creazione di una connessione di replica unidirezionale con Replica DFS in Windows Server 2008 o Windows Server 2003 R2. Questa operazione può causare numerosi problemi, ad esempio errori di topologia del controllo di integrità, problemi di gestione temporanea e problemi con il database di Replica DFS.
 
@@ -649,7 +649,7 @@ Per altre informazioni sulla replica iniziale, vedere [creare un gruppo di repli
 
 ### <a name="what-happens-if-the-replication-schedule-closes-while-a-file-is-being-replicated"></a>Cosa accade se la pianificazione della replica viene chiusa durante la replica di un file?
 
-Se per la connessione è abilitata la compressione differenziale remota (RDC), la replica in ingresso di un file di dimensioni superiori a 64 KB che ha iniziato la replica immediatamente prima della chiusura della pianificazione (o la modifica a **nessuna larghezza di banda**) continua quando viene aperta la pianificazione (o modifiche a un valore diverso da **nessuna larghezza di banda**). La replica continua dallo stato in cui si trovava quando la replica è stata arrestata.
+Se per la connessione è abilitata la compressione differenziale remota (RDC), la replica in ingresso di un file di dimensioni superiori a 64 KB che ha iniziato la replica immediatamente prima della chiusura della pianificazione (o la modifica a **nessuna larghezza di banda**) continua quando si apre la pianificazione (o cambia in un valore diverso da **nessuna larghezza di banda**). La replica continua dallo stato in cui si trovava quando la replica è stata arrestata.
 
 Se RDC è disattivato, Replica DFS riavvia completamente il trasferimento di file. Questo può ritardare quando il file è disponibile nel membro ricevente.
 
@@ -728,9 +728,9 @@ Se una parte del file è già in fase di trasmissione, Replica DFS continua la t
 </colgroup>
 <thead>
 <tr class="header">
-<th>Date</th>
+<th>Data</th>
 <th>Descrizione</th>
-<th>`Reason`</th>
+<th>Motivo</th>
 </tr>
 </thead>
 <tbody>

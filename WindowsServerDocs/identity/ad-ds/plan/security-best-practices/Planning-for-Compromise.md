@@ -9,12 +9,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: ee1416a00fc0d347b7e05cb12c83f3d3532d693f
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: d3d08e954b7a2a9ce58eb61dec54f2848ab68c12
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71360137"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75949166"
 ---
 # <a name="planning-for-compromise"></a>Pianificazione del compromesso
 
@@ -103,12 +103,12 @@ Se non si dispone già di un quadro chiaro degli utenti, dei sistemi, delle appl
 ### <a name="leveraging-nonmigratory-migrations"></a>Uso delle migrazioni "non migratorie"  
 Che tu sappia che l'ambiente è stato compromesso, sospetta che sia stato compromesso o semplicemente preferisci non eseguire la migrazione di dati e oggetti legacy da un'installazione Active Directory legacy a una nuova, prendere in considerazione approcci di migrazione che non tecnicamente oggetti "migrate".  
   
-### <a name="user-accounts"></a>User Accounts  
+### <a name="user-accounts"></a>Account utenti  
 In una migrazione Active Directory tradizionale da una foresta a un'altra, l'attributo SIDHistory (cronologia SID) sugli oggetti utente viene usato per archiviare il SID degli utenti e i SID dei gruppi a cui gli utenti sono membri nella foresta legacy. Se viene eseguita la migrazione degli account utente a una nuova foresta e si accede alle risorse nella foresta legacy, i SID nella cronologia SID vengono usati per creare un token di accesso che consente agli utenti di accedere alle risorse a cui avevano accesso prima della migrazione degli account.  
   
 La gestione della cronologia SID, tuttavia, si è rivelata problematica in alcuni ambienti perché il popolamento dei token di accesso degli utenti con i SID correnti e cronologici può causare un aumento del token. L'aumento del numero di token è un problema per cui il numero di SID che devono essere archiviati nel token di accesso di un utente utilizza o supera la quantità di spazio disponibile nel token.  
   
-Sebbene le dimensioni dei token possano essere aumentate a un extent limitato, la soluzione definitiva per la riduzione dei token consiste nel ridurre il numero di SID associati agli account utente, se si razionalizzano le appartenenze ai gruppi, si elimina la cronologia SID o una combinazione di entrambi. Per altre informazioni sull'aumento del numero di token, vedere MaxTokenSize e il numero di [token Kerberos](http://blogs.technet.com/b/shanecothran/archive/2010/07/16/maxtokensize-and-kerberos-token-bloat.aspx).  
+Sebbene le dimensioni dei token possano essere aumentate a un extent limitato, la soluzione definitiva per la riduzione dei token consiste nel ridurre il numero di SID associati agli account utente, se si razionalizzano le appartenenze ai gruppi, si elimina la cronologia SID o una combinazione di entrambi. Per altre informazioni sull'aumento del numero di token, vedere MaxTokenSize e il numero di [token Kerberos](https://blogs.technet.com/b/shanecothran/archive/2010/07/16/maxtokensize-and-kerberos-token-bloat.aspx).  
   
 Anziché eseguire la migrazione degli utenti da un ambiente legacy (in particolare, in cui le appartenenze a gruppi e le cronologie SID potrebbero essere compromesse) usando la cronologia SID, provare a sfruttare le applicazioni metadirectory per eseguire la migrazione degli utenti, senza usare le cronologie dei SID nella nuova foresta. Quando gli account utente vengono creati nella nuova foresta, è possibile usare un'applicazione metadirectory per eseguire il mapping degli account agli account corrispondenti nella foresta legacy.  
   
@@ -144,7 +144,7 @@ Nella maggior parte delle organizzazioni, gli utenti che hanno accesso alle info
   
 È ad esempio possibile definire un criterio in cui i dirigenti e gli altri indirizzi VIP devono usare workstation sicure per accedere ai dati e ai sistemi sensibili, consentendo loro di usare gli altri dispositivi per accedere ai dati meno sensibili. Si tratta di un principio semplice da ricordare per gli utenti, ma è possibile implementare una serie di controlli back-end che consentono di applicare l'approccio.  
 
-È possibile usare la [garanzia del meccanismo di autenticazione](https://technet.microsoft.com/library/dd391847(v=WS.10).aspx) per consentire agli utenti di accedere ai dati sensibili solo se hanno effettuato l'accesso ai sistemi protetti usando le smart card e possono usare restrizioni relative ai diritti utente e IPSec per controllare i sistemi da cui possono connettersi ai repository di dati sensibili. È possibile utilizzare [Microsoft Data Classification Toolkit](https://www.microsoft.com/download/details.aspx?id=27123) per creare un'infrastruttura di classificazione file affidabile ed è possibile implementare il [controllo dinamico degli accessi](http://blogs.technet.com/b/windowsserver/archive/2012/05/22/introduction-to-windows-server-2012-dynamic-access-control.aspx) per limitare l'accesso ai dati in base alle caratteristiche di un tentativo di accesso, traducendo le regole business in controlli tecnici.  
+È possibile usare la [garanzia del meccanismo di autenticazione](https://technet.microsoft.com/library/dd391847(v=WS.10).aspx) per consentire agli utenti di accedere ai dati sensibili solo se hanno effettuato l'accesso ai sistemi protetti usando le smart card e possono usare restrizioni relative ai diritti utente e IPSec per controllare i sistemi da cui possono connettersi ai repository di dati sensibili. È possibile utilizzare [Microsoft Data Classification Toolkit](https://www.microsoft.com/download/details.aspx?id=27123) per creare un'infrastruttura di classificazione file affidabile ed è possibile implementare il [controllo dinamico degli accessi](https://blogs.technet.com/b/windowsserver/archive/2012/05/22/introduction-to-windows-server-2012-dynamic-access-control.aspx) per limitare l'accesso ai dati in base alle caratteristiche di un tentativo di accesso, traducendo le regole business in controlli tecnici.  
   
 Dal punto di vista dell'utente, l'accesso ai dati sensibili da un sistema protetto "Just Works" e il tentativo di eseguire questa operazione da un sistema non protetto "just not". Tuttavia, dal punto di vista del monitoraggio e della gestione dell'ambiente, si contribuisce a creare modelli identificabili in modo da consentire agli utenti di accedere a dati e sistemi sensibili, semplificando il rilevamento di tentativi di accesso anomali.  
   

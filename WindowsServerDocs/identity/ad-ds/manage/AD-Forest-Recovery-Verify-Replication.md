@@ -9,12 +9,12 @@ ms.topic: article
 ms.prod: windows-server
 ms.assetid: 302e522a-fb40-43bc-bc63-83dcc87ebde5
 ms.technology: identity-adds
-ms.openlocfilehash: f65508bf8973721a09c779a52f708d6a258e2cb5
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: f6bee5164849d6643c1744ce121b9ce91b5e7f7f
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71390235"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75949045"
 ---
 # <a name="resources-to-verify-replication-is-working"></a>Risorse per verificare il funzionamento della replica 
 
@@ -29,10 +29,10 @@ Controllare l'accesso Replica DFS Visualizzatore eventi per l'ID evento 4602 (o 
 
 Se il primo controller di dominio recuperato registra l'ID evento 4614 ("il controller di dominio è in attesa di eseguire la replica iniziale. La cartella replicata rimarrà nello stato di sincronizzazione iniziale fino a quando non viene replicata con il partner ") nel registro Replica DFS, quindi l'ID evento 4602 non viene visualizzato ed è necessario eseguire i passaggi manuali seguenti per ripristinare SYSVOL se è replicato da DFSR  
 
-1. Quando viene visualizzato l'evento DFSR 4612 nel primo controller di dominio ripristinato, eseguire un ripristino autorevole manuale come descritto in [2218556: Come forzare una sincronizzazione autorevole e non autorevole per SYSVOL con replica DFSR (come "D4/D2" per FRS) ](https://support.microsoft.com/kb/2218556) (https://support.microsoft.com/kb/2218556).  
+1. Quando viene visualizzato l'evento DFSR 4612 nel primo controller di dominio ripristinato, eseguire un ripristino autorevole manuale come descritto in [2218556: come forzare una sincronizzazione autorevole e non autorevole per la replica di SYSVOL DFSR (ad esempio, "D4/D2" per FRS)](https://support.microsoft.com/kb/2218556) (https://support.microsoft.com/kb/2218556).  
 2. Impostare il **flag SysvolReady** su 1 manualmente, come descritto in [947022 la condivisione Netlogon non è presente dopo l'installazione di Active Directory Domain Services in un nuovo controller di dominio basato su Windows Server 2008 completo o in sola lettura](https://support.microsoft.com/kb/947022).  
 
-È anche possibile creare un report di diagnostica Replica DFS. Per ulteriori informazioni, vedere la pagina relativa alla [creazione di un report di diagnostica per replica DFS](https://technet.microsoft.com/library/cc754227.aspx) e alla [Guida dettagliata a DFS per Windows Server 2008](https://technet.microsoft.com/library/cc732863\(WS.10\).aspx). Se nel server è in esecuzione Windows Server 2008 R2, è possibile utilizzare l' [opzione della riga di comando Dfsrdiag. exe ReplicationState](http://blogs.technet.com/b/filecab/archive/2009/05/28/dfsrdiag-exe-replicationstate-what-s-dfsr-up-to.aspx).  
+È anche possibile creare un report di diagnostica Replica DFS. Per ulteriori informazioni, vedere la pagina relativa alla [creazione di un report di diagnostica per replica DFS](https://technet.microsoft.com/library/cc754227.aspx) e alla [Guida dettagliata a DFS per Windows Server 2008](https://technet.microsoft.com/library/cc732863\(WS.10\).aspx). Se nel server è in esecuzione Windows Server 2008 R2, è possibile utilizzare l' [opzione della riga di comando Dfsrdiag. exe ReplicationState](https://blogs.technet.com/b/filecab/archive/2009/05/28/dfsrdiag-exe-replicationstate-what-s-dfsr-up-to.aspx).  
 
 È inoltre possibile eseguire il test delle repliche utilizzando Dcdiag. exe per verificare la presenza di errori di replica. Per ulteriori informazioni, vedere l'articolo della Knowledge base [249256](https://support.microsoft.com/kb/249256).
 

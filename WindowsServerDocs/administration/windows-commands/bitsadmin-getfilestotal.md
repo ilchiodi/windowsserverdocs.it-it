@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 27cf04e8745aeab5cd1f2ce379c8506be642fea2
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: e5c28d8e970bd7db896073bf8cddb168ffe9deff
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71381610"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75946840"
 ---
 # <a name="bitsadmin-getfilestotal"></a>bitsadmin getfilestotal
 
@@ -38,13 +38,13 @@ bitsadmin /GetFilesTotal <Job>
 |---------|-----------|
 |Job|Nome visualizzato o il GUID del processo|
 
-## <a name="BKMK_examples"></a>Esempi
+## <a name="BKMK_examples"></a>Esempi:
 
 Nell'esempio seguente viene recuperato il numero di file inclusi nel processo denominato *myDownloadJob*.
 ```
 C:\>bitsadmin /GetFilesTotal myDownloadJob
 ```
 
-# #
+## <a name="see-also"></a>Vedi anche
 
-[Chiave sintassi della riga di comando](command-line-syntax-key.md) Vedere anche
+[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

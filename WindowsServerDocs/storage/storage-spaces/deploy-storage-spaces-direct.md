@@ -10,12 +10,12 @@ author: stevenek
 ms.date: 06/07/2019
 description: Istruzioni dettagliate per la distribuzione di una risorsa di archiviazione definita dal software con Spazi di archiviazione diretta in Windows Server come infrastruttura iperconvergente o infrastruttura convergente (anche nota come disaggregata).
 ms.localizationpriority: medium
-ms.openlocfilehash: 0ab96f737f7700e202c9d0382c06859c4ea84118
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 60b29cbebb19cd8f1ce364d1eb7e920759375285
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71402819"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75950025"
 ---
 # <a name="deploy-storage-spaces-direct"></a>Distribuire spazi di archiviazione diretta
 
@@ -102,7 +102,7 @@ Dal sistema di gestione aprire una console di PowerShell con privilegi di ammini
 Add-Computer -NewName "Server01" -DomainName "contoso.com" -Credential "CONTOSO\User" -Restart -Force  
 ```
 
-Se l'account amministratore di archiviazione non è un membro del gruppo Domain Admins, aggiungere l'account amministratore di archiviazione al gruppo Administrators locale in ogni nodo o ancora meglio, aggiungere il gruppo usato per gli amministratori di archiviazione. È possibile usare il comando seguente (oppure scrivere una funzione di Windows PowerShell a tale scopo. vedere [usare PowerShell per aggiungere utenti di dominio a un gruppo locale](http://blogs.technet.com/b/heyscriptingguy/archive/2010/08/19/use-powershell-to-add-domain-users-to-a-local-group.aspx) per altre informazioni):
+Se l'account amministratore di archiviazione non è un membro del gruppo Domain Admins, aggiungere l'account amministratore di archiviazione al gruppo Administrators locale in ogni nodo o ancora meglio, aggiungere il gruppo usato per gli amministratori di archiviazione. È possibile usare il comando seguente (oppure scrivere una funzione di Windows PowerShell a tale scopo. vedere [usare PowerShell per aggiungere utenti di dominio a un gruppo locale](https://blogs.technet.com/b/heyscriptingguy/archive/2010/08/19/use-powershell-to-add-domain-users-to-a-local-group.aspx) per altre informazioni):
 
 ```
 Net localgroup Administrators <Domain\Account> /add
@@ -307,7 +307,7 @@ Il passaggio successivo per la configurazione dei servizi cluster per la file se
 4. Nella pagina **punto di accesso client** Digitare un nome per il file server di scalabilità orizzontale.
 5. Verificare che il ruolo sia stato configurato correttamente passando a **ruoli** e confermando che nella colonna **stato** sia indicato in **esecuzione** accanto al ruolo file server cluster creato, come illustrato nella figura 1.
 
-   ![Screenshot del gestione cluster di failover che mostra la File server di scalabilità orizzontale](media/Hyper-converged-solution-using-Storage-Spaces-Direct-in-Windows-Server-2016/SOFS_in_FCM.png "Gestione cluster di failover che mostra l'file server di scalabilità orizzontale")
+   ![Screenshot del Gestione cluster di failover che mostra la File server di scalabilità orizzontale](media/Hyper-converged-solution-using-Storage-Spaces-Direct-in-Windows-Server-2016/SOFS_in_FCM.png "Gestione cluster di failover che mostra la File server di scalabilità orizzontale")
 
     **Figura 1** Gestione cluster di failover che mostra la File server di scalabilità orizzontale con lo stato in esecuzione
 
@@ -329,14 +329,14 @@ Add-ClusterScaleOutFileServerRole -Name SOFS -Cluster FSCLUSTER
 
 Dopo aver creato i dischi virtuali e averli aggiunti a CSVs, è possibile creare condivisioni file su di essi, una condivisione file per ogni volume condiviso cluster per ogni disco virtuale. System Center Virtual Machine Manager (VMM) è probabilmente il modo più pratico per eseguire questa operazione perché gestisce automaticamente le autorizzazioni, ma se non è presente nell'ambiente, è possibile utilizzare Windows PowerShell per automatizzare parzialmente la distribuzione.
 
-Usare gli script inclusi nello script [Configurazione condivisione SMB per carichi di lavoro Hyper-V](http://gallery.technet.microsoft.com/SMB-Share-Configuration-4a36272a) , che consente di automatizzare parzialmente il processo di creazione di gruppi e condivisioni. Viene scritto per i carichi di lavoro di Hyper-V, pertanto se si distribuiscono altri carichi di lavoro, potrebbe essere necessario modificare le impostazioni o eseguire ulteriori passaggi dopo aver creato le condivisioni. Se ad esempio si utilizza Microsoft SQL Server, è necessario concedere all'account del servizio SQL Server il controllo completo sulla condivisione e sul file system.
+Usare gli script inclusi nello script [Configurazione condivisione SMB per carichi di lavoro Hyper-V](https://gallery.technet.microsoft.com/SMB-Share-Configuration-4a36272a) , che consente di automatizzare parzialmente il processo di creazione di gruppi e condivisioni. Viene scritto per i carichi di lavoro di Hyper-V, pertanto se si distribuiscono altri carichi di lavoro, potrebbe essere necessario modificare le impostazioni o eseguire ulteriori passaggi dopo aver creato le condivisioni. Se ad esempio si utilizza Microsoft SQL Server, è necessario concedere all'account del servizio SQL Server il controllo completo sulla condivisione e sul file system.
 
 > [!NOTE]
 >  È necessario aggiornare l'appartenenza al gruppo quando si aggiungono nodi del cluster, a meno che non si usi System Center Virtual Machine Manager per creare le condivisioni.
 
 Per creare condivisioni file usando gli script di PowerShell, eseguire le operazioni seguenti:
 
-1. Scaricare gli script inclusi nella [configurazione della condivisione SMB per i carichi di lavoro di Hyper-V](http://gallery.technet.microsoft.com/SMB-Share-Configuration-4a36272a) in uno dei nodi del cluster file server.
+1. Scaricare gli script inclusi nella [configurazione della condivisione SMB per i carichi di lavoro di Hyper-V](https://gallery.technet.microsoft.com/SMB-Share-Configuration-4a36272a) in uno dei nodi del cluster file server.
 2. Aprire una sessione di Windows PowerShell con credenziali di amministratore di dominio nel sistema di gestione, quindi usare lo script seguente per creare un gruppo di Active Directory per gli oggetti computer Hyper-V, modificando i valori per le variabili in base alle esigenze ambiente
 
     ```PowerShell
@@ -371,7 +371,7 @@ Per creare condivisioni file usando gli script di PowerShell, eseguire le operaz
 
 ### <a name="step-43-enable-kerberos-constrained-delegation"></a>Passaggio 4,3 abilitare la delega vincolata Kerberos
 
-Per configurare la delega vincolata Kerberos per la gestione di scenari remoti e aumentare Live Migration sicurezza, da uno dei nodi del cluster di archiviazione, usare lo script KCDSetup. ps1 incluso nella [configurazione della condivisione SMB per i carichi di lavoro di Hyper-V](http://gallery.technet.microsoft.com/SMB-Share-Configuration-4a36272a). Ecco un piccolo wrapper per lo script:
+Per configurare la delega vincolata Kerberos per la gestione di scenari remoti e aumentare Live Migration sicurezza, da uno dei nodi del cluster di archiviazione, usare lo script KCDSetup. ps1 incluso nella [configurazione della condivisione SMB per i carichi di lavoro di Hyper-V](https://gallery.technet.microsoft.com/SMB-Share-Configuration-4a36272a). Ecco un piccolo wrapper per lo script:
 
 ```PowerShell
 $HyperVClusterName = "Compute01"

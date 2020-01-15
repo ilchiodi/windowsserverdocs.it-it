@@ -7,14 +7,14 @@ ms.topic: article
 author: JasonGerend
 manager: daveba
 ms.author: jgerend
-ms.date: 03/08/2019
+ms.date: 01/07/2020
 description: Argomenti nuovi e aggiornati nella documentazione relativa a clustering di failover per Windows Server 2016
-ms.openlocfilehash: 501ad8f63eafdeadffcf5d67646c9e85005cf329
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: b29a1dd979dc5ab14684a83e549ce3e6b3c273f1
+ms.sourcegitcommit: 10331ff4f74bac50e208ba8ec8a63d10cfa768cc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71361206"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75953035"
 ---
 # <a name="change-history-for-failover-clustering-topics"></a>Cronologia delle modifiche per argomenti relativi al clustering di failover
 
@@ -24,7 +24,13 @@ In questo argomento vengono elencati gli argomenti nuovi e aggiornati nella docu
 
 > Per la cronologia degli aggiornamenti di Windows Server 2016, consultare [Cronologia degli aggiornamenti di Windows 10 e Windows Server 2016](https://support.microsoft.com/help/4000825/windows-10-and-windows-server-2016-update-history).
 
-## <a name="march-2019"></a>2019 marzo
+## <a name="january-2020"></a>2020 gennaio
+
+|Argomento nuovo o modificato                                    |Descrizione |
+|--------------------------------------------------------|------------|
+|[Eventi cluster](system-events.md)| Nuova     |
+
+## <a name="march-2019"></a>Marzo 2019
 
 |Argomento nuovo o modificato                                    |Descrizione |
 |--------------------------------------------------------|------------|

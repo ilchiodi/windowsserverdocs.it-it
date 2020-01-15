@@ -10,12 +10,12 @@ ms.date: 10/11/2017
 ms.assetid: 5e1d7ecc-e22e-467f-8142-bad6d82fc5d0
 description: Una descrizione delle opzioni di resilienza in Spazi di archiviazione diretta, tra cui mirroring e parità.
 ms.localizationpriority: medium
-ms.openlocfilehash: d2220584c0021352110b27c3107d1113eb17ef59
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 2e60a715ffa0097f3f5c615792da3aa0a291d6bd
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71393811"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75950048"
 ---
 # <a name="fault-tolerance-and-storage-efficiency-in-storage-spaces-direct"></a>Tolleranza di errore ed efficienza di archiviazione in Spazi di archiviazione diretta
 
@@ -41,22 +41,22 @@ In Windows Server 2016, Spazi di archiviazione offre due tipi di mirroring: a 2 
 
 Il mirroring a 2 vie scrive due copie di tutti gli elementi. L'efficienza di archiviazione è pari al 50%: per scrivere 1 TB di dati sono necessari almeno 2 TB di capacità di archiviazione fisica. Analogamente, sono necessari almeno due ["domini di errore" hardware](../../failover-clustering/fault-domains.md) con Spazi di archiviazione diretta, ovvero due server.
 
-![mirroring a 2 vie](media/Storage-Spaces-Fault-Tolerance/two-way-mirror-180px.png)
+![two-way-mirror](media/Storage-Spaces-Fault-Tolerance/two-way-mirror-180px.png)
 
    >[!WARNING]
    > Se hai più di due server, è consigliabile usare invece il mirorring a 3 vie.
 
 ### <a name="three-way-mirror"></a>Mirroring a 3 vie
 
-Il mirroring a 3 vie scrive tre copie di tutti gli elementi. L'efficienza di archiviazione è pari al 33,3%: per scrivere 1 TB di dati sono necessari almeno 3 TB di capacità di archiviazione fisica. Analogamente, sono necessari almeno tre domini di errore hardware con Spazi di archiviazione diretta, ovvero tre server.
+Il mirroring a 3 vie scrive tre copie di tutti gli elementi. L'efficienza di archiviazione è pari al 33,3%: per scrivere 1 TB di dati sono necessari almeno 3 TB di capacità di archiviazione fisica. Analogamente, sono necessari almeno tre domini di errore hardware: con Spazi di archiviazione diretta questo significa tre server.
 
 Il mirroring a 3 vie può tollerare almeno [due problemi hardware (unità o server) alla volta](#examples). Ad esempio, se stai riavviando un server quando improvvisamente si verifica un problema a un'altra unità o server, tutti i dati rimangono sicuri e sempre accessibili.
 
-![mirroring a 3 vie](media/Storage-Spaces-Fault-Tolerance/three-way-mirror-180px.png)
+![three-way-mirror](media/Storage-Spaces-Fault-Tolerance/three-way-mirror-180px.png)
 
 ## <a name="parity"></a>Parità
 
-La codifica di parità, spesso detta "codifica di cancellazione", offre tolleranza di errore usando un'aritmetica bit per bit, che può essere [notevolmente complessa](https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/LRC12-cheng20webpage.pdf). Il funzionamento è meno ovvio rispetto al mirroring e sono disponibili numerose risorse online (ad esempio la guida di terze parti [Dummies Guide to Erasure Coding](http://smahesh.com/blog/2012/07/01/dummies-guide-to-erasure-coding/)) che possono aiutarti a capirlo. È sufficiente notare che questo metodo offre maggiore efficienza di archiviazione senza compromettere la tolleranza di errore.
+La codifica di parità, spesso detta "codifica di cancellazione", offre tolleranza di errore usando un'aritmetica bit per bit, che può essere [notevolmente complessa](https://www.microsoft.com/research/wp-content/uploads/2016/02/LRC12-cheng20webpage.pdf). Il funzionamento è meno ovvio rispetto al mirroring e sono disponibili numerose risorse online (ad esempio la guida di terze parti [Dummies Guide to Erasure Coding](http://smahesh.com/blog/2012/07/01/dummies-guide-to-erasure-coding/)) che possono aiutarti a capirlo. È sufficiente notare che questo metodo offre maggiore efficienza di archiviazione senza compromettere la tolleranza di errore.
 
 In Windows Server 2016 Spazi di archiviazione offre due tipi di parità, singola e doppia; quest'ultima usa una tecnica avanzata denominata "codici di ricostruzione locali" su scala più ampia.
 
@@ -112,8 +112,8 @@ Questa sezione riepiloga i tipi resilienza disponibili in Spazi di archiviazione
 |------------------------|----------------------------|----------------------------|
 |    Mirroring a 2 vie      |    1                       |    50%                   |
 |    Mirroring a 3 vie    |    2                       |    33,3%                   |
-|    Doppia parità         |    2                       |    50% - 80%           |
-|    Modalità mista               |    2                       |    33,3% - 80%           |
+|    Doppia parità         |    2                       |    50,0% - 80,0%           |
+|    Modalità mista               |    2                       |    33,3% - 80,0%           |
 
 ### <a name="minimum-scale-requirements"></a>Requisiti di scala minimi
 
@@ -125,7 +125,7 @@ Questa sezione riepiloga i tipi resilienza disponibili in Spazi di archiviazione
 |    Modalità mista               |    4                                |
 
    >[!TIP]
-   > A meno che tu non usi la [tolleranza di errore tramite chassis o rack](../../failover-clustering/fault-domains.md), il numero di domini di errore indica il numero di server. Il numero di unità in ogni server non influisce sui tipi di resilienza che puoi usare, a patto che siano soddisfatti i requisiti minimi per Spazi di archiviazione diretta. 
+   > A meno che tu non usi la [tolleranza di errore chassis o rack](../../failover-clustering/fault-domains.md), il numero di domini di errore indica il numero di server. Il numero di unità in ogni server non influisce sui tipi di resilienza che puoi usare, a patto che siano soddisfatti i requisiti minimi per Spazi di archiviazione diretta. 
 
 ### <a name="dual-parity-efficiency-for-hybrid-deployments"></a>Efficienza della doppia parità per le distribuzioni ibride
 
@@ -171,7 +171,7 @@ Questa tabella mostra l'efficienza di archiviazione della doppia parità e dei c
 |    15                 |    RS 6+2           |    75%        |
 |    16                 |    LRC (12, 2, 1)   |    80%        |
 
-## <a name="examples"></a>Esempi
+## <a name="examples"></a>Esempi:
 
 A meno che tu non abbia solo due server, ti consigliamo di usare il mirroring a 3 vie e/o la doppia parità, perché offrono una migliore tolleranza di errore. In particolare, garantiscono che tutti i dati siano sicuri e sempre accessibili, anche nel caso in cui si verifichino errori contemporaneamente in due domini di errore con Spazi di archiviazione diretta, ovvero due server.
 
@@ -179,18 +179,18 @@ A meno che tu non abbia solo due server, ti consigliamo di usare il mirroring a 
 
 Questi sei esempi mostrano le situazioni che **possono** essere tollerate dal mirroring a 3 vie e/o dalla doppia parità.
 
-- **1.**    Perdita di un'unità (incluse le unità cache)
-- **2.**    Un server è andato perso
+- **1.** Perdita di un'unità (incluse unità cache)
+- **2.** Perdita di un server
 
 ![esempi 1 e 2 relativi alla tolleranza di errore](media/Storage-Spaces-Fault-Tolerance/Fault-Tolerance-Example-12.png)
 
-- **3.**    Un server e un'unità perdute
-- **4.**    Due unità perdute in server diversi
+- **3.** Perdita di un server e un'unità
+- **4.** Perdita di due unità in server diversi
 
 ![esempi 3 e 4 relativi alla tolleranza di errore](media/Storage-Spaces-Fault-Tolerance/Fault-Tolerance-Example-34.png)
 
-- **5.**    Sono state perse più di due unità, purché siano interessati al massimo due server
-- **6.**    Due server persi
+- **5.** Perdita di più di due unità, con un massimo di due server interessati
+- **6.** Perdita di due server
 
 ![esempi 5 e 6 relativi alla tolleranza di errore](media/Storage-Spaces-Fault-Tolerance/Fault-Tolerance-Example-56.png)
 
@@ -200,23 +200,23 @@ Questi sei esempi mostrano le situazioni che **possono** essere tollerate dal mi
 
 Nel tempo, Spazi di archiviazione può tollerare un numero qualsiasi di errori, perché ripristina la resilienza completa dopo ognuno di essi, a condizione che ci sia un tempo sufficiente per farlo. Tuttavia, in un momento specifico sono tollerati errori in un massimo di due domini di errore. Gli esempi seguenti mostrano le situazioni che **non possono** essere tollerate dal mirroring a 3 vie e/o dalla doppia parità.
 
-- **7.** Unità perse in tre o più server contemporaneamente
-- **8.** Tre o più server persi contemporaneamente
+- **7.** Perdita di unità in tre o più server contemporaneamente
+- **8.** Perdita di tre o più server contemporaneamente
 
-![esempi 7 e 8 relativi alla tolleranza di errore](media/Storage-Spaces-Fault-Tolerance/Fault-Tolerance-Example-78.png)
+![fault-tolerance-examples-7-and-8](media/Storage-Spaces-Fault-Tolerance/Fault-Tolerance-Example-78.png)
 
-## <a name="usage"></a>Utilizzo
+## <a name="usage"></a>Usage
 
 Consulta [Creazione di volumi in Spazi di archiviazione diretta](create-volumes.md).
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 Ognuno dei link seguenti è presente anche nel corpo di questo argomento.
 
 - [Spazi di archiviazione diretta in Windows Server 2016](storage-spaces-direct-overview.md)
 - [Consapevolezza del dominio di errore in Windows Server 2016](../../failover-clustering/fault-domains.md)
-- [Cancellazione della codifica in Azure da Microsoft Research](https://www.microsoft.com/en-us/research/publication/erasure-coding-in-windows-azure-storage/)
+- [Cancellazione della codifica in Azure da Microsoft Research](https://www.microsoft.com/research/publication/erasure-coding-in-windows-azure-storage/)
 - [Codici di ricostruzione locali e accelerazione di volumi di parità](https://blogs.technet.microsoft.com/filecab/2016/09/06/volume-resiliency-and-efficiency-in-storage-spaces-direct/)
 - [Volumi nell'API di gestione dell'archiviazione](https://blogs.technet.microsoft.com/filecab/2016/08/29/deep-dive-volumes-in-spaces-direct/)
 - [Demo sull'efficienza dell'archiviazione in Microsoft Ignite 2016](https://www.youtube.com/watch?v=-LK2ViRGbWs&t=36m55s)
-- [ANTEPRIMA del calcolatore di capacità per Spazi di archiviazione diretta](http://aka.ms/s2dcalc)
+- [ANTEPRIMA del calcolatore di capacità per Spazi di archiviazione diretta](https://aka.ms/s2dcalc)

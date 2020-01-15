@@ -8,12 +8,12 @@ ms.topic: article
 ms.assetid: 5bc71e71-920e-454f-8195-afebd2a23725
 author: cosmosdarwin
 ms.date: 02/09/2018
-ms.openlocfilehash: df455dfb0d2936192a3c2d7825e2d6d031cfe892
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 158681e2038e3d8015933771d06d3bfb24d31586
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71361074"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75948473"
 ---
 # <a name="health-service-in-windows-server"></a>Servizio integrità in Windows Server
 
@@ -90,17 +90,17 @@ Se autorizzato, il disco sostitutivo verrà sostituito automaticamente nel pool 
 
 Il Servizio integrità fornisce un meccanismo di imposizione per limitare i componenti utilizzati da Spazi di archiviazione diretta a quelli presenti in un documento dei componenti supportati fornito dall'amministratore o dal fornitore della soluzione. In questo modo si evita che l’utente usi hardware non supportato e che insorgano problemi di garanzia o di conformità con il contratto di assistenza. Questa funzionalità è attualmente limitata ai dispositivi disco fisico, incluse le unità SSD, HDD e NVMe. Il documento dei componenti supportati può limitare il modello, il produttore (facoltativo) e la versione del firmware (facoltativo).
 
-### <a name="usage"></a>Utilizzo  
+### <a name="usage"></a>Usage  
 
-Il documento componenti supportati utilizza una sintassi ispirata a XML. È consigliabile utilizzare l'editor di testo preferito, ad esempio la [Visual Studio Code](http://code.visualstudio.com/) gratuita o il blocco note, per creare un documento XML che è possibile salvare e riutilizzare.
+Il documento componenti supportati utilizza una sintassi ispirata a XML. È consigliabile utilizzare l'editor di testo preferito, ad esempio la [Visual Studio Code](https://code.visualstudio.com/) gratuita o il blocco note, per creare un documento XML che è possibile salvare e riutilizzare.
 
-#### <a name="sections"></a>Sezioni
+#### <a name="sections"></a>Nelle sezioni
 
 Il documento include due sezioni indipendenti: `Disks` e `Cache`.
 
-Se viene fornita la sezione `Disks`, solo le unità elencate (come `Disk`) possono partecipare ai pool. Le unità non in elenco vengono impedite dall'Unione dei pool, che ne impedisce l'uso nell'ambiente di produzione. Se questa sezione viene lasciata vuota, a tutte le unità sarà consentito aggiungere pool.
+Se viene fornita la sezione `Disks`, solo le unità elencate (come `Disk`) possono unire i pool. Le unità non in elenco vengono impedite dall'Unione dei pool, che ne impedisce l'uso nell'ambiente di produzione. Se questa sezione viene lasciata vuota, a tutte le unità sarà consentito aggiungere pool.
 
-Se viene fornita la sezione `Cache`, per la memorizzazione nella cache vengono utilizzate solo le unità elencate (come `CacheDisk`). Se questa sezione viene lasciata vuota, Spazi di archiviazione diretta tenta di [indovinare in base al tipo di supporto e al tipo di bus](../storage/storage-spaces/understand-the-cache.md#cache-drives-are-selected-automatically). Le unità elencate qui dovrebbero essere elencate anche in `Disks`.
+Se viene fornita la sezione `Cache`, per la memorizzazione nella cache vengono utilizzate solo le unità elencate (`CacheDisk`). Se questa sezione viene lasciata vuota, Spazi di archiviazione diretta tenta di [indovinare in base al tipo di supporto e al tipo di bus](../storage/storage-spaces/understand-the-cache.md#cache-drives-are-selected-automatically). Le unità elencate qui dovrebbero essere elencate anche in `Disks`.
 
 >[!IMPORTANT]
 > Il documento dei componenti supportati non viene applicato in modo retroattivo alle unità già in pool e in uso.  
@@ -141,9 +141,9 @@ Se viene fornita la sezione `Cache`, per la memorizzazione nella cache vengono u
 
 ```
 
-Per elencare più unità, è sufficiente aggiungere altri tag `<Disk>` o `<CacheDisk>`.
+Per elencare più unità, è sufficiente aggiungere `<Disk>` o tag `<CacheDisk>` aggiuntivi.
 
-Per inserire il codice XML durante la distribuzione di Spazi di archiviazione diretta, usare il parametro `-XML`:
+Per inserire il codice XML quando si distribuisce Spazi di archiviazione diretta, usare il parametro `-XML`:
 
 ```PowerShell
 $MyXML = Get-Content <Filepath> | Out-String  
@@ -170,7 +170,7 @@ Get-PhysicalDisk | Select Model, Manufacturer, FirmwareVersion
 
 Vedere [servizio integrità impostazioni](health-service-settings.md).
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 - [Report Servizio integrità](health-service-reports.md)
 - [Errori Servizio integrità](health-service-faults.md)

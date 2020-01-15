@@ -9,12 +9,12 @@ ms.date: 11/14/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 12c47f98af24331b25355178370cc4cd28c0aa10
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 026873e231628e93738cba096cfae44c8b053217
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71358047"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75948558"
 ---
 # <a name="configuring-alternate-login-id"></a>Configurazione di un ID di accesso alternativo
 
@@ -25,7 +25,7 @@ Nella maggior parte degli scenari, gli utenti usano il proprio UPN (nomi dell'en
 >[!NOTE]
 >Le procedure consigliate di Microsoft sono la corrispondenza tra UPN e indirizzo SMTP primario. In questo articolo viene illustrata la piccola percentuale di clienti che non è in grado di correggere gli UPN per la corrispondenza.
 
-Ad esempio, possono usare il proprio ID di posta elettronica per l'accesso e possono essere diversi dall'UPN. Si tratta in genere di un'occorrenza comune negli scenari in cui il nome UPN non è instradabile. Si consideri un utente Jane jdoe@contoso.local Doe con UPN jdoe@contoso.come indirizzo di posta elettronica. Jane potrebbe non essere a conoscenza dell'UPN perché ha sempre usato il proprio ID di posta elettronica per l'accesso. L'utilizzo di qualsiasi altro metodo di accesso anziché UPN costituisce un ID alternativo. Per ulteriori informazioni sulla creazione dell'UPN, vedere [Azure ad popolamento di userPrincipalName](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-userprincipalname).
+Ad esempio, possono usare il proprio ID di posta elettronica per l'accesso e possono essere diversi dall'UPN. Si tratta in genere di un'occorrenza comune negli scenari in cui il nome UPN non è instradabile. Si consideri un utente Jane Doe con UPN jdoe@contoso.local e indirizzo di posta elettronica jdoe@contoso.com. Jane potrebbe non essere a conoscenza dell'UPN perché ha sempre usato il proprio ID di posta elettronica per l'accesso. L'utilizzo di qualsiasi altro metodo di accesso anziché UPN costituisce un ID alternativo. Per ulteriori informazioni sulla creazione dell'UPN, vedere [Azure ad popolamento di userPrincipalName](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-userprincipalname).
 
 Active Directory Federation Services (AD FS) consente alle applicazioni federate che usano AD FS di accedere con l'ID alternativo. Ciò consente agli amministratori di specificare un'alternativa al nome UPN predefinito da usare per l'accesso. AD FS supporta già l'utilizzo di qualsiasi forma di identificatore utente accettato da Active Directory Domain Services (AD DS). Quando è configurato per l'ID alternativo, AD FS consente agli utenti di accedere usando il valore dell'ID alternativo configurato, ad indicare email-ID. L'uso dell'ID alternativo consente di adottare provider SaaS, ad esempio Office 365 senza modificare la UPN locale. Consente inoltre di supportare le applicazioni di servizio line-of-business con le identità con provisioning degli utenti.
 
@@ -36,7 +36,7 @@ Un'organizzazione potrebbe dover utilizzare un ID alternativo negli scenari segu
    Negli scenari indicati in precedenza, l'ID alternativo con AD FS consente agli utenti di accedere a Azure AD senza modificare la UPN locale. 
 
 ## <a name="end-user-experience-with-alternate-login-id"></a>Esperienza dell'utente finale con ID di accesso alternativo
-L'esperienza dell'utente finale varia a seconda del metodo di autenticazione utilizzato con l'ID di accesso alternativo.  Attualmente esistono tre modi diversi in cui è possibile ottenere l'utilizzo di un ID di accesso alternativo.  Sono:
+L'esperienza dell'utente finale varia a seconda del metodo di autenticazione utilizzato con l'ID di accesso alternativo.  Attualmente esistono tre modi diversi in cui è possibile ottenere l'utilizzo di un ID di accesso alternativo.  e sono:
 
 - **Autenticazione normale (legacy)** : usa il protocollo di autenticazione di base.
 - **Autenticazione moderna** : consente l'accesso basato su Active Directory Authentication Library (adal) alle applicazioni. Questo consente funzionalità di accesso come Multi-Factor Authentication (multi-factor authentication), provider di identità di terze parti basati su SAML con applicazioni client Office, smart card e autenticazione basata su certificati.
@@ -59,7 +59,7 @@ Azure AD Connect quando vengono fornite informazioni dettagliate sull'ambiente A
 > Microsoft consiglia di utilizzare Azure AD Connect per configurare l'ID di accesso alternativo.
 
 ### <a name="manually-configure-alternate-id"></a>Configurare manualmente l'ID alternativo
-Per configurare un ID di accesso alternativo, è necessario eseguire le attività seguenti: Configurare i trust del provider di attestazioni AD FS per abilitare l'ID di accesso alternativo
+Per configurare un ID di accesso alternativo, è necessario eseguire le attività seguenti: configurare i trust del provider di attestazioni AD FS per abilitare l'ID di accesso alternativo
 
 1.  Se si dispone di un server 2012R2, verificare che KB2919355 sia installato in tutti i server AD FS. È possibile ottenerlo tramite Windows Update Services o scaricarlo direttamente. 
 
@@ -98,7 +98,7 @@ Se si usa un ID di accesso alternativo con Exchange e Skype for business, l'espe
 >[!NOTE]
 >Per ottimizzare l'esperienza dell'utente finale, Microsoft consiglia di usare l'autenticazione ibrida moderna.
 
-per altre informazioni, vedere [Panoramica dell'autenticazione moderna ibrida](https://support.office.com/en-us/article/Hybrid-Modern-Authentication-overview-and-prerequisites-for-using-it-with-on-premises-Skype-for-Business-and-Exchange-servers-ef753b32-7251-4c9e-b442-1a5aec14e58d)
+per altre informazioni, vedere [Panoramica dell'autenticazione moderna ibrida](https://support.office.com/article/Hybrid-Modern-Authentication-overview-and-prerequisites-for-using-it-with-on-premises-Skype-for-Business-and-Exchange-servers-ef753b32-7251-4c9e-b442-1a5aec14e58d)
 
 ### <a name="pre-requisites-for-exchange-and-skype-for-business"></a>Prerequisiti per Exchange e Skype for business
 Di seguito sono riportati i prerequisiti per ottenere l'accesso SSO con ID alternativo.
@@ -135,18 +135,18 @@ Windows versione 1709 e successive hanno aggiornato la logica di autenticazione 
 ##### <a name="step-3-configure-registry-for-impacted-users-using-group-policy"></a>Passaggio 3. Configurare il registro di sistema per utenti interessati tramite criteri di gruppo
 Le applicazioni di Office si basano sulle informazioni inviate dall'amministratore di directory per identificare l'ambiente di ID alternativo. Le chiavi del registro di sistema seguenti devono essere configurate per consentire alle applicazioni di Office di autenticare l'utente con ID alternativo senza visualizzare richieste aggiuntive
 
-|Chiave da aggiungere|Chiave nome dati, tipo e valore|Windows 7/8|Windows 10|Descrizione|
+|Chiave da aggiungere|Chiave nome dati, tipo e valore|Windows 7/8|Windows 10|Descrizione|
 |-----|-----|-----|-----|-----|
-|HKEY_CURRENT_USER\Software\Microsoft\AuthN|DomainHint</br>REG_SZ</br>contoso.com|Obbligatorio|Obbligatorio|Il valore di questo chiave è un nome di dominio personalizzato verificato nel tenant dell'organizzazione. Ad esempio, Contoso Corp può fornire un valore Contoso.com in questo chiave se Contoso.com è uno dei nomi di dominio personalizzati verificati nel tenant Contoso.onmicrosoft.com.|
-HKEY_CURRENT_USER\Software\Microsoft\Office\16.0\Common\Identity|EnableAlternateIdSupport</br>REG_DWORD</br>1|Obbligatorio per Outlook 2016 ProPlus|Obbligatorio per Outlook 2016 ProPlus|Il valore di questo chiave può essere 1/0 per indicare all'applicazione Outlook se deve coinvolgere la logica di autenticazione con ID alternativo migliorata.|
-HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\Domains\contoso.com\sts|&#42;</br>REG_DWORD</br>1|Obbligatorio|Obbligatorio|Questo chiave può essere usato per impostare il servizio token di accesso come zona attendibile nelle impostazioni Internet. La distribuzione standard di ADFS consiglia di aggiungere lo spazio dei nomi ADFS all'area Intranet locale per Internet Explorer|
+|HKEY_CURRENT_USER \Software\Microsoft\AuthN|DomainHint</br>REG_SZ</br>contoso.com|Obbligatorio|Obbligatorio|Il valore di questo chiave è un nome di dominio personalizzato verificato nel tenant dell'organizzazione. Ad esempio, Contoso Corp può fornire un valore Contoso.com in questo chiave se Contoso.com è uno dei nomi di dominio personalizzati verificati nel tenant Contoso.onmicrosoft.com.|
+HKEY_CURRENT_USER \Software\Microsoft\Office\16.0\Common\Identity|EnableAlternateIdSupport</br>REG_DWORD</br>1|Obbligatorio per Outlook 2016 ProPlus|Obbligatorio per Outlook 2016 ProPlus|Il valore di questo chiave può essere 1/0 per indicare all'applicazione Outlook se deve coinvolgere la logica di autenticazione con ID alternativo migliorata.|
+HKEY_CURRENT_USER \Software\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\Domains\contoso.com\sts|&#42;</br>REG_DWORD</br>1|Obbligatorio|Obbligatorio|Questo chiave può essere usato per impostare il servizio token di accesso come zona attendibile nelle impostazioni Internet. La distribuzione standard di ADFS consiglia di aggiungere lo spazio dei nomi ADFS all'area Intranet locale per Internet Explorer|
 
 ## <a name="new-authentication-flow-after-additional-configuration"></a>Nuovo flusso di autenticazione dopo una configurazione aggiuntiva
 
 ![Flusso di autenticazione](media/Configure-Alternate-Login-ID/alt1a.png)
 
-1. Un Viene eseguito il provisioning dell'utente in Azure AD usando l'ID alternativo
-   </br>b L'amministratore della directory inserisce le impostazioni chiave necessarie per i computer client interessati
+1. a: l'utente viene sottoposta a provisioning in Azure AD usando l'ID alternativo
+   </br>b: l'amministratore della directory inserisce le impostazioni chiave necessarie per i computer client interessati
 2. L'utente esegue l'autenticazione nel computer locale e apre un'applicazione di Office
 3. L'applicazione di Office accetta le credenziali della sessione locale
 4. L'applicazione di Office esegue l'autenticazione per Azure AD usando l'hint di dominio push dall'amministratore e le credenziali locali
@@ -156,23 +156,23 @@ HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Zo
 
 ### <a name="non-exchange-and-skype-for-business-clients"></a>Client non Exchange e Skype for business
 
-|Client|Istruzione support|Note|
+|Client|Informativa sul supporto|Osservazioni|
 | ----- | -----|-----|
-|Microsoft Teams|Supportato|<li>Microsoft teams supporta AD FS (SAML-P, WS-Fed, WS-Trust e OAuth) e l'autenticazione moderna.</li><li> I principali team Microsoft, ad esempio canali, chat e funzionalità di file, funzionano con l'ID di accesso alternativo.</li><li>le app 1st e di terze parti devono essere esaminate separatamente dal cliente. Ciò è dovuto al fatto che ogni applicazione dispone di protocolli di autenticazione del supporto.</li>|     
+|Microsoft Teams|Funzionalità supportata|<li>Microsoft teams supporta AD FS (SAML-P, WS-Fed, WS-Trust e OAuth) e l'autenticazione moderna.</li><li> I principali team Microsoft, ad esempio canali, chat e funzionalità di file, funzionano con l'ID di accesso alternativo.</li><li>le app 1st e di terze parti devono essere esaminate separatamente dal cliente. Ciò è dovuto al fatto che ogni applicazione dispone di protocolli di autenticazione del supporto.</li>|     
 |OneDrive for Business|Supportato: chiave del registro di sistema lato client consigliata |Con l'ID alternativo configurato è possibile vedere che l'UPN locale è già popolato nel campo di verifica. Questa operazione deve essere modificata nell'identità alternativa utilizzata. Si consiglia di usare la chiave del registro di sistema lato client indicata in questo articolo: Office 2013 e Lync 2013 richiedono periodicamente le credenziali per SharePoint Online, OneDrive e Lync Online.|
-|Client per dispositivi mobili OneDrive for business|Supportato|| 
-|Pagina di attivazione di Office 365 Pro Plus|Supportato: chiave del registro di sistema lato client consigliata|Con l'ID alternativo configurato è possibile vedere che l'UPN locale è già popolato nel campo di verifica. Questa operazione deve essere modificata nell'identità alternativa utilizzata. Si consiglia di usare la chiave del registro di sistema sul lato client indicata in questo articolo: Office 2013 e Lync 2013 richiedono periodicamente le credenziali per SharePoint Online, OneDrive e Lync Online.|
+|Client per dispositivi mobili OneDrive for business|Funzionalità supportata|| 
+|Pagina di attivazione di Office 365 Pro Plus|Supportato: chiave del registro di sistema lato client consigliata|Con l'ID alternativo configurato è possibile vedere che l'UPN locale è già popolato nel campo di verifica. Questa operazione deve essere modificata nell'identità alternativa utilizzata. Si consiglia di usare la chiave del registro di sistema lato client indicata in questo articolo: Office 2013 e Lync 2013 richiedono periodicamente le credenziali per SharePoint Online, OneDrive e Lync Online.|
 
 ### <a name="exchange-and-skype-for-business-clients"></a>Client Exchange e Skype for business
 
 |Client|Istruzione di supporto-con HMA|Istruzione di supporto-senza HMA|
 | ----- |----- | ----- |
-|Outlook|Supportato, nessun prompt aggiuntivo|Supportato</br></br>Con **l'autenticazione moderna** per Exchange Online: Supportato</br></br>Con **l'autenticazione normale** per Exchange Online: Supportato con le avvertenze seguenti:</br><li>È necessario trovarsi in un computer aggiunto a un dominio e connettersi alla rete aziendale </li><li>È possibile utilizzare l'ID alternativo solo negli ambienti che non consentono l'accesso esterno per gli utenti delle cassette postali. Questo significa che gli utenti possono eseguire l'autenticazione alla propria cassetta postale in modo supportato quando sono connessi e aggiunti alla rete aziendale, in una VPN o connessi tramite computer ad accesso diretto, ma quando si configura il profilo di Outlook si ottengono due richieste aggiuntive.| 
-|Cartelle pubbliche ibride|Supportato, nessuna richiesta aggiuntiva.|Con **l'autenticazione moderna** per Exchange Online: Supportato</br></br>Con **l'autenticazione normale** per Exchange Online: Non supportato</br></br><li>Le cartelle pubbliche ibride non possono espandersi se vengono usati ID alternativi e pertanto non devono essere usati oggi con metodi di autenticazione regolari.|
+|Outlook|Supportato, nessun prompt aggiuntivo|Funzionalità supportata</br></br>Con **l'autenticazione moderna** per Exchange Online: supportato</br></br>Con **l'autenticazione normale** per Exchange Online: supportata con le avvertenze seguenti:</br><li>È necessario trovarsi in un computer aggiunto a un dominio e connettersi alla rete aziendale </li><li>È possibile utilizzare l'ID alternativo solo negli ambienti che non consentono l'accesso esterno per gli utenti delle cassette postali. Questo significa che gli utenti possono eseguire l'autenticazione alla propria cassetta postale in modo supportato quando sono connessi e aggiunti alla rete aziendale, in una VPN o connessi tramite computer ad accesso diretto, ma quando si configura il profilo di Outlook si ottengono due richieste aggiuntive.| 
+|Cartelle pubbliche ibride|Supportato, nessuna richiesta aggiuntiva.|Con **l'autenticazione moderna** per Exchange Online: supportato</br></br>Con **autenticazione normale** per Exchange Online: non supportato</br></br><li>Le cartelle pubbliche ibride non possono espandersi se vengono usati ID alternativi e pertanto non devono essere usati oggi con metodi di autenticazione regolari.|
 |Delega cross-premise|Vedere [configurare Exchange per supportare le autorizzazioni delle cassette postali delegate in una distribuzione ibrida](https://technet.microsoft.com/library/mt784505.aspx)|Vedere [configurare Exchange per supportare le autorizzazioni delle cassette postali delegate in una distribuzione ibrida](https://technet.microsoft.com/library/mt784505.aspx)|
 |Archiviare l'accesso alle cassette postali (cassetta postale locale-archivio nel cloud)|Supportato, nessun prompt aggiuntivo|Supportato: gli utenti ricevono un prompt aggiuntivo per le credenziali quando accedono all'archivio, devono fornire il proprio ID alternativo quando richiesto.| 
-|Outlook Web Access|Supportato|Supportato|
-|App Outlook per dispositivi mobili per Android, IOS e Windows Phone|Supportato|Supportato|
+|Outlook Web Access|Funzionalità supportata|Funzionalità supportata|
+|App Outlook per dispositivi mobili per Android, IOS e Windows Phone|Funzionalità supportata|Funzionalità supportata|
 |Skype for business/Lync|Supportato, senza richieste aggiuntive|Supportato (ad eccezione di quanto indicato), ma è possibile che si verifichi una confusione utente.</br></br>Nei client mobili, l'ID alternativo è supportato solo se l'indirizzo SIP = indirizzo di posta elettronica = ID alternativo.</br></br> È possibile che gli utenti debbano eseguire due volte l'accesso a Skype for business desktop client usando il nome UPN locale e quindi usando l'ID alternativo. (Si noti che il "indirizzo di accesso" è in realtà l'indirizzo SIP che potrebbe non corrispondere al "nome utente", anche se spesso è). Quando viene richiesto per la prima volta un nome utente, l'utente deve immettere l'UPN, anche se non viene prepopolato erroneamente con l'ID alternativo o l'indirizzo SIP. Dopo che l'utente ha fatto clic su Accedi con l'UPN, la richiesta del nome utente viene nuovamente visualizzata e questa volta viene prepopolato con l'UPN. Questa volta l'utente deve sostituire con l'ID alternativo e fare clic su Accedi per completare il processo di accesso. Nei client mobili, gli utenti devono immettere l'ID utente locale nella pagina avanzate, usando il formato di tipo SAM (dominio\nomeutente) e non il formato UPN.</br></br>Dopo aver eseguito l'accesso, se Skype for business o Lync indica che "Exchange richiede le credenziali", è necessario fornire le credenziali valide per la posizione della cassetta postale. Se la cassetta postale si trova nel cloud, è necessario fornire l'ID alternativo. Se la cassetta postale è locale, è necessario fornire l'UPN locale.| 
 
 ## <a name="additional-details--considerations"></a>Dettagli aggiuntivi & considerazioni
@@ -195,11 +195,11 @@ HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Zo
 
 -   Se una delle foreste configurate dall'amministratore è inattiva, AD FS continua a cercare l'account utente con ID di accesso alternativo in altre foreste configurate. Se AD FS server trova gli oggetti utente univoci nelle foreste in cui è stata eseguita la ricerca, un utente esegue correttamente l'accesso.
 
--   Potrebbe inoltre essere necessario personalizzare la pagina di accesso AD FS per fornire agli utenti finali un suggerimento sull'ID di accesso alternativo. È possibile eseguire questa operazione aggiungendo la descrizione della pagina di accesso personalizzata (per altre informazioni, vedere [personalizzazione delle pagine di accesso ad FS](https://technet.microsoft.com/library/dn280950.aspx) o personalizzazione della stringa di accesso con account aziendale sopra il campo nome utente. per ulteriori informazioni, vedere [. Personalizzazione avanzata delle pagine di accesso AD FS](https://technet.microsoft.com/library/dn636121.aspx).
+-   Potrebbe inoltre essere necessario personalizzare la pagina di accesso AD FS per fornire agli utenti finali un suggerimento sull'ID di accesso alternativo. È possibile eseguire questa operazione aggiungendo la descrizione della pagina di accesso personalizzata (per altre informazioni, vedere [personalizzazione delle pagine di accesso ad FS](https://technet.microsoft.com/library/dn280950.aspx) o personalizzazione della stringa di accesso con account aziendale sopra il campo nome utente (per altre informazioni, vedere [personalizzazione avanzata delle pagine di accesso ad FS](https://technet.microsoft.com/library/dn636121.aspx).
 
 -   Il nuovo tipo di attestazione che contiene il valore di ID di accesso alternativo è **http: schemas. Microsoft. com/ws/2013/11/alternateloginid**
 
-## <a name="events-and-performance-counters"></a>Eventi e contatori delle prestazioni
+## <a name="events-and-performance-counters"></a>Contatori di eventi e prestazioni
 Sono stati aggiunti i contatori delle prestazioni seguenti per misurare le prestazioni dei server AD FS quando è abilitato l'ID di accesso alternativo:
 
 -   Autenticazioni ID di accesso alternativo: numero di autenticazioni eseguite utilizzando un ID di accesso alternativo
@@ -215,11 +215,11 @@ Di seguito sono riportati diversi casi di errore e il relativo effetto sull'espe
 |                       **Casi di errore**                        | **Effetti sull'esperienza di accesso** |                                                              **Evento**                                                              |
 |--------------------------------------------------------------|----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------|
 | Impossibile ottenere un valore per SAMAccountName per l'oggetto utente |          Errore di accesso           |                  ID evento 364 con messaggio eccezione MSIS8012: Impossibile trovare samAccountName per l'utente:'{0}'.                   |
-|        L'attributo CanonicalName non è accessibile         |          Errore di accesso           |               ID evento 364 con messaggio eccezione MSIS8013: CanonicalName:{0}'' dell'utente:'{1}' è in formato non valido.                |
-|        Sono presenti più oggetti utente in una foresta        |          Errore di accesso           | ID evento 364 con messaggio eccezione MSIS8015: Sono stati trovati più account utente con{0}identità'' nella{1}foresta '' con identità:{2} |
-|   Sono stati trovati più oggetti utente in più foreste    |          Errore di accesso           |           ID evento 364 con messaggio eccezione MSIS8014: Sono stati trovati più account utente con{0}identità'' nelle foreste:{1}            |
+|        L'attributo CanonicalName non è accessibile         |          Errore di accesso           |               ID evento 364 con messaggio eccezione MSIS8013: canonicalName:'{0}' dell'utente:'{1}' è in formato non valido.                |
+|        Sono presenti più oggetti utente in una foresta        |          Errore di accesso           | ID evento 364 con messaggio eccezione MSIS8015: sono stati trovati più account utente con identità'{0}' nella foresta '{1}' con identità: {2} |
+|   Sono stati trovati più oggetti utente in più foreste    |          Errore di accesso           |           ID evento 364 con messaggio eccezione MSIS8014: sono stati trovati più account utente con identità'{0}' nelle foreste: {1}            |
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 [Operazioni di AD FS](../../ad-fs/AD-FS-2016-Operations.md)
 
 

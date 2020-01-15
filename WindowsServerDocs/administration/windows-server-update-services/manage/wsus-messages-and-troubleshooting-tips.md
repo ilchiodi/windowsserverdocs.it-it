@@ -12,16 +12,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 1e432a962662995cf570b28d0b9496594f3e10e6
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 0c66e655ea6b6c44ee3ba375f75e6532fab74bfb
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71369865"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75948480"
 ---
 # <a name="wsus-messages-and-troubleshooting-tips"></a>Messaggi WSUS e suggerimenti per la risoluzione dei problemi
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 In questo argomento vengono fornite informazioni sui messaggi di WSUS seguenti:
 
@@ -29,7 +29,7 @@ In questo argomento vengono fornite informazioni sui messaggi di WSUS seguenti:
 
 -   "ID messaggio 6703-sincronizzazione WSUS non riuscita"
 
--   "Errore 0x80070643: Errore irreversibile durante l'installazione "
+-   "Error 0x80070643: errore irreversibile durante l'installazione"
 
 -   "Alcuni servizi non sono in esecuzione. Controllare i seguenti servizi [...] "
 
@@ -47,34 +47,34 @@ I motivi più comuni sono:
 -   Il computer è disattivato. (È stato arrestato o è in modalità di sospensione o ibernazione).
 
 ## <a name="message-id-6703---wsus-synchronization-failed"></a>ID messaggio 6703-sincronizzazione WSUS non riuscita
-> Messaggio: La richiesta non è riuscita con stato HTTP 503: Servizio non disponibile.
+> Messaggio: la richiesta non è riuscita con stato HTTP 503: servizio non disponibile.
 > 
 > Origine: Microsoft. UpdateServices. Administration. AdminProxy. createUpdateServer.
 
 Quando si tenta di aprire Update Services nel server WSUS, viene visualizzato l'errore seguente:
 
-> Errore: Errore di connessione
+> Errore: errore di connessione
 > 
 > Si è verificato un errore durante il tentativo di connessione al server WSUS. Questo errore può verificarsi per diversi motivi. Se il problema persiste, contattare l'amministratore di rete. Fare clic sul nodo Reimposta server per connettersi di nuovo al server.
 
-Oltre a quanto sopra, i tentativi di accesso all'URL per il sito Web di amministrazione di WSUS, ad esempio `http://CM12CAS:8530`, hanno esito negativo con l'errore:
+Oltre al precedente, i tentativi di accesso all'URL per il sito Web di amministrazione di WSUS, ad esempio `http://CM12CAS:8530`, non riescono con l'errore:
 
 > Errore HTTP 503. Il servizio non è disponibile
 
 In questa situazione, la causa più probabile è che il pool di applicazioni WsusPool in IIS si trovi nello stato interrotto.
 
-Inoltre, il limite di memoria privata (KB) per il pool di applicazioni è probabilmente impostato sul valore predefinito di 1843200 KB. Se si verifica questo problema, aumentare il limite di memoria privata a 4GB (4 milioni KB) e riavviare il pool di applicazioni. Per aumentare il limite di memoria privata, selezionare il pool di applicazioni WsusPool e fare clic su Impostazioni avanzate in Modifica pool di applicazioni. Impostare quindi il limite di memoria privata su 4 GB (4 milioni KB). Dopo il riavvio del pool di applicazioni, monitorare lo stato del componente SMS_WSUS_SYNC_MANAGER, file WCM. log e wsyncmgr. log per individuare eventuali errori. Si noti che potrebbe essere necessario aumentare il limite di memoria privata a 8 GB (8 milioni KB) o superiore, a seconda dell'ambiente.
+Inoltre, il limite di memoria privata (KB) per il pool di applicazioni è probabilmente impostato sul valore predefinito di 1843200 KB. Se si verifica questo problema, aumentare il limite di memoria privata a 4GB (4 milioni KB) e riavviare il pool di applicazioni. Per aumentare il limite di memoria privata, selezionare il pool di applicazioni WsusPool e fare clic su Impostazioni avanzate in Modifica pool di applicazioni. Impostare quindi il limite di memoria privata su 4 GB (4 milioni KB). Una volta riavviato il pool di applicazioni, monitorare lo stato del componente SMS_WSUS_SYNC_MANAGER, file WCM. log e wsyncmgr. log per individuare eventuali errori. Si noti che potrebbe essere necessario aumentare il limite di memoria privata a 8 GB (8 milioni KB) o superiore, a seconda dell'ambiente.
 
-Per ulteriori informazioni, vedere: [Sincronizzazione WSUS in ConfigMgr 2012 ha esito negativo con errori HTTP 503](http://blogs.technet.com/b/sus/archive/2015/03/23/configmgr-2012-support-tip-wsus-sync-fails-with-http-503-errors.aspx)
+Per ulteriori informazioni, vedere la pagina relativa alla [sincronizzazione di WSUS in ConfigMgr 2012 ha esito negativo con errori HTTP 503](https://blogs.technet.com/b/sus/archive/2015/03/23/configmgr-2012-support-tip-wsus-sync-fails-with-http-503-errors.aspx) .
 
-## <a name="error-0x80070643-fatal-error-during-installation"></a>Errore 0x80070643: Errore irreversibile durante l'installazione
+## <a name="error-0x80070643-fatal-error-during-installation"></a>Errore 0x80070643: errore irreversibile durante l'installazione
 Il programma di installazione di WSUS USA Microsoft SQL Server per eseguire l'installazione. Questo problema si verifica perché l'utente che esegue l'installazione di WSUS non dispone delle autorizzazioni di amministratore di sistema in SQL Server.
 
 Per risolvere il problema, concedere le autorizzazioni di amministratore di sistema a un account utente o a un account di gruppo in SQL Server, quindi eseguire di nuovo l'installazione di WSUS.
 
 ## <a name="some-services-are-not-running-check-the-following-services"></a>Alcuni servizi non sono in esecuzione. Controllare i servizi seguenti:
 
-- **SelfUpdate** Vedere [aggiornamenti automatici necessario aggiornare](https://technet.microsoft.com/library/cc708554(v=ws.10).aspx) per informazioni sulla risoluzione dei problemi del servizio SelfUpdate.
+- **SelfUpdate:** Vedere [aggiornamenti automatici necessario aggiornare](https://technet.microsoft.com/library/cc708554(v=ws.10).aspx) per informazioni sulla risoluzione dei problemi del servizio SelfUpdate.
 
 - **WSSUService. exe:** Questo servizio semplifica la sincronizzazione. In caso di problemi di sincronizzazione, accedere a WSUSService. exe facendo clic sul pulsante **Start**, scegliendo **strumenti di amministrazione**, facendo clic su **Servizi**e quindi individuando **Windows Server Update Service** nell'elenco dei servizi. Eseguire le operazioni seguenti:
     
@@ -84,7 +84,7 @@ Per risolvere il problema, concedere le autorizzazioni di amministratore di sist
     
     -   È anche possibile controllare SoftwareDistribution. log per verificare se sono presenti eventi che potrebbero indicare un problema.
 
-- **Servizio servicesSQL Web:** I servizi Web sono ospitati in IIS. Se non sono in esecuzione, assicurarsi che IIS sia in esecuzione (o avviato). È anche possibile provare a reimpostare il servizio Web digitando **iisreset** al prompt dei comandi.
+- **Servizio ServicesSQL Web:** I servizi Web sono ospitati in IIS. Se non sono in esecuzione, assicurarsi che IIS sia in esecuzione (o avviato). È anche possibile provare a reimpostare il servizio Web digitando **iisreset** al prompt dei comandi.
 
 - **Servizio SQL:** Ogni servizio, ad eccezione del servizio SelfUpdate, richiede che il servizio SQL sia in esecuzione. Se uno dei file di log indica problemi di connessione SQL, controllare innanzitutto il servizio SQL. Per accedere al servizio SQL, fare clic sul pulsante **Start**, scegliere **strumenti di amministrazione**, fare clic su **Servizi**, quindi cercare uno dei seguenti elementi:
     

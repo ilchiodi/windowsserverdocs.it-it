@@ -8,12 +8,12 @@ ms.author: jgerend
 manager: daveba
 ms.technology: storage-spaces
 ms.date: 06/20/2019
-ms.openlocfilehash: 2de3452a3528122beb26f403fb0c73d7ff13efd7
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: bb93ec15fd138ee65797c9d27413552c3a1759a6
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71402117"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75949676"
 ---
 # <a name="using-disk-cleanup-on-windows-server"></a>Uso della pulizia del disco in Windows Server
 
@@ -29,19 +29,19 @@ Per avviare lo strumento Pulitura disco, eseguire il comando cleanmgr. exe oppur
 
 Seguire questa procedura per usare l'aggiunta guidata ruoli e funzionalità per installare l'esperienza desktop in un server che esegue Windows Server 2012 R2 o versioni precedenti, che installa anche la pulizia del disco.
 
-1. Se Server Manager è già aperto, andare al passaggio successivo. Se Server Manager non è aperto, aprirlo in uno dei modi seguenti.
+1. Se Server Manager è già aperto, vai al passaggio successivo. Se Server Manager non è già aperto, aprilo in uno di questi modi.
 
-   - Nel desktop di Windows avviare Server Manager facendo clic su **Server Manager** nella barra delle applicazioni di Windows.
+   - Nel desktop di Windows avvia Server Manager facendo clic su **Server Manager** nella barra delle applicazioni di Windows.
 
    - Passare a **Start** e selezionare il riquadro Server Manager.
 
 1. Scegliere Aggiungi **ruoli e funzionalità**dal menu **Gestisci** .
 
-1. Nella pagina **prima di iniziare** verificare che il server di destinazione e l'ambiente di rete siano preparati per la funzionalità che si desidera installare. Selezionare **Avanti**.
+1. Nella pagina **prima di iniziare** verificare che il server di destinazione e l'ambiente di rete siano preparati per la funzionalità che si desidera installare. Seleziona **Avanti**.
 
-1. Nella pagina **Selezione tipo di installazione** selezionare installazione basata su **ruoli o basata su funzionalità** per installare tutte le funzionalità di part in un unico server. Selezionare **Avanti**.
+1. Nella pagina **Selezione tipo di installazione** selezionare installazione basata su **ruoli o basata su funzionalità** per installare tutte le funzionalità di part in un unico server. Seleziona **Avanti**.
 
-1. Nella pagina **Selezione server di destinazione** scegliere un server dal pool di server oppure selezionare un disco rigido virtuale offline. Selezionare **Avanti**.
+1. Nella pagina **Selezione server di destinazione** scegliere un server dal pool di server oppure selezionare un disco rigido virtuale offline. Seleziona **Avanti**.
 
 1. Nella pagina **Selezione ruoli server** selezionare **Avanti**.
 
@@ -63,8 +63,8 @@ Per utilizzare cleanmgr. exe, installare l'esperienza desktop come descritto in 
 
 | Sistema operativo  | Architettura  | Percorso file  |
 | ----------------- | -------------- | --------------- |
-| Windows Server 2008 R2 | 64 bit | C:\Windows\winsxs\amd64_microsoft-windows-cleanmgr_31bf3856ad364e35_6.1.7600.16385_none_c9392808773cd7da\cleanmgr.exe 
-| Windows Server 2008 R2 | 64 bit | C:\Windows\winsxs\amd64_microsoft-windows-cleanmgr.resources_31bf3856ad364e35_6.1.7600.16385_en-us_b9cb6194b257cc63\cleanmgr.exe.mui |
+| Windows Server 2008 R2 | 64 bit | C:\Windows\winsxs\ amd64_microsoft-Windows-cleanmgr_31bf3856ad364e35_6.1.7600.16385_none_c9392808773cd7da \cleanmgr.exe 
+| Windows Server 2008 R2 | 64 bit | C:\Windows\winsxs\ amd64_microsoft-Windows-cleanmgr. resources_31bf3856ad364e35_6.1.7600.16385_en-us_b9cb6194b257cc63 \cleanmgr.exe.mui |
 
 Individuare cleanmgr. exe e spostare il file in **%SystemRoot%\System32.** .
 
@@ -76,6 +76,6 @@ Per visualizzare il pulsante Pulizia disco nella finestra di dialogo delle propr
 
 ## <a name="additional-references"></a>Altri riferimenti
 
-[Liberare spazio su disco in Windows 10](https://support.microsoft.com/en-us/help/12425/windows-10-free-up-drive-space)
+[Liberare spazio su disco in Windows 10](https://support.microsoft.com/help/12425/windows-10-free-up-drive-space)
 
 [cleanmgr](../../administration/windows-commands/cleanmgr.md)

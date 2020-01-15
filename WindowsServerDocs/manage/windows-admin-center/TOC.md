@@ -1,18 +1,16 @@
 # [Windows Admin Center](overview.md)
 
 ## Nozioni di base
-### [Introduzione a Windows Admin Center](understand/windows-admin-center.md)
 ### [Che cos'è Windows Admin Center?](understand/what-is.md)
-### [DOMANDE FREQUENTI](understand/faq.md)
+### [Domande frequenti](understand/faq.md)
 ### [Case study](understand/case-studies.md)
 ### [Prodotti di gestione correlati](understand/related-management.md)
-### [Video](understand/videos.md)
 
-## Pianificazione
+## Pianificare
 ### [Che tipo di installazione è adatto alle tue esigenze?](plan/installation-options.md)
 ### [Opzioni di accesso dell'utente](plan/user-access-options.md)
 
-## Distribuisci
+## Distribuire
 ### [Preparazione dell'ambiente](deploy/prepare-environment.md)
 ### [Installare Windows Admin Center](deploy/install.md)
 ### [Disponibilità elevata](deploy/high-availability.md)
@@ -26,14 +24,13 @@
 ### [Automatizzazione con PowerShell](configure/use-powershell.md)
 
 ## Uso
-### [Per iniziare](use/get-started.md)
+### [Attività iniziali](use/get-started.md)
 ### [Gestire i server](use/manage-servers.md)
 ### [Distribuire l'infrastruttura iperconvergente](use/deploy-hyperconverged-infrastructure.md)
 ### [Gestire l'infrastruttura iperconvergente](use/manage-hyper-converged.md)
 ### [Gestire i cluster di failover](use/manage-failover-clusters.md)
 ### [Gestire le macchine virtuali Hyper-V](use/manage-virtual-machines.md)
 ### [Registrazione](use/logging.md)
-
 
 ## Connettiti ad Azure
 ### [Servizi ibridi di Azure](azure/index.md)
@@ -47,6 +44,7 @@
 ### [Gestire macchine virtuali di Azure con Windows Admin Center](azure/manage-azure-vms.md)
 
 ## Supporto
+### [Cronologia delle versioni](support/release-history.md)
 ### [Criteri di supporto](support/index.md)
 ### [Passaggi di risoluzione dei problemi comuni](support/troubleshooting.md)
 ### [Problemi noti](support/known-issues.md)

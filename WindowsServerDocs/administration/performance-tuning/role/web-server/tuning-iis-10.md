@@ -7,12 +7,12 @@ ms.topic: landing-page
 ms.author: DavSo; Ericam; YaShi
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: 9563a3f3628851a0cf7b3cb79990db8c2141faa4
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 8b86bf779a4ea9d67f959dacf125a98a8e26a729
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71384953"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75947130"
 ---
 # <a name="tuning-iis-100"></a>Ottimizzazione di IIS 10,0
 
@@ -142,9 +142,9 @@ Questa sezione descrive le impostazioni che influiscono sul comportamento di mem
 
 **System. webserver/Caching**
 
-|Attributo|Descrizione|Impostazione predefinita|
+|Attributo|Descrizione|Valore predefinito|
 |--- |--- |--- |
-|Enabled|Disabilita la cache IIS in modalità utente quando è impostata su **false**. Quando la percentuale di riscontri nella cache è molto ridotta, è possibile disabilitare completamente la cache per evitare il sovraccarico associato al percorso del codice della cache. La disabilitazione della cache in modalità utente non comporta la disabilitazione della cache in modalità kernel.|True|
+|Abilitato|Disabilita la cache IIS in modalità utente quando è impostata su **false**. Quando la percentuale di riscontri nella cache è molto ridotta, è possibile disabilitare completamente la cache per evitare il sovraccarico associato al percorso del codice della cache. La disabilitazione della cache in modalità utente non comporta la disabilitazione della cache in modalità kernel.|True|
 |enableKernelCache|Disabilita la cache in modalità kernel quando è impostata su **false**.|True|
 |maxCacheSize|Limita le dimensioni della cache in modalità utente di IIS alla dimensione specificata in megabyte. IIS regola il valore predefinito in base alla memoria disponibile. Scegliere con attenzione il valore in base alle dimensioni del set di file a cui si accede di frequente rispetto alla quantità di RAM o allo spazio degli indirizzi del processo IIS.|0|
 |maxResponseSize|Memorizza nella cache i file fino alla dimensione specificata. Il valore effettivo dipende dal numero e dalle dimensioni dei file più grandi nel set di dati rispetto alla RAM disponibile. La memorizzazione nella cache di file di grandi dimensioni e spesso richiesti può ridurre l'utilizzo della CPU, l'accesso al disco e le latenze associate|262144|
@@ -157,16 +157,16 @@ Per disabilitare completamente la compressione, rimuovere StaticCompressionModul
 
 **System. webserver/httpCompression**
 
-|Attributo|Descrizione|Impostazione predefinita|
+|Attributo|Descrizione|Valore predefinito|
 |--- |--- |--- |
 |staticCompression-EnableCpuUsage<br><br>staticCompression-DisableCpuUsage<br><br>dynamicCompression-EnableCpuUsage<br><br>dynamicCompression-DisableCpuUsage|Abilita o Disabilita la compressione se l'utilizzo della CPU percentuale corrente supera o scende al di sotto dei limiti specificati.<br><br>A partire da IIS 7,0, la compressione viene disabilitata automaticamente se la CPU a stato costante aumenta al di sopra della soglia di disabilitazione. La compressione è abilitata se la CPU scende al di sotto della soglia di abilitazione.|50, 100, 50 e 90 rispettivamente|
-|Directory|Specifica la directory in cui le versioni compresse dei file statici vengono temporaneamente archiviate e memorizzate nella cache. Se si accede di frequente, provare a trasferire questa directory dall'unità di sistema.|%SystemDrive%\inetpub\temp\IIS file compressi temporanei|
+|directory|Specifica la directory in cui le versioni compresse dei file statici vengono temporaneamente archiviate e memorizzate nella cache. Se si accede di frequente, provare a trasferire questa directory dall'unità di sistema.|%SystemDrive%\inetpub\temp\IIS file compressi temporanei|
 |doDiskSpaceLimiting|Specifica se esiste un limite per la quantità di spazio su disco che tutti i file compressi possono occupare. I file compressi vengono archiviati nella directory di compressione specificata dall'attributo di **directory** .|True|
 |maxDiskSpaceUsage|Specifica il numero di byte di spazio su disco che i file compressi possono occupare nella directory di compressione.<br><br>Questa impostazione potrebbe dover essere aumentata se la dimensione totale di tutto il contenuto compresso è troppo grande.|100 MB|
 
 **System. webserver/urlCompression**
 
-|Attributo|Descrizione|Impostazione predefinita|
+|Attributo|Descrizione|Valore predefinito|
 |--- |--- |--- |
 |doStaticCompression|Specifica se il contenuto statico è compresso.|True|
 |doDynamicCompression|Specifica se il contenuto dinamico è compresso.|True|
@@ -186,7 +186,7 @@ Per disabilitare completamente i documenti predefiniti, rimuovere DefaultDocumen
 
 **System. webserver/defaultDocument**
 
-|Attributo|Descrizione|Impostazione predefinita|
+|Attributo|Descrizione|Valore predefinito|
 |--- |--- |--- |
 |enabled|Specifica che i documenti predefiniti sono abilitati.|True|
 |elemento&gt; &lt;file|Specifica i nomi di file che sono configurati come documenti predefiniti.|L'elenco predefinito è default. htm, default. asp, index. htm, index. html, Iisstart. htm e default. aspx.|
@@ -199,16 +199,16 @@ Quando la sessione del server include numerosi gruppi di URL, il processo di cre
 
 **System. applicationHost/log**
 
-|Attributo|Descrizione|Impostazione predefinita|
+|Attributo|Descrizione|Valore predefinito|
 |--- |--- |--- |
 |centralLogFileMode|Specifica la modalità di registrazione per un server. Modificare questo valore in CentralBinary per abilitare la registrazione binaria centrale.|Sito|
 
 **System. applicationHost/log/centralBinaryLogFile**
 
-|Attributo|Descrizione|Impostazione predefinita|
+|Attributo|Descrizione|Valore predefinito|
 |--- |--- |--- |
 |enabled|Specifica se è abilitata la registrazione binaria centrale.|False|
-|Directory|Specifica la directory in cui vengono scritte le voci di log.|%SystemDrive%\inetpub\logs\LogFiles|
+|directory|Specifica la directory in cui vengono scritte le voci di log.|%SystemDrive%\inetpub\logs\LogFiles|
 
 
 ## <a name="application-and-site-tunings"></a>Ottimizzazione di applicazioni e siti
@@ -217,14 +217,14 @@ Le impostazioni seguenti sono correlate al pool di applicazioni e alle ottimizza
 
 **System. applicationHost/applicationPools/applicationPoolDefaults**
 
-|Attributo|Descrizione|Impostazione predefinita|
+|Attributo|Descrizione|Valore predefinito|
 |--- |--- |--- |
 |queueLength|Indica a HTTP. sys il numero di richieste accodate per un pool di applicazioni prima che le richieste future vengano rifiutate. Quando viene superato il valore per questa proprietà, IIS rifiuta le richieste successive con un errore 503.<br><br>Si consiglia di aumentare questo aspetto per le applicazioni che comunicano con gli archivi dati back-end a latenza elevata se vengono osservati 503 errori.|1000|
 |enable32BitAppOnWin64|Se impostato su true, consente l'esecuzione di un'applicazione a 32 bit in un computer che dispone di un processore a 64 bit.<br><br>Se l'utilizzo della memoria rappresenta un problema, provare ad abilitare la modalità a 32 bit. Poiché le dimensioni del puntatore e le dimensioni dell'istruzione sono inferiori, le applicazioni a 32 bit utilizzano meno memoria rispetto alle applicazioni a 64 bit. Lo svantaggio dell'esecuzione di applicazioni a 32 bit in un computer a 64 bit è che lo spazio degli indirizzi in modalità utente è limitato a 4 GB.|False|
 
 **System. applicationHost/sites/VirtualDirectoryDefault**
 
-|Attributo|Descrizione|Impostazione predefinita|
+|Attributo|Descrizione|Valore predefinito|
 |--- |--- |--- |
 |allowSubDirConfig|Specifica se IIS cerca i file Web. config nelle directory del contenuto inferiori al livello corrente (true) o non cerca i file Web. config nelle directory del contenuto inferiori al livello corrente (false). Imponendo una semplice limitazione, che consente la configurazione solo nelle directory virtuali, IISÂ 10,0 sa che, a meno che **/&lt;nome&gt;. htm** sia una directory virtuale, non dovrebbe cercare un file di configurazione. Ignorare le operazioni aggiuntive sui file può migliorare significativamente le prestazioni dei siti Web con un set molto ampio di contenuto statico a cui si accede in modo casuale.|True|
 
@@ -244,7 +244,7 @@ Le impostazioni seguenti vengono usate per configurare la cache del modello ASP 
 
 **System. webserver/ASP/cache**
 
-|Attributo|Descrizione|Impostazione predefinita|
+|Attributo|Descrizione|Valore predefinito|
 |--- |--- |--- |
 |diskTemplateCacheDirectory|Nome della directory utilizzata da ASP per archiviare i modelli compilati quando si verifica un overflow della cache in memoria.<br><br>Raccomandazione: impostare su una directory che non viene utilizzata molto spesso, ad esempio un'unità non condivisa con il sistema operativo, il registro IIS o altro contenuto di uso frequente.|Modelli compilati%SystemDrive%\inetpub\temp\ASP|
 |maxDiskTemplateCacheFiles|Specifica il numero massimo di modelli ASP compilati che possono essere memorizzati nella cache su disco.<br><br>Raccomandazione: impostare sul valore massimo di 0x7FFFFFFF.|2000|
@@ -253,20 +253,20 @@ Le impostazioni seguenti vengono usate per configurare la cache del modello ASP 
 
 **System. webserver/ASP/limits**
 
-|Attributo|Descrizione|Impostazione predefinita|
+|Attributo|Descrizione|Valore predefinito|
 |--- |--- |--- |
 |processorThreadMax|Specifica il numero massimo di thread di lavoro per processore che possono essere creati da ASP. Aumentare se l'impostazione corrente non è sufficiente per gestire il carico, che può causare errori quando vengono gestite richieste o causare un utilizzo insufficiente delle risorse della CPU.|25|
 
 **System. webserver/ASP/ComPlus**
 
-|Attributo|Descrizione|Impostazione predefinita|
+|Attributo|Descrizione|Valore predefinito|
 |--- |--- |--- |
 |executeInMta|Impostare su **true** se vengono rilevati errori o errori quando IIS sta servendo il contenuto ASP. Questa situazione può verificarsi, ad esempio, quando si ospitano più siti isolati in cui ogni sito viene eseguito con il proprio processo di lavoro. Gli errori vengono in genere segnalati da COM+ nell'Visualizzatore eventi. Questa impostazione Abilita il modello di Apartment a thread multipli in ASP.|False|
 
 
 ## <a name="aspnet-concurrency-setting"></a>Impostazione della concorrenza ASP.NET
 
-### <a name="aspnet-35"></a>ASP.NET 3,5
+### <a name="aspnet-35"></a>ASP.NET 3.5
 Per impostazione predefinita, ASP.NET limita la concorrenza delle richieste per ridurre l'utilizzo della memoria dello stato stabile nel server. Le applicazioni con concorrenza elevata potrebbero dover modificare alcune impostazioni per migliorare le prestazioni complessive. È possibile modificare questa impostazione nel file Aspnet. config:
 
 ``` syntax
@@ -281,7 +281,7 @@ L'impostazione seguente è utile per usare completamente le risorse in un sistem
 
     Questa impostazione limita il numero massimo di richieste ASP.NET eseguite simultaneamente in un sistema. Il valore predefinito è conservativo per ridurre l'utilizzo di memoria da parte delle applicazioni ASP.NET. Si consiglia di aumentare questo limite nei sistemi che eseguono applicazioni che eseguono operazioni di I/O lunghe e sincrone. In caso contrario, gli utenti possono riscontrare una latenza elevata a causa di errori di accodamento o di richiesta dovuti al superamento dei limiti della coda in un carico elevato quando viene usata l'impostazione predefinita.
 
-### <a name="aspnet-46"></a>ASP.NET 4,6
+### <a name="aspnet-46"></a>ASP.NET 4.6
 Oltre all'impostazione maxConcurrentRequestPerCpu, ASP.NET 4,7 fornisce anche impostazioni per migliorare le prestazioni delle applicazioni che si basano molto sull'operazione asincrona. È possibile modificare l'impostazione nel file Aspnet. config.
 
 ``` syntax
@@ -301,9 +301,9 @@ Oltre all'impostazione maxConcurrentRequestPerCpu, ASP.NET 4,7 fornisce anche im
 
 **System. applicationHost/applicationPools/ApplicationPoolDefaults/Recycling/periodicRestart**
 
-|Attributo|Descrizione|Impostazione predefinita|
+|Attributo|Descrizione|Valore predefinito|
 |--- |--- |--- |
-|memoria|Abilitare il riciclo dei processi se il consumo di memoria virtuale supera il limite specificato, espressa in kilobyte. Si tratta di un'impostazione utile per computer a 32 bit con uno spazio di indirizzi piccolo e 2 GB. Questo consente di evitare richieste non riuscite a causa di errori di memoria insufficiente.|0|
+|memory|Abilitare il riciclo dei processi se il consumo di memoria virtuale supera il limite specificato, espressa in kilobyte. Si tratta di un'impostazione utile per computer a 32 bit con uno spazio di indirizzi piccolo e 2 GB. Questo consente di evitare richieste non riuscite a causa di errori di memoria insufficiente.|0|
 |privateMemory|Abilitare il riciclo del processo se le allocazioni di memoria privata superano il limite specificato, espressa in kilobyte.|0|
 |requests|Abilitare il riciclo del processo dopo un determinato numero di richieste.|0|
 |ora|Abilitare il riciclo del processo dopo un periodo di tempo specificato.|29:00:00|
@@ -402,6 +402,6 @@ I problemi seguenti possono influire sulle prestazioni di IIS:
 
     Per motivi di prestazioni, non è consigliabile usare le applicazioni CGI per gestire le richieste con IIS. Spesso la creazione e l'eliminazione di processi CGI comporta un sovraccarico significativo. Alternative migliori includono l'uso di FastCGI, script dell'applicazione ISAPI e script ASP o ASP.NET. Per ognuna di queste opzioni è disponibile l'isolamento.
 
-# <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedi anche
 - [Ottimizzazione delle prestazioni del server Web](index.md) 
 - [Ottimizzazione di HTTP 1.1/2](http-performance.md)

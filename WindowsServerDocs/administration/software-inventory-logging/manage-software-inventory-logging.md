@@ -13,12 +13,12 @@ author: brentfor
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: bd8a26d158f53121074881ac8ff204287f9a19ad
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: a14233e01c19df650d1059e1b60cd5398b05709a
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71382971"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75946989"
 ---
 # <a name="manage-software-inventory-logging"></a>Gestire Registrazione inventario software
 
@@ -31,20 +31,20 @@ Questo documento descrive come gestire la registrazione dell'inventario software
 - **Windows Server 2012 (standard o Datacenter Edition)** 
 
 > [!NOTE] 
-> Verificare che [WMF 4.0](https://www.microsoft.com/en-us/download/details.aspx?id=40855) sia installato prima di applicare il pacchetto di aggiornamento seguente.
+> Verificare che [WMF 4.0](https://www.microsoft.com/download/details.aspx?id=40855) sia installato prima di applicare il pacchetto di aggiornamento seguente.
 
--  Pacchetto di aggiornamento di WMF 4.0 per Windows Server 2012: [KB 3119938](https://support.microsoft.com/en-us/kb/3119938)
+-  Pacchetto di aggiornamento di WMF 4.0 per Windows Server 2012: [KB 3119938](https://support.microsoft.com/kb/3119938)
 
 - **Windows Server 2008 R2 SP1**
 
 > [!NOTE] 
-> Verificare che [WMF 4.0](https://www.microsoft.com/en-us/download/details.aspx?id=40855) sia installato prima di applicare il pacchetto di aggiornamento seguente.
+> Verificare che [WMF 4.0](https://www.microsoft.com/download/details.aspx?id=40855) sia installato prima di applicare il pacchetto di aggiornamento seguente.
 
 
-- Richiede [.NET Framework 4.5](https://www.microsoft.com/en-us/download/details.aspx?id=30653)
+- Richiede [.NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)
 
 
-- Pacchetto di aggiornamento di WMF 4.0 per Windows Server 2008 R2: [KB 3109118](https://support.microsoft.com/en-us/kb/3109118)
+- Pacchetto di aggiornamento di WMF 4.0 per Windows Server 2008 R2: [KB 3109118](https://support.microsoft.com/kb/3109118)
 
 
 Ci sono due metodi principali per eseguire l'inventario con questa funzionalità:  
@@ -90,7 +90,7 @@ Le opzioni di configurazione descritte in questo documento includono:
 -   [Uso della registrazione inventario software in un ambiente Hyper-V di Windows Server 2012 R2 senza KB 3000850](manage-software-inventory-logging.md#BKMK_Step12)  
   
 > [!NOTE]  
-> Questo argomento include cmdlet di esempio di Windows PowerShell che è possibile usare per automatizzare alcune delle procedure descritte. Per ulteriori informazioni, vedere Utilizzo dei cmdlet.
+> Questo argomento include cmdlet di esempio di Windows PowerShell che è possibile usare per automatizzare alcune delle procedure descritte. Per ulteriori informazioni, vedere Utilizzo di cmdlet.
 
   
 ## <a name="BKMK_Step1"></a>Avvio e arresto di registrazione inventario software  
@@ -199,7 +199,7 @@ SystemManufacturer        : Microsoft Corporation
 > [!NOTE]  
 > L'output di questo cmdlet equivale a quello di tutti gli altri cmdlet **Get-Sil** combinati per questa funzionalità, ma viene fornito alla console in modo asincrono e quindi l'ordine degli oggetti potrebbe non essere sempre lo stesso.  
 >   
-> Non è necessario che la funzionalità Registrazione inventario software sia avviata per usare i cmdlet **Get-Sil**.  
+> Non è necessario che la funzionalità Registrazione inventario software sia avviata per usare i cmdlet **Get-Sil** .  
   
 ## <a name="BKMK_Step4"></a>Eliminazione dei dati registrati da registrazione inventario software  
 Registrazione inventario software non è progettato come componente cruciale. È pensato per un impatto minimo sulle operazioni di sistema locali, pur mantenendo un alto livello di affidabilità. Ciò consente anche all'amministratore di eliminare manualmente il database di registrazione inventario software e i file di supporto (tutti i file nella directory \Windows\System32\LogFiles\SIL) per soddisfare le esigenze operative.  
@@ -250,8 +250,8 @@ Per supportare questi tipi di uso, Registrazione inventario software dispone di 
 |-|-|-|-|  
 |**Funzione**|**Nome valore**|**Dati**|**Cmdlet corrispondente (disponibile solo nel sistema operativo in esecuzione)**|  
 |Funzionalità di avvio/arresto|CollectionState|1 o 0|[Start-SilLogging](https://technet.microsoft.com/library/dn283391.aspx), [Stop-SilLogging](https://technet.microsoft.com/library/dn283394.aspx)|  
-|Specifica il punto di aggregazione di destinazione nella rete|TargetUri|string|[Set-SilLogging](https://technet.microsoft.com/library/dn283387.aspx) -TargetURI|  
-|Specifica l'hash o l'identificazione personale del certificato usato per l'autenticazione SSL per il server Web di destinazione|CertificateThumbprint|string|[Set-SilLogging](https://technet.microsoft.com/library/dn283387.aspx) -CertificateThumbprint|  
+|Specifica il punto di aggregazione di destinazione nella rete|TargetUri|stringa|[Set-SilLogging](https://technet.microsoft.com/library/dn283387.aspx) -TargetURI|  
+|Specifica l'hash o l'identificazione personale del certificato usato per l'autenticazione SSL per il server Web di destinazione|CertificateThumbprint|stringa|[Set-SilLogging](https://technet.microsoft.com/library/dn283387.aspx) -CertificateThumbprint|  
 |Specifica la data e l'ora in cui la funzionalità deve essere avviata (se il valore impostato è nel futuro in base all'ora di sistema locale)|CollectionTime|Valore predefinito: 2000-01-01T03:00:00|[Set-SilLogging](https://technet.microsoft.com/library/dn283387.aspx) -TimeOfDay|  
   
 Per modificare questi valori in un disco rigido virtuale offline (sistema operativo VM non in esecuzione), il disco rigido virtuale deve prima di tutto essere montato e quindi è possibile usare i comandi seguenti per apportare modifiche:  

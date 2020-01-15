@@ -8,14 +8,14 @@ manager: dongill
 author: JasonGerend
 ms.author: jgerend
 ms.date: 10/18/2018
-ms.openlocfilehash: 26417f0fdbe2c4c8c374b3a1b8955c6297865397
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 40342f43f7afbf020ba20f27586650767218fe83
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71360831"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75948034"
 ---
-# <a name="whats-new-in-failover-clustering"></a>What's new in Failover Clustering (Novità del clustering di failover)
+# <a name="whats-new-in-failover-clustering"></a>Novità del clustering di failover
 
 > Si applica a: Windows Server 2019, Windows Server 2016
 
@@ -53,7 +53,7 @@ In questo argomento vengono illustrate le funzionalità nuove e modificate del c
   - Accesso a Internet assente o estremamente scadente a causa di una posizione remota che impedisce l'uso di un cloud di controllo. 
   - Mancanza di unità condivise per un disco di controllo. Potrebbe trattarsi di un Spazi di archiviazione diretta configurazione iperconvergente, di un gruppo di disponibilità di SQL Server Always On (AG) o di un gruppo di disponibilità del database di Exchange (DAG), nessuno dei quali usa dischi condivisi. 
   - Mancanza di una connessione del controller di dominio dovuta al fatto che il cluster si trova dietro una rete perimetrale. 
-  - Un cluster di gruppi di lavoro o tra domini per il quale non è presente Active Directory oggetto nome cluster (cluster Name Object). Per ulteriori informazioni su questi miglioramenti, vedere il post seguente nei Blog sulla gestione di server &: Server di controllo e DFS di condivisione file del cluster di failover.
+  - Un cluster di gruppi di lavoro o tra domini per il quale non è presente Active Directory oggetto nome cluster (cluster Name Object). Ulteriori informazioni su questi miglioramenti sono disponibili nel post seguente nei Blog sulla gestione di server &: condivisione file di controllo del cluster di failover e DFS.
     
     È ora possibile bloccare in modo esplicito l'uso di una condivisione di spazi dei nomi DFS come percorso. L'aggiunta di un controllo di condivisione file a una condivisione DFS può causare problemi di stabilità per il cluster e questa configurazione non è mai stata supportata. È stata aggiunta la logica per rilevare se una condivisione utilizza spazi dei nomi DFS e se viene rilevato uno spazio dei nomi DFS, Gestione cluster di failover blocca la creazione del server di controllo del mirroring e visualizza un messaggio di errore in cui non è supportato.
 - **Protezione avanzata del cluster**
@@ -127,7 +127,7 @@ Per altre informazioni, vedere [Replica archiviazione in Windows Server 2016](..
 
 
 ### <a name="BKMK_CloudWitness"></a>Server di controllo cloud  
-Cloud di controllo è un nuovo tipo di quorum di controllo per un cluster di failover in Windows Server 2016 che si basa su Microsoft Azure come punto di arbitraggio. Cloud di controllo, come altri quorum di controllo, ottiene un voto e può partecipare ai calcoli del quorum. È possibile configurare questa funzionalità come quorum di controllo usando la Configurazione guidata quorum del cluster. 
+Cloud di controllo è un nuovo tipo di quorum di controllo per un cluster di failover in Windows Server 2016 che si basa su Microsoft Azure come punto di arbitraggio. Cloud di controllo, come altri quorum di controllo, ottiene un voto e può partecipare ai calcoli del quorum. È possibile configurare questa funzionalità come quorum di controllo usando la Configurazione guidata quorum del cluster. 
 
 **Valore aggiunto da queste modifiche**  
 
@@ -158,7 +158,7 @@ Questa funzionalità è stata introdotta in Windows Server 2016.
 
 -   **Quarantena dei nodi non integri:** I nodi non integri sono messi in quarantena e non possono più essere aggiunti al cluster. Ciò impedisce che i nodi influiscano negativamente sugli altri nodi e sul cluster complessivo. 
 
-Per altre informazioni sul flusso di lavoro di resilienza delle macchine virtuali e sulle impostazioni di quarantena del nodo che controllano il modo in cui il nodo viene inserito in isolamento o quarantena, vedere [resilienza di calcolo delle macchine virtuali in Windows Server 2016](http://blogs.msdn.com/b/clustering/archive/2015/06/03/10619308.aspx). 
+Per altre informazioni sul flusso di lavoro di resilienza delle macchine virtuali e sulle impostazioni di quarantena del nodo che controllano il modo in cui il nodo viene inserito in isolamento o quarantena, vedere [resilienza di calcolo delle macchine virtuali in Windows Server 2016](https://blogs.msdn.com/b/clustering/archive/2015/06/03/10619308.aspx). 
 
 **Resilienza di archiviazione** In Windows Server 2016, le macchine virtuali sono più resilienti agli errori di archiviazione temporanei. La resilienza migliorata della macchina virtuale aiuta a mantenere gli Stati di sessione della macchina virtuale tenant in caso di un'ininterrottità di archiviazione. Questa operazione viene ottenuta tramite risposta di macchina virtuale intelligente e rapida ai problemi dell'infrastruttura di archiviazione. 
 
@@ -169,12 +169,12 @@ In Windows Server 2016, la resilienza dell'archiviazione delle macchine virtuali
 ### <a name="BKMK_Diagnostics"></a>Miglioramenti diagnostici nel clustering di failover  
 Per semplificare la diagnosi dei problemi relativi ai cluster di failover, Windows Server 2016 include quanto segue:  
 
--   Diversi miglioramenti apportati ai file di log del cluster, ad esempio le informazioni sul fuso orario e il registro DiagnosticVerbose, semplificano la risoluzione dei problemi relativi al clustering di failover. Per ulteriori informazioni, vedere [miglioramenti della risoluzione dei problemi del cluster di failover di Windows Server 2016-log del cluster](http://blogs.msdn.com/b/clustering/archive/2015/05/15/10614930.aspx). 
+-   Diversi miglioramenti apportati ai file di log del cluster, ad esempio le informazioni sul fuso orario e il registro DiagnosticVerbose, semplificano la risoluzione dei problemi relativi al clustering di failover. Per ulteriori informazioni, vedere [miglioramenti della risoluzione dei problemi del cluster di failover di Windows Server 2016-log del cluster](https://blogs.msdn.com/b/clustering/archive/2015/05/15/10614930.aspx). 
 
--   Un nuovo tipo di dump del **dump di memoria attivo**, che filtra la maggior parte delle pagine di memoria allocate alle macchine virtuali e quindi rende la memoria. dmp molto più piccola e più semplice da salvare o copiare. Per ulteriori informazioni, vedere [miglioramenti della risoluzione dei problemi del cluster di failover di Windows Server 2016-dump attivo](http://blogs.msdn.com/b/clustering/archive/2015/05/18/10615526.aspx). 
+-   Un nuovo tipo di dump del **dump di memoria attivo**, che filtra la maggior parte delle pagine di memoria allocate alle macchine virtuali e quindi rende la memoria. dmp molto più piccola e più semplice da salvare o copiare. Per ulteriori informazioni, vedere [miglioramenti della risoluzione dei problemi del cluster di failover di Windows Server 2016-dump attivo](https://blogs.msdn.com/b/clustering/archive/2015/05/18/10615526.aspx). 
 
 ### <a name="BKMK_SiteAware"></a>Cluster di failover compatibili con il sito  
-Windows Server 2016 include cluster di failover compatibili con il sito che consentono di raggruppare i nodi nei cluster estesi in base alla posizione fisica (sito). Il riconoscimento del sito del cluster migliora le operazioni principali durante il ciclo di vita del cluster, ad esempio il comportamento di failover, i criteri di posizionamento, l'heartbeat tra i nodi e il comportamento del quorum. Per ulteriori informazioni, vedere [cluster di failover in grado di riconoscere il sito in Windows Server 2016](http://blogs.msdn.com/b/clustering/archive/2015/08/19/10636304.aspx). 
+Windows Server 2016 include cluster di failover compatibili con il sito che consentono di raggruppare i nodi nei cluster estesi in base alla posizione fisica (sito). Il riconoscimento del sito del cluster migliora le operazioni principali durante il ciclo di vita del cluster, ad esempio il comportamento di failover, i criteri di posizionamento, l'heartbeat tra i nodi e il comportamento del quorum. Per ulteriori informazioni, vedere [cluster di failover in grado di riconoscere il sito in Windows Server 2016](https://blogs.msdn.com/b/clustering/archive/2015/08/19/10636304.aspx). 
 
 ### <a name="BKMK_multidomainclusters"></a>Cluster di gruppi di lavoro e multidominio  
 In Windows Server 2012 R2 e versioni precedenti è possibile creare un cluster solo tra nodi membro aggiunti allo stesso dominio. Windows Server 2016 supera questo limite e introduce la possibilità di creare un cluster di failover indipendente da Active Directory. È ora possibile creare cluster di failover nelle configurazioni seguenti:  
@@ -185,7 +185,7 @@ In Windows Server 2012 R2 e versioni precedenti è possibile creare un cluster s
 
 -   **Cluster del gruppo di lavoro.** Cluster con nodi che sono server membro/gruppo di lavoro (non aggiunto a un dominio). 
 
-Per altre informazioni, vedere [gruppi di lavoro e cluster multidominio in Windows Server 2016](http://blogs.msdn.com/b/clustering/archive/2015/08/17/10635825.aspx)  
+Per altre informazioni, vedere [gruppi di lavoro e cluster multidominio in Windows Server 2016](https://blogs.msdn.com/b/clustering/archive/2015/08/17/10635825.aspx)  
 ### <a name="BKMK_VMLoadBalancing"></a>Bilanciamento del carico della macchina virtuale  
 Il bilanciamento del carico della macchina virtuale è una nuova funzionalità del clustering di failover che semplifica il bilanciamento del carico delle macchine virtuali tra i nodi di un cluster. I nodi overcommit sono identificati in base alla memoria della macchina virtuale e all'utilizzo della CPU nel nodo. Le macchine virtuali vengono quindi spostate (migrate in tempo reale) da un nodo overcommit ai nodi con larghezza di banda disponibile (se applicabile). L'aggressività del bilanciamento può essere ottimizzata per garantire prestazioni e utilizzo ottimali del cluster. Il bilanciamento del carico è abilitato per impostazione predefinita in Windows Server 2016 Technical Preview. Tuttavia, il bilanciamento del carico è disabilitato quando è abilitata l'ottimizzazione dinamica SCVMM. 
 
@@ -197,6 +197,6 @@ Le reti cluster di failover non sono più limitate a una singola scheda di inter
 
 Per ulteriori informazioni, vedere [reti SMB multicanale e cluster multicanale semplificate](smb-multichannel.md).
 
-## <a name="see-also"></a>Vedere anche  
+## <a name="see-also"></a>Vedi anche  
 * [Archiviazione](../storage/storage.md)  
 * [Novità di archiviazione in Windows Server 2016](../storage/whats-new-in-storage.md)  

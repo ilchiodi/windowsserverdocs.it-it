@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/12/2016
-ms.openlocfilehash: 27d456dd274b917233f0484f055b679dc8c73214
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: cce76e006272104033e1437e0ccf6cad5bc47f3f
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71403503"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75950300"
 ---
 # <a name="passwords-overview"></a>Panoramica delle password
 
@@ -26,7 +26,7 @@ ms.locfileid: "71403503"
 
 Questo argomento per i professionisti IT descrive le password usate nei sistemi operativi Windows e fornisce collegamenti alla documentazione e alle discussioni sull'uso delle password in una strategia di gestione delle credenziali.
 
-## <a name="BKMK_OVER"></a>Descrizione della funzionalità
+## <a name="BKMK_OVER"></a>Descrizione delle funzionalità
 Attualmente i sistemi operativi e le applicazioni sono progettati per aggirare le password e anche se si usano smart card o sistemi biometrici, tutti gli account hanno ancora password e possono comunque essere usati in alcune circostanze. Alcuni account, in particolare gli account usati per eseguire servizi, non possono anche usare Smart Card e token biometrici e pertanto devono usare una password per l'autenticazione. Windows protegge le password usando gli hash crittografici.
 
 Per ulteriori informazioni sulle password di Windows, vedere la [Panoramica tecnica sulle password](https://technet.microsoft.com/library/hh994558(WS.10).aspx).
@@ -50,11 +50,11 @@ In questa tabella sono elencate risorse aggiuntive per le funzionalità delle pa
 
 |Tipo di contenuto|Riferimenti|
 |--------|-------|
-|**Documentazione dello scenario**|[Protezione dell'identità digitale](http://blogs.msdn.com/b/b8/archive/2011/12/14/protecting-your-digital-identity.aspx)|
+|**Documentazione dello scenario**|[Protezione dell'identità digitale](https://blogs.msdn.com/b/b8/archive/2011/12/14/protecting-your-digital-identity.aspx)|
 |**Operazioni**|[Utenti e computer Active Directory](https://technet.microsoft.com/library/cc754217.aspx)|
-|**Risoluzione dei problemi**|[Scopri quando la password scade \- Blog di Active Directory PowerShell](http://blogs.msdn.com/b/adpowershell/archive/2010/08/09/9970198.aspx)|
+|**Risoluzione dei problemi**|[Scopri quando la password scade \- Blog di Active Directory PowerShell](https://blogs.msdn.com/b/adpowershell/archive/2010/08/09/9970198.aspx)|
 |**Sicurezza**| [Guida alle minacce e alle contromisure di](https://technet.microsoft.com/library/hh125920(v=ws.10).aspx) windows Server 2008 R2 e Windows 7: criteri account<br /><br />Linee guida per la [modifica e la creazione di password complesse](https://www.microsoft.com/security/online-privacy/passwords-create.aspx)|
 |**Strumenti e impostazioni**|[Informazioni di riferimento sulle impostazioni di Criteri di gruppo per Windows e Windows Server nell'area download Microsoft](https://www.microsoft.com/download/en/details.aspx?amp;displaylang=en&displaylang=en&id=25250)|
-|**Risorse della community**|[Protezione dell'identità digitale](http://blogs.msdn.com/b/b8/archive/2011/12/14/protecting-your-digital-identity.aspx)<br /><br />[Accesso a Windows 8 con Windows Live ID](http://blogs.msdn.com/b/b8/archive/2011/09/26/signing-in-to-windows-8-with-a-windows-live-id.aspx)<br /><br />[Accesso con una password immagine](http://blogs.msdn.com/b/b8/archive/2011/12/16/signing-in-with-a-picture-password.aspx)<br /><br />[Ottimizzazione della sicurezza delle password per le immagini](http://blogs.msdn.com/b/b8/archive/2011/12/19/optimizing-picture-password-security.aspx)|
+|**Risorse della community**|[Protezione dell'identità digitale](https://blogs.msdn.com/b/b8/archive/2011/12/14/protecting-your-digital-identity.aspx)<br /><br />[Accesso a Windows 8 con Windows Live ID](https://blogs.msdn.com/b/b8/archive/2011/09/26/signing-in-to-windows-8-with-a-windows-live-id.aspx)<br /><br />[Accesso con una password immagine](https://blogs.msdn.com/b/b8/archive/2011/12/16/signing-in-with-a-picture-password.aspx)<br /><br />[Ottimizzazione della sicurezza delle password per le immagini](https://blogs.msdn.com/b/b8/archive/2011/12/19/optimizing-picture-password-security.aspx)|
 
 

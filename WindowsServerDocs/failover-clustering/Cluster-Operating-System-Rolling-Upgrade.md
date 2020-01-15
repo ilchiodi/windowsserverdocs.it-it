@@ -7,12 +7,12 @@ ms.assetid: 6e102c1f-df26-4eaa-bc7a-d0d55d3b82d5
 author: jasongerend
 ms.author: jgerend
 ms.date: 03/27/2018
-ms.openlocfilehash: f7d20a099f287d2ee05ae6e908c173e1eb3cfc66
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: fc1799db76f528a599ef70eec5093da0a76206a2
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71361838"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75948532"
 ---
 # <a name="cluster-operating-system-rolling-upgrade"></a>Aggiornamento in sequenza del sistema operativo del cluster
 
@@ -52,7 +52,7 @@ Prima di iniziare il processo di aggiornamento in sequenza del sistema operativo
 - L'aggiornamento di un cluster di Spazi di archiviazione diretta a Windows Server, versione 1709 non è supportato.
 - Se il carico di lavoro del cluster è macchine virtuali Hyper-V o File server di scalabilità orizzontale, è possibile prevedere un aggiornamento senza tempi di inattività.
 - Verificare che i nodi Hyper-V dispongano di CPU che supportano la tabella di indirizzamento di secondo livello (stecca) utilizzando uno dei metodi seguenti:  
-        -Verificare [che sia compatibile con le doghe? Articolo WP8 SDK Tip 01](http://blogs.msdn.com/b/devfish/archive/2012/11/06/are-you-slat-compatible-wp8-sdk-tip-01.aspx) che descrive due metodi per verificare se una CPU supporta le stecche  
+        -Verificare [che sia compatibile con le doghe? Articolo WP8 SDK Tip 01](https://blogs.msdn.com/b/devfish/archive/2012/11/06/are-you-slat-compatible-wp8-sdk-tip-01.aspx) che descrive due metodi per verificare se una CPU supporta le stecche  
         -Scaricare lo strumento [Coreinfo v 3.31](https://technet.microsoft.com/sysinternals/cc835722) per determinare se una CPU supporta la stecca.
 
 ## <a name="cluster-transition-states-during-cluster-os-rolling-upgrade"></a>Stati di transizione del cluster durante l'aggiornamento in sequenza del sistema operativo cluster

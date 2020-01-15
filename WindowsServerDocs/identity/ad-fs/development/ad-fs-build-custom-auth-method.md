@@ -8,12 +8,12 @@ ms.date: 05/23/2019
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 2ef16ddeb241d55b61b484805ff91cb247985d8d
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: bc881efcd932e36e40f4483ae5a8378884db64a6
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71358878"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75948860"
 ---
 # <a name="build-a-custom-authentication-method-for-ad-fs-in-windows-server"></a>Creare un metodo di autenticazione personalizzato per AD FS in Windows Server
 
@@ -60,7 +60,7 @@ Questa procedura dettagliata usa Visual Studio 2012.  Il progetto può essere co
 
 2.  Selezionare libreria di classi e assicurarsi di avere come destinazione .NET 4,5.
 
-    ![creare il]provider(media/ad-fs-build-custom-auth-method/Dn783423.71a57ae1-d53d-462b-a846-5b3c02c7d3f2(MSDN.10).jpg "creare il provider")
+    ![creazione del provider](media/ad-fs-build-custom-auth-method/Dn783423.71a57ae1-d53d-462b-a846-5b3c02c7d3f2(MSDN.10).jpg "creazione del provider")
 
 3.  Creare una copia di **Microsoft. IdentityServer. Web. dll** da% windir%\\ADFS nel server Windows Server 2012 R2 in cui è stato installato ad FS e incollarlo nella cartella del progetto nel computer di sviluppo.
 
@@ -70,13 +70,13 @@ Questa procedura dettagliata usa Visual Studio 2012.  Il progetto può essere co
 
 6.  Fare clic su **OK** per confermare il nuovo riferimento:
 
-    ![creare il]provider(media/ad-fs-build-custom-auth-method/Dn783423.f18df353-9259-4744-b4b6-dd780ce90951(MSDN.10).jpg "creare il provider")
+    ![creazione del provider](media/ad-fs-build-custom-auth-method/Dn783423.f18df353-9259-4744-b4b6-dd780ce90951(MSDN.10).jpg "creazione del provider")
 
     A questo punto è necessario configurare per risolvere tutti i tipi necessari per il provider. 
 
 7.  Aggiungere una nuova classe al progetto (fare clic con il pulsante destro del mouse sul progetto, quindi su **Aggiungi... Classe...** ) e assegnargli un nome come l' **adattatore**, illustrato di seguito:
 
-    ![creare il]provider(media/ad-fs-build-custom-auth-method/Dn783423.6b6a7a8b-9d66-40c7-8a86-a2e3b9e14d09(MSDN.10).jpg "creare il provider")
+    ![creazione del provider](media/ad-fs-build-custom-auth-method/Dn783423.6b6a7a8b-9d66-40c7-8a86-a2e3b9e14d09(MSDN.10).jpg "creazione del provider")
 
 8.  Nel nuovo file MyAdapter.cs sostituire il codice esistente con il codice seguente:
 
@@ -227,10 +227,10 @@ Questa procedura dettagliata usa Visual Studio 2012.  Il progetto può essere co
          /// Returns an array indicating the type of claim that the adapter uses to identify the user being authenticated.
          /// Note that although the property is an array, only the first element is currently used.
          /// MUST BE ONE OF THE FOLLOWING
-         /// "http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccountname"
+         /// "https://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccountname"
          /// "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn"
          /// "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress"
-         /// "http://schemas.microsoft.com/ws/2008/06/identity/claims/primarysid"
+         /// "https://schemas.microsoft.com/ws/2008/06/identity/claims/primarysid"
          public string[] IdentityClaims
          {
          get { return new[] { "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn" }; }
@@ -343,7 +343,7 @@ Questa procedura dettagliata usa Visual Studio 2012.  Il progetto può essere co
 
 14. Selezionare quindi **Project-\>Aggiungi componente...** File di risorse e denominare le **risorse**del file e fare clic su **Aggiungi:**
 
-   ![creare il]provider(media/ad-fs-build-custom-auth-method/Dn783423.3369ad8f-f65f-4f36-a6d5-6a3edbc1911a(MSDN.10).jpg "creare il provider")
+   ![creazione del provider](media/ad-fs-build-custom-auth-method/Dn783423.3369ad8f-f65f-4f36-a6d5-6a3edbc1911a(MSDN.10).jpg "creazione del provider")
 
 15. Quindi, nel file **Resources. resx** , scegliere **Aggiungi risorsa. Aggiungere un file esistente**.  Passare al file di testo (contenente il frammento HTML) salvato in precedenza.
 
@@ -361,7 +361,7 @@ L'adapter deve essere incorporato in un assembly .NET con nome sicuro che può e
 
 2.  Nella scheda **firma** selezionare **Firma assembly** e scegliere **\<nuovo...\>** in **Scegli un file chiave con nome sicuro:** immettere un nome e una password per il file di chiave e fare clic su **OK**.  Assicurarsi quindi che **Firma assembly** sia selezionato e che **solo la firma ritardata** sia deselezionata.  La pagina di **firma** delle proprietà dovrebbe essere simile alla seguente:
 
-    ![compilazione del]provider(media/ad-fs-build-custom-auth-method/Dn783423.0b1a1db2-d64e-4bb8-8c01-ef34296a2668(MSDN.10).jpg "compilazione del provider")
+    ![compilazione del provider](media/ad-fs-build-custom-auth-method/Dn783423.0b1a1db2-d64e-4bb8-8c01-ef34296a2668(MSDN.10).jpg "creazione del provider")
 
 3.  Quindi compilare la soluzione.
 
@@ -432,7 +432,7 @@ Una volta soddisfatti i prerequisiti precedenti, aprire una finestra di comando 
 
 3.  Nel riquadro centrale, in **multi-factor authentication**, fare clic sul collegamento **modifica** a destra di **Impostazioni globali**.
 
-4.  In **Seleziona metodi di autenticazione aggiuntivi** nella parte inferiore della pagina, selezionare la casella per l'amministratore del provider. Fare clic su **Applica**.
+4.  In **Seleziona metodi di autenticazione aggiuntivi** nella parte inferiore della pagina, selezionare la casella per l'amministratore del provider. Fai clic su **Applica**.
 
 5.  Per fornire un "trigger" per richiamare l'autenticazione a più fattori usando l'adapter, in **percorsi** controllare sia **Extranet** che **Intranet**, ad esempio. Fai clic su **OK**. Per configurare i trigger per ogni relying party, vedere "creare i criteri di autenticazione con Windows PowerShell" di seguito.
 
@@ -460,12 +460,12 @@ Example:`PS C:\>Set-AdfsGlobalAuthenticationPolicy –AdditionalAuthenticationPr
 
 2. Configurare quindi regole globali o specifiche delle entità per attivare l'autenticazione a più fattori:
 
-   Esempio 1: creare una regola globale per richiedere l'autenticazione a più fattori per le richieste esterne:`PS C:\>Set-AdfsAdditionalAuthenticationRule –AdditionalAuthenticationRules 'c:[type == "http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork", value == "false"] => issue(type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod", value = "http://schemas.microsoft.com/claims/multipleauthn" );'`
+   Esempio 1: creare una regola globale per richiedere l'autenticazione a più fattori per le richieste esterne:`PS C:\>Set-AdfsAdditionalAuthenticationRule –AdditionalAuthenticationRules 'c:[type == "https://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork", value == "false"] => issue(type = "https://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod", value = "https://schemas.microsoft.com/claims/multipleauthn" );'`
 
    Esempio 2: creare regole di autenticazione a più fattori per richiedere l'autenticazione a più fattori per le richieste esterne a una specifica relying party.  Si noti che i singoli provider non possono essere connessi a singole relying party in AD FS in Windows Server 2012 R2).
 
        PS C:\>$rp = Get-AdfsRelyingPartyTrust –Name <Relying Party Name>
-       PS C:\>Set-AdfsRelyingPartyTrust –TargetRelyingParty $rp –AdditionalAuthenticationRules 'c:[type == "http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork", value == "false"] => issue(type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod", value = "http://schemas.microsoft.com/claims/multipleauthn" );'
+       PS C:\>Set-AdfsRelyingPartyTrust –TargetRelyingParty $rp –AdditionalAuthenticationRules 'c:[type == "https://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork", value == "false"] => issue(type = "https://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod", value = "https://schemas.microsoft.com/claims/multipleauthn" );'
 
 ### <a name="authenticate-with-mfa-using-your-adapter"></a>Eseguire l'autenticazione con l'autenticazione a più fattori usando l'adapter
 
@@ -487,9 +487,9 @@ Infine, attenersi alla procedura seguente per testare l'adapter:
 
     Se è stata configurata più di una scheda, viene visualizzata la pagina scelta autenticazione a più fattori con il nome descrittivo riportato sopra.
 
-    eseguire l'autenticazione ![con]l'adapter(media/ad-fs-build-custom-auth-method/Dn783423.c98d2712-cbd3-4cb9-ac03-2838b81c4f63(MSDN.10).jpg "per l'autenticazione con adapter")
+    ![eseguire l'autenticazione con l'adapter](media/ad-fs-build-custom-auth-method/Dn783423.c98d2712-cbd3-4cb9-ac03-2838b81c4f63(MSDN.10).jpg "autenticazione tramite scheda")
 
-    eseguire l'autenticazione ![con]l'adapter(media/ad-fs-build-custom-auth-method/Dn783423.fd3aefc0-ef6c-4a8c-a737-4914c78ff2d2(MSDN.10).jpg "per l'autenticazione con adapter")
+    ![eseguire l'autenticazione con l'adapter](media/ad-fs-build-custom-auth-method/Dn783423.fd3aefc0-ef6c-4a8c-a737-4914c78ff2d2(MSDN.10).jpg "autenticazione tramite scheda")
 
 A questo punto si dispone di un'implementazione funzionante dell'interfaccia e si conoscono le modalità di funzionamento del modello. È possibile Trym come esempio aggiuntivo per impostare i punti di interruzioni in BeginAuthentication e TryEndAuthentication.  Si noti come BeginAuthentication viene eseguito quando l'utente immette il modulo di autenticazione a più fattori, mentre TryEndAuthentication viene attivato a ogni invio del modulo.
 
@@ -539,7 +539,7 @@ Aggiornare quindi TryEndAuthentication come indicato di seguito:
      outgoingClaims = new[] 
      {
      // Return the required authentication method claim, indicating the particulate authentication method used.
-     new Claim( "http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod", 
+     new Claim( "https://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod", 
      "http://example.com/myauthenticationmethod1" )
      };
      return null;
@@ -559,13 +559,13 @@ A questo punto è necessario aggiornare la scheda nella casella di test.  È nec
 
 Deselezionare tutte le caselle di controllo relative a autenticazione a più fattori nell'interfaccia utente dell'autenticazione a più fattori, mostrata di seguito, quindi
 
-![Cancella](media/ad-fs-build-custom-auth-method/Dn783423.c111b4e7-5b05-413c-8b0f-222a0e91ac1f(MSDN.10).jpg "criterio non crittografato")
+![Cancella criteri](media/ad-fs-build-custom-auth-method/Dn783423.c111b4e7-5b05-413c-8b0f-222a0e91ac1f(MSDN.10).jpg "eliminazione del criterio")
 
 ### <a name="unregister-provider-windows-powershell"></a>Annulla registrazione provider (Windows PowerShell)
 
 `PS C:\> Unregister-AdfsAuthenticationProvider –Name “YourAuthProviderName”`
 
-Esempio:`PS C:\> Unregister-AdfsAuthenticationProvider –Name “MyMFAAdapter”`
+Esempio: `PS C:\> Unregister-AdfsAuthenticationProvider –Name “MyMFAAdapter”`
 
 Si noti che il valore passato per "Name" corrisponde al valore "Name" specificato per il cmdlet Register-AdfsAuthenticationProvider.  È anche la proprietà "Name" che viene restituita da Get-AdfsAuthenticationProvider.
 
@@ -577,11 +577,11 @@ Si noti che il servizio di AD FS deve essere riavviato dopo questa operazione.
 
 1.  Usare prima di tutto il comando seguente per trovare il nome sicuro completo della voce:`C:\>.\gacutil.exe /l <yourAdapterAssemblyName>`
 
-    Esempio:`C:\>.\gacutil.exe /l mfaadapter`
+    Esempio: `C:\>.\gacutil.exe /l mfaadapter`
 
 2.  Usare quindi il comando seguente per rimuoverlo dalla GAC:`.\gacutil /u “<output from the above command>”`
 
-    Esempio:`C:\>.\gacutil /u “mfaadapter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=e675eb33c62805a0, processorArchitecture=MSIL”`
+    Esempio: `C:\>.\gacutil /u “mfaadapter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=e675eb33c62805a0, processorArchitecture=MSIL”`
 
 ### <a name="add-the-updated-assembly-to-gac"></a>Aggiungere l'assembly aggiornato alla GAC
 
@@ -607,7 +607,7 @@ Prima di tutto, assicurarsi di incollare il file dll aggiornato localmente. `C:\
 
 3.  In **multi-factor authentication**fare clic sul collegamento **modifica** a destra di **Impostazioni globali**.
 
-4.  In **Seleziona metodi di autenticazione aggiuntivi**, selezionare la casella per l'amministratore del provider. Fare clic su **Applica**.
+4.  In **Seleziona metodi di autenticazione aggiuntivi**, selezionare la casella per l'amministratore del provider. Fai clic su **Applica**.
 
 5.  Per fornire un "trigger" per richiamare l'autenticazione a più fattori usando l'adapter, in percorsi controllare sia **Extranet** che **Intranet**, ad esempio. Fai clic su **OK**.
 
@@ -633,9 +633,9 @@ Infine, attenersi alla procedura seguente per testare l'adapter:
 
 Quando si immette "adfabric" nella pagina autenticazione a più fattori, verrà visualizzato un accesso riuscito.
 
-![Accedi con]adapter(media/ad-fs-build-custom-auth-method/Dn783423.630d8a91-3bfe-4cba-8acf-03eae21530ee(MSDN.10).jpg "Sign in with Adapter")
+![Accedi con adapter](media/ad-fs-build-custom-auth-method/Dn783423.630d8a91-3bfe-4cba-8acf-03eae21530ee(MSDN.10).jpg "accesso con scheda")
 
-![Accedi con]adapter(media/ad-fs-build-custom-auth-method/Dn783423.c340fa73-f70f-4870-b8dd-07900fea4469(MSDN.10).jpg "Sign in with Adapter")
+![Accedi con adapter](media/ad-fs-build-custom-auth-method/Dn783423.c340fa73-f70f-4870-b8dd-07900fea4469(MSDN.10).jpg "accesso con scheda")
 
 ## <a name="see-also"></a>Vedi anche
 

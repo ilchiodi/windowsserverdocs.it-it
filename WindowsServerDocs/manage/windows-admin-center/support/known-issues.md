@@ -8,12 +8,12 @@ ms.author: jeffrew
 ms.localizationpriority: medium
 ms.prod: windows-server
 ms.date: 06/07/2019
-ms.openlocfilehash: c05987360256f7b7ed58911c1ded86586fc8b3aa
-ms.sourcegitcommit: 7c7fc443ecd0a81bff6ed6dbeeaf4f24582ba339
+ms.openlocfilehash: 59c659041c7553d8e97a3bfbefbc3bde24098ef2
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/07/2019
-ms.locfileid: "74903903"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75949934"
 ---
 # <a name="windows-admin-center-known-issues"></a>Problemi noti di Windows Admin Center
 
@@ -80,7 +80,7 @@ I moduli Remote Desktop, PowerShell ed Eventi in Windows Admin Center utilizzano
 
 Digita `$PSVersiontable` in PowerShell per verificare che WMF 5.1 o versione successiva sia installato.
 
-Se non è installato, puoi [scaricare e installare WMF 5.1](https://www.microsoft.com/en-us/download/details.aspx?id=54616).
+Se non è installato, puoi [scaricare e installare WMF 5.1](https://www.microsoft.com/download/details.aspx?id=54616).
 
 ## <a name="role-based-access-control-rbac"></a>Controllo dell'accesso basato sui ruoli (RBAC)
 
@@ -152,7 +152,7 @@ Se non è installato, puoi [scaricare e installare WMF 5.1](https://www.microsof
 
 - Se scegli il riavvio automatico, questo si verificherà prima che lo stato venga aggiornato al 100%. [13098852]
 
-### <a name="storage"></a>Archiviazione
+### <a name="storage"></a>Archiviazione:
 
 - Livello inferiore: le unità CD/DVD/Floppy non vengono visualizzate come volumi di livello inferiore.
 

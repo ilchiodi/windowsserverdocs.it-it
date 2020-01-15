@@ -9,15 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 15b0c721b620e2891f4452fd54501f4970b7c177
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: abbc9cf76056af4ac421d9a38381bd8d8f666e4c
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71360005"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75949538"
 ---
-## <a name="best-practices-for-securing-active-directory-federation-services"></a>Procedure consigliate per la protezione di Active Directory Federation Services
-
+# <a name="best-practices-for-securing-active-directory-federation-services"></a>Procedure consigliate per la protezione di Active Directory Federation Services
 
 In questo documento vengono illustrate le procedure consigliate per la pianificazione e la distribuzione sicure di Active Directory Federation Services (AD FS) e del proxy dell'applicazione Web.  Contiene informazioni sui comportamenti predefiniti di questi componenti e indicazioni per configurazioni di sicurezza aggiuntive per un'organizzazione con specifici casi d'uso e requisiti di sicurezza.
 
@@ -41,30 +40,30 @@ Il diagramma seguente illustra le porte del firewall che devono essere abilitate
 ### <a name="azure-ad-connect-and-federation-serverswap"></a>Azure AD Connect e server federativi/WAP
 Questa tabella descrive le porte e i protocolli necessari per la comunicazione tra il server Azure AD Connect e i server federativi/WAP.  
 
-Protocol |Porte |Descrizione
+Protocollo |Porte |Descrizione
 --------- | --------- |---------
-HTTP|80 (TCP/UDP)|Utilizzato per scaricare i CRL (elenchi di revoche di certificati) per verificare i certificati SSL.
-HTTPS|443 (TCP/UDP)|Utilizzato per sincronizzare con Azure AD.
-WinRM|5985| Listener WinRM
+HTTP|80 (TCP/UDP)|Usato per il download di CRL (Certificate Revocation List) per verificare i certificati SSL.
+HTTPS|443 (TCP/UDP)|Usato per la sincronizzazione con Azure AD.
+WinRM|5985| Listener di Gestione remota Windows
 
 ### <a name="wap-and-federation-servers"></a>Server WAP e federativi
 Questa tabella descrive le porte e i protocolli necessari per la comunicazione tra i server federativi e i server WAP.
 
-Protocol |Porte |Descrizione
+Protocollo |Porte |Descrizione
 --------- | --------- |---------
 HTTPS|443 (TCP/UDP)|Usato per l'autenticazione.
 
 ### <a name="wap-and-users"></a>WAP e utenti
 Questa tabella descrive le porte e i protocolli necessari per la comunicazione tra gli utenti e i server WAP.
 
-Protocol |Porte |Descrizione
+Protocollo |Porte |Descrizione
 --------- | --------- |--------- |
 HTTPS|443 (TCP/UDP)|Usato per l'autenticazione del dispositivo.
 TCP|49443 (TCP)|Usato per l'autenticazione del certificato.
 
 Per ulteriori informazioni sulle porte e sui protocolli richiesti per le distribuzioni ibride, vedere il documento [qui](https://azure.microsoft.com/documentation/articles/active-directory-aadconnect-ports/).
 
-Per informazioni dettagliate sulle porte e i protocolli necessari per una distribuzione di Azure AD e Office 365, vedere il documento [qui](https://support.office.com/en-us/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2?ui=en-US&rs=en-US&ad=US).
+Per informazioni dettagliate sulle porte e i protocolli necessari per una distribuzione di Azure AD e Office 365, vedere il documento [qui](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2?ui=en-US&rs=en-US&ad=US).
 
 ### <a name="endpoints-enabled"></a>Endpoint abilitati
 
@@ -88,7 +87,7 @@ AD FS gli endpoint possono essere disabilitati sul proxy usando il cmdlet di Pow
     
     PS:\>Set-AdfsEndpoint -TargetAddressPath <address path> -Proxy $false
 
-Esempio:
+Ad esempio:
     
     PS:\>Set-AdfsEndpoint -TargetAddressPath /adfs/services/trust/13/certificatemixed -Proxy $false
     
@@ -107,9 +106,9 @@ La proprietà è `ExtendedProtectionTokenCheck`.  L'impostazione predefinita è 
 Il proxy del servizio federativo (parte del WAP) fornisce il controllo della congestione per proteggere il servizio AD FS da un diluvio di richieste.  Il proxy dell'applicazione Web rifiuterà le richieste di autenticazione client esterne se il server federativo è sovraccarico come rilevato dalla latenza tra il proxy dell'applicazione Web e il server federativo.  Questa funzionalità è configurata per impostazione predefinita con un livello di soglia di latenza consigliato.
 
 #### <a name="to-verify-the-settings-you-can-do-the-following"></a>Per verificare le impostazioni, è possibile eseguire le operazioni seguenti:
-1.  Nel computer del proxy dell'applicazione Web, avviare una finestra di comando con privilegi elevati.
+1.  Nel computer proxy applicazione Web aprire una finestra di comando con privilegi elevati.
 2.  Passare alla directory ADFS, in%WINDIR%\adfs\config.
-3.  Modificare le impostazioni di controllo di congestione dai valori predefiniti in<congestionControl latencyThresholdInMSec="8000" minCongestionWindowSize="64" enabled="true" />''.
+3.  Modificare le impostazioni di controllo di congestione da valori predefiniti a "<congestionControl latencyThresholdInMSec="8000" minCongestionWindowSize="64" enabled="true" />".
 4.  Salvare e chiudere il file.
 5.  Riavviare il servizio AD FS eseguendo ' net stop adfssrv ' e quindi ' net start adfssrv '.
 Per informazioni di riferimento, vedere la sezione relativa a questa funzionalità disponibile [qui](https://msdn.microsoft.com/library/azure/dn528859.aspx ).
@@ -163,9 +162,9 @@ Nella configurazione predefinita, le chiavi AD FS utilizza per firmare i token n
 dove:
 
 
-- `CertificateThumbprint`è il certificato SSL
-- `SigningCertificateThumbprint`è il certificato di firma (con chiave protetta dal modulo di protezione hardware)
-- `DecryptionCertificateThumbprint`è il certificato di crittografia (con chiave protetta dal modulo di protezione hardware)
+- `CertificateThumbprint` è il certificato SSL
+- `SigningCertificateThumbprint` è il certificato di firma (con chiave protetta dal modulo di protezione hardware)
+- `DecryptionCertificateThumbprint` è il certificato di crittografia (con chiave protetta dal modulo di protezione hardware)
 
 
 

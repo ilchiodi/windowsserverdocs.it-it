@@ -9,12 +9,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: b0d6133a6fb43b8624dc1329db632fb5dd4aa070
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 4f5d2cfa8383bcf3c0813b272f8c4828473b8df9
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71358449"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75948602"
 ---
 # <a name="client-access-control-policies-in-ad-fs-20"></a>Criteri di controllo degli accessi client in AD FS 2,0
 I criteri di accesso client in Active Directory Federation Services 2,0 consentono di limitare o concedere agli utenti l'accesso alle risorse.  Questo documento descrive come abilitare i criteri di accesso client in AD FS 2,0 e come configurare gli scenari più comuni.
@@ -25,7 +25,7 @@ Per abilitare i criteri di accesso client, attenersi alla procedura riportata di
 
 ### <a name="step-1-install-the-update-rollup-2-for-ad-fs-20-package-on-your-ad-fs-servers"></a>Passaggio 1: installare l'aggiornamento cumulativo 2 per AD FS pacchetto 2,0 nei server di AD FS
 
-Scaricare l' [aggiornamento cumulativo 2 per il pacchetto di Active Directory Federation Services (ad FS) 2,0](https://support.microsoft.com/en-us/help/2681584/description-of-update-rollup-2-for-active-directory-federation-services-ad-fs-2.0) e installarlo in tutti i server federativi e i proxy server federativi.
+Scaricare l' [aggiornamento cumulativo 2 per il pacchetto di Active Directory Federation Services (ad FS) 2,0](https://support.microsoft.com/help/2681584/description-of-update-rollup-2-for-active-directory-federation-services-ad-fs-2.0) e installarlo in tutti i server federativi e i proxy server federativi.
 
 ### <a name="step-2-add-five-claim-rules-to-the-active-directory-claims-provider-trust"></a>Passaggio 2: aggiungere cinque regole attestazioni all'attendibilità del provider di attestazioni Active Directory
 
@@ -45,7 +45,7 @@ Nell'Active Directory attendibilità del provider di attestazioni, creare una nu
 5. Nella pagina Configura regola, in nome regola attestazione, digitare il nome visualizzato per la regola. in tipo di attestazione in ingresso digitare l'URL del tipo di attestazione seguente e quindi selezionare passa attraverso tutti i valori di attestazione.</br>
         `https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-forwarded-client-ip`</br>
 6. Per verificare la regola, selezionarla nell'elenco e fare clic su Modifica regola, quindi su Visualizza lingua regola. Il linguaggio delle regole attestazioni dovrebbe apparire come segue: `c:[Type == "https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-forwarded-client-ip"] => issue(claim = c);`
-7. Fare clic su fine.
+7. Fare clic su Finish.
 8. Nella finestra di dialogo Modifica regole attestazione fare clic su OK per salvare le regole.
 9. Ripetere i passaggi da 2 a 6 per creare una regola attestazioni aggiuntiva per ognuno dei quattro tipi di attestazione rimanenti mostrati sotto fino a quando non sono state create tutte le cinque regole.
 
@@ -83,7 +83,7 @@ Questo scenario di criteri di accesso client consente l'accesso da tutti i clien
     NOT exists([Type == "https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-forwarded-client-ip",
     Value=~"customer-provided public ip address regex"])
     => issue(Type = "https://schemas.microsoft.com/authorization/claims/deny", Value = "true");` 
-6. Fare clic su fine. Verificare che la nuova regola venga visualizzata immediatamente sotto la regola Consenti accesso a tutti gli utenti nell'elenco regole di autorizzazione rilascio.
+6. Fare clic su Finish. Verificare che la nuova regola venga visualizzata immediatamente sotto la regola Consenti accesso a tutti gli utenti nell'elenco regole di autorizzazione rilascio.
 7. Per salvare la regola, nella finestra di dialogo Modifica regole attestazione fare clic su OK.
 
 >[!NOTE]
@@ -110,7 +110,7 @@ Nell'esempio seguente viene consentito l'accesso a tutte le applicazioni Office 
     NOT exists([Type == "https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-forwarded-client-ip",
     Value=~"customer-provided public ip address regex"])
     => issue(Type = "https://schemas.microsoft.com/authorization/claims/deny", Value = "true");`
-6. Fare clic su fine. Verificare che la nuova regola venga visualizzata immediatamente sotto la regola Consenti accesso a tutti gli utenti nell'elenco regole di autorizzazione rilascio.
+6. Fare clic su Finish. Verificare che la nuova regola venga visualizzata immediatamente sotto la regola Consenti accesso a tutti gli utenti nell'elenco regole di autorizzazione rilascio.
 7. Per salvare la regola, nella finestra di dialogo Modifica regole attestazione fare clic su OK.
 
 >[!NOTE]
@@ -136,7 +136,7 @@ Il set di regole si basa sulla regola di autorizzazione di rilascio predefinita 
     Value=~"customer-provided public ip address regex"]) &&
     NOT exists([Type == "https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-endpoint-absolute-path", Value == "/adfs/ls/"])
     => issue(Type = "https://schemas.microsoft.com/authorization/claims/deny", Value = "true");`
-6. Fare clic su fine. Verificare che la nuova regola venga visualizzata immediatamente sotto la regola Consenti accesso a tutti gli utenti nell'elenco regole di autorizzazione rilascio.
+6. Fare clic su Finish. Verificare che la nuova regola venga visualizzata immediatamente sotto la regola Consenti accesso a tutti gli utenti nell'elenco regole di autorizzazione rilascio.
 7. Per salvare la regola, nella finestra di dialogo Modifica regole attestazione fare clic su OK.
 
 ### <a name="scenario-4-block-all-external-access-to-office-365-for-designated-active-directory-groups"></a>Scenario 4: bloccare tutto l'accesso esterno a Office 365 per gruppi di Active Directory designati
@@ -156,7 +156,7 @@ Nell'esempio seguente viene abilitato l'accesso da client interni in base all'in
     NOT exists([Type == "https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-forwarded-client-ip",
     Value=~"customer-provided public ip address regex"])
     => issue(Type = "https://schemas.microsoft.com/authorization/claims/deny", Value = "true");`
-6. Fare clic su fine. Verificare che la nuova regola venga visualizzata immediatamente sotto la regola Consenti accesso a tutti gli utenti nell'elenco regole di autorizzazione rilascio.
+6. Fare clic su Finish. Verificare che la nuova regola venga visualizzata immediatamente sotto la regola Consenti accesso a tutti gli utenti nell'elenco regole di autorizzazione rilascio.
 7. Per salvare la regola, nella finestra di dialogo Modifica regole attestazione fare clic su OK.
 
 

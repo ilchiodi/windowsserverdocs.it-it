@@ -9,12 +9,12 @@ ms.topic: article
 author: kaushika-msft
 ms.date: 10/24/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: df9dac8c761a83a13fb937a99cba3697dce95201
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 19dcc1c57fe7c7eea74b003553a0b0a6ab5508aa
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71402799"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75950233"
 ---
 # <a name="storage-spaces-direct---frequently-asked-questions-faq"></a>Domande frequenti su Spazi di archiviazione diretta
 
@@ -58,7 +58,7 @@ Utilizzare l'utilità PerfMon predefinita per esaminare i mancati riscontri nell
  
 ## <a name="is-there-a-calculator-that-shows-the-exact-size-of-the-disks-that-are-being-set-aside-for-cache-capacity-and-resiliency-that-would-enable-me-to-plan-better"></a>Esiste una calcolatrice che mostra le dimensioni esatte dei dischi accantonati per la cache, la capacità e la resilienza che mi consentirebbe di pianificare meglio?
 
-È possibile usare il calcolatore di spazi di archiviazione per semplificare la pianificazione. È disponibile all'indirizzo http://aka.ms/s2dcalc.
+È possibile usare il calcolatore di spazi di archiviazione per semplificare la pianificazione. È disponibile in https://aka.ms/s2dcalc.
  
 ## <a name="what-is-the-best-configuration-that-you-would-recommend-when-configuring-6-servers-and-3-racks"></a>Qual è la configurazione migliore consigliata quando si configurano 6 Server e 3 rack?
 

@@ -8,12 +8,12 @@ ms.date: 10/09/2019
 ms.topic: article
 ms.prod: windows-server
 ms.technology: storage
-ms.openlocfilehash: 9abe199399e577eb06044377c30d5a2dc0e35dd1
-ms.sourcegitcommit: e817a130c2ed9caaddd1def1b2edac0c798a6aa2
+ms.openlocfilehash: dccbfd7d3ff6d95615e9efecf840a840b42d0d27
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74945233"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75949642"
 ---
 # <a name="storage-migration-service-known-issues"></a>Problemi noti del servizio migrazione archiviazione
 
@@ -320,6 +320,35 @@ Dopo aver completato un trasferimento, dopo aver eseguito un nuovo trasferimento
 
 Si tratta di un comportamento previsto quando si trasferisce un numero molto elevato di file e cartelle nidificate. La dimensione dei dati non è pertinente. Sono stati apportati miglioramenti a questo comportamento in [KB4512534](https://support.microsoft.com/help/4512534/windows-10-update-kb4512534) e si continua a ottimizzare le prestazioni di trasferimento. Per ottimizzare ulteriormente le prestazioni, vedere [ottimizzazione delle prestazioni di inventario e trasferimento](https://docs.microsoft.com/windows-server/storage/storage-migration-service/faq#optimizing-inventory-and-transfer-performance).
 
+## <a name="data-does-not-transfer-user-renamed-when-migrating-to-or-from-a-domain-controller"></a>I dati non vengono trasferiti, rinominati dall'utente durante la migrazione a o da un controller di dominio
+
+Dopo l'avvio del trasferimento da o a un controller di dominio:
+
+ 1. Non viene eseguita la migrazione dei dati e non viene creata alcuna condivisione nella destinazione.
+ 2. Nell'interfaccia di amministrazione di Windows è visualizzato un simbolo di errore rosso senza messaggio di errore
+ 3. Uno o più utenti di Active Directory e gruppi locali di dominio hanno il nome e/o l'attributo di accesso precedente a Windows 2000 modificato
+ 4. Nell'agente di orchestrazione SMS viene visualizzato l'evento 3509:
+ 
+ Nome registro: Microsoft-Windows-StorageMigrationService/admin Source: Microsoft-Windows-StorageMigrationService date: 1/10/2020 2:53:48 PM ID evento: 3509 Categoria attività: None Level: Error keywords:      
+ Utente: computer servizio di rete: orc2019-rtm.corp.contoso.com Descrizione: non è stato possibile trasferire lo spazio di archiviazione per un computer.
+
+ Processo: dctest3 computer: dc02-2019.corp.contoso.com computer di destinazione: dc03-2019.corp.contoso.com stato: errore non riuscito: 53251 messaggio di errore: migrazione degli account locali non riuscita con errore System. eccezione:-2147467259 at Microsoft. StorageMigration. Service. DeviceHelper. MigrateSecurity (IDeviceRecord sourceDeviceRecord, IDeviceRecord destinationDeviceRecord, TransferConfiguration config, Guid proxyId, CancellationToken cancelToken)
+
+Si tratta di un comportamento previsto se si tenta di eseguire la migrazione da o a un controller di dominio con il servizio migrazione archiviazione ed è stata usata l'opzione "Esegui la migrazione di utenti e gruppi" per rinominare o riutilizzare gli account. anziché selezionare "non trasferire utenti e gruppi". La migrazione del controller [di dominio non è supportata con il servizio migrazione archiviazione](faq.md). Poiché un controller di dominio non dispone di veri utenti e gruppi locali, il servizio migrazione archiviazione gestisce queste entità di sicurezza come se si trattasse di una migrazione tra due server membri e tenti di modificare gli ACL come indicato, causando gli errori e gli account modificati o copiati. 
+
+Se è già stato eseguito il trasferimento di una o più volte:
+
+ 1. Usare il comando AD PowerShell seguente in un controller di dominio per individuare gli utenti o i gruppi modificati (modificando SearchBase in modo che corrisponda al nome dinstringuished del dominio): 
+
+    ```PowerShell
+    Get-ADObject -Filter 'Description -like "*storage migration service renamed*"' -SearchBase 'DC=<domain>,DC=<TLD>' | ft name,distinguishedname
+    ```
+   
+ 2. Per tutti gli utenti restituiti con il nome originale, modificare il nome di accesso utente (precedente a Windows 2000) per rimuovere il suffisso di carattere casuale aggiunto dal servizio migrazione archiviazione, in modo che questo perdente possa accedere.
+ 3. Per tutti i gruppi restituiti con il nome originale, modificare il nome del gruppo (precedente a Windows 2000) per rimuovere il suffisso di carattere casuale aggiunto dal servizio migrazione archiviazione.
+ 4. Per tutti gli utenti o i gruppi disabilitati con nomi che ora contengono un suffisso aggiunto dal servizio migrazione archiviazione, è possibile eliminare questi account. È possibile verificare che gli account utente siano stati aggiunti in un secondo momento perché contengono solo il gruppo Domain Users e avranno una data/ora di creazione corrispondente all'ora di inizio del trasferimento del servizio migrazione archiviazione.
+ 
+ Se si vuole usare il servizio migrazione archiviazione con i controller di dominio a scopo di trasferimento, assicurarsi di selezionare sempre "non trasferire utenti e gruppi" nella pagina impostazioni di trasferimento dell'interfaccia di amministrazione di Windows.
 
 ## <a name="see-also"></a>Vedi anche
 
