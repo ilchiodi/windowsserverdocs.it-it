@@ -366,7 +366,7 @@
 
 
 
-### Sviluppo di AD FS
+### Sviluppare AD FS
 #### [Concetti di OpenID Connect/OAuth in AD FS](ad-fs/development/ad-fs-openid-connect-oauth-concepts.md)
 #### [Flussi e scenari applicativi di OpenID Connect/OAuth in AD FS](ad-fs/overview/ad-fs-openid-connect-oauth-flows-scenarios.md)
 
@@ -392,6 +392,7 @@
 ##### [Criteri di controllo di accesso in AD FS per Windows Server 2012 R2](ad-fs/operations/Access-Control-Policies-W2K12.md)
 ##### [Criteri di controllo di accesso in AD FS 2.0](ad-fs/operations/Access-Control-Policies-in-AD-FS-2.md)
 #### [Metodi di autenticazione aggiuntivi in AD FS 2019](ad-fs/operations/Additional-Authentication-Methods-AD-FS.md)
+#### [Gruppi di disponibilità AlwaysOn](ad-fs/operations/ad-fs-always-on.md)
 #### [Supporto del parametro di accesso del prompt di AD FS](ad-fs/operations/AD-FS-Prompt-Login.md)
 #### [Accesso paginato di AD FS](ad-fs/operations/AD-FS-paginated-sign-in.md)
 #### [Impostazioni di Single Sign-On di AD FS 2016](ad-fs/operations/AD-FS-Single-Sign-On-Settings.md)
