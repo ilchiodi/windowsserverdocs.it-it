@@ -1,6 +1,6 @@
 ---
 ms.assetid: eefcc989-8763-45ee-8a64-3a97b4397160
-title: Operazioni di AD FS
+title: Operazioni di ADFS
 description: ''
 author: billmath
 ms.author: billmath
@@ -9,14 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 99167850ff9ee193aca888d34d98503ea0554c30
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 2db9cd83ed08673835a38e443e90c5eb092f43ac
+ms.sourcegitcommit: b649047f161cb605df084f18b573f796a584753b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71408550"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76162482"
 ---
-# <a name="ad-fs-operations"></a>Operazioni di AD FS
+# <a name="ad-fs-operations"></a>Operazioni di ADFS
 
 
 
@@ -29,7 +29,8 @@ Questo documento contiene un elenco di tutte le operazioni di documentazione per
 - [Aggiungere un archivio di attributi](../ad-fs/operations/Add-an-Attribute-Store.md)
 - [Personalizzare le intestazioni di risposta di sicurezza HTTP con AD FS 2019](../ad-fs/operations/customize-http-security-headers-ad-fs.md)
 - [Delegare l'accesso ad AD FS tramite cmdlet di PowerShell agli utenti senza privilegi di amministratore](../ad-fs/operations/delegate-ad-fs-pshell-access.md)
-- [Ottimizzazione della latenza di SQL e degli indirizzi](../ad-fs/operations/adfs-sql-latency.md) 
+- [Ottimizzazione della latenza di SQL e degli indirizzi](../ad-fs/operations/adfs-sql-latency.md)
+- [Gruppi di disponibilità AlwaysOn](../ad-fs/operations/ad-fs-always-on.md) 
 
 
 ## <a name="authentication-configuration"></a>Configurazione dell'autenticazione
@@ -82,10 +83,10 @@ Questo documento contiene un elenco di tutte le operazioni di documentazione per
 - [Gestire i rischi con l'autenticazione a più fattori aggiuntiva per le applicazioni con esigenze particolari](../ad-fs/operations/Manage-Risk-with-Additional-Multi-Factor-Authentication-for-Sensitive-Applications.md)
 - [Gestire i rischi con il controllo di accesso condizionale](../ad-fs/operations/Manage-Risk-with-Conditional-Access-Control.md)
 - [Configurare un ambiente lab per AD FS](../ad-fs/operations/Set-up-an-AD-FS-lab-environment.md)
-- [Procedura dettagliata: Gestisci i rischi con Multi-Factor Authentication aggiuntive per le applicazioni sensibili](../ad-fs/operations/Walkthrough-Guide--Manage-Risk-with-Additional-Multi-Factor-Authentication-for-Sensitive-Applications.md)
-- [Procedura dettagliata: Gestire i rischi con il controllo di accesso condizionale](../ad-fs/operations/Walkthrough-Guide--Manage-Risk-with-Conditional-Access-Control.md)
-- [Scenario: Aggiungere alla rete aziendale con un dispositivo Windows](../ad-fs/operations/Walkthrough--Workplace-Join-with-a-Windows-Device.md)
-- [Scenario: Aggiungere alla rete aziendale con un dispositivo iOS](../ad-fs/operations/Walkthrough--Workplace-Join-with-an-iOS-Device.md)
+- [Guida allo scenario: gestire i rischi con ulteriori Multi-Factor Authentication per le applicazioni sensibili](../ad-fs/operations/Walkthrough-Guide--Manage-Risk-with-Additional-Multi-Factor-Authentication-for-Sensitive-Applications.md)
+- [Guida allo scenario: gestire i rischi con il controllo degli accessi condizionali](../ad-fs/operations/Walkthrough-Guide--Manage-Risk-with-Conditional-Access-Control.md)
+- [Procedura dettagliata: Workplace Join con un dispositivo Windows](../ad-fs/operations/Walkthrough--Workplace-Join-with-a-Windows-Device.md)
+- [Procedura dettagliata: Workplace Join con un dispositivo iOS](../ad-fs/operations/Walkthrough--Workplace-Join-with-an-iOS-Device.md)
 
   
 

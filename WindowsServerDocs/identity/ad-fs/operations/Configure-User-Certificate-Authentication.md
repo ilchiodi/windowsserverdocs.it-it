@@ -9,12 +9,12 @@ ms.date: 01/18/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: b5f2202313c225d57b29997753b090e10b9c2e6c
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: c36555a8bca7882125451b2c86a0707e3de9b2db
+ms.sourcegitcommit: 8771a9f5b37b685e49e2dd03c107a975bf174683
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75949291"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76145927"
 ---
 # <a name="configuring-ad-fs-for-user-certificate-authentication"></a>Configurazione AD FS per l'autenticazione dei certificati utente
 
@@ -54,7 +54,7 @@ Per ulteriori informazioni sulla configurazione di questo per Chrome, consultare
 Questo documento è incentrato sulla risoluzione dei problemi comuni quando AD FS viene configurato per l'autenticazione dei certificati per gli utenti. 
 
 ### <a name="check-if-certificate-trusted-issuers-is-configured-properly-in-all-the-ad-fswap-servers"></a>Verificare che le autorità emittenti attendibili del certificato siano configurate correttamente in tutti i server AD FS/WAP
-*Sintomo comune: HTTP 204 "nessun contenuto da https\://certuath.adfs.contoso.com"*
+*Sintomo comune: HTTP 204 "nessun contenuto da https\://certauth.adfs.contoso.com"*
 
 AD FS usa il sistema operativo Windows sottostante per dimostrare il possesso del certificato utente e verificare che corrisponda a un'autorità emittente attendibile eseguendo la convalida della catena di certificati attendibili. Per trovare la corrispondenza con l'emittente attendibile, è necessario assicurarsi che tutte le autorità radice e intermedie siano configurate come autorità emittenti attendibili nell'archivio Autorità di certificazione del computer locale. Per convalidare questa operazione automaticamente, usare lo [strumento Analizzatore diagnostica ad FS](https://adfshelp.microsoft.com/DiagnosticsAnalyzer/Analyze). Lo strumento esegue una query su tutti i server e garantisce che venga eseguito correttamente il provisioning dei certificati corretti. 
 1)  Scaricare ed eseguire lo strumento in base alle istruzioni fornite nel collegamento precedente

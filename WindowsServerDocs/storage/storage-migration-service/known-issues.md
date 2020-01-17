@@ -8,12 +8,12 @@ ms.date: 10/09/2019
 ms.topic: article
 ms.prod: windows-server
 ms.technology: storage
-ms.openlocfilehash: dccbfd7d3ff6d95615e9efecf840a840b42d0d27
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: 0f549310d568142f819e22422d41a72d38b306e2
+ms.sourcegitcommit: 8771a9f5b37b685e49e2dd03c107a975bf174683
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75949642"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76145937"
 ---
 # <a name="storage-migration-service-known-issues"></a>Problemi noti del servizio migrazione archiviazione
 
@@ -25,7 +25,7 @@ Ad esempio, Windows Server, versione 1903 include nuove funzionalità e correzio
 
 ## <a name="collecting-logs"></a>Come raccogliere i file di log quando si lavora con supporto tecnico Microsoft
 
-Il servizio migrazione archiviazione contiene i registri eventi per il servizio agente di orchestrazione e il servizio proxy. Il server urchestrator contiene sempre i registri eventi e i server di destinazione con il servizio proxy installato contengono i log del proxy. Questi log si trovano in:
+Il servizio migrazione archiviazione contiene i registri eventi per il servizio agente di orchestrazione e il servizio proxy. Il server dell'agente di orchestrazione contiene sempre i registri eventi e i server di destinazione con il servizio proxy installato contengono i log del proxy. Questi log si trovano in:
 
 - Registri applicazioni e servizi \ Microsoft \ Windows \ StorageMigrationService
 - Registri applicazioni e servizi \ Microsoft \ Windows \ StorageMigrationService-proxy

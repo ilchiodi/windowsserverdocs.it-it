@@ -8,12 +8,12 @@ ms.date: 08/19/2019
 ms.topic: article
 ms.prod: windows-server
 ms.technology: storage
-ms.openlocfilehash: b7a6dd37cfc054ead153d274ffa7f0d13844305e
-ms.sourcegitcommit: 10331ff4f74bac50e208ba8ec8a63d10cfa768cc
+ms.openlocfilehash: 02829919c53e3488ad7f229ad8bee0d3ead14c9a
+ms.sourcegitcommit: 3f54036c74c5a67799fbc06a8a18a078ccb327f9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75953026"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76124899"
 ---
 # <a name="storage-migration-service-frequently-asked-questions-faq"></a>Domande frequenti sul servizio migrazione archiviazione
 
@@ -138,6 +138,10 @@ Il servizio migrazione archiviazione usa un database Extensible Storage Engine (
 6. Verificare che il sistema disponga del controllo completo su tutti i file e le sottocartelle della cartella
 7. Rimuovere le autorizzazioni per gli account personali.
 8. Avviare il servizio "servizio migrazione archiviazione".
+
+## <a name="does-the-storage-migration-service-migrate-locally-installed-applications-from-the-source-computer"></a>Il servizio migrazione archiviazione esegue la migrazione delle applicazioni installate localmente dal computer di origine?
+
+No, il servizio migrazione archiviazione non esegue la migrazione delle applicazioni installate localmente. Dopo aver completato la migrazione, reinstallare le applicazioni nel computer di destinazione in esecuzione nel computer di origine. Non è necessario riconfigurare gli utenti o le applicazioni; il servizio migrazione archiviazione è progettato per rendere invisibile il server ai client. 
 
 ## <a name="give-feedback"></a>Quali sono le opzioni disponibili per inviare commenti e suggerimenti, archiviare bug o ottenere supporto?
 

@@ -8,12 +8,12 @@ ms.date: 02/13/2019
 ms.topic: article
 ms.prod: windows-server
 ms.technology: storage
-ms.openlocfilehash: 0ef7860250a0a3d9b14fe24224432e00ee1bba86
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: 4da69087ab1df6200394b36c938cb05ec5185045
+ms.sourcegitcommit: 3f54036c74c5a67799fbc06a8a18a078ccb327f9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75949649"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76124889"
 ---
 # <a name="use-storage-migration-service-to-migrate-a-server"></a>Usare il servizio migrazione archiviazione per eseguire la migrazione di un server
 
@@ -57,7 +57,15 @@ In questo passaggio si specificano i server di cui eseguire la migrazione e quin
 In questo passaggio si trasferiscono i dati dopo aver specificato dove inserirli nei server di destinazione.
 
 1. Nella pagina **trasferimento dati** > **immissione credenziali** digitare le credenziali di amministratore che funzionano nei server di destinazione in cui si desidera eseguire la migrazione e quindi fare clic su **Avanti**.
-2. Nella pagina **Aggiungi un dispositivo di destinazione e mapping** , viene elencato il primo server di origine. Digitare il nome del server o file server cluster in cui si desidera eseguire la migrazione e quindi selezionare **analizza dispositivo**. Se si esegue la migrazione da un computer di origine aggiunto al dominio, il server di destinazione deve appartenere allo stesso dominio.
+2. Nella pagina **Aggiungi un dispositivo di destinazione e mapping** , viene elencato il primo server di origine. Digitare il nome del server o file server cluster in cui si desidera eseguire la migrazione e quindi selezionare **analizza dispositivo**. Se si esegue la migrazione da un computer di origine aggiunto al dominio, il server di destinazione deve appartenere allo stesso dominio. È anche possibile fare clic su "crea una nuova macchina virtuale di Azure" e quindi usare la procedura guidata per distribuire un nuovo server di destinazione in Azure. Questa operazione consente di ridimensionare automaticamente la macchina virtuale, eseguire il provisioning dell'archiviazione, formattare i dischi, aggiungere il dominio e aggiungere il proxy del servizio migrazione archiviazione a una destinazione Windows Server 2019. È possibile scegliere tra macchine virtuali Windows Server 2019 (scelta consigliata), Windows Server 2016 e Windows Server 2012 R2 di qualsiasi dimensione e usare Managed Disks.   
+
+ > [!NOTE]
+   > Per usare "crea una nuova macchina virtuale di Azure", è necessario disporre di:
+   > - Una sottoscrizione di Azure valida.
+   > - Un gruppo di risorse di calcolo di Azure esistente in cui si dispone dei diritti di creazione.
+   > - Una rete virtuale e una subnet di Azure esistenti. 
+   > - Una soluzione Azure Express route o VPN collegata alla rete virtuale e alla subnet che consente la connettività da questa macchina virtuale IaaS di Azure ai client locali, ai controller di dominio, al computer dell'agente di orchestrazione del servizio di migrazione dell'archiviazione, al computer Windows Admin Center, e il computer di origine di cui eseguire la migrazione.
+
 3. Eseguire il mapping dei volumi di origine ai volumi di destinazione, deselezionare la casella di controllo **Includi** per le condivisioni che non si desidera trasferire (incluse le condivisioni amministrative presenti nella cartella di sistema di Windows) e quindi selezionare **Avanti**.
    ![screenshot che mostra un server di origine e i relativi volumi e condivisioni e la posizione in cui verranno trasferiti nella destinazione](media/migrate/transfer.png) **Figura 3: un server di origine e la posizione in cui verrà trasferito il relativo spazio di archiviazione**
 4. Aggiungere un server di destinazione e i mapping per tutti i server di origine e quindi fare clic su **Avanti**.
