@@ -7,13 +7,13 @@ ms.author: helohr
 ms.date: 07/06/2018
 ms.topic: article
 author: heidilohr
-manager: dougkim
-ms.openlocfilehash: f26f75b8ce3f5438362c15b84aeca9339b95ebbc
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+manager: lizross
+ms.openlocfilehash: 44b98b485b69720a1459f052b68d15617954bffe
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71387196"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75949820"
 ---
 # <a name="remote-desktop-services-roles"></a>Ruoli di Servizi Desktop remoto
 
@@ -101,4 +101,4 @@ Per altre informazioni, vedere gli articoli seguenti:
 * [Concedere licenze CAL (Client Access License) per la distribuzione di Servizi Desktop remoto](rds-client-access-license.md))
 * [Attivare il server licenze di Servizi Desktop remoto](rds-activate-license-server.md)
 * [Tenere traccia delle licenze CAL di Servizi Desktop remoto](rds-track-cals.md)
-* [Contratti multilicenza Microsoft: opzioni per le licenze per i provider di servizi](https://www.microsoft.com/en-us/Licensing/licensing-programs/spla-program.aspx)
+* [Contratti multilicenza Microsoft: opzioni per le licenze per i provider di servizi](https://www.microsoft.com/Licensing/licensing-programs/spla-program.aspx)

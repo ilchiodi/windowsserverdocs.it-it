@@ -8,12 +8,12 @@ ms.sitesec: library
 author: jasongerend
 ms.author: jgerend
 ms.date: 10/22/2019
-ms.openlocfilehash: 68edc1f0aaa857d0342f963e19964f5c9e389ed0
-ms.sourcegitcommit: 3262c5c7cece9f2adf2b56f06b7ead38754a451c
+ms.openlocfilehash: c3c948e447d060d1ce733778c3362d83ad116708
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72812323"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75948206"
 ---
 # <a name="features-removed-or-planned-for-replacement-starting-with-windows-server-version-1803"></a>Funzionalità rimosse o pianificate per la sostituzione a partire da Windows Server versione 1803
 
@@ -33,7 +33,7 @@ Abbiamo rimosso le caratteristiche e funzionalità seguenti dall'immagine del pr
 
 | Funzionalità    | In alternativa, puoi usare... |
 | ----------- | -------------------- |
-| [Servizio Replica file](https://support.microsoft.com/en-us/help/4025991/windows-server-version-1709-no-longer-supports-frs)|Il servizio Replica file, introdotto in Windows Server 2003 R2, è stato sostituito da Replica DFS. Devi [eseguire la migrazione dei controller di dominio che usano il servizio Replica file a Replica DFS con SYSVOL](https://blogs.technet.microsoft.com/filecab/2014/06/25/streamlined-migration-of-frs-to-dfsr-sysvol/). |
+| [Servizio Replica file](https://support.microsoft.com/help/4025991/windows-server-version-1709-no-longer-supports-frs)|Il servizio Replica file, introdotto in Windows Server 2003 R2, è stato sostituito da Replica DFS. Devi [eseguire la migrazione dei controller di dominio che usano il servizio Replica file a Replica DFS con SYSVOL](https://blogs.technet.microsoft.com/filecab/2014/06/25/streamlined-migration-of-frs-to-dfsr-sysvol/). |
 | Virtualizzazione rete Hyper-V (HNV)|La [virtualizzazione di rete](../networking/sdn/technologies/hyper-v-network-virtualization/whats-new-hyperv-network-virtualization-windows-server.md) è ora inclusa in Windows Server come parte della soluzione [Software Defined Networking](../networking/sdn/software-defined-networking.md) (SDN), che include anche il controller di rete, il bilanciamento del carico software, il routing definito dall'utente e gli elenchi di controllo di accesso. |
 
 ## <a name="features-were-no-longer-developing"></a>Funzionalità di cui è cessato lo sviluppo

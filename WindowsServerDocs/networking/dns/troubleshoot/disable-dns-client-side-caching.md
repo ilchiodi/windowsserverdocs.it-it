@@ -1,19 +1,19 @@
 ---
 title: Disabilitare la memorizzazione nella cache sul lato client DNS nei client DNS
 description: Questo articolo illustra come disabilitare la memorizzazione nella cache sul lato client DNS nei client DNS.
-manager: willchen
+manager: dcscontentpm
 ms.prod: ''
 ms.technology: networking-dns
 ms.topic: article
 ms.author: delhan
 ms.date: 8/8/2019
 author: Deland-Han
-ms.openlocfilehash: 3aeb7cb06f82b6f2220e42866682ce918389bf1d
-ms.sourcegitcommit: b17ccf7f81e58e8f4dd844be8acf784debbb20ae
+ms.openlocfilehash: 51a9dbfd05402a9d018aec3bfea8a5c89e9e5d5e
+ms.sourcegitcommit: c5709021aa98abd075d7a8f912d4fd2263db8803
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69023901"
+ms.lasthandoff: 01/18/2020
+ms.locfileid: "76265843"
 ---
 # <a name="disable-dns-client-side-caching-on-dns-clients"></a>Disabilitare la memorizzazione nella cache sul lato client DNS nei client DNS
 
@@ -32,7 +32,7 @@ sc servername stop dnscache
 ```
 
 
-Per disabilitare la cache DNS in modo permanente in Windows, usare lo strumento controller di servizio o lo strumento Servizi per impostare il tipo di avviodel servizio client DNS su disabilitato. Si noti che il nome del servizio client DNS di Windows può essere visualizzato anche come "dnscache". 
+Per disabilitare la cache DNS in modo permanente in Windows, usare lo strumento controller di servizio o lo strumento Servizi per impostare il tipo di avvio del servizio client DNS su **disabilitato**. Si noti che il nome del servizio client DNS di Windows può essere visualizzato anche come "dnscache". 
 
 > [!NOTE]
 > Se la cache del resolver DNS viene disattivata, le prestazioni complessive del computer client diminuiscono e il traffico di rete per le query DNS aumenta. 
@@ -56,7 +56,7 @@ Questo comando Visualizza il contenuto della cache del resolver DNS, inclusi i r
 
 L'intervallo di tempo durante il quale una risposta positiva o negativa viene memorizzata nella cache dipende dai valori delle voci nella chiave del registro di sistema seguente:
 
-**HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\DNSCache\Parameters**
+**HKEY_LOCAL_MACHINE \SYSTEM\CurrentControlSet\Services\DNSCache\Parameters**
 
 Il valore TTL per le risposte positive è minore dei valori seguenti: 
 
@@ -76,7 +76,7 @@ Per impostare il tempo di memorizzazione nella cache in un computer client:
 
 2. Individuare e quindi fare clic sulla chiave seguente nel registro di sistema:
 
-   **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Dnscache\Parameters**
+   **HKEY_LOCAL_MACHINE \SYSTEM\CurrentControlSet\Services\Dnscache\Parameters**
 
 3. Scegliere Nuovo dal menu modifica, fare clic su valore DWORD, quindi aggiungere i valori del registro di sistema seguenti:
 
@@ -84,7 +84,7 @@ Per impostare il tempo di memorizzazione nella cache in un computer client:
 
      Tipo di dati: REG_DWORD
 
-     Dati valore: Valore predefinito di 86400 secondi. 
+     Dati valore: valore predefinito 86400 secondi. 
      
      Se si riduce il valore TTL massimo nella cache DNS del client a 1 secondo, si ottiene l'aspetto che la cache DNS sul lato client è stata disabilitata.    
 
@@ -92,7 +92,7 @@ Per impostare il tempo di memorizzazione nella cache in un computer client:
 
      Tipo di dati: REG_DWORD
 
-     Dati valore: Valore predefinito di 900 secondi. 
+     Dati valore: valore predefinito 900 secondi. 
      
      Impostare il valore su 0 se non si desidera che le risposte negative vengano memorizzate nella cache.
 

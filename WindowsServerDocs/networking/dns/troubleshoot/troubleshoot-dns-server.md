@@ -1,19 +1,19 @@
 ---
 title: Risoluzione dei problemi relativi ai server DNS
 description: Questo articolo illustra come risolvere i problemi relativi a DNS dal lato server.
-manager: willchen
+manager: dcscontentpm
 ms.prod: ''
 ms.technology: networking-dns
 ms.topic: article
 ms.author: delhan
 ms.date: 8/8/2019
 author: Deland-Han
-ms.openlocfilehash: b0547436cfa0f07ba9cbc4e3dd1825f8d33bc093
-ms.sourcegitcommit: 0e3c2473a54f915d35687d30d1b4b1ac2bae4068
+ms.openlocfilehash: 23e51adafa5ab6da0a9317a1b0fad88bd3901073
+ms.sourcegitcommit: c5709021aa98abd075d7a8f912d4fd2263db8803
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68917768"
+ms.lasthandoff: 01/18/2020
+ms.locfileid: "76265803"
 ---
 # <a name="troubleshooting-dns-servers"></a>Risoluzione dei problemi relativi ai server DNS
 
@@ -21,7 +21,7 @@ Questo articolo illustra come risolvere i problemi relativi ai server DNS.
 
 ## <a name="check-ip-configuration"></a>Controllare la configurazione IP
 
-1. Eseguire `ipconfig /all` al prompt dei comandi e verificare l'indirizzo IP, il subnet mask e il gateway predefinito.
+1. Eseguire `ipconfig /all` al prompt dei comandi e verificare l'indirizzo IP, subnet mask e il gateway predefinito.
 
 2. Controllare se il server DNS è autorevole per il nome che viene cercato. In tal caso, vedere [Verifica dei problemi relativi ai dati autorevoli](#checking-for-problems-with-authoritative-data).
 
@@ -34,7 +34,7 @@ Questo articolo illustra come risolvere i problemi relativi ai server DNS.
    ```cmd
    nslookup app1 10.0.0.1
    ```
-   Se viene visualizzato un errore o una risposta di timeout, vedere [Verifica dei problemi di](#checking-for-recursion-problems)ricorsione.
+   Se viene visualizzato un errore o una risposta di timeout, vedere [Verifica dei problemi di ricorsione](#checking-for-recursion-problems).
 
 4. Svuotare la cache del resolver. A tale scopo, eseguire il comando seguente in una finestra del prompt dei comandi di amministrazione:
 
@@ -107,7 +107,7 @@ Il problema potrebbe essere causato da un errore dell'utente quando gli utenti i
    dnscmd /zonerefresh <zone name>
    ```
   
-   Se, ad esempio, la zona è corp.contoso.com, immettere `dnscmd /zonerefresh corp.contoso.com`:.
+   Se, ad esempio, la zona è corp.contoso.com, immettere: `dnscmd /zonerefresh corp.contoso.com`.
   
 4. Esaminare di nuovo il server secondario per verificare se la zona è stata trasferita correttamente. In caso contrario, è probabile che si verifichi un problema di trasferimento di zona. Per altre informazioni, vedere [problemi di trasferimento di zona](#zone-transfer-problems).
 
@@ -123,13 +123,13 @@ Per il corretto funzionamento della ricorsione, tutti i server DNS utilizzati ne
 
 - Un server utilizzato durante la query fornisce dati non corretti.
 
-Avviare la risoluzione dei problemi nel server usato nella query originale. Verificare che il server inoltri le query a un altro server esaminando la scheda server d'inoltri nelle proprietà del server nella console DNS. Se è selezionata la casella di controllo Abilita server d' **avanzamento** e sono elencati uno o più server, il server esegue l'inoltri delle query.
+Avviare la risoluzione dei problemi nel server usato nella query originale. Verificare che il server inoltri le query a un altro server esaminando la scheda server d' **inoltri** nelle proprietà del server nella console DNS. Se è selezionata la casella di controllo Abilita server d' **avanzamento** e sono elencati uno o più server, il server esegue l'inoltri delle query.
 
 Se il server esegue l'invio di query a un altro server, verificare la presenza di problemi che interessano il server a cui il server esegue l'esecuzione delle query. Per verificare la presenza di problemi, vedere [controllare i problemi del server DNS](#check-dns-server-problems). Quando tale sezione indica di eseguire un'attività sul client, eseguirla sul server.
 
 Se il server è integro e in grado di eseguire le query, ripetere questo passaggio ed esaminare il server a cui questo server invia le query.
 
-Se il server non invia query a un altro server, verificare se il server è in grado di eseguire query su un server radice. A tale scopo eseguire il comando riportato di seguito:
+Se il server non invia query a un altro server, verificare se il server è in grado di eseguire query su un server radice. A tale scopo, esegui il comando seguente:
 
 ```cmd
 nslookup
@@ -137,7 +137,7 @@ server <IP address of server being examined>
 set q=NS
  ```
 
-- Se il resolver restituisce l'indirizzo IP di un server radice, probabilmente si disporrà di una delega interruppe tra il server radice e il nome o l'indirizzo IP che si sta tentando di risolvere. Per determinare la posizione in cui si dispone di una delega interruppe, attenersi alla procedura [test a Broken](#test-a-broken-delegation) Delegation.
+- Se il resolver restituisce l'indirizzo IP di un server radice, probabilmente si disporrà di una delega interruppe tra il server radice e il nome o l'indirizzo IP che si sta tentando di risolvere. Per determinare la posizione in cui si dispone di una delega interruppe, attenersi alla procedura [test a Broken Delegation](#test-a-broken-delegation) .
 
 - Se il resolver restituisce una risposta "timeout della richiesta al server", controllare se gli hint radice puntano ai server radice funzionanti. A tale scopo, utilizzare [per visualizzare la procedura dei parametri radice corrente](#to-view-the-current-root-hints) . Se i parametri radice fanno riferimento ai server radice funzionanti, potrebbe essersi verificato un problema di rete oppure il server potrebbe usare una configurazione avanzata del firewall che impedisce al resolver di eseguire query sul server, come descritto nella sezione [controllare i problemi del server DNS](#check-dns-server-problems) . È anche possibile che il valore predefinito di timeout ricorsivo sia troppo breve.
 
@@ -161,7 +161,7 @@ Avviare i test nella procedura seguente eseguendo una query su un server radice 
 
    - Se la risposta non contiene un record di risorse "NS", si disporrà di una delega interruppe.
    
-   - Se la risposta contiene record di risorse "NS", ma nessun record di risorse "A", immettere la ricorsione **set**ed eseguire una query singolarmente per i record di risorse "a" dei server elencati nei record "NS". Se non si trova almeno un indirizzo IP valido di un record di risorse "A" per ogni record di risorse NS in una zona, si disporrà di una delega interruppe.
+   - Se la risposta contiene record di risorse "NS", ma nessun record di risorse "A", immettere la **ricorsione set**ed eseguire una query singolarmente per i record di risorse "a" dei server elencati nei record "NS". Se non si trova almeno un indirizzo IP valido di un record di risorse "A" per ogni record di risorse NS in una zona, si disporrà di una delega interruppe.
 
 3. Se si dispone di una delega interruppe, correggerla aggiungendo o aggiornando un record di risorse "A" nella zona padre utilizzando un indirizzo IP valido per un server DNS corretto per la zona delegata.
 

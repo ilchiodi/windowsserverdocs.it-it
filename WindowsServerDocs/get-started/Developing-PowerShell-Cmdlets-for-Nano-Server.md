@@ -12,12 +12,12 @@ author: jaimeo
 ms.author: jaimeo
 ms.date: 09/06/2017
 ms.localizationpriority: medium
-ms.openlocfilehash: 80d6cdd3056d9c7e0a0815ce5856f961d79fcc34
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 434b79508dbf88a90348840573255c3084d6e989
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71391776"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75948451"
 ---
 # <a name="developing-powershell-cmdlets-for-nano-server"></a>Sviluppo di cmdlet di PowerShell per Nano Server
 
@@ -138,7 +138,7 @@ In genere, questi cmdlet possono essere usati in Nano Server senza alcuna conver
 ### <a name="building-c-for-nano-server"></a>Compilazione di C++ per Nano Server  
 Per ottenere DLL C++ ottimizzate per Nano Server, è necessario compilarle per Nano Server anziché per un'edizione specifica.  
   
-Per i prerequisiti e procedure dettagliate inerenti allo sviluppo di C++ su Nano Server, vedere [Sviluppo in Nano Server](http://blogs.technet.com/b/nanoserver/archive/2016/04/27/developing-native-apps-on-nano-server.aspx).  
+Per i prerequisiti e procedure dettagliate inerenti allo sviluppo di C++ su Nano Server, vedere [Sviluppo in Nano Server](https://blogs.technet.com/b/nanoserver/archive/2016/04/27/developing-native-apps-on-nano-server.aspx).  
   
   
 ## <a name="porting-net-cmdlets"></a>Conversione di cmdlet .NET  
@@ -151,7 +151,7 @@ In [PowerShell Gallery](https://www.powershellgallery.com/packages/Microsoft.Pow
   
 Il modulo PowerShell Core SDK espone i cmdlet per impostare gli assembly di riferimento CoreCLR e PowerShell Core corretti, creare un progetto C# in Visual Studio 2015 per gli assembly di riferimento e impostare il debugger remoto in un computer Nano Server in modo che gli sviluppatori possano eseguire in remoto da Visual Studio 2015 il debug dei cmdlet .NET in esecuzione su Nano Server.  
   
-Il modulo PowerShell Core SDK richiede Visual Studio 2015 Update 2. Se Visual Studio 2015 non è installato nel sistema, è possibile installare [Visual Studio Community 2015](https://www.visualstudio.com/en-us/products/visual-studio-community-vs.aspx).  
+Il modulo PowerShell Core SDK richiede Visual Studio 2015 Update 2. Se Visual Studio 2015 non è installato nel sistema, è possibile installare [Visual Studio Community 2015](https://www.visualstudio.com/products/visual-studio-community-vs.aspx).  
   
 Il modulo SDK richiede anche che in Visual Studio 2015 sia installata la funzionalità seguente:  
   

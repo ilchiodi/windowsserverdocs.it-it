@@ -9,12 +9,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: abbc9cf76056af4ac421d9a38381bd8d8f666e4c
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: b96a66c9e28454752fd4999fcfe74cbb15a3ae7d
+ms.sourcegitcommit: c5709021aa98abd075d7a8f912d4fd2263db8803
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75949538"
+ms.lasthandoff: 01/18/2020
+ms.locfileid: "76265813"
 ---
 # <a name="best-practices-for-securing-active-directory-federation-services"></a>Procedure consigliate per la protezione di Active Directory Federation Services
 
@@ -26,6 +26,9 @@ Questo documento si applica a AD FS e WAP in Windows Server 2012 R2 e Windows Se
 Per la distribuzione in ambienti locali, è consigliabile usare una topologia di distribuzione standard costituita da uno o più server AD FS nella rete aziendale interna, con uno o più server proxy applicazione Web (WAP) in una rete perimetrale o Extranet.  A ogni livello, AD FS e WAP, un servizio di bilanciamento del carico hardware o software viene posizionato davanti ai server farm e gestisce il routing del traffico.  I firewall vengono posizionati come richiesto davanti all'indirizzo IP esterno del servizio di bilanciamento del carico davanti a ogni farm (FS e proxy).
 
 ![AD FS topologia standard](media/Best-Practices-Securing-AD-FS/adfssec1.png)
+
+>[!NOTE]
+> AD FS richiede un controller di dominio scrivibile completo per funzionare anziché un controller di dominio di sola lettura. Se una topologia pianificata include un controller di dominio di sola lettura, il controller di dominio di sola lettura può essere utilizzato per l'autenticazione, ma l'elaborazione delle attestazioni LDAP richiederà una connessione al controller di dominio scrivibile.
 
 ## <a name="ports-required"></a>Porte richieste
 Il diagramma seguente illustra le porte del firewall che devono essere abilitate tra e tra i componenti della distribuzione di AD FS e WAP.  Se la distribuzione non include Azure AD/Office 365, i requisiti di sincronizzazione possono essere ignorati.

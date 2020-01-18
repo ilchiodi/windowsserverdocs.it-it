@@ -7,13 +7,13 @@ ms.assetid: 227f723b-acb2-42a7-bbe3-44e82f930e35
 manager: dongill
 author: rpsqrd
 ms.technology: security-guarded-fabric
-ms.date: 10/22/2018
-ms.openlocfilehash: 5277a97f7f58d9d7edb1457cb363cb6ddf1d8b59
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.date: 01/14/2020
+ms.openlocfilehash: ece005617c4a2faac41c2be15967b2f43951517e
+ms.sourcegitcommit: c5709021aa98abd075d7a8f912d4fd2263db8803
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71403699"
+ms.lasthandoff: 01/18/2020
+ms.locfileid: "76265863"
 ---
 # <a name="configure-additional-hgs-nodes"></a>Configurare nodi HGS aggiuntivi
 
@@ -116,7 +116,7 @@ Per la replica del primo server HGS in questo nodo sono necessari fino a 10 minu
 Per proteggere gli endpoint HGS con un certificato SSL, è necessario configurare il certificato SSL in questo nodo, così come tutti gli altri nodi del cluster HGS.
 I certificati SSL *non vengono* replicati da HGS e non devono usare le stesse chiavi per ogni nodo, ad esempio è possibile avere diversi certificati SSL per ogni nodo.
 
-Quando si richiede un certificato SSL, verificare che il nome di dominio completo del cluster, come illustrato nell'output `Get-HgsServer`di, sia il nome comune del soggetto del certificato o incluso come nome DNS alternativo del soggetto.
+Quando si richiede un certificato SSL, verificare che il nome di dominio completo del cluster, come illustrato nell'output di `Get-HgsServer`, sia il nome comune del soggetto del certificato o incluso come nome DNS alternativo del soggetto.
 Una volta ottenuto un certificato dall'autorità di certificazione, è possibile configurare HGS per l'uso con [set-HgsServer](https://technet.microsoft.com/itpro/powershell/windows/hgsserver/set-hgsserver).
 
 ```powershell
@@ -141,16 +141,8 @@ Per rimuovere le autorizzazioni per un nodo HGS:
 
    Questa operazione rimuove il nodo dal cluster e Disinstalla i servizi di attestazione e protezione delle chiavi. 
    Se è l'ultimo nodo del cluster,-Force è necessario per indicare che si vuole rimuovere l'ultimo nodo ed eliminare il cluster in Active Directory. 
-   
+
    Se HGS è distribuito in una foresta Bastion (impostazione predefinita), questo è l'unico passaggio. 
    Facoltativamente, è possibile separare il computer dal dominio e rimuovere l'account gMSA dalla Active Directory.
 
-1. Se HGS ha creato il proprio dominio, è necessario [disinstallare anche HGS](guarded-fabric-manage-hgs.md#clearing-the-hgs-configuration) per separare il dominio e abbassare il controllo del controller di dominio.
-
-
-
-## <a name="next-step"></a>Passaggio successivo
-
-> [!div class="nextstepaction"]
-> [Convalidare la configurazione di HGS](guarded-fabric-verify-hgs-configuration.md)
-
+2. Se HGS ha creato il proprio dominio, è necessario [disinstallare anche HGS](guarded-fabric-manage-hgs.md#clearing-the-hgs-configuration) per separare il dominio e abbassare il controllo del controller di dominio.

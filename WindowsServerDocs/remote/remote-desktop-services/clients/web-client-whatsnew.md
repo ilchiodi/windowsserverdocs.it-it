@@ -9,16 +9,16 @@ ms.technology: remote-desktop-services
 ms.tgt_pltfrm: na
 ms.topic: article
 author: heidilohr
-manager: daveba
+manager: lizross
 ms.author: helohr
 ms.date: 11/15/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 41f5bd7be03e61471683d5fc04df9ee10bc09e58
-ms.sourcegitcommit: 89aea00fe0e00fc8b1a6e20af36ad04df8c9fe5b
+ms.openlocfilehash: b5bf231b2aa3542c9cd276b29e7821bdb5dd7cfb
+ms.sourcegitcommit: 76469d1b7465800315eaca3e0c7f0438fc3939ed
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74189481"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75919804"
 ---
 # <a name="whats-new-in-the-web-client"></a>Novità del client Web
 
@@ -111,7 +111,7 @@ Aggiorniamo regolarmente il [client Web di Desktop remoto](remote-desktop-web-cl
 ## <a name="updates-for-version-081"></a>Aggiornamenti alla versione 0.8.1
 *Data di pubblicazione: 17/05/2018*
 
-- Sono stati introdotti aggiornamenti per risolvere la correzione oracolo di crittografia CredSSP descritta in CVE-2018-0886.
+- Aggiornamenti per la correzione oracolo di crittografia CredSSP descritta in CVE-2018-0886.
 - Sono stati corretti gli errori di connessione per alcune lingue quando è abilitata la stampa.
 - È stato migliorato il messaggio di errore quando un gateway non fa parte della distribuzione.
 - Sono state aggiunte le opzioni **Guida** e **Feedback**.

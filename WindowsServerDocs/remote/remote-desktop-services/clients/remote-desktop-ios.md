@@ -14,12 +14,12 @@ manager: dongill
 ms.author: elizapo
 date: 08/27/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 700d419d06c0b007ed05be4f82137828f52143e1
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 8361d1171c2526e701a5418696761a8400c47ca3
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71404146"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75949878"
 ---
 # <a name="get-started-with-the-ios-client"></a>Introduzione al client iOS
 
@@ -200,7 +200,7 @@ Barra dei comandi sostituito l'utilità barra a partire dalla versione 8.0.1. È
 Il client utilizza i movimenti tocco standard. È inoltre possibile utilizzare i movimenti tocco per replicare le azioni del mouse sul desktop remoto. Le modalità mouse disponibili sono definite nella tabella seguente.
 
 > [!NOTE]
-> Interazione con Windows 8 o versioni successive i movimenti di tocco nativo sono supportati in modalità tocco diretto. Per altre informazioni sui movimenti in Windows 8, vedi [Tocco: scorrimento rapido, tocco e altro](https://windows.microsoft.com/en-US/windows-8/touch-swipe-tap-beyond).
+> Interazione con Windows 8 o versioni successive i movimenti di tocco nativo sono supportati in modalità tocco diretto. Per altre informazioni sui movimenti in Windows 8, vedi [Tocco: scorrimento rapido, tocco e altro](https://windows.microsoft.com/windows-8/touch-swipe-tap-beyond).
 
 | Modalità mouse    | Operazione con il mouse      | Movimento                                                    |
 |---------------|----------------------|------------------------------------------------------------|

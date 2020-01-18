@@ -9,12 +9,12 @@ author: Teresa-Motiv
 ms.author: v-tea
 manager: dcscontentpm
 ms.localizationpriority: medium
-ms.openlocfilehash: dab8294837a5f9116328e59364de9beb139a4b77
-ms.sourcegitcommit: 9855d6b59b1f8722f39ae74ad373ce1530da0ccf
+ms.openlocfilehash: 110e3a685293c447d03158eac57d38fedd28b0cd
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71963007"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75948309"
 ---
 # <a name="kms-activation-known-issues"></a>Attivazione tramite il Servizio di gestione delle chiavi: problemi noti
 
@@ -35,7 +35,7 @@ Nel computer client del Servizio di gestione delle chiavi apri il pannello di co
 
 ## <a name="the-kms-client-computer-does-not-activate"></a>Il computer client del Servizio di gestione delle chiavi non viene attivato
 
-Verifica che sia stata raggiunta la soglia di attivazione del Servizio di gestione delle chiavi. Nel computer host del Servizio di gestione delle chiavi esegui Slmgr.vbs e usa l'opzione della riga di comando **/dli** per determinare il conteggio corrente dell'host. Finché il conteggio dell'host del Servizio di gestione delle chiavi non raggiunge 25, non è possibile attivare i computer client Windows 7. I client del Servizio di gestione delle chiavi con Windows Server 2008 R2 richiedono un conteggio pari a 5 per l'attivazione. Per altre informazioni sui requisiti del Servizio di gestione delle chiavi, vedi la [Guida alla pianificazione dell'attivazione dei contratti multilicenza](http://go.microsoft.com/fwlink/?linkid=155926). 
+Verifica che sia stata raggiunta la soglia di attivazione del Servizio di gestione delle chiavi. Nel computer host del Servizio di gestione delle chiavi esegui Slmgr.vbs e usa l'opzione della riga di comando **/dli** per determinare il conteggio corrente dell'host. Finché il conteggio dell'host del Servizio di gestione delle chiavi non raggiunge 25, non è possibile attivare i computer client Windows 7. I client del Servizio di gestione delle chiavi con Windows Server 2008 R2 richiedono un conteggio pari a 5 per l'attivazione. Per altre informazioni sui requisiti del Servizio di gestione delle chiavi, vedi la [Guida alla pianificazione dell'attivazione dei contratti multilicenza](https://go.microsoft.com/fwlink/?linkid=155926). 
 
 Nel computer client del Servizio di gestione delle chiavi, cerca l'ID evento 12289 nel registro eventi Application. In questo evento verifica le informazioni seguenti:
 
@@ -86,4 +86,4 @@ I codici del Servizio di gestione delle chiavi devono essere installati solo neg
 
 Se si verifica un errore in un host del Servizio di gestione delle chiavi, devi installare un codice in un nuovo host e quindi attivare l'host. Verifica che il nuovo host del Servizio di gestione delle chiavi disponga di un record di risorse SRV nel database DNS. Se installi il nuovo host del Servizio di gestione delle chiavi usando lo stesso nome di computer e lo stesso indirizzo IP dell'host in errore, il nuovo host può usare il record SRV DNS dell'host in errore. Se il nuovo host ha un nome di computer diverso, puoi rimuovere manualmente il record di risorse SRV DNS dell'host in errore oppure, se nel DNS è abilitato lo scavenging, puoi consentire al DNS di rimuoverlo automaticamente. Se la rete usa il DDNS, il nuovo host del Servizio di gestione delle chiavi crea automaticamente un nuovo record di risorse SRV sul server DNS. Il nuovo host del Servizio di gestione delle chiavi inizia quindi a raccogliere le richieste di rinnovo client e inizia ad attivare i client non appena viene raggiunta la soglia di attivazione del servizio.
 
-Se i client del Servizio di gestione delle chiavi usano l'individuazione automatica, viene selezionato automaticamente un altro host se quello originale non risponde alle richieste di rinnovo. Se invece i client non usano l'individuazione automatica, è necessario aggiornare manualmente i computer client del Servizio di gestione delle chiavi assegnati all'host in errore eseguendo **slmgr.vbs /skms**. Per evitare questo scenario, configura i client del Servizio di gestione delle chiavi per l'individuazione automatica. Per altre informazioni, vedi la [Guida alla distribuzione dei servizi di attivazione per i contratti multilicenza](http://go.microsoft.com/fwlink/?linkid=150083).
+Se i client del Servizio di gestione delle chiavi usano l'individuazione automatica, viene selezionato automaticamente un altro host se quello originale non risponde alle richieste di rinnovo. Se invece i client non usano l'individuazione automatica, è necessario aggiornare manualmente i computer client del Servizio di gestione delle chiavi assegnati all'host in errore eseguendo **slmgr.vbs /skms**. Per evitare questo scenario, configura i client del Servizio di gestione delle chiavi per l'individuazione automatica. Per altre informazioni, vedi la [Guida alla distribuzione dei servizi di attivazione per i contratti multilicenza](https://go.microsoft.com/fwlink/?linkid=150083).

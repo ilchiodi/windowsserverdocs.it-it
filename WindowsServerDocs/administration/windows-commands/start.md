@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 3e481048c23e634869b0238188d4a0ef8b49cb3e
-ms.sourcegitcommit: effbc183bf4b370905d95c975626c1ccde057401
+ms.openlocfilehash: 48197b1bc1d1c9f91a6a35b5fb8aad81b229eb6b
+ms.sourcegitcommit: 51e0b575ef43cd16b2dab2db31c1d416e66eebe8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74781308"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76259086"
 ---
 # <a name="start"></a>start
 
@@ -31,7 +31,7 @@ Per esempi di utilizzo di questo comando, vedere [Esempi](#BKMK_examples).
 ## <a name="syntax"></a>Sintassi
 
 ```
-start ["<Title>"] [/d <Path>] [/i] [{/min | /max}] [{/separate | /shared}] [{/low | /normal | /high | /realtime | /abovenormal | belownormal}] [/affinity <HexAffinity>] [/wait] [/elevate] [/b {<Command> | <Program>} [<Parameters>]]
+start ["<Title>"] [/d <Path>] [/i] [{/min | /max}] [{/separate | /shared}] [{/low | /normal | /high | /realtime | /abovenormal | belownormal}] [/affinity <HexAffinity>] [/wait] [/elevate] [/b] [<Command> [<Parameter>... ] | <Program> [<Parameter>... ]]
 ```
 
 ## <a name="parameters"></a>Parametri
@@ -48,8 +48,8 @@ start ["<Title>"] [/d <Path>] [/i] [{/min | /max}] [{/separate | /shared}] [{/lo
 |/Wait|Avvia un'applicazione e attende la fine.|
 |/elevate|Esegue l'applicazione come amministratore.|
 |/ b|Avvia un'applicazione senza aprire una nuova finestra prompt dei comandi. CTRL + C viene ignorato a meno che l'applicazione consente l'elaborazione di CTRL + C. Utilizzare CTRL + INTERR per interrompere l'applicazione.|
-|/b \<comando > \| \<Program >|Specifica il comando o un programma di avvio.|
-|Parametri \<|Specifica i parametri da passare per il comando o programma.|
+|\<comando > \| \<Program >|Specifica il comando o un programma di avvio.|
+|\<parametro >...|Specifica i parametri da passare al comando o al programma.|
 |/?|Visualizza la guida al prompt dei comandi.|
 
 ## <a name="remarks"></a>Osservazioni
@@ -59,12 +59,12 @@ start ["<Title>"] [/d <Path>] [/i] [{/min | /max}] [{/separate | /shared}] [{/lo
 - Quando si esegue un'applicazione di interfaccia utente grafica a 32 bit, **cmd** non attende la chiusura prima di tornare al prompt dei comandi dell'applicazione. Questo comportamento non si verifica se l'applicazione viene eseguita da uno script di comandi.
 - Quando si esegue un comando che utilizza il primo token non contiene un'estensione, Cmd.exe utilizza il valore della variabile di ambiente PATHEXT per determinare quali estensioni cercare e in quale ordine. Il valore predefinito della variabile PATHEXT è:  
   ```
-  .COM;.EXE;.BAT;.CMD 
+  .COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC 
   ```  
   Si noti che la sintassi è quello utilizzato per la variabile di PERCORSO, con un punto e virgola che separa ogni estensione.
 - Durante la ricerca di un file eseguibile, se non esiste alcuna corrispondenza qualsiasi estensione, **avviare** verifica se il nome corrisponde a un nome di directory. In caso affermativo, **avviare** apre Explorer.exe in tale percorso.
 
-## <a name="BKMK_examples"></a>Esempi
+## <a name="BKMK_examples"></a>Esempi:
 
 Per avviare il programma Myapp al prompt dei comandi e continuare a utilizzare la finestra prompt dei comandi corrente, digitare:
 ```

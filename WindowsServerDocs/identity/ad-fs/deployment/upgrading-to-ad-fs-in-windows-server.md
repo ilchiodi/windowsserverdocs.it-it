@@ -9,12 +9,12 @@ ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: 428e35524fbcfe5177b544e1c6cc6fa32ec32056
-ms.sourcegitcommit: 4a03f263952c993dfdf339dd3491c73719854aba
+ms.openlocfilehash: ebcc679b2bc5ab3c6d7c70c9e84ba45697c80165
+ms.sourcegitcommit: c5709021aa98abd075d7a8f912d4fd2263db8803
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74791364"
+ms.lasthandoff: 01/18/2020
+ms.locfileid: "76265593"
 ---
 # <a name="upgrading-to-ad-fs-in-windows-server-2016-using-a-wid-database"></a>Aggiornamento ad AD FS in Windows Server 2016 con un database interno di Windows
 
@@ -101,6 +101,7 @@ Una volta completata l'esecuzione `adprep/domainprep`
 ![aggiornare](media/Upgrading-to-AD-FS-in-Windows-Server-2016/ADFS_Mixed_8.png)
 
 8. A questo punto, nel server Windows Server 2016 aprire PowerShell ed eseguire il cmdlet seguente:
+
 
 > [!NOTE]
 > Tutti i Server 2012 R2 devono essere rimossi dalla farm prima di eseguire il passaggio successivo.

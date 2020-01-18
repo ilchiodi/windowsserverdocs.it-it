@@ -8,12 +8,12 @@ ms.topic: article
 author: greg-lindsay
 ms.author: greg-lindsay
 ms.localizationpriority: high
-ms.openlocfilehash: 187abe06b469abe511d4bbbfb0aac9237d3c650a
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 946c1266f1c2cdc78cedac6794abb9f8d26696cd
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70868517"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75947702"
 ---
 # <a name="azure-hybrid-benefit-for-windows-server"></a>Vantaggio Azure Hybrid per Windows Server
 
@@ -84,7 +84,7 @@ Puoi quindi inserire i risultati nello **strumento per il conteggio delle licenz
 
 Assicurati di eseguire un inventario per ogni sottoscrizione di tua proprietà per generare una visualizzazione completa della posizione delle licenze.
 
-[Strumento per il conteggio delle licenze di SA per il Vantaggio Azure Hybrid per Windows Server](http://download.microsoft.com/download/7/1/2/712FEFF0-155C-4ABF-96C0-CE4EC4DB0516/Azure_Hybrid_Benefit_Windows_Server_SA_Count_Tool.xlsx)
+[Strumento per il conteggio delle licenze di SA per il Vantaggio Azure Hybrid per Windows Server](https://download.microsoft.com/download/7/1/2/712FEFF0-155C-4ABF-96C0-CE4EC4DB0516/Azure_Hybrid_Benefit_Windows_Server_SA_Count_Tool.xlsx)
 
 Se hai eseguito le operazioni precedenti e verificato di disporre di tutte le licenze necessarie per il numero di istanze del Vantaggio Azure Hybrid in esecuzione, non devi eseguire altre azioni. Se pensi che il vantaggio possa coprire macchine virtuali incrementali, puoi ottimizzare ulteriormente i costi passando all'esecuzione delle istanze mediante il vantaggio, anziché al costo completo.
 

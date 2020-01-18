@@ -9,16 +9,16 @@ ms.tgt_pltfrm: na
 ms.topic: troubleshooting
 ms.assetid: ''
 author: kaushika-msft
-manager: ''
+manager: dcscontentpm
 ms.author: delhan
 ms.date: 07/24/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 007668d1c0f8f2a6701813385b0e0bb7a09b29a0
-ms.sourcegitcommit: f6503e503d8f08ba8000db9c5eda890551d4db37
+ms.openlocfilehash: 0932bbbb87c6fcae9dc0b871bd605302acdb25cc
+ms.sourcegitcommit: c5709021aa98abd075d7a8f912d4fd2263db8803
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68529951"
+ms.lasthandoff: 01/18/2020
+ms.locfileid: "76265913"
 ---
 # <a name="remote-desktop-client-disconnects-and-cant-reconnect-to-the-same-session"></a>Il client Desktop remoto si disconnette e non riesce a riconnettersi alla stessa sessione
 
@@ -40,7 +40,7 @@ Questo problema può essere corretto anche riconfigurando le impostazioni di aut
 
 > [!NOTE]  
 >  - Se le comunicazioni tra i client e i server Host sessione Desktop remoto richiedono il livello di crittografia più alto, usa la crittografia Conforme FIPS.
->  - Le impostazioni del livello di crittografia configurate in Criteri di gruppo hanno priorità su quelle definite usando lo strumento Configurazione di Servizi Desktop remoto. Inoltre, se abiliti il criterio [Crittografia di sistema: utilizza algoritmi FIPS compatibili per crittografia, hash e firma](https://docs.microsoft.com/en-us/windows/security/threat-protection/security-policy-settings/system-cryptography-use-fips-compliant-algorithms-for-encryption-hashing-and-signing), questa impostazione esegue l'override del criterio **Imposta livello di crittografia connessione client**. Il criterio di crittografia di sistema è disponibile nella cartella **Configurazione computer\\Impostazioni di Windows\\Impostazioni sicurezza\\Criteri locali\\Opzioni di sicurezza**.
+>  - Le impostazioni del livello di crittografia configurate in Criteri di gruppo hanno priorità su quelle definite usando lo strumento Configurazione di Servizi Desktop remoto. Inoltre, se abiliti il criterio [Crittografia di sistema: utilizza algoritmi FIPS compatibili per crittografia, hash e firma](https://docs.microsoft.com/windows/security/threat-protection/security-policy-settings/system-cryptography-use-fips-compliant-algorithms-for-encryption-hashing-and-signing), questa impostazione esegue l'override del criterio **Imposta livello di crittografia connessione client**. Il criterio di crittografia di sistema è disponibile nella cartella **Configurazione computer\\Impostazioni di Windows\\Impostazioni sicurezza\\Criteri locali\\Opzioni di sicurezza**.
 >  - Quando si cambia il livello di crittografia, il nuovo valore impostato viene applicato al successivo accesso di un utente. Se sono necessari più livelli di crittografia in un server, installa più schede di rete e configura ciascuna scheda separatamente.
 >  - Per verificare che il certificato abbia una chiave privata corrispondente, in Configurazione di Servizi Desktop remoto fai clic con il pulsante destro del mouse sulla connessione per la quale vuoi visualizzare il certificato, scegli **Generale** e quindi fai clic su **Modifica**. Successivamente seleziona **Visualizza certificato**. Quando passi alla scheda **Generale** dovrebbe essere visualizzata la dicitura "L'utente possiede una chiave privata corrispondente al certificato", se è presente una chiave. Puoi visualizzare queste informazioni anche con lo snap-in Certificati.
 >  - La crittografia Conforme FIPS (il criterio **Crittografia di sistema: utilizza algoritmi FIPS compatibili per crittografia, hash e firma** o l'impostazione **Conforme FIPS** in Configurazione Server Desktop remoto) crittografa e decrittografa i dati scambiati tra il server e il client con gli algoritmi di crittografia FIPS (Federal Information Processing Standard) 140-1 che usano i moduli crittografici Microsoft. Per altre informazioni, vedi [Convalida FIPS 140](https://docs.microsoft.com/windows/security/threat-protection/fips-140-validation).

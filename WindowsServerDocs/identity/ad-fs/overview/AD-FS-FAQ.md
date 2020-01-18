@@ -10,12 +10,12 @@ ms.topic: article
 ms.custom: it-pro
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 0a2bbeeb459fd364db728579dc20015a2474fd25
-ms.sourcegitcommit: e5df3fd267352528eaab5546f817d64d648b297f
+ms.openlocfilehash: 48d93f515a5f3e5f8ce2c3ff9a1b40f300ca57ed
+ms.sourcegitcommit: c5709021aa98abd075d7a8f912d4fd2263db8803
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74163097"
+ms.lasthandoff: 01/18/2020
+ms.locfileid: "76265743"
 ---
 # <a name="ad-fs-frequently-asked-questions-faq"></a>Domande frequenti su AD FS
 
@@ -103,7 +103,7 @@ In particolare, è necessario verificare che i server di AD FS e WAP supportino 
 
 Per assicurarsi che i server AD FS e WAP negoziino solo i pacchetti di crittografia TLS che supportano ATP, è possibile disabilitare tutti i pacchetti di crittografia non inclusi nell' [elenco di pacchetti di crittografia conformi a ATP](https://developer.apple.com/library/prerelease/content/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW57).  A tale scopo, usare i [cmdlet di Windows TLS PowerShell](https://technet.microsoft.com/itpro/powershell/windows/tls/index).
 
-## <a name="developer"></a>Sviluppatore
+## <a name="developer"></a>Sviluppo
 
 ### <a name="when-generating-an-id_token-with-adfs-for-a-user-authenticated-against-ad-how-is-the-sub-claim-generated-in-the-id_token"></a>Quando si genera un id_token con ADFS per un utente autenticato in Active Directory, come viene generata l'attestazione "Sub" nel id_token?
 Il valore dell'attestazione "Sub" è l'hash dell'ID client + valore attestazione ancoraggio.
@@ -126,7 +126,7 @@ Attestazione rilasciata nel token di accesso:
     "array_in_json":{"Items":[{"Name":"Apple","Price":12.3},{"Name":"Grape","Price":3.21}],"Date":"21/11/2010"}
 
 ### <a name="can-i-pass-resource-value-as-part-of-the-scope-value-like-how-requests-are-done-against-azure-ad"></a>È possibile passare il valore della risorsa come parte del valore dell'ambito, ad esempio il modo in cui le richieste vengono eseguite su Azure AD?
-Con AD FS sul server 2019, è ora possibile passare il valore della risorsa incorporato nel parametro scope. Il parametro scope può ora essere organizzato come un elenco separato da spazi in cui ogni voce è una struttura come risorsa/ambito. Per esempio  
+Con AD FS sul server 2019, è ora possibile passare il valore della risorsa incorporato nel parametro scope. Il parametro scope può ora essere organizzato come un elenco separato da spazi in cui ogni voce è una struttura come risorsa/ambito. Ad esempio  
 **< creare una richiesta di esempio valida >**
 
 ### <a name="does-ad-fs-support-pkce-extension"></a>AD FS supporta l'estensione PKCE?
@@ -307,4 +307,7 @@ In AD FS 2016, l'associazione di token viene abilitata automaticamente e causa p
 `Set-AdfsProperties -IgnoreTokenBinding $true`
 
 ### <a name="i-have-upgraded-my-farm-from-ad-fs-in-windows-server-2016-to-ad-fs-in-windows-server-2019-the-farm-behavior-level-for-the-ad-fs-farm-has-been-successfully-raised-to-2019-but-the-web-application-proxy-configuration-is-still-displayed-as-windows-server-2016"></a>Ho aggiornato la farm da AD FS in Windows Server 2016 per AD FS in Windows Server 2019. Il livello di comportamento della farm per la farm AD FS è stato elevato a 2019 ma la configurazione del proxy dell'applicazione Web è ancora visualizzata come Windows Server 2016?
-Dopo l'aggiornamento a Windows Server 2019, la versione di configurazione del proxy dell'applicazione Web continuerà a essere visualizzata come Windows Server 2016. Il proxy dell'applicazione Web non dispone di nuove funzionalità specifiche della versione per Windows Server 2019 e se il livello di comportamento della farm è stato generato correttamente in AD FS, il proxy dell'applicazione Web continuerà a essere visualizzato come Windows Server 2016 da progettazione. 
+Dopo l'aggiornamento a Windows Server 2019, la versione di configurazione del proxy dell'applicazione Web continuerà a essere visualizzata come Windows Server 2016. Il proxy dell'applicazione Web non dispone di nuove funzionalità specifiche della versione per Windows Server 2019 e se il livello di comportamento della farm è stato generato correttamente in AD FS, il proxy dell'applicazione Web continuerà a essere visualizzato come Windows Server 2016 da progettazione.
+
+### <a name="can-i-estimate-the-size-of-the-adfsartifactstore-before-enabling-esl"></a>È possibile stimare le dimensioni di ADFSArtifactStore prima di abilitare la ESL?
+Con la funzionalità ESL abilitata, AD FS tiene traccia dell'attività dell'account e dei percorsi noti per gli utenti nel database ADFSArtifactStore. Questo database ridimensiona le dimensioni rispetto al numero di utenti e le posizioni note registrate. Quando si pianifica l'abilitazione di ESL, è possibile stimare le dimensioni del database ADFSArtifactStore in modo che crescano fino a 1 GB per ogni 100.000 utenti. Se la AD FS farm utilizza il database interno di Windows, il percorso predefinito per i file di database è C:\Windows\WID\Data. Per evitare di riempire questa unità, verificare di avere almeno 5 GB di spazio di archiviazione disponibile prima di abilitare l'ESL. Oltre all'archiviazione su disco, è possibile pianificare la crescita totale della memoria del processo dopo aver abilitato la funzionalità ESL fino a un massimo di 1 GB di RAM per popolamenti di utenti di 500.000 o meno.

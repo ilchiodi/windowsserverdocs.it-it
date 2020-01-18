@@ -5,14 +5,15 @@ ms.prod: windows-server
 ms.topic: article
 ms.assetid: 07691d5b-046c-45ea-8570-a0a85c3f2d22
 manager: dongill
-author: huu
+author: rpsqrd
 ms.technology: security-guarded-fabric
-ms.openlocfilehash: 6db9ce1db139558bd1a7aa731cb12c1b227ead03
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.date: 01/14/2020
+ms.openlocfilehash: c69fc70282ff61ecce25f6413244d7ba3a5ba3bc
+ms.sourcegitcommit: c5709021aa98abd075d7a8f912d4fd2263db8803
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75949767"
+ms.lasthandoff: 01/18/2020
+ms.locfileid: "76265823"
 ---
 # <a name="troubleshooting-using-the-guarded-fabric-diagnostic-tool"></a>Risoluzione dei problemi con lo strumento di diagnostica dell'infrastruttura sorvegliata
 
@@ -20,21 +21,24 @@ ms.locfileid: "75949767"
 
 Questo argomento descrive l'uso dello strumento di diagnostica dell'infrastruttura sorvegliata per identificare e correggere gli errori comuni durante la distribuzione, la configurazione e il funzionamento continuo dell'infrastruttura sorvegliata. Sono inclusi il servizio sorveglianza host (HGS), tutti gli host sorvegliati e i servizi di supporto, ad esempio DNS e Active Directory. Lo strumento di diagnostica può essere usato per eseguire un primo passaggio al Triaging di un'infrastruttura sorvegliata in errore, offrendo agli amministratori un punto di partenza per la risoluzione delle interruzioni e l'identificazione delle risorse configurate in modo errato. Lo strumento non è un rimpiazzo per una buona comprensione del funzionamento di un'infrastruttura sorvegliata e serve solo per verificare rapidamente i problemi più comuni riscontrati durante le operazioni quotidiane.
 
-La documentazione dei cmdlet usati in questo argomento è reperibile in [TechNet](https://technet.microsoft.com/library/mt718834.aspx).
+La documentazione completa dei cmdlet usati in questo articolo è reperibile nella Guida di [riferimento al modulo HgsDiagnostics](https://docs.microsoft.com/powershell/module/hgsdiagnostics/?view=win10-ps).
 
-[!INCLUDE [Guarded fabric diagnostics tool](../../../includes/guarded-fabric-diagnostics-tool.md)] 
+[!INCLUDE [Guarded fabric diagnostics tool](../../../includes/guarded-fabric-diagnostics-tool.md)]
 
 ## <a name="quick-start"></a>Avvio rapido
 
 È possibile diagnosticare un host sorvegliato o un nodo HGS chiamando il comando seguente da una sessione di Windows PowerShell con privilegi di amministratore locale:
+
 ```PowerShell
 Get-HgsTrace -RunDiagnostics -Detailed
 ```
+
 Questo consente di rilevare automaticamente il ruolo dell'host corrente e di diagnosticare eventuali problemi rilevanti che possono essere rilevati automaticamente.  Tutti i risultati generati durante questo processo vengono visualizzati a causa della presenza dell'opzione di `-Detailed`.
 
 Nella parte restante di questo argomento verrà fornita una procedura dettagliata sull'utilizzo avanzato di `Get-HgsTrace` per eseguire operazioni quali la diagnosi di più host contemporaneamente e il rilevamento di errori di configurazione complessi tra i nodi.
 
 ## <a name="diagnostics-overview"></a>Panoramica della diagnostica
+
 La diagnostica dell'infrastruttura sorvegliata è disponibile in qualsiasi host con le funzionalità e gli strumenti correlati alle macchine virtuali schermate installate, inclusi gli host che eseguono Server Core.  Attualmente, le funzionalità di diagnostica sono incluse con le funzionalità e i pacchetti seguenti:
 
 1. Ruolo del servizio sorveglianza host
@@ -49,6 +53,7 @@ Ogni host di destinazione della diagnostica viene definito "destinazione della t
 Gli amministratori possono iniziare le attività di diagnostica eseguendo `Get-HgsTrace`.  Questo comando esegue due funzioni distinte in base alle opzioni fornite in fase di esecuzione: raccolta di tracce e diagnosi.  Queste due combinazioni costituiscono l'intero strumento di diagnostica dell'infrastruttura sorvegliata.  Sebbene non sia richiesto in modo esplicito, la diagnostica più utile richiede tracce che possono essere raccolte solo con le credenziali di amministratore nella destinazione di traccia.  Se l'utente che esegue la raccolta di tracce non dispone di privilegi sufficienti, le tracce che richiedono l'elevazione dei privilegi avranno esito negativo mentre tutte le altre verranno superate.  Questo consente la diagnosi parziale nel caso in cui un operatore con privilegi limitati esegua la valutazione. 
 
 ### <a name="trace-collection"></a>Raccolta di tracce
+
 Per impostazione predefinita, `Get-HgsTrace` raccoglierà solo le tracce e le salverà in una cartella temporanea.  Le tracce hanno il formato di una cartella, denominata dopo l'host di destinazione, compilata con file formattati in modo specifico che descrivono come viene configurato l'host.  Le tracce contengono anche i metadati che descrivono come è stata richiamata la diagnostica per raccogliere le tracce.  Questi dati vengono utilizzati dalla diagnostica per riattivare le informazioni sull'host durante l'esecuzione di una diagnosi manuale.
 
 Se necessario, le tracce possono essere esaminate manualmente.  Tutti i formati sono leggibili (XML) o possono essere ispezionati prontamente usando gli strumenti standard (ad esempio, i certificati X509 e le estensioni di Windows Crypto Shell).  Si noti tuttavia che le tracce non sono progettate per la diagnosi manuale ed è sempre più efficace elaborare le tracce con le funzionalità di diagnostica di `Get-HgsTrace`.
@@ -58,6 +63,7 @@ I risultati dell'esecuzione della raccolta di tracce non indicano l'integrità d
 Utilizzando il parametro `-Diagnostic`, è possibile limitare la raccolta di tracce solo alle tracce necessarie per il funzionamento della diagnostica specificata.  In questo modo si riduce la quantità di dati raccolti, nonché le autorizzazioni necessarie per richiamare la diagnostica.
 
 ### <a name="diagnosis"></a>Diagnosi
+
 Le tracce raccolte possono essere diagnosticate `Get-HgsTrace` il percorso delle tracce tramite il parametro `-Path` e specificando l'opzione di `-RunDiagnostics`.  Inoltre, `Get-HgsTrace` possibile eseguire la raccolta e la diagnosi in un unico passaggio fornendo l'opzione `-RunDiagnostics` e un elenco di destinazioni di traccia.  Se non viene fornita alcuna destinazione di traccia, il computer corrente viene usato come destinazione implicita, con il ruolo dedotto esaminando i moduli di Windows PowerShell installati.
 
 La diagnosi fornirà i risultati in un formato gerarchico che mostra quali destinazioni di traccia, set di diagnostica e singoli diagnostica sono responsabili di un errore specifico.  Gli errori includono suggerimenti per la correzione e la risoluzione se è possibile stabilire quale azione sarà eseguita successivamente.  Per impostazione predefinita, i risultati di passaggio e irrilevante sono nascosti.  Per visualizzare tutti gli elementi testati dalla diagnostica, specificare l'opzione `-Detailed`.  Verranno visualizzati tutti i risultati indipendentemente dal relativo stato.
@@ -78,13 +84,17 @@ Per impostazione predefinita, `Get-HgsTrace` sarà destinata al localhost, ovver
 La destinazione locale implicita usa l'inferenza del ruolo per determinare il ruolo riprodotto dall'host corrente nell'infrastruttura sorvegliata.  Si basa sui moduli di Windows PowerShell installati che corrispondono approssimativamente alle funzionalità installate nel sistema.  La presenza del modulo `HgsServer` farà sì che la destinazione della traccia prenda il ruolo `HostGuardianService` e la presenza del modulo `HgsClient` provocherà il ruolo `GuardedHost`della destinazione di traccia.  È possibile che in un determinato host siano presenti entrambi i moduli, nel qual caso verranno trattati sia come `HostGuardianService` sia come `GuardedHost`.
 
 Pertanto, la chiamata predefinita della diagnostica per la raccolta di tracce in locale:
+
 ```PowerShell
 Get-HgsTrace
 ```
+
 ... equivale a quanto segue:
+
 ```PowerShell
 New-HgsTraceTarget -Local | Get-HgsTrace
 ```
+
 > [!TIP]
 > `Get-HgsTrace` possibile accettare destinazioni tramite la pipeline o direttamente tramite il parametro `-Target`.  Non esiste alcuna differenza tra le due operazioni.
 
@@ -159,6 +169,7 @@ I passaggi per eseguire una diagnosi manuale sono i seguenti:
    ```PowerShell
    Get-HgsTrace -Path C:\Traces -Diagnostic Networking,BestPractices
    ```
+
 2. Richiedere a ogni amministratore host di creare il pacchetto della cartella TRACES risultante e inviarla all'utente.  Questo processo può essere gestito tramite posta elettronica, condivisioni file o qualsiasi altro meccanismo basato sui criteri e le procedure operative stabiliti dall'organizzazione.
 
 3. Unire tutte le tracce ricevute in una singola cartella, senza altri contenuti o cartelle.
@@ -197,3 +208,15 @@ Get-HgsTrace -RunDiagnostics -Target $hgs03 -Path .\FabricTraces
 ``` 
 
 Il cmdlet di diagnostica identificherà tutti gli host pre-raccolti e un host aggiuntivo che deve ancora essere tracciato e eseguirà la traccia necessaria.  Viene quindi diagnosticata la somma di tutte le tracce pre-raccolte e raccolte di recente.  La cartella di traccia risultante conterrà sia la vecchia che la nuova traccia.
+
+## <a name="known-issues"></a>Problemi noti
+
+Il modulo di diagnostica dell'infrastruttura sorvegliata presenta limitazioni note quando viene eseguito in Windows Server 2019 o Windows 10, versione 1809 e versioni più recenti del sistema operativo.
+L'uso delle funzionalità seguenti può causare risultati errati:
+
+* Attestazione chiave host
+* Configurazione HGS di sola attestazione (per scenari SQL Server Always Encrypted)
+* Uso di elementi del criterio V1 in un server HGS in cui il criterio di attestazione predefinito è V2
+
+Un errore in `Get-HgsTrace` quando si usano queste funzionalità non indica necessariamente che il server HGS o l'host sorvegliato non sia configurato correttamente.
+Usare altri strumenti di diagnostica, come `Get-HgsClientConfiguration` in un host sorvegliato, per verificare se un host ha superato l'attestazione.

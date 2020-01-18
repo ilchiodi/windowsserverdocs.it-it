@@ -8,12 +8,12 @@ ms.date: 06/20/2019
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 785ecd4de86c06dd12eb57e41efaa1103f2afdc5
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: e5e90119066285ae8e04b392a13ab1a38488f5ee
+ms.sourcegitcommit: c5709021aa98abd075d7a8f912d4fd2263db8803
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71357811"
+ms.lasthandoff: 01/18/2020
+ms.locfileid: "76265753"
 ---
 # <a name="fine-tuning-sql-and-addressing-latency-issues-with-ad-fs"></a>Ottimizzazione di SQL e risoluzione dei problemi di latenza con AD FS
 In un aggiornamento per [AD FS 2016](https://support.microsoft.com/help/4503294/windows-10-update-kb4503294) sono stati introdotti i miglioramenti seguenti per ridurre la latenza tra database. Un aggiornamento imminente per AD FS 2019 includerà questi miglioramenti.
@@ -23,10 +23,12 @@ Nelle distribuzioni precedenti di disponibilità always on (AoA), la latenza esi
 
 Nell'aggiornamento più recente per AD FS, una riduzione della latenza viene indirizzata tramite l'aggiunta di un thread in background per aggiornare la cache di configurazione AD FS e un'impostazione per impostare il periodo di tempo di aggiornamento. Il tempo impiegato per la ricerca di un database viene ridotto significativamente nel thread della richiesta, perché gli aggiornamenti della cache del database vengono spostati nel thread in background.  
 
-`backgroundCacheRefreshEnabled` Quando è impostato su true, ad FS consentirà al thread in background di eseguire gli aggiornamenti della cache. La frequenza di recupero dei dati dalla cache può essere personalizzata in base a un valore di ora `cacheRefreshIntervalSecs`impostando. Il valore predefinito è impostato su 300 secondi quando `backgroundCacheRefreshEnabled` è impostato su true. Dopo la durata del valore impostato, AD FS inizia ad aggiornare la cache e mentre è in corso l'aggiornamento, i dati della cache obsoleti continueranno a essere usati.  
+Quando la `backgroundCacheRefreshEnabled` è impostata su true, AD FS consentirà al thread in background di eseguire gli aggiornamenti della cache. La frequenza di recupero dei dati dalla cache può essere personalizzata in base a un valore di ora impostando `cacheRefreshIntervalSecs`. Il valore predefinito è impostato su 300 secondi se `backgroundCacheRefreshEnabled` è impostato su true. Dopo la durata del valore impostato, AD FS inizia ad aggiornare la cache e mentre è in corso l'aggiornamento, i dati della cache obsoleti continueranno a essere usati.  
+
+Quando AD FS riceve una richiesta per un'applicazione, AD FS recupera l'applicazione da SQL e la aggiunge alla cache. Al valore `cacheRefreshIntervalSecs`, l'applicazione nella cache viene aggiornata usando il thread in background. Mentre è presente una voce nella cache, le richieste in ingresso utilizzeranno la cache mentre è in corso l'aggiornamento in background. Se non si accede a una voce per 5 * `cacheRefreshIntervalSecs`, questa viene eliminata dalla cache. La voce meno recente può anche essere eliminata dalla cache quando viene raggiunto il valore di `maxRelyingPartyEntries` configurabile.
 
 >[!NOTE]
-> I dati della cache verranno aggiornati al di fuori del `cacheRefreshIntervalSecs` valore se ADFS riceve una notifica da SQL, a indicare che si è verificata una modifica nel database. Questa notifica attiverà la cache da aggiornare. 
+> I dati della cache verranno aggiornati al di fuori del valore `cacheRefreshIntervalSecs` se ADFS riceve una notifica da SQL indicante che si è verificata una modifica nel database. Questa notifica attiverà la cache da aggiornare. 
 
 ### <a name="recommendations-for-setting-the-cache-refresh"></a>Suggerimenti per l'impostazione dell'aggiornamento della cache 
 Il valore predefinito per l'aggiornamento della cache è **cinque minuti**. È consigliabile impostarla su **1 ora** per ridurre l'aggiornamento dei dati non necessario per ad FS perché i dati della cache verranno aggiornati in caso di modifiche SQL.  
@@ -42,8 +44,8 @@ L'esempio seguente abilita l'aggiornamento della cache in background e imposta i
 
   1. Passare al file di configurazione AD FS e, nella sezione "Microsoft. IdentityServer. Service", aggiungere la voce seguente:  
   
-  - `backgroundCacheRefreshEnabled`: Specifica se la funzionalità della cache in background è abilitata. valori "true/false".
-  - `cacheRefreshIntervalSecs`: Valore in secondi in cui ADFS aggiornerà la cache. AD FS aggiornerà la cache in caso di modifiche in SQL. AD FS riceverà una notifica SQL e aggiornerà la cache.  
+  - `backgroundCacheRefreshEnabled`: specifica se la funzionalità cache in background è abilitata. valori "true/false".
+  - `cacheRefreshIntervalSecs`: valore in secondi in cui ADFS aggiornerà la cache. AD FS aggiornerà la cache in caso di modifiche in SQL. AD FS riceverà una notifica SQL e aggiornerà la cache.  
  
  >[!NOTE]
  > Tutte le voci nel file di configurazione fanno distinzione tra maiuscole e minuscole.  
@@ -65,9 +67,9 @@ Con questa configurazione sono supportati anche gli ambienti ibridi.
 
 ### <a name="requirements"></a>Requisiti: 
 Prima di configurare più supporto per database di elementi, eseguire un aggiornamento su tutti i nodi e aggiornare i file binari poiché le chiamate a più nodi si verificano tramite questa funzionalità. 
-  1. Generare lo script di distribuzione per creare il database dell'artefatto: Per distribuire più istanze di database di artefatto, un amministratore deve generare lo script di distribuzione SQL per il database dell'artefatto. Nell'ambito di questo aggiornamento, il cmdlet `Export-AdfsDeploymentSQLScript`esistente è stato aggiornato per includere facoltativamente un parametro che specifica il database ad FS per cui generare uno script di distribuzione SQL. 
+  1. Generare lo script di distribuzione per creare il database di artefatto: per distribuire più istanze di database di artefatto, un amministratore dovrà generare lo script di distribuzione SQL per il database dell'artefatto. Nell'ambito di questo aggiornamento, il cmdlet `Export-AdfsDeploymentSQLScript`esistente è stato aggiornato per includere facoltativamente un parametro che specifica il database AD FS per cui generare uno script di distribuzione SQL. 
  
- Ad esempio, per generare lo script di distribuzione solo per il database di artefatto `-DatabaseType` , specificare il parametro e passare il valore "artefatto". Il parametro `-DatabaseType` facoltativo specifica il tipo di database ad FS e può essere impostato su: All (impostazione predefinita), artefatto o configurazione. Se non `-DatabaseType` viene specificato alcun parametro, lo script configurerà sia l'artefatto che gli script di configurazione.  
+ Ad esempio, per generare lo script di distribuzione solo per il database di artefatto, specificare il parametro `-DatabaseType` e passare il valore "artefatto". Il parametro facoltativo `-DatabaseType` specifica il tipo di database AD FS e può essere impostato su: All (impostazione predefinita), artefatto o Configuration. Se non viene specificato alcun parametro di `-DatabaseType`, lo script configurerà sia l'artefatto che gli script di configurazione.  
 
    ```PowerShell
    PS C:\> Export-AdfsDeploymentSQLScript -DestinationFolder <script folder where scripts will be created> -ServiceAccountName <domain\serviceaccount> -DatabaseType "Artifact" 
@@ -80,7 +82,7 @@ Lo script generato deve essere eseguito nel computer SQL per creare i database n
  Passare al file di configurazione del nodo AD FS e, nella sezione "Microsoft. IdentityServer. Service", aggiungere un punto di ingresso al ArtifactDB appena configurato. 
 
  >[!NOTE] 
- > artifactStore e connectionString sono valori con distinzione tra maiuscole e minuscole. Verificare che siano configurati correttamente. &lt;artifactStore connectionString = "data source = .\SQLInstance; Integrated Security = true; catalogo iniziale = AdfsArtifactStore"/&gt; 
+ > artifactStore e connectionString sono valori con distinzione tra maiuscole e minuscole. Verificare che siano configurati correttamente. &lt;artifactStore connectionString = "data source = .\SQLInstance; Integrated Security = true; Initial Catalog = AdfsArtifactStore"/&gt; 
 >
 >Utilizzare un valore dell'origine dati corrispondente alla connessione SQL.
 
@@ -105,11 +107,11 @@ Si consiglia di creare database di artefatto di failover nello stesso data cente
     
     Nel master aggiungere la voce seguente. Si noti che le tre chiavi fanno distinzione tra maiuscole e minuscole. 
 
-    &lt;useractivityfarmrole masterFQDN = [FQDN del primario selezionato] Master = "true"/&gt;
+    &lt;useractivityfarmrole masterFQDN = [FQDN del database primario selezionato] Master = "true"/&gt;
     
     Negli altri nodi aggiungere la voce seguente:
 
-   &lt;useractivityfarmrole masterFQDN = [FQDN del primario selezionato] Master = "false"/&gt;
+   &lt;useractivityfarmrole masterFQDN = [FQDN del database primario selezionato] Master = "false"/&gt;
  
     >[!NOTE] 
     >Poiché i database di più artefatti non sincronizzano i dati, i valori di ESL non verranno sincronizzati tra i database di artefatto.

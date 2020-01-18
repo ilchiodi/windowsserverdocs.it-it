@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/12/2016
-ms.openlocfilehash: 227d66dafffd67b0b2e4f67158498cf43c7b59f8
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: 10234611904a4ed5b58939d3fd5ca341221c073c
+ms.sourcegitcommit: 51e0b575ef43cd16b2dab2db31c1d416e66eebe8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75950364"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76259146"
 ---
 # <a name="protected-users-security-group"></a>Gruppo di sicurezza Utenti protetti
 
@@ -115,7 +115,7 @@ Le impostazioni non configurabili relative alla scadenza dei ticket di concessio
 Per altre informazioni, vedere [Come configurare gli account protetti](how-to-configure-protected-accounts.md).
 
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
-Sono disponibili due registri amministrativi per la risoluzione dei problemi relativi agli eventi correlati a Utenti protetti. Questi nuovi registri si trovano nel Visualizzatore eventi e sono disabilitati per impostazione predefinita. Sono disponibili nel percorso **Registri applicazioni e servizi\Microsoft\Windows\Microsoft\Autenticazione**.
+Sono disponibili due registri amministrativi per la risoluzione dei problemi relativi agli eventi correlati a Utenti protetti. Questi nuovi log si trovano in Visualizzatore eventi e sono disabilitati per impostazione predefinita e si trovano in **applicazioni e servizi Logs\Microsoft\Windows\Authentication**.
 
 |ID e registro eventi|Descrizione|
 |----------|--------|

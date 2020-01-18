@@ -14,12 +14,12 @@ manager: dongill
 ms.author: elizapo
 ms.date: 07/16/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: 54ed455955053ebb234864f827759385ecf3d3c5
-ms.sourcegitcommit: 73898afec450fb3c2f429ca373f6b48a74b19390
+ms.openlocfilehash: 8ab42d7781c547d516a51c89e9c8ecba0ff72ad6
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71935033"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75950436"
 ---
 # <a name="frequently-asked-questions-about-the-remote-desktop-clients"></a>Domande frequenti sui client Desktop remoto
 
@@ -67,7 +67,7 @@ Prendi nota del nome del PC visualizzato in **How to connect to this PC** (Come 
 Puoi concedere a utenti specifici l'autorizzazione per accedere al PC. A tale scopo, fai clic su **Select users that can remotely access this PC** (Seleziona gli utenti che possono accedere in remoto al PC).
 I membri del gruppo Administrators hanno accesso automaticamente.
 
-Per Windows 8.1, seguire le istruzioni per consentire le connessioni remote in [connettersi a un altro desktop mediante connessioni Desktop remoto](https://support.microsoft.com/en-us/help/17463/windows-7-connect-to-another-computer-remote-desktop-connection#1TC=windows-8).
+Per Windows 8.1, seguire le istruzioni per consentire le connessioni remote in [connettersi a un altro desktop mediante connessioni Desktop remoto](https://support.microsoft.com/help/17463/windows-7-connect-to-another-computer-remote-desktop-connection#1TC=windows-8).
 
 
 

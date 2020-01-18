@@ -8,12 +8,12 @@ ms.date: 09/19/2019
 ms.topic: article
 author: Heidilohr
 ms.localizationpriority: medium
-ms.openlocfilehash: 38f54548e8e68a0ee693c5d8ec80e67057b3d5b7
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 864a15d7336abb56572ddc783ce41a35d6fc13bf
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71387664"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75950414"
 ---
 # <a name="set-up-the-remote-desktop-web-client-for-your-users"></a>Configurare il client Web Desktop remoto per gli utenti
 
@@ -28,7 +28,7 @@ Prima di iniziare, tieni presente quanto segue:
 
 * Assicurati che la [distribuzione Desktop remoto](../rds-deploy-infrastructure.md) abbia un Gateway Desktop remoto, un Gestore connessione Desktop remoto e un server Accesso Web Desktop remoto in esecuzione in Windows Server 2016 o 2019.
 * Assicurati che la distribuzione sia configurata per le [licenze CAL Per Utente](../rds-client-access-license.md) anziché Per Dispositivo, altrimenti verranno usate tutte le licenze.
-* Installa l'[aggiornamento KB4025334 di Windows 10](https://support.microsoft.com/en-us/help/4025334/windows-10-update-kb4025334) nel Gateway Desktop remoto. Gli aggiornamenti cumulativi successivi potrebbero già includere tale aggiornamento KB.
+* Installa l'[aggiornamento KB4025334 di Windows 10](https://support.microsoft.com/help/4025334/windows-10-update-kb4025334) nel Gateway Desktop remoto. Gli aggiornamenti cumulativi successivi potrebbero già includere tale aggiornamento KB.
 * Assicurati che i certificati attendibili pubblici siano configurati per i ruoli Gateway Desktop remoto e Accesso Web Desktop remoto.
 * Assicurati che i computer a cui si connetteranno gli utenti eseguano una delle versioni di sistema operativo seguenti:
   * Windows 10
@@ -300,7 +300,7 @@ Se il problema persiste, è possibile che il nome server nell'URL del client Web
 Se l'utente segnala di non potersi connettere al client Web anche se può vedere elencate le risorse, verifica quanto segue:
 
 * Il ruolo Gateway Desktop remoto è configurato correttamente per l'uso di un certificato pubblico attendibile?
-* Nel server Gateway Desktop remoto sono installati gli aggiornamenti necessari? Assicurati che nel server sia installato l'[aggiornamento KB4025334](https://support.microsoft.com/en-us/help/4025334/windows-10-update-kb4025334).
+* Nel server Gateway Desktop remoto sono installati gli aggiornamenti necessari? Assicurati che nel server sia installato l'[aggiornamento KB4025334](https://support.microsoft.com/help/4025334/windows-10-update-kb4025334).
 
 Se l'utente tenta di connettersi e viene visualizzato un messaggio di errore per segnalare che "è stato ricevuto un certificato di autenticazione server imprevisto", il messaggio mostrerà l'identificazione personale del certificato. Cerca il gestore di certificati del server Gestore Desktop remoto usando tale identificazione personale per trovare il certificato corretto. Verifica che il certificato sia configurato per essere usato per il ruolo Gestore Desktop remoto nella pagina delle proprietà della distribuzione Desktop remoto. Dopo aver controllato che il certificato non sia scaduto, copialo sotto forma di file con estensione cer nel server Accesso Web Desktop remoto ed esegui il comando seguente nel server Accesso Web Desktop remoto con il valore tra parentesi angolari sostituito dal percorso del file del certificato:
 

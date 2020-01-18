@@ -9,12 +9,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: mas
-ms.openlocfilehash: 56e1c028a9b18db7b23e8f04e943e4113837b66b
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 16d711a288843163b134b0226ed4b8513d7070eb
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71407225"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75950050"
 ---
 # <a name="active-directory-administrative-tier-model"></a>Modello a livelli dell'amministrazione di Active Directory
 
@@ -139,7 +139,7 @@ A causa dell'elevato numero di risorse che dipendono dai sistemi di identità co
 
 ![Diagramma che mostra che è necessario ridurre il numero di sistemi da cui dipendono Active Directory e i controller di dominio](../media/securing-privileged-access-reference-material/PAW_RM_Fig010.JPG)
 
-Per altre informazioni sulla protezione avanzata dei rischi principali di Active Directory, vedere [questa pagina](http://aka.ms/hardenAD).
+Per altre informazioni sulla protezione avanzata dei rischi principali di Active Directory, vedere [questa pagina](https://aka.ms/hardenAD).
 
 ## <a name="operational-standards-based-on-clean-source-principle"></a>Standard operativi basati sul principio di origine pulita
 
@@ -168,12 +168,12 @@ Gli standard in questa sezione si presuppongono che l'organizzazione disponga de
 - Tutte le workstation da gestire eseguono Windows 7 o versione successiva e hanno abilitata la modalità RestrictedAdmin di RDP.
 
    > [!NOTE]
-   > Per abilitare la modalità RestrictedAdmin di RDP, vedere [questa pagina](http://aka.ms/RDPRA).
+   > Per abilitare la modalità RestrictedAdmin di RDP, vedere [questa pagina](https://aka.ms/RDPRA).
 
 - Le smart card sono disponibili e rilasciate per tutti gli account amministrativi.
 - *Builtin\Administrator* di ogni dominio è stato designato come un account di accesso di emergenza
 - Viene distribuita una soluzione di gestione dell'identità aziendale.
-- [LAPS](http://aka.ms/laps) è stato distribuito ai server e alle workstation per gestire la password dell'account amministratore locale
+- [LAPS](https://aka.ms/laps) è stato distribuito ai server e alle workstation per gestire la password dell'account amministratore locale
 - È disponibile una soluzione di Privileged Access Management, ad esempio Microsoft Identity Manager, o se ne adotterà una a breve.
 - È stato predisposto personale che si occupa del monitoraggio degli avvisi di protezione e della relativa risposta.
 - È disponibile la capacità tecnica per applicare rapidamente gli aggiornamenti sulla sicurezza di Microsoft.
@@ -314,7 +314,7 @@ Gli amministratori possono accedere alle proprie workstation solo con gli accoun
 > [!NOTE]
 > Ciò è necessario perché l'accesso a un host in modo interattivo concede il controllo delle credenziali a tale host.
 >
-> Vedere [Strumenti di amministrazione e tipi di accesso](http://aka.ms/admintoolsecurity) per informazioni dettagliate sui tipi di accesso, sugli strumenti di gestione comuni e sull'esposizione delle credenziali.
+> Vedere [Strumenti di amministrazione e tipi di accesso](https://aka.ms/admintoolsecurity) per informazioni dettagliate sui tipi di accesso, sugli strumenti di gestione comuni e sull'esposizione delle credenziali.
 
 ##### <a name="use-of-approved-support-technology-and-methods"></a>Uso della tecnologia di supporto approvata e metodi
 
@@ -330,7 +330,7 @@ Gli amministratori che supportano gli utenti e i sistemi remoti devono seguire q
 Assicurarsi che per questo scenario vengano applicate le procedure seguenti:
 
 - **Supporto del server remoto**: quando si accede in modalità remota un server, gli amministratori di livello 0 devono attenersi alle seguenti indicazioni:
-  - **Primario (strumento)** : strumenti remoti che sfruttano gli accessi alla rete (tipo 3). Per altre informazioni, vedere [Strumenti di amministrazione e tipi di accesso](http://aka.ms/admintoolsecurity).
+  - **Primario (strumento)** : strumenti remoti che sfruttano gli accessi alla rete (tipo 3). Per altre informazioni, vedere [Strumenti di amministrazione e tipi di accesso](https://aka.ms/admintoolsecurity).
   - **Primario (interattivo)** : usare RestrictedAdmin di RDP o una sessione RDP standard da una workstation amministrativa con un account di dominio
 
     > [!NOTE]
@@ -366,7 +366,7 @@ L'Help Desk e le organizzazioni di supporto degli utenti offrono assistenza agli
    - **Primario**: il supporto "Over The Shoulder" può essere fornito con nessuno strumento.
    - **Non consentito**: l'accesso con le credenziali amministrative dell'account di dominio non è consentito in questo scenario. Se sono necessari privilegi amministrativi, rivolgersi al supporto per workstation da parte dell'Help Desk.
 - **Supporto per l'utente remoto**: il personale di supporto di livello 2 è lontano fisicamente rispetto all'utente.
-   - **Primario**: è possibile usare l'assistenza remota, Skype for Business o una condivisione dello schermo dell'utente simile. Per altre informazioni, vedere [Cos'è l'assistenza remota Windows?](https://windows.microsoft.com/en-us/windows/what-is-windows-remote-assistance)
+   - **Primario**: è possibile usare l'assistenza remota, Skype for Business o una condivisione dello schermo dell'utente simile. Per altre informazioni, vedere [Cos'è l'assistenza remota Windows?](https://windows.microsoft.com/windows/what-is-windows-remote-assistance)
    - **Non consentito**: l'accesso con le credenziali amministrative dell'account di dominio non è consentito in questo scenario. Se sono necessari privilegi amministrativi, passare al supporto per workstation.
 - **Supporto per workstation**: le attività includono la manutenzione delle workstation o la risoluzione dei problemi che richiede l'accesso a un sistema per la visualizzazione dei registri, l'installazione di software, l'aggiornamento dei driver e così via.
    - **Supporto per workstation da parte dell'Help Desk**: il personale di supporto di livello 2 si trova fisicamente vicino alla workstation dell'utente.
@@ -489,7 +489,7 @@ Durante la progettazione di una foresta amministrativa è necessario tenere in c
 
 - **Protezione avanzata della workstation**: compilare le workstation amministrative mediante le [workstation amministrative con privilegi](../securing-privileged-access/privileged-access-workstations.md) (fase 3), ma modificare l'appartenenza al dominio alla foresta amministrativa anziché all'ambiente di produzione.
 - **Protezione avanzata dei controller di dominio e dei server**: per tutti i controller di dominio e i server nella foresta amministrativa:
-   - Verificare che tutti i supporti siano convalidati sulla base delle indicazioni riportate in [Origine pulita per i supporti di installazione](http://aka.ms/cleansource)
+   - Verificare che tutti i supporti siano convalidati sulla base delle indicazioni riportate in [Origine pulita per i supporti di installazione](https://aka.ms/cleansource)
    - Assicurarsi che i server della foresta amministrativa presentino i sistemi operativi più recenti, anche se questo non è fattibile nell'ambiente di produzione.
    - Gli host della foresta amministrativa devono essere aggiornati automaticamente con gli aggiornamenti della sicurezza.
 
@@ -523,7 +523,7 @@ Durante la progettazione di una foresta amministrativa è necessario tenere in c
    - Analisi della superficie di attacco per impedire l'introduzione di nuovi vettori di attacchi a Windows durante l'installazione del nuovo software.
 
       > [!NOTE]
-      > L'uso di strumenti, ad esempio l'[analizzatore della superficie di attacco (ASA)](https://www.microsoft.com/en-us/download/details.aspx?id=24487) consente di valutare le impostazioni di configurazione in un host e identificare i vettori degli attacchi dovuti a modifiche software o alla configurazione.
+      > L'uso di strumenti, ad esempio l'[analizzatore della superficie di attacco (ASA)](https://www.microsoft.com/download/details.aspx?id=24487) consente di valutare le impostazioni di configurazione in un host e identificare i vettori degli attacchi dovuti a modifiche software o alla configurazione.
 
 - Protezione avanzata dell'account
    - L'autenticazione a più fattori deve essere configurata per tutti gli account della foresta di amministrazione, ad eccezione di un account. Almeno un account amministrativo deve essere basato su password per garantire l'accesso anche nel caso in cui il processo di autenticazione a più fattori di elaborare le interruzioni si interrompe. Questo account deve essere protetto da un processo di controllo fisico rigoroso.
@@ -557,7 +557,7 @@ Le organizzazioni devono controllare e monitorare l'appartenenza a tutti i grupp
 - Controller di dominio di sola lettura
 - Proprietari autori criteri di gruppo
 - Operazioni di crittografia
-- Utenti DCOM
+- Distributed COM Users
 - Altri gruppi delegati: gruppi personalizzati che possono essere creati dall'organizzazione per gestire le operazioni di directory e che possono avere anche accesso al livello 0.
 
 ## <a name="administrative-tools-and-logon-types"></a>Strumenti di amministrazione e tipi di accesso
@@ -575,25 +575,25 @@ Questa tabella include istruzioni per gli strumenti di amministrazione e i metod
 |RUNAS/NETWORK|NewCredentials|v|Clona la sessione LSA corrente per l'accesso locale, ma usa le nuove credenziali quando ci si connette alle risorse di rete.|
 |Desktop remoto (esito positivo)|RemoteInteractive|v|Se il client Desktop remoto è configurato per la condivisione di dispositivi e risorse locali, anche questi possono risultare compromessi.|
 |Desktop remoto (errore: tipo di accesso negato)|RemoteInteractive|-|Per impostazione predefinita, se si verifica un errore durante l'accesso RDP le credenziali vengono archiviate solo brevemente. Ciò potrebbe non valere se il computer viene compromesso.|
-|Net use * \\\SERVER|Network|-||
-|Net use * \\\SERVER /u:utente|Network|-||
-|Snap-in MMC al computer remoto|Network|-|Esempio: gestione computer, visualizzatore eventi, dispositivo di gestione, servizi|
-|PowerShell WinRM|Network|-|Esempio: server Enter-PSSession|
+|Net use * \\\SERVER|Rete|-||
+|Net use * \\\SERVER /u:utente|Rete|-||
+|Snap-in MMC al computer remoto|Rete|-|Esempio: gestione computer, visualizzatore eventi, dispositivo di gestione, servizi|
+|PowerShell WinRM|Rete|-|Esempio: server Enter-PSSession|
 |PowerShell WinRM con CredSSP|NetworkClearText|v|Server New-PSSession<br />-Credssp di autenticazione<br />-Credenziale Credential|
-|PsExec senza credenziali esplicite|Network|-|Esempio: PsExec \\\server cmd|
+|PsExec senza credenziali esplicite|Rete|-|Esempio: PsExec \\\server cmd|
 |PsExec con credenziali esplicite|Rete + interattivo|v|PsExec \\\server -u utente -p pwd cmd<br />Crea più sessioni di accesso.|
-|Registro di sistema remoto|Network|-||
-|Gateway Desktop remoto|Network|-|Autenticazione a Gateway Desktop remoto.|
+|Registro di sistema remoto|Rete|-||
+|Gateway Desktop remoto|Rete|-|Autenticazione a Gateway Desktop remoto.|
 |Attività pianificata|Batch|v|La password verrà salvata anche come segreto LSA sul disco.|
 |Eseguire gli strumenti come un servizio|Servizio|v|La password verrà salvata anche come segreto LSA sul disco.|
-|Scanner delle vulnerabilità|Network|-|Per impostazione predefinita la maggior parte degli scanner usa gli accessi alla rete, anche se alcuni fornitori possono implementare gli accessi non alla rete e introdurre ulteriori rischi di furto delle credenziali.|
+|Scanner delle vulnerabilità|Rete|-|Per impostazione predefinita la maggior parte degli scanner usa gli accessi alla rete, anche se alcuni fornitori possono implementare gli accessi non alla rete e introdurre ulteriori rischi di furto delle credenziali.|
 
 Per l'autenticazione Web, usare il riferimento dalla tabella riportata di seguito:
 
 |Metodo di connessione|Tipo di accesso|Credenziali riusabili nella destinazione|Commenti|
 |-----------|-------|--------------------|------|
 |"Autenticazione di base" di IIS|NetworkClearText<br />(IIS 6.0+)<br /><br />Interactive (Interattivo)<br />(precedente a IIS 6.0)|v||
-|"Autenticazione integrata di Windows" di IIS|Network|-|Provider Kerberos e NTLM.|
+|"Autenticazione integrata di Windows" di IIS|Rete|-|Provider Kerberos e NTLM.|
 
 Definizioni delle colonne:
 
@@ -615,7 +615,7 @@ In computer basati su Windows, tutte le autenticazioni vengono elaborate come un
 |Tipo di accesso|#|Autenticatori accettati|Credenziali riusabili nella sessione LSA|Esempi|
 |-------|---|--------------|--------------------|------|
 |Interattivo (anche noto come accesso locale)|2|Password, smart card,<br />altro|Sì|Accesso alla console;<br />RUNAS;<br />Soluzioni di controllo remoto dell'hardware (ad esempio KVM di rete o accesso remoto/scheda Lights-Out nel server)<br />Autenticazione di base di IIS (prima di IIS 6.0)|
-|Network|3|Password,<br />hash NT,<br />ticket Kerberos|No (eccetto se è abilitata la delega, quindi il ticket Kerberos è presente)|NET USE;<br />Chiamate RPC;<br />Registro di sistema remoto;<br />Autenticazione integrata di Windows di IIS;<br />Autenticazione di Windows SQL;|
+|Rete|3|Password,<br />hash NT,<br />ticket Kerberos|No (eccetto se è abilitata la delega, quindi il ticket Kerberos è presente)|NET USE;<br />Chiamate RPC;<br />Registro di sistema remoto;<br />Autenticazione integrata di Windows di IIS;<br />Autenticazione di Windows SQL;|
 |Batch|4|Password (in genere archiviata come segreto LSA)|Sì|Attività pianificate|
 |Servizio|5|Password (in genere archiviata come segreto LSA)|Sì|Servizi Windows|
 |NetworkClearText|8|Password|Sì|Autenticazione di base di IIS (IIS 6.0 e versioni successive);<br />Windows PowerShell con CredSSP|
