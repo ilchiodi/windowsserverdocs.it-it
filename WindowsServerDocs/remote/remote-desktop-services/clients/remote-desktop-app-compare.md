@@ -39,7 +39,7 @@ Se si accede in remoto al desktop personale, è possibile configurare altri rein
 |-------------|-------------------------------|-----------|---------|-----|-------|-------------------------------|
 |  Tastiera   |               X               |     X     |    X    |  X  |   X   |               X               |
 |    Mouse    |               X               |     X     |    X    | X\* |   X   |               X               |
-|    Tocco    |               X               |     X     |    X    |  X  |       | X (Edge e Internet Explorer non supportati) |
+|    Tocco    |               X               |     X     |    X    |  X  |       | X (Microsoft Edge e Internet Explorer non supportati) |
 |    Altro    |              Penna              |           |         |     |       |                               |
 
 *Vedere l'[elenco dei dispositivi di input supportati per il client Desktop remoto iOS beta](remote-desktop-ios.md#supported-input-devices).

@@ -191,7 +191,7 @@ netsh http delete urlacl url=https://+:443/
 
 ## <a name="azure-features-dont-work-properly-in-edge"></a>Le funzionalità di Azure non funzionano correttamente in Microsoft Edge
 
-Edge presenta [problemi noti](https://github.com/AzureAD/azure-activedirectory-library-for-js/wiki/Known-issues-on-Edge) relativi alle aree di sicurezza che influiscono sull'accesso di Azure nell'interfaccia di amministrazione di Windows. Se si verificano problemi durante l'uso delle funzionalità di Azure quando si usa Edge, provare ad aggiungere https://login.microsoftonline.com, https://login.live.com e l'URL del gateway come siti attendibili e ai siti consentiti per le impostazioni del blocco popup perimetrale sul browser lato client. 
+Microsoft Edge presenta [problemi noti](https://github.com/AzureAD/azure-activedirectory-library-for-js/wiki/Known-issues-on-Microsoft Edge) relativi alle aree di sicurezza che influiscono sull'accesso di Azure nell'interfaccia di amministrazione di Windows. Se si verificano problemi durante l'uso delle funzionalità di Azure quando si usa Microsoft Edge, provare ad aggiungere https://login.microsoftonline.com, https://login.live.com e l'URL del gateway come siti attendibili e ai siti consentiti per le impostazioni del blocco popup perimetrale sul browser lato client. 
 
 A tale scopo, effettua le seguenti operazioni:
 1. Cerca **Opzioni Internet** nel menu Start di Windows

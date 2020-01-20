@@ -36,7 +36,7 @@ I metadati "Tags" nel file con estensione NuSpec vengono usati per dichiarare il
 Supponiamo di aver sviluppato un'estensione che supporta I server di una società denominata Contoso Inc., con il nome del modello R3xx e R4xx.
 
 1. Il tag per il produttore verrebbe ``"Manufacturer_/Contoso Inc./"``. Il tag per i modelli potrebbe essere ``"Model_/^R[34][0-9]{2}$/"``. A seconda del modo in cui si desidera definire la condizione di corrispondenza, sono disponibili diversi modi per definire l'espressione regolare. È anche possibile separare i tag del produttore o del modello in più tag. ad esempio, il tag del modello potrebbe essere ``"Model_/R3../ Model_/R4../"``.
-2. È possibile testare l'espressione regolare con la console DevTools del Web browser. In Edge o Chrome premere F12 per aprire la finestra DevTools e nella scheda console digitare quanto segue e premere INVIO:
+2. È possibile testare l'espressione regolare con la console DevTools del Web browser. In Microsoft Edge o Chrome premere F12 per aprire la finestra DevTools e nella scheda console digitare quanto segue e premere INVIO:
 
    ```javascript
    var regex = /^R[34][0-9]{2}$/
