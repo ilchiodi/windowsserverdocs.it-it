@@ -9,12 +9,12 @@ ms.author: iainfou
 ms.topic: get-started-article
 ms.localizationpriority: high
 ms.date: 12/16/2019
-ms.openlocfilehash: a5af1ad5a730f1dc90111734a9b8b1aacc91201b
-ms.sourcegitcommit: bfe9c5f7141f4f2343a4edf432856f07db1410aa
+ms.openlocfilehash: 83ab3663b2c03017ba1bf613a49c394be0511002
+ms.sourcegitcommit: b649047f161cb605df084f18b573f796a584753b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75466344"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76162502"
 ---
 # <a name="how-to-use-windows-server-2008-and-2008-r2-extended-security-updates-esu"></a>Come usare gli aggiornamenti di sicurezza estesi per Windows Server 2008 e 2008 R2
 
@@ -49,6 +49,17 @@ Per usare gli aggiornamenti di sicurezza estesi, è necessario creare un codice 
 
 > [!NOTE]
 > Se esegui VM Windows Server 2008/2008 R2 in Azure, non è necessario completare i passaggi seguenti. Le VM di Azure vengono automaticamente abilitate per gli aggiornamenti di sicurezza estesi. Con le VM di Azure, non è necessario creare una risorsa e una chiave per gli aggiornamenti di sicurezza estesi e non sono previsti costi aggiuntivi per il relativo uso.
+
+> [!NOTE]
+> Prima di eseguire la procedura che segue, invia un messaggio di posta elettronica a [winsvresuchamps@microsoft.com](mailto:winsvresuchamps@microsoft.com) con queste informazioni da approvare e aggiungere all'elenco elementi consentiti:
+> * Nome cliente:
+> * Sottoscrizione di Azure:
+> * Numero di contratto EA (per gli aggiornamenti di sicurezza estesi):
+> * Numero di server per gli aggiornamenti di sicurezza estesi:
+> 
+> Il team esaminerà le informazioni fornite e aggiungerà l'utente e la sottoscrizione all'elenco elementi consentiti.
+> 
+> Se il richiedente non è incluso nell'elenco elementi consentiti, può verificarsi l'errore seguente: [Non è possibile trovare il tipo di risorsa nello spazio dei nomi 'Microsoft.WindowsESU'](https://social.msdn.microsoft.com/Forums/office/94b16a89-3149-43da-865d-abf7dba7b977/the-resource-type-could-not-be-found-in-the-namespace-microsoftwindowsesu-for-api-version).
 
 Per registrare VM non di Azure per gli aggiornamenti di sicurezza estesi e creare una chiave, completa la procedura seguente nel portale di Azure:
 

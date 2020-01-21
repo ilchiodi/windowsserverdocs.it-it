@@ -8,12 +8,12 @@ author: jasongerend
 ms.author: jgerend
 ms.localizationpriority: high
 ms.date: 05/21/2019
-ms.openlocfilehash: 814bcf3e989e9aa9b83ba447d07c45ee95309a5a
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 3d443ff123cc041196f59d93d156415c34bdf70f
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71391978"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75947875"
 ---
 # <a name="windows-server-servicing-channels-ltsc-and-sac"></a>Canali di manutenzione di Windows Server: LTSC e Canale semestrale
 
@@ -36,7 +36,7 @@ Il Canale semestrale è ideale per i clienti che desiderano introdurre le innova
 
 La maggior parte delle funzionalità introdotte nel Canale semestrale verrà inclusa nella versione successiva del Long-Term Servicing Channel di Windows Server. Le edizioni, le funzionalità e il contenuto di supporto possono variare da una versione all'altra in base al feedback dei clienti.
 
-Il Canale semestrale sarà disponibile per i clienti con contratti multilicenza con [Software Assurance](https://www.microsoft.com/en-us/licensing/licensing-programs/software-assurance-default.aspx), nonché tramite Azure Marketplace o altri provider di servizi cloud/di hosting e programmi fedeltà come Sottoscrizioni di Visual Studio.
+Il Canale semestrale sarà disponibile per i clienti con contratti multilicenza con [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default.aspx), nonché tramite Azure Marketplace o altri provider di servizi cloud/di hosting e programmi fedeltà come Sottoscrizioni di Visual Studio.
 
 > [!Note]  
 > **La versione corrente del Canale semestrale è Windows Server versione 1903**. Se vuoi inserire i server in questo canale, devi installare Windows Server versione 1903, che può essere installato in modalità componenti di base del server o come Nano Server in un contenitore. Gli aggiornamenti sul posto da una versione Long-Term Servicing Channel non sono supportati in quanto sono inclusi in **canali di rilascio diversi**. Le versioni del Canale semestrale non sono aggiornamenti, ma corrispondono alla versione successiva di Windows Server.
@@ -72,7 +72,7 @@ Sia le versioni del Long-Term Servicing Channel sia quelle del Canale semestrale
 
 ### <a name="servicing-tools"></a>Strumenti di manutenzione
 
-Esistono molti strumenti con cui i professionisti IT possono eseguire la manutenzione di Windows Server. Ogni opzione presenta vantaggi e svantaggi, sia a livello di funzionalità che di controllo oppure di semplicità e requisiti limitati per l'amministrazione. Ecco alcuni esempi di strumenti di manutenzione disponibili per gestire gli aggiornamenti di manutenzione:
+Esistono molti strumenti con cui i professionisti IT possono eseguire la manutenzione di Windows Server. Ogni opzione presenta vantaggi e svantaggi, sia a livello di funzionalità e controllo sia a livello di semplicità e requisiti di amministrazione non elevati. Ecco alcuni esempi di strumenti di manutenzione disponibili per gestire gli aggiornamenti di manutenzione:
 
 - **Windows Update (autonomo)** : questa opzione è disponibile solo per i server connessi a Internet e in cui è abilitato Windows Update.
 - **Windows Server Update Services (WSUS)** consente un controllo esteso degli aggiornamenti di Windows 10 e Windows Server ed è disponibile in modalità nativa nel sistema operativo Windows Server. Oltre alla possibilità di rinviare gli aggiornamenti, le organizzazioni possono aggiungere un livello di approvazione per gli aggiornamenti e scegliere di distribuirli in computer o gruppi di computer specifici quando sono pronti.
@@ -84,9 +84,9 @@ Probabilmente hai già scelto di usare almeno una di queste opzioni in base alle
 
 Le versioni del Canale semestrale devono essere installate con un'installazione pulita.
 
-- Volume Licensing Service Center (VLSC): i clienti che dispongono di contratti multilicenza con [Software Assurance](https://www.microsoft.com/en-us/licensing/licensing-programs/software-assurance-default.aspx) possono ottenere questa versione da [Volume Licensing Service Center](https://www.microsoft.com/Licensing/servicecenter/default.aspx) e facendo clic su **Sign In** (Accedi). Possono quindi fare clic su **Downloads and Keys** (Download e chiavi) e cercare questa versione. 
+- Volume Licensing Service Center (VLSC): i clienti che dispongono di contratti multilicenza con [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default.aspx) possono ottenere questa versione da [Volume Licensing Service Center](https://www.microsoft.com/Licensing/servicecenter/default.aspx) e facendo clic su **Sign In** (Accedi). Possono quindi fare clic su **Downloads and Keys** (Download e chiavi) e cercare questa versione. 
 
-- Le versioni del Canale semestrale sono disponibili anche in [Microsoft Azure](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.WindowsServer?tab=Overview).
+- Le versioni del Canale semestrale sono disponibili anche in [Microsoft Azure](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.WindowsServer?tab=Overview).
 
 - Sottoscrizioni di Visual Studio: i sottoscrittori di Visual Studio possono ottenere le versioni del canale semestrale scaricandole dalla [pagina di download per i sottoscrittori di Visual Studio](https://my.visualstudio.com/downloads?pid=2347). Se non sei già un sottoscrittore, passa a [Sottoscrizioni di Visual Studio](https://www.visualstudio.com/subscriptions/) per registrarti e quindi visita la [pagina di download per i sottoscrittori di Visual Studio](https://my.visualstudio.com/downloads?pid=2347) come indicato in precedenza. Le versioni ottenute tramite le sottoscrizioni di Visual Studio sono esclusivamente a scopo di sviluppo e test.
 
@@ -171,7 +171,7 @@ Name    :     ServerCore.AppCompatibility~~~~0.0.1.0
 State   :     Installed
 ````
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 
 [Modifiche apportate a Nano Server nel Canale semestrale di Windows Server](../get-started/nano-in-semi-annual-channel.md)
 

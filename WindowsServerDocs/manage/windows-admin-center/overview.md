@@ -5,37 +5,49 @@ ms.technology: manage
 ms.topic: article
 author: nwashburn-ms
 ms.author: niwashbu
-ms.date: 09/18/2019
+ms.date: 01/07/2020
 ms.localizationpriority: high
 ms.prod: windows-server
-ms.openlocfilehash: 37be666643dee4e5b9051ae29562a86b23fb71f7
-ms.sourcegitcommit: 7c7fc443ecd0a81bff6ed6dbeeaf4f24582ba339
+ms.openlocfilehash: 7b3a75258086a73fbd618c2e8221454d7e616556
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/07/2019
-ms.locfileid: "74903963"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75949994"
 ---
 # <a name="windows-admin-center"></a>Windows Admin Center
 
 > Si applica a: Windows Admin Center, Windows Admin Center Preview
 
-**Windows Admin Center** (in precedenza noto con il nome in codice **Project Honolulu**) è un'evoluzione degli strumenti di gestione predefiniti di Windows Server. Si tratta di un'unica interfaccia che consolida tutti gli aspetti della gestione locale e remota dei server. In quanto esperienza di gestione basata su browser e distribuita localmente, non sono necessari una connessione Internet e Azure. Windows Admin Center ti offre il controllo completo di tutti gli aspetti della distribuzione, incluse le reti private non connesse a Internet.
+Windows Admin Center è un'app distribuita in locale e basata su browser che consente di gestire server, cluster e infrastruttura iperconvergente Windows, nonché PC Windows 10. Non prevede costi aggiuntivi rispetto a Windows ed è pronta per essere usata in produzione.
 
-## <a name="introduction"></a>Introduzione
+Per scoprire le novità, vedi [Cronologia delle versioni](support/release-history.md).
 
->[!VIDEO https://www.youtube.com/embed/PcQj6ZklmK0]
+## <a name="download-now"></a>Scarica ora
 
-![Infografica di Windows Admin Center](media/WAC1910Poster_thumb.PNG)
+**Scarica [Windows Admin Center](https://www.microsoft.com/evalcenter/evaluate-windows-admin-center)** da Microsoft Evaluation Center. Anche se viene visualizzato il messaggio "Avvia la valutazione", la versione è quella disponibile a livello generale per l'uso in produzione inclusa nella tua licenza di Windows o Windows Server.
+
+Per informazioni sull'installazione, vedi [Installare](deploy/install.md). Per suggerimenti su come iniziare a usare Windows Admin Center , vedi [Attività iniziali](use/get-started.md).
+
+Puoi aggiornare le versioni non di anteprima di Windows Admin Center tramite Microsoft Update oppure con il download e l'installazione manuali di Windows Admin Center. Ogni versione non di anteprima di Windows Admin Center è supportata per altri 30 giorni dopo il rilascio della versione non di anteprima successiva. Per altre info, vedi i [criteri di supporto](support/index.md).
+
+## <a name="windows-admin-center-scenarios"></a>Scenari di Windows Admin Center
+
+Ecco alcuni dei vantaggi offerti da Windows Admin Center:
+
+|     |     |
+| --- | --- |
+| ![](media/simple-icon.png)| **Semplificare la gestione dei server** <br/> Puoi gestire i server e i cluster con versioni più moderne di strumenti conosciuti, ad esempio Server Manager. Esegui l'installazione in meno di 5 minuti e comincia subito a gestire i server nel tuo ambiente, senza configurare la destinazione. Per informazioni dettagliate, vedi [Che cos'è Windows Admin Center?](understand/what-is.md) |
+| ![](media/future-icon.png)| **Usare soluzioni ibride** <br/> L'integrazione con Azure ti permette di connettere facoltativamente i server locali con servizi cloud pertinenti. Per informazioni dettagliate, vedi [Servizi ibridi di Azure](azure/index.md). |
+| ![](media/secure-icon.png)| **Ottimizzare la gestione iperconvergente** <br/> Puoi ottimizzare la gestione dei cluster iperconvergenti Azure Stack HCI o Windows Server. Usa carichi di lavoro semplificati per creare e gestire macchine virtuali, volumi di Spazi di archiviazione diretta, Software-Defined Networking e altro ancora. Per informazioni dettagliate, vedi [Gestire l'infrastruttura iperconvergente con Windows Admin Center](use/manage-hyper-converged.md)|
+
+Il video seguente fornisce una panoramica ed è seguito da un poster contenente altri dettagli:
+>[!VIDEO https://www.youtube.com/embed/WCWxAp27ERk]
+
+[![Poster di Windows Admin Center](media/WAC1910Poster_thumb_small.PNG)](media/WAC1910Poster_thumb.png)
 
 [Scarica il PDF](https://github.com/MicrosoftDocs/windowsserverdocs/raw/master/WindowsServerDocs/manage/windows-admin-center/media/WindowsAdminCenter1910Poster.pdf)
 
-## <a name="quick-start"></a>Avvio rapido
-
-Puoi rendere operativo Windows Admin Center nel tuo ambiente in pochi minuti:
-
-1. [Download](https://aka.ms/windowsadmincenter)
-2. [Installa](deploy/install.md)
-3. [Per iniziare](use/get-started.md)
 
 ## <a name="contents-at-a-glance"></a>Contenuto in breve
 
@@ -49,11 +61,10 @@ Puoi rendere operativo Windows Admin Center nel tuo ambiente in pochi minuti:
             <li><a href="understand/faq.md">Domande frequenti</a>
             <li><a href="understand/case-studies.md">Case study</a>
             <li><a href="understand/related-management.md">Prodotti di gestione correlati</a>
-            <li><a href="understand/videos.md">Video</a>
             </ul>
         </td>
         <td style="vertical-align: top;">
-            <h3>Pianificazione</h3>
+            <h3>Pianificare</h3>
             <ul>
             <li><a href="plan/installation-options.md">Che tipo di installazione è adatto alle tue esigenze?</a>
             <li><a href="plan/user-access-options.md">Opzioni di accesso dell'utente</a>
@@ -63,7 +74,7 @@ Puoi rendere operativo Windows Admin Center nel tuo ambiente in pochi minuti:
     </tr>
     <tr>
         <td style="vertical-align: top;">
-            <h3>Distribuisci</h3>
+            <h3>Distribuire</h3>
             <ul>
             <li><a href="deploy/prepare-environment.md">Preparare l'ambiente</a>
             <li><a href="deploy/install.md">Installare Windows Admin Center</a>
@@ -108,6 +119,7 @@ Puoi rendere operativo Windows Admin Center nel tuo ambiente in pochi minuti:
             <td style="vertical-align: top;">
             <h3>Supporto</h3>
             <ul>
+            <li><a href="support/release-history.md">Cronologia delle versioni</a>
             <li><a href="support/index.md">Criteri di supporto</a>
             <li><a href="support/troubleshooting.md">Passaggi di risoluzione dei problemi comuni</a>
             <li><a href="support/known-issues.md">Problemi noti</a>
@@ -127,35 +139,51 @@ Puoi rendere operativo Windows Admin Center nel tuo ambiente in pochi minuti:
 
 </table>
 
-## <a name="release-history"></a>Cronologia delle versioni
+## <a name="video-based-learning"></a>Apprendimento basato su video
 
-Informazioni sulle ultime funzionalità rilasciate:
+Ecco alcuni video tratti dalle sessioni di Microsoft Ignite 2019:
 
-- Versione [1910](https://aka.ms/wac1910), ovvero la versione disponibile a livello generale più recente: introduzione di alcuni nuovi servizi ibridi di Azure e aggiunta di nuove funzionalità che in precedenza erano in anteprima per il canale di disponibilità a livello generale.
-- Versione [1909](https://aka.ms/wac1909): introduzione del tipo di connessione specifico delle macchine virtuali di Azure e unione dei tipi di connessione per i cluster di failover tradizionali e i cluster HCI.
-- Versione [1908](https://aka.ms/wac1908): aggiunta di aggiornamenti visivi, Packetmon, FlowLog Audit, onboarding di Monitoraggio di Azure per i cluster e supporto per WinRM su HTTPS (porta 5986).
-- Versione [1907](https://aka.ms/wac1907): aggiunta di collegamenti per la stima dei costi di Azure e miglioramenti apportati alle attività di importazione/esportazione e all'aggiunta di tag per le macchine virtuali.
-- Versione [1906](https://aka.ms/wac1906): aggiunta di attività di importazione/esportazione di macchine virtuali, cambio di account di Azure, connessioni da Azure, esperimenti con le impostazioni di connettività, miglioramenti delle prestazioni e strumento di profilatura delle prestazioni.
-- La versione 1904.1 era un aggiornamento di manutenzione per migliorare la stabilità dei plug-in di gateway.
-- La versione [1904](https://aka.ms/wac1904) era una versione disponibile a livello generale in cui è stato introdotto lo strumento dei servizi ibridi di Azure e sono state incluse funzionalità precedentemente in anteprima per il canale disponibile a livello generale.
-- Versione [1903](https://aka.ms/wac1903): aggiunta delle notifiche tramite posta elettronica da Monitoraggio di Azure, della possibilità di aggiungere connessioni server o PC da Active Directory e di nuovi strumenti per gestire Active Directory, DHCP e DNS.
-- Versione [1902](https://aka.ms/wac1902): aggiunta di un elenco di connessioni condivise e miglioramenti per la gestione di reti software-defined (SDN), inclusi nuovi strumenti SDN per gestire gli ACL, le connessioni gateway e le reti logiche.
-- Versione [1812](https://aka.ms/wac1812): aggiunta del tema scuro (in anteprima), impostazioni di configurazione di risparmio energia, info BMC e supporto di PowerShell per gestire [estensioni](./configure/using-extensions.md#manage-extensions-with-powershell) e [connessioni](./use/get-started.md#use-powershell-to-import-or-export-your-connections-with-tags).
-- La versione [1809.5](https://aka.ms/wac1809.5) era un aggiornamento cumulativo disponibile a livello generale che includeva vari miglioramenti qualitativi e funzionali, correzioni di bug in tutta la piattaforma e alcune nuove funzionalità nella soluzione di gestione dell'infrastruttura iperconvergente.
-- La versione [1809](https://cloudblogs.microsoft.com/windowsserver/2018/09/20/windows-admin-center-1809-and-sdk-now-generally-available/) era una versione disponibile a livello generale in cui sono state introdotte funzionalità precedentemente in anteprima per il canale di disponibilità a livello generale.
-- Versione [1808](https://aka.ms/WACPreview1808-InsiderBlog): aggiunta dello strumento App installate, numerosi miglioramenti dietro le quinte e importanti aggiornamenti all'SDK in anteprima.
-- Versione [1807](https://aka.ms/WACPreview1807-InsiderBlog): aggiunta di un'esperienza semplificata per la connessione ad Azure, miglioramenti alla pagina di inventario della macchina virtuale, funzionalità di condivisione file, integrazione della gestione degli aggiornamenti di Azure e altro ancora. 
-- Versione [1806](https://aka.ms/WACPreview1806-InsiderBlog): aggiunta dello script di PowerShell show, gestione SDN, connessioni 2008 R2, SDN, attività pianificate e molti altri miglioramenti.
-- Versione 1804.25: aggiornamento di manutenzione per supportare gli utenti che installano Windows Admin Center in ambienti completamente offline.
-- Versione [1804](https://cloudblogs.microsoft.com/windowsserver/2018/04/12/announcing-windows-admin-center-our-reimagined-management-experience/): Project Honolulu diventa Windows Admin Center e aggiunge funzionalità di sicurezza e controllo degli accessi in base al ruolo. Prima versione disponibile a livello generale.
-- Versione [1803](https://blogs.windows.com/windowsexperience/2018/03/13/announcing-project-honolulu-technical-preview-1803-and-rsat-insider-preview-for-windows-10): aggiunta del supporto per il controllo dell'accesso di Azure AD, registrazione dettagliata, contenuto ridimensionabile e una serie di miglioramenti agli strumenti.
-- Versione [1802](https://blogs.windows.com/windowsexperience/2018/02/13/announcing-windows-server-insider-preview-build-17093-project-honolulu-technical-preview-1802): aggiunta del supporto per accessibilità, localizzazione, distribuzioni a disponibilità elevata, aggiunta di tag, impostazioni host Hyper-V e autenticazione gateway.
-- Versione [1712](https://blogs.windows.com/windowsexperience/2017/12/19/announcing-project-honolulu-technical-preview-1712-build-05002): aggiunta di altre funzionalità per le macchine virtuali e miglioramenti delle prestazioni per tutti gli strumenti.
-- Versione [1711](https://cloudblogs.microsoft.com/windowsserver/2017/12/01/1711-update-to-project-honolulu-technical-preview-is-now-available/): aggiunta di strumenti a lungo attesi (Desktop remoto e PowerShell) e altri miglioramenti.
-- La versione [1709](https://cloudblogs.microsoft.com/windowsserver/2017/09/22/project-honolulu-technical-preview-is-now-available-for-download/) è stata lanciata come prima versione in anteprima pubblica.
+- [Windows Admin Center: tutti i vantaggi per gli scenari ibridi di Azure](https://aka.ms/WAC-BRK3165)
+- [Windows Admin Center: novità e sviluppi futuri](https://aka.ms/WAC-BRK2048)
+- [Monitorare, proteggere e aggiornare automaticamente i server locali da Azure con Windows Admin Center](https://aka.ms/WAC-THR2146)
+- [Ottenere di più con le estensioni di terze parti di Windows Admin Center](https://aka.ms/WAC-THR2140)
+- [Diventare esperti di Windows Admin Center: procedure consigliate per la distribuzione, la configurazione e la sicurezza](https://aka.ms/WAC-THR2135)
+- [Windows Admin Center: risultati migliori grazie all'integrazione con System Center e Microsoft Azure](https://aka.ms/WAC-THR2176)
+- [Come usare i servizi ibridi di Microsoft Azure con Windows Admin Center e Windows Server](https://aka.ms/WAC-THR2073)
+- [Domande e risposte in diretta: gestire l'ambiente server ibrido con Windows Admin Center](https://aka.ms/WAC-MLS1055)
+- [Percorso di apprendimento: tecnologie di gestione ibride](https://aka.ms/WAC-HybridMgmtTech)
+- [Esercitazione pratica: Windows Admin Center e ambienti ibridi](https://aka.ms/WAC-HOL2019)
+
+Ecco alcuni video tratti dalle sessioni di Windows Server Summit 2019:
+
+- [Gestire un ambiente ibrido con Windows Admin Center](https://aka.ms/WAC-WSS2019-GoHybridWAC)
+- [Novità di Windows Admin Center v1904](https://aka.ms/WAC-WSS2019-WhatsNewv1904)
+
+Ecco, infine, alcune risorse aggiuntive:
+
+- [Gestione dei server ridefinita con Windows Admin Center](https://aka.ms/WAC-ServerMgmtReimagined)
+- [Gestire server e macchine virtuali ovunque con Windows Admin Center](https://aka.ms/WAC-Webinar2019)
+- [Come iniziare a usare Windows Admin Center](https://www.youtube.com/embed/PcQj6ZklmK0)
+
+## <a name="see-how-customers-are-benefitting-from-windows-admin-center"></a>Scopri i vantaggi che i clienti stanno ottenendo da Windows Admin Center
+
+|     |
+| --- |
+| "[Windows Admin Center] ci ha permesso di ridurre di oltre il 75% il tempo e le risorse necessarie per amministrare il sistema di gestione."<br> *- Rand Morimoto, presidente, Convergent Computing* |
+| "Con [Windows Admin Center], possiamo gestire senza problemi i nostri clienti in remoto dal portale HTML5 e, grazie all'integrazione completa con Azure Active Directory, rafforzare la sicurezza tramite Multi-Factor Authentication."<br/> *- Silvio Di Benedetto, fondatore e consulente senior, Inside Technologies* |
+| "Siamo stati in grado di distribuire le SKU [componenti di base del server] in modo più efficace, migliorando l'efficienza, la sicurezza e l'automazione delle risorse e, al contempo, raggiungendo un livello elevato di produttività e riducendo gli errori che possono verificarsi con i processi basati sugli script." <br/> *- Guglielmo Mengora, fondatore e CEO, VaiSulWeb* |
+| "Con [Windows Admin Center], i clienti, in particolare nel settore delle PMI, hanno ora a disposizione uno strumento di facile utilizzo per gestire l'infrastruttura interna. L'impegno amministrativo, in termini di risorse e di tempo, risulta così ridotto. Ma, soprattutto, l'utilizzo di [Windows Admin Center] non prevede costi di licenza aggiuntivi!" <br/> *- Helmut Otto, amministratore delegato, SecureGUARD* |
+
+[Altre info sulle aziende che usano Windows Admin Center nei propri ambienti di produzione.](understand/case-studies.md)
+
+## <a name="related-products"></a>Prodotti correlati
+
+Windows Admin Center è progettato per la gestione di un singolo server o cluster. Integra, ma non sostituisce, le soluzioni Microsoft di monitoraggio e gestione esistenti, come Strumenti di amministrazione remota del server, System Center, Intune o Azure Stack.
+
+[Scopri come Windows Admin Center si integra con le altre soluzioni di gestione Microsoft.](understand/related-management.md)
 
 ## <a name="stay-updated"></a>Resta sempre aggiornato
 
-![ ](//img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/imageFileData/REOolR)[Seguici su Twitter](https://twitter.com/servermgmt)
+![](//img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/imageFileData/REOolR)[Seguici su Twitter](https://twitter.com/servermgmt)
 
-![ ](//img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/imageFileData/REOtyw)[Leggi i blog Microsoft](https://blogs.technet.microsoft.com/servermanagement/)
+![](//img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/imageFileData/REOtyw)[Leggi i blog Microsoft](https://blogs.technet.microsoft.com/servermanagement/)
