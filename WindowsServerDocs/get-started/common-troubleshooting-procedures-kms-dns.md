@@ -8,12 +8,12 @@ ms.assetid: ''
 author: Teresa-Motiv
 ms.author: v-tea
 ms.localizationpriority: medium
-ms.openlocfilehash: 3165c926c50c2f91544895e0d328f1dae7424b4a
-ms.sourcegitcommit: b7f55949f166554614f581c9ddcef5a82fa00625
+ms.openlocfilehash: 17d4dc0ce531327db21d660481386fcc56498ae3
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72588033"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75948280"
 ---
 # <a name="guidelines-for-troubleshooting-dns-related-activation-issues"></a>Linee guida per la risoluzione dei problemi di attivazione correlati al DNS
 
@@ -24,10 +24,10 @@ Potrebbe essere necessario usare alcuni di questi metodi se una o più delle con
    - Windows Server 2016
    - Windows Server 2012 R2
    - Windows Server 2012
-   - Windows Server 2008 R2
+   - Windows Server 2008 R2
    - Windows Server 2008
    - Windows 10
-   - Windows 8.1
+   - Windows 8.1
    - Windows 8
 - L'attivazione guidata non può connettersi a un computer host del Servizio di gestione delle chiavi.
 
@@ -88,7 +88,7 @@ Verifica la connettività IP di base al server DNS usando il comando ping. A tal
 
 Controlla il Registro di sistema del server host del Servizio di gestione delle chiavi per determinare se sta effettuando la registrazione con DNS. Per impostazione predefinita, un server host del Servizio di gestione delle chiavi registra dinamicamente un record SRV DNS ogni 24 ore. 
 > [!IMPORTANT]
-> Segui con attenzione la procedura descritta in questa sezione. Se le modifiche al Registro di sistema vengono apportate in modo non corretto, possono verificarsi problemi gravi. Prima di modificarlo, [esegui il backup del Registro di sistema per il ripristino](https://support.microsoft.com/en-us/help/322756) nel caso in cui si verifichino problemi.  
+> Segui con attenzione la procedura descritta in questa sezione. Se le modifiche al Registro di sistema vengono apportate in modo non corretto, possono verificarsi problemi gravi. Prima di modificarlo, [esegui il backup del Registro di sistema per il ripristino](https://support.microsoft.com/help/322756) nel caso in cui si verifichino problemi.  
 
 Per controllare questa impostazione, segui questa procedura:
 1. Avviare l'editor del Registro di sistema. A tale scopo, fai clic sul pulsante **Start**, scegli **Esegui**, digita **regedit** e quindi premi INVIO.
@@ -185,9 +185,9 @@ Per creare manualmente un record SRV per un host del Servizio di gestione delle 
 
 - Nome:&nbsp; **_vlmcs._TCP**
 - Tipo:&nbsp;**SRV**
-- Priority: **0**
-- Weight: **0**
-- Port: **1688**
+- Priorità: **0**
+- Peso: **0**
+- Porta: **1688**
 - Nome host: **&lt;*FQDN o nome dell'host del Servizio di gestione delle chiavi*&gt;**
 
 > [!NOTE]

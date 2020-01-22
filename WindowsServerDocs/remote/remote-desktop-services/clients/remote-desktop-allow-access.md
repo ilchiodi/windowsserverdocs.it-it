@@ -14,12 +14,12 @@ manager: dongill
 ms.author: elizapo
 ms.date: 06/05/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: 6a875f8bddd934ac9fb70ca9c0b86772d9fa63b7
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: de08101ed1d4d4527242778d657778f1a16b3dad
+ms.sourcegitcommit: 5b055fc1d73375f68149c214152f1d63396dd6ca
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71404177"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76248403"
 ---
 # <a name="remote-desktop---allow-access-to-your-pc"></a>Desktop remoto - Consentire l'accesso al PC
 
@@ -39,7 +39,7 @@ Il modo più semplice per consentire l'accesso al tuo PC da un dispositivo remot
 ### <a name="windows-10-fall-creator-update-1709-or-later"></a>Windows 10 Fall Creators Update (1709) o versioni successive
 
 Per configurare il tuo PC per l'accesso remoto ti bastano pochi passaggi di facile esecuzione.
-1. Sul dispositivo a cui vuoi connetterti seleziona **Start** e quindi fai clic sull'icona **Impostazioni** a sinistra.
+1. Nel dispositivo a cui vuoi connetterti seleziona **Start** e quindi fai clic sull'icona **Impostazioni** a sinistra.
 2. Seleziona il gruppo **Sistema** e quindi la voce [**Desktop remoto**](ms-settings:remotedesktop).
 3. Usa il dispositivo di scorrimento per abilitare Desktop remoto.
 4. È anche consigliabile mantenere il PC attivo e individuabile per facilitare le connessioni. Per abilitare l'apposita impostazione, fai clic su **Mostra impostazioni**.
@@ -57,7 +57,7 @@ Per abilitare Desktop remoto usando le proprietà di sistema legacy, segui le is
 
 ## <a name="should-i-enable-remote-desktop"></a>Quando abilitare Desktop remoto
 
-Se vuoi accedere al tuo PC solo quando ti trovi fisicamente davanti a esso, non hai necessità di abilitare Desktop remoto. Abilitando Desktop remoto, apri una porta del PC che è visibile alla rete locale. Dovresti pertanto abilitare Desktop remoto esclusivamente in reti affidabili, come ad esempio quella domestica. Evita inoltre di abilitare Desktop remoto in PC in cui l'accesso è strettamente controllato.
+Se vuoi accedere al tuo PC solo quando usi il dispositivo fisicamente, non hai necessità di abilitare Desktop remoto. Abilitando Desktop remoto, apri una porta del PC che è visibile alla rete locale. Dovresti pertanto abilitare Desktop remoto esclusivamente in reti affidabili, come ad esempio quella domestica. Evita inoltre di abilitare Desktop remoto in PC in cui l'accesso è strettamente controllato.
 
 Tieni presente che, abilitando l'accesso a Desktop remoto, concedi a tutti i membri del gruppo Administrators (e a tutti gli altri utenti che selezioni) la possibilità di accedere in remoto ai rispettivi account sul computer.
 

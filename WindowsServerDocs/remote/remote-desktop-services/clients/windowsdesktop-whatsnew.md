@@ -9,16 +9,16 @@ ms.technology: remote-desktop-services
 ms.tgt_pltfrm: na
 ms.topic: article
 author: heidilohr
-manager: daveba
+manager: lizross
 ms.author: helohr
-ms.date: 12/04/2019
+ms.date: 01/14/2020
 ms.localizationpriority: medium
-ms.openlocfilehash: 5526d401ba26cabcaccfc0b88df9b0e69f8149a5
-ms.sourcegitcommit: 3d76683718ec6f38613f552f518ebfc6a5db5401
+ms.openlocfilehash: f1f4d6b32b8b7d717d2d424e0a60c5edc96f4cac
+ms.sourcegitcommit: 10331ff4f74bac50e208ba8ec8a63d10cfa768cc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74829603"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75953070"
 ---
 # <a name="whats-new-in-the-windows-desktop-client"></a>Novità del client desktop di Windows
 
@@ -28,16 +28,29 @@ Per informazioni più dettagliate sul client desktop di Windows, vedi [Introduzi
 
 Il client può essere configurato per [gruppi di utenti](windowsdesktop-admin.md#configure-user-groups) diversi. Nella tabella seguente sono elencate le versioni correnti disponibili per ogni gruppo di utenti:
 
-|Gruppo di utenti |Versione  |
+|Gruppo utenti |Version  |
 |-----------|---------|
-|Public     |1.2.535  |
-|Insider    |1.2.535  |
+|Pubblico     |1.2.535  |
+|Insider    |1.2.594  |
+
+## <a name="updates-for-version-12594"></a>Aggiornamenti per la versione 1.2.594
+
+*Data di pubblicazione: 14/01/2020*
+
+Scarica: [Windows 64-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4o4cC), [Windows 32-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4o4cI), [Windows ARM64](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4oh9C)
+
+- Ora puoi selezionare le visualizzazioni da usare per le connessioni desktop. Per modificare l'impostazione, fai clic con il pulsante destro del mouse sull'icona della connessione desktop e scegli **Impostazioni**.
+- È stato risolto il problema che impediva la visualizzazione dei fattori di conversione corretti nelle impostazioni di connessione.
+- È stato corretto l'errore che impediva all'Assistente vocale di leggere la finestra di dialogo visualizzata durante l'avvio della connessione.
+- È stato risolto il problema per cui veniva visualizzato il nome utente errato quando i nomi di Azure Active Directory e Active Directory non coincidevano.
+- È stato risolto il problema che causava l'interruzione del client all'avvio di una connessione quando tale client non era connesso a una rete.
+- È stato risolto il problema che causava l'interruzione del client quando veniva collegato un auricolare.
 
 ## <a name="updates-for-version-12535"></a>Aggiornamenti per la versione 1.2.535
 
 *Data di pubblicazione: 04/12/2019*
 
-Download: [Windows 64-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4k7jH), [Windows 32-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4k7jL), [Windows ARM64](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4k27O)
+Scarica: [Windows 64-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4k7jH), [Windows 32-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4k7jL), [Windows ARM64](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4k27O)
 
 - Puoi ora accedere alle informazioni sugli aggiornamenti direttamente con il pulsante Altre opzioni nella barra dei comandi nella parte superiore del client.
 - Puoi ora lasciare un feedback dalla barra dei comandi del client.
@@ -50,7 +63,7 @@ Download: [Windows 64-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/bi
 
 *Data di pubblicazione: 12/11/2019*
 
-Download: [Windows 64-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE48kow), [Windows 32-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE48koA), [Windows ARM64](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE48zYj)
+Scarica: [Windows 64-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE48kow), [Windows 32-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE48koA), [Windows ARM64](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE48zYj)
 
 - Sono ora disponibili le versioni a 32 bit e ARM64 del client.
 - Il client ora salva le modifiche apportate alla barra di connessione, ad esempio la posizione, le dimensioni e lo stato bloccato, e applica tali modifiche alle varie sessioni.
@@ -70,7 +83,7 @@ Download: [Windows 64-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/bi
 
 *Data di pubblicazione: 17/09/2019*
 
-Download: [Windows a 64 bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3LkSa)
+Scarica: [Windows a 64 bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3LkSa)
 
 - Sono state migliorate le lingue di fallback per la versione localizzata. Ad esempio, FR-CA verrà visualizzato correttamente in francese anziché in inglese.
 - Quando viene rimossa una sottoscrizione, il client ora rimuove correttamente da Gestione credenziali le credenziali salvate.

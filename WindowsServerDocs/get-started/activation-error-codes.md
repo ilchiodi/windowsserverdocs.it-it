@@ -8,12 +8,12 @@ ms.assetid: ''
 author: kaushika-msft
 ms.author: kaushika-msft; v-tea
 ms.localizationpriority: medium
-ms.openlocfilehash: d4d9a8917bf455d8ed84207e2f9ecc6d13d01c3d
-ms.sourcegitcommit: b18ee742662b24b25d29ef1079b1c49f220f1d57
+ms.openlocfilehash: 4e977dbf71eb4afd004a773d06933fd8646ce8eb
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74691869"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75947673"
 ---
 # <a name="resolve-windows-activation-error-codes"></a>Risolvere i codici di errore di attivazione di Windows
 
@@ -26,7 +26,7 @@ Per altre informazioni sull'attivazione dei contratti multilicenza, vedi [Pianif
 
 Per altre informazioni sull'attivazione dei contratti multilicenza per le versioni correnti e recenti di Windows, vedi [Attivazione dei contratti multilicenza [client]](https://docs.microsoft.com/windows/deployment/volume-activation/volume-activation-windows-10).
 
-Per altre informazioni sull'attivazione dei contratti multilicenza per le versioni precedenti di Windows, vedi l'articolo 929712 della Knowledge Base  [Informazioni sull'attivazione dei contratti multilicenza per Windows Vista, Windows Server 2008, Windows Server 2008 R2 e Windows 7](https://support.microsoft.com/en-us/help/929712/volume-activation-information-for-windows-vista-windows-server-2008-wi).
+Per altre informazioni sull'attivazione dei contratti multilicenza per le versioni precedenti di Windows, vedi l'articolo 929712 della Knowledge Base  [Informazioni sull'attivazione dei contratti multilicenza per Windows Vista, Windows Server 2008, Windows Server 2008 R2 e Windows 7](https://support.microsoft.com/help/929712/volume-activation-information-for-windows-vista-windows-server-2008-wi).
 
 ## <a name="diagnostic-tool"></a>Strumento di diagnostica
 
@@ -38,7 +38,7 @@ Sono supportati i codici di errore seguenti: 0xC004F038, 0xC004F039, 0xC004F041,
 
 ## <a name="summary-of-error-codes"></a>Riepilogo dei codici di errore
 
-|Codice errore |Messaggio di errore |Tipo di&nbsp;attivazione|
+|Codice di errore |Messaggio di errore |Tipo di&nbsp;attivazione|
 |-----------|--------------|----------------|
 |[0x8004FE21](#0x8004fe21-this-computer-is-not-running-genuine-windows) |In questo computer non è in esecuzione una copia autentica di Windows.  |MAK<br />Client del Servizio di gestione delle chiavi |
 |[0x80070005](#0x80070005-access-denied) |Accesso negato: l'azione richiesta prevede privilegi elevati. |MAK<br />Client del Servizio di gestione delle chiavi<br />Host del Servizio di gestione delle chiavi |
@@ -193,7 +193,7 @@ Il codice MAK non è supportato.
 
 #### <a name="resolution"></a>Risoluzione
 
-Per risolvere questo problema, verifica che il codice MAK usato corrisponda a quello fornito da Microsoft. Per verificare che il codice MAK sia valido, contatta i [centri di attivazione delle licenze Microsoft](https://www.microsoft.com/en-us/Licensing/existing-customer/activation-centers).
+Per risolvere questo problema, verifica che il codice MAK usato corrisponda a quello fornito da Microsoft. Per verificare che il codice MAK sia valido, contatta i [centri di attivazione delle licenze Microsoft](https://www.microsoft.com/Licensing/existing-customer/activation-centers).
 
 ### <a name="0xc004c001-the-activation-server-determined-the-specified-product-key-is-invalid"></a>0xC004C001 Server di attivazione: il codice "Product Key" specificato non è valido
 
@@ -203,7 +203,7 @@ Il codice MAK immesso non è valido.
 
 #### <a name="resolution"></a>Risoluzione
 
-Verifica che il codice corrisponda al codice MAK fornito da Microsoft. Per assistenza, contatta i [centri di attivazione delle licenze Microsoft](https://www.microsoft.com/en-us/Licensing/existing-customer/activation-centers).
+Verifica che il codice corrisponda al codice MAK fornito da Microsoft. Per assistenza, contatta i [centri di attivazione delle licenze Microsoft](https://www.microsoft.com/Licensing/existing-customer/activation-centers).
 
 ### <a name="0xc004c003-the-activation-server-determined-the-specified-product-key-is-blocked"></a>0xC004C003 Server di attivazione: il codice "Product Key" specificato è bloccato
 
@@ -213,7 +213,7 @@ Il codice MAK è bloccato nel server di attivazione.
 
 #### <a name="resolution"></a>Risoluzione
 
-Per ottenere un nuovo codice MAK, contatta i [centri di attivazione delle licenze Microsoft](https://www.microsoft.com/en-us/Licensing/existing-customer/activation-centers). Dopo aver ottenuto il nuovo codice MAK, prova di nuovo a installare e attivare Windows.  
+Per ottenere un nuovo codice MAK, contatta i [centri di attivazione delle licenze Microsoft](https://www.microsoft.com/Licensing/existing-customer/activation-centers). Dopo aver ottenuto il nuovo codice MAK, prova di nuovo a installare e attivare Windows.  
 
 ### <a name="0xc004c008-the-activation-server-determined-that-the-specified-product-key-could-not-be-used"></a>0xC004C008 Server di attivazione: impossibile utilizzare il codice "Product Key" specificato
 
@@ -223,7 +223,7 @@ La chiave del Servizio di gestione delle chiavi ha superato il limite di attivaz
 
 #### <a name="resolution"></a>Risoluzione
 
-Se hai bisogno di altre attivazioni, contatta i [centri di attivazione delle licenze Microsoft](https://www.microsoft.com/en-us/Licensing/existing-customer/activation-centers).  
+Se hai bisogno di altre attivazioni, contatta i [centri di attivazione delle licenze Microsoft](https://www.microsoft.com/Licensing/existing-customer/activation-centers).  
 
 ### <a name="0xc004c020-the-activation-server-reported-that-the-multiple-activation-key-has-exceeded-its-limit"></a>0xC004C020 Server di attivazione: è stato superato il limite massimo del codice ad attivazione multipla
 
@@ -233,7 +233,7 @@ Il codice MAK ha superato il limite di attivazione. Per impostazione predefinita
 
 #### <a name="resolution"></a>Risoluzione
 
-Se hai bisogno di altre attivazioni, contatta i [centri di attivazione delle licenze Microsoft](https://www.microsoft.com/en-us/Licensing/existing-customer/activation-centers).
+Se hai bisogno di altre attivazioni, contatta i [centri di attivazione delle licenze Microsoft](https://www.microsoft.com/Licensing/existing-customer/activation-centers).
 
 ### <a name="0xc004c021-the-activation-server-reported-that-the-multiple-activation-key-extension-limit-has-been-exceeded"></a>0xC004C021 Server di attivazione: è stato superato il limite massimo di estensione del codice ad attivazione multipla
 
@@ -243,7 +243,7 @@ Il codice MAK ha superato il limite di attivazione. Per impostazione predefinita
 
 #### <a name="resolution"></a>Risoluzione
 
-Se hai bisogno di altre attivazioni, contatta i [centri di attivazione delle licenze Microsoft](https://www.microsoft.com/en-us/Licensing/existing-customer/activation-centers).
+Se hai bisogno di altre attivazioni, contatta i [centri di attivazione delle licenze Microsoft](https://www.microsoft.com/Licensing/existing-customer/activation-centers).
 
 ### <a name="0xc004f009-the-software-protection-service-reported-that-the-grace-period-expired"></a>0xC004F009 Servizio di protezione software: il periodo di prova è scaduto
 
@@ -253,7 +253,7 @@ Il periodo di prova è scaduto prima dell'attivazione del sistema. Nel sistema �
 
 #### <a name="resolution"></a>Risoluzione
 
-Per assistenza, contatta i [centri di attivazione delle licenze Microsoft](https://www.microsoft.com/en-us/Licensing/existing-customer/activation-centers).
+Per assistenza, contatta i [centri di attivazione delle licenze Microsoft](https://www.microsoft.com/Licensing/existing-customer/activation-centers).
 
 ### <a name="0xc004f00f-the-software-licensing-server-reported-that-the-hardware-id-binding-is-beyond-level-of-tolerance"></a>0xC004F00F Servizio gestione licenze software: binding ID hardware oltre il livello di tolleranza
 
@@ -310,7 +310,7 @@ Per eseguire l'attivazione, è necessario completare una delle operazioni seguen
   > Se durante il tentativo di attivazione viene restituito l'errore 0x80072EE2, usa in alternativa il metodo di attivazione telefonica illustrato di seguito.
 - Per eseguire l'attivazione telefonica, segui questa procedura:
    1. Esegui **slmgr /dti** e prendi nota del valore dell'ID di installazione. </li>
-   1. Contatta i [centri di attivazione delle licenze Microsoft](https://www.microsoft.com/en-us/Licensing/existing-customer/activation-centers) e fornisci l'ID di installazione in modo da ricevere un ID di conferma.</li>
+   1. Contatta i [centri di attivazione delle licenze Microsoft](https://www.microsoft.com/Licensing/existing-customer/activation-centers) e fornisci l'ID di installazione in modo da ricevere un ID di conferma.</li>
    1. Per completare l'attivazione usando l'ID di conferma, esegui **slmgr /atp &lt;ID conferma&gt;** .
 
 ### <a name="0xc004f038-the-count-reported-by-your-key-management-service-kms-is-insufficient"></a>0xC004F038 Il conteggio restituito dal Servizio di gestione delle chiavi è insufficiente
@@ -392,7 +392,7 @@ Lo strumento di attivazione di Windows ha rilevato che il sistema non è origina
 
 #### <a name="resolution"></a>Risoluzione
 
-Per assistenza, contatta i [centri di attivazione delle licenze Microsoft](https://www.microsoft.com/en-us/Licensing/existing-customer/activation-centers).
+Per assistenza, contatta i [centri di attivazione delle licenze Microsoft](https://www.microsoft.com/Licensing/existing-customer/activation-centers).
 
 ### <a name="0xc004f065-the-software-protection-service-reported-that-the-application-is-running-within-the-valid-non-genuine-period"></a>0xC004F065 Servizio di protezione software: l'applicazione è in esecuzione entro il periodo valido per la copia non autentica
 

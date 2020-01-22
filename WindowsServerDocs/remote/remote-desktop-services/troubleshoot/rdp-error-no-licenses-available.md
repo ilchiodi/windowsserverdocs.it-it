@@ -9,16 +9,16 @@ ms.tgt_pltfrm: na
 ms.topic: troubleshooting
 ms.assetid: ''
 author: kaushika-msft
-manager: ''
+manager: dcscontentpm
 ms.author: delhan
 ms.date: 07/24/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 540c368812866655452115d8928a915a07cacc97
-ms.sourcegitcommit: f6503e503d8f08ba8000db9c5eda890551d4db37
+ms.openlocfilehash: 74b4656216d5568f546d1a13722eeec748f1f9b5
+ms.sourcegitcommit: c5709021aa98abd075d7a8f912d4fd2263db8803
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68529971"
+ms.lasthandoff: 01/18/2020
+ms.locfileid: "76265893"
 ---
 # <a name="clients-cant-connect-and-see-no-licenses-available-error"></a>I client non riescono a connettersi e ricevono l'errore "Nessuna licenza disponibile"
 
@@ -76,6 +76,6 @@ Ecco come riattivare il server licenze Desktop remoto:
 4. Fai clic con il pulsante destro del mouse su ognuno dei valori seguenti, scegli **Elimina** e quindi fai clic su **Sì** per confermare l'eliminazione:  
       - **Certificato**
       - **Certificato X509**
-      - **ID Certificato X509**
+      - **ID certificato X509**
       - **X509 Certificate2**
 5. Esci dall'editor del Registro di sistema e riavvia il server Host sessione Desktop remoto.

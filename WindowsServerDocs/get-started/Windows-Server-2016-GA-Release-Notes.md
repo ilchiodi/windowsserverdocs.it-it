@@ -12,12 +12,12 @@ ms.topic: article
 ms.assetid: 134aab85-664f-4d44-87ef-9e5fd389071f
 author: jaimeo
 ms.author: jaimeo
-ms.openlocfilehash: 4e2f7cbaed42dd1c1b1884438467cf59f1529f0c
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 64c0daa8ecc2d6b196d4305e3246dadeebf7075a
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71391545"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75948347"
 ---
 # <a name="release-notes-important-issues-in-windows-server-2016"></a>Note sulla versione: problemi importanti di Windows Server 2016
 
@@ -42,7 +42,7 @@ Per evitare questo problema, dopo il primo avvio, disabilitare lo spooler di sta
 ## <a name="containers"></a>Contenitori
 
 [comment]: # (ID: 371; mittente: taylorb; stato: approvato)
-- Prima di usare i contenitori, installa l'[aggiornamento dello stack di manutenzione per Windows 10 versione 1607: 23 agosto 2016](https://support.microsoft.com/en-us/kb/3176936) o eventuali aggiornamenti successivi disponibili. Se non esegui questa installazione, può verificarsi una serie di problemi, inclusi errori durante la creazione, l'avvio o l'esecuzione di contenitori ed errori simili al seguente: "CreateProcess non riuscito in Win32: server RPC non disponibile".
+- Prima di usare i contenitori, installa l'[aggiornamento dello stack di manutenzione per Windows 10 versione 1607: 23 agosto 2016](https://support.microsoft.com/kb/3176936) o eventuali aggiornamenti successivi disponibili. Se non esegui questa installazione, può verificarsi una serie di problemi, inclusi errori durante la creazione, l'avvio o l'esecuzione di contenitori ed errori simili al seguente: "CreateProcess non riuscito in Win32: server RPC non disponibile".
 
 [comment]: # (ID: 373; mittente: plang; stato: approvato)
 - Il provider OneGet NanoServerPackage non funziona nei contenitori di Windows. Per risolvere il problema, usare Find-NanoServerPackage e Save-NanoServerPackage in un altro computer (non un contenitore) per scaricare il pacchetto necessario. Copiare quindi i pacchetti nel contenitore e installarli.
@@ -50,7 +50,7 @@ Per evitare questo problema, dopo il primo avvio, disabilitare lo spooler di sta
 ## <a name="device-guard"></a>Device Guard
 
 [comment]: # (ID: 369; mittente: nirb; stato: approvato)
-Se usi la protezione basata su virtualizzazione dell'integrità del codice o macchine virtuali schermate (che usano la protezione basata su virtualizzazione dell'integrità del codice), tieni presente che queste tecnologie potrebbero non essere compatibili con alcuni dispositivi e applicazioni. Dovrai testare queste configurazioni nel lab prima di abilitare le funzionalità nei sistemi di produzione. In caso contrario, potrebbero verificarsi errori di arresto o la perdita imprevista di dati.
+Se usi la protezione basata su virtualizzazione dell'integrità del codice o macchine virtuali schermate (che usano la protezione basata su virtualizzazione dell'integrità del codice), tieni presente che queste tecnologie potrebbero non essere compatibili con alcuni dispositivi e applicazioni. Dovrai testare queste configurazioni nel lab prima di abilitare le funzionalità nei sistemi di produzione. In caso contrario, potrebbero verificarsi perdite di dati impreviste o errori di arresto.
 
 ## <a name="microsoft-exchange"></a>Microsoft Exchange
 
@@ -69,7 +69,7 @@ Per evitare questo problema, aggiornare il computer client alla versione Aggiorn
 [comment]: # (ID: 369; mittente: nirb; stato: approvato)  
 - Assicurati di aver installato tutti gli aggiornamenti disponibili prima di distribuire le macchine virtuali schermate nell'ambiente di produzione.
 
-- Se usi la protezione basata su virtualizzazione dell'integrità del codice o macchine virtuali schermate (che usano la protezione basata su virtualizzazione dell'integrità del codice), tieni presente che queste tecnologie potrebbero non essere compatibili con alcuni dispositivi e applicazioni. Dovrai testare queste configurazioni nel lab prima di abilitare le funzionalità nei sistemi di produzione. In caso contrario, potrebbero verificarsi errori di arresto o la perdita imprevista di dati.
+- Se usi la protezione basata su virtualizzazione dell'integrità del codice o macchine virtuali schermate (che usano la protezione basata su virtualizzazione dell'integrità del codice), tieni presente che queste tecnologie potrebbero non essere compatibili con alcuni dispositivi e applicazioni. Dovrai testare queste configurazioni nel lab prima di abilitare le funzionalità nei sistemi di produzione. In caso contrario, potrebbero verificarsi perdite di dati impreviste o errori di arresto.
 
 ## <a name="start-menu"></a>Menu Start
 
@@ -88,7 +88,7 @@ Alcuni sistemi possono presentare prestazioni della memoria ridotte durante l'es
 
 Questo documento viene fornito "così com'è". Le informazioni e le opinioni espresse nel presente documento, inclusi gli URL e altri riferimenti a siti Web Internet, sono soggette a modifiche senza preavviso.  
 
-Il presente documento non implica la concessione di alcun diritto di proprietà intellettuale in relazione ai prodotti Microsoft. Sono consentiti la copia e l'uso del presente documento a fini di riferimento interno.  
+Il presente documento non implica la concessione di alcun diritto di proprietà intellettuale in relazione ai prodotti Microsoft. È possibile copiare e usare questo documento per fini di riferimento interno.  
 
 &copy; 2016 Microsoft Corporation. Tutti i diritti sono riservati.  
 

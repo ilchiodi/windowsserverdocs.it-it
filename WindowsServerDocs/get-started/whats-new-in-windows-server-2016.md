@@ -10,12 +10,12 @@ author: jasongerend
 ms.author: jgerend
 manager: dongill
 ms.localizationpriority: medium
-ms.openlocfilehash: 76cfd0f0cca18fb072883a9e14fae420516bd329
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: afcda1d3f94c5f6fa7524317ac21c5540c07895c
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71391357"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75948268"
 ---
 # <a name="whats-new-in-windows-server-2016"></a>Novità di Windows Server 2016
 
@@ -65,7 +65,7 @@ Le nuove funzionalità di Identità migliorano la capacità delle organizzazioni
 ### <a name="active-directory-certificate-services"></a>Servizi certificati Active Directory  
 Servizi certificati Active Directory in Windows Server 2016 aumenta il supporto per l'attestazione della chiave TPM. Puoi usare ora il provider di archiviazione chiavi per smart card per l'attestazione della chiave, mentre i dispositivi non appartenenti al dominio possono usare ora la registrazione NDES per ottenere i certificati che possono essere attestati per le chiavi in un TPM.  
 
-### <a name="active-directory-domain-services"></a>Servizi di dominio di Active Directory  
+### <a name="active-directory-domain-services"></a>Active Directory Domain Services  
 Active Directory Domain Services include miglioramenti che consentono alle organizzazioni di proteggere gli ambienti Active Directory e fornire una migliore esperienza nella gestione delle identità per i dispositivi aziendali e personali. Per altre informazioni, vedere [What's new in Active Directory Domain Services (AD DS) in Windows Server 2016](../identity/whats-new-active-directory-domain-services.md) (Novità di Active Directory Domain Services (AD DS) in Windows Server 2016).   
 
 ### <a name="active-directory-federation-services"></a>Active Directory Federation Services  
@@ -195,10 +195,10 @@ Sono state aggiunte tre nuove funzionalità in Microsoft Windows 10 e Windows Se
 
 - Il limite per i nomi DSN è stato aumentato da 256 byte a 3072 byte. Per i dettagli, vedi [IDtcToXaHelperFactory::Create](https://msdn.microsoft.com/library/ms686861(v=vs.85).aspx), [IDtcToXaHelperSinglePipe::XARMCreate](https://msdn.microsoft.com/library/ms679248(v=vs.85).aspx) o [IDtcToXaMapper::RequestNewResourceManager](https://msdn.microsoft.com/library/ms680310(v=vs.85).aspx).
 
-- La migliorata funzione di traccia ti permette di impostare una chiave del Registro di sistema per includere un percorso di file di immagine nel nome del file di log di traccia in modo da indicare quale file di log di traccia controllare. Vedi [Come abilitare la traccia di diagnostica per MS DTC in un computer basato su Windows](https://support.microsoft.com/en-us/kb/926099) per informazioni dettagliate sulla configurazione della traccia per MSDTC.
+- La migliorata funzione di traccia ti permette di impostare una chiave del Registro di sistema per includere un percorso di file di immagine nel nome del file di log di traccia in modo da indicare quale file di log di traccia controllare. Vedi [Come abilitare la traccia di diagnostica per MS DTC in un computer basato su Windows](https://support.microsoft.com/kb/926099) per informazioni dettagliate sulla configurazione della traccia per MSDTC.
 
 
 
-## <a name="see-also"></a>Vedi anche  
+## <a name="see-also"></a>Vedere anche  
 -   [Note sulla versione: problemi importanti di Windows Server 2016](Windows-Server-2016-GA-Release-Notes.md)  
 

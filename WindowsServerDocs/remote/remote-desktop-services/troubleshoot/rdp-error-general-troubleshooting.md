@@ -9,16 +9,16 @@ ms.tgt_pltfrm: na
 ms.topic: troubleshooting
 ms.assetid: ''
 author: kaushika-msft
-manager: ''
+manager: dcscontentpm
 ms.author: delhan
 ms.date: 07/24/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 39b11dac044c38f1ae80d4401fbb66af0317ab56
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: b934a585b3058cc2eec642cdb1234c8c9a015544
+ms.sourcegitcommit: c5709021aa98abd075d7a8f912d4fd2263db8803
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70870701"
+ms.lasthandoff: 01/18/2020
+ms.locfileid: "76265953"
 ---
 # <a name="general-remote-desktop-connection-troubleshooting"></a>Risoluzione dei problemi relativi alle connessioni Desktop remoto
 
@@ -202,7 +202,7 @@ Per questa procedura, usa un'istanza di PowerShell con autorizzazioni amministra
     ```
   
     ![Il comando netstat genera un elenco di porte e dei servizi in ascolto su di esse.](../media/troubleshoot-remote-desktop-connections/WPS_netstat.png)
-3. Cercare una voce per la porta TCP 3389 (o la porta assegnata a RDP) con lo stato **In ascolto**. 
+3. Cercare una voce per la porta TCP 3389 (o la porta RDP assegnata) con lo stato **In ascolto**. 
     > [!NOTE]  
    > L'identificatore (PID) del processo o del servizio che usa la porta è visualizzato nella colonna PID.
 4. Per determinare quale applicazione usa la porta 3389 (o la porta RDP assegnata), immetti il comando seguente:  

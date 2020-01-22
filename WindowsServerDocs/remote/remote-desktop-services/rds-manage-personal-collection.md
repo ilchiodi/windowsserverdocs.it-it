@@ -12,18 +12,18 @@ ms.tgt_pltfrm: na
 ms.topic: article
 author: lizap
 manager: dongill
-ms.openlocfilehash: 6bf0ad3a2cd35c9794fd13631ed29df94725685c
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 7be6b2bfe1105357811927f5da7092e8c16c3446
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71387414"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75949843"
 ---
-## <a name="manage-your-personal-desktop-session-collections"></a>Gestire le raccolte di sessioni desktop personali
+# <a name="manage-your-personal-desktop-session-collections"></a>Gestire le raccolte di sessioni desktop personali
 
 Usa le informazioni seguenti per gestire una raccolta di sessioni desktop personali in Servizi Desktop remoto.
 
-### <a name="manually-assign-a-user-to-a-personal-session-host"></a>Assegnare manualmente un utente a un host sessione personale
+## <a name="manually-assign-a-user-to-a-personal-session-host"></a>Assegnare manualmente un utente a un host sessione personale
 Usa il cmdlet **Set-RDPersonalSessionDesktopAssignment** per assegnare manualmente un utente a un server host sessione personale nella raccolta. Il cmdlet supporta i parametri seguenti:
 
 -CollectionName \<string\>
@@ -49,7 +49,7 @@ Il cmdlet **Import-RDPersonalSessionDesktopAssignment** importa le associazioni 
 
 **-Path** specifica il percorso e il nome di un file da importare.
  
-### <a name="removing-a-user-assignment-from-a-personal-session-host"></a>Rimozione di un'assegnazione utente da un host sessione personale
+## <a name="removing-a-user-assignment-from-a-personal-session-host"></a>Rimozione di un'assegnazione utente da un host sessione personale
 Usa il cmdlet **Remove-RDPersonalSessionDesktopAssignment** per rimuovere l'associazione tra un utente e un desktop sessione personale. Il cmdlet supporta i parametri seguenti:
 
 -CollectionName \<string\>
@@ -64,7 +64,7 @@ Usa il cmdlet **Remove-RDPersonalSessionDesktopAssignment** per rimuovere l'asso
 
 **-Force** forza l'esecuzione del comando senza chiedere conferma all'utente.
 
-### <a name="query-user-assignments"></a>Eseguire query sulle assegnazioni utente
+## <a name="query-user-assignments"></a>Eseguire query sulle assegnazioni utente
 Usa il cmdlet **Get-RDPersonalSessionDesktopAssignment** per ottenere un elenco di desktop sessione personali e gli account utente associati. Il cmdlet supporta i parametri seguenti:
 
 -CollectionName \<string\>
@@ -87,4 +87,4 @@ Il cmdlet **Export-RDPersonalPersonalDesktopAssignment** esporta le associazioni
 -Path \<string\>
 
 
-Tutti i nuovi cmdlet supportano i parametri comuni -Verbose, -Debug, -ErrorAction, -ErrorVariable, -OutBuffer e -OutVariable. Per altre informazioni, vedere [about_CommonParameters](https://go.microsoft.com/fwlink/p/?LinkID=113216).
+Tutti i nuovi cmdlet supportano i parametri comuni -Verbose, -Debug, -ErrorAction, -ErrorVariable, -OutBuffer e -OutVariable. Per altre informazioni, vedi [about_CommonParameters](https://go.microsoft.com/fwlink/p/?LinkID=113216).

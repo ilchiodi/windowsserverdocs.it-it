@@ -12,12 +12,12 @@ ms.assetid: 2c2fa45b-6f3b-4663-b421-2da6ecc463bf
 author: jaimeo
 ms.author: jaimeo
 ms.localizationpriority: medium
-ms.openlocfilehash: d395c72a1e21cd8eda043eebf3b72bbd5c9a13e8
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: f94e2c083f0bc05231543c15120818481afbabb0
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71391799"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75947851"
 ---
 # <a name="install-nano-server"></a>Installare Nano Server
 
@@ -49,16 +49,16 @@ Poiché Nano Server è ottimizzato come sistema operativo leggero per l'esecuzio
 - Nano Server non può essere usato come controller di dominio di Active Directory.
 - I Criteri di gruppo non sono supportati. È tuttavia possibile usare [Desired State Configuration](https://msdn.microsoft.com/powershell/dsc/nanoDsc) per applicare le impostazioni su vasta scala.
 - Nano Server non può essere configurato per l'uso di un server proxy per accedere a Internet.
-- Gruppo NIC, in particolare il bilanciamento del carico e il failover, non è supportato. È invece supportato Switch Embedded Teaming (SET).
+- Gruppo NIC, in particolare bilanciamento del carico e failover, non è supportato. È invece supportata la tecnologia Switch Embedded Teaming (SET).
 - System Center Configuration Manager e System Center Data Protection Manager non sono supportati.
-- I cmdlet Best Practices Analyzer (BPA) e l'integrazione di BPA con Server Manager non sono supportati.
+- I cmdlet di Best Practices Analyzer (BPA) e l'integrazione di BPA con Server Manager non sono supportati.
 - Nano Server non supporta le schede bus host (HBA) virtuali.
 - Nano Server non deve essere attivato con un codice Product Key. Quando funge da host Hyper-V, Nano Server non supporta l'[attivazione automatica della macchina virtuale](https://technet.microsoft.com/library/dn303421%28v=ws.11%29.aspx) (AVMA). Le macchine virtuali in esecuzione in un host Nano Server possono essere attivate tramite il [Servizio di gestione delle chiavi](https://technet.microsoft.com/library/jj612867(v=ws.11).aspx) (KMS) con un codice Product Key per contratti multilicenza generico o mediante [l'attivazione basata su Active Directory](https://technet.microsoft.com/library/dn502534(v=ws.11).aspx).
 - La versione di Windows PowerShell fornita con Nano Server presenta differenze importanti. Per informazioni dettagliate, vedere [PowerShell in Nano Server](PowerShell-on-Nano-Server.md).
 - Nano Server è supportato solo sul modello CBB (Current Branch for Business). Attualmente non è disponibile alcuna versione LTSB (Long-Term Servicing Branch) per Nano Server. Per altre informazioni, vedere le sottosezioni seguenti.
 
 ### <a name="current-branch-for-business"></a>Current Branch for Business
-Nano Server viene fornito con un modello più attivo, denominato CBB (Current Branch for Business), per supportare i clienti che stanno passando a una "pianificazione cloud" tramite cicli di sviluppo rapido. In questo modello, i rilasci degli aggiornamenti di funzionalità di Nano Server sono previsti due o tre volte l'anno. Questo modello richiede che [Software Assurance](https://www.microsoft.com/en-us/licensing/licensing-programs/software-assurance-default.aspx) per Nano Server sia distribuito e gestito nell'ambiente di produzione. Per gestire il supporto, gli amministratori devono usare CBB aggiornato ad almeno due versioni precedenti. Tuttavia, queste versioni non aggiornano automaticamente le distribuzioni esistenti; gli amministratori eseguono l'installazione manuale di una nuova versione di CBB in base alle esigenze. Per altre informazioni, vedere [Windows Server 2016 new Current Branch for Business servicing option](https://blogs.technet.microsoft.com/windowsserver/2016/07/12/windows-server-2016-new-current-branch-for-business-servicing-option/) (Nuove opzioni di manutenzione di Current Branch for Business per Windows Server 2016).
+Nano Server viene fornito con un modello più attivo, denominato CBB (Current Branch for Business), per supportare i clienti che stanno passando a una "pianificazione cloud" tramite cicli di sviluppo rapido. In questo modello, i rilasci degli aggiornamenti di funzionalità di Nano Server sono previsti due o tre volte l'anno. Questo modello richiede che [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default.aspx) per Nano Server sia distribuito e gestito nell'ambiente di produzione. Per gestire il supporto, gli amministratori devono usare CBB aggiornato ad almeno due versioni precedenti. Tuttavia, queste versioni non aggiornano automaticamente le distribuzioni esistenti; gli amministratori eseguono l'installazione manuale di una nuova versione di CBB in base alle esigenze. Per altre informazioni, vedere [Windows Server 2016 new Current Branch for Business servicing option](https://blogs.technet.microsoft.com/windowsserver/2016/07/12/windows-server-2016-new-current-branch-for-business-servicing-option/) (Nuove opzioni di manutenzione di Current Branch for Business per Windows Server 2016).
 
 Le opzioni di installazione Server Core e Server con Esperienza desktop vengono ancora eseguite nel [modello LTSB (Long-Term Servicing Branch)](https://support.microsoft.com/lifecycle#gp%2Fgp_msl_policy), che comprende cinque anni di supporto Mainstream e cinque anni di supporto esteso.
 
@@ -76,7 +76,7 @@ Poiché l'installazione di Nano Server viene eseguita configurando un disco rigi
 > [!IMPORTANT]  
 > Al termine dell'installazione e immediatamente dopo aver installato tutti i ruoli del server e le funzionalità necessarie, cercare e installare gli aggiornamenti disponibili per Windows Server 2016. Per Nano Server, vedere la sezione "Gestione degli aggiornamenti in Nano Server" di [Gestire Nano Server](Manage-Nano-Server.md).
 
-### <a name="upgrade"></a>Aggiornamento
+### <a name="upgrade"></a>Aggiornamento di versione/Aggiornare la versione
 Poiché Nano Server è una novità di Windows Server 2016, non è disponibile un percorso di aggiornamento da versioni precedenti del sistema operativo di Nano Server.
 
 ### <a name="migration"></a>Migrazione

@@ -1,17 +1,17 @@
 ---
 ms.date: 09/27/2018
 ms.topic: conceptual
-keywords: OpenSSH, SSH, SSHD, installare, configurare
+keywords: OpenSSH, SSH, SSHD, installazione, configurazione
 contributor: maertendMSFT
 ms.product: w10
 author: maertendMSFT
 title: Configurazione del server OpenSSH per Windows
-ms.openlocfilehash: ed424c33c4cd2c19a9b5e985ab6083bcbcb9fbdc
-ms.sourcegitcommit: 0467b8e69de66e3184a42440dd55cccca584ba95
+ms.openlocfilehash: 5eb3d86950d169fd01512d330f0c04669beeffae
+ms.sourcegitcommit: 51e0b575ef43cd16b2dab2db31c1d416e66eebe8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69546259"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76259047"
 ---
 # <a name="openssh-server-configuration-for-windows-10-1809-and-server-2019"></a>Configurazione del server OpenSSH per Windows 10 1809 e Server 2019
 
@@ -84,7 +84,7 @@ Questa direttiva è supportata solo con le sessioni SFTP. Una sessione remota in
 
 ### <a name="hostkey"></a>HostKey
 
-Le impostazioni predefinite sono %programdata%/ssh/ssh_host_ecdsa_key, %programdata%/ssh/ssh_host_ed25519_key e %programdata%/ssh/ssh_host_rsa_key. Se le impostazioni predefinite non sono presenti, SSHD le genera automaticamente all'avvio di un servizio.
+Le impostazioni predefinite sono %programdata%/ssh/ssh_host_ecdsa_key, %programdata%/ssh/ssh_host_ed25519_key, %programdata%/ssh/ssh_host_dsa_key e %programdata%/ssh/ssh_host_rsa_key. Se le impostazioni predefinite non sono presenti, SSHD le genera automaticamente all'avvio di un servizio.
 
 ### <a name="match"></a>Corrispondenza
 

@@ -9,12 +9,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: mas
-ms.openlocfilehash: 2625097c56e6b2121cbdac45e1cc5f86972e4898
-ms.sourcegitcommit: 68483ee9284285f5643dd67dce06f5a102cb9469
+ms.openlocfilehash: 03f62fd8d9a95c4f0b83e64d672a3c1134833cae
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74823854"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75950549"
 ---
 # <a name="privileged-access-workstations"></a>Workstation con accesso con privilegi
 
@@ -34,7 +34,7 @@ Per garantire la massima sicurezza, le workstation PAW devono sempre eseguire il
 > [!NOTE]
 > Le organizzazioni senza accesso a Windows 10 Enterprise possono usare Windows 10 Pro, che include molte delle tecnologie critiche fondamentali per PAW, tra cui Avvio sicuro, BitLocker e Desktop remoto.  I clienti Education possono usare Windows 10 Education.  Nelle workstation PAW non si deve usare Windows 10 Home.
 >
-> Per una matrice di confronto delle diverse edizioni di Windows 10, leggere [ questo articolo](https://www.microsoft.com/en-us/WindowsForBusiness/Compare).
+> Per una matrice di confronto delle diverse edizioni di Windows 10, leggere [ questo articolo](https://www.microsoft.com/WindowsForBusiness/Compare).
 
 I controlli di sicurezza PAW sono incentrati sulla mitigazione dei rischi di compromissione ad alto impatto e ad alta probabilità. Tra questi sono inclusi gli attacchi all'ambiente e i rischi che possono ridurre l'efficacia dei controlli PAW nel tempo:
 
@@ -50,7 +50,7 @@ I controlli di sicurezza PAW sono incentrati sulla mitigazione dei rischi di com
 >
 > Per altre informazioni sulla risposta e indicazioni per il ripristino, vedere le sezioni "Respond to suspicious activity" (Risposta a un'attività sospetta) e "Recover from a breach" (Ripristino da una violazione) di [Mitigating Pass-the-Hash and Other Credential Theft v2](https://aka.ms/pth) (Limitazione della tecnica Pass-the-Hash e furto di altre credenziali versione 2).
 >
-> Per altre informazioni, visitare la pagina [Microsoft's Incident Response and Recovery services](https://www.microsoft.com/en-us/microsoftservices/campaigns/cybersecurity-protection.aspx) (Servizi Microsoft di risposta agli eventi imprevisti e ripristino).
+> Per altre informazioni, visitare la pagina [Microsoft's Incident Response and Recovery services](https://www.microsoft.com/microsoftservices/campaigns/cybersecurity-protection.aspx) (Servizi Microsoft di risposta agli eventi imprevisti e ripristino).
 
 ### <a name="paw-hardware-profiles"></a>Profili hardware PAW
 
@@ -96,7 +96,7 @@ In questa configurazione le attività quotidiane che non richiedono privilegi am
 
 Per la configurazione di quest'ultimo, seguire le istruzioni presenti in questo materiale sussidiario per l'host PAW, aggiungere le funzionalità di Hyper-V client, creare una VM utente e installare all'interno di questa un'immagine aziendale Windows 10.
 
-Per altre informazioni su questa funzionalità, leggere l'articolo [Client Hyper-V](https://docs.microsoft.com/virtualization/hyper-v-on-windows/index) (Hyper-V client). Si noti che il sistema operativo nelle macchine virtuali guest deve avere una licenza basata sulle [regole per l'assegnazione di licenze ai prodotti Microsoft](https://www.microsoft.com/en-us/Licensing/product-licensing/products.aspx), descritte anche [qui](https://download.microsoft.com/download/9/8/D/98D6A56C-4D79-40F4-8462-DA3ECBA2DC2C/Licensing_Windows_Desktop_OS_for_Virtual_Machines.pdf).
+Per altre informazioni su questa funzionalità, leggere l'articolo [Client Hyper-V](https://docs.microsoft.com/virtualization/hyper-v-on-windows/index) (Hyper-V client). Si noti che il sistema operativo nelle macchine virtuali guest deve avere una licenza basata sulle [regole per l'assegnazione di licenze ai prodotti Microsoft](https://www.microsoft.com/Licensing/product-licensing/products.aspx), descritte anche [qui](https://download.microsoft.com/download/9/8/D/98D6A56C-4D79-40F4-8462-DA3ECBA2DC2C/Licensing_Windows_Desktop_OS_for_Virtual_Machines.pdf).
 
 #### <a name="simultaneous-use---adding-remoteapp-rdp-or-a-vdi"></a>Uso simultaneo: aggiunta di RemoteApp, di RDP o di un'infrastruttura VDI
 
@@ -274,7 +274,7 @@ Per altre informazioni sulle designazioni di livello, vedere la [pagina sul mode
 |Amministratori della manutenzione dei server<br />- Livello 1|Sì|Una workstation PAW creata secondo le indicazioni per la fase 2 è sufficiente per questo ruolo.<br /><br />-   Una workstation PAW deve essere usata dagli amministratori che aggiornano server e app aziendali in Windows Server, Linux e altri sistemi operativi, oltre ad applicare patch e risolvere i problemi di tali server e app.<br />-   Può essere necessario aggiungere strumenti di gestione dedicati alle workstation PAW per consentire lo svolgimento di tali attività di amministrazione su scala più ampia.|
 |Amministratori di workstation utente <br />- Livello 2|Sì|Una workstation PAW creata secondo le indicazioni relative alla fase 2 è sufficiente per i ruoli con diritti amministrativi sui dispositivi degli utenti finali, ad esempio i ruoli di help desk e di supporto deskside.<br /><br />-   Può essere necessario installare applicazioni aggiuntive nelle workstation PAW per consentire la gestione di ticket e altre funzioni di supporto.<br />-   Sulla workstation deve essere configurato il software Windows Defender Exploit Guard.<br />    Può essere necessario aggiungere strumenti di gestione dedicati alle workstation PAW per consentire lo svolgimento di tali attività di amministrazione su scala più ampia.|
 |Amministratore di SQL, SharePoint o line-of-business (LOB)<br />- Livello 1|Sì|Una workstation PAW creata secondo le indicazioni per la fase 2 è sufficiente per questo ruolo.<br /><br />-   Può essere necessario installare strumenti di gestione aggiuntivi nelle workstation PAW installato per consentire agli amministratori di gestire le applicazioni senza la necessità di connettersi ai server tramite Desktop remoto.|
-|Utenti che gestiscono la presenza nei social media|Parziale|Una workstation PAW creata secondo le indicazioni specificate per la fase 2 può essere usata come punto di partenza per garantire la sicurezza a questo ruolo.<br /><br />-   Proteggere e gestire gli account per i social media tramite Azure Active Directory (AAD) per condividere e proteggere tali account e per tenere traccia dell'accesso a questi.<br />    Per altre informazioni su questa funzionalità, leggere [questo post di blog](http://blogs.technet.com/b/ad/archive/2015/02/20/azure-ad-automated-password-roll-over-for-facebook-twitter-and-linkedin-now-in-preview.aspx).<br />-   Le restrizioni di rete in uscita devono consentire la connettività a questi servizi. Ciò può avvenire consentendo connessioni a Internet "aperta" (con un rischio per la sicurezza molto più alto e l'annullamento di molte garanzie PAW) o consentendo il servizio solo tramite indirizzi DNS specifici (alternativa difficile da realizzare).|
+|Utenti che gestiscono la presenza nei social media|Parziale|Una workstation PAW creata secondo le indicazioni specificate per la fase 2 può essere usata come punto di partenza per garantire la sicurezza a questo ruolo.<br /><br />-   Proteggere e gestire gli account per i social media tramite Azure Active Directory (AAD) per condividere e proteggere tali account e per tenere traccia dell'accesso a questi.<br />    Per altre informazioni su questa funzionalità, leggere [questo post di blog](https://blogs.technet.com/b/ad/archive/2015/02/20/azure-ad-automated-password-roll-over-for-facebook-twitter-and-linkedin-now-in-preview.aspx).<br />-   Le restrizioni di rete in uscita devono consentire la connettività a questi servizi. Ciò può avvenire consentendo connessioni a Internet "aperta" (con un rischio per la sicurezza molto più alto e l'annullamento di molte garanzie PAW) o consentendo il servizio solo tramite indirizzi DNS specifici (alternativa difficile da realizzare).|
 |Utenti standard|No|È possibile eseguire molti passaggi di protezione avanzata per gli utenti standard. L'architettura PAW, tuttavia, è progettata per isolare gli account impedendo l'accesso a Internet "aperta", di cui la maggior parte degli utenti ha bisogno per lo svolgimento delle attività lavorative.|
 |VDI/chiosco multimediale guest|No|È possibile eseguire molti passaggi di protezione avanzata per gli utenti guest di sistemi chiosco multimediale. L'architettura PAW, tuttavia, è progettata per garantire una maggiore sicurezza per gli account a sensibilità elevata, non una maggiore sicurezza per gli account a sensibilità inferiore.|
 |Utente VIP (dirigenti, ricercatori e così via)|Parziale|Una workstation PAW creata secondo le indicazioni specificate per la fase 2 può essere usata come punto di partenza per garantire la sicurezza per questi ruoli.<br /><br />-   Questo scenario è simile a quello dei desktop utente standard, ma in genere il profilo dell'applicazione è più piccolo, più semplice e ben noto. Questo scenario richiede in genere l'individuazione e la protezione dei dati, dei servizi e delle applicazioni sensibili, indipendentemente dalla loro installazione nei computer desktop.<br />-   Questi ruoli in genere richiedono un livello di sicurezza elevato e un livello di usabilità molto elevato. Ciò richiede modifiche di progettazione per soddisfare le preferenze dell'utente.|
@@ -290,7 +290,7 @@ Per altre informazioni sulle designazioni di livello, vedere la [pagina sul mode
 
 Questo materiale sussidiario contiene istruzioni dettagliate per la configurazione PAW per gli scenari sopra citati. Se sono necessari altri scenari, è possibile personalizzare le istruzioni riportate in questo materiale o incaricare un'organizzazione di servizi professionali come Microsoft del supporto.
 
-Per altre informazioni sull'attivazione dei servizi Microsoft per la progettazione di un'architettura PAW su misura per l'ambiente in uso, contattare il rappresentante Microsoft o visitare [questa pagina](https://www.microsoft.com/en-us/microsoftservices/campaigns/cybersecurity-protection.aspx).
+Per altre informazioni sull'attivazione dei servizi Microsoft per la progettazione di un'architettura PAW su misura per l'ambiente in uso, contattare il rappresentante Microsoft o visitare [questa pagina](https://www.microsoft.com/microsoftservices/campaigns/cybersecurity-protection.aspx).
 
 ## <a name="paw-phased-implementation"></a>Implementazione di PAW in più fasi
 
@@ -345,7 +345,7 @@ La fase 1 prevede i passaggi seguenti:
 4. **Acquisire e convalidare Windows 10 Enterprise Edition e il software applicativo necessario**. Ottenere il software necessario per la workstation PAW e convalidarlo in base alle indicazioni fornite in [Clean Source for installation media](https://aka.ms/cleansource) (Origine pulita per i supporti di installazione).
 
    * Windows 10 Enterprise Edition
-   * [Strumenti di amministrazione remota del server](https://www.microsoft.com/en-us/download/details.aspx?id=45520) per Windows 10
+   * [Strumenti di amministrazione remota del server](https://www.microsoft.com/download/details.aspx?id=45520) per Windows 10
    * [Elementi di base della sicurezza di Windows 10](https://aka.ms/win10baselines)
 
       > [!NOTE]
@@ -446,7 +446,7 @@ In questa sezione si creerà un nuovo oggetto Criteri di gruppo "PAW Configurati
          4. Abilitare l'opzione **Specifica il percorso del servizio di aggiornamento Microsoft nella rete Intranet** e specificare l'URL del server ESAE WSUS in entrambe le opzioni.
    6. Collegare l'oggetto Criteri di gruppo "PAW Configuration - Computer" (Configurazione PAW- Computer) come indicato di seguito:
 
-         |Condizione|Percorso collegamento|
+         |Criteri di|Percorso collegamento|
          |-----|---------|
          |PAW Configuration - Computer (Configurazione PAW- Computer) |Admin\Tier 0\Devices|
 
@@ -459,7 +459,7 @@ In questa sezione si creerà un nuovo oggetto Criteri di gruppo "PAW Configurati
 
 1. **Block internet browsing** (Blocca esplorazione Internet): per evitare l'esplorazione accidentale di Internet, questa impostazione deve riportare un indirizzo proxy di un indirizzo di loopback (127.0.0.1).
    1. Passare a Configurazione utente\Preferenze\Impostazioni di Windows\Registro di sistema. Fare clic con il pulsante destro del mouse su Registro di sistema, scegliere **Nuovo** > **Elemento Registro di sistema** e configurare le impostazioni seguenti:
-      1. Azione:  Sostituzione
+      1. Azione:  Sostituire
       2. Hive: HKEY_CURRENT_USER
       3. Percorso chiave:  Software\Microsoft\Windows\CurrentVersion\Impostazioni Internet
       4. Nome valore: ProxyEnable
@@ -481,7 +481,7 @@ In questa sezione si creerà un nuovo oggetto Criteri di gruppo "PAW Configurati
       7. Fare clic su **OK** per completare l'impostazione dei Criteri di gruppo ProxyEnable
    2. Passare a Configurazione utente\Preferenze\Impostazioni di Windows\Registro di sistema. Fare clic con il pulsante destro del mouse su Registro di sistema, scegliere **Nuovo** > **Elemento Registro di sistema** e configurare le impostazioni seguenti:
 
-      * Azione: Sostituzione
+      * Azione: Sostituire
       * Hive: HKEY_CURRENT_USER
       * Percorso chiave: Software\Microsoft\Windows\CurrentVersion\Impostazioni Internet
          * Nome valore: ProxyServer
@@ -528,12 +528,12 @@ In questa sezione verranno configurati Criteri di gruppo per impedire agli accou
      ```
 
      > [!NOTE]
-     > Gruppi di livello 0 predefiniti. Per altri dettagli, vedere Equivalenza di livello 0.
+     > gruppi di livello 0 predefiniti. Per altri dettagli, vedere Equivalenza di livello 0.
 
          Other Delegated Groups
 
      > [!NOTE]
-     > Gruppi personalizzati creati con accesso valido al livello 0. Per altri dettagli, vedere Equivalenza di livello 0.
+     > gruppi personalizzati creati con accesso valido al livello 0. Per altri dettagli, vedere Equivalenza di livello 0.
 
          Tier 1 Admins
 
@@ -587,7 +587,7 @@ In questa sezione verranno configurati Criteri di gruppo per impedire agli accou
      ```
 
      > [!NOTE]
-     > Gruppi di livello 0 predefiniti. Per altri dettagli, vedere Equivalenza di livello 0.
+     > gruppi di livello 0 predefiniti. Per altri dettagli, vedere Equivalenza di livello 0.
 
          Other Delegated Groups
 
@@ -616,7 +616,7 @@ In questa sezione verranno configurati Criteri di gruppo per impedire agli accou
          Other Delegated Groups
 
      > [!NOTE]
-     > Gruppi personalizzati creati con accesso valido al livello 0. Per altri dettagli, vedere Equivalenza di livello 0.
+     > gruppi personalizzati creati con accesso valido al livello 0. Per altri dettagli, vedere Equivalenza di livello 0.
 
    * In Configurazione computer\Criteri\Impostazioni di Windows\Impostazioni sicurezza\Criteri locali\Assegnazione diritti utente\Nega accesso locale selezionare **Definisci le impostazioni relative ai criteri** e aggiungere i gruppi di livello 0:
      ```
@@ -640,7 +640,7 @@ In questa sezione verranno configurati Criteri di gruppo per impedire agli accou
          Other Delegated Groups
 
      > [!NOTE]
-     > Nota: Gruppi personalizzati creati con accesso valido al livello 0. Per altri dettagli, vedere Equivalenza di livello 0.
+     > Nota: gruppi personalizzati creati con accesso valido al livello 0. Per altri dettagli, vedere Equivalenza di livello 0.
 
 #### <a name="deploy-your-paws"></a>Distribuire le workstation PAW
 
@@ -660,7 +660,7 @@ In questa sezione verranno configurati Criteri di gruppo per impedire agli accou
 2. Impostare una password complessa univoca per l'account Administrator locale.  Non usare una password usata per un altro account nell'ambiente.
 
    > [!NOTE]
-   > Microsoft consiglia di usare [Local Administrator Password Solution (LAPS)](https://www.microsoft.com/en-us/download/details.aspx?id=46899) per gestire la password dell'account Administrator locale per tutte le workstation, incluse le workstation PAW.  Se si usa la soluzione LAPS, assicurarsi di concedere solo al gruppo PAW Maintenance (Manutenzione PAW) il diritto di lettura delle password delle workstation PAW gestite da LAPS.
+   > Microsoft consiglia di usare [Local Administrator Password Solution (LAPS)](https://www.microsoft.com/download/details.aspx?id=46899) per gestire la password dell'account Administrator locale per tutte le workstation, incluse le workstation PAW.  Se si usa la soluzione LAPS, assicurarsi di concedere solo al gruppo PAW Maintenance (Manutenzione PAW) il diritto di lettura delle password delle workstation PAW gestite da LAPS.
 
 3. Installare Strumenti di amministrazione remota del server per Windows 10 tramite il supporto di installazione di origine pulita.
 4. Configurare Windows Defender Exploit Guard
@@ -705,7 +705,7 @@ In questa sezione verranno configurati Criteri di gruppo per impedire agli accou
 
        2. Sempre tramite **Modifica utenti e gruppi locali** assicurarsi che i gruppi seguenti non contengano membri: Backup Operators, Cryptographic Operators, Hyper-V Administrators, Network Configuration Operators, Power Users, Remote Desktop Users, Replicators
 
-12. (Facoltativo) Se l'organizzazione usa una soluzione di gestione di eventi e informazioni di sicurezza (SIEM, Security Information and Event Management), verificare che la workstation PAW sia [configurata per l'inoltro di eventi al sistema tramite WEF (Windows Event Forwarding)](http://blogs.technet.com/b/jepayne/archive/2015/11/24/monitoring-what-matters-windows-event-forwarding-for-everyone-even-if-you-already-have-a-siem.aspx) o che sia registrata in altro modo con la soluzione, affinché la soluzione SIEM riceva attivamente eventi e informazioni dalla workstation PAW.  I dettagli di questa operazione dipendono dalla soluzione SIEM in uso.
+12. (Facoltativo) Se l'organizzazione usa una soluzione di gestione di eventi e informazioni di sicurezza (SIEM, Security Information and Event Management), verificare che la workstation PAW sia [configurata per l'inoltro di eventi al sistema tramite WEF (Windows Event Forwarding)](https://blogs.technet.com/b/jepayne/archive/2015/11/24/monitoring-what-matters-windows-event-forwarding-for-everyone-even-if-you-already-have-a-siem.aspx) o che sia registrata in altro modo con la soluzione, affinché la soluzione SIEM riceva attivamente eventi e informazioni dalla workstation PAW.  I dettagli di questa operazione dipendono dalla soluzione SIEM in uso.
 
     > [!NOTE]
     > Se la soluzione SIEM richiede l'esecuzione nella workstation PAW di un agente come account di sistema o amministratore locale, assicurarsi che le soluzioni SIEM vengano gestite con lo stesso livello di attendibilità dei controller di dominio e dei sistemi di gestione delle identità.
@@ -778,7 +778,7 @@ Abilitare questa funzionalità nei server e nelle workstation esistenti e quindi
 
          > [!NOTE]
          > Sarà necessario aggiornare il file *proxy.pac* dopo il download per assicurarsi che sia aggiornato e completo.  
-         > Microsoft pubblica tutti gli URL relativi a Office 365 e ad Azure nel sito di [supporto tecnico per Office](https://support.office.com/en-us/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2?ui=en-US&rs=en-US&ad=US). Queste istruzioni presuppongono che per l'amministrazione di Office 365, Azure e di altri servizi cloud si usi Internet Explorer o Microsoft Edge. Microsoft consiglia di configurare restrizioni simili per tutti i browser di terze parti necessari per l'amministrazione. Nelle workstation PAW i Web browser devono essere usati solo per l'amministrazione dei servizi cloud e mai semplicemente per esplorare il Web.
+         > Microsoft pubblica tutti gli URL relativi a Office 365 e ad Azure nel sito di [supporto tecnico per Office](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2?ui=en-US&rs=en-US&ad=US). Queste istruzioni presuppongono che per l'amministrazione di Office 365, Azure e di altri servizi cloud si usi Internet Explorer o Microsoft Edge. Microsoft consiglia di configurare restrizioni simili per tutti i browser di terze parti necessari per l'amministrazione. Nelle workstation PAW i Web browser devono essere usati solo per l'amministrazione dei servizi cloud e mai semplicemente per esplorare il Web.
          >
          > Potrebbe essere necessario aggiungere all'elenco altre destinazioni Internet valide corrispondenti ad altri provider IaaS. All'elenco non devono però essere aggiunti siti di produttività, intrattenimento, notizie o ricerca.
          >
@@ -788,7 +788,7 @@ Abilitare questa funzionalità nei server e nelle workstation esistenti e quindi
 
       3. Dopo aver configurato il file *proxy.pac* aggiornare l'oggetto Criteri di gruppo PAW Configuration - User (Configurazione PAW- Utente).
          1. Passare a Configurazione utente\Preferenze\Impostazioni di Windows\Registro di sistema. Fare clic con il pulsante destro del mouse su Registro di sistema, scegliere **Nuovo** > **Elemento Registro di sistema** e configurare le impostazioni seguenti:
-            1. Azione: Sostituzione
+            1. Azione: Sostituire
             2. Hive: HKEY_ CURRENT_USER
             3. Percorso chiave: Software\Microsoft\Windows\CurrentVersion\Impostazioni Internet
             4. Nome valore: AutoConfigUrl
@@ -800,7 +800,7 @@ Abilitare questa funzionalità nei server e nelle workstation esistenti e quindi
             6. Dati valore: immettere l'URL completo del file *proxy.pac* includendo http:// e il nome del file, ad esempio http://proxy.fabrikam.com/proxy.pac.  L'URL può anche essere un URL con etichetta singola, ad esempio http://proxy/proxy.pac
 
                > [!NOTE]
-               > Il file PAC può anche essere ospitato in una condivisione file con la sintassi file://server.fabrikan.com/share/proxy.pac ma ciò richiede che sia consentito il protocollo file://. Vedere la sezione "NOTE: File://-based Proxy Scripts Deprecated" (NOTA: script proxy basati su file:\\ obsoleti) del blog [Understanding Web Proxy Configuration](http://blogs.msdn.com/b/ieinternals/archive/2013/10/11/web-proxy-configuration-and-ie11-changes.aspx) (Informazioni sulla configurazione di proxy Web) per altri dettagli sulla configurazione del valore del Registro di sistema.
+               > Il file PAC può anche essere ospitato in una condivisione file con la sintassi file://server.fabrikan.com/share/proxy.pac ma ciò richiede che sia consentito il protocollo file://. Vedere la sezione "NOTE: File://-based Proxy Scripts Deprecated" (NOTA: script proxy basati su file:\\ obsoleti) del blog [Understanding Web Proxy Configuration](https://blogs.msdn.com/b/ieinternals/archive/2013/10/11/web-proxy-configuration-and-ie11-changes.aspx) (Informazioni sulla configurazione di proxy Web) per altri dettagli sulla configurazione del valore del Registro di sistema.
 
             7. Fare clic sulla scheda **Comune** e selezionare **Rimuovi elemento quando non viene più applicato**.
             8. Nella scheda **Comune** selezionare **Destinazione a livello di elemento** e fare clic su **Destinazione**.
@@ -1070,7 +1070,7 @@ Quando il disco modello e il file di dati di schermatura sono pronti, è possibi
 
 ## <a name="related-topics"></a>Argomenti correlati
 
-[Coinvolgimento dei servizi Microsoft per la sicurezza informatica](https://www.microsoft.com/en-us/microsoftservices/campaigns/cybersecurity-protection.aspx)
+[Coinvolgimento dei servizi Microsoft per la sicurezza informatica](https://www.microsoft.com/microsoftservices/campaigns/cybersecurity-protection.aspx)
 
 [Taste of Premier: How to Mitigate Pass-the-Hash and Other Forms of Credential Theft](https://channel9.msdn.com/Blogs/Taste-of-Premier/Taste-of-Premier-How-to-Mitigate-Pass-the-Hash-and-Other-Forms-of-Credential-Theft) (Taste of Premier: come prevenire Pass-the-Hash e altre forme di furto delle credenziali)
 
@@ -1084,13 +1084,13 @@ Quando il disco modello e il file di dati di schermatura sono pronti, è possibi
 
 [Modalità utente isolato in Windows 10 con Dave Probert (Channel 9)](https://channel9.msdn.com/Blogs/Seth-Juarez/Isolated-User-Mode-in-Windows-10-with-Dave-Probert)
 
-[Processi e funzionalità della modalità utente isolato in Windows 10 con Logan Gabriel (Channel 9)](http://channel9.msdn.com/Blogs/Seth-Juarez/Isolated-User-Mode-Processes-and-Features-in-Windows-10-with-Logan-Gabriel)
+[Processi e funzionalità della modalità utente isolato in Windows 10 con Logan Gabriel (Channel 9)](https://channel9.msdn.com/Blogs/Seth-Juarez/Isolated-User-Mode-Processes-and-Features-in-Windows-10-with-Logan-Gabriel)
 
 [Altre informazioni sui processi e sulle funzionalità nella modalità utente isolato di Windows 10 con Dave Probert (Channel 9)](https://channel9.msdn.com/Blogs/Seth-Juarez/More-on-Processes-and-Features-in-Windows-10-Isolated-User-Mode-with-Dave-Probert)
 
 [Prevenzione del furto di credenziali usando la modalità utente isolato di Windows 10 (Channel 9)](https://channel9.msdn.com/Blogs/Seth-Juarez/Mitigating-Credential-Theft-using-the-Windows-10-Isolated-User-Mode)
 
-[Abilitazione della convalida KDC ristretta in Kerberos per Windows](https://www.microsoft.com/en-us/download/details.aspx?id=6382)
+[Abilitazione della convalida KDC ristretta in Kerberos per Windows](https://www.microsoft.com/download/details.aspx?id=6382)
 
 [Novità dell'autenticazione Kerberos per Windows Server 2012](https://technet.microsoft.com/library/hh831747.aspx)
 

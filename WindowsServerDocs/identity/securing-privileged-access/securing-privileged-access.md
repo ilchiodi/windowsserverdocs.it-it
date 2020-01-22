@@ -9,12 +9,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: mas
-ms.openlocfilehash: e6ff22d0563fa11aa633004966b2cd2648ba5877
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: d60ba6ffd661aeb284a2ade775e14b9108cbb6c9
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71357696"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75950538"
 ---
 # <a name="securing-privileged-access"></a>Protezione dell'accesso con privilegi
 
@@ -90,7 +90,7 @@ Segui le istruzioni riportate nell'articolo [Gestire gli account di accesso di e
 
 ### <a name="2-just-in-time-local-admin-passwords"></a>2. Password di amministratore locale Just-In-Time
 
-Per mitigare il rischio che un utente malintenzionato sottragga l'hash di una password di account amministratore locale dal database SAM locale e ne faccia un uso improprio per attaccare altri computer, le organizzazioni devono assicurarsi che ogni computer disponga di una password di amministratore locale univoca. Lo strumento Soluzione password dell'amministratore locale (LAPS) può configurare password casuali univoche in ogni workstation e server e archiviarle in un'istanza di Active Directory (AD) protetta da un elenco di controllo di accesso. Solo gli utenti autorizzati idonei possono leggere o richiedere la reimpostazione di queste password di account amministratore locale. Puoi ottenere lo strumento LAPS da usare su workstation e server dall'[Area download Microsoft](http://Aka.ms/LAPS).
+Per mitigare il rischio che un utente malintenzionato sottragga l'hash di una password di account amministratore locale dal database SAM locale e ne faccia un uso improprio per attaccare altri computer, le organizzazioni devono assicurarsi che ogni computer disponga di una password di amministratore locale univoca. Lo strumento Soluzione password dell'amministratore locale (LAPS) può configurare password casuali univoche in ogni workstation e server e archiviarle in un'istanza di Active Directory (AD) protetta da un elenco di controllo di accesso. Solo gli utenti autorizzati idonei possono leggere o richiedere la reimpostazione di queste password di account amministratore locale. Puoi ottenere lo strumento LAPS da usare su workstation e server dall'[Area download Microsoft](https://aka.ms/LAPS).
 
 Altre indicazioni per il funzionamento di un ambiente con LAPS e workstation PAW sono disponibili nella sezione [Standard operativi basati sul principio di origine pulita](securing-privileged-access-reference-material.md#operational-standards-based-on-clean-source-principle).
 

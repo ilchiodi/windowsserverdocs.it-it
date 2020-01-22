@@ -11,13 +11,13 @@ ms.date: 12/02/2019
 ms.tgt_pltfrm: na
 ms.topic: article
 author: Heidilohr
-manager: daveba
-ms.openlocfilehash: 32781946ad2c49ec51e11dfe1e8af078425d35b0
-ms.sourcegitcommit: cbf0c7c37797c22af989639fac82fc0eee94497f
+manager: lizross
+ms.openlocfilehash: 693d1abd91fbfa2d44a6af42dd9f5338bd461927
+ms.sourcegitcommit: 76469d1b7465800315eaca3e0c7f0438fc3939ed
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74700930"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75919946"
 ---
 # <a name="remote-desktop-workloads"></a>Carichi di lavoro di Desktop remoto
 
@@ -27,9 +27,9 @@ La tabella seguente descrive ogni carico di lavoro. "Utenti di esempio" sono i t
 
 | Tipo di carico di lavoro | Utenti di esempio | App di esempio |
 | --- | --- | --- |
-| Chiaro | Utenti che svolgono attività di base di immissione di dati | Applicazioni di immissione in database, interfacce della riga di comando |
+| Leggero | Utenti che svolgono attività di base di immissione di dati | Applicazioni di immissione in database, interfacce della riga di comando |
 | Medio | Consulenti ed esperti in ricerche di mercato | Applicazioni di immissione in database, interfacce della riga di comando, Microsoft Word, pagine Web statiche |
 | Pesante | Ingegneri informatici, creatori di contenuti | Applicazioni di immissione in database, interfacce della riga di comando, Microsoft Word, pagine Web statiche, Microsoft Outlook, Microsoft PowerPoint, pagine Web dinamiche |
-| Alimentazione | Grafici, creatori di modelli 3D, ricercatori di Machine Learning | Applicazioni di immissione in database, interfacce della riga di comando, Microsoft Word, pagine Web statiche, Microsoft Outlook, Microsoft PowerPoint, pagine Web dinamiche, Adobe Photoshop, Adobe Illustrator, CAD, CAM |
+| Potenza | Grafici, creatori di modelli 3D, ricercatori di Machine Learning | Applicazioni di immissione in database, interfacce della riga di comando, Microsoft Word, pagine Web statiche, Microsoft Outlook, Microsoft PowerPoint, pagine Web dinamiche, Adobe Photoshop, Adobe Illustrator, CAD, CAM |
 
 Per informazioni sulle indicazioni relative al dimensionamento, vedi [Linee guida relative al dimensionamento delle macchine virtuali](virtual-machine-recs.md).

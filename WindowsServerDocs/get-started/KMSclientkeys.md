@@ -9,12 +9,12 @@ ms.author: jgerend
 ms.localizationpriority: medium
 ms.date: 11/12/2019
 ms.topic: get-started-article
-ms.openlocfilehash: e2879c56b1dd41b8d357959cca473dd69da77d10
-ms.sourcegitcommit: b9ec35416a06854c1bc875a2b731d42a436fe313
+ms.openlocfilehash: f2320b80fb372a227098f952dc8e7f0758420f34
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73956075"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75947823"
 ---
 # <a name="kms-client-setup-keys"></a>Chiavi di configurazione di client del servizio di gestione delle chiavi
 
@@ -32,9 +32,9 @@ Se si converte un computer in un client KMS a partire da un host KMS, un codice 
 | Per…    | …usare queste risorse   |
 |--------------------|------------------------|
 | Attiva Windows al di fuori di uno scenario di attivazione di contratti multilicenza, ovvero se provi ad attivare una versione definitiva di Windows, **queste chiavi non funzioneranno**. | Per le versioni definitive di Windows, usare i collegamenti seguenti: |
-| Correggere l'errore che viene generato quando si tenta di attivare un sistema Windows 8.1, Windows Server 2012 R2 o un sistema successivo: "Errore: 0xC004F050. Servizio gestione licenze software: codice "Product Key" non valido" | [Installare questo aggiornamento](https://support.microsoft.com/en-us/help/3172614/july-2016-update-rollup-for-windows-8-1-and-windows-server-2012-r2) nell'host di servizi di gestione delle chiavi se è in esecuzione Windows 8.1, Windows Server 2012 R2, Windows 8 o Windows Server 2012. |
+| Correggere l'errore che viene generato quando si tenta di attivare un sistema Windows 8.1, Windows Server 2012 R2 o un sistema successivo: "Errore: 0xC004F050 Servizio gestione licenze software: codice "Product Key" non valido". | [Installare questo aggiornamento](https://support.microsoft.com/help/3172614/july-2016-update-rollup-for-windows-8-1-and-windows-server-2012-r2) nell'host di servizi di gestione delle chiavi se è in esecuzione Windows 8.1, Windows Server 2012 R2, Windows 8 o Windows Server 2012. |
 
--   [Aggiornamento a Windows 10](https://www.microsoft.com/en-us/windows/get-windows-10)
+-   [Aggiornamento a Windows 10](https://www.microsoft.com/windows/get-windows-10)
 
 -   [Ottenere un nuovo codice Product Key di Windows](https://support.microsoft.com/help/10749/windows-product-key)
 
@@ -65,21 +65,21 @@ Se si converte un computer in un client KMS a partire da un host KMS, un codice 
 
 | Sistema operativo/edizione       | Chiave di configurazione client KMS          |
 |--------------------------------|-------------------------------|
-| Windows Server 2016 Datacenter | CB7KF-BWN84-R7R2Y-793K2-8XDDG |
-| Windows Server 2016 Standard   | WC2BQ-8NRM3-FDDYY-2BFGV-KHKQY |
+| Windows Server 2016 Datacenter | CB7KF-BWN84-R7R2Y-793K2-8XDDG |
+| Windows Server 2016 Standard   | WC2BQ-8NRM3-FDDYY-2BFGV-KHKQY |
 | Windows Server 2016 Essentials | JCKRF-N37P4-C2D82-9YXRT-4M63B |
 
 ## <a name="windows-10-all-supported-semi-annual-channel-versions"></a>Windows 10, tutte le versioni Canale semestrale supportate
 
-Vedere la [scheda informativa sul ciclo di vita di Windows](https://support.microsoft.com/en-us/help/13853/windows-lifecycle-fact-sheet) per informazioni sulle versioni supportate e sulle date di fine del periodo di servizio.
+Vedere la [scheda informativa sul ciclo di vita di Windows](https://support.microsoft.com/help/13853/windows-lifecycle-fact-sheet) per informazioni sulle versioni supportate e sulle date di fine del periodo di servizio.
 
 | Sistema operativo/edizione          | Chiave di configurazione client KMS          |
 |-----------------------------------|-------------------------------|
-|Windows 10 Pro|W269N-WFGWX-YVC9B-4J6C9-T83GX|
+|Windows 10 Pro|W269N-WFGWX-YVC9B-4J6C9-T83GX|
 |Windows 10 Pro N|MH37W-N47XK-V7XM9-C7227-GCQG9|
 |Windows 10 Pro for Workstations|NRG8B-VKK3Q-CXVCJ-9G2XF-6Q84J|
 |Windows 10 Pro for Workstations N|9FNHH-K3HBT-3W4TD-6383H-6XYWF|
-|Windows 10 Pro Education|6TP4R-GNPTD-KYYHQ-7B7DP-J447Y|
+|Windows 10 Pro Education|6TP4R-GNPTD-KYYHQ-7B7DP-J447Y|
 |Windows 10 Pro Education N|YVWGF-BXNMC-HTQYQ-CPQ99-66QFC|
 |Windows 10 Education|NW6C2-QMPVW-D7KKK-3GKT6-VCFB2|
 |Windows 10 Education N |2WH4N-8QGBV-H22JP-CT43Q-MDWWJ|
@@ -149,15 +149,15 @@ Vedere la [scheda informativa sul ciclo di vita di Windows](https://support.micr
 | Windows Server 2012 Datacenter          | 48HP8-DN98B-MYWDG-T2DCC-8W83P |
 
 
-### <a name="windows-server-2008-r2"></a>Windows Server 2008 R2
+### <a name="windows-server-2008-r2"></a>Windows Server 2008 R2
 
 | Sistema operativo/edizione                         | Chiave di configurazione client KMS          |
 |--------------------------------------------------|-------------------------------|
 | Windows Server 2008 R2 Web                       | 6TPJF-RBVHG-WBW2R-86QPH-6RTM4 |
 | Windows Server 2008 R2 HPC edition               | TT8MH-CG224-D3D7Q-498W2-9QCTX |
 | Windows Server 2008 R2 Standard                  | YC6KT-GKW9T-YTKYR-T4X34-R7VHC |
-| Windows Server 2008 R2 Enterprise                | 489J6-VHDMP-X63PK-3K798-CPX3Y |
-| Windows Server 2008 R2 Datacenter                | 74YFP-3QFB3-KQT8W-PMXWJ-7M648 |
+| Windows Server 2008 R2 Enterprise                | 489J6-VHDMP-X63PK-3K798-CPX3Y |
+| Windows Server 2008 R2 Datacenter                | 74YFP-3QFB3-KQT8W-PMXWJ-7M648 |
 | Windows Server 2008 R2 per sistemi basati su Itanium | GT63C-RJFQ3-4GMB6-BRFB9-CB83V |
 
 ### <a name="windows-server-2008"></a>Windows Server 2008
@@ -176,7 +176,7 @@ Vedere la [scheda informativa sul ciclo di vita di Windows](https://support.micr
 
 ## <a name="earlier-versions-of-windows"></a>Versioni precedenti di Windows
 
-### <a name="windows-81"></a>Windows 8.1
+### <a name="windows-81"></a>Windows 8.1
 
 | Sistema operativo/edizione               | Chiave di configurazione client KMS          |
 |----------------------------------------|-------------------------------|
@@ -199,15 +199,15 @@ Vedere la [scheda informativa sul ciclo di vita di Windows](https://support.micr
 
 | Sistema operativo/edizione                         | Chiave di configurazione client KMS          |
 |--------------------------------------------------|-------------------------------|
-| Windows 7 Professional                           | FJ82H-XT6CR-J8D7P-XQJJ2-GPDD4 |
+| Windows 7 Professional                           | FJ82H-XT6CR-J8D7P-XQJJ2-GPDD4 |
 | Windows 7 Professional N                         | MRPKT-YTG23-K7D7T-X2JMM-QY7MG |
 | Windows 7 Professional E                         | W82YF-2Q76Y-63HXB-FGJG9-GF7QX |
-| Windows 7 Enterprise                             | 33PXH-7Y6KF-2VJC9-XBBR8-HVTHH |
+| Windows 7 Enterprise                             | 33PXH-7Y6KF-2VJC9-XBBR8-HVTHH |
 | Windows 7 Enterprise N                           | YDRBP-3D83W-TY26F-D46B2-XCKRJ |
 | Windows 7 Enterprise E                           | C29WB-22CC8-VJ326-GHFJW-H9DH4 |
 
 
-Vedi anche
+Vedere anche
 
 • [Pianificare l'attivazione dei contratti multilicenza](https://technet.microsoft.com/library/jj134042(v=ws.11).aspx)
 

@@ -11,12 +11,12 @@ ms.prod: windows-server
 ms.custom: it-pro
 ms.reviewer: maheshu
 ms.technology: identity-adds
-ms.openlocfilehash: 7f16d58eb6c5074c75f49ba7936c4d312a3dbda4
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 53793fc62b1bc1444c567f92c9f18642245fded9
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71390985"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75948180"
 ---
 # <a name="forest-and-domain-functional-levels"></a>Livelli di funzionalità del dominio e della foresta
 
@@ -28,7 +28,7 @@ Quando distribuisci Active Directory Domain Service, imposta i livelli di funzio
 
 Con la fine del ciclo di vita di Windows 2003, i controller di dominio Windows 2003 devono essere aggiornati a Windows Server 2008, 2008 R2, 2012, 2012 R2, 2016 o 2019. Di conseguenza, qualsiasi controller di dominio che esegue Windows Server 2003 devono essere rimossi dal dominio.
 
-In Windows Server 2008 e più livelli funzionali di dominio, replica del file system distribuito (DFS, Distributed File Service) viene utilizzata per la replica di contenuto della cartella SYSVOL tra i controller di dominio. Se si crea un nuovo dominio a livello funzionale di dominio di Windows Server 2008 o versione successiva, replica DFS viene automaticamente utilizzata per replicare SYSVOL. Se è stato creato il dominio a un livello funzionale inferiore, è necessario eseguire la migrazione da utilizza FRS a replica DFS per SYSVOL. Per la procedura di migrazione, è possibile seguire il [procedure su TechNet](https://technet.microsoft.com/library/dd640019(v=WS.10).aspx) o è possibile fare riferimento il [semplificata di set di passaggi nel blog del Team di archiviazione File CAB](http://blogs.technet.com/b/filecab/archive/2014/06/25/streamlined-migration-of-frs-to-dfsr-sysvol.aspx).
+In Windows Server 2008 e più livelli funzionali di dominio, replica del file system distribuito (DFS, Distributed File Service) viene utilizzata per la replica di contenuto della cartella SYSVOL tra i controller di dominio. Se si crea un nuovo dominio a livello funzionale di dominio di Windows Server 2008 o versione successiva, replica DFS viene automaticamente utilizzata per replicare SYSVOL. Se è stato creato il dominio a un livello funzionale inferiore, è necessario eseguire la migrazione da utilizza FRS a replica DFS per SYSVOL. Per la procedura di migrazione, è possibile seguire il [procedure su TechNet](https://technet.microsoft.com/library/dd640019(v=WS.10).aspx) o è possibile fare riferimento il [semplificata di set di passaggi nel blog del Team di archiviazione File CAB](https://blogs.technet.com/b/filecab/archive/2014/06/25/streamlined-migration-of-frs-to-dfsr-sysvol.aspx).
 
 ## <a name="windows-server-2019"></a>Windows Server 2019
 
@@ -175,7 +175,7 @@ Sistemi operativi supportati per i controller di dominio:
 
 * Tutte le funzionalità predefinite di Active Directory Domain Services, più le funzionalità seguenti:
    * Trust tra foreste
-   * Ridenominazione dei domini
+   * Ridenominazione dei domini.
    * Replica valore collegato
       - La replica valore collegato ti consente di modificare l'appartenenza ai gruppi per archiviare e replicare i valori dei singoli membri anziché replicare l'intera appartenenza come singola unità. Usando una larghezza di banda di rete inferiore e un minor numero di cicli del processore durante la replica, l'archiviazione e la replica dei valori dei singoli membri ti impediscono di perdere aggiornamenti quando aggiungi o rimuovi più membri simultaneamente in controller di dominio diversi.
    * Possibilità di distribuire un controller di dominio di sola lettura
@@ -193,7 +193,7 @@ Sistemi operativi supportati per i controller di dominio:
 * Tutte le funzionalità predefinite di Active Directory Domain Services, tutte le funzionalità disponibili per il livello di funzionalità del dominio nativo di Windows 2000, più le funzionalità seguenti:
    * Strumento di gestione del dominio, Netdom. exe, che ti consente di rinominare i controller di dominio
    * Aggiornamenti dell'indicatore data e ora di accesso
-      * L'attributo **lastLogonTimestamp** viene aggiornato con l'ora dell'ultimo accesso da parte dell'utente o del computer. Questo attributo viene replicato all'interno del dominio.
+      * L'attributo **lastLogonTimestamp** viene aggiornato con l'ora dell'ultimo accesso da parte dell'utente o del computer. Questo attributo viene replicato sul dominio.
    * Possibilità di impostare l'attributo **userPassword** come password valida per gli oggetti **inetOrgPerson** e User
    * Possibilità di reindirizzare i contenitori Utenti e Computer
       * Per impostazione predefinita, per l'inserimento di account computer e account utente sono disponibili due contenitori conosciuti, ovvero cn=Computers,<domain root> e cn=Users,<domain root>. Questa funzionalità consente di definire un nuovo percorso conosciuto per questi account.
