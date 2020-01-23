@@ -5,19 +5,19 @@ ms.technology: manage
 ms.topic: article
 author: jasongerend
 ms.author: jgerend
-ms.date: 10/17/2018
+ms.date: 01/17/2020
 ms.localizationpriority: medium
 ms.prod: windows-server
-ms.openlocfilehash: 159202fcb8c6125134154094e67e862ce8eb12ab
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: ba3cdb8dbd81ee85b0679905444f35174b8138e0
+ms.sourcegitcommit: 840d1d8851f68936db3934c80796fb8722d3c64a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71357025"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76519463"
 ---
 # <a name="windows-admin-center-ui-text-and-design-style-guide"></a>Guida di stile per la progettazione e il testo dell'interfaccia utente di Windows Admin Center
 
->Si applica a: Windows Admin Center
+>Si applica a: centro di amministrazione di Windows
 
 In questo argomento viene descritto l'approccio generale per la scrittura del testo dell'interfaccia utente di Windows Admin Center, nonché alcune convenzioni specifiche e le operazioni da intraprendere.
 
@@ -40,7 +40,7 @@ Per l'uso delle [maiuscole e minuscole](https://docs.microsoft.com/style-guide/c
 
 ## <a name="colons"></a>Due punti
 
-Usare i due punti per inserire gli elenchi. Esempio:
+Usare i due punti per inserire gli elenchi. Ad esempio:
 
     Choose one of the following:
     Cats
@@ -79,18 +79,18 @@ Di seguito sono riportati alcuni suggerimenti della guida di stile di Windows:
 - Quando si esegue una demo o si suggerisce qualcosa, verificare che il risultato finale sia chiaro; la semplice visualizzazione del cliente come eseguire un'operazione non è efficace se non ne conosce il motivo.
 - Non presentare suggerimenti se il cliente non ne ha bisogno.
 
-### <a name="2-show-dont-tell"></a>2. Mostra, non indica
+### <a name="2-show-dont-tell"></a>2. Mostra, non dire
 
 Mantieni il testo il più semplice possibile (pensa a piccole animazioni o video).
 
-### <a name="3-dont-overwhelm"></a>3. Non sovraccaricare
+### <a name="3-dont-overwhelm"></a>3. Non esagerare
 
 - Limita i popup e i suggerimenti a 4 per sessione di utilizzo combinati, comprese le notifiche di sistema e le notifiche della shell.
 - Assicurati che la tempistica dei popup sia utile.
 - Non impedire al cliente di eseguire alcuna operazione.
 - Verifica che i popup possano essere chiusi facilmente.
 
-### <a name="4-keep-it-contextual"></a>4. Mantieni contesto
+### <a name="4-keep-it-contextual"></a>4. Mantieni il contesto
 
 - I momenti di insegnamento sono più efficaci se presentati al momento giusto.
 - Se crei tutorial o presentazioni, mantieni le informazioni concrete.
@@ -98,7 +98,7 @@ Mantieni il testo il più semplice possibile (pensa a piccole animazioni o video
 - Fornire ai clienti un modo per tornare all'esercitazione in un secondo momento, se pertinente (spesso le persone non conservano le informazioni per la prima volta, ma le istruzioni di configurazione potrebbero essere rilevanti solo una volta).
 - La messaggistica non causata da un problema è un momento naturale per l'apprendimento e/o il piacere, mantienila semplice e informativa.
 
-### <a name="5-minimize-painful-setup"></a>5. Minimizzare l'installazione dolorosa
+### <a name="5-minimize-painful-setup"></a>5. Riduci al minimo le installazione complesse
 
 Quando è necessario che il cliente esegua un'altra azione per provare il valore complessivo (accesso a un servizio online e così via), rendilo il più semplice possibile.
 
@@ -134,9 +134,9 @@ Gli sviluppatori Microsoft devono usare un FWLink tranne quando si tratta di un 
 
 - Utilizzare frasi complete.
 - Non includere la punteggiatura finale ad eccezione dei punti interrogativi. 
-- Non è necessario usare lo stesso testo del titolo dell'attività; usare il testo che ha senso nel contesto dell'interfaccia utente, ma assicurarsi che esista una connessione logica tra i due. Esempio: 
-- Collegamento alla guida: Quali sono i rischi per consentire le eccezioni? 
-- Titolo dell'argomento della guida: "Consentire a un programma di comunicare tramite Windows Firewall"
+- Non è necessario usare lo stesso testo del titolo dell'attività; usare il testo che ha senso nel contesto dell'interfaccia utente, ma assicurarsi che esista una connessione logica tra i due. Ad esempio: 
+- Collegamento alla guida: quali sono i rischi di consentire le eccezioni? 
+- Titolo dell'argomento della guida: "consentire a un programma di comunicare tramite Windows Firewall"
 - Essere più specifici possibile sul contenuto dell'argomento della guida. 
     - Nostro stile
         - In che modo Windows Firewall proteggere il computer?
@@ -144,7 +144,7 @@ Gli sviluppatori Microsoft devono usare un FWLink tranne quando si tratta di un 
     - Non lo stile
         - Ulteriori informazioni su Windows Firewall
         - Altre informazioni sulla gestione dei colori
-        - Altre informazioni
+        - Scopri di più
 - Usare l'intera frase per il testo del collegamento, non solo per le parole chiave. 
     - Nostro stile 
         - [Quali sono i rischi per consentire le eccezioni?]()
@@ -161,7 +161,7 @@ La scrittura di un buon messaggio è un equilibrio tra fornire una spiegazione s
 
 Usare un messaggio per ogni caso di errore.
 
-#### <a name="headings"></a>Intestazioni
+#### <a name="headings"></a>Titoli
 
 - Mantenerla concisa e spiegare in modo conciso il problema o la **soluzione ideale**. <br>Alcune superfici dell'interfaccia utente possono avere intestazioni che troncano invece di incapsulare quando sono troppo lunghe, quindi è necessario tenere sotto controllo.
 - Usare la soluzione nell'intestazione se è un semplice passaggio.
@@ -169,7 +169,7 @@ Usare un messaggio per ogni caso di errore.
 - Evitare di usare "si è verificato un problema" nelle intestazioni, a meno che non si disponga di un'altra scelta. Essere più specifici del problema.
 - Evitare di usare le variabili, ad esempio i nomi di file, cartelle e app, nelle intestazioni. Inserirli nel corpo.
 
-#### <a name="body"></a>Body
+#### <a name="body"></a>Corpo
 
 - Se l'intestazione spiega adeguatamente il problema o la soluzione, non è necessario il testo del corpo.
 - Non ripetere il titolo nel messaggio con una formulazione leggermente diversa.
@@ -215,7 +215,7 @@ Lo stato null si verifica quando il contenuto o i dati del cliente sono assenti 
 - "Quando si eseguono operazioni quali sbloccare i risultati, registrare clip di gioco e aggiungere amici, il tutto verrà visualizzato qui".
 - "I tuoi amici preferiti verranno visualizzati qui, quindi potrai vedere quando sono online e a cosa sono."
 
-## <a name="punctuation"></a>Punteggiatura
+## <a name="punctuation"></a>Segni di punteggiatura
 
 - Nessuna punteggiatura finale (punti, punti interrogativi) per intestazioni o frasi incomplete. Fa eccezione la finestra di dialogo in cui nell'intestazione è presente una domanda
 - Utilizza le linee guida della Guida di stile Microsoft per [i punti](https://docs.microsoft.com/style-guide/punctuation/periods) e [i punti interrogativi](https://docs.microsoft.com/style-guide/punctuation/question-marks).
@@ -227,7 +227,7 @@ Messaggi di stato sono costituiti da messaggi di tipo popup e notifiche.
 |Tipo di stringa         | Note                               |
 |------------        |-------------------------------------|
 |Avviso popup               |Frase con punteggiatura finale: idealmente con una variabile oggetto in modo che gli utenti possano capire a quale oggetto si riferisce il messaggio nel caso in cui si siano allontanati dall'oggetto|
-|Intestazione di notifica|Frase senza punteggiatura finale (titolo): idealmente con una variabile oggetto|
+|Intestazione notifica (titolo) |Distinzione tra maiuscole e minuscole senza terminazione della punteggiatura (intestazione): idealmente con una variabile oggetto|
 |Dettagli di notifica|Frasi complete, idealmente con un collegamento all'interfaccia utente che visualizza l'oggetto|
 
 Ecco alcuni consigli dettagliati per i messaggi di notifica:
@@ -235,9 +235,9 @@ Ecco alcuni consigli dettagliati per i messaggi di notifica:
 |Tipo di stringa         | Note                               |
 |------------        |-------------------------------------|
 |Avviato             |Ometti quando possibile: in genere puoi passare direttamente al messaggio che indica un'operazione in corso per ridurre il numero di distrazioni.|
-|In progress         |Inizia con l'azione che stai eseguendo e finisci con l'ellissi per indicare che l'operazione è in corso. Di seguito è riportato un esempio:<br> *Creazione del volume "dati cliente"...*|
-|Riuscito             |Inizia con l'azione e termina con l'indicazione che è stata completata. Di seguito è riportato un esempio:<br> *Creazione del volume "dati cliente" completata.*|
-|Errore             |Inizia con "Non è possibile" e termina con l'operazione che non è stata eseguita. Di seguito è riportato un esempio:<br> *Non è stato possibile creare il volume "dati cliente".*|
+|In progress         |Inizia con l'azione che stai eseguendo e finisci con l'ellissi per indicare che l'operazione è in corso. Ecco un esempio:<br> *Creazione del volume ' Customer data '...* <br><br>Quando sono presenti più variabili, usare il modello seguente: <br>*Eliminazione della macchina virtuale seguente: {0}; Host: {1}* |
+|Operazioni riuscita             |Inizia con l'azione e termina con l'indicazione che è stata completata. Ecco un esempio:<br> *Creazione del volume ' Customer data ' completata.*|
+|Operazione non riuscita             |Inizia con "Non è possibile" e termina con l'operazione che non è stata eseguita. Ecco un esempio:<br> *Non è stato possibile creare il volume ' Customer data '.*|
 
 ## <a name="tooltips"></a>Descrizioni comandi
 
@@ -247,7 +247,7 @@ Le descrizioni comandi devono essere usate in qualsiasi momento. È possibile ch
 
 |    Contesto                                 |    Come scrivere le descrizioni comandi    |
 |    -----------------------                 |    -------------------------    |
-|Quando un controllo o un elemento dell'interfaccia utente è senza etichetta...|Usare una semplice frase del sostantivo descrittivo. Esempio:<br> Evidenziazione della penna |
+|Quando un controllo o un elemento dell'interfaccia utente è senza etichetta...|Usare una semplice frase del sostantivo descrittivo. Ad esempio:<br> Evidenziazione della penna |
 |Quando viene etichettato un elemento dell'interfaccia utente, ma lo scopo necessita di chiarimenti...|<ul><li>Descrivere brevemente le operazioni che è possibile eseguire con questo elemento dell'interfaccia utente. </li><li>Usare il formato verbo imperativo. Ad esempio, "trova testo in questo file" (non "trova il testo in questo file").</li><li>Non includere la punteggiatura finale a meno che non siano presenti più frasi complete.</li> </ul>|
-|Quando un'etichetta di testo viene troncata o è probabile che venga troncata in alcune lingue...|<ul><li>Consente di specificare l'etichetta non troncata nella descrizione comando.</li><li>Facoltativo: In un'altra riga, fornire una descrizione chiarificata, ma solo se necessario.</li><li>Non specificare una descrizione comando se le informazioni non troncate vengono fornite altrove nella pagina o nel flusso.</li></ul>|
-|Se è disponibile un tasto di scelta rapida...|<ul><li>Facoltativo: Fornire il tasto di scelta rapida tra parentesi dopo l'etichetta o la frase descrittiva, ad esempio "Print (CTRL + P)" o "trova testo in questo file (CTRL + F)"</li><li>È possibile aggiungere un tasto di scelta rapida utile a una descrizione comando chiarificata, ma evitare di aggiungere una descrizione comando solo per mostrare un tasto di scelta rapida. </li></ul>|
+|Quando un'etichetta di testo viene troncata o è probabile che venga troncata in alcune lingue...|<ul><li>Consente di specificare l'etichetta non troncata nella descrizione comando.</li><li>Facoltativo: in un'altra riga, fornire una descrizione chiarificata, ma solo se necessario.</li><li>Non specificare una descrizione comando se le informazioni non troncate vengono fornite altrove nella pagina o nel flusso.</li></ul>|
+|Se è disponibile un tasto di scelta rapida...|<ul><li>Facoltativo: specificare il tasto di scelta rapida tra parentesi dopo l'etichetta o la frase descrittiva, ad esempio "stampa (CTRL + P)" o "trova testo in questo file (CTRL + F)"</li><li>È possibile aggiungere un tasto di scelta rapida utile a una descrizione comando chiarificata, ma evitare di aggiungere una descrizione comando solo per mostrare un tasto di scelta rapida. </li></ul>|

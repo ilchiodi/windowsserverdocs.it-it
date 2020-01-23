@@ -4,16 +4,16 @@ description: Il servizio migrazione archiviazione semplifica la migrazione dello
 author: jasongerend
 ms.author: jgerend
 manager: elizapo
-ms.date: 10/25/2019
+ms.date: 01/17/2020
 ms.topic: article
 ms.prod: windows-server
 ms.technology: storage
-ms.openlocfilehash: 968122612845a9be105ca7d3231edc0faa039e76
-ms.sourcegitcommit: bfe9c5f7141f4f2343a4edf432856f07db1410aa
+ms.openlocfilehash: 1a98de21e91fc7bdc431e7413c44089ce750bc05
+ms.sourcegitcommit: 840d1d8851f68936db3934c80796fb8722d3c64a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75352682"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76519473"
 ---
 # <a name="storage-migration-service-overview"></a>Panoramica di servizio migrazione archiviazione
 
@@ -46,6 +46,10 @@ La migrazione è un processo in tre passaggi:
 
 ![screenshot che mostra un server pronto per essere analizzato](media/migrate/inventory.png)
 **Figura 2: server di inventario del servizio migrazione archiviazione**
+
+Ecco un video che illustra come usare il servizio migrazione archiviazione per eseguire un server, ad esempio un server Windows Server 2008 R2 che ora non è più supportato e spostare lo spazio di archiviazione in un server più recente.
+
+> [!VIDEO https://www.youtube.com/embed/h-Xc9j1w144]
 
 ## <a name="requirements"></a>Requisiti
 

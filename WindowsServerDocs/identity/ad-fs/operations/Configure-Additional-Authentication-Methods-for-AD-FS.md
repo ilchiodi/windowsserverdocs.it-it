@@ -9,12 +9,12 @@ ms.date: 07/26/2019
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 89a1f745e1e928a5e5bd79adb94e41fd9da399d9
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: a7cfc80a1e137a4184afa0e8b33a488f1e35dcfa
+ms.sourcegitcommit: 840d1d8851f68936db3934c80796fb8722d3c64a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75948539"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76519453"
 ---
 # <a name="configure-additional-authentication-methods-for-ad-fs"></a>Configure Additional Authentication Methods for AD FS
 
@@ -33,6 +33,7 @@ L'elenco seguente riporta in ordine alfabetico i provider Microsoft e di terze p
 |Provider|Offerta|Collegamento per maggiori informazioni|
 |-|-|-| 
 |aPersona|aPersona Adaptive Multi-Factor Authentication per Microsoft ADFS SSO|[Adapter ADFS aPersona ASM](https://www.apersona.com/adfs)|
+|Cyphercor Inc.|Multi-Factor Authentication LoginTC per AD FS|[Connettore AD FS LoginTC](https://www.logintc.com/docs/connectors/adfs.html)|
 |Duo Security|Scheda Duo multi-factor authentication per AD FS|[Autenticazione Duo per AD FS](https://duo.com/docs/adfs)|
 |Futura|Suite di autenticazione futura per AD FS|[Autenticazione avanzata futura](https://futurae.com)|
 |Gemalto|Gemalto Identity & Security Services|[http://www.gemalto.com/identity](http://www.gemalto.com/identity)|

@@ -5,16 +5,16 @@ description: ''
 author: billmath
 ms.author: billmath
 manager: daveba
-ms.date: 04/23/2019
+ms.date: 01/22/2020
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 6294c7b6ead0a9fa338f8b2cc8134b750f7e3e8f
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: adce37d8d06399d3a00221a12f3449244720ade7
+ms.sourcegitcommit: 840d1d8851f68936db3934c80796fb8722d3c64a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71385554"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76519483"
 ---
 # <a name="whats-new-in-active-directory-federation-services"></a>Novità di Active Directory Federation Services
 
@@ -87,9 +87,8 @@ In precedenza, AD FS necessario che la risorsa e l'ambito desiderati siano in un
  
 Con AD FS sul server 2019, è ora possibile passare il valore della risorsa incorporato nel parametro scope. Questo è coerente con il modo in cui è possibile eseguire l'autenticazione anche per Azure AD. 
 
-Il parametro scope può ora essere organizzato come un elenco separato da spazi in cui ogni voce è una struttura come risorsa/ambito. Per esempio  
+Il parametro scope può ora essere organizzato come un elenco separato da spazi in cui ogni voce è una struttura come risorsa/ambito. 
 
-**< creare una richiesta di esempio valida >**
 > [!NOTE]
 > Nella richiesta di autenticazione è possibile specificare una sola risorsa. Se nella richiesta sono incluse più risorse, AD FS restituirà un errore e l'autenticazione avrà esito negativo. 
 
@@ -110,11 +109,11 @@ D. Il AD FS trasforma "code_verifier" e lo confronta con "t (code_verifier)" da 
 
 #### <a name="faq"></a>Domande frequenti 
 **D.** È possibile passare il valore della risorsa come parte del valore dell'ambito, ad esempio il modo in cui le richieste vengono eseguite su Azure AD? 
-</br>**Un.** Con AD FS sul server 2019, è ora possibile passare il valore della risorsa incorporato nel parametro scope. Il parametro scope può ora essere organizzato come un elenco separato da spazi in cui ogni voce è una struttura come risorsa/ambito. Per esempio  
+</br>**A.** Con AD FS sul server 2019, è ora possibile passare il valore della risorsa incorporato nel parametro scope. Il parametro scope può ora essere organizzato come un elenco separato da spazi in cui ogni voce è una struttura come risorsa/ambito. Ad esempio  
 **< creare una richiesta di esempio valida >**
 
 **D.** AD FS supporta l'estensione PKCE?
-</br>**Un.** AD FS nel server 2019 supporta la chiave di prova per lo scambio di codice (PKCE) per il flusso di concessione del codice di autorizzazione OAuth 
+</br>**A.** AD FS nel server 2019 supporta la chiave di prova per lo scambio di codice (PKCE) per il flusso di concessione del codice di autorizzazione OAuth 
 
 ## <a name="whats-new-in-active-directory-federation-services-for-windows-server-2016"></a>Novità di Active Directory Federation Services per Windows Server 2016   
 Se si sta cercando informazioni sulle versioni precedenti di ADFS, vedere gli articoli seguenti:  
@@ -154,13 +153,17 @@ ADFS fornisce il componente locale dei criteri di accesso condizionale in uno sc
 ![nuove funzionalità](media/whats-new-in-active-directory-federation-services-for-windows-server-2016/ADFS_ITPRO4.png)  
 
  Per ulteriori informazioni sull'utilizzo di dispositivi basati su accesso condizionale nel cloud   
- *  [Azure Active Directory l'accesso condizionale](https://azure.microsoft.com/documentation/articles/active-directory-conditional-access/)
+ *  [Accesso condizionale di Azure Active Directory](https://azure.microsoft.com/documentation/articles/active-directory-conditional-access/)
 
 Per ulteriori informazioni sull'utilizzo di dispositivi basati su accesso condizionale con AD FS
 *  [Pianificazione dell'accesso condizionale basato su dispositivo con AD FS](../../ad-fs/deployment/Plan-Device-based-Conditional-Access-on-Premises.md)  
 * [Criteri di controllo degli accessi in AD FS](../../ad-fs/operations/Access-Control-Policies-in-AD-FS.md)  
 
-### <a name="sign-in-with-windows-hello-for-business"></a>Accedi con Windows Hello for business   
+### <a name="sign-in-with-windows-hello-for-business"></a>Accedi con Windows Hello for business  
+
+> [!NOTE]
+> Attualmente, Google Chrome e il [nuovo Microsoft Edge basati sui](https://www.microsoft.com/edge?form=MB110A&OCID=MB110A) browser dei progetti open source di Chromium non sono supportati per l'accesso Single Sign-on (SSO) basato su browser con Microsoft Windows Hello for business. Usare Internet Explorer o una versione precedente di Microsoft Edge.  
+
 I dispositivi Windows 10 introducono Windows Hello e Windows Hello for business, sostituendo le password utente con credenziali utente associate a dispositivi sicure protette dal gesto di un utente (un PIN, un movimento biometrico come l'impronta digitale o il riconoscimento facciale). AD FS 2016 supporta queste nuove funzionalità di Windows 10 in modo che gli utenti possano accedere alle applicazioni AD FS dalla Intranet o dalla Extranet senza dover specificare una password.
 
 Per ulteriori informazioni sull'utilizzo di Microsoft Windows Hello for Business dell'organizzazione
