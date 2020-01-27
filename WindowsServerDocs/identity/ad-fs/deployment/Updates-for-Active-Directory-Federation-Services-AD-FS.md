@@ -9,15 +9,14 @@ ms.date: 3/29/2019
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 31f6c00f829569586630629d2fa18c1fb65cd1d6
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: 0850145c9281c769c5a2b6532ccb56615abd11b3
+ms.sourcegitcommit: ff0db5ca093a31034ccc5e9156f5e9b45b69bae5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75949459"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76725786"
 ---
 # <a name="required-updates-for-active-directory-federation-services-ad-fs-and-web-application-proxy-wap"></a>Aggiornamenti necessari per Active Directory Federation Services (AD FS) e proxy applicazione Web (WAP)
-
 
 A partire dal 2016 ottobre, tutti gli aggiornamenti di tutti i componenti di Windows Server vengono rilasciati solo tramite Windows Update (WU).  Non sono disponibili aggiornamenti rapidi o singoli download.
 Si applica a Windows Server 2016, Windows Server 2012 R2, Windows Server 2012 e Windows Server 2008 R2 SP1.
@@ -29,8 +28,8 @@ Gli aggiornamenti per Windows Server 2016 vengono distribuiti ogni mese tramite 
 
 |KB # |Descrizione|Data di rilascio
 |----- | ----- |-----
-|[CVE-2019-1126](https://portal.msrc.microsoft.com/security-guidance/advisory/CVE-2019-1126) | Questo aggiornamento della sicurezza risolve una vulnerabilità in Active Directory Federation Services (AD FS) che potrebbe consentire a un utente malintenzionato di ignorare i criteri di blocco Extranet. |Luglio 2019|
-|[4489889 (build del sistema operativo 14393,2879)](https://support.microsoft.com/help/4489889/windows-10-update-kb4489889) | Risolve un problema in Active Directory Federation Services (AD FS) che determina la visualizzazione di un trust duplicato relying party nella console di gestione AD FS. Questo errore si verifica quando si crea o si visualizzano relying party trust utilizzando la console di gestione AD FS.</br></br> Risolve un problema di latenza WAP (Web Application Proxy) High Active Directory Federation Services (ad FS) (oltre 10 1.000 ms) che si verifica durante l'abilitazione del blocco Smart Extranet (ESL) AD FS 2016. Questo aggiornamento della sicurezza risolve la vulnerabilità descritta in [CVE-2018-16794](https://nvd.nist.gov/vuln/detail/CVE-2018-16794). |Marzo 2019|
+|[CVE-2019-1126](https://portal.msrc.microsoft.com/security-guidance/advisory/CVE-2019-1126) | Questo aggiornamento della sicurezza risolve una vulnerabilità in Active Directory Federation Services (AD FS) che potrebbe consentire a un utente malintenzionato di ignorare i criteri di blocco Extranet. |2019 luglio|
+|[4489889 (build del sistema operativo 14393,2879)](https://support.microsoft.com/help/4489889/windows-10-update-kb4489889) | Risolve un problema in Active Directory Federation Services (AD FS) che determina la visualizzazione di un trust duplicato relying party nella console di gestione AD FS. Questo errore si verifica quando si crea o si visualizzano relying party trust utilizzando la console di gestione AD FS.</br></br> Risolve un problema di latenza WAP (Web Application Proxy) High Active Directory Federation Services (ad FS) (oltre 10 1.000 ms) che si verifica durante l'abilitazione del blocco Smart Extranet (ESL) AD FS 2016. Questo aggiornamento della sicurezza risolve la vulnerabilità descritta in [CVE-2018-16794](https://nvd.nist.gov/vuln/detail/CVE-2018-16794). |2019 marzo|
 |[4487006 (build del sistema operativo 14393,2828)](https://support.microsoft.com/help/4487006/windows-10-update-kb4487006) | Risolve un problema che causa l'esito negativo degli aggiornamenti di un trust relying party quando si usa PowerShell o la console di gestione Active Directory Federation Services (AD FS). Questo problema si verifica se si configura un trust relying party per l'uso di un URL dei metadati online che pubblica più di un PassiveRequestorEndpoint. L'errore è "MSIS7615: gli endpoint attendibili specificati in un trust relying party devono essere univoci per tale attendibilità relying party".  </br></br>Risolve un problema che visualizza un messaggio di errore specifico per le modifiche della password di complessità esterna a causa dei criteri di protezione delle password di Azure. |Febbraio 2019|
 |[4462928 (build del sistema operativo 14393,2580)](https://support.microsoft.com/help/4462928/windows-10-update-kb4462928)|Risolve i problemi di interoperatività tra Active Directory Federation Services (ad FS) Extranet Smart Lock (ESL) e l'ID di accesso alternativo. Quando è abilitato l'ID di accesso alternativo, le chiamate a AD FS cmdlet di PowerShell, Get-AdfsAccountActivity e reset-AdfsAccountLockout, restituiscono errori "account non trovato". Quando si chiama set-AdfsAccountActivity, viene aggiunta una nuova voce anziché modificarne una esistente.|Ottobre 2018|
 |[4343884 (build del sistema operativo 14393,2457)](https://support.microsoft.com/help/4343884/windows-10-update-kb4343884)|Risolve un problema di Active Directory Federation Services (AD FS) in cui Multi-Factor Authentication non funziona correttamente con i dispositivi mobili che utilizzano definizioni di impostazioni cultura personalizzate. </br></br>Risolve un problema in Windows Hello for business che causa un ritardo significativo (15 secondi) nella nuova registrazione utente. Questo problema si verifica quando viene usato un modulo di protezione hardware per archiviare un certificato dell'autorità di registrazione (RA) di ADFS.|Agosto 2018|
@@ -51,7 +50,7 @@ Di seguito è riportato l'elenco degli aggiornamenti rapidi e degli aggiornament
 
 |KB # |Descrizione|Data di rilascio
 |----- | ----- |-----
-|[4507448](https://support.microsoft.com/help/4507448/windows-8-1-update-kb4507448)| Questo aggiornamento della sicurezza risolve una vulnerabilità in Active Directory Federation Services (AD FS) che potrebbe consentire a un utente malintenzionato di ignorare i criteri di blocco Extranet. |Luglio 2019
+|[4507448](https://support.microsoft.com/help/4507448/windows-8-1-update-kb4507448)| Questo aggiornamento della sicurezza risolve una vulnerabilità in Active Directory Federation Services (AD FS) che potrebbe consentire a un utente malintenzionato di ignorare i criteri di blocco Extranet. |2019 luglio
 |[4041685](https://support.microsoft.com/kb/4041685)|È stato risolto un problema AD FS in cui i cookie MSISConext nelle intestazioni delle richieste possono esaurire il limite delle dimensioni delle intestazioni e causare un errore di autenticazione con il codice di stato HTTP 400 "richiesta-intestazione non valida" troppo lunga.</br></br>Correzione di un problema per cui ADFS non è più in grado di ignorare "prompt = login" durante l'autenticazione. È stata aggiunta un'opzione "disabled" per ripristinare scenari in cui viene usata l'autenticazione non basata su password.|Anteprima del 2017 ottobre dell'aggiornamento cumulativo
 |[4019217](https://support.microsoft.com/kb/4019217)|I client di cartelle di lavoro che usano il broker di token non funzionano quando si usa un server di AD FS Server 2012 R2|Aggiornamento cumulativo di maggio 2017 dell'anteprima
 |[4015550](https://support.microsoft.com/kb/4015550)|È stato risolto un problema con AD FS non autenticare gli utenti esterni e AD FS WAP in modo casuale non è stato possibile inoltrare la richiesta|Aggiornamento cumulativo di aprile 2017

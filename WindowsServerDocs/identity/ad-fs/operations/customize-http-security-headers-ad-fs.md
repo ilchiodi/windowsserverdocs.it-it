@@ -9,12 +9,12 @@ ms.date: 02/19/2019
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 7fd06c06a2ea7af93b87c471f77b788ac51bddac
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: b81d498c6e601fcce0a0760cb4877fcc98c8beb9
+ms.sourcegitcommit: ff0db5ca093a31034ccc5e9156f5e9b45b69bae5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75949212"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76725796"
 ---
 # <a name="customize-http-security-response-headers-with-ad-fs-2019"></a>Personalizzare le intestazioni di risposta di sicurezza HTTP con AD FS 2019 
  
@@ -33,8 +33,8 @@ Prima di illustrare le intestazioni, verranno esaminati alcuni scenari in cui vi
  
 ## <a name="scenarios"></a>Scenari 
 1. L'amministratore ha abilitato [**http Strict-Transport-Security (HSTS)** ](#http-strict-transport-security-hsts) (forza tutte le connessioni sulla crittografia HTTPS) per proteggere gli utenti che possono accedere all'app Web tramite HTTP da un punto di accesso Wi-Fi pubblico che può essere hackerato. Si vuole rafforzare ulteriormente la sicurezza abilitando HSTS per i sottodomini.  
-2. L'amministratore ha configurato l'intestazione della risposta [**X-frame-options**](#x-frame-options) (impedisce il rendering di qualsiasi pagina Web in un iframe) per proteggere le pagine Web da clickjacked. Tuttavia, deve personalizzare il valore dell'intestazione a causa di un nuovo requisito aziendale per visualizzare i dati (in iFrame) da un'applicazione con un'origine (dominio) diversa.
-3. L'amministratore ha abilitato [**X-XSS-Protection**](#x-xss-protection) (impedisce gli attacchi tra script) per purificare e bloccare la pagina se il browser rileva attacchi tra script. Tuttavia, deve personalizzare l'intestazione per consentire il caricamento della pagina una volta purificata.  
+2. L'amministratore ha configurato l'intestazione della risposta [**X-frame-options**](#x-frame-options) (impedisce il rendering di qualsiasi pagina Web in un iframe) per proteggere le pagine Web da clickjacked. Tuttavia, devono personalizzare il valore dell'intestazione a causa di un nuovo requisito aziendale per visualizzare i dati (in iFrame) da un'applicazione con un'origine (dominio) diversa.
+3. L'amministratore ha abilitato [**X-XSS-Protection**](#x-xss-protection) (impedisce gli attacchi tra script) per purificare e bloccare la pagina se il browser rileva attacchi tra script. Tuttavia, devono personalizzare l'intestazione per consentire il caricamento della pagina una volta purificata.  
 4. L'amministratore deve abilitare la [**condivisione di risorse tra le origini (CORS)** ](#cross-origin-resource-sharing-cors-headers) e impostare l'origine (dominio) in ad FS per consentire a un'applicazione a pagina singola di accedere a un'API Web con un altro dominio.  
 5. L'amministratore ha abilitato l'intestazione del [**criterio di sicurezza del contenuto (CSP)** ](#content-security-policy-csp) per evitare attacchi di scripting tra siti e attacchi di dati, non consentendo richieste tra domini. Tuttavia, a causa di un nuovo requisito aziendale, è necessario personalizzare l'intestazione per consentire alla pagina Web di caricare le immagini da qualsiasi origine e limitare i supporti ai provider attendibili.  
 
@@ -109,7 +109,7 @@ Set-AdfsResponseHeaders -RemoveHeaders "X-Frame-Options"
 ### <a name="x-xss-protection"></a>X-XSS-Protection 
 Questa intestazione della risposta di sicurezza HTTP viene utilizzata per arrestare il caricamento delle pagine Web quando vengono rilevati attacchi di scripting tra siti (XSS) dai browser. Questa operazione viene definita filtro XSS. L'intestazione può essere impostata su uno dei valori seguenti:
  
-- **0** : Disabilita il filtro XSS. Sconsigliato.  
+- **0** : Disabilita il filtro XSS. Non consigliato.  
 - **1** : Abilita il filtro XSS. Se viene rilevato un attacco XSS, la pagina verrà purificata dal browser.   
 - **1; mode = block** : Abilita il filtro XSS. Se viene rilevato un attacco XSS, il browser eviterà il rendering della pagina. Si tratta dell'impostazione predefinita e consigliata.  
 
@@ -133,7 +133,7 @@ Set-AdfsResponseHeaders -RemoveHeaders "X-XSS-Protection"
 ```
 
 ### <a name="cross-origin-resource-sharing-cors-headers"></a>Intestazioni di condivisione risorse tra le origini (CORS) 
-Web browser sicurezza impedisce a una pagina Web di effettuare richieste tra le origini dall'interno degli script. Tuttavia, a volte potrebbe essere necessario accedere alle risorse in altre origini (domini). CORS è uno standard W3C che consente a un server di ridurre i criteri della stessa origine. Con CORS un server può consentire in modo esplicito alcune richieste multiorigine e rifiutarne altre.  
+Web browser sicurezza impedisce a una pagina Web di effettuare richieste tra le origini dall'interno degli script. Tuttavia, a volte potrebbe essere necessario accedere alle risorse in altre origini (domini). CORS è uno standard W3C che consente a un server di ridurre i criteri della stessa origine. Usando CORS, un server può consentire in modo esplicito alcune richieste tra origini e rifiutare altre.  
  
 Per comprendere meglio la richiesta CORS, viene illustrato uno scenario in cui un'applicazione a pagina singola (SPA) deve chiamare un'API Web con un dominio diverso. Inoltre, si consideri che l'API e la SPA sono configurate in ADFS 2019 e AD FS è abilitato CORS, ad esempio AD FS possibile identificare le intestazioni CORS nella richiesta HTTP, convalidare i valori di intestazione e includere le intestazioni CORS appropriate nella risposta (informazioni dettagliate su come abilitare e configurare CORS in AD FS 2019 nella sezione relativa alla personalizzazione di CORS riportata di seguito). Flusso di esempio: 
 
@@ -183,7 +183,7 @@ La personalizzazione dell'intestazione CSP comporta la modifica dei criteri di s
  
 La direttiva **default-src** viene usata per modificare le [direttive-src](https://developer.mozilla.org/docs/Web/HTTP/Headers/Content-Security-Policy/default-src) senza elencare in modo esplicito ogni direttiva. Nell'esempio seguente, ad esempio, il criterio 1 corrisponde al criterio 2.  
 
-Criterio 1 
+Criteri 1 
 ```PowerShell
 Set-AdfsResponseHeaders -SetHeaderName "Content-Security-Policy" -SetHeaderValue "default-src 'self'" 
 ```
