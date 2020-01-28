@@ -8,13 +8,13 @@ author: iainfoulds
 ms.author: iainfou
 ms.topic: get-started-article
 ms.localizationpriority: high
-ms.date: 12/16/2019
-ms.openlocfilehash: 83ab3663b2c03017ba1bf613a49c394be0511002
-ms.sourcegitcommit: b649047f161cb605df084f18b573f796a584753b
+ms.date: 01/23/2020
+ms.openlocfilehash: 0f3ea0dacc200adaaec5064d19754ad6de0042a6
+ms.sourcegitcommit: ff0db5ca093a31034ccc5e9156f5e9b45b69bae5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76162502"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76725776"
 ---
 # <a name="how-to-use-windows-server-2008-and-2008-r2-extended-security-updates-esu"></a>Come usare gli aggiornamenti di sicurezza estesi per Windows Server 2008 e 2008 R2
 
@@ -43,23 +43,38 @@ Gli aggiornamenti di sicurezza estesi per Windows Server includono aggiornamenti
 
 Per altre informazioni, vedi le[domande frequenti sugli aggiornamenti di sicurezza estesi](https://www.microsoft.com/cloud-platform/extended-security-updates).
 
+## <a name="how-to-use-extended-security-updates"></a>Come usare gli aggiornamenti di sicurezza estesi
+
+Se eseguite in Azure, le macchine virtuali Windows Server 2008/2008 R2 sono automaticamente abilitate a ricevere gli aggiornamenti di sicurezza estesi. Per usare gli aggiornamenti di sicurezza estesi con macchine virtuali di Azure, non è necessario configurare alcuna impostazione e non sono previsti costi aggiuntivi. Gli aggiornamenti di sicurezza estesi vengono inviati automaticamente alle macchine virtuali di Azure opportunamente configurate per riceverli.
+
+Se usi altri ambienti, ad esempio server fisici o macchine virtuali locali, devi richiedere e configurare manualmente gli aggiornamenti di sicurezza estesi. Se hai già acquistato gli aggiornamenti di sicurezza estesi, disponibili tramite programmi per contratti multilicenza come Enterprise Agreement (EA), Enterprise Agreement Subscription (EAS), Enrollment for Education Solutions (EES) o Server and Cloud Enrollment (SCE), puoi usare una delle procedure seguenti per ottenere una chiave di attivazione:
+
+* Accedi a [Microsoft Volume Licensing Service Center](https://www.microsoft.com/Licensing/servicecenter/default.aspx) per visualizzare e ottenere le chiavi di attivazione.
+* Registrati per ricevere gli aggiornamenti di sicurezza estesi nel portale di Azure e ottenere le chiavi di attivazione di Windows Server 2008/R2.
+    * Per informazioni su come completare la procedura, vedi i passaggi seguenti in questo articolo.
+
 ## <a name="register-for-extended-security-updates"></a>Registrati per ricevere gli aggiornamenti di sicurezza estesi
 
 Per usare gli aggiornamenti di sicurezza estesi, è necessario creare un codice Product Key per attivazione multipla (MAK) e applicarlo ai computer Windows Server 2008 e 2008 R2. Con questa chiave, i server Windows Update riconoscono che puoi continuare a ricevere gli aggiornamenti della sicurezza. Per registrarti e ricevere gli aggiornamenti di sicurezza estesi e per gestire questi codici, usa il portale di Azure, anche se usi solo computer locali.
 
 > [!NOTE]
-> Se esegui VM Windows Server 2008/2008 R2 in Azure, non è necessario completare i passaggi seguenti. Le VM di Azure vengono automaticamente abilitate per gli aggiornamenti di sicurezza estesi. Con le VM di Azure, non è necessario creare una risorsa e una chiave per gli aggiornamenti di sicurezza estesi e non sono previsti costi aggiuntivi per il relativo uso.
+>
+> Se esegui Windows Server 2008 e 2008 R2 in macchine virtuali di Azure, non è necessario che ti registri per ricevere gli aggiornamenti di sicurezza estesi. Se usi altri ambienti, ad esempio server fisici o macchine virtuali locali, [acquista gli aggiornamenti di sicurezza estesi](https://www.microsoft.com/licensing/how-to-buy/how-to-buy) prima di provare a registrarti e usare gli aggiornamenti.
 
-> [!NOTE]
-> Prima di eseguire la procedura che segue, invia un messaggio di posta elettronica a [winsvresuchamps@microsoft.com](mailto:winsvresuchamps@microsoft.com) con queste informazioni da approvare e aggiungere all'elenco elementi consentiti:
+> [!IMPORTANT]
+>
+> Segui i passaggi precedenti per acquistare gli aggiornamenti di sicurezza estesi tramite il programma per contratti multilicenza. Prima di eseguire la procedura che segue, invia un messaggio di posta elettronica a [winsvresuchamps@microsoft.com](mailto:winsvresuchamps@microsoft.com) con le informazioni seguenti per ottenere l'approvazione all'uso della funzionalità:
+>
 > * Nome cliente:
 > * Sottoscrizione di Azure:
 > * Numero di contratto EA (per gli aggiornamenti di sicurezza estesi):
 > * Numero di server per gli aggiornamenti di sicurezza estesi:
-> 
-> Il team esaminerà le informazioni fornite e aggiungerà l'utente e la sottoscrizione all'elenco elementi consentiti.
-> 
-> Se il richiedente non è incluso nell'elenco elementi consentiti, può verificarsi l'errore seguente: [Non è possibile trovare il tipo di risorsa nello spazio dei nomi 'Microsoft.WindowsESU'](https://social.msdn.microsoft.com/Forums/office/94b16a89-3149-43da-865d-abf7dba7b977/the-resource-type-could-not-be-found-in-the-namespace-microsoftwindowsesu-for-api-version).
+>
+> Il team esaminerà le informazioni fornite e aggiungerà l'utente o la sottoscrizione all'elenco approvato.
+>
+> Se il richiedente non viene approvato, può verificarsi l'errore seguente:
+>
+> [Non è possibile trovare il tipo di risorsa nello spazio dei nomi 'Microsoft.WindowsESU'](https://social.msdn.microsoft.com/Forums/office/94b16a89-3149-43da-865d-abf7dba7b977/the-resource-type-could-not-be-found-in-the-namespace-microsoftwindowsesu-for-api-version).
 
 Per registrare VM non di Azure per gli aggiornamenti di sicurezza estesi e creare una chiave, completa la procedura seguente nel portale di Azure:
 
