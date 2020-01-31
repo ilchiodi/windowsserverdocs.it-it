@@ -7,14 +7,14 @@ ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.date: 12/20/2019
+ms.date: 1/16/2019
 description: Argomenti nuovi e aggiornati nella documentazione di archiviazione locale per Windows Server per professionisti IT.
-ms.openlocfilehash: d50d4ca5b49b7f895fad3d3866226f95c55ae485
-ms.sourcegitcommit: bfe9c5f7141f4f2343a4edf432856f07db1410aa
+ms.openlocfilehash: eb0e4f5cd357718be298290930bdf6fb9f7f041f
+ms.sourcegitcommit: 07c9d4ea72528401314e2789e3bc2e688fc96001
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75352780"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76822604"
 ---
 # <a name="change-history-for-storage-topics-in-windows-server"></a>Cronologia delle modifiche per gli argomenti relativi all'archiviazione in Windows Server
 
@@ -24,7 +24,13 @@ Questo argomento elenca gli argomenti nuovi e aggiornati nella documentazione di
 
 > Se si sta cercando la cronologia degli aggiornamenti per Windows Server, vedere la cronologia degli aggiornamenti di Windows [10 e Windows server 2019](https://support.microsoft.com/help/4464619) o la [cronologia degli aggiornamenti di Windows Server 2016](https://support.microsoft.com/help/4000825/windows-10-and-windows-server-2016-update-history).
 
-## <a name="december-2019"></a>Dicembre 2019
+## <a name="january-2020"></a>2020 gennaio
+
+| Argomento nuovo o modificato | Descrizione |
+| --- | --- |
+|[Concetti e distribuzione della memoria persistente](storage-spaces/deploy-pmem.md) | È stato aggiunto un problema hardware noto. |
+
+## <a name="december-2019"></a>2019 dicembre
 
 | Argomento nuovo o modificato                                        | Descrizione |
 | ---                                                         | ---           |
@@ -33,7 +39,7 @@ Questo argomento elenca gli argomenti nuovi e aggiornati nella documentazione di
 | [Convertire nuovamente un disco dinamico in un disco di base](disk-management/change-a-dynamic-disk-back-to-a-basic-disk.md) | È stato corretto un errore nella riga di comando e sono state aggiunte alcune informazioni in base ai commenti e suggerimenti dei clienti. |
 
 
-## <a name="august-2019"></a>Agosto 2019
+## <a name="august-2019"></a>2019 agosto
 
 | Argomento nuovo o modificato                                        | Descrizione |
 | ---                                                         | ---           |
@@ -54,7 +60,7 @@ Questo argomento elenca gli argomenti nuovi e aggiornati nella documentazione di
 |[Creare volumi](storage-spaces/create-volumes.md)| Aggiunta di passaggi e video per la creazione di un volume nell'interfaccia di amministrazione di Windows.|
 |[Estendere volumi](storage-spaces/resize-volumes.md)| Aggiunta di passaggi e video per il ridimensionamento di un volume nell'interfaccia di amministrazione di Windows.|
 
-## <a name="march-2019"></a>Marzo 2019
+## <a name="march-2019"></a>2019 marzo
 
 |Argomento nuovo o modificato                                        |Descrizione|
 |---                                                         |---           |

@@ -1,6 +1,6 @@
 ---
 ms.assetid: eafdddc3-40d7-4a75-8f4f-a45294aabfc8
-title: Implementazione di host amministrativi protetti
+title: Implementazione degli host amministrativi protetti
 description: ''
 author: MicrosoftGuyJFlo
 ms.author: joflore
@@ -9,14 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 56986f2ea9f49bdfc1194ae5342798793524e86c
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 241418b87fd0f1e6fa64c4b1267e6d9fcde6b0d3
+ms.sourcegitcommit: 07c9d4ea72528401314e2789e3bc2e688fc96001
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71408615"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76822764"
 ---
-# <a name="implementing-secure-administrative-hosts"></a>Implementazione di host amministrativi protetti
+# <a name="implementing-secure-administrative-hosts"></a>Implementazione degli host amministrativi protetti
 
 >Si applica a: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
@@ -84,7 +84,7 @@ Sebbene la configurazione specifica possa variare a seconda dell'architettura de
 È necessario consentire gli accessi interattivi da parte di utenti autorizzati e rimuovere o persino bloccare altri tipi di accesso non necessari per l'accesso al server.  
   
 ### <a name="patch-and-configuration-management"></a>Gestione delle patch e della configurazione  
-Le organizzazioni più piccole possono basarsi su offerte come Windows Update o [Windows Server Update Services](https://technet.microsoft.com/windowsserver/bb332157) (WSUS) per gestire la distribuzione degli aggiornamenti nei sistemi Windows, mentre le organizzazioni di grandi dimensioni possono implementare software di gestione delle patch e della configurazione aziendali, ad esempio System Center Configuration Manager. Indipendentemente dai meccanismi usati per distribuire gli aggiornamenti al popolamento generale del server e della workstation, è consigliabile prendere in considerazione distribuzioni separate per sistemi a protezione elevata, ad esempio controller di dominio, autorità di certificazione e host amministrativi. Con la separazione di questi sistemi dall'infrastruttura di gestione generale, se il software di gestione o gli account del servizio sono compromessi, la compromissione non può essere facilmente estesa ai sistemi più sicuri nell'infrastruttura.  
+Le organizzazioni più piccole possono basarsi su offerte come Windows Update o [Windows Server Update Services](https://technet.microsoft.com/windowsserver/bb332157) (WSUS) per gestire la distribuzione degli aggiornamenti nei sistemi Windows, mentre le organizzazioni di grandi dimensioni possono implementare software di gestione delle patch e della configurazione aziendale, ad esempio Microsoft endpoint Configuration Manager. Indipendentemente dai meccanismi usati per distribuire gli aggiornamenti al popolamento generale del server e della workstation, è consigliabile prendere in considerazione distribuzioni separate per sistemi a protezione elevata, ad esempio controller di dominio, autorità di certificazione e host amministrativi. Con la separazione di questi sistemi dall'infrastruttura di gestione generale, se il software di gestione o gli account del servizio sono compromessi, la compromissione non può essere facilmente estesa ai sistemi più sicuri nell'infrastruttura.  
   
 Sebbene non sia necessario implementare processi di aggiornamento manuali per i sistemi protetti, è necessario configurare un'infrastruttura separata per l'aggiornamento dei sistemi protetti. Anche nelle organizzazioni di grandi dimensioni, questa infrastruttura può in genere essere implementata tramite server WSUS e oggetti Criteri di gruppo dedicati per i sistemi protetti.  
   

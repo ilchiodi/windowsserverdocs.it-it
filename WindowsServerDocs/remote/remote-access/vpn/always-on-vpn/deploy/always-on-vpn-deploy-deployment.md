@@ -9,12 +9,12 @@ ms.localizationpriority: medium
 ms.date: 11/05/2018
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 054a41df281ff9720d381fd4854f34f56ed0307b
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 33e00134960ca31ce966198ded0692550e164fd6
+ms.sourcegitcommit: 07c9d4ea72528401314e2789e3bc2e688fc96001
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71388194"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76822409"
 ---
 # <a name="deploy-always-on-vpn"></a>Distribuire VPN Always On
 
@@ -73,7 +73,7 @@ In questo passaggio vengono configurate le impostazioni di DNS e del firewall. Q
 
 ## <a name="step-6-configure-windows-10-client-always-on-vpn-connectionsvpn-deploy-client-vpn-connectionsmd"></a>[Passaggio 6. Configurare le connessioni VPN Always On client Windows 10](vpn-deploy-client-vpn-connections.md)
 
-In questo passaggio si configureranno i computer client Windows 10 in modo che comunichino con tale infrastruttura con una connessione VPN. È possibile usare diverse tecnologie per configurare i client VPN di Windows 10, tra cui Windows PowerShell, System Center Configuration Manager e Intune. Per configurare le impostazioni VPN appropriate, tutte e tre richiedono un profilo VPN XML.
+In questo passaggio si configureranno i computer client Windows 10 in modo che comunichino con tale infrastruttura con una connessione VPN. È possibile usare diverse tecnologie per configurare i client VPN di Windows 10, tra cui Windows PowerShell, Microsoft endpoint Configuration Manager e Intune. Per configurare le impostazioni VPN appropriate, tutte e tre richiedono un profilo VPN XML.
 
 ## <a name="step-7-optional-configure-conditional-access-for-vpn-connectivityad-ca-vpn-connectivity-windows10md"></a>[Passaggio 7. Opzionale Configurare l'accesso condizionale per la connettività VPN](../../ad-ca-vpn-connectivity-windows10.md)
 

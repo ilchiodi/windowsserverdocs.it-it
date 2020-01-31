@@ -9,19 +9,19 @@ ms.localizationpriority: medium
 ms.author: pashort
 author: shortpatti
 ms.date: 06/11/2018
-ms.openlocfilehash: 326f1e8d52dc34ad433e8cc3bd4c4e84508026b7
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: aa7658587b8434bfbaa6874498215a6b2c9213be
+ms.sourcegitcommit: 07c9d4ea72528401314e2789e3bc2e688fc96001
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71388084"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76822664"
 ---
 # <a name="step-5-configure-dns-and-firewall-settings"></a>Passaggio 5. Configurare le impostazioni di DNS e firewall
 
 >Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows 10
 
-- [**Precedente** Passaggio 4. Installare e configurare il server dei criteri di rete](vpn-deploy-nps.md)
-- [**Prossimo** Passaggio 6. Configurare le connessioni VPN Always On dei client Windows 10](vpn-deploy-client-vpn-connections.md)
+- [**Precedente:** Passaggio 4. Installare e configurare il server NPS](vpn-deploy-nps.md)
+- [Passaggio **successivo:** Passaggio 6. Configurare le connessioni VPN Always On client Windows 10](vpn-deploy-client-vpn-connections.md)
 
 In questo passaggio vengono configurate le impostazioni DNS e firewall per la connettività VPN.
 
@@ -84,4 +84,4 @@ Se non si utilizzano le porte RADIUS predefinite nella distribuzione di NPS, è 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Passaggio 6. Configurare il client Windows 10 Always On connessioni](vpn-deploy-client-vpn-connections.md)VPN: In questo passaggio si configureranno i computer client Windows 10 in modo che comunichino con tale infrastruttura con una connessione VPN. È possibile usare diverse tecnologie per configurare i client VPN di Windows 10, tra cui Windows PowerShell, System Center Configuration Manager e Intune. Per configurare le impostazioni VPN appropriate, tutte e tre richiedono un profilo VPN XML.
+[Passaggio 6. Configurare il client Windows 10 Always On connessioni VPN](vpn-deploy-client-vpn-connections.md): in questo passaggio si configurano i computer client Windows 10 per comunicare con tale infrastruttura con una connessione VPN. È possibile usare diverse tecnologie per configurare i client VPN di Windows 10, tra cui Windows PowerShell, Microsoft endpoint Configuration Manager e Intune. Per configurare le impostazioni VPN appropriate, tutte e tre richiedono un profilo VPN XML.

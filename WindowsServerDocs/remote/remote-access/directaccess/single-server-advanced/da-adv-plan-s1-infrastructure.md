@@ -12,12 +12,12 @@ ms.topic: article
 ms.assetid: aa3174f3-42af-4511-ac2d-d8968b66da87
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 9fa6fe4de0c8723c17f6a61717281d0a38d1b579
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: bb8bb6dda6eab27413b462a4c7f17176fbed85a1
+ms.sourcegitcommit: 07c9d4ea72528401314e2789e3bc2e688fc96001
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71388659"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76822774"
 ---
 # <a name="step-1-plan-the-advanced-directaccess-infrastructure"></a>Passaggio 1 pianificare l'infrastruttura DirectAccess avanzata
 
@@ -188,13 +188,13 @@ Il server DirectAccess funge da listener IP-HTTPS ed è necessario installare un
   
 -   L'uso di una CA pubblica è consigliato perché consente di avere subito disponibili gli elenchi di revoche di certificati (CRL).  
   
--   Nel campo **Soggetto**, specificare l'indirizzo IPv4 della scheda Internet del server DirectAccess o il nome di dominio completo dell'URL IP-HTTPS (indirizzo ConnectTo). Se il server DirectAccess si trova dietro un dispositivo NAT, deve essere specificato il nome pubblico o l'indirizzo del dispositivo NAT.  
+-   Nel **soggetto** specificare l'indirizzo IPv4 della scheda Internet del server DirectAccess o il nome di dominio COMPLETO dell'URL IP-HTTPS (indirizzo ConnectTo). Se il server DirectAccess si trova dietro un dispositivo NAT, deve essere specificato il nome pubblico o l'indirizzo del dispositivo NAT.  
   
 -   Il nome comune del certificato deve corrispondere al nome del sito IP-HTTPS.  
   
 -   Per il **Enhanced Key Usage** campo, utilizzare l'identificatore di oggetto (OID) autenticazione server.  
   
--   Per il campo **Punti di distribuzione Elenco di revoche di certificati (CRL)** , specificare un punto di distribuzione CRL accessibile dai client DirectAccess connessi a Internet.  
+-   Per il **punti di distribuzione CRL** specificare un punto di distribuzione CRL accessibile dai client DirectAccess connessi a Internet.  
   
 -   Il certificato IP-HTTPS deve avere una chiave privata.  
   
@@ -264,7 +264,7 @@ Per usare IP-HTTPS in una porta non standard, eseguire i passaggi seguenti nel c
   
     3.  Aprire l'impostazione dello stato IP-HTTPS e modificare l'URL **https://<DirectAccess nome del server (ad esempio server.contoso.com) >: 44500/IPHTTPS**.  
   
-    4.  Fare clic su **Applica**.  
+    4.  Fai clic su **Applica**.  
   
 2.  Modificare le impostazioni del client proxy Kerberos nell'oggetto Criteri di gruppo del client.  
   
@@ -272,19 +272,19 @@ Per usare IP-HTTPS in una porta non standard, eseguire i passaggi seguenti nel c
   
     2.  Aprire l'impostazione dello stato IPHTTPS e modificare l'URL **https://<DirectAccess nome del server (ad esempio server.contoso.com) >: 44500/IPHTTPS**.  
   
-    3.  Fare clic su **Applica**.  
+    3.  Fai clic su **Applica**.  
   
 3.  Modificare le impostazioni dei criteri IPsec del client per usare ComputerKerb e UserKerb.  
   
     1.  Nell'Editor Criteri di gruppo, passare in Configurazione computer=>Criteri=> Impostazioni di Windows=> Impostazioni di sicurezza=> Windows Firewall con sicurezza avanzata.  
   
-    2.  Fare clic su **Regole di sicurezza della connessione**, quindi fare doppio clic su **Regola IPsec**.  
+    2.  Fare clic su **regole di sicurezza connessione**, quindi fare doppio clic su **regola IPsec**.  
   
-    3.  Nella scheda **Autenticazione**, fare clic su **Avanzate**.  
+    3.  Nel **autenticazione** scheda, fare clic su **Avanzate**.  
   
     4.  Per Auth1: rimuovere il metodo di autenticazione esistente e sostituirlo con ComputerKerb. Per Auth2: rimuovere il metodo di autenticazione esistente e sostituirlo con UserKerb.  
   
-    5.  Fare clic su **Applica**, quindi su **OK**.  
+    5.  Fare clic su **applicare**, e quindi **OK**.  
   
 Per completare la procedura manuale per l'utilizzo di una porta non standard IP-HTTPS, eseguire **gpupdate /force** sul computer client e il server DirectAccess.  
   
@@ -295,7 +295,7 @@ Quando si pianifica il sito Web del server dei percorsi di rete, tenere presente
   
 -   Nel **Enhanced Key Usage** campo, usare l'OID di autenticazione Server.  
   
--   Nel campo **Punti di distribuzione Elenco di revoche di certificati (CRL)** , usare un punto di distribuzione CRL accessibile dai client DirectAccess connessi alla Intranet. Questo punto di distribuzione CRL non deve essere accessibile fuori dalla rete interna.  
+-   Nel **punti di distribuzione CRL** campo, utilizzare un punto di distribuzione CRL accessibile dai client DirectAccess connessi alla intranet. Questo punto di distribuzione CRL non deve essere accessibile fuori dalla rete interna.  
   
 -   Se si pianifica la successiva configurazione di una distribuzione multisito o cluster, il nome del certificato non deve corrispondere al nome interno dei server DirectAccess aggiunti alla distribuzione.  
   
@@ -320,7 +320,7 @@ DNS viene usato per risolvere le richieste provenienti dai computer client Direc
 È possibile specificare che i client usano DNS64 DirectAccess per risolvere i nomi o un server DNS interno alternativo. Quando si esegue la risoluzione dei nomi, la tabella dei criteri di risoluzione dei nomi viene usata dai client DirectAccess per stabilire come gestire una richiesta. I client richiedono un nome di dominio completo o un nome con etichetta singola, ad esempio <https://internal>. Se è richiesto un nome con etichetta singola, viene aggiunto un suffisso DNS per trasformarlo in un nome di dominio completo. Se la query DNS corrisponde a una voce nella tabella dei criteri di risoluzione dei nomi ed è specificato DNS64 o un server DNS nella rete interna per la voce, la query viene inviata per la risoluzione dei nomi attraverso il server specificato. Se esiste una corrispondenza, ma non sono specificati server DNS, si è in presenza di una regola di esenzione e viene applicata la normale risoluzione dei nomi.  
   
 > [!NOTE]  
-> Quando viene aggiunto un nuovo suffisso alla tabella dei criteri di risoluzione dei nomi nella Console di gestione Accesso remoto, i server DNS predefiniti per il suffisso possono essere individuati automaticamente facendo clic su **Rileva**.  
+> Si noti che quando viene aggiunto un nuovo suffisso per la risoluzione dei NOMI nella Console di gestione accesso remoto, i server DNS predefiniti per il suffisso possono essere individuati automaticamente facendo clic su **rileva**.  
   
 Il rilevamento automatico funziona in questo modo:  
   
@@ -358,12 +358,12 @@ Il rilevamento automatico funziona in questo modo:
   
     -   **DirectAccess-webprobehost**-dovrebbe risolvere l'indirizzo IPv4 interno del server DirectAccess o l'indirizzo IPv6 in un ambiente solo IPv6.  
   
-    -   **DirectAccess-corpconnectivityhost**-dovrebbe risolvere l'indirizzo dell'host locale (loopback). Devono essere creati i seguenti record di risorse dell'host (A) e (AAAA): un record di risorse dell'host (A) con valore 127.0.0.1 e un record di risorse dell'host (AAAA) con valore costruito a partire dal prefisso NAT64 con 127.0.0.1 come ultimi 32 bit. Il prefisso NAT64 può essere recuperato eseguendo il comando di Windows PowerShell **get-netnattransitionconfiguration**.  
+    -   **DirectAccess-corpconnectivityhost**-dovrebbe risolvere l'indirizzo dell'host locale (loopback). Devono essere creati i seguenti record di risorse dell'host (A) e (AAAA): un record di risorse dell'host (A) con valore 127.0.0.1 e un record di risorse dell'host (AAAA) con valore costruito a partire dal prefisso NAT64 con 127.0.0.1 come ultimi 32 bit. Il prefisso NAT64 può essere recuperato tramite il comando di Windows PowerShell **get-netnattransitionconfiguration**.  
   
         > [!NOTE]  
         > Questa procedura è valida esclusivamente in un ambiente solo IPv4. In un ambiente IPv4 più IPv6 o solo IPv6, deve essere creato un solo record di risorse dell'host (AAAA) con l'indirizzo IP di loopback ::1.  
   
-    È possibile creare altri strumenti di verifica della connettività con altri indirizzi Web su HTTP o usando **ping**. Per ogni strumento di verifica della connettività deve esistere una voce DNS.  
+    È possibile creare strumenti di verifica della connettività aggiuntivi con altri indirizzi web su HTTP o tramite **ping**. Per ogni strumento di verifica della connettività deve esistere una voce DNS.  
   
 ### <a name="141-plan-for-dns-server-requirements"></a>1.4.1 Pianificare i requisiti del server DNS  
 Di seguito sono descritti i requisiti per DNS quando si distribuisce DirectAccess.  
@@ -425,7 +425,7 @@ La risoluzione dei nomi locali è in genere necessaria per la connettività peer
   
 -   **Utilizzare la risoluzione dei nomi locali se il nome non esiste nel DNS**. Questa opzione è la più sicura perché il client DirectAccess esegue la risoluzione dei nomi locali solo per i nomi dei server che non possono essere risolti dal server DNS Intranet. Se i server DNS Intranet sono raggiungibili, i nomi di server Intranet vengono risolti. Se i server DNS Intranet non sono raggiungibili o se si verificano altri tipi di errori DNS, i nomi di server Intranet non vengono comunicati alla subnet mediante la risoluzione dei nomi locali.  
   
--   **Usa risoluzione dei nomi locali se il nome non esiste nel DNS o i server DNS non sono raggiungibili quando il computer client si trova in una rete privata (opzione consigliata)** . Questa opzione è consigliata perché consente l'uso della risoluzione dei nomi locali in una rete privata solo quando i server DNS Intranet non sono raggiungibili.  
+-   **Utilizzare la risoluzione dei nomi locali se il nome non esiste nel DNS o i server DNS non sono raggiungibili quando il computer client è su una rete privata (scelta consigliata)** . Questa opzione è consigliata perché consente l'uso della risoluzione dei nomi locali in una rete privata solo quando i server DNS Intranet non sono raggiungibili.  
   
 -   **Utilizzare la risoluzione dei nomi locali per qualsiasi tipo di errore di risoluzione DNS (opzione meno sicura)** . Si tratta dell'opzione meno sicura, poiché i nomi dei server della rete Intranet possono essere comunicati alla subnet locale mediante risoluzione dei nomi locali.  
   
@@ -455,7 +455,7 @@ Quando si richiede il certificato del sito Web da usare per il server dei percor
   
 2.  Nel **Enhanced Key Usage** campo, usare l'OID di autenticazione Server.  
   
-3.  Nel campo **Punti di distribuzione Elenco di revoche di certificati (CRL)** , usare un punto di distribuzione CRL accessibile dai client DirectAccess connessi alla Intranet. Questo punto di distribuzione CRL non deve essere accessibile fuori dalla rete interna.  
+3.  Nel **punti di distribuzione CRL** campo, utilizzare un punto di distribuzione CRL accessibile dai client DirectAccess connessi alla intranet. Questo punto di distribuzione CRL non deve essere accessibile fuori dalla rete interna.  
   
 ### <a name="152-plan-dns-for-the-network-location-server"></a>1.5.2 Pianificare il DNS per il server dei percorsi di rete  
 I client DirectAccess tentano di raggiungere il server dei percorsi di rete per determinare se si trovano sulla rete interna. I client nella rete interna devono poter risolvere il nome del server dei percorsi di rete, ma non quello del percorso in cui si trovano sulla rete Internet. Per verificarlo, il nome di dominio completo del server dei percorsi di rete viene aggiunto per impostazione predefinita come regola di esenzione nella tabella dei criteri di risoluzione dei nomi.  
@@ -465,9 +465,9 @@ I client DirectAccess avviano le comunicazioni con i server di gestione che forn
   
 -   Dominio controller--l'individuazione automatica dei controller di dominio viene eseguita per tutti i domini nella stessa foresta come i computer client e server DirectAccess.  
   
--   System Center Configuration Manager Server-rilevamento automatico dei server di System Center Configuration Manager viene eseguito per tutti i domini nella stessa foresta come i computer client e server DirectAccess.  
+-   Microsoft endpoint Configuration Manager Server-l'individuazione automatica dei server Configuration Manager viene eseguita per tutti i domini nella stessa foresta del server DirectAccess e dei computer client.  
   
-I controller di dominio e i server System Center Configuration Manager vengono rilevati automaticamente alla prima configurazione di DirectAccess. I controller di dominio rilevati non vengono visualizzati nella console, ma le impostazioni possono essere recuperate tramite il cmdlet Windows PowerShell **Get-DAMgmtServer-tutti di tipo**. Se vengono modificati i controller di dominio o server System Center Configuration Manager, fare clic su **Aggiorna server di gestione** in Gestione accesso remoto console Aggiorna l'elenco dei server di gestione.  
+I controller di dominio e i server di Configuration Manager vengono rilevati automaticamente alla prima configurazione di DirectAccess. I controller di dominio rilevati non vengono visualizzati nella console, ma le impostazioni possono essere recuperate tramite il cmdlet Windows PowerShell **Get-DAMgmtServer-tutti di tipo**. Se il controller di dominio o i server Configuration Manager vengono modificati, facendo clic su **Aggiorna server di gestione** nella console di gestione accesso remoto viene aggiornato l'elenco dei server di gestione.  
   
 **Requisiti del server di gestione**  
   
@@ -543,7 +543,7 @@ Quando DirectAccess sceglie di consentire l'accesso ai client che eseguono Windo
 L'elenco dei server di gestione deve includere i controller di dominio di tutti i domini che contengono gruppi di sicurezza con computer client DirectAccess. Deve contenere tutti i domini con account utente che potrebbero usare i computer configurati come client DirectAccess. In questo modo, si assicura gli utenti non presenti nello stesso dominio del computer client che stanno usando vengano autenticati con un controller di dominio nel dominio utente. Questa operazione viene eseguita automaticamente se i domini si trovano nella stessa foresta.  
   
 > [!NOTE]  
-> Se nei gruppi di sicurezza sono presenti computer usati per i computer client o i server applicazioni di foreste diverse, i controller di dominio di queste foreste non vengono rilevati automaticamente. È possibile eseguire l'attività **Aggiorna server di gestione** nella Console di gestione Accesso remoto per rilevare questi controller di dominio.  
+> Se nei gruppi di sicurezza sono presenti computer usati per i computer client o i server applicazioni di foreste diverse, i controller di dominio di queste foreste non vengono rilevati automaticamente. È possibile eseguire l'attività **Aggiorna server di gestione** nella console di gestione accesso remoto per rilevare questi controller di dominio.  
   
 Dove possibile, aggiungere i suffissi dei nomi di dominio comuni alla tabella dei criteri di risoluzione dei nomi (NRPT) durante la distribuzione di Accesso remoto. Ad esempio, se si hanno due domini, domain1.corp.contoso.com e domain2.corp.contoso.com, è possibile aggiungere una voce del suffisso DNS comune con il suffisso del nome di dominio corp.contoso.com, invece di due voci nella tabella dei criteri di risoluzione dei nomi. Questa operazione è automatica nei domini nella stessa radice, mentre i domini che non si trovano nella stessa radice devono essere aggiunti manualmente.  
   
@@ -585,7 +585,7 @@ Le impostazioni DirectAccess configurate durante la configurazione di Accesso re
 > [!NOTE]  
 > Dopo aver configurato DirectAccess in modo da usare specifici oggetti Criteri di gruppo, non sarà possibile configurarlo in modo da usarne altri.  
   
-Se si usano oggetti Criteri di gruppo configurati automaticamente o manualmente, è necessario aggiungere un criterio per il rilevamento dei collegamenti lenti se i client usano le reti 3G. Il percorso per **Criteri: Configura rilevamento collegamento lento Criteri di gruppo** è: **Computer configuration/Polices/Administrative Templates/System/Group Policy**.  
+Se si usano oggetti Criteri di gruppo configurati automaticamente o manualmente, è necessario aggiungere un criterio per il rilevamento dei collegamenti lenti se i client usano le reti 3G. Il percorso per **criteri: rilevamento collegamento lento Criteri di gruppo configurazione** è: **Computer configuration/criteri/Administrative modelli/sistema/criteri di gruppo**.  
   
 > [!CAUTION]  
 > Utilizzare la procedura seguente per eseguire il backup tutti i GPO di accesso remoto prima di eseguire i cmdlet di DirectAccess: [backup e ripristino configurazione di accesso remoto](https://go.microsoft.com/fwlink/?LinkID=257928).  
@@ -633,7 +633,7 @@ Ogni oggetto Criteri di gruppo viene gestito da uno specifico controller di domi
   
 Per modificare manualmente le impostazioni degli oggetti Criteri di gruppo, tenere presente quanto segue:  
   
--   Per l'oggetto Criteri di gruppo del server, per identificare il controller di dominio associato al server DirectAccess, eseguire **nltest /dsgetdc: /writable** a un prompt dei comandi con privilegi elevati nel server DirectAccess.  
+-   Per il server criteri di gruppo, per identificare il controller di dominio è associato al server DirectAccess, da un prompt dei comandi con privilegi elevati nel server DirectAccess, eseguire **nltest /dsgetdc: /Writable**.  
   
 -   Per impostazione predefinita, quando si apportano modifiche con i cmdlet di Windows PowerShell di rete o dalla Console Gestione Criteri di gruppo, viene usato il controller di dominio che funge da PDC.  
   
@@ -643,11 +643,11 @@ Inoltre, se si modificano le impostazioni in un controller di dominio diverso da
   
 -   Dopo aver modificato le impostazioni, attendere la replica delle modifiche nei controller di dominio associati agli oggetti Criteri di gruppo. Non apportare altre modifiche con la Console di gestione Accesso remoto o con i cmdlet di PowerShell per Accesso remoto finché la replica non è completa. Se un oggetto Criteri di gruppo viene modificato in due controller di dominio prima che la replica sia completa, potrebbero verificarsi conflitti di unione che possono portare a una configurazione di Accesso remoto danneggiata.  
   
-In alternativa, è possibile modificare l'impostazione predefinita dalla finestra di dialogo **Cambia controller di dominio** nella console Gestione Criteri di gruppo o con il cmdlet di Windows PowerShell **Open-NetGPO**, in modo che le modifiche si basino sul controller di dominio specificato.  
+In alternativa, è possibile modificare l'impostazione predefinita tramite il **Cambia Controller di dominio** la finestra di dialogo nella console Gestione criteri di gruppo oppure utilizzando il cmdlet Windows PowerShell **Open-NetGPO**, in modo che le modifiche utilizzano il controller di dominio specificato.  
   
--   Per eseguire questa operazione nella console Gestione Criteri di gruppo, fare clic con il pulsante destro del mouse sul dominio o sul contenitore dei siti e fare clic su **Cambia controller di dominio**.  
+-   A tale scopo nella console Gestione criteri di gruppo, fare doppio clic sul contenitore di dominio o i siti e fare clic su **Cambia Controller di dominio**.  
   
--   Per eseguire questa operazione in Windows PowerShell, specificare il parametro **DomainController** per il cmdlet **Open-NetGPO**. Ad esempio, per abilitare i profili privati e pubblici in Windows Firewall in un oggetto Criteri di gruppo denominato domain1\DA_Server_GPO _Europe usando un controller di dominio europe-dc.corp.contoso.com, immettere quanto segue:  
+-   A tale scopo in Windows PowerShell, specificare il **DomainController** parametro per il **Open-NetGPO** cmdlet. Ad esempio, per abilitare i profili privati e pubblici in Windows Firewall in un oggetto Criteri di gruppo denominato domain1\DA_Server_GPO _Europe usando un controller di dominio europe-dc.corp.contoso.com, immettere quanto segue:  
   
     ```powershell
     $gpoSession = Open-NetGPO -PolicyStore "domain1\DA_Server_GPO _Europe" -DomainController "europe-dc.corp.contoso.com"  
@@ -677,7 +677,7 @@ Se un oggetto Criteri di gruppo del client, del server DirectAccess o del server
   
 Nella console di gestione accesso remoto viene visualizzato il messaggio di errore seguente: **Impossibile trovare l'oggetto Criteri di gruppo (nome GPO)** . Per rimuovere le impostazioni di configurazione eseguire la procedura seguente:  
   
-1.  Eseguire il cmdlet di Windows PowerShell **Uninstall-remoteaccess**.  
+1.  Eseguire il cmdlet Windows PowerShell **Uninstall-remoteaccess**.  
   
 2.  Aprire la Console di gestione Accesso remoto.  
   

@@ -12,12 +12,12 @@ ms.topic: article
 ms.assetid: a1ce7af5-f3fe-4fc9-82e8-926800e37bc1
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: c8db30d3c5512fc72648c7894d66b715850fb619
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 71a6d38b9c77b3b8c24b28f78114daa63f5bd527
+ms.sourcegitcommit: 07c9d4ea72528401314e2789e3bc2e688fc96001
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71367312"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76822534"
 ---
 # <a name="step-1-plan-the-remote-access-infrastructure"></a>Passaggio 1 pianificare l'infrastruttura di accesso remoto
 
@@ -160,7 +160,7 @@ Il server di Accesso remoto funge da listener IP-HTTPS ed è necessario installa
   
 -   Per il **Enhanced Key Usage** campo, utilizzare l'identificatore di oggetto (OID) di autenticazione Server.  
   
--   Per il campo **Punti di distribuzione Elenco di revoche di certificati (CRL)** , specificare un punto di distribuzione CRL accessibile dai client DirectAccess connessi a Internet.  
+-   Per il **punti di distribuzione CRL** specificare un punto di distribuzione CRL accessibile dai client DirectAccess connessi a Internet.  
   
     > [!NOTE]  
     > Questa operazione è necessaria solo per i client che eseguono Windows 7.  
@@ -323,9 +323,9 @@ I client DirectAccess avviano le comunicazioni con i server di gestione che forn
   
 -   Controller di dominio: l'individuazione automatica dei controller di dominio viene eseguita per i domini che contengono i computer client e per tutti i domini nella stessa foresta del server di accesso remoto.  
   
--   Server System Center Configuration Manager  
+-   Server Microsoft endpoint Configuration Manager  
   
-I controller di dominio e i server di System Center Configuration Manager vengono rilevati automaticamente alla prima configurazione di DirectAccess. I controller di dominio rilevati non vengono visualizzati nella console di, ma è possibile recuperare le impostazioni utilizzando i cmdlet di Windows PowerShell. Se il controller di dominio o i server System Center Configuration Manager vengono modificati, facendo clic su **Gestione aggiornamenti server** nella console viene aggiornato l'elenco dei server di gestione.  
+I controller di dominio e i server di Configuration Manager vengono rilevati automaticamente alla prima configurazione di DirectAccess. I controller di dominio rilevati non vengono visualizzati nella console di, ma è possibile recuperare le impostazioni utilizzando i cmdlet di Windows PowerShell. Se il controller di dominio o i server Configuration Manager vengono modificati, facendo clic su **Gestione aggiornamenti server** nella console viene aggiornato l'elenco dei server di gestione.  
   
 **Requisiti del server di gestione**  
   

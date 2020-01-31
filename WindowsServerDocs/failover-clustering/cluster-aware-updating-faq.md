@@ -8,12 +8,12 @@ ms.author: jgerend
 author: JasonGerend
 ms.date: 04/28/2017
 description: Risposte alle domande frequenti sull'aggiornamento compatibile con cluster in Windows Server.
-ms.openlocfilehash: a08366c7e64d9612d63e348d4cecdb4b2389737a
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 736b49222ae4c9e2a27229341f0d886bd3e0343c
+ms.sourcegitcommit: 07c9d4ea72528401314e2789e3bc2e688fc96001
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71361354"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76822134"
 ---
 # <a name="cluster-aware-updating-frequently-asked-questions"></a>Aggiornamento compatibile con cluster: Domande frequenti
 
@@ -57,7 +57,7 @@ Sì. Aggiornamento compatibile con cluster supporta le modalità di aggiornament
 ## <a name="can-i-schedule-updates-to-apply-during-a-backup"></a>È possibile pianificare gli aggiornamenti da applicare durante un backup?  
 Sì. Aggiornamento compatibile con cluster non impone alcun vincolo in questo senso. Tuttavia, l'esecuzione di aggiornamenti software in un server \(con i potenziali riavvii associati\) mentre è in corso un backup del server non è una procedura consigliata. Tenere presente che Aggiornamento compatibile con cluster si basa solo sulle API di clustering per determinare i failover e i failback delle risorse, di conseguenza Aggiornamento compatibile con cluster non è a conoscenza dello stato di backup del server.  
   
-## <a name="can-cau-work-with-system-center-configuration-manager"></a>Aggiornamento compatibile con cluster può essere usato con System Center Configuration Manager?  
+## <a name="can-cau-work-with-configuration-manager"></a>Aggiornamento compatibile con cluster può essere usato con Configuration Manager?  
 Aggiornamento compatibile con cluster è uno strumento che coordina gli aggiornamenti software in un nodo del cluster e Configuration Manager inoltre esegue gli aggiornamenti del software del server. È importante configurare questi strumenti in modo che non abbiano una copertura sovrapposta degli stessi server in qualsiasi distribuzione di Data Center, incluso l'uso di server Windows Server Update Services diversi. In questo modo si garantisce che l'obiettivo alla base dell'utilizzo di aggiornamento compatibile con cluster non venga inavvertitamente sconfitto, perché Configuration Manager aggiornamento guidato da\-non incorpora il riconoscimento  
   
 ## <a name="do-i-need-administrative-credentials-to-run-cau"></a>Sono necessarie credenziali amministrative per eseguire Aggiornamento compatibile con cluster?  
@@ -118,7 +118,7 @@ Aggiornamento compatibile con cluster offre opzioni di esportazione tramite l'in
   
 **Opzioni interfaccia utente:**  
   
--   Copia dei risultati del report dalla schermata **Anteprima aggiornamenti**. Output: CSV  
+-   Copia dei risultati del report dalla schermata **Anteprima aggiornamenti** . Output: CSV  
   
 -   Copia dei risultati del report dalla schermata **Genera rapporto** . Output: CSV  
   
@@ -160,5 +160,5 @@ Sì. Aggiornamento compatibile con cluster supporta numerose opzioni dell'operaz
   
 ## <a name="see-also"></a>Vedi anche  
   
--   [Panoramica dell'aggiornamento compatibile con\-cluster](cluster-aware-updating.md)  
+-   [Panoramica di Aggiornamento compatibile con cluster](cluster-aware-updating.md)  
   

@@ -8,12 +8,12 @@ ms.date: 02/13/2019
 ms.topic: article
 ms.prod: windows-server
 ms.technology: storage
-ms.openlocfilehash: 4da69087ab1df6200394b36c938cb05ec5185045
-ms.sourcegitcommit: 3f54036c74c5a67799fbc06a8a18a078ccb327f9
+ms.openlocfilehash: 20aa5fbc40efc5a3a439361dadfac0f47f4b41d8
+ms.sourcegitcommit: 07c9d4ea72528401314e2789e3bc2e688fc96001
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76124889"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76822624"
 ---
 # <a name="use-storage-migration-service-to-migrate-a-server"></a>Usare il servizio migrazione archiviazione per eseguire la migrazione di un server
 
@@ -25,24 +25,25 @@ Prima di iniziare, installare il servizio migrazione archiviazione e assicurarsi
 
 1. Se non è già stato fatto, verificare i [requisiti del servizio migrazione archiviazione](overview.md#requirements) e installare l'interfaccia di [amministrazione di Windows](../../manage/windows-admin-center/understand/windows-admin-center.md) nel PC o in un server di gestione. Se si esegue la migrazione di computer di origine aggiunti a un dominio, è necessario installare ed eseguire il servizio migrazione archiviazione in un server aggiunto allo stesso dominio o insieme di strutture dei computer di origine.
 2. Nell'interfaccia di amministrazione di Windows connettersi al server dell'agente di orchestrazione che esegue Windows Server 2019. <br>Si tratta del server in cui verrà installato il servizio migrazione archiviazione e viene utilizzato per gestire la migrazione. Se si esegue la migrazione di un solo server, è possibile usare il server di destinazione purché sia in esecuzione Windows Server 2019. Si consiglia di utilizzare un server di orchestrazione separato per tutte le migrazioni multiserver.
-1. Passare a **Server Manager** (nell'interfaccia di amministrazione di Windows) > **servizio migrazione archiviazione** e selezionare **Installa** per installare il servizio migrazione archiviazione e i relativi componenti necessari, come illustrato nella figura 1.
+3. Passare a **Server Manager** (nell'interfaccia di amministrazione di Windows) > **servizio migrazione archiviazione** e selezionare **Installa** per installare il servizio migrazione archiviazione e i relativi componenti necessari, come illustrato nella figura 1.
     ![screenshot della pagina Servizio migrazione archiviazione che mostra il pulsante Installa](media/migrate/install.png) **Figura 1: installazione del servizio migrazione archiviazione**
-1. Installare il proxy del servizio migrazione archiviazione in tutti i server di destinazione che eseguono Windows Server 2019. Questa operazione raddoppia la velocità di trasferimento quando viene installata nei server di destinazione. <br>A tale scopo, connettersi al server di destinazione nell'interfaccia di amministrazione di Windows, quindi passare a **Server Manager** (nell'interfaccia di amministrazione di windows) > **ruoli e funzionalità**, selezionare **proxy servizio migrazione archiviazione**e quindi selezionare **Installa**.
-1. In tutti i server di origine e in tutti i server di destinazione che eseguono Windows Server 2012 R2 o Windows Server 2016, nell'interfaccia di amministrazione di Windows, connettersi a ogni server, passare a **Server Manager** (nell'interfaccia di amministrazione di windows) > **Firewall** > **regole in ingresso**, quindi verificare che siano abilitate le seguenti regole:
+4. Installare il proxy del servizio migrazione archiviazione in tutti i server di destinazione che eseguono Windows Server 2019. Questa operazione raddoppia la velocità di trasferimento quando viene installata nei server di destinazione. <br>A tale scopo, connettersi al server di destinazione nell'interfaccia di amministrazione di Windows, quindi passare a **Server Manager** (nell'interfaccia di amministrazione di windows) > **ruoli e funzionalità**, > **funzionalità**, selezionare **proxy del servizio di migrazione archiviazione**e quindi selezionare **Installa**. 
+5. Se si intende eseguire la migrazione a o da cluster failover di Windows, installare gli strumenti di clustering di failover nel server dell'agente di orchestrazione. <br>A tale scopo, connettersi al server dell'agente di orchestrazione nell'interfaccia di amministrazione di Windows, quindi passare a **Server Manager** (nell'interfaccia di amministrazione di windows) > **ruoli e funzionalità**, **funzionalità**di >, > **strumenti di amministrazione remota del server**, strumenti di **amministrazione delle funzionalità**di >, selezionare **strumenti per clustering di failover**e quindi selezionare **Installa**. 
+6. In tutti i server di origine e in tutti i server di destinazione che eseguono Windows Server 2012 R2 o Windows Server 2016, nell'interfaccia di amministrazione di Windows, connettersi a ogni server, passare a **Server Manager** (nell'interfaccia di amministrazione di windows) > **Firewall** > **regole in ingresso**, quindi verificare che siano abilitate le seguenti regole:
     - Condivisione di file e stampanti (SMB-In)
     - Servizio Netlogon (NP-in)
-    - Strumentazione gestione Windows (DCOM-In)
+    - Strumentazione gestione Windows (DCOM-in)
     - Strumentazione gestione Windows (WMI-In)
 
    Se si usano firewall di terze parti, gli intervalli di porte in ingresso da aprire sono TCP/445 (SMB), TCP/135 (mapper di endpoint RPC/DCOM) e TCP 1025-65535 (porte temporanee RPC/DCOM). Le porte del servizio migrazione archiviazione sono TCP/28940 (agente di orchestrazione) e TCP/28941 (proxy).
 
-1. Se si usa un server dell'agente di orchestrazione per gestire la migrazione e si vuole scaricare gli eventi o un log dei dati trasferiti, verificare che la regola del firewall condivisione file e stampanti (SMB-in) sia abilitata anche in tale server.
+7. Se si usa un server dell'agente di orchestrazione per gestire la migrazione e si vuole scaricare gli eventi o un log dei dati trasferiti, verificare che la regola del firewall condivisione file e stampanti (SMB-in) sia abilitata anche in tale server.
 
 ## <a name="step-1-create-a-job-and-inventory-your-servers-to-figure-out-what-to-migrate"></a>Passaggio 1: creare un processo ed eseguire l'inventario dei server per determinare gli elementi da migrare
 
 In questo passaggio si specificano i server di cui eseguire la migrazione e quindi li si analizza per raccogliere informazioni sui file e le configurazioni.
 
-1. Selezionare **nuovo processo**, denominare il processo, quindi scegliere se eseguire la migrazione di server e cluster Windows o server Linux che usano Samba. Selezionare quindi **OK**.
+1. Selezionare **nuovo processo**, denominare il processo, quindi scegliere se eseguire la migrazione di server e cluster Windows o server Linux che usano Samba. Quindi selezionare **OK**.
 2. Nella pagina **immissione credenziali** Digitare le credenziali di amministratore che funzionano nei server da cui si desidera eseguire la migrazione e quindi fare clic su **Avanti**. <br>Se si esegue la migrazione da server Linux, immettere le credenziali nelle pagine **credenziali di Samba** e credenziali di **Linux** , inclusa una password ssh o una chiave privata. 
 
 3. Selezionare **Aggiungi un dispositivo**, digitare un nome del server di origine o il nome di un file server cluster e quindi fare clic su **OK**. <br>Ripetere questa operazione per tutti gli altri server che si desidera includere nell'inventario.
@@ -105,7 +106,7 @@ In questo passaggio si passa dai server di origine ai server di destinazione e s
 3. Nella pagina **Configura cutover** specificare la scheda di rete nella destinazione che deve assumere le impostazioni di ogni adapter nell'origine. In questo modo, l'indirizzo IP viene spostato dall'origine alla destinazione come parte di cutover, assegnando al server di origine un nuovo indirizzo IP statico o DHCP. È possibile ignorare tutte le migrazioni di rete o alcune interfacce. 
 4. Specificare l'indirizzo IP da utilizzare per il server di origine dopo che cutover sposta il proprio indirizzo nella destinazione. È possibile usare DHCP o un indirizzo statico. Se si usa un indirizzo statico, la nuova subnet deve essere identica a quella precedente oppure cutover avrà esito negativo.
     ![screenshot che mostra un server di origine e i relativi indirizzi IP e nomi di computer e gli elementi in cui verranno sostituiti dopo cutover](media/migrate/cutover.png) **Figura 4: un server di origine e il modo in cui la configurazione di rete verrà spostata nella destinazione**
-5. Specificare come rinominare il server di origine dopo che il server di destinazione acquisisce il nome. È possibile usare un nome generato in modo casuale o digitarne uno. Quindi selezionare **Next** (Avanti).
+5. Specificare come rinominare il server di origine dopo che il server di destinazione acquisisce il nome. È possibile usare un nome generato in modo casuale o digitarne uno. Quindi selezionare **Avanti**.
 6. Nella pagina **Modifica impostazioni cutover** selezionare **Avanti** .
 7. Selezionare **convalida** nella pagina **convalida dispositivo di origine e destinazione** e quindi fare clic su **Avanti**.
 8. Quando si è pronti per eseguire il cutover, selezionare **Avvia cutover**. <br>Gli utenti e le app potrebbero riscontrare un'interruzione mentre l'indirizzo e i nomi vengono spostati e i server vengono riavviati più volte, ma in caso contrario non saranno interessati dalla migrazione. Il tempo impiegato da cutover dipende dalla velocità con cui i server vengono riavviati, nonché da Active Directory e tempi di replica DNS.
@@ -114,4 +115,4 @@ In questo passaggio si passa dai server di origine ai server di destinazione e s
 
 - [Panoramica di servizio migrazione archiviazione](overview.md)
 - [Domande frequenti sui servizi di migrazione archiviazione](faq.md)
-- [Pianificazione per la distribuzione di Sincronizzazione file di Azure](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning)
+- [Pianificazione di una distribuzione di Sincronizzazione file di Azure](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning)

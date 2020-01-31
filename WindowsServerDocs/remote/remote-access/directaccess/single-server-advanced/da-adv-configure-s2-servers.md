@@ -12,12 +12,12 @@ ms.topic: article
 ms.assetid: 35afec8e-39a4-463b-839a-3c300ab01174
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 0ba2154338871827aae03936e5e39a356a43d675
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 2c5fec6d9dafa350f46dfb5b2f213d628391b87f
+ms.sourcegitcommit: 07c9d4ea72528401314e2789e3bc2e688fc96001
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71388626"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76822784"
 ---
 # <a name="step-2-configure-advanced-directaccess-servers"></a>Passaggio 2 configurare i server DirectAccess avanzati
 
@@ -50,11 +50,11 @@ Per distribuire Accesso remoto, è necessario installare il ruolo Accesso remoto
   
 3.  Nel **Selezione ruoli server** selezionare **accesso remoto**, fare clic su **Aggiungi funzionalità**, quindi fare clic su **Avanti**.  
   
-4.  Fare clic su **Avanti** per cinque volte.  
+4.  Fare clic su **Avanti** cinque volte.  
   
-5.  Nella pagina **Conferma selezioni per l'installazione** fare clic su **Installa**.  
+5.  Nella pagina **Confirm installation selections** fai clic su **Install**.  
   
-6.  Nella pagina **Stato installazione**, verificare che l'installazione sia stata completata correttamente, quindi fare clic su **Chiudi**.  
+6.  Nel **lo stato dell'installazione** pagina, verificare che l'installazione sia stata completata e quindi fare clic su **Chiudi**.  
   
 ](../../../media/Step-2-Configuring-DirectAccess-Servers/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em> per lo stato di avanzamento dell'installazione ![***  
   
@@ -88,16 +88,16 @@ Per effettuarne il provisioning allo scopo di usare DirectAccess, un computer cl
   
 #### <a name="to-configure-directaccess-clients"></a>Per configurare i client DirectAccess  
   
-1.  Nel riquadro centrale della Console di gestione Accesso remoto, nell'area **Passaggio 1 Client remoti**, fare clic su **Configura**.  
+1.  Nel riquadro centrale della console di gestione accesso remoto, nel **passaggio 1 client remoti** area, fare clic su **Configura**.  
   
-2.  Nella Configurazione guidata client DirectAccess, in **Scenario di distribuzione**, scegliere lo scenario di distribuzione da usare nell'organizzazione (**DirectAccess completo** o **Solo gestione remota**) e fare clic su **Avanti**.  
+2.  Nella configurazione guidata Client DirectAccess sul **uno Scenario di distribuzione** scegliere lo scenario di distribuzione che si desidera utilizzare nell'organizzazione (**DirectAccess completa** o **solo gestione remota**) e quindi fare clic su **Avanti**.  
   
 3.  Nel **Seleziona gruppi** fare clic su **Aggiungi**.  
   
 4.  Nel **Seleziona gruppi** finestra di dialogo, selezionare i gruppi di sicurezza che contengono i computer client DirectAccess.  
   
     > [!NOTE]  
-    > Se il gruppo di sicurezza si trova in una foresta diversa rispetto al server di accesso remoto, dopo aver completato la configurazione guidata accesso remoto, fare clic su **Aggiorna server di gestione** nel **attività** riquadro per individuare i controller di dominio e i server di System Center Configuration Manager nella nuova foresta.  
+    > Se il gruppo di sicurezza si trova in una foresta diversa da quella del server di accesso remoto, dopo aver completato la configurazione guidata accesso remoto fare clic su **Aggiorna server di gestione** nel riquadro **attività** per individuare i controller di dominio e i server Configuration Manager nella nuova foresta.  
   
 5.  Selezionare il **Abilita DirectAccess solo per computer mobili** casella di controllo per consentire solo ai computer portatili accedere alla rete interna, se necessario.  
   
@@ -110,7 +110,7 @@ Per effettuarne il provisioning allo scopo di usare DirectAccess, un computer cl
     -   Nella tabella, aggiungere le risorse da usare per determinare la connettività alla rete interna. Se non sono configurate altre risorse, viene creato automaticamente un probe Web predefinito.  
   
         > [!CAUTION]  
-        > Quando si configurano i percorsi dei probe Web per determinare la connettività alla rete aziendale, verificare che sia configurato almeno un probe basato su HTTP. La configurazione di un solo probe **ping** non è sufficiente e può portare a una determinazione non corretta dello stato di connettività. Ciò accade perché **ping** è esente da IPsec, quindi non verifica che i tunnel IPsec siano correttamente impostati.  
+        > Quando si configurano i percorsi dei probe Web per determinare la connettività alla rete aziendale, verificare che sia configurato almeno un probe basato su HTTP. Configurazione di un **ping** probe solo non è sufficiente, e questo potrebbe causare una determinazione non corretta dello stato di connettività. In questo modo **ping** è esente da IPsec, e di conseguenza, non garantisce che i tunnel IPsec siano correttamente impostati.  
   
     -   Aggiungere un indirizzo di posta elettronica del supporto tecnico per consentire agli utenti di inviare informazioni se incontrano difficoltà di connettività.  
   
@@ -121,7 +121,7 @@ Per effettuarne il provisioning allo scopo di usare DirectAccess, un computer cl
         > [!NOTE]  
         > Quando è abilitata la risoluzione dei nomi locali, gli utenti che eseguono l'Assistente connettività di rete possono scegliere di risolvere i nomi usando i server DNS configurati nel computer client DirectAccess.  
   
-9. Fare clic su **Fine**.  
+9. Fai clic su **Fine**.  
   
 ## <a name="BKMK_Server"></a>2,4. Configurare il server di Accesso remoto  
 Per distribuire Accesso remoto è necessario configurare il server di Accesso remoto con le schede di rete corrette, un URL pubblico per il server di Accesso remoto al quale i computer client possano connettersi (l'indirizzo ConnectTo) e un certificato IP-HTTPS il cui soggetto corrisponda all'indirizzo ConnectTo, alle impostazioni IPv6 e all'autenticazione del computer client.  
@@ -130,27 +130,27 @@ Per distribuire Accesso remoto è necessario configurare il server di Accesso re
   
 1.  Nel riquadro centrale della console di gestione accesso remoto, nel **passaggio 2 Server di accesso remoto** area, fare clic su **Configura**.  
   
-2.  Nella Configurazione guidata del server di Accesso remoto, in **Topologia di rete**, scegliere la topologia di distribuzione da usare nell'organizzazione. In **Digitare il nome pubblico o l'indirizzo IPv4 usati dai client per connettersi al server di Accesso remoto** immettere il nome pubblico per la distribuzione (che corrisponde al nome soggetto del certificato IP-HTTPS, ad esempio edge1.contoso.com) e quindi fare clic su **Avanti**.  
+2.  Nel Server di configurazione guidata accesso remoto, nella **topologia di rete** pagina, scegliere la topologia di distribuzione che verrà utilizzata nell'organizzazione. In **digitare il nome pubblico o l'indirizzo IPv4 utilizzati dai client per connettersi al server di accesso remoto**, immettere il nome pubblico per la distribuzione (questo nome corrisponde al nome soggetto del certificato IP-HTTPS, ad esempio edge1. contoso.com) e quindi fare clic su **Avanti**.  
   
 3.  Nel **schede di rete** pagina, la procedura guidata rileva automaticamente le schede di rete per le reti nella distribuzione. Se la procedura guidata non rileva le schede di rete corrette, selezionarle manualmente. La procedura guidata rileva automaticamente anche il certificato IP-HTTPS, in base al nome pubblicato per la distribuzione impostato nel passaggio precedente della procedura guidata. Se la procedura guidata non rileva il certificato IP-HTTPS corretto, fare clic su **Sfoglia** selezionare manualmente il certificato corretto e quindi fare clic su **Avanti**.  
   
-4.  Nella pagina **Configurazione prefissi** (visualizzata solo se IPv6 è distribuito nella rete interna), la procedura guidata rileva automaticamente le impostazioni IPv6 usate nella rete interna. Se la distribuzione richiede prefissi aggiuntivi, configurare i prefissi IPv6 per la rete interna, un prefisso IPv6 da assegnare ai computer client DirectAccess e un prefisso IPv6 da assegnare ai computer client VPN.  
+4.  Nel **Configurazione prefissi** pagina (visualizzato solo se IPv6 viene distribuito nella rete interna), la procedura guidata rileva automaticamente le impostazioni IPv6 utilizzati nella rete interna. Se la distribuzione richiede prefissi aggiuntivi, configurare i prefissi IPv6 per la rete interna, un prefisso IPv6 da assegnare ai computer client DirectAccess e un prefisso IPv6 da assegnare ai computer client VPN.  
   
     > [!NOTE]  
     > È possibile specificare più prefissi IPv6 interni usando un elenco delimitato da due punti, ad esempio, 2001:db8:1::/48;2001:db8:2::/48.  
   
 5.  Nel **autenticazione** pagina:  
   
-    -   In **Autenticazione utente**, fare clic su **Credenziali di Active Directory**. Per configurare una distribuzione utilizzando l'autenticazione a due fattori, fare clic su **autenticazione a due fattori**. Per altre informazioni, vedere [Distribuire Accesso remoto con l'autenticazione OTP](https://technet.microsoft.com/library/hh831379.aspx).  
+    -   In **l'autenticazione utente**, fare clic su **credenziali Active Directory**. Per configurare una distribuzione utilizzando l'autenticazione a due fattori, fare clic su **autenticazione a due fattori**. Per ulteriori informazioni, vedere [distribuire accesso remoto con autenticazione OTP](https://technet.microsoft.com/library/hh831379.aspx).  
   
-    -   Per le distribuzioni multisito e a due fattori, è necessario usare l'autenticazione del certificato computer. Selezionare la casella di controllo **Usa certificati computer** per usare l'autenticazione del certificato computer e selezionare il certificato radice IPsec.  
+    -   Per le distribuzioni multisito e a due fattori, è necessario usare l'autenticazione del certificato computer. Selezionare il **Usa certificati computer** casella di controllo per utilizzare l'autenticazione del certificato computer e selezionare il certificato radice IPsec.  
   
     -   Per abilitare i computer client Windows 7 per la connessione tramite DirectAccess, selezionare il **attivare Windows 7 ai computer client di connettersi tramite DirectAccess** casella di controllo.  
   
         > [!NOTE]  
         > In questo tipo di distribuzione deve essere usata anche l'autenticazione del certificato computer.  
   
-6.  Fare clic su **Fine**.  
+6.  Fai clic su **Fine**.  
   
 ## <a name="BKMK_Infra"></a>2,5. Configurare i server dell'infrastruttura  
 Per configurare i server dell'infrastruttura in una distribuzione di Accesso remoto, è necessario configurare il server dei percorsi di rete, le impostazioni DNS (incluso l'elenco di ricerca dei suffissi DNS) e i server di gestione non rilevati automaticamente da Accesso remoto.  
@@ -163,14 +163,14 @@ Per configurare i server dell'infrastruttura in una distribuzione di Accesso rem
   
 3.  Nel **DNS** pagina, nella tabella, immettere eventuali suffissi di nomi aggiuntivi che verranno applicate come esenzioni criteri tabella (Risoluzione dei nomi). Selezionare un'opzione di risoluzione del nome locale e quindi fare clic su **Avanti**.  
   
-4.  Nella pagina **Elenco di ricerca suffissi DNS**, il server di Accesso remoto rileva automaticamente eventuali suffissi di dominio nella distribuzione. Usare i pulsanti **Aggiungi** e **Rimuovi** per aggiungere e rimuovere i suffissi di dominio dall'elenco dei suffissi di dominio da usare. Per aggiungere un nuovo suffisso di dominio, in **nuovo suffisso**, immettere il suffisso e quindi fare clic su **Aggiungi**. Fai clic su **Next**.  
+4.  Nel **elenco ricerca suffissi DNS** pagina, il server di accesso remoto rileva automaticamente eventuali suffissi di dominio nella distribuzione. Utilizzare il **Aggiungi** e **rimuovere** pulsanti per aggiungere e rimuovere i suffissi di dominio dall'elenco dei suffissi di dominio da utilizzare. Per aggiungere un nuovo suffisso di dominio, in **nuovo suffisso**, immettere il suffisso e quindi fare clic su **Aggiungi**. Fai clic su **Next**.  
   
-5.  Nella pagina **Gestione**, aggiungere i server di gestione non rilevati automaticamente, quindi fare clic su **Avanti**. Accesso remoto aggiunge automaticamente i controller di dominio e i server System Center Configuration Manager.  
+5.  Nel **Management** pagina, aggiungere i server di gestione che non vengono rilevati automaticamente, e quindi fare clic su **Avanti**. Accesso remoto aggiunge automaticamente i controller di dominio e i server Configuration Manager.  
   
     > [!NOTE]  
-    > Sebbene i server vengono aggiunti automaticamente, perciò non appaiono nell'elenco. finché non è stata applicata la configurazione per la prima volta.  
+    > Sebbene i server vengono aggiunti automaticamente, perciò non appaiono nell'elenco. Dopo aver applicato la configurazione per la prima volta, i server di Configuration Manager vengono visualizzati nell'elenco.  
   
-6.  Fare clic su **Fine**.  
+6.  Fai clic su **Fine**.  
   
 ## <a name="BKMK_App"></a>2,6. Configurare i server applicazioni  
 In una distribuzione di Accesso remoto, la configurazione dei server applicazioni è un'attività facoltativa. Accesso remoto consente di richiedere l'autenticazione per i server applicazioni selezionati, determinati in base all'inclusione in un gruppo di sicurezza dei server applicazioni. Per impostazione predefinita, anche il traffico verso i server applicazioni che richiedono l'autenticazione è crittografato. Tuttavia, è possibile scegliere di non crittografarlo e di usare solo l'autenticazione.  
@@ -182,26 +182,26 @@ In una distribuzione di Accesso remoto, la configurazione dei server applicazion
   
 1.  Nel riquadro centrale della console di gestione accesso remoto, nel **passaggio 4 server applicazioni** area, fare clic su **Configura**.  
   
-2.  Nella Configurazione guidata del server applicazioni DirectAccess, per richiedere l'autenticazione ai server applicazioni selezionati, fare clic su **Estendi autenticazione a server applicazioni selezionati**. Fare clic su **Aggiungi** per selezionare il gruppo di sicurezza dei server applicazioni.  
+2.  Nella configurazione guidata Server applicazioni DirectAccess, per richiedere l'autenticazione ai server applicazioni selezionati, fare clic su **Estendi autenticazione ai server applicazioni selezionati**. Fare clic su **Aggiungi** per selezionare il gruppo di sicurezza del server applicazioni.  
   
 3.  Per limitare l'accesso ai server nel gruppo di sicurezza di applicazioni server, selezionare il **consentire l'accesso solo ai server inclusi nei gruppi di sicurezza** casella di controllo.  
   
 4.  Per usare l'autenticazione senza crittografia, selezionare non **crittografare il traffico. Utilizzare** la casella di controllo solo autenticazione.  
   
-5.  Fare clic su **Fine**.  
+5.  Fai clic su **Fine**.  
   
 ## <a name="BKMK_GPO"></a>2,7. Riepilogo della configurazione e oggetti Criteri di gruppo alternativi  
 Al termine, la configurazione di accesso remoto di **revisione di accesso remoto** viene visualizzato. È possibile controllare tutte le impostazioni selezionate in precedenza, incluse:  
   
-1.  **Impostazioni dell'oggetto Criteri di gruppo**: sono elencati il nome dell'oggetto Criteri di gruppo del server DirectAccess e il nome dell'oggetto Criteri di gruppo del client. Inoltre, è possibile fare clic sul collegamento **Cambia** accanto all'intestazione **Impostazioni dell'oggetto Criteri di gruppo** per modificare le impostazioni dell'oggetto Criteri di gruppo.  
+1.  **Impostazioni di GPO**: nome oggetto Criteri di gruppo di DirectAccess e il nome oggetto Criteri di gruppo sono elencati. Inoltre, è possibile fare clic il **Modifica** collegamento accanto al **Impostazioni oggetto Criteri di gruppo** sull'intestazione per modificare le impostazioni di GPO.  
   
-2.  **Client remoti**: viene visualizzata la configurazione del client DirectAccess, inclusi il gruppo di sicurezza, lo stato del tunneling forzato, gli strumenti di verifica della connettività e il nome della connessione DirectAccess.  
+2.  **I client remoti**: DirectAccess la configurazione del client viene visualizzata, incluso il gruppo di sicurezza, forzare lo stato del tunneling, strumenti di verifica della connettività e nome della connessione DirectAccess.  
   
-3.  **Server di accesso remoto**: viene visualizzata la configurazione DirectAccess, inclusi il nome/indirizzo pubblico, la configurazione della scheda di rete, le informazioni sul certificato e le informazioni OTP, se configurate.  
+3.  **Server di accesso remoto**: configurazione di DirectAccess verrà visualizzate con il nome/indirizzo pubblico, configurazione scheda di rete, informazioni sul certificato e informazioni OTP se configurato.  
   
 4.  **Server di infrastruttura**: questo elenco include l'URL del server, percorso rete suffissi DNS utilizzate dal client DirectAccess e informazioni sul server di gestione.  
   
-5.  **Server applicazioni**: viene visualizzato lo stato della gestione remota DirectAccess, oltre allo stato dell'autenticazione end-to-end per specifici server applicazioni.  
+5.  **Server applicazioni**: viene visualizzato lo stato di gestione remota di DirectAccess, oltre allo stato dell'autenticazione end-to-end per specifici server applicazioni.  
   
 ## <a name="BKMK_PS"></a>2,8. Come configurare il server di Accesso remoto con Windows PowerShell  
 ![](../../../media/Step-2-Configuring-DirectAccess-Servers/PowerShellLogoSmall.gif)**comandi equivalenti di Windows PowerShell** per Windows PowerShell  

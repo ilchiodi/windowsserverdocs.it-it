@@ -8,12 +8,12 @@ ms.date: 10/09/2019
 ms.topic: article
 ms.prod: windows-server
 ms.technology: storage
-ms.openlocfilehash: 0f549310d568142f819e22422d41a72d38b306e2
-ms.sourcegitcommit: 8771a9f5b37b685e49e2dd03c107a975bf174683
+ms.openlocfilehash: e5832843dce05832a231ed3a4d7e20cf90f1d183
+ms.sourcegitcommit: 07c9d4ea72528401314e2789e3bc2e688fc96001
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76145937"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76822594"
 ---
 # <a name="storage-migration-service-known-issues"></a>Problemi noti del servizio migrazione archiviazione
 
@@ -64,11 +64,11 @@ Questo problema è stato risolto in una versione successiva di Windows Server.
 
 Quando si usa l'interfaccia di amministrazione di Windows o PowerShell per scaricare il log degli errori dettagliati per le operazioni di trasferimento, viene visualizzato un errore:
 
- >   Log di trasferimento: verificare che la condivisione file sia consentita nel firewall. : Questa operazione di richiesta inviata a NET. TCP://localhost: 28940/SMS/Service/1/Transfer non ha ricevuto una risposta entro il timeout configurato (00:01:00). È possibile che la durata consentita per l'operazione fosse una porzione di un timeout più lungo. È possibile che il servizio stia ancora elaborando l'operazione o che il servizio non sia stato in grado di inviare un messaggio di risposta. Prendere in considerazione l'aumento del timeout dell'operazione (eseguendo il cast del canale/proxy a IContextChannel e impostando la proprietà OperationTimeout) e verificare che il servizio sia in grado di connettersi al client.
+ >   Log di trasferimento: verificare che la condivisione file sia consentita nel firewall. : Questa operazione di richiesta inviata a NET. TCP://localhost: 28940/SMS/Service/1/Transfer non ha ricevuto una risposta entro il timeout configurato (00:01:00). Il tempo allocato a questa operazione potrebbe essere una parte di un timeout più lungo. È possibile che il servizio stia ancora elaborando l'operazione o che il servizio non sia stato in grado di inviare un messaggio di risposta. Prendere in considerazione l'aumento del timeout dell'operazione (eseguendo il cast del canale/proxy a IContextChannel e impostando la proprietà OperationTimeout) e verificare che il servizio sia in grado di connettersi al client.
 
 Questo problema è causato da un numero molto elevato di file trasferiti che non possono essere filtrati nel timeout predefinito di un minuto consentito dal servizio migrazione archiviazione. 
 
-Per risolvere questo problema:
+Per ovviare a questo problema:
 
 1. Sul computer dell'agente di orchestrazione, modificare il file *%systemroot%\SMS\Microsoft.StorageMigration.Service.exe.config* utilizzando Notepad. exe per modificare "SendTimeout nell'elemento" dal valore predefinito di 1 minuto a 10 minuti.
 
@@ -125,7 +125,7 @@ Per risolvere questo problema, installare [Windows Update 2 aprile 2019, ovvero 
 
 Quando si usa il servizio migrazione archiviazione per trasferire i file in una nuova destinazione, quindi si configura il Replica DFS (DFSR) per replicare i dati con un server DFSR esistente tramite la replica con seeding o la clonazione del database DFSR, tutti i file experiemce un hash mancata corrispondenza e replica eseguita di nuovo. I flussi di dati, i flussi di sicurezza, le dimensioni e gli attributi sembrano essere perfettamente corrispondenti dopo l'uso di SMS per trasferirli. L'analisi dei file con ICACLS o il log di debug per la clonazione del database DFSR rivela:
 
-Source file (File di origine):
+File di origine:
 
   d:\test\Source icacls:
 
@@ -220,7 +220,7 @@ Come soluzione alternativa:
    ```
 ## <a name="error-dll-was-not-found-when-running-inventory-from-a-cluster-node"></a>Errore "Impossibile trovare la dll" durante l'esecuzione dell'inventario da un nodo del cluster
 
-Quando si tenta di eseguire l'inventario con l'agente di orchestrazione del servizio di migrazione archiviazione installato in un nodo del cluster di failover di Windows Server 2019 e si utilizza come destinazione un cluster di failover di Windows Server file server origine, viene visualizzato l'errore seguente:
+Quando si tenta di eseguire l'inventario con il servizio migrazione archiviazione e come destinazione di un cluster di failover di Windows Server, usare file server origine, vengono visualizzati gli errori seguenti:
 
     DLL not found
     [Error] Failed device discovery stage VolumeInfo with error: (0x80131524) Unable to load DLL 'Microsoft.FailoverClusters.FrameworkSupport.dll': The specified module could not be found. (Exception from HRESULT: 0x8007007E)   

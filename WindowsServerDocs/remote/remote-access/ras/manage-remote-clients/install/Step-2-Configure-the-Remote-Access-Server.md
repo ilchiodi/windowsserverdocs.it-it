@@ -12,12 +12,12 @@ ms.topic: article
 ms.assetid: c0257b98-5633-4264-9df6-b6ffae80592c
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: b4e3c2f4a27652e7b28b826981d192d6a4c6c107
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 0c112898217eb05ad2fd9b387f401ce129b47e54
+ms.sourcegitcommit: 07c9d4ea72528401314e2789e3bc2e688fc96001
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71404554"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76822694"
 ---
 # <a name="step-2-configure-the-remote-access-server"></a>Passaggio 2 configurare il Server di accesso remoto
 
@@ -94,7 +94,7 @@ Per effettuarne il provisioning allo scopo di usare DirectAccess, un computer cl
   
 #### <a name="to-configure-directaccess-clients"></a>Per configurare i client DirectAccess  
   
-1.  Nel riquadro centrale della Console di gestione Accesso remoto, nell'area **Passaggio 1 Client remoti**, fare clic su **Configura**.  
+1.  Nel riquadro centrale della console di gestione accesso remoto, nel **passaggio 1 client remoti** area, fare clic su **Configura**.  
   
 2.  Nella configurazione guidata Client DirectAccess sul **uno Scenario di distribuzione** pagina, fare clic su **distribuire DirectAccess per la gestione remota solo**, e quindi fare clic su **Avanti**.  
   
@@ -115,7 +115,7 @@ Per effettuarne il provisioning allo scopo di usare DirectAccess, un computer cl
         > [!NOTE]  
         > Quando è abilitata la risoluzione dei nomi locali, gli utenti che eseguono il NCA possono risolvere nomi con i server DNS configurati nel computer client DirectAccess.  
   
-6.  Fare clic su **Fine**.  
+6.  Fai clic su **Fine**.  
   
 ## <a name="BKMK_Server"></a>Configurare il server di accesso remoto  
 Per distribuire accesso remoto, è necessario configurare il server che fungerà da server di accesso remoto con il codice seguente:  
@@ -134,7 +134,7 @@ Per distribuire accesso remoto, è necessario configurare il server che fungerà
   
 1.  Nel riquadro centrale della console di gestione accesso remoto, nel **passaggio 2 Server di accesso remoto** area, fare clic su **Configura**.  
   
-2.  Nella Configurazione guidata del server di Accesso remoto, in **Topologia di rete**, scegliere la topologia di distribuzione da usare nell'organizzazione. In **Digitare il nome pubblico o l'indirizzo IPv4 usati dai client per connettersi al server di Accesso remoto** immettere il nome pubblico per la distribuzione (che corrisponde al nome soggetto del certificato IP-HTTPS, ad esempio edge1.contoso.com) e quindi fare clic su **Avanti**.  
+2.  Nel Server di configurazione guidata accesso remoto, nella **topologia di rete** pagina, scegliere la topologia di distribuzione che verrà utilizzata nell'organizzazione. In **digitare il nome pubblico o l'indirizzo IPv4 utilizzati dai client per connettersi al server di accesso remoto**, immettere il nome pubblico per la distribuzione (questo nome corrisponde al nome soggetto del certificato IP-HTTPS, ad esempio edge1. contoso.com) e quindi fare clic su **Avanti**.  
   
 3.  Nel **schede di rete** pagina, la procedura guidata rileva automaticamente:  
   
@@ -152,7 +152,7 @@ Per distribuire accesso remoto, è necessario configurare il server che fungerà
   
     -   Per abilitare i computer client che eseguono Windows 7 alla connessione tramite DirectAccess, selezionare il **attivare Windows 7 ai computer client di connettersi tramite DirectAccess** casella di controllo. In questo tipo di distribuzione deve essere usata anche l'autenticazione del certificato computer.  
   
-7.  Fare clic su **Fine**.  
+7.  Fai clic su **Fine**.  
   
 ## <a name="BKMK_Infra"></a>Configurare i server di infrastruttura  
 Per configurare i server dell'infrastruttura in una distribuzione di accesso remoto, è necessario configurare quanto segue:  
@@ -177,9 +177,9 @@ Per configurare i server dell'infrastruttura in una distribuzione di accesso rem
   
 4.  Nel **elenco ricerca suffissi DNS** pagina, il server di accesso remoto rileva automaticamente i suffissi di dominio nella distribuzione. Utilizzare il **Aggiungi** e **rimuovere** pulsanti per creare l'elenco dei suffissi di dominio che si desiderano utilizzare. Per aggiungere un nuovo suffisso di dominio, in **nuovo suffisso**, immettere il suffisso e quindi fare clic su **Aggiungi**. Fai clic su **Next**.  
   
-5.  Nel **Management** pagina, aggiungere server di gestione che non vengono rilevate automaticamente e quindi fare clic su **Avanti**. Accesso remoto aggiunge automaticamente i controller di dominio e i server System Center Configuration Manager.  
+5.  Nel **Management** pagina, aggiungere server di gestione che non vengono rilevate automaticamente e quindi fare clic su **Avanti**. Accesso remoto aggiunge automaticamente i controller di dominio e i server Configuration Manager.  
   
-6.  Fare clic su **Fine**.  
+6.  Fai clic su **Fine**.  
   
 ## <a name="BKMK_App"></a>Configurare i server applicazioni  
 In una distribuzione completa di accesso remoto, la configurazione server applicazioni è un'attività facoltativa. In questo scenario per la gestione remota dei client DirectAccess, server applicazioni non vengono utilizzati e questo passaggio è grigio per indicare che non è attivo. Fare clic su **Fine** per applicare la configurazione.  

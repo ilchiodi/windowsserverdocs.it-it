@@ -9,12 +9,12 @@ ms.author: pashort
 author: shortpatti
 ms.date: 06/28/2019
 ms.reviewer: deverette
-ms.openlocfilehash: be50c8eaf789b6f0737cbe07cf10d041d25e74f3
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: b813e3f978ad1e61e6770edcf26b1c716efcbbe4
+ms.sourcegitcommit: 07c9d4ea72528401314e2789e3bc2e688fc96001
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71388196"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76822484"
 ---
 # <a name="step-7-optional-conditional-access-for-vpn-connectivity-using-azure-ad"></a>Passaggio 7. Opzionale Accesso condizionale per la connettività VPN con Azure AD
 
@@ -79,7 +79,7 @@ Per distribuire il certificato radice attendibile, è necessario:
 
 ## <a name="step-75-create-oma-dm-based-vpnv2-profiles-to-windows-10-devicesvpn-create-oma-dm-based-vpnv2-profilesmd"></a>[Passaggio 7,5. Creare profili VPNv2 basati su OMA-DM per i dispositivi Windows 10](vpn-create-oma-dm-based-vpnv2-profiles.md)
 
-In questo passaggio è possibile creare profili VPNv2 basati su OMA usando Intune per distribuire i criteri di configurazione del dispositivo VPN. Se si vuole usare SCCM o uno script di PowerShell per creare profili VPNv2, vedere [le impostazioni di VPNV2 CSP](https://docs.microsoft.com/windows/client-management/mdm/vpnv2-csp) per altri dettagli.
+In questo passaggio è possibile creare profili VPNv2 basati su OMA usando Intune per distribuire i criteri di configurazione del dispositivo VPN. Se si vuole usare Configuration Manager o uno script di PowerShell per creare profili VPNv2, vedere [le impostazioni di VPNV2 CSP](https://docs.microsoft.com/windows/client-management/mdm/vpnv2-csp) per altri dettagli.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -89,7 +89,7 @@ In questo passaggio è possibile creare profili VPNv2 basati su OMA usando Intun
 
 - [Configurare i profili VPNv2](https://docs.microsoft.com/windows/access-protection/vpn/vpn-conditional-access): il client VPN è ora in grado di integrarsi con la piattaforma di accesso condizionale basato sul cloud per fornire un'opzione di conformità del dispositivo per i client remoti. In questo passaggio i profili VPNv2 vengono configurati con **\<DeviceCompliance > \<abilitato > true\</Enabled >** .
 
-- [Miglioramento dell'accesso remoto in Windows 10 con un profilo VPN automatico](https://www.microsoft.com/itshowcase/Article/Content/894/Enhancing-remote-access-in-Windows-10-with-an-automatic-VPN-profile): informazioni su come Microsoft implementa l'accesso condizionale per la connettività VPN. I profili VPN contengono tutte le informazioni richieste da un dispositivo per connettersi alla rete aziendale, inclusi i metodi di autenticazione supportati e il server VPN a cui il dispositivo deve connettersi. Le modifiche apportate all'aggiornamento dell'anniversario di Windows 10, tra cui l'accesso condizionale e la Single Sign-On, consentono di creare il profilo di connessione VPN always on. È stato creato il profilo di connessione per i dispositivi appartenenti a un dominio e Microsoft Intune-Managed usando System Center Configuration Manager Console.
+- [Miglioramento dell'accesso remoto in Windows 10 con un profilo VPN automatico](https://www.microsoft.com/itshowcase/Article/Content/894/Enhancing-remote-access-in-Windows-10-with-an-automatic-VPN-profile): informazioni su come Microsoft implementa l'accesso condizionale per la connettività VPN. I profili VPN contengono tutte le informazioni richieste da un dispositivo per connettersi alla rete aziendale, inclusi i metodi di autenticazione supportati e il server VPN a cui il dispositivo deve connettersi. Le modifiche apportate all'aggiornamento dell'anniversario di Windows 10, tra cui l'accesso condizionale e la Single Sign-On, consentono di creare il profilo di connessione VPN always on.
 
 - [Accesso condizionale in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal): la sicurezza è una delle principali preoccupazioni per le organizzazioni che usano il cloud. Un aspetto fondamentale della sicurezza del cloud è l'identità e l'accesso per la gestione delle risorse cloud. In un mondo per dispositivi mobili e cloud, gli utenti possono accedere alle risorse dell'organizzazione usando un'ampia gamma di dispositivi e app ovunque ci si trovi. Di conseguenza, concentrarsi solo su chi può accedere a una risorsa non è più sufficiente. Per padroneggiare il saldo tra sicurezza e produttività, i professionisti IT devono anche considerare il modo in cui viene eseguito l'accesso a una risorsa in una decisione di controllo di accesso.
 

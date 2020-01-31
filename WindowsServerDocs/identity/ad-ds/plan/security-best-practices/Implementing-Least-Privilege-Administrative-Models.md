@@ -9,12 +9,12 @@ ms.date: 08/09/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: c8ad9b00070d5daef2e5aee43cfdee2d192bddae
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: f61bc1ccb7d9b09a17713946b5b8c2cc352f43ac
+ms.sourcegitcommit: 07c9d4ea72528401314e2789e3bc2e688fc96001
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71367734"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76822094"
 ---
 # <a name="implementing-least-privilege-administrative-models"></a>Implementazione dei modelli amministrativi con privilegi minimi
 
@@ -225,7 +225,7 @@ Gli amministratori sono, per impostazione predefinita, i proprietari della maggi
    - Ciò impedirà i membri del gruppo Administrators viene utilizzato per accedere o connettersi al server membri o workstation (a meno che più controlli vengono innanzitutto violati), in cui le relative credenziali potessero essere memorizzato nella cache e compromessi. Un account con privilegi mai essere utilizzato per accedere a un sistema con meno privilegi e applicazione di questi controlli offrono protezione contro un numero di attacchi.  
 
 3. I controller di dominio, unità Organizzativa in ogni dominio della foresta, il gruppo di amministratori deve essere concesso l'utente seguente at diritti (se non si dispongono già di questi diritti), in modo che i membri del gruppo Administrators per eseguire le funzioni necessarie per uno scenario di ripristino di emergenza a livello di foresta:  
-   - Accedi al computer dalla rete  
+   - Accesso al computer dalla rete  
    - Consenti accesso locale  
    - Consenti accesso tramite Servizi Desktop remoto  
 
@@ -253,7 +253,7 @@ In altri casi, potrebbe essere necessario creare gruppi di sicurezza e delegare 
 3. Gli utenti che devono essere concesse appartenenza a un ruolo.  
 4. Come verrà eseguita la gestione di appartenenza ai ruoli.  
 
-In molti ambienti, la creazione manuale di controlli di accesso basato sui ruoli per l'amministrazione di un ambiente Active Directory può essere difficile da implementare e gestire. Se è stato definito chiaramente ruoli e responsabilità per l'amministrazione dell'infrastruttura IT, si consiglia di utilizzare altri strumenti che facilitano la creazione di una distribuzione RBAC nativa gestibile. Se, ad esempio, Forefront Identity Manager (FIM) è in uso nell'ambiente in uso, è possibile utilizzare FIM per automatizzare la creazione e popolamento dei ruoli amministrativi, che possono facilitare l'amministrazione in corso. Se si utilizza System Center Configuration Manager (SCCM) e System Center Operations Manager (SCOM), si può utilizzare i ruoli specifici dell'applicazione per delegare la gestione e funzioni di monitoraggio e inoltre applicare la coerenza della configurazione e controllo sui diversi sistemi nel dominio. Se è stato implementato un'infrastruttura a chiave pubblica (PKI), è possibile emettere e richiedere smart card per IL personale IT responsabile dell'amministrazione dell'ambiente. Con gestione delle credenziali di FIM (FIM CM), è inoltre possibile combinare la gestione dei ruoli e le credenziali per il personale amministrativo.  
+In molti ambienti, la creazione manuale di controlli di accesso basato sui ruoli per l'amministrazione di un ambiente Active Directory può essere difficile da implementare e gestire. Se è stato definito chiaramente ruoli e responsabilità per l'amministrazione dell'infrastruttura IT, si consiglia di utilizzare altri strumenti che facilitano la creazione di una distribuzione RBAC nativa gestibile. Se, ad esempio, Forefront Identity Manager (FIM) è in uso nell'ambiente in uso, è possibile utilizzare FIM per automatizzare la creazione e popolamento dei ruoli amministrativi, che possono facilitare l'amministrazione in corso. Se si usa Microsoft endpoint Configuration Manager e System Center Operations Manager (SCOM), è possibile usare ruoli specifici dell'applicazione per delegare le funzioni di gestione e monitoraggio, nonché per applicare la configurazione e il controllo coerenti tra i sistemi in dominio. Se è stato implementato un'infrastruttura a chiave pubblica (PKI), è possibile emettere e richiedere smart card per IL personale IT responsabile dell'amministrazione dell'ambiente. Con gestione delle credenziali di FIM (FIM CM), è inoltre possibile combinare la gestione dei ruoli e le credenziali per il personale amministrativo.  
 
 In altri casi, potrebbe essere preferibile per un'organizzazione considerare la distribuzione di software di terze parti RBAC che fornisce la funzionalità "out-of-box". Soluzioni (COTS) commerciali, disponibili sul mercato per RBAC per Active Directory, Windows e le directory non Windows e sistemi operativi sono offerte da un numero di fornitori. Quando si sceglie tra soluzioni native e i prodotti di terze parti, è necessario considerare i fattori seguenti:  
 

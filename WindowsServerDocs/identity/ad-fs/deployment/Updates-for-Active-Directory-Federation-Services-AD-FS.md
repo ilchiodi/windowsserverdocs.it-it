@@ -9,12 +9,12 @@ ms.date: 3/29/2019
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 0850145c9281c769c5a2b6532ccb56615abd11b3
-ms.sourcegitcommit: ff0db5ca093a31034ccc5e9156f5e9b45b69bae5
+ms.openlocfilehash: b50b1b7b43002c91ee849f352e255f520f6d96f0
+ms.sourcegitcommit: 07c9d4ea72528401314e2789e3bc2e688fc96001
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76725786"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76822734"
 ---
 # <a name="required-updates-for-active-directory-federation-services-ad-fs-and-web-application-proxy-wap"></a>Aggiornamenti necessari per Active Directory Federation Services (AD FS) e proxy applicazione Web (WAP)
 
@@ -28,6 +28,7 @@ Gli aggiornamenti per Windows Server 2016 vengono distribuiti ogni mese tramite 
 
 |KB # |Descrizione|Data di rilascio
 |----- | ----- |-----
+|[4534271](https://support.microsoft.com/help/4534271/windows-10-update-kb4534271) | Risolve un possibile errore AD FS Chrome a causa del supporto di nuovi criteri dei cookie [navigava sullostesso sito](https://www.chromestatus.com/feature/5088147346030592) per impostazione predefinita per la versione 80 di Google Chrome. Per ulteriori informazioni, fare riferimento a [qui](https://docs.microsoft.com/office365/troubleshoot/miscellaneous/chrome-behavior-affects-applications). |2020 gennaio|
 |[CVE-2019-1126](https://portal.msrc.microsoft.com/security-guidance/advisory/CVE-2019-1126) | Questo aggiornamento della sicurezza risolve una vulnerabilità in Active Directory Federation Services (AD FS) che potrebbe consentire a un utente malintenzionato di ignorare i criteri di blocco Extranet. |2019 luglio|
 |[4489889 (build del sistema operativo 14393,2879)](https://support.microsoft.com/help/4489889/windows-10-update-kb4489889) | Risolve un problema in Active Directory Federation Services (AD FS) che determina la visualizzazione di un trust duplicato relying party nella console di gestione AD FS. Questo errore si verifica quando si crea o si visualizzano relying party trust utilizzando la console di gestione AD FS.</br></br> Risolve un problema di latenza WAP (Web Application Proxy) High Active Directory Federation Services (ad FS) (oltre 10 1.000 ms) che si verifica durante l'abilitazione del blocco Smart Extranet (ESL) AD FS 2016. Questo aggiornamento della sicurezza risolve la vulnerabilità descritta in [CVE-2018-16794](https://nvd.nist.gov/vuln/detail/CVE-2018-16794). |2019 marzo|
 |[4487006 (build del sistema operativo 14393,2828)](https://support.microsoft.com/help/4487006/windows-10-update-kb4487006) | Risolve un problema che causa l'esito negativo degli aggiornamenti di un trust relying party quando si usa PowerShell o la console di gestione Active Directory Federation Services (AD FS). Questo problema si verifica se si configura un trust relying party per l'uso di un URL dei metadati online che pubblica più di un PassiveRequestorEndpoint. L'errore è "MSIS7615: gli endpoint attendibili specificati in un trust relying party devono essere univoci per tale attendibilità relying party".  </br></br>Risolve un problema che visualizza un messaggio di errore specifico per le modifiche della password di complessità esterna a causa dei criteri di protezione delle password di Azure. |Febbraio 2019|
@@ -50,6 +51,7 @@ Di seguito è riportato l'elenco degli aggiornamenti rapidi e degli aggiornament
 
 |KB # |Descrizione|Data di rilascio
 |----- | ----- |-----
+|[4534309](https://support.microsoft.com/help/4534309/windows-8-1-kb4534309)| Risolve un possibile errore AD FS Chrome a causa del supporto di nuovi criteri dei cookie [navigava sullostesso sito](https://www.chromestatus.com/feature/5088147346030592) per impostazione predefinita per la versione 80 di Google Chrome. Per ulteriori informazioni, fare riferimento a [qui](https://docs.microsoft.com/office365/troubleshoot/miscellaneous/chrome-behavior-affects-applications). |2020 gennaio
 |[4507448](https://support.microsoft.com/help/4507448/windows-8-1-update-kb4507448)| Questo aggiornamento della sicurezza risolve una vulnerabilità in Active Directory Federation Services (AD FS) che potrebbe consentire a un utente malintenzionato di ignorare i criteri di blocco Extranet. |2019 luglio
 |[4041685](https://support.microsoft.com/kb/4041685)|È stato risolto un problema AD FS in cui i cookie MSISConext nelle intestazioni delle richieste possono esaurire il limite delle dimensioni delle intestazioni e causare un errore di autenticazione con il codice di stato HTTP 400 "richiesta-intestazione non valida" troppo lunga.</br></br>Correzione di un problema per cui ADFS non è più in grado di ignorare "prompt = login" durante l'autenticazione. È stata aggiunta un'opzione "disabled" per ripristinare scenari in cui viene usata l'autenticazione non basata su password.|Anteprima del 2017 ottobre dell'aggiornamento cumulativo
 |[4019217](https://support.microsoft.com/kb/4019217)|I client di cartelle di lavoro che usano il broker di token non funzionano quando si usa un server di AD FS Server 2012 R2|Aggiornamento cumulativo di maggio 2017 dell'anteprima

@@ -12,12 +12,12 @@ ms.topic: article
 ms.assetid: ea7ecd52-4c12-4a49-92fd-b8c08cec42a9
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: ccfde5d13b9b2b722498e824d497a9b790875e14
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 3ae66c125548e31603318a7e600c36c00df9d005
+ms.sourcegitcommit: 07c9d4ea72528401314e2789e3bc2e688fc96001
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71404507"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76822554"
 ---
 # <a name="step-3-configure-the-multisite-deployment"></a>Passaggio 3 configurare la distribuzione Multisita
 
@@ -38,7 +38,7 @@ Dopo aver configurato l'infrastruttura multisito seguire questi passaggi per con
 > [!NOTE]  
 > Questo argomento include cmdlet di esempio di Windows PowerShell che è possibile usare per automatizzare alcune delle procedure descritte. Per ulteriori informazioni, vedere [mediante i cmdlet](https://go.microsoft.com/fwlink/p/?linkid=230693).  
   
-## <a name="BKMK_ConfigServer"></a>3,1. Configurare i server di accesso remoto  
+## <a name="BKMK_ConfigServer"></a>3.1. Configurare i server di accesso remoto  
 
   
 ### <a name="to-install-the-remote-access-role"></a>Per installare il ruolo Accesso remoto  
@@ -77,7 +77,7 @@ Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione 
 Install-WindowsFeature RemoteAccess -IncludeManagementTools  
 ```  
   
-## <a name="BKMK_Admin"></a>3,2. Concedere l'accesso come amministratore  
+## <a name="BKMK_Admin"></a>3.2. Concedere l'accesso come amministratore  
   
 #### <a name="to-grant-administrator-permissions"></a>Per concedere le autorizzazioni di amministratore  
   
@@ -99,20 +99,20 @@ Install-WindowsFeature RemoteAccess -IncludeManagementTools
   
 9. Ripetere questa procedura su tutti i server di accesso remoto che farà parte della distribuzione multisito.  
   
-## <a name="BKMK_IPHTTPS"></a>3,3. Configurare IP-HTTPS per una distribuzione multisito  
+## <a name="BKMK_IPHTTPS"></a>3.3. Configurare IP-HTTPS per una distribuzione multisito  
 In ogni server di accesso remoto che verrà aggiunto alla distribuzione multisito, un certificato SSL è necessario verificare la connessione HTTPS al server web IP-HTTPS. Appartenenza al gruppo locale **amministratori** o gruppo equivalente, è il requisito minimo necessario per completare questa procedura.  
   
 #### <a name="to-obtain-an-ip-https-certificate"></a>Per ottenere un certificato IP-HTTPS  
   
 1.  In ogni server di accesso remoto: sul **avviare** digitare **mmc**, quindi premere INVIO. Se viene visualizzata la finestra di dialogo **Controllo account utente** , verificare che l'azione visualizzata sia quella desiderata e quindi fare clic su **Sì**.  
   
-2.  Scegliere **Aggiungi/Rimuovi snap-in** dal menu **File**.  
+2.  Fare clic su **File**, quindi fare clic su **Aggiungi/Rimuovi Snap-in**.  
   
 3.  Fare clic su **certificati**, fare clic su **Aggiungi**, fare clic su **account Computer**, fare clic su **Avanti**, selezionare **computer locale**, fare clic su **Fine**, quindi fare clic su **OK**.  
   
-4.  Nell'albero della console dello snap-in Certificati aprire **Certificati (computer locale)\Personale\Certificati**.  
+4.  Nell'albero della console dello snap-in certificati, aprire **certificati (Computer locale) \Personal\Certificates**.  
   
-5.  Fare clic con il pulsante destro del mouse su **Certificati**, scegliere **Tutte le attività** e quindi fare clic su **Richiedi nuovo certificato**.  
+5.  Fare doppio clic su **certificati**, scegliere **tutte le attività**, quindi fare clic su **Richiedi nuovo certificato**.  
   
 6.  Fare clic due volte su **Avanti** .  
   
@@ -128,7 +128,7 @@ In ogni server di accesso remoto che verrà aggiunto alla distribuzione multisit
   
 11. Nel riquadro dei dettagli dello snap-in certificati, verificare che sia registrato un nuovo certificato con il nome FQDN **scopi designati** di **l'autenticazione Server**.  
   
-12. Fare clic con il pulsante destro del mouse sul certificato e scegliere **Proprietà**.  
+12. Il pulsante destro del certificato e quindi fare clic su **proprietà**.  
   
 13. In **nome descrittivo**, tipo **certificato IP-HTTPS**, quindi fare clic su **OK**.  
   
@@ -144,13 +144,13 @@ Se si sceglie di configurare il server dei percorsi rete sul server di accesso r
   
 1.  Nel server di accesso remoto: sul **avviare** digitare **mmc**, e quindi premere INVIO. Se viene visualizzata la finestra di dialogo **Controllo account utente** , verificare che l'azione visualizzata sia quella desiderata e quindi fare clic su **Sì**.  
   
-2.  Scegliere **Aggiungi/Rimuovi snap-in** dal menu **File**.  
+2.  Fare clic su **File**, quindi fare clic su **Aggiungi/Rimuovi Snap-in**.  
   
 3.  Fare clic su **certificati**, fare clic su **Aggiungi**, fare clic su **account Computer**, fare clic su **Avanti**, selezionare **computer locale**, fare clic su **Fine**, quindi fare clic su **OK**.  
   
-4.  Nell'albero della console dello snap-in Certificati aprire **Certificati (computer locale)\Personale\Certificati**.  
+4.  Nell'albero della console dello snap-in certificati, aprire **certificati (Computer locale) \Personal\Certificates**.  
   
-5.  Fare clic con il pulsante destro del mouse su **Certificati**, scegliere **Tutte le attività** e quindi fare clic su **Richiedi nuovo certificato**.  
+5.  Fare doppio clic su **certificati**, scegliere **tutte le attività**, quindi fare clic su **Richiedi nuovo certificato**.  
   
     > [!NOTE]  
     > È inoltre possibile importare lo stesso certificato utilizzato per il server del percorso di rete per il primo server di accesso remoto.  
@@ -169,7 +169,7 @@ Se si sceglie di configurare il server dei percorsi rete sul server di accesso r
   
 11. Nel riquadro dei dettagli dello snap-in certificati, verificare che sia registrato un nuovo certificato con il nome FQDN **scopi designati** di **l'autenticazione Server**.  
   
-12. Fare clic con il pulsante destro del mouse sul certificato e scegliere **Proprietà**.  
+12. Il pulsante destro del certificato e quindi fare clic su **proprietà**.  
   
 13. In **nome descrittivo**, tipo **certificato percorsi di rete**, quindi fare clic su **OK**.  
   
@@ -190,7 +190,7 @@ Se si sceglie di configurare il server dei percorsi rete sul server di accesso r
   
 5.  Ripetere i passaggi 3 e 4 per ogni server di accesso remoto nella distribuzione.  
   
-6.  Fare clic su **Fine**.  
+6.  Fai clic su **Fine**.  
   
 7.  Ripetere questa procedura prima di aggiungere server come punti di ingresso aggiuntive nella distribuzione.  
   
@@ -338,7 +338,7 @@ Dopo l'abilitazione della distribuzione multisito, è possibile aggiungere ulter
 15. Nel **aggiunta punto di ingresso** la finestra di dialogo, fare clic su **Chiudi** e fare clic su Aggiungi una creazione guidata punto di ingresso, **Chiudi**.  
   
     > [!NOTE]  
-    > Se il punto di ingresso che è stato aggiunto in una foresta diversa da quella di punti di ingresso esistenti o i computer client, allora è necessario fare clic su **Aggiorna server di gestione** nel **attività** riquadro per individuare il controller di dominio e System Center Configuration Manager nella nuova foresta.  
+    > Se il punto di ingresso aggiunto si trova in una foresta diversa rispetto ai punti di ingresso o ai computer client esistenti, è necessario fare clic su **Aggiorna server di gestione** nel riquadro **attività** per individuare i controller di dominio e Configuration Manager nella nuova foresta.  
   
 16. Ripetere questa procedura dal passaggio 2 per ogni punto di ingresso che si desidera aggiungere alla distribuzione multisita.  
   

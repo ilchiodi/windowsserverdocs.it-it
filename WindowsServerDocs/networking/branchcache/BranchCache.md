@@ -12,12 +12,12 @@ ms.topic: article
 ms.assetid: a4587cff-c086-49f1-a0bf-cd74b8a44440
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 7fe8d948a5f43fdab394490f543f3583167bdfe9
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 15d57d12679d7441da080ad671264ca1e5e1f42c
+ms.sourcegitcommit: 07c9d4ea72528401314e2789e3bc2e688fc96001
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71406765"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76822804"
 ---
 # <a name="branchcache"></a>BranchCache
 
@@ -136,7 +136,7 @@ Questi file server usano SMB (Server Message Block) per lo scambio di informazio
 
 I server applicazioni supportati includono computer che eseguono Windows Server 2016, Windows Server 2012 R2, Windows Server 2012 o Windows Server 2008 R2 con Servizio trasferimento intelligente in background (BITS) installati e abilitati. 
 
-È necessario inoltre che nel server applicazioni sia installata la funzionalità BranchCache. Come esempi di server applicazioni, è possibile distribuire server Microsoft Windows Server Update Services (WSUS) e Microsoft System Center Configuration Manager Branch Distribution Point come server di contenuti BranchCache.
+È necessario inoltre che nel server applicazioni sia installata la funzionalità BranchCache. Come esempi di server applicazioni, è possibile distribuire server Microsoft Windows Server Update Services (WSUS) e Microsoft endpoint Configuration Manager punto di distribuzione secondario come server di contenuti BranchCache.
 
 ## <a name="BKMK_3a"></a>BranchCache e il cloud
 
@@ -167,8 +167,8 @@ Nella tabella seguente sono contenute informazioni sulla versione delle informaz
 |SO client|SO server di contenuti|SO server cache ospitata|Versione delle informazioni sul contenuto|
 |-------------|---------------------|--------------------------|-------------------------------|
 |Windows Server 2008 R2 e Windows 7 |Windows Server 2012 o versione successiva|Windows Server 2012 o versione successiva; nessuno per la modalità cache distribuita|V1|
-|Windows Server 2012 o versione successiva; Windows 8 o versione successiva|Windows Server 2008 R2 |Windows Server 2012 o versione successiva; nessuno per la modalità cache distribuita|V1|
-|Windows Server 2012 o versione successiva; Windows 8 o versione successiva| Windows Server 2012 o versione successiva| Windows Server 2008 R2 |V1|
+|Windows Server 2012 o versione successiva; Windows 8 o versione successiva|Windows Server 2008 R2 |Windows Server 2012 o versione successiva; nessuno per la modalità cache distribuita|V1|
+|Windows Server 2012 o versione successiva; Windows 8 o versione successiva| Windows Server 2012 o versione successiva| Windows Server 2008 R2 |V1|
 |Windows Server 2012 o versione successiva; Windows 8 o versione successiva|Windows Server 2012 o versione successiva|Windows Server 2012 o versione successiva; nessuno per la modalità cache distribuita|V2|
 
 Quando si dispone di server di contenuti e server cache ospitata che eseguono Windows Server 2016, Windows Server 2012 R2 e Windows Server 2012, utilizzano la versione delle informazioni sul contenuto appropriata in base al sistema operativo del client BranchCache che richiede informazioni. 
@@ -198,7 +198,7 @@ Quando il file modificato viene richiesto da un altro client in una succursale, 
 
 Per installare il servizio ruolo o la funzionalità, aprire Server Manager e selezionare i computer in cui si desidera abilitare la funzionalità BranchCache. In Server Manager fare clic su **Gestione**e quindi su **Aggiungi ruoli e funzionalità**. Verrà visualizzata l' **Aggiunta guidata ruoli e funzionalità** . Durante la procedura guidata selezionare le opzioni seguenti:
 
-- Nella pagina **Seleziona tipo di installazione** della procedura guidata selezionare **Installazione basata su ruoli o basata su funzionalità**.
+- Nella pagina **Seleziona tipo di installazione**della procedura guidata selezionare **Installazione basata su ruoli o basata su funzionalità**.
 
 - Nella pagina **Selezione ruoli server**della procedura guidata, se si sta installando un file server abilitato per BranchCache, espandere **Servizi file e archiviazione** e servizi file e **iSCSI**, quindi selezionare **BranchCache per file di rete**.  Per risparmiare spazio su disco, è anche possibile selezionare il servizio ruolo **Deduplicazione dati** , quindi continuare con la procedura guidata per l'installazione e il completamento. Se non si vuole installare un file server abilitato per BranchCache, non installare il ruolo Servizi file e archiviazione con il servizio ruolo BranchCache per file di rete.
 
@@ -216,7 +216,7 @@ I sistemi operativi seguenti forniscono BranchCache con supporto per Servizio tr
 
 - Windows 10 Education
 
-- Windows 8.1 Enterprise
+- Windows 8.1 Enterprise
 
 - Windows 8 Enterprise
 

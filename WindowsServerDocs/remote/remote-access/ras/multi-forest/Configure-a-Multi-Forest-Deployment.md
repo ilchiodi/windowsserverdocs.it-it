@@ -12,12 +12,12 @@ ms.topic: article
 ms.assetid: 3c8feff2-cae1-4376-9dfa-21ad3e4d5d99
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 41c4de30482ff09cb0db8a113fa324b7299af43d
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 08bd945bf808843286d390a089d9ac070b9a8813
+ms.sourcegitcommit: 07c9d4ea72528401314e2789e3bc2e688fc96001
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71404540"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76822684"
 ---
 # <a name="configure-a-multi-forest-deployment"></a>Configure a Multi-Forest Deployment
 
@@ -177,9 +177,9 @@ L'elenco di ricerca suffissi DNS consente ai client di utilizzare nomi di etiche
   
 2.  Nella pagina **Server dei percorsi di rete** fare clic su **Avanti**.  
   
-3.  Nella tabella della pagina **DNS** immettere eventuali suffissi di nomi aggiuntivi che fanno parte della rete aziendale in Forest 2. In **Indirizzo del server DNS** inserire manualmente l'indirizzo del server DNS o fare clic su **Rileva**. Se non si immette l'indirizzo, le nuove voci vengono applicate come esenzioni della tabella dei criteri di risoluzione dei nomi. Fare quindi clic su **Avanti**.  
+3.  Nella tabella della pagina **DNS** immettere eventuali suffissi di nomi aggiuntivi che fanno parte della rete aziendale in Forest 2. In **Indirizzo del server DNS**inserire manualmente l'indirizzo del server DNS o fare clic su **Rileva**. Se non si immette l'indirizzo, le nuove voci vengono applicate come esenzioni della tabella dei criteri di risoluzione dei nomi. Fai clic su **Avanti**.  
   
-4.  Facoltativo: nella pagina **Elenco di ricerca suffissi DNS** aggiungere eventuali suffissi DNS inserendo il suffisso nella casella **Nuovo suffisso** e facendo clic su **Aggiungi**. Fare quindi clic su **Avanti**.  
+4.  Facoltativo: nella pagina **Elenco di ricerca suffissi DNS** aggiungere eventuali suffissi DNS inserendo il suffisso nella casella **Nuovo suffisso** e facendo clic su **Aggiungi**. Fai clic su **Avanti**.  
   
 5.  Nella pagina **Gestione** fare clic su **Fine**.  
   
@@ -202,7 +202,7 @@ Accesso remoto gestisce un elenco di prefissi IPv6 per le risorse aziendali. È 
   
 2.  Nella Configurazione guidata server di Accesso remoto fare clic su **Configurazione prefissi**.  
   
-3.  In **Prefissi IPv6 della rete interna** aggiungere eventuali prefissi IPv6 nella pagina **Configurazione prefissi** separandoli con un punto e virgola; ad esempio, 2001:db8:1::/64;2001:db8:2::/64. Fare quindi clic su **Avanti**.  
+3.  In **Prefissi IPv6 della rete interna** aggiungere eventuali prefissi IPv6 nella pagina **Configurazione prefissi**separandoli con un punto e virgola; ad esempio, 2001:db8:1::/64;2001:db8:2::/64. Fai clic su **Avanti**.  
   
 4.  Nella pagina **Autenticazione** fare clic su **Fine**.  
   
@@ -219,9 +219,9 @@ Per consentire ai computer client Windows 8 da Foresta2 di accedere alle risorse
   
 1.  Nel riquadro centrale della console di gestione Accesso remoto fare clic su **Modifica** nell'area **Passaggio 1 Client remoti**.  
   
-2.  Nella Configurazione guidata client DirectAccess fare clic su **Seleziona gruppi** e nella pagina **Seleziona gruppi** scegliere **Aggiungi**.  
+2.  Nella Configurazione guidata client DirectAccess fare clic su **Seleziona gruppi**e nella pagina **Seleziona gruppi** scegliere **Aggiungi**.  
   
-3.  Nella finestra di dialogo **Seleziona gruppi** selezionare i gruppi di sicurezza contenenti i computer client DirectAccess. Fare quindi clic su **Avanti**.  
+3.  Nella finestra di dialogo **Seleziona gruppi** selezionare i gruppi di sicurezza contenenti i computer client DirectAccess. Fai clic su **Avanti**.  
   
 4.  Nella pagina **Assistente connettività di rete** fare clic su **Fine**.  
   
@@ -236,7 +236,7 @@ Per consentire ai computer client Windows 7 di Foresta2 di accedere alle risorse
 ### <a name="RefreshMgmtServers"></a>Aggiornare l'elenco dei server di gestione  
 Accesso remoto rileva automaticamente i server di infrastruttura in tutte le foreste che contengono oggetti Criteri di gruppo per la configurazione di DirectAccess. Se DirectAccess è stato distribuito in un server di Forest1, l'oggetto Criteri di gruppo del server verrà scritto nel relativo dominio in Forest1. Se è abilitato l'accesso a DirectAccess per i client di Forest2, l'oggetto Criteri di gruppo del client verrà scritto in un dominio in Forest2.  
   
-Il processo di individuazione automatica dei server di infrastruttura è necessario per consentire di accedere tramite DirectAccess ai controller di dominio e a System Center Configuration Manager. Il processo di individuazione deve essere avviato manualmente.  
+Il processo di individuazione automatica dei server di infrastruttura è necessario per consentire l'accesso tramite DirectAccess ai controller di dominio e Configuration Manager Microsoft endpoint. Il processo di individuazione deve essere avviato manualmente.  
   
 ##### <a name="to-refresh-the-management-servers-list"></a>Per aggiornare l'elenco dei server di gestione  
   
