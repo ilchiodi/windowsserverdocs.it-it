@@ -9,12 +9,12 @@ ms.date: 02/22/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: ce000ec618d0c06ca938b21e9bc363250e1aa38f
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: b3a30c081731de97e1bdf9abe711a5ef6460be0f
+ms.sourcegitcommit: 74107a32efe1e53b36c938166600739a79dd0f51
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75949610"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76918313"
 ---
 # <a name="build-a-multi-tiered-application-using-on-behalf-of-obo-using-oauth-with-ad-fs-2016-or-later"></a>Creazione di un'applicazione a più livelli con l'uso di OAuth con AD FS 2016 o versione successiva
 
@@ -129,7 +129,7 @@ Per abilitare l'autenticazione per conto di, è necessario verificare che ADFS r
     => issue(claim = c);
 
     @RuleName = "Issue user_impersonation scope"
-    => issue(Type = "https://schemas.microsoft.com/identity/claims/scope", Value = "user_impersonation");
+    => issue(Type = "http://schemas.microsoft.com/identity/claims/scope", Value = "user_impersonation");
 
 ![AD FS OBO](media/AD-FS-On-behalf-of-Authentication-in-Windows-Server-2016/ADFS_OBO10.PNG)
 

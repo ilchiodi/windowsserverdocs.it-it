@@ -9,12 +9,12 @@ manager: jgerend
 ms.date: 01/28/2020
 ms.localizationpriority: medium
 ms.prod: windows-server
-ms.openlocfilehash: 551f97d257b7ea3d05cdded73421d2e5c088171e
-ms.sourcegitcommit: 07c9d4ea72528401314e2789e3bc2e688fc96001
+ms.openlocfilehash: 1a31fac97a6697909774a084045ad5746b7241f3
+ms.sourcegitcommit: 74107a32efe1e53b36c938166600739a79dd0f51
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76830617"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76918265"
 ---
 # <a name="deploy-azure-virtual-machines-from-within-windows-admin-center"></a>Distribuire macchine virtuali di Azure dall'interfaccia di amministrazione di Windows
 
@@ -48,14 +48,19 @@ Passaggi e procedure guidate per la distribuzione di VM di Azure variano in base
 
 ### <a name="deploying-azure-vms-as-part-of-storage-migration-service"></a>Distribuzione di macchine virtuali di Azure come parte del servizio migrazione archiviazione
 
-Dallo strumento *servizio migrazione archiviazione* all'interno dell'interfaccia di amministrazione di Windows, eseguire un inventario di uno o più server di origine. Quando si è nella fase di *trasferimento dei dati* , selezionare **Crea una nuova macchina virtuale di Azure** nella pagina *specificare una destinazione* e quindi fare clic su **Crea macchina virtuale**. Viene avviato uno strumento di creazione step-by-step che seleziona una macchina virtuale di Azure Windows Server 2012 R2, Windows Server 2016 o Windows Server 2019 come destinazione per la migrazione. Il servizio migrazione archiviazione fornisce le dimensioni di VM consigliate per la corrispondenza con l'origine, ma è possibile eseguirne l'override facendo clic su **Visualizza tutte le dimensioni**. I dati del server di origine vengono usati anche per configurare automaticamente i dischi gestiti e i file System, nonché per aggiungere la nuova macchina virtuale di Azure al dominio Active Directory. Se la macchina virtuale è Windows Server 2019 (consigliata), il centro di amministrazione di Windows installa la funzionalità proxy del servizio migrazione archiviazione. Dopo aver creato la macchina virtuale di Azure, l'interfaccia di amministrazione di Windows torna al flusso di lavoro di trasferimento normale del servizio di migrazione archiviazione.  
-
+1. Dallo strumento *servizio migrazione archiviazione* all'interno dell'interfaccia di amministrazione di Windows, eseguire un inventario di uno o più server di origine.
+2. Quando si è nella fase di *trasferimento dei dati* , selezionare **Crea una nuova macchina virtuale di Azure** nella pagina *specificare una destinazione* e quindi fare clic su **Crea macchina virtuale**.<br><br>
+Viene avviato uno strumento di creazione step-by-step che seleziona una macchina virtuale di Azure Windows Server 2012 R2, Windows Server 2016 o Windows Server 2019 come destinazione per la migrazione. Il servizio migrazione archiviazione fornisce le dimensioni di VM consigliate per la corrispondenza con l'origine, ma è possibile eseguirne l'override facendo clic su **Visualizza tutte le dimensioni**.
+<br><br>I dati del server di origine vengono usati anche per configurare automaticamente i dischi gestiti e i file System, nonché per aggiungere la nuova macchina virtuale di Azure al dominio Active Directory. Se la macchina virtuale è Windows Server 2019 (consigliata), il centro di amministrazione di Windows installa la funzionalità proxy del servizio migrazione archiviazione. Dopo aver creato la macchina virtuale di Azure, l'interfaccia di amministrazione di Windows torna al flusso di lavoro di trasferimento normale del servizio di migrazione archiviazione.  
 
 ### <a name="deploying-azure-vms-as-part-of-storage-replica"></a>Distribuzione di macchine virtuali di Azure come parte della replica di archiviazione
 
-Dallo strumento *replica archiviazione* all'interno dell'interfaccia di amministrazione di Windows, fare clic su **nuovo** nella scheda *partnership* , quindi in *replica con un altro server* fare clic su **Usa una nuova VM di Azure** e quindi su **Avanti**. Specificare le informazioni del server di origine e il nome del gruppo di replica, quindi fare clic su **Avanti**. Viene avviato un processo che seleziona automaticamente una macchina virtuale di Azure Windows Server 2016 o Windows Server 2019 come destinazione per l'origine della migrazione. Il servizio migrazione archiviazione consiglia di usare le dimensioni delle macchine virtuali in base all'origine, ma è possibile eseguire l'override selezionando **Visualizza tutte le dimensioni**. I dati di inventario vengono usati per configurare automaticamente i dischi gestiti e i file System, nonché per aggiungere la nuova VM di Azure al dominio Active Directory. Quando l'interfaccia di amministrazione di Windows crea la macchina virtuale di Azure, specificare un nome per il gruppo di replica e fare clic su **Crea**. L'interfaccia di amministrazione di Windows inizia quindi il normale processo di sincronizzazione iniziale della replica di archiviazione per iniziare a proteggere i dati.
-
+1. Dallo strumento *replica archiviazione* all'interno dell'interfaccia di amministrazione di Windows, nella scheda *partnership* Selezionare **nuovo** , quindi in *replica con un altro server* selezionare **Usa una nuova VM di Azure** e quindi fare clic su **Avanti**.
+2. Specificare le informazioni del server di origine e il nome del gruppo di replica, quindi selezionare **Avanti**.<br><br>
+Viene avviato un processo che seleziona automaticamente una macchina virtuale di Azure Windows Server 2016 o Windows Server 2019 come destinazione per l'origine della migrazione. Il servizio migrazione archiviazione consiglia di usare le dimensioni delle macchine virtuali in base all'origine, ma è possibile eseguire l'override selezionando **Visualizza tutte le dimensioni**. I dati di inventario vengono usati per configurare automaticamente i dischi gestiti e i file System, nonché per aggiungere la nuova VM di Azure al dominio Active Directory. 
+3. Quando l'interfaccia di amministrazione di Windows crea la macchina virtuale di Azure, specificare un nome per il gruppo di replica e quindi selezionare **Crea**. L'interfaccia di amministrazione di Windows inizia quindi il normale processo di sincronizzazione iniziale della replica di archiviazione per iniziare a proteggere i dati.
 
 ### <a name="deploying-a-new-standalone-azure-vm"></a>Distribuzione di una nuova VM di Azure autonoma
 
-Dalla pagina *Tutte le connessioni* in Windows Admin Center passare ad **Aggiungi** e selezionare **Crea nuovo** in **Azure VM** (Macchina virtuale di Azure). Viene avviato uno strumento di creazione dettagliato che consente di selezionare una macchina virtuale di Azure Windows Server 2012 R2, Windows Server 2016 o Windows Server 2019, scegliere una dimensione, aggiungere dischi gestiti e, facoltativamente, aggiungere il dominio Active Directory.
+1. Nella pagina *tutte le connessioni* all'interno dell'interfaccia di amministrazione di Windows selezionare **Aggiungi**.
+2. Nella sezione *VM di Azure* selezionare **Crea nuovo**.<br><br> Viene avviato uno strumento di creazione dettagliato che consente di selezionare una macchina virtuale di Azure Windows Server 2012 R2, Windows Server 2016 o Windows Server 2019, scegliere una dimensione, aggiungere dischi gestiti e, facoltativamente, aggiungere il dominio Active Directory.
