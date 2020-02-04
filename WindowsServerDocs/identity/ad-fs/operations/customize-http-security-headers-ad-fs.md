@@ -109,7 +109,7 @@ Set-AdfsResponseHeaders -RemoveHeaders "X-Frame-Options"
 ### <a name="x-xss-protection"></a>X-XSS-Protection 
 Questa intestazione della risposta di sicurezza HTTP viene utilizzata per arrestare il caricamento delle pagine Web quando vengono rilevati attacchi di scripting tra siti (XSS) dai browser. Questa operazione viene definita filtro XSS. L'intestazione può essere impostata su uno dei valori seguenti:
  
-- **0** : Disabilita il filtro XSS. Non consigliato.  
+- **0** : Disabilita il filtro XSS. Sconsigliato.  
 - **1** : Abilita il filtro XSS. Se viene rilevato un attacco XSS, la pagina verrà purificata dal browser.   
 - **1; mode = block** : Abilita il filtro XSS. Se viene rilevato un attacco XSS, il browser eviterà il rendering della pagina. Si tratta dell'impostazione predefinita e consigliata.  
 
@@ -226,7 +226,7 @@ Una volta impostato, la nuova intestazione viene inviata nella risposta AD FS (f
 ## <a name="web-browser-compatibility"></a>Compatibilità Web browser
 Utilizzare la tabella e i collegamenti seguenti per determinare quali Web browser sono compatibili con ognuna delle intestazioni di risposta di sicurezza.
 
-|Intestazioni di risposta di sicurezza HTTP|Compatibilità browser|
+|Intestazioni di risposta di sicurezza HTTP|Compatibilità del browser|
 |-----|-----|
 |HTTP Strict-Transport-Security (HSTS)|[Compatibilità del browser HSTS](https://developer.mozilla.org/docs/Web/HTTP/Headers/Strict-Transport-Security#Browser_compatibility)|
 |X-frame-options|[Compatibilità del browser X-frame-options](https://developer.mozilla.org/docs/Web/HTTP/Headers/X-Frame-Options#Browser_compatibility)| 
