@@ -8,12 +8,12 @@ author: jasongerend
 ms.author: jgerend
 ms.localizationpriority: high
 ms.date: 05/21/2019
-ms.openlocfilehash: 3d443ff123cc041196f59d93d156415c34bdf70f
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: 06f92e0a2f74ed229b42e936583a7f75d4584234
+ms.sourcegitcommit: 07c9d4ea72528401314e2789e3bc2e688fc96001
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75947875"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76822114"
 ---
 # <a name="windows-server-servicing-channels-ltsc-and-sac"></a>Canali di manutenzione di Windows Server: LTSC e Canale semestrale
 
@@ -76,9 +76,9 @@ Esistono molti strumenti con cui i professionisti IT possono eseguire la manuten
 
 - **Windows Update (autonomo)** : questa opzione è disponibile solo per i server connessi a Internet e in cui è abilitato Windows Update.
 - **Windows Server Update Services (WSUS)** consente un controllo esteso degli aggiornamenti di Windows 10 e Windows Server ed è disponibile in modalità nativa nel sistema operativo Windows Server. Oltre alla possibilità di rinviare gli aggiornamenti, le organizzazioni possono aggiungere un livello di approvazione per gli aggiornamenti e scegliere di distribuirli in computer o gruppi di computer specifici quando sono pronti.
-- **System Center Configuration Manager** offre il massimo controllo sulla manutenzione. I professionisti IT possono rinviare gli aggiornamenti, approvarli e hanno a disposizione più opzioni per decidere la destinazione delle distribuzioni e gestire l'utilizzo della larghezza di banda e i tempi di distribuzione.
+- **Microsoft Endpoint Configuration Manager** offre il massimo controllo sulla manutenzione. I professionisti IT possono rinviare gli aggiornamenti, approvarli e hanno a disposizione più opzioni per decidere la destinazione delle distribuzioni e gestire l'utilizzo della larghezza di banda e i tempi di distribuzione.
 
-Probabilmente hai già scelto di usare almeno una di queste opzioni in base alle risorse, al personale e alle competenze. Puoi continuare a usare lo stesso processo per le versioni del Canale semestrale: ad esempio, se usi già System Center Configuration Manager per gestire gli aggiornamenti, puoi continuare a farlo. In modo analogo, se usi WSUS, puoi continuare a usarlo.
+Probabilmente hai già scelto di usare almeno una di queste opzioni in base alle risorse, al personale e alle competenze. Puoi continuare a usare lo stesso processo per le versioni del Canale semestrale. Ad esempio, se usi già Configuration Manager per gestire gli aggiornamenti, puoi continuare a farlo. In modo analogo, se usi WSUS, puoi continuare a usarlo.
 
 ## <a name="where-to-obtain-semi-annual-channel-releases"></a>Dove ottenere le versioni del Canale semestrale
 

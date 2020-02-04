@@ -253,7 +253,7 @@
 ### [Piano per SDN](sdn/plan/Plan-a-Software-Defined-Network-Infrastructure.md)
 #### [Requisiti di installazione e preparazione per la distribuzione del controller di rete](sdn/plan/Installation-and-Preparation-Requirements-for-Deploying-Network-Controller.md)
 
-### [Distribuire SDN](sdn/deploy/Deploy-Software-Defined-Networking.md)
+### Distribuire SDN
 #### [Distribuire un'infrastruttura SDN](sdn/deploy/Deploy-a-Software-Defined-Network-Infrastructure.md)
 ##### [Distribuire un'infrastruttura SDN usando gli script](sdn/deploy/Deploy-a-Software-Defined-Network-infrastructure-using-scripts.md)
 #### [Distribuire le tecnologie SDN tramite Windows PowerShell](sdn/deploy/Deploy-Software-Defined-Network-Technologies-using-Windows-powershell.md)
