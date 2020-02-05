@@ -8,12 +8,12 @@ ms.author: jgerend
 ms.technology: storage-failover-clustering
 ms.date: 04/26/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: da7c90bdb1c4a2fbdb2e518f34abe9cbfef2fc29
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: dc083a15d0cd6a21b5512c1506bc9a461c4b886c
+ms.sourcegitcommit: 3f9bcd188dda12dc5803defb47b2c3a907504255
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71392040"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "77001766"
 ---
 # <a name="scale-out-file-server-for-application-data-overview"></a>Panoramica di File server di scalabilità orizzontale per dati applicazioni
 
@@ -23,7 +23,7 @@ File server di scalabilità orizzontale è una funzionalità progettata per forn
 
 È possibile distribuire e configurare un file server cluster usando uno dei metodi seguenti:
 
-- **File server di scalabilità orizzontale per i dati delle applicazioni** Questa funzionalità di file server cluster è stata introdotta in Windows Server 2012 e consente di archiviare i dati delle applicazioni server, ad esempio i file delle macchine virtuali Hyper-V, le condivisioni file e ottenere un livello di affidabilità, disponibilità, gestibilità e elevato analogo. prestazioni che ci si aspetta da una rete di archiviazione. Tutte le condivisioni file sono online su tutti i nodi contemporaneamente. Le condivisioni file associate a questo tipo di file server del cluster sono denominate condivisioni file di scalabilità orizzontale. Tale modalità è anche definita attivo-attivo. Questo è il tipo di file server consigliato quando si distribuisce Hyper-V su Server Message Block (SMB) o Microsoft SQL Server su SMB.
+- **File server di scalabilità orizzontale per i dati delle applicazioni** Questa funzionalità di file server cluster è stata introdotta in Windows Server 2012 e consente di archiviare i dati delle applicazioni server, ad esempio i file delle macchine virtuali Hyper-V, le condivisioni file e ottenere un livello di affidabilità, disponibilità, gestibilità e prestazioni elevate che ci si aspetta da una rete di archiviazione. Tutte le condivisioni file sono online su tutti i nodi contemporaneamente. Le condivisioni file associate a questo tipo di file server del cluster sono denominate condivisioni file di scalabilità orizzontale. Tale modalità è anche definita attivo-attivo. Questo è il tipo di file server consigliato quando si distribuisce Hyper-V su Server Message Block (SMB) o Microsoft SQL Server su SMB.
 - **File server per uso generale** Si tratta della continuazione del file server del cluster supportato in Windows Server fin dall'introduzione della funzionalità Clustering di failover. Questo tipo di file server del cluster, e quindi tutte le condivisioni a esso associate, è online su un nodo alla volta. A volte, tale modalità è anche definita attivo-passivo o doppio-attivo. Le condivisioni file associate a questo tipo di file server del cluster sono denominate condivisioni file del cluster. Questo è il tipo di file server consigliato quando si distribuiscono scenari di tipo Information Worker.
 
 ## <a name="scenario-description"></a>Descrizione dello scenario
@@ -45,15 +45,15 @@ Gli argomenti seguenti sono disponibili per semplificare la distribuzione di un 
 
 - [Pianificare File server di scalabilità orizzontale](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/jj134258(v%3dws.11)>)
 
-  - [Passaggio 1: Pianificare l'archiviazione in File server di scalabilità orizzontale](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/jj134181%28v%3dws.11%29>)
-  - [Passaggio 2: Pianificare la rete in File server di scalabilità orizzontale](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/jj134253%28v%3dws.11%29>)
+  - [Passaggio 1: pianificare l'archiviazione in File server di scalabilità orizzontale](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/jj134181%28v%3dws.11%29>)
+  - [Passaggio 2: pianificare la rete in File server di scalabilità orizzontale](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/jj134253%28v%3dws.11%29>)
 
 - [Distribuisci File server di scalabilità orizzontale](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831359%28v%3dws.11%29>)
 
-  - [Passaggio 1: Installare i prerequisiti per File server di scalabilità orizzontale](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831478%28v%3dws.11%29>)
-  - [Passaggio 2: Configurare File server di scalabilità orizzontale](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831718%28v%3dws.11%29>)
-  - [Passaggio 3: Configurare Hyper-V per l'uso di File server di scalabilità orizzontale](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831463%28v%3dws.11%29>)
-  - [Passaggio 4: Configurare Microsoft SQL Server per l'uso di File server di scalabilità orizzontale](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831815%28v%3dws.11%29>)
+  - [Passaggio 1: installare i prerequisiti per File server di scalabilità orizzontale](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831478%28v%3dws.11%29>)
+  - [Passaggio 2: configurare File server di scalabilità orizzontale](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831718%28v%3dws.11%29>)
+  - [Passaggio 3: configurare Hyper-V per l'uso di File server di scalabilità orizzontale](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831463%28v%3dws.11%29>)
+  - [Passaggio 4: configurare Microsoft SQL Server per l'uso di File server di scalabilità orizzontale](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831815%28v%3dws.11%29>)
 
 ## <a name="when-to-use-scale-out-file-server"></a>Quando utilizzare un file server di scalabilità orizzontale
 
@@ -74,37 +74,37 @@ La tabella seguente elenca le capacità in SMB 3.0, i file system di Windows com
 <tr class="odd">
 <td>SMB</td>
 <td>Disponibilità continua SMB</td>
-<td>Yes</td>
-<td>Yes</td>
+<td>Sì</td>
+<td>Sì</td>
 </tr>
 <tr class="even">
 <td>SMB</td>
 <td>SMB multicanale</td>
-<td>Yes</td>
-<td>Yes</td>
+<td>Sì</td>
+<td>Sì</td>
 </tr>
 <tr class="odd">
 <td>SMB</td>
 <td>SMB diretto</td>
-<td>Yes</td>
-<td>Yes</td>
+<td>Sì</td>
+<td>Sì</td>
 </tr>
 <tr class="even">
 <td>SMB</td>
 <td>Crittografia SMB</td>
-<td>Yes</td>
-<td>Yes</td>
+<td>Sì</td>
+<td>Sì</td>
 </tr>
 <tr class="odd">
 <td>SMB</td>
 <td>Failover trasparente SMB</td>
 <td>Sì (se è abilitata la disponibilità continua)</td>
-<td>Yes</td>
+<td>Sì</td>
 </tr>
 <tr class="even">
 <td>File system</td>
 <td>NTFS</td>
-<td>Yes</td>
+<td>Sì</td>
 <td>N/D</td>
 </tr>
 <tr class="odd">
@@ -117,121 +117,121 @@ La tabella seguente elenca le capacità in SMB 3.0, i file system di Windows com
 <td>File system</td>
 <td>File System del Volume condiviso cluster (CSV)</td>
 <td>N/D</td>
-<td>Yes</td>
+<td>Sì</td>
 </tr>
 <tr class="odd">
 <td>Gestione dei file</td>
 <td>BranchCache</td>
-<td>Yes</td>
+<td>Sì</td>
 <td>No</td>
 </tr>
 <tr class="even">
 <td>Gestione dei file</td>
 <td>Deduplicazione dati (Windows Server 2012)</td>
-<td>Yes</td>
+<td>Sì</td>
 <td>No</td>
 </tr>
 <tr class="odd">
 <td>Gestione dei file</td>
 <td>Deduplicazione dati (Windows Server 2012 R2)</td>
-<td>Yes</td>
+<td>Sì</td>
 <td>Sì (solo VDI)</td>
 </tr>
 <tr class="even">
 <td>Gestione dei file</td>
 <td>Radice del server principale dello spazio dei nomi DFS</td>
-<td>Yes</td>
+<td>Sì</td>
 <td>No</td>
 </tr>
 <tr class="odd">
 <td>Gestione dei file</td>
 <td>Server di destinazione della cartella dello spazio dei nomi DFS</td>
-<td>Yes</td>
-<td>Yes</td>
+<td>Sì</td>
+<td>Sì</td>
 </tr>
 <tr class="even">
 <td>Gestione dei file</td>
 <td>Replica DFS (DFSR)</td>
-<td>Yes</td>
+<td>Sì</td>
 <td>No</td>
 </tr>
 <tr class="odd">
 <td>Gestione dei file</td>
 <td>Gestione risorse file server (schermate e quote)</td>
-<td>Yes</td>
+<td>Sì</td>
 <td>No</td>
 </tr>
 <tr class="even">
 <td>Gestione dei file</td>
 <td>Infrastruttura di classificazione file</td>
-<td>Yes</td>
+<td>Sì</td>
 <td>No</td>
 </tr>
 <tr class="odd">
 <td>Gestione dei file</td>
 <td>Controllo dinamico degli accessi (accesso basato sulle attestazioni, CAP)</td>
-<td>Yes</td>
+<td>Sì</td>
 <td>No</td>
 </tr>
 <tr class="even">
 <td>Gestione dei file</td>
 <td>Reindirizzamento cartelle</td>
-<td>Yes</td>
-<td>Non consigliato<em></td>
+<td>Sì</td>
+<td><em> sconsigliato</td>
 </tr>
 <tr class="odd">
 <td>Gestione dei file</td>
 <td>File offline (memorizzazione nella cache lato client)</td>
-<td>Yes</td>
+<td>Sì</td>
 <td>Non consigliata</em></td>
 </tr>
 <tr class="even">
 <td>Gestione dei file</td>
 <td>Profili utente mobili</td>
-<td>Yes</td>
-<td>Non consigliato<em></td>
+<td>Sì</td>
+<td><em> sconsigliato</td>
 </tr>
 <tr class="odd">
 <td>Gestione dei file</td>
 <td>Home directory</td>
-<td>Yes</td>
+<td>Sì</td>
 <td>Non consigliata</em></td>
 </tr>
 <tr class="even">
 <td>Gestione dei file</td>
 <td>Cartelle di lavoro</td>
-<td>Yes</td>
+<td>Sì</td>
 <td>No</td>
 </tr>
 <tr class="odd">
 <td>NFS</td>
 <td>Server NFS</td>
-<td>Yes</td>
+<td>Sì</td>
 <td>No</td>
 </tr>
 <tr class="even">
 <td>Applicazioni</td>
 <td>Hyper-V</td>
 <td>Non consigliata</td>
-<td>Yes</td>
+<td>Sì</td>
 </tr>
 <tr class="odd">
 <td>Applicazioni</td>
 <td>Microsoft SQL Server</td>
 <td>Non consigliata</td>
-<td>Yes</td>
+<td>Sì</td>
 </tr>
 </tbody>
 </table>
 
-\*Reindirizzamento cartelle, File offline, profili utente mobili o Home Directory generano un numero elevato di scritture che devono essere scritte immediatamente su disco (senza buffering) quando si usano condivisioni file continuamente disponibili, riducendo le prestazioni rispetto a condivisioni file per utilizzo generico. Le condivisioni file a disponibilità continua non sono compatibili anche con Gestione risorse file server e con i computer che eseguono Windows XP. Inoltre, File offline potrebbe non passare alla modalità offline per 3-6 minuti dopo che un utente perde l'accesso a una condivisione, che potrebbe impedire agli utenti che non usano ancora la modalità sempre offline di File offline.
+\* Reindirizzamento cartelle, File offline, profili utente mobili o Home Directory generano un numero elevato di scritture che devono essere scritte immediatamente su disco (senza buffering) quando si usano condivisioni file continuamente disponibili, riducendo le prestazioni rispetto alle condivisioni file per utilizzo generico. Le condivisioni file a disponibilità continua non sono compatibili anche con Gestione risorse file server e con i computer che eseguono Windows XP. Inoltre, File offline potrebbe non passare alla modalità offline per 3-6 minuti dopo che un utente perde l'accesso a una condivisione, che potrebbe impedire agli utenti che non usano ancora la modalità sempre offline di File offline.
 
 ## <a name="practical-applications"></a>Applicazioni pratiche
 
 I file server di scalabilità orizzontale sono ideali per l'archiviazione di applicazioni server. Alcuni esempi di applicazioni server che possono archiviare i dati nella condivisione file di scalabilità orizzontale sono elencati di seguito:
 
-- Il server Web Internet Information Services (IIS) può archiviare la configurazione e i dati per siti Web su una condivisione file di scalabilità orizzontale. Per altre informazioni, vedere la pagina relativa alla [Configurazione condivisa](http://www.iis.net/learn/manage/managing-your-configuration-settings/shared-configuration_264).
-- Hyper-V può archiviare la configurazione e dischi virtuali live su una condivisione di scalabilità orizzontale. Per altre informazioni, vedere [Distribuire Hyper-V tramite SMB](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/jj134187(v%3dws.11)>).
+- Il server Web Internet Information Services (IIS) può archiviare la configurazione e i dati per siti Web su una condivisione file di scalabilità orizzontale. Per altre informazioni, vedere la pagina relativa alla [Configurazione condivisa](https://www.iis.net/learn/manage/managing-your-configuration-settings/shared-configuration_264).
+- Hyper-V può archiviare la configurazione e dischi virtuali live su una condivisione di scalabilità orizzontale. Per altre informazioni, vedere [Deploy Hyper-V over SMB](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/jj134187(v%3dws.11)>).
 - SQL Server può archiviare file di database live su una condivisione di scalabilità orizzontale. Per altre informazioni, vedere [Installazione di SQL Server con l'opzione di archiviazione su condivisione file SMB](https://docs.microsoft.com/sql/database-engine/install-windows/install-sql-server-with-smb-fileshare-as-a-storage-option).
 - Virtual Machine Manager (VMM) può archiviare una condivisione di libreria, che contiene modelli di macchine virtuali e file correlati, su una condivisione di scalabilità orizzontale. Tuttavia, il server di libreria non può essere una File server di scalabilità orizzontale, ma deve trovarsi in un server autonomo o in un cluster di failover che non usa il ruolo del cluster File server di scalabilità orizzontale.
 
@@ -256,11 +256,11 @@ Nella tabella che segue sono elencate le funzionalità che fanno parte di questo
 <tbody>
 <tr class="odd">
 <td><a href="failover-clustering.md">Clustering di failover</a></td>
-<td>I cluster di failover hanno aggiunto le funzionalità seguenti in Windows Server 2012 per supportare il file server di scalabilità orizzontale: Il nome della rete distribuita, il tipo di risorsa File server di scalabilità orizzontale, i volumi condivisi del cluster (CSV) 2 e il ruolo di disponibilità elevata File server di scalabilità orizzontale. Per ulteriori informazioni su queste funzionalità, vedere <a href="https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn265972(v%3dws.11)">&#39;novità di clustering di failover in Windows Server 2012 [reindirizzamento]</a>.</td>
+<td>I cluster di failover hanno aggiunto le funzionalità seguenti in Windows Server 2012 per supportare il file server di scalabilità orizzontale: nome della rete distribuita, il tipo di risorsa File server di scalabilità orizzontale, i volumi condivisi del cluster (CSV) 2 e il ruolo di disponibilità elevata File server di scalabilità orizzontale. Per ulteriori informazioni su queste funzionalità, vedere <a href="https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn265972(v%3dws.11)">&#39;novità di clustering di failover in Windows Server 2012 [reindirizzamento]</a>.</td>
 </tr>
 <tr class="even">
 <td><a href="https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831795(v%3dws.11)">Server Message Block</a></td>
-<td>SMB 3,0 ha aggiunto le funzionalità seguenti in Windows Server 2012 per supportare il file server di scalabilità orizzontale: Failover trasparente SMB, SMB multicanale e SMB diretto.<br />
+<td>SMB 3,0 ha aggiunto le funzionalità seguenti in Windows Server 2012 per supportare il file server di scalabilità orizzontale: failover trasparente SMB, SMB multicanale e SMB diretto.<br />
 <br />
 Per ulteriori informazioni sulle funzionalità nuove e modificate per SMB in Windows Server 2012 R2, vedere <a href="https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831474(v%3dws.11)">&#39;novità di SMB in Windows Server</a>.</td>
 </tr>

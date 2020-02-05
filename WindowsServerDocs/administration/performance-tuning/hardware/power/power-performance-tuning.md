@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: Qizha;TristanB
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: 1fcb1601169fa8f8b45a8a89b6495179092a0adc
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 2f1d5e2f3f17c40f262b8cea98c04e3347790ba8
+ms.sourcegitcommit: 3f9bcd188dda12dc5803defb47b2c3a907504255
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71370544"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "77001826"
 ---
 # <a name="power-and-performance-tuning"></a>Ottimizzazione dell'alimentazione e delle prestazioni
 
@@ -40,7 +40,7 @@ Prima di ottimizzare il server per l'efficienza energetica, è necessario stabil
 
 Se il server dispone del supporto necessario, è possibile usare le funzionalità di misurazione dell'energia e di budget in Windows Server 2016 per visualizzare il consumo di energia a livello di sistema tramite Performance Monitor.
 
-Un modo per determinare se il server dispone del supporto per la misurazione e il budget consiste nel rivedere il [Catalogo di Windows Server](http://www.windowsservercatalog.com). Se il modello server è idoneo per la nuova qualificazione avanzata di risparmio energia nel programma di certificazione hardware di Windows, è garantito il supporto della funzionalità di misurazione e budget.
+Un modo per determinare se il server dispone del supporto per la misurazione e il budget consiste nel rivedere il [Catalogo di Windows Server](https://www.windowsservercatalog.com). Se il modello server è idoneo per la nuova qualificazione avanzata di risparmio energia nel programma di certificazione hardware di Windows, è garantito il supporto della funzionalità di misurazione e budget.
 
 Un altro modo per verificare il supporto di misurazione consiste nel cercare manualmente i contatori in Performance Monitor. Aprire Performance Monitor, selezionare **Aggiungi contatori**e quindi individuare il gruppo di contatori del contatore di **energia elettrica** .
 
@@ -71,7 +71,7 @@ Per ulteriori informazioni su PowerCfg. exe, vedere [utilizzo di Powercfg per va
 
 Windows Server 2016 prevede tre combinazioni per il risparmio di energia predefinite progettate per soddisfare diversi insiemi di esigenze aziendali. Questi piani forniscono un modo semplice per personalizzare un server per soddisfare gli obiettivi di potenza o prestazioni. La tabella seguente descrive i piani, elenca gli scenari comuni in cui usare ogni piano e fornisce alcuni dettagli di implementazione per ogni piano.
 
-| **Pianificare** | **Descrizione** | **Scenari comuni applicabili** | **Caratteristiche principali dell'implementazione** |
+| **Pianificazione** | **Descrizione** | **Scenari comuni applicabili** | **Caratteristiche principali dell'implementazione** |
 |------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Bilanciato (scelta consigliata) | Impostazione predefinita. Ha come obiettivo un'efficienza energetica efficace con un effetto minimo sulle prestazioni. | Calcolo generale | Corrisponde alla capacità da richiedere. Le funzionalità di risparmio energia ribilanciano la potenza e le prestazioni. |
 | Prestazioni elevate | Aumenta le prestazioni a costo di un consumo di energia elevato. Si applicano le limitazioni di energia elettrica e termica, le spese operative e l'affidabilità. | App a bassa latenza e codice dell'app sensibili alle modifiche delle prestazioni del processore | I processori sono sempre bloccati con lo stato delle prestazioni più elevato (incluse le frequenze "Turbo"). Tutti i core sono non parcheggiati. L'output termico può essere significativo. |
@@ -110,11 +110,11 @@ Per il controllo basato su CPPC, le opzioni sono disabilitate, efficienza abilit
 
 In Windows Server 2016, il valore predefinito per la modalità Boost è 3.
 
-| **Name** | **Comportamento basato sullo stato P** | **Comportamento di CPPC** |
+| **Nome** | **Comportamento basato sullo stato P** | **Comportamento di CPPC** |
 |--------------------------|------------------------|-------------------|
 | 0 (disabilitato) | Disabilitata | Disabilitata |
-| 1 (abilitato) | Enabled | Efficienza abilitata |
-| 2 (aggressivo) | Enabled | Aggressiva |
+| 1 (abilitato) | Abilitato | Efficienza abilitata |
+| 2 (aggressivo) | Abilitato | Aggressiva |
 | 3 (efficienza abilitata) | Efficiente | Efficienza abilitata |
 | 4 (efficace aggressivo) | Efficiente | Aggressiva |
 
@@ -129,7 +129,7 @@ Powercfg -setactive scheme_current
 > [!Important]
 > Per abilitare le nuove impostazioni, è necessario eseguire il comando **powercfg-seactive** . Non è necessario riavviare il server.
 
-Per impostare questo valore per le combinazioni per il risparmio di energia diverso dal piano attualmente selezionato, è possibile usare alias\_quali schema Max (risparmio energia)\_, schema min (prestazioni elevate)\_e schema bilanciato (bilanciato) al posto dello schema\_Oggetto corrente. Sostituire "schema Current" nei comandi powercfg-seactive indicati in precedenza con l'alias desiderato per abilitare la combinazione per il risparmio di energia.
+Per impostare questo valore per le combinazioni per il risparmio di energia diverso dal piano attualmente selezionato, è possibile usare alias come lo schema\_MAX (risparmio energia), lo schema\_MIN (prestazioni elevate) e lo schema\_bilanciato (bilanciato) al posto dello schema\_corrente. Sostituire "schema Current" nei comandi powercfg-seactive indicati in precedenza con l'alias desiderato per abilitare la combinazione per il risparmio di energia.
 
 Per modificare, ad esempio, la modalità Boost nel piano di risparmio energia e fare in modo che Power Saver sia il piano corrente, eseguire i comandi seguenti:
 
@@ -189,11 +189,11 @@ I core che sono parcheggiati in genere non hanno thread pianificati e verranno r
 
 Per la maggior parte dei server, il comportamento predefinito per il parcheggio di base offre un ragionevole equilibrio tra velocità effettiva e efficienza energetica. Nei processori in cui il parcheggio di base potrebbe non essere molto vantaggioso per i carichi di lavoro generici, può essere disabilitato per impostazione predefinita.
 
-Se il server dispone di requisiti specifici per il parcheggio di base, è possibile controllare il numero di core disponibili per il parcheggio usando il parametro core per le **prestazioni del processore di core massimo** del parcheggio o i core minimi per le **prestazioni del processore.** in Windows Server 2016.
+Se il server dispone di requisiti specifici per il parcheggio di base, è possibile controllare il numero di core disponibili per il parcheggio usando il parametro core per le **prestazioni del processore** per il numero massimo di core, o il parametro core per le prestazioni del processore Core di **parcheggio** in Windows Server 2016.
 
 Uno scenario in cui il parcheggio principale non è sempre ottimale per è quando uno o più thread attivi creata un'affinità a un subset non semplice di CPU in un nodo NUMA, ovvero più di una CPU, ma minore dell'intero set di CPU nel nodo. Quando l'algoritmo di parcheggio principale sta raccogliendo core da unpark (presupponendo che si verifichi un aumento dell'intensità del carico di lavoro), è possibile che non vengano sempre scelti i core all'interno del sottoinsieme di creata un'affinità attivo (o subset) per eseguire il unparking e, di conseguenza, la chiusura di core che non saranno effettivamente utilizzato.
 
-I valori per questi parametri sono percentuali nell'intervallo compreso tra 0 e 100. Il parametro del numero massimo di core per il **parcheggio delle prestazioni del processore** controlla la percentuale massima di core che possono essere annullati (disponibili per l'esecuzione di thread) in qualsiasi momento, mentre il parametro di **Core minimo** per le prestazioni del processore è core Controlla la percentuale minima di core che è possibile non parcheggiare. Per disattivare il parcheggio dei componenti di base, impostare il parametro di core minimo per le **prestazioni del processore** al 100% usando i comandi seguenti:
+I valori per questi parametri sono percentuali nell'intervallo compreso tra 0 e 100. Il parametro del numero massimo di core per il **parcheggio delle prestazioni del processore** controlla la percentuale massima di core che possono essere annullati (disponibile per l'esecuzione di thread) in qualsiasi momento, mentre il parametro di core minimo per le **prestazioni del processore** controlla la percentuale minima di core che possono essere non parcheggiati. Per disattivare il parcheggio dei componenti di base, impostare il parametro di core minimo per le **prestazioni del processore** al 100% usando i comandi seguenti:
 
 ``` syntax
 Powercfg -setacvalueindex scheme_current sub_processor CPMINCORES 100
@@ -220,7 +220,7 @@ Powercfg -setacvalueindex scheme_current sub_processor DISTRIBUTEUTIL 0
 Powercfg -setactive scheme_current
 ```
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 - [Considerazioni sulle prestazioni dell'hardware del server](../index.md)
 - [Considerazioni sull'alimentazione dell'hardware del server](../power.md)
 - [Ottimizzazione di Risparmio energia del processore](processor-power-management-tuning.md)

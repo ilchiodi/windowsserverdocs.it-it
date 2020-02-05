@@ -8,12 +8,12 @@ ms.date: 10/09/2019
 ms.topic: article
 ms.prod: windows-server
 ms.technology: storage
-ms.openlocfilehash: e5832843dce05832a231ed3a4d7e20cf90f1d183
-ms.sourcegitcommit: 07c9d4ea72528401314e2789e3bc2e688fc96001
+ms.openlocfilehash: a98c560306debc0e10c2c0ac44b41e12141b6e9f
+ms.sourcegitcommit: 3f9bcd188dda12dc5803defb47b2c3a907504255
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76822594"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "77001886"
 ---
 # <a name="storage-migration-service-known-issues"></a>Problemi noti del servizio migrazione archiviazione
 
@@ -123,7 +123,7 @@ Per risolvere questo problema, installare [Windows Update 2 aprile 2019, ovvero 
 
 ## <a name="dfsr-hashes-mismatch-when-using-storage-migration-service-to-preseed-data"></a>Mancata corrispondenza degli hash DFSR quando si usa il servizio migrazione archiviazione per eseguire il Preseeding dei dati
 
-Quando si usa il servizio migrazione archiviazione per trasferire i file in una nuova destinazione, quindi si configura il Replica DFS (DFSR) per replicare i dati con un server DFSR esistente tramite la replica con seeding o la clonazione del database DFSR, tutti i file experiemce un hash mancata corrispondenza e replica eseguita di nuovo. I flussi di dati, i flussi di sicurezza, le dimensioni e gli attributi sembrano essere perfettamente corrispondenti dopo l'uso di SMS per trasferirli. L'analisi dei file con ICACLS o il log di debug per la clonazione del database DFSR rivela:
+Quando si usa il servizio migrazione archiviazione per trasferire i file in una nuova destinazione, quindi si configura il Replica DFS (DFSR) per replicare i dati con un server DFSR esistente tramite la replica con seeding o la clonazione del database DFSR, tutti i file presentano un hash mancata corrispondenza e replica eseguita di nuovo. I flussi di dati, i flussi di sicurezza, le dimensioni e gli attributi sembrano essere perfettamente corrispondenti dopo l'uso di SMS per trasferirli. L'analisi dei file con ICACLS o il log di debug per la clonazione del database DFSR rivela:
 
 File di origine:
 

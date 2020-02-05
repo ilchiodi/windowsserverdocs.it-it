@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 08/06/2018
-ms.openlocfilehash: 7b25f6fe3c8a067d843fc12e9c1d1955a9606c09
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 86e170e199c7286d883f1248610c6f195add5b01
+ms.sourcegitcommit: a33404f92867089bb9b0defcd50960ff231eef3f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71373937"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "77013036"
 ---
 # <a name="manage-bde-protectors"></a>Manage-bde: protezioni
 
@@ -48,7 +48,7 @@ manage-bde -protectors [{-get|-add|-delete|-disable|-enable|-adbackup|-aadbackup
 
 ### <a name="BKMK_addprotectors"></a>-aggiungere sintassi e parametri
 ```
-manage-bde  protectors  add [<Drive>] [-forceupgrade] [-recoverypassword <NumericalPassword>] [-recoverykey <pathToExternalKeydirectory>]
+manage-bde  -protectors  -add [<Drive>] [-forceupgrade] [-recoverypassword <NumericalPassword>] [-recoverykey <pathToExternalKeydirectory>]
 [-startupkey <pathToExternalKeydirectory>] [-certificate {-cf <pathToCertificateFile>|-ct <CertificateThumbprint>}] [-tpm] [-tpmandpin] 
 [-tpmandstartupkey <pathToExternalKeydirectory>] [-tpmandpinandstartupkey <pathToExternalKeydirectory>] [-password][-adaccountorgroup <securityidentifier> [-computername <Name>] 
 [{-?|/?}] [{-help|-h}]
@@ -72,13 +72,13 @@ manage-bde  protectors  add [<Drive>] [-forceupgrade] [-recoverypassword <Numeri
 |      -tpmandstartupkey       |                                                                                                                    aggiunge un TPM e una protezione con chiave di avvio per l'unità del sistema operativo. È inoltre possibile utilizzare **-tsk** come una versione abbreviata di questo comando.                                                                                                                    |
 |   -tpmandpinandstartupkey    |                                                                                                                aggiunge un TPM, un PIN e una protezione con chiave di avvio per l'unità del sistema operativo. È inoltre possibile utilizzare **- tpsk** come una versione abbreviata di questo comando.                                                                                                                 |
 |          -password           |                                                                                                                              aggiunge una protezione con chiave password per l'unità dati. È inoltre possibile utilizzare **- pw** come una versione abbreviata di questo comando.                                                                                                                              |
-|      -adaccountorgroup       | aggiunge una protezione di identità basata su ID di sicurezza (SID) per il volume.  È inoltre possibile utilizzare **-sid** come una versione abbreviata di questo comando. **IMPORTANTE** Per impostazione predefinita, non è possibile aggiungere una protezione ADAccountOrGroup in modalità remota tramite WMI o Manage-bde.  Se la distribuzione richiede la possibilità di aggiungere questa protezione in modalità remota, è necessario abilitare la delega vincolata. |
+|      -adaccountorgroup       | aggiunge una protezione di identità basata su ID di sicurezza (SID) per il volume.  È inoltre possibile utilizzare **-sid** come una versione abbreviata di questo comando. **Importante:** Per impostazione predefinita, non è possibile aggiungere una protezione ADAccountOrGroup in modalità remota tramite WMI o Manage-bde.  Se la distribuzione richiede la possibilità di aggiungere questa protezione in modalità remota, è necessario abilitare la delega vincolata. |
 |        -computername         |                                                                                                       Specifica che manage-bde viene utilizzato per modificare la protezione BitLocker in un computer diverso. È inoltre possibile utilizzare **- cn** come una versione abbreviata di questo comando.                                                                                                       |
 |            <Name>            |                                                                                                         Rappresenta il nome del computer in cui si desidera modificare la protezione BitLocker. I valori accettati includono nome NetBIOS del computer e l'indirizzo IP del computer.                                                                                                         |
 
 ### <a name="BKMK_deleteprotectors"></a>-Elimina sintassi e parametri
 ```
-manage-bde  protectors  delete <Drive> [-type {recoverypassword|externalkey|certificate|tpm|tpmandstartupkey|tpmandpin|tpmandpinandstartupkey|Password|Identity}] 
+manage-bde  -protectors  -delete <Drive> [-type {recoverypassword|externalkey|certificate|tpm|tpmandstartupkey|tpmandpin|tpmandpinandstartupkey|Password|Identity}] 
 [-id <KeyProtectorID>] [-computername <Name>] [{-?|/?}] [{-help|-h}]
 ```
 
@@ -104,7 +104,7 @@ manage-bde  protectors  delete <Drive> [-type {recoverypassword|externalkey|cert
 
 ### <a name="BKMK_disableprot"></a>-Disabilita la sintassi e i parametri
 ```
-manage-bde  protectors  disable <Drive> [-RebootCount <integer 0 - 15>] [-computername <Name>] [{-?|/?}] [{-help|-h}]
+manage-bde  -protectors  -disable <Drive> [-RebootCount <integer 0 - 15>] [-computername <Name>] [{-?|/?}] [{-help|-h}]
 ```
 
 |   Parametro   |                                                                                                                                                                                                                   Descrizione                                                                                                                                                                                                                    |
@@ -119,24 +119,24 @@ manage-bde  protectors  disable <Drive> [-RebootCount <integer 0 - 15>] [-comput
 ## <a name="BKMK_Examples"></a>Esempi
 Nell'esempio seguente viene illustrato l'utilizzo di **-protezioni** comando per aggiungere una protezione con chiave certificato identificata da un file di certificato per l'unità E.
 ```
-manage-bde  protectors  add E: -certificate  cf "c:\File Folder\Filename.cer"
+manage-bde  -protectors  -add E: -certificate  -cf "c:\File Folder\Filename.cer"
 ```
 Nell'esempio seguente viene illustrato l'utilizzo di **-protezioni** comando per aggiungere un **adaccountorgroup** protezione con chiave identificato dal nome di dominio e l'unità E.
 ```
-manage-bde  protectors  add E: -sid DOMAIN\user
+manage-bde  -protectors  -add E: -sid DOMAIN\user
 ```
 Nell'esempio seguente viene illustrato l'utilizzo del comando **Protectors** per disabilitare la protezione fino a quando il computer non viene riavviato 3 volte.
 ```
-manage-bde  protectors  disable C: -rc 3
+manage-bde  -protectors  -disable C: -rc 3
 ```
 Nell'esempio seguente viene illustrato l'uso del comando **-Protectors** per eliminare tutte le protezioni con chiave basata su TPM e chiave di avvio nell'unità C.
 ```
-manage-bde  protectors  delete C: -type tpmandstartupkey
+manage-bde  -protectors -delete C: -type tpmandstartupkey
 ```
 Nell'esempio seguente viene illustrato l'utilizzo di **-protezioni** comando per eseguire il backup di tutte le informazioni di ripristino dell'unità C per AD DS.
 ```
-manage-bde  protectors  adbackup C:
+manage-bde  -protectors  -adbackup C:
 ```
-## <a name="additional-references"></a>Riferimenti aggiuntivi
+## <a name="additional-references"></a>riferimenti aggiuntivi
 -   [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
 -   [manage-bde](manage-bde.md)

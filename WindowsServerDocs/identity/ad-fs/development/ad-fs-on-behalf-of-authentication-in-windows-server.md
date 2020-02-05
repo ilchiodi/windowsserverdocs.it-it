@@ -9,12 +9,12 @@ ms.date: 02/22/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: b3a30c081731de97e1bdf9abe711a5ef6460be0f
-ms.sourcegitcommit: 74107a32efe1e53b36c938166600739a79dd0f51
+ms.openlocfilehash: 70281f581974493d3182fb6fdd8f35cb37bed4bf
+ms.sourcegitcommit: 3f9bcd188dda12dc5803defb47b2c3a907504255
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76918313"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "77001906"
 ---
 # <a name="build-a-multi-tiered-application-using-on-behalf-of-obo-using-oauth-with-ad-fs-2016-or-later"></a>Creazione di un'applicazione a più livelli con l'uso di OAuth con AD FS 2016 o versione successiva
 
@@ -222,14 +222,13 @@ Per completare il flusso on-behalf-of, è necessario creare una risorsa back-end
 
 ![AD FS OBO](media/AD-FS-On-behalf-of-Authentication-in-Windows-Server-2016/ADFS_OBO3.PNG)
 
-* Nome controller appropriato
+* Assegnare al controller un nome appropriato.
 
 ![AD FS OBO](media/AD-FS-On-behalf-of-Authentication-in-Windows-Server-2016/ADFS_OBO13.PNG)
 
-* Aggiungere il codice seguente nel controller
+* Aggiungere il codice seguente nel controller:
 
-
-~~~
+```cs
     using System;
     using System.Collections.Generic;
     using System.Linq;
@@ -238,15 +237,16 @@ Per completare il flusso on-behalf-of, è necessario creare una risorsa back-end
     using System.Web.Http;
     namespace WebAPIOBO.Controllers
     {
+        [Authorize]
         public class WebAPIOBOController : ApiController
         {
             public IHttpActionResult Get()
             {
-                return Ok("WebAPI via OBO");
+                return Ok($"WebAPI via OBO (user: {User.Identity.Name}");
             }
         }
     }
-~~~
+```
 
 Questo codice verrà semplicemente restituire la stringa quando tutti gli utenti di inserire una richiesta Get per il WebAPI WebAPIOBO
 

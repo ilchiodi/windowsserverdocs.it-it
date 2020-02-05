@@ -7,12 +7,12 @@ ms.topic: landing-page
 ms.author: DavSo; Ericam; YaShi
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: 5658a101371cf3b865dec04ac76716b536792602
-ms.sourcegitcommit: c5709021aa98abd075d7a8f912d4fd2263db8803
+ms.openlocfilehash: 2f4d309de073e84aa0a1c568c7cfc5f31ee88d83
+ms.sourcegitcommit: 3f9bcd188dda12dc5803defb47b2c3a907504255
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/18/2020
-ms.locfileid: "76265703"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "77001876"
 ---
 # <a name="tuning-iis-100"></a>Ottimizzazione di IIS 10,0
 
@@ -121,7 +121,7 @@ Le impostazioni in questa sezione influiscono sul comportamento del processo di 
 
 % SystemRoot%\\system32\\inetsrv\\config\\applicationHost. config
 
-Utilizzare Appcmd. exe, la console di gestione IIS 10,0, i cmdlet di PowerShell per WebAdministration o IISAdministration per modificarli. La maggior parte delle impostazioni viene rilevata automaticamente e non richiede il riavvio dei processi di lavoro IIS 10,0 o del server applicazioni Web. Per ulteriori informazioni sul file applicationHost. config, vedere [Introduzione a ApplicationHost. config](http://www.iis.net/learn/get-started/planning-your-iis-architecture/introduction-to-applicationhostconfig).
+Utilizzare Appcmd. exe, la console di gestione IIS 10,0, i cmdlet di PowerShell per WebAdministration o IISAdministration per modificarli. La maggior parte delle impostazioni viene rilevata automaticamente e non richiede il riavvio dei processi di lavoro IIS 10,0 o del server applicazioni Web. Per ulteriori informazioni sul file applicationHost. config, vedere [Introduzione a ApplicationHost. config](https://www.iis.net/learn/get-started/planning-your-iis-architecture/introduction-to-applicationhostconfig).
 
 
 ## <a name="ideal-cpu-setting-for-numa-hardware"></a>Impostazione della CPU ideale per hardware NUMA
@@ -160,7 +160,7 @@ Per disabilitare completamente la compressione, rimuovere StaticCompressionModul
 |Attributo|Descrizione|Valore predefinito|
 |--- |--- |--- |
 |staticCompression-EnableCpuUsage<br><br>staticCompression-DisableCpuUsage<br><br>dynamicCompression-EnableCpuUsage<br><br>dynamicCompression-DisableCpuUsage|Abilita o Disabilita la compressione se l'utilizzo della CPU percentuale corrente supera o scende al di sotto dei limiti specificati.<br><br>A partire da IIS 7,0, la compressione viene disabilitata automaticamente se la CPU a stato costante aumenta al di sopra della soglia di disabilitazione. La compressione è abilitata se la CPU scende al di sotto della soglia di abilitazione.|50, 100, 50 e 90 rispettivamente|
-|directory|Specifica la directory in cui le versioni compresse dei file statici vengono temporaneamente archiviate e memorizzate nella cache. Se si accede di frequente, provare a trasferire questa directory dall'unità di sistema.|%SystemDrive%\inetpub\temp\IIS file compressi temporanei|
+|Directory|Specifica la directory in cui le versioni compresse dei file statici vengono temporaneamente archiviate e memorizzate nella cache. Se si accede di frequente, provare a trasferire questa directory dall'unità di sistema.|%SystemDrive%\inetpub\temp\IIS file compressi temporanei|
 |doDiskSpaceLimiting|Specifica se esiste un limite per la quantità di spazio su disco che tutti i file compressi possono occupare. I file compressi vengono archiviati nella directory di compressione specificata dall'attributo di **directory** .|True|
 |maxDiskSpaceUsage|Specifica il numero di byte di spazio su disco che i file compressi possono occupare nella directory di compressione.<br><br>Questa impostazione potrebbe dover essere aumentata se la dimensione totale di tutto il contenuto compresso è troppo grande.|100 MB|
 
@@ -208,7 +208,7 @@ Quando la sessione del server include numerosi gruppi di URL, il processo di cre
 |Attributo|Descrizione|Valore predefinito|
 |--- |--- |--- |
 |enabled|Specifica se è abilitata la registrazione binaria centrale.|False|
-|directory|Specifica la directory in cui vengono scritte le voci di log.|%SystemDrive%\inetpub\logs\LogFiles|
+|Directory|Specifica la directory in cui vengono scritte le voci di log.|%SystemDrive%\inetpub\logs\LogFiles|
 
 
 ## <a name="application-and-site-tunings"></a>Ottimizzazione di applicazioni e siti
@@ -266,7 +266,7 @@ Le impostazioni seguenti vengono usate per configurare la cache del modello ASP 
 
 ## <a name="aspnet-concurrency-setting"></a>Impostazione della concorrenza ASP.NET
 
-### <a name="aspnet-35"></a>ASP.NET 3.5
+### <a name="aspnet-35"></a>ASP.NET 3,5
 Per impostazione predefinita, ASP.NET limita la concorrenza delle richieste per ridurre l'utilizzo della memoria dello stato stabile nel server. Le applicazioni con concorrenza elevata potrebbero dover modificare alcune impostazioni per migliorare le prestazioni complessive. È possibile modificare questa impostazione nel file Aspnet. config:
 
 ``` syntax
@@ -281,7 +281,7 @@ L'impostazione seguente è utile per usare completamente le risorse in un sistem
 
     Questa impostazione limita il numero massimo di richieste ASP.NET eseguite simultaneamente in un sistema. Il valore predefinito è conservativo per ridurre l'utilizzo di memoria da parte delle applicazioni ASP.NET. Si consiglia di aumentare questo limite nei sistemi che eseguono applicazioni che eseguono operazioni di I/O lunghe e sincrone. In caso contrario, gli utenti possono riscontrare una latenza elevata a causa di errori di accodamento o di richiesta dovuti al superamento dei limiti della coda in un carico elevato quando viene usata l'impostazione predefinita.
 
-### <a name="aspnet-46"></a>ASP.NET 4.6
+### <a name="aspnet-46"></a>ASP.NET 4,6
 Oltre all'impostazione maxConcurrentRequestPerCpu, ASP.NET 4,7 fornisce anche impostazioni per migliorare le prestazioni delle applicazioni che si basano molto sull'operazione asincrona. È possibile modificare l'impostazione nel file Aspnet. config.
 
 ``` syntax

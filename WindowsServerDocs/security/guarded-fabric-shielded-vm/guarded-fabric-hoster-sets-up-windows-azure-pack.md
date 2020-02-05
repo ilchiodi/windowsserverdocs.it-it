@@ -8,12 +8,12 @@ manager: dongill
 author: rpsqrd
 ms.technology: security-guarded-fabric
 ms.date: 08/29/2018
-ms.openlocfilehash: d388da2b7416543c307bd931636902b4a7543e1e
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 7336637bd3186f885db6d94eeffd0d2311edf3ac
+ms.sourcegitcommit: 3f9bcd188dda12dc5803defb47b2c3a907504255
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71403654"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "77001840"
 ---
 # <a name="shielded-vms---hosting-service-provider-sets-up-windows-azure-pack"></a>VM schermate - Il provider di servizi di hosting configura Windows Azure Pack
 
@@ -48,7 +48,7 @@ Installare e configurare Windows Azure Pack (WAP) nel computer in cui si vuole o
 
 1.  Revisione dei [requisiti di sistema WAP](https://technet.microsoft.com/library/dn296442.aspx) e installazione dei [prerequisiti software](https://technet.microsoft.com/library/dn469335.aspx).
 
-2.  Scaricare e installare l' [installazione guidata piattaforma Web](https://www.microsoft.com/web/downloads/platform.aspx). Se il computer non è connesso a Internet, seguire le [istruzioni per l'installazione offline](http://www.iis.net/learn/install/web-platform-installer/web-platform-installer-v4-command-line-webpicmdexe-rtw-release).
+2.  Scaricare e installare l' [installazione guidata piattaforma Web](https://www.microsoft.com/web/downloads/platform.aspx). Se il computer non è connesso a Internet, seguire le [istruzioni per l'installazione offline](https://www.iis.net/learn/install/web-platform-installer/web-platform-installer-v4-command-line-webpicmdexe-rtw-release).
 
 3.  Aprire l'installazione guidata piattaforma Web e trovare **Windows Azure Pack: portale e API Express** nella scheda **prodotti** . fare clic su **Aggiungi**e quindi su **Installa** nella parte inferiore della finestra.
 

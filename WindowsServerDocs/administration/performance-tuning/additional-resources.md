@@ -7,19 +7,19 @@ ms.topic: article
 ms.author: phstee
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: ee14a2bd9290dbaa5653640a80528d163635142d
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: 3c011d3c6e75fb1d5212d9b1ec3c6e6c69fac5d6
+ms.sourcegitcommit: 3f9bcd188dda12dc5803defb47b2c3a907504255
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75947218"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "77001866"
 ---
 # <a name="additional-performance-tuning-resources"></a>Risorse aggiuntive per l'ottimizzazione delle prestazioni
 
 Utilizzare i collegamenti in questo argomento per ulteriori informazioni sui concetti illustrati in questa guida all'ottimizzazione.
 
 ## <a name="microsoft-windows-server-websites"></a>Siti Web di Microsoft Windows Server
--   [Catalogo di Windows Server](http://www.windowsservercatalog.com/)
+-   [Catalogo di Windows Server](https://www.windowsservercatalog.com/)
 
 -   [Windows Sysinternals](https://technet.microsoft.com/sysinternals/default.aspx)
 

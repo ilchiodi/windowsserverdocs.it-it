@@ -13,16 +13,16 @@ author: brentfor
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 15906e8cc1e5e85a471f1b8725435eb60852f6f5
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: f69a1fe4f3c17123f91ade3b6aebdb5f7bab9982
+ms.sourcegitcommit: 3f9bcd188dda12dc5803defb47b2c3a907504255
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71382872"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "77001786"
 ---
 # <a name="get-started-with-user-access-logging"></a>Introduzione alla registrazione accesso utenti
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Registrazione accesso utenti (registrazione accesso utenti) è una funzionalità di Windows Server che aggrega i dati di utilizzo del client in base al ruolo e ai prodotti in un server locale. Consente agli amministratori di Windows Server di quantificare le richieste provenienti dai computer client per ruoli e servizi in un server locale.  
   
@@ -32,7 +32,7 @@ REGISTRAZIONE accesso utenti viene installato e abilitato per impostazione prede
 > Registrazione accesso utenti supporta [Microsoft Assessment and Planning Toolkit](https://go.microsoft.com/fwlink/?LinkID=111000).  
   
 ## <a name="BKMK_APP"></a>Applicazioni pratiche  
-REGISTRAZIONE accesso utenti aggrega gli eventi univoci relativi alle richieste dei dispositivi e degli utenti client registrati in un database locale. Tali record vengono quindi resi disponibili (con una query eseguita da un amministratore del server) per consentire il recupero delle quantità e delle istanze in base al ruolo del server, all'utente, al dispositivo, al server locale e alla data.  Inoltre, registrazione accesso utenti è stato esteso per consentire agli sviluppatori di software non Microsoft di instrumentare gli eventi di registrazione accesso utenti per l'aggregazione da parte di Windows Server.  
+REGISTRAZIONE accesso utenti aggrega gli eventi univoci relativi alle richieste dei dispositivi e degli utenti client registrati in un database locale. Tali record vengono quindi resi disponibili (con una query eseguita da un amministratore del server) per consentire il recupero delle quantità e delle istanze in base a ruolo del server, utente, dispositivo, server locale e data.  Inoltre, registrazione accesso utenti è stato esteso per consentire agli sviluppatori di software non Microsoft di instrumentare gli eventi di registrazione accesso utenti per l'aggregazione da parte di Windows Server.  
   
 REGISTRAZIONE accesso utenti può eseguire le attività seguenti:  
   
@@ -75,13 +75,13 @@ Il servizio Registrazione accesso utenti supporta i servizi e i ruoli del server
 -   Server Web (IIS)  
   
     > [!WARNING]  
-    > Per usare Registrazione accesso utenti con IIS, è necessario usare iisual.exe. Per altre informazioni, vedere l'articolo relativo all' [analisi dei dati di utilizzo del client con la registrazione accesso utenti IIS](http://www.iis.net/learn/manage/configuring-security/analyzing-client-usage-data-with-iis-user-access-logging).  
+    > Per usare Registrazione accesso utenti con IIS, è necessario usare iisual.exe. Per altre informazioni, vedere l'articolo relativo all' [analisi dei dati di utilizzo del client con la registrazione accesso utenti IIS](https://www.iis.net/learn/manage/configuring-security/analyzing-client-usage-data-with-iis-user-access-logging).  
   
 -   Servizi Coda MSMQ (Microsoft Message Queue)  
   
 -   Servizi di accesso e criteri di rete  
   
--   Servizi di stampa e digitalizzazione  
+-   Print and Document Services  
   
 -   Servizio Routing e Accesso remoto (RRAS)  
   
@@ -104,9 +104,9 @@ La tabella seguente descrive le funzioni principali di Registrazione accesso ute
 ## <a name="data-logged-with-ual"></a>Dati registrati con Registrazione accesso utenti  
 I dati relativi agli utenti riportati di seguito vengono registrati con Registrazione accesso utenti.  
   
-|Data|Descrizione|  
+|Dati|Descrizione|  
 |--------|---------------|  
-|**Nome utente**|Nome utente indicato sul client che accompagna le voci del servizio Registrazione accesso utenti provenienti dai ruoli e dai prodotti installati, se applicabile.|  
+|**UserName**|Nome utente indicato sul client che accompagna le voci del servizio Registrazione accesso utenti provenienti dai ruoli e dai prodotti installati, se applicabile.|  
 |**ActivityCount**|Il numero di volte in cui un utente specifico ha eseguito l'accesso a un ruolo o un servizio.|  
 |**FirstSeen**|Data e ora del primo accesso di un utente a un ruolo o un servizio.|  
 |**LastSeen**|Data e ora dell'ultimo accesso di un utente a un ruolo o un servizio.|  
@@ -117,7 +117,7 @@ I dati relativi agli utenti riportati di seguito vengono registrati con Registra
   
 In Registrazione accesso utenti vengono registrati i dati relativi ai dispositivi riportati di seguito.  
   
-|Data|Descrizione|  
+|Dati|Descrizione|  
 |--------|---------------|  
 |**IPAddress**|Indirizzo IP di un dispositivo client usato per accedere a un ruolo o un servizio.|  
 |**ActivityCount**|Il numero di volte in cui un dispositivo specifico ha eseguito l'accesso al ruolo o al servizio.|  
@@ -131,7 +131,7 @@ In Registrazione accesso utenti vengono registrati i dati relativi ai dispositiv
 ## <a name="BKMK_SOFT"></a>Requisiti software  
 REGISTRAZIONE accesso utenti può essere utilizzato in qualsiasi computer in cui sono in esecuzione versioni di Windows Server successive a Windows Server 2012.  
   
-## <a name="see-also"></a>Vedere anche  
+## <a name="see-also"></a>Vedi anche  
 [Registrazione accesso utenti](https://msdn.microsoft.com/library/windows/desktop/hh437528(v=vs.85).aspx) su MSDN.  
 [Gestire Registrazione accesso utenti](Manage-User-Access-Logging.md)  
   
