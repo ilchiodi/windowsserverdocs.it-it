@@ -12,12 +12,12 @@ ms.assetid: 16984724-2d77-4d7b-9738-3dff375ed68c
 author: jaimeo
 ms.author: jaimeo
 ms.localizationpriority: medium
-ms.openlocfilehash: 04c2d7eab2f149505758ab21f08cd6b8bdb74b85
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 96a5e5f23ad3cdfc829fd141c3c90f6c200f06c9
+ms.sourcegitcommit: 3f9bcd188dda12dc5803defb47b2c3a907504255
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71360298"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "77001806"
 ---
 # <a name="iis-on-nano-server"></a>IIS in Nano Server
 
@@ -65,7 +65,7 @@ In questa versione di Nano Server sono disponibili le funzionalità IIS seguenti
 |**Strumenti di gestione**||  
 |Modulo di amministrazione IIS per Windows PowerShell|x|  
 
-Una serie di articoli su altre configurazioni di IIS (ad esempio mediante l'uso di ASP.NET, PHP e Java), insieme ad altri contenuti correlati, sono pubblicati all'indirizzo [http://iis.net/learn](http://iis.net/learn).  
+Una serie di articoli su altre configurazioni di IIS (ad esempio mediante l'uso di ASP.NET, PHP e Java), insieme ad altri contenuti correlati, sono pubblicati all'indirizzo [http://iis.net/learn](https://iis.net/learn).  
 
 ## <a name="installing-iis-on-nano-server"></a>Installazione di IIS in Nano Server  
 È possibile installare questo ruolo server sia offline, con Nano Server disattivato, sia online, con Nano Server in esecuzione. L'installazione offline è l'opzione consigliata.  
@@ -242,7 +242,7 @@ Usare l'utilità Certoc.exe per importare certificati come nell'esempio seguente
     $sm.CommitChanges()  
     ```  
 
-    Puoi usare anche l'indicazione del nome del server con un nome host specifico tramite la sintassi seguente: `$sm.Sites["Default Web Site"].Bindings.Add("*:443:www.foo.bar.com", $hash, "My", "Sni".`  
+    Puoi usare anche l'indicazione del nome del server con un nome host specifico tramite la sintassi seguente: `$sm.Sites["Default Web Site"].Bindings.Add("*:443: www.foo.bar.com", $hash, "My", "Sni".`  
 
 ## <a name="appendix-1-list-of-iis-sub-features"></a>Appendice 1: Elenco di funzionalità secondarie di IIS
 
