@@ -14,12 +14,12 @@ ms.date: 1/24/2020
 ms.topic: landing-page
 author: kaushika-msft
 ms.author: kaushika
-ms.openlocfilehash: 593fc4abbdce3ed53fa8d7ef73d529558b100bcc
-ms.sourcegitcommit: 3f9bcd188dda12dc5803defb47b2c3a907504255
+ms.openlocfilehash: cd4e61a9fac5b1a1f6a1b66309e514ef75b1e4db
+ms.sourcegitcommit: f0fcfee992b76f1ad5dad460d4557f06ee425083
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "77001796"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77125132"
 ---
 # <a name="troubleshooting-windows-server-components"></a>Risoluzione dei problemi relativi ai componenti di Windows Server
 
@@ -34,7 +34,7 @@ Questa sezione contiene gli argomenti e i collegamenti avanzati per la risoluzio
 
 ## <a name="troubleshoot-activation"></a>Risoluzione dei problemi di attivazione
 
-- [Attivazione dei contratti multilicenza per Windows](https://docs.microsoft.com/windows-server/get-started/activation-troubleshooting-guide)
+- [Risoluzione dei problemi di attivazione dei contratti multilicenza per Windows](https://docs.microsoft.com/windows-server/get-started/activation-troubleshooting-guide)
 - [Linee guida per la risoluzione dei problemi relativi a KMS](https://docs.microsoft.com/windows-server/get-started/activation-troubleshoot-kms-general)
 - [Opzioni di Slmgr.vbs per ottenere informazioni sull'attivazione dei contratti multilicenza](https://docs.microsoft.com/windows-server/get-started/activation-slmgr-vbs-options)
 - [Risolvere i codici di errore di attivazione di Windows](https://docs.microsoft.com/windows-server/get-started/activation-error-codes)
@@ -46,17 +46,17 @@ Questa sezione contiene gli argomenti e i collegamenti avanzati per la risoluzio
 
 ## <a name="troubleshoot-startup-and-restart"></a>Risolvere i problemi di avvio e riavvio
 
-- [Risoluzione dei problemi avanzati per l'avvio di Windows](https://docs.microsoft.com/windows/client-management/troubleshoot-windows-startup.md)
-- [Come determinare le dimensioni appropriate del file di paging per le versioni a 64 bit di Windows](https://docs.microsoft.com/windows/client-management/determine-appropriate-page-file-size.md)
-- [Genera un kernel o completa dump di arresto anomalo](https://docs.microsoft.com/windows/client-management/generate-kernel-or-complete-crash-dump.md)
-- [Introduzione al file di paging](https://docs.microsoft.com/windows/client-management/introduction-page-file.md)
-- [Configurare le opzioni relative a errori di sistema e ripristino in Windows](https://docs.microsoft.com/windows/client-management/system-failure-recovery-options.md)
-- [Risoluzione dei problemi avanzati per i problemi di avvio di Windows](https://docs.microsoft.com/windows/client-management/advanced-troubleshooting-boot-problems.md)
-- [Risoluzione dei problemi avanzati per il blocco di computer basati su Windows](https://docs.microsoft.com/windows/client-management/troubleshoot-windows-freeze.md)
-- [Risoluzione dei problemi avanzati per l'errore irreversibile o la schermata blu](https://docs.microsoft.com/windows/client-management/troubleshoot-stop-errors.md)
-- [Risoluzione dei problemi avanzati per l'errore di arresto 7B o Inaccessible_Boot_Device](https://docs.microsoft.com/windows/client-management/troubleshoot-inaccessible-boot-device.md)
-- [Risoluzione dei problemi avanzati per l'ID evento 41 "il sistema è stato riavviato senza chiudere prima di tutto"](https://docs.microsoft.com/windows/client-management/troubleshoot-event-id-41-restart.md)
-- [L'errore irreversibile si verifica quando si aggiorna il driver della scheda di rete Broadcom nella casella](https://docs.microsoft.com/windows/client-management/troubleshoot-stop-error-on-broadcom-driver-update.md)
+- [Risoluzione dei problemi avanzati per l'avvio di Windows](https://docs.microsoft.com/windows/client-management/troubleshoot-windows-startup)
+- [Come determinare le dimensioni appropriate del file di paging per le versioni a 64 bit di Windows](https://docs.microsoft.com/windows/client-management/determine-appropriate-page-file-size)
+- [Genera un kernel o completa dump di arresto anomalo](https://docs.microsoft.com/windows/client-management/generate-kernel-or-complete-crash-dump)
+- [Introduzione al file di paging](https://docs.microsoft.com/windows/client-management/introduction-page-file)
+- [Configurare le opzioni relative a errori di sistema e ripristino in Windows](https://docs.microsoft.com/windows/client-management/system-failure-recovery-options)
+- [Risoluzione dei problemi avanzati per i problemi di avvio di Windows](https://docs.microsoft.com/windows/client-management/advanced-troubleshooting-boot-problems)
+- [Risoluzione dei problemi avanzati per il blocco di computer basati su Windows](https://docs.microsoft.com/windows/client-management/troubleshoot-windows-freeze)
+- [Risoluzione dei problemi avanzati per l'errore irreversibile o la schermata blu](https://docs.microsoft.com/windows/client-management/troubleshoot-stop-errors)
+- [Risoluzione dei problemi avanzati per l'errore di arresto 7B o Inaccessible_Boot_Device](https://docs.microsoft.com/windows/client-management/troubleshoot-inaccessible-boot-device)
+- [Risoluzione dei problemi avanzati per l'ID evento 41 "il sistema è stato riavviato senza chiudere prima di tutto"](https://docs.microsoft.com/windows/client-management/troubleshoot-event-id-41-restart)
+- [L'errore irreversibile si verifica quando si aggiorna il driver della scheda di rete Broadcom nella casella](https://docs.microsoft.com/windows/client-management/troubleshoot-stop-error-on-broadcom-driver-update)
 
 ## <a name="troubleshoot-ad-forest-recovery"></a>Risolvere i problemi di ripristino della foresta AD
 
@@ -114,7 +114,7 @@ Questa sezione contiene gli argomenti e i collegamenti avanzati per la risoluzio
 
 ## <a name="troubleshoot-failover-cluster"></a>Risolvere i problemi del cluster di failover
 
-- [Risoluzione dei problemi relativi a un cluster di failover con Segnalazione errori Windows](https://docs.microsoft.com/windows-server/failover-clustering/troubleshooting-using-wer-reports)
+- [Risoluzione dei problemi relativi a un cluster di Failover con Segnalazione errori Windows](https://docs.microsoft.com/windows-server/failover-clustering/troubleshooting-using-wer-reports)
 - [Aggiornamento compatibile con cluster-domande frequenti](https://docs.microsoft.com/windows-server/failover-clustering/cluster-aware-updating-faq)
 
 ## <a name="troubleshoot-fsrm"></a>Risolvere i problemi relativi a FSRM

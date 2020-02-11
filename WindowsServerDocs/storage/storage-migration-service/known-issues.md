@@ -4,16 +4,16 @@ description: Problemi noti e supporto per la risoluzione dei problemi per il ser
 author: nedpyle
 ms.author: nedpyle
 manager: siroy
-ms.date: 10/09/2019
+ms.date: 02/10/2020
 ms.topic: article
 ms.prod: windows-server
 ms.technology: storage
-ms.openlocfilehash: a98c560306debc0e10c2c0ac44b41e12141b6e9f
-ms.sourcegitcommit: 3f9bcd188dda12dc5803defb47b2c3a907504255
+ms.openlocfilehash: 77a23e5787283aa93d6f2f303cf45b461ccf52dd
+ms.sourcegitcommit: f0fcfee992b76f1ad5dad460d4557f06ee425083
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "77001886"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77125112"
 ---
 # <a name="storage-migration-service-known-issues"></a>Problemi noti del servizio migrazione archiviazione
 
@@ -64,11 +64,11 @@ Questo problema è stato risolto in una versione successiva di Windows Server.
 
 Quando si usa l'interfaccia di amministrazione di Windows o PowerShell per scaricare il log degli errori dettagliati per le operazioni di trasferimento, viene visualizzato un errore:
 
- >   Log di trasferimento: verificare che la condivisione file sia consentita nel firewall. : Questa operazione di richiesta inviata a NET. TCP://localhost: 28940/SMS/Service/1/Transfer non ha ricevuto una risposta entro il timeout configurato (00:01:00). Il tempo allocato a questa operazione potrebbe essere una parte di un timeout più lungo. È possibile che il servizio stia ancora elaborando l'operazione o che il servizio non sia stato in grado di inviare un messaggio di risposta. Prendere in considerazione l'aumento del timeout dell'operazione (eseguendo il cast del canale/proxy a IContextChannel e impostando la proprietà OperationTimeout) e verificare che il servizio sia in grado di connettersi al client.
+ >   Log di trasferimento: verificare che la condivisione file sia consentita nel firewall. : Questa operazione di richiesta inviata a NET. TCP://localhost: 28940/SMS/Service/1/Transfer non ha ricevuto una risposta entro il timeout configurato (00:01:00). È possibile che la durata consentita per l'operazione fosse una porzione di un timeout più lungo. È possibile che il servizio stia ancora elaborando l'operazione o che il servizio non sia stato in grado di inviare un messaggio di risposta. Prendere in considerazione l'aumento del timeout dell'operazione (eseguendo il cast del canale/proxy a IContextChannel e impostando la proprietà OperationTimeout) e verificare che il servizio sia in grado di connettersi al client.
 
 Questo problema è causato da un numero molto elevato di file trasferiti che non possono essere filtrati nel timeout predefinito di un minuto consentito dal servizio migrazione archiviazione. 
 
-Per ovviare a questo problema:
+Per risolvere questo problema:
 
 1. Sul computer dell'agente di orchestrazione, modificare il file *%systemroot%\SMS\Microsoft.StorageMigration.Service.exe.config* utilizzando Notepad. exe per modificare "SendTimeout nell'elemento" dal valore predefinito di 1 minuto a 10 minuti.
 
@@ -81,7 +81,7 @@ Per ovviare a questo problema:
 
 2. Riavviare il servizio "servizio migrazione archiviazione" sul computer dell'agente di orchestrazione. 
 3. Sul computer dell'agente di orchestrazione, avviare Regedit. exe
-4. Individuare e fare clic sulla seguente sottochiave del Registro di sistema: 
+4. Individuare e selezionare la sottochiave del Registro di sistema seguente: 
 
    `HKEY_LOCAL_MACHINE\Software\Microsoft\SMSPowershell`
 
@@ -349,7 +349,66 @@ Se è già stato eseguito il trasferimento di una o più volte:
  4. Per tutti gli utenti o i gruppi disabilitati con nomi che ora contengono un suffisso aggiunto dal servizio migrazione archiviazione, è possibile eliminare questi account. È possibile verificare che gli account utente siano stati aggiunti in un secondo momento perché contengono solo il gruppo Domain Users e avranno una data/ora di creazione corrispondente all'ora di inizio del trasferimento del servizio migrazione archiviazione.
  
  Se si vuole usare il servizio migrazione archiviazione con i controller di dominio a scopo di trasferimento, assicurarsi di selezionare sempre "non trasferire utenti e gruppi" nella pagina impostazioni di trasferimento dell'interfaccia di amministrazione di Windows.
+ 
+ ## <a name="error-53-failed-to-inventory-all-specified-devices-when-running-inventory"></a>Errore 53, "Impossibile eseguire l'inventario di tutti i dispositivi specificati" durante l'esecuzione dell'inventario, 
 
-## <a name="see-also"></a>Vedi anche
+Quando si tenta di eseguire l'inventario, viene visualizzato quanto segue:
+
+    Failed to inventory all specified devices 
+    
+    Log Name:      Microsoft-Windows-StorageMigrationService/Admin
+    Source:        Microsoft-Windows-StorageMigrationService
+    Date:          1/16/2020 8:31:17 AM
+    Event ID:      2516
+    Task Category: None
+    Level:         Error
+    Keywords:      
+    User:          NETWORK SERVICE
+    Computer:      ned.corp.contoso.com
+    Description:
+    Couldn't inventory files on the specified endpoint.
+    Job: ned1
+    Computer: ned.corp.contoso.com
+    Endpoint: hithere
+    State: Failed
+    File Count: 0
+    File Size in KB: 0
+    Error: 53
+    Error Message: Endpoint scan failed
+    Guidance: Check the detailed error and make sure the inventory requirements are met. This could be because of missing permissions on the source computer.
+
+    Log Name:      Microsoft-Windows-StorageMigrationService-Proxy/Debug
+    Source:        Microsoft-Windows-StorageMigrationService-Proxy
+    Date:          1/16/2020 8:31:17 AM
+    Event ID:      10004
+    Task Category: None
+    Level:         Critical
+    Keywords:      
+    User:          NETWORK SERVICE
+    Computer:      ned.corp.contoso.com
+    Description:
+    01/16/2020-08:31:17.031 [Crit] Consumer Task failed with error:The network path was not found.
+    . StackTrace=   at Microsoft.Win32.RegistryKey.Win32ErrorStatic(Int32 errorCode, String str)
+       at Microsoft.Win32.RegistryKey.OpenRemoteBaseKey(RegistryHive hKey, String machineName, RegistryView view)
+       at Microsoft.StorageMigration.Proxy.Service.Transfer.FileDirUtils.GetEnvironmentPathFolders(String ServerName, Boolean IsServerLocal)
+       at Microsoft.StorageMigration.Proxy.Service.Discovery.ScanUtils.<ScanSMBEndpoint>d__3.MoveNext()
+       at Microsoft.StorageMigration.Proxy.EndpointScanOperation.Run()
+       at Microsoft.StorageMigration.Proxy.Service.Discovery.EndpointScanRequestHandler.ProcessRequest(EndpointScanRequest scanRequest, Guid operationId)
+       at Microsoft.StorageMigration.Proxy.Service.Discovery.EndpointScanRequestHandler.ProcessRequest(Object request)
+       at Microsoft.StorageMigration.Proxy.Common.ProducerConsumerManager`3.Consume(CancellationToken token)    
+       
+    01/16/2020-08:31:10.015 [Erro] Endpoint Scan failed. Error: (53) The network path was not found.
+    Stack trace:
+       at Microsoft.Win32.RegistryKey.Win32ErrorStatic(Int32 errorCode, String str)
+       at Microsoft.Win32.RegistryKey.OpenRemoteBaseKey(RegistryHive hKey, String machineName, RegistryView view)
+
+In questa fase, l'agente di orchestrazione del servizio migrazione archiviazione sta tentando di leggere il registro di sistema remoto per determinare la configurazione del computer di origine, ma è stato rifiutato dal server di origine. Ciò può essere causato da una serie di fattori:
+
+ - Il servizio Registro di sistema remoto non è in esecuzione nel computer di origine.
+ - il firewall non consente le connessioni del registro di sistema remoto al server di origine dall'agente di orchestrazione.
+ - L'account di migrazione di origine non dispone delle autorizzazioni del registro di sistema remoto per la connessione al computer di origine.
+ - L'account di migrazione di origine non dispone delle autorizzazioni di lettura nel registro di sistema del computer di origine, in "HKEY_LOCAL_MACHINE \SOFTWARE\Microsoft\Windows NT\CurrentVersion" o in "HKEY_LOCAL_MACHINE \SYSTEM\CurrentControlSet\Services\ LanmanServer
+
+## <a name="see-also"></a>Vedere anche
 
 - [Panoramica di servizio migrazione archiviazione](overview.md)

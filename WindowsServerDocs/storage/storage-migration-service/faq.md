@@ -8,12 +8,12 @@ ms.date: 08/19/2019
 ms.topic: article
 ms.prod: windows-server
 ms.technology: storage
-ms.openlocfilehash: 02829919c53e3488ad7f229ad8bee0d3ead14c9a
-ms.sourcegitcommit: 3f54036c74c5a67799fbc06a8a18a078ccb327f9
+ms.openlocfilehash: a28b25c55b9ad66cd16f3d9e370fec22ec0f2a5d
+ms.sourcegitcommit: f0fcfee992b76f1ad5dad460d4557f06ee425083
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76124899"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77125142"
 ---
 # <a name="storage-migration-service-frequently-asked-questions-faq"></a>Domande frequenti sul servizio migrazione archiviazione
 
@@ -27,6 +27,10 @@ Il servizio migrazione archiviazione non trasferirà i file o le cartelle che sa
 - $Recycle. bin, cestino, riciclato, informazioni sul volume di sistema, $UpgDrv $, $SysReset, $Windows. ~ BT, $Windows. ~ LS, Windows. old, boot, Recovery, Documents and Settings
 - Pagefile. sys, hiberfil. sys, file. sys, winpepge. sys, config. sys, Bootsect. bak, BOOTMGR, bootnxt
 - Tutti i file o le cartelle del server di origine che sono in conflitto con le cartelle escluse nella destinazione. <br>Ad esempio, se è presente una cartella N:\Windows nell'origine e ne viene eseguito il mapping a C:\ il volume nella destinazione non viene trasferito, indipendentemente dal contenuto, perché interferisce con la cartella di sistema C:\Windows nella destinazione.
+
+## <a name="are-locked-files-migrated"></a>Sono stati migrati file bloccati?
+
+Il servizio migrazione archiviazione non esegue la migrazione dei file che vengono bloccati esclusivamente dalle applicazioni. Il servizio esegue automaticamente un nuovo tentativo tre volte con un ritardo di sessanta secondi tra i tentativi ed è possibile controllare il numero di tentativi e il ritardo. È anche possibile eseguire di nuovo i trasferimenti per copiare solo i file ignorati in precedenza a causa di violazioni di condivisione.
 
 ## <a name="are-domain-migrations-supported"></a>Le migrazioni di dominio sono supportate?
 
@@ -59,17 +63,17 @@ Il servizio migrazione archiviazione esegue la migrazione di tutti i flag, le im
     - Limite utenti simultanei
     - Disponibile in modo continuo
     - Descrizione           
-    - Crittografa i dati
+    - Crittografa dati
     - Comunicazione remota delle identità
-    - Infrastruttura
+    - Infrastruttura.
     - Name
     - Percorso
-    - Con ambito
+    - Ambito
     - Nome dell'ambito
     - Descrittore di sicurezza
     - Copia shadow
     - Speciali
-    - Temporaneo
+    - Temporanea
 
 ## <a name="can-i-consolidate-multiple-servers-into-one-server"></a>È possibile consolidare più server in un unico server?
 
@@ -143,13 +147,21 @@ Il servizio migrazione archiviazione usa un database Extensible Storage Engine (
 
 No, il servizio migrazione archiviazione non esegue la migrazione delle applicazioni installate localmente. Dopo aver completato la migrazione, reinstallare le applicazioni nel computer di destinazione in esecuzione nel computer di origine. Non è necessario riconfigurare gli utenti o le applicazioni; il servizio migrazione archiviazione è progettato per rendere invisibile il server ai client. 
 
+## <a name="what-happens-with-existing-files-on-the-destination-server"></a>Cosa accade con i file esistenti nel server di destinazione?
+
+Quando si esegue un trasferimento, il servizio migrazione archiviazione cerca di eseguire il mirroring dei dati dal server di origine. Poiché i dati potrebbero essere sovrascritti, il server di destinazione non deve contenere dati di produzione o utenti connessi. Per impostazione predefinita, il primo trasferimento esegue una copia di backup di tutti i dati nel server di destinazione come protezione. Per impostazione predefinita, in tutti i trasferimenti successivi il servizio migrazione archiviazione effettuerà il mirroring dei dati nella destinazione. Ciò significa non solo aggiungere nuovi file, ma anche sovrascrivere arbitrariamente eventuali file esistenti ed eliminare eventuali file non presenti nell'origine. Questo comportamento è intenzionale e garantisce una fedeltà perfetta con il computer di origine. 
+
+## <a name="what-do-the-error-numbers-mean-in-the-transfer-csv"></a>Che cosa significano i numeri di errore nel file CSV di trasferimento?
+
+La maggior parte degli errori trovati nel file CSV di trasferimento sono codici di errore di sistema di Windows. Per informazioni sul significato di ogni errore, vedere la [documentazione relativa ai codici di errore Win32](https://docs.microsoft.com/windows/win32/debug/system-error-codes). 
+
 ## <a name="give-feedback"></a>Quali sono le opzioni disponibili per inviare commenti e suggerimenti, archiviare bug o ottenere supporto?
 
 Per inviare commenti e suggerimenti sul servizio migrazione archiviazione:
 
 - Usare lo strumento Hub di feedback incluso in Windows 10, facendo clic su "Suggerisci una funzionalità" e specificando la categoria "Windows Server" e la sottocategoria "migrazione archiviazione".
 - Usare il sito [Windows Server UserVoice](https://windowsserver.uservoice.com)
-- Posta elettronica: smsfeed@microsoft.com
+- smsfeed@microsoft.com di posta elettronica
 
 Per archiviare i bug:
 
@@ -162,6 +174,6 @@ Per ottenere supporto:
  - Pubblicare un post nel [Forum di TechNet su Windows Server 2019](https://social.technet.microsoft.com/Forums/en-US/home?forum=ws2019&filter=alltypes&sort=lastpostdesc) 
  - Apri un caso di supporto tramite [supporto tecnico Microsoft](https://support.microsoft.com)
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 
 - [Panoramica di servizio migrazione archiviazione](overview.md)
