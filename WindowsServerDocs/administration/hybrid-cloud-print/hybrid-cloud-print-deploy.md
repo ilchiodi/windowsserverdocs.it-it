@@ -12,16 +12,16 @@ author: msjimwu
 ms.author: coreyp
 manager: dongill
 ms.date: 3/15/2018
-ms.openlocfilehash: c756aaeb293f9e6822e979e0f305f0c4f98adf72
-ms.sourcegitcommit: bfe9c5f7141f4f2343a4edf432856f07db1410aa
+ms.openlocfilehash: 77462ab74ee63677362b779615376e831c71de00
+ms.sourcegitcommit: eca5bb75d1db20ac07232cea759b6b542626c02f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75352052"
+ms.lasthandoff: 02/10/2020
+ms.locfileid: "77114530"
 ---
 # <a name="deploy-windows-server-hybrid-cloud-print"></a>Distribuire la stampa cloud ibrida di Windows Server
 
->Si applica a: Windows Server 2016
+>Si applica a: Windows Server 2016
 
 Questo argomento, per gli amministratori IT, descrive la distribuzione end-to-end della soluzione Microsoft Hybrid Cloud Print (HPC). Questo livello di soluzione è costituito dai server Windows esistenti in esecuzione come server di stampa e consente ai dispositivi Azure Active Directory (Azure AD) aggiunti e gestiti da MDM di individuare e stampare le stampanti gestite dall'organizzazione.
 
@@ -107,7 +107,7 @@ Per abilitare la comunicazione autenticata con i servizi di HPC, è necessario c
 
     ![AAD esporre l'API 5](../media/hybrid-cloud-print/AAD-AppRegistration-ECP-ExposeAPI-ScopeName.png)
 
-3. Aggiungere autorizzazioni API
+3. Aggiungi autorizzazioni API
     - Tornare al pannello Registrazioni app. Fare clic sull'app nativa e selezionare autorizzazioni API. Fare clic su **Aggiungi un'autorizzazione**.
 
     ![Autorizzazione dell'API AAD 1](../media/hybrid-cloud-print/AAD-AppRegistration-APIPermission.png)
@@ -178,7 +178,7 @@ Per abilitare la comunicazione autenticata con i servizi di HPC, è necessario c
 1. Verificare che nel server di stampa siano installati tutti i Windows Update disponibili. Nota: è necessario applicare patch al server 2019 per compilare 17763,165 o versione successiva.
     - Installare i ruoli del server seguenti:
         - Ruolo server di stampa
-        - Internet Information Service (IIS)
+        - Internet Information Services (IIS)
     - Per informazioni dettagliate su come installare i ruoli del server [, vedere installare ruoli, servizi ruolo e funzionalità con l'aggiunta guidata ruoli e funzionalità](https://docs.microsoft.com/windows-server/administration/server-manager/install-or-uninstall-roles-role-services-or-features#BKMK_installarfw) .
 
     ![Ruoli del server di stampa](../media/hybrid-cloud-print/PrintServer-Roles.png)
@@ -215,9 +215,9 @@ Per abilitare la comunicazione autenticata con i servizi di HPC, è necessario c
 
     ![Distribuzione stampa cloud server di stampa](../media/hybrid-cloud-print/PrintServer-CloudPrintDeploy.png)
 
-    - Controllare il file di log per verificare se è presente un errore: `C:\Program Files\WindowsPowerShell\Modules\PublishCloudPrinter\1.0.0.0>notepad CloudPrintDeploy.log`
+    - Controllare il file di log per verificare se è presente un errore: `C:\Program Files\WindowsPowerShell\Modules\PublishCloudPrinter\1.0.0.0\CloudPrintDeploy.log`
 
-4. Aprire RegitEdit in un prompt dei comandi con privilegi elevati. Vai a computer \ HKEY_LOCAL_MACHINE \SOFTWARE\Microsoft\Windows\CurrentVersion\CloudPrint\EnterpriseCloudPrintService.
+4. Eseguire **RegitEdit** in un prompt dei comandi con privilegi elevati. Vai a computer \ HKEY_LOCAL_MACHINE \SOFTWARE\Microsoft\Windows\CurrentVersion\CloudPrint\EnterpriseCloudPrintService.
     - Assicurarsi che AzureAudience sia impostato sull'URI ID applicazione dell'app Enterprise Cloud Print.
     - Verificare che AzureTenant sia impostato sul nome di dominio Azure AD.
 
@@ -384,7 +384,7 @@ Per abilitare la comunicazione autenticata con i servizi di HPC, è necessario c
 4. Salvare le modifiche e chiudere la finestra Proprietà stampante.
 5. Preparare un computer con Windows 10 Fall Creators Update o versioni successive. Aggiungere il computer a Azure AD e accedere come utente sincronizzato con Active Directory locale e disporre delle autorizzazioni appropriate per il file MopriaDeviceDb. DB.
 6. Dal computer Windows 10 aprire un prompt dei comandi di Windows PowerShell con privilegi elevati.
-    - Eseguire i comandi seguenti:
+    - Eseguire i comandi seguenti.
         - `find-module -Name "PublishCloudPrinter"` per verificare che il computer sia in grado di raggiungere il PowerShell Gallery (PSGallery)
         - `install-module -Name "PublishCloudPrinter"`
 
@@ -403,7 +403,7 @@ Per abilitare la comunicazione autenticata con i servizi di HPC, è necessario c
 
         - SDDL = stringa SDDL che rappresenta le autorizzazioni per la stampante.
             - Accedere al server di stampa come amministratore, quindi eseguire il comando di PowerShell seguente sulla stampante che si desidera pubblicare: `(Get-Printer PrinterName -full).PermissionSDDL`.
-            - Aggiungere **O:BA** come prefisso al risultato del comando precedente. Ad esempio Se la stringa restituita dal comando precedente è "G:DUD: (A; OICI; FA;;; WD) ", quindi SDDL =" O:BAG: DUD: (A; OICI; FA;;; WD) ".
+            - Aggiungere **O:BA** come prefisso al risultato del comando precedente. ad esempio Se la stringa restituita dal comando precedente è "G:DUD: (A; OICI; FA;;; WD) ", quindi SDDL =" O:BAG: DUD: (A; OICI; FA;;; WD) ".
         - DiscoveryEndpoint = accedere a portale di Azure e quindi ottenere la stringa dalle applicazioni aziendali > Mopria Discovery Service app > proxy di applicazione > URL esterno. Omettere il carattere finale "/".
         - PrintServerEndpoint = accedere a portale di Azure e quindi ottenere la stringa dalle applicazioni aziendali > app Cloud Print di Enterprise > proxy di applicazione > URL esterno. Omettere il carattere finale "/".
         - AzureClientId = ID applicazione dell'applicazione nativa registrata.
@@ -445,17 +445,19 @@ In un dispositivo Azure AD Unito in cui sono configurati i criteri MDM:
 
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
 
-Sono disponibili diversi log che consentono di risolvere gli errori.
-- Sul client Windows 10.
-    - Usare l'hub feedback per aggiungere un nuovo feedback.
-        - Fare clic su **Start** e digitare "hub feedback".
-        - In categoria selezionare **problema**, **dispositivi e driver**, **stampa**.
-        - Nella sezione per aggiungere altri dettagli, fare clic sul pulsante **Avvia registrazione** .
-        - Ripetere il processo di stampa che ha avuto esito negativo.
-        - Tornare all'hub feedback e fare clic sul pulsante **Arresta registrazione** .
-        - Fare clic su **Invia** per inviare i commenti.
-    - Usare Visualizzatore eventi per visualizzare il log delle operazioni di Azure AD. Fare clic su **Start** e digitare "Visualizzatore eventi". Passare a registri applicazioni e servizi > operazione Microsoft > Windows > AAD >.
-- Sul server del connettore.
-    - Usare Visualizzatore eventi per visualizzare il log del proxy di applicazione. Fare clic su **Start** e digitare "Visualizzatore eventi". Passare a registri applicazioni e servizi > Microsoft > AadApplicationProxy > Connector > amministratore.
-- Nel server di stampa.
-    - I log per l'app del servizio di individuazione Mopria e l'app Enterprise Cloud Print sono reperibili in C:\inetpub\logs\LogFiles\W3SVC1.
+Di seguito sono riportati i problemi comuni durante la distribuzione di HPC
+
+|Errore |Procedura consigliata |
+|------|------|
+|Script di PowerShell CloudPrintDeploy non riuscito | <ul><li>Verificare che Windows Server disponga dell'aggiornamento più recente.</li><li>Se si usa Windows Server Update Services (WSUS), vedere [come rendere disponibili le funzionalità su richiesta e i Language Pack quando si usa WSUS/SCCM](https://docs.microsoft.com/windows/deployment/update/fod-and-lang-packs).</li></ul> |
+|L'installazione di SQLite non è riuscita. messaggio: è stato rilevato un ciclo di dipendenza per il pacchetto ' System. Data. SQLite ' | Install-Package System. Data. sqlite. Core-ProviderName NuGet-SkipDependencies<br>Install-Package System. Data. sqlite. EF6-ProviderName NuGet-SkipDependencies<br>Install-Package System. Data. sqlite. Linq-providering NuGet-SkipDependencies<br><br>Una volta scaricati correttamente i pacchetti, assicurarsi che siano tutti della stessa versione. In caso contrario, aggiungere il parametro-requiredversion ai comandi precedenti e impostarli in modo che abbiano la stessa versione. |
+|Pubblicazione della stampante non riuscita | <ul><li>Per la pre-autenticazione pass-through, assicurarsi che l'utente che pubblica la stampante disponga delle autorizzazioni appropriate per il database di pubblicazione.</li><li>Per Azure AD pre-autenticazione, verificare che l'autenticazione di Windows sia abilitata in IIS. Vedere il passaggio 5,3. Provare prima di tutto la pre-autenticazione pass-through. Se la pre-autenticazione pass-through funziona, è probabile che il problema sia correlato al proxy di applicazione. Vedere [risolvere i problemi del proxy dell'applicazione e i messaggi di errore](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-troubleshoot). Si noti che il passare a passthrough Reimposta l'impostazione Single Sign-On; Ripetere il passaggio 5 per configurare Azure AD pre-autenticazione.</li></ul> |
+|I processi di stampa resteranno nello stato "inviato alla stampante" | <ul><li>Verificare che TLS 1,2 sia abilitato nel server del connettore. Vedere l'articolo collegato nel passaggio 2,1.</li><li>Verificare che HTTP2 sia disabilitato nel server del connettore. Vedere l'articolo collegato nel passaggio 2,1.</li></ul> |
+
+Di seguito sono riportate le posizioni dei log che consentono di risolvere i problemi
+
+|Componente |Percorso log |
+|------|------|
+|Client Windows 10 | <ul><li>Usare Visualizzatore eventi per visualizzare il log delle operazioni di Azure AD. Fare clic su **Start** e digitare "Visualizzatore eventi". Passare a registri applicazioni e servizi > operazione Microsoft > Windows > AAD >.</li><li>Usare l'hub feedback per raccogliere i log. Vedere [inviare commenti e suggerimenti a Microsoft con l'app hub di feedback](https://support.microsoft.com/help/4021566/windows-10-send-feedback-to-microsoft-with-feedback-hub-app)</li></ul> |
+|Server connettore | Usare Visualizzatore eventi per visualizzare il log del proxy di applicazione. Fare clic su **Start** e digitare "Visualizzatore eventi". Passare a registri applicazioni e servizi > Microsoft > AadApplicationProxy > Connector > amministratore. |
+|Server di stampa | I log per l'app del servizio di individuazione Mopria e l'app Enterprise Cloud Print sono reperibili in C:\inetpub\logs\LogFiles\W3SVC1. |
