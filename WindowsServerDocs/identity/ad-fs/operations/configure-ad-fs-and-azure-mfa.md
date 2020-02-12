@@ -9,12 +9,12 @@ ms.date: 01/28/2019
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: c3a7e7c420ef63adc906e6558ed7aff6819e983c
-ms.sourcegitcommit: a33404f92867089bb9b0defcd50960ff231eef3f
+ms.openlocfilehash: b658644d1ba7cec1b02a2a51331cd7b7152efc77
+ms.sourcegitcommit: 75e611fd5de8b8aa03fc26c2a3d5dbf8211b8ce3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "77013056"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77145486"
 ---
 # <a name="configure-azure-mfa-as-authentication-provider-with-ad-fs"></a>Configurare l'autenticazione a più fattori di Azure come provider di autenticazione con AD FS
 
@@ -135,7 +135,7 @@ Windows Server senza la Service Pack più recente non supporta il parametro `-En
 1. Aprire l' **Editor del registro di sistema** nel server ad FS.
 1. Passare a `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\ADFS`. Creare i valori della chiave del registro di sistema seguenti:
 
-    | Chiave del Registro di sistema       | Value |
+    | Chiave del Registro di sistema       | Valore |
     |--------------------|-----------------------------------|
     | SasUrl             | https://adnotifications.windowsazure.us/StrongAuthenticationService.svc/Connector |
     | StsUrl             | https://login.microsoftonline.us |
@@ -160,11 +160,14 @@ In ogni server AD FS, nel computer locale archivio personale, sarà presente un 
 
 Se il periodo di validità dei certificati sta per scadere, avviare il processo di rinnovo generando un nuovo certificato di autenticazione a più fattori di Azure in ogni server AD FS. In una finestra di comando di PowerShell generare un nuovo certificato in ogni server AD FS usando il cmdlet seguente:
 
+> [!CAUTION]
+> Se il certificato è già scaduto, non aggiungere il parametro `-Renew $true` al comando seguente. In questo scenario, il certificato scaduto esistente viene sostituito con un nuovo certificato anziché essere lasciato disponibile e viene creato un altro certificato.
+
 ```
 PS C:\> $newcert = New-AdfsAzureMfaTenantCertificate -TenantId <tenant id such as contoso.onmicrosoft.com> -Renew $true
 ```
 
-In seguito a questo cmdlet, verrà generato un nuovo certificato valido da 2 giorni in futuro a 2 giorni + 2 anni.  AD FS e le operazioni di autenticazione a più fattori di Azure non saranno interessate da questo cmdlet o dal nuovo certificato. Nota: il ritardo di 2 giorni è intenzionale e fornisce il tempo necessario per eseguire la procedura seguente per configurare il nuovo certificato nel tenant prima che AD FS inizi a usarlo per l'autenticazione a più fattori di Azure.
+Se il certificato non è già scaduto, viene generato un nuovo certificato valido da 2 giorni in futuro a 2 giorni + 2 anni. Le operazioni di AD FS e di autenticazione a più fattori di Azure non sono interessate da questo cmdlet o dal nuovo certificato. Nota: il ritardo di 2 giorni è intenzionale e fornisce il tempo necessario per eseguire la procedura seguente per configurare il nuovo certificato nel tenant prima che AD FS inizi a usarlo per l'autenticazione a più fattori di Azure.
 
 ### <a name="configure-each-new-ad-fs-azure-mfa-certificate-in-the-azure-ad-tenant"></a>Configurare ogni nuovo certificato di autenticazione a più fattori di AD FS Azure nel tenant di Azure AD
 
@@ -174,7 +177,7 @@ Con il modulo Azure AD PowerShell, per ogni nuovo certificato (in ogni server AD
 PS C:/> New-MsolServicePrincipalCredential -AppPrincipalId 981f26a1-7f43-403b-a875-f8b09b8cd720 -Type Asymmetric -Usage Verify -Value $newcert
 ```
 
-`$newcert` è il nuovo certificato. Il certificato con codifica base64 può essere ottenuto esportando il certificato (senza la chiave privata) come file con codifica DER e aprendo in Notepad. exe, quindi copiando e incollando nella sessione di PowerShell e assegnando alla variabile `$newcert`.
+Se il certificato precedente è già scaduto, riavviare il servizio AD FS per selezionare il nuovo certificato. Non è necessario riavviare il servizio AD FS se è stato rinnovato un certificato prima della scadenza.
 
 ### <a name="verify-that-the-new-certificates-will-be-used-for-azure-mfa"></a>Verificare che i nuovi certificati verranno usati per l'autenticazione a più fattori di Azure
 
