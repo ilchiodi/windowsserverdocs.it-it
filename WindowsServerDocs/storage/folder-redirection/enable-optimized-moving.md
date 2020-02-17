@@ -1,6 +1,6 @@
 ---
-title: Abilita spostamento ottimizzato di cartelle reindirizzate
-description: Come eseguire uno spostamento ottimizzato delle cartelle reindirizzate in una nuova condivisione file.
+title: Abilitare spostamenti ottimizzati di cartelle reindirizzate
+description: Come eseguire uno spostamento ottimizzato di cartelle reindirizzate in una nuova condivisione file.
 ms.prod: windows-server
 ms.topic: article
 author: JasonGerend
@@ -10,70 +10,70 @@ ms.date: 09/10/2018
 ms.localizationpriority: medium
 ms.openlocfilehash: edf714bc0d6b39dbe7c5e800e953d7820fe9abc5
 ms.sourcegitcommit: bfe9c5f7141f4f2343a4edf432856f07db1410aa
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/25/2019
 ms.locfileid: "75352604"
 ---
-# <a name="enable-optimized-moves-of-redirected-folders"></a>Abilita spostamento ottimizzato di cartelle reindirizzate
+# <a name="enable-optimized-moves-of-redirected-folders"></a>Abilitare spostamenti ottimizzati di cartelle reindirizzate
 
->Si applica a: Windows 10, Windows 8, Windows 8.1, Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server (canale semestrale)
+>Si applica a: Windows 10, Windows 8, Windows 8.1, Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server (Canale semestrale)
 
-In questo argomento viene descritto come eseguire uno spostamento ottimizzato di cartelle reindirizzate (Reindirizzamento cartelle) in una nuova condivisione file. Se si abilita questa impostazione di criteri, quando un amministratore sposta la condivisione file che ospita le cartelle reindirizzate e aggiorna il percorso di destinazione delle cartelle reindirizzate in Criteri di gruppo, il contenuto memorizzato nella cache viene semplicemente rinominato nella cache File offline locale senza ritardi o potenziale perdita di dati per l'utente.
+In questo argomento viene descritto come eseguire uno spostamento ottimizzato di cartelle reindirizzate (Reindirizzamento cartelle) in una nuova condivisione file. Se abiliti questa impostazione criterio, quando un amministratore sposta la condivisione file che ospita le cartelle reindirizzate e aggiorna il percorso di destinazione delle cartelle reindirizzate in Criteri di gruppo, il contenuto memorizzato nella cache viene semplicemente rinominato nella cache File offline locale senza ritardi o potenziale perdita di dati per l'utente.
 
-In precedenza, gli amministratori potevano modificare il percorso di destinazione delle cartelle reindirizzate in Criteri di gruppo e consentire ai computer client di copiare i file al successivo accesso dell'utente interessato, causando un accesso ritardato. In alternativa, gli amministratori possono spostare la condivisione file e aggiornare il percorso di destinazione delle cartelle reindirizzate in Criteri di gruppo. Tuttavia, tutte le modifiche apportate localmente sui computer client tra l'inizio dello spostamento e la prima sincronizzazione dopo lo spostamento andranno perse.
+In precedenza, gli amministratori potevano modificare in Criteri di gruppo il percorso di destinazione delle cartelle reindirizzate e consentire ai computer client di copiare i file al successivo accesso dell'utente interessato, causando un ritardo nell'accesso. In alternativa, gli amministratori potevano usare Criteri di gruppo per spostare la condivisione file e aggiornare il percorso di destinazione delle cartelle reindirizzate. Tuttavia, tutte le modifiche apportate localmente nei computer client tra l'inizio dello spostamento e la prima sincronizzazione dopo lo spostamento sarebbero andate perse.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Lo spostamento ottimizzato prevede i requisiti seguenti:
+Per uno spostamento ottimizzato devono essere soddisfatti i requisiti seguenti:
 
-- Il reindirizzamento cartelle deve essere configurato. Per ulteriori informazioni, vedere la pagina relativa alla [distribuzione del reindirizzamento cartelle con file offline](deploy-folder-redirection.md).
-- I computer client devono eseguire Windows 10, Windows 8.1, Windows 8, Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012 o Windows Server (canale semestrale).
+- Deve essere configurata la funzionalità Reindirizzamento cartelle. Per altre informazioni, vedi [Distribuire Reindirizzamento cartelle con File offline](deploy-folder-redirection.md).
+- I computer client devono eseguire Windows 10, Windows 8.1, Windows 8, Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012 o Windows Server (Canale semestrale).
 
-## <a name="step-1-enable-optimized-move-in-group-policy"></a>Passaggio 1: abilitare lo spostamento ottimizzato in Criteri di gruppo
+## <a name="step-1-enable-optimized-move-in-group-policy"></a>Passaggio 1: Abilitare lo spostamento ottimizzato in Criteri di gruppo
 
-Per ottimizzare la rilocazione dei dati di Reindirizzamento cartelle, utilizzare Criteri di gruppo per abilitare l'impostazione dei criteri di **modifica del percorso del server** per il reindirizzamento delle cartelle per l'oggetto Criteri di gruppo appropriato (GPO) nella cache file offline. La configurazione di questa impostazione di criteri su **disabilitato** o **non configurato** fa in modo che il client copi tutto il contenuto di Reindirizzamento cartelle nel nuovo percorso e quindi elimini il contenuto dal percorso precedente se il percorso del server viene modificato.
+Per ottimizzare la rilocazione dei dati di Reindirizzamento cartelle, usa Criteri di gruppo per abilitare l'impostazione **Abilita spostamento ottimizzato del contenuto nella cache dei file offline in caso di modifica del percorso del server di reindirizzamento cartelle** per l'oggetto Criteri di gruppo appropriato. Se configuri questa impostazione criterio su **Disabilitato** o **Non configurato**, il client copia tutto il contenuto di Reindirizzamento cartelle nel nuovo percorso e quindi lo elimina dal percorso precedente se il percorso del server viene modificato.
 
-Di seguito viene illustrato come abilitare lo stato di trasferimento ottimizzato delle cartelle reindirizzate:
+Di seguito viene illustrato come abilitare lo spostamento ottimizzato delle cartelle reindirizzate:
 
-1. In Gestione Criteri di gruppo fare clic con il pulsante destro del mouse sull'oggetto Criteri di gruppo creato per le impostazioni di Reindirizzamento cartelle (ad esempio, **Reindirizzamento cartelle e impostazioni profili utente mobili**) e quindi selezionare **modifica**.
-2. In **Configurazione utente**passare a **criteri**, quindi **modelli amministrativi**, **sistema**, quindi **Reindirizzamento cartelle**.
-3. Fare clic con **il pulsante destro del mouse su Abilita spostamento ottimizzato del contenuto nella cache file offline in modifica percorso server Reindirizzamento cartelle**, quindi scegliere **modifica**.
-4. Selezionare **abilitato**e quindi fare clic su **OK**.
+1. In Gestione Criteri di gruppo fai clic con il pulsante destro del mouse sull'oggetto Criteri di gruppo creato per le impostazioni di Reindirizzamento cartelle (ad esempio **Reindirizzamento cartelle e Profili utente mobili**) e quindi scegli **Modifica**.
+2. In **Configurazione utente** passa a **Criteri**, **Modelli amministrativi**, **Sistema** e quindi **Reindirizzamento cartelle**.
+3. Fai clic con il pulsante destro del mouse su **Abilita spostamento ottimizzato del contenuto nella cache dei file offline in caso di modifica del percorso del server di reindirizzamento cartelle** e quindi scegli **Modifica**.
+4. Seleziona **Abilitato** e quindi fai clic su **OK**.
 
-## <a name="step-2-relocate-the-file-share-for-redirected-folders"></a>Passaggio 2: spostare la condivisione file per le cartelle reindirizzate
+## <a name="step-2-relocate-the-file-share-for-redirected-folders"></a>Passaggio 2: Rilocare la condivisione file per le cartelle reindirizzate
 
-Quando si trasferisce la condivisione file che contiene le cartelle reindirizzate degli utenti, è importante prendere le precauzioni per assicurarsi che le cartelle vengano rilocate correttamente.
+Quando sposti la condivisione file che contiene le cartelle reindirizzate degli utenti, è importante prendere precauzioni in modo che le cartelle vengano rilocate correttamente.
 
 >[!IMPORTANT]
->Se i file degli utenti sono in uso o se lo stato completo del file non viene mantenuto nello spostamento, gli utenti potrebbero subire prestazioni ridotte durante la copia dei file in rete, i conflitti di sincronizzazione generati da File offline o persino la perdita di dati.
+>Se i file degli utenti sono in uso o se lo stato completo dei file non viene mantenuto nello spostamento, è possibile che gli utenti riscontrino prestazioni ridotte durante la copia dei file in rete, conflitti di sincronizzazione generati da File offline o anche perdita di dati.
 
-1. Informare gli utenti in anticipo che il server che ospita le cartelle reindirizzate cambierà e consiglierà di eseguire le azioni seguenti:
+1. Informa gli utenti in anticipo che il server che ospita le cartelle reindirizzate verrà modificato e consiglia di eseguire queste operazioni:
 
       - Sincronizzare il contenuto della cache File offline e risolvere eventuali conflitti.
-      - Aprire un prompt dei comandi con privilegi elevati, immettere **gpupdate/target: User/Force**e quindi disconnettersi e accedere di nuovo per assicurarsi che le impostazioni di criteri di gruppo più recenti vengano applicate al computer client.
+      - Aprire un prompt dei comandi con privilegi elevati, immettere **GpUpdate /Target:User /Force** e quindi disconnettersi e accedere di nuovo per assicurarsi che vengano applicate al computer client le impostazioni di Criteri di gruppo più recenti.
 
         >[!NOTE]
-        >Per impostazione predefinita, i computer client aggiornano Criteri di gruppo ogni 90 minuti. Pertanto, se si concede un tempo sufficiente per la ricezione dei criteri aggiornati da parte dei computer client, non è necessario chiedere agli utenti di usare **gpupdate**.
-2. Rimuovere la condivisione file dal server per assicurarsi che non siano in uso file nella condivisione file. A tale scopo, in Server Manager, nella pagina **condivisioni** di servizi file e archiviazione, fare clic con il pulsante destro del mouse sulla condivisione file appropriata, quindi scegliere **Rimuovi**.
+        >Per impostazione predefinita, i computer client aggiornano Criteri di gruppo ogni 90 minuti, quindi se concedi un tempo sufficiente per la ricezione dei criteri aggiornati da parte dei computer client, non dovrai chiedere agli utenti di usare **GpUpdate**.
+2. Rimuovi la condivisione file dal server per garantire che non vi siano file in uso nella condivisione file. A tale scopo, in Server Manager, nella pagina **Condivisioni** di Servizi file e archiviazione fai clic con il pulsante destro del mouse sulla condivisione file appropriata e quindi scegli **Rimuovi**.
 
-    Gli utenti funzioneranno offline usando File offline fino al completamento dello spostamento e riceveranno le impostazioni di Reindirizzamento cartelle aggiornate da Criteri di gruppo.
+    Gli utenti lavoreranno offline usando File offline fino al completamento dello spostamento e riceveranno da Criteri di gruppo le impostazioni di Reindirizzamento cartelle aggiornate.
 
-3. Usando un account con privilegi di backup, spostare il contenuto della condivisione file nel nuovo percorso usando un metodo che conserva i timestamp dei file, ad esempio un'utilità di backup e ripristino. Per utilizzare il comando **Robocopy** , aprire un prompt dei comandi con privilegi elevati, quindi digitare il comando seguente, dove ```<Source>``` è il percorso corrente della condivisione file e ```<Destination>``` è il nuovo percorso:
+3. Usando un account con privilegi di backup, sposta il contenuto della condivisione file nel nuovo percorso usando un metodo che mantenga i timestamp dei file, ad esempio un'utilità di backup e ripristino. Per usare il comando **Robocopy**, apri un prompt dei comandi con privilegi elevati e quindi digita il comando seguente, dove ```<Source>``` è il percorso corrente della condivisione file e ```<Destination>``` è il nuovo percorso:
 
     ```PowerShell
     Robocopy /B <Source> <Destination> /Copyall /MIR /EFSRAW
     ```
 
     >[!NOTE]
-    >Il comando **xcopy** non mantiene tutto lo stato del file.
-4. Modificare le impostazioni dei criteri di Reindirizzamento cartelle, aggiornando il percorso della cartella di destinazione per ogni cartella reindirizzata che si desidera spostare. Per ulteriori informazioni, vedere il passaggio 4 relativo alla [distribuzione del reindirizzamento cartelle con file offline](deploy-folder-redirection.md).
-5. Notificare agli utenti che il server che ospita le cartelle reindirizzate è stato modificato e che è necessario usare il comando **gpupdate/target: User/Force** e quindi disconnettersi e accedere di nuovo per ottenere la configurazione aggiornata e riprendere la sincronizzazione dei file corretta.
+    >Il comando **Xcopy** non mantiene lo stato completo dei file.
+4. Modifica le impostazioni criterio di Reindirizzamento cartelle, aggiornando il percorso delle cartelle di destinazione per ogni cartella reindirizzata che vuoi rilocare. Per altre informazioni, vedi il passaggio 4 in [Distribuire Reindirizzamento cartelle con File offline](deploy-folder-redirection.md).
+5. Informa gli utenti che il server che ospita le cartelle reindirizzate è stato modificato e che devono usare il comando **GpUpdate /Target:User /Force** e quindi disconnettersi e accedere di nuovo per ottenere la configurazione aggiornata e riprendere la sincronizzazione dei file corretta.
 
-    Gli utenti devono accedere a tutti i computer almeno una volta per assicurarsi che i dati vengano spostati correttamente in ogni cache File offline.
+    Gli utenti devono accedere a tutti i computer almeno una volta per assicurarsi che i dati vengano rilocati correttamente in ogni cache File offline.
 
-## <a name="more-information"></a>Altre informazioni
+## <a name="more-information"></a>Ulteriori informazioni
 
-* [Distribuire il reindirizzamento cartelle con File offline](deploy-folder-redirection.md)
+* [Distribuire Reindirizzamento cartelle con File offline](deploy-folder-redirection.md)
 * [Distribuire profili utente mobili](deploy-roaming-user-profiles.md)
-* [Panoramica di Reindirizzamento cartelle, File offline e profili utente mobili](folder-redirection-rup-overview.md)
+* [Panoramica di Reindirizzamento cartelle, File offline e Profili utente mobili](folder-redirection-rup-overview.md)

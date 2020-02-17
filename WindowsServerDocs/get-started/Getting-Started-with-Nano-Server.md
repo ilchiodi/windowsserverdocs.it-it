@@ -12,12 +12,12 @@ ms.assetid: 2c2fa45b-6f3b-4663-b421-2da6ecc463bf
 author: jaimeo
 ms.author: jaimeo
 ms.localizationpriority: medium
-ms.openlocfilehash: f94e2c083f0bc05231543c15120818481afbabb0
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: 09f031c19c8f6d1105d47b9f22d52db30e9c57ef
+ms.sourcegitcommit: 07c9d4ea72528401314e2789e3bc2e688fc96001
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75947851"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76822154"
 ---
 # <a name="install-nano-server"></a>Installare Nano Server
 
@@ -50,7 +50,7 @@ Poiché Nano Server è ottimizzato come sistema operativo leggero per l'esecuzio
 - I Criteri di gruppo non sono supportati. È tuttavia possibile usare [Desired State Configuration](https://msdn.microsoft.com/powershell/dsc/nanoDsc) per applicare le impostazioni su vasta scala.
 - Nano Server non può essere configurato per l'uso di un server proxy per accedere a Internet.
 - Gruppo NIC, in particolare bilanciamento del carico e failover, non è supportato. È invece supportata la tecnologia Switch Embedded Teaming (SET).
-- System Center Configuration Manager e System Center Data Protection Manager non sono supportati.
+- Microsoft Endpoint Configuration Manager e System Center Data Protection Manager non sono supportati.
 - I cmdlet di Best Practices Analyzer (BPA) e l'integrazione di BPA con Server Manager non sono supportati.
 - Nano Server non supporta le schede bus host (HBA) virtuali.
 - Nano Server non deve essere attivato con un codice Product Key. Quando funge da host Hyper-V, Nano Server non supporta l'[attivazione automatica della macchina virtuale](https://technet.microsoft.com/library/dn303421%28v=ws.11%29.aspx) (AVMA). Le macchine virtuali in esecuzione in un host Nano Server possono essere attivate tramite il [Servizio di gestione delle chiavi](https://technet.microsoft.com/library/jj612867(v=ws.11).aspx) (KMS) con un codice Product Key per contratti multilicenza generico o mediante [l'attivazione basata su Active Directory](https://technet.microsoft.com/library/dn502534(v=ws.11).aspx).

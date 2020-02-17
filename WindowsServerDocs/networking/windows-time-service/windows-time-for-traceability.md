@@ -1,7 +1,7 @@
 ---
 ms.assetid: ''
-title: Tempo di Windows per la tracciabilità
-description: Le normative in molti settori richiedono che i sistemi siano tracciabili in formato UTC.  Ciò significa che l'offset di un sistema può essere attestato rispetto all'ora UTC.
+title: Ora di Windows per la tracciabilità
+description: Le normative di molti settori richiedono che i sistemi siano tracciabili per l'ora UTC.  Ciò significa che l'offset di un sistema può essere attestato rispetto all'ora UTC.
 author: shortpatti
 ms.author: dacuo
 manager: dougkim
@@ -11,45 +11,45 @@ ms.prod: windows-server
 ms.technology: networking
 ms.openlocfilehash: 307739042426088fa92c50e6ea4dc5d2a744f15a
 ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 09/27/2019
 ms.locfileid: "71405203"
 ---
-# <a name="windows-time-for-traceability"></a>Tempo di Windows per la tracciabilità
->Si applica a: Windows Server 2016 versione 1709 o successiva e Windows 10 versione 1703 o successiva
+# <a name="windows-time-for-traceability"></a>Ora di Windows per la tracciabilità
+>Si applica a: Windows Server 2016 versione 1709 o successive e Windows 10 versione 1703 o successive
 
 
-Le normative in molti settori richiedono che i sistemi siano tracciabili in formato UTC.  Ciò significa che l'offset di un sistema può essere attestato rispetto all'ora UTC.  Per abilitare gli scenari di conformità alle normative, Windows 10 (versione 1703 o successiva) e Windows Server 2016 (versione 1709 o successiva) fornisce nuovi registri eventi per fornire un'immagine dal punto di vista del sistema operativo per comprendere le azioni intraprese Clock di sistema.  Questi registri eventi vengono generati in modo continuo per il servizio ora di Windows e possono essere esaminati o archiviati per un'analisi successiva.
+Le normative di molti settori richiedono che i sistemi siano tracciabili per l'ora UTC.  Ciò significa che l'offset di un sistema può essere attestato rispetto all'ora UTC.  Per abilitare scenari di conformità alle normative, in Windows 10 (versione 1703 o successive) e Windows Server 2016 (versione 1709 o successive) sono disponibili nuovi registri eventi per fornire un'immagine dal punto di vista del sistema operativo per permettere di comprendere le azioni intraprese sul clock di sistema.  Questi registri eventi vengono generati in modo continuo per il servizio Ora di Windows e possono essere esaminati o archiviati per un'analisi successiva.
 
-Questi nuovi eventi consentono di rispondere alle domande seguenti:
+Questi nuovi eventi permettono di rispondere ai quesiti seguenti:
 
-* Il clock di sistema è stato modificato
-* Frequenza di clock modificata
-* La configurazione del servizio ora di Windows è stata modificata
+* Se il clock di sistema è stato modificato
+* Se la frequenza del clock è stata modificata
+* Se la configurazione del servizio Ora di Windows è stata modificata
 
 ## <a name="availability"></a>Disponibilità
 
-Questi miglioramenti sono inclusi in Windows 10 versione 1703 o successiva e Windows Server 2016 versione 1709 o successiva.
+Questi miglioramenti sono inclusi in Windows 10 versione 1703 o successive e Windows Server 2016 versione 1709 o successive.
 
 ## <a name="configuration"></a>Configurazione
 
-Per realizzare questa funzionalità non è necessaria alcuna configurazione.  Questi registri eventi sono abilitati per impostazione predefinita ed è possibile trovarli nel Visualizzatore eventi nel canale **Log\Microsoft\Windows\Time-Service\Operational applicazioni e servizi** .
+Per usare questa funzionalità non è necessaria alcuna configurazione.  Questi registri eventi sono abilitati per impostazione predefinita e sono disponibili nel Visualizzatore eventi nel canale **Registri applicazioni e servizi\Microsoft\Windows\Time-Service\Operational**.
 
 
-## <a name="list-of-event-logs"></a>Elenco di log eventi
+## <a name="list-of-event-logs"></a>Elenco di registri eventi
 
-Nella sezione seguente vengono descritti gli eventi registrati per l'utilizzo in scenari di tracciabilità.
+Nella sezione seguente vengono descritti gli eventi registrati per l'uso in scenari di tracciabilità.
 
 # <a name="257tab257"></a>[257](#tab/257)
-Questo evento viene registrato all'avvio del servizio ora di Windows (W32Time) e registra le informazioni sull'ora corrente, il conteggio corrente, la configurazione del runtime, i provider di tempo e la frequenza di clock corrente.
+Questo evento viene registrato all'avvio del servizio Ora di Windows (W32Time) e registra le informazioni sull'ora corrente, il conteggio tick corrente, la configurazione del runtime, i provider di servizi orari e la frequenza di clock corrente.
 
 |||
 |---|---|
-|Descrizione dell'evento |Avvio servizio |
+|Descrizione dell'evento |Avvio del servizio |
 |Dettagli |Si verifica all'avvio di W32Time |
-|Dati registrati |<ul><li>Ora corrente in formato UTC</li><li>Numero di cicli correnti</li><li>Configurazione di W32Time</li><li>Configurazione del provider di servizi temporali</li><li>Frequenza di clock</li></ul> |
-|Meccanismo di limitazione  |Nessuno. Questo evento viene generato ogni volta che il servizio viene avviato. |
+|Dati registrati |<ul><li>Ora corrente nel formato ora UTC</li><li>Conteggio tick corrente</li><li>Configurazione di W32Time</li><li>Configurazione del provider servizi orari</li><li>Frequenza di clock</li></ul> |
+|Meccanismo di limitazione  |Nessuna. Questo evento viene generato a ogni avvio del servizio. |
 
 **Esempio:**
 ```
@@ -58,9 +58,9 @@ W32time service has started at 2018-02-27T04:25:17.156Z (UTC), System Tick Count
 
 **Comando:**
 
-È anche possibile eseguire query su queste informazioni usando i comandi seguenti:
+È anche possibile recuperare queste informazioni usando i comandi seguenti
 
-*Configurazione del provider W32Time e Time*
+*Configurazione di W32Time e del provider servizi orari*
 ```
 w32tm.exe /query /configuration
 ```
@@ -72,35 +72,35 @@ w32tm.exe /query /status /verbose
 
 
 # <a name="258tab258"></a>[258](#tab/258)
-Questo evento viene registrato quando il servizio ora di Windows (W32Time) viene arrestato e registra le informazioni relative all'ora corrente e al conteggio dei cicli.
+Questo evento viene registrato all'arresto del servizio Ora di Windows (W32Time) e registra le informazioni relative all'ora e al conteggio tick correnti.
 
 |||
 |---|---|
-|Descrizione dell'evento |Arresto servizio |
+|Descrizione dell'evento |Arresto del servizio |
 |Dettagli |Si verifica all'arresto di W32Time |
-|Dati registrati |<ul><li>Ora corrente in formato UTC</li><li>Numero di cicli correnti</li></ul> |
-|Meccanismo di limitazione  |Nessuno. Questo evento viene generato ogni volta che il servizio viene arrestato. |
+|Dati registrati |<ul><li>Ora corrente nel formato ora UTC</li><li>Conteggio tick corrente</li></ul> |
+|Meccanismo di limitazione  |Nessuna. Questo evento viene generato a ogni arresto del servizio. |
 
 **Testo di esempio:** 
 `W32time service is stopping at 2018-03-01T05:42:13.944Z (UTC), System Tick Count 6370250.`
 
 # <a name="259tab259"></a>[259](#tab/259)
-Questo evento registra periodicamente l'elenco corrente di origini temporali e l'origine ora scelta.  Registra inoltre il conteggio corrente dei cicli.  Questo evento non viene attivato ogni volta che viene modificata un'origine dell'ora.  Gli altri eventi elencati più avanti in questo documento forniscono questa funzionalità.
+Questo evento registra periodicamente l'elenco corrente di origini ora e l'origine ora scelta.  Registra inoltre il conteggio tick corrente.  Non viene generato ogni volta che viene modificata un'origine ora.  Questa funzionalità viene fornita da altri eventi elencati più avanti in questo documento.
 
 |||
 |---|---|
 |Descrizione dell'evento |Stato periodico del provider client NTP |
-|Dettagli |Elenco di origini temporali usate dal client NTP |
-|Dati registrati |<ul><li>Origini ora disponibili</li><li>Server ora di riferimento scelto al momento della registrazione</li><li>Numero di cicli correnti</li></ul>  |
-|Meccanismo di limitazione  |Registrato ogni 8 ore. |
+|Dettagli |Elenco di origini ora usate dal client NTP |
+|Dati registrati |<ul><li>Origini ora disponibili</li><li>Server di riferimento ora scelto al momento della registrazione</li><li>Conteggio tick corrente</li></ul>  |
+|Meccanismo di limitazione  |Registrazione eseguita ogni otto ore. |
 
-**Testo di esempio:** Stato periodico del provider client NTP:
+**Testo di esempio:** stato periodico del provider client NTP:
 
-Il client NTP riceve i dati temporali dai server NTP seguenti:
+Il client NTP riceve i dati sull'ora dai server NTP seguenti:
 
-Server1. fabrikam. com, 0x8 (NTP. m | 0x8 | [::]: 123-> [IPAddress]: 123) Server2. fabrikam. com, 0x8 (NTP. m | 0x8 | [::]: 123-> [IPAddress]: 123);  il server ora di riferimento scelto è Server1. fabrikam. com, 0x8 (NTP. m | 0x8 | [::]: 123-> [IPAddress]: 123) (RefID: 0x08d6648e63). Numero di cicli di sistema 13187937
+server1.fabrikam.com,0x8 (ntp.m|0x8|[::]:123->[IPAddress]:123)server2.fabrikam.com,0x8 (ntp.m|0x8|[::]:123->[IPAddress]:123); e il server di riferimento ora scelto è Server1.fabrikam.com,0x8 (ntp.m|0x8|[::]:123->[IPAddress]:123) (RefID:0x08d6648e63). Conteggio tick di sistema 13187937
 
-**Comando** È anche possibile eseguire query su queste informazioni usando i comandi seguenti:
+**Comando** È anche possibile recuperare queste informazioni usando i comandi seguenti
 
 *Identificare i peer*
 `w32tm.exe /query /peers`
@@ -109,58 +109,58 @@ Server1. fabrikam. com, 0x8 (NTP. m | 0x8 | [::]: 123-> [IPAddress]: 123) Server
 
 |||
 |---|---|
-|Descrizione dell'evento |Stato e configurazione del servizio Time |
-|Dettagli |W32Time registra periodicamente la configurazione e lo stato. Questa operazione equivale a chiamare:<br><br>`w32tm /query /configuration /verbose`<br>O<br>`w32tm /query /status /verbose` |
-|Meccanismo di limitazione  |Registrato ogni 8 ore. |
+|Descrizione dell'evento |Configurazione e stato del servizio Ora |
+|Dettagli |W32Time registra periodicamente la configurazione e lo stato. Questa operazione equivale a chiamare:<br><br>`w32tm /query /configuration /verbose`<br>OPPURE<br>`w32tm /query /status /verbose` |
+|Meccanismo di limitazione  |Registrazione eseguita ogni otto ore. |
 
 # <a name="261tab261"></a>[261](#tab/261)
-Questa operazione registra ogni istanza quando l'ora di sistema viene modificata tramite l'API SetSystemTime.
+Registra ogni istanza in cui viene modificata l'ora di sistema tramite l'API SetSystemTime.
 
 |||
 |---|---|
-|Descrizione dell'evento |L'ora di sistema è impostata |
-|Meccanismo di limitazione  |Nessuno.<br><br>Questo problema si verifica raramente nei sistemi con sincronizzazione del tempo ragionevole e si vuole registrarlo ogni volta che si verifica. L'impostazione TimeJumpAuditOffset viene ignorata durante la registrazione di questo evento perché tale impostazione è stata progettata per limitare gli eventi nel registro eventi di sistema di Windows. |
+|Descrizione dell'evento |Impostazione dell'ora di sistema |
+|Meccanismo di limitazione  |Nessuna.<br><br>Questo evento si verifica raramente nei sistemi con una ragionevole sincronizzazione dell'ora e viene registrato ogni volta che si verifica. L'impostazione TimeJumpAuditOffset viene ignorata quando viene registrato questo evento poiché è specifica per la limitazione degli eventi nel registro degli eventi di sistema di Windows. |
 
 # <a name="262tab262"></a>[262](#tab/262)
 
 |||
 |---|---|
-|Descrizione dell'evento |Frequenza di clock di sistema modificata |
-|Dettagli |La frequenza di clock di sistema viene costantemente modificata da W32Time quando il clock si trova in una sincronizzazione di chiusura. Si desidera acquisire modifiche "ragionevolmente significative" apportate alla frequenza di clock senza eseguire la sovraesecuzione del registro eventi. |
-|Meccanismo di limitazione  |Tutte le regolazioni del clock inferiori a TimeAdjustmentAuditThreshold (min = 128 part per Million, default = 800 part per Million) non vengono registrate.<br><br>2 la variazione della frequenza di clock con la granularità corrente produce una modifica di 120 μsec/sec nell'accuratezza del clock.<br><br>In un sistema sincronizzato, la maggior parte delle regolazioni si trova al di sotto di questo livello. Se si vuole tenere traccia più fine, questa impostazione può essere modificata oppure è possibile usare PerfCounters oppure è possibile eseguire entrambe le operazioni. |
+|Descrizione dell'evento |Modifica della frequenza di clock del sistema |
+|Dettagli |La frequenza di clock del sistema viene costantemente modificata da W32Time nei casi di sincronizzazione ravvicinata del clock. L'obiettivo è acquisire modifiche "ragionevolmente significative"apportate alla frequenza di clock senza sovraccaricare il registro eventi. |
+|Meccanismo di limitazione  |Tutte le modifiche di clock inferiori a TimeAdjustmentAuditThreshold (min = 128 parti per milione, valore predefinito = 800 parti per milione) non vengono registrate.<br><br>La modifica 2 PPM (parti per milione) nella frequenza di clock con la granularità corrente produce una modifica di 120 μsec/sec nell'accuratezza dei clock.<br><br>In un sistema sincronizzato la maggior parte delle modifiche è al di sotto di questo livello. Se vuoi eseguire un tracciamento con valori inferiori, questa impostazione può essere modificata usando un valore inferiore oppure puoi usare PerfCounters. Puoi anche eseguire entrambe le operazioni. |
 
 # <a name="263tab263"></a>[263](#tab/263)
 
 |||
 |---|---|
-|Descrizione dell'evento |Modificare le impostazioni del servizio ora o l'elenco di provider di tempo caricati. |
-|Dettagli |La rilettura delle impostazioni di W32Time può causare la modifica in memoria di alcune impostazioni critiche, che possono influire sull'accuratezza complessiva della sincronizzazione dell'ora.<br><br>W32Time registra ogni occorrenza durante la rilettura delle impostazioni che fornisce il potenziale impatto sulla sincronizzazione dell'ora. |
-|Meccanismo di limitazione  |Nessuno.<br><br>Questo evento si verifica solo quando un aggiornamento di un amministratore o un GP modifica i provider di tempo e quindi attiva W32Time. Si vuole registrare ogni istanza di modifica delle impostazioni. |
+|Descrizione dell'evento |Modifica delle impostazioni del servizio Ora o elenco dei provider servizi orari caricati. |
+|Dettagli |La rilettura delle impostazioni di W32Time può causare la modifica in memoria di alcune impostazioni critiche, con ripercussioni sull'accuratezza complessiva della sincronizzazione dell'ora.<br><br>W32Time registra ogni occorrenza durante la rilettura delle impostazioni con un potenziale impatto sulla sincronizzazione dell'ora. |
+|Meccanismo di limitazione  |Nessuna.<br><br>Questo evento si verifica solo quando un aggiornamento di un amministratore o di protezione generale modifica i provider servizi orari e quindi attiva W32Time. Viene registrata ogni istanza di modifica delle impostazioni. |
 
 
 # <a name="264tab264"></a>[264](#tab/264)
 
 |||
 |---|---|
-|Descrizione dell'evento |Modificare le origini temporali usate dal client NTP |
-|Dettagli |Il client NTP registra un evento con lo stato corrente dei server/peer temporali quando si modifica lo stato di un server/peer di ora (**in sospeso-> sincronizzazione**, **sincronizzazione-> irraggiungibile**o altre transizioni) |
-|Meccanismo di limitazione  |Frequenza massima: solo una volta ogni 5 minuti per proteggere il registro da problemi temporanei e dall'implementazione del provider non valida. |
+|Descrizione dell'evento |Modifica delle origini ora usate dal client NTP |
+|Dettagli |Il client NTP registra un evento con lo stato corrente dei server/peer di riferimento ora quando cambia lo stato di un server/peer di riferimento ora (**In sospeso -> Sincronizza**, **Sincronizza -> Non raggiungibile** o altre transizioni) |
+|Meccanismo di limitazione  |Frequenza massima: solo una volta ogni cinque minuti per proteggere il registro da problemi temporanei e da implementazioni di provider non valide. |
 
 # <a name="265tab265"></a>[265](#tab/265)
 
 |||
 |---|---|
-|Descrizione dell'evento |Modifiche al numero dello strato o dell'origine del servizio temporale |
-|Dettagli |L'origine e il numero dello strato W32Time ora sono fattori importanti nella tracciabilità temporale ed è necessario registrare tutte le modifiche apportate a tali elementi. Se W32Time non dispone di un'origine di tempo e non è stata configurata come origine dell'ora affidabile, l'annuncio verrà interrotto come server di ora e per progettazione risponderà alle richieste con alcuni parametri non validi. Questo evento è fondamentale per tenere traccia delle modifiche dello stato in una topologia NTP. |
-|Meccanismo di limitazione  |Nessuno. |
+|Descrizione dell'evento |Modifiche del numero di strato o dell'origine del servizio Ora |
+|Dettagli |Il numero di strato o l'origine del servizio Ora W32time sono fattori importanti nella tracciabilità dell'ora e qualsiasi modifica deve essere registrata. Se W32Time non dispone di un'origine ora e non è stato configurato come origine ora affidabile, non si annuncerà più come server di riferimento ora e per impostazione predefinita risponderà alle richieste con alcuni parametri non validi. Questo evento è fondamentale per tenere traccia dei cambiamenti di stato in una topologia NTP. |
+|Meccanismo di limitazione  |Nessuna. |
 
 
 # <a name="266tab266"></a>[266](#tab/266)
 
 |||
 |---|---|
-|Descrizione dell'evento |Tempo necessario per la risincronizzazione |
-|Dettagli |Questa operazione viene attivata:<ul><li>Quando si verificano modifiche alla rete</li><li>Il sistema torna dalla modalità standby/ibernazione connessa</li><li>Quando non è stata sincronizzata da molto tempo</li><li>Amministrazione rilascia il comando di risincronizzazione</li></ul>Questa operazione comporta la perdita immediata dell'accuratezza della sincronizzazione dell'ora con granularità fine perché causa la cancellazione dei filtri da client NTP. |
-|Meccanismo di limitazione  |Frequenza massima: una volta ogni 5 minuti.<br><br>È possibile che una scheda di rete errata (o uno script scadente) possa attivare ripetutamente questa operazione e causare la sovraccaricazione dei log. Di conseguenza, è necessario limitare l'evento.<br><br>Si noti che la sincronizzazione dell'ora accurata richiede molto più di 5 minuti e la limitazione non perde le informazioni sull'evento originale che ha causato la perdita di accuratezza del tempo.  |
+|Descrizione dell'evento |È richiesta la risincronizzazione dell'ora |
+|Dettagli |Questa operazione si attiva:<ul><li>Quando si verificano modifiche di rete</li><li>Quando il sistema si riattiva dalla modalità ibernazione/standby connesso</li><li>Quando non viene eseguita la sincronizzazione per molto tempo</li><li>Quando l'amministratore invia il comando di risincronizzazione</li></ul>Questa operazione comporta la perdita immediata dell'accuratezza di sincronizzazione granulare dell'ora perché causa la cancellazione dei filtri nel client NTP. |
+|Meccanismo di limitazione  |Frequenza massima: una volta ogni cinque minuti.<br><br>È possibile che una scheda di rete non valida (o uno script errato) attivi ripetutamente questa operazione sovraccaricando i log. È pertanto necessario limitare questo evento.<br><br>Tieni presente che una sincronizzazione accurata dell'ora richiede molto più di cinque minuti e la limitazione non comporta la perdita delle informazioni sull'evento originale che ha causato la perdita di accuratezza dell'ora.  |
 
 ---

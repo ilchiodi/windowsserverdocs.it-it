@@ -1,6 +1,6 @@
 ---
 title: Impostazioni di sicurezza di generazione 1 macchina virtuale per Hyper-V
-description: Descrive le impostazioni di sicurezza disponibili nella console di gestione di Hyper-V per le macchine virtuali di prima generazione
+description: Descrive le impostazioni di sicurezza disponibili nella console di gestione di Hyper-V per macchine virtuali di seconda generazione
 ms.prod: windows-server
 ms.service: na
 manager: dongill
@@ -13,14 +13,14 @@ ms.author: kathydav
 ms.date: 10/04/2016
 ms.openlocfilehash: ceb3c2628546815f9b0af35946e173f4276130d2
 ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 09/27/2019
 ms.locfileid: "71392785"
 ---
 # <a name="generation-1-virtual-machine-security-settings"></a>Impostazioni di sicurezza di generazione 1 macchina virtuale
 
->Si applica a: Windows Server 2016, Microsoft Hyper-V Server 2016, Windows Server 2019 Microsoft Hyper-V Server 2019
+>Si applica a: Windows Server 2016, Microsoft Hyper-V Server 2016, Windows Server 2019, Microsoft Hyper-V Server 2019
 
 Utilizzare le impostazioni di sicurezza di generazione 1 macchina virtuale in Hyper-V Manager per proteggere i dati e lo stato di una macchina virtuale.
 
@@ -47,5 +47,5 @@ Per ulteriori informazioni sulle infrastrutture protetta, vedere la sezione Intr
 
 ## <a name="see-also"></a>Vedere anche
 
-- [Impostazioni di sicurezza della macchina virtuale di seconda generazione nella console di gestione di Hyper-V](Generation-2-virtual-machine-security-settings-for-hyper-v.md)
+- [Impostazioni di sicurezza di macchine virtuali di seconda generazione nella console di gestione di Hyper-V](Generation-2-virtual-machine-security-settings-for-hyper-v.md)
 - [Sicurezza e controllo](../../../security/Security-and-Assurance.md)

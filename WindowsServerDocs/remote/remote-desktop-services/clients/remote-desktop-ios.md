@@ -9,17 +9,17 @@ ms.technology: remote-desktop-services
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 03ec5a3d-d3f2-4afd-9405-ae58b6ecc91c
-author: lizap
-manager: dongill
-ms.author: elizapo
-date: 08/27/2019
+author: Heidilohr
+manager: lizross
+ms.author: helohr
+date: 02/11/2020
 ms.localizationpriority: medium
-ms.openlocfilehash: 8361d1171c2526e701a5418696761a8400c47ca3
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: 1724f24a794003aaae0ac89ee892269eed045114
+ms.sourcegitcommit: 5797a2e67211651070404a5893f5c0a91c63e960
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75949878"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77179355"
 ---
 # <a name="get-started-with-the-ios-client"></a>Introduzione al client iOS
 
@@ -33,60 +33,13 @@ Segui le informazioni riportate di seguito per iniziare. In caso di dubbi, vedi 
 > - Se vuoi conoscere le nuove versioni per il client iOS, vedi [Novità per Desktop remoto in iOS](ios-whatsnew.md).
 > - Il client iOS supporta i dispositivi che eseguono iOS 6.x e versioni successive.
 
-## <a name="get-the-remote-desktop-beta-client-and-start-using-it"></a>Ottenere la versione beta del client Desktop remoto e iniziare a usarla
-La versione beta del client per iOS attualmente disponibile tramite Apple TestFlight supporta le connessioni alle risorse di Desktop virtuale Windows.
-
-### <a name="download-the-remote-desktop-ios-beta-client-from-apple-testflight"></a>Scaricare la versione beta del client Desktop remoto per iOS da Apple TestFlight
-Di seguito viene illustrato come configurare la versione beta del client Desktop remoto sul dispositivo iOS:
-
-1. Installa l'app [Apple TestFlight](https://apps.apple.com/us/app/testflight/id899247664) nel dispositivo iOS.
-2. Sul dispositivo iOS apri un browser e passa a [aka.ms/rdiosbeta](https://aka.ms/rdiosbeta).
-3. Sotto l'etichetta **Step 2 Join the Beta** (Passaggio 2 Partecipa alla beta) seleziona **Start Testing** (Inizia il test).
-4. Quando vieni reindirizzato all'app TestFlight, seleziona **Accept** (Accetta) e quindi **Install** (Installa) per installare il client.
-
-### <a name="add-a-connection-to-a-pc"></a>Aggiungere una connessione a un PC
-Per creare una connessione remota a un PC:
-
-1. In Connection Center (Centro connessioni) tocca **+** e quindi **Add PC** (Aggiungi PC).
-2. Immetti il nome del PC remoto in **PC Name** (Nome PC). Puoi usare il nome di un computer Windows, un nome di dominio Internet o un indirizzo IP. È anche possibile aggiungere informazioni sulla porta al nome del computer (ad esempio, **MyDesktop:3389** o **10.0.0.1:3389**).
-3. Seleziona l'**account utente** che userai per accedere al PC remoto.
-   - Seleziona **Ask Every Time** (Chiedi conferma ogni volta) per fare in modo che il client chieda le credenziali ogni volta che ti connetti al PC remoto.
-   - Seleziona **Add User Account** (Aggiungi account utente) per salvare un account usato di frequente, evitando così di dover immettere le credenziali ogni volta che esegui l'accesso. Segui [queste istruzioni](#manage-your-user-accounts) per gestire gli account utente.
-4. Puoi anche impostare i parametri facoltativi seguenti:
-   - In **Friendly Name** (Nome descrittivo) puoi immettere un nome facile da ricordare per il PC a cui ti connetti.
-   - **Admin Mode** (Modalità di amministrazione) consente di connettersi a una sessione di amministrazione nel PC remoto.
-   - **Swap Mouse Buttons** (Scambia pulsanti del mouse) consente di alternare i comandi inviati tramite i movimenti del mouse verso destra e sinistra. Ideale per gli utenti mancini.
-   - **Gateway** corrisponde al gateway Desktop remoto che userai per connetterti a un computer da una rete esterna. Per altre informazioni, contatta l'amministratore di sistema.
-   - **Sound** (Audio) consente di selezionare il dispositivo usato dalla sessione remota per l'audio. Puoi scegliere di riprodurre l'audio nel dispositivo locale, nel dispositivo remoto oppure di non riprodurlo affatto.
-   - **Microphone** (Microfono) abilita il reindirizzamento del microfono. Questa opzione è disabilitata per impostazione predefinita.
-   - **Camera** (Fotocamera) abilita il reindirizzamento della fotocamera. Questa opzione è disabilitata per impostazione predefinita.
-   - **Clipboard** (Appunti) abilita il reindirizzamento degli Appunti. Questa opzione è attivata per impostazione predefinita.
-   - **Storage** (Archiviazione) abilita il reindirizzamento della risorsa di archiviazione locale. Questa opzione è disabilitata per impostazione predefinita.
-5. Seleziona **Save** (Salva) per aggiungere la connessione al PC remoto.
-
-### <a name="add-remote-resources"></a>Aggiungere risorse remote
-Le risorse remote sono programmi RemoteApp, desktop basati su sessione e desktop virtuali pubblicati dall'amministratore. Il client per iOS supporta le risorse pubblicate dalle distribuzioni di **Servizi Desktop remoto** e **Desktop virtuale Windows**. Per aggiungere risorse remote:
-
-1. In Connection Center (Centro connessioni) tocca **+** e quindi **Add Workspace** (Aggiungi area di lavoro).
-2. Immetti un valore in **Feed URL** (URL del feed). Può essere un URL o un indirizzo e-mail:
-   - Il valore di **URL** corrisponde all'URL del server di Accesso Web Desktop remoto fornito dall'amministratore. Se accedi alle risorse da Desktop virtuale Windows, puoi usare `https://rdweb.wvd.microsoft.com`.
-   - Se prevedi di usare **Email**, immetti l'indirizzo e-mail in questo campo. In questo modo indichi al client di cercare un server di Accesso Web Desktop remoto associato all'indirizzo e-mail, se configurato dall'amministratore.
-3. Tocca **Next** (Avanti).
-4. Immetti le informazioni di accesso, quando richiesto. Queste informazioni possono variare in base alla distribuzione e possono includere:
-   - **User name** (Nome utente): il nome dell'utente autorizzato ad accedere alle risorse.
-   - **Password**: la password associata al nome utente.
-   - **Additional factor** (Fattore aggiuntivo): il fattore che potrebbe essere richiesto a seconda della modalità di autenticazione configurata dall'amministratore.
-5. Toccare **salvare**.
-
-Verranno visualizzate nel Centro connessioni di risorse remote.
-
 ## <a name="get-the-remote-desktop-client-and-start-using-it"></a>Ottenere il client Desktop remoto e iniziare a usarlo
 
 ### <a name="download-the-remote-desktop-client-from-the-ios-store"></a>Scaricare il client Desktop remoto dallo store iOS
 
 Seguire questi passaggi per iniziare con Desktop remoto nel dispositivo iOS:
 
-1. Scaricare il client di Desktop remoto Microsoft da [iTunes](https://itunes.apple.com/app/microsoft-remote-desktop/id714464092?mt=8).
+1. Scarica il client Desktop remoto Microsoft da [iOS App Store](https://aka.ms/rdios) o da [iTunes](https://itunes.apple.com/app/microsoft-remote-desktop/id714464092?mt=8).
 2. [Configura il PC per accettare le connessioni remote](remote-desktop-client-faq.md#how-do-i-set-up-a-pc-for-remote-desktop).
 3. Aggiungi una [connessione Desktop remoto](#add-a-remote-desktop-connection) o una [risorsa remota](#add-a-remote-resource). Una connessione consente di connettersi direttamente a un PC Windows, mentre una risorsa remota consente di usare un programma RemoteApp, un desktop basato su sessione o un desktop virtuale pubblicato in locale tramite connessioni RemoteApp e Desktop. Questa funzionalità è in genere disponibile negli ambienti aziendali.
 
@@ -143,7 +96,7 @@ Per eliminare un account utente:
 
 1. In Connection Center (Centro connessioni) tocca **Settings** (Impostazioni) e quindi **User Accounts** (Account utente).
 2. Seleziona l'account che vuoi eliminare.
-3. Toccare **eliminare**.   
+3. Toccare **eliminare**.
 
 ## <a name="connect-to-an-rd-gateway-to-access-internal-assets"></a>Connettersi a un gateway Desktop remoto per accedere alle risorse interne
 
@@ -158,6 +111,7 @@ Per impostare un nuovo gateway:
    - **Nome utente** -il nome utente e la password da utilizzare per il gateway Desktop remoto si connette. È inoltre possibile selezionare **utilizzare le credenziali di connessione** da utilizzare il medesimo nome utente e la password come quelle utilizzate per la connessione desktop remoto.
 
 ## <a name="navigate-the-remote-desktop-session"></a>Esplorare la sessione Desktop remoto
+
 Quando avvii una sessione Desktop remoto, sono disponibili strumenti che puoi usare per esplorare la sessione.
 
 ### <a name="start-a-remote-desktop-connection"></a>Avviare una connessione Desktop remoto
@@ -178,6 +132,7 @@ Consente di barra di connessione di accedere ai controlli di spostamento aggiunt
 - **Spostare la barra delle connessioni**: tieni premuta la barra delle connessioni e quindi trascinala in una nuova posizione nella parte superiore della schermata.
 
 ### <a name="session-selection"></a>Selezione di sessione
+
 È possibile avere più connessioni aperti per più computer contemporaneamente. Toccare la barra delle connessioni per visualizzare la barra di selezione di sessione sul lato sinistro della schermata. La barra di selezione sessione consente di visualizzare le connessioni aperte e passare tra loro.
 
 - Spostarsi tra le applicazioni in una sessione aperta risorsa remota.
@@ -215,9 +170,7 @@ Il client utilizza i movimenti tocco standard. È inoltre possibile utilizzare i
 
 ## <a name="supported-input-devices"></a>Dispositivi di input supportati
 
-Il [client Desktop remoto iOS beta](https://aka.ms/rdiosbeta) supporta i mouse fisici Swiftpoint GT e ProPoint. Swiftpoint offre uno [sconto esclusivo](https://www.swiftpoint.com/microsoft/) sul modello GT per gli utenti del client iOS beta.
-
-Il client iOS supporta attualmente solo mouse Swiftpoint. Fai riferimento alla pagina [Novità del client iOS](ios-whatsnew.md) e all'[App Store per iOS](https://aka.ms/rdios) per notizie sul supporto per altri dispositivi in futuro.
+Il client iOS supporta attualmente solo mouse Swiftpoint GT e ProPoint. Per altre informazioni sul supporto dei dispositivi, vedi [Novità del client iOS](ios-whatsnew.md) e [iOS App Store](https://aka.ms/rdios).
 
 ## <a name="use-a-keyboard-in-a-remote-session"></a>Usare una tastiera in una sessione remota
 

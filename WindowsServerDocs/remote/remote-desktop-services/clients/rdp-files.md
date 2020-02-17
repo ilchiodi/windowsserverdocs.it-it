@@ -13,12 +13,12 @@ manager: dongill
 ms.author: helohr
 ms.date: 05/20/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 43cffc007970245ab9bd96c7cae9bb5137a8030b
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 6a596bcd29fdb80f8b2b0fa86ee808755dd09f43
+ms.sourcegitcommit: f0fcfee992b76f1ad5dad460d4557f06ee425083
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71387804"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77125093"
 ---
 # <a name="supported-remote-desktop-rdp-file-settings"></a>Impostazioni supportate dei file RDP di Desktop remoto
 
@@ -26,7 +26,7 @@ La tabella seguente include l'elenco di impostazioni dei file RDP supportate che
 
 Per informazioni su come usare PowerShell per personalizzare le proprietà di RDP per un pool di host, fare riferimento a [questa documentazione](https://go.microsoft.com/fwlink/?linkid=2098243&clcid=0x409).
 
-| Impostazione RDP                        | Descrizione            | Valori                 | Valore predefinito          | Desktop virtuale Windows | Windows | HTML5   |
+| Impostazione RDP                        | Description            | Valori                 | Valore predefinito          | Desktop virtuale Windows | Windows | HTML5   |
 |------------------------------------|------------------------|------------------------|:----------------------:|:-----------------------:|:-------:|:-------:|
 | alternate full address:s:value | Specifica un indirizzo IP o un nome alternativo del computer remoto. | Qualsiasi nome o indirizzo IP valido del computer remoto, ad esempio "10.10.15.15" | | x | x | x |
 | alternate shell:s:value        | Determina se un programma si avvia automaticamente quando viene stabilita la connessione con RDP. Per specificare una shell alternativa, immetti un percorso valido di un file eseguibile per il valore, ad esempio "C:\Programmi\Office\word.exe". Questa impostazione determina anche il percorso o l'alias dell'applicazione remota da avviare in fase di connessione se l'opzione RemoteApplicationMode è abilitata. | "C:\Programmi\Office\word.exe" || x | x | x |
@@ -40,6 +40,7 @@ Per informazioni su come usare PowerShell per personalizzare le proprietà di RD
 | desktop size id:i:value | Specifica le dimensioni del desktop della sessione remota in base a un set di opzioni predefinite. Questa impostazione viene ignorata se è specificato il valore di desktopheight o desktopwidth.| -0: 640×480<br>- 1: 800×600<br>- 2: 1024×768<br>- 3: 1280×1024<br>- 4: 1600×1200 | 0 | x | x | x |
 | desktopheight:i:value | Determina l'altezza della risoluzione (espressa in pixel) nel computer remoto quando viene stabilita la connessione tramite Connessione Desktop remoto. Questa impostazione corrisponde alla selezione tramite il dispositivo di scorrimento Configurazione schermo nella scheda Schermo in Opzioni in Connessione Desktop remoto. | Valore numerico compreso tra 200 e 2048 | Il valore predefinito corrisponde alla risoluzione nel computer locale | x | x | x |
 | desktopwidth:i:value | Determina la larghezza della risoluzione (espressa in pixel) nel computer remoto quando viene stabilita la connessione tramite Connessione Desktop remoto. Questa impostazione corrisponde alla selezione tramite il dispositivo di scorrimento Configurazione schermo nella scheda Schermo in Opzioni in Connessione Desktop remoto. | Valore numerico compreso tra 200 e 4096 | Il valore predefinito corrisponde alla risoluzione nel computer locale | x | x | x |
+| devicestoredirect:s:value | Determina quali dispositivi nel computer client verranno reindirizzati e saranno disponibili nella sessione remota. | - *: Viene eseguito il reindirizzamento di tutti i dispositivi supportati, inclusi quelli che vengono connessi in un secondo momento<br> - ID hardware valido per uno o più dispositivi | | x | x | x |
 | disableconnectionsharing:i:value | Determina se il client Desktop remoto si riconnette a una connessione aperta esistente o avvia una nuova connessione quando viene avviato un desktop o un'istanza di RemoteApp | - 0: Viene eseguita la riconnessione a una sessione esistente<br>- 1: Viene avviata una nuova connessione | 0 | x | x | x |
 | domain:s:value | Specifica il nome del dominio in cui si trova l'account utente che verrà usato per accedere al computer remoto. | Un nome di dominio valido, ad esempio "CONTOSO" | Nessun valore predefinito | x | x | x |
 | drivestoredirect:s:value | Determina quali unità disco locali nel computer client verranno reindirizzate e saranno disponibili nella sessione remota. | - Nessun valore specificato: non viene reindirizzata alcuna unità<br>- *: Vengono reindirizzate tutte le unità disco, incluse quelle connesse in un secondo momento<br>- DynamicDrives: vengono reindirizzate tutte le unità connesse in un secondo momento<br>- Unità ed etichette per una o più unità, ad esempio "drivestoredirect:s:C:;E:;": vengono reindirizzate le unità specificate| Nessun valore specificato: non viene reindirizza alcuna unità | x | x    | |

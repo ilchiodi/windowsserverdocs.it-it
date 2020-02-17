@@ -1,6 +1,6 @@
 ---
 title: File batch di esempio della shell di rete (Netsh)
-description: È possibile usare questo argomento per informazioni su come creare un file batch che esegua più attività usando netsh in Windows Server 2016.
+description: Questo argomento fornisce informazioni su come creare un file batch che esegua più attività usando Netsh in Windows Server 2016.
 ms.prod: windows-server
 ms.technology: networking
 ms.topic: article
@@ -10,34 +10,34 @@ ms.author: pashort
 author: shortpatti
 ms.openlocfilehash: 86fbe66978f7c09a332bba16a27a13fa029cb5a6
 ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 09/27/2019
 ms.locfileid: "71401913"
 ---
-# <a name="network-shell-netsh-example-batch-file"></a>Shell di rete \(netsh\) file batch di esempio
+# <a name="network-shell-netsh-example-batch-file"></a>File batch di esempio della shell di rete \(Netsh\)
 
 Si applica a: Windows Server 2016
 
-È possibile usare questo argomento per informazioni su come creare un file batch che esegua più attività usando netsh in Windows Server 2016. In questo file batch di esempio viene usato il contesto **Netsh WINS** .
+Questo argomento fornisce informazioni su come creare un file batch che esegua più attività usando Netsh in Windows Server 2016. In questo file batch di esempio, viene usato il contesto **netsh wins**.
 
 ## <a name="example-batch-file-overview"></a>Panoramica del file batch di esempio
 
-È possibile utilizzare i comandi Netsh per Windows Internet Name Service \(WINS\) in file batch e altri script per automatizzare le attività. Nell'esempio di file batch riportato di seguito viene illustrato come utilizzare i comandi Netsh per WINS per eseguire una serie di attività correlate.
+È possibile usare comandi Netsh per Windows Internet Name Service \(WINS\) in file batch e altri script per automatizzare le attività. Nell'esempio di file batch seguente viene illustrato come usare comandi Netsh per WINS per eseguire una serie di attività correlate.
 
-In questo file batch di esempio, WINS\-A è un server WINS con l'indirizzo IP 192.168.125.30 e WINS\-B è un server WINS con indirizzo IP 192.168.0.189.
+In questo file batch di esempio, WINS\-A è un server WINS con indirizzo IP 192.168.125.30 e WINS\-B è un server WINS con indirizzo IP 192.168.0.189.
 
 Il file batch di esempio esegue le attività seguenti.
 
-- Aggiunge un record di nome dinamico con indirizzo IP 192.168.0.205, MY\_RECORD \[04h\], a WINS\-
+- Aggiunge un record di nome dinamico con indirizzo IP 192.168.0.205, MY\_RECORD \[04h\], a WINS\-A
 - Imposta WINS\-B come partner di replica push/pull di WINS\-A
 - Si connette a WINS\-B, quindi imposta WINS\-A come partner di replica push/pull di WINS\-B
-- Avvia una replica push da WINS\-a WINS\-B
-- Si connette a WINS\-B per verificare che il nuovo record, MY\_RECORD, è stato replicato correttamente
+- Avvia una replica push da WINS\-A a WINS\-B
+- Si connette a WINS\-B per verificare che il nuovo record, MY\_RECORD, sia stato replicato correttamente
 
-## <a name="netsh-example-batch-file"></a>File batch di esempio netsh
+## <a name="netsh-example-batch-file"></a>File batch di esempio di Netsh
 
-Nel file batch di esempio seguente, le righe contenenti commenti sono precedute da "REM" per il contrassegno. Netsh ignora i commenti.
+Nel file batch di esempio seguente, le righe contenenti commenti sono precedute da "rem", che sta per "remark" (contrassegno). Netsh ignora i commenti.
 
     rem: Begin example batch file.
     
@@ -69,14 +69,14 @@ Nel file batch di esempio seguente, le righe contenenti commenti sono precedute 
     
     rem 6. End example batch file.
 
-## <a name="netsh-wins-commands-used-in-the-example-batch-file"></a>Comandi Netsh WINS usati nel file batch di esempio
+## <a name="netsh-wins-commands-used-in-the-example-batch-file"></a>Comandi WINS di Netsh usati nel file batch di esempio
 
-Nella sezione seguente sono elencati i comandi **Netsh WINS** utilizzati in questa procedura di esempio.
+Nella sezione seguente sono elencati i comandi **netsh wins** usati in questa procedura di esempio.
 
-- **Server**. Sposta il comando WINS corrente\-contesto di riga al server specificato mediante il nome o l'indirizzo IP.
-- **aggiungere il nome**. Registra un nome nel server WINS.
-- **Aggiungi partner**. Aggiunge un partner di replica nel server WINS.
-- **push init**. Avvia e invia un trigger push a un server WINS.
-- **Mostra nome**. Visualizza informazioni dettagliate per un particolare record nel database del server WINS.  
+- **server**. Sposta il contesto della riga di comando WINS corrente sul server specificato tramite il nome o l'indirizzo IP.
+- **add name**. Registra un nome sul server WINS.
+- **add partner**. Aggiunge un partner di replica nel server WINS.
+- **init push**. Avvia e invia un trigger push a un server WINS.
+- **show name**. Visualizza informazioni dettagliate su un determinato record nel database del server WINS.  
 
-Per ulteriori informazioni, vedere la pagina relativa alla [Shell di rete (netsh)](netsh.md).
+Per altre informazioni, vedere [Shell di rete (Netsh)](netsh.md).

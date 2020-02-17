@@ -13,12 +13,12 @@ manager: lizross
 ms.author: helohr
 ms.date: 09/16/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 2195c3bafaa01a1b1c16c17889d5e04d7213a5b6
-ms.sourcegitcommit: 76469d1b7465800315eaca3e0c7f0438fc3939ed
+ms.openlocfilehash: c0a9f11aea9e24cc1a2bab275aae8dc0a81e9cba
+ms.sourcegitcommit: 07c9d4ea72528401314e2789e3bc2e688fc96001
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75919710"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76822362"
 ---
 # <a name="windows-desktop-client-for-admins"></a>Client desktop di Windows per amministratori
 
@@ -28,7 +28,7 @@ Questo argomento contiene informazioni aggiuntive sul client desktop di Windows 
 
 ## <a name="installation-options"></a>Opzioni di installazione
 
-Benché gli utenti possano installare il client direttamente dopo averlo scaricato, se esegui la distribuzione in più dispositivi, puoi distribuire il client anche in altri modi. La distribuzione tramite criteri di gruppo o System Center Configuration Manager ti consente di eseguire il programma di installazione in modo invisibile all'utente dalla riga di comando. Esegui questi comandi per distribuire il client per dispositivo o per utente.
+Benché gli utenti possano installare il client direttamente dopo averlo scaricato, se esegui la distribuzione in più dispositivi, puoi distribuire il client anche in altri modi. La distribuzione tramite criteri di gruppo o Microsoft Endpoint Configuration Manager consente di eseguire il programma di installazione in modo invisibile all'utente dalla riga di comando. Esegui questi comandi per distribuire il client per dispositivo o per utente.
 
 ### <a name="per-device-installation"></a>Installazione per dispositivo
 

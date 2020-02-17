@@ -12,12 +12,12 @@ ms.topic: article
 ms.assetid: 134aab85-664f-4d44-87ef-9e5fd389071f
 author: jaimeo
 ms.author: jaimeo
-ms.openlocfilehash: 64c0daa8ecc2d6b196d4305e3246dadeebf7075a
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: f4568e1781dbe385d8abe8a96f07841391506738
+ms.sourcegitcommit: 07c9d4ea72528401314e2789e3bc2e688fc96001
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75948347"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76822164"
 ---
 # <a name="release-notes-important-issues-in-windows-server-2016"></a>Note sulla versione: problemi importanti di Windows Server 2016
 
@@ -29,7 +29,7 @@ Questo documento viene continuamente aggiornato. Non appena vengono rilevati pro
 
 ## <a name="express-updates-available-starting-in-november-2018-new"></a>Aggiornamenti rapidi disponibili a partire da novembre 2018 (NUOVO)
 
-A partire dall'aggiornamento di novembre 2018 previsto per il secondo martedì del mese, Windows pubblicherà nuovamente [aggiornamenti rapidi](express-updates.md) per Windows Server 2016. Se usi Windows Server Update Services e System Center Configuration Manager (SCCM), noterai ancora una volta che sono disponibili due pacchetti per l'aggiornamento di Windows Server 2016: un aggiornamento completo e un aggiornamento rapido. Se vuoi usare l'aggiornamento rapido per gli ambienti server, devi verificare che il server abbia eseguito un aggiornamento completo a partire da novembre 2017 (KB 4048953) per avere la certezza che l'aggiornamento rapido venga installato correttamente. Se provi a eseguire un aggiornamento rapido in un server che non è stato aggiornato dopo l'aggiornamento 11B 2017 (KB 4048953), noterai errori ripetuti che comportano l'utilizzo di larghezza di banda e risorse della CPU in un ciclo infinito. Se si verifica questo scenario, arresta l'esecuzione dell'aggiornamento rapido ed esegui in alternativa un aggiornamento completo recente per interrompere il ciclo di errore.
+A partire dall'aggiornamento di novembre 2018 previsto per il secondo martedì del mese, Windows pubblicherà nuovamente [aggiornamenti rapidi](express-updates.md) per Windows Server 2016. Se usi Windows Server Update Services e Configuration Manager, noterai ancora una volta che sono disponibili due pacchetti per l'aggiornamento di Windows Server 2016: un aggiornamento completo e un aggiornamento rapido. Se vuoi usare l'aggiornamento rapido per gli ambienti server, devi verificare che il server abbia eseguito un aggiornamento completo a partire da novembre 2017 (KB 4048953) per avere la certezza che l'aggiornamento rapido venga installato correttamente. Se provi a eseguire un aggiornamento rapido in un server che non è stato aggiornato dopo l'aggiornamento 11B 2017 (KB 4048953), noterai errori ripetuti che comportano l'utilizzo di larghezza di banda e risorse della CPU in un ciclo infinito. Se si verifica questo scenario, arresta l'esecuzione dell'aggiornamento rapido ed esegui in alternativa un aggiornamento completo recente per interrompere il ciclo di errore.
 
 ## <a name="server-core-installation-option"></a>Opzione di installazione dei componenti di base del server
 

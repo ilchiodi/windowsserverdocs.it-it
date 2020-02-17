@@ -8,12 +8,12 @@ ms.date: 09/19/2019
 ms.topic: article
 author: Heidilohr
 ms.localizationpriority: medium
-ms.openlocfilehash: 864a15d7336abb56572ddc783ce41a35d6fc13bf
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: a8521eae302ade84904e3ba09c001eac21fffd6a
+ms.sourcegitcommit: f0fcfee992b76f1ad5dad460d4557f06ee425083
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75950414"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77125152"
 ---
 # <a name="set-up-the-remote-desktop-web-client-for-your-users"></a>Configurare il client Web Desktop remoto per gli utenti
 
@@ -170,10 +170,12 @@ Segui questa procedura per distribuire il client Web a un server Accesso Web Des
 
 Segui le istruzioni contenute in [Come pubblicare il client Web Desktop remoto](remote-desktop-web-client-admin.md#how-to-publish-the-remote-desktop-web-client), sostituendo i passaggi 4 e 5 con i seguenti.
 
-4. Importa il modulo PowerShell di gestione del client Web Desktop remoto dalla cartella locale:
-    ```PowerShell
-    Import-Module -Name "C:\WebClient\"
-    ```
+4. Puoi procedere in due modi per recuperare l'ultimo modulo PowerShell di gestione del client Web:
+    - Importando il modulo PowerShell di gestione del client Web Desktop remoto:
+      ```PowerShell
+      Import-Module -Name RDWebClientManagement
+      ```
+    - Copiando in una delle cartelle del modulo PowerShell locali elencate in **$env:psmodulePath** la cartella RDWebClientManagement scaricata oppure aggiungendo il percorso della cartella con i file scaricati a **$env:psmodulePath**.
 
 5. Distribuisci la versione più recente del client Web Desktop remoto dalla cartella locale (sostituisci con il file con estensione zip appropriato):
     ```PowerShell

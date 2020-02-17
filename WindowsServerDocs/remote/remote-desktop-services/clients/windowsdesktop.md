@@ -11,14 +11,14 @@ ms.topic: article
 author: heidilohr
 manager: lizross
 ms.author: helohr
-ms.date: 01/04/2019
+ms.date: 01/29/2020
 ms.localizationpriority: medium
-ms.openlocfilehash: ff5e2252a71f11f2488c6bdd872fe4e2de35519c
-ms.sourcegitcommit: 76469d1b7465800315eaca3e0c7f0438fc3939ed
+ms.openlocfilehash: 1753780474332a6d5786a5804fc1b4fe5e3d8883
+ms.sourcegitcommit: 9077469e372d2aafcad890cbc4e4a24c58a3838c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75919692"
+ms.lasthandoff: 01/30/2020
+ms.locfileid: "76889435"
 ---
 # <a name="get-started-with-the-windows-desktop-client"></a>Introduzione al client desktop di Windows
 
@@ -103,17 +103,14 @@ Le aree di lavoro possono contenere più risorse gestite, inclusi i desktop. Qua
 
 ### <a name="desktop-settings"></a>Impostazioni del desktop
 
-Puoi configurare alcune impostazioni per le risorse desktop per assicurarti che l'esperienza soddisfi le tue esigenze. Per accedere all'elenco delle impostazioni disponibili:
-
-1. In Centro connessioni fai clic con il pulsante destro del mouse su una risorsa desktop.
-2. Scegli **Impostazioni** dal menu a discesa.
-3. Sul lato destro del client verrà visualizzato il pannello Impostazioni, in cui sarà visibile il nome del desktop.
+Puoi configurare alcune impostazioni per le risorse desktop per assicurarti che l'esperienza soddisfi le tue esigenze. Per accedere all'elenco delle impostazioni disponibili, fare clic con il pulsante destro del mouse sulla risorsa desktop e scegliere **Impostazioni**.
 
 Il client userà le impostazioni configurate dall'amministratore, a meno che tu non disattivi l'opzione **Usa impostazioni predefinite**. In tal caso potrai configurare le opzioni seguenti:
 
-- **Usa tutti i monitor** ti consente di passare per la sessione desktop dall'uso di tutti i monitor locali disponibili all'uso di un solo monitor e viceversa.
-- **Avvia in modalità schermo intero** determina se la sessione verrà avviata a schermo intero o in modalità finestra. Questa impostazione viene abilitata automaticamente quando vengono usati tutti i monitor.
-- **Update the resolution on resize** (Aggiorna la risoluzione in caso di ridimensionamento) modifica il comportamento quando ridimensioni la sessione in modalità finestra. Se questa impostazione è abilitata, la risoluzione del desktop remoto verrà aggiornata in modo da ottenere la corrispondenza con le dimensioni della finestra locale. Se l'impostazione è disabilitata, per l'intera durata della sessione verrà mantenuta la risoluzione specificata in **Risoluzione**. Questa impostazione viene abilitata automaticamente quando vengono usati tutti i monitor.
+- **Use multiple displays** (Usa più schermi) consente di cambiare la sessione desktop in modo da usare uno o più schermi.
+- **Select the displays to use for the session** (Seleziona gli schermi da usare nella sessione) consente di specificare quali schermi locali usare per la sessione. Tutti gli schermi selezionati devono essere adiacenti tra loro. Questa impostazione viene disabilitata automaticamente quando si usa un unico schermo.
+- **Avvia in modalità schermo intero** determina se la sessione verrà avviata a schermo intero o in modalità finestra. Questa impostazione viene abilitata automaticamente quando si usano più schermi.
+- **Update the resolution on resize** (Aggiorna la risoluzione in caso di ridimensionamento) consente di aggiornare automaticamente la risoluzione del desktop remoto quando si ridimensiona la sessione in modalità finestra. Se questa impostazione viene disabilitata, la sessione rimane sempre alla risoluzione specificata in **Risoluzione**. Questa impostazione viene abilitata automaticamente quando si usano più schermi.
 - **Risoluzione** ti consente di specificare la risoluzione del desktop remoto. Tale risoluzione verrà mantenuta per l'intera durata della sessione. Questa impostazione viene disabilitata automaticamente se la risoluzione è impostata sull'aggiornamento in caso di ridimensionamento.
 - **Change the size of the text and apps** (Cambia le dimensioni di testo e app) specifica le dimensioni del contenuto della sessione. Questa impostazione si applica solo in caso di connessione a Windows 8.1 e versioni successive oppure a Windows Server 2012 R2 e versioni successive. Questa impostazione viene disabilitata automaticamente se la risoluzione è impostata sull'aggiornamento in caso di ridimensionamento.
 - **Fit session to window** (Adatta la sessione alla finestra) determina la modalità di visualizzazione della sessione quando la risoluzione del desktop remoto non corrisponde alle dimensioni della finestra locale. Se questa impostazione è abilitata, il contenuto della sessione verrà ridimensionato in modo da entrare nella finestra mantenendo comunque le proporzioni della sessione. Se è disabilitata, verranno visualizzate barre di scorrimento o aree nere quando la risoluzione e le dimensioni della finestra non corrispondono.

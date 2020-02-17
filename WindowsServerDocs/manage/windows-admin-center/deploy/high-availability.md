@@ -1,6 +1,6 @@
 ---
-title: Distribuire l'interfaccia di amministrazione di Windows con disponibilità elevata
-description: Distribuire l'interfaccia di amministrazione di Windows con disponibilità elevata (progetto Honolulu)
+title: Distribuire Windows Admin Center con disponibilità elevata
+description: Distribuire Windows Admin Center con disponibilità elevata (Project Honolulu)
 ms.technology: manage
 ms.topic: article
 author: jwwool
@@ -14,47 +14,47 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 09/27/2019
 ms.locfileid: "71406947"
 ---
-# <a name="deploy-windows-admin-center-with-high-availability"></a>Distribuire l'interfaccia di amministrazione di Windows con disponibilità elevata
+# <a name="deploy-windows-admin-center-with-high-availability"></a>Distribuire Windows Admin Center con disponibilità elevata
 
 >Si applica a: Windows Admin Center, Windows Admin Center Preview
 
-È possibile distribuire l'interfaccia di amministrazione di Windows in un cluster di failover per garantire una disponibilità elevata per il servizio gateway dell'interfaccia di amministrazione di Windows. La soluzione fornita è una soluzione attiva-passiva, in cui è attiva una sola istanza di centro di amministrazione di Windows. Se si verifica un errore in uno dei nodi del cluster, l'interfaccia di amministrazione di Windows esegue correttamente il failover su un altro nodo, consentendo di continuare a gestire i server nell'ambiente in modo uniforme. 
+Puoi distribuire Windows Admin Center in un cluster di failover per garantire disponibilità elevata per il servizio gateway di Windows Admin Center. La soluzione fornita è una soluzione attiva-passiva, in cui è attiva una sola istanza di Windows Admin Center. Se si verifica un errore in uno dei nodi del cluster, Windows Admin Center esegue normalmente il failover su un altro nodo, consentendoti di continuare a gestire i server nell'ambiente senza interruzioni. 
 
-[Informazioni sulle altre opzioni di distribuzione di Windows Admin Center.](../plan/installation-options.md)
+[Ottieni informazioni sulle altre opzioni di distribuzione di Windows Admin Center.](../plan/installation-options.md)
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- Un cluster di failover di due o più nodi in Windows Server 2016 o 2019. Ulteriori informazioni [sulla distribuzione di un cluster di failover](../../../failover-clustering/failover-clustering-overview.md).
-- Un volume condiviso cluster per l'interfaccia di amministrazione di Windows per archiviare i dati persistenti a cui è possibile accedere da tutti i nodi del cluster. 10 GB saranno sufficienti per il volume condiviso cluster.
-- Script di distribuzione a disponibilità elevata dal [file zip del centro di amministrazione di Windows](https://aka.ms/WACHAScript). Scaricare il file zip contenente lo script nel computer locale, quindi copiare lo script in base alle indicazioni riportate di seguito.
-- Consigliato, ma facoltativo: un certificato firmato. pfx & password. Non è necessario avere già installato il certificato nei nodi del cluster. lo script eseguirà questa operazione. Se non ne viene fornito uno, lo script di installazione genera un certificato autofirmato che scade dopo 60 giorni.
+- Un cluster di failover di due o più nodi in Windows Server 2016 o 2019. [Ottieni altre informazioni sulla distribuzione di un cluster di failover](../../../failover-clustering/failover-clustering-overview.md).
+- Un volume condiviso cluster per Windows Admin Center per archiviare i dati permanenti a cui è possibile accedere da tutti i nodi del cluster. 10 GB saranno sufficienti per il volume condiviso cluster.
+- Script di distribuzione a disponibilità elevata disponibile nel [file zip dello script di disponibilità elevata di Windows Admin Center](https://aka.ms/WACHAScript). Scarica nel computer locale il file zip contenente lo script e quindi copia lo script in base alle tue esigenze seguendo le indicazioni riportate di seguito.
+- Consigliato, ma facoltativo: un certificato firmato con estensione pfx e una password. Non è necessario che il certificato sia già installato nei nodi del cluster. Lo script eseguirà questa operazione. Se non fornisci un certificato firmato, lo script di installazione genera un certificato autofirmato che scade dopo 60 giorni.
 
-## <a name="install-windows-admin-center-on-a-failover-cluster"></a>Installare l'interfaccia di amministrazione di Windows in un cluster di failover
+## <a name="install-windows-admin-center-on-a-failover-cluster"></a>Installare Windows Admin Center in un cluster di failover
 
-1. Copiare lo script di ```Install-WindowsAdminCenterHA.ps1``` in un nodo del cluster. Scaricare o copiare il file con estensione msi di Windows Admin Center nello stesso nodo.
-2. Connettersi al nodo tramite RDP ed eseguire lo script ```Install-WindowsAdminCenterHA.ps1``` da tale nodo con i parametri seguenti:
-    - `-clusterStorage`: percorso locale della Volume condiviso cluster per archiviare i dati dell'interfaccia di amministrazione di Windows.
-    - `-clientAccessPoint`: scegliere un nome che si userà per accedere all'interfaccia di amministrazione di Windows. Se, ad esempio, si esegue lo script con il parametro `-clientAccessPoint contosoWindowsAdminCenter`, sarà possibile accedere al servizio Windows Admin Center visitando `https://contosoWindowsAdminCenter.<domain>.com`
-    - `-staticAddress`: facoltativo. Uno o più indirizzi statici per il servizio generico cluster. 
-    - `-msiPath`: il percorso del file con estensione msi di Windows Admin Center.
-    - `-certPath`: facoltativo. Percorso di un file con estensione pfx del certificato.
-    - `-certPassword`: facoltativo. Una password SecureString per il certificato. pfx fornito in `-certPath`
-    - `-generateSslCert`: facoltativo. Se non si desidera fornire un certificato firmato, includere questo flag di parametro per generare un certificato autofirmato. Si noti che il certificato autofirmato scadrà tra 60 giorni.
-    - `-portNumber`: facoltativo. Se non si specifica una porta, il servizio gateway viene distribuito sulla porta 443 (HTTPS). Per usare una porta diversa, specificare in questo parametro. Si noti che se si usa una porta personalizzata, ad eccezione di 443, sarà possibile accedere all'interfaccia di amministrazione di Windows passando a https://\<clientAccessPoint\>:\<porta\>.
+1. Copia lo script ```Install-WindowsAdminCenterHA.ps1``` in un nodo del cluster. Scarica o copia il file con estensione msi di Windows Admin Center nello stesso nodo.
+2. Connettiti al nodo tramite RDP ed esegui lo script ```Install-WindowsAdminCenterHA.ps1``` da tale nodo con i parametri seguenti:
+    - `-clusterStorage`: percorso locale del volume condiviso cluster per archiviare i dati di Windows Admin Center.
+    - `-clientAccessPoint`: scegli un nome che userai per accedere a Windows Admin Center. Se ad esempio esegui lo script con il parametro `-clientAccessPoint contosoWindowsAdminCenter`, potrai accedere al servizio Windows Admin Center visitando `https://contosoWindowsAdminCenter.<domain>.com`
+    - `-staticAddress`: Facoltativo. Uno o più indirizzi statici per il servizio cluster generico. 
+    - `-msiPath`: percorso del file msi di Windows Admin Center.
+    - `-certPath`: Facoltativo. Percorso di un file pfx di certificato.
+    - `-certPassword`: Facoltativo. Password SecureString per il file pfx di certificato fornito in `-certPath`
+    - `-generateSslCert`: Facoltativo. Se non vuoi fornire un certificato firmato, includi questo flag di parametro per generare un certificato autofirmato. Tieni presente che il certificato autofirmato scadrà dopo 60 giorni.
+    - `-portNumber`: Facoltativo. Se non specifichi una porta, il servizio gateway viene distribuito sulla porta 443 (HTTPS). Per usare una porta diversa, specifica questo parametro. Tieni presente che se usi una porta personalizzata (una qualsiasi ad eccezione della porta 443), potrai accedere a Windows Admin Center da https://\<puntoAccessoClient\>:\<porta\>.
 
 > [!NOTE]
 > Lo script ```Install-WindowsAdminCenterHA.ps1``` supporta i parametri ```-WhatIf ``` e ```-Verbose```
 
 ### <a name="examples"></a>Esempi
 
-#### <a name="install-with-a-signed-certificate"></a>Eseguire l'installazione con un certificato firmato:
+#### <a name="install-with-a-signed-certificate"></a>Installazione con un certificato firmato:
 
 ```powershell
 $certPassword = Read-Host -AsSecureString
 .\Install-WindowsAdminCenterHA.ps1 -clusterStorage "C:\ClusterStorage\Volume1" -clientAccessPoint "contoso-ha-gateway" -msiPath ".\WindowsAdminCenter.msi" -certPath "cert.pfx" -certPassword $certPassword -Verbose
 ```
 
-#### <a name="install-with-a-self-signed-certificate"></a>Eseguire l'installazione con un certificato autofirmato:
+#### <a name="install-with-a-self-signed-certificate"></a>Installazione con un certificato autofirmato:
 
 ```powershell
 .\Install-WindowsAdminCenterHA.ps1 -clusterStorage "C:\ClusterStorage\Volume1" -clientAccessPoint "contoso-ha-gateway" -msiPath ".\WindowsAdminCenter.msi" -generateSslCert -Verbose
@@ -62,26 +62,26 @@ $certPassword = Read-Host -AsSecureString
 
 ## <a name="update-an-existing-high-availability-installation"></a>Aggiornare un'installazione a disponibilità elevata esistente
 
-Usare lo stesso script di ```Install-WindowsAdminCenterHA.ps1``` per aggiornare la distribuzione a disponibilità elevata, senza perdere i dati di connessione.
+Usa lo stesso script ```Install-WindowsAdminCenterHA.ps1``` per aggiornare la distribuzione a disponibilità elevata, senza perdere i dati di connessione.
 
-### <a name="update-to-a-new-version-of-windows-admin-center"></a>Eseguire l'aggiornamento a una nuova versione dell'interfaccia di amministrazione di Windows
+### <a name="update-to-a-new-version-of-windows-admin-center"></a>Eseguire l'aggiornamento a una nuova versione di Windows Admin Center
 
-Quando viene rilasciata una nuova versione dell'interfaccia di amministrazione di Windows, è sufficiente eseguire di nuovo lo script di ```Install-WindowsAdminCenterHA.ps1``` con il parametro ```msiPath```:
+Quando viene rilasciata una nuova versione di Windows Admin Center, è sufficiente eseguire di nuovo lo script ```Install-WindowsAdminCenterHA.ps1``` con il parametro ```msiPath```:
 
 ```powershell
 .\Install-WindowsAdminCenterHA.ps1 -msiPath '.\WindowsAdminCenter.msi' -Verbose
 ```
 
-### <a name="update-the-certificate-used-by-windows-admin-center"></a>Aggiornare il certificato usato dall'interfaccia di amministrazione di Windows
+### <a name="update-the-certificate-used-by-windows-admin-center"></a>Aggiornare il certificato usato da Windows Admin Center
 
-È possibile aggiornare il certificato usato da una distribuzione a disponibilità elevata dell'interfaccia di amministrazione di Windows in qualsiasi momento fornendo il file PFX e la password del nuovo certificato.
+Puoi aggiornare il certificato usato da una distribuzione a disponibilità elevata di Windows Admin Center in qualsiasi momento fornendo il file pfx e la password del nuovo certificato.
 
 ```powershell
 $certPassword = Read-Host -AsSecureString
 .\Install-WindowsAdminCenterHA.ps1 -certPath "cert.pfx" -certPassword $certPassword -Verbose
 ```
 
-È anche possibile aggiornare il certificato nello stesso momento in cui si aggiorna la piattaforma Windows Admin Center con un nuovo file con estensione msi.
+Puoi aggiornare il certificato anche mentre aggiorni la piattaforma Windows Admin Center con un nuovo file msi.
 
 ```powershell
 $certPassword = Read-Host -AsSecureString
@@ -90,7 +90,7 @@ $certPassword = Read-Host -AsSecureString
 
 ## <a name="uninstall"></a>Disinstallazione
 
-Per disinstallare la distribuzione a disponibilità elevata di Windows Admin Center dal cluster di failover, passare il parametro ```-Uninstall``` allo script ```Install-WindowsAdminCenterHA.ps1```.
+Per disinstallare dal cluster di failover la distribuzione a disponibilità elevata di Windows Admin Center, passa il parametro ```-Uninstall``` allo script ```Install-WindowsAdminCenterHA.ps1```.
 
 ```powershell
 .\Install-WindowsAdminCenterHA.ps1 -Uninstall -Verbose
@@ -98,4 +98,4 @@ Per disinstallare la distribuzione a disponibilità elevata di Windows Admin Cen
 
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
 
-I log vengono salvati nella cartella temporanea del volume condiviso cluster (ad esempio, C:\ClusterStorage\Volume1\temp).
+I log vengono salvati nella cartella temporanea del volume condiviso cluster, ad esempio C:\ClusterStorage\Volume1\temp.

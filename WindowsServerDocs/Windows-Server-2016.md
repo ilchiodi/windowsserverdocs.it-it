@@ -2,51 +2,58 @@
 redirect_url: /windows-server/windows-server
 ms.openlocfilehash: 9ef5565af748b4dd592e71ec4bd34a2be58003d9
 ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/14/2020
 ms.locfileid: "75947289"
 ---
-# <a name="windows-server-2016"></a>Windows Server 2016
+# <a name="windows-server-2016"></a>Windows Server 2016
 
 Questa raccolta include informazioni destinate ai professionisti IT per valutare, pianificare, distribuire, proteggere e gestire Windows Server 2016.
 
 > [!Note] 
 > La versione successiva di Windows Server sta cambiando. È possibile trovare informazioni dettagliate sulle novità all'orizzonte visitando [Panoramica del Canale semestrale di Windows Server](./get-started/semi-annual-channel-overview.md). 
 
-[Video sulla Panoramica di ![Windows Server 2016](media/front-page-video.png)](https://www.youtube-nocookie.com/embed/V8oF0JpDzaM)
+[![Video introduttivo su Windows Server 2016](media/front-page-video.png)](https://www.youtube-nocookie.com/embed/V8oF0JpDzaM)
 
 <table border="0" width="100%" align='center'>
   <tr style="text-align:center;">
     <td align='center' style="width:25%; border:0;">
-      <a href="/windows-server/get-started/what-s-new-in-windows-server-2016">&lt;IMG Height = 145 src =&quot;media/Whats-New-Highlight. png&quot; Alt =&quot;&#39;icona nuova&quot; title =&quot;novità di Windows Server 16?&quot;</a> /&gt;
-        <br/>&#39;Novità
+      <a href="/windows-server/get-started/what-s-new-in-windows-server-2016"> &lt;img height=145 src=&quot;media/whats-new-highlight.png&quot; alt=&quot;Icona Novità&quot; title=&quot;Novità di Windows Server 16?&quot;/&gt;</a>
+        <br/>Novità
     </td>
     <td align='center' style="width:25%; border:0;">
-      <a href="/windows-server/get-started/server-basics">&lt;IMG Height = 145 src =&quot;media/1-getstarted. png&quot; Alt =&quot;icona introduttiva&quot; title =&quot;Introduzione a Windows Server 16&quot;</a>  /&gt;<br/>Per iniziare </td>
+      <a href="/windows-server/get-started/server-basics"> &lt;img height=145 src=&quot;media/1-getstarted.png&quot; alt=&quot;Icona Informazioni di base&quot; title=&quot;Informazioni di base su Windows Server 16&quot; /&gt;</a>
+      <br/>Operazioni preliminari </td>
     <td align='center' style="width:25%; border:0;">
-      <a href="/windows-server/administration/index">&lt;IMG Height = 145 src =&quot;media/8-Management. png&quot; Alt =&quot;amministrare l'icona&quot; title =&quot;amministrare Windows Server&quot;</a>  /&gt;
-      <br/>Amministra </td>
+      <a href="/windows-server/administration/index"> &lt;img height=145 src=&quot;media/8-management.png&quot; alt=&quot;Icona Amministrare&quot; title=&quot;Amministrare Windows Server&quot; /&gt;</a>
+      <br/>Amministrare </td>
     <td align='center' style="width:25%; border:0;">
-      <a href="/windows-server/failover-clustering/failover-clustering-overview">&lt;IMG Height = 145 src =&quot;media/3-failover. png&quot; Alt =&quot;icona clustering di failover&quot; title =&quot;Windows Server failover clustering</a>&quot; /&gt;<br/>Clustering di failover </td>
+      <a href="/windows-server/failover-clustering/failover-clustering-overview"> &lt;img height=145 src=&quot;media/3-failover.png&quot; alt=&quot;Icona Clustering di failover&quot; title=&quot;Clustering di failover di Windows Server&quot; /&gt;</a>
+      <br/>Clustering di failover </td>
   </tr>
   <tr style="text-align:center;">
     <td align='center' style="width:25%; border:0;"><br/>
-      <a href="/windows-server/identity/identity-and-access">&lt;IMG Height = 145 src =&quot;media/4-Identity. png&quot; Alt =&quot;Identity and Access icon&quot; title =&quot;Windows Server Identity and access&quot;</a>  /&gt;<br>Identità e accesso </td>
+      <a href="/windows-server/identity/identity-and-access"> &lt;img height=145 src=&quot;media/4-identity.png&quot; alt=&quot;Icona Identità e accesso&quot; title=&quot;Identità e accesso in Windows Server&quot; /&gt;</a>
+      <br>Identità e accesso </td>
     <td align='center' style="width:25%; border:0;"><br/>
-      <a href="/windows-server/networking/networking">&lt;IMG Height = 145 src =&quot;media/6-networking. png&quot; Alt =&quot;rete&quot; title =&quot;Windows Server Networking</a>&quot; /&gt;<br/>Funzionalità di rete di </td>
+      <a href="/windows-server/networking/networking"> &lt;img height=145 src=&quot;media/6-networking.png&quot; alt=&quot;Icona Funzionalità di rete&quot; title=&quot;Funzionalità di rete in Windows Server&quot; /&gt; </a>
+      <br/>Funzionalità di rete </td>
     <td align='center' style="width:25%; border:0;"><br/>
-      <a href="/windows-server/remote/index">&lt;IMG Height = 145 src =&quot;Media/Remote. png&quot; Alt =&quot;icona remota&quot; title =&quot;accesso remoto e gestione server&quot;</a>  /&gt;
+      <a href="/windows-server/remote/index"> &lt;img height=145 src=&quot;media/remote.png&quot; alt=&quot;Icona Remoto&quot; title=&quot;Gestione di accesso remoto e server&quot; /&gt; </a>
       <br/>Accesso remoto </td>
     <td align='center' style="width:25%; border:0;"><br/>
-      <a href="/windows-server/security/security-and-assurance">&lt;IMG Height = 145 src =&quot;media/5-Security. png&quot; Alt =&quot;Security icon&quot; title =&quot;Windows Server Security and Assurance</a>&quot; /&gt;<br/>Sicurezza e controllo </td>
+      <a href="/windows-server/security/security-and-assurance"> &lt;img height=145 src=&quot;media/5-security.png&quot; alt=&quot;Icona Sicurezza&quot; title=&quot;Sicurezza e controllo in Windows Server&quot; /&gt; </a>
+      <br/>Sicurezza e controllo </td>
   </tr>
   <tr style="text-align:center;">
     <td align='center' style="width:25%; border:0;">&nbsp;</td>
     <td align='center' style="width:25%; border:0;"><br>
-      <a href="/windows-server/storage/storage">&lt;IMG Height = 145 src =&quot;media/7-storage. png&quot; Alt =&quot;storage icon&quot; title =&quot;Windows Server Storage</a>&quot; /&gt;<br/>Archiviazione: </td>
+      <a href="/windows-server/storage/storage"> &lt;img height=145 src=&quot;media/7-storage.png&quot; alt=&quot;Icona Archiviazione&quot; title=&quot;Archiviazione in Windows Server&quot; /&gt; </a>
+      <br/>Archiviazione: </td>
    <td align='center' style="width:25%; border:0;"><br/>
-      <a href="/windows-server/virtualization/virtualization">&lt;IMG Height = 145 src =&quot;media/Virtualization. png&quot; Alt =&quot;Virtualization icon&quot; title =&quot;Windows Server Virtualization</a>&quot; /&gt;<br/>Virtualizzazione </td>
+      <a href="/windows-server/virtualization/virtualization"> &lt;img height=145 src=&quot;media/virtualization.png&quot; alt=&quot;Icona Virtualizzazione&quot; title=&quot;Virtualizzazione di Windows Server&quot; /&gt;</a>
+      <br/>Virtualizzazione </td>
     <td align='center' style="width:25%; border:0;">[https://blogs.technet.microsoft.com/askperf/2008/11/18/disabling-unnecessary-services-a-word-to-the-wise/](&nbsp;) </td>
   </tr>
 </table>
@@ -68,7 +75,7 @@ Windows Server 2016 è disponibile nelle edizioni Standard, Datacenter ed Essent
 |Contenitori di Windows Server|Illimitati|   Illimitati|
 |Servizio Sorveglianza host| sì| sì|
 |Opzione di installazione Nano Server| sì| sì|
-|Funzionalità di archiviazione inclusi Spazi di archiviazione diretta e Replica archiviazione| sì| no|
+|Funzionalità di archiviazione inclusi Spazi di archiviazione diretta e Replica di archiviazione| sì| no|
 |Macchine virtuali schermate| sì| no|
 |Infrastruttura di rete software-defined (Controller di rete, Bilanciamento del carico software e Gateway multi-tenant)| sì| no|
 
@@ -78,24 +85,24 @@ Per altre informazioni, vedere [Pricing and licensing for Windows Server 2016](h
 
 Entrambe le edizioni Standard e Datacenter offrono tre opzioni di installazione:
 
-- **Server Core:** riduce lo spazio su disco necessario, la potenziale superficie di attacco e soprattutto i requisiti di manutenzione. Questa è l'opzione **consigliata** a meno che non si abbia una particolare necessità di elementi dell'interfaccia utente e strumenti di gestione grafica aggiuntivi.
-- **Server con Esperienza desktop:** installa l'interfaccia utente standard e tutti gli strumenti, comprese le funzionalità client che richiedevano un'installazione separata in Windows Server 2012 R2. I ruoli server e le funzionalità vengono installati con Server Manager o per mezzo di altri metodi.
-- **Nano Server:** è un sistema operativo server amministrato da postazione remota e ottimizzato per centri dati e cloud privati. È simile a Windows Server in modalità Server Core, ma notevolmente più piccolo, non dispone di alcuna funzionalità di accesso locale e supporta solo agenti, strumenti e applicazioni a 64 bit. Occupa molto meno spazio su disco, viene configurato molto più velocemente e richiede meno operazioni di aggiornamento e riavvio rispetto alle altre opzioni di installazione.
+- **Server Core:** riduce lo spazio su disco necessario, la superficie soggetta a possibili attacchi e soprattutto i requisiti di manutenzione. Questa è l'opzione **consigliata** a meno che non si abbia una particolare necessità di elementi dell'interfaccia utente e strumenti di gestione grafica aggiuntivi.
+- **Server con Esperienza desktop:** installa l'interfaccia utente standard e tutti gli strumenti, comprese le funzionalità client che richiedevano un'installazione separata in Windows Server 2012 R2. I ruoli server e le funzionalità vengono installato con Server Manager o per mezzo di altri metodi.
+- **Nano Server:** è un sistema operativo server amministrato da postazione remota e ottimizzato per data center e cloud privati. È simile a Windows Server in modalità Server Core, ma notevolmente più piccolo, non dispone di funzionalità di accesso locale e supporta solo agenti, strumenti e applicazioni a 64 bit. Occupa molto meno spazio su disco, viene configurato molto più velocemente e richiede meno operazioni di aggiornamento e riavvio rispetto alle altre opzioni di installazione.
 
 >[!Note]
 > Diversamente da alcune versioni precedenti di Windows Server, non puoi eseguire la conversione tra Server Core e la versione Server con Esperienza desktop dopo l'installazione. Ad esempio, se installi Server Core e successivamente decidi di usare la versione Server con Esperienza desktop, devi eseguire un'installazione pulita (e viceversa).
 
 
-Una volta identificate l'edizione e l'opzione di installazione adatte alle tue esigenze, fai clic di seguito per iniziare a usare Windows Server 2016.
+Una volta identificate l'edizione e l'opzione di installazione adatte alle proprie esigenze, fare clic di seguito per iniziare a usare Windows Server 2016.
 <br/>
 <br/>
 
 <table border="0" width="100%" align='center'>
   <tr style="text-align:center;">
     <td align='center' style="width:33%; border:0;">
-      <a  href="/windows-server/get-started/getting-started-with-nano-server"> <img width="175" src="media/nano.png" alt="Icon representing Nano server" title="Nano Server - Più leggero" /><br/>Nano Server - <br/>Peso più chiaro</a>
+      <a  href="/windows-server/get-started/getting-started-with-nano-server"> <img width="175" src="media/nano.png" alt="Icon representing Nano server" title="Nano Server - Più leggero" /><br/>Nano Server - <br/>Più leggero</a>
     </td>
-    <td align='center' style="width:33%; border:0;"><a href="/windows-server/get-started/getting-started-with-server-core"> <img width="175" src="media/servercore.png" alt="Icon representing the Server Core installation" title="Server Core - Consigliato" /><br/>Server Core - <br/></a> consigliata</td>
+    <td align='center' style="width:33%; border:0;"><a href="/windows-server/get-started/getting-started-with-server-core"> <img width="175" src="media/servercore.png" alt="Icon representing the Server Core installation" title="Server Core - Consigliato" /><br/>Server Core - <br/>Consigliato</a></td>
    <td align='center' style="width:33%; border:0;"><a href="/windows-server/get-started/getting-started-with-server-with-desktop-experience"><img width="175" src="media/desktop.png" alt="Icon representing the full desktop experience installation option for Windows Server" title="Esperienza desktop - Esperienza completa" /><br/>Esperienza desktop - <br/>Interfaccia completa</a></td>
   </tr>
 </table>
@@ -109,7 +116,7 @@ Le tecnologie virtualizzate di archiviazione, rete, sicurezza e gestione sono le
 <table border="0" width="100%" align='center'>
   <tr style="text-align:center;">
     <td align='center' style="width:10%; border:0;"></td>
-    <td align='center' style="width:50%; border:0;"><a href="/windows-server/sddc"><img width="400" src="media/sddc/WS16-heading.png" alt="Icon representing SDDC" title="Data center software-defined per Windows Server (SDDC)" /><br/></a> di Windows Server defined datacenter (SDDC)</td>
+    <td align='center' style="width:50%; border:0;"><a href="/windows-server/sddc"><img width="400" src="media/sddc/WS16-heading.png" alt="Icon representing SDDC" title="Data center software-defined per Windows Server (SDDC)" /><br/>Data center software-defined per Windows Server (SDDC)</a></td>
     <td align='center' style="width:10%; border:0;"></td>
   </tr>
 </table>

@@ -1,6 +1,6 @@
 ---
 title: Connessione macchina virtuale Hyper-V
-description: Descrive Virtual Machine Connection, che consente l'accesso remoto a una macchina virtuale. Include informazioni dettagliate su come eseguire attività comuni, ad esempio l'invio di CTRL + ALT + CANC alla macchina virtuale.
+description: Descrive lo strumento Connessione macchina virtuale, che consente l'accesso remoto a una macchina virtuale. Include informazioni dettagliate su come eseguire attività comuni, ad esempio l'invio di CTRL+ALT+CANC alla macchina virtuale.
 ms.custom: na
 ms.prod: windows-server
 ms.reviewer: na
@@ -15,7 +15,7 @@ ms.author: kathydav
 ms.date: 10/04/2016
 ms.openlocfilehash: fba83d22d9e5d9f31a5809781aa04943cc4cd3af
 ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 09/27/2019
 ms.locfileid: "71364148"
@@ -24,52 +24,52 @@ ms.locfileid: "71364148"
 
 >Si applica a: Windows Server 2016, Windows 10, Windows 8.1, Windows Server 2012 R2, Windows Server 2012, Windows 8
 
-Virtual Machine Connection \(VMConnect\) è uno strumento usato per connettersi a una macchina virtuale in modo da poter installare o interagire con il sistema operativo guest in una macchina virtuale. Di seguito sono riportate alcune delle attività che è possibile eseguire con VMConnect:  
+Connessione macchina virtuale \(VMConnect\) è uno strumento che puoi usare per connetterti a una macchina virtuale per l'installazione o l'interazione con il sistema operativo guest in una macchina virtuale. Tramite Connessione macchina virtuale puoi eseguire alcune attività, incluse le seguenti:  
   
 -   Avviare e arrestare una macchina virtuale  
   
--   Connettersi a un file \(\) con estensione ISO immagine DVD o un'unità flash USB  
+-   Connetterti a un'immagine DVD \(file con estensione iso\) o a un'unità flash USB  
   
 -   Creazione di un checkpoint  
   
 -   Modificare le impostazioni di una macchina virtuale  
     
 ## <a name="tips-for-using-vmconnect"></a>Suggerimenti per l'uso di VMConnect  
-Per l'uso di VMConnect, è possibile che siano disponibili le informazioni seguenti:  
+Le informazioni riportate di seguito possono risultare utili per l'uso di VMConnect:  
   
-|Per eseguire questa operazione...|Eseguire questa operazione...|  
+|Per eseguire questa operazione…|Procedi come segue…|  
 |---------------|------------|  
-|Inviare i clic del mouse o l'input da tastiera alla macchina virtuale|Fare clic in un punto qualsiasi della finestra della macchina virtuale. Il puntatore del mouse può apparire come un piccolo punto quando ci si connette a una macchina virtuale in esecuzione.|  
-|Restituire i clic del mouse o l'input da tastiera per il computer fisico|Premere CTRL\+ALT\+freccia sinistra, quindi spostare il puntatore del mouse all'esterno della finestra della macchina virtuale. Questa combinazione di tasti di rilascio del mouse può essere modificata\-nelle impostazioni di Hyper\-v nella console di gestione di Hyper-v.|  
-|Inviare la\+combinazione\+di tasti Ctrl Alt Delete a una macchina virtuale|Selezionare **azione** > \+\+**CTRLALTCANC\+o usare la combinazione di tasti CTRL ALT fine.\+**|  
-|Passare da una modalità finestra a una modalità\-schermo intero|Selezionare **Visualizza** > **modalità schermo intero**. Per tornare alla modalità finestra, premere CTRL\+ALT\+INTERR.|  
-|Creare un checkpoint per acquisire lo stato corrente del computer per la risoluzione dei problemi|Selezionare > **Checkpoint** azione oppure usare la combinazione di tasti\+CTRL N.|  
-|Modificare le impostazioni della macchina virtuale|Selezionare**Impostazioni** **file** > .|  
-|Connettersi a un file \(\) con estensione ISO immagine DVD o a un file \(con estensione VFD del disco floppy virtuale\)|Selezionare **supporto**.<br /><br />I dischi floppy virtuali non sono supportati per le macchine virtuali di seconda generazione. Per ulteriori informazioni, vedere la pagina relativa alla [creazione di una macchina virtuale di prima o seconda generazione in Hyper-V](../plan/Should-I-create-a-generation-1-or-2-virtual-machine-in-Hyper-V.md).|  
-|Usare le risorse locali di un host nella\-macchina virtuale Hyper-V, ad esempio un'unità flash USB|Attivare la modalità sessione avanzata nell'host Hyper-V, usare VMConnect per connettersi alla macchina virtuale e, prima di connettersi, scegliere la risorsa locale che si vuole usare. Per i passaggi specifici, vedere [usare le risorse locali nella\-macchina virtuale Hyper-V con VMConnect](Use-local-resources-on-Hyper-V-virtual-machine-with-VMConnect.md).|  
-|Modificare le impostazioni di VMConnect salvate per una macchina virtuale|Eseguire il comando seguente in Windows PowerShell o nel prompt dei comandi:<br /><br />`VMConnect.exe <ServerName> <VMName> \/edit`|  
-|Impedire a un utente di VMConnect di acquisire la sessione VMConnect di un altro utente|[Attivare la modalità sessione avanzata nell'host Hyper-V](Use-local-resources-on-Hyper-V-virtual-machine-with-VMConnect.md#turn-on-enhanced-session-mode-on-a-hyper-v-host).<br /><br />La modalità sessione avanzata non attivata può comportare un rischio per la sicurezza e la privacy. Se un utente è connesso e connesso a una macchina virtuale tramite VMConnect e un altro utente autorizzato si connette alla stessa macchina virtuale, la sessione verrà rilevata dal secondo utente e il primo utente perderà la sessione. Il secondo utente sarà in grado di visualizzare il desktop, i documenti e le applicazioni del primo utente.|
-|Gestire i componenti o i servizi di integrazione che consentono alla macchina virtuale di comunicare con l'host Hyper-V| Negli host Hyper-V che eseguono Windows 10 o Windows Server 2016, non è possibile gestire Integration Services con VMConnect. Vedere gli argomenti seguenti: <br />- [Attivare/disattivare Integration Services dall'host Hyper-V](https://msdn.microsoft.com/virtualization/hyperv_on_windows/user_guide/managing_ics) <br />- [Attivare/disattivare Integration Services da una macchina virtuale Windows](https://msdn.microsoft.com/virtualization/hyperv_on_windows/user_guide/managing_ics#manage-integration-services-from-guest-os-windows)<br />- [Attivare/disattivare Integration Services da una macchina virtuale Linux](https://msdn.microsoft.com/virtualization/hyperv_on_windows/user_guide/managing_ics#manage-integration-services-from-guest-os-linux) <br />- [Mantieni aggiornati i servizi di integrazione per la macchina virtuale](https://msdn.microsoft.com/virtualization/hyperv_on_windows/user_guide/managing_ics#integration-service-maintenance)  <br />Per gli host che eseguono Windows Server 2012 o Windows Server 2012 R2, vedere [Integration Services](https://technet.microsoft.com/library/dn798297(v=ws.11).aspx).|
-|Ridimensionare la finestra VMConnect|È possibile modificare le dimensioni della finestra VMConnect per le macchine virtuali di seconda generazione che eseguono un sistema operativo Windows. A tale scopo, potrebbe essere necessario attivare la modalità sessione avanzata nell'host Hyper-V. Per ulteriori informazioni, vedere [attivare la modalità sessione avanzata nell'host Hyper-V](Use-local-resources-on-Hyper-V-virtual-machine-with-VMConnect.md#turn-on-enhanced-session-mode-on-a-hyper-v-host). Per le macchine virtuali che eseguono Ubuntu, vedere [Modifica risoluzione dello schermo di Ubuntu in una macchina Virtuale Hyper-V](https://blogs.msdn.microsoft.com/virtual_pc_guy/2014/09/19/changing-ubuntu-screen-resolution-in-a-hyper-v-vm/).|
+|Inviare i clic del mouse o l'input da tastiera alla macchina virtuale|Fai clic in un punto qualsiasi della finestra della macchina virtuale. Il puntatore del mouse può apparire come un piccolo punto quando ti connetti a una macchina virtuale in esecuzione.|  
+|Restituire i clic del mouse o l'input da tastiera al computer fisico|Premi CTRL\+ALT\+freccia SINISTRA e quindi sposta il puntatore del mouse all'esterno della finestra della macchina virtuale. Questa combinazione di tasti di rilascio del mouse può essere modificata nelle impostazioni di Hyper\-V nella console di gestione di Hyper\-V.|  
+|Inviare la combinazione di tasti CTRL\+ALT\+CANC a una macchina virtuale|Seleziona **Azione** > **CTRL\+ALT\+CANC** oppure usa la combinazione di tasti CTRL\+ALT\+FINE.|  
+|Passare da una modalità finestra a una modalità schermo intero|Seleziona **Visualizza** > **Modalità schermo intero**. Per tornare alla modalità finestra, premi CTRL\+ALT\+BREAK.|  
+|Creare un checkpoint per acquisire lo stato corrente del computer per la risoluzione dei problemi|Seleziona **Azione** > **Punto di controllo** oppure usa la combinazione di tasti CTRL\+N.|  
+|Modificare le impostazioni della macchina virtuale|Seleziona **File** > **Impostazioni**.|  
+|Connettersi a un'immagine DVD \(file con estensione iso\) o a un disco floppy virtuale \(file con estensione vfd\)|Seleziona **Supporti**.<br /><br />Le macchine virtuali di seconda generazione non supportano i dischi floppy virtuali. Per altre informazioni, vedi [È necessario creare una macchina virtuale di generazione 1 o 2 in Hyper-V?](../plan/Should-I-create-a-generation-1-or-2-virtual-machine-in-Hyper-V.md)|  
+|Usare le risorse locali di un host in una macchina virtuale Hyper\-V, ad esempio un'unità flash USB|Abilita la modalità sessione avanzata nell'host Hyper-V, usa VMConnect per connetterti alla macchina virtuale e, prima di connetterti, scegli la risorsa locale che vuoi usare. Per le procedure specifiche, vedi [Usare le risorse locali nella macchina virtuale Hyper\-V con VMConnect](Use-local-resources-on-Hyper-V-virtual-machine-with-VMConnect.md).|  
+|Modificare le impostazioni di VMConnect salvate per una macchina virtuale|Nel prompt dei comandi o in Windows PowerShell esegui questo comando:<br /><br />`VMConnect.exe <ServerName> <VMName> \/edit`|  
+|Impedire a un utente di VMConnect di impossessarsi della sessione VMConnect di un altro utente|[Abilita la modalità sessione avanzata nell'host Hyper-V](Use-local-resources-on-Hyper-V-virtual-machine-with-VMConnect.md#turn-on-enhanced-session-mode-on-a-hyper-v-host).<br /><br />Se la modalità sessione avanzata non è abilitata, esistono rischi per la sicurezza e la privacy. Se un utente è connesso e ha eseguito l'accesso a una macchina virtuale tramite VMConnect e un altro utente autorizzato si connette alla stessa macchina virtuale, la sessione verrà acquisita dal secondo utente e il primo utente la perderà. Il secondo utente sarà in grado di visualizzare il desktop, i documenti e le applicazioni del primo utente.|
+|Gestire i componenti o i servizi di integrazione che consentono alla macchina virtuale di comunicare con l'host Hyper-V| Negli host Hyper-V che eseguono Windows 10 o Windows Server 2016 non puoi gestire i servizi di integrazione con VMConnect. Vedi questi argomenti: <br />- [Abilitare o disabilitare i servizi di integrazione dall'host Hyper-V](https://msdn.microsoft.com/virtualization/hyperv_on_windows/user_guide/managing_ics) <br />- [Abilitare o disabilitare i servizi di integrazione da una macchina virtuale Windows](https://msdn.microsoft.com/virtualization/hyperv_on_windows/user_guide/managing_ics#manage-integration-services-from-guest-os-windows)<br />- [Abilitare o disabilitare i servizi di integrazione da una macchina virtuale Linux](https://msdn.microsoft.com/virtualization/hyperv_on_windows/user_guide/managing_ics#manage-integration-services-from-guest-os-linux) <br />- [Aggiornare i servizi di integrazione nella macchina virtuale](https://msdn.microsoft.com/virtualization/hyperv_on_windows/user_guide/managing_ics#integration-service-maintenance)  <br />Per gli host che eseguono Windows Server 2012 o Windows Server 2012 R2, vedi [Servizi di integrazione](https://technet.microsoft.com/library/dn798297(v=ws.11).aspx).|
+|Ridimensionare la finestra VMConnect|Puoi modificare le dimensioni della finestra VMConnect per le macchine virtuali di seconda generazione che eseguono un sistema operativo Windows. A tale scopo, potrebbe essere necessario abilitare la modalità sessione avanzata nell'host Hyper-V. Per altre informazioni, vedi [Abilitare la modalità sessione avanzata nell'host Hyper-V](Use-local-resources-on-Hyper-V-virtual-machine-with-VMConnect.md#turn-on-enhanced-session-mode-on-a-hyper-v-host). Per le macchine virtuali che eseguono Ubuntu, vedere [Modifica risoluzione dello schermo di Ubuntu in una macchina Virtuale Hyper-V](https://blogs.msdn.microsoft.com/virtual_pc_guy/2014/09/19/changing-ubuntu-screen-resolution-in-a-hyper-v-vm/).|
 
 
 ## <a name="keyboard-shortcuts"></a>Tasti di scelta rapida  
-Per impostazione predefinita, i clic del mouse e dell'input della tastiera vengono inviati alla macchina virtuale. Quindi, potrebbe essere necessario premere CTRL + ALT + freccia sinistra prima di usare i tasti di scelta rapida seguenti. 
+Per impostazione predefinita, i clic del mouse e l'input da tastiera vengono inviati alla macchina virtuale. Quindi, potrebbe essere necessario premere CTRL+ALT+freccia SINISTRA prima di usare i tasti di scelta rapida seguenti. 
 
-|Combinazione di tasti|Descrizione|  
+|Combinazione di tasti|Description|  
 |-------------------|---------------|  
-|CTRL\+ALT\+freccia sinistra|Rilascio del mouse|  
-|CTRL\+ALT\+FINE|Equivalente a CTRL\+ALT\+Delete nella macchina virtuale|  
-|CTRL\+ALT\+INTERR|Passa dalla modalità\-a schermo intero alla modalità finestra|  
-|CTRL\+O|Apre le impostazioni per la macchina virtuale|  
-|CTRL\+S|Avvia la macchina virtuale|  
+|CTRL\+ALT\+freccia SINISTRA|Rilascio del mouse|  
+|CTRL\+ALT\+FINE|Equivalente di CTRL\+ALT\+CANC nella macchina virtuale|  
+|CTRL\+ALT\+BREAK|Passaggio dalla modalità schermo intero alla modalità finestra|  
+|CTRL\+O|Apertura delle impostazioni della macchina virtuale|  
+|CTRL\+S|Avvio della macchina virtuale|  
 |CTRL\+N|Creazione di un checkpoint|  
-|CTRL\+E|Ripristinare un checkpoint|  
-|CTRL\+C|Eseguire un'acquisizione schermo|  
+|CTRL\+E|Ripristino di un checkpoint|  
+|CTRL\+C|Acquisizione dello schermo|  
 
 ## <a name="see-also"></a>Vedere anche  
 -   [Usare le risorse locali nella macchina virtuale Hyper-V con VMConnect](Use-local-resources-on-Hyper-V-virtual-machine-with-VMConnect.md)  
--   [Hyper-V in Windows Server 2016](../Hyper-V-on-Windows-Server.md)  
+-   [Hyper-V in Windows Server2016](../Hyper-V-on-Windows-Server.md)  
 -   [Hyper-V in Windows 10](https://msdn.microsoft.com/virtualization/hyperv_on_windows/windows_welcome)  
   
   
