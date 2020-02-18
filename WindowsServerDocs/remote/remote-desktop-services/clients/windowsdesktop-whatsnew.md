@@ -11,14 +11,14 @@ ms.topic: article
 author: heidilohr
 manager: lizross
 ms.author: helohr
-ms.date: 01/29/2020
+ms.date: 02/11/2020
 ms.localizationpriority: medium
-ms.openlocfilehash: b2d5215c7089ce1aadbeae68890dca1a0ae1c294
-ms.sourcegitcommit: 9077469e372d2aafcad890cbc4e4a24c58a3838c
+ms.openlocfilehash: 3f8b035eef5bb956012627b5e2c7c59adaa8cd32
+ms.sourcegitcommit: 5797a2e67211651070404a5893f5c0a91c63e960
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2020
-ms.locfileid: "76889445"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77155385"
 ---
 # <a name="whats-new-in-the-windows-desktop-client"></a>Novità del client desktop di Windows
 
@@ -31,7 +31,20 @@ Il client può essere configurato per [gruppi di utenti](windowsdesktop-admin.md
 |Gruppo utenti |Version  |
 |-----------|---------|
 |Pubblico     |1.2.605  |
-|Insider    |1.2.605  |
+|Insider    |1.2.673  |
+
+## <a name="updates-for-version-12673"></a>Aggiornamenti per la versione 1.2.673
+
+*Data di pubblicazione: 11/02/2020*
+
+Scarica: [Windows 64-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4pPJm), [Windows 32-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4pFbw), [Windows ARM64](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4pN07)
+
+- Le connessioni a Desktop virtuale Windows ora vengono bloccate se nel file RDP manca la firma oppure se una delle proprietà signscope è stata modificata.
+- Se un'area di lavoro è vuota o è stata rimossa, il Centro connessioni non risulta più vuoto.
+- Sono stati aggiunti l'ID attività e il codice di errore per i messaggi di disconnessione per facilitare la risoluzione dei problemi. Puoi copiare il messaggio della finestra di dialogo con **CTRL + C**.
+- È stato risolto un problema che causava la mancata rilevazione degli schermi da parte delle impostazioni della connessione desktop.
+- Gli aggiornamenti client non riavviano più il PC automaticamente.
+- Le icone senza finestra non dovrebbero più essere visualizzate sulla barra delle applicazioni.
 
 ## <a name="updates-for-version-12605"></a>Aggiornamenti per la versione 1.2.605
 
