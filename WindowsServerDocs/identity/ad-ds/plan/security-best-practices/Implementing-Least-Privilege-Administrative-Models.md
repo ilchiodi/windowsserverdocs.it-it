@@ -9,12 +9,12 @@ ms.date: 08/09/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: f61bc1ccb7d9b09a17713946b5b8c2cc352f43ac
-ms.sourcegitcommit: 07c9d4ea72528401314e2789e3bc2e688fc96001
+ms.openlocfilehash: a2b4bd25c50eb8e76627bb6532345f3c187e4f0e
+ms.sourcegitcommit: 2a15de216edde8b8e240a4aa679dc6d470e4159e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76822094"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77465535"
 ---
 # <a name="implementing-least-privilege-administrative-models"></a>Implementazione dei modelli amministrativi con privilegi minimi
 
@@ -225,7 +225,7 @@ Gli amministratori sono, per impostazione predefinita, i proprietari della maggi
    - Ciò impedirà i membri del gruppo Administrators viene utilizzato per accedere o connettersi al server membri o workstation (a meno che più controlli vengono innanzitutto violati), in cui le relative credenziali potessero essere memorizzato nella cache e compromessi. Un account con privilegi mai essere utilizzato per accedere a un sistema con meno privilegi e applicazione di questi controlli offrono protezione contro un numero di attacchi.  
 
 3. I controller di dominio, unità Organizzativa in ogni dominio della foresta, il gruppo di amministratori deve essere concesso l'utente seguente at diritti (se non si dispongono già di questi diritti), in modo che i membri del gruppo Administrators per eseguire le funzioni necessarie per uno scenario di ripristino di emergenza a livello di foresta:  
-   - Accesso al computer dalla rete  
+   - Accedi al computer dalla rete  
    - Consenti accesso locale  
    - Consenti accesso tramite Servizi Desktop remoto  
 
@@ -234,7 +234,7 @@ Gli amministratori sono, per impostazione predefinita, i proprietari della maggi
 > [!NOTE]  
 > Quando si implementano restrizioni nel gruppo di amministratori in oggetti Criteri di gruppo, Windows applica le impostazioni per i membri del gruppo Administrators locale del computer oltre a gruppo di amministratori del dominio. Pertanto, è necessario prestare attenzione quando si implementa restrizioni nel gruppo di amministratori. Sebbene divieto di accessi alla rete, batch e del servizio per i membri del gruppo Administrators è consigliabile nel punto in cui è possibile implementare, non si limitano gli accessi locali o gli accessi tramite Servizi Desktop remoto. Il blocco di questi tipi di accesso può bloccare l'amministrazione legittimo di un computer da membri del gruppo Administrators locale. La schermata seguente mostra le impostazioni di configurazione che bloccano l'utilizzo improprio incorporati locale e amministratore account di dominio, oltre a un utilizzo improprio di gruppi di amministratori locale o di dominio predefiniti. Si noti che il **Nega accesso tramite Servizi Desktop remoto** diritto utente non include il gruppo Administrators, perché incluso in questa impostazione blocca anche questi accessi per gli account che sono membri del gruppo Administrators del computer locale. Se i servizi nei computer sono configurati per essere eseguiti nel contesto di uno dei gruppi privilegiati descritti in questa sezione, l'implementazione di queste impostazioni può causare errori nei servizi e nelle applicazioni. Pertanto, come con tutti i consigli forniti in questa sezione, è consigliabile verificare attentamente le impostazioni per l'applicabilità nell'ambiente in uso.  
 >
-> ![modelli di amministrazione privilegi minimi](media/Implementing-Least-Privilege-Administrative-Models/SAD_3.gif)  
+> ![modelli di amministrazione con privilegi minimi](media/Implementing-Least-Privilege-Administrative-Models/SAD_3.gif)  
 
 ### <a name="role-based-access-controls-rbac-for-active-directory"></a>Controlli di accesso basato sui ruoli (RBAC) per Active Directory
 
@@ -261,7 +261,7 @@ In altri casi, potrebbe essere preferibile per un'organizzazione considerare la 
 2. Composizione dell'ambiente IT: se l'ambiente è costituito principalmente sistemi Windows, o se già sfruttate Active Directory per la gestione dei sistemi non Windows e gli account, soluzioni personalizzate native possono fornire la soluzione ottimale per le proprie esigenze. Se l'infrastruttura contiene molti sistemi che non sono in esecuzione Windows e non gestiti da Active Directory, è necessario prendere in considerazione le opzioni per la gestione dei sistemi non Windows separatamente dall'ambiente di Active Directory.  
 3. Modello di privilegi nella soluzione: se un prodotto si basa sul posizionamento degli account di servizio in gruppi con privilegi elevati in Active Directory e non offre opzioni che non richiedono privilegi eccessivi per il software RBAC, non è stato effettivamente ridotto la superficie di attacco Active Directory è stata modificata solo la composizione dei gruppi con privilegi più elevati nella directory. A meno che un fornitore dell'applicazione può fornire controlli per gli account di servizio che riducono al minimo la probabilità che l'account viene compromesso e utilizzato da utenti malintenzionati, si consiglia di considerare altre opzioni.  
 
-### <a name="privileged-identity-management"></a>Gestione identità con privilegi
+### <a name="privileged-identity-management"></a>Privileged Identity Management
 
 Con privilegi di gestione delle identità (PIM), talvolta definito come account con privilegi (PAM) di gestione o la gestione delle credenziali con privilegi (PCM) è la progettazione, costruzione, e implementazione degli approcci per la gestione dei privilegi account nell'infrastruttura. In generale, PIM offre meccanismi che gli account vengono concessi diritti temporanei e delle autorizzazioni necessarie per eseguire una compilazione o interruzione correggere funzioni, anziché lasciare privilegi in modo permanente allegati agli account. Se la funzionalità PIM è stata creata manualmente o è implementata tramite la distribuzione di software di terze parti, è possibile che siano disponibili una o più delle funzionalità seguenti:  
   
@@ -314,7 +314,7 @@ Sebbene una discussione approfondita di attacchi di infrastrutture a chiave pubb
 
 Quando un certificato per l'autenticazione a un sistema di dominio, il contenuto dell'oggetto o dell'attributo di nome alternativo soggetto (SAN) del certificato viene usato per eseguire il mapping del certificato a un oggetto utente in Active Directory. A seconda del tipo di certificato e come viene creato, l'attributo dell'oggetto in un certificato contiene in genere il nome comune dell'utente (CN), come illustrato nella schermata seguente.  
 
-![modelli di amministrazione privilegi minimi](media/Implementing-Least-Privilege-Administrative-Models/SAD_4.gif)  
+![modelli di amministrazione con privilegi minimi](media/Implementing-Least-Privilege-Administrative-Models/SAD_4.gif)  
 
 Per impostazione predefinita, Active Directory crea CN un utente concatenando il nome dell'account prima + "" + cognome. Tuttavia, componenti CN degli oggetti utente in Active Directory non sono necessari o garantiti l'univocità e lo spostamento di un account utente in una posizione diversa nella directory viene modificato il nome dell'account distinto (DN), ovvero il percorso completo per l'oggetto nella directory, come illustrato nel riquadro inferiore della schermata precedente.  
 

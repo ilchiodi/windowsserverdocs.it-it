@@ -10,12 +10,12 @@ author: cosmosdarwin
 ms.date: 11/06/2017
 description: Come aggiungere server o unità a un cluster Spazi di archiviazione diretta
 ms.localizationpriority: medium
-ms.openlocfilehash: 3d5949b8fce7253371ee7ecea5118596f713f037
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: f5fb9da903bb76de3a075fa7feeeaba468d802c2
+ms.sourcegitcommit: 2a15de216edde8b8e240a4aa679dc6d470e4159e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71393777"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77465625"
 ---
 # <a name="adding-servers-or-drives-to-storage-spaces-direct"></a>Aggiunta di server o unità a Spazi di archiviazione diretta
 
@@ -121,7 +121,7 @@ A tale scopo, sarà necessario aggiornare i modelli **StorageTier** per avere si
 
 #### <a name="option-3"></a>Opzione 3
 
-La cosa più semplice potrebbe essere rimuovere il modello del livello esistente e crearne due nuovi. Ciò non influirà su eventuali volumi preesistenti creati facendo riferimento al modello del livello: si tratta semplicemente di un modello.
+La cosa più semplice potrebbe essere rimuovere il modello del livello esistente e crearne due nuovi. Questa operazione non influirà sui volumi preesistenti creati facendo riferimento al modello di livello: si tratta semplicemente di un modello.
 
 ```PowerShell
 Remove-StorageTier -FriendlyName Capacity
@@ -130,7 +130,7 @@ New-StorageTier -StoragePoolFriendlyName S2D* -MediaType HDD -PhysicalDiskRedund
 New-StorageTier -StoragePoolFriendlyName S2D* -MediaType HDD -PhysicalDiskRedundancy 2 -ResiliencySettingName Parity -FriendlyName Capacity
 ```
 
-La procedura è terminata. È ora possibile creare volumi con parità accelerata con mirror facendo riferimento a questi modelli di livello.
+Ecco fatto! È ora possibile creare volumi con parità accelerata con mirror facendo riferimento a questi modelli di livello.
 
 #### <a name="example"></a>Esempio
 
@@ -200,7 +200,7 @@ L'ottimizzazione usa due processi, uno denominato *optimize* e uno denominato *r
 Get-StorageJob
 ```
 
-È possibile ottimizzare manualmente un pool di archiviazione con il cmdlet [optimize-StoragePool](https://docs.microsoft.com/powershell/module/storage/optimize-storagepool?view=win10-ps) . Di seguito è riportato un esempio:
+È possibile ottimizzare manualmente un pool di archiviazione con il cmdlet [optimize-StoragePool](https://docs.microsoft.com/powershell/module/storage/optimize-storagepool?view=win10-ps) . Ecco un esempio:
 
 ```powershell
 Get-StoragePool <PoolName> | Optimize-StoragePool

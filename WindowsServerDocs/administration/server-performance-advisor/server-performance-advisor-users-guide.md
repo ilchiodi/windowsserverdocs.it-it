@@ -9,12 +9,12 @@ ms.date: 10/16/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: manage
-ms.openlocfilehash: 6a6ccedeeb007b9d3ab32c308fae991deb526442
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 3b29a7e10cc6a862873516b9adc16182d64dd926
+ms.sourcegitcommit: 2a15de216edde8b8e240a4aa679dc6d470e4159e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71383087"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77465465"
 ---
 # <a name="server-performance-advisor-users-guide"></a>Manuale dell'utente di Server Performance Advisor
 
@@ -28,7 +28,7 @@ SPA consentono con quanto segue:
 
 * Fornire report sui dati e raccomandazioni sui problemi di configurazione e di prestazioni comuni.
 
-* Fornire consigli pratica migliori in base ai dati raccolti.
+* Fornire consigli sulle procedure consigliate in base ai dati raccolti.
 
 > [!NOTE]
 > La Console di SPA non viene apportata alcuna modifica ai server.
@@ -122,13 +122,13 @@ Le interfacce utente console SPA e interazioni vengono compilate come parte di S
 
 La console SPA può essere eseguita nei sistemi operativi seguenti:
 
-* Windows 8.1
+* Windows 8.1
 
 * Windows 8
 
 * Windows 7
 
-* Windows Server 2012 R2
+* Windows Server 2012 R2
 
 * Windows Server 2012
 
@@ -216,13 +216,13 @@ Dopo tutto è configurato, è possibile creare il primo progetto di applicazione
 
 2.  Per creare un nuovo progetto, fare clic su **File**, quindi fare clic su **Nuovo progetto**. Viene avviata la procedura guidata per la prima volta. Nella prima pagina vengono illustrati i passaggi da eseguire durante l'utilizzo della procedura guidata:
 
-    * Creazione di un database
+    * Creare un database
 
     * Effettuare il provisioning Pack di advisor
 
     * Aggiungere server all'elenco di server di destinazione
 
-3.  Fai clic su **Next**. Nella pagina **Crea database progetto** viene chiesto di specificare il nome dell'istanza di Microsoft SQL Server in cui si desidera creare il database. Se, ad esempio, si trova nello stesso computer della console di, è possibile utilizzare **localhost\\&lt;il nome del server SQL&gt;** .
+3.  Fare clic su **Avanti**. Nella pagina **Crea database progetto** viene chiesto di specificare il nome dell'istanza di Microsoft SQL Server in cui si desidera creare il database. Se, ad esempio, si trova nello stesso computer della console di, è possibile utilizzare **localhost\\&lt;il nome del server SQL&gt;** .
 
     **Nota** Il nome dell'istanza predefinita per un'installazione di SQL Server 2008 R2 Express è SQLEXPRESS. Predefinito in genere per un'istanza di SQL Server 2008 R2 Express è installato nel computer locale, il database verrà impostato su **localhost\\SQLExpress**. Tuttavia, si sia stato modificato durante l'installazione di SQL Server, pertanto è necessario utilizzare il nome dell'istanza SQL Server corretto.
 
@@ -346,7 +346,7 @@ Se l'origine dati per una regola soddisfa determinate condizioni in base alle im
 
 * Un'icona di avviso indica l'esistenza di un potenziale problema.
 
-* Il nome della regola. Ad esempio, **rete ricezione Elimina pacchetto** è un collegamento che punta alla pagina dei dettagli regola, come descritto in [Gestione Pack di advisor](#bkmk-manageadvisorpacks).
+* Nome della regola. Ad esempio, **rete ricezione Elimina pacchetto** è un collegamento che punta alla pagina dei dettagli regola, come descritto in [Gestione Pack di advisor](#bkmk-manageadvisorpacks).
 
 * Una breve descrizione sul problema potenziale.
 
@@ -436,7 +436,7 @@ Un grafico di tendenza di 7 giorni è molto simile al grafico di tendenza di 24 
 
 La serie di dati selezionato nella tendenza e grafici cronologici vengono archiviata come una preferenza dell'utente. Alla successiva apertura della tendenza e del visualizzatore grafico cronologico per lo stesso pacchetto di Advisor, viene elencato come predefinito lo stesso set di serie di dati.
 
-## <a name="managing-reports"></a>Gestione dei report
+## <a name="managing-reports"></a>Gestione di rapporti
 
 
 ### <a name="deleting-reports"></a>eliminazione di report

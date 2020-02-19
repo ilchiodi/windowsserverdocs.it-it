@@ -11,19 +11,19 @@ ms.assetid: 02e31413-6140-4723-a8d6-46c7f667792d
 author: KBDAzure
 ms.author: kathydav
 ms.date: 12/05/2016
-ms.openlocfilehash: bd0b50534096bc06edb41390ef2c4ec3554d8406
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: fce9b45f538b0d506b621b888d413c99590b1362
+ms.sourcegitcommit: 2a15de216edde8b8e240a4aa679dc6d470e4159e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71364083"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77465555"
 ---
 # <a name="should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v"></a>È necessario creare una macchina virtuale di generazione 1 o 2 in Hyper-V?
 
 >Si applica a: Windows 10, Windows Server 2016, Microsoft Hyper-V Server 2016, Windows Server 2019, Microsoft Hyper-V Server 2019
 
 > [!NOTE]
-> Se si prevede di caricare sempre una macchina virtuale (VM) Windows da locale a Microsoft Azure, le VM di prima e di seconda generazione nel formato di file VHD e sono supportati un disco a dimensione fissa. Per altre informazioni sulle funzionalità di generazione 2 supportate in Azure, vedere [macchine virtuali di seconda generazione in Azure](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2) . Per ulteriori informazioni sul caricamento di un disco rigido virtuale Windows o VHDX, vedere [preparare un disco rigido virtuale Windows o VHDX per il caricamento in Azure](https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image).
+> Se si prevede di caricare le macchine virtuali (VM) Windows dalle VM locali a Microsoft Azure, le VM di prima e seconda generazione nel formato di file VHD e sono supportati un disco a dimensione fissa. Per altre informazioni sulle funzionalità di generazione 2 supportate in Azure, vedere [macchine virtuali di seconda generazione in Azure](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2) . Per ulteriori informazioni sul caricamento di un disco rigido virtuale Windows o VHDX, vedere [preparare un disco rigido virtuale Windows o VHDX per il caricamento in Azure](https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image).
 
 La scelta di creare una macchina virtuale di prima o di seconda generazione dipende dal sistema operativo guest che si desidera installare e dal metodo di avvio che si desidera utilizzare per distribuire la macchina virtuale. È consigliabile creare una macchina virtuale di seconda generazione per sfruttare le funzionalità come l'avvio protetto, a meno che non sia soddisfatta una delle seguenti istruzioni:  
 
@@ -60,13 +60,13 @@ La tabella seguente illustra le versioni di Windows a 64 bit che è possibile us
 |versioni di Windows a 64 bit|Prima generazione|Seconda generazione|  
 |-------------------------------|----------------|----------------|  
 | Windows Server 2019 |&#10004;|&#10004;|  
-| Windows Server 2016 |&#10004;|&#10004;|  
-| Windows Server 2012 R2 |&#10004;|&#10004;|  
+| Windows Server 2016 |&#10004;|&#10004;|  
+| Windows Server 2012 R2 |&#10004;|&#10004;|  
 | Windows Server 2012 |&#10004;|&#10004;|  
 |Windows Server 2008 R2|&#10004;| &#10006;|  
 |Windows Server 2008|&#10004;| &#10006;|  
 |Windows 10|&#10004;|&#10004;|  
-|Windows 8.1|&#10004;|&#10004;|  
+|Windows 8.1|&#10004;|&#10004;|  
 |Windows 8|&#10004;|&#10004;|  
 |Windows 7|&#10004;| &#10006;|
 
@@ -75,7 +75,7 @@ La tabella seguente illustra le versioni di Windows a 32 bit che è possibile us
 |versioni di Windows a 32 bit|Prima generazione|Seconda generazione|  
 |-------------------------------|----------------|----------------|  
 |Windows 10|&#10004;| &#10006;|  
-|Windows 8.1|&#10004;| &#10006;|  
+|Windows 8.1|&#10004;| &#10006;|  
 |Windows 8|&#10004;| &#10006;|  
 |Windows 7|&#10004;| &#10006;|  
 

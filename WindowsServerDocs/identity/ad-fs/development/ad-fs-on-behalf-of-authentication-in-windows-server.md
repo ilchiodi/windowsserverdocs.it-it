@@ -9,12 +9,12 @@ ms.date: 02/22/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 70281f581974493d3182fb6fdd8f35cb37bed4bf
-ms.sourcegitcommit: 3f9bcd188dda12dc5803defb47b2c3a907504255
+ms.openlocfilehash: 028396bffff6449a296e2922846fe2fc379fe624
+ms.sourcegitcommit: 2a15de216edde8b8e240a4aa679dc6d470e4159e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "77001906"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77465615"
 ---
 # <a name="build-a-multi-tiered-application-using-on-behalf-of-obo-using-oauth-with-ad-fs-2016-or-later"></a>Creazione di un'applicazione a più livelli con l'uso di OAuth con AD FS 2016 o versione successiva
 
@@ -59,7 +59,7 @@ Questa procedura dettagliata viene utilizzato Visual Studio 2015. Il progetto ut
 
 Nell'esempio viene inoltre utilizzato v 11.0 LocalDB di SQL. Installazione del database locale SQL prima di lavorare sull'esempio.
 
-## <a name="setting-up-the-environment"></a>Impostazione dell'ambiente
+## <a name="setting-up-the-environment"></a>Impostazione dell’ambiente
 Verrà utilizzato con una configurazione di base:
 
 1. **Controller di dominio**: controller di dominio per il dominio in cui verrà ospitato ADFS
@@ -274,7 +274,7 @@ Continuare con il resto della procedura guidata stessa come quando è stato conf
 * Aprire il file Web. config
 * Modificare le seguenti chiavi
 
-| Codice                      | Value                                                                                                                                                                                                                   |
+| Chiave                      | Valore                                                                                                                                                                                                                   |
 |:-------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | ida: pubblico             | ID del ToDoListService come specificato per AD FS durante la configurazione di ToDoListService WebAPI, ad esempio https://localhost:44321/                                                                                         |
 | ida: ClientID             | ID del ToDoListService come specificato per AD FS durante la configurazione di ToDoListService WebAPI, ad esempio <https://localhost:44321/> </br>**È molto importante che Ida: audience e Ida: ClientID corrispondano tra loro** |
@@ -494,7 +494,7 @@ Su operazione completata correttamente verrà visualizzato l'elemento è stato a
 ![AD FS OBO](media/AD-FS-On-behalf-of-Authentication-in-Windows-Server-2016/ADFS_OBO27.PNG)
 
 È inoltre possibile visualizzare le tracce dettagliate su Fiddler. Avviare Fiddler e abilitare la decrittografia HTTPS. Noterete che abbiamo effettuare due richieste all'endpoint /adfs/oautincludes.
-Nella prima interazione si presenta il codice di accesso all'endpoint token e si ottiene un token di accesso per https://localhost:44321/ ![ AD FS OBO](media/AD-FS-On-behalf-of-Authentication-in-Windows-Server-2016/ADFS_OBO22.PNG)
+Nella prima interazione si presenta il codice di accesso all'endpoint token e si ottiene un token di accesso per https://localhost:44321/ ![AD FS OBO](media/AD-FS-On-behalf-of-Authentication-in-Windows-Server-2016/ADFS_OBO22.PNG)
 
 Nella seconda interazione con l'endpoint token, è possibile osservare che è stato impostato **requested_token_use** come **on_behalf_of** e si usa il token di accesso ottenuto per il servizio Web di livello intermedio, ad esempio https://localhost:44321/ come asserzione per ottenere il token per conto di.
 ![AD FS OBO](media/AD-FS-On-behalf-of-Authentication-in-Windows-Server-2016/ADFS_OBO23.PNG)

@@ -9,12 +9,12 @@ ms.date: 07/02/2019
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 8b47cdc4770b1ed6478d1502ed5264164e99352b
-ms.sourcegitcommit: a33404f92867089bb9b0defcd50960ff231eef3f
+ms.openlocfilehash: 2570aae52da2925a62dd6c9262af325fb5461fff
+ms.sourcegitcommit: 2a15de216edde8b8e240a4aa679dc6d470e4159e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "77013046"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77465265"
 ---
 # <a name="ad-fs-rapid-restore-tool"></a>Strumento di ripristino rapido di AD FS
 
@@ -29,6 +29,9 @@ Lo strumento di ripristino rapido di AD FS può essere utilizzato negli scenari 
     - Utilizzare lo strumento per creare un'installazione di standby a freddo di ADFS che possono essere distribuiti rapidamente al posto del server ADFS online
 2. Distribuire gli ambienti di test e produzione identici
     - Utilizzare lo strumento per creare rapidamente una copia della produzione ADFS in un ambiente di test o per distribuire rapidamente una configurazione di test di convalida nell'ambiente di produzione
+3. Eseguire la migrazione da una configurazione basata su SQL a WID e viceversa
+    - Utilizzare lo strumento per passare da una configurazione della farm basata su SQL a WID o viceversa. 
+
 
 >[!NOTE] 
 >Se si usa la replica di tipo merge SQL o i gruppi di disponibilità always on, lo strumento di ripristino rapido non è supportato. È consigliabile usare i backup basati su SQL e un backup del certificato SSL come alternativa.
@@ -207,7 +210,7 @@ Ogni documento che viene creato come parte del backup viene crittografato con AE
 
 RngCryptoServiceProvider viene utilizzato per generare il valore salt utilizzato da AES e la classe Rfc2898DeriveBytes. 
 
-## <a name="log-files"></a>File di registro di
+## <a name="log-files"></a>File di log
 Ogni volta che viene eseguito un backup o un ripristino, viene creato un file di log. Si trovano nel percorso seguente:
 
 - **%localappdata%\ADFSRapidRecreationTool**

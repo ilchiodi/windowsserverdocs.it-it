@@ -9,12 +9,12 @@ ms.prod: windows-server-hyper-v
 ms.technology: virtualization
 ms.localizationpriority: low
 ms.assetid: 6cb13f84-cb50-4e60-a685-54f67c9146be
-ms.openlocfilehash: c7c2de8354d067faf0dcf1787c3e178421e2ac03
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 8ba413b831c7b11780113ee2ffd3cce598781a44
+ms.sourcegitcommit: 2a15de216edde8b8e240a4aa679dc6d470e4159e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70872034"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77465575"
 ---
 # <a name="managing-hyper-v-hypervisor-scheduler-types"></a>Gestione dei tipi di utilità di pianificazione hypervisor Hyper-V
 
@@ -25,7 +25,7 @@ Questo articolo descrive le nuove modalità di logica di pianificazione dei proc
 >[!NOTE]
 >Gli aggiornamenti sono necessari per usare le funzionalità dell'utilità di pianificazione hypervisor descritte in questo documento. Per informazioni dettagliate, vedere [aggiornamenti richiesti](#required-updates).
 
-## <a name="background"></a>Sfondo
+## <a name="background"></a>Background
 
 Prima di illustrare la logica e i controlli dietro la pianificazione del processore virtuale Hyper-V, è utile esaminare i concetti di base trattati in questo articolo.
 
@@ -66,7 +66,7 @@ A partire da Windows Server 2016, l'hypervisor Hyper-V supporta diverse modalit�
 
 L'utilità di pianificazione classica è stata l'impostazione predefinita per tutte le versioni di Windows Hyper-V Hypervisor sin dall'inizio, incluso Windows Server 2016 Hyper-V. L'utilità di pianificazione classica fornisce una condivisione equa, il modello di pianificazione Round Robin preemptive per i processori virtuali guest.
 
-Il tipo di utilità di pianificazione classica è il più appropriato per la maggior parte degli usi tradizionali di Hyper-V: per i cloud privati, i provider di hosting e così via. Le caratteristiche delle prestazioni sono ben note e sono ottimizzate per supportare un'ampia gamma di scenari di virtualizzazione, ad esempio l'oversubscription di VPs a LPs, l'esecuzione simultanea di molte macchine virtuali e carichi di lavoro eterogeneo, con scalabilità superiore Macchine virtuali delle prestazioni, che supportano il set completo di funzionalità di Hyper-V senza restrizioni e altro ancora.
+Il tipo di utilità di pianificazione classica è il più appropriato per la maggior parte degli usi tradizionali di Hyper-V: per i cloud privati, i provider di hosting e così via. Le caratteristiche delle prestazioni sono ben comprese e sono ottimizzate per supportare un'ampia gamma di scenari di virtualizzazione, ad esempio l'oversubscription di VPs a LPs, l'esecuzione simultanea di molte macchine virtuali e carichi di lavoro eterogenei, con scalabilità superiore elevata Macchine virtuali delle prestazioni, che supportano il set completo di funzionalità di Hyper-V senza restrizioni e altro ancora.
 
 ### <a name="the-core-scheduler"></a>Utilità di pianificazione principale
 
@@ -123,7 +123,7 @@ Set-VMProcessor -VMName <VMName> -HwThreadCountPerCore <n>
 ```
 
 Dove <n> è il numero di thread SMT per core che verrà visualizzato dalla VM guest.  
-Si noti <n> che = 0 imposterà il valore HwThreadCountPerCore in modo che corrisponda al numero di thread SMT dell'host per valore di base.
+Si noti che <n> = 0 imposterà il valore HwThreadCountPerCore in modo che corrisponda al numero di thread SMT dell'host per valore di base.
 
 >[!NOTE] 
 >L'impostazione HwThreadCountPerCore = 0 è supportata a partire da Windows Server 2019.
@@ -148,12 +148,12 @@ Per garantire la distribuzione degli host Hyper-V nella configurazione di sicure
 >[!NOTE]
 >Per utilizzare le funzionalità dell'utilità di pianificazione hypervisor descritte in questo documento sono necessari gli aggiornamenti seguenti. Questi aggiornamenti includono modifiche per supportare la nuova opzione BCD ' hypervisorschedulertype ', necessaria per la configurazione host.
 
-| Versione | Release  | Aggiornamento richiesto | Articolo della Knowledge |
+| Versione | Versione  | Aggiornamento richiesto | Articolo della Knowledge |
 |--------------------|------|---------|-------------:|
 |Windows Server 2016 | 1607 | 2018,07 C | [KB4338822](https://support.microsoft.com/help/4338822/windows-10-update-kb4338822) |
 |Windows Server 2016 | 1703 | 2018,07 C | [KB4338827](https://support.microsoft.com/help/4338827/windows-10-update-kb4338827) |
 |Windows Server 2016 | 1709 | 2018,07 C | [KB4338817](https://support.microsoft.com/help/4338817/windows-10-update-kb4338817) |
-|Windows Server 2019 | 1804 | Nessuna | Nessuna |
+|Windows Server 2019 | 1804 | None | None |
 
 ## <a name="selecting-the-hypervisor-scheduler-type-on-windows-server"></a>Selezione del tipo di utilità di pianificazione hypervisor in Windows Server
 

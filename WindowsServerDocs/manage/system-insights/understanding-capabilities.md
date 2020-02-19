@@ -13,12 +13,12 @@ author: gawatu
 ms.author: gawatu
 manager: mallikarjun.chadalapaka
 ms.date: 6/05/2018
-ms.openlocfilehash: 90622fba1fc33966bd064c19056204013ff0c33b
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 131fbacaab97c1c2c42920a518ce96ba1b8f5d2b
+ms.sourcegitcommit: 2a15de216edde8b8e240a4aa679dc6d470e4159e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70869160"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77465565"
 ---
 # <a name="understanding-capabilities"></a>Descrizione delle funzionalità
 
@@ -37,7 +37,7 @@ Una funzionalità di System Insights è un modello di apprendimento automatico o
 Inoltre, ogni funzionalità viene eseguita localmente in un'istanza di Windows Server e ogni funzionalità può essere gestita singolarmente.
 
 ### <a name="capability-outputs"></a>Output funzionalità
-Quando viene richiamata una funzionalità, fornisce un output per spiegare il risultato dell'analisi o della stima. Ogni output deve contenere uno **stato** e una **Descrizione dello stato** per descrivere la stima e ogni risultato può facoltativamente contenere dati specifici della funzionalità associati alla stima. La **Descrizione dello stato** consente di fornire una spiegazione contestuale per lo **stato**e la funzionalità segnala uno stato **OK**, **avviso**o **critico** . Inoltre, una funzionalità può utilizzare un **errore** o **nessuno** stato se non è stata eseguita alcuna stima. Insieme, ecco gli Stati delle funzionalità e i relativi significati di base: 
+Quando viene richiamata una funzionalità, fornisce un output per spiegare il risultato dell'analisi o della stima. Ogni output deve contenere uno **stato** e una **Descrizione dello stato** per descrivere la stima e ogni risultato può facoltativamente contenere dati specifici della funzionalità associati alla stima. La **Descrizione dello stato** consente di fornire una spiegazione contestuale dello **stato**e la funzionalità segnala uno stato **OK**, **avviso**o **critico** . Inoltre, una funzionalità può utilizzare un **errore** o **nessuno** stato se non è stata eseguita alcuna stima. Insieme, ecco gli Stati delle funzionalità e i relativi significati di base: 
 
 - **OK** : tutto sembra valido.
 - **Avviso** : non è necessario prestare attenzione immediata, ma è opportuno dare un'occhiata. 
@@ -80,7 +80,7 @@ Ogni funzionalità analizza i dati giornalieri per prevedere un utilizzo futuro.
 | --------------- | -------------- | ---------------- |
  Previsione dell'utilizzo del volume          | Dimensioni del volume                    | Utilizzo giornaliero massimo              
  Previsione del consumo di spazio di archiviazione totale   | Somma delle dimensioni del volume, somma delle dimensioni del disco              | Utilizzo giornaliero massimo             
- Previsione della capacità della CPU                | % di tempo processore  | Media massima di 2 ore al giorno   
+ Previsione della capacità della CPU                | % di tempo del processore  | Media massima di 2 ore al giorno   
  Previsione della capacità di rete         | Totale byte/sec         | Media massima di 2 ore al giorno  
 
 Quando si valuta la logica di filtro precedente, è importante tenere presente che ogni funzionalità Cerca di informare gli amministratori quando l'utilizzo futuro supererà significativamente la capacità disponibile, anche se la CPU ha raggiunto il 100% di utilizzo, l'utilizzo della CPU potrebbe non avere ha causato un calo significativo delle prestazioni o una contesa di risorse. Per la CPU e la rete, è necessario disporre di un utilizzo elevato prolungato anziché picchi momentanei. Una media di utilizzo della CPU e della rete nell'intero giorno, tuttavia, perderebbe le informazioni di utilizzo importanti, perché alcune ore di utilizzo elevato della CPU o della rete potrebbero avere un effetto significativo sulle prestazioni dei carichi di lavoro critici. La media massima di 2 ore durante ogni giorno evita questi estremi e produce comunque dati significativi per ogni funzionalità da analizzare.
@@ -89,11 +89,11 @@ Per il volume e l'utilizzo totale dello spazio di archiviazione, tuttavia, l'uti
 
 ### <a name="forecasting-statuses"></a>Stati di previsione
 Tutte le funzionalità di System Insights devono restituire uno stato associato a ogni stima. Per ogni funzionalità predefinita viene utilizzata la logica seguente per definire ogni stato di stima:
-- **OK**: La previsione non supera la capacità disponibile.
-- **Avviso**: La previsione supera la capacità disponibile nei 30 giorni successivi. 
-- **Critica**: La previsione supera la capacità disponibile nei prossimi 7 giorni. 
-- **Errore**: Errore imprevisto durante l'esecuzione della funzionalità. 
-- **Nessuno**: I dati non sono sufficienti per eseguire una stima. Ciò può essere dovuto a una mancanza di dati o perché non è stato segnalato di recente alcun dato.
+- **OK**: la previsione non supera la capacità disponibile.
+- **Avviso**: la previsione supera la capacità disponibile nei 30 giorni successivi. 
+- **Critico**: la previsione supera la capacità disponibile nei prossimi 7 giorni. 
+- **Errore**: errore imprevisto durante l'esecuzione della funzionalità. 
+- **None**: non sono disponibili dati sufficienti per eseguire una stima. Ciò può essere dovuto a una mancanza di dati o perché non è stato segnalato di recente alcun dato.
 
 >[!NOTE]
 >Se una funzionalità prevede più istanze, ad esempio più volumi o schede di rete, lo stato riflette lo stato più grave in tutte le istanze. Gli stati individuali per ogni volume o scheda di rete sono visibili nell'interfaccia di amministrazione di Windows o nei dati contenuti nell'output di ciascuna funzionalità. Per istruzioni su come analizzare l'output JSON delle funzionalità predefinite, visitare [questo Blog](https://aka.ms/systeminsights-mitigationscripts). 

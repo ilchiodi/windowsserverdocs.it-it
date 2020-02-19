@@ -10,12 +10,12 @@ ms.topic: article
 author: adagashe
 ms.date: 10/24/2018
 ms.localizationpriority: ''
-ms.openlocfilehash: 67f35e3afa8e9eafabe7b22eb60cc85c7be6cb23
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 0d64e6188b24b5a1ec45242c3d99366fdde5a623
+ms.sourcegitcommit: 2a15de216edde8b8e240a4aa679dc6d470e4159e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71402878"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77465215"
 ---
 # <a name="collect-diagnostic-data-with-storage-spaces-direct"></a>Raccogliere i dati di diagnostica con Spazi di archiviazione diretta
 
@@ -23,11 +23,11 @@ ms.locfileid: "71402878"
 
 Sono disponibili diversi strumenti di diagnostica che possono essere utilizzati per raccogliere i dati necessari per la risoluzione dei problemi relativi a Spazi di archiviazione diretta e cluster di failover. In questo articolo si incentrerà su **Get-SDDCDiagnosticInfo** -uno strumento One Touch che raccoglie tutte le informazioni rilevanti per facilitare la diagnosi del cluster.
 
-Dato che i log e altre informazioni su **Get-SDDCDiagnosticInfo** sono densi, le informazioni sulla risoluzione dei problemi illustrate di seguito saranno utili per la risoluzione dei problemi avanzati escalati e che potrebbero richiedere l'invio di dati a Microsoft per la valutazione della durata.
+Dato che i log e altre informazioni su **Get-SDDCDiagnosticInfo** sono densi, le informazioni sulla risoluzione dei problemi illustrate di seguito saranno utili per la risoluzione dei problemi avanzati che sono stati escalati e che potrebbero richiedere l'invio di dati a Microsoft per la valutazione.
 
 ## <a name="installing-get-sddcdiagnosticinfo"></a>Installazione di Get-SDDCDiagnosticInfo
 
-Cmdlet di PowerShell **Get-SDDCDiagnosticInfo** (noto anche come **Get-PCStorageDiagnosticInfo**, noto in precedenza come **test-StorageHealth**, può essere usato per raccogliere i log ed eseguire i controlli di integrità per il clustering di failover (cluster, risorse, reti, nodi), spazi di archiviazione (dischi fisici, enclosure, Dischi virtuali), volumi condivisi cluster, condivisioni file SMB e deduplicazione. 
+Cmdlet di PowerShell **Get-SDDCDiagnosticInfo** (noto anche come **Get-PCStorageDiagnosticInfo**, noto in precedenza come **test-StorageHealth**, può essere usato per raccogliere i log ed eseguire i controlli di integrità per il clustering di failover (cluster, risorse, reti, nodi), spazi di archiviazione (dischi fisici, enclosure, dischi virtuali), volumi condivisi cluster, condivisioni file SMB e deduplicazione. 
 
 Sono disponibili due metodi di installazione dello script, entrambi delineati di seguito.
 
@@ -35,12 +35,15 @@ Sono disponibili due metodi di installazione dello script, entrambi delineati di
 
 Il [PowerShell Gallery](https://www.powershellgallery.com/packages/PrivateCloud.DiagnosticInfo) è uno snapshot del repository GitHub. Si noti che l'installazione di elementi dal PowerShell Gallery richiede la versione più recente del modulo PowerShellGet, disponibile in Windows 10, in Windows Management Framework (WMF) 5,0 o nel programma di installazione basato su MSI (per PowerShell 3 e 4).
 
+Durante questo processo viene installata anche la versione più recente degli [strumenti di diagnostica di rete Microsoft](https://www.powershellgallery.com/packages/MSFT.Network.Diag) , poiché Get-SDDCDiagnosticInfo si basa su questo. Questo modulo del manifesto contiene lo strumento di diagnostica e risoluzione dei problemi di rete, gestito dal gruppo di prodotti Microsoft Core Networking in Microsoft.
+
 È possibile installare il modulo eseguendo il comando seguente in PowerShell con privilegi di amministratore:
 
 ``` PowerShell
 Install-PackageProvider NuGet -Force
 Install-Module PrivateCloud.DiagnosticInfo -Force
 Import-Module PrivateCloud.DiagnosticInfo -Force
+Install-Module -Name MSFT.Network.Diag
 ```
 
 Per aggiornare il modulo, eseguire il comando seguente in PowerShell:
@@ -165,7 +168,7 @@ Il report di riepilogo integrità viene salvato come:
 
 Questo file viene generato dopo aver analizzato tutti i dati raccolti ed è destinato a fornire un breve riepilogo del sistema. Contiene:
 
-- Informazioni di sistema
+- Informazioni sistema
 - Panoramica sull'integrità dell'archiviazione (numero di nodi, risorse online, volumi condivisi del cluster online, componenti non integri e così via)
 - Dettagli sui componenti non integri (risorse cluster offline, non riuscite o in sospeso online)
 - Informazioni sul firmware e sul driver

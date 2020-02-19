@@ -8,18 +8,18 @@ ms.date: 06/13/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: active-directory-federation-services
-ms.openlocfilehash: d54c33e092204f208590bd15db0d3c7fe7f852f3
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: f4973da0d9e0c347cff8fc910f96277055b66dec
+ms.sourcegitcommit: 2a15de216edde8b8e240a4aa679dc6d470e4159e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71407892"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77465545"
 ---
 # <a name="build-a-single-page-web-application-using-oauth-and-adaljs-with-ad-fs-2016-or-later"></a>Creare un'applicazione Web a pagina singola con OAuth e ADAL. JS con AD FS 2016 o versione successiva
 
 Questa procedura dettagliata fornisce istruzioni per l'autenticazione rispetto a AD FS usando ADAL per JavaScript che protegge un'applicazione a singola pagina basata su AngularJS, implementata con una API Web ASP.NET back-end.
 
-In questo scenario, quando l'utente accede, il front-end JavaScript usa [Active Directory Authentication Library per JavaScript (adal. JS)](https://github.com/AzureAD/azure-activedirectory-library-for-js) e la concessione di autorizzazione implicita per ottenere un token ID (token ID) da Azure ad. Il token viene memorizzato nella cache e il client lo connette alla richiesta come bearer token quando si effettuano chiamate al relativo back-end dell'API Web, protetto tramite il middleware OWIN.
+In questo scenario, quando l'utente accede, il front-end JavaScript usa [Active Directory Authentication Library per JavaScript (adal. JS)](https://github.com/AzureAD/azure-activedirectory-library-for-js) e la concessione di autorizzazione implicita per ottenere un token ID (id_token) da Azure ad. Il token viene memorizzato nella cache e il client lo connette alla richiesta come bearer token quando si effettuano chiamate al relativo back-end dell'API Web, protetto tramite il middleware OWIN.
 
 >[!IMPORTANT]
 >L'esempio che è possibile compilare qui è esclusivamente a scopo didattico. Queste istruzioni sono per l'implementazione più semplice, più minima possibile esporre gli elementi necessari del modello. Nell'esempio potrebbero non essere inclusi tutti gli aspetti della gestione degli errori e altre funzionalità correlate.
@@ -40,12 +40,12 @@ Se ADAL rileva un trigger per l'autenticazione, USA le informazioni fornite dall
 ## <a name="setting-up-the-development-box"></a>Impostare la casella di sviluppo
 Questa procedura dettagliata viene utilizzato Visual Studio 2015. Il progetto usa la libreria ADAL JS. Per informazioni su ADAL, vedere [Active Directory Authentication Library .NET.](https://msdn.microsoft.com/library/azure/mt417579.aspx)
 
-## <a name="setting-up-the-environment"></a>Impostazione dell'ambiente
+## <a name="setting-up-the-environment"></a>Impostazione dell’ambiente
 Per questa procedura dettagliata verrà usata una configurazione di base di:
 
-1.  DC Controller di dominio per il dominio in cui verrà ospitato AD FS
-2.  Server AD FS: Server AD FS per il dominio
-3.  Computer di sviluppo: Il computer in cui è installato Visual Studio e verrà sviluppato l'esempio
+1.  DC: controller di dominio per il dominio in cui verrà ospitato AD FS
+2.  Server AD FS: server AD FS per il dominio
+3.  Computer di sviluppo: computer in cui è installato Visual Studio e verrà sviluppato l'esempio
 
 È possibile, se si desidera, utilizzare solo due macchine. Uno per DC/AD FS e l'altro per lo sviluppo dell'esempio.
 
@@ -72,12 +72,12 @@ I file di chiave che contengono la logica di autenticazione sono i seguenti:
 
 **HomeController. js**: Mostra come sfruttare i metodi di accesso () e di disconnessione () in adal.
 
-**UserDataController. js** : Mostra come estrarre le informazioni utente dal token ID memorizzato nella cache.
+**UserDataController. js** : Mostra come estrarre le informazioni utente dal id_token memorizzato nella cache.
 
 **Startup.auth.cs** : contiene la configurazione per il WebAPI da usare Active Directory servizio federativo per l'autenticazione di Bearer.
 
 ## <a name="registering-the-public-client-in-ad-fs"></a>Registrazione del client pubblico in AD FS
-Nell'esempio, WebAPI è configurato per l'ascolto a https://localhost:44326/. Il gruppo di applicazioni **Web browser l'accesso a un'applicazione Web** può essere usato per la configurazione dell'applicazione del flusso di concessione implicita.
+Nell'esempio, WebAPI è configurato per l'ascolto https://localhost:44326/. Il gruppo di applicazioni **Web browser l'accesso a un'applicazione Web** può essere usato per la configurazione dell'applicazione del flusso di concessione implicita.
 
 1. Aprire la console di gestione di AD FS e fare clic su **Aggiungi gruppo di applicazioni**. Nella **procedura guidata Aggiungi gruppo di applicazioni** immettere il nome dell'applicazione, la descrizione e selezionare il **Web browser l'accesso a un modello di applicazione Web** dalla sezione **applicazioni client-server** , come illustrato di seguito.
 
@@ -114,7 +114,7 @@ Aprire il file **app. js** e modificare la definizione di **adalProvider. init**
 |--------|--------|
 |istanza|URL STS, ad esempio https://fs.contoso.com/|
 |tenant|Mantenerlo come ' ADFS '|
-|ClientID|Si tratta dell'ID client specificato durante la configurazione del client pubblico per l'applicazione a pagina singola|
+|clientID|Si tratta dell'ID client specificato durante la configurazione del client pubblico per l'applicazione a pagina singola|
 
 ## <a name="configure-webapi-to-use-ad-fs"></a>Configurare WebAPI per l'uso di AD FS
 Aprire il file **Startup.auth.cs** nell'esempio e aggiungere quanto segue all'inizio:

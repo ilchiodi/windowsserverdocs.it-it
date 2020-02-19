@@ -9,12 +9,12 @@ ms.topic: article
 ms.custom: it-pro
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: cb91bb61adf97fee6f157ca44eb657e20670a1e7
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: a80678f5d2773e3fcd7a95032853249dc36d5616
+ms.sourcegitcommit: 2a15de216edde8b8e240a4aa679dc6d470e4159e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75948681"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77465525"
 ---
 # <a name="active-directory-federation-services-promptlogin-parameter-support"></a>Active Directory Federation Services prompt = supporto per i parametri di accesso
 
@@ -63,7 +63,7 @@ Usare il modulo Azure AD PowerShell per configurare l'impostazione.
 ![Get-MsolDomainFederationSettings](media/AD-FS-Prompt-Login/GetMsol.png)
 
 > [!NOTE]
-> Se la proprietà `PreferredAuthenticationMethod` è vuota (`$null`) indica il comportamento predefinito di `TranslateToFreshPasswordAuth`.
+> Se il valore della proprietà `PromptLoginBehavior` è vuoto (`$null`), viene utilizzato il comportamento di `TranslateToFreshPasswordAuth`.
 
 2. Configurare il valore desiderato di `PromptLoginBehavior` eseguendo il comando seguente:
 

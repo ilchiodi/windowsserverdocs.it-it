@@ -8,12 +8,12 @@ ms.author: jeffrew
 ms.localizationpriority: medium
 ms.prod: windows-server
 ms.date: 06/07/2019
-ms.openlocfilehash: 0b4e02e6759bdb91ea51b5dcf5e1d0ae307d13b4
-ms.sourcegitcommit: 1da993bbb7d578a542e224dde07f93adfcd2f489
+ms.openlocfilehash: 5df216d8c7b829a6c60db4e5d771824a7bacdb47
+ms.sourcegitcommit: 2a15de216edde8b8e240a4aa679dc6d470e4159e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73567096"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77465325"
 ---
 # <a name="troubleshooting-windows-admin-center"></a>Risoluzione dei problemi di Windows Admin Center
 
@@ -165,8 +165,10 @@ Quando si installa Windows Admin Center, viene data la possibilità di consentir
 
    > [!TIP]
    > Per impostare con semplicità tutti i TrustedHosts contemporaneamente, puoi utilizzare un carattere jolly.
-   > 
-   >     Set-Item WSMan:\localhost\Client\TrustedHosts -Value '*'
+   >
+   > ```powershell
+   > Set-Item WSMan:\localhost\Client\TrustedHosts -Value '*'
+   > ```
 
 4. Una volta terminato il test, puoi eseguire il seguente comando da una sessione PowerShell con privilegi elevati per cancellare l'impostazione TrustedHosts:
 
@@ -191,9 +193,9 @@ netsh http delete urlacl url=https://+:443/
 
 ## <a name="azure-features-dont-work-properly-in-edge"></a>Le funzionalità di Azure non funzionano correttamente in Microsoft Edge
 
-Microsoft Edge presenta [problemi noti](https://github.com/AzureAD/azure-activedirectory-library-for-js/wiki/Known-issues-on-Microsoft Edge) relativi alle aree di sicurezza che influiscono sull'accesso di Azure nell'interfaccia di amministrazione di Windows. Se si verificano problemi durante l'uso delle funzionalità di Azure quando si usa Microsoft Edge, provare ad aggiungere https://login.microsoftonline.com, https://login.live.com e l'URL del gateway come siti attendibili e ai siti consentiti per le impostazioni del blocco popup perimetrale sul browser lato client. 
+Edge presenta [problemi noti](https://github.com/AzureAD/azure-activedirectory-library-for-js/wiki/Known-issues-on-Edge) relativi alle aree di sicurezza che influiscono sull'accesso di Azure nell'interfaccia di amministrazione di Windows. Se si verificano problemi durante l'uso delle funzionalità di Azure quando si usa Edge, provare ad aggiungere https://login.microsoftonline.com, https://login.live.com e l'URL del gateway come siti attendibili e ai siti consentiti per le impostazioni del blocco popup perimetrale sul browser lato client. 
 
-A tale scopo, effettua le seguenti operazioni:
+A tale scopo, effettuare l'operazione seguente:
 1. Cerca **Opzioni Internet** nel menu Start di Windows
 2. Passare alla scheda **sicurezza**
 3. Nell'opzione **siti attendibili** fare clic sul pulsante **siti** e aggiungere gli URL nella finestra di dialogo visualizzata. È necessario aggiungere l'URL del gateway, nonché https://login.microsoftonline.com e https://login.live.com.

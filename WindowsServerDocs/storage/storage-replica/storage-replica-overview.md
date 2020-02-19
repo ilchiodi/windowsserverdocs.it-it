@@ -8,12 +8,12 @@ ms.topic: get-started-article
 author: nedpyle
 ms.date: 4/26/2019
 ms.assetid: e9b18e14-e692-458a-a39f-d5b569ae76c5
-ms.openlocfilehash: 620ab75fc5f44af7cd754847e3e5b717eece5057
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: d95feb67001dc7b5eff68a0062d5f944672bad80
+ms.sourcegitcommit: 2a15de216edde8b8e240a4aa679dc6d470e4159e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71393822"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77465230"
 ---
 # <a name="storage-replica-overview"></a>Panoramica di Replica di archiviazione
 
@@ -75,7 +75,7 @@ Lo scenario **da server a server** consente la replica sincrona e asincrona tra 
 
 * **Sincronizzazione iniziale ad alte prestazioni**. Replica archiviazione supporta la sincronizzazione iniziale con seeding, in cui un subset di dati esiste già in una destinazione proveniente da copie, backup o unità spedite meno recenti. La replica iniziale copia solo i blocchi diversi, riducendo potenzialmente il tempo di sincronizzazione iniziale e impedendo ai dati di usare una larghezza di banda limitata. Il calcolo e l'aggregazione del checksum del blocco delle repliche di archiviazione fa sì che le prestazioni di sincronizzazione iniziale siano limitate solo dalla velocità dell'archiviazione e della rete.  
 
-* **Gruppi di coerenza**. L'ordinamento in scrittura garantisce che le applicazioni come Microsoft SQL Server possano scrivere in più volumi replicati e che i dati vengano scritti nel server di destinazione in modo sequenziale.  
+* **Gruppi di coerenza**. L'ordinamento in scrittura garantisce che le applicazioni come Microsoft SQL Server possano scrivere in più volumi replicati e che i dati vengano scritti in modo sequenziale nel server di destinazione.  
 
 * **Delega utente**. Gli utenti possono disporre di autorizzazioni delegate per gestire la replica senza essere membri del gruppo di amministratori nei nodi delegati, limitando quindi le loro possibilità di accesso ad aree non correlate.  
 
@@ -85,18 +85,18 @@ Lo scenario **da server a server** consente la replica sincrona e asincrona tra 
 
 Replica archiviazione include le funzionalità seguenti:  
 
-| Funzionalità | Dettagli |
+| Caratteristica | Dettagli |
 | ----------- | ----------- |  
-| Tipo | Basata su host |
-| Sincrono | Sì |
-| Asincrona | Sì |
+| Type | Basata su host |
+| Synchronous | Sì |
+| Asynchronous | Sì |
 | Indipendente dall'hardware di archiviazione | Sì |
 | Unità di replica | Volume (partizione) |
 | Creazione di un cluster esteso di Windows Server | Sì |
 | Replica da server a server | Sì |
 | Replica da cluster a cluster | Sì |
-| Transport | SMB3 |
-| Network | TCP/IP o RDMA |
+| Trasporto | SMB3 |
+| Rete | TCP/IP o RDMA |
 | Supporto per vincoli di rete | Sì |
 | RDMA* | iWARP, InfiniBand, RoCE v2 |
 | Requisiti firewall per la porta di rete della replica | Porta IANA singola (TCP 445 o 5445) |
@@ -188,7 +188,7 @@ Questa guida usa frequentemente i termini seguenti:
 
 Per un elenco delle nuove funzionalità di replica di archiviazione in Windows Server 2019, vedere Novità di [archiviazione](../whats-new-in-storage.md#storage-replica2019)
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 
 - [Replica del cluster esteso tramite l'archiviazione condivisa](stretch-cluster-replication-using-shared-storage.md)  
 - [Replica archiviazione da server a server](server-to-server-storage-replication.md)  

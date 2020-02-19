@@ -8,12 +8,12 @@ manager: dongill
 author: rpsqrd
 ms.technology: security-guarded-fabric
 ms.date: 09/25/2019
-ms.openlocfilehash: 0479309efe629d204bdc98fe11a7ccb4447a7369
-ms.sourcegitcommit: de71970be7d81b95610a0977c12d456c3917c331
+ms.openlocfilehash: ec885670ca6808e89c63848781c4ff3dc27799b8
+ms.sourcegitcommit: 2a15de216edde8b8e240a4aa679dc6d470e4159e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71940721"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77465605"
 ---
 # <a name="troubleshooting-guarded-hosts"></a>Risoluzione dei problemi degli host sorvegliati
 
@@ -51,11 +51,11 @@ AttestationStatus         | Spiegazione
 Scaduto                   | L'host ha superato l'attestazione in precedenza, ma il certificato di integrità emesso è scaduto. Verificare che l'host e l'ora di HGS siano sincronizzati.
 InsecureHostConfiguration | L'host non ha superato l'attestazione perché non è conforme ai criteri di attestazione configurati in HGS. Per ulteriori informazioni, consultare la tabella AttestationSubStatus.
 NotConfigured             | L'host non è configurato per l'uso di un HGS per l'attestazione e la protezione con chiave. Viene invece configurato per la modalità locale. Se l'host si trova in un'infrastruttura sorvegliata, usare [set-HgsClientConfiguration](https://technet.microsoft.com/library/dn914494.aspx) per fornire gli URL per il server HGS.
-Passato                    | L'host ha superato l'attestazione.
+Superato                    | L'host ha superato l'attestazione.
 TransientError            | L'ultimo tentativo di attestazione non è riuscito a causa di una rete, un servizio o un altro errore temporaneo. Ripetere l'ultima operazione.
 TpmError                  | L'host non è riuscito a completare l'ultimo tentativo di attestazione a causa di un errore con il TPM. Per ulteriori informazioni, consultare i log TPM.
 UnauthorizedHost          | L'host non ha superato l'attestazione perché non è stato autorizzato a eseguire macchine virtuali schermate. Assicurarsi che l'host appartenga a un gruppo di sicurezza ritenuto attendibile da HGS per l'esecuzione di VM schermate.
-Sconosciuta                   | L'host non ha ancora tentato di attestare con HGS.
+Sconosciuto                   | L'host non ha ancora tentato di attestare con HGS.
 
 Quando **AttestationStatus** viene segnalato come **InsecureHostConfiguration**, uno o più motivi verranno popolati nel campo **AttestationSubStatus** .
 La tabella seguente illustra i possibili valori per AttestationSubStatus e suggerimenti su come risolvere il problema.

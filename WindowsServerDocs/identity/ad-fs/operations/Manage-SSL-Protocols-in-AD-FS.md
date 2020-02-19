@@ -8,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 44fb4c02421a431edb502daecaa38f00fb4dd2ad
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: e0c581a29db92cfb73e4225c72e7e1c2bad4ca68
+ms.sourcegitcommit: 2a15de216edde8b8e240a4aa679dc6d470e4159e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71407531"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77465278"
 ---
 # <a name="managing-ssltls-protocols-and-cipher-suites-for-ad-fs"></a>Gestione dei protocolli SSL/TLS e dei pacchetti di crittografia per AD FS
 Nella documentazione seguente vengono fornite informazioni su come disabilitare e abilitare alcuni protocolli TLS/SSL e pacchetti di crittografia utilizzati da AD FS
@@ -26,7 +26,7 @@ Schannel è un Security Support Provider (SSP) che implementa i protocolli di au
 
 Un pacchetto di crittografia è un set di algoritmi di crittografia. L'implementazione SSP Schannel dei protocolli TLS/SSL usa gli algoritmi di un pacchetto di crittografia per creare chiavi e crittografare le informazioni. Un pacchetto di crittografia specifica un algoritmo per ognuna delle attività seguenti:
 
-- Scambio di chiave
+- Scambio di chiavi
 - Crittografia di massa
 - Autenticazione dei messaggi
 
@@ -34,13 +34,13 @@ AD FS utilizza Schannel. dll per eseguire le interazioni di comunicazione sicure
 
 ## <a name="managing-the-tlsssl-protocols-and-cipher-suites"></a>Gestione dei protocolli TLS/SSL e dei pacchetti di crittografia
 > [!IMPORTANT]
-> Questa sezione contiene i passaggi che indicano come modificare il registro di sistema. Tuttavia, potrebbero verificarsi gravi problemi se si modifica il registro di sistema in modo errato. Di conseguenza, è importante seguire questa procedura. 
+> Questa sezione contiene i passaggi che indicano come modificare il registro di sistema. Tuttavia, si potrebbero verificare problemi gravi se la modifica del Registro di sistema non viene eseguita correttamente. Pertanto, assicurarsi di seguire con attenzione questi passaggi. 
 > 
 > Tenere presente che la modifica delle impostazioni di sicurezza predefinite per SCHANNEL potrebbe interrompere o impedire le comunicazioni tra determinati client e server.  Questo problema si verificherà se è necessaria una comunicazione protetta e non si dispone di un protocollo per negoziare le comunicazioni con.
 > 
 > Se si applicano queste modifiche, è necessario applicarle a tutti i server AD FS della farm.  Dopo aver applicato queste modifiche, è necessario riavviare il computer.
 
-In giorni ed età, la protezione avanzata dei server e la rimozione di pacchetti di crittografia meno recenti o vulnerabili stanno diventando una priorità fondamentale per molte organizzazioni.  Sono disponibili gruppi software che consentiranno di testare i server e fornire informazioni dettagliate su questi protocolli e gruppi.  Per mantenere la conformità o ottenere valutazioni sicure, la rimozione o la disabilitazione di protocolli o pacchetti di crittografia più vulnerabili è diventata un must.  Nella parte restante di questo documento vengono fornite indicazioni su come abilitare o disabilitare alcuni protocolli e pacchetti di crittografia.
+Nel giorno e nell'età odierni, la protezione avanzata dei server e la rimozione di pacchetti di crittografia meno recenti o deboli stanno diventando una priorità fondamentale per molte organizzazioni.  Sono disponibili gruppi software che consentiranno di testare i server e fornire informazioni dettagliate su questi protocolli e gruppi.  Per mantenere la conformità o ottenere valutazioni sicure, la rimozione o la disabilitazione di protocolli o pacchetti di crittografia più vulnerabili è diventata un must.  Nella parte restante di questo documento vengono fornite indicazioni su come abilitare o disabilitare alcuni protocolli e pacchetti di crittografia.
 
 Le chiavi del registro di sistema riportate di seguito si trovano nello stesso percorso: HKEY_LOCAL_MACHINE \SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols.  Usare regedit o PowerShell per abilitare o disabilitare questi protocolli e pacchetti di crittografia.
 
@@ -235,7 +235,7 @@ Utilizzare le seguenti chiavi del registro di sistema e i relativi valori per ab
 - [HKEY_LOCAL_MACHINE \SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Ciphers\RC4 40/128] "Enabled" = DWORD: 00000000
 - [HKEY_LOCAL_MACHINE \SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Ciphers\RC4 56/128] "Enabled" = DWORD: 00000000 
 
-### <a name="using-powershell"></a>Mediante PowerShell
+### <a name="using-powershell"></a>Utilizzo di PowerShell
 
 ```powershell
     ([Microsoft.Win32.RegistryKey]::OpenRemoteBaseKey([Microsoft.Win32.RegistryHive]::LocalMachine,$env:COMPUTERNAME)).CreateSubKey('SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Ciphers\RC4 128/128') 
