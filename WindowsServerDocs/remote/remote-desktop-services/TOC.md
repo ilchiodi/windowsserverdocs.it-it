@@ -60,6 +60,7 @@
 ## [Esecuzione e ottimizzazione](rds-run-and-tune.md)
 ### [Gestire raccolte di sessioni desktop personali](rds-manage-personal-collection.md)
 ### [Configurazione consigliata per desktop VDI](rds-vdi-recommendations.md)
+### [Ottimizzazione di Windows 10 versione 1909 per un ruolo VDI (Virtual Desktop Infrastructure)](rds_vdi-recommendations-1909.md)
 ### [Ottimizzazione di Windows 10 versione 1803 per un ruolo VDI (Virtual Desktop Infrastructure)](rds-vdi-recommendations-1803.md)
 ### [Gestire gli utenti nella raccolta di Servizi Desktop remoto](rds-user-management.md)
 ### [Personalizzare il titolo "Risorse di lavoro" di Servizi Desktop remoto usando PowerShell in Windows Server](rds-work-resources.md)
