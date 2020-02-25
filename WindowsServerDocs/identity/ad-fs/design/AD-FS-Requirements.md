@@ -9,12 +9,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 720c20437f7e6da875b809b2816f0d4df5d210d6
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 34ea5ca29672cb7bc0080a1c27b1910d5cf6b92e
+ms.sourcegitcommit: 1c75e4b3f5895f9fa33efffd06822dca301d4835
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71359194"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77517526"
 ---
 # <a name="ad-fs-requirements"></a>Requisiti per ADFS
 
@@ -26,7 +26,7 @@ Di seguito sono illustrati i requisiti che è necessario rispettare i durante la
   
 -   [Requisiti software](AD-FS-Requirements.md#BKMK_3)  
   
--   [Requisiti di servizi di dominio Active Directory](AD-FS-Requirements.md#BKMK_4)  
+-   [Requisiti di Active Directory Domain Services](AD-FS-Requirements.md#BKMK_4)  
   
 -   [Requisiti del database di configurazione](AD-FS-Requirements.md#BKMK_5)  
   
@@ -46,7 +46,7 @@ Di seguito sono illustrati i requisiti che è necessario rispettare i durante la
   
 -   [Requisiti di crittografia](AD-FS-Requirements.md#BKMK_12)  
   
--   [Requisiti per le autorizzazioni](AD-FS-Requirements.md#BKMK_13)  
+-   [Requisiti di autorizzazione](AD-FS-Requirements.md#BKMK_13)  
   
 ## <a name="BKMK_1"></a>Requisiti del certificato  
 I certificati rivestono il ruolo più importante nel rendere sicure le comunicazioni tra la federazione attestazioni, i server proxy applicazione Web,\-applicazioni e client Web. I requisiti per i certificati variano, a seconda se Configura un server federativo o un computer proxy, come descritto in questa sezione.  
@@ -76,8 +76,8 @@ Si applicano i seguenti requisiti hardware minimi e consigliati per i server fed
 ||||  
 |-|-|-|  
 |**Requisito hardware**|**Requisito minimo**|**Requisito consigliato**|  
-|Velocità di CPU|processore\-bit 1,4 GHz 64|Quad\-core, 2 GHz|  
-|RAM|512 MB|4 GB|  
+|Velocità CPU|processore\-bit 1,4 GHz 64|Quad\-core, 2 GHz|  
+|RAM|512 MB|4 GB|  
 |Spazio su disco|32 GB|100 GB|  
   
 ## <a name="BKMK_3"></a>Requisiti software  
@@ -87,15 +87,20 @@ I seguenti requisiti di ADFS sono per la funzionalità server che è incorporata
   
 -   Impossibile installare un server federativo e il servizio ruolo Proxy applicazione Web nello stesso computer.  
   
-## <a name="BKMK_4"></a>Requisiti di servizi di dominio Active Directory  
+## <a name="BKMK_4"></a>Requisiti di Active Directory Domain Services  
 **Requisiti del controller di dominio**  
   
 I controller di dominio in tutti i domini utente e il dominio a cui sono stati aggiunti i server ADFS devono essere in esecuzione Windows Server 2008 o versione successiva.  
   
 > [!NOTE]  
 > Tutto il supporto per gli ambienti con controller di dominio di Windows Server 2003 terminerà dopo l'estesi supportano End Date per Windows Server 2003. I clienti consiglia di aggiornare i controller di dominio appena possibile. Visitare [questa pagina](https://support.microsoft.com/lifecycle/search/default.aspx?sort=PN&alpha=Windows+Server+2003&Filter=FilterNO) Per ulteriori informazioni sul ciclo di vita del supporto tecnico Microsoft. Per problemi rilevati che sono specifiche per ambienti di controller di dominio Windows Server 2003, correzioni verranno generate solo per i problemi di sicurezza e se è possibile emettere una correzione prima della scadenza di estendere il supporto per Windows Server 2003.  
+
+
+
+>[!NOTE]
+> AD FS richiede un controller di dominio scrivibile completo per funzionare anziché un controller di dominio di sola lettura. Se una topologia pianificata include un controller di dominio di sola lettura, il controller di dominio di sola lettura può essere utilizzato per l'autenticazione, ma l'elaborazione delle attestazioni LDAP richiederà una connessione al controller di dominio scrivibile.
   
-**Requisiti del livello di\-funzionale del dominio**  
+**Requisiti a livello di funzionalità del dominio\-  
   
 Tutti i domini di account utente e il dominio a cui sono stati aggiunti i server ADFS deve funzionare a livello funzionale di dominio di Windows Server 2003 o versione successiva.  
   
@@ -132,7 +137,7 @@ La maggior parte delle funzionalità di ADFS non richiedono funzionale di domini
 ## <a name="BKMK_5"></a>Requisiti del database di configurazione  
 Di seguito sono i requisiti e limitazioni applicabili in base al tipo di archivio di configurazione:  
   
-**WID**  
+**Database interno di Windows**  
   
 -   Se si dispone di un massimo di 100 trust della relying party, una farm WID ha un limite di 30 server federativi.  
   
@@ -170,7 +175,7 @@ Diverse piattaforme e browser chiave sottoposte a livello di convalida per il re
 |**Browser**|**Piattaforme**|  
 |INTERNET EXPLORER 10.0|Windows 7, Windows 8.1, Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2|  
 |INTERNET EXPLORER 11.0|Windows7, Windows 8.1, Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2|  
-|Broker di autenticazione Web di Windows|Windows 8.1|  
+|Broker di autenticazione Web di Windows|Windows 8.1|  
 |Firefox \[V21\]|Windows 7, Windows 8.1|  
 |Safari \[V7\]|iOS 6, Mac OS\-X è 10.7|  
 |Chrome \[V27\]|Windows 7, Windows 8.1, Windows Server 2012, Windows Server 2012 R2, Mac OS\-X 10.7|  
@@ -195,7 +200,10 @@ Configurazione dei seguenti servizi di rete è essenziale per una corretta distr
 Entrambi i firewall si trova tra il Proxy dell'applicazione Web e la server farm federativa e il firewall tra i client e il Proxy dell'applicazione Web deve avere la porta TCP 443 abilitato in ingresso.  
   
 Inoltre, se l'autenticazione del certificato client utente \(autenticazione clientTLS utilizzando X509 i certificati utente\) è obbligatorio, ADFS in Windows Server 2012 R2 richiede che sia attivato 49443 la porta TCP in ingresso nel firewall tra i client e il Proxy dell'applicazione Web. Questa operazione non è necessaria nel firewall tra il Proxy di applicazione Web e i server federativi\).  
-  
+
+> [!NOTE]
+> inoltre assicurarsi che la porta 49443 non venga utilizzata da altri servizi nel server proxy applicazione Web.
+
 **Configurazione del DNS**  
   
 -   Per l'accesso intranet, tutti i client che accedono AD FS service all'interno della rete azienda interna \(intranet\) deve essere in grado di risolvere il nome del servizio ADFS \(nome fornito per il certificato SSL\) al bilanciamento del carico per i server ADFS o il server ADFS.  
@@ -342,10 +350,9 @@ Nella tabella seguente fornisce informazioni sul supporto di crittografia aggiun
 |SHA1\-[http:\/\/www.w3.org\/PICS\/DSig\/sha1\_1\_0. html](http://www.w3.org/PICS/DSig/SHA1_1_0.html)|N\/A|Utilizzato dal Server ADFS nella generazione di elementi SourceId: In questo scenario, il servizio token di sicurezza utilizza SHA1 \(per la raccomandazione nello standard SAML 2.0\) per creare un valore breve a 160 bit per l'ID di elemento di origine.<br /><br />Anche utilizzato dall'agente web ADFS \(componente legacy dall'intervallo di tempo WS2003\) per identificare le modifiche in un tempo di "ultimo aggiornamento" valore in modo da determinare quando aggiornare le informazioni dal servizio token di sicurezza.|  
 |\- SHA1withRSA<br /><br />[http:\/\/www.w3.org\/PICS\/DSig\/RSA\-SHA1\_1\_0. html](http://www.w3.org/PICS/DSig/RSA-SHA1_1_0.html)|N\/A|Utilizzata quando il Server ADFS convalida la firma di SAML AuthenticationRequest, firmare la richiesta di risoluzione dell'elemento o la risposta, creare token\-certificato di firma.<br /><br />In questi casi, il valore predefinito è SHA256 e SHA1 viene utilizzato solo se il partner \(relying party\) non è in grado di supportare SHA256 e devono utilizzare SHA1.|  
   
-## <a name="BKMK_13"></a>Requisiti per le autorizzazioni  
+## <a name="BKMK_13"></a>Requisiti di autorizzazione  
 L'amministratore che esegue l'installazione di e la configurazione iniziale di AD FS deve disporre delle autorizzazioni di amministratore di dominio nel dominio locale \(in altre parole, il dominio a cui viene aggiunto il server federativo.\)  
   
-## <a name="see-also"></a>Vedi anche  
+## <a name="see-also"></a>Vedere anche  
 [Guida alla progettazione di AD FS in Windows Server 2012 R2](AD-FS-Design-Guide-in-Windows-Server-2012-R2.md)  
   
-

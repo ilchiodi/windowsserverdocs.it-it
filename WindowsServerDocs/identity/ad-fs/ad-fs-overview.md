@@ -9,19 +9,18 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 62dc6d16d840abab34876a471a7fd27ce01bbbf7
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: f67ea0200a64dccb2e1f6148e84a8ca3f948e484
+ms.sourcegitcommit: 1c75e4b3f5895f9fa33efffd06822dca301d4835
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71408541"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77517446"
 ---
-# <a name="ad-fs-overview"></a>Panoramica di AD FS
+# <a name="ad-fs-overview"></a>Panoramica di ADFS
 
-
+Active Directory Servizio federativo (AD FS) consente la gestione delle identità e degli accessi federativi condividendo in modo sicuro l'identità digitale e i diritti sui diritti per i confini aziendali e di sicurezza. AD FS estende la possibilità di usare Single Sign-On funzionalità disponibili all'interno di un unico limite aziendale o di sicurezza per le applicazioni con connessione Internet per consentire a clienti, partner e fornitori un'esperienza utente semplificata durante l'accesso al applicazioni basate sul Web di un'organizzazione.
 
 Questo documento contiene un elenco di tutte le panoramica della documentazione per AD FS per Windows Server. Sono inclusi gli elementi seguenti:
-  
   
   
 * [Novità di AD FS per Windows Server 2019](../ad-fs/overview/whats-new-active-directory-federation-services-windows-server.md)  

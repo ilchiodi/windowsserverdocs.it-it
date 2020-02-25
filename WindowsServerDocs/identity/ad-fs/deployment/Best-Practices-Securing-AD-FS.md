@@ -9,12 +9,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: b96a66c9e28454752fd4999fcfe74cbb15a3ae7d
-ms.sourcegitcommit: c5709021aa98abd075d7a8f912d4fd2263db8803
+ms.openlocfilehash: 717308a157d7f4a5f54e3aef2e829fbed9f12152
+ms.sourcegitcommit: 1c75e4b3f5895f9fa33efffd06822dca301d4835
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/18/2020
-ms.locfileid: "76265813"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77517546"
 ---
 # <a name="best-practices-for-securing-active-directory-federation-services"></a>Procedure consigliate per la protezione di Active Directory Federation Services
 
@@ -45,9 +45,9 @@ Questa tabella descrive le porte e i protocolli necessari per la comunicazione t
 
 Protocollo |Porte |Descrizione
 --------- | --------- |---------
-HTTP|80 (TCP/UDP)|Usato per il download di CRL (Certificate Revocation List) per verificare i certificati SSL.
-HTTPS|443 (TCP/UDP)|Usato per la sincronizzazione con Azure AD.
-WinRM|5985| Listener di Gestione remota Windows
+HTTP|80 (TCP/UDP)|Utilizzato per scaricare i CRL (elenchi di revoche di certificati) per verificare i certificati SSL.
+HTTPS|443 (TCP/UDP)|Utilizzato per sincronizzare con Azure AD.
+WinRM|5985| Listener WinRM
 
 ### <a name="wap-and-federation-servers"></a>Server WAP e federativi
 Questa tabella descrive le porte e i protocolli necessari per la comunicazione tra i server federativi e i server WAP.
@@ -64,7 +64,7 @@ Protocollo |Porte |Descrizione
 HTTPS|443 (TCP/UDP)|Usato per l'autenticazione del dispositivo.
 TCP|49443 (TCP)|Usato per l'autenticazione del certificato.
 
-Per ulteriori informazioni sulle porte e sui protocolli richiesti per le distribuzioni ibride, vedere il documento [qui](https://azure.microsoft.com/documentation/articles/active-directory-aadconnect-ports/).
+Per ulteriori informazioni sulle porte e sui protocolli richiesti per le distribuzioni ibride, vedere il documento [qui](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-ports).
 
 Per informazioni dettagliate sulle porte e i protocolli necessari per una distribuzione di Azure AD e Office 365, vedere il documento [qui](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2?ui=en-US&rs=en-US&ad=US).
 
@@ -90,7 +90,7 @@ AD FS gli endpoint possono essere disabilitati sul proxy usando il cmdlet di Pow
     
     PS:\>Set-AdfsEndpoint -TargetAddressPath <address path> -Proxy $false
 
-Ad esempio:
+Ad esempio,
     
     PS:\>Set-AdfsEndpoint -TargetAddressPath /adfs/services/trust/13/certificatemixed -Proxy $false
     

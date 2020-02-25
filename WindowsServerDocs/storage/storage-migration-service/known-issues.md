@@ -8,12 +8,12 @@ ms.date: 02/10/2020
 ms.topic: article
 ms.prod: windows-server
 ms.technology: storage
-ms.openlocfilehash: 77a23e5787283aa93d6f2f303cf45b461ccf52dd
-ms.sourcegitcommit: f0fcfee992b76f1ad5dad460d4557f06ee425083
+ms.openlocfilehash: 92742929e3826fca3cf87cb84341d3aecec0d55d
+ms.sourcegitcommit: 1c75e4b3f5895f9fa33efffd06822dca301d4835
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77125112"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77517496"
 ---
 # <a name="storage-migration-service-known-issues"></a>Problemi noti del servizio migrazione archiviazione
 
@@ -110,12 +110,25 @@ Se il servizio proxy del servizio migrazione archiviazione non è stato installa
 
 Durante l'inventario o il trasferimento di file dai computer di origine a quello di destinazione, la migrazione dei file da cui un utente ha rimosso le autorizzazioni del gruppo Administrators non riesce. Esaminare il servizio migrazione archiviazione-il debug del proxy Mostra:
 
-  Nome registro: Microsoft-Windows-StorageMigrationService-proxy/debug Source: Microsoft-Windows-StorageMigrationService-proxy date: 2/26/2019 9:00:04 AM ID evento: 10000 Categoria attività: None Level: Error keywords:      
-  Utente: computer servizio di rete: srv1.contoso.com Descrizione:
+    Log Name:      Microsoft-Windows-StorageMigrationService-Proxy/Debug
+    Source:        Microsoft-Windows-StorageMigrationService-Proxy
+    Date:          2/26/2019 9:00:04 AM
+    Event ID:      10000
+    Task Category: None
+    Level:         Error
+    Keywords:      
+    User:          NETWORK SERVICE
+    Computer:      srv1.contoso.com
+    Description:
 
-  02/26/2019-09:00:04.860 [Error] errore di trasferimento per \\srv1. contoso. com\public\indy.png: (5) accesso negato.
-Analisi dello stack: in Microsoft. StorageMigration. proxy. Service. Transfer. FileDirUtils. OpenFile (String fileName, DesiredAccess desiredAccess, ShareMode SHAREMODE, CreationDisposition CreationDisposition, FlagsAndAttributes flagsAndAttributes) at Microsoft. StorageMigration. proxy. Service. Transfer. FileDirUtils. GetTargetFile (percorso stringa) in Microsoft. StorageMigration. proxy. Service. Transfer. FileDirUtils. GetTargetFile (file FileInfo) in Microsoft. StorageMigration. proxy. Service. Transfer. filetransfer. InitializeSourceFileInfo () in Microsoft. StorageMigration. proxy. Service. Transfer. filetransfer. Transfer () at Microsoft. StorageMigration. proxy. Service. Transfer. filetransfer. TryTransfer () [d:\os\src\base\dms\proxy\transfer\transferproxy\FileTransfer.cs:: TryTransfer:: 55]
-
+    02/26/2019-09:00:04.860 [Error] Transfer error for \\srv1.contoso.com\public\indy.png: (5) Access is denied.
+    Stack Trace:
+     at Microsoft.StorageMigration.Proxy.Service.Transfer.FileDirUtils.OpenFile(String fileName, DesiredAccess desiredAccess, ShareMode shareMode, CreationDisposition creationDisposition, FlagsAndAttributes flagsAndAttributes)
+     at Microsoft.StorageMigration.Proxy.Service.Transfer.FileDirUtils.GetTargetFile(String path)
+     at Microsoft.StorageMigration.Proxy.Service.Transfer.FileDirUtils.GetTargetFile(FileInfo file)
+     at Microsoft.StorageMigration.Proxy.Service.Transfer.FileTransfer.InitializeSourceFileInfo()
+     at Microsoft.StorageMigration.Proxy.Service.Transfer.FileTransfer.Transfer()
+     at Microsoft.StorageMigration.Proxy.Service.Transfer.FileTransfer.TryTransfer()   
 
 Questo problema è causato da un errore del codice nel servizio migrazione archiviazione in cui non è stato richiamato il privilegio di backup. 
 
@@ -137,11 +150,19 @@ File di destinazione:
 
 Log di debug DFSR:
 
-  20190308 10:18:53.116 3948 DBCL 4045 [WARN] DBClone:: IDTableImportUpdate record non corrispondente trovato. 
+    20190308 10:18:53.116 3948 DBCL  4045 [WARN] DBClone::IDTableImportUpdate Mismatch record was found. 
 
-  Hash ACL locale: 1BCDFE03-A18BCE01-D1AE9859-23A0A5F6 LastWriteTime: 20190308 18:09:44.876 FileSizeLow: 1131654 FileSizeHigh: 0 Attributi: 32 
+    Local ACL hash:1BCDFE03-A18BCE01-D1AE9859-23A0A5F6 
+    LastWriteTime:20190308 18:09:44.876 
+    FileSizeLow:1131654 
+    FileSizeHigh:0 
+    Attributes:32 
 
-  Clona hash ACL:**DDC4FCE4-DDF329C4-977CED6D-F4D72A5B** LastWriteTime: 20190308 18:09:44.876 FileSizeLow: 1131654 FileSizeHigh: 0 Attributi: 32 
+    Clone ACL hash:**DDC4FCE4-DDF329C4-977CED6D-F4D72A5B** 
+    LastWriteTime:20190308 18:09:44.876 
+    FileSizeLow:1131654 
+    FileSizeHigh:0 
+    Attributes:32 
 
 Questo problema è stato risolto dall'aggiornamento di [KB4512534](https://support.microsoft.com/help/4512534/windows-10-update-kb4512534)
 
@@ -149,8 +170,8 @@ Questo problema è stato risolto dall'aggiornamento di [KB4512534](https://suppo
 
 Quando si tenta di trasferire dati da un computer di origine Windows Server 2008 R2, non vengono trasferiti dati e viene visualizzato un errore:  
 
-  Non è stato possibile trasferire lo spazio di archiviazione su uno degli endpoint.
-0x9044
+    Couldn't transfer storage on any of the endpoints.
+    0x9044
 
 Questo errore è previsto se il computer Windows Server 2008 R2 non è completamente aggiornato con tutti gli aggiornamenti critici e importanti da Windows Update. Indipendentemente dal servizio migrazione archiviazione, è sempre consigliabile applicare patch a un computer Windows Server 2008 R2 per motivi di sicurezza, in quanto il sistema operativo non contiene i miglioramenti della sicurezza delle versioni più recenti di Windows Server.
 
@@ -158,26 +179,30 @@ Questo errore è previsto se il computer Windows Server 2008 R2 non è completam
 
 Quando si tenta di trasferire dati da un computer di origine, alcune o tutte le condivisioni non vengono trasferite, con errore di riepilogo:
 
-   Non è stato possibile trasferire lo spazio di archiviazione su uno degli endpoint.
-0x9044
+    Couldn't transfer storage on any of the endpoints.
+    0x9044
 
 Esaminando i dettagli del trasferimento SMB viene visualizzato l'errore:
 
-   Controllare se il dispositivo di origine è online. non è stato possibile accedervi.
+    Check if the source device is online - we couldn't access it.
 
 Esaminando il registro eventi di StorageMigrationService/admin viene visualizzato quanto segue:
 
-   Non è stato possibile trasferire l'archiviazione.
+    Couldn't transfer storage.
 
-   Processo: ID Job1:  
-   Stato: errore non riuscito: 36931 messaggio di errore: 
+    Job: Job1
+    ID:  
+    State: Failed
+    Error: 36931
+    Error Message: 
 
    Indicazioni: controllare l'errore dettagliato e verificare che siano soddisfatti i requisiti di trasferimento. Il processo di trasferimento non è riuscito a trasferire i computer di origine e di destinazione. Il problema potrebbe essere dovuto al fatto che il computer dell'agente di orchestrazione non è riuscito a raggiungere i computer di origine o di destinazione, probabilmente a causa di una regola del firewall o
 
 L'analisi del log StorageMigrationService-proxy/debug Mostra:
 
-   07/02/2019-13:35:57.231 [errore] la convalida del trasferimento non è riuscita. ErrorCode: 40961, endpoint di origine non è raggiungibile o non esiste oppure le credenziali di origine non sono valide o l'utente autenticato non dispone di autorizzazioni sufficienti per accedervi.
-in Microsoft. StorageMigration. proxy. Service. Transfer. TransferOperation. Validate () in Microsoft. StorageMigration. proxy. Service. Transfer. TransferRequestHandler. ProcessRequest (FileTransferRequest fileTransferRequest, Guid operationId)    [d:\os\src\base\dms\proxy\transfer\transferproxy\TransferRequestHandler.cs::
+    07/02/2019-13:35:57.231 [Error] Transfer validation failed. ErrorCode: 40961, Source endpoint is not reachable, or doesn't exist, or source credentials are invalid, or authenticated user doesn't have sufficient permissions to access it.
+    at Microsoft.StorageMigration.Proxy.Service.Transfer.TransferOperation.Validate()
+    at Microsoft.StorageMigration.Proxy.Service.Transfer.TransferRequestHandler.ProcessRequest(FileTransferRequest fileTransferRequest, Guid operationId)    
 
 Si tratta di un difetto del codice che verrebbe manifesto se l'account di migrazione non dispone almeno delle autorizzazioni di lettura per le condivisioni SMB. Questo problema è stato risolto per la prima volta nell'aggiornamento cumulativo [4520062](https://support.microsoft.com/help/4520062/windows-10-update-kb4520062). 
 
@@ -185,15 +210,55 @@ Si tratta di un difetto del codice che verrebbe manifesto se l'account di migraz
 
 Dopo l'installazione di [KB4512534](https://support.microsoft.com/help/4512534/windows-10-update-kb4512534) e il tentativo di eseguire l'inventario, l'inventario ha esito negativo con errori:
 
-  ECCEZIONE da HRESULT: 0x80005000
+    EXCEPTION FROM HRESULT: 0x80005000
   
-  Nome registro: Microsoft-Windows-StorageMigrationService/admin Source: Microsoft-Windows-StorageMigrationService date: 9/9/2019 5:21:42 PM ID evento: 2503 Categoria attività: None Level: Error keywords:      
-  Utente: computer servizio di rete: FS02. Descrizione di TailwindTraders.net: non è stato possibile inventariare i computer.
-Processo: ID foo2:20ac3f75-4945-41d1-9A79-d11dbb57798b stato: errore non riuscito: 36934 messaggio di errore: inventario non riuscito per tutte le indicazioni sui dispositivi: controllare l'errore dettagliato e verificare che siano soddisfatti i requisiti di inventario. Il processo non è riuscito a inventariare uno dei computer di origine specificati. Questo potrebbe essere dovuto al fatto che il computer dell'agente di orchestrazione non è riuscito a raggiungere la rete, probabilmente a causa di una regola del firewall o di autorizzazioni mancanti.
+    Log Name:      Microsoft-Windows-StorageMigrationService/Admin
+    Source:        Microsoft-Windows-StorageMigrationService
+    Date:          9/9/2019 5:21:42 PM
+    Event ID:      2503
+    Task Category: None
+    Level:         Error
+    Keywords:      
+    User:          NETWORK SERVICE
+    Computer:      FS02.TailwindTraders.net
+    Description:
+    Couldn't inventory the computers.
+    Job: foo2
+    ID: 20ac3f75-4945-41d1-9a79-d11dbb57798b
+    State: Failed
+    Error: 36934
+    Error Message: Inventory failed for all devices
+    Guidance: Check the detailed error and make sure the inventory requirements are met. The job couldn't inventory any of the specified source computers. This could be because the orchestrator computer couldn't reach it over the network, possibly due to a firewall rule or missing permissions.
   
-  Nome registro: Microsoft-Windows-StorageMigrationService/admin Source: Microsoft-Windows-StorageMigrationService date: 9/9/2019 5:21:42 PM ID evento: 2509 Categoria attività: None Level: Error keywords:      
-  Utente: computer servizio di rete: FS02. Descrizione di TailwindTraders.net: non è stato possibile inventariare un computer.
-Processo: foo2 computer: FS01. Stato TailwindTraders.net: errore non riuscito: messaggio di errore-2147463168: informazioni aggiuntive: controllare l'errore dettagliato e verificare che i requisiti di inventario siano soddisfatti. L'inventario non è stato in grado di determinare alcun aspetto del computer di origine specificato. Il problema potrebbe essere dovuto a autorizzazioni o privilegi mancanti nell'origine o in una porta del firewall bloccata.
+    Log Name:      Microsoft-Windows-StorageMigrationService/Admin
+    Source:        Microsoft-Windows-StorageMigrationService
+    Date:          9/9/2019 5:21:42 PM
+    Event ID:      2509
+    Task Category: None
+    Level:         Error
+    Keywords:      
+    User:          NETWORK SERVICE
+    Computer:      FS02.TailwindTraders.net
+    Description:
+    Couldn't inventory a computer.
+    Job: foo2
+    Computer: FS01.TailwindTraders.net
+    State: Failed
+    Error: -2147463168
+    Error Message: 
+    Guidance: Check the detailed error and make sure the inventory requirements are met. The inventory couldn't determine any aspects of the specified source computer. This could be because of missing permissions or privileges on the source or a blocked firewall port.
+  
+    Log Name:      Microsoft-Windows-StorageMigrationService-Proxy/Debug
+    Source:        Microsoft-Windows-StorageMigrationService-Proxy
+    Date:          2/14/2020 1:18:21 PM
+    Event ID:      10000
+    Task Category: None
+    Level:         Error
+    Keywords:      
+    User:          NETWORK SERVICE
+    Computer:      2019-rtm-orc.ned.contoso.com
+    Description:
+    02/14/2020-13:18:21.097 [Erro] Failed device discovery stage SystemInfo with error: (0x80005000) Unknown error (0x80005000)   
   
 Questo errore è causato da un difetto del codice nel servizio migrazione archiviazione quando si forniscono le credenziali di migrazione sotto forma di nome dell'entità utente (UPN), ad esempio "meghan@contoso.com". Il servizio dell'agente di orchestrazione del servizio migrazione archiviazione non è in grado di analizzare correttamente questo formato, causando un errore in una ricerca del dominio aggiunta per il supporto della migrazione del cluster in KB4512534 e 19H1.
 
@@ -203,8 +268,9 @@ Per aggirare questo problema, fornire le credenziali nel formato dominio\utente,
 
 Quando si tenta di trasferire i dati in un file server in cluster, vengono visualizzati errori quali: 
 
-   Verificare che il servizio proxy sia installato e in esecuzione, quindi riprovare. Il proxy non è attualmente disponibile.
-0x9006 ServiceError0x9006, Microsoft. StorageMigration. Commands. UnregisterSmsProxyCommand
+    Make sure the proxy service is installed and running, and then try again. The proxy isn't currently available.
+    0x9006
+    ServiceError0x9006,Microsoft.StorageMigration.Commands.UnregisterSmsProxyCommand
 
 Questo errore è previsto se la risorsa file server è stata spostata dal nodo proprietario del cluster Windows Server 2019 originale a un nuovo nodo e la funzionalità proxy del servizio migrazione archiviazione non è stata installata in tale nodo.
 
@@ -329,10 +395,25 @@ Dopo l'avvio del trasferimento da o a un controller di dominio:
  3. Uno o più utenti di Active Directory e gruppi locali di dominio hanno il nome e/o l'attributo di accesso precedente a Windows 2000 modificato
  4. Nell'agente di orchestrazione SMS viene visualizzato l'evento 3509:
  
- Nome registro: Microsoft-Windows-StorageMigrationService/admin Source: Microsoft-Windows-StorageMigrationService date: 1/10/2020 2:53:48 PM ID evento: 3509 Categoria attività: None Level: Error keywords:      
- Utente: computer servizio di rete: orc2019-rtm.corp.contoso.com Descrizione: non è stato possibile trasferire lo spazio di archiviazione per un computer.
+        Log Name:      Microsoft-Windows-StorageMigrationService/Admin
+        Source:        Microsoft-Windows-StorageMigrationService
+        Date:          1/10/2020 2:53:48 PM
+        Event ID:      3509
+        Task Category: None
+        Level:         Error
+        Keywords:      
+        User:          NETWORK SERVICE
+        Computer:      orc2019-rtm.corp.contoso.com
+        Description:
+        Couldn't transfer storage for a computer.
 
- Processo: dctest3 computer: dc02-2019.corp.contoso.com computer di destinazione: dc03-2019.corp.contoso.com stato: errore non riuscito: 53251 messaggio di errore: migrazione degli account locali non riuscita con errore System. eccezione:-2147467259 at Microsoft. StorageMigration. Service. DeviceHelper. MigrateSecurity (IDeviceRecord sourceDeviceRecord, IDeviceRecord destinationDeviceRecord, TransferConfiguration config, Guid proxyId, CancellationToken cancelToken)
+        Job: dctest3
+        Computer: dc02-2019.corp.contoso.com
+        Destination Computer: dc03-2019.corp.contoso.com
+        State: Failed
+        Error: 53251
+        Error Message: Local accounts migration failed with error System.Exception: -2147467259
+           at Microsoft.StorageMigration.Service.DeviceHelper.MigrateSecurity(IDeviceRecord sourceDeviceRecord, IDeviceRecord destinationDeviceRecord, TransferConfiguration config, Guid proxyId, CancellationToken cancelToken)
 
 Si tratta di un comportamento previsto se si tenta di eseguire la migrazione da o a un controller di dominio con il servizio migrazione archiviazione ed è stata usata l'opzione "Esegui la migrazione di utenti e gruppi" per rinominare o riutilizzare gli account. anziché selezionare "non trasferire utenti e gruppi". La migrazione del controller [di dominio non è supportata con il servizio migrazione archiviazione](faq.md). Poiché un controller di dominio non dispone di veri utenti e gruppi locali, il servizio migrazione archiviazione gestisce queste entità di sicurezza come se si trattasse di una migrazione tra due server membri e tenti di modificare gli ACL come indicato, causando gli errori e gli account modificati o copiati. 
 

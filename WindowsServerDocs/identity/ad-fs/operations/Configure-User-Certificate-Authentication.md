@@ -9,12 +9,12 @@ ms.date: 01/18/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: c36555a8bca7882125451b2c86a0707e3de9b2db
-ms.sourcegitcommit: 8771a9f5b37b685e49e2dd03c107a975bf174683
+ms.openlocfilehash: 6c8a3b30a337c164227bf344b5704cc7e782461a
+ms.sourcegitcommit: 1c75e4b3f5895f9fa33efffd06822dca301d4835
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76145927"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77517516"
 ---
 # <a name="configuring-ad-fs-for-user-certificate-authentication"></a>Configurazione AD FS per l'autenticazione dei certificati utente
 
@@ -41,6 +41,8 @@ Se si sta configurando AD FS per l'autenticazione Azure AD certificato, verifica
 Sono inoltre disponibili alcuni aspetti facoltativi.
 - Se si desidera utilizzare attestazioni basate su campi ed estensioni del certificato, oltre a EKU (tipo di attestazione https://schemas.microsoft.com/2012/12/certificatecontext/extension/eku), configurare regole di pass-through aggiuntive per il Active Directory attendibilità del provider di attestazioni.  Per un elenco completo delle attestazioni di certificato disponibili, vedere di seguito.  
 - Se è necessario limitare l'accesso in base al tipo di certificato, è possibile usare le proprietà aggiuntive del certificato in AD FS le regole di autorizzazione di rilascio per l'applicazione. Gli scenari comuni sono "Consenti solo certificati con provisioning da un provider MDM" o "Consenti solo certificati smart card"
+>[!IMPORTANT]
+> I clienti che usano il flusso del codice del dispositivo per l'autenticazione e l'esecuzione dell'autenticazione del dispositivo con un IDP diverso da Azure AD (ad esempio AD FS) non saranno in grado di applicare l'accesso in base al dispositivo (ad esempio, consentire solo i dispositivi gestiti che usano un servizio MDM di terze parti) per Azure AD Per proteggere l'accesso alle risorse aziendali in Azure AD e impedire eventuali perdite di dati, i clienti devono configurare Azure AD l'accesso condizionale basato su dispositivo, ad esempio "Richiedi segnalazione del dispositivo da contrassegnare" in Azure AD l'accesso condizionale.
 - Configurare le autorità di certificazione di emissione consentite per i certificati client seguendo le istruzioni riportate in "gestione di autorità emittenti attendibili per l'autenticazione client" in [questo articolo](https://technet.microsoft.com/library/dn786429(v=ws.11).aspx).
 - È consigliabile modificare le pagine di accesso in base alle esigenze degli utenti finali quando si esegue l'autenticazione del certificato. Casi comuni: (a) modificare "accesso con il certificato X509" a un altro utente finale descrittivo
 
@@ -90,7 +92,7 @@ AD FS richiede che il dispositivo client (o i browser) e i bilanciamenti del car
     *   Digitare `netsh http add sslcert ipport=0.0.0.0:{your_certauth_port} certhash={your_certhash} appid={your_applicaitonGUID}`
 
 ### <a name="check-if-the-client-device-has-been-provisioned-with-the-certificate-correctly"></a>Controllare se il provisioning del dispositivo client è stato eseguito correttamente con il certificato
-È possibile notare che alcuni dispositivi funzionano correttamente, ma non altri dispositivi. In questo caso, si tratta in genere di un risultato del mancato corretto provisioning del certificato utente nel dispositivo client. Attenersi alla procedura descritta di seguito. 
+È possibile notare che alcuni dispositivi funzionano correttamente, ma non altri dispositivi. In questo caso, si tratta in genere di un risultato del mancato corretto provisioning del certificato utente nel dispositivo client. Attenersi alla procedura riportata di seguito. 
 1)  Se il problema è specifico di un dispositivo Android, il problema più comune è che la catena di certificati non è completamente attendibile nel dispositivo Android.  Fare riferimento al fornitore MDM per verificare che il provisioning del certificato sia stato eseguito correttamente e che l'intera catena sia completamente attendibile nel dispositivo Android. 
 2)  Se il problema è specifico di un dispositivo Windows, controllare se il provisioning del certificato è stato eseguito correttamente controllando l'archivio certificati di Windows per l'utente connesso (non sistema/computer).
 3)  Esportare il certificato utente client in un file con estensione CER ed eseguire il comando ' certutil-f-UrlFetch-Verify certificatefilename. cer '
@@ -115,7 +117,7 @@ Si tratta di occorrenze rare
 
 ## <a name="reference-complete-list-of-user-certificate-claim-types-and-example-values"></a>Riferimento: elenco completo dei tipi di attestazione del certificato utente e valori di esempio
 
-|                                         Tipo di attestazione                                         |                              Valore di esempio                               |
+|                                         Tipo di attestazione.                                         |                              Valore di esempio                               |
 |--------------------------------------------------------------------------------------------|--------------------------------------------------------------------------|
 |         https://schemas.microsoft.com/2012/12/certificatecontext/field/x509version         |                                    3                                     |
 |     https://schemas.microsoft.com/2012/12/certificatecontext/field/signaturealgorithm      |                                sha256RSA                                 |

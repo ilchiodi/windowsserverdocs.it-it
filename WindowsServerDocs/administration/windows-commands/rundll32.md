@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 29a87f9f07c25a0c671e47550e0a054d8308f747
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 7345c1ad59a4209e607245db1b2a79055ffcb5fe
+ms.sourcegitcommit: 1c75e4b3f5895f9fa33efffd06822dca301d4835
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71384425"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77517287"
 ---
 # <a name="rundll32"></a>rundll32
 
@@ -34,7 +34,7 @@ Carica ed esegue le librerie a collegamento dinamico (dll) a 32 bit. Non sono di
 Rundll32 <DLLname>
 ```
 
-## <a name="commands"></a>Comandi:
+## <a name="commands"></a>Commands
 
 |Parametro|Descrizione|
 |---------|-----------|
@@ -42,7 +42,7 @@ Rundll32 <DLLname>
 
 ## <a name="remarks"></a>Note
 
-Rundll32 può chiamare solo le funzioni da una DLL che vengono scritte in modo esplicito per essere chiamate da rundll32. Per ulteriori informazioni sui requisiti di rundll32, vedere l' [articolo 164787](https://go.microsoft.com/fwlink/?LinkID=165773) della Microsoft Knowledge Base (https://go.microsoft.com/fwlink/?LinkID=165773).
+Rundll32 può chiamare solo le funzioni da una DLL scritta in modo esplicito per essere chiamate da rundll32.
 
 #### <a name="additional-references"></a>Altri riferimenti
 
