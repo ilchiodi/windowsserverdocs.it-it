@@ -7,19 +7,19 @@ author: cosmosdarwin
 ms.author: cosdar
 manager: eldenc
 ms.technology: storage-spaces
-ms.date: 06/06/2019
-ms.openlocfilehash: 8c17671f2f15d1373973dcf2fbafc753f0a163a6
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.date: 02/25/2020
+ms.openlocfilehash: fb53ae74e471d590f83e1017662f33bb5a4b7c1d
+ms.sourcegitcommit: 92e0e4224563106adc9a7f1e90f27da468859d90
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71402884"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77608807"
 ---
 # <a name="creating-volumes-in-storage-spaces-direct"></a>Creazione di volumi in Spazi di archiviazione diretta
 
 > Si applica a: Windows Server 2019, Windows Server 2016
 
-Questo argomento descrive come creare volumi in un cluster Spazi di archiviazione diretta usando l'interfaccia di amministrazione di Windows, PowerShell o Gestione cluster di failover.
+Questo argomento descrive come creare volumi in un cluster Spazi di archiviazione diretta usando l'interfaccia di amministrazione di Windows e PowerShell.
 
 > [!TIP]
 > Se non lo hai già fatto, consulta prima [Pianificazione dei volumi in Spazi di archiviazione diretta](plan-volumes.md).
@@ -32,7 +32,7 @@ Per creare un volume mirror a tre vie nell'interfaccia di amministrazione di Win
 2. Nella pagina volumi selezionare la scheda **inventario** , quindi selezionare **Crea volume**.
 3. Nel riquadro **Crea volume** immettere un nome per il volume e lasciare la **resilienza** come **mirroring a tre vie**.
 4. In **dimensioni su HDD**specificare le dimensioni del volume. Ad esempio, 5 TB (terabyte).
-5. Selezionare **Create**.
+5. Selezionare **Crea**.
 
 A seconda delle dimensioni, la creazione del volume può richiedere alcuni minuti. Le notifiche in alto a destra consentiranno di stabilire quando viene creato il volume. Il nuovo volume verrà visualizzato nell'elenco inventario.
 
@@ -51,7 +51,7 @@ Per creare un volume con la parità con accelerazione speculare nell'interfaccia
 3. Nel riquadro **Crea volume** immettere un nome per il volume.
 4. In **resilienza**selezionare **parità con accelerazione del mirroring**.
 5. In **percentuale parità**selezionare la percentuale di parità.
-6. Selezionare **Create**.
+6. Selezionare **Crea**.
 
 Guarda un breve video su come creare un volume di parità con accelerazione speculare.
 
@@ -88,7 +88,7 @@ La deduplicazione e la compressione sono gestite per ogni volume. La deduplicazi
 
     Anziché le impostazioni complesse, l'interfaccia di amministrazione di Windows consente di scegliere tra profili pronti per diversi carichi di lavoro. Se non si è certi, usare l'impostazione predefinita.
 
-6. Seleziona **Abilita**.
+6. e selezionare **Abilita**.
 
 Guarda un breve video su come attivare la deduplicazione e la compressione.
 
@@ -100,15 +100,15 @@ Ti consigliamo di usare il cmdlet **New-Volume** per creare i volumi per Spazi d
 
 Il cmdlet **New-Volume** prevede quattro parametri che dovrai sempre fornire:
 
-- **FriendlyName** Qualsiasi stringa desiderata, ad esempio *"volume1"*
-- **FileSystem** **CSVFS_ReFS** (scelta consigliata) o **CSVFS_NTFS**
-- **StoragePoolFriendlyName:** Nome del pool di archiviazione, ad esempio *"S2D in clustername"*
-- **Dimensioni:** Dimensioni del volume, ad esempio *"10 TB"*
+- **FriendlyName:** qualsiasi stringa, ad esempio *"Volume1"*
+- **FileSystem:** **CSVFS_ReFS** (scelta consigliata) o **CSVFS_NTFS**
+- **StoragePoolFriendlyName:** nome del pool di archiviazione, ad esempio *"S2D in NomeCluster"*
+- **Size:** le dimensioni del volume, ad esempio *"10TB"*
 
    > [!NOTE]
    > Windows, incluso PowerShell, conta con numeri binari (in base 2), mentre le unità sono spesso etichettate con numeri decimali (in base 10). Questo spiega perché un'unità da "un terabyte", definita come 1.000.000.000.000 byte, viene visualizzata in Windows come circa "909 GB". Si tratta di un comportamento previsto. Durante la creazione di volumi tramite **New-Volume**, devi specificare il parametro **Size** in numeri binari (in base 2). Ad esempio, se specifichi "909GB" o "0,909495TB", verrà creato un volume di circa 1.000.000.000.000 byte.
 
-### <a name="example-with-2-or-3-servers"></a>Esempio: Con 2 o 3 server
+### <a name="example-with-2-or-3-servers"></a>Esempio: con 2 o 3 server
 
 Per semplificare le cose, se la distribuzione include solo due server, Spazi di archiviazione diretta userà automaticamente il mirroring a 2 vie per la resilienza. Se la distribuzione include solo tre server, userà automaticamente il mirroring a 3 vie.
 
@@ -116,11 +116,11 @@ Per semplificare le cose, se la distribuzione include solo due server, Spazi di 
 New-Volume -FriendlyName "Volume1" -FileSystem CSVFS_ReFS -StoragePoolFriendlyName S2D* -Size 1TB
 ```
 
-### <a name="example-with-4-servers"></a>Esempio: Con più di 4 server
+### <a name="example-with-4-servers"></a>Esempio: con 4 server e più
 
 Se disponi di quattro o più server, puoi utilizzare il parametro facoltativo **ResiliencySettingName** per scegliere il tipo di resilienza.
 
--   **ResiliencySettingName** **Mirror** o **parità**.
+-   **ResiliencySettingName:** **Mirror** o **Parity**.
 
 Nell'esempio seguente, *"Volume2"* usa il mirroring a 3 vie e *"Volume3"* usa la doppia parità (spesso detta "codifica di cancellazione").
 
@@ -129,7 +129,7 @@ New-Volume -FriendlyName "Volume2" -FileSystem CSVFS_ReFS -StoragePoolFriendlyNa
 New-Volume -FriendlyName "Volume3" -FileSystem CSVFS_ReFS -StoragePoolFriendlyName S2D* -Size 1TB -ResiliencySettingName Parity
 ```
 
-### <a name="example-using-storage-tiers"></a>Esempio: Uso di livelli di archiviazione
+### <a name="example-using-storage-tiers"></a>Esempio: utilizzo di livelli di archiviazione
 
 Nelle distribuzioni con tre tipi di unità, un volume può comprendere i livelli SSD e HDD per risiedere parzialmente su ciascuno. Analogamente, nelle distribuzioni con quattro o più server, un volume può combinare mirroring e doppia parità per risiedere parzialmente su ciascuno.
 
@@ -149,41 +149,7 @@ Per creare volumi a livelli, fai riferimento a questi modelli di livello usando 
 New-Volume -FriendlyName "Volume4" -FileSystem CSVFS_ReFS -StoragePoolFriendlyName S2D* -StorageTierFriendlyNames Performance, Capacity -StorageTierSizes 300GB, 700GB
 ```
 
-## <a name="create-volumes-using-failover-cluster-manager"></a>Creare volumi tramite Gestione cluster di failover
-
-Puoi inoltre creare volumi tramite la *Creazione guidata nuovo disco virtuale (Spazi di archiviazione diretta)* seguita dalla *Creazione guidata Nuovo volume* da Gestione cluster di failover, anche se il flusso di lavoro include molti più passaggi manuali e non è consigliato.
-
-Ci sono tre passaggi principali:
-
-### <a name="step-1-create-virtual-disk"></a>Passaggio 1: Crea disco virtuale
-
-![Nuovo disco virtuale](media/creating-volumes/GUI-Step-1.png)
-
-1. In Gestione cluster di failover, passa a **Archiviazione** -> **Pool**.
-2. Seleziona **Nuovo disco virtuale** dal riquadro Azioni a destra o fai clic con il pulsante destro del mouse sul pool e seleziona **Nuovo disco virtuale**.
-3. Seleziona il pool di archiviazione e fai clic su **OK**. La *Creazione guidata nuovo disco virtuale (Spazi di archiviazione diretta)* verrà aperta.
-4. Utilizza la procedura guidata per denominare il disco virtuale e specificarne le dimensioni.
-5. Rivedi le selezioni e fai clic su **Crea**.
-6. Assicurati di selezionare la casella contrassegnata **Crea un volume al termine della procedura guidata** prima della chiusura.
-
-### <a name="step-2-create-volume"></a>Passaggio 2: Crea volume
-
-La *Creazione guidata Nuovo volume* verrà aperta.
-
-7. Seleziona il disco virtuale appena creato e fai clic su **Avanti**.
-8. Specifica le dimensioni del volume (impostazione predefinita: le stesse dimensioni del disco virtuale) e fai clic su **Avanti**. 
-9. Assegna il volume a una lettera di unità o scegli **Non assegnare a una lettera di unità** e fai clic su **Avanti**.
-10. Specifica il file system da utilizzare, lascia la dimensione dell'unità di allocazione come *Predefinita*, assegna un nome al volume e fai clic su **Avanti**.
-11. Rivedi le selezioni e fai clic su **Crea**, quindi su **Chiudi**.
-
-### <a name="step-3-add-to-cluster-shared-volumes"></a>Passaggio 3: Aggiungi a volumi condivisi cluster
-
-![Aggiungi a volumi condivisi cluster](media/creating-volumes/GUI-Step-2.png)
-
-12. In Gestione cluster di failover, passa a **Archiviazione** -> **Dischi**.
-13. Seleziona il disco virtuale appena creato e seleziona **Aggiungi a volumi condivisi cluster** dal riquadro Azioni a destra o fai clic con il pulsante destro del mouse sul disco virtuale e seleziona **Aggiungi a volumi condivisi cluster**.
-
-Non c'è altro da fare. Ripeti il numero di volte necessario per creare altri volumi.
+Questo è tutto. Ripeti il numero di volte necessario per creare altri volumi.
 
 ## <a name="see-also"></a>Vedere anche
 

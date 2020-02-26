@@ -8,12 +8,12 @@ manager: alanth
 author: michikos
 ms.technology: security-authentication
 ms.date: 08/18/2017
-ms.openlocfilehash: 616ebf1a8e01f84618d22d535609a0dc8414d718
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: c9c4342281ee2036e152c8034fa72e421487a45b
+ms.sourcegitcommit: 9bc7a0478d72944f714f8041fa4506e0d1ed0366
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71403501"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77607082"
 ---
 # <a name="domain-joined-device-public-key-authentication"></a>Autenticazione della chiave pubblica del dispositivo aggiunto al dominio
 
@@ -25,12 +25,12 @@ Kerberos ha aggiunto il supporto per i dispositivi aggiunti a un dominio per l'a
 
 A partire da Windows 10 versione 1507 e Windows Server 2016, i dispositivi aggiunti a un dominio eseguono automaticamente il provisioning di una chiave pubblica associata a un controller di dominio Windows Server 2016 (DC). Una volta eseguito il provisioning di una chiave, Windows può usare l'autenticazione con chiave pubblica per il dominio.
 
-### <a name="public-key-generation"></a>Generazione della chiave pubblica
-Se il dispositivo esegue Credential Guard, viene creata una chiave pubblica protetta da Credential Guard. 
+### <a name="key-generation"></a>Generazione di chiavi
+Se il dispositivo esegue Credential Guard, viene creata una coppia di chiavi pubblica/privata protetta da Credential Guard. 
 
-Se Credential Guard non è disponibile e un TPM è, viene creata una chiave pubblica protetta dal TPM. 
+Se Credential Guard non è disponibile e un TPM è, viene creata una coppia di chiavi pubblica/privata protetta dal TPM. 
 
-Se nessuno dei due è disponibile, non viene generata una chiave e il dispositivo può eseguire l'autenticazione solo usando la password.
+Se nessuno dei due è disponibile, non viene generata una coppia di chiavi e il dispositivo può eseguire l'autenticazione solo usando la password.
 
 ### <a name="provisioning-computer-account-public-key"></a>Provisioning della chiave pubblica dell'account computer
 All'avvio di Windows, verifica se viene effettuato il provisioning di una chiave pubblica per l'account computer. In caso contrario, viene generata una chiave pubblica associata e viene configurata per il relativo account in Active Directory utilizzando un controller di dominio Windows Server 2016 o versione successiva. Se tutti i controller di dominio sono di livello inferiore, non viene eseguito il provisioning di alcuna chiave.
