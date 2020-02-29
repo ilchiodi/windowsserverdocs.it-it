@@ -12,16 +12,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 5323210962298ff3f2d0b159cba7726adfbb89d1
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: b7da68fa9cbe71f8a67e74671d64d11908ae4654
+ms.sourcegitcommit: 9687d3eb221b89061a48bf1e73fb3b25bee69f9a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71361618"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78169561"
 ---
 # <a name="running-wsus-replica-mode"></a>Esecuzione della modalità di replica WSUS
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Si applica a: Windows Server (canale semestrale), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Un server WSUS in esecuzione in modalità di replica eredita le approvazioni degli aggiornamenti e i gruppi di computer creati in un server di amministrazione. In uno scenario in cui viene utilizzata la modalità di replica, in genere si dispone di un singolo server di amministrazione e uno o più server WSUS di replica subordinata vengono distribuiti nell'intera organizzazione, in base alla topografia del sito o dell'organizzazione. È possibile approvare gli aggiornamenti e creare gruppi di computer nel server di amministrazione, che verrà quindi rispecchiato dai server in modalità di replica. I server in modalità di replica possono essere configurati solo durante la configurazione di WSUS e, se è stato implementato questo scenario, è probabile che sia importante per l'organizzazione che le approvazioni degli aggiornamenti e i gruppi di computer siano gestiti a livello centralizzato.
 

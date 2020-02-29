@@ -9,12 +9,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 34ea5ca29672cb7bc0080a1c27b1910d5cf6b92e
-ms.sourcegitcommit: 1c75e4b3f5895f9fa33efffd06822dca301d4835
+ms.openlocfilehash: b299ddc823b3fbbd5818f96202e3c01faf0762d7
+ms.sourcegitcommit: 9687d3eb221b89061a48bf1e73fb3b25bee69f9a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77517526"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78169601"
 ---
 # <a name="ad-fs-requirements"></a>Requisiti per ADFS
 
@@ -202,7 +202,7 @@ Entrambi i firewall si trova tra il Proxy dell'applicazione Web e la server farm
 Inoltre, se l'autenticazione del certificato client utente \(autenticazione clientTLS utilizzando X509 i certificati utente\) è obbligatorio, ADFS in Windows Server 2012 R2 richiede che sia attivato 49443 la porta TCP in ingresso nel firewall tra i client e il Proxy dell'applicazione Web. Questa operazione non è necessaria nel firewall tra il Proxy di applicazione Web e i server federativi\).  
 
 > [!NOTE]
-> inoltre assicurarsi che la porta 49443 non venga utilizzata da altri servizi nel server proxy applicazione Web.
+> inoltre assicurarsi che la porta 49443 non venga utilizzata da altri servizi nella AD FS e nel server proxy applicazione Web.
 
 **Configurazione del DNS**  
   
