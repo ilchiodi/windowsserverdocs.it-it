@@ -13,18 +13,17 @@ ms.topic: article
 ms.assetid: 938adb3d-71ab-488b-b2f2-57b29df210d7
 author: evaseydl
 manager: scottman
-ms.openlocfilehash: 4280491b8f47ce2d16ecf2cb33dbdb21ac35365b
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: eaf3aa737718ce2c0e4654319bea7079e3f92373
+ms.sourcegitcommit: a4b489d0597b6a73c905d3448d5bc332efd6191b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71403979"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77675352"
 ---
 # <a name="additional-remote-desktop-resources"></a>Risorse aggiuntive su Desktop remoto
 
 Oltre alle informazioni disponibili qui nella documentazione relativa a Windows Server 2016, puoi usare le risorse seguenti per approfondire la conoscenza e ricevere assistenza per Servizi Desktop remoto:
 
-- Su Twitter contatta: [@RDS4U](https://twitter.com/RDS4U)
 - Partecipa a discussioni di carattere generale su Servizi Desktop remoto nel [forum TechNet su questi servizi](https://aka.ms/technetforum-rds).
 - Per discussioni relative ad applicazioni/client Desktop remoto per Windows, Android, iOS e Mac, visita il [forum TechNet sui client Desktop remoto](https://aka.ms/technetforum-rdc).
 - Per MultiPoint, vedi il [forum TechNet su MultiPoint](https://aka.ms/multipoint-forum).

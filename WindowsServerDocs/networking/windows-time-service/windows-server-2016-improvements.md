@@ -8,12 +8,12 @@ ms.date: 10/17/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: networking
-ms.openlocfilehash: 37e37e33b5d8dd571f8519aaa48251856503578d
-ms.sourcegitcommit: 10331ff4f74bac50e208ba8ec8a63d10cfa768cc
+ms.openlocfilehash: 2723868251f90429fb0ad5e966c9222a6a22ab0c
+ms.sourcegitcommit: 1c75e4b3f5895f9fa33efffd06822dca301d4835
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75953080"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77520640"
 ---
 # <a name="windows-server-2016-improvements"></a>Miglioramenti di Windows Server 2016
 
@@ -35,11 +35,11 @@ Inoltre, il livello strato che segnala l'Host al guest è più trasparente. In p
 ## <a name="monitoring"></a>Monitoraggio
 Sono stati aggiunti i contatori di Performance monitor. Questi consentono di base, monitorare e risolvere accuratezza di tempo. Questi contatori includono:
 
-|Contatore|Description|
+|Contatore|Descrizione|
 |----- | ----- |
 |Offset ora calcolata| L'ora assoluta offset tra l'orologio di sistema e l'origine di tempo scelto, come calcolato dal servizio W32Time in microsecondi. Quando è disponibile un nuovo campione valido, il tempo calcolato viene aggiornato con la differenza di orario indicata nell'esempio. Questo è l'offset effettivo dell'ora dell'orologio locale. W32Time avvia correzione orologio utilizzando questo offset e aggiorna l'ora calcolata tra gli esempi con offset dell'ora rimanenti che deve essere applicato in base all'orologio locale. Accuratezza orologio può essere rilevato tramite questo contatore delle prestazioni con un intervallo di polling bassa (ad esempio: 256 secondi o meno) e cercando il valore del contatore di dimensioni minori rispetto al limite di accuratezza orologio desiderato.|
 |Regolazione di frequenza di clock| La regolazione dell'orologio assoluto frequenza ottenuta al clock di sistema locale con W32Time in parti per miliardo. Questo contatore consente di visualizzare le azioni da W32time.|
-|Ritardo di andata e ritorno NTP| Ritardo di andata e ritorno più recente riscontrato dal Client NTP ricevere una risposta dal server in microsecondi. Questo è il tempo trascorso nel client NTP fra la trasmissione di una richiesta al |server NTP e la ricezione di una risposta valida dal server. Questo contatore consente di caratterizzare i ritardi esperti dal client NTP. Round trip più grande o variabile è possibile aggiungere calcoli ora NTP, che a sua volta possono influire sull'accuratezza della sincronizzazione dell'ora tramite NTP di disturbo.|
+|Ritardo di andata e ritorno NTP| Ritardo di andata e ritorno più recente riscontrato dal Client NTP ricevere una risposta dal server in microsecondi. Questo è il tempo trascorso nel client NTP tra la trasmissione di una richiesta per il server NTP e la ricezione di una risposta valida dal server. Questo contatore consente di caratterizzare i ritardi esperti dal client NTP. Round trip più grande o variabile è possibile aggiungere calcoli ora NTP, che a sua volta possono influire sull'accuratezza della sincronizzazione dell'ora tramite NTP di disturbo.|
 |Numero di origine Client NTP| Numero di origini dell'ora NTP utilizzato dal Client NTP attivi. Si tratta di un conteggio degli indirizzi IP distinti attivi dei server di riferimento ora che rispondono alle richieste del client. Questo numero può essere maggiore o minore di peer configurato, a seconda della risoluzione del DNS di nomi di peer e possibilità di copertura corrente.|
 |Il Server NTP richieste in ingresso| Numero di richieste ricevute dal Server NTP (richieste/Sec).|
 |Risposte in uscita del Server NTP| Numero di richieste di una risposta dal Server NTP (risposte/Sec).|
@@ -50,7 +50,7 @@ I contatori delle ultime 3 riguardano scenari server NTP e sono utile quando det
 ## <a name="configuration-updates-per-environment"></a>Aggiornamenti della configurazione per ogni ambiente
 Di seguito vengono descritte le modifiche apportate alla configurazione predefinita tra Windows 2016 e le versioni precedenti per ogni ruolo. Le impostazioni per Windows Server 2016 e Windows 10 Anniversary Update (build 14393) ora sono specifiche, pertanto vengono visualizzate come colonne separate.
 
-|Ruolo|Impostazione|Windows Server 2016|Windows 10|Windows Server 2012 R2<br>Windows Server 2008 R2<br>Windows 10|
+|Ruolo|Impostazione|Windows Server 2016|Windows 10|Windows Server 2012 R2<br>Windows Server 2008 R2<br>Windows 10|
 |---|---|---|---|---|
 |**Server autonomo/Nano Server**||||
 | |*Server di riferimento ora*|time.windows.com|N/D|time.windows.com|
@@ -218,17 +218,17 @@ Per verificare che le modifiche sono state eseguite correttamente, è possibile 
 
  w32tm /query /configuration
 
-Value|Impostazione prevista|
+Valore|Impostazione prevista|
 ----- | ----- |
 AnnounceFlags| 5 (locale)|
 NtpServer |(Locale)|
 NomeDLL |C:\WINDOWS\SYSTEM32\w32time. DLL (locale)|
-Abilitato |1 (locale)|
+Enabled |1 (locale)|
 NtpClient| (Locale)|
 
  w32tm /query /status /verbose
 
-Value| Impostazione prevista|
+Valore| Impostazione prevista|
 ----- | ----- |
 Strato| 1 (riferimento principale - sincronizza tramite orologio radio)|
 ReferenceId| 0x4C4F434C (source name: "LOCAL")|
@@ -290,7 +290,7 @@ L'impostazione MaxAllowedPhaseOffset si trova sotto il servizio ora di Windows\W
 
 ## <a name="azure-and-windows-iaas-considerations"></a>Considerazioni di Azure e Windows IaaS
 
-### <a name="azure-virtual-machine-active-directory-domain-services"></a>Macchina virtuale di Azure: Active Directory Domain Services
+### <a name="azure-virtual-machine-active-directory-domain-services"></a>Macchina virtuale di Azure: Servizi di dominio di Active Directory
 Se la macchina virtuale di Azure che esegue Active Directory Domain Services fa parte di una foresta Active Directory locale esistente, è necessario disabilitare TimeSync(VMIC). Questo è consentire tutti i controller di dominio dell'insieme di strutture fisiche e virtuali, utilizzare una gerarchia di sincronizzazione sola volta. Consultare il white paper pratica migliore ["in esecuzione Domain controller in Hyper-V"](https://technet.microsoft.com/library/virtual_active_directory_domain_controller_virtualization_hyperv.aspx)
 
 ### <a name="azure-virtual-machine-domain-joined-machine"></a>Macchina virtuale di Azure: computer aggiunto al dominio
@@ -328,7 +328,7 @@ Per ulteriori informazioni, vedere [come attivare la registrazione nel servizio 
 
  w32tm /debug /enable /file:C:\Windows\Temp\w32time-test.log /size:10000000 /entries:0-73,103,107,110
 
-### <a name="performance-monitor"></a>Monitoraggio prestazioni
+### <a name="performance-monitor"></a>Performance Monitor
 Il servizio ora di Windows Server 2016 Windows espone i contatori delle prestazioni che può essere usati per raccogliere la registrazione per il controllo. Questi possono essere registrati in locale o remoto. È possibile registrare l'Offset ora Computer e i contatori di ritardo di Round Trip. E come un contatore delle prestazioni, è possibile monitorarli in modalità remota e creare avvisi tramite System Center Operations Manager. È possibile utilizzare ad esempio, un avviso di allarme è quando l'Offset dell'ora si allontana dalla precisione desiderata. Il [System Center Management Pack](https://social.technet.microsoft.com/wiki/contents/articles/15251.system-center-management-pack-authoring-guide.aspx) Per ulteriori informazioni.
 
 ### <a name="windows-traceability-example"></a>Esempio di tracciabilità Windows
