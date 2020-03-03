@@ -6,12 +6,12 @@ ms.technology: storage
 author: JasonGerend
 manager: elizapo
 ms.author: jgerend
-ms.openlocfilehash: f2e8d3bfb5ef907ffb522b5b7be31d1def3001c8
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: 1ab941e25da7171349bb24762940af3bf886c165
+ms.sourcegitcommit: a4b489d0597b6a73c905d3448d5bc332efd6191b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75949684"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77675362"
 ---
 # <a name="volume-shadow-copy-service"></a>Servizio Copia Shadow del volume
 
@@ -19,34 +19,34 @@ Si applica a: Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, 
 
 Il backup e il ripristino dei dati aziendali critici possono essere molto complessi a causa dei problemi seguenti:
 
-  - È in genere necessario eseguire il backup dei dati mentre le applicazioni che li producono sono ancora in esecuzione. Ciò significa che alcuni file di dati potrebbero essere aperti o in uno stato non coerente.  
-      
-  - Se il set di dati è di grandi dimensioni, può essere difficile eseguirne il backup in una sola volta.  
-      
+  - È in genere necessario eseguire il backup dei dati mentre le applicazioni che li producono sono ancora in esecuzione. Ciò significa che alcuni file di dati potrebbero essere aperti o in uno stato non coerente.
+
+  - Se il set di dati è di grandi dimensioni, può essere difficile eseguirne il backup in una sola volta.
+
 
 Per eseguire correttamente le operazioni di backup e ripristino, è necessario un attento coordinamento tra le applicazioni di backup, le applicazioni line-of-business di cui viene eseguito il backup e l'hardware e il software di gestione dell'archiviazione. Il Servizio Copia Shadow del volume (VSS), introdotto in Windows Server® 2003, semplifica la conversazione tra questi componenti per consentire loro di operare meglio insieme. Quando tutti i componenti supportano VSS, puoi usarli per eseguire il backup dei dati delle applicazioni senza portarle offline.
 
 VSS coordina le azioni necessarie per creare una copia shadow coerente (nota anche come snapshot o copia temporizzata) dei dati di cui deve essere eseguito il backup. La copia shadow può essere usata così com'è oppure può essere usata in scenari come i seguenti:
 
-  - Vuoi eseguire il backup dei dati delle applicazioni e delle informazioni sullo stato del sistema, inclusa l'archiviazione dei dati in un'altra unità disco rigido, su nastro o su un altro supporto rimovibile.  
-      
-  - Stai eseguendo il data mining.  
-      
-  - Stai eseguendo backup da disco a disco.  
-      
-  - Devi eseguire un ripristino rapido dalla perdita di dati ripristinando i dati nel LUN originale o in un LUN completamente nuovo che sostituisce un LUN originale che presentava problemi.  
-      
+  - Vuoi eseguire il backup dei dati delle applicazioni e delle informazioni sullo stato del sistema, inclusa l'archiviazione dei dati in un'altra unità disco rigido, su nastro o su un altro supporto rimovibile.
+
+  - Stai eseguendo il data mining.
+
+  - Stai eseguendo backup da disco a disco.
+
+  - Devi eseguire un ripristino rapido dalla perdita di dati ripristinando i dati nel LUN originale o in un LUN completamente nuovo che sostituisce un LUN originale che presentava problemi.
+
 
 Le funzionalità e le applicazioni Windows che usano VSS includono quanto segue:
 
-  - [Windows Server Backup](https://go.microsoft.com/fwlink/?linkid=180891) (https://go.microsoft.com/fwlink/?LinkId=180891)  
-      
-  - [Copie shadow di cartelle condivise](https://go.microsoft.com/fwlink/?linkid=142874) (https://go.microsoft.com/fwlink/?LinkId=142874)  
-      
-  - [System Center Data Protection Manager](https://go.microsoft.com/fwlink/?linkid=180892) (https://go.microsoft.com/fwlink/?LinkId=180892)  
-      
-  - [Ripristino configurazione di sistema](https://go.microsoft.com/fwlink/?linkid=180893) (https://go.microsoft.com/fwlink/?LinkId=180893)  
-      
+  - [Windows Server Backup](https://go.microsoft.com/fwlink/?linkid=180891) (https://go.microsoft.com/fwlink/?LinkId=180891)
+
+  - [Copie shadow di cartelle condivise](https://go.microsoft.com/fwlink/?linkid=142874) (https://go.microsoft.com/fwlink/?LinkId=142874)
+
+  - [System Center Data Protection Manager](https://go.microsoft.com/fwlink/?linkid=180892) (https://go.microsoft.com/fwlink/?LinkId=180892)
+
+  - [Ripristino configurazione di sistema](https://go.microsoft.com/fwlink/?linkid=180893) (https://go.microsoft.com/fwlink/?LinkId=180893)
+
 
 ## <a name="how-volume-shadow-copy-service-works"></a>Funzionamento del Servizio Copia Shadow del volume (VSS)
 
@@ -76,31 +76,31 @@ Questa sezione colloca nel contesto i vari ruoli del richiedente, del writer e d
 
 Per creare una copia shadow, il richiedente, il writer e il provider eseguono le azioni seguenti:
 
-1.  Il richiedente chiede al Servizio Copia Shadow del volume di enumerare i writer, raccogliere i metadati dei writer e prepararsi per la creazione della copia shadow.  
-      
-2.  Ogni writer crea una descrizione XML dei componenti e degli archivi dati di cui è necessario eseguire il backup e li fornisce al Servizio Copia Shadow del volume. Il writer definisce anche un metodo di ripristino, che viene usato per tutti i componenti. Il Servizio Copia Shadow del volume fornisce la descrizione del writer al richiedente, che seleziona i componenti di cui verrà eseguito il backup.  
-      
-3.  Il Servizio Copia Shadow del volume notifica a tutti i writer di preparare i rispettivi dati per la creazione di una copia shadow.  
-      
-4.  Ogni writer prepara i dati secondo le esigenze, ad esempio completando tutte le transazioni aperte, eseguendo il rollup dei registri delle transazioni e scaricando le cache. Quando i dati sono pronti per la copia shadow, il writer invia una notifica al Servizio Copia Shadow del volume.  
-      
-5.  Il Servizio Copia Shadow del volume indica ai writer di bloccare temporaneamente le richieste di I/O di scrittura nelle applicazioni (le richieste di I/O di lettura sono ancora possibili) per i pochi secondi necessari per creare la copia shadow di uno o più volumi. Il blocco delle applicazioni non può richiedere più di 60 secondi. Il Servizio Copia Shadow del volume svuota i buffer del file system e quindi blocca il file system, operazione che garantisce che i relativi metadati vengano registrati correttamente e che i dati per cui creare la copia shadow siano scritti secondo un ordine coerente.  
-      
-6.  Il Servizio Copia Shadow del volume indica al provider di creare la copia shadow. Il periodo di creazione della copia shadow non dura più di 10 secondi, durante i quali tutte le richieste di I/O di scrittura nel file system rimangono bloccate.  
-      
-7.  Il Servizio Copia Shadow del volume rilascia le richieste di I/O di scrittura nel file system.  
-      
-8.  VSS indica ai writer di sbloccare le richieste di I/O di scrittura delle applicazioni. A questo punto, le applicazioni possono riprendere la scrittura dei dati sul disco di cui viene eseguita la copia shadow.  
-      
+1.  Il richiedente chiede al Servizio Copia Shadow del volume di enumerare i writer, raccogliere i metadati dei writer e prepararsi per la creazione della copia shadow.
+
+2.  Ogni writer crea una descrizione XML dei componenti e degli archivi dati di cui è necessario eseguire il backup e li fornisce al Servizio Copia Shadow del volume. Il writer definisce anche un metodo di ripristino, che viene usato per tutti i componenti. Il Servizio Copia Shadow del volume fornisce la descrizione del writer al richiedente, che seleziona i componenti di cui verrà eseguito il backup.
+
+3.  Il Servizio Copia Shadow del volume notifica a tutti i writer di preparare i rispettivi dati per la creazione di una copia shadow.
+
+4.  Ogni writer prepara i dati secondo le esigenze, ad esempio completando tutte le transazioni aperte, eseguendo il rollup dei registri delle transazioni e scaricando le cache. Quando i dati sono pronti per la copia shadow, il writer invia una notifica al Servizio Copia Shadow del volume.
+
+5.  Il Servizio Copia Shadow del volume indica ai writer di bloccare temporaneamente le richieste di I/O di scrittura nelle applicazioni (le richieste di I/O di lettura sono ancora possibili) per i pochi secondi necessari per creare la copia shadow di uno o più volumi. Il blocco delle applicazioni non può richiedere più di 60 secondi. Il Servizio Copia Shadow del volume svuota i buffer del file system e quindi blocca il file system, operazione che garantisce che i relativi metadati vengano registrati correttamente e che i dati per cui creare la copia shadow siano scritti secondo un ordine coerente.
+
+6.  Il Servizio Copia Shadow del volume indica al provider di creare la copia shadow. Il periodo di creazione della copia shadow non dura più di 10 secondi, durante i quali tutte le richieste di I/O di scrittura nel file system rimangono bloccate.
+
+7.  Il Servizio Copia Shadow del volume rilascia le richieste di I/O di scrittura nel file system.
+
+8.  VSS indica ai writer di sbloccare le richieste di I/O di scrittura delle applicazioni. A questo punto, le applicazioni possono riprendere la scrittura dei dati sul disco di cui viene eseguita la copia shadow.
+
 
 > [!NOTE]
-> La creazione della copia shadow può essere interrotta se i writer vengono mantenuti nello stato di blocco per più di 60 secondi o se i provider impiegano più di 10 secondi per eseguire il commit della copia shadow. 
+> La creazione della copia shadow può essere interrotta se i writer vengono mantenuti nello stato di blocco per più di 60 secondi o se i provider impiegano più di 10 secondi per eseguire il commit della copia shadow.
 <br>
 
-9. Il richiedente può ritentare il processo (torna al passaggio 1) o inviare una notifica all'amministratore per riprovare in un secondo momento.  
-      
-10. Se la copia shadow viene creata correttamente, il Servizio Copia Shadow del volume restituisce al richiedente le informazioni sulla posizione della copia shadow. In alcuni casi, la copia shadow può essere resa temporaneamente disponibile come volume di lettura/scrittura, in modo che VSS e una o più applicazioni possano modificarne il contenuto prima che la copia shadow venga completata. Dopo che VSS e le applicazioni apportano le rispettive modifiche, la copia shadow viene impostata per la sola lettura. Questa fase è denominata recupero automatico e viene usata per annullare le transazioni del file system o delle applicazioni nel volume della copia shadow che non sono state completate prima della creazione della copia shadow.  
-      
+9. Il richiedente può ritentare il processo (torna al passaggio 1) o inviare una notifica all'amministratore per riprovare in un secondo momento.
+
+10. Se la copia shadow viene creata correttamente, il Servizio Copia Shadow del volume restituisce al richiedente le informazioni sulla posizione della copia shadow. In alcuni casi, la copia shadow può essere resa temporaneamente disponibile come volume di lettura/scrittura, in modo che VSS e una o più applicazioni possano modificarne il contenuto prima che la copia shadow venga completata. Dopo che VSS e le applicazioni apportano le rispettive modifiche, la copia shadow viene impostata per la sola lettura. Questa fase è denominata recupero automatico e viene usata per annullare le transazioni del file system o delle applicazioni nel volume della copia shadow che non sono state completate prima della creazione della copia shadow.
+
 
 ### <a name="how-the-provider-creates-a-shadow-copy"></a>Modalità di creazione di una copia shadow da parte del provider
 
@@ -116,10 +116,10 @@ Un provider di copie shadow hardware o software usa uno dei metodi seguenti per 
 
 Una copia completa in genere viene creata generando una copia "mirror suddivisa" come indicato di seguito:
 
-1.  Il volume originale e il volume della copia shadow sono un set di volumi con mirroring.  
-      
-2.  Il volume della copia shadow è separato dal volume originale. Ciò interrompe la connessione mirror.  
-      
+1. Il volume originale e il volume della copia shadow sono un set di volumi con mirroring.
+
+2. Il volume della copia shadow è separato dal volume originale. Ciò interrompe la connessione mirror.
+
 
 Dopo l'interruzione della connessione mirror, il volume originale e il volume della copia shadow sono indipendenti. Il volume originale continua ad accettare tutte le modifiche (richieste di I/O di scrittura), mentre il volume della copia shadow rimane un'esatta copia di sola lettura dei dati originali al momento dell'interruzione.
 
@@ -245,25 +245,21 @@ I file dei componenti che costituiscono il provider di sistema sono swprv.dll e 
 
 Il sistema operativo Windows include un set di VSS writer responsabili dell'enumerazione dei dati necessari alle varie funzionalità Windows.
 
-Per altre informazioni su questi writer, visita i siti Web Microsoft seguenti:
+Per altre informazioni su questi writer, visita la pagina Web seguente di Microsoft Docs:
 
-  - [VSS writer inclusi](https://go.microsoft.com/fwlink/?linkid=180895) (https://go.microsoft.com/fwlink/?LinkId=180895)  
-      
-  - [Nuovi VSS writer inclusi per Windows Server 2008 e Windows Vista SP1](https://go.microsoft.com/fwlink/?linkid=180896) (https://go.microsoft.com/fwlink/?LinkId=180896)  
-      
-  - [Nuovi VSS writer inclusi per Windows Server 2008 R2 e Windows 7](https://go.microsoft.com/fwlink/?linkid=180897) (https://go.microsoft.com/fwlink/?LinkId=180897)  
-      
+- [VSS writer inclusi](https://docs.microsoft.com/windows/win32/vss/in-box-vss-writers) (https://docs.microsoft.com/windows/win32/vss/in-box-vss-writers)
+
 
 ## <a name="how-shadow-copies-are-used"></a>Modalità d'uso delle copie shadow
 
 Oltre che per eseguire il backup dei dati delle applicazioni e delle informazioni sullo stato del sistema, le copie shadow possono essere usate per diversi scopi, inclusi i seguenti:
 
-  - Ripristino dei LUN (risincronizzazione LUN e scambio LUN)  
-      
-  - Ripristino dei singoli file (Copie shadow di cartelle condivise)  
-      
-  - Data mining tramite copie shadow trasportabili  
-      
+  - Ripristino dei LUN (risincronizzazione LUN e scambio LUN)
+
+  - Ripristino dei singoli file (Copie shadow di cartelle condivise)
+
+  - Data mining tramite copie shadow trasportabili
+
 
 ### <a name="restoring-luns-lun-resynchronization-and-lun-swapping"></a>Ripristino dei LUN (risincronizzazione LUN e scambio LUN)
 
@@ -273,7 +269,7 @@ La copia shadow può essere un clone completo oppure una copia shadow differenzi
 
 
 > [!NOTE]
-> La copia shadow deve essere una copia shadow hardware trasportabile. 
+> La copia shadow deve essere una copia shadow hardware trasportabile.
 <br>
 
 
@@ -281,16 +277,15 @@ La maggior parte degli array consente la ripresa delle operazioni di I/O di prod
 
 La risincronizzazione LUN è diversa dallo scambio LUN. Uno scambio LUN è uno scenario di ripristino rapido supportato da VSS a partire da Windows Server 2003 SP1. In uno scambio LUN la copia shadow viene importata e quindi convertita in un volume di lettura/scrittura. La conversione è un'operazione irreversibile, dopo la quale il volume e il LUN sottostante non possono essere controllati con le API VSS. Nell'elenco seguente vengono descritte le differenze tra la risincronizzazione LUN e lo scambio LUN:
 
-  - Nella risincronizzazione LUN la copia shadow non viene modificata, quindi può essere usata diverse volte. Nello scambio LUN la copia shadow può essere usata una sola volta per un ripristino. Questo è importante per gli amministratori che hanno la sicurezza come massima priorità. Quando viene usata la risincronizzazione LUN, il richiedente può ritentare l'intera operazione di ripristino se si verifica un problema la prima volta.  
-      
-  - Alla fine di uno scambio LUN, il LUN della copia shadow viene usato per le richieste di I/O di produzione. Per questo motivo, il LUN della copia shadow deve usare la stessa qualità di archiviazione del LUN di produzione originale per garantire che non ci siano ripercussioni negative sulle prestazioni dopo l'operazione di ripristino. Se invece viene usata la risincronizzazione LUN, il provider hardware può mantenere la copia shadow in una risorsa di archiviazione meno costosa rispetto all'archiviazione con qualità di produzione.  
-      
-  - Se il LUN di destinazione non è utilizzabile ed è necessario ricrearlo, lo scambio LUN potrebbe essere più economico perché non richiede un LUN di destinazione.  
-      
+  - Nella risincronizzazione LUN la copia shadow non viene modificata, quindi può essere usata diverse volte. Nello scambio LUN la copia shadow può essere usata una sola volta per un ripristino. Questo è importante per gli amministratori che hanno la sicurezza come massima priorità. Quando viene usata la risincronizzazione LUN, il richiedente può ritentare l'intera operazione di ripristino se si verifica un problema la prima volta.
+
+  - Alla fine di uno scambio LUN, il LUN della copia shadow viene usato per le richieste di I/O di produzione. Per questo motivo, il LUN della copia shadow deve usare la stessa qualità di archiviazione del LUN di produzione originale per garantire che non ci siano ripercussioni negative sulle prestazioni dopo l'operazione di ripristino. Se invece viene usata la risincronizzazione LUN, il provider hardware può mantenere la copia shadow in una risorsa di archiviazione meno costosa rispetto all'archiviazione con qualità di produzione.
+
+  - Se il LUN di destinazione non è utilizzabile ed è necessario ricrearlo, lo scambio LUN potrebbe essere più economico perché non richiede un LUN di destinazione.
 
 
 > [!WARNING]
-> Tutte le operazioni elencate sono operazioni a livello di LUN. Se tenti di ripristinare un volume specifico tramite la risincronizzazione LUN, involontariamente ripristinerai tutti gli altri volumi che condividono il LUN. 
+> Tutte le operazioni elencate sono operazioni a livello di LUN. Se tenti di ripristinare un volume specifico tramite la risincronizzazione LUN, involontariamente ripristinerai tutti gli altri volumi che condividono il LUN.
 <br>
 
 
@@ -320,7 +315,7 @@ Tramite il Servizio Copia Shadow del volume e un array di archiviazione con un p
 
 
 > [!NOTE]
-> Una copia shadow trasportabile creata in Windows Server 2003 non può essere importata in un server che esegue Windows Server 2008 o Windows Server 2008 R2. Una copia shadow trasportabile creata in Windows Server 2008 o Windows Server 2008 R2 non può essere importata in un server che esegue Windows Server 2003. Tuttavia, una copia shadow creata in Windows Server 2008 non può essere importata in un server che esegue Windows Server 2008 R2 e viceversa. 
+> Una copia shadow trasportabile creata in Windows Server 2003 non può essere importata in un server che esegue Windows Server 2008 o Windows Server 2008 R2. Una copia shadow trasportabile creata in Windows Server 2008 o Windows Server 2008 R2 non può essere importata in un server che esegue Windows Server 2003. Tuttavia, una copia shadow creata in Windows Server 2008 non può essere importata in un server che esegue Windows Server 2008 R2 e viceversa.
 <br>
 
 
@@ -362,10 +357,10 @@ Dipende dal software di backup usato. Se crei una copia shadow in Windows Server
 
 Per altre informazioni, visita i siti Web Microsoft TechNet seguenti:
 
-  - [Ripristino configurazione di sistema](https://go.microsoft.com/fwlink/?linkid=157113) (https://go.microsoft.com/fwlink/?LinkID=157113)  
-      
-  - [Windows Server Backup](https://go.microsoft.com/fwlink/?linkid=180891) (https://go.microsoft.com/fwlink/?LinkID=180891)  
-      
+- [Ripristino configurazione di sistema](https://go.microsoft.com/fwlink/?linkid=157113) (https://go.microsoft.com/fwlink/?LinkID=157113)
+
+- [Windows Server Backup](https://go.microsoft.com/fwlink/?linkid=180891) (https://go.microsoft.com/fwlink/?LinkID=180891)
+
 
 ### <a name="can-i-exclude-files-from-a-shadow-copy-to-save-space"></a>Posso escludere alcuni file da una copia shadow per risparmiare spazio?
 
@@ -406,14 +401,14 @@ L'area diff può trovarsi in qualsiasi volume locale. Deve tuttavia trovarsi in 
 
 Per determinare la posizione dell'area diff, vengono valutati i criteri seguenti, in questo ordine:
 
-  - Se un volume dispone già di una copia shadow esistente, viene usata tale posizione.  
-      
-  - Se è presente un'associazione manuale preconfigurata tra il volume originale e la posizione del volume della copia shadow, viene usata tale posizione.  
-      
-  - Se i due criteri precedenti non forniscono una posizione, il servizio Copia Shadow sceglie una posizione in base allo spazio libero disponibile. Se viene eseguita la copia shadow di più di un volume, il servizio Copia Shadow crea un elenco di possibili posizioni per lo snapshot in base alla dimensione dello spazio disponibile, in ordine decrescente. Il numero di posizioni fornito è uguale al numero di volumi di cui viene eseguita la copia shadow.  
-      
-  - Se il volume di cui viene eseguita la copia shadow è una delle posizioni possibili, viene creata un'associazione locale. In caso contrario, viene creata un'associazione con il volume con la maggior quantità di spazio disponibile.  
-      
+  - Se un volume dispone già di una copia shadow esistente, viene usata tale posizione.
+
+  - Se è presente un'associazione manuale preconfigurata tra il volume originale e la posizione del volume della copia shadow, viene usata tale posizione.
+
+  - Se i due criteri precedenti non forniscono una posizione, il servizio Copia Shadow sceglie una posizione in base allo spazio libero disponibile. Se viene eseguita la copia shadow di più di un volume, il servizio Copia Shadow crea un elenco di possibili posizioni per lo snapshot in base alla dimensione dello spazio disponibile, in ordine decrescente. Il numero di posizioni fornito è uguale al numero di volumi di cui viene eseguita la copia shadow.
+
+  - Se il volume di cui viene eseguita la copia shadow è una delle posizioni possibili, viene creata un'associazione locale. In caso contrario, viene creata un'associazione con il volume con la maggior quantità di spazio disponibile.
+
 
 ### <a name="can-vss-create-shadow-copies-of-non-ntfs-volumes"></a>Il Servizio Copia Shadow del volume può creare copie shadow di volumi non NTFS?
 
@@ -441,25 +436,25 @@ Le copie shadow per il volume vengono eliminate, iniziando dalla copia shadow me
 
 Il sistema operativo Windows offre gli strumenti seguenti per l'interazione con il Servizio Copia Shadow del volume (VSS):
 
-  - [DiskShadow](https://go.microsoft.com/fwlink/?linkid=180907) (https://go.microsoft.com/fwlink/?LinkId=180907)  
-      
-  - [VssAdmin](https://go.microsoft.com/fwlink/?linkid=84008) (https://go.microsoft.com/fwlink/?LinkId=84008)  
-      
+  - [DiskShadow](https://go.microsoft.com/fwlink/?linkid=180907) (https://go.microsoft.com/fwlink/?LinkId=180907)
+
+  - [VssAdmin](https://go.microsoft.com/fwlink/?linkid=84008) (https://go.microsoft.com/fwlink/?LinkId=84008)
+
 
 ### <a name="diskshadow"></a>DiskShadow
 
 DiskShadow è un richiedente VSS che consente di gestire tutti gli snapshot hardware e software che puoi avere in un sistema. DiskShadow include comandi come i seguenti:
 
-  - **list**: elenca i VSS writer, i provider VSS e le copie shadow  
-      
-  - **create**: crea una nuova copia shadow  
-      
-  - **import**: importa una copia shadow trasportabile  
-      
-  - **expose**: espone una copia shadow permanente, ad esempio come una lettera di unità  
-      
-  - **revert**: ripristina un volume in una copia shadow specificata  
-      
+  - **list**: elenca i VSS writer, i provider VSS e le copie shadow
+
+  - **create**: crea una nuova copia shadow
+
+  - **import**: importa una copia shadow trasportabile
+
+  - **expose**: espone una copia shadow permanente, ad esempio come una lettera di unità
+
+  - **revert**: ripristina un volume in una copia shadow specificata
+
 
 Questo strumento è destinato ai professionisti IT, ma può risultare utile anche per gli sviluppatori quando testano un VSS writer o un provider VSS.
 
@@ -471,16 +466,16 @@ VssAdmin consente di creare, eliminare ed elencare le informazioni sulle copie s
 
 VssAdmin include comandi come i seguenti:
 
-  - **create shadow**: crea una nuova copia shadow  
-      
-  - **delete shadows**: elimina le copie shadow  
-      
-  - **list providers**: elenca tutti i provider VSS registrati  
-      
-  - **list writers**: elenca tutti i VSS writer sottoscritti  
-      
-  - **resize shadowstorage**: modifica le dimensioni massime dell'area di archiviazione della copia shadow  
-      
+  - **create shadow**: crea una nuova copia shadow
+
+  - **delete shadows**: elimina le copie shadow
+
+  - **list providers**: elenca tutti i provider VSS registrati
+
+  - **list writers**: elenca tutti i VSS writer sottoscritti
+
+  - **resize shadowstorage**: modifica le dimensioni massime dell'area di archiviazione della copia shadow
+
 
 VssAdmin può essere usato solo per amministrare le copie shadow create dal provider software di sistema.
 
@@ -490,12 +485,12 @@ VssAdmin è disponibile nelle versioni del sistema operativo client Windows e Wi
 
 Le chiavi del Registro di sistema seguenti sono disponibili per l'uso con il Servizio Copia Shadow del volume (VSS):
 
-  - **VssAccessControl**  
-      
-  - **MaxShadowCopies**  
-      
-  - **MinDiffAreaFileSize**  
-      
+  - **VssAccessControl**
+
+  - **MaxShadowCopies**
+
+  - **MinDiffAreaFileSize**
+
 
 ### <a name="vssaccesscontrol"></a>VssAccessControl
 
@@ -503,10 +498,10 @@ Questa chiave viene usata per specificare gli utenti che hanno accesso alle copi
 
 Per altre informazioni, vedere le voci seguenti nel sito Web MSDN:
 
-  - [Considerazioni sulla sicurezza per i writer](https://go.microsoft.com/fwlink/?linkid=157739) (https://go.microsoft.com/fwlink/?LinkId=157739)  
-      
-  - [Considerazioni sulla sicurezza per i richiedenti](https://go.microsoft.com/fwlink/?linkid=180908) (https://go.microsoft.com/fwlink/?LinkId=180908)  
-      
+  - [Considerazioni sulla sicurezza per i writer](https://go.microsoft.com/fwlink/?linkid=157739) (https://go.microsoft.com/fwlink/?LinkId=157739)
+
+  - [Considerazioni sulla sicurezza per i richiedenti](https://go.microsoft.com/fwlink/?linkid=180908) (https://go.microsoft.com/fwlink/?LinkId=180908)
+
 
 ### <a name="maxshadowcopies"></a>MaxShadowCopies
 
@@ -524,7 +519,7 @@ Per altre informazioni, vedi la voce seguente nel sito Web MSDN:
 
 **MinDiffAreaFileSize** in [Chiavi del Registro di sistema per Backup e ripristino](https://go.microsoft.com/fwlink/?linkid=180910) (https://go.microsoft.com/fwlink/?LinkId=180910)
 
-`##`Sistemi operativi supportati
+### <a name="supported-operating-system-versions"></a>Versioni del sistema operativo supportate
 
 La tabella seguente elenca le versioni minime del sistema operativo supportate per le funzionalità VSS.
 
@@ -625,6 +620,6 @@ La tabella seguente elenca le versioni minime del sistema operativo supportate p
 </tbody>
 </table>
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 [Servizio Copia Shadow del volume nel Centro per sviluppatori Windows](https://docs.microsoft.com/windows/desktop/vss/volume-shadow-copy-service-overview)

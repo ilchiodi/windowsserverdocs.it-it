@@ -1,6 +1,6 @@
 ---
 ms.assetid: 28f4a518-1341-4a10-8a4e-5f84625b314b
-title: Requisiti per ADFS 2016
+title: Requisiti di AD FS 2016
 description: Requisiti per l'installazione di Active Directory Federation Services.
 author: billmath
 ms.author: billmath
@@ -9,12 +9,12 @@ ms.date: 03/06/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: c8ab160699bc6a961f4fbed6c58cf072a395a313
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: a2f4c9ac05e72083fab3e3a926dbdd2876214a7b
+ms.sourcegitcommit: 1c75e4b3f5895f9fa33efffd06822dca301d4835
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71407416"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77517536"
 ---
 # <a name="ad-fs-requirements"></a>Requisiti per ADFS
 
@@ -206,7 +206,7 @@ Quando viene eseguita l'autenticazione di ADFS tramite un browser o un controllo
   
 Entrambi i firewall si trova tra il Proxy dell'applicazione Web e la server farm federativa e il firewall tra i client e il Proxy dell'applicazione Web deve avere la porta TCP 443 abilitato in ingresso.  
   
-Inoltre, se l'autenticazione del certificato client utente \(autenticazione clientTLS utilizzando X509 i certificati utente\) è obbligatorio e l'endpoint certauth sulla porta 443 non è abilitato, AD FS 2016 richiede che sia attivato 49443 la porta TCP in ingresso nel firewall tra i client e il Proxy dell'applicazione Web. Questa operazione non è necessaria nel firewall tra il Proxy di applicazione Web e i server federativi\). 
+Inoltre, se l'autenticazione del certificato client utente \(autenticazione clientTLS utilizzando X509 i certificati utente\) è obbligatorio e l'endpoint certauth sulla porta 443 non è abilitato, AD FS 2016 richiede che sia attivato 49443 la porta TCP in ingresso nel firewall tra i client e il Proxy dell'applicazione Web. Questa operazione non è necessaria nel firewall tra Proxy applicazione Web e i server federativi. 
 
 Per altre informazioni sui requisiti per le porte ibride, vedi [Porte e protocolli necessari per la soluzione ibrida di gestione delle identità](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-ports). 
 

@@ -14,12 +14,12 @@ manager: lizross
 ms.author: helohr
 date: 02/11/2020
 ms.localizationpriority: medium
-ms.openlocfilehash: 1724f24a794003aaae0ac89ee892269eed045114
-ms.sourcegitcommit: 5797a2e67211651070404a5893f5c0a91c63e960
+ms.openlocfilehash: ef13227a9f7b83f01786bbb11498da912c86581b
+ms.sourcegitcommit: 32211610ad9a24d282b35ed8c0aaa179497c63bf
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77179355"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77780820"
 ---
 # <a name="get-started-with-the-ios-client"></a>Introduzione al client iOS
 
@@ -170,7 +170,12 @@ Il client utilizza i movimenti tocco standard. È inoltre possibile utilizzare i
 
 ## <a name="supported-input-devices"></a>Dispositivi di input supportati
 
-Il client iOS supporta attualmente solo mouse Swiftpoint GT e ProPoint. Per altre informazioni sul supporto dei dispositivi, vedi [Novità del client iOS](ios-whatsnew.md) e [iOS App Store](https://aka.ms/rdios).
+Il [supporto di mouse Bluetooth](https://support.apple.com/HT210546) di base è disponibile in iOS 13 e iPadOS come funzionalità di accessibilità. Una maggiore integrazione nel client Desktop remoto è disponibile tramite i mouse Swiftpoint GT e ProPoint. Inoltre, sono supportate anche tastiere esterne compatibili con iOS e iPadOS.
+
+Per altre informazioni sul supporto dei dispositivi, vedi [Novità del client iOS](ios-whatsnew.md) e [iOS App Store](https://aka.ms/rdios).
+
+> [!TIP]
+> Swiftpoint offre uno [sconto esclusivo sul mouse ProPoint](https://www.swiftpoint.com/microsoft) per gli utenti client iOS.
 
 ## <a name="use-a-keyboard-in-a-remote-session"></a>Usare una tastiera in una sessione remota
 
@@ -180,20 +185,7 @@ Per le tastiere su schermo, usa il pulsante sul lato destro della barra al di so
 
 Se è abilitato Bluetooth per il dispositivo iOS, il client rileva automaticamente la tastiera Bluetooth.
 
-Tieni presente che, a causa delle limitazioni del sistema operativo, i tasti speciali quali CTRL, Opzione e Funzione non si comportano come previsto con una tastiera Bluetooth. I tasti seguenti funzionano:
+Anche se alcune combinazioni di tasti potrebbero non funzionare come previsto in una sessione remota, molte combinazioni comuni dei tasti di Windows, ad esempio CTRL+C, CTRL+V e ALT+TAB, funzionano.
 
-- Tasti alfanumerici
-- Tasti di direzione
-- TAB: TAB funziona, ma MAIUSC+TAB non funziona
-- HOME/Pos1: ALT+freccia SINISTRA = HOME
-- FINE: ALT+freccia DESTRA = FINE
-- PGSU: ALT+freccia SU = PGSU
-- PGGIÙ: ALT+freccia GIÙ = PGGIÙ
-- Seleziona tutto: COMANDO+A = CTRL+A (Seleziona tutto nella maggior parte dei programmi)
-- Taglia: COMANDO+X = CTRL+X (Taglia nella maggior parte dei programmi)
-- Copia: COMANDO+C = CTRL+C (Copia nella maggior parte dei programmi)
-- Incolla: COMANDO+V = CTRL+V (Incolla nella maggior parte dei programmi)
-- Simboli: ALT+tasti alfanumerici produce simboli diversi a seconda della lingua configurata
-
-> [!TIP]
+> [!IMPORTANT]
 > Domande e commenti sono sempre Benvenuti. Tuttavia, NON inviare una richiesta di risoluzione dei problemi utilizzando la funzionalità di commento alla fine di questo articolo. Al contrario, andare alla [forum su client di Desktop remoto](https://social.technet.microsoft.com/forums/windowsserver/en-us/home?forum=winrdc) e avviare un nuovo thread. Avete suggerimenti funzionalità? Comunicaci nel [forum dedicato agli utenti di client](https://remotedesktop.uservoice.com/forums/272085-remote-desktop-for-android).

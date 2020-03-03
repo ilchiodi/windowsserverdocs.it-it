@@ -8,12 +8,12 @@ author: jasongerend
 ms.author: jgerend
 ms.localizationpriority: high
 ms.date: 06/04/2019
-ms.openlocfilehash: 13eed225dfc144d5e7e59be13dbed14d4de8bb01
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: dd8cd6700323075a380aa062bfa1d208b3e30f83
+ms.sourcegitcommit: 2a15de216edde8b8e240a4aa679dc6d470e4159e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71360784"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77465495"
 ---
 # <a name="whats-new-in-windows-server-2019"></a>Novità di Windows Server 2019
 

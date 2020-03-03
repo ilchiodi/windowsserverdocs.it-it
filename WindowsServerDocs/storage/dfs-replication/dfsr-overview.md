@@ -6,12 +6,12 @@ ms.technology: storage
 author: JasonGerend
 manager: elizapo
 ms.author: jgerend
-ms.openlocfilehash: 22f9e25763217cbbfdfd8a4ab099344f23138344
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: c17fd78a2cf726ab156d3eda09b9c0e2d4ed6a75
+ms.sourcegitcommit: aaae95cb05c44232099ec46b04a127c77a3f486e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75949709"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77520357"
 ---
 # <a name="dfs-replication-overview"></a>Panoramica di Replica DFS
 
@@ -51,9 +51,9 @@ Per poter distribuire Replica DFS, è prima necessario configurare i server nel 
 L'uso di Replica DFS in una macchina virtuale in Azure è stato testato con Windows Server, ma è necessario rispettare alcuni limiti e requisiti.
 
 - Se si usano snapshot o stati salvati per ripristinare un server che esegue Replica DFS per la replica di qualsiasi elemento diverso dalla cartella SYSVOL, Replica DFS avrà esito negativo e saranno necessari passaggi speciali di ripristino del database. Allo stesso modo, non esportare, clonare o copiare le macchine virtuali. Per altre informazioni, vedere l'articolo [2517913](https://support.microsoft.com/kb/2517913) della Microsoft Knowledge Base e [Virtualizzazione sicura di DFSR](https://blogs.technet.microsoft.com/filecab/2013/04/05/safely-virtualizing-dfsr/).
-- Quando si esegue il backup dei dati in una cartella replicata ospitata in una macchina virtuale, è necessario usare il software di backup della macchina virtuale guest.
+- Durante il backup dei dati in una cartella replicata ospitata in una macchina virtuale, devi usare il software di backup dall'interno della macchina virtuale guest.
 - Replica DFS richiede l'accesso ai controller di dominio fisici o virtualizzati perché non può comunicare direttamente con Azure AD.
-- Replica DFS richiede una connessione VPN tra i membri del gruppo di replica locale e i membri ospitati nelle macchine virtuali di Azure. È anche necessario configurare il router locale (ad esempio, Forefront Threat Management Gateway) per consentire all'Agente mapping endpoint RPC (porta 135) e a una porta assegnata casualmente compresa tra 49152 e 65535 di saltare la connessione VPN. Puoi usare il cmdlet Set-DfsrMachineConfiguration o lo strumento da riga di comando Dfsrdiag per specificare una porta statica invece della porta casuale. Per altre informazioni su come specificare una porta statica per Replica DFS, vedere [Set-DfsrServiceConfiguration](https://docs.microsoft.com/powershell/module/dfsr/set-dfsrserviceconfiguration). Per informazioni sulle porte correlate da aprire per gestire Windows Server, vedere l'articolo [832017](https://support.microsoft.com/kb/832017) della Microsoft Knowledge Base.
+- Replica DFS richiede una connessione VPN tra i membri del gruppo di replica locale e i membri ospitati nelle macchine virtuali di Azure. Devi anche configurare il router locale, ad esempio Forefront Threat Management Gateway, per consentire all'Agente mapping endpoint RPC (porta 135) e a una porta assegnata casualmente compresa tra 49152 e 65535 di saltare la connessione VPN. Puoi usare il cmdlet Set-DfsrMachineConfiguration o lo strumento da riga di comando Dfsrdiag per specificare una porta statica invece della porta casuale. Per altre informazioni su come specificare una porta statica per Replica DFS, vedere [Set-DfsrServiceConfiguration](https://docs.microsoft.com/powershell/module/dfsr/set-dfsrserviceconfiguration). Per informazioni sulle porte correlate da aprire per gestire Windows Server, vedere l'articolo [832017](https://support.microsoft.com/kb/832017) della Microsoft Knowledge Base.
 
 Per altre informazioni introduttive sulle macchine virtuali di Azure, visitare il [sito Web di Microsoft Azure](https://docs.microsoft.com/azure/virtual-machines/).
 
@@ -73,7 +73,7 @@ Installa Replica DFS tramite [Windows Admin Center](../../manage/windows-admin-c
 
     - Per installare il servizio Replica DFS, nella pagina **Ruoli server** seleziona **Replica DFS**.
 
-    - Per installare solo gli Strumenti di gestione DFS, nella pagina **Funzionalità** espandere **Strumenti di amministrazione remota del server**, **Strumenti di amministrazione ruoli**, **Strumenti per Servizi file**e quindi selezionare **Strumenti di gestione DFS**.
+    - Per installare solo gli Strumenti di gestione DFS, nella pagina **Funzionalità** espandere **Strumenti di amministrazione remota del server**, **Strumenti di amministrazione ruoli**, **Strumenti per Servizi file** e quindi selezionare **Strumenti di gestione DFS**.
 
          Tramite **Strumenti di gestione DFS** vengono installati lo snap-in Gestione DFS, i moduli Replica DFS e Spazi dei nomi DFS per Windows PowerShell e gli strumenti da riga di comando, ma non viene installato alcun servizio DFS nel server.
 
@@ -102,7 +102,7 @@ Per installare Replica DFS e i componenti Strumenti per File system distribuito 
 Install-WindowsFeature "FS-DFS-Replication", "RSAT-DFS-Mgmt-Con"
 ```
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 - [Panoramica di Spazi dei nomi DFS e Replica DFS](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj127250(v%3dws.11))
 - [Elenco di controllo: Distribuire Replica DFS](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc772201(v%3dws.11))

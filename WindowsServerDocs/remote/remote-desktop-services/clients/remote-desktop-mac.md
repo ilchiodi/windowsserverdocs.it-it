@@ -14,12 +14,12 @@ manager: dongill
 ms.author: elizapo
 ms.date: 08/27/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: e73511709bfbee69a6dcbaaff4341c8b067079f3
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: ca68087ad238cbbd06c56e41dd65f318adae5222
+ms.sourcegitcommit: 2a15de216edde8b8e240a4aa679dc6d470e4159e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75949860"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77465475"
 ---
 # <a name="get-started-with-the-macos-client"></a>Introduzione al client macOS
 
@@ -40,7 +40,7 @@ Per iniziare a usare Desktop remoto nel computer Mac, segui questi passaggi:
 3. Aggiungi una connessione Desktop remoto o una risorsa remota. Una connessione consente di connettersi direttamente a un PC Windows, mentre una risorsa remota consente di usare un programma RemoteApp, un desktop basato su sessione o un desktop virtuale pubblicato in locale usando connessioni RemoteApp e Desktop. Questa funzionalità è in genere disponibile negli ambienti aziendali.
 
 ## <a name="what-about-the-mac-beta-client"></a>Informazioni sulla versione beta del client Mac
-Stiamo testando nuove funzionalità nel canale di anteprima in HockeyApp. Per dare un'occhiata, passa a [Microsoft Remote Desktop for Mac](https://go.microsoft.com/fwlink/?LinkID=619698) e fai clic su **Download** (Scarica). Non devi creare un account o accedere a HockeyApp per scaricare la versione beta del client.
+Stiamo testando nuove funzionalità nel canale di anteprima di AppCenter. Per dare un'occhiata, passa a [Microsoft Remote Desktop for Mac](https://aka.ms/rdmacbeta) e fai clic su **Download** (Scarica). Non devi creare un account o accedere ad AppCenter per scaricare la versione beta del client.
 
 Se hai già il client, puoi verificare la disponibilità di aggiornamenti per assicurarti di usare la versione più recente. Nel client beta, fare clic su **Microsoft Remote Desktop Beta** nella parte superiore, quindi fare clic su **Controlla aggiornamenti**. 
 

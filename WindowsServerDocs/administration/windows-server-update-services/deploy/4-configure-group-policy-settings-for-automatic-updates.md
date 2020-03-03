@@ -12,16 +12,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: a01d8881e8f0f7ca6feff691938f926a12460db0
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: f8ebe1f82cd6f616d42521729c5efc14821c20fa
+ms.sourcegitcommit: 9687d3eb221b89061a48bf1e73fb3b25bee69f9a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71361658"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78169581"
 ---
 # <a name="step-4-configure-group-policy-settings-for-automatic-updates"></a>Passaggio 4: Configurare le impostazioni di Criteri di gruppo per gli aggiornamenti automatici
 
->Si applica a: Windows Server (Canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 In un ambiente Active Directory è possibile usare Criteri di gruppo per definire come computer e utenti (in questo documento definiti client WSUS) possono interagire con gli aggiornamenti di Windows per ottenere gli aggiornamenti automatici da Windows Server Update Services (WSUS).
 

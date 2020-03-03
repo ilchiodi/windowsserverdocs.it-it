@@ -9,12 +9,12 @@ manager: mtillman
 ms.date: 03/22/2019
 ms.technology: identity-adds
 ms.assetid: 7a3114c8-bda8-49bb-83a8-4e04340ab221
-ms.openlocfilehash: 67e35a47467b1f5f66bfd073c6f9db06094ea3f9
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 25a5c2222f50b37bff2bcfe41184d6d9fa35995c
+ms.sourcegitcommit: 2a15de216edde8b8e240a4aa679dc6d470e4159e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71391035"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77465505"
 ---
 # <a name="safely-virtualizing-active-directory-domain-services-ad-ds"></a>Virtualizzazione sicura di Active Directory Domain Services (AD DS)
 

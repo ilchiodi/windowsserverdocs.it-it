@@ -11,14 +11,14 @@ ms.topic: article
 author: heidilohr
 manager: lizross
 ms.author: helohr
-ms.date: 02/11/2020
+ms.date: 02/25/2020
 ms.localizationpriority: medium
-ms.openlocfilehash: 3f8b035eef5bb956012627b5e2c7c59adaa8cd32
-ms.sourcegitcommit: 5797a2e67211651070404a5893f5c0a91c63e960
+ms.openlocfilehash: f435892f0a200056c08094cac1831c710a47a6be
+ms.sourcegitcommit: 92e0e4224563106adc9a7f1e90f27da468859d90
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77155385"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77608793"
 ---
 # <a name="whats-new-in-the-windows-desktop-client"></a>Novità del client desktop di Windows
 
@@ -28,16 +28,16 @@ Per informazioni più dettagliate sul client desktop di Windows, vedi [Introduzi
 
 Il client può essere configurato per [gruppi di utenti](windowsdesktop-admin.md#configure-user-groups) diversi. Nella tabella seguente sono elencate le versioni correnti disponibili per ogni gruppo di utenti:
 
-|Gruppo utenti |Version  |
+|Gruppo utenti |Versione  |
 |-----------|---------|
-|Pubblico     |1.2.605  |
-|Insider    |1.2.673  |
+|Public     |1.2.675  |
+|Insider    |1.2.675  |
 
-## <a name="updates-for-version-12673"></a>Aggiornamenti per la versione 1.2.673
+## <a name="updates-for-version-12675"></a>Aggiornamenti per la versione 1.2.675
 
-*Data di pubblicazione: 11/02/2020*
+*Data di pubblicazione: 25/02/2020*
 
-Scarica: [Windows 64-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4pPJm), [Windows 32-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4pFbw), [Windows ARM64](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4pN07)
+Download: [Windows 64-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4qeak), [Windows 32-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4qm7h), [Windows ARM64](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4qm7g)
 
 - Le connessioni a Desktop virtuale Windows ora vengono bloccate se nel file RDP manca la firma oppure se una delle proprietà signscope è stata modificata.
 - Se un'area di lavoro è vuota o è stata rimossa, il Centro connessioni non risulta più vuoto.
@@ -50,7 +50,7 @@ Scarica: [Windows 64-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/bin
 
 *Data di pubblicazione: 29/01/2020*
 
-Scarica: [Windows 64-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4oHrD), [Windows 32-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4oJZs), [Windows ARM64](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4oXhD)
+Download: [Windows 64-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4oHrD), [Windows 32-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4oJZs), [Windows ARM64](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4oXhD)
 
 - Ora puoi selezionare le visualizzazioni da usare per le connessioni desktop. Per modificare l'impostazione, fai clic con il pulsante destro del mouse sull'icona della connessione desktop e scegli **Impostazioni**.
 - È stato risolto il problema che impediva la visualizzazione dei fattori di conversione corretti nelle impostazioni di connessione.

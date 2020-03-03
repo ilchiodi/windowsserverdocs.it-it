@@ -12,12 +12,12 @@ ms.assetid: 9f109c91-7c2e-4065-856c-ce9e2e9ce558
 author: jaimeo
 ms.author: jaimeo
 ms.localizationpriority: medium
-ms.openlocfilehash: 92c27884475beb83000fb7aac15339135e3f2109
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: 8b0276b70f3899fe1f3e56aebd87ea087ea91fee
+ms.sourcegitcommit: 2a15de216edde8b8e240a4aa679dc6d470e4159e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75948459"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77465485"
 ---
 # <a name="deploy-nano-server"></a>Distribuire Nano Server
 
@@ -62,7 +62,7 @@ In Windows Server 2016, Nano Server viene distribuito su un supporto fisico cont
 
 Puoi trovare e installare questi pacchetti anche con il provider NanoServerPackage del modulo PackageManagement (OneGet) di PowerShell. Vedere la sezione "Installazione di ruoli e funzionalità online" in questo argomento.  
 
-La tabella seguente mostra i ruoli e funzionalità disponibili in questa versione di Nano Server, insieme alle opzioni di Windows PowerShell che installeranno i pacchetti necessari. Alcuni pacchetti vengono installati direttamente con i rispettivi parametri di Windows PowerShell (ad esempio -Compute), mentre altri vengono installati passando al parametro -Package i nomi dei pacchetti desiderati, combinati in un elenco delimitato da virgole. Puoi elencare in modo dinamico i pacchetti disponibili tramite il cmdlet Get-NanoServerPackage.  
+La tabella seguente mostra i ruoli e funzionalità disponibili in questa versione di Nano Server, insieme alle opzioni di Windows PowerShell che installeranno i pacchetti necessari. Alcuni pacchetti vengono installati direttamente con i rispettivi parametri di Windows PowerShell (ad esempio -Compute), mentre altri vengono installati passando al parametro -Package i nomi dei pacchetti, che puoi combinare in un elenco delimitato da virgole. Puoi elencare in modo dinamico i pacchetti disponibili tramite il cmdlet Get-NanoServerPackage.  
 
 
 |                                                                             Ruolo o funzionalità                                                                             |                                                                                                                                                                                                          Opzione                                                                                                                                                                                                           |
@@ -81,7 +81,7 @@ La tabella seguente mostra i ruoli e funzionalità disponibili in questa version
 |                                                                 Agente System Center Operations Manager                                                                  |                                                                                                                 Installato separatamente. Per altre informazioni, vedi la documentazione di System Center Operations Manager all'indirizzo https://technet.microsoft.com/system-center-docs/om/manage/install-agent-on-nano-server.                                                                                                                 |
 |                                                                 Data Center Bridging (incluso DCBQoS)                                                                 |                                                                                                                                                                                         -Package Microsoft-NanoServer-DCB-Package                                                                                                                                                                                         |
 |                                                                     Distribuzione in una macchina virtuale                                                                      |                                                                                                                                                                                        -Package Microsoft-NanoServer-Guest-Package                                                                                                                                                                                        |
-|                                                                     Distribuzione in una macchina fisica                                                                     |                                                                                                                                                                                        - Package Microsoft-NanoServer-Host-Package                                                                                                                                                                                        |
+|                                                                     Distribuzione in un computer fisico                                                                     |                                                                                                                                                                                        - Package Microsoft-NanoServer-Host-Package                                                                                                                                                                                        |
 |     BitLocker, Trusted Platform Module (TPM), crittografia dei volumi, identificazione della piattaforma, provider di crittografia e altre funzionalità correlate all'avvio sicuro     |                                                                                                                                                                                    -Package Microsoft-NanoServer-SecureStartup-Package                                                                                                                                                                                    |
 |                                                                    Supporto Hyper-V per macchine virtuali schermate                                                                     |                                                                                                                                         -Package Microsoft-NanoServer-ShieldedVM-Package<br />**Nota:** questo pacchetto è disponibile solo per l'edizione Datacenter di Nano Server.                                                                                                                                         |
 |                                                             Agente Simple Network Management Protocol (SNMP)                                                             |                                   -Package Microsoft-NanoServer-SNMP-Agent-Package.cab<br />**Nota:** non incluso con il supporto di installazione di Windows Server 2016. Disponibile solo online. Per informazioni dettagliate, vedi [Installazione di ruoli e funzionalità online](https://technet.microsoft.com/windows-server-docs/get-started/deploy-nano-server#a-namebkmkonlineainstalling-roles-and-features-online).                                    |
@@ -208,7 +208,7 @@ Modificare un file che risiede in Nano Server remoto avviando una sessione remot
 > Se installi un pacchetto di Nano Server facoltativo da un supporto o un repository online, le correzioni recenti per la sicurezza non saranno incluse. Per evitare una mancata corrispondenza della versione tra i pacchetti facoltativi e il sistema operativo di base, devi installare l'[aggiornamento cumulativo più recente](https://technet.microsoft.com/windows-server-docs/get-started/update-nano-server) immediatamente dopo l'installazione di qualsiasi pacchetto facoltativo e **prima** del riavvio del server.
 
 ### <a name="installing-roles-and-features-from-a-package-repository"></a>Installazione di ruoli e funzionalità da un repository di pacchetti  
-Puoi trovare e installare pacchetti di Nano Server dal repository di pacchetti online tramite il provider NanoServerPackage del modulo PackageManagement di PowerShell. Per installare il provider, usare questi cmdlet:
+Puoi trovare e installare pacchetti di Nano Server dal repository di pacchetti online tramite il provider NanoServerPackage del modulo PackageManagement di PowerShell. Per installare il provider, usa questi cmdlet:
 
 ```powershell
 Install-PackageProvider NanoServerPackage
@@ -251,12 +251,12 @@ Find-NanoServerPackage
 
 Se esegui `Find-Package -ProviderName NanoServerPackage -DisplayCulture`, vengono visualizzate tutte le impostazioni cultura disponibili.
 
-Se è necessaria una versione specifica di impostazioni locali, ad esempio inglese americano, è possibile usare `Find-NanoServerPackage -Culture en-us` o  
+Se hai bisogno di una versione specifica di impostazioni locali, ad esempio Inglese (Stati Uniti), puoi usare `Find-NanoServerPackage -Culture en-us` o  
 `Find-Package -ProviderName NanoServerPackage -Culture en-us` o `Find-Package -Culture en-us -DisplayCulture`.
 
 Per trovare un pacchetto specifico in base al nome di pacchetto, usa il parametro -Name. Questo parametro accetta anche i caratteri jolly. Ad esempio, per trovare tutti i pacchetti il cui nome contiene VMM, usa `Find-NanoServerPackage -Name *VMM*` o `Find-Package -ProviderName NanoServerPackage -Name *VMM*`.
 
-Puoi trovare una determinata versione con i parametri -RequiredVersion, -MinimumVersion e -MaximumVersion. Per trovare tutte le versioni disponibili, usare -AllVersions. In caso contrario, viene restituita solo la versione più recente. Ad esempio: `Find-NanoServerPackage -Name *VMM* -RequiredVersion 10.0.14393.0`. In alternativa, per tutte le versioni: `Find-Package -ProviderName NanoServerPackage -Name *VMM* -AllVersions`
+Puoi trovare una determinata versione con i parametri -RequiredVersion, -MinimumVersion e -MaximumVersion. Per trovare tutte le versioni disponibili, usa -AllVersions. In caso contrario, viene restituita solo la versione più recente. Ad esempio: `Find-NanoServerPackage -Name *VMM* -RequiredVersion 10.0.14393.0`. In alternativa, per tutte le versioni: `Find-Package -ProviderName NanoServerPackage -Name *VMM* -AllVersions`
 
 ### <a name="installing-nano-server-packages"></a>Installazione di pacchetti di Nano Server  
 Puoi installare un pacchetto di Nano Server (inclusi i relativi pacchetti di dipendenza, se previsti) in Nano Server a livello locale o in un'immagine offline con `Install-NanoServerPackage` o `Install-Package -ProviderName NanoServerPackage`. Entrambi i parametri accettano input dalla pipeline.
@@ -297,8 +297,8 @@ oppure
 
 `Find-Package -ProviderName NanoServerPackage -Name *shield* -Culture es-ES | Save-Package -Path`
 
-### <a name="inventory-installed-packages"></a>Pacchetti di inventario installati
-Con `Get-Package` puoi scoprire quali pacchetti di Nano Server sono installati. Per vedere quali pacchetti sono presenti in Nano Server, ad esempio, è possibile usare `Get-Package -ProviderName NanoserverPackage`.
+### <a name="inventory-installed-packages"></a>Fare l'inventario dei pacchetti installati
+Con `Get-Package` puoi scoprire quali pacchetti di Nano Server sono installati. Per vedere quali pacchetti sono presenti in Nano Server, ad esempio, puoi usare `Get-Package -ProviderName NanoserverPackage`.
 
 Per verificare quali pacchetti di Nano Server sono installati in un'immagine offline, esegui invece `Get-Package -ProviderName NanoserverPackage -FromVhd C:\MyNanoVhd.vhd`.
 
@@ -407,7 +407,7 @@ Nano Server offre un pacchetto contenente un set di driver di base per un'ampia 
 `New-NanoServerImage -DeploymentType Host -Edition Standard -MediaPath \\Path\To\Media\en_us -BasePath .\Base -TargetPath .\InjectingDrivers.vhdx -DriverPath .\Extra\Drivers`  
 
 > [!NOTE]
-> Nella cartella in cui sono contenuti i driver devono essere presenti sia i file SYS sia i file INF corrispondenti. Nano Server supporta solo driver a 64 bit firmati.
+> Nella cartella in cui sono contenuti i driver devono essere presenti sia i file SYS sia i file INF corrispondenti. Inoltre, Nano Server supporta solo driver a 64 bit firmati.
 
 Con il parametro -DriverPath puoi anche passare una matrice di percorsi di file INF di driver:
 
@@ -446,7 +446,7 @@ Per eseguire script PowerShell personalizzati durante il processo di creazione d
 
 
 ### <a name="support-for-development-scenarios"></a>Supporto per scenari di sviluppo
-Se si vuole eseguire attività di sviluppo e test in Nano server, è possibile usare il parametro -Development. Questo accorgimento consente infatti di abilitare PowerShell come shell locale predefinita, abilitare l'installazione di driver senza firma, copiare i file binari del debugger, aprire una porta per il debug, abilitare la firma di test e consentire l'installazione di pacchetti AppX senza una licenza per sviluppatori:
+Se vuoi eseguire attività di sviluppo e test in Nano server, puoi usare il parametro -Development. Questo accorgimento consente infatti di abilitare PowerShell come shell locale predefinita, abilitare l'installazione di driver senza firma, copiare i file binari del debugger, aprire una porta per il debug, abilitare la firma di test e consentire l'installazione di pacchetti AppX senza una licenza per sviluppatori:
 
 `New-NanoServerImage -DeploymentType Guest -Edition Standard -MediaPath \\Path\To\Media\en_us -BasePath .\Base -TargetPath .\NanoServer.wim -Development`
 
@@ -492,7 +492,7 @@ Successivamente, l'utente del pacchetto deve seguire questa procedura:
 2. Installare l'app in Nano Server eseguendo il cmdlet di PowerShell [**Add-AppxPackage**](https://technet.microsoft.com/library/mt575516(v=wps.620).aspx) per installare un pacchetto WSA in Nano Server. Ad esempio: `Add-AppxPackage wsaSample.appx`
 
 #### <a name="additional-resources-for-creating-apps"></a>Risorse aggiuntive per la creazione di app
-WSA è l'estensione server della tecnologia dei pacchetti dell'app di Windows (anche se non è ospitata in Microsoft Store). Se si vuole pubblicare app con WSA, è possibile fare riferimento a questi argomenti, poiché consentono di acquisire familiarità con la pipeline dei pacchetti app:
+WSA è l'estensione server della tecnologia dei pacchetti dell'app di Windows (anche se non è ospitata in Microsoft Store). Se vuoi pubblicare app con WSA, questi argomenti ti consentiranno di acquisire familiarità con la pipeline di creazione di pacchetti di app:
 
 - [Come creare un manifesto di base del pacchetto](https://msdn.microsoft.com/library/windows/desktop/br211475.aspx)
 - [Strumento per la creazione di pacchetti di app (MakeAppx.exe)](https://msdn.microsoft.com/library/windows/desktop/hh446767(v=vs.85).aspx)

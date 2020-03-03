@@ -9,12 +9,12 @@ ms.date: 01/22/2020
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: adce37d8d06399d3a00221a12f3449244720ade7
-ms.sourcegitcommit: 840d1d8851f68936db3934c80796fb8722d3c64a
+ms.openlocfilehash: 8061f41dab0f02bccd59a659e0bcd209bd73a249
+ms.sourcegitcommit: 1c75e4b3f5895f9fa33efffd06822dca301d4835
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76519483"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77517556"
 ---
 # <a name="whats-new-in-active-directory-federation-services"></a>Novità di Active Directory Federation Services
 
@@ -108,6 +108,18 @@ C. Il client invia quindi il codice di autorizzazione nella richiesta del token 
 D. AD FS trasforma "code_verifier" e lo confronta con "t(code_verifier)" rispetto a (B).  L'accesso viene negato se i due valori non sono uguali. 
 
 #### <a name="faq"></a>Domande frequenti 
+> [!NOTE] 
+> Nei registri eventi amministrativi di ADFS puoi riscontrare questo errore: ricevuta richiesta Oauth non valida. Il client 'NAME' non è autorizzato ad accedere alla risorsa con ambito 'ugs'. Per correggere questo errore: 
+> 1. Avvia la console di gestione AD FS. Passa a "Servizi > Descrizioni ambiti".
+> 2. Fai clic con il pulsante destro del mouse su "Descrizioni ambiti" e seleziona "Aggiungi descrizione ambito".
+> 3. In Nome digita "ugs" e fai clic su Applica > OK.
+> 4. Avvia Powershell come amministratore.
+> 5. Esegui il comando "Get-AdfsApplicationPermission". Cerca ScopeNames :{openid, aza} con ClientRoleIdentifier. Prendi nota del valore di ObjectIdentifier.
+> 6. Esegui il comando "Set-AdfsApplicationPermission -TargetIdentifier <ObjectIdentifier al passaggio 5> -AddScope 'ugs'.
+> 7. Riavvia il servizio ADFS.
+> 8. Nel client: riavvia il client. All'utente deve essere richiesto di effettuare il provisioning di WHFB.
+> 9. Se la finestra di provisioning non viene visualizzata, devi raccogliere i registri di traccia NGC ed eseguire altre operazioni per la risoluzione dei problemi.
+
 **D.** Posso passare il valore della risorsa come parte del valore dell'ambito nello stesso modo in cui le richieste vengono eseguite su Azure AD? 
 </br>**R.** Con AD FS in Windows Server 2019, ora puoi passare il valore della risorsa incorporato nel parametro relativo all'ambito (scope). Il parametro di ambito ora può essere organizzato come un elenco con valori separati da spazi in cui ogni voce è strutturata come risorsa/ambito. Ad esempio  
 **<crea una richiesta di esempio valida>**

@@ -7,12 +7,12 @@ ms.topic: upgrade
 author: RobHindman
 ms.author: robhind
 ms.date: 09/16/2019
-ms.openlocfilehash: 62fe4f00cef121e6241a403ee339047cda9488b5
-ms.sourcegitcommit: 9a6a692a7b2a93f52bb9e2de549753e81d758d28
+ms.openlocfilehash: 8510b37c652dc7dfa95569a64dff8b1b75372a2d
+ms.sourcegitcommit: 1c75e4b3f5895f9fa33efffd06822dca301d4835
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72591082"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77517566"
 ---
 # <a name="upgrade-windows-server-2016-to-windows-server-2019"></a>Eseguire l'aggiornamento da Windows Server 2016 a Windows Server 2019
 
@@ -20,19 +20,19 @@ Se vuoi mantenere lo stesso hardware e tutti i ruoli del server che hai già con
 
 ## <a name="before-you-begin-your-in-place-upgrade"></a>Prima di iniziare l'aggiornamento sul posto
 
-Prima di iniziare l'aggiornamento di Windows Server, consigliamo di raccogliere alcune informazioni dai dispositivi, a scopo di diagnostica e risoluzione dei problemi. Poiché queste informazioni sono utili solo se l'aggiornamento ha esito negativo, devi assicurarti di archiviarle in un punto accessibile dal dispositivo.
+Prima di iniziare l'aggiornamento di Windows Server, è consigliabile raccogliere alcune informazioni dai dispositivi, ai fini della diagnostica e della risoluzione dei problemi. Poiché queste informazioni sono utili solo se l'aggiornamento ha esito negativo, devi assicurarti di conservarle in un punto accessibile al di fuori del dispositivo.
 
 ### <a name="to-collect-your-info"></a>Per raccogliere le informazioni
 
 1. Apri un prompt dei comandi, passa a `c:\Windows\system32` e quindi digita **systeminfo.exe**.
 
-2. Copia, incolla e archivia le informazioni di sistema risultanti in un punto qualsiasi del dispositivo.
+2. Copia, incolla e conserva le informazioni di sistema risultanti in un punto qualsiasi al di fuori del dispositivo.
 
 3. Digita **ipconfig /all** al prompt dei comandi e quindi copia e incolla le informazioni di configurazione risultanti nello stesso percorso indicato in precedenza.
 
 4. Apri l'editor del Registro di sistema, passa alla chiave `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion` e quindi copia e incolla **BuildLabEx** (versione) ed **EditionID** (edizione) di Windows Server nello stesso percorso indicato in precedenza.
 
-Dopo aver raccolto tutte le informazioni relative a Windows Server, consigliamo vivamente di eseguire il backup del sistema operativo, delle app e delle macchine virtuali. Devi anche **arrestare** ed eseguire una **migrazione rapida** o **in tempo reale** di eventuali macchine virtuali attualmente in esecuzione nel server. Durante l'aggiornamento sul posto le macchine virtuali non devono essere in esecuzione.
+Dopo aver raccolto tutte le informazioni relative a Windows Server, consigliamo vivamente di eseguire il backup del sistema operativo, delle app e delle macchine virtuali. Devi anche **arrestare il sistema** ed eseguire una **migrazione rapida** o una **migrazione in tempo reale** delle eventuali macchine virtuali attualmente in esecuzione nel server. Durante l'aggiornamento sul posto le macchine virtuali non devono essere in esecuzione.
 
 ## <a name="to-perform-the-upgrade"></a>Per eseguire l'aggiornamento
 
@@ -42,7 +42,7 @@ Dopo aver raccolto tutte le informazioni relative a Windows Server, consigliamo 
 
     ![Esplora risorse che visualizza il file setup.exe](media/upgrade-2016-2019/setup-2019.png)
 
-3. Seleziona **Sì** per avviare il processo di installazione.
+3. Scegli **Sì** per avviare il processo di installazione.
 
     ![Controllo dell'account utente che richiede l'autorizzazione per avviare l'installazione](media/upgrade-2016-2019/start-setup-uac-box.png)
 
@@ -56,9 +56,9 @@ Dopo aver raccolto tutte le informazioni relative a Windows Server, consigliamo 
 
 7. Seleziona l'edizione di Windows Server 2019 che vuoi installare e quindi scegli **Avanti**.
 
-    ![Schermata per scegliere l'edizione di Windows Server 2016 da installare](media/upgrade-2016-2019/select-os-edition.png)
+    ![Schermata per scegliere l'edizione di Windows Server 2019 da installare](media/upgrade-2016-2019/select-os-edition.png)
 
-8. Seleziona **Accetto** per accettare le condizioni del contratto di licenza, in base al canale di distribuzione (ad esempio, vendita al dettaglio, contratto multilicenza, OEM, ODM e così via).
+8. Scegli **Accetto** per accettare le condizioni del contratto di licenza, in base al canale di distribuzione (ad esempio, vendita al dettaglio, contratto multilicenza, OEM, ODM e così via).
 
     ![Schermata per accettare il contratto di licenza](media/upgrade-2016-2019/license-terms.png)
 
