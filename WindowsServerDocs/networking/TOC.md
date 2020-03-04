@@ -204,6 +204,7 @@
 ### [File batch di esempio della shell di rete (Netsh)](technologies/netsh/netsh-wins.md)
 ### [Comandi netsh per HTTP](technologies/netsh/netsh-http.md)
 ### [Comandi del proxy delle porte dell'interfaccia di Netsh](technologies/netsh/netsh-interface-portproxy.md)
+### [Comandi per netsh mbn](technologies/netsh/netsh-mbn.md)
 
 ## [Ottimizzazione delle prestazioni del sottosistema di rete](technologies/network-subsystem/net-sub-performance-top.md)
 ### [Scelta di una scheda di rete](technologies/network-subsystem/net-sub-choose-nic.md)
