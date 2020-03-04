@@ -9,12 +9,12 @@ author: eldenchristensen
 ms.date: 10/25/2017
 description: Come distribuire Spazi di archiviazione diretta in un cluster guest di macchine virtuali, ad esempio in Microsoft Azure.
 ms.localizationpriority: medium
-ms.openlocfilehash: ab0ce792c5a948e763a48493a78ccdac7a6fe74c
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 34241183a56cdb9be4690e1edd68b56320cc01de
+ms.sourcegitcommit: a6ec589a39ef104ec2be958cd09d2f679816a5ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71366055"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78261920"
 ---
 # <a name="using-storage-spaces-direct-in-guest-virtual-machine-clusters"></a>Uso di Spazi di archiviazione diretta nei cluster di macchine virtuali guest
 
@@ -65,10 +65,6 @@ Quando si distribuiscono Spazi di archiviazione diretta in un ambiente virtualiz
     Get-storagesubsystem clus* | set-storagehealthsetting -name “System.Storage.PhysicalDisk.AutoReplace.Enabled” -value “False”
     ```
 
--   Non supportati: Snapshot/ripristino del disco virtuale a livello di host
-
-    Usare invece le tradizionali soluzioni di backup a livello di Guest per eseguire il backup e il ripristino dei dati nei volumi Spazi di archiviazione diretta.
-
 -   Per garantire una maggiore resilienza alla possibile latenza di archiviazione VHD/VHDX/VMDK nei cluster guest, aumentare il valore di timeout I/O di spazi di archiviazione:
 
     `HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Services\\spaceport\\Parameters\\HwTimeout`
@@ -76,6 +72,16 @@ Quando si distribuiscono Spazi di archiviazione diretta in un ambiente virtualiz
     `dword: 00007530`
 
     L'equivalente decimale di 7530 esadecimale è 30000, ovvero 30 secondi. Si noti che il valore predefinito è 1770 esadecimale o 6000 Decimal, ovvero 6 secondi.
+
+## <a name="not-supported"></a>Non supportato
+
+-   Snapshot/ripristino del disco virtuale a livello di host
+
+    Usare invece le tradizionali soluzioni di backup a livello di Guest per eseguire il backup e il ripristino dei dati nei volumi Spazi di archiviazione diretta.
+
+-   Modifica delle dimensioni del disco virtuale a livello di host
+
+    I dischi virtuali esposti tramite la macchina virtuale devono mantenere le stesse dimensioni e le stesse caratteristiche. L'aggiunta di una maggiore capacità al pool di archiviazione può essere eseguita aggiungendo più dischi virtuali a ognuna delle macchine virtuali e aggiungendoli al pool. È consigliabile usare dischi virtuali con le stesse dimensioni e caratteristiche dei dischi virtuali correnti.
 
 ## <a name="see-also"></a>Vedere anche
 
