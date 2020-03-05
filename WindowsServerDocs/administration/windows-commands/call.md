@@ -1,5 +1,5 @@
 ---
-title: chiamare
+title: chiamata
 description: 'Argomento dei comandi di Windows per * * * *- '
 ms.custom: na
 ms.prod: windows-server
@@ -13,14 +13,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 06/05/2018
-ms.openlocfilehash: 0e5f9f2b0102c12ee0925bb434fdeddde85e34cd
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 89097ec5d3711b3d8831f8c33b3778ed0752246f
+ms.sourcegitcommit: ee8fa8e1293f29229b5ce1b0f3d4a07ba99568f5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71379723"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78280192"
 ---
-# <a name="call"></a>chiamare
+# <a name="call"></a>chiamata
 
 
 
@@ -78,9 +78,9 @@ La tabella seguente illustra come è possibile combinare i modificatori con i pa
 |% ~ dp $ PATH: 1|Esegue la ricerca nelle directory elencate nella variabile di ambiente PATH per **%1**, quindi si espande alla lettera di unità e al percorso della prima directory trovata.|
 |% ~ ftza1|Espande **%1** per visualizzare un output simile al comando **dir** .|
 
-Negli esempi precedenti, **%1** e Path possono essere sostituiti da altri valori validi. La sintassi del <strong>%~</strong> viene terminata con un numero di argomento valido. Non è possibile usare i modificatori di <strong>%~</strong> con **%\\\*** .
+Negli esempi precedenti, **%1** e Path possono essere sostituiti da altri valori validi. La sintassi del <strong>%~</strong> viene terminata con un numero di argomento valido. Non è possibile usare i modificatori di <strong>%~</strong> con **%\*** .
 
-## <a name="remarks"></a>Osservazioni
+## <a name="remarks"></a>Note
 
 -   Uso dei parametri batch
 
@@ -98,7 +98,7 @@ Negli esempi precedenti, **%1** e Path possono essere sostituiti da altri valori
 
     Se sono abilitate le estensioni dei comandi, la **chiamata** accetta l' *etichetta* come destinazione della chiamata. La sintassi corretta è la seguente:
 
-    `call :\<Label> <Arguments>`
+    `call :<Label> <Arguments>`
 
 ## <a name="BKMK_examples"></a>Esempi
 

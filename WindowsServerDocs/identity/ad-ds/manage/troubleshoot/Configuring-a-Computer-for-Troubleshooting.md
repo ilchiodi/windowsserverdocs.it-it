@@ -9,12 +9,12 @@ ms.date: 08/07/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 8e11883de9f89d0b95ed0fc35b4f5f3941ef82a3
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 53af8acd7da8f9008c88ad7c6c14b00e63801847
+ms.sourcegitcommit: 1f3ffff0af340868dcf3a2cfef5b8f8aea69d96d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71368900"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78278556"
 ---
 # <a name="configuring-a-computer-for-troubleshooting"></a>Configurazione di un computer per la risoluzione dei problemi
 
@@ -42,11 +42,11 @@ Il monitoraggio dell'affidabilità e delle prestazioni include anche Monitoraggi
 
 ### <a name="set-logging-levels"></a>Impostare i livelli di registrazione
 
-Se le informazioni ricevute nel log del servizio directory in Visualizzatore eventi non sono sufficienti per la risoluzione dei problemi, aumentare i livelli di registrazione usando la voce del registro di sistema appropriata in **HKEY_LOCAL_ MACHINESYSTEMCurrentControlSetServicesNTDSDiagnostics**.
+Se le informazioni ricevute nel log del servizio directory in Visualizzatore eventi non sono sufficienti per la risoluzione dei problemi, aumentare i livelli di registrazione usando la voce del registro di sistema appropriata in **HKEY_LOCAL_MACHINE \system\currentcontrolset\services\ntds\diagnostics**.
 
 Per impostazione predefinita, i livelli di registrazione per tutte le voci vengono impostati su **0**, che fornisce la quantità minima di informazioni. Il livello di registrazione più alto è **5**. L'aumento del livello di una voce comporta la registrazione di eventi aggiuntivi nel registro eventi del servizio directory.
 
-Utilizzare la procedura seguente per modificare il livello di registrazione per una voce di diagnostica. Per eseguire questa procedura, è necessaria almeno l'appartenenza al gruppo **Domain Admins** o a un gruppo equivalente.
+Utilizzare la procedura seguente per modificare il livello di registrazione per una voce di diagnostica. L'appartenenza al gruppo **Domain Admins** oppure a un gruppo equivalente è il requisito minimo necessario per completare questa procedura.
 
 > [!WARNING]
 > È consigliabile non modificare direttamente il Registro di sistema, a meno che non ci siano altre alternative. Modifiche al Registro di sistema non vengono convalidate dall'editor del Registro di sistema o da Windows prima di applicarle, e di conseguenza, possono essere archiviati i valori non corretti. Ciò può causare errori irreversibili nel sistema. Quando possibile, utilizzare Criteri di gruppo o altri strumenti di Windows, ad esempio gli snap-in MMC, per eseguire le attività, anziché modificare direttamente il registro di sistema. Se è necessario modificare il Registro di sistema, usare la massima cautela.
@@ -54,7 +54,7 @@ Utilizzare la procedura seguente per modificare il livello di registrazione per 
 
 Per modificare il livello di registrazione per una voce di diagnostica
 
-1. Fare clic su **Start** > **eseguire** > digitare **Regedit** > fare clic su **OK**.
+1. Fare clic su **Start** > **Esegui** > digitare **Regedit** > fare clic su **OK**.
 2. Passare alla voce per la quale si desidera impostare l'accesso.
    * ESEMPIO: HKEY_LOCAL_MACHINESYSTEMCurrentControlSetServicesNTDSDiagnostics
 3. Fare doppio clic sulla voce e in **base**fare clic su **Decimal**.

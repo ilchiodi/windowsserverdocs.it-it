@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 45c9946cc53fe3a901c3f6ee53f082a5b3d086c0
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 71525e4051a079eb9a3d0c8c197c8157b53e5e67
+ms.sourcegitcommit: 1f3ffff0af340868dcf3a2cfef5b8f8aea69d96d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71379646"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78278546"
 ---
 # <a name="certutil"></a>certutil
 
 Certutil. exe è un programma da riga di comando che viene installato come parte di Servizi certificati. È possibile utilizzare certutil. exe per eseguire il dump e visualizzare le informazioni di configurazione dell'autorità di certificazione (CA), configurare i servizi certificati, eseguire il backup e ripristinare i componenti CA e verificare i certificati, le coppie di chiavi e le catene di certificati.
 
-Quando certutil viene eseguito in un'autorità di certificazione senza parametri aggiuntivi, Visualizza la configurazione dell'autorità di certificazione corrente. Quando cerutil viene eseguito in un'autorità non di certificazione, per impostazione predefinita il comando esegue il verbo certutil [-dump](#-dump) .
+Quando certutil viene eseguito in un'autorità di certificazione senza parametri aggiuntivi, Visualizza la configurazione dell'autorità di certificazione corrente. Quando certutil viene eseguito in un'autorità non di certificazione, per impostazione predefinita il comando esegue il verbo certutil [-dump](#-dump) .
 
 > [!WARNING]
 > Le versioni precedenti di certutil potrebbero non fornire tutte le opzioni descritte in questo documento. È possibile visualizzare tutte le opzioni fornite da una versione specifica di certutil eseguendo i comandi illustrati nella sezione relativa alla [notazione della sintassi](#syntax-notations) .
@@ -153,7 +153,7 @@ Nella tabella seguente vengono descritti la notazione utilizzata per indicare la
 |  [Testo racchiuso tra parentesi quadre]  |                Elementi facoltativi                 |
 |      {Testo racchiuso tra parentesi graffe}       |       Set di elementi obbligatori; scegliere una       |
 |         Barra verticale (          |                       )                       |
-|          Puntini di sospensione (…)           |          Elementi che possono essere ripetuti           |
+|          Ellissi (…)           |          Elementi che possono essere ripetuti           |
 
 Torna al [menu](#menu)
 
@@ -1626,9 +1626,9 @@ ripristino: recuperare e recuperare le chiavi private in un unico passaggio (ric
 
 SearchToken: consente di selezionare le chiavi e i certificati da ripristinare.
 
-Può essere uno dei seguenti:
+I sistemi possibili sono i seguenti:
 
-1. Nome comune del certificato
+1. Nome comune certificato
 2. Numero di serie del certificato
 3. Hash SHA-1 certificato (identificazione personale)
 4. Hash SHA-1 del certificato KeyId (identificatore della chiave del soggetto)
@@ -1703,7 +1703,7 @@ Questa sezione definisce le opzioni che è possibile specificare con il comando.
 |-------|-----------|
 |-nullsign|USA hash di dati come firma|
 |-f|Forza sovrascrittura|
-|-Enterprise|Usa archivio certificati del registro di sistema aziendale del computer locale|
+|-enterprise|Usa archivio certificati del registro di sistema aziendale del computer locale|
 |-utente|USA chiavi HKEY_CURRENT_USER o archivio certificati|
 |-GroupPolicy|USA Criteri di gruppo archivio certificati|
 |-UT|Visualizzare i modelli utente|
@@ -1720,7 +1720,7 @@ Questa sezione definisce le opzioni che è possibile specificare con il comando.
 |-UrlFetch|Recuperare e verificare i certificati AIA e i CRL CDP|
 |-config Machine\CAName|Stringa nome computer e CA|
 |-PolicyServer URLOrId|ID o URL del server dei criteri. Per la selezione di U/I, usare-PolicyServer. Per tutti i server dei criteri, usare-PolicyServer \*|
-|-Anonimo|Usa credenziali SSL anonime|
+|-Anonymous|Usa credenziali SSL anonime|
 |-Kerberos|Usa credenziali SSL Kerberos|
 |-ClientCertificate ClientCertId|Usare le credenziali SSL del certificato X. 509. Per la selezione di U/I, usare-clientCertificate.|
 |-UserName nomeutente|Usare l'account denominato per le credenziali SSL. Per la selezione U/I, use-UserName.|
