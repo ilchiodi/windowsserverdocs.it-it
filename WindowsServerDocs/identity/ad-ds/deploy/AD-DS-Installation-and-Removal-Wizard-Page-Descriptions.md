@@ -10,11 +10,11 @@ ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
 ms.openlocfilehash: 3563c30e86c53435c10cafc840a71c7b8c526943
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.sourcegitcommit: 06ae7c34c648538e15c4d9fe330668e7df32fbba
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71391197"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78371565"
 ---
 # <a name="ad-ds-installation-and-removal-wizard-page-descriptions"></a>Descrizioni delle pagine delle procedure guidate di installazione e rimozione di Servizi di dominio Active Directory
 
@@ -51,7 +51,7 @@ In questo argomento vengono descritte le opzioni presenti nelle pagine seguenti 
 -   [Conferma selezioni per la rimozione del ruolo](../../ad-ds/deploy/AD-DS-Installation-and-Removal-Wizard-Page-Descriptions.md#BKMK_ConfirmRoleRemovalPage)  
   
 ## <a name="BKMK_DepConfigPage"></a>Configurazione della distribuzione  
-Server Manager inizia l'installazione di ogni controller di dominio con il **configurazione della distribuzione** pagina. Le opzioni restanti e i campi obbligatori in questa pagina e nella pagine successive sono diversi a seconda dell'operazione di distribuzione selezionata. Ad esempio, se si crea una nuova foresta, il **Opzioni di preparazione** pagina non viene visualizzata, ma non se si installa il primo controller di dominio che esegue Windows Server 2012 in un dominio o foresta esistente.  
+Server Manager inizia l'installazione di ogni controller di dominio nella pagina **Configurazione distribuzione**. Le opzioni restanti e i campi obbligatori in questa pagina e nella pagine successive sono diversi a seconda dell'operazione di distribuzione selezionata. Ad esempio, se si crea una nuova foresta, il **Opzioni di preparazione** pagina non viene visualizzata, ma non se si installa il primo controller di dominio che esegue Windows Server 2012 in un dominio o foresta esistente.  
   
 Alcuni test di convalida vengono eseguiti in questa pagina, mentre altri vengono effettuati successivamente nell'ambito del controllo dei prerequisiti. Ad esempio, se si tenta di installare il primo controller di dominio Windows Server 2012 in una foresta con livello di funzionalità di Windows 2000, in questa pagina viene visualizzato un errore.  
   
@@ -61,7 +61,7 @@ Quando viene creata una nuova foresta, vengono visualizzate le opzioni seguenti.
   
 -   Quando viene creata una nuova foresta, è necessario specificare un nome per il dominio radice della foresta. Non può essere il nome dominio radice della foresta con etichetta singola (ad esempio, deve essere "contoso.com" invece di "contoso"). È necessario usare le convenzioni di denominazione dei domini DNS consentite. È possibile specificare un nome IDN. Per ulteriori informazioni sulle convenzioni di denominazione dei domini DNS, vedere [KB 909264](https://support.microsoft.com/kb/909264).  
   
--   Non creare nuove foreste Active Directory con lo stesso nome del DNS esterno. Ad esempio, se l'URL DNS Internet è http: \//contoso. com, è necessario scegliere un nome diverso per la foresta interna per evitare problemi di compatibilità futuri. Il nome deve essere univoco e non scontato per il traffico Web, ad esempio corp.contoso.com.  
+-   Non creare nuove foreste Active Directory con lo stesso nome del DNS esterno. Ad esempio, se l'URL DNS Internet è http:\//contoso.com, è necessario scegliere un nome diverso per la foresta interna per evitare problemi di compatibilità futuri. Il nome deve essere univoco e non scontato per il traffico Web, ad esempio corp.contoso.com.  
   
 -   È necessario essere membro del gruppo Administrators nel server in cui si intende creare una nuova foresta.  
   
@@ -74,13 +74,13 @@ Quando viene creato un nuovo dominio, vengono visualizzate le opzioni seguenti.
 > [!NOTE]  
 > Se si crea un nuovo dominio albero, è necessario specificare il nome del dominio radice della foresta invece del dominio padre. Le restanti pagine e opzioni delle procedure guidate rimangono le stesse.  
   
--   Fare clic su **Seleziona** per selezionare il dominio padre o l'albero Active Directory, oppure specificare un dominio padre o un nome di albero valido. Digitare il nome del nuovo dominio in **nuovo nome di dominio**.  
+-   Fare clic su **Seleziona** per selezionare il dominio padre o l'albero Active Directory, oppure specificare un dominio padre o un nome di albero valido. A questo punto digitare il nome del nuovo dominio in **Nuovo nome dominio**.  
   
 -   Dominio albero: specificare un nome valido e completo per il dominio radice. Il nome non può avere un'etichetta singola e deve rispettare i requisiti DNS per i nomi di dominio.  
   
 -   Dominio figlio: specificare un nome di dominio figlio con etichetta singola valido. Il nome deve rispettare i requisiti DNS per i nomi di dominio.  
   
--   La Configurazione guidata Servizi di dominio Active Directory richiede l'immissione delle credenziali per il dominio se le proprie attuali credenziali non appartengono al dominio. Fare clic su **Modifica** per fornire le credenziali di dominio.  
+-   La Configurazione guidata Servizi di dominio Active Directory richiede l'immissione delle credenziali per il dominio se le proprie attuali credenziali non appartengono al dominio. Fare clic su **Cambia** per fornire le credenziali per il dominio.  
   
 Per ulteriori informazioni su come creare un dominio, vedere [Installa un nuovo Windows Server 2012 figlio di Active Directory o dominio albero & #40; Livello 200 & #41;](../../ad-ds/deploy/Install-a-New-Windows-Server-2012-Active-Directory-Child-or-Tree-Domain--Level-200-.md).  
   
@@ -88,7 +88,7 @@ Quando si aggiunge un nuovo controller di dominio a un dominio esistente, vengon
   
 ![Installazione di AD DS](./media/AD-DS-Installation-and-Removal-Wizard-Page-Descriptions/ADDS_SMI_DeploymentConfiguration_Replica.gif)  
   
--   Fare clic su **selezionare** per selezionare il dominio o digitare un nome di dominio valido.  
+-   Fare clic su **Seleziona** per selezionare il dominio o digitare un nome di dominio valido.  
   
 -   Server Manager richiede di specificare delle credenziali valide, se necessario. Per installare un ulteriore controller di dominio, è necessario appartenere al gruppo Domain Admins.  
   
@@ -127,7 +127,7 @@ Se si crea una dominio figlio, nella pagina Opzioni controller di dominio sono d
 -   Nella pagina **Opzioni controller di dominio** è anche possibile scegliere dalla configurazione della foresta un **nome del sito** di Active Directory logico e appropriato. Per impostazione predefinita, viene selezionato il sito con la subnet più corretta. Se è presente un solo sito, il sito viene selezionato automaticamente.  
   
     > [!IMPORTANT]  
-    > Se il server non fa parte di una subnet di Active Directory ed è presente più di un sito, viene selezionato nulla e **Avanti** pulsante non è disponibile fino a quando non si seleziona un sito dall'elenco.  
+    > Se il server non fa parte di una subnet di Active Directory ed è presente più di un sito, non viene selezionato nulla e il pulsante **Avanti** non sarà disponibile finché non viene scelto un sito dall'elenco.  
   
 Per ulteriori informazioni su come creare un dominio, vedere [Installa un nuovo Windows Server 2012 figlio di Active Directory o dominio albero & #40; Livello 200 & #41;](../../ad-ds/deploy/../../ad-ds/deploy/../../ad-ds/deploy/Install-a-New-Windows-Server-2012-Active-Directory-Child-or-Tree-Domain--Level-200-.md).  
   
@@ -142,7 +142,7 @@ Se si aggiunge un controller di dominio a un dominio, nella pagina Opzioni contr
 Per ulteriori informazioni su come aggiungere un controller di dominio a un dominio esistente, vedere [installare un Controller di dominio di Replica di Windows Server 2012 in un dominio esistente e 40 #; Livello 200 & #41;](../../ad-ds/deploy/../../ad-ds/deploy/Install-a-Replica-Windows-Server-2012-Domain-Controller-in-an-Existing-Domain--Level-200-.md).  
   
 ## <a name="BKMK_DNSOptionsPage"></a>Opzioni DNS  
-Se si installa il server DNS seguente **Opzioni DNS** verrà visualizzata la pagina:  
+Se si installa un server DNS, viene visualizzata la pagina **Opzioni DNS** seguente:  
   
 ![Installazione di AD DS](media/AD-DS-Installation-and-Removal-Wizard-Page-Descriptions/ADDS_SMI_DNSOptions_Replica.gif)  
   
@@ -152,15 +152,15 @@ Quando si installa un server DNS, i record di delega che fanno riferimento al se
   
 -   Per risolvere il nome del server specificato nel record di risorse del server dei nomi (NS) nell'indirizzo IP, è necessario che sia presente un record di risorse host (A o AAAA) noto anche come record colla. Il processo di risoluzione del nome host di questo record di risorse nel server DNS delegato del record di risorse server dei nomi (NS) a volte viene indicato come glue chasing.  
   
-È possibile fare in modo che la Configurazione guidata Servizi di dominio Active Directory li crei automaticamente. La procedura guidata verifica che il presenza dei record appropriati nella zona DNS padre dopo aver fatto clic **Avanti** sul **Opzioni Controller di dominio** pagina. Se non riesce a verificare la presenza dei record nel dominio padre, la procedura guidata dà la possibilità di creare una nuova delega DNS per un nuovo dominio (o di aggiornare una delega esistente) automaticamente e di continuare con l'installazione del nuovo controller di dominio.  
+È possibile fare in modo che la Configurazione guidata Servizi di dominio Active Directory li crei automaticamente. La procedura guidata verifica la presenza dei record appropriati nella zona DNS padre dopo aver scelto **Avanti** nella pagina **Opzioni controller di dominio**. Se non riesce a verificare la presenza dei record nel dominio padre, la procedura guidata dà la possibilità di creare una nuova delega DNS per un nuovo dominio (o di aggiornare una delega esistente) automaticamente e di continuare con l'installazione del nuovo controller di dominio.  
   
-In alternativa, è possibile creare questi record di delega DNS prima di installare il server DNS. Per creare una delega di zona, aprire **gestore DNS**, pulsante destro del mouse sul dominio padre e quindi fare clic su **nuova delega**. Eseguire la procedura per la creazione della delega nell'Aggiunta guidata nuova delega.  
+In alternativa, è possibile creare questi record di delega DNS prima di installare il server DNS. Per creare una delega di zona, aprire **Gestore DNS**, fare clic con il pulsante destro del mouse sul dominio padre e quindi scegliere **Nuova delega**. Eseguire la procedura per la creazione della delega nell'Aggiunta guidata nuova delega.  
   
 Il processo di installazione tenta di creare la delega per garantire che i computer in altri domini siano in grado di risolvere query DNS per gli host, inclusi i controller di dominio e i computer membro, nel sottodominio DNS. Si osservi che i record di delega possono essere creati automaticamente solo su server Microsoft DNS. Se la zona del dominio DNS padre si trova su server DNS di terze parti quali BIND, nella pagina Controllo dei prerequisiti viene visualizzato un avviso per segnalare che la creazione dei record di delega DNS ha avuto esito negativo. Per ulteriori informazioni sull'avviso, vedere [problemi noti per l'installazione di AD DS](https://technet.microsoft.com/library/cc754463(v=WS.10).aspx).  
   
 Le deleghe tra il dominio padre e il sottodominio da promuovere possono essere create e convalidate prima o dopo l'installazione. Non vi è motivo di rimandare l'installazione di un nuovo controller di dominio a causa dell'impossibilità di creare o aggiornare la delega DNS.  
   
-Per ulteriori informazioni sulla delega, vedere [informazioni sulla delega delle zone](https://go.microsoft.com/fwlink/?LinkId=164773) (https://go.microsoft.com/fwlink/?LinkId=164773). Se la delega della zona non è possibile nella situazione esistente, è possibile prendere in considerazione altri metodi per fornire la risoluzione dei nomi dagli altri domini agli host nel dominio. Ad esempio, l'amministratore DNS di un altro dominio potrebbe configurare l'inoltro condizionale, zone dello stub o zone secondarie per risolvere i nomi nel dominio. Per altre informazioni, vedere i seguenti argomenti:  
+Per ulteriori informazioni sulla delega, vedere [informazioni sulla delega delle zone](https://go.microsoft.com/fwlink/?LinkId=164773) (https://go.microsoft.com/fwlink/?LinkId=164773). Se la delega della zona non è possibile nella situazione esistente, è possibile prendere in considerazione altri metodi per fornire la risoluzione dei nomi dagli altri domini agli host nel dominio. Ad esempio, l'amministratore DNS di un altro dominio potrebbe configurare l'inoltro condizionale, zone dello stub o zone secondarie per risolvere i nomi nel dominio. Per altre informazioni, vedere gli argomenti seguenti:  
   
 -   [Informazioni sui tipi di zona](https://go.microsoft.com/fwlink/?LinkID=157399) (https://go.microsoft.com/fwlink/?LinkID=157399)  
   
@@ -188,7 +188,7 @@ Quando si crea un nuovo dominio, nella pagina **Opzioni aggiuntive** vengono vis
   
 ![Installazione di AD DS](media/AD-DS-Installation-and-Removal-Wizard-Page-Descriptions/ADDS_SMI_AdditionalOptions_Child.gif)  
   
-Vengono visualizzate le opzioni seguenti nel **Opzioni aggiuntive** pagina se si installa un controller di dominio aggiuntivo in un dominio esistente:  
+Quando si installa un ulteriore controller di dominio in un dominio esistente, nella pagina **Opzioni aggiuntive** vengono visualizzate le opzioni seguenti:  
   
 ![Installazione di AD DS](media/AD-DS-Installation-and-Removal-Wizard-Page-Descriptions/ADDS_SMI_AdditionalOptions_Replica.gif)  
   
@@ -199,7 +199,7 @@ Vengono visualizzate le opzioni seguenti nel **Opzioni aggiuntive** pagina se si
 Per ulteriori informazioni su come creare un dominio, vedere [Installa un nuovo Windows Server 2012 figlio di Active Directory o dominio albero & #40; Livello 200 & #41;](../../ad-ds/deploy/../../ad-ds/deploy/../../ad-ds/deploy/Install-a-New-Windows-Server-2012-Active-Directory-Child-or-Tree-Domain--Level-200-.md). Per ulteriori informazioni su come aggiungere un controller di dominio a un dominio esistente, vedere [installare un Controller di dominio di Replica di Windows Server 2012 in un dominio esistente e 40 #; Livello 200 & #41;](../../ad-ds/deploy/../../ad-ds/deploy/Install-a-Replica-Windows-Server-2012-Domain-Controller-in-an-Existing-Domain--Level-200-.md).  
   
 ## <a name="BKMK_Paths"></a>Percorsi  
-Vengono visualizzate le opzioni seguenti nel **percorsi** pagina.  
+Le opzioni seguenti vengono visualizzate nella pagina **Percorsi**.  
   
 ![Installazione di AD DS](media/AD-DS-Installation-and-Removal-Wizard-Page-Descriptions/ADDS_SMI_Paths.gif)  
   
@@ -234,7 +234,7 @@ Alcuni degli avvisi visualizzati in questa pagina includono:
   
 -   Controller di dominio che eseguono Windows Server 2008 o versioni successive dispongono di un'impostazione "Consenti algoritmi di crittografia compatibili con Windows NT 4" che impedisce gli algoritmi di crittografia vulnerabili per stabilire sessioni su canale sicuro. Per ulteriori informazioni sull'impatto potenziale e risolvere il problema, vedere l'articolo KB [942564](https://support.microsoft.com/kb/942564).  
   
--   Impossibile creare o aggiornare la delega DNS. Per ulteriori informazioni, vedere [Opzioni DNS](../../ad-ds/deploy/../../ad-ds/deploy/../../ad-ds/deploy/../../ad-ds/deploy/../../ad-ds/deploy/../../ad-ds/deploy/../../ad-ds/deploy/../../ad-ds/deploy/../../ad-ds/deploy/../../ad-ds/deploy/../../ad-ds/deploy/../../ad-ds/deploy/../../ad-ds/deploy/../../ad-ds/deploy/../../ad-ds/deploy/AD-DS-Installation-and-Removal-Wizard-Page-Descriptions.md#BKMK_DNSOptionsPage).  
+-   Impossibile creare o aggiornare la delega DNS. Per ulteriori informazioni vedere [Opzioni DNS](../../ad-ds/deploy/../../ad-ds/deploy/../../ad-ds/deploy/../../ad-ds/deploy/../../ad-ds/deploy/../../ad-ds/deploy/../../ad-ds/deploy/../../ad-ds/deploy/../../ad-ds/deploy/../../ad-ds/deploy/../../ad-ds/deploy/../../ad-ds/deploy/../../ad-ds/deploy/../../ad-ds/deploy/../../ad-ds/deploy/AD-DS-Installation-and-Removal-Wizard-Page-Descriptions.md#BKMK_DNSOptionsPage).  
   
 -   Il controllo dei prerequisiti richiede chiamate WMI. Le chiamate possono avere esito negativo se sono bloccate dalle regole del firewall e restituire un errore di server RPC non disponibile.  
   
@@ -259,7 +259,7 @@ Nella pagina **Credenziali** è possibile configurare le opzioni di abbassamento
     > [!IMPORTANT]  
     > Non selezionare questa opzione se il controller di dominio non riesce a contattare altri controller di dominio e non vi è alcuna *soluzione ragionevole* per risolvere il problema di rete. L'abbassamento di livello forzato lascia orfani i metadati di Active Directory nei restanti controller di dominio della foresta. Inoltre tutte le modifiche non replicate nel rispettivo controller di dominio, come password o nuovi account utente, andranno perse. I metadati orfani sono la causa principale di una elevata percentuale di casi riportati al supporto tecnico Microsoft riguardanti i Servizi di dominio Active Directory, Exchange, SQL e altre applicazioni software. Quando si esegue l'abbassamento di livello forzato di un controller di dominio, è *necessario* effettuare immediatamente la pulizia dei metadati. Per i passaggi, esaminare [pulizia dei metadati del Server](https://technet.microsoft.com/library/cc816907(WS.10).aspx).  
   
--   Per abbassare il livello dell'ultimo controller di dominio in un dominio è necessario appartenere al gruppo Enterprise Admins, in quanto viene rimosso il dominio stesso (se questo è l'ultimo dominio nella foresta, viene rimossa anche la foresta). Server Manager segnala che il controller di dominio corrente è l'ultimo controller nel dominio. Selezionare **ultimo controller di dominio nel dominio** per verificare il dominio controller è l'ultimo controller di dominio nel dominio.  
+-   Per abbassare il livello dell'ultimo controller di dominio in un dominio è necessario appartenere al gruppo Enterprise Admins, in quanto viene rimosso il dominio stesso (se questo è l'ultimo dominio nella foresta, viene rimossa anche la foresta). Server Manager segnala che il controller di dominio corrente è l'ultimo controller nel dominio. Selezionare **Ultimo controller di dominio del dominio** per confermare che il controller è l'ultimo controller di dominio nel dominio.  
   
 Per ulteriori informazioni sulla rimozione di dominio Active Directory, vedere [rimuovere Active Directory Domain Services (livello 100)](assetId:///99b97af0-aa7e-41ed-8c81-4eee6c03eb4c) e [l'abbassamento di livello controller di dominio e domini & #40; Livello 200 & #41;](Demoting-Domain-Controllers-and-Domains--Level-200-.md).  
   
@@ -270,13 +270,13 @@ Se il controller di dominio ospita ruoli aggiuntivi, come il ruolo Server DNS o 
   
 ![Installazione di AD DS](media/AD-DS-Installation-and-Removal-Wizard-Page-Descriptions/ADDS_RRW_Warnings.gif)  
   
-È necessario fare clic su **Procedi alla rimozione** per confermare che i ruoli aggiuntivi non saranno disponibili prima di scegliere **Avanti** per continuare.  
+È necessario fare clic su **Procedi alla rimozione** per confermare che i ruoli aggiuntivi non saranno più disponibili, quindi fare clic su **Avanti** per continuare.  
   
 Se si forza la rimozione di un controller di dominio, andranno perse tutte le modifiche agli oggetti di Active Directory non replicate negli altri controller di dominio nel dominio. Se inoltre il controller di dominio ospita ruoli di master operazioni, il catalogo globale o il ruolo Server DNS, le operazioni critiche nel dominio e nella foresta possono essere influenzate come descritto di seguito. Prima di rimuovere un controller di dominio che ospita un ruolo di master operazioni, provare a trasferire il ruolo in un altro controller di dominio. Se non è possibile trasferire il ruolo, rimuovere Servizi di dominio Active Directory dal computer, quindi utilizzare Ntdsutil.exe per assegnare il ruolo. Utilizzare Ntdsutil sul controller di dominio a cui si intende assegnare il ruolo; se possibile, utilizzare un partner di replica recente appartenente allo stesso sito del controller di dominio. Per ulteriori informazioni sul trasferimento e requisizione dei ruoli di master operazioni, vedere [articolo 255504](https://go.microsoft.com/fwlink/?LinkId=80395) della Microsoft Knowledge Base. Se la procedura guidata non riesce a stabilire se il controller di dominio ospiti un ruolo di master operazioni, eseguire il comando netdom.exe per determinare se il controller di dominio esegua ruoli di master operazioni.  
   
--   Catalogo globale: È possibile che gli utenti abbiano problemi di accesso ai domini della foresta. Prima di rimuovere un server di catalogo globale, assicurarsi che vi sia un numero sufficiente di server di catalogo globale nella foresta e nel sito rispetto agli accessi utente. Se necessario, specificare un altro server di catalogo globale e aggiornare i client e le applicazioni con le nuove informazioni.  
+-   Catalogo globale: gli utenti potrebbero avere problemi di accesso ai domini nella foresta. Prima di rimuovere un server di catalogo globale, assicurarsi che vi sia un numero sufficiente di server di catalogo globale nella foresta e nel sito rispetto agli accessi utente. Se necessario, specificare un altro server di catalogo globale e aggiornare i client e le applicazioni con le nuove informazioni.  
   
--   Server DNS: Tutti i dati DNS archiviati in zone integrate Active Directory andranno perduti. Dopo avere rimosso Servizi di dominio Active Directory, questo server DNS non potrà eseguire la risoluzione dei nomi per le zone DNS integrate in Active Directory. È consigliabile pertanto aggiornare la configurazione DNS di tutti i computer che fanno riferimento all'indirizzo IP del server DNS per la risoluzione dei nomi con l'indirizzo IP del nuovo server DNS.  
+-   Server DNS: tutti i dati DNS archiviati nelle zone integrate in Active Directory andranno persi. Dopo avere rimosso Servizi di dominio Active Directory, questo server DNS non potrà eseguire la risoluzione dei nomi per le zone DNS integrate in Active Directory. È consigliabile pertanto aggiornare la configurazione DNS di tutti i computer che fanno riferimento all'indirizzo IP del server DNS per la risoluzione dei nomi con l'indirizzo IP del nuovo server DNS.  
   
 -   Master infrastrutture: i client nel dominio potrebbero avere problemi di localizzazione degli oggetti negli altri domini. Prima di continuare, trasferire il ruolo master infrastrutture in un controller di dominio che non sia un server di catalogo globale.  
   
@@ -306,7 +306,7 @@ Il **Nuova Password amministratore** pagina è necessario fornire una password p
 Per ulteriori informazioni sulla rimozione di dominio Active Directory, vedere [rimuovere Active Directory Domain Services (livello 100)](assetId:///99b97af0-aa7e-41ed-8c81-4eee6c03eb4c) e [l'abbassamento di livello controller di dominio e domini & #40; Livello 200 & #41;](Demoting-Domain-Controllers-and-Domains--Level-200-.md).  
   
 ## <a name="BKMK_ConfirmRoleRemovalPage"></a>Opzioni di Revisione  
-Il **Verifica opzioni** pagina offre la possibilità di esportare le impostazioni di configurazione dell'abbassamento di livello a uno script di Windows PowerShell in modo che è possibile automatizzare l'abbassamento di livello aggiuntive. Fare clic su **Abbassa di livello** per rimuovere Servizi di dominio Active Directory.  
+Nella pagina **Verifica opzioni** è possibile esportare in uno script di Windows PowerShell le impostazioni di configurazione dell'abbassamento di livello, in modo da automatizzare i futuri processi di abbassamento di livello. Fare clic su **Abbassa di livello** per rimuovere Servizi di dominio Active Directory.  
   
 ![Installazione di AD DS](media/AD-DS-Installation-and-Removal-Wizard-Page-Descriptions/ADDS_RRW_ReviewOptions.gif)  
   
