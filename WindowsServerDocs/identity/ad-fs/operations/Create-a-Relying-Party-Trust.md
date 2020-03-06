@@ -1,6 +1,6 @@
 ---
 ms.assetid: 5b9fc9c1-5d12-4ad4-8ddc-3b8a6d45b217
-title: Creare un'attendibilità della relying party
+title: Creazione di un'attendibilità della relying party
 description: ''
 author: billmath
 ms.author: billmath
@@ -10,13 +10,13 @@ ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
 ms.openlocfilehash: a0d32edd7ebc23fa724439710c6511642d9c49a3
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.sourcegitcommit: 06ae7c34c648538e15c4d9fe330668e7df32fbba
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71407648"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78371490"
 ---
-# <a name="create-a-relying-party-trust"></a>Creare un'attendibilità della relying party
+# <a name="create-a-relying-party-trust"></a>Creazione di un'attendibilità della relying party
 
 
 Il seguente documento vengono fornite informazioni sulla creazione manuale di un trust della relying party e l'utilizzo dei metadati di federazione.
@@ -25,7 +25,7 @@ Il seguente documento vengono fornite informazioni sulla creazione manuale di un
 
 Per aggiungere un nuovo trust della relying party utilizzando lo snap di gestione di ADFS\-manualmente e a configurare le impostazioni, eseguire la procedura seguente in un server federativo.  
 
-Per completare questa procedura, è necessaria almeno l'appartenenza al gruppo **Administrators** oppure a un gruppo equivalente nel computer locale.  Informazioni dettagliate sull'utilizzo degli account appropriati e appartenenze [dominio gruppi predefiniti locali e](https://go.microsoft.com/fwlink/?LinkId=83477).
+L'appartenenza al gruppo **Administrators**, o a un gruppo equivalente, nel computer locale è il requisito minimo per eseguire questa procedura.  Informazioni dettagliate sull'utilizzo degli account appropriati e appartenenze [dominio gruppi predefiniti locali e](https://go.microsoft.com/fwlink/?LinkId=83477).
   
 1. In Server Manager, fare clic su **strumenti**, quindi selezionare **Gestione ADFS**.  
   
@@ -35,7 +35,7 @@ Per completare questa procedura, è necessaria almeno l'appartenenza al gruppo *
 3.  Nel **iniziale** scegliere pagina **grado di riconoscere attestazioni** e fare clic su **avviare**.  
 ![relying party](media/Create-a-Relying-Party-Trust/addtrust2.PNG) 
   
-4.  Nella pagina **Seleziona origine dati** fare clic su **Immetti dati sul componente manualmente**, quindi scegliere **Avanti**.  
+4.  Nella pagina **Seleziona origine dati** fare clic su **Immetti dati sul componente manualmente**, quindi su **Avanti**.  
 ![relying party](media/Create-a-Relying-Party-Trust/addtrust3.PNG) 
   
 5.  Nel **Specifica nome visualizzato** digitare un nome in **nome visualizzato**, in **note** digitare una descrizione per questo trust della relying party e quindi fare clic su **Avanti**.  
@@ -57,7 +57,7 @@ Per completare questa procedura, è necessaria almeno l'appartenenza al gruppo *
 9.  Nel **scegliere Criteri di controllo di accesso** Selezionare un criterio e fare clic su **Avanti**.  Per ulteriori informazioni sui criteri di controllo di accesso, vedere [criteri di controllo di accesso in ADFS](Access-Control-Policies-in-AD-FS.md). 
 ![relying party](media/Create-a-Relying-Party-Trust/addtrust9.PNG)
 
-10. Nel **Aggiunta attendibilità** pagina, controllare le impostazioni e quindi fare clic su **Avanti** per salvare la relying party trust informazioni.  
+10. Nella pagina **Aggiunta attendibilità** esaminare le impostazioni e quindi fare clic su **Avanti** per salvare le informazioni sul trust della relying party.  
    ![relying party](media/Create-a-Relying-Party-Trust/addtrust10.PNG) 
 11. Nella pagina **Fine** fare clic su **Chiudi**. Con questa azione viene visualizzata automaticamente la finestra di dialogo **Modifica regole attestazione**.  
 ![relying party](media/Create-a-Relying-Party-Trust/addtrust11.PNG) 
@@ -69,7 +69,7 @@ Per aggiungere un nuovo trust della relying party, utilizzando lo snap-in di ges
 >[!NOTE]
 >Sebbene sia stata molto pratica comune usare i certificati con nomi host non qualificati, ad esempio https://myserver, questi certificati non hanno alcun valore di sicurezza e possono consentire a un utente malintenzionato di rappresentare una Servizio federativo che pubblica metadati federativi. Pertanto, quando si eseguono query sui metadati di federazione, è consigliabile utilizzare solo un nome di dominio completo, ad esempio https://myserver.contoso.com.
 
-Per completare questa procedura, è necessaria almeno l'appartenenza al gruppo **Administrators** oppure a un gruppo equivalente nel computer locale.  Informazioni dettagliate sull'utilizzo degli account appropriati e appartenenze [dominio gruppi predefiniti locali e](https://go.microsoft.com/fwlink/?LinkId=83477).
+L'appartenenza al gruppo **Administrators**, o a un gruppo equivalente, nel computer locale è il requisito minimo per eseguire questa procedura.  Informazioni dettagliate sull'utilizzo degli account appropriati e appartenenze [dominio gruppi predefiniti locali e](https://go.microsoft.com/fwlink/?LinkId=83477).
 
 
 1. In Server Manager, fare clic su **strumenti**, quindi selezionare **Gestione ADFS**.  
@@ -89,7 +89,7 @@ Per completare questa procedura, è necessaria almeno l'appartenenza al gruppo *
 
 7. Nella schermata Aggiunta attendibilità, rivedere le impostazioni e quindi fare clic su **Avanti** per salvare la relying party trust informazioni.
 
-8. Nell'ultima pagina, fare clic su **Chiudi**. Questa azione consente di visualizzare automaticamente la finestra di dialogo Modifica regole attestazione. Per altre informazioni su come procedere per l'aggiunta di regole attestazioni per il trust della relying party, vedere la sezione "Riferimenti aggiuntivi".
+8. Nell'ultima pagina, fare clic su **Chiudi**. Con questa azione viene visualizzata automaticamente la finestra di dialogo Modifica regole attestazione. Per altre informazioni su come procedere per l'aggiunta di regole attestazioni per il trust della relying party, vedere la sezione "Riferimenti aggiuntivi".
 
 
 
