@@ -14,11 +14,11 @@ ms.assetid: c925c7eb-6880-411f-8e59-bd0f57cc5fc3
 author: lizap
 manager: dongill
 ms.openlocfilehash: e501d550e5371c668f7e243f00106a0b79f694dc
-ms.sourcegitcommit: 214847318401cebdcb7f1924a731b4439c9d8a24
+ms.sourcegitcommit: 06ae7c34c648538e15c4d9fe330668e7df32fbba
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74187880"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78370681"
 ---
 # <a name="supported-configurations-for-remote-desktop-services"></a>Configurazioni supportate per Servizi Desktop remoto
 
@@ -49,9 +49,9 @@ In Windows Server 2016 non è più previsto un limite per il numero di istanze d
 
 |3+ istanze di Gestore connessione a disponibilità elevata|RDSH o RDVH 2019|RDSH o RDVH 2016|RDSH o RDVH 2012 R2|
 |---|---|---|---|
- |Gestore connessione Windows Server 2019|Supportato|Supportato|Supportato|
- |Gestore connessione Windows Server 2016|N/D|Supportato|Supportato|
- |Gestore connessione Windows Server 2012 R2|N/D|N/D|Non supportato|
+ |Gestore connessione Windows Server 2019|Funzionalità supportata|Funzionalità supportata|Funzionalità supportata|
+ |Gestore connessione Windows Server 2016|N/D|Funzionalità supportata|Funzionalità supportata|
+ |Gestore connessione Windows Server 2012 R2|N/D|N/D|Non Supportato|
 
 ## <a name="support-for-graphics-processing-unit-gpu-acceleration"></a>Supporto per l'accelerazione GPU
 
@@ -69,7 +69,7 @@ Le GPU presentate da una piattaforma cloud o un hypervisor non Microsoft devono 
 
 La tabella seguente illustra gli scenari supportati da versioni diverse di host RDSH.
 
-|Funzionalità|Windows Server 2008 R2|Windows Server 2012 R2|Windows Server 2016|Windows Server 2019|
+|Funzionalità|Windows Server 2008 R2|Windows Server 2012 R2|Windows Server 2016|Windows Server 2019|
 |---|---|---|---|---|
 |Uso della GPU hardware per tutte le sessioni RDP|No|Sì|Sì|Sì|
 |Codifica hardware H. 264/AVC (se supportata dalla GPU)|No|No|Sì|Sì|
@@ -81,7 +81,7 @@ La tabella seguente illustra gli scenari supportati da versioni diverse di host 
 
 La tabella seguente illustra il supporto per gli scenari GPU nel sistema operativo client.
 
-|Funzionalità|Windows 7 SP1|Windows 8.1|Windows 10|
+|Funzionalità|Windows 7 SP1|Windows 8.1|Windows 10|
 |---|---|---|---|
 |Uso della GPU hardware per tutte le sessioni RDP|No|Sì|Sì|
 |Codifica hardware H. 264/AVC (se supportata dalla GPU)|No|No|Windows 10 1703 e versioni successive|
@@ -94,7 +94,7 @@ La tabella seguente illustra il supporto per gli scenari GPU nel sistema operati
 Servizi Desktop remoto supporta le vGPU RemoteFX quando la macchina virtuale viene eseguita come guest Hyper-V in Windows Server 2012 R2 o Windows Server 2016. I sistemi operativi guest seguenti includono il supporto per la vGPU RemoteFX:
 
 - Windows 7 SP1
-- Windows 8.1
+- Windows 8.1
 - Windows 10 1703 o versione successiva
 - Windows Server 2016 solo in una distribuzione a sessione singola
 - Windows Server 2019 solo in una distribuzione a sessione singola

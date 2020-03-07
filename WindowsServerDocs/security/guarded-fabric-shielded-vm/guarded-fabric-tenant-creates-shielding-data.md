@@ -9,11 +9,11 @@ author: rpsqrd
 ms.technology: security-guarded-fabric
 ms.date: 09/25/2019
 ms.openlocfilehash: 26ff5e27494e2f42a0c8e4d28e2b9820f8d19e6a
-ms.sourcegitcommit: 471464a674a53c468a2f1e28575c91245ce9badf
+ms.sourcegitcommit: 06ae7c34c648538e15c4d9fe330668e7df32fbba
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75548181"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78370755"
 ---
 # <a name="shielded-vms-for-tenants---creating-shielding-data-to-define-a-shielded-vm"></a>VM schermate per i tenant-creazione di dati di schermatura per definire una macchina virtuale schermata
 
@@ -77,7 +77,7 @@ Quando si crea un file Unattend. XML per le macchine virtuali schermate, tenere 
     | Elemento sostituibile | Stringa di sostituzione |
     |-----------|-----------|
     | ComputerName        | @ComputerName@      |
-    | Fuso orario            | @TimeZone@          |
+    | TimeZone            | @TimeZone@          |
     | ProductKey          | @ProductKey@        |
     | IPAddr4-1           | @IP4Addr-1@         |
     | IPAddr6-1           | @IP6Addr-1@         |
@@ -255,7 +255,7 @@ Infine, se sono presenti altri file che devono accompagnare il file di risposte 
 
 Per informazioni su altri modi per configurare il file di dati di schermatura, vedere la documentazione del cmdlet [New-ShieldingDataFile](https://docs.microsoft.com/powershell/module/shieldedvmdatafile/New-ShieldingDataFile?view=win10-ps) e [New-VolumeIDQualifier](https://docs.microsoft.com/powershell/module/shieldedvmdatafile/New-VolumeIDQualifier?view=win10-ps) .
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 
 - [Distribuire macchine virtuali schermate](guarded-fabric-configuration-scenarios-for-shielded-vms-overview.md)
 - [Infrastruttura sorvegliata e macchine virtuali schermate](guarded-fabric-and-shielded-vms-top-node.md)

@@ -13,11 +13,11 @@ author: nnamuhcs
 ms.author: coreyp
 manager: dongill
 ms.openlocfilehash: 3eace9281d9fcdea5262274ac7fb20ec30d30fb4
-ms.sourcegitcommit: 9f955be34c641b58ae8b3000768caa46ad535d43
+ms.sourcegitcommit: 06ae7c34c648538e15c4d9fe330668e7df32fbba
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/27/2019
-ms.locfileid: "68590576"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78371217"
 ---
 # <a name="manage-remote-web-access-in-windows-server-essentials"></a>Gestire Accesso Web remoto in Windows Server Essentials
 
@@ -25,7 +25,7 @@ ms.locfileid: "68590576"
  
  Accesso Web remoto in Windows Server Essentials o in Windows Server 2012 R2 con il ruolo esperienza Windows Server Essentials installato, fornisce un'esperienza di esplorazione semplificata e intuitiva per il tocco per l'accesso alle applicazioni e ai dati praticamente ovunque si dispone di una connessione Internet e di qualsiasi dispositivo. Per utilizzare la funzionalità Accesso Web remoto, è innanzitutto necessario attivarla mediante la Configurazione guidata di Accesso remoto via Internet e quindi configurare il router e il nome di dominio.  
   
-## <a name="in-this-topic"></a>Contenuto dell'argomento  
+## <a name="in-this-topic"></a>In questo argomento  
   
 -   [Attivare e configurare Accesso Web remoto](Manage-Remote-Web-Access-in-Windows-Server-Essentials.md#BKMK_1)  
   
@@ -70,13 +70,13 @@ ms.locfileid: "68590576"
   
 ##### <a name="to-turn-on-remote-web-access"></a>Per attivare Accesso Web remoto  
   
-1.  Aprire il dashboard.  
+1.  Aprire il Dashboard.  
   
-2.  Fare clic su **Impostazioni**, quindi fare clic sulla scheda **Accesso remoto via Internet** .  
+2.  Fare clic su **Impostazioni**, quindi fare clic sulla scheda **Accesso remoto via Internet**.  
   
-3.  Fare clic su **configurare**. Verrà visualizzata la Configurazione guidata di Accesso remoto via Internet.  
+3.  Fare clic su **Configura**. Verrà visualizzata la Configurazione guidata di Accesso remoto via Internet.  
   
-4.  Nella pagina **Scegli le funzionalità di Accesso remoto via Internet da abilitare** selezionare la casella di controllo **Accesso Web remoto** .  
+4.  Nella pagina **Scegli le funzionalità di Accesso remoto via Internet da abilitare** selezionare la casella di controllo **Accesso Web remoto**.  
   
 5.  Seguire le istruzioni per completare la procedura guidata.  
   
@@ -89,7 +89,7 @@ ms.locfileid: "68590576"
   
 2.  Fare clic su **Impostazioni**.  
   
-3.  Nella scheda **Generale** fare clic sull'elenco a discesa della sezione **Paese/Area geografica del server**.  
+3.  Nella scheda **Generale** fare clic sull'elenco a discesa della sezione **Paese/Regione del server**.  
   
 4.  Selezionare la nuova area geografica nell'elenco a discesa e quindi fare clic su **Applica** per accettare la nuova impostazione.  
   
@@ -102,7 +102,7 @@ ms.locfileid: "68590576"
   
 2. Fare clic sull'account utente da gestire, quindi su **Visualizza proprietà account** nel riquadro **Attività**.  
   
-3. Nella finestra di dialogo **Proprietà** fare clic sulla scheda **Accesso remoto via Internet** .  
+3. Nella finestra di dialogo **Proprietà** fare clic sulla scheda **Accesso remoto via Internet**.  
   
 4. Nella scheda **Accesso remoto via Internet** selezionare la casella di controllo **Consenti Accesso Web remoto e accedi ai servizi Web** per consentire a un utente di connettersi al server tramite Accesso Web remoto.  
   
@@ -121,26 +121,26 @@ ms.locfileid: "68590576"
   
 ##### <a name="to-set-vpn-and-remote-web-access-permissions-for-network-users"></a>Per impostare le autorizzazioni per la VPN e per Accesso Web remoto per gli utenti di rete  
   
-1.  Aprire il dashboard.  
+1.  Aprire il Dashboard.  
   
 2.  Sulla barra di spostamento fare clic su **UTENTI**.  
   
 3.  Nell'elenco di account utente selezionare quello a cui si vogliono concedere le autorizzazioni per accedere al desktop in remoto.  
   
-4.  Nel riquadro **attività < account\> utente** fare clic su **Proprietà**.  
+4.  Nel riquadro **attività < account utente\>** fare clic su **Proprietà**.  
   
-5.  In **< proprietà dell'\> account utente**fare clic sulla scheda **accesso remoto via Internet** .  
+5.  In **< account utente\> proprietà**, fare clic sulla scheda **accesso remoto via Internet** .  
   
 6.  Nella scheda **Accesso remoto via Internet** eseguire le operazioni seguenti:  
   
     1.  Per permettere a un utente di connettersi al server tramite la VPN, selezionare la casella di controllo **Consenti rete privata virtuale (VPN)** .  
   
-    2.  Per permettere a un utente di connettersi al server tramite Accesso Web remoto, selezionare la casella di controllo **Consenti Accesso Web remoto e accedi ai servizi Web** .  
+    2.  Per permettere a un utente di connettersi al server tramite Accesso Web remoto, selezionare la casella di controllo **Consenti Accesso Web remoto e accedi ai servizi Web**.  
   
 7.  Fare clic su **Applica** e quindi su **OK**.  
   
 ##  <a name="BKMK_2"></a>Configurare il router  
- Quando si configura il server per Accesso Web remoto, la procedura guidata Configura Accesso remoto via Internet tenta di configurare il router. Se si cambia il router o si modificano le impostazioni sul router, è necessario eseguire di nuovo la procedura guidata Configura router. Per altre informazioni, vedere i seguenti argomenti:  
+ Quando si configura il server per Accesso Web remoto, la procedura guidata Configura Accesso remoto via Internet tenta di configurare il router. Se si cambia il router o si modificano le impostazioni sul router, è necessario eseguire di nuovo la procedura guidata Configura router. Per altre informazioni, vedere gli argomenti seguenti:  
   
 -   [Configurare il router](Manage-Remote-Web-Access-in-Windows-Server-Essentials.md#BKMK_SetUpRouter)  
   
@@ -165,7 +165,7 @@ ms.locfileid: "68590576"
   
 1.  Nel dashboard di Windows Server Essentials fare clic su **Impostazioni**.  
   
-2.  Fare clic sulla scheda **Accesso remoto via Internet** e quindi, nella sezione **Router** , fare clic su **Configura**. Verrà avviata la procedura guidata Configura router.  
+2.  Fare clic sulla scheda **Accesso remoto via Internet** e quindi, nella sezione **Router**, fare clic su **Configura**. Verrà avviata la procedura guidata Configura router.  
   
 3.  Seguire le istruzioni della procedura guidata per completare la configurazione del nuovo router.  
   
@@ -189,20 +189,20 @@ ms.locfileid: "68590576"
   
 ##### <a name="to-enable-remote-desktop-services-activex-controls"></a>Per abilitare i controlli ActiveX di Servizi Desktop remoto  
   
-1.  In Internet Explorer fare clic su **Strumenti**e quindi su **Opzioni Internet**.  
+1.  In Internet Explorer fare clic su **Strumenti** e quindi su **Opzioni Internet**.  
   
 2.  Nella scheda **Sicurezza** fare clic su **Livello personalizzato**.  
   
 3.  Nella sezione **Controlli ActiveX e plug-in** eseguire le operazioni seguenti:  
   
-    1.  In **Scarica controlli ActiveX con firma elettronica**fare clic su **Chiedi conferma**.  
+    1.  In **Scarica controlli ActiveX con firma elettronica** fare clic su **Chiedi conferma**.  
   
     2.  In **Esegui controlli ActiveX e plug-in** fare clic su **Attiva**.  
   
 4.  Fare clic su **OK** due volte per accettare le modifiche e chiudere la finestra di dialogo.  
   
 ##  <a name="BKMK_3"></a>Configurare il nome di dominio  
- Dopo l'attivazione di Accesso Web remoto, è possibile configurare un nome di dominio per il server che esegue Windows Server Essentials. Si tratta di un'operazione necessaria se si prevede di utilizzare Accesso Web remoto da un computer remoto. Per altre informazioni, vedere i seguenti argomenti:  
+ Dopo l'attivazione di Accesso Web remoto, è possibile configurare un nome di dominio per il server che esegue Windows Server Essentials. Si tratta di un'operazione necessaria se si prevede di utilizzare Accesso Web remoto da un computer remoto. Per altre informazioni, vedere gli argomenti seguenti:  
   
 -   [Panoramica dei nomi di dominio](Manage-Remote-Web-Access-in-Windows-Server-Essentials.md#BKMK_DNOverview)  
   
@@ -248,7 +248,7 @@ ms.locfileid: "68590576"
 >  Windows Live consente l'uso di caratteri speciali nella password dell'account Microsoft che non sono supportati dal server. Se si usa un dominio personalizzato Microsoft, assicurarsi che la password dell'account Microsoft contenga solo caratteri supportati dal server. Il server non supporta l'uso dei caratteri $, /, ' e %.  
   
 ###  <a name="BKMK_UseNewName"></a>Usa un nome di dominio nuovo o esistente  
- Per configurare automaticamente il nome di dominio in un server che esegue Windows Server Essentials, è necessario usare un provider di servizi di nomi di dominio elencato nella procedura guidata Imposta nome di dominio. Si può scegliere di ottenere un nuovo nome di dominio o di usarne uno esistente. Effettua una delle seguenti operazioni:  
+ Per configurare automaticamente il nome di dominio in un server che esegue Windows Server Essentials, è necessario usare un provider di servizi di nomi di dominio elencato nella procedura guidata Imposta nome di dominio. Si può scegliere di ottenere un nuovo nome di dominio o di usarne uno esistente. Esegui una delle operazioni seguenti:  
   
 -   Se si vuole ottenere un nuovo nome di dominio da uno dei provider di servizi di nomi di dominio elencati nella procedura guidata, fare clic su **Desidero impostare un nuovo nome di dominio**.  
   
@@ -261,7 +261,7 @@ ms.locfileid: "68590576"
   
 ##### <a name="to-set-up-or-manage-an-internet-domain-name"></a>Per configurare e gestire un nome di dominio Internet  
   
-1.  Aprire il dashboard.  
+1.  Aprire il Dashboard.  
   
 2.  Fare clic su **Impostazioni server** e quindi sulla scheda **Accesso remoto via Internet**.  
   
@@ -347,7 +347,7 @@ ms.locfileid: "68590576"
 ###  <a name="BKMK_SetNameManually"></a>Configurare manualmente un nome di dominio  
  Se si sceglie questa opzione, il server non esegue il monitoraggio e la manutenzione del nome di dominio e non invia alcun avviso qualora si verifichi un problema di configurazione. È consigliabile scegliere questa opzione nei casi seguenti:  
   
-- Se non sono presenti provider di nomi di dominio partner per il proprio paese o la propria area geografica.  
+- Se non sono presenti provider di nomi di dominio partner per il proprio paese o regione.  
   
 - Se i provider di domini partner disponibili non supportano l'estensione del nome di dominio in uso.  
   
@@ -384,7 +384,7 @@ ms.locfileid: "68590576"
 5. Nei risultati della ricerca il nome del provider di servizi di nomi di domino è elencato sotto **Registrar**.  
   
 ##  <a name="BKMK_4"></a>Personalizzare Accesso Web remoto  
- È possibile personalizzare il sito Accesso Web remoto mediante l'aggiunta di un logo personale o di un'immagine di sfondo. È inoltre possibile aggiungere collegamenti alla pagina iniziale per rendere disponibili le informazioni per tutti gli utenti. Per altre informazioni, vedere i seguenti argomenti:  
+ È possibile personalizzare il sito Accesso Web remoto mediante l'aggiunta di un logo personale o di un'immagine di sfondo. È inoltre possibile aggiungere collegamenti alla pagina iniziale per rendere disponibili le informazioni per tutti gli utenti. Per altre informazioni, vedere gli argomenti seguenti:  
   
 -   [Personalizzare Accesso Web remoto](Manage-Remote-Web-Access-in-Windows-Server-Essentials.md#BKMK_CustomizeRWA)  
   
@@ -397,9 +397,9 @@ ms.locfileid: "68590576"
   
 ##### <a name="to-customize-remote-web-access"></a>Per personalizzare Accesso Web remoto  
   
-1.  Aprire il dashboard.  
+1.  Aprire il Dashboard.  
   
-2.  Fare clic su **Impostazioni**, quindi fare clic sulla scheda **Accesso remoto via Internet** .  
+2.  Fare clic su **Impostazioni**, quindi fare clic sulla scheda **Accesso remoto via Internet**.  
   
 3.  Nella sezione **Impostazioni sito Web** fare clic su **Personalizza**.  
   
@@ -442,9 +442,9 @@ ms.locfileid: "68590576"
   
 1.  Accedere al dashboard.  
   
-2.  Fare clic su **Impostazioni**, quindi fare clic sulla scheda **Accesso remoto via Internet** .  
+2.  Fare clic su **Impostazioni**, quindi fare clic sulla scheda **Accesso remoto via Internet**.  
   
-3.  Fare clic su **Ripristina**. Verrà avviata la procedura guidata **Ripristina Accesso Web remoto** .  
+3.  Fare clic su **Ripristina**. Verrà avviata la procedura guidata **Ripristina Accesso Web remoto**.  
   
 4.  Fare clic su **Avanti**. La procedura guidata analizza Accesso Web remoto, identifica il problema e quindi tenta di risolverlo.  
   
