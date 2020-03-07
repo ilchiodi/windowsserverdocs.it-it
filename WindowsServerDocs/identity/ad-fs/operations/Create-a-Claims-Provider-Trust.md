@@ -10,11 +10,11 @@ ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
 ms.openlocfilehash: 4539e8abd1af1eca7bacb51971e6d355bb0aab28
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.sourcegitcommit: 06ae7c34c648538e15c4d9fe330668e7df32fbba
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71407651"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78371579"
 ---
 # <a name="create-a-claims-provider-trust"></a>Creare un'attendibilità del provider di attestazioni
 
@@ -35,7 +35,7 @@ L'appartenenza a **amministratori**, o equivalente nel computer locale è il req
 4.  Nella pagina **Seleziona origine dati** fare clic su **Immetti dati sull'attendibilità del provider di attestazioni manualmente** e quindi scegliere **Avanti**.  
 ![attendibilità provider di attestazioni](media/Create-a-Claims-Provider-Trust/addclaim3.PNG)     
 
-5.  Nel **Specifica nome visualizzato** digitare un **nome visualizzato**, in **note**, digitare una descrizione per questa attendibilità del provider di attestazioni e quindi fare clic su **Avanti**.  
+5.  Nella pagina **Specifica nome visualizzato** digitare un **Nome visualizzato**, in **Note**, digitare una descrizione per questa attendibilità del provider di attestazioni e quindi fare clic su **Avanti**.  
 ![attendibilità provider di attestazioni](media/Create-a-Claims-Provider-Trust/addclaim4.PNG)     
 
 6.  Nel **Configura URL** specificare il **URL protocollo passivo WS-Federation** se applicabile e fare clic su **Avanti**.
@@ -44,7 +44,7 @@ L'appartenenza a **amministratori**, o equivalente nel computer locale è il req
 8. Nella pagina **Configura identificatore** in **Identificatore dell'attendibilità del provider di attestazioni** digitare l'identificatore appropriato e quindi fare clic su **Avanti**.  
 ![attendibilità provider di attestazioni](media/Create-a-Claims-Provider-Trust/addclaim6.PNG)    
 
-9. Nel **Configura certificati** pagina, fare clic su **Aggiungi** per individuare un file di certificato e aggiungerlo all'elenco dei certificati e quindi fare clic su **Avanti**.  
+9. Nella pagina **Configura certificati** fare clic su **Aggiungi** per individuare un file di certificato e aggiungerlo all'elenco dei certificati, quindi fare clic su **Avanti**.  
 ![attendibilità provider di attestazioni](media/Create-a-Claims-Provider-Trust/addclaim7.PNG)    
 
 10. Nella pagina **Aggiunta attendibilità** fare clic su **Avanti** per salvare le informazioni sull'attendibilità del provider di attestazioni.  
