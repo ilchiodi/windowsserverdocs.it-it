@@ -14,11 +14,11 @@ author: evaseydl
 manager: scottman
 ms.author: evas
 ms.openlocfilehash: 7b8f757d552bf54cd7f4eed0783ba8e0062b9d30
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.sourcegitcommit: 06ae7c34c648538e15c4d9fe330668e7df32fbba
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71405076"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78371823"
 ---
 # <a name="multipoint--stations"></a>Stazioni MultiPoint
 In un ambiente di sistema MultiPoint Services, le *stazioni* sono gli endpoint utente per la connessione al computer che esegue multipoint Services. Ogni stazione offre all'utente un'esperienza Windows 10 indipendente. Sono supportati i tipi di stazione seguenti:  
@@ -120,9 +120,9 @@ Dopo la suddivisione di una stazione, un utente può accedere alla stazione a si
 |Prestazioni video|Consigliato per ottimizzare le prestazioni video||USA thin client che supportano RemoteFX per migliorare la qualità dei video con una larghezza di banda di rete inferiore|  
 |Limitazioni fisiche|Limitato dalla lunghezza del cavo video e dall'hub USB e dalla lunghezza del cavo (lunghezza massima consigliata di 15 contatori)|Limitato dall'hub USB e dalla lunghezza del cavo (lunghezza massima consigliata di 15 contatori)|Limitato dalla distribuzione LAN|  
 |Numero di stazioni consentite |Limitato dal numero di slot PCIe disponibili sulla scheda madre per le porte video per scheda video|Il numero totale può essere limitato dal produttore del client USB zero (per altre informazioni, vedere la nota che segue questa tabella).|Limitato dalle porte disponibili sul Commuter di rete|  
-|Schermata di suddivisione|Yes|Yes|No|  
-|Stato periferica della stazione di gestione MultiPoint, configurazione dell'accesso automatico, ridenominazione delle stazioni|Yes|Yes|No|  
-|Accesso ai menu di avvio del server|Yes|No|No|  
+|Schermata di suddivisione|Sì|Sì|No|  
+|Stato periferica della stazione di gestione MultiPoint, configurazione dell'accesso automatico, ridenominazione delle stazioni|Sì|Sì|No|  
+|Accesso ai menu di avvio del server|Sì|No|No|  
   
 > [!NOTE]  
 > Il numero totale di client USB zero connessi al server può essere limitato dal produttore o dalla capacità hardware del computer che esegue MultiPoint Services.
