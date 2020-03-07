@@ -10,11 +10,11 @@ author: cosmosdarwin
 ms.date: 06/28/2019
 ms.localizationpriority: medium
 ms.openlocfilehash: 52c600068d5dd447ff9faa7c40788664e222a83a
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.sourcegitcommit: 06ae7c34c648538e15c4d9fe330668e7df32fbba
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71366893"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78370741"
 ---
 # <a name="planning-volumes-in-storage-spaces-direct"></a>Pianificazione dei volumi in Spazi di archiviazione diretta
 
@@ -41,7 +41,7 @@ Consigliamo di creare un numero di volumi multiplo del numero di server nel clus
 
 È consigliabile limitare il numero totale di volumi per:
 
-| Windows Server 2016          | Windows Server 2019          |
+| Windows Server 2016          | Windows Server 2019          |
 |------------------------------|------------------------------|
 | Fino a 32 volumi per cluster | Fino a 64 volumi per cluster |
 
@@ -128,7 +128,7 @@ Nelle distribuzioni con tutti e tre i tipi di unità, solo le unità più veloci
 
 È consigliabile limitare le dimensioni di ogni volume a:
 
-| Windows Server 2016 | Windows Server 2019 |
+| Windows Server 2016 | Windows Server 2019 |
 | ------------------- | ------------------- |
 | Fino a 32 TB         | Fino a 64 TB         |
 
@@ -151,7 +151,7 @@ Lasciare capacità non allocata nel pool di archiviazione fornisce ai volumi lo 
 
 Consigliamo di riservare l'equivalente di un'unità di capacità per ogni server, fino a 4 unità. Puoi riservare più capacità a tua discrezione, ma questa raccomandazione minima garantisce un ripristino parallelo e immediato sul posto dopo l'errore di qualsiasi unità.
 
-![riservare](media/plan-volumes/reserve.png)
+![reserve](media/plan-volumes/reserve.png)
 
 Ad esempio, se disponi di 2 server e utilizzi unità di capacità da 1 TB, riserva 2 x 1 = 2 TB del pool. Se disponi di 3 server e unità di capacità da 1 TB, riserva 3 x 1 = 3 TB. Se disponi di 4 o più server e unità di capacità da 1 TB, riserva 4 x 1 = 4 TB.
 
@@ -195,11 +195,11 @@ I quattro volumi occuperanno esattamente la capacità di archiviazione fisica di
 
 Per semplicità, questo esempio usa sempre unità decimali (in base 10), ovvero 1 TB = 1.000.000.000.000 byte. Tuttavia, le quantità di archiviazione in Windows vengono visualizzate in unità binarie (in base 2). Ogni unità da 2 TB, ad esempio, viene visualizzata come da 1,82 TiB in Windows. Analogamente, il pool di archiviazione da 128 TB viene visualizzato come da 116,41 TiB. Si tratta di un comportamento previsto.
 
-## <a name="usage"></a>Usage
+## <a name="usage"></a>Utilizzo
 
 Vedi [Creazione di volumi in Spazi di archiviazione diretta](create-volumes.md).
 
-### <a name="see-also"></a>Vedi anche
+### <a name="see-also"></a>Vedere anche
 
 - [Panoramica di Spazi di archiviazione diretta](storage-spaces-direct-overview.md)
 - [Scelta di unità per Spazi di archiviazione diretta](choosing-drives.md)

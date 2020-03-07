@@ -14,11 +14,11 @@ ms.author: coreyp
 manager: dongill
 ms.date: 10/12/2016
 ms.openlocfilehash: bb5e56fe541a06b1100de2f25fc10f4db46b8d24
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.sourcegitcommit: 06ae7c34c648538e15c4d9fe330668e7df32fbba
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71407159"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78371733"
 ---
 # <a name="work-with-software-restriction-policies-rules"></a>Usare le regole dei criteri di restrizione software
 
@@ -104,7 +104,7 @@ Esistono procedure diverse per l'abilitazione delle regole certificati a seconda
 
 3.  Fare clic su **Editor oggetti Criteri di gruppo locale** e quindi fare clic su **Aggiungi**.
 
-4.  In **Selezione oggetto Criteri di gruppo** fare clic su **Sfoglia**.
+4.  In **Selezione oggetto Criteri di gruppo**  fare clic su **Sfoglia**.
 
 5.  In **Cerca un oggetto Criteri di gruppo**selezionare un oggetto Criteri di gruppo (GPO) nel dominio appropriato, nel sito o nell'unità organizzativa oppure crearne uno nuovo, quindi fare clic su **fine**.
 
@@ -180,7 +180,7 @@ Le impostazioni dei criteri disponibili nella scheda **Autori attendibili** dei 
 
 ##### <a name="to-configure-the-trusted-publishers-policy-settings-for-a-domain"></a>Per configurare le impostazioni dei criteri Autori attendibili per un dominio
 
-1.  Aprire **gestione criteri di gruppo**.
+1.  Apri **Gestione Criteri di gruppo**.
 
 2.  Nell'albero della console fare doppio clic su **criteri di gruppo oggetti** nella foresta e nel dominio che contengono l'oggetto **criteri di dominio predefinito** criteri di gruppo (GPO) che si desidera modificare.
 
@@ -206,7 +206,7 @@ Le impostazioni dei criteri disponibili nella scheda **Autori attendibili** dei 
 
 ##### <a name="to-allow-only-administrators-to-manage-certificates-used-for-code-signing-for-a-domain"></a>Per consentire soltanto agli amministratori di gestire i certificati utilizzati per la firma del codice per un dominio
 
-1.  Aprire **gestione criteri di gruppo**.
+1.  Apri **Gestione Criteri di gruppo**.
 
 2.  Nell'albero della console fare doppio clic su **criteri di gruppo oggetti** nella foresta e nel dominio che contengono l'oggetto Criteri di gruppo **criterio dominio predefinito** che si desidera modificare.
 
