@@ -13,15 +13,15 @@ ms.author: justinha
 manager: brianlic-msft
 ms.date: 02/28/2019
 ms.openlocfilehash: 60202e537093bd21515043ba56f70f3895c91d42
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.sourcegitcommit: 06ae7c34c648538e15c4d9fe330668e7df32fbba
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71403409"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78371395"
 ---
 # <a name="transport-layer-security-tls-registry-settings"></a>Impostazioni del registro di sistema Transport Layer Security (TLS)
 
->Si applica a: Windows Server (Canale semestrale), Windows Server 2019, Windows Server 2016, Windows 10
+>Si applica a: Windows Server (canale semestrale), Windows Server 2019, Windows Server 2016, Windows 10
 
 Questo argomento di riferimento per i professionisti IT contiene informazioni sulle impostazioni del registro di sistema supportate per l'implementazione di Windows del protocollo Transport Layer Security (TLS) e il protocollo di Secure Sockets Layer (SSL) tramite il supporto della sicurezza Schannel Provider (SSP). Le sottochiavi e le voci del registro di sistema descritte in questo argomento consentono di amministrare e risolvere i problemi relativi a SSP Schannel, in particolare i protocolli TLS e SSL. 
 
@@ -51,7 +51,7 @@ Per impostazione predefinita, il provider Schannel usa i quattro metodi di mappi
 3. Mapping uno a uno (detto anche mapping soggetto/autorità di certificazione)
 4. Mapping molti a uno
 
-Versioni applicabili: come indicato nell'elenco **Si applica a** all'inizio di questo argomento.
+Versioni applicabili: come indicato nell'elenco **si applica a** all'inizio di questo argomento.
 
 Percorso del registro di sistema: HKLM SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL
 
@@ -90,11 +90,11 @@ Per impostazione predefinita, il supporto OCSP è abilitato per i siti Web IIS c
 - Richiedi Indicazione nome server
 - Usa archivio certificati centralizzato
 
-In questo caso, la risposta Hello del server durante l'handshake TLS non includerà uno stato graffettato OCSP per impostazione predefinita. Questo comportamento migliora le prestazioni: L'implementazione di graffatura di Windows OCSP è scalabile fino a centinaia di certificati del server. Poiché SNI e CCS consentono a IIS di passare a migliaia di siti Web che potenzialmente hanno migliaia di certificati del server, l'impostazione di questo comportamento come abilitata per impostazione predefinita può causare problemi di prestazioni.
+In questo caso, la risposta Hello del server durante l'handshake TLS non includerà uno stato graffettato OCSP per impostazione predefinita. Questo comportamento migliora le prestazioni: l'implementazione di graffatura di Windows OCSP è scalabile fino a centinaia di certificati del server. Poiché SNI e CCS consentono a IIS di passare a migliaia di siti Web che potenzialmente hanno migliaia di certificati del server, l'impostazione di questo comportamento come abilitata per impostazione predefinita può causare problemi di prestazioni.
 
-Versioni applicabili: Tutte le versioni che iniziano con Windows Server 2012 e Windows 8. 
+Versioni applicabili: tutte le versioni che iniziano con Windows Server 2012 e Windows 8. 
 
-Percorso del registro di sistema: [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL]
+Percorso del registro di sistema: [HKEY_LOCAL_MACHINE \SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL]
 
 Aggiungere la chiave seguente:
 
@@ -111,11 +111,11 @@ Per disabilitare, impostare il valore DWORD su 0:
 
 Questa voce controlla la conformità con FIPS (Federal Information Processing Standard). Il valore predefinito è 0.
 
-Versioni applicabili: Tutte le versioni che iniziano con Windows Server 2012 e Windows 8. 
+Versioni applicabili: tutte le versioni che iniziano con Windows Server 2012 e Windows 8. 
 
 Percorso del registro di sistema: HKLM SYSTEM\CurrentControlSet\Control\LSA
 
-Pacchetti di crittografia FIPS per Windows Server: Vedere pacchetti [di crittografia e protocolli supportati in SSP Schannel](https://technet.microsoft.com/library/dn786419.aspx).
+Pacchetti di crittografia FIPS per Windows Server: vedere pacchetti [di crittografia e protocolli supportati in SSP Schannel](https://technet.microsoft.com/library/dn786419.aspx).
 
 ## <a name="hashes"></a>Hashes
 
@@ -127,7 +127,7 @@ Questa voce controlla le dimensioni della cache dell'autorità di certificazione
 
 Per evitare questo problema, nel server è disponibile una cache negativa, quindi se il mapping di un nome dell'autorità di certificazione a un account non viene eseguito, viene aggiunto alla cache e SSP Schannel non proverà a eseguire di nuovo il mapping di quel nome finché la voce della cache non scadrà. Questa voce del Registro di sistema specifica le dimensioni della cache. Questa voce non è disponibile nel Registro di sistema per impostazione predefinita. Il valore predefinito è 100. 
 
-Versioni applicabili: Tutte le versioni che iniziano con Windows Server 2008 e Windows Vista.
+Versioni applicabili: tutte le versioni che iniziano con Windows Server 2008 e Windows Vista.
 
 Percorso del registro di sistema: HKLM SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL
 
@@ -137,7 +137,7 @@ Questa voce controlla la durata dell'intervallo di timeout della cache in millis
 
 Per evitare questo problema, nel server è disponibile una cache negativa, quindi se il mapping di un nome dell'autorità di certificazione a un account non viene eseguito, viene aggiunto alla cache e SSP Schannel non proverà a eseguire di nuovo il mapping di quel nome finché la voce della cache non scadrà. Questa cache viene mantenuta ai fini delle prestazioni, per evitare che il sistema continui a provare a eseguire il mapping delle stesse autorità di certificazione. Questa voce non è disponibile nel Registro di sistema per impostazione predefinita. Il valore predefinito è 10 minuti.
 
-Versioni applicabili: Tutte le versioni che iniziano con Windows Server 2008 e Windows Vista.
+Versioni applicabili: tutte le versioni che iniziano con Windows Server 2008 e Windows Vista.
 
 Percorso del registro di sistema: HKLM SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL
 
@@ -175,7 +175,7 @@ Per specificare la lunghezza in bit della chiave Diffie-Helman per l'impostazion
 
 Questa voce controlla il numero massimo di elementi della cache. L'impostazione di Setting MaximumCacheSize su 0 disabilita la cache della sessione sul lato server e impedisce la riconnessione. L'aumento del valore di MaximumCacheSize oltre i valori predefiniti causa il consumo di memoria aggiuntiva da parte di Lsass.exe. Ogni elemento della cache della sessione richiede in genere da 2 a 4 KB di memoria. Questa voce non è disponibile nel Registro di sistema per impostazione predefinita. Il valore predefinito è 20.000 elementi. 
 
-Versioni applicabili: Tutte le versioni che iniziano con Windows Server 2008 e Windows Vista.
+Versioni applicabili: tutte le versioni che iniziano con Windows Server 2008 e Windows Vista.
 
 Percorso del registro di sistema: HKLM SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL
 
@@ -211,12 +211,12 @@ Questa voce non è disponibile nel Registro di sistema per impostazione predefin
 
 Comportamento predefinito di invio dell'elenco di autorità emittenti attendibili
 
-| Versione di Windows | Time |
+| Versione di Windows | Tempo |
 |-----------------|------|
 | Windows Server 2012 e Windows 8 e versioni successive | FALSE |
 | Windows Server 2008 R2 e Windows 7 e versioni precedenti | TRUE |
 
-Versioni applicabili: Tutte le versioni che iniziano con Windows Server 2008 e Windows Vista.
+Versioni applicabili: tutte le versioni che iniziano con Windows Server 2008 e Windows Vista.
 
 Percorso del registro di sistema: HKLM SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL
 
@@ -224,11 +224,11 @@ Percorso del registro di sistema: HKLM SYSTEM\CurrentControlSet\Control\Security
 
 Questa voce controlla l'intervallo di tempo, in millisecondi, che il sistema operativo impiega per la scadenza delle voci della cache sul lato server. Un valore 0 disabilita la cache della sessione sul lato server e impedisce la riconnessione. L'aumento del valore di ServerCacheTime oltre i valori predefiniti causa il consumo di memoria aggiuntiva da parte di Lsass.exe. Ogni elemento della cache della sessione richiede in genere da 2 a 4 KB di memoria. Questa voce non è disponibile nel Registro di sistema per impostazione predefinita. 
 
-Versioni applicabili: Tutte le versioni che iniziano con Windows Server 2008 e Windows Vista.
+Versioni applicabili: tutte le versioni che iniziano con Windows Server 2008 e Windows Vista.
 
 Percorso del registro di sistema: HKLM SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL
 
-Tempo predefinito della cache del server: 10 ore
+Tempo predefinito per la cache del server: 10 ore
 
 ## <a name="ssl-20"></a>SSL 2.0
 

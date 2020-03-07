@@ -9,11 +9,11 @@ ms.assetid: fe77655a-e2be-4949-92e1-aaaa215d86ea
 ms.author: pashort
 author: shortpatti
 ms.openlocfilehash: a2bde42ba9b9489ddcd8fb3673ec5ddf1fd4d970
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.sourcegitcommit: 06ae7c34c648538e15c4d9fe330668e7df32fbba
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71396356"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78371893"
 ---
 # <a name="configure-network-policies"></a>Configurare i criteri di rete
 
@@ -46,7 +46,7 @@ Nella pagina **autorizzazioni di accesso** è necessario selezionare **accesso c
 
 Se si desidera che le autorizzazioni di accesso siano determinate dalle proprietà di connessione dell'account utente in Active Directory&reg; Domain Services \(servizi di dominio Active Directory\), è possibile selezionare la casella **di controllo accesso è determinato da proprietà di connessione utente** .
 
-Per eseguire questa procedura, è necessaria almeno l'appartenenza al gruppo **Domain Admins** o a un gruppo equivalente.
+L'appartenenza al gruppo **Domain Admins** oppure a un gruppo equivalente è il requisito minimo necessario per completare questa procedura.
 
 ### <a name="to-add-a-network-policy"></a>Per aggiungere un criterio di rete 
 
@@ -74,7 +74,7 @@ Dopo aver eseguito la procedura guidata, vengono creati i seguenti criteri:
 
 L'esecuzione della nuova procedura guidata connessione remota o connessione di rete privata virtuale non è l'unico passaggio necessario per distribuire server VPN o remote come client RADIUS al server dei criteri di rete. Entrambi i metodi di accesso alla rete richiedono la distribuzione di componenti hardware e software aggiuntivi.
 
-Per eseguire questa procedura, è necessaria almeno l'appartenenza al gruppo **Domain Admins** o a un gruppo equivalente.
+L'appartenenza al gruppo **Domain Admins** oppure a un gruppo equivalente è il requisito minimo necessario per completare questa procedura.
 
 ### <a name="to-create-policies-for-dial-up-or-vpn-with-a-wizard"></a>Per creare criteri per la connessione remota o VPN con una procedura guidata
 
@@ -101,7 +101,7 @@ Dopo aver eseguito la procedura guidata, vengono creati i seguenti criteri:
 
 L'esecuzione della nuova procedura guidata per le connessioni cablate e wireless sicure IEEE 802.1 X non è l'unico passaggio necessario per distribuire i commutatori di autenticazione 802.1 X e i punti di accesso wireless come client RADIUS per NPS. Entrambi i metodi di accesso alla rete richiedono la distribuzione di componenti hardware e software aggiuntivi.
 
-Per eseguire questa procedura, è necessaria almeno l'appartenenza al gruppo **Domain Admins** o a un gruppo equivalente.
+L'appartenenza al gruppo **Domain Admins** oppure a un gruppo equivalente è il requisito minimo necessario per completare questa procedura.
 
 ### <a name="to-create-policies-for-8021x-wired-or-wireless-with-a-wizard"></a>Per creare criteri per 802.1 X cablata o wireless con una procedura guidata
 
@@ -127,7 +127,7 @@ Esistono due casi in cui potrebbe essere necessario configurare NPS per ignorare
 
 È possibile utilizzare questa procedura per configurare NPS per ignorare le proprietà di connessione remota dell'account utente. Se una richiesta di connessione corrisponde ai criteri di rete in cui questa casella di controllo è selezionata, NPS non utilizzerà le proprietà di connessione dell'account utente per determinare se l'utente o il computer è autorizzato ad accedere alla rete. per determinare l'autorizzazione vengono utilizzate solo le impostazioni nei criteri di rete.
 
-L'appartenenza a **amministratori**, o equivalente è il requisito minimo necessario per completare questa procedura.
+Per poter completare questa procedura, è richiesta almeno l'appartenenza al gruppo **Administrators** o a un gruppo equivalente.
 
 1. Nel server dei criteri di rete, in Server Manager, fare clic su **strumenti**e quindi su **Server dei criteri di rete**. Si apre la console NPS.
 
@@ -155,7 +155,7 @@ Quando si configurano le impostazioni di un criterio di rete NPS da usare con le
 
 Questa procedura viene fornita come linee guida. la configurazione di rete potrebbe richiedere impostazioni diverse da quelle descritte di seguito.
 
-L'appartenenza a **amministratori**, o equivalente è il requisito minimo necessario per completare questa procedura.
+Per poter completare questa procedura, è richiesta almeno l'appartenenza al gruppo **Administrators** o a un gruppo equivalente.
 
 ### <a name="to-configure-a-network-policy-for-vlans"></a>Per configurare un criterio di rete per le VLAN
 
@@ -200,7 +200,7 @@ Questa dimensione massima per il payload EAP può creare messaggi RADIUS che ric
 
 Utilizzare la procedura seguente per ridurre le dimensioni massime utilizzate da server dei criteri di rete per i payload EAP modificando l'attributo Framed-MTU in un criterio di rete su un valore non maggiore di 1344.
 
-L'appartenenza a **amministratori**, o equivalente è il requisito minimo necessario per completare questa procedura.
+Per poter completare questa procedura, è richiesta almeno l'appartenenza al gruppo **Administrators** o a un gruppo equivalente.
 
 ### <a name="to-configure-the-framed-mtu-attribute"></a>Per configurare l'attributo Framed-MTU
 

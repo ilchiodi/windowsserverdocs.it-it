@@ -10,11 +10,11 @@ ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
 ms.openlocfilehash: aefcd597a580de526a758c6d026c6c91d02d10c8
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.sourcegitcommit: 06ae7c34c648538e15c4d9fe330668e7df32fbba
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71407463"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78371663"
 ---
 # <a name="walkthrough-guide-manage-risk-with-conditional-access-control"></a>Guida allo scenario: Gestire i rischi con il controllo di accesso condizionale
 
@@ -74,11 +74,11 @@ In questo passaggio verranno configurati i criteri di controllo degli accessi in
 
 1.  Nella console di gestione di ADFS passare a **Relazioni di attendibilità**, e quindi a **Attendibilità componente**.
 
-2.  Selezionare un trust della relying party che rappresenta l'applicazione di esempio (**claimapp**), quindi selezionare **Modifica regole attestazione** nel riquadro **Azioni**o facendo clic con il pulsante destro del mouse su questo trust della replying party.
+2.  Selezionare un trust della relying party che rappresenta l'applicazione di esempio (**claimapp**), quindi selezionare **Modifica regole attestazione** nel riquadro **Azioni** o facendo clic con il pulsante destro del mouse su questo trust della replying party.
 
 3.  Nella finestra **Modifica regole attestazione per claimapp** selezionare la scheda **Regole di autorizzazione rilascio** e fare clic su **Aggiungi regola**.
 
-4.  Nella pagina **Seleziona modello di regola**dell' **Aggiunta guidata regole attestazione di autorizzazione di rilascio**selezionare il modello di regola attestazione **Consentire o negare l'accesso agli utenti in base a un'attestazione in ingresso** e quindi fare clic su **Avanti**.
+4.  Nella pagina **Seleziona modello di regola** dell'**Aggiunta guidata regole attestazione di autorizzazione di rilascio** selezionare il modello di regola attestazione **Consentire o negare l'accesso agli utenti in base a un'attestazione in ingresso** e quindi fare clic su **Avanti**.
 
 5.  Nella pagina **Configura regola** eseguire tutte le operazioni seguenti e quindi fare clic su **Fine**:
 
@@ -86,9 +86,9 @@ In questo passaggio verranno configurati i criteri di controllo degli accessi in
 
     2.  Selezionare **SID gruppo** come **Tipo di attestazione in ingresso**.
 
-    3.  Fare clic su **Sfoglia**, digitare in **Finance** il nome del gruppo di test di Active Directory, quindi risolverlo per il campo **Valore Attestazione in ingresso** .
+    3.  Fare clic su **Sfoglia**, digitare in **Finance** il nome del gruppo di test di Active Directory, quindi risolverlo per il campo **Valore Attestazione in ingresso**.
 
-    4.  Selezionare l'opzione **Nega accesso agli utenti con questa attestazione in ingresso** .
+    4.  Selezionare l'opzione **Nega accesso agli utenti con questa attestazione in ingresso**.
 
 6.  Nella finestra **Modifica regole attestazione per claimapp** assicurarsi di eliminare la regola **Consenti accesso a tutti gli utenti** creata per impostazione predefinita al momento della creazione di questa attendibilità del componente.
 
@@ -102,7 +102,7 @@ In questo passaggio verranno configurati i criteri di controllo degli accessi in
 ~~~
 
 
-2. Nella stessa finestra di comando di Windows PowerShell eseguire il comando seguente:
+2. Nella stessa finestra di comando di Windows PowerShell eseguire il seguente comando:
 
 
 ~~~
