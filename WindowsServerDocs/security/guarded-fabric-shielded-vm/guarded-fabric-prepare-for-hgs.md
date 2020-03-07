@@ -9,11 +9,11 @@ author: rpsqrd
 ms.technology: security-guarded-fabric
 ms.date: 08/29/2018
 ms.openlocfilehash: 9024557dd42ede27144bf10aa5873b6bb12d585c
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.sourcegitcommit: 06ae7c34c648538e15c4d9fe330668e7df32fbba
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71403489"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78371458"
 ---
 # <a name="review-prerequisites-for-the-host-guardian-service"></a>Verificare i prerequisiti per il servizio sorveglianza host
 
@@ -28,11 +28,11 @@ In questo argomento vengono illustrati i prerequisiti di HGS e i passaggi inizia
 
     Se si desidera eseguire HGS come cluster fisico a tre nodi (per la disponibilità), è necessario disporre di tre server fisici. Come procedura consigliata per il clustering, i tre server dovrebbero avere hardware molto simile.
   
--   **Sistema operativo**: L'attestazione della chiave host richiede Windows Server 2019 standard o Datacenter Edition che opera con l' [attestazione V2](guarded-fabric-tpm-trusted-attestation-capturing-hardware.md#versioned-attestation-policies). Per l'attestazione basata su TPM, HGS può eseguire Windows Server 2019 o Windows Server 2016, standard o Datacenter Edition.
+-   **Sistema operativo**: l'attestazione della chiave host richiede Windows Server 2019 standard o Datacenter Edition che opera con l' [attestazione V2](guarded-fabric-tpm-trusted-attestation-capturing-hardware.md#versioned-attestation-policies). Per l'attestazione basata su TPM, HGS può eseguire Windows Server 2019 o Windows Server 2016, standard o Datacenter Edition.
 
--   **Ruoli del server**: Il servizio sorveglianza host e i ruoli del server di supporto.
+-   **Ruoli del server**: servizio sorveglianza host e ruoli del server di supporto.
 
--   **Autorizzazioni/privilegi di configurazione per il dominio dell'infrastruttura (host)** : Sarà necessario configurare l'invio DNS tra il dominio dell'infrastruttura (host) e il dominio HGS. 
+-   **Autorizzazioni/privilegi di configurazione per il dominio dell'infrastruttura (host)** : è necessario configurare l'invio DNS tra il dominio dell'infrastruttura (host) e il dominio HGS. 
     
 ## <a name="upgrading-hgs"></a>Aggiornamento di HGS
 

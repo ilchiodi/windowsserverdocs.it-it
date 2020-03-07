@@ -8,11 +8,11 @@ author: rpsqrd
 ms.technology: security-guarded-fabric
 ms.date: 08/29/2018
 ms.openlocfilehash: 8a9273eef906130b11b98148cf1e84f7e18812b0
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.sourcegitcommit: 06ae7c34c648538e15c4d9fe330668e7df32fbba
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71402375"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78371459"
 ---
 # <a name="prerequisites-for-guarded-hosts"></a>Prerequisiti per gli host sorvegliati
 
@@ -24,7 +24,7 @@ Esaminare i prerequisiti host per la modalità di attestazione scelta, quindi fa
 
 Gli host sorvegliati che usano la modalità TPM devono soddisfare i seguenti prerequisiti:
 
--   **Hardware**: Per la distribuzione iniziale è necessario un host. Per testare la migrazione in tempo reale di Hyper-V per le macchine virtuali schermate, è necessario disporre di almeno due host.
+-   **Hardware**: è necessario un host per la distribuzione iniziale. Per testare la migrazione in tempo reale di Hyper-V per le macchine virtuali schermate, è necessario disporre di almeno due host.
 
     Gli host devono avere:
     
@@ -39,7 +39,7 @@ Gli host sorvegliati che usano la modalità TPM devono soddisfare i seguenti pre
     > [!IMPORTANT]
     > Assicurarsi di installare l' [aggiornamento cumulativo più recente](https://support.microsoft.com/help/4000825/windows-10-and-windows-server-2016-update-history).  
 
--   **Ruolo e funzionalità**: Ruolo Hyper-V e la funzionalità di supporto Hyper-V per sorveglianza host. La funzionalità di supporto per sorveglianza host per Hyper-V è disponibile solo nelle edizioni Datacenter di Windows Server. 
+-   **Ruolo e funzionalità**: ruolo Hyper-v e funzionalità di supporto Hyper-v per sorveglianza host. La funzionalità di supporto per sorveglianza host per Hyper-V è disponibile solo nelle edizioni Datacenter di Windows Server. 
 
 > [!WARNING]
 > La funzionalità di supporto per sorveglianza host di Hyper-V consente la protezione basata sulla virtualizzazione dell'integrità del codice che potrebbe non essere compatibile con alcuni dispositivi. È consigliabile testare questa configurazione nel Lab prima di abilitare questa funzionalità. In caso contrario, potrebbero verificarsi errori imprevisti, fino alla perdita di dati o all'errore con schermata blu (noto anche come errore irreversibile). Per ulteriori informazioni, vedere [hardware compatibile con la protezione basata sulla virtualizzazione di Windows Server per l'integrità del codice](guarded-fabric-compatible-hardware-with-virtualization-based-protection-of-code-integrity.md).
@@ -52,9 +52,9 @@ Gli host sorvegliati che usano la modalità TPM devono soddisfare i seguenti pre
 
 Gli host sorvegliati che usano l'attestazione chiave host devono soddisfare i seguenti prerequisiti:
 
-- **Hardware**: Qualsiasi server in grado di eseguire Hyper-V a partire da Windows Server 2019
+- **Hardware**: qualsiasi server in grado di eseguire Hyper-V a partire da Windows Server 2019
 - **Sistema operativo**: Windows Server 2019 Datacenter Edition
-- **Ruolo e funzionalità**: Ruolo Hyper-V e la funzionalità di supporto Hyper-V per sorveglianza host 
+- **Ruolo e funzionalità**: ruolo Hyper-v e funzionalità di supporto Hyper-v per sorveglianza host 
 
 L'host può essere aggiunto a un dominio o a un gruppo di lavoro. 
 
@@ -71,14 +71,14 @@ Per l'attestazione della chiave host, HGS deve eseguire Windows Server 2019 e fu
 
 Gli host Hyper-V devono soddisfare i seguenti prerequisiti per la modalità AD:
 
--   **Hardware**: Qualsiasi server in grado di eseguire Hyper-V a partire da Windows Server 2016. Per la distribuzione iniziale è necessario un host. Per testare la migrazione in tempo reale di Hyper-V per le macchine virtuali schermate, sono necessari almeno due host.
+-   **Hardware**: qualsiasi server in grado di eseguire Hyper-V a partire da Windows Server 2016. Per la distribuzione iniziale è necessario un host. Per testare la migrazione in tempo reale di Hyper-V per le macchine virtuali schermate, sono necessari almeno due host.
 
 -   **Sistema operativo**: Windows Server 2016 Datacenter Edition
 
     > [!IMPORTANT]
     > Installare l' [aggiornamento cumulativo più recente](https://support.microsoft.com/help/4000825/windows-10-and-windows-server-2016-update-history).
 
--   **Ruolo e funzionalità**: Ruolo Hyper-V e la funzionalità di supporto Hyper-V per sorveglianza host, disponibile solo in Windows Server 2016 Datacenter Edition. 
+-   **Ruolo e funzionalità**: ruolo Hyper-v e la funzionalità di supporto Hyper-v per sorveglianza host, disponibile solo in Windows Server 2016 Datacenter Edition. 
 
 > [!WARNING]
 > La funzionalità di supporto per sorveglianza host di Hyper-V consente la protezione basata sulla virtualizzazione dell'integrità del codice che potrebbe non essere compatibile con alcuni dispositivi. È consigliabile testare questa configurazione nel Lab prima di abilitare questa funzionalità. In caso contrario, potrebbero verificarsi errori imprevisti, fino alla perdita di dati o all'errore con schermata blu (noto anche come errore irreversibile). Per ulteriori informazioni, vedere [hardware compatibile con la protezione basata sulla virtualizzazione di Windows Server 2016 per l'integrità del codice](guarded-fabric-compatible-hardware-with-virtualization-based-protection-of-code-integrity.md).

@@ -7,11 +7,11 @@ manager: dongill
 author: rpsqrd
 ms.technology: security-guarded-fabric
 ms.openlocfilehash: 5a07553e6662fd79230d566ba2049c5e8997f4d6
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.sourcegitcommit: 06ae7c34c648538e15c4d9fe330668e7df32fbba
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71403579"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78371369"
 ---
 # <a name="branch-office-considerations"></a>Considerazioni sulla succursale
 
@@ -24,7 +24,7 @@ Questo articolo descrive le procedure consigliate per l'esecuzione di macchine v
 A partire da Windows Server versione 1709, è possibile configurare un set aggiuntivo di URL del servizio sorveglianza host negli host Hyper-V da usare quando il HGS primario non risponde.
 In questo modo è possibile eseguire un cluster HGS locale che viene usato come server primario per ottenere prestazioni migliori con la possibilità di eseguire il fallback al HGS del data center aziendale se i server locali sono inattivi.
 
-Per usare l'opzione fallback, è necessario configurare due server HGS. Possono eseguire Windows Server 2019 o Windows Server 2016 e far parte dello stesso cluster o di cluster diversi. Se si tratta di cluster diversi, sarà necessario stabilire le procedure operative per assicurarsi che i criteri di attestazione siano sincronizzati tra i due server. Entrambi devono essere in grado di autorizzare correttamente l'host Hyper-V a eseguire macchine virtuali schermate e avere il materiale della chiave necessario per avviare le VM schermate. È possibile scegliere di disporre di una coppia di certificati di firma e firma condivisa tra i due cluster oppure usare certificati distinti e configurare la macchina virtuale schermata di HGS per autorizzare entrambi i tutori (coppie di certificati di crittografia/firma) nei dati di schermatura file.
+Per usare l'opzione fallback, è necessario configurare due server HGS. Possono eseguire Windows Server 2019 o Windows Server 2016 e far parte dello stesso cluster o di cluster diversi. Se si tratta di cluster diversi, sarà necessario stabilire le procedure operative per assicurarsi che i criteri di attestazione siano sincronizzati tra i due server. Entrambi devono essere in grado di autorizzare correttamente l'host Hyper-V a eseguire macchine virtuali schermate e avere il materiale della chiave necessario per avviare le VM schermate. È possibile scegliere di disporre di una coppia di certificati di firma e firma condivisa tra i due cluster oppure usare certificati distinti e configurare la macchina virtuale schermata di HGS per autorizzare entrambi i tutori (coppie di certificati di crittografia/firma) nel file di dati di schermatura.
 
 Aggiornare quindi gli host Hyper-V a Windows Server versione 1709 o Windows Server 2019 ed eseguire il comando seguente:
 ```powershell

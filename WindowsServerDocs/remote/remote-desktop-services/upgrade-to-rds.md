@@ -15,11 +15,11 @@ author: spatnaik
 manager: scottman
 notes: https://social.technet.microsoft.com/wiki/contents/articles/22069.remote-desktop-services-upgrade-guidelines-for-windows-server-2012-r2.aspx
 ms.openlocfilehash: 29648db89b61a9d22aad6d5aa814cfe7f425a970
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.sourcegitcommit: 06ae7c34c648538e15c4d9fe330668e7df32fbba
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71403881"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78370680"
 ---
 # <a name="upgrading-your-remote-desktop-services-deployments-to-windows-server-2016"></a>L'aggiornamento delle distribuzioni di Servizi Desktop remoto a Windows Server 2016
 

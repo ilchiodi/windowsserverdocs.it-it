@@ -13,19 +13,19 @@ author: nnamuhcs
 ms.author: coreyp
 manager: dongill
 ms.openlocfilehash: 04d09574046474da5bee4437628ade9646cf58ca
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.sourcegitcommit: 06ae7c34c648538e15c4d9fe330668e7df32fbba
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70866943"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78371216"
 ---
 # <a name="get-connected-in-windows-server-essentials"></a>Connessione in Windows Server Essentials
 
 >Si applica a: Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
 
- È possibile connettere i computer al server di Windows Server Essentials tramite il software Connettore. Il software Connettore viene installato quando si connette un computer al server tramite la procedura guidata Connetti il computer al server. È possibile avviare questa procedura guidata digitando **http://\>< nomeserver/Connect**, dove **\> < nomeserver** è il nome del server.  
+ È possibile connettere i computer al server di Windows Server Essentials tramite il software Connettore. Il software Connettore viene installato quando si connette un computer al server tramite la procedura guidata Connetti il computer al server. È possibile avviare questa procedura guidata digitando **http://< servername\>/Connect**, in cui **< nomeserver\>** è il nome del server.  
 
- In questo argomento  
+ Contenuto dell'argomento:  
 
 
 -   [Preparare la connessione dei computer al server](Get-Connected-in-Windows-Server-Essentials.md#BKMK_A)  
@@ -90,7 +90,7 @@ ms.locfileid: "70866943"
 -   L'installazione di Windows Server Essentials è stata completata e il server è in esecuzione. Se non è possibile comunicare con il server, l'installazione del software Connettore sarà interrotta.  
 
 
--   Il sistema operativo in esecuzione nel computer client è supportato. Per altre informazioni, vedere [Sistemi operativi supportati per i computer client](Get-Connected-in-Windows-Server-Essentials.md#BKMK_4).
+-   Il sistema operativo in esecuzione nel computer client è supportato. Per atre informazioni, vedere [Sistemi operativi supportati per i computer client](Get-Connected-in-Windows-Server-Essentials.md#BKMK_4).
 
 
 -   Il computer client deve avere una connessione valida a Internet.  
@@ -101,9 +101,9 @@ ms.locfileid: "70866943"
 
 -   Il computer client soddisfa i requisiti di sistema minimi seguenti:  
 
-    -   Processore da 1,4 GHz o superiore  
+    -   Processore a 1,4 GHz o più veloce.  
 
-    -   1 GB di RAM o superiore  
+    -   Almeno 1 GB di RAM  
 
     -   1 GB di spazio disponibile sull'unità disco rigido (una porzione di questo disco sarà resa disponibile dopo l'installazione)  
 
@@ -123,11 +123,11 @@ ms.locfileid: "70866943"
 > 
 >  In una distribuzione client locale per Windows Server Essentials o Windows Server Essentials, è possibile connettere i computer al server senza aggiungerli al dominio di Windows Server Essentials. Questo metodo non è disponibile per tutti i sistemi operativi client supportati e le funzionalità quali Criteri di gruppo e le reti private virtuali (VPN, Virtual Private Network), che necessitano della connessione di un computer al dominio, non saranno disponibili. Per informazioni sui requisiti e istruzioni, vedere [Connettere i computer a un server di Windows Server Essentials senza aggiungerli al dominio](Get-Connected-in-Windows-Server-Essentials.md#BKMK_10).  
 
- Per istruzioni dettagliate per la connessione di un computer al server che esegue Windows Server Essentials, vedere [Connettere i computer al server](Get-Connected-in-Windows-Server-Essentials.md#BKMK_9).  
+ Per istruzioni dettagliate per la connessione di un computer al server che eseguono Windows Server Essentials, vedere [Connettere i computer al server](Get-Connected-in-Windows-Server-Essentials.md#BKMK_9).  
 
 >  In una distribuzione client locale per Windows Server Essentials o Windows Server Essentials, è possibile connettere i computer al server senza aggiungerli al dominio di Windows Server Essentials. Questo metodo non è disponibile per tutti i sistemi operativi client supportati e le funzionalità quali Criteri di gruppo e le reti private virtuali (VPN, Virtual Private Network), che necessitano della connessione di un computer al dominio, non saranno disponibili. Per informazioni sui requisiti e istruzioni, vedere [Connettere i computer a un server di Windows Server Essentials senza aggiungerli al dominio](Get-Connected-in-Windows-Server-Essentials.md#BKMK_10).  
 
- Per istruzioni dettagliate per la connessione di un computer al server che esegue Windows Server Essentials, vedere [Connettere i computer al server](Get-Connected-in-Windows-Server-Essentials.md#BKMK_9).  
+ Per istruzioni dettagliate per la connessione di un computer al server che eseguono Windows Server Essentials, vedere [Connettere i computer al server](Get-Connected-in-Windows-Server-Essentials.md#BKMK_9).  
 
 
 ###  <a name="BKMK_3"></a>Prerequisiti per la connessione di un computer Mac alla rete  
@@ -143,9 +143,9 @@ ms.locfileid: "70866943"
 
 -   Verificare che il computer soddisfi i requisiti minimi di sistema seguenti:  
 
-    -   Processore da 1,4 GHz o superiore  
+    -   Processore a 1,4 GHz o più veloce.  
 
-    -   1 GB di RAM o superiore  
+    -   Almeno 1 GB di RAM  
 
     -   1 GB di spazio disponibile sull'unità disco rigido (una porzione di questo disco sarà resa disponibile dopo l'installazione)  
 
@@ -184,11 +184,11 @@ ms.locfileid: "70866943"
 
   **Sistemi operativi Windows 8.1**  
 
-- Windows 8.1  
+- Windows 8.1  
 
 - Windows 8.1 Pro  
 
-- Windows 8.1 Enterprise  
+- Windows 8.1 Enterprise  
 
   **Sistemi operativi Windows 10**  
 
@@ -295,7 +295,7 @@ ms.locfileid: "70866943"
 -   Distribuisce la VPN nel computer client e offre un'esperienza di clic singolo se la funzionalità VPN è abilitata in Windows Server Essentials o fornisce un'esperienza di connessione automatica se la funzionalità VPN è abilitata in Windows Server Essentials.  
 
 
- Per informazioni sulla connessione del computer al server, vedere [Connettere i computer al server](Get-Connected-in-Windows-Server-Essentials.md#BKMK_9).  
+ Per ulteriori informazioni sulla connessione del computer al server, vedere [Connettere i computer al server](Get-Connected-in-Windows-Server-Essentials.md#BKMK_9).  
 
 ###  <a name="BKMK_6"></a>Informazioni su nome utente e password di rete  
  È possibile ottenere informazioni su nome utente e password di rete dall'utente che gestisce il server. Queste credenziali possono essere usate per la connessione del computer al server e per accedere a informazioni dal server.  
@@ -330,7 +330,7 @@ ms.locfileid: "70866943"
 
 1.  Fare clic sul pulsante **Start**, fare clic con il pulsante destro del mouse su **Computer**, quindi scegliere **Proprietà**.  
 
-2.  In **Impostazioni relative a nome computer, dominio e gruppo di lavoro**fare clic su **Cambia impostazioni**.  
+2.  In **Impostazioni relative a nome computer, dominio e gruppo di lavoro** fare clic su **Cambia impostazioni**.  
 
     > [!NOTE]
     >  Se è richiesta una password di amministratore o una conferma, digitare la password del dominio oppure fornire una conferma.  
@@ -410,12 +410,12 @@ ms.locfileid: "70866943"
 
 2.  Aprire un browser Internet, ad esempio Internet Explorer.  
 
-3.  Nella barra degli indirizzi digitare **http://<\>nomeserver/Connect**, quindi premere INVIO.  
+3.  Nella barra degli indirizzi digitare **http://< nomeserver\>/Connect**, quindi premere INVIO.  
 
     > [!NOTE]
-    >  Se il computer si trova in una posizione remota all'esterno della rete di Windows Server Essentials, per eseguire la procedura guidata Connetti il computer al server digitare **http://< NomeDominio\>/Connect** nella barra degli indirizzi del Web browser (dove < dominio\> è il nome di dominio dell'organizzazione. È possibile ottenere le informazioni sul nome di dominio dall'amministratore di rete.  
+    >  Se il computer si trova in una posizione remota all'esterno della rete di Windows Server Essentials, per eseguire la procedura guidata Connetti il computer al server digitare **http://< nomedominio\>/Connect** nella barra degli indirizzi del Web browser, dove < dominio\> è il nome di dominio dell'organizzazione. È possibile ottenere le informazioni sul nome di dominio dall'amministratore di rete.  
 
-4.  Verrà visualizzata la pagina **Connetti il computer al server** . Effettua una delle seguenti operazioni:  
+4.  Verrà visualizzata la pagina **Connetti il computer al server** . Esegui una delle operazioni seguenti:  
 
     -   Per i computer che eseguono il sistema operativo Windows fare clic su **Scarica il software per Windows**.  
 
@@ -503,7 +503,7 @@ ms.locfileid: "70866943"
 
 2.  Aprire un prompt dei comandi con diritti di amministratore.  
 
-    -   In Windows 10 fare clic sul pulsante **Start** , scegliere **tutte le app** -> **prompt dei comandi**per**gli strumenti** -> di sistema di Windows, fare clic con il pulsante destro del mouse su prompt dei comandi e quindi scegliere **Esegui come amministratore**.  
+    -   In Windows 10 fare clic sul pulsante **Start** , selezionare **tutte le app** -> **strumenti di sistema Windows** -> **prompt dei comandi**, fare clic con il pulsante destro del mouse su prompt dei comandi e quindi scegliere **Esegui come amministratore**.  
 
     -   In Windows 8, nella pagina **iniziale** Digitare **Command** , quindi premere INVIO. Nei risultati fare clic con il pulsante destro del mouse su **Prompt dei comandi**, quindi scegliere **Esegui come amministratore**.  
 
@@ -525,13 +525,13 @@ ms.locfileid: "70866943"
 
 1.  Accedere al server da connettere alla rete di Windows Server Essentials.  
 
-2.  Aprire un browser Internet e nella barra degli indirizzi digitare **http://< NomeServer\>/Connect**, dove *\> < nomeserver* è il nome del server che esegue Windows Server Essentials, quindi premere INVIO.  
+2.  Aprire un browser Internet e nella barra degli indirizzi digitare **http://< servername\>/Connect**, dove *< nomeserver\>* è il nome del server che esegue Windows Server Essentials, quindi premere INVIO.  
 
 3.  Se la Sicurezza avanzata di Internet Explorer è abilitata sul server che si vuole connettere alla rete di Windows Server Essentials, completare la procedura seguente. In caso contrario, ignorare questo passaggio.  
 
     1.  Per accettare il messaggio di blocco, fare clic su **Chiudi**.  
 
-    2.  Aggiungere il sito Web **http://\>< nomeserver/Connect** ai siti Web attendibili, come indicato di seguito:  
+    2.  Aggiungere il sito Web **http://< servername\>/Connect** ai siti Web attendibili, come indicato di seguito:  
 
         1.  Nel riquadro di spostamento del browser fare clic su **Strumenti**, quindi su **Opzioni Internet**.  
 
@@ -539,7 +539,7 @@ ms.locfileid: "70866943"
 
         3.  Fare clic su **Siti**.  
 
-        4.  Il sito Web dovrebbe essere visualizzato nel campo **Aggiungi il sito Web all'area** . Fare clic su **Aggiungi**.  
+        4.  Il sito Web dovrebbe essere visualizzato nel campo **Aggiungi il sito Web all'area** . Fare clic su **Add**.  
 
         5.  Fare clic su **Chiudi**e quindi su **OK**.  
 
@@ -582,10 +582,10 @@ ms.locfileid: "70866943"
 - Lo stato Criteri di gruppo del secondo server viene visualizzato come **non applicabile**.  
 
 ###  <a name="BKMK_11"></a>Installare il software connettore  
- Il software Connettore in Windows Server Essentials sarà installato quando si connette il computer al server tramite la procedura guidata Connetti il computer al server. È possibile avviare questa procedura guidata digitando **http://\>< nomeserver/Connect** nella barra degli indirizzi del Web browser, dove *<\> nomeserver* è il nome del server.  
+ Il software Connettore in Windows Server Essentials sarà installato quando si connette il computer al server tramite la procedura guidata Connetti il computer al server. È possibile avviare questa procedura guidata digitando **http://< ServerName\>/Connect** nella barra degli indirizzi del Web browser, dove *< nomeserver\>* è il nome del server.  
 
 > [!NOTE]
->  Se il computer si trova in una posizione remota, per eseguire la procedura guidata Connetti un computer al server digitare **http://< NomeDominio\>/Connect** nella barra degli indirizzi del Web browser, dove *< dominio\>*  è il nome di dominio del organizzazione). È possibile ottenere le informazioni sul nome di dominio dall'amministratore di rete.  
+>  Se il computer si trova in una posizione remota, per eseguire la procedura guidata Connetti un computer al server digitare **http://< nomedominio\>/Connect** nella barra degli indirizzi del Web browser, dove *< dominio\>* è il nome di dominio dell'organizzazione. È possibile ottenere le informazioni sul nome di dominio dall'amministratore di rete.  
 
  Il software Connettore esegue le operazioni seguenti:  
 
@@ -632,10 +632,10 @@ ms.locfileid: "70866943"
 6.  Attendere la disinstallazione del programma. Dopo la rimozione del software, il **Connettore Windows Server Essentials** non sarà più incluso nell'elenco di programmi o aggiornamenti installati. Inoltre, i collegamenti alla finestra di avvio e al dashboard non vengono più visualizzati sul desktop del computer.  
 
 > [!NOTE]
-> - La disinstallazione del software Connettore non rimuove il computer dall'elenco di computer visualizzati nella scheda **DISPOSITIVI** del dashboard. Per rimuovere il computer dal dashboard, vedere [Rimuovere un computer dal server](../manage/Manage-Devices-in-Windows-Server-Essentials.md#BKMK_3).  
+> - La disinstallazione del software Connettore non rimuove il computer dall'elenco di computer visualizzati nella scheda **DISPOSITIVI** del dashboard. Per rimuovere il computer dal dashboard, vedere[Rimuovere un computer dal server](../manage/Manage-Devices-in-Windows-Server-Essentials.md#BKMK_3).  
 >   -   Quando si disinstalla il software Connettore, le cartelle condivise nel computer client mappate al server non saranno eliminate. È necessario eliminare manualmente le cartelle condivise mappate al server.  
 > 
-> -   La disinstallazione del software Connettore non separa il computer dal dominio originale. È necessario separare manualmente il computer da dominio. Per ulteriori informazioni, vedere [Remove a computer from a Windows domain](Get-Connected-in-Windows-Server-Essentials.md#BKMK_8).  
+> -   La disinstallazione del software Connettore non separa il computer dal dominio originale. È necessario separare manualmente il computer da dominio. Per istruzioni, vedere [Rimuovere un computer da un dominio di Windows](Get-Connected-in-Windows-Server-Essentials.md#BKMK_8).  
 
 
 ###  <a name="BKMK_14"></a>Disconnettere il computer da o riconnettere il computer al server  
@@ -647,7 +647,7 @@ ms.locfileid: "70866943"
 
 2. Separare il computer dal dominio di Windows Server Essentials e aggiungerlo al gruppo di lavoro. Per istruzioni dettagliate sull'aggiunta di Windows a un gruppo di lavoro, [Creare un gruppo di lavoro o aggiungervi un computer](https://windows.microsoft.com/windows7/Join-or-create-a-workgroup).  
 
-3. Rimuovere il computer dal server tramite il dashboard. Per le istruzioni dettagliate, vedere [Rimuovere un computer dal server](../manage/Manage-Devices-in-Windows-Server-Essentials.md#BKMK_3).  
+3. Rimuovere il computer dal server tramite il dashboard. Per istruzioni dettagliate, vedere [Rimuovere un computer dal server](../manage/Manage-Devices-in-Windows-Server-Essentials.md#BKMK_3).  
 
    Per riconnettere al server un computer disconnesso in precedenza dalla rete di server di Windows Server Essentials, è necessario completare i passaggi seguenti:  
 
@@ -656,7 +656,7 @@ ms.locfileid: "70866943"
 
 5. Separare il computer dal dominio di Windows Server Essentials e aggiungerlo al gruppo di lavoro. Per istruzioni dettagliate sull'aggiunta di Windows a un gruppo di lavoro, [Creare un gruppo di lavoro o aggiungervi un computer](https://windows.microsoft.com/windows7/Join-or-create-a-workgroup).  
 
-6. Connettere il computer al server tramite la procedura guidata Connessione del computer. Per le istruzioni dettagliate, vedere [Connettere i computer al server](Get-Connected-in-Windows-Server-Essentials.md#BKMK_9).  
+6. Connettere il computer al server tramite la procedura guidata Connessione del computer. Per istruzioni dettagliate, vedere [Connettere computer al server](Get-Connected-in-Windows-Server-Essentials.md#BKMK_9).  
 
 ###  <a name="BKMK_Sleep"></a>Funzionamento del backup con le modalità sospensione e ibernazione  
  Se si seleziona l'opzione **Riattiva il computer per il backup** quando si connette un computer al server, il computer sarà riattivato automaticamente ogni giorno dalla modalità sospensione o ibernazione, in base a quanto specificato nella pianificazione del backup, in modo da permetterne il backup. Al termine del backup, il computer tornerà in modalità sospensione o ibernazione, in base alle rispettive impostazioni di risparmio energia. Se non si seleziona questa opzione, il server non eseguirà il backup del computer che si trova in modalità sospensione o ibernazione. Per ulteriori informazioni, vedere [Manage client backup](../manage/Manage-Client-Computer-Backup-in-Windows-Server-Essentials.md).  

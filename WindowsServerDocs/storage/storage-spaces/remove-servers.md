@@ -11,11 +11,11 @@ description: Come rimuovere i server da un cluster di Spazi di archiviazione dir
 ms.date: 2/5/2017
 ms.localizationpriority: medium
 ms.openlocfilehash: ce8caef2b51279c97cc012045750b7a73d97a4ba
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.sourcegitcommit: 06ae7c34c648538e15c4d9fe330668e7df32fbba
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71402802"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78370740"
 ---
 # <a name="removing-servers-in-storage-spaces-direct"></a>Rimozione di server in Spazi di archiviazione diretta
 
