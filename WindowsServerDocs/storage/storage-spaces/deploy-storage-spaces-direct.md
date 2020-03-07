@@ -11,11 +11,11 @@ ms.date: 06/07/2019
 description: Istruzioni dettagliate per la distribuzione di una risorsa di archiviazione definita dal software con Spazi di archiviazione diretta in Windows Server come infrastruttura iperconvergente o infrastruttura convergente (anche nota come disaggregata).
 ms.localizationpriority: medium
 ms.openlocfilehash: 60b29cbebb19cd8f1ce364d1eb7e920759375285
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.sourcegitcommit: 06ae7c34c648538e15c4d9fe330668e7df32fbba
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75950025"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78371773"
 ---
 # <a name="deploy-storage-spaces-direct"></a>Distribuire spazi di archiviazione diretta
 
@@ -216,7 +216,7 @@ Test-Cluster –Node <MachineName1, MachineName2, MachineName3, MachineName4> �
 
 In questo passaggio verrà creato un cluster con i nodi convalidati per la creazione del cluster nel passaggio precedente tramite il cmdlet di PowerShell seguente.
 
-Quando si crea il cluster, viene visualizzato un avviso indicante che si sono verificati problemi durante la creazione del ruolo del cluster che ne può impedire l'avvio. Per ulteriori informazioni, visualizzare il file del rapporto seguente". È possibile ignorare questo avviso. È causato dalla non disponibilità di dischi per il quorum del cluster. Si consiglia di configurare un controllo di condivisione file o un controllo cloud dopo la creazione del cluster.
+Quando si crea il cluster, viene visualizzato un avviso indicante che si sono verificati problemi durante la creazione del ruolo del cluster che ne può impedire l'avvio. Per altre informazioni, visualizzare il file di report seguente". È possibile ignorare tale avviso. È causato dalla non disponibilità di dischi per il quorum del cluster. Si consiglia di configurare un controllo di condivisione file o un controllo cloud dopo la creazione del cluster.
 
 > [!Note]
 > Se i server usano indirizzi IP statici, modificare il comando seguente in modo da riflettere l'indirizzo IP statico aggiungendo il parametro seguente e specificando l'indirizzo IP: -StaticAddress &lt;X.X.X.X&gt;.
@@ -386,7 +386,7 @@ CD $ScriptFolder
 
 Dopo aver distribuito il file server in cluster, è consigliabile testare le prestazioni della soluzione usando carichi di lavoro sintetici prima di attivare i carichi di lavoro reali. Ciò consente di verificare che la soluzione venga eseguita correttamente e di risolvere eventuali problemi persistenti prima di aggiungere la complessità dei carichi di lavoro. Per altre informazioni, vedere [testare le prestazioni di spazi di archiviazione usando carichi di lavoro sintetici](https://technet.microsoft.com/library/dn894707.aspx).
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 
 -   [Spazi di archiviazione diretta in Windows Server 2016](storage-spaces-direct-overview.md)
 -   [Comprendere la cache in Spazi di archiviazione diretta](understand-the-cache.md)

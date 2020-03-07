@@ -1,5 +1,5 @@
 ---
-title: Pianificazione del sito di Servizi MultiPoint
+title: Pianificazione del sito di MultiPoint Services
 description: Informazioni sulla pianificazione per le distribuzioni MultiPoint Services in Windows Server 2016
 ms.custom: na
 ms.date: 07/22/2016
@@ -14,13 +14,13 @@ author: evaseydl
 manager: scottman
 ms.author: evas
 ms.openlocfilehash: 744e49f47f7144dac82dbe68c885060b0c08490d
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.sourcegitcommit: 06ae7c34c648538e15c4d9fe330668e7df32fbba
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71389599"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78371874"
 ---
-# <a name="multipoint-services-site-planning"></a>Pianificazione del sito di Servizi MultiPoint
+# <a name="multipoint-services-site-planning"></a>Pianificazione del sito di MultiPoint Services
 È necessario prendere in considerazione la posizione in cui verranno distribuiti uno o più computer che eseguono MultiPoint Services e le stazioni associate.  
   
 Il computer che esegue il ruolo Servizi MultiPoint deve disporre di un comodo accesso a un alimentatore e ai dispositivi periferici connessi direttamente, ad esempio una stampante. Inoltre, il computer in cui è in esecuzione MultiPoint Services deve disporre di un comodo accesso a una connessione di rete. È necessaria una connessione di rete per l'accesso a Internet e, laddove disponibile, una LAN.  
@@ -127,8 +127,8 @@ Il numero di stazioni necessarie dipende dal numero di utenti che dovranno acced
 I componenti seguenti richiedono l'accesso a un Power Strip o un Outlet:  
   
 -   Server  
--   Monitoraggi
--   Hub \(intermedi se usati\) 
+-   Monitor
+-   Hub intermedi \(se usati\) 
 -   Alcuni client USB zero  
 -   Dispositivi USB accesi, ad esempio alcuni dispositivi di archiviazione esterni e unità DVD  
   
@@ -154,6 +154,6 @@ A seconda della mobilia disponibile, delle dimensioni della stanza, del numero d
   
 ![Centro attività servizi MultiPoint](./media/WMSActivityCenter.gif)  
   
-**Small Business Office** In questa configurazione, il computer in cui è in esecuzione MultiPoint Services si trova in una posizione centrale e gli utenti in tutta la sede si connettono a \(quest\)' area utilizzando una LAN di rete locale.  
+**Small Business Office** In questa configurazione, il computer in cui è in esecuzione MultiPoint Services si trova in una posizione centrale e gli utenti in tutta la sede si connettono a quest'area utilizzando una rete locale \(LAN\).  
   
 ![Stazione con connessione USB zero-client](./media/Diagram1.gif)

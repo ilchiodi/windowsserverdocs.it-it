@@ -10,11 +10,11 @@ ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
 ms.openlocfilehash: b299ddc823b3fbbd5818f96202e3c01faf0762d7
-ms.sourcegitcommit: 9687d3eb221b89061a48bf1e73fb3b25bee69f9a
+ms.sourcegitcommit: 06ae7c34c648538e15c4d9fe330668e7df32fbba
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "78169601"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78371653"
 ---
 # <a name="ad-fs-requirements"></a>Requisiti per ADFS
 
@@ -353,6 +353,6 @@ Nella tabella seguente fornisce informazioni sul supporto di crittografia aggiun
 ## <a name="BKMK_13"></a>Requisiti di autorizzazione  
 L'amministratore che esegue l'installazione di e la configurazione iniziale di AD FS deve disporre delle autorizzazioni di amministratore di dominio nel dominio locale \(in altre parole, il dominio a cui viene aggiunto il server federativo.\)  
   
-## <a name="see-also"></a>Vedere anche  
+## <a name="see-also"></a>Vedi anche  
 [Guida alla progettazione di AD FS in Windows Server 2012 R2](AD-FS-Design-Guide-in-Windows-Server-2012-R2.md)  
   

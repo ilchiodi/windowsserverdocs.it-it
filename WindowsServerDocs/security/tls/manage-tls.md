@@ -13,11 +13,11 @@ ms.author: justinha
 manager: brianlic-msft
 ms.date: 05/16/2018
 ms.openlocfilehash: a4ac1ea5b0648dbb80f103c146ad3df23fc04ab7
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.sourcegitcommit: 06ae7c34c648538e15c4d9fe330668e7df32fbba
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71402350"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78371394"
 ---
 # <a name="manage-transport-layer-security-tls"></a>Gestire Transport Layer Security (TLS)
 
@@ -54,7 +54,7 @@ Per configurare l'ordine predefinito del pacchetto di crittografia TLS, è possi
    > Inoltre, l'elenco di pacchetti di crittografia è limitato a 1.023 caratteri.
 
 6. Sostituire l'elenco nei pacchetti di **crittografia SSL** con l'elenco ordinato aggiornato.
-7. Fare clic su **OK** o **applicare**.
+7. Fare clic su **OK** o su **Applica**.
 
 ### <a name="configuring-tls-cipher-suite-order-by-using-mdm"></a>Configurazione dell'ordine del pacchetto di crittografia TLS tramite MDM
 

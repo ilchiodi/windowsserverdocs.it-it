@@ -8,11 +8,11 @@ ms.author: jol
 ms.localizationpriority: medium
 ms.prod: windows-server
 ms.openlocfilehash: 7c1a70e36dfac9b23ded8f920ffcc8cccbfff023
-ms.sourcegitcommit: 7c7fc443ecd0a81bff6ed6dbeeaf4f24582ba339
-ms.translationtype: HT
+ms.sourcegitcommit: 06ae7c34c648538e15c4d9fe330668e7df32fbba
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/07/2019
-ms.locfileid: "74903948"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78371119"
 ---
 # <a name="install-and-manage-extensions"></a>Installare e gestire le estensioni
 
@@ -36,7 +36,7 @@ Windows Admin Center supporta più feed e puoi visualizzare e gestire i pacchett
 1. Fai clic sul pulsante **Impostazioni** in alto a destra e nel riquadro a sinistra fai clic su **Estensioni**.
 2. Nel riquadro a destra fai clic sulla scheda **Feed**.
 3. Fai clic sul pulsante **Aggiungi** per aggiungere un altro feed. Per un feed NuGet, immetti l'URL del feed NuGet V2. Il provider di feed NuGet o l'amministratore deve essere in grado di fornire le informazioni sull'URL. Per una condivisione file, immetti il percorso completo della condivisione in cui sono archiviati i file di pacchetto dell'estensione (NUPKG).
-4. Fai clic su **Aggiungi**. Se per apportare questa modifica il gateway deve essere eseguito con privilegi elevati, verrà visualizzata una richiesta di elevazione dei privilegi di Controllo account utente.
+4. Fare clic su **Add**. Se per apportare questa modifica il gateway deve essere eseguito con privilegi elevati, verrà visualizzata una richiesta di elevazione dei privilegi di Controllo account utente.
 
 L'elenco **Estensioni disponibili** visualizzerà le estensioni presenti in tutti i feed registrati. Puoi verificare il feed da cui proviene ogni estensione usando la colonna **Feed del pacchetto**.
 
@@ -86,4 +86,4 @@ Windows Admin Center Preview include un modulo PowerShell per gestire le estensi
 
 [!INCLUDE [ps-extensions](../includes/ps-extensions.md)]
 
-### <a name="learn-more-about-building-an-extension-with-the-windows-admin-center-sdkextendextensibility-overviewmd"></a>[Scopri come creare un'estensione con Windows Admin Center SDK](../extend/extensibility-overview.md).
+### <a name="learn-more-about-building-an-extension-with-the-windows-admin-center-sdk"></a>[Scopri come creare un'estensione con Windows Admin Center SDK](../extend/extensibility-overview.md).

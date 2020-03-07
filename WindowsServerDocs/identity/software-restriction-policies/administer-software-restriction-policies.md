@@ -14,11 +14,11 @@ ms.author: coreyp
 manager: dongill
 ms.date: 10/12/2016
 ms.openlocfilehash: c75c7813041870f79ed95250857a5c7d1576c7dc
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.sourcegitcommit: 06ae7c34c648538e15c4d9fe330668e7df32fbba
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71407181"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78371734"
 ---
 # <a name="administer-software-restriction-policies"></a>Gestire i criteri di restrizione software
 
@@ -74,7 +74,7 @@ Per informazioni su come eseguire attività specifiche utilizzando il software d
     -   Impostazioni di sicurezza/Criteri di restrizione software
 
 > [!NOTE]
-> Per eseguire questa procedura è necessario essere membri del gruppo Administrators nel computer locale oppure disporre della delega per l'autorità appropriata.
+> Per eseguire questa procedura, è necessario essere membro del gruppo Administrators sul computer locale o aver ricevuto in delega l'autorizzazione appropriata.
 
 ### <a name="BKMK_2"></a>Per un dominio, un sito o un'unità organizzativa e l'utente si trova in un server membro o in una workstation aggiunta a un dominio
 
@@ -84,7 +84,7 @@ Per informazioni su come eseguire attività specifiche utilizzando il software d
 
 3.  Fare clic su **Editor oggetti Criteri di gruppo locale** e quindi fare clic su **Aggiungi**.
 
-4.  In **Selezione oggetto Criteri di gruppo** fare clic su **Sfoglia**.
+4.  In **Selezione oggetto Criteri di gruppo**  fare clic su **Sfoglia**.
 
 5.  In **Cerca un oggetto Criteri di gruppo**selezionare un oggetto Criteri di gruppo (GPO) nel dominio appropriato, nel sito o nell'unità organizzativa oppure crearne uno nuovo, quindi fare clic su **fine**.
 
@@ -134,14 +134,14 @@ Per informazioni su come eseguire attività specifiche utilizzando il software d
 
 4.  Nell'albero della console fare clic su **criteri di restrizione software**.
 
-    **Where**
+    **In cui**
 
     -   *Criteri di gruppo oggetto* [*nomecomputer*] criterio/Configurazione computer o
 
         Configurazione utente/impostazioni di Windows/impostazioni di sicurezza/Criteri di restrizione software
 
 > [!NOTE]
-> -   Per eseguire questa procedura è necessario essere membri del gruppo Administrators nel computer locale oppure disporre della delega per l'autorità appropriata. Se il computer fa parte di un dominio, i membri del gruppo Domain Admins potrebbero essere in grado di eseguire questa procedura.
+> -   Per eseguire questa procedura, è necessario essere membro del gruppo Administrators sul computer locale o aver ricevuto in delega l'autorizzazione appropriata. Se il computer appartiene a un dominio, i membri del gruppo Domain Admins potrebbero essere in grado di eseguire questa procedura.
 > -   Per impostare le impostazioni dei criteri che verranno applicate ai computer, indipendentemente dall'utente che vi accede, fare clic su **Configurazione computer**.
 > -   Per impostare le impostazioni dei criteri che verranno applicate agli utenti, indipendentemente dal computer a cui accedono, fare clic su **Configurazione utente**.
 
@@ -154,7 +154,7 @@ Per informazioni su come eseguire attività specifiche utilizzando il software d
 > [!WARNING]
 > -   Per eseguire questa procedura sono necessarie credenziali amministrative diverse, a seconda dell'ambiente:
 > 
->     -   Per creare nuovi criteri di restrizione software nel computer locale: Appartenenza al gruppo locale **amministratori** o gruppo equivalente, è il requisito minimo necessario per completare questa procedura.
+>     -   Se si creano nuovi criteri di restrizione software per il computer locale: l'appartenenza al gruppo **Administrators** locale o a un gruppo equivalente è il requisito minimo necessario per completare questa procedura.
 >     -   Per creare nuovi criteri di restrizione software per un computer aggiunto a un dominio, la procedura può essere eseguita dai membri del gruppo Domain Admins.
 > -   Se sono già stati creati criteri di restrizione software per un oggetto Criteri di gruppo, il comando **Nuovi criteri restrizione software** non compare nel menu **Azione**. Per eliminare i criteri di restrizione software applicati a un oggetto Criteri di gruppo, nell'albero della console fare clic con il pulsante destro del mouse su **Criteri restrizione software** e quindi scegliere **Elimina criteri restrizione software**. Quando si eliminano i criteri di restrizione software per un oggetto Criteri di gruppo, vengono eliminate anche tutte le regole dei criteri di restrizione software. Dopo aver eliminato i criteri di restrizione software, è possibile creare nuovi criteri per l'oggetto Criteri di gruppo in questione.
 
@@ -164,7 +164,7 @@ Per informazioni su come eseguire attività specifiche utilizzando il software d
 
 2.  Nel riquadro dei dettagli fare doppio clic su **Tipi di file designati**.
 
-3.  Effettua una delle seguenti operazioni:
+3.  Esegui una delle operazioni seguenti:
 
     -   Per aggiungere un tipo di file, in **Estensione file** digitare l'estensione del nome di file e quindi fare clic su **Aggiungi**.
 
@@ -173,7 +173,7 @@ Per informazioni su come eseguire attività specifiche utilizzando il software d
 > [!NOTE]
 > -   Per eseguire questa procedura sono necessarie credenziali amministrative diverse, a seconda dell'ambiente in cui si aggiunge o elimina un tipo di file designato:
 > 
->     -   Se si aggiunge o elimina un tipo di file designato per il computer locale: Appartenenza al gruppo locale **amministratori** o gruppo equivalente, è il requisito minimo necessario per completare questa procedura.
+>     -   Se si aggiunge o Elimina un tipo di file designato per il computer locale: l'appartenenza al gruppo **Administrators** locale o a un gruppo equivalente è il requisito minimo necessario per completare questa procedura.
 >     -   Per creare nuovi criteri di restrizione software per un computer aggiunto a un dominio, la procedura può essere eseguita dai membri del gruppo Domain Admins.
 > -   Potrebbe essere necessario creare una nuova impostazione dei criteri di restrizione software per l'oggetto Criteri di gruppo, se non è ancora stato fatto.
 > -   L'elenco dei tipi di file designati è condiviso da tutte le regole per la configurazione del computer e la configurazione utente per un oggetto Criteri di gruppo.
@@ -187,7 +187,7 @@ Per informazioni su come eseguire attività specifiche utilizzando il software d
 3.  In **Applica criteri restrizione software a** fare clic su **Tutti gli utenti, esclusi gli amministratori locali**.
 
 > [!WARNING]
-> -   Appartenenza al gruppo locale **amministratori** o gruppo equivalente, è il requisito minimo necessario per completare questa procedura.
+> -   L'appartenenza al gruppo **Administrators** locale, o equivalente, è il requisito minimo per completare questa procedura.
 > -   Potrebbe essere necessario creare una nuova impostazione dei criteri di restrizione software per l'oggetto Criteri di gruppo, se non è ancora stato fatto.
 > -   Se è comune per gli utenti essere membri del gruppo Administrators locale nei loro computer nell'organizzazione, potrebbe essere opportuno evitare di abilitare questa opzione.
 > -   Per definire un'impostazione dei criteri di restrizione software per il computer locale, utilizzare questa procedura per evitare l'applicazione dei criteri di restrizione software agli amministratori locali. Se si definisce un'impostazione dei criteri di restrizione software per la rete, filtrare le impostazioni dei criteri utente in base all'appartenenza ai gruppi di sicurezza tramite Criteri di gruppo.
@@ -219,7 +219,7 @@ Per informazioni su come eseguire attività specifiche utilizzando il software d
 3.  In **Applica criteri restrizione software a** fare clic su **Tutti i file nel software**.
 
 > [!NOTE]
-> -   Per eseguire questa procedura è necessario essere membri del gruppo Administrators nel computer locale oppure disporre della delega per l'autorità appropriata. Se il computer fa parte di un dominio, i membri del gruppo Domain Admins potrebbero essere in grado di eseguire questa procedura.
+> -   Per eseguire questa procedura, è necessario essere membro del gruppo Administrators sul computer locale o aver ricevuto in delega l'autorizzazione appropriata. Se il computer appartiene a un dominio, i membri del gruppo Domain Admins potrebbero essere in grado di eseguire questa procedura.
 > -   Per impostazione predefinita, i criteri di restrizione software non prevedono il controllo di librerie di collegamento dinamico (DLL). Il controllo delle DLL può ridurre le prestazioni del sistema, perché la valutazione dei criteri di restrizione software deve avvenire a ogni caricamento di una DLL. Si potrebbe comunque decidere di controllare le DLL se si teme la ricezione di un virus progettato per le DLL. Se il livello di sicurezza predefinito è impostato su non **consentito**e si Abilita il controllo delle dll, è necessario creare regole dei criteri di restrizione software che consentano l'esecuzione di ogni dll.
 
 
