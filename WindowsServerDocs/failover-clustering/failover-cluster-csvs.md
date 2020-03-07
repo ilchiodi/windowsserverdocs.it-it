@@ -9,11 +9,11 @@ ms.technology: storage-failover-clustering
 ms.date: 06/07/2019
 ms.localizationpriority: medium
 ms.openlocfilehash: da0f541c34c7f8687822bec365364fdd406fa3c3
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.sourcegitcommit: 06ae7c34c648538e15c4d9fe330668e7df32fbba
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71369741"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78370711"
 ---
 # <a name="use-cluster-shared-volumes-in-a-failover-cluster"></a>Usare i volumi condivisi del cluster in un cluster di failover
 
@@ -29,7 +29,7 @@ CSV fornisce un file system cluster, per utilizzo generico, sovrapposto a NTFS (
 > [!NOTE]
 > CSVs non supportano il carico di lavoro cluster Microsoft SQL Server in SQL Server 2012 e nelle versioni precedenti di SQL Server.
 
-In Windows Server 2012, la funzionalità CSV è stata notevolmente migliorata. Sono state ad esempio rimosse le dipendenze da Servizi di dominio Active Directory. È stato aggiunto supporto per i miglioramenti funzionali in **chkdsk**, per l'interoperabilità con applicazioni antivirus e di backup e per l'integrazione con funzionalità generali di archiviazione, quali i volumi con crittografia BitLocker e Spazi di archiviazione. Per una panoramica delle funzionalità CSV introdotte in Windows Server 2012, vedere Novità relative [al clustering di failover in Windows server 2012 \[reindirizzato\]](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn265972(v%3dws.11)>).
+In Windows Server 2012, la funzionalità CSV è stata notevolmente migliorata. Sono state ad esempio rimosse le dipendenze da Servizi di dominio Active Directory. È stato aggiunto supporto per i miglioramenti funzionali in **chkdsk**, per l'iinteroperabilità con applicazioni antivirus e di backup e per l'integrazione con funzionalità generali di archiviazione, quali i volumi con crittografia BitLocker e Spazi di archiviazione. Per una panoramica delle funzionalità CSV introdotte in Windows Server 2012, vedere Novità relative [al clustering di failover in Windows server 2012 \[reindirizzato\]](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn265972(v%3dws.11)>).
 
 Windows Server 2012 R2 introduce funzionalità aggiuntive, ad esempio la proprietà CSV distribuita, una maggiore resilienza tramite la disponibilità del servizio Server, una maggiore flessibilità nella quantità di memoria fisica che può essere allocata alla cache CSV, meglio funzione diagnostica e interoperabilità avanzata che include il supporto per ReFS e deduplicazione. Per ulteriori informazioni, vedere Novità [di clustering di failover](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn265972(v%3dws.11)>).
 
@@ -61,7 +61,7 @@ Quando si configurano le reti che supportano CSV, prendere in considerazione gli
 - **Qualità del servizio (QoS) basata su criteri**. Quando si usa CSV, è consigliabile configurare un criterio di priorità QoS e un criterio minimo per la larghezza di banda per il traffico di rete in ogni nodo. Per ulteriori informazioni, vedere la pagina relativa alla [qualità del servizio (QoS)](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831679(v%3dws.11)>).
 - **Rete di archiviazione**. Per consigli sulla rete usata per l'archiviazione, esaminare le indicazioni rese disponibili dal fornitore del sistema di archiviazione. Per altre considerazioni sull'archiviazione per CSV, vedere [requisiti per la configurazione di archiviazione e dischi](#storage-and-disk-configuration-requirements) più avanti in questo argomento.
 
-Per una panoramica dei requisiti hardware, di rete e di archiviazione per i cluster di failover, vedere [Failover Clustering Hardware Requirements and Storage Options](clustering-requirements.md).
+Per una panoramica dei requisiti hardware, di rete e di archiviazione per i cluster di failover, vedere [Requisiti hardware per il clustering di failover e opzioni di archiviazione](clustering-requirements.md).
 
 #### <a name="about-io-synchronization-and-io-redirection-in-csv-communication"></a>Informazioni sulla sincronizzazione I/O e sulla modalità I/O reindirizzata nelle comunicazioni CSV
 
@@ -110,7 +110,7 @@ Per i requisiti di archiviazione relativi a CSV, esaminare le indicazioni rese d
 Per usare CSV, i nodi devono soddisfare i requisiti seguenti:
 
 - **Lettera di unità del disco di sistema**. La lettera di unità del disco di sistema deve essere la stessa per tutti i nodi.
-- **Protocollo di autenticazione**. Il protocollo NTLM deve essere abilitato su tutti i nodi. L'impostazione è abilitata per impostazione predefinita.
+- **Protocollo di autenticazione**. Il protocollo NTLM deve essere abilitato su tutti i nodi. Questo parametro è abilitato per impostazione predefinita.
 
 ## <a name="plan-to-use-csv-in-a-failover-cluster"></a>Pianificare l'uso di CSV in un cluster di failover
 
@@ -159,11 +159,11 @@ La funzionalità CSV è abilitata per impostazione predefinita nel Clustering di
 2. Fare clic con il pulsante destro del mouse su **dischi**, quindi scegliere **Aggiungi disco**. Nell'elenco visualizzato sono inclusi i dischi che è possibile aggiungere per l'uso in un cluster di failover.
 3. Selezionare il disco o i dischi da aggiungere e quindi fare clic su **OK**.
 
-    I dischi sono ora assegnati al gruppo **Archiviazione disponibile** .
+    I dischi sono ora assegnati al gruppo **Archiviazione disponibile**.
 
 #### <a name="windows-powershell-equivalent-commands-add-a-disk-to-available-storage"></a>Comandi equivalenti di Windows PowerShell (aggiungere un disco allo spazio di archiviazione disponibile)
 
-Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.
+Tramite i cmdlet di Windows PowerShell seguenti viene eseguita la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se è possibile il ritorno a capo automatico in diverse righe a causa di limiti di formattazione.
 
 Nell'esempio seguente vengono identificati i dischi pronti per l'aggiunta al cluster e i dischi vengono aggiunti al gruppo **Archiviazione disponibile**.
 
@@ -183,7 +183,7 @@ Get-ClusterAvailableDisk | Add-ClusterDisk
 
 #### <a name="windows-powershell-equivalent-commands-add-a-disk-to-csv"></a>Comandi equivalenti di Windows PowerShell (aggiungere un disco a CSV)
 
-Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.
+Tramite i cmdlet di Windows PowerShell seguenti viene eseguita la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se è possibile il ritorno a capo automatico in diverse righe a causa di limiti di formattazione.
 
 Nell'esempio seguente si aggiunge il *Cluster Disk 1* in **Archiviazione disponibile** a CSV nel cluster locale.
 
@@ -255,7 +255,7 @@ Quando si seleziona un'applicazione di backup e una pianificazione di backup per
 > [!WARNING]
 > Se è necessario ripristinare i dati di backup in un volume CSV, prestare attenzione alle capacità e alle limitazioni dell'applicazione di backup in merito al mantenere e ripristinare i dati coerenti con l'applicazione nei nodi del cluster. In alcune applicazioni, ad esempio, se si ripristina CSV in un nodo diverso dal nodo in cui è stato eseguito il backup del volume CSV, è possibile che siano accidentalmente sovrascritti dati importanti sullo stato dell'applicazione nel nodo in cui si sta eseguendo il ripristino.
 
-## <a name="more-information"></a>Ulteriori informazioni
+## <a name="more-information"></a>Altre informazioni
 
 - [Clustering di failover](failover-clustering.md)
 - [Distribuire spazi di archiviazione in cluster](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/jj822937(v%3dws.11)>)

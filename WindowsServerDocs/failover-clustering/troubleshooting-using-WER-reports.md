@@ -10,11 +10,11 @@ author: vpetter
 ms.date: 03/27/2018
 ms.localizationpriority: ''
 ms.openlocfilehash: 46c633af8cf82ac43d2a787a7193685d88ad0ecc
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.sourcegitcommit: 06ae7c34c648538e15c4d9fe330668e7df32fbba
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71361014"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78371783"
 ---
 # <a name="troubleshooting-a-failover-cluster-using-windows-error-reporting"></a>Risoluzione dei problemi relativi a un cluster di failover con Segnalazione errori Windows 
 
@@ -255,7 +255,7 @@ DynamicSig[29].Name=FailureTime
 DynamicSig[29].Value=2017//12//12-22:38:05.485
 ```
 
-Poiché la risorsa non è riuscita a tornare online, non sono stati raccolti dump, ma il report Segnalazione errori Windows ha raccolto log. Se si aprono tutti i file con **estensione evtx** tramite Microsoft Message Analyzer, vengono visualizzate tutte le informazioni raccolte tramite le query seguenti tramite il canale di sistema, il canale dell'applicazione, i canali di diagnostica del cluster di failover e altri canali generici.
+Poiché la risorsa non è riuscita a tornare online, non sono stati raccolti dump, ma il report Segnalazione errori Windows ha raccolto log. Se si aprono tutti i file con **estensione evtx** utilizzando Microsoft Message Analyzer, sarà possibile visualizzare tutte le informazioni raccolte utilizzando le query seguenti tramite il canale di sistema, il canale dell'applicazione, i canali di diagnostica del cluster di failover e alcuni altri canali generici.
 
 ```powershell
 PS C:\Windows\system32> (Get-ClusterResourceType -Name "Physical Disk").DumpLogQuery
@@ -398,9 +398,9 @@ DynamicSig[29].Name=HangThreadId
 DynamicSig[29].Value=10008
 ```
 
-L'elenco dei servizi e dei processi raccolti in un dump è controllato dalla proprietà seguente: **PS C:\Windows\system32 > (Get-ClusterResourceType-Name "disco fisico"). DumpServicesSmphost**
+L'elenco dei servizi e dei processi raccolti in un dump è controllato dalla seguente proprietà: **PS C:\Windows\system32 > (Get-ClusterResourceType-Name "disco fisico"). DumpServicesSmphost**
 
-Per identificare il motivo per cui si è verificato il blocco, aprire i file Dum. Eseguire quindi la query seguente: **EventLog. EventData ["LogString"] contiene "cluster Disk 10"**  Questo consentirà di ottenere il seguente output:
+Per identificare il motivo per cui si è verificato il blocco, aprire i file Dum. Eseguire quindi la query seguente: **EventLog. EventData ["LogString"] contiene "cluster Disk 10"** . verrà fornito il seguente output:
 
 ![Output dell'esecuzione della query di log 2](media/troubleshooting-using-WER-reports/output-of-running-log-query-2.png)
 
