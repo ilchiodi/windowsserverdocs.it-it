@@ -9,12 +9,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 9b74c57059346e87c5091c83d648b034f4cd049e
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 09172b3fcfcedf0888205d099409647a6e077577
+ms.sourcegitcommit: b5c12007b4c8fdad56076d4827790a79686596af
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71358084"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78856355"
 ---
 # <a name="configuring-intranet-forms-based-authentication-for-devices-that-do-not-support-wia"></a>Configurazione autenticazione intranet basata su form per i dispositivi che non supportano WIA
 
@@ -25,7 +25,7 @@ ADFS in Windows Server 2012 R2 e Windows Server 2016 fornisce agli amministrator
 
 
 - Il **WIASupportedUserAgentStrings** di proprietà di `Set-ADFSProperties` cmdlet
-- Proprietà **WindowsIntegratedFallbackEnabled** di `Set-AdfsGlobalAuthenticationPolicy` cmdlet
+- Proprietà **WindowsIntegratedFallbackEnabled** dell'oggetto `Set-AdfsGlobalAuthenticationPolicy` cmdlet
 
 Il **WIASupportedUserAgentStrings** definisce gli agenti utente che supportano WIA. ADFS consente di analizzare la stringa agente utente durante l'esecuzione di account di accesso in un browser o un controllo browser. Se il componente della stringa agente utente non corrisponde ad alcuno dei componenti delle stringhe agente utente configurate nel **WIASupportedUserAgentStrings** proprietà ADFS eseguirà il fallback l'autenticazione basata su form, a condizione che il **WindowsIntegratedFallbackEnabled** flag è impostato su True.
 
@@ -35,13 +35,13 @@ Per impostazione predefinita, una nuova installazione di ADFS è un insieme di c
 
 Il comando precedente garantisce che ADFS riguarda solo i seguenti casi di utilizzo per WIA:
 
-Agenti utente|Casi d'uso|
+Agenti utente|Casi di utilizzo|
 -----|-----|
 MSIE 6.0|INTERNET EXPLORER 6.0|
 MSIE 7.0; Windows NT|Internet Explorer 7, Internet Explorer nell'area intranet. Il frammento "Windows NT" viene inviato dal sistema operativo desktop.|
 MSIE 8.0|Internet Explorer 8.0 (i dispositivi non inviare questa, pertanto è necessario rendere più specifica)|
 MSIE 9.0|Internet Explorer 9.0 (i dispositivi non inviano, non è necessario rendere più specifico)|
-MSIE 10.0; Windows NT 6|Internet Explorer 10.0 per Windows XP e versioni più recenti del sistema operativo desktop</br></br>I dispositivi Windows Phone 8.0 (con preferenza impostata al cellulare) sono esclusi perché inviano</br></br>Agente utente: Mozilla/5.0 (compatibile; MSIE 10,0; Windows Phone 8,0; Trident/6.0; IEMobile/10.0; ARM Tocco Nokia Lumia 920)|
+MSIE 10.0; Windows NT 6|Internet Explorer 10.0 per Windows XP e versioni più recenti del sistema operativo desktop</br></br>I dispositivi Windows Phone 8.0 (con preferenza impostata al cellulare) sono esclusi perché inviano</br></br>Agente utente: Mozilla/5.0 (compatibile; MSIE 10.0; Windows Phone 8.0; Trident/6.0; IEMobile/10.0; ARM; Tocco. NOKIA; Lumia 920)|
 Windows NT 6.3; Trident/7.0</br></br>Windows NT 6.3; Win64; x64; Trident/7.0</br></br>Windows NT 6.3; WOW64; Trident/7.0| Sistema operativo Windows 8.1 desktop, piattaforme diverse|
 Windows NT 6.2; Trident/7.0</br></br>Windows NT 6.2; Win64; x64; Trident/7.0</br></br>Windows NT 6.2; WOW64; Trident/7.0|Sistema operativo desktop Windows 8, piattaforme diverse|
 Windows NT 6.1; Trident/7.0</br></br>Windows NT 6.1; Win64; x64; Trident/7.0</br></br>Windows NT 6.1; WOW64; Trident/7.0|Sistema operativo desktop Windows 7, piattaforme diverse|
@@ -59,19 +59,18 @@ Assicurarsi inoltre che l'autenticazione basata su form è abilitata per la rete
 
 In AD FS configurazione aggiungere una stringa agente utente per Chrome sulle piattaforme basate su Windows:
 
-    Set-AdfsProperties -WIASupportedUserAgents ((Get-ADFSProperties | Select -ExpandProperty WIASupportedUserAgents) + "Mozilla/5.0 (Windows NT")
+    Set-AdfsProperties -WIASupportedUserAgents ((Get-ADFSProperties | Select -ExpandProperty WIASupportedUserAgents) + "Mozilla/5.0 (Windows NT)")
 
 Analogamente per Chrome in Apple macOS, aggiungere la stringa dell'agente utente seguente alla configurazione del AD FS:
 
-    Set-AdfsProperties -WIASupportedUserAgents ((Get-ADFSProperties | Select -ExpandProperty WIASupportedUserAgents) + "Mozilla/5.0 (Macintosh; Intel Mac OS X")
+    Set-AdfsProperties -WIASupportedUserAgents ((Get-ADFSProperties | Select -ExpandProperty WIASupportedUserAgents) + "Mozilla/5.0 (Macintosh; Intel Mac OS X)")
 
 Verificare che la stringa agente utente per Chrome sia ora impostata nelle proprietà AD FS:
 
     Get-AdfsProperties | Select -ExpandProperty WIASupportedUserAgents
 
-(È necessario un nuovo screenshot qui) ![Configura autenticazione](media/Configure-intranet-forms-based-authentication-for-devices-that-do-not-support-WIA/chrome1.png) 
+(È necessario un nuovo screenshot) ![configurare l'autenticazione](media/Configure-intranet-forms-based-authentication-for-devices-that-do-not-support-WIA/chrome1.png) 
 
 >[!NOTE]   
 > Quando vengono rilasciati nuovi browser e dispositivi, è consigliabile riconciliare le funzionalità degli agenti utente e aggiornare la configurazione del AD FS di conseguenza per ottimizzare l'esperienza di autenticazione dell'utente quando si usano i browser e i dispositivi. In particolare, è consigliabile valutare nuovamente la **WIASupportedUserAgents** impostazione in ADFS, quando si aggiunge un nuovo tipo di dispositivo o browser alla matrice di supporto per WIA.
-
 

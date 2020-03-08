@@ -3,17 +3,17 @@ title: Problemi noti del servizio migrazione archiviazione
 description: Problemi noti e supporto per la risoluzione dei problemi per il servizio migrazione archiviazione, ad esempio come raccogliere i log per supporto tecnico Microsoft.
 author: nedpyle
 ms.author: nedpyle
-manager: siroy
+manager: tiaascs
 ms.date: 02/10/2020
 ms.topic: article
 ms.prod: windows-server
 ms.technology: storage
-ms.openlocfilehash: 92742929e3826fca3cf87cb84341d3aecec0d55d
-ms.sourcegitcommit: 1c75e4b3f5895f9fa33efffd06822dca301d4835
+ms.openlocfilehash: a9759f0ea8835c8e07bcd298b75024e3ee29c9ed
+ms.sourcegitcommit: b5c12007b4c8fdad56076d4827790a79686596af
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77517496"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78856345"
 ---
 # <a name="storage-migration-service-known-issues"></a>Problemi noti del servizio migrazione archiviazione
 
@@ -295,13 +295,15 @@ Per aggirare questo problema, installare "strumenti di gestione cluster di failo
 
 ## <a name="error-there-are-no-more-endpoints-available-from-the-endpoint-mapper-when-running-inventory-against-a-windows-server-2003-source-computer"></a>Errore "non sono disponibili altri endpoint dal mapper degli endpoint" durante l'esecuzione dell'inventario in un computer di origine Windows Server 2003
 
-Quando si tenta di eseguire l'inventario con il server agente di orchestrazione del servizio di migrazione archiviazione con patch con l'aggiornamento cumulativo [KB4512534](https://support.microsoft.com/help/4512534/windows-10-update-kb4512534) o versione successiva, viene visualizzato l'errore seguente:
+Quando si tenta di eseguire l'inventario con l'agente di orchestrazione del servizio migrazione archiviazione in un computer di origine Windows Server 2003, viene visualizzato l'errore seguente:
 
     There are no more endpoints available from the endpoint mapper  
 
-Per aggirare questo problema, disinstallare temporaneamente l'aggiornamento cumulativo di KB4512534 (e qualsiasi altro che lo ha sostituito) dal computer agente di orchestrazione del servizio di migrazione archiviazione. Al termine della migrazione, reinstallare l'aggiornamento cumulativo più recente.  
+Questo problema viene risolto dall'aggiornamento di [KB4537818](https://support.microsoft.com/help/4537818/windows-10-update-kb4537818) .
 
-Si noti che in alcune circostanze, la disinstallazione di KB4512534 o degli aggiornamenti sostitutivi può causare il mancato avvio del servizio migrazione archiviazione. Per risolvere questo problema, è possibile eseguire il backup ed eliminare il database del servizio migrazione archiviazione:
+## <a name="uninstalling-a-cumulutative-update-prevents-storage-migration-service-from-starting"></a>La disinstallazione di un aggiornamento di cumulutative impedisce l'avvio del servizio migrazione archiviazione
+
+La disinstallazione degli aggiornamenti cumulativi di Windows Server può impedire l'avvio del servizio migrazione archiviazione. Per risolvere questo problema, è possibile eseguire il backup ed eliminare il database del servizio migrazione archiviazione:
 
 1.  Aprire un prompt dei comandi con privilegi elevati, in cui si è membri degli amministratori nel server dell'agente di orchestrazione del servizio di migrazione archiviazione ed eseguire:
 
@@ -343,7 +345,7 @@ Quando si tenta di eseguire il trasferimento di un'origine cluster Windows Serve
 
 Questo problema è causato da un'API mancante nelle versioni precedenti di Windows Server. Attualmente non è possibile eseguire la migrazione di cluster Windows Server 2008 e Windows Server 2003. È possibile eseguire l'inventario e il trasferimento senza problemi nei cluster Windows Server 2008 R2, quindi eseguire manualmente cutover modificando manualmente l'origine del cluster file server risorsa NetName e l'indirizzo IP, quindi modificando il cluster di destinazione NetName e IP indirizzo corrispondente all'origine originale. 
 
-## <a name="cutover-hangs-on-38-mapping-network-interfaces-on-the-source-computer"></a>Cutover si blocca su "38% mapping delle interfacce di rete nel computer di origine..." 
+## <a name="cutover-hangs-on-38-mapping-network-interfaces-on-the-source-computer-when-using-dhcp"></a>Cutover si blocca su "38% mapping delle interfacce di rete nel computer di origine..." Quando si usa DHCP 
 
 Quando si tenta di eseguire il trasferimento di un computer di origine, dopo aver impostato il computer di origine per l'utilizzo di un nuovo indirizzo IP statico (non DHCP) in una o più interfacce di rete, il trasferimento viene bloccato alla fase "38% del mapping delle interfacce di rete nel comnputer di origine..." viene visualizzato il seguente messaggio di errore nel registro eventi SMS:
 
@@ -372,13 +374,7 @@ L'analisi del computer di origine indica che non è possibile modificare l'indir
 
 Questo problema non si verifica se è stata selezionata l'opzione "Usa DHCP" nella schermata "Configura cutover" dell'interfaccia di amministrazione di Windows, solo se si specifica un nuovo indirizzo IP statico, una subnet e un gateway. 
 
-Questo problema è causato da una regressione nell'aggiornamento [KB4512534](https://support.microsoft.com/help/4512534/windows-10-update-kb4512534) . Sono attualmente disponibili due soluzioni alternative per questo problema:
-
-  - Prima del trasferimento: anziché impostare un nuovo indirizzo IP statico in cutover, selezionare "Usa DHCP" e assicurarsi che l'ambito DHCP copra la subnet. SMS configurerà il computer di origine per l'utilizzo di DHCP nelle interfacce del computer di origine e il trasferimento proseguirà normalmente. 
-  
-  - Se il trasferimento è già bloccato: accedere al computer di origine e abilitare DHCP sulle interfacce di rete, dopo aver verificato che un ambito DHCP copra tale subnet. Quando il computer di origine acquisisce un indirizzo IP fornito da DHCP, SMS procederà con il taglio in modo normale.
-  
-In entrambe le soluzioni alternative, dopo il completamento del trasferimento, è possibile impostare un indirizzo IP statico nel computer di origine precedente, in base alle esigenze e all'arresto dell'utilizzo di DHCP.   
+Questo problema viene risolto dall'aggiornamento di [KB4537818](https://support.microsoft.com/help/4537818/windows-10-update-kb4537818) .
 
 ## <a name="slower-than-expected-re-transfer-performance"></a>Prestazioni di ritrasferimento previste più lente
 
@@ -489,6 +485,48 @@ In questa fase, l'agente di orchestrazione del servizio migrazione archiviazione
  - il firewall non consente le connessioni del registro di sistema remoto al server di origine dall'agente di orchestrazione.
  - L'account di migrazione di origine non dispone delle autorizzazioni del registro di sistema remoto per la connessione al computer di origine.
  - L'account di migrazione di origine non dispone delle autorizzazioni di lettura nel registro di sistema del computer di origine, in "HKEY_LOCAL_MACHINE \SOFTWARE\Microsoft\Windows NT\CurrentVersion" o in "HKEY_LOCAL_MACHINE \SYSTEM\CurrentControlSet\Services\ LanmanServer
+ 
+ ## <a name="cutover-hangs-on-38-mapping-network-interfaces-on-the-source-computer"></a>Cutover si blocca su "38% mapping delle interfacce di rete nel computer di origine..." 
+
+Quando si tenta di eseguire il ritaglio di un computer di origine, il cut over viene bloccato alla fase "38% mapping delle interfacce di rete nel comnputer di origine..." viene visualizzato il seguente messaggio di errore nel registro eventi SMS:
+
+    Log Name:      Microsoft-Windows-StorageMigrationService-Proxy/Admin
+    Source:        Microsoft-Windows-StorageMigrationService-Proxy
+    Date:          1/11/2020 8:51:14 AM
+    Event ID:      20505
+    Task Category: None
+    Level:         Error
+    Keywords:      
+    User:          NETWORK SERVICE
+    Computer:      nedwardo.contosocom
+    Description:
+    Couldn't establish a CIM session with the computer.
+
+    Computer: 172.16.10.37
+    User Name: nedwardo\MsftSmsStorMigratSvc
+    Error: 40970
+    Error Message: Unknown error (0xa00a)
+
+    Guidance: Confirm that the Netlogon service on the computer is reachable through RPC and that the credentials provided are correct.
+
+Questo problema è causato da Criteri di gruppo che imposta il seguente valore del registro di sistema nel computer di origine:
+
+ "HKEY_LOCAL_MACHINE \SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System LocalAccountTokenFilterPolicy = 0"
+ 
+Questa impostazione non fa parte del Criteri di gruppo standard, è un componente aggiuntivo configurato utilizzando [Microsoft Security Compliance Toolkit](https://www.microsoft.com/download/details.aspx?id=55319):
+ 
+ - Windows Server 2012 R2: "Configurazione computer\Modelli Templates\SCM: superare le restrizioni dell'UAC Mitigations\Apply per gli account locali negli accessi di rete"
+ - Widows server 2016: "computer computer\Modelli Templates\MS Security Guide\Apply UAC restrizioni per gli account locali negli accessi di rete"
+ 
+Può anche essere impostato usando le preferenze di Criteri di gruppo con un'impostazione del registro di sistema personalizzata. È possibile utilizzare lo strumento GPRESULT per determinare i criteri che applicano questa impostazione al computer di origine.
+
+Il servizio migrazione archiviazione Abilita temporaneamente il [LocalAccountTokenFilterPolicy](https://support.microsoft.com/help/951016/description-of-user-account-control-and-remote-restrictions-in-windows) come parte del processo di riduzione, quindi lo rimuove al termine dell'operazione. Quando Criteri di gruppo applica un oggetto Criteri di gruppo in conflitto (GPO), esegue l'override del servizio migrazione archiviazione e impedisce il superamento del limite.
+
+Per aggirare questo problema, usare una delle opzioni seguenti:
+
+1. Spostare temporaneamente il computer di origine dall'unità organizzativa Active Directory che applica questo oggetto Criteri di gruppo in conflitto. 
+2. Disabilitare temporaneamente l'oggetto Criteri di gruppo che applica i criteri in conflitto.
+3. Creare temporaneamente un nuovo oggetto Criteri di gruppo che imposta questa impostazione su disabilitato e si applica a un'unità organizzativa specifica dei server di origine, con una precedenza più elevata rispetto agli altri oggetti Criteri di gruppo.
 
 ## <a name="see-also"></a>Vedere anche
 

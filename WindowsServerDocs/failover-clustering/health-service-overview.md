@@ -9,11 +9,11 @@ ms.assetid: 5bc71e71-920e-454f-8195-afebd2a23725
 author: cosmosdarwin
 ms.date: 02/09/2018
 ms.openlocfilehash: 158681e2038e3d8015933771d06d3bfb24d31586
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.sourcegitcommit: b5c12007b4c8fdad56076d4827790a79686596af
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75948473"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78865400"
 ---
 # <a name="health-service-in-windows-server"></a>Servizio integrità in Windows Server
 
@@ -25,7 +25,7 @@ Il Servizio integrità è una nuova funzionalità di Windows Server 2016 che mig
 
 Servizio integrità è abilitato per impostazione predefinita con Spazi di archiviazione diretta. Non è necessario alcuna azione aggiuntiva per configurarlo o avviarlo. Per ulteriori informazioni su Spazi di archiviazione diretta, vedere [spazi di archiviazione diretta in Windows Server 2016](../storage/storage-spaces/storage-spaces-direct-overview.md).  
 
-## <a name="reports"></a>Rapporti
+## <a name="reports"></a>Report
 
 Vedere [servizio integrità report](health-service-reports.md).
 
@@ -82,7 +82,7 @@ Se possibile, Servizio integrità inizierà a far lampeggiare la luce della spia
 
 Quando viene inserito, il disco sostitutivo verrà verificato rispetto al documento dei componenti supportati (vedere la sezione successiva).
 
-#### <a name="pooling"></a>Inserimento nel pool  
+#### <a name="pooling"></a>Pooling  
 
 Se autorizzato, il disco sostitutivo verrà sostituito automaticamente nel pool del disco precedente per iniziare a essere usato. A questo punto, il sistema è tornato allo stato iniziale di integrità perfetta e quindi l'errore scompare.  
 
@@ -90,11 +90,11 @@ Se autorizzato, il disco sostitutivo verrà sostituito automaticamente nel pool 
 
 Il Servizio integrità fornisce un meccanismo di imposizione per limitare i componenti utilizzati da Spazi di archiviazione diretta a quelli presenti in un documento dei componenti supportati fornito dall'amministratore o dal fornitore della soluzione. In questo modo si evita che l’utente usi hardware non supportato e che insorgano problemi di garanzia o di conformità con il contratto di assistenza. Questa funzionalità è attualmente limitata ai dispositivi disco fisico, incluse le unità SSD, HDD e NVMe. Il documento dei componenti supportati può limitare il modello, il produttore (facoltativo) e la versione del firmware (facoltativo).
 
-### <a name="usage"></a>Usage  
+### <a name="usage"></a>Utilizzo  
 
 Il documento componenti supportati utilizza una sintassi ispirata a XML. È consigliabile utilizzare l'editor di testo preferito, ad esempio la [Visual Studio Code](https://code.visualstudio.com/) gratuita o il blocco note, per creare un documento XML che è possibile salvare e riutilizzare.
 
-#### <a name="sections"></a>Nelle sezioni
+#### <a name="sections"></a>Sezioni
 
 Il documento include due sezioni indipendenti: `Disks` e `Cache`.
 
@@ -170,7 +170,7 @@ Get-PhysicalDisk | Select Model, Manufacturer, FirmwareVersion
 
 Vedere [servizio integrità impostazioni](health-service-settings.md).
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 
 - [Report Servizio integrità](health-service-reports.md)
 - [Errori Servizio integrità](health-service-faults.md)
