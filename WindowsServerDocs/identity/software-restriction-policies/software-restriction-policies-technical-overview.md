@@ -14,11 +14,11 @@ ms.author: coreyp
 manager: dongill
 ms.date: 10/12/2016
 ms.openlocfilehash: 293239c9f746f939b06d45d6e8c1a50b59e2bc43
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.sourcegitcommit: 06ae7c34c648538e15c4d9fe330668e7df32fbba
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71407137"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78371735"
 ---
 # <a name="software-restriction-policies-technical-overview"></a>Panoramica tecnica di Criteri di restrizione software
 
@@ -88,7 +88,7 @@ Nel seguente tabella vengono confrontate le funzionalità e le funzioni di Crite
 
 |Funzione di controllo delle applicazioni|Criteri di restrizione software|AppLocker|
 |----------------|----|-------|
-|`Scope`|I criteri del Provider di risorse condivise possono essere applicati a tutti i sistemi operativi Windows, a partire da Windows XP e Windows Server 2003.|I criteri di AppLocker si applicano solo a Windows Server 2008 R2, Windows Server 2012, Windows 7 e Windows 8.|
+|Ambito|I criteri del Provider di risorse condivise possono essere applicati a tutti i sistemi operativi Windows, a partire da Windows XP e Windows Server 2003.|I criteri di AppLocker si applicano solo a Windows Server 2008 R2, Windows Server 2012, Windows 7 e Windows 8.|
 |Creazione dei criteri|I criteri di criteri di RESTRIzione software vengono gestiti tramite Criteri di gruppo e solo l'amministratore dell'oggetto Criteri di gruppo può aggiornare i criteri di criteri di L'amministratore del computer locale può modificare i criteri di criteri di RESTRIzione software definiti nell'oggetto Criteri di gruppo locale.|I criteri di AppLocker vengono gestiti tramite Criteri di gruppo e solo l'amministratore dell'oggetto Criteri di gruppo può aggiornare i criteri. L'amministratore del computer locale può modificare i criteri di AppLocker definiti nell'oggetto Criteri di gruppo locale.<br /><br />AppLocker consente la personalizzazione dei messaggi di errore per indirizzare gli utenti a una pagina Web di guida.|
 |Manutenzione dei criteri|È necessario aggiornare i criteri di criteri di RESTRIzione software tramite lo snap-in criteri di sicurezza locali (se i criteri sono stati creati localmente) o la Console Gestione Criteri di gruppo (GPMC).|I criteri di AppLocker possono essere aggiornati tramite lo snap-in criteri di sicurezza locali (se i criteri sono stati creati localmente) o la console Gestione criteri di Windows o i cmdlet di AppLocker di Windows PowerShell.|
 |Applicazione criteri|I criteri SRP vengono distribuiti tramite Criteri di gruppo.|I criteri di AppLocker vengono distribuiti tramite Criteri di gruppo.|
@@ -97,7 +97,7 @@ Nel seguente tabella vengono confrontate le funzionalità e le funzioni di Crite
 |Tipi di file designati|SRP supporta un elenco estendibile di tipi di file considerati eseguibili. Gli amministratori possono aggiungere estensioni per i file che devono essere considerati eseguibili.|AppLocker non supporta questa operazione. AppLocker supporta attualmente le estensioni di file seguenti:<br /><br />-Eseguibili (. exe,. com)<br />-Dll (. ocx,. dll)<br />-Script (. vbs,. js,. ps1,. cmd,. bat)<br />-Programmi di installazione di Windows (con estensione msi, MST e msp)<br />-Programmi di installazione app in pacchetto (. appx)|
 |Tipi di regole|Il SRP supporta quattro tipi di regole:<br /><br />-Hash<br />-Percorso<br />-Firma<br />-Area Internet|AppLocker supporta tre tipi di regole:<br /><br />-Hash<br />-Percorso<br />-Editore|
 |Modifica del valore hash|Il SRP consente agli amministratori di fornire valori hash personalizzati.|AppLocker calcola il valore hash. Internamente usa l'hash Authenticode di SHA1 per i file eseguibili portabili (exe e dll) e i programmi di installazione di Windows e un hash file flat SHA1 per il resto.|
-|Supporto per diversi livelli di sicurezza|Con gli amministratori SRP è possibile specificare le autorizzazioni con cui è possibile eseguire un'app. Un amministratore può quindi configurare una regola in modo che il blocco note venga sempre eseguito con autorizzazioni limitate e mai con privilegi amministrativi.<br /><br />I criteri di RESTRIzione software in Windows Vista e versioni precedenti supportano più livelli di sicurezza. In Windows 7 l'elenco era limitato a soli due livelli: Non consentito e senza restrizioni (l'utente di base viene convertito in non consentito).|AppLocker non supporta i livelli di sicurezza.|
+|Supporto per diversi livelli di sicurezza|Con gli amministratori SRP è possibile specificare le autorizzazioni con cui è possibile eseguire un'app. Un amministratore può quindi configurare una regola in modo che il blocco note venga sempre eseguito con autorizzazioni limitate e mai con privilegi amministrativi.<br /><br />I criteri di RESTRIzione software in Windows Vista e versioni precedenti supportano più livelli di sicurezza. In Windows 7 l'elenco era limitato a soli due livelli: non consentiti e senza restrizioni (l'utente di base si traduce in non consentito).|AppLocker non supporta i livelli di sicurezza.|
 |Gestire le app in pacchetto e i programmi di installazione app in pacchetto|Impossibile|. appx è un tipo di file valido che può essere gestito da AppLocker.|
 |Assegnazione di una regola a un utente o a un gruppo di utenti|Le regole SRP si applicano a tutti gli utenti di un computer specifico.|Le regole di AppLocker possono essere destinate a un utente specifico o a un gruppo di utenti.|
 |Supporto per le eccezioni delle regole|Il SRP non supporta le eccezioni delle regole|Le regole di AppLocker possono avere eccezioni che consentono agli amministratori di creare regole come "Consenti tutto da Windows ad eccezione di Regedit. exe".|

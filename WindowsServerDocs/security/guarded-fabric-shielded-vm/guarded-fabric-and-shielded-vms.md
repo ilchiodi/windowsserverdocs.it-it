@@ -8,11 +8,11 @@ author: rpsqrd
 ms.technology: security-guarded-fabric
 ms.date: 08/29/2018
 ms.openlocfilehash: ace6eb30ae6df2dc29aacc05eb7852e03145df4f
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.sourcegitcommit: 06ae7c34c648538e15c4d9fe330668e7df32fbba
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71386862"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78370655"
 ---
 # <a name="guarded-fabric-and-shielded-vms-overview"></a>Panoramica dell'infrastruttura sorvegliata e delle VM schermate
 
@@ -49,7 +49,7 @@ L'attestazione verificata da TPM è consigliata perché offre maggiori garanzie,
 
 | **Modalità di attestazione scelta per gli host**                                            | **Assicurazioni host** |
 |-------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|**Attestazione TPM:** Offre le protezioni più solide possibile, ma richiede anche ulteriori passaggi di configurazione. Hardware e firmware host devono includere TPM 2,0 e UEFI 2.3.1 con avvio protetto abilitato. | Gli host sorvegliati vengono approvati in base all'identità del TPM, alla sequenza di avvio misurata e ai criteri di integrità del codice per assicurarsi che eseguano solo codice approvato.| 
+|**Attestazione TPM:** offre la protezione massima ma richiede più passaggi di configurazione. Hardware e firmware host devono includere TPM 2,0 e UEFI 2.3.1 con avvio protetto abilitato. | Gli host sorvegliati vengono approvati in base all'identità del TPM, alla sequenza di avvio misurata e ai criteri di integrità del codice per assicurarsi che eseguano solo codice approvato.| 
 | **Attestazione chiave host:** Progettato per supportare l'hardware host esistente in cui TPM 2,0 non è disponibile. Richiede un minor numero di passaggi di configurazione ed è compatibile con l'hardware dei server più comuni. | Gli host sorvegliati vengono approvati in base al possesso della chiave. | 
 
 Un'altra modalità denominata **amministratore-attendibile attestazione** è deprecata a partire da Windows Server 2019. Questa modalità è basata sull'appartenenza a un host sorvegliato in un gruppo di sicurezza designato Active Directory Domain Services (AD DS). L'attestazione della chiave host fornisce un'identificazione host simile ed è più facile da configurare. 
@@ -99,7 +99,7 @@ Le macchine virtuali schermate sono progettate per essere usate nelle infrastrut
 
 La tabella seguente riepiloga le differenze tra le macchine virtuali schermate e supportate dalla crittografia.
 
-| Capacità        | VM con supporto della crittografia di seconda generazione     | VM schermate di seconda generazione         |
+| Funzionalità        | VM con supporto della crittografia di seconda generazione     | VM schermate di seconda generazione         |
 |----------|--------------------|----------------|
 |Avvio protetto        | Sì, obbligatorio ma configurabile        | Sì, obbligatorio e imposto    |
 |Vtpm               | Sì, obbligatorio ma configurabile        | Sì, obbligatorio e imposto    |
@@ -113,7 +113,7 @@ La tabella seguente riepiloga le differenze tra le macchine virtuali schermate e
 
 Le macchine virtuali schermate e le macchine virtuali con supporto della crittografia continuano a supportare le funzionalità di gestione dell'infrastruttura comuni, ad esempio Live Migration, la replica Hyper-V, i checkpoint delle macchine virtuali e così via.
 
-## <a name="the-host-guardian-service-in-action-how-a-shielded-vm-is-powered-on"></a>Il servizio sorveglianza host in azione: Come viene accesa una macchina virtuale schermata
+## <a name="the-host-guardian-service-in-action-how-a-shielded-vm-is-powered-on"></a>Servizio Sorveglianza host: come viene accesa una macchina virtuale schermata
 
 ![File di dati di schermatura](../media/Guarded-Fabric-Shielded-VM/shielded-vms-how-a-shielded-vm-is-powered-on.png)
 
@@ -125,7 +125,7 @@ Le macchine virtuali schermate e le macchine virtuali con supporto della crittog
 
     L'host sorvegliato richiede l'attestazione. La modalità di attestazione è determinata dal servizio Sorveglianza host:
 
-    **Attestazione TPM**: L'host Hyper-V invia informazioni che includono:
+    **Attestazione TPM**: l'host Hyper-V invia informazioni che includono:
 
        - Informazioni di identificazione del TPM (la chiave di verifica dell'autenticità)
        - Informazioni sui processi avviati durante l'ultima sequenza di avvio (il log TCG)
@@ -133,9 +133,9 @@ Le macchine virtuali schermate e le macchine virtuali con supporto della crittog
 
        Attestation happens when the host starts and every 8 hours thereafter. If for some reason a host doesn't have an attestation certificate when a VM tries to start, this also triggers attestation.
 
-    **Attestazione chiave host**: L'host Hyper-V Invia la metà pubblica della coppia di chiavi. HGS convalida la chiave host registrata. 
+    **Attestazione chiave host**: l'host Hyper-V Invia la metà pubblica della coppia di chiavi. HGS convalida la chiave host registrata. 
     
-    **Attestazione amministratore**: L'host Hyper-V Invia un ticket Kerberos che identifica i gruppi di sicurezza in cui si trova l'host. HGS verifica che l'host appartenga a un gruppo di sicurezza configurato in precedenza dall'amministratore HGS attendibile.
+    **Attestazione amministratore**: l'host Hyper-V invia un ticket Kerberos che identifica i gruppi di sicurezza cui appartiene l'host. HGS verifica che l'host appartenga a un gruppo di sicurezza configurato in precedenza dall'amministratore HGS attendibile.
 
 3. L'attestazione ha esito positivo o non riesce.
 
@@ -164,7 +164,7 @@ Le macchine virtuali schermate e le macchine virtuali con supporto della crittog
 
 ## <a name="guarded-fabric-and-shielded-vm-glossary"></a>Glossario dell'infrastruttura sorvegliata e della macchina virtuale schermata
 
-| Nome              | Definizione           |
+| Termine              | Definizione           |
 |----------|------------|
 | Servizio Sorveglianza host (HGS) | Ruolo di Windows Server installato in un cluster protetto di server bare metal senza sistema operativo in grado di misurare l'integrità di un host Hyper-V e di rilasciare le chiavi a host Hyper-V integri durante l'accensione o la migrazione in tempo reale di macchine virtuali schermate. Si tratta di due funzionalità fondamentali di una soluzione di macchina virtuale schermata e sono chiamate rispettivamente **servizio di attestazione** e **servizio di protezione delle chiavi**. |
 | host sorvegliato | Host Hyper-V nel quale possono essere eseguite le macchine virtuali schermate. Un host può essere considerato _sorvegliato_ solo quando è stato ritenuto integro dal servizio di attestazione di HGS. Non è possibile accendere o eseguire la migrazione in tempo reale di macchine virtuali schermate in un host Hyper-V non attestato o con attestazione non riuscita. |
@@ -181,4 +181,4 @@ Le macchine virtuali schermate e le macchine virtuali con supporto della crittog
 - [Infrastruttura sorvegliata e macchine virtuali schermate](guarded-fabric-and-shielded-vms-top-node.md)
 - Blog: [Blog sulla sicurezza di datacenter e cloud privato](https://blogs.technet.microsoft.com/datacentersecurity/)
 - Video: [Introduzione alle macchine virtuali schermate](https://channel9.msdn.com/Shows/Mechanics/Introduction-to-Shielded-Virtual-Machines-in-Windows-Server-2016)
-- Video: [Approfondimento sulle VM schermate con Windows Server 2016 Hyper-V](https://channel9.msdn.com/events/Ignite/2016/BRK3124)
+- Video: [esaminare le VM schermate con Windows Server 2016 Hyper-V](https://channel9.msdn.com/events/Ignite/2016/BRK3124)

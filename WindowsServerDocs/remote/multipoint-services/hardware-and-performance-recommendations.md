@@ -14,11 +14,11 @@ author: evaseydl
 manager: scottman
 ms.author: evas
 ms.openlocfilehash: 284131028b308ee86389f25102d934390ba2f16d
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.sourcegitcommit: 06ae7c34c648538e15c4d9fe330668e7df32fbba
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71389107"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78371873"
 ---
 # <a name="hardware-requirements-and-performance-recommendations"></a>Requisiti hardware e consigli sulle prestazioni
 Questo argomento descrive l'hardware necessario per eseguire un sistema MultiPoint Services e supportare scenari di applicazioni utente. Lo scenario utente influiscono direttamente sulla CPU, sulla RAM e sui requisiti della larghezza di banda di rete.  
@@ -43,7 +43,7 @@ Per ottenere prestazioni ottimali con il sistema MultiPoint Services in vari car
 |------------------------|----------------------|-------------------|------------------|-------------------|-------------------|-----------------|  
 |**Produttività**<br /><br />Office, esplorazione Web, applicazioni line-of-business|CPU: 2C<br /><br />RAM: 2 GB|CPU: 2C<br /><br />RAM: 4 GB|CPU: 4C<br /><br />RAM: 6 GB|CPU: 4C<br /><br />RAM: 8 GB|CPU: 4C + MT o 6C<br /><br />RAM: 10 GB| CPU: 6C + MT<br /><br />RAM: 12 GB|
 |**Misto**<br /><br />Office, esplorazione Web, applicazioni line-of-business e uso occasionale di video da parte di alcuni utenti|CPU: 2C<br /><br />RAM: 2 GB|CPU: 2C<br /><br />RAM: 4 GB|CPU: 4C<br /><br />RAM: 6 GB|CPU: 4C + MT o 6C<br /><br />RAM: 8 GB|CPU: 6C + MT<br /><br />RAM: 10 GB| CPU: 6C + MT<br /><br />RAM: 12 GB| 
-|**Video intensivo**<br /><br />Office, esplorazione Web, applicazioni line-of-business e utilizzo frequente di video da parte di tutti gli utenti **Nota:** Il test video è stato eseguito usando il video 360p H. 264 alla risoluzione nativa.|CPU: 4C + MT<br /><br />RAM: 2 GB|CPU: 6C + MT<br /><br />RAM: 4 GB|CPU: 8C + MT<br /><br />RAM: 6 GB|CPU: 12C + MT<br /><br />RAM: 8 GB|CPU: 16C + MT<br /><br />RAM: 10 GB<br /><br />-Thin client: RemoteFX<br />-Video USB non consigliato| CPU: 20 M + MT<br /><br />RAM: 12 GB<br /><br />-Thin client: RemoteFX<br />-Video USB non consigliato|   
+|**Video intensivo**<br /><br />Office, esplorazione Web, applicazioni line-of-business e utilizzo frequente di video da parte di tutti gli utenti **Nota:** i test video sono stati eseguiti con il video 360p H. 264 alla risoluzione nativa.|CPU: 4C + MT<br /><br />RAM: 2 GB|CPU: 6C + MT<br /><br />RAM: 4 GB|CPU: 8C + MT<br /><br />RAM: 6 GB|CPU: 12C + MT<br /><br />RAM: 8 GB|CPU: 16C + MT<br /><br />RAM: 10 GB<br /><br />-Thin client: RemoteFX<br />-Video USB non consigliato| CPU: 20 M + MT<br /><br />RAM: 12 GB<br /><br />-Thin client: RemoteFX<br />-Video USB non consigliato|   
   
 ## <a name="minimum-recommended-hardware-for-running-full-windows-10-virtual-desktops"></a>Hardware minimo consigliato per l'esecuzione di desktop completi Windows 10 virtuali  
 L'esecuzione di un'istanza del sistema operativo virtuale completa per ogni stazione è un numero di risorse di calcolo molto elevato rispetto all'esecuzione delle sessioni di MultiPoint desktop predefinite, quindi i requisiti hardware per ogni stazione sono superiori:  

@@ -13,11 +13,11 @@ author: nnamuhcs
 ms.author: coreyp
 manager: dongill
 ms.openlocfilehash: f6a5d6fd42c5cd7e92821e1157748054c741ef04
-ms.sourcegitcommit: 0e3c2473a54f915d35687d30d1b4b1ac2bae4068
+ms.sourcegitcommit: 06ae7c34c648538e15c4d9fe330668e7df32fbba
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68914689"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78371175"
 ---
 # <a name="use-remote-web-access-in-windows-server-essentials"></a>Usare Accesso Web remoto in Windows Server Essentials
 
@@ -27,7 +27,7 @@ ms.locfileid: "68914689"
   
   Accesso Web remoto permette di rimanere connessi alla rete di Windows Server Essentials ovunque ci si trovi. Quando si accede a Accesso Web remoto, è possibile connettersi ai computer nella rete di Windows Server Essentials, aprire il dashboard per gestire la rete di Windows Server Essentials e accedere a tutte le cartelle condivise e ai file multimediali nel server.  
   
- Questo argomento include le sezioni seguenti:  
+ In questo argomento sono incluse le sezioni seguenti:  
   
 
 -   [Connetti a Accesso Web remoto](Use-Remote-Web-Access-in-Windows-Server-Essentials.md#BKMK_Connect)  
@@ -60,7 +60,7 @@ ms.locfileid: "68914689"
   
 ##### <a name="to-log-on-to-remote-web-access-from-a-network-computer"></a>Per accedere ad Accesso Web remoto da un computer di rete  
   
-1.  Aprire una Web browser, digitare **https://** _< NomeServer\>_ **/Remote** nella barra degli indirizzi, quindi premere INVIO.  
+1.  Aprire una Web browser, digitare **https://** _< nomeserver\>_ **/Remote** nella barra degli indirizzi, quindi premere INVIO.  
   
     > [!NOTE]
     >  Assicurarsi di includere le s in HTTPS.  
@@ -123,7 +123,7 @@ ms.locfileid: "68914689"
 -   Caricare (inviare) file dal computer a Windows Server Essentials.  
   
     > [!NOTE]
-    >  È possibile caricare solo file, non cartelle, in Accesso Web remoto. Se si vuole mantenere la stessa gerarchia di file e cartelle del computer in **Cartelle condivise** nel server, sarà necessario creare le cartelle nel server in Accesso Web remoto, quindi caricare i file nelle cartelle create. Per informazioni sulla creazione di cartelle del server, vedere [Add or move a server folder](../manage/Manage-Server-Folders-in-Windows-Server-Essentials.md#BKMK_5).  
+    >  È possibile caricare solo file, non cartelle, in Accesso Web remoto. Se si vuole mantenere la stessa gerarchia di file e cartelle del computer in **Cartelle condivise** nel server, sarà necessario creare le cartelle nel server in Accesso Web remoto, quindi caricare i file nelle cartelle create. Per informazioni sulla creazione di cartelle del server, vedere [Aggiungere o spostare una cartella del server](../manage/Manage-Server-Folders-in-Windows-Server-Essentials.md#BKMK_5).  
   
 -   Scaricare (ricevere) file e cartelle da Windows Server Essentials nel computer.  
   
@@ -139,7 +139,7 @@ ms.locfileid: "68914689"
   
 ###### <a name="to-upload-files"></a>Per caricare file  
   
-1. In Accesso Web remoto fare clic sulla scheda **Cartelle condivise** , quindi selezionare un collegamento di cartella condivisa. Sarà visualizzato un elenco di file e cartelle disponibili nella cartella condivisa.  
+1. In Accesso Web remoto fare clic sulla scheda **Cartelle condivise**, quindi selezionare un collegamento di cartella condivisa. Sarà visualizzato un elenco di file e cartelle disponibili nella cartella condivisa.  
   
 2. Nell'elenco di file e cartelle disponibili nella cartella condivisa fare clic sulla cartella in cui si vuole caricare il file, quindi fare clic su **Carica**.  
   
@@ -160,7 +160,7 @@ ms.locfileid: "68914689"
   
 ###### <a name="to-upload-files-using-the-easy-file-upload-tool"></a>Per caricare file usando lo strumento caricamento semplice file  
   
-1.  In Accesso Web remoto fare clic sulla scheda **Cartelle condivise** , quindi selezionare un collegamento di cartella condivisa. Sarà visualizzato un elenco di file e cartelle disponibili nella cartella condivisa.  
+1.  In Accesso Web remoto fare clic sulla scheda **Cartelle condivise**, quindi selezionare un collegamento di cartella condivisa. Sarà visualizzato un elenco di file e cartelle disponibili nella cartella condivisa.  
   
 2.  Nell'elenco di file e cartelle disponibili nella cartella condivisa fare clic sulla cartella in cui si vuole caricare i file, quindi fare clic su **Carica**. Se la cartella di destinazione del caricamento non esiste, fare clic su **Nuova cartella**, digitare il nome della nuova cartella nella finestra di dialogo, quindi fare clic su **OK**.  
   
@@ -178,7 +178,7 @@ ms.locfileid: "68914689"
   
 ###### <a name="to-download-a-single-file"></a>Per scaricare un singolo file  
   
-1. In Accesso Web remoto fare clic sulla scheda **Cartelle condivise** , quindi selezionare un collegamento di cartella condivisa. Sarà visualizzato un elenco di file e cartelle disponibili nella cartella condivisa.  
+1. In Accesso Web remoto fare clic sulla scheda **Cartelle condivise**, quindi selezionare un collegamento di cartella condivisa. Sarà visualizzato un elenco di file e cartelle disponibili nella cartella condivisa.  
   
 2. Nell'elenco di file di cartelle condivise fare clic sulla casella di controllo accanto al file da scaricare nel computer di casa.  
   
@@ -214,7 +214,7 @@ ms.locfileid: "68914689"
   
 ###### <a name="to-download-multiple-files-or-folders"></a>Per scaricare più file o cartelle  
   
-1.  In Accesso Web remoto fare clic sulla scheda **Cartelle condivise** , quindi selezionare un collegamento di cartella condivisa. Sarà visualizzato un elenco di file e cartelle disponibili nella cartella condivisa.  
+1.  In Accesso Web remoto fare clic sulla scheda **Cartelle condivise**, quindi selezionare un collegamento di cartella condivisa. Sarà visualizzato un elenco di file e cartelle disponibili nella cartella condivisa.  
   
 2.  Nell'elenco di file di cartelle condivise fare clic sulla casella di controllo accanto ai file o alle cartelle da scaricare nel computer di casa.  
   
@@ -252,7 +252,7 @@ ms.locfileid: "68914689"
  È possibile usare Accesso Web remoto per creare nuove cartelle in una cartella condivisa esistente, per rinominare file e cartelle, per spostare e copiare file e cartelle e per eliminare file e cartelle dal server.  
   
 > [!NOTE]
->  Per aggiungere nuove cartelle condivise in un server che esegue Windows Server Essentials, è necessario usare il dashboard. Per connettersi alla console del server da Accesso Web remoto, nella scheda **Computer** fare clic sul nome del server, quindi su **Connetti** e infine seguire le istruzioni per l'accesso al server. Per informazioni su come creare un criterio, vedere [Add or move a server folder](../manage/Manage-Server-Folders-in-Windows-Server-Essentials.md#BKMK_5).  
+>  Per aggiungere nuove cartelle condivise in un server che esegue Windows Server Essentials, è necessario usare il dashboard. Per connettersi alla console del server da Accesso Web remoto, nella scheda **Computer** fare clic sul nome del server, quindi su **Connetti** e infine seguire le istruzioni per l'accesso al server. Per informazioni su come creare cartelle condivise, vedere [Aggiungere o spostare una cartella del server](../manage/Manage-Server-Folders-in-Windows-Server-Essentials.md#BKMK_5).  
   
 ##### <a name="to-create-a-new-folder"></a>Per creare una nuova cartella  
   
@@ -326,7 +326,7 @@ ms.locfileid: "68914689"
   
 ##### <a name="to-return-to-the-mobile-version-of-remote-web-access"></a>Per tornare alla versione di Accesso Web remoto per dispositivi mobili  
   
-1. Esegue la disconnessione.  
+1. Disconnettersi.  
   
 2. Aprire una Web browser e digitare **https://** _< NomeDominio\>_ **/Remote/m** nella barra degli indirizzi. Assicurarsi di includere le s in HTTPS.  
   
