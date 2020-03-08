@@ -10,11 +10,11 @@ ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
 ms.openlocfilehash: 4f12b1e88414a17c8fb82a707bd4399505df4c6c
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.sourcegitcommit: 06ae7c34c648538e15c4d9fe330668e7df32fbba
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71369455"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78371519"
 ---
 # <a name="ad-ds-simplified-administration"></a>Amministrazione semplificata di Active Directory Domain Services
 
@@ -66,7 +66,7 @@ Server Manager funge da hub per le attività di gestione del server. L'aspetto �
   
 Servizi di dominio Active Directory è uno di questi ruoli hub; eseguendo Server Manager in un controller di dominio o gli strumenti di amministrazione Server remoto in un Windows 8, vedrai principali problemi recenti nei controller di dominio nella foresta.  
   
-Queste visualizzazioni includono:  
+Le viste disponibili sono le seguenti:  
   
 - Disponibilità dei server  
 - Avvisi di monitoraggio delle prestazioni relativi a un utilizzo elevato della memoria e della CPU  
@@ -114,7 +114,7 @@ Per ulteriori informazioni sulla topologia del sito di Active Directory e replic
 
 In Active Directory di Windows 2000 è stato introdotto il master RID, che rilascia pool di identificatori relativi ai controller di dominio, per creare ID di sicurezza (SID) di domini trusted di sicurezza, come utenti, gruppi e computer.  Per impostazione predefinita, questo spazio RID globale è limitato a 2<sup>30</sup> (o 1.073.741.823) SID totali creati in un dominio. I SID non possono essere restituiti al pool o essere nuovamente rilasciati. Con il tempo, è possibile che un dominio di grandi dimensioni inizi a essere a corto di RID o che degli incidenti portino a un consumo non necessario di RID e a un eventuale esaurimento.  
   
-In Windows Server 2012 sono stati risolti diversi problemi di rilascio e gestione dei RID individuati dai clienti e dal supporto tecnico Microsoft con lo sviluppo di Servizi di dominio Active Directory dopo la creazione dei primi domini di Active Directory nel 1999. Sono inclusi:  
+In Windows Server 2012 sono stati risolti diversi problemi di rilascio e gestione dei RID individuati dai clienti e dal supporto tecnico Microsoft con lo sviluppo di Servizi di dominio Active Directory dopo la creazione dei primi domini di Active Directory nel 1999. tra cui:  
 
 - Vengono scritti periodicamente avvisi sull'utilizzo di RID nel registro eventi  
 - Vengono registrati eventi quando un amministratore invalida un pool di RID  
@@ -195,11 +195,11 @@ In genere non è necessario eseguire questi cmdlet. Per impostazione predefinita
 
 ||||  
 |-|-|-|  
-|Nome test|Protocolli<br /><br />usati|Spiegazione e note|  
+|Nome test|Protocolli<br /><br />used|Spiegazione e note|  
 |VerifyAdminTrusted<br /><br />ForDelegationProvider|LDAP|Convalida che si dispone del privilegio "Impostazione account computer ed utente a tipo trusted per la delega" (SeEnableDelegationPrivilege) sul controller di dominio partner esistente. È necessario l'accesso all'attributo costruito tokenGroups.<br /><br />Non è usato quando si contattano controller di dominio di Windows Server 2003. È necessario confermare manualmente questo privilegio prima dell'innalzamento di livello|  
 |VerifyADPrep<br /><br />Prerequisiti (foresta)|LDAP|Individua e contatta il master schema con gli attributi namingContexts di rootDSE e l'attributo fsmoRoleOwner del contesto dei nomi dello schema. Determina le operazioni preliminari (forestprep, domainprep o rodcprep) necessarie per l'installazione di Servizi di dominio Active Directory. Convalida che lo schema objectVersion è previsto e se richiede un'ulteriore estensione.|  
 |VerifyADPrep<br /><br />Prerequisiti (dominio e controller di dominio di sola lettura)|LDAP|Individua e contatta il master infrastrutture con l'attributo namingContexts di rootDSE e l'attributo fsmoRoleOwner del contenitore di infrastrutture. Se viene installato un controller di dominio di sola lettura, questo test individua il master per la denominazione dei domini e verifica che sia online.|  
-|CheckGroup<br /><br />Appartenenza|LDAP,<br /><br />RPC su SMB (LSARPC)|Convalida che l'utente è membro del gruppo Domain Admins o Enterprise Admins, a seconda dell'operazione (DA per l'aggiunta o l'abbassamento di livello di un controller di dominio, EA per l'aggiunta o la rimozione di un dominio).|  
+|CheckGroup<br /><br />Appartenenze|LDAP,<br /><br />RPC su SMB (LSARPC)|Convalida che l'utente è membro del gruppo Domain Admins o Enterprise Admins, a seconda dell'operazione (DA per l'aggiunta o l'abbassamento di livello di un controller di dominio, EA per l'aggiunta o la rimozione di un dominio).|  
 |CheckForestPrep<br /><br />GroupMembership|LDAP,<br /><br />RPC su SMB (LSARPC)|Convalida che l'utente è membro dei gruppi Schema Admins ed Enterprise Admins e disponga del privilegio Gestione registri di controllo ed eventi sicurezza (SesScurityPrivilege) sui controller di dominio esistenti.|  
 |CheckDomainPrep<br /><br />GroupMembership|LDAP,<br /><br />RPC su SMB (LSARPC)|Convalida che l'utente è membro del gruppo Domain Admins e disponga del privilegio Gestione registri di controllo ed eventi sicurezza (SesScurityPrivilege) sui controller di dominio esistenti.|  
 |CheckRODCPrep<br /><br />GroupMembership|LDAP,<br /><br />RPC su SMB (LSARPC)|Convalida che l'utente è membro del gruppo Enterprise Admins e disponga del privilegio Gestione registri di controllo ed eventi sicurezza (SesScurityPrivilege) sui controller di dominio esistenti.|  
