@@ -10,11 +10,11 @@ author: cosmosdarwin
 ms.date: 07/17/2019
 ms.localizationpriority: medium
 ms.openlocfilehash: f2c2e0435d06c18dbacab4e85db770ba86e654b3
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.sourcegitcommit: b5c12007b4c8fdad56076d4827790a79686596af
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71365999"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78865420"
 ---
 # <a name="understanding-the-cache-in-storage-spaces-direct"></a>Informazioni sulla cache in Spazi di archiviazione diretta
 
@@ -109,7 +109,7 @@ Di conseguenza, le caratteristiche di scrittura quali la latenza, sono determina
 
 ### <a name="readwrite-caching-for-hybrid-deployments"></a>Memorizzazione nella cache di lettura/scrittura per le distribuzioni ibride
 
-Se la cache è utilizzata per le unità disco rigido, le letture *e* le scritture vengono memorizzate entrambe nella cache, per fornire una latenza di tipo flash (spesso migliore di circa 10 volte) per entrambe. All'interno della cache di lettura vengono memorizzati i dati letti di recente e frequentemente, per l'accesso rapido e per ridurre al minimo il traffico casuale alle unità disco rigido A causa dei ritardi di ricerca e rotazione, la latenza e la perdita di tempo per l'accesso casuale a un HDD sono significative. Le scritture vengono memorizzate nella cache per assorbire i picchi e, come in precedenza, per unire le Scritture e ripetere la scrittura e ridurre al minimo il traffico cumulativo alle unità di capacità.
+Se la cache è utilizzata per le unità disco rigido, le letture *e* le scritture vengono memorizzate entrambe nella cache, per fornire una latenza di tipo flash (spesso migliore di circa 10 volte) per entrambe. All'interno della cache di lettura vengono memorizzati i dati letti di recente e frequentemente, per l'accesso rapido e per ridurre al minimo il traffico casuale alle unità disco rigido (a causa dei ritardi rotazionali, la latenza e il tempo perso correlati all'accesso casuale a un'unità disco rigido sono significativi). Le scritture vengono memorizzate nella cache per assorbire i picchi e, come in precedenza, per unire scritture e riscritture e ridurre al minimo il traffico cumulativo alle unità di capacità.
 
 Spazi di archiviazione diretta implementa un algoritmo che annulla la generazione casuale delle scritture prima di rimuoverle dalla cache, per emulare un modello di I/O al disco che sembri sequenziale persino se l'attuale I/O proveniente dal carico di lavoro (ad esempio le macchine virtuali) è casuale. In tal modo IOPS e velocità effettiva alle unità disco rigido vengono ottimizzate.
 
@@ -242,7 +242,7 @@ CacheModeHDD : ReadWrite
 CacheModeSSD : WriteOnly
 ```
 
-Eseguire quindi le operazioni seguenti:
+Procedere quindi come segue:
 
 ```PowerShell
 Set-ClusterStorageSpacesDirect -CacheModeSSD ReadWrite

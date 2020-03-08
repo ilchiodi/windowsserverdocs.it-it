@@ -9,11 +9,11 @@ author: JasonGerend
 manager: brianlic
 ms.author: jgerend
 ms.openlocfilehash: 7eeb462d31391a228ec0e89afb09673ef14b51cf
-ms.sourcegitcommit: bfe9c5f7141f4f2343a4edf432856f07db1410aa
+ms.sourcegitcommit: 06ae7c34c648538e15c4d9fe330668e7df32fbba
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75352362"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78371249"
 ---
 # <a name="troubleshooting-disk-management"></a>Risoluzione dei problemi relativi a Gestione disco
 

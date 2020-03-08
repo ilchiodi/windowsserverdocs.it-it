@@ -14,11 +14,11 @@ ms.custom:
 - CSSTroubleshoot
 audience: Admin
 ms.openlocfilehash: e99c07428a1689e3c079ff2570759c849a61e945
-ms.sourcegitcommit: 839fc8e38bdd7a2389ea7c06c5d4f86c8938740f
+ms.sourcegitcommit: 06ae7c34c648538e15c4d9fe330668e7df32fbba
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77652203"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78370615"
 ---
 # <a name="windows-time-service-tools-and-settings"></a>Strumenti e impostazioni del servizio Ora di Windows
 
@@ -58,7 +58,7 @@ Nelle tabelle seguenti vengono descritti i parametri che possono essere usati co
 
 **Parametri primari di W32tm.exe**  
 
-|Parametro |Descrizione |
+|Parametro |Description |
 | --- | --- |
 |**w32tm /?** |Visualizza la Guida della riga di comando di W32tm. |
 |**w32tm /register** |Registra il servizio Ora per l'esecuzione come servizio e aggiunge le informazioni di configurazione predefinite al Registro di sistema. |
@@ -142,7 +142,7 @@ Le tre voci del Registro di sistema seguenti non fanno parte della configurazion
 
 Per abilitare la registrazione W32Time, aggiungi le voci del Registro di sistema seguenti:  
 
-|Voce del Registro di sistema |Versioni |Descrizione |
+|Voce del Registro di sistema |Versioni |Description |
 | --- | --- | --- |
 |**FileLogEntries** |Tutte le versioni |Controlla il numero di voci create nel file di log del servizio Ora di Windows. Il valore predefinito è None, che non registra alcuna attività del servizio Ora di Windows. I valori validi sono compresi tra **0** e **300**. Questo valore non influisce sulle voci del registro eventi create normalmente dal servizio Ora di Windows. |
 |**FileLogName** |Tutte le versioni |Controlla il percorso e il nome file del log del servizio Ora di Windows. Il valore predefinito è Blank e non deve essere modificato a meno che non sia stato modificato il valore di **FileLogEntries**. Un valore valido è un percorso completo e un nome file che verranno usati dal servizio Ora di Windows per creare il file di log. Questo valore non influisce sulle voci del registro eventi create normalmente dal servizio Ora di Windows. |
@@ -258,7 +258,7 @@ Nelle tabelle seguenti "Tutte le versioni" si riferiscono alle versioni di Windo
 
 ### <a id="config"></a>Voci della sottochiave "HKLM\SYSTEM\CurrentControlSet\Services\W32Time\Config"
 
-|Voce del Registro di sistema |Versioni |Descrizione |
+|Voce del Registro di sistema |Versioni |Description |
 | --- | --- | --- |
 |**AnnounceFlags** |Tutte le versioni |Controlla se il computer è contrassegnato come server di riferimento ora affidabile. Un computer non è contrassegnato come affidabile a meno che non sia anche contrassegnato come server di riferimento ora.<ul><li>**0x00**. Non è un server di riferimento ora</li><li>**0x01**. È sempre un server di riferimento ora</li><li>**0x02**. È un server di riferimento ora automatico</li><li>**0x04**. È un server di riferimento ora sempre affidabile</li><li>**0x08**. È un server di riferimento ora automatico affidabile</li></ul><br />Il valore predefinito per i membri del dominio è **10**. Il valore predefinito per i client e i server autonomi è **10**. |
 |**ChainDisable** | |Controlla se il meccanismo di concatenamento è disabilitato o meno. Se il concatenamento è disabilitato, ovvero impostato su 0, un controller di dominio di sola lettura può essere sincronizzato con qualsiasi controller di dominio, ma gli host che non dispongono di password memorizzate nella cache del controller di dominio di sola lettura non saranno in grado di eseguire la sincronizzazione con tale controller. Si tratta di un valore booleano e il valore predefinito è **0**.|
@@ -291,7 +291,7 @@ Nelle tabelle seguenti "Tutte le versioni" si riferiscono alle versioni di Windo
 
 ### <a id="parameters"></a>Voci della sottochiave "HKLM\SYSTEM\CurrentControlSet\Services\W32Time\Parameters"
 
-| Voce del Registro di sistema | Versioni | Descrizione |
+| Voce del Registro di sistema | Versioni | Description |
 | --- | --- | --- |
 |**AllowNonstandardModeCombinations** |Tutte le versioni |Indica che sono consentite combinazioni di modalità non standard nella sincronizzazione tra peer. Il valore predefinito per i membri del dominio è **1**. Il valore predefinito per i client e i server autonomi è **1**. |
 |**NtpServer** |Tutte le versioni |Specifica un elenco di peer delimitati da spazi da cui un computer ottiene i timestamp, costituiti da uno o più nomi DNS o indirizzi IP per riga. Ogni nome DNS o indirizzo IP elencato deve essere univoco. I computer connessi a un dominio devono eseguire la sincronizzazione con un'origine ora più affidabile, ad esempio l'orologio ufficiale degli Stati Uniti.  <ul><li>0x01 SpecialInterval </li><li>0x02 UseAsFallbackOnly</li><li>0x04 SymmetricActive: per altre informazioni su questa modalità, vedi [Windows Time Server: 3.3 Modes of Operation](https://go.microsoft.com/fwlink/?LinkId=208012) (Server di riferimento ora di Windows: modalità di funzionamento 3.3).</li><li>0x08 Client</li></ul><br />Non esiste alcun valore predefinito per questa voce del Registro di sistema nei membri del dominio. Il valore predefinito per i client e i server autonomi è time.windows.com,0x1.<br /><br />**Nota**<br />Per altre informazioni sui server NTP disponibili, vedi l'articolo 262680 della Knowledge Base [Elenco dei server di riferimento ora SNTP (Simple Network Time Protocol) disponibili in Internet](https://support.microsoft.com/help/262680/a-list-of-the-simple-network-time-protocol-sntp-time-servers-that-are) |
@@ -301,7 +301,7 @@ Nelle tabelle seguenti "Tutte le versioni" si riferiscono alle versioni di Windo
 
 ### <a id="ntpclient"></a>Voci della sottochiave "HKLM\SYSTEM\CurrentControlSet\Services\W32Time\TimeProviders\NtpClient"
 
-|Voce del Registro di sistema |Versione |Descrizione |
+|Voce del Registro di sistema |Version |Description |
 | --- | --- | --- |
 |**AllowNonstandardModeCombinations** |Tutte le versioni |Indica che sono consentite combinazioni di modalità non standard nella sincronizzazione tra peer. Il valore predefinito per i membri del dominio è **1**. Il valore predefinito per i client e i server autonomi è **1**.|
 |**CompatibilityFlags** |Tutte le versioni |Specifica i valori e i flag di compatibilità seguenti:<ul><li>**0x00000001** - DispersionInvalid</li><li>**0x00000002** - IgnoreFutureRefTimeStamp</li><li>**0x80000000** - AutodetectWin2K</li><li>**0x40000000** - AutodetectWin2KStage2</li></ul>Il valore predefinito per i membri del dominio è **0x80000000**. Il valore predefinito per i client e i server autonomi è **0x80000000**. |
@@ -318,7 +318,7 @@ Nelle tabelle seguenti "Tutte le versioni" si riferiscono alle versioni di Windo
 
 ### <a id="ntpserver"></a>Voci della sottochiave "HKLM\SYSTEM\CurrentControlSet\Services\W32Time\TimeProviders\NtpServer"
 
-|Voce del Registro di sistema |Versioni |Descrizione |
+|Voce del Registro di sistema |Versioni |Description |
 | --- | --- | --- |
 |**AllowNonstandardModeCombinations** |Tutte le versioni |Indica che sono consentite combinazioni di modalità non standard nella sincronizzazione tra client e server. Il valore predefinito per i membri del dominio è **1**. Il valore predefinito per i client e i server autonomi è **1**. |
 |**DllName** |Tutte le versioni |Specifica il percorso della DLL per il provider servizi orari. Il percorso predefinito per questa DLL sia per i membri del dominio che per i client e i server autonomi è **%windir%\System32\W32Time.dll**.  |

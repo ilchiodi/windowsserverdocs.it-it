@@ -10,11 +10,11 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: mas
 ms.openlocfilehash: 86d7b2ff99debbecec930693fb93dc965fefc59e
-ms.sourcegitcommit: 1c75e4b3f5895f9fa33efffd06822dca301d4835
+ms.sourcegitcommit: 06ae7c34c648538e15c4d9fe330668e7df32fbba
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77517596"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78371319"
 ---
 # <a name="privileged-access-workstations"></a>Workstation con accesso con privilegi
 
@@ -446,7 +446,7 @@ In questa sezione si creerà un nuovo oggetto Criteri di gruppo "PAW Configurati
          4. Abilitare l'opzione **Specifica il percorso del servizio di aggiornamento Microsoft nella rete Intranet** e specificare l'URL del server ESAE WSUS in entrambe le opzioni.
    6. Collegare l'oggetto Criteri di gruppo "PAW Configuration - Computer" (Configurazione PAW- Computer) come indicato di seguito:
 
-         |Condizione|Percorso collegamento|
+         |Criteri di|Percorso collegamento|
          |-----|---------|
          |PAW Configuration - Computer (Configurazione PAW- Computer) |Admin\Tier 0\Devices|
 
@@ -459,7 +459,7 @@ In questa sezione si creerà un nuovo oggetto Criteri di gruppo "PAW Configurati
 
 1. **Block internet browsing** (Blocca esplorazione Internet): per evitare l'esplorazione accidentale di Internet, questa impostazione deve riportare un indirizzo proxy di un indirizzo di loopback (127.0.0.1).
    1. Passare a Configurazione utente\Preferenze\Impostazioni di Windows\Registro di sistema. Fare clic con il pulsante destro del mouse su Registro di sistema, scegliere **Nuovo** > **Elemento Registro di sistema** e configurare le impostazioni seguenti:
-      1. Azione:  Sostituzione
+      1. Azione:  Sostituire
       2. Hive: HKEY_CURRENT_USER
       3. Percorso chiave:  Software\Microsoft\Windows\CurrentVersion\Impostazioni Internet
       4. Nome valore: ProxyEnable
@@ -481,7 +481,7 @@ In questa sezione si creerà un nuovo oggetto Criteri di gruppo "PAW Configurati
       7. Fare clic su **OK** per completare l'impostazione dei Criteri di gruppo ProxyEnable
    2. Passare a Configurazione utente\Preferenze\Impostazioni di Windows\Registro di sistema. Fare clic con il pulsante destro del mouse su Registro di sistema, scegliere **Nuovo** > **Elemento Registro di sistema** e configurare le impostazioni seguenti:
 
-      * Azione: Sostituzione
+      * Azione: Sostituire
       * Hive: HKEY_CURRENT_USER
       * Percorso chiave: Software\Microsoft\Windows\CurrentVersion\Impostazioni Internet
          * Nome valore: ProxyServer
@@ -788,7 +788,7 @@ Abilitare questa funzionalità nei server e nelle workstation esistenti e quindi
 
       3. Dopo aver configurato il file *proxy.pac* aggiornare l'oggetto Criteri di gruppo PAW Configuration - User (Configurazione PAW- Utente).
          1. Passare a Configurazione utente\Preferenze\Impostazioni di Windows\Registro di sistema. Fare clic con il pulsante destro del mouse su Registro di sistema, scegliere **Nuovo** > **Elemento Registro di sistema** e configurare le impostazioni seguenti:
-            1. Azione: Sostituzione
+            1. Azione: Sostituire
             2. Hive: HKEY_ CURRENT_USER
             3. Percorso chiave: Software\Microsoft\Windows\CurrentVersion\Impostazioni Internet
             4. Nome valore: AutoConfigUrl
