@@ -9,12 +9,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: e1e0235e50945fadd09fe9dd5ffeaf6d7119e482
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 875edcf191596d181ec0d70a83f9f3c20f5d5f4a
+ms.sourcegitcommit: a6ec589a39ef104ec2be958cd09d2f679816a5ab
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71385600"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78261940"
 ---
 # <a name="ad-fs-openid-connectoauth-flows-and-application-scenarios"></a>Flussi e scenari di applicazione di OpenID Connect/OAuth in AD FS
 Si applica ad AD FS 2016 e versioni successive
@@ -292,7 +292,7 @@ I passaggi che seguono costituiscono il flusso OBO e vengono spiegati con l'aiut
 
   1. L'applicazione client effettua una richiesta all'API A con il token A.  
   Nota: durante la configurazione del flusso OBO in AD FS, verifica che sia selezionato l'ambito `user_impersonation` e che il client richieda l'ambito `user_impersonation` nella richiesta. 
-  2. L'API A esegue l'autenticazione nell'endpoint di rilascio dei token AD FS e richiede un token per accedere all'API B. Nota: durante la configurazione di questo flusso in AD FS, verifica che l'API A venga registrata anche come applicazione server con ClientID con lo stesso valore dell'ID risorsa dell'API A. Per altri dettagli, vedi l'esempio relativo a On-Behalf-Of.  
+  2. L'API A esegue l'autenticazione nell'endpoint di rilascio dei token AD FS e richiede un token per accedere all'API B. Nota: durante la configurazione di questo flusso in AD FS, verifica che l'API A venga registrata anche come applicazione server con ClientID con lo stesso valore dell'ID risorsa dell'API A.
   3. L'endpoint di rilascio dei token AD FS convalida le credenziali dell'API A con il token A e rilascia il token di accesso per l'API B (token B). 
   4. Il token B è impostato nell'intestazione dell'autorizzazione della richiesta sull'API B. 
   5. I dati della risorsa protetta vengono restituiti dall'API B. 
