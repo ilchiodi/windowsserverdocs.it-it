@@ -7,18 +7,21 @@ author: cosmosdarwin
 ms.author: cosdar
 manager: eldenc
 ms.technology: storage-spaces
-ms.date: 05/07/2019
-ms.openlocfilehash: 20482fe1728b12d4fe56dcfa397352fbb4b4f981
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.date: 03/10/2020
+ms.openlocfilehash: 4ce41da1da3dc90f698008902170d7cc1541619c
+ms.sourcegitcommit: bb2eb0b12f2a32113899a59aa5644bc6e8cab3d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71366089"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79089351"
 ---
 # <a name="extending-volumes-in-storage-spaces-direct"></a>Estensione dei volumi in Spazi di archiviazione diretta
 > Si applica a: Windows Server 2019, Windows Server 2016
 
 Questo argomento fornisce istruzioni per il ridimensionamento dei volumi in un cluster [spazi di archiviazione diretta](storage-spaces-direct-overview.md) usando l'interfaccia di amministrazione di Windows.
+
+> [!WARNING]
+> **Non supportato: ridimensionamento dello spazio di archiviazione sottostante usato da Spazi di archiviazione diretta.** Se si esegue Spazi di archiviazione diretta in un ambiente di archiviazione virtualizzato, incluso in Azure, il ridimensionamento o la modifica delle caratteristiche dei dispositivi di archiviazione usati dalle macchine virtuali non è supportato e causerà l'inaccessibilità dei dati. Seguire invece le istruzioni nella sezione [aggiungere server o unità](add-nodes.md) per aggiungere capacità aggiuntiva prima di estendere i volumi.
 
 Guarda un breve video su come ridimensionare un volume.
 
@@ -50,7 +53,7 @@ In Spazi di archiviazione diretta, ogni volume è costituito da diversi oggetti 
 
 Per acquisire familiarità con tali oggetti, prova a eseguire **Get-** con il sostantivo corrispondente in PowerShell.
 
-Esempio:
+Ad esempio:
 
 ```PowerShell
 Get-VirtualDisk
