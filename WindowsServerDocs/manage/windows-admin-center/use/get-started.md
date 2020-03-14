@@ -1,6 +1,6 @@
 ---
-title: Inizia a usare Windows Admin Center
-description: Inizia a usare Windows Admin Center
+title: Introduzione all'interfaccia di amministrazione di Windows
+description: Introduzione all'interfaccia di amministrazione di Windows
 ms.technology: manage
 ms.topic: article
 author: nwashburn-ms
@@ -9,19 +9,19 @@ ms.localizationpriority: medium
 ms.prod: windows-server
 ms.date: 02/15/2019
 ms.openlocfilehash: fc8e6ffa39320cfc73bf3f5bd0a5bc765ded24b4
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75950527"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79322873"
 ---
 # <a name="get-started-with-windows-admin-center"></a>Introduzione all'interfaccia di amministrazione di Windows
 
 >Si applica a: Windows Admin Center, Windows Admin Center Preview
 
 > [!Tip]
-> Novità di Windows Admin Center
-> [Ulteriori informazioni su Windows Admin Center](../overview.md) o [Scarica ora](https://aka.ms/windowsadmincenter).
+> Se non hai esperienza con Windows Admin Center,
+> [scopri di più su questa app](../overview.md) o [scaricala ora](https://aka.ms/windowsadmincenter).
 
 ## <a name="windows-admin-center-installed-on-windows-10"></a>Centro di amministrazione di Windows installato in Windows 10
 

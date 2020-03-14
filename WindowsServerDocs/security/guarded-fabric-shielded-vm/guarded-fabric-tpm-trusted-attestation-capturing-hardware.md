@@ -9,11 +9,11 @@ author: rpsqrd
 ms.technology: security-guarded-fabric
 ms.date: 04/01/2019
 ms.openlocfilehash: ba67cb80a405cd1c6d368a52798e3dec4d9861cb
-ms.sourcegitcommit: 06ae7c34c648538e15c4d9fe330668e7df32fbba
+ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78371370"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79322003"
 ---
 # <a name="authorize-guarded-hosts-using-tpm-based-attestation"></a>Autorizzare gli host sorvegliati con l'attestazione basata su TPM
 

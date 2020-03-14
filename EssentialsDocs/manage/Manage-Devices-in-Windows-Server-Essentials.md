@@ -13,11 +13,11 @@ author: nnamuhcs
 ms.author: coreyp
 manager: dongill
 ms.openlocfilehash: 48eb7009215e484fb00e704c7b328340240321d2
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70865162"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79322323"
 ---
 # <a name="manage-devices-in-windows-server-essentials"></a>Gestire i dispositivi in Windows Server Essentials
 
@@ -74,7 +74,7 @@ ms.locfileid: "70865162"
   
 ### <a name="computer-tasks-in-the-dashboard"></a>Attività relative ai computer nel dashboard  
   
-|Nome attività|Descrizione|  
+|Nome dell'attività|Descrizione|  
 |---------------|-----------------|  
 |Visualizza proprietà del computer|Visualizza informazioni generali su un computer selezionato e consente di visualizzare i dettagli sui backup del computer.|  
 |Imposta backup del computer|Esegue la procedura guidata Imposta backup.|  
@@ -100,7 +100,7 @@ ms.locfileid: "70865162"
   
 3.  Nell'elenco di account utente selezionare quello da modificare.  
   
-4.  Nel riquadro **attività < account\> utente** fare clic su **Visualizza proprietà account**. Sarà visualizzata la pagina **Proprietà** per l'account utente.  
+4.  Nel riquadro **attività < account utente\>** fare clic su **Visualizza proprietà account**. Sarà visualizzata la pagina **Proprietà** per l'account utente.  
   
 5.  Nella scheda **Accesso computer** selezionare il computer a cui l'utente può accedere in remoto e quindi fare clic su **OK**.  
   
@@ -114,7 +114,7 @@ ms.locfileid: "70865162"
   
 1.  Aprire il dashboard di Windows Server Essentials.  
   
-2.  Sulla barra di spostamento fare clic sulla scheda **Dispositivi** .  
+2.  Sulla barra di spostamento fare clic sulla scheda **Dispositivi**.  
   
 3.  Nell'elenco di computer fare clic con il pulsante destro del mouse sul computer da rimuovere dalla rete e quindi scegliere **Rimuovi il computer**.  
   
@@ -127,15 +127,15 @@ ms.locfileid: "70865162"
   
 2.  Sulla barra di spostamento fare clic su **DISPOSITIVI**.  
   
-3.  Per Windows Server Essentials: Nel riquadro **Attività utente** globale fare clic su **Implementa criteri di gruppo**.  
+3.  Per Windows Server Essentials: nel riquadro **attività utente** globale fare clic su **implementa criteri di gruppo**.  
   
-     Per Windows Server Essentials: Nel riquadro **Attività dispositivi** globale fare clic su **Implementa criteri di gruppo**.  
+     Per Windows Server Essentials: nel riquadro **attività dispositivi** globali fare clic su **implementa criteri di gruppo**.  
   
 4.  Verrà aperta la procedura guidata Implementa criteri di gruppo.  
   
 5.  Nella pagina **Abilita criteri di gruppo per reindirizzamento cartelle** della procedura guidata è possibile scegliere le cartelle utente da reindirizzare.  
   
-6.  Nella pagina **Abilita impostazioni dei criteri di sicurezza** della procedura guidata è possibile scegliere di abilitare le impostazioni di Criteri di gruppo per **Windows Update**, **Windows Defender**e **Firewall di rete**.  
+6.  Nella pagina **Abilita impostazioni dei criteri di sicurezza** della procedura guidata è possibile scegliere di abilitare le impostazioni di Criteri di gruppo per **Windows Update**, **Windows Defender** e **Firewall di rete**.  
   
 7.  Fare clic su **Fine** per implementare le impostazioni di Criteri di gruppo.  
   
@@ -175,7 +175,7 @@ ms.locfileid: "70865162"
   
 1.  Nell'elenco di computer selezionare l'account per cui visualizzare o modificare le proprietà.  
   
-2.  Nel riquadro **\> attività < ComputerName** fare clic su **Visualizza Proprietà computer**. Verrà visualizzata la pagina **Proprietà** dei computer.  
+2.  Nel riquadro **attività < nomecomputer\>** fare clic su **Visualizza Proprietà computer**. Verrà visualizzata la pagina **Proprietà** dei computer.  
   
 3.  Fare clic su una scheda per visualizzare le proprietà del computer specifico.  
   

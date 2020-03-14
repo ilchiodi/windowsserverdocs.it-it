@@ -1,5 +1,5 @@
 ---
-title: Pianificazione del sito di MultiPoint Services
+title: Pianificazione del sito di Servizi MultiPoint
 description: Informazioni sulla pianificazione per le distribuzioni MultiPoint Services in Windows Server 2016
 ms.custom: na
 ms.date: 07/22/2016
@@ -14,13 +14,13 @@ author: evaseydl
 manager: scottman
 ms.author: evas
 ms.openlocfilehash: 744e49f47f7144dac82dbe68c885060b0c08490d
-ms.sourcegitcommit: 06ae7c34c648538e15c4d9fe330668e7df32fbba
+ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78371874"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79322793"
 ---
-# <a name="multipoint-services-site-planning"></a>Pianificazione del sito di MultiPoint Services
+# <a name="multipoint-services-site-planning"></a>Pianificazione del sito di Servizi MultiPoint
 È necessario prendere in considerazione la posizione in cui verranno distribuiti uno o più computer che eseguono MultiPoint Services e le stazioni associate.  
   
 Il computer che esegue il ruolo Servizi MultiPoint deve disporre di un comodo accesso a un alimentatore e ai dispositivi periferici connessi direttamente, ad esempio una stampante. Inoltre, il computer in cui è in esecuzione MultiPoint Services deve disporre di un comodo accesso a una connessione di rete. È necessaria una connessione di rete per l'accesso a Internet e, laddove disponibile, una LAN.  

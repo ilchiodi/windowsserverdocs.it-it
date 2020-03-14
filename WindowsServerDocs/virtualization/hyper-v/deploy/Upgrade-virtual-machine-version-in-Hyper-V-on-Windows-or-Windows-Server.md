@@ -12,11 +12,11 @@ author: jasongerend
 ms.author: jgerend
 ms.date: 05/22/2019
 ms.openlocfilehash: 96678dfab2a3d5b6f503d8ce9d00850a3c437b35
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71392938"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79322723"
 ---
 # <a name="upgrade-virtual-machine-version-in-hyper-v-on-windows-10-or-windows-server"></a>Aggiornare la versione della macchina virtuale in Hyper-V in Windows 10 o Windows Server
 
@@ -30,7 +30,7 @@ Rendere disponibili le funzionalità di Hyper-V più recenti nelle macchine virt
 
 Per ulteriori informazioni, vedere [aggiornamento in sequenza del sistema operativo del cluster](../../../failover-clustering/Cluster-Operating-System-Rolling-Upgrade.md) ed [eseguire un aggiornamento in sequenza di un cluster host Hyper-V in VMM](https://docs.microsoft.com/system-center/vmm/hyper-v-rolling-upgrade).
 
-## <a name="step-1-check-the-virtual-machine-configuration-versions"></a>Passaggio 1: Controllare le versioni di configurazione della macchina virtuale
+## <a name="step-1-check-the-virtual-machine-configuration-versions"></a>Passaggio 1: Verificare le versioni di configurazione macchina virtuale
 
 1. Sul desktop di Windows fare clic sul pulsante Start e digitare qualsiasi parte del nome **Windows PowerShell**.
 2. Fare doppio clic su Windows PowerShell e selezionare **Esegui come amministratore**.
@@ -42,7 +42,7 @@ Get-VM * | Format-Table Name, Version
 
 È inoltre possibile visualizzare la versione di configurazione Gestione di Hyper-V selezionando la macchina virtuale ed esaminando il **riepilogo** scheda.
 
-## <a name="step-2-upgrade-the-virtual-machine-configuration-version"></a>Passaggio 2: Aggiornare la versione di configurazione della macchina virtuale
+## <a name="step-2-upgrade-the-virtual-machine-configuration-version"></a>Passaggio 2: Aggiornare la versione di configurazione macchina virtuale
 
 1. Arrestare la macchina virtuale in Hyper-V Manager.
 2. Selezionare l'azione > aggiornare la versione di configurazione. Se questa opzione non è disponibile per la macchina virtuale, quindi è già la versione di configurazione più elevato supportato dall'host Hyper-V.
@@ -81,8 +81,8 @@ La tabella seguente elenca le versioni di configurazione della macchina virtuale
 |Windows Server 2016|&#10006;|&#10006;|&#10006;|&#10006;|&#10006;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
 |Windows 10 Enterprise 2016 LTSB|&#10006;|&#10006;|&#10006;|&#10006;|&#10006;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
 |Windows 10 Enterprise 2015 LTSB|&#10006;|&#10006;|&#10006;|&#10006;|&#10006;|&#10006;|&#10006;|&#10006;|&#10004;|&#10004;|
-|Windows Server 2012 R2|&#10006;|&#10006;|&#10006;|&#10006;|&#10006;|&#10006;|&#10006;|&#10006;|&#10006;|&#10004;|
-|Windows 8.1|&#10006;|&#10006;|&#10006;|&#10006;|&#10006;|&#10006;|&#10006;|&#10006;|&#10006;|&#10004;|
+|Windows Server 2012 R2|&#10006;|&#10006;|&#10006;|&#10006;|&#10006;|&#10006;|&#10006;|&#10006;|&#10006;|&#10004;|
+|Windows 8.1|&#10006;|&#10006;|&#10006;|&#10006;|&#10006;|&#10006;|&#10006;|&#10006;|&#10006;|&#10004;|
 
 ### <a name="supported-vm-configuration-versions-for-semi-annual-channel-hosts"></a>Versioni di configurazione della macchina virtuale supportate per gli host del canale semestrale
 
@@ -94,7 +94,7 @@ La tabella seguente elenca le versioni di configurazione delle macchine virtuali
 | Windows Server, versione 1903 |&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;| &#10004;|
 |Windows Server, versione 1809|&#10006;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
 |Aggiornamento di Windows 10 ottobre 2018 (versione 1809)|&#10006;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
-|Windows Server, versione 1803|&#10006;|&#10006;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
+|Windows Server versione 1803|&#10006;|&#10006;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
 |Aggiornamento di Windows 10 aprile 2018 (versione 1803)|&#10006;|&#10006;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
 |Windows 10 Fall Creators Update (versione 1709)|&#10006;|&#10006;|&#10006;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
 |Windows 10 Creators Update (versione 1703)|&#10006;|&#10006;|&#10006;|&#10006;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
@@ -110,11 +110,11 @@ Nella tabella seguente elenca le descrizioni, estensioni di file e percorsi pred
 
  |Tipi di file di macchina virtuale | Descrizione|
  |---|---|
-|Configurazione |Informazioni sulla configurazione di macchina virtuale archiviata in formato binario. <br /> Estensione del nome file: .vmcx <br /> Percorso predefinito: C:\ProgramData\Microsoft\Windows\Hyper-V\Virtual Machines|
- |Stato di runtime|Informazioni sullo stato runtime macchina virtuale archiviata in formato binario. <br />Estensione del nome file:. vmrs e. VMgs <br />Percorso predefinito: C:\ProgramData\Microsoft\Windows\Hyper-V\Virtual Machines|
-|Disco rigido virtuale|Archivia i dischi rigidi virtuali per la macchina virtuale. <br /> Estensione del nome file: file con estensione vhd o vhdx. <br />Percorso predefinito: Dischi rigidi C:\ProgramData\Microsoft\Windows\Hyper-V\Virtual|
- |Automatica del disco rigido virtuale |Differenze file su disco utilizzati per i checkpoint della macchina virtuale. <br /> Estensione del nome file: avhdx <br /> Percorso predefinito: Dischi rigidi C:\ProgramData\Microsoft\Windows\Hyper-V\Virtual|
- |Checkpoint|I checkpoint sono archiviati in più file di checkpoint. Ogni checkpoint crea un file di configurazione e file di stato di runtime. <br /> Estensioni di file: .vmrs e .vmcx <br />Percorso predefinito: C:\ProgramData\Microsoft\Windows\Snapshots|
+|Configurazione |Informazioni sulla configurazione di macchina virtuale archiviata in formato binario. <br /> Estensione del nome file: .vmcx <br /> Percorso predefinito: C:\ProgramData\Microsoft\Windows\Hyper-V\Virtual macchine|
+ |Stato di runtime|Informazioni sullo stato runtime macchina virtuale archiviata in formato binario. <br />Estensione del nome file:. vmrs e. VMgs <br />Percorso predefinito: C:\ProgramData\Microsoft\Windows\Hyper-V\Virtual macchine|
+|Disco rigido virtuale|Archivia i dischi rigidi virtuali per la macchina virtuale. <br /> Estensione del nome file: file con estensione vhd o vhdx. <br />Percorso predefinito: dischi rigidi C:\ProgramData\Microsoft\Windows\Hyper-V\Virtual|
+ |Automatica del disco rigido virtuale |Differenze file su disco utilizzati per i checkpoint della macchina virtuale. <br /> Estensione del nome file: avhdx <br /> Percorso predefinito: dischi rigidi C:\ProgramData\Microsoft\Windows\Hyper-V\Virtual|
+ |Punto di controllo|I checkpoint sono archiviati in più file di checkpoint. Ogni checkpoint crea un file di configurazione e file di stato di runtime. <br /> Estensioni di file: .vmrs e .vmcx <br />Percorso predefinito: C:\ProgramData\Microsoft\Windows\Snapshots|
 
 ## <a name="what-happens-if-i-dont-upgrade-the-virtual-machine-configuration-version"></a>Cosa accade se non aggiornare la versione di configurazione macchina virtuale?
 
@@ -127,7 +127,7 @@ Come indicazione generale, è consigliabile aggiornare la versione di configuraz
 
 La tabella seguente illustra la versione minima di configurazione della macchina virtuale necessaria per usare alcune funzionalità di Hyper-V.
 
-|Funzionalità|Versione minima di configurazione macchina Virtuale|
+|Caratteristica|Versione minima di configurazione macchina Virtuale|
 |---|---|
 |Aggiunta o rimozione di memoria a caldo|6.2|
 |Avvio protetto per le macchine virtuali Linux|6.2|

@@ -1,6 +1,6 @@
 ---
 title: Gestire le cartelle server in Windows Server Essentials
-description: Viene descritto come utilizzare Windows Server Essentials
+description: Viene descritto come usare Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
 ms.prod: windows-server-2016-essentials
@@ -13,21 +13,21 @@ author: nnamuhcs
 ms.author: coreyp
 manager: dongill
 ms.openlocfilehash: 0c46d19f4f172786e0ffe7f3b9dd7ac1d8f4fcf0
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66433201"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79322233"
 ---
 # <a name="manage-server-folders-in-windows-server-essentials"></a>Gestire le cartelle server in Windows Server Essentials
 
 >Si applica a: Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
   
- Come amministratore del server, è possibile gestire l'accesso a qualsiasi cartella del server (noti come le cartelle condivise quando vi si accede dal Launchpad, accesso Web remoto, l'app My Server per Windows Phone o app My Server per Windows 8) sul server tramite l'attività nella  **Le cartelle del server** scheda del Dashboard, concedendo agli utenti diversi livelli di accesso a una varietà di file.  
+ In qualità di amministratore del server, è possibile gestire l'accesso a qualsiasi cartella del server (nota come cartella condivisa quando si accede dalla finestra di avvio, dall'Accesso Web remota, dall'app My Server per Windows Phone o dall'app My Server per Windows 8) nel server usando le attività nella scheda **cartelle server** del dashboard, consentendo agli utenti di variare i livelli di accesso a un'ampia gamma di file.  
   
  Gli argomenti seguenti includono informazioni che permettono di comprendere, creare e gestire le cartelle del server:  
   
--   [Gestire le cartelle del server tramite il Dashboard](Manage-Server-Folders-in-Windows-Server-Essentials.md#BKMK_2)  
+-   [Gestire le cartelle del server tramite il dashboard](Manage-Server-Folders-in-Windows-Server-Essentials.md#BKMK_2)  
   
 -   [Gestire l'accesso alle cartelle del server](Manage-Server-Folders-in-Windows-Server-Essentials.md#BKMK_1)  
   
@@ -39,7 +39,7 @@ ms.locfileid: "66433201"
   
 -   [Informazioni sulle copie shadow](Manage-Server-Folders-in-Windows-Server-Essentials.md#BKMK_Shadow)  
   
-##  <a name="BKMK_2"></a> Gestire le cartelle del server tramite il Dashboard  
+##  <a name="BKMK_2"></a>Gestire le cartelle del server tramite il dashboard  
  Windows Server Essentials permette di eseguire le attività amministrative comuni tramite il dashboard. La pagina **Cartelle server** del dashboard offre le informazioni seguenti:  
   
 - Un elenco di cartelle del server, che include:  
@@ -62,17 +62,17 @@ ms.locfileid: "66433201"
   
 ### <a name="server-folder-tasks-on-the-dashboard"></a>Attività relative alle cartelle del server nel dashboard  
   
-|Nome attività|Descrizione|  
+|Nome dell'attività|Descrizione|  
 |---------------|-----------------|  
 |Apri la cartella|Mostra i contenuti della cartella selezionata in Esplora file (denominato Esplora risorse nelle versioni precedenti di Windows).|  
-|Elimina cartella|Permette di eliminare una cartella creata dagli utenti. Questa attività non è disponibile per le cartelle predefinite create dall'installazione del server.|  
+|Elimina la cartella|Permette di eliminare una cartella creata dagli utenti. Questa attività non è disponibile per le cartelle predefinite create dall'installazione del server.|  
 |Sposta la cartella|Apre una procedura guidata che semplifica lo spostamento di una cartella del server in un nuovo percorso.|  
 |Interrompi condivisione cartella|Interrompe la condivisione della cartella selezionata, ma non la elimina. Se la cartella non è più condivisa, non è più visualizzata nel dashboard. Questa attività non è disponibile per le cartelle predefinite create dall'installazione del server.|  
-|Visualizza le proprietà della cartella|Visualizza le proprietà di una cartella selezionata e permette di eseguire le operazioni seguenti:<br /><br /> -Modificare il nome delle cartelle creati dall'utente.<br /><br /> -Modificare la descrizione di una cartella selezionata.<br /><br /> -Visualizzare le dimensioni della cartella.<br /><br /> -Aprire la cartella selezionata in Esplora File.<br /><br /> -Specificare le autorizzazioni di accesso account utente per una cartella selezionata.<br /><br /> -Nascondere una cartella selezionata dalle applicazioni accesso Web remoto e servizio Web.<br /><br /> -Specificare quote delle cartelle.|  
+|Visualizza le proprietà della cartella|Visualizza le proprietà di una cartella selezionata e permette di eseguire le operazioni seguenti:<br /><br /> -Modificare il nome delle cartelle create dall'utente.<br /><br /> -Modificare la descrizione di una cartella selezionata.<br /><br /> -Visualizzare le dimensioni della cartella.<br /><br /> -Aprire la cartella selezionata in Esplora file.<br /><br /> -Specificare le autorizzazioni di accesso all'account utente per una cartella selezionata.<br /><br /> -Nascondi una cartella selezionata dalle applicazioni remote Accesso Web e servizio Web.<br /><br /> -Specifica la quota della cartella.|  
 |Aggiungi una cartella|Permette di creare una nuova cartella del server e di assegnare il livello di accesso consentito per ogni account utente.|  
 |Informazioni sulle cartelle server|Apre un argomento della Guida su Internet che descrive l'uso e le funzionalità delle cartelle del server.|  
   
-##  <a name="BKMK_1"></a> Gestire l'accesso alle cartelle del server  
+##  <a name="BKMK_1"></a>Gestire l'accesso alle cartelle del server  
  Windows Server Essentials permette di archiviare i file disponibili nei computer client in una posizione centrale tramite le cartelle del server. L'archiviazione dei file nelle cartelle del server permette di assicurare che i file si trovino in una posizione sempre accessibile in modo sicuro da ogni client.  
   
  L'uso delle cartelle del server per l'archiviazione dei file permette di ottenere i risultati seguenti:  
@@ -95,17 +95,17 @@ ms.locfileid: "66433201"
 |Musica|Permette l'archiviazione e l'accesso a file musicali da parte degli utenti di rete. Questa cartella è disponibile quando si attiva la condivisione dei file multimediali.|  
 |Immagini|Permette l'archiviazione e l'accesso a file di immagine da parte degli utenti di rete. Questa cartella è disponibile quando si attiva la condivisione dei file multimediali.|  
 |Registrazioni|Permette l'archiviazione e l'accesso ai programmi televisivi registrati da parte degli utenti di rete. Questa cartella è disponibile quando si attiva la condivisione dei file multimediali.|  
-|Video|Permette l'archiviazione e l'accesso a file video da parte degli utenti di rete. Questa cartella è disponibile quando si attiva la condivisione dei file multimediali.|  
+|Videos|Permette l'archiviazione e l'accesso a file video da parte degli utenti di rete. Questa cartella è disponibile quando si attiva la condivisione dei file multimediali.|  
   
  Per nascondere o impostare autorizzazioni per le cartelle del server o per modificare le proprietà delle cartelle del server, vedere le procedure seguenti:  
   
--   [Nascondere le cartelle del server](Manage-Server-Folders-in-Windows-Server-Essentials.md#BKMK_Hide)  
+-   [Nascondi cartelle server](Manage-Server-Folders-in-Windows-Server-Essentials.md#BKMK_Hide)  
   
 -   [Impostare le autorizzazioni per le cartelle del server](Manage-Server-Folders-in-Windows-Server-Essentials.md#BKMK_Perms)  
   
--   [Visualizzare o modificare le proprietà della cartella server](Manage-Server-Folders-in-Windows-Server-Essentials.md#BKMK_10)  
+-   [Visualizzare o modificare le proprietà delle cartelle del server](Manage-Server-Folders-in-Windows-Server-Essentials.md#BKMK_10)  
   
-###  <a name="BKMK_Hide"></a> Nascondere le cartelle del server  
+###  <a name="BKMK_Hide"></a>Nascondi cartelle server  
  Gli amministratori di rete possono scegliere di nascondere le cartelle del server e impedirne la visualizzazione nel sito Web Accesso Web remoto o nelle applicazioni Servizi Web, ad esempio My Server.  
   
 > [!NOTE]
@@ -119,11 +119,11 @@ ms.locfileid: "66433201"
   
 3.  Nella visualizzazione elenco selezionare la cartella del server di cui si vogliono visualizzare o modificare le proprietà.  
   
-4.  Nel **< Cartellaserver\> attività** riquadro, fare clic su **consente di visualizzare le proprietà della cartella**.  
+4.  Nel riquadro **attività < cartellaserver\>** fare clic su **Visualizza proprietà cartella**.  
   
-5.  Nel **< nomecartella\> delle proprietà**, fare clic su **condivisione**, selezionare **Nascondi la cartella dalle applicazioni accesso Web remoto e servizio Web**, quindi fare clic su **Applicare**.  
+5.  In **< foldername\> proprietà**fare clic su **condivisione**, selezionare **Nascondi la cartella dalle applicazioni remote accesso Web e servizio Web**, quindi fare clic su **applica**.  
   
-###  <a name="BKMK_Perms"></a> Impostare le autorizzazioni per le cartelle del server  
+###  <a name="BKMK_Perms"></a>Impostare le autorizzazioni per le cartelle del server  
  È possibile scegliere tre impostazioni di accesso diverse per eventuali cartelle del server aggiunte al server tramite il dashboard:  
   
 -   **Lettura/scrittura**  
@@ -152,21 +152,21 @@ ms.locfileid: "66433201"
   
 3.  Nella visualizzazione elenco selezionare la cartella del server di cui si vogliono visualizzare o modificare le proprietà.  
   
-4.  Nel **< Cartellaserver\> attività** riquadro, fare clic su **consente di visualizzare le proprietà della cartella**.  
+4.  Nel riquadro **attività < cartellaserver\>** fare clic su **Visualizza proprietà cartella**.  
   
-5.  Nelle **< nomecartella\> delle proprietà**, fare clic su **condivisione**, selezionare il livello di accesso utente appropriato per gli account utente elencati e quindi fare clic su **applica**.  
+5.  In **< foldername\> proprietà**fare clic su **condivisione**e selezionare il livello di accesso utente appropriato per gli account utente elencati, quindi fare clic su **applica**.  
   
 > [!NOTE]
 >  Per impostazione predefinita, quando si aggiunge un account utente alla rete, nella cartella **Utenti** sul server sarà creata una sottocartella per l'utente. Solo l'utente o l'amministratore potranno accedere alla sottocartella da un computer di rete. Le autorizzazioni sono configurate per ogni sottocartella disponibile in **Utenti**. Non sono quindi disponibili autorizzazioni di accesso generali per la cartella **Utenti** di primo livello.  
   
 > [!NOTE]
->  Non è possibile modificare le autorizzazioni di condivisione per le cartelle del server **Backup Cronologia file**, **Reindirizzamento cartelle**e **Utenti** . Le proprietà di queste cartelle del server non includono quindi la scheda **Condivisione**.  
+>  Non è possibile modificare le autorizzazioni di condivisione per le cartelle del server **Backup Cronologia file**, **Reindirizzamento cartelle** e **Utenti**. Le proprietà di queste cartelle del server non includono quindi la scheda **Condivisione**.  
   
-###  <a name="BKMK_10"></a> Visualizzare o modificare le proprietà della cartella server  
+###  <a name="BKMK_10"></a>Visualizzare o modificare le proprietà delle cartelle del server  
  È possibile modificare il nome e la descrizione delle cartelle del server e definire gli account utente autorizzati ad accedere a una cartella del server tramite l'attività **Visualizza le proprietà della cartella** nella scheda **Cartelle server** del dashboard.  
   
 > [!NOTE]
->  In Windows Server Essentials e Windows Server 2012 R2 con il ruolo esperienza Windows Server Essentials installato, è possibile modificare anche quote delle cartelle.  
+>  In Windows Server Essentials e Windows Server 2012 R2 con il ruolo esperienza Windows Server Essentials installato è anche possibile modificare la quota della cartella.  
   
 ##### <a name="to-view-or-modify-folder-properties"></a>Per visualizzare o modificare le proprietà delle cartelle  
   
@@ -176,14 +176,14 @@ ms.locfileid: "66433201"
   
 3.  Nella visualizzazione elenco selezionare la cartella del server di cui si vogliono visualizzare o modificare le proprietà.  
   
-4.  Nel **< Cartellaserver\> attività** riquadro, fare clic su **consente di visualizzare le proprietà della cartella**.  
+4.  Nel riquadro **attività < cartellaserver\>** fare clic su **Visualizza proprietà cartella**.  
   
-5.  Nella **< nomecartella\> delle proprietà**via il **generale** , visualizzare o modificare il nome e descrizione della cartella del server.  
+5.  In **< foldername\> proprietà**, nella scheda **generale** , visualizzare o modificare il nome e la descrizione della cartella del server.  
   
     > [!NOTE]
-    >  In Windows Server Essentials e Windows Server 2012 R2 con il ruolo esperienza Windows Server Essentials installato, è possibile modificare anche quote delle cartelle che generano un messaggio di avviso quando una cartella del server raggiunge la dimensione specificata.  
+    >  In Windows Server Essentials e Windows Server 2012 R2 con il ruolo esperienza Windows Server Essentials installato è anche possibile modificare la quota della cartella che genera un messaggio di avviso quando una cartella del server raggiunge le dimensioni specificate.  
   
-##  <a name="BKMK_5"></a> Aggiungere o spostare una cartella del server  
+##  <a name="BKMK_5"></a>Aggiungere o spostare una cartella del server  
  È possibile **aggiungere altre cartelle del server** per archiviare i file sul server, oltre alle cartelle del server predefinite create durante la procedura di installazione. Si possono aggiungere cartelle del server nel server primario o in un server membro che esegue Windows Server Essentials.  
   
  Se necessario, è possibile **spostare una cartella del server** disponibile nel server primario che esegue Windows Server Essentials e visualizzata nella scheda **Cartelle server** del dashboard in un altro disco rigido usando la procedura guidata Sposta una cartella. È possibile spostare una cartella del server in un altro indirizzo del percorso del disco rigido se si verificano le condizioni seguenti:  
@@ -226,7 +226,7 @@ ms.locfileid: "66433201"
   
 - Quote  
   
-###  <a name="BKMK_6"></a> Posizione in cui aggiungere o spostare una cartella del server  
+###  <a name="BKMK_6"></a>Dove aggiungere o spostare una cartella del server  
  In genere è consigliabile aggiungere o spostare le cartelle del server nel disco rigido in cui è disponibile la quantità massima di spazio. Se possibile, evitare di aggiungere o spostare una cartella condivisa nell'unità di sistema, ad esempio C:, poiché ciò potrebbe ridurre lo spazio sull'unità necessario per il sistema operativo e i relativi aggiornamenti. Evitare anche di aggiungere o spostare le cartelle del server in un disco rigido esterno, poiché queste unità possono essere disconnesse con facilità ed è quindi possibile che non si riesca ad accedere ai file. È invece consigliabile creare la cartella in un'unità interna.  
   
  Non è possibile aggiungere o spostare una cartella del server nei percorsi seguenti. Se si seleziona uno dei percorsi seguenti per aggiunte o spostamenti, sarà generato un errore:  
@@ -241,7 +241,7 @@ ms.locfileid: "66433201"
   
 -   Un disco rigido che si trova in **Dispositivi con archivi rimovibili**  
   
--   A root directory of a hard drive (such as C:\\, D:\\,  E:\\)  
+-   Una directory radice di un disco rigido (ad esempio C:\\, D:\\, E:\\)  
   
 -   Una sottocartella di una cartella condivisa esistente  
   
@@ -254,7 +254,7 @@ ms.locfileid: "66433201"
   
 ##### <a name="to-add-a-server-folder"></a>Per aggiungere una cartella del server  
   
-1. Aprire il dashboard.  
+1. Aprire il Dashboard.  
   
 2. Fare clic su **ARCHIVIAZIONE**, quindi su **Cartelle server**.  
   
@@ -264,11 +264,11 @@ ms.locfileid: "66433201"
   
    > [!NOTE]
    > - Se si cerca una cartella specifica tramite il pulsante Sfoglia per specificare il percorso della cartella del server, la cartella selezionata sarà aggiunta come cartella del server.  
-   >   -   È possibile definire le cartelle del server che saranno accessibili tramite il servizio Accesso Web remoto. Per altre informazioni, vedere [Manage access to server folders](Manage-Server-Folders-in-Windows-Server-Essentials.md#BKMK_1).  
+   >   -   È possibile definire le cartelle del server che saranno accessibili tramite il servizio Accesso Web remoto. Per altre informazioni, vedere [Gestire l'accesso alle cartelle del server](Manage-Server-Folders-in-Windows-Server-Essentials.md#BKMK_1).  
   
 ##### <a name="to-move-a-server-folder"></a>Per spostare una cartella del server  
   
-1.  Aprire il dashboard.  
+1.  Aprire il Dashboard.  
   
 2.  Fare clic su **ARCHIVIAZIONE**, quindi su **Cartelle server**.  
   
@@ -278,20 +278,20 @@ ms.locfileid: "66433201"
   
 5.  Seguire le istruzioni per completare la procedura guidata.  
   
-##  <a name="BKMK_9"></a> Aggiungere una cartella del server mancante  
- Se il server rileva che una cartella predefinita del server? Aziendale, gli utenti, backup Computer Client, Backup cronologia File o reindirizzamento cartelle? non è più condivisa (per qualche motivo o altro), viene generato un avviso per guidare l'utente per risolvere questo problema. È consigliabile provare a ripristinare la cartella dal backup del server. Se tuttavia non è stato eseguito il backup del server, selezionare la cartella mancante e quindi fare clic su **Ricrea la cartella mancante** per riconfigurare il percorso della cartella del server.  
+##  <a name="BKMK_9"></a>Aggiungere una cartella del server mancante  
+ Quando il server rileva la presenza di una cartella predefinita del server? Società, utenti, backup computer client, backup cronologia file o Reindirizzamento cartelle? non è più condiviso (per qualche motivo o un altro), viene generato un avviso per consentire all'utente di risolvere il problema. È consigliabile provare a ripristinare la cartella dal backup del server. Se tuttavia non è stato eseguito il backup del server, selezionare la cartella mancante e quindi fare clic su **Ricrea la cartella mancante** per riconfigurare il percorso della cartella del server.  
   
 > [!NOTE]
->  Solo le cartelle predefinite? Aziendale, gli utenti, backup Computer Client, Backup cronologia File o reindirizzamento cartelle? possono essere ricreati. Le cartelle del server create dagli utenti e le cartelle multimediali del server non possono essere create di nuovo.  
+>  Solo le cartelle predefinite? È possibile ricreare la società, gli utenti, i backup dei computer client, il backup di cronologia file o il reindirizzamento cartelle? Le cartelle del server create dagli utenti e le cartelle multimediali del server non possono essere create di nuovo.  
   
  Dopo il ripristino o la ricreazione, la cartella mancante non dovrebbe essere più elencata come **Mancante**.  
   
- Per informazioni sul ripristino dei file dai backup del server, vedere la sezione informazioni più sul ripristino di file e cartelle nell'argomento [Manage Backup and Restore](Manage-Backup-and-Restore-in-Windows-Server-Essentials.md).  
+ Per informazioni sul ripristino dei file dai backup del server, vedere la sezione ulteriori informazioni sul ripristino di file e cartelle nell'argomento [gestire il backup e il ripristino](Manage-Backup-and-Restore-in-Windows-Server-Essentials.md).  
   
-##  <a name="BKMK_11"></a> Informazioni sulle cartelle condivise  
- È possibile accedere in molti modi diversi alle cartelle condivise in Windows Server Essentials da un dispositivo connesso al server. Per altre informazioni, vedere l'argomento [Use Shared Folders](../use/Use-Shared-Folders-in-Windows-Server-Essentials.md).  
+##  <a name="BKMK_11"></a>Informazioni sulle cartelle condivise  
+ È possibile accedere in molti modi diversi alle cartelle condivise in Windows Server Essentials da un dispositivo connesso al server. Per ulteriori informazioni, vedere l'argomento [utilizzo di cartelle condivise](../use/Use-Shared-Folders-in-Windows-Server-Essentials.md).  
   
-##  <a name="BKMK_Shadow"></a> Informazioni sulle copie shadow  
+##  <a name="BKMK_Shadow"></a>Informazioni sulle copie shadow  
  Le copie shadow del server permettono agli utenti di visualizzare i file e le cartelle condivisi disponibili in determinati momenti passati. L'accesso a versioni precedenti dei file ovvero alle copie shadow è utile poiché permette agli utenti di eseguire le operazioni seguenti:  
   
 1. **Ripristinare file eliminati accidentalmente**. Se un file è stato eliminato accidentalmente, è possibile aprire una versione precedente e copiarla in una posizione sicura.  
@@ -304,8 +304,8 @@ ms.locfileid: "66433201"
   
 ## <a name="see-also"></a>Vedere anche  
   
--   [Gestire l'archiviazione Server](Manage-Server-Storage-in-Windows-Server-Essentials.md)  
+-   [Gestisci archiviazione server](Manage-Server-Storage-in-Windows-Server-Essentials.md)  
   
--   [Usare le cartelle condivise](../use/Use-Shared-Folders-in-Windows-Server-Essentials.md)  
+-   [Usa cartelle condivise](../use/Use-Shared-Folders-in-Windows-Server-Essentials.md)  
   
 -   [Gestire Windows Server Essentials](Manage-Windows-Server-Essentials.md)

@@ -9,11 +9,11 @@ ms.date: 03/01/2019
 ms.localizationpriority: medium
 ms.prod: windows-server
 ms.openlocfilehash: 6795464bfbadd12fc220e941ad2175eb83d0f050
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75949947"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79322863"
 ---
 # <a name="manage-hyper-converged-infrastructure-with-windows-admin-center"></a>Gestire l'infrastruttura iperconvergente con l'interfaccia di amministrazione di Windows
 
@@ -92,7 +92,7 @@ Se il cluster esegue Windows Server 2019, i passaggi precedenti non sono necessa
 
 La distribuzione può richiedere circa 30 – 45 minuti.
 
-## <a name="get-started"></a>Per iniziare
+## <a name="get-started"></a>Attività iniziali
 
 Una volta distribuita l'infrastruttura iperconvergente, è possibile gestirla usando l'interfaccia di amministrazione di Windows.
 
@@ -169,7 +169,7 @@ No.
 
 Anche se l'interfaccia di amministrazione di Windows offre un'integrazione potente e comoda con la Microsoft Azure cloud, l'esperienza di gestione e monitoraggio di base per l'infrastruttura iperconvergente è completamente in locale. Può essere installato e usato senza una connessione Internet.
 
-## <a name="things-to-try"></a>Possibili soluzioni
+## <a name="things-to-try"></a>Elementi da provare
 
 Se si è appena iniziato, di seguito sono riportate alcune esercitazioni rapide che consentono di apprendere come organizzare e funzionare il centro di amministrazione di Windows per l'infrastruttura iperconvergente. Si consiglia di valutare con attenzione gli ambienti di produzione. Questi video sono stati registrati con l'interfaccia di amministrazione di Windows versione 1804 e una build di anteprima Insider di Windows Server 2019.
 
@@ -217,7 +217,7 @@ Se si è appena iniziato, di seguito sono riportate alcune esercitazioni rapide 
     </tr>
 </table>
 
-### <a name="create-a-new-virtual-machine"></a>Creare una nuova macchina virtuale
+### <a name="create-a-new-virtual-machine"></a>Creazione di una nuova macchina virtuale
 
 1. Fare clic sullo strumento **macchine virtuali** nel riquadro di spostamento a sinistra.
 2. Nella parte superiore dello strumento macchine virtuali scegliere la scheda **inventario** , quindi fare clic su **nuova** per creare una nuova macchina virtuale.
@@ -286,7 +286,7 @@ Sono tutti i tuoi commenti e suggerimenti! Il vantaggio più importante degli ag
 - [Partecipa al forum di Windows Admin Center su Microsoft Tech community](https://techcommunity.microsoft.com/t5/Windows-Server-Management/bd-p/WindowsServerManagement)
 - Da Tweet a `@servermgmt`
 
-### <a name="see-also"></a>Vedi anche
+### <a name="see-also"></a>Vedere anche
 
 - [Windows Admin Center](../overview.md)
 - [Spazi di archiviazione diretta](https://docs.microsoft.com/windows-server/storage/storage-spaces/storage-spaces-direct-overview)

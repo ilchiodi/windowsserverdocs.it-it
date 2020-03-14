@@ -9,17 +9,17 @@ author: rpsqrd
 ms.technology: security-guarded-fabric
 ms.date: 01/14/2020
 ms.openlocfilehash: e66e7f365553f3aa106abbebf372492e0cc08386
-ms.sourcegitcommit: c5709021aa98abd075d7a8f912d4fd2263db8803
+ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/18/2020
-ms.locfileid: "76265943"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79322023"
 ---
 # <a name="deploying-the-host-guardian-service"></a>Distribuzione del servizio sorveglianza host 
 
 >Si applica a: Windows Server 2019, Windows Server (canale semestrale), Windows Server 2016
 
-Uno degli obiettivi più importanti di fornire un ambiente ospitato è garantire la sicurezza delle macchine virtuali in esecuzione nell'ambiente. L'infrastruttura sorvegliata consente ai provider di servizi cloud o agli amministratori del cloud privato aziendale di offrire un ambiente più sicuro per le macchine virtuali. Un'infrastruttura sorvegliata è costituita da un Servizio Sorveglianza host (Host Guardian Service - HGS), in genere, un cluster di tre nodi, oltre a uno o più host sorvegliati e un set di macchine virtuali schermate (VM).
+Uno degli obiettivi più importanti di fornire un ambiente ospitato è garantire la sicurezza delle macchine virtuali in esecuzione nell'ambiente. L'infrastruttura sorvegliata consente ai provider di servizi cloud o agli amministratori del cloud privato aziendale di offrire un ambiente più sicuro per le macchine virtuali. Un'infrastruttura sorvegliata è costituita da un servizio Sorveglianza host (Host Guardian Service - HGS), in genere un cluster di tre nodi, nonché da uno o più host sorvegliati e un set di macchine virtuali schermate.
 
 ## <a name="video-deploying-a-guarded-fabric"></a>Video: distribuzione di un'infrastruttura sorvegliata 
 
@@ -46,6 +46,6 @@ La tabella seguente suddivide le attività per distribuire un'infrastruttura sor
 | &nbsp; | &nbsp; |(14) [creare VM schermate usando Windows Azure Pack](guarded-fabric-shielded-vm-windows-azure-pack.md) <img src="../media/Guarded-Fabric-Shielded-VM/guarded-host-shielded-vms.png" alt="Step 14" hspace="8" align="right" /><br>[Creare VM schermate con VMM](https://technet.microsoft.com/system-center-docs/vmm/scenario/guarded-vms) <img src="../media/Guarded-Fabric-Shielded-VM/guarded-host-shielded-vms.png" alt="Step 15" hspace="8" align="right" />|
 
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 
 - [Infrastruttura sorvegliata e macchine virtuali schermate](guarded-fabric-and-shielded-vms-top-node.md)

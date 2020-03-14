@@ -9,11 +9,11 @@ ms.assetid: 4b66f517-b17d-408c-828f-a3793086bc1f
 ms.author: pashort
 author: shortpatti
 ms.openlocfilehash: f07520dcdefa04cb43760c5e5c66e28c0d1ce878
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71406249"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79322113"
 ---
 # <a name="wireless-access-deployment"></a>Distribuzione dell'accesso wireless
 
@@ -25,7 +25,7 @@ Per distribuire l'accesso wireless, attenersi alla procedura seguente:
 
 - [Creare un gruppo di sicurezza per gli utenti wireless](#bkmk_groups)
 
-- [Configurare i criteri \(IEEE 802,11\) per la rete wireless](#bkmk_policies)
+- [Configurare i criteri di rete wireless \(IEEE 802,11\)](#bkmk_policies)
 
 - [Configurare NPSs](#bkmk_nps)
 
@@ -40,7 +40,7 @@ Per distribuire e configurare i punti di accesso wireless, seguire questa proced
 - [Configurare punti di accesso wireless](#bkmk_wirelessaps)
 
 >[!NOTE]
->Le procedure illustrate in questa guida non includono istruzioni relative ai casi in cui la finestra di dialogo **Controllo dell'account utente** viene visualizzata per richiedere l'autorizzazione a continuare. Se si apre questa finestra di dialogo mentre si eseguono le procedure descritte in questa Guida, se è stata aperta la finestra di dialogo in risposta alle azioni dell'utente, fare clic su **Continue**.
+>Le procedure illustrate in questa guida non includono istruzioni relative ai casi in cui la finestra di dialogo **Controllo dell'account utente** viene visualizzata per richiedere l'autorizzazione a continuare. Se tale finestra di dialogo viene visualizzata nel corso delle procedure illustrate in questa guida in risposta alle azioni dell'utente, fare clic su **Continua**.
 
 ### <a name="bkmk_channel"></a>Specificare le frequenze del canale AP wireless
 
@@ -60,7 +60,7 @@ Questa procedura enumera gli elementi comunemente configurati in un punto di acc
 
 #### <a name="to-configure-your-wireless-aps"></a>Per configurare punti di accesso wireless  
 
-- **SSID**. Specificare il\(nome della rete wireless s\) \(, ad esempio ExampleWLAN\). Si tratta del nome annunciato ai client wireless.
+- **SSID**. Specificare il nome della rete wireless\(s\) \(ad esempio, ExampleWLAN\). Si tratta del nome annunciato ai client wireless.
 
 - **Crittografia**. Specificare WPA2\-Enterprise \(preferito\) o WPA\-Enterprise ed entrambi AES \(preferito\) o algoritmo di crittografia TKIP, a seconda di quali versioni sono supportate per le schede di rete di computer client wireless.
 
@@ -103,11 +103,11 @@ Per eseguire questa procedura è necessaria almeno l'appartenenza al gruppo **Do
 
 #### <a name="to-create-a-wireless-users-security-group"></a>Per creare un gruppo di sicurezza per gli utenti wireless
 
-1. Fare clic sul pulsante **Start**, scegliere **Strumenti di amministrazione** e quindi fare clic su **Utenti e computer di Active Directory**. Nello snap di Active Directory Users and Computers\-verrà avviato. Se non è già selezionato, fare clic sul nodo corrispondente al proprio dominio. Ad esempio, se il dominio è example.com, fare clic su **example.com**.
+1. Fare clic sul pulsante **Start**, scegliere **Strumenti di amministrazione** e quindi fare clic su **Utenti e computer di Active Directory**. Nello snap di Active Directory Users and Computers\-verrà avviato. Se non è già selezionato, fare clic sul nodo corrispondente al proprio dominio. Se ad esempio il nome del dominio è example.com, digitare **example.com**.
 
 2. Nel riquadro di destra\-fare clic sulla cartella in cui si desidera aggiungere un nuovo gruppo \(destro del mouse, ad esempio,\-fare clic su **utenti**\), scegliere **nuovo**, e quindi fare clic su **gruppo**.
 
-3. In **nuovo oggetto-gruppo**, in **nome gruppo**, digitare il nome del nuovo gruppo. Ad esempio, digitare **gruppo rete senza fili**.
+3. In **Nuovo oggetto gruppo** digitare il nome del nuovo gruppo in **Nome gruppo**. Ad esempio, digitare **gruppo rete senza fili**.
 
 4. In **Ambito del gruppo** selezionare una delle opzioni seguenti:
 
@@ -117,7 +117,7 @@ Per eseguire questa procedura è necessaria almeno l'appartenenza al gruppo **Do
 
     - **Universal**
 
-5. In **tipo di gruppo**, selezionare **sicurezza**.
+5. In area **Tipo gruppo** selezionare **Sicurezza**.
 
 6. Fare clic su **OK**.
 
@@ -127,11 +127,11 @@ Se è necessario più di un gruppo di sicurezza per gli utenti wireless, ripeter
 
 È possibile utilizzare questa procedura per aggiungere un utente, computer o gruppo al gruppo di protezione wireless in un computer Microsoft Management Console e di utenti di Active Directory \(MMC\) Blocca\-in.
 
-L'appartenenza a **Domain Admins**, o equivalente è il requisito minimo necessario per eseguire questa procedura.
+Per eseguire questa procedura è necessaria almeno l'appartenenza al gruppo **Domain Admins** oppure a un gruppo equivalente.
 
 #### <a name="to-add-users-to-the-wireless-security-group"></a>Per aggiungere utenti al gruppo di sicurezza wireless
 
-1. Fare clic sul pulsante **Start**, scegliere **Strumenti di amministrazione** e quindi fare clic su **Utenti e computer di Active Directory**. Viene aperto lo snap-in MMC Utenti e computer di Active Directory. Se non è già selezionato, fare clic sul nodo corrispondente al proprio dominio. Ad esempio, se il dominio è example.com, fare clic su **example.com**.
+1. Fare clic sul pulsante **Start**, scegliere **Strumenti di amministrazione** e quindi fare clic su **Utenti e computer di Active Directory**. Viene aperto lo snap-in MMC Utenti e computer di Active Directory. Se non è già selezionato, fare clic sul nodo corrispondente al proprio dominio. Se ad esempio il nome del dominio è example.com, digitare **example.com**.
 
 2. Nel riquadro dei dettagli fare doppio\-fare clic sulla cartella che contiene il gruppo di sicurezza wireless.
 
@@ -147,7 +147,7 @@ L'appartenenza a **Domain Admins**, o equivalente è il requisito minimo necessa
 
 ##### <a name="to-add-a-computer"></a>Per aggiungere un computer
 
-1. Fare clic su **tipi di oggetto**. Il **tipi di oggetto** verrà visualizzata la finestra di dialogo.
+1. Fare clic su **Tipi di oggetto**. Il **tipi di oggetto** verrà visualizzata la finestra di dialogo.
 
 2. In **tipi di oggetto**, selezionare **computer**, quindi fare clic su **OK**.
 
@@ -155,19 +155,19 @@ L'appartenenza a **Domain Admins**, o equivalente è il requisito minimo necessa
 
 4. Per assegnare l'appartenenza al gruppo ad altri computer, ripetere i passaggi da 1\-3 di questa procedura.
 
-## <a name="bkmk_policies"></a>Configurare i criteri \(IEEE 802,11\) per la rete wireless
+## <a name="bkmk_policies"></a>Configurare i criteri di rete wireless \(IEEE 802,11\)
 
 Seguire questi passaggi per configurare la rete senza fili \(IEEE 802.11\) estensione criteri di gruppo:
 
 - [Aprire o aggiungere e aprire un oggetto Criteri di gruppo](#bkmk_opengpme)
 
-- [Attiva criteri di rete \(wireless IEEE\) 802,11 predefiniti](#bkmk_activate)
+- [Attiva la rete wireless predefinita \(criteri di\) IEEE 802,11](#bkmk_activate)
 
 - [Configurare il nuovo criterio di rete wireless](#bkmk_policyconfig)
 
 ### <a name="bkmk_opengpme"></a>Aprire o aggiungere e aprire un oggetto Criteri di gruppo
 
-Per impostazione predefinita, la funzionalità Gestione criteri di gruppo è installata nei computer che eseguono Windows Server 2016 quando \(viene installato\) il ruolo server Servizi di dominio Active Directory Active Directory Domain Services e il server è configurato come controller di dominio. La procedura descritta di seguito viene descritto come aprire la Console Gestione criteri di gruppo \(GPMC\) sul controller di dominio. La procedura viene quindi descritto come aprire un dominio esistente\-oggetto Criteri di gruppo a livello di \(oggetto Criteri di gruppo\) per la modifica, o creare un nuovo dominio oggetto Criteri di gruppo e aprirlo e modificarlo.
+Per impostazione predefinita, la funzionalità di gestione di Criteri di gruppo è installata nei computer che eseguono Windows Server 2016 quando viene installato il Active Directory Domain Services \(il ruolo server\) servizi di dominio Active Directory e il server è configurato come controller di dominio. La procedura descritta di seguito viene descritto come aprire la Console Gestione criteri di gruppo \(GPMC\) sul controller di dominio. La procedura viene quindi descritto come aprire un dominio esistente\-oggetto Criteri di gruppo a livello di \(oggetto Criteri di gruppo\) per la modifica, o creare un nuovo dominio oggetto Criteri di gruppo e aprirlo e modificarlo.
 
 Per eseguire questa procedura è necessaria almeno l'appartenenza al gruppo **Domain Admins** oppure a un gruppo equivalente.
 
@@ -179,7 +179,7 @@ Per eseguire questa procedura è necessaria almeno l'appartenenza al gruppo **Do
 
 3. Nel riquadro a sinistra, fare doppio\-fare clic su **domini**, quindi fare doppio\-fare clic sul dominio per il quale si desidera gestire un oggetto Criteri di gruppo. Ad esempio, fare doppio\-fare clic su **example.com**.  
 
-4. Effettua una delle seguenti operazioni:
+4. Esegui una delle operazioni seguenti:
 
     -   **Per aprire un dominio esistente\-il livello di oggetto Criteri di gruppo per la modifica**, fare doppio clic sul dominio che contiene l'oggetto Criteri di gruppo che si desidera gestire, a destra\-fare clic sul criterio di dominio si desidera gestire, ad esempio il criterio dominio predefinito e quindi fare clic su **modificare**. **Editor Gestione criteri di gruppo** apre.
 
@@ -191,12 +191,12 @@ Per eseguire questa procedura è necessaria almeno l'appartenenza al gruppo **Do
 
 Nella sezione successiva si utilizzerà Editor Gestione criteri di gruppo per creare criteri wireless.
 
-### <a name="bkmk_activate"></a>Attiva criteri di rete \(wireless IEEE\) 802,11 predefiniti
+### <a name="bkmk_activate"></a>Attiva la rete wireless predefinita \(criteri di\) IEEE 802,11
 
-Questa procedura descrive come attivare \(i criteri di rete wireless IEEE 802,11\) predefiniti usando il Editor gestione criteri di gruppo \(Editor gestione criteri\).
+Questa procedura descrive come attivare la rete wireless predefinita \(criteri di\) IEEE 802,11 usando il Editor Gestione Criteri di gruppo \(Editor gestione criteri\).
 
 >[!NOTE]
->Dopo aver attivato la versione di **Windows Vista e versioni successive** della rete \(wireless IEEE 802,11\) Policies o la versione di **Windows XP** , l'opzione Version viene automaticamente rimossa dall'elenco di opzioni quando si fare\-clic con il pulsante destro su **rete \(wireless\) IEEE 802,11 criteri**. Ciò si verifica perché dopo aver selezionato una versione di criteri, il criterio viene aggiunto nel riquadro dei dettagli dell'EDITOR quando si seleziona il **rete senza fili \(IEEE 802.11\) criteri** nodo. Questo stato resta a meno che non si elimina il criterio wireless, momento in cui la versione del criterio wireless restituisce a destra\-fare clic sul menu **rete senza fili \(IEEE 802.11\) criteri** Nell'Editor. Inoltre, i criteri wireless sono visualizzati solo nel riquadro dei dettagli di EDITOR quando il **rete senza fili \(IEEE 802.11\) criteri** nodo selezionato.
+>Dopo aver attivato la versione di **Windows Vista e versioni successive** della rete wireless \(ieee 802,11\) Policies o la versione di **Windows XP** , l'opzione Version viene automaticamente rimossa dall'elenco di opzioni quando si fa clic con il pulsante\-destro del mouse su **rete wireless \(IEEE 802,11\) Policies**. Ciò si verifica perché dopo aver selezionato una versione di criteri, il criterio viene aggiunto nel riquadro dei dettagli dell'EDITOR quando si seleziona il **rete senza fili \(IEEE 802.11\) criteri** nodo. Questo stato resta a meno che non si elimina il criterio wireless, momento in cui la versione del criterio wireless restituisce a destra\-fare clic sul menu **rete senza fili \(IEEE 802.11\) criteri** Nell'Editor. Inoltre, i criteri wireless sono visualizzati solo nel riquadro dei dettagli di EDITOR quando il **rete senza fili \(IEEE 802.11\) criteri** nodo selezionato.
 
 Per eseguire questa procedura è necessaria almeno l'appartenenza al gruppo **Domain Admins** oppure a un gruppo equivalente.
 
@@ -212,7 +212,7 @@ Per eseguire questa procedura è necessaria almeno l'appartenenza al gruppo **Do
 
 ![802.1 x Wireless criteri](../../../media/Wireless-Policy/Wireless-Policy.jpg)
 
-4. Il **nuove proprietà di criteri di rete senza fili** verrà visualizzata la finestra di dialogo. In **Nome criterio**, digitare un nuovo nome per il criterio o mantenere il nome predefinito. Fare clic su **OK** per salvare il criterio. Il criterio viene attivato ed elencato nel riquadro dei dettagli di EDITOR con il nuovo nome fornito o con il nome predefinito **nuovi criteri di rete Wireless**.
+4. Il **nuove proprietà di criteri di rete senza fili** verrà visualizzata la finestra di dialogo. In **Nome criterio**, digitare un nuovo nome per il criterio o mantenere il nome predefinito. Fare clic su **OK** per salvare i criteri. Il criterio viene attivato ed elencato nel riquadro dei dettagli di EDITOR con il nuovo nome fornito o con il nome predefinito **nuovi criteri di rete Wireless**.
 
 ![Nuove proprietà di criteri di rete Wireless](../../../media/Wireless-Policy-Properties/Wireless-Policy-Properties.jpg)
 
@@ -224,17 +224,17 @@ Nella sezione successiva è possibile eseguire configurazione dei criteri di ord
 
 È possibile utilizzare le procedure descritte in questa sezione per configurare la rete senza fili \(IEEE 802.11\) criteri. Questo criterio consente di configurare le impostazioni di sicurezza e autenticazione, gestire i profili wireless e specificare le autorizzazioni per le reti wireless che non sono configurate come reti preferite.
 
-- [Configurare un profilo di connessione wireless per\-PEAP\-MS CHAP v2](#bkmk_configureprofile)  
+- [Configurare un profilo di connessione wireless per PEAP\-MS\-CHAP v2](#bkmk_configureprofile)  
 
 - [Imposta l'ordine delle preferenze per i profili di connessione wireless](#bkmk_preferenceorder)  
 
 - [Definire le autorizzazioni di rete](#bkmk_permissions)  
 
-#### <a name="bkmk_configureprofile"></a>Configurare un profilo di connessione wireless per\-PEAP\-MS CHAP v2
+#### <a name="bkmk_configureprofile"></a>Configurare un profilo di connessione wireless per PEAP\-MS\-CHAP v2
 
 Questa procedura include i passaggi necessari per configurare un PEAP\-MS\-CHAP v2 wireless profilo.  
 
-Per eseguire questa procedura, è necessaria almeno l'appartenenza al gruppo **Domain Admins** o a un gruppo equivalente.
+L'appartenenza al gruppo **Domain Admins** oppure a un gruppo equivalente è il requisito minimo necessario per completare questa procedura.
 
 ##### <a name="to-configure-a-wireless-connection-profile-for-peap-ms-chap-v2"></a>Per configurare un profilo di connessione wireless per PEAP\-MS\-CHAP v2
 
@@ -246,7 +246,7 @@ Per eseguire questa procedura, è necessaria almeno l'appartenenza al gruppo **D
 
 4. Nel**le proprietà del nuovo profilo** della finestra di dialogo di **connessione** nella scheda il **nome profilo** digitare un nuovo nome per il profilo. Ad esempio, digitare **example.com WLAN profile per Windows 10**.
 
-5. In **nome\(rete s\) SSIDdigitare\)il SSID corrispondente al SSID configurato nei punti di accesso wireless e quindi fare clic su Aggiungi. \(**
+5. In **nome rete\(s\) \(ssid\)** , digitare il SSID corrispondente al SSID configurato nei punti di accesso wireless e quindi fare clic su **Aggiungi**.
 
     Se nella distribuzione si usano più SSID e ogni punto di accesso wireless usa le stesse impostazioni di sicurezza wireless, ripetere questo passaggio per aggiungere l'SSID per ogni punto di accesso wireless al quale si vuole applicare questo profilo.
 
@@ -254,7 +254,7 @@ Per eseguire questa procedura, è necessaria almeno l'appartenenza al gruppo **D
 
 6. Se il testo predefinito **NEWSSID** è presente, selezionarlo e quindi fare clic su **rimuovere**.
 
-7. Se è stato distribuito access point wireless che sono configurati per l'esclusione del beacon di trasmissione, selezionare **connettersi anche se la rete non sta trasmettendo**.
+7. Se sono stati distribuiti punti di accesso wireless configurati per la soppressione del beacon di trasmissione, selezionare **Connetti anche se la rete non sta trasmettendo**.
 
     > [!NOTE]
     > L'abilitazione di questa opzione può creare un rischio per la sicurezza perché i client wireless effettueranno il probe e tenteranno le connessioni a qualsiasi rete wireless. Questa impostazione non è abilitata per impostazione predefinita.  
@@ -267,15 +267,15 @@ Per eseguire questa procedura, è necessaria almeno l'appartenenza al gruppo **D
 
     2. Per abilitare Single Sign On, selezionare **Attiva Single Sign-On per la rete**.
 
-    3. I valori predefiniti rimanenti **Single Sign-On** sono sufficienti per le distribuzioni wireless tipiche.
+    3. I valori predefiniti rimanenti in **Single Sign-On** sono sufficienti per le distribuzioni wireless tipiche.
 
     4. In **Roaming veloce**, se il punto di accesso wireless è configurato per pre-\-l'autenticazione, selezionare **la rete utilizza pre\-autenticazione**.
 
 9. Per specificare che le comunicazioni wireless soddisfino FIPS 140\-2 standard, selezionare **eseguire la crittografia FIPS 140\-2 modalità certificata**.
 
-10. Fare clic su **OK** per ritornare alla scheda **Sicurezza**. In Selezionare i metodi di sicurezza per la rete, in autenticazione**, selezionare **WPA2\-Enterprise** se è supportato il punto di accesso wireless e le schede di rete client wireless. In caso contrario, selezionare **WPA\-Enterprise**.
+10. Fare clic su **OK** per tornare alla scheda **sicurezza** . In **selezionare i metodi di sicurezza per la rete**, in **autenticazione**selezionare **WPA2\-Enterprise** se il punto di accesso wireless e le schede di rete dei client wireless sono supportati. In caso contrario, selezionare **WPA\-Enterprise**.
 
-11. In **crittografia**, se supportata dal client senza fili le schede di rete, selezionare AP senza fili **AES-CCMP**. Se si utilizza punti di accesso e schede di rete wireless che supportano 802.11 AC, selezionare **AES-GCMP**. In caso contrario, selezionare **TKIP**.
+11. In **crittografia**, se supportata dal client senza fili le schede di rete, selezionare AP senza fili **AES-CCMP**. Se si utilizza punti di accesso e schede di rete wireless che supportano 802.11 AC, selezionare **AES-GCMP**. In caso contrario selezionare **TKIP**.
 
     > [!NOTE]  
     > Le impostazioni delle opzioni **autenticazione** e **crittografia** deve corrispondere alle impostazioni configurate in punti di accesso wireless. Le impostazioni predefinite per **modalità di autenticazione**, **numero massimo di errori di autenticazione**, e **memorizza informazioni utente per successive connessioni a questa rete** sono sufficienti per le distribuzioni wireless tipiche.  
@@ -284,14 +284,14 @@ Per eseguire questa procedura, è necessaria almeno l'appartenenza al gruppo **D
 
 13. In **Proprietà EAP protette**confermare che **verificare l'identità del server convalidando che il certificato** sia selezionato.
 
-14. In **autorità di certificazione radice attendibili**selezionare la CA \(\) radice attendibile autorità di certificazione che ha emesso il certificato del server per il server dei criteri di accesso.
+14. In **autorità di certificazione radice attendibili**selezionare l'autorità di certificazione radice attendibile \(CA\) che ha emesso il certificato del server per il server dei criteri di accesso.
 
     > [!NOTE]  
     > Questa impostazione limita le CA radice che i client considerano attendibili a quelle selezionate. Se non sono selezionate Nessuna CA radice attendibili, i client considereranno attendibili che tutte le CA radice elencate nell'archivio dei certificati di autorità di certificazione radice attendibili.  
 
 15. Nel **Selezione metodo di autenticazione** selezionare **password protetta \(EAP\-MS\-CHAP v2\)** .
 
-16. Fare clic su **configurare**. Nel **proprietà EAP MSCHAPv2** finestra di dialogo verificare **utilizza automaticamente il nome di accesso di Windows e la password \(e dominio se qualsiasi\)** sia selezionata e fare clic su **OK**.
+16. Fare clic su **Configura**. Nel **proprietà EAP MSCHAPv2** finestra di dialogo verificare **utilizza automaticamente il nome di accesso di Windows e la password \(e dominio se qualsiasi\)** sia selezionata e fare clic su **OK**.
 
 17. Per abilitare la riconnessione rapida PEAP, assicurarsi che **Abilita riconnessione rapida** è selezionata.
 
@@ -301,7 +301,7 @@ Per eseguire questa procedura, è necessaria almeno l'appartenenza al gruppo **D
 
     > [! NOTE SULLA]
     > - Utilizzando criteri di RETE è necessario creare un criterio di NPS per 802.1 X Wireless **criterio richiesta di connessione**. Se viene creato un criterio di NPS utilizzando criteri di RETE **criteri di rete**, Consenti privacy identità non funzionerà.
-    > - Consenti privacy identità EAP è fornita da alcuni metodi EAP in un'identità anonima o vuota \(differente da quella effettiva\) viene inviato in risposta alla richiesta di identità EAP. Il protocollo PEAP invia l'identità due volte durante l'autenticazione. Nella prima fase, l'identità viene inviata in testo normale e questa identità viene usata a scopo di routing, non per l'autenticazione client. L'identità reale, usata per l'autenticazione, viene inviata durante la seconda fase dell'autenticazione, all'interno del tunnel sicuro stabilito nella prima fase. Se **Consenti Privacy identità** casella di controllo è selezionata, il nome utente viene sostituito con la voce specificata nella casella di testo. Si supponga, ad esempio, **Consenti Privacy identità** è selezionata e l'alias di privacy identità **anonimo** specificato nella casella di testo. Per un utente con un alias <strong>jdoe@example.com</strong>di identità reale, l'identità inviata nella prima fase di autenticazione verrà modificata in. <strong>anonymous@example.com</strong> La parte dell'area di autenticazione dell'identità della prima fase non viene modificata, perché viene usata a scopo di routing.  
+    > - Consenti privacy identità EAP è fornita da alcuni metodi EAP in un'identità anonima o vuota \(differente da quella effettiva\) viene inviato in risposta alla richiesta di identità EAP. Il protocollo PEAP invia l'identità due volte durante l'autenticazione. Nella prima fase, l'identità viene inviata in testo normale e questa identità viene usata a scopo di routing, non per l'autenticazione client. L'identità reale, usata per l'autenticazione, viene inviata durante la seconda fase dell'autenticazione, all'interno del tunnel sicuro stabilito nella prima fase. Se **Consenti Privacy identità** casella di controllo è selezionata, il nome utente viene sostituito con la voce specificata nella casella di testo. Si supponga, ad esempio, **Consenti Privacy identità** è selezionata e l'alias di privacy identità **anonimo** specificato nella casella di testo. Per un utente con un alias di identità reale <strong>jdoe@example.com</strong>, l'identità inviata nella prima fase di autenticazione verrà modificata in <strong>anonymous@example.com</strong>. La parte dell'area di autenticazione dell'identità della prima fase non viene modificata, perché viene usata a scopo di routing.  
 
 20. Fare clic su **OK** per chiudere la **Proprietà PEAP** la finestra di dialogo.
 21. Fare clic su **OK** per chiudere la **sicurezza** scheda.
@@ -318,7 +318,7 @@ Ad esempio, se si dispone di due profili, uno per i client che supportano WPA2 e
 
 Questa procedura include i passaggi per specificare l'ordine in cui i profili di connessione wireless vengono usati per connettere i client wireless membri del dominio alle reti wireless.
 
-Per eseguire questa procedura, è necessaria almeno l'appartenenza al gruppo **Domain Admins** o a un gruppo equivalente.
+L'appartenenza al gruppo **Domain Admins** oppure a un gruppo equivalente è il requisito minimo necessario per completare questa procedura.
 
 ##### <a name="to-set-the-preference-order-for-wireless-connection-profiles"></a>Per impostare l'ordine delle preferenze per i profili di connessione wireless
 
@@ -333,11 +333,11 @@ Per eseguire questa procedura, è necessaria almeno l'appartenenza al gruppo **D
 Nella sezione seguente, è possibile definire le autorizzazioni di rete per i criteri wireless.
 
 #### <a name="bkmk_permissions"></a>Definire le autorizzazioni di rete
-È possibile configurare le impostazioni nella scheda **autorizzazioni di rete** per i membri del dominio a cui \(si applicano i criteri IEEE 802,11\) per la rete wireless.
+È possibile configurare le impostazioni nella scheda **autorizzazioni di rete** per i membri del dominio a cui si applicano i criteri di rete wireless \(IEEE 802,11\).
 
 È possibile applicare solo le seguenti impostazioni per reti wireless che non sono configurate sul **Generale** nella scheda il **Proprietà criterio rete senza fili** pagina:
 
-- Consenti o nega le connessioni a reti wireless specifiche specificate dal tipo di rete e dall'identificatore \(del set di servizi SSID\)
+- Consentire o negare le connessioni a reti wireless specifiche specificate dall'identificatore del tipo di rete e del set di servizi \(SSID\)
 
 - Consentire o negare le connessioni a reti ad hoc
 
@@ -368,7 +368,7 @@ L'appartenenza a **Domain Admins**, o equivalente è il requisito minimo necessa
 
 6. Fare clic su **OK**, per ripristinare il **autorizzazioni di rete** scheda.
 
-##### <a name="to-specify-additional-network-permissions-optional"></a>Per specificare autorizzazioni \(di rete aggiuntive facoltative\)
+##### <a name="to-specify-additional-network-permissions-optional"></a>Per specificare autorizzazioni di rete aggiuntive \(facoltativo\)
 
 1.  Nel **autorizzazioni di rete** configurare una o tutte le operazioni seguenti:  
 
@@ -392,30 +392,30 @@ Seguire questa procedura per configurare NPSs per eseguire l'autenticazione 802.
 - [Creare criteri NPS per 802.1 X wireless tramite una procedura guidata](#bkmk_npspolicy)
 
 ### <a name="bkmk_npsreg"></a>Registra NPS in Active Directory Domain Services
-È possibile utilizzare questa procedura per registrare un server \(che esegue Server dei criteri di rete NPS\) in\) Active Directory Domain Services \(servizi di dominio Active Directory nel dominio in cui il server dei criteri di rete è membro. Per consentire a NPSs di concedere l'autorizzazione per la\-lettura della connessione nelle proprietà degli account utente durante il processo di autorizzazione, è necessario registrare ogni server dei criteri di dominio in servizi di dominio Active Directory. La registrazione di un server dei criteri di gruppo aggiunge il server al gruppo di sicurezza **server RAS e IAS** in servizi di dominio Active Directory.
+È possibile utilizzare questa procedura per registrare un server che esegue Server dei criteri di rete \(NPS\) in Active Directory Domain Services \(servizi di dominio Active Directory\) nel dominio in cui il server dei criteri di rete è membro. Per consentire a NPSs di concedere l'autorizzazione per leggere la\-di connessione nelle proprietà degli account utente durante il processo di autorizzazione, è necessario che ogni server dei criteri di dominio sia registrato in servizi di dominio Active Directory. La registrazione di un server dei criteri di gruppo aggiunge il server al gruppo di sicurezza **server RAS e IAS** in servizi di dominio Active Directory.
 
 >[!NOTE]
 >È possibile installare NPS in un controller di dominio o in un server dedicato. Eseguire il comando Windows PowerShell seguente per installare il server NPS se non si è ancora fatto:
     
     Install-WindowsFeature NPAS -IncludeManagementTools
     
-Per eseguire questa procedura, è necessaria almeno l'appartenenza al gruppo **Domain Admins** o a un gruppo equivalente.
+L'appartenenza al gruppo **Domain Admins** oppure a un gruppo equivalente è il requisito minimo necessario per completare questa procedura.
 
 #### <a name="to-register-an-nps-in-its-default-domain"></a>Per registrare un server dei criteri di dominio nel dominio predefinito
 
 1. Nel server dei criteri di rete, in **Server Manager**, fare clic su **strumenti**e quindi su server dei **criteri di rete**. Blocca NPS\-verrà avviato.
 
-2. Destra\-fare clic su **NPS \(locale\)** , quindi fare clic su **Registra Server in Active Directory**. Il **Server dei criteri di rete** verrà visualizzata la finestra di dialogo.
+2. Destra\-fare clic su **NPS \(locale\)** , quindi fare clic su **Registra Server in Active Directory**. Viene visualizzata la finestra di dialogo **Server dei criteri di rete**.
 
-3. In **Server dei criteri di rete**, fare clic su **OK**, quindi fare clic su **OK** nuovamente.
+3. In **Server dei criteri di rete** fare clic su **OK** e quindi di nuovo su **OK**.
 
 ### <a name="bkmk_radiusclient"></a>Configurare un punto di accesso wireless come client RADIUS Server dei criteri di rete
 È possibile utilizzare questa procedura per configurare un punto di accesso, noto anche come un *server di accesso di rete \(NAS\)* , come un Remote Authentication Dial\-In User Service \(RADIUS\) client utilizzando lo snap NPS\-in. 
 
 >[!IMPORTANT]
->I computer client, ad esempio computer portatili wireless e altri computer che eseguono sistemi operativi client, non sono client RADIUS. I client RADIUS sono server di accesso alla rete, ad esempio punti di accesso\-wireless, commutatori compatibili con\) 802.1 x, server\-VPN di rete \(privata virtuale e server di connessione remota, perché utilizzano il protocollo RADIUS per comunicare con i server RADIUS, ad esempio NPSs.
+>I computer client, ad esempio computer portatili wireless e altri computer che eseguono sistemi operativi client, sono client RADIUS. I client RADIUS sono server di accesso alla rete, ad esempio punti di accesso wireless, commutatori compatibili con 802.1 X\-, rete privata virtuale \(server\) VPN e server\-di connessione, perché usano il protocollo RADIUS per comunicare con i server RADIUS, ad esempio NPSs.
 
-Per eseguire questa procedura, è necessaria almeno l'appartenenza al gruppo **Domain Admins** o a un gruppo equivalente.
+L'appartenenza al gruppo **Domain Admins** oppure a un gruppo equivalente è il requisito minimo necessario per completare questa procedura.
 
 #### <a name="to-add-a-network-access-server-as-a-radius-client-in-nps"></a>Per aggiungere un server di accesso alla rete come client RADIUS in server dei criteri di rete
 
@@ -461,11 +461,11 @@ Dopo aver eseguito la procedura guidata, vengono creati i seguenti criteri:
 >[!NOTE]
 >Ogni volta che è necessario creare nuovi criteri per l'accesso autenticato con 802.1 X, è possibile eseguire la nuova procedura guidata per le connessioni cablate e wireless sicure IEEE 802.1 X.
 
-Per eseguire questa procedura, è necessaria almeno l'appartenenza al gruppo **Domain Admins** o a un gruppo equivalente.
+L'appartenenza al gruppo **Domain Admins** oppure a un gruppo equivalente è il requisito minimo necessario per completare questa procedura.
 
 #### <a name="create-policies-for-8021x-authenticated-wireless-by-using-a-wizard"></a>Creazione di criteri per l'accesso wireless autenticato tramite 802.1 X tramite una procedura guidata
 
-1. Blocca NPS aprire\-in. Se non è già selezionata, fare clic su **NPS \(locale\)** . Se si esegue lo snap\--in MMC NPS e si desidera creare criteri in un server dei criteri di server remoto, selezionare il server.
+1. Blocca NPS aprire\-in. Se non è già selezionata, fare clic su **NPS \(locale\)** . Se si esegue lo snap-in MMC NPS\-in e si desidera creare criteri in un server dei criteri di server remoto, selezionare il server.
 
 2. In **Introduzione**, in **configurazione Standard**, selezionare **server RADIUS per connessioni cablate o Wireless 802.1 X**. Il testo e i collegamenti sotto il testo cambiano per riflettere la selezione.
 
@@ -475,26 +475,26 @@ Per eseguire questa procedura, è necessaria almeno l'appartenenza al gruppo **D
 
 5.  Nel **specificare commutatori 802.1 X** pagina procedura guidata, in **client RADIUS**, tutti 802.1 X commutatori e i punti di accesso wireless che è stato aggiunto come client RADIUS nello snap di NPS\-vengono visualizzati. Effettuare una delle operazioni riportate di seguito.
 
-    -   Per \(aggiungere server di accesso alla rete\)NAS aggiuntivi, ad esempio punti di accesso wireless, in **client RADIUS**, fare clic su **Aggiungi**, quindi in **nuovo client RADIUS**immettere le informazioni per: **Nome descrittivo**, **indirizzo \(IP\)o DNS**e **segreto condiviso**.
+    -   Per aggiungere server di accesso di rete aggiuntiva \(NAS\), ad esempio punti di accesso wireless, in **client RADIUS**, fare clic su **Aggiungi**, quindi nella **client RADIUS nuovo**, immettere le informazioni per: **nome descrittivo**, **indirizzo \(IP o DNS\)** , e **segreto condiviso**.
 
     -   Per modificare le impostazioni per qualsiasi NAS **client RADIUS**, selezionare il punto di accesso per il quale si desidera modificare le impostazioni e quindi fare clic su **modificare**. Modificare le impostazioni secondo le esigenze.
 
     -   Per rimuovere un server NAS dall'elenco, **client RADIUS**, selezionare il server NAS e quindi fare clic su **rimuovere**.
 
         >[!WARNING]
-        >La rimozione di un client RADIUS dall'interno della procedura guidata **Configura 802.1 x** comporta l'eliminazione del client dalla configurazione NPS. Tutte le aggiunte, le modifiche e le eliminazioni apportate all'interno della procedura guidata **Configura 802.1 x** per i client RADIUS si\-riflettono nello snap-in NPS, nel nodo **client RADIUS** in server dei **criteri** \/ di configurazione **client RADIUS e server**. Ad esempio, se si utilizza la procedura guidata per rimuovere un switch 802.1 X, l'opzione viene rimossa anche da NPS snap\-in.
+        >La rimozione di un client RADIUS dall'interno della procedura guidata **Configura 802.1 x** comporta l'eliminazione del client dalla configurazione NPS. Tutte le aggiunte, le modifiche e le eliminazioni apportate all'interno della procedura guidata **Configura 802.1 x** per i client RADIUS si riflettono nello snap-in NPS\-in, nel nodo **client radius** in **NPS** \/ **client e server RADIUS**. Ad esempio, se si utilizza la procedura guidata per rimuovere un switch 802.1 X, l'opzione viene rimossa anche da NPS snap\-in.
 
-6. Fare clic su **Avanti**. Nella pagina **Configura metodo di autenticazione** della procedura guidata, **in \(tipo basato su metodo di accesso e configurazione\)di rete**, selezionare **Microsoft: \(PEAP PEAP\),quindifare clic su **Configura.****
+6. Fare clic su **Avanti**. Nel **configurare un metodo di autenticazione** pagina procedura guidata, in **tipo \(basato sul metodo di configurazione di rete e\)** , selezionare **Microsoft: PEAP \(PEAP\)** , quindi fare clic su **Configura**.
 
     >[!TIP]
-    >Se viene visualizzato un messaggio di errore che indica che non è possibile trovare un certificato per l'utilizzo con il metodo di autenticazione e che sono stati configurati Active Directory Servizi certificati per emettere automaticamente i certificati per i server RAS e IAS sulla rete, prima di tutto Assicurarsi di aver seguito i passaggi per registrare NPS in Active Directory Domain Services, quindi attenersi alla procedura seguente per aggiornare Criteri di gruppo: Fare clic sul pulsante **Start**, scegliere **sistema Windows**, **Esegui**, quindi in **Apri**, digitare **gpupdate**, quindi premere INVIO. Quando il comando restituisce risultati che indicano che l'utente e il computer criteri di gruppo sono stati aggiornati **correttamente, selezionare Microsoft: PEAP PEAP \(\)(Protected EAP), quindi fare clic su **Configura.****
+    >Se viene visualizzato un messaggio di errore che indica che non è possibile trovare un certificato per l'utilizzo con il metodo di autenticazione, sono stati configurati Active Directory Servizi certificati per emettere automaticamente certificati per i server RAS e IAS sulla rete. Assicurarsi prima di aver seguito i passaggi per registrare NPS in Active Directory Domain Services, quindi attenersi alla procedura seguente per aggiornare Criteri di gruppo: fare clic sul pulsante **Start**, scegliere **sistema Windows**, **Esegui**e in **Open**, digitare **gpupdate** , quindi premere INVIO. Quando il comando restituisce i risultati che indicano che sia utente e computer di criteri di gruppo sono aggiornati correttamente, selezionare **Microsoft: PEAP \(PEAP\)** nuovamente, quindi fare clic su **Configura**.
     >
-    >Se dopo l'aggiornamento Criteri di gruppo si continua a ricevere il messaggio di errore che indica che non è possibile trovare un certificato per l'utilizzo con il metodo di autenticazione, il certificato non viene visualizzato perché non soddisfa il certificato server minimo requisiti come descritto nella Guida complementare alla rete core: [Distribuire i certificati server per le distribuzioni wireless e cablate 802.1 x](https://technet.microsoft.com/windows-server-docs/networking/core-network-guide/cncg/server-certs/deploy-server-certificates-for-802.1x-wired-and-wireless-deployments). In tal caso, è necessario interrompere la configurazione di NPS, revocare il certificato emesso ai\(server\)dei criteri di configurazione e quindi seguire le istruzioni per configurare un nuovo certificato usando la guida alla distribuzione dei certificati server.
+    >Se dopo l'aggiornamento dei criteri di gruppo si continua a ricevere il messaggio di errore che indica che è Impossibile trovare un certificato per l'utilizzo con il metodo di autenticazione, il certificato non viene visualizzato perché non soddisfa i requisiti del certificato server minimo come documentato nella Guida complementare alla rete Core: [distribuire certificati Server per le distribuzioni Wireless e cablate 802.1 X](https://technet.microsoft.com/windows-server-docs/networking/core-network-guide/cncg/server-certs/deploy-server-certificates-for-802.1x-wired-and-wireless-deployments). In tal caso, è necessario interrompere la configurazione del server dei criteri di server, revocare il certificato emesso al server dei criteri di configurazione\(s\), quindi seguire le istruzioni per configurare un nuovo certificato usando la guida alla distribuzione dei certificati server.
 
 7.  Nella pagina **modifica proprietà EAP protetto** , in **certificato emesso**, verificare che sia selezionato il certificato del server dei criteri di configurazione corretto, quindi eseguire le operazioni seguenti:
 
     >[!NOTE]
-    >Verificare che il valore in **dell'autorità di certificazione** corretto per il certificato selezionato **certificato emesso**. Ad esempio, l'emittente prevista per un certificato emesso da un'autorità di certificazione che esegue Active Directory \(Servizi certificati\) Active Directory denominato corp\DC1, nel dominio contoso.com, **è\-Corp\-DC1 CA**.
+    >Verificare che il valore in **dell'autorità di certificazione** corretto per il certificato selezionato **certificato emesso**. Ad esempio, l'emittente prevista per un certificato emesso da un'autorità di certificazione che esegue Active Directory Servizi certificati \(AD CS\) denominato corp\DC1, nel dominio contoso.com, è **corp\-DC1\-CA**.
 
     -   Per consentire agli utenti di effettuare il roaming con i computer wireless tra punti di accesso senza richiedere di ripetere l'autenticazione ogni volta che vengono associati a un nuovo punto di accesso, selezionare **Abilita riconnessione rapida**.
 
@@ -554,7 +554,7 @@ Dopo avere aggiunto il computer al dominio, è possibile utilizzare questa proce
 3. Aggiungere il nuovo computer wireless al dominio \(tramite una connessione Ethernet che non richiede IEEE 802.1 X, ad esempio l'autenticazione\) e aggiungere il profilo wireless bootstrap al computer utilizzando il **netsh wlan aggiungere profilo** comando.
 
     >[!NOTE]
-    >Per ulteriori informazioni, vedere comandi Netsh per \(la rete LAN wireless WLAN\) nella [libreria\/\/http:\/\/TechNet.Microsoft.com dd744890. aspx](https://technet.microsoft.com/library/dd744890).
+    >Per ulteriori informazioni, vedere comandi Netsh per rete locale wireless \(\) WLAN in [http:\/\/technet.microsoft.com\/library\/dd744890. aspx](https://technet.microsoft.com/library/dd744890).
 
 4. Distribuire il nuovo computer wireless per l'utente con la procedura per "Accesso al dominio utilizzando computer che eseguono Windows 10".
 
@@ -566,7 +566,7 @@ Quando l'utente avvia il computer, Windows richiede all'utente di immettere il n
 
 2. Premere un tasto sulla tastiera o fare clic sul desktop. Viene visualizzata la schermata di accesso con un nome di account utente locale visualizzato e un campo di immissione password sotto il nome. Non accedere con l'account utente locale.
 
-3. Nell'angolo inferiore sinistro della schermata, fare clic su **altro utente**. Schermata di accesso altro utente viene visualizzato con due campi, uno per il nome utente e una password. Di seguito la password è il testo **accesso a:** e quindi il nome di dominio in cui viene aggiunto il computer. Ad esempio, se il dominio è denominato example.com, il testo legge **l'accesso a: ESEMPIO**.
+3. Nell'angolo inferiore sinistro della schermata, fare clic su **altro utente**. Schermata di accesso altro utente viene visualizzato con due campi, uno per il nome utente e una password. Di seguito la password è il testo **accesso a:** e quindi il nome di dominio in cui viene aggiunto il computer. Ad esempio, se il dominio è example.com, il testo legge **accesso a: ESEMPIO**.
 
 4. In **nome utente**, digitare il nome utente di dominio.
 
@@ -614,7 +614,7 @@ Con questo metodo, completare i passaggi nella sezione passaggi generali, quindi
 
 12. Nel **PEAP \(PEAP\) proprietà** pagina, assicurarsi che **Convalida certificato server** non è selezionata, fare clic su **OK** due volte, quindi fare clic su **Chiudi**.
 
-13. Windows quindi tenta di connettersi alla rete wireless. Le impostazioni del profilo wireless bootstrap specificano che è necessario fornire le credenziali di dominio. Quando Windows richiede un nome account e una password, digitare le credenziali dell'account di dominio come indicato di seguito:  *Nome di dominio nomeutente,passworddeldominio.\\*
+13. Windows quindi tenta di connettersi alla rete wireless. Le impostazioni del profilo wireless bootstrap specificano che è necessario fornire le credenziali di dominio. Quando viene richiesto un nome di account e password, digitare le credenziali dell'account di dominio nel modo seguente:  *nome di dominio\\nome utente*,  *Password di dominio*.
 
 ##### <a name="to-join-a-computer-to-the-domain"></a>Per aggiungere un computer al dominio
 
@@ -627,5 +627,5 @@ Con questo metodo, completare i passaggi nella sezione passaggi generali, quindi
     Aggiungi Computer DomainName
     
 4. Quando richiesto, digitare il nome utente di dominio e la password e fare clic su **OK**.
-5. Riavviare il computer.
+5. Riavvia il computer.
 6. Seguire le istruzioni nella sezione precedente [accedere al dominio utilizzando computer che eseguono Windows 10](#bkmk_w10).

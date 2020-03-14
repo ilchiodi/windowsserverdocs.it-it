@@ -9,11 +9,11 @@ author: rpsqrd
 ms.technology: security-guarded-fabric
 ms.date: 09/25/2019
 ms.openlocfilehash: ec885670ca6808e89c63848781c4ff3dc27799b8
-ms.sourcegitcommit: 2a15de216edde8b8e240a4aa679dc6d470e4159e
+ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77465605"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79321983"
 ---
 # <a name="troubleshooting-guarded-hosts"></a>Risoluzione dei problemi degli host sorvegliati
 

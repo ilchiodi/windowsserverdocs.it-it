@@ -10,11 +10,11 @@ ms.prod: windows-server
 ms.technology: identity-adfs
 ms.author: billmath
 ms.openlocfilehash: ef38b0280a5753b0995e85d0809de6b632fa3afc
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71358124"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79323093"
 ---
 # <a name="configure-authentication-policies"></a>Configurare i criteri di autenticazione
 
@@ -30,7 +30,7 @@ Per ulteriori informazioni sull'autenticazione a più Fattori e multi-\-fattore 
 -   [Gestire i rischi con l'autenticazione a più fattori aggiuntiva per le applicazioni con esigenze particolari](../../ad-fs/operations/Manage-Risk-with-Additional-Multi-Factor-Authentication-for-Sensitive-Applications.md)
 
 ## <a name="configure-authentication-policies-via-the-ad-fs-management-snap-in"></a>Configurare i criteri di autenticazione tramite lo snap di gestione di ADFS\-in  
-L'appartenenza a **amministratori**, o equivalente nel computer locale è il requisito minimo per completare queste procedure.  Informazioni dettagliate sull'utilizzo degli account appropriati e appartenenze [dominio gruppi predefiniti locali e](https://go.microsoft.com/fwlink/?LinkId=83477).   
+Per eseguire queste procedure è necessaria almeno l'appartenenza al gruppo **Administrators** oppure a un gruppo equivalente nel computer locale.  Informazioni dettagliate sull'utilizzo degli account appropriati e appartenenze [dominio gruppi predefiniti locali e](https://go.microsoft.com/fwlink/?LinkId=83477).   
 
 In ADFS, in Windows Server 2012 R2, è possibile specificare un criterio di autenticazione in un ambito globale che è applicabile a tutte le applicazioni e servizi protetti da ADFS. È inoltre possibile impostare criteri di autenticazione per applicazioni specifiche e i servizi che si basano su attendibilità e sono protetti da ADFS. Specifica un criterio di autenticazione per un'applicazione specifica per ogni componente attendibilità non esegue l'override di criteri di autenticazione globali. Se globale o per ogni componente attendibilità del criterio di autenticazione richiede l'autenticazione a più Fattori, autenticazione a più Fattori viene attivata quando l'utente tenta di eseguire l'autenticazione per questo trust della relying party. Criteri di autenticazione globali rappresentano il fallback per i trust della relying party per applicazioni e servizi che non dispongono di un criterio specifico di autenticazione configurato. 
 
@@ -41,14 +41,14 @@ In ADFS, in Windows Server 2012 R2, è possibile specificare un criterio di aute
 2.  In ADFS blocca\-fare clic su **criteri di autenticazione**.  
 
 3.  Nel **autenticazione primaria** fare clic su **modificare** accanto a **impostazioni globali**. È inoltre possibile fare\-fare clic su **criteri di autenticazione**, e selezionare **Modifica autenticazione primaria globale**, o, nel **azioni** selezionare **Modifica autenticazione primaria globale**.  
-![criteri di autenticazione](media/Configure-Authentication-Policies/authpolicy1.png)
+criteri di autenticazione ![](media/Configure-Authentication-Policies/authpolicy1.png)
 
 4.  Nel **Modifica criteri di autenticazione globali** finestra via il **primario** scheda, è possibile configurare le impostazioni seguenti come parte di criteri di autenticazione globali:  
 
     -   Metodi di autenticazione da utilizzare per l'autenticazione principale. È possibile selezionare i metodi di autenticazione disponibili sotto il **Extranet** e **Intranet**.  
 
-    -   L'autenticazione del dispositivo tramite il **abilitare l'autenticazione del dispositivo** casella di controllo. Per altre informazioni, vedere [Accedere a una rete aziendale da qualsiasi dispositivo per SSO e l'autenticazione a due fattori trasparente per tutte le applicazioni aziendali](../../ad-fs/operations/Join-to-Workplace-from-Any-Device-for-SSO-and-Seamless-Second-Factor-Authentication-Across-Company-Applications.md).  
-![criteri di autenticazione](media/Configure-Authentication-Policies/authpolicy2.png)  
+    -   L'autenticazione del dispositivo tramite il **abilitare l'autenticazione del dispositivo** casella di controllo. Per altre informazioni, vedere [Join to Workplace from Any Device for SSO and Seamless Second Factor Authentication Across Company Applications](../../ad-fs/operations/Join-to-Workplace-from-Any-Device-for-SSO-and-Seamless-Second-Factor-Authentication-Across-Company-Applications.md).  
+criteri di autenticazione ![](media/Configure-Authentication-Policies/authpolicy2.png)  
 
 ## <a name="to-configure-primary-authentication-per-relying-party-trust"></a>Per configurare l'autenticazione principale per ogni componente attendibilità  
 
@@ -57,12 +57,12 @@ In ADFS, in Windows Server 2012 R2, è possibile specificare un criterio di aute
 2.  In ADFS blocca\-fare clic su **criteri di autenticazione**\\**Per attendibilità**, quindi fare clic su trust della relying party per la quale si desidera configurare i criteri di autenticazione.  
 
 3.  Direttamente\-fare clic su trust della relying party per la quale si desidera configurare i criteri di autenticazione e quindi selezionare **Modifica autenticazione primaria personalizzata**, o, sotto il **azioni** selezionare **Modifica autenticazione primaria personalizzata**.  
-![criteri di autenticazione](media/Configure-Authentication-Policies/authpolicy5.png)   
+criteri di autenticazione ![](media/Configure-Authentication-Policies/authpolicy5.png)   
 
 4.  Nel **Modifica criteri di autenticazione per < relying\_entità\_trust\_nome >** finestra, sotto il **primario** scheda, è possibile configurare l'impostazione seguente come parte del **Per attendibilità** criteri di autenticazione:  
 
     -   Se gli utenti devono fornire le proprie credenziali ogni volta che al momento dell'accesso\-in tramite il **gli utenti devono fornire le proprie credenziali ogni volta che al momento dell'accesso\-in** casella di controllo.  
-![criteri di autenticazione](media/Configure-Authentication-Policies/authpolicy6.png) 
+criteri di autenticazione ![](media/Configure-Authentication-Policies/authpolicy6.png) 
 
 ## <a name="to-configure-multi-factor-authentication-globally"></a>Per configurare l'autenticazione a più fattori a livello globale  
 
@@ -71,17 +71,17 @@ In ADFS, in Windows Server 2012 R2, è possibile specificare un criterio di aute
 2.  In ADFS blocca\-fare clic su **criteri di autenticazione**.  
 
 3.  Nel **più\-fattore di autenticazione** fare clic su **modificare** accanto a **impostazioni globali**. È inoltre possibile fare\-fare clic su **criteri di autenticazione**, e selezionare **modificare più globale\-fattore di autenticazione**, o, nel **azioni** selezionare **modificare più globale\-fattore di autenticazione**.  
-![criteri di autenticazione](media/Configure-Authentication-Policies/authpolicy8.png)   
+criteri di autenticazione ![](media/Configure-Authentication-Policies/authpolicy8.png)   
 
 4.  Nel **Modifica criteri di autenticazione globali** finestra, sotto il **più\-factor** scheda è possibile configurare le impostazioni seguenti come parte di più globale\-fattore di criteri di autenticazione:  
 
     -   Le impostazioni o le condizioni per l'autenticazione a più Fattori tramite le opzioni disponibili nel **utenti\/gruppi**, **dispositivi**, e **percorsi** sezioni.  
 
-    -   Per abilitare l'autenticazione a più Fattori per queste impostazioni, è necessario selezionare almeno un metodo di autenticazione aggiuntivo. **L'autenticazione del certificato** predefinito disponibile l'opzione. È inoltre possibile configurare altri metodi di autenticazione aggiuntivi personalizzati, ad esempio, Windows Azure Active Authentication. Per ulteriori informazioni, vedere [la guida alla procedura dettagliata: Gestisci i rischi con Multi-Factor Authentication aggiuntive per](../../ad-fs/operations/Walkthrough-Guide--Manage-Risk-with-Additional-Multi-Factor-Authentication-for-Sensitive-Applications.md)le applicazioni riservate.  
+    -   Per abilitare l'autenticazione a più Fattori per queste impostazioni, è necessario selezionare almeno un metodo di autenticazione aggiuntivo. **L'autenticazione del certificato** predefinito disponibile l'opzione. È inoltre possibile configurare altri metodi di autenticazione aggiuntivi personalizzati, ad esempio, Windows Azure Active Authentication. Per ulteriori informazioni, vedere [Guida allo scenario: gestire i rischi con l'autenticazione a più fattori aggiuntiva per le applicazioni con](../../ad-fs/operations/Walkthrough-Guide--Manage-Risk-with-Additional-Multi-Factor-Authentication-for-Sensitive-Applications.md).  
 
 > [!WARNING]  
 > È possibile configurare solo metodi di autenticazione aggiuntivi a livello globale.  
-![criteri di autenticazione](media/Configure-Authentication-Policies/authpolicy9.png)  
+criteri di autenticazione ![](media/Configure-Authentication-Policies/authpolicy9.png)  
 
 ## <a name="to-configure-multi-factor-authentication-per-relying-party-trust"></a>Per configurare più\-autenticazione fattori per ogni componente attendibilità  
 
@@ -98,7 +98,7 @@ In ADFS, in Windows Server 2012 R2, è possibile specificare un criterio di aute
 ## <a name="configure-authentication-policies-via-windows-powershell"></a>Configurare i criteri di autenticazione tramite Windows PowerShell  
 Windows PowerShell consente maggiore flessibilità nell'utilizzo di vari fattori di controllo di accesso e il meccanismo di autenticazione disponibili in ADFS in Windows Server 2012 R2 per configurare i criteri di autenticazione e autorizzazione delle regole che sono necessari per implementare l'accesso condizionale true per ADFS \-risorse protette.  
 
-Appartenenza al gruppo Administrators o equivalente nel computer locale è il requisito minimo per completare queste procedure.  Per informazioni dettagliate sull'uso degli account appropriati e delle appartenenze a gruppi, vedere \( [gruppi predefiniti locali e](https://go.microsoft.com/fwlink/?LinkId=83477) di\/dominio http:\/\/go.Microsoft.com\/fwlink? LinkId\=83477\).   
+Per eseguire queste procedure è necessaria almeno l'appartenenza al gruppo Administrators oppure a un gruppo equivalente nel computer locale.  Per informazioni dettagliate sull'uso degli account appropriati e delle appartenenze a gruppi, vedere [gruppi predefiniti locali e di dominio](https://go.microsoft.com/fwlink/?LinkId=83477) \(http:\/\/go.Microsoft.com\/fwlink\/? LinkId\=83477\).   
 
 ### <a name="to-configure-an-additional-authentication-method-via-windows-powershell"></a>Per configurare un metodo di autenticazione aggiuntivo tramite Windows PowerShell  
 
@@ -113,7 +113,7 @@ Appartenenza al gruppo Administrators o equivalente nel computer locale è il re
 > [!WARNING]  
 > Per verificare la corretta esecuzione del comando, è possibile eseguire il comando `Get-AdfsGlobalAuthenticationPolicy` .  
 
-### <a name="to-configure-mfa-per-relying-party-trust-that-is-based-on-a-users-group-membership-data"></a>Per configurare l'autenticazione\-a più fattori per relying party Trust basata sui dati di appartenenza a gruppi di un utente  
+### <a name="to-configure-mfa-per-relying-party-trust-that-is-based-on-a-users-group-membership-data"></a>Per configurare l'autenticazione a più fattori per\-relying party Trust basata sui dati di appartenenza a gruppi di un utente  
 
 1.  Nel server federativo aprire la finestra di comando di Windows PowerShell ed eseguire il comando seguente:  
 

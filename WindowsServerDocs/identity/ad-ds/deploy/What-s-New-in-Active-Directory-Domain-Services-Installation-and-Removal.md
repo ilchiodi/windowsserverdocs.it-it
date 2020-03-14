@@ -1,6 +1,6 @@
 ---
 ms.assetid: ba7f2b9f-7351-4680-b7d8-a5f270614f1c
-title: Novità nelle procedure di installazione e rimozione di Servizi di dominio Active Directory
+title: Novità nelle procedure di installazione e rimozione di Active Directory Domain Services
 description: ''
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -10,13 +10,13 @@ ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
 ms.openlocfilehash: 1f24615491391d932609d7f80549985818ced8c1
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75947900"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79323203"
 ---
-# <a name="whats-new-in-active-directory-domain-services-installation-and-removal"></a>Novità nelle procedure di installazione e rimozione di Servizi di dominio Active Directory
+# <a name="whats-new-in-active-directory-domain-services-installation-and-removal"></a>Novità nelle procedure di installazione e rimozione di Active Directory Domain Services
 
 >Si applica a: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
@@ -34,7 +34,7 @@ L'installazione di Servizi di dominio Active Directory include le funzionalità 
 - **La nuova installazione di Servizi di dominio Active Directory include la convalida dei prerequisiti.** I potenziali errori vengono rilevati prima dell'inizio dell'installazione. È possibile correggere gli errori prima che si verifichino, senza rischiare di eseguire un aggiornamento parziale. Se ad esempio è necessario eseguire il comando adprep /domainprep, la procedura guidata di installazione verifica che l'utente disponga dei diritti necessari per eseguire l'operazione.  
 - **Le pagine di configurazione sono raggruppate in una sequenza che rispecchia i requisiti delle opzioni di promozione più comuni, con le opzioni correlate raggruppate in un minor numero di pagine dell'installazione guidata.** Ciò fornisce un contesto migliore per la scelta delle opzioni di installazione.  
 - **È possibile esportare uno script di Windows PowerShell contenente tutte le opzioni specificate durante l'installazione grafica.** Al termine di un'installazione o di una rimozione, è possibile esportare le impostazioni in uno script di Windows PowerShell da usare per l'automazione della stessa operazione.  
-- **Prima del riavvio viene eseguita solo la replica della parte critica.** Nuova opzione che consente la replica dei dati non critici prima del riavvio. Per ulteriori informazioni, vedere [gli argomenti del cmdlet ADDSDeployment](../../ad-ds/deploy/Install-Active-Directory-Domain-Services--Level-100-.md#BKMK_Params).  
+- **Prima del riavvio viene eseguita solo la replica della parte critica.** Nuova opzione che consente la replica dei dati non critici prima del riavvio. Per ulteriori informazioni, vedere [Argomenti del cmdlet ADDSDeployment](../../ad-ds/deploy/Install-Active-Directory-Domain-Services--Level-100-.md#BKMK_Params).  
 
 ## <a name="BKMK_ADConfigurationWizard"></a>Configurazione guidata di Active Directory Domain Services
 
@@ -62,7 +62,7 @@ La versione Windows Server 2012 di Adprep. exe può essere eseguita in qualsiasi
 
 ![Novità](media/What-s-New-in-Active-Directory-Domain-Services-Installation-and-Removal/AdprepNotValid.gif)  
 
-Per informazioni sulla risoluzione di altri errori generati da Adprep.exe, vedere [Known issues](../../ad-ds/deploy/What-s-New-in-Active-Directory-Domain-Services-Installation-and-Removal.md#BKMK_KnownIssues).  
+Per informazioni sulla risoluzione degli errori generati da Adprep.exe, vedere la sezione [Problemi noti](../../ad-ds/deploy/What-s-New-in-Active-Directory-Domain-Services-Installation-and-Removal.md#BKMK_KnownIssues).  
 
 ### <a name="group-membership-check-against-windows-server-2003-operations-master-roles"></a>Verifica di appartenenza a un gruppo e ruoli di master operazioni in Windows Server 2003
 
@@ -80,7 +80,7 @@ Adprep was unable to check the specified user's group membership. This could hap
 
 Se si esegue Adprep.exe senza specificare i parametri /user e /userdomain e il master operazioni esegue Windows Server 2003, Adprep.exe contatterà un controller di dominio nel dominio dell'utente che ha eseguito l'accesso. Se l'utente che ha eseguito l'accesso non è un account di dominio, Adprep.exe non può eseguire la verifica di appartenenza a un gruppo. Inoltre Adprep.exe non può eseguire la verifica di appartenenza a un gruppo se si utilizzano le credenziali della smart card, neppure se si specificano entrambi i parametri /user e /userdomain.  
   
-Se Adprep termina senza errori, non sono richieste azioni. Se Adprep non funziona e genera errori di accesso durante l'esecuzione, specificare un account con l'appartenenza corretta. Per altre informazioni, vedere [Credential requirements to run Adprep.exe and install Active Directory Domain Services](../../ad-ds/deploy/Install-Active-Directory-Domain-Services--Level-100-.md#BKMK_Creds).  
+Se Adprep termina senza errori, non sono richieste azioni. Se Adprep non funziona e genera errori di accesso durante l'esecuzione, specificare un account con l'appartenenza corretta. Per ulteriori informazioni, vedere [Credenziali necessarie per eseguire Adprep.exe e installare Servizi di dominio Active Directory](../../ad-ds/deploy/Install-Active-Directory-Domain-Services--Level-100-.md#BKMK_Creds).  
   
 ### <a name="syntax-for-adprep-in-windows-server-2012"></a>Sintassi per Adprep in Windows Server 2012
 
@@ -130,7 +130,7 @@ Alcune funzionalità potrebbero prevedere requisiti aggiuntivi. Ad esempio, la f
 
 ## <a name="BKMK_KnownIssues"></a>Problemi noti
 
-In questa sezione sono elencati alcuni dei problemi che influiscono sull'installazione di Active Directory in Windows Server 2012. Per altri problemi noti, vedere [Troubleshooting Domain Controller Deployment](../../ad-ds/deploy/Troubleshooting-Domain-Controller-Deployment.md).  
+In questa sezione sono elencati alcuni dei problemi che influiscono sull'installazione di Active Directory in Windows Server 2012. Per informazioni su altri problemi noti, vedere [Risoluzione dei problemi relativi alla distribuzione del controller di dominio](../../ad-ds/deploy/Troubleshooting-Domain-Controller-Deployment.md).  
 
 - Se l'accesso WMI al master schema è bloccato da Windows Firewall quando il comando adprep /forestprep viene eseguito in remoto, l'errore seguente viene registrato nel registro di adprep, in %systemroot%\system32\debug\adprep:  
 
@@ -228,7 +228,7 @@ Se si verifica questo problema, controllare il file dcpromo.log nella cartella %
    DC2.contoso.com  
    ```  
 
-   Se l'errore è causato specificando un account amministratore locale e una password, per eseguire il ripristino sarà necessario reinstallare il sistema operativo, [eseguire la pulizia dei metadati](https://technet.microsoft.com/library/cc816907(WS.10).aspx) dell'account per il controller di dominio che non è riuscito a completare l'installazione e quindi ripetere l'installazione di Active Directory utilizzando le credenziali di amministratore di dominio. Il riavvio del server non consente di correggere la condizione di errore, in quanto il server indicherà che Servizi di dominio Active Directory è installato anche se l'installazione non è stata completata.  
+   Se l'errore è causato dal fatto di aver specificato un account amministratore locale e la relativa password, per correggerlo è necessario reinstallare il sistema operativo, [eseguire la pulizia dei metadati](https://technet.microsoft.com/library/cc816907(WS.10).aspx) dell'account per il controller di dominio che non è stato in grado di completare l'installazione e quindi riprovare l'installazione di Servizi di dominio Active Directory usando credenziali di amministratore di dominio. Il riavvio del server non consente di correggere la condizione di errore, in quanto il server indicherà che Servizi di dominio Active Directory è installato anche se l'installazione non è stata completata.  
 
 ### <a name="BKMK_nonnormalDNSNameWarning"></a>La configurazione guidata di Active Directory Domain Services genera un avviso quando viene specificato un nome DNS non normalizzato
 

@@ -8,11 +8,11 @@ ms.author: harowl
 ms.localizationpriority: medium
 ms.prod: windows-server
 ms.openlocfilehash: d681e5007cd3ae3c14de774df0bc85abc23b51d7
-ms.sourcegitcommit: 06ae7c34c648538e15c4d9fe330668e7df32fbba
-ms.translationtype: MT
+ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78371688"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79323533"
 ---
 # <a name="windows-admin-center-and-related-management-solutions-from-microsoft"></a>Windows Admin Center e soluzioni di gestione correlate di Microsoft
 
@@ -45,6 +45,6 @@ ms.locfileid: "78371688"
 |Gestione ottimizzata di **singoli** cluster **HCI** a 2-4 nodi, che integrano Hyper-V, spazi di archiviazione diretta e SDN|È possibile distribuire e gestire Hyper-V, cluster Windows Server su **scala di data center** da **bare metal** con SCVMM|
 |Soltanto **monitoraggio sul HCI**, il servizio integrità del cluster archivia la cronologia. Piattaforma estendibile per la prima e la terza parte delle **estensioni dello strumento di amministrazione**|Piattaforma **estendibile** e  & **monitoraggio scalabile** in SCOM con avvisi, notifiche, monitoraggio del carico di lavoro di terze parti. SQL con la cronologia|
 |La via più semplice verso l'**ibrido**. Esegue l'onboarding e usa un'ampia gamma di servizi di Azure per la protezione dei dati, la replica, gli aggiornamenti e altro ancora|**Integrazione** di protezione dati, replica e aggiornamenti (DPM/VMM/SCCM). Integrazione ibrida con Log Analytics e Service Map|
-|**Accende le funzionalità della piattaforma** di Windows Server: servizio migrazione archiviazione, replica archiviazione, informazioni dettagliate sul sistema e così via.|**Piattaforme aggiuntive**: automazione nell'agente di orchestrazione/SMA. Integrazioni con SCSM & altri strumenti di gestione dei servizi|
+|**Mette in evidenza le funzionalità della piattaforma** Windows Server: servizio di migrazione della risorsa di archiviazione, replica di archiviazione, informazioni dettagliate di sistema e così via.|**Altre piattaforme**: automazione in Orchestrator/SMA. Integrazioni con SCSM e altri strumenti di gestione del servizio|
 
 #### <a name="each-delivers-targeted-value-independently-better-together-with-complementary-capabilities"></a>Ognuno di essi offre un valore specifico in modo indipendente. Se **usati insieme** consentono funzionalità complementari.

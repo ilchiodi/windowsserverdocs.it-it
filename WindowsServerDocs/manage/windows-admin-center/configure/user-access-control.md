@@ -9,11 +9,11 @@ ms.date: 06/07/2019
 ms.localizationpriority: medium
 ms.prod: windows-server
 ms.openlocfilehash: 39af45506ff7023cebe437992e90f6d4ec051333
-ms.sourcegitcommit: 06ae7c34c648538e15c4d9fe330668e7df32fbba
-ms.translationtype: MT
+ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78371713"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79323593"
 ---
 # <a name="configure-user-access-control-and-permissions"></a>Configurare le autorizzazioni e il controllo di accesso utente
 
@@ -105,13 +105,13 @@ Uno dei vantaggi offerti dall'uso di Azure AD come livello di sicurezza aggiunti
 
 [Altre informazioni sulla configurazione dell'accesso condizionale con Azure Active Directory.](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal-get-started)
 
-## <a name="configure-single-sign-on"></a>Configurazione di Single Sign-On
+## <a name="configure-single-sign-on"></a>Configura l'accesso Single Sign-On
 
 **Accesso Single Sign-On distribuito come servizio in Windows Server**
 
 Quando installi Windows Admin Center in Windows 10, l'applicazione è pronta per l'uso dell'accesso Single Sign-On. Se tuttavia intendi usare Windows Admin Center in Windows Server, devi configurare una qualche forma di delega Kerberos nel tuo ambiente prima di poter usare l'accesso Single Sign-On. La delega configura il computer gateway come attendibile per la delega al nodo di destinazione. 
 
-Per configurare la [delega vincolata basata sulle risorse](https://docs.microsoft.com/windows-server/security/kerberos/kerberos-constrained-delegation-overview) nel tuo ambiente, usa l'esempio di PowerShell seguente. Questo esempio illustra come configurare Windows Server [node01.contoso.com] per accettare la delega dal gateway dell'interfaccia di amministrazione di Windows [wac.contoso.com] nel dominio contoso.com.
+Per configurare la [delega vincolata basata sulle risorse](https://docs.microsoft.com/windows-server/security/kerberos/kerberos-constrained-delegation-overview) nel tuo ambiente, usa l'esempio di PowerShell seguente. Questo esempio mostra come configurare un'istanza di Windows Server [node01.contoso.com] in modo da accettare la delega dal gateway Windows Admin Center [wac.contoso.com] nel dominio contoso.com.
 
 ```powershell
 Set-ADComputer -Identity (Get-ADComputer node01) -PrincipalsAllowedToDelegateToAccount (Get-ADComputer wac)

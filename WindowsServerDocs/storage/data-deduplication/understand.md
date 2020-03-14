@@ -9,15 +9,15 @@ manager: klaasl
 ms.author: wgries
 ms.date: 09/15/2016
 ms.openlocfilehash: e26d285f1802e78b2cbf84e38407ff134e7b7035
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71403223"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79322393"
 ---
 # <a name="understanding-data-deduplication"></a>Informazioni sulla deduplicazione dati
 
-> Si applica a:  Windows Server 2019, Windows Server 2016, Windows Server (Canale semestrale)
+> Si applica a: Windows Server 2019, Windows Server 2016, Windows Server (canale semestrale)
 
 Questo documento descrive come funziona [Deduplicazione dati](overview.md).
 
@@ -71,7 +71,7 @@ La deduplicazione dati usa una strategia di post-elaborazione per ottimizzare e 
 | <a id="job-info-unoptimization"></a>Annullamento | Il processo **Annullamento dell'ottimizzazione** può essere eseguito solo manualmente. Questo processo speciale annulla l'ottimizzazione eseguita dalla deduplicazione e disabilita la deduplicazione dati per il volume. | [Solo su richiesta](run.md#disabling-dedup) |
 
 ## <a id="dedup-term"></a>Terminologia di deduplicazione dati
-| Nome | Definizione |
+| Termine | Definizione |
 |------|------------|
 | <a id="dedup-term-chunk"></a>Pezzo | Un blocco è una sezione di un file che potrebbe verificarsi in altri file simili secondo l'algoritmo di suddivisione in blocchi di Deduplicazione dati. |
 | <a id="dedup-term-chunk-store"></a>Archivio blocchi | L'archivio dei blocchi è una serie organizzata di file contenitore nella cartella Informazioni del volume di sistema che usa la deduplicazione dati per archiviare in modo univoco i blocchi. |

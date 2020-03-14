@@ -9,11 +9,11 @@ ms.localizationpriority: medium
 ms.prod: windows-server
 ms.date: 06/07/2019
 ms.openlocfilehash: 4a91d09d6824795a21a9a7cdc7695c407aa70756
-ms.sourcegitcommit: 07c9d4ea72528401314e2789e3bc2e688fc96001
+ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76822704"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79322923"
 ---
 # <a name="windows-admin-center-known-issues"></a>Problemi noti di Windows Admin Center
 
@@ -53,7 +53,7 @@ Se si verifica un problema non descritto in questa pagina, [faccelo sapere](http
 
 ### <a name="microsoft-edge"></a>Microsoft Edge
 
-- Se l'interfaccia di amministrazione di Windows è distribuita come servizio e si usa Microsoft Edge come browser, la connessione del gateway ad Azure potrebbe non riuscire dopo la generazione di una nuova finestra del browser. Provare a risolvere questo problema aggiungendo https://login.microsoftonline.com , https://login.live.com e l'URL del gateway come siti attendibili e siti consentiti per le impostazioni di blocco popup sul browser lato client. Per ulteriori informazioni sulla correzione di questo problema, fare [riferimento alla guida alla risoluzione dei problemi](troubleshooting.md#azure-features-dont-work-properly-in-edge). [17990376]
+- Se l'interfaccia di amministrazione di Windows è distribuita come servizio e si usa Microsoft Edge come browser, la connessione del gateway ad Azure potrebbe non riuscire dopo la generazione di una nuova finestra del browser. Provare a risolvere questo problema aggiungendo https://login.microsoftonline.com, https://login.live.come l'URL del gateway come siti attendibili e siti consentiti per le impostazioni di blocco popup sul browser lato client. Per ulteriori informazioni sulla correzione di questo problema, fare [riferimento alla guida alla risoluzione dei problemi](troubleshooting.md#azure-features-dont-work-properly-in-edge). [17990376]
 
 ### <a name="google-chrome"></a>Google Chrome
 
@@ -78,9 +78,9 @@ I moduli Remote Desktop, PowerShell ed Eventi in Windows Admin Center utilizzano
 > [!NOTE]
 > L'interfaccia di amministrazione di Windows richiede le funzionalità di PowerShell che non sono incluse in Windows Server 2012 R2, 2012 o 2008 R2. Se si intende gestire Windows Server con l'interfaccia di amministrazione di Windows, sarà necessario installare WMF versione 5,1 o successiva in questi server.
 
-Digita `$PSVersiontable` in PowerShell per verificare che WMF 5.1 o versione successiva sia installato.
+Per verificare che WMF 5.1 o versione successiva sia installato, digita `$PSVersiontable` in PowerShell.
 
-Se non è installato, puoi [scaricare e installare WMF 5.1](https://www.microsoft.com/download/details.aspx?id=54616).
+In caso contrario, puoi [scaricare e installare WMF 5.1](https://www.microsoft.com/download/details.aspx?id=54616).
 
 ## <a name="role-based-access-control-rbac"></a>Controllo degli accessi in base al ruolo (RBAC)
 
@@ -104,7 +104,7 @@ Se non è installato, puoi [scaricare e installare WMF 5.1](https://www.microsof
 
   - Per risolvere questo problema, usare il comando seguente in un prompt dei comandi con privilegi elevati nel computer del gateway: ```winrm set winrm/config @{MaxEnvelopeSizekb="8192"}```
 
-### <a name="files"></a>File
+### <a name="files"></a>Files
 
 - Il caricamento o download di file di grandi dimensioni non è ancora supportato. (limite di\~MB) [12524234]
 
@@ -152,7 +152,7 @@ Se non è installato, puoi [scaricare e installare WMF 5.1](https://www.microsof
 
 - Se scegli il riavvio automatico, questo si verificherà prima che lo stato venga aggiornato al 100%. [13098852]
 
-### <a name="storage"></a>Archiviazione:
+### <a name="storage"></a>Archiviazione
 
 - Livello inferiore: le unità CD/DVD/Floppy non vengono visualizzate come volumi di livello inferiore.
 
@@ -179,7 +179,7 @@ Se non è installato, puoi [scaricare e installare WMF 5.1](https://www.microsof
 
 - La funzionalità avanzate disponibili in Hyper-V Manager, ad esempio Gestione SAN virtuale, Sposta macchina virtuale, Esporta macchina virtuale, Replica macchina virtuale non sono attualmente supportate.
 
-### <a name="virtual-switches"></a>Switch virtuali
+### <a name="virtual-switches"></a>Commutatori virtuali
 
 - Switch Embedded Teaming (SET): durante l'aggiunta di schede di rete a un team, devono essere nella stessa subnet.
 
@@ -219,7 +219,7 @@ Sincronizzazione file di Azure richiede le autorizzazioni in Azure che l'interfa
 
 Per aggiornare l'app Azure Active Directory, è possibile eseguire una delle due operazioni seguenti:
 1. Passare a **impostazioni** > **Azure** > **annullare la registrazione**, quindi registrare l'interfaccia di amministrazione di Windows con Azure, assicurandosi di scegliere di creare una nuova applicazione Azure Active Directory. 
-2. Passare all'applicazione Azure Active Directory e aggiungere manualmente l'autorizzazione necessaria per l'app Azure Active Directory esistente registrata nell'interfaccia di amministrazione di Windows. A tale scopo, passare a **impostazioni** >  Visualizzazione > **di Azure in Azure**. Dal pannello **registrazione app** in Azure passare a **autorizzazioni API**e selezionare **Aggiungi un'autorizzazione**. Scorrere verso il basso fino a selezionare **Azure Active Directory grafico**, selezionare **autorizzazioni delegate**, espandere **directory**e selezionare **Directory. AccessAsUser. All**. Fare clic su **Aggiungi autorizzazioni** per salvare gli aggiornamenti nell'app.
+2. Passare all'applicazione Azure Active Directory e aggiungere manualmente l'autorizzazione necessaria per l'app Azure Active Directory esistente registrata nell'interfaccia di amministrazione di Windows. A tale scopo, passare a **impostazioni** > **Azure** Visualizzazione > **di Azure in Azure**. Dal pannello **registrazione app** in Azure passare a **autorizzazioni API**e selezionare **Aggiungi un'autorizzazione**. Scorrere verso il basso fino a selezionare **Azure Active Directory grafico**, selezionare **autorizzazioni delegate**, espandere **directory**e selezionare **Directory. AccessAsUser. All**. Fare clic su **Aggiungi autorizzazioni** per salvare gli aggiornamenti nell'app.
 
 ### <a name="options-for-setting-up-azure-management-services"></a>Opzioni per la configurazione dei servizi di gestione di Azure
 

@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: b073b0557cd011f6742a8a8e532165f53b0a6974
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 8aeb2b3b7d62ae62ba9b8fa70988cf64060673ca
+ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71377885"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79320015"
 ---
 # <a name="dir"></a>dir
 
@@ -40,11 +40,11 @@ dir [<Drive>:][<Path>][<FileName>] [...] [/p] [/q] [/w] [/d] [/a[[:]<Attributes>
 |---------|-----------|
 |[\<unità >:] [<Path>]|Specifica l'unità e directory per il quale si desidera visualizzare un elenco.|
 |[\<nomefile >]|Specifica un file specifico o un gruppo di file per il quale si desidera visualizzare un elenco.|
-|/ p|Visualizza una schermata dell'elenco alla volta. Per visualizzare la schermata successiva, premere un tasto sulla tastiera.|
+|/p|Visualizza una schermata dell'elenco alla volta. Per visualizzare la schermata successiva, premere un tasto sulla tastiera.|
 |/q|Visualizza informazioni sulla proprietà di file.|
 |/w|Visualizza l'elenco in formato esteso, con un massimo di cinque nomi di file o i nomi di directory in ogni riga.|
 |/d|Visualizza l'elenco nello stesso formato **/w**, ma i file vengono ordinati per colonna.|
-|/a [[:]\<attributi >]|Visualizza solo i nomi delle directory e file con gli attributi specificati. Se si omette **/a**, **dir** Visualizza i nomi di tutti i file tranne nascosti e i file di sistema. Se si utilizza **/a** senza specificare *attributi*, **dir** Visualizza i nomi di tutti i file, tra cui nascosti e i file di sistema.</br>Nell'elenco seguente sono descritti i valori che è possibile utilizzare per *attributi*. Utilizzo di due punti (:) è facoltativo. Utilizzare una combinazione qualsiasi di questi valori e non separare i valori con spazi.</br>**d** Directory</br>**h** file nascosti</br>**s** i file di sistema</br>**l** Reparse Point</br>**r** i file di sola lettura</br>**un** pronto per l'archiviazione dei file</br>**i** non contenuti i file indicizzati</br>**-** Il prefisso significa "not"|
+|/a [[:]\<attributi >]|Visualizza solo i nomi delle directory e file con gli attributi specificati. Se si omette **/a**, **dir** Visualizza i nomi di tutti i file tranne nascosti e i file di sistema. Se si utilizza **/a** senza specificare *attributi*, **dir** Visualizza i nomi di tutti i file, tra cui nascosti e i file di sistema.</br>Nell'elenco seguente sono descritti i valori che è possibile utilizzare per *attributi*. Utilizzo di due punti (:) è facoltativo. Utilizzare una combinazione qualsiasi di questi valori e non separare i valori con spazi.</br>**d** Directory</br>**h** file nascosti</br>**s** i file di sistema</br>**l** Reparse Point</br>**r** i file di sola lettura</br>**un** pronto per l'archiviazione dei file</br>**i** non contenuti i file indicizzati</br>**-** Questo prefisso equivale a "No"|
 |/o [[:]\<SortOrder >]|Ordina l'output in base a *SortOrder*, che può essere qualsiasi combinazione dei valori seguenti:</br>**n** in base al nome (in ordine alfabetico)</br>**e** dall'estensione (in ordine alfabetico)</br>**g** prima alla directory di gruppo</br>**s** per dimensioni (il primo più piccolo)</br>**d** da data/ora (più recente)</br>**-** Prefisso per l'ordine inverso</br>Nota: l'uso di due punti è facoltativo. Più valori vengono elaborati nell'ordine in cui sono elencate. Non separare più valori con uno spazio.</br>Se *SortOrder* non è specificato, **/o dir** Elenca le directory in ordine alfabetico, seguito dai file, che devono essere disposti in ordine alfabetico.|
 |/t [[:]\<TimeField >]|Specifica il campo ora per visualizzare o utilizzare per l'ordinamento. Nell'elenco seguente sono descritti i valori è possibile utilizzare per *ora*:</br>**c** creazione</br>**un** ultimo accesso</br>**w** ultima scrittura|
 |/s|Elenca tutte le occorrenze del nome del file specificato in una directory specificata e tutte le sottodirectory.|
@@ -56,7 +56,7 @@ dir [<Drive>:][<Path>][<FileName>] [...] [/p] [/q] [/w] [/d] [/a[[:]<Attributes>
 |/4|Visualizzazione degli anni nel formato a quattro cifre.|
 |/?|Visualizza la guida al prompt dei comandi.|
 
-## <a name="remarks"></a>Osservazioni
+## <a name="remarks"></a>Note
 
 - L'utilizzo di più *FileName* parametri, separare ogni nome di file con uno spazio, virgola o punto e virgola.
 - È possibile utilizzare caratteri jolly ( **&#42;** o **?** ) per rappresentare uno o più caratteri di un nome file e per visualizzare un subset di file o sottodirectory.
@@ -64,7 +64,7 @@ dir [<Drive>:][<Path>][<FileName>] [...] [/p] [/q] [/w] [/d] [/a[[:]<Attributes>
   **Asterisco (\*):** utilizzare l'asterisco come sostituto di qualsiasi stringa di caratteri, ad esempio:  
   - **dir \*. txt** Elenca tutti i file nella directory corrente con le estensioni che iniziano con estensione txt, ad esempio con estensione txt, .txt1, .txt_old.
   - **dir leggere\*. txt** Elenca tutti i file nella directory corrente che iniziano con "lettura" e con le estensioni che iniziano con estensione txt, ad esempio con estensione txt, .txt1 o .txt_old.
-  - **dir leggere\*.\\** * elenca tutti i file nella directory corrente che iniziano con "Read" con qualsiasi estensione.
+  - **dir leggere\*.\*** elenca tutti i file nella directory corrente che iniziano con "Read" con qualsiasi estensione.
 
   Il carattere jolly asterisco sempre utilizzato mapping nomi file brevi, si potrebbero ottenere risultati imprevisti. Ad esempio, la directory seguente contiene due file (t.txt2 e t97.txt): 
  

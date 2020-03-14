@@ -11,11 +11,11 @@ ms.author: coreyp
 manager: dongill
 ms.date: 05/24/2018
 ms.openlocfilehash: 37e3a7788ccd409f4002f5fe2d7ea087e89b3419
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71369844"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79323523"
 ---
 # <a name="plan-your-wsus-deployment"></a>Pianificare la distribuzione di WSUS
 
@@ -23,7 +23,7 @@ ms.locfileid: "71369844"
 
 Il passaggio iniziale nella distribuzione di Windows Server Update Services (WSUS) prevede l'assunzione di decisioni importanti come, ad esempio, stabilire lo scenario di distribuzione WSUS, scegliere la topologia di rete e comprendere i requisiti di sistema. L'elenco di controllo seguente descrive tutti i passaggi correlati alla preparazione della distribuzione.
 
-|Attività|Descrizione|
+|Attività|Description|
 |----|--------|
 |[1.1. Esaminare le considerazioni e i requisiti di sistema](#11-review-considerations-and-system-requirements)|Esaminare l'elenco di considerazioni e requisiti di sistema per verificare di disporre di tutto l'hardware e il software necessario per la distribuzione di Windows Server Update Services.|
 |[1.2. Scegliere uno scenario di distribuzione WSUS](#12-choose-a-wsus-deployment-scenario)|Decidere lo scenario di distribuzione WSUS da utilizzare.|
@@ -57,7 +57,7 @@ Prima di abilitare il ruolo server WSUS, verificare che il server soddisfi i req
 
 -   Microsoft .NET Framework 4.0 deve essere installato nel server in cui verrà installato il ruolo server WSUS.
 
--   L'account NT Authority\Servizio di rete deve disporre dell'autorizzazione Controllo completo per le cartelle seguenti in modo che lo snap-in  Amministrazione di Windows Server Update Services venga visualizzato correttamente:
+-   L'account NT Authority\Servizio di rete deve disporre dell'autorizzazione Controllo completo per le cartelle seguenti in modo che lo snap-in Amministrazione di Windows Server Update Services venga visualizzato correttamente:
 
     -   %windir%\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files
 
@@ -127,7 +127,7 @@ Le edizioni seguenti di SQL Server sono supportate da WSUS:
 
 -   Standard
 
--   Funzionalità per le aziende
+-   Enterprise
 
 -   Express
 
@@ -195,7 +195,7 @@ La funzionalità Succursale di Windows può essere utilizzata per ottimizzare la
 
 2.  È anche possibile utilizzare la funzionalità Succursale per succursali caratterizzate da connessione con larghezza di banda ridotta per l'ufficio centrale, ma elevata verso Internet. In questo caso, è preferibile configurare i server downstream di WSUS in modo da ottenere informazioni sugli aggiornamenti da installare dal server WSUS centrale, ma scaricare gli aggiornamenti da Microsoft Update.
 
-### <a name="network-load-balancing"></a>Bilanciamento carico di rete
+### <a name="network-load-balancing"></a>Network Load Balancing
 Bilanciamento carico di rete aumenta l'affidabilità e le prestazioni della rete WSUS utilizzata. È possibile configurare più server WSUS che condividono un unico cluster di failover che esegue SQL Server, ad esempio SQL Server 2008 R2 SP1. Anziché l'installazione di Database interno di Windows fornita da WSUS, in questa configurazione è necessario utilizzare un'installazione completa di SQL Server e installare il ruolo del database in tutti i server front-end di WSUS. È inoltre possibile impostare l'utilizzo di un file system distribuito (DFS) per l'archiviazione del contenuto di tutti i server WSUS.
 
 **Configurazione di WSUS per Bilanciamento carico di rete:** rispetto alla configurazione di WSUS 3.2 per Bilanciamento carico di rete, non sono più necessari parametri e una chiamata di configurazione speciale per configurare WSUS per Bilanciamento carico di rete. È necessario solo configurare ogni server WSUS, tenendo presenti le considerazioni seguenti.
@@ -248,7 +248,7 @@ WSUS supporta solo l'autenticazione di Windows per il database. Non è possibile
 
 -   si desidera distribuire più server WSUS, ad esempio, in succursali. In questo caso, è opportuno prendere in considerazione l'utilizzo di Database interno di Windows nei server secondari, anche se si utilizza SQL Server per il server radice di Windows Server Update Services. Dal momento che ogni server WSUS richiede un'istanza distinta di SQL Server, se una sola istanza di SQL Server gestisce più server WSUS si verificheranno velocemente problemi di prestazioni del database.
 
-Database interno di Windows non fornisce un'interfaccia utente o strumenti di gestione del database. Se si seleziona questo database per WSUS, è necessario utilizzare strumenti esterni per gestire il database. Per altre informazioni, vedi:
+Database interno di Windows non fornisce un'interfaccia utente o strumenti di gestione del database. Se si seleziona questo database per WSUS, è necessario utilizzare strumenti esterni per gestire il database. Per altre informazioni, vedere:
 
 -   [Backup e ripristino di dati WSUS con backup del server](https://technet.microsoft.com/library/dd939904(WS.10).aspx)
 
@@ -347,13 +347,13 @@ Dal momento che i computer possono essere assegnati a più gruppi, è possibile 
 ### <a name="conflict-resolution"></a>Risoluzione conflitti
 Per risolvere i conflitti e determinare l'azione da eseguire sui client, il server applica le regole seguenti:
 
-1.  Priority
+1.  Priorità
 
 2.  Installazione/Disinstallazione
 
 3.  Scadenza
 
-#### <a name="priority"></a>Priority
+#### <a name="priority"></a>Priorità
 Le azioni associate al gruppo con la priorità massima hanno la precedenza sulle azioni degli altri gruppi. Maggiore è la profondità di un gruppo nella gerarchia dei gruppi, maggiore sarà la sua priorità. La priorità viene assegnata solo in base alla profondità. Tutti i rami hanno la stessa priorità. Ad esempio, un gruppo che si trova due livelli sotto il ramo Desktop ha una priorità maggiore rispetto a un gruppo che si trova un livello sotto al ramo Server.
 
 Nell'esempio di testo seguente del riquadro gerarchico della console Update Services, per un server WSUS denominato WSUS-01 al gruppo predefinito **Tutti i computer** sono stati aggiunti i gruppi Computer desktop e Server. I gruppi Computer desktop e Server sono allo stesso livello della gerarchia.
@@ -384,7 +384,7 @@ Nell'esempio di testo seguente del riquadro gerarchico della console Update Serv
 
         -   **Sincronizzazioni**
 
-        -   **Rapporti**
+        -   **Segnalazioni**
 
         -   **Opzioni**
 
@@ -409,7 +409,7 @@ Prima della distribuzione di Windows Server Update Services, è opportuno pianif
 
 -   distribuzione di aggiornamenti di grandi dimensioni
 
--   Servizio trasferimento intelligente in background (BITS)
+-   BITS (Servizio trasferimento intelligente in background)
 
 ### <a name="network-setup"></a>Configurazione della rete
 Per ottimizzare le prestazioni nelle reti WSUS, considerare i suggerimenti seguenti.
@@ -449,7 +449,7 @@ Quando si distribuiscono aggiornamenti di grandi dimensioni, ad esempio i Servic
 3.  Utilizzare gruppi di computer per controllare l'implementazione. Un computer client si identifica come membro di un determinato gruppo di computer quando invia informazioni al server WSUS. Il server WSUS utilizza queste informazioni per determinare quali aggiornamenti distribuire al computer. È possibile configurare più gruppi di computer e approvare in modo sequenziale download di Service Pack di grandi dimensioni per un sottoinsieme dei gruppi configurati.
 
 ### <a name="background-intelligent-transfer-service"></a>Servizio trasferimento intelligente in background
-Windows Server Update Services utilizza il protocollo BITS (Servizio trasferimento intelligente in background) per tutte le attività di trasferimento file riguardanti download a computer client e sincronizzazioni di server. BITS consente ai programmi di scaricare i file utilizzando la larghezza di banda disponibile. I trasferimenti dei file vengono conservati tramite disconnessioni di rete e riavvii dei computer. Per altre informazioni, vedi: [Servizio trasferimento intelligente in background](https://msdn.microsoft.com/library/bb968799.aspx).
+Windows Server Update Services utilizza il protocollo BITS (Servizio trasferimento intelligente in background) per tutte le attività di trasferimento file riguardanti download a computer client e sincronizzazioni di server. BITS consente ai programmi di scaricare i file utilizzando la larghezza di banda disponibile. I trasferimenti dei file vengono conservati tramite disconnessioni di rete e riavvii dei computer. Per altre informazioni, vedere: [Servizio trasferimento intelligente in background](https://msdn.microsoft.com/library/bb968799.aspx).
 
 ## <a name="17-plan-automatic-updates-settings"></a>1.7. Pianificare le impostazioni per gli aggiornamenti automatici
 È possibile specificare una scadenza per l'approvazione degli aggiornamenti nel server WSUS. La scadenza provoca l'installazione dell'aggiornamento nei computer client a un'ora specifica. Possono tuttavia esistere diverse situazioni a seconda che la scadenza sia stata superata, vi siano altri aggiornamenti da installare nella coda del computer oppure l'aggiornamento in questione o un altro nella coda richiedano un riavvio del sistema.

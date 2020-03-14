@@ -9,18 +9,18 @@ ms.author: pashort
 author: shortpatti
 ms.localizationpriority: medium
 ms.openlocfilehash: 31d0d5c12760fc627ce93972f4a70e85f61dd178
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71404365"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79322553"
 ---
 # <a name="always-on-vpn-technology-overview"></a>Panoramica della tecnologia VPN Always On
 
 >Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows 10
 
-- [**Precedente** Informazioni sui miglioramenti apportati alla VPN Always On](always-on-vpn-enhancements.md)
-- [**Prossimo** Informazioni sulle funzionalità avanzate di Always On VPN](deploy/always-on-vpn-adv-options.md)
+- [**Precedente:** Informazioni sui miglioramenti apportati alla VPN Always On](always-on-vpn-enhancements.md)
+- [Passaggio **successivo:** Informazioni sulle funzionalità avanzate di Always On VPN](deploy/always-on-vpn-adv-options.md)
 
 Per questa distribuzione, è necessario installare un nuovo server di accesso remoto che esegue Windows Server 2016, nonché modificare parte dell'infrastruttura esistente per la distribuzione.
 
@@ -122,9 +122,9 @@ Quando si utilizzano i certificati digitali server per l'autenticazione tra comp
 
 3. Autenticazione mediante l'associazione di chiavi del certificato a un computer, un utente o un account di dispositivo in una rete di computer.
 
-Per ulteriori informazioni, vedere [la guida dettagliata di Servizi certificati Active Directory: Distribuzione](https://social.technet.microsoft.com/wiki/contents/articles/15037.ad-cs-step-by-step-guide-two-tier-pki-hierarchy-deployment.aspx)della gerarchia PKI a due livelli.
+Per ulteriori informazioni, vedere la pagina relativa alla [distribuzione di una gerarchia PKI a due livelli in Servizi certificati Active Directory](https://social.technet.microsoft.com/wiki/contents/articles/15037.ad-cs-step-by-step-guide-two-tier-pki-hierarchy-deployment.aspx).
 
-## <a name="active-directory-domain-services-ad-ds"></a>Servizi di dominio Active Directory
+## <a name="active-directory-domain-services-ad-ds"></a>Servizi di dominio Active Directory (AD DS)
 
 Servizi di dominio Active Directory fornisce un database distribuito che consente di archiviare e gestire informazioni sulle risorse di rete e dati specifici delle applicazioni provenienti da applicazioni abilitate all'uso di directory. Gli amministratori possono utilizzare Servizi di dominio Active Directory per organizzare gli elementi di una rete, ad esempio utenti, computer e altri dispositivi, in una struttura di contenimento gerarchica. Tale struttura include la foresta di Active Directory, i domini della foresta e le unità organizzative (OU, Organizational Unit) di ogni dominio. Un server che esegue Servizi di dominio Active Directory viene definito controller di dominio.
 
@@ -144,7 +144,7 @@ Durante il completamento dei passaggi di questa distribuzione, si configureranno
 
 Active Directory Users and Computers è un componente di dominio Active Directory che contiene gli account che rappresentano entità fisiche, ad esempio un computer, una persona o un gruppo di sicurezza. Un gruppo di sicurezza è una raccolta di account utente o computer che gli amministratori possono gestire come una singola unità. Gli account utente e computer che appartengono a un determinato gruppo sono detti membri del gruppo.
 
-Gli account utente in Active Directory utenti e computer dispongono di proprietà di connessione remota che i server dei criteri di rete valutano durante il processo di autorizzazione, a meno che la proprietà **autorizzazioni di accesso alla rete** dell'account utente non sia impostata per **controllare l'accesso tramite criteri di rete NPS** . Questa è l'impostazione predefinita per tutti gli account utente. In alcuni casi, tuttavia, questa impostazione potrebbe avere una configurazione diversa che impedisce all'utente di connettersi usando la VPN. Per evitare questa possibilità, è possibile configurare il server NPS per ignorare le proprietà di connessione remota dell'account utente.
+Gli account utente in Active Directory utenti e computer dispongono di proprietà di connessione remota che i server dei criteri di rete valutano durante il processo di autorizzazione, a meno che la proprietà **autorizzazioni di accesso alla rete** dell'account utente non sia impostata per **controllare l'accesso tramite criteri di rete NPS**. Questa è l'impostazione predefinita per tutti gli account utente. In alcuni casi, tuttavia, questa impostazione potrebbe avere una configurazione diversa che impedisce all'utente di connettersi usando la VPN. Per evitare questa possibilità, è possibile configurare il server NPS per ignorare le proprietà di connessione remota dell'account utente.
 
 Per ulteriori informazioni, vedere [configurare NPS per ignorare le proprietà di connessione remota dell'account utente](../../../../networking/technologies/nps/nps-np-configure.md#configure-nps-to-ignore-user-account-dial-in-properties).
 
@@ -169,7 +169,7 @@ Tabella 1. Funzionalità e configurazioni VPN descritte in questa distribuzione
 |     Routing     |                Split tunneling                |
 | Risoluzione dei nomi |  Elenco di informazioni sul nome di dominio e suffisso DNS  |
 |   Attivazione    |    Rilevamento della rete Always On e attendibile    |
-| Authentication  | PEAP-TLS con TPM-certificati utente protetti |
+| Autenticazione  | PEAP-TLS con TPM-certificati utente protetti |
 
 >[!NOTE]
 >PEAP-TLS e TPM sono rispettivamente "Protected Extensible Authentication Protocol with Transport Layer Security" e "Trusted Platform Module".
@@ -192,20 +192,20 @@ Windows 10 offre molti CSP, ma questa distribuzione è incentrata sull'uso del C
 
 ## <a name="related-topics"></a>Argomenti correlati
 
-- [Supporto del software server Microsoft per Microsoft Azure macchine virtuali](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines): Questo articolo illustra i criteri di supporto per l'esecuzione del software server Microsoft nell'ambiente di Microsoft Azure macchina virtuale (infrastruttura distribuita come servizio).
+- [Supporto del software server Microsoft per macchine virtuali Microsoft Azure](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines): questo articolo illustra i criteri di supporto per l'esecuzione del software server Microsoft nell'ambiente della macchina virtuale Microsoft Azure (infrastruttura distribuita come servizio).
 
-- [Accesso remoto](../../Remote-Access.md): Questo argomento fornisce una panoramica del ruolo del server accesso remoto in Windows Server 2016.
+- [Accesso remoto](../../Remote-Access.md): in questo argomento viene fornita una panoramica del ruolo del server accesso remoto in Windows Server 2016.
 
-- [Guida tecnica VPN di Windows 10](https://docs.microsoft.com/windows/access-protection/vpn/vpn-guide): Questa guida illustra le decisioni che si faranno per i client Windows 10 nella soluzione VPN aziendale e come configurare la distribuzione. Questa guida fa riferimento al provider di servizi di configurazione VPNv2 (CSP) e fornisce istruzioni di configurazione per la gestione di dispositivi mobili (MDM) usando Microsoft Intune e il modello di profilo VPN per Windows 10.
+- [Guida tecnica per la VPN di Windows 10](https://docs.microsoft.com/windows/access-protection/vpn/vpn-guide): questa guida illustra le decisioni che si faranno per i client Windows 10 nella soluzione VPN aziendale e come configurare la distribuzione. Questa guida fa riferimento al provider di servizi di configurazione VPNv2 (CSP) e fornisce istruzioni di configurazione per la gestione di dispositivi mobili (MDM) usando Microsoft Intune e il modello di profilo VPN per Windows 10.
 
-- [Guida alla rete core](../../../../networking/core-network-guide/Core-Network-Guide.md): In questa guida vengono fornite istruzioni su come pianificare e distribuire i componenti di base necessari per una rete completamente funzionante e un nuovo dominio di Active Directory in una nuova foresta.
+- [Guida alla rete core](../../../../networking/core-network-guide/Core-Network-Guide.md): questa guida fornisce istruzioni su come pianificare e distribuire i componenti di base necessari per una rete completamente funzionante e un nuovo dominio di Active Directory in una nuova foresta.
 
-- [Domain Name System (DNS)](../../../../networking/dns/dns-top.md): In questo argomento viene fornita una panoramica di DNS (Domain Name System). In Windows Server 2016, DNS è un ruolo del server che è possibile installare usando Server Manager o i comandi di Windows PowerShell. Se si installa una nuova foresta Active Directory e un dominio, il DNS viene installato automaticamente con Active Directory come server di catalogo globale per la foresta e il dominio.
+- [Domain Name System (DNS)](../../../../networking/dns/dns-top.md): in questo argomento viene fornita una panoramica di DNS (Domain Name System). In Windows Server 2016, DNS è un ruolo del server che è possibile installare usando Server Manager o i comandi di Windows PowerShell. Se si installa una nuova foresta Active Directory e un dominio, il DNS viene installato automaticamente con Active Directory come server di catalogo globale per la foresta e il dominio.
 
-- [Panoramica di Servizi certificati Active Directory](https://technet.microsoft.com/library/hh831740.aspx): In questo documento viene fornita una panoramica di Active Directory Servizi certificati (AD CS) in Windows Server® 2012. Servizi certificati Active Directory è il ruolo server che consente di creare un'infrastruttura a chiave pubblica (PKI) e fornire crittografia a chiave pubblica, certificati digitali e funzionalità di firma digitale per l'organizzazione.
+- [Panoramica di Servizi certificati Active Directory](https://technet.microsoft.com/library/hh831740.aspx): questo documento offre una panoramica di Active Directory Servizi certificati (ad CS) in Windows Server® 2012. Servizi certificati Active Directory è il ruolo server che consente di creare un'infrastruttura a chiave pubblica (PKI) e fornire crittografia a chiave pubblica, certificati digitali e funzionalità di firma digitale per l'organizzazione.
 
-- [Linee guida per la progettazione dell'infrastruttura a chiave pubblica](https://social.technet.microsoft.com/wiki/contents/articles/2901.public-key-infrastructure-design-guidance.aspx):  Questo wiki fornisce indicazioni sulla progettazione di infrastrutture a chiave pubblica (PKI). Prima di configurare un'infrastruttura a chiave pubblica (PKI) e una gerarchia di autorità di certificazione (CA), è necessario conoscere i criteri di sicurezza dell'organizzazione e l'istruzione di pratica del certificato (CPS).
+- [Guida alla progettazione dell'infrastruttura a chiave pubblica](https://social.technet.microsoft.com/wiki/contents/articles/2901.public-key-infrastructure-design-guidance.aspx): questo wiki fornisce indicazioni sulla progettazione di infrastrutture a chiave pubblica (PKI). Prima di configurare un'infrastruttura a chiave pubblica (PKI) e una gerarchia di autorità di certificazione (CA), è necessario conoscere i criteri di sicurezza dell'organizzazione e l'istruzione di pratica del certificato (CPS).
 
-- [Guida dettagliata di Servizi certificati Active Directory: Distribuzione](https://social.technet.microsoft.com/wiki/contents/articles/15037.ad-cs-step-by-step-guide-two-tier-pki-hierarchy-deployment.aspx)della gerarchia PKI a due livelli: Questa guida dettagliata descrive i passaggi necessari per configurare una configurazione di base di Active Directory® Servizi certificati (AD CS) in un ambiente lab. Servizi certificati Active Directory in Windows Server® 2008 R2 offre servizi personalizzabili per la creazione e la gestione di certificati di chiave pubblica usati nei sistemi di sicurezza software che usano tecnologie a chiave pubblica.
+- [Guida dettagliata di Servizi certificati Active Directory: distribuzione della gerarchia PKI a due livelli](https://social.technet.microsoft.com/wiki/contents/articles/15037.ad-cs-step-by-step-guide-two-tier-pki-hierarchy-deployment.aspx): questa guida dettagliata descrive i passaggi necessari per configurare una configurazione di base di Active Directory® Servizi certificati (ad CS) in un ambiente lab. Servizi certificati Active Directory in Windows Server® 2008 R2 offre servizi personalizzabili per la creazione e la gestione di certificati di chiave pubblica usati nei sistemi di sicurezza software che usano tecnologie a chiave pubblica.
 
-- [Server dei criteri di rete](../../../../networking/technologies/nps/nps-top.md): Questo argomento fornisce una panoramica di server dei criteri di rete in Windows Server 2016. Server dei criteri di rete consente di creare e imporre criteri di accesso di rete a livello di organizzazione per l'autorizzazione e l'autenticazione delle richieste di connessione.
+- [Server dei criteri di rete](../../../../networking/technologies/nps/nps-top.md): in questo argomento viene fornita una panoramica di server dei criteri di rete in Windows Server 2016. Server dei criteri di rete consente di creare e imporre criteri di accesso di rete a livello di organizzazione per l'autorizzazione e l'autenticazione delle richieste di connessione.
