@@ -9,11 +9,11 @@ manager: klaasl
 ms.author: wgries
 ms.date: 09/15/2016
 ms.openlocfilehash: 1d0677cec134ddeb4c706d0f1231f2c26b39967e
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71403213"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79322643"
 ---
 # <a name="advanced-data-deduplication-settings"></a>Impostazioni avanzate di Deduplicazione dati
 
@@ -26,7 +26,7 @@ Le [pianificazioni predefinite dei processi di deduplicazione dati](understand.m
 
 ### <a id="modifying-job-schedules-change-schedule"></a>Modifica della pianificazione della deduplicazione dei dati
 I processi di deduplicazione dati vengono pianificati dal servizio Utilità di pianificazione di Windows, che consente di visualizzarli e modificarli nel percorso Microsoft\Windows\Deduplication. La deduplicazione dei dati include diversi cmdlet che semplificano la pianificazione.
-* [`Get-DedupSchedule`](https://technet.microsoft.com/library/hh848446.aspx) Mostra i processi pianificati correnti.
+* [`Get-DedupSchedule`](https://technet.microsoft.com/library/hh848446.aspx) visualizza i processi pianificati correnti.
 * [`New-DedupSchedule`](https://technet.microsoft.com/library/hh848445.aspx) crea un nuovo processo pianificato.
 * [`Set-DedupSchedule`](https://technet.microsoft.com/library/hh848447.aspx) modifica un processo pianificato esistente.
 * [`Remove-DedupSchedule`](https://technet.microsoft.com/library/hh848451.aspx) rimuove un processo pianificato.
@@ -76,7 +76,7 @@ Il motivo più comune per cui si modifica l'orario in cui devono essere eseguiti
     </thead>
     <tbody>
         <tr>
-            <td>Tipo</td>
+            <td>Type</td>
             <td>Il tipo di processo che deve essere pianificato</td>
             <td>
                 <ul>
@@ -88,19 +88,19 @@ Il motivo più comune per cui si modifica l'orario in cui devono essere eseguiti
             <td>Questo valore è obbligatorio perché è il tipo di processo che si vuole pianificare. Questo valore non può essere modificato dopo che l'attività è stata pianificata.</td>
         </tr>
         <tr>
-            <td>Priority</td>
+            <td>Priorità</td>
             <td>Priorità di sistema del processo pianificato</td>
             <td>
                 <ul>
-                    <li>Alto</li>
-                    <li>Medio</li>
+                    <li>Alta</li>
+                    <li>Media</li>
                     <li>Bassa</li>
                 </ul>
             </td>
             <td>Questo valore consente al sistema di determinare la modalità di allocazione del tempo della CPU. <em>Alto</em> userà più tempo della CPU, <em>Basso</em> ne userà il minimo.</td>
         </tr>
         <tr>
-            <td>Giorni</td>
+            <td>Days</td>
             <td>I giorni in cui il processo è pianificato</td>
             <td>Matrice di numeri interi da 0 a 6 che rappresenta i giorni della settimana:<ul>
                 <li>0 = domenica</li>
@@ -126,13 +126,13 @@ Il motivo più comune per cui si modifica l'orario in cui devono essere eseguiti
             <td>Per impedire l'esecuzione di un processo in ore&#39;non di inattività del carico di lavoro</td>
         </tr>
         <tr>
-            <td>Enabled</td>
+            <td>Abilitato</td>
             <td>Se il processo verrà eseguito</td>
             <td>True/false</td>
             <td>Per disabilitare un processo senza rimuoverlo</td>
         </tr>
         <tr>
-            <td>Completi</td>
+            <td>Completa</td>
             <td>Per la pianificazione di un processo di Garbage Collection completo</td>
             <td>Opzione (true/false)</td>
             <td>Per impostazione predefinita, ogni quarto processo è un processo di Garbage Collection completo. Con questa opzione, è possibile pianificare l'esecuzione di Garbage Collection completa in modo che sia più frequente.</td>
@@ -150,9 +150,9 @@ Il motivo più comune per cui si modifica l'orario in cui devono essere eseguiti
             <td>Per controllare il livello di impatto del processo sulle risorse di memoria del sistema</td>
         </tr>
         <tr>
-            <td>Nome</td>
+            <td>Name</td>
             <td>Il nome del processo pianificato</td>
-            <td>Stringa</td>
+            <td>String</td>
             <td>Un processo deve avere un nome identificabile in modo univoco.</td>
         </tr>
         <tr>
@@ -162,7 +162,7 @@ Il motivo più comune per cui si modifica l'orario in cui devono essere eseguiti
             <td>Si vuole ripristinare manualmente i file che risiedono in sezioni danneggiate del disco.</td>
         </tr>
         <tr>
-            <td>Inizio</td>
+            <td>Inizia</td>
             <td>Specifica l'ora in cui un processo deve iniziare</td>
             <td><code>System.DateTime</code></td>
             <td>La parte relativa alla <em>Data</em> del <code>System.Datetime</code> fornito per l' <em>avvio</em> è irrilevante (purché&#39;sia nel passato), ma la parte relativa all' <em>ora</em> specifica quando avviare il processo.</td>
