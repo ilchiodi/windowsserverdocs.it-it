@@ -8,12 +8,12 @@ ms.author: niwashbu
 ms.date: 01/07/2020
 ms.localizationpriority: high
 ms.prod: windows-server
-ms.openlocfilehash: 7b3a75258086a73fbd618c2e8221454d7e616556
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: bb2f6d7fcbf18ef9bc67534982d1a98fdc5172a1
+ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75949994"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79320035"
 ---
 # <a name="windows-admin-center"></a>Windows Admin Center
 
@@ -37,7 +37,7 @@ Ecco alcuni dei vantaggi offerti da Windows Admin Center:
 
 |     |     |
 | --- | --- |
-| ![](media/simple-icon.png)| **Semplificare la gestione dei server** <br/> Puoi gestire i server e i cluster con versioni più moderne di strumenti conosciuti, ad esempio Server Manager. Esegui l'installazione in meno di 5 minuti e comincia subito a gestire i server nel tuo ambiente, senza configurare la destinazione. Per informazioni dettagliate, vedi [Che cos'è Windows Admin Center?](understand/what-is.md) |
+| ![](media/simple-icon.png)| **Semplificare la gestione dei server** <br/> Puoi gestire i server e i cluster con versioni più moderne di strumenti conosciuti, ad esempio Server Manager. Esegui l'installazione in meno di 5 minuti e comincia subito a gestire i server nel tuo ambiente, senza operazioni di configurazione aggiuntive. Per informazioni dettagliate, vedi [Che cos'è Windows Admin Center?](understand/what-is.md) |
 | ![](media/future-icon.png)| **Usare soluzioni ibride** <br/> L'integrazione con Azure ti permette di connettere facoltativamente i server locali con servizi cloud pertinenti. Per informazioni dettagliate, vedi [Servizi ibridi di Azure](azure/index.md). |
 | ![](media/secure-icon.png)| **Ottimizzare la gestione iperconvergente** <br/> Puoi ottimizzare la gestione dei cluster iperconvergenti Azure Stack HCI o Windows Server. Usa carichi di lavoro semplificati per creare e gestire macchine virtuali, volumi di Spazi di archiviazione diretta, Software-Defined Networking e altro ancora. Per informazioni dettagliate, vedi [Gestire l'infrastruttura iperconvergente con Windows Admin Center](use/manage-hyper-converged.md)|
 

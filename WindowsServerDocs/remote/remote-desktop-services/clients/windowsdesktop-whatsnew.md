@@ -11,14 +11,14 @@ ms.topic: article
 author: heidilohr
 manager: lizross
 ms.author: helohr
-ms.date: 02/25/2020
+ms.date: 03/10/2020
 ms.localizationpriority: medium
-ms.openlocfilehash: f435892f0a200056c08094cac1831c710a47a6be
-ms.sourcegitcommit: 92e0e4224563106adc9a7f1e90f27da468859d90
+ms.openlocfilehash: 981a9071b3f5daf1ca97dcde8a8b32b2a2588d99
+ms.sourcegitcommit: fc900eb19ac26c3d6bc2de179cc4b2c1e971043e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77608793"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79038064"
 ---
 # <a name="whats-new-in-the-windows-desktop-client"></a>Novità del client desktop di Windows
 
@@ -28,16 +28,30 @@ Per informazioni più dettagliate sul client desktop di Windows, vedi [Introduzi
 
 Il client può essere configurato per [gruppi di utenti](windowsdesktop-admin.md#configure-user-groups) diversi. Nella tabella seguente sono elencate le versioni correnti disponibili per ogni gruppo di utenti:
 
-|Gruppo utenti |Versione  |
+|Gruppo utenti |Version  |
 |-----------|---------|
-|Public     |1.2.675  |
-|Insider    |1.2.675  |
+|Pubblico     |1.2.675  |
+|Insider    |1.2.787  |
+
+## <a name="updates-for-version-12787"></a>Aggiornamenti per la versione 1.2.787
+
+*Data di pubblicazione: 10/03/2020*
+
+Scarica: [Windows 64-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4qZVh), [Windows 32-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4qXhC), [Windows ARM64](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4qRVA)
+
+- L'azione Aggiorna ("Update") per le aree di lavoro è stata rinominata Aggiorna ("Refresh") per coerenza con altri client Desktop remoto.
+- Puoi ora aggiornare un'area di lavoro direttamente dal relativo menu di scelta rapida.
+- L'aggiornamento manuale di un'area di lavoro garantisce ora l'aggiornamento di tutto il contenuto locale.
+- Puoi ora reimpostare i dati utente del client nella pagina Informazioni su, senza dover disinstallare l'app.
+- Puoi reimpostare i dati utente del client anche usando msrdcw.exe /reset con un parametro /f facoltativo per ignorare il prompt.
+- La ricerca dell'aggiornamento di un client viene ora eseguita automaticamente durante l'accesso alla pagina Informazioni su.
+- È stato aggiornato il colore dei pulsanti per motivi di coerenza.
 
 ## <a name="updates-for-version-12675"></a>Aggiornamenti per la versione 1.2.675
 
 *Data di pubblicazione: 25/02/2020*
 
-Download: [Windows 64-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4qeak), [Windows 32-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4qm7h), [Windows ARM64](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4qm7g)
+Scarica: [Windows 64-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4qeak), [Windows 32-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4qm7h), [Windows ARM64](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4qm7g)
 
 - Le connessioni a Desktop virtuale Windows ora vengono bloccate se nel file RDP manca la firma oppure se una delle proprietà signscope è stata modificata.
 - Se un'area di lavoro è vuota o è stata rimossa, il Centro connessioni non risulta più vuoto.
@@ -50,7 +64,7 @@ Download: [Windows 64-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/bi
 
 *Data di pubblicazione: 29/01/2020*
 
-Download: [Windows 64-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4oHrD), [Windows 32-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4oJZs), [Windows ARM64](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4oXhD)
+Scarica: [Windows 64-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4oHrD), [Windows 32-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4oJZs), [Windows ARM64](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4oXhD)
 
 - Ora puoi selezionare le visualizzazioni da usare per le connessioni desktop. Per modificare l'impostazione, fai clic con il pulsante destro del mouse sull'icona della connessione desktop e scegli **Impostazioni**.
 - È stato risolto il problema che impediva la visualizzazione dei fattori di conversione corretti nelle impostazioni di connessione.

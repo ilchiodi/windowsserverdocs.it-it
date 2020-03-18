@@ -12,14 +12,14 @@ ms.assetid: 64f038e1-40ec-4c67-938b-72edea49e5d8
 author: heidilohr
 manager: lizross
 ms.author: helohr
-ms.date: 12/02/2019
+ms.date: 03/12/2020
 ms.localizationpriority: medium
-ms.openlocfilehash: cb0fa7009c4a8fe53810f8b5f058e659c2391dc1
-ms.sourcegitcommit: 06ae7c34c648538e15c4d9fe330668e7df32fbba
+ms.openlocfilehash: d4ef08107c816aebf6563e57e5e76b12b793d472
+ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78370683"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79323423"
 ---
 # <a name="get-started-with-the-android-client"></a>Introduzione al client Android
 
@@ -229,3 +229,11 @@ Il client utilizza i movimenti tocco standard. È inoltre possibile utilizzare i
 | Puntatore del mouse | Fare clic con il pulsante destro del mouse su          | Tocco con due dita                                                    |
 | Puntatore del mouse | Clic con il pulsante destro del mouse e trascinamento | Doppio tocco e pressione con due dita, quindi trascinamento                         |
 | Puntatore del mouse | Rotellina del mouse          | Pressione con due dita, quindi trascinamento verso l'alto o verso il basso                     |
+
+## <a name="join-the-beta-channel"></a>Accedere al canale Beta
+
+Se vuoi accedere alle funzionalità più recenti prima di chiunque altro o vuoi identificare i problemi prima che vengano rilasciate nuove versioni, il canale Beta è la scelta ottimale. Il canale Beta è anche lo strumento ideale per consentire agli amministratori aziendali di convalidare nuove versioni del client Android per gli utenti nel relativo ambiente.
+
+Per accedere al canale Beta, fornisci semplicemente il consenso per accedere alle versioni di anteprima e scarica il client. Riceverai le versioni di anteprima direttamente da Google Play Store.
+
+[Accedi al canale Beta](https://play.google.com/apps/testing/com.microsoft.rdc.androidx)
