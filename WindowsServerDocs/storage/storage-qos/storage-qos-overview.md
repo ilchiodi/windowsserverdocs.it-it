@@ -8,16 +8,16 @@ ms.topic: get-started-article
 ms.assetid: 8dcb8cf9-0e08-4fdd-9d7e-ec577ce8d8a0
 author: kumudd
 ms.date: 10/10/2016
-ms.openlocfilehash: 11d8abfc23cb0f192ed74a1082e83c8e0c8e87e9
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: ed7d7ca4f41784f2ae12220eb2e30077e2467175
+ms.sourcegitcommit: 056d355516f199e8a505c32b9aa685d0cde89e44
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75950091"
+ms.lasthandoff: 03/18/2020
+ms.locfileid: "79518746"
 ---
 # <a name="storage-quality-of-service"></a>QoS di archiviazione
 
-> Si applica a: Windows Server (Canale semestrale), Windows Server 2016
+> Si applica a: Windows Server 2019, Windows Server 2016, Windows Server (Canale semestrale)
 
 QoS di archiviazione (Storage Quality of Service) di Windows Server 2016 consente di monitorare e gestire centralmente le prestazioni di archiviazione delle macchine virtuali usando Hyper-V e i ruoli del File server di scalabilità orizzontale. La funzionalità migliora automaticamente l'equità delle risorse di archiviazione tra più macchine virtuali che usano lo stesso cluster di file server e consente di configurare obiettivi di prestazione minimi e massimi basati su criteri in unità di IOPS normalizzate.  
 
@@ -74,7 +74,7 @@ Quando le macchine virtuali apportano modifiche ai criteri di QoS di archiviazio
 |Flusso|Ogni handle di file aperto da un server Hyper-V in un file VHD o VHDX viene considerato un "flusso". Se una macchina virtuale ha due dischi rigidi virtuali collegati, disporrà di 1 flusso al cluster di server per ogni file. Se un file VHDX è condiviso con più macchine virtuali, avrà 1 flusso per ogni macchina virtuale.|  
 |InitiatorName|Nome della macchina virtuale che viene segnalata al File server di scalabilità orizzontale per ogni flusso.|  
 |InitiatorID|Un identificatore che corrisponde all'ID della macchina virtuale.  Può essere usato sempre per identificare i flussi singoli delle macchine virtuali anche se le macchine virtuali hanno lo stesso InitiatorName.|  
-|Criteri di|I criteri di QoS di archiviazione vengono archiviati nel database del cluster e presentano le proprietà seguenti: PolicyId, MinimumIOPS, MaximumIOPS, ParentPolicy e PolicyType.|  
+|Condizione|I criteri di QoS di archiviazione vengono archiviati nel database del cluster e presentano le proprietà seguenti: PolicyId, MinimumIOPS, MaximumIOPS, ParentPolicy e PolicyType.|  
 |PolicyId|Identificatore univoco per un criterio.  Viene generato per impostazione predefinita, ma può essere specificato se lo si preferisce.|  
 |MinimumIOPS|Numero minimo di operazioni di I/O normalizzate che verrà fornito da un criterio.  Noto anche come "Prenotazione".|  
 |MaximumIOPS|Numero massimo di operazioni di I/O normalizzate che verrà posto come limite da un criterio.  Noto anche come "Limite".|  
