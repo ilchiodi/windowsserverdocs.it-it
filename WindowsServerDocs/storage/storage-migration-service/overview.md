@@ -8,12 +8,12 @@ ms.date: 01/17/2020
 ms.topic: article
 ms.prod: windows-server
 ms.technology: storage
-ms.openlocfilehash: 1a98de21e91fc7bdc431e7413c44089ce750bc05
-ms.sourcegitcommit: 840d1d8851f68936db3934c80796fb8722d3c64a
+ms.openlocfilehash: 70ce4ebca35e071cf6e27fe429d3c4e6f67d342c
+ms.sourcegitcommit: 8b801bd86e2ddf8255899b11f547daa920e5f651
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76519473"
+ms.lasthandoff: 03/21/2020
+ms.locfileid: "80110674"
 ---
 # <a name="storage-migration-service-overview"></a>Panoramica di servizio migrazione archiviazione
 
@@ -58,7 +58,7 @@ Per usare il servizio migrazione archiviazione, è necessario quanto segue:
 - Un **server di origine** o un **cluster di failover** per la migrazione di file e dati da
 - Un **server di destinazione** che esegue Windows Server 2019 (cluster o autonomo) per la migrazione a. Anche Windows Server 2016 e Windows Server 2012 R2 funzionano ma sono più lenti al 50%
 - Un server dell'agente di **orchestrazione** che esegue Windows Server 2019 per gestire la migrazione  <br>Se si esegue la migrazione solo di alcuni server e uno dei server esegue Windows Server 2019, è possibile usarlo come agente di orchestrazione. Se si esegue la migrazione di più server, è consigliabile usare un server dell'agente di orchestrazione separato.
-- Un **PC o un server che esegue [l'interfaccia di amministrazione di Windows](../../manage/windows-admin-center/understand/windows-admin-center.md)** per eseguire l'interfaccia utente del servizio migrazione archiviazione, a meno che non si preferisca usare PowerShell per gestire la migrazione. L'interfaccia di amministrazione di Windows e la versione di Windows Server 2019 devono essere entrambe almeno la versione 1809.
+- Un **PC o un server [Windows Admin Center](../../manage/windows-admin-center/understand/windows-admin-center.md) che esegue** l'interfaccia di amministrazione di Windows per eseguire l'interfaccia utente del servizio migrazione archiviazione, a meno che non si preferisca usare PowerShell per gestire la migrazione. L'interfaccia di amministrazione di Windows e la versione di Windows Server 2019 devono essere entrambe almeno la versione 1809.
 
 Si consiglia vivamente che l'agente di orchestrazione e i computer di destinazione dispongano di almeno due core o due vCPU e almeno 2 GB di memoria. Le operazioni di inventario e trasferimento sono notevolmente più veloci con più processori e memoria.
 
@@ -85,10 +85,10 @@ Il server di origine deve eseguire uno dei sistemi operativi seguenti:
 
 - Windows Server, Canale semestrale
 - Windows Server 2019
-- Windows Server 2016
+- Windows Server 2016
 - Windows Server 2012 R2
 - Windows Server 2012
-- Windows Server 2008 R2
+- Windows Server 2008 R2
 - Windows Server 2008
 - Windows Server 2003 R2
 - Windows Server 2003
@@ -100,7 +100,7 @@ Il server di origine deve eseguire uno dei sistemi operativi seguenti:
 - Windows Server 2016 Essentials
 - Windows Server 2019 Essentials
 - Windows Storage Server 2008
-- Windows Storage Server 2008 R2
+- Windows Storage Server 2008 R2
 - Windows Storage Server 2012
 - Windows Storage Server 2012 R2
 - Windows Storage Server 2016
@@ -124,11 +124,15 @@ Il server di destinazione deve eseguire uno dei sistemi operativi seguenti:
 
 - Windows Server, Canale semestrale
 - Windows Server 2019
-- Windows Server 2016
+- Windows Server 2016
 - Windows Server 2012 R2
 
 > [!TIP]
 > I server di destinazione che eseguono Windows Server 2019 o Windows Server, il canale semestrale o versioni successive hanno il doppio delle prestazioni di trasferimento delle versioni precedenti di Windows Server. Questo miglioramento delle prestazioni è dovuto all'inclusione di un servizio proxy del servizio di migrazione archiviazione integrato, che apre anche le porte del firewall necessarie se non sono già aperte.
+
+## <a name="azure-vm-migration"></a>Migrazione di macchine virtuali di Azure
+
+Windows Admin Center versione 1910 consente di distribuire macchine virtuali di Azure. Questa operazione integra la distribuzione delle macchine virtuali nel servizio migrazione archiviazione. Invece di creare nuovi server e macchine virtuali nel portale di Azure prima di distribuire il carico di lavoro e probabilmente mancano i passaggi e la configurazione necessari, l'interfaccia di amministrazione di Windows può distribuire la VM di Azure, configurarne l'archiviazione, aggiungerla al dominio, installare i ruoli e Configurare quindi il sistema distribuito. 
 
 ## <a name="whats-new-in-storage-migration-service"></a>Novità del servizio migrazione archiviazione
 
@@ -140,7 +144,7 @@ Le nuove funzionalità seguenti sono disponibili quando si esegue l'agente di or
 - Sincronizzazione semplificata tramite Sincronizzazione file di Azure delle condivisioni sottoposte a migrazione
 - Migrazione a nuove reti, ad esempio Azure
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 
 - [Eseguire la migrazione di un file server usando il servizio migrazione archiviazione](migrate-data.md)
 - [Domande frequenti sui servizi di migrazione archiviazione](faq.md)
