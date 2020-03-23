@@ -11,14 +11,14 @@ ms.topic: article
 author: heidilohr
 manager: lizross
 ms.author: helohr
-ms.date: 01/29/2020
+ms.date: 03/04/2020
 ms.localizationpriority: medium
-ms.openlocfilehash: 1753780474332a6d5786a5804fc1b4fe5e3d8883
-ms.sourcegitcommit: 9077469e372d2aafcad890cbc4e4a24c58a3838c
+ms.openlocfilehash: 8b7aefa169fe2121c5a2da1f913714d23d989d16
+ms.sourcegitcommit: 056d355516f199e8a505c32b9aa685d0cde89e44
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2020
-ms.locfileid: "76889435"
+ms.lasthandoff: 03/18/2020
+ms.locfileid: "79518736"
 ---
 # <a name="get-started-with-the-windows-desktop-client"></a>Introduzione al client desktop di Windows
 
@@ -134,5 +134,6 @@ Quando si esamina un problema, possono essere necessari i log del client.
 
 Per recuperare i log del client:
 
-1. Apri **Esplora file**.
-2. Passa alla cartella **%temp%\DiagOutputDir\RdClientAutoTrace**.
+1. Assicurati che non ci siano sessioni attive e che il processo client non sia in esecuzione in background facendo clic con il pulsante destro del mouse sull'icona **Desktop remoto** nella barra delle applicazioni e selezionando **Disconnetti tutte le sessioni**.
+2. Apri **Esplora file**.
+3. Passa alla cartella **%temp%\DiagOutputDir\RdClientAutoTrace**.
