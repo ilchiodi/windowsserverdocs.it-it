@@ -9,14 +9,14 @@ ms.date: 09/12/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: networking
-ms.openlocfilehash: 7098e81f486a5b0b4974c19b47e2d48c6f98832b
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: bca603344047ea5cc890bf9976ca5a6c79514136
+ms.sourcegitcommit: 9feb093a0acb8834c9ef3c066667c7062d85e6e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71355371"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80289796"
 ---
-# <a name="insider-preview"></a>Insider Preview
+# <a name="new-hpn-features-in-windows-server-2019"></a>Nuove funzionalità di HPN in Windows Server 2019
 
 
 ## <a name="dynamic-vrss-and-vmmq"></a>VRSS e VMMQ dinamici
@@ -27,7 +27,7 @@ In passato, le code di macchine virtuali e le code multicoda di macchine virtual
 
 Windows Server 2019 migliora queste ottimizzazioni distribuendo e ottimizzando dinamicamente l'elaborazione dei carichi di lavoro di rete in base alle esigenze. Windows Server 2019 garantisce una massima efficienza e rimuove il carico di configurazione per gli amministratori IT.
 
-Per altre informazioni, vedere:
+Per altre informazioni, vedi:
 
 -   [Blog di annuncio](https://blogs.technet.microsoft.com/networking/2018/08/22/netperf4vw/)
 
@@ -43,7 +43,7 @@ In precedenza, si trattava di un offload implementato dalla scheda di interfacci
 
 Per impostazione predefinita, RSC in vSwitch è abilitato in commutatori virtuali esterni.
 
-Per altre informazioni, vedere:
+Per altre informazioni, vedi:
 
 -  [Blog di annuncio](https://blogs.technet.microsoft.com/networking/2018/08/22/netperf4vw/)
 
