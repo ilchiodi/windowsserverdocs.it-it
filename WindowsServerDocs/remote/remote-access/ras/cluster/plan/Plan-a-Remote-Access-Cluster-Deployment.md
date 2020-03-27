@@ -10,14 +10,14 @@ ms.technology: networking-ras
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 88ffd598-2fde-402c-bd12-be790f84dc96
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 764fd6d272a498898bbdb1f1da68e0d41c39cf84
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 943ec8d386d5fe9910b4415a2ab2525d23efc32e
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71404612"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80308258"
 ---
 # <a name="plan-a-remote-access-cluster-deployment"></a>Pianificare la distribuzione di un cluster di accesso remoto
 
@@ -31,7 +31,7 @@ ms.locfileid: "71404612"
   
 -   [Passaggio 3 pianificare una distribuzione di cluster con bilanciamento del carico](Step-3-Plan-a-Load-Balanced-Cluster-Deployment.md).  
   
--   Passaggio 4: Registrare le decisioni di pianificazione per la distribuzione avanzata di accesso remoto. Questo record può essere usato per supportare il lavoro di tutte le persone coinvolte nel completamento dei passaggi di distribuzione.  
+-   Passaggio 4: registrare le decisioni relative alla pianificazione per la distribuzione avanzata di accesso remoto. Questo record può essere usato per supportare il lavoro di tutte le persone coinvolte nel completamento dei passaggi di distribuzione.  
   
 Dopo aver completato questi passaggi di pianificazione, vedere [configurare un cluster di accesso remoto](../configure/Configure-a-Remote-Access-Cluster.md). 
 

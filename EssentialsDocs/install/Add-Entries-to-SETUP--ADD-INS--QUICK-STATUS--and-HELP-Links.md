@@ -1,9 +1,9 @@
 ---
 title: Aggiunta di voci ai collegamenti CONFIGURAZIONE, COMPONENTI AGGIUNTIVI, STATO RAPIDO e GUIDA
-description: Viene descritto come utilizzare Windows Server Essentials
+description: Viene descritto come usare Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
-ms.prod: windows-server-2016-essentials
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
@@ -12,12 +12,12 @@ ms.assetid: c0a8f10d-fd85-4c8d-b9bb-176cb1db1f46
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: f0a66d0d36a3012369a9bc26c513dad069235ad8
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 074e4e638a1fe96bedf2c8340ec71848a8fa4ac4
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66433791"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80310274"
 ---
 # <a name="add-entries-to-setup-add-ins-quick-status-and-help-links"></a>Aggiunta di voci ai collegamenti CONFIGURAZIONE, COMPONENTI AGGIUNTIVI, STATO RAPIDO e GUIDA
 
@@ -26,7 +26,7 @@ ms.locfileid: "66433791"
 È possibile aggiungere delle attività agli elenchi **CONFIGURA**, **COMPONENTI AGGIUNTIVI**, **RIEPILOGO SULLO STATO** e aggiungere collegamenti alla sezione Collegamenti alla comunità nella pagina iniziale del dashboard. Le attività e i collegamenti vengono aggiunti a questi elenchi e a questa sezione collocando un file XML denominato OEMHomePageContent.home o un file delle risorse incorporato denominato OEMHomePageContent.dll in %Programmi%\Windows Server\Bin\Addins\Home. Il file delle risorse predefinito può essere utilizzato per localizzare il testo nelle attività e nei collegamenti aggiunti. Il file .home contiene le definizioni XML delle attività e dei collegamenti.  
   
 ## <a name="adding-tasks-to-the-setup-add-ins-quick-status-task-lists-and-adding-links-to-help-task"></a>Aggiunta di attività agli elenchi CONFIGURA, COMPONENTI AGGIUNTIVI, RIEPILOGO SULLO STATO e di collegamenti all'attività GUIDA  
- Per aggiungere attività agli elenchi **CONFIGURA**, **COMPONENTI AGGIUNTIVI**, **RIEPILOGO SULLO STATO** e collegamenti all'attività **GUIDA** , definire le attività e i collegamenti utilizzando un file XML oppure, in alternativa, creare un file delle risorse incorporato e installarlo sul server. Se il file XML viene installato sul server senza un file delle risorse, deve chiamarsi OEMHomePageContent.home. Se viene utilizzato un assembly per installare sia il file XML che il file delle risorse, l'assembly deve essere chiamato OEMHomePageContent.dll e deve essere firmato con Authenticode.  
+ Per aggiungere attività agli elenchi **CONFIGURA**, **COMPONENTI AGGIUNTIVI**, **RIEPILOGO SULLO STATO** e collegamenti all'attività **GUIDA**, definire le attività e i collegamenti utilizzando un file XML oppure, in alternativa, creare un file delle risorse incorporato e installarlo sul server. Se il file XML viene installato sul server senza un file delle risorse, deve chiamarsi OEMHomePageContent.home. Se viene utilizzato un assembly per installare sia il file XML che il file delle risorse, l'assembly deve essere chiamato OEMHomePageContent.dll e deve essere firmato con Authenticode.  
   
 ### <a name="define-the-tasks-and-links"></a>Definizione delle attività e dei collegamenti  
  Per creare il file .home, utilizzare un editor di testo quale Blocco note, mentre se viene creato anche un file di risorse incorporato, utilizzare Visual Studio 2010 o una versione successiva per definire i file. Nella procedura seguente è descritto l'uso di Visual Studio 2010 o una versione successiva per la creazione di file.  
@@ -35,9 +35,9 @@ ms.locfileid: "66433791"
   
 1. Accedere a Visual Studio 2010 o una versione successiva come amministratore facendo clic con il pulsante destro del mouse sul programma nel menu Start, quindi selezionando **Esegui come amministratore**.  
   
-2. Fare clic su **File**, quindi su **Nuovo**e infine su **Progetto**.  
+2. Fare clic su **File**, quindi su **Nuovo** e infine su **Progetto**.  
   
-3. Nel riquadro **Modelli** , fare clic su **Libreria di classi**, digitare **OEMHomePageContent** nella casella **Nome** , quindi fare clic su **OK**.  
+3. Nel riquadro **Modelli**, fare clic su **Libreria di classi**, digitare **OEMHomePageContent** nella casella **Nome**, quindi fare clic su **OK**.  
   
 4. Eliminare il file Class1.cs.  
   
@@ -103,14 +103,14 @@ ms.locfileid: "66433791"
    |---------------|-----------------|  
    |Nome (attività)|Il nome visualizzato per l'attività nell'elenco. Se si crea un file di risorse incorporato, il valore di questo attributo corrisponde alla risorsa di tipo stringa.|  
    |descrizione (attività)|La descrizione dell'attività. Se si crea un file di risorse incorporato, il valore di questo attributo corrisponde alla risorsa di tipo stringa.|  
-   |id (attività)|L'identificatore dell'attività. Questo identificatore deve essere un GUID. È necessario creare un nuovo GUID per le attività **exe** , mentre per le attività **globali** occorre utilizzare il GUID creato al momento della definizione dell'attività per il relativo riquadro della sottoscheda. Per altre informazioni sulla creazione di un GUID, vedere [Crea GUID (guidgen.exe)](https://go.microsoft.com/fwlink/?LinkId=116098).|  
+   |id (attività)|L'identificatore dell'attività. Questo identificatore deve essere un GUID. Si crea un nuovo GUID per un'attività **exe** , ma per un'attività **globale** si usa il GUID creato al momento della definizione dell'attività per il riquadro attività della sottoscheda. Per ulteriori informazioni sulla creazione di un GUID, vedere [create GUID (Guidgen. exe)](https://go.microsoft.com/fwlink/?LinkId=116098).|  
    |image|Questo campo verrà ignorato.|  
    |Nome (azione)|Visualizza il nome dell'attività.|  
-   |Tipo (azione)|Descrive il tipo di attività. L'attività può essere: **globale**, **exe** o un URL. Un'attività **globale** corrisponde alla medesima attività globale creata durante la definizione delle attività per il relativo riquadro nella sottoscheda. Per altre informazioni sulla creazione di un'attività globale che può essere utilizzata in sia nel riquadro attività della sottoscheda e gli elenchi attività preliminari o attività comuni della home page, vedere œCreating le classi di supporto? in come: Creare una sottoscheda? del [Windows Server Solutions SDK](https://go.microsoft.com/fwlink/?LinkID=248648). Un'attività **exe** può essere utilizzata per eseguire le applicazioni dagli elenchi Attività preliminari o Attività comuni.|  
+   |Tipo (azione)|Descrive il tipo di attività. L'attività può essere: **globale**, **exe** o un URL. Un'attività **globale** è la stessa attività globale creata durante la definizione delle attività per il riquadro attività nella scheda secondaria. Per ulteriori informazioni sulla creazione di un'attività globale che può essere utilizzata sia nel riquadro attività della sottoscheda che nelle attività Introduzione o negli elenchi attività comuni del home page, vedere œCreating the support Classes? in come to: creare una sottoscheda? di [Windows Server Solutions SDK](https://go.microsoft.com/fwlink/?LinkID=248648). Un'attività **exe** può essere utilizzata per eseguire le applicazioni dagli elenchi Attività preliminari o Attività comuni.|  
    |exelocation|Il percorso dell'applicazione associata all'attività. Questo attributo viene utilizzato solo attività di tipo **exe**.|  
    |replaceid|L'identificatore dell'attività che viene sostituito con questa attività.|  
-   |assembly|Il nome dell'assembly che fornisce la classe per l'implementazione della query per ottenere un riepilogo delle informazioni sullo stato. L'assembly deve trovarsi in Program Files \ windows Server\Bin.\\.|  
-   |classe|Il nome della classe implementa la query per ottenere un riepilogo delle informazioni sullo stato. La classe deve implementare l'interfaccia **ITaskStatusQuery** .|  
+   |assembly|Il nome dell'assembly che fornisce la classe per l'implementazione della query per ottenere un riepilogo delle informazioni sullo stato. L'assembly deve trovarsi in programmi \ Windows Server\Bin\\.|  
+   |class|Il nome della classe implementa la query per ottenere un riepilogo delle informazioni sullo stato. La classe deve implementare l'interfaccia **ITaskStatusQuery**.|  
    |Titolo (collegamento)|Il testo visualizzato per il collegamento. Se si crea un file di risorse incorporato, il valore di questo attributo corrisponde alla risorsa di tipo stringa.|  
    |Descrizione (collegamento)|La descrizione della destinazione del collegamento. Se si crea un file di risorse incorporato, il valore di questo attributo corrisponde alla risorsa di tipo stringa.|  
    |ShellExecPath|Il percorso dell'applicazione o dell'URL.<br /><br /> **Nota:** Le variabili di ambiente sono supportate nell'attributo ShellExecPath.|  
@@ -133,7 +133,7 @@ ms.locfileid: "66433791"
   
 8. Modificare i valori di attributo per rappresentare l'attività o il collegamento.  
   
-9. In **Esplora soluzioni**, fare clic con il pulsante destro del mouse su **OEMHomePageContent.home**e quindi selezionare **Proprietà**.  Nel riquadro **Proprietà**, in **Azione di compilazione**, selezionare **Risorsa incorporata**.  
+9. In **Esplora soluzioni**, fare clic con il pulsante destro del mouse su **OEMHomePageContent.home** e quindi selezionare **Proprietà**.  Nel riquadro **Proprietà**, in **Azione di compilazione**, selezionare **Risorsa incorporata**.  
   
 10. Salvare il file OEMHomePageContent.home.  
   
@@ -147,11 +147,11 @@ ms.locfileid: "66433791"
 ##### <a name="replace-tasks"></a>Sostituzione delle attività  
  È possibile sostituire le attività predefinite presenti negli elenchi Azioni preliminari o Azioni comuni aggiungendo il GUID dell'attività all'attributo sostituzioneid nella definizione delle attività. Nella tabella seguente sono elencate le attività e gli identificatori corrispondenti che è possibile sostituire nel dashboard:  
   
-|Nome attività|Identificatore|  
+|Nome dell'attività|Identificatore|  
 |---------------|----------------|  
 |Ottenere aggiornamenti per altri prodotti Microsoft|8412D35A-13EE-4112-AE0B-F7DBC83EA83D|  
 |Impostazione del backup del server|F68B3F3F-19DE-499D-9ACB-4BB41B8FF420|  
-|Impostazione di Accesso remoto via Internet|8991302D-676A-4A7C-B244-D1E08AE0EFEA|  
+|Configurare Accesso remoto via Internet|8991302D-676A-4A7C-B244-D1E08AE0EFEA|  
 |Impostazione della notifica degli avvisi|DE6F2B36-F19C-4FAF-998B-9772300E3530|  
 |Aggiunta di un account utente|6D5B5D5F-2EC7-4B1F-9580-4DB084B278B1|  
 |Aggiunta di cartelle al server|03F1F438-D94E-439B-A9F7-0C817C37D625|  
@@ -201,7 +201,7 @@ ms.locfileid: "66433791"
   
 5.  Salvare il file OEMHomePageContent.home.resx, quindi generare la soluzione.  
   
-#####  <a name="BKMK_SignAssembly"></a> Firmare l'assembly con una firma Authenticode  
+#####  <a name="sign-the-assembly-with-an-authenticode-signature"></a><a name="BKMK_SignAssembly"></a>Firmare l'assembly con una firma Authenticode  
  Per poter utilizzare l'assembly nel sistema operativo, è necessario applicarvi una firma Authenticode. Per altre informazioni sulla firma dell'assembly, vedere [Firma e verifica del codice con Authenticode](https://msdn.microsoft.com/library/ms537364\(VS.85\).aspx#SignCode).  
   
 ##### <a name="install-the-task-files"></a>Installazione dei file delle attività  
@@ -213,7 +213,7 @@ ms.locfileid: "66433791"
   
 2.  Se non è stato creato un file di risorse incorporato, copiare il file OEMHomePageContent.home in **%Programmi%\Windows Server\Bin\Addins\Home** nel server. Se è stato creato un file di risorse incorporato, copiare il file OEMHomePageContent.dll in **%Programmi%\Windows Server\Bin\Addins\Home** nel server.  
   
-## <a name="see-also"></a>Vedere anche  
+## <a name="see-also"></a>Vedi anche  
  [Creazione e personalizzazione dell'immagine](Creating-and-Customizing-the-Image.md)   
  [Personalizzazioni aggiuntive](Additional-Customizations.md)   
  [Preparazione dell'immagine per la distribuzione](Preparing-the-Image-for-Deployment.md)   

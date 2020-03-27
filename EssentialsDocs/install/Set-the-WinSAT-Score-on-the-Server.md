@@ -1,9 +1,9 @@
 ---
 title: Impostazione del punteggio WinSAT sul server
-description: Viene descritto come utilizzare Windows Server Essentials
+description: Viene descritto come usare Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
-ms.prod: windows-server-2016-essentials
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
@@ -12,35 +12,35 @@ ms.assetid: 911dc494-0f8f-4723-93d6-2106f914b906
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 4e5ce037c7a8c802419cd980fc0272c4f687c6a6
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 20aafa957bd49f6522bfef98a2f8626dc5aab9df
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66433455"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80311502"
 ---
 # <a name="set-the-winsat-score-on-the-server"></a>Impostazione del punteggio WinSAT sul server
 
 >Si applica a: Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
 
-È consigliabile impostare il punteggio WinSAT CPU per un server che esegue il sistema operativo Windows Server Essentials per ottimizzare la risoluzione di streaming video. A tale scopo, occorre creare e installare il file XML contenente le informazioni sul punteggio WinSAT.  
+Per ottimizzare la risoluzione dei flussi video, è necessario impostare il Punteggio di CPU WinSAT per un server che esegue il sistema operativo Windows Server Essentials. A tale scopo, occorre creare e installare il file XML contenente le informazioni sul punteggio WinSAT.  
   
 ## <a name="obtain-the-winsat-cpu-score"></a>Come ottenere il punteggio WinSAT CPU  
  Con OPK, viene fornito all'utente un programma denominato WinServerSAT.exe in grado di rilevare il punteggio WinSAT CPU e di inserire tali informazioni nel file WinServerSAT.xml che il sistema operativo può quindi leggere.  
   
 #### <a name="to-obtain-the-winsat-cpu-score"></a>Per ottenere il punteggio WinSAT CPU  
   
-1. Copiare il Resources\WinServerSAT\\* nel supporto ADK nel computer di riferimento.  
+1. Copiare il Resources\WinServerSAT\\* nel supporto di ADK nel computer di riferimento.  
   
 2. Sul computer di riferimento, aprire una finestra del prompt dei comandi con privilegi elevati.  
   
 3. Se la cartella %ProgramFiles%\Windows Server\Bin\OEM non esiste, digitare il seguente comando e premere Invio.  
   
-    **mkdir "%ProgramFiles%\Windows Server\Bin\OEM"**  
+    **mkdir "%programmi%\Windows Server\Bin\OEM"**  
   
 4. Digitare il seguente comando e premere Invio.  
   
-    **WinServerSAT.exe "%ProgramFiles%\Windows Server\Bin\OEM\WinServerSAT.xml"**  
+    **WinServerSAT. exe "%programmi%\Windows Server\Bin\OEM\WinServerSAT.xml"**  
   
    Nel seguente esempio viene mostrato il contenuto XML del file WinServerSAT.xml creato.  
   

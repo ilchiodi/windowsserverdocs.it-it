@@ -3,7 +3,7 @@ title: Gestire i supporti digitali in Windows Server Essentials
 description: Viene descritto come usare Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
-ms.prod: windows-server-2016-essentials
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
@@ -12,12 +12,12 @@ ms.assetid: 9378bffa-487c-43ca-9ec3-7e7864d2dd9a
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 8d7c4f0432e1f840717776ee5df00d64c39b18fd
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: 560fe8b7cb03b5c0840e604767f4682b8779f502
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75947485"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80311306"
 ---
 # <a name="manage-digital-media-in-windows-server-essentials"></a>Gestire i supporti digitali in Windows Server Essentials
 
@@ -50,7 +50,7 @@ L'argomento seguente descrive la funzionalità dei flussi multimediali del serve
   
 -   [Problemi noti relativi ai tipi di file multimediali](Manage-Digital-Media-in-Windows-Server-Essentials.md#BKMK_KnownIssues)  
   
-##  <a name="BKMK_1"></a>Panoramica dei supporti digitali  
+##  <a name="digital-media-overview"></a><a name="BKMK_1"></a>Panoramica dei supporti digitali  
  I file multimediali digitali sono contenuti audio, video e foto codificati, ovvero compressi in modo digitale. La codifica di contenuto comporta la conversione di input audio e video in un file multimediale digitale, ad esempio un file di Windows Media. Dopo la codifica, un file multimediale digitale potrà essere modificato, distribuito e riprodotto con facilità dai computer e potrà essere trasmesso in modo semplice nelle reti di computer.  
   
  I file multimediali digitali includono, ad esempio, Windows Media Audio (WMA), Windows Media Video (WMV), MP3, JPEG e AVI. Per informazioni sui tipi di file multimediali digitali supportati da Windows Media Player, vedere [Tipi di file supportati da Windows Media Player](https://support.microsoft.com/kb/316992).  
@@ -60,27 +60,27 @@ L'argomento seguente descrive la funzionalità dei flussi multimediali del serve
   
 -   **Guardare video**. Il server può essere usato per archiviare e trasmettere grandi raccolte di video e trasmissioni televisive registrate nei computer o in altri dispositivi per la riproduzione disponibili in rete. È possibile trasmettere video a una console Xbox 360 o a un computer usando Windows Media Player.  
   
--   **Riprodurre musica**. Quando si attiva la Condivisione file multimediali per la cartella condivisa **Musica** , sarà possibile accedere alla musica dai dispositivi che supportano Windows Media Connect. Dopo l'attivazione della condivisione, non è necessario abilitare o configurare account utente per la trasmissione di flussi dalla cartella condivisa **Musica** .  
+-   **Riprodurre musica**. Quando si attiva la Condivisione file multimediali per la cartella condivisa **Musica**, sarà possibile accedere alla musica dai dispositivi che supportano Windows Media Connect. Dopo l'attivazione della condivisione, non è necessario abilitare o configurare account utente per la trasmissione di flussi dalla cartella condivisa **Musica**.  
   
 -   **Eseguire presentazioni di fotografie**. È possibile archiviare le foto digitali nella cartella condivisa **Foto** nel server, quindi accedervi da qualsiasi computer o da una console Xbox 360 connessa a un televisore in casa o in ufficio. È possibile usare il televisore come se fosse una grande cornice per guardare presentazioni fotografiche.  
   
-###  <a name="BKMK_1.5"></a>Condivisione di file multimediali protetti da copia  
+###  <a name="sharing-copy-protected-media"></a><a name="BKMK_1.5"></a>Condivisione di file multimediali protetti da copia  
   Windows Server Essentials non supporta la condivisione di file multimediali protetti da copia. inclusi i file musicali acquistati tramite un negozio online.  
   
  I file multimediali protetti da copia possono essere riprodotti solo nel computer o nel dispositivo usato per acquistarli. La protezione contro la copia impedisce la riproduzione di file multimediali in più computer o dispositivi, anche se si copia il file multimediale sul server e lo si riproduce da questa posizione. Tuttavia, è possibile archiviare il supporto protetto da copia in Windows Server Essentials e continuare a riprodurre il supporto nel computer o nel dispositivo usato per acquistarlo.  
   
-##  <a name="BKMK_2"></a>Gestire il server multimediale usando il dashboard  
+##  <a name="manage-media-server-using-the-dashboard"></a><a name="BKMK_2"></a>Gestire il server multimediale usando il dashboard  
   Windows Server Essentials consente di eseguire attività amministrative comuni tramite il dashboard di Windows Server Essentials. La scheda **Media** della pagina **Impostazioni** del dashboard contiene quanto segue:  
   
 |Sezione|Funzionalità|  
 |-------------|-------------------|  
 |Server dei contenuti multimediali|Il pulsante **Attiva/Disattiva** consente di attivare o disattivare i flussi multimediali.|  
 |Qualità flusso video|Questa freccia a discesa consente di scegliere la qualità del flusso dei video riprodotti dal server.|  
-|Catalogo multimediale|Visualizza il nome del catalogo multimediale. Il nome predefinito è **Catalogo multimediale digitale**, che viene creato quando si attivano i flussi multimediali. Per modificare il nome della raccolta multimediale [Rename the media library](Manage-Digital-Media-in-Windows-Server-Essentials.md#BKMK_8). È possibile fare clic su **Personalizza** per personalizzare le cartelle condivise nel catalogo multimediale.|  
+|Catalogo multimediale|Visualizza il nome del catalogo multimediale. Il nome predefinito è **Catalogo multimediale digitale**, che viene creato quando si attivano i flussi multimediali. Per cambiare questo nome, vedere [Rinominare il catalogo multimediale](Manage-Digital-Media-in-Windows-Server-Essentials.md#BKMK_8). È possibile fare clic su **Personalizza** per personalizzare le cartelle condivise nel catalogo multimediale.|  
   
- Per altre informazioni, consultare [Allow or restrict access to a media library on the server](Manage-Digital-Media-in-Windows-Server-Essentials.md#BKMK_6) e [Sharing copy-protected media](Manage-Digital-Media-in-Windows-Server-Essentials.md#BKMK_1.5).  
+ Per altre informazioni, vedere [Consentire o limitare l'accesso a un catalogo multimediale nel server](Manage-Digital-Media-in-Windows-Server-Essentials.md#BKMK_6) e sulla [Condivisione di file multimediali protetti da copia](Manage-Digital-Media-in-Windows-Server-Essentials.md#BKMK_1.5).  
   
-##  <a name="BKMK_3"></a>Funzionamento dei flussi multimediali  
+##  <a name="how-media-streaming-works"></a><a name="BKMK_3"></a>Funzionamento dei flussi multimediali  
  La funzionalità di streaming multimediale di Windows Server Essentials consente ai computer in rete e ad alcuni dispositivi multimediali digitali in rete di riprodurre file multimediali digitali archiviati nel server.  
   
  Se si attiva il server dei contenuti multimediali, i contenuti condivisi nei cataloghi multimediali saranno disponibili per la riproduzione nei dispositivi della rete in grado di ricevere flussi multimediali dal server. È possibile trasmettere la maggior parte dei tipi di file multimediali digitali. I tipi di file più comuni includono:  
@@ -105,7 +105,7 @@ L'argomento seguente descrive la funzionalità dei flussi multimediali del serve
   
   Per altre informazioni, vedere [attivare o disattivare i flussi multimediali](Manage-Digital-Media-in-Windows-Server-Essentials.md#BKMK_4).  
   
-##  <a name="BKMK_4"></a>Attivare o disattivare i flussi multimediali  
+##  <a name="turn-media-streaming-on-or-off"></a><a name="BKMK_4"></a>Attivare o disattivare i flussi multimediali  
  È possibile condividere musica, video e immagini da Windows Server Essentials mediante lo streaming di file in qualsiasi ricevitore multimediale digitale supportato (ricevitore), ad esempio computer, telefoni cellulari, televisori, ricevitori multimediali digitali, Extender per Windows Media Center (incluso Xbox 360) e altri dispositivi elettronici personali.  
   
  Per un elenco aggiornato di dispositivi multimediali digitali compatibili con Windows Server Essentials, vedere [Windows Compatibility Center](https://www.microsoft.com/windows/compatibility/CompatCenter/Home).  
@@ -113,25 +113,25 @@ L'argomento seguente descrive la funzionalità dei flussi multimediali del serve
 ### <a name="enabling-media-sharing"></a>Abilitazione della condivisione di file multimediali  
  Per condividere i file multimediali archiviati in Windows Server Essentials, è necessario attivare i flussi multimediali. Per impostazione predefinita, i flussi multimediali sono disattivati.  
   
-####  <a name="BKMK_2.5"></a>Per attivare o disattivare i flussi multimediali  
+####  <a name="to-turn-media-streaming-on-or-off"></a><a name="BKMK_2.5"></a>Per attivare o disattivare i flussi multimediali  
   
 1. Aprire il dashboard di Windows Server Essentials.  
   
-2. Fare clic su **Impostazioni**, su **Media**e quindi eseguire una delle operazioni seguenti:  
+2. Fare clic su **Impostazioni**, su **Media** e quindi eseguire una delle operazioni seguenti:  
   
    -   Fare clic su **Attiva** per iniziare a condividere tutti i file archiviati nel catalogo multimediale del server.  
   
    -   Fare clic su **Disattiva** per interrompere la condivisione di tutti i file archiviati nel catalogo multimediale del server.  
   
-3. Se si vogliono condividere altre cartelle del catalogo multimediale, fare clic su **Personalizza**e quindi selezionare **Sì** per ogni cartella condivisa da includere nel catalogo.  
+3. Se si vogliono condividere altre cartelle del catalogo multimediale, fare clic su **Personalizza** e quindi selezionare **Sì** per ogni cartella condivisa da includere nel catalogo.  
   
 4. Fare clic su **OK** per salvare le modifiche.  
   
    Per informazioni sui tipi di file multimediali digitali supportati da Windows Media Player, vedere [Tipi di file supportati da Windows Media Player](https://support.microsoft.com/kb/316992).  
   
-   Per altre informazioni, vedere [Allow or restrict access to a media library on the server](Manage-Digital-Media-in-Windows-Server-Essentials.md#BKMK_6).  
+   Per altre informazioni, vedere [Consentire o limitare l'accesso a un catalogo multimediale nel server](Manage-Digital-Media-in-Windows-Server-Essentials.md#BKMK_6).  
   
-##  <a name="BKMK_5"></a>Aggiungere file multimediali digitali al server  
+##  <a name="add-digital-media-files-to-the-server"></a><a name="BKMK_5"></a>Aggiungere file multimediali digitali al server  
  L'amministratore del server può aggiungere file multimediali digitali alle cartelle condivise nel Catalogo multimediale tramite l'accesso diretto al server oppure usando il sito di Accesso Web remoto per accedere al dashboard. Altri utenti possono aggiungere file multimediali al server usando la connessione a **cartelle condivise** nella finestra di avvio, usando il sito di accesso Web remoto o l'app My server per Windows Phone. Per informazioni sulla riproduzione di file multimediali, vedere [riprodurre file multimediali digitali](../use/Play-Digital-Media-in-Windows-Server-Essentials.md).  
   
 > [!NOTE]
@@ -141,7 +141,7 @@ L'argomento seguente descrive la funzionalità dei flussi multimediali del serve
   
 1.  Usare uno dei metodi seguenti per accedere al server:  
   
-    1.  Per informazioni sull'accesso ad Accesso Web remoto, vedere [Log on to Remote Web Access](../use/Use-Remote-Web-Access-in-Windows-Server-Essentials.md#BKMK_1).  
+    1.  Per informazioni sull'accesso ad Accesso Web remoto, vedere [Accedere ad Accesso Web remoto](../use/Use-Remote-Web-Access-in-Windows-Server-Essentials.md#BKMK_1).  
   
     2.  Per informazioni sull'accesso con Launchpad, vedere [Panoramica di Launchpad](Overview-of-the-Launchpad-in-Windows-Server-Essentials.md).  
   
@@ -149,15 +149,15 @@ L'argomento seguente descrive la funzionalità dei flussi multimediali del serve
   
 3.  Copiare e incollare oppure trascinare i file multimediali da aggiungere nella cartella condivisa appropriata sul server.  
   
-##  <a name="BKMK_6"></a>Consentire o limitare l'accesso a un catalogo multimediale nel server  
+##  <a name="allow-or-restrict-access-to-a-media-library-on-the-server"></a><a name="BKMK_6"></a>Consentire o limitare l'accesso a un catalogo multimediale nel server  
   
 -   Quando si attiva la condivisione di file multimediali, vengono create quattro cartelle predefinite: Musica, Immagini, Video e Registrazioni TV. Se una di queste cartelle preesiste nel server, viene riutilizzata come cartella condivisa per la condivisione di file multimediali. Tutti i contenuti multimediali e le autorizzazioni utente della cartella esistente vengono conservati e vengono condivisi con tutti gli utenti di rete.  
   
--   Prima di attivare la condivisione del catalogo multimediale per una cartella condivisa, tenere presente che questo tipo di condivisione ignora qualsiasi tipo di accesso basato su account utente impostato per la cartella condivisa. Si supponga ad esempio di attivare la condivisione del catalogo multimediale per la cartella condivisa **Foto** e impostare **Foto** su **Nessun accesso** per un account utente chiamato Federico. Federico può comunque trasmettere qualsiasi file multimediale digitale dalla cartella condivisa **Video** in qualsiasi ricevitore o lettore multimediale digitale supportato. Se non si vuole trasmettere in questo modo alcuni file multimediali digitali, archiviarli in una cartella per cui la condivisione del catalogo multimediale non è attivata.  
+-   Prima di attivare la condivisione del catalogo multimediale per una cartella condivisa, tenere presente che questo tipo di condivisione ignora qualsiasi tipo di accesso basato su account utente impostato per la cartella condivisa. Si supponga ad esempio di attivare la condivisione del catalogo multimediale per la cartella condivisa **Foto**, che è impostata su **Nessun accesso** per un account utente chiamato Federico. Federico può comunque trasmettere qualsiasi file multimediale digitale dalla cartella condivisa **Video** in qualsiasi ricevitore o lettore multimediale digitale supportato. Se non si vuole trasmettere in questo modo alcuni file multimediali digitali, archiviarli in una cartella per cui la condivisione del catalogo multimediale non è attivata.  
   
 -   Se si attiva la condivisione del catalogo multimediale per una cartella condivisa, qualsiasi ricevitore o lettore multimediale digitale supportato che può accedere alla rete di Windows Server Essentials può accedere anche al supporto digitale nella cartella condivisa. Se ad esempio si ha una rete wireless non protetta, chiunque si trovi nel raggio di copertura di questa rete può in teoria accedere ai file multimediali digitali contenuti in questa cartella. Prima di attivare la condivisione del catalogo multimediale, assicurarsi di proteggere la rete wireless. Per altre informazioni, vedere la documentazione del punto di accesso wireless.  
   
-##  <a name="BKMK_8"></a>Rinominare il catalogo multimediale  
+##  <a name="rename-the-media-library"></a><a name="BKMK_8"></a>Rinominare il catalogo multimediale  
  Il nome predefinito del catalogo multimediale è **Server multimediale digitale** Viene creato quando si attivano i flussi multimediali in Windows Server Essentials. Per ulteriori informazioni sull'attivazione dei flussi multimediali, vedere [per attivare o disattivare i flussi multimediali](Manage-Digital-Media-in-Windows-Server-Essentials.md#BKMK_2.5). È possibile modificare il nome del catalogo multimediale in qualsiasi momento tramite il dashboard del server.  
   
 #### <a name="to-rename-the-media-library"></a>Per rinominare il catalogo multimediale  
@@ -166,36 +166,36 @@ L'argomento seguente descrive la funzionalità dei flussi multimediali del serve
   
 2.  Nel dashboard del server fare clic su **Impostazioni**.  
   
-3.  Nella pagina **Impostazioni** fare clic sulla scheda **Media** .  
+3.  Nella pagina **Impostazioni** fare clic sulla scheda **Media**.  
   
 4.  Nella sezione **Catalogo multimediale** della pagina **Impostazioni multimediali** fare clic sul nome del catalogo multimediale.  
   
 5.  Nella finestra di dialogo **Modifica nome Catalogo multimediale** immettere un nuovo nome per il catalogo e quindi fare clic su **OK**.  
   
-##  <a name="BKMK_9"></a>Interrompi condivisione di file multimediali digitali  
+##  <a name="stop-sharing-digital-media"></a><a name="BKMK_9"></a>Interrompi condivisione di file multimediali digitali  
  L'amministratore del server può interrompere la condivisione di contenuti multimediali digitali archiviati in cartelle condivise in un server che esegue Windows Server Essentials.  
   
 #### <a name="to-stop-sharing-media-in-shared-folders"></a>Per interrompere la condivisione di contenuti multimediali nelle cartelle condivise  
   
 1.  Aprire il dashboard del server.  
   
-2.  Nella pagina **Home** del dashboard fare clic su **Configura**, su **Configura server dei contenuti multimediali**e quindi su **Fare clic per configurare il server dei contenuti multimediali**.  
+2.  Nella pagina **Home** del dashboard fare clic su **Configura**, su **Configura server dei contenuti multimediali** e quindi su **Fare clic per configurare il server dei contenuti multimediali**.  
   
 3.  Nella pagina di impostazioni **Media** è possibile scegliere una delle opzioni seguenti:  
   
     -   Fare clic su **Disattiva** per interrompere la condivisione di tutti i file archiviati nel server.  
   
-    -   Fare clic su **Personalizza**e quindi selezionare **No** per le specifiche cartelle per cui interrompere la condivisione.  
+    -   Fare clic su **Personalizza** e quindi selezionare **No** per le specifiche cartelle per cui interrompere la condivisione.  
   
 4.  Fare clic su **Applica** o su **OK** per salvare le modifiche.  
   
-##  <a name="BKMK_10"></a>Abilitare i dispositivi multimediali che usano il protocollo Server Message Block (SMB) per accedere ai file condivisi nel server  
+##  <a name="enable-media-devices-that-use-the-server-message-block-smb-protocol-to-access-shared-files-on-the-server"></a><a name="BKMK_10"></a>Abilitare i dispositivi multimediali che usano il protocollo Server Message Block (SMB) per accedere ai file condivisi nel server  
  Per i dispositivi che usano il protocollo SMB per l'accesso a file e condivisioni di rete al posto di DLNA (per i flussi multimediali), è necessario attivare un account Guest. In questo modo, qualsiasi dispositivo o utente della rete potrà visualizzare i contenuti delle cartelle condivise senza autenticazione.  
   
 > [!CAUTION]
 >  Quando si abilita l'account Guest, per impostazione predefinita chiunque può accedere alle risorse condivise del server.  
   
-##  <a name="BKMK_CommonProcessors"></a>Processori comuni e profili video supportati  
+##  <a name="common-processors-and-the-video-profiles-they-support"></a><a name="BKMK_CommonProcessors"></a>Processori comuni e profili video supportati  
  Per eseguire lo streaming di file multimediali dal server di Windows Server Essentials, è possibile usare un computer che esegue il sistema operativo Windows 7 o Windows 8 o altri dispositivi di rete, ad esempio lettori multimediali digitali, o Media Center Extender (ad esempio, Xbox 360). Quando si è lontani dalla rete, usare il servizio Media Player di Accesso Web remoto per riprodurre i file archiviati nel server.  
   
  È necessaria una velocità di trasferimento dati compresa tra 200 KBps e 10 MBps. È necessario usare formati di file multimediali che il computer e i dispositivi riconoscano e siano in grado di riprodurre. Non tutti i dispositivi supportano gli stessi formati di file multimediali, quindi è necessario fare in modo che il computer e i dispositivi riproducano i propri file multimediali.  
@@ -223,12 +223,12 @@ L'argomento seguente descrive la funzionalità dei flussi multimediali del serve
 > [!NOTE]
 >  Per trasmettere video in alta definizione tramite Accesso Web remoto, è necessario un processore con un punteggio di almeno 6,0.  
   
-##  <a name="BKMK_KnownIssues"></a>Problemi noti relativi ai tipi di file multimediali  
+##  <a name="known-issues-with-media-file-types"></a><a name="BKMK_KnownIssues"></a>Problemi noti relativi ai tipi di file multimediali  
  La funzionalità di flussi multimediali di Accesso Web remoto usa il Servizio di condivisione in rete Windows Media Player 12. I flussi multimediali di Accesso Web remoto supportano i tipi di file audio, video e immagine supportati da Windows Media Player 12 e Silverlight 4.  
   
  La tabella seguente contiene un elenco dei tipi di file (formati) supportati dai flussi multimediali di Accesso Web remoto. I tipi di file multimediali non inclusi nella tabella non possono essere trasmessi tramite Accesso Web remoto.  
   
-|Tipo di file|Estensione di file|  
+|Tipo file|Estensione di file|  
 |---------------|-------------------------|  
 |File 3GPP|.3gp, .3gpp, .3g2 e .3gp2|  
 |File audio ADTS (Audio Data Transport Stream)|.adts e .adt|  
@@ -248,7 +248,7 @@ L'argomento seguente descrive la funzionalità dei flussi multimediali del serve
   
  Per altre informazioni sui formati di file supportati, vedere [Tipi di file supportati da Windows Media Player](https://go.microsoft.com/fwlink/p/?LinkID=196118) e l'argomento sui [formati multimediali, protocolli e campi di log supportati](https://go.microsoft.com/fwlink/p/?LinkId=203339) per Silverlight.  
   
-## <a name="see-also"></a>Vedi anche  
+## <a name="see-also"></a>Vedere anche  
   
 -   [Riprodurre file multimediali digitali](../use/Play-Digital-Media-in-Windows-Server-Essentials.md)  
   

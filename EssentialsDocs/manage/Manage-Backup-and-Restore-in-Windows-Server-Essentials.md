@@ -1,9 +1,9 @@
 ---
 title: Gestire backup e ripristino in Windows Server Essentials
-description: Viene descritto come utilizzare Windows Server Essentials
+description: Viene descritto come usare Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
-ms.prod: windows-server-2016-essentials
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
@@ -12,12 +12,12 @@ ms.assetid: 41000915-f6ff-4dbb-b7be-629ef36386d4
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 6f6f0d27472664cd1cc538897d3d525fad506282
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 37435b8b51bbc6ba4deb09a50f2c85045ecf0536
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59828522"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80311364"
 ---
 # <a name="manage-backup-and-restore-in-windows-server-essentials"></a>Gestire backup e ripristino in Windows Server Essentials
 
@@ -27,9 +27,9 @@ ms.locfileid: "59828522"
   
 |Funzionalità di backup|Descrizione|Vantaggi|  
 |--------------------|-----------------|----------------|  
-|Backup del server|Esegue il backup del server che esegue Windows Server Essentials. Il backup dei dati è eseguito in un'unità USB esterna.<br /><br /> Per altre informazioni, vedere [Manage Server Backup](Manage-Server-Backup-in-Windows-Server-Essentials.md) e [ripristinare o riparare il server](Restore-or-repair-your-server-running-Windows-Server-Essentials.md).|-È possibile ripristinare file e cartelle dal server.<br /><br /> -È possibile eseguire il ripristino completo del sistema del server.|  
-|Backup computer client|Esegue il backup dei computer client in rete. Il backup dei dati è eseguito nel server che esegue Windows Server Essentials.<br /><br /> Per altre informazioni, vedere [gestire Backup Client](Manage-Client-Computer-Backup-in-Windows-Server-Essentials.md) e [ripristinare un intero sistema dal backup di un computer client esistenti](Restore-a-full-system-from-an-existing-client-computer-backup.md).|-È possibile ripristinare file e cartelle dal server.<br /><br /> -È possibile eseguire il ripristino completo del sistema del computer client.|  
-| Microsoft Azure Backup|Esegue un backup online dei file o delle cartelle disponibili nel server. Quando si usa Backup di Azure per eseguire il backup dei dati del server, le informazioni vengono crittografate usando la passphrase prima di essere caricato in un Data Center sicuro su Internet.<br /><br /> Per altre informazioni, vedere [gestire il Backup Online](Manage-Online-Backup-in-Windows-Server-Essentials.md).|-È possibile ripristinare file e cartelle dal server.<br /><br /> -Con i backup incrementali, solo le modifiche ai file vengono trasferite nel cloud.<br /><br /> -Backup vengono archiviati in Microsoft Azure e sono fuori sede, riducendo la necessità di proteggere i supporti di backup.|  
+|Backup del server|Esegue il backup del server che esegue Windows Server Essentials. Il backup dei dati è eseguito in un'unità USB esterna.<br /><br /> Per ulteriori informazioni, vedere [Manage Server Backup](Manage-Server-Backup-in-Windows-Server-Essentials.md) and [restore or Repair Your Server](Restore-or-repair-your-server-running-Windows-Server-Essentials.md).|-È possibile ripristinare file e cartelle nel server.<br /><br /> -È in grado di eseguire il ripristino completo del sistema del server.|  
+|Backup computer client|Esegue il backup dei computer client in rete. Il backup dei dati è eseguito nel server che esegue Windows Server Essentials.<br /><br /> Per ulteriori informazioni, vedere [gestire il backup dei client](Manage-Client-Computer-Backup-in-Windows-Server-Essentials.md) e [ripristinare un sistema completo da un backup del computer client esistente](Restore-a-full-system-from-an-existing-client-computer-backup.md).|-È possibile ripristinare file e cartelle dal server.<br /><br /> -È possibile eseguire il ripristino completo del sistema del computer client.|  
+| Backup di Microsoft Azure|Esegue un backup online dei file o delle cartelle disponibili nel server. Quando si usa backup di Azure per eseguire il backup dei dati del server, le informazioni vengono crittografate usando la passphrase prima di essere caricate in un data center sicuro su Internet.<br /><br /> Per ulteriori informazioni, vedere [Manage online backup](Manage-Online-Backup-in-Windows-Server-Essentials.md).|-È possibile ripristinare file e cartelle dal server.<br /><br /> -Con i backup incrementali, solo le modifiche ai file vengono trasferite nel cloud.<br /><br /> -I backup vengono archiviati in Microsoft Azure e sono fuori sede, riducendo la necessità di proteggere e proteggere i supporti di backup nel sito.|  
   
 ## <a name="see-also"></a>Vedere anche  
   

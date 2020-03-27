@@ -6,14 +6,14 @@ ms.prod: windows-server
 ms.technology: networking
 ms.topic: article
 ms.assetid: 70569958-d7a7-474e-a817-6b7b5134784a
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 1ba6c059639b9ae7e77a9e103e7ed84f6a2032df
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: f874469666ab9b68d9eb970cf7fcb6a89ef27f0c
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71405304"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80315574"
 ---
 # <a name="configure-nps-udp-port-information"></a>Configurare le informazioni sulle porte UDP del Server dei criteri di rete
 
@@ -30,7 +30,7 @@ I valori di porta 1812 per l'autenticazione e 1813 per l'accounting sono porte s
 
 >IMPORTANTE Se non si utilizzano i numeri di porta RADIUS predefiniti, è necessario configurare le eccezioni nel firewall per il computer locale in modo da consentire il traffico RADIUS sulle nuove porte. Per altre informazioni, vedere [configurare i firewall per il traffico RADIUS](nps-firewalls-configure.md).
 
-Per eseguire questa procedura, è necessaria almeno l'appartenenza al gruppo **Domain Admins** o a un gruppo equivalente.
+L'appartenenza al gruppo **Domain Admins** oppure a un gruppo equivalente è il requisito minimo necessario per completare questa procedura.
 
 ## <a name="to-configure-nps-udp-port-information"></a>Per configurare le informazioni sulla porta UDP NPS 
 

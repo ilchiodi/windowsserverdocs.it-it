@@ -6,14 +6,14 @@ ms.technology: networking
 ms.topic: article
 ms.assetid: 0bc6746f-2adb-43d8-a503-52f473833164
 manager: brianlic
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 297044397088bfb64b51e1553d3f69d5b933e81b
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: c20c21c39e44d7eb3da812bbe71f175d0688d6c0
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71405897"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80309650"
 ---
 # <a name="troubleshooting-converged-nic-configurations"></a>Risoluzione dei problemi relativi alle configurazioni NIC convergenti
 
@@ -82,7 +82,7 @@ L'host vNIC dovrebbe apparire come RDMA in grado di supportare anche la prospett
 
 ## <a name="get-netadapterqos"></a>Get-NetAdapterQos
 
-Per visualizzare la configurazione \(QoS\) della scheda di rete, è possibile eseguire il comando di Windows PowerShell seguente.
+È possibile visualizzare la qualità del servizio della scheda di rete \(la configurazione QoS\) eseguendo il comando di Windows PowerShell seguente.
 
     Get-NetAdapterQos
 
@@ -103,7 +103,7 @@ Se i risultati sono imprevisti, seguire questa procedura.
 
 ## <a name="get-smbmultichannelconnection"></a>Get-SmbMultiChannelConnection
 
-È possibile utilizzare il comando di Windows PowerShell seguente per verificare che l'indirizzo IP del nodo remoto sia\-abilitato per RDMA.
+È possibile utilizzare il comando di Windows PowerShell seguente per verificare che l'indirizzo IP del nodo remoto sia RDMA\-in grado di supportare.
 
     Get-SmbMultiChannelConnection
 
@@ -125,7 +125,7 @@ Se i risultati sono imprevisti, seguire questa procedura.
 
 ## <a name="get-smbclientnetworkinterface"></a>Get-SmbClientNetworkInterface
 
-È possibile usare il comando seguente per verificare che la scheda di interfaccia di rete virtuale abilitata per RDMA\-sia indicata come RDMA in grado di supportare SMB.
+È possibile usare il comando seguente per verificare che la scheda di interfaccia di rete virtuale abilitata per RDMA sia indicata come RDMA\-in grado di supportare SMB.
 
     Get-SmbClientNetworkInterface
 
@@ -145,9 +145,9 @@ Se i risultati sono imprevisti, seguire questa procedura.
 
 --- 
 
-## <a name="vstat-mellanox-specific"></a>specifico di vstat Mellanox \(\)
+## <a name="vstat-mellanox-specific"></a>vstat \(\) specifico di Mellanox
 
-Se si usano schede di rete Mellanox, è possibile usare il comando **vstat** per verificare la versione di RDMA su roce \(\) Ethernet su nodi Hyper-V.
+Se si usano schede di rete Mellanox, è possibile usare il comando **vstat** per verificare la versione di RDMA over Converged Ethernet \(roce\) nei nodi Hyper-V.
 
 ### <a name="vstat-expected-results"></a>risultati previsti vstat
 

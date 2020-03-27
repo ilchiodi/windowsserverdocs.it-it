@@ -10,14 +10,14 @@ ms.technology: networking-da
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 3d66901a-c40b-474c-9948-f989f399cfea
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 4c7a8243922f58f9705a85cd30b2a68cf4d876c6
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 558c99c187ab01f3084621410964f3a01c0dace8
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71404777"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80308668"
 ---
 # <a name="step-6-install-and-configure-2-dc1"></a>PASSAGGIO 6: installare e configurare 2-DC1
 
@@ -50,7 +50,7 @@ Prima di tutto, installare Windows Server 2016, Windows Server 2012 R2 o Windows
   
 1.  Avviare l'installazione di Windows Server 2016, Windows Server 2012 R2 o Windows Server 2012.  
   
-2.  Seguire le istruzioni per completare l'installazione, specificando Windows Server 2016, Windows Server 2012 R2 o Windows Server 2012 (installazione completa) e una password complessa per l'account amministratore locale. Accedere utilizzando l'account Administrator locale.  
+2.  Seguire le istruzioni per completare l'installazione, specificando Windows Server 2016, Windows Server 2012 R2 o Windows Server 2012 (installazione completa) e una password complessa per l'account amministratore locale. Accedere usando l'account dell'amministratore locale.  
   
 3.  Connettere 2-DC1 a una rete dotata di accesso a Internet ed eseguire Windows Update per installare gli aggiornamenti più recenti per Windows Server 2016, Windows Server 2012 R2 o Windows Server 2012, quindi disconnettersi da Internet.  
   
@@ -67,7 +67,7 @@ Configurare il protocollo TCP/IP con indirizzi IP statici.
   
 3.  Fare clic su **Protocollo Internet versione 4 (TCP/IPv4)** e quindi su **Proprietà**.  
   
-4.  Fare clic su **Utilizza il seguente indirizzo IP**. In **indirizzo IP**Digitare **10.2.0.1**. In **Subnet mask**digitare **255.255.255.0**. In **gateway predefinito**Digitare **10.2.0.254**. Fare clic su **utilizza i seguenti indirizzi server DNS**, in **server DNS preferito**, digitare **10.2.0.1**e in **server DNS alternativo**digitare **10.0.0.1**.  
+4.  Fare clic su **Utilizza il seguente indirizzo IP**. In **indirizzo IP**Digitare **10.2.0.1**. In **Subnet mask** digitare **255.255.255.0**. In **gateway predefinito**Digitare **10.2.0.254**. Fare clic su **utilizza i seguenti indirizzi server DNS**, in **server DNS preferito**, digitare **10.2.0.1**e in **server DNS alternativo**digitare **10.0.0.1**.  
   
 5.  Fare clic su **Avanzate**e quindi sulla scheda **DNS** .  
   
@@ -181,13 +181,13 @@ I computer nel dominio CORP2 devono ottenere i certificati del computer dall'aut
   
 6.  In **immettere i nomi degli oggetti da selezionare**digitare **Domain Admins; Computer del dominio** e quindi fare clic su **OK**.  
   
-7.  Nella finestra di dialogo **proprietà di autenticazione client-server** , **in utenti e gruppi**, fare clic su **Domain Admins (amministratori CORP2\Domain)** e in **autorizzazioni per Domain Admins**, nella colonna **Consenti** selezionare **Scrivi** e **registrarsi**.  
+7.  Nella finestra di dialogo **proprietà di autenticazione client-server** , in **utenti e gruppi**, fare clic su **Domain Admins (CORP2\Domain Admins)** e in **autorizzazioni per Domain Admins**, nella colonna **Consenti** selezionare **Write** and **registra**.  
   
 8.  In **utenti e gruppi**fare clic su **computer del dominio (computer CORP2\Domain)** e in **autorizzazioni per i computer del dominio**, nella colonna **Consenti** selezionare **registrazione** e **registrazione automatica**, quindi fare clic su **OK**.  
   
 9. Chiudere la Console dei modelli di certificato.  
   
-## <a name="replication"></a>Forzare la replica tra DC1 e 2-DC1  
+## <a name="force-replication-between-dc1-and-2-dc1"></a><a name="replication"></a>Forzare la replica tra DC1 e 2-DC1  
 Prima di poter registrare i certificati in 2 EDGE1, è necessario forzare la replica delle impostazioni da DC1 a 2-DC1. Questa operazione deve essere eseguita su DC1.  
   
 ### <a name="to-force-replication"></a>Per forzare la replica  
@@ -200,7 +200,7 @@ Prima di poter registrare i certificati in 2 EDGE1, è necessario forzare la rep
   
 4.  Nella finestra di dialogo **Proprietà DEFAULTIPSITELINK** , in **costo**, digitare **1**, in **replica ogni**, digitare **15**, quindi fare clic su **OK**. Attendere 15 minuti per il completamento della replica.  
   
-5.  Per forzare ora la replica nell'albero della console, espandere **Impostazioni Sites\Default-First-Site-name\Servers\DC1\NTDS**, nel riquadro dei dettagli, fare clic con il pulsante destro del mouse su **<automatically generated>** , fare clic su **Replica ora**, quindi nella finestra di dialogo **Replica ora** , fare clic su **OK**.  
+5.  Per forzare ora la replica nell'albero della console, espandere **Impostazioni Sites\Default-First-Site-name\Servers\DC1\NTDS**, nel riquadro dei dettagli, fare clic con il pulsante destro del mouse su **<automatically generated>** , fare clic su **Replica ora**, quindi nella finestra di dialogo **Replica ora** fare clic su **OK**.  
   
 6.  Per assicurarsi che la replica sia stata completata correttamente, eseguire le operazioni seguenti:  
   

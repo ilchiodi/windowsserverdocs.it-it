@@ -1,9 +1,9 @@
 ---
 title: Gestire le applicazioni in Windows Server Essentials
-description: Viene descritto come utilizzare Windows Server Essentials
+description: Viene descritto come usare Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
-ms.prod: windows-server-2016-essentials
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
@@ -12,24 +12,24 @@ ms.assetid: ae89c46a-0afd-4858-9150-ec97650f45a4
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 1a60a9e7fd958d447b4770431a69546f0ad6f229
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 7701cbc11ec691b4d4aadd5668dce6438eb9a076
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66433356"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80311410"
 ---
 # <a name="manage-applications-in-windows-server-essentials"></a>Gestire le applicazioni in Windows Server Essentials
 
 >Si applica a: Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
  
- Il Dashboard del server in Windows Server Essentials e Windows Server 2012 R2 con il ruolo esperienza Windows Server Essentials installato rende possibile eseguire attività amministrative comuni. Per eseguire queste attività, vedere gli argomenti seguenti:  
+ Il dashboard del server in Windows Server Essentials e Windows Server 2012 R2 con il ruolo esperienza Windows Server Essentials installato rende possibile l'esecuzione di attività amministrative comuni. Per eseguire queste attività, vedere gli argomenti seguenti:  
   
--   [Attività di gestione dell'applicazione nel Dashboard](Manage-Applications-in-Windows-Server-Essentials.md#BKMK_1)  
+-   [Attività di gestione delle applicazioni nel dashboard](Manage-Applications-in-Windows-Server-Essentials.md#BKMK_1)  
   
--   [Installare o rimuovere componenti aggiuntivi tramite il Dashboard](Manage-Applications-in-Windows-Server-Essentials.md#BKMK_2)  
+-   [Installare o rimuovere componenti aggiuntivi usando il dashboard](Manage-Applications-in-Windows-Server-Essentials.md#BKMK_2)  
   
-##  <a name="BKMK_1"></a> Attività di gestione dell'applicazione nel Dashboard  
+##  <a name="application-management-tasks-in-the-dashboard"></a><a name="BKMK_1"></a>Attività di gestione delle applicazioni nel dashboard  
  La pagina di gestione **Applicazioni** del dashboard contiene:  
   
 - Un elenco di componenti aggiuntivi installati, che visualizza:  
@@ -48,7 +48,7 @@ ms.locfileid: "66433356"
   
   La tabella seguente descrive le varie attività di gestione dei componenti aggiuntivi disponibili nel dashboard del server. Alcune attività sono specifiche del componente aggiuntivo, quindi sono visibili solo se si seleziona un componente aggiuntivo nell'elenco.  
   
-|Nome attività|Descrizione|  
+|Nome dell'attività|Descrizione|  
 |---------------|-----------------|  
 |Rimuovi il componente aggiuntivo|Rimuove il componente aggiuntivo selezionato dal server e da tutti gli altri computer della rete.|  
 |Installa il componente aggiuntivo sui computer della rete|Consente di pianificare l'installazione del componente aggiuntivo selezionato in tutti i computer della rete.|  
@@ -58,14 +58,14 @@ ms.locfileid: "66433356"
 |Leggere l'informativa sulla privacy per il componente aggiuntivo|Apre il browser Internet in un sito Web in cui è possibile visualizzare l'informativa sulla privacy.|  
 |Installazione o rimozione dei componenti aggiuntivi|Apre il browser Internet in una pagina Web che visualizza l'argomento della Guida appropriato.|  
   
-##  <a name="BKMK_2"></a> Installare o rimuovere componenti aggiuntivi tramite il Dashboard  
+##  <a name="install-or-remove-add-ins-using-the-dashboard"></a><a name="BKMK_2"></a>Installare o rimuovere componenti aggiuntivi usando il dashboard  
  Un componente aggiuntivo è un'applicazione software che fornisce funzionalità e caratteristiche aggiuntive per il server. È disponibile un numero crescente di componenti aggiuntivi di Microsoft e di altri fornitori di software indipendenti (ISV).  
   
  Per trarre vantaggio dalle funzionalità estese offerte da un componente aggiuntivo, è necessario prima installarlo nel server.  
   
 #### <a name="to-install-an-add-in-from-microsoft-pinpoint"></a>Per installare un componente aggiuntivo da Microsoft Pinpoint  
   
-1.  Nel dashboard del server fare clic su **Applicazioni** e quindi sulla scheda **Microsoft Pinpoint**.  Verrà visualizzato l'elenco di componenti aggiuntivi disponibili.  
+1.  Nel dashboard del server fare clic su **applicazioni**e quindi sulla scheda **Microsoft Pinpoint** .  Viene visualizzato un elenco dei componenti aggiuntivi disponibili.  
   
 2.  Fare clic sul componente aggiuntivo da installare. Verrà visualizzata la pagina di informazioni sul componente aggiuntivo.  
   
@@ -100,6 +100,6 @@ ms.locfileid: "66433356"
   
 ## <a name="see-also"></a>Vedere anche  
   
--   [Informazioni generali sul dashboard](Overview-of-the-Dashboard-in-Windows-Server-Essentials.md)  
+-   [Panoramica del dashboard](Overview-of-the-Dashboard-in-Windows-Server-Essentials.md)  
   
 -   [Gestire Windows Server Essentials](Manage-Windows-Server-Essentials.md)

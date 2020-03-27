@@ -7,15 +7,15 @@ ms.service: virtual-network
 ms.technology: networking-sdn
 ms.topic: get-started-article
 ms.assetid: 5ba5bb37-ece0-45cb-971b-f7149f658d19
-ms.author: pashort
-author: shortpatti
+ms.author: lizross
+author: eross-msft
 ms.date: 08/23/2018
-ms.openlocfilehash: 29013827d0cde0447c48afa7a42551760ab9e940
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 1a17d5f5fec0a05b4258b295eb37b6dc80cdaee1
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71356002"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80313051"
 ---
 # <a name="deploy-a-software-defined-network-infrastructure-using-scripts"></a>Distribuire un'infrastruttura Software Defined Network usando gli script
 
@@ -93,7 +93,7 @@ Iniziare configurando il Commuter virtuale Hyper-V (server fisici) dell'host Hyp
    e. Digitare le credenziali nome utente e password quando richiesto.  
    f. Riavviare il server.  
 
-### <a name="validation"></a>Convalida  
+### <a name="validation"></a>Validation  
 Utilizzare la procedura seguente per verificare che la rete host sia impostata correttamente.  
 
 1. Verificare che l'opzione della macchina virtuale sia stata creata correttamente:  
@@ -127,7 +127,7 @@ Se si usa nano come host Hyper-V (server fisici) per la distribuzione, sono nece
 1. Per tutti i nodi nano deve essere installato il pacchetto DSC con il Language Pack:  
 
    - Microsoft-NanoServer-DSC-Package. cab  
-   - Microsoft-NanoServer-DSC-Package_en-us. cab
+   - Microsoft-nanoserver-DSC-Package_en-US. cab
 
      ``dism /online /add-package /packagepath:<Path> /loglevel:4``  
 
@@ -147,9 +147,9 @@ Se si usa nano come host Hyper-V (server fisici) per la distribuzione, sono nece
 
 3. Espandere il file zip e copiare la cartella **SDNExpress** nella cartella `C:\` del computer di distribuzione.  
 
-4. Condividere la cartella `C:\SDNExpress` con "**SDNExpress**" con l'autorizzazione per la **lettura/scrittura**da parte di **tutti** .  
+4. Condividere la cartella `C:\SDNExpress` come "**SDNExpress**" con l'autorizzazione per la **lettura/scrittura**da parte di **tutti** .  
 
-5. Passare alla `C:\SDNExpress` cartella.<p>Vengono visualizzate le cartelle seguenti:  
+5. Passare alla cartella `C:\SDNExpress`.<p>Vengono visualizzate le cartelle seguenti:  
 
 
    | Nome cartella |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              Descrizione                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
@@ -165,7 +165,7 @@ Se si usa nano come host Hyper-V (server fisici) per la distribuzione, sono nece
 
 6. Verificare che il file VHDX di Windows Server 2016 si trovi nella cartella **Immagini** .  
 
-7. Personalizzare il file SDNExpress\scripts\FabricConfig.psd1 modificando il **< < sostituire > tag >** con valori specifici per adattarsi all'infrastruttura Lab, inclusi i nomi host, i nomi di dominio, i nomi utente e le password e le informazioni di rete per il reti elencate nell'argomento sulla rete di pianificazione.  
+7. Personalizzare il file SDNExpress\scripts\FabricConfig.psd1 modificando il **< < sostituire > tag >** con valori specifici in modo da adattarli all'infrastruttura Lab, inclusi i nomi host, i nomi di dominio, i nomi utente e le password e le informazioni di rete per le reti elencate nell'argomento sulla rete di pianificazione.  
 
 8. Creare un host a record in DNS per NetworkControllerRestName (FQDN) e NetworkControllerRestIP.  
 
@@ -177,7 +177,7 @@ Se si usa nano come host Hyper-V (server fisici) per la distribuzione, sono nece
 
     ``SDNExpress\scripts\SDNExpressUndo.ps1 -ConfigurationDataFile FabricConfig.psd1 -Verbose``  
 
-#### <a name="validation"></a>Convalida  
+#### <a name="validation"></a>Validation  
 
 Supponendo che lo script SDN Express sia stato completato senza segnalare errori, è possibile eseguire il passaggio seguente per assicurarsi che le risorse dell'infrastruttura siano state distribuite correttamente e siano disponibili per la distribuzione dei tenant.  
 
@@ -190,17 +190,17 @@ Usare [strumenti di diagnostica](https://docs.microsoft.com/windows-server/netwo
 
 Ora che sono state distribuite le risorse dell'infrastruttura, è possibile convalidare la distribuzione SDN end-to-end distribuendo un esempio di carico di lavoro tenant. Questo carico di lavoro tenant è costituito da due subnet virtuali (livello Web e livello database) protette tramite le regole dell'elenco di controllo di accesso (ACL) che usano il firewall distribuito SDN. La subnet virtuale del livello Web è accessibile tramite SLB/MUX usando un indirizzo IP virtuale (VIP). Lo script distribuisce automaticamente due macchine virtuali di livello Web e una macchina virtuale di livello database e le connette alle subnet virtuali.  
 
-1.  Personalizzare il file SDNExpress\scripts\TenantConfig.psd1 modificando il **< < sostituire > tag >** con valori specifici, ad esempio: Nome dell'immagine VHD, nome REST del controller di rete, nome vSwitch e così via, come definito in precedenza nel file FabricConfig. psd1  
+1.  Personalizzare il file SDNExpress\scripts\TenantConfig.psd1 modificando il **< < sostituire > >** tag con valori specifici, ad esempio il nome dell'immagine VHD, il nome REST del controller di rete, il nome vswitch e così via, come definito in precedenza nel file FabricConfig. psd1.  
 
-2.  Eseguire lo script. Esempio:  
+2.  Eseguire lo script. Ad esempio,  
 
     ``SDNExpress\scripts\SDNExpressTenant.ps1 -ConfigurationDataFile TenantConfig.psd1 -Verbose``  
 
-3.  Per annullare la configurazione, eseguire lo stesso script con il parametro **Undo** . Esempio:  
+3.  Per annullare la configurazione, eseguire lo stesso script con il parametro **Undo** . Ad esempio,  
 
     ``SDNExpress\scripts\SDNExpressTenant.ps1 -Undo -ConfigurationDataFile TenantConfig.psd1 -Verbose``  
 
-#### <a name="validation"></a>Convalida  
+#### <a name="validation"></a>Validation  
 
 Per verificare che la distribuzione del tenant abbia avuto esito positivo, procedere come segue:
 

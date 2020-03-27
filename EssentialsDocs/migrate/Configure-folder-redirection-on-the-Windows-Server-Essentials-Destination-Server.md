@@ -1,9 +1,9 @@
 ---
 title: Configurare il reindirizzamento cartelle nel server di destinazione Windows Server Essentials
-description: Viene descritto come utilizzare Windows Server Essentials
+description: Viene descritto come usare Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
-ms.prod: windows-server-2016-essentials
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
@@ -12,12 +12,12 @@ ms.assetid: fe77ba67-128c-4fc3-9361-30fa6af42516
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 6709aa2a342efd5837cf340b645961499baff6a5
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 44fb54a654689285c5db6d178e6d1c714779b91b
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66433014"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80310608"
 ---
 # <a name="configure-folder-redirection-on-the-windows-server-essentials-destination-server"></a>Configurare il reindirizzamento cartelle nel server di destinazione Windows Server Essentials
 
@@ -25,7 +25,7 @@ ms.locfileid: "66433014"
 
 Eseguire questa attività se il reindirizzamento cartelle è abilitato sul server di origine.  
   
- Eliminare prima la vecchia impostazione di Criteri di gruppo per il reindirizzamento cartelle. Usare quindi il Dashboard di Windows Server Essentials per abilitare il reindirizzamento cartelle nel Server di destinazione.  
+ Eliminare prima la vecchia impostazione di Criteri di gruppo per il reindirizzamento cartelle. Usare quindi il dashboard di Windows Server Essentials per abilitare il reindirizzamento delle cartelle nel server di destinazione.  
   
 ### <a name="to-delete-the-old-folder-redirection-group-policy-setting"></a>Per eliminare la vecchia impostazione di Criteri di gruppo per il reindirizzamento cartelle  
   
@@ -33,7 +33,7 @@ Eseguire questa attività se il reindirizzamento cartelle è abilitato sul serve
   
 2. In **Gestione Criteri di gruppo**espandere **Foresta:** <em>YourNetworkDomainName</em>espandere **Domini**espandere *YourNetworkDomainName*, quindi **Oggetti Criteri di gruppo**.  
   
-3. Fare clic con il pulsante destro del mouse su **Reindirizzamento cartelle Criteri di gruppo SBS**e quindi scegliere **Elimina**.  
+3. Fare clic con il pulsante destro del mouse su **Reindirizzamento cartelle Criteri di gruppo SBS** e quindi scegliere **Elimina**.  
   
 4. Fare clic con il pulsante destro del mouse su **Modelli di sicurezza Criteri di gruppo SBS** e quindi scegliere **Elimina**.  
   
@@ -43,7 +43,7 @@ Eseguire questa attività se il reindirizzamento cartelle è abilitato sul serve
   
 ### <a name="to-enable-folder-redirection-on-the-destination-server"></a>Per abilitare il reindirizzamento cartelle sul server di destinazione  
   
-1. Nel Server di destinazione, aprire il Dashboard di Windows Server Essentials.  
+1. Nel server di destinazione aprire il dashboard di Windows Server Essentials.  
   
 2. Sulla barra di spostamento fare clic su **Dispositivi**.  
   

@@ -10,14 +10,14 @@ ms.technology: networking-da
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 456e5971-3aa7-4a24-bc5d-0c21fec7687e
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 9969cade328b19f16dbdbad432b96dabb5518007
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: e63b4c4f266d286b766c89b61676493328aa8652
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71394843"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80310987"
 ---
 # <a name="directaccess-capacity-planning"></a>Pianificazione della capacità di DirectAccess
 
@@ -54,16 +54,16 @@ Il test è stato eseguito sia con 1000 che con 750 client.  In tutti i casi il t
   
 Nelle sezioni seguenti vengono illustrati i test individuali. Il titolo di ogni sezione evidenzia gli elementi chiave di ogni test ed è seguito da una descrizione riepilogativa dei risultati, nonché da una tabella che include i dati dei risultati dettagliati.  
   
-Prestazioni **Low-end:  750 client, 70/30 Split, 84,17 Mbit/sec velocità effettiva:**  
+**Prestazioni low-end: 750 client, 70/30 Split, 84,17 Mbit/sec velocità effettiva:**  
   
 I tre test seguenti rappresentano l'hardware di fascia bassa.  Nelle esecuzioni di test illustrate sotto erano presenti 750 client con una velocità effettiva di 84,17 Mbit/sec e una suddivisione del traffico tra 562 Teredo e 188 IPHTTPS. Il valore MTU di Teredo è stato impostato su 1472 ed è stato abilitato Teredo Shunt. L'utilizzo medio della CPU è pari al 46,42% nei tre test e l'utilizzo medio della memoria, espresso come percentuale dei byte impegnati sul totale di memoria disponibile di 4 GB è pari al 25,95%.  
   
 ||||||||  
 |-|-|-|-|-|-|-|  
 |**Scenario**|**CPUAvg (da contatore)**|**Mbit/s (lato Corp)**|**Mbit/s (lato Internet)**|**QMSA attivo**|**BMS attivo**|**Utilizzo di MEM (sistema a 4 GIG)**|  
-|**Low-end HW.  562 client Teredo.  188 client IPHTTPS.**|47,7472542|84,3|119,13|1502,05|1502,1|26,27%|  
-|**Low-end HW.  562 client Teredo.  188 client IPHTTPS.**|46,3889778|84,146|118,73|1501,25|1501,2|25,90%|  
-|**Low-end HW.  562 client Teredo.  188 client IPHTTPS.**|45,113082|84,0494|118,43|1546,14|1546,1|25,68%|  
+|**HW di fascia bassa.  562 client Teredo.  188 client IPHTTPS.**|47,7472542|84,3|119,13|1502,05|1502,1|26,27%|  
+|**HW di fascia bassa.  562 client Teredo.  188 client IPHTTPS.**|46,3889778|84,146|118,73|1501,25|1501,2|25,90%|  
+|**HW di fascia bassa.  562 client Teredo.  188 client IPHTTPS.**|45,113082|84,0494|118,43|1546,14|1546,1|25,68%|  
   
 **1000 client, 70/30 Split, 78 Mbit/sec velocità effettiva:**  
   
@@ -72,9 +72,9 @@ I tre test seguenti rappresentano le prestazioni dell'hardware di fascia bassa. 
 ||||||||  
 |-|-|-|-|-|-|-|  
 |**Scenario**|**CPUAvg (da contatore)**|**Mbit/s (lato Corp)**|**Mbit/s (lato Internet)**|**QMSA attivo**|**BMS attivo**|**Utilizzo di MEM (sistema a 4 GIG)**|  
-|**Low-end HW.  Client teredo 700.  300 client IPHTTPS.**|51,28406247|78,6432|113,19|2002,42|1502,1|25,59%|  
-|**Low-end HW.  Client teredo 700.  300 client IPHTTPS.**|51,06993128|78,6402|113,22|2001,4|1501,2|30,87%|  
-|**Low-end HW.  Client teredo 700.  300 client IPHTTPS.**|49,75235617|78,6387|113,2|2002,6|1546,1|30,66%|  
+|**HW di fascia bassa.  700 client Teredo.  300 client IPHTTPS.**|51,28406247|78,6432|113,19|2002,42|1502,1|25,59%|  
+|**HW di fascia bassa.  700 client Teredo.  300 client IPHTTPS.**|51,06993128|78,6402|113,22|2001,4|1501,2|30,87%|  
+|**HW di fascia bassa.  700 client Teredo.  300 client IPHTTPS.**|49,75235617|78,6387|113,2|2002,6|1546,1|30,66%|  
   
 **1000 client, 70/30 Split, 109 Mbit/sec velocità effettiva:**  
   
@@ -83,9 +83,9 @@ Nelle tre esecuzioni di test illustrate sotto erano presenti 1000 client con una
 ||||||||  
 |-|-|-|-|-|-|-|  
 |**Scenario**|**CPUAvg (da contatore)**|**Mbit/s (lato Corp)**|**Mbit/s (lato Internet)**|**QMSA attivo**|**BMS attivo**|**Utilizzo di MEM (sistema a 4 GIG)**|  
-|**Low-end HW.  Client teredo 700.  300 client IPHTTPS.**|59,81640675|108,305|153,14|2001,64|2001,6|24,38%|  
-|**Low-end HW.  Client teredo 700.  300 client IPHTTPS.**|59,46473798|110,969|157,53|2005,22|2005,2|28,72%|  
-|**Low-end HW.  Client teredo 700.  300 client IPHTTPS.**|57,89089768|108,305|153,14|1999,53|2018,3|24,38%|  
+|**HW di fascia bassa.  700 client Teredo.  300 client IPHTTPS.**|59,81640675|108,305|153,14|2001,64|2001,6|24,38%|  
+|**HW di fascia bassa.  700 client Teredo.  300 client IPHTTPS.**|59,46473798|110,969|157,53|2005,22|2005,2|28,72%|  
+|**HW di fascia bassa.  700 client Teredo.  300 client IPHTTPS.**|57,89089768|108,305|153,14|1999,53|2018,3|24,38%|  
   
 ## <a name="testing-results-for-high-end-hardware"></a>Risultati del test per l'hardware di fascia alta:  
 Il test è stato eseguito con 1500 client. Il traffico è stato così suddiviso: 70% Teredo e 30% IPHTTPS. Per tutti i test è stato utilizzato traffico TCP su Nat64 con 2 tunnel IPsec per client. In tutti i test l'utilizzo della memoria è stato leggero e l'utilizzo della CPU accettabile.  
@@ -101,12 +101,12 @@ I cinque test seguenti rappresentano l'hardware di fascia alta. Nelle esecuzioni
 ||||||||  
 |-|-|-|-|-|-|-|  
 |**Scenario**|**CPUAvg (da contatore)**|**Mbit/s (lato Corp)**|**Mbit/s (lato Internet)**|**QMSA attivo**|**BMS attivo**|**Utilizzo di MEM (sistema a 4 GIG)**|  
-|**High-end HW.  Client teredo 1050.  450 client IPHTTPS.**|51,712437|157,029|216,29|3000,31|3046|21,58%|  
-|**High-end HW.  Client teredo 1050.  450 client IPHTTPS.**|48,86020205|151,012|206,53|3002,86|3045,3|21,15%|  
-|**High-end HW.  Client teredo 1050.  450 client IPHTTPS.**|52,23979519|155,511|213,45|3001,15|3002,9|22,90%|  
-|**High-end HW.  Client teredo 1050.  450 client IPHTTPS.**|51,26269767|155,09|212,92|3000,74|3002,4|22,91%|  
-|**High-end HW.  Client teredo 1050.  450 client IPHTTPS.**|50,15751307|154,772|211,92|3000,9|3002,1|22,93%|  
-|**High-end HW.  Client teredo 1050.  450 client IPHTTPS.**|49,83665607|145,994|201,92|3000,51|3006|22,03%|  
+|**HW di fascia alta.  1050 client Teredo.  450 client IPHTTPS.**|51,712437|157,029|216,29|3000,31|3046|21,58%|  
+|**HW di fascia alta.  1050 client Teredo.  450 client IPHTTPS.**|48,86020205|151,012|206,53|3002,86|3045,3|21,15%|  
+|**HW di fascia alta.  1050 client Teredo.  450 client IPHTTPS.**|52,23979519|155,511|213,45|3001,15|3002,9|22,90%|  
+|**HW di fascia alta.  1050 client Teredo.  450 client IPHTTPS.**|51,26269767|155,09|212,92|3000,74|3002,4|22,91%|  
+|**HW di fascia alta.  1050 client Teredo.  450 client IPHTTPS.**|50,15751307|154,772|211,92|3000,9|3002,1|22,93%|  
+|**HW di fascia alta.  1050 client Teredo.  450 client IPHTTPS.**|49,83665607|145,994|201,92|3000,51|3006|22,03%|  
   
 ![Risultati dei test hardware di fascia alta](../../media/DirectAccess-Capacity-Planning/DACapacityPlanning3.gif)  
   

@@ -3,7 +3,7 @@ title: Gestire l'integrità del sistema in Windows Server Essentials
 description: Viene descritto come usare Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
-ms.prod: windows-server-2016-essentials
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
@@ -12,12 +12,12 @@ ms.assetid: 3043f83b-389c-4f37-a1ff-85afe99314fa
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: d9002a1530e114f490ddf1cfb0e5706ddec52431
-ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
+ms.openlocfilehash: bbe05c0564e706ef0227e723a52bd10b2f774756
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79322133"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80311070"
 ---
 # <a name="manage-system-health-in-windows-server-essentials"></a>Gestire l'integrità del sistema in Windows Server Essentials
 
@@ -44,7 +44,7 @@ ms.locfileid: "79322133"
   
 -   [Avvisi potenziali del computer](Manage-System-Health-in-Windows-Server-Essentials.md#BKMK_Potential)  
   
-##  <a name="BKMK_AddIn"></a>Informazioni sul componente aggiuntivo rapporto di stato  
+##  <a name="about-the-health-report-add-in"></a><a name="BKMK_AddIn"></a>Informazioni sul componente aggiuntivo rapporto di stato  
  Il componente aggiuntivo Rapporto di stato per Windows Server Essentials offre informazioni consolidate sulla rete di Windows Server Essentials e permette di distribuire queste informazioni ad altri utenti. Le informazioni possono essere visualizzate nella scheda **Rapporti** del dashboard. Nella scheda **Rapporti** è possibile eseguire le operazioni seguenti:  
   
 -   [Generare un report su richiesta o in base a una pianificazione](Manage-System-Health-in-Windows-Server-Essentials.md#BKMK_Generate)  
@@ -58,14 +58,14 @@ ms.locfileid: "79322133"
 >   
 >  **Windows Server Essentials:** Per impostazione predefinita, il componente aggiuntivo rapporto di stato è integrato con Windows Server Essentials o Windows Server 2012 R2 con il ruolo esperienza Windows Server Essentials installato e i report sull'integrità vengono visualizzati nella scheda **rapporti di stato** della **Home** page del dashboard.  
   
-###  <a name="BKMK_Generate"></a>Generare un report su richiesta o in base a una pianificazione  
+###  <a name="generate-a-report-on-demand-or-on-schedule"></a><a name="BKMK_Generate"></a>Generare un report su richiesta o in base a una pianificazione  
  Dopo l'installazione del componente aggiuntivo Rapporto di stato e il riavvio del dashboard, una nuova scheda **Rapporti** sarà aggiunta al dashboard. È possibile generare un rapporto di stato su richiesta in qualsiasi momento, facendo clic sull'attività **Genera rapporto di stato** nella scheda **Rapporti**.  
   
  Dopo la generazione di un rapporto di stato, un nuovo elemento sarà creato nel riquadro elenco, identificato dalla data e dall'ora di generazione del rapporto. Per aprire un elemento, farvi doppio clic nel riquadro elenco oppure selezionarlo e fare clic su **Apri il rapporto di stato** nel riquadro attività. Il rapporto sarà visualizzato in una nuova finestra in formato HTML.  
   
  Oltre a generare manualmente un rapporto, è possibile che si voglia che il rapporto sia generato automaticamente in base a una pianificazione giornaliera oppure oraria. A tale scopo, nel riquadro attività fare clic su **Personalizza impostazioni rapporto di stato**, quindi fare clic sulla scheda **Pianifica e invia tramite posta elettronica** . La funzionalità **pianificazione** è disattivata per impostazione predefinita ed è possibile attivarla selezionando la casella di controllo **Genera rapporto di stato alla relativa ora pianificata** .  
   
-###  <a name="BKMK_Customize"></a>Personalizzare il contenuto del report  
+###  <a name="customize-the-content-of-the-report"></a><a name="BKMK_Customize"></a>Personalizzare il contenuto del report  
  Il rapporto di stato include gli elementi seguenti:  
   
 - **Avvisi critici e normali** Si tratta degli stessi elementi disponibili nel Visualizzatore avvisi nel dashboard. Gli avvisi informativi non sono inclusi nel rapporto di stato.  
@@ -84,14 +84,14 @@ ms.locfileid: "79322133"
   
   Se non si è interessati ad alcuni punti dati inclusi nel report per impostazione predefinita, è possibile personalizzare il contenuto del report facendo clic su **Personalizza le impostazioni del rapporto di stato** nel riquadro attività, quindi facendo clic sulla scheda **contenuto** . deselezionare le caselle di controllo per il contenuto che non si desidera visualizzare nel report. Se, ad esempio, si dispone di un piano di backup del server e non si desidera visualizzare gli avvisi relativi ai backup del server, è possibile escludere i backup del server dal report deselezionando la casella di controllo **backup server** .  
   
-###  <a name="BKMK_emailreport"></a>Invia tramite posta elettronica il report  
+###  <a name="email-the-report"></a><a name="BKMK_emailreport"></a>Invia tramite posta elettronica il report  
  Accedere al dashboard per leggere i rapporti risulta scomodo per alcuni amministratori, in particolare se devono gestire più server. Se si attiva la funzionalità relativa alla posta elettronica, un messaggio di posta elettronica che include il contenuto del rapporto sarà inviato a un elenco di indirizzi di posta elettronica specificati dopo la generazione di un rapporto. L'amministratore può visualizzare con facilità questo rapporto da qualsiasi dispositivo o applicazione client, in modo da verificare che il server sia in esecuzione con lo stato ottimale.  
   
  Dopo l'abilitazione della posta elettronica, nella finestra di dialogo **Personalizza le impostazioni del rapporto di stato** modificare le impostazioni SMTP e specificare un elenco di destinatari di posta elettronica. Nel riquadro attività comparirà una nuova attività: **Invia il rapporto di stato tramite posta elettronica**. Per altre informazioni sulle impostazioni SMTP, vedere [Configurare le notifiche di posta elettronica per gli avvisi](Manage-System-Health-in-Windows-Server-Essentials.md#BKMK_Email).  
   
  È possibile selezionare un rapporto esistente, quindi fare clic su **Invia il rapporto di stato tramite posta elettronica**. È anche possibile generare un nuovo rapporto e fare in modo che sia inviato automaticamente alla Posta in arrivo. Se è stata configurata una pianificazione per la generazione automatica del rapporto, il rapporto sarà recapitato automaticamente nella Posta in arrivo dopo la generazione ogni giorno (oppure ogni ora), in base alla pianificazione.  
   
-##  <a name="BKMK_View"></a>Visualizzare gli avvisi tramite il Visualizzatore avvisi  
+##  <a name="view-alerts-by-using-the-alert-viewer"></a><a name="BKMK_View"></a>Visualizzare gli avvisi tramite il Visualizzatore avvisi  
  Questa sezione illustra come usare il dashboard o la finestra di avvio per aprire il Visualizzatore avvisi per verificare lo stato di integrità di tutti i computer nella rete di server.  
   
 #### <a name="to-open-the-alert-viewer-by-using-the-dashboard"></a>Per aprire il Visualizzatore avvisi tramite il dashboard  
@@ -106,7 +106,7 @@ ms.locfileid: "79322133"
   
 2.  Fare clic su una delle icone di avviso visualizzate (messaggio critico, di avviso o informativo) nella parte inferiore della finestra di avvio per aprire il Visualizzatore avvisi, quindi seguire le istruzioni nel riquadro dei dettagli del Visualizzatore avvisi per risolvere l'avviso.  
   
-##  <a name="BKMK_Organize"></a>Organizzare gli avvisi nel Visualizzatore avvisi  
+##  <a name="organize-alerts-in-the-alert-viewer"></a><a name="BKMK_Organize"></a>Organizzare gli avvisi nel Visualizzatore avvisi  
  È possibile organizzare gli avvisi nel Visualizzatore avvisi e visualizzarli in base alla gravità (messaggio critico, di avviso o informativo) oppure in base al nome computer.  
   
 #### <a name="to-organize-alerts-in-the-alert-viewer"></a>Per organizzare gli avvisi nel Visualizzatore avvisi  
@@ -121,7 +121,7 @@ ms.locfileid: "79322133"
   
     2.  Selezionare **Filtra per tipo avviso** e fare clic sul tipo di avviso (messaggio critico, di avviso o informativo) da visualizzare. Nel Visualizzatore avvisi saranno mostrati solo gli avvisi del tipo selezionato.  
   
-##  <a name="BKMK_Respond"></a>Rispondere agli avvisi  
+##  <a name="respond-to-alerts"></a><a name="BKMK_Respond"></a>Rispondere agli avvisi  
  In caso di avviso, è possibile eseguire una delle operazioni seguenti:  
   
 -   [Risolvere un avviso](Manage-System-Health-in-Windows-Server-Essentials.md#BKMK_Resolve)  
@@ -132,10 +132,10 @@ ms.locfileid: "79322133"
   
 -   [Eliminare un avviso](Manage-System-Health-in-Windows-Server-Essentials.md#BKMK_4)  
   
-###  <a name="BKMK_Resolve"></a>Risolvere un avviso  
+###  <a name="resolve-an-alert"></a><a name="BKMK_Resolve"></a>Risolvere un avviso  
  Per risolvere un avviso, seguire le istruzioni per la risoluzioni disponibili nel Visualizzatore avvisi. Dopo la risoluzione, l'avviso sarà ancora visualizzato nel Visualizzatore avvisi, fino all'aggiornamento successivo.  
   
-###  <a name="BKMK_3"></a>Ignorare un avviso  
+###  <a name="ignore-an-alert"></a><a name="BKMK_3"></a>Ignorare un avviso  
  È possibile scegliere di ignorare un avviso, se si preferisce rispondere in un secondo momento. Quando lo si ignora, l'avviso rimane elencato nel Visualizzatore avvisi, ma sarà disabilitato e visualizzato in grigio. Un avviso ignorato non sarà incluso nella valutazione complessiva dello stato del computer. Per risolvere un avviso ignorato, è prima di tutto necessario abilitarlo.  
   
 ##### <a name="to-ignore-an-alert"></a>Per ignorare un avviso  
@@ -148,7 +148,7 @@ ms.locfileid: "79322133"
   
    Per rispondere a un avviso disabilitato, sarà prima di tutto necessario abilitarlo.  
   
-###  <a name="BKMK_5"></a>Abilitare un avviso  
+###  <a name="enable-an-alert"></a><a name="BKMK_5"></a>Abilitare un avviso  
  È possibile abilitare un avviso ignorato in precedenza. Dopo l'abilitazione, sarà possibile risolvere l'avviso o eliminarlo, in base alla necessità. Un avviso è visualizzato come disabilitato quando lo si contrassegna in modo che sia ignorato. Quando si abilita un avviso disabilitato in precedenza, l'avviso tornerà attivo e sarà incluso di nuovo nella valutazione complessiva dello stato dei computer.  
   
 ##### <a name="to-enable-an-alert"></a>Per attivare un avviso  
@@ -159,7 +159,7 @@ ms.locfileid: "79322133"
   
 3.  Nel Visualizzatore avvisi fare clic con il pulsante destro del mouse sull'avviso da abilitare, quindi scegliere **Attiva avviso**.  
   
-###  <a name="BKMK_4"></a>Eliminare un avviso  
+###  <a name="delete-an-alert"></a><a name="BKMK_4"></a>Eliminare un avviso  
  È possibile eliminare un avviso se non si vuole risolverlo o ignorarlo. Per eliminare gli avvisi generati per il computer, è possibile usare il Visualizzatore avvisi nella finestra di avvio. Se si elimina un avviso e il server rileva di nuovo il problema nel ciclo di valutazione dell'integrità di rete successivo, sarà generato un nuovo avviso.  
   
 ##### <a name="to-delete-an-alert"></a>Per eliminare un avviso  
@@ -170,14 +170,14 @@ ms.locfileid: "79322133"
   
 3.  Nel Visualizzatore avvisi fare clic con il pulsante destro del mouse sull'avviso da eliminare, quindi scegliere **Elimina avviso**.  
   
-##  <a name="BKMK_Email"></a>Configurare le notifiche di posta elettronica per gli avvisi  
+##  <a name="set-up-email-notifications-for-alerts"></a><a name="BKMK_Email"></a>Configurare le notifiche di posta elettronica per gli avvisi  
  È possibile configurare il server per l'invio di notifiche tramite posta elettronica in merito al verificarsi degli avvisi. Le notifiche di posta elettronica per questi avvisi includono informazioni sui problemi di rete e le relative procedure di risoluzione. Le stesse informazioni sono visualizzate nel Visualizzatore avvisi. Alcune valutazioni dell'integrità della rete sono eseguite a livello di codice.  
   
  Quando si configura il server per inviare notifiche sugli avvisi tramite posta elettronica, un messaggio di posta elettronica sarà inviato per gli avvisi rilevati durante la valutazione dell'integrità della rete. Tuttavia, non tutti gli avvisi disponibili nel Visualizzatore avvisi sono inclusi nel messaggio di posta elettronica.  
   
  L'attività Valutazione messaggio di posta elettronica avvisi è eseguita sul server ogni trenta minuti, per verificare la presenza di avvisi relativi alla rete. Se viene rilevato un avviso per cui è stata configurata la notifica di posta elettronica, sarà inviata la notifica corrispondente. Se l'avviso è ancora attivo al secondo ciclo di valutazione, non sarà inviato un secondo messaggio di posta elettronica, in modo da non sovraccaricare la cassetta postale dell'utente. Se tuttavia un nuovo avviso viene rilevato in un ciclo di valutazione degli avvisi successivo, sarà inviata una notifica di posta elettronica, che include i nuovi avvisi e gli avvisi precedenti.  
   
-###  <a name="BKMK_list"></a>Avvisi che generano notifiche tramite posta elettronica  
+###  <a name="alerts-that-result-in-email-notifications"></a><a name="BKMK_list"></a>Avvisi che generano notifiche tramite posta elettronica  
  Gli avvisi seguenti nel Visualizzatore avvisi generano notifiche di posta elettronica quando si configura il server per l'invio di notifiche di posta elettronica per gli avvisi:  
   
 -   Errori in un backup del computer client.  
@@ -260,7 +260,7 @@ ms.locfileid: "79322133"
   
 -   Uno o più unità non funzionano e sono offline.  
   
-###  <a name="BKMK_SMTP"></a>Configurazione di SMTP sul server per l'invio di notifiche di avviso tramite posta elettronica in Windows Server Essentials  
+###  <a name="configuring-smtp-on-your-server-to-send-alert-notifications-by-email-in-windows-server-essentials"></a><a name="BKMK_SMTP"></a>Configurazione di SMTP sul server per l'invio di notifiche di avviso tramite posta elettronica in Windows Server Essentials  
  Questa sezione illustra come configurare il server per l'invio di notifiche di posta elettronica per gli avvisi.  
   
 > [!NOTE]
@@ -352,7 +352,7 @@ ms.locfileid: "79322133"
   
 7.  Per verificare che le impostazioni del server SMTP siano state configurate correttamente per l'invio di rapporti di stato tramite posta elettronica, selezionare un rapporto nella scheda Rapporto di stato del dashboard e quindi fare clic su **Invia il rapporto di stato tramite posta elettronica** dal riquadro attività.  
   
-##  <a name="BKMK_Potential"></a>Avvisi potenziali del computer  
+##  <a name="potential-computer-alerts"></a><a name="BKMK_Potential"></a>Avvisi potenziali del computer  
  Questa sezione permette la comprensione e la gestione degli avvisi specifici del computer connesso al server e visualizzati nella finestra di avvio del computer.  
   
  Nella tabella seguente sono elencati alcuni avvisi del computer che possono essere generati e visualizzati nel Visualizzatore avvisi, se applicabili al computer specifico.  
@@ -371,7 +371,7 @@ ms.locfileid: "79322133"
 |Cambiare la password di Windows.||  
 |La password di Microsoft Office 365 non corrisponde alla password di Windows.||  
   
-###  <a name="BKMK_Protect"></a>Per proteggere il computer  
+###  <a name="to-protect-your-computer"></a><a name="BKMK_Protect"></a>Per proteggere il computer  
   
 1.  Aprire il Centro sicurezza PC.  
   

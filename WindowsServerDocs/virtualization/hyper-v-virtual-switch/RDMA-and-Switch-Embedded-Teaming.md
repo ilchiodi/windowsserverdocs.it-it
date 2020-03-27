@@ -6,14 +6,14 @@ ms.prod: windows-server
 ms.technology: networking-hv-switch
 ms.topic: get-started-article
 ms.assetid: 68c35b64-4d24-42be-90c9-184f2b5f19be
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: b39cac842f115a1828c666eec52f17f80971510c
-ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: cfa8076b84a2fc62cec2a709fc15d3dc5be8eb77
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79322713"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80307992"
 ---
 # <a name="remote-direct-memory-access-rdma-and-switch-embedded-teaming-set"></a>Accesso diretto a memoria remota \(RDMA\) e switch Embedded Teaming \(SET\)
 
@@ -25,7 +25,7 @@ In questo argomento vengono fornite informazioni sulla configurazione dell'acces
 > Oltre a questo argomento, è disponibile il seguente switch Embedded Teaming content. 
 > - Download della raccolta TechNet: [Guida dell'utente di Windows Server 2016 e switch Embedded Teaming](https://gallery.technet.microsoft.com/Windows-Server-2016-839cb607?redir=0)
 
-## <a name="bkmk_rdma"></a>Configurazione delle interfacce RDMA con Hyper-V  
+## <a name="configuring-rdma-interfaces-with-hyper-v"></a><a name="bkmk_rdma"></a>Configurazione delle interfacce RDMA con Hyper-V  
 
 In Windows Server 2012 R2, l'uso di RDMA e Hyper-V nello stesso computer delle schede di rete che forniscono i servizi RDMA non può essere associato a un Commuter virtuale Hyper-V. In questo modo si aumenta il numero di schede di rete fisiche che è necessario installare nell'host Hyper-V.
 
@@ -94,7 +94,7 @@ Verificare le funzionalità di RDMA:
 
     Get-NetAdapterRdma
 
-###  <a name="bkmk_set-rdma"></a>Creazione di un Commuter virtuale Hyper-V con SET e RDMA schede
+###  <a name="create-a-hyper-v-virtual-switch-with-set-and-rdma-vnics"></a><a name="bkmk_set-rdma"></a>Creazione di un Commuter virtuale Hyper-V con SET e RDMA schede
 
 Per usare RDMA funzionalità sulle schede di rete virtuali dell'host Hyper-V \(schede\) in un Commuter virtuale Hyper-V che supporta il gruppo di RDMA, è possibile usare questi comandi di Windows PowerShell di esempio.
 
@@ -144,7 +144,7 @@ In questa sezione viene fornita una panoramica di switch Embedded Teaming (SET) 
 
 - [Gestione di un team di SET](#bkmk_manage)
 
-## <a name="bkmk_over"></a>Panoramica SET
+## <a name="set-overview"></a><a name="bkmk_over"></a>Panoramica SET
 
 SET è una soluzione di gruppo NIC alternativa che è possibile usare in ambienti che includono Hyper-V e il Software Defined Networking \(SDN\) stack in Windows Server 2016. SET integra alcune funzionalità di gruppo NIC nel Commuter virtuale Hyper-V.
 
@@ -167,15 +167,15 @@ Per altre informazioni, vedere [Gruppo NIC in macchine virtuali (VM)](https://do
 
 Inoltre, l'architettura SET non espone le interfacce del team. Al contrario, è necessario configurare le porte del Commuter virtuale Hyper-V.
 
-## <a name="bkmk_avail"></a>Imposta disponibilità
+## <a name="set-availability"></a><a name="bkmk_avail"></a>Imposta disponibilità
 
 Il SET è disponibile in tutte le versioni di Windows Server 2016 che includono Hyper-V e lo stack SDN. Inoltre, è possibile utilizzare i comandi di Windows PowerShell e le connessioni Desktop remoto per gestire i SET da computer remoti che eseguono un sistema operativo client su cui sono supportati gli strumenti.
 
-## <a name="bkmk_nics"></a>NIC supportate per SET
+## <a name="supported-nics-for-set"></a><a name="bkmk_nics"></a>NIC supportate per SET
 
 È possibile usare qualsiasi scheda di interfaccia di rete Ethernet che abbia superato il logo e la qualifica hardware di Windows \(WHQL\) test in un team di SET in Windows Server 2016. Per impostare è necessario che tutte le schede di rete che sono membri di un team di SET siano identiche \(ad esempio lo stesso produttore, lo stesso modello, lo stesso firmware e lo stesso driver\). SET supporta tra una e otto schede di rete in un team.
   
-## <a name="bkmk_compat"></a>CONFIGURARE la compatibilità con le tecnologie di rete di Windows Server
+## <a name="set-compatibility-with-windows-server-networking-technologies"></a><a name="bkmk_compat"></a>CONFIGURARE la compatibilità con le tecnologie di rete di Windows Server
 
 Il SET è compatibile con le tecnologie di rete seguenti in Windows Server 2016.
 
@@ -210,7 +210,7 @@ Il SET non è compatibile con le tecnologie di rete seguenti in Windows Server 2
 
 - QoS della macchina virtuale \(\)di QoS. La funzionalità QoS della macchina virtuale è disponibile ma è disabilitata per impostazione predefinita. Se si configura la funzionalità QoS della macchina virtuale in un ambiente SET, le impostazioni QoS provocheranno risultati imprevedibili.
 
-## <a name="bkmk_modes"></a>IMPOSTARE le modalità e le impostazioni
+## <a name="set-modes-and-settings"></a><a name="bkmk_modes"></a>IMPOSTARE le modalità e le impostazioni
 
 A differenza del gruppo NIC, quando si crea un gruppo di SET, non è possibile configurare un nome Team. Inoltre, l'utilizzo di una scheda standby è supportato nel gruppo NIC, ma non è supportato nel SET. Quando si distribuisce il SET, tutte le schede di rete sono attive e nessuna è in modalità standby.
 
@@ -253,7 +253,7 @@ I carichi in uscita in questa modalità sono bilanciati in modo dinamico in base
 
 Quando l'algoritmo in modalità dinamica rileva che è stato rilevato un limite flowlet, ad esempio quando si è verificata un'interrotta di lunghezza sufficiente nel flusso TCP, l'algoritmo ribilancia automaticamente il flusso a un altro membro del team, se appropriato.  In alcune circostanze non comuni, anche l'algoritmo potrebbe ribilanciare periodicamente i flussi che non contengono alcun flowlets. Per questo motivo, l'affinità tra il flusso TCP e il membro del team può cambiare in qualsiasi momento, poiché l'algoritmo di bilanciamento dinamico funziona per bilanciare il carico di lavoro dei membri del team.
 
-## <a name="bkmk_vmq"></a>SET e code di macchine virtuali (code macchine virtuali)
+## <a name="set-and-virtual-machine-queues-vmqs"></a><a name="bkmk_vmq"></a>SET e code di macchine virtuali (code macchine virtuali)
 
 VMQ e SET funzionano bene insieme ed è necessario abilitare VMQ quando si usa Hyper-V e impostare.
 
@@ -273,15 +273,15 @@ Di seguito sono riportate alcune impostazioni VMQ che garantiscono prestazioni d
 
 - I processori dei membri del team devono essere, nel senso che è pratico, non sovrapposto. Ad esempio, in un host con 4 core \(8 processori logici\) con un team di due schede di rete 10Gbps, è possibile impostare la prima per l'uso del processore di base 2 e per l'uso di 4 core. il secondo verrebbe impostato in modo da usare il processore di base 6 e usare 2 Core.
 
-## <a name="bkmk_hnv"></a>SET e virtualizzazione rete Hyper-V \(HNV\)
+## <a name="set-and-hyper-v-network-virtualization-hnv"></a><a name="bkmk_hnv"></a>SET e virtualizzazione rete Hyper-V \(HNV\)
 
 Il SET è completamente compatibile con la virtualizzazione rete Hyper-V in Windows Server 2016. Il sistema di gestione di HNV fornisce informazioni al driver di SET che consente a di distribuire il carico del traffico di rete in modo che sia ottimizzato per il traffico HNV.
   
-## <a name="bkmk_live"></a>IMPOSTA e Live Migration
+## <a name="set-and-live-migration"></a><a name="bkmk_live"></a>IMPOSTA e Live Migration
 
 Live Migration è supportato in Windows Server 2016.
 
-## <a name="bkmk_mac"></a>Indirizzo MAC usato nei pacchetti trasmessi
+## <a name="mac-address-use-on-transmitted-packets"></a><a name="bkmk_mac"></a>Indirizzo MAC usato nei pacchetti trasmessi
 
 Quando si configura un team SET con la distribuzione dinamica del carico, i pacchetti da una singola origine \(come una singola macchina virtuale\) vengono distribuiti simultaneamente tra più membri del team. 
 
@@ -311,7 +311,7 @@ Di seguito sono elencati gli elenchi che descrivono il comportamento di sostituz
   
     - I pacchetti inviati a un membro del team diverso dal membro del team creata un'affinità avranno completato la sostituzione degli indirizzi MAC di origine  
   
-## <a name="bkmk_manage"></a>Gestione di un team di SET
+## <a name="managing-a-set-team"></a><a name="bkmk_manage"></a>Gestione di un team di SET
 
 È consigliabile utilizzare System Center Virtual Machine Manager \(\) VMM per gestire i team di SET, tuttavia è anche possibile utilizzare Windows PowerShell per gestire i SET. Le sezioni seguenti forniscono i comandi di Windows PowerShell che è possibile usare per gestire i SET.
 

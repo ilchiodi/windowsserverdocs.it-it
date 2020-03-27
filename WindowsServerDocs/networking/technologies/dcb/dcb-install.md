@@ -6,14 +6,14 @@ ms.technology: networking
 ms.topic: article
 ms.assetid: b89213d8-143a-45f3-a609-bc6a7027204c
 manager: brianlic
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 5ecb6ef072dd2328a0a45d57d181dca9c2928a30
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: edca8269178d9e1de9f8d57abac04400da0ac5c1
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71405790"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80312808"
 ---
 # <a name="install-data-center-bridging-dcb-in-windows-server-2016-or-windows-10"></a>Installare Data Center Bridging \(DCB\) in Windows Server 2016 o Windows 10
 
@@ -30,12 +30,12 @@ Di seguito sono riportati i prerequisiti per la configurazione e la gestione di 
 È possibile usare i comandi di DCB di questa guida nei sistemi operativi seguenti.
 
 - Windows Server (Canale semestrale)
-- Windows Server 2016
+- Windows Server 2016
 - Windows 10 \(tutte le versioni\)
 
 I sistemi operativi seguenti includono versioni precedenti di DCB che non sono compatibili con i comandi usati nella documentazione di DCB per Windows Server 2016 e Windows 10.
 
-- Windows Server 2012 R2
+- Windows Server 2012 R2
 - Windows Server 2012
 
 ###  <a name="hardware-requirements"></a>Requisiti hardware
@@ -74,9 +74,9 @@ Per eseguire queste procedure, è necessario essere un membro di **Administrator
 
 1. In Server Manager, in DC1 fare clic su **Gestisci**, quindi su **Aggiungi ruoli e funzionalità**. Viene avviata l'Aggiunta guidata ruoli e funzionalità.
 2. In **Prima di iniziare** fare clic su **Avanti**.
-3. In **Select Installation Type**, assicurarsi che **installazione basata su ruoli o basata su funzionalità** sia selezionata e quindi fare clic su **Avanti**.
-4. In **Selezione server di destinazione** assicurarsi che sia selezionata l'opzione **Selezionare un server dal pool di server**. Assicurarsi che in **Pool di server** sia selezionato il computer locale. Fai clic su **Next**.
-5. In **Selezione ruoli server**, fare clic su **Avanti**.
+3. In **Selezione tipo di installazione** assicurarsi che sia selezionata l'opzione **Installazione basata su ruoli o basata su funzionalità**, quindi fare clic su **Avanti**.
+4. In **Selezione server di destinazione** assicurarsi che sia selezionata l'opzione **Selezionare un server dal pool di server**. Assicurarsi che in **Pool di server** sia selezionato il computer locale. Fare clic su **Avanti**.
+5. In **Selezione ruoli** server fare clic su **Avanti**.
 6. In **Selezione funzionalità**, in **funzionalità**, fare clic su **Data Center Bridging**. Verrà visualizzata una finestra di dialogo in cui viene chiesto se si desidera aggiungere le funzionalità richieste di DCB. Fare clic su **Aggiungi funzionalità**.
 7. In **Selezionare le funzionalità**, fare clic su **Avanti**. 
 8. 7.In **confermare le selezioni**per l'installazione, fare clic su **Installa**. Il **lo stato dell'installazione** pagina Visualizza stato durante il processo di installazione. Quando viene visualizzato il messaggio indicante che l'installazione è riuscita, fare clic su **Chiudi**.
@@ -100,7 +100,7 @@ Per eseguire questa procedura, è necessario essere un membro di **Administrator
 1. Fare clic sul pulsante **Start**, quindi scorrere verso il basso e fare clic su **sistema Windows**.
 2. Fare clic su **Pannello di controllo**. Verrà visualizzata la finestra di dialogo **Pannello di controllo** .
 3. Nel **Pannello di controllo**fare clic su **Visualizza per**e quindi su icone **grandi** o **icone piccole**.
-4. Fare clic su **programmi e funzionalità**. Verrà visualizzata la finestra di dialogo programmi e funzionalità.
+4. Fare clic su **Programmi e funzionalità**. Verrà visualizzata la finestra di dialogo programmi e funzionalità.
 5. In **programmi e funzionalità**, nel riquadro sinistro, fare clic **su attivazione o disattivazione delle funzionalità Windows**. Verrà visualizzata la finestra di dialogo **funzionalità Windows** .
 6. In **funzionalità di Windows**fare clic su **Data Center Bridging**, quindi fare clic su **OK**.
 

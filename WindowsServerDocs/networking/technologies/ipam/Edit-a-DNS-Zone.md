@@ -10,14 +10,14 @@ ms.technology: networking-ipam
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: a35164e1-11ad-47c8-9843-580d30c70d07
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 2175cf9c740d7b727ba017922a77c94d4379c891
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: b2fa8ff6742dc393a5a2cc962c7f849049b5ef31
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71355282"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80312428"
 ---
 # <a name="edit-a-dns-zone"></a>Modificare una zona DNS
 
@@ -49,7 +49,7 @@ Per eseguire questa procedura è necessaria almeno l'appartenenza al gruppo **Ad
   
     ![Modificare la zona DNS](../../media/Edit-a-DNS-Zone/ipam_EditZone_02.jpg)  
   
-6.  Verrà visualizzata la finestra di dialogo **modifica zona DNS** con la pagina **generale** selezionata. Se necessario, modificare le proprietà generali della zona: **Server DNS**, **categoria zona**e **tipo di zona**, quindi fare clic su **applica** o, se le modifiche sono state completate, **OK**.  
+6.  Verrà visualizzata la finestra di dialogo **modifica zona DNS** con la pagina **generale** selezionata. Se necessario, modificare le proprietà generali della zona: **server DNS**, **categoria zona**e **tipo di zona**, quindi fare clic su **applica** o, se le modifiche sono state completate, **OK**.  
   
     ![Modifica proprietà zona e Salva](../../media/Edit-a-DNS-Zone/ipam_EditZone_03a.jpg)  
   
@@ -59,7 +59,7 @@ Per eseguire questa procedura è necessaria almeno l'appartenenza al gruppo **Ad
   
 8.  Se necessario, selezionare i nomi di pagina delle proprietà della zona aggiuntiva (server dei nomi, SOA, trasferimenti di zona), apportare le modifiche e fare clic su **applica** o **OK**. Per esaminare tutte le modifiche alle zone, fare clic su **Riepilogo**, quindi su **OK**.  
   
-## <a name="see-also"></a>Vedere anche  
+## <a name="see-also"></a>Vedi anche  
 [Gestione delle zone DNS](DNS-Zone-Management.md)  
 [Gestire Gestione indirizzi IP](Manage-IPAM.md)  
   

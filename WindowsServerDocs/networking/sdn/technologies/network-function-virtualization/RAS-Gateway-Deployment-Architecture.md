@@ -10,14 +10,14 @@ ms.technology: networking-sdn
 ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: d46e4e91-ece0-41da-a812-af8ab153edc4
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 7b3bd47052e482b562e84d5c44b928c0744b223c
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 91d8081261d3cbc5e2da61cc2b5a9737e76a0dc7
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71405919"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80309800"
 ---
 # <a name="ras-gateway-deployment-architecture"></a>Architettura della distribuzione di Gateway RAS
 
@@ -29,7 +29,7 @@ Le sezioni seguenti forniscono brevi panoramiche su alcune delle nuove funzional
   
 Viene inoltre fornita una distribuzione di esempio, incluse le informazioni sul processo di aggiunta di nuovi tenant, la sincronizzazione delle route e il routing del piano dati, il failover del gateway e del riflettore delle route e altro ancora.  
   
-In questo argomento sono incluse le sezioni seguenti.  
+In questo argomento sono contenute le seguenti sezioni.  
   
 -   [Uso delle nuove funzionalità del gateway RAS per la progettazione della distribuzione](#bkmk_new)  
   
@@ -43,7 +43,7 @@ In questo argomento sono incluse le sezioni seguenti.
   
 -   [Vantaggi dell'utilizzo delle nuove funzionalità del gateway RAS](#bkmk_advantages)  
   
-## <a name="bkmk_new"></a>Uso delle nuove funzionalità del gateway RAS per la progettazione della distribuzione  
+## <a name="using-ras-gateway-new-features-to-design-your--deployment"></a><a name="bkmk_new"></a>Uso delle nuove funzionalità del gateway RAS per la progettazione della distribuzione  
 Il gateway RAS include più nuove funzionalità che modificano e migliorano il modo in cui si distribuisce l'infrastruttura del gateway nel Data Center.  
   
 ### <a name="bgp-route-reflector"></a>Riflettore Route BGP  
@@ -51,22 +51,22 @@ La funzionalità di Reflection Route Border Gateway Protocol (BGP) è ora inclus
   
 Per ulteriori informazioni, vedere Novità [del gateway RAS](../../../sdn/technologies/network-function-virtualization/What-s-New-in-RAS-Gateway.md).  
   
-### <a name="bkmk_pools"></a>Pool di gateway  
+### <a name="gateway-pools"></a><a name="bkmk_pools"></a>Pool di gateway  
 In Windows Server 2016 è possibile creare molti pool di gateway di tipi diversi. Pool di gateway includono più istanze del Gateway RAS e instradare il traffico di rete tra reti fisiche e virtuali.  
   
 Per ulteriori informazioni, vedere Novità [di gateway RAS](../../../sdn/technologies/network-function-virtualization/What-s-New-in-RAS-Gateway.md) e [disponibilità elevata del gateway RAS](../../../sdn/technologies/network-function-virtualization/RAS-Gateway-High-Availability.md).  
   
-### <a name="bkmk_gps"></a>Scalabilità del pool di gateway  
+### <a name="gateway-pool-scalability"></a><a name="bkmk_gps"></a>Scalabilità del pool di gateway  
 È possibile scalare facilmente un pool di gateway verso l'alto o verso il basso aggiungendo o rimuovendo le macchine virtuali gateway nel pool. Rimozione o aggiunta di gateway non interrotti i servizi forniti da un pool. È inoltre possibile aggiungere e rimuovere l'intero pool di gateway.  
   
 Per ulteriori informazioni, vedere Novità [di gateway RAS](../../../sdn/technologies/network-function-virtualization/What-s-New-in-RAS-Gateway.md) e [disponibilità elevata del gateway RAS](../../../sdn/technologies/network-function-virtualization/RAS-Gateway-High-Availability.md).  
   
-### <a name="bkmk_m"></a>Ridondanza del pool di gateway M + N  
+### <a name="mn-gateway-pool-redundancy"></a><a name="bkmk_m"></a>Ridondanza del pool di gateway M + N  
 Ogni pool di gateway è N + M ridondanti. Ciò significa che viene eseguito il backup di un numero di VM gateway attive da un numerò n'di macchine virtuali del gateway di standby. M + N ridondanza offre una maggiore flessibilità nella determinazione del livello di affidabilità che è necessario quando si distribuisce Gateway RAS.  
   
 Per ulteriori informazioni, vedere Novità [di gateway RAS](../../../sdn/technologies/network-function-virtualization/What-s-New-in-RAS-Gateway.md) e [disponibilità elevata del gateway RAS](../../../sdn/technologies/network-function-virtualization/RAS-Gateway-High-Availability.md).  
   
-## <a name="bkmk_example"></a>Distribuzione di esempio  
+## <a name="example-deployment"></a><a name="bkmk_example"></a>Distribuzione di esempio  
 La figura seguente illustra un esempio con il peering eBGP per le connessioni VPN da sito a sito configurate tra due tenant, Contoso e Woodgrove e il Data Center di Fabrikam CSP.  
   
 ![peering eBGP su VPN da sito a sito](../../../media/RAS-Gateway-Deployment-Architecture/ras_gateway_architecture.png)  
@@ -82,7 +82,7 @@ Come riflettori di route, GW2 Invia le route dello spazio della CA contoso al co
   
 Il controller di rete esegue il push dei criteri di virtualizzazione rete Hyper-V alle reti virtuali Contoso e Woodgrove, oltre ai criteri RAS ai gateway RAS e ai criteri di bilanciamento del carico per i multiplexer (MUX) configurati come bilanciamento del carico software piscina.  
   
-## <a name="bkmk_tenant"></a>Aggiunta di nuovi tenant e spazio degli indirizzi del cliente (CA) eBGP peering  
+## <a name="adding-new-tenants-and-customer-address-ca-space-ebgp-peering"></a><a name="bkmk_tenant"></a>Aggiunta di nuovi tenant e spazio degli indirizzi del cliente (CA) eBGP peering  
 Quando si firma un nuovo cliente e si aggiunge il cliente come nuovo tenant nel Data Center, è possibile usare il processo seguente, molti dei quali vengono eseguiti automaticamente dai router eBGP del controller di rete e del gateway RAS.  
   
 1.  Effettuare il provisioning di una nuova rete virtuale e dei carichi di lavoro in base ai requisiti del tenant.  
@@ -103,7 +103,7 @@ Quando si firma un nuovo cliente e si aggiunge il cliente come nuovo tenant nel 
   
 6.  Con il routing BGP dello spazio CA, viene stabilito anche il peering eBGP tra i siti aziendali e il riflettore della route del gateway RAS CSP.  
   
-## <a name="bkmk_route"></a>Routing della sincronizzazione e del piano dati  
+## <a name="route-synchronization-and-data-plane-routing"></a><a name="bkmk_route"></a>Routing della sincronizzazione e del piano dati  
 Dopo aver stabilito il peering eBGP tra i siti aziendali e il riflettore delle route del gateway RAS CSP, il riflettore delle route apprende tutte le route aziendali usando il routing BGP dinamico. Il riflettore delle route Sincronizza tali route tra tutti i client del riflettore delle route in modo che siano tutti configurati con lo stesso set di route.  
   
 Route Reflector aggiorna anche queste route consolidate, usando la sincronizzazione della route, al controller di rete. Il controller di rete converte quindi le route nei criteri di virtualizzazione rete Hyper-V e configura la rete dell'infrastruttura per assicurarsi che venga eseguito il provisioning del routing del percorso dati end-to-end. Questo processo rende la rete virtuale tenant accessibile dai siti aziendali tenant.  
@@ -114,7 +114,7 @@ Analogamente, con i criteri di virtualizzazione rete Hyper-V, la rete virtuale t
   
 Inoltre. il traffico restituito dalla rete virtuale tenant al sito aziendale del tenant remoto ignora SLBs, un processo chiamato Direct Server Return (DSR).  
   
-## <a name="bkmk_failover"></a>Come il controller di rete risponde al failover del gateway RAS e del riflettore delle route  
+## <a name="how-network-controller-responds-to-ras-gateway-and-route-reflector-failover"></a><a name="bkmk_failover"></a>Come il controller di rete risponde al failover del gateway RAS e del riflettore delle route  
 Di seguito sono riportati due possibili scenari di failover: uno per i client di reflection del gateway RAS e uno per i riflettori della route del gateway RAS, incluse informazioni sul modo in cui il controller di rete gestisce il failover per le macchine virtuali in entrambe le configurazioni  
   
 ### <a name="vm-failure-of-a-ras-gateway-bgp-route-reflector-client"></a>Errore della macchina virtuale di un client di Reflection Route BGP del gateway RAS  
@@ -146,7 +146,7 @@ Il controller di rete esegue le azioni seguenti quando un riflettore della route
   
 -   Dopo la selezione della route BGP, il riflettore della route BGP del gateway RAS aggiorna i client del riflettore della route tenant nel Data Center e sincronizza le route con il controller di rete, rendendo disponibile il percorso dei dati end-to-end per il traffico del tenant.  
   
-## <a name="bkmk_advantages"></a>Vantaggi dell'utilizzo delle nuove funzionalità del gateway RAS  
+## <a name="advantages-of-using-new-ras-gateway-features"></a><a name="bkmk_advantages"></a>Vantaggi dell'utilizzo delle nuove funzionalità del gateway RAS  
 Di seguito sono riportati alcuni dei vantaggi derivanti dall'utilizzo di queste nuove funzionalità del gateway RAS durante la progettazione della distribuzione del gateway RAS.  
   
 **Scalabilità del gateway RAS**  

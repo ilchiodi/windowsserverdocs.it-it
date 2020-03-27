@@ -6,15 +6,15 @@ ms.technology: networking
 ms.topic: article
 ms.assetid: 0cafb1cc-5798-42f5-89b6-3ffe7ac024ba
 manager: dougkim
-ms.author: pashort
-author: shortpatti
+ms.author: lizross
+author: eross-msft
 ms.date: 09/12/2018
-ms.openlocfilehash: f032717b9f4dca65454d8251083b73ff2d57dba7
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 93913acbe598c4fd1b8ee5556dbf70013f3d714a
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71355317"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80316939"
 ---
 # <a name="software-and-hardware-sh-integrated-features-and-technologies"></a>Funzionalità e tecnologie per software e hardware (SH, Software e Hardware) integrate
 
@@ -70,7 +70,7 @@ Offload attività IPsec è una funzionalità NIC che consente al sistema operati
 
 PVLAN consente la comunicazione solo tra le macchine virtuali nello stesso server di virtualizzazione. Una rete virtuale privata non è associata a una scheda di rete fisica. Una rete virtuale privata è isolata da tutto il traffico di rete esterno nel server di virtualizzazione, nonché da qualsiasi traffico di rete tra il sistema operativo di gestione e la rete esterna. Questo tipo di rete è utile quando è necessario creare un ambiente di rete isolato, ad esempio un dominio di test isolato. Gli stack Hyper-V e SDN supportano solo la modalità PVLAN isolata.
 
-Per informazioni dettagliate sull'isolamento PVLAN, [vedere System Center: Blog](https://blogs.technet.microsoft.com/scvmm/2013/06/04/logical-networks-part-iv-pvlan-isolation/)sulla progettazione di Virtual Machine Manager.
+Per informazioni dettagliate sull'isolamento PVLAN, vedere [System Center: Blog di progettazione Virtual Machine Manager](https://blogs.technet.microsoft.com/scvmm/2013/06/04/logical-networks-part-iv-pvlan-isolation/).
 
 ## <a name="remote-direct-memory-access-rdma"></a>RDMA (Remote Direct Memory Access) 
 
@@ -90,7 +90,7 @@ SR-IOV consente al traffico VM di spostarsi direttamente dalla scheda di interfa
 
 Il traffico che usa SR-IOV ignora il Commuter Hyper-V, il che significa che qualsiasi criterio, ad esempio, ACL o gestione della larghezza di banda non verrà applicato. Anche il traffico SR-IOV non può essere passato attraverso alcuna funzionalità di virtualizzazione di rete, quindi non è possibile applicare l'incapsulamento NV-GRE o VxLAN. Usare SR-IOV solo per i carichi di lavoro affidabili in situazioni specifiche. Inoltre, non è possibile utilizzare i criteri host, la gestione della larghezza di banda e le tecnologie di virtualizzazione.
 
-In futuro, due tecnologie consentivano SR-IOV: Tabelle di flusso generico (GFT) e offload QoS hardware (gestione della larghezza di banda nella scheda di interfaccia di rete): una volta supportate dalle schede di interfaccia di rete nell'ecosistema. La combinazione di queste due tecnologie renderebbe l'utilizzo di SR-IOV per tutte le macchine virtuali, consentirebbe l'applicazione di criteri, virtualizzazione e regole di gestione della larghezza di banda e potrebbe comportare un notevole passo avanti nell'applicazione generale di SR-IOV.
+In futuro, due tecnologie consentivano SR-IOV: tabelle di flusso generiche (GFT) e offload QoS hardware (gestione della larghezza di banda nella scheda di interfaccia di rete), una volta supportate dalle schede di interfaccia di rete nell'ecosistema. La combinazione di queste due tecnologie renderebbe l'utilizzo di SR-IOV per tutte le macchine virtuali, consentirebbe l'applicazione di criteri, virtualizzazione e regole di gestione della larghezza di banda e potrebbe comportare un notevole passo avanti nell'applicazione generale di SR-IOV.
 
 Per ulteriori informazioni, vedere [Panoramica di Single Root I/O Virtualization (SR-IOV)](https://docs.microsoft.com/windows-hardware/drivers/network/overview-of-single-root-i-o-virtualization--sr-iov-).
 

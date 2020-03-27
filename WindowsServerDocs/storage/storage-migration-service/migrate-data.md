@@ -4,16 +4,16 @@ description: Breve descrizione dell'argomento per i risultati del motore di rice
 author: jasongerend
 ms.author: jgerend
 manager: elizapo
-ms.date: 02/13/2019
+ms.date: 03/25/2020
 ms.topic: article
 ms.prod: windows-server
 ms.technology: storage
-ms.openlocfilehash: 20aa5fbc40efc5a3a439361dadfac0f47f4b41d8
-ms.sourcegitcommit: 07c9d4ea72528401314e2789e3bc2e688fc96001
+ms.openlocfilehash: cb1ac2fc1c7d4ed0a7f57bbe95cb9989bc85e99e
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76822624"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80310554"
 ---
 # <a name="use-storage-migration-service-to-migrate-a-server"></a>Usare il servizio migrazione archiviazione per eseguire la migrazione di un server
 
@@ -32,7 +32,7 @@ Prima di iniziare, installare il servizio migrazione archiviazione e assicurarsi
 6. In tutti i server di origine e in tutti i server di destinazione che eseguono Windows Server 2012 R2 o Windows Server 2016, nell'interfaccia di amministrazione di Windows, connettersi a ogni server, passare a **Server Manager** (nell'interfaccia di amministrazione di windows) > **Firewall** > **regole in ingresso**, quindi verificare che siano abilitate le seguenti regole:
     - Condivisione di file e stampanti (SMB-In)
     - Servizio Netlogon (NP-in)
-    - Strumentazione gestione Windows (DCOM-in)
+    - Strumentazione gestione Windows (DCOM-In)
     - Strumentazione gestione Windows (WMI-In)
 
    Se si usano firewall di terze parti, gli intervalli di porte in ingresso da aprire sono TCP/445 (SMB), TCP/135 (mapper di endpoint RPC/DCOM) e TCP 1025-65535 (porte temporanee RPC/DCOM). Le porte del servizio migrazione archiviazione sono TCP/28940 (agente di orchestrazione) e TCP/28941 (proxy).
@@ -60,12 +60,15 @@ In questo passaggio si trasferiscono i dati dopo aver specificato dove inserirli
 1. Nella pagina **trasferimento dati** > **immissione credenziali** digitare le credenziali di amministratore che funzionano nei server di destinazione in cui si desidera eseguire la migrazione e quindi fare clic su **Avanti**.
 2. Nella pagina **Aggiungi un dispositivo di destinazione e mapping** , viene elencato il primo server di origine. Digitare il nome del server o file server cluster in cui si desidera eseguire la migrazione e quindi selezionare **analizza dispositivo**. Se si esegue la migrazione da un computer di origine aggiunto al dominio, il server di destinazione deve appartenere allo stesso dominio. È anche possibile fare clic su "crea una nuova macchina virtuale di Azure" e quindi usare la procedura guidata per distribuire un nuovo server di destinazione in Azure. Questa operazione consente di ridimensionare automaticamente la macchina virtuale, eseguire il provisioning dell'archiviazione, formattare i dischi, aggiungere il dominio e aggiungere il proxy del servizio migrazione archiviazione a una destinazione Windows Server 2019. È possibile scegliere tra macchine virtuali Windows Server 2019 (scelta consigliata), Windows Server 2016 e Windows Server 2012 R2 di qualsiasi dimensione e usare Managed Disks.   
 
- > [!NOTE]
-   > Per usare "crea una nuova macchina virtuale di Azure", è necessario disporre di:
-   > - Una sottoscrizione di Azure valida.
-   > - Un gruppo di risorse di calcolo di Azure esistente in cui si dispone dei diritti di creazione.
-   > - Una rete virtuale e una subnet di Azure esistenti. 
-   > - Una soluzione Azure Express route o VPN collegata alla rete virtuale e alla subnet che consente la connettività da questa macchina virtuale IaaS di Azure ai client locali, ai controller di dominio, al computer dell'agente di orchestrazione del servizio di migrazione dell'archiviazione, al computer Windows Admin Center, e il computer di origine di cui eseguire la migrazione.
+    > [!NOTE]
+    > Per usare "crea una nuova macchina virtuale di Azure", è necessario disporre di:
+    > - Una sottoscrizione di Azure valida.
+    > - Un gruppo di risorse di calcolo di Azure esistente in cui si dispone dei diritti di creazione.
+    > - Una rete virtuale e una subnet di Azure esistenti. 
+    > - Una soluzione Azure Express route o VPN collegata alla rete virtuale e alla subnet che consente la connettività da questa macchina virtuale IaaS di Azure ai client locali, ai controller di dominio, al computer dell'agente di orchestrazione del servizio di migrazione dell'archiviazione, al computer Windows Admin Center, e il computer di origine di cui eseguire la migrazione.
+   
+    Ecco un video che illustra come usare il servizio migrazione archiviazione per eseguire la migrazione alle macchine virtuali di Azure.
+    > [!VIDEO https://www.youtube-nocookie.com/embed/k8Z9LuVL0xQ] 
 
 3. Eseguire il mapping dei volumi di origine ai volumi di destinazione, deselezionare la casella di controllo **Includi** per le condivisioni che non si desidera trasferire (incluse le condivisioni amministrative presenti nella cartella di sistema di Windows) e quindi selezionare **Avanti**.
    ![screenshot che mostra un server di origine e i relativi volumi e condivisioni e la posizione in cui verranno trasferiti nella destinazione](media/migrate/transfer.png) **Figura 3: un server di origine e la posizione in cui verrà trasferito il relativo spazio di archiviazione**
@@ -111,7 +114,7 @@ In questo passaggio si passa dai server di origine ai server di destinazione e s
 7. Selezionare **convalida** nella pagina **convalida dispositivo di origine e destinazione** e quindi fare clic su **Avanti**.
 8. Quando si è pronti per eseguire il cutover, selezionare **Avvia cutover**. <br>Gli utenti e le app potrebbero riscontrare un'interruzione mentre l'indirizzo e i nomi vengono spostati e i server vengono riavviati più volte, ma in caso contrario non saranno interessati dalla migrazione. Il tempo impiegato da cutover dipende dalla velocità con cui i server vengono riavviati, nonché da Active Directory e tempi di replica DNS.
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 
 - [Panoramica di servizio migrazione archiviazione](overview.md)
 - [Domande frequenti sui servizi di migrazione archiviazione](faq.md)

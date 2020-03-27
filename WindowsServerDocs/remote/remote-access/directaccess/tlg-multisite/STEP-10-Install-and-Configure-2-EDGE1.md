@@ -10,14 +10,14 @@ ms.technology: networking-da
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: d98d6f7a-a2e6-45b1-9c63-08e2986a5c03
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 7044a0d219decceb7669e92e884c78bcd9e3a61c
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 7d21d80f4970a501e31a053483c37268bdddb811
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71388387"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80314617"
 ---
 # <a name="step-10-install-and-configure-2-edge1"></a>PASSAGGIO 10: installare e configurare 2-EDGE1
 
@@ -41,17 +41,17 @@ ms.locfileid: "71388387"
   
 2: EDGE1 deve disporre di due schede di rete installate.  
   
-## <a name="installOS"></a>Installare il sistema operativo in 2 EDGE1  
+## <a name="install-the-operating-system-on-2-edge1"></a><a name="installOS"></a>Installare il sistema operativo in 2 EDGE1  
   
 1.  Avviare l'installazione di Windows Server 2016, Windows Server 2012 R2 o Windows Server 2012.  
   
-2.  Seguire le istruzioni per completare l'installazione, specificando Windows Server 2016, Windows Server 2012 R2 o Windows Server 2012 (installazione completa) e una password complessa per l'account amministratore locale. Accedere utilizzando l'account Administrator locale.  
+2.  Seguire le istruzioni per completare l'installazione, specificando Windows Server 2016, Windows Server 2012 R2 o Windows Server 2012 (installazione completa) e una password complessa per l'account amministratore locale. Accedere usando l'account dell'amministratore locale.  
   
 3.  Connettere 2-EDGE1 a una rete dotata di accesso a Internet ed eseguire Windows Update per installare gli aggiornamenti più recenti per Windows Server 2016, Windows Server 2012 R2 o Windows Server 2012, quindi disconnettersi da Internet.  
   
 4.  Connettere una scheda di rete alla subnet 2-corpnet e l'altra alla rete Internet simulata.  
   
-## <a name="tcpip"></a>Configurare le proprietà TCP/IP  
+## <a name="configure-tcpip-properties"></a><a name="tcpip"></a>Configurare le proprietà TCP/IP  
   
 1.  Nella console di Server Manager fare clic su **server locale**e quindi nell'area **Proprietà** , accanto a **connessione Ethernet cablata**, fare clic sul collegamento.  
   
@@ -85,7 +85,7 @@ ms.locfileid: "71388387"
   
 16. Fare clic su **Protocollo Internet versione 4 (TCP/IPv4)** e quindi su **Proprietà**.  
   
-17. Fare clic su **Utilizza il seguente indirizzo IP**. In **indirizzo IP**, tipo **131.107.0.20**. In **Subnet mask**digitare **255.255.255.0**.  
+17. Fare clic su **Utilizza il seguente indirizzo IP**. In **indirizzo IP**, tipo **131.107.0.20**. In **Subnet mask** digitare **255.255.255.0**.  
   
 18. Fare clic su **Avanzate**. Nella scheda **impostazioni IP** , nell'area **indirizzi IP** , fare clic su **Aggiungi**. Nella finestra di dialogo **indirizzo TCP/IP** , in **indirizzo IP** digitare **131.107.0.21**, in **subnet mask** digitare **255.255.255.0**, quindi fare clic su **Aggiungi**.  
   
@@ -95,7 +95,7 @@ ms.locfileid: "71388387"
   
 21. Chiudere la finestra **Connessioni di rete**.  
   
-## <a name="routing"></a>Configurare il routing tra subnet  
+## <a name="configure-routing-between-subnets"></a><a name="routing"></a>Configurare il routing tra subnet  
   
 1.  Nella schermata **Start** Digitare**cmd. exe**, quindi premere INVIO.  
   
@@ -112,7 +112,7 @@ ms.locfileid: "71388387"
   
 5.  Chiudere la finestra del prompt dei comandi.  
   
-## <a name="Join"></a>Join 2-EDGE1 al dominio CORP2  
+## <a name="join-2-edge1-to-the-corp2-domain"></a><a name="Join"></a>Join 2-EDGE1 al dominio CORP2  
   
 1.  Nella console di Server Manager, in **server locale**, nell'area **Proprietà** , accanto a **nome computer**, fare clic sul collegamento.  
   
@@ -132,19 +132,19 @@ ms.locfileid: "71388387"
   
 9. Dopo il riavvio del computer, fare clic su **Cambia utente**, quindi fare clic su **altro utente** e accedere al dominio CORP2 con l'account amministratore.  
   
-## <a name="certs"></a>Ottenere i certificati su 2-EDGE1  
+## <a name="obtain-certificates-on-2-edge1"></a><a name="certs"></a>Ottenere i certificati su 2-EDGE1  
   
 1.  Nella schermata **Start** Digitare**MMC. exe**, quindi premere INVIO.  
   
-2.  Nella console di MMC, nel **File** menu, fare clic su **Aggiungi/Rimuovi Snap-in**.  
+2.  Nella console MMC scegliere **Aggiungi/Rimuovi snap-in** dal menu **File**.  
   
-3.  Nel **Aggiungi o Rimuovi Snap-in** la finestra di dialogo, fare clic su **certificati**, fare clic su **Aggiungi**, fare clic su **account Computer**, fare clic su **Avanti**, fare clic su **computer locale**, fare clic su **Fine**, e quindi fare clic su **OK**.  
+3.  Nella finestra di dialogo **Aggiungi/Rimuovi snap-in**, fare clic su **Certificati**, **Aggiungi**, **Account del computer** e infine su **Avanti**. Fare clic su **Computer locale**, **Fine** e quindi su **OK**.  
   
 4.  Nell'albero della console dello snap-in certificati aprire **certificati (computer locale) \personal**.  
   
 5.  Fare clic con il pulsante destro del mouse su **personale**, scegliere **tutte le attività**, quindi fare clic su **Richiedi nuovo certificato**.  
   
-6.  Fare clic due volte su **Avanti** .  
+6.  Fare clic due volte su **Avanti**.  
   
 7.  Nella pagina **Richiedi certificati** selezionare le caselle di controllo **autenticazione client-server** e **server Web** , quindi fare clic su **sono necessarie ulteriori informazioni per registrare il certificato**.  
   
@@ -152,19 +152,19 @@ ms.locfileid: "71388387"
   
 9. In **valore**Digitare **2-Edge1.contoso.com**e quindi fare clic su **Aggiungi**.  
   
-10. Nel **nome alternativo** area, in **tipo**, selezionare **DNS**.  
+10. Nella sezione **Nome alternativo** selezionare **DNS** per **Tipo**.  
   
 11. In **valore**immettere **2-Edge1.contoso.com**, quindi fare clic su **Aggiungi**.  
   
 12. Nella scheda **generale** , in **nome descrittivo**, digitare **certificato IP-HTTPS**.  
   
-13. Fare clic su **OK**, fare clic su **registrazione**, quindi fare clic su **Fine**.  
+13. Fare clic su **OK**, su **Registrazione** e quindi su **Fine**.  
   
 14. Nel riquadro dei dettagli dello snap-in certificati verificare che un nuovo certificato con il nome 2-edge1.contoso.com sia stato registrato con finalità designate di autenticazione server e che sia stato registrato un nuovo certificato con il nome 2-edge1.corp2.corp.contoso.com Finalità previste dell'autenticazione client e dell'autenticazione server.  
   
 15. Chiudere la finestra della console. Se viene richiesto di salvare le impostazioni, fare clic su **No**.  
   
-## <a name="Access"></a>Fornire l'accesso a Corp\user1.  
+## <a name="provide-access-to-corpuser1"></a><a name="Access"></a>Fornire l'accesso a Corp\user1.  
   
 1.  Nella schermata **Start** Digitare**Compmgmt. msc**, quindi premere INVIO.  
   
@@ -180,9 +180,9 @@ ms.locfileid: "71388387"
   
 7.  Nel **proprietà amministratori** la finestra di dialogo, fare clic su **OK**.  
   
-8.  Chiudere la finestra Gestione Computer.  
+8.  Chiudere la finestra Gestione computer.  
   
-## <a name="InstallDA"></a>Installare il ruolo accesso remoto su 2-EDGE1  
+## <a name="install-the-remote-access-role-on-2-edge1"></a><a name="InstallDA"></a>Installare il ruolo accesso remoto su 2-EDGE1  
   
 1.  Nella console di Server Manager, nel **Dashboard**, fare clic su **Aggiungi ruoli e funzionalità**.  
   
@@ -194,7 +194,7 @@ ms.locfileid: "71388387"
   
 5.  Nella finestra di dialogo **Conferma selezioni per l'installazione** fare clic su **Installa**.  
   
-6.  Nella finestra di dialogo **Stato installazione** verificare che l'installazione sia stata completata correttamente e quindi fare clic su **Chiudi**.  
+6.  Nella finestra di dialogo **Stato installazione** verificare che l'installazione abbia avuto esito positivo e quindi fare clic su **Chiudi**.  
   
 
 

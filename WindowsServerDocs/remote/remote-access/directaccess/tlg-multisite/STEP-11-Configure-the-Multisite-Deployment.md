@@ -10,14 +10,14 @@ ms.technology: networking-da
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 8cbdeb1d-5f7c-4360-bcc1-ab40d3cd8040
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 3a80697665eeb67c2dda0d4d25201c7d02ed0c7e
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: d90b20716c49b2ea0b1cd002a1c1933fbd6e26e5
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71404805"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80314571"
 ---
 # <a name="step-11-configure-the-multisite-deployment"></a>PASSAGGIO 11 configurare la distribuzione multisito
 
@@ -31,9 +31,9 @@ Per configurare una distribuzione multisito, apportare modifiche alla configuraz
   
 - Aggiungere 2-EDGE1 come secondo punto di ingresso  
   
-## <a name="configDA"></a>Configurare accesso remoto in EDGE1  
+## <a name="configure-remote-access-on-edge1"></a><a name="configDA"></a>Configurare accesso remoto in EDGE1  
   
-1.  Nella schermata **Start** digitare**RAMgmtUI. exe**, quindi premere INVIO. Se viene visualizzata la finestra di dialogo **Controllo account utente** , verificare che l'azione visualizzata sia quella desiderata e quindi fare clic su **Sì**.  
+1.  Nella schermata **Start** digitare**RAMgmtUI. exe**, quindi premere INVIO. Se viene visualizzata la finestra di dialogo **Controllo dell'account utente**, verificare che l'azione indicata sia quella che si desidera eseguire e quindi fare clic su **Sì**.  
   
 2.  Nella console di gestione Accesso remoto fare clic su **Configurazione**.  
   
@@ -43,7 +43,7 @@ Per configurare una distribuzione multisito, apportare modifiche alla configuraz
   
 5.  Nel riquadro centrale della console, nell'area **passaggio 3 server di infrastruttura** , fare clic su **modifica**.  
   
-6.  Fare clic su **elenco di ricerca suffissi DNS**. Nella pagina **elenco di ricerca suffissi DNS** assicurarsi che la casella di controllo **Configura client DirectAccess con suffisso client DNS** sia selezionata e che i suffissi di dominio **Corp.contoso.com** e **Corp2.Corp.contoso.com** viene visualizzato nell'elenco **suffissi di dominio da utilizzare** , fare clic su **Avanti**e quindi su fine.  
+6.  Fare clic su **elenco di ricerca suffissi DNS**. Nella pagina **elenco di ricerca suffissi DNS** assicurarsi che la casella di controllo **Configura client DirectAccess con suffisso client DNS** sia selezionata e che i suffissi di dominio **Corp.contoso.com** e **Corp2.Corp.contoso.com** siano visualizzati nell'elenco **suffissi di dominio da utilizzare** , fare clic su **Avanti**e quindi su fine.  
   
 7.  Nel riquadro centrale della console, fare clic su **Fine**.  
   
@@ -51,13 +51,13 @@ Per configurare una distribuzione multisito, apportare modifiche alla configuraz
   
 9. Nel riquadro **attività** fare clic su **Aggiorna server di gestione**, quindi fare clic su **Chiudi** al termine dell'operazione.  
   
-## <a name="EnabledMultisite"></a>Abilitare la configurazione multisito in EDGE1  
+## <a name="enable-multisite-configuration-on-edge1"></a><a name="EnabledMultisite"></a>Abilitare la configurazione multisito in EDGE1  
   
 1.  Nel riquadro **attività** della console di gestione accesso remoto fare clic su **Abilita multisito**.  
   
 2.  Nella pagina **prima di iniziare** della procedura guidata Abilita distribuzione multisito fare clic su **Avanti**.  
   
-3.  Nella pagina **nome distribuzione** digitare **Contoso**in **nome distribuzione multisito**, digitare **Edge1-site**, quindi fare clic su **Avanti**.  
+3.  Nella pagina **nome distribuzione** digitare **Contoso**in **nome distribuzione multisito**, digitare **Edge1-site**, quindi fare clic su **Avanti**. **First entry point name**  
   
 4.  Nella pagina **selezione punto di ingresso** fare clic su **assegna automaticamente i punti di ingresso e consentire ai client di selezionare manualmente**, quindi fare clic su **Avanti**.  
   
@@ -65,7 +65,7 @@ Per configurare una distribuzione multisito, apportare modifiche alla configuraz
   
 6.  Nella pagina **supporto client** fare clic su **Consenti ai computer client che eseguono Windows 7 di accedere a questo punto di ingresso**, quindi fare clic su **Aggiungi**.  
   
-7.  Nella finestra di dialogo **Seleziona gruppi** , in **immettere i nomi degli oggetti da selezionare**, digitare **Win7_Clients_Site1**, fare clic su **OK**e quindi su **Avanti**.  
+7.  Nella finestra di dialogo **Seleziona gruppi** , in **immettere i nomi degli oggetti da selezionare**, digitare **Win7_Clients_Site1**, fare clic su **OK**, quindi fare clic su **Avanti**.  
   
 8.  Nella pagina **Impostazioni oggetto Criteri** di gruppo client fare clic su **Avanti**.  
   
@@ -73,7 +73,7 @@ Per configurare una distribuzione multisito, apportare modifiche alla configuraz
   
 10. Nel **Abilitazione della distribuzione multisito** la finestra di dialogo, fare clic su **Chiudi** e quindi scegliere la procedura guidata Abilita distribuzione multisito, **Chiudi**.  
   
-## <a name="AddEP"></a>Aggiungere 2-EDGE1 come secondo punto di ingresso  
+## <a name="add-2-edge1-as-a-second-entry-point"></a><a name="AddEP"></a>Aggiungere 2-EDGE1 come secondo punto di ingresso  
   
 1.  Nel riquadro **attività** della console di gestione accesso remoto fare clic su **Aggiungi punto di ingresso**.  
   
@@ -89,7 +89,7 @@ Per configurare una distribuzione multisito, apportare modifiche alla configuraz
   
 7.  Nella pagina **supporto client** fare clic su **Consenti ai computer client che eseguono Windows 7 di accedere a questo punto di ingresso**, quindi fare clic su **Aggiungi**.  
   
-8.  Nella finestra di dialogo **Seleziona gruppi** , in **immettere i nomi degli oggetti da selezionare**, digitare **Win7_Clients_Site2**, fare clic su **OK**e quindi su **Avanti**.  
+8.  Nella finestra di dialogo **Seleziona gruppi** , in **immettere i nomi degli oggetti da selezionare**, digitare **Win7_Clients_Site2**, fare clic su **OK**, quindi fare clic su **Avanti**.  
   
 9. Nella pagina **Impostazioni oggetto Criteri** di gruppo client fare clic su **Avanti**.  
   

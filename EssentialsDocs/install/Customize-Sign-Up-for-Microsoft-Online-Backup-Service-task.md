@@ -1,9 +1,9 @@
 ---
 title: Personalizzare l'accesso per l'attività Servizio di backup online Microsoft
-description: Viene descritto come utilizzare Windows Server Essentials
+description: Viene descritto come usare Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
-ms.prod: windows-server-2016-essentials
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
@@ -12,12 +12,12 @@ ms.assetid: a7eafbb3-7728-487e-b287-90bbd6fee7f0
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: cd148e0e58cd80dbff7f7884ead95dc1e46b6257
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: f6e0a499fd149706dc3d7cce21935a7f8b5c5a48
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59879932"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80311901"
 ---
 # <a name="customize-sign-up-for-microsoft-online-backup-service-task"></a>Personalizzare l'accesso per l'attività Servizio di backup online Microsoft
 
@@ -27,12 +27,12 @@ Per impostazione predefinita, l'attività **Registrazione per Microsoft Online B
   
  È possibile personalizzare l'attività **Registrazione per Microsoft Online Backup Service** in due diversi modi:  
   
--   È possibile sostituire l'URL per il sito Web predefinito con un URL personalizzato. Per sostituire l'URL predefinito, aprire l'editor del Registro di sistema, creare la chiave del Registro di sistema **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Server\OnlineBackup\LinkUrl** e quindi assegnare l'URL personalizzato come valore della chiave.  
+-   È possibile sostituire l'URL per il sito Web predefinito con un URL personalizzato. Per sostituire l'URL predefinito, aprire l'Editor del Registro di sistema, creare la chiave: **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Server\OnlineBackup\LinkUrl**, quindi assegnare l'URL personalizzato come valore della chiave.  
   
--   È possibile nascondere l'attività. Per nascondere l'attività, aprire l'editor del Registro di sistema e creare la chiave del Registro di sistema **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Server\OnlineBackup\OnlineBackupInstalled**.  
+-   È possibile nascondere l'attività. Per nasconderla, aprire Editor del Registro di sistema e creare la chiave **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Server\OnlineBackup\OnlineBackupInstalled**.  
   
-## <a name="see-also"></a>Vedere anche  
+## <a name="see-also"></a>Vedi anche  
  [Creazione e personalizzazione dell'immagine](Creating-and-Customizing-the-Image.md)   
  [Personalizzazioni aggiuntive](Additional-Customizations.md)   
  [Preparazione dell'immagine per la distribuzione](Preparing-the-Image-for-Deployment.md)   
- [Testare l'esperienza dei clienti](Testing-the-Customer-Experience.md)
+ [Test di Analisi utilizzo software](Testing-the-Customer-Experience.md)

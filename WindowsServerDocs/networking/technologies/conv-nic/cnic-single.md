@@ -6,15 +6,15 @@ ms.technology: networking
 ms.topic: article
 ms.assetid: eed5c184-fa55-43a8-a879-b1610ebc70ca
 manager: dougkim
-ms.author: pashort
-author: shortpatti
+ms.author: lizross
+author: eross-msft
 ms.date: 09/14/2018
-ms.openlocfilehash: 2ad7592fd9faf1e92893e6271daabdad907d3aaa
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 5a088df043190de9e7f1df4dccdc2fc832751093
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71405800"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80309625"
 ---
 # <a name="converged-nic-configuration-with-a-single-network-adapter"></a>Configurazione NIC convergente con una singola scheda di rete
 
@@ -40,7 +40,7 @@ Verificare che la scheda di interfaccia di rete fisica sia in grado di connetter
    _**Risultati**_  
 
 
-   | Nome |    InterfaceDescription     | IfIndex | Stato |    MacAddress     | LinkSpeed |
+   | Name |    InterfaceDescription     | ifIndex | Stato |    MacAddress     | LinkSpeed |
    |------|-----------------------------|---------|--------|-------------------|-----------|
    |  M1  | Mellanox ConnectX-3 Pro... |    4    |   Su   | 7C-FE-90-93-8F-A1 |  40 Gbps  |
 
@@ -117,7 +117,7 @@ In questo passaggio viene usato il comando **test-NetConnection** di Windows Pow
    |        Parametro         |    Valore    |
    |--------------------------|-------------|
    |       ComputerName       | 192.168.1.5 |
-   |      Indirizzo remoto       | 192.168.1.5 |
+   |      RemoteAddress       | 192.168.1.5 |
    |      InterfaceAlias      |     M1      |
    |      SourceAddress       | 192.168.1.3 |
    |      PingSucceeded       |    True     |
@@ -145,7 +145,7 @@ In questo passaggio viene usato il comando **test-NetConnection** di Windows Pow
    |        Parametro         |    Valore    |
    |--------------------------|-------------|
    |       ComputerName       | 192.168.1.5 |
-   |      Indirizzo remoto       | 192.168.1.5 |
+   |      RemoteAddress       | 192.168.1.5 |
    |      InterfaceAlias      | Test-40G-1  |
    |      SourceAddress       | 192.168.1.3 |
    |      PingSucceeded       |    False    |
@@ -188,7 +188,7 @@ Nella figura seguente vengono illustrati due host Hyper-V, ognuno con una scheda
    _**Risultati**_
 
 
-   | Nome | DisplayName | DisplayValue | RegistryKeyword | RegistryValue |
+   | Name | DisplayName | DisplayValue | RegistryKeyword | RegistryValue |
    |------|-------------|--------------|-----------------|---------------|
    |  M1  |   ID VLAN   |     101      |     VlanID      |     {101}     |
 
@@ -209,7 +209,7 @@ Nella figura seguente vengono illustrati due host Hyper-V, ognuno con una scheda
    _**Risultati**_
 
 
-   | Nome |          InterfaceDescription           | IfIndex | Stato |    MacAddress     | LinkSpeed |
+   | Name |          InterfaceDescription           | ifIndex | Stato |    MacAddress     | LinkSpeed |
    |------|-----------------------------------------|---------|--------|-------------------|-----------|
    |  M1  | Mellanox ConnectX-3 Pro Ethernet Ada... |    4    |   Su   | 7C-FE-90-93-8F-A1 |  40 Gbps  |
 
@@ -254,7 +254,7 @@ Nella figura seguente vengono illustrati due host Hyper-V, ognuno con una scheda
 
    |   Parametro    |          Valore           |
    |----------------|--------------------------|
-   |      Nome      |           SMB            |
+   |      Name      |           SMB            |
    |     Proprietario      | \) computer \(Criteri di gruppo |
    | NetworkProfile |           Tutte            |
    |   Precedenza   |           127            |
@@ -274,7 +274,7 @@ Nella figura seguente vengono illustrati due host Hyper-V, ognuno con una scheda
    _**Risultati**_
 
 
-   | Priority | Enabled | PolicySet | IfIndex | IfAlias |
+   | Priorità | Abilitato | PolicySet | ifIndex | IfAlias |
    |----------|---------|-----------|---------|---------|
    |    0     |  False  |  Globale   | &nbsp;  | &nbsp;  |
    |    1     |  False  |  Globale   | &nbsp;  | &nbsp;  |
@@ -308,7 +308,7 @@ Nella figura seguente vengono illustrati due host Hyper-V, ognuno con una scheda
    |      Parametro      |   Hardware   |   Corrente    |
    |---------------------|--------------|--------------|
    |    MacSecBypass     | NotSupported | NotSupported |
-   |     DcbxSupport     |     Nessuno     |     Nessuno     |
+   |     DcbxSupport     |     None     |     None     |
    | NumTCs (max/ETS/PFC) |    8/8/8     |    8/8/8     |
 
    ---
@@ -330,9 +330,9 @@ Nella figura seguente vengono illustrati due host Hyper-V, ognuno con una scheda
    _**OperationalClassifications:**_  
 
 
-   | Protocollo  | Porta/tipo | Priority |
+   | Protocollo  | Porta/tipo | Priorità |
    |-----------|-----------|----------|
-   |  Impostazione predefinita  |  &nbsp;   |    0     |
+   |  Default  |  &nbsp;   |    0     |
    | NetDirect |    445    |    3     |
 
    ---
@@ -348,7 +348,7 @@ Nella figura seguente vengono illustrati due host Hyper-V, ognuno con una scheda
    _**Risultati**_
 
 
-   | Nome | Algoritmo | Larghezza di banda (%) | Priority | PolicySet | IfIndex | IfAlias |
+   | Name | Algoritmo | Larghezza di banda (%) | Priorità | PolicySet | ifIndex | IfAlias |
    |------|-----------|--------------|----------|-----------|---------|---------|
    | SMB  |    ETS    |      30      |    3     |  Globale   | &nbsp;  | &nbsp;  |
 
@@ -363,9 +363,9 @@ Nella figura seguente vengono illustrati due host Hyper-V, ognuno con una scheda
    _**Risultati**_
 
 
-   |   Nome    | Algoritmo | Larghezza di banda (%) | Priority | PolicySet | IfIndex | IfAlias |
+   |   Name    | Algoritmo | Larghezza di banda (%) | Priorità | PolicySet | ifIndex | IfAlias |
    |-----------|-----------|--------------|----------|-----------|---------|---------|
-   | Predefinita |    ETS    |      70      | 0-2, 4-7  |  Globale   | &nbsp;  | &nbsp;  |
+   | [Impostazione predefinita] |    ETS    |      70      | 0-2, 4-7  |  Globale   | &nbsp;  | &nbsp;  |
    |    SMB    |    ETS    |      30      |    3     |  Globale   | &nbsp;  | &nbsp;  |
 
    ---
@@ -394,7 +394,7 @@ La figura seguente mostra lo stato corrente degli host Hyper-V.
    _**Risultati**_
 
 
-   | Nome |           InterfaceDescription           | Enabled |
+   | Name |           InterfaceDescription           | Abilitato |
    |------|------------------------------------------|---------|
    |  M1  | Mellanox ConnectX-3 scheda Ethernet Pro |  True   |
 
@@ -478,7 +478,7 @@ Nell'immagine seguente viene illustrato Hyper-V host 1 con un vSwitch.
    _**Risultati**_
 
 
-   |  Nome   | SwitchType |      Parametro netadapterinterfacedescription      |
+   |  Name   | SwitchType |      Parametro netadapterinterfacedescription      |
    |---------|------------|------------------------------------------|
    | VMSTEST |  Esterno  | Mellanox ConnectX-3 scheda Ethernet Pro |
 
@@ -493,7 +493,7 @@ Nell'immagine seguente viene illustrato Hyper-V host 1 con un vSwitch.
    _**Risultati**_
 
 
-   |         Nome          |        InterfaceDescription         | IfIndex | Stato |    MacAddress     | LinkSpeed |
+   |         Name          |        InterfaceDescription         | ifIndex | Stato |    MacAddress     | LinkSpeed |
    |-----------------------|-------------------------------------|---------|--------|-------------------|-----------|
    | vEthernet \(VMSTEST\) | Scheda Ethernet virtuale Hyper-V #2 |   27    |   Su   | E4-1D-2D-07-40-71 |  40 Gbps  |
 
@@ -511,7 +511,7 @@ Nell'immagine seguente viene illustrato Hyper-V host 1 con un vSwitch.
    _**Risultati**_
 
 
-   |         Nome         | Gestione dei |        VMName        |  SwitchName  | MacAddress | Stato | IPAddresses |
+   |         Name         | Gestione dei |        VMName        |  SwitchName  | MacAddress | Stato | IPAddresses |
    |----------------------|----------------|----------------------|--------------|------------|--------|-------------|
    | CORP-External-switch |      True      | CORP-External-switch | 001B785768AA |    OK    | &nbsp; |             |
    |       VMSTEST        |      True      |       VMSTEST        | E41D2D074071 |    OK    | &nbsp; |             |
@@ -568,7 +568,7 @@ Nell'immagine seguente viene illustrato Hyper-V host 1 con un vSwitch.
     PingReplyDetails (RTT) : 0 ms
    ```
 
-## <a name="step-9-test-hyper-v-virtual-switch-rdma-mode-2"></a>Passaggio 9: Test del Commuter virtuale Hyper-V RDMA (modalità 2)
+## <a name="step-9-test-hyper-v-virtual-switch-rdma-mode-2"></a>Passaggio 9. Test del Commuter virtuale Hyper-V RDMA (modalità 2)
 
 La figura seguente illustra lo stato corrente degli host Hyper-V, incluso vSwitch in Hyper-V host 1.
 
@@ -596,7 +596,7 @@ La figura seguente illustra lo stato corrente degli host Hyper-V, incluso vSwitc
    _**Risultati**_
 
 
-   |         Nome          |        InterfaceDescription         | Enabled |
+   |         Name          |        InterfaceDescription         | Abilitato |
    |-----------------------|-------------------------------------|---------|
    | vEthernet \(VMSTEST\) | Scheda Ethernet virtuale Hyper-V #2 |  False  |
 
@@ -615,7 +615,7 @@ La figura seguente illustra lo stato corrente degli host Hyper-V, incluso vSwitc
    _**Risultati**_   
 
 
-   |        Nome         |        InterfaceDescription         | IfIndex | Stato |    MacAddress     | LinkSpeed |
+   |        Name         |        InterfaceDescription         | ifIndex | Stato |    MacAddress     | LinkSpeed |
    |---------------------|-------------------------------------|---------|--------|-------------------|-----------|
    | vEthernet (VMSTEST) | Scheda Ethernet virtuale Hyper-V #2 |   27    |   Su   | E4-1D-2D-07-40-71 |  40 Gbps  |
 
@@ -632,7 +632,7 @@ La figura seguente illustra lo stato corrente degli host Hyper-V, incluso vSwitc
    _**Risultati**_
 
 
-   |         Nome          |        InterfaceDescription         | Enabled |
+   |         Name          |        InterfaceDescription         | Abilitato |
    |-----------------------|-------------------------------------|---------|
    | vEthernet \(VMSTEST\) | Scheda Ethernet virtuale Hyper-V #2 |  True   |
 

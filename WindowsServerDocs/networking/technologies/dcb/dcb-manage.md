@@ -6,14 +6,14 @@ ms.technology: networking
 ms.topic: article
 ms.assetid: 1575cc7c-62a7-4add-8f78-e5d93effe93f
 manager: brianlic
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: d635f96516040fcb30504f752c8194b0323c63f3
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: d61287b82cd6d3b869b1120d3cb21b3c8792bd1e
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71405776"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80312757"
 ---
 # <a name="manage-data-center-bridging-dcb"></a>Gestire Data Center Bridging (DCB)
 
@@ -428,7 +428,7 @@ Indipendentemente dal fatto che DCB sia installato in Windows Server 2016, è se
 
 Se si configura DCB da un'opzione e si utilizza DCBX per propagare le configurazioni a schede di rete, è possibile esaminare le configurazioni ricevute e applicate alle schede di rete dal lato sistema operativo dopo aver abilitato DCB sulle schede di rete.
 
-###  <a name="bkmk_enabledcb"></a>Abilitare e visualizzare le impostazioni DCB nelle schede di rete
+###  <a name="enable-and-display-dcb-settings-on--network-adapters"></a><a name="bkmk_enabledcb"></a>Abilitare e visualizzare le impostazioni DCB nelle schede di rete
 
 ```
 PS C:\> Enable-NetAdapterQos M1
@@ -470,18 +470,18 @@ Capabilities :                       Hardware     Current
                NumTCs(Max/ETS/PFC) : 8/8/8        0/0/0  
 
 ```
-## <a name="bkmk_wps"></a>Comandi di Windows PowerShell per DCB
+## <a name="windows-powershell-commands-for-dcb"></a><a name="bkmk_wps"></a>Comandi di Windows PowerShell per DCB
 
 Sono disponibili comandi di Windows PowerShell DCB per Windows Server 2016 e Windows Server 2012 R2. È possibile usare tutti i comandi per Windows Server 2012 R2 in Windows Server 2016.
 
 ### <a name="windows-server-2016-windows-powershell-commands-for-dcb"></a>Comandi di Windows PowerShell per Windows Server 2016 per DCB
 
-L'argomento seguente per Windows Server 2016 fornisce le descrizioni e la sintassi dei cmdlet di Windows PowerShell per tutti i Data Center Bridging \(DCB\) qualità del servizio \(QoS\)\-cmdlet specifici. I cmdlet sono elencati in ordine alfabetico, in base al verbo presente all'inizio del cmdlet.
+L'argomento seguente per Windows Server 2016 fornisce le descrizioni e la sintassi dei cmdlet di Windows PowerShell per tutti i Data Center Bridging \(DCB\) qualità del servizio \(QoS\)\-cmdlet specifici. I cmdlet sono elencati in ordine alfabetico, in base al verbo iniziale.
 
 - [Modulo DcbQoS](https://technet.microsoft.com/itpro/powershell/windows/dcbqos/dcbqos)
 
 ### <a name="windows-server-2012-r2-windows-powershell-commands-for-dcb"></a>Comandi di Windows PowerShell per Windows Server 2012 R2 per DCB
 
-L'argomento seguente per Windows Server 2012 R2 fornisce le descrizioni e la sintassi dei cmdlet di Windows PowerShell per tutti i Data Center Bridging \(DCB\) qualità del servizio \(QoS\)\-cmdlet specifici. I cmdlet sono elencati in ordine alfabetico, in base al verbo presente all'inizio del cmdlet.
+L'argomento seguente per Windows Server 2012 R2 fornisce le descrizioni e la sintassi dei cmdlet di Windows PowerShell per tutti i Data Center Bridging \(DCB\) qualità del servizio \(QoS\)\-cmdlet specifici. I cmdlet sono elencati in ordine alfabetico, in base al verbo iniziale.
 
 - [Cmdlet di qualità del servizio (QoS) di Data Center Bridging (DCB) in Windows PowerShell](https://technet.microsoft.com/library/hh967440.aspx)

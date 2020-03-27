@@ -10,14 +10,14 @@ ms.technology: networking-ipam
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 5b80294a-7325-476b-84eb-69f0d051e8b2
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 541645a274481bb8b044c37df572d7746c5da30e
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 4e032e2c5b89dc362fceb34e06525d8632f7b19e
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71405667"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80312399"
 ---
 # <a name="filter-the-view-of-dns-resource-records"></a>Filtrare la visualizzazione dei record di risorse DNS
 
@@ -47,7 +47,7 @@ Per eseguire questa procedura è necessaria almeno l'appartenenza al gruppo **Ad
   
     ![Selezionare un criterio](../../media/Filter-the-View-of-DNS-Resource-Records/ipam_FilterRR_02.jpg)  
   
-8.  Fai clic su **Aggiungi**.  
+8.  Fare clic su **Add**.  
   
     ![Aggiungere i criteri](../../media/Filter-the-View-of-DNS-Resource-Records/ipam_FilterRR_03.jpg)  
   
@@ -59,7 +59,7 @@ Per eseguire questa procedura è necessaria almeno l'appartenenza al gruppo **Ad
   
     ![Eseguire il filtro](../../media/Filter-the-View-of-DNS-Resource-Records/ipam_FilterRR_05.jpg)  
   
-## <a name="see-also"></a>Vedere anche  
+## <a name="see-also"></a>Vedi anche  
 [Gestione dei record di risorse DNS](DNS-Resource-Record-Management.md)  
 [Gestire Gestione indirizzi IP](Manage-IPAM.md)  
   

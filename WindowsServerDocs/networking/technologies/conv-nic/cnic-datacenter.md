@@ -6,21 +6,21 @@ ms.technology: networking
 ms.topic: article
 ms.assetid: f01546f8-c495-4055-8492-8806eee99862
 manager: dougkim
-ms.author: pashort
-author: shortpatti
+ms.author: lizross
+author: eross-msft
 ms.date: 09/17/2018
-ms.openlocfilehash: e4c305a7c8c4c4618b0df1e1b2a646356d8f821f
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 54471446fb9eab6dc5dc20043c7cb651766a59a9
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71356117"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80309639"
 ---
 # <a name="converged-nic-in-a-teamed-nic-configuration-datacenter"></a>NIC convergente in una configurazione NIC in gruppo (Datacenter)
 
 >Si applica a: Windows Server (Canale semestrale), Windows Server 2016
 
-In questo argomento vengono fornite le istruzioni per distribuire una scheda di interfaccia di rete convergente in una configurazione di nic in gruppo con switch \(Embedded Teaming set\). 
+In questo argomento vengono fornite le istruzioni per distribuire una scheda di interfaccia di rete convergente in una configurazione NIC in gruppo con switch Embedded Teaming \(SET\). 
 
 La configurazione di esempio in questo argomento descrive due host Hyper-V, **Hyper-v host 1** e **Hyper-v host 2**. Entrambi gli host dispongono di due schede di rete. In ogni host, una scheda è connessa alla subnet 192.168.1. x/24 e una scheda è connessa alla subnet 192.168.2. x/24.
 
@@ -28,7 +28,7 @@ La configurazione di esempio in questo argomento descrive due host Hyper-V, **Hy
 
 ## <a name="step-1-test-the-connectivity-between-source-and-destination"></a>Passaggio 1. Testare la connettività tra l'origine e la destinazione
 
-Verificare che la scheda di interfaccia di rete fisica sia in grado di connettersi all'host di destinazione.  Questo test illustra la connettività usando il livello \(3\) L3 o il livello IP, nonché la VLAN\)delle reti \(locali \(virtuali\) di livello 2 L2.
+Verificare che la scheda di interfaccia di rete fisica sia in grado di connettersi all'host di destinazione.  Questo test illustra la connettività usando il livello 3 \(L3\) o il livello IP, nonché il livello 2 \(L2\) Virtual Local Area Networks \(VLAN\).
 
 1. Visualizzare le proprietà della prima scheda di rete.
 
@@ -39,7 +39,7 @@ Verificare che la scheda di interfaccia di rete fisica sia in grado di connetter
    _**Risultati**_
 
 
-   |    Nome    |           InterfaceDescription           | ifIndex | Stato |    macAddress     | LinkSpeed |
+   |    Name    |           InterfaceDescription           | ifIndex | Stato |    MacAddress     | LinkSpeed |
    |------------|------------------------------------------|---------|--------|-------------------|-----------|
    | Test-40G-1 | Mellanox ConnectX-3 scheda Ethernet Pro |   11    |   Su   | E4-1D-2D-07-43-D0 |  40 Gbps  |
 
@@ -55,7 +55,7 @@ Verificare che la scheda di interfaccia di rete fisica sia in grado di connetter
    _**Risultati**_
 
 
-   |   Parametro    |    Value    |
+   |   Parametro    |    Valore    |
    |----------------|-------------|
    |   IPAddress    | 192.168.1.3 |
    | IndiceInterfaccia |     11      |
@@ -75,7 +75,7 @@ Verificare che la scheda di interfaccia di rete fisica sia in grado di connetter
    _**Risultati**_
 
 
-   |    Nome    |          InterfaceDescription           | ifIndex | Stato |    macAddress     | LinkSpeed |
+   |    Name    |          InterfaceDescription           | ifIndex | Stato |    MacAddress     | LinkSpeed |
    |------------|-----------------------------------------|---------|--------|-------------------|-----------|
    | TEST-40G-2 | Mellanox ConnectX-3 Pro Ethernet A... #2 |   13    |   Su   | E4-1D-2D-07-40-70 |  40 Gbps  |
 
@@ -91,7 +91,7 @@ Verificare che la scheda di interfaccia di rete fisica sia in grado di connetter
    _**Risultati**_
 
 
-   |   Parametro    |    Value    |
+   |   Parametro    |    Valore    |
    |----------------|-------------|
    |   IPAddress    | 192.168.2.3 |
    | IndiceInterfaccia |     13      |
@@ -118,14 +118,14 @@ In questo passaggio viene usato il comando **test-NetConnection** di Windows Pow
    _**Risultati**_
 
 
-   |        Parametro         |    Value    |
+   |        Parametro         |    Valore    |
    |--------------------------|-------------|
    |       ComputerName       | 192.168.1.5 |
    |      RemoteAddress       | 192.168.1.5 |
    |      InterfaceAlias      | Test-40G-1  |
    |      SourceAddress       | 192.168.1.3 |
    |      PingSucceeded       |    False    |
-   | RTT \(PingReplyDetails\) |    0 ms     |
+   | PingReplyDetails \(RTT\) |    0 ms     |
 
    ---
 
@@ -146,14 +146,14 @@ In questo passaggio viene usato il comando **test-NetConnection** di Windows Pow
    _**Risultati**_
 
 
-   |        Parametro         |    Value    |
+   |        Parametro         |    Valore    |
    |--------------------------|-------------|
    |       ComputerName       | 192.168.1.5 |
    |      RemoteAddress       | 192.168.1.5 |
    |      InterfaceAlias      | Test-40G-1  |
    |      SourceAddress       | 192.168.1.3 |
    |      PingSucceeded       |    False    |
-   | RTT \(PingReplyDetails\) |    0 ms     |
+   | PingReplyDetails \(RTT\) |    0 ms     |
 
    ---
 
@@ -167,14 +167,14 @@ In questo passaggio viene usato il comando **test-NetConnection** di Windows Pow
    _**Risultati**_
 
 
-   |        Parametro         |    Value    |
+   |        Parametro         |    Valore    |
    |--------------------------|-------------|
    |       ComputerName       | 192.168.2.5 |
    |      RemoteAddress       | 192.168.2.5 |
    |      InterfaceAlias      | Test-40G-2  |
    |      SourceAddress       | 192.168.2.3 |
    |      PingSucceeded       |    False    |
-   | RTT \(PingReplyDetails\) |    0 ms     |
+   | PingReplyDetails \(RTT\) |    0 ms     |
 
    ---
 
@@ -182,9 +182,9 @@ In questo passaggio viene usato il comando **test-NetConnection** di Windows Pow
 
 Molte configurazioni di rete usano VLAN e, se si prevede di usare VLAN nella rete, è necessario ripetere il test precedente con VLAN configurate.
 
-Per questo passaggio, le schede di rete sono in modalità di **accesso** . Tuttavia, quando si crea un Commuter \(virtuale Hyper-V vswitch\) più avanti in questa guida, le proprietà VLAN vengono applicate a livello di porta vswitch. 
+Per questo passaggio, le schede di rete sono in modalità di **accesso** . Tuttavia, quando si crea un commutire virtuale Hyper-V \(vSwitch\) più avanti in questa guida, le proprietà VLAN vengono applicate a livello di porta vSwitch. 
 
-Poiché un'opzione può ospitare più VLAN, è necessario che il commutatore fisico \(Top\) del rack Tor abbia la porta a cui l'host è connesso configurato in modalità trunk.
+Poiché un commutatore può ospitare più VLAN, è necessario che la parte superiore del rack \(ToR\) commutatore fisico per avere la porta a cui l'host è connesso configurato in modalità trunk.
 
 >[!NOTE]
 >Per istruzioni su come configurare la modalità trunk nel commutatore, vedere la documentazione del commutatore ToR.
@@ -195,7 +195,7 @@ Nella figura seguente vengono illustrati due host Hyper-V con due schede di rete
 
 
 >[!TIP]
->Secondo gli \(standard di rete IEEE\) Institute of Electrical and Electronics Engineers, la qualità del \(servizio\) proprietà QoS nella scheda di interfaccia di rete fisica agisce sull'intestazione 802.1 p incorporata all'interno dell'intestazione \(VLAN\) 802.1 q quando si configura l'ID VLAN.
+>In base all'Istituto dei tecnici elettrotecnici e elettronici \(gli standard di rete IEEE\), la qualità del servizio \(QoS\) proprietà nella scheda di interfaccia di rete fisica, che è incorporata nell'intestazione 802.1 p, incorporata all'interno dell'intestazione 802.1 Q \(VLAN\) quando si configura l'ID VLAN.
 
 1. Configurare l'ID VLAN nella prima scheda di interfaccia di rete, test-40G-1.
 
@@ -207,7 +207,7 @@ Nella figura seguente vengono illustrati due host Hyper-V con due schede di rete
    _**Risultati**_   
 
 
-   |    Nome    | DisplayName | DisplayValue | RegistryKeyword | RegistryValue |
+   |    Name    | DisplayName | DisplayValue | RegistryKeyword | RegistryValue |
    |------------|-------------|--------------|-----------------|---------------|
    | TEST-40G-1 |   ID VLAN   |     101      |     VlanID      |     {101}     |
 
@@ -228,7 +228,7 @@ Nella figura seguente vengono illustrati due host Hyper-V con due schede di rete
    _**Risultati**_
 
 
-   |    Nome    |          InterfaceDescription           | ifIndex | Stato |    macAddress     | LinkSpeed |
+   |    Name    |          InterfaceDescription           | ifIndex | Stato |    MacAddress     | LinkSpeed |
    |------------|-----------------------------------------|---------|--------|-------------------|-----------|
    | Test-40G-1 | Mellanox ConnectX-3 Pro Ethernet Ada... |   11    |   Su   | E4-1D-2D-07-43-D0 |  40 Gbps  |
 
@@ -244,7 +244,7 @@ Nella figura seguente vengono illustrati due host Hyper-V con due schede di rete
    _**Risultati**_
 
 
-   |    Nome    | DisplayName | DisplayValue | RegistryKeyword | RegistryValue |
+   |    Name    | DisplayName | DisplayValue | RegistryKeyword | RegistryValue |
    |------------|-------------|--------------|-----------------|---------------|
    | TEST-40G-2 |   ID VLAN   |     102      |     VlanID      |     {102}     |
 
@@ -265,7 +265,7 @@ Nella figura seguente vengono illustrati due host Hyper-V con due schede di rete
    _**Risultati**_
 
 
-   |    Nome    |          InterfaceDescription           | ifIndex | Stato |    macAddress     | LinkSpeed |
+   |    Name    |          InterfaceDescription           | ifIndex | Stato |    MacAddress     | LinkSpeed |
    |------------|-----------------------------------------|---------|--------|-------------------|-----------|
    | Test-40G-2 | Mellanox ConnectX-3 Pro Ethernet Ada... |   11    |   Su   | E4-1D-2D-07-43-D1 |  40 Gbps  |
 
@@ -283,14 +283,14 @@ Nella figura seguente vengono illustrati due host Hyper-V con due schede di rete
    _**Risultati**_   
 
 
-   |        Parametro         |    Value    |
+   |        Parametro         |    Valore    |
    |--------------------------|-------------|
    |       ComputerName       | 192.168.1.5 |
    |      RemoteAddress       | 192.168.1.5 |
    |      InterfaceAlias      | Test-40G-1  |
    |      SourceAddress       | 192.168.1.5 |
    |      PingSucceeded       |    True     |
-   | RTT \(PingReplyDetails\) |    0 ms     |
+   | PingReplyDetails \(RTT\) |    0 ms     |
 
    ---
 
@@ -303,14 +303,14 @@ Nella figura seguente vengono illustrati due host Hyper-V con due schede di rete
    _**Risultati**_    
 
 
-   |        Parametro         |    Value    |
+   |        Parametro         |    Valore    |
    |--------------------------|-------------|
    |       ComputerName       | 192.168.2.5 |
    |      RemoteAddress       | 192.168.2.5 |
    |      InterfaceAlias      | Test-40G-2  |
    |      SourceAddress       | 192.168.2.3 |
    |      PingSucceeded       |    True     |
-   | RTT \(PingReplyDetails\) |    0 ms     |
+   | PingReplyDetails \(RTT\) |    0 ms     |
 
    ---
 
@@ -325,7 +325,7 @@ Nella figura seguente vengono illustrati due host Hyper-V con due schede di rete
    ![Configurare la qualità del servizio](../../media/Converged-NIC/3-datacenter-configure-qos.jpg)
 
 
-## <a name="step-4-configure-quality-of-service-qos"></a>Passaggio 4. Configurare la qualità del \(servizio QoS\)
+## <a name="step-4-configure-quality-of-service-qos"></a>Passaggio 4. Configurare la qualità del servizio \(QoS\)
 
 >[!NOTE]
 >È necessario eseguire tutti i passaggi di configurazione DCB e QoS seguenti in tutti gli host che hanno lo scopo di comunicare tra loro.
@@ -333,7 +333,7 @@ Nella figura seguente vengono illustrati due host Hyper-V con due schede di rete
 1. Installare Data Center Bridging \(DCB\) in ogni host Hyper-V.
 
    - **Facoltativo** per le configurazioni di rete che usano iWarp.
-   - **Obbligatorio** per le configurazioni di rete che \(usano roce\) qualsiasi versione per i servizi RDMA.
+   - **Obbligatorio** per le configurazioni di rete che usano roce \(qualsiasi versione\) per i servizi RDMA.
 
    ```PowerShell
    Install-WindowsFeature Data-Center-Bridging
@@ -342,16 +342,16 @@ Nella figura seguente vengono illustrati due host Hyper-V con due schede di rete
    _**Risultati**_
 
 
-   | Riuscito | Riavvio necessario | Codice di chiusura |     Risultato della funzionalità     |
+   | Success | Riavvio necessario | Codice di chiusura |     Risultato della funzionalità     |
    |---------|----------------|-----------|------------------------|
-   |  True   |       No       |  Riuscito  | {Data Center Bridging} |
+   |  True   |       No       |  Success  | {Data Center Bridging} |
 
    ---
 
 2. Impostare i criteri QoS per SMB-Direct:
 
    - **Facoltativo** per le configurazioni di rete che usano iWarp.
-   - **Obbligatorio** per le configurazioni di rete che \(usano roce\) qualsiasi versione per i servizi RDMA.
+   - **Obbligatorio** per le configurazioni di rete che usano roce \(qualsiasi versione\) per i servizi RDMA.
 
    Nel comando di esempio seguente il valore "3" è arbitrario. È possibile usare qualsiasi valore compreso tra 1 e 7, purché si usi costantemente lo stesso valore per tutta la configurazione dei criteri QoS.
 
@@ -362,10 +362,10 @@ Nella figura seguente vengono illustrati due host Hyper-V con due schede di rete
    _**Risultati**_
 
 
-   |   Parametro    |          Value           |
+   |   Parametro    |          Valore           |
    |----------------|--------------------------|
-   |      Nome      |           SMB            |
-   |     Proprietario      | Computer \(criteri di gruppo\) |
+   |      Name      |           SMB            |
+   |     Proprietario      | \) computer \(Criteri di gruppo |
    | NetworkProfile |           Tutte            |
    |   Precedenza   |           127            |
    |   JobObject    |          &nbsp;          |
@@ -383,13 +383,13 @@ Nella figura seguente vengono illustrati due host Hyper-V con due schede di rete
    _**Risultati**_   
 
 
-   |   Parametro    |          Value           |
+   |   Parametro    |          Valore           |
    |----------------|--------------------------|
-   |      Nome      |         DEFAULT          |
-   |     Proprietario      | Computer \(criteri di gruppo\) |
+   |      Name      |         DEFAULT          |
+   |     Proprietario      | \) computer \(Criteri di gruppo |
    | NetworkProfile |           Tutte            |
    |   Precedenza   |           127            |
-   |    Modello    |         Predefinito          |
+   |    Modello    |         Default          |
    |   JobObject    |          &nbsp;          |
    | PriorityValue  |            0             |
 
@@ -405,7 +405,7 @@ Nella figura seguente vengono illustrati due host Hyper-V con due schede di rete
    _**Risultati**_
 
 
-   | Priority | Enabled | PolicySet | ifIndex | IfAlias |
+   | Priorità | Abilitato | PolicySet | ifIndex | IfAlias |
    |----------|---------|-----------|---------|---------|
    |    0     |  False  |  Globale   | &nbsp;  | &nbsp;  |
    |    1     |  False  |  Globale   | &nbsp;  | &nbsp;  |
@@ -442,7 +442,7 @@ Nella figura seguente vengono illustrati due host Hyper-V con due schede di rete
    |      Parametro      |   Hardware   |   Corrente    |
    |---------------------|--------------|--------------|
    |    MacSecBypass     | NotSupported | NotSupported |
-   |     DcbxSupport     |     Nessuno     |     Nessuno     |
+   |     DcbxSupport     |     None     |     None     |
    | NumTCs (max/ETS/PFC) |    8/8/8     |    8/8/8     |
 
    ---
@@ -450,9 +450,9 @@ Nella figura seguente vengono illustrati due host Hyper-V con due schede di rete
    _**OperationalTrafficClasses**:_    
 
 
-   | TC |  RICONOSCIMENTO TIMESTAMP   | Banda | Priorità |
+   | TC |  RICONOSCIMENTO timestamp   | Banda | Priorità |
    |----|--------|-----------|------------|
-   | 0  | Completa |  &nbsp;   |    0-7     |
+   | 0  | Strict |  &nbsp;   |    0-7     |
 
    ---
 
@@ -463,9 +463,9 @@ Nella figura seguente vengono illustrati due host Hyper-V con due schede di rete
    _**OperationalClassifications**:_  
 
 
-   | Protocol  | Porta/tipo | Priority |
+   | Protocollo  | Porta/tipo | Priorità |
    |-----------|-----------|----------|
-   |  Predefinito  |  &nbsp;   |    0     |
+   |  Default  |  &nbsp;   |    0     |
    | NetDirect |    445    |    3     |
 
    ---
@@ -486,7 +486,7 @@ Nella figura seguente vengono illustrati due host Hyper-V con due schede di rete
    |      Parametro      |   Hardware   |   Corrente    |
    |---------------------|--------------|--------------|
    |    MacSecBypass     | NotSupported | NotSupported |
-   |     DcbxSupport     |     Nessuno     |     Nessuno     |
+   |     DcbxSupport     |     None     |     None     |
    | NumTCs (max/ETS/PFC) |    8/8/8     |    8/8/8     |
 
    ---
@@ -494,9 +494,9 @@ Nella figura seguente vengono illustrati due host Hyper-V con due schede di rete
    _**OperationalTrafficClasses**:_  
 
 
-   | TC |  RICONOSCIMENTO TIMESTAMP   | Banda | Priorità |
+   | TC |  RICONOSCIMENTO timestamp   | Banda | Priorità |
    |----|--------|-----------|------------|
-   | 0  | Completa |  &nbsp;   |    0-7     |
+   | 0  | Strict |  &nbsp;   |    0-7     |
 
    ---
 
@@ -507,15 +507,15 @@ Nella figura seguente vengono illustrati due host Hyper-V con due schede di rete
    _**OperationalClassifications**:_  
 
 
-   | Protocol  | Porta/tipo | Priority |
+   | Protocollo  | Porta/tipo | Priorità |
    |-----------|-----------|----------|
-   |  Predefinito  |  &nbsp;   |    0     |
+   |  Default  |  &nbsp;   |    0     |
    | NetDirect |    445    |    3     |
 
    ---
 
 
-7. Riservare metà della larghezza di banda \(a SMB diretto RDMA\)
+7. Riservare metà della larghezza di banda a SMB diretto \(RDMA\)
 
    ```PowerShell
    New-NetQosTrafficClass "SMB" -priority 3 -bandwidthpercentage 50 -algorithm ETS
@@ -524,7 +524,7 @@ Nella figura seguente vengono illustrati due host Hyper-V con due schede di rete
    _**Risultati**_  
 
 
-   | Nome | Algoritmo | Larghezza di banda (%) | Priority | PolicySet | ifIndex | IfAlias |
+   | Name | Algoritmo | Larghezza di banda (%) | Priorità | PolicySet | ifIndex | IfAlias |
    |------|-----------|--------------|----------|-----------|---------|---------|
    | SMB  |    ETS    |      50      |    3     |  Globale   | &nbsp;  | &nbsp;  |
 
@@ -539,9 +539,9 @@ Nella figura seguente vengono illustrati due host Hyper-V con due schede di rete
    _**Risultati**_  
 
 
-   |   Nome    | Algoritmo | Larghezza di banda (%) | Priority | PolicySet | ifIndex | IfAlias |
+   |   Name    | Algoritmo | Larghezza di banda (%) | Priorità | PolicySet | ifIndex | IfAlias |
    |-----------|-----------|--------------|----------|-----------|---------|---------|
-   | Predefinita |    ETS    |      50      | 0-2, 4-7  |  Globale   | &nbsp;  | &nbsp;  |
+   | [Impostazione predefinita] |    ETS    |      50      | 0-2, 4-7  |  Globale   | &nbsp;  | &nbsp;  |
    |    SMB    |    ETS    |      50      |    3     |  Globale   | &nbsp;  | &nbsp;  |
 
    ---
@@ -558,7 +558,7 @@ Nella figura seguente vengono illustrati due host Hyper-V con due schede di rete
    _**Risultati**_
 
 
-   | Nome | Algoritmo | Larghezza di banda (%) | Priority | PolicySet | ifIndex | IfAlias |
+   | Name | Algoritmo | Larghezza di banda (%) | Priorità | PolicySet | ifIndex | IfAlias |
    |------|-----------|--------------|----------|-----------|---------|---------|
    | IP1  |    ETS    |      10      |    1     |  Globale   | &nbsp;  | &nbsp;  |
 
@@ -571,7 +571,7 @@ Nella figura seguente vengono illustrati due host Hyper-V con due schede di rete
    _**Risultati**_
 
 
-   | Nome | Algoritmo | Larghezza di banda (%) | Priority | PolicySet | ifIndex | IfAlias |
+   | Name | Algoritmo | Larghezza di banda (%) | Priorità | PolicySet | ifIndex | IfAlias |
    |------|-----------|--------------|----------|-----------|---------|---------|
    | IP2  |    ETS    |      10      |    2     |  Globale   | &nbsp;  | &nbsp;  |
 
@@ -586,9 +586,9 @@ Nella figura seguente vengono illustrati due host Hyper-V con due schede di rete
     _**Risultati**_
 
 
-    |   Nome    | Algoritmo | Larghezza di banda (%) | Priority | PolicySet | ifIndex | IfAlias |
+    |   Name    | Algoritmo | Larghezza di banda (%) | Priorità | PolicySet | ifIndex | IfAlias |
     |-----------|-----------|--------------|----------|-----------|---------|---------|
-    | Predefinita |    ETS    |      30      |  0, 4-7   |  Globale   | &nbsp;  | &nbsp;  |
+    | [Impostazione predefinita] |    ETS    |      30      |  0, 4-7   |  Globale   | &nbsp;  | &nbsp;  |
     |    SMB    |    ETS    |      50      |    3     |  Globale   | &nbsp;  | &nbsp;  |
     |    IP1    |    ETS    |      10      |    1     |  Globale   | &nbsp;  | &nbsp;  |
     |    IP2    |    ETS    |      10      |    2     |  Globale   | &nbsp;  | &nbsp;  |
@@ -610,9 +610,9 @@ Nella figura seguente vengono illustrati due host Hyper-V con due schede di rete
     1
     ```
 
-## <a name="step-5-verify-the-rdma-configuration-mode-1"></a>Passaggio 5. Verificare la modalità di \(configurazione RDMA 1\) 
+## <a name="step-5-verify-the-rdma-configuration-mode-1"></a>Passaggio 5. Verificare la configurazione di RDMA \(modalità 1\) 
 
-Si vuole verificare che l'infrastruttura sia configurata correttamente prima di creare un vswitch e passare alla modalità \(RDMA 2\).
+Verificare che l'infrastruttura sia configurata correttamente prima di creare un vSwitch e passare a RDMA \(Mode 2\).
 
 La figura seguente mostra lo stato corrente degli host Hyper-V.
 
@@ -628,7 +628,7 @@ La figura seguente mostra lo stato corrente degli host Hyper-V.
    _**Risultati**_
 
 
-   |    Nome    |        InterfaceDescription        | Enabled |
+   |    Name    |        InterfaceDescription        | Abilitato |
    |------------|------------------------------------|---------|
    | TEST-40G-1 | #2 Mellanox ConnectX-4 adapter VPI |  True   |
    | TEST-40G-2 |  Mellanox ConnectX-4 VPI adapter   |  True   |
@@ -730,7 +730,7 @@ La figura seguente Mostra Hyper-V host 1 con vSwitch.
    _**Risultato**_
 
 
-   |  Nome   | SwitchType | Parametro netadapterinterfacedescription |
+   |  Name   | SwitchType | Parametro netadapterinterfacedescription |
    |---------|------------|--------------------------------|
    | VMSTEST |  Esterno  |        Gruppo-interfaccia        |
 
@@ -761,7 +761,7 @@ La figura seguente Mostra Hyper-V host 1 con vSwitch.
    _**Risultati**_
 
 
-   |        Nome         |        InterfaceDescription         | ifIndex | Stato |    macAddress     | LinkSpeed |
+   |        Name         |        InterfaceDescription         | ifIndex | Stato |    MacAddress     | LinkSpeed |
    |---------------------|-------------------------------------|---------|--------|-------------------|-----------|
    | vEthernet (VMSTEST) | Scheda Ethernet virtuale Hyper-V #2 |   28    |   Su   | E4-1D-2D-07-40-71 |  80 Gbps  |
 
@@ -776,7 +776,7 @@ La figura seguente Mostra Hyper-V host 1 con vSwitch.
    _**Risultati**_
 
 
-   |  Nome   | Gestione dei | VMName  |  SwitchName  | macAddress | Stato | IPAddresses |
+   |  Name   | Gestione dei | VMName  |  SwitchName  | MacAddress | Stato | IPAddresses |
    |---------|----------------|---------|--------------|------------|--------|-------------|
    | VMSTEST |      True      | VMSTEST | E41D2D074071 |    OK    | &nbsp; |             |
 
@@ -848,7 +848,7 @@ In questo passaggio viene rimossa l'impostazione della VLAN di accesso dalla sch
    PingReplyDetails (RTT) : 0 ms
    ```
 
-   >**Importante** Se i risultati non sono simili a quelli dell'esempio, il ping ha esito negativo e viene visualizzato il messaggio "avviso: Il ping per 192.168.1.5 non è riuscito. stato: DestinationHostUnreachable, "verificare che il" vEthernet (VMSTEST) "disponga dell'indirizzo IP appropriato.
+   >**Importante** Se i risultati non sono simili a quelli dell'esempio, il ping ha esito negativo e viene visualizzato il messaggio "avviso: ping to 192.168.1.5 failed--status: DestinationHostUnreachable", "verificare che" vEthernet (VMSTEST) "disponga dell'indirizzo IP appropriato.
    >
    >```PowerShell
    >Get-NetIPAddress -InterfaceAlias "vEthernet (VMSTEST)"
@@ -885,7 +885,7 @@ In questo passaggio viene rimossa l'impostazione della VLAN di accesso dalla sch
    _**Risultati**_ 
 
 
-   |         Nome         | Gestione dei | VMName |      SwitchName      |  macAddress  | Stato | IPAddresses |
+   |         Name         | Gestione dei | VMName |      SwitchName      |  MacAddress  | Stato | IPAddresses |
    |----------------------|----------------|--------|----------------------|--------------|--------|-------------|
    | CORP-External-switch |      True      | &nbsp; | CORP-External-switch | 001B785768AA |  OK  |   &nbsp;    |
    |         ENERGIA          |      True      | &nbsp; |       VMSTEST        | E41D2D074071 |  OK  |   &nbsp;    |
@@ -901,7 +901,7 @@ In questo passaggio viene rimossa l'impostazione della VLAN di accesso dalla sch
    _**Risultati**_
 
 
-   |      Nome       |        InterfaceDescription         | ifIndex | Stato |    macAddress     | LinkSpeed |
+   |      Name       |        InterfaceDescription         | ifIndex | Stato |    MacAddress     | LinkSpeed |
    |-----------------|-------------------------------------|---------|--------|-------------------|-----------|
    | vEthernet (gest) | Scheda Ethernet virtuale Hyper-V #2 |   28    |   Su   | E4-1D-2D-07-40-71 |  80 Gbps  |
 
@@ -922,8 +922,8 @@ La figura seguente mostra lo stato corrente degli host Hyper-V, incluso vSwitch 
 
    _**Risultati**_  
 
-   nome ENERGIA  
-   IeeePriorityTag :  Attivato  
+   Nome: Gest  
+   IeeePriorityTag: on  
 
 2. Creare due host schede per RDMA e connetterli a vSwitch VMSTEST.
 
@@ -941,7 +941,7 @@ La figura seguente mostra lo stato corrente degli host Hyper-V, incluso vSwitch 
    _**Risultati**_ 
 
 
-   |         Nome         | Gestione dei |        VMName        |  SwitchName  | macAddress | Stato | IPAddresses |
+   |         Name         | Gestione dei |        VMName        |  SwitchName  | MacAddress | Stato | IPAddresses |
    |----------------------|----------------|----------------------|--------------|------------|--------|-------------|
    | CORP-External-switch |      True      | CORP-External-switch | 001B785768AA |    OK    | &nbsp; |             |
    |         Energia          |      True      |       VMSTEST        | E41D2D074071 |    OK    | &nbsp; |             |
@@ -950,7 +950,7 @@ La figura seguente mostra lo stato corrente degli host Hyper-V, incluso vSwitch 
 
    ---
 
-## <a name="step-9-assign-an-ip-address-to-the-smb-host-vnics-vethernet-smb1-and-vethernet-smb2"></a>Passaggio 9: Assegnare un indirizzo IP all'host SMB schede vEthernet \(SMB1\) e vEthernet \(SMB2\)
+## <a name="step-9-assign-an-ip-address-to-the-smb-host-vnics-vethernet-smb1-and-vethernet-smb2"></a>Passaggio 9. Assegnare un indirizzo IP all'host SMB schede vEthernet \(SMB1\) e vEthernet \(SMB2\)
 
 Per le schede fisiche TEST-40G-1 e TEST-40G-2 è ancora stata configurata una VLAN di accesso di 101 e 102. Per questo motivo, gli adapter contrassegnano il traffico e il ping ha esito positivo. In precedenza, sono stati configurati entrambi gli ID VLAN installare su zero, quindi la vSwitch VMSTEST è stata impostata su VLAN 101. Successivamente, è ancora possibile eseguire il ping della scheda VLAN 101 remota usando il vNIC di gestione del computer, ma attualmente non ci sono membri VLAN 102.
 
@@ -997,7 +997,7 @@ Per le schede fisiche TEST-40G-1 e TEST-40G-2 è ancora stata configurata una VL
    PingReplyDetails (RTT) : 0 ms
    ```
 
-3. Aggiungere un nuovo indirizzo IP per l'interfaccia \(vEthernet\)SMB2.
+3. Aggiungere un nuovo indirizzo IP per l'interfaccia vEthernet \(SMB2\).
 
    ```PowerShell
    New-NetIPAddress -InterfaceAlias "vEthernet (SMB2)" -IPAddress 192.168.2.222 -PrefixLength 24 
@@ -1136,7 +1136,7 @@ Per le schede fisiche TEST-40G-1 e TEST-40G-2 è ancora stata configurata una VL
     ```
 
 
-11. Testare la connessione dal sistema remoto perché entrambi schede host si trovano nella stessa subnet e hanno lo stesso ID \(VLAN 102.\)
+11. Testare la connessione dal sistema remoto perché entrambi schede host si trovano nella stessa subnet e hanno lo stesso ID VLAN \(102\).
 
     ```PowerShell 
     Test-NetConnection 192.168.2.111
@@ -1225,7 +1225,7 @@ Per le schede fisiche TEST-40G-1 e TEST-40G-2 è ancora stata configurata una VL
 
 ## <a name="step-10-validate-the-rdma-functionality"></a>Passaggio 10. Convalidare la funzionalità RDMA.
 
-Si vuole convalidare la funzionalità RDMA dal sistema remoto al sistema locale, che ha un vSwitch, a entrambi i membri del team vSwitch SET.<p>Poiché entrambi gli host \(schede SMB1 e\) SMB2 sono assegnati alla VLAN 102, è possibile selezionare la scheda VLAN 102 nel sistema remoto. <p>In questo esempio, la scheda di interfaccia di rete test-40G-2 esegue RDMA in SMB1 (192.168.2.111) e SMB2 (192.168.2.222).
+Si vuole convalidare la funzionalità RDMA dal sistema remoto al sistema locale, che ha un vSwitch, a entrambi i membri del team vSwitch SET.<p>Poiché sia host schede \(SMB1 che SMB2\) sono assegnati alla VLAN 102, è possibile selezionare la scheda VLAN 102 nel sistema remoto. <p>In questo esempio, la scheda di interfaccia di rete test-40G-2 esegue RDMA in SMB1 (192.168.2.111) e SMB2 (192.168.2.222).
 
 >[!TIP]
 >Potrebbe essere necessario disabilitare il firewall in questo sistema.  Per informazioni dettagliate, vedere i criteri di infrastruttura.
@@ -1407,7 +1407,7 @@ Si vuole convalidare la funzionalità RDMA dal sistema remoto al sistema locale,
    VERBOSE: RDMA traffic test SUCCESSFUL: RDMA traffic was sent to 192.168.2.5
    ```
 
-La riga finale in questo output "RDMA Traffic test ha ESITo positivo: Il traffico RDMA è stato inviato a 192.168.2.5 "indica che è stata configurata correttamente la scheda di interfaccia di rete convergente nella scheda.
+La riga finale in questo output, "test del traffico RDMA riuscito: il traffico RDMA è stato inviato a 192.168.2.5", indica che è stata configurata correttamente la scheda di interfaccia di rete convergente nella scheda.
 
 ## <a name="related-topics"></a>Argomenti correlati 
 

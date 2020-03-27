@@ -6,14 +6,14 @@ ms.technology: networking
 ms.topic: article
 ms.assetid: c4306f06-a117-4f65-b78b-9fd0d1133f95
 manager: brianlic
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 9ac5ab31db1b8c184fd179ecb3e6b87f7fffd2ba
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 927232a3b191be86ae91b1dd0d6af767d4f024ae
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71405232"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80315420"
 ---
 # <a name="qos-policy-scenarios"></a>Scenari di criteri QoS
 
@@ -29,15 +29,15 @@ I due scenari in questo argomento sono i seguenti:
 >[!NOTE]
 >Alcune sezioni di questo argomento contengono i passaggi generali che è possibile eseguire per eseguire le azioni descritte. Per istruzioni più dettagliate sulla gestione dei criteri QoS, vedere [gestire i criteri QoS](qos-policy-manage.md).
 
-## <a name="scenario-1-prioritize-network-traffic-for-a-line-of-business-application"></a>Scenario 1: Definire la priorità del traffico di rete per un'applicazione line-of-business
+## <a name="scenario-1-prioritize-network-traffic-for-a-line-of-business-application"></a>Scenario 1: definire la priorità del traffico di rete per un'applicazione line-of-business
 
 In questo scenario, un reparto IT presenta diversi obiettivi che è possibile eseguire usando i criteri QoS:
 
-- Fornire migliori prestazioni di rete per\-le applicazioni mission-critical.
+- Fornire migliori prestazioni di rete per le applicazioni mission\-critical.
 - Fornire migliori prestazioni di rete per un set di chiavi di utenti durante l'uso di un'applicazione specifica.
-- Assicurarsi che l'applicazione\-di backup dei dati a livello aziendale non impedisca le prestazioni di rete con troppa larghezza di banda alla volta.
+- Assicurarsi che l'applicazione di backup dei dati di\-dell'azienda non impedisca le prestazioni di rete con troppa larghezza di banda alla volta.
 
-Il reparto IT decide di configurare i criteri QoS per assegnare la priorità alle applicazioni specifiche usando i valori \(DSCP\) del servizio di differenziazione per classificare il traffico di rete e configurare i relativi router per fornire i privilegi trattamento per il traffico con priorità più elevata. 
+Il reparto IT decide di configurare i criteri QoS per assegnare la priorità alle applicazioni specifiche usando il punto di codice del servizio di differenziazione \(DSCP\) i valori per classificare il traffico di rete e configurare i relativi router per fornire un trattamento preferenziale per il traffico con priorità più elevata. 
 
 >[!NOTE]
 >Per ulteriori informazioni su DSCP, vedere la sezione **definire la priorità QoS tramite un punto di codice servizi differenziati** nell'argomento [criteri QoS (Quality of Service)](qos-policy-top.md).
@@ -50,11 +50,11 @@ Con tre obiettivi distinti da completare, l'amministratore IT decide di creare t
 
 #### <a name="qos-policy-for-lob-app-servers"></a>Criteri QoS per i server app LOB
 
-La prima applicazione\-mission-critical per la quale il reparto IT crea un criterio QoS è\-un'applicazione ERP\) aziendale \(per la pianificazione delle risorse aziendali. L'applicazione ERP è ospitata in più computer che eseguono Windows Server 2016. In Active Directory Domain Services, questi computer sono membri di un'unità organizzativa \(unità\) organizzativa creata per i server applicazioni line-of \(-\) business LOB. Il componente\-lato client per l'applicazione ERP è installato nei computer che eseguono Windows 10 e Windows 8.1.
+La prima Mission\-applicazione critica per la quale il reparto IT crea un criterio QoS è una società\-Wide Enterprise Resource Planning \(ERP\) Application. L'applicazione ERP è ospitata in più computer che eseguono Windows Server 2016. In Active Directory Domain Services, questi computer sono membri di un'unità organizzativa \(OU\) creato per i server applicazioni line-of-business \(LOB\). Il componente lato client\-per l'applicazione ERP è installato nei computer che eseguono Windows 10 e Windows 8.1.
 
-In criteri di gruppo, un amministratore it Seleziona l'oggetto criteri \(\) di gruppo dell'oggetto Criteri di gruppo su cui verranno applicati i criteri QoS. Utilizzando la creazione guidata criteri QoS, l'amministratore IT crea un criterio QoS denominato "criterio LOB server" che specifica un valore\-DSCP con priorità alta 44 per tutte le applicazioni, qualsiasi indirizzo IP, TCP e UDP e numero di porta.
+In Criteri di gruppo, un amministratore IT seleziona l'oggetto Criteri di gruppo \(oggetto Criteri di gruppo\) su cui verranno applicati i criteri QoS. Utilizzando la creazione guidata criteri QoS, l'amministratore IT crea un criterio QoS denominato "criterio LOB server" che specifica un valore DSCP con priorità alta\-di 44 per tutte le applicazioni, qualsiasi indirizzo IP, TCP e UDP e numero di porta.
 
-Il criterio QoS viene applicato solo ai server LOB collegando l'oggetto Criteri di gruppo all'unità organizzativa che contiene solo questi server, tramite lo \(strumento\) di gestione criteri di gruppo console Gestione criteri di gruppo. Questo criterio LOB del server iniziale applica il\-valore DSCP con priorità alta ogni volta che il computer invia il traffico di rete. Questo criterio QoS può essere modificato \(in un secondo momento nello strumento\) Editor oggetti Criteri di gruppo per includere i numeri di porta dell'applicazione ERP, che limitano l'applicazione dei criteri solo quando viene usato il numero di porta specificato.
+Il criterio QoS viene applicato solo ai server LOB collegando l'oggetto Criteri di gruppo all'unità organizzativa che contiene solo questi server, tramite lo strumento Console Gestione Criteri di gruppo \(GPMC\). Questo criterio LOB del server iniziale applica il valore DSCP con priorità alta\-ogni volta che il computer invia il traffico di rete. Questi criteri QoS possono essere modificati in un secondo momento \(nello strumento Editor oggetti Criteri di gruppo\) includere i numeri di porta dell'applicazione ERP, che limitano l'applicazione dei criteri solo quando viene usato il numero di porta specificato.
 
 #### <a name="qos-policy-for-the-finance-group"></a>Criteri QoS per il gruppo Finance
 
@@ -77,12 +77,12 @@ Viene creato e distribuito un terzo oggetto Criteri di gruppo per tutti i comput
 
 Nella tabella seguente sono riepilogati i criteri QoS per questo scenario.
   
-|Nome criterio|Valore DSCP|Velocità di limitazione|Applicato alle unità organizzative|Descrizione|  
+|Nome criteri|Valore DSCP|Velocità di limitazione|Applicato alle unità organizzative|Descrizione|  
 |-----------------|----------------|-------------------|-----------------------------------|-----------------|
-|[Nessun criterio]|0|Nessuno|[Nessuna distribuzione]|Trattamento ottimale (impostazione predefinita) per il traffico non classificato.|  
-|Dati di backup|1|Nessuno|Tutti i client|Applica un valore DSCP con priorità bassa per questi dati in blocco.|  
-|LOB server|44|Nessuno|Unità organizzativa del computer per i server ERP|Applica il DSCP con priorità alta per il traffico del server ERP|  
-|LOB client|60|Nessuno|Gruppo di utenti Finance|Applica il DSCP con priorità alta per il traffico client ERP|  
+|[Nessun criterio]|0|None|[Nessuna distribuzione]|Trattamento ottimale (impostazione predefinita) per il traffico non classificato.|  
+|Dati di backup|1|None|Tutti i client|Applica un valore DSCP con priorità bassa per questi dati in blocco.|  
+|LOB server|44|None|Unità organizzativa del computer per i server ERP|Applica il DSCP con priorità alta per il traffico del server ERP|  
+|LOB client|60|None|Gruppo di utenti Finance|Applica il DSCP con priorità alta per il traffico client ERP|  
 
 >[!NOTE]
 >I valori DSCP sono rappresentati in formato decimale.
@@ -95,11 +95,11 @@ Quando il traffico arriva al router con valori DSCP da "criteri LOB server" e "c
 
 Per completare questa attività, verificare che siano soddisfatti i requisiti seguenti:
 
-- I computer interessati eseguono sistemi operativi\-compatibili con QoS.
+- I computer interessati eseguono QoS\-sistemi operativi compatibili.
 
-- I computer interessati sono membri di un dominio \(di servizi\) di dominio Active Directory Active Directory Domain Services in modo che possano essere configurati utilizzando criteri di gruppo.
+- I computer interessati sono membri di un Active Directory Domain Services \(dominio di servizi di dominio Active Directory\) in modo che possano essere configurati tramite Criteri di gruppo.
 
-- Le reti TCP/IP sono configurate con i router configurati\)per DSCP \(RFC 2474. Per ulteriori informazioni, vedere [RFC 2474](https://www.ietf.org/rfc/rfc2474.txt).
+- Le reti TCP/IP sono configurate con i router configurati per DSCP \(RFC 2474\). Per ulteriori informazioni, vedere [RFC 2474](https://www.ietf.org/rfc/rfc2474.txt).
 
 - Sono soddisfatti i requisiti di credenziali amministrative.
 
@@ -122,19 +122,19 @@ Per configurare l'ambiente di test, completare le seguenti attività.
 
 Per definire la priorità di un'applicazione line-of-business, completare le attività seguenti:
 
-1. Creare e collegare un oggetto criteri \(\) di gruppo criteri di gruppo oggetto con criteri QoS.
+1. Creare e collegare un oggetto Criteri di gruppo \(oggetto Criteri di gruppo\) con criteri QoS.
 
 2. Configurare i router in modo da trattare in modo differenziale un'applicazione line-of-business (usando l'accodamento) in base ai valori DSCP selezionati. Le procedure di questa attività variano a seconda del tipo di router disponibili.
 
-## <a name="scenario-2-prioritize-network-traffic-for-an-http-server-application"></a>Scenario 2: Definire la priorità del traffico di rete per un'applicazione server HTTP
+## <a name="scenario-2-prioritize-network-traffic-for-an-http-server-application"></a>Scenario 2: definire la priorità del traffico di rete per un'applicazione server HTTP
 
 In Windows Server 2016, QoS basata su criteri include i criteri basati su URL funzionalità. I criteri URL consentono di gestire la larghezza di banda per i server HTTP.
 
-Molte applicazioni aziendali sono sviluppate e ospitate in \(Internet Information Services\) server Web IIS e le app Web sono accessibili dai browser nei computer client.
+Molte applicazioni aziendali sono sviluppate e ospitate in Internet Information Services \(server Web IIS\) e le app Web sono accessibili dai browser nei computer client.
 
 In questo scenario, si supponga di gestire un set di server IIS che ospitano i video di formazione per tutti i dipendenti dell'organizzazione. L'obiettivo è garantire che il traffico proveniente da questi server video non sovraccarica la rete e che il traffico video sia differenziato dal traffico voce e dati sulla rete. 
 
-L'attività è simile all'attività nello scenario 1. Verranno progettate e configurate le impostazioni di gestione del traffico, ad esempio il valore DSCP per il traffico video e la frequenza di limitazione delle richieste per le applicazioni line-of-business. Tuttavia, quando si specifica il traffico, anziché fornire il nome dell'applicazione, si immette solo l'URL a cui l'applicazione server HTTP risponderà: ad https://hrweb/training esempio,.
+L'attività è simile all'attività nello scenario 1. Verranno progettate e configurate le impostazioni di gestione del traffico, ad esempio il valore DSCP per il traffico video e la frequenza di limitazione delle richieste per le applicazioni line-of-business. Tuttavia, quando si specifica il traffico, anziché fornire il nome dell'applicazione, si immette solo l'URL a cui risponderà l'applicazione server HTTP, ad esempio https://hrweb/training.
   
 > [!NOTE]
 >Non è possibile usare i criteri QoS basati su URL per definire la priorità del traffico di rete per i computer che eseguono sistemi operativi Windows che sono stati rilasciati prima di Windows 7 e Windows Server 2008 R2.
@@ -155,23 +155,23 @@ Ma quale riceverà la precedenza? Le regole sono semplici. I criteri basati su U
   
 [1. Schema URL](#bkmk_QoS_UrlScheme)
 
-[2. Host URL](#bkmk_QoS_UrlHost)
+[2. host URL](#bkmk_QoS_UrlHost)
 
-[3. Porta URL](#bkmk_QoS_UrlPort)
+[3. porta URL](#bkmk_QoS_UrlPort)
 
-[4. Percorso URL](#bkmk_QoS_UrlPath)
+[4. percorso URL](#bkmk_QoS_UrlPath)
 
-I dettagli sono i seguenti:
+Dettagli:
 
-####  <a name="bkmk_QoS_UrlScheme"></a>1. Schema URL
+####  <a name="1-url-scheme"></a><a name="bkmk_QoS_UrlScheme"></a>1. Schema URL
 
- `https://`ha una priorità più alta `https://`di.
+ `https://` ha una priorità maggiore rispetto a `https://`.
 
-####  <a name="bkmk_QoS_UrlHost"></a>2. Host URL
+####  <a name="2-url-host"></a><a name="bkmk_QoS_UrlHost"></a>2. host URL
 
  Dalla priorità più alta alla più bassa, sono:
 
-1. Hostname
+1. HostName
 
 2. Indirizzo IPv6
 
@@ -191,11 +191,11 @@ Nel caso di hostname, un nome host con più elementi punteggiati (maggiore profo
   
   **video.Internal.Training.hr.mycompany.com** ha la priorità più elevata e **selfguide.Training.mycompany.com** ha la priorità più alta successiva. Il **Training** e la **libreria** condividono la stessa priorità più bassa.  
   
-####  <a name="bkmk_QoS_UrlPort"></a>3. Porta URL
+####  <a name="3-url-port"></a><a name="bkmk_QoS_UrlPort"></a>3. porta URL
 
 Un numero di porta specifico o implicito ha una priorità più alta rispetto a una porta con caratteri jolly.
 
-####  <a name="bkmk_QoS_UrlPath"></a>4. Percorso URL
+####  <a name="4-url-path"></a><a name="bkmk_QoS_UrlPath"></a>4. percorso URL
 
 Analogamente a un nome host, un percorso URL può essere costituito da più elementi. Quello con più elementi ha sempre una priorità più alta rispetto a quello con minore. Ad esempio, i percorsi seguenti sono elencati per priorità:  
 

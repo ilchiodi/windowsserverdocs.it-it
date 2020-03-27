@@ -7,14 +7,14 @@ ms.topic: article
 ms.localizationpriority: medium
 ms.date: 11/05/2018
 ms.assetid: 8fe1c810-4599-4493-b4b8-73fa9aa18535
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 443e9b2531c6a4f6c3ad263ae90c2df326cb5f16
-ms.sourcegitcommit: 07c9d4ea72528401314e2789e3bc2e688fc96001
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 576682c7efc726a974feb50e64b8dc86d5764273
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76822384"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80307784"
 ---
 # <a name="always-on-vpn-features-and-functionalities"></a>Funzionalità e funzionalità VPN di Always On
 

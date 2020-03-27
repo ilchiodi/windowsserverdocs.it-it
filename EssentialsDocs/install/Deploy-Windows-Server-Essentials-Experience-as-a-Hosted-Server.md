@@ -1,9 +1,9 @@
 ---
 title: Distribuire Esperienza Windows Server Essentials come server ospitato
-description: Viene descritto come utilizzare Windows Server Essentials
+description: Viene descritto come usare Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
-ms.prod: windows-server-2016-essentials
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
@@ -12,18 +12,18 @@ ms.assetid: a455c6b4-b29f-4f76-8c6b-1578b6537717
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 94d4040b65a63fe64e5d49d55f82c4deead5a121
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 519fdad7445426b5c4e4ef4d89903c029cea68d4
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66433578"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80311810"
 ---
 # <a name="deploy-windows-server-essentials-experience-as-a-hosted-server"></a>Distribuire Esperienza Windows Server Essentials come server ospitato
 
 >Si applica a: Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
 
-Questo documento contiene informazioni specifiche per coloro che intendono distribuire Microsoft Windows a 16 Server con il ruolo esperienza Windows Server Essentials (detto Windows Server Essentials nella parte restante del documento) installato nel proprio lab e prevede di offrire esperienza Windows Server Essentials come servizio ai propri clienti. Questo documento include le sezioni seguenti:  
+Questo documento contiene informazioni specifiche per i provider di hosting che intendono distribuire Microsoft Windows Server 16 con il ruolo esperienza Windows Server Essentials (denominato Windows Server Essentials nella parte restante del documento) installato nel proprio Lab e si intende offrire esperienza Windows Server Essentials come servizio ai propri clienti. In questo documento sono incluse le sezioni seguenti:  
   
 
 -   [Panoramica di esperienza Windows Server Essentials](Deploy-Windows-Server-Essentials-Experience-as-a-Hosted-Server.md#BKMK_WSEEOverview)  
@@ -36,7 +36,7 @@ Questo documento contiene informazioni specifiche per coloro che intendono distr
   
 -   [Personalizzare l'immagine del ruolo esperienza Windows Server Essentials](Deploy-Windows-Server-Essentials-Experience-as-a-Hosted-Server.md#BKMK_CustomizeImage)  
   
--   [Automatizzare la distribuzione di esperienza Windows Server Essentials](Deploy-Windows-Server-Essentials-Experience-as-a-Hosted-Server.md#BKMK_AutomateDeployment)  
+-   [Automatizzare la distribuzione dell'esperienza Windows Server Essentials](Deploy-Windows-Server-Essentials-Experience-as-a-Hosted-Server.md#BKMK_AutomateDeployment)  
   
 -   [Eseguire la migrazione dei dati da Windows Small Business Server a esperienza Windows Server Essentials](Deploy-Windows-Server-Essentials-Experience-as-a-Hosted-Server.md#BKMK_Migrate)  
   
@@ -60,7 +60,7 @@ Questo documento contiene informazioni specifiche per coloro che intendono distr
   
 -   [Personalizzare l'immagine del ruolo esperienza Windows Server Essentials](Deploy-Windows-Server-Essentials-Experience-as-a-Hosted-Server.md#BKMK_CustomizeImage)  
   
--   [Automatizzare la distribuzione di esperienza Windows Server Essentials](Deploy-Windows-Server-Essentials-Experience-as-a-Hosted-Server.md#BKMK_AutomateDeployment)  
+-   [Automatizzare la distribuzione dell'esperienza Windows Server Essentials](Deploy-Windows-Server-Essentials-Experience-as-a-Hosted-Server.md#BKMK_AutomateDeployment)  
   
 -   [Eseguire la migrazione dei dati da Windows Small Business Server a esperienza Windows Server Essentials](Deploy-Windows-Server-Essentials-Experience-as-a-Hosted-Server.md#BKMK_Migrate)  
   
@@ -75,44 +75,44 @@ Questo documento contiene informazioni specifiche per coloro che intendono distr
 -   [Informazioni di supporto](Deploy-Windows-Server-Essentials-Experience-as-a-Hosted-Server.md#BKMK_Support)  
 
   
-##  <a name="BKMK_WSEEOverview"></a> Panoramica di esperienza Windows Server Essentials  
- L'esperienza Windows Server Essentials è un ruolo del server che è disponibile in Windows Server 2012 R2 Standard e Windows Server 2012 R2 Datacenter. Quando viene installato il ruolo esperienza Windows Server Essentials in un server che esegue Windows Server 2012 R2, il cliente può usufruire di tutte le funzionalità disponibili in Windows Server Essentials senza i relativi blocchi e limiti. L'esperienza Windows Server Essentials Abilita le soluzioni cross-premise seguenti per le aziende di piccole e medie dimensioni:  
+##  <a name="windows-server-essentials-experience-overview"></a><a name="BKMK_WSEEOverview"></a>Panoramica di esperienza Windows Server Essentials  
+ L'esperienza Windows Server Essentials è un ruolo del server disponibile in Windows Server 2012 R2 Standard e Windows Server 2012 R2 Datacenter. Quando il ruolo esperienza Windows Server Essentials è installato in un server che esegue Windows Server 2012 R2, il cliente può usufruire di tutte le funzionalità disponibili in Windows Server Essentials senza i blocchi e i limiti. L'esperienza Windows Server Essentials Abilita le soluzioni cross-premise seguenti per le aziende di piccole e medie dimensioni:  
   
--   **Archiviazione dei dati e la protezione** è possibile archiviare il cliente "dati di s stato in una posizione centralizzata e proteggere i dati server e client eseguendo il backup del server e i computer client (meno di 75) all'interno della rete.  
+-   **Archiviazione e protezione dei dati** È possibile archiviare i dati del cliente in una posizione centralizzata e proteggere i dati del server e del client eseguendo il backup dei computer server e client (meno di 75) all'interno della rete.  
   
--   **Gestione degli utenti** È possibile gestire utenti e gruppi tramite il dashboard del server semplificato. Inoltre, l'integrazione con Microsoft Azure Active Directory (Azure AD) consente accedere facilmente ai dati di Microsoft online services (ad esempio, Office 365, Exchange Online e SharePoint Online) per gli utenti usando le credenziali del dominio.  
+-   **Gestione degli utenti** È possibile gestire utenti e gruppi tramite il dashboard del server semplificato. Inoltre, l'integrazione con Microsoft Azure Active Directory (Azure AD) consente di accedere facilmente ai dati per Microsoft Servizi online (ad esempio, Office 365, Exchange Online e SharePoint Online) per gli utenti usando le proprie credenziali di dominio.  
   
--   **Integrazione dei servizi** è possibile integrare il server con Microsoft online services (ad esempio Office 365, SharePoint Online e Backup di Microsoft Azure). È anche possibile integrare il server con i propri servizi o con servizi forniti da provider di terze parti.  
+-   **Integrazione del servizio** È possibile integrare il server con Microsoft Servizi online (ad esempio Office 365, SharePoint Online e Backup di Microsoft Azure). È anche possibile integrare il server con i propri servizi o con servizi forniti da provider di terze parti.  
   
--   **Accesso remoto via Internet** I clienti possono accedere al server, ai computer della rete e ai dati pressoché da qualunque luogo e con qualunque dispositivo, purché sia disponibile una connessione Internet. La funzionalità Accesso Web remoto consente di accedere ad applicazioni e dati con un'esperienza di esplorazione semplificata e ottimizzata per il tocco. L'app My Server consente loro di accedere ai dati da un Windows Phone o in un'app di Microsoft Store.  
+-   **Accesso remoto via Internet** I clienti possono accedere al server, ai computer della rete e ai dati pressoché da qualunque luogo e con qualunque dispositivo, purché sia disponibile una connessione Internet. La funzionalità Accesso Web remoto consente di accedere ad applicazioni e dati con un'esperienza di esplorazione semplificata e ottimizzata per il tocco. L'app My Server consente loro di accedere ai dati da un'app Windows Phone o Microsoft Store.  
   
--   **Streaming multimediale** installando il Media Pack in un server con esperienza Windows Server Essentials abilitato, gli utenti finali possono archiviare musica, video e fotografie in cartelle condivise e quindi accedere ai file multimediali nei computer della rete o Accesso Web remoto.  
+-   **Flussi multimediali** Se si installa il pacchetto multimediale in un server con esperienza Windows Server Essentials abilitata, il cliente finale può archiviare musica, video e fotografie in cartelle condivise e quindi accedere a questi file multimediali da computer in rete o Accesso Web remoto.  
   
 -   **Monitoraggio dello stato** È possibile monitorare lo stato della rete e ottenere rapporti di stato personalizzati.  
   
-##  <a name="BKMK_Benefits"></a> Vantaggi dell'hosting di esperienza Windows Server Essentials  
-  Esperienza Windows Server Essentials è un ruolo in Windows Server, pertanto è possibile riutilizzare il framework di gestione in Windows Server per distribuire e configurare il ruolo esperienza Windows Server Essentials e la distribuzione esistente. Che ospita il ruolo esperienza Windows Server Essentials offre i vantaggi seguenti:  
+##  <a name="benefits-of-hosting-windows-server-essentials-experience"></a><a name="BKMK_Benefits"></a>Vantaggi dell'hosting di esperienza Windows Server Essentials  
+  Esperienza Windows Server Essentials è un ruolo di Windows Server, pertanto è possibile riutilizzare il Framework di distribuzione e gestione esistente in Windows Server per distribuire e configurare il ruolo esperienza Windows Server Essentials. L'hosting del ruolo esperienza Windows Server Essentials offre i vantaggi seguenti:  
   
--   **Distribuzione semplificata** semplicemente attivando il ruolo esperienza Windows Server Essentials, alcune delle domande più comunemente usati i ruoli e funzionalità vengono attivate e configurate con le procedure consigliate per le aziende di piccole e medie dimensioni. È possibile personalizzare le funzionalità di Windows Server Essentials o nascondere alcune delle funzionalità locali. Se si usa Windows Azure Pack, è possibile scaricare il modello di raccolta per esperienza Windows Server Essentials in Windows Server 2012 R2.  
+-   **Distribuzione semplificata** Semplicemente attivando il ruolo esperienza Windows Server Essentials, alcuni dei ruoli e delle funzionalità di uso più comune vengono attivati e configurati con le procedure consigliate per le aziende di piccole e medie dimensioni. È possibile personalizzare le funzionalità di Windows Server Essentials o nascondere alcune delle funzionalità locali. Se si usa il Windows Azure Pack, è possibile scaricare il modello di raccolta per esperienza Windows Server Essentials in Windows Server 2012 R2.  
   
 -   **Dashboard semplificato** Il dashboard di Windows Server Essentials semplifica le attività comuni quali la gestione di cartelle del server, archiviazione sul server, backup e ripristino, account utente o di gruppo, dispositivi, accesso remoto e posta elettronica. I clienti aziendali di piccole e medie dimensioni possono eseguire attività di gestione quotidiane anziché rivolgersi all'Help Desk per il supporto tecnico.  
   
 -   **Estendibilità** Il dashboard e il software Connettore di Windows Server Essentials Dashboard sono estendibili. È possibile aggiungere personalizzazioni e integrazione dei servizi, in modo che i clienti dispongano di un punto di ingresso unico per tutti gli elementi del propri server e servizi.  
   
--   **Monitoraggio** È disponibile una nuova versione di System Center Monitoring Pack per monitorare e gestire più server che eseguono Windows Server Essentials. Per scaricare il management pack, vedere [System Center Management Pack per Windows Server Essentials](https://www.microsoft.com/download/details.aspx?id=40809).  
+-   **Monitoraggio** È disponibile una nuova versione di System Center Monitoring Pack per monitorare e gestire più server che eseguono Windows Server Essentials. Per scaricare il Management Pack, vedere [System Center Management Pack per Windows Server Essentials](https://www.microsoft.com/download/details.aspx?id=40809).  
   
-##  <a name="BKMK_SupportedDeployment"></a> Opzioni di distribuzione supportate  
-  Esperienza Windows Server Essentials può essere distribuito come controller di dominio in un nuovo ambiente Active Directory oppure può essere distribuito in un ambiente Active Directory esistente come membro del dominio.  
+##  <a name="supported-deployment-options"></a><a name="BKMK_SupportedDeployment"></a>Opzioni di distribuzione supportate  
+  L'esperienza Windows Server Essentials può essere distribuita come controller di dominio in un nuovo ambiente di Active Directory; oppure può essere distribuito in un ambiente di Active Directory esistente come membro del dominio.  
   
- È consigliabile distribuire innanzitutto Windows Server 2012 R2 Standard o Windows Server 2012 R2 Datacenter e quindi installare il ruolo esperienza Windows Server Essentials. Con questo metodo di distribuzione, si otterranno tutte le funzionalità dell'edizione di Windows Server Essentials, senza i relativi blocchi e limiti.  
+ Si consiglia di distribuire prima Windows Server 2012 R2 Standard o Windows Server 2012 R2 Datacenter, quindi installare il ruolo esperienza Windows Server Essentials. Con questo metodo di distribuzione, si ottengono tutte le funzionalità di Windows Server Essentials Edition senza i blocchi e i limiti.  
   
 
  Per altre informazioni sull'installazione di Windows Server 2012 R2 con il ruolo esperienza Windows Server Essentials, vedere [installare e configurare Windows Server Essentials](Install-and-Configure-Windows-Server-Essentials-or-Windows-Server-Essentials-Experience.md).  
 
 
   
-##  <a name="BKMK_SupportedToplogy"></a> Topologie di rete supportate  
- Per usare l'esperienza Windows Server Essentials da un client in roaming, deve essere abilitata la VPN. Per abilitare l'accesso remoto al server dai client in roaming, è necessario aprire le porte 443 e 80 sul server.  
+##  <a name="supported-network-topologies"></a><a name="BKMK_SupportedToplogy"></a>Topologie di rete supportate  
+ Per usare esperienza Windows Server Essentials da un client di roaming, è necessario abilitare la VPN. Per abilitare l'accesso remoto al server dai client in roaming, è necessario aprire le porte 443 e 80 sul server.  
   
  Di seguito sono riportate due tipiche topologie di rete lato server e un esempio di configurazione VPN/Accesso Web remoto:  
   
@@ -168,12 +168,12 @@ Install-WssVpnServer -IPv4AddressRange ('192.168.0.160','192.168.0.240') -ApplyT
 > [!NOTE]
 >  Se non è possibile fornire una connessione VPN prima di consegnare il server ai clienti, verificare che la porta server 3389 sia disponibile su Internet in modo che i clienti possano usare Remote Desktop Protocol per connettersi al server e configurarlo.  
   
-##  <a name="BKMK_CustomizeImage"></a> Personalizzare l'immagine del ruolo esperienza Windows Server Essentials  
+##  <a name="customize-the-image-of-windows-server-essentials-experience-role"></a><a name="BKMK_CustomizeImage"></a>Personalizzare l'immagine del ruolo esperienza Windows Server Essentials  
  È possibile personalizzare l'immagine prima di configurare il ruolo Esperienza Windows Server Essentials. Per informazioni sul processo Sysprep standard di Windows Server, vedere [Windows Assessment and Deployment Kit](https://msdn.microsoft.com/library/hh825420.aspx). Dopo aver preparato l'immagine usando Sysprep, è possibile usarla oppure sigillarla nel file Install.wim per una nuova distribuzione.  
   
  Se si usa Virtual Machine Manager, è possibile creare un modello usando l'istanza corrente. Questo processo usa Sysprep per preparare l'istanza e spegne il computer. Dopo aver archiviato il modello nella libreria, sarà possibile usare l'istanza caso per caso.  
   
- Dopo aver installato il ruolo esperienza Windows Server Essentials, è possibile personalizzare le funzionalità di Windows Server Essentials. Una delle personalizzazioni più importanti è la chiave del Registro di sistema **IsHosted**: **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Server\Deployment\IsHosted**.  
+ Dopo aver installato il ruolo esperienza Windows Server Essentials, è possibile personalizzare le funzionalità in Windows Server Essentials. Una delle personalizzazioni più importanti è la chiave del Registro di sistema **IsHosted** : **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Server\Deployment\IsHosted**.  
   
  Se questa chiave è impostata su 0x1, il comportamento di alcune delle funzionalità locali verrà modificato. Le modifiche delle funzionalità includono:  
   
@@ -191,17 +191,17 @@ Install-WssVpnServer -IPv4AddressRange ('192.168.0.160','192.168.0.240') -ApplyT
   
   Se si vuole controllare il comportamento delle funzionalità elencate, è possibile impostare la chiave del Registro di sistema corrispondente per ognuna di esse. Per informazioni su come impostare la chiave del Registro di sistema, vedere [Personalizzare e distribuire Windows Server Essentials in Windows Server 2012 R2](https://technet.microsoft.com/library/dn293241.aspx)  
   
-##  <a name="BKMK_AutomateDeployment"></a> Automatizzare la distribuzione di esperienza Windows Server Essentials  
+##  <a name="automate-the-deployment-of-windows-server-essentials-experience"></a><a name="BKMK_AutomateDeployment"></a>Automatizzare la distribuzione dell'esperienza Windows Server Essentials  
  Per automatizzare la distribuzione, è necessario innanzitutto distribuire il sistema operativo e quindi installare il ruolo esperienza Windows Server Essentials.  
   
 -   Per distribuire automaticamente Windows Server 2012 R2 Standard o Windows Server 2012 R2 Datacenter, seguire le istruzioni riportate in [Windows Assessment and Deployment Kit](https://msdn.microsoft.com/library/hh825420.aspx).  
   
--   Per informazioni su come installare il ruolo esperienza Windows Server Essentials tramite Windows PowerShell, vedere [installare e configurare Windows Server Essentials](https://technet.microsoft.com/library/dn281793.aspx).  
+-   Per informazioni su come installare il ruolo esperienza Windows Server Essentials usando Windows PowerShell, vedere [installare e configurare Windows Server Essentials](https://technet.microsoft.com/library/dn281793.aspx).  
   
 > [!NOTE]
->  Assicurarsi che le impostazioni di fuso orario della macchina virtuale host e l'esperienza Windows Server Essentials siano uguali. In caso contrario potrebbero verificarsi diversi errori, Questi includono: la configurazione iniziale del server potrebbe non essere effettuata correttamente sui certificati attività correlate, il certificato potrebbe non funzionare per alcune ore dopo che è installato il ruolo esperienza Windows Server Essentials e non aggiornerà le informazioni sul dispositivo in modo corretto.  
+>  Verificare che le impostazioni del fuso orario della macchina virtuale host e dell'esperienza Windows Server Essentials siano le stesse. In caso contrario potrebbero verificarsi diversi errori, Tra cui: la configurazione iniziale del server potrebbe non avere esito positivo nelle attività relative ai certificati, il certificato potrebbe non funzionare per alcune ore dopo l'installazione del ruolo esperienza Windows Server Essentials e le informazioni sul dispositivo non verranno aggiornate correttamente.  
   
- Dopo la distribuzione, usare il cmdlet di Windows PowerShell **Get-WssConfigurationStatus** per verificare che la configurazione iniziale sia stata eseguita correttamente. Lo stato restituito deve essere uno dei seguenti: **Notstarted**, **FinishedWithWarning**, **Running**, **Finished**, **Failed** o **PendingReboot**.  
+ Dopo la distribuzione, usare il cmdlet di Windows PowerShell **Get-WssConfigurationStatus** per verificare che la configurazione iniziale sia stata eseguita correttamente. Lo stato restituito deve essere uno dei seguenti: **Notstarted**, **FinishedWithWarning**, **Running**, **Finished**, **Failed**o **PendingReboot**.  
   
  Il server verrà riavviato durante la configurazione iniziale. Se è necessario impedire il riavvio automatico, è possibile usare il comando seguente per aggiungere una chiave del Registro di sistema prima di avviare la configurazione iniziale:  
   
@@ -212,18 +212,18 @@ New-ItemProperty "HKLM:\Software\Microsoft\Windows Server\Setup"Ã‚Â  -Name 
   
  Dopo l'avvio della configurazione iniziale, è possibile usare **Get-WssConfigurationStatus** per controllare lo stato di configurazione iniziale e, quando lo stato è **PendingReboot**, è possibile riavviare il server.  
   
-##  <a name="BKMK_Migrate"></a> Eseguire la migrazione dei dati da Windows Small Business Server a esperienza Windows Server Essentials  
- È possibile migrare i dati dai server che eseguono Windows Small Business Server 2011, Windows Small Business Server 2008, Windows Small Business Server 2003 o Windows Server Essentials nel server che esegue Windows Server Essentials. Rivedere le [eseguire la migrazione a Windows Server Essentials](../migrate/Migrate-from-Previous-Versions-to-Windows-Server-Essentials-or-Windows-Server-Essentials-Experience.md) migrazione manuale per on-premises 2migrations e apportare le necessarie personalizzazioni in base all'ambiente di hosting.  
+##  <a name="migrate-data-from-windows-small-business-server-to-windows-server-essentials-experience"></a><a name="BKMK_Migrate"></a>Eseguire la migrazione dei dati da Windows Small Business Server a esperienza Windows Server Essentials  
+ È possibile eseguire la migrazione dei dati da server che eseguono Windows Small Business Server 2011, Windows Small Business Server 2008, Windows Small Business Server 2003 o Windows Server Essentials al server che esegue Windows Server Essentials. Esaminare la guida alla migrazione [di Windows Server Essentials](../migrate/Migrate-from-Previous-Versions-to-Windows-Server-Essentials-or-Windows-Server-Essentials-Experience.md) per la le migrazioni locale e apportare le necessarie personalizzazioni in base all'ambiente di hosting.  
   
 > [!NOTE]
 >  È consigliabile includere il server di origine e il server di destinazione nella stessa subnet. Se questo non è possibile, verificare se:  
 > 
-> - Il server di origine e il server di destinazione possano accedere reciprocamente "stato s nomi DNS interni.  
+> - Il server di origine e il server di destinazione possono accedere reciprocamente "¢ s internal Domain Names.  
 >   -   Tutte le porte necessarie sono aperte.  
   
- Dopo la migrazione, è possibile aggiornare le licenze per rimuovere i blocchi e limiti. Per altre informazioni, vedere [transizione da Windows Server Essentials a Windows Server 2012 Standard](https://technet.microsoft.com/library/jj247582.aspx).  
+ Dopo la migrazione, è possibile aggiornare le licenze per rimuovere i blocchi e limiti. Per altre informazioni, vedere [transizione da Windows Server Essentials a Windows server 2012 standard](https://technet.microsoft.com/library/jj247582.aspx).  
   
-##  <a name="BKMK_PowerShell"></a> Eseguire attività comuni usando Windows PowerShell  
+##  <a name="perform-common-tasks-by-using-windows-powershell"></a><a name="BKMK_PowerShell"></a>Eseguire attività comuni usando Windows PowerShell  
  Questa sezione illustra alcune delle attività comuni che è possibile eseguire usando Windows PowerShell.  
   
 ### <a name="enable-remote-web-access"></a>Abilita Accesso Web remoto  
@@ -233,49 +233,49 @@ New-ItemProperty "HKLM:\Software\Microsoft\Windows Server\Setup"Ã‚Â  -Name 
   
  **Esempio**:  
   
- $Enable-WssRemoteWebAccess  œDenyAccessByDefault  œApplyToExistingUsers  
+ $Enable-WssRemoteWebAccess œDenyAccessByDefault œApplyToExistingUsers  
   
  Questo comando consente di abilitare Accesso Web remoto con il router configurato automaticamente e modifica le autorizzazione di accesso predefinite per tutti gli utenti esistenti.  
   
-### <a name="add-user"></a>Aggiungi utente  
+### <a name="add-user"></a>Aggiungere un utente  
  **Sintassi**:  
   
- Add-WssUser [-Name] < stringa\> [-Password] < securestring\> [-AccessLevel < string\> {utente &#124; Administrator}] [-FirstName < stringa\>] [-LastName < stringa\>] [- AllowRemoteAccess] [-AllowVpnAccess] [< Parametricomuni\>]  
+ Add-WssUser [-name] < stringa\> [-password] < SecureString\> [-AccessLevel < String\> {user &#124; Administrator}] [-FirstName < String\>] [-LastName < String\>] [-AllowRemoteAccess] [-AllowVpnAccess] [< parametricomuni\>]  
   
  **Esempio**:  
   
- $password = ConvertTo-SecureString "Passw0rd!" -asplaintext  œforce$Add-WssUser -Name User2Test -Password $password -Accesslevel Administrator -FirstName User2 -LastName Test  
+ $password = ConvertTo-SecureString "Passw0rd!" -AsPlainText œforce $ Add-WssUser-Name User2Test-password $password-AccessLevel Administrator-FirstName User2-LastName test  
   
- Questo comando consente di aggiungere un amministratore denominato User2Test con password Passw0rd!.  
+ Con questo comando verrà aggiunto un amministratore denominato User2Test con password Passw0rd!.  
   
 ### <a name="add-server-folder"></a>Aggiungi cartella server  
  **Sintassi**:  
   
- Add-WssFolder [-Name] <string\> [-Path] <string\> [[-Description] <string\>] [-KeepPermissions] [<CommonParameters\>]  
+ Add-WssFolder [-name] < stringa\> [-path] < stringa\> [[-Description] < stringa\>] [-KeepPermissions] [< Parametricomuni\>]  
   
  **Esempio**:  
   
  $Add-WssFolder -Name "MyTestFolder" -Path "C:\ServerFolders\MyTestFolder"  
   
- Questo comando aggiunge una cartella server chiamata MyTestFolder nella posizione specificata.  
+ Tramite questo comando verrà aggiunta una cartella del server denominata MyTestFolder nel percorso specificato.  
   
-##  <a name="BKMK_EmailIntegration"></a> Integrazione della posta elettronica con Windows Server Essentials  
+##  <a name="email-integration-with-windows-server-essentials"></a><a name="BKMK_EmailIntegration"></a>Integrazione della posta elettronica con Windows Server Essentials  
  È possibile integrare esperienza Windows Server Essentials con Office 365 o Exchange Server ospitato. Se si vuole che i clienti usino la propria soluzione di posta elettronica su host, è necessario sviluppare un componente aggiuntivo per integrare Esperienza Windows Server Essentials in questa soluzione. Per altre informazioni, vedere [Windows Server Essentials SDK](https://msdn.microsoft.com/library/gg513877.aspx).  
   
-##  <a name="BKMK_Monitoring"></a> Monitorare e gestire mediante strumenti nativi  
- In questa sezione illustra gli strumenti nativi disponibili in Windows Server 2012 R2 per monitorare e gestire il server.  
+##  <a name="monitor-and-manage-by-using-native-tools"></a><a name="BKMK_Monitoring"></a>Monitorare e gestire mediante strumenti nativi  
+ In questa sezione vengono illustrati gli strumenti nativi disponibili in Windows Server 2012 R2 per il monitoraggio e la gestione del server.  
   
 ### <a name="group-policy"></a>Criteri di gruppo  
-  Esperienza Windows Server Essentials sfrutta il supporto nativo dei criteri di gruppo in Windows Server 2012 R2 e fornisce un'interfaccia utente per configurare le impostazioni di sicurezza e reindirizzamento cartelle.  
+  Esperienza Windows Server Essentials si avvale del supporto nativo per la Criteri di gruppo in Windows Server 2012 R2 e fornisce un'interfaccia utente per configurare le impostazioni di Reindirizzamento cartelle e sicurezza.  
   
 > [!NOTE]
 >  In un ambiente ospitato, se è abilitato il reindirizzamento delle cartelle per un profilo utente, in presenza di notevoli quantità di dati gli utenti finali potrebbero riscontrare tempi di accesso più lunghi.  
   
 ### <a name="system-center-monitoring-pack"></a>System Center Monitoring Pack  
- System Center Monitoring Pack per i monitoraggi di esperienza Windows Server Essentials il sistema di avvisi di integrità che consentono di gestire un numero elevato di server che eseguono Windows Server Essentials dedicati a piccole aziende. Per altre informazioni, vedere [System Center Management Pack per Windows Server Essentials](https://www.microsoft.com/download/details.aspx?id=40809).  
+ System Center Monitoring Pack per l'esperienza Windows Server Essentials monitora il sistema di avvisi sull'integrità per semplificare la gestione di un numero elevato di server che eseguono Windows Server Essentials dedicati a piccole aziende. Per ulteriori informazioni, vedere [System Center Management Pack per Windows Server Essentials](https://www.microsoft.com/download/details.aspx?id=40809).  
   
 ### <a name="backup-and-restore"></a>Backup e ripristino  
-  Windows Server 2012 R2 con esperienza Windows Server Essentials consente di eseguire il backup di computer server e client nella rete.  
+  Windows Server 2012 R2 con esperienza Windows Server Essentials consente di eseguire il backup dei computer server e client nella rete.  
   
 #### <a name="server-backup"></a>Backup del server  
  Windows Server Essentials supporta due tipi di backup del server: backup locale e backup remoto. Se si desidera distribuire la propria soluzione di backup del server, è possibile personalizzare queste opzioni.  
@@ -285,13 +285,13 @@ New-ItemProperty "HKLM:\Software\Microsoft\Windows Server\Setup"Ã‚Â  -Name 
     > [!NOTE]
     >  Se si dispone di altre soluzioni di backup per le macchine virtuali e non si vuole che gli utenti vedano la funzionalità Backup server nativa di Windows Server Essentials, è possibile disattivarla e rimuovere tutte le interfacce utente correlate dal dashboard. Per altre informazioni, vedere la sezione [Personalizzare il backup del server](https://technet.microsoft.com/library/dn293413.aspx) di [Personalizzare e distribuire Windows Server Essentials in Windows Server 2012 R2](https://technet.microsoft.com/library/dn293241.aspx).  
   
--   **Backup remoto** Consente di eseguire periodicamente il backup dei dati del server su un servizio basato su cloud. È possibile scaricare e installare il Microsoft Azure Backup integrazione modulo per Windows Server Essentials per usare Backup di Azure fornita da Microsoft.  
+-   **Backup remoto** Consente di eseguire periodicamente il backup dei dati del server su un servizio basato su cloud. È possibile scaricare e installare il modulo di integrazione Backup di Microsoft Azure per Windows Server Essentials per sfruttare il backup di Azure fornito da Microsoft.  
   
-     Per altre informazioni, vedere Integrazione Windows Azure Backup con sezione Windows Server Essentials [Manage Server Backup](../manage/Manage-Server-Backup-in-Windows-Server-Essentials.md).  
+     Per ulteriori informazioni, vedere la sezione integrare Windows Azure Backup con Windows Server Essentials in [gestire il backup del server](../manage/Manage-Server-Backup-in-Windows-Server-Essentials.md).  
   
      Se si preferisce usare un altro servizio cloud, è necessario considerare quanto segue:  
   
-    -   Aggiornare l'interfaccia utente del Dashboard in modo che fornisca un collegamento al servizio cloud preferito anziché sul valore predefinito di Backup di Azure.  
+    -   Aggiornare l'interfaccia utente del dashboard in modo che venga collegata al servizio cloud preferito anziché al backup di Azure predefinito.  
   
     -   (Facoltativo) Sviluppare un componente aggiuntivo per il dashboard per configurare e gestire il servizio di backup basato su cloud.  
   
@@ -308,11 +308,11 @@ New-ItemProperty "HKLM:\Software\Microsoft\Windows Server\Setup"Ã‚Â  -Name 
   
 -   **Prestazioni** Il primo backup del client può richiedere molto tempo a causa della notevole quantità di dati da caricare.  
   
--   **Stabilità** A volte la connessione a Internet non è stabile sul lato client. Backup del client è progettato per riprendere automaticamente e il database di backup del client crea un checkpoint ogni volta che viene eseguito il backup di 40 GB di dati. È possibile ridurre questo valore, se si prevede che la connessione a Internet possa non essere affidabile.  
+-   **Stabilità** A volte la connessione a Internet non è stabile sul lato client. Il backup del client è progettato per riprendere automaticamente e il database di backup del client crea un checkpoint ogni volta che viene eseguito il backup di 40 GB di dati. È possibile ridurre questo valore, se si prevede che la connessione a Internet possa non essere affidabile.  
   
     -   Per abilitare un punto di controllo: Nel server, impostare la chiave del Registro di sistema **HKLM\Software\Microsoft\Windows Server\Backup\GetCheckPointJobs** su 1.  
   
-    -   Per modificare la soglia del punto di controllo: Nel client, modificare **HKLM\Software\Microsoft\Windows Server\Backup\CheckPointThreshold** rispetto al valore predefinito di 40 GB.  
+    -   Per modificare la soglia del punto di controllo: Nel client, modificare il valore predefinito di 40 GB di **HKLM\Software\Microsoft\Windows Server\Backup\CheckPointThreshold** .  
   
 -   **Ripristino bare metal del client** Poiché l'ambiente di preinstallazione di Windows non supporta la connessione VPN, il ripristino bare metal del client non è supportato. È consigliabile nascondere l'attività Servizio Ripristino client seguendo i passaggi descritti in [Personalizzare e distribuire Windows Server Essentials in Windows Server 2012 R2](https://technet.microsoft.com/library/dn293241.aspx).  
   
@@ -322,20 +322,20 @@ New-ItemProperty "HKLM:\Software\Microsoft\Windows Server\Setup"Ã‚Â  -Name 
 ### <a name="storage-management"></a>Gestione dell'archiviazione  
  La funzionalità Spazi di archiviazione consente di aggregare la capacità di archiviazione fisica di unità disco rigido diverse, di aggiungere dinamicamente altre unità disco rigido e di creare volumi di dati con i livelli di resilienza specificati. Queste operazioni possono essere eseguite sull'host o sulla macchina virtuale. Se si vuole nascondere questa funzionalità in una macchina virtuale che esegue Windows Server Essentials, seguire le istruzioni in [Personalizzare e distribuire Windows Server Essentials in Windows Server 2012 R2](https://technet.microsoft.com/library/dn293241.aspx).  
   
-##  <a name="BKMK_Scenarios"></a> Scenari di test  
+##  <a name="test-scenarios"></a><a name="BKMK_Scenarios"></a>Scenari di test  
  Dal punto di vista dell'hosting, è consigliabile testare gli scenari seguenti:  
   
 
--   [Distribuzione di server](Deploy-Windows-Server-Essentials-Experience-as-a-Hosted-Server.md#BKMK_ServerDeploy)  
+-   [Distribuzione server](Deploy-Windows-Server-Essentials-Experience-as-a-Hosted-Server.md#BKMK_ServerDeploy)  
   
 -   [Configurazione del server](Deploy-Windows-Server-Essentials-Experience-as-a-Hosted-Server.md#BKMK_ServerConfig2)  
   
--   [Gestione del server](Deploy-Windows-Server-Essentials-Experience-as-a-Hosted-Server.md#BKMK_ServerManage)  
+-   [Gestione server](Deploy-Windows-Server-Essentials-Experience-as-a-Hosted-Server.md#BKMK_ServerManage)  
   
 -   [Esperienza client](Deploy-Windows-Server-Essentials-Experience-as-a-Hosted-Server.md#BKMK_ClientXP)  
 
   
-###  <a name="BKMK_ServerDeploy"></a> Distribuzione di server  
+###  <a name="server-deployment"></a><a name="BKMK_ServerDeploy"></a>Distribuzione server  
  È possibile testare gli scenari di distribuzione server seguenti:  
   
 -   Distribuire un server che esegue Windows Server 2012 R2 come controller di dominio nell'ambiente lab e quindi installare il ruolo esperienza Windows Server Essentials.  
@@ -348,7 +348,7 @@ New-ItemProperty "HKLM:\Software\Microsoft\Windows Server\Setup"Ã‚Â  -Name 
   
 -   Eseguire la migrazione di server locali che eseguono Windows Small Business Server su server ospitati che eseguono Windows Server Essentials.  
   
-###  <a name="BKMK_ServerConfig2"></a> Configurazione del server  
+###  <a name="server-configuration"></a><a name="BKMK_ServerConfig2"></a>Configurazione del server  
  È possibile testare gli scenari di configurazione server seguenti:  
   
 -   Configurare Accesso remoto via Internet (VPN, Accesso Web remoto e DirectAccess).  
@@ -367,7 +367,7 @@ New-ItemProperty "HKLM:\Software\Microsoft\Windows Server\Setup"Ã‚Â  -Name 
   
 -   (Se applicabile) Configurare il server dei contenuti multimediali.  
   
-###  <a name="BKMK_ServerManage"></a> Gestione del server  
+###  <a name="server-management"></a><a name="BKMK_ServerManage"></a>Gestione server  
  È possibile testare gli scenari di gestione server seguenti:  
   
 -   Gestire utenti e gruppi.  
@@ -380,7 +380,7 @@ New-ItemProperty "HKLM:\Software\Microsoft\Windows Server\Setup"Ã‚Â  -Name 
   
 -   Configurare il ripristino del server, in caso di danneggiamento del sistema operativo.  
   
-###  <a name="BKMK_ClientXP"></a> Esperienza client  
+###  <a name="client-experience"></a><a name="BKMK_ClientXP"></a>Esperienza client  
  È possibile testare gli scenari utente finale seguenti:  
   
 -   Distribuire i client via Internet (sistemi operativi PC o Mac).  
@@ -395,16 +395,16 @@ New-ItemProperty "HKLM:\Software\Microsoft\Windows Server\Setup"Ã‚Â  -Name 
   
 -   (Se applicabile) Verificare l'esperienza di integrazione della posta elettronica.  
   
-##  <a name="BKMK_Support"></a> Informazioni di supporto  
- È possibile scaricare il Software Development Kit (SDK) di Windows Server Essentials e il Windows Server Essentials Assessment and Deployment Kit (ADK):  
+##  <a name="support-information"></a><a name="BKMK_Support"></a>Informazioni di supporto  
+ È possibile scaricare il Software Development Kit (SDK) di Windows Server Essentials e Windows Server Essentials Assessment and Deployment Kit (ADK):  
   
--   [Software Development Kit di Windows Server Essentials](https://msdn.microsoft.com/library/gg513877.aspx)SDK  
+-   [Software Development Kit di Windows Server Essentials](https://msdn.microsoft.com/library/gg513877.aspx) SDK  
   
 -   [Personalizzare e distribuire Windows Server Essentials in Windows Server 2012 R2](https://technet.microsoft.com/library/dn293241.aspx)  
   
 ## <a name="see-also"></a>Vedere anche  
   
--   [Quali sono le novità in Windows Server Essentials](../get-started/what-s-new.md)  
+-   [Novità di Windows Server Essentials](../get-started/what-s-new.md)  
 
 -   [Installare Windows Server Essentials](Install-Windows-Server-Essentials.md)  
 

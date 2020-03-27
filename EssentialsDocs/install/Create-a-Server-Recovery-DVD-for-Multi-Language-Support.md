@@ -2,26 +2,26 @@
 title: Creare un DVD di ripristino del server per il supporto multilingue
 description: Viene descritto come usare Windows Server Essentials
 ms.date: 10/03/2016
-ms.prod: windows-server-2016-essentials
+ms.prod: windows-server
 ms.topic: article
 ms.assetid: c7da0f6c-9732-4784-9c28-7dad72c4071d
 author: daveba
 ms.author: daveba
-ms.openlocfilehash: 59d8d41e5836ba88b405a058c8340f454b081c06
-ms.sourcegitcommit: 2082335e1260826fcbc3dccc208870d2d9be9306
+ms.openlocfilehash: b71fc748f7cc8d82420b7a62fe502135036db727
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69980255"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80312110"
 ---
 # <a name="create-a-server-recovery-dvd-for-multi-language-support"></a>Creare un DVD di ripristino del server per il supporto multilingue
 
 >Si applica a: Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
 
-##  <a name="BKMK_MLHeadedRecovery"></a>Creare un DVD di installazione Server e ripristino server per il supporto di più lingue in server amministrati localmente  
+##  <a name="create-a-server-setup-and-server-recovery-dvd-for-multiple-language-support-on-locally-administered-servers"></a><a name="BKMK_MLHeadedRecovery"></a>Creare un DVD di installazione Server e ripristino server per il supporto di più lingue in server amministrati localmente  
   
 > [!NOTE]
->  È innanzitutto necessario creare un'immagine multilingue di Windows come descritto nella [procedura dettagliata: Creazione](https://technet.microsoft.com/library/jj126995) di un'immagine multilingue di Windows prima di aggiungere il Language Pack di Windows Server Essentials in install. wim.  
+>  È innanzitutto necessario creare un'immagine multilingue di Windows come descritto nella [procedura dettagliata: creazione di un'immagine multilingue di Windows](https://technet.microsoft.com/library/jj126995) prima di aggiungere il Language Pack di Windows Server Essentials in install. wim.  
   
  La configurazione è composta da due fasi: Ambiente preinstallazione di Windows (Windows PE) e la configurazione iniziale. Per impostazione predefinita, la pagina per la selezione della lingua non viene visualizzata nella configurazione iniziale.  
   
@@ -48,25 +48,25 @@ ms.locfileid: "69980255"
  Per aggiungere il supporto multilingue a Installazione di Windows, è necessario disporre dei seguenti elementi:  
   
 
--   Un computer tecnico in cui siano disponibili tutti gli strumenti e i file di origine necessari per creare un’immagine WinPE personalizzata. Per altre informazioni, vedere [Prepare the Technician Computer](Prepare-the-Technician-Computer.md).  
+-   Un computer tecnico in cui siano disponibili tutti gli strumenti e i file di origine necessari per creare un’immagine WinPE personalizzata. Per ulteriori informazioni, vedere [Preparazione del computer tecnico](Prepare-the-Technician-Computer.md).  
 
--   Un computer tecnico in cui siano disponibili tutti gli strumenti e i file di origine necessari per creare un’immagine WinPE personalizzata. Per altre informazioni, vedere [Prepare the Technician Computer](../install/Prepare-the-Technician-Computer.md).  
+-   Un computer tecnico in cui siano disponibili tutti gli strumenti e i file di origine necessari per creare un’immagine WinPE personalizzata. Per ulteriori informazioni, vedere [Preparazione del computer tecnico](../install/Prepare-the-Technician-Computer.md).  
 
   
 -   Un DVD di Windows Server Essentials.  
   
 -   Un DVD del Language Pack di Windows Server Essentials.  
   
-###  <a name="BKMK_Steps"></a>Aggiunta del supporto per più lingue  
+###  <a name="adding-multiple-language-support"></a><a name="BKMK_Steps"></a>Aggiunta del supporto per più lingue  
  Per aggiungere il supporto per più lingue a Installazione di Windows si aggiorna il file Install. wim aggiungendo i Language Pack di Windows Server 2012 e Windows Server Essentials.  
   
 #### <a name="update-installwim"></a>Aggiornamento di Install.wim  
  In questo passaggio vengono aggiunti i Language Pack di Windows Server 2012 e Windows Server Essentials in install. wim.  
   
 > [!NOTE]
->  Verificare di aver installato i Language Pack per Windows Server 2012. In questo modo si garantisce la corretta personalizzazione. I Language Pack dell'interfaccia utente multilingue di Windows Server 2012 sono disponibili in [Microsoft.com](https://www.microsoft.com/OEM/en/installation/downloads/Pages/technical-downloads.aspx). Seguire le istruzioni descritte nella [procedura dettagliata: Creazione di un'immagine multilingue di Windows per](https://technet.microsoft.com/library/jj126995.aspx) la creazione di un'immagine multilingue di Windows prima di aggiungere il Language Pack di Windows Server Essentials in install. wim.  
+>  Verificare di aver installato i Language Pack per Windows Server 2012. In questo modo si garantisce la corretta personalizzazione. I Language Pack dell'interfaccia utente multilingue di Windows Server 2012 sono disponibili in [Microsoft.com](https://www.microsoft.com/OEM/en/installation/downloads/Pages/technical-downloads.aspx). Seguire le istruzioni descritte nella [procedura dettagliata: creazione di un'immagine multilingue di Windows per](https://technet.microsoft.com/library/jj126995.aspx) la creazione di un'immagine multilingue di Windows prima di aggiungere il Language Pack di Windows Server Essentials in install. wim.  
 >   
->  I Language Pack di Windows Server Essentials sono disponibili nel supporto dei Language Pack in\\\Language Packs\>< cultureName.  
+>  I Language Pack di Windows Server Essentials sono disponibili nel supporto dei Language Pack in \Language Packs\\< cultureName\>.  
   
 > [!NOTE]
 >  Non tutti i Language Pack potrebbero non essere disponibili prima del rilascio di Windows Server 2012.  
@@ -102,7 +102,7 @@ ms.locfileid: "69980255"
     Dism /Unmount-Wim /MountDir:C:\InstallMount /Commit  
     ```  
   
-## <a name="see-also"></a>Vedere anche  
+## <a name="see-also"></a>Vedi anche  
 
  [Creazione e personalizzazione dell'immagine](Creating-and-Customizing-the-Image.md)   
  [Personalizzazioni aggiuntive](Additional-Customizations.md)   

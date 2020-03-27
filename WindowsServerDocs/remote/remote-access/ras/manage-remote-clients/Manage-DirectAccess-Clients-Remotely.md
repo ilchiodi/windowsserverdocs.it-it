@@ -10,14 +10,14 @@ ms.technology: networking-ras
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 36255d80-a13e-4af7-a5c0-ab4c8f302622
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: ecfbd6dc09f251d5197a16b166aa76e6a37b933a
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: a0e717b75e1d973f1594b254e1ea5c4eb55536b8
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71367303"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80308230"
 ---
 # <a name="manage-directaccess-clients-remotely"></a>Gestire i client DirectAccess in remoto
 
@@ -27,7 +27,7 @@ Il monitoraggio di Accesso remoto segnala l'attività dell'utente remoto e lo st
   
 **Nota:** Windows Server 2016 combina DirectAccess e il servizio di accesso remoto (RAS) in un singolo ruolo accesso remoto.  
   
-## <a name="in-this-guide"></a>Contenuto della guida  
+## <a name="in-this-guide"></a>In questa guida  
 Questo documento contiene le istruzioni su come usare le capacità di monitoraggio di Accesso remoto con la console di gestione DirectAccess e il corrispondente cmdlet di Windows PowerShell, forniti insieme al ruolo server di Accesso remoto.  
   
 Vengono illustrati i seguenti scenari di monitoraggio e accounting:  
@@ -53,9 +53,9 @@ Prima di iniziare le attività di monitoraggio e accounting per i client remoti,
   
 Il monitoraggio dei client remoti si basa sulle connessioni. Esistono due tipi di connessioni tunnel stabilite dai client DirectAccess:  
   
--   **Connessioni per il traffico tunnel del computer**: Questo tunnel viene stabilito dal computer nel contesto di sistema per accedere ai server necessari per la risoluzione dei nomi, l'autenticazione, l'aggiornamento di monitoraggio e aggiornamento e così via.  
+-   **Connessioni al traffico del tunneling**del computer: questo tunnel viene stabilito dal computer nel contesto di sistema per accedere ai server necessari per la risoluzione dei nomi, l'autenticazione, l'aggiornamento della correzione e così via.  
   
--   **Connessioni per il traffico tunnel dell'utente**: Questo tunnel viene stabilito dall'account utente nel computer in un contesto utente quando l'utente tenta di accedere a una risorsa nella rete aziendale. A seconda dei requisiti di distribuzione, possono essere richieste credenziali complesse (ad esempio, una smart card o una One-Time Password, OTP) per l'accesso alle risorse della rete aziendale.  
+-   **Connessioni al traffico del tunnel utente**: questo tunnel viene stabilito dall'account utente nel computer, in un contesto utente, quando l'utente tenta di accedere a una risorsa nella rete aziendale. A seconda dei requisiti di distribuzione, possono essere richieste credenziali complesse (ad esempio, una smart card o una One-Time Password, OTP) per l'accesso alle risorse della rete aziendale.  
   
 Per DirectAccess, una connessione viene identificata in modo univoco dall'indirizzo IP del client remoto. Ad esempio, se un tunnel del computer è aperto per un computer client e un utente è connesso da tale computer, utilizzerà la stessa connessione. In una situazione in cui l'utente si disconnette e si connette nuovamente mentre il tunnel del computer è ancora attivo, si tratta di una sola connessione.  
   

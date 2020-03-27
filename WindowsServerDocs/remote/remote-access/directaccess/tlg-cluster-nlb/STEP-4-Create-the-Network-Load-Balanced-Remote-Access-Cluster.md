@@ -10,14 +10,14 @@ ms.technology: networking-da
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 509eaa08-c49d-448d-a71e-c1c45519ccd5
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: f888ebadfaa91b35f0924b23e9818da1c32f26e5
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: c2f855512b978462f89b8f32b1f7edf59180f563
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71388476"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80310774"
 ---
 # <a name="step-4-create-the-network-load-balanced-remote-access-cluster"></a>PASSAGGIO 4 creare il cluster di accesso remoto con bilanciamento del carico di rete
 
@@ -62,7 +62,7 @@ Per configurare EDGE1 e EDGE2 in un cluster, è necessario installare la funzion
   
 3.  Nel **Selezionare le funzionalità** finestra di dialogo, selezionare **Bilanciamento carico di rete**, fare clic su **Aggiungi funzionalità**, fare clic su **Avanti**, quindi fare clic su **installare**.  
   
-4.  Nella finestra di dialogo **Stato installazione** verificare che l'installazione sia stata completata correttamente e quindi fare clic su **Chiudi**.  
+4.  Nella finestra di dialogo **Stato installazione** verificare che l'installazione abbia avuto esito positivo e quindi fare clic su **Chiudi**.  
   
 5.  Ripetere questa procedura in EDGE2.  
   
@@ -71,7 +71,7 @@ Usare questa procedura per abilitare il bilanciamento del carico e configurare i
   
 ### <a name="enable-load-balancing"></a>Abilita bilanciamento del carico  
   
-1.  In EDGE1 fare clic sul pulsante **Start**, digitare **RAMgmtUI. exe**, quindi premere INVIO. Se viene visualizzata la finestra di dialogo **Controllo account utente** , verificare che l'azione visualizzata sia quella desiderata e quindi fare clic su **Sì**.  
+1.  In EDGE1 fare clic sul pulsante **Start**, digitare **RAMgmtUI. exe**, quindi premere INVIO. Se viene visualizzata la finestra di dialogo **Controllo dell'account utente**, verificare che l'azione indicata sia quella che si desidera eseguire e quindi fare clic su **Sì**.  
   
 2.  Nella console di gestione accesso remoto, nel riquadro a sinistra, fare clic su **configurazione**, e quindi la **attività** riquadro, fare clic su **abilitare il bilanciamento del carico**.  
   
@@ -111,13 +111,13 @@ Utilizzare questa procedura per aggiungere EDGE2 al cluster NLB.
   
 5.  Nel **riepilogo** pagina, fare clic su **Aggiungi**.  
   
-6.  Nel **completamento** pagina, fare clic su **Chiudi**.  
+6.  Nella pagina **Completamento** fare clic su **Chiudi**.  
   
 7.  Nel **aggiungere o rimuovere server** la finestra di dialogo, fare clic su **Commit**.  
   
 8.  Nel **aggiunta e rimozione di server** la finestra di dialogo, fare clic su **Chiudi**.  
   
-9. Nella schermata **Start** Digitare**Nlbmgr. exe**e premere INVIO. Se viene visualizzata la finestra di dialogo **Controllo account utente** , verificare che l'azione visualizzata sia quella desiderata e quindi fare clic su **Sì**.  
+9. Nella schermata **Start** Digitare**Nlbmgr. exe**e premere INVIO. Se viene visualizzata la finestra di dialogo **Controllo dell'account utente**, verificare che l'azione indicata sia quella che si desidera eseguire e quindi fare clic su **Sì**.  
   
 10. In **Gestione bilanciamento carico di rete**fare clic su **cluster interno da**. Nel riquadro dei dettagli verificare che lo stato di **Edge1 (Corpnet)** e **EDGE2 (Corpnet)** sia **convergente**.  
   

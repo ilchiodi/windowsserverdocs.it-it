@@ -3,7 +3,7 @@ title: Requisiti di sistema per Windows Server Essentials
 description: Viene descritto come usare Windows Server Essentials
 ms.custom: na
 ms.date: 10/31/2013
-ms.prod: windows-server-2016-essentials
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
@@ -12,12 +12,12 @@ ms.assetid: 0951a67d-492f-41ad-9ae5-8e4cd25e3041
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 265f57745f909e0899e5e3f207aaeec2d96f6429
-ms.sourcegitcommit: 3f9bcd188dda12dc5803defb47b2c3a907504255
+ms.openlocfilehash: 1b1c34646050c3459c88b10f608d8e003e72fdef
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "77001776"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80310431"
 ---
 # <a name="system-requirements-for-windows-server-essentials"></a>Requisiti di sistema per Windows Server Essentials
 
@@ -28,7 +28,7 @@ ms.locfileid: "77001776"
   
 ## <a name="table-1-system-requirements-for-windows-server-essentials"></a>Tabella 1. Requisiti di sistema per Windows Server Essentials  
   
-|Component|Minimo|Consigliato*|Valore massimo|  
+|Component|Minimo|Consigliato*|Massimo|  
 |---------------|-------------|-------------------|-------------|  
 |Socket CPU|1,4 GHz (processore a 64 bit) o superiore per singolo core<br /><br /> 1,3 GHz (processore a 64 bit) o superiore per multi-core|3,1 GHz (processore a 64 bit) o superiore per multi-core|2 socket|  
 |Memoria (RAM)|2 GB<br /><br /> 4 GB se Windows Server Essentials viene distribuito come macchina virtuale|16 GB|64 GB|  
@@ -55,7 +55,7 @@ ms.locfileid: "77001776"
 > [!IMPORTANT]
 > I dischi dinamici non sono supportati in Windows Server Essentials.
 
-## <a name="see-also"></a>Vedi anche  
+## <a name="see-also"></a>Vedere anche  
  
 -   [Installare Windows Server Essentials](../install/Install-Windows-Server-Essentials.md)  
   

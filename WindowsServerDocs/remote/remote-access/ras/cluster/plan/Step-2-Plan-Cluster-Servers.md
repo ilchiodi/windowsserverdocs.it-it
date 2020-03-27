@@ -10,14 +10,14 @@ ms.technology: networking-ras
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 673c5bfb-b590-4932-8e54-ca0a466d90cc
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 17aadbb789052be7f33822ce49f3b797f2211d55
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 608bc4b2805639e2638ac12f74b712c812ce165f
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71367384"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80308239"
 ---
 # <a name="step-2-plan-cluster-servers"></a>Passaggio 2 pianificare i server del cluster
 
@@ -30,10 +30,10 @@ Dopo la distribuzione di un singolo server di accesso remoto, pianificare l'aggi
 |[2,1 installazione dei ruoli e delle funzionalità](#BKMK_Install).|Per ogni server che verrà aggiunto al cluster, pianificare l'installazione del ruolo accesso remoto e della funzionalità NLB di Windows (se necessario), pianificare la topologia, l'indirizzamento IP, il routing e l'inoltro.|  
 |[2,2 configurare le impostazioni del server](#BKMK_Config)|Configurare le impostazioni per ogni server che verrà aggiunto al cluster. Si noti che è possibile configurare un cluster con bilanciamento del carico dei server usando macchine virtuali. Per il corretto funzionamento del routing e della connettività, è necessario configurare le macchine virtuali per l'uso dello spoofing degli indirizzi MAC.|  
   
-## <a name="BKMK_Install"></a>2,1 installazione dei ruoli e delle funzionalità  
+## <a name="21-installing-roles-and-features"></a><a name="BKMK_Install"></a>2,1 installazione dei ruoli e delle funzionalità  
 Per ogni server che si desidera aggiungere al cluster, pianificare l'installazione del ruolo accesso remoto. Inoltre, pianificare l'installazione della funzionalità Bilanciamento carico di rete (NLB) se si desidera bilanciare il carico del traffico al cluster utilizzando bilanciamento carico di rete di Windows. Per altre informazioni, vedere [bilanciamento carico di rete](https://technet.microsoft.com/windows-server-docs/networking/technologies/network-load-balancing).  
   
-## <a name="BKMK_Config"></a>2,2 configurare le impostazioni del server  
+## <a name="22-configure-server-settings"></a><a name="BKMK_Config"></a>2,2 configurare le impostazioni del server  
 Per ogni server che verrà aggiunto al cluster, pianificare le impostazioni dell'indirizzo IP e del dominio. Tenere presente quanto segue:  
   
 1.  I server nel cluster devono appartenere tutti allo stesso dominio.  

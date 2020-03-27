@@ -5,16 +5,16 @@ ms.prod: windows-server
 ms.technology: networking-ras
 ms.topic: article
 ms.assetid: ''
-ms.author: pashort
-author: shortpatti
+ms.author: lizross
+author: eross-msft
 ms.date: 11/05/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: 8a79e590a273d7d7ccb673e5043bed2fcd1aeace
-ms.sourcegitcommit: 07c9d4ea72528401314e2789e3bc2e688fc96001
+ms.openlocfilehash: 8ebdceedbe793eba545e57fd991114158cb647be
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76822674"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80313373"
 ---
 # <a name="always-on-vpn-enhancements"></a>Miglioramenti di VPN Always On
 
@@ -72,7 +72,7 @@ Di seguito sono riportati i principali miglioramenti apportati alla connettivit�
 |            **Rilevamento della rete attendibile**            |                                                                                    Always On VPN include questa funzionalità per assicurarsi che la connettività VPN non venga attivata se un utente è connesso a una rete attendibile entro i confini aziendali. È possibile combinare questa funzionalità con uno qualsiasi dei metodi di attivazione indicati in precedenza per fornire un'esperienza utente "Connetti solo quando necessario".                                                                                     |
 | **[Tunnel del dispositivo](../vpn-device-tunnel-config.md)** | Always On VPN offre la possibilità di creare un profilo VPN dedicato per un dispositivo o un computer. A differenza del *tunnel utente*, che si connette solo dopo che un utente ha eseguito l'accesso al dispositivo o al computer, il *tunnel del dispositivo* consente alla VPN di stabilire la connettività prima dell'accesso dell'utente. Sia il tunnel del dispositivo che il tunnel utente operano in modo indipendente con i profili VPN, possono essere connessi nello stesso momento e possono usare metodi di autenticazione diversi e altre impostazioni di configurazione VPN in base alle esigenze. |
 
-## <a name="networking"></a>Funzionalità di rete di
+## <a name="networking"></a>Rete
 
 Di seguito sono riportati alcuni miglioramenti di rete in Always On VPN:
 

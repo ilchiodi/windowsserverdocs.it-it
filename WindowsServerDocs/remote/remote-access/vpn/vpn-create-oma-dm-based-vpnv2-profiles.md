@@ -11,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2018
-ms.author: pashort
-author: shortpatti
+ms.author: lizross
+author: eross-msft
 ms.localizationpriority: medium
 ms.reviewer: deverette
-ms.openlocfilehash: 804b7314054691fa0abc19f1cc4e4bffbd6457cf
-ms.sourcegitcommit: 07c9d4ea72528401314e2789e3bc2e688fc96001
+ms.openlocfilehash: 1f004ec59c8d2eac2a944a69bbbfc9af76b39826
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76822444"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80307725"
 ---
 # <a name="step-75-create-oma-dm-based-vpnv2-profiles-to-windows-10-devices"></a>Passaggio 7.5. Creare profili VPNv2 basati su OMA-DM per i dispositivi Windows 10
 
@@ -63,7 +63,7 @@ Il computer client Windows 10 è già stato configurato con una connessione VPN 
 
     ![Accesso condizionale per Always On VPN-proprietà](../../media/Always-On-Vpn/vpn-conditional-access-azure-ad.png)
 
-5. Seleziona **OK**.
+5. Scegliere **OK**.
 
 6. Selezionare **assegnazioni**, in Includi, selezionare **Seleziona gruppi da includere**.
 

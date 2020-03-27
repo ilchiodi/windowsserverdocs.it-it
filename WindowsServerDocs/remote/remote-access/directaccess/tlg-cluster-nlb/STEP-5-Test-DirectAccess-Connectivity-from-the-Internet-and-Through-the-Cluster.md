@@ -10,14 +10,14 @@ ms.technology: networking-da
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 8399bdfa-809a-45e4-9963-f9b6a631007f
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 1b5708e51b2653444fb3eb636baac6a165dfc55d
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 92641ccf19f77becd9ed5476cd8c0178f4090f49
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71404845"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80310829"
 ---
 # <a name="step-5-test-directaccess-connectivity-from-the-internet-and-through-the-cluster"></a>PASSAGGIO 5 testare la connettività DirectAccess da Internet e tramite il cluster
 
@@ -50,11 +50,11 @@ CLIENT1 è ora pronto per il test di DirectAccess.
   
 6. Lasciare aperta la finestra di Windows PowerShell per la procedura successiva.  
   
-7. Aprire Internet Explorer, nella barra degli indirizzi di Internet Explorer, immettere **https://app1/** e premere INVIO. Viene visualizzato il sito Web IIS predefinito in APP1.  
+7. Aprire Internet Explorer, nella barra degli indirizzi di Internet Explorer immettere **https://app1/** e premere INVIO. Viene visualizzato il sito Web IIS predefinito in APP1.  
   
 8. Nella barra degli indirizzi di Internet Explorer immettere **https://app2/** e premere INVIO. Viene visualizzato il sito Web predefinito in APP2.  
   
-9. Nella schermata **Start** Digitare<strong>\\ \ App2\Files</strong>, quindi premere INVIO. Fare doppio clic sul file Nuovo documento di testo.  
+9. Nella schermata **Start** Digitare<strong>\\\App2\Files</strong>, quindi premere INVIO. Fare doppio clic sul file Nuovo documento di testo.  
   
     Ciò dimostra che è stato possibile connettersi a un server solo IPv4 usando SMB per ottenere una risorsa nel dominio delle risorse.  
   
@@ -62,7 +62,7 @@ CLIENT1 è ora pronto per il test di DirectAccess.
   
 11. Nel **Windows Firewall con la console di sicurezza avanzata** si noti che è attivo solo il profilo **privato** o **pubblico** . Per il corretto funzionamento di DirectAccess, è necessario abilitare il Windows Firewall. Se la Windows Firewall è disabilitata, la connettività DirectAccess non funziona.  
   
-12. Nel riquadro sinistro della console espandere il nodo **monitoraggio** , quindi fare clic sul nodo **regole di sicurezza della connessione** . Verranno visualizzate le regole di sicurezza della connessione attive: **Criteri DirectAccess-ClientToCorp**, **Criteri DirectAccess-ClientToDNS64NAT64PrefixExemption**, **Criteri DirectAccess-ClientToInfra**e **Criteri DirectAccess-ClientToNlaExempt**. Scorrere il riquadro centrale a destra per visualizzare i **primi metodi di autenticazione** e **2 colonne metodi di autenticazione** . Si noti che la prima regola (ClientToCorp) USA Kerberos V5 per stabilire il tunnel della Intranet e la terza regola (ClientToInfra) USA NTLMv2 per stabilire il tunnel dell'infrastruttura.  
+12. Nel riquadro sinistro della console espandere il nodo **monitoraggio** , quindi fare clic sul nodo **regole di sicurezza della connessione** . Verranno visualizzate le regole di sicurezza della connessione attive, ovvero **Criteri DirectAccess-ClientToCorp**, **Criteri DirectAccess-ClientToDNS64NAT64PrefixExemption**, **Criteri DirectAccess-ClientToInfra**e **Criteri DirectAccess-ClientToNlaExempt**. Scorrere il riquadro centrale a destra per visualizzare i **primi metodi di autenticazione** e **2 colonne metodi di autenticazione** . Si noti che la prima regola (ClientToCorp) USA Kerberos V5 per stabilire il tunnel della Intranet e la terza regola (ClientToInfra) USA NTLMv2 per stabilire il tunnel dell'infrastruttura.  
   
 13. Nel riquadro sinistro della console espandere il nodo Associazioni di **sicurezza** e fare clic sul nodo **modalità principale** . Si notino le associazioni di sicurezza del tunnel dell'infrastruttura usando NTLMv2 e l'associazione di sicurezza del tunnel Intranet tramite Kerberos V5. Fare clic con il pulsante destro del mouse sulla voce che mostra l' **utente (Kerberos V5)** come **secondo metodo di autenticazione** e fare clic su **proprietà**. Nella scheda **generale** si noti che il **secondo ID locale di autenticazione** è **Corp\user1.** , che indica che User1 è stato in grado di eseguire l'autenticazione al dominio Corp tramite Kerberos.  
   
@@ -76,7 +76,7 @@ CLIENT1 è ora pronto per il test di DirectAccess.
   
 3. Nella finestra di Windows PowerShell, effettuare il ping di APP1 e APP2. Si dovrebbero ricevere risposte da entrambe le risorse.  
   
-4. Nella schermata **Start** Digitare<strong>\\ \ app2\files</strong>. Dovrebbe essere visualizzata la cartella condivisa nel computer APP2. La possibilità di aprire la condivisione file in APP2 indica che il secondo tunnel, che richiede l'autenticazione Kerberos per l'utente, funziona correttamente.  
+4. Nella schermata **Start** Digitare<strong>\\\app2\files</strong>. Dovrebbe essere visualizzata la cartella condivisa nel computer APP2. La possibilità di aprire la condivisione file in APP2 indica che il secondo tunnel, che richiede l'autenticazione Kerberos per l'utente, funziona correttamente.  
   
 5. Aprire Internet Explorer, quindi aprire i siti Web https://app1/ e https://app2/. La possibilità di aprire entrambi i siti Web conferma che il primo e il secondo tunnel sono operativi. Chiudere Internet Explorer.  
   

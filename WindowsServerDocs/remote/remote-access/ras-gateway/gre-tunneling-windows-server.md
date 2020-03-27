@@ -6,14 +6,14 @@ ms.prod: windows-server
 ms.technology: networking-ras
 ms.topic: article
 ms.assetid: df2023bf-ba64-481e-b222-6f709edaa5c1
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: be57bc0ce1b509c49f269618765c79f380fd3b12
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: d246f0e56681f75e4336ed225d1557a0e05c581b
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71404673"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80308549"
 ---
 # <a name="gre-tunneling-in-windows-server-2016"></a>Tunneling GRE in Windows Server 2016
 
@@ -64,19 +64,19 @@ Di seguito sono riportati alcuni scenari di esempio:
 
 Di seguito sono riportati gli scenari principali a cui viene indirizzata la funzionalità del tunnel GRE.  
   
-### <a name="BKMK_Access"></a>Accesso dalle reti virtuali tenant alle reti fisiche tenant
+### <a name="access-from-tenant-virtual-networks-to-tenant-physical-networks"></a><a name="BKMK_Access"></a>Accesso dalle reti virtuali tenant alle reti fisiche tenant
 
 Questo scenario consente un modo scalabile per fornire l'accesso dalle reti virtuali tenant alle reti fisiche dei tenant situate nella sede del provider di servizi di hosting. Un endpoint del tunnel GRE viene stabilito sul gateway multi-tenant, l'altro endpoint del tunnel GRE viene stabilito in un dispositivo di terze parti sulla rete fisica. Il traffico di livello 3 viene instradato tra le macchine virtuali nella rete virtuale e il dispositivo di terze parti sulla rete fisica.  
   
 ![Tunnel GRE che connette la rete fisica dell'hoster e la rete virtuale tenant](../../media/gre-tunneling-in-windows-server/GRE_.png)  
   
-### <a name="BKMK_Speed"></a>Connettività ad alta velocità
+### <a name="high-speed-connectivity"></a><a name="BKMK_Speed"></a>Connettività ad alta velocità
 
 Questo scenario consente un modo scalabile per offrire connettività ad alta velocità dalla rete locale del tenant alla rete virtuale che si trova nella rete del provider di servizi di hosting. Un tenant si connette alla rete del provider di servizi tramite la modalità MPLS (Multiprotocol Label Switching), in cui viene stabilito un tunnel GRE tra il router perimetrale del provider di servizi di hosting e il gateway multi-tenant per la rete virtuale del tenant.  
   
 ![GRE tunnel Connecting tenant Enterprise MPLS Network e rete virtuale tenant](../../media/gre-tunneling-in-windows-server/GRE-.png)  
   
-### <a name="BKMK_Integration"></a>Integrazione con isolamento basato su VLAN
+### <a name="integration-with-vlan-based-isolation"></a><a name="BKMK_Integration"></a>Integrazione con isolamento basato su VLAN
 
 Questo scenario consente di integrare l'isolamento basato su VLAN con la virtualizzazione rete Hyper-V. Una rete fisica nella rete del provider di hosting contiene un servizio di bilanciamento del carico che usa l'isolamento basato su VLAN. Un gateway multi-tenant stabilisce Tunnel GRE tra il servizio di bilanciamento del carico nella rete fisica e il gateway multi-tenant nella rete virtuale.  
   
@@ -84,7 +84,7 @@ Questo scenario consente di integrare l'isolamento basato su VLAN con la virtual
   
 ![Più Tunnel GRE che connettono reti virtuali tenant](../../media/gre-tunneling-in-windows-server/GRE-VLANIsolation.png)  
   
-### <a name="BKMK_Shared"></a>Accedere alle risorse condivise
+### <a name="access-shared-resources"></a><a name="BKMK_Shared"></a>Accedere alle risorse condivise
 
 Questo scenario consente di accedere alle risorse condivise in una rete fisica situata nella rete del provider di hosting.  
   
@@ -96,7 +96,7 @@ In questo scenario, il gateway single-tenant può essere sostituito da appliance
   
 ![Un gateway a tenant singolo che usa più tunnel per connettere più reti virtuali](../../media/gre-tunneling-in-windows-server/GRE-SharedResource.png)  
   
-### <a name="BKMK_thirdparty"></a>Servizi di dispositivi di terze parti per i tenant
+### <a name="services-of-third-party-devices-to-tenants"></a><a name="BKMK_thirdparty"></a>Servizi di dispositivi di terze parti per i tenant
 
 Questo scenario può essere usato per integrare i dispositivi di terze parti, ad esempio i bilanciamenti del carico hardware, nel flusso del traffico della rete virtuale del tenant. Ad esempio, il traffico originato da un sito aziendale passa attraverso un tunnel S2S al gateway multi-tenant. Il traffico viene indirizzato al servizio di bilanciamento del carico su un tunnel GRE. Il servizio di bilanciamento del carico instrada il traffico verso più macchine virtuali nella rete virtuale dell'organizzazione. La stessa cosa accade per un altro tenant con indirizzi IP potenzialmente sovrapposti nelle reti virtuali. Il traffico di rete è isolato nel servizio di bilanciamento del carico usando le VLAN ed è applicabile a tutti i dispositivi di livello 3 che supportano le VLAN.  
   
@@ -110,7 +110,7 @@ Vedere l'argomento seguente per un esempio che distribuisce i gateway, inclusi i
   
 [Distribuire un'infrastruttura software defined Network usando gli script](../../../networking/sdn/deploy/Deploy-a-Software-Defined-Network-infrastructure-using-scripts.md)
   
-## <a name="more-information"></a>Ulteriori informazioni
+## <a name="more-information"></a>Altre informazioni
 
 Per ulteriori informazioni sulla distribuzione di gateway S2S, vedere gli argomenti seguenti:  
   

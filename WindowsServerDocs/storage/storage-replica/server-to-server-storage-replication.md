@@ -7,14 +7,14 @@ ms.author: nedpyle
 ms.technology: storage-replica
 ms.topic: get-started-article
 author: nedpyle
-ms.date: 04/26/2019
+ms.date: 03/26/2020
 ms.assetid: 61881b52-ee6a-4c8e-85d3-702ab8a2bd8c
-ms.openlocfilehash: a21000e857d702846703deb4f55380e1a998f6d2
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 9873378d62ccc7b53dcc6fc629651df2aa1c6708
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71402954"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80308109"
 ---
 # <a name="server-to-server-storage-replication-with-storage-replica"></a>Replica archiviazione da server a server con replica archiviazione
 
@@ -50,7 +50,7 @@ Molti di questi requisiti possono essere determinati mediante il `Test-SRTopolog
 
 Per usare la replica di archiviazione e il centro di amministrazione di Windows, è necessario quanto segue:
 
-| Sistema                        | Sistema operativo                                            | Obbligatorio per     |
+| System                        | Sistema operativo                                            | Richiesto per     |
 |-------------------------------|-------------------------------------------------------------|------------------|
 | Due server <br>(qualsiasi combinazione di hardware locale, VM e macchine virtuali cloud, incluse le macchine virtuali di Azure)| Windows Server 2019, Windows Server 2016 o Windows Server (canale semestrale) | Replica archiviazione  |
 | Un PC                     | Windows 10                                                  | Windows Admin Center |
@@ -67,14 +67,14 @@ Questa procedura dettagliata usa l'ambiente seguente come esempio:
 
 ![Diagramma che mostra la replica di un server in Building 5 con un server in Building 9](media/Server-to-Server-Storage-Replication/Storage_SR_ServertoServer.png)  
 
-**Figura 1: Replica da server a server**  
+**Figura 1: replica da server a server**  
 
-## <a name="step-1-install-and-configure-windows-admin-center-on-your-pc"></a>Passaggio 1: Installare e configurare l'interfaccia di amministrazione di Windows nel PC
+## <a name="step-1-install-and-configure-windows-admin-center-on-your-pc"></a>Passaggio 1: installare e configurare l'interfaccia di amministrazione di Windows nel PC
 
 Se si usa l'interfaccia di amministrazione di Windows per gestire replica di archiviazione, seguire questa procedura per preparare il PC alla gestione della replica di archiviazione.
 1. Scaricare e installare l'interfaccia di [amministrazione di Windows](../../manage/windows-admin-center/overview.md).
 2. Scaricare e installare il [strumenti di amministrazione remota del server](https://www.microsoft.com/download/details.aspx?id=45520).
-    - Se si usa Windows 10 versione 1809 o successiva, installare "strumenti di amministrazione remota del server: Modulo replica di archiviazione per Windows PowerShell "dalle funzionalità su richiesta.
+    - Se si usa Windows 10, versione 1809 o successiva, installare il modulo "amministrazione remota del server per Windows PowerShell" da funzionalità su richiesta.
 3. Aprire una sessione di PowerShell come amministratore selezionando il pulsante **Start** , digitando **PowerShell**, facendo clic con il pulsante destro del mouse su **Windows PowerShell** e quindi scegliendo **Esegui come amministratore**.
 4. Immettere il comando seguente per abilitare il protocollo WS-Management nel computer locale e configurare la configurazione predefinita per la gestione remota nel client.
 
@@ -84,11 +84,14 @@ Se si usa l'interfaccia di amministrazione di Windows per gestire replica di arc
 
 5. Digitare **Y** per abilitare i servizi WinRM e abilitare l'eccezione del firewall WinRM.
 
-## <a name="provision-os"></a>Passaggio 2: Effettuare il provisioning di sistema operativo, funzionalità, ruoli, archiviazione e rete
+## <a name="step-2-provision-operating-system-features-roles-storage-and-network"></a><a name="provision-os"></a>Passaggio 2: provisioning del sistema operativo, funzionalità, ruoli, archiviazione e rete
 
 1.  Installare Windows Server in entrambi i nodi del server con un tipo di installazione di Windows Server **(esperienza desktop)** . 
  
     Per usare una macchina virtuale di Azure connessa alla rete tramite un ExpressRoute, vedere [aggiunta di una macchina virtuale di Azure connessa alla rete tramite ExpressRoute](#add-azure-vm-expressroute).
+    
+    > [!NOTE]
+    > A partire da Windows Admin Center versione 1910, è possibile configurare automaticamente un server di destinazione in Azure. Se si sceglie questa opzione, installare Windows Server nel server di origine e quindi andare al [passaggio 3: configurare la replica da server a server](#step-3-set-up-server-to-server-replication). 
 
 3.  Aggiungere le informazioni di rete, aggiungere i server allo stesso dominio del PC Windows 10 Management (se ne viene usato uno), quindi riavviare i server.  
 
@@ -188,9 +191,9 @@ Se si usa l'interfaccia di amministrazione di Windows per gestire replica di arc
 
     ![Schermata che mostra il report della topologia](media/Server-to-Server-Storage-Replication/SRTestSRTopologyReport.png)
 
-    **Figura 2: Report della topologia di replica di archiviazione**
+    **Figura 2: report della topologia di replica di archiviazione**
 
-## <a name="step-3-set-up-server-to-server-replication"></a>Passaggio 3: Configurare la replica da server a server
+## <a name="step-3-set-up-server-to-server-replication"></a>Passaggio 3: configurare la replica da server a server
 ### <a name="using-windows-admin-center"></a>Uso dell'interfaccia di amministrazione di Windows
 
 1. Aggiungere il server di origine.
@@ -199,16 +202,25 @@ Se si usa l'interfaccia di amministrazione di Windows per gestire replica di arc
     3. Digitare il nome del server e quindi selezionare **Invia**.
 2. Nella pagina **tutte le connessioni** selezionare il server di origine.
 3. Selezionare **replica archiviazione** dal pannello strumenti.
-4. Selezionare **nuovo** per creare una nuova relazione.
-5. Specificare i dettagli della relazione e quindi selezionare **Crea**. <br>
-   ![La nuova schermata del partenariato che mostra i dettagli del partenariato, ad esempio le dimensioni del log da 8 GB.](media/Storage-Replica-UI/Honolulu_SR_Create_Partnership.png)
+4. Selezionare **nuovo** per creare una nuova relazione. Per creare una nuova macchina virtuale di Azure da usare come destinazione per la partnership:
+   
+    1. In **replica con un altro server** selezionare **Usa una nuova VM di Azure** e quindi fare clic su **Avanti**. Se questa opzione non è visualizzata, assicurarsi di usare la versione 1910 o successiva di Windows Admin Center.
+    2. Specificare le informazioni del server di origine e il nome del gruppo di replica, quindi selezionare **Avanti**.<br><br>Viene avviato un processo che seleziona automaticamente una macchina virtuale di Azure Windows Server 2019 o Windows Server 2016 come destinazione per l'origine della migrazione. Il servizio migrazione archiviazione consiglia di usare le dimensioni delle macchine virtuali in base all'origine, ma è possibile eseguire l'override selezionando **Visualizza tutte le dimensioni**. I dati di inventario vengono usati per configurare automaticamente i dischi gestiti e i file System, nonché per aggiungere la nuova VM di Azure al dominio Active Directory.
+    3. Quando l'interfaccia di amministrazione di Windows crea la macchina virtuale di Azure, specificare un nome per il gruppo di replica e quindi selezionare **Crea**. L'interfaccia di amministrazione di Windows inizia quindi il normale processo di sincronizzazione iniziale della replica di archiviazione per iniziare a proteggere i dati.
+    
+    Ecco un video che illustra come usare replica di archiviazione per eseguire la migrazione alle macchine virtuali di Azure.
 
-    **Figura 3: Creazione di una nuova partnership**
+    > [!VIDEO https://www.youtube-nocookie.com/embed/_VqD7HjTewQ] 
+
+5. Specificare i dettagli della relazione e quindi selezionare **Crea** (come illustrato nella figura 3). <br>
+   ![la nuova schermata del partenariato che mostra i dettagli della partnership, ad esempio le dimensioni del log da 8 GB.](media/Storage-Replica-UI/Honolulu_SR_Create_Partnership.png)
+
+    **Figura 3: creazione di una nuova partnership**
 
 > [!NOTE]
 > La rimozione della relazione da replica archiviazione nell'interfaccia di amministrazione di Windows non comporta la rimozione del nome del gruppo di replica.
 
-### <a name="using-windows-powershell"></a>Tramite Windows PowerShell
+### <a name="using-windows-powershell"></a>Uso di Windows PowerShell
 
 Ora è necessario configurare la replica da server a server con PowerShell. È necessario eseguire tutti i passaggi seguenti nei nodi direttamente o da un computer di gestione remota che contiene il Strumenti di amministrazione remota del server di Windows Server.  
 
@@ -287,9 +299,9 @@ Ora è necessario configurare la replica da server a server con PowerShell. È n
         ```  
 
         > [!NOTE]
-        > Replica archiviazione smonta i volumi di destinazione e i relativi punti di montaggio o lettere dell'unità. Questo comportamento è da progettazione.  
+        > Replica archiviazione smonta i volumi di destinazione e i relativi punti di montaggio o lettere dell'unità. Si tratta di un comportamento legato alla progettazione del prodotto.  
 
-    3.  In alternativa, il gruppo del server di destinazione per la replica indica in qualsiasi momento il numero di byte rimanenti da copiare, inoltre è possibile eseguire query tramite PowerShell. Esempio:  
+    3.  In alternativa, il gruppo del server di destinazione per la replica indica in qualsiasi momento il numero di byte rimanenti da copiare, inoltre è possibile eseguire query tramite PowerShell. Ad esempio,  
 
         ```PowerShell  
         (Get-SRGroup).Replicas | Select-Object numofbytesremaining  
@@ -312,7 +324,7 @@ Ora è necessario configurare la replica da server a server con PowerShell. È n
         Get-WinEvent -ProviderName Microsoft-Windows-StorageReplica | FL  
         ```  
 
-## <a name="step-4-manage-replication"></a>Passaggio 4: Gestire la replica
+## <a name="step-4-manage-replication"></a>Passaggio 4: gestire la replica
 
 Ora, proseguire con la gestione e l'uso dell'infrastruttura replicata da server a server. È possibile eseguire tutti i passaggi seguenti nei nodi direttamente o da un computer di gestione remota che contiene il Strumenti di amministrazione remota del server di Windows Server.  
 
@@ -326,23 +338,23 @@ Ora, proseguire con la gestione e l'uso dell'infrastruttura replicata da server 
 
     -   \Statistiche I/O partizione Replica archiviazione(*)\Numero richieste ultima scrittura log  
 
-    -   \Statistiche I/O partizione Replica archiviazione(*)\ Lunghezza media coda scaricamento  
+    -   \Statistiche I/O partizione Replica archiviazione(*)\Lunghezza media coda scaricamento  
 
     -   \Statistiche I/O partizione Replica archiviazione(*)\Lunghezza coda scaricamento corrente  
 
     -   \Statistiche I/O partizione Replica archiviazione(*)\Numero richieste scrittura applicazione  
 
-    -   \Statistiche I/O partizione Replica archiviazione(*)\ Numero medio di richieste per scrittura di log  
+    -   \Statistiche I/O partizione Replica archiviazione(*)\Numero medio di richieste per scrittura di log  
 
-    -   \Statistiche I/O partizione Replica archiviazione(*)\ Latenza media scrittura app  
+    -   \Statistiche I/O partizione Replica archiviazione(*)\Latenza media scrittura app  
 
-    -   \Statistiche I/O partizione Replica archiviazione(*)\ Latenza media lettura app  
+    -   \Statistiche I/O partizione Replica archiviazione(*)\Latenza media lettura app  
 
     -   \Statistiche Replica archiviazione(*)\RPO destinazione  
 
     -   \Statistiche Replica archiviazione(*)\RPO corrente  
 
-    -   \Statistiche Replica archiviazione(*)\ Lunghezza media coda log  
+    -   \Statistiche Replica archiviazione(*)\Lunghezza media coda log  
 
     -   \Statistiche Replica archiviazione(*)\Lunghezza coda log corrente  
 
@@ -350,11 +362,11 @@ Ora, proseguire con la gestione e l'uso dell'infrastruttura replicata da server 
 
     -   \Statistiche Replica archiviazione(*)\Totale byte inviati  
 
-    -   \Statistiche Replica archiviazione(*)\ Latenza media invio rete  
+    -   \Statistiche Replica archiviazione(*)\Latenza media invio rete  
 
     -   \Statistiche Replica archiviazione(*)\Stato replica  
 
-    -   \Statistiche Replica archiviazione(*)\ Latenza media round trip messaggio  
+    -   \Statistiche Replica archiviazione(*)\Latenza media round trip messaggio  
 
     -   \Statistiche Replica archiviazione\Tempo trascorso ultimo ripristino  
 
@@ -428,28 +440,28 @@ Il processo è così suddiviso a un livello elevato:
    > [!NOTE]
    > La pianificazione del ripristino di emergenza è un argomento complesso e che richiede particolare attenzione ai dettagli. È consigliabile creare runbook ed eseguire annualmente le esercitazioni di failover in tempo reale. Quando si verifica un'emergenza effettiva, regnerà il caos e il personale esperto potrebbe non essere disponibile.  
 
-## <a name="add-azure-vm-expressroute"></a>Aggiunta di una macchina virtuale di Azure connessa alla rete tramite ExpressRoute
+## <a name="adding-an-azure-vm-connected-to-your-network-via-expressroute"></a><a name="add-azure-vm-expressroute"></a>Aggiunta di una macchina virtuale di Azure connessa alla rete tramite ExpressRoute
 
 1. [Creare un ExpressRoute nel portale di Azure](https://docs.microsoft.com/azure/expressroute/expressroute-howto-circuit-portal-resource-manager).<br>Una volta approvata la ExpressRoute, viene aggiunto un gruppo di risorse alla sottoscrizione. passare a **gruppi di risorse** per visualizzare questo nuovo gruppo. Prendere nota del nome della rete virtuale.
 ![portale di Azure che mostra il gruppo di risorse aggiunto con ExpressRoute](media/Server-to-Server-Storage-Replication/express-route-resource-group.png)
     
-    **Figura 4: Risorse associate a un ExpressRoute. prendere nota del nome della rete virtuale**
+    **Figura 4: risorse associate a un ExpressRoute. prendere nota del nome della rete virtuale**
 1. [Creare un nuovo gruppo di risorse](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal).
 1. [Aggiungere un gruppo di sicurezza di rete](https://docs.microsoft.com/azure/virtual-network/virtual-networks-create-nsg-arm-pportal). Al momento della creazione, selezionare l'ID sottoscrizione associato al ExpressRoute creato e selezionare il gruppo di risorse appena creato.
 <br><br>Aggiungere le regole di sicurezza in ingresso e in uscita necessarie al gruppo di sicurezza di rete. Ad esempio, potrebbe essere necessario consentire l'accesso Desktop remoto alla macchina virtuale.
 1. [Creare una macchina virtuale di Azure](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal) con le impostazioni seguenti (mostrate nella figura 5):
-    - **Indirizzo IP pubblico**: Nessuno
-    - **Rete virtuale**: Selezionare la rete virtuale di cui si è preso nota dal gruppo di risorse aggiunto con ExpressRoute.
-    - **Gruppo di sicurezza di rete (firewall)** : Selezionare il gruppo di sicurezza di rete creato in precedenza.
-    ![Creare una macchina virtuale con le impostazioni](media/Server-to-Server-Storage-Replication/azure-vm-express-route.png)
-    **di rete ExpressRoute figura 5: Creazione di una macchina virtuale durante la selezione delle impostazioni di rete ExpressRoute**
-1. Dopo aver creato la VM, vedere [passaggio 2: Effettuare il provisioning di sistema operativo, funzionalità, ruoli](#provision-os), archiviazione e rete.
+    - **Indirizzo IP pubblico**: nessuno
+    - **Rete virtuale**: selezionare la rete virtuale di cui si è preso nota dal gruppo di risorse aggiunto con ExpressRoute.
+    - **Gruppo di sicurezza di rete (firewall)** : selezionare il gruppo di sicurezza di rete creato in precedenza.
+    ![creare una macchina virtuale con le impostazioni di rete ExpressRoute](media/Server-to-Server-Storage-Replication/azure-vm-express-route.png)
+    **Figura 5: creazione di una VM durante la selezione delle impostazioni di rete ExpressRoute**
+1. Dopo aver creato la VM, vedere [Step 2: provisioning Operating System, features, Roles, storage e Network](#provision-os).
 
 
 ## <a name="related-topics"></a>Argomenti correlati  
 - [Panoramica di replica archiviazione](storage-replica-overview.md)  
 - [Replica del cluster esteso tramite l'archiviazione condivisa](stretch-cluster-replication-using-shared-storage.md)  
 - [Replica di archiviazione da cluster a cluster](cluster-to-cluster-storage-replication.md)
-- [Replica di archiviazione: Problemi noti](storage-replica-known-issues.md)  
-- [Replica di archiviazione: domande frequenti](storage-replica-frequently-asked-questions.md)
+- [Replica archiviazione: problemi noti](storage-replica-known-issues.md)  
+- [Replica archiviazione: domande frequenti](storage-replica-frequently-asked-questions.md)
 - [Spazi di archiviazione diretta in Windows Server 2016](../storage-spaces/storage-spaces-direct-overview.md)  

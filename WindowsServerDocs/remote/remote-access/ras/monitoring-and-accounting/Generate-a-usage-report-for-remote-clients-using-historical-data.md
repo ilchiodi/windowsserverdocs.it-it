@@ -10,14 +10,14 @@ ms.technology: networking-ras
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 0305467b-ce39-4532-a05a-2cc5ff946f55
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: bae50345e8a6fd4018857e2a754d0274ce02855d
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: ce5219feca1d55191352d95f2aac017709a5a449
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71367248"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80314298"
 ---
 # <a name="generate-a-usage-report-for-remote-clients-using-historical-data"></a>Generare un report di utilizzo per i client remoti usando i dati cronologici
 
@@ -32,7 +32,7 @@ La console di gestione nel server di accesso remoto consente di generare un repo
   
 #### <a name="to-enable-accounting-on-the-remote-access-server"></a>Per attivare l'accounting sul Server di accesso remoto  
   
-1.  In **Server Manager**, fare clic su **strumenti**, quindi fare clic su **Gestione accesso remoto**.  
+1.  In **Server Manager** fare clic su **Strumenti** e quindi su **Gestione Accesso remoto**.  
   
 2.  Fare clic su **REPORTING** per passare a **Remote Access Reporting** nel **Console Gestione accesso remoto**.  
   
@@ -44,7 +44,7 @@ La console di gestione nel server di accesso remoto consente di generare un repo
   
 #### <a name="to-generate-the-usage-report"></a>Per generare il report di utilizzo  
   
-1.  In **Server Manager**, fare clic su **strumenti**, quindi fare clic su **Gestione accesso remoto**.  
+1.  In **Server Manager** fare clic su **Strumenti** e quindi su **Gestione Accesso remoto**.  
   
 2.  Fare clic su **REPORTING** per passare a **Remote Access Reporting** nel **Console Gestione accesso remoto**.  
   
@@ -61,7 +61,7 @@ La console di gestione nel server di accesso remoto consente di generare un repo
   
 ![](../../../media/Generate-a-usage-report-for-remote-clients-using-historical-data/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em> per Windows PowerShell***  
   
-Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.  
+Tramite i cmdlet di Windows PowerShell seguenti viene eseguita la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se è possibile il ritorno a capo automatico in diverse righe a causa di limiti di formattazione.  
   
 Nello script seguente, modificare l'intervallo di date per cui si desidera un report nel **- StartDateTime** e **- EndDateTime** parametri.  
   

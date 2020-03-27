@@ -10,14 +10,14 @@ ms.technology: networking-ras
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 1459819a-b1b6-4800-8770-4a85d02c7a2b
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 2b9065b2d4541063c8cd6f09d47f48a9ba7833e1
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 6437a7aa5a535352ad4f6c6be8fbac2162b6feea
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71404657"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80308435"
 ---
 # <a name="manage-remote-access"></a>Gestire l'accesso remoto
 
@@ -33,7 +33,7 @@ Windows Server 2016 e Windows Server 2012 combinano DirectAccess e la VPN del se
 > -   [Usare il monitoraggio e l'accounting di Accesso remoto](monitoring-and-accounting/Use-Remote-Access-Monitoring-and-Accounting.md)  
 > -   [Gestire i client DirectAccess in remoto](manage-remote-clients/Manage-DirectAccess-Clients-Remotely.md)  
   
-## <a name="BKMK_OVER"></a>Descrizione dello scenario  
+## <a name="scenario-description"></a><a name="BKMK_OVER"></a>Descrizione dello scenario  
 Poiché i computer client DirectAccess vengono connessi alla Intranet ogni volta che vengono connessi a Internet, indipendentemente dal fatto che l'utente abbia eseguito l'accesso al computer, possono essere gestiti come risorse Intranet e mantenuti aggiornati con modifiche ai Criteri di gruppo, aggiornamenti del sistema operativo, aggiornamenti antimalware e altre modifiche organizzative.  
   
 In alcuni casi, i computer o i server Intranet devono avviare connessioni ai client DirectAccess. I tecnici del supporto possono ad esempio usare le connessioni Desktop remoto per connettersi ai client DirectAccess remoti e risolverne i problemi. Questo scenario consente di mantenere la soluzione di accesso remoto esistente per la connettività degli utenti, usando DirectAccess per la gestione remota.  
@@ -47,16 +47,16 @@ DirectAccess fornisce una configurazione che supporta la gestione remota dei cli
 Lo scenario di distribuzione della gestione remota dei client DirectAccess include i passaggi seguenti per la pianificazione e la configurazione.  
   
 ### <a name="plan-the-deployment"></a>Pianificare la distribuzione  
-Per la pianificazione di questo scenario sono previsti solo alcuni requisiti per i computer e la rete. Essi includono:  
+Per la pianificazione di questo scenario sono previsti solo alcuni requisiti per i computer e la rete. Tali impostazioni includono:  
   
 -   **Topologia di rete e di server**: con DirectAccess è possibile collocare il server di Accesso remoto alla periferia della Intranet o dietro un dispositivo NAT (Network Address Translation) o un firewall.  
   
--   **Server dei percorsi di rete DirectAccess**: Il server dei percorsi di rete viene usato dai client DirectAccess per determinare se si trovano sulla rete interna. Il server dei percorsi di rete può essere installato nei server DirectAccess o in un altro server.  
+-   **Server dei percorsi di rete DirectAccess**: il server dei percorsi di rete viene usato dai client DirectAccess per determinare se si trovano sulla rete interna. Il server dei percorsi di rete può essere installato nei server DirectAccess o in un altro server.  
   
--   **Client DirectAccess**: Stabilire quali computer gestiti saranno configurati come client DirectAccess.  
+-   **Client DirectAccess**: stabilire quali computer gestiti saranno configurati come client DirectAccess.  
   
 ### <a name="configure-the-deployment"></a>Configurare la distribuzione  
-La configurazione della distribuzione prevede alcuni passaggi. Sono inclusi:  
+La configurazione della distribuzione prevede alcuni passaggi. tra cui:  
   
 1.  **Configurare l'infrastruttura**: Configurare le impostazioni DNS, aggiungere i computer client e server a un dominio, se necessario, e configurare i gruppi di sicurezza di Active Directory.  
   
@@ -64,7 +64,7 @@ La configurazione della distribuzione prevede alcuni passaggi. Sono inclusi:
   
 2.  **Configurare le impostazioni di rete e del server di Accesso remoto**: configurare le schede di rete, gli indirizzi IP e il routing.  
   
-3.  **Configurare le impostazioni dei certificati**: In questo scenario di distribuzione, la procedura guidata Introduzione crea certificati autofirmati, pertanto non è necessario configurare l'infrastruttura di certificazione più avanzata.  
+3.  **Configurare le impostazioni dei certificati**: in questo scenario di distribuzione, la procedura guidata Introduzione crea certificati autofirmati, pertanto non è necessario configurare l'infrastruttura di certificazione più avanzata.  
   
 4.  **Configurare il server dei percorsi di rete**:  in questo scenario il server dei percorsi di rete viene installato nel server di Accesso remoto.  
   
@@ -74,22 +74,22 @@ La configurazione della distribuzione prevede alcuni passaggi. Sono inclusi:
   
 7.  **Verificare la distribuzione**: testare un client per verificare che sia in grado di connettersi alla rete interna e a Internet con DirectAccess.  
   
-## <a name="BKMK_APP"></a>Applicazioni pratiche  
+## <a name="practical-applications"></a><a name="BKMK_APP"></a>Applicazioni pratiche  
 La distribuzione di un singolo server di Accesso remoto per la gestione dei client DirectAccess offre quanto indicato di seguito:  
   
--   **Accessibilità**: I computer client gestiti che eseguono Windows 8 o Windows 7 possono essere configurati come computer client DirectAccess. Questi client possono accedere alle risorse di rete interne con DirectAccess ogni volta che sono connessi a Internet, senza dover accedere a una connessione VPN. I computer client che non eseguono uno di questi sistemi operativi possono connettersi alla rete interna tramite una VPN. DirectAccess e VPN sono gestiti nella stessa console e con lo stesso gruppo di procedure guidate.  
+-   **Accessibilità: i**computer client gestiti che eseguono Windows 8 o Windows 7 possono essere configurati come computer client DirectAccess. Questi client possono accedere alle risorse di rete interne con DirectAccess ogni volta che sono connessi a Internet, senza dover accedere a una connessione VPN. I computer client che non eseguono uno di questi sistemi operativi possono connettersi alla rete interna tramite una VPN. DirectAccess e VPN sono gestiti nella stessa console e con lo stesso gruppo di procedure guidate.  
   
 -   **Facilità di gestione**: i computer client DirectAccess connessi a Internet possono essere gestiti in modalità remota dagli amministratori di Accesso remoto con DirectAccess, anche quando i computer client non si trovano sulla rete aziendale interna. Per i computer client che non soddisfano i requisiti aziendali vengono eseguiti il monitoraggio e l'aggiornamento automatici tramite i server di gestione. È possibile gestire uno o più server di Accesso remoto da una singola Console di gestione Accesso remoto.  
   
-## <a name="BKMK_NEW"></a>Ruoli e funzionalità inclusi in questo scenario  
+## <a name="roles-and-features-included-in-this-scenario"></a><a name="BKMK_NEW"></a>Ruoli e funzionalità inclusi in questo scenario  
 Nella tabella seguente sono elencati i ruoli e le funzionalità richiesti per lo scenario.  
   
 |Ruolo o funzionalità|Modalità di supporto dello scenario|  
 |----------|-----------------|  
-|*Ruolo accesso remoto*|Questo ruolo viene installato e disinstallato con la console di Server Manager o Windows PowerShell. Questo ruolo comprende DirectAccess, una funzionalità precedentemente inclusa in Windows Server 2008 R2, e il servizio Routing e Accesso remoto che in precedenza era un servizio ruolo nel ruolo server Servizi di accesso e criteri di rete (NPAS). Il ruolo Accesso remoto è costituito da due componenti:<br /><br />1.  VPN DirectAccess e Servizio Routing e Accesso remoto (RRAS): DirectAccess e VPN vengono gestiti nella console Gestione Accesso remoto.<br />2.  RRAS: le funzionalità vengono gestite nella console di routing e Accesso remoto.<br /><br />Il ruolo del server Accesso remoto dipende dalle funzionalità seguenti:<br /><br />-Server Web (IIS): necessaria per configurare il server dei percorsi di rete e un probe Web predefinito.<br />-Database interno di Windows: Usato per l'accounting locale sul server di Accesso remoto.|  
+|*Ruolo accesso remoto*|Questo ruolo viene installato e disinstallato con la console di Server Manager o Windows PowerShell. Questo ruolo comprende DirectAccess, una funzionalità precedentemente inclusa in Windows Server 2008 R2, e il servizio Routing e Accesso remoto che in precedenza era un servizio ruolo nel ruolo server Servizi di accesso e criteri di rete (NPAS). Il ruolo Accesso remoto è costituito da due componenti:<br /><br />1. DirectAccess e VPN Servizi routing e accesso remoto (RRAS): DirectAccess e VPN vengono gestiti nella console di gestione accesso remoto.<br />2. RRAS: le funzionalità sono gestite nella console di routing e accesso remoto.<br /><br />Il ruolo del server Accesso remoto dipende dalle funzionalità seguenti:<br /><br />-Server Web (IIS): obbligatorio per configurare il server dei percorsi di rete e il probe Web predefinito.<br />-Database interno di Windows: usato per l'accounting locale sul server di accesso remoto.|  
 |Funzionalità Strumenti di Gestione Accesso remoto|Questa funzionalità viene installata come segue:<br /><br />-Per impostazione predefinita, in un server di accesso remoto quando viene installato il ruolo accesso remoto e supporta l'interfaccia utente della console di gestione remota.<br />-Come opzione in un server che non esegue il ruolo del server accesso remoto. In questo caso, viene usata per la gestione remota di un server di Accesso remoto.<br /><br />Questa funzionalità include gli elementi seguenti:<br /><br />-GUI di accesso remoto e strumenti da riga di comando<br />-Modulo di accesso remoto per Windows PowerShell<br /><br />Le dipendenze includono:<br /><br />-Console Gestione criteri di gruppo<br />-RAS Connection Manager Administration Kit (CMAK)<br />-Windows PowerShell 3.0<br />-Infrastruttura e strumenti di gestione grafico|  
   
-## <a name="BKMK_HARD"></a>Requisiti hardware  
+## <a name="hardware-requirements"></a><a name="BKMK_HARD"></a>Requisiti hardware  
 I requisiti hardware per questo scenario includono i seguenti.  
   
 ### <a name="server-requirements"></a>Requisiti del server  
@@ -104,7 +104,7 @@ I requisiti hardware per questo scenario includono i seguenti.
   
 -   È richiesta un'autorità di certificazione nel server se non si vogliono usare certificati autofirmati per IP-HTTPS o il server dei percorsi di rete oppure se si vogliono usare certificati client per l'autenticazione IPsec dei client.  
   
-### <a name="client-requirements"></a>Requisiti per i client  
+### <a name="client-requirements"></a>Requisiti client  
   
 -   Un computer client deve eseguire Windows 10 o Windows 8 o Windows 7.  
   
@@ -114,7 +114,7 @@ I requisiti hardware per questo scenario includono i seguenti.
   
 -   È necessario un server DNS che esegue Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 o Windows Server 2008 con SP2.  
   
-## <a name="BKMK_SOFT"></a>Requisiti software  
+## <a name="software-requirements"></a><a name="BKMK_SOFT"></a>Requisiti software  
 I requisiti software per questo scenario includono i seguenti.  
   
 ### <a name="server-requirements"></a>Requisiti del server  

@@ -1,9 +1,9 @@
 ---
 title: Personalizzazione delle cartelle condivise
-description: Viene descritto come utilizzare Windows Server Essentials
+description: Viene descritto come usare Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
-ms.prod: windows-server-2016-essentials
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
@@ -12,12 +12,12 @@ ms.assetid: 47bc4986-14eb-4a29-9930-83a25704a3a0
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: d8f52cbe76204bb00cb15c3093f69daf3d8abb6e
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 387f9570e87bd2bd65266489b0f3eac6c945e3be
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66433530"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80311911"
 ---
 # <a name="customize-shared-folders"></a>Personalizzazione delle cartelle condivise
 
@@ -31,7 +31,7 @@ Per impostazione predefinita, le cartelle server vengono create sulla partizione
   
    1.  Sul server, spostare il puntatore del mouse verso l'angolo superiore destro dello schermo e fare clic su **Trova**.  
   
-   2.  Nella casella di ricerca digitare **regedit**e quindi fare clic sull'applicazione **Regedit** .  
+   2.  Nella casella di ricerca digitare **regedit** e quindi fare clic sull'applicazione **Regedit**.  
   
    3.  Nel riquadro di spostamento, espandere **HKEY_LOCAL_MACHINE**, poi espandere **SOFTWARE**, quindi espandere **Microsoft**.  
   
@@ -47,13 +47,13 @@ Per impostazione predefinita, le cartelle server vengono create sulla partizione
   
    9. Impostare il valore della nuova chiave su **1**, quindi fare clic su **OK**.  
   
-2. Utilizzare lo script PostIC.cmd per spostare le cartelle in un percorso diverso o per creare ulteriori cartelle. Vedere l'esempio seguente: [Esempio 1: Creare una cartella personalizzata e spostare le cartelle predefinite in un nuovo percorso da postic. cmd usando Windows PowerShell](Customize-Shared-Folders.md#BKMK_Example1).  
+2. Utilizzare lo script PostIC.cmd per spostare le cartelle in un percorso diverso o per creare ulteriori cartelle. Vedere il seguente esempio: [Esempio 1 - Creazione di una cartella personalizzata e spostamento delle cartelle predefinite in un nuovo percorso da PostIC.cmd utilizzando Windows PowerShell](Customize-Shared-Folders.md#BKMK_Example1).  
   
-3. Utilizzare Windows Server Solutions SDK per spostare le cartelle in un percorso diverso o per creare ulteriori cartelle. Vedere l'esempio seguente: [Esempio 2: Creare una cartella personalizzata e spostamento di una cartella esistente utilizzando Windows Server Solutions SDK](Customize-Shared-Folders.md#BKMK_Example2).  
+3. Utilizzare Windows Server Solutions SDK per spostare le cartelle in un percorso diverso o per creare ulteriori cartelle. Vedere il seguente esempio: [Esempio 2 - Creazione di una cartella personalizzata e spostamento di una cartella esistente utilizzando Windows Server Solutions SDK](Customize-Shared-Folders.md#BKMK_Example2).  
   
    Facoltativamente, i partner possono lasciare le cartelle dati sull'unità C. In questo modo si permette all'utente finale o al rivenditore di stabilire il layout delle cartelle dati sulle unità dati.  
   
-###  <a name="BKMK_Example1"></a> Esempio 1: Creare una cartella personalizzata e spostare le cartelle predefinite in un nuovo percorso da PostIC.cmd usando Windows PowerShell  
+###  <a name="example-1-create-a-custom-folder-and-move-the-default-folders-to-a-new-location-from-posticcmd-by-using-windows-powershell"></a><a name="BKMK_Example1"></a>Esempio 1: creare una cartella personalizzata e spostare le cartelle predefinite in un nuovo percorso da post-. cmd usando Windows PowerShell  
   
 1.  Creare un file PostIC.cmd per eseguire le attività successive alla configurazione iniziale come illustrato nella sezione [Creazione del file PostIC.cmd per eseguire le attività successive alla configurazione iniziale](Create-the-PostIC.cmd-File-for-Running-Post-Initial-Configuration-Tasks.md).  
   
@@ -99,7 +99,7 @@ Per impostazione predefinita, le cartelle server vengono create sulla partizione
     Set ERRORLEVEL=%error_level%  
     ```  
   
-###  <a name="BKMK_Example2"></a> Esempio 2: Creare una cartella personalizzata e spostare una cartella esistente usando Windows Server Solutions SDK  
+###  <a name="example-2-create-a-custom-folder-and-move-an-existing-folder-by-using-the-windows-server-solutions-sdk"></a><a name="BKMK_Example2"></a>Esempio 2: creare una cartella personalizzata e spostare una cartella esistente usando Windows Server Solutions SDK  
  Il codice creato può essere compilato come eseguibile e quindi richiamato dal file PostIC.cmd oppure direttamente da un componente aggiuntivo installato.  
   
 ```  
@@ -143,7 +143,7 @@ static void Main(string[] args)
 }  
 ```  
   
-## <a name="see-also"></a>Vedere anche  
+## <a name="see-also"></a>Vedi anche  
  [Creazione e personalizzazione dell'immagine](Creating-and-Customizing-the-Image.md)   
  [Personalizzazioni aggiuntive](Additional-Customizations.md)   
  [Preparazione dell'immagine per la distribuzione](Preparing-the-Image-for-Deployment.md)   

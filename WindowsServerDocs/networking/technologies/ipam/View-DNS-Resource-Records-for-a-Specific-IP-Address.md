@@ -10,14 +10,14 @@ ms.technology: networking-ipam
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: f590fb86-4195-4f90-98cb-e90459d4c1e3
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 63fc52644b4f08d745891763265cc8f929e89910
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 170be9d3d47374188640ef4b132adce9043e4e29
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71355086"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80309477"
 ---
 # <a name="view-dns-resource-records-for-a-specific-ip-address"></a>Visualizzare i record di risorse DNS per un indirizzo IP specifico
 
@@ -39,7 +39,7 @@ Per eseguire questa procedura è necessaria almeno l'appartenenza al gruppo **Ad
   
     ![Visualizzare i record di risorse DNS](../../media/View-DNS-Resource-Records-for-a-Specific-IP-Address/ipam_IPInventory_02.jpg)  
   
-## <a name="see-also"></a>Vedere anche  
+## <a name="see-also"></a>Vedi anche  
 [Gestione dei record di risorse DNS](DNS-Resource-Record-Management.md)  
 [Gestire Gestione indirizzi IP](Manage-IPAM.md)  
   

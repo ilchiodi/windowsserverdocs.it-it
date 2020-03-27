@@ -1,9 +1,9 @@
 ---
 title: Prima di installare Windows Server Essentials
-description: Describes how to use Windows Server Essentials
+description: Viene descritto come usare Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
-ms.prod: windows-server-2016-essentials
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
@@ -12,34 +12,34 @@ ms.assetid: 8d0893bd-e2b7-4494-9537-02b1cbbcd57a
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 4629c0ba04cc7ee617a2fc6b6a73a19b9e45ada8
-ms.sourcegitcommit: 3d76683718ec6f38613f552f518ebfc6a5db5401
+ms.openlocfilehash: 7268ebbfffd034780635e693cd6aa6380f30dd91
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74829553"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80310101"
 ---
 # <a name="before-you-install-windows-server-essentials"></a>Prima di installare Windows Server Essentials
 
->Applies To: Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
+>Si applica a: Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
 
-##  <a name="BKMK_BeforeYouBegin"></a> Before you begin your installation of  Windows Server Essentials, perform the following tasks:  
+##  <a name="before-you-begin-your-installation-of--windows-server-essentials-perform-the-following-tasks"></a><a name="BKMK_BeforeYouBegin"></a>Prima di iniziare l'installazione di Windows Server Essentials, eseguire le attività seguenti:  
 
--   **Verificare che il computer soddisfi i requisiti hardware minimi**. This includes determining if you need additional hardware and verifying that the drivers for your hardware are supported by  Windows Server Essentials. For more information, see [System Requirements for Windows Server Essentials](../get-started/system-requirements.md).   
+-   **Verificare che il computer soddisfi i requisiti hardware minimi**. Ciò include determinare se sono necessari altri componenti hardware e verificare che i driver per l'hardware siano supportati da Windows Server Essentials. Per ulteriori informazioni, vedere [requisiti di sistema per Windows Server Essentials](../get-started/system-requirements.md).   
 
 > [!IMPORTANT]
-> Before you install  Windows Server Essentials on a pre-existing computer, we recommend that you fully format and then repartition the hard disks of the pre-existing computer. La formattazione e la ripartizione delle unità disco rigido evitano che sui dischi rigidi restino delle partizioni nascoste.  
+> Prima di installare Windows Server Essentials in un computer preesistente, è consigliabile formattare completamente e quindi ripartizionare i dischi rigidi del computer preesistente. La formattazione e la ripartizione delle unità disco rigido evitano che sui dischi rigidi restino delle partizioni nascoste.  
 
-- **Prepare your network** To prepare your network to install  Windows Server Essentials, do the following:  
+- **Preparare la rete** Per preparare la rete per l'installazione di Windows Server Essentials, eseguire le operazioni seguenti:  
 
 
-  - **Upgrade operating system on your client computers**  Windows Server Essentials supports the following operating systems:  Windows 8, Windows 7, Windows 10, and Macintosh OS X Lion or greater. Questi sistemi operativi forniscono le funzionalità di sicurezza e i livelli di affidabilità, prestazioni e funzionalità necessari per la rete locale.  
+  - **Aggiornare il sistema operativo nei computer client**  Windows Server Essentials supporta i sistemi operativi seguenti: Windows 8, Windows 7, Windows 10 e Macintosh OS X Lion o versioni successive. Questi sistemi operativi forniscono le funzionalità di sicurezza e i livelli di affidabilità, prestazioni e funzionalità necessari per la rete locale.  
 
   - **Configurare il router** Verificare che il router sia configurato nel seguente modo:  
 
     -   Sul router è abilitato il framework UPnP.  
 
-    -   Il servizio server DHCP (Dynamic Host Configuration Protocol) per la rete LAN può essere abilitato o disabilitato.  Windows Server Essentials ensures that DHCP is not running on both the server and the router ? when DHCP is enabled on the router, DHCP is not enabled on the server during installation.  
+    -   Il servizio server DHCP (Dynamic Host Configuration Protocol) per la rete LAN può essere abilitato o disabilitato.  Windows Server Essentials garantisce che DHCP non sia in esecuzione sul server e sul router? Quando DHCP è abilitato sul router, DHCP non è abilitato sul server durante l'installazione.  
 
     -   Si dispone di un indirizzo IP per l'interfaccia esterna del router fornito dal provider di servizi Internet. L'indirizzo IP può essere assegnato dinamicamente dal servizio server DHCP presso il provider di servizi Internet oppure è necessario configurare manualmente un indirizzo IP statico usando la console di gestione del router.  
 
@@ -55,9 +55,9 @@ ms.locfileid: "74829553"
   |Porta 443|Traffico Web HTTPS|  
 
 
-- **Read the  Windows Server Essentials release documentation**. The release documentation contains the latest information that may be critical to properly installing and configuring  Windows Server Essentials. To view or print release documentation, see [Release Documentation for Windows Server Essentials](../get-started/release-notes.md).  
+- **Leggere la documentazione sulla versione di Windows Server Essentials**. La documentazione relativa alla versione contiene le informazioni più aggiornate che potrebbero essere fondamentali per installare e configurare correttamente Windows Server Essentials. Per visualizzare o stampare la documentazione relativa alla versione, vedere [la documentazione relativa alla versione per Windows Server Essentials](../get-started/release-notes.md).  
 
-## <a name="see-also"></a>Vedi anche  
+## <a name="see-also"></a>Vedere anche  
 
 -   [Installare Windows Server Essentials](Install-Windows-Server-Essentials.md)
 

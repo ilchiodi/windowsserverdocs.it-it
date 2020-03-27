@@ -6,14 +6,14 @@ ms.prod: windows-server
 ms.technology: networking-hv-switch
 ms.topic: article
 ms.assetid: 398440ac-5988-41ce-b91e-eab343a255d3
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: c508005af67e9dd5b0c9a22693aca25eb19e8e48
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: fb2ebf485b5004e457558fc16d8535662c0c5ff2
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71366827"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80307986"
 ---
 # <a name="hyper-v-virtual-switch"></a>Commutatore virtuale Hyper-V
 
@@ -55,9 +55,9 @@ Nella figura seguente, una macchina virtuale dispone di una scheda di interfacci
 Le funzionalità del Commuter virtuale Hyper-V offrono altre opzioni per l'applicazione dell'isolamento dei tenant, il data shaping e il controllo del traffico di rete e l'uso di misure di protezione contro le VM dannose.
 
 >[!NOTE]
-> In Windows Server 2016, una VM con una scheda di interfaccia di rete virtuale Visualizza accuratamente la velocità effettiva massima per la scheda di interfaccia di rete virtuale. Per visualizzare la velocità della scheda di interfaccia di rete virtuale in **connessioni di rete**, fare clic con il pulsantedestro del mouse sull'icona della scheda di interfaccia di rete virtuale Verrà visualizzata la finestra di dialogo **stato** scheda di interfaccia di rete virtuale. In **connessione**, il valore di **Speed** corrisponde alla velocità della scheda di interfaccia di rete fisica installata nel server.
+> In Windows Server 2016, una VM con una scheda di interfaccia di rete virtuale Visualizza accuratamente la velocità effettiva massima per la scheda di interfaccia di rete virtuale. Per visualizzare la velocità della scheda di interfaccia di rete virtuale in **connessioni di rete**, fare clic con il pulsante **Status**destro del mouse sull'icona della scheda di interfaccia di rete virtuale Verrà visualizzata la finestra di dialogo **stato** scheda di interfaccia di rete virtuale. In **connessione**, il valore di **Speed** corrisponde alla velocità della scheda di interfaccia di rete fisica installata nel server.
   
-## <a name="bkmk_apps"></a>Usi per il Commuter virtuale Hyper-V
+## <a name="uses-for-hyper-v-virtual-switch"></a><a name="bkmk_apps"></a>Usi per il Commuter virtuale Hyper-V
 
 Di seguito sono riportati alcuni scenari di casi d'uso per il Commuter virtuale Hyper-V.
 
@@ -69,7 +69,7 @@ Di seguito sono riportati alcuni scenari di casi d'uso per il Commuter virtuale 
   
 L' **estensione di avanzamento gestisce l'ID VLAN**: una società di commutazione principale sta creando un'estensione di avanzamento che applica tutti i criteri per la rete. Gli elementi gestiti includono gli ID delle reti locali virtuali (VLAN, Virtual Local Area Network). Il commutatore virtuale cede il controllo della VLAN a un'estensione di inoltro. L'installazione della società del commutatore chiama a livello di codice un Application Programming Interface di Strumentazione gestione Windows (WMI) che attiva la trasparenza, indicando al commutatore virtuale Hyper-V di passare senza eseguire alcuna azione sui tag VLAN.  
   
-## <a name="bkmk_func"></a>Funzionalità del Commuter virtuale Hyper-V
+## <a name="hyper-v-virtual-switch-functionality"></a><a name="bkmk_func"></a>Funzionalità del Commuter virtuale Hyper-V
  
 Le principali funzionalità incluse in commutatore virtuale Hyper-V sono:  
   

@@ -6,15 +6,15 @@ ms.prod: windows-server
 ms.technology: networking-hv-switch
 ms.topic: get-started-article
 ms.assetid: ''
-ms.author: pashort
-author: shortpatti
+ms.author: lizross
+author: eross-msft
 ms.date: 08/08/2018
-ms.openlocfilehash: 4d35501b8d876f2a178a4744d495125dea8da6c7
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 4ea035d80a32e245edc4633ee14e98b9d1153fff
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71405813"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80309734"
 ---
 # <a name="configure-virtual-network-peering"></a>Configura il peering della rete virtuale
 

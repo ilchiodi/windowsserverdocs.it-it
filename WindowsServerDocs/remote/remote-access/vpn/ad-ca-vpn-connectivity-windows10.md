@@ -5,16 +5,16 @@ ms.prod: windows-server
 ms.technology: networking-ras
 ms.topic: article
 ms.localizationpriority: medium
-ms.author: pashort
-author: shortpatti
+ms.author: lizross
+author: eross-msft
 ms.date: 06/28/2019
 ms.reviewer: deverette
-ms.openlocfilehash: b813e3f978ad1e61e6770edcf26b1c716efcbbe4
-ms.sourcegitcommit: 07c9d4ea72528401314e2789e3bc2e688fc96001
+ms.openlocfilehash: 1a26f19cee5c6b6faf551633fd1739b1103c6ddf
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76822484"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80313388"
 ---
 # <a name="step-7-optional-conditional-access-for-vpn-connectivity-using-azure-ad"></a>Passaggio 7. Opzionale Accesso condizionale per la connettività VPN con Azure AD
 
@@ -38,13 +38,13 @@ Per configurare Azure Active Directory l'accesso condizionale per la connettivit
 - [Impostazioni del firewall e DNS](always-on-vpn/deploy/vpn-deploy-dns-firewall.md)
 - [Connessioni VPN client Always On Windows 10](always-on-vpn/deploy/vpn-deploy-client-vpn-connections.md)
 
-## <a name="step-71-configure-eap-tls-to-ignore-certificate-revocation-list-crl-checkingvpn-config-eap-tls-to-ignore-crl-checkingmd"></a>[Passaggio 7,1. Configurare EAP-TLS per ignorare il controllo dell'elenco di revoche di certificati (CRL)](vpn-config-eap-tls-to-ignore-crl-checking.md)
+## <a name="step-71-configure-eap-tls-to-ignore-certificate-revocation-list-crl-checking"></a>[Passaggio 7,1. Configurare EAP-TLS per ignorare il controllo dell'elenco di revoche di certificati (CRL)](vpn-config-eap-tls-to-ignore-crl-checking.md)
 
 In questo passaggio è possibile aggiungere **IgnoreNoRevocationCheck** e impostarlo in modo da consentire l'autenticazione dei client quando il certificato non include i punti di distribuzione CRL. Per impostazione predefinita, IgnoreNoRevocationCheck è impostato su 0 (disabilitato).
 
 Un client EAP-TLS non è in grado di connettersi a meno che il server dei criteri di rete non completi un controllo di revoca della catena di certificati, incluso il certificato radice. I certificati cloud rilasciati all'utente da Azure AD non dispongono di un CRL perché sono certificati di breve durata con una durata di un'ora. EAP in NPS deve essere configurato per ignorare l'assenza di un CRL. Poiché il metodo di autenticazione è EAP-TLS, questo valore del registro di sistema è necessario solo in **EAP\13**. Se vengono usati altri metodi di autenticazione EAP, è necessario aggiungere anche il valore del registro di sistema.
 
-## <a name="step-72-create-root-certificates-for-vpn-authentication-with-azure-advpn-create-root-cert-for-vpn-auth-azure-admd"></a>[Passaggio 7,2. Creare certificati radice per l'autenticazione VPN con Azure AD](vpn-create-root-cert-for-vpn-auth-azure-ad.md)
+## <a name="step-72-create-root-certificates-for-vpn-authentication-with-azure-ad"></a>[Passaggio 7,2. Creare certificati radice per l'autenticazione VPN con Azure AD](vpn-create-root-cert-for-vpn-auth-azure-ad.md)
 
 In questo passaggio vengono configurati i certificati radice per l'autenticazione VPN con Azure AD, che consente di creare automaticamente un'app Cloud Server VPN nel tenant.  
 
@@ -57,7 +57,7 @@ Per configurare l'accesso condizionale per la connettività VPN, è necessario:
 > [!IMPORTANT]
 > Una volta creato un certificato VPN nel portale di Azure, Azure AD inizierà a usarlo immediatamente per emettere certificati di breve durata per il client VPN. È fondamentale che il certificato VPN venga distribuito immediatamente al server VPN per evitare problemi con la convalida delle credenziali del client VPN.
 
-## <a name="step-73-configure-the-conditional-access-policyvpn-config-conditional-access-policymd"></a>[Passaggio 7,3. Configurare i criteri di accesso condizionale](vpn-config-conditional-access-policy.md)
+## <a name="step-73-configure-the-conditional-access-policy"></a>[Passaggio 7,3. Configurare i criteri di accesso condizionale](vpn-config-conditional-access-policy.md)
 
 In questo passaggio si configureranno i criteri di accesso condizionale per la connettività VPN.
 
@@ -67,7 +67,7 @@ Per configurare i criteri di accesso condizionale, è necessario:
 2. Impostare l'app Cloud sul **server VPN**.
 3. Impostare la concessione (controllo di accesso) per **richiedere l'autenticazione**a più fattori.  Se necessario, è possibile usare altri controlli.
 
-## <a name="step-74-deploy-conditional-access-root-certificates-to-on-premises-advpn-deploy-cond-access-root-cert-to-on-premise-admd"></a>[Passaggio 7,4. Distribuire i certificati radice di accesso condizionale ad Active Directory locale](vpn-deploy-cond-access-root-cert-to-on-premise-ad.md)
+## <a name="step-74-deploy-conditional-access-root-certificates-to-on-premises-ad"></a>[Passaggio 7,4. Distribuire i certificati radice di accesso condizionale ad Active Directory locale](vpn-deploy-cond-access-root-cert-to-on-premise-ad.md)
 
 In questo passaggio viene distribuito un certificato radice attendibile per l'autenticazione VPN in Active Directory locale.
 
@@ -77,7 +77,7 @@ Per distribuire il certificato radice attendibile, è necessario:
 2. Importare il certificato radice nel server VPN e nel client VPN.
 3. Verificare che i certificati siano presenti e visualizzati come attendibili.
 
-## <a name="step-75-create-oma-dm-based-vpnv2-profiles-to-windows-10-devicesvpn-create-oma-dm-based-vpnv2-profilesmd"></a>[Passaggio 7,5. Creare profili VPNv2 basati su OMA-DM per i dispositivi Windows 10](vpn-create-oma-dm-based-vpnv2-profiles.md)
+## <a name="step-75-create-oma-dm-based-vpnv2-profiles-to-windows-10-devices"></a>[Passaggio 7,5. Creare profili VPNv2 basati su OMA-DM per i dispositivi Windows 10](vpn-create-oma-dm-based-vpnv2-profiles.md)
 
 In questo passaggio è possibile creare profili VPNv2 basati su OMA usando Intune per distribuire i criteri di configurazione del dispositivo VPN. Se si vuole usare Configuration Manager o uno script di PowerShell per creare profili VPNv2, vedere [le impostazioni di VPNV2 CSP](https://docs.microsoft.com/windows/client-management/mdm/vpnv2-csp) per altri dettagli.
 

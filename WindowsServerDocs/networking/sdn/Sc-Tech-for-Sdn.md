@@ -10,14 +10,14 @@ ms.technology: networking-sdn
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: f66ee49a-1fd3-4927-a813-64a15017b63b
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: d1ba40f17506f8012462f43c1e124a6b414c0531
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: c0e99dde090efa337bee9c0c25594f3f8c9e0377
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71356013"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80309980"
 ---
 # <a name="system-center-technologies-for-sdn"></a>Tecnologie di System Center per SDN
 
@@ -30,12 +30,12 @@ System Center include le tecnologie seguenti da usare con SDN (Software Defined 
 -   [System Center Virtual Machine Manager](#bkmk_scvmm)  
   
   
-## <a name="bkmk_scom"></a>System Center Operations Manager  
+## <a name="system-center-operations-manager"></a><a name="bkmk_scom"></a>System Center Operations Manager  
 System Center 2016 Operations Manager fornisce un monitoraggio dell'infrastruttura flessibile ed economico, garantisce prestazioni prevedibili e disponibilità delle applicazioni vitali e offre il monitoraggio completo del Data Center e del cloud , sia privato che pubblico.  
   
 Per ulteriori informazioni, vedere [Operations Manager](https://technet.microsoft.com/library/hh205987.aspx).  
   
-## <a name="bkmk_scvmm"></a>System Center Virtual Machine Manager  
+## <a name="system-center-virtual-machine-manager"></a><a name="bkmk_scvmm"></a>System Center Virtual Machine Manager  
 Con System Center 2016 Virtual Machine Manager (VMM), è possibile:
 
 - Effettuare il provisioning e gestire le reti virtuali su larga scala.

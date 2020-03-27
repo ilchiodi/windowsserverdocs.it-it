@@ -10,14 +10,14 @@ ms.technology: networking-da
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: ed2a1616-30c6-482a-9a02-4a5023621f58
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 738e0f10762c0d292e344ba25fa34cdb0d17b766
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 89f26dfa3be83167b7b62b8f464eede7f4db8db0
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71367543"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80308564"
 ---
 # <a name="step-7-test-directaccess-connectivity-from-the-internet"></a>PASSAGGIO 7 testare la connettività DirectAccess da Internet
 
@@ -29,13 +29,13 @@ La distribuzione della password monouso (OTP) DirectAccess è stata testata dall
   
 1. In CLIENT1 assicurarsi di essere connessi come **User1**. Connettere CLIENT1 alla subnet Corpnet.  
   
-2. Nella schermata **Start** Digitare**PowerShell. exe**, fare clic con il pulsante destro del mouse su **PowerShell**, scegliere **Avanzate**e quindi fare clic su **Esegui come amministratore**. Se viene visualizzata la finestra di dialogo **Controllo account utente** , verificare che l'azione visualizzata sia quella desiderata e quindi fare clic su **Sì**.  
+2. Nella schermata **Start** Digitare**PowerShell. exe**, fare clic con il pulsante destro del mouse su **PowerShell**, scegliere **Avanzate**e quindi fare clic su **Esegui come amministratore**. Se viene visualizzata la finestra di dialogo **Controllo dell'account utente**, verificare che l'azione indicata sia quella che si desidera eseguire e quindi fare clic su **Sì**.  
   
 3. Nella finestra di Windows PowerShell, digitare **gpupdate/force** e premere INVIO.  
   
 4. Scollegare CLIENT1 dalla subnet HomeNET, connetterlo a Internet e riavviare il computer.  
   
-5. In CLIENT1 aprire Internet Explorer e nella barra degli indirizzi digitare **https://app1.corp.contoso.com/** e premere INVIO. Premi F5.  
+5. In CLIENT1 aprire Internet Explorer e nella barra degli indirizzi digitare **https://app1.corp.contoso.com/** e premere INVIO. Premere F5.  
   
    Il sito non dovrebbe aprirsi.  
   
@@ -51,15 +51,15 @@ La distribuzione della password monouso (OTP) DirectAccess è stata testata dall
   
 11. Incollare il codice token di otto cifre copiato in precedenza, quindi fare clic su **OK**. Attendere il completamento dell'autenticazione. Lo stato della connessione all'area di lavoro DirectAccess verrà ora **connesso**.  
   
-12. Nella barra degli indirizzi di Internet Explorer digitare **https://app1.corp.contoso.com/** e premere INVIO. Premi F5. Viene visualizzato il sito Web IIS predefinito in APP1.  
+12. Nella barra degli indirizzi di Internet Explorer digitare **https://app1.corp.contoso.com/** e premere INVIO. Premere F5. Viene visualizzato il sito Web IIS predefinito in APP1.  
   
-13. Nella barra degli indirizzi di Internet Explorer digitare **https://app2.corp.contoso.com/** e premere INVIO. Premi F5. Viene visualizzato il sito Web IIS predefinito in APP2.  
+13. Nella barra degli indirizzi di Internet Explorer digitare **https://app2.corp.contoso.com/** e premere INVIO. Premere F5. Viene visualizzato il sito Web IIS predefinito in APP2.  
   
-14. Nella schermata **Start** Digitare<strong>\\ \ APP1\FILES</strong>e premere INVIO.  
+14. Nella schermata **Start** Digitare<strong>\\\APP1\FILES</strong>e premere INVIO.  
   
 15. Nella finestra cartella condivisa **file** fare doppio clic sul file **example. txt** . Il contenuto del file example. txt sarà visualizzato.  
   
-16. Nella schermata **Start** Digitare<strong>\\ \ APP2\FILES</strong>e premere INVIO.  
+16. Nella schermata **Start** Digitare<strong>\\\APP2\FILES</strong>e premere INVIO.  
   
 17. Nella finestra cartella condivisa **file** fare doppio clic sul nuovo file **Document. txt di testo** . Viene visualizzato il contenuto del nuovo file Document. txt di testo.  
   

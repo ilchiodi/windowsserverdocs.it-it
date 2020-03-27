@@ -1,9 +1,9 @@
 ---
 title: Configurazione del supporto per una rete senza fili
-description: Viene descritto come utilizzare Windows Server Essentials
+description: Viene descritto come usare Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
-ms.prod: windows-server-2016-essentials
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
@@ -12,12 +12,12 @@ ms.assetid: 4d7020d4-fd46-4858-a406-de5c0f21ea06
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: c5c98727b81bf37fdb3f90c612270462a51908c8
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 4ce5f167339d7910b10f90bea5bbeae5606b5cf2
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59833112"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80312210"
 ---
 # <a name="configure-support-for-a-wireless-network"></a>Configurazione del supporto per una rete senza fili
 
@@ -47,10 +47,10 @@ ms.locfileid: "59833112"
 -   Se sul server viene creata una rete ad hoc, la scheda di rete wireless sarà dedicata a questa rete; pertanto l'utente dovrà sempre collegare il cavo di rete al server per poter usufruire della connessione Internet.  
   
 > [!NOTE]
->  Per altre informazioni sulla configurazione di connessioni di rete, vedere [Preconfiguring a Router](Preconfiguring-a-Router.md).  
+>  Per ulteriori informazioni sulla configurazione delle connessioni di rete, vedere [Preconfigurazione di un router](Preconfiguring-a-Router.md).  
   
-## <a name="see-also"></a>Vedere anche  
+## <a name="see-also"></a>Vedi anche  
  [Creazione e personalizzazione dell'immagine](Creating-and-Customizing-the-Image.md)   
  [Personalizzazioni aggiuntive](Additional-Customizations.md)   
  [Preparazione dell'immagine per la distribuzione](Preparing-the-Image-for-Deployment.md)   
- [Testare l'esperienza dei clienti](Testing-the-Customer-Experience.md)
+ [Test di Analisi utilizzo software](Testing-the-Customer-Experience.md)

@@ -3,7 +3,7 @@ title: Aggiungere Windows Server Essentials come server membro
 description: Viene descritto come usare Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
-ms.prod: windows-server-2016-essentials
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
@@ -12,12 +12,12 @@ ms.assetid: d09dd82f-f7d2-47ce-862d-fd9869f2021c
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 09943f9708af3839ff21717316853fab9ba0283b
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 4b87c066885ed2bf0ac6dfa29496317310b062d9
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70865051"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80310172"
 ---
 # <a name="add-windows-server-essentials-as-a-member-server"></a>Aggiungere Windows Server Essentials come server membro
 
@@ -51,11 +51,11 @@ Questo argomento si applica a un server che esegue Windows Server 2012 R2 Standa
   
 1. Dopo aver completato l'installazione di Windows Server Essentials nel secondo server, chiudere la procedura guidata Configurazione di Windows Server Essentials.  
   
-2. Nella casella **Cerca** digitare **System Settings**e nei risultati della ricerca fare clic su **Visualizza impostazioni di sistema avanzate**.  
+2. Nella casella **Cerca** digitare **System Settings** e nei risultati della ricerca fare clic su **Visualizza impostazioni di sistema avanzate**.  
   
 3. In **Proprietà del sistema** fare clic sulla scheda **Nome computer**.  
   
-4. In **Nome computer**, nella sezione **Dominio** , fare clic su **Cambia**.  
+4. In **Nome computer**, nella sezione **Dominio**, fare clic su **Cambia**.  
   
 5. In **modifiche dominio/nome computer**, nella sezione **membro** , scegliere se si vuole aggiungere il server che esegue Windows Server Essentials a un **gruppo** di lavoro o a un **dominio**.  
   
@@ -76,7 +76,7 @@ Questo argomento si applica a un server che esegue Windows Server 2012 R2 Standa
   
 2.  Accedere al server usando l'account amministratore di dominio.  
   
-3.  Aprire Server Manager.  
+3.  Aprire Gestione server.  
   
 4.  Nell'area di notifica flag in **Server Manager** fare clic sul flag e quindi su **Configura Windows Server Essentials**.  
   
@@ -84,7 +84,7 @@ Questo argomento si applica a un server che esegue Windows Server 2012 R2 Standa
   
 6.  Fare clic su **Configura** per avviare la configurazione. Il processo di configurazione richiede circa 10 minuti.  
   
-7.  Sul desktop fare clic sull'icona del dashboard per avviare il dashboard del server. Nella Home page completare le **Attività iniziali** elencate nella scheda **Configura** .  
+7.  Sul desktop fare clic sull'icona del dashboard per avviare il dashboard del server. Nella Home page completare le **Attività iniziali** elencate nella scheda **Configura**.  
   
 ## <a name="see-also"></a>Vedere anche  
   

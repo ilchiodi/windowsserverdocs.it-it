@@ -10,14 +10,14 @@ ms.technology: networking-ras
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: b1b2fe70-7956-46e8-a3e3-43848868df09
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: d0de5f459e31e1dfac40e49cd6cc83de8722df4d
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 5b86cbe970c60f0684f3f6e5198fa91bbb9745b1
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71404425"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80313679"
 ---
 # <a name="deploy-remote-access-with-otp-authentication"></a>Distribuire l'accesso remoto con l'autenticazione OTP
 
@@ -25,7 +25,7 @@ ms.locfileid: "71404425"
 
  Windows Server 2016 e Windows Server 2012 combinano DirectAccess e il servizio Routing e accesso remoto \(RRAS\) VPN in un singolo ruolo accesso remoto.   
 
-## <a name="BKMK_OVER"></a>Descrizione dello scenario  
+## <a name="scenario-description"></a><a name="BKMK_OVER"></a>Descrizione dello scenario  
 In questo scenario un server di accesso remoto con DirectAccess abilitato viene configurato per autenticare gli utenti del client DirectAccess con due\-Factor password monouso \(OTP\) Authentication, oltre alle credenziali Active Directory standard.  
   
 ## <a name="prerequisites"></a>Prerequisiti  
@@ -54,7 +54,7 @@ Lo scenario di autenticazione OTP include alcuni passaggi:
   
 4.  [Risolvere i problemi relativi a una distribuzione OTP] ((/troubleshoot/Troubleshoot-an-OTP-Deployment.md). Questa sezione sulla risoluzione dei problemi descrive alcuni degli errori più comuni che possono verificarsi quando si distribuisce accesso remoto con l'autenticazione OTP.  
   
-## <a name="BKMK_APP"></a>Applicazioni pratiche  
+## <a name="practical-applications"></a><a name="BKMK_APP"></a>Applicazioni pratiche  
 Aumentare la sicurezza: l'uso di OTP aumenta la sicurezza della distribuzione di DirectAccess. Un utente deve fornire le credenziali OTP per ottenere l'accesso alla rete interna. Un utente fornisce le credenziali OTP tramite le connessioni all'area di lavoro disponibili nelle connessioni di rete sul computer client Windows 10 o Windows 8 oppure tramite DirectAccess Connectivity Assistant \(DCA\) nei computer client che eseguono Windows 7. Il processo di autenticazione OTP funziona nel modo seguente:  
   
 1.  Il client DirectAccess immette le credenziali del dominio per accedere ai server dell'infrastruttura DirectAccess \(tramite il tunnel dell'infrastruttura\).  Se non sono disponibili connessioni alla rete interna, a causa di un errore IKE specifico, la connessione all'area di lavoro nel computer client indica all'utente che sono necessarie le credenziali. Nei computer client che eseguono Windows 7, viene visualizzato un pop\-per richiedere le credenziali della smart card.  
@@ -69,7 +69,7 @@ Aumentare la sicurezza: l'uso di OTP aumenta la sicurezza della distribuzione di
   
 6.  Usando questo certificato, il computer client esegue in modo trasparente l'autenticazione Kerberos tramite smart card standard.  
   
-## <a name="BKMK_NEW"></a>Ruoli e funzionalità inclusi in questo scenario  
+## <a name="roles-and-features-included-in-this-scenario"></a><a name="BKMK_NEW"></a>Ruoli e funzionalità inclusi in questo scenario  
 Nella tabella seguente sono elencati i ruoli e le funzionalità richiesti per lo scenario.  
   
 |Funzionalità\/ruoli|Modalità di supporto dello scenario|  
@@ -77,7 +77,7 @@ Nella tabella seguente sono elencati i ruoli e le funzionalità richiesti per lo
 |*Ruolo gestione accesso remoto*|Il ruolo viene installato e disinstallato tramite la console di Server Manager. Questo ruolo comprende sia DirectAccess, che in precedenza era una funzionalità di Windows Server 2008 R2, che servizi routing e accesso remoto che in precedenza era un servizio ruolo in servizi di accesso e criteri di rete \(NPAS\) ruolo server. Il ruolo Accesso remoto è costituito da due componenti:<br /><br />1. DirectAccess e servizi routing e accesso remoto \(RRAS\) VPN: DirectAccess e VPN vengono gestiti insieme nella console di gestione accesso remoto.<br />2. routing RRAS: le funzionalità di routing RRAS sono gestite nella console di routing e accesso remoto legacy.<br /><br />Il ruolo Accesso remoto dipende dalle funzionalità server seguenti:<br /><br />-Internet Information Services \(server Web IIS\): questa funzionalità è necessaria per configurare il server dei percorsi di rete, utilizzare l'autenticazione OTP e configurare il probe Web predefinito.<br />-Windows Database-Used interna per l'accounting locale sul server di accesso remoto.|  
 |Funzionalità Strumenti di Gestione Accesso remoto|Questa funzionalità viene installata come segue:<br /><br />-Viene installato per impostazione predefinita in un server di accesso remoto quando è installato il ruolo Accesso remoto e supporta l'interfaccia utente della console di gestione remota.<br />-Può essere installata facoltativamente in un server non è in esecuzione il ruolo di server di accesso remoto. In questo caso viene utilizzata per la gestione remota di un computer di Accesso remoto che esegue DirectAccess e VPN.<br /><br />La funzionalità Strumenti di Gestione Accesso remoto è costituita dai seguenti elementi:<br /><br />-Accesso remoto GUI e strumenti da riga di comando<br />-Modulo di accesso remoto per Windows PowerShell<br /><br />Le dipendenze includono:<br /><br />-Console Gestione criteri di gruppo<br />-RAS Connection Manager Administration Kit \(CMAK\)<br />-Windows PowerShell 3.0<br />-Infrastruttura e strumenti di gestione grafico|  
   
-## <a name="BKMK_HARD"></a>Requisiti hardware  
+## <a name="hardware-requirements"></a><a name="BKMK_HARD"></a>Requisiti hardware  
 I requisiti hardware per questo scenario includono i seguenti.  
   
 -   Un computer che soddisfi i requisiti hardware per Windows Server 2016 o Windows Server 2012.  
@@ -88,7 +88,7 @@ I requisiti hardware per questo scenario includono i seguenti.
   
 -   Un token hardware o software OTP.  
   
-## <a name="BKMK_SOFT"></a>Requisiti software  
+## <a name="software-requirements"></a><a name="BKMK_SOFT"></a>Requisiti software  
 Per questo scenario sono presenti numerosi requisiti.  
   
 1.  Requisiti software per una distribuzione a server singolo. Per ulteriori informazioni, vedere la pagina relativa alla [distribuzione di un server DirectAccess singolo con impostazioni avanzate](../../directaccess/single-server-advanced/Deploy-a-Single-DirectAccess-Server-with-Advanced-Settings.md).  
@@ -103,7 +103,7 @@ Per questo scenario sono presenti numerosi requisiti.
   
     4.  Requisiti lato client\-: per i computer client Windows 10 e Windows 8, l'assistente per la connettività di rete \(il servizio\) è usato per rilevare se sono necessarie le credenziali OTP. In tal caso, il gestore multimediale DirectAccess richiede le credenziali.  Il servizio di gestione delle autorità di gestione è incluso nel sistema operativo e non è necessaria alcuna installazione o distribuzione. Per i computer client Windows 7 è necessario DirectAccess Connectivity Assistant \(DCA\) 2,0. disponibile nell' [Area download Microsoft](https://www.microsoft.com/download/details.aspx?id=29039).  
   
-    5.  Tieni presente quanto segue:  
+    5.  Tenere presente quanto segue:  
   
         1.  L'autenticazione OTP può essere usata in parallelo con smart card e Trusted Platform Module \(TPM\)l'autenticazione basata \-. Se si abilita l'autenticazione OTP nella console di gestione Accesso remoto, verrà abilitato anche l'uso dell'autenticazione tramite smart card.  
   
@@ -119,7 +119,7 @@ Per questo scenario sono presenti numerosi requisiti.
   
         7.  Se WEBDAV è abilitato, non sarà necessario abilitare OTP.  
   
-## <a name="KnownIssues"></a>Problemi noti  
+## <a name="known-issues"></a><a name="KnownIssues"></a>Problemi noti  
 Di seguito sono riportati alcuni problemi noti durante la configurazione di uno scenario OTP:  
   
 -   Accesso remoto usa un meccanismo di probe per verificare la connettività ai server OTP basati su RADIUS\-. In alcuni casi è possibile che si verifichi un errore sul server OTP. Per evitare questo problema, eseguire le operazioni seguenti nel server OTP:  

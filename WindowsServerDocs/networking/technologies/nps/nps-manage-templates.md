@@ -6,14 +6,14 @@ ms.prod: windows-server
 ms.technology: networking
 ms.topic: article
 ms.assetid: 989b00c5-4767-4081-ace5-6321f8b2c55e
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 5ac733c11b277f09e64779c33d3392303fc34d98
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 0e6a35640d6a4a7c5665f3638925d9dc99a9df9d
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71396152"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80315935"
 ---
 # <a name="manage-nps-templates"></a>Gestire i modelli del Server dei criteri di rete
 
@@ -43,7 +43,7 @@ Tuttavia, se si configura un nuovo modello di **client RADIUS** nella console NP
 
 Nella procedura riportata di seguito vengono fornite istruzioni su come creare un nuovo modello.
 
-L'appartenenza a **amministratori**, o equivalente è il requisito minimo necessario per completare questa procedura.
+Per poter completare questa procedura, è richiesta almeno l'appartenenza al gruppo **Administrators** o a un gruppo equivalente.
 
 ### <a name="to-create-an-nps-template"></a>Per creare un modello NPS
 
@@ -58,7 +58,7 @@ L'appartenenza a **amministratori**, o equivalente è il requisito minimo necess
 
 È possibile usare un modello creato in **Gestione modelli** passando a un percorso nella console NPS in cui è possibile applicare il modello. Se, ad esempio, si desidera applicare un modello di segreti condivisi a una configurazione client RADIUS, è possibile utilizzare la procedura riportata di seguito.
 
-L'appartenenza a **amministratori**, o equivalente è il requisito minimo necessario per completare questa procedura.
+Per poter completare questa procedura, è richiesta almeno l'appartenenza al gruppo **Administrators** o a un gruppo equivalente.
 
 ### <a name="to-apply-an-nps-template"></a>Per applicare un modello NPS
 
@@ -74,7 +74,7 @@ L'appartenenza a **amministratori**, o equivalente è il requisito minimo necess
 
 È possibile esportare i modelli per l'uso in altri NPSs oppure è possibile importare i modelli nella **gestione dei modelli** per l'uso nel computer locale. 
 
-L'appartenenza a **amministratori**, o equivalente è il requisito minimo necessario per completare questa procedura.
+Per poter completare questa procedura, è richiesta almeno l'appartenenza al gruppo **Administrators** o a un gruppo equivalente.
 
 ### <a name="to-export-or-import-nps-templates"></a>Per esportare o importare modelli NPS
 

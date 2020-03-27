@@ -1,9 +1,9 @@
 ---
 title: Ulteriori personalizzazioni
-description: Viene descritto come utilizzare Windows Server Essentials
+description: Viene descritto come usare Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
-ms.prod: windows-server-2016-essentials
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
@@ -12,12 +12,12 @@ ms.assetid: 65a195d5-0098-4c3c-b4ba-07f7319c8f1e
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 347da7117835dde94c72168f77ff15a9cf5275c4
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: ccfd3d2a6518b11aa8243b608c044061e437c556
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59887702"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80310137"
 ---
 # <a name="additional-customizations"></a>Ulteriori personalizzazioni
 
@@ -26,67 +26,67 @@ ms.locfileid: "59887702"
 È possibile apportare le seguenti personalizzazioni aggiuntive per creare e personalizzare un'immagine di Windows Server Essentials:  
   
 
--   [Aggiungere informazioni personalizzate distintive di Dashboard, accesso Web remoto e Launchpad](Add-Branding-to-the-Dashboard--Remote-Web-Access--and-Launchpad.md)  
+-   [Aggiungere la personalizzazione al dashboard, ad Accesso Web remoto e alla finestra di avvio](Add-Branding-to-the-Dashboard--Remote-Web-Access--and-Launchpad.md)  
   
--   [Aggiungere una scheda a impostazioni](Add-a-Tab-to-Settings.md)  
+-   [Aggiungere una scheda a Impostazioni](Add-a-Tab-to-Settings.md)  
   
--   [Aggiunta di categorie principali alla finestra di avvio (sistema operativo Macintosh)](Add-Top-Level-Categories-to-the-Launchpad--Macintosh-Operating-System-.md)  
+-   [Aggiungere categorie principali alla finestra di avvio (sistema operativo Macintosh)](Add-Top-Level-Categories-to-the-Launchpad--Macintosh-Operating-System-.md)  
   
--   [Modifica le impostazioni dei flussi multimediali](Change-Media-Streaming-Settings.md)  
+-   [Modificare le impostazioni dei flussi multimediali](Change-Media-Streaming-Settings.md)  
   
--   [Modifica della combinazione colori del Dashboard e finestra di avvio](Change-the-Color-Scheme-of-the-Dashboard-and-Launchpad.md)  
+-   [Modificare la combinazione di colori del dashboard e della finestra di avvio](Change-the-Color-Scheme-of-the-Dashboard-and-Launchpad.md)  
   
--   [Modifica dell'ordine e il raggruppamento delle schede](Change-the-Order-and-Grouping-of-Tabs.md)  
+-   [Modificare l'ordine e il raggruppamento delle schede](Change-the-Order-and-Grouping-of-Tabs.md)  
   
--   [Installare o rimuovere Language Pack](Install-or-Remove-Language-Packs.md)  
+-   [Installare o rimuovere i Language Pack](Install-or-Remove-Language-Packs.md)  
   
--   [Gestire i nomi di dominio e il provider di nomi di dominio](Manage-Domain-Names-and-Domain-Name-Providers.md)  
+-   [Gestire i nomi di dominio e i relativi provider](Manage-Domain-Names-and-Domain-Name-Providers.md)  
   
--   [Personalizzazione dell'accesso per attività di Microsoft Online Backup Service](Customize-Sign-Up-for-Microsoft-Online-Backup-Service-task.md)  
+-   [Personalizzare l'attività di accesso al Servizio di backup online Microsoft](Customize-Sign-Up-for-Microsoft-Online-Backup-Service-task.md)  
   
--   [Personalizzazione degli spazi di archiviazione](Customize-Storage-Spaces.md)  
+-   [Personalizzare gli spazi di archiviazione](Customize-Storage-Spaces.md)  
   
--   [Creare supporti di ripristino Client multilingua](Build-Multi-Language-Client-Restore-Media.md)  
+-   [Creare un supporto di ripristino client multilingue](Build-Multi-Language-Client-Restore-Media.md)  
   
--   [Automatizzare l'installazione dei componenti aggiuntivi durante l'installazione](Automate-Installation-of-Add-Ins-During-Setup.md)  
+-   [Automatizzare l'installazione di componenti aggiuntivi durante l'installazione](Automate-Installation-of-Add-Ins-During-Setup.md)  
   
--   [Aggiungere le informazioni sui Partner of Record contratti Microsoft Online Service Partner](Add-Microsoft-Online-Service-Partner-Agreement-Partner-of-Record-Information.md)  
+-   [Aggiungere le informazioni sul partner registrato per il contratto Microsoft Online Service Partner Agreement](Add-Microsoft-Online-Service-Partner-Agreement-Partner-of-Record-Information.md)  
   
--   [Sostituire l'URL Endpoint acquisto prova delle modulo di integrazione di Office 365 per il supporto di contratto rivenditore servizi Online Microsoft](Replace-O365-Integration-Module-Buy-Try-Endpoint-URL-in-Support-of-Microsoft-Online-Service-Reseller-Agreement.md)  
+-   [Sostituire l'URL dell'endpoint per acquisto/prova del modulo di integrazione O365 nell'assistenza per il contratto Microsoft Online Service Reseller Agreement](Replace-O365-Integration-Module-Buy-Try-Endpoint-URL-in-Support-of-Microsoft-Online-Service-Reseller-Agreement.md)  
   
--   [Creare un DVD di ripristino Server per server amministrati da postazione remota](Create-a-Server-Recovery-DVD-for-Remotely-Administered-Servers.md)  
+-   [Creare un DVD di ripristino del server per server amministrati da postazione remota](Create-a-Server-Recovery-DVD-for-Remotely-Administered-Servers.md)  
   
--   [Creare un DVD di ripristino Server per il supporto multilingue](Create-a-Server-Recovery-DVD-for-Multi-Language-Support.md)
+-   [Creare un DVD di ripristino del server per il supporto multilingue](Create-a-Server-Recovery-DVD-for-Multi-Language-Support.md)
 
--   [Aggiungere informazioni personalizzate distintive di Dashboard, accesso Web remoto e Launchpad](../install/Add-Branding-to-the-Dashboard--Remote-Web-Access--and-Launchpad.md)  
+-   [Aggiungere la personalizzazione al dashboard, ad Accesso Web remoto e alla finestra di avvio](../install/Add-Branding-to-the-Dashboard--Remote-Web-Access--and-Launchpad.md)  
   
--   [Aggiungere una scheda a impostazioni](../install/Add-a-Tab-to-Settings.md)  
+-   [Aggiungere una scheda a Impostazioni](../install/Add-a-Tab-to-Settings.md)  
   
--   [Aggiunta di categorie principali alla finestra di avvio (sistema operativo Macintosh)](../install/Add-Top-Level-Categories-to-the-Launchpad--Macintosh-Operating-System-.md)  
+-   [Aggiungere categorie principali alla finestra di avvio (sistema operativo Macintosh)](../install/Add-Top-Level-Categories-to-the-Launchpad--Macintosh-Operating-System-.md)  
   
--   [Modifica le impostazioni dei flussi multimediali](../install/Change-Media-Streaming-Settings.md)  
+-   [Modificare le impostazioni dei flussi multimediali](../install/Change-Media-Streaming-Settings.md)  
   
--   [Modifica della combinazione colori del Dashboard e finestra di avvio](../install/Change-the-Color-Scheme-of-the-Dashboard-and-Launchpad.md)  
+-   [Modificare la combinazione di colori del dashboard e della finestra di avvio](../install/Change-the-Color-Scheme-of-the-Dashboard-and-Launchpad.md)  
   
--   [Modifica dell'ordine e il raggruppamento delle schede](../install/Change-the-Order-and-Grouping-of-Tabs.md)  
+-   [Modificare l'ordine e il raggruppamento delle schede](../install/Change-the-Order-and-Grouping-of-Tabs.md)  
   
--   [Installare o rimuovere Language Pack](../install/Install-or-Remove-Language-Packs.md)  
+-   [Installare o rimuovere i Language Pack](../install/Install-or-Remove-Language-Packs.md)  
   
--   [Gestire i nomi di dominio e il provider di nomi di dominio](../install/Manage-Domain-Names-and-Domain-Name-Providers.md)  
+-   [Gestire i nomi di dominio e i relativi provider](../install/Manage-Domain-Names-and-Domain-Name-Providers.md)  
   
--   [Personalizzazione dell'accesso per attività di Microsoft Online Backup Service](../install/Customize-Sign-Up-for-Microsoft-Online-Backup-Service-task.md)  
+-   [Personalizzare l'attività di accesso al Servizio di backup online Microsoft](../install/Customize-Sign-Up-for-Microsoft-Online-Backup-Service-task.md)  
   
--   [Personalizzazione degli spazi di archiviazione](../install/Customize-Storage-Spaces.md)  
+-   [Personalizzare gli spazi di archiviazione](../install/Customize-Storage-Spaces.md)  
   
--   [Creare supporti di ripristino Client multilingua](../install/Build-Multi-Language-Client-Restore-Media.md)  
+-   [Creare un supporto di ripristino client multilingue](../install/Build-Multi-Language-Client-Restore-Media.md)  
   
--   [Automatizzare l'installazione dei componenti aggiuntivi durante l'installazione](../install/Automate-Installation-of-Add-Ins-During-Setup.md)  
+-   [Automatizzare l'installazione di componenti aggiuntivi durante l'installazione](../install/Automate-Installation-of-Add-Ins-During-Setup.md)  
   
--   [Aggiungere le informazioni sui Partner of Record contratti Microsoft Online Service Partner](../install/Add-Microsoft-Online-Service-Partner-Agreement-Partner-of-Record-Information.md)  
+-   [Aggiungere le informazioni sul partner registrato per il contratto Microsoft Online Service Partner Agreement](../install/Add-Microsoft-Online-Service-Partner-Agreement-Partner-of-Record-Information.md)  
   
--   [Sostituire l'URL Endpoint acquisto prova delle modulo di integrazione di Office 365 per il supporto di contratto rivenditore servizi Online Microsoft](../install/Replace-O365-Integration-Module-Buy-Try-Endpoint-URL-in-Support-of-Microsoft-Online-Service-Reseller-Agreement.md)  
+-   [Sostituire l'URL dell'endpoint per acquisto/prova del modulo di integrazione O365 nell'assistenza per il contratto Microsoft Online Service Reseller Agreement](../install/Replace-O365-Integration-Module-Buy-Try-Endpoint-URL-in-Support-of-Microsoft-Online-Service-Reseller-Agreement.md)  
   
--   [Creare un DVD di ripristino Server per server amministrati da postazione remota](../install/Create-a-Server-Recovery-DVD-for-Remotely-Administered-Servers.md)  
+-   [Creare un DVD di ripristino del server per server amministrati da postazione remota](../install/Create-a-Server-Recovery-DVD-for-Remotely-Administered-Servers.md)  
   
--   [Creare un DVD di ripristino Server per il supporto multilingue](../install/Create-a-Server-Recovery-DVD-for-Multi-Language-Support.md)
+-   [Creare un DVD di ripristino del server per il supporto multilingue](../install/Create-a-Server-Recovery-DVD-for-Multi-Language-Support.md)
 

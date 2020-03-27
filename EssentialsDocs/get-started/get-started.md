@@ -2,7 +2,7 @@
 title: Introduzione a Windows Server Essentials
 description: Viene descritto come usare Windows Server Essentials
 ms.custom: na
-ms.prod: windows-server-2019-essentials
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
@@ -11,12 +11,12 @@ ms.assetid: 2d0eb084-09dd-4d85-a41a-5d449cc3b504
 author: nnamuhcs
 ms.author: coreyp
 manager: jasgro
-ms.openlocfilehash: 807ea32a466b6717f61423e58d621a0050047586
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: bafcd95abf24cb93ed0ae0bd83090d224666a5bd
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75946858"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80310454"
 ---
 # <a name="get-started-with-windows-server-essentials"></a>Introduzione a Windows Server Essentials 
 
@@ -57,7 +57,7 @@ ms.locfileid: "75946858"
   
 -    Per informazioni su come collaborare in modo sicuro con partner e fornitori, vedere [Migliorare la collaborazione nelle piccole e medie imprese](https://technet.microsoft.com/library/dn747893.aspx).  
   
-## <a name="see-also"></a>Vedi anche  
+## <a name="see-also"></a>Vedere anche  
   
 -   [Libreria TechNet di Windows Server](https://technet.microsoft.com/library/bb625087.aspx)  
   

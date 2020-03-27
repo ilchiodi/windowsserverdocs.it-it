@@ -10,14 +10,14 @@ ms.technology: networking-ras
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: f000066e-7cf8-4085-82a3-4f4fe1cb3c5c
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: fb7dca9a0f7875936cbb30cbc9c5e9e0a7473237
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 19a87762e19dd763376f50c7c5b04da3f2187874
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71404639"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80308359"
 ---
 # <a name="step-3-configure-a-load-balanced-cluster"></a>Passaggio 3 configurare un Cluster con bilanciamento del carico
 
@@ -41,27 +41,27 @@ Dopo la preparazione server per il cluster, configurare il bilanciamento del car
 > [!NOTE]  
 > Assicurarsi di non utilizzare un DIP che è già presente in un altro computer nella rete.  
   
-## <a name="BKMK_Prefix"></a>3,1 configurare il prefisso IPv6  
+## <a name="31-configure-the-ipv6-prefix"></a><a name="BKMK_Prefix"></a>3,1 configurare il prefisso IPv6  
   
-### <a name="configDA"></a>Per configurare il prefisso  
+### <a name="to-configure-the-prefix"></a><a name="configDA"></a>Per configurare il prefisso  
   
-1.  Nel server di accesso remoto, fare clic su **avviare**, quindi fare clic su **Gestione accesso remoto**. Se viene visualizzata la finestra di dialogo **Controllo account utente** , verificare che l'azione visualizzata sia quella desiderata e quindi fare clic su **Sì**.  
+1.  Nel server di accesso remoto, fare clic su **avviare**, quindi fare clic su **Gestione accesso remoto**. Se viene visualizzata la finestra di dialogo **Controllo dell'account utente**, verificare che l'azione indicata sia quella che si desidera eseguire e quindi fare clic su **Sì**.  
   
 2.  Nella console di gestione Accesso remoto fare clic su **Configurazione**.  
   
 3.  Nel riquadro centrale della console, nel **passaggio 2 DirectAccess Server** area, fare clic su **modificare**.  
   
-4.  Fare clic su **Configurazione prefissi**. Nel **Configurazione prefissi** pagina **prefisso IPv6 assegnato ai computer client DirectAccess**, immettere il prefisso IPv6 utilizzato per i computer client DirectAccess con una lunghezza di subnet di 59, ad esempio, **2001:db8:1:1000:: 59**. Se sono stati inoltre abilitata la VPN con IPv6, quindi verrà visualizzato un prefisso IPv6 e la lunghezza della subnet devono essere modificati e 59. Fai clic su **Next**.  
+4.  Fare clic su **Configurazione prefissi**. Nel **Configurazione prefissi** pagina **prefisso IPv6 assegnato ai computer client DirectAccess**, immettere il prefisso IPv6 utilizzato per i computer client DirectAccess con una lunghezza di subnet di 59, ad esempio, **2001:db8:1:1000:: 59**. Se sono stati inoltre abilitata la VPN con IPv6, quindi verrà visualizzato un prefisso IPv6 e la lunghezza della subnet devono essere modificati e 59. Fare clic su **Avanti**.  
   
 5.  Nel riquadro centrale della console, fare clic su **Fine**.  
   
 6.  Nel **controllare l'accesso remoto** la finestra di dialogo, rivedere le impostazioni di configurazione e quindi fare clic su **Applica**. Nella finestra di dialogo **Applicazione delle impostazioni della Configurazione guidata Accesso remoto** fare clic su **Chiudi**.  
   
-## <a name="BKMK_NLB"></a>3,2 abilitare il bilanciamento del carico  
+## <a name="32-enable-load-balancing"></a><a name="BKMK_NLB"></a>3,2 abilitare il bilanciamento del carico  
   
 #### <a name="to-enable-load-balancing"></a>Per abilitare il bilanciamento del carico  
   
-1.  Nel server DirectAccess configurato, fare clic su **avviare**, quindi fare clic su **Gestione accesso remoto**. Se viene visualizzata la finestra di dialogo **Controllo account utente** , verificare che l'azione visualizzata sia quella desiderata e quindi fare clic su **Sì**.  
+1.  Nel server DirectAccess configurato, fare clic su **avviare**, quindi fare clic su **Gestione accesso remoto**. Se viene visualizzata la finestra di dialogo **Controllo dell'account utente**, verificare che l'azione indicata sia quella che si desidera eseguire e quindi fare clic su **Sì**.  
   
 2.  Nella console di gestione accesso remoto, nel riquadro a sinistra, fare clic su **configurazione**, e quindi la **attività** riquadro, fare clic su **abilitare il bilanciamento del carico**.  
   
@@ -102,7 +102,7 @@ Dopo la preparazione server per il cluster, configurare il bilanciamento del car
   
 ![](../../../../media/Step-3-Configure-a-Load-Balanced-Cluster/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em> per Windows PowerShell***  
   
-Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.  
+Tramite i cmdlet di Windows PowerShell seguenti viene eseguita la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se è possibile il ritorno a capo automatico in diverse righe a causa di limiti di formattazione.  
   
 Se si sceglie di utilizzare Bilanciamento carico di RETE di Windows i passaggi di pianificazione, quindi eseguire le operazioni seguenti:  
   
@@ -119,22 +119,22 @@ Set-RemoteAccessLoadBalancer -InternetDedicatedIPAddress "2.1.1.20/255.255.255.0
 > [!NOTE]  
 > Si consiglia di non includere le modifiche alle impostazioni di bilanciamento del carico con le modifiche a tutte le altre impostazioni, se si utilizza oggetti Criteri di gruppo di gestione temporanea. Qualsiasi modifica alle impostazioni di bilanciamento del carico deve essere applicato per primo e quindi devono essere apportate altre modifiche di configurazione. Inoltre, dopo la configurazione di bilanciamento del carico in un nuovo server DirectAccess, attendi del tempo essere applicato e replicati tra i server DNS nell'organizzazione, prima di modificare altre impostazioni di DirectAccess relative al nuovo cluster le modifiche di IP.  
   
-## <a name="BKMK_InstallIPHTTP"></a>3,3 installare il certificato IP-HTTPS  
-Appartenenza al gruppo locale **amministratori** o gruppo equivalente, è il requisito minimo necessario per completare questa procedura.  
+## <a name="33-install-the-ip-https-certificate"></a><a name="BKMK_InstallIPHTTP"></a>3,3 installare il certificato IP-HTTPS  
+L'appartenenza al gruppo **Administrators** locale, o equivalente, è il requisito minimo per completare questa procedura.  
   
-### <a name="IPHTTPSCert"></a>Per installare il certificato IP-HTTPS  
+### <a name="to-install-the-ip-https-certificate"></a><a name="IPHTTPSCert"></a>Per installare il certificato IP-HTTPS  
   
-1.  Nel server di accesso remoto configurato, fare clic su **avviare**, tipo **mmc** e premere INVIO. Se viene visualizzata la finestra di dialogo **Controllo account utente** , verificare che l'azione visualizzata sia quella desiderata e quindi fare clic su **Sì**.  
+1.  Nel server di accesso remoto configurato, fare clic su **avviare**, tipo **mmc** e premere INVIO. Se viene visualizzata la finestra di dialogo **Controllo dell'account utente**, verificare che l'azione indicata sia quella che si desidera eseguire e quindi fare clic su **Sì**.  
   
-2.  Nella console di MMC, nel **File** menu, fare clic su **Aggiungi/Rimuovi Snap-in**.  
+2.  Nella console MMC scegliere **Aggiungi/Rimuovi snap-in** dal menu **File**.  
   
 3.  Nel **Aggiungi o Rimuovi Snap-in** la finestra di dialogo, fare clic su **certificati**, fare clic su **Aggiungi**, fare clic su **account Computer**, fare clic su **Avanti**, fare clic su **Fine**, e quindi fare clic su **OK**.  
   
 4.  Nel riquadro sinistro della console, passare a **certificati (Computer locale) \Personal\Certificates**. Fare clic su certificato IP-HTTPS, scegliere **tutte le attività** e fare clic su **esportazione**.  
   
-5.  Nel **iniziale per l'esportazione guidata certificati** pagina, fare clic su **Avanti**.  
+5.  Nella pagina **Esportazione guidata certificati** fare clic su **Avanti**.  
   
-6.  Nel **esportazione della chiave privata** pagina, fare clic su **Sì, Esporta la chiave privata**, e quindi fare clic su **Avanti**.  
+6.  Nella pagina **Esportazione della chiave privata con il certificato** selezionare **Sì, esporta la chiave privata** e quindi fare clic su **Avanti**.  
   
 7.  Nel **Formato File di esportazione** pagina, fare clic su **scambio informazioni personali - PKCS #12 (. PFX)** , quindi fare clic su **Avanti**.  
   
@@ -142,15 +142,15 @@ Appartenenza al gruppo locale **amministratori** o gruppo equivalente, è il req
   
 9. Nel **File da esportare** pagina, immettere un nome per il file del certificato e salvarlo sul desktop e quindi fare clic su **Avanti**.  
   
-10. Nel **il completamento dell'esportazione guidata certificati** pagina, fare clic su **Fine**.  
+10. Nella pagina **Completamento dell'Esportazione guidata certificati** fare clic su **Fine**.  
   
 11. Nel **Esportazione guidata certificati** la finestra di dialogo, fare clic su **OK**.  
   
 12. Copiare il certificato in tutti i server che si desidera essere membri del cluster.  
   
-13. Nel nuovo server DirectAccess, fare clic su **avviare**, tipo **mmc** e premere INVIO. Se viene visualizzata la finestra di dialogo **Controllo account utente** , verificare che l'azione visualizzata sia quella desiderata e quindi fare clic su **Sì**.  
+13. Nel nuovo server DirectAccess, fare clic su **avviare**, tipo **mmc** e premere INVIO. Se viene visualizzata la finestra di dialogo **Controllo dell'account utente**, verificare che l'azione indicata sia quella che si desidera eseguire e quindi fare clic su **Sì**.  
   
-14. Nella console di MMC, nel **File** menu, fare clic su **Aggiungi/Rimuovi Snap-in**.  
+14. Nella console MMC scegliere **Aggiungi/Rimuovi snap-in** dal menu **File**.  
   
 15. Nel **Aggiungi o Rimuovi Snap-in** la finestra di dialogo, fare clic su **certificati**, fare clic su **Aggiungi**, fare clic su **account Computer**, fare clic su **Avanti**, fare clic su **Fine**, e quindi fare clic su **OK**.  
   
@@ -170,12 +170,12 @@ Appartenenza al gruppo locale **amministratori** o gruppo equivalente, è il req
   
 23. Ripetere i passaggi da 13 a 22 in tutti i server che si desidera essere membri del cluster.  
   
-## <a name="BKMK_NLS"></a>3,4 installare il certificato del server dei percorsi di rete  
-Appartenenza al gruppo locale **amministratori** o gruppo equivalente, è il requisito minimo necessario per completare questa procedura.  
+## <a name="34-install-the-network-location-server-certificate"></a><a name="BKMK_NLS"></a>3,4 installare il certificato del server dei percorsi di rete  
+L'appartenenza al gruppo **Administrators** locale, o equivalente, è il requisito minimo per completare questa procedura.  
   
 #### <a name="to-install-a-certificate-for-network-location"></a>Per installare un certificato per il percorso di rete  
   
-1.  Nel server di accesso remoto, fare clic su **avviare**, tipo **mmc**, quindi premere INVIO. Se viene visualizzata la finestra di dialogo **Controllo account utente** , verificare che l'azione visualizzata sia quella desiderata e quindi fare clic su **Sì**.  
+1.  Nel server di accesso remoto, fare clic su **avviare**, tipo **mmc**, quindi premere INVIO. Se viene visualizzata la finestra di dialogo **Controllo dell'account utente**, verificare che l'azione indicata sia quella che si desidera eseguire e quindi fare clic su **Sì**.  
   
 2.  Scegliere **Aggiungi/Rimuovi snap-in** dal menu **File**.  
   
@@ -185,7 +185,7 @@ Appartenenza al gruppo locale **amministratori** o gruppo equivalente, è il req
   
 5.  Fare clic con il pulsante destro del mouse su **Certificati**, scegliere **Tutte le attività** e quindi fare clic su **Richiedi nuovo certificato**.  
   
-6.  Fare clic due volte su **Avanti** .  
+6.  Fare clic due volte su **Avanti**.  
   
 7.  Nel **richiesta certificati** pagina, fare clic sul modello di certificato Server Web e quindi fare clic su **sono necessarie ulteriori informazioni per registrare questo certificato**.  
   
@@ -195,25 +195,25 @@ Appartenenza al gruppo locale **amministratori** o gruppo equivalente, è il req
   
 9. In **valore**, digitare il nome di dominio completo (FQDN) per il nome intranet del sito Web server di percorso di rete (ad esempio, NLS) e quindi fare clic su **Aggiungi**.  
   
-10. Fare clic su **OK**, fare clic su **registrazione**, quindi fare clic su **Fine**.  
+10. Fare clic su **OK**, su **Registrazione** e quindi su **Fine**.  
   
-11. Nel riquadro dei dettagli dello snap-in certificati, verificare che sia registrato un nuovo certificato con il nome FQDN **scopi designati** di **l'autenticazione Server**.  
+11. Nel riquadro dei dettagli dello snap-in Certificati verificare che un nuovo certificato con il nome di dominio completo sia registrato come **Autenticazione server** in **Scopi designati**.  
   
 12. Fare clic con il pulsante destro del mouse sul certificato e scegliere **Proprietà**.  
   
-13. In **nome descrittivo**, tipo **certificato percorsi di rete**, quindi fare clic su **OK**.  
+13. In **Nome descrittivo** digitare **Certificato del percorso di rete**, quindi fare clic su **OK**.  
   
     > [!TIP]  
     > I passaggi 12 e 13 sono facoltativi, ma rendono più semplice per selezionare il certificato per il percorso di rete quando si configura accesso remoto.  
   
 14. Ripetere questa procedura su tutti i server che si desidera essere membri del cluster.  
   
-## <a name="BKMK_Add"></a>3,5 aggiungere server al cluster  
+## <a name="35-add-servers-to-the-cluster"></a><a name="BKMK_Add"></a>3,5 aggiungere server al cluster  
  
   
 #### <a name="to-add-servers-to-the-cluster"></a>Per aggiungere server al cluster  
   
-1.  Nel server DirectAccess configurato, fare clic su **avviare**, quindi fare clic su **Gestione accesso remoto**. Se viene visualizzata la finestra di dialogo **Controllo account utente** , verificare che l'azione visualizzata sia quella desiderata e quindi fare clic su **Sì**.  
+1.  Nel server DirectAccess configurato, fare clic su **avviare**, quindi fare clic su **Gestione accesso remoto**. Se viene visualizzata la finestra di dialogo **Controllo dell'account utente**, verificare che l'azione indicata sia quella che si desidera eseguire e quindi fare clic su **Sì**.  
   
 2.  Nella console di gestione Accesso remoto fare clic su **Configurazione**. Nel **attività** riquadro, in **cluster con bilanciamento del carico**, fare clic su **aggiungere o rimuovere server**.  
   
@@ -239,7 +239,7 @@ Appartenenza al gruppo locale **amministratori** o gruppo equivalente, è il req
   
 8.  Nel **riepilogo** pagina, fare clic su **Aggiungi**.  
   
-9. Nel **completamento** pagina, fare clic su **Chiudi**.  
+9. Nella pagina **Completamento** fare clic su **Chiudi**.  
   
 10. Ripetere questa procedura per tutti i server di accesso remoto da aggiungere al cluster.  
   
@@ -249,7 +249,7 @@ Appartenenza al gruppo locale **amministratori** o gruppo equivalente, è il req
   
 ![](../../../../media/Step-3-Configure-a-Load-Balanced-Cluster/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em> per Windows PowerShell***  
   
-Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.  
+Tramite i cmdlet di Windows PowerShell seguenti viene eseguita la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se è possibile il ritorno a capo automatico in diverse righe a causa di limiti di formattazione.  
   
 ```  
 Add-RemoteAccessLoadBalancerNode -RemoteAccessServer <server name>  
@@ -258,12 +258,12 @@ Add-RemoteAccessLoadBalancerNode -RemoteAccessServer <server name>
 > [!NOTE]  
 > Se VPN non è stata abilitata in un cluster con bilanciamento di carico, è necessario fornire non eventuali intervalli di indirizzi VPN quando si aggiunge un nuovo server al cluster tramite i cmdlet di Windows PowerShell. Se si è fatto per errore, rimuovere il server dal cluster e aggiungerlo nuovamente al cluster senza specificare gli intervalli di indirizzi VPN.  
   
-## <a name="BKMK_remove"></a>3,6 rimuovere un server dal cluster  
+## <a name="36-remove-a-server-from-the-cluster"></a><a name="BKMK_remove"></a>3,6 rimuovere un server dal cluster  
  
   
 #### <a name="to-remove-a-server-from-the-cluster"></a>Per rimuovere un server dal cluster  
   
-1.  Nel server di accesso remoto configurato, fare clic su **avviare**, quindi fare clic su **Gestione accesso remoto**. Se viene visualizzata la finestra di dialogo **Controllo account utente** , verificare che l'azione visualizzata sia quella desiderata e quindi fare clic su **Sì**.  
+1.  Nel server di accesso remoto configurato, fare clic su **avviare**, quindi fare clic su **Gestione accesso remoto**. Se viene visualizzata la finestra di dialogo **Controllo dell'account utente**, verificare che l'azione indicata sia quella che si desidera eseguire e quindi fare clic su **Sì**.  
   
 2.  Nella console di gestione Accesso remoto fare clic su **Configurazione**. Nel **attività** riquadro, in **cluster con bilanciamento del carico**, fare clic su **aggiungere o rimuovere server**.  
   
@@ -279,18 +279,18 @@ Add-RemoteAccessLoadBalancerNode -RemoteAccessServer <server name>
   
 ![](../../../../media/Step-3-Configure-a-Load-Balanced-Cluster/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em> per Windows PowerShell***  
   
-Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.  
+Tramite i cmdlet di Windows PowerShell seguenti viene eseguita la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se è possibile il ritorno a capo automatico in diverse righe a causa di limiti di formattazione.  
   
 ```  
 Remove-RemoteAccessLoadBalancerNode -RemoteAccessServer <server name>  
 ```  
   
-## <a name="BKBK_disable"></a>3,7 disabilitare il bilanciamento del carico  
+## <a name="37-disable-load-balancing"></a><a name="BKBK_disable"></a>3,7 disabilitare il bilanciamento del carico  
 [Eseguire questo passaggio con Windows PowerShell](assetId:///7a817ca0-2b4a-4476-9d28-9a63ff2453f9)  
   
 #### <a name="to-disable-load-balancing"></a>Per disabilitare il bilanciamento del carico  
   
-1.  Nel server DirectAccess configurato, fare clic su **avviare**, quindi fare clic su **Gestione accesso remoto**. Se viene visualizzata la finestra di dialogo **Controllo account utente** , verificare che l'azione visualizzata sia quella desiderata e quindi fare clic su **Sì**.  
+1.  Nel server DirectAccess configurato, fare clic su **avviare**, quindi fare clic su **Gestione accesso remoto**. Se viene visualizzata la finestra di dialogo **Controllo dell'account utente**, verificare che l'azione indicata sia quella che si desidera eseguire e quindi fare clic su **Sì**.  
   
 2.  Nella console di gestione Accesso remoto fare clic su **Configurazione**. Nel **attività** riquadro, in **cluster con bilanciamento del carico**, fare clic su **disabilitare il bilanciamento del carico**.  
   
@@ -300,7 +300,7 @@ Remove-RemoteAccessLoadBalancerNode -RemoteAccessServer <server name>
   
 ![](../../../../media/Step-3-Configure-a-Load-Balanced-Cluster/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em> per Windows PowerShell***  
   
-Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.  
+Tramite i cmdlet di Windows PowerShell seguenti viene eseguita la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se è possibile il ritorno a capo automatico in diverse righe a causa di limiti di formattazione.  
   
 ```  
 set-RemoteAccessLoadBalancer -disable  
@@ -315,7 +315,7 @@ Fare clic su **rimuovere impostazioni di configurazione** rimuoverà bilanciamen
 > -   Dopo aver utilizzato la **RemoteAccessLoadBalancer Set** cmdlet per disabilitare il bilanciamento del carico, attendere due minuti prima di eseguire qualsiasi altro cmdlet. Questa deve essere eseguita anche in tutti gli script che eseguono un altro cmdlet dopo il **RemoteAccessLoadBalancer Set-disabilitare** cmdlet.  
 > -   Disabilitazione delle modifiche di bilanciamento del carico l'indirizzo IP virtuale del cluster in un indirizzo IP dedicato. Di conseguenza, qualsiasi operazione che esegue una query per il nome del server avrà esito negativo finché non scade la voce nella cache DNS sul server. Assicurarsi di non eseguire i cmdlet PowerShell di accesso remoto dopo la disattivazione di bilanciamento del carico finché non scade la cache sul server. Questo problema è più comune se si tenta di disabilitare il bilanciamento del carico in un computer da un altro computer che si trova in un altro dominio. Ciò si verifica anche se si disabilita il bilanciamento del carico dalla console di gestione accesso remoto e può impedire la configurazione del caricamento. La configurazione verrà caricato dopo che la cache è scaduto o è stata scaricata.  
   
-## <a name="BKMK_Links"></a>Vedere anche  
+## <a name="see-also"></a><a name="BKMK_Links"></a>Vedere anche  
   
 -   [Passaggio 4: verifica del cluster](Step-4-Verify-the-Cluster.md)  
   

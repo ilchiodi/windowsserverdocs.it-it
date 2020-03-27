@@ -10,14 +10,14 @@ ms.technology: networking-ras
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 4781df0a-158b-4562-b8f5-32b27615a4f8
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 1ab337da85387be8c7d960315bb28644fa3a8a93
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: aebdbd02ebe256872b52e794c755e0d590b175a5
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71367503"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80308470"
 ---
 # <a name="deploy-remote-access-in-an-enterprise"></a>Distribuire Accesso remoto in una grande impresa
 
@@ -37,11 +37,11 @@ Questo argomento fornisce un'introduzione allo scenario DirectAccess per l'azien
   
 -   [Prerequisiti per la distribuzione dei prerequisiti di DirectAccess](https://technet.microsoft.com/windows-server-docs/networking/remote-access/directaccess/prerequisites-for-deploying-directaccess)  
   
-## <a name="BKMK_OVER"></a>Descrizione dello scenario  
+## <a name="scenario-description"></a><a name="BKMK_OVER"></a>Descrizione dello scenario  
 L'accesso remoto include diverse funzionalità aziendali, tra cui la distribuzione di più server di accesso remoto in un cluster con carico bilanciato tramite Bilanciamento carico di rete di Windows o un servizio di bilanciamento del carico esterno, la configurazione di una distribuzione multisito con i server di accesso remoto che si trovano in aree geografiche diverse e la distribuzione di DirectAccess mediante l'autenticazione client a due fattori con One Time Password (OTP).  
   
 ## <a name="in-this-scenario"></a>In questo scenario  
-Ogni scenario aziendale viene descritto in un documento che include istruzioni di pianificazione e distribuzione. Per altre informazioni, vedere:  
+Ogni scenario aziendale viene descritto in un documento che include istruzioni di pianificazione e distribuzione. Per altre informazioni, vedi:  
   
 -   [Distribuire accesso remoto in un cluster](cluster/Deploy-Remote-Access-In-Cluster.md)  
   
@@ -51,7 +51,7 @@ Ogni scenario aziendale viene descritto in un documento che include istruzioni d
   
 -   [Distribuire accesso remoto in un ambiente a più foreste](multi-forest/Deploy-Remote-Access-in-a-Multi-Forest-Environment.md)  
   
-## <a name="BKMK_APP"></a>Applicazioni pratiche  
+## <a name="practical-applications"></a><a name="BKMK_APP"></a>Applicazioni pratiche  
 Gli scenari aziendali di Accesso remoto forniscono:  
   
 -   **Maggiore disponibilità**. La distribuzione di più server di accesso remoto in un cluster fornisce scalabilità e aumenta la capacità di velocità effettiva e numero di utenti. Il bilanciamento del carico del cluster fornisce la disponibilità elevata. Se un server nel cluster non riesce, gli utenti remoti possono continuare ad accedere alla rete aziendale interna usando un altro server nel cluster. Il failover è trasparente perché i client si connettono al cluster usando un indirizzo IP virtuale (VIP).  
@@ -62,13 +62,13 @@ Gli scenari aziendali di Accesso remoto forniscono:
   
 -   **Sicurezza**. La distribuzione di un'autenticazione client avanzata con una password monouso (OTP) anziché con la password standard Active Directory aumenta la sicurezza.  
   
-## <a name="BKMK_NEW"></a>Ruoli e funzionalità inclusi in questo scenario  
+## <a name="roles-and-features-included-in-this-scenario"></a><a name="BKMK_NEW"></a>Ruoli e funzionalità inclusi in questo scenario  
 La tabella seguente elenca i ruoli e le funzionalità usati nello scenario aziendale.  
   
 |Ruolo/funzionalità|Modalità di supporto dello scenario|  
 |---------|-----------------|  
-|Ruolo del server Accesso remoto|Il ruolo viene installato e disinstallato tramite la console di Server Manager. Questo ruolo comprende DirectAccess, una funzionalità precedentemente inclusa in Windows Server 2008 R2, e il servizio Routing e Accesso remoto che in precedenza era un servizio ruolo nel ruolo server Servizi di accesso e criteri di rete (NPAS). Il ruolo Accesso remoto è costituito da due componenti:<br /><br />1.  DirectAccess e i servizi routing e accesso remoto (RRAS) VPN: DirectAccess e VPN vengono gestiti insieme nella console di gestione accesso remoto.<br />2.  Routing RRAS: le funzionalità di routing RRAS sono gestite nella console di routing e accesso remoto legacy.<br /><br />Il ruolo server Accesso remoto dipende dalle funzionalità server seguenti:<br /><br />-Internet Information Services (IIS): questa funzionalità è necessaria per configurare il server dei percorsi di rete e il probe Web predefinito.<br />-Console Gestione Criteri di gruppo funzionalità è richiesta da DirectAccess per creare e gestire gli oggetti di Criteri di gruppo (GPO) in Active Directory e deve essere installato come funzionalità obbligatoria per il ruolo del server.|  
-|Funzionalità Strumenti di Gestione Accesso remoto|Questa funzionalità viene installata come segue:<br /><br />-Viene installato per impostazione predefinita in un server di accesso remoto quando è installato il ruolo Accesso remoto e supporta l'interfaccia utente della console di gestione remota.<br />-Può essere installata facoltativamente in un server non è in esecuzione il ruolo di server di accesso remoto. In questo caso viene utilizzata per la gestione remota di un computer di Accesso remoto che esegue DirectAccess e VPN.<br /><br />La funzionalità Strumenti di Gestione Accesso remoto è costituita dai seguenti elementi:<br /><br />1.  Interfaccia utente grafica di Accesso remoto e strumenti da riga di comando<br />2.  Modulo Accesso remoto per Windows PowerShell<br /><br />Le dipendenze includono:<br /><br />1.  Console Gestione Criteri di gruppo<br />2.  Connection Manager Administration Kit (CMAK) RAS<br />3.  Windows PowerShell 3.0<br />4.  Strumenti di gestione e infrastruttura grafica|  
+|Ruolo del server Accesso remoto|Il ruolo viene installato e disinstallato tramite la console di Server Manager. Questo ruolo comprende DirectAccess, una funzionalità precedentemente inclusa in Windows Server 2008 R2, e il servizio Routing e Accesso remoto che in precedenza era un servizio ruolo nel ruolo server Servizi di accesso e criteri di rete (NPAS). Il ruolo Accesso remoto è costituito da due componenti:<br /><br />1. i servizi DirectAccess e routing e accesso remoto (RRAS) VPN-DirectAccess e VPN vengono gestiti insieme nella console di gestione accesso remoto.<br />2. routing RRAS: le funzionalità di routing RRAS sono gestite nella console di routing e accesso remoto legacy.<br /><br />Il ruolo server Accesso remoto dipende dalle funzionalità server seguenti:<br /><br />-Internet Information Services (IIS): questa funzionalità è necessaria per configurare il server dei percorsi di rete e il probe Web predefinito.<br />-Console Gestione Criteri di gruppo funzionalità è richiesta da DirectAccess per creare e gestire gli oggetti di Criteri di gruppo (GPO) in Active Directory e deve essere installato come funzionalità obbligatoria per il ruolo del server.|  
+|Funzionalità Strumenti di Gestione Accesso remoto|Questa funzionalità viene installata come segue:<br /><br />-Viene installato per impostazione predefinita in un server di accesso remoto quando è installato il ruolo Accesso remoto e supporta l'interfaccia utente della console di gestione remota.<br />-Può essere installata facoltativamente in un server non è in esecuzione il ruolo di server di accesso remoto. In questo caso viene utilizzata per la gestione remota di un computer di Accesso remoto che esegue DirectAccess e VPN.<br /><br />La funzionalità Strumenti di Gestione Accesso remoto è costituita dai seguenti elementi:<br /><br />1. interfaccia utente grafica e strumenti da riga di comando di accesso remoto<br />2. modulo di accesso remoto per Windows PowerShell<br /><br />Le dipendenze includono:<br /><br />1. Console Gestione Criteri di gruppo<br />2. RAS Connection Manager Administration Kit (CMAK)<br />3. Windows PowerShell 3,0<br />4. strumenti di gestione grafica e infrastruttura|  
 |Windows NLB|Questa funzionalità consente il bilanciamento del carico di più server di accesso remoto.|  
   
 

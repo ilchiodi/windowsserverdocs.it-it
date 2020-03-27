@@ -3,7 +3,7 @@ title: Configurazione dell'archiviazione server
 description: Viene descritto come usare Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
-ms.prod: windows-server-2016-essentials
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
@@ -12,12 +12,12 @@ ms.assetid: ef7ddcdd-3a74-40ca-9487-c3a6fc5155a5
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 718080c050dadc20837ab6b11a677029227e1709
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 3d7c2b49afc9d740e6a4b3fa7ed659e8358c8dc6
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70865039"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80312139"
 ---
 # <a name="configure-server-storage"></a>Configurazione dell'archiviazione server
 
@@ -32,8 +32,8 @@ ms.locfileid: "70865039"
 |Livello del server|Configurazione del disco|  
 |------------------|------------------------|  
 |Voce|-Due dischi fisici<br /><br /> -Configurato come un set con mirroring RAID 1 che contiene quanto segue:<br /><br /> -C: volume? 60 GB<br /><br /> -D: volume? 1000 GB|  
-|Medio|-Tre dischi fisici<br /><br /> -Configurato come un set RAID 5 che contiene quanto segue:<br /><br /> -C: volume? 60 GB<br /><br /> -D: volume? 1500 GB|  
-|Alto|-Cinque o più dischi fisici totali<br /><br /> -Due dischi in un set con mirroring RAID 1 che contiene il volume C:? 100 GB<br /><br /> -Tutti i dischi rimanenti in un set RAID 5 che contiene quanto segue:<br /><br /> -D: volume? 1500 GB<br /><br /> -E: volume? 1500 GB|  
+|Media|-Tre dischi fisici<br /><br /> -Configurato come un set RAID 5 che contiene quanto segue:<br /><br /> -C: volume? 60 GB<br /><br /> -D: volume? 1500 GB|  
+|Alta|-Cinque o più dischi fisici totali<br /><br /> -Due dischi in un set con mirroring RAID 1 che contiene il volume C:? 100 GB<br /><br /> -Tutti i dischi rimanenti in un set RAID 5 che contiene quanto segue:<br /><br /> -D: volume? 1500 GB<br /><br /> -E: volume? 1500 GB|  
   
  Queste indicazioni prendono in considerazione le dimensioni del sistema operativo installato, le dimensioni medie dell'archivio dei dati utilizzate dal server e l'espansione prevista dell'archivio dei dati nella durata del server. I volumi possono essere partizioni su un singolo disco fisico o possono essere posizionati su dischi fisici separati. Poiché il server archivia dati importanti per il cliente, è consigliabile utilizzare più dischi fisici e proteggere i dati del cliente utilizzando RAID hardware o spazi di archiviazione.  
   

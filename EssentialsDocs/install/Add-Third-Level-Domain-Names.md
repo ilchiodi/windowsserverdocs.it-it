@@ -1,9 +1,9 @@
 ---
 title: Aggiunta dei nomi di dominio di terzo livello
-description: Viene descritto come utilizzare Windows Server Essentials
+description: Viene descritto come usare Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
-ms.prod: windows-server-2016-essentials
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
@@ -12,12 +12,12 @@ ms.assetid: e5b4a362-1881-4024-ae4e-cc3b05e50103
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 64bf24e45155fdd981e2061b3de7ebce1c53b36c
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: 5608fb5417b9e958b45d150879daccc3b7767e59
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59833322"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80310232"
 ---
 # <a name="add-third-level-domain-names"></a>Aggiunta dei nomi di dominio di terzo livello
 
@@ -28,7 +28,7 @@ ms.locfileid: "59833322"
 ## <a name="create-a-provider-of-third-level-domain-names"></a>Creazione di un provider dei nomi di dominio di terzo livello  
  È possibile rendere disponibili nomi di dominio di terzo livello attraverso la creazione e l'installazione di un assembly di codice che fornisce i nomi di dominio alla procedura guidata. A tale scopo, completare le seguenti attività:  
   
--   [Aggiungere un'implementazione dell'interfaccia IDomainSignupProvider all'assembly](Add-Third-Level-Domain-Names.md#BKMK_DomainSignup)  
+-   [Aggiungere un'implementazione dell'interfaccia Idomainsignupprovider all'all'assembly](Add-Third-Level-Domain-Names.md#BKMK_DomainSignup)  
   
 -   [Aggiungere un'implementazione dell'interfaccia IDomainMaintenanceProvider all'assembly](Add-Third-Level-Domain-Names.md#BKMK_DomainMaintenance)  
   
@@ -36,18 +36,18 @@ ms.locfileid: "59833322"
   
 -   [Installare l'assembly nel computer di riferimento](Add-Third-Level-Domain-Names.md#BKMK_InstallAssembly)  
   
--   [Riavviare il servizio di gestione nome dominio di Windows Server](Add-Third-Level-Domain-Names.md#BKMK_RestartService)  
+-   [Riavviare il servizio di gestione dei nomi di dominio di Windows Server](Add-Third-Level-Domain-Names.md#BKMK_RestartService)  
   
-###  <a name="BKMK_DomainSignup"></a> Aggiungere un'implementazione dell'interfaccia IDomainSignupProvider all'assembly  
+###  <a name="add-an-implementation-of-the-idomainsignupprovider-interface-to-the-assembly"></a><a name="BKMK_DomainSignup"></a>Aggiungere un'implementazione dell'interfaccia Idomainsignupprovider all'all'assembly  
  L'interfaccia IDomainSignupProvider viene utilizzata per aggiungere offerte di domini alla procedura guidata.  
   
 ##### <a name="to-add-the-idomainsignupprovider-code-to-the-assembly"></a>Per aggiungere il codice IDomainSignupProvider all'assembly  
   
 1.  Accedere a Visual Studio 2008 come amministratore facendo clic con il pulsante destro del mouse sul programma nel menu **Start**, quindi selezionando **Esegui come amministratore**.  
   
-2.  Fare clic su **File**, quindi su **Nuovo**e infine su **Progetto**.  
+2.  Fare clic su **File**, quindi su **Nuovo** e infine su **Progetto**.  
   
-3.  Nella finestra di dialogo **Nuovo progetto** , fare clic su **Visual C#**, quindi su **Libreria di classi**, infine immettere un nome per la soluzione e fare clic su **OK**.  
+3.  Nella finestra di dialogo **Nuovo progetto**, fare clic su **Visual C#** , quindi su **Libreria di classi**, infine immettere un nome per la soluzione e fare clic su **OK**.  
   
 4.  Rinominare il file Class1.cs. Ad esempio, MyDomainNameProvider.cs.  
   
@@ -278,7 +278,7 @@ ms.locfileid: "59833322"
   
 21. Salvare il progetto senza chiuderlo, poiché la procedura successiva prevede un'aggiunta ad esso. Fino a che la procedura successiva non sarà stata completata, non sarà possibile generare il progetto.  
   
-###  <a name="BKMK_DomainMaintenance"></a> Aggiungere un'implementazione dell'interfaccia IDomainMaintenanceProvider all'assembly  
+###  <a name="add-an-implementation-of-the-idomainmaintenanceprovider-interface-to-the-assembly"></a><a name="BKMK_DomainMaintenance"></a>Aggiungere un'implementazione dell'interfaccia IDomainMaintenanceProvider all'assembly  
  IDomainMaintenanceProvider viene utilizzato per gestire il dominio dopo averlo creato.  
   
 ##### <a name="to-add-the-idomainmaintenanceprovider-code-to-the-assembly"></a>Per aggiungere il codice IDomainMaintenanceProvider all'assembly  
@@ -517,10 +517,10 @@ ms.locfileid: "59833322"
   
 14. Salvare e generare la soluzione.  
   
-###  <a name="BKMK_SignAssembly"></a> Firmare l'assembly con una firma Authenticode  
+###  <a name="sign-the-assembly-with-an-authenticode-signature"></a><a name="BKMK_SignAssembly"></a>Firmare l'assembly con una firma Authenticode  
  Per poter utilizzare l'assembly nel sistema operativo, è necessario applicarvi una firma Authenticode. Per altre informazioni sulla firma dell'assembly, vedere [Firma e verifica del codice con Authenticode](https://msdn.microsoft.com/library/ms537364\(VS.85\).aspx#SignCode).  
   
-###  <a name="BKMK_InstallAssembly"></a> Installare l'assembly nel computer di riferimento  
+###  <a name="install-the-assembly-on-the-reference-computer"></a><a name="BKMK_InstallAssembly"></a>Installare l'assembly nel computer di riferimento  
  Collocare l'assembly in una cartella nel computer di riferimento. Annotare il percorso della cartella, dal momento che dovrà essere immesso nel Registro di sistema al passaggio successivo.  
   
 ### <a name="add-a-key-to-the-registry"></a>Aggiunta di una chiave al Registro di sistema  
@@ -528,7 +528,7 @@ ms.locfileid: "59833322"
   
 ##### <a name="to-add-a-key-to-the-registry"></a>Per aggiungere una chiave al Registro di sistema  
   
-1.  Nel computer di riferimento fare clic su **Start**, immettere **regedit**e quindi premere **INVIO**.  
+1.  Nel computer di riferimento fare clic su **Start**, immettere **regedit** e quindi premere **INVIO**.  
   
 2.  Nel riquadro sinistro, espandere **HKEY_LOCAL_MACHINE**, **SOFTWARE**, **Microsoft**, quindi **Windows Server**, **Gestione dominio** e infine **Provider**.  
   
@@ -550,7 +550,7 @@ ms.locfileid: "59833322"
   
 11. Fare clic con il pulsante destro del mouse sulla nuova stringa **Enabled** nel riquadro destro, quindi fare clic su **Modifica**.  
   
-12. Digitare **True**e quindi fare clic su **OK**.  
+12. Digitare **True** e quindi fare clic su **OK**.  
   
 13. Fare di nuovo clic con il pulsante destro del mouse sulla chiave, quindi fare clic su **Valore stringa**.  
   
@@ -560,18 +560,18 @@ ms.locfileid: "59833322"
   
 16. Digitare il nome completo della classe del provider definito nell'assembly, quindi fare clic su **OK**.  
   
-###  <a name="BKMK_RestartService"></a> Riavviare il servizio di gestione nome dominio di Windows Server  
+###  <a name="restart-the-windows-server-domain-name-management-service"></a><a name="BKMK_RestartService"></a>Riavviare il servizio di gestione dei nomi di dominio di Windows Server  
  È necessario riavviare il servizio di gestione dei domini di Windows Server affinché il provider diventi disponibile per il sistema operativo.  
   
-##### <a name="restart-the-service"></a>Riavvio del servizio  
+##### <a name="restart-the-service"></a>Arrestare il servizio  
   
-1.  Fare clic su **Start**, digitare **mmc**e quindi premere **INVIO**.  
+1.  Fare clic su **Start**, digitare **mmc** e quindi premere **INVIO**.  
   
 2.  Se lo snap-in Servizi non è elencato nella console, aggiungerlo completando i seguenti passaggi:  
   
-    1.  Fare clic su **Aggiungi/Rimuovi snap-in** nel menu **File**.  
+    1.  Scegliere **Aggiungi/Rimuovi snap-in** dal menu **File**.  
   
-    2.  Nell'elenco **Snap-in disponibili** , fare clic su **Servizi**, quindi su **Aggiungi**.  
+    2.  Nell'elenco **Snap-in disponibili**, fare clic su **Servizi**, quindi su **Aggiungi**.  
   
     3.  Nella finestra di dialogo **Servizi**, verificare che il **computer locale** sia selezionato, quindi fare clic su **Fine**.  
   
@@ -579,8 +579,8 @@ ms.locfileid: "59833322"
   
 3.  Fare doppio clic su **Servizi**, scorrere verso il basso, quindi selezionare **Windows Server Domain Management**, infine fare clic su **Riavvia il servizio**.  
   
-## <a name="see-also"></a>Vedere anche  
+## <a name="see-also"></a>Vedi anche  
  [Creazione e personalizzazione dell'immagine](Creating-and-Customizing-the-Image.md)   
  [Personalizzazioni aggiuntive](Additional-Customizations.md)   
  [Preparazione dell'immagine per la distribuzione](Preparing-the-Image-for-Deployment.md)   
- [Testare l'esperienza dei clienti](Testing-the-Customer-Experience.md)
+ [Test di Analisi utilizzo software](Testing-the-Customer-Experience.md)

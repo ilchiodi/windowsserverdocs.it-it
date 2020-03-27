@@ -6,15 +6,15 @@ ms.prod: windows-server
 ms.technology: networking-hv-switch
 ms.topic: get-started-article
 ms.assetid: ''
-ms.author: pashort
-author: shortpatti
+ms.author: lizross
+author: eross-msft
 ms.date: 08/08/2018
-ms.openlocfilehash: ccdcbb953939345ef5e9a45dff87fc7af62eb7bf
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 01c768aefa685b688c2ed3f777c44a4665b5e4a7
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71355491"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80309688"
 ---
 # <a name="virtual-network-peering"></a>Peering di rete virtuale
 
@@ -83,14 +83,14 @@ Quando si esegue il peering di due reti virtuali, è necessario configurare un p
 
 È possibile monitorare lo stato della connessione di peering, che può trovarsi in uno degli Stati seguenti:
 
--   **Avviato** Visualizzato quando si crea il peering dalla prima rete virtuale alla seconda rete virtuale.
+-   **Avviata:** Visualizzato quando si crea il peering dalla prima rete virtuale alla seconda rete virtuale.
 
--   **Connesso** Visualizzato dopo aver creato il peering dalla seconda rete virtuale alla prima rete virtuale. Lo stato del peering per la prima rete virtuale cambia da avviato a connesso. Entrambi i peer della rete virtuale devono avere lo stato connesso prima di stabilire correttamente un peering di rete virtuale.
+-   **Connessione** stabilita: Visualizzato dopo aver creato il peering dalla seconda rete virtuale alla prima rete virtuale. Lo stato del peering per la prima rete virtuale cambia da avviato a connesso. Entrambi i peer della rete virtuale devono avere lo stato connesso prima di stabilire correttamente un peering di rete virtuale.
 
--   **Disconnesso** Visualizzato se una rete virtuale si disconnette da un'altra rete virtuale.
+-   **Disconnesso:** Visualizzato se una rete virtuale si disconnette da un'altra rete virtuale.
 
 [infografica degli Stati]
 
 ## <a name="next-steps"></a>Passaggi successivi
-[Configurare il peering di rete virtuale](sdn-configure-vnet-peering.md): In questa procedura viene usato Windows PowerShell per trovare la rete logica del provider HNV per creare due reti virtuali, ognuna con una subnet. Il peering viene inoltre configurato tra le due reti virtuali.
+[Configurare il peering di rete virtuale](sdn-configure-vnet-peering.md): in questa procedura si usa Windows PowerShell per trovare la rete logica del provider HNV per creare due reti virtuali, ognuna con una subnet. Il peering viene inoltre configurato tra le due reti virtuali.
 

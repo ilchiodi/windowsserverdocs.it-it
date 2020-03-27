@@ -1,9 +1,9 @@
 ---
 title: Risolvere gli errori di backup e ripristino del computer in Windows Server Essentials
-description: Viene descritto come utilizzare Windows Server Essentials
+description: Viene descritto come usare Windows Server Essentials
 ms.custom: na
 ms.date: 06/25/2013
-ms.prod: windows-server-2016-essentials
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
@@ -12,12 +12,12 @@ ms.assetid: 5cc73aff-d2c0-4cf9-a23d-ef928ae5ddc9
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 37e79661442ba9f66a564b6c6c8fb57db1978454
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: 28e3564c93f192563626bfb44992ef9bc4a49598
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59812332"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80313244"
 ---
 # <a name="troubleshoot-computer-backup-and-restore-errors-in-windows-server-essentials"></a>Risolvere gli errori di backup e ripristino del computer in Windows Server Essentials
 
@@ -26,9 +26,9 @@ ms.locfileid: "59812332"
 Usare queste procedure per risolvere i problemi di backup del computer in Windows Server Essentials, inclusi i problemi di configurazione del backup, i backup incompleti o non riusciti, gli avvisi sullo stato di integrità del backup e i problemi relativi a file, cartelle o ripristino completo del sistema.  
   
 > [!NOTE]
->  Per informazioni più recenti sulla risoluzione dei problemi dalla community di Windows Server Essentials, visitare il [Forum di Windows Server Essentials](https://social.technet.microsoft.com/Forums//winserveressentials/threads).  
+>  Per le informazioni più recenti sulla risoluzione dei problemi della community di Windows Server Essentials, visitare il [Forum di Windows Server Essentials](https://social.technet.microsoft.com/Forums//winserveressentials/threads).  
   
-##  <a name="BKMK_TroubleshootBackupConfigurationIssues"></a> Risolvere i problemi di configurazione del backup per un computer connesso  
+##  <a name="troubleshoot-backup-configuration-issues-for-a-connected-computer"></a><a name="BKMK_TroubleshootBackupConfigurationIssues"></a>Risolvere i problemi di configurazione del backup per un computer connesso  
  Usare queste procedure per risolvere i problemi relativi alle configurazioni di backup per i computer sottoposti a backup nel server Windows Server Essentials.  
   
 ### <a name="errors"></a>Errori  
@@ -39,7 +39,7 @@ Usare queste procedure per risolvere i problemi di backup del computer in Window
   
 -   Errore nella rimozione del computer dal backup  
   
-### <a name="resolutions"></a>Risoluzione  
+### <a name="resolutions"></a>Soluzioni  
   
 ##### <a name="to-troubleshoot-errors-that-occur-while-you-configure-backups-for-a-connected-computer"></a>Per risolvere i problemi che si verificano quando si configura il backup per un computer connesso  
   
@@ -73,7 +73,7 @@ Usare queste procedure per risolvere i problemi di backup del computer in Window
   
 6.  Disinstallare il software Connettore di Windows Server Essentials dal computer e quindi reinstallarlo. Per altre informazioni, vedere gli argomenti [Disinstallare il software Connettore](../use/Get-Connected-in-Windows-Server-Essentials.md#BKMK_13) e [Installare il software Connettore](../use/Get-Connected-in-Windows-Server-Essentials.md#BKMK_11).  
   
-##  <a name="BKMK_TroubleshootaBackupThatDidNotCompleteProperly"></a> Risolvere i problemi di backup che non è stata completata correttamente  
+##  <a name="troubleshoot-a-backup-that-did-not-complete-properly"></a><a name="BKMK_TroubleshootaBackupThatDidNotCompleteProperly"></a>Risolvere i problemi relativi a un backup non completato correttamente  
  Quando un backup ha lo stato Non riuscito, nessuna parte del backup è stata completata e dati non sono disponibili per il ripristino. Tuttavia, quando lo stato di un backup è Incompleto, non tutti gli elementi specificati nella configurazione di backup sono stati salvati, ma alcuni dati potrebbero essere disponibili per il ripristino.  
   
 ### <a name="errors"></a>Errori  
@@ -82,7 +82,7 @@ Usare queste procedure per risolvere i problemi di backup del computer in Window
   
 -   Backup non riuscito  
   
-### <a name="resolutions"></a>Risoluzione  
+### <a name="resolutions"></a>Soluzioni  
   
 ##### <a name="to-identify-volumes-that-were-not-backed-up-successfully"></a>Per identificare i volumi il cui backup non è riuscito  
   
@@ -98,7 +98,7 @@ Usare queste procedure per risolvere i problemi di backup del computer in Window
   
 1.  Verificare che il disco rigido sia connesso al computer, sia acceso e funzioni correttamente.  
   
-2.  Eseguire **chkdsk /f /r** per risolvere eventuali errori nel disco rigido (**/f**) e recuperare informazioni leggibili da eventuali settori danneggiati (**/r**). Per altre informazioni sull'esecuzione di **chkdsk**, vedere [CHKDSK](https://go.microsoft.com/fwlink/?LinkId=206562).  
+2.  Eseguire **chkdsk /f /r** per risolvere eventuali errori nel disco rigido ( **/f**) e recuperare informazioni leggibili da eventuali settori danneggiati ( **/r**). Per altre informazioni sull'esecuzione di **chkdsk**, vedere [CHKDSK](https://go.microsoft.com/fwlink/?LinkId=206562).  
   
 3.  Verificare che il computer non sia stato arrestato o disconnesso dalla rete durante l'esecuzione del backup.  
   
@@ -112,7 +112,7 @@ Usare queste procedure per risolvere i problemi di backup del computer in Window
   
         1.  Nel Pannello di controllo fare clic su **Sistema e sicurezza**.  
   
-        2.  In **Strumenti di amministrazione**fare clic su **Crea e formatta le partizioni del disco rigido**.  
+        2.  In **Strumenti di amministrazione** fare clic su **Crea e formatta le partizioni del disco rigido**.  
   
         3.  Fare clic con il pulsante destro del mouse sul volume da estendere. Se l'opzione **Estendi volume** è abilitata, selezionarla. Se l'opzione non è abilitata, non è possibile estendere il volume.  
   
@@ -132,7 +132,7 @@ Usare queste procedure per risolvere i problemi di backup del computer in Window
   
 6.  Eseguire **vssadmin** in un prompt dei comandi per la risoluzione dei problemi del Servizio Copia Shadow del volume. Per informazioni su **vssadmin**, vedere [VSSADMIN](https://go.microsoft.com/fwlink/?LinkID=94332).  
   
-##  <a name="BKMK_TroubleshootBackupHealthAlertIssues"></a> Risolvere i problemi degli avvisi di integrità di backup  
+##  <a name="troubleshoot-backup-health-alert-issues"></a><a name="BKMK_TroubleshootBackupHealthAlertIssues"></a>Risolvere i problemi relativi agli avvisi di integrità del backup  
   
 ### <a name="errors"></a>Errori  
   
@@ -140,7 +140,7 @@ Usare queste procedure per risolvere i problemi di backup del computer in Window
   
 -   Arresto del Servizio Provider backup computer client delle soluzioni Windows Server  
   
-### <a name="resolutions"></a>Risoluzione  
+### <a name="resolutions"></a>Soluzioni  
   
 ##### <a name="to-troubleshoot-a-backup-health-alert"></a>Per risolvere un problema relativo a un avviso sullo stato di integrità del backup  
   
@@ -165,7 +165,7 @@ Usare queste procedure per risolvere i problemi di backup del computer in Window
   
     1.  Nel computer client fare clic su**Start**, digitare **Servizi** nella casella **Cerca programmi e file**, quindi premere INVIO.  
   
-    2.  Fare clic con il pulsante destro del mouse su **Servizio Provider backup computer client Windows Server**e scegliere **Avvia**.  
+    2.  Fare clic con il pulsante destro del mouse su **Servizio Provider backup computer client Windows Server** e scegliere **Avvia**.  
   
     3.  Chiudere **Servizi**.  
   
@@ -175,13 +175,13 @@ Usare queste procedure per risolvere i problemi di backup del computer in Window
   
 5.  Controllare negli avvisi di integrità l'eventuale presenza di altri problemi che possono influire sul backup del client.  
   
-##  <a name="BKMK_FileAndFolder"></a> Risolvere i problemi di un ripristino di file o cartella  
+##  <a name="troubleshoot-a-file-or-folder-restore"></a><a name="BKMK_FileAndFolder"></a>Risolvere i problemi relativi al ripristino di un file o una cartella  
   
 ### <a name="errors"></a>Errori  
   
 -   Ripristino di un file o una cartella non completato correttamente.  
   
-### <a name="resolutions"></a>Risoluzione  
+### <a name="resolutions"></a>Soluzioni  
   
 ##### <a name="to-troubleshoot-an-unsuccessful-file-or-folder-restore"></a>Per risolvere i problemi relativi al ripristino non riuscito di un file o una cartella  
   
@@ -197,7 +197,7 @@ Usare queste procedure per risolvere i problemi di backup del computer in Window
   
     ###### <a name="to-check-the-status-of-the-windows-server-solution-computer-restore-driver"></a>Per verificare lo stato di Soluzioni Windows Server - Driver per ripristino computer  
   
-    1.  Fare clic su **Start**, digitare **Gestione dispositivi** nella casella **Cerca programmi e file** , quindi premere INVIO.  
+    1.  Fare clic su **Start**, digitare **Gestione dispositivi** nella casella **Cerca programmi e file**, quindi premere INVIO.  
   
     2.  In Gestione dispositivi fare clic su **Dispositivi di sistema** e scorrere fino a **Soluzioni Windows Server - Driver per ripristino computer**.  
   
@@ -205,7 +205,7 @@ Usare queste procedure per risolvere i problemi di backup del computer in Window
   
         1.  Aprire un prompt dei comandi con privilegi di amministratore ed eseguire il comando seguente:  
   
-             **%ProgramFiles%\Windows Server\Bin\BackupDriverInstaller.exe?  Ho**  
+             **%Programmi%\Windows Server\Bin\BackupDriverInstaller.exe? -i**  
   
         2.  Aggiornare Gestione dispositivi. Il driver dovrebbe essere visualizzato.  
   
@@ -213,7 +213,7 @@ Usare queste procedure per risolvere i problemi di backup del computer in Window
   
     5.  Se l'icona visualizzata non è un monitor del computer  
   
-        1.  Fare clic con il pulsante destro del mouse su **Soluzioni Windows Server - Driver per ripristino computer**e quindi scegliere **Proprietà**.  
+        1.  Fare clic con il pulsante destro del mouse su **Soluzioni Windows Server - Driver per ripristino computer** e quindi scegliere **Proprietà**.  
   
         2.  Fare clic sulla scheda **Driver** e quindi su **Aggiorna driver**.  
   
@@ -223,25 +223,25 @@ Usare queste procedure per risolvere i problemi di backup del computer in Window
   
 6.  Disinstallare il software Connettore di Windows Server Essentials dal computer e quindi reinstallarlo. Per altre informazioni, vedere gli argomenti [Disinstallare il software Connettore](../use/Get-Connected-in-Windows-Server-Essentials.md#BKMK_13) e [Installare il software Connettore](../use/Get-Connected-in-Windows-Server-Essentials.md#BKMK_11).  
   
-##  <a name="BKMK_Troubleshootfullsystemrestoreissues"></a> Risolvere i problemi di un ripristino completo del sistema  
+##  <a name="troubleshoot-a-full-system-restore"></a><a name="BKMK_Troubleshootfullsystemrestoreissues"></a>Risolvere i problemi relativi a un ripristino completo del sistema  
   
 ### <a name="errors"></a>Errori  
   
 -   Non è possibile accedere al computer client dopo un ripristino completo del sistema.  
   
-### <a name="resolutions"></a>Risoluzione  
+### <a name="resolutions"></a>Soluzioni  
  Se si modifica il nome di un computer e successivamente si desidera ripristinare un backup salvato prima della modifica del nome, dopo il ripristino, quando si tenta di accedere con l'account di dominio, viene visualizzato questo messaggio di errore: "Il database di sicurezza sul server non ha un account computer per la relazione di trust di questa workstation". Per ottenere nuovamente accesso di rete al computer rimuovere il software Connettore, rimuovere il computer dal dominio Windows e quindi riconnettersi al server.  
   
 ##### <a name="to-regain-network-access-to-a-restored-computer-after-a-computer-name-change"></a>Per ottenere nuovamente accesso di rete a un computer ripristinato dopo una modifica del nome del computer  
   
 1.  Accedere al computer come amministratore locale.  
   
-2.  Disinstallare il software Connettore. Per altre informazioni, vedere [Uninstall the Connector software](../use/Get-Connected-in-Windows-Server-Essentials.md#BKMK_13).  
+2.  Disinstallare il software Connettore. Per altre informazioni, vedere [Disinstallare il software Connettore](../use/Get-Connected-in-Windows-Server-Essentials.md#BKMK_13).  
   
-3.  Rimuovere il computer dal dominio. Per altre informazioni, vedere [Remove a computer from a Windows domain](../use/Get-Connected-in-Windows-Server-Essentials.md#BKMK_8).  
+3.  Rimuovere il computer dal dominio. Per altre informazioni, vedere [Rimuovere un computer da un dominio Windows](../use/Get-Connected-in-Windows-Server-Essentials.md#BKMK_8).  
   
 4.  Connettere nuovamente il computer al server. Per ulteriori informazioni, vedere [Come connettere i computer al server](../use/Get-Connected-in-Windows-Server-Essentials.md#BKMK_9)  
   
 ## <a name="see-also"></a>Vedere anche  
   
--   [Supporto per Windows Server Essentials](Support-Windows-Server-Essentials.md)
+-   [Supportare Windows Server Essentials](Support-Windows-Server-Essentials.md)

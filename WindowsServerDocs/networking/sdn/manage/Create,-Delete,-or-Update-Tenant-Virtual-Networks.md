@@ -10,15 +10,15 @@ ms.technology: networking-sdn
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 6a820826-e829-4ef2-9a20-f74235f8c25b
-ms.author: pashort
-author: shortpatti
+ms.author: lizross
+author: eross-msft
 ms.date: 08/24/2018
-ms.openlocfilehash: 779c7bc4f6c4ff1e66fca68ced8b0eeb4d54abc5
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: f85f593ec3dca33c5b35fb065c7d84ed12ea9af2
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71406071"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80309828"
 ---
 # <a name="create-delete-or-update-tenant-virtual-networks"></a>Creare, eliminare o aggiornare le reti virtuali tenant
 
@@ -39,7 +39,7 @@ I passaggi per creare una nuova rete virtuale sono:
 La tabella seguente include gli ID subnet di esempio e i prefissi per due tenant fittizi. Il tenant Fabrikam ha due subnet virtuali, mentre il tenant Contoso ha tre subnet virtuali.  
  
   
-Nome del tenant  |ID subnet virtuale  |Prefisso subnet virtuale    
+Nome tenant  |ID subnet virtuale  |Prefisso subnet virtuale    
 ---------|---------|---------  
 Fabrikam    |5001         |24.30.1.0/24           
 Fabrikam     |5002         | 24.30.2.0/20          

@@ -1,9 +1,9 @@
 ---
 title: Creazione di un'unità flash USB di avvio
-description: Viene descritto come utilizzare Windows Server Essentials
+description: Viene descritto come usare Windows Server Essentials
 ms.custom: na
 ms.date: 05/04/2018
-ms.prod: windows-server-2016-essentials
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
@@ -12,22 +12,22 @@ ms.assetid: 2fe8e35c-69f9-40b3-a270-22e2402510d8
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: cb62a460c09fdb2874bcc051176a05e88cee19e7
-ms.sourcegitcommit: 7cb939320fa2613b7582163a19727d7b77debe4b
+ms.openlocfilehash: 88ae4bc7b560b0571ca339138cb99843c2d078c8
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65621277"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80312123"
 ---
 # <a name="create-a-bootable-usb-flash-drive"></a>Creazione di un'unità flash USB di avvio
 
 >Si applica a: Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
 
-È possibile creare un'unità flash USB avviabile da usare per distribuire Windows Server Essentials. Il primo passaggio consiste nella preparazione dell'unità flash USB utilizzando DiskPart, un'utilità da riga di comando. Per informazioni su DiskPart, vedere [Opzioni della riga di comando di DiskPart](https://go.microsoft.com/fwlink/?LinkId=207073).  
+È possibile creare un'unità flash USB di avvio da usare per distribuire Windows Server Essentials. Il primo passaggio consiste nella preparazione dell'unità flash USB utilizzando DiskPart, un'utilità da riga di comando. Per informazioni su DiskPart, vedere [Opzioni della riga di comando di DiskPart](https://go.microsoft.com/fwlink/?LinkId=207073).  
 
 
 > [!TIP]
-> Per creare un'unità flash USB avviabile per l'uso in il ripristino o la reinstallazione di Windows in un computer anziché un server, vedere [creare un'unità di ripristino](https://support.microsoft.com/help/4026852/windows-create-a-recovery-drive).
+> Per creare un'unità flash USB di avvio da usare per il ripristino o la reinstallazione di Windows in un PC anziché in un server, vedere [creare un'unità di ripristino](https://support.microsoft.com/help/4026852/windows-create-a-recovery-drive).
   
  Per altri scenari in cui è possibile scegliere di creare o usare un'unità flash USB di avvio, vedere gli argomenti seguenti:  
   
@@ -65,15 +65,15 @@ ms.locfileid: "65621277"
   
 12. Al termine della preparazione dell'immagine personalizzata, salvare l'immagine nella radice del unità flash USB.  
   
-## <a name="see-also"></a>Vedere anche  
+## <a name="see-also"></a>Vedi anche  
 
- [Guida introduttiva a Windows Server Essentials ADK](Getting-Started-with-the-Windows-Server-Essentials-ADK.md)   
+ [Introduzione con Windows Server Essentials ADK](Getting-Started-with-the-Windows-Server-Essentials-ADK.md)   
  [Creazione e personalizzazione dell'immagine](Creating-and-Customizing-the-Image.md)   
  [Personalizzazioni aggiuntive](Additional-Customizations.md)   
  [Preparazione dell'immagine per la distribuzione](Preparing-the-Image-for-Deployment.md)   
  [Test di Analisi utilizzo software](Testing-the-Customer-Experience.md)   
 
- [Guida introduttiva a Windows Server Essentials ADK](../install/Getting-Started-with-the-Windows-Server-Essentials-ADK.md)   
+ [Introduzione con Windows Server Essentials ADK](../install/Getting-Started-with-the-Windows-Server-Essentials-ADK.md)   
  [Creazione e personalizzazione dell'immagine](../install/Creating-and-Customizing-the-Image.md)   
  [Personalizzazioni aggiuntive](../install/Additional-Customizations.md)   
  [Preparazione dell'immagine per la distribuzione](../install/Preparing-the-Image-for-Deployment.md)   

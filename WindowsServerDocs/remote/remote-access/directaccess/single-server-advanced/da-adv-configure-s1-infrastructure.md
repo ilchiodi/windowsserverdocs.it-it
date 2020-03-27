@@ -10,14 +10,14 @@ ms.technology: networking-da
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 43abc30a-300d-4752-b845-10a6b9f32244
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 30705a9aa55cdc652280c27c327cf865a47c5a11
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: c5ab8e089d3cf5fd8f9ed53f7f67cc47a8c17f70
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71404940"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80309186"
 ---
 # <a name="step-1-configure-advanced-directaccess-infrastructure"></a>Passaggio 1 configurare l'infrastruttura DirectAccess avanzata
 
@@ -39,10 +39,10 @@ In questo argomento viene descritto come configurare l'infrastruttura richiesta 
 |1.10 Configurare il server dei percorsi di rete|Consente di configurare il server dei percorsi di rete, inclusa l'installazione del certificato del sito Web del server dei percorsi di rete.|  
   
 > [!NOTE]  
-> Questo argomento include cmdlet di esempio di Windows PowerShell che è possibile usare per automatizzare alcune delle procedure descritte. Per ulteriori informazioni, vedere [mediante i cmdlet](https://go.microsoft.com/fwlink/p/?linkid=230693).  
+> In questo argomento sono inclusi cmdlet di Windows PowerShell di esempio che possono essere usati per automatizzare alcune delle procedure descritte. Per ulteriori informazioni, vedere [mediante i cmdlet](https://go.microsoft.com/fwlink/p/?linkid=230693).  
   
-## <a name="ConfigNetworkSettings"></a>1,1 configurare le impostazioni di rete del server  
-Le seguenti impostazioni dell'interfaccia di rete sono necessarie per la distribuzione di un singolo server in un ambiente con IPv4 e IPv6. Tutti gli indirizzi IP vengono configurati tramite **modificare le impostazioni della scheda** nel **Windows Networking and Sharing Center**.  
+## <a name="11-configure-server-network-settings"></a><a name="ConfigNetworkSettings"></a>1,1 configurare le impostazioni di rete del server  
+Le seguenti impostazioni dell'interfaccia di rete sono necessarie per la distribuzione di un singolo server in un ambiente con IPv4 e IPv6. Tutti gli indirizzi IP vengono configurati usando **Modifica impostazioni scheda** in **Centro connessioni di rete e condivisione di Windows**.  
   
 **Topologia perimetrale**  
   
@@ -75,14 +75,14 @@ Le seguenti impostazioni dell'interfaccia di rete sono necessarie per la distrib
 >     Save-NetGPO "GPOSession $gposession  
 >     ```  
   
-## <a name="BKMK_forcetunnel"></a>1,2 configurare il tunneling forzato  
+## <a name="12-configure-force-tunneling"></a><a name="BKMK_forcetunnel"></a>1,2 configurare il tunneling forzato  
 Il tunneling forzato può essere configurato con la Configurazione guidata Accesso remoto, visualizzata come casella di controllo nella Configurazione guidata dei client remoti. Questa impostazione interessa solo i client DirectAccess. Se VPN è abilitato, i client VPN usano il tunneling forzato per impostazione predefinita. Gli amministratori possono modificare l'impostazione per i client VPN dal profilo del client.  
   
 La selezione della casella di controllo per il tunneling forzato:  
   
 -   Abilita il tunneling forzato nei client DirectAccess  
   
--   Aggiunge un **qualsiasi** voce nel criterio di tabella (Risoluzione dei nomi) per i client DirectAccess, il che significa che tutto il traffico DNS entra nei server DNS della rete interna  
+-   Aggiunge una voce **Any** nella tabella dei criteri di risoluzione dei nomi (NRPT) per i client DirectAccess, che implica che tutto il traffico DNS viene indirizzato ai server DNS della rete interna  
   
 -   Configura i client DirectAccess in modo che usino sempre la tecnologia di transizione IP-HTTPS  
   
@@ -98,14 +98,14 @@ Set-DAClientDNSConfiguration "DNSSuffix "." "ProxyServer <Name of the proxy serv
 > [!NOTE]  
 > Se un'organizzazione sta usando un proxy Web per i client DirectAccess per accedere alle risorse Internet e il proxy aziendale non riesce a gestire le risorse della rete interna, i client DirectAccess non riusciranno ad accedere alle risorse interne se si trovano fuori dalla Intranet. In questo scenario, per abilitare i client DirectAccess ad accedere alle risorse interne, creare manualmente le voci NRPT per i suffissi della rete interna usando la pagina DNS della procedura guidata dell'infrastruttura. Non applicare le impostazioni proxy a questi suffissi NRPT. I suffissi devono essere popolati con le voci del server DNS predefinito.  
   
-## <a name="ConfigRouting"></a>1,3 configurare il routing nella rete aziendale  
+## <a name="13-configure-routing-in-the-corporate-network"></a><a name="ConfigRouting"></a>1,3 configurare il routing nella rete aziendale  
 Configurare il routing nella rete aziendale come segue:  
   
 -   Quando si distribuisce la connettività IPv6 nativa nell'organizzazione, aggiungere una route in modo che i router nella rete interna reindirizzino il traffico IPv6 all'indietro con il server DirectAccess.  
   
 -   Configurare manualmente l'organizzazione "s route IPv4 e IPv6 nel server DirectAccess. Aggiungere una route pubblicata in modo che tutto il traffico con il prefisso IPv6 di un'organizzazione (/48) sia inoltrato alla rete interna. Per il traffico IPv4, aggiungere route esplicite in modo che il traffico IPv4 venga inoltrato alla rete interna.  
   
-## <a name="ConfigFirewalls"></a>1,4 configurare i firewall  
+## <a name="14-configure-firewalls"></a><a name="ConfigFirewalls"></a>1,4 configurare i firewall  
 Se si usano altri firewall nella propria distribuzione, applicare le seguenti eccezioni firewall con connessione Internet per il traffico di Accesso remoto quando il server DirectAccess si trova nella rete Internet IPv4:  
   
 -   Il traffico Teredo "porta di destinazione di protocollo UDP (User Datagram) 3544 in entrata e porta UDP di origine 3544 in uscita.  
@@ -136,7 +136,7 @@ Quando si utilizzano altri firewall, applicare le eccezioni firewall delle rete 
   
 -   ICMP per tutto il traffico IPv4/IPv6  
   
-## <a name="ConfigCAs"></a>1,5 configurare CA e certificati  
+## <a name="15-configure-cas-and-certificates"></a><a name="ConfigCAs"></a>1,5 configurare CA e certificati  
 Accesso remoto in Windows Server 2012 consente di scegliere tra l'utilizzo di certificati per l'autenticazione del computer o tramite un proxy Kerberos viene autenticato mediante nomi utente e password. È necessario configurare anche un certificato IP-HTTPS nel server DirectAccess.  
   
 Per ulteriori informazioni, vedere [Servizi certificati Active Directory](https://technet.microsoft.com/library/cc770357.aspx).  
@@ -155,7 +155,7 @@ Per ulteriori informazioni, vedere [Servizi certificati Active Directory](https:
   
 3.  Configurare il modello di certificato per la registrazione automatica, se necessario. Per ulteriori informazioni, vedere [configurare la registrazione automatica del certificato](https://technet.microsoft.com/library/cc731522.aspx).  
   
-### <a name="ConfigCertTemp"></a>1.5.2 configurare i modelli di certificato  
+### <a name="152-configure-certificate-templates"></a><a name="ConfigCertTemp"></a>1.5.2 configurare i modelli di certificato  
 Quando si usa una CA interna per l'emissione di certificati, è necessario configurare un modello di certificato per il certificato IP-HTTPS e il certificato del sito Web del server dei percorsi di rete.  
   
 ##### <a name="to-configure-a-certificate-template"></a>Per configurare un modello di certificato  
@@ -210,23 +210,23 @@ Assicurarsi che il certificato del sito Web usato per l'autenticazione IP-HTTPS 
   
 1.  Nel server DirectAccess: sul **avviare** digitare**mmc.exe**, quindi premere INVIO.  
   
-2.  Nella console di MMC, nel **File** menu, fare clic su **Aggiungi/Rimuovi Snap-in**.  
+2.  Nella console MMC scegliere **Aggiungi/Rimuovi snap-in** dal menu **File**.  
   
-3.  Nel **Aggiungi o Rimuovi Snap-in** la finestra di dialogo, fare clic su **certificati**, fare clic su **Aggiungi**, fare clic su **account Computer**, fare clic su **Avanti**, fare clic su **computer locale**, fare clic su **Fine**, e quindi fare clic su **OK**.  
+3.  Nella finestra di dialogo **Aggiungi/Rimuovi snap-in**, fare clic su **Certificati**, **Aggiungi**, **Account del computer** e infine su **Avanti**. Fare clic su **Computer locale**, **Fine** e quindi su **OK**.  
   
 4.  Nell'albero della console dello snap-in Certificati aprire **Certificati (computer locale)\Personale\Certificati**.  
   
 5.  Fare clic con il pulsante destro del mouse su **Certificati**, scegliere **Tutte le attività** e quindi fare clic su **Richiedi nuovo certificato**.  
   
-6.  Fare clic due volte su **Avanti** .  
+6.  Fare clic due volte su **Avanti**.  
   
 7.  Nel **richiesta certificati** pagina, selezionare la casella di controllo per il modello di certificato creato in precedenza (per ulteriori informazioni, vedere 1.5.2 configurare modelli di certificato). Se necessario, **Sono necessarie ulteriori informazioni per registrare il certificato**.  
   
-8.  Nel **Proprietà certificato** della finestra di dialogo di **soggetto** nella scheda il **nome soggetto** area, in **tipo**, selezionare **nome comune**.  
+8.  Nella scheda **Soggetto** della finestra di dialogo **Proprietà certificato**, nel campo **Tipo** dell'area **Nome soggetto**, selezionare **Nome comune**.  
   
 9. In **Valore**, specificare l'indirizzo IPv4 della scheda con connessione esterna del server DirectAccess o il nome di dominio completo dell'URL IP-HTTPS, quindi fare clic su **Add**.  
   
-10. Nel **nome alternativo** area, in **tipo**, selezionare **DNS**.  
+10. Nella sezione **Nome alternativo** selezionare **DNS** per **Tipo**.  
   
 11. In **Valore**, specificare l'indirizzo IPv4 della scheda con connessione esterna del server DirectAccess o il nome di dominio completo dell'URL IP-HTTPS, quindi fare clic su **Add**.  
   
@@ -234,14 +234,14 @@ Assicurarsi che il certificato del sito Web usato per l'autenticazione IP-HTTPS 
   
 13. Nella scheda **Estensioni**, fare clic sulla freccia accanto a **Utilizzo chiave esteso** e assicurarsi che **Server autenticazione** sia visualizzato nell'elenco **Opzioni selezionate**.  
   
-14. Fare clic su **OK**, fare clic su **registrazione**, quindi fare clic su **Fine**.  
+14. Fare clic su **OK**, su **Registrazione** e quindi su **Fine**.  
   
 15. Nel riquadro dei dettagli dello snap-in Certificati verificare che il nuovo certificato sia registrato come Autenticazione server in Scopi designati.  
   
-## <a name="ConfigDNS"></a>1,6 configurare il server DNS  
+## <a name="16-configure-the-dns-server"></a><a name="ConfigDNS"></a>1,6 configurare il server DNS  
 È necessario configurare manualmente una voce DNS per il sito Web del server dei percorsi di rete per la rete interna nella distribuzione.  
   
-### <a name="NLS_DNS"></a>Per creare il server dei percorsi di rete  
+### <a name="to-create-the-network-location-server"></a><a name="NLS_DNS"></a>Per creare il server dei percorsi di rete  
   
 1.  Nel server DNS interni: sul **avviare** digitare**dnsmgmt. msc**, e quindi premere INVIO.  
   
@@ -255,17 +255,17 @@ Assicurarsi che il certificato del sito Web usato per l'autenticazione IP-HTTPS 
   
 4.  Nella finestra di dialogo **Nuovo host**:  
   
-    -   Nel **nome (utilizza nome del dominio padre se vuoto)** immettere il nome DNS del probe web (il nome del probe web predefinito è **directaccess-webprobehost**).  
+    -   Nella casella **Nome (se vuoto, utilizza il nome del dominio padre)** , immettere il nome DNS del probe Web (il nome del probe Web predefinito è **directaccess-webprobehost**).  
   
     -   Nella casella **Indirizzo IP**, immettere l'indirizzo IPv4 o IPv6 del probe Web, quindi fare clic su **Aggiungi host**.  
   
-    -   Ripetere questo processo per **directaccess-corpconnectivityhost** e qualsiasi strumento di verifica della connettività creato manualmente.  
+    -   Ripetere questa procedura per **directaccess-corpconnectivityhost** e per qualsiasi strumento di verifica della connettività creato manualmente.  
   
-5.  Nel **DNS** la finestra di dialogo, fare clic su **OK**, e quindi fare clic su **eseguita**.  
+5.  Nella finestra di dialogo **DNS**, fare clic su **OK**, quindi su **Fine**.  
   
 ![](../../../media/Step-1-Configuring-DirectAccess-Infrastructure/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em> per Windows PowerShell***  
   
-Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.  
+Tramite i cmdlet di Windows PowerShell seguenti viene eseguita la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se è possibile il ritorno a capo automatico in diverse righe a causa di limiti di formattazione.  
   
 ```  
 Add-DnsServerResourceRecordA -Name <network_location_server_name> -ZoneName <DNS_zone_name> -IPv4Address <network_location_server_IPv4_address>  
@@ -286,7 +286,7 @@ Le voci DNS devono essere configurate anche per quanto segue:
   
     Il protocollo ISATAP (Intra-Site Automatic Tunnel Addressing Protocol) usa il tunneling per abilitare i client DirectAccess per la connessione al server DirectAccess su Internet IPv4 , incapsulando i pacchetti IPv6 in un'intestazione IPv4. Viene usato da Accesso remoto per fornire la connettività IPv6 agli host ISATAP in una Intranet. In un ambiente di rete IPv6 non nativo, il server DirectAccess si configura automaticamente come router ISATAP. Per il nome ISATAP è richiesto il supporto della risoluzione.  
   
-## <a name="ConfigAD"></a>1,7 configurare Active Directory  
+## <a name="17-configure-active-directory"></a><a name="ConfigAD"></a>1,7 configurare Active Directory  
 Il server DirectAccess e tutti i computer client DirectAccess devono essere aggiunti a un dominio Active Directory. I computer client DirectAccess devono essere membri di uno dei seguenti tipi di dominio:  
   
 -   Domini appartenenti alla stessa foresta del server DirectAccess.  
@@ -301,11 +301,11 @@ Il server DirectAccess e tutti i computer client DirectAccess devono essere aggi
   
 2.  Nella finestra di dialogo **Proprietà del sistema** , fare clic sulla scheda **Nome computer** , quindi su **Cambia**.  
   
-3.  Per cambiare anche il nome computer quando si aggiunge il server al dominio, digitarlo in **Nome computer**. In **membro del**, fare clic su **dominio**, quindi digitare il nome del dominio a cui si desidera aggiungere il server (ad esempio, corp.contoso.com) e quindi fare clic su **OK**.  
+3.  Per cambiare anche il nome computer quando si aggiunge il server al dominio, digitarlo in **Nome computer**. In **Membro di** fare clic su **Dominio** e quindi digitare il nome del dominio a cui aggiungere il server, ad esempio corp.contoso.com, e quindi fare clic su **OK**.  
   
 4.  Quando viene richiesta l'immissione di nome utente e password, digitare il nome utente e la password di un utente che disponga delle autorizzazioni necessarie per aggiungere computer al dominio e quindi fare clic su **OK**.  
   
-5.  Quando viene visualizzata una finestra di dialogo che consente di iniziare il dominio, fare clic su **OK**.  
+5.  Quando viene visualizzata una finestra di dialogo di benvenuto, fare clic su **OK**.  
   
 6.  Quando viene richiesto il riavvio del computer, fare clic su **OK**.  
   
@@ -317,17 +317,17 @@ Il server DirectAccess e tutti i computer client DirectAccess devono essere aggi
   
 1.  Nel **avviare** digitare**explorer.exe**, quindi premere INVIO.  
   
-2.  Pulsante destro del mouse sull'icona del Computer e quindi fare clic su **proprietà**.  
+2.  Fare clic con il pulsante destro sull'icona Computer e quindi scegliere **Proprietà**.  
   
 3.  Nella pagina **Sistema** fare clic su **Impostazioni di sistema avanzate**.  
   
 4.  Nella scheda **Nome computer** della finestra di dialogo **Proprietà del sistema** fare clic su **Cambia**.  
   
-5.  In **nome Computer**, digitare il nome del computer se si modifica anche il nome del computer quando si aggiunge il server al dominio. In **membro del**, fare clic su **dominio**, quindi digitare il nome del dominio a cui si desidera aggiungere il server (ad esempio, corp.contoso.com) e quindi fare clic su **OK**.  
+5.  Per cambiare anche il nome computer quando si aggiunge il server al dominio, digitarlo in **Nome computer**. In **Membro di** fare clic su **Dominio** e quindi digitare il nome del dominio a cui aggiungere il server, ad esempio corp.contoso.com, e quindi fare clic su **OK**.  
   
 6.  Quando viene richiesta l'immissione di nome utente e password, digitare il nome utente e la password di un utente che disponga delle autorizzazioni necessarie per aggiungere computer al dominio e quindi fare clic su **OK**.  
   
-7.  Quando viene visualizzata una finestra di dialogo che consente di iniziare il dominio, fare clic su **OK**.  
+7.  Quando viene visualizzata una finestra di dialogo di benvenuto, fare clic su **OK**.  
   
 8.  Quando viene richiesto il riavvio del computer, fare clic su **OK**.  
   
@@ -337,7 +337,7 @@ Il server DirectAccess e tutti i computer client DirectAccess devono essere aggi
   
 ![](../../../media/Step-1-Configuring-DirectAccess-Infrastructure/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em> per Windows PowerShell***  
   
-Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.  
+Tramite i cmdlet di Windows PowerShell seguenti viene eseguita la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se è possibile il ritorno a capo automatico in diverse righe a causa di limiti di formattazione.  
   
 > [!NOTE]  
 > È necessario fornire delle credenziali di dominio quando si immette il comando **Add-Computer** seguente.  
@@ -347,14 +347,14 @@ Add-Computer -DomainName <domain_name>
 Restart-Computer  
 ```  
   
-## <a name="ConfigGPOs"></a>1,8 configurare gli oggetti Criteri di gruppo  
+## <a name="18-configure-gpos"></a><a name="ConfigGPOs"></a>1,8 configurare gli oggetti Criteri di gruppo  
 Sono necessari almeno due oggetti Criteri di gruppo per distribuire accesso remoto:  
   
 -   Uno contiene le impostazioni per il server DirectAccess  
   
 -   L'altro contiene le impostazioni per i computer client DirectAccess  
   
-Quando si configura accesso remoto, la procedura guidata crea automaticamente gli oggetti Criteri di gruppo necessari. Tuttavia, se l'organizzazione applica una convenzione di denominazione, è possibile digitare un nome nella finestra di dialogo dell'oggetto Criteri di gruppo nella Console di gestione Accesso remoto. Per ulteriori informazioni, vedere 2.7. Configurazione alternativa e riepilogo oggetti Criteri di gruppo. Se si hanno le autorizzazioni di creazione, l'oggetto Criteri di gruppo viene creato. Se non si hanno le autorizzazioni necessarie per la creazione di oggetti Criteri di gruppo, è necessario crearli prima di configurare Accesso remoto.  
+Quando si configura accesso remoto, la procedura guidata crea automaticamente gli oggetti Criteri di gruppo necessari. Tuttavia, se l'organizzazione applica una convenzione di denominazione, è possibile digitare un nome nella finestra di dialogo dell'oggetto Criteri di gruppo nella Console di gestione Accesso remoto. Per altre informazioni, vedere 2.7. Riepilogo della configurazione e oggetti Criteri di gruppo alternativi. Se si hanno le autorizzazioni di creazione, l'oggetto Criteri di gruppo viene creato. Se non si hanno le autorizzazioni necessarie per la creazione di oggetti Criteri di gruppo, è necessario crearli prima di configurare Accesso remoto.  
   
 Per creare oggetti Criteri di gruppo, vedere [creare e modificare un oggetto Criteri di gruppo](https://technet.microsoft.com/library/cc754740.aspx).  
   
@@ -372,7 +372,7 @@ Per creare oggetti Criteri di gruppo, vedere [creare e modificare un oggetto Cri
 ### <a name="181-configure-remote-access-gpos-with-limited-permissions"></a>1.8.1 Configurare gli oggetti Criteri di gruppo di Accesso remoto con autorizzazioni limitate  
 In una distribuzione che usa oggetti Criteri di gruppo di gestione temporanea e di produzione, l'amministratore di dominio deve:  
   
-1.  Ottenere un elenco degli oggetti Criteri di gruppo necessari per la distribuzione di Accesso remoto dall'amministratore di Accesso remoto. Per ulteriori informazioni, vedere 1.8 pianificare oggetti Criteri di gruppo.  
+1.  Ottenere un elenco degli oggetti Criteri di gruppo necessari per la distribuzione di Accesso remoto dall'amministratore di Accesso remoto. Per altre informazioni, vedere 1.8 Pianificare gli oggetti Criteri di gruppo.  
   
 2.  Per ogni oggetto Criteri di gruppo richiesto dall'amministratore di Accesso remoto, creare una coppia di oggetti Criteri di gruppo con nomi diversi. Il primo viene usato come oggetto Criteri di gruppo di gestione temporanea, mentre il secondo come oggetto Criteri di gruppo di produzione.  
   
@@ -393,11 +393,11 @@ Dopo che l'amministratore di Accesso remoto completa le modifiche alla configura
   
 ##### <a name="to-copy-settings-to-the-production-gpos"></a>Per copiare le impostazioni negli oggetti Criteri di gruppo di produzione  
   
-1.  Verificare che tutti gli oggetti Criteri di gruppo di gestione temporanea nella distribuzione di Accesso remoto siano stati replicati in tutti i controller di dominio nel dominio. È un passaggio necessario per assicurare che negli oggetti Criteri di gruppo di produzione sia importata la configurazione più aggiornata. Per ulteriori informazioni, vedere Verifica stato di infrastruttura Criteri di gruppo.  
+1.  Verificare che tutti gli oggetti Criteri di gruppo di gestione temporanea nella distribuzione di Accesso remoto siano stati replicati in tutti i controller di dominio nel dominio. È un passaggio necessario per assicurare che negli oggetti Criteri di gruppo di produzione sia importata la configurazione più aggiornata. Per altre informazioni, vedere Controllare lo stato dell'infrastruttura Criteri di gruppo.  
   
-2.  Esportare le impostazioni eseguendo il backup di tutti gli oggetti Criteri di gruppo di gestione temporanea nella distribuzione di Accesso remoto. Per ulteriori informazioni, vedere eseguire il backup di un oggetto Criteri di gruppo.  
+2.  Esportare le impostazioni eseguendo il backup di tutti gli oggetti Criteri di gruppo di gestione temporanea nella distribuzione di Accesso remoto. Per altre informazioni, vedere Eseguire il backup di un oggetto Criteri di gruppo.  
   
-3.  Per ogni oggetto Criteri di gruppo di produzione, modificare i filtri di sicurezza in modo che corrispondano ai filtri di sicurezza dell'oggetto Criteri di gruppo di gestione temporanea corrispondente. Per ulteriori informazioni, vedere gruppi di sicurezza tramite filtro.  
+3.  Per ogni oggetto Criteri di gruppo di produzione, modificare i filtri di sicurezza in modo che corrispondano ai filtri di sicurezza dell'oggetto Criteri di gruppo di gestione temporanea corrispondente. Per altre informazioni, vedere Applicare un filtro tramite i gruppi di sicurezza.  
   
     > [!NOTE]  
     > Questo passaggio è necessario perché **Importa impostazioni** non copia il filtro di sicurezza dell'oggetto Criteri di gruppo di origine.  
@@ -406,9 +406,9 @@ Dopo che l'amministratore di Accesso remoto completa le modifiche alla configura
   
     1.  Nel gruppo di CONSOLE Gestione criteri (), espandere il nodo oggetti Criteri di gruppo nella foresta e nel dominio che contiene l'oggetto Criteri di gruppo di produzione in cui verranno importate le impostazioni.  
   
-    2.  Fare doppio clic su oggetto Criteri di gruppo e fare clic su **Importa impostazioni**.  
+    2.  Fare clic con il pulsante destro del mouse sull'oggetto Criteri di gruppo e scegliere **Importa impostazioni**.  
   
-    3.  Nel **Importazione guidata impostazioni**, via il **iniziale** pagina, fare clic su **Avanti**.  
+    3.  Nell'**Importazione guidata impostazioni** della **pagina di benvenuto**, fare clic su **Avanti**.  
   
     4.  Nella pagina **Esegui backup dell'oggetto Criteri di gruppo**, scegliere **Backup**.  
   
@@ -418,15 +418,15 @@ Dopo che l'amministratore di Accesso remoto completa le modifiche alla configura
   
     7.  Al termine del backup, fare clic su **OK**, quindi, nella pagina **Esegui backup dell'oggetto Criteri di gruppo**, scegliere **Avanti**.  
   
-    8.  Nel **percorso Backup** nella pagina di **cartella Backup** casella immettere il percorso per il percorso in cui è stato archiviato il backup dell'oggetto di gestione temporanea corrispondente nel passaggio 2 oppure fare clic su **Sfoglia** per individuare la cartella e quindi fare clic su **Avanti**.  
+    8.  Nella casella **Cartella di backup** della pagina **Percorso backup**, immettere il percorso in cui è stato archiviato il backup dell'oggetto Criteri di gruppo di gestione temporanea corrispondente nel Passaggio 2 oppure fare clic su **Sfoglia** per individuare la cartella e scegliere **Avanti**.  
   
-    9. Nella pagina **Oggetto Criteri di gruppo di origine**, selezionare la casella di controllo **Mostra solo l'ultima versione di ogni oggetto** per nascondere i backup meno recenti, quindi selezionare l'oggetto Criteri di gruppo di gestione temporanea corrispondente. Fare clic su **Visualizza impostazioni** per rivedere le impostazioni di accesso remoto prima di applicarle al GPO in produzione e quindi fare clic su **Avanti**.  
+    9. Nella pagina **Oggetto Criteri di gruppo di origine**, selezionare la casella di controllo **Mostra solo l'ultima versione di ogni oggetto** per nascondere i backup meno recenti, quindi selezionare l'oggetto Criteri di gruppo di gestione temporanea corrispondente. Fare clic su **Visualizza impostazioni** per rivedere le impostazioni di Accesso remoto impostazioni prima di applicarle all'oggetto Criteri di gruppo di produzione, quindi fare clic su **Avanti**.  
   
     10. Nella pagina **Analisi del backup**, scegliere **Avanti**, quindi fare clic su **Fine**.  
   
 ![](../../../media/Step-1-Configuring-DirectAccess-Infrastructure/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em> per Windows PowerShell***  
   
-Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.  
+Tramite i cmdlet di Windows PowerShell seguenti viene eseguita la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se è possibile il ritorno a capo automatico in diverse righe a causa di limiti di formattazione.  
   
 -   Per eseguire il backup il GPO client di gestione temporanea "DirectAccess Client impostazioni - gestione temporanea" nel dominio "corp.contoso.com" della cartella di backup "C:\Backups\":  
   
@@ -452,18 +452,18 @@ Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione 
     Import-GPO "BackupId $backup.Id "Path $backup.BackupDirectory "TargetName 'DirectAccess Client Settings - Production' "Domain 'corp.contoso.com'  
     ```  
   
-## <a name="ConfigSGs"></a>1,9 configurare i gruppi di sicurezza  
+## <a name="19-configure-security-groups"></a><a name="ConfigSGs"></a>1,9 configurare i gruppi di sicurezza  
 Le impostazioni di DirectAccess contenute nell'oggetto Criteri di gruppo di computer client vengono applicate solo ai computer che sono membri dei gruppi di sicurezza specificate quando si configura accesso remoto. Inoltre, se si usano i gruppi di sicurezza per gestire i server applicazioni, creare un gruppo di sicurezza per tali server.  
   
-### <a name="Sec_Group"></a>Per creare un gruppo di sicurezza per i client DirectAccess  
+### <a name="to-create-a-security-group-for-directaccess-clients"></a><a name="Sec_Group"></a>Per creare un gruppo di sicurezza per i client DirectAccess  
   
-1.  Nel **avviare** digitare**DSA. msc**, quindi premere INVIO. Nel **Active Directory Users and Computers** console, nel riquadro sinistro, espandere il dominio che contiene il gruppo di sicurezza, fare doppio clic su **utenti**, scegliere **nuovo**, quindi fare clic su **gruppo**.  
+1.  Nel **avviare** digitare**DSA. msc**, quindi premere INVIO. Nella console **Utenti e computer di Active Directory**, nel riquadro a sinistra, espandere il dominio che conterrà il gruppo di sicurezza, fare clic con il pulsante destro del mouse su **Utenti**, scegliere **Nuovo** e quindi fare clic su **Gruppo**.  
   
-2.  Nel **nuovo oggetto - gruppo** nella finestra di dialogo **nome gruppo**, immettere il nome del gruppo di sicurezza.  
+2.  Nella finestra di dialogo **Nuovo oggetto - Gruppo**, in **Nome gruppo**, immettere il nome del gruppo di sicurezza.  
   
 3.  In **Ambito del gruppo** fare clic su **Globale**, in **Tipo gruppo** fare clic su **Sicurezza** e quindi fare clic su **OK**.  
   
-4.  Fare doppio clic sul gruppo di sicurezza computer client DirectAccess e, nella finestra di dialogo Proprietà fare clic su di **membri** scheda.  
+4.  Fare doppio clic sul gruppo di sicurezza dei computer client DirectAccess e, nella finestra di dialogo delle proprietà, fare clic sulla scheda **Membri**.  
   
 5.  Nella scheda **Membri** fare clic su **Aggiungi**.  
   
@@ -471,14 +471,14 @@ Le impostazioni di DirectAccess contenute nell'oggetto Criteri di gruppo di comp
   
 ![](../../../media/Step-1-Configuring-DirectAccess-Infrastructure/PowerShellLogoSmall.gif)**comandi equivalenti di Windows PowerShell** per Windows PowerShell  
   
-Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.  
+Tramite i cmdlet di Windows PowerShell seguenti viene eseguita la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se è possibile il ritorno a capo automatico in diverse righe a causa di limiti di formattazione.  
   
 ```  
 New-ADGroup -GroupScope global -Name <DirectAccess_clients_group_name>  
 Add-ADGroupMember -Identity DirectAccess_clients_group_name -Members <computer_name>  
 ```  
   
-## <a name="ConfigNLS"></a>1,10 configurare il server dei percorsi di rete  
+## <a name="110-configure-the-network-location-server"></a><a name="ConfigNLS"></a>1,10 configurare il server dei percorsi di rete  
 Il server dei percorsi di rete deve trovarsi su un server a disponibilità elevata e un certificato SSL valido considerato attendibile dai client DirectAccess. Sono disponibili due opzioni per il certificato del server dei percorsi di rete:  
   
 -   **Certificato privato**  
@@ -503,29 +503,29 @@ Per entrambi i tipi di certificato, sono necessari i seguenti elementi, se non e
   
 1.  Sul server che ospiterà il sito Web server percorsi di rete: nel **avviare** digitare**mmc.exe**, quindi premere INVIO.  
   
-2.  Nella console di MMC, nel **File** menu, fare clic su **Aggiungi/Rimuovi Snap-in**.  
+2.  Nella console MMC scegliere **Aggiungi/Rimuovi snap-in** dal menu **File**.  
   
-3.  Nel **Aggiungi o Rimuovi Snap-in** la finestra di dialogo, fare clic su **certificati**, fare clic su **Aggiungi**, fare clic su **account Computer**, fare clic su **Avanti**, fare clic su **computer locale**, fare clic su **Fine**, e quindi fare clic su **OK**.  
+3.  Nella finestra di dialogo **Aggiungi/Rimuovi snap-in**, fare clic su **Certificati**, **Aggiungi**, **Account del computer** e infine su **Avanti**. Fare clic su **Computer locale**, **Fine** e quindi su **OK**.  
   
 4.  Nell'albero della console dello snap-in Certificati aprire **Certificati (computer locale)\Personale\Certificati**.  
   
 5.  Fare clic con il pulsante destro del mouse su **Certificati**, scegliere **Tutte le attività** e quindi fare clic su **Richiedi nuovo certificato**.  
   
-6.  Fare clic due volte su **Avanti** .  
+6.  Fare clic due volte su **Avanti**.  
   
 7.  Nel **richiesta certificati** pagina, selezionare la casella di controllo per il modello di certificato creato seguendo le istruzioni in 1.5.2 configurare modelli di certificato. Se necessario, **Sono necessarie ulteriori informazioni per registrare il certificato**.  
   
-8.  Nel **Proprietà certificato** della finestra di dialogo di **soggetto** nella scheda il **nome soggetto** area, in **tipo**, selezionare **nome comune**.  
+8.  Nella scheda **Soggetto** della finestra di dialogo **Proprietà certificato**, nel campo **Tipo** dell'area **Nome soggetto**, selezionare **Nome comune**.  
   
-9. In **valore**, immettere il nome FQDN del server dei percorsi di rete e quindi fare clic su **Aggiungi**.  
+9. In **Valore** immettere il nome di dominio completo (FQDN) del server dei percorsi di rete, quindi fare clic su **Aggiungi**.  
   
-10. Nel **nome alternativo** area, in **tipo**, selezionare **DNS**.  
+10. Nella sezione **Nome alternativo** selezionare **DNS** per **Tipo**.  
   
-11. In **valore**, immettere il nome FQDN del server dei percorsi di rete e quindi fare clic su **Aggiungi**.  
+11. In **Valore** immettere il nome di dominio completo (FQDN) del server dei percorsi di rete, quindi fare clic su **Aggiungi**.  
   
 12. Nella casella **Nome descrittivo** della scheda **Generale** è possibile immettere un nome che consentirà di identificare il certificato.  
   
-13. Fare clic su **OK**, fare clic su **registrazione**, quindi fare clic su **Fine**.  
+13. Fare clic su **OK**, su **Registrazione** e quindi su **Fine**.  
   
 14. Nel riquadro dei dettagli dello snap-in Certificati verificare che il nuovo certificato sia registrato come Autenticazione server in Scopi designati.  
   
@@ -553,7 +553,7 @@ Per entrambi i tipi di certificato, sono necessari i seguenti elementi, se non e
   
 4.  I client DirectAccess nella rete interna devono poter risolvere il nome del server dei percorsi di rete. Verificare che il nome non sia risolvibile dal client DirectAccess nella Internet.  
   
-## <a name="BKMK_Links"></a>Passaggio successivo  
+## <a name="next-step"></a><a name="BKMK_Links"></a>Passaggio successivo  
   
 -   [Passaggio 2: configurare i server DirectAccess avanzati](da-adv-configure-s2-servers.md)  
   

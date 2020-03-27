@@ -3,7 +3,7 @@ title: Gestire i dispositivi in Windows Server Essentials
 description: Viene descritto come usare Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
-ms.prod: windows-server-2016-essentials
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
@@ -12,12 +12,12 @@ ms.assetid: f5fe1088-ebe7-4799-a47d-075b0048dea1
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 48eb7009215e484fb00e704c7b328340240321d2
-ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
+ms.openlocfilehash: cd43826579bff16e4bdf50bba956f19a39fec5e6
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79322323"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80311311"
 ---
 # <a name="manage-devices-in-windows-server-essentials"></a>Gestire i dispositivi in Windows Server Essentials
 
@@ -37,7 +37,7 @@ ms.locfileid: "79322323"
   
 -   [Visualizza Proprietà computer](Manage-Devices-in-Windows-Server-Essentials.md#BKMK_8)  
   
-##  <a name="BKMK_1"></a>Gestire i dispositivi tramite il dashboard  
+##  <a name="manage-devices-by-using-the-dashboard"></a><a name="BKMK_1"></a>Gestire i dispositivi tramite il dashboard  
  Windows Server Essentials permette di eseguire attività amministrative comuni tramite il dashboard di Windows Server Essentials. La pagina **Dispositivi** del dashboard contiene quanto segue:  
   
 -   Un elenco dei computer di rete, che visualizza:  
@@ -89,7 +89,7 @@ ms.locfileid: "79322323"
 |Connessione dei computer al server|Apre un argomento della Guida che descrive i passaggi da eseguire per aggiungere un computer alla rete.|  
 |Implementa criteri di gruppo|Applica le impostazioni di criteri ai computer Windows 8 e Windows 7 aggiunti al dominio.|  
   
-##  <a name="BKMK_2"></a>Assegnare l'autorizzazione degli account utente per accedere a specifici computer di rete  
+##  <a name="assign-user-accounts-permission-to-log-on-to-specific-network-computers"></a><a name="BKMK_2"></a>Assegnare l'autorizzazione degli account utente per accedere a specifici computer di rete  
  È possibile assegnare agli account utente le autorizzazioni per consentire agli utenti di accedere solo a specifici computer di rete quando accedono alla rete di Windows Server Essentials da un percorso remoto.  
   
 #### <a name="to-change-the-computer-access-for-a-user-account"></a>Per cambiare l'accesso di un account utente ai computer  
@@ -104,7 +104,7 @@ ms.locfileid: "79322323"
   
 5.  Nella scheda **Accesso computer** selezionare il computer a cui l'utente può accedere in remoto e quindi fare clic su **OK**.  
   
-##  <a name="BKMK_3"></a>Rimuovere un computer dal server  
+##  <a name="remove-a-computer-from-the-server"></a><a name="BKMK_3"></a>Rimuovere un computer dal server  
  I computer rimossi da un server che esegue Windows Server Essentials tramite il dashboard non vengono più gestiti dal server. Di conseguenza, il server non creerà più i backup del computer e non ne monitorerà l'integrità dopo la rimozione dalla rete.  
   
 > [!NOTE]
@@ -118,7 +118,7 @@ ms.locfileid: "79322323"
   
 3.  Nell'elenco di computer fare clic con il pulsante destro del mouse sul computer da rimuovere dalla rete e quindi scegliere **Rimuovi il computer**.  
   
-##  <a name="BKMK_5"></a>Configurare le impostazioni di Criteri di gruppo per il reindirizzamento e la sicurezza delle cartelle  
+##  <a name="configure-group-policy-settings-for-folder-redirection-and-security"></a><a name="BKMK_5"></a>Configurare le impostazioni di Criteri di gruppo per il reindirizzamento e la sicurezza delle cartelle  
  È possibile configurare Criteri di gruppo e distribuirli nei computer della rete di Windows Server Essentials tramite il dashboard di Windows Server Essentials. Criteri di gruppo in Windows Server Essentials includono le impostazioni per il reindirizzamento e la sicurezza delle cartelle che influiscono su Windows Update, su Windows Defender e sul firewall della rete.  
   
 #### <a name="to-configure-group-policy-in-windows-server-essentials"></a>Per configurare Criteri di gruppo in Windows Server Essentials  
@@ -139,7 +139,7 @@ ms.locfileid: "79322323"
   
 7.  Fare clic su **Fine** per implementare le impostazioni di Criteri di gruppo.  
   
-##  <a name="BKMK_7"></a>Connettersi a un computer di rete tramite una sessione di Desktop remoto  
+##  <a name="connect-to-a-network-computer-by-using-a-remote-desktop-session"></a><a name="BKMK_7"></a>Connettersi a un computer di rete tramite una sessione di Desktop remoto  
  Per accedere in remoto al computer di rete di Windows Server Essentials quando si è fuori sede, usare la Web browser per accedere al sito Web di Accesso Web remoto dell'organizzazione, quindi fare clic sul nome del computer nella scheda **computer** .  
   
  La colonna **Stato** mostra se è possibile connettersi a un computer nella rete e può includere i valori seguenti:  
@@ -160,7 +160,7 @@ ms.locfileid: "79322323"
   
      La connessione al computer è bloccata da un firewall o da Criteri di gruppo oppure il desktop remoto è disabilitato nel computer. In caso di modifica, potrebbero essere necessarie fino a sei ore per l'aggiornamento di questo stato sul server.  
   
-##  <a name="BKMK_8"></a>Visualizza Proprietà computer  
+##  <a name="view-computer-properties"></a><a name="BKMK_8"></a>Visualizza Proprietà computer  
  La sezione **Dispositivi** del dashboard di Windows Server Essentials visualizza un elenco di computer della rete. L'elenco include anche informazioni aggiuntive su ogni computer.  
   
 #### <a name="to-view-a-list-of-computers"></a>Per visualizzare un elenco di computer  

@@ -1,5 +1,5 @@
 ---
-title: Gestione degli indirizzi IP
+title: Gestione indirizzi IP
 description: In questo argomento vengono forniti collegamenti a informazioni su Gestione indirizzi IP in Windows Server 2016.
 manager: brianlic
 ms.custom: na
@@ -10,16 +10,16 @@ ms.technology: networking-ipam
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 6a6291ba-0d39-4434-a8c5-0f0369860faa
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 1eb835691e32ff962c892ca4e75d60e5513e198b
-ms.sourcegitcommit: 4a03f263952c993dfdf339dd3491c73719854aba
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: b5362be9b0d9d115b076a1413d9280cbc58dce21
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74791518"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80309446"
 ---
-# <a name="ip-address-management-ipam"></a>Gestione degli indirizzi IP
+# <a name="ip-address-management-ipam"></a>Gestione indirizzi IP
 
 > Si applica a: Windows Server (Canale semestrale), Windows Server 2016
 

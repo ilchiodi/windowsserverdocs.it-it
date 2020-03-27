@@ -1,18 +1,18 @@
 ---
 title: Eventi del registro di sistema del clustering di failover
 description: Elenco di eventi del clustering di failover nel registro di sistema di Windows Server. Questi eventi possono essere usati per risolvere i problemi relativi a un cluster.
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.topic: article
 author: JasonGerend
 ms.author: jgerend
 ms.technology: storage-failover-clustering
 ms.date: 01/14/2020
-ms.openlocfilehash: 5c2606b96b42d08cc66da2e19596240c21bf4b88
-ms.sourcegitcommit: 10331ff4f74bac50e208ba8ec8a63d10cfa768cc
+ms.openlocfilehash: 0346b56ad2fe8a60ab84b7e6ab43e0558ed1c85b
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75956453"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80310056"
 ---
 # <a name="failover-clustering-system-log-events"></a>Eventi del registro di sistema del clustering di failover
 
@@ -133,7 +133,7 @@ Il servizio cluster ha rilevato un problema imprevisto e verrà arrestato. Codic
 
 Non è stato possibile avviare Servizio cluster perché questo nodo ha rilevato che non contiene la copia più recente dei dati di configurazione del cluster. Le modifiche apportate al cluster si sono verificate durante l'appartenenza del nodo e di conseguenza non è stato possibile ricevere gli aggiornamenti dei dati di configurazione.
 
-#### <a name="guidance"></a>Indicazioni
+#### <a name="guidance"></a>Materiale sussidiario
 
 Provare ad avviare il servizio cluster in tutti i nodi del cluster in modo che i nodi con la copia più recente dei dati di configurazione del cluster possano prima formare il cluster. Questo nodo sarà quindi in grado di accedere al cluster e otterrà automaticamente i dati di configurazione del cluster aggiornati. Se non sono disponibili nodi con la copia più recente dei dati di configurazione del cluster, eseguire il cmdlet di Windows PowerShell ' Start-ClusterNode-FQ '. Se si usa il parametro ForceQuorum (FQ), il servizio cluster verrà avviato e la copia del nodo dei dati di configurazione del cluster verrà contrassegnata come autorevole. La forzatura del quorum in un nodo con una copia obsoleta del database cluster può comportare modifiche della configurazione del cluster che si sono verificate durante la mancata partecipazione del nodo al cluster.
 
@@ -497,7 +497,7 @@ La risorsa cluster ' %1' nel ruolo del cluster ' %2' ha ricevuto una notifica di
 
 La risorsa del nome di rete cluster non è riuscita a registrare uno o più nomi DNS associati perché la zona DNS corrispondente non accetta aggiornamenti dinamici.<br><br>Nome rete cluster:' %1'<br>Zona DNS:' %2'
 
-#### <a name="guidance"></a>Indicazioni
+#### <a name="guidance"></a>Materiale sussidiario
 
 Verificare che il DNS sia configurato come zona DNS dinamica. Se il server DNS non accetta aggiornamenti dinamici deselezionare l'opzione ' registra gli indirizzi della connessione in DNS ' nelle proprietà della scheda di rete.
 
@@ -517,7 +517,7 @@ La risorsa del nome di rete cluster non è riuscita a registrare uno o più nomi
 
 La risorsa nome di rete cluster non è riuscita a modificare la registrazione DNS.<br><br>Nome rete cluster:' %1'<br>Codice errore:' %2'
 
-#### <a name="guidance"></a>Indicazioni
+#### <a name="guidance"></a>Materiale sussidiario
 
 Verificare che le schede di rete associate alle risorse degli indirizzi IP dipendenti siano configurate con accesso ad almeno un server DNS.
 
@@ -525,7 +525,7 @@ Verificare che le schede di rete associate alle risorse degli indirizzi IP dipen
 
 La risorsa nome di rete cluster non è riuscita a modificare la registrazione DNS.<br><br>Nome rete cluster:' %1'<br>Motivo:' %2'
 
-#### <a name="guidance"></a>Indicazioni
+#### <a name="guidance"></a>Materiale sussidiario
 
 Verificare che le schede di rete associate alle risorse degli indirizzi IP dipendenti siano configurate con accesso ad almeno un server DNS.
 
@@ -533,7 +533,7 @@ Verificare che le schede di rete associate alle risorse degli indirizzi IP dipen
 
 La risorsa nome di rete cluster non è riuscita a pubblicare il record PTR nella zona DNS di ricerca inversa.<br><br>Nome rete cluster:' %1'<br>Codice errore:' %2'
 
-#### <a name="guidance"></a>Indicazioni
+#### <a name="guidance"></a>Materiale sussidiario
 
 Verificare che le schede di rete associate alle risorse degli indirizzi IP dipendenti siano configurate con accesso ad almeno un server DNS e che la zona di ricerca inversa DNS esista.
 
@@ -541,7 +541,7 @@ Verificare che le schede di rete associate alle risorse degli indirizzi IP dipen
 
 La risorsa nome di rete cluster non è riuscita a pubblicare il record PTR nella zona DNS di ricerca inversa.<br><br>Nome rete cluster:' %1'<br>Motivo:' %2'
 
-#### <a name="guidance"></a>Indicazioni
+#### <a name="guidance"></a>Materiale sussidiario
 
 Verificare che le schede di rete associate alle risorse degli indirizzi IP dipendenti siano configurate con accesso ad almeno un server DNS e che la zona di ricerca inversa DNS esista.
 
@@ -609,7 +609,7 @@ Verifica integrità per l'interfaccia IP ' %1' (indirizzo ' %2') non riuscita (s
 
 La risorsa di controllo cloud non è riuscita a raggiungere i servizi di archiviazione Microsoft Azure.<br><br>Risorsa cluster: %1 <br>Nodo cluster: %2 
 
-#### <a name="guidance"></a>Indicazioni
+#### <a name="guidance"></a>Materiale sussidiario
 
 La causa potrebbe essere la comunicazione di rete tra il nodo del cluster e il servizio Microsoft Azure bloccato. Verificare la connettività Internet del nodo al Microsoft Azure. Connettersi al portale di Microsoft Azure e verificare che l'account di archiviazione esista.
 
@@ -621,7 +621,7 @@ La rete ' %1' che è stata disabilitata per l'uso del cluster di failover, è st
 
 Non è stato possibile eseguire l'autenticazione della risorsa cloud Witness con Microsoft Azure servizi di archiviazione. È stato restituito un errore di accesso negato durante il tentativo di contattare il Microsoft Azure account di archiviazione. <br><br>Risorsa cluster: %1 
 
-#### <a name="guidance"></a>Indicazioni
+#### <a name="guidance"></a>Materiale sussidiario
 
 La chiave di accesso dell'account di archiviazione potrebbe non essere più valida. Usare la configurazione guidata quorum del cluster nel Gestione cluster di failover o il cmdlet di Windows PowerShell set-ClusterQuorum per configurare la risorsa di cloud Witness con la chiave di accesso dell'account di archiviazione aggiornata.
 
@@ -726,7 +726,7 @@ Svuotamento del nodo non riuscito nel nodo cluster %1. <br><br>Fare riferimento 
 
 Il servizio cluster non è riuscito a raggiungere alcun controller di dominio disponibile nel dominio. Questo può influito sulle funzionalità che dipendono dall'autenticazione del nome di rete del cluster.<br><br>Server DC: %1 
 
-#### <a name="guidance"></a>Indicazioni
+#### <a name="guidance"></a>Materiale sussidiario
 
 Verificare che i controller di dominio siano accessibili sulla rete ai nodi del cluster.
 
@@ -734,14 +734,14 @@ Verificare che i controller di dominio siano accessibili sulla rete ai nodi del 
 
 La risorsa nome di rete cluster non è riuscita a trovare l'oggetto computer associato in Active Directory. Questo può influito sulle funzionalità che dipendono dall'autenticazione del nome di rete del cluster.<br><br>Nome rete: %1<br>Unità organizzativa: %2
 
-#### <a name="guidance"></a>Indicazioni
+#### <a name="guidance"></a>Materiale sussidiario
 
 Ripristinare l'oggetto computer per il nome di rete dal cestino del Active Directory. In alternativa, offline la risorsa nome di rete del cluster ed eseguire l'azione di ripristino per ricreare l'oggetto computer in Active Directory.
 
 ### <a name="event-1685-res_netname_computer_object_cno_not_found"></a>Evento 1685: RES_NETNAME_COMPUTER_OBJECT_CNO_NOT_FOUND
 
 La risorsa nome di rete cluster non è riuscita a trovare l'oggetto computer associato in Active Directory. Questo può influito sulle funzionalità che dipendono dall'autenticazione del nome di rete del cluster.<br><br>Nome rete: %1<br>Unità organizzativa: %2
-#### <a name="guidance"></a>Indicazioni
+#### <a name="guidance"></a>Materiale sussidiario
 
 Ripristinare l'oggetto computer per il nome di rete dal cestino del Active Directory.
 
@@ -749,7 +749,7 @@ Ripristinare l'oggetto computer per il nome di rete dal cestino del Active Direc
 
 Risorsa nome di rete cluster: è stato trovato l'oggetto computer associato in Active Directory da disabilitare. Questo può influito sulle funzionalità che dipendono dall'autenticazione del nome di rete del cluster.<br><br>Nome rete: %1<br>Unità organizzativa: %2
 
-#### <a name="guidance"></a>Indicazioni
+#### <a name="guidance"></a>Materiale sussidiario
 
 Abilitare l'oggetto computer per il nome di rete in Active Directory.
 
@@ -757,7 +757,7 @@ Abilitare l'oggetto computer per il nome di rete in Active Directory.
 
 Risorsa nome di rete cluster: è stato trovato l'oggetto computer associato in Active Directory da disabilitare. Questo può influito sulle funzionalità che dipendono dall'autenticazione del nome di rete del cluster.<br><br>Nome rete: %1<br>Unità organizzativa: %2
 
-#### <a name="guidance"></a>Indicazioni
+#### <a name="guidance"></a>Materiale sussidiario
 
 Abilitare l'oggetto computer per il nome di rete in Active Directory. In alternativa, offline la risorsa nome di rete del cluster ed eseguire l'azione di ripristino per abilitare l'oggetto computer in Active Directory.
 
@@ -765,7 +765,7 @@ Abilitare l'oggetto computer per il nome di rete in Active Directory. In alterna
 
 La risorsa nome di rete cluster ha rilevato che l'oggetto computer associato in Active Directory è stato disabilitato e non è riuscito nel tentativo di abilitarlo. Questo può influito sulle funzionalità che dipendono dall'autenticazione del nome di rete del cluster.<br><br>Nome rete: %1<br>Unità organizzativa: %2
 
-#### <a name="guidance"></a>Indicazioni
+#### <a name="guidance"></a>Materiale sussidiario
 
 Abilitare l'oggetto computer per il nome di rete in Active Directory.
 
@@ -926,7 +926,7 @@ La risorsa cluster ' %1' non è in grado di creare o modificare l'account utente
 
 Non è stato possibile avviare il cluster. La copia più recente dei dati di configurazione del cluster non è disponibile nel set di nodi che tentano di avviare il cluster. Le modifiche apportate al cluster si sono verificate quando il set di nodi non è membro e di conseguenza non è stato possibile ricevere gli aggiornamenti dei dati di configurazione. .<br><br>Voti necessari per avviare il cluster: %1<br>Voti disponibili: %2<br>Nodi con voti: %3
 
-#### <a name="guidance"></a>Indicazioni
+#### <a name="guidance"></a>Materiale sussidiario
 
 Provare ad avviare il servizio cluster in tutti i nodi del cluster in modo che i nodi con la copia più recente dei dati di configurazione del cluster possano prima formare il cluster. Il cluster sarà in grado di avviarsi e i nodi otterranno automaticamente i dati di configurazione del cluster aggiornati. Se non sono disponibili nodi con la copia più recente dei dati di configurazione del cluster, eseguire il cmdlet di Windows PowerShell ' Start-ClusterNode-FQ '. Se si usa il parametro ForceQuorum (FQ), il servizio cluster verrà avviato e la copia del nodo dei dati di configurazione del cluster verrà contrassegnata come autorevole. La forzatura del quorum in un nodo con una copia obsoleta del database cluster può comportare modifiche della configurazione del cluster che si sono verificate durante la mancata partecipazione del nodo al cluster.
 
@@ -1113,7 +1113,7 @@ Per ulteriori informazioni da ChkDsk, consultare il registro eventi dell'applica
 
 Impossibile portare in linea la risorsa disco fisico del cluster.<br><br>Nome risorsa disco fisico: %1<br>Codice errore: %2<br>Tempo trascorso (secondi): %3
 
-#### <a name="guidance"></a>Indicazioni
+#### <a name="guidance"></a>Materiale sussidiario
 
 Eseguire la convalida guidata configurazione per verificare la configurazione dell'archiviazione. Se il codice di errore è stato ERROR_CLUSTER_SHUTDOWN, lo stato online in sospeso è stato annullato da un amministratore. Se si tratta di un volume replicato, questo potrebbe essere il risultato di un errore di impostazione degli attributi del disco. Per ulteriori informazioni, esaminare gli eventi di replica di archiviazione.
 
@@ -1250,6 +1250,6 @@ Il Volume condiviso cluster ' %1' (' %2') non è più accessibile direttamente d
 La risorsa disco fisico del cluster ' %1' ha eliminato uno snapshot software. Lo snapshot del software in Volume condiviso cluster ' %2' è stato eliminato perché era più vecchio di ' %3' giorni. L'ID dello snapshot è' %4' ed è stato creato dal nodo ' %5' in ' %6'.
 Si prevede che gli snapshot vengano eliminati da un'applicazione di backup dopo il completamento di un processo di backup. Questo snapshot ha superato il tempo previsto per l'esistenza di uno snapshot. Verificare con l'applicazione di backup che i processi di backup vengano completati correttamente.
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 
 -   [Informazioni dettagliate sugli eventi per i componenti del clustering di failover in Windows Server 2008](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc753362(v%3dws.10))

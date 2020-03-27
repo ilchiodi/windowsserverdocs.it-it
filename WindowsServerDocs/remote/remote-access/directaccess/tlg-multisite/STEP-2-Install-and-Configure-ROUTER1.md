@@ -10,14 +10,14 @@ ms.technology: networking-da
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: dc20b1a0-540d-4531-a176-50b87c071600
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 0c6bff2acc15b7ff90731e0113ae0d5a429c635c
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 3cd73f1a5e2612f4551be1f16e49e9645c5e12c0
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71404798"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80308739"
 ---
 # <a name="step-2-install-and-configure-router1"></a>PASSAGGIO 2 installare e configurare ROUTER1
 
@@ -40,7 +40,7 @@ Prima di tutto, installare Windows Server 2016, Windows Server 2012 R2 o Windows
   
 1.  Avviare l'installazione di Windows Server 2016, Windows Server 2012 R2 o Windows Server 2012 (installazione completa).  
   
-2.  Attenersi alle istruzioni per completare l'installazione, specificando una password complessa per l'account amministratore locale. Accedere utilizzando l'account Administrator locale.  
+2.  Attenersi alle istruzioni per completare l'installazione, specificando una password complessa per l'account amministratore locale. Accedere usando l'account dell'amministratore locale.  
   
 3.  Connettere ROUTER1 a una rete dotata di accesso a Internet ed eseguire Windows Update per installare gli aggiornamenti più recenti per Windows Server 2016, Windows Server 2012 R2 o Windows Server 2012, quindi disconnettersi da Internet.  
   
@@ -112,7 +112,7 @@ Questo computer è configurato solo per fornire il routing tra le subnet Corpnet
   
 5.  Nella finestra di dialogo **Windows Firewall con sicurezza avanzata** , nella scheda **profilo pubblico** , in **stato firewall**, fare clic su **disattivata**, quindi fare clic su **OK**.  
   
-6.  Chiudere Windows Firewall con sicurezza avanzata.  
+6.  Chiudere Windows Firewall con protezione avanzata.  
   
 ## <a name="configure-routing-and-forwarding"></a>Configurare routing e inoltro  
 Per fornire servizi di routing e inoltro tra le subnet Corpnet e 2-corpnet, è necessario abilitare l'inoltro sulle interfacce di rete e configurare le route statiche tra le subnet.  

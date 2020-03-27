@@ -8,8 +8,8 @@ metadata:
   text: 'VPN Always On offre un''unica soluzione integrata per l''accesso remoto per tutti i dispositivi connessi, anche quelli personali. Con VPN Always On, la connessione non deve essere esclusivamente di tipo utente o dispositivo, ma può essere una combinazione di entrambi. È ad esempio possibile abilitare l''autenticazione dei dispositivi per la gestione dei dispositivi remoti e quindi abilitare l''autenticazione utente per la connettività a servizi e siti aziendali interni.'
   keywords: 'Windows 10, Windows Server, Windows Server 2016, accesso remoto, VPN'
   ms.localizationpriority: high
-  author: shortpatti
-  ms.author: pashort
+  author: eross-msft
+  ms.author: lizross
   ms.date: 11/05/2018
   ms.topic: article
   ms.devlang: na

@@ -10,14 +10,14 @@ ms.technology: networking-ipam
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: de3dc14b-164a-49f1-8a57-b9e788046c23
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: c5249cc61d1f6d4794c73b595781a59af0783f9f
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 6ab1450be2ceacb6f650b1be3d01e770c3c8116f
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71355263"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80312411"
 ---
 # <a name="dns-zone-management"></a>Gestione delle zone DNS
 
@@ -37,7 +37,7 @@ Quando si distribuisce gestione indirizzi IP in Windows Server 2016, è possibil
   
 Nella console di gestione indirizzi IP è possibile visualizzare i record di risorse DNS per una zona DNS specifica e filtrare i record in base al tipo, all'indirizzo IP, ai dati dei record di risorse e ad altre opzioni di filtro. Inoltre, è possibile modificare i record di risorse DNS per zone specifiche  
   
-## <a name="see-also"></a>Vedere anche  
+## <a name="see-also"></a>Vedi anche  
 [Gestire Gestione indirizzi IP](Manage-IPAM.md)  
   
 

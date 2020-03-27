@@ -6,22 +6,22 @@ ms.technology: networking-ras
 ms.topic: article
 ms.assetid: ''
 ms.localizationpriority: medium
-ms.author: pashort
-author: shortpatti
+ms.author: lizross
+author: eross-msft
 ms.date: 08/30/2018
-ms.openlocfilehash: 5cb0d342afec9c28259efb7a2e15666358f3cb5b
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 18fa85189b082a4a88a8a0bc0d6df11e21e7c97d
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71404258"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80307695"
 ---
 # <a name="step-4-install-and-configure-the-network-policy-server-nps"></a>Passaggio 4. Installare e configurare il server dei criteri di rete
 
 > Si applica a: Windows Server 2019, Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows 10
 
-- [**Prossimo** Passaggio 3. Configurare il server di accesso remoto per VPN Always On](vpn-deploy-ras.md)
-- [**Prossimo** Passaggio 5. Configurare le impostazioni di firewall e DNS](vpn-deploy-dns-firewall.md)
+- [Passaggio **successivo:** Passaggio 3. Configurare il server di accesso remoto per la VPN Always On](vpn-deploy-ras.md)
+- [Passaggio **successivo:** Passaggio 5. Configurare le impostazioni di DNS e firewall](vpn-deploy-dns-firewall.md)
 
 In questo passaggio verrà installato Server dei criteri di rete per l'elaborazione delle richieste di connessione inviate dal server VPN:
 
@@ -104,7 +104,7 @@ In questa procedura viene registrato il server in Active Directory in modo che d
 
 2.  Nella console NPS, fare clic con il pulsante destro del mouse su **NPS (local)** , quindi selezionare **registra server in Active Directory**.
    
-     Verrà visualizzata la finestra di dialogo Server dei criteri di rete.
+     Viene visualizzata la finestra di dialogo Server dei criteri di rete.
 
 3.  Nella finestra di dialogo Server dei criteri di rete fare clic su **OK** due volte.
 
@@ -171,7 +171,7 @@ In questa procedura viene configurato il server dei criteri di rete come server 
 
 4. In specificare il server VPN o remoto in client RADIUS selezionare il nome del server VPN aggiunto nel passaggio precedente. Ad esempio, se il nome NetBIOS del server VPN è RAS1, selezionare **RAS1**.
 
-5. Selezionare **Avanti**.
+5. Fare clic su **Avanti**.
 
 6. In Configura metodi di autenticazione completare i passaggi seguenti:
 
@@ -179,27 +179,27 @@ In questa procedura viene configurato il server dei criteri di rete come server 
 
     2. Selezionare la casella di controllo **Extensible Authentication Protocol** per selezionarla.
 
-    3. In tipo (in base al metodo di accesso e alla configurazione di rete) **Selezionare Microsoft: PEAP (Protected EAP**), quindi selezionare **Configure (Configura**).
+    3. In tipo (in base al metodo di accesso e alla configurazione di rete) selezionare **Microsoft: Protected EAP (PEAP)** , quindi selezionare **Configura**.
       
         Verrà visualizzata la finestra di dialogo Modifica proprietà EAP protetto.
 
     4. Selezionare **Rimuovi** per rimuovere il tipo EAP password protetta (EAP-MSCHAP v2).
 
-    5. Selezionare **Aggiungi**. Verrà visualizzata la finestra di dialogo Aggiungi EAP.
+    5. Fare clic su **Aggiungi**. Verrà visualizzata la finestra di dialogo Aggiungi EAP.
 
     6. Selezionare **Smart Card o altro certificato**, quindi fare clic su **OK**.
 
     7. Selezionare **OK** per chiudere Modifica proprietà EAP protette.
 
-7. Selezionare **Avanti**.
+7. Fare clic su **Avanti**.
 
 8. In specificare i gruppi di utenti completare i passaggi seguenti:
 
-    1. Selezionare **Aggiungi**. Verrà visualizzata la finestra di dialogo Seleziona utenti, computer, account servizio o gruppi.
+    1. Fare clic su **Aggiungi**. Verrà visualizzata la finestra di dialogo Selezione Utenti, Computer, Account servizio o Gruppi.
 
     2. Immettere **utenti VPN**, quindi fare clic su **OK**.
 
-    3. Selezionare **Avanti**.
+    3. Fare clic su **Avanti**.
 
 9. In specificare i filtri IP selezionare **Avanti**.
 
@@ -218,7 +218,7 @@ In questa procedura si aggiorna manualmente Criteri di gruppo nel server dei cri
 >[!NOTE]  
 >Criteri di gruppo aggiornati automaticamente al riavvio del computer membro del dominio o quando un utente accede a un computer membro del dominio. Inoltre, Criteri di gruppo viene aggiornato periodicamente. Per impostazione predefinita, questo aggiornamento periodico si verifica ogni 90 minuti con un offset casuale di un massimo di 30 minuti.
 
-L'appartenenza a **amministratori**, o equivalente è il requisito minimo necessario per completare questa procedura.
+Per poter completare questa procedura, è richiesta almeno l'appartenenza al gruppo **Administrators** o a un gruppo equivalente.
 
 **Procedura**
 
@@ -228,4 +228,4 @@ L'appartenenza a **amministratori**, o equivalente è il requisito minimo necess
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Passaggio 5. Configurare le impostazioni di DNS e firewall per](vpn-deploy-dns-firewall.md)always on VPN: In questo passaggio viene installato Server dei criteri di rete utilizzando Windows PowerShell o l'Server Manager aggiunta guidata ruoli e funzionalità. Viene inoltre configurato il server dei criteri di rete per gestire tutti i compiti di autenticazione, autorizzazione e accounting per le richieste di connessione ricevute dal server VPN.
+[Passaggio 5. Configurare le impostazioni di DNS e firewall per Always On VPN](vpn-deploy-dns-firewall.md): in questo passaggio si installa Server dei criteri di rete usando Windows PowerShell o l'Server Manager aggiunta guidata ruoli e funzionalità. Viene inoltre configurato il server dei criteri di rete per gestire tutti i compiti di autenticazione, autorizzazione e accounting per le richieste di connessione ricevute dal server VPN.

@@ -10,14 +10,14 @@ ms.technology: networking-da
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 82bf5fed-93b3-4fa6-8e71-522146eccdb1
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: a21e5799824c968b29c719585ca16b6b45a9ef37
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 6faa40428df424f60637fb206641d8bae2774c79
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71404916"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80308930"
 ---
 # <a name="step-2-configure-the-basic-directaccess-server"></a>Passaggio 2 configurare il server DirectAccess di base
 
@@ -32,9 +32,9 @@ Questo argomento descrive come configurare le impostazioni client e server richi
 |Aggiornare i client con la configurazione di DirectAccess|Per ricevere le impostazioni di DirectAccess, i client devono aggiornare Criteri di gruppo mentre sono connessi alla rete Intranet.|  
   
 > [!NOTE]  
-> Questo argomento include cmdlet di esempio di Windows PowerShell che è possibile usare per automatizzare alcune delle procedure descritte. Per ulteriori informazioni, vedere [mediante i cmdlet](https://go.microsoft.com/fwlink/p/?linkid=230693).  
+> In questo argomento sono inclusi cmdlet di Windows PowerShell di esempio che possono essere usati per automatizzare alcune delle procedure descritte. Per ulteriori informazioni, vedere [mediante i cmdlet](https://go.microsoft.com/fwlink/p/?linkid=230693).  
   
-## <a name="BKMK_Role"></a>Installare il ruolo accesso remoto  
+## <a name="install-the-remote-access-role"></a><a name="BKMK_Role"></a>Installare il ruolo accesso remoto  
 Per distribuire Accesso remoto, è necessario installare il ruolo Accesso remoto in un server dell'organizzazione che fungerà da server di Accesso remoto.  
   
 #### <a name="to-install-the-remote-access-role"></a>Per installare il ruolo Accesso remoto  
@@ -43,7 +43,7 @@ Per distribuire Accesso remoto, è necessario installare il ruolo Accesso remoto
   
 2.  Fare clic su **Avanti** per tre volte per visualizzare la schermata di selezione del ruolo server.  
   
-3.  Nella finestra di dialogo **Selezione ruoli server** selezionare **Accesso remoto**e quindi fare clic su **Avanti**.  
+3.  Nella finestra di dialogo **Selezione ruoli server** selezionare **Accesso remoto** e quindi fare clic su **Avanti**.  
   
 4.  Nella finestra di dialogo **Selezione funzionalità** fare clic su **Avanti**.  
   
@@ -51,7 +51,7 @@ Per distribuire Accesso remoto, è necessario installare il ruolo Accesso remoto
   
 6.  Fare clic su **Aggiungi funzionalità**, fare clic su **Avanti**, quindi fare clic su **installare**.  
   
-7.  Nella finestra di dialogo **Stato installazione** verificare che l'installazione sia stata completata correttamente e quindi fare clic su **Chiudi**.  
+7.  Nella finestra di dialogo **Stato installazione** verificare che l'installazione abbia avuto esito positivo e quindi fare clic su **Chiudi**.  
   
 ![](../../../media/Step-2-Configure-the-DirectAccess-Server/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em> per Windows PowerShell***  
   
@@ -84,13 +84,13 @@ Il cmdlet o i cmdlet di Windows PowerShell seguenti installano il ruolo accesso 
   
 #### <a name="to-configure-directaccess-using-the-getting-started-wizard"></a>Per configurare DirectAccess con Attività iniziali guidate  
   
-1.  In Server Manager fare clic su **strumenti**, quindi fare clic su **Gestione accesso remoto**.  
+1.  In Server Manager fare clic su **Strumenti** e quindi su **Gestione accesso remoto**.  
   
 2.  Nella console di gestione accesso remoto, selezionare il servizio di ruolo da configurare nel riquadro di spostamento a sinistra e quindi fare clic su **eseguire la procedura guidata introduttiva**.  
   
-3.  Fare clic su **distribuire DirectAccess solo**.  
+3.  Fare clic su **Distribuisci solo DirectAccess**.  
   
-4.  Selezionare la topologia della configurazione di rete e digitare il nome pubblico a cui si connetteranno i client di accesso remoto. Fai clic su **Next**.  
+4.  Selezionare la topologia della configurazione di rete e digitare il nome pubblico a cui si connetteranno i client di accesso remoto. Fare clic su **Avanti**.  
   
     > [!NOTE]  
     > Per impostazione predefinita, la procedura Attività iniziali guidate consente di distribuire DirectAccess in tutti i computer portatili e notebook nel dominio applicando un filtro WMI all'oggetto Criteri di gruppo delle impostazioni client.  
@@ -117,9 +117,9 @@ Il cmdlet o i cmdlet di Windows PowerShell seguenti installano il ruolo accesso 
   
 5.  Digitare **Get-NCSIPolicyConfiguration** e quindi premere **INVIO**. Vengono visualizzate le impostazioni dell'indicatore di stato della connettività di rete distribuite dalla procedura guidata. Si noti il valore di DomainLocationDeterminationURL. Ogni volta che questo URL del server dei percorsi di rete è accessibile, il client determinerà che si trova all'interno della rete aziendale e le impostazioni della tabella dei criteri di risoluzione dei nomi non verranno applicate.  
   
-6.  Tipo **Get-DAConnectionStatus** e quindi premere **INVIO**. Poiché il client possa raggiungere l'URL di server di percorso di rete, lo stato verrà visualizzato come **ConnectedLocally**.  
+6.  Digitare **Get-DAConnectionStatus** e quindi premere **INVIO**. Poiché il client può raggiungere l'URL del server dei percorsi di rete, lo stato verrà visualizzato come **ConnectedLocally**.  
   
-## <a name="BKMK_Links"></a>Passaggio precedente  
+## <a name="previous-step"></a><a name="BKMK_Links"></a>Passaggio precedente  
   
 -   [Passaggio 1: configurare l'infrastruttura DirectAccess](Step-1-Configure-the-DirectAccess-Infrastructure.md)  
   

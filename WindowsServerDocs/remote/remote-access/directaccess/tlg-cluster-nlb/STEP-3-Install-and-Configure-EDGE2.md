@@ -10,14 +10,14 @@ ms.technology: networking-da
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: f04eb11e-ed5f-42a1-a77b-57a248ba2d10
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 3dad1db575bd9b9b4a70a24da44d1d030273f021
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: cb869ad1617d52562e73eb6965a9f1c2184a56a7
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71404866"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80310779"
 ---
 # <a name="step-3-install-and-configure-edge2"></a>PASSAGGIO 3 installare e configurare EDGE2
 
@@ -27,17 +27,17 @@ EDGE2 è il secondo membro di un cluster di accesso remoto. EDGE2 viene installa
 
 Per configurare EDGE2, seguire questa procedura:
 
-## <a name="installOS"></a>Installare il sistema operativo in EDGE2  
+## <a name="install-the-operating-system-on-edge2"></a><a name="installOS"></a>Installare il sistema operativo in EDGE2  
   
 1.  In EDGE2 avviare l'installazione di Windows Server 2016, Windows Server 2012 R2 o Windows Server 2012.  
   
-2.  Seguire le istruzioni per completare l'installazione, specificando Windows Server 2016, Windows Server 2012 R2 o Windows Server 2012 (installazione completa) e una password complessa per l'account amministratore locale. Accedere utilizzando l'account Administrator locale.  
+2.  Seguire le istruzioni per completare l'installazione, specificando Windows Server 2016, Windows Server 2012 R2 o Windows Server 2012 (installazione completa) e una password complessa per l'account amministratore locale. Accedere usando l'account dell'amministratore locale.  
   
 3.  Connettere EDGE2 a una rete dotata di accesso a Internet ed eseguire Windows Update per installare gli aggiornamenti più recenti per Windows Server 2016, Windows Server 2012 R2 o Windows Server 2012, quindi disconnettersi da Internet.  
   
 4.  Connettere una scheda di rete alla subnet Corpnet o al Commuter virtuale che rappresenta la subnet Corpnet e l'altra alla subnet Internet o al Commuter virtuale che rappresenta la subnet Internet.  
   
-## <a name="TCP"></a>Configurare le proprietà TCP/IP  
+## <a name="configure-tcpip-properties"></a><a name="TCP"></a>Configurare le proprietà TCP/IP  
   
 1.  Nella console di Server Manager fare clic su **server locale**e quindi nell'area **Proprietà** , accanto a **connessione Ethernet cablata**, fare clic sul collegamento.  
   
@@ -49,7 +49,7 @@ Per configurare EDGE2, seguire questa procedura:
   
 5.  Fare clic su **Protocollo Internet versione 4 (TCP/IPv4)** e quindi su **Proprietà**.  
   
-6.  Fare clic su **Utilizza il seguente indirizzo IP**. In **indirizzo IP**Digitare **10.0.0.8**. In **Subnet mask**digitare **255.255.255.0**.  
+6.  Fare clic su **Utilizza il seguente indirizzo IP**. In **indirizzo IP**Digitare **10.0.0.8**. In **Subnet mask** digitare **255.255.255.0**.  
   
 7.  Fare clic su **Utilizza i seguenti indirizzi server DNS**. In **Server DNS preferito** digitare **10.0.0.1**.  
   
@@ -89,7 +89,7 @@ Per configurare EDGE2, seguire questa procedura:
   
 25. Chiudere la finestra del prompt dei comandi.  
   
-## <a name="rename"></a>Rinominare EDGE2 e aggiungerlo al dominio  
+## <a name="rename-edge2-and-join-it-to-the-domain"></a><a name="rename"></a>Rinominare EDGE2 e aggiungerlo al dominio  
   
 1.  Nella console di Server Manager, in **server locale**, nell'area **Proprietà** , accanto a **nome computer**, fare clic sul collegamento.  
   
@@ -109,11 +109,11 @@ Per configurare EDGE2, seguire questa procedura:
   
 9. Dopo il riavvio, accedere come CORP\User1.  
   
-## <a name="IPHTTPSCert"></a>Installare il certificato IP-HTTPS  
+## <a name="install-the-ip-https-certificate"></a><a name="IPHTTPSCert"></a>Installare il certificato IP-HTTPS  
   
-1.  Nella schermata **Start** Digitare**MMC. exe**, quindi premere INVIO. Se viene visualizzata la finestra di dialogo **Controllo account utente** , verificare che l'azione visualizzata sia quella desiderata e quindi fare clic su **Sì**.  
+1.  Nella schermata **Start** Digitare**MMC. exe**, quindi premere INVIO. Se viene visualizzata la finestra di dialogo **Controllo dell'account utente**, verificare che l'azione indicata sia quella che si desidera eseguire e quindi fare clic su **Sì**.  
   
-2.  Nella console di MMC, nel **File** menu, fare clic su **Aggiungi/Rimuovi Snap-in**.  
+2.  Nella console MMC scegliere **Aggiungi/Rimuovi snap-in** dal menu **File**.  
   
 3.  Nel **Aggiungi o Rimuovi Snap-in** la finestra di dialogo, fare clic su **certificati**, fare clic su **Aggiungi**, fare clic su **account Computer**, fare clic su **Avanti**, fare clic su **Fine**, e quindi fare clic su **OK**.  
   
@@ -133,13 +133,13 @@ Per configurare EDGE2, seguire questa procedura:
   
 11. Nella scheda **generale** , in **nome descrittivo**, digitare **certificato IP-HTTPS**.  
   
-12. Fare clic su **OK**, fare clic su **registrazione**, quindi fare clic su **Fine**.  
+12. Fare clic su **OK**, su **Registrazione** e quindi su **Fine**.  
   
 13. Nel riquadro dei dettagli dello snap-in certificati verificare che un nuovo certificato con il nome edge1.contoso.com sia stato registrato con finalità designate di autenticazione server.  
   
 14. Chiudere la finestra della console. Se viene richiesto di salvare le impostazioni, fare clic su **No**.  
   
-## <a name="InstallDA"></a>Installare il ruolo accesso remoto in EDGE2  
+## <a name="install-the-remote-access-role-on-edge2"></a><a name="InstallDA"></a>Installare il ruolo accesso remoto in EDGE2  
   
 1.  Nella console di Server Manager, nel **Dashboard**, fare clic su **Aggiungi ruoli e funzionalità**.  
   
@@ -151,7 +151,7 @@ Per configurare EDGE2, seguire questa procedura:
   
 5.  Nella finestra di dialogo **Conferma selezioni per l'installazione** fare clic su **Installa**.  
   
-6.  Nella finestra di dialogo **Stato installazione** verificare che l'installazione sia stata completata correttamente e quindi fare clic su **Chiudi**.  
+6.  Nella finestra di dialogo **Stato installazione** verificare che l'installazione abbia avuto esito positivo e quindi fare clic su **Chiudi**.  
   
 
 

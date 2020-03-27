@@ -2,17 +2,17 @@
 title: Gestire gli account online per gli utenti di Windows Server Essentials
 description: Viene descritto come usare Windows Server Essentials
 ms.date: 10/03/2016
-ms.prod: windows-server-2016-essentials
+ms.prod: windows-server
 ms.topic: article
 ms.assetid: c09f4cf6-4d12-49fe-9ae4-e6cb14027b9d
 author: nnamuhcs
 ms.author: daveba
-ms.openlocfilehash: dc3170c7d5267eef6f339dc229b1b9daaf9ac9ec
-ms.sourcegitcommit: 2082335e1260826fcbc3dccc208870d2d9be9306
+ms.openlocfilehash: 302b5e79f4495c792fd0b30392988720f5594c58
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69980276"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80311239"
 ---
 # <a name="manage-online-accounts-for-windows-server-essentials-users"></a>Gestire gli account online per gli utenti di Windows Server Essentials
 
@@ -27,7 +27,7 @@ Quando si integra il server di Windows Server Essentials con Microsoft Office 36
 > [!IMPORTANT]
 >  Se si gestiscono gli account online in Windows Server Essentials, si è abituati a vedere gli account di Microsoft Online Services indicati come *account di Office 365*. Nel dashboard di Windows Server Essentials le etichette sono state modificate in *account di Microsoft Online Services*o gli *account Microsoft Online* per brevità. Sono cambiate solo le etichette, mentre gli account e le procedure sono rimasti invariati. Nella maggior parte delle procedure in questo argomento viene usato il termine *account online*.  
   
-## <a name="in-this-topic"></a>Contenuto dell'argomento  
+## <a name="in-this-topic"></a>In questo argomento  
   
 -   [Perché è necessario gestire gli account online dal dashboard?](#BKMK_WhyManageOnlineAccounts)  
   
@@ -39,7 +39,7 @@ Quando si integra il server di Windows Server Essentials con Microsoft Office 36
   
 -   [Gestire i gruppi di distribuzione per Exchange Online](#BKMK_SECTION_ManageDistributionGroups)  
   
-##  <a name="BKMK_WhyManageOnlineAccounts"></a>Perché è necessario gestire gli account online dal dashboard?  
+##  <a name="why-should-i-manage-my-online-accounts-from-the-dashboard"></a><a name="BKMK_WhyManageOnlineAccounts"></a>Perché è necessario gestire gli account online dal dashboard?  
  Quando si usa il dashboard per assegnare un account di Microsoft Online Services a un account utente, le password degli account vengono sincronizzate automaticamente ed è possibile mantenere insieme i due account in tutto il ciclo di vita dell'account utente.  
   
  È utile per l'utente, che può usare la stessa password per accedere alle risorse sul server e in Office 365. È anche possibile applicare gli stessi requisiti di password per l'accesso alle risorse di Office 365 necessarie per le risorse interne.  
@@ -56,12 +56,12 @@ Quando si integra il server di Windows Server Essentials con Microsoft Office 36
  È disponibile un altro vantaggio quando si creano gli account online iniziali dal dashboard. È possibile creare account online per tutti gli utenti contemporaneamente. D'altra parte, se i dipendenti usano già Office 365 e si configura un nuovo server di Windows Server Essentials, è possibile creare tutti gli account utente dagli account online con una singola azione. Per altre informazioni, vedere [Creare account online](#BKMK_SECTION_CreateOnlineAccounts).  
   
 ### <a name="manage-email-addresses-and-distribution-groups-from-the-dashboard"></a>Gestire indirizzi di posta elettronica e gruppi di distribuzione dal dashboard  
- È possibile gestire gli indirizzi di posta elettronica e i gruppi di distribuzione per Exchange Online dal dashboard. È possibile usare il dominio Internet dell'organizzazione negli indirizzi di posta elettronica. È possibile eseguire tutte queste operazioni dal dashboard, senza accedere a Office 365. Per gestire i gruppi di distribuzione dal dashboard, è necessario usare Windows Server Essentials. Questa funzionalità non è supportata in Windows Server Essentials. Per altre informazioni, vedere [Gestire indirizzi di posta elettronica per Exchange Online](#BKMK_SECTION_ManageEmailAddresses) e [Gestire gruppi di distribuzione per Exchange Online](#BKMK_SECTION_ManageDistributionGroups).  
+ È possibile gestire gli indirizzi di posta elettronica e i gruppi di distribuzione per Exchange Online dal dashboard. È possibile usare il dominio Internet dell'organizzazione negli indirizzi di posta elettronica. È possibile eseguire tutte queste operazioni dal dashboard, senza accedere a Office 365. Per gestire i gruppi di distribuzione dal dashboard, è necessario usare Windows Server Essentials. Questa funzionalità non è supportata in Windows Server Essentials. Per altre informazioni, vedere [gestire gli indirizzi di posta elettronica per Exchange Online](#BKMK_SECTION_ManageEmailAddresses) e [gestire i gruppi di distribuzione per Exchange Online](#BKMK_SECTION_ManageDistributionGroups).  
   
 ### <a name="manage-the-user-account-and-online-account-together"></a>Gestire account utente e account online insieme  
  È possibile gestire un account online insieme all'account utente per tutto il ciclo di vita dell'account. Se si disattiva l'account utente, viene disattivato anche l'account online in Microsoft Online Services. Se si rimuove un account utente, viene rimosso anche l'account online. Per altre informazioni, vedere [Gestire account online](#BKMK_SECTION_ManageOnlineAccounts).  
   
-##  <a name="BKMK_SECTION_CreateOnlineAccounts"></a>Creare account online  
+##  <a name="create-online-accounts"></a><a name="BKMK_SECTION_CreateOnlineAccounts"></a>Creare account online  
  Dopo aver integrato il server con Office 365, è possibile creare account di Microsoft Online Services per gli utenti dal dashboard. La creazione degli account online è molto flessibile. Se si dispone di una nuova sottoscrizione di Office 365, è possibile creare in blocco gli account online per tutti gli utenti. Se gli account online sono già stati creati in Office 365, non preoccuparti. Se si configura un nuovo server, è possibile creare gli account utente sul server importando gli account online. È possibile assegnare un account online nuovo o esistente quando si crea un singolo account utente o quando si aggiunge un account online a un account utente esistente.  
   
  **Requisiti di licenza** Sarà necessaria una licenza utente per ogni account online creato. Controllare la pagina **Office 365** nel dashboard per visualizzare il numero di licenze utente disponibili tramite l'abbonamento a Office 365. Se è necessario aggiungere altre licenze utente, sarà possibile aprire la sottoscrizione di Office 365 in Office 365 a tale scopo.  
@@ -84,7 +84,7 @@ Quando si integra il server di Windows Server Essentials con Microsoft Office 36
 > [!NOTE]
 >  Se si usa Windows Server Essentials, viene visualizzato l' *account di Office 365* anziché l' *account Microsoft Online Services* per tutte queste procedure. Il processo è lo stesso, ma la terminologia è cambiata in Windows Server Essentials.  
   
-###  <a name="BKMK_ToBulkCreateOnlineAccounts"></a>Per creare in blocco gli account online per gli account utente esistenti  
+###  <a name="to-bulk-create-online-accounts-for-your-existing-user-accounts"></a><a name="BKMK_ToBulkCreateOnlineAccounts"></a>Per creare in blocco gli account online per gli account utente esistenti  
   
 1.  Accedere al server come amministratore e aprire il dashboard di Windows Server Essentials.  
   
@@ -103,7 +103,7 @@ Quando si integra il server di Windows Server Essentials con Microsoft Office 36
   
 6.  Comunicare agli utenti che ora dispongono di un account online Microsoft. Devono modificare la password dell'account utente di rete prima di poter accedere a Office 365. Per istruzioni, vedere [Per iniziare a usare un nuovo account online Microsoft](#BKMK_ToBeginUsingAnOnlineAccount).  
   
-###  <a name="BKMK_ToBeginUsingAnOnlineAccount"></a>Per iniziare a usare un nuovo account online Microsoft  
+###  <a name="to-begin-using-a-new-microsoft-online-account"></a><a name="BKMK_ToBeginUsingAnOnlineAccount"></a>Per iniziare a usare un nuovo account online Microsoft  
   
 1.  Accedere al computer con il proprio account utente di rete.  
   
@@ -116,7 +116,7 @@ Quando si integra il server di Windows Server Essentials con Microsoft Office 36
     > [!IMPORTANT]
     >  Non modificare la password dell'account online in Office 365. In questo modo, infatti, si interrompe la sincronizzazione delle password. La password online verrà aggiornata ogni volta che si cambia la password dell'account utente di rete.  
   
-###  <a name="BKMK_ToImportUserAccounts"></a>Per importare gli account utente dagli account online esistenti  
+###  <a name="to-import-user-accounts-from-your-existing-online-accounts"></a><a name="BKMK_ToImportUserAccounts"></a>Per importare gli account utente dagli account online esistenti  
   
 1.  Nel dashboard aprire la pagina **Utenti**.  
   
@@ -130,7 +130,7 @@ Quando si integra il server di Windows Server Essentials con Microsoft Office 36
   
     2.  Facoltativamente, fare clic sul collegamento per visualizzare le password temporanee che verranno assegnate agli account utente. Sarà necessario fornire agli utenti la password temporanea insieme al nuovo nome account.  
   
-         Dopo aver creato gli account, è possibile trovare le password elencate in questo file: *SystemDrive*\Users\\*amminoffice365*nuovoutenteserver. txt dove amminoffice365 è l'account di rete usato per amministrare Office 365 nel server e nuovoutenteserver è il nuovo\\ nome dell'account utente.  
+         Dopo aver creato gli account, è possibile trovare le password elencate in questo file: *SystemDrive*\Users\\*amminoffice365*\\*Nuovoutenteserver*. txt, dove *amminoffice365* è l'account di rete usato per amministrare Office 365 nel server e *nuovoutenteserver* è il nome del nuovo account utente.  
   
     3.  Fare clic su **Avanti** per creare gli account utente.  
   
@@ -138,19 +138,19 @@ Quando si integra il server di Windows Server Essentials con Microsoft Office 36
   
      Assicurarsi che le password per l'account online verranno sincronizzate con l'account utente in futuro e non devono modificare la password online in Office 365.  
   
-###  <a name="BKMK_ToCreateaNewUserAccount"></a>Per creare un nuovo account utente con un account online assegnato  
+###  <a name="to-create-a-new-user-account-with-an-online-account-assigned-to-it"></a><a name="BKMK_ToCreateaNewUserAccount"></a>Per creare un nuovo account utente con un account online assegnato  
   
 1.  Nel dashboard fare clic su **Utenti**.  
   
-2.  In **Attività Utenti**fare clic su **Aggiungi account utente**. Verrà visualizzata la procedura guidata Aggiungi account utente.  
+2.  In **Attività Utenti** fare clic su **Aggiungi account utente**. Verrà visualizzata la procedura guidata Aggiungi account utente.  
   
 3.  Seguire le istruzioni per creare l'account utente.  
   
 4.  Nella pagina **Assegna un account di Microsoft Online Services** creare un nuovo account online per l'utente o assegnare un account online esistente:  
   
-    -   Per creare un nuovo account online, fare clic su **Crea un nuovo account di Microsoft Online Services e assegnalo a questo account utente**e digitare un nome per l'account di Microsoft Online Services (per impostazione predefinita viene usato il nome dell'utente per l'ID online). Scegliere quindi **Avanti**.  
+    -   Per creare un nuovo account online, fare clic su **Crea un nuovo account di Microsoft Online Services e assegnalo a questo account utente** e digitare un nome per l'account di Microsoft Online Services (per impostazione predefinita viene usato il nome dell'utente per l'ID online). Fare quindi clic su **Avanti**.  
   
-    -   Per assegnare un account online Microsoft esistente, fare clic su **Assegna un account di Microsoft Online Services esistente a questo account utente**, quindi selezionare un account dall'elenco a discesa. Scegliere quindi **Avanti**.  
+    -   Per assegnare un account online Microsoft esistente, fare clic su **Assegna un account di Microsoft Online Services esistente a questo account utente**, quindi selezionare un account dall'elenco a discesa. Fare quindi clic su **Avanti**.  
   
     > [!NOTE]
     >  In Windows Server Essentials gli account di Microsoft Online Services sono denominati account di Office 365 nelle procedure guidate e nelle etichette del dashboard.  
@@ -159,7 +159,7 @@ Quando si integra il server di Windows Server Essentials con Microsoft Office 36
   
 6.  Comunicare all'utente che dovrà cambiare la password dell'account utente per poter accedere a Office 365 con il nuovo account online. Per istruzioni, vedere [Per iniziare a usare un nuovo account online Microsoft](#BKMK_ToBeginUsingAnOnlineAccount).  
   
-#### <a name="BKMK_ToAssignAnOnlineAccount"></a>Per assegnare un account online a un account utente  
+#### <a name="to-assign-an-online-account-to-a-user-account"></a><a name="BKMK_ToAssignAnOnlineAccount"></a>Per assegnare un account online a un account utente  
   
 1.  Nel dashboard fare clic su **Utenti**.  
   
@@ -171,17 +171,17 @@ Quando si integra il server di Windows Server Essentials con Microsoft Office 36
   
 5.  Comunicare all'utente che dovrà cambiare la password dell'account utente per poter accedere a Office 365 con il nuovo account online. Per istruzioni, vedere [Per iniziare a usare un nuovo account online Microsoft](#BKMK_ToBeginUsingAnOnlineAccount).  
   
-##  <a name="BKMK_SECTION_ManageOnlineAccounts"></a>Gestisci account online  
+##  <a name="manage-online-accounts"></a><a name="BKMK_SECTION_ManageOnlineAccounts"></a>Gestisci account online  
  Quando si aggiunge un account online a un account utente in Windows Server Essentials, è possibile gestire entrambi gli account in tutto il ciclo di vita dell'account.  
   
-###  <a name="BKMK_UnderstandingAccountStatus"></a>Informazioni sullo stato dell'account online  
+###  <a name="understanding-the-online-account-status"></a><a name="BKMK_UnderstandingAccountStatus"></a>Informazioni sullo stato dell'account online  
  Quando si assegna un account di Microsoft Online Services a un account utente, l'indirizzo di posta elettronica per l'account viene visualizzato nella colonna **Account online Microsoft** nella pagina **Utenti** del dashboard (In Windows Server Essentials, l'etichetta di colonna è l' **account di Office 365**).  
   
 -   Un'icona blu accanto a un indirizzo di posta elettronica indica che l'account online è attivo. Ovvero, l'account ha una licenza di Office 365 e l'utente può usare l'ID online per accedere a Office 365.  
   
 -   Un'icona ombreggiata accanto all'indirizzo di posta elettronica indica che l'account online non è attivo, perché la licenza non è più attiva o l'account online non è stato assegnato. Quando si annulla l'assegnazione di un account online di un utente, la licenza viene rimossa e all'utente viene impedito l'accesso a Office 365 con l'account. Tuttavia, il server gestisce il mapping tra il nome dell'account utente e l'indirizzo di posta elettronica di Office 365.  
   
-###  <a name="BKMK_UnassignOnlineAccount"></a>Limita l'accesso a un account online  
+###  <a name="restrict-access-to-an-online-account"></a><a name="BKMK_UnassignOnlineAccount"></a>Limita l'accesso a un account online  
  Cosa fare se un utente lascia l'organizzazione o si vuole limitare l'accesso degli utenti ai servizi di Office 365? Se si gestiscono gli account online degli utenti insieme agli account utente in Windows Server Essentials, sono disponibili tre opzioni:  
   
 -   **Annullare l'assegnazione dell'account online** ? Se si vuole impedire a un utente di usare Office 365 senza impedire l'accesso alle risorse sul server, è necessario annullare l'assegnazione dell'account online. La licenza di Office 365 verrà rilasciata e all'utente viene impedito l'accesso a Office 365. Tuttavia, il server gestisce il mapping tra il nome dell'account utente e l'indirizzo di posta elettronica di Office 365. Per istruzioni, vedere [per annullare l'assegnazione di un account online da un account utente](#BKMK_ToUnassignAnOnlineAccount).  
@@ -193,7 +193,7 @@ Quando si integra il server di Windows Server Essentials con Microsoft Office 36
     > [!WARNING]
     >  Tenere presente che quando si rimuove un account online i dati dell'utente sono soggetti ai criteri di conservazione dei dati di Microsoft Online Services. Se è necessario conservare i dati utente della persona dopo che un dipendente ha lasciato, disattivare l'account utente anziché rimuoverlo.  
   
-####  <a name="BKMK_ToUnassignAnOnlineAccount"></a>Per annullare l'assegnazione di un account online a un account utente  
+####  <a name="to-unassign-an-online-account-from-a-user-account"></a><a name="BKMK_ToUnassignAnOnlineAccount"></a>Per annullare l'assegnazione di un account online a un account utente  
   
 1.  Nel dashboard fare clic su **Utenti**.  
   
@@ -201,10 +201,10 @@ Quando si integra il server di Windows Server Essentials con Microsoft Office 36
   
 3.  Alla richiesta di conferma fare clic su **Sì**.  
   
-##  <a name="BKMK_SECTION_ManageEmailAddresses"></a>Gestire gli indirizzi di posta elettronica per Exchange Online  
+##  <a name="manage-email-addresses-for-exchange-online"></a><a name="BKMK_SECTION_ManageEmailAddresses"></a>Gestire gli indirizzi di posta elettronica per Exchange Online  
  Aggiungendo gli indirizzi di posta elettronica all'account online dell'utente in Windows Server Essentials, è possibile consentire all'utente di ricevere messaggi di posta elettronica in più indirizzi di posta elettronica in Exchange Online.  
   
-###  <a name="BKMK_PROC_AddEmailAliases"></a>Per aggiungere altri indirizzi di posta elettronica all'account online Microsoft di un utente  
+###  <a name="to-add-additional-email-addresses-to-a-user-s-microsoft-online-account"></a><a name="BKMK_PROC_AddEmailAliases"></a>Per aggiungere altri indirizzi di posta elettronica all'account online Microsoft di un utente  
   
 1.  Nel dashboard di Windows Server Essentials fare clic su **utenti**.  
   
@@ -216,7 +216,7 @@ Quando si integra il server di Windows Server Essentials con Microsoft Office 36
   
 5.  Fare clic su **OK** due volte.  
   
-##  <a name="BKMK_SECTION_ManageDistributionGroups"></a>Gestire i gruppi di distribuzione per Exchange Online (solo Windows Server Essentials)  
+##  <a name="manage-distribution-groups-for-exchange-online-windows-server-essentials-only"></a><a name="BKMK_SECTION_ManageDistributionGroups"></a>Gestire i gruppi di distribuzione per Exchange Online (solo Windows Server Essentials)  
  Dopo aver integrato il server di Windows Server Essentials con Office 365, è possibile creare e gestire gruppi di distribuzione per Exchange Online dal dashboard di Windows Server Essentials. Questa operazione viene eseguita nella scheda **gruppi di distribuzione** che viene aggiunta alla pagina **utenti** . Questa scheda viene visualizzata solo se si dispone di un abbonamento a Exchange Online. Questa funzionalità non è disponibile in Windows Server Essentials.  
   
  Usare le procedure seguenti per:  
@@ -229,11 +229,11 @@ Quando si integra il server di Windows Server Essentials con Microsoft Office 36
   
 -   [Rimuovere un gruppo di distribuzione](#BKMK_RemoveDistributionGroup)  
   
-###  <a name="BKMK_PROCEDURE_AddDistGroup"></a>Per aggiungere un gruppo di distribuzione  
+###  <a name="to-add-a-distribution-group"></a><a name="BKMK_PROCEDURE_AddDistGroup"></a>Per aggiungere un gruppo di distribuzione  
   
 1.  Nel dashboard di Windows Server Essentials fare clic su **utenti**e quindi sulla scheda **gruppi di distribuzione** .  
   
-2.  In **Attività Gruppo di distribuzione**fare clic su **Aggiungi gruppo di distribuzione**.  
+2.  In **Attività Gruppo di distribuzione** fare clic su **Aggiungi gruppo di distribuzione**.  
   
      Verrà visualizzata la procedura guidata Aggiungi nuovo gruppo di distribuzione.  
   
@@ -243,19 +243,19 @@ Quando si integra il server di Windows Server Essentials con Microsoft Office 36
   
     -   Per impostazione predefinita, il gruppo di distribuzione può ricevere messaggi di posta elettronica da utenti esterni all'organizzazione. Per evitarlo, deselezionare questa opzione.  
   
-4.  Nella pagina **Aggiungi membri al gruppo** fare clic su **Aggiungi** per aggiungere account utente attivi a cui è assegnato un account online, e altri gruppi di distribuzione, al nuovo gruppo di distribuzione. Scegliere quindi **Avanti**.  
+4.  Nella pagina **Aggiungi membri al gruppo** fare clic su **Aggiungi** per aggiungere account utente attivi a cui è assegnato un account online, e altri gruppi di distribuzione, al nuovo gruppo di distribuzione. Fare quindi clic su **Avanti**.  
   
      Il nuovo gruppo di distribuzione viene creato in Exchange Online.  
   
-###  <a name="BKMK_ChangeGroupMembers"></a>Per modificare i membri di un gruppo di distribuzione  
+###  <a name="to-change-the-members-of-a-distribution-group"></a><a name="BKMK_ChangeGroupMembers"></a>Per modificare i membri di un gruppo di distribuzione  
   
-1.  Nel dashboard fare clic su **Utenti**, quindi sulla scheda **Gruppi di distribuzione** .  
+1.  Nel dashboard fare clic su **Utenti**, quindi sulla scheda **Gruppi di distribuzione**.  
   
 2.  Fare clic con il pulsante destro del mouse sul gruppo di distribuzione nell'elenco, quindi scegliere **Modifica appartenenza al gruppo**.  
   
 3.  Usare i pulsanti **Aggiungi** e **Rimuovi** per aggiungere o rimuovere account online attivi dal gruppo di distribuzione. Fare quindi clic su **Avanti** per aggiornare l'appartenenza al gruppo di distribuzione in Exchange Online.  
   
-###  <a name="BKMK_EditUserMemberships"></a>Per modificare l'appartenenza a un gruppo di distribuzione di un utente  
+###  <a name="to-change-a-user-s-distribution-group-memberships"></a><a name="BKMK_EditUserMemberships"></a>Per modificare l'appartenenza a un gruppo di distribuzione di un utente  
   
 1.  Nel dashboard fare clic su **Utenti**.  
   
@@ -267,9 +267,9 @@ Quando si integra il server di Windows Server Essentials con Microsoft Office 36
   
 5.  Fare clic su **OK** per salvare le proprietà aggiornate dell'account utente.  
   
-###  <a name="BKMK_RemoveDistributionGroup"></a>Per rimuovere un gruppo di distribuzione  
+###  <a name="to-remove-a-distribution-group"></a><a name="BKMK_RemoveDistributionGroup"></a>Per rimuovere un gruppo di distribuzione  
   
-1.  Nel dashboard fare clic su **Utenti**, quindi sulla scheda **Gruppi di distribuzione** .  
+1.  Nel dashboard fare clic su **Utenti**, quindi sulla scheda **Gruppi di distribuzione**.  
   
 2.  Fare clic con il pulsante destro del mouse sul gruppo di distribuzione nell'elenco, quindi scegliere **Rimuovi gruppo**.  
   

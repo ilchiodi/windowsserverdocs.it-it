@@ -10,14 +10,14 @@ ms.technology: networking-da
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: db15dcf5-4d64-48d7-818a-06c2839e1289
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: e0c82f9f56ea680c11cd612e17326fe7cf96aeca
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 563ccf1cf68fc6ffd67a29533b3fb3b579a55ee6
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71388435"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80308844"
 ---
 # <a name="test-lab-guide-demonstrate-directaccess-in-a-cluster-with-windows-nlb"></a>Guida al lab di test: Dimostrazione di DirectAccess in un cluster con Bilanciamento carico di rete di Windows
 
@@ -31,7 +31,7 @@ Questa guida contiene istruzioni per configurare e dimostrare Accesso remoto usa
 > [!IMPORTANT]  
 > Questo lab è un modello di prova che usa il numero minimo di computer. La configurazione descritta in questa guida è unicamente a scopi di lab di test e non deve essere usata in un ambiente di produzione.  
   
-## <a name="KnownIssues"></a>Problemi noti  
+## <a name="known-issues"></a><a name="KnownIssues"></a>Problemi noti  
 Di seguito sono riportati alcuni problemi noti durante la configurazione di uno scenario cluster:  
   
 -   Dopo aver configurato DirectAccess in una distribuzione solo IPv4 con un'unica scheda di rete e dopo che l'impostazione predefinita DNS64 (l'indirizzo IPv6 che contiene ":3333::") viene automaticamente configurata nella scheda di rete, il tentativo di abilitare il bilanciamento del carico usando la Console di gestione Accesso remoto comporta la visualizzazione di una richiesta all'utente di fornire un DIP IPv6. Se si specifica un DIP IPv6, la configurazione non riesce dopo aver fatto clic su **Commit** e viene visualizzato l'errore Parametro non corretto.  
@@ -44,7 +44,7 @@ Di seguito sono riportati alcuni problemi noti durante la configurazione di uno 
   
     3.  Provare ad abilitare il bilanciamento del carico fino al passaggio in cui si verifica un errore. Nella finestra di dialogo Abilita bilanciamento del carico, espandere l'area dei dettagli, farvi clic con il pulsante destro del mouse e quindi scegliere **Copia script**.  
   
-    4.  Aprire Blocco note e incollare il contenuto degli Appunti. Ad esempio:  
+    4.  Aprire Blocco note e incollare il contenuto degli Appunti. Ad esempio,  
   
         ```  
         Set-RemoteAccessLoadBalancer -InternetDedicatedIPAddress @('10.244.4.19/255.255.255.0','fdc4:29bd:abde:3333::2/128') -InternetVirtualIPAddress @('fdc4:29bd:abde:3333::1/128', '10.244.4.21/255.255.255.0') -ComputerName 'DA1.domain1.corp.contoso.com' -Verbose  
@@ -52,7 +52,7 @@ Di seguito sono riportati alcuni problemi noti durante la configurazione di uno 
   
     5.  Chiudere eventuali finestre di dialogo di Accesso remoto aperte e chiudere la Console di gestione Accesso remoto.  
   
-    6.  Modificare il testo incollato e rimuovere gli indirizzi IPv6. Ad esempio:  
+    6.  Modificare il testo incollato e rimuovere gli indirizzi IPv6. Ad esempio,  
   
         ```  
         Set-RemoteAccessLoadBalancer -InternetDedicatedIPAddress @('10.244.4.19/255.255.255.0') -InternetVirtualIPAddress @('10.244.4.21/255.255.255.0') -ComputerName 'DA1.domain1.corp.contoso.com' -Verbose  

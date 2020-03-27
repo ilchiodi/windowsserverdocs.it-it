@@ -5,16 +5,16 @@ ms.prod: windows-server
 manager: dougkim
 ms.technology: compute
 ms.topic: article
-author: shortpatti
-ms.author: pashort
+author: eross-msft
+ms.author: lizross
 ms.localizationpriority: medium
 ms.date: 03/16/2018
-ms.openlocfilehash: bbbd8ea812a25b0d538dcb87a380184412235b99
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: d5a3390f1a072e5d155f19a97fe90ef481436f33
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71364042"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80307914"
 ---
 # <a name="virtualization"></a>Virtualizzazione
 
@@ -127,7 +127,7 @@ Le tecnologie di virtualizzazione di Windows Server includono aggiornamenti per 
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Contenitori di Windows</h3>
+                        <h3>Contenitori Windows</h3>
                         <p>I contenitori di Windows forniscono la virtualizzazione a livello di sistema operativo che consente a più applicazioni isolate di essere eseguite su un unico sistema. Nella funzionalità sono inclusi due diversi tipi di runtime di contenitori, ognuno con un diverso livello di isolamento dell'applicazione.</p>
                     </div>
                 </div>
@@ -139,7 +139,7 @@ Le tecnologie di virtualizzazione di Windows Server includono aggiornamenti per 
 
 
 
-## <a name="related"></a>Informazioni correlate
+## <a name="related"></a>Correlato
 
 Hyper-V richiede hardware specifico per creare l'ambiente di virtualizzazione. Per informazioni dettagliate, vedere [requisiti di sistema per Hyper-V in Windows Server 2016](./hyper-v/system-requirements-for-hyper-v-on-windows.md). 
 

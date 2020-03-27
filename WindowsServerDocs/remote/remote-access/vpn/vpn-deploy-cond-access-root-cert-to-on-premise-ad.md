@@ -7,16 +7,16 @@ ms.technology: networking-ras
 ms.workload: identity
 ms.topic: article
 ms.date: 06/28/2019
-ms.author: pashort
-author: shortpatti
+ms.author: lizross
+author: eross-msft
 ms.localizationpriority: medium
 ms.reviewer: deverette
-ms.openlocfilehash: 60be590d0d133f00817018018af42cfc23f1bee5
-ms.sourcegitcommit: 07c9d4ea72528401314e2789e3bc2e688fc96001
+ms.openlocfilehash: aeb35d8c3eafd436330b66ca7d5be68d78045df0
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76822394"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80307843"
 ---
 # <a name="step-74-deploy-conditional-access-root-certificates-to-on-premises-ad"></a>Passaggio 7.4. Distribuire i certificati radice di accesso condizionale ad Active Directory locale
 
@@ -51,7 +51,7 @@ In questo passaggio si distribuisce il certificato radice di accesso condizional
 
    1. Nel server VPN, nel menu Start, immettere **PKIView. msc** per aprire la finestra di dialogo infrastruttura a chiave pubblica (PKI) aziendale.
    1. Dal menu Start immettere **PKIView. msc** per aprire la finestra di dialogo infrastruttura a chiave pubblica (PKI) aziendale.
-   1. Fare clic con il pulsante destro delmouse su **infrastruttura a chiave pubblica (PKI) Enterprise**
+   1. Fare clic con il pulsante destro del **Manage AD Containers**mouse su **infrastruttura a chiave pubblica (PKI) Enterprise**
    1. Verificare che sia presente il certificato CA gen 1 radice VPN Microsoft in:
       - NTAuthCertificates
       - Contenitore AIA

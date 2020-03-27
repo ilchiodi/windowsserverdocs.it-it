@@ -1,5 +1,5 @@
 ---
-title: Distribuire Controller di rete tramite Windows PowerShell
+title: Distribuire controller di rete tramite Windows PowerShell
 description: In questo argomento vengono fornite istruzioni sull'utilizzo di Windows PowerShell per distribuire Controller di rete in uno o più computer o macchine virtuali (VM) che eseguono Windows Server 2016.
 manager: dougkim
 ms.custom: na
@@ -10,17 +10,17 @@ ms.technology: networking-sdn
 ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: 2448d381-55aa-4c14-997a-202c537c6727
-ms.author: pashort
-author: shortpatti
+ms.author: lizross
+author: eross-msft
 ms.date: 08/23/2018
-ms.openlocfilehash: 294466ef70a9ffc230953b48bb292938be519eac
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: ee3aa93c02419667b05a987f548ef4d14285231d
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71406121"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80313075"
 ---
-# <a name="deploy-network-controller-using-windows-powershell"></a>Distribuire Controller di rete tramite Windows PowerShell
+# <a name="deploy-network-controller-using-windows-powershell"></a>Distribuire controller di rete tramite Windows PowerShell
 
 >Si applica a: Windows Server (Canale semestrale), Windows Server 2016
 
@@ -29,7 +29,7 @@ In questo argomento vengono fornite istruzioni sull'utilizzo di Windows PowerShe
 >[!IMPORTANT]
 >Non distribuire il ruolo del server del controller di rete negli host fisici. Per distribuire il controller di rete, è necessario installare il ruolo del server del controller di rete in una macchina virtuale Hyper-V \(VM\) installata in un host Hyper-V. Dopo aver installato il controller di rete in macchine virtuali in tre host Hyper\-V diversi, è necessario abilitare gli host Hyper\-V per Software Defined Networking \(SDN\) aggiungendo gli host al controller di rete usando il comando di Windows PowerShell **New-NetworkControllerServer**. In questo modo si Abilita il funzionamento del software SDN Load Balancer. Per ulteriori informazioni, vedere [New-NetworkControllerServer](https://technet.microsoft.com/itpro/powershell/windows/network-controller/new-networkcontrollerserver).
 
-In questo argomento sono incluse le sezioni seguenti.
+In questo argomento sono contenute le seguenti sezioni.
 
 - [Installare il ruolo del server del controller di rete](#install-the-network-controller-server-role)
 
@@ -88,7 +88,7 @@ Nella tabella seguente vengono fornite descrizioni per ogni parametro di **Nuovo
 
 |Parametro|Descrizione|
 |-------------|---------------|
-|Nome|Il **nome** parametro specifica il nome descrittivo del server che si desidera aggiungere al cluster|
+|Name|Il **nome** parametro specifica il nome descrittivo del server che si desidera aggiungere al cluster|
 |Server|Il **Server** parametro specifica il nome host, completamente dominio nome completo (FQDN) o l'indirizzo IP del server che si desidera aggiungere al cluster. Per i computer appartenenti a un dominio, nome di dominio COMPLETO è obbligatorio.|
 |FaultDomain|Il **FaultDomain** parametro specifica il dominio di errore per il server che si desidera aggiungere al cluster. Questo parametro definisce il server che potrebbero verificarsi errori nello stesso momento del server che si desidera aggiungere al cluster. Questo errore potrebbe essere a causa di dipendenze fisiche condivise, ad esempio power e origini di rete. Domini di errore rappresentano in genere gerarchie correlate a tali dipendenze condivise con altri server potrebbe non riuscire insieme dal punto più alto nella struttura di dominio di errore. Durante la fase di esecuzione, il Controller di rete prende in considerazione i domini di errore del cluster e tenta di distribuire i servizi del Controller di rete in modo che si trovano in domini di errore. Questo processo assicura che, in caso di errore di qualsiasi dominio di un errore, che non venga compromessa la disponibilità del servizio e il relativo stato. Domini di errore vengono specificati in un formato gerarchico. Ad esempio: "Fd: / Rack1/DC1/Host1", dove DC1 è il nome del Data Center, Rack1 è il nome del rack e Host1 è il nome dell'host in cui si trova il nodo.|
 |RestInterface|Il **RestInterface** parametro specifica il nome dell'interfaccia sul nodo in cui è terminata la comunicazione Representational State Transfer (REST). Questa interfaccia di Controller di rete riceve le richieste API Northbound dal livello di gestione della rete.|

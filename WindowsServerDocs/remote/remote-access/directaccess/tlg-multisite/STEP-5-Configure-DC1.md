@@ -10,14 +10,14 @@ ms.technology: networking-da
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 70357156-fcb0-4346-a61e-4ea963e3ffb0
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: aa251ccc0cc48e3805667a247047711c2ae4fcf6
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 698bc250b428fe5efc4d111f8783483005d48dc5
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71388296"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80308672"
 ---
 # <a name="step-5-configure-dc1"></a>PASSAGGIO 5 configurare DC1
 
@@ -64,9 +64,9 @@ Creare i gruppi di sicurezza DirectAccess per Windows 7 con la procedura riporta
   
 3.  Nella finestra di dialogo **nuovo oggetto-gruppo** , in **nome gruppo**, immettere **Win7_Clients_Site1**.  
   
-4.  In **ambito del gruppo**, fare clic su **globale**, in **tipo di gruppo**, fare clic su **sicurezza**, quindi fare clic su **OK**.  
+4.  In **Ambito del gruppo** fare clic su **Globale**, in **Tipo gruppo** fare clic su **Sicurezza** e quindi fare clic su **OK**.  
   
-5.  Fare doppio clic sul gruppo di sicurezza **Win7_Clients_Site1** , quindi nella finestra di dialogo **Proprietà Win7_Clients_Site1** fare clic sulla scheda **membri** .  
+5.  Fare doppio clic sul gruppo di sicurezza **Win7_Clients_Site1** e, nella finestra di dialogo **Proprietà Win7_Clients_Site1** , fare clic sulla scheda **membri** .  
   
 6.  Nella scheda **Membri** fare clic su **Aggiungi**.  
   
@@ -78,9 +78,9 @@ Creare i gruppi di sicurezza DirectAccess per Windows 7 con la procedura riporta
   
 10. Nella finestra di dialogo **nuovo oggetto-gruppo** , in **nome gruppo**, immettere **Win7_Clients_Site2**.  
   
-11. In **ambito del gruppo**, fare clic su **globale**, in **tipo di gruppo**, fare clic su **sicurezza**, quindi fare clic su **OK**.  
+11. In **Ambito del gruppo** fare clic su **Globale**, in **Tipo gruppo** fare clic su **Sicurezza** e quindi fare clic su **OK**.  
   
-12. Chiudere la console **Utenti e computer di Active Directory** .  
+12. Chiudere la console **Utenti e computer di Active Directory**.  
   
 ## <a name="to-add-a-new-ad-ds-site"></a>Per aggiungere un nuovo sito di servizi di dominio Active Directory  
   

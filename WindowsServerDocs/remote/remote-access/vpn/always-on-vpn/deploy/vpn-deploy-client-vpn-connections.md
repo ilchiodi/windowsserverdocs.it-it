@@ -7,15 +7,15 @@ ms.topic: article
 ms.date: 05/29/2018
 ms.assetid: d165822d-b65c-40a2-b440-af495ad22f42
 ms.localizationpriority: medium
-ms.author: pashort
-author: shortpatti
+ms.author: lizross
+author: eross-msft
 ms.reviewer: deverette
-ms.openlocfilehash: c35cc44e0a52596fd9fa2ba5b2c01727c11b834c
-ms.sourcegitcommit: 07c9d4ea72528401314e2789e3bc2e688fc96001
+ms.openlocfilehash: 11906c737dd1604bf064e25a01289fe2ee5a23ad
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76822410"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80310492"
 ---
 # <a name="step-6-configure-windows-10-client-always-on-vpn-connections"></a>Passaggio 6. Configurare le connessioni VPN Always On client Windows 10
 
@@ -160,7 +160,7 @@ Tuttavia, se il computer non è stato riavviato dopo la configurazione della reg
 
 6.  In nome server o indirizzo digitare l'FQDN **esterno** del server VPN (ad esempio, **VPN.contoso.com**).
 
-7.  Fai clic su **Salva**.
+7.  Fare clic su **Save**.
 
 8.  In impostazioni correlate fare clic su **modifica opzioni scheda**.
 
@@ -199,7 +199,7 @@ Tuttavia, se il computer non è stato riavviato dopo la configurazione della reg
 
 14. Fare clic su **OK** per chiudere la finestra di dialogo Proprietà modello.
 
-15. Chiudere la finestra connessioni di rete.
+15. Chiudere la finestra Connessioni di rete.
 
 16. In impostazioni, testare la VPN facendo clic su **modello**e quindi su **Connetti**.
 
@@ -698,7 +698,7 @@ In Configuration Manager, è possibile distribuire i profili VPN usando il nodo 
 
 Per usare Configuration Manager per distribuire un profilo VPN Always On accesso remoto ai computer client Windows 10, è necessario iniziare creando un gruppo di computer o utenti a cui si distribuisce il profilo. In questo scenario, creare un gruppo di utenti per distribuire lo script di configurazione.
 
-### <a name="create-a-user-group"></a>Creazione di un gruppo di utenti
+### <a name="create-a-user-group"></a>Creare un gruppo di utenti
 
 1.  Nella console di Configuration Manager aprire asset e conformità\\raccolte utenti.
 
@@ -710,15 +710,15 @@ Per usare Configuration Manager per distribuire un profilo VPN Always On accesso
 
     b. Fare clic su **Sfoglia**, selezionare **tutti gli utenti** e fare clic su **OK**.
 
-    c. Fai clic su **Next**.
+    c. Fare clic su **Avanti**.
 
 4.  Nella pagina regole di appartenenza completare i passaggi seguenti:
 
     a.  In **regole di appartenenza**fare clic su **Aggiungi regola**e quindi su **regola diretta**. In questo esempio vengono aggiunti singoli utenti alla raccolta di utenti. Tuttavia, è possibile usare una regola di query per aggiungere utenti a questa raccolta in modo dinamico per una distribuzione su larga scala.
 
-    b.  Nella pagina **Installazione guidata** fare clic sul pulsante **Avanti**.
+    b.  Nella pagina inizialefare clic su **Avanti**.
 
-    c.  Nella pagina Cerca risorse, in **valore**, digitare il nome dell'utente che si desidera aggiungere. Il nome della risorsa include il dominio dell'utente. Per includere i risultati in base a una corrispondenza parziale, inserire il carattere **%** a una delle estremità del criterio di ricerca. Ad esempio, per trovare tutti gli utenti che contengono la stringa "lori", digitare **% Lori%** . Fai clic su **Next**.
+    c.  Nella pagina Cerca risorse, in **valore**, digitare il nome dell'utente che si desidera aggiungere. Il nome della risorsa include il dominio dell'utente. Per includere i risultati in base a una corrispondenza parziale, inserire il carattere **%** a una delle estremità del criterio di ricerca. Ad esempio, per trovare tutti gli utenti che contengono la stringa "lori", digitare **% Lori%** . Fare clic su **Avanti**.
 
     d.  Nella pagina Seleziona risorse selezionare gli utenti che si desidera aggiungere al gruppo e fare clic su **Avanti**.
 
@@ -751,7 +751,7 @@ Dopo aver creato il gruppo di utenti per la ricezione del profilo VPN, è possib
     c. Nella finestra di dialogo Imposta cartella di origine fare clic su **Sfoglia**, selezionare la condivisione file contenente VPN_Profile. ps1, quindi fare clic su **OK**.
         Assicurarsi di selezionare un percorso di rete, non un percorso locale. In altre parole, il percorso dovrebbe essere simile *\\fileserver\\vpnscript*, non *c:\\vpnscript*.
 
-1.  Fai clic su **Next**.
+1.  Fare clic su **Avanti**.
 
 2.  Nella pagina tipo di programma fare clic su **Avanti**.
 
@@ -763,7 +763,7 @@ Dopo aver creato il gruppo di utenti per la ricezione del profilo VPN, è possib
 
     c.  In **modalità di esecuzione**fare clic su **Esegui con diritti amministrativi**.
 
-    d.  Fai clic su **Next**.
+    d.  Fare clic su **Avanti**.
 
 4.  Nella pagina requisiti completare i passaggi seguenti:
 
@@ -775,7 +775,7 @@ Dopo aver creato il gruppo di utenti per la ricezione del profilo VPN, è possib
 
     d.  In **tempo di esecuzione massimo consentito (minuti)** Digitare **15**.
 
-    e.  Fai clic su **Next**.
+    e.  Fare clic su **Avanti**.
 
 5.  Nella pagina Riepilogo fare clic su **Avanti**.
 
@@ -793,7 +793,7 @@ Dopo aver creato il pacchetto e il programma, è necessario distribuirlo al grup
 
     a.  Nella scheda **Avanzate** , in **quando il programma è assegnato a un computer**, fare clic **una volta per ogni utente che esegue l'accesso**.
 
-    b.  Fai clic su **OK**.
+    b.  Fare clic su **OK**.
 
 4.  Fare clic con il pulsante destro del mouse su **script profilo VPN** e scegliere **Distribuisci** per avviare la distribuzione guidata del software.
 
@@ -805,7 +805,7 @@ Dopo aver creato il pacchetto e il programma, è necessario distribuirlo al grup
 
     c.  Fare clic su **utenti VPN**e quindi su **OK**.
 
-    d.  Fai clic su **Next**.
+    d.  Fare clic su **Avanti**.
 
 6.  Nella pagina contenuto completare i passaggi seguenti:
 
@@ -813,7 +813,7 @@ Dopo aver creato il pacchetto e il programma, è necessario distribuirlo al grup
 
     b.  In **punti di distribuzione disponibili**selezionare i punti di distribuzione a cui si desidera distribuire lo script di configurazione ProfileXML e fare clic su **OK**.
 
-    c.  Fai clic su **Next**.
+    c.  Fare clic su **Avanti**.
 
 7.  Nella pagina Impostazioni distribuzione fare clic su **Avanti**.
 
@@ -823,7 +823,7 @@ Dopo aver creato il pacchetto e il programma, è necessario distribuirlo al grup
 
     b.  Fare clic su **assegna subito dopo questo evento**, quindi fare clic su **OK**.
 
-    c.  Fai clic su **Next**.
+    c.  Fare clic su **Avanti**.
 
 9.  Nella pagina esperienza utente completare i passaggi seguenti:
 
@@ -850,7 +850,7 @@ Con lo script di configurazione ProfileXML distribuito, accedere a un computer c
 
     b.  Fare clic su **recupero criteri utente & ciclo di valutazione**, fare clic su **Esegui ora**e quindi su **OK**.
 
-    c.  Fai clic su **OK**.
+    c.  Fare clic su **OK**.
 
 3.  Chiudere il pannello di controllo.
 

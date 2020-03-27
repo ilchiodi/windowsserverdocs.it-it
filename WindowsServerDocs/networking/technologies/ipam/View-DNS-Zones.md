@@ -10,14 +10,14 @@ ms.technology: networking-ipam
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 2cfe4e40-ec6d-4541-baa9-d772409fe27c
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: a362eb5d7b1a80d8b90bdf565debecb187d7a254
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: f60f80f20b5465918f34d5c0140d5a461d90c571
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71405585"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80312385"
 ---
 # <a name="view-dns-zones"></a>Visualizzare le zone DNS
 
@@ -43,7 +43,7 @@ Per eseguire questa procedura è necessaria almeno l'appartenenza al gruppo **Ad
   
     -   Server d'avanzamento condizionale  
   
-## <a name="see-also"></a>Vedere anche  
+## <a name="see-also"></a>Vedi anche  
 [Gestione delle zone DNS](DNS-Zone-Management.md)  
 [Gestire Gestione indirizzi IP](Manage-IPAM.md)  
   
