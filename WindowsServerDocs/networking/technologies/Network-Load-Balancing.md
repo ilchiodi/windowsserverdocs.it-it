@@ -1,22 +1,22 @@
 ---
-title: Bilanciamento carico di rete
+title: Bilanciamento del carico di rete
 description: In questo argomento viene fornita una panoramica della funzionalità di bilanciamento carico di rete \(NLB\) in Windows Server 2016. È possibile utilizzare NLB per gestire due o più server come un singolo cluster virtuale. Bilanciamento carico di rete consente di migliorare la disponibilità e la scalabilità delle applicazioni server Internet, ad esempio quelle utilizzate in Web, FTP, firewall, proxy, rete privata virtuale \(\)VPN e altri server mission\-critical.
 manager: dougkim
 ms.prod: windows-server
 ms.technology: networking-nlb
 ms.topic: article
 ms.assetid: 244a4b48-06e5-4796-8750-a50e4f88ac72
-ms.author: pashort
-author: shortpatti
+ms.author: lizross
+author: eross-msft
 ms.date: 09/13/2018
-ms.openlocfilehash: 4d79b6f29fbe64633bf04604ad586aff3dd86edf
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 80dae16442041e3b46babaca6d163095c1c5e475
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71405851"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80309690"
 ---
-# <a name="network-load-balancing"></a>Bilanciamento carico di rete
+# <a name="network-load-balancing"></a>Bilanciamento del carico di rete
 
 >Si applica a: Windows Server (Canale semestrale), Windows Server 2016
 

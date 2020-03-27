@@ -6,15 +6,15 @@ ms.prod: windows-server
 ms.technology: networking-ras
 ms.topic: article
 ms.assetid: eeca4cf7-90f0-485d-843c-76c5885c54b0
-ms.author: pashort
-author: shortpatti
+ms.author: lizross
+author: eross-msft
 ms.date: 06/07/2018
-ms.openlocfilehash: 2bcbc7030d54e96b4ac120b943cc1adc0513feca
-ms.sourcegitcommit: 07c9d4ea72528401314e2789e3bc2e688fc96001
+ms.openlocfilehash: 9f78edf0e48dc914b09a5e6f2d054e0fafba62e3
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76822640"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80309308"
 ---
 # <a name="migrate-to-always-on-vpn-and-decommission-directaccess"></a>Eseguire la migrazione a VPN Always On e rimuovere le autorizzazioni di DirectAccess
 
@@ -120,9 +120,9 @@ Anche se la maggior parte della configurazione del client VPN nella sezione [Dep
 4. Distribuire la configurazione VPN Always On. Quando vengono emessi i certificati di autenticazione VPN e si esegue lo script **GetUsersWithCert. ps1** , gli utenti vengono aggiunti al gruppo di sicurezza pronto per la distribuzione VPN.
 
 
-| Se si usa...  | Allora... |
+| Se si usa...  | Necessità di ripristino |
 | ---- | ---- |
-| Configuration Manager | Creare una raccolta di utenti in base all'appartenenza del gruppo di sicurezza.<br><br>![](../../media/DA-to-AlwaysOnVPN/b38723b3ffcfacd697b83dd41a177f66.png)\!|
+| Gestione configurazione | Creare una raccolta di utenti in base all'appartenenza del gruppo di sicurezza.<br><br>![](../../media/DA-to-AlwaysOnVPN/b38723b3ffcfacd697b83dd41a177f66.png).|
 | Intune | È sufficiente indirizzare il gruppo di sicurezza direttamente dopo la sincronizzazione. |
 |
     
