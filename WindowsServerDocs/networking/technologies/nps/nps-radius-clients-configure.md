@@ -6,14 +6,14 @@ ms.prod: windows-server
 ms.technology: networking
 ms.topic: article
 ms.assetid: cde37849-ce79-4c26-aa14-cd0ef31cae18
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 6870029e02ae91b1ef5bf4d4302ac2bed2e27d84
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: b7bc75ea81133c91ad7e9883f03c3e32f085b5eb
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71405298"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80315705"
 ---
 # <a name="configure-radius-clients"></a>Configurare i client RADIUS
 
@@ -52,7 +52,7 @@ Questa procedura fornisce linee guida generali sulle impostazioni da usare per l
 
 Usare questa procedura per aggiungere un server di accesso alla rete come client RADIUS in server dei criteri di rete. È possibile usare questa procedura per configurare un NAS come client RADIUS usando la console NPS.
 
-Per completare questa procedura, è necessario essere un membro del **amministratori** gruppo.
+Per completare questa procedura è necessaria l'appartenenza al gruppo **Administrators**.
 
 ### <a name="to-add-a-network-access-server-as-a-radius-client-in-nps"></a>Per aggiungere un server di accesso alla rete come client RADIUS in server dei criteri di rete
 
@@ -65,7 +65,7 @@ Per completare questa procedura, è necessario essere un membro del **amministra
     - Verificare che sia selezionata l'opzione **manuale** , quindi in **segreto condiviso**digitare la password complessa immessa anche sul NAS. Digitare nuovamente il segreto condiviso in **Conferma segreto condiviso**.
     - Selezionare **genera**, quindi fare clic su **genera** per generare automaticamente un segreto condiviso. Salvare il segreto condiviso generato per la configurazione sul NAS in modo che possa comunicare con il server dei criteri di server.
 7. In **nuovo client RADIUS**, in **Opzioni aggiuntive**, se si utilizzano metodi di autenticazione diversi da EAP e PEAP e se il NAS supporta l'utilizzo dell'attributo Message Authenticator, selezionare i messaggi di **richiesta di accesso devono contenere l'attributo Message Authenticator**.
-8. Fai clic su **OK**. Il NAS viene visualizzato nell'elenco dei client RADIUS configurati nel server dei criteri di server.
+8. Fare clic su **OK**. Il NAS viene visualizzato nell'elenco dei client RADIUS configurati nel server dei criteri di server.
 
 ## <a name="configure-radius-clients-by-ip-address-range-in-windows-server-2016-datacenter"></a>Configurare i client RADIUS in base all'intervallo di indirizzi IP in Windows Server 2016 Datacenter
 
@@ -77,7 +77,7 @@ Usare questa procedura per aggiungere un gruppo di server di accesso alla rete c
 
 Tutti i client RADIUS nell'intervallo devono usare la stessa configurazione e la stessa chiave privata condivisa.
 
-Per completare questa procedura, è necessario essere un membro del **amministratori** gruppo.
+Per completare questa procedura è necessaria l'appartenenza al gruppo **Administrators**.
 
 ### <a name="to-set-up-radius-clients-by-ip-address-range"></a>Per configurare i client RADIUS in base all'intervallo di indirizzi IP
 
@@ -90,7 +90,7 @@ Per completare questa procedura, è necessario essere un membro del **amministra
     - Verificare che sia selezionata l'opzione **manuale** , quindi in **segreto condiviso**digitare la password complessa immessa anche sul NAS. Digitare nuovamente il segreto condiviso in **Conferma segreto condiviso**.
     - Selezionare **genera**, quindi fare clic su **genera** per generare automaticamente un segreto condiviso. Salvare il segreto condiviso generato per la configurazione sul NAS in modo che possa comunicare con il server dei criteri di server.
 7. In **nuovo client RADIUS**, in **Opzioni aggiuntive**, se si utilizzano metodi di autenticazione diversi da EAP e PEAP e se tutti i NAS supportano l'utilizzo dell'attributo di autenticazione del messaggio, selezionare i **messaggi di richiesta di accesso devono contenere l'attributo Message Authenticator**.
-8. Fai clic su **OK**. I NAS vengono visualizzati nell'elenco dei client RADIUS configurati nel server dei criteri di server.
+8. Fare clic su **OK**. I NAS vengono visualizzati nell'elenco dei client RADIUS configurati nel server dei criteri di server.
 
 Per ulteriori informazioni, vedere [client RADIUS](nps-radius-clients.md).
 

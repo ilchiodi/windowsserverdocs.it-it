@@ -1,9 +1,9 @@
 ---
 title: Spostare dati e impostazioni di Windows Server 2008 Foundation nel server di destinazione per la migrazione a Windows Server Essentials
-description: Viene descritto come utilizzare Windows Server Essentials
+description: Viene descritto come usare Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
-ms.prod: windows-server-2016-essentials
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
@@ -12,12 +12,12 @@ ms.assetid: 3ff7d040-ebd1-421c-80db-765deacedd4c
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 3d9e662a6474823cae42d0a2abec60963273ca18
-ms.sourcegitcommit: 9a4ab3a0d00b06ff16173aed616624c857589459
+ms.openlocfilehash: 61a5caee1aba9de5f60bf0723ee0dadaf4871e5e
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/11/2019
-ms.locfileid: "66828545"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80318839"
 ---
 # <a name="move-windows-server-2008-foundation-settings-and-data-to-the-destination-server-for-windows-server-essentials-migration"></a>Spostare dati e impostazioni di Windows Server 2008 Foundation nel server di destinazione per la migrazione a Windows Server Essentials
 
@@ -25,15 +25,15 @@ ms.locfileid: "66828545"
 
 Spostare impostazioni e dati nel server di destinazione nel modo seguente:
 
-1. [Copiare i dati nel Server di destinazione (facoltativo)](#copy-data-to-the-destination-server)
+1. [Copiare i dati nel server di destinazione (facoltativo)](#copy-data-to-the-destination-server)
 
-2. [Importare account utente di Active Directory al Dashboard di Windows Server Essentials (facoltativo)](#import-active-directory-user-accounts-to-the-windows-server-essentials-dashboard)
+2. [Importare Active Directory account utente nel dashboard di Windows Server Essentials (facoltativo)](#import-active-directory-user-accounts-to-the-windows-server-essentials-dashboard)
 
-3. [Spostare il ruolo Server DHCP dal Server di origine al router](#move-the-dhcp-server-role-from-the-source-server-to-the-router)
+3. [Spostare il ruolo server DHCP dal server di origine al router](#move-the-dhcp-server-role-from-the-source-server-to-the-router)
 
 4. [Configurare la rete](#configure-the-network) 
 
-5. [Mappare i computer autorizzati agli account utente](#map-permitted-computers-to-user-accounts)
+5. [Mappare i computer consentiti agli account utente](#map-permitted-computers-to-user-accounts)
   
 ## <a name="copy-data-to-the-destination-server"></a>Copiare i dati nel server di destinazione
  Prima di copiare i dati dal server di origine al server di destinazione, eseguire le attività seguenti:  
@@ -48,22 +48,22 @@ Spostare impostazioni e dati nel server di destinazione nel modo seguente:
   
 1.  Accedere al server di destinazione come amministratore di dominio e quindi aprire una finestra di comando.  
   
-2.  Al prompt dei comandi digitare il comando seguente e quindi premere INVIO:  
+2.  Al prompt dei comandi digitare il comando seguente, quindi premere INVIO:  
   
     `robocopy \\<SourceServerName> \<SharedSourceFolderName> \\<DestinationServerName> \<SharedDestinationFolderName> /E /B /COPY:DATSOU /LOG:C:\Copyresults.txt`  
   
      Dove:
-     - \<SourceServerName\> è il nome del Server di origine
-     - \<SharedSourceFolderName\> è il nome della cartella condivisa nel Server di origine
-     - \<NomeServerDestinazione\> è il nome del Server di destinazione,
-     - \<SharedDestinationFolderName\> è la cartella condivisa nel Server di destinazione in cui verranno copiati i dati.  
+     - \<SourceServerName\> è il nome del server di origine
+     - \<SharedSourceFolderName\> è il nome della cartella condivisa nel server di origine
+     - \<NomeServerDestinazione\> è il nome del server di destinazione,
+     - \<SharedDestinationFolderName\> è la cartella condivisa nel server di destinazione in cui verranno copiati i dati.  
   
 3.  Ripetere il passaggio precedente per ogni cartella condivisa di cui si deve eseguire la migrazione dal server di origine.  
   
-## <a name="import-active-directory-user-accounts-to-the-windows-server-essentials-dashboard"></a>Importare account utente di Active Directory per il Dashboard di Windows Server Essentials
- Per impostazione predefinita, tutti gli account utente creati nel Server di origine vengono automaticamente migrati nel Dashboard in Windows Server Essentials. Tuttavia, la migrazione automatica di un account utente di Active Directory non riuscirà se tutte le proprietà non soddisfano i requisiti di migrazione. Per importare gli utenti di Active Directory, è possibile usare il cmdlet Windows PowerShell seguente.  
+## <a name="import-active-directory-user-accounts-to-the-windows-server-essentials-dashboard"></a>Importare Active Directory account utente nel dashboard di Windows Server Essentials
+ Per impostazione predefinita, tutti gli account utente creati nel server di origine vengono automaticamente migrati nel dashboard in Windows Server Essentials. Tuttavia, la migrazione automatica di un account utente di Active Directory non riuscirà se tutte le proprietà non soddisfano i requisiti di migrazione. Per importare gli utenti di Active Directory, è possibile usare il cmdlet Windows PowerShell seguente.  
   
-#### <a name="to-import-an-active-directory-user-account-to-the-windows-server-essentials-dashboard"></a>Per importare un account utente di Active Directory per il Dashboard di Windows Server Essentials
+#### <a name="to-import-an-active-directory-user-account-to-the-windows-server-essentials-dashboard"></a>Per importare un account utente Active Directory nel dashboard di Windows Server Essentials
   
 1.  Accedere al server di destinazione come amministratore di dominio.  
   
@@ -115,11 +115,11 @@ Spostare impostazioni e dati nel server di destinazione nel modo seguente:
 -   Porta 443: Traffico Web HTTPS  
   
 ## <a name="map-permitted-computers-to-user-accounts"></a>Mappare i computer consentiti agli account utente  
- In Windows Server Essentials, un utente deve essere assegnato esplicitamente a un computer per poterlo visualizzare in accesso Web remoto. Ogni account utente di cui è stata eseguita la migrazione da Windows Server 2008 Foundation deve essere mappato a uno o più computer.  
+ In Windows Server Essentials, un utente deve essere assegnato in modo esplicito a un computer per poterlo visualizzare in Accesso Web remoto. Ogni account utente di cui è stata eseguita la migrazione da Windows Server 2008 Foundation deve essere mappato a uno o più computer.  
   
 #### <a name="to-map-user-accounts-to-computers"></a>Per mappare gli account utente ai computer  
   
-1.  Aprire il Dashboard di Windows Server Essentials.  
+1.  Aprire il dashboard di Windows Server Essentials.  
   
 2.  Sulla barra di spostamento fare clic su **Utenti**.  
   
@@ -127,7 +127,7 @@ Spostare impostazioni e dati nel server di destinazione nel modo seguente:
   
 4.  Fare clic sulla scheda **Accesso remoto via Internet** e quindi fare clic su **Consenti Accesso Web remoto e accedi ai servizi Web**.  
   
-5.  Selezionare **Cartelle condivise**, selezionare **Computer**, selezionare **Home page - Collegamenti**e quindi fare clic su **Applica**.  
+5.  Selezionare **Cartelle condivise**, selezionare **Computer**, selezionare **Home page - Collegamenti** e quindi fare clic su **Applica**.  
   
 6.  Fare clic sulla scheda **Accesso computer** e quindi fare clic sul nome del computer a cui si vuole consentire l'accesso.  
   

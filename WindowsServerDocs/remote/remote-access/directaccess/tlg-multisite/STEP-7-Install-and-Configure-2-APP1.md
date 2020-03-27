@@ -10,14 +10,14 @@ ms.technology: networking-da
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 1cc0abc6-be4d-4cbe-bd0c-cc448bf294f6
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: c5a316e1230692fb800c088d752c26ec4a0f3349
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: fddffbc2954ef7f0687fc7865ec295295b32983a
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71388258"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80314525"
 ---
 # <a name="step-7-install-and-configure-2-app1"></a>PASSAGGIO 7: installare e configurare 2-APP1
 
@@ -35,20 +35,20 @@ ms.locfileid: "71388258"
   
 - Creare una cartella condivisa in 2 APP1 
   
-## <a name="bkmk_InstallOS"></a>Installare il sistema operativo in 2 APP1  
+## <a name="install-the-operating-system-on-2-app1"></a><a name="bkmk_InstallOS"></a>Installare il sistema operativo in 2 APP1  
 Prima di tutto, installare Windows Server 2016, Windows Server 2012 R2 o Windows Server 2012.  
   
 #### <a name="to-install-the-operating-system-on-2-app1"></a>Per installare il sistema operativo in APP1  
   
 1.  Avviare l'installazione di Windows Server 2016, Windows Server 2012 R2 o Windows Server 2012 (installazione completa).  
   
-2.  Attenersi alle istruzioni per completare l'installazione, specificando una password complessa per l'account amministratore locale. Accedere utilizzando l'account Administrator locale.  
+2.  Attenersi alle istruzioni per completare l'installazione, specificando una password complessa per l'account amministratore locale. Accedere usando l'account dell'amministratore locale.  
   
 3.  Connettere 2-APP1 a una rete dotata di accesso a Internet ed eseguire Windows Update per installare gli aggiornamenti più recenti per Windows Server 2016, Windows Server 2012 R2 o Windows Server 2012, quindi disconnettersi da Internet.  
   
 4.  Connettere 2-APP1 alla subnet 2-Corpnet.  
   
-## <a name="bkmk_TCP"></a>Configurare le proprietà TCP/IP  
+## <a name="configure-tcpip-properties"></a><a name="bkmk_TCP"></a>Configurare le proprietà TCP/IP  
 Configurare le proprietà TCP/IP in 2 APP1.  
   
 #### <a name="to-configure-tcpip-properties"></a>Per configurare le proprietà TCP/IP  
@@ -59,7 +59,7 @@ Configurare le proprietà TCP/IP in 2 APP1.
   
 3.  Fare clic su **Protocollo Internet versione 4 (TCP/IPv4)** e quindi su **Proprietà**.  
   
-4.  Fare clic su **Utilizza il seguente indirizzo IP**. In **indirizzo IP**Digitare **10.2.0.3**. In **Subnet mask**digitare **255.255.255.0**. In **gateway predefinito**Digitare **10.2.0.254**.  
+4.  Fare clic su **Utilizza il seguente indirizzo IP**. In **indirizzo IP**Digitare **10.2.0.3**. In **Subnet mask** digitare **255.255.255.0**. In **gateway predefinito**Digitare **10.2.0.254**.  
   
 5.  Fare clic su **Utilizza i seguenti indirizzi server DNS**. In **server DNS preferito**Digitare **10.2.0.1**.  
   
@@ -77,7 +77,7 @@ Configurare le proprietà TCP/IP in 2 APP1.
   
 12. Chiudere la finestra **Connessioni di rete**.  
   
-## <a name="bkmk_JoinDomain"></a>Join 2-APP1 al dominio CORP2  
+## <a name="join-2-app1-to-the-corp2-domain"></a><a name="bkmk_JoinDomain"></a>Join 2-APP1 al dominio CORP2  
 Unire 2-APP1 al dominio corp2.corp.contoso.com.  
   
 #### <a name="to-join-2-app1-to-the-corp2-domain"></a>Per aggiungere 2 APP1 al dominio CORP2  
@@ -100,7 +100,7 @@ Unire 2-APP1 al dominio corp2.corp.contoso.com.
   
 9. Dopo il riavvio del computer, fare clic su **Cambia utente**, quindi fare clic su **altro utente** e accedere al dominio CORP2 con l'account amministratore.  
   
-## <a name="bkmk_IIS"></a>Installare il ruolo server Web (IIS) in 2 APP1  
+## <a name="install-the-web-server-iis-role-on-2-app1"></a><a name="bkmk_IIS"></a>Installare il ruolo server Web (IIS) in 2 APP1  
 Installare il ruolo server Web (IIS) per rendere APP1 un server Web.  
   
 #### <a name="to-install-the-web-server-iis-role"></a>Per installare il ruolo server Web (IIS)  
@@ -115,7 +115,7 @@ Installare il ruolo server Web (IIS) per rendere APP1 un server Web.
   
 5.  Verificare che l'installazione sia stata completata correttamente, quindi fare clic su **Chiudi**.  
   
-## <a name="bkmk_Share"></a>Creare una cartella condivisa in 2 APP1  
+## <a name="create-a-shared-folder-on-2-app1"></a><a name="bkmk_Share"></a>Creare una cartella condivisa in 2 APP1  
 Creare una cartella condivisa e un file di testo all'interno della cartella in 2 APP1.  
   
 #### <a name="to-create-a-shared-folder"></a>Per creare una cartella condivisa  
@@ -132,7 +132,7 @@ Creare una cartella condivisa e un file di testo all'interno della cartella in 2
   
 6.  Fare clic su **file**, su **Salva**, su **computer**, su **disco locale (C:)** , quindi fare doppio clic sulla cartella **file** .  
   
-7.  In **nome file**Digitare **example. txt**, quindi fare clic su **Salva**. Chiudere Blocco note.  
+7.  In **nome file**Digitare **example. txt**, quindi fare clic su **Salva**. Chiudere il blocco note.  
   
 8.  Nella finestra **disco locale** , fare clic con il pulsante destro del mouse sulla cartella **file** , scegliere **Condividi con**e quindi fare clic su **utenti specifici**.  
   

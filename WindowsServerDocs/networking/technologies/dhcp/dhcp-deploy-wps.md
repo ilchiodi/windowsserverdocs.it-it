@@ -6,14 +6,14 @@ ms.technology: networking-dhcp
 ms.topic: article
 ms.assetid: 7110ad21-a33e-48d5-bb3c-129982913bc8
 manager: brianlic
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 16900809c2c6b877d2b5c45f1c3ca26e55c6bea9
-ms.sourcegitcommit: 7df2bd3a7d07a50ace86477335ed6fbfb2dac373
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: a5b2e750bd7a0103382f6d91c515f4e283a112cb
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77027947"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80312666"
 ---
 # <a name="deploy-dhcp-using-windows-powershell"></a>Distribuire DHCP mediante Windows PowerShell
 
@@ -39,19 +39,19 @@ Questa guida contiene le sezioni seguenti.
 - [Comandi di Windows PowerShell per DHCP](#bkmk_dhcpwps)
 - [Elenco dei comandi di Windows PowerShell in questa guida](#bkmk_list)
 
-## <a name="bkmk_overview"></a>Panoramica della distribuzione DHCP
+## <a name="dhcp-deployment-overview"></a><a name="bkmk_overview"></a>Panoramica della distribuzione DHCP
 
 Nella figura seguente viene illustrato lo scenario che è possibile distribuire con questa guida. Lo scenario include un server DHCP in un dominio Active Directory. Il server è configurato per fornire gli indirizzi IP ai client DHCP su due subnet diverse. Le subnet sono separate da un router in cui è abilitato l'invio DHCP.
 
 ![Panoramica della topologia di rete DHCP](../../media/Core-Network-Guide/cng16_overview.jpg)
 
-## <a name="bkmk_technologies"></a>Panoramica sulla tecnologia
+## <a name="technology-overviews"></a><a name="bkmk_technologies"></a>Panoramica sulla tecnologia
 
 Le sezioni seguenti forniscono una breve panoramica di DHCP e TCP/IP.
 
 ### <a name="dhcp-overview"></a>Panoramica di DHCP
 
-DHCP è uno standard IP che semplifica la gestione della configurazione IP degli host. Lo standard DHCP prevede l'utilizzo di server DHCP nella gestione dell'allocazione dinamica degli indirizzi IP e in altri dettagli correlati alla configurazione dei client della rete abilitati per DHCP.
+DHCP è uno standard IP che semplifica la gestione della configurazione IP degli host. Lo standard DHCP prevede l'utilizzo dei server DHCP come modo per gestire l'allocazione dinamica degli indirizzi IP e altri dettagli di configurazione correlati per i client abilitati per DHCP della rete.
 
 DHCP consente di usare un server DHCP per assegnare dinamicamente un indirizzo IP a un computer o a un altro dispositivo, ad esempio una stampante, nella rete locale, anziché configurare manualmente ogni dispositivo con un indirizzo IP statico.
 
@@ -79,19 +79,19 @@ TCP/IP in Windows Server 2016 è il seguente:
 
 Il servizio TCP/IP include utilità TCP/IP di base che consentono ai computer basati su Windows di connettersi e condividere informazioni con altri sistemi Microsoft e non Microsoft, quali:
 
-- Windows Server 2016
+- Windows Server 2016
 
-- Windows 10
+- Windows 10
 
 - Windows Server 2012 R2
 
-- Windows 8.1
+- Windows 8.1
 
 - Windows Server 2012
 
-- Windows 8
+- Windows 8
 
-- Windows Server 2008 R2
+- Windows Server 2008 R2
 
 - Windows 7
 
@@ -113,7 +113,7 @@ Il servizio TCP/IP include utilità TCP/IP di base che consentono ai computer ba
 
 - Tablet e telefoni cellulari con Ethernet cablate e senza fili 802.11 abilitato
 
-## <a name="bkmk_plan"></a>Pianificare la distribuzione DHCP
+## <a name="plan-dhcp-deployment"></a><a name="bkmk_plan"></a>Pianificare la distribuzione DHCP
 
 Di seguito sono riportati i passaggi di pianificazione chiave prima di installare il ruolo server DHCP.
 
@@ -131,17 +131,17 @@ Nella maggior parte dei casi è più conveniente configurare i router per l'inol
 
 Ogni subnet deve disporre di un proprio intervallo di indirizzi IP univoco. In un server DHCP tali intervalli sono rappresentati dagli ambiti.
 
-Un ambito è un raggruppamento amministrativo di indirizzi IP per i computer di una subnet che utilizzano il servizio DHCP. L'amministratore crea innanzitutto un ambito per ogni subnet fisica, dopodiché lo utilizza per definire i parametri utilizzati dai client.
+Un ambito è un raggruppamento amministrativo di indirizzi IP relativi ai computer di una subnet che utilizzano il servizio DHCP. L'amministratore crea innanzitutto un ambito per ogni subnet fisica, dopodiché lo utilizza per definire i parametri utilizzati dai client.
 
-Ogni ambito è caratterizzato dalle proprietà seguenti:
+Un ambito ha le proprietà seguenti:
 
-- Un intervallo di indirizzi IP in cui includere o escludere gli indirizzi utilizzati per le offerte di lease del servizio DHCP.
+- Un intervallo di indirizzi IP da cui includere o escludere gli indirizzi usati per le offerte di lease dei servizi DHCP.
 
 - Una subnet mask, che determina il prefisso subnet per un determinato indirizzo IP.
 
 - Un nome di ambito assegnato al momento della creazione.
 
-- I valori di durata dei lease, che vengono assegnati ai client DHCP che ricevono gli indirizzi IP allocati dinamicamente.
+- Valori di durata dei lease, che vengono assegnati ai client DHCP che ricevono indirizzi IP allocati dinamicamente.
 
 - Tutte le opzioni relative all'ambito DHCP configurate per l'assegnazione ai client DHCP, ad esempio l'indirizzo IP del server DNS e l'indirizzo IP del router/gateway predefinito.
 
@@ -196,7 +196,7 @@ Per risolvere questo problema, è possibile creare un intervallo di esclusione p
 
 Alcuni dispositivi, ad esempio i router, i server DHCP e i server DNS, devono essere configurati con un indirizzo IP statico. Nella rete potrebbero essere presenti anche altri dispositivi, ad esempio stampanti, che si desidera abbiano sempre lo stesso indirizzo IP. Creare un elenco dei dispositivi da configurare in modo statico per ogni subnet, quindi pianificare l'intervallo di esclusione da utilizzare sul server DHCP per garantire che quest'ultimo non assegni in lease l'indirizzo IP di un dispositivo configurato in modo statico. L'intervallo di esclusione è una sequenza limitata di indirizzi IP all'interno di un ambito, che viene esclusa dalle offerte del servizio DHCP. Gli indirizzi inclusi in un intervallo di esclusione non possono essere offerti dal server ai client DHCP della rete.
 
-Ad esempio, se l'intervallo di indirizzi IP per una subnet è da 192.168.0.1 a 192.168.0.254 e sono presenti dieci dispositivi che si desidera configurare con un indirizzo IP statico, è possibile creare un intervallo di esclusione per il 192.168.0.*x* ambito che include dieci o più indirizzi IP: da 192.168.0.1 a 192.168.0.15.
+Se l'intervallo di indirizzi IP per una subnet è compreso tra 192.168.0.1 e 192.168.0.254, ad esempio, ed è necessario configurare dieci dispositivi con un indirizzo IP statico, è possibile creare un intervallo di esclusione per l'ambito 192.168.0.*x* comprendente dieci o più indirizzi IP: da 192.168.0.1 a 192.168.0.15.
 
 In questo esempio dieci degli indirizzi IP esclusi vengono utilizzati per configurare i server e gli altri dispositivi con gli indirizzi IP statici, mentre altri cinque indirizzi IP restano a disposizione per l'eventuale configurazione statica di nuovi dispositivi aggiunti in seguito. Con questo intervallo di esclusione, il server DHCP ha ancora a disposizione gli indirizzi compresi tra 192.168.0.16 e 192.168.0.254.
 
@@ -208,9 +208,9 @@ Nella tabella seguente vengono forniti gli elementi di configurazione di esempio
 |Impostazioni server DNS|DC1.corp.contoso.com|
 |Indirizzo IP del server DNS preferito|10.0.0.2|
 |Valori di ambito<br /><br />1. nome ambito<br />2. indirizzo IP iniziale<br />3. indirizzo IP finale<br />4. subnet mask<br />5. gateway predefinito (facoltativo)<br />6. durata lease|1. subnet primaria<br />2.10.0.0.1<br />3.10.0.0.254<br />4.255.255.255.0<br />5.10.0.0.1<br />6. 8 giorni|
-|Modalità operativa server DHCP IPv6|Non abilitata|
+|Modalità operativa server DHCP IPv6|Non abilitato|
 
-## <a name="bkmk_lab"></a>Uso di questa guida in un Lab di test
+## <a name="using-this-guide-in-a-test-lab"></a><a name="bkmk_lab"></a>Uso di questa guida in un Lab di test
 
 È possibile utilizzare questa guida per distribuire DHCP in un Lab di test prima di distribuire in un ambiente di produzione. 
 
@@ -273,7 +273,7 @@ Questa distribuzione richiede un hub o uno switch, un server fisico e un client 
 3. Un computer fisico che esegue un sistema operativo client Windows che verrà usato per verificare che il server DHCP stia allocando in modo dinamico gli indirizzi IP e le opzioni DHCP ai client DHCP.
 
 
-## <a name="bkmk_deploy"></a>Distribuire DHCP
+## <a name="deploy-dhcp"></a><a name="bkmk_deploy"></a>Distribuire DHCP
 
 In questa sezione vengono forniti i comandi di Windows PowerShell di esempio che è possibile utilizzare per distribuire DHCP in un server. Prima di eseguire questi comandi di esempio nel server, è necessario modificare i comandi in modo che corrispondano alla rete e all'ambiente. 
 
@@ -490,7 +490,7 @@ Se si dispone di subnet aggiuntive gestite da questo server DHCP, è possibile r
 > [!IMPORTANT]
 > Verificare che tutti i router tra i client DHCP e il server DHCP siano configurati per l'inoltro dei messaggi DHCP. Per informazioni su come configurare l'invio DHCP, vedere la documentazione del router.
 
-## <a name="bkmk_verify"></a>Verificare la funzionalità del server
+## <a name="verify-server-functionality"></a><a name="bkmk_verify"></a>Verificare la funzionalità del server
 
 Per verificare che il server DHCP fornisca l'allocazione dinamica degli indirizzi IP ai client DHCP, è possibile connettere un altro computer a una subnet servita. Dopo aver connesso il cavo Ethernet alla scheda di rete e avere alimentato il computer, verrà richiesto un indirizzo IP dal server DHCP. Per verificare la corretta configurazione, è possibile usare il comando **ipconfig** /e per esaminare i risultati oppure eseguire test di connettività, ad esempio il tentativo di accedere alle risorse Web con il browser o le condivisioni file con Esplora risorse o altre applicazioni.
 
@@ -501,7 +501,7 @@ Se il client non riceve un indirizzo IP dal server DHCP, seguire questa procedur
 3. Verificare che il server DHCP sia autorizzato in Active Directory eseguendo il comando seguente per recuperare l'elenco dei server DHCP autorizzati da Active Directory. [Get-DhcpServerInDC](https://docs.microsoft.com/powershell/module/dhcpserver/Get-DhcpServerInDC).
 4. Verificare che gli ambiti siano attivati aprendo la console DHCP \(Server Manager, **strumenti**, **DHCP**\), espandendo l'albero del server per esaminare gli ambiti, quindi\-fare clic con il pulsante destro del mouse su ogni ambito. Se il menu risultante include la selezione **attiva**, fare clic su **attiva**. \(se l'ambito è già attivato, la selezione del menu viene **disattivata**.\)
 
-## <a name="bkmk_dhcpwps"></a>Comandi di Windows PowerShell per DHCP
+## <a name="windows-powershell-commands-for-dhcp"></a><a name="bkmk_dhcpwps"></a>Comandi di Windows PowerShell per DHCP
 
 Il riferimento seguente fornisce le descrizioni dei comandi e la sintassi per tutti i comandi di Windows PowerShell del server DHCP per Windows Server 2016. Nell'argomento vengono elencati i comandi in ordine alfabetico in base al verbo all'inizio dei comandi, ad esempio **Get** o **set**.
 
@@ -517,7 +517,7 @@ Il riferimento seguente fornisce le descrizioni dei comandi e la sintassi per tu
 
 - [Cmdlet per server DHCP in Windows PowerShell](https://docs.microsoft.com/windows-server/networking/technologies/dhcp/dhcp-deploy-wps)
 
-## <a name="bkmk_list"></a>Elenco dei comandi di Windows PowerShell in questa guida
+## <a name="list-of-windows-powershell-commands-in-this-guide"></a><a name="bkmk_list"></a>Elenco dei comandi di Windows PowerShell in questa guida
 
 Di seguito è riportato un semplice elenco di comandi e valori di esempio usati in questa guida.
 

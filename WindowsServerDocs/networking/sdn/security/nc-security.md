@@ -6,15 +6,15 @@ ms.prod: windows-server
 ms.technology: networking-sdn
 ms.topic: article
 ms.assetid: bc625de9-ee31-40a4-9ad2-7448bfbfb6e6
-ms.author: pashort
-author: shortpatti
+ms.author: lizross
+author: eross-msft
 ms.date: 08/30/2018
-ms.openlocfilehash: 54a8b9490fdf83d04c6b69fa88f4e8beca4f703a
-ms.sourcegitcommit: 51e0b575ef43cd16b2dab2db31c1d416e66eebe8
+ms.openlocfilehash: 196a124533b98c6945186ee827494b206028d2c8
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76259066"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80317408"
 ---
 # <a name="secure-the-network-controller"></a>Proteggere Controller di rete
 
@@ -46,7 +46,7 @@ Il controller di rete supporta le tre modalità di autenticazione seguenti tra i
 
 2. **X509**. Usare X509 per l'autenticazione basata su certificato\-per i client di gestione non aggiunti a un dominio di Active Directory. È necessario registrare i certificati in tutti i nodi del cluster di controller di rete e i client di gestione. Inoltre, tutti i nodi e i client di gestione devono considerare attendibili i certificati di tutti gli altri.
 
-3. **None**. Utilizzare None a scopo di test in un ambiente di testing e, pertanto, non è consigliabile utilizzarlo in un ambiente di produzione. Quando si sceglie questa modalità, non viene eseguita alcuna autenticazione tra i nodi e i client di gestione.
+3. **Nessuno**. Utilizzare None a scopo di test in un ambiente di testing e, pertanto, non è consigliabile utilizzarlo in un ambiente di produzione. Quando si sceglie questa modalità, non viene eseguita alcuna autenticazione tra i nodi e i client di gestione.
 
 È possibile configurare la modalità di autenticazione per la comunicazione verso il Nord usando il comando di Windows PowerShell **[Install-NetworkController](https://docs.microsoft.com/powershell/module/networkcontroller/install-networkcontroller)** con il parametro _clientauthentication_ . 
 
@@ -61,10 +61,10 @@ Usare i metodi di autorizzazione seguenti per ciascuna modalità di autenticazio
 
 2.  **X509**. Quando si usa il metodo di autenticazione X509, il controller di rete accetta solo le richieste provenienti dai client di gestione le cui identificazioni personali del certificato sono note al controller di rete. È possibile configurare queste identificazioni personali usando il parametro _ClientCertificateThumbprint_ del comando **[Install-NetworkController](https://docs.microsoft.com/powershell/module/networkcontroller/install-networkcontroller)** di Windows PowerShell. È possibile aggiungere altre identificazioni personali del client in qualsiasi momento usando il comando **[set-NetworkController](https://docs.microsoft.com/powershell/module/networkcontroller/Set-NetworkController)** .
 
-3.  **None**. Quando si sceglie questa modalità, non viene eseguita alcuna autenticazione tra i nodi e i client di gestione. Utilizzare None a scopo di test in un ambiente di testing e, pertanto, non è consigliabile utilizzarlo in un ambiente di produzione. 
+3.  **Nessuno**. Quando si sceglie questa modalità, non viene eseguita alcuna autenticazione tra i nodi e i client di gestione. Utilizzare None a scopo di test in un ambiente di testing e, pertanto, non è consigliabile utilizzarlo in un ambiente di produzione. 
 
 
-### <a name="encryption"></a>Encryption
+### <a name="encryption"></a>Crittografia
 
 La comunicazione in direzione Nord USA Secure Sockets Layer \(\) SSL per creare un canale crittografato tra i client di gestione e i nodi del controller di rete. La crittografia SSL per la comunicazione verso il Nord include i requisiti seguenti:
 
@@ -107,7 +107,7 @@ Il controller di rete supporta le seguenti tre modalità di autenticazione tra i
 
 2. **X509**. X509 è l'autenticazione basata su\-certificato. È possibile usare l'autenticazione X509 quando i nodi del cluster del controller di rete non sono aggiunti a un dominio Active Directory. Per usare X509, è necessario registrare i certificati in tutti i nodi del cluster del controller di rete e tutti i nodi devono considerare attendibili i certificati. Inoltre, il nome del soggetto del certificato registrato in ogni nodo deve essere uguale al nome DNS del nodo.
 
-3. **None**. Quando si sceglie questa modalità, non viene eseguita alcuna autenticazione tra i nodi del controller di rete. Questa modalità viene fornita solo a scopo di test e non è consigliata per l'uso in un ambiente di produzione.
+3. **Nessuno**. Quando si sceglie questa modalità, non viene eseguita alcuna autenticazione tra i nodi del controller di rete. Questa modalità viene fornita solo a scopo di test e non è consigliata per l'uso in un ambiente di produzione.
 
 ### <a name="authorization"></a>Authorization
 
@@ -119,13 +119,13 @@ Per ogni modalità di autenticazione supportata dal controller di rete, vengono 
 
 2. **X509**. I nodi del controller di rete accettano richieste di comunicazione solo da altri account computer del controller di rete. È possibile configurare questi account quando si distribuisce il controller di rete usando il parametro **Name** del comando [New-NetworkControllerNodeObject](https://docs.microsoft.com/powershell/module/networkcontroller/new-networkcontrollernodeobject) di Windows PowerShell.
 
-3. **None**. Quando si sceglie questa modalità, non viene eseguita alcuna autorizzazione tra i nodi del controller di rete. Questa modalità viene fornita solo a scopo di test e non è consigliata per l'uso in un ambiente di produzione.
+3. **Nessuno**. Quando si sceglie questa modalità, non viene eseguita alcuna autorizzazione tra i nodi del controller di rete. Questa modalità viene fornita solo a scopo di test e non è consigliata per l'uso in un ambiente di produzione.
 
-### <a name="encryption"></a>Encryption
+### <a name="encryption"></a>Crittografia
 
 La comunicazione tra i nodi del controller di rete viene crittografata mediante la crittografia a livello di trasporto WCF. Questa forma di crittografia viene utilizzata quando i metodi di autenticazione e autorizzazione sono certificati Kerberos o X509. Per ulteriori informazioni, vedere gli argomenti seguenti.
 
-- [Procedura: Proteggere un servizio con credenziali di Windows](https://docs.microsoft.com/dotnet/framework/wcf/how-to-secure-a-service-with-windows-credentials)
+- [Procedura: proteggere un servizio con credenziali di Windows](https://docs.microsoft.com/dotnet/framework/wcf/how-to-secure-a-service-with-windows-credentials)
 - [Procedura: proteggere un servizio con certificati X. 509](https://docs.microsoft.com/dotnet/framework/wcf/feature-details/how-to-secure-a-service-with-an-x-509-certificate).
 
 ## <a name="southbound-communication"></a>Comunicazione a sud
@@ -139,7 +139,7 @@ La tabella seguente fornisce informazioni sull'interazione del controller di ret
 | Bilanciamento del carico software    | WCF (MUX), TCP (host) | Certificati           |
 | Firewall                  | OVSDB                 | Certificati           |
 | Gateway                   | WinRM                 | Kerberos, certificati |
-| Reti virtuali        | OVSDB, WCF            | Certificati           |
+| Rete virtuale        | OVSDB, WCF            | Certificati           |
 | Routing definito dall'utente      | OVSDB                 | Certificati           |
 
 Per ognuno di questi protocolli, il meccanismo di comunicazione è descritto nella sezione seguente.
@@ -164,7 +164,7 @@ Per la comunicazione a sud vengono usati i protocolli e i metodi di autorizzazio
 
 3.  **OVSDB**. Non è stata fornita alcuna autorizzazione per questo protocollo.
 
-### <a name="encryption"></a>Encryption
+### <a name="encryption"></a>Crittografia
 
 Per la comunicazione a sud, per i protocolli vengono usati i metodi di crittografia seguenti.
 

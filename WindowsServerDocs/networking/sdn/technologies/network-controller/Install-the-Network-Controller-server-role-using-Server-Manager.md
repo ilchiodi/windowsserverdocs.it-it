@@ -7,14 +7,14 @@ ms.technology: networking-sdn
 ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: 3a6e4352-ff62-4290-b8a4-5c83740070fc
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 8b656bbd823a10f1e36d1757bb53c4565d4e828c
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: b8a3e1ede1cdec1ca5ee66be8d53d4420bec673b
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71405841"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80317130"
 ---
 # <a name="install-the-network-controller-server-role-using-server-manager"></a>Installare il ruolo del server del controller di rete utilizzando Server Manager
 
@@ -29,7 +29,7 @@ Dopo aver installato il controller di rete, è necessario utilizzare i comandi d
   
 ### <a name="to-install-network-controller"></a>Per installare il controller di rete  
   
-1.  In Server Manager fare clic su **Gestione**e quindi su **Aggiungi ruoli e funzionalità**. Si apre la procedura guidata Aggiungi ruoli e funzionalità. Fai clic su **Next**.  
+1.  In Server Manager fare clic su **Gestione**e quindi su **Aggiungi ruoli e funzionalità**. Si apre la procedura guidata Aggiungi ruoli e funzionalità. Fare clic su **Avanti**.  
   
 2.  In **Selezione tipo di installazione**, Mantieni l'impostazione predefinita e fai clic su **Avanti**.  
   
@@ -45,17 +45,17 @@ Dopo aver installato il controller di rete, è necessario utilizzare i comandi d
   
 6.  In **Selezione ruoli server**fare clic su **Avanti**.  
   
-    ![Fare clic su Avanti](../../../media/Install-the-Network-Controller-server-role-using-Server-Manager/netc_install_07.jpg)  
+    ![Scegliere Avanti](../../../media/Install-the-Network-Controller-server-role-using-Server-Manager/netc_install_07.jpg)  
   
 7.  In **Selezione funzionalità**fare clic su **Avanti**.  
   
 8.  Nel **controller di rete** fare clic su **Avanti**.  
   
-9. In **Conferma selezioni**per l'installazione rivedere le scelte effettuate. Per l'installazione del controller di rete è necessario riavviare il computer dopo l'esecuzione della procedura guidata. Per questo motivo, fare clic su **Riavvia automaticamente il server di destinazione, se necessario**. Verrà visualizzata la finestra di dialogo **Aggiunta guidata ruoli e funzionalità** . fare clic su **Sì**.  
+9. In **Conferma selezioni**per l'installazione rivedere le scelte effettuate. Per l'installazione del controller di rete è necessario riavviare il computer dopo l'esecuzione della procedura guidata. Per questo motivo, fare clic su **Riavvia automaticamente il server di destinazione, se necessario**. Verrà visualizzata la finestra di dialogo **Aggiunta guidata ruoli e funzionalità** . Fare clic su **Sì**.  
   
     ![Aggiunta guidata ruoli e funzionalità](../../../media/Install-the-Network-Controller-server-role-using-Server-Manager/netc_install_11.jpg)  
   
-10. In **Conferma selezioni per l'installazione**, fare clic su **installare**.  
+10. In **Conferma selezioni per l'installazione** fare clic su **Installa**.  
   
 11. Il ruolo del server del controller di rete viene installato nel server di destinazione e quindi il server viene riavviato.  
   

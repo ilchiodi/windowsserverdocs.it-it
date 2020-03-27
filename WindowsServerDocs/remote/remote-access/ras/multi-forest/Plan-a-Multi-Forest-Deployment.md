@@ -10,14 +10,14 @@ ms.technology: networking-ras
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 8acc260f-d6d1-4d32-9e3a-1fd0b2a71586
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 2a0f04a3ff7797d18f7647416dc99319860c7030
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 8e483f5986a5a23123495e3a13440ddc57a6c521
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71404521"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80314047"
 ---
 # <a name="plan-a-multi-forest-deployment"></a>Pianificare una distribuzione a più foreste
 
@@ -38,7 +38,7 @@ Quando viene configurato, Accesso remoto aggiorna e a volte crea oggetti Criteri
   
 L'amministratore di Accesso remoto deve, inoltre, essere un amministratore locale in tutti i server di Accesso remoto inclusi quelli della nuova foresta aggiunti come punti di ingresso alla distribuzione di Accesso remoto originale.  
   
-## <a name="ClientSG"></a>Pianificare i gruppi di sicurezza client  
+## <a name="plan-client-security-groups"></a><a name="ClientSG"></a>Pianificare i gruppi di sicurezza client  
 Nella nuova foresta è necessario configurare almeno un gruppo di sicurezza per i computer client DirectAccess in essa contenuti, in quanto un gruppo di sicurezza non può contenere account da foreste diverse.  
   
 > [!NOTE]  

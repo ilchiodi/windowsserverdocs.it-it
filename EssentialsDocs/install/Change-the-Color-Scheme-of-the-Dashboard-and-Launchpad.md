@@ -1,9 +1,9 @@
 ---
 title: Modifica della combinazione di colori del dashboard e della finestra di avvio
-description: Viene descritto come utilizzare Windows Server Essentials
+description: Viene descritto come usare Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
-ms.prod: windows-server-2016-essentials
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
@@ -12,12 +12,12 @@ ms.assetid: b2913e51-7979-4d48-a431-d2ec5f1042be
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: f7079c9e59c44907fa203db48ce366c2b5a1102b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: a3ffac0b89a62b04b73aada0a49cb755c7e7bd9a
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59879642"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80312279"
 ---
 # <a name="change-the-color-scheme-of-the-dashboard-and-launchpad"></a>Modifica della combinazione di colori del dashboard e della finestra di avvio
 
@@ -124,7 +124,7 @@ ms.locfileid: "59879642"
   
 1.  Sul server, spostare il puntatore del mouse verso l'angolo superiore destro dello schermo e fare clic su **Trova**.  
   
-2.  Nella casella di ricerca digitare **regedit**e quindi fare clic sull'applicazione **Regedit** .  
+2.  Nella casella di ricerca digitare **regedit** e quindi fare clic sull'applicazione **Regedit**.  
   
 3.  Nel riquadro a sinistra, espandere **HKEY_LOCAL_MACHINE**, **SOFTWARE**, **Microsoft**, quindi **Windows Server**. Se la chiave **OEM** non esiste, è necessario effettuare le seguenti operazioni per crearla:  
   
@@ -142,37 +142,37 @@ ms.locfileid: "59879642"
   
 8.  Copiare il file in %Programmi%\Windows Server\Bin\OEM. Se la directory OEM non esiste, crearla.  
   
-##  <a name="BKMK_Dashboard"></a> Aree del dashboard e finestra di avvio che possono essere modificate  
+##  <a name="dashboard-and-launchpad-areas-that-can-be-changed"></a><a name="BKMK_Dashboard"></a>Aree del dashboard e della finestra di avvio che possono essere modificate  
  Questa sezione include degli esempi delle aree del dashboard e della finestra di avvio che è possibile personalizzare.  
   
 ### <a name="examples"></a>Esempi  
   
-####  <a name="BKMK_Figure1"></a> Figura 1: Pagina di accesso del dashboard  
+####  <a name="figure-1-sign-in-page-of-the-dashboard"></a><a name="BKMK_Figure1"></a>Figura 1: pagina di accesso del dashboard  
  ![Dashboard di Windows Server Essentials](media/SBS8_ADK_Dashboard_Signin_RC.png "SBS8_ADK_Dashboard_Signin_RC")  
   
-####  <a name="BKMK_Figure2"></a> Figura 2: Finestra di avvio  
- ![Windows SBS Launchpad Sign&#45;nel](media/SBS8_ADK_LaunchpadSignin2.png "SBS8_ADK_LaunchpadSignin2")  
+####  <a name="figure-2-launchpad"></a><a name="BKMK_Figure2"></a>Figura 2: finestra di avvio  
+ ![Accesso&#45;a Windows SBS Launchpad](media/SBS8_ADK_LaunchpadSignin2.png "SBS8_ADK_LaunchpadSignin2")  
   
-####  <a name="BKMK_Figure3"></a> Figura 3: Pagina di accesso della finestra di avvio  
- ![Windows Server Essentials Launchpad](media/SBS8_ADK_Launchpad_Signin_RC.png "SBS8_ADK_Launchpad_Signin_RC")  
+####  <a name="figure-3-sign-in-page-of-the-launchpad"></a><a name="BKMK_Figure3"></a>Figura 3: pagina di accesso della finestra di avvio  
+ ![Finestra di avvio di Windows Server Essentials](media/SBS8_ADK_Launchpad_Signin_RC.png "SBS8_ADK_Launchpad_Signin_RC")  
   
-####  <a name="BKMK_Figure4"></a> Figura 4: Testo del dashboard  
+####  <a name="figure-4-dashboard-text"></a><a name="BKMK_Figure4"></a>Figura 4: testo del dashboard  
  ![Riquadro di spostamento di Windows Server Essentials](media/SBS8_ADK_Navigation_RC.png "SBS8_ADK_Navigation_RC")  
   
-####  <a name="BKMK_Figure5"></a> Figura 5: Bordo della sottoscheda  
+####  <a name="figure-5-subtab-border"></a><a name="BKMK_Figure5"></a>Figura 5: bordo sottoscheda  
  ![Bordo sottoscheda Dashboard Windows SBS](media/SBS8_ADK_DashboardSubtabborder.png "SBS8_ADK_DashboardSubtabborder")  
   
-####  <a name="BKMK_Figure6"></a> Figura 6: Riquadro attività  
- ![Riquadro attività Dashboard di Windows SBS](media/SBS8_ADK_DashboardTaskPane.png "SBS8_ADK_DashboardTaskPane")  
+####  <a name="figure-6-task-pane"></a><a name="BKMK_Figure6"></a>Figura 6: riquadro attività  
+ ![Riquadro attività del dashboard di Windows SBS](media/SBS8_ADK_DashboardTaskPane.png "SBS8_ADK_DashboardTaskPane")  
   
-####  <a name="BKMK_Figure9"></a> Figura 7a: Schermata iniziale del prodotto  
+####  <a name="figure-7a-product-splash-screen"></a><a name="BKMK_Figure9"></a>Figura 7A: schermata iniziale del prodotto  
  ![Schermata iniziale di Windows Server Essentials](media/SBS8_ADK_productspalshscreen_RC.png "SBS8_ADK_productspalshscreen_RC")  
   
-#### <a name="figure-7b-home-page"></a>Figura 7b: Home page  
- ![Pagina Home page di Windows Server Essentials](media/SBS8_ADK_Dashboard_HomePage_RC.png "SBS8_ADK_Dashboard_HomePage_RC")  
+#### <a name="figure-7b-home-page"></a>Figura 7b: Pagina iniziale  
+ ![Home page di Windows Server Essentials](media/SBS8_ADK_Dashboard_HomePage_RC.png "SBS8_ADK_Dashboard_HomePage_RC")  
   
-## <a name="see-also"></a>Vedere anche  
+## <a name="see-also"></a>Vedi anche  
  [Creazione e personalizzazione dell'immagine](Creating-and-Customizing-the-Image.md)   
  [Personalizzazioni aggiuntive](Additional-Customizations.md)   
  [Preparazione dell'immagine per la distribuzione](Preparing-the-Image-for-Deployment.md)   
- [Testare l'esperienza dei clienti](Testing-the-Customer-Experience.md)
+ [Test di Analisi utilizzo software](Testing-the-Customer-Experience.md)

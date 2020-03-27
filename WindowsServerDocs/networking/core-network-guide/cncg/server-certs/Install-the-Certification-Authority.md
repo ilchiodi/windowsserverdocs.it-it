@@ -6,14 +6,14 @@ ms.topic: article
 ms.assetid: 4acdc3ad-078e-45cc-b54c-e9456e0c90f5
 ms.prod: windows-server
 ms.technology: networking
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 024fc73c4ed089d81808cf44d7cfe8b01bfffaa0
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: fffb03a707c48c8dd485c68b5c6bf10783b0e6cf
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71406322"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80318361"
 ---
 # <a name="install-the-certification-authority"></a>Installare l'Autorità di certificazione
 
@@ -50,7 +50,7 @@ Per completare questa procedura, è necessaria almeno l'appartenenza al gruppo *
     > [!NOTE]  
     > La pagina **Prima di iniziare** dell'Aggiunta guidata ruoli e funzionalità non viene visualizzata se durante un'esecuzione precedente della procedura guidata è stata selezionata la casella di controllo **Ignora questa pagina per impostazione predefinita**.  
   
-4.  In **Select Installation Type**, assicurarsi che **installazione basata su ruoli o basata su funzionalità** sia selezionata e quindi fare clic su **Avanti**.  
+4.  In **Selezione tipo di installazione** assicurarsi che sia selezionata l'opzione **Installazione basata su ruoli o basata su funzionalità**, quindi fare clic su **Avanti**.  
   
 5.  In **Selezione server di destinazione** assicurarsi che sia selezionata l'opzione **Selezionare un server dal pool di server**. Assicurarsi che in **Pool di server** sia selezionato il computer locale. Fare clic su **Avanti**.  
   
@@ -60,7 +60,7 @@ Per completare questa procedura, è necessaria almeno l'appartenenza al gruppo *
   
 8.  In **Servizi certificati Active Directory**, leggere le informazioni fornite e quindi fare clic su **Avanti**.  
   
-9. In **Conferma selezioni per l'installazione**, fare clic su **installare**. Non chiudere la procedura guidata durante il processo di installazione. Quando l'installazione è stata completata, fare clic su **configurare Active Directory i servizi certificati nel server di destinazione**. Verrà visualizzata la procedura guidata configurazione AD CS. Leggere le informazioni sulle credenziali e, se necessario, fornire le credenziali per un account membro del gruppo Enterprise Admins. Fare clic su **Avanti**.  
+9. In **Conferma selezioni per l'installazione** fare clic su **Installa**. Non chiudere la procedura guidata durante il processo di installazione. Quando l'installazione è stata completata, fare clic su **configurare Active Directory i servizi certificati nel server di destinazione**. Verrà visualizzata la procedura guidata configurazione AD CS. Leggere le informazioni sulle credenziali e, se necessario, fornire le credenziali per un account membro del gruppo Enterprise Admins. Fare clic su **Avanti**.  
   
 10. In **servizi ruolo**, fare clic su **autorità di certificazione**, quindi fare clic su **Avanti**.  
   

@@ -6,14 +6,14 @@ ms.topic: article
 ms.assetid: 1ae4384b-f4e4-41e8-bc5f-9ac41953bca4
 ms.prod: windows-server
 ms.technology: networking
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 2105e2ccad69fcfdbc13e3201b4362e5c6b932e1
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 63ae9ef71b913feeeb28e9838f636b316ea2969f
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71406277"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80318206"
 ---
 # <a name="server-certificate-deployment"></a>Distribuzione di certificati server
 
@@ -48,7 +48,7 @@ Seguire questi passaggi per installare un'autorità di certificazione radice azi
 -   [Verificare la registrazione del server di un certificato server](../../../core-network-guide/cncg/server-certs/Verify-Server-Enrollment-of-a-Server-Certificate.md)  
   
 > [!NOTE]  
-> Le procedure illustrate in questa guida non includono istruzioni relative ai casi in cui la finestra di dialogo **Controllo dell'account utente** viene visualizzata per richiedere l'autorizzazione a continuare. Se si apre questa finestra di dialogo mentre si eseguono le procedure descritte in questa Guida, se è stata aperta la finestra di dialogo in risposta alle azioni dell'utente, fare clic su **Continue**.  
+> Le procedure illustrate in questa guida non includono istruzioni relative ai casi in cui la finestra di dialogo **Controllo dell'account utente** viene visualizzata per richiedere l'autorizzazione a continuare. Se tale finestra di dialogo viene visualizzata nel corso delle procedure illustrate in questa guida in risposta alle azioni dell'utente, fare clic su **Continua**.  
   
 
 

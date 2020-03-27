@@ -10,15 +10,15 @@ ms.technology: networking-nict
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: a4caaa86-5799-4580-8775-03ee213784a3
-ms.author: pashort
-author: shortpatti
+ms.author: lizross
+author: eross-msft
 ms.date: 09/13/2018
-ms.openlocfilehash: 1785b34741ce525a5bdd27b77a0e52fc2ca6c1b6
-ms.sourcegitcommit: 9a6a692a7b2a93f52bb9e2de549753e81d758d28
+ms.openlocfilehash: 1463d3b9a596436b93423806a0acdb40728a15fb
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72591108"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80316698"
 ---
 # <a name="create-a-new-nic-team-on-a-host-computer-or-vm"></a>Creare un nuovo gruppo NIC in un computer host o una macchina virtuale
 
@@ -54,11 +54,11 @@ In questa procedura vengono creati due commutatori virtuali Hyper-V esterni, si 
 
 1.  Nell'host Hyper-V aprire Console di gestione di Hyper-V, quindi in azioni fare clic su **gestione Commutiri virtuali**.  
 
-   ![Gestione commutiri virtuali](../../media/Create-a-New-NIC-Team-in-a-VM/nict_hv.jpg)  
+   ![Gestione commutatori virtuali](../../media/Create-a-New-NIC-Team-in-a-VM/nict_hv.jpg)  
 
 2.  In gestione commutiri virtuali assicurarsi che sia selezionata l'opzione **esterno** , quindi fare clic su **Crea commute virtuale**.  
 
-   ![Crea Commuter virtuale](../../media/Create-a-New-NIC-Team-in-a-VM/nict_hv_02.jpg)  
+   ![Creare un commutatore virtuale](../../media/Create-a-New-NIC-Team-in-a-VM/nict_hv_02.jpg)  
 
 3.  In proprietà Commuter virtuale digitare un **nome** per il Commuter virtuale e aggiungere **note** in base alle esigenze.  
 
@@ -99,7 +99,7 @@ In questa procedura vengono creati due commutatori virtuali Hyper-V esterni, si 
 
     c. Fare clic per selezionare **Consenti alla scheda di rete di far parte di un team nel sistema operativo guest**. 
 
-    d. Fai clic su **OK**.  
+    d. Fare clic su **OK**.  
 
     ![Aggiungere una scheda di rete a un team](../../media/Create-a-New-NIC-Team-in-a-VM/nict_hvs_05.jpg)  
 
@@ -119,7 +119,7 @@ In questa procedura vengono creati due commutatori virtuali Hyper-V esterni, si 
 
 17. Fare clic su **funzionalità avanzate**, scorrere fino a **Gruppo NIC**e fare clic per selezionare **Abilita questa scheda di rete come parte di un team nel sistema operativo guest**. 
 
-18. Fai clic su **OK**.  
+18. Fare clic su **OK**.  
 
 _**Congratulazioni!**_  È stata configurata la rete fisica e virtuale.  A questo punto è possibile procedere alla creazione di un nuovo gruppo NIC.  
 
@@ -204,7 +204,7 @@ Per ulteriori informazioni su queste impostazioni, vedere [NIC gruppo impostazio
 
    -   Configurare l'appartenenza VLAN: fare clic su **VLAN specifica** e digitare le informazioni VLAN. Ad esempio, se si desidera aggiungere il gruppo NIC al numero VLAN contabilità 44, digitare contabilità 44-VLAN.   
 
-9. Fai clic su **OK**.  
+9. Fare clic su **OK**.  
 
 _**Congratulazioni!**_  È stato creato un nuovo gruppo NIC in un computer host o una macchina virtuale.
 
@@ -212,7 +212,7 @@ _**Congratulazioni!**_  È stato creato un nuovo gruppo NIC in un computer host 
 
 - [Gruppo NIC](NIC-Teaming.md): in questo argomento viene illustrata una panoramica del gruppo NIC (Network Interface Card) in Windows Server 2016. Gruppo NIC consente di raggruppare una o più schede di rete fisiche Ethernet da una a 32 in una o più schede di rete virtuali basate su software. Queste schede di rete virtuali garantiscono prestazioni elevate e tolleranza di errore in caso di errore delle schede di rete.   
 
-- [Gestione e utilizzo degli indirizzi MAC del gruppo NIC](NIC-Teaming-MAC-Address-Use-and-Management.md): quando si configura un gruppo NIC con modalità indipendente dal Commuter e la distribuzione del carico dinamico o degli indirizzi hash, il team USA l'indirizzo Media Access Control (Mac) del membro del gruppo NIC primario in uscita traffico. Il membro del gruppo NIC primario è una scheda di rete selezionata dal sistema operativo dal set iniziale di membri del team.
+- [Gestione e utilizzo degli indirizzi MAC del gruppo NIC](NIC-Teaming-MAC-Address-Use-and-Management.md): quando si configura un gruppo NIC con modalità indipendente dal Commuter e la distribuzione del carico dinamico o degli indirizzi hash, il team USA l'indirizzo Media Access Control (Mac) del membro del gruppo NIC primario sul traffico in uscita. Il membro del gruppo NIC primario è una scheda di rete selezionata dal sistema operativo dal set iniziale di membri del team.
 
 - [Impostazioni gruppo NIC](nic-teaming-settings.md): in questo argomento viene illustrata una panoramica delle proprietà del gruppo NIC, ad esempio le modalità gruppo e bilanciamento del carico. Vengono inoltre illustrati i dettagli relativi all'impostazione della scheda standby e alla proprietà principale dell'interfaccia del team. Se si dispone di almeno due schede di rete in un gruppo NIC, non è necessario designare una scheda standby per la tolleranza di errore.
 

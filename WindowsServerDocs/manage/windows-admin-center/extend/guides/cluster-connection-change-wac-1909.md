@@ -7,13 +7,13 @@ author: daniellee-msft
 ms.author: jol
 ms.date: 10/01/2019
 ms.localizationpriority: medium
-ms.prod: windows-server-threshold
-ms.openlocfilehash: a07b30517f0d45b7e6f4f41f0ef9a6549e6e2117
-ms.sourcegitcommit: de71970be7d81b95610a0977c12d456c3917c331
+ms.prod: windows-server
+ms.openlocfilehash: 5324f782ea3c02ed24968d4b3ef58ab8b6ac9d32
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71952772"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80319350"
 ---
 # <a name="cluster-connection-type-changes-in-windows-admin-center-v1909"></a>Modifiche al tipo di connessione cluster nell'interfaccia di amministrazione di Windows v1909
 
@@ -28,7 +28,7 @@ Poiché questa operazione ha richiesto una modifica nella definizione del tipo d
 
 ## <a name="manifestjson---solutionsids-and-connectiontypes"></a>manifest. JSON-solutionsIds e connectionTypes
 
-In precedenza, per visualizzare lo strumento per un cluster di failover o un tipo di connessione cluster HCI, era possibile utilizzare una delle seguenti definizioni nel file ```manifest.json```.
+In precedenza, per fare in modo che lo strumento venisse visualizzato per un cluster di failover o un tipo di connessione cluster HCI, era possibile usare una delle seguenti definizioni nel file di ```manifest.json```.
 
 Per i cluster di failover:
 ``` json
@@ -85,7 +85,7 @@ Nell'interfaccia di amministrazione di Windows 1909 e versioni successive, le du
 Questo è l'unico tipo di solutionIds e connectionTypes correlato al cluster supportato da ora in poi. Se lo strumento è definito solo con questo tipo di solutionIds e connectionTypes, verrà caricato per qualsiasi connessione del cluster di failover, indipendentemente dal fatto che sia o meno un cluster HCI. Se si vuole limitare lo strumento in modo che sia disponibile solo per i cluster HCI o non HCI, sarà necessario usare anche le nuove proprietà di inventario descritte nella sezione seguente.
 
 ## <a name="manifestjson--inventory-properties"></a>manifest. JSON-proprietà inventario
-Quando ci si connette a un server o a un cluster, l'interfaccia di amministrazione di Windows esegue una query su un set di proprietà di inventario che è possibile usare per creare le condizioni per determinare quando lo strumento deve essere disponibile o meno (vedere la sezione relativa alle proprietà di inventario nel [controllo del proprio strumento ](dynamic-tool-display.md)documento di visibilità per ulteriori informazioni). Nell'interfaccia di amministrazione di Windows v1909 sono state aggiunte a questo elenco due nuove proprietà che possono essere usate per determinare se un cluster è iperconvergente o meno. 
+Quando ci si connette a un server o a un cluster, l'interfaccia di amministrazione di Windows esegue una query su un set di proprietà di inventario che è possibile usare per creare le condizioni per determinare quando lo strumento deve essere disponibile o meno (per altre informazioni, vedere la sezione "proprietà inventario" nel documento [controllare la visibilità dello strumento](dynamic-tool-display.md) ). Nell'interfaccia di amministrazione di Windows v1909 sono state aggiunte a questo elenco due nuove proprietà che possono essere usate per determinare se un cluster è iperconvergente o meno. 
 
 ### <a name="iss2denabled"></a>isS2dEnabled
 Tecnicamente, un cluster iperconvergente viene definito come cluster di failover con Spazi di archiviazione diretta (S2D) abilitato. Se si vuole che lo strumento sia disponibile solo per i cluster iperconvergenti, ad esempio quando S2D è abilitato, aggiungere la condizione di inventario seguente:
@@ -169,7 +169,7 @@ Per assicurarsi che l'estensione continui a funzionare con le versioni precedent
 ```
 
 ## <a name="known-issue-appcontextserviceactiveconnectionishyperconvergedclusterisfailovercluster-is-not-set-properly-in-windows-admin-center-v1909"></a>Problema noto: AppContextService. activeConnection. isHyperConvergedCluster/isFailoverCluster non è impostato correttamente nell'interfaccia di amministrazione di Windows v1909
-Una regressione dalle modifiche recenti è che le proprietà ```AppContextService.activeConnection.isHyperConvergedCluster/isFailoverCluster``` non sono impostate correttamente nell'interfaccia di amministrazione di Windows v1909 e saranno sempre false. Questo problema verrà risolto nella versione successiva, V1910, ma sarà anche deprecato e non sarà più disponibile nella versione GA seguente nel 2020. In futuro, è possibile sostituire questa operazione con il codice seguente e utilizzare ```this.connectHCI```.
+Una regressione dalle modifiche recenti è che le proprietà ```AppContextService.activeConnection.isHyperConvergedCluster/isFailoverCluster``` non sono impostate correttamente nell'interfaccia di amministrazione di Windows v1909 e saranno sempre false. Questo problema verrà risolto nella versione successiva, V1910, ma sarà anche deprecato e non sarà più disponibile nella versione GA seguente nel 2020. In futuro, è possibile sostituirlo con il codice riportato di seguito e usare ```this.connectHCI```.
 ```
     import { ClusterInventoryCache } from '@msft-sme/core';
 

@@ -10,14 +10,14 @@ ms.technology: networking-sdn
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 97abf182-4725-4026-801c-122db96964ed
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 35743d9e1a25c71a35eed018a4a3882a3d094d76
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 1e7870e045f9af79ed46ec1ad998dbc1f1474afd
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71355571"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80312905"
 ---
 # <a name="software-load-balancing-slb-for-sdn"></a>Bilanciamento del carico software \(SLB\) per SDN
 
@@ -114,7 +114,7 @@ SLB include i probe di integrità per convalidare l'integrità dell'infrastruttu
   
 A differenza di un appliance di bilanciamento del carico tradizionale in cui il probe ha origine nell'appliance e passa attraverso la rete al DIP, il probe SLB ha origine nell'host in cui si trova il DIP e passa direttamente dall'agente host SLB al DIP, distribuendo ulteriormente il lavorare tra gli host.  
   
-## <a name="bkmk_infrastructure"></a>Infrastruttura di bilanciamento del carico software  
+## <a name="software-load-balancing-infrastructure"></a><a name="bkmk_infrastructure"></a>Infrastruttura di bilanciamento del carico software  
 Per distribuire Windows Server SLB, è prima di tutto necessario distribuire il controller di rete in Windows Server 2016 e una o più macchine virtuali MUX SLB.  
   
 Inoltre, è necessario configurare gli host Hyper-V con il Commuter virtuale Hyper-V abilitato per SDN e verificare che l'agente host SLB sia in esecuzione.  I router che servono gli host devono supportare il routing e la Border Gateway Protocol (BGP) di ECMP (Equal cost multipath) e devono essere configurati per accettare richieste di peering BGP dal Mux SLB.  
@@ -179,7 +179,7 @@ Il router BGP esegue le azioni seguenti per SLB.
   
 -   Rimuove SLB Mux dalla rotazione SLB se Keep-Alive non riesce.  
   
-## <a name="bkmk_features"></a>Funzionalità di bilanciamento del carico software  
+## <a name="software-load-balancing-features"></a><a name="bkmk_features"></a>Funzionalità di bilanciamento del carico software  
 Di seguito sono riportate alcune delle funzionalità e delle funzionalità di SLB.  
   
 **Funzionalità di base**  
