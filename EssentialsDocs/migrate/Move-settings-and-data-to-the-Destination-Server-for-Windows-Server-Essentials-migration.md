@@ -1,9 +1,9 @@
 ---
 title: Spostare dati e impostazioni nel server di destinazione per la migrazione a Windows Server Essentials
-description: Viene descritto come utilizzare Windows Server Essentials
+description: Viene descritto come usare Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
-ms.prod: windows-server-2016-essentials
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
@@ -12,12 +12,12 @@ ms.assetid: 2b882e87-347a-4010-b7fd-9599d61198dd
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 8e173de32230a219bec99586e1b5b533bbe84b73
-ms.sourcegitcommit: 9a4ab3a0d00b06ff16173aed616624c857589459
+ms.openlocfilehash: 4f4ba08c17429f70ef754b0861553e38ba116e5d
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/11/2019
-ms.locfileid: "66826971"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80318834"
 ---
 # <a name="move-settings-and-data-to-the-destination-server-for-windows-server-essentials-migration"></a>Spostare dati e impostazioni nel server di destinazione per la migrazione a Windows Server Essentials
 
@@ -25,11 +25,11 @@ ms.locfileid: "66826971"
 
 Spostare impostazioni e dati nel server di destinazione nel modo seguente:
 
-1. [Copiare i dati nel Server di destinazione](#copy-data-to-the-destination-server)
+1. [Copiare i dati nel server di destinazione](#copy-data-to-the-destination-server)
 
 2. [Configurare la rete](#configure-the-network) 
 
-3. [Mappare i computer autorizzati agli account utente](#map-permitted-computers-to-user-accounts)
+3. [Mappare i computer consentiti agli account utente](#map-permitted-computers-to-user-accounts)
  
 ## <a name="copy-data-to-the-destination-server"></a>Copiare i dati nel server di destinazione
  Prima di copiare i dati dal server di origine al server di destinazione, eseguire le attività seguenti: 
@@ -44,15 +44,15 @@ Spostare impostazioni e dati nel server di destinazione nel modo seguente:
  
 1. Accedere al server di destinazione come amministratore di dominio e quindi aprire una finestra di comando. 
  
-2. Al prompt dei comandi digitare il comando seguente e quindi premere INVIO: 
+2. Al prompt dei comandi digitare il comando seguente, quindi premere INVIO: 
  
  `robocopy \\<SourceServerName> \<SharedSourceFolderName> \\<DestinationServerName> \<SharedDestinationFolderName> /E /B /COPY:DATSOU /LOG:C:\Copyresults.txt` 
  
  Dove:
- - \<SourceServerName\> è il nome del Server di origine
- - \<SharedSourceFolderName\> è il nome della cartella condivisa nel Server di origine
- - \<NomeServerDestinazione\> è il nome del Server di destinazione,
- - \<SharedDestinationFolderName\> è la cartella condivisa nel Server di destinazione in cui verranno copiati i dati. 
+ - \<SourceServerName\> è il nome del server di origine
+ - \<SharedSourceFolderName\> è il nome della cartella condivisa nel server di origine
+ - \<NomeServerDestinazione\> è il nome del server di destinazione,
+ - \<SharedDestinationFolderName\> è la cartella condivisa nel server di destinazione in cui verranno copiati i dati. 
  
 3. Ripetere il passaggio precedente per ogni cartella condivisa di cui si deve eseguire la migrazione dal server di origine. 
  
@@ -86,7 +86,7 @@ Spostare impostazioni e dati nel server di destinazione nel modo seguente:
  
 4. Fare clic sulla scheda **Accesso remoto via Internet** e quindi fare clic su **Consenti Accesso Web remoto e accedi ai servizi Web**. 
  
-5. Selezionare **Cartelle condivise**, selezionare **Computer**, selezionare **Home page - Collegamenti**e quindi fare clic su **Applica**. 
+5. Selezionare **Cartelle condivise**, selezionare **Computer**, selezionare **Home page - Collegamenti** e quindi fare clic su **Applica**. 
  
 6. Fare clic sulla scheda **Accesso computer** e quindi fare clic sul nome del computer a cui si vuole consentire l'accesso. 
  

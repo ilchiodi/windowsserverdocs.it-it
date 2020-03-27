@@ -3,7 +3,7 @@ title: Spostare dati e impostazioni di Windows SBS 2003 nel server di destinazio
 description: Viene descritto come usare Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
-ms.prod: windows-server-2016-essentials
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
@@ -12,12 +12,12 @@ ms.assetid: 67087ccb-d820-4642-8ca2-7d2d38714014
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: ba6fbf0237a16451403a7d4618b935c7c01f7064
-ms.sourcegitcommit: e2b565ce85a97c0c51f6dfe7041f875a265b35dd
+ms.openlocfilehash: f9cf929016b608641e7a7c958cc1311c49b00221
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69584776"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80318887"
 ---
 # <a name="move-windows-sbs-2003-settings-and-data-to-the-destination-server-for-windows-server-essentials-migration"></a>Spostare dati e impostazioni di Windows SBS 2003 nel server di destinazione per la migrazione a Windows Server Essentials
 
@@ -52,7 +52,7 @@ Prima di copiare i dati dal server di origine al server di destinazione, eseguir
 
 2. Fare clic su **Start**, digitare **cmd** nella casella di ricerca e quindi premere INVIO. 
 
-3. Al prompt dei comandi digitare il comando seguente e quindi premere INVIO: 
+3. Al prompt dei comandi digitare il comando seguente, quindi premere INVIO: 
 
     `robocopy \\<SourceServerName> \<SharedSourceFolderName> \\<DestinationServerName> \<SharedDestinationFolderName> /E /B /COPY:DATSOU /LOG:C:\Copyresults.txt` 
 
@@ -89,9 +89,9 @@ Windows SBS 2003 usa script di accesso per attività come l'installazione di sof
 
 1. Fare clic sul pulsante **Start**, scegliere **Strumenti di amministrazione**, quindi fare clic su **Utenti e computer di Active Directory**.
 
-2. In **Utenti e computer di Active Directory**espandere la rete e quindi fare clic su **Utenti**.
+2. In **Utenti e computer di Active Directory** espandere la rete e quindi fare clic su **Utenti**.
 
-3. Fare clic con il pulsante destro del mouse su un nome utente, scegliere **Proprietà**e fare clic sulla scheda **Profilo** .
+3. Fare clic con il pulsante destro del mouse su un nome utente, scegliere **Proprietà** e fare clic sulla scheda **Profilo**.
 
 4. Eliminare il contenuto della casella di testo **Script di accesso** e quindi fare clic su **OK**.
 
@@ -111,7 +111,7 @@ Gli oggetti Criteri di gruppo (GPO) vengono aggiornati per Windows Server Essent
 
 3. Nel riquadro di spostamento fare clic su **Gestione avanzata**, su **Gestione criteri di gruppo**, quindi su **foresta:** _< NomeDominio\>_ . 
 
-4. Fare clic su **domini**, fare clic su *<\>NomeDominio*, quindi fare clic su **criteri di gruppo oggetti**. 
+4. Fare clic su **domini**, fare clic su *< NomeDominio\>* , quindi fare clic su **criteri di gruppo oggetti**. 
 
 5. Fare clic con il pulsante destro del mouse su **Criterio controllo Small Business Server**, scegliere **Elimina** e quindi fare clic su **OK**. 
 
@@ -153,11 +153,11 @@ Per applicare password complesse, è consigliabile configurare i criteri passwor
 
 3. Nel riquadro di spostamento fare clic su **Gestione avanzata**, su **Gestione criteri di gruppo**, quindi su **foresta:** _< YourNetworkDomainName\>_
 
-4. Fare clic su **domini**, fare clic su *<\>YourNetworkDomainName*, quindi fare clic su **filtri WMI**.
+4. Fare clic su **domini**, fare clic su *< YourNetworkDomainName\>* , quindi fare clic su **filtri WMI**.
 
 5. Fare clic con il pulsante destro del mouse su **PostSP2**, scegliere **Elimina** e quindi fare clic su **Sì**.
 
-6. Fare clic con il pulsante destro del mouse su **PreSP2**, scegliere **Elimina**e quindi fare clic su **Sì**.
+6. Fare clic con il pulsante destro del mouse su **PreSP2**, scegliere **Elimina** e quindi fare clic su **Sì**.
 
 7. Verificare che questi tre filtri WMI siano stato eliminati.
 

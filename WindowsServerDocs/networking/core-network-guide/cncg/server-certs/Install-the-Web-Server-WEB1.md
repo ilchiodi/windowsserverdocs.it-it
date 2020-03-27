@@ -6,14 +6,14 @@ ms.prod: windows-server
 ms.technology: networking
 ms.topic: article
 ms.assetid: f51c9e38-98bb-49c1-9d39-427d07021499
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 6ad8106c9c8330dd1b8632b3672d6413c1a1faaf
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 8871b2b82b30bca5b4efd62a31b52e8dbd7284a9
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71356214"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80318279"
 ---
 # <a name="install-the-web-server-web1"></a>Installare il server Web WEB1
 
@@ -28,7 +28,7 @@ Se un certificato si trova nel CRL come revocato, il tentativo di autenticazione
 Prima di installare il ruolo server Web (IIS), verificare di aver configurato il nome del server e l'indirizzo IP e che il computer sia stato aggiunto al dominio.  
 
 ## <a name="to-install-the-web-server-iis-server-role"></a>Per installare il ruolo server Server Web (IIS)  
-Per completare questa procedura, è necessario essere un membro del **amministratori** gruppo.  
+Per completare questa procedura è necessaria l'appartenenza al gruppo **Administrators**.  
 
 >[!NOTE]  
 >Per eseguire questa procedura usando Windows PowerShell, aprire PowerShell, digitare il comando seguente e quindi premere INVIO.  
@@ -43,5 +43,5 @@ La pagina **prima di iniziare** dell'aggiunta guidata ruoli e funzionalità non 
 3. Nella pagina **Tipo di installazione** fare clic su **Avanti**.  
 4. Nella pagina **Selezione server** fare clic su **Avanti**.  
 5. Nella pagina **ruoli server** selezionare **server Web (IIS)** e quindi fare clic su **Avanti**.  
-6. Fare clic su **Avanti** fino a quando non è stato accettato tutte l'impostazione predefinita le impostazioni del server web e quindi fare clic su **installare**.  
-7. Verificare che tutte le installazioni hanno avuto esito positivo e quindi fare clic su **Chiudi**.
+6. Continuare a fare clic su **Avanti** in modo da accettare tutte le impostazioni del server Web, infine fare clic su **Installa**.  
+7. Verificare che tutte le installazioni abbiano esito positivo, quindi fare clic su **Chiudi**.

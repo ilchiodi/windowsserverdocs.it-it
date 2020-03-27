@@ -6,14 +6,14 @@ ms.prod: windows-server
 ms.technology: networking
 ms.topic: article
 ms.assetid: ff06ba23-9c0f-49ec-8f7b-611cf8d73a1b
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 90c2c6c4fbd0110724bc3950b11b3b2c09c5c604
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: a03d9d1b0532c846e8514ca904d38ea825baf4d4
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71406269"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80318120"
 ---
 # <a name="deploy-password-based-8021x-authenticated-wireless-access"></a>Distribuire Password\-basato su accesso Wireless autenticato 802.1 X
 
@@ -33,7 +33,7 @@ Questa Guida, in combinazione con le guide dei prerequisiti descritti di seguito
 
 - Uno o più 802.1 X\-punti di accesso wireless 802.11 \(APs\).
 
-- Active Directory Domain Services \(utenti e\) computer di servizi di dominio Active Directory.
+- Active Directory Domain Services \(AD DS\) utenti e computer.
 
 - Gestione Criteri di gruppo
 
@@ -51,13 +51,13 @@ Nelle sezioni seguenti vengono forniscono collegamenti alla documentazione che i
 
 #### <a name="network-and-domain-environment-dependencies"></a>Dipendenze di ambiente di rete e di dominio
 
-Questa guida è destinata agli amministratori di rete e di sistema che hanno seguito le istruzioni nella **Guida alla rete core** di Windows Server 2016 per distribuire una rete core o per coloro che hanno distribuito in precedenza le tecnologie principali incluse nel core rete, inclusi servizi di dominio Active \(directory\), Domain Name System \(DNS\), Dynamic Host Configuration Protocol\/DHCP, IP TCP, server dei criteri di \(rete e Windows Internet Name Service WINS\).  
+Questa guida è destinata agli amministratori di rete e di sistema che hanno seguito le istruzioni riportate nella **Guida alla rete core** di Windows Server 2016 per distribuire una rete core o per coloro che hanno distribuito in precedenza le tecnologie principali incluse nella rete core, inclusi servizi di dominio Active directory, Domain Name System \(\)DNS, Dynamic Host Configuration Protocol \(DHCP\), IP\/TCP, NPS e Windows Internet Name Service \(WINS\)  
 
 La guida alla rete core è disponibile nelle posizioni seguenti:
 
 - Windows Server 2016 [Guida alla rete Core](https://technet.microsoft.com/windows-server-docs/networking/core-network-guide/core-network-guide) è disponibile nella libreria tecnica di Windows Server 2016. 
 
-- La [Guida alla rete core](https://gallery.technet.microsoft.com/Core-Network-Guide-for-9da2e683) è disponibile anche in formato Word nella raccolta TechNet, [https://gallery.technet.microsoft.com/Core-Network-Guide-for-9da2e683](https://gallery.technet.microsoft.com/Core-Network-Guide-for-9da2e683)all'indirizzo.
+- La [Guida alla rete core](https://gallery.technet.microsoft.com/Core-Network-Guide-for-9da2e683) è disponibile anche in formato Word nella raccolta TechNet, all' [https://gallery.technet.microsoft.com/Core-Network-Guide-for-9da2e683](https://gallery.technet.microsoft.com/Core-Network-Guide-for-9da2e683).
 
 #### <a name="server-certificate-dependencies"></a>Dipendenze del certificato server
 Sono disponibili due opzioni disponibili per registrare i server di autenticazione con certificati server per l'utilizzo con l'autenticazione 802.1 X - distribuire la propria infrastruttura a chiave pubblica utilizzando Servizi certificati Active Directory \(Servizi certificati Active Directory\) o utilizzare i certificati server registrati da un'autorità di certificazione pubblica \(CA\).
@@ -81,7 +81,7 @@ Di seguito sono riportati i requisiti per la distribuzione di un'infrastruttura 
 
 - Prima di distribuire questo scenario, è necessario acquistare 802.1 X\-punti di accesso wireless in grado di fornire una copertura wireless nelle posizioni desiderate nel sito. La sezione pianificazione di questa Guida consente di determinare le funzionalità che dei punti di accesso deve supportare.
 
-- Active Directory Domain Services \(servizi di\) dominio Active Directory è installato, così come le altre tecnologie di rete necessarie, seguendo le istruzioni riportate nella Guida alla rete core di Windows Server 2016.  
+- Active Directory Domain Services \(\) di servizi di dominio Active Directory è installato, così come le altre tecnologie di rete necessarie, seguendo le istruzioni riportate nella Guida alla rete core di Windows Server 2016.  
 
 - Servizi certificati Active Directory viene distribuito e i certificati del server vengono registrati in NPSs. Questi certificati sono necessari quando si distribuisce PEAP\-MS\-CHAP v2 certificato\-basato su metodo di autenticazione che viene utilizzato in questa Guida.
 
@@ -110,7 +110,7 @@ Esistono due alternative per la distribuzione dei certificati NPS. Questa guida 
 
 - Acquisto di certificati da una CA pubblica, ad esempio VeriSign, che sono già considerato attendibile da Windows\-i client basati su. Questa opzione è in genere consigliata per reti di piccole dimensioni.
 
-- Distribuzione di un'infrastruttura \(a chiave pubblica PKI\) sulla rete tramite Servizi certificati Active Directory. È consigliato per la maggior parte delle reti e le istruzioni per distribuire i certificati server con Servizi certificati Active Directory sono disponibili nella Guida alla distribuzione menzionati in precedenza.
+- La distribuzione di un'infrastruttura a chiave pubblica \(\) PKI sulla rete tramite Servizi certificati Active Directory. È consigliato per la maggior parte delle reti e le istruzioni per distribuire i certificati server con Servizi certificati Active Directory sono disponibili nella Guida alla distribuzione menzionati in precedenza.
 
 ### <a name="nps-network-policies-and-other-nps-settings"></a>Criteri di rete NPS e altre impostazioni server dei criteri di rete
 
@@ -126,10 +126,10 @@ Di seguito sono riportate alcune panoramiche sulla tecnologia per la distribuzio
 ### <a name="ieee-8021x"></a>IEEE 802.1X
 Lo standard IEEE 802.1 X definisce la porta\-basato su controllo di accesso alla rete che viene utilizzato per fornire l'accesso autenticato alle reti Ethernet. Questa porta\-controllo accesso alla rete in base utilizza le caratteristiche fisiche dell'infrastruttura LAN commutata per autenticare i dispositivi collegati a una porta LAN. L'accesso alla porta può essere negato se il processo di autenticazione non riesce. Sebbene questo standard sia stato progettato per le reti Ethernet cablate, è stato adattato per l'uso in reti LAN wireless 802,11.
 
-### <a name="8021x-capable-wireless-access-points-aps"></a>802.1 x\-punti \(di accesso wireless in grado di supportare APS\)
+### <a name="8021x-capable-wireless-access-points-aps"></a>802.1 x\-punti di accesso wireless in grado di supportare \(APs\)
 Questo scenario richiede la distribuzione di uno o più 802.1 X\-in grado di supportare punti di accesso wireless che sono compatibili con Remote Authentication Dial\-In User Service \(RADIUS\) protocollo.
 
-i punti di distribuzione\-conformi a 802.1 x e RADIUS, quando distribuiti in un'infrastruttura RADIUS con un server RADIUS, ad esempio un server dei criteri di server, sono denominati *client RADIUS*.
+i punti di distribuzione con 802.1 x e RADIUS\-conformi, quando distribuiti in un'infrastruttura RADIUS con un server RADIUS, ad esempio un server dei criteri di server, sono denominati *client RADIUS*.
 
 ### <a name="wireless-clients"></a>Client wireless
 In questa guida fornisce i dettagli di configurazione completa per fornire l'accesso autenticato per dominio 802.1 X\-gli utenti che si connettono alla rete con i computer client wireless Windows 10, Windows 8.1 e Windows 8. I computer devono essere aggiunti al dominio per poter stabilire correttamente l'accesso autenticato.
@@ -150,9 +150,9 @@ La tabella seguente illustra le frequenze e le frequenze di trasmissione per gli
 
 |Standard|Frequenze|Velocità di trasmissione bit|Utilizzo|
 |-------------|---------------|--------------------------|---------|  
-|802,11|Gruppo di frequenze \(industriale,scientificoe\) medico ISM da 2,4a2,5GHz\(\-\)|2 megabit al secondo \(Mbps\)|Obsoleta. Usato in genere.|  
+|802,11|S\-band Industrial, Scientific e Medical \(ISM\) intervallo di frequenza \(2,4 a 2,5 GHz\)|2 megabit al secondo \(Mbps\)|Obsoleto. Usato in genere.|  
 |802.11 b|S\-banda ISM|11 Mbps|Utilizzato comunemente.|  
-|802.11 a|C\-banda ISM \(5,725 a 5,875 GHz\)|54 Mbps|Non comunemente usato a causa di spese e di un intervallo limitato.|  
+|802.11 a|C\-banda ISM \(da 5,725 a 5,875 GHz\)|54 Mbps|Non comunemente usato a causa di spese e di un intervallo limitato.|  
 |802.11 g|S\-banda ISM|54 Mbps|Ampiamente usato. i dispositivi 802.11 g sono compatibili con i dispositivi 802.11 b.|  
 |802.11 n \2.4 e 5,0 GHz|C\-banda e S\-banda ISM|250 Mbps|Dispositivi in base alle fasi pre\-ratifica IEEE 802.11 n standard è diventato disponibile nell'agosto 2007. Molti dispositivi 802.11 n sono compatibili con i dispositivi 802.11 a, b e g.|
 |802.11ac |5 GHz |6,93 Gbps |802.11 AC, approvato da IEEE 2014, è più scalabile e più veloce rispetto a 802.11 n e viene distribuito in cui i punti di accesso e i computer client wireless supportano.|
@@ -183,7 +183,7 @@ WPA\-Enterprise offre una maggiore sicurezza tramite WEP da:
 #### <a name="wireless-security-encryption"></a>Crittografia di sicurezza wireless
 La crittografia di sicurezza wireless viene usata per proteggere le trasmissioni wireless inviate tra il client wireless e il punto di accesso wireless. La crittografia di sicurezza wireless viene utilizzata insieme al metodo di autenticazione della sicurezza di rete selezionato. Per impostazione predefinita, i computer che eseguono Windows 10, Windows 8.1 e Windows 8 supportano due standard di crittografia:
 
-1. **Protocollo di integrità della chiave temporale** TKIP è un protocollo di crittografia obsoleto originariamente progettato per fornire una crittografia wireless più sicura rispetto a quella fornita dal protocollo WEP\) per la privacy \(equivalente collegato intrinsecamente debole.\) \( TKIP è stato progettato per IEEE 802.11 i gruppo e il Wi attività\-Fi Alliance per sostituire WEP senza richiedere la sostituzione di hardware legacy. TKIP è una suite di algoritmi che incapsula il payload WEP e consente agli utenti di apparecchiature Wi-Fi legacy di eseguire l'aggiornamento a TKIP senza sostituire l'hardware. Analogamente a WEP, TKIP usa l'algoritmo di crittografia del flusso RC4 come base. Il nuovo protocollo, tuttavia, crittografa ogni pacchetto di dati con una chiave di crittografia univoca e le chiavi sono molto più complesse rispetto a quelle di WEP. Anche se TKIP è utile per l'aggiornamento della protezione nei dispositivi meno recenti progettati per l'uso di solo WEP, non risolve tutti i problemi di sicurezza connessi alle LAN wireless e nella maggior parte dei casi non è sufficientemente affidabile per proteggere i dati sensibili o aziendali trasmissioni.  
+1. Il **protocollo di integrità delle chiavi temporali** \(TKIP\) è un protocollo di crittografia obsoleto originariamente progettato per fornire una crittografia wireless più sicura rispetto a quella fornita dalla privacy equivalente cablata intrinsecamente debole \(protocollo di\) WEP. TKIP è stato progettato per IEEE 802.11 i gruppo e il Wi attività\-Fi Alliance per sostituire WEP senza richiedere la sostituzione di hardware legacy. TKIP è una suite di algoritmi che incapsula il payload WEP e consente agli utenti di apparecchiature Wi-Fi legacy di eseguire l'aggiornamento a TKIP senza sostituire l'hardware. Analogamente a WEP, TKIP usa l'algoritmo di crittografia del flusso RC4 come base. Il nuovo protocollo, tuttavia, crittografa ogni pacchetto di dati con una chiave di crittografia univoca e le chiavi sono molto più complesse rispetto a quelle di WEP. Anche se TKIP è utile per l'aggiornamento della protezione nei dispositivi meno recenti progettati per l'uso di solo WEP, non risolve tutti i problemi di sicurezza connessi alle LAN wireless e nella maggior parte dei casi non è sufficientemente affidabile per proteggere i dati sensibili o aziendali trasmissioni.  
 
 2. **Advanced Encryption Standard** \(AES\) è il protocollo di crittografia preferito per la crittografia dei dati commerciali e governativi. AES offre un livello più elevato di sicurezza della trasmissione wireless rispetto a TKIP o WEP. A differenza di TKIP e WEP, AES richiede hardware wireless che supporta lo standard AES. AES è un\-crittografia della chiave standard che utilizza tre blocchi, AES\-128, AES\-192 e AES\-256.
 
@@ -195,10 +195,10 @@ In Windows Server 2016, AES seguente\-metodi di crittografia wireless base sono 
 > [!IMPORTANT]
 > Wired Equivalency Privacy \(WEP\) è lo standard di protezione wireless originale utilizzato per crittografare il traffico di rete. Non è necessario distribuire WEP sulla rete perché esistono ben\-causa di vulnerabilità note in questa forma di protezione non aggiornata.
 
-### <a name="active-directorydoman-services-adds"></a>Active Directory domini servizi \(di dominio Active Directory\)
+### <a name="active-directorydoman-services-adds"></a>Active Directory servizi Doman \(servizi di dominio Active Directory\)
 Active Directory fornisce un database distribuito che archivia e gestisce le informazioni sulle risorse di rete e applicazione\-dati specifici provenienti dalla directory\-applicazioni abilitate. Gli amministratori possono utilizzare Servizi di dominio Active Directory per organizzare gli elementi di una rete, ad esempio utenti, computer e altri dispositivi, in una struttura di contenimento gerarchica. La struttura di contenimento gerarchica include la foresta di Active Directory, domini nella foresta e le unità organizzative \(unità organizzative\) in ogni dominio. Un server che esegue Active Directory viene definito un *controller di dominio*.  
 
-Servizi di dominio Active Directory contiene gli account utente, gli account computer e le proprietà dell'account necessari per IEEE 802.1\-x\-e PEAP MS CHAP v2 per autenticare le credenziali utente e per valutare l'autorizzazione per le connessioni wireless.
+Servizi di dominio Active Directory contiene gli account utente, gli account computer e le proprietà dell'account necessari per IEEE 802.1 X e PEAP\-MS\-CHAP v2 per autenticare le credenziali utente e per valutare l'autorizzazione per le connessioni wireless.
 
 ### <a name="active-directory-users-and-computers"></a>Utenti e computer di Active Directory
 Active Directory utenti e computer è un componente di servizi di dominio Active Directory che contiene gli account che rappresentano entità fisiche, ad esempio un computer, una persona o un gruppo di sicurezza. Oggetto *gruppo di sicurezza* è una raccolta di account utente o computer che gli amministratori possono gestire come singola unità. Account utente e computer appartenenti a un determinato gruppo vengono dette *i membri del gruppo*.  
@@ -215,19 +215,19 @@ Un certificato server è un documento digitale comunemente usato per l'autentica
 
 Un'autorità di certificazione \(CA\) è un'entità responsabile per stabilire e garantire l'autenticità delle chiavi pubbliche appartenenti ai soggetti di \(in genere utenti o computer\) o altre autorità di certificazione. Le attività di un'autorità di certificazione possono includere l'associazione di chiavi pubbliche a nomi distinti tramite certificati firmati, la gestione dei numeri di serie dei certificati e la revoca dei certificati.  
 
-Active Directory servizi \(certificati\) Active Directory è un ruolo del server che rilascia certificati come CA di rete. Un'infrastruttura di certificati ad CS, nota anche come *infrastruttura \(a chiave pubblica\)PKI*, fornisce servizi personalizzabili per l'emissione e la gestione dei certificati per l'azienda.
+Active Directory Servizi certificati \(\) AD CS è un ruolo del server che rilascia certificati come CA di rete. Un'infrastruttura di certificazione AD CS, nota anche come *infrastruttura a chiave pubblica \(\)PKI* , fornisce servizi personalizzabili per l'emissione e la gestione dei certificati per l'azienda.
 
 ### <a name="eap-peap-and-peap-ms-chap-v2"></a>PEAP, EAP e PEAP\-MS\-CHAP v2
-Extensible Authentication Protocol \(EAP\) estende punto\-a\-protocollo Point \(PPP\) consentendo altri metodi di autenticazione che utilizzano informazioni e credenziali scambi di lunghezza arbitraria. Con l'autenticazione EAP, sia il client di accesso alla rete sia \(l'autenticatore,\) ad esempio il server dei criteri di rete, devono supportare lo stesso tipo EAP affinché venga eseguita correttamente l'autenticazione. Windows Server 2016 include un'infrastruttura EAP, supporta due tipi EAP e la possibilità di passare messaggi EAP a NPSs. Utilizzando EAP, è possibile supportare schemi di autenticazione aggiuntivi, noti come *tipi EAP*. I tipi EAP sono supportati da Windows Server 2016 sono:  
+Extensible Authentication Protocol \(EAP\) estende punto\-a\-protocollo Point \(PPP\) consentendo altri metodi di autenticazione che utilizzano informazioni e credenziali scambi di lunghezza arbitraria. Con l'autenticazione EAP, sia il client di accesso alla rete sia l'autenticatore \(come il server dei criteri di rete\) devono supportare lo stesso tipo EAP affinché venga eseguita correttamente l'autenticazione. Windows Server 2016 include un'infrastruttura EAP, supporta due tipi EAP e la possibilità di passare messaggi EAP a NPSs. Utilizzando EAP, è possibile supportare schemi di autenticazione aggiuntivi, noti come *tipi EAP*. I tipi EAP sono supportati da Windows Server 2016 sono:  
 
-- Transport Layer Security \(TLS\)
+- \) Transport Layer Security \(TLS
 
 - Microsoft Challenge Handshake Authentication Protocol versione 2 \(MS\-CHAP v2\)
 
 >[!IMPORTANT]
 >I tipi EAP avanzati \(ad esempio quelle basate sui certificati\) offrono una migliore protezione contro bruta\-forzare informatico di password, attacchi con dizionario e attacchi\-basato su protocolli di autenticazione \(ad esempio il protocollo CHAP o MS\-CHAP versione 1\).
 
-\(PEAPPEAP\) utilizza TLS per creare un canale crittografato tra un client PEAP di autenticazione, ad esempio un computer senza fili e un autenticatore PEAP, ad esempio un server dei criteri di rete o altri server RADIUS. PEAP non specifica un metodo di autenticazione, ma fornisce protezione aggiuntiva per altri protocolli di autenticazione EAP \(ad esempio EAP\-MS\-CHAP v2\) che possono funzionare attraverso il canale crittografato TLS fornito da PEAP. PEAP viene utilizzato come un metodo di autenticazione per i client di accesso che si connettono alla rete dell'organizzazione tramite i seguenti tipi di server di accesso alla rete \(NAS\):
+Il protocollo PEAP \(PEAP\) usa TLS per creare un canale crittografato tra un client PEAP di autenticazione, ad esempio un computer senza fili e un autenticatore PEAP, ad esempio un server dei criteri di rete o altri server RADIUS. PEAP non specifica un metodo di autenticazione, ma fornisce protezione aggiuntiva per altri protocolli di autenticazione EAP \(ad esempio EAP\-MS\-CHAP v2\) che possono funzionare attraverso il canale crittografato TLS fornito da PEAP. PEAP viene utilizzato come un metodo di autenticazione per i client di accesso che si connettono alla rete dell'organizzazione tramite i seguenti tipi di server di accesso alla rete \(NAS\):
 
 - 802.1 X\-punti di accesso wireless in grado di supportare
 
@@ -239,14 +239,14 @@ Extensible Authentication Protocol \(EAP\) estende punto\-a\-protocollo Point \(
 
 PEAP\-MS\-CHAP v2 è più facile da distribuire rispetto a EAP\-TLS perché l'autenticazione utente viene eseguita tramite password\-credenziali basate su \(nome utente e password\), anziché certificati o smart card. Per avere un certificato è necessario solo un server dei criteri di server o altri server RADIUS. Il certificato NPS viene usato dal server dei criteri di server durante il processo di autenticazione per dimostrare la propria identità ai client PEAP.
 
-Questa guida fornisce le istruzioni per configurare i client wireless e i\(server\) dei criteri di\-rete\-per l'uso di PEAP MS CHAP v2 per l'accesso autenticato con 802.1 x.
+Questa guida fornisce istruzioni per configurare i client wireless e il server dei criteri di rete\(s\) per usare PEAP\-MS\-CHAP v2 per l'accesso autenticato 802.1 X.
 
 ### <a name="network-policy-server"></a>Server dei criteri di rete
 Server dei criteri di rete \(NPS\) consente di configurare e gestire i criteri di rete utilizzando Remote Authentication Dial in modo centralizzato\-In User Service \(RADIUS\) server e proxy RADIUS. Criteri di RETE è necessaria quando si distribuisce l'accesso wireless 802.1 X.
 
 Quando si configurano i punti di accesso wireless 802.1 X come client RADIUS in NPS, NPS elabora le richieste di connessione inviate dagli APs. Durante l'elaborazione della richiesta di connessione, NPS esegue l'autenticazione e l'autorizzazione. L'autenticazione determina se il client ha presentato credenziali valide. Se il server dei criteri di ricerca autentica il client richiedente, NPS determina se il client è autorizzato a effettuare la connessione richiesta e consente o nega la connessione. Questa operazione viene illustrata più dettagliatamente come segue:
 
-#### <a name="authentication"></a>Authentication
+#### <a name="authentication"></a>Autenticazione
 
 PEAP reciproco corretta\-MS\-autenticazione CHAP v2 costituita da due parti principali:
 
@@ -254,7 +254,7 @@ PEAP reciproco corretta\-MS\-autenticazione CHAP v2 costituita da due parti prin
 
     Se si distribuisce una CA privata, il certificato della CA viene installato automaticamente nell'archivio certificati delle autorità di certificazione radice attendibili per l'utente corrente e per il computer locale quando Criteri di gruppo viene aggiornato nel computer client membro di dominio. Se si decide di distribuire i certificati del server da una CA pubblica, verificare che il certificato della CA pubblico si trovi già nell'archivio certificati delle autorità di certificazione radice attendibili.  
 
-2.  Il server dei criteri di server autentica l'utente. Dopo che il client ha autenticato il server dei criteri di servizio\- \(, il client invia le credenziali basate su password dell'utente al server dei criteri di dominio, che verifica le credenziali dell'utente nel database degli account utente in Active Directory dominio Active Directory Servizi\)di dominio Active Directory.
+2.  Il server dei criteri di server autentica l'utente. Dopo che il client ha eseguito l'autenticazione del server dei criteri di dominio, il client invia la password dell'utente\-le credenziali basate su NPS, che verifica le credenziali dell'utente nel database degli account utente in Active Directory servizi Doman \(\)di servizi di dominio Active Directory.
 
 Se le credenziali sono valide e l'autenticazione ha esito positivo, il server dei criteri di server inizia la fase di autorizzazione dell'elaborazione della richiesta di connessione. Se le credenziali non sono valide e l'autenticazione ha esito negativo, NPS Invia un messaggio di rifiuto di accesso e la richiesta di connessione viene negata.  
 
@@ -262,7 +262,7 @@ Se le credenziali sono valide e l'autenticazione ha esito positivo, il server de
 
 Il server che esegue NPS esegue l'autorizzazione come indicato di seguito:  
 
-1. NPS controlla la presenza di restrizioni nella connessione\-dell'account utente o computer in proprietà in servizi di dominio Active Directory. Per ogni account utente e computer in Active Directory Users and Computers include più proprietà, inclusi quelli nel **connessione\-in** scheda. In questa scheda in **dell'autorizzazione di accesso di rete**, se il valore è **consentire l'accesso**, l'utente o il computer è autorizzato a connettersi alla rete. Se il valore è **negare l'accesso**, l'utente o il computer non è autorizzato a connettersi alla rete. Se il valore è **Controlla accesso tramite criteri di rete NPS**, dei criteri di RETE valuta i criteri di rete configurate per determinare se l'utente o il computer è autorizzato a connettersi alla rete. 
+1. NPS controlla la presenza di restrizioni nella\-di connessione dell'account utente o computer in proprietà in servizi di dominio Active Directory. Ogni account utente e computer in Active Directory utenti e computer include più proprietà, incluse quelle disponibili nella scheda **\-della connessione** . In questa scheda, in **autorizzazione di accesso alla rete**, se il valore è **Consenti accesso**, l'utente o il computer è autorizzato a connettersi alla rete. Se il valore è **negare l'accesso**, l'utente o il computer non è autorizzato a connettersi alla rete. Se il valore è **Controlla accesso tramite criteri di rete NPS**, dei criteri di RETE valuta i criteri di rete configurate per determinare se l'utente o il computer è autorizzato a connettersi alla rete. 
 
 2. NPS elabora quindi i criteri di rete per trovare i criteri corrispondenti alla richiesta di connessione. Se viene trovato un criterio di corrispondenza, il server dei criteri di accesso concede o nega la connessione in base alla configurazione di tale criterio.  
 
@@ -272,7 +272,7 @@ Se l'autenticazione e l'autorizzazione hanno esito positivo e se il criterio di 
 >Per distribuire l'accesso wireless, è necessario configurare i criteri NPS. Questa guida vengono fornite istruzioni per l'uso di **Configurazione 802.1 X wizard** in Criteri di RETE per creare criteri di criteri di RETE per l'accesso wireless autenticato 802.1 X.  
 
 ### <a name="bootstrap-profiles"></a>Profili bootstrap
-802.1 X\-autenticato reti wireless, i client wireless devono fornire credenziali di sicurezza vengono autenticate da un server RADIUS per potersi connettere alla rete. Per \[PEAP\] \[EAP Microsoft Challenge Handshake Authentication Protocol versione 2MS\-CHAPv2\], le credenziali di sicurezza sono un nome utente e una password.\- Per l'autenticazione EAP\-Transport Layer Security \[TLS\] o PEAP\-TLS, le credenziali di sicurezza sono certificati, ad esempio le smart card o certificati utente e computer client.
+802.1 X\-autenticato reti wireless, i client wireless devono fornire credenziali di sicurezza vengono autenticate da un server RADIUS per potersi connettere alla rete. Per Protected EAP \[PEAP\]\-Microsoft Challenge Handshake Authentication Protocol versione 2 \[MS\-CHAP v2\], le credenziali di sicurezza sono un nome utente e una password. Per l'autenticazione EAP\-Transport Layer Security \[TLS\] o PEAP\-TLS, le credenziali di sicurezza sono certificati, ad esempio le smart card o certificati utente e computer client.
 
 Quando ci si connette a una rete che è configurata per eseguire PEAP\-MS\-CHAP v2, PEAP\-TLS o EAP\-l'autenticazione TLS, per impostazione predefinita, Windows client senza fili inoltre necessario convalidare un certificato del computer che viene inviato dal server RADIUS. Il certificato del computer inviato dal server RADIUS per ogni sessione di autenticazione viene comunemente definito certificato server.
 

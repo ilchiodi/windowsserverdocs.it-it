@@ -1,9 +1,9 @@
 ---
 title: Eseguire la transizione da Windows Server Essentials a Windows Server 2012 Standard
-description: Viene descritto come utilizzare Windows Server Essentials
+description: Viene descritto come usare Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
-ms.prod: windows-server-2016-essentials
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
@@ -12,98 +12,98 @@ ms.assetid: 51bcf124-c215-4e9d-9fa8-a90fa2c2fa22
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 445472822de09263b84821e552c931ca19f14b2b
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 0d7ed80f61dcfa313f867afda5689b2c64b1406a
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66432528"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80318699"
 ---
 # <a name="transition-from-windows-server-essentials-to-windows-server-2012-standard"></a>Eseguire la transizione da Windows Server Essentials a Windows Server 2012 Standard
 
 >Si applica a: Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
 
- Windows Server® 2012 Essentials supporta fino a 25 utenti e 50 dispositivi. Quando l'azienda deve superare il limite, è possibile eseguire una transizione di licenza sul posto da Windows Server Essentials a Windows Server 2012 Standard per mantenere la conformità delle licenze.  
+ Windows Server® 2012 Essentials supporta fino a 25 utenti e 50 dispositivi. Quando le esigenze aziendali superano il limite, è possibile eseguire una transizione di licenza sul posto da Windows Server Essentials a Windows Server 2012 standard per mantenere la conformità con le licenze.  
   
 ## <a name="how-the-transition-affects-user-and-device-limits"></a>Impatto della transizione sui limiti relativi a utenti e dispositivi  
- Dopo la transizione a Windows Server 2012 Standard, i limiti di account e i dispositivi utente vengono rimossi, ma le funzionalità esclusive di Windows Server Essentials (ad esempio Dashboard, accesso Web remoto e backup dei computer client), rimangono comunque disponibili. Queste funzionalità prevedono tuttavia alcuni limiti tecnici, in quanto supportano un massimo di 75 account utente e 75 dispositivi. Se si rende necessario aggiungere più di 75 account utente o dispositivi, è necessario disattivare le funzionalità di Windows Server Essentials e usare gli strumenti nativi di Windows Server 2012 Standard per gestire i dispositivi e gli account utente.  
+ Dopo aver eseguito la transizione a Windows Server 2012 standard, i limiti relativi agli account utente e ai dispositivi vengono rimossi, ma le funzionalità esclusive di Windows Server Essentials, ad esempio il dashboard, il Accesso Web remoto e il backup dei computer client, rimangono comunque disponibili. Queste funzionalità prevedono tuttavia alcuni limiti tecnici, in quanto supportano un massimo di 75 account utente e 75 dispositivi. Se è necessario aggiungere più di 75 account utente o dispositivi, è necessario disattivare le funzionalità di Windows Server Essentials e usare gli strumenti nativi standard di Windows Server 2012 per gestire gli account utente e i dispositivi.  
   
 > [!IMPORTANT]
->   Windows Server 2012 Standard richiede una licenza CAL (Client Access License) per ogni utente o dispositivo nell'ambiente in uso. Ciò è diverso da Windows Server Essentials, che non usa il modello CAL e che non include alcuna licenza CAL.  Durante la transizione da Windows Server Essentials a Windows Server 2012 Standard, dovrai acquistare il numero appropriato e il tipo di licenze CAL per l'ambiente (la maggior parte dei clienti Acquista licenze CAL utente).  
+>   Windows Server 2012 standard richiede una licenza CAL (Client Access License) per ogni utente o dispositivo nell'ambiente in uso. Questa operazione è diversa da Windows Server Essentials, che non utilizza il modello CAL e non dispone di licenze CAL.  Quando si esegue la transizione da Windows Server Essentials a Windows Server 2012 standard, sarà necessario acquistare il numero e il tipo di licenze CAL appropriati per l'ambiente in uso (la maggior parte dei clienti acquista le licenze CAL utente).  
   
 ## <a name="before-the-transition"></a>Prima della transizione  
   
--   Prima di una transizione da Windows Server Essentials a Windows Server 2012 Standard, è consigliabile eseguire un backup completo dei dati del server.  
+-   Prima di passare da Windows Server Essentials a Windows Server 2012 standard, è necessario eseguire il backup completo dei dati del server.  
   
     > [!IMPORTANT]
     >  Se non si dispone di un backup completo del server, non sarà possibile ripristinare il server allo stato in cui si trovava prima della transizione.  
   
--   Inoltre, assicurarsi di leggere e accettare il contratto di licenza con l'utente finale (EULA) per Windows Server 2012 Standard. Per visualizzare il Contratto di licenza con l'utente finale:  
+-   Inoltre, assicurarsi di leggere e comprendere il contratto di licenza con l'utente finale (EULA) per Windows Server 2012 standard. Per visualizzare il Contratto di licenza con l'utente finale:  
   
     1.  Aprire una finestra di comando come amministratore.  
   
     2.  Eseguire il comando seguente:  
   
-         **dism /online /set-edition:ServerStandard /geteula: eula path**  
+         **Dism/online/set-Edition: ServerStandard/geteula: EULA percorso**  
   
          Dove **eula path** rappresenta il percorso in cui si desidera salvare il file del contratto di licenza con l'utente finale. Ad esempio C:\ws8std_eula.rtf  Accertarsi di usare l'estensione file rtf.  
   
     3.  Aprire il percorso in cui è stato salvato il file e quindi fare doppio clic su di esso per aprirlo.  
   
-## <a name="transition-to--windows-server-2012-standard"></a>Transizione a Windows Server 2012 Standard  
- Dopo aver deciso di eseguire la transizione da Windows Server Essentials a Windows Server 2012 Standard, completo di questi due passaggi:  
+## <a name="transition-to--windows-server-2012-standard"></a>Transizione a Windows Server 2012 standard  
+ Dopo aver deciso di eseguire la transizione da Windows Server Essentials a Windows Server 2012 standard, completare i due passaggi seguenti:  
   
-1. Acquistare una licenza per Windows Server 2012 Standard e il numero appropriato di licenze di accesso Client utente e/o dispositivo per l'ambiente.  
+1. Acquistare una licenza per Windows Server 2012 standard e il numero appropriato di licenze di accesso client per utente e/o dispositivo per l'ambiente in uso.  
   
-    È possibile acquistare una licenza per Windows Server 2012 Standard presso un negozio al dettaglio, un server di distribuzione o con l'aiuto di un [Partner Microsoft](https://pinpoint.microsoft.com/SelectCulture.aspx).  
+    È possibile acquistare una licenza per Windows Server 2012 standard da un punto vendita al dettaglio, da un distributore o con l'aiuto di un [partner Microsoft](https://pinpoint.microsoft.com/SelectCulture.aspx).  
   
    > [!NOTE]
-   >  Se inizialmente acquistato Windows Server 2012 Standard ed esercitato il diritto di downgrade per installare una delle due istanze virtuali disponibili come Windows Server Essentials, non occorre acquistare altre.  
+   >  Se inizialmente è stato acquistato Windows Server 2012 standard ed è stato eseguito il downgrade dei diritti per l'installazione di una delle due istanze virtuali come Windows Server Essentials, non è necessario acquistare altre attività.  
    >   
-   >  Se si acquista Windows Server 2012 Standard tramite il canale contratti multilicenza, è possibile scaricare un'immagine ISO e un codice product key per Windows Server 2012 Standard da Volume Licensing Service Center (VLSC).  
+   >  Se si acquista Windows Server 2012 standard tramite il canale contratti multilicenza, è possibile scaricare un'immagine ISO e un codice Product Key per Windows Server 2012 standard da Volume Licensing Service Center (VLSC).  
    >   
-   >  Se si acquista Windows Server 2012 Standard da tutti gli altri canali può scaricare un'immagine ISO e un codice product key di valutazione per Windows Server Essentials dal [TechNet Evaluation Center](https://technet.microsoft.com/evalcenter/jj659306.aspx). Se si esegue la transizione come descritto nel passaggio successivo, il prodotto di valutazione verrà convertito in un prodotto supportato con licenza completa.  
+   >  Se si acquista Windows Server 2012 standard da tutti gli altri canali, è possibile scaricare un'immagine ISO e un codice Product Key di valutazione per Windows Server Essentials da [TechNet Evaluation Center](https://technet.microsoft.com/evalcenter/jj659306.aspx). Se si esegue la transizione come descritto nel passaggio successivo, il prodotto di valutazione verrà convertito in un prodotto supportato con licenza completa.  
   
 2. Aprire Windows PowerShell come amministratore ed eseguire il comando seguente.  
   
-    **dism /online /set-edition:ServerStandard /accepteula /productkey:** *Codice Product Key*  
+    **DISM/online/set-Edition: ServerStandard/AcceptEula/ProductKey:** *codice Product Key*  
   
-    In cui *codice Product Key* è il codice product key per la copia di Windows Server 2012 Standard.  
+    Dove *Product Key* è il codice Product Key per la copia di Windows Server 2012 standard.  
   
     Il server viene riavviato per completare il processo di transizione.  
   
-   Al termine della transizione, le funzionalità di Windows Server Essentials rimangono nel server e sono supportate per un massimo di 75 utenti e 75 dispositivi. Se si supera uno di questi limiti, è necessario usare gli strumenti nativi di Windows Server 2012 Standard per gestire dispositivi e gli account utente.  
+   Dopo la transizione, le funzionalità di Windows Server Essentials rimangono nel server e sono supportate per un massimo di 75 utenti e 75 dispositivi. Se si supera uno di questi limiti, è necessario usare gli strumenti nativi standard di Windows Server 2012 per gestire gli account utente e i dispositivi.  
   
-   Inoltre, dopo la transizione a Windows Server 2012 Standard, le funzionalità multimediali di Windows Server Essentials non sono più disponibili. le funzionalità multimediali di Accesso Web remoto e le Impostazioni multimediali del dashboard, non sono più disponibili.  
+   Inoltre, dopo aver eseguito la transizione a Windows Server 2012 standard, le funzionalità multimediali di Windows Server Essentials non sono più disponibili. le funzionalità multimediali di Accesso Web remoto e le Impostazioni multimediali del dashboard, non sono più disponibili.  
   
-## <a name="turn-off--windows-server-essentials-features"></a>Disattivare la funzionalità di Windows Server Essentials  
- Se non è più necessario il Dashboard di Windows Server Essentials o altre funzionalità a valore aggiunto per gestire il server, è possibile disattivarle e rimuoverle dal server.  
+## <a name="turn-off--windows-server-essentials-features"></a>Disattivare le funzionalità di Windows Server Essentials  
+ Se il dashboard di Windows Server Essentials o altre funzionalità a valore aggiunto non sono più necessari per gestire il server, è possibile disattivare le funzionalità e rimuoverle dal server.  
   
- Il **disattivazione guidata funzionalità di Windows Server Essentials** consente di disinstallare le funzionalità. Elimina anche il server di file che sono stati creati dal software di server Windows Server Essentials.  Alcune operazioni di pulizia vengono eseguite immediatamente, mentre altre verranno eseguite al riavvio del server.  
+ La **disattivazione guidata funzionalità di Windows Server Essentials** consente di disinstallare le funzionalità di. Pulisce anche il server dei file creati dal software server di Windows Server Essentials.  Alcune operazioni di pulizia vengono eseguite immediatamente, mentre altre verranno eseguite al riavvio del server.  
   
- Il **disattivazione guidata funzionalità di Windows Server Essentials** richiede la disinstallazione manualmente tutti i componenti aggiuntivi per poter completare la procedura guidata. Per visualizzare l'elenco dei componenti aggiuntivi installati, aprire la pagina applicazione nel dashboard. Se vengono rilevati componenti aggiuntivi installati, la procedura guidata avvisa l'utente e gli chiede di disinstallarli.  
+ La **disattivazione guidata funzionalità di Windows Server Essentials** richiede la disinstallazione manuale di tutti i componenti aggiuntivi prima che sia possibile completare la procedura guidata. Per visualizzare l'elenco dei componenti aggiuntivi installati, aprire la pagina applicazione nel dashboard. Se vengono rilevati componenti aggiuntivi installati, la procedura guidata avvisa l'utente e gli chiede di disinstallarli.  
   
- Il **disattivazione guidata funzionalità di Windows Server Essentials** consente di scegliere se conservare i file di backup per il client computer dopo avere disattivato le funzionalità di Windows Server Essentials.  
+ La **disattivazione guidata funzionalità di Windows Server Essentials** consente di scegliere se memorizzare i file di backup per i computer client dopo la disattivazione delle funzionalità di Windows Server Essentials.  
   
  Esistono due modi per eseguire la **disattivazione guidata funzionalità di Windows Server Essentials** dal Dashboard:  
   
 #### <a name="from-the-alert"></a>Dall'avviso  
   
-1.  Aprire il Visualizzatore avvisi dal dashboard.  
+1.  Nel Dashboard aprire il Visualizzatore avvisi.  
   
-2.  In organizza elenco selezionare l'avviso che segnala l'informazione relativa alla disattivazione delle funzionalità di Windows Server Essentials dopo la transizione.  
+2.  In organizza elenco selezionare l'avviso che segnala le informazioni sulla disattivazione delle funzionalità di Windows Server Essentials dopo la transizione.  
   
-3.  Nell'avviso, fare clic su **disattivare le funzionalità di Windows Server Essentials**.  
+3.  Nell'avviso fare clic su **Disattiva le funzionalità di Windows Server Essentials**.  
   
 #### <a name="from-the-get-help-and-support-pane"></a>Dal riquadro Guida e supporto tecnico  
   
 1. Nella home page fare clic su Guida e supporto tecnico.  
   
-2. Fare clic su **disattivazione guidata funzionalità di Windows Server Essentials**.  
+2. Fare clic su **Disattiva la procedura guidata funzionalità di Windows Server Essentials**.  
   
-   È possibile che alcune attività eseguite per la **disattivazione guidata funzionalità di Windows Server Essentials** non verrà completata correttamente. Talvolta, questo problema potrebbe impedire l'esecuzione del dashboard. In tal caso, è possibile avviare la procedura guidata manualmente, mediante l'esecuzione del file:  
+   È possibile che alcune attività eseguite dalla **disattivazione guidata funzionalità di Windows Server Essentials** non vengano completate correttamente. Talvolta, questo problema potrebbe impedire l'esecuzione del dashboard. In tal caso, è possibile avviare la procedura guidata manualmente, mediante l'esecuzione del file:  
   
-   **%systemdrive%\Program Files\Windows Server\Bin\TurnOffFeaturesWizard.exe**  
+   **%systemdrive%\Program Windows Server\Bin\TurnOffFeaturesWizard.exe**  
   
 ## <a name="see-also"></a>Vedere anche  
   

@@ -6,14 +6,14 @@ ms.prod: windows-server
 ms.technology: networking-bc
 ms.topic: get-started-article
 ms.assetid: a3f1f7c4-d9b2-43e6-8bfa-fac707bbd4d3
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 1e450b9a2282cb4820b8802aa6d36e822f56ca12
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: dd39a8d7f08e3ac3e6249017a042c343d9179566
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71356587"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80319279"
 ---
 # <a name="enable-hash-publication-for-domain-member-file-servers"></a>Abilitare la pubblicazione di hash per i file server membri del dominio
 

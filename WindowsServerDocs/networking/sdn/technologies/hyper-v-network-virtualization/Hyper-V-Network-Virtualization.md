@@ -10,14 +10,14 @@ ms.technology: networking-sdn
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 150976f0-ccd5-487a-a458-92261444a846
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 30e843e40f903bc6415159bfce13b9bc95eb05ef
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: a99fed5fb173ed2ef0698ab5c10bcf872e9abea8
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71405876"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80317239"
 ---
 # <a name="hyper-v-network-virtualization"></a>Virtualizzazione rete Hyper-V
 
@@ -25,7 +25,7 @@ ms.locfileid: "71405876"
 
 Introdotto in Windows Server 2012, Hyper-V rete Virtualizzazione consente la virtualizzazione di reti dei clienti su un'infrastruttura di rete fisica condivisa. Apportando modifiche minime necessari per l'infrastruttura di rete fisica, virtualizzazione RETE fornisce ai provider di servizi la flessibilità di distribuire e migrare i carichi di lavoro tenant ovunque in tre aree: il cloud di provider del servizio, il cloud privato o la cloud pubblica di Microsoft Azure.  
   
-Per altre informazioni, vedere i seguenti argomenti:  
+Per altre informazioni, vedere gli argomenti seguenti:  
   
 -   [Panoramica di virtualizzazione rete Hyper-V in Windows Server 2016](../../../sdn/technologies/hyper-v-network-virtualization/hyperv-network-virtualization-overview-windows-server.md)  
   

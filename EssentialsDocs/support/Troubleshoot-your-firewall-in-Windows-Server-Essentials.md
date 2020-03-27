@@ -1,9 +1,9 @@
 ---
 title: Risoluzione dei problemi relativi al firewall in Windows Server Essentials
-description: Viene descritto come utilizzare Windows Server Essentials
+description: Viene descritto come usare Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
-ms.prod: windows-server-2016-essentials
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
@@ -12,12 +12,12 @@ ms.assetid: 51d94b67-8b9b-4159-80dd-f652d73a43cb
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 11372589528fcc78e0053bc7002449b53cb3181d
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 15a2361284d041898d9ad7240643fdb55aa5b866
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66436038"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80318580"
 ---
 # <a name="troubleshoot-your-firewall-in-windows-server-essentials"></a>Risoluzione dei problemi relativi al firewall in Windows Server Essentials
  
@@ -27,7 +27,7 @@ ms.locfileid: "66436038"
   
 ### <a name="to-run-the-repair-anywhere-access-wizard"></a>Per eseguire la procedura guidata Ripristina Accesso remoto via Internet  
   
-1. Aprire il dashboard.  
+1. Aprire il Dashboard.  
   
 2. Fare clic su **Impostazioni**, selezionare la scheda **Accesso remoto via Internet** e quindi fare clic su **Ripristina**.  
   
@@ -35,7 +35,7 @@ ms.locfileid: "66436038"
   
    Se si usa una configurazione di rete avanzata o un firewall non Microsoft, potrebbe essere necessario aprire porte aggiuntive nel firewall. Le porte nella tabella seguente sono registrate con IANA (Internet Assigned Numbers Authority).  
   
-|Numero di porta|Descrizione|  
+|Numero porta|Descrizione|  
 |-----------------|-----------------|  
 |65500|Servizio Web per i certificati|  
 |65510 e 65515|Sito Web di distribuzione computer client|  
@@ -45,9 +45,9 @@ ms.locfileid: "66436038"
   
 ## <a name="see-also"></a>Vedere anche  
   
--   [Usare accesso Web remoto](../use/Use-Remote-Web-Access-in-Windows-Server-Essentials.md)  
+-   [USA Accesso Web remoto](../use/Use-Remote-Web-Access-in-Windows-Server-Essentials.md)  
   
--   [Gestire accesso Web remoto](../manage/Manage-Remote-Web-Access-in-Windows-Server-Essentials.md)  
+-   [Gestisci Accesso Web Remote](../manage/Manage-Remote-Web-Access-in-Windows-Server-Essentials.md)  
   
 -   [Gestire l'accesso remoto via Internet](../manage/Manage-Anywhere-Access-in-Windows-Server-Essentials.md)  
   

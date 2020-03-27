@@ -6,15 +6,15 @@ ms.prod: windows-server
 ms.technology: networking
 ms.topic: article
 ms.assetid: dfde2e21-f3d5-41e8-8492-cb3f0d028afb
-ms.author: pashort
-author: shortpatti
+ms.author: lizross
+author: eross-msft
 ms.date: 05/25/2018
-ms.openlocfilehash: 0c154d4d4534f4c343107eecd158974b92903e39
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 26edf4d1ae4a30ccd9219392c7c4ee3604dcdad9
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71405562"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80316362"
 ---
 # <a name="configure-network-policy-server-accounting"></a>Configurare le funzionalità di accounting del Server dei criteri di rete
 
@@ -90,7 +90,7 @@ Per eseguire questa procedura, è necessaria almeno l'appartenenza al gruppo **D
 >[!NOTE]
 >NPS formatta i dati di contabilità come un documento XML che invia al **report_event** stored procedure nel database SQL Server designato in NPS. Per il corretto funzionamento della registrazione SQL Server, è necessario disporre di una stored procedure denominata **report_event** nel database SQL Server in grado di ricevere e analizzare i documenti XML da NPS.
 
-Per completare questa procedura, è necessaria almeno l'appartenenza al gruppo Domain Admins o a un gruppo equivalente.
+Per completare questa procedura, è necessario essere almeno membro del gruppo Domain Admins o gruppo equivalente.
 
 ### <a name="to-configure-sql-server-logging-in-nps"></a>Per configurare la registrazione SQL Server in NPS
 
@@ -122,7 +122,7 @@ Quando si configura una voce del registro di sistema per il **nome utente ping**
 Il **nome utente ping** non è installato per impostazione predefinita. È necessario aggiungere **ping nome utente** al registro di sistema. È possibile aggiungere una voce al registro di sistema utilizzando l'editor del registro di sistema.
 
 >[!CAUTION]
->È possibile che eventuali modifiche non corrette del Registro di sistema danneggino gravemente il sistema. Prima di apportare modifiche al Registro di sistema, si consiglia di effettuare il backup di tutti i dati importanti presenti sul computer.
+>Una modifica errata del Registro di sistema può provocare gravi danni al sistema. Prima di apportare modifiche al Registro di sistema, si consiglia di effettuare il backup di tutti i dati importanti presenti sul computer.
 
 ### <a name="to-add-ping-user-name-to-the-registry"></a>Per aggiungere ping nome utente al registro di sistema
 

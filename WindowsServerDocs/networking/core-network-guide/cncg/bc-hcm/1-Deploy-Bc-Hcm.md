@@ -6,14 +6,14 @@ ms.prod: windows-server
 ms.technology: networking-bc
 ms.topic: article
 ms.assetid: 4235231c-4732-4ea9-9330-2a8c8a616d39
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 49e74132dba2909b7e5b639c95ef50064cf23e8c
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 1da6df19933d3a4b9866b0428fb0088ac5f862b9
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71356374"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80319090"
 ---
 # <a name="deploy-branchcache-hosted-cache-mode"></a>Distribuire la modalità Cache ospitata BranchCache
 
@@ -44,7 +44,7 @@ Questa guida contiene le sezioni seguenti.
 
 - [Risorse aggiuntive](11-Bc-Hcm-additional-resources.md)
 
-## <a name="bkmk_pre"></a>Prerequisiti per l'uso di questa guida
+## <a name="prerequisites-for-using-this-guide"></a><a name="bkmk_pre"></a>Prerequisiti per l'uso di questa guida
 
 Si tratta di una guida complementare alla Guida di Windows Server 2016 Core Network. Per distribuire BranchCache in modalità cache ospitata con questa Guida, è prima di tutto necessario eseguire questa procedura.
 
@@ -60,7 +60,7 @@ Si tratta di una guida complementare alla Guida di Windows Server 2016 Core Netw
 - Distribuire nei computer client nella filiale che eseguono uno dei seguenti sistemi operativi, che forniscono BranchCache con supporto per servizio trasferimento intelligente in Background (BITS), Hyper Text Transfer Protocol (HTTP) e Server Message Block (SMB).
     - Windows 10 Enterprise
     - Windows 10 Education
-    - Windows 8.1 Enterprise
+    - Windows 8.1 Enterprise
     - Windows 8 Enterprise
 
 > [!NOTE]
@@ -69,13 +69,13 @@ Si tratta di una guida complementare alla Guida di Windows Server 2016 Core Netw
 >     - Windows 8.1 Pro, solo supporto BITS
 >     - Windows 8 Pro, solo supporto BITS
 
-## <a name="bkmk_about"></a>Informazioni su questa guida
+## <a name="about-this-guide"></a><a name="bkmk_about"></a>Informazioni su questa guida
 
 Questa guida è destinata agli amministratori di rete e di sistema che hanno seguito le istruzioni riportate nella Guida alla rete core di Windows Server 2016 o nella Guida alla rete core di Windows Server 2012 per distribuire una rete core o per coloro che hanno distribuito in precedenza le tecnologie incluse nella Guida alla rete core, tra cui Active Directory Domain Services \(AD DS\), Domain Name Service \(DNS\), Dynamic Host Configuration Protocol \(DHCP e TCP\)\/
 
 È consigliabile vedere le guide alla progettazione e alla distribuzione per ognuna delle tecnologie usate in questo scenario di distribuzione. Queste guide consentono di determinare se questo scenario di distribuzione fornisce la configurazione e i servizi necessari per la rete dell'organizzazione.
 
-## <a name="bkmk_not"></a>Descrizione non fornita da questa guida
+## <a name="what-this-guide-does-not-provide"></a><a name="bkmk_not"></a>Descrizione non fornita da questa guida
 
 Questa Guida non fornisce informazioni concettuali su BranchCache, incluse le informazioni sulle modalità e le funzionalità di BranchCache.  
 
@@ -88,7 +88,7 @@ Inoltre, se si dispone di computer che eseguono Windows 7, è necessario configu
 > [!IMPORTANT]
 > Se i server cache ospitata esegue Windows Server 2008 R2, utilizzare Windows Server 2008 R2 [Guida alla distribuzione di BranchCache](https://technet.microsoft.com/library/ee649232(v=ws.10).aspx) invece di questa Guida alla distribuzione di BranchCache in modalità cache ospitata. Applicare le impostazioni di criteri di gruppo che sono descritti nella Guida a tutti i client di BranchCache che eseguono versioni di Windows da Windows 7 per Windows 10. Attenersi alla procedura riportata in questa Guida non è possibile configurare i computer che eseguono Windows Server 2008 R2.
 
-## <a name="bkmk_tech"></a>Panoramica sulla tecnologia
+## <a name="technology-overviews"></a><a name="bkmk_tech"></a>Panoramica sulla tecnologia
 
 In questa guida complementare BranchCache è la sola tecnologia che è necessario installare e configurare. Si devono eseguire i comandi BranchCache di Windows PowerShell nei server di contenuti, ad esempio server Web e file server, ma non è necessario modificare o riconfigurare i server di contenuti in altro modo. Inoltre, è necessario configurare i computer client utilizzando criteri di gruppo nei controller di dominio che eseguono servizi di dominio Active Directory in Windows Server 2016, Windows Server 2012 R2 o Windows Server 2012.
 

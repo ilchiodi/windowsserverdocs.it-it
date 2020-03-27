@@ -6,14 +6,14 @@ ms.prod: windows-server
 ms.technology: networking-bc
 ms.topic: get-started-article
 ms.assetid: 56c915ec-edb1-43b0-8ad2-c93841bb566f
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: ad297e25f258140fce4af3f825e362f62748c77d
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 045764f9ed7cb7eef5a996748e293b48ec6018fb
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71356529"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80319200"
 ---
 # <a name="move-file-servers-to-the-branchcache-file-servers-organizational-unit"></a>Spostare i file server nell'unità organizzativa dei file server BranchCache
 
@@ -21,7 +21,7 @@ ms.locfileid: "71356529"
 
 È possibile utilizzare questa procedura per aggiungere file server con BranchCache a un'unità organizzativa (OU) in Servizi di dominio Active Directory.  
   
-L'appartenenza a **Domain Admins**, o equivalente è il requisito minimo necessario per eseguire questa procedura.  
+Per eseguire questa procedura è necessaria almeno l'appartenenza al gruppo **Domain Admins** oppure a un gruppo equivalente.  
   
 > [!NOTE]  
 > È necessario creare una OU di file server per BranchCache nella console Utenti e computer di Active Directory prima di aggiungere account computer alla OU tramite questa procedura. Per ulteriori informazioni, vedere [creare l'unità organizzativa di file server con BranchCache](../../branchcache/deploy/Create-the-BranchCache-File-Servers-Organizational-Unit.md).  

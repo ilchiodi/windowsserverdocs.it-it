@@ -1,9 +1,9 @@
 ---
 title: Risolvere i problemi relativi all'installazione di Windows Server Essentials
-description: Viene descritto come utilizzare Windows Server Essentials
+description: Viene descritto come usare Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
-ms.prod: windows-server-2016-essentials
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
@@ -12,43 +12,43 @@ ms.assetid: ecf19216-7aac-4aca-839a-342ac28f5329
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 4756d3735fd710930e0eb124b7b5c58c50078d9e
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: f8f8adf97011629dbdd68622b5d6ad1ba40f7bc2
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66432418"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80318618"
 ---
 # <a name="troubleshoot-windows-server-essentials-installation"></a>Risolvere i problemi relativi all'installazione di Windows Server Essentials
 
 >Si applica a: Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
 
-In questo argomento contiene informazioni sulla risoluzione di problemi che si verificano durante l'installazione di Windows Server Essentials. Vengono fornite istruzioni nelle aree seguenti:  
+Questo argomento descrive la risoluzione dei problemi che si verificano durante l'installazione di Windows Server Essentials. Vengono fornite istruzioni nelle aree seguenti:  
   
 
--   [Passaggi di risoluzione dei problemi generali](Troubleshoot-Windows-Server-Essentials-installation.md#BKMK_GeneralTroubleshootingSteps)  
+-   [Procedura generale per la risoluzione dei problemi](Troubleshoot-Windows-Server-Essentials-installation.md#BKMK_GeneralTroubleshootingSteps)  
   
--   [Risolvere i problemi di driver](Troubleshoot-Windows-Server-Essentials-installation.md#BKMK_TroubleshootDrivers)  
+-   [Risolvere i problemi relativi ai driver](Troubleshoot-Windows-Server-Essentials-installation.md#BKMK_TroubleshootDrivers)  
 
--   [Passaggi di risoluzione dei problemi generali](Troubleshoot-Windows-Server-Essentials-installation.md#BKMK_GeneralTroubleshootingSteps)  
+-   [Procedura generale per la risoluzione dei problemi](Troubleshoot-Windows-Server-Essentials-installation.md#BKMK_GeneralTroubleshootingSteps)  
   
--   [Risolvere i problemi di driver](Troubleshoot-Windows-Server-Essentials-installation.md#BKMK_TroubleshootDrivers)  
+-   [Risolvere i problemi relativi ai driver](Troubleshoot-Windows-Server-Essentials-installation.md#BKMK_TroubleshootDrivers)  
 
   
 > [!NOTE]
->  Per informazioni aggiornate sulla risoluzione dei problemi dalla community di Windows Server Essentials, si consiglia di visitare il [Forum di Windows Server Essentials](https://social.technet.microsoft.com/Forums/winserveressentials/threads). Il forum di Windows Server Essentials è ideale per cercare informazioni o per porre una domanda.  
+>  Per le informazioni più aggiornate sulla risoluzione dei problemi della community di Windows Server Essentials, è consigliabile visitare il [Forum di Windows Server Essentials](https://social.technet.microsoft.com/Forums/winserveressentials/threads). Il forum di Windows Server Essentials è ideale per cercare informazioni o per porre una domanda.  
   
-##  <a name="BKMK_GeneralTroubleshootingSteps"></a> Passaggi di risoluzione dei problemi generali  
- Se l'installazione di Windows Server Essentials non riesce, eseguire questi passaggi per consentire di identificare il problema che ha causato l'errore.  
+##  <a name="general-troubleshooting-steps"></a><a name="BKMK_GeneralTroubleshootingSteps"></a>Procedura generale per la risoluzione dei problemi  
+ Se l'installazione di Windows Server Essentials non riesce, seguire questa procedura per identificare il problema che ha causato l'errore.  
   
 > [!IMPORTANT]
->  È importante che non riavviare manualmente il server durante l'installazione di Windows Server Essentials. Il server viene riavviato automaticamente diverse volte durante l'installazione e la configurazione iniziale. Se il server è stato riavviato manualmente prima della visualizzazione del messaggio relativo alla **corretta installazione del server**, è possibile che l'installazione sia stata interrotta, causando l'errore.  
+>  È importante non riavviare manualmente il server durante l'installazione di Windows Server Essentials. Il server viene riavviato automaticamente diverse volte durante l'installazione e la configurazione iniziale. Se il server è stato riavviato manualmente prima della visualizzazione del messaggio relativo alla **corretta installazione del server**, è possibile che l'installazione sia stata interrotta, causando l'errore.  
   
 #### <a name="to-identify-issues-in-a-failed-installation-of-windows-server-essentials"></a>Per identificare i problemi in un'installazione non riuscita di Windows Server Essentials  
   
 1.  Verificare che l'hardware del server soddisfi i requisiti minimi. Per informazioni sui requisiti hardware, vedere [requisiti di sistema per Windows Server Essentials](../get-started/system-requirements.md).  
   
-2.  Se hai ricevuto il DVD di installazione di Windows Server Essentials da MSDN, verificare che sia valido controllando la somma di SHA1. Per altre informazioni, vedere [disponibilità e la descrizione dell'utilità File Checksum Integrity Verifier](https://go.microsoft.com/fwlink/?LinkId=220495) (https://go.microsoft.com/fwlink/?LinkId=220495).  
+2.  Se è stato ricevuto il DVD di installazione di Windows Server Essentials da MSDN, verificare che il DVD sia valido controllando la somma di SHA1. Per ulteriori informazioni, vedere [disponibilità e Descrizione dell'utilità File Checksum Integrity Verifier](https://go.microsoft.com/fwlink/?LinkId=220495) (https://go.microsoft.com/fwlink/?LinkId=220495).  
   
 3.  Verificare che la scheda di rete del server sia connessa a un router tramite un cavo di rete.  
   
@@ -57,23 +57,23 @@ In questo argomento contiene informazioni sulla risoluzione di problemi che si v
     > [!IMPORTANT]
     >  Non disconnettere il cavo di rete o riavviare il router durante l'installazione di Windows Server Essentials.  
   
-5.  Vedere "installazione del Server e distribuzione" in [Release Documentation for Windows Server Essentials](../get-started/release-notes.md)  
+5.  Vedere "installazione e distribuzione del server" nella [documentazione della versione per Windows Server Essentials](../get-started/release-notes.md)  
   
-6.  Se viene visualizzato il messaggio di errore si è verificato un errore mentre configurazione del server durante l'installazione, usare le istruzioni fornite dal produttore dell'hardware e il DVD di ripristino Server per ripristinare il server per le impostazioni predefinite.  
+6.  Se viene visualizzato un messaggio di errore durante la configurazione del server durante l'installazione, usare il DVD di ripristino del server e le istruzioni fornite dal produttore dell'hardware per ripristinare le impostazioni predefinite del server.  
   
-##  <a name="BKMK_TroubleshootDrivers"></a> Risolvere i problemi di driver  
- Il problema più comune quando si installa Windows Server Essentials è controller di archiviazione che è necessario installare i driver manualmente. Windows include i driver per molti controller di archiviazione, ma potrebbe non includere i driver per l'hardware specifico.  
+##  <a name="troubleshoot-driver-issues"></a><a name="BKMK_TroubleshootDrivers"></a>Risolvere i problemi relativi ai driver  
+ Il problema più comune quando si installa Windows Server Essentials sono i controller di archiviazione per i quali è necessario installare manualmente i driver. Windows include i driver per molti controller di archiviazione, ma potrebbe non includere i driver per l'hardware specifico.  
   
  Potrebbe anche essere necessario installare manualmente i driver della scheda di rete per l'hardware specifico.  
   
-###  <a name="BKMK_StorageDrivers"></a> Aggiunta di driver per i controller di archiviazione  
+###  <a name="adding-drivers-for-storage-controllers"></a><a name="BKMK_StorageDrivers"></a>Aggiunta di driver per i controller di archiviazione  
  Se l'hardware richiede driver di archiviazione che non sono inclusi in Windows Server Essentials, usare le informazioni seguenti per completare l'installazione.  
   
  Se viene visualizzato il messaggio seguente durante l'installazione, è necessario aggiungere manualmente i driver per il controller di archiviazione:  
   
  **Errore di installazione di Windows Server**  
   
- Disco rigido in grado di ospitare Windows Server Essentials non trovato. Caricare driver di archiviazione aggiuntivi?  
+ Impossibile trovare l'unità disco rigido in grado di ospitare Windows Server Essentials. Caricare driver di archiviazione aggiuntivi?  
   
  Usare la procedura seguente per installare un driver del controller di archiviazione.  
   
@@ -87,11 +87,11 @@ In questo argomento contiene informazioni sulla risoluzione di problemi che si v
   
 4. Avviare il computer dal DVD di Windows Server Essentials.  
   
-    Se mancano alcuni driver di controller di archiviazione, viene visualizzata la finestra di dialogo di errore di installazione di Windows Server Essentials.  
+    Se mancano alcuni driver del controller di archiviazione, viene visualizzata la finestra di dialogo errore di installazione di Windows Server Essentials.  
   
-5. Nella finestra di dialogo Errore di installazione di Windows Server Essentials, fare clic su **Sì** per caricare i driver di archiviazione aggiuntivo.  
+5. Nella finestra di dialogo errore di installazione di Windows Server Essentials, fare clic su **Sì** per caricare i driver di archiviazione aggiuntivi.  
   
-6. Alla richiesta di **selezionare il file inf del driver** , passare al file INF nella cartella DRIVERS sul disco floppy o sull'unità flash USB, selezionare il file, fare clic con il pulsante destro del mouse sul nome del file e quindi scegliere **Apri**. Il driver viene caricato.  
+6. Alla richiesta di **selezionare il file inf del driver**, passare al file INF nella cartella DRIVERS sul disco floppy o sull'unità flash USB, selezionare il file, fare clic con il pulsante destro del mouse sul nome del file e quindi scegliere **Apri**. Il driver viene caricato.  
   
    > [!NOTE]
    >  Prima di provare a caricare il file, verificare che l'estensione di file sia in lettere minuscole (.inf). Questa operazione fa distinzione tra maiuscole e minuscole e il file di driver non verrà caricato se l'estensione è in lettere maiuscole.  
@@ -100,10 +100,10 @@ In questo argomento contiene informazioni sulla risoluzione di problemi che si v
   
    Il programma di installazione dovrebbe continuare normalmente.  
   
-###  <a name="BKMK_AddingNICdrivers"></a> Aggiunta di driver per schede di rete  
- Se una scheda di rete nel computer non è supportata da Windows Server Essentials, il server non disporranno della connettività di rete dopo l'installazione viene completata e non sarà in grado di connettere i computer al server.  
+###  <a name="adding-drivers-for-network-adapters"></a><a name="BKMK_AddingNICdrivers"></a>Aggiunta di driver per le schede di rete  
+ Se una scheda di rete nel computer non è supportata da Windows Server Essentials, il server non avrà la connettività di rete al termine dell'installazione e non sarà possibile connettere i computer al server.  
   
- Al termine dell'installazione di Windows Server Essentials, l'utente viene informato se non è stato installato automaticamente un driver per scheda di rete. È anche possibile usare **Connessioni di rete** nel Pannello di controllo per verificare se manca un driver per scheda di rete. Se non è presente una connessione di rete associata alla scheda di rete sul server, è necessario installare un driver.  
+ Al termine dell'installazione di Windows Server Essentials, si viene informati se il driver di una scheda di rete non è stato installato automaticamente. È anche possibile usare **Connessioni di rete** nel Pannello di controllo per verificare se manca un driver per scheda di rete. Se non è presente una connessione di rete associata alla scheda di rete sul server, è necessario installare un driver.  
   
  Se nel computer manca un driver supportato per una scheda di rete, è necessario installare manualmente il driver per scheda di rete corretto e quindi riavviare il server. Usare la procedura seguente.  
   
@@ -113,7 +113,7 @@ In questo argomento contiene informazioni sulla risoluzione di problemi che si v
   
 2.  Seguire le istruzioni di installazione del produttore per installare il driver.  
   
-3.  Riavviare il computer.  
+3.  Riavvia il computer.  
   
     > [!IMPORTANT]
-    >  Se non si riavvia il server dopo aver installato il driver della scheda di rete mancante, l'installazione del software connettore Windows Server Essentials installato nei computer client potrebbe non riuscire.
+    >  Se il server non viene riavviato dopo l'installazione del driver della scheda di rete mancante, l'installazione del software connettore di Windows Server Essentials nei computer client potrebbe non riuscire.

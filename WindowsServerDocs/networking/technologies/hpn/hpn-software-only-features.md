@@ -6,15 +6,15 @@ ms.technology: networking
 ms.topic: article
 ms.assetid: 0cafb1cc-5798-42f5-89b6-3ffe7ac024ba
 manager: dougkim
-ms.author: pashort
-author: shortpatti
+ms.author: lizross
+author: eross-msft
 ms.date: 09/20/2018
-ms.openlocfilehash: 8c354d53db983d0437749de918b2d5f12ede0f5b
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: a83a36ce7a47f0ebde35bf93bdca20796dd37a28
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71405695"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80316887"
 ---
 # <a name="software-only-so-features-and-technologies"></a>Funzionalità e tecnologie per solo software (SO, Software Only)
 Le funzionalità di solo software sono implementate come parte del sistema operativo e sono indipendenti dalle schede di interfaccia di rete sottostanti. A volte queste funzionalità richiedono l'ottimizzazione della scheda di interfaccia di rete per un funzionamento ottimale. Esempi di queste funzionalità includono funzionalità Hyper-v, ad esempio la qualità del servizio di macchine virtuali (vmQoS), gli elenchi di controllo di accesso (ACL) e le funzionalità non Hyper-V come gruppo NIC.
@@ -34,7 +34,7 @@ Gli ACL estesi del Commuter virtuale Hyper-V consentono di configurare gli ACL d
 
 Per altre informazioni sugli elenchi di controllo di accesso di porta estesi in questa libreria, vedere [creare criteri di sicurezza con elenchi di controllo di accesso di porta estesi](https://docs.microsoft.com/windows-server/virtualization/hyper-v-virtual-switch/Create-Security-Policies-with-Extended-Port-Access-Control-Lists).
 
-## <a name="nic-teaming"></a>Gruppo NIC
+## <a name="nic-teaming"></a>Gruppo di schede di interfaccia di rete
 
 Gruppo NIC, detto anche collegamento NIC, è l'aggregazione di più porte NIC in un'entità che l'host percepisce come una singola porta NIC. Gruppo NIC protegge da un errore di una singola porta NIC (o dal cavo connesso). Aggrega inoltre il traffico di rete per una maggiore velocità effettiva. Per ulteriori informazioni, vedere [Gruppo NIC](https://docs.microsoft.com/windows-server/networking/technologies/nic-teaming/nic-teaming).
 

@@ -10,14 +10,14 @@ ms.technology: networking-bc
 ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: 9c465a9e-c504-44ec-9ebc-4e06ba54db30
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 37bab11a0914a3f6854314016bb59297aa6954f2
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: d2b98e7ccd3604de60bfabf865404506569f8c82
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71406360"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80319135"
 ---
 # <a name="enable-branchcache-on-a-file-share-optional"></a>Abilitare BranchCache in una condivisione di file (facoltativo)
 
@@ -28,13 +28,13 @@ ms.locfileid: "71406360"
 > [!IMPORTANT]  
 > Non è necessaria eseguire questa procedura se si configura l'impostazione di pubblicazione di hash con il valore **Consenti pubblicazione hash per tutte le cartelle condivise**.  
   
-L'appartenenza a **amministratori**, o equivalente è il requisito minimo necessario per eseguire questa procedura.  
+Per eseguire questa procedura è necessaria almeno l'appartenenza al gruppo **Administrators** o a un gruppo equivalente.  
   
 ### <a name="to-enable-branchcache-on-a-file-share"></a>Per abilitare BranchCache su una condivisione file  
   
-1.  Aprire Windows PowerShell, digitare **mmc**e quindi premere INVIO. Verrà aperto Microsoft Management Console (MMC).  
+1.  Aprire Windows PowerShell, digitare **mmc**, quindi premere INVIO. Verrà aperto Microsoft Management Console (MMC).  
   
-2.  In MMC scegliere **Aggiungi/Rimuovi snap-in** dal menu **File**. Il **Aggiungi o Rimuovi Snap-in** viene visualizzata la finestra di dialogo.  
+2.  Nella console MMC scegliere **Aggiungi/Rimuovi snap-in** dal menu **File**. Verrà visualizzata la finestra di dialogo **Aggiungi o rimuovi snap-in**.  
   
 3.  In **Aggiungi o Rimuovi Snap-in**, in **snap-in disponibili**, fare doppio clic su **cartelle condivise**. Verrà visualizzata la procedura guidata cartelle condivise con l'oggetto Computer locale selezionato. Configurare la visualizzazione che si preferisce, fare clic su **Fine**, quindi fare clic su **OK**.  
   

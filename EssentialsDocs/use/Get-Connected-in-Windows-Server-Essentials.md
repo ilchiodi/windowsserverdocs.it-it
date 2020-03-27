@@ -3,7 +3,7 @@ title: Connessione in Windows Server Essentials
 description: Viene descritto come usare Windows Server Essentials
 ms.custom: na
 ms.date: 05/07/2016
-ms.prod: windows-server-2016-essentials
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
@@ -12,12 +12,12 @@ ms.assetid: 149a5d34-43b7-4b9e-99e7-9f2294ab9ddb
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 04d09574046474da5bee4437628ade9646cf58ca
-ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
+ms.openlocfilehash: 14acbff8b538224546884e5bb51c40a22b8849b4
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79322123"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80318551"
 ---
 # <a name="get-connected-in-windows-server-essentials"></a>Connessione in Windows Server Essentials
 
@@ -41,7 +41,7 @@ ms.locfileid: "79322123"
 -   [Usare la finestra di avvio](Get-Connected-in-Windows-Server-Essentials.md#BKMK_C)  
 
 
-##  <a name="BKMK_A"></a>Preparare la connessione dei computer al server  
+##  <a name="prepare-to-connect-computers-to-the-server"></a><a name="BKMK_A"></a>Preparare la connessione dei computer al server  
  Questa sezione illustra il software Connettore, i sistemi operativi supportati da Windows Server Essentials, le attività da completare prima della connessione dei computer al server e le modifiche apportate dal server ai computer quando si esegue il software Connettore.  
 
 
@@ -61,7 +61,7 @@ ms.locfileid: "79322123"
 
 -   [Rimuovere un computer da un dominio Windows](Get-Connected-in-Windows-Server-Essentials.md#BKMK_8)  
 
-###  <a name="BKMK_1"></a>Panoramica del software connettore  
+###  <a name="connector-software-overview"></a><a name="BKMK_1"></a>Panoramica del software connettore  
  Il software Connettore per il sistema operativo Windows Server Essentials connette i computer nella rete al server di Windows Server Essentials. Quando si connettono computer al server, il software Connettore permette di eseguire automaticamente il backup dei computer e di monitorarne l'integrità. Il software Connettore permette anche di configurare e amministrare in modalità remota il server di Windows Server Essentials. Il software Connettore viene installato quando si connette un computer client al server. Per istruzioni dettagliate sulla connessione dei computer client al server di Windows Server Essentials, vedere [Connettere i computer al server](Get-Connected-in-Windows-Server-Essentials.md#BKMK_9) più avanti in questo argomento.  
 
 -   [Panoramica del software connettore](Get-Connected-in-Windows-Server-Essentials.md#BKMK_1)  
@@ -80,11 +80,11 @@ ms.locfileid: "79322123"
 
 -   [Rimuovere un computer da un dominio Windows](Get-Connected-in-Windows-Server-Essentials.md#BKMK_8)  
 
-###  <a name="BKMK_1"></a>Panoramica del software connettore  
+###  <a name="connector-software-overview"></a><a name="BKMK_1"></a>Panoramica del software connettore  
  Il software Connettore per il sistema operativo Windows Server Essentials connette i computer nella rete al server di Windows Server Essentials. Quando si connettono computer al server, il software Connettore permette di eseguire automaticamente il backup dei computer e di monitorarne l'integrità. Il software Connettore permette anche di configurare e amministrare in modalità remota il server di Windows Server Essentials. Il software Connettore viene installato quando si connette un computer client al server. Per istruzioni dettagliate sulla connessione dei computer client al server di Windows Server Essentials, vedere [Connettere i computer al server](Get-Connected-in-Windows-Server-Essentials.md#BKMK_9) più avanti in questo argomento.  
 
 
-###  <a name="BKMK_2"></a>Prerequisiti per la connessione di un computer al server  
+###  <a name="prerequisites-for-connecting-a-computer-to-the-server"></a><a name="BKMK_2"></a>Prerequisiti per la connessione di un computer al server  
  Prima di connettere un computer alla rete, è necessario soddisfare i requisiti seguenti:  
 
 -   L'installazione di Windows Server Essentials è stata completata e il server è in esecuzione. Se non è possibile comunicare con il server, l'installazione del software Connettore sarà interrotta.  
@@ -130,7 +130,7 @@ ms.locfileid: "79322123"
  Per istruzioni dettagliate per la connessione di un computer al server che eseguono Windows Server Essentials, vedere [Connettere i computer al server](Get-Connected-in-Windows-Server-Essentials.md#BKMK_9).  
 
 
-###  <a name="BKMK_3"></a>Prerequisiti per la connessione di un computer Mac alla rete  
+###  <a name="prerequisites-for-connecting-a-mac-computer-to-the-network"></a><a name="BKMK_3"></a>Prerequisiti per la connessione di un computer Mac alla rete  
  Prima di connettere un computer Mac alla rete, è necessario soddisfare i requisiti seguenti:  
 
 -   L'installazione del sistema operativo è stata completata e il server è in esecuzione. Se non è possibile comunicare con il server, l'installazione del software Connettore non sarà eseguita.  
@@ -151,7 +151,7 @@ ms.locfileid: "79322123"
 
 -   Un computer client può essere connesso a un solo server in un determinato momento.  
 
-###  <a name="BKMK_4"></a>Sistemi operativi supportati per i computer client  
+###  <a name="supported-operating-systems-for-client-computers"></a><a name="BKMK_4"></a>Sistemi operativi supportati per i computer client  
  Windows Server Essentials offre lo stesso insieme di funzionalità a tutti i computer client supportati. Queste funzionalità includono Associazione del dominio, finestra di avvio e notifiche sull'integrità lato client.  
 
 > [!IMPORTANT]
@@ -259,7 +259,7 @@ ms.locfileid: "79322123"
 > [!NOTE]
 >  È possibile visualizzare lo stato dell'integrità e del backup per un computer Mac dal dashboard di Windows Server Essentials. Non è tuttavia possibile configurare o avviare il backup di un computer dal dashboard. Non si può inoltre usare Accesso Web remoto per la connessione a un computer Mac.  
 
-###  <a name="BKMK_5"></a>Modifiche apportate dal server a un computer client  
+###  <a name="changes-the-server-makes-to-a-client-computer"></a><a name="BKMK_5"></a>Modifiche apportate dal server a un computer client  
  Quando si connette un computer al server, il software di Windows Server Essentials apporta alcune modifiche al computer, in modo da permettere l'interazione tra computer e server.  
 
  Il software esegue le operazioni seguenti:  
@@ -297,16 +297,16 @@ ms.locfileid: "79322123"
 
  Per ulteriori informazioni sulla connessione del computer al server, vedere [Connettere i computer al server](Get-Connected-in-Windows-Server-Essentials.md#BKMK_9).  
 
-###  <a name="BKMK_6"></a>Informazioni su nome utente e password di rete  
+###  <a name="network-user-name-and-password-information"></a><a name="BKMK_6"></a>Informazioni su nome utente e password di rete  
  È possibile ottenere informazioni su nome utente e password di rete dall'utente che gestisce il server. Queste credenziali possono essere usate per la connessione del computer al server e per accedere a informazioni dal server.  
 
-###  <a name="BKMK_6"></a>Informazioni su nome utente e password di rete  
+###  <a name="network-user-name-and-password-information"></a><a name="BKMK_6"></a>Informazioni su nome utente e password di rete  
  È possibile ottenere informazioni su nome utente e password di rete dall'utente che gestisce il server. Queste credenziali possono essere usate per la connessione del computer al server e per accedere a informazioni dal server. 
 
 
  Se si è l'amministratore del server, è possibile creare le credenziali di rete mediante l'aggiunta di un account utente dalla scheda **Utenti** del dashboard. Per altre informazioni sull'account utente, vedere [Gestire gli account utente tramite il dashboard](../manage/Manage-User-Accounts-in-Windows-Server-Essentials.md#BKMK_Manage8).  
 
-###  <a name="BKMK_7"></a>Account dell'amministratore del server  
+###  <a name="server-administrators-account"></a><a name="BKMK_7"></a>Account dell'amministratore del server  
  Per installare il software Connettore, occorre essere in grado di fornire un nome account amministratore e una password. Un account amministratore di rete permette all'utente di gestire la rete locale (LAN, Local Area Network) per l'organizzazione e semplifica la gestione e la manutenzione dei dispositivi di rete, ad esempio router e commutatori.  
 
  Le attività che possono essere eseguite tramite un account amministratore di rete includono le seguenti:  
@@ -323,7 +323,7 @@ ms.locfileid: "79322123"
 
   In Windows Server Essentials, Windows Server Essentials e Windows Server 2012 R2 con il ruolo esperienza Windows Server Essentials installato, è possibile assegnare il livello di accesso di amministratore di rete a qualsiasi account utente. in modo da concedere le autorizzazioni necessarie per eseguire le attività di amministratore di rete. Quando si assegna un livello di accesso di amministratore di rete, il prompt **Controllo di accesso utente** sarà visualizzato per qualsiasi attività che richiede autorizzazioni di amministratore.  
 
-###  <a name="BKMK_8"></a>Rimuovere un computer da un dominio Windows  
+###  <a name="remove-a-computer-from-a-windows-domain"></a><a name="BKMK_8"></a>Rimuovere un computer da un dominio Windows  
  Per rimuovere un computer dal dominio, saranno richiesti il nome utente e la password per l'account di dominio.  
 
 ##### <a name="to-remove-a-computer-from-a-windows-domain"></a>Per rimuovere un computer da un dominio di Windows  
@@ -346,7 +346,7 @@ ms.locfileid: "79322123"
         > [!NOTE]
         >  Il computer sarà rimosso dal dominio e l'account computer del dominio sarà disabilitato.  
 
-##  <a name="BKMK_B"></a>Connettere i computer al server tramite il software connettore  
+##  <a name="connect-computers-to-the-server-by-using-the-connector-software"></a><a name="BKMK_B"></a>Connettere i computer al server tramite il software connettore  
  Questa sezione offre l'accesso alle procedure e alle informazioni utili per installare il software Connettore, connettere il computer al server e risolvere i problemi della connessione dei computer al server.  
 
 
@@ -383,7 +383,7 @@ ms.locfileid: "79322123"
 -   [Funzionamento del backup con le modalità sospensione e ibernazione](Get-Connected-in-Windows-Server-Essentials.md#BKMK_Sleep)  
 
 
-###  <a name="BKMK_9"></a>Connettere i computer al server  
+###  <a name="connect-computers-to-the-server"></a><a name="BKMK_9"></a>Connettere i computer al server  
  Quando si connette un computer a un server che esegue Windows Server Essentials o Windows Server 2012 R2 con il ruolo esperienza Windows Server Essentials installato, verificare che il computer client disponga di una connessione valida a Internet.  
 
  Completare la procedura seguente in tutti i computer client per connetterli al server.  
@@ -456,7 +456,7 @@ ms.locfileid: "79322123"
 
     -   Il collegamento **Dashboard** permette di amministrare il server.  
 
-###  <a name="BKMK_10"></a>Connettere i computer a un server di Windows Server Essentials senza aggiungerli al dominio  
+###  <a name="connect-computers-to-a-windows-server-essentials-server-without-joining-the-domain"></a><a name="BKMK_10"></a>Connettere i computer a un server di Windows Server Essentials senza aggiungerli al dominio  
  Questo argomento descrive come aggiungere un computer Windows 7, Windows 8, Windows 8.1 o Windows 10 a una rete di Windows Server Essentials senza aggiungere il computer al dominio di Windows Server Essentials in una distribuzione client locale. Questo metodo di connessione è supportato in Windows Server Essentials e Windows Server Essentials.  
 
  Si tratta di un'alternativa al metodo abituale, che richiede l'aggiunta del computer al dominio di Windows Server Essentials. Con il metodo normale, se il computer si trova in un altro dominio sarà necessario rimuoverlo da quel dominio prima di aggiungerlo al dominio di Windows Server Essentials.  
@@ -519,7 +519,7 @@ ms.locfileid: "79322123"
 4.  Completare i passaggi descritti in [Connettere i computer al server](Get-Connected-in-Windows-Server-Essentials.md#BKMK_9).  
 
 
-####  <a name="BKMK_SecondServer"></a>Aggiungere un secondo server alla rete  
+####  <a name="join-a-second-server-to-the-network"></a><a name="BKMK_SecondServer"></a>Aggiungere un secondo server alla rete  
 
 ###### <a name="to-join-a-second-server-to-the-network"></a>Per aggiungere un secondo server alla rete  
 
@@ -581,7 +581,7 @@ ms.locfileid: "79322123"
 
 - Lo stato Criteri di gruppo del secondo server viene visualizzato come **non applicabile**.  
 
-###  <a name="BKMK_11"></a>Installare il software connettore  
+###  <a name="install-the-connector-software"></a><a name="BKMK_11"></a>Installare il software connettore  
  Il software Connettore in Windows Server Essentials sarà installato quando si connette il computer al server tramite la procedura guidata Connetti il computer al server. È possibile avviare questa procedura guidata digitando **http://< ServerName\>/Connect** nella barra degli indirizzi del Web browser, dove *< nomeserver\>* è il nome del server.  
 
 > [!NOTE]
@@ -601,17 +601,17 @@ ms.locfileid: "79322123"
  Per istruzioni dettagliate sulla connessione del computer al server di Windows Server Essentials, vedere [Connettere i computer al server](Get-Connected-in-Windows-Server-Essentials.md#BKMK_9).   
 
 
-###  <a name="BKMK_12"></a>Spostare manualmente i dati e le impostazioni del computer  
+###  <a name="move-computer-data-and-settings-manually"></a><a name="BKMK_12"></a>Spostare manualmente i dati e le impostazioni del computer  
   Windows Server Essentials e Windows Server Essentials supportano la migrazione dei profili utente solo per i computer client che eseguono il sistema operativo Windows 7. Quando si connette un computer basato su Windows 7 al server, la procedura guidata Connetti il computer al server potrà eseguire automaticamente la migrazione del profilo utente.  
 
  Il profilo utente non può essere trasferito automaticamente quando si connette un computer Windows 8, Windows 8.1 o Windows 10 al server. In un computer Windows 8 è tuttavia possibile usare Trasferimento dati Windows per il trasferimento di dati e impostazioni dall'utente locale originale al computer aggiunto al dominio. Per eseguire questa operazione, è necessario essere amministratore nel computer di origine Windows 8 e nel computer di destinazione Windows 8. Per informazioni sull'uso di Trasferimento dati Windows per il trasferimento di file e impostazioni, vedere l' [articolo 2735227](https://support.microsoft.com/kb/2735227) della Microsoft Knowledge Base.  
 
-###  <a name="BKMK_Transfer"></a>Trasferire più profili utente durante la distribuzione del computer  
+###  <a name="transfer-multiple-user-profiles-during-computer-deployment"></a><a name="BKMK_Transfer"></a>Trasferire più profili utente durante la distribuzione del computer  
  Prima di connettere un computer che esegue il sistema operativo Windows 7 o Windows 7 SP1 al server di Windows Server Essentials, per trasferire più profili utente locali sarà necessario creare prima di tutto gli account utente di rete corrispondenti sul server. Per altre informazioni sulla creazione di account utente di rete, vedere [Aggiungere un account utente](../manage/Manage-User-Accounts-in-Windows-Server-Essentials.md#BKMK_Manage1).  
 
  La migrazione dei profili utente è supportata solo in un computer che esegue Windows 7 (per Windows Server Essentials) o Windows 7 SP1 (per Windows Server Essentials). Quando si connette un computer al server di Windows Server Essentials usando la procedura guidata Connetti il computer al server, sarà disponibile un'opzione per lo spostamento dei dati e delle impostazioni degli utenti degli account locali precedenti nei nuovi account utente di rete. A tale scopo, nella pagina **Sposta impostazioni e dati utente esistenti** della procedura guidata mappare gli account utente di rete agli account utente locali esistenti nel computer per trasferire più profili utente presenti nel computer client.  
 
-###  <a name="BKMK_13"></a>Disinstallare il software connettore  
+###  <a name="uninstall-the-connector-software"></a><a name="BKMK_13"></a>Disinstallare il software connettore  
  È possibile disinstallare il software Connettore da un computer mediante il Pannello di controllo. La disinstallazione si esegue in genere in caso di problemi con il software Connettore o se è necessario installare una versione più recente del software Connettore. Per completare questa procedura, è necessario accedere al computer come amministratore.  
 
 > [!IMPORTANT]
@@ -638,7 +638,7 @@ ms.locfileid: "79322123"
 > -   La disinstallazione del software Connettore non separa il computer dal dominio originale. È necessario separare manualmente il computer da dominio. Per istruzioni, vedere [Rimuovere un computer da un dominio di Windows](Get-Connected-in-Windows-Server-Essentials.md#BKMK_8).  
 
 
-###  <a name="BKMK_14"></a>Disconnettere il computer da o riconnettere il computer al server  
+###  <a name="disconnect-your-computer-from-or-reconnect-your-computer-to-the-server"></a><a name="BKMK_14"></a>Disconnettere il computer da o riconnettere il computer al server  
  Per disconnettere un computer dal server, è necessario completare i passaggi seguenti:  
 
 
@@ -658,10 +658,10 @@ ms.locfileid: "79322123"
 
 6. Connettere il computer al server tramite la procedura guidata Connessione del computer. Per istruzioni dettagliate, vedere [Connettere computer al server](Get-Connected-in-Windows-Server-Essentials.md#BKMK_9).  
 
-###  <a name="BKMK_Sleep"></a>Funzionamento del backup con le modalità sospensione e ibernazione  
+###  <a name="how-backup-works-with-sleep-and-hibernate-modes"></a><a name="BKMK_Sleep"></a>Funzionamento del backup con le modalità sospensione e ibernazione  
  Se si seleziona l'opzione **Riattiva il computer per il backup** quando si connette un computer al server, il computer sarà riattivato automaticamente ogni giorno dalla modalità sospensione o ibernazione, in base a quanto specificato nella pianificazione del backup, in modo da permetterne il backup. Al termine del backup, il computer tornerà in modalità sospensione o ibernazione, in base alle rispettive impostazioni di risparmio energia. Se non si seleziona questa opzione, il server non eseguirà il backup del computer che si trova in modalità sospensione o ibernazione. Per ulteriori informazioni, vedere [Manage client backup](../manage/Manage-Client-Computer-Backup-in-Windows-Server-Essentials.md).  
 
-##  <a name="BKMK_C"></a>Usare la finestra di avvio  
+##  <a name="use-the-launchpad"></a><a name="BKMK_C"></a>Usare la finestra di avvio  
  È possibile usare la finestra di avvio per accedere alle risorse condivise dal server di Windows Server Essentials, eseguire backup dei computer e rispondere agli avvisi relativi all'integrità del sistema.  
 
 -   [Panoramica di Launchpad](../manage/Overview-of-the-Launchpad-in-Windows-Server-Essentials.md)  

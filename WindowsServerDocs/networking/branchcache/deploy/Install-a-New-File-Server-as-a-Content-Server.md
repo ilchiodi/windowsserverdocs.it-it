@@ -6,14 +6,14 @@ ms.prod: windows-server
 ms.technology: networking-bc
 ms.topic: get-started-article
 ms.assetid: 1f49fc3c-28a6-4d3d-b787-1be9e61e792f
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 489006c50ccbfa1f452d56b1a18217692d45cb1f
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 5abe1520de24d366df43210219119ae9f806adc4
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71406459"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80319230"
 ---
 # <a name="install-a-new-file-server-as-a-content-server"></a>Installare un nuovo file server come server di contenuti
 
@@ -21,7 +21,7 @@ ms.locfileid: "71406459"
 
 È possibile utilizzare questa procedura per installare il ruolo server Servizi File e il **BranchCache per file di rete** servizio ruolo in un computer che esegue Windows Server 2016.  
   
-L'appartenenza a **amministratori**, o equivalente è il requisito minimo necessario per eseguire questa procedura.  
+Per eseguire questa procedura è necessaria almeno l'appartenenza al gruppo **Administrators** o a un gruppo equivalente.  
   
 > [!NOTE]  
 > Per eseguire questa procedura mediante Windows PowerShell, eseguire Windows PowerShell come amministratore, digitare i comandi seguenti al prompt di Windows PowerShell e quindi premere INVIO.  
@@ -36,7 +36,7 @@ L'appartenenza a **amministratori**, o equivalente è il requisito minimo necess
   
 ### <a name="to-install-file-services-and-the-branchcache-for-network-files-role-service"></a>Per installare Servizi file e il servizio ruolo BranchCache per file di rete  
   
-1.  In Server Manager fare clic su **Gestione**e quindi su **Aggiungi ruoli e funzionalità**. Viene avviata l'Aggiunta guidata ruoli e funzionalità. In **prima di iniziare**, fare clic su **Avanti**.  
+1.  In Server Manager fare clic su **Gestione**e quindi su **Aggiungi ruoli e funzionalità**. Viene avviata l'Aggiunta guidata ruoli e funzionalità. In **Prima di iniziare** fare clic su **Avanti**.  
   
 2.  In **Selezione tipo di installazione**, assicurarsi che **installazione basata su ruoli o basata su funzionalità** è selezionata e quindi fare clic su **Avanti**.  
   

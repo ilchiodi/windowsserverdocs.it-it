@@ -10,15 +10,15 @@ ms.technology: networking-sdn
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 6a7ac5af-85e9-4440-a631-6a3a38e9015d
-ms.author: pashort
-author: shortpatti
+ms.author: lizross
+author: eross-msft
 ms.date: 08/27/2018
-ms.openlocfilehash: 6a1d210d25309be322359add20da4eb8d0eee091
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 1f18ad9ddb0ea1a7575f6fcb26189f36f818ada2
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71355813"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80317480"
 ---
 # <a name="use-access-control-lists-acls-to-manage-datacenter-network-traffic-flow"></a>Usare gli elenchi di controllo di accesso (ACL) per gestire il flusso del traffico di rete del Data Center
 
@@ -35,17 +35,17 @@ Dopo aver distribuito SDN, è necessario verificare la connettività di rete di 
 Usare le voci nella tabella seguente per creare un set di regole che consentano tutto il traffico di rete in ingresso e in uscita.
 
 
-| IP origine | IP destinazione | Protocol | Porta di origine | Porta di destinazione | Direction | Azione | Priority |
+| IP origine | IP destinazione | Protocollo | Porta di origine | Porta di destinazione | Direzione | Azione | Priorità |
 |:---------:|:--------------:|:--------:|:-----------:|:----------------:|:---------:|:------:|:--------:|
-|    \*     |       \*       |   Tutte    |     \*      |        \*        |  In ingresso  | Allow  |   100    |
-|    \*     |       \*       |   Tutte    |     \*      |        \*        | In uscita  | Allow  |   110    |
+|    \*     |       \*       |   Tutte    |     \*      |        \*        |  Inserimento in  | Consenti  |   100    |
+|    \*     |       \*       |   Tutte    |     \*      |        \*        | Inserimento in  | Consenti  |   110    |
 
 ---       
 
-### <a name="example-create-an-acl"></a>Esempio: Creare un ACL 
+### <a name="example-create-an-acl"></a>Esempio: creare un ACL 
 In questo esempio viene creato un ACL con due regole:
 
-1. **AllowAll_Inbound** -consente a tutto il traffico di rete di passare all'interfaccia di rete in cui è configurato questo ACL.    
+1. **AllowAll_Inbound** : consente a tutto il traffico di rete di passare all'interfaccia di rete in cui è configurato questo ACL.    
 2. **AllowAllOutbound** -consente a tutto il traffico di passare dall'interfaccia di rete. Questo ACL, identificato dall'ID risorsa "AllowAll-1", è ora pronto per essere usato nelle subnet virtuali e nelle interfacce di rete.  
 
 Lo script di esempio seguente usa i comandi di Windows PowerShell esportati dal modulo **NetworkController** per creare questo ACL.  
@@ -90,14 +90,14 @@ New-NetworkControllerAccessControlList -ResourceId "AllowAll" -Properties $aclli
 In questo esempio viene creato un ACL che impedisce alle macchine virtuali all'interno della subnet 192.168.0.0/24 di comunicare tra loro. Questo tipo di ACL è utile per limitare la capacità di un utente malintenzionato di diffondersi in un secondo momento all'interno della subnet, consentendo allo stesso tempo alle macchine virtuali di ricevere richieste dall'esterno della subnet, nonché di comunicare con altri servizi su altre subnet.   
 
 
-|   IP origine    | IP destinazione | Protocol | Porta di origine | Porta di destinazione | Direction | Azione | Priority |
+|   IP origine    | IP destinazione | Protocollo | Porta di origine | Porta di destinazione | Direzione | Azione | Priorità |
 |:--------------:|:--------------:|:--------:|:-----------:|:----------------:|:---------:|:------:|:--------:|
-|  192.168.0.1   |       \*       |   Tutte    |     \*      |        \*        |  In ingresso  | Allow  |   100    |
-|       \*       |  192.168.0.1   |   Tutte    |     \*      |        \*        | In uscita  | Allow  |   101    |
-| 192.168.0.0/24 |       \*       |   Tutte    |     \*      |        \*        |  In ingresso  | Blocca  |   102    |
-|       \*       | 192.168.0.0/24 |   Tutte    |     \*      |        \*        | In uscita  | Blocca  |   103    |
-|       \*       |       \*       |   Tutte    |     \*      |        \*        |  In ingresso  | Allow  |   104    |
-|       \*       |       \*       |   Tutte    |     \*      |        \*        | In uscita  | Allow  |   105    |
+|  192.168.0.1   |       \*       |   Tutte    |     \*      |        \*        |  Inserimento in  | Consenti  |   100    |
+|       \*       |  192.168.0.1   |   Tutte    |     \*      |        \*        | Inserimento in  | Consenti  |   101    |
+| 192.168.0.0/24 |       \*       |   Tutte    |     \*      |        \*        |  Inserimento in  | Blocco  |   102    |
+|       \*       | 192.168.0.0/24 |   Tutte    |     \*      |        \*        | Inserimento in  | Blocco  |   103    |
+|       \*       |       \*       |   Tutte    |     \*      |        \*        |  Inserimento in  | Consenti  |   104    |
+|       \*       |       \*       |   Tutte    |     \*      |        \*        | Inserimento in  | Consenti  |   105    |
 
 --- 
 

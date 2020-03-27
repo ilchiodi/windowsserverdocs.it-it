@@ -6,14 +6,14 @@ ms.prod: windows-server
 ms.technology: networking
 ms.topic: article
 ms.assetid: 5de80dc0-53be-42b7-8e5b-24d213bf2b25
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 527fbf52d68f36d198068514476868bcba930a68
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 1bb6447197bfed1108a62be077b0a076bef995da
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71396447"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80316353"
 ---
 # <a name="network-policy-server-management-with-administration-tools"></a>Gestione di Server dei criteri di rete con gli strumenti di amministrazione
 
@@ -38,7 +38,7 @@ Al termine dell'installazione di NPS, è possibile utilizzare questa procedura p
 
 **Credenziali amministrative** 
 
-Per completare questa procedura, è necessario essere un membro del gruppo Administrators.
+Per completare questa procedura è necessaria l'appartenenza al gruppo Administrators.
 
 ### <a name="to-configure-the-local-nps-by-using-the-nps-console"></a>Per configurare il server dei criteri di criteri locale utilizzando la console NPS
 
@@ -58,16 +58,16 @@ A seconda delle condizioni di rete e del numero di NPSs gestiti tramite lo\-snap
 
 **Credenziali amministrative** 
 
-Per completare questa procedura, è necessario essere un membro del gruppo Administrators.
+Per completare questa procedura è necessaria l'appartenenza al gruppo Administrators.
 
 ### <a name="to-manage-multiple-npss-by-using-the-nps-snap-in"></a>Per gestire più NPSs usando lo snap\-NPS in
 
-1. Per aprire MMC, eseguire Windows PowerShell come amministratore. In Windows PowerShell digitare **MMC**, quindi premere INVIO. Si aprirà Microsoft Management Console.
+1. Per aprire MMC, eseguire Windows PowerShell come amministratore. In Windows PowerShell digitare **MMC**, quindi premere INVIO. Verrà visualizzata la finestra di Microsoft Management Console.
 2. In MMC scegliere **Aggiungi/Rimuovi Snap\-in**dal menu **file** . Verrà visualizzata la finestra di dialogo **Aggiungi o Rimuovi Snap\-ins** .
 3. In **Aggiungi o Rimuovi snap\-ins**, in **snap\-disponibili**in, scorrere verso il basso nell'elenco, fare clic su **Server dei criteri di rete**e quindi su **Aggiungi**. Viene visualizzata la finestra di dialogo **Seleziona computer**.
 4. In **Seleziona computer**verificare che **il computer locale \(computer in cui è in esecuzione questa console\)** sia selezionato, quindi fare clic su **OK**. Il\-di snap in per il server dei criteri di server locale viene aggiunto all'elenco in **\-di snap selezionati**.
 5. In **Aggiungi o Rimuovi snap\-ins**, in **snap\-disponibili**, assicurarsi che **Server dei criteri di rete** sia ancora selezionato, quindi fare clic su **Aggiungi**. Verrà nuovamente visualizzata la finestra di dialogo **Seleziona computer** .
-6. In **Selezione computer**fare clic su **un altro computer**, quindi digitare l'indirizzo IP o il nome di dominio completo \(FQDN\) del server dei criteri di dominio remoto che si desidera gestire utilizzando il\-snap NPS in. Facoltativamente, è possibile fare clic su **Sfoglia** per esaminare la directory del computer che si desidera aggiungere. Fai clic su **OK**.
+6. In **Selezione computer**fare clic su **un altro computer**, quindi digitare l'indirizzo IP o il nome di dominio completo \(FQDN\) del server dei criteri di dominio remoto che si desidera gestire utilizzando il\-snap NPS in. Facoltativamente, è possibile fare clic su **Sfoglia** per esaminare la directory del computer che si desidera aggiungere. Fare clic su **OK**.
 7. Ripetere i passaggi 5 e 6 per aggiungere ulteriori NPSs allo snap-in NPS\-in. Dopo aver aggiunto tutti i NPSs che si desidera gestire, fare clic su **OK**.
 8. Per salvare lo snap-in NPS per utilizzarlo in un secondo momento, fare clic su **file**, quindi fare clic su **Salva**. Nella finestra di dialogo **Salva con** nome individuare il percorso del disco rigido in cui si desidera salvare il file, digitare un nome per il file di Microsoft Management Console \(. msc\), quindi fare clic su **Salva**. 
 
@@ -91,12 +91,12 @@ Per completare questa procedura, è necessario essere un membro del gruppo Admin
 1. In ogni server dei criteri di server che si desidera gestire in remoto, in Server Manager, selezionare **server locale**. Nel riquadro Dettagli Server Manager visualizzare l'impostazione di **Desktop remoto** ed eseguire una delle operazioni seguenti. 
     1. Se il valore dell'impostazione **Desktop remoto** è **abilitato**, non è necessario eseguire alcuni passaggi di questa procedura. Passare al passaggio 4 per avviare la configurazione di Desktop remoto autorizzazioni utente.
     2. Se l'impostazione **Desktop remoto** è **disabilitata**, fare clic sulla parola **disabilitata**. Verrà visualizzata la finestra di dialogo **proprietà del sistema** nella scheda **Remote** .
-2. In **Desktop remoto**fare clic su **Consenti connessioni remote al computer**. Verrà visualizzata la finestra di dialogo **Connessione desktop remoto** . Effettuare una delle operazioni seguenti.
+2. In **Desktop remoto**fare clic su **Consenti connessioni remote al computer**. Verrà visualizzata la finestra di dialogo **Connessione desktop remoto** . Effettuare una delle operazioni riportate di seguito.
     1. Per personalizzare le connessioni di rete consentite, fare clic su **Windows Firewall con sicurezza avanzata**e quindi configurare le impostazioni che si desidera consentire. 
     2. Per abilitare Connessione Desktop remoto per tutte le connessioni di rete nel computer, fare clic su **OK**.
 3. In **proprietà di sistema**, in **Desktop remoto**decidere se abilitare **Consenti connessioni solo da computer che eseguono Desktop remoto con autenticazione a livello di rete**ed effettuare la selezione.
 4. Fare clic su **selezionare utenti**. Verrà visualizzata la finestra di dialogo **Desktop remoto utenti** .
-5. In **Desktop remoto utenti**, per concedere l'autorizzazione a un utente per la connessione remota al server dei criteri di server, fare clic su **Aggiungi**e quindi digitare il nome utente per l'account dell'utente. Fai clic su **OK**.
+5. In **Desktop remoto utenti**, per concedere l'autorizzazione a un utente per la connessione remota al server dei criteri di server, fare clic su **Aggiungi**e quindi digitare il nome utente per l'account dell'utente. Fare clic su **OK**.
 6. Ripetere il passaggio 5 per ogni utente per il quale si desidera concedere l'autorizzazione di accesso remoto al server dei criteri di accesso. Al termine dell'aggiunta di utenti, fare clic su **OK** per chiudere la finestra di dialogo **Desktop remoto utenti** e quindi di nuovo su **OK** per chiudere la finestra di dialogo **Proprietà sistema** .
 7. Per connettersi a un server dei criteri di configurazione remoto configurato usando i passaggi precedenti, fare clic sul pulsante **Start**, scorrere l'elenco alfabetico e quindi fare clic su **Accessori Windows**e quindi su **Connessione desktop remoto**. Verrà visualizzata la finestra di dialogo **Connessione desktop remoto** .
 8. Nella finestra di dialogo **Connessione desktop remoto** , in **computer**, digitare il nome o l'indirizzo IP del server dei criteri di server. Se si preferisce, fare clic su **Opzioni**, configurare opzioni di connessione aggiuntive e quindi fare clic su **Salva** per salvare la connessione per utilizzarlo ripetutamente.
@@ -114,7 +114,7 @@ Per completare questa procedura, è necessario essere un membro del gruppo Admin
 
 **Credenziali amministrative** 
 
-Per eseguire questa procedura, è necessario essere membri del gruppo Administrators nel computer locale.
+Per eseguire questa procedura, è necessario essere un membro del gruppo amministratori del computer locale.
 
 ### <a name="to-enter-the-netsh-nps-context-on-an-nps"></a>Per immettere il contesto netsh NPS in un server dei criteri di server
 

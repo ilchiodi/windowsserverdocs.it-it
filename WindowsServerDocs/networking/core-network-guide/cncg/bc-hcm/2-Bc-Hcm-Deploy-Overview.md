@@ -6,14 +6,14 @@ ms.prod: windows-server
 ms.technology: networking-bc
 ms.topic: article
 ms.assetid: 55686a9c-60dd-47f4-9f1f-fe72c2873a44
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: dc6ade92eb5fe04271033973911ccb98e871d236
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 2ac8dc289cf321266d39016f841c243899fe6cf4
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71406377"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80319068"
 ---
 # <a name="branchcache-hosted-cache-mode-deployment-overview"></a>Panoramica della distribuzione in modalità Cache ospitata di BranchCache
 
@@ -23,7 +23,7 @@ ms.locfileid: "71406377"
 
 In questa panoramica include l'infrastruttura di BranchCache che è necessario, nonché una panoramica dettagliata semplice della distribuzione.
 
-## <a name="bkmk_components"></a>Infrastruttura di distribuzione del server cache ospitata
+## <a name="hosted-cache-server-deployment-infrastructure"></a><a name="bkmk_components"></a>Infrastruttura di distribuzione del server cache ospitata
 
 In questa distribuzione, il server cache ospitata viene distribuito tramite punti di connessione del servizio in servizi di dominio Active Directory \(AD DS\), è disponibile l'opzione con BranchCache in Windows Server 2016, Windows Server 2012 R2 e Windows Server 2012, per prehash il contenuto condiviso nel Web e file server basati su contenuto, quindi caricare il contenuto nel server cache ospitata.
 
@@ -56,7 +56,7 @@ Quando i computer client nel ramo dispongano di criteri di gruppo aggiornato e v
 
 È necessario aggiornare i criteri di gruppo nei computer client per applicare nuove impostazioni di criteri di gruppo e consentire ai client di individuare e utilizzare il server cache ospitata.
 
-## <a name="bkmk_overview"></a>Panoramica del processo di distribuzione del server cache ospitata
+## <a name="hosted-cache-server-deployment-process-overview"></a><a name="bkmk_overview"></a>Panoramica del processo di distribuzione del server cache ospitata
 
 >[!NOTE]
 >Vengono forniti i dettagli di come eseguire questi passaggi nella sezione [distribuzione in modalità Cache ospitata BranchCache](4-Bc-Hcm-Deployment.md).

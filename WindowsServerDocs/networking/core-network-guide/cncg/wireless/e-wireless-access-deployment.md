@@ -6,14 +6,14 @@ ms.prod: windows-server
 ms.technology: networking
 ms.topic: article
 ms.assetid: 4b66f517-b17d-408c-828f-a3793086bc1f
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: f07520dcdefa04cb43760c5e5c66e28c0d1ce878
-ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: ddc5ebd5f2e00251bcd1cdd915702902dcdb14ae
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79322113"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80318098"
 ---
 # <a name="wireless-access-deployment"></a>Distribuzione dell'accesso wireless
 
@@ -31,7 +31,7 @@ Per distribuire l'accesso wireless, attenersi alla procedura seguente:
 
 - [Aggiungere nuovi computer wireless al dominio](#bkmk_domain)
 
-## <a name="bkmk_aps"></a>Distribuire e configurare punti di accesso wireless
+## <a name="deploy-and-configure-wireless-aps"></a><a name="bkmk_aps"></a>Distribuire e configurare punti di accesso wireless
 
 Per distribuire e configurare i punti di accesso wireless, seguire questa procedura:
 
@@ -42,7 +42,7 @@ Per distribuire e configurare i punti di accesso wireless, seguire questa proced
 >[!NOTE]
 >Le procedure illustrate in questa guida non includono istruzioni relative ai casi in cui la finestra di dialogo **Controllo dell'account utente** viene visualizzata per richiedere l'autorizzazione a continuare. Se tale finestra di dialogo viene visualizzata nel corso delle procedure illustrate in questa guida in risposta alle azioni dell'utente, fare clic su **Continua**.
 
-### <a name="bkmk_channel"></a>Specificare le frequenze del canale AP wireless
+### <a name="specify-wireless-ap-channel-frequencies"></a><a name="bkmk_channel"></a>Specificare le frequenze del canale AP wireless
 
 Quando si distribuiscono più punti di accesso wireless in un singolo sito geografico, è necessario configurare punti di accesso wireless con segnali sovrapposti per usare frequenze del canale univoche per ridurre l'interferenza tra punti di accesso wireless.
 
@@ -52,7 +52,7 @@ Quando si distribuiscono più punti di accesso wireless in un singolo sito geogr
 
 - Identificare i segnali wireless sovrapposti nei piani adiacenti all'interno della propria organizzazione. Una volta identificate le aree di code coverage sovrapposte all'esterno e all'interno dell'organizzazione, assegnare frequenze del canale per i punti di accesso wireless, assicurando che a due punti di accesso wireless con copertura sovrapposta vengano assegnate frequenze del canale diverse.
 
-### <a name="bkmk_wirelessaps"></a>Configurare punti di accesso wireless
+### <a name="configure-wireless-aps"></a><a name="bkmk_wirelessaps"></a>Configurare punti di accesso wireless
 
 Utilizzare le seguenti informazioni e la documentazione fornita dal produttore del punto di accesso wireless per configurare i punti di accesso wireless.
 
@@ -95,7 +95,7 @@ Attenersi alla procedura seguente per creare uno o più gruppi di sicurezza wire
 
 - [Aggiungere utenti al gruppo di sicurezza wireless](#bkmk_addusers)
 
-### <a name="bkmk_groups"></a>Creare un gruppo di sicurezza per gli utenti wireless
+### <a name="create-a-wireless-users-security-group"></a><a name="bkmk_groups"></a>Creare un gruppo di sicurezza per gli utenti wireless
 
 È possibile utilizzare questa procedura per creare un gruppo di protezione wireless nel computer Microsoft Management Console e di utenti di Active Directory \(MMC\) Blocca\-in.  
 
@@ -123,7 +123,7 @@ Per eseguire questa procedura è necessaria almeno l'appartenenza al gruppo **Do
 
 Se è necessario più di un gruppo di sicurezza per gli utenti wireless, ripetere questi passaggi per creare i gruppi di utenti senza fili aggiuntivi. In un secondo momento è possibile creare criteri di rete singoli in NPS per applicare condizioni e vincoli diversi a ogni gruppo, offrendo loro autorizzazioni di accesso e regole di connettività diverse.
 
-### <a name="bkmk_addusers"></a>Aggiungere utenti al gruppo di sicurezza utenti wireless
+### <a name="add-users-to-the-wireless-users-security-group"></a><a name="bkmk_addusers"></a>Aggiungere utenti al gruppo di sicurezza utenti wireless
 
 È possibile utilizzare questa procedura per aggiungere un utente, computer o gruppo al gruppo di protezione wireless in un computer Microsoft Management Console e di utenti di Active Directory \(MMC\) Blocca\-in.
 
@@ -155,7 +155,7 @@ Per eseguire questa procedura è necessaria almeno l'appartenenza al gruppo **Do
 
 4. Per assegnare l'appartenenza al gruppo ad altri computer, ripetere i passaggi da 1\-3 di questa procedura.
 
-## <a name="bkmk_policies"></a>Configurare i criteri di rete wireless \(IEEE 802,11\)
+## <a name="configure-wireless-network-ieee-80211-policies"></a><a name="bkmk_policies"></a>Configurare i criteri di rete wireless \(IEEE 802,11\)
 
 Seguire questi passaggi per configurare la rete senza fili \(IEEE 802.11\) estensione criteri di gruppo:
 
@@ -165,7 +165,7 @@ Seguire questi passaggi per configurare la rete senza fili \(IEEE 802.11\) esten
 
 - [Configurare il nuovo criterio di rete wireless](#bkmk_policyconfig)
 
-### <a name="bkmk_opengpme"></a>Aprire o aggiungere e aprire un oggetto Criteri di gruppo
+### <a name="open-or-add-and-open-a-group-policy-object"></a><a name="bkmk_opengpme"></a>Aprire o aggiungere e aprire un oggetto Criteri di gruppo
 
 Per impostazione predefinita, la funzionalità di gestione di Criteri di gruppo è installata nei computer che eseguono Windows Server 2016 quando viene installato il Active Directory Domain Services \(il ruolo server\) servizi di dominio Active Directory e il server è configurato come controller di dominio. La procedura descritta di seguito viene descritto come aprire la Console Gestione criteri di gruppo \(GPMC\) sul controller di dominio. La procedura viene quindi descritto come aprire un dominio esistente\-oggetto Criteri di gruppo a livello di \(oggetto Criteri di gruppo\) per la modifica, o creare un nuovo dominio oggetto Criteri di gruppo e aprirlo e modificarlo.
 
@@ -191,7 +191,7 @@ Per eseguire questa procedura è necessaria almeno l'appartenenza al gruppo **Do
 
 Nella sezione successiva si utilizzerà Editor Gestione criteri di gruppo per creare criteri wireless.
 
-### <a name="bkmk_activate"></a>Attiva la rete wireless predefinita \(criteri di\) IEEE 802,11
+### <a name="activate-default-wireless-network-ieee-80211-policies"></a><a name="bkmk_activate"></a>Attiva la rete wireless predefinita \(criteri di\) IEEE 802,11
 
 Questa procedura descrive come attivare la rete wireless predefinita \(criteri di\) IEEE 802,11 usando il Editor Gestione Criteri di gruppo \(Editor gestione criteri\).
 
@@ -220,7 +220,7 @@ Per eseguire questa procedura è necessaria almeno l'appartenenza al gruppo **Do
 
 Nella sezione successiva è possibile eseguire configurazione dei criteri di ordine di preferenza l'elaborazione dei criteri e autorizzazioni di rete.
 
-### <a name="bkmk_policyconfig"></a>Configurare il nuovo criterio di rete wireless
+### <a name="configure-the-new-wireless-network-policy"></a><a name="bkmk_policyconfig"></a>Configurare il nuovo criterio di rete wireless
 
 È possibile utilizzare le procedure descritte in questa sezione per configurare la rete senza fili \(IEEE 802.11\) criteri. Questo criterio consente di configurare le impostazioni di sicurezza e autenticazione, gestire i profili wireless e specificare le autorizzazioni per le reti wireless che non sono configurate come reti preferite.
 
@@ -230,7 +230,7 @@ Nella sezione successiva è possibile eseguire configurazione dei criteri di ord
 
 - [Definire le autorizzazioni di rete](#bkmk_permissions)  
 
-#### <a name="bkmk_configureprofile"></a>Configurare un profilo di connessione wireless per PEAP\-MS\-CHAP v2
+#### <a name="configure-a-wireless-connection-profile-for-peap-ms-chap-v2"></a><a name="bkmk_configureprofile"></a>Configurare un profilo di connessione wireless per PEAP\-MS\-CHAP v2
 
 Questa procedura include i passaggi necessari per configurare un PEAP\-MS\-CHAP v2 wireless profilo.  
 
@@ -309,7 +309,7 @@ L'appartenenza al gruppo **Domain Admins** oppure a un gruppo equivalente è il 
 
 Nella sezione successiva è possibile ordinare i profili di criteri di protezione ottimale.
 
-#### <a name="bkmk_preferenceorder"></a>Imposta l'ordine delle preferenze per i profili di connessione wireless
+#### <a name="set-the-preference-order-for-wireless-connection-profiles"></a><a name="bkmk_preferenceorder"></a>Imposta l'ordine delle preferenze per i profili di connessione wireless
 È possibile utilizzare questa procedura se è stato creato più profili wireless in Criteri di rete wireless e si desidera ordinare i profili per la sicurezza e l'efficacia ottimale.
 
 Per garantire che i client wireless si connettono con il massimo livello di sicurezza che possono supportare, inserire i criteri più restrittivi nella parte superiore dell'elenco.
@@ -332,7 +332,7 @@ L'appartenenza al gruppo **Domain Admins** oppure a un gruppo equivalente è il 
 
 Nella sezione seguente, è possibile definire le autorizzazioni di rete per i criteri wireless.
 
-#### <a name="bkmk_permissions"></a>Definire le autorizzazioni di rete
+#### <a name="define-network-permissions"></a><a name="bkmk_permissions"></a>Definire le autorizzazioni di rete
 È possibile configurare le impostazioni nella scheda **autorizzazioni di rete** per i membri del dominio a cui si applicano i criteri di rete wireless \(IEEE 802,11\).
 
 È possibile applicare solo le seguenti impostazioni per reti wireless che non sono configurate sul **Generale** nella scheda il **Proprietà criterio rete senza fili** pagina:
@@ -382,7 +382,7 @@ L'appartenenza a **Domain Admins**, o equivalente è il requisito minimo necessa
 
     -   Per specificare che gli utenti possono connettersi solo a reti consentite usando i profili di criteri di gruppo, selezionare **utilizza solo profili di criteri di gruppo per le reti consentite**.
 
-## <a name="bkmk_nps"></a>Configurare NPSs
+## <a name="configure-your-npss"></a><a name="bkmk_nps"></a>Configurare NPSs
 Seguire questa procedura per configurare NPSs per eseguire l'autenticazione 802.1 X per l'accesso wireless:
 
 - [Registra NPS in Active Directory Domain Services](#bkmk_npsreg)
@@ -391,7 +391,7 @@ Seguire questa procedura per configurare NPSs per eseguire l'autenticazione 802.
 
 - [Creare criteri NPS per 802.1 X wireless tramite una procedura guidata](#bkmk_npspolicy)
 
-### <a name="bkmk_npsreg"></a>Registra NPS in Active Directory Domain Services
+### <a name="register-nps-in-active-directory-domain-services"></a><a name="bkmk_npsreg"></a>Registra NPS in Active Directory Domain Services
 È possibile utilizzare questa procedura per registrare un server che esegue Server dei criteri di rete \(NPS\) in Active Directory Domain Services \(servizi di dominio Active Directory\) nel dominio in cui il server dei criteri di rete è membro. Per consentire a NPSs di concedere l'autorizzazione per leggere la\-di connessione nelle proprietà degli account utente durante il processo di autorizzazione, è necessario che ogni server dei criteri di dominio sia registrato in servizi di dominio Active Directory. La registrazione di un server dei criteri di gruppo aggiunge il server al gruppo di sicurezza **server RAS e IAS** in servizi di dominio Active Directory.
 
 >[!NOTE]
@@ -409,7 +409,7 @@ L'appartenenza al gruppo **Domain Admins** oppure a un gruppo equivalente è il 
 
 3. In **Server dei criteri di rete** fare clic su **OK** e quindi di nuovo su **OK**.
 
-### <a name="bkmk_radiusclient"></a>Configurare un punto di accesso wireless come client RADIUS Server dei criteri di rete
+### <a name="configure-a-wireless-ap-as-an-nps-radius-client"></a><a name="bkmk_radiusclient"></a>Configurare un punto di accesso wireless come client RADIUS Server dei criteri di rete
 È possibile utilizzare questa procedura per configurare un punto di accesso, noto anche come un *server di accesso di rete \(NAS\)* , come un Remote Authentication Dial\-In User Service \(RADIUS\) client utilizzando lo snap NPS\-in. 
 
 >[!IMPORTANT]
@@ -450,7 +450,7 @@ L'appartenenza al gruppo **Domain Admins** oppure a un gruppo equivalente è il 
 
 9. Fare clic su **OK**. Il NAS viene visualizzato nell'elenco dei client RADIUS configurati nel server dei criteri di server.
 
-### <a name="bkmk_npspolicy"></a>Creare criteri NPS per 802.1 X wireless tramite una procedura guidata
+### <a name="create-nps-policies-for-8021x-wireless-using-a-wizard"></a><a name="bkmk_npspolicy"></a>Creare criteri NPS per 802.1 X wireless tramite una procedura guidata
 È possibile utilizzare questa procedura per creare criteri di richiesta di connessione e di rete criteri necessari per distribuire entrambi 802.1 X\-punti di accesso wireless in grado di Remote Authentication Dial\-In User Service \(RADIUS\) client al server RADIUS che esegue Server dei criteri di rete \(NPS\).  
 Dopo aver eseguito la procedura guidata, vengono creati i seguenti criteri:
 
@@ -512,7 +512,7 @@ L'appartenenza al gruppo **Domain Admins** oppure a un gruppo equivalente è il 
 
 Ora vengono creati i criteri di criteri di RETE e sarà possibile passare per aggiungere computer al dominio.
 
-## <a name="bkmk_domain"></a>Aggiungere nuovi computer wireless al dominio
+## <a name="join-new-wireless-computers-to-the-domain"></a><a name="bkmk_domain"></a>Aggiungere nuovi computer wireless al dominio
 Il metodo più semplice per aggiungere nuovi computer wireless al dominio consiste nel collegare fisicamente il computer a un segmento di LAN cablata \(un segmento non controllato da un switch 802.1 X\) prima di aggiungere il computer al dominio. Questa operazione è più semplice perché le impostazioni di criteri di gruppo wireless vengono applicate automaticamente e immediatamente e, se è stata distribuita l'infrastruttura a chiave pubblica (PKI), il computer riceve il certificato della CA e lo inserisce nell'archivio certificati delle autorità di certificazione radice attendibili. consentire al client wireless di considerare attendibili NPSs con i certificati server emessi dalla CA.
 
 Allo stesso modo, dopo che un nuovo computer wireless è stato aggiunto al dominio, il metodo preferito per consentire agli utenti di accedere al dominio consiste nell'eseguire l'accesso utilizzando una connessione cablata alla rete.
@@ -528,7 +528,7 @@ Per ulteriori informazioni, vedere la sezione [raggiungere il dominio e un acces
 
 Per ulteriori informazioni, vedere la sezione [raggiungere il dominio e un accesso tramite configurazione del profilo Wireless Bootstrap dagli utenti](#bkmk_userbootstrap).
 
-### <a name="bkmk_itstaff"></a>Aggiungere il dominio e accedere usando il metodo di configurazione del computer del personale IT
+### <a name="join-the-domain-and-log-on-by-using-the-it-staff-computer-configuration-method"></a><a name="bkmk_itstaff"></a>Aggiungere il dominio e accedere usando il metodo di configurazione del computer del personale IT
 Gli utenti membri di dominio con dominio\-computer client wireless collegati possono utilizzare un profilo wireless temporaneo per la connessione a un 802.1 X\-autenticato rete senza fili senza prima una connessione alla rete LAN. Questo profilo wireless temporaneo viene chiamato un *bootstrap profilo wireless*.
 
 Un profilo wireless bootstrap richiede all'utente di specificare manualmente le credenziali di account utente di dominio e non convalida il certificato di Remote Authentication Dial\-In User Service \(RADIUS\) server che esegue Server dei criteri di rete \(NPS\).
@@ -560,7 +560,7 @@ Dopo avere aggiunto il computer al dominio, è possibile utilizzare questa proce
 
 Quando l'utente avvia il computer, Windows richiede all'utente di immettere il nome di account utente di dominio e la password. Poiché l'accesso Single Sign-on è abilitato, il computer utilizza le credenziali dell'account utente di dominio per stabilire prima una connessione con la rete wireless e quindi accedere al dominio.
 
-#### <a name="bkmk_w10"></a>Accedere al dominio utilizzando computer che eseguono Windows 10
+#### <a name="log-on-to-the-domain-using-computers-running-windows-10"></a><a name="bkmk_w10"></a>Accedere al dominio utilizzando computer che eseguono Windows 10
 
 1. Disconnettersi o riavviare il computer.
 
@@ -575,7 +575,7 @@ Quando l'utente avvia il computer, Windows richiede all'utente di immettere il n
 >[!NOTE]
 >Se il **altro utente** schermata non include il testo **accesso a:** e il nome di dominio, è necessario immettere il nome utente nel formato *dominio\\utente*. Ad esempio, per accedere al dominio example.com con un account denominato **utente\-01**, tipo **esempio\\utente\-01**.
 
-### <a name="bkmk_userbootstrap"></a>Aggiungere il dominio e accedere usando la configurazione del profilo wireless bootstrap dagli utenti
+### <a name="join-the-domain-and-log-on-by-using-bootstrap-wireless-profile-configuration-by-users"></a><a name="bkmk_userbootstrap"></a>Aggiungere il dominio e accedere usando la configurazione del profilo wireless bootstrap dagli utenti
 Con questo metodo, completare i passaggi nella sezione passaggi generali, quindi specificare il dominio\-gli utenti con le istruzioni su come configurare manualmente un computer senza fili con un profilo wireless bootstrap. Il profilo wireless bootstrap consente all'utente di stabilire una connessione wireless e quindi di aggiungersi al dominio. Quando il computer viene aggiunto al dominio e riavviato, l'utente può accedere al dominio tramite una connessione wireless.
 
 #### <a name="general-steps"></a>Passaggi generali

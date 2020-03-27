@@ -2,18 +2,18 @@
 title: Eseguire la migrazione da versioni precedenti a Windows Server Essentials o Windows Server Essentials Experience
 description: Viene descritto come usare Windows Server Essentials
 ms.date: 10/03/2016
-ms.prod: windows-server-2016-essentials
+ms.prod: windows-server
 ms.topic: article
 ms.assetid: 2974fb3a-5150-43fd-a73f-3e5074eb5d03
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: f58a8f83fed4185ee51145b988cfef1074f889c7
-ms.sourcegitcommit: e817a130c2ed9caaddd1def1b2edac0c798a6aa2
+ms.openlocfilehash: 55b31785de6e17232a717d534fcb21a24d9052bd
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74945133"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80318889"
 ---
 # <a name="migrate-from-previous-versions-to-windows-server-essentials-or-windows-server-essentials-experience"></a>Eseguire la migrazione da versioni precedenti a Windows Server Essentials o Windows Server Essentials Experience
 
@@ -54,21 +54,21 @@ Questa guida descrive come eseguire la migrazione da versioni precedenti di Wind
   
    Diverse procedure di migrazione richiedono l'apertura di una finestra del prompt dei comandi come amministratore. Le procedure seguenti illustrano come eseguire questa operazione.  
   
-###  <a name="BKMK_OpenACommandPromptAsAdmin"></a>Per aprire una finestra del prompt dei comandi nel server di origine come amministratore  
+###  <a name="to-open-a-command-prompt-window-on-the-source-server-as-an-administrator"></a><a name="BKMK_OpenACommandPromptAsAdmin"></a>Per aprire una finestra del prompt dei comandi nel server di origine come amministratore  
   
-1.  Fai clic su **Start**.  
+1.  Fare clic su **Start**.  
   
 2.  Nella casella di ricerca digitare **cmd**.  
   
-3.  Nell'elenco dei risultati fare clic con il pulsante destro del mouse su **cmd**e quindi scegliere **Esegui come amministratore**.  
+3.  Nell'elenco dei risultati fare clic con il pulsante destro del mouse su **cmd** e quindi scegliere **Esegui come amministratore**.  
   
 #### <a name="to-open-a-command-prompt-window-on-the-destination-server-as-an-administrator"></a>Per aprire una finestra del prompt dei comandi sul server di destinazione come amministratore  
   
 1.  Nella schermata **Start** digitare **cmd** nella casella di ricerca.  
   
-2.  Nell'elenco dei risultati fare clic con il pulsante destro del mouse su **cmd**e quindi scegliere **Esegui come amministratore**.  
+2.  Nell'elenco dei risultati fare clic con il pulsante destro del mouse su **cmd** e quindi scegliere **Esegui come amministratore**.  
   
-## <a name="see-also"></a>Vedi anche  
+## <a name="see-also"></a>Vedere anche  
   
 -   [Eseguire la migrazione dei dati del server a Windows Server Essentials](Migrate-Server-Data-to-Windows-Server-Essentials.md)
 

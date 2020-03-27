@@ -10,14 +10,14 @@ ms.technology: networking-ipam
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: c68905ef-d54f-4fc8-80ac-1006125db64f
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 165ffe41fd79fc9f71f96ef65317375e4120cc5c
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: ffe7816c0464f0963f3f65cf21f1f6a4b7c42aa1
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71405621"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80316810"
 ---
 # <a name="manage-ipam"></a>Gestire Gestione indirizzi IP
 
@@ -39,7 +39,7 @@ In questa guida sono inclusi gli argomenti seguenti:
   
 -   [Controllo degli accessi in base al ruolo](../../technologies/ipam/Role-based-Access-Control.md)  
   
-## <a name="see-also"></a>Vedere anche  
+## <a name="see-also"></a>Vedi anche  
 [Gestione indirizzi IP &#40;gestione indirizzi IP&#41;](IP-Address-Management--IPAM-.md)  
   
 

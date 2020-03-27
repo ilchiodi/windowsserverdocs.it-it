@@ -10,14 +10,14 @@ ms.technology: networking-nict
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 26d105e0-afc3-44b5-bb5e-0c884a4c5d62
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 3ff03dae44600ff79ed22d298ee338c570e61e36
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: d8e7130d5774c19cc3d51045786bfef319cf7d16
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71405489"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80316437"
 ---
 # <a name="nic-teaming-mac-address-use-and-management"></a>Uso e gestione dell'indirizzo MAC del gruppo NIC
 
@@ -34,7 +34,7 @@ Per impostare l'indirizzo MAC del gruppo NIC su un indirizzo MAC specifico, è p
 ## <a name="mac-address-use-on-transmitted-packets"></a>Indirizzo MAC usato nei pacchetti trasmessi  
 Quando si configura un gruppo NIC in modalità indipendente dallo switch e si esegue l'hash degli indirizzi o la distribuzione del carico dinamico, i pacchetti provenienti da un'unica origine (ad esempio una singola macchina virtuale) vengono distribuiti simultaneamente tra più membri del team. Per evitare che i commutatori siano confusi e per evitare la visualizzazione di avvisi di MAC, l'indirizzo MAC di origine viene sostituito con un indirizzo MAC diverso nei frame trasmessi sui membri del team diversi dal membro del team primario. Per questo motivo, ogni membro del team usa un indirizzo MAC diverso e i conflitti di indirizzi MAC vengono evitati, a meno che non si verifichino errori.  
   
-Quando viene rilevato un errore nella scheda di interfaccia di rete primaria, il software del gruppo NIC inizia a usare l'indirizzo MAC del membro del team primario nel membro del team scelto per fungere da membro del team primario temporaneo (ovvero, quello che ora appare al compartitore come gruppo primario mero).  Questa modifica si applica solo al traffico che verrà inviato al membro del team primario con l'indirizzo MAC del membro del team primario come indirizzo MAC di origine. Il traffico continua a essere inviato con qualsiasi indirizzo MAC di origine usato prima dell'errore.  
+Quando viene rilevato un errore nella scheda di interfaccia di rete primaria, il software del gruppo NIC inizia a usare l'indirizzo MAC del membro del team primario sul membro del team scelto per fungere da membro del team primario temporaneo, ovvero quello che ora appare al compartitore come il team primario membro).  Questa modifica si applica solo al traffico che verrà inviato al membro del team primario con l'indirizzo MAC del membro del team primario come indirizzo MAC di origine. Il traffico continua a essere inviato con qualsiasi indirizzo MAC di origine usato prima dell'errore.  
   
 Di seguito sono elencati gli elenchi che descrivono il comportamento di sostituzione degli indirizzi MAC del gruppo NIC, in base alla configurazione del team:  
   
@@ -69,13 +69,13 @@ Di seguito sono elencati gli elenchi che descrivono il comportamento di sostituz
     -   Non viene eseguita alcuna sostituzione degli indirizzi MAC di origine  
   
 ## <a name="related-topics"></a>Argomenti correlati
-- [Gruppo NIC](NIC-Teaming.md): In questo argomento viene illustrata una panoramica del gruppo NIC (Network Interface Card) in Windows Server 2016. Gruppo NIC consente di raggruppare una o più schede di rete fisiche Ethernet da una a 32 in una o più schede di rete virtuali basate su software. Queste schede di rete virtuali garantiscono prestazioni elevate e tolleranza di errore in caso di errore delle schede di rete.  
+- [Gruppo NIC](NIC-Teaming.md): in questo argomento viene illustrata una panoramica del gruppo NIC (Network Interface Card) in Windows Server 2016. Gruppo NIC consente di raggruppare una o più schede di rete fisiche Ethernet da una a 32 in una o più schede di rete virtuali basate su software. Queste schede di rete virtuali garantiscono prestazioni elevate e tolleranza di errore in caso di errore delle schede di rete.  
 
-- [Impostazioni gruppo NIC](nic-teaming-settings.md): In questo argomento viene illustrata una panoramica delle proprietà del gruppo NIC, ad esempio le modalità gruppo e bilanciamento del carico. Vengono inoltre illustrati i dettagli relativi all'impostazione della scheda standby e alla proprietà principale dell'interfaccia del team. Se si dispone di almeno due schede di rete in un gruppo NIC, non è necessario designare una scheda standby per la tolleranza di errore.
+- [Impostazioni gruppo NIC](nic-teaming-settings.md): in questo argomento viene illustrata una panoramica delle proprietà del gruppo NIC, ad esempio le modalità gruppo e bilanciamento del carico. Vengono inoltre illustrati i dettagli relativi all'impostazione della scheda standby e alla proprietà principale dell'interfaccia del team. Se si dispone di almeno due schede di rete in un gruppo NIC, non è necessario designare una scheda standby per la tolleranza di errore.
   
-- [Creare un nuovo gruppo NIC in un computer host o una macchina virtuale](Create-a-New-NIC-Team-on-a-Host-Computer-or-VM.md): In questo argomento viene creato un nuovo gruppo NIC in un computer host o in una macchina virtuale (VM) Hyper-V che esegue Windows Server 2016.
+- [Creare un nuovo gruppo NIC in un computer host o](Create-a-New-NIC-Team-on-a-Host-Computer-or-VM.md)una macchina virtuale: in questo argomento si crea un nuovo gruppo NIC in un computer host o in una macchina virtuale Hyper-V che esegue Windows Server 2016.
 
-- [Risoluzione dei problemi relativi al gruppo NIC](Troubleshooting-NIC-Teaming.md): In questo argomento vengono illustrati i metodi per risolvere i problemi relativi al gruppo NIC, ad esempio l'hardware, i titoli dei commutatori fisici e la disabilitazione o l'abilitazione di schede di rete con Windows PowerShell. 
+- [Risoluzione dei problemi relativi al gruppo NIC](Troubleshooting-NIC-Teaming.md): in questo argomento vengono illustrati i modi per risolvere i problemi relativi al gruppo NIC, ad esempio l'hardware, i titoli del commutatore fisico e la disabilitazione o l'abilitazione di schede di rete con Windows PowerShell 
   
 
 

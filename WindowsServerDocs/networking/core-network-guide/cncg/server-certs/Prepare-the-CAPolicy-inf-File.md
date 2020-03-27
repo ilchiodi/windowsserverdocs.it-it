@@ -6,14 +6,14 @@ ms.topic: article
 ms.assetid: 65b36794-bb09-4c1b-a2e7-8fc780893d97
 ms.prod: windows-server
 ms.technology: networking
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 2af3a621991627addb94238e84cceb357fb47731
-ms.sourcegitcommit: b7f55949f166554614f581c9ddcef5a82fa00625
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 4df23cd64bcf3bf9c27190908fb5f2a48b30b833
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72588083"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80318296"
 ---
 # <a name="capolicyinf-syntax"></a>Sintassi di CAPolicy. inf
 >   Si applica a: Windows Server (Canale semestrale), Windows Server 2016
@@ -42,7 +42,7 @@ I termini seguenti vengono usati per descrivere la struttura dei file. inf:
 
 -   _Value_ : è il parametro e viene visualizzato a destra del segno di uguale.
 
-Nell'esempio seguente **[Version]** è la sezione, **Signature** è la chiave e **"\$Windows NT \$"** è il valore.
+Nell'esempio seguente **[Version]** è la sezione, **Signature** è la chiave e **"\$Windows NT\$"** è il valore.
 
 Esempio:
 
@@ -193,7 +193,7 @@ In un'installazione predefinita della CA, un subset dei modelli di certificato p
 
 È possibile che non si desideri emettere certificati immediatamente dopo l'installazione di un'autorità di certificazione, quindi è possibile usare l'impostazione LoadDefaultTemplates per impedire che i modelli predefiniti vengano aggiunti alla CA globale (Enterprise). Se non sono configurati modelli sulla CA, è possibile che non vengano rilasciati certificati.
 
-**AlternateSignatureAlgorithm** configura la CA per supportare il formato di firma PKCS \#1 v 2.1 sia per il certificato della CA che per le richieste di certificati. Se impostato su 1 in una CA radice, il certificato della CA includerà il formato di firma PKCS \#1 V 2.1. Se impostata su una CA subordinata, la CA subordinata creerà una richiesta di certificato che include il formato di firma PKCS \#1 V 2.1.
+**AlternateSignatureAlgorithm** configura la CA per supportare il formato di firma PKCS\#1 v 2.1 sia per il certificato della CA che per le richieste di certificati. Se impostato su 1 in una CA radice, il certificato della CA includerà il formato di firma PKCS\#1 V 2.1. Se impostata su una CA subordinata, la CA subordinata creerà una richiesta di certificato che include il formato di firma PKCS\#1 V 2.1.
 
 **ForceUTF8** modifica la codifica predefinita dei nomi distinti relativi (RDNS) nei nomi distinti del soggetto e dell'autorità emittente in UTF-8. Sono interessati solo i RDNs che supportano UTF-8, ad esempio quelli definiti come tipi di stringa di directory da una RFC. Ad esempio, l'RDN per il componente di dominio (DC) supporta la codifica come IA5 o UTF-8, mentre il paese RDN (C) supporta solo la codifica come stringa stampabile. La direttiva ForceUTF8 influirà quindi su un RDN del controller di dominio, ma non influirà su un RDN C.
 
@@ -242,7 +242,7 @@ Prima di installare Servizi certificati Active Directory, si configura il file C
 
    -   **Codifica** impostata su **ANSI**
 
-7. Fai clic su **Salva**.
+7. Fare clic su **Save**.
 
 8. Quando viene richiesto di sovrascrivere il file, fare clic su **Sì**.
 
@@ -251,7 +251,7 @@ Prima di installare Servizi certificati Active Directory, si configura il file C
    > [!CAUTION]
    >   Assicurarsi di salvare il file CAPolicy.inf con l'estensione inf. Se non digita specificamente **.inf** alla fine del nome del file e si selezionano le opzioni nel modo indicato, il file verrà salvato come file di testo e non verrà usato durante l'installazione della CA.
 
-9. Chiudere Blocco note.
+9. Chiudere il blocco note.
 
 > [!IMPORTANT]
 >   Nel file CAPolicy. inf si noterà che è presente una riga che specifica l'URL https://pki.corp.contoso.com/pki/cps.txt. La sezione del criterio interno di CAPolicy.inf è riportata solo come esempio del modo in cui specificare il percorso di un'istruzione di pratica di certificazione (CPS). In questa guida non viene richiesto di creare l'istruzione per la procedura di certificazione (CPS).

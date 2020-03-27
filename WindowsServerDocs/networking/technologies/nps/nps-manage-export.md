@@ -6,14 +6,14 @@ ms.prod: windows-server
 ms.technology: networking
 ms.topic: article
 ms.assetid: d268dc57-78f8-47ba-9a7a-a607e8b9225c
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: cbebd0388ccd5dd2540a20f5d325d7f97c7e2bb3
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 8c1aef88aec45ee63614b889658daceca3779e91
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71405441"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80316007"
 ---
 # <a name="export-an-nps-configuration-for-import-on-another-server"></a>Esportare una configurazione NPS per l'importazione in un altro server
 
@@ -50,7 +50,7 @@ La tabella seguente elenca i parametri per il cmdlet **Export-NpsConfiguration**
 
 **Credenziali amministrative**
 
-Per completare questa procedura, è necessario essere un membro del gruppo Administrators.
+Per completare questa procedura è necessaria l'appartenenza al gruppo Administrators.
 
 ### <a name="export-example"></a>Esempio di esportazione 
 
@@ -85,7 +85,7 @@ Quando si esegue il comando **netsh nps import** , il server dei criteri di serv
 
 **Credenziali amministrative**
 
-Per completare questa procedura, è necessario essere un membro del gruppo Administrators.
+Per completare questa procedura è necessaria l'appartenenza al gruppo Administrators.
 
 ### <a name="to-copy-an-nps-configuration-to-another-nps-using-netsh-commands"></a>Per copiare una configurazione NPS in un altro server dei criteri di server utilizzando comandi netsh
 
@@ -93,7 +93,7 @@ Per completare questa procedura, è necessario essere un membro del gruppo Admin
 
 2. Al prompt dei **comandi netsh** Digitare **NPS**, quindi premere INVIO. 
 
-3. Al prompt **netsh NPS** Digitare **Export filename =** "*path\file.XML*" **exportPSK = Yes**, dove *percorso* è il percorso della cartella in cui si desidera salvare il file di configurazione NPS e *file* è il nome del file XML che si desidera salvare. Premi INVIO. 
+3. Al prompt **netsh NPS** Digitare **Export filename =** "*path\file.XML*" **exportPSK = Yes**, dove *percorso* è il percorso della cartella in cui si desidera salvare il file di configurazione NPS e *file* è il nome del file XML che si desidera salvare. Premere INVIO. 
 
 Archivia le impostazioni di configurazione \(incluse le impostazioni del registro di sistema\) in un file XML. Il percorso può essere relativo o assoluto oppure può essere un Universal Naming Convention \(percorso UNC\). Dopo aver premuto INVIO, viene visualizzato un messaggio che indica se l'esportazione nel file è stata completata correttamente.
 

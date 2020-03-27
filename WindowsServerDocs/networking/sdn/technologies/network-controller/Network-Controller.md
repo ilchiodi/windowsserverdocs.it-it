@@ -6,14 +6,14 @@ ms.prod: windows-server
 ms.technology: networking-sdn
 ms.topic: article
 ms.assetid: 31f3fa4e-cd25-4bf3-89e9-a01a6cec7893
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 13f535b9a91f26b30600b637b46817cfa33ccd7b
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: ad13e41e756f0185a748fe9e17df64c71a8754bc
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71355645"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80317078"
 ---
 # <a name="network-controller"></a>Controller di rete
 
@@ -32,7 +32,7 @@ Il Controller di rete permette di automatizzare la configurazione dell'infrastru
 > - [Passaggi post-distribuzione per il controller di rete](post-deploy-steps-nc.md)
 > - [Cmdlet del controller di rete](https://technet.microsoft.com/library/mt576401.aspx) 
 
-## <a name="bkmk_overview"></a>Panoramica sul controller di rete
+## <a name="network-controller-overview"></a><a name="bkmk_overview"></a>Panoramica sul controller di rete
 
 Il controller di rete è un ruolo del server a disponibilità elevata e scalabile e fornisce un Application Programming Interface \(API\) che consente al controller di rete di comunicare con la rete e una seconda API che consente di comunicare con il controller di rete.
 
@@ -70,7 +70,7 @@ Se si distribuisce il controller di rete in un ambiente di testing, è possibile
 
 Per la disponibilità elevata in data center di grandi dimensioni, è possibile distribuire un cluster con tre VM installate in tre o più host Hyper-V. Per altre informazioni, vedere [disponibilità elevata del controller di rete](network-controller-high-availability.md).
 
-## <a name="bkmk_features"></a>Funzionalità del controller di rete
+## <a name="network-controller-features"></a><a name="bkmk_features"></a>Funzionalità del controller di rete
 
 Le funzionalità seguenti del Controller di rete permettono di configurare e gestire dispositivi e servizi di rete virtuale e fisica.  
   
@@ -85,25 +85,25 @@ Le funzionalità seguenti del Controller di rete permettono di configurare e ges
 >[!IMPORTANT]
 >Il backup e il ripristino del controller di rete non sono attualmente disponibili in Windows Server 2016.
   
-### <a name="bkmk_firewall"></a>Gestione del firewall
+### <a name="firewall-management"></a><a name="bkmk_firewall"></a>Gestione del firewall
 
 Questa funzionalità del Controller di rete permette di configurare e gestire le regole di Controllo di accesso del firewall di tipo consenti/nega per le macchine virtuali del carico di lavoro per traffico di rete Est/Ovest e Nord/Sud nel data center. Le regole del firewall sono sottoposte a plumbing nella porta vSwitch delle macchine virtuali del carico di lavoro e vengono quindi distribuite nell'intero carico di lavoro nel data center. Se si usa l'API Northbound, sarà possibile definire le regole del firewall per il traffico in entrata e in uscita dalla VM del carico di lavoro. È anche possibile configurare ogni regola del firewall in modo da registrare il traffico consentito o negato dalla regola.  
 
 Per ulteriori informazioni, vedere [Cenni preliminari sul Firewall Datacenter](../../../sdn/technologies/network-function-virtualization/Datacenter-Firewall-Overview.md).
 
-### <a name="bkmk_slb"></a>Gestione Load Balancer software
+### <a name="software-load-balancer-management"></a><a name="bkmk_slb"></a>Gestione Load Balancer software
 
 Questa funzionalità del Controller di rete permette di abilitare più server per l'hosting dello stesso carico di lavoro, offrendo disponibilità e scalabilità elevate.  
   
 Per ulteriori informazioni, vedere [il bilanciamento del carico Software & #40; SLB & #41; per SDN](../../../sdn/technologies/network-function-virtualization/Software-Load-Balancing--SLB--for-SDN.md).  
   
-### <a name="bkmk_virtual"></a>Gestione della rete virtuale
+### <a name="virtual-network-management"></a><a name="bkmk_virtual"></a>Gestione della rete virtuale
 
 Questa funzionalità del Controller di rete permette di distribuire e configurare Virtualizzazione rete Hyper-V, inclusi il commutatore virtuale Hyper-V e le schede di rete virtuali nelle singole macchine virtuali, e di archiviare e distribuire i criteri di rete virtuale.
 
 Il Controller di rete supporta Network Virtualization Generic Routing Encapsulation (NVGRE) e Virtual Extensible Local Area Network (VXLAN).
 
-### <a name="bkmk_gateway"></a>Gestione gateway RAS
+### <a name="ras-gateway-management"></a><a name="bkmk_gateway"></a>Gestione gateway RAS
 
 Questa funzionalità del controller di rete consente di distribuire, configurare e gestire macchine virtuali (VM) che sono membri di un pool di gateway RAS, offrendo servizi gateway ai tenant. Il controller di rete consente di distribuire automaticamente le macchine virtuali che eseguono il gateway RAS con le funzionalità del gateway seguenti:
 

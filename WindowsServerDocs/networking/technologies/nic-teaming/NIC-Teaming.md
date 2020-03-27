@@ -1,5 +1,5 @@
 ---
-title: Gruppo NIC
+title: Gruppo di schede di interfaccia di rete
 description: In questo argomento viene illustrata una panoramica del gruppo NIC (Network Interface Card) in Windows Server 2016. Gruppo NIC consente di raggruppare una o più schede di rete fisiche Ethernet da una a 32 in una o più schede di rete virtuali basate su software. Queste schede di rete virtuali garantiscono prestazioni elevate e tolleranza di errore in caso di errore delle schede di rete.
 manager: dougkim
 ms.custom: na
@@ -10,17 +10,17 @@ ms.technology: networking-nict
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: abded6f3-5708-4e35-9a9e-890e81924fec
-ms.author: pashort
-author: shortpatti
+ms.author: lizross
+author: eross-msft
 ms.date: 09/10/2018
-ms.openlocfilehash: 2356de674bfc6e57c9444136b1244934464a2d02
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: f4d9dd20d626f998bee0a8414c281cd27b2d3dbb
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71396496"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80316440"
 ---
-# <a name="nic-teaming"></a>Gruppo NIC
+# <a name="nic-teaming"></a>Gruppo di schede di interfaccia di rete
 
 >Si applica a: Windows Server (Canale semestrale), Windows Server 2016
 
@@ -88,7 +88,7 @@ Ecco perché:
   
 -   Quando il team è in modalità indipendente dal cambio e usa il bilanciamento del carico hash degli indirizzi, il traffico in ingresso viene sempre eseguito in una scheda di interfaccia di rete (il membro del team primario), tutto in un solo membro del team. Poiché gli altri membri del team non gestiscono il traffico in ingresso, vengono programmati con le stesse code del membro primario, in modo che se il membro primario ha esito negativo, qualsiasi altro membro del team può essere usato per prelevare il traffico in ingresso e le code sono già presenti.  
 
-- Per la maggior parte delle schede di rete sono disponibili code utilizzate per Receive-Side Scaling (RSS) o VMQ, ma non nello stesso momento. Alcune impostazioni di VMQ sembrano essere impostazioni per le code RSS, ma sono impostazioni sulle code generiche usate da RSS e da VMQ a seconda della funzionalità attualmente in uso. Ogni scheda di interfaccia di rete ha, nelle proprietà avanzate, i valori \*per * RssBaseProcNumber e MaxRssProcessors. Di seguito sono riportate alcune impostazioni VMQ che garantiscono prestazioni di sistema migliori.  
+- Per la maggior parte delle schede di rete sono disponibili code utilizzate per Receive-Side Scaling (RSS) o VMQ, ma non nello stesso momento. Alcune impostazioni di VMQ sembrano essere impostazioni per le code RSS, ma sono impostazioni sulle code generiche usate da RSS e da VMQ a seconda della funzionalità attualmente in uso. Ogni scheda di interfaccia di rete ha, nelle proprietà avanzate, i valori per * RssBaseProcNumber e \*MaxRssProcessors. Di seguito sono riportate alcune impostazioni VMQ che garantiscono prestazioni di sistema migliori.  
   
 -   Idealmente, ogni scheda di interfaccia di rete deve avere la * RssBaseProcNumber impostata su un numero pari maggiore o uguale a due (2). Il primo processore fisico, Core 0 (processori logici 0 e 1), in genere esegue la maggior parte dell'elaborazione del sistema, in modo da evitare che l'elaborazione della rete venga ricavata dal processore fisico. Alcune architetture di computer non dispongono di due processori logici per processore fisico. per tali computer, quindi, il processore di base deve essere maggiore o uguale a 1. Se in dubbio si presuppone che l'host usi un processore logico 2 per ogni architettura del processore fisico.  
   
@@ -155,11 +155,11 @@ Poiché il failover tra schede di interfaccia di rete in una macchina virtuale p
 
 ## <a name="related-topics"></a>Argomenti correlati
 
-- [Gestione e utilizzo degli indirizzi MAC del gruppo NIC](NIC-Teaming-MAC-Address-Use-and-Management.md): Quando si configura un gruppo NIC con modalità indipendente dal commutine e una distribuzione con hash di indirizzi o di carico dinamico, il team USA l'indirizzo Media Access Control (MAC) del membro del gruppo NIC primario nel traffico in uscita. Il membro del gruppo NIC primario è una scheda di rete selezionata dal sistema operativo dal set iniziale di membri del team.
+- [Gestione e utilizzo degli indirizzi MAC del gruppo NIC](NIC-Teaming-MAC-Address-Use-and-Management.md): quando si configura un gruppo NIC con modalità indipendente dal Commuter e la distribuzione del carico dinamico o degli indirizzi hash, il team USA l'indirizzo Media Access Control (Mac) del membro del gruppo NIC primario sul traffico in uscita. Il membro del gruppo NIC primario è una scheda di rete selezionata dal sistema operativo dal set iniziale di membri del team.
 
-- [Impostazioni gruppo NIC](nic-teaming-settings.md): In questo argomento viene illustrata una panoramica delle proprietà del gruppo NIC, ad esempio le modalità gruppo e bilanciamento del carico. Vengono inoltre illustrati i dettagli relativi all'impostazione della scheda standby e alla proprietà principale dell'interfaccia del team. Se si dispone di almeno due schede di rete in un gruppo NIC, non è necessario designare una scheda standby per la tolleranza di errore.
+- [Impostazioni gruppo NIC](nic-teaming-settings.md): in questo argomento viene illustrata una panoramica delle proprietà del gruppo NIC, ad esempio le modalità gruppo e bilanciamento del carico. Vengono inoltre illustrati i dettagli relativi all'impostazione della scheda standby e alla proprietà principale dell'interfaccia del team. Se si dispone di almeno due schede di rete in un gruppo NIC, non è necessario designare una scheda standby per la tolleranza di errore.
   
-- [Creare un nuovo gruppo NIC in un computer host o una macchina virtuale](Create-a-New-NIC-Team-on-a-Host-Computer-or-VM.md): In questo argomento viene creato un nuovo gruppo NIC in un computer host o in una macchina virtuale (VM) Hyper-V che esegue Windows Server 2016.
+- [Creare un nuovo gruppo NIC in un computer host o](Create-a-New-NIC-Team-on-a-Host-Computer-or-VM.md)una macchina virtuale: in questo argomento si crea un nuovo gruppo NIC in un computer host o in una macchina virtuale Hyper-V che esegue Windows Server 2016.
 
-- [Risoluzione dei problemi relativi al gruppo NIC](Troubleshooting-NIC-Teaming.md): In questo argomento vengono illustrati i metodi per risolvere i problemi relativi al gruppo NIC, ad esempio l'hardware, i titoli dei commutatori fisici e la disabilitazione o l'abilitazione di schede di rete con Windows PowerShell. 
+- [Risoluzione dei problemi relativi al gruppo NIC](Troubleshooting-NIC-Teaming.md): in questo argomento vengono illustrati i modi per risolvere i problemi relativi al gruppo NIC, ad esempio l'hardware, i titoli del commutatore fisico e la disabilitazione o l'abilitazione di schede di rete con Windows PowerShell 
  

@@ -3,7 +3,7 @@ title: Preparare il server di origine per Windows Server Essentials migration1
 description: Viene descritto come usare Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
-ms.prod: windows-server-2016-essentials
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
@@ -12,12 +12,12 @@ ms.assetid: f5861ae9-77cb-4d37-b4c5-8f0757213385
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: d09ad4b66029c40c840ff5764fdaa2705b44bac2
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: 503b8edc645b43da1dc5c5fb37547e8e0245d4a2
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75947448"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80318812"
 ---
 # <a name="prepare-your-source-server-for-windows-server-essentials-migration1"></a>Preparare il server di origine per Windows Server Essentials migration1
 
@@ -49,7 +49,7 @@ Per accertarsi che la migrazione dei dati e delle impostazioni dal server di ori
 5.  [Creazione di un piano per la migrazione di applicazioni line-of-business](../migrate/Prepare-your-Source-Server-for-Windows-Server-Essentials-migration.md#BKMK_PlanToMigrateLineOfBusinessApplications)  
 
   
-###  <a name="BKMK_BackUpYourSourceServerToPrepareForMigration"></a>Eseguire il backup del server di origine  
+###  <a name="back-up-your-source-server"></a><a name="BKMK_BackUpYourSourceServerToPrepareForMigration"></a>Eseguire il backup del server di origine  
  Eseguire il backup del server di origine prima di avviare il processo di migrazione. In questo modo, si proteggono i dati da un'eventuale perdita accidentale in caso di errore irreversibile durante la migrazione.  
   
 ##### <a name="to-back-up-the-source-server"></a>Per eseguire il backup del server di origine  
@@ -58,10 +58,10 @@ Per accertarsi che la migrazione dei dati e delle impostazioni dal server di ori
   
 2.  Verificare che l'esecuzione del backup abbia avuto esito positivo. Per verificare l'integrità del backup, selezionare file casuali dal backup, ripristinarli in un percorso alternativo e quindi controllare che i file ripristinati corrispondano ai file originali.  
   
-###  <a name="BKMK_InstallTheMostRecentServicePacksToPrepareForMigration"></a>Installare i Service Pack più recenti  
+###  <a name="install-the-most-recent-service-packs"></a><a name="BKMK_InstallTheMostRecentServicePacksToPrepareForMigration"></a>Installare i Service Pack più recenti  
  Prima della migrazione, è necessario installare sul server di origine gli aggiornamenti e i Service Pack più recenti.  
   
-###  <a name="BKMK_UseWindowsBestPracticeAnalyzer"></a>Valutare l'integrità del server di origine  
+###  <a name="evaluate-the-health-of-the-source-server"></a><a name="BKMK_UseWindowsBestPracticeAnalyzer"></a>Valutare l'integrità del server di origine  
  Prima di iniziare la migrazione, è importante valutare l'integrità del server di origine. Usare le procedure seguenti per verificare che gli aggiornamenti siano correnti, per generare un rapporto sull'integrità del sistema e per eseguire Windows Server Solutions Best Practice Analyzer (BPA).  
   
 #### <a name="download-and-install-critical-and-security-updates"></a>Scaricare e installare gli aggiornamenti critici e della sicurezza  
@@ -91,7 +91,7 @@ Per accertarsi che la migrazione dei dati e delle impostazioni dal server di ori
   
 1. Scaricare e installare [Windows Server Solutions Best Practices Analyzer](https://www.microsoft.com/download/details.aspx?id=15556) nell'Area download Microsoft.  
   
-2. Al termine del download, fare clic su **Start**, scegliere **Tutti i programmi**e quindi **SBS Best Practices Analyzer Tool**.  
+2. Al termine del download, fare clic su **Start**, scegliere **Tutti i programmi** e quindi **SBS Best Practices Analyzer Tool**.  
   
    > [!NOTE]
    >  Prima di procedere all'analisi del server, verificare la disponibilità di aggiornamenti.  
@@ -112,7 +112,7 @@ Per accertarsi che la migrazione dei dati e delle impostazioni dal server di ori
   
  Per visualizzare la descrizione e le soluzioni per un problema, fare clic su un problema all'interno del rapporto. Non tutti i problemi segnalati da Windows SBS 2011 Essentials BPA influiscono sulla migrazione, ma è consigliabile risolvere il maggior numero possibile di problemi per assicurarsi che la migrazione abbia esito positivo.  
   
-####  <a name="BKMK_SynchronizeTheSourceServerTimeWithAnExternalTimeSource"></a>Sincronizzare l'ora del server di origine con un'origine ora esterna  
+####  <a name="synchronize-the-source-server-time-with-an-external-time-source"></a><a name="BKMK_SynchronizeTheSourceServerTimeWithAnExternalTimeSource"></a>Sincronizzare l'ora del server di origine con un'origine ora esterna  
  L'ora sul server di origine deve avere una tolleranza massima di cinque minuti rispetto all'ora del server di destinazione e la data e il fuso orario devono essere gli stessi su entrambi i server. Se il server di origine è in esecuzione su una macchina virtuale, la data, l'ora e il fuso orario sul server host devono corrispondere a quelli del server di origine e del server di destinazione. Per assicurarsi che Windows Server Essentials sia installato correttamente, è necessario sincronizzare l'ora del server di origine con il server NTP (Network Time Protocol) su Internet.  
   
 ###### <a name="to-synchronize-the-source-server-time-with-the-ntp-server"></a>Per sincronizzare l'ora del server di origine con il server NTP  
@@ -130,7 +130,7 @@ Per accertarsi che la migrazione dei dati e delle impostazioni dal server di ori
 > [!IMPORTANT]
 >  Durante l'installazione di Windows Server Essentials, è possibile verificare l'ora del server di destinazione e modificarla, se necessario. Verificare che la differenza rispetto all'ora del server di origine non superi i cinque minuti. Al termine dell'installazione, il server di destinazione verrà sincronizzato con il server NTP. Tutti i computer aggiunti al dominio, incluso il server di origine, vengono sincronizzati con il server di destinazione che assume il ruolo di master emulatore del controller di dominio primario (PDC, Primary Domain Controller).  
   
-###  <a name="BKMK_MPT"></a>Eseguire lo strumento di preparazione alla migrazione nel server di origine  
+###  <a name="run-the-migration-preparation-tool-on-the-source-server"></a><a name="BKMK_MPT"></a>Eseguire lo strumento di preparazione alla migrazione nel server di origine  
  Non è possibile eseguire un'installazione in modalità di migrazione senza aver prima eseguito lo strumento di preparazione alla migrazione sul server di origine. Questo strumento è progettato per preparare il server di origine e il dominio per la migrazione a Windows Server Essentials.  
   
 > [!IMPORTANT]
@@ -200,7 +200,7 @@ Per accertarsi che la migrazione dei dati e delle impostazioni dal server di ori
 > [!NOTE]
 >  È necessario completare una corretta esecuzione dello strumento di preparazione alla migrazione nel server di origine entro due settimane dall'installazione di Windows Server Essentials nel server di destinazione. In caso contrario, l'installazione di Windows Server Essentials nel server di destinazione verrà bloccata. In questo caso, è necessario eseguire di nuovo lo strumento di preparazione alla migrazione sul server di origine.  
   
-###  <a name="BKMK_PlanToMigrateLineOfBusinessApplications"></a>Creazione di un piano per la migrazione di applicazioni line-of-business  
+###  <a name="create-a-plan-to-migrate-line-of-business-applications"></a><a name="BKMK_PlanToMigrateLineOfBusinessApplications"></a>Creazione di un piano per la migrazione di applicazioni line-of-business  
  Un'applicazione line-of-business (LOB) è un'applicazione critica del computer, essenziale per la conduzione di un'attività commerciale, Tra le applicazioni line-of-business vi sono le applicazioni di contabilità, di gestione della supply chain e di pianificazione delle risorse.  
   
  Se si prevede di eseguire la migrazione delle applicazioni line-of-business, è importante consultarsi con il fornitore di queste applicazioni per stabilire quale sia il metodo appropriato per eseguire la migrazione. È inoltre necessario individuare il dispositivo utilizzato per installare le applicazioni line-of-business sul server di destinazione.  

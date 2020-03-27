@@ -7,14 +7,14 @@ ms.technology: networking
 ms.topic: article
 ms.date: ''
 ms.assetid: 9b3ef3eb-4246-4e0e-8bf1-53224ca5f2f9
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 52f8b9e1446b5b3f3b1e7060cc737204771d1eae
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 62bac410d92e63f4f5cb759b04f7a51ef17d18b0
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71356071"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80318045"
 ---
 # <a name="core-network-guidance-for-windows-server"></a>Guida alla rete core per Windows Server
 
@@ -26,7 +26,7 @@ In questo argomento viene fornita una panoramica delle linee guida principali pe
   
 -   [Guida alla rete core per Windows Server](#bkmk_core)  
   
-## <a name="bkmk_intro"></a>Introduzione alla rete di Windows Server Core
+## <a name="introduction-to-the-windows-server-core-network"></a><a name="bkmk_intro"></a>Introduzione alla rete di Windows Server Core
 
 Una rete core è un insieme di componenti hardware, dispositivi e componenti software di rete che forniscono i servizi essenziali per i requisiti IT dell'organizzazione.
 
@@ -46,7 +46,7 @@ Una rete core basata su Windows Server offre numerosi vantaggi, inclusi i seguen
 
 Una rete core può essere inoltre ridimensionata a mano a mano che l'organizzazione cresce e i requisiti IT cambiano. Ad esempio, con una rete core è possibile aggiungere domini, subnet IP, servizi di accesso remoto, servizi wireless e altre funzionalità e ruoli server offerti da Windows Server 2016.
 
-## <a name="bkmk_core"></a>Guida alla rete core per Windows Server
+## <a name="core-network-guide-for-windows-server"></a><a name="bkmk_core"></a>Guida alla rete core per Windows Server
 
 La Guida alla rete di Core di Windows Server 2016 fornisce istruzioni su come pianificare e distribuire i componenti di base necessari per una rete completamente funzionante e un nuovo Active Directory&reg; dominio in una nuova foresta. Utilizzando questa guida è possibile distribuire computer configurati con i componenti server di Windows seguenti:
 
