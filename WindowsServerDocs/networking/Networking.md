@@ -1,5 +1,5 @@
 ---
-title: Funzionalità di rete di
+title: Rete
 description: In questo argomento viene fornita una panoramica delle tecnologie Software Defined Networking e di piattaforma di rete disponibili in Windows Server 2016.
 ms.prod: windows-server
 layout: LandingPage
@@ -7,20 +7,20 @@ ms.technology: networking
 ms.topic: landing-page
 ms.assetid: daaf6b61-5953-4c2d-b6b8-7c885b552646
 manager: dougkim
-ms.author: pashort
-author: shortpatti
+ms.author: lizross
+author: eross-msft
 ms.localizationpriority: medium
-ms.openlocfilehash: f3b580b108677b391065ad83f61e52504fe9ac91
-ms.sourcegitcommit: 68483ee9284285f5643dd67dce06f5a102cb9469
+ms.openlocfilehash: e625bb537ef514ff68241669c3e75f482a61f068
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74823841"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80318572"
 ---
-# <a name="networking"></a>Funzionalità di rete di
+# <a name="networking"></a>Rete
 
 >[!TIP]
-> Per informazioni sulle versioni precedenti di Windows Server, vedere le altre [librerie di Windows Server](/previous-versions/windows/) in docs.microsoft.com. È anche possibile cercare informazioni specifiche [in questo sito](https://docs.microsoft.com/search/index?search=Windows+Server&dataSource=previousVersions).
+> Cerchi informazioni sull'installazione delle versioni precedenti di Windows Server? Vedi le nostre altre [librerie di Windows Server](/previous-versions/windows/) in docs.microsoft.com. Puoi anche [cercare nel sito](https://docs.microsoft.com/search/index?search=Windows+Server&dataSource=previousVersions) informazioni specifiche.
 
 <hr />
 
@@ -53,7 +53,7 @@ Grazie a questa coerenza, le applicazioni sono ora più scalabili e possono esse
 
 <hr />
 
-<h2>SDN (Software Defined Networking)</h2>
+<h2>Software Defined Networking</h2>
 
 <ul class="cardsF panelContent">
     <li>
@@ -193,7 +193,7 @@ Grazie a questa coerenza, le applicazioni sono ora più scalabili e possono esse
 
 <hr />
 
-## <a name="bkmk_networking"></a>Tecnologie di rete
+## <a name="networking-technologies"></a><a name="bkmk_networking"></a>Tecnologie di rete
 
 <ul class="cardsF panelContent">
     <li>
@@ -322,7 +322,7 @@ Grazie a questa coerenza, le applicazioni sono ora più scalabili e possono esse
                     <div class="cardText">
                         <h3><a href="../virtualization/hyper-v-virtual-switch/Hyper-V-Virtual-Switch.md">Commutatore virtuale Hyper-V</a></h3>
                         <hr />
-                        <p>Il commutatore virtuale Hyper-V è un commutatore di rete Ethernet di livello 2 basato sul software, disponibile nella console di gestione di Hyper-V quando si installa il ruolo del server Hyper-V. Il commutatore include funzionalità estendibili e gestibili a livello di programmazione, per la connessione delle macchine virtuali a una rete fisica o virtuale. Il commutatore virtuale Hyper-V supporta inoltre l'imposizione di criteri per sicurezza, isolamento e livelli di servizio. </p>
+                        <p>Il commutatore virtuale Hyper-V è un commutatore di rete Ethernet di livello 2 basato sul software, disponibile nella console di gestione di Hyper-V quando si installa il ruolo del server Hyper-V. Il commutatore include funzionalità estendibili e gestibili a livello di programmazione, per la connessione delle macchine virtuali a una rete fisica o virtuale. Il commutatore virtuale Hyper-V supporta inoltre l'imposizione di criteri per sicurezza, l'isolamento e i livelli di servizio. </p>
                     </div>
                 </div>
             </div>
@@ -519,8 +519,8 @@ Grazie a questa coerenza, le applicazioni sono ora più scalabili e possono esse
                     <div class="cardText">
                         <h3><a href="../remote/remote-access/remote-access.md">Accesso remoto</a></h3>
                         <hr />
-                        <p>È possibile utilizzare le tecnologie di accesso remoto, ad esempio DirectAccess e la rete privata virtuale (VPN), per fornire agli utenti remoti la connettività alle risorse di rete interne. In addition, you can use Remote Access for local area network (LAN) routing, and for Web Application Proxy. che rende disponibili funzionalità di proxy inverso per le applicazioni Web all'interno della rete aziendale, in modo da consentire agli utenti con qualsiasi dispositivo di accedere a tali applicazioni dall'esterno della rete aziendale.</p>
-                        <p>For more information about Web Application Proxy, which is a role service of the Remote Access server role, see <a href="https://docs.microsoft.com/windows-server/remote/remote-access/web-application-proxy/web-application-proxy-windows-server">Web Application Proxy in Windows Server 2016</a></p>
+                        <p>È possibile utilizzare le tecnologie di accesso remoto, ad esempio DirectAccess e la rete privata virtuale (VPN), per fornire agli utenti remoti la connettività alle risorse di rete interne. Inoltre, è possibile utilizzare l'accesso remoto per il routing della rete locale (LAN) e per il proxy dell'applicazione Web. che rende disponibili funzionalità di proxy inverso per le applicazioni Web all'interno della rete aziendale, in modo da consentire agli utenti con qualsiasi dispositivo di accedere a tali applicazioni dall'esterno della rete aziendale.</p>
+                        <p>Per ulteriori informazioni su proxy applicazione Web, che è un servizio ruolo del ruolo del server accesso remoto, vedere <a href="https://docs.microsoft.com/windows-server/remote/remote-access/web-application-proxy/web-application-proxy-windows-server">proxy applicazione Web in Windows server 2016</a></p>
                     </div>
                 </div>
             </div>
@@ -537,10 +537,10 @@ Grazie a questa coerenza, le applicazioni sono ora più scalabili e possono esse
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3><a href="https://docs.microsoft.com/virtualization/windowscontainers/container-networking/architecture">Windows Container Networking</a></h3>
+                        <h3><a href="https://docs.microsoft.com/virtualization/windowscontainers/container-networking/architecture">Rete di contenitori di Windows</a></h3>
                         <hr />
                         <p>Rete di contenitori di Windows ti consente di creare e gestire le reti per la connessione di endpoint contenitore su host Windows 10 e Windows Server, utilizzando flussi di lavoro e strumenti standard di settore. Le reti di contenitori di Windows supportano più topologie, tra cui reti private, L2 piatte e L3 reindirizzate.</p>
-                        <p>Also supported are overlays that you can create locally on the host by using Docker, Kubernetes, or Windows PowerShell through plugins that communicate with the Windows Host Networking Service (HNS). You can create and manage multi-node cluster networks through higher level orchestration systems by communicating through a local agent to each node's HNS.</p>
+                        <p>Sono supportate anche le sovrimpressioni che è possibile creare localmente nell'host usando Docker, Kubernetes o Windows PowerShell tramite plug-in che comunicano con il servizio di rete host Windows (HNS). È possibile creare e gestire reti di cluster a più nodi tramite sistemi di orchestrazione di livello superiore tramite la comunicazione tramite un agente locale per il HNS di ciascun nodo.</p>
                     </div>
                 </div>
             </div>
@@ -560,9 +560,9 @@ Grazie a questa coerenza, le applicazioni sono ora più scalabili e possono esse
                         <h3><a href="../remote/remote-access/vpn/vpn-top.md">Rete privata virtuale (VPN)</a></h3>
                         <hr />
                         <p>DirectAccess e VPN è un servizio ruolo del ruolo del server Accesso remoto.</p>
-                        <p>When you install Remote Access as a VPN server, you can use Virtual Private Networking (VPN) to provide your remote employees with connections to your organization network across the Internet - while also maintaining information privacy with encrypted connections.</p>
+                        <p>Quando si installa accesso remoto come server VPN, è possibile usare la rete privata virtuale (VPN) per fornire ai dipendenti remoti le connessioni alla rete aziendale attraverso Internet, mantenendo al tempo stesso la privacy delle informazioni con le connessioni crittografate .</p>
                         <p> Con una VPN per l'accesso remoto in Windows Server, e computer client Windows 10, puoi distribuire una VPN Always On. Una VPN Always On ti consente di gestire i client VPN remoti sempre connessi, agevolando al contempo i lavoratori remoti, che non dovranno più connettersi e disconnettersi manualmente dalla VPN alla rete dell'organizzazione.</p>
-                        <p>For more information, see <a href="https://docs.microsoft.com/windows-server/remote/remote-access/vpn/always-on-vpn/deploy/always-on-vpn-deploy">Remote Access Always On VPN Deployment Guide for Windows Server 2016 and Windows 10</a></p>
+                        <p>Per altre informazioni, vedere <a href="https://docs.microsoft.com/windows-server/remote/remote-access/vpn/always-on-vpn/deploy/always-on-vpn-deploy">Guida alla distribuzione di accesso remoto always on VPN per Windows Server 2016 e Windows 10</a></p>
                     </div>
                 </div>
             </div>
@@ -574,6 +574,6 @@ Grazie a questa coerenza, le applicazioni sono ora più scalabili e possono esse
 
 Le risorse sulla rete per i sistemi operativi precedenti a Windows Server 2016 sono disponibili negli articoli seguenti.
 
-- [Panoramica delle reti](https://technet.microsoft.com/library/hh831357.aspx) - Windows Server 2012 e Windows Server 2012 R2
-- [Funzionalità di rete](https://technet.microsoft.com/library/cc753940) - Windows Server 2008 e Windows Server 2008 R2
-- Windows Server 2003 [Windows Server 2003/2003 R2 Retired Content](https://www.microsoft.com/download/details.aspx?id=53314)
+- [Panoramica delle reti](https://technet.microsoft.com/library/hh831357.aspx) di Windows Server 2012 e Windows Server 2012 R2
+- Windows Server 2008 and Windows Server 2008 R2 [Networking](https://technet.microsoft.com/library/cc753940) (Funzionalità di rete di Windows Server 2008 e Windows Server 2008 R2)
+- [Contenuti ritirati di Windows server 2003 Windows server 2003/2003 R2](https://www.microsoft.com/download/details.aspx?id=53314)

@@ -6,15 +6,15 @@ ms.technology: networking
 ms.topic: article
 ms.assetid: 6d53c797-fb67-4b9e-9066-1c9a8b76d2aa
 manager: dougkim
-ms.author: pashort
-author: shortpatti
+ms.author: lizross
+author: eross-msft
 ms.date: 09/14/2018
-ms.openlocfilehash: d10e8ca6e4689b89a8b9532f77613f17280282b1
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 57fc944461254e78635913ac298bacc26a0789f2
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71355478"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80309612"
 ---
 # <a name="physical-switch-configuration-for-converged-nic"></a>Configurazione del Commuter fisico per NIC convergente
 
@@ -45,7 +45,7 @@ Questi sono solo i comandi e i rispettivi usi; è necessario determinare le port
 13. Mostra esecuzione \(verificare che la configurazione sia correttamente impostata sulle porte\)
 14. WR \(fare in modo che le impostazioni vengano mantenute tra il riavvio del cambio\)
 
-### <a name="tips"></a>Consigli
+### <a name="tips"></a>Suggerimenti
 1.  No #command # nega un comando
 2.  Come aggiungere una nuova VLAN: int VLAN 100 \(se la rete di archiviazione si trova nella VLAN 100\)
 3.  Come verificare le VLAN esistenti: Mostra VLAN

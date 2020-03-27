@@ -3,7 +3,7 @@ title: 'Passaggio 1: Preparare il server di origine per la migrazione a Windows 
 description: Viene descritto come usare Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
-ms.prod: windows-server-2016-essentials
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
@@ -12,12 +12,12 @@ ms.assetid: 244c8a06-04c6-4863-8b52-974786455373
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: f95ebfec13c2ec1f374c60f48d5f8af6c4b22324
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: cb0cffdda0e0f1528887d3c94a1905a99c5c55c3
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75947396"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80318787"
 ---
 # <a name="step-1-prepare-your-source-server-for-windows-server-essentials-migration"></a>Passaggio 1: Preparare il server di origine per la migrazione a Windows Server Essentials
 
@@ -38,7 +38,7 @@ Questo argomento illustra come eseguire il backup del server di origine, valutar
 
 5.  [Creazione di un piano per la migrazione di applicazioni line-of-business](Step-1--Prepare-your-Source-Server-for-Windows-Server-Essentials-migration.md#BKMK_MigrateLOB)  
 
-###  <a name="BKMK_BackUpYourSourceServerToPrepareForMigration"></a>Eseguire il backup del server di origine  
+###  <a name="back-up-your-source-server"></a><a name="BKMK_BackUpYourSourceServerToPrepareForMigration"></a>Eseguire il backup del server di origine  
  Eseguire il backup del server di origine prima di avviare il processo di migrazione. In questo modo, si proteggono i dati da un'eventuale perdita accidentale in caso di errore irreversibile durante la migrazione.  
 
 ##### <a name="to-back-up-the-source-server"></a>Per eseguire il backup del server di origine  
@@ -56,15 +56,15 @@ Questo argomento illustra come eseguire il backup del server di origine, valutar
    |Windows Small Business Server 2011 Standard|[Gestione del backup del server](https://technet.microsoft.com/library/cc527488.aspx)  
    |Windows Server Essentials|[Gestire backup e ripristino in Windows Server Essentials](https://technet.microsoft.com/library/jj713536.aspx)
 
-###  <a name="BKMK_InstallTheMostRecentServicePacksToPrepareForMigration"></a>Installare i Service Pack più recenti  
+###  <a name="install-the-most-recent-service-packs"></a><a name="BKMK_InstallTheMostRecentServicePacksToPrepareForMigration"></a>Installare i Service Pack più recenti  
  Prima della migrazione, è necessario installare sul server di origine gli aggiornamenti e i Service Pack più recenti.  
 
-###  <a name="BKMK_DeleteSvcAcctSetting"></a>Eliminare l'impostazione account accesso come servizio  
+###  <a name="delete-the-log-on-as-a-service-account-setting"></a><a name="BKMK_DeleteSvcAcctSetting"></a>Eliminare l'impostazione account accesso come servizio  
  Se si sta eseguendo la migrazione da Windows Small Business Server 2003 o Windows Server 2003, eliminare l'impostazione account **Accesso come servizio** da Criteri di gruppo.  
 
 ##### <a name="to-delete-the-log-on-as-a-service-account-setting"></a>Per eliminare l'impostazione account accesso come servizio  
 
-1.  Per aprire lo strumento **Gestione Criteri di gruppo** , fare clic su **Start**, scegliere **Pannello di controllo**, fare clic su **Strumenti di amministrazione**, quindi fare clic su **Gestione Criteri di gruppo**.  
+1.  Per aprire lo strumento **Gestione Criteri di gruppo**, fare clic su **Start**, scegliere **Pannello di controllo**, fare clic su **Strumenti di amministrazione**, quindi fare clic su **Gestione Criteri di gruppo**.  
 
 2.  Fare clic con il pulsante destro del mouse su **Criterio controller di dominio predefiniti**, quindi scegliere **Modifica**.  
 
@@ -72,11 +72,11 @@ Questo argomento illustra come eseguire il backup del server di origine, valutar
 
 4.  Nel riquadro dei dettagli fare doppio clic su **Accesso come servizio**.  
 
-5.  Deselezionare la casella di controllo **Definisci le impostazioni relative ai criteri** .  
+5.  Deselezionare la casella di controllo **Definisci le impostazioni relative ai criteri**.  
 
 6.  Eliminare \\\localhost\SYSVOL\\< DomainName\>\Scripts\ SBS_LOGIN_SCRIPT. bat.  
 
-###  <a name="BKMK_EvaluateHealth"></a>Valutare l'integrità del server di origine  
+###  <a name="evaluate-the-health-of-the-source-server"></a><a name="BKMK_EvaluateHealth"></a>Valutare l'integrità del server di origine  
  Prima di iniziare la migrazione, è importante valutare l'integrità del server di origine. Usare le procedure seguenti per verificare che gli aggiornamenti siano correnti, per generare un rapporto sull'integrità del sistema e per eseguire Windows Server Solutions Best Practice Analyzer (BPA).  
 
 #### <a name="download-and-install-critical-and-security-updates"></a>Scaricare e installare gli aggiornamenti critici e della sicurezza  
@@ -112,7 +112,7 @@ Questo argomento illustra come eseguire il backup del server di origine, valutar
    |     Windows Server Essentials o Windows Server 2012     |                                                          Dashboard del server                                                           |
 
 
-2. Al termine del download, fare clic su **Start**, scegliere **Tutti i programmi**e quindi **SBS Best Practices Analyzer Tool**.  
+2. Al termine del download, fare clic su **Start**, scegliere **Tutti i programmi** e quindi **SBS Best Practices Analyzer Tool**.  
 
    > [!NOTE]
    >  Prima di procedere all'analisi del server, verificare la disponibilità di aggiornamenti.  
@@ -123,7 +123,7 @@ Questo argomento illustra come eseguire il backup del server di origine, valutar
 
    1.  Accedere al server di destinazione come amministratore e quindi aprire il dashboard.  
 
-   2.  Nel dashboard fare clic sulla scheda **Dispositivi** .  
+   2.  Nel dashboard fare clic sulla scheda **Dispositivi**.  
 
    3.  Nel riquadro **attività** <**Server** >fare clic su **Best Practices Analyzer**.  
 
@@ -133,14 +133,14 @@ Questo argomento illustra come eseguire il backup del server di origine, valutar
 
    Dopo aver raccolto informazioni sulla configurazione del server, lo strumento BPA verifica che le informazioni siano corrette e quindi presenta agli amministratori un elenco di informazioni e problemi ordinati per gravità. L'elenco descrive ogni problema e offre un suggerimento o una possibile soluzione. Sono disponibili tre tipi di rapporti:  
 
-|Tipo di rapporto|Descrizione
+|Tipo di report|Descrizione
 |-----------------|----------------- 
 |Rapporti elenco|Visualizza i rapporti in un elenco unidimensionale. 
 |Rapporti albero|Visualizza i rapporti in un elenco gerarchico.
 
 Per visualizzare la descrizione e le soluzioni per un problema, fare clic su un problema all'interno del rapporto. Non tutti i problemi segnalati dallo strumento BPA influiscono sulla migrazione, ma è consigliabile risolvere il maggior numero possibile di problemi affinché la migrazione abbia esito positivo.  
 
-####  <a name="BKMK_SynchronizeTheSourceServerTimeWithAnExternalTimeSource"></a>Sincronizzare l'ora del server di origine con un'origine ora esterna  
+####  <a name="synchronize-the-source-server-time-with-an-external-time-source"></a><a name="BKMK_SynchronizeTheSourceServerTimeWithAnExternalTimeSource"></a>Sincronizzare l'ora del server di origine con un'origine ora esterna  
  L'ora sul server di origine deve avere una tolleranza massima di cinque minuti rispetto all'ora del server di destinazione e la data e il fuso orario devono essere gli stessi su entrambi i server. Se il server di origine è in esecuzione su una macchina virtuale, la data, l'ora e il fuso orario sul server host devono corrispondere a quelli del server di origine e del server di destinazione. Per assicurarsi che Windows Server Essentials sia installato correttamente, è necessario sincronizzare l'ora del server di origine con il server NTP (Network Time Protocol) su Internet.  
 
 ###### <a name="to-synchronize-the-source-server-time-with-the-ntp-server"></a>Per sincronizzare l'ora del server di origine con il server NTP  
@@ -158,7 +158,7 @@ Per visualizzare la descrizione e le soluzioni per un problema, fare clic su un 
 > [!IMPORTANT]
 >  Durante l'installazione di Windows Server Essentials, è possibile verificare l'ora del server di destinazione e modificarla, se necessario. Verificare che la differenza rispetto all'ora del server di origine non superi i cinque minuti. Al termine dell'installazione, il server di destinazione verrà sincronizzato con il server NTP. Tutti i computer aggiunti al dominio, incluso il server di origine, vengono sincronizzati con il server di destinazione che assume il ruolo di master emulatore del controller di dominio primario (PDC, Primary Domain Controller).  
 
-###  <a name="BKMK_MigrateLOB"></a>Creazione di un piano per la migrazione di applicazioni line-of-business  
+###  <a name="create-a-plan-to-migrate-line-of-business-applications"></a><a name="BKMK_MigrateLOB"></a>Creazione di un piano per la migrazione di applicazioni line-of-business  
  Un'applicazione line-of-business (LOB) è un'applicazione critica del computer, essenziale per la conduzione di un'attività commerciale, Tra le applicazioni line-of-business vi sono le applicazioni di contabilità, di gestione della supply chain e di pianificazione delle risorse.  
 
  Se si prevede di eseguire la migrazione delle applicazioni line-of-business, è importante consultarsi con il fornitore di queste applicazioni per stabilire quale sia il metodo appropriato per eseguire la migrazione. È inoltre necessario individuare il dispositivo utilizzato per installare le applicazioni line-of-business sul server di destinazione.  

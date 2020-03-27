@@ -6,14 +6,14 @@ ms.prod: windows-server
 ms.technology: networking
 ms.topic: article
 ms.assetid: 204a4ef4-9d78-4a62-9940-43cc0e1c39d0
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: b83f68b52a9cceef779e5204e295bbc9e45e7a14
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 9e850f7e01d924c8ceb6a8017b3a8c3a48aa8304
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71396203"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80316009"
 ---
 # <a name="manage-certificates-used-with-nps"></a>Gestire i certificati utilizzati con Server dei criteri di rete
 
@@ -52,7 +52,7 @@ Ad esempio, potrebbe essere necessario ridurre il tempo di scadenza dell'handle 
 
 È possibile utilizzare questa procedura per modificare la quantità di tempo in cui i computer client memorizzano nella cache l'handle TLS di un server dei criteri di server. Dopo aver autenticato un server dei criteri di server, i computer client memorizzano nella cache le proprietà di connessione TLS di NPS come handle TLS. La durata predefinita dell'handle TLS è di 10 ore \(36 milioni millisecondi\). È possibile aumentare o diminuire l'ora di scadenza dell'handle TLS utilizzando la procedura riportata di seguito.
 
-L'appartenenza a **amministratori**, o equivalente è il requisito minimo necessario per completare questa procedura.
+Per poter completare questa procedura, è richiesta almeno l'appartenenza al gruppo **Administrators** o a un gruppo equivalente.
 
 >[!IMPORTANT]
 >Questa procedura deve essere eseguita su un server dei criteri di server, non su un computer client.
@@ -75,7 +75,7 @@ L'appartenenza a **amministratori**, o equivalente è il requisito minimo necess
 
 Usare questa procedura per modificare la quantità di tempo per cui NPSs memorizza nella cache il handle TLS dei computer client. Dopo l'autenticazione di un client di Access, NPSs memorizza nella cache le proprietà di connessione TLS del computer client come handle TLS. La durata predefinita dell'handle TLS è di 10 ore \(36 milioni millisecondi\). È possibile aumentare o diminuire l'ora di scadenza dell'handle TLS utilizzando la procedura riportata di seguito.
 
-L'appartenenza a **amministratori**, o equivalente è il requisito minimo necessario per completare questa procedura.
+Per poter completare questa procedura, è richiesta almeno l'appartenenza al gruppo **Administrators** o a un gruppo equivalente.
 
 >[!IMPORTANT]
 >Questa procedura deve essere eseguita su un server dei criteri di server, non su un computer client.
@@ -106,7 +106,7 @@ Per completare questa procedura, è necessario essere un membro del gruppo **Use
 
 ### <a name="to-obtain-the-sha-1-hash-of-a-trusted-root-ca-certificate"></a>Per ottenere l'hash SHA-1 di un certificato CA radice attendibile
 
-1. Nella finestra di dialogo Esegui o Windows PowerShell digitare **MMC**, quindi premere INVIO. Verrà aperto Microsoft Management Console \(MMC\). In MMC fare clic su **file**, quindi su **Aggiungi/Rimuovi Snap\in**. Il **Aggiungi o Rimuovi Snap-in** viene visualizzata la finestra di dialogo.
+1. Nella finestra di dialogo Esegui o Windows PowerShell digitare **MMC**, quindi premere INVIO. Verrà aperto Microsoft Management Console \(MMC\). In MMC fare clic su **file**, quindi su **Aggiungi/Rimuovi Snap\in**. Verrà visualizzata la finestra di dialogo **Aggiungi o rimuovi snap-in**.
 
 2. In **Aggiungi o rimuovi snap-in** fare doppio clic su **Certificati** in **Snap-in disponibili**. Verrà visualizzata la procedura guidata snap-in certificati. Fare clic su **Account del computer** e quindi su **Avanti**.
 

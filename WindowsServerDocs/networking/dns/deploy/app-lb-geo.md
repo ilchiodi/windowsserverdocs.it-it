@@ -6,14 +6,14 @@ ms.prod: windows-server
 ms.technology: networking-dns
 ms.topic: article
 ms.assetid: b6e679c6-4398-496c-88bc-115099f3a819
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: ea3f959612de0f2bc56a887ba73aba47f1d3f141
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: d4e005e65a3ff645ed91f488820435aff5173390
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71406214"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80317898"
 ---
 # <a name="use-dns-policy-for-application-load-balancing-with-geo-location-awareness"></a>Usare i criteri DNS per l'applicazione del bilanciamento del carico con la consapevolezza della posizione geografica
 
@@ -45,7 +45,7 @@ Le sezioni seguenti illustrano come configurare i criteri DNS per il bilanciamen
 >[!IMPORTANT]
 >Nelle sezioni seguenti includono esempi di comandi Windows PowerShell che contengono valori di esempio per numero di parametri. Assicurarsi di sostituire i valori di esempio in questi comandi con i valori appropriati per la distribuzione prima di eseguire questi comandi.
 
-### <a name="bkmk_clientsubnets"></a>Creare le subnet del client DNS
+### <a name="create-the-dns-client-subnets"></a><a name="bkmk_clientsubnets"></a>Creare le subnet del client DNS
 
 È necessario innanzitutto identificare le subnet o lo spazio di indirizzi IP delle aree America del Nord ed Europa.
 
@@ -61,7 +61,7 @@ Una Subnet del Client DNS è un raggruppamento logico di subnet IPv4 o IPv6 da c
     
 Per ulteriori informazioni, vedere [Aggiungi DnsServerClientSubnet](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverclientsubnet?view=win10-ps).
 
-### <a name="bkmk_zscopes2"></a>Creare gli ambiti di zona
+### <a name="create-the-zone-scopes"></a><a name="bkmk_zscopes2"></a>Creare gli ambiti di zona
 
 Dopo aver apportato le subnet client, è necessario partizionare la zona contosogiftservices.com in ambiti di zona diversi, ognuno per un Data Center.
 
@@ -85,7 +85,7 @@ Con i comandi riportati di seguito, è possibile creare altri due ambiti di zona
 
 Per ulteriori informazioni, vedere [Add-DnsServerZoneScope](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverzonescope?view=win10-ps)
 
-### <a name="bkmk_records2"></a>Aggiungere record agli ambiti di zona
+### <a name="add-records-to-the-zone-scopes"></a><a name="bkmk_records2"></a>Aggiungere record agli ambiti di zona
 
 A questo punto è necessario aggiungere i record che rappresentano l'host del server Web negli ambiti di zona.
 
@@ -98,7 +98,7 @@ I record per i Data Center America sono stati aggiunti nello scenario precedente
 
 Per ulteriori informazioni, vedere [Aggiungi DnsServerResourceRecord](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverresourcerecord?view=win10-ps).
 
-### <a name="bkmk_policies2"></a>Creazione dei criteri DNS
+### <a name="create-the-dns-policies"></a><a name="bkmk_policies2"></a>Creazione dei criteri DNS
 
 Dopo aver creato le partizioni (ambiti di zona) ed è stato aggiunto un record, è necessario creare criteri DNS per la distribuzione delle query in ingresso in questi ambiti.
 

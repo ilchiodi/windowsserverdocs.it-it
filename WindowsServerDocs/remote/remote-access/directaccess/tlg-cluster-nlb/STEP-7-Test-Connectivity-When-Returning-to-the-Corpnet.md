@@ -10,14 +10,14 @@ ms.technology: networking-da
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 5a7252d0-6db8-4a9d-98ee-75082ecd2929
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: fa89745d6efcae3591bba2aa5a694ee651bc9912
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 491533ae5d141de4ab4f15126d8977cf15c8f7f4
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71404857"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80314680"
 ---
 # <a name="step-7-test-connectivity-when-returning-to-the-corpnet"></a>PASSAGGIO 7 testare la connettività quando si ritorna al corpnet
 
@@ -31,7 +31,7 @@ Molti utenti si spostano tra le posizioni remote e il corpnet, quindi è importa
   
 2. Aprire una finestra di Windows PowerShell con privilegi elevati, digitare **ipconfig**e premere INVIO. L'output indicherà che CLIENT1 ha un indirizzo IP locale e che non esiste alcun tunnel attivo 6to4, Teredo o IP-HTTPS.  
   
-3. Testare la connettività alla condivisione di rete in APP2. Nella schermata **Start** Digitare<strong>\\ \ APP2\Files</strong>, quindi premere INVIO. Sarà possibile aprire il file in tale cartella.  
+3. Testare la connettività alla condivisione di rete in APP2. Nella schermata **Start** Digitare<strong>\\\APP2\Files</strong>, quindi premere INVIO. Sarà possibile aprire il file in tale cartella.  
   
 
 

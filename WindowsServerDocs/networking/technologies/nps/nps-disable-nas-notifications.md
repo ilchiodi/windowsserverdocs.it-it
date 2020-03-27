@@ -6,14 +6,14 @@ ms.prod: windows-server
 ms.technology: networking
 ms.topic: article
 ms.assetid: a09bfb03-95fc-4534-bf3c-97078ef6b07e
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: b8ae0ab02a5c14675d543087f635d53ee63e0423
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: dd56dfd4db9dd41c98141e2239efcca544a364fe
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71396247"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80316164"
 ---
 # <a name="disable-nas-notification-forwarding-in-nps"></a>Disabilitare l'invio di notifiche NAS in NPS
 
@@ -21,11 +21,11 @@ ms.locfileid: "71396247"
 
 È possibile utilizzare questa procedura per disabilitare l'invio di messaggi di avvio e di arresto da server di accesso alla rete (NAS) ai membri di un gruppo di server RADIUS remoti configurato in NPS.
 
-Quando sono configurati gruppi di server RADIUS remoti e, in **criteri di richiesta di connessione**NPS, deselezionare la casella di controllo **inoltra le richieste di contabilità a questo gruppo di server RADIUS remoti** . questi gruppi continuano a inviare notifiche di avvio e arresto del server NAS messaggi. 
+Quando sono configurati gruppi di server RADIUS remoti e, in **criteri di richiesta di connessione**NPS, deselezionare la casella di controllo **inoltra richieste di contabilità a questo gruppo di server RADIUS remoti** . questi gruppi continuano a inviare i messaggi di notifica di avvio e arresto del server NAS. 
 
 Viene creato un traffico di rete non necessario. Per eliminare il traffico, disabilitare l'invio di notifiche NAS per i singoli server in ogni gruppo di server RADIUS remoti.
 
-Per completare questa procedura, è necessario essere un membro del **amministratori** gruppo.
+Per completare questa procedura è necessaria l'appartenenza al gruppo **Administrators**.
 
 ### <a name="to-disable-nas-notification-forwarding"></a>Per disabilitare l'invio di notifiche NAS
 

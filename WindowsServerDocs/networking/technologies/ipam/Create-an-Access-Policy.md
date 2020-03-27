@@ -10,14 +10,14 @@ ms.technology: networking-ipam
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 854bd064-2f86-4678-a940-a04b3e48ae10
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: da5cc366a08f9a3f5b69952a2dff1f717fb1647b
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: b5ce4c6dae668372521e5b8e0d5168a94cbb86e2
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71355354"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80312648"
 ---
 # <a name="create-an-access-policy"></a>Creare un criterio di accesso
 
@@ -48,7 +48,7 @@ Per eseguire questa procedura è necessaria almeno l'appartenenza al gruppo **Ad
   
 5.  Verrà visualizzata la finestra di dialogo **percorsi** . Individuare il percorso che contiene l'account utente, selezionare il percorso, quindi fare clic su **OK**. La finestra di dialogo **percorsi** verrà chiusa.  
   
-    ![Seleziona località](../../media/Create-an-Access-Policy/ipam_CreateAP_04.jpg)  
+    ![Selezionare il percorso](../../media/Create-an-Access-Policy/ipam_CreateAP_04.jpg)  
   
 6.  Nella finestra di dialogo **Seleziona utente o gruppo** , in **immettere il nome dell'oggetto da selezionare**, digitare il nome dell'account utente per il quale si desidera creare un criterio di accesso. Fare clic su **OK**.  
   
@@ -76,7 +76,7 @@ Per eseguire questa procedura è necessaria almeno l'appartenenza al gruppo **Ad
   
     ![Visualizzare i nuovi criteri di accesso](../../media/Create-an-Access-Policy/ipam_CreateAP_09a.jpg)  
   
-## <a name="see-also"></a>Vedere anche  
+## <a name="see-also"></a>Vedi anche  
 [Controllo degli accessi in base al ruolo](Role-based-Access-Control.md)  
 [Gestire Gestione indirizzi IP](Manage-IPAM.md)  
   

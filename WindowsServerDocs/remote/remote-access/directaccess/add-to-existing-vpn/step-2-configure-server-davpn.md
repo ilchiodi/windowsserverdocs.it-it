@@ -10,14 +10,14 @@ ms.technology: networking-da
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: fe221fc9-c7d9-4508-b8a1-000d2515283c
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 7ee691a02df385e29bdac9656d50bc2c6d3af087
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: c26f1fbcfa2d94c001579aabd6794c6537bd06f8
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71388745"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80314748"
 ---
 #  <a name="step-2-configure-the-directaccess-vpn-server"></a>Passaggio 2: configurare il server DirectAccess-VPN
 
@@ -40,13 +40,13 @@ Nella tabella seguente viene fornita una panoramica dei passaggi che è possibil
 
 2. Se la procedura guidata non viene avviata automaticamente, fare clic con il pulsante destro del mouse sul nodo server nell'albero routing e accesso remoto e quindi scegliere **Abilita DirectAccess**.
 
-3. Fai clic su **Next**.
+3. Fare clic su **Avanti**.
 
 ## <a name="configure-directaccess-clients"></a>Configurare i client DirectAccess
 
 Per effettuarne il provisioning allo scopo di usare DirectAccess, un computer client deve appartenere al gruppo di sicurezza selezionato. Dopo aver configurato DirectAccess, viene effettuato il provisioning dei computer client nel gruppo di sicurezza in modo da ricevere i criteri di gruppo DirectAccess.
 
-1. Nel **Seleziona gruppi** fare clic su **Aggiungi**.
+1. Nella pagina **Seleziona gruppi** fare clic su **Aggiungi**.
 
 2. Nella finestra di dialogo **Seleziona gruppi** selezionare i gruppi di sicurezza contenenti i computer client DirectAccess.
 
@@ -54,7 +54,7 @@ Per effettuarne il provisioning allo scopo di usare DirectAccess, un computer cl
 
 4. Selezionare la casella di controllo **Usa Imponi tunneling** per indirizzare tutto il traffico del client (verso la rete interna e Internet) attraverso il server di Accesso remoto.
 
-5. Fai clic su **Next**.
+5. Fare clic su **Avanti**.
 
 ## <a name="configure-the-network-topology"></a>Configurare la topologia di rete
 

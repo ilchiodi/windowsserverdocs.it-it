@@ -6,14 +6,14 @@ ms.topic: article
 ms.assetid: 65b36794-bb09-4c1b-a2e7-8fc780893d97
 ms.prod: windows-server
 ms.technology: networking
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 88d39f41f61ae7c7f6a1fb84aa99806c4796c8cf
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: b9522909960470d9f5f3e183afbd97ab1b919019
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71356192"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80318253"
 ---
 # <a name="refresh-group-policy"></a>Aggiornare Criteri di gruppo
 
@@ -24,7 +24,7 @@ ms.locfileid: "71356192"
 > [!NOTE]  
 > L'aggiornamento di Criteri di gruppo viene eseguito automaticamente quando si riavvia il computer membro del dominio o quando un utente accede a un computer membro del dominio. L'aggiornamento di Criteri di gruppo viene inoltre eseguito periodicamente. Per impostazione predefinita, questo aggiornamento periodico viene eseguito ogni 90 minuti con un offset casuale di un massimo di 30 minuti.  
   
-L'appartenenza a **amministratori**, o equivalente è il requisito minimo necessario per completare questa procedura.  
+Per poter completare questa procedura, è richiesta almeno l'appartenenza al gruppo **Administrators** o a un gruppo equivalente.  
   
 ### <a name="to-refresh-group-policy-on-the-local-computer"></a>Per aggiornare Criteri di gruppo nel computer locale  
   

@@ -3,7 +3,7 @@ title: Configurare o personalizzare un backup del server
 description: Viene descritto come usare Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
-ms.prod: windows-server-2016-essentials
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
@@ -12,12 +12,12 @@ ms.assetid: 441c2d6c-435a-42cb-90f2-6d680d279d34
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 820474934ef1f164d24d4893c42b10c5043f7707
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 06d8381e622cdb6c437b0f5aa4d1cd9293ef779a
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70865205"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80310593"
 ---
 # <a name="set-up-or-customize-server-backup"></a>Configurare o personalizzare un backup del server
 
@@ -35,11 +35,11 @@ ms.locfileid: "70865205"
   
 -   [Elementi di cui eseguire il backup](Set-up-or-customize-server-backup.md#BKMK_4)  
   
-##  <a name="BKMK_1"></a>Configurare o modificare le impostazioni di backup del server  
+##  <a name="set-up-or-change-server-backup-settings"></a><a name="BKMK_1"></a>Configurare o modificare le impostazioni di backup del server  
   
 #### <a name="to-set-up-or-change-server-backup-settings"></a>Per configurare o modificare le impostazioni del backup del server  
   
-1.  Aprire il **Dashboard**, quindi fare clic sulla scheda **Dispositivi** .  
+1.  Aprire il **Dashboard**, quindi fare clic sulla scheda **Dispositivi**.  
   
 2.  Nella visualizzazione elenco fare clic sul server per selezionarlo.  
   
@@ -48,7 +48,7 @@ ms.locfileid: "70865205"
     > [!NOTE]
     >  Per modificare le impostazioni di backup esistenti, fare clic su **Personalizza backup del server**.  
   
-4.  Seguire le istruzioni contenute nella procedura guidata.  
+4.  Seguire le istruzioni fornite nella procedura guidata.  
   
     > [!NOTE]
     >  Se si avvia la procedura guidata prima di collegare il disco rigido esterno al server, fare clic su **Aggiorna elenco** nella pagina **Seleziona la destinazione di backup** dopo aver collegato il disco rigido.  
@@ -62,10 +62,10 @@ ms.locfileid: "70865205"
 >    4. Nella pagina **Ottimizza unità** selezionare un'unità, quindi fare clic su **Cambia impostazioni**.  
 >    5. Nella finestra **Pianificazione ottimizzazione** deselezionare la casella di controllo **Esegui in base a una pianificazione (scelta consigliata)** , quindi fare clic su **OK** per salvare la modifica.  
   
-##  <a name="BKMK_2"></a>Pianificazione del backup del server  
+##  <a name="server-backup-schedule"></a><a name="BKMK_2"></a>Pianificazione del backup del server  
  Quando si usa la procedura guidata Configura backup server o Personalizza Backup server, è possibile scegliere di eseguire il backup dei dati del server più volte al giorno. Dato che i backup pianificati dalle procedure guidate sono di tipo incrementale, vengono eseguiti rapidamente e non influiscono in modo significativo sulle prestazioni del server. Per impostazione predefinita, le procedure guidate pianificano l'esecuzione di un backup ogni giorno alle 12:00 e alle 23:00. È tuttavia possibile modificare la pianificazione dei backup in base alle esigenze dell'organizzazione. È consigliabile rivalutare periodicamente l'efficacia del piano di backup adottato ed eventualmente modificarlo in base alla necessità.  
   
-##  <a name="BKMK_Target"></a>Unità di destinazione di backup  
+##  <a name="backup-target-drive"></a><a name="BKMK_Target"></a>Unità di destinazione di backup  
  È possibile usare più unità di archiviazione esterne per i backup e alternare le unità tra percorsi di archiviazione in sede e fuori sede. Ciò può migliorare la pianificazione della preparazione alle emergenze, semplificando il recupero dei dati in caso di danni fisici all'hardware in sede.  
   
  Quando si sceglie un'unità di archiviazione per il backup dei server, occorre considerare quanto segue:  
@@ -92,7 +92,7 @@ ms.locfileid: "70865205"
   
     1.  Nel Panello di controllo aprire **Sistema e sicurezza**.  
   
-    2.  In **Strumenti di amministrazione**fare clic su **Crea e formatta le partizioni del disco rigido**.  
+    2.  In **Strumenti di amministrazione** fare clic su **Crea e formatta le partizioni del disco rigido**.  
   
     3.  Eliminare tutti i volumi nel disco USB oppure eliminare semplicemente la partizione EFI. La procedura guidata Configura backup server elimina tutti i volumi.  
   
@@ -110,14 +110,14 @@ ms.locfileid: "70865205"
 >  **Per riassegnare una lettera di unità per un volume esistente**  
 > 
 > 1. Nel Panello di controllo aprire **Sistema e sicurezza**.  
->    2. In **Strumenti di amministrazione**fare clic su **Crea e formatta le partizioni del disco rigido**.  
+>    2. In **Strumenti di amministrazione** fare clic su **Crea e formatta le partizioni del disco rigido**.  
 >    3. Fare clic con il pulsante destro del mouse sull'unità e scegliere **Cambia lettera e percorso di unità**.  
->    4. Fare clic su **Aggiungi**.  
->    5. Nella finestra di dialogo Aggiungi lettera o percorso di unità, selezionare una lettera di unità da assegnare (è possibile riassegnare la stessa lettera di unità). Fare quindi clic su **OK**.  
+>    4. Fare clic su **Add**.  
+>    5. Nella finestra di dialogo Aggiungi lettera o percorso di unità, selezionare una lettera di unità da assegnare È possibile riassegnare la stessa lettera di unità. Quindi fare clic su **OK**.  
 > 
 >    L'unità verrà visualizzata immediatamente nel dashboard.  
   
-##  <a name="BKMK_4"></a>Elementi di cui eseguire il backup  
+##  <a name="items-to-be-backed-up"></a><a name="BKMK_4"></a>Elementi di cui eseguire il backup  
  È possibile scegliere di eseguire il backup di tutte le unità, i file e le cartelle sul server oppure selezionare solo singole unità, file o cartelle di cui eseguire il backup.  
   
  Quando si aggiunge o rimuove un'unità oppure file e cartelle condivise, è consigliabile rivedere la configurazione di backup del server per assicurarsi che questi elementi vengono aggiunti o rimossi dalla configurazione del backup. Per aggiungere o rimuovere elementi per il backup, eseguire una delle operazioni seguenti:  

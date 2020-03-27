@@ -10,15 +10,15 @@ ms.topic: article
 ms.prod: windows-server
 ms.technology: networking-sdn
 ms.assetid: 3c361575-1050-46f4-ac94-fa42102f83c1
-ms.author: pashort
-author: shortpatti
+ms.author: lizross
+author: eross-msft
 ms.date: 08/30/2018
-ms.openlocfilehash: 158183bab74e6e45c36c579f3259fc2095a939b5
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: db634af114610cce0bdbcacd58986ceb5f00dd99
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71406047"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80317580"
 ---
 # <a name="use-network-virtual-appliances-on-a-virtual-network"></a>Usare le appliance di rete virtuali in una rete virtuale
 
@@ -44,7 +44,7 @@ Alcune Appliance richiedono più schede di rete virtuali. In genere, una scheda 
 Dopo aver distribuito l'appliance virtuale di rete, è possibile usare l'appliance per il routing definito, il mirroring del porting o entrambi. 
 
 
-## <a name="example-user-defined-routing"></a>Esempio: Routing definito dall'utente
+## <a name="example-user-defined-routing"></a>Esempio: routing definito dall'utente
 
 Per la maggior parte degli ambienti sono necessarie solo le route di sistema già definite dal router distribuito della rete virtuale. Potrebbe tuttavia essere necessario creare una tabella di routing e aggiungere una o più route in casi specifici, ad esempio:
 
@@ -93,9 +93,9 @@ Le subnet si basano sulle route di sistema fino a quando una tabella di routing 
 
 Non appena si applica la tabella di routing alla rete virtuale, il traffico viene inoltrato all'appliance virtuale. È necessario configurare la tabella di routing nell'appliance virtuale per l'inoltro del traffico, in modo appropriato per l'ambiente in uso.
 
-## <a name="example-port-mirroring"></a>Esempio: Mirroring delle porte
+## <a name="example-port-mirroring"></a>Esempio: mirroring delle porte
 
-In questo esempio viene configurato il traffico per MyVM_Ethernet1 per eseguire il mirroring di Appliance_Ethernet1.  Si presuppone che siano state distribuite due macchine virtuali, una come appliance e l'altra come macchina virtuale da monitorare con il mirroring. 
+In questo esempio viene configurato il traffico per MyVM_Ethernet1 per eseguire il mirroring Appliance_Ethernet1.  Si presuppone che siano state distribuite due macchine virtuali, una come appliance e l'altra come macchina virtuale da monitorare con il mirroring. 
 
 Il dispositivo deve disporre di una seconda interfaccia di rete per la gestione. Dopo aver abilitato il mirroring come destinazione in Appliciance_Ethernet1, non riceve più il traffico destinato all'interfaccia IP configurata.
 
@@ -168,6 +168,6 @@ Il dispositivo deve disporre di una seconda interfaccia di rete per la gestione.
    $srcNic = New-NetworkControllerNetworkInterface -ConnectionUri $uri  -Properties $srcNic.Properties -ResourceId $srcNic.ResourceId
    ```
 
-Dopo aver completato questi passaggi, l'interfaccia Appliance_Ethernet1 riflette il traffico dall'interfaccia MyVM_Ethernet1.
+Dopo aver completato questi passaggi, l'interfaccia Appliance_Ethernet1 rispecchia il traffico dall'interfaccia MyVM_Ethernet1.
  
 ---

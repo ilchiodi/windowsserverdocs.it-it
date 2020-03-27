@@ -10,14 +10,14 @@ ms.technology: networking-da
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 55528736-6c19-40bd-99e8-5668169ef3c7
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 229e2955c7f382ff630829990a9dd6485d62652e
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 09ed401fa4912a48033e4a51a29309e3fd4cc998
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71388881"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80310899"
 ---
 # <a name="directaccess-offline-domain-join"></a>Aggiunta a dominio offline di DirectAccess
 
@@ -44,12 +44,12 @@ Introdotti in Windows Server 2008 R2, i controller di dominio includono una funz
   
 3.  Riavviare il computer di destinazione e il computer verrà aggiunto al dominio.  
   
-### <a name="BKMK_ODJOverview"></a>Panoramica dello scenario di aggiunta a un dominio offline con criteri DirectAccess  
+### <a name="offline-domain-join-with-directaccess-policies-scenario-overview"></a><a name="BKMK_ODJOverview"></a>Panoramica dello scenario di aggiunta a un dominio offline con criteri DirectAccess  
 L'aggiunta a un dominio offline di DirectAccess è un processo che i computer che eseguono Windows Server 2016, Windows Server 2012, Windows 10 e Windows 8 possono utilizzare per aggiungere un dominio senza essere fisicamente aggiunti alla rete aziendale o connessi tramite VPN. In questo modo è possibile aggiungere i computer a un dominio da percorsi in cui non è presente connettività a una rete aziendale. Aggiunta a un dominio offline per DirectAccess fornisce criteri DirectAccess ai client per consentire il provisioning remoto.  
   
 Un join a un dominio crea un account computer e stabilisce una relazione di trust tra un computer che esegue un sistema operativo Windows e un dominio Active Directory.  
   
-## <a name="BKMK_ODJRequirements"></a>Preparare l'aggiunta a un dominio offline  
+## <a name="prepare-for-offline-domain-join"></a><a name="BKMK_ODJRequirements"></a>Preparare l'aggiunta a un dominio offline  
   
 1.  Creare l'account del computer.  
   
@@ -84,7 +84,7 @@ L'appartenenza al gruppo **Domain Admins**o a un gruppo equivalente è il requis
   
 2.  Fare doppio clic sul nome della foresta, fare doppio clic su **domini**, fare doppio clic sul nome del dominio in cui si desidera aggiungere un computer, fare clic con il pulsante destro del mouse su **criterio dominio predefinito**, quindi scegliere **modifica**.  
   
-3.  Nell'albero della console fare doppio clic su **Configurazione computer**, fare doppio clic **su criteri**, fare doppio clic su **impostazioni di Windows**, fare doppio clic su impostazioni di **sicurezza**, fare doppio clic su **criteri locali**, quindi fare doppio clic su  **Assegnazione dei diritti utente**.  
+3.  Nell'albero della console fare doppio clic su **Configurazione computer**, fare doppio clic su **criteri**, fare doppio clic su **impostazioni di Windows**, fare doppio clic su impostazioni di **sicurezza**, fare doppio clic su **criteri locali**, quindi fare doppio clic su **assegnazione diritti utente**.  
   
 4.  Nel riquadro dei dettagli fare doppio clic su **Aggiungi workstation al dominio**.  
   
@@ -92,12 +92,12 @@ L'appartenenza al gruppo **Domain Admins**o a un gruppo equivalente è il requis
   
 6.  Digitare il nome dell'account a cui si desidera concedere i diritti utente, quindi fare clic su **OK** due volte.  
   
-## <a name="BKMK_ODKSxS"></a>Processo di aggiunta al dominio offline  
+## <a name="offline-domain-join-process"></a><a name="BKMK_ODKSxS"></a>Processo di aggiunta al dominio offline  
 Eseguire Djoin. exe a un prompt dei comandi con privilegi elevati per effettuare il provisioning dei metadati dell'account computer. Quando si esegue il comando di provisioning, i metadati dell'account computer vengono creati in un file binario specificato come parte del comando.  
   
 Per ulteriori informazioni sulla funzione NetProvisionComputerAccount utilizzata per eseguire il provisioning dell'account computer durante un'aggiunta a un dominio offline, vedere [funzione NetProvisionComputerAccount](https://go.microsoft.com/fwlink/?LinkId=162426) (https://go.microsoft.com/fwlink/?LinkId=162426). Per ulteriori informazioni sulla funzione NetRequestOfflineDomainJoin eseguita localmente nel computer di destinazione, vedere [funzione NetRequestOfflineDomainJoin](https://go.microsoft.com/fwlink/?LinkId=162427) (https://go.microsoft.com/fwlink/?LinkId=162427).  
   
-## <a name="BKMK_ODJSteps"></a>Passaggi per l'esecuzione di un aggiunta a un dominio offline DirectAccess  
+## <a name="steps-for-performing-a-directaccess-offline-domain-join"></a><a name="BKMK_ODJSteps"></a>Passaggi per l'esecuzione di un aggiunta a un dominio offline DirectAccess  
 Il processo di aggiunta al dominio offline include i passaggi seguenti:  
   
 1.  Creare un nuovo account computer per ognuno dei client remoti e generare un pacchetto di provisioning usando il comando Djoin. exe da un computer già aggiunto al dominio nella rete aziendale.  
@@ -114,7 +114,7 @@ Quando si crea il pacchetto di provisioning per il client, è possibile prendere
   
 Completare la procedura seguente per eseguire l'aggiunta al dominio offline:  
   
-##### <a name="option1-create-a-provisioning-package-for-the-client-without-pki"></a>Opzione 1: Creare un pacchetto di provisioning per il client senza PKI  
+##### <a name="option1-create-a-provisioning-package-for-the-client-without-pki"></a>Opzione1: creare un pacchetto di provisioning per il client senza PKI  
   
 1.  Al prompt dei comandi del server di accesso remoto digitare il comando seguente per eseguire il provisioning dell'account computer:  
   
@@ -122,7 +122,7 @@ Completare la procedura seguente per eseguire l'aggiunta al dominio offline:
     Djoin /provision /domain <your domain name> /machine <remote machine name> /policynames DA Client GPO name /rootcacerts /savefile c:\files\provision.txt /reuse  
     ```  
   
-##### <a name="option2-create-a-provisioning-package-for-the-client-with-pki"></a>Opzione2 Creare un pacchetto di provisioning per il client con PKI  
+##### <a name="option2-create-a-provisioning-package-for-the-client-with-pki"></a>Opzione2: creare un pacchetto di provisioning per il client con PKI  
   
 1.  Al prompt dei comandi del server di accesso remoto digitare il comando seguente per eseguire il provisioning dell'account computer:  
   
@@ -158,7 +158,7 @@ Completare la procedura seguente per eseguire l'aggiunta al dominio offline:
   
 3.  Riavviare il computer client. Il computer verrà aggiunto al dominio. Dopo il riavvio, il client verrà aggiunto al dominio e avrà la connettività alla rete aziendale con DirectAccess.  
   
-## <a name="see-also"></a>Vedere anche  
+## <a name="see-also"></a>Vedi anche  
 [NetProvisionComputerAccount (funzione)](https://go.microsoft.com/fwlink/?LinkId=162426)  
 [NetRequestOfflineDomainJoin (funzione)](https://go.microsoft.com/fwlink/?LinkId=162427)  
   

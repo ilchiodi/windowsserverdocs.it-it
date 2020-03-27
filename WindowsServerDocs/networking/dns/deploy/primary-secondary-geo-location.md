@@ -6,14 +6,14 @@ ms.prod: windows-server
 ms.technology: networking-dns
 ms.topic: article
 ms.assetid: a9ee7a56-f062-474f-a61c-9387ff260929
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 6a7836160fc7363ec3d7b2fb11e194db82970f9a
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: f9bc1a35016ca5946eddeada2088a83f1fa8ca05
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71406157"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80317757"
 ---
 # <a name="use-dns-policy-for-geo-location-based-traffic-management-with-primary-secondary-deployments"></a>Usare i criteri DNS per la gestione del traffico basata sulla geolocalizzazione con distribuzioni primarie-secondarie
 
@@ -37,7 +37,7 @@ Per garantire che i clienti woodgrove.com ottenere prestazioni ottimali dal rela
   
 Servizi Cloud di Contoso ha due Data Center, uno negli Stati Uniti e l'altro in Europa, in cui Contoso ospita il cibo ordinamento portale per woodgrove.com.  
   
-La distribuzione DNS contoso include due server secondari: **SecondaryServer1**, con l'indirizzo IP 10.0.0.2; e **SecondaryServer2**, con l'indirizzo IP 10.0.0.3. Questi server secondari fungono da server dei nomi in due aree geografiche diverse, con SecondaryServer1 si trova in Europa e SecondaryServer2 si trova negli Stati Uniti
+La distribuzione DNS Contoso include due server secondari: **SecondaryServer1**, con l'indirizzo IP 10.0.0.2; e **SecondaryServer2**, con l'indirizzo IP 10.0.0.3. Questi server secondari fungono da server dei nomi in due aree geografiche diverse, con SecondaryServer1 si trova in Europa e SecondaryServer2 si trova negli Stati Uniti
   
 È disponibile una copia di zona primaria scrivibile in **PrimaryServer** (indirizzo IP 10.0.0.1), in cui vengono apportate le modifiche alla zona. Con i trasferimenti di zona normale per i server secondari, i server secondari sono sempre aggiornati con eventuali nuove modifiche all'area nel PrimaryServer.
   

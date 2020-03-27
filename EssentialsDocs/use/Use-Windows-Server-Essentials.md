@@ -1,9 +1,9 @@
 ---
 title: Usare Windows Server Essentials
-description: Viene descritto come utilizzare Windows Server Essentials
+description: Viene descritto come usare Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
-ms.prod: windows-server-2016-essentials
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
@@ -12,12 +12,12 @@ ms.assetid: 86f158a5-c807-4242-b73d-e97b604adb5f
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 7b440215d7ddf2c9119ee4adb8f1c98c7ea1bb34
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 830570565d865861af404954031723451ec794bd
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59822602"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80313110"
 ---
 # <a name="use-windows-server-essentials"></a>Usare Windows Server Essentials
 
@@ -25,9 +25,9 @@ ms.locfileid: "59822602"
 
 Gli argomenti seguenti includono informazioni introduttive sull'uso di Windows Server Essentials:  
   
--   [Connettiti](Get-Connected-in-Windows-Server-Essentials.md)  
+-   [Connessione](Get-Connected-in-Windows-Server-Essentials.md)  
   
--   [Usare le cartelle condivise](Use-Shared-Folders-in-Windows-Server-Essentials.md)  
+-   [Usa cartelle condivise](Use-Shared-Folders-in-Windows-Server-Essentials.md)  
   
 -   [Lavorare in modalità remota](Work-Remotely-in-Windows-Server-Essentials.md)  
   
@@ -37,8 +37,8 @@ Gli argomenti seguenti includono informazioni introduttive sull'uso di Windows S
   
 -   [Installare Windows Server Essentials](../install/Install-Windows-Server-Essentials.md)  
   
--   [Eseguire la migrazione di dati del Server a Windows Server Essentials](../migrate/Migrate-Server-Data-to-Windows-Server-Essentials.md)  
+-   [Eseguire la migrazione dei dati del server a Windows Server Essentials](../migrate/Migrate-Server-Data-to-Windows-Server-Essentials.md)  
   
 -   [Gestire Windows Server Essentials](../manage/Manage-Windows-Server-Essentials.md)  
   
--   [Supporto per Windows Server Essentials](../support/Support-Windows-Server-Essentials.md)
+-   [Supportare Windows Server Essentials](../support/Support-Windows-Server-Essentials.md)

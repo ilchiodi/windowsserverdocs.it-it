@@ -6,14 +6,14 @@ ms.topic: article
 ms.assetid: bd80a018-5a30-47c3-89fc-aacb9f5ad298
 ms.prod: windows-server
 ms.technology: networking
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 5f87db78d6f07d11c36193b1a56cf66bd44e7160
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: b55988d9e5d4832acf6c74039815c9e8c9a8a6ca
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71356098"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80318130"
 ---
 # <a name="verify-server-enrollment-of-a-server-certificate"></a>Verificare la registrazione di server di un certificato del server
 
@@ -44,7 +44,7 @@ Per verificare che un certificato del server sia configurato correttamente e che
   
 6.  In **specificare l'autorizzazione di accesso**, assicurarsi che **accesso concesso** sia selezionata e quindi fare clic su **Avanti**.  
   
-7.  In **Configurare metodi di autenticazione**, fare clic su **Aggiungi**. In **Aggiungi EAP**fare clic su **Microsoft: PEAP (Protected EAP)** , quindi fare clic su **OK**. In **tipi EAP**selezionare **Microsoft: PEAP (Protected EAP)** , quindi fare clic su **modifica**. Il **Modifica proprietà PEAP** verrà visualizzata la finestra di dialogo.  
+7.  In **Configurare metodi di autenticazione**, fare clic su **Aggiungi**. In **aggiungere EAP**, fare clic su **Microsoft: PEAP (Protected EAP)** , quindi fare clic su **OK**. In **tipi EAP**, selezionare **Microsoft: PEAP (Protected EAP)** , quindi fare clic su **modificare**. Il **Modifica proprietà PEAP** verrà visualizzata la finestra di dialogo.  
   
 8.  Nel **Modifica proprietà PEAP** della finestra di dialogo **certificato emesso per**, dei criteri di RETE viene visualizzato il nome del certificato server nel formato *nomecomputer*.*Dominio*. Ad esempio, se il server dei criteri di dominio è denominato NPS-01 e il dominio è example.com, NPS Visualizza il certificato **NPS-01.example.com**. Inoltre, in **dell'autorità di certificazione**, viene visualizzato il nome dell'autorità di certificazione e in **Data di scadenza**, verrà visualizzata la data di scadenza del certificato del server. Ciò dimostra che il server dei criteri di rete ha registrato un certificato server valido che può usare per dimostrare la propria identità ai computer client che tentano di accedere alla rete tramite i server di accesso alla rete, ad esempio i server di rete privata virtuale (VPN), che supportano 802.1 X punti di accesso wireless, server Gateway Desktop remoto e commutatori Ethernet che supportano 802.1 X.  
   

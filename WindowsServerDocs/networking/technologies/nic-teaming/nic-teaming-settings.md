@@ -10,15 +10,15 @@ ms.technology: networking-nict
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: a4caaa86-5799-4580-8775-03ee213784a3
-ms.author: pashort
-author: shortpatti
+ms.author: lizross
+author: eross-msft
 ms.date: 09/13/2018
-ms.openlocfilehash: ab9a8e309c8031108d58c73d82357e913d5ce398
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: fc9ab0fa3d1da0e7af8a7a1d7a8706ba6d128648
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71396478"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80316511"
 ---
 # <a name="nic-teaming-settings"></a>Impostazioni gruppo NIC
 In questo argomento viene illustrata una panoramica delle proprietà del gruppo NIC, ad esempio le modalità gruppo e bilanciamento del carico. Vengono inoltre illustrati i dettagli relativi all'impostazione della scheda standby e alla proprietà principale dell'interfaccia del team. Se si dispone di almeno due schede di rete in un gruppo NIC, non è necessario designare una scheda standby per la tolleranza di errore.

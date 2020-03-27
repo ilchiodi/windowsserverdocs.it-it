@@ -1,21 +1,21 @@
 ---
-title: Procedure consigliate per il server dei criteri di rete
+title: Procedure consigliate per il Server dei criteri di rete
 description: Questo argomento descrive le procedure consigliate per la distribuzione e la gestione di server dei criteri di rete in Windows Server 2016.
 manager: brianlic
 ms.prod: windows-server
 ms.technology: networking
 ms.topic: article
 ms.assetid: 90e544bd-e826-4093-8c3b-6a6fc2dfd1d6
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 364783e2188152fc5c57bba04991ae124b0bb8d2
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 278d813aa13ea42b7f597bdbe7eb210f68cee955
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71405492"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80316299"
 ---
-# <a name="network-policy-server-best-practices"></a>Procedure consigliate per il server dei criteri di rete
+# <a name="network-policy-server-best-practices"></a>Procedure consigliate per il Server dei criteri di rete
 
 >Si applica a: Windows Server (Canale semestrale), Windows Server 2016
 
@@ -51,7 +51,7 @@ Per ulteriori informazioni, vedere [configurare l'accounting del server dei crit
 
 - Per garantire il failover e la ridondanza con SQL Server registrazione, collocare due computer che eseguono SQL Server su subnet diverse. Utilizzare la SQL Server **creazione guidata pubblicazione** per configurare la replica di database tra i due server. Per ulteriori informazioni, vedere [SQL Server documentazione tecnica](https://msdn.microsoft.com/library/ms130214.aspx) e [replica di SQL Server](https://msdn.microsoft.com/library/ms151198.aspx).
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Autenticazione
 
 Di seguito sono riportate le procedure consigliate per l'autenticazione.
 
@@ -97,7 +97,7 @@ Di seguito sono riportate le procedure consigliate per l'utilizzo di server dei 
 
 - Usare un nome di entità utente per fare riferimento agli utenti quando possibile. Un utente può avere lo stesso nome dell'entità utente indipendentemente dall'appartenenza al dominio. Questa procedura fornisce scalabilità che potrebbe essere necessaria per le organizzazioni con un numero elevato di domini.
 
-- Se è stato installato Server dei criteri di rete \(NPS\) in un computer diverso da un controller di dominio e il server dei criteri di rete riceve un numero elevato di richieste di autenticazione al secondo, è possibile migliorare le prestazioni di NPS aumentando il numero di autenticazioni simultanee consentite tra il server dei criteri di rete e il controller di dominio Per altre informazioni, vedere l'articolo relativo alla 
+- Se è stato installato Server dei criteri di rete \(NPS\) in un computer diverso da un controller di dominio e il server dei criteri di rete riceve un numero elevato di richieste di autenticazione al secondo, è possibile migliorare le prestazioni di NPS aumentando il numero di autenticazioni simultanee consentite tra il server dei criteri di rete e il controller di dominio Per altre informazioni, vedere 
 
 ## <a name="security-issues"></a>Problemi di sicurezza
 

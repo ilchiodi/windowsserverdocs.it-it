@@ -1,9 +1,9 @@
 ---
 title: Risolvere i problemi di connettività di Accesso Web remoto in Windows Server Essentials
-description: Viene descritto come utilizzare Windows Server Essentials
+description: Viene descritto come usare Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
-ms.prod: windows-server-2016-essentials
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
@@ -12,12 +12,12 @@ ms.assetid: d3642575-b3ee-4488-b654-5bf9d3b8c935
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: fda0b5a227fe25b4e8780915089e97ee48620383
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 6db623308184c5be2968fa1d8991de2b48eef5b7
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66432433"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80318637"
 ---
 # <a name="troubleshoot-remote-web-access-connectivity-in-windows-server-essentials"></a>Risolvere i problemi di connettività di Accesso Web remoto in Windows Server Essentials
  
@@ -43,7 +43,7 @@ ms.locfileid: "66432433"
   
 - Verificare che il dispositivo a banda larga che si connette al provider di servizi Internet (ISP) sia acceso, funzioni correttamente e che il router sia connesso al dispositivo a banda larga.  
   
-- Attivare l'impostazione UPnP del router. Connettersi alla pagina web di configurazione del router per attivare l'impostazione UPnP. Per informazioni su come accedere al router e come attivare l'impostazione UPnP, vedere la documentazione del router. Una volta abilitata l'impostazione UPnP, eseguire attiva sul Web guidata accesso remoto per configurare il router.  
+- Attivare l'impostazione UPnP del router. Connettersi alla pagina web di configurazione del router per attivare l'impostazione UPnP. Per informazioni su come accedere al router e come attivare l'impostazione UPnP, vedere la documentazione del router. Dopo aver acceso l'impostazione UPnP, eseguire di nuovo la procedura guidata attiva Accesso Web remota per configurare il router.  
   
 - Se il router non supporta completamente lo standard UPnP, non può essere configurato automaticamente. È necessario configurare manualmente il router o acquistare un router che supporti lo standard UPnP.  
   
@@ -57,24 +57,24 @@ ms.locfileid: "66432433"
   
   - Configurare il port forwarding sul router per le porte seguenti:  
   
-    |Servizio o protocollo|Port|  
+    |Servizio o protocollo|Porta|  
     |-------------------------|----------|  
     |HTTP|TCP 80|  
     |HTTPS|TCP 443|  
   
-    Per informazioni su come impostare manualmente il port forwarding sul router, vedere la documentazione del produttore.  
+    Per informazioni su come configurare manualmente il Port porting nel router, vedere la documentazione del produttore.  
   
     Una tipica pagina di configurazione del router include una tabella simile alla seguente.  
   
   > [!NOTE]
   >  In questa tabella l'indirizzo IP del computer che esegue Windows Server Essentials è 192.168.0.100. È necessario determinare l'indirizzo IP del computer e sostituire tale indirizzo IP con l'indirizzo IP indicato nella tabella.  
   
-  |L'indirizzo IP|Protocollo (TCP/UDP)|Pianificazione|Filtro in ingresso|  
+  |Indirizzo IP|Protocollo (TCP/UDP)|Pianificazione|Filtro in ingresso|  
   |----------------|---------------------------|--------------|--------------------|  
   |192.168.0.100|TCP 80|Sempre|Consenti tutto|  
   |192.168.0.100|TCP 443|Sempre|Consenti tutto|  
   
-   Dopo la configurazione manuale del router, eseguire l'attivazione sul Web guidata accesso remoto, assicurandosi di selezionare il **Ignora configurazione router** opzione il **introduttiva** pagina.  
+   Dopo la configurazione manuale del router, eseguire l'attivazione guidata di Accesso Web remoto, assicurandosi di selezionare l'opzione **Ignora configurazione router** nella pagina attività **iniziali** .  
   
 - Acquistare un nuovo router, se il router non supporta completamente lo standard UPnP.  
   
@@ -83,9 +83,9 @@ ms.locfileid: "66432433"
   
 ## <a name="see-also"></a>Vedere anche  
   
--   [Usare accesso Web remoto](../use/Use-Remote-Web-Access-in-Windows-Server-Essentials.md)  
+-   [USA Accesso Web remoto](../use/Use-Remote-Web-Access-in-Windows-Server-Essentials.md)  
   
--   [Gestire accesso Web remoto](../manage/Manage-Remote-Web-Access-in-Windows-Server-Essentials.md)  
+-   [Gestisci Accesso Web Remote](../manage/Manage-Remote-Web-Access-in-Windows-Server-Essentials.md)  
   
 -   [Gestire l'accesso remoto via Internet](../manage/Manage-Anywhere-Access-in-Windows-Server-Essentials.md)  
   

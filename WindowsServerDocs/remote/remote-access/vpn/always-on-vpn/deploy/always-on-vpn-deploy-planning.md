@@ -6,22 +6,22 @@ ms.technology: networking-ras
 ms.topic: article
 ms.assetid: 3c9de3ec-4bbd-4db0-b47a-03507a315383
 ms.localizationpriority: medium
-ms.author: pashort
-author: shortpatti
+ms.author: lizross
+author: eross-msft
 ms.date: 11/05/2018
-ms.openlocfilehash: f92cfdbe13633dd4c59012f566c6888fdc7fc7a1
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: e0e061a38170242a3808fbad0c82a4154bf9c536
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71388166"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80313299"
 ---
 # <a name="step-1-plan-the-always-on-vpn-deployment"></a>Passaggio 1. Pianificare la distribuzione di VPN Always On
 
 >Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows 10
 
-- [**Precedente** Informazioni sul flusso di lavoro per la distribuzione di Always On VPN](always-on-vpn-deploy-deployment.md)
-- [**Prossimo** Passaggio 2. Configurare l'infrastruttura server](vpn-deploy-server-infrastructure.md)
+- [**Precedente:** Informazioni sul flusso di lavoro per la distribuzione di Always On VPN](always-on-vpn-deploy-deployment.md)
+- [Passaggio **successivo:** Passaggio 2. Configurare l'infrastruttura server](vpn-deploy-server-infrastructure.md)
 
 In questo passaggio si inizia a pianificare e preparare la distribuzione di Always On VPN. Prima di installare il ruolo del server accesso remoto nel computer che si sta pianificando di usare come server VPN, eseguire le attività seguenti. Dopo la pianificazione corretta, è possibile distribuire Always On VPN e, facoltativamente, configurare l'accesso condizionale per la connettività VPN usando Azure AD.
 
@@ -73,4 +73,4 @@ Nella maggior parte degli ambienti, per raggiungere la nuova rete perimetrale in
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Passaggio 2. Configurare l'infrastruttura](vpn-deploy-server-infrastructure.md)server: In questo passaggio si installano e configurano i componenti lato server necessari per supportare la VPN. I componenti lato server includono la configurazione dell'infrastruttura a chiave pubblica per distribuire i certificati utilizzati dagli utenti, dal server VPN e dal server dei criteri di rete.
+[Passaggio 2. Configurare l'infrastruttura server](vpn-deploy-server-infrastructure.md): in questo passaggio si installano e configurano i componenti lato server necessari per supportare la VPN. I componenti lato server includono la configurazione dell'infrastruttura a chiave pubblica per distribuire i certificati utilizzati dagli utenti, dal server VPN e dal server dei criteri di rete.

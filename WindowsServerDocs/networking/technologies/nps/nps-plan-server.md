@@ -6,14 +6,14 @@ ms.prod: windows-server
 ms.technology: networking
 ms.topic: article
 ms.assetid: 2900dd2c-0f70-4f8d-9650-ed83d51d509a
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: bbcf3338f2cd6d8662a84faf263b486e31b140e5
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 0e012746841bcf736b7698afb5d7c807194bbec0
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71405333"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80315735"
 ---
 # <a name="plan-nps-as-a-radius-server"></a>Pianificare Servizi dei criteri di rete come server RADIUS
 
@@ -93,7 +93,7 @@ I metodi di autenticazione basati su certificati hanno il vantaggio di garantire
 
 Sia PEAP-MS-CHAP v2 che EAP-TLS sono metodi di autenticazione basati sui certificati, ma vi sono molte differenze tra di essi e il modo in cui vengono distribuiti.
 
-### <a name="eap-tls"></a>Protocollo EAP-TLS
+### <a name="eap-tls"></a>EAP-TLS
 
 EAP-TLS usa i certificati per l'autenticazione client e server e richiede la distribuzione di un'infrastruttura a chiave pubblica (PKI) nell'organizzazione. La distribuzione di un'infrastruttura a chiave pubblica può essere complessa e richiede una fase di pianificazione indipendente dalla pianificazione dell'utilizzo di NPS come server RADIUS.
 

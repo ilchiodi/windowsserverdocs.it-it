@@ -7,14 +7,14 @@ ms.technology: networking
 ms.topic: article
 ms.assetid: ''
 ms.author: dacuo
-author: shortpatti
+author: eross-msft
 ms.date: 09/07/2018
-ms.openlocfilehash: dce890d5ae542789c49bf08b5e7f25e62ea2e8c2
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 4a6fd33dce35cf2a185cf5e4357c37e8050197a2
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71355296"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80312512"
 ---
 # <a name="rsc-in-the-vswitch"></a>RSC in vSwitch
 >Si applica a: Windows Server 2019
@@ -27,13 +27,13 @@ Windows Server 2012 e versioni successive include una versione di offload solo h
 
 I carichi di lavoro il cui percorso di DataPath attraversa un Commuter virtuale beneficiano di questa funzionalità.
 
-Esempio:
+Ad esempio,
 
 -   NIC virtuali host che includono:
 
     -   Software Defined Networking
 
-    -   Host Hyper-V
+    -   Hyper-V Host
 
     -   Spazi di archiviazione diretta
 

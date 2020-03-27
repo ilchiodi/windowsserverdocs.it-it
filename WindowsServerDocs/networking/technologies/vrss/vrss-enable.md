@@ -8,14 +8,14 @@ ms.assetid: cb48315c-0204-4927-aa24-64f6789c2e20
 manager: dougkim
 ms.localizationpriority: medium
 ms.date: 09/05/2018
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 8f2886f01e4835cf2edb86fcae0a1fe77bc03d25
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: e4be9060da4a738e3ad8e4976d037f3a05467da3
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71405266"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80315370"
 ---
 # <a name="enable-vrss-on-a-virtual-network-adapter"></a>Abilitare vRSS in una scheda di rete virtuale
 
@@ -53,7 +53,7 @@ Usare le procedure seguenti per abilitare vRSS usando Windows PowerShell o Devic
 
 7.  Verificare che la selezione in **valore** sia **abilitata**. 
 
-8.  Fai clic su **OK**.
+8.  Fare clic su **OK**.
   
 > [!NOTE]
 > Nella scheda **Avanzate** alcune schede di rete visualizzano anche il numero di code RSS supportate dall'adapter.

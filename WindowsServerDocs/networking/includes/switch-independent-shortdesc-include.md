@@ -1,14 +1,14 @@
 ---
-author: shortpatti
-ms.author: pashort
+author: eross-msft
+ms.author: lizross
 ms.date: 10/02/2018
 ms.prod: windows-server
 ms:topic: include
-ms.openlocfilehash: ef22deaf9ae8631e16565a4b339f2a2f92b3e23a
-ms.sourcegitcommit: 73898afec450fb3c2f429ca373f6b48a74b19390
+ms.openlocfilehash: 2e625ec8b0ad4c8959a97ccba9cc95e7781d1370
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71935077"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80316490"
 ---
 Con la modalità indipendente dal commutatore, il commutatore o i commutatori a cui i membri del gruppo NIC sono connessi non sono consapevoli della presenza del gruppo NIC e non determinano come distribuire il traffico di rete ai membri del gruppo NIC. il gruppo NIC distribuisce invece la rete in ingresso traffico tra i membri del gruppo NIC. 

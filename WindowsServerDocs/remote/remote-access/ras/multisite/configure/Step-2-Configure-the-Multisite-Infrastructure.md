@@ -10,14 +10,14 @@ ms.technology: networking-ras
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: faec70ac-88c0-4b0a-85c7-f0fe21e28257
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: b345ce7cdbb0cf9ff91ec99275232da5ba34edb0
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 6f020dc2bf5c0dc11d18e886346a98a4a40f3855
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71367202"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80314051"
 ---
 # <a name="step-2-configure-the-multisite-infrastructure"></a>Passaggio 2 configurare l'infrastruttura multisito
 
@@ -33,9 +33,9 @@ Per configurare una distribuzione multisito, esistono una serie di passaggi nece
 |2.4. Configurare gli oggetti Criteri di gruppo|Configurare oggetti Criteri di gruppo aggiuntive come richiesto.|  
   
 > [!NOTE]  
-> Questo argomento include cmdlet di esempio di Windows PowerShell che è possibile usare per automatizzare alcune delle procedure descritte. Per ulteriori informazioni, vedere [mediante i cmdlet](https://go.microsoft.com/fwlink/p/?linkid=230693).  
+> In questo argomento sono inclusi cmdlet di Windows PowerShell di esempio che possono essere usati per automatizzare alcune delle procedure descritte. Per ulteriori informazioni, vedere [mediante i cmdlet](https://go.microsoft.com/fwlink/p/?linkid=230693).  
   
-## <a name="BKMK_ConfigAD"></a>2,1. Configurare ulteriori siti di Active Directory  
+## <a name="21-configure-additional-active-directory-sites"></a><a name="BKMK_ConfigAD"></a>2,1. Configurare ulteriori siti di Active Directory  
 Tutti i punti di ingresso possono risiedere in un singolo sito di Active Directory. Pertanto, almeno un sito di Active Directory è richiesto per l'implementazione del server di accesso remoto in una configurazione multisito. Utilizzare questa procedura se è necessario creare il primo sito di Active Directory o se si desidera utilizzare altri siti di Active Directory per la distribuzione multisita. Utilizzare lo snap-in Active Directory Sites and Services di creare nuovi siti nell'organizzazione "network s.  
 
 L'appartenenza di **Enterprise Admins** gruppo nella foresta o **Domain Admins** gruppo dominio radice della foresta, o equivalente, come minimo è necessario per completare questa procedura. Informazioni dettagliate sull'utilizzo degli account appropriati e appartenenze [dominio gruppi predefiniti locali e](https://go.microsoft.com/fwlink/?LinkId=83477).  
@@ -62,7 +62,7 @@ Per ulteriori informazioni, vedere [aggiunta di un sito alla foresta](https://te
   
 ![](../../../../media/Step-2-Configure-the-Multisite-Infrastructure/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em> per Windows PowerShell***  
   
-Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.  
+Tramite i cmdlet di Windows PowerShell seguenti viene eseguita la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se è possibile il ritorno a capo automatico in diverse righe a causa di limiti di formattazione.  
   
 Per installare la funzionalità di Windows "Modulo Active Directory per Windows PowerShell":  
   
@@ -92,7 +92,7 @@ New-ADReplicationSubnet -Name "10.2.0.0/24" -Site "Second-Site"
 New-ADReplicationSubnet -Name "2001:db8:2::/64" -Site "Second-Site"  
 ```  
   
-## <a name="BKMK_AddDC"></a>2,2. Configurare i controller di dominio aggiuntivo  
+## <a name="22-configure-additional-domain-controllers"></a><a name="BKMK_AddDC"></a>2,2. Configurare i controller di dominio aggiuntivo  
 Per configurare una distribuzione multisito in un singolo dominio, è consigliabile avere almeno un controller di dominio scrivibile per ogni sito nella distribuzione.  
   
 Per eseguire questa procedura, come minimo che è necessario essere un membro del gruppo Domain Admins nel dominio in cui viene installato il controller di dominio.  
@@ -148,14 +148,14 @@ Per ulteriori informazioni, vedere [l'installazione di un Controller di dominio 
   
 15. Riavviare il computer se non è stato automaticamente riavviato.  
   
-## <a name="BKMK_ConfigSG"></a>2,3. Configurare i gruppi di sicurezza  
+## <a name="23-configure-security-groups"></a><a name="BKMK_ConfigSG"></a>2,3. Configurare i gruppi di sicurezza  
 Una distribuzione multisito richiede un gruppo di sicurezza aggiuntive per i computer client Windows 7 per ogni punto di ingresso nella distribuzione che consente di accedere ai computer client Windows 7. Se sono presenti più domini contenenti computer client Windows 7, è consigliabile creare un gruppo di sicurezza in ogni dominio per lo stesso punto di ingresso. In alternativa, può essere utilizzato un gruppo di protezione universale contenente i computer client da entrambi i domini. Ad esempio, in un ambiente con due domini, se si desidera consentire l'accesso al computer client Windows 7 in punti di ingresso 1 e 3, ma non nella voce punto 2, quindi creare due nuovi gruppi di protezione che contenga i computer client Windows 7 per ogni punto di ingresso in ognuno dei domini.  
   
 ### <a name="to-configure-additional-security-groups"></a>Per configurare i gruppi di sicurezza aggiuntive  
   
 1.  Nel controller di dominio primario, fare clic su **avviare**, quindi fare clic su **Active Directory Users and Computers**.  
   
-2.  Nell'albero della console, fare clic sulla cartella in cui si desidera aggiungere un nuovo gruppo, ad esempio, corp.contoso.com/Users. Scegliere **nuovo**, quindi fare clic su **gruppo**.  
+2.  Nell'albero della console, fare clic sulla cartella in cui si desidera aggiungere un nuovo gruppo, ad esempio, corp.contoso.com/Users. Scegliere **Nuovo** e quindi fare clic su **Gruppo**.  
   
 3.  Nel **nuovo oggetto - gruppo** nella finestra di dialogo **nome gruppo**, digitare il nome del nuovo gruppo, ad esempio, Win7_Clients_Entrypoint1.  
   
@@ -171,7 +171,7 @@ Una distribuzione multisito richiede un gruppo di sicurezza aggiuntive per i com
   
 ![](../../../../media/Step-2-Configure-the-Multisite-Infrastructure/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em> per Windows PowerShell***  
   
-Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.  
+Tramite i cmdlet di Windows PowerShell seguenti viene eseguita la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se è possibile il ritorno a capo automatico in diverse righe a causa di limiti di formattazione.  
   
 Per installare la funzionalità di Windows "Modulo Active Directory per Windows PowerShell":  
   
@@ -194,7 +194,7 @@ New-ADGroup -GroupScope universal -Name Win7_Clients_Entrypoint1
 Add-ADGroupMember -Identity Win7_Clients_Entrypoint1 -Members CLIENT2$  
 ```  
   
-## <a name="ConfigGPOs"></a>2,4. Configurare gli oggetti Criteri di gruppo  
+## <a name="24-configure-gpos"></a><a name="ConfigGPOs"></a>2,4. Configurare gli oggetti Criteri di gruppo  
 Una distribuzione di accesso remoto multisito richiede gli oggetti Criteri di gruppo seguente:  
   
 -   Un oggetto Criteri di gruppo per ogni punto di ingresso per il server di accesso remoto.  
@@ -213,7 +213,7 @@ Quando si configura accesso remoto, la procedura guidata crea automaticamente gl
   
 Per creare oggetti Criteri di gruppo, vedere [creare e modificare un oggetto Criteri di gruppo](https://technet.microsoft.com/library/cc754740.aspx).  
   
-### <a name="DCMaintandDowntime"></a>Manutenzione e tempi di inattività del controller di dominio  
+### <a name="domain-controller-maintenance-and-downtime"></a><a name="DCMaintandDowntime"></a>Manutenzione e tempi di inattività del controller di dominio  
 Quando un controller di dominio dell'emulatore PDC o controller di dominio, la gestione di oggetti Criteri di gruppo di server verificarsi tempi di inattività, non è possibile caricare o modificare la configurazione di accesso remoto. Questa operazione non influenza la connettività dei client se sono disponibili altri controller di dominio.  
   
 Per caricare o modificare la configurazione di accesso remoto, è possibile trasferire il ruolo emulatore PDC a un controller di dominio diverso per il server di applicazione client o di oggetti Criteri di gruppo; per oggetti Criteri di gruppo di server, modificare i controller di dominio di gestire il server di oggetti Criteri di gruppo.  
@@ -224,7 +224,7 @@ Per caricare o modificare la configurazione di accesso remoto, è possibile tras
 > [!NOTE]  
 > Prima di modificare l'associazione di controller di dominio, assicurarsi che tutti i GPO in distribuzione di accesso remoto sono stati replicati in tutti i controller di dominio nel dominio. Se l'oggetto Criteri di gruppo non è sincronizzata, le modifiche di configurazione recenti vadano perse dopo la modifica delle associazioni di controller di dominio, che potrebbero causare una configurazione danneggiata. Per verificare la sincronizzazione di oggetti Criteri di gruppo, vedere [stato dell'infrastruttura Criteri di gruppo verificare](https://technet.microsoft.com/library/jj134176.aspx).  
   
-#### <a name="TransferPDC"></a>Per trasferire il ruolo emulatore PDC  
+#### <a name="to-transfer-the-pdc-emulator-role"></a><a name="TransferPDC"></a>Per trasferire il ruolo emulatore PDC  
   
 1.  Nel **avviare** digitare**DSA. msc**, quindi premere INVIO.  
   
@@ -239,7 +239,7 @@ Per caricare o modificare la configurazione di accesso remoto, è possibile tras
   
 5.  Fare clic su **Sì** per confermare che si desidera trasferire il ruolo e quindi fare clic su **Chiudi**.  
   
-#### <a name="ChangeDC"></a>Per modificare il controller di dominio che gestisce gli oggetti Criteri di gruppo del server  
+#### <a name="to-change-the-domain-controller-that-manages-server-gpos"></a><a name="ChangeDC"></a>Per modificare il controller di dominio che gestisce gli oggetti Criteri di gruppo del server  
   
 -   Eseguire il cmdlet Windows PowerShell  `HYPERLINK "https://technet.microsoft.com/library/hh918412.aspx" Set-DAEntryPointDC` sul server di accesso remoto e specificare il nome del controller di dominio non è raggiungibile per i *ExistingDC* parametro. Questo comando Modifica l'associazione di controller di dominio per il server di oggetti Criteri di gruppo dei punti di ingresso che sono attualmente gestiti dal controller di dominio.  
   
@@ -255,7 +255,7 @@ Per caricare o modificare la configurazione di accesso remoto, è possibile tras
         Set-DAEntryPointDC "ExistingDC 'dc1.corp.contoso.com' "ComputerName 'DA1.corp.contoso.com' "ErrorAction Inquire  
         ```  
   
-### <a name="ChangeTwoDCs"></a>Modificare due o più controller di dominio che gestiscono oggetti Criteri di gruppo del server  
+### <a name="change-two-or-more-domain-controllers-that-manage-server-gpos"></a><a name="ChangeTwoDCs"></a>Modificare due o più controller di dominio che gestiscono oggetti Criteri di gruppo del server  
 In un numero minimo di casi, non sono disponibili due o più controller di dominio che gestiscono oggetti Criteri di gruppo di server. In questo caso, sono necessari ulteriori passaggi per modificare l'associazione di controller di dominio per il server di oggetti Criteri di gruppo.  
   
 Informazioni sull'associazione di controller di dominio vengono archiviati sia nel Registro di sistema del server di accesso remoto e in tutti i GPO di server. Nell'esempio seguente, esistono due punti di ingresso con due server di accesso remoto, "DA1" in "punto di ingresso 1" e "DA2" in "Punto di ingresso 2". Il server oggetto Criteri di gruppo "Punto di ingresso 1" è gestito nel controller di dominio "DC1", mentre il server oggetto Criteri di gruppo del "punto di ingresso 2" è gestito nel controller di dominio "DC2". "DC1" e "DC2" non sono disponibili. È ancora disponibile un terzo controller di dominio nel dominio, "DC3", e i dati da "DC1" e "DC2" è stato già replicati "DC3".  
@@ -299,7 +299,7 @@ Informazioni sull'associazione di controller di dominio vengono archiviati sia n
   
     ![Windows PowerShell](../../../../media/Step-2-Configure-the-Multisite-Infrastructure/DCAssocFinal.png)  
   
-### <a name="ConfigDistOptimization"></a>Ottimizzazione della distribuzione della configurazione  
+### <a name="optimization-of-configuration-distribution"></a><a name="ConfigDistOptimization"></a>Ottimizzazione della distribuzione della configurazione  
 Quando si apportano modifiche di configurazione, le modifiche vengono applicate solo dopo che il server di oggetti Criteri di gruppo propagazione al server di accesso remoto. Per ridurre il tempo di distribuzione della configurazione, accesso remoto seleziona automaticamente un controller di dominio scrivibile che è il collegamento ipertestuale "<https://technet.microsoft.com/library/cc978016.aspx>" più vicino al server di accesso remoto durante la creazione dell'oggetto Criteri di gruppo del server.  
   
 In alcuni scenari, può essere necessario modificare manualmente il controller di dominio che gestisce un oggetto Criteri di gruppo di server per ottimizzare i tempi di distribuzione di configurazione:  
@@ -332,7 +332,7 @@ Per ottimizzare i tempi di distribuzione della configurazione, effettuare una de
     > [!NOTE]  
     > Quando si modifica il controller di dominio associato a un punto di ingresso specifico, è necessario specificare un server di accesso remoto che è un membro di tale punto di ingresso per il *nomecomputer* parametro.  
   
-## <a name="BKMK_Links"></a>Vedere anche  
+## <a name="see-also"></a><a name="BKMK_Links"></a>Vedere anche  
   
 -   [Passaggio 3: configurare la distribuzione multisito](Step-3-Configure-the-Multisite-Deployment.md)  
 -   [Passaggio 1: implementare una distribuzione di accesso remoto a server singolo](Step-1-Implement-a-Single-Server-Remote-Access-Deployment.md)  

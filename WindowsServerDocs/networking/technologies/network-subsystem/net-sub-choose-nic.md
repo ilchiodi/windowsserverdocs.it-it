@@ -6,14 +6,14 @@ ms.technology: networking
 ms.topic: article
 ms.assetid: a6615411-83d9-495f-8a6a-1ebc8b12f164
 manager: brianlic
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 9271cf4e5f50adf93f421e830a226507034ac454
-ms.sourcegitcommit: 1c75e4b3f5895f9fa33efffd06822dca301d4835
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 5e1ed095b3180f3aebd25381ec9086445bb141ec
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77517476"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80316628"
 ---
 # <a name="choosing-a-network-adapter"></a>Scelta di una scheda di rete
 
@@ -26,7 +26,7 @@ Per le applicazioni a elevato utilizzo di rete sono richieste schede di rete ad 
 > [!TIP]
 >  È possibile configurare le impostazioni della scheda di rete usando Windows PowerShell. Per altre informazioni, vedere [cmdlet per le schede di rete in Windows PowerShell](https://docs.microsoft.com/powershell/module/netadapter).
 
-##  <a name="bkmk_offload"></a>Funzionalità di offload
+##  <a name="offload-capabilities"></a><a name="bkmk_offload"></a>Funzionalità di offload
 
 L'offload delle attività dall'unità di elaborazione centrale \(CPU\) alla scheda di rete può ridurre l'utilizzo della CPU sul server, migliorando così le prestazioni complessive del sistema.
 
@@ -42,7 +42,7 @@ Lo stack di rete nei prodotti Microsoft può eseguire l'offload di una o più at
 |Receive-Side Scaling \(RSS\)|RSS è una tecnologia di driver di rete che consente di distribuire in modo efficiente l'elaborazione della ricezione di rete tra più CPU nei sistemi multiprocessore. Ulteriori dettagli su RSS sono disponibili più avanti in questo argomento.|  
 |Unione del segmento di ricezione \(RSC\)|RSC è la possibilità di raggruppare i pacchetti per ridurre al minimo l'elaborazione dell'intestazione necessaria per l'esecuzione dell'host. È possibile unire un massimo di 64 KB di payload ricevuti in un singolo pacchetto di dimensioni maggiori per l'elaborazione. Ulteriori dettagli su RSC sono disponibili più avanti in questo argomento.|  
   
-###  <a name="bkmk_rss"></a>Receive-Side Scaling
+###  <a name="receive-side-scaling"></a><a name="bkmk_rss"></a>Receive-Side Scaling
 
 Windows Server 2016, Windows Server 2012, Windows Server 2012 R2, Windows Server 2008 R2 e Windows Server 2008 supportano Receive-Side Scaling \(\)RSS. 
 
@@ -158,7 +158,7 @@ Per utilizzare completamente le CPU, il numero di code di ricezione RSS deve ess
 
 RSS può essere abilitato in una scheda di rete raggruppata con un'altra scheda di interfaccia di rete che utilizza il gruppo NIC. In questo scenario è possibile configurare solo la scheda di rete fisica sottostante per l'utilizzo di RSS. Un utente non può impostare i cmdlet RSS nella scheda di rete di gruppo.
   
-###  <a name="bkmk_rsc"></a>Unione segmento di ricezione (RSC)
+###  <a name="receive-segment-coalescing-rsc"></a><a name="bkmk_rsc"></a>Unione segmento di ricezione (RSC)
 
 L'Unione dei segmenti di ricezione \(RSC\) facilita le prestazioni riducendo il numero di intestazioni IP elaborate per una determinata quantità di dati ricevuti. Deve essere usato per semplificare la scalabilità delle prestazioni dei dati ricevuti raggruppando \(o coalesone\) i pacchetti più piccoli in unità più grandi.
 
@@ -206,7 +206,7 @@ RSC è supportato solo nell'host fisico quando la scheda di rete host non è ass
 
 RSC può essere abilitato per una macchina virtuale quando è abilitata la funzionalità Single root input/output Virtualization \(SR-IOV\). In questo caso, le funzioni virtuali supportano la funzionalità RSC; di conseguenza, le macchine virtuali ricevono anche il vantaggio di RSC.
 
-##  <a name="bkmk_resources"></a>Risorse scheda di rete
+##  <a name="network-adapter-resources"></a><a name="bkmk_resources"></a>Risorse scheda di rete
 
 Alcune schede di rete gestiscono attivamente le proprie risorse per ottenere prestazioni ottimali. Diverse schede di rete consentono di configurare manualmente le risorse utilizzando la scheda **rete avanzata** per la scheda. Per tali schede è possibile impostare i valori di un numero di parametri, incluso il numero di buffer di ricezione e di invio.
 

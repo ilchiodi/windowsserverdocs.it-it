@@ -6,14 +6,14 @@ ms.prod: windows-server
 ms.technology: networking-dns
 ms.topic: article
 ms.assetid: 4846b548-8fbc-4a7f-af13-09e834acdec0
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 4307ce1512980277af819e0710e0447d8dbac8c4
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: be0604a850e54f4945e7416298fad30ce3dbf083
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71406193"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80317839"
 ---
 # <a name="dns-responses-based-on-time-of-day-with-an-azure-cloud-app-server"></a>Risposte DNS basate sull'ora del giorno con un server app Azure Cloud
 
@@ -57,7 +57,7 @@ Nella figura seguente viene illustrato questo scenario.
  
 Questo articolo illustra come configurare il server DNS per rispondere alle query DNS con due diversi indirizzi IP del server applicazioni: un server Web si trova a Seattle e l'altro si trova in un Data Center di Azure.
 
-Dopo la configurazione di un nuovo criterio DNS che si basa sulle ore di picco dalle 18.00 alle 21.00 di Seattle, il server DNS invia il 70% delle risposte DNS ai client contenenti l'indirizzo IP del server Web Seattle e il 30% delle risposte DNS a AG NTS che contiene l'indirizzo IP del server Web di Azure, indirizzando quindi il traffico client al nuovo server Web di Azure e impedendo che il server Web di Seattle diventi sovraccarico. 
+Dopo la configurazione di un nuovo criterio DNS che si basa sulle ore di picco dalle 18.00 alle 21.00 di Seattle, il server DNS invia il 70% delle risposte DNS ai client contenenti l'indirizzo IP del server Web Seattle e il 30% delle risposte DNS ai client contenente l'indirizzo IP del server Web di Azure, indirizzando il traffico client al nuovo server Web di Azure e impedendo che il server Web di Seattle diventi sovraccarico. 
 
 In tutti gli altri orari del giorno viene eseguita la normale elaborazione delle query e le risposte vengono inviate dall'ambito di zona predefinito che contiene un record per il server Web nel Data Center locale. 
 

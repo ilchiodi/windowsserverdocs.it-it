@@ -1,9 +1,9 @@
 ---
 title: Risolvere i problemi relativi al monitoraggio di computer in Windows Server Essentials
-description: Viene descritto come utilizzare Windows Server Essentials
+description: Viene descritto come usare Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
-ms.prod: windows-server-2016-essentials
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
@@ -12,27 +12,27 @@ ms.assetid: f1e6b377-4a24-4d28-9b25-05910914826b
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 1adf8ae2dd8763d0bc5a514609bb2470de6acde4
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 968c8c82bfde350e631f1f6ae4830a4fd920aa4b
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66436077"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80318602"
 ---
 # <a name="troubleshoot-computer-monitoring-in-windows-server-essentials"></a>Risolvere i problemi relativi al monitoraggio di computer in Windows Server Essentials
 
 >Si applica a: Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
 
-In questo argomento contiene informazioni sulla risoluzione dei problemi riscontrati durante il monitoraggio dello stato di integrità del computer nel Visualizzatore avvisi e tramite le notifiche di posta elettronica in Windows Server Essentials.  
+Questo argomento descrive la risoluzione dei problemi riscontrati durante il monitoraggio dello stato di integrità dei computer nel Visualizzatore avvisi e tramite le notifiche tramite posta elettronica in Windows Server Essentials.  
   
 > [!NOTE]
->  Per informazioni aggiornate sulla risoluzione dei problemi dalla community di Windows Server Essentials, si consiglia di visitare il [Forum di Windows Server Essentials](https://social.technet.microsoft.com/Forums/winserveressentials/threads). Il forum di Windows Server Essentials è ideale per cercare informazioni o per porre una domanda.  
+>  Per le informazioni più aggiornate sulla risoluzione dei problemi della community di Windows Server Essentials, è consigliabile visitare il [Forum di Windows Server Essentials](https://social.technet.microsoft.com/Forums/winserveressentials/threads). Il forum di Windows Server Essentials è ideale per cercare informazioni o per porre una domanda.  
   
-##  <a name="BKMK_TS"></a> Risoluzione dei problemi relativi a notifiche di posta elettronica per gli avvisi  
+##  <a name="troubleshooting-email-notifications-for-alerts"></a><a name="BKMK_TS"></a>Risoluzione dei problemi relativi alle notifiche di posta elettronica per gli avvisi  
  In questa sezione sono elencati i vari problemi che possono verificarsi quando si usano le notifiche di posta elettronica per gli avvisi.  
   
 ### <a name="cannot-send-the-test-email-for-the-alert"></a>Non è possibile inviare il messaggio di posta elettronica di prova per l'avviso  
- **Problema** si verifica un errore messaggio non è possibile inviare il messaggio di prova per l'avviso.  
+ **Problema** di Viene visualizzato un messaggio di errore che indica che non è possibile inviare il messaggio di posta elettronica di prova per l'avviso.  
   
  **Causa** L'errore può essere dovuto a uno dei problemi seguenti nelle impostazioni relative alle notifiche di avviso:  
   
@@ -53,7 +53,7 @@ In questo argomento contiene informazioni sulla risoluzione dei problemi riscont
      %ProgramData%\Microsoft\Windows Server\Logs\SharedServiceHost-AlertServiceConfig.log  
   
     > [!TIP]
-    >  Per vedere la cartella ProgramData è necessario visualizzare gli elementi nascosti. Se non trovi la cartella ProgramData, della barra multifunzione **View** nella scheda il **Mostra/Nascondi** gruppo, selezionare il **elementi nascosti** casella di testo.  
+    >  Per vedere la cartella ProgramData è necessario visualizzare gli elementi nascosti. Se la cartella ProgramData non è visibile, nella scheda **Visualizza** della barra multifunzione, nel gruppo Mostra **/Nascondi** , selezionare la casella di testo **elementi nascosti** .  
   
 ##### <a name="to-update-your-email-notification-setup-for-alerts"></a>Per aggiornare la configurazione delle notifiche di posta elettronica per gli avvisi  
   

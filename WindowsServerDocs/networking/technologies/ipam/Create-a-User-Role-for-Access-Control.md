@@ -10,14 +10,14 @@ ms.technology: networking-ipam
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: ae6a42db-a104-401b-a8e6-b85c47d30b46
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 01e3216ca62cdb780342b477e575e00cdeedc6dd
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 61b8a331d5451e65d2b29f973b66c41a2aad8c1a
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71405709"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80312621"
 ---
 # <a name="create-a-user-role-for-access-control"></a>Creare un ruolo utente per il controllo di accesso
 
@@ -58,7 +58,7 @@ Per eseguire questa procedura è necessaria almeno l'appartenenza al gruppo **Ad
   
     ![Dettagli nuovo ruolo](../../media/Create-a-User-Role-for-Access-Control/ipam_CreateUserRole_06.jpg)  
   
-## <a name="see-also"></a>Vedere anche  
+## <a name="see-also"></a>Vedi anche  
 [Controllo degli accessi in base al ruolo](Role-based-Access-Control.md)  
 [Gestire Gestione indirizzi IP](Manage-IPAM.md)  
   

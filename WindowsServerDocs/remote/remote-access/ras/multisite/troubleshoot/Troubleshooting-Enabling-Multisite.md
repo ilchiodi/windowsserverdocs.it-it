@@ -10,14 +10,14 @@ ms.technology: networking-ras
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 570c81d6-c4f4-464c-bee9-0acbd4993584
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: fc42040d68b8a22dcfc46aa30db3a2a3c3bc060a
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 59db462e3772b551f0d80819e7cd79519e95fb14
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71367056"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80313828"
 ---
 # <a name="troubleshooting-enabling-multisite"></a>Risoluzione dei problemi di abilitazione della distribuzione multisito
 
@@ -118,7 +118,7 @@ Nella distribuzione di DirectAccess esistente è stato abilitato il supporto cli
 DirectAccess richiede almeno un gruppo di sicurezza per tutti i computer client Windows 8 e un gruppo di sicurezza per i computer client Windows 7 per ogni punto di ingresso. Ogni computer client deve essere incluso in un solo gruppo di sicurezza. Pertanto, è necessario assicurarsi che il gruppo di sicurezza per i client Windows 8 contenga solo computer che eseguono Windows 8 e che ogni computer client Windows 7 appartenga a un singolo gruppo di sicurezza dedicato per il punto di ingresso pertinente e che nessun client Windows 8 appartenere ai gruppi di sicurezza di Windows 7.  
   
 ## <a name="active-directory-site"></a>Il sito di Active Directory  
-**Errore ricevuto**. Il server < nome_server > non è associato a un sito Active Directory.  
+**Errore ricevuto**. Il server < server_name > non è associato a un sito di Active Directory.  
   
 **Causa**  
   
@@ -128,7 +128,7 @@ DirectAccess non è in grado di determinare il sito Active Directory. Nella cons
   
 Verificare che sia questo il problema eseguendo il comando `nltest /dsgetsite` nel server di Accesso remoto. In caso affermativo, verrà restituito ERROR_NO_SITENAME. Per risolvere questo problema, verificare che nel controller del dominio sia presente una subnet contenente l'indirizzo IP del server interno e che tale subnet sia definita con un sito Active Directory.  
   
-## <a name="SaveGPOSettings"></a>Salvataggio delle impostazioni dell'oggetto Criteri di gruppo Server  
+## <a name="saving-server-gpo-settings"></a><a name="SaveGPOSettings"></a>Salvataggio delle impostazioni dell'oggetto Criteri di gruppo Server  
 **Errore ricevuto**. Si è verificato un errore durante il salvataggio delle impostazioni di accesso remoto nell'oggetto Criteri di gruppo < GPO_name >.  
   
 **Causa**  
@@ -139,7 +139,7 @@ Non è stato possibile salvare le modifiche all'oggetto Criteri di gruppo del se
   
 Verificare che vi sia connettività tra il server di Accesso remoto e il controller di dominio. Se la connettività è presente, verificare nel controller di dominio che il file registry.pol non sia bloccato da un altro utente e, se necessario, terminare la sessione in questione per sbloccare il file.  
   
-## <a name="InternalServerError"></a>Si è verificato un errore interno  
+## <a name="internal-error-occurred"></a><a name="InternalServerError"></a>Si è verificato un errore interno  
 **Errore ricevuto**. Si è verificato un errore interno.  
   
 **Causa**  

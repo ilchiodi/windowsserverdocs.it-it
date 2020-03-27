@@ -6,15 +6,15 @@ ms.prod: windows-server
 ms.technology: networking-hv-switch
 ms.topic: get-started-article
 ms.assetid: ''
-ms.author: pashort
-author: shortpatti
+ms.author: lizross
+author: eross-msft
 ms.date: 10/02/2018
-ms.openlocfilehash: e68a3889867b75152ea941ac1d8eb113b9acd3cb
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 5425a562264addd3b2fc416f659f8ba79d6d99d6
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71406002"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80317493"
 ---
 # <a name="egress-metering-in-a-virtual-network"></a>Misurazione in uscita in una rete virtuale
 
@@ -51,7 +51,7 @@ L'output sarà simile al seguente:
    ```
 
 
-## <a name="example-manage-the-unbilled-address-ranges-of-a-virtual-network"></a>Esempio: Gestire gli intervalli di indirizzi non fatturati di una rete virtuale
+## <a name="example-manage-the-unbilled-address-ranges-of-a-virtual-network"></a>Esempio: gestire gli intervalli di indirizzi non fatturati di una rete virtuale
 
 È possibile gestire il set di prefissi di subnet IP da escludere dalla misurazione dell'uscita fatturata impostando la proprietà **UnbilledAddressRange** di una rete virtuale.  Qualsiasi traffico inviato dalle interfacce di rete nella rete virtuale con un indirizzo IP di destinazione corrispondente a uno dei prefissi non verrà incluso nella proprietà BilledEgressBytes.
 

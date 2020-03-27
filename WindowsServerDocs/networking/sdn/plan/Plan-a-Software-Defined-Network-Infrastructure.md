@@ -11,15 +11,15 @@ ms.technology: networking-sdn
 ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: ea7e53c8-11ec-410b-b287-897c7aaafb13
-ms.author: pashort
-author: shortpatti
+ms.author: lizross
+author: eross-msft
 ms.date: 08/10/2018
-ms.openlocfilehash: ed2dc8861366b929de346d5bd5b3d40998cc8dd5
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 83f94d3770c475fca7f5d4b8cc2f5a5ade1a20d7
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71355792"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80317460"
 ---
 # <a name="plan-a-software-defined-network-infrastructure"></a>Pianificare un'infrastruttura Software Defined Network
 
@@ -60,7 +60,7 @@ Un server DHCP può assegnare automaticamente gli indirizzi IP per la rete di ge
 >Il controller di rete assegna un indirizzo IP del provider HNV a un host di calcolo fisico solo dopo che l'agente host del controller di rete riceve i criteri di rete per una macchina virtuale tenant specifica. 
 
 
-|                                                               Se...                                                               |                                                                                                                                                                          Quindi...                                                                                                                                                                           |
+|                                                               Relazione                                                               |                                                                                                                                                                          Necessità di ripristino                                                                                                                                                                           |
 |-----------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |                                                  Le reti logiche utilizzano le VLAN,                                                  |                                                                 l'host di calcolo fisico deve connettersi a una porta di commutazione trunk che ha accesso a queste VLAN. È importante notare che le schede di rete fisiche nell'host del computer non devono avere alcun filtro VLAN attivato.                                                                 |
 |                Con Switched-Embedded Teaming (SET) e con più membri del team NIC, ad esempio schede di rete,                |                                                                                                                        è necessario connettere tutti i membri del gruppo NIC per quel particolare host allo stesso dominio broadcast di livello 2.                                                                                                                         |
@@ -93,7 +93,7 @@ Modificare i prefissi di subnet IP di esempio e gli ID VLAN per l'ambiente in us
 
 | **Nome di rete** |  **Subnet**  | **Maschera** | **ID VLAN su camion** | **Gateway**  |                                                           **Prenotazioni (esempi)**                                                           |
 |------------------|--------------|----------|----------------------|--------------|-------------------------------------------------------------------------------------------------------------------------------------------------|
-|    Management    | 10.184.108.0 |    24    |          7           | 10.184.108.1 | 10.184.108.1-router 10.184.108.4-controller di rete 10.184.108.10-Compute host 110.184.108.11-Compute host 210.184.108. X-Compute host X |
+|    Gestione    | 10.184.108.0 |    24    |          7           | 10.184.108.1 | 10.184.108.1-router 10.184.108.4-controller di rete 10.184.108.10-Compute host 110.184.108.11-Compute host 210.184.108. X-Compute host X |
 |   Provider HNV   |  10.10.56.0  |    23    |          11          |  10.10.56.1  |                                                    10.10.56.1-router 10.10.56.2-SLB/MUX1                                                     |
 |     Transito      |  rete 10.10.10.0  |    24    |          10          |  10.10.10.1  |                                                               10.10.10.1-router                                                               |
 |    Indirizzo VIP pubblico    |  41.40.40.0  |    27    |          N/D          |  41.40.40.1  |                                    41.40.40.1-router 41.40.40.2-SLB/MUX VIP 41.40.40.3-IPSec S2S VPN VIP                                    |
@@ -121,11 +121,11 @@ Se si usa l'archiviazione basata su RDMA, definire una VLAN e una subnet per ogn
 
 Se si distribuisce l'infrastruttura SDN usando gli script, le subnet di gestione, provider HNV, transito e VIP devono essere instradabili tra loro nella rete fisica.     
 
-Le informazioni \(di routing, ad esempio\) l'hop successivo per le subnet VIP, sono annunciate dai gateway SLB/mux e RAS nella rete fisica usando il peering BGP interno. Alle reti logiche VIP non è assegnata una VLAN e non è preconfigurata nell'opzione di livello 2 (ad esempio, Commuter Top-of-rack).  
+Le informazioni di routing \(ad esempio\) di hop successivo per le subnet VIP sono annunciate dai gateway SLB/MUX e RAS nella rete fisica usando il peering BGP interno. Alle reti logiche VIP non è assegnata una VLAN e non è preconfigurata nell'opzione di livello 2 (ad esempio, Commuter Top-of-rack).  
 
 È necessario creare un peer BGP nel router usato dall'infrastruttura SDN per ricevere le route per le reti logiche VIP annunciate dai gateway SLB/mux e RAS. Il peering BGP deve essere eseguito solo in un modo, da SLB/MUX o dal gateway RAS al peer BGP esterno.  Al di sopra del primo livello di routing è possibile usare route statiche o un altro protocollo di routing dinamico, ad esempio OSPF. Tuttavia, come indicato in precedenza, il prefisso della subnet IP per le reti logiche VIP deve essere instradabile dalla rete fisica al peer BGP esterno.   
 
-Il peering BGP viene in genere configurato in un switch o un router gestito come parte dell'infrastruttura di rete. Il peer BGP può anche essere configurato in un server Windows con il ruolo server di accesso remoto installato in una modalità di solo routing. Questo peer router BGP nell'infrastruttura di rete deve essere configurato in modo da avere il proprio ASN e consentire il peering da un ASN assegnato ai componenti \(Sdn SLB/mux e\)gateway RAS. È necessario ottenere le informazioni seguenti dal router fisico o dall'amministratore di rete in controllo del router:
+Il peering BGP viene in genere configurato in un switch o un router gestito come parte dell'infrastruttura di rete. Il peer BGP può anche essere configurato in un server Windows con il ruolo server di accesso remoto installato in una modalità di solo routing. Questo peer router BGP nell'infrastruttura di rete deve essere configurato in modo da avere il proprio ASN e consentire il peering da un ASN assegnato ai componenti SDN \(SLB/MUX e gateway RAS\). È necessario ottenere le informazioni seguenti dal router fisico o dall'amministratore di rete in controllo del router:
 
 - ASN router  
 - Indirizzo IP router  
@@ -165,28 +165,28 @@ Switch Embedded Teaming (SET) è una soluzione di gruppo NIC alternativa che è 
 
 Per ulteriori informazioni, vedere [accesso diretto a memoria remota (RDMA) e switch Embedded Teaming (set)](../../../virtualization//hyper-v-virtual-switch/RDMA-and-Switch-Embedded-Teaming.md).   
 
-Per tenere conto dell'overhead nel traffico di rete virtuale del tenant causato dalle intestazioni di incapsulamento VXLAN o NVGRE, il valore MTU della rete dell'infrastruttura di livello 2 (commutatori e host) deve essere impostato su \(un valore maggiore o uguale a 1674 byte compreso Ethernet di livello 2 intestazioni\). 
+Per tenere conto dell'overhead nel traffico di rete virtuale del tenant causato dalle intestazioni di incapsulamento VXLAN o NVGRE, il valore MTU della rete dell'infrastruttura di livello 2 (commutatori e host) deve essere impostato su un valore maggiore o uguale a 1674 byte \(incluse le intestazioni Ethernet di livello 2\). 
 
-Le schede di rete che supportano la nuova parola chiave *EncapOverhead* Advanced Adapter imposta la MTU automaticamente tramite l'agente host del controller di rete. Le schede di rete che non supportano la nuova parola chiave *EncapOverhead* devono impostare manualmente le dimensioni MTU in ogni host fisico usando la parola\) chiave *JumboPacket* \(o equivalente. 
+Le schede di rete che supportano la nuova parola chiave *EncapOverhead* Advanced Adapter imposta la MTU automaticamente tramite l'agente host del controller di rete. Le schede di rete che non supportano la nuova parola chiave *EncapOverhead* devono impostare manualmente le dimensioni MTU in ogni host fisico usando la parola chiave *JumboPacket* \(o equivalente\). 
 
 
-### <a name="switches"></a>Interruttori
+### <a name="switches"></a>Switch
 
 Quando si seleziona un Commuter fisico e un router per l'ambiente, assicurarsi che supporti il set di funzionalità seguente:  
 
-- Impostazioni \(MTU switchport obbligatorie\)  
-- MTU impostato su > = 1674 byte \(, inclusa l'intestazione L2-Ethernet\)  
-- Protocolli \(L3 necessari\)  
+- Le impostazioni MTU switchport \(obbligatorie\)  
+- MTU impostato su > = 1674 byte \(inclusa l'intestazione L2-Ethernet\)  
+- \(necessari i protocolli L3\)  
 - ECMP  
-- ECMP \(basato su BGP\)IETF RFC 4271\-
+- BGP \(IETF RFC 4271\)ECMP basato su \-
 
 Le implementazioni devono supportare le istruzioni MUST negli standard IETF seguenti.
 
-- RFC 2545: "Estensioni multiprotocollo BGP-4 per il routing tra domini IPv6"  
-- RFC 4760: "Estensioni multiprotocollo per BGP-4"  
-- RFC 4893: "Supporto BGP per l'area numerica a quattro ottetti"  
-- RFC 4456: "Reflection Route BGP: Un'alternativa a full mesh Internal BGP (IBGP) "  
-- RFC 4724: "Meccanismo di riavvio normale per BGP"  
+- RFC 2545: "estensioni multiprotocollo BGP-4 per il routing tra domini IPv6"  
+- RFC 4760: "estensioni multiprotocollo per BGP-4"  
+- RFC 4893: "supporto BGP per quattro ottetti come spazio numerico"  
+- RFC 4456: "Reflection Route BGP: un'alternativa a full mesh Internal BGP (IBGP)"  
+- RFC 4724: "meccanismo di riavvio normale per BGP"  
 
 Sono necessari i seguenti protocolli di assegnazione di tag.
 
@@ -195,9 +195,9 @@ Sono necessari i seguenti protocolli di assegnazione di tag.
 
 Gli elementi seguenti forniscono il controllo dei collegamenti.
 
-- La qualità del \(servizio PFC è necessaria solo se si usa roce\)
-- Selezione \(del traffico avanzata 802.1 qaz\)
-- Controllo \(di flusso basato sulla priorità 802.1 p/Q e 802.1 QBB\)
+- La qualità del servizio \(PFC è necessaria solo se si usa RoCE\)
+- Selezione del traffico migliorata \(802.1 qaz\)
+- Controllo di flusso basato sulla priorità \(802.1 p/Q e 802.1 QBB\)
 
 Gli elementi seguenti forniscono disponibilità e ridondanza.
 
@@ -209,8 +209,8 @@ Gli elementi seguenti forniscono funzionalità di gestione.
 **Monitoraggio**
 
 - SNMP v1 o SNMP v2 (obbligatorio se si usa il controller di rete per il monitoraggio del Commuter fisico)  
-- MIB \(SNMP necessario se si usa il controller di rete per il monitoraggio del Commuter fisico\)  
-- MIB-II (RFC 1213), LLDP, Interface MIB \(RFC 2863\), if-MIB, IP-MIB, IP-inoltr-MIB, Q-Bridge-MIB, Bridge-MIB, LLDB-MIB, Entity-MIB, IEEE8023-lag-MIB  
+- SNMP MIB \(obbligatorio se si usa il controller di rete per il monitoraggio del Commuter fisico\)  
+- MIB-II (RFC 1213), LLDP, Interface MIB \(RFC 2863\), IF-MIB, IP-MIB, IP-INOLTR-MIB, Q-BRIDGE-MIB, BRIDGE-MIB, LLDB-MIB, Entity-MIB, IEEE8023-LAG-MIB  
 
 I diagrammi seguenti mostrano una configurazione di esempio a quattro nodi. Per maggiore chiarezza, il primo diagramma mostra solo il controller di rete, il secondo Visualizza il controller di rete più il bilanciamento del carico software e il terzo diagramma mostra il controller di rete, il servizio di bilanciamento del carico software e il gateway.  
 
@@ -231,14 +231,14 @@ Per tutti gli host Hyper-V deve essere installato Windows Server 2016, Hyper-V a
 È possibile utilizzare qualsiasi tipo di archiviazione compatibile con Hyper-V, Shared o local.   
 
 > [!TIP]  
-> È utile usare lo stesso nome per tutti i commutatori virtuali, ma non è obbligatorio. Se si prevede di eseguire la distribuzione con script, vedere il commento associato `vSwitchName` alla variabile nel file config. psd1.  
+> È utile usare lo stesso nome per tutti i commutatori virtuali, ma non è obbligatorio. Se si prevede di eseguire la distribuzione con script, vedere il commento associato alla variabile `vSwitchName` nel file config. psd1.  
 
 **Requisiti di calcolo host**  
 Nella tabella seguente vengono indicati i requisiti hardware e software minimi per i quattro host fisici utilizzati nella distribuzione di esempio.  
 
-Hyper-V|Requisiti hardware|Requisiti software|  
+Host|Requisiti hardware|Requisiti software|  
 --------|-------------------------|-------------------------  
-|Host Hyper-v fisico|CPU 4 Core 2,66 GHz<br /><br />32 GB di RAM<br /><br />300 GB di spazio su disco<br /><br />scheda di rete fisica 1 GB/s (o superiore)|DEL SISTEMA OPERATIVO Windows Server 2016<br /><br />Ruolo Hyper-V installato|  
+|Host Hyper-v fisico|CPU 4 Core 2,66 GHz<br /><br />32 GB di RAM<br /><br />300 GB di spazio su disco<br /><br />scheda di rete fisica 1 GB/s (o superiore)|Sistema operativo: Windows Server 2016<br /><br />Ruolo Hyper-V installato|  
 
 
 **Requisiti del ruolo macchina virtuale dell'infrastruttura SDN**  
@@ -259,7 +259,7 @@ I requisiti di dimensionamento e risorse per l'infrastruttura dipendono dalle ma
 Quando le macchine virtuali del carico di lavoro del tenant iniziano a usare un numero eccessivo di risorse negli host Hyper-V fisici, è possibile estendere l'infrastruttura aggiungendo host fisici aggiuntivi. Questa operazione può essere eseguita con Virtual Machine Manager o tramite script di PowerShell (a seconda di come è stata inizialmente distribuita l'infrastruttura) per creare nuove risorse server tramite il controller di rete. Se è necessario aggiungere altri indirizzi IP per la rete del provider HNV, è possibile creare nuove subnet logiche (con Pool IP corrispondenti) che gli host possono usare.  
 
 
-## <a name="see-also"></a>Vedere anche  
+## <a name="see-also"></a>Vedi anche  
 [Requisiti di installazione e preparazione per la distribuzione del controller di rete](Installation-and-Preparation-Requirements-for-Deploying-Network-Controller.md)  
 [Software Defined Networking &#40;Sdn&#41;](../Software-Defined-Networking--SDN-.md)  
 

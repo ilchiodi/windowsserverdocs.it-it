@@ -6,14 +6,14 @@ ms.prod: windows-server
 ms.technology: networking-dhcp
 ms.topic: article
 ms.assetid: 0ff29ef3-c458-4432-9065-e50a7de5b4b9
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: c71517bc742cf9eda62cc7d83128f1ab9bd04547
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 5fc44d0f58ed73ff48f530bad3206baa675d9ac9
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71355403"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80312529"
 ---
 # <a name="dynamic-host-configuration-protocol-dhcp"></a>Dynamic Host Configuration Protocol (DHCP)
 

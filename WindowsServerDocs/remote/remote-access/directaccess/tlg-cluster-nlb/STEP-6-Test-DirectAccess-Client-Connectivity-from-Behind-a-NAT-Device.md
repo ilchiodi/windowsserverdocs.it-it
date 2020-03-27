@@ -10,14 +10,14 @@ ms.technology: networking-da
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: aded2881-99ed-4f18-868b-b765ab926597
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 472c1dc6c5531a7c8d41e40bc926bb3e25f73448
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 82e9720bc09593ea7b8d7af4b2102ac3e3ba3e3d
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71367602"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80314707"
 ---
 # <a name="step-6-test-directaccess-client-connectivity-from-behind-a-nat-device"></a>PASSAGGIO 6 testare la connettività del client DirectAccess da dietro un dispositivo NAT
 
@@ -50,7 +50,7 @@ Avviare EDGE1 ed EDGE2 se non sono già in esecuzione.
   
 2. Esaminare l'output del comando ipconfig.  
   
-   Viene stabilita una connessione Internet da dietro un dispositivo NAT per CLIENT1, a cui viene assegnato un indirizzo IPv4 privato. Quando il client DirectAccess è si trova dietro un dispositivo NAT e viene assegnato un indirizzo IPv4 privato, la tecnologia di transizione IPv6 preferita è Teredo. Se si esamina l'output del comando ipconfig, viene visualizzata una sezione per la pseudo-interfaccia del tunneling Teredo della scheda tunnel e quindi una descrizione di Microsoft Teredo tunneling Adapter con un indirizzo IP che inizia con 2001: coerente con un Teredo Indirizzo. Se la sezione Teredo non è visualizzata, abilitare Teredo con il comando **netsh interface Teredo set state enterpriseclient** e quindi eseguire nuovamente il comando ipconfig. Per la scheda tunnel Teredo non viene visualizzato un gateway predefinito.  
+   Viene stabilita una connessione Internet da dietro un dispositivo NAT per CLIENT1, a cui viene assegnato un indirizzo IPv4 privato. Quando il client DirectAccess è si trova dietro un dispositivo NAT e viene assegnato un indirizzo IPv4 privato, la tecnologia di transizione IPv6 preferita è Teredo. Se si osserva l'output del comando ipconfig, si vede una sezione per Tunnel adapter Teredo Tunneling Pseudo-Interface e una descrizione Microsoft Teredo Tunneling Adapter, con un indirizzo IP che inizia con 2001:, conforme alla struttura degli indirizzi Teredo. Se la sezione Teredo non è visualizzata, abilitare Teredo con il comando **netsh interface Teredo set state enterpriseclient** e quindi eseguire nuovamente il comando ipconfig. Per la scheda tunnel Teredo non viene visualizzato un gateway predefinito.  
   
 3. Nella finestra di Windows PowerShell digitare **ipconfig/flushdns** e premere INVIO.  
   
@@ -66,19 +66,19 @@ Avviare EDGE1 ed EDGE2 se non sono già in esecuzione.
   
 7. Lasciare aperta la finestra di Windows PowerShell per la procedura successiva.  
   
-8. Aprire Internet Explorer, nella barra degli indirizzi di Internet Explorer, immettere **https://app1/** e premere INVIO. Viene visualizzato il sito Web IIS predefinito in APP1.  
+8. Aprire Internet Explorer, nella barra degli indirizzi di Internet Explorer immettere **https://app1/** e premere INVIO. Viene visualizzato il sito Web IIS predefinito in APP1.  
   
 9. Nella barra degli indirizzi di Internet Explorer immettere **https://app2/** e premere INVIO. Viene visualizzato il sito Web predefinito in APP2.  
   
-10. Nella schermata **Start** Digitare<strong>\\ \ App2\Files</strong>, quindi premere INVIO. Fare doppio clic sul file Nuovo documento di testo. Ciò dimostra che è stato possibile connettersi a un server solo IPv4 con SMB per ottenere una risorsa disponibile in un host solo IPv4.  
+10. Nella schermata **Start** Digitare<strong>\\\App2\Files</strong>, quindi premere INVIO. Fare doppio clic sul file Nuovo documento di testo. Ciò dimostra che è stato possibile connettersi a un server solo IPv4 con SMB per ottenere una risorsa disponibile in un host solo IPv4.  
   
 ## <a name="test-ip-https-connectivity"></a>Testare la connettività IP-HTTPS  
   
-1. Aprire una finestra di Windows PowerShell con privilegi elevati, digitare **netsh interface teredo set state disabled** e premere INVIO. Teredo viene disabilitato nel computer client, che può quindi eseguire la configurazione per l'uso di IP-HTTPS. Quando il comando viene completato, viene visualizzata la risposta **Ok** .  
+1. Aprire una finestra di Windows PowerShell con privilegi elevati, digitare **netsh interface teredo set state disabled** e premere INVIO. Teredo viene disabilitato nel computer client, che può quindi eseguire la configurazione per l'uso di IP-HTTPS. Quando il comando viene completato, viene visualizzata la risposta **Ok**.  
   
 2. Nella finestra di Windows PowerShell digitare **ipconfig** e premere INVIO.  
   
-3. Esaminare l'output del comando ipconfig. Viene stabilita una connessione Internet da dietro un dispositivo NAT per il computer, a cui viene assegnato un indirizzo IPv4 privato. Teredo viene disabilitato e il client DirectAccess esegue il fallback a IP-HTTPS. Quando si esamina l'output del comando ipconfig, viene visualizzata una sezione per la scheda tunnel iphttpsinterface con un indirizzo IP che inizia con 2001: DB8:1: 100 coerenti con il fatto che si tratta di un indirizzo IP-HTTPS basato sul prefisso configurato durante la configurazione DirectAccess. Per la scheda tunnel IP-HTTPS non viene visualizzato un gateway predefinito.  
+3. Esaminare l'output del comando ipconfig. Viene stabilita una connessione Internet da dietro un dispositivo NAT per il computer, a cui viene assegnato un indirizzo IPv4 privato. Teredo viene disabilitato e il client DirectAccess esegue il fallback a IP-HTTPS. Se si osserva l'output del comando ipconfig, si vede una sezione per Tunnel adapter iphttpsinterface con un indirizzo IP che inizia con 2001:db8:1:100, conforme alla struttura degli indirizzi IP-HTTPS, che si basano sul prefisso configurato durante la configurazione di DirectAccess. Per la scheda tunnel IP-HTTPS non viene visualizzato un gateway predefinito.  
   
 4. Nella finestra di Windows PowerShell digitare **ipconfig/flushdns** e premere INVIO. Le eventuali voci di risoluzione dei nomi ancora esistenti nella cache DNS del client, create quando il computer client era connesso alla rete aziendale, vengono cancellate.  
   
@@ -86,8 +86,8 @@ Avviare EDGE1 ed EDGE2 se non sono già in esecuzione.
   
 6. Nella finestra di Windows PowerShell digitare **ping App2** e premere INVIO. Vengono visualizzate le risposte dall'indirizzo NAT64 assegnato da EDGE1 ad APP2 che, in questo caso, corrisponde a fdc9:9f4e:eb1b:7777::a00:4.  
   
-7. Aprire Internet Explorer, nella barra degli indirizzi di Internet Explorer, immettere **https://app1/** e premere INVIO. Viene visualizzato il sito IIS predefinito in APP1.  
+7. Aprire Internet Explorer, nella barra degli indirizzi di Internet Explorer immettere **https://app1/** e premere INVIO. Viene visualizzato il sito IIS predefinito in APP1.  
   
 8. Nella barra degli indirizzi di Internet Explorer immettere **https://app2/** e premere INVIO. Viene visualizzato il sito Web predefinito in APP2.  
   
-9. Nella schermata **Start** Digitare<strong>\\ \ App2\Files</strong>, quindi premere INVIO. Fare doppio clic sul file Nuovo documento di testo. Ciò dimostra che è stato possibile connettersi a un server solo IPv4 con SMB per ottenere una risorsa disponibile in un host solo IPv4.
+9. Nella schermata **Start** Digitare<strong>\\\App2\Files</strong>, quindi premere INVIO. Fare doppio clic sul file Nuovo documento di testo. Ciò dimostra che è stato possibile connettersi a un server solo IPv4 con SMB per ottenere una risorsa disponibile in un host solo IPv4.

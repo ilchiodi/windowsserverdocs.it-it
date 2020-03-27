@@ -6,18 +6,18 @@ ms.prod: windows-server
 ms.technology: networking-bc
 ms.topic: article
 ms.assetid: 31e8428f-a482-4734-be1b-213912e34825
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 104e3cfd0525c43857bb37d781f6b2475978238e
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: a02741b163aafe12c52bf0afb4c235aa9436347a
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71406391"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80318440"
 ---
 # <a name="create-content-server-data-packages-for-web-and-file-content-optional"></a>Creare pacchetti di dati del server di contenuti per contenuti file e Web (facoltativo)
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 È possibile utilizzare questa procedura per eseguire la prehashing del contenuto sul Web e sui file server, quindi creare pacchetti di dati da importare nel server cache ospitata. 
 

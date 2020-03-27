@@ -6,14 +6,14 @@ ms.prod: windows-server
 ms.technology: networking
 ms.topic: article
 ms.assetid: ca125e57-249c-4d97-85d1-2929cbf871f1
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: fe34d25d2b54b02bb56fcad99c433054a309f60b
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: d9e1afd9505d3bbf1383d174cac6a2f543fcaae2
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71405458"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80316187"
 ---
 # <a name="configure-remote-radius-server-groups"></a>Configurare i gruppi di server RADIUS remoti
 
@@ -30,7 +30,7 @@ Quando si configura NPS come proxy RADIUS, si crea un nuovo criterio di richiest
 >[!NOTE]
 >È inoltre possibile configurare un nuovo gruppo di server RADIUS remoto durante il processo di creazione di un nuovo criterio di richiesta di connessione.
 
-Per eseguire questa procedura, è necessaria almeno l'appartenenza al gruppo **Domain Admins** o a un gruppo equivalente.
+L'appartenenza al gruppo **Domain Admins** oppure a un gruppo equivalente è il requisito minimo necessario per completare questa procedura.
 
 ### <a name="to-add-a-remote-radius-server-group"></a>Per aggiungere un gruppo di server RADIUS remoti 
 

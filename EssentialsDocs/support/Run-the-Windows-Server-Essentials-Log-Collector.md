@@ -1,9 +1,9 @@
 ---
 title: Eseguire Windows Server Essentials Log Collector
-description: Viene descritto come utilizzare Windows Server Essentials
+description: Viene descritto come usare Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
-ms.prod: windows-server-2016-essentials
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
@@ -12,38 +12,38 @@ ms.assetid: 0d340223-fa24-4c75-ba8e-b654feb120ab
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 5654f28aeda3c231376ed888a8aa04bc0cf3d000
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: a39c23ef4119e109372bad3455415f8d3862cf1b
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66432496"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80318670"
 ---
 # <a name="run-the-windows-server-essentials-log-collector"></a>Eseguire Windows Server Essentials Log Collector
-È possibile eseguire Windows Server Essentials Log Collector dal server o da un computer in rete. Se si esegue Log Collector dal server, è possibile raccogliere i registri solo dal server. Se si esegue Log Collector da un computer di rete, è possibile scegliere di raccogliere i registri dal server, oltre a quelli per tale computer.  
+È possibile eseguire l'agente di raccolta log di Windows Server Essentials dal server o da un computer in rete. Se si esegue Log Collector dal server, è possibile raccogliere i registri solo dal server. Se si esegue Log Collector da un computer di rete, è possibile scegliere di raccogliere i registri dal server, oltre a quelli per tale computer.  
   
  Per eseguire Log Collector, è necessario avere i privilegi amministrativi appropriati. Per raccogliere i file di log per un server, è necessario essere un amministratore del server. Per raccogliere i file di log in un computer di rete, è necessario essere un amministratore client per tale computer.  
   
 #### <a name="to-run-the-log-collector-on-the-server-by-using-the-wizard"></a>Per eseguire Log Collector sul server usando la procedura guidata  
   
-1. Nel **avviare** pagina del server, fare clic su **Windows Server Essentials Log Collector**.  
+1. Nella pagina **iniziale** del server fare clic su **raccolta log di Windows Server Essentials**.  
   
    > [!NOTE]
-   > - Se il programma Log Collector non viene visualizzato nei **avviare** pagina, passare alla **%system%\Program file (x86) \Windows Server Essentials Log Collector**e quindi fare doppio clic su **LogCollector** .  
+   > - Se il programma di raccolta log non viene visualizzato nella pagina **iniziale** , passare a **%System%\Program Files (x86) \Windows Server Essentials Log Collector**, quindi fare doppio clic su **LogCollector**.  
    >   -   Se non si è connessi al server con privilegi amministrativi, Log Collector chiede di immettere le credenziali.  
   
-2. Quando viene chiesto il percorso salvare i file di log raccolti, è possibile scegliere il percorso predefinito,  **\\ \\< nomeserver\>\logs**, oppure specificare un'altra posizione. Per accettare la posizione predefinita, fare clic su **Next**. Per cambiare la posizione, fare clic su **Browse**, passare alla cartella in cui si vuole salvare i file di log e quindi fare clic su **Save**.  
+2. Quando viene richiesto di specificare un percorso in cui salvare i file di log raccolti, è possibile scegliere il percorso predefinito, **\\\\< nomeserver\>\Logs**o specificare un altro percorso. Per accettare la posizione predefinita, fare clic su **Next**. Per cambiare la posizione, fare clic su **Browse**, passare alla cartella in cui si vuole salvare i file di log e quindi fare clic su **Save**.  
   
    > [!NOTE]
-   >  Non è necessario specificare i nomi file per i file di log. Log Collector assegna un nome dell'insieme di file zip concatenando il nome del computer e il timestamp del file.  
+   >  Non è necessario specificare i nomi file per i file di log. Log Collector assegna un nome alla raccolta di file zip concatenando il nome del computer e il timestamp del file.  
   
 3. Durante la raccolta dei registri viene visualizzato un indicatore di stato.  
   
-4. Per visualizzare il contenuto del file della raccolta dei log, selezionare la casella di controllo **Aprire il percorso file in cui sono stati salvati i file di log** e fare clic su **Close** per chiudere la procedura guidata e aprire il file della raccolta dei log.  
+4. Per visualizzare i contenuti del file della raccolta dei registri, selezionare la casella di controllo **Open the file location where the logs were saved** e fare clic su **Close** per chiudere la procedura guidata e aprire il file della raccolta dei registri.  
   
 #### <a name="to-run-the-log-collector-on-a-network-computer-by-using-the-wizard"></a>Per eseguire Log Collector su un computer di rete usando la procedura guidata  
   
-1.  Passare a **%system%\Program file (x86) \Windows Server Essentials Log Collector**, quindi fare doppio clic sul file **LogCollector.exe**.  
+1.  Passare a **%System%\Program Files (x86) \Windows Server Essentials Log Collector**, quindi fare doppio clic sul file **LogCollector. exe**.  
   
     > [!NOTE]
     >  Se non si è connessi al computer di rete con privilegi amministrativi, quando viene richiesto immettere il nome utente e la password e quindi fare clic su **Next**.  
@@ -61,11 +61,11 @@ ms.locfileid: "66432496"
 4.  Digitare o selezionare la posizione in cui si vuole salvare i file di log e quindi fare clic su **Next**.  
   
     > [!NOTE]
-    >  Non è necessario specificare i nomi file per i file di log. Log Collector assegna un nome dell'insieme di file zip concatenando il nome del computer e il timestamp del file.  
+    >  Non è necessario specificare i nomi file per i file di log. Log Collector assegna un nome alla raccolta di file zip concatenando il nome del computer e il timestamp del file.  
   
 5.  Durante la raccolta dei registri viene visualizzato un indicatore di stato.  
   
-6.  Per visualizzare il contenuto del file della raccolta dei log, selezionare la casella di controllo **Aprire il percorso file in cui sono stati salvati i file di log** e fare clic su **Close** per chiudere la procedura guidata e aprire il file della raccolta dei log.  
+6.  Per visualizzare i contenuti del file della raccolta dei registri, selezionare la casella di controllo **Open the file location where the logs were saved** e fare clic su **Close** per chiudere la procedura guidata e aprire il file della raccolta dei registri.  
   
 ### <a name="running-the-log-collector-manually"></a>Esecuzione manuale di Log Collector  
  Una volta installato Log Collector, viene creata un'attività pianificata per l'esecuzione dello strumento. In seguito sarà possibile eseguire Log Collector da **Scheduled Task Manager** senza usare la procedura guidata, se ci fossero problemi con l'avvio della procedura guidata.  
@@ -74,18 +74,18 @@ ms.locfileid: "66432496"
   
 1.  Accedere direttamente o in remoto al server.  
   
-2.  Aprire l' **Utilità di pianificazione**.  
+2.  Aprire l'**Utilità di pianificazione**.  
   
 3.  Nella radice della **Libreria Utilità di pianificazione** selezionare l'attività pianificata denominata **LogCollector**.  
   
-4.  Fare clic con il pulsante destro del mouse su **LogCollector**, quindi fare clic su **Esegui**. Log Collector inserisce i registri nella cartella predefinita sul server,  **\\ \\< nomeserver\>\Logs**. Se si dispone dell'autorizzazione di scrittura per la cartella o la cartella non esiste, i log vengono inseriti nel **< temp\>**  sottodirectory.  
+4.  Fare clic con il pulsante destro del mouse su **LogCollector**, quindi fare clic su **Esegui**. Log Collector inserisce i registri nella cartella predefinita sul server **\\\\< nomeserver\>\Logs**. Se non si dispone dell'autorizzazione di scrittura per la cartella o la cartella non esiste, i registri vengono inseriti nella sottodirectory **< temp\>** .  
   
 ##### <a name="to-manually-run-the-log-collector-on-a-network-computer"></a>Per eseguire manualmente Log Collector in un computer di rete  
   
 1.  Accedere direttamente o in remoto al computer di rete.  
   
-2.  Aprire l' **Utilità di pianificazione**.  
+2.  Aprire l'**Utilità di pianificazione**.  
   
 3.  Nella radice della **Libreria Utilità di pianificazione** selezionare l'attività pianificata denominata **LogCollector**.  
   
-4.  Fare clic con il pulsante destro del mouse su **LogCollector**, quindi fare clic su **Esegui**. Log Collector inserisce i registri nella **< temp\>**  cartella sul computer di rete.
+4.  Fare clic con il pulsante destro del mouse su **LogCollector**, quindi fare clic su **Esegui**. Log Collector inserisce i registri nella cartella **< temp\>** sul computer di rete.

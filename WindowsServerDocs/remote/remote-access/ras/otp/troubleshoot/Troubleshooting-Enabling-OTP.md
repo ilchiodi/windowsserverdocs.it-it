@@ -10,14 +10,14 @@ ms.technology: networking-ras
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: b58252ca-4c1d-4664-a3c4-7301e2121517
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: a1c18f264a6a8d263f3e9f50bc325ef97f4240af
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 2f3581451b65e96a277b23bd6808d2dea6ba45c9
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71366923"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80313443"
 ---
 # <a name="troubleshooting-enabling-otp"></a>Risoluzione dei problemi dell'abilitazione di OTP
 
@@ -49,7 +49,7 @@ Questo errore può essere dovuto a tre cause:
 2.  Se il modello non esiste, crearlo come descritto in 3,3 pianificare il certificato dell'autorità di registrazione o se è presente un altro modello corrispondente riconfigurare OTP DirectAccess con il nome del nuovo modello.  
   
 ## <a name="failed-to-enable-directaccess-otp-when-webdav-is-installed"></a>Non è stato possibile abilitare OTP DirectAccess quando è installato WebDAV  
-**Scenario**. Quando si tenta di applicare la configurazione OTP di DirectAccess nella console di gestione accesso remoto o usando il cmdlet di PowerShell `Enable-DAOtpAuthentication`, l'operazione ha esito negativo.  
+**Scenario**. Quando si tenta di applicare la configurazione OTP di DirectAccess nella console di gestione accesso remoto o usando il cmdlet `Enable-DAOtpAuthentication` PowerShell, l'operazione ha esito negativo.  
   
 **Errore ricevuto** (registro eventi del server). Impossibile applicare le impostazioni OTP di DirectAccess perché l'estensione IIS WebDAV è in esecuzione nel server. Rimuovere WebDAV e applicare di nuovo le impostazioni.  
   

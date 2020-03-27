@@ -6,16 +6,16 @@ ms.prod: windows-server
 ms.technology: networking-ras
 ms.topic: article
 ms.date: 07/24/2019
-ms.author: pashort, v-tea
-author: shortpatti
+ms.author: lizross, v-tea
+author: eross-msft
 ms.localizationpriority: medium
 ms.reviewer: deverette
-ms.openlocfilehash: 73d64cd143b7bbd13e0eb9bb5fadfbb1e7c65416
-ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
+ms.openlocfilehash: 30a8e3053f263ffad3be940a52e845fb7159dde1
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79322543"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80313291"
 ---
 # <a name="advanced-features-of-always-on-vpn"></a>Funzionalità avanzate di Always On VPN
 
@@ -68,8 +68,8 @@ Nella tabella seguente sono elencate le versioni di che contengono le correzioni
 |---------|---------|
 |Windows Server, versione 1903  |[KB4501375](https://support.microsoft.com/help/4501375/windows-10-update-kb4501375) |
 |Windows Server 2019<br />Windows Server, versione 1809  |[KB4505658](https://support.microsoft.com/help/4505658/windows-10-update-kb4505658)  |
-|Windows Server versione 1803  |[KB4507466](https://support.microsoft.com/help/4507466/windows-10-update-kb4507466)  |
-|Windows Server versione 1709  |[KB4507465](https://support.microsoft.com/help/4507465/windows-10-update-kb4507465)  |
+|Windows Server, versione 1803  |[KB4507466](https://support.microsoft.com/help/4507466/windows-10-update-kb4507466)  |
+|Windows Server, versione 1709  |[KB4507465](https://support.microsoft.com/help/4507465/windows-10-update-kb4507465)  |
 |Windows Server 2016, versione 1607  |[KB4503294](https://support.microsoft.com/help/4503294/windows-10-update-kb4503294) |
 
 **Come configurare i prerequisiti** 

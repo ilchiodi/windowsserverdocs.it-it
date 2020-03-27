@@ -10,14 +10,14 @@ ms.technology: networking-ras
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: df1e87f2-6a0f-433b-8e42-816ae75395f9
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 41cc5cc2df5ac9709818536df8fff098d2a0c297
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: d588d9b8675dad8bffc9e020032bc66bebf503b0
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71404339"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80313674"
 ---
 # <a name="step-3-configure-the-remote-access-server-for-otp"></a>Passaggio 3 configurare il server di accesso remoto per OTP
 
@@ -32,9 +32,9 @@ Una volta che il server RADIUS è stato configurato con i token di distribuzione
 |[3,3 Smart Card per autorizzazioni aggiuntive](#BKMK_Smartcard)|Informazioni aggiuntive sull'utilizzo delle smart card.|  
   
 > [!NOTE]  
-> Questo argomento include cmdlet di esempio di Windows PowerShell che è possibile usare per automatizzare alcune delle procedure descritte. Per ulteriori informazioni, vedere [mediante i cmdlet](https://go.microsoft.com/fwlink/p/?linkid=230693).  
+> In questo argomento sono inclusi cmdlet di Windows PowerShell di esempio che possono essere usati per automatizzare alcune delle procedure descritte. Per ulteriori informazioni, vedere [mediante i cmdlet](https://go.microsoft.com/fwlink/p/?linkid=230693).  
   
-## <a name="BKMK_Exempt"></a>3,1 esentare gli utenti dall'autenticazione OTP (facoltativo)  
+## <a name="31-exempt-users-from-otp-authentication-optional"></a><a name="BKMK_Exempt"></a>3,1 esentare gli utenti dall'autenticazione OTP (facoltativo)  
 Se gli utenti specifici devono essere esentati dall'autenticazione OTP, questi passaggi devono essere eseguiti prima della configurazione di accesso remoto:  
   
 > [!NOTE]  
@@ -49,7 +49,7 @@ Se gli utenti specifici devono essere esentati dall'autenticazione OTP, questi p
     > [!NOTE]  
     > Assicurarsi di includere solo gli account utente e non gli account computer nel gruppo di sicurezza di esenzione OTP.  
   
-## <a name="BKMK_Config"></a>3,2 configurare il server di accesso remoto per il supporto di OTP  
+## <a name="32-configure-the-remote-access-server-to-support-otp"></a><a name="BKMK_Config"></a>3,2 configurare il server di accesso remoto per il supporto di OTP  
 Per configurare l'accesso remoto per l'uso dell'autenticazione a due fattori e OTP con il server RADIUS e la distribuzione dei certificati dalle sezioni precedenti, seguire questa procedura:  
   
 #### <a name="configure-remote-access-for-otp"></a>Configurare l'accesso remoto per OTP  
@@ -65,7 +65,7 @@ Per configurare l'accesso remoto per l'uso dell'autenticazione a due fattori e O
   
 4.  Se è necessario il supporto di Windows 7, selezionare la casella **di controllo Abilita computer client Windows 7 per la connessione tramite DirectAccess** . Nota: come illustrato nella sezione relativa alla pianificazione, i client Windows 7 devono avere il DCA 2,0 installato per supportare DirectAccess con OTP.  
   
-5.  Fai clic su **Next**.  
+5.  Fare clic su **Avanti**.  
   
 6.  Nella sezione **server RADIUS OTP** fare doppio clic sul campo **nome server** vuoto.  
   
@@ -74,14 +74,14 @@ Per configurare l'accesso remoto per l'uso dell'autenticazione a due fattori e O
     > [!NOTE]  
     > Se il server RADIUS si trova in un dominio diverso da quello del server di accesso remoto, il campo **nome server** deve specificare il nome di dominio completo (FQDN) del server RADIUS.  
   
-8.  Nella sezione **server CA OTP** selezionare i server CA da usare per la registrazione dei certificati di autenticazione client OTP, quindi fare clic su **Aggiungi**. Fai clic su **Next**.  
+8.  Nella sezione **server CA OTP** selezionare i server CA da usare per la registrazione dei certificati di autenticazione client OTP, quindi fare clic su **Aggiungi**. Fare clic su **Avanti**.  
   
 9. Nella sezione **modelli di certificato OTP** fare clic su **Sfoglia** per selezionare il modello di certificato usato per la registrazione dei certificati rilasciati per l'autenticazione OTP.  
   
     > [!NOTE]  
     > Il modello di certificato per i certificati OTP rilasciati dalla CA aziendale deve essere configurato senza l'opzione "non includere le informazioni di revoca nei certificati rilasciati". Se questa opzione viene selezionata durante la creazione del modello di certificato, i computer client OTP non riusciranno ad accedere correttamente.  
   
-    Fare clic su **Sfoglia** per selezionare un modello di certificato usato per registrare il certificato usato dal server di accesso remoto per firmare le richieste di registrazione del certificato OTP. Fai clic su **OK**. Fai clic su **Next**.  
+    Fare clic su **Sfoglia** per selezionare un modello di certificato usato per registrare il certificato usato dal server di accesso remoto per firmare le richieste di registrazione del certificato OTP. Fare clic su **OK**. Fare clic su **Avanti**.  
   
 10. Se è necessario esentare utenti specifici da DirectAccess con OTP, nella sezione **esenzioni OTP** selezionare non **richiedere agli utenti del gruppo di sicurezza specificato di eseguire l'autenticazione con l'autenticazione a due fattori**. Fare clic su **gruppo di sicurezza** e selezionare il gruppo di sicurezza creato per le esenzioni OTP.  
   
@@ -99,7 +99,7 @@ Per configurare l'accesso remoto per l'uso dell'autenticazione a due fattori e O
   
 17. Nella finestra di dialogo **Verifica accesso remoto** fare clic su **applica**, attendere l'aggiornamento del criterio DirectAccess e fare clic su **Chiudi**.  
   
-18. Nella schermata **Start** Digitare**PowerShell. exe**, fare clic con il pulsante destro del mouse su **PowerShell**, fare clic su **Avanzate**e quindi su **Esegui come amministratore**. Se viene visualizzata la finestra di dialogo **Controllo account utente** , verificare che l'azione visualizzata sia quella desiderata e quindi fare clic su **Sì**.  
+18. Nella schermata **Start** Digitare**PowerShell. exe**, fare clic con il pulsante destro del mouse su **PowerShell**, fare clic su **Avanzate**e quindi su **Esegui come amministratore**. Se viene visualizzata la finestra di dialogo **Controllo dell'account utente**, verificare che l'azione indicata sia quella che si desidera eseguire e quindi fare clic su **Sì**.  
   
 19. Nella finestra di Windows PowerShell, digitare **gpupdate/force** e premere INVIO.  
   
@@ -107,7 +107,7 @@ Per configurare l'accesso remoto per OTP usando i comandi di PowerShell:
   
 ![](../../../../media/Step-3-Configure-the-Remote-Access-Server-for-OTP/PowerShellLogoSmall.gif)**comandi equivalenti di Windows PowerShell** per Windows PowerShell  
   
-Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.  
+Tramite i cmdlet di Windows PowerShell seguenti viene eseguita la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se è possibile il ritorno a capo automatico in diverse righe a causa di limiti di formattazione.  
   
 Per configurare l'accesso remoto per l'uso dell'autenticazione a due fattori in una distribuzione che attualmente usa l'autenticazione del certificato del computer:  
   
@@ -134,7 +134,7 @@ Dopo aver eseguito i comandi di PowerShell, completare i passaggi 12-19 della pr
 > [!NOTE]  
 > Prima di aggiungere un punto di ingresso, verificare di aver applicato le impostazioni OTP sul server di accesso remoto.  
   
-## <a name="BKMK_Smartcard"></a>3,3 Smart Card per autorizzazioni aggiuntive  
+## <a name="33-smart-cards-for-additional-authorization"></a><a name="BKMK_Smartcard"></a>3,3 Smart Card per autorizzazioni aggiuntive  
 Nella pagina autenticazione del passaggio 2 della configurazione guidata accesso remoto è possibile richiedere l'utilizzo di smart card per l'accesso alla rete interna. Quando questa opzione è selezionata, la configurazione guidata accesso remoto configura la regola di sicurezza della connessione IPsec per il tunnel Intranet nel server DirectAccess in modo da richiedere l'autorizzazione in modalità tunnel con le smart card. L'autorizzazione in modalità tunnel consente di specificare che solo i computer o gli utenti autorizzati possono stabilire un tunnel in ingresso.  
   
 Per poter utilizzare smart card con l'autorizzazione in modalità tunnel IPsec per il tunnel della Intranet, è necessario distribuire una infrastruttura a chiave pubblica con l'infrastruttura delle smart card.  

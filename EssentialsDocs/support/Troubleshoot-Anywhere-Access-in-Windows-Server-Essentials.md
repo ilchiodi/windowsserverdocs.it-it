@@ -1,9 +1,9 @@
 ---
 title: Risolvere i problemi di Accesso remoto via Internet in Windows Server Essentials
-description: Viene descritto come utilizzare Windows Server Essentials
+description: Viene descritto come usare Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
-ms.prod: windows-server-2016-essentials
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
@@ -12,29 +12,29 @@ ms.assetid: 68f2b05c-09eb-4cba-8db4-a91353b513c6
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: a14dbaed8c36f52814ba8080262ef60c399931dc
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: 5e25a4f597fdab019171aa38e67780069c6380ee
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59874012"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80318650"
 ---
 # <a name="troubleshoot-anywhere-access-in-windows-server-essentials"></a>Risolvere i problemi di Accesso remoto via Internet in Windows Server Essentials
 
 >Si applica a: Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
 
-In questo argomento fornisce istruzioni generali per usando la procedura guidata Ripristina Anywhere Access in Windows Server Essentials per risolvere i problemi che impediscono che gli utenti di rete alle risorse del server. Accesso remoto via Internet le funzionalità accesso Web remoto, rete privata virtuale (VPN), e DirectAccess consentono agli utenti di rete accedere alle risorse di server da qualsiasi posizione con una connessione Internet, in qualsiasi momento e da qualsiasi dispositivo.  
+Questo argomento fornisce istruzioni generali per l'uso della procedura guidata Ripristina accesso remoto via Internet in Windows Server Essentials per la risoluzione dei problemi che impediscono agli utenti di rete di accedere alle risorse del server. Funzionalità di accesso remoto via Internet: Accesso Web remoto, rete privata virtuale (VPN) e DirectAccess: consentono agli utenti di rete di accedere alle risorse del server da qualsiasi posizione con una connessione Internet, in qualsiasi momento, da qualsiasi dispositivo.  
   
  La procedura guidata Ripristina Accesso remoto via Internet tenta di identificare e risolvere i problemi relativi a un router, un nome di dominio o un firewall che impedisce agli utenti di rete di accedere in remoto alle risorse del server.  
   
 > [!NOTE]
->  Per informazioni aggiornate sulla risoluzione dei problemi dalla community di Windows Server Essentials, si consiglia di visitare il [Forum di Windows Server Essentials](https://social.technet.microsoft.com/Forums/winserveressentials/threads). Il forum di Windows Server Essentials è ideale per cercare informazioni o per porre una domanda.  
+>  Per le informazioni più aggiornate sulla risoluzione dei problemi della community di Windows Server Essentials, è consigliabile visitare il [Forum di Windows Server Essentials](https://social.technet.microsoft.com/Forums/winserveressentials/threads). Il forum di Windows Server Essentials è ideale per cercare informazioni o per porre una domanda.  
   
 ### <a name="to-repair-anywhere-access"></a>Per ripristinare Accesso remoto via Internet  
   
 1.  Accedere al server e aprire il dashboard.  
   
-2.  Fare clic su **Impostazioni**, quindi fare clic sulla scheda **Accesso remoto via Internet** .  
+2.  Fare clic su **Impostazioni**, quindi fare clic sulla scheda **Accesso remoto via Internet**.  
   
 3.  Fare clic su **Ripristina**. Verrà avviata la procedura guidata Ripristina Accesso remoto via Internet.  
   
@@ -52,13 +52,13 @@ In questo argomento fornisce istruzioni generali per usando la procedura guidata
  Se la procedura guidata Ripristina Accesso remoto via Internet non è in grado di ripristinare Accesso remoto via Internet, vedere le risorse seguenti per la risoluzione dei problemi relativi ad Accesso Web remoto, VPN e DirectAccess:  
   
 
--   [Risolvere i problemi di connettività di accesso Web remoto](Troubleshoot-Remote-Web-Access-connectivity-in-Windows-Server-Essentials.md)  
+-   [Risolvere i problemi di connettività Accesso Web remota](Troubleshoot-Remote-Web-Access-connectivity-in-Windows-Server-Essentials.md)  
   
 -   [Risolvere i problemi del firewall](Troubleshoot-your-firewall-in-Windows-Server-Essentials.md)  
 
--   [Risolvere i problemi di connettività di accesso Web remoto](../support/Troubleshoot-Remote-Web-Access-connectivity-in-Windows-Server-Essentials.md)  
+-   [Risolvere i problemi di connettività Accesso Web remota](../support/Troubleshoot-Remote-Web-Access-connectivity-in-Windows-Server-Essentials.md)  
   
 -   [Risolvere i problemi del firewall](../support/Troubleshoot-your-firewall-in-Windows-Server-Essentials.md)  
 
   
--   Verificare i [Forum di Windows Server Essentials](https://social.technet.microsoft.com/Forums/winserveressentials/threads) per i problemi più recenti segnalati dalla community di Windows Server Essentials.
+-   Vedere il [Forum di Windows Server Essentials](https://social.technet.microsoft.com/Forums/winserveressentials/threads) per i problemi più recenti segnalati dalla community di Windows Server Essentials.

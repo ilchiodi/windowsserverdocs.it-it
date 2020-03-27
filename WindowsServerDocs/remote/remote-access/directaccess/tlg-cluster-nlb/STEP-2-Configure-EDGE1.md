@@ -10,14 +10,14 @@ ms.technology: networking-da
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 84457351-1ca7-4e7c-8e2c-53d55b1fcdc0
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: b9eb37433e26c174ccae85482163c976577ff479
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: eea83bd9788ffd704b6169c140adc68465f9325d
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71388508"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80310845"
 ---
 # <a name="step-2-configure-edge1"></a>PASSAGGIO 2 configurare EDGE1
 
@@ -27,7 +27,7 @@ Nel server DirectAccess viene eseguita la procedura seguente:
 
 ## <a name="to-configure-directaccess-on-edge1"></a>Per configurare DirectAccess in EDGE1
   
-1.  Nella schermata **Start** digitare**RAMgmtUI. exe**, quindi premere INVIO. Se viene visualizzata la finestra di dialogo **Controllo account utente** , verificare che l'azione visualizzata sia quella desiderata e quindi fare clic su **Sì**.  
+1.  Nella schermata **Start** digitare**RAMgmtUI. exe**, quindi premere INVIO. Se viene visualizzata la finestra di dialogo **Controllo dell'account utente**, verificare che l'azione indicata sia quella che si desidera eseguire e quindi fare clic su **Sì**.  
   
 2.  Nel riquadro sinistro della console di gestione accesso remoto fare clic su **configurazione**.  
   
@@ -35,7 +35,7 @@ Nel server DirectAccess viene eseguita la procedura seguente:
   
 4.  Nell'installazione guidata del **server di accesso remoto** fare clic su **configurazione prefisso**. Nella pagina **configurazione prefisso** , in **prefisso IPv6 assegnato ai computer client DirectAccess**, immettere **2001: DB8:1: 1000::/59**, quindi fare clic su **Avanti**.  
   
-5.  Scegliere **Fine**.  
+5.  Fare clic su **Fine**.  
   
 6.  Nel riquadro centrale della console, fare clic su **Fine**.  
   

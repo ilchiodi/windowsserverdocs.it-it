@@ -1,9 +1,9 @@
 ---
 title: 'Passaggio 4: Spostare dati e impostazioni nel server di destinazione per la migrazione a Windows Server Essentials'
-description: Viene descritto come utilizzare Windows Server Essentials
+description: Viene descritto come usare Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
-ms.prod: windows-server-2016-essentials
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
@@ -12,12 +12,12 @@ ms.assetid: e143df43-e227-4629-a4ab-9f70d9bf6e84
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: fa6ab8e2108e569b7cef6bfbf0d20af4fa31016d
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: d9aea85513e2453c02f6c14fb3f4d708be211d3f
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66432574"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80318749"
 ---
 # <a name="step-4-move-settings-and-data-to-the-destination-server-for-windows-server-essentials-migration"></a>Passaggio 4: Spostare dati e impostazioni nel server di destinazione per la migrazione a Windows Server Essentials
 
@@ -25,13 +25,13 @@ ms.locfileid: "66432574"
 
 In questa sezione vengono fornite informazioni in merito alla migrazione di dati e impostazioni dal server di origine. Spostare impostazioni e dati nel server di destinazione nel modo seguente:  
   
--   [Copiare i dati nel Server di destinazione](Step-4--Move-settings-and-data-to-the-Destination-Server-for-Windows-Server-Essentials-migration.md#BKMK_CopyData)  
+-   [Copiare i dati nel server di destinazione](Step-4--Move-settings-and-data-to-the-Destination-Server-for-Windows-Server-Essentials-migration.md#BKMK_CopyData)  
   
 -   [Configurare la rete](Step-4--Move-settings-and-data-to-the-Destination-Server-for-Windows-Server-Essentials-migration.md#BKMK_Network)  
   
--   [Mappare i computer autorizzati agli account utente](Step-4--Move-settings-and-data-to-the-Destination-Server-for-Windows-Server-Essentials-migration.md#BKMK_MapPermittedComputers)  
+-   [Mappare i computer consentiti agli account utente](Step-4--Move-settings-and-data-to-the-Destination-Server-for-Windows-Server-Essentials-migration.md#BKMK_MapPermittedComputers)  
   
-##  <a name="BKMK_CopyData"></a> Copiare i dati nel Server di destinazione  
+##  <a name="copy-data-to-the-destination-server"></a><a name="BKMK_CopyData"></a>Copiare i dati nel server di destinazione  
  Prima di copiare i dati dal server di origine al server di destinazione, eseguire le attività seguenti:  
   
 -   Esaminare l'elenco di cartelle condivise sul server di origine, incluse le autorizzazioni per ogni cartella. Creare o personalizzare le cartelle sul server di destinazione in modo che corrispondano alla struttura di cartelle di cui si sta eseguendo la migrazione dal server di origine.  
@@ -42,7 +42,7 @@ In questa sezione vengono fornite informazioni in merito alla migrazione di dati
   
 -   Non è possibile eseguire la migrazione della cartella **Backup computer client** al server di destinazione. Prima di procedere con la migrazione del server, verificare l'integrità di tutti i computer client. Dopo la migrazione di server, è consigliabile configurare e avviare i backup dei computer client per assicurarsi che i dati di tutti i computer client siano sottoposti a backup.  
   
--   Il **backup cronologia File** cartella non può essere direttamente eseguita la migrazione al Server di destinazione a causa di struttura e il backup dei metadati modifiche alla cartella in Windows Server Essentials. È però possibile eseguire la migrazione della cartella **Backup Cronologia file** per uno specifico utente in uno specifico computer. A questo scopo, è necessario individuare la cartella **Dati** nella cartella **Backup Cronologia file** per tale utente e computer, quindi copiare la cartella **Dati** nella cartella **Backup Cronologia file** del server di destinazione.  
+-   Non è possibile eseguire la migrazione diretta della cartella **backup cronologia file** al server di destinazione a causa delle modifiche alla struttura di cartelle e ai metadati di backup in Windows Server Essentials. È però possibile eseguire la migrazione della cartella **Backup Cronologia file** per uno specifico utente in uno specifico computer. A questo scopo, è necessario individuare la cartella **Dati** nella cartella **Backup Cronologia file** per tale utente e computer, quindi copiare la cartella **Dati** nella cartella **Backup Cronologia file** del server di destinazione.  
   
 #### <a name="to-copy-data-from-the-source-server-to-the-destination-server"></a>Per copiare i dati dal server di origine a quello di destinazione  
   
@@ -54,13 +54,13 @@ In questa sezione vengono fornite informazioni in merito alla migrazione di dati
   
     Dove:  
   
-   - \<SourceServerName\> è il nome del Server di origine  
+   - \<SourceServerName\> è il nome del server di origine  
   
-   - \<SharedSourceFolderName\> è il nome della cartella condivisa nel Server di origine  
+   - \<SharedSourceFolderName\> è il nome della cartella condivisa nel server di origine  
   
    - \<PathOfTheDestination\> è il percorso assoluto in cui si desidera spostare la cartella  
   
-   - \<SharedDestinationFolderName\> è la cartella nel Server di destinazione in cui verranno copiati i dati  
+   - \<SharedDestinationFolderName\> è la cartella nel server di destinazione in cui verranno copiati i dati  
   
      Ad esempio,  `robocopy \\sourceserver\MyData "d:\ServerFolders\MyData" /E /B /COPY:DATSOU /LOG:C:\Copyresults.txt`.  
   
@@ -70,7 +70,7 @@ In questa sezione vengono fornite informazioni in merito alla migrazione di dati
   
 4. Ripetere questa procedura per ogni cartella condivisa di cui si deve eseguire la migrazione dal server di origine.  
   
-##  <a name="BKMK_Network"></a> Configurare la rete  
+##  <a name="configure-the-network"></a><a name="BKMK_Network"></a>Configurare la rete  
   
 #### <a name="to-configure-the-network"></a>Per configurare la rete  
   
@@ -89,12 +89,12 @@ In questa sezione vengono fornite informazioni in merito alla migrazione di dati
 > [!NOTE]
 >  Se si vuole configurare un nome di dominio pubblico nel server di destinazione, è necessario rilasciare il nome di dominio dal server di origine per evitare conflitti nell'aggiornamento dinamico del DNS.  
   
-##  <a name="BKMK_MapPermittedComputers"></a> Mappare i computer autorizzati agli account utente  
+##  <a name="map-permitted-computers-to-user-accounts"></a><a name="BKMK_MapPermittedComputers"></a>Mappare i computer consentiti agli account utente  
  Ogni account utente di cui è stata eseguita la migrazione da versioni precedenti di Windows Small Business Server o Windows Server Essentials deve essere mappato a uno o più computer.  
   
 #### <a name="to-map-user-accounts-to-computers"></a>Per mappare gli account utente ai computer  
   
-1.  Aprire il Dashboard di Windows Server Essentials.  
+1.  Aprire il dashboard di Windows Server Essentials.  
   
 2.  Sulla barra di spostamento fare clic su **Utenti**.  
   
@@ -115,7 +115,7 @@ In questa sezione vengono fornite informazioni in merito alla migrazione di dati
 >  Dopo aver completato la migrazione, se si verificano problemi durante la creazione del primo nuovo account utente sul server di destinazione, rimuovere l'account utente aggiunto e quindi ricrearlo.  
   
 ## <a name="next-steps"></a>Passaggi successivi  
- I dati e le impostazioni sono stati spostati nel server di destinazione. Passare quindi a [passaggio 5: Abilitare il reindirizzamento cartelle nella migrazione di Server di destinazione per Windows Server Essentials](Step-5--Enable-folder-redirection-on-the-Destination-Server-for-Windows-Server-Essentials-migration.md).  
+ I dati e le impostazioni sono stati spostati nel server di destinazione. Andare a [passaggio 5: abilitare il reindirizzamento cartelle nel server di destinazione per la migrazione a Windows Server Essentials](Step-5--Enable-folder-redirection-on-the-Destination-Server-for-Windows-Server-Essentials-migration.md).  
   
 
 Per visualizzare tutti i passaggi, vedere [eseguire la migrazione a Windows Server Essentials](Migrate-from-Previous-Versions-to-Windows-Server-Essentials-or-Windows-Server-Essentials-Experience.md).

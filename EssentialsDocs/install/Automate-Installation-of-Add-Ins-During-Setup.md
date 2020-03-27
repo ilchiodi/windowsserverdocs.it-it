@@ -1,9 +1,9 @@
 ---
 title: Automazione dell’installazione di componenti aggiuntivi durante l’installazione
-description: Viene descritto come utilizzare Windows Server Essentials
+description: Viene descritto come usare Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
-ms.prod: windows-server-2016-essentials
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
@@ -12,19 +12,19 @@ ms.assetid: 2e6ff6e4-8d68-4d49-9e38-8088bc8bf95e
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: c2345726a17a074fc7022c8c4dc9b2443e9ad384
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 579ed4e6e780c261ca582e943cebf2fc18b5ef62
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66433638"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80310117"
 ---
 # <a name="automate-installation-of-add-ins-during-setup"></a>Automazione dell’installazione di componenti aggiuntivi durante l’installazione
 
 >Si applica a: Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
 
-##  <a name="BKMK_AddIns"></a> Automatizzare l'installazione di componenti aggiuntivi durante l'installazione  
- Per installare i componenti aggiuntivi durante l'installazione, usare il metodo PostIC.cmd descritto nella sezione [Creazione del file PostIC.cmd per eseguire le attività successive alla configurazione iniziale](Create-the-PostIC.cmd-File-for-Running-Post-Initial-Configuration-Tasks.md) di questo documento.  
+##  <a name="automate-installing-add-ins-during-setup"></a><a name="BKMK_AddIns"></a>Automatizzare l'installazione di componenti aggiuntivi durante l'installazione  
+ Per installare i componenti aggiuntivi durante l’installazione, utilizzare il metodo PostIC.cmd descritto nella sezione [Creazione del file PostIC.cmd per l’esecuzione delle operazioni successive alla configurazione iniziale](Create-the-PostIC.cmd-File-for-Running-Post-Initial-Configuration-Tasks.md) di questo documento.  
   
  Aggiungere la seguente voce al proprio PostIC.cmd:  
   
@@ -117,7 +117,7 @@ C:\Program Files\Windows Server\bin\Installaddin.exe <full path to wssx file> -q
   
   Qualsiasi errore che si verifica mentre viene richiamato exefile provoca lo stesso risultato che si ottiene quando exefile restituisce un codice diverso da 0 o 1.  
   
-## <a name="see-also"></a>Vedere anche  
+## <a name="see-also"></a>Vedi anche  
  [Creazione e personalizzazione dell'immagine](Creating-and-Customizing-the-Image.md)   
  [Personalizzazioni aggiuntive](Additional-Customizations.md)   
  [Preparazione dell'immagine per la distribuzione](Preparing-the-Image-for-Deployment.md)   

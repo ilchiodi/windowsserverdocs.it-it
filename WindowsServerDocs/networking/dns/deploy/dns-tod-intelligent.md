@@ -6,14 +6,14 @@ ms.prod: windows-server
 ms.technology: networking-dns
 ms.topic: article
 ms.assetid: 161446ff-a072-4cc4-b339-00a04857ff3a
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: e497b0d73c816f0295588aa77a21c49d376c0dcf
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: e4bb075368bb3dfadaa8046b177dbbac637763e3
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71406186"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80317827"
 ---
 # <a name="use-dns-policy-for-intelligent-dns-responses-based-on-the-time-of-day"></a>Usare i criteri DNS per risposte DNS intelligenti basate sull'ora del giorno
 
@@ -23,7 +23,7 @@ ms.locfileid: "71406186"
   
 Questo scenario è utile nelle situazioni in cui si desidera indirizzare il traffico in un fuso orario per il server di applicazioni alternativo, ad esempio server Web, che si trovano in un altro fuso orario. Ciò consente di bilanciare il carico tra le istanze dell'applicazione durante il picco quando il server primario sono sottoposti a overload con traffico periodi di tempo.   
   
-### <a name="bkmk_example1"></a>Esempio di risposte DNS intelligenti basate sull'ora del giorno  
+### <a name="example-of-intelligent-dns-responses-based-on-the-time-of-day"></a><a name="bkmk_example1"></a>Esempio di risposte DNS intelligenti basate sull'ora del giorno  
 Seguito è riportato un esempio di come è possibile utilizzare criteri DNS per bilanciare il traffico dell'applicazione in base all'ora del giorno.  
   
 Questo esempio viene utilizzata una società fittizia, Contoso regalo servizi, che fornisce soluzioni gifting online in tutto il mondo tramite il sito Web, contosogiftservices.com.   
@@ -38,7 +38,7 @@ Nella figura seguente viene illustrato questo scenario.
   
 ![Tempo di esempio di criterio DNS giorno](../../media/DNS-Policy-Tod1/dns_policy_tod1.jpg)  
   
-### <a name="bkmk_works1"></a>Modalità di funzionamento delle risposte DNS intelligenti basate sull'ora del giorno  
+### <a name="how-intelligent-dns-responses-based-on-time-of-day-works"></a><a name="bkmk_works1"></a>Modalità di funzionamento delle risposte DNS intelligenti basate sull'ora del giorno  
   
 Quando il server DNS è configurato con un tempo di criteri DNS giorno, tra PM 6 e 9 PM in ogni posizione geografica, il server DNS esegue le operazioni seguenti.  
   
@@ -53,7 +53,7 @@ Quando sono configurati più criteri DNS in DNS, sono un set ordinato di regole 
   
 Per ulteriori informazioni sui tipi di criteri e i criteri, vedere [Cenni preliminari sui criteri DNS](../../dns/deploy/DNS-Policies-Overview.md).  
   
-### <a name="bkmk_how1"></a>Come configurare i criteri DNS per le risposte DNS intelligenti in base all'ora del giorno  
+### <a name="how-to-configure-dns-policy-for-intelligent-dns-responses-based-on-time-of-day"></a><a name="bkmk_how1"></a>Come configurare i criteri DNS per le risposte DNS intelligenti in base all'ora del giorno  
 Per configurare criteri DNS per le risposte di ora del giorno applicazione bilanciamento del carico basato su query, è necessario eseguire la procedura seguente.  
   
 - [Creare le subnet del client DNS](#bkmk_subnets)  
@@ -69,7 +69,7 @@ Le sezioni seguenti forniscono le istruzioni di configurazione dettagliate.
 >[!IMPORTANT]
 >Nelle sezioni seguenti includono esempi di comandi Windows PowerShell che contengono valori di esempio per numero di parametri. Assicurarsi di sostituire i valori di esempio in questi comandi con i valori appropriati per la distribuzione prima di eseguire questi comandi.  
   
-#### <a name="bkmk_subnets"></a>Creare le subnet del client DNS  
+#### <a name="create-the-dns-client-subnets"></a><a name="bkmk_subnets"></a>Creare le subnet del client DNS  
 Il primo passaggio consiste nell'identificare le subnet o spazio di indirizzi IP delle aree per cui si desidera reindirizzare il traffico. Ad esempio, se si desidera reindirizzare il traffico per Stati Uniti e in Europa, è necessario identificare la subnet o spazi di indirizzi IP di queste aree.  
   
 È possibile ottenere queste informazioni da mappe Geo-IP. In base a queste distribuzioni geografica IP, è necessario creare "DNS Client subnet". Una Subnet del Client DNS è un raggruppamento logico di subnet IPv4 o IPv6 da cui le query vengono inviate a un server DNS.  
@@ -84,7 +84,7 @@ Add-DnsServerClientSubnet -Name "EuropeSubnet" -IPv4Subnet "141.1.0.0/24, 151.1.
 ```  
 Per ulteriori informazioni, vedere [Aggiungi DnsServerClientSubnet](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverclientsubnet?view=win10-ps).  
   
-#### <a name="bkmk_zscopes"></a>Creare gli ambiti di zona  
+#### <a name="create-the-zone-scopes"></a><a name="bkmk_zscopes"></a>Creare gli ambiti di zona  
 Dopo aver configurata la subnet del client, è necessario partizionare la zona il cui traffico che si desidera reindirizzare in due ambiti fuso diverso, un ambito per ogni subnet Client DNS configurato.  
   
 Ad esempio, se si desidera reindirizzare il traffico per www.contosogiftservices.com il nome DNS, è necessario creare due ambiti diversi zona in zona contosogiftservices.com, uno per gli Stati Uniti e uno per l'Europa.  
@@ -104,7 +104,7 @@ Add-DnsServerZoneScope -ZoneName "contosogiftservices.com" -Name "DublinZoneScop
 ```  
 Per ulteriori informazioni, vedere [Aggiungi DnsServerZoneScope](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverzonescope?view=win10-ps).  
   
-#### <a name="bkmk_records"></a>Aggiungere record agli ambiti di zona  
+#### <a name="add-records-to-the-zone-scopes"></a><a name="bkmk_records"></a>Aggiungere record agli ambiti di zona  
 È ora necessario aggiungere i record che rappresenta l'host del server web in ambiti due zone.  
   
 Ad esempio, in **SeattleZoneScope**, il record <strong>www.contosogiftservices.com</strong> viene aggiunto con l'indirizzo IP 192.0.0.1, che si trova in un datacenter di Seattle. Analogamente, nel **DublinZoneScope**, il record <strong>www.contosogiftservices.com</strong> viene aggiunto con l'indirizzo IP 141.1.0.3 nel Data Center Dublino  
@@ -121,7 +121,7 @@ Il parametro ZoneScope non è incluso quando si aggiunge un record nell'ambito p
   
 Per ulteriori informazioni, vedere [Aggiungi DnsServerResourceRecord](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverresourcerecord?view=win10-ps).  
   
-#### <a name="bkmk_policies"></a>Creazione dei criteri DNS  
+#### <a name="create-the-dns-policies"></a><a name="bkmk_policies"></a>Creazione dei criteri DNS  
 Dopo aver creato le subnet, le partizioni (ambiti zona) ed è stato aggiunto record, è necessario creare criteri che si connettono le subnet e le partizioni, in modo che quando una query provenga da un'origine in una delle subnet dei client DNS, la risposta alla query verrà restituita dall'ambito corretto della zona. Criteri non sono necessari per il mapping tra l'ambito di orario predefinito.  
   
 Dopo aver configurato i criteri DNS, il comportamento del server DNS è il seguente:  

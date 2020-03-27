@@ -1,9 +1,9 @@
 ---
 title: Installare i componenti aggiuntivi
-description: Viene descritto come utilizzare Windows Server Essentials
+description: Viene descritto come usare Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
-ms.prod: windows-server-2016-essentials
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
@@ -12,12 +12,12 @@ ms.assetid: e62e4f07-c2ba-4c5e-b30c-bdc287cd654e
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: d00cb6886e812ee2b780ad79e1fba44442e279ad
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 9f3c952df01f44f29d1e7b39e1ffb8e04c931945
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59833072"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80311689"
 ---
 # <a name="install-add-ins"></a>Installare i componenti aggiuntivi
 
@@ -32,7 +32,7 @@ ms.locfileid: "59833072"
   
 1.  (Facoltativo) Se il componente aggiuntivo viene installato utilizzando un file .wssx file, effettuare le operazioni seguenti:  
   
-    1.  Salvare il < Nomecompaggiuntivo\>. wssx nel computer di riferimento.  
+    1.  Salvare il file < AddInName\>. wssx nel computer di riferimento.  
   
     2.  Fare doppio clic sul file .wssx per aprire la procedura guidata di installazione del componente aggiuntivo.  
   
@@ -40,8 +40,8 @@ ms.locfileid: "59833072"
   
 2.  (Facoltativo) Installare i singoli file del componente aggiuntivo nelle posizioni appropriate, come specificato nell'SDK di ogni tipo di componente.  
   
-## <a name="see-also"></a>Vedere anche  
+## <a name="see-also"></a>Vedi anche  
  [Creazione e personalizzazione dell'immagine](Creating-and-Customizing-the-Image.md)   
  [Personalizzazioni aggiuntive](Additional-Customizations.md)   
  [Preparazione dell'immagine per la distribuzione](Preparing-the-Image-for-Deployment.md)   
- [Testare l'esperienza dei clienti](Testing-the-Customer-Experience.md)
+ [Test di Analisi utilizzo software](Testing-the-Customer-Experience.md)

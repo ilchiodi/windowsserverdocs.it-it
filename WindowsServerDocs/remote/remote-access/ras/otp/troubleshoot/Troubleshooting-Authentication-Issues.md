@@ -10,14 +10,14 @@ ms.technology: networking-ras
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 71307757-f8f4-4f82-b8b3-ffd4fd8c5d6d
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 73fe8458910cbe7dfaf000a6546bcba9263a9683
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 74e332fff194374c6f3a5eeae5e26e8e4f5cfb42
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71404305"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80313455"
 ---
 # <a name="troubleshooting-authentication-issues"></a>Risoluzione dei problemi di autenticazione
 
@@ -26,9 +26,9 @@ ms.locfileid: "71404305"
 Questo argomento contiene informazioni sulla risoluzione dei problemi relativi ai problemi riscontrati dagli utenti durante il tentativo di connessione a DirectAccess mediante l'autenticazione OTP. Gli eventi correlati a OTP DirectAccerss vengono registrati nel computer client in Visualizzatore eventi in **registri applicazioni e servizi/Microsoft/Windows/OtpCredentialProvider**. Assicurarsi che questo log sia abilitato per la risoluzione dei problemi relativi a OTP di DirectAccess.  
   
 ## <a name="failed-to-access-the-ca-that-issues-otp-certificates"></a>Non è stato possibile accedere alla CA che rilascia certificati OTP  
-**Scenario**. L'utente non riesce a eseguire l'autenticazione usando OTP con l'errore: "Autenticazione non riuscita a causa di un errore interno"  
+**Scenario**. L'utente non è in grado di eseguire l'autenticazione con OTP. errore: "autenticazione non riuscita a causa di un errore interno"  
   
-**Errore ricevuto** (registro eventi client). La registrazione del certificato OTP per l'utente <username> non è riuscita nel server CA < CA_name >, richiesta non riuscita. possibili cause dell'errore: Impossibile risolvere il nome del server della CA. Impossibile accedere al server della CA tramite il primo Tunnel DirectAccess oppure non è possibile stabilire la connessione al server della CA.  
+**Errore ricevuto** (registro eventi client). Registrazione del certificato OTP per l'utente <username> non riuscita nel server CA < CA_name >, richiesta non riuscita. possibili cause dell'errore: Impossibile risolvere il nome del server della CA. non è possibile accedere al server CA tramite il primo Tunnel DirectAccess oppure non è possibile stabilire la connessione al server della CA.  
   
 **Causa**  
   
@@ -42,20 +42,20 @@ Nel server DirectAccess eseguire i comandi seguenti di Windows PowerShell:
   
 2.  Verificare che le autorità di certificazione siano configurate come server di gestione: `Get-DAMgmtServer -Type All`  
   
-3.  Verificare che il computer client abbia stabilito il tunnel dell'infrastruttura: Nella console di Windows Firewall con sicurezza avanzata espandere **associazioni monitoraggio/sicurezza**, fare clic su **modalità principale**e assicurarsi che le associazioni di sicurezza IPSec siano visualizzate con gli indirizzi remoti corretti per DirectAccess configurazione.  
+3.  Verificare che il computer client abbia stabilito il tunnel dell'infrastruttura: nel Windows Firewall con la console di sicurezza avanzata, espandere **associazioni monitoraggio/sicurezza**, fare clic su **modalità principale**e assicurarsi che le associazioni di sicurezza IPsec vengano visualizzate con gli indirizzi remoti corretti per la configurazione di DirectAccess.  
   
 ## <a name="directaccess-server-connectivity-issues"></a>Problemi di connettività del server DirectAccess  
-**Scenario**. L'utente non riesce a eseguire l'autenticazione usando OTP con l'errore: "Autenticazione non riuscita a causa di un errore interno"  
+**Scenario**. L'utente non è in grado di eseguire l'autenticazione con OTP. errore: "autenticazione non riuscita a causa di un errore interno"  
   
 **Errore ricevuto** (registro eventi client)  
   
 Uno degli errori seguenti:  
   
--   Impossibile stabilire una connessione al server di accesso remoto < DirectAccess_server_hostname > utilizzando il percorso di base < OTP_authentication_path > e la porta < OTP_authentication_port >. Codice di errore: < > internal_error_code.  
+-   Impossibile stabilire una connessione al server di accesso remoto < DirectAccess_server_hostname > utilizzando il percorso di base < OTP_authentication_path > e la porta < OTP_authentication_port. Codice di errore: < > internal_error_code.  
   
--   Impossibile inviare le credenziali utente al server di accesso remoto < DirectAccess_server_hostname > utilizzando il percorso di base < OTP_authentication_path > e la porta < OTP_authentication_port >. Codice di errore: < > internal_error_code.  
+-   Impossibile inviare le credenziali utente al server di accesso remoto < DirectAccess_server_hostname > utilizzando il percorso di base < OTP_authentication_path > e la porta < OTP_authentication_port. Codice di errore: < > internal_error_code.  
   
--   Non è stata ricevuta alcuna risposta dal server di accesso remoto < DirectAccess_server_hostname > utilizzando il percorso di base < OTP_authentication_path > e la porta < OTP_authentication_port >. Codice di errore: < > internal_error_code.  
+-   Non è stata ricevuta alcuna risposta dal server di accesso remoto < DirectAccess_server_hostname > usando il percorso di base < OTP_authentication_path > e la porta < OTP_authentication_port. Codice di errore: < > internal_error_code.  
   
 **Causa**  
   
@@ -66,9 +66,9 @@ Il computer client non è in grado di accedere al server DirectAccess tramite In
 Verificare che la connessione Internet nel computer client sia funzionante e assicurarsi che il servizio DirectAccess sia in esecuzione e accessibile tramite Internet.  
   
 ## <a name="failed-to-enroll-for-the-directaccess-otp-logon-certificate"></a>Non è stato possibile eseguire la registrazione per il certificato di accesso OTP DirectAccess  
-**Scenario**. L'utente non riesce a eseguire l'autenticazione usando OTP con l'errore: "Autenticazione non riuscita a causa di un errore interno"  
+**Scenario**. L'utente non è in grado di eseguire l'autenticazione con OTP. errore: "autenticazione non riuscita a causa di un errore interno"  
   
-**Errore ricevuto** (registro eventi client). Registrazione del certificato dalla CA < CA_name > non riuscita. La richiesta non è stata firmata come previsto dal certificato di firma OTP oppure l'utente non è autorizzato a eseguire la registrazione.  
+**Errore ricevuto** (registro eventi client). La registrazione del certificato dalla CA < CA_name > non è riuscita. La richiesta non è stata firmata come previsto dal certificato di firma OTP oppure l'utente non è autorizzato a eseguire la registrazione.  
   
 **Causa**  
   
@@ -79,7 +79,7 @@ La password monouso fornita dall'utente è corretta, ma l'autorità di certifica
 Assicurarsi che gli utenti OTP di DirectAccess dispongano delle autorizzazioni per la registrazione per il certificato di accesso OTP di DirectAccess e che il "criterio applicazione" appropriato sia incluso nel modello di firma dell'autorità di registrazione OTP. Verificare inoltre che il certificato dell'autorità di registrazione DirectAccess nel server di accesso remoto sia valido. Vedere 3,2 pianificare il modello di certificato OTP e 3,3 pianificare il certificato dell'autorità di registrazione.  
   
 ## <a name="missing-or-invalid-computer-account-certificate"></a>Certificato account computer mancante o non valido  
-**Scenario**. L'utente non riesce a eseguire l'autenticazione usando OTP con l'errore: "Autenticazione non riuscita a causa di un errore interno"  
+**Scenario**. L'utente non è in grado di eseguire l'autenticazione con OTP. errore: "autenticazione non riuscita a causa di un errore interno"  
   
 **Errore ricevuto** (registro eventi client).  Non è possibile completare l'autenticazione OTP perché non è possibile trovare il certificato del computer necessario per OTP nell'archivio certificati del computer locale.  
   
@@ -100,7 +100,7 @@ Verificare che il certificato del computer esista e che sia valido:
 Se non viene trovato un certificato valido, eliminare il certificato non valido (se esistente) ed eseguire di nuovo la registrazione per il certificato del computer eseguendo `gpupdate /Force` da un prompt dei comandi con privilegi elevati o riavviando il computer client.  
   
 ## <a name="missing-ca-that-issues-otp-certificates"></a>CA mancante che rilascia i certificati OTP  
-**Scenario**. L'utente non riesce a eseguire l'autenticazione usando OTP con l'errore: "Autenticazione non riuscita a causa di un errore interno"  
+**Scenario**. L'utente non è in grado di eseguire l'autenticazione con OTP. errore: "autenticazione non riuscita a causa di un errore interno"  
   
 **Errore ricevuto** (registro eventi client). Non è possibile completare l'autenticazione OTP perché il server DA non ha restituito un indirizzo di una CA emittente.  
   
@@ -121,7 +121,7 @@ Non sono presenti CA che emettono certificati OTP configurati o tutte le autorit
 3.  Se sono presenti CA configurate, assicurarsi che siano online e che rispondano alle richieste di registrazione.  
   
 ## <a name="misconfigured-directaccess-server-address"></a>Indirizzo server DirectAccess non configurato correttamente  
-**Scenario**. L'utente non riesce a eseguire l'autenticazione usando OTP con l'errore: "Autenticazione non riuscita a causa di un errore interno"  
+**Scenario**. L'utente non è in grado di eseguire l'autenticazione con OTP. errore: "autenticazione non riuscita a causa di un errore interno"  
   
 **Errore ricevuto** (registro eventi client). Non è possibile completare l'autenticazione OTP come previsto. Impossibile determinare il nome o l'indirizzo del server di accesso remoto.  Codice di errore: < > error_code. Le impostazioni di DirectAccess devono essere convalidate dall'amministratore del server.  
   
@@ -136,9 +136,9 @@ Controllare l'indirizzo del server DirectAccess configurato utilizzando `Get-Dir
 Verificare che le impostazioni più recenti vengano distribuite nel computer client eseguendo `gpupdate /force` da un prompt dei comandi con privilegi elevati o riavviare il computer client.  
   
 ## <a name="failed-to-generate-the-otp-logon-certificate-request"></a>Non è stato possibile generare la richiesta di certificato di accesso OTP  
-**Scenario**. L'utente non riesce a eseguire l'autenticazione usando OTP con l'errore: "Autenticazione non riuscita a causa di un errore interno"  
+**Scenario**. L'utente non è in grado di eseguire l'autenticazione con OTP. errore: "autenticazione non riuscita a causa di un errore interno"  
   
-**Errore ricevuto** (registro eventi client). Impossibile inizializzare la richiesta di certificato per l'autenticazione OTP. Non è possibile generare una chiave privata oppure l'utente <username> non è in grado di accedere al modello di certificato < OTP_template_name > sul controller di dominio.  
+**Errore ricevuto** (registro eventi client). Impossibile inizializzare la richiesta di certificato per l'autenticazione OTP. Non è possibile generare una chiave privata oppure l'utente <username> non può accedere al modello di certificato < OTP_template_name > sul controller di dominio.  
   
 **Causa**  
   
@@ -155,7 +155,7 @@ Questo errore può essere dovuto a due cause:
 -   Verificare che il controller di dominio sia configurato come server di gestione e che il computer client possa raggiungere il controller di dominio tramite il tunnel dell'infrastruttura. Vedere 3,2 pianificare il modello di certificato OTP.  
   
 ## <a name="no-connection-to-the-domain-controller"></a>Nessuna connessione al controller di dominio  
-**Scenario**. L'utente non riesce a eseguire l'autenticazione usando OTP con l'errore: "Autenticazione non riuscita a causa di un errore interno"  
+**Scenario**. L'utente non è in grado di eseguire l'autenticazione con OTP. errore: "autenticazione non riuscita a causa di un errore interno"  
   
 **Errore ricevuto** (registro eventi client). Non è possibile stabilire una connessione con il controller di dominio per l'autenticazione OTP. Codice di errore: < > error_code.  
   
@@ -174,7 +174,7 @@ Questo errore può essere dovuto a due cause:
 -   Verificare che il computer client possa raggiungere il controller di dominio tramite il tunnel dell'infrastruttura.  
   
 ## <a name="otp-provider-requires-challengeresponse"></a>Il provider OTP richiede la richiesta di verifica/risposta  
-**Scenario**. L'utente non riesce a eseguire l'autenticazione usando OTP con l'errore: "Autenticazione non riuscita a causa di un errore interno"  
+**Scenario**. L'utente non è in grado di eseguire l'autenticazione con OTP. errore: "autenticazione non riuscita a causa di un errore interno"  
   
 **Errore ricevuto** (registro eventi client). L'autenticazione OTP con il server di accesso remoto (< DirectAccess_server_name >) per l'utente (<username>) ha richiesto una richiesta di verifica da parte dell'utente.  
   
@@ -187,9 +187,9 @@ Il provider OTP usato richiede che l'utente fornisca credenziali aggiuntive sott
 Configurare il provider OTP in modo da non richiedere la richiesta di verifica/risposta in qualsiasi scenario.  
   
 ## <a name="incorrect-otp-logon-template-used"></a>Utilizzato modello di accesso OTP errato  
-**Scenario**. L'utente non riesce a eseguire l'autenticazione usando OTP con l'errore: "Autenticazione non riuscita a causa di un errore interno"  
+**Scenario**. L'utente non è in grado di eseguire l'autenticazione con OTP. errore: "autenticazione non riuscita a causa di un errore interno"  
   
-**Errore ricevuto** (registro eventi client). Il modello CA da cui l'utente <username> ha richiesto un certificato non è configurato per emettere certificati OTP.  
+**Errore ricevuto** (registro eventi client). Il modello della CA da cui l'utente <username> richiesto un certificato non è configurato per emettere certificati OTP.  
   
 **Causa**  
   
@@ -204,7 +204,7 @@ Verificare che il computer client stia usando la configurazione OTP più recente
 -   Riavviare il computer client.  
   
 ## <a name="missing-otp-signing-certificate"></a>Certificato di firma OTP mancante  
-**Scenario**. L'utente non riesce a eseguire l'autenticazione usando OTP con l'errore: "Autenticazione non riuscita a causa di un errore interno"  
+**Scenario**. L'utente non è in grado di eseguire l'autenticazione con OTP. errore: "autenticazione non riuscita a causa di un errore interno"  
   
 **Errore ricevuto** (registro eventi client). Impossibile trovare un certificato di firma OTP. La richiesta di registrazione del certificato OTP non può essere firmata.  
   
@@ -216,7 +216,7 @@ Impossibile trovare il certificato di firma OTP di DirectAccess nel server di ac
   
 Eseguire questi passaggi nel server di accesso remoto.  
   
-1.  Controllare il nome del modello di certificato di firma OTP configurato eseguendo il cmdlet di PowerShell `Get-DAOtpAuthentication` e controllare il valore di `SigningCertificateTemplateName`.  
+1.  Controllare il nome del modello di certificato di firma OTP configurato eseguendo il cmdlet di PowerShell `Get-DAOtpAuthentication` ed esaminare il valore di `SigningCertificateTemplateName`.  
   
 2.  Utilizzare lo snap-in MMC certificati per assicurarsi che nel computer esista un certificato valido registrato da questo modello.  
   
@@ -225,7 +225,7 @@ Eseguire questi passaggi nel server di accesso remoto.
 Per creare il modello di certificato di firma OTP, vedere 3,3 pianificare il certificato dell'autorità di registrazione.  
   
 ## <a name="missing-or-incorrect-upndn-for-the-user"></a>UPN/DN mancante o non corretto per l'utente  
-**Scenario**. L'utente non riesce a eseguire l'autenticazione usando OTP con l'errore: "Autenticazione non riuscita a causa di un errore interno"  
+**Scenario**. L'utente non è in grado di eseguire l'autenticazione con OTP. errore: "autenticazione non riuscita a causa di un errore interno"  
   
 **Errore ricevuto** (registro eventi client)  
   
@@ -248,7 +248,7 @@ L'utente non dispone degli attributi nome entità utente (UPN) o nome distinto (
 Utilizzare la console utenti e computer Active Directory sul controller di dominio per verificare che entrambi gli attributi siano impostati correttamente per l'utente che esegue l'autenticazione.  
   
 ## <a name="otp-certificate-is-not-trusted-for-login"></a>Il certificato OTP non è considerato attendibile per l'accesso  
-**Scenario**. L'utente non riesce a eseguire l'autenticazione usando OTP con l'errore: "Autenticazione non riuscita a causa di un errore interno"  
+**Scenario**. L'utente non è in grado di eseguire l'autenticazione con OTP. errore: "autenticazione non riuscita a causa di un errore interno"  
   
 **Causa**  
   
@@ -259,7 +259,7 @@ La CA che rilascia i certificati OTP non si trova nell'archivio NTAuth aziendale
 Verificare che il certificato della radice della gerarchia CA che rilascia i certificati OTP sia installato nell'archivio certificati NTAuth Enterprise del dominio al quale l'utente sta tentando di eseguire l'autenticazione.  
   
 ## <a name="windows-could-not-verify-user-credentials"></a>Impossibile verificare le credenziali utente  
-**Scenario**. L'utente non riesce a eseguire l'autenticazione usando OTP con l'errore: "Autenticazione non riuscita a causa di un errore interno"  
+**Scenario**. L'utente non è in grado di eseguire l'autenticazione con OTP. errore: "autenticazione non riuscita a causa di un errore interno"  
   
 **Errore ricevuto** (computer client). Si è verificato un errore durante la verifica delle credenziali da Windows. Riprovare o chiedere assistenza all'amministratore.  
   

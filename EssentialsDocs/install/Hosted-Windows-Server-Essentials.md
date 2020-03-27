@@ -3,7 +3,7 @@ title: Windows Server Essentials su host
 description: Viene descritto come usare Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
-ms.prod: windows-server-2016-essentials
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
@@ -12,12 +12,12 @@ ms.assetid: fda5628c-ad23-49de-8d94-430a4f253802
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 84464c69d4b8576906e5fb0d0a7de7e382a59537
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: 76319f87a246c6fabbe0befaf7dc4c74d1416ac4
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75947501"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80311751"
 ---
 # <a name="hosted-windows-server-essentials"></a>Windows Server Essentials su host
 
@@ -57,10 +57,10 @@ Questo documento contiene informazioni specifiche per i provider di servizi di h
   
    Se si utilizza Virtual Machine Manager, è possibile creare un modello utilizzando l'istanza corrente. La creazione di un modello determinerà l'esecuzione di sysprep sull'istanza e lo spegnimento del server. Una volta archiviata nella libreria, sarà possibile utilizzare l'istanza caso per caso.  
   
-##  <a name="BKMK_automatedeployment"></a>Ricerca per categorie automatizzare la distribuzione?  
+##  <a name="how-do-i-automate-the-deployment"></a><a name="BKMK_automatedeployment"></a>Ricerca per categorie automatizzare la distribuzione?  
  Una volta ottenuta l'immagine personalizzata, è possibile utilizzarla per la distribuzione. Per una installazione semiautomatica, è necessario fornire/distribuire il file unattend.xml per l'installazione WinPE. Per eseguire un'installazione completamente automatica, è anche necessario fornire il file cfg. ini per la configurazione iniziale di Windows Server Essentials.  
   
-1. Effettuare solo l'installazione WinPE automatica. In questo modo viene automatizzata solo l'installazione WinPE e l'installazione si ferma prima della configurazione iniziale, in modo tale che gli utenti finali possano specificare le informazioni su azienda, dominio e amministratore dopo il Remote Desktop Protocol (RDP) nella sessione server. A tale scopo, effettua le seguenti operazioni:  
+1. Effettuare solo l'installazione WinPE automatica. In questo modo viene automatizzata solo l'installazione WinPE e l'installazione si ferma prima della configurazione iniziale, in modo tale che gli utenti finali possano specificare le informazioni su azienda, dominio e amministratore dopo il Remote Desktop Protocol (RDP) nella sessione server. A tale scopo, effettuare l'operazione seguente:  
   
    1.  Fornire il file unattend.xml do Windows. Seguire le [Windows 8.1 ADK](https://go.microsoft.com/fwlink/?LinkId=248694) per generare il file e fornire tutte le informazioni necessarie, inclusi il nome del server, i codici "Product Key" e la password dell'amministratore. Nella sezione Microsoft-Windows-Setup del file Unattend. XML specificare le informazioni riportate di seguito.  
   
@@ -84,7 +84,7 @@ Questo documento contiene informazioni specifiche per i provider di servizi di h
   
    Se si utilizza Virtual Machine Manager, è possibile specificare la password amministratore sulla console quando viene creata una nuova istanza sulla base del modello.  
   
-2. Effettuare l'installazione automatica completa inclusa la configurazione iniziale. A tale scopo, effettua le seguenti operazioni:  
+2. Effettuare l'installazione automatica completa inclusa la configurazione iniziale. A tale scopo, effettuare l'operazione seguente:  
   
    1.  Fornire il file unattend.xml come sopra, se la distribuzione viene avviata dall'installazione WinPE.  
   
@@ -211,7 +211,7 @@ $Enable-WssRemoteWebAccess  œDenyAccessByDefault  œApplyToExistingUsers
   
  Questo comando consente di abilitare Accesso Web remoto con il router configurato automaticamente e modifica le autorizzazione di accesso predefinite per tutti gli utenti esistenti.  
   
- **Add User**  
+ **Aggiungi utente**  
   
 ```  
 Add-WssUser [-Name] <string> [-Password] <securestring> [-AccessLevel <string> {User | Administrator}] [-FirstName <string>] [-LastName <string>] [-AllowRemoteAccess] [-AllowVpnAccess]   [<CommonParameters>]  

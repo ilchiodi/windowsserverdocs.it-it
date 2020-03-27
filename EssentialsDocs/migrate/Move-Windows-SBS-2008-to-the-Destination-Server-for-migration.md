@@ -3,7 +3,7 @@ title: Spostare dati e impostazioni di Windows SBS 2008 nel server di destinazio
 description: Viene descritto come usare Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
-ms.prod: windows-server-2016-essentials
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
@@ -12,12 +12,12 @@ ms.assetid: 4950469d-d800-430d-8d10-53bafc4a9932
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 82a7a5b3ce3662574260379bc893da484baf1caa
-ms.sourcegitcommit: 02f1e11ba37a83e12d8ffa3372e3b64b20d90d00
+ms.openlocfilehash: a62f4fa385b7dfab83f08dae969255843b833e9f
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68863406"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80318870"
 ---
 # <a name="move-windows-sbs-2008-settings-and-data-to-the-destination-server-for-windows-server-essentials-migration"></a>Spostare dati e impostazioni di Windows SBS 2008 nel server di destinazione per la migrazione a Windows Server Essentials
 
@@ -50,7 +50,7 @@ Prima di copiare i dati dal server di origine al server di destinazione, eseguir
 
 1. Accedere al server di destinazione come amministratore di dominio e quindi aprire una finestra di comando. 
 
-2. Al prompt dei comandi digitare il comando seguente e quindi premere INVIO: 
+2. Al prompt dei comandi digitare il comando seguente, quindi premere INVIO: 
 
     `robocopy \\<SourceServerName> \<SharedSourceFolderName> \\<DestinationServerName> \<SharedDestinationFolderName> /E /B /COPY:DATSOU /LOG:C:\Copyresults.txt` 
 
@@ -82,7 +82,7 @@ Prima di copiare i dati dal server di origine al server di destinazione, eseguir
  
 1. Disattivare il servizio DHCP sul server di origine, nel modo seguente: 
 
-    1. Nel server di origine fare clic su **Start**, scegliere **Strumenti di amministrazione**e quindi fare clic su **Servizi**. 
+    1. Nel server di origine fare clic su **Start**, scegliere **Strumenti di amministrazione** e quindi fare clic su **Servizi**. 
 
     2. Nell'elenco di servizi attualmente in esecuzione fare clic con il pulsante destro del mouse su **Server DHCP** e quindi scegliere **Proprietà**. 
 
@@ -133,7 +133,7 @@ Gli oggetti Criteri di gruppo (GPO) vengono aggiornati per Windows Server Essent
  
 3. Nel riquadro di spostamento fare clic su **Gestione avanzata**, su **Gestione criteri di gruppo**, quindi su **foresta:** _< NomeDominio\>_ . 
  
-4. Fare clic su **domini**, fare clic su *<\>NomeDominio*, quindi fare clic su **criteri di gruppo oggetti**. 
+4. Fare clic su **domini**, fare clic su *< NomeDominio\>* , quindi fare clic su **criteri di gruppo oggetti**. 
  
 5. Fare clic con il pulsante destro del mouse su **Criterio controllo Small Business Server**, scegliere **Elimina** e quindi fare clic su **OK**. 
  
@@ -175,11 +175,11 @@ Per applicare password complesse, è consigliabile configurare i criteri passwor
  
 3. Nel riquadro di spostamento fare clic su **Gestione avanzata**, su **Gestione criteri di gruppo**, quindi su **foresta:** _< YourNetworkDomainName\>_ 
  
-4. Fare clic su **domini**, fare clic su *<\>YourNetworkDomainName*, quindi fare clic su **filtri WMI**. 
+4. Fare clic su **domini**, fare clic su *< YourNetworkDomainName\>* , quindi fare clic su **filtri WMI**. 
  
 5. Fare clic con il pulsante destro del mouse su **PostSP2**, scegliere **Elimina** e quindi fare clic su **Sì**. 
  
-6. Fare clic con il pulsante destro del mouse su **PreSP2**, scegliere **Elimina**e quindi fare clic su **Sì**. 
+6. Fare clic con il pulsante destro del mouse su **PreSP2**, scegliere **Elimina** e quindi fare clic su **Sì**. 
  
 7. Verificare che questi tre filtri WMI siano stato eliminati. 
  
@@ -196,7 +196,7 @@ In Windows SBS 2008, se un utente si connette ad Accesso Web remoto, vengono vis
  
 4. Fare clic sulla scheda **Accesso remoto via Internet** e quindi fare clic su **Consenti Accesso Web remoto e accedi ai servizi Web**.
  
-5. Selezionare **Cartelle condivise**, selezionare **Computer**, selezionare **Home page - Collegamenti**e quindi fare clic su **Applica**.
+5. Selezionare **Cartelle condivise**, selezionare **Computer**, selezionare **Home page - Collegamenti** e quindi fare clic su **Applica**.
  
 6. Fare clic sulla scheda **Accesso computer** e quindi fare clic sul nome del computer a cui si vuole consentire l'accesso.
  

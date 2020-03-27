@@ -6,15 +6,15 @@ ms.prod: windows-server
 ms.technology: networking-sdn
 ms.topic: get-started-article
 ms.assetid: 7f899e62-6e5b-4fca-9a59-130d4766ee2f
-ms.author: pashort
-author: shortpatti
+ms.author: lizross
+author: eross-msft
 ms.date: 08/10/2018
-ms.openlocfilehash: 38d104bc3ceca478f0e261b3a364b5d4448b22f3
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: a16d82e4db1e92a5dd20f6b4feb88f0619d50cc4
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71406019"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80317517"
 ---
 # <a name="requirements-for-deploying-network-controller"></a>Requisiti per la distribuzione del controller di rete
 
@@ -61,7 +61,7 @@ L'operazione successiva consiste nel configurare i percorsi dei file per archivi
 Infine, la prossima cosa da fare è distribuire i nodi del cluster del controller di rete nella stessa subnet o in subnet diverse. 
 
 
-|         Se...         |                                                                                                                                                         Quindi...                                                                                                                                                         |
+|         Relazione         |                                                                                                                                                         Necessità di ripristino                                                                                                                                                         |
 |-----------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |  Nella stessa subnet,  |                                                                                                                                È necessario specificare l'indirizzo IP REST del controller di rete.                                                                                                                                 |
 | In subnet diverse | È necessario specificare il nome DNS REST del controller di rete creato durante il processo di distribuzione. È inoltre necessario eseguire le operazioni seguenti:<ul><li>Configurare gli aggiornamenti dinamici DNS per il nome DNS del controller di rete nel server DNS.</li><li>Limitare gli aggiornamenti dinamici DNS solo ai nodi del controller di rete.</li></ul> |
@@ -85,7 +85,7 @@ Infine, la prossima cosa da fare è distribuire i nodi del cluster del controlle
 
    b. In **impostazioni di sicurezza avanzate**fare clic su **Aggiungi**. 
 
-   c. Fai clic su **Seleziona un'entità**. 
+   c. Fare clic su **Seleziona un'entità**. 
 
    d. Nella finestra di dialogo **Seleziona utente, computer, account servizio o gruppo** fare clic su **tipi di oggetto**. 
 

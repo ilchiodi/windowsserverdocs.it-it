@@ -10,14 +10,14 @@ ms.technology: networking-ipam
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 77b6ac92-eaff-46d7-95db-ee6fc96742ed
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 5dfc3c8f31d25f5b72f39e33759d6e26917ae70f
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: a3fb0a4e09e348040a2e89f97c73371aca62bef0
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71405625"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80316791"
 ---
 # <a name="manage-role-based-access-control-with-server-manager"></a>Gestire il controllo degli accessi in base al ruolo con Server Manager
 
@@ -37,7 +37,7 @@ ms.locfileid: "71405625"
   
 In alternativa, è possibile usare Windows PowerShell per gestire il controllo degli accessi in base al ruolo di gestione indirizzi IP. Per altre informazioni, vedere [gestire il controllo degli accessi in base al ruolo con Windows PowerShell](../../technologies/ipam/Manage-Role-Based-Access-Control-with-Windows-PowerShell.md).
   
-## <a name="see-also"></a>Vedere anche  
+## <a name="see-also"></a>Vedi anche  
 [Gestire Gestione indirizzi IP](Manage-IPAM.md)  
   
 

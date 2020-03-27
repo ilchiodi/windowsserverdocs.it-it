@@ -1,9 +1,9 @@
 ---
 title: Modifica dell'ordine e del raggruppamento delle schede
-description: Viene descritto come utilizzare Windows Server Essentials
+description: Viene descritto come usare Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
-ms.prod: windows-server-2016-essentials
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
@@ -12,12 +12,12 @@ ms.assetid: 79a417fd-1b3e-47ab-ae33-bb1faf95c86d
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 578c5619cfdf076bb2735254494f393d56d35713
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: abb443994b413f35f6d70510191bc543fad418f5
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59887762"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80312234"
 ---
 # <a name="change-the-order-and-grouping-of-tabs"></a>Modifica dell'ordine e del raggruppamento delle schede
 
@@ -30,7 +30,7 @@ ms.locfileid: "59887762"
   
 #### <a name="to-display-your-tab-first-in-the-list-of-tabs"></a>Per visualizzare la propria scheda per prima nell'apposito elenco  
   
-1.  Nel computer di riferimento fare clic su **Start**, immettere **regedit**e quindi premere **INVIO**.  
+1.  Nel computer di riferimento fare clic su **Start**, immettere **regedit** e quindi premere **INVIO**.  
   
 2.  Nel riquadro sinistro, espandere **HKEY_LOCAL_MACHINE**, **SOFTWARE**, **Microsoft**, quindi **Windows Server**. Se la chiave **OEM** non esiste, è necessario effettuare le seguenti operazioni per crearla:  
   
@@ -73,8 +73,8 @@ ms.locfileid: "59887762"
   
 8.  Salvare le modifiche apportate al Registro di sistema.  
   
-## <a name="see-also"></a>Vedere anche  
+## <a name="see-also"></a>Vedi anche  
  [Creazione e personalizzazione dell'immagine](Creating-and-Customizing-the-Image.md)   
  [Personalizzazioni aggiuntive](Additional-Customizations.md)   
  [Preparazione dell'immagine per la distribuzione](Preparing-the-Image-for-Deployment.md)   
- [Testare l'esperienza dei clienti](Testing-the-Customer-Experience.md)
+ [Test di Analisi utilizzo software](Testing-the-Customer-Experience.md)

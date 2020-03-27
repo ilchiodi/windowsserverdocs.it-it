@@ -6,14 +6,14 @@ ms.prod: windows-server
 ms.technology: networking-bc
 ms.topic: get-started-article
 ms.assetid: 3830b356-36d3-44f9-a1d7-990ff3e57403
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 14eb9e5b4d5a28a64d3cfa0d27b5294ba7168da9
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: df6287f35c3fbf397df3b4d61812db3b14f3ce38
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71356725"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80318510"
 ---
 # <a name="branchcache-deployment-guide"></a>Guida alla distribuzione di BranchCache
 
@@ -56,7 +56,7 @@ In questa guida vengono inoltre fornite istruzioni sulla distribuzione di tre ti
   
 -   **Server applicazioni basati su BITS**. Questi server di contenuti inviano contenuto ai computer client con BranchCache utilizzando il Servizio trasferimento intelligente in background (BITS). Questi server di contenuti devono essere in esecuzione versioni di Windows Server 2016, Windows Server 2012 R2, Windows Server 2012 o Windows Server 2008 R2 che supportano BranchCache e in cui è installata la funzionalità BranchCache.  
   
--   **File server di contenuti basati su server**. Questi server di contenuti devono essere in esecuzione versioni di Windows Server 2016, Windows Server 2012 R2, Windows Server 2012 o Windows Server 2008 R2 che supportano BranchCache e dopo che il File Services è installato il ruolo server. Inoltre, il **BranchCache per file di rete** deve essere installato e configurato il servizio ruolo del ruolo server Servizi File. Questi server di contenuti inviano contenuto ai computer client con BranchCache utilizzando il protocollo SMB (Server Message Block).  
+-   **File server di contenuti basati su server**. Questi server di contenuti devono essere in esecuzione versioni di Windows Server 2016, Windows Server 2012 R2, Windows Server 2012 o Windows Server 2008 R2 che supportano BranchCache e dopo che il File Services è installato il ruolo server. È inoltre necessario che sia installato e configurato il servizio ruolo **BranchCache per file di rete** del servizio ruolo Servizi file. Questi server di contenuti inviano contenuto ai computer client con BranchCache utilizzando il protocollo SMB (Server Message Block).  
   
 Per ulteriori informazioni, vedere [versioni del sistema operativo per BranchCache](https://technet.microsoft.com/windows-server-docs/networking/branchcache/branchcache#a-namebkmkosaoperating-system-versions-for-branchcache).  
   
@@ -64,7 +64,7 @@ Per ulteriori informazioni, vedere [versioni del sistema operativo per BranchCac
 
 Di seguito sono i requisiti per la distribuzione di BranchCache utilizzando questa Guida.  
   
--   Per fornire funzionalità di BranchCache, i **server di contenuti Web e file** devono eseguire uno dei sistemi operativi seguenti: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012 o Windows Server 2008 R2. Windows 8 e versioni successive client continua a visualizzare i vantaggi di BranchCache quando si accede a contenuto nei server che eseguono Windows Server 2008 R2, tuttavia non sono in grado di rendere utilizzo della nuova chunking e hashing tecnologie in Windows Server 2016, Windows Server 2012 R2 e Windows Server 2012.  
+-   **Server di contenuti Web e file** deve essere in esecuzione uno dei seguenti sistemi operativi per fornire la funzionalità BranchCache: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012 o Windows Server 2008 R2. Windows 8 e versioni successive client continua a visualizzare i vantaggi di BranchCache quando si accede a contenuto nei server che eseguono Windows Server 2008 R2, tuttavia non sono in grado di rendere utilizzo della nuova chunking e hashing tecnologie in Windows Server 2016, Windows Server 2012 R2 e Windows Server 2012.  
   
 -   **I computer client** deve essere in esecuzione Windows 10, Windows 8.1 o Windows 8 per rendere utilizzare il modello di distribuzione più recente suddivisione in blocchi e di hashing miglioramenti introdotti con Windows Server 2012.  
   

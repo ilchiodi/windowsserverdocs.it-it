@@ -10,14 +10,14 @@ ms.technology: networking-ras
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: cc9f02b9-8ddd-4cae-b397-a832996144dd
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 131520f567da6529e342229a0f6965d3223f928b
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 39b6d0b924d4939361cb66109d049a6924e9be3e
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71404581"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80314229"
 ---
 # <a name="step-2-plan-the-remote-access-deployment"></a>Passaggio 2 pianificare la distribuzione di accesso remoto
 
@@ -118,7 +118,7 @@ Accesso remoto richiede tre tipi di server di infrastruttura:
   
 -   **Server di gestione** 
   
-## <a name="see-also"></a>Vedi anche  
+## <a name="see-also"></a>Vedere anche  
   
 -   [Passaggio 1: pianificare l'infrastruttura di accesso remoto](Step-1-Plan-the-Remote-Access-Infrastructure.md)  
   

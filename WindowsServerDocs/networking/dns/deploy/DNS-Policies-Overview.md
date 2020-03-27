@@ -6,14 +6,14 @@ ms.prod: windows-server
 ms.technology: networking-dns
 ms.topic: article
 ms.assetid: 566bc270-81c7-48c3-a904-3cba942ad463
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 613bb7f43b382389dc0db953a48668147cfaee88
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: a6fe98dea50dd194c2bb2303a663968f93818332
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71356049"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80317959"
 ---
 # <a name="dns-policies-overview"></a>Informazioni generali sui criteri QoS
 
@@ -51,7 +51,7 @@ I criteri DNS sono divisi per livello e tipo. È possibile utilizzare i criteri 
 
 |Campo|Descrizione|Valori possibili|  
 |---------|---------------|-------------------|  
-|**Name**|Nome criterio|-Fino a 256 caratteri<br />-Può contenere qualsiasi carattere valido per un nome file|  
+|**Nome**|Nome criteri|-Fino a 256 caratteri<br />-Può contenere qualsiasi carattere valido per un nome file|  
 |**Stato**|Stato dei criteri|-Enable (impostazione predefinita)<br />-Disabilitato|  
 |**Livello**|Livello di criteri|-Server<br />-Zona|  
 |**Ordine di elaborazione**|Quando una query viene classificata in base al livello e si applica a, il server trova il primo criterio per il quale la query corrisponde ai criteri e lo applica alla query|-Valore numerico<br />-Valore univoco per ogni criterio che contiene lo stesso livello e si applica al valore|  
@@ -65,7 +65,7 @@ I criteri DNS sono divisi per livello e tipo. È possibile utilizzare i criteri 
 Il campo criteri dei criteri DNS è costituito da due elementi:
 
 
-|              Nome               |                                         Descrizione                                          |                                                                                                                               Valori di esempio                                                                                                                               |
+|              Name               |                                         Descrizione                                          |                                                                                                                               Valori di esempio                                                                                                                               |
 |---------------------------------|----------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |        **Subnet client**        | Nome di una subnet del client predefinito. Utilizzato per verificare la subnet da cui la query è stata inviata. |                             -   **EQ, Spagna, Francia** -restituisce true se la subnet è identificata come Spagna o Francia<br />-   **ne, Canada, Messico** : viene risolto in true se la subnet del client è una subnet diversa da Canada e Messico                             |
 |     **Protocollo di trasporto**      |        Il trasporto di protocollo utilizzato nella query. Le voci possibili sono **UDP** e **TCP**        |                                                                                                                    -   **EQ, TCP**<br />-   **EQ, UDP**                                                                                                                     |
@@ -77,7 +77,7 @@ Il campo criteri dei criteri DNS è costituito da due elementi:
 
 Utilizzando la tabella precedente come punto di partenza, è possibile usare la tabella seguente per definire un criterio usato per trovare una corrispondenza tra le query per qualsiasi tipo di record, ma i record SRV nel dominio contoso.com provenienti da un client nella subnet 10.0.0.0/24 tramite TCP compreso tra 8 e 10 PM tramite l'interfaccia 10.0.0.3:  
 
-|Nome|Valore|  
+|Name|Valore|  
 |--------|---------|  
 |Subnet client|EQ, 10.0.0.0/24|  
 |Protocollo di trasporto|EQ, TCP|  
@@ -97,7 +97,7 @@ I criteri di ricorsione sono un **tipo** speciale di criteri a livello di server
 
 I criteri di ricorsione contengono gli stessi elementi che contengono i normali criteri di risoluzione delle query DNS, insieme agli elementi della tabella seguente:  
 
-|Nome|Descrizione|  
+|Name|Descrizione|  
 |--------|---------------|  
 |**Applica alla ricorsione**|Specifica che questi criteri devono essere utilizzati solo per la ricorsione.|  
 |**Ambito di ricorsione**|Nome dell'ambito di ricorsione.|  

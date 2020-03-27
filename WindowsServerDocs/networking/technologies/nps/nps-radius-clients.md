@@ -6,14 +6,14 @@ ms.prod: windows-server
 ms.technology: networking
 ms.topic: article
 ms.assetid: d3a09ac9-75f8-4f57-aab4-b0fdfe110118
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 1dfc1bb71d2800a8a9587e54147950dfd7fb371f
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 6ae3a221c1889facc8b7696dea0bcd6cbd8df926
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71396004"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80315629"
 ---
 # <a name="radius-clients"></a>Client RADIUS
 
@@ -63,7 +63,7 @@ Quando si configura un client RADIUS in NPS, è possibile definire le proprietà
 
  Nome descrittivo per il client RADIUS, che consente di identificare più facilmente quando si utilizza lo snap-in NPS o i comandi Netsh per NPS.
 
-### <a name="ip-address"></a>L'indirizzo IP
+### <a name="ip-address"></a>Indirizzo IP
 
 Il protocollo Internet versione 4 \(indirizzo IPv4\) o il nome del\) Domain Name System \(DNS del client RADIUS.
 

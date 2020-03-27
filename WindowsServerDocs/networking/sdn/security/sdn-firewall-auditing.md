@@ -6,15 +6,15 @@ ms.prod: windows-server
 ms.technology: networking-sdn
 ms.topic: article
 ms.assetid: c4e2f6c7-0364-4bf8-bb66-9af59c0bbd74
-ms.author: pashort
-author: shortpatti
+ms.author: lizross
+author: eross-msft
 ms.date: 08/22/2018
-ms.openlocfilehash: 246adc6b4fd3ea130196cf1786f7fa130703de1a
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 1452720d8ba71e7306dce0271ea7a9e6011b2952
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71355761"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80317376"
 ---
 # <a name="sdn-firewall-auditing"></a>Controllo del firewell SDN
 

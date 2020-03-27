@@ -3,7 +3,7 @@ title: Usare Windows Server Essentials Log Collector
 description: Viene descritto come usare Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
-ms.prod: windows-server-2016-essentials
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
@@ -12,12 +12,12 @@ ms.assetid: c6985518-b42d-4cfb-9761-eaa75306b6d7
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 3bc43b08df30d03f29d9f343b7d6ed4d63c85eda
-ms.sourcegitcommit: 39244de670f712857a5fdd56630e95d57b7001a5
+ms.openlocfilehash: d163195343b67ca38e565a0249363e7d1cec21f8
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74897666"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80318565"
 ---
 # <a name="use-the-windows-server-essentials-log-collector"></a>Usare Windows Server Essentials Log Collector
 
@@ -48,7 +48,7 @@ Durante la risoluzione dei problemi relativi al computer, un rappresentante del 
 ## <a name="environment-information-collected"></a>Informazioni sull'ambiente raccolte  
  Per ogni computer di rete o server specificato, Log Collector raccoglie le seguenti informazioni sull'ambiente e le inserisce nel file della raccolta dei registri.  
   
--   Operating system version  
+-   Versione del sistema operativo  
   
 -   Produttore e descrizione della CPU  
   
@@ -56,7 +56,7 @@ Durante la risoluzione dei problemi relativi al computer, un rappresentante del 
   
 -   Schede di rete associate a TCP/IP  
   
--   Locale  
+-   Impostazioni locali  
   
 -   Processi  
   
@@ -129,7 +129,7 @@ Durante la risoluzione dei problemi relativi al computer, un rappresentante del 
   
 -   File di log di Panther  
   
--   Servizi,  
+-   Servizi  
   
 -   Chiavi del Registro di sistema, da  
   
@@ -164,7 +164,7 @@ Durante la risoluzione dei problemi relativi al computer, un rappresentante del 
   
 -   Library/Logs/DiagnosticReports/LaunchPad-< nnn\> (copiare tutti i file LaunchPad-< nnn\>. crash)  
   
-## <a name="see-also"></a>Vedi anche  
+## <a name="see-also"></a>Vedere anche  
   
 
 -   [Risolvere gli errori dell'agente di raccolta log](Troubleshoot-Windows-Server-Essentials-Log-Collector-Errors.md)

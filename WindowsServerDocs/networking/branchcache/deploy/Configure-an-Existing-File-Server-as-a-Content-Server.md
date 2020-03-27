@@ -6,14 +6,14 @@ ms.prod: windows-server
 ms.technology: networking-bc
 ms.topic: get-started-article
 ms.assetid: bdac7d2a-25b4-4f61-bed1-b290700c18f3
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: f675322c32db0816d5afb155d53fad9f096ad650
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 0568bf051fee3c9ee4fd5d1f403f5110f7669ad3
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71356689"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80319348"
 ---
 # <a name="configure-an-existing-file-server-as-a-content-server"></a>Configurare un file server esistente come server di contenuti
 
@@ -24,7 +24,7 @@ ms.locfileid: "71356689"
 > [!IMPORTANT]  
 > Se il ruolo server Servizi file non è già installato, non eseguire questa routine. Vedere invece [installare un nuovo File Server come Server di contenuti](../../branchcache/deploy/Install-a-New-File-Server-as-a-Content-Server.md).  
   
-L'appartenenza a **amministratori**, o equivalente è il requisito minimo necessario per eseguire questa procedura.  
+Per eseguire questa procedura è necessaria almeno l'appartenenza al gruppo **Administrators** o a un gruppo equivalente.  
   
 > [!NOTE]  
 > Per eseguire questa procedura mediante Windows PowerShell, eseguire Windows PowerShell come amministratore, digitare i comandi seguenti al prompt di Windows PowerShell e quindi premere INVIO.  

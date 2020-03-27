@@ -1,9 +1,9 @@
 ---
 title: Creare il file Oobe.xml con logo ed EULA
-description: Viene descritto come utilizzare Windows Server Essentials
+description: Viene descritto come usare Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
-ms.prod: windows-server-2016-essentials
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
@@ -12,12 +12,12 @@ ms.assetid: 8a7b3cc1-21bb-4344-8110-f5d5959b370d
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 5d7dac41ba6d6f73b0d3d65d3481fe45ff99a6bc
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 58d98aa84b8851e3226ebc76c86cffd574400c42
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66433614"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80312052"
 ---
 # <a name="create-the-oobexml-file-including-logo-and-eula"></a>Creare il file Oobe.xml con logo ed EULA
 
@@ -31,11 +31,11 @@ ms.locfileid: "66433614"
   
 1. Aprire il file Oobe.xml in un editor di testo, come Blocco note.  
   
-2. All'interno di < logopath\>< / logopath\> tag, immettere il percorso assoluto del file del logo. Questo file deve contenere un file .png a 32 bit (portable network graphics) di 240x 100 pixel.  
+2. All'interno del < logopath\></logopath\> tag, immettere il percorso assoluto del file del logo. Questo file deve contenere un file .png a 32 bit (portable network graphics) di 240x 100 pixel.  
   
-3. All'interno di < eulafilename\>< / eulafilename\> tag, immettere il percorso assoluto del file EULA. Il file EULA deve essere in formato di testo .rtf (rich-text-format).  
+3. All'interno del < eulafilename\></eulafilename\> tag, immettere il percorso assoluto del file EULA. Il file EULA deve essere in formato di testo .rtf (rich-text-format).  
   
-4. All'interno di < nome\>< / name\> tag, immettere il nome della società.  
+4. Nel < nome\></name\> tag immettere il nome della società.  
   
     Nell'esempio seguente sono illustrati i tag contenuti in un file Oobe.xml:  
   
@@ -59,9 +59,9 @@ ms.locfileid: "66433614"
   
    |Percorso Oobe.Xml|Condizione per la determinazione del percorso|  
    |-----------------------|----------------------------------------|  
-   |%WINDIR%\System32\Oobe\Info\|il server è destinato in un unico paese/area geografica e un unico sistema linguistico.|  
-   |%windir%\system32\oobe\info\default\\<language\>|Il server è destinato ad un unico paese/area geografica o a un sistema multilingua.|  
-   |%WINDIR%\System32\Oobe\Info\\< paese/area geografica > \ e %windir%\system32\oobe\info\\< paese/area geografica >\\< linguaggio\>\|il server è destinato a più di un paese / area e le impostazioni richiedono personalizzazioni in base al paese/regione, ognuno con una sola lingua. Dove < paese/area geografica > corrisponde alla versione decimale dell'identificatore della posizione geografica (GeoID) del paese / area geografica in cui viene distribuito il server, e < language\> corrisponde alla versione decimale dell'identificatore delle impostazioni locali (LCID).|  
+   |%WINDIR%\System32\Oobe\Info\|il server viene fornito in un unico paese/area geografica e in un unico sistema di linguaggio.|  
+   |%WINDIR%\system32\oobe\info\default\\< Language\>|Il server è destinato ad un unico paese/area geografica o a un sistema multilingua.|  
+   |%WINDIR%\System32\Oobe\Info\\< paese/area geografica > \ e%WINDIR%\System32\Oobe\Info\\< paese/area >\\< lingua\>\|il server è destinato a più di un paese/area geografica e le impostazioni devono essere personalizzate in base al paese/area geografica, ognuna con una sola lingua. Dove < paese/regione > è la versione decimale dell'identificatore della posizione geografica (GeoID) del paese o dell'area geografica in cui viene distribuito il server e < lingua\> è la versione decimale dell'identificatore delle impostazioni locali (LCID).|  
   
    Se si dispone di un logo aziendale alternativo con del testo bianco, la visualizzazione durante la procedura di installazione potrebbe essere migliore in virtù dello sfondo di colore blu.  È possibile specificare questo logo impostando un chiave del Registro di sistema con relativo valore.  
   
@@ -71,11 +71,11 @@ ms.locfileid: "66433614"
   
 2.  Nella casella di ricerca digitare **regedit** e quindi fare clic sull'applicazione Regedit.  
   
-3.  Nel riquadro di navigazione, espandere  **HKEY_LOCAL_MACHINE**, espandere **SOFTWARE**, espandere **Microsoft**, espandere **Windows Server**. Se la chiave OEM non esiste, crearne una facendo quanto segue:  
+3.  Nel riquadro di navigazione, espandere **HKEY_LOCAL_MACHINE**, espandere **SOFTWARE**, espandere **Microsoft**, espandere **Windows Server**. Se la chiave OEM non esiste, crearne una facendo quanto segue:  
   
     1.  Fare clic con il pulsante destro del mouse su **Windows Server**, fare clic su **Nuovo**, quindi fare clic su **Chiave**.  
   
-    2.  Digitare **OEM**come nome della chiave.  
+    2.  Digitare **OEM** come nome della chiave.  
   
 4.  (Facoltativo) Se si sta creando una voce per un logo, è possibile creare diverse chiavi per distinguere le versioni in lingue diverse del logo. Ad esempio, se si dispone sia della versione in inglese che della versione in tedesco di un logo, è possibile creare una chiave en-us e una chiave de-de. Dal momento che tutti i file del logo sono archiviati nella stessa cartella, è necessario fornire alle istanze del file di immagine logo un nome univoco per ogni lingua. Ad esempio, creare un file denominato LogoWithWhiteText_en.png e uno denominato LogoWithWhiteText_de.png.  
   
@@ -87,8 +87,8 @@ ms.locfileid: "66433614"
   
 8.  Immettere il percorso del logo, quindi fare clic su OK.  
   
-## <a name="see-also"></a>Vedere anche  
- [Guida introduttiva a Windows Server Essentials ADK](Getting-Started-with-the-Windows-Server-Essentials-ADK.md)   
+## <a name="see-also"></a>Vedi anche  
+ [Introduzione con Windows Server Essentials ADK](Getting-Started-with-the-Windows-Server-Essentials-ADK.md)   
  [Creazione e personalizzazione dell'immagine](Creating-and-Customizing-the-Image.md)   
  [Personalizzazioni aggiuntive](Additional-Customizations.md)   
  [Preparazione dell'immagine per la distribuzione](Preparing-the-Image-for-Deployment.md)   

@@ -10,14 +10,14 @@ ms.technology: networking-sdn
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 79df3bbe-48fd-4eff-8df6-35f6317566f3
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 338d5a285f2524932a91a66db186554cd0f50e2a
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 1d5d5aaae5983e062dae203c60a7001f36e5629b
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71355655"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80309815"
 ---
 # <a name="network-function-virtualization"></a>Virtualizzazione delle funzioni di rete
 
@@ -33,10 +33,10 @@ ms.locfileid: "71355655"
   
 Nei data center definiti dal software odierno, le funzioni di rete eseguite da appliance hardware (ad esempio i bilanciamenti del carico, i firewall, i router, i commutatori e così via) vengono virtualizzate sempre più come appliance virtuali. Questo "virtualizzazione delle funzioni di rete" è una progressione naturale di virtualizzazione di server e virtualizzazione di rete. I dispositivi virtuali sono in rapida emergenza e creano un nuovo mercato. Continuano a generare interesse e ottenere l'espansione di entrambe le piattaforme di virtualizzazione e i servizi cloud.  
   
-Microsoft ha incluso un gateway autonomo come appliance virtuale a partire da Windows Server 2012 R2. Per altre informazioni, vedere [Windows Server Gateway](https://technet.microsoft.com/library/dn313101.aspx). Con Windows Server 2016 Microsoft continua ad espandersi e investire nel mercato della virtualizzazione delle funzioni di rete.  
+Microsoft ha incluso un gateway autonomo come appliance virtuale a partire da Windows Server 2012 R2. Per ulteriori informazioni, vedere [Windows Server Gateway](https://technet.microsoft.com/library/dn313101.aspx). Con Windows Server 2016 Microsoft continua ad espandersi e investire nel mercato della virtualizzazione delle funzioni di rete.  
   
 ## <a name="virtual-appliance-benefits"></a>Vantaggi dell'appliance virtuale  
-Un appliance virtuale è dinamico e facile da modificare perché si tratta di una macchina virtuale predefinita e personalizzata. Può trattarsi di una o più macchine virtuali in pacchetto, aggiornate e gestite come unità. Insieme a SDN (Software Defined Networking), avrai la flessibilità e la flessibilità necessarie nell'infrastruttura di oggi basata sul cloud. Ad esempio:  
+Un appliance virtuale è dinamico e facile da modificare perché si tratta di una macchina virtuale predefinita e personalizzata. Può trattarsi di una o più macchine virtuali in pacchetto, aggiornate e gestite come unità. Insieme a SDN (Software Defined Networking), avrai la flessibilità e la flessibilità necessarie nell'infrastruttura di oggi basata sul cloud. Ad esempio,  
   
 -   SDN presenta la rete come risorsa dinamica e in pool.  
   
@@ -79,7 +79,7 @@ Il Marketplace per le funzioni di rete virtualizzate sta crescendo rapidamente. 
   
     -   Router  
   
-    -   Interruttori  
+    -   Switch  
   
     -   NAT  
   

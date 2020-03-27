@@ -10,14 +10,14 @@ ms.technology: networking-ras
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: e5ea9d22-a503-4ed4-96b3-0ee2ccf4fd17
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 1320a5c8b8c267f270dae43e764533d9289006a4
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: e85998138f3aa3627b5e212766d491cd3fc8305f
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71404459"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80313866"
 ---
 # <a name="step-3-plan-the-multisite-deployment"></a>Passaggio 3 pianificare la distribuzione multisito
 
@@ -27,7 +27,7 @@ Dopo aver pianificato l'infrastruttura multisito, pianificare eventuali requisit
 
 Nelle sezioni seguenti vengono fornite informazioni dettagliate sulla pianificazione.
   
-## <a name="bkmk_3_1_IPHTTPS"></a>3,1 pianificare i certificati IP-HTTPS  
+## <a name="31-plan-ip-https-certificates"></a><a name="bkmk_3_1_IPHTTPS"></a>3,1 pianificare i certificati IP-HTTPS  
 Quando si configurano i punti di ingresso, è necessario configurare ogni punto di ingresso con un indirizzo ConnectTo specifico. Il certificato IP-HTTPS per ogni punto di ingresso deve corrispondere all'indirizzo ConnectTo. Quando si ottiene il certificato, tenere presente quanto segue:  
   
 -   In una distribuzione multisito non è possibile utilizzare certificati autofirmati.  
@@ -48,7 +48,7 @@ Quando si configurano i punti di ingresso, è necessario configurare ogni punto 
   
 -   Il certificato IP-HTTPS deve essere importato direttamente nell'archivio personale del computer e non in quello dell'utente.  
   
-## <a name="bkmk_3_2_NLS"></a>3,2 pianificare il server dei percorsi di rete  
+## <a name="32-plan-the-network-location-server"></a><a name="bkmk_3_2_NLS"></a>3,2 pianificare il server dei percorsi di rete  
 Il sito Web del server dei percorsi di rete può essere ospitato nel server di accesso remoto o in un altro server dell'organizzazione. Se si ospita il server dei percorsi di rete nel server di accesso remoto, il sito Web viene creato automaticamente quando si distribuisce accesso remoto. Se si ospita il server dei percorsi di rete in un altro server che esegue un sistema operativo Windows nell'organizzazione, è necessario assicurarsi che Internet Information Services (IIS) sia installato per creare il sito Web.  
   
 ### <a name="321-certificate-requirements-for-the-network-location-server"></a>3.2.1 requisiti dei certificati per il server dei percorsi di rete  
@@ -79,7 +79,7 @@ Quando si ottiene il certificato del sito Web da utilizzare per il server dei pe
 3.  Per il campo punti di distribuzione CRL, utilizzare un punto di distribuzione CRL accessibile dai client DirectAccess connessi alla Intranet.  
   
 ### <a name="322dns-for-the-network-location-server"></a>3.2.2 DNS per il server dei percorsi di rete  
-Se si ospita il server dei percorsi di rete nel server di accesso remoto, è necessario aggiungere una voce DNS per il sito Web del server dei percorsi di rete per ogni punto di ingresso nella distribuzione. Tieni presente quanto segue:  
+Se si ospita il server dei percorsi di rete nel server di accesso remoto, è necessario aggiungere una voce DNS per il sito Web del server dei percorsi di rete per ogni punto di ingresso nella distribuzione. Tenere presente quanto segue:  
   
 -   Il nome soggetto del primo certificato server dei percorsi di rete nella distribuzione multisito viene usato come URL del server dei percorsi di rete per tutti i punti di ingresso, quindi il nome del soggetto e l'URL del server dei percorsi di rete non possono corrispondere al nome del computer del primo server di accesso remoto nella distribuzione. Deve essere un FQDN dedicato per il server dei percorsi di rete.  
   
@@ -89,7 +89,7 @@ Se si ospita il server dei percorsi di rete nel server di accesso remoto, è nec
   
 -   L'infrastruttura del server dei percorsi di rete (impostazioni DNS e certificato) per un punto di ingresso deve essere creata prima di aggiungere il punto di ingresso.  
   
-## <a name="bkmk_3_3_IPsec"></a>3,3 pianificare il certificato radice IPsec per tutti i server di accesso remoto  
+## <a name="33-plan-the-ipsec-root-certificate-for-all-remote-access-servers"></a><a name="bkmk_3_3_IPsec"></a>3,3 pianificare il certificato radice IPsec per tutti i server di accesso remoto  
 Quando si pianifica l'autenticazione del client IPsec in una distribuzione multisito, tenere presente quanto segue:  
   
 1.  Se si è scelto di usare il proxy Kerberos predefinito per l'autenticazione del computer quando si configura il singolo server di accesso remoto, è necessario modificare l'impostazione in modo da usare i certificati del computer rilasciati da una CA interna, perché il proxy Kerberos non è supportato per un multisito distribuzione.  
@@ -100,7 +100,7 @@ Quando si pianifica l'autenticazione del client IPsec in una distribuzione multi
   
 4.  Lo stesso certificato radice o intermedio IPsec deve essere installato in tutti i server di accesso remoto nella distribuzione multisito.  
   
-## <a name="bkmk_3_4_GSLB"></a>3,4 pianificare il bilanciamento del carico globale del server  
+## <a name="34-plan-global-server-load-balancing"></a><a name="bkmk_3_4_GSLB"></a>3,4 pianificare il bilanciamento del carico globale del server  
 In una distribuzione multisito è inoltre possibile configurare un servizio di bilanciamento del carico globale del server. Un servizio di bilanciamento del carico globale del server può essere utile per l'organizzazione se la distribuzione copre una distribuzione geografica di grandi dimensioni perché può distribuire il carico del traffico tra i punti di ingresso.  Il servizio di bilanciamento del carico globale del server può essere configurato per fornire ai client DirectAccess le informazioni sul punto di ingresso del punto di ingresso più vicino. Il processo funziona nel modo seguente:  
   
 1.  Nei computer client che eseguono Windows 10 o Windows 8 è presente un elenco di indirizzi IP globali del servizio di bilanciamento del carico del server, ognuno associato a un punto di ingresso.  
@@ -111,7 +111,7 @@ In una distribuzione multisito è inoltre possibile configurare un servizio di b
   
 Per un elenco dei dispositivi globali di bilanciamento del carico del server che supportano l'accesso remoto, passare alla pagina trova un partner in [Microsoft Server and Cloud Platform](https://www.microsoft.com/server-cloud/).  
   
-## <a name="bkmk_3_5_EP_Selection"></a>3,5 pianificare la selezione del punto di ingresso del client DirectAccess  
+## <a name="35-plan-directaccess-client-entry-point-selection"></a><a name="bkmk_3_5_EP_Selection"></a>3,5 pianificare la selezione del punto di ingresso del client DirectAccess  
 Quando si configura una distribuzione multisito, per impostazione predefinita i computer client Windows 10 e Windows 8 sono configurati con le informazioni necessarie per connettersi a tutti i punti di ingresso nella distribuzione e per connettersi automaticamente a un singolo punto di ingresso in base a una selezione algoritmo. È anche possibile configurare la distribuzione per consentire ai computer client Windows 10 e Windows 8 di selezionare manualmente il punto di ingresso a cui si connetteranno. Se un computer client Windows 10 o Windows 8 è attualmente connesso al punto di ingresso Stati Uniti e la selezione automatica dei punti di ingresso è abilitata, se il punto di ingresso Stati Uniti diventa irraggiungibile, dopo alcuni minuti il computer client tenterà di connettersi tramite il punto di ingresso dell'Europa. È consigliabile usare la selezione automatica del punto di ingresso. Tuttavia, consentire la selezione del punto di ingresso manuale consente agli utenti finali di connettersi a un punto di ingresso diverso in base alle condizioni di rete correnti. Ad esempio, se un computer è connesso al punto di ingresso Stati Uniti e la connessione alla rete interna diventa molto più lenta del previsto. In questa situazione, l'utente finale può selezionare manualmente per connettersi al punto di ingresso dell'Europa per migliorare la connessione alla rete interna.  
   
 > [!NOTE]  
@@ -119,7 +119,7 @@ Quando si configura una distribuzione multisito, per impostazione predefinita i 
   
  I computer client Windows 7 sono configurati con le informazioni necessarie per connettersi a un singolo punto di ingresso nella distribuzione multisito. Non possono archiviare contemporaneamente le informazioni per più punti di ingresso. Un computer client Windows 7, ad esempio, può essere configurato per connettersi al punto di ingresso del Stati Uniti, ma non al punto di ingresso dell'Europa. Se il punto di ingresso del Stati Uniti non è raggiungibile, il computer client Windows 7 perderà la connettività alla rete interna finché il punto di ingresso non sarà raggiungibile. L'utente finale non può apportare alcuna modifica per tentare di connettersi al punto di ingresso dell'Europa.  
   
-## <a name="bkmk_3_6_IPv6"></a>3,6 prefissi e routing del piano  
+## <a name="36-plan-prefixes-and-routing"></a><a name="bkmk_3_6_IPv6"></a>3,6 prefissi e routing del piano  
   
 ### <a name="internal-ipv6-prefix"></a>Prefisso IPv6 interno  
 Durante la distribuzione del singolo server di accesso remoto pianificato i prefissi IPv6 della rete interna tenere presente quanto segue in una distribuzione multisito:  
@@ -205,7 +205,7 @@ Se l'organizzazione usa una topologia Active Directory con prefissi IPv6 specifi
   
 3.  Quando si modifica il parametro EntryPointRange, assicurarsi di non rimuovere i prefissi a 128 bit esistenti che appartengono agli endpoint del tunnel IPsec e all'indirizzo DNS64.  
   
-## <a name="bkmk_3_7_TransitionIPv6"></a>3,7 pianificare la transizione a IPv6 quando si distribuisce l'accesso remoto multisito  
+## <a name="37-plan-the-transition-to-ipv6-when-multisite-remote-access-is-deployed"></a><a name="bkmk_3_7_TransitionIPv6"></a>3,7 pianificare la transizione a IPv6 quando si distribuisce l'accesso remoto multisito  
 Molte organizzazioni usano il protocollo IPv4 nella rete aziendale. Con l'esaurimento dei prefissi IPv4 disponibili, molte organizzazioni stanno effettuando la transizione da solo IPv4 alle reti solo IPv6.  
   
 Questa transizione è probabilmente eseguita in due fasi:  
@@ -216,7 +216,7 @@ Questa transizione è probabilmente eseguita in due fasi:
   
 In ogni parte, la transizione può essere eseguita in fasi. In ogni fase è possibile che una sola subnet della rete venga modificata nella nuova configurazione di rete. Pertanto, è necessaria una distribuzione multisito di DirectAccess per supportare una distribuzione ibrida in cui, ad esempio, alcuni dei punti di ingresso appartengono a una subnet solo IPv4 e altri appartengono a una subnet IPv6 + IPv4. Inoltre, le modifiche alla configurazione durante i processi di transizione non devono interrompere la connettività client tramite DirectAccess.  
   
-### <a name="TransitionIPv4toMixed"></a>Transizione da un solo IPv4 a una rete aziendale IPv6 + IPv4  
+### <a name="transition-from-an-ipv4-only-to-an-ipv6ipv4-corporate-network"></a><a name="TransitionIPv4toMixed"></a>Transizione da un solo IPv4 a una rete aziendale IPv6 + IPv4  
 Quando si aggiungono indirizzi IPv6 a una rete aziendale solo IPv4, potrebbe essere necessario aggiungere un indirizzo IPv6 a un server DirectAccess già distribuito. Inoltre, è possibile aggiungere un punto di ingresso o un nodo a un cluster con carico bilanciato con indirizzi sia IPv4 che IPv6 alla distribuzione di DirectAccess.  
   
 Accesso remoto consente di aggiungere i server con indirizzi IPv4 e IPv6 a una distribuzione originariamente configurata con solo indirizzi IPv4. Questi server vengono aggiunti come server solo IPv4 e i relativi indirizzi IPv6 vengono ignorati da DirectAccess. di conseguenza, l'organizzazione non può sfruttare i vantaggi della connettività IPv6 nativa su questi nuovi server.  
@@ -226,7 +226,7 @@ Per trasformare la distribuzione in una distribuzione IPv6 + IPv4 e sfruttare le
 > [!NOTE]  
 > Come per una rete solo IPv4, in una rete mista IPv4 + IPv6, l'indirizzo del server DNS usato per risolvere le richieste DNS client deve essere configurato con il DNS64 distribuito nei server di accesso remoto e non con un DNS aziendale.  
   
-### <a name="TransitionMixedtoIPv6"></a>Transizione da un IPv6 + IPv4 a una rete aziendale solo IPv6  
+### <a name="transition-from-an-ipv6ipv4-to-an-ipv6-only-corporate-network"></a><a name="TransitionMixedtoIPv6"></a>Transizione da un IPv6 + IPv4 a una rete aziendale solo IPv6  
 DirectAccess consente di aggiungere punti di ingresso solo IPv6 solo se il primo server di accesso remoto nella distribuzione aveva originariamente indirizzi sia IPv4 che IPv6 o solo un indirizzo IPv6. Ovvero non è possibile eseguire la transizione da una rete solo IPv4 a una rete solo IPv6 in un unico passaggio senza reinstallare DirectAccess. Per passare direttamente da una rete solo IPv4 a una rete solo IPv6, vedere transizione da una rete solo IPv4 a una distribuzione solo IPv6 usando le distribuzioni di DirectAccess duali.  
   
 Dopo aver completato la transizione da una distribuzione solo IPv4 a una distribuzione IPv6 + IPv4, è possibile passare a una rete solo IPv6. Durante e dopo la transizione, tenere presente quanto segue:  
@@ -239,7 +239,7 @@ Dopo aver completato la transizione da una distribuzione solo IPv4 a una distrib
   
 Per supportare la connettività client alla rete aziendale, è necessario assicurarsi che il server dei percorsi di rete possa essere risolto dal DNS aziendale al relativo indirizzo IPv6. È anche possibile impostare un indirizzo IPv4 aggiuntivo, ma non è obbligatorio.  
   
-### <a name="DualDeployment"></a>Transizione da un solo IPv4 a una distribuzione solo IPv6 usando distribuzioni Dual DirectAccess  
+### <a name="transition-from-an-ipv4-only-to-an-ipv6-only-deployment-using-dual-directaccess-deployments"></a><a name="DualDeployment"></a>Transizione da un solo IPv4 a una distribuzione solo IPv6 usando distribuzioni Dual DirectAccess  
 Non è possibile eseguire la transizione da una rete aziendale solo IPv4 a una rete aziendale solo IPv6 senza reinstallare la distribuzione di DirectAccess. Per mantenere la connettività del client durante la transizione, è possibile usare un'altra distribuzione di DirectAccess. Quando viene completata la prima fase di transizione (rete solo IPv4 aggiornata a IPv4 + IPv6), è necessaria una distribuzione doppia e si intende prepararsi per una transizione futura a una rete aziendale solo IPv6, sfruttando i vantaggi della connettività IPv6 nativa. La doppia distribuzione viene descritta nei passaggi generali seguenti:  
   
 1.  Installare una seconda distribuzione di DirectAccess. È possibile installare DirectAccess nei nuovi server o rimuovere i server dalla prima distribuzione e usarli per la seconda distribuzione.  

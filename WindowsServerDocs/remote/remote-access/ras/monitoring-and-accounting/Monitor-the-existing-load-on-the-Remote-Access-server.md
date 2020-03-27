@@ -10,14 +10,14 @@ ms.technology: networking-ras
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 62fa2895-62ae-42cf-817c-53e06ac2a26c
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 43c447205a5ef0cbd33b0486e01d630e6d00c633
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 0507a7f0151e1f5f8aefaf4de5a3a4f8a776971d
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71367225"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80314191"
 ---
 # <a name="monitor-the-existing-load-on-the-remote-access-server"></a>Monitorare il carico esistente nel server di accesso remoto
 
@@ -34,7 +34,7 @@ Il termine **Load** indica le statistiche correlate al numero di connessioni nel
   
 #### <a name="to-use-the-monitoring-dashboard-to-monitor-the-remote-access-server-load"></a>Per utilizzare il dashboard di monitoraggio per monitorare il carico del server di accesso remoto  
   
-1.  In **Server Manager**, fare clic su **strumenti**, quindi fare clic su **Gestione accesso remoto**.  
+1.  In **Server Manager** fare clic su **Strumenti** e quindi su **Gestione Accesso remoto**.  
   
 2.  Fare clic su **DASHBOARD** per passare a **Dashboard di Accesso remoto** nella **console di gestione di Accesso remoto**.  
   
@@ -60,7 +60,7 @@ In **Performance Monitor** verranno ora visualizzate graficamente le statistiche
   
 ![](../../../media/Monitor-the-existing-load-on-the-Remote-Access-server/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em> per Windows PowerShell***  
   
-Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.  
+Tramite i cmdlet di Windows PowerShell seguenti viene eseguita la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se è possibile il ritorno a capo automatico in diverse righe a causa di limiti di formattazione.  
   
 ```  
 PS> Get-RemoteAccessConnectionStatisticsSummary  

@@ -1,9 +1,9 @@
 ---
 title: Preparazione dell'immagine per la distribuzione
-description: Viene descritto come utilizzare Windows Server Essentials
+description: Viene descritto come usare Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
-ms.prod: windows-server-2016-essentials
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
@@ -12,12 +12,12 @@ ms.assetid: 681c6cad-7fde-494f-86a5-f4c7c15d23f9
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 16411ab073e9417c52592aa9a6b13707dd461537
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: aac776253c094c4a77269720bcc5762d6c41d720
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59838532"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80311558"
 ---
 # <a name="preparing-the-image-for-deployment"></a>Preparazione dell'immagine per la distribuzione
 
@@ -28,7 +28,7 @@ Uno strumento standard per la preparazione di un'immagine è sysprep.exe. Quando
 > [!NOTE]
 >  È possibile reimpostare l'attivazione del prodotto Windows al massimo tre volte utilizzando sysprep.exe.  
   
-#### <a name="to-prepare-the-image"></a>Preparazione dell'immagine  
+#### <a name="to-prepare-the-image"></a>Per preparare l'immagine  
   
 1.  Eliminare il file SkipIC.txt aggiunto.  
   
@@ -123,7 +123,7 @@ Uno strumento standard per la preparazione di un'immagine è sysprep.exe. Quando
     ```  
   
     > [!IMPORTANT]
-    >  È anche possibile aggiungere il file unattend.xml in %unitàdisistema% invece di un parametro di sysprep. Se il file si trova in c:\ questo verrà coperto dalle impostazioni utente s, ma se utilizzato come un parametro di sysprep, non verrà coperto dalle impostazioni utente s. Il file unattend.xml in %unitàdisistema% viene eliminato ogni volta che il server viene riavviato. Pertanto, verificare che dopo la creazione del file unattend.xml in %unitàdisistema%, il server non venga riavviato.  
+    >  È anche possibile aggiungere il file unattend.xml in %unitàdisistema% invece di un parametro di sysprep. Se il file si trova in c:\ verrà analizzato dalle impostazioni dell'utente, ma se usato come parametro di Sysprep, non verrà coperto dalle impostazioni dell'utente. Il file unattend.xml in %unitàdisistema% viene eliminato ogni volta che il server viene riavviato. Pertanto, verificare che dopo la creazione del file unattend.xml in %unitàdisistema%, il server non venga riavviato.  
   
 10. Utilizzare il seguente comando per aggiungere la chiave del Registro di sistema per ignorare la pagina della chiave OOBE di Windows.  
   

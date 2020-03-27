@@ -6,15 +6,15 @@ ms.prod: windows-server
 ms.technology: networking-sdn
 ms.topic: article
 ms.assetid: 9be83ed2-9e62-49e8-88e7-f52d3449aac5
-ms.author: pashort
+ms.author: lizross
 author: JMesser81
 ms.date: 08/14/2018
-ms.openlocfilehash: 2782419f0c3d99e7ec7f4ee3389f174df400bd55
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: 5827ad3b23d6f084e0138bf34ad47223eccb4e76
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75949922"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80312844"
 ---
 # <a name="troubleshoot-the-windows-server-software-defined-networking-stack"></a>Risolvere i problemi dello stack di SDN (Software Defined Networking) di Windows Server
 
@@ -121,9 +121,9 @@ Message:          Host is not Connected.
 La tabella seguente mostra l'elenco dei codici di errore, dei messaggi e delle azioni di completamento da eseguire in base allo stato di configurazione osservato.
 
 
-| **Codice**| **Message**| **Azione**|  
+| **Codice**| **Messaggio**| **Azione**|  
 |--------|-----------|----------|  
-| Sconosciuta| Errore sconosciuto| |  
+| Sconosciuto| Errore sconosciuto| |  
 | HostUnreachable                       | Il computer host non è raggiungibile | Controllare la connettività di rete di gestione tra il controller di rete e l'host |  
 | PAIpAddressExhausted                  | Indirizzi IP PA esauriti | Aumentare le dimensioni del pool IP della subnet logica del provider HNV |  
 | PAMacAddressExhausted                 | Indirizzi Mac PA esauriti | Aumentare l'intervallo del pool Mac |  
@@ -597,7 +597,7 @@ Informazioni sul routing PA:
     Local PA IP: 10.10.182.66
     Remote PA IP: 10.10.182.65
 
- <snip> ...
+ <snip>...
 
 4. Inquilino Verificare che non siano stati specificati criteri firewall distribuiti nella subnet virtuale o nelle interfacce di rete VM che bloccano il traffico.    
 
@@ -658,7 +658,7 @@ Se non è stato specificato un percorso di file, verrà usata la registrazione l
 - NCApplicationLogs
 - PerfCounters
 - SDNDiagnostics
-- Tracce
+- Traces
 
 Il controller di rete utilizza (Azure) Service Fabric. Quando si risolvono determinati problemi, potrebbe essere necessario Service Fabric log. Questi log sono disponibili in ogni nodo del controller di rete in C:\ProgramData\Microsoft\Service Fabric.
 

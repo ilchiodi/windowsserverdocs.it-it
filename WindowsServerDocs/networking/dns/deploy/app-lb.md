@@ -6,14 +6,14 @@ ms.prod: windows-server
 ms.technology: networking-dns
 ms.topic: article
 ms.assetid: f9c313ac-bb86-4e48-b9b9-de5004393e06
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 356c61c2cc5b60f43a69f17966c97f3c69d05cda
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 86ce83142cafe8ebe61aff2fb193e9b646172651
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71356034"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80317880"
 ---
 # <a name="use-dns-policy-for-application-load-balancing"></a>Usare i criteri DNS per l'applicazione del bilanciamento del carico
 
@@ -79,7 +79,7 @@ Un ambito di una zona è un'istanza univoca della zona. Una zona DNS può avere 
 
 Per ulteriori informazioni, vedere [Add-DnsServerZoneScope](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverzonescope?view=win10-ps)
 
-#### <a name="bkmk_records"></a>Aggiungere record agli ambiti di zona
+#### <a name="add-records-to-the-zone-scopes"></a><a name="bkmk_records"></a>Aggiungere record agli ambiti di zona
 
 A questo punto è necessario aggiungere i record che rappresentano l'host del server Web negli ambiti di zona.
 
@@ -100,7 +100,7 @@ Analogamente, in **DallasZoneScope**è possibile aggiungere un record \(www.cont
 
 Per ulteriori informazioni, vedere [Aggiungi DnsServerResourceRecord](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverresourcerecord?view=win10-ps).
 
-#### <a name="bkmk_policies"></a>Creazione dei criteri DNS
+#### <a name="create-the-dns-policies"></a><a name="bkmk_policies"></a>Creazione dei criteri DNS
 
 Dopo aver creato le partizioni (ambiti di zona) ed è stato aggiunto un record, è necessario creare criteri DNS per la distribuzione delle query in ingresso in questi ambiti in modo che il 50% delle query per contosogiftservices.com venga risposto con l'indirizzo IP per il Web il server nel Data Center di Seattle e il resto vengono distribuiti equamente tra i Data Center di Chicago e Dallas.
 

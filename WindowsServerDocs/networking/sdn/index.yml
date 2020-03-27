@@ -1,15 +1,15 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: SDN (Software Defined Networking)
+title: Software Defined Networking (SDN)
 metadata:
   document_id: null
-  title: SDN (Software Defined Networking)
+  title: Software Defined Networking (SDN)
   description: 'Informazioni sulle funzionalità, la tecnologia e la distribuzione di SDN (Software Defined Networking).'
   text: 'SDN (Software Defined Networking) consente di gestire in modo dinamico la rete di un data center per soddisfare i requisiti di carico di lavoro e app. I criteri di rete possono essere implementati in modo coerente su larga scala, anche mentre si distribuiscono nuovi carichi di lavoro o si spostano tali carichi tra le reti virtuali o fisiche.'
   keywords: 'Windows Server, Windows Server 2016, Software Defined Networking, SDN'
   ms.localizationpriority: medium
-  author: shortpatti
-  ms.author: pashort
+  author: eross-msft
+  ms.author: lizross
   ms.date: 09/04/2018
   ms.topic: article
   ms.devlang: na

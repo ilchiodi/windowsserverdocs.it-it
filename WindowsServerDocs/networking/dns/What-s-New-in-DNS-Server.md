@@ -6,14 +6,14 @@ ms.prod: windows-server
 ms.technology: networking-dns
 ms.topic: article
 ms.assetid: c9cecb94-3cd5-4da7-9a3e-084148b8226b
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: de502d7be023d12e3350063e467a60356b2472c4
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 26d9a532f8c2276a81e8718e76290d41c78f6633
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71406232"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80317970"
 ---
 # <a name="whats-new-in-dns-server-in-windows-server"></a>Novità del server DNS in Windows Server
 
@@ -25,11 +25,11 @@ In Windows Server 2016, Server DNS offre supporto avanzato nelle aree seguenti.
   
 |Funzionalità|Novità o miglioramento|Descrizione|  
 |-----------------|-------------------|---------------|  
-|Criteri DNS|Nuova|È possibile configurare criteri DNS per specificare come un server DNS risponde alle query DNS. Le risposte DNS possono essere basate sull'indirizzo IP client (posizione), ora del giorno e molti altri parametri. I criteri di DNS consentono DNS con riconoscimento della posizione, la gestione del traffico, il bilanciamento del carico, DNS "split Brain" e altri scenari.|  
-|Velocità di risposta limitando (RRL)|Nuova|È possibile abilitare la limitazione della velocità di risposta dei server DNS. In questo modo, evitare la possibilità di sistemi dannoso tramite i server DNS per avviare un attacco denial of service in un client DNS.|  
-|Autenticazione basata su DNS di entità denominate (DANE)|Nuova|È possibile utilizzare i record TLSA (autenticazione di sicurezza Layer di trasporto) per fornire informazioni al client DNS che indicano quali CA deve prevedono un certificato da per il nome di dominio. In questo modo si evitano gli attacchi man-in-the-Middle in cui un utente potrebbe danneggiare la cache DNS per puntare al proprio sito Web e fornire un certificato emesso da un'autorità di certificazione diversa.|  
-|Supporto di record sconosciuto|Nuova|È possibile aggiungere i record che non sono supportati in modo esplicito dal server DNS di Windows utilizzando la funzionalità di record sconosciuto.|  
-|Parametri radice IPv6|Nuova|È possibile utilizzare la connettività IPV6 nativa supportano i parametri radice per eseguire la risoluzione dei nomi internet utilizzando i server principali di IPV6.|  
+|Criteri DNS|Nuovo|È possibile configurare criteri DNS per specificare come un server DNS risponde alle query DNS. Le risposte DNS possono essere basate sull'indirizzo IP client (posizione), ora del giorno e molti altri parametri. I criteri di DNS consentono DNS con riconoscimento della posizione, la gestione del traffico, il bilanciamento del carico, DNS "split Brain" e altri scenari.|  
+|Velocità di risposta limitando (RRL)|Nuovo|È possibile abilitare la limitazione della velocità di risposta dei server DNS. In questo modo, evitare la possibilità di sistemi dannoso tramite i server DNS per avviare un attacco denial of service in un client DNS.|  
+|Autenticazione basata su DNS di entità denominate (DANE)|Nuovo|È possibile utilizzare i record TLSA (autenticazione di sicurezza Layer di trasporto) per fornire informazioni al client DNS che indicano quali CA deve prevedono un certificato da per il nome di dominio. In questo modo si evitano gli attacchi man-in-the-Middle in cui un utente potrebbe danneggiare la cache DNS per puntare al proprio sito Web e fornire un certificato emesso da un'autorità di certificazione diversa.|  
+|Supporto di record sconosciuto|Nuovo|È possibile aggiungere i record che non sono supportati in modo esplicito dal server DNS di Windows utilizzando la funzionalità di record sconosciuto.|  
+|Parametri radice IPv6|Nuovo|È possibile utilizzare la connettività IPV6 nativa supportano i parametri radice per eseguire la risoluzione dei nomi internet utilizzando i server principali di IPV6.|  
 |Supporto di Windows PowerShell|Miglioramento|Nuovi cmdlet di Windows PowerShell sono disponibili per il Server DNS.|  
   
 ## <a name="dns-policies"></a>Criteri DNS
@@ -150,7 +150,7 @@ Per ulteriori informazioni, vedere gli argomenti di riferimento sui comandi di W
 - [Modulo DnsServer](https://docs.microsoft.com/powershell/module/dnsserver/?view=win10-ps)
 - [Modulo DnsClient](https://docs.microsoft.com/powershell/module/dnsclient/?view=win10-ps)
 
-## <a name="see-also"></a>Vedi anche  
+## <a name="see-also"></a>Vedere anche  
   
 -   [Novità del client DNS](What-s-New-in-DNS-Client.md)  
   

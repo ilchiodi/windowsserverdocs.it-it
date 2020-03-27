@@ -6,14 +6,14 @@ ms.technology: networking
 ms.topic: article
 ms.assetid: 76974e10-6a57-4533-83be-cfd5a0d364a3
 manager: brianlic
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 935bda5ab47f3e9a362c81a8aeb99ebf22095725
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: d0eb137716795c324afcf1a708fff00c2f7266d6
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71405326"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80315567"
 ---
 # <a name="qos-policy-error-and-event-messages"></a>Messaggi di errore e di evento del criterio QoS
 
@@ -28,7 +28,7 @@ Di seguito è riportato un elenco dei messaggi informativi sui criteri QoS.
 |||  
 |-|-|  
 |**MessageId**|16500|  
-|**Gravità**|Informativo|  
+|**Gravità**|Informazioni|  
 |**SymbolicName**|EVENT_EQOS_INFO_MACHINE_POLICY_REFRESH_NO_CHANGE|  
 |**Lingua**|Inglese|  
 |**Messaggio**|I criteri QoS del computer sono stati aggiornati. Non sono state rilevate modifiche.|  
@@ -36,7 +36,7 @@ Di seguito è riportato un elenco dei messaggi informativi sui criteri QoS.
 |||  
 |-|-|  
 |**MessageId**|16501|  
-|**Gravità**|Informativo|  
+|**Gravità**|Informazioni|  
 |**SymbolicName**|EVENT_EQOS_INFO_MACHINE_POLICY_REFRESH_WITH_CHANGE|  
 |**Lingua**|Inglese|  
 |**Messaggio**|I criteri QoS del computer sono stati aggiornati. Sono state rilevate modifiche ai criteri.|  
@@ -44,7 +44,7 @@ Di seguito è riportato un elenco dei messaggi informativi sui criteri QoS.
 |||  
 |-|-|  
 |**MessageId**|16502|  
-|**Gravità**|Informativo|  
+|**Gravità**|Informazioni|  
 |**SymbolicName**|EVENT_EQOS_INFO_USER_POLICY_REFRESH_NO_CHANGE|  
 |**Lingua**|Inglese|  
 |**Messaggio**|I criteri QoS utente sono stati aggiornati correttamente. Non sono state rilevate modifiche.|  
@@ -52,7 +52,7 @@ Di seguito è riportato un elenco dei messaggi informativi sui criteri QoS.
 |||  
 |-|-|  
 |**MessageId**|16503|  
-|**Gravità**|Informativo|  
+|**Gravità**|Informazioni|  
 |**SymbolicName**|EVENT_EQOS_INFO_USER_POLICY_REFRESH_WITH_CHANGE|  
 |**Lingua**|Inglese|  
 |**Messaggio**|I criteri QoS utente sono stati aggiornati correttamente. Sono state rilevate modifiche ai criteri.|  
@@ -60,7 +60,7 @@ Di seguito è riportato un elenco dei messaggi informativi sui criteri QoS.
 |||  
 |-|-|  
 |**MessageId**|16504|  
-|**Gravità**|Informativo|  
+|**Gravità**|Informazioni|  
 |**SymbolicName**|EVENT_EQOS_INFO_TCP_AUTOTUNING_NOT_CONFIGURED|  
 |**Lingua**|Inglese|  
 |**Messaggio**|L'impostazione QoS avanzata per il livello di velocità effettiva TCP in ingresso è stata aggiornata correttamente. Il valore dell'impostazione non è specificato da alcun criterio QoS. Verrà applicata l'impostazione predefinita del computer locale.|  
@@ -68,7 +68,7 @@ Di seguito è riportato un elenco dei messaggi informativi sui criteri QoS.
 |||  
 |-|-|  
 |**MessageId**|16505|  
-|**Gravità**|Informativo|  
+|**Gravità**|Informazioni|  
 |**SymbolicName**|EVENT_EQOS_INFO_TCP_AUTOTUNING_OFF|  
 |**Lingua**|Inglese|  
 |**Messaggio**|L'impostazione QoS avanzata per il livello di velocità effettiva TCP in ingresso è stata aggiornata correttamente. Il valore dell'impostazione è livello 0 (velocità effettiva minima).|  
@@ -76,7 +76,7 @@ Di seguito è riportato un elenco dei messaggi informativi sui criteri QoS.
 |||  
 |-|-|  
 |**MessageId**|16506|  
-|**Gravità**|Informativo|  
+|**Gravità**|Informazioni|  
 |**SymbolicName**|EVENT_EQOS_INFO_TCP_AUTOTUNING_HIGHLY_RESTRICTED|  
 |**Lingua**|Inglese|  
 |**Messaggio**|L'impostazione QoS avanzata per il livello di velocità effettiva TCP in ingresso è stata aggiornata correttamente. Il valore dell'impostazione è livello 1.|  
@@ -84,7 +84,7 @@ Di seguito è riportato un elenco dei messaggi informativi sui criteri QoS.
 |||  
 |-|-|  
 |**MessageId**|16507|  
-|**Gravità**|Informativo|  
+|**Gravità**|Informazioni|  
 |**SymbolicName**|EVENT_EQOS_INFO_TCP_AUTOTUNING_RESTRICTED|  
 |**Lingua**|Inglese|  
 |**Messaggio**|L'impostazione QoS avanzata per il livello di velocità effettiva TCP in ingresso è stata aggiornata correttamente. Il valore dell'impostazione è Level 2.|  
@@ -92,7 +92,7 @@ Di seguito è riportato un elenco dei messaggi informativi sui criteri QoS.
 |||  
 |-|-|  
 |**MessageId**|16508|  
-|**Gravità**|Informativo|  
+|**Gravità**|Informazioni|  
 |**SymbolicName**|EVENT_EQOS_INFO_TCP_AUTOTUNING_NORMAL|  
 |**Lingua**|Inglese|  
 |**Messaggio**|L'impostazione QoS avanzata per il livello di velocità effettiva TCP in ingresso è stata aggiornata correttamente. Il valore dell'impostazione è livello 3 (velocità effettiva massima).|  
@@ -100,7 +100,7 @@ Di seguito è riportato un elenco dei messaggi informativi sui criteri QoS.
 |||  
 |-|-|  
 |**MessageId**|16509|  
-|**Gravità**|Informativo|  
+|**Gravità**|Informazioni|  
 |**SymbolicName**|EVENT_EQOS_INFO_APP_MARKING_NOT_CONFIGURED|  
 |**Lingua**|Inglese|  
 |**Messaggio**|L'impostazione QoS avanzata per gli override del contrassegno DSCP è stata aggiornata correttamente. Il valore dell'impostazione non è specificato. Le applicazioni possono impostare i valori DSCP indipendentemente dai criteri QoS.|  
@@ -108,7 +108,7 @@ Di seguito è riportato un elenco dei messaggi informativi sui criteri QoS.
 |||  
 |-|-|  
 |**MessageId**|16510|  
-|**Gravità**|Informativo|  
+|**Gravità**|Informazioni|  
 |**SymbolicName**|EVENT_EQOS_INFO_APP_MARKING_IGNORED|  
 |**Lingua**|Inglese|  
 |**Messaggio**|L'impostazione QoS avanzata per gli override del contrassegno DSCP è stata aggiornata correttamente. Le richieste di contrassegno DSCP dell'applicazione verranno ignorate. Solo i criteri QoS possono impostare valori DSCP.|  
@@ -116,7 +116,7 @@ Di seguito è riportato un elenco dei messaggi informativi sui criteri QoS.
 |||  
 |-|-|  
 |**MessageId**|16511|  
-|**Gravità**|Informativo|  
+|**Gravità**|Informazioni|  
 |**SymbolicName**|EVENT_EQOS_INFO_APP_MARKING_ALLOWED|  
 |**Lingua**|Inglese|  
 |**Messaggio**|L'impostazione QoS avanzata per gli override del contrassegno DSCP è stata aggiornata correttamente. Le applicazioni possono impostare i valori DSCP indipendentemente dai criteri QoS.|  
@@ -124,7 +124,7 @@ Di seguito è riportato un elenco dei messaggi informativi sui criteri QoS.
 |||  
 |-|-|  
 |**MessageId**|16512|  
-|**Gravità**|Informativo|  
+|**Gravità**|Informazioni|  
 |**SymbolicName**|EVENT_EQOS_INFO_LOCAL_SETTING_DONT_USE_NLA|  
 |**Lingua**|Inglese|  
 |**Messaggio**|L'applicazione selettiva dei criteri QoS basati sulla categoria rete di dominio è stata disabilitata. I criteri QoS verranno applicati a tutte le interfacce di rete.|  

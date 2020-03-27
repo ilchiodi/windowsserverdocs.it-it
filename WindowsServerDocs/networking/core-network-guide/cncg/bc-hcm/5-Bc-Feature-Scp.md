@@ -6,18 +6,18 @@ ms.prod: windows-server
 ms.technology: networking-bc
 ms.topic: article
 ms.assetid: 9adf420b-5a58-4e59-9906-71bd58f757fd
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: fe2120310c6c410b410649aff1372f93e0ea5db7
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 987b46b1748d5a889aa69823d3492a707948a100
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71356352"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80318471"
 ---
 # <a name="install-the-branchcache-feature-and-configure-the-hosted-cache-server-by-service-connection-point"></a>Installare la funzionalità BranchCache e configurare il server della cache ospitata in base al punto di connessione del servizio
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 È possibile utilizzare questa procedura per installare la funzionalità BranchCache nel server cache ospitata, HCS1 e per configurare il server per registrare un punto di connessione del servizio \(SCP\) in servizi di dominio Active Directory \(AD DS\).
 

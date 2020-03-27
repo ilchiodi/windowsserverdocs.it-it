@@ -6,14 +6,14 @@ ms.prod: windows-server
 ms.technology: networking
 ms.topic: article
 ms.assetid: d81678a7-be21-48f2-9b3f-5a75d6aef013
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 63a6eb5f0f78ed8dbcc0144602f16274fd6ec213
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 8275c3e8902ed78d77d01a2ff5d769d3e99abf97
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71396318"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80316170"
 ---
 # <a name="remote-radius-server-groups"></a>Gruppi di server RADIUS remoti
 

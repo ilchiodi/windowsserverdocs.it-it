@@ -10,14 +10,14 @@ ms.technology: networking-ras
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 077a3a64-2fa3-4994-9711-ec1fbdc081ba
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: d0ad63ec88a428239a174a0217db94c44ab799bc
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 64471ba81842fb91a7f6ef765e171949294102fa
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71404546"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80314185"
 ---
 # <a name="monitor-the-operations-status-of-the-remote-access-server-and-its-components"></a>Monitorare lo stato delle operazioni del server di accesso remoto e dei relativi componenti
 
@@ -32,7 +32,7 @@ ms.locfileid: "71404546"
   
 #### <a name="to-monitor-the-remote-access-server-operations-status"></a>Per monitorare lo stato delle operazioni del server di accesso remoto  
   
-1.  In **Server Manager**, fare clic su **strumenti**, quindi fare clic su **Gestione accesso remoto**.  
+1.  In **Server Manager** fare clic su **Strumenti** e quindi su **Gestione Accesso remoto**.  
   
 2.  Fare clic su **Dashboard** per passare a **report di accesso remoto** nella **console di gestione accesso remoto**.  
   
@@ -42,7 +42,7 @@ ms.locfileid: "71404546"
   
 ![](../../../media/Monitor-the-operations-status-of-the-Remote-Access-server-and-its-components/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em> per Windows PowerShell***  
   
-Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.  
+Tramite i cmdlet di Windows PowerShell seguenti viene eseguita la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se è possibile il ritorno a capo automatico in diverse righe a causa di limiti di formattazione.  
   
 > [!NOTE]  
 > Il comando per lo stato delle operazioni di un cluster è incluso come riferimento.  

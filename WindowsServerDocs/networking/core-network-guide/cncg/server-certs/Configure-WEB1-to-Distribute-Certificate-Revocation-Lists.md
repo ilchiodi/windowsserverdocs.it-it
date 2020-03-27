@@ -6,14 +6,14 @@ ms.topic: article
 ms.assetid: fa4a8c41-8c2a-425c-8511-736fe5d196ac
 ms.prod: windows-server
 ms.technology: networking
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 5d53cbba37699346db110f0748a9c3e0c834c18e
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 3319715e70c1e68739a10a4c67a9fa404d5ad80e
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71356291"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80318409"
 ---
 # <a name="configure-web1-to-distribute-certificate-revocation-lists-crls"></a>Configurare WEB1 per la distribuzione degli elenchi di revoche di certificati (CRL)
 
@@ -21,7 +21,7 @@ ms.locfileid: "71356291"
 
 È possibile utilizzare questa procedura per configurare il server Web WEB1 per la distribuzione di CRL.  
   
-Nelle estensioni della CA radice è stato indicato che il CRL dalla CA radice sarà disponibile tramite https://pki.corp.contoso.com/pki. Attualmente, non esiste una directory virtuale PKI in WEB1, quindi è necessario crearne una.  
+Nelle estensioni della CA radice è stato indicato che il CRL dalla CA radice sarebbe disponibile tramite https://pki.corp.contoso.com/pki. Attualmente, non esiste una directory virtuale PKI in WEB1, quindi è necessario crearne una.  
   
 Per eseguire questa procedura, è necessario essere un membro di **Domain Admins**.  
   
@@ -30,7 +30,7 @@ Per eseguire questa procedura, è necessario essere un membro di **Domain Admins
   
 #### <a name="to-configure-web1-to-distribute-certificates-and-crls"></a>Per configurare WEB1 per la distribuzione di certificati e CRL  
   
-1.  In WEB1, eseguire Windows PowerShell come amministratore, digitare `explorer c:\` e quindi premere INVIO. Esplora risorse verrà aperto nell'unità C.   
+1.  In WEB1, eseguire Windows PowerShell come amministratore, digitare `explorer c:\`e quindi premere INVIO. Esplora risorse verrà aperto nell'unità C.   
   
 2.  Creare una nuova cartella denominata PKI nell'unità C:. A tale scopo, fare clic su **Home**, quindi fare clic su **nuova cartella**. Viene creata una nuova cartella con il nome temporaneo evidenziato. Digitare **PKI** , quindi premere INVIO.  
   
@@ -44,7 +44,7 @@ Per eseguire questa procedura, è necessario essere un membro di **Domain Admins
   
 7.  Nell'albero della console di gestione Internet Information Services (IIS) espandere **Web1**. Se viene visualizzato un messaggio per iniziare con la piattaforma Web Microsoft, fare clic su **Annulla**.  
   
-8.  Espandere **Siti**, fare clic con il pulsante destro del mouse su **Sito Web predefinito**, quindi scegliere **Aggiungi directory virtuale**.  
+8.  Espandere **Siti**, fare clic con il pulsante destro del mouse su **Default Web Site**, quindi scegliere **Aggiungi directory virtuale**.  
   
 9. In **alias**Digitare **PKI**. In **percorso fisico** digitare **C:\pki**, quindi fare clic su **OK**.  
   
@@ -72,7 +72,7 @@ Per eseguire questa procedura, è necessario essere un membro di **Domain Admins
   
 13. La scheda **Estensioni nomi file** è selezionata per impostazione predefinita nel riquadro **Filtro richieste**. Nel riquadro **Azioni** fare clic su **Modifica impostazioni funzionalità**.  
   
-14. In **Modifica impostazioni di filtro richieste**selezionare **Consenti doppio escape** , quindi fare clic su **OK**.  
+14. In **Modifica impostazioni di filtro richieste** selezionare **Consenti doppio escape**, quindi fare clic su **OK**.  
   
 15. In MMC Gestione Internet Information Services (IIS) fare clic sul nome del server Web. Ad esempio, se il server Web è denominato WEB1, fare clic su **Web1**.  
   

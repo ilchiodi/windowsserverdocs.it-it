@@ -6,15 +6,15 @@ ms.prod: windows-server
 ms.technology: networking-ras
 ms.topic: article
 ms.assetid: eeca4cf7-90f0-485d-843c-76c5885c54b0
-ms.author: pashort
-author: shortpatti
+ms.author: lizross
+author: eross-msft
 ms.date: 05/18/2018
-ms.openlocfilehash: d2fa9c82c4cab05b2a60916fee3f09c1ea48a472
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: dbcd0380dffca29e782be2179024270da73a2c11
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71388915"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80309411"
 ---
 # <a name="remote-access"></a>Accesso remoto
 
@@ -36,7 +36,7 @@ Il ruolo del server accesso remoto è un raggruppamento logico di queste tecnolo
 >[!IMPORTANT]
 >Non tentare di distribuire accesso remoto in una macchina virtuale \(\) VM in Microsoft Azure. L'uso di accesso remoto in Microsoft Azure non è supportato. Non è possibile usare accesso remoto in una macchina virtuale di Azure per distribuire VPN, DirectAccess o qualsiasi altra funzionalità di accesso remoto in Windows Server 2016 o versioni precedenti di Windows Server. Per ulteriori informazioni, vedere [supporto del software server Microsoft per Microsoft Azure macchine virtuali](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines).
 
-## <a name="bkmk_da"></a>Servizio di accesso remoto \(RAS\)-gateway RAS
+## <a name="remote-access-service-ras---ras-gateway"></a><a name="bkmk_da"></a>Servizio di accesso remoto \(RAS\)-gateway RAS
 
 Quando si installa il servizio ruolo **DirectAccess e VPN (RAS)** , si distribuisce il gateway del servizio di accesso remoto \(\)**gateway RAS** . È possibile distribuire il gateway RAS una rete privata virtuale del gateway RAS a tenant singolo \(VPN\) server, un server VPN gateway RAS multi-tenant e come server DirectAccess.
 
@@ -51,7 +51,7 @@ Quando si installa il servizio ruolo **DirectAccess e VPN (RAS)** , si distribui
 
 Per altre informazioni, vedere [gateway RAS](ras-gateway/RAS-Gateway.md) e [Border Gateway Protocol (BGP)](bgp/Border-Gateway-Protocol-BGP.md).
 
-## <a name="bkmk_rras"></a>Routing
+## <a name="routing"></a><a name="bkmk_rras"></a>Routing
 
 È possibile usare accesso remoto per instradare il traffico di rete tra subnet nella rete locale. Il routing fornisce il supporto per i router NAT (Network Address Translation), i router LAN che eseguono BGP, Routing Information Protocol (RIP) e i router che supportano il multicast tramite il protocollo IGMP (Internet Group Management Protocol). Come router completo, è possibile distribuire RAS in un computer server o come macchina virtuale (VM) in un computer che esegue Hyper-V.
 
@@ -61,7 +61,7 @@ Per installare accesso remoto come router LAN, utilizzare l'aggiunta guidata ruo
 Install-RemoteAccess -VpnType RoutingOnly
 ```  
 
-## <a name="bkmk_proxy"></a>Proxy applicazione Web
+## <a name="web-application-proxy"></a><a name="bkmk_proxy"></a>Proxy applicazione Web
 
 Proxy applicazione Web è un servizio ruolo di accesso remoto in Windows Server 2016. Proxy applicazione Web rende disponibili funzionalità di proxy inverso per le applicazioni Web all'interno della rete aziendale, in modo da consentire agli utenti con qualsiasi dispositivo di accedere a tali applicazioni dall'esterno della rete aziendale. Proxy applicazione Web Preautentica l'accesso alle applicazioni Web tramite Active Directory Federation Services (AD FS) e funge anche da proxy AD FS.
 

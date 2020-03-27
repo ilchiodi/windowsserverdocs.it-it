@@ -10,14 +10,14 @@ ms.technology: networking-ras
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: b12dd0e8-1d80-4d4b-bb45-586f19d17ef0
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 10a0f7952fc27d0185d4383da21f0614885ddac3
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: fbbba17567109363a9b9fd0963258744f8853f5f
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71367053"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80313779"
 ---
 # <a name="troubleshooting-setting-the-entry-point-domain-controller"></a>Risoluzione dei problemi relativi all'impostazione del controller di dominio dei punti di ingresso
 
@@ -25,10 +25,10 @@ ms.locfileid: "71367053"
 
 In questo argomento vengono fornite informazioni sulla risoluzione dei problemi relativi al comando `Set-DAEntryPointDC`. Per assicurarsi che l'errore ricevuto sia correlato all'impostazione del controller di dominio dei punti di ingresso, cercare l'evento con ID 10065 nel registro eventi di Windows.  
   
-## <a name="SaveGPOSettings"></a>Salvataggio delle impostazioni dell'oggetto Criteri di gruppo Server  
+## <a name="saving-server-gpo-settings"></a><a name="SaveGPOSettings"></a>Salvataggio delle impostazioni dell'oggetto Criteri di gruppo Server  
 **Errore ricevuto**. Si è verificato un errore durante il salvataggio delle impostazioni di accesso remoto nell'oggetto Criteri di gruppo < GPO_name >.  
   
-Per risolvere questo errore, vedere Salvataggio delle impostazioni dell'oggetto Criteri di gruppo del server.  
+Per risolvere l'errore, vedere Salvataggio delle impostazioni dell'oggetto Criteri di gruppo server.  
   
 ## <a name="remote-access-is-not-configured"></a>Accesso remoto non configurato  
 **Errore ricevuto**. Accesso remoto non configurato in < server_name >. Specificare il nome di un server che fa parte di una distribuzione multisito.  

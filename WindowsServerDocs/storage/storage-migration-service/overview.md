@@ -4,16 +4,16 @@ description: Il servizio migrazione archiviazione semplifica la migrazione dello
 author: jasongerend
 ms.author: jgerend
 manager: elizapo
-ms.date: 01/17/2020
+ms.date: 03/26/2020
 ms.topic: article
 ms.prod: windows-server
 ms.technology: storage
-ms.openlocfilehash: 70ce4ebca35e071cf6e27fe429d3c4e6f67d342c
-ms.sourcegitcommit: 8b801bd86e2ddf8255899b11f547daa920e5f651
+ms.openlocfilehash: 0765c43333f23fb09c0f69ceca1ff21cfce25874
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/21/2020
-ms.locfileid: "80110674"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80310502"
 ---
 # <a name="storage-migration-service-overview"></a>Panoramica di servizio migrazione archiviazione
 
@@ -21,7 +21,7 @@ ms.locfileid: "80110674"
 
 Il servizio migrazione archiviazione semplifica la migrazione dello spazio di archiviazione in Windows Server o in Azure. Fornisce uno strumento grafico che archivia i dati nei server Windows e Linux e quindi trasferisce i dati ai server più recenti o alle macchine virtuali di Azure. Il servizio migrazione archiviazione consente inoltre di trasferire l'identità di un server al server di destinazione in modo che le app e gli utenti possano accedere ai propri dati senza modificare i collegamenti o i percorsi.
 
-Questo argomento descrive il motivo per cui si vuole usare il servizio migrazione archiviazione, il funzionamento del processo di migrazione e i requisiti per i server di origine e di destinazione.
+Questo argomento descrive il motivo per cui si vuole usare il servizio migrazione archiviazione, il funzionamento del processo di migrazione, i requisiti per i server di origine e di destinazione e le [novità di servizio migrazione archiviazione](#whats-new-in-storage-migration-service).
 
 ## <a name="why-use-storage-migration-service"></a>Perché usare il servizio migrazione archiviazione
 
@@ -134,7 +134,12 @@ Il server di destinazione deve eseguire uno dei sistemi operativi seguenti:
 
 Windows Admin Center versione 1910 consente di distribuire macchine virtuali di Azure. Questa operazione integra la distribuzione delle macchine virtuali nel servizio migrazione archiviazione. Invece di creare nuovi server e macchine virtuali nel portale di Azure prima di distribuire il carico di lavoro e probabilmente mancano i passaggi e la configurazione necessari, l'interfaccia di amministrazione di Windows può distribuire la VM di Azure, configurarne l'archiviazione, aggiungerla al dominio, installare i ruoli e Configurare quindi il sistema distribuito. 
 
+   Ecco un video che illustra come usare il servizio migrazione archiviazione per eseguire la migrazione alle macchine virtuali di Azure.
+   > [!VIDEO https://www.youtube-nocookie.com/embed/k8Z9LuVL0xQ] 
+
 ## <a name="whats-new-in-storage-migration-service"></a>Novità del servizio migrazione archiviazione
+
+Windows Admin Center versione 1910 offre la possibilità di distribuire macchine virtuali di Azure. Questa operazione integra la distribuzione di macchine virtuali di Azure nel servizio migrazione archiviazione. Per altre informazioni, vedere [migrazione delle macchine virtuali di Azure](#azure-vm-migration).
 
 Le nuove funzionalità seguenti sono disponibili quando si esegue l'agente di orchestrazione del server di migrazione archiviazione in Windows Server, versione 1903 o successiva o una versione precedente di Windows Server con [KB4512534](https://support.microsoft.com/help/4512534/windows-10-update-kb4512534) installato:
 

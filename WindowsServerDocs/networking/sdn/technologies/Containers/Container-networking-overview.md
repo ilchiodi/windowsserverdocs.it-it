@@ -10,15 +10,15 @@ ms.technology: networking-sdn
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 318659e5-e4a5-4e46-99d6-211dfc46f6b8
-ms.author: pashort
+ms.author: lizross
 author: jmesser81
 ms.date: 09/04/2018
-ms.openlocfilehash: 352b4303b7cf08a0c53712e46a309b8365c10d08
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: e8ec74ff0ebf0f0cb87db4d79ed5d37583f9beb9
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71355681"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80317261"
 ---
 # <a name="container-networking-overview"></a>Panoramica della rete di contenitori
 
@@ -39,6 +39,6 @@ Per applicare l'isolamento tra i contenitori nello stesso host, è necessario cr
 
 ## <a name="related-topics"></a>Argomenti correlati 
 
-- [Rete di contenitori di Windows](https://docs.microsoft.com/virtualization/windowscontainers/container-networking/architecture): Informazioni su come creare e gestire le reti di contenitori per le distribuzioni non sovrapposte/SDN.
+- [Rete di contenitori di Windows](https://docs.microsoft.com/virtualization/windowscontainers/container-networking/architecture): informazioni su come creare e gestire le reti di contenitori per le distribuzioni non sovrapposte/Sdn.
 
-- [Connettere gli endpoint del contenitore a una rete virtuale tenant](../../manage/Connect-container-endpoints-to-a-Tenant-Virtual-Network.md): Informazioni su come creare e gestire le reti di contenitori per le reti virtuali sovrapposte con SDN. 
+- [Connettere gli endpoint del contenitore a una rete virtuale tenant](../../manage/Connect-container-endpoints-to-a-Tenant-Virtual-Network.md): informazioni su come creare e gestire le reti di contenitori per le reti virtuali sovrapposte con Sdn. 

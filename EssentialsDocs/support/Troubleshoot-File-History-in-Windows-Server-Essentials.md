@@ -3,7 +3,7 @@ title: Risoluzione dei problemi di Cronologia file in Windows Server Essentials
 description: Viene descritto come usare Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
-ms.prod: windows-server-2016-essentials
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
@@ -12,12 +12,12 @@ ms.assetid: ed062945-27e9-4572-b1bb-6c8cf1b9c2f4
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 99467cb5be7a71ce8b080223e8a89db4d9b6eabd
-ms.sourcegitcommit: d83933c6a2e180b747c2db910392117569348901
+ms.openlocfilehash: 72bc75883b8dcb1766731383cdeae578a3ff187f
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68807881"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80318643"
 ---
 # <a name="troubleshoot-file-history-in-windows-server-essentials"></a>Risoluzione dei problemi di Cronologia file in Windows Server Essentials
 
@@ -35,9 +35,9 @@ ms.locfileid: "68807881"
   
   Per risolvere questo problema, è necessario eliminare manualmente la Cronologia file mediante la procedura seguente:  
   
-####  <a name="BKMK_manuallyDelete"></a>Per eliminare manualmente i backup di cronologia file per un utente o un computer  
+####  <a name="to-manually-delete-file-history-backups-for-a-user-or-a-computer"></a><a name="BKMK_manuallyDelete"></a>Per eliminare manualmente i backup di cronologia file per un utente o un computer  
   
-1.  Eseguire l'accesso al server come amministratore.  
+1.  Accedere al server come amministratore.  
   
 2.  Eseguire Esplora file come amministratore.  
   
@@ -47,14 +47,14 @@ ms.locfileid: "68807881"
   
     -   Per eliminare la cronologia file per un utente, eliminare la cartella di backup di cronologia file con il nome dell'utente.  
   
-    -   Per eliminare la cronologia file per un computer, eliminare la sottocartella di backup di Cronologia file con il nome del computer. Ad esempio, se un utente è stato ritirato\> < MyComputer01 dopo che ha iniziato a lavorare sul nuovo computer\>portatile, < MyComputer02, è necessario\\eliminare i backup della\> cronologia c:\serverfolders\backup < account\\ < MyComputer01\> dopo aver verificato con l'utente che ha trasferito tutti i file e le cartelle al nuovo computer portatile e che in futuro non è necessaria la cronologia file.  
+    -   Per eliminare la cronologia file per un computer, eliminare la sottocartella di backup di Cronologia file con il nome del computer. Se, ad esempio, un utente è stato ritirato < MyComputer01\> dopo che ha iniziato a lavorare sul nuovo computer portatile, < MyComputer02\>, è necessario eliminare i backup della cronologia di C:\serverfolders\backup\\< account\>\\< MyComputer01\> dopo aver verificato con l'utente che ha trasferito tutti i file e le cartelle al nuovo portatile e non ha bisogno della cronologia file in futuro.  
   
 ### <a name="cannot-apply-file-history-setting-to-a-new-user"></a>Non è possibile applicare l'impostazione di Cronologia file a un nuovo utente  
  Se si aggiunge un nuovo utente il cui nome è identico al nome di un utente che è stato eliminato da Windows Server Essentials, la configurazione di Cronologia file per il nuovo utente potrebbe non riuscire a causa di un conflitto di denominazione quando Windows Server Essentials prova a creare una cartella per archiviare la cronologia file del nuovo utente. Per risolvere questo problema, è possibile rinominare la cartella di Cronologia file per l'utente eliminato.  
   
 ##### <a name="to-locate-user-file-history-on-the-server"></a>Per individuare la cronologia file dell'utente nel server  
   
-1.  Eseguire l'accesso al server come amministratore.  
+1.  Accedere al server come amministratore.  
   
 2.  Nel dashboard di Windows Server Essentials fare clic su **Archiviazione**.  
   
@@ -62,7 +62,7 @@ ms.locfileid: "68807881"
   
 ##### <a name="to-resolve-file-history-issues-for-a-new-user-with-a-name-conflict"></a>Per risolvere i problemi relativi alla cronologia file per un nuovo utente con un conflitto di nomi  
   
-1.  Eseguire l'accesso al server come amministratore.  
+1.  Accedere al server come amministratore.  
   
 2.  Eseguire Esplora file come amministratore.  
   
@@ -70,18 +70,18 @@ ms.locfileid: "68807881"
   
      La cartella Backup Cronologia file contiene una sottocartella per ogni account utente che è stato aggiunto a Windows Server Essentials. Ad esempio, la cronologia file per l'utente Indro Neri viene archiviata nella sottocartella Backup Cronologia file\Indro Neri.  
   
-4.  Rinominare la sottocartella per l'utente che è stato eliminato, ad esempio,  **< *username*> _Deleted**. Se la cronologia file dell'utente non è più necessaria, è possibile eliminare la cartella.  
+4.  Rinominare la sottocartella per l'utente eliminato, ad esempio **<*nome utente*> _Deleted**. Se la cronologia file dell'utente non è più necessaria, è possibile eliminare la cartella.  
   
 
 5.  È ora possibile aggiungere il nuovo utente. Per istruzioni, vedere Aggiungere un account utente? in [Gestisci account utente](../manage/Manage-User-Accounts-in-Windows-Server-Essentials.md).  
   
 ### <a name="a-user-account-was-removed-but-the-users-file-history-remains"></a>È stato rimosso un account utente, ma rimane la cronologia file dell'utente  
- In alcuni casi, l'amministratore di rete potrebbe scegliere di rimuovere un utente o un computer dal server, ma di mantenere il backup di Cronologia file per utilizzi futuri. Quando la cronologia file non sarà più necessaria, rimuovere la cartella Backup Cronologia file per l'utente o il computer dalle cartelle condivise nel server. A tale scopo, vedere [Per eliminare manualmente i backup di cronologia file per un utente o un computer](Troubleshoot-File-History-in-Windows-Server-Essentials.md#BKMK_manuallyDelete).  
+ In alcuni casi, l'amministratore di rete potrebbe scegliere di rimuovere un utente o un computer dal server, ma di mantenere il backup di Cronologia file per utilizzi futuri. Quando la cronologia file non sarà più necessaria, rimuovere la cartella Backup Cronologia file per l'utente o il computer dalle cartelle condivise nel server. A tale scopo, vedere [To manually delete File History backups for a user or a computer](Troubleshoot-File-History-in-Windows-Server-Essentials.md#BKMK_manuallyDelete).  
 
 5. È ora possibile aggiungere il nuovo utente. Per istruzioni, vedere Aggiungere un account utente? in [Gestisci account utente](../manage/Manage-User-Accounts-in-Windows-Server-Essentials.md).  
   
 ### <a name="a-user-account-was-removed-but-the-users-file-history-remains"></a>È stato rimosso un account utente, ma rimane la cronologia file dell'utente  
- In alcuni casi, l'amministratore di rete potrebbe scegliere di rimuovere un utente o un computer dal server, ma di mantenere il backup di Cronologia file per utilizzi futuri. Quando la cronologia file non sarà più necessaria, rimuovere la cartella Backup Cronologia file per l'utente o il computer dalle cartelle condivise nel server. A tale scopo, vedere [Per eliminare manualmente i backup di cronologia file per un utente o un computer](../support/Troubleshoot-File-History-in-Windows-Server-Essentials.md#BKMK_manuallyDelete).  
+ In alcuni casi, l'amministratore di rete potrebbe scegliere di rimuovere un utente o un computer dal server, ma di mantenere il backup di Cronologia file per utilizzi futuri. Quando la cronologia file non sarà più necessaria, rimuovere la cartella Backup Cronologia file per l'utente o il computer dalle cartelle condivise nel server. A tale scopo, vedere [To manually delete File History backups for a user or a computer](../support/Troubleshoot-File-History-in-Windows-Server-Essentials.md#BKMK_manuallyDelete).  
 
   
 ## <a name="see-also"></a>Vedere anche  

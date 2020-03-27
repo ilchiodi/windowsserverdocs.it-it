@@ -6,14 +6,14 @@ ms.prod: windows-server
 ms.technology: networking-dns
 ms.topic: article
 ms.assetid: ef9828f8-c0ad-431d-ae52-e2065532e68f
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 9c313b88e2502a99baf5962a1f2eb224d67a38dc
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 5c74ca9fe60374d1bc1396d95c2e34cc5cd1fdd6
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71406172"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80317759"
 ---
 # <a name="use-dns-policy-for-geo-location-based-traffic-management-with-primary-servers"></a>Usare i criteri DNS per la gestione del traffico basata sulla posizione geografica con server primari
 
@@ -42,7 +42,7 @@ Con nuovi criteri di DNS, è possibile creare un criterio DNS che consente al se
 - **Nega**. Il server DNS risponde a query con una risposta di errore.          
 - **Consenti**. Il server DNS risponde con risposta gestito il traffico.          
   
-##  <a name="bkmk_example"></a>Esempio di gestione del traffico basata sulla posizione geografica
+##  <a name="geo-location-based-traffic-management-example"></a><a name="bkmk_example"></a>Esempio di gestione del traffico basata sulla posizione geografica
 
 Seguito è riportato un esempio di come è possibile utilizzare criteri DNS per ottenere il reindirizzamento del traffico in base al percorso fisico del client che esegue una query DNS.   
   
@@ -56,7 +56,7 @@ Nella figura seguente viene illustrato questo scenario.
   
 ![Posizione geografica in base esempio Gestione traffico](../../media/DNS-Policy-Geo1/dns_policy_geo1.png)  
   
-##  <a name="bkmk_works"></a>Funzionamento del processo di risoluzione dei nomi DNS  
+##  <a name="how-the-dns-name-resolution-process-works"></a><a name="bkmk_works"></a>Funzionamento del processo di risoluzione dei nomi DNS  
   
 Durante il processo di risoluzione del nome, l'utente tenta di connettersi a www.woodgrove.com. Ciò comporta una richiesta di risoluzione nomi DNS che viene inviata al server DNS configurati nelle proprietà di connessione di rete nel computer dell'utente. In genere, questo è il server DNS fornito dal provider del servizio locale che agisce come un resolver di memorizzazione nella cache e viene definito come il LDNS.   
   
@@ -69,7 +69,7 @@ In questo scenario, il server DNS autorevole vede in genere la richiesta di riso
 >[!NOTE]  
 >Criteri DNS utilizzano l'IP del mittente nel pacchetto che contiene la query DNS TCP/UDP. Se la query raggiunge il server primario attraverso più hop resolver/LDNS, i criteri prenderà in considerazione solo l'indirizzo IP del sistema di risoluzione ultimo da cui il server DNS riceve la query.  
   
-##  <a name="bkmk_config"></a>Come configurare i criteri DNS per le risposte alle query basate sulla posizione geografica  
+##  <a name="how-to-configure-dns-policy-for-geo-location-based-query-responses"></a><a name="bkmk_config"></a>Come configurare i criteri DNS per le risposte alle query basate sulla posizione geografica  
 Per configurare criteri DNS per le risposte alle query in base la posizione geografica, è necessario eseguire la procedura seguente.  
   
 1. [Creare le subnet del client DNS](#bkmk_subnets)  
@@ -85,7 +85,7 @@ Le sezioni seguenti forniscono le istruzioni di configurazione dettagliate.
 >[!IMPORTANT]  
 >Nelle sezioni seguenti includono esempi di comandi Windows PowerShell che contengono valori di esempio per numero di parametri. Assicurarsi di sostituire i valori di esempio in questi comandi con i valori appropriati per la distribuzione prima di eseguire questi comandi.  
   
-### <a name="bkmk_subnets"></a>Creare le subnet del client DNS  
+### <a name="create-the-dns-client-subnets"></a><a name="bkmk_subnets"></a>Creare le subnet del client DNS  
   
 Il primo passaggio consiste nell'identificare le subnet o spazio di indirizzi IP delle aree per cui si desidera reindirizzare il traffico. Ad esempio, se si desidera reindirizzare il traffico per Stati Uniti e in Europa, è necessario identificare la subnet o spazi di indirizzi IP di queste aree.  
   
@@ -101,7 +101,7 @@ Il primo passaggio consiste nell'identificare le subnet o spazio di indirizzi IP
   
 Per ulteriori informazioni, vedere [Aggiungi DnsServerClientSubnet](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverclientsubnet?view=win10-ps).  
   
-### <a name="bkmk_scopes"></a>Creare ambiti di zona  
+### <a name="create-zone-scopes"></a><a name="bkmk_scopes"></a>Creare ambiti di zona  
 Dopo aver configurata la subnet del client, è necessario partizionare la zona il cui traffico che si desidera reindirizzare in due ambiti fuso diverso, un ambito per ogni subnet Client DNS configurato.   
   
 Ad esempio, se si desidera reindirizzare il traffico per www.woodgrove.com il nome DNS, è necessario creare due ambiti diversi zona in zona woodgrove.com, uno per gli Stati Uniti e uno per l'Europa.  
@@ -120,7 +120,7 @@ Un ambito di una zona è un'istanza univoca della zona. Una zona DNS può avere 
 
 Per ulteriori informazioni, vedere [Aggiungi DnsServerZoneScope](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverzonescope?view=win10-ps).  
   
-### <a name="bkmk_records"></a>Aggiungere record agli ambiti di zona  
+### <a name="add-records-to-the-zone-scopes"></a><a name="bkmk_records"></a>Aggiungere record agli ambiti di zona  
 È ora necessario aggiungere i record che rappresenta l'host del server web in ambiti due zone.   
   
 Ad esempio, **USZoneScope** e **EuropeZoneScope**. In USZoneScope, è possibile aggiungere il record www.woodgrove.com con l'indirizzo IP 192.0.0.1, che si trova in un Data Center degli Stati Uniti; e in EuropeZoneScope è possibile aggiungere lo stesso record (www.woodgrove.com) con l'indirizzo IP 141.1.0.1 nel data center dell'Europa.   
@@ -145,7 +145,7 @@ Il **ZoneScope** parametro non viene incluso quando si aggiunge un record nell'a
   
 Per ulteriori informazioni, vedere [Aggiungi DnsServerResourceRecord](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverresourcerecord?view=win10-ps).  
   
-### <a name="bkmk_policies"></a>Creazione dei criteri  
+### <a name="create-the-policies"></a><a name="bkmk_policies"></a>Creazione dei criteri  
 Dopo aver creato le subnet, le partizioni (ambiti zona) ed è stato aggiunto record, è necessario creare criteri che si connettono le subnet e le partizioni, in modo che quando una query provenga da un'origine in una delle subnet dei client DNS, la risposta alla query verrà restituita dall'ambito corretto della zona. Criteri non sono necessari per il mapping tra l'ambito di orario predefinito.   
   
 È possibile utilizzare i seguenti comandi di Windows PowerShell per creare un criterio DNS che collega la subnet del Client DNS e gli ambiti di zona.   

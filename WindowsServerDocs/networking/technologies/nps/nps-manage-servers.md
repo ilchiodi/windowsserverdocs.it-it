@@ -6,14 +6,14 @@ ms.prod: windows-server
 ms.technology: networking
 ms.topic: article
 ms.assetid: 6005dc27-f49e-427f-92f7-b0e558ffe3ff
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 7de8ddb79e9b23688c31e55795844c2cd714cb52
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 89b0ff250d118b47b16996018ffb0e973072f6e7
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71405385"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80315942"
 ---
 # <a name="manage-npss"></a>Gestire le connessioni di accesso alla rete
 
@@ -26,7 +26,7 @@ ms.locfileid: "71405385"
 >- [Introduzione con server dei criteri di rete](nps-getstart-top.md)
 >- [Distribuire il server dei criteri di rete](nps-deploy.md) 
 
-Questa sezione descrive gli argomenti seguenti:
+Questa sezione contiene i seguenti argomenti.
 
 - [Configurare NPS in un computer multihomed](nps-multihomed-configure.md)
 - [Configurare le informazioni sulla porta UDP di NPS](nps-udp-ports-configure.md)

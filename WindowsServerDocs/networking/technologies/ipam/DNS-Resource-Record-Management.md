@@ -10,14 +10,14 @@ ms.technology: networking-ipam
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 7b66c09d-e401-4f70-9a2a-6047dd629bfa
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 8fe318a8ac17c650d8dbf2339e72b561de529c4a
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 3aa20913a01a23291879b98d6f53fe60a7138670
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71405676"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80312455"
 ---
 # <a name="dns-resource-record-management"></a>Gestione di record di risorse DNS
 
@@ -79,7 +79,7 @@ Di seguito è riportato un elenco di tipi di record di risorse DNS raccolti da G
   
 -   SRV  
   
--   Testo  
+-   Text  
   
 -   Servizi noti  
   
@@ -113,7 +113,7 @@ Gestione indirizzi IP consente di eseguire le operazioni seguenti nei record di 
   
 Gestione indirizzi IP registra automaticamente tutte le modifiche alla configurazione DNS apportate tramite la console di gestione indirizzi IP.  
   
-## <a name="see-also"></a>Vedere anche  
+## <a name="see-also"></a>Vedi anche  
 [Gestire Gestione indirizzi IP](Manage-IPAM.md)  
   
 

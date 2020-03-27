@@ -3,7 +3,7 @@ title: Gestire il backup dei server in Windows Server Essentials
 description: Viene descritto come usare Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
-ms.prod: windows-server-2016-essentials
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
@@ -12,12 +12,12 @@ ms.assetid: 0302d070-c58a-40f2-b56d-7e7842813d02
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 7e40a4675cf77d55a3047b41e0ab852fd7cd9de9
-ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
+ms.openlocfilehash: 9489ae5bdb8de594befc2d8aec18f686cb5cbedd
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79322243"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80311157"
 ---
 # <a name="manage-server-backup-in-windows-server-essentials"></a>Gestire il backup dei server in Windows Server Essentials
 
@@ -41,7 +41,7 @@ ms.locfileid: "79322243"
   
 -   [Ripristinare file e cartelle da un backup del server](Manage-Server-Backup-in-Windows-Server-Essentials.md#BKMK_7)  
   
-##  <a name="BKMK_WhichBackup"></a>Quale backup scegliere?  
+##  <a name="which-backup-should-i-choose"></a><a name="BKMK_WhichBackup"></a>Quale backup scegliere?  
  La scelta del backup può essere semplice se si dispone di un backup molto recente completato correttamente e si è certi che il backup contenga tutti i dati critici di interesse. Se si sta tentando di eseguire il ripristino nel server o di ripristinare un computer da un backup precedente, la scelta di un backup ottimale da ripristinare potrebbe richiedere particolare attenzione e, probabilmente, qualche compromesso.  
   
 #### <a name="to-choose-a-backup"></a>Per scegliere un backup  
@@ -54,10 +54,10 @@ ms.locfileid: "79322243"
   
 4.  È consigliabile ripristinare i file e le cartelle in un percorso alternativo, quindi richiedere al proprietario dei file e delle cartelle di spostare i file necessari nel percorso originale. Al termine, sarà possibile eliminare i file e le cartelle rimanenti nel percorso alternativo.  
   
-##  <a name="BKMK_1"></a>Configurare o personalizzare il backup del server  
+##  <a name="set-up-or-customize-server-backup"></a><a name="BKMK_1"></a>Configurare o personalizzare il backup del server  
  Il backup dei server non è configurato automaticamente durante l'installazione. È consigliabile proteggere automaticamente il server e i relativi dati pianificando backup giornalieri. Si consiglia di mantenere un piano di backup giornaliero poiché la maggior parte delle organizzazioni non può permettersi di perdere i dati creati in diversi giorni. Per altre informazioni, vedere [Configurare o personalizzare un backup del server](Set-up-or-customize-server-backup.md).  
   
-##  <a name="BKMK_2"></a>Arresto del backup del server in corso  
+##  <a name="stop-server-backup-in-progress"></a><a name="BKMK_2"></a>Arresto del backup del server in corso  
  È possibile interrompere il backup in corso, sia che si tratti di un backup pianificato o di un backup avviato manualmente.  
   
 #### <a name="to-stop-a-backup-in-progress"></a>Per arrestare un backup in corso  
@@ -70,7 +70,7 @@ ms.locfileid: "79322243"
   
 4.  Fare clic su **Sì** per confermare l'azione.  
   
-##  <a name="BKMK_3"></a>Gestire i backup in modalità remota  
+##  <a name="remotely-manage-your-backups"></a><a name="BKMK_3"></a>Gestire i backup in modalità remota  
  Se non ci si trova in ufficio, è possibile usare Accesso Web remoto di Windows Server Essentials per accedere al Dashboard di Windows Server Essentials per gestire il server.  
   
 #### <a name="to-use-remote-web-access-to-manage-your-server"></a>Per usare Accesso Web remoto per gestire il server  
@@ -87,7 +87,7 @@ ms.locfileid: "79322243"
   
    Per ulteriori informazioni sulla Accesso Web remota, vedere [remote accesso Web Overview](Manage-Remote-Web-Access-in-Windows-Server-Essentials.md#BKMK_Overview).  
   
-##  <a name="BKMK_4"></a>Disabilitare il backup del server  
+##  <a name="disable-server-backup"></a><a name="BKMK_4"></a>Disabilitare il backup del server  
  È consigliabile proteggere automaticamente il server e i relativi dati pianificando backup giornalieri. Si consiglia di mantenere un piano di backup giornaliero poiché la maggior parte delle organizzazioni non può permettersi di perdere i dati creati in diversi giorni.  
   
  Se il backup dei server è già stato configurato e in un secondo momento si vuole usare un'applicazione di terze parti per eseguire il backup del server, sarà possibile disabilitare il backup dei server di Windows Server Essentials.  
@@ -107,13 +107,13 @@ ms.locfileid: "79322243"
   
 5.  Nella pagina **Opzioni di configurazione** fare clic su **Disattiva Backup server**. Seguire le istruzioni fornite nella procedura guidata.  
   
-##  <a name="BKMK_5"></a>Altre informazioni sulla configurazione del backup del server  
+##  <a name="learn-more-about-setting-up-server-backup"></a><a name="BKMK_5"></a>Altre informazioni sulla configurazione del backup del server  
  Il backup dei server non è abilitato durante la configurazione del server.  
   
 > [!NOTE]
 >  Quando si configura il backup dei server, è consigliabile connettere almeno un disco rigido esterno al server, in modo da usarlo come disco rigido di destinazione di backup.  
   
-###  <a name="BKMK_Target"></a>Unità di destinazione di backup  
+###  <a name="backup-destination-drive"></a><a name="BKMK_Target"></a>Unità di destinazione di backup  
  È possibile usare più unità di archiviazione esterne per i backup e alternare le unità tra percorsi di archiviazione in sede e fuori sede. Ciò può migliorare la pianificazione della preparazione alle emergenze, semplificando il recupero dei dati in caso di danni fisici all'hardware in sede.  
   
  Quando si sceglie un'unità di archiviazione per il backup dei server, occorre considerare quanto segue:  
@@ -159,7 +159,7 @@ ms.locfileid: "79322243"
   
  Ad esempio, è possibile che sia presente una cartella contenente programmi televisivi registrati che usa una quantità elevata di spazio su disco rigido. Si può scegliere di non eseguire il backup di questi file, perché comunque verranno in genere eliminati dopo la visualizzazione. Oppure è possibile che sia presente una cartella contenente file temporanei che non si vuole conservare.  
   
-##  <a name="BKMK_6"></a>Ripartizionare un disco rigido sul server  
+##  <a name="repartition-a-hard-drive-on-the-server"></a><a name="BKMK_6"></a>Ripartizionare un disco rigido sul server  
  In caso di rilevamento di unità disco rigido non formattata nel server di Windows Server Essentials, sarà generato un avviso di integrità contenente un collegamento alla procedura guidata Aggiungi nuova unità disco rigido. La procedura guidata Aggiungi nuova unità disco rigido fornisce informazioni dettagliate sulle varie opzioni per la formattazione del disco rigido. Al termine della procedura guidata, uno o più dischi rigidi logici formattati, in base alla dimensione dell'unità, saranno creati nel disco rigido e formattati come NTFS.  
   
  Se è necessario ripartizionare un'unità disco rigido, seguire le istruzioni seguenti:  
@@ -182,7 +182,7 @@ ms.locfileid: "79322243"
     > [!NOTE]
     >  Ripetere questo passaggio finché non sarà usato tutto lo spazio non allocato sull'unità disco rigido.  
   
-##  <a name="BKMK_7"></a>Ripristinare file e cartelle da un backup del server  
+##  <a name="restore-files-and-folders-from-a-server-backup"></a><a name="BKMK_7"></a>Ripristinare file e cartelle da un backup del server  
  È possibile individuare e ripristinare singoli file e cartelle da un backup del server.  
   
 #### <a name="to-restore-files-and-folders-from-a-server-backup"></a>Per ripristinare file e cartelle da un backup del server  
