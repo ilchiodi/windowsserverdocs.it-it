@@ -10,14 +10,14 @@ ms.technology: networking-ras
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: ac2f6015-50a5-4909-8f67-8565f9d332a2
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: da23f3082e1d97f1bcfbee7365b863d29ba2d020
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 4b9da54822c1b7610bbd7a095beeb305eb243bb1
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71404495"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80314030"
 ---
 # <a name="deploy-multiple-remote-access-servers-in-a-multisite-deployment"></a>Distribuire più server di accesso remoto in una distribuzione multisito
 
@@ -25,7 +25,7 @@ ms.locfileid: "71404495"
 
  Windows Server 2016 e Windows Server 2012 combina DirectAccess e servizio di accesso remoto (RAS) VPN in un unico ruolo Accesso remoto. Accesso remoto può essere distribuito in molti scenari aziendali. In questa panoramica fornisce un'introduzione allo scenario enterprise per la distribuzione di server di accesso remoto in una configurazione multisito.  
   
-## <a name="BKMK_OVER"></a>Descrizione dello scenario  
+## <a name="scenario-description"></a><a name="BKMK_OVER"></a>Descrizione dello scenario  
 In una distribuzione multisito due o più server di accesso remoto o cluster di server vengono distribuiti e configurati come punti di ingresso diversi in un'unica posizione o in posizioni geografiche diverse. Distribuzione di più punti di ingresso in un'unica posizione consente di ridondanza dei server o per l'allineamento del server di accesso remoto con l'architettura di rete esistente. Per posizione geografica assicura un utilizzo efficiente delle risorse, come i computer client remoti possono connettersi alle risorse di rete interna usando un punto di ingresso più vicino. Il traffico attraverso una distribuzione multisito può essere distribuito e bilanciato con un servizio di bilanciamento del carico globale esterno.  
   
 Una distribuzione multisito supporta computer client che eseguono Windows 10, Windows 8 o Windows 7. Identificare i computer client che eseguono Windows 8 o Windows 10 automaticamente un punto di ingresso, o l'utente può selezionare manualmente un punto di ingresso. L'assegnazione automatica si verifica nell'ordine di priorità seguente:  
@@ -49,7 +49,7 @@ Prima di iniziare a distribuire questo scenario, esaminare l'elenco dei requisit
   
 -   È necessario distribuire un'infrastruttura a chiave pubblica (PKI).  
   
-    Per altre informazioni, vedi: Mini-modulo della Guida al Lab [Test: Infrastruttura a chiave pubblica di base per Windows Server 2012. ](https://social.technet.microsoft.com/wiki/contents/articles/7862.test-lab-guide-mini-module-basic-pki-for-windows-server-2012.aspx)  
+    Per altre informazioni, vedere: [Mini-modulo della guida al lab di test: Infrastruttura a chiave pubblica di base per Windows Server 2012.](https://social.technet.microsoft.com/wiki/contents/articles/7862.test-lab-guide-mini-module-basic-pki-for-windows-server-2012.aspx)  
   
 -   Rete aziendale deve essere abilitata a IPv6. Se si usa la tecnologia ISATAP, rimuoverla e usare la connettività IPv6 nativa.  
   
@@ -64,14 +64,14 @@ Lo scenario di distribuzione multisito include una serie di passaggi:
   
 4. [Risolvere i problemi relativi a una distribuzione multisito](troubleshoot/Troubleshoot-a-Multisite-Deployment.md). In questa sezione sulla risoluzione dei problemi descritti un numero di errori più comuni che possono verificarsi durante la distribuzione di accesso remoto in una distribuzione multisito.
   
-## <a name="BKMK_APP"></a>Applicazioni pratiche  
+## <a name="practical-applications"></a><a name="BKMK_APP"></a>Applicazioni pratiche  
 Una distribuzione multisito fornisce quanto segue:  
   
 -   Distribuzione multisita migliorati A prestazioni consente ai client computer che accedono a risorse interne tramite accesso remoto per connettersi utilizzando il punto di ingresso più vicino e più adatto. Client di accedere alle risorse interne in modo efficiente e la velocità dei client che Internet richieste indirizzate tramite DirectAccess è stata migliorata. Il traffico tra punti di ingresso può essere bilanciato utilizza un bilanciamento del carico globale esterno.  
   
 -   Facilità di gestione multisito consente agli amministratori allineare la distribuzione di accesso remoto a una distribuzione di siti di Active Directory, offre un'architettura semplificata. Impostazioni condivise possono essere impostate con facilità tra cluster o server del punto di ingresso. Impostazioni di accesso remoto possono essere gestite da uno qualsiasi dei server nella distribuzione o in modalità remota utilizzando strumenti di amministrazione remota Server (RSAT). Inoltre, l'intera distribuzione multisito può essere monitorata da un'unica console di gestione accesso remoto.  
   
-## <a name="BKMK_NEW"></a>Ruoli e funzionalità inclusi in questo scenario  
+## <a name="roles-and-features-included-in-this-scenario"></a><a name="BKMK_NEW"></a>Ruoli e funzionalità inclusi in questo scenario  
 Nella tabella seguente sono elencati i ruoli e funzionalità in questo scenario.  
   
 |Ruolo/funzionalità|Modalità di supporto dello scenario|  
@@ -79,7 +79,7 @@ Nella tabella seguente sono elencati i ruoli e funzionalità in questo scenario.
 |Ruolo Accesso remoto|Il ruolo viene installato e disinstallato tramite la console di Server Manager. Comprende DirectAccess, una funzionalità precedentemente inclusa in Windows Server 2008 R2, e il servizio Routing e Accesso remoto (RRAS) che in precedenza era un servizio ruolo nel ruolo del server Servizi di accesso e criteri di rete (NPAS). Il ruolo Accesso remoto è costituito da due componenti:<br /><br />-DirectAccess e Routing e accesso remoto (RRAS) VPN DirectAccess e VPN vengono gestiti insieme nella console di gestione accesso remoto.<br />Funzionalità di routing di Routing RRAS routing e accesso REMOTO vengono gestite nella console di Routing e accesso remoto legacy.<br /><br />Le dipendenze sono le seguenti:<br /><br />-Internet Information Services (IIS) Web Server - questa funzionalità è necessaria configurare il server dei percorsi di rete e probe web predefinito.<br />-Windows Database-Used interna per l'accounting locale sul server di accesso remoto.|  
 |Funzionalità Strumenti di Gestione Accesso remoto|Questa funzionalità viene installata come segue:<br /><br />-Viene installato per impostazione predefinita in un server di accesso remoto quando è installato il ruolo Accesso remoto e supporta l'interfaccia utente della console di gestione remota.<br />-Può essere installata facoltativamente in un server non è in esecuzione il ruolo di server di accesso remoto. In questo caso viene utilizzata per la gestione remota di un computer di Accesso remoto che esegue DirectAccess e VPN.<br /><br />La funzionalità Strumenti di Gestione Accesso remoto è costituita dai seguenti elementi:<br /><br />-Accesso remoto GUI e strumenti da riga di comando<br />-Modulo di accesso remoto per Windows PowerShell<br /><br />Le dipendenze includono:<br /><br />-Console Gestione criteri di gruppo<br />-RAS Connection Manager Administration Kit (CMAK)<br />-Windows PowerShell 3.0<br />-Infrastruttura e strumenti di gestione grafico|  
   
-## <a name="BKMK_HARD"></a>Requisiti hardware  
+## <a name="hardware-requirements"></a><a name="BKMK_HARD"></a>Requisiti hardware  
 I requisiti hardware per questo scenario includono i seguenti.  
   
 -   Almeno due computer di accesso remoto di raccogliere in una distribuzione multisito.   
@@ -88,7 +88,7 @@ I requisiti hardware per questo scenario includono i seguenti.
   
 -   Per bilanciare il carico tra server del punto di ingresso, è necessario un bilanciamento del carico globale esterno di terze parti.  
   
-## <a name="BKMK_SOFT"></a>Requisiti software  
+## <a name="software-requirements"></a><a name="BKMK_SOFT"></a>Requisiti software  
 I requisiti software per questo scenario includono i seguenti.  
   
 -   Requisiti software per una distribuzione a server singolo.  
@@ -117,7 +117,7 @@ I requisiti software per questo scenario includono i seguenti.
   
         -   Un GPO univoco per il client Windows 7 è richiesto per ogni punto di ingresso abilitata per il supporto di client Windows 7, per ogni dominio.  
   
-## <a name="KnownIssues"></a>Problemi noti  
+## <a name="known-issues"></a><a name="KnownIssues"></a>Problemi noti  
 Di seguito è problemi noti durante la configurazione di uno scenario multisito:  
   
 -   **Più punti di ingresso nella stessa subnet IPv4**. L'aggiunta di più punti di ingresso nella stessa subnet IPv4 si otterrà un messaggio di conflitto di indirizzo IP e l'indirizzo DNS64 per il punto di ingresso non verrà configurato come previsto. Questo problema si verifica quando IPv6 non è stato distribuito sulle interfacce del server nella rete aziendale interne. Per evitare questo problema, eseguire il seguente comando di Windows PowerShell in tutti i server di accesso remoto correnti e futuri:  

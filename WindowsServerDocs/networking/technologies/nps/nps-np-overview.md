@@ -6,14 +6,14 @@ ms.prod: windows-server
 ms.technology: networking
 ms.topic: article
 ms.assetid: e4a9b134-6d1d-40d7-a49c-5f46d5fdb419
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: c241191f54080ed92a1f1a274c0b2aff0b8c564c
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 4ee256184cd551c5f2c2fcdb8544e4d061ea2bf3
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71405351"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80315761"
 ---
 # <a name="network-policies"></a>Criteri di rete
 

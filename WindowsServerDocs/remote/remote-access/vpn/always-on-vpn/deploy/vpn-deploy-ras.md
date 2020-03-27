@@ -6,23 +6,23 @@ ms.technology: networking-ras
 ms.topic: article
 ms.assetid: ''
 ms.localizationpriority: medium
-ms.author: pashort
-author: shortpatti
+ms.author: lizross
+author: eross-msft
 ms.date: 08/30/2018
 ms.reviewer: deverette
-ms.openlocfilehash: c04074338cf4ba0189eb1e9bc45a80b948fdbfbf
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 9d3afb21c466ef1010a20ec811df45b9dcb2b711
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71388036"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80312259"
 ---
 # <a name="step-3-configure-the-remote-access-server-for-always-on-vpn"></a>Passaggio 3. Configurare il server di accesso remoto per VPN Always On
 
 >Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows 10
 
-- [**Precedente** Passaggio 2. Configurare l'infrastruttura server](vpn-deploy-server-infrastructure.md)
-- [**Precedente** Passaggio 4. Installare e configurare il server dei criteri di rete](vpn-deploy-nps.md)
+- [**Precedente:** Passaggio 2. Configurare l'infrastruttura server](vpn-deploy-server-infrastructure.md)
+- [**Precedente:** Passaggio 4. Installare e configurare il server dei criteri di rete](vpn-deploy-nps.md)
 
 RRAS è progettato per essere eseguito correttamente sia come router che come server di accesso remoto, perché supporta un'ampia gamma di funzionalità. Ai fini di questa distribuzione, è necessario solo un piccolo subset di queste funzionalità: supporto per le connessioni VPN IKEv2 e il routing LAN.
 
@@ -140,7 +140,7 @@ In questa sezione è possibile configurare la VPN di accesso remoto per consenti
 
        Verrà visualizzata la finestra di dialogo autenticazione RADIUS.
 
-    c. Selezionare **Aggiungi**.
+    c. Fare clic su **Aggiungi**.
 
        Verrà visualizzata la finestra di dialogo Aggiungi server RADIUS.
 
@@ -173,7 +173,7 @@ In questa sezione è possibile configurare la VPN di accesso remoto per consenti
 
 14. Esaminare l'impostazione per il **provider di contabilità**:
 
-    |                    Se si desidera...                     |                                                     Allora...                                                      |
+    |                    Se si desidera...                     |                                                     Then…                                                      |
     |-----------------------------------------------------------|----------------------------------------------------------------------------------------------------------------|
     | Attività di accesso remoto registrata nel server di accesso remoto |                               Assicurarsi che l' **Accounting di Windows** sia selezionato.                               |
     |        Server dei criteri di rete per eseguire servizi di contabilità per VPN         | Modificare **provider contabilità** in **Accounting RADIUS** e quindi configurare il server dei criteri di server come provider contabilità. |
@@ -194,11 +194,11 @@ In questa sezione è possibile configurare la VPN di accesso remoto per consenti
 
 16. Opzionale *Se si configura l'accesso condizionale per la connettività VPN*, nell'elenco a discesa **certificato** , in **associazione certificato SSL**, selezionare l'autenticazione del server VPN.
 
-17. Opzionale *Se si configura l'accesso condizionale per la connettività VPN*, in MMC Server dei criteri di **rete espandere criteri\\** criteri di rete e procedere come segue: 
+17. Opzionale *Se si configura l'accesso condizionale per la connettività VPN*, in MMC Server dei criteri di **rete espandere criteri\\criteri di rete** e procedere come segue: 
 
     a. Right-le **connessioni ai criteri di rete del server Microsoft Routing e accesso remoto** e selezionare **Proprietà**.
 
-    b. Selezionare la **concessione dell'accesso. Concedere l'accesso se la richiesta di connessione corrisponde** a questa opzione dei criteri.
+    b. Selezionare la **concessione dell'accesso. Concedere l'accesso se la richiesta di connessione corrisponde a questa opzione dei criteri** .
 
     c. In tipo di server di accesso alla rete selezionare **server di accesso remoto (VPN-connessione remota)** nell'elenco a discesa.
 
@@ -234,4 +234,4 @@ In questa sezione è possibile configurare la VPN di accesso remoto per consenti
 
 ## <a name="next-step"></a>Passaggio successivo
 
-[Passaggio 4. Installare e configurare il server](vpn-deploy-nps.md)dei criteri di rete: In questo passaggio viene installato Server dei criteri di rete utilizzando Windows PowerShell o l'Server Manager aggiunta guidata ruoli e funzionalità. Viene inoltre configurato il server dei criteri di rete per gestire tutti i compiti di autenticazione, autorizzazione e accounting per le richieste di connessione ricevute dal server VPN.
+[Passaggio 4. Installare e configurare il server dei criteri di rete](vpn-deploy-nps.md): in questo passaggio si installa Server dei criteri di rete tramite Windows PowerShell o l'Server Manager aggiunta guidata ruoli e funzionalità. Viene inoltre configurato il server dei criteri di rete per gestire tutti i compiti di autenticazione, autorizzazione e accounting per le richieste di connessione ricevute dal server VPN.

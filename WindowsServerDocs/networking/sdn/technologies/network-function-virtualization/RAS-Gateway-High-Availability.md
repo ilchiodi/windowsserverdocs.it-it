@@ -10,14 +10,14 @@ ms.technology: networking-sdn
 ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: 34d826c9-65bc-401f-889d-cf84e12f0144
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 7d9c37629c0e0d9964554ba90887aa45f74a330a
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 5fca4fc6a636bcde155e60b6da3c827bc9313606
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71355612"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80313039"
 ---
 # <a name="ras-gateway-high-availability"></a>Disponibilità elevata di Gateway RAS
 
@@ -25,7 +25,7 @@ ms.locfileid: "71355612"
 
 È possibile utilizzare questo argomento per informazioni sulle configurazioni a disponibilità elevata per RAS multi-tenant gateway per SDN (Software Defined Networking).  
   
-In questo argomento sono incluse le sezioni seguenti.  
+In questo argomento sono contenute le seguenti sezioni.  
   
 -   [Panoramica del gateway RAS](#bkmk_overview)  
   
@@ -35,7 +35,7 @@ In questo argomento sono incluse le sezioni seguenti.
   
 -   [Integrazione del gateway RAS con il controller di rete](#bkmk_integration)  
   
-## <a name="bkmk_overview"></a>Panoramica del gateway RAS  
+## <a name="ras-gateway-overview"></a><a name="bkmk_overview"></a>Panoramica del gateway RAS  
 Se l'organizzazione è un provider di servizi cloud (CSP) o un'azienda con più tenant, è possibile distribuire il gateway RAS in modalità multi-tenant per consentire il routing del traffico di rete da e verso reti virtuali e fisiche, incluso Internet.  
   
 È possibile distribuire il gateway RAS in modalità multi-tenant come gateway perimetrale per indirizzare il traffico di rete dei clienti tenant alle reti e alle risorse virtuali dei tenant.  
@@ -46,7 +46,7 @@ Questo problema viene risolto in Windows Server 2016, che offre più pool di gat
   
 Per altre informazioni generali sul gateway RAS, vedere [gateway RAS](../../../../remote/remote-access/ras-gateway/RAS-Gateway.md).  
   
-## <a name="bkmk_pools"></a>Panoramica sui pool di gateway  
+## <a name="gateway-pools-overview"></a><a name="bkmk_pools"></a>Panoramica sui pool di gateway  
 In Windows Server 2016 è possibile distribuire gateway in uno o più pool.  
   
 Nella figura seguente vengono illustrati diversi tipi di pool di gateway che forniscono il routing del traffico tra reti virtuali.  
@@ -73,7 +73,7 @@ I pool di Gateway offrono inoltre la flessibilità necessaria per abilitare altr
   
 -   Più pool possono fornire la stessa funzione del gateway ma diverse capacità. Ad esempio, è possibile creare un pool di gateway che supporta le connessioni IKEv2 S2S con velocità effettiva elevata e velocità effettiva ridotta.  
   
-## <a name="bkmk_deployment"></a>Panoramica della distribuzione del gateway RAS  
+## <a name="ras-gateway-deployment-overview"></a><a name="bkmk_deployment"></a>Panoramica della distribuzione del gateway RAS  
 Nella figura seguente viene illustrata una tipica distribuzione del provider di servizi cloud (CSP) del gateway RAS.  
   
 ![Panoramica della distribuzione del gateway RAS](../../../media/RAS-Gateway-High-Availability/ras_csp_deploy.png)  
@@ -84,7 +84,7 @@ Nell'illustrazione, il dispositivo BGP MT è un gateway RAS multi-tenant con BGP
   
 Il router BGP è separato nel diagramma per illustrare questo concetto di routing centralizzato. L'implementazione BGP del gateway fornisce anche il routing di transito, che consente al cloud di fungere da punto di transito per il routing tra due siti tenant. Queste funzionalità BGP sono applicabili a tutte le funzioni del gateway.  
   
-## <a name="bkmk_integration"></a>Integrazione del gateway RAS con il controller di rete  
+## <a name="ras-gateway-integration-with-network-controller"></a><a name="bkmk_integration"></a>Integrazione del gateway RAS con il controller di rete  
 Il gateway RAS è completamente integrato con il controller di rete in Windows Server 2016. Quando si distribuiscono il gateway RAS e il controller di rete, il controller di rete esegue le funzioni seguenti.  
   
 -   Distribuzione dei pool di gateway  
@@ -103,7 +103,7 @@ Le sezioni seguenti forniscono informazioni dettagliate sul gateway RAS e sul co
   
 -   [Disponibilità elevata per gateway di inoltri L3](#bkmk_l3)  
   
-### <a name="bkmk_provisioning"></a>Provisioning e bilanciamento del carico delle connessioni gateway (IKEv2, L3 e GRE)  
+### <a name="provisioning-and-load-balancing-of-gateway-connections-ikev2-l3-and-gre"></a><a name="bkmk_provisioning"></a>Provisioning e bilanciamento del carico delle connessioni gateway (IKEv2, L3 e GRE)  
 Quando un tenant richiede una connessione gateway, la richiesta viene inviata al controller di rete. Il controller di rete è configurato con informazioni su tutti i pool di gateway, tra cui la capacità di ogni pool e ogni gateway in ogni pool. Il controller di rete seleziona il pool e il gateway corretti per la connessione. Questa selezione è basata sul requisito di larghezza di banda per la connessione. Il controller di rete usa un algoritmo di "adattamento migliore" per scegliere le connessioni in modo efficiente in un pool. Il punto di peering BGP per la connessione viene designato anche in questo momento se si tratta della prima connessione del tenant.  
   
 Dopo che il controller di rete ha selezionato un gateway RAS per la connessione, il controller di rete effettua il provisioning della configurazione necessaria per la connessione sul gateway. Se la connessione è una connessione S2S di IKEv2, il controller di rete effettua anche il provisioning di una regola NAT (Network Address Translation) nel pool SLB. Questa regola NAT nel pool di SLB indirizza le richieste di connessione dal tenant al gateway designato. I tenant sono differenziati dall'indirizzo IP di origine, che dovrebbe essere univoco.  
@@ -113,7 +113,7 @@ Dopo che il controller di rete ha selezionato un gateway RAS per la connessione,
   
 Se il routing BGP è abilitato per la connessione, il peering BGP viene avviato dal gateway RAS e le route vengono scambiate tra i gateway locali e quelli cloud. Le route apprese da BGP (o che sono route configurate staticamente se non si usa BGP) vengono inviate al controller di rete. Il controller di rete esegue quindi il plumbing delle route negli host Hyper-V su cui sono installate le VM tenant. A questo punto, il traffico tenant può essere instradato al sito locale corretto. Il controller di rete crea anche criteri di virtualizzazione rete Hyper-V associati che specificano i percorsi del gateway e li Plumbing negli host Hyper-V.  
   
-### <a name="bkmk_ike"></a>Disponibilità elevata per IKEv2 S2S  
+### <a name="high-availability-for-ikev2-s2s"></a><a name="bkmk_ike"></a>Disponibilità elevata per IKEv2 S2S  
 Un gateway RAS in un pool è costituito da connessioni e peering BGP di tenant diversi. Ogni pool include gateway di standby ' n'Active gateway è n'.  
   
 Il controller di rete gestisce l'errore dei gateway nel modo seguente.  
@@ -140,8 +140,8 @@ Il controller di rete gestisce l'errore dei gateway nel modo seguente.
   
 -   Simultaneamente, quando la configurazione viene visualizzata nel nuovo gateway attivo, vengono ristabilite le connessioni S2S IKEv2 e il peering BGP. Le connessioni e il peering BGP possono essere avviati dal gateway cloud o dal gateway locale. I gateway aggiornano le route e le inviano al controller di rete. Dopo che il controller di rete apprende le nuove route individuate dai gateway, il controller di rete invia le route e i criteri di virtualizzazione rete Hyper-V associati agli host Hyper-V in cui risiedono le macchine virtuali dei tenant con conseguenze sugli errori. Questa attività del controller di rete è simile alla circostanza di una nuova configurazione della connessione, ma si verifica solo su una scala più ampia.  
   
-### <a name="bkmk_gre"></a>Disponibilità elevata per GRE  
-Il processo di risposta al failover del gateway RAS da parte del controller di rete, incluso il rilevamento degli errori, la copia della configurazione di connessione e routing nel gateway di standby, il failover del routing BGP/statico delle connessioni interessate (inclusi il ritiro e il ripristino delle route sugli host di calcolo e il peering BGP e la riconfigurazione dei criteri di virtualizzazione rete Hyper-V negli host di calcolo è lo stesso per i gateway e le connessioni GRE. Il ristabilimento delle connessioni GRE viene eseguito in modo diverso, tuttavia, e la soluzione a disponibilità elevata per GRE prevede alcuni requisiti aggiuntivi.  
+### <a name="high-availability-for-gre"></a><a name="bkmk_gre"></a>Disponibilità elevata per GRE  
+Processo di risposta del failover del gateway RAS da parte del controller di rete, incluso il rilevamento degli errori, la copia della connessione e della configurazione di routing nel gateway di standby, il failover del routing BGP/statico delle connessioni interessate (incluso il ritiro e il ripristino delle route sugli host di calcolo e il ripeering BGP) e la riconfigurazione dei criteri di virtualizzazione rete Hyper-V negli host di calcolo sono gli stessi per i gateway e le connessioni GRE. Il ristabilimento delle connessioni GRE viene eseguito in modo diverso, tuttavia, e la soluzione a disponibilità elevata per GRE prevede alcuni requisiti aggiuntivi.  
   
 ![Disponibilità elevata per GRE](../../../media/RAS-Gateway-High-Availability/ras_ha.png)  
   
@@ -151,21 +151,21 @@ Al momento del provisioning della connessione GRE, il controller di rete selezio
   
 Quando un gateway ha esito negativo, il controller di rete copia l'indirizzo VIP del gateway non riuscito e altri dati di configurazione nel gateway di standby. Quando il gateway di standby diventa attivo, annuncia il VIP al commutatore TOR e la rete fisica. I router remoti continuano a connettere i tunnel GRE allo stesso indirizzo VIP e l'infrastruttura di routing garantisce che i pacchetti vengano instradati al nuovo gateway attivo.  
   
-### <a name="bkmk_l3"></a>Disponibilità elevata per gateway di inoltri L3  
+### <a name="high-availability-for-l3-forwarding-gateways"></a><a name="bkmk_l3"></a>Disponibilità elevata per gateway di inoltri L3  
 Un gateway di inoltri L3 di virtualizzazione rete Hyper-V è un bridge tra l'infrastruttura fisica nel Data Center e l'infrastruttura virtualizzata nel cloud di virtualizzazione rete Hyper-V. In un gateway di inoltri L3 multi-tenant ogni tenant usa la propria rete logica con tag VLAN per la connettività con la rete fisica del tenant.  
   
 Quando un nuovo tenant crea un nuovo gateway L3, il gateway del controller di rete Service Manager seleziona una macchina virtuale del gateway disponibile e configura una nuova interfaccia del tenant con un indirizzo IP di spazio dell'indirizzo (CA) a disponibilità elevata (dalla rete logica con tag VLAN del tenant) ). L'indirizzo IP viene usato come indirizzo IP del peer sul gateway remoto (rete fisica) ed è l'hop successivo per raggiungere la rete di virtualizzazione rete Hyper-V del tenant.  
   
 Diversamente dalle connessioni di rete IPsec o GRE, il commutatore TOR non apprenderà dinamicamente la rete con tag VLAN del tenant. Il routing per la rete VLAN con tag del tenant deve essere configurato nel commutatore TOR e in tutti i commutatori intermedi e i router tra l'infrastruttura fisica e il gateway per garantire la connettività end-to-end.  Di seguito è riportato un esempio di configurazione di rete virtuale CSP, come illustrato nella figura seguente.  
   
-|Rete|Subnet|ID VLAN|Gateway predefinito|  
+|Rete|Subnet|ID VLAN|Default Gateway|  
 |-----------|----------|-----------|-------------------|  
 |Rete logica di Contoso L3|10.127.134.0/24|1001|10.127.134.1|  
 |Rete logica di Woodgrove L3|10.127.134.0/24|1002|10.127.134.1|  
   
 Di seguito sono elencate le configurazioni del gateway tenant di esempio, come illustrato nella figura seguente.  
   
-|Nome del tenant|Indirizzo IP del gateway L3|ID VLAN|Indirizzo IP peer|  
+|Nome tenant|Indirizzo IP del gateway L3|ID VLAN|Indirizzo IP peer|  
 |---------------|-------------------------|-----------|-------------------|  
 |Contoso|10.127.134.50|1001|10.127.134.55|  
 |Woodgrove|10.127.134.60|1002|10.127.134.65|  

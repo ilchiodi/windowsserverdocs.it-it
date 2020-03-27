@@ -10,14 +10,14 @@ ms.technology: networking-ras
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: beb94475-b21f-46a9-ac51-bf2bb28ca94e
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 03d87fb086a9f2797af8399be3d833b11bed79a5
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 4b2377816255189efbaa6d5c39cd4e91b923a039
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71367262"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80314224"
 ---
 # <a name="monitor-connected-remote-clients-for-activity-and-status"></a>Monitorare i client remoti connessi relativamente ad attività e a stato
 
@@ -32,7 +32,7 @@ ms.locfileid: "71367262"
   
 #### <a name="to-monitor-remote-client-activity-and-status"></a>Per monitorare l'attività e lo stato del client remoto  
   
-1.  In **Server Manager**, fare clic su **strumenti**, quindi fare clic su **Gestione accesso remoto**.  
+1.  In **Server Manager** fare clic su **Strumenti** e quindi su **Gestione Accesso remoto**.  
   
 2.  Fare clic su **REPORTING** per passare a **Remote Access Reporting** nel **Console Gestione accesso remoto**.  
   
@@ -42,7 +42,7 @@ ms.locfileid: "71367262"
   
 ![](../../../media/Monitor-connected-remote-clients-for-activity-and-status/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em> per Windows PowerShell***  
   
-Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.  
+Tramite i cmdlet di Windows PowerShell seguenti viene eseguita la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se è possibile il ritorno a capo automatico in diverse righe a causa di limiti di formattazione.  
   
 ```  
 PS> Get-RemoteAccessConnectionStatistics  
@@ -50,11 +50,11 @@ PS> Get-RemoteAccessConnectionStatistics
   
 Le statistiche utente possono essere filtrate, in base alle selezioni dei criteri, usando i campi indicati nella tabella seguente.  
   
-|Nome campo|Valore|  
+|Nome del campo|Valore|  
 |-------|-----|  
 |Nome utente|Nome utente o alias dell'utente remoto. I caratteri jolly possono essere usati per selezionare un gruppo di utenti, ad esempio contoso\\* o \*\Administrator.|  
-|Hostname|Nome dell'account computer del computer remoto. È possibile specificare anche un indirizzo IPv4 o IPv6.|  
-|Tipo|DirectAccess o VPN. Se si seleziona DirectAccess, vengono elencati tutti gli utenti remoti connessi tramite DirectAccess. Se si seleziona VPN, vengono elencati tutti gli utenti remoti connessi tramite VPN.|  
+|HostName|Nome dell'account computer del computer remoto. È possibile specificare anche un indirizzo IPv4 o IPv6.|  
+|Type|DirectAccess o VPN. Se si seleziona DirectAccess, vengono elencati tutti gli utenti remoti connessi tramite DirectAccess. Se si seleziona VPN, vengono elencati tutti gli utenti remoti connessi tramite VPN.|  
 |indirizzo ISP|Indirizzo IPv4 o IPv6 dell'utente remoto.|  
 |Indirizzo IPv4|Indirizzo IPv4 interno del tunnel che connette l'utente remoto alla rete aziendale.|  
 |Indirizzo IPv6|Indirizzo IPv6 interno del tunnel che connette l'utente remoto alla rete aziendale.|  

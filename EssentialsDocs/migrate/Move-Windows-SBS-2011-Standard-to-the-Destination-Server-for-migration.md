@@ -3,7 +3,7 @@ title: Spostare dati e impostazioni di Windows SBS 2011 Standard nel server di d
 description: Viene descritto come usare Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
-ms.prod: windows-server-2016-essentials
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
@@ -12,12 +12,12 @@ ms.assetid: 16b24026-2fe3-4bd0-b82f-900e1564be99
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: ef8e717fe235b8d85f4d53442610818b31ad7d1d
-ms.sourcegitcommit: 9f955be34c641b58ae8b3000768caa46ad535d43
+ms.openlocfilehash: d7b1edf2ffd602cd844fa399ac9368a2f4e08643
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/27/2019
-ms.locfileid: "68590421"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80318852"
 ---
 # <a name="move-windows-sbs-2011-standard-settings-and-data-to-the-destination-server-for-windows-server-essentials-migration"></a>Spostare dati e impostazioni di Windows SBS 2011 Standard nel server di destinazione per la migrazione a Windows Server Essentials
 
@@ -50,7 +50,7 @@ Spostare impostazioni e dati nel server di destinazione nel modo seguente:
 
 1. Accedere al server di destinazione come amministratore di dominio e quindi aprire una finestra di comando. 
 
-2. Al prompt dei comandi digitare il comando seguente e quindi premere INVIO: 
+2. Al prompt dei comandi digitare il comando seguente, quindi premere INVIO: 
 
     `robocopy \\<SourceServerName> \<SharedSourceFolderName> \\<DestinationServerName> \<SharedDestinationFolderName> /E /B /COPY:DATSOU /LOG:C:\Copyresults.txt`
  
@@ -133,7 +133,7 @@ Spostare impostazioni e dati nel server di destinazione nel modo seguente:
  
 3. Nel riquadro di spostamento fare clic su **Gestione avanzata**, su **Gestione criteri di gruppo**, quindi su **foresta:** _< NomeDominio\>_ . 
  
-4. Fare clic su **domini**, fare clic su *<\>NomeDominio*, quindi fare clic su **criteri di gruppo oggetti**. 
+4. Fare clic su **domini**, fare clic su *< NomeDominio\>* , quindi fare clic su **criteri di gruppo oggetti**. 
  
 5. Fare clic con il pulsante destro del mouse su **Criterio controllo Small Business Server**, scegliere **Elimina** e quindi fare clic su **OK**. 
  
@@ -161,9 +161,9 @@ Spostare impostazioni e dati nel server di destinazione nel modo seguente:
  
 2. Fare clic sul pulsante **Start** e quindi scegliere **Gestione server**. 
  
-3. Nel riquadro di spostamento fare clic su **funzionalità**, fare clic su **Gestione criteri di gruppo**e quindi su **foresta:** _\> < YourNetworkDomainName_ 
+3. Nel riquadro di spostamento fare clic su **funzionalità**, fare clic su **Gestione criteri di gruppo**e quindi su **foresta:** _< YourNetworkDomainName\>_ 
  
-4. Fare clic su **domini**, fare clic su *<\>YourNetworkDomainName*, quindi fare clic su **filtri WMI**. 
+4. Fare clic su **domini**, fare clic su *< YourNetworkDomainName\>* , quindi fare clic su **filtri WMI**. 
  
 5. Fare clic con il pulsante destro del mouse su **Client di Windows SBS**, scegliere **Elimina** e quindi fare clic su **Sì**. 
  
@@ -186,7 +186,7 @@ Spostare impostazioni e dati nel server di destinazione nel modo seguente:
  
 4. Fare clic sulla scheda **Accesso remoto via Internet** e quindi fare clic su **Consenti Accesso Web remoto e accedi ai servizi Web**. 
  
-5. Selezionare **Cartelle condivise**, selezionare **Computer**, selezionare **Home page - Collegamenti**e quindi fare clic su **Applica**. 
+5. Selezionare **Cartelle condivise**, selezionare **Computer**, selezionare **Home page - Collegamenti** e quindi fare clic su **Applica**. 
  
 6. Fare clic sulla scheda **Accesso computer** e quindi fare clic sul nome del computer a cui si vuole consentire l'accesso. 
  

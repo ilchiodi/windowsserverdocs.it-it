@@ -6,15 +6,15 @@ ms.prod: windows-server
 ms.technology: networking
 ms.topic: article
 ms.assetid: 9c7a67e0-0953-479c-8736-ccb356230bde
-ms.author: pashort
-author: shortpatti
+ms.author: lizross
+author: eross-msft
 ms.date: 06/20/2018
-ms.openlocfilehash: 5685d4dae742245c131ff2fee3114e905e94e9bc
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: b509bb14757fab6ebd32490d0146b2801bc8e9f1
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71396010"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80315619"
 ---
 # <a name="network-policy-server-nps"></a>Server dei criteri di rete
 
@@ -55,7 +55,7 @@ NPS offre funzionalità diverse a seconda dell'edizione di Windows Server instal
 
 ### <a name="windows-server-2016-or-windows-server-2019-standarddatacenter-edition"></a>Windows Server 2016 o Windows Server 2019 standard/Datacenter Edition
 
-Con server dei criteri di gruppo in Windows Server 2016 standard o Datacenter, è possibile configurare un numero illimitato di client RADIUS e di gruppi di server RADIUS remoti. È inoltre possibile configurare client RADIUS specificando un intervallo di indirizzi IP.
+Con server dei criteri di gruppo in Windows Server 2016 standard o Datacenter, è possibile configurare un numero illimitato di client RADIUS e di gruppi di server RADIUS remoti. È possibile inoltre configurare client RADIUS specificando un intervallo di indirizzi IP.
 
 > [!NOTE]
 > La funzionalità Servizi di accesso e criteri di rete di WIndows non è disponibile nei sistemi installati con un'opzione di installazione dei componenti di base del server.

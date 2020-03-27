@@ -10,14 +10,14 @@ ms.technology: networking-ras
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: de285d13-9e54-4c46-88f0-607182e5e3dc
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 3218e1110bc17979fdda949956f551997859f5ed
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 19a9b6a10d70b75763e7b139dbbab932dcd251b5
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71368255"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80314202"
 ---
 # <a name="monitor-the-configuration-distribution-status-of-the-remote-access-server"></a>Monitorare lo stato di distribuzione della configurazione del server di accesso remoto
 
@@ -29,7 +29,7 @@ La console di gestione di Accesso remoto confronta le versioni di configurazione
   
 ### <a name="to-use-the-monitoring-dashboard-to-monitor-the-configuration-distribution"></a>Per usare il dashboard di monitoraggio per monitorare la distribuzione della configurazione  
   
-1.  In **Server Manager**, fare clic su **strumenti**, quindi fare clic su **Gestione accesso remoto**.  
+1.  In **Server Manager** fare clic su **Strumenti** e quindi su **Gestione Accesso remoto**.  
   
 2.  Fare clic su **DASHBOARD** per passare a **Dashboard di Accesso remoto** nella **console di gestione di Accesso remoto**.  
   
@@ -39,8 +39,8 @@ La tabella seguente contiene i messaggi visualizzati nel riquadro **Stato config
   
 |||||  
 |-|-|-|-|  
-|Gravità|Messaggio|Significato|Azioni necessarie|  
-|Riuscito|Distribuzione della configurazione completata.|La configurazione nell'oggetto Criteri di gruppo è stata applicata correttamente al server.|Nessuna azione necessaria.|  
+|Severity|Message|Significato|Azioni necessarie|  
+|Success|Distribuzione della configurazione completata.|La configurazione nell'oggetto Criteri di gruppo è stata applicata correttamente al server.|Nessuna azione necessaria.|  
 |Avviso|Configurazione per il server [*nome server*] non recuperata dal controller di dominio. L'oggetto Criteri di gruppo non è collegato.|La configurazione nell'oggetto Criteri di gruppo non ha ancora raggiunto il server. Il motivo potrebbe essere il mancato collegamento dell'oggetto Criteri di gruppo al server.|Collegare l'oggetto Criteri di gruppo a un ambito di gestione applicato al server oppure, in uno scenario in cui l'oggetto Criteri di gruppo è in gestione temporanea, esportare manualmente le impostazioni da quest'ultimo e importarle nell'oggetto Criteri di gruppo di produzione. Per ulteriori informazioni sugli oggetti Criteri di gruppo di staging, vedere **gestione degli oggetti Criteri di gruppo di accesso remoto con autorizzazioni limitate** in [Step-1-Plan-the-DirectAccess-Infrastructure](../../directaccess/single-server-advanced/Step-1-Plan-the-DirectAccess-Infrastructure.md). Per i passaggi di gestione temporanea di GPO, vedere **configurazione degli oggetti Criteri di gruppo di accesso remoto con autorizzazioni limitate** in [passaggio 1: configurare l'infrastruttura DirectAccess](../../directaccess/single-server-advanced/Step-1-Configuring-DirectAccess-Infrastructure.md).|  
 |Avviso|Configurazione per il server [*nome server*] non ancora recuperata dal controller di dominio.|La configurazione nell'oggetto Criteri di gruppo non ha ancora raggiunto il server.<br /><br />La propagazione di una nuova configurazione potrebbe richiedere fino a 10 minuti.|Per l'aggiornamento dei criteri sul server prevedere un intervallo più lungo.|  
 |Errore|Non è possibile recuperare la configurazione per il server [*nome server*] dal controller di dominio.|La configurazione nell'oggetto Criteri di gruppo non ha raggiunto il server e sono trascorsi oltre 10 minuti dalla modifica della configurazione.|Ciò potrebbe verificarsi in uno degli scenari seguenti:<br /><br />-Il server non dispone di connettività al dominio per aggiornare i criteri. È possibile eseguire "gpupdate/force" sul server per forzare un aggiornamento dei criteri.<br />-La replica degli oggetti Criteri di gruppo potrebbe essere necessaria per recuperare la configurazione aggiornata.<br />-Non è presente alcun controller di dominio scrivibile nel sito Active Directory del server di accesso remoto.<br /><br />Attendere la replica degli oggetti Criteri di gruppo su tutti i controller di dominio e quindi usare il cmdlet **Set-DAEntryPointDC** di Windows PowerShell per associare il punto di ingresso a un controller di dominio scrivibile in Active Directory nel server di Accesso remoto.|  

@@ -6,14 +6,14 @@ ms.technology: networking
 ms.topic: article
 ms.assetid: 7ebaa271-2557-4c24-a679-c3d863e6bf9e
 manager: brianlic
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 7ebff972d670f3fd0b8d12959d161bce03ac487e
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: e62b92fbb78dc267dbd9cd09927bf54c62d8245f
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71401851"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80316605"
 ---
 # <a name="network-related-performance-counters"></a>Contatori delle prestazioni di rete
 
@@ -27,7 +27,7 @@ Questo argomento elenca i contatori rilevanti per la gestione delle prestazioni 
   
 -   [Prestazioni dell'Unione lato ricezione (RSC)](#bkmk_rsc)  
   
-##  <a name="bkmk_ru"></a>Utilizzo risorse  
+##  <a name="resource-utilization"></a><a name="bkmk_ru"></a>Utilizzo risorse  
 
 I contatori delle prestazioni seguenti sono rilevanti per l'utilizzo delle risorse di rete.  
   
@@ -61,7 +61,7 @@ I contatori delle prestazioni seguenti sono rilevanti per l'utilizzo delle risor
   
 - Informazioni sul processore  
   
-  - % di tempo processore  
+  - % di tempo del processore  
   
   - Interruzioni/sec  
   
@@ -69,7 +69,7 @@ I contatori delle prestazioni seguenti sono rilevanti per l'utilizzo delle risor
   
     Questo contatore è una velocità media a cui sono stati aggiunti DPC alla coda DPC del processore logico. Ogni processore logico ha una propria coda DPC. Questo contatore misura la frequenza con cui vengono aggiunti DPC alla coda, non il numero di DPC nella coda. Viene visualizzata la differenza tra i valori osservati negli ultimi due esempi, divisi per la durata dell'intervallo di campionamento.  
   
-##  <a name="bkmk_np"></a>Potenziali problemi di rete  
+##  <a name="potential-network-problems"></a><a name="bkmk_np"></a>Potenziali problemi di rete  
 
 I contatori delle prestazioni seguenti sono rilevanti per potenziali problemi di rete.  
   
@@ -119,7 +119,7 @@ I contatori delle prestazioni seguenti sono rilevanti per potenziali problemi di
   
     -   Connessioni rifiutate/sec  
   
-##  <a name="bkmk_rsc"></a>Prestazioni dell'Unione lato ricezione (RSC)  
+##  <a name="receive-side-coalescing-rsc-performance"></a><a name="bkmk_rsc"></a>Prestazioni dell'Unione lato ricezione (RSC)  
 
 I contatori delle prestazioni seguenti sono rilevanti per le prestazioni di RSC.  
   

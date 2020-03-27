@@ -6,14 +6,14 @@ ms.prod: windows-server
 ms.technology: networking-dhcp
 ms.topic: get-started-article
 ms.assetid: c6f36998-5b64-45d1-b1f0-0f0d6604dbe3
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 8032b7c8e78170d57b0367775672577d9fd900e2
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 58d849fa1003148b034cc426817b97d3a70d4421
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71355445"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80312689"
 ---
 # <a name="whats-new-in-dhcp"></a>Novità di DHCP
 
@@ -51,7 +51,7 @@ Il supporto di protezione accesso alla rete è stato introdotto per il ruolo ser
 | Windows Server 2008 |Supportato|  
 | Windows Server 2008 R2 |Supportato|  
 | Windows Server 2012 |Supportato|  
-| Windows Server 2012 R2 |Supportato|  
+| Windows Server 2012 R2 |Supportato|  
 | Windows Server 2016|Non supportato|  
   
 In una distribuzione di protezione accesso alla RETE, server DHCP in esecuzione un sistema operativo che supporta Protezione accesso alla RETE possono essere utilizzati come punto di imposizione Protezione accesso alla RETE per il metodo di imposizione Protezione accesso alla RETE DHCP. Per ulteriori informazioni su Protezione accesso alla rete DHCP, vedere [elenco di controllo: implementazione di una progettazione di imposizione DHCP](https://technet.microsoft.com/library/dd314186.aspx).  
@@ -60,7 +60,7 @@ In Windows Server 2016, i server DHCP non applicano i criteri di protezione acce
 
 Se i server che eseguono Windows Server 2016 sono proxy RADIUS che inoltrano richieste di autenticazione a un server dei criteri di rete \(NPS\) che supporta NAP, questi client di protezione accesso alla rete vengono valutati dal server dei criteri di rete come non protezione\-accesso alla rete e l'elaborazione NAP ha esito negativo.
   
-## <a name="see-also"></a>Vedi anche  
+## <a name="see-also"></a>Vedere anche  
   
 -   [Dynamic Host Configuration Protocol (DHCP)](Dynamic-Host-Configuration-Protocol--DHCP-.md)  
   

@@ -1,5 +1,5 @@
 ---
-title: Schede di rete di ottimizzazione delle prestazioni
+title: Ottimizzazione delle prestazioni delle schede di rete
 description: Questo argomento fa parte della Guida all'ottimizzazione delle prestazioni del sottosistema di rete per Windows Server 2016.
 audience: Admin
 ms.custom:
@@ -10,17 +10,17 @@ ms.technology: networking
 ms.topic: article
 ms.assetid: 0b9b0f80-415c-4f5e-8377-c09b51d9c5dd
 manager: dcscontentpm
-ms.author: pashort
+ms.author: lizross
 author: Teresa-Motiv
 ms.date: 12/23/2019
-ms.openlocfilehash: 3feec719934fb16ca34cebe1e653768da5fb9eb7
-ms.sourcegitcommit: 33c89b76ac902927490b9727f3cf92b374754699
+ms.openlocfilehash: f802804d64b3047a2612b7f346de03aff61c30cd
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75728432"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80316548"
 ---
-# <a name="performance-tuning-network-adapters"></a>Schede di rete di ottimizzazione delle prestazioni
+# <a name="performance-tuning-network-adapters"></a>Ottimizzazione delle prestazioni delle schede di rete
 
 > Si applica a: Windows Server 2019, Windows Server 2016, Windows Server (Canale semestrale)
 
@@ -35,7 +35,7 @@ Le impostazioni di ottimizzazione corrette per le schede di rete dipendono dalle
 
 Nelle sezioni seguenti vengono illustrate alcune delle opzioni di ottimizzazione disponibili.  
 
-##  <a name="bkmk_offload"></a>Abilitazione delle funzionalità di offload
+##  <a name="enabling-offload-features"></a><a name="bkmk_offload"></a>Abilitazione delle funzionalità di offload
 
 Di norma è utile attivare l'offload della scheda di rete. Tuttavia, la scheda di rete potrebbe non essere sufficientemente potente da gestire le funzionalità di offload con una velocità effettiva elevata.
 
@@ -48,7 +48,7 @@ In tal caso, l'abilitazione delle funzionalità di offload della segmentazione p
 > [!NOTE]  
 > Per alcune schede di rete è necessario abilitare le funzionalità di offload indipendentemente per i percorsi di trasmissione e ricezione.
 
-##  <a name="bkmk_rss_web"></a>Abilitazione di Receive-Side Scaling (RSS) per i server Web
+##  <a name="enabling-receive-side-scaling-rss-for-web-servers"></a><a name="bkmk_rss_web"></a>Abilitazione di Receive-Side Scaling (RSS) per i server Web
 
 Con RSS è possibile migliorare scalabilità e prestazioni Web se il server dispone di un numero di schede di rete inferiore al numero di processori logici. Quando tutto il traffico Web passa attraverso le schede di rete che supportano RSS, il server è in grado di elaborare le richieste Web in ingresso da diverse connessioni simultaneamente tra diverse CPU.
 
@@ -63,7 +63,7 @@ Il profilo predefinito RSS predefinito è **NUMAStatic**, che è diverso da quel
 
 Ad esempio, se si apre Gestione attività ed esaminano i processori logici nel server e sembrano sottoutilizzati per il traffico di ricezione, è possibile provare ad aumentare il numero di code RSS dal valore predefinito di due al massimo supportato dalla scheda di rete. Nella scheda di rete, le opzioni per modificare il numero di code RSS potrebbero essere parte del driver.
 
-##  <a name="bkmk_resources"></a>Aumento delle risorse della scheda di rete
+##  <a name="increasing-network-adapter-resources"></a><a name="bkmk_resources"></a>Aumento delle risorse della scheda di rete
 
 Per le schede di rete che consentono di configurare manualmente le risorse, ad esempio i buffer di ricezione e di invio, è necessario aumentare le risorse allocate.  
 
@@ -78,7 +78,7 @@ Per controllare la moderazione degli interrupt, alcune schede di rete espongono 
 
 È consigliabile prendere in considerazione la moderazione delle interruzioni per i carichi di lavoro associati alla CPU. Quando si usa la moderazione degli interrupt, considerare il compromesso tra il risparmio della CPU dell'host e la latenza rispetto all'aumento del risparmio della CPU dell'host, a causa di più interrupt e meno latenza. Se la scheda di rete non esegue la moderazione degli interrupt, ma espone l'Unione dei buffer, è possibile migliorare le prestazioni aumentando il numero di buffer Uniti per consentire più buffer per ogni trasmissione o ricezione.
 
-##  <a name="bkmk_low"></a>Ottimizzazione delle prestazioni per l'elaborazione di pacchetti a bassa latenza
+##  <a name="performance-tuning-for-low-latency-packet-processing"></a><a name="bkmk_low"></a>Ottimizzazione delle prestazioni per l'elaborazione di pacchetti a bassa latenza
 
 Molte schede di rete offrono opzioni di ottimizzazione della latenza indotta dal sistema operativo. La latenza è il tempo trascorso tra l'elaborazione di un pacchetto in arrivo da parte dell'unità di rete e la restituzione del pacchetto da parte dell'unità di rete. Questo intervallo di tempo è normalmente misurato in microsecondi. In confronto, il tempo di trasmissione per trasmissione di pacchetti a grande distanza viene di solito misurato in millisecondi (un ordine di grandezza maggiore). Questa ottimizzazione non accelererà il trasferimento dei pacchetti.
 
@@ -98,7 +98,7 @@ Seguono alcuni suggerimenti utili per l'ottimizzazione delle prestazioni di sche
 
 - Gestire interrupt di schede di rete e chiamate di procedura differita su un processore core che condivide cache CPU con il core usato dal programma (thread utente) che gestisce il pacchetto. A tale scopo, è possibile usare l'ottimizzazione dell'affinità CPU per indirizzare un processo verso determinati processori logici insieme alla configurazione di RSS. Usando lo stesso core per l'interrupt, chiamata di procedura differita e thread modalità utente thread le prestazioni peggiorano con l'aumentare del carico, perché IRS, chiamata di procedura differita e thread competono per l'uso del core.
 
-##  <a name="bkmk_smi"></a>Interruzioni di gestione del sistema
+##  <a name="system-management-interrupts"></a><a name="bkmk_smi"></a>Interruzioni di gestione del sistema
 
 Molti sistemi hardware utilizzano System Management interrupt (SMI) per un'ampia gamma di funzioni di manutenzione, ad esempio la segnalazione di errori di memoria del codice di correzione degli errori, la gestione della compatibilità USB legacy, il controllo della ventola e la gestione di energia elettrica controllata dal BIOS Impostazioni.
 
@@ -111,11 +111,11 @@ Se è necessario ridurre al minimo la latenza, è opportuno richiedere al provid
 > [!NOTE]  
 > Il sistema operativo non è in grado di controllare SMIs perché il processore logico viene eseguito in una modalità di manutenzione speciale che impedisce l'intervento del sistema operativo.
 
-##  <a name="bkmk_tcp"></a>Ottimizzazione delle prestazioni TCP
+##  <a name="performance-tuning-tcp"></a><a name="bkmk_tcp"></a>Ottimizzazione delle prestazioni TCP
 
  Per ottimizzare le prestazioni TCP, è possibile utilizzare gli elementi seguenti.
 
-###  <a name="bkmk_tcp_params"></a>Ottimizzazione automatica della finestra di ricezione TCP
+###  <a name="tcp-receive-window-autotuning"></a><a name="bkmk_tcp_params"></a>Ottimizzazione automatica della finestra di ricezione TCP
 
 In Windows Vista, Windows Server 2008 e versioni successive di Windows, lo stack di rete Windows utilizza una funzionalità denominata livello di *ottimizzazione automatica della finestra di ricezione TCP* per negoziare le dimensioni della finestra di ricezione TCP. Questa funzionalità può negoziare una dimensione della finestra di ricezione definita per ogni comunicazione TCP durante l'handshake TCP.
 
@@ -231,13 +231,13 @@ Per ulteriori informazioni su questi cmdlet, vedere gli articoli seguenti:
 
 È possibile impostare l'ottimizzazione automatica della finestra di ricezione su uno dei cinque livelli. Il livello predefinito è **Normal**. Nella tabella seguente vengono descritti i livelli.
 
-|Livello |Valore esadecimale |Commenti |
+|Level |Valore esadecimale |Comments |
 | --- | --- | --- |
 |Normale (predefinita) |0x8 (fattore di scala 8) |Impostare la finestra di ricezione TCP in modo che cresca per adattarsi a quasi tutti gli scenari. |
-|Disabilitata |Nessun fattore di scala disponibile |Impostare la finestra di ricezione TCP sul valore predefinito. |
-|Limitati |0x4 (fattore di scala 4) |Impostare la finestra di ricezione TCP in modo che cresca oltre il valore predefinito, ma limitare tale crescita in alcuni scenari. |
+|Disabled |Nessun fattore di scala disponibile |Impostare la finestra di ricezione TCP sul valore predefinito. |
+|Restricted (Restrizioni) |0x4 (fattore di scala 4) |Impostare la finestra di ricezione TCP in modo che cresca oltre il valore predefinito, ma limitare tale crescita in alcuni scenari. |
 |Con restrizioni elevata |0x2 (fattore di scala 2) |Impostare la finestra di ricezione TCP in modo che cresca oltre il valore predefinito, ma eseguire questa operazione in modo molto prudente. |
-|Experimental |0xE (fattore di scala 14) |Impostare la finestra di ricezione TCP in modo che cresca per adattarsi a scenari estremi. |
+|sperimentale |0xE (fattore di scala 14) |Impostare la finestra di ricezione TCP in modo che cresca per adattarsi a scenari estremi. |
 
 Se si usa un'applicazione per acquisire i pacchetti di rete, l'applicazione deve segnalare i dati simili ai seguenti per le diverse impostazioni del livello di ottimizzazione automatica della finestra.
 
@@ -376,7 +376,7 @@ Tutte queste impostazioni si trovano nella seguente sottochiave del registro di 
 
 > **HKEY_LOCAL_MACHINE \System\CurrentControlSet\Services\Tcpip\Parameters**  
 
-###  <a name="bkmk_wfp"></a>Piattaforma filtro Windows
+###  <a name="windows-filtering-platform"></a><a name="bkmk_wfp"></a>Piattaforma filtro Windows
 
 Windows Vista e Windows Server 2008 hanno introdotto Windows Filtering Platform (PAM). PAM fornisce API a fornitori di software indipendenti (ISV) non Microsoft per creare filtri di elaborazione pacchetti. Ne sono esempi i software per firewall e antivirus.
 

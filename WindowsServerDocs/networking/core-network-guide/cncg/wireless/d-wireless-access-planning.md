@@ -6,14 +6,14 @@ ms.prod: windows-server
 ms.technology: networking
 ms.topic: article
 ms.assetid: 8c632d02-2270-4a82-8fc4-74ea3747f079
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 44ca48ab05a7f63b1b9dd07f955e68accbcefdb7
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: dc01e28429d4de7ff8f68a867d17963a08465adf
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71356082"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80318070"
 ---
 # <a name="wireless-access-deployment-planning"></a>Pianificazione della distribuzione dell'accesso wireless
 
@@ -71,7 +71,7 @@ Usare i disegni architettonici di ogni piano per ogni edificio per identificare 
 
 Nei disegni, indicare tutti i dispositivi che interferiscono con i segnali wireless, ad esempio apparecchiature medicali, videocamere senza fili, telefoni che operano in 2.4 tramite 2.5 GHz industriale, scientifico e medici \(ISM\) intervallo e Bluetooth\-dispositivi.
 
-Nel disegno contrassegnare gli aspetti della compilazione che potrebbero interferire con i segnali wireless; gli oggetti metal usati nella costruzione di un edificio possono influenzare il segnale wireless. Ad esempio, gli oggetti comuni seguenti possono interferire con la propagazione del segnale: Ascensori, riscaldamento e condizionamento dell'aria\-e travi di supporto concrete.
+Nel disegno contrassegnare gli aspetti della compilazione che potrebbero interferire con i segnali wireless; gli oggetti metal usati nella costruzione di un edificio possono influenzare il segnale wireless. Ad esempio, i seguenti oggetti comuni possono interferire con la propagazione di segnale: ascensori, riscaldamento e aria\-condizionata condotte e concreto supporto girders.
 
 Per informazioni sulle origini che potrebbero causare un'attenuazione della frequenza radio AP wireless, vedere il produttore del punto di accesso. La maggior parte degli APs fornisce software di testing che è possibile usare per verificare la potenza del segnale, la frequenza degli errori e la velocità effettiva dei dati.
 
@@ -100,7 +100,7 @@ In un'infrastruttura 802.1 X, i punti di accesso wireless sono configurati come 
 
 La riconnessione rapida PEAP riduce il tempo di risposta per l'autenticazione tra client e autenticatore perché la richiesta di autenticazione viene trasmessa dal nuovo punto di accesso al server dei criteri di accesso che ha eseguito originariamente l'autenticazione e l'autorizzazione per il client richiesta di connessione.
 
-Poiché sia il client PEAP sia il server dei criteri di gruppo \(utilizzano entrambi in \(precedenza memorizzati nella cache Transport Layer Security proprietà di connessione TLS\)\) la cui raccolta è denominata handle TLS, il server dei criteri di gruppo può determinare rapidamente il client è autorizzato per una riconnessione.
+Poiché sia il client PEAP sia il server dei criteri di gruppo usano entrambi Transport Layer Security memorizzati nella cache in precedenza \(le proprietà di connessione TLS\) \(raccolta di cui è denominato l'handle TLS\), il server dei criteri di gruppo può determinare rapidamente che il client è autorizzato per una riconnessione.
 
 >[!IMPORTANT]
 >Per il corretto funzionamento della riconnessione rapida, è necessario configurare gli APs come client RADIUS dello stesso server dei criteri di server.
@@ -117,10 +117,10 @@ Nell'elenco seguente sono riepilogati gli elementi in genere configurati sullo s
 
     Nei casi in cui vengono distribuiti più punti di accesso wireless come parte della stessa rete wireless, configurare ogni punto di accesso wireless con lo stesso SSID. Nei casi in cui vengono distribuiti più punti di accesso wireless come parte della stessa rete wireless, configurare ogni punto di accesso wireless con lo stesso SSID.  
 
-    Nei casi in cui è necessario distribuire diverse reti wireless per soddisfare specifiche esigenze aziendali, il punto di accesso wireless in una rete deve trasmettere un SSID diverso rispetto all'SSID dell'altra rete\(.\) Ad esempio, se è necessaria una rete wireless separata per i dipendenti e Guest, è possibile configurare punti di accesso wireless per la rete aziendale con l'identificatore SSID impostato per la trasmissione di **ExampleWLAN**. Per la rete Guest è quindi possibile impostare il SSID di ogni punto di accesso wireless per la trasmissione di **GuestWLAN**. In questo modo i dipendenti e i guest possono connettersi alla rete desiderata senza inutili confusioni.  
+    Nei casi in cui è necessario distribuire diverse reti wireless per soddisfare specifiche esigenze aziendali, il punto di accesso wireless in una rete deve trasmettere un SSID diverso da quello dell'altra rete\(s\). Ad esempio, se è necessaria una rete wireless separata per i dipendenti e Guest, è possibile configurare punti di accesso wireless per la rete aziendale con l'identificatore SSID impostato per la trasmissione di **ExampleWLAN**. Per la rete Guest è quindi possibile impostare il SSID di ogni punto di accesso wireless per la trasmissione di **GuestWLAN**. In questo modo i dipendenti e i guest possono connettersi alla rete desiderata senza inutili confusioni.  
 
     > [!TIP]  
-    > Alcuni AP wireless hanno la possibilità di trasmettere più SSID per supportare\-distribuzioni di più reti. Il punto di accesso wireless in grado di trasmettere più SSID può ridurre i costi di distribuzione e manutenzione operativa.  
+    > Alcuni AP wireless hanno la possibilità di trasmettere più SSID per supportare distribuzioni di rete con più\-. Il punto di accesso wireless in grado di trasmettere più SSID può ridurre i costi di distribuzione e manutenzione operativa.  
 
 - **Wireless l'autenticazione e crittografia**.
 
@@ -196,7 +196,7 @@ Ad esempio, se la rete include computer wireless che supportano WPA2\-Enterprise
 
 In molti casi, potrebbe essere necessario fornire agli utenti wireless con diversi livelli di accesso alla rete wireless. Ad esempio, è possibile consentire ad alcuni utenti di accedere senza restrizioni, qualsiasi ora del giorno, ogni giorno della settimana. Per gli altri utenti, è possibile consentire l'accesso solo durante le ore di core, dal lunedì al venerdì e negare l'accesso a sabato e domenica.
 
-Questa guida fornisce le istruzioni per creare un ambiente di accesso che inserisce tutti gli utenti wireless in un gruppo con accesso comune alle risorse wireless. È possibile creare un gruppo di sicurezza utenti senza fili nello snap\--in utenti e computer di Active Directory e quindi fare in modo che tutti gli utenti per i quali si desidera concedere l'accesso wireless a un membro di tale gruppo.
+Questa guida fornisce le istruzioni per creare un ambiente di accesso che inserisce tutti gli utenti wireless in un gruppo con accesso comune alle risorse wireless. È possibile creare un gruppo di sicurezza utenti senza fili nello snap\-utenti e computer di Active Directory e quindi fare in modo che tutti gli utenti per i quali si desidera concedere l'accesso wireless a un membro di tale gruppo.
 
 Quando si configurano i criteri di rete del server dei criteri di rete, si specifica il gruppo di sicurezza utenti wireless come oggetto che viene elaborato dal server dei criteri di rete
 

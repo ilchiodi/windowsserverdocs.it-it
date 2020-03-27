@@ -6,14 +6,14 @@ ms.prod: windows-server
 ms.technology: networking-dns
 ms.topic: article
 ms.assetid: a255a4a5-c1a0-4edc-b41a-211bae397e3c
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 9f611f61150508d9170a6fe6757844bc29759886
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 75da22fa4b1e59a7a666ee1a2c8f4e88cf7beeef
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75950478"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80317735"
 ---
 # <a name="use-dns-policy-for-split-brain-dns-deployment"></a>Usare i criteri DNS per la distribuzione DNS split\-Brain
 
@@ -28,15 +28,15 @@ In precedenza, questo scenario richiedeva che gli amministratori DNS mantenesser
 
 Un altro scenario di configurazione per la distribuzione Split-Brain è il controllo della ricorsione selettiva per la risoluzione dei nomi DNS. In alcuni casi, è previsto che i server DNS dell'organizzazione eseguano la risoluzione ricorsiva su Internet per gli utenti interni, mentre devono fungere anche da server dei nomi autorevoli per gli utenti esterni e bloccarne la ricorsione. 
 
-Questo argomento include le sezioni seguenti.
+In questo argomento sono contenute le seguenti sezioni.
 
 - [Esempio di distribuzione di DNS split brain](#bkmk_sbexample)
 - [Esempio di controllo di ricorsione selettiva DNS](#bkmk_recursion)
 
-## <a name="bkmk_sbexample"></a>Esempio di distribuzione di DNS split brain
+## <a name="example-of-dns-split-brain-deployment"></a><a name="bkmk_sbexample"></a>Esempio di distribuzione di DNS split brain
 Di seguito è riportato un esempio di come è possibile usare i criteri DNS per ottenere lo scenario descritto in precedenza di DNS "Split Brain".
 
-Questa sezione descrive gli argomenti seguenti:
+Questa sezione contiene i seguenti argomenti.
 
 - [Funzionamento della distribuzione Split Brain di DNS](#bkmk_sbhow)
 - [Come configurare la distribuzione della divisione Brain DNS](#bkmk_sbconfigure)
@@ -57,7 +57,7 @@ Nella figura seguente viene illustrato questo scenario.
 ![Distribuzione DNS split brain](../../media/DNS-Split-Brain/Dns-Split-Brain-01.jpg)  
 
 
-## <a name="bkmk_sbhow"></a>Funzionamento della distribuzione Split Brain di DNS
+## <a name="how-dns-split-brain-deployment-works"></a><a name="bkmk_sbhow"></a>Funzionamento della distribuzione Split Brain di DNS
 
 Quando il server DNS è configurato con i criteri DNS necessari, ogni richiesta di risoluzione dei nomi viene valutata in base ai criteri nel server DNS.
 
@@ -67,7 +67,7 @@ Se l'interfaccia server su cui viene ricevuta la query corrisponde a uno qualsia
 
 Quindi, in questo esempio, le query DNS per www.career.contoso.com ricevute sull'IP privato (10.0.0.56) ricevono una risposta DNS che contiene un indirizzo IP interno; e le query DNS ricevute sull'interfaccia di rete pubblica ricevono una risposta DNS che contiene l'indirizzo IP pubblico nell'ambito di zona predefinito (corrisponde alla normale risoluzione delle query).  
 
-## <a name="bkmk_sbconfigure"></a>Come configurare la distribuzione della divisione Brain DNS
+## <a name="how-to-configure-dns-split-brain-deployment"></a><a name="bkmk_sbconfigure"></a>Come configurare la distribuzione della divisione Brain DNS
 Per configurare la distribuzione DNS split-brain usando i criteri DNS, è necessario seguire questa procedura.
 
 - [Creare gli ambiti di zona](#bkmk_zscopes)  
@@ -79,7 +79,7 @@ Le sezioni seguenti forniscono le istruzioni di configurazione dettagliate.
 >[!IMPORTANT]
 >Nelle sezioni seguenti includono esempi di comandi Windows PowerShell che contengono valori di esempio per numero di parametri. Assicurarsi di sostituire i valori di esempio in questi comandi con i valori appropriati per la distribuzione prima di eseguire questi comandi. 
 
-### <a name="bkmk_zscopes"></a>Creare gli ambiti di zona
+### <a name="create-the-zone-scopes"></a><a name="bkmk_zscopes"></a>Creare gli ambiti di zona
 
 Un ambito di una zona è un'istanza univoca della zona. Una zona DNS può avere più ambiti di zona, con ogni ambito di zona contenente il proprio set di record DNS. Lo stesso record può essere presente in più ambiti, con indirizzi IP diversi o con gli stessi indirizzi IP. 
 
@@ -92,7 +92,7 @@ Un ambito di una zona è un'istanza univoca della zona. Una zona DNS può avere 
 
 Per ulteriori informazioni, vedere [Add-DnsServerZoneScope](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverzonescope?view=win10-ps)
 
-### <a name="bkmk_records"></a>Aggiungere record agli ambiti di zona
+### <a name="add-records-to-the-zone-scopes"></a><a name="bkmk_records"></a>Aggiungere record agli ambiti di zona
 
 Il passaggio successivo consiste nell'aggiungere i record che rappresentano l'host del server Web nei due ambiti di zona, interni e predefiniti (per i client esterni). 
 
@@ -109,7 +109,7 @@ Add-DnsServerResourceRecord -ZoneName "contoso.com" -A -Name "www.career" -IPv4A
 
 Per ulteriori informazioni, vedere [Aggiungi DnsServerResourceRecord](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverresourcerecord?view=win10-ps).
 
-### <a name="bkmk_policies"></a>Creazione dei criteri DNS
+### <a name="create-the-dns-policies"></a><a name="bkmk_policies"></a>Creazione dei criteri DNS
 
 Una volta identificate le interfacce server per la rete esterna e la rete interna e sono stati creati gli ambiti di zona, è necessario creare criteri DNS che connettono gli ambiti di zona interni ed esterni.
 
@@ -128,11 +128,11 @@ Nel comando di esempio seguente, 10.0.0.56 è l'indirizzo IP nell'interfaccia di
 Per ulteriori informazioni, vedere [Aggiungi DnsServerQueryResolutionPolicy](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverqueryresolutionpolicy?view=win10-ps).  
 
 
-## <a name="bkmk_recursion"></a>Esempio di controllo di ricorsione selettiva DNS
+## <a name="example-of-dns-selective-recursion-control"></a><a name="bkmk_recursion"></a>Esempio di controllo di ricorsione selettiva DNS
 
 Di seguito è riportato un esempio di come è possibile usare i criteri DNS per ottenere lo scenario descritto in precedenza del controllo della ricorsione selettiva DNS.
 
-Questa sezione descrive gli argomenti seguenti:
+Questa sezione contiene i seguenti argomenti.
 
 - [Funzionamento del controllo di ricorsione selettiva DNS](#bkmk_recursionhow)
 - [Come configurare il controllo di ricorsione selettiva DNS](#bkmk_recursionconfigure)
@@ -154,7 +154,7 @@ Nella figura seguente viene illustrato questo scenario.
 ![Controllo ricorsione selettiva](../../media/DNS-Split-Brain/Dns-Split-Brain-02.jpg) 
 
 
-### <a name="bkmk_recursionhow"></a>Funzionamento del controllo di ricorsione selettiva DNS
+### <a name="how-dns-selective-recursion-control-works"></a><a name="bkmk_recursionhow"></a>Funzionamento del controllo di ricorsione selettiva DNS
 
 Se viene ricevuta una query per la quale il server DNS contoso è non autorevole, ad esempio per https://www.microsoft.com, la richiesta di risoluzione dei nomi viene valutata in base ai criteri nel server DNS. 
 
@@ -168,14 +168,14 @@ Se la query viene ricevuta sull'interfaccia esterna, nessun criterio DNS corrisp
 
 In questo modo si impedisce che il server funga da sistema di risoluzione aperto per i client esterni, mentre funge da resolver di memorizzazione nella cache per i client interni. 
 
-### <a name="bkmk_recursionconfigure"></a>Come configurare il controllo di ricorsione selettiva DNS
+### <a name="how-to-configure-dns-selective-recursion-control"></a><a name="bkmk_recursionconfigure"></a>Come configurare il controllo di ricorsione selettiva DNS
 
 Per configurare il controllo della ricorsione selettiva DNS usando i criteri DNS, è necessario seguire questa procedura.
 
 - [Creare ambiti di ricorsione DNS](#bkmk_recscopes)
 - [Creare criteri di ricorsione DNS](#bkmk_recpolicy)
 
-#### <a name="bkmk_recscopes"></a>Creare ambiti di ricorsione DNS
+#### <a name="create-dns-recursion-scopes"></a><a name="bkmk_recscopes"></a>Creare ambiti di ricorsione DNS
 
 Gli ambiti di ricorsione sono istanze univoche di un gruppo di impostazioni che controllano la ricorsione in un server DNS. Un ambito di ricorsione contiene un elenco di server d'attesa e specifica se è abilitata la ricorsione. Un server DNS può avere molti ambiti di ricorsione. 
 
@@ -190,7 +190,7 @@ In questo esempio l'impostazione di ricorsione predefinita è disabilitata, ment
 
 Per ulteriori informazioni, vedere [Add-DnsServerRecursionScope](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverrecursionscope?view=win10-ps)
 
-#### <a name="bkmk_recpolicy"></a>Creare criteri di ricorsione DNS
+#### <a name="create-dns-recursion-policies"></a><a name="bkmk_recpolicy"></a>Creare criteri di ricorsione DNS
 
 È possibile creare criteri di ricorsione del server DNS per scegliere un ambito di ricorsione per un set di query che soddisfano criteri specifici. 
 

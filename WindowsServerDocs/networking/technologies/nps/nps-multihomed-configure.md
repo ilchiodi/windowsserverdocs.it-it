@@ -6,14 +6,14 @@ ms.prod: windows-server
 ms.technology: networking
 ms.topic: article
 ms.assetid: d9d9e9ac-4859-4522-89ed-a23092c9e12a
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: df3c157ea4f453d965cd8754ef4ef9f7a71532a8
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: a937e151954629f7e8775ec68ba8ab5f2b63ee1a
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71396077"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80315818"
 ---
 # <a name="configure-nps-on-a-multihomed-computer"></a>Configurare il Server dei criteri di rete in un computer multihomed
 
@@ -62,7 +62,7 @@ Assicurarsi che i server di accesso alla rete siano configurati con gli stessi n
 
 È possibile utilizzare la procedura seguente per configurare il server dei criteri di configurazione multihomed.
 
-Per eseguire questa procedura, è necessaria almeno l'appartenenza al gruppo **Domain Admins** o a un gruppo equivalente.
+L'appartenenza al gruppo **Domain Admins** oppure a un gruppo equivalente è il requisito minimo necessario per completare questa procedura.
 
 ### <a name="to-specify-the-network-adapter-and-udp-ports-that-nps-uses-for-radius-traffic"></a>Per specificare la scheda di rete e le porte UDP utilizzate dal server dei criteri di rete per il traffico RADIUS
 

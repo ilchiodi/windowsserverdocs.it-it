@@ -6,14 +6,14 @@ ms.technology: networking
 ms.topic: article
 ms.assetid: 04fdfa54-6600-43d4-8945-35f75e15275a
 manager: brianlic
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 4b8f10ab7b3da05fbefabb735ee2b8bb4ef1cb8a
-ms.sourcegitcommit: effbc183bf4b370905d95c975626c1ccde057401
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 36c30372b6cac40b603658eca9636a265801fb1a
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74781348"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80315446"
 ---
 # <a name="manage-qos-policy"></a>Gestisci criteri QoS
 
@@ -32,7 +32,7 @@ Nei sistemi operativi Windows, i criteri QoS combinano la funzionalità di QoS b
 
 -  [Visualizzare, modificare o eliminare un criterio QoS](#bkmk_editpolicy)
 
-##  <a name="bkmk_createpolicy"></a>Creare un criterio QoS
+##  <a name="create-a-qos-policy"></a><a name="bkmk_createpolicy"></a>Creare un criterio QoS
 
 Prima di creare un criterio QoS, è importante comprendere i due controlli QoS principali usati per gestire il traffico di rete:
 
@@ -82,7 +82,7 @@ Nella prima pagina della creazione guidata criteri QoS è possibile specificare 
 
 3. È possibile utilizzare **Specifica velocità in uscita** per abilitare la limitazione della velocità del traffico e configurare la velocità. Il valore della velocità di limitazione deve essere maggiore di 1 ed è possibile specificare unità di kilobyte al secondo \(KBps\) o megabyte al secondo \(MBps\).
 
-4. Fai clic su **Next**.
+4. Fare clic su **Avanti**.
 
 ### <a name="wizard-page-2---application-name"></a>Pagina 2 della procedura guidata-nome applicazione
 
@@ -111,7 +111,7 @@ Facoltativamente, è possibile selezionare **Includi sottodirectory e file** per
 
 2. Se si seleziona **Solo le applicazioni con questo nome di eseguibile**, specificare un nome di eseguibile che termina con l'estensione exe.
 
-3. Fai clic su **Next**.
+3. Fare clic su **Avanti**.
 
 ### <a name="wizard-page-3---ip-addresses"></a>Pagina 3 della procedura guidata-indirizzi IP
 
@@ -147,7 +147,7 @@ Questo è vero perché l'indirizzo IP di origine è l'indirizzo del server HTTP 
 
 4. Se è stata selezionata **l'opzione solo per il seguente indirizzo IP di destinazione**, specificare un indirizzo o un prefisso IPv4 o IPv6 corrispondente al tipo di indirizzo o prefisso specificato per l'indirizzo di origine.
 
-5.  Fai clic su **Next**.  
+5.  Fare clic su **Avanti**.  
 
 ### <a name="wizard-page-4---protocols-and-ports"></a>Pagina 4 della procedura guidata-protocolli e porte
 
@@ -176,7 +176,7 @@ Per completare la creazione dei nuovi criteri QoS, fare clic su **fine** nella p
   
 Per applicare le impostazioni dei criteri QoS a utenti o computer, collegare l'oggetto Criteri di gruppo in cui si trovano i criteri QoS in un contenitore Active Directory Domain Services, ad esempio un dominio, un sito o un'unità organizzativa (OU).  
   
-##  <a name="bkmk_editpolicy"></a>Visualizzare, modificare o eliminare un criterio QoS
+##  <a name="view-edit-or-delete-a-qos-policy"></a><a name="bkmk_editpolicy"></a>Visualizzare, modificare o eliminare un criterio QoS
 
 Le pagine della procedura guidata criteri QoS descritte in precedenza corrispondono alle pagine delle proprietà visualizzate quando si visualizzano o si modificano le proprietà di un criterio.  
   
@@ -253,10 +253,10 @@ Impostando un livello di velocità effettiva inferiore sulla scheda **traffico T
   
 La finestra di ricezione TCP è cambiata in Windows Server 2012, Windows 8, Windows Server 2008 R2, Windows Server 2008 e Windows Vista da versioni precedenti di Windows. Le versioni precedenti di Windows limitavano la finestra del lato di ricezione TCP a un massimo di 64 kilobyte (KB), mentre Windows Server 2012, Windows 8, Windows Server 2008 R2, Windows Server 2008 e Windows Vista ridimensionavano dinamicamente la finestra sul lato di ricezione fino a 16 megabyte (MB ). Nel controllo del traffico TCP in ingresso è possibile controllare il livello di velocità effettiva in ingresso impostando il valore massimo che la finestra di ricezione TCP può aumentare. I livelli corrispondono ai valori massimi seguenti. 
   
-|Livello di velocità effettiva in ingresso|Valore massimo|  
+|Livello di velocità effettiva in ingresso|Massimo|  
 |------------------------|-------|  
-|0|64 KB|
-|1|256 KB|
+|0|64 kB|
+|1|256 kB|
 |2|1 MB|
 |3|16 MB|
 
@@ -291,7 +291,7 @@ Il [Wi-Fi Alliance](https://go.microsoft.com/fwlink/?LinkId=160769) ha stabilito
 
 È possibile creare criteri QoS che usano questi valori DSCP per assicurarsi che i computer portatili con™ certificati Wi\-Fi per le schede wireless WMM ricevano la gestione con priorità quando sono associati a Wi\-Fi Certified per i punti di accesso WMM.
   
-### <a name="BKMK_precedencerules"></a>Regole di precedenza dei criteri QoS
+### <a name="qos-policy-precedence-rules"></a><a name="BKMK_precedencerules"></a>Regole di precedenza dei criteri QoS
 
 Analogamente alle priorità degli oggetti Criteri di gruppo, i criteri QoS hanno regole di precedenza per la risoluzione dei conflitti quando più criteri QoS si applicano a un set specifico di traffico. Per il traffico TCP o UDP in uscita, è possibile applicare un solo criterio QoS alla volta, il che significa che i criteri QoS non hanno un effetto cumulativo, ad esempio dove verranno sommate le frequenze di limitazione.
 

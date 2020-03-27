@@ -6,14 +6,14 @@ ms.topic: article
 ms.assetid: 0a39ecae-39cc-4f26-bd6f-b71ed02fc4ad
 ms.prod: windows-server
 ms.technology: networking
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 0dce886555167ad651704045120fb92eff0dcea1
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 0636fc321b4e94351628fd577526a8e81b4fc4cf
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71356182"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80318318"
 ---
 # <a name="deploy-server-certificates-for-8021x-wired-and-wireless-deployments"></a>Distribuire i certificati server per le distribuzioni wireless e cablate 802.1X
 
@@ -61,7 +61,7 @@ Registrazione automatica dei certificati server, denominato anche la registrazio
 - Semplicità. Specificare i server che registrano i certificati del server utilizzando l'account di gruppo di Active Directory e l'appartenenza al gruppo.   
 - Quando si distribuiscono i certificati del server, i certificati sono basati su un modello configurato con le istruzioni riportate in questa Guida. Ciò significa che è possibile personalizzare modelli di certificato diversi per tipi di server specifici oppure è possibile utilizzare lo stesso modello per tutti i certificati server che si desidera eseguire.  
 
-## <a name="bkmk_pre"></a>Prerequisiti per l'uso di questa guida  
+## <a name="prerequisites-for-using-this-guide"></a><a name="bkmk_pre"></a>Prerequisiti per l'uso di questa guida  
 
 In questa guida vengono fornite istruzioni su come distribuire i certificati del server tramite Servizi certificati Active Directory e il ruolo Server Web (IIS) in Windows Server 2016. Di seguito sono i prerequisiti per l'esecuzione delle procedure illustrate in questa Guida.  
 
@@ -76,10 +76,10 @@ In questa guida vengono fornite istruzioni su come distribuire i certificati del
 >[!NOTE]  
 >Si è pronti assegnare un indirizzo IP statico per il server Web e servizi certificati Active Directory che si distribuisce in questa Guida, nonché per assegnare un nome di computer in base alle convenzioni di denominazione dell'organizzazione. Inoltre, è necessario aggiungere il computer al dominio.  
 
-## <a name="bkmk_not"></a>Descrizione non fornita da questa guida  
+## <a name="what-this-guide-does-not-provide"></a><a name="bkmk_not"></a>Descrizione non fornita da questa guida  
 In questa Guida non fornisce istruzioni dettagliate per la progettazione e distribuzione di un'infrastruttura a chiave pubblica (PKI) utilizzando Servizi certificati Active Directory. È consigliabile consultare la documentazione di servizi certificati Active Directory e documentazione di progettazione dell'infrastruttura PKI prima di distribuire le tecnologie disponibili in questa Guida.   
 
-## <a name="bkmk_tech"></a>Panoramica sulla tecnologia  
+## <a name="technology-overviews"></a><a name="bkmk_tech"></a>Panoramica sulla tecnologia  
 Di seguito sono panoramiche sulla tecnologia per Servizi certificati Active Directory e Server Web (IIS).  
 
 ### <a name="active-directory-certificate-services"></a>Servizi certificati Active Directory  
