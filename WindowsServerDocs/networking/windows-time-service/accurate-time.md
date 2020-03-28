@@ -2,18 +2,18 @@
 ms.assetid: 72a90d00-56ee-48a9-9fae-64cbad29556c
 title: Ora esatta per Windows Server 2016
 description: Accuratezza sincronizzazione ora in Windows Server 2016 è stata migliorata sostanzialmente, garantendo contemporaneamente all'indietro NTP la compatibilità con le versioni precedenti di Windows.
-author: shortpatti
+author: eross-msft
 ms.author: dacuo
 ms.date: 05/08/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: networking
-ms.openlocfilehash: 2e8e9e86f81596c85219c37c07d8fd2e95cc3a49
-ms.sourcegitcommit: 10331ff4f74bac50e208ba8ec8a63d10cfa768cc
+ms.openlocfilehash: 3320c67d52978f0e9abaae7d5bec9b4fcb727fd6
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75953092"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80315085"
 ---
 # <a name="accurate-time-for-windows-server-2016"></a>Ora esatta per Windows Server 2016
 

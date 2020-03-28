@@ -2,19 +2,19 @@
 ms.assetid: e34622ff-b2d0-4f81-8d00-dacd5d6c215e
 title: Riferimento tecnico per Windows Time Service
 description: ''
-author: shortpatti
-ms.author: pashort
+author: eross-msft
+ms.author: lizross
 manager: dougkim
 ms.date: 05/08/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: networking
-ms.openlocfilehash: 31c7c53a5dd28813076fcaa745093050808b5755
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 6d6f203c43ccb764b3ccbfcabbf92f448920b41c
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71405230"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80315044"
 ---
 # <a name="windows-time-service"></a>Ora di Windows
 
@@ -37,7 +37,7 @@ Il servizio Ora di Windows, noto anche come W32Time, sincronizza la data e l'ora
 > [!IMPORTANT]  
 > Nelle versioni precedenti a Windows Server 2016, il servizio W32Time non è progettato per soddisfare le esigenze delle applicazioni dipendenti dall'ora.  Tuttavia, gli aggiornamenti apportati a Windows Server 2016 consentono ora di implementare una soluzione per l'accuratezza di 1 ms nel dominio.  Per altre informazioni, vedi [Ora esatta Windows 2016](accurate-time.md) e [Limiti di supporto per configurare il servizio Ora di Windows per gli ambienti con accuratezza elevata](support-boundary.md).  
   
-## <a name="BKMK_Config"></a>Dove trovare informazioni sulla configurazione del servizio Ora di Windows  
+## <a name="where-to-find-windows-time-service-configuration-information"></a><a name="BKMK_Config"></a>Dove trovare informazioni sulla configurazione del servizio Ora di Windows  
 Questa guida **non** illustra la configurazione del servizio Ora di Windows. In Microsoft TechNet e nella Microsoft Knowledge Base sono disponibili diversi argomenti che illustrano le procedure per la configurazione di tale servizio. Se necessiti di informazioni sulla configurazione, gli argomenti seguenti consentono di individuare le informazioni appropriate.  
   
 -   Per configurare il servizio Ora di Windows per l'emulatore del controller di dominio primario (PDC) radice della foresta, vedi:  
@@ -63,7 +63,7 @@ Questa guida **non** illustra la configurazione del servizio Ora di Windows. In 
   
 -   Per configurare il servizio Ora di Windows in un server membro eseguito come computer virtuale, usa la gerarchia temporale del dominio come descritto in [Configurare un computer client per la sincronizzazione automatica dell'ora del dominio](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/cc816884%28v%3dws.10%29).  
   
-## <a name="BKMK_WTS"></a>Cos'è il servizio Ora di Windows?  
+## <a name="what-is-the-windows-time-service"></a><a name="BKMK_WTS"></a>Cos'è il servizio Ora di Windows?  
 Il servizio Ora di Windows (W32Time) fornisce la sincronizzazione dei clock di rete per i computer senza la necessità di una configurazione complessa.  
   
 Il servizio Ora di Windows è essenziale per il corretto funzionamento dell'autenticazione Kerberos versione 5 e, pertanto, per l'autenticazione basata su Active Directory Domain Services. Qualsiasi applicazione in grado di riconoscere Kerberos, inclusa la maggior parte dei servizi di sicurezza, si basa sulla sincronizzazione dell'ora tra i computer che partecipano alla richiesta di autenticazione. Anche i controller di dominio di Active Directory Domain Services devono avere clock sincronizzati per garantire l'accuratezza della replica dei dati.  
@@ -72,7 +72,7 @@ Il servizio Ora di Windows viene implementato in una libreria di collegamento di
   
 La libreria W32Time.dll è stata sviluppata in origine per Windows 2000 Server per supportare una specifica del protocollo di autenticazione Kerberos V5 che richiede la sincronizzazione dei clock in una rete. A partire da Windows Server 2003, W32Time.dll fornisce maggiore accuratezza nella sincronizzazione del clock di rete nel sistema operativo Windows 2000 Server e, inoltre, supporta una vasta gamma di dispositivi hardware e protocolli di tempo in rete tramite provider servizi orari. Sebbene originariamente progettate per fornire la sincronizzazione dei clock per l'autenticazione Kerberos, molte applicazioni correnti usano timestamp per garantire la coerenza delle transazioni, registrare l'ora di eventi importanti e fornire altre informazioni basate sull'ora importanti per l'azienda. Queste applicazioni usufruiscono della sincronizzazione dell'ora tra computer fornita dal servizio Ora di Windows.  
   
-## <a name="BKMK_TimeProtocols"></a>Importanza dei protocolli di tempo  
+## <a name="importance-of-time-protocols"></a><a name="BKMK_TimeProtocols"></a>Importanza dei protocolli di tempo  
 I protocolli di tempo comunicano tra due computer per scambiare informazioni sull'ora e quindi usano tali informazioni per sincronizzare i clock. Con il protocollo di tempo del servizio Ora di Windows, un client richiede informazioni sull'ora a un server e sincronizza il clock in base alle informazioni ricevute.  
   
 Il servizio Ora di Windows usa il protocollo NTP per sincronizzare l'ora in una rete. NTP è un protocollo di tempo Internet che include gli algoritmi di disciplina necessari per la sincronizzazione degli orologi. NTP è un protocollo di tempo più accurato rispetto a Simple Network Time Protocol (SNTP), che viene usato in alcune versioni di Windows. Tuttavia, W32Time continua a supportare SNTP per abilitare la compatibilità con le versioni precedenti per i computer che eseguono servizi ora basati su SNTP, ad esempio Windows 2000.  

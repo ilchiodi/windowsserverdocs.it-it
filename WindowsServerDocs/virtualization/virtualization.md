@@ -7,15 +7,15 @@ manager: brianlic
 ms.technology: compute
 ms.assetid: c248b41f-0de3-7136-9a25-b4b07e41ebf0
 ms.topic: landing-page
-author: shortpatti
-ms.author: pashort
+author: eross-msft
+ms.author: lizross
 ms.localizationpriority: high
-ms.openlocfilehash: 50d30631a6c2bbf9a94ab6c59bbd006323458241
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 1d9f7da0bc2a2f6113242ab4af90f5d8da49b2c3
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71364049"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80307902"
 ---
 # <a name="virtualization"></a>Virtualizzazione
 
@@ -39,7 +39,7 @@ La virtualizzazione in Windows Server è una delle tecnologie fondamentali neces
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Infrastruttura protetta e VM schermate</h3>
+                        <h3>Infrastruttura sorvegliata e macchine virtuali schermate</h3>
 <HR />
                         <p>L'infrastruttura sorvegliata consente ai provider di servizi cloud o agli amministratori del cloud privato aziendale di offrire un ambiente più sicuro per le macchine virtuali. Un'infrastruttura sorvegliata è costituita da un Servizio Sorveglianza host (Host Guardian Service - HGS), che in genere consiste in un cluster di tre nodi, oltre a uno o più host sorvegliati e un set di macchine virtuali schermate.</p>
                      </div>

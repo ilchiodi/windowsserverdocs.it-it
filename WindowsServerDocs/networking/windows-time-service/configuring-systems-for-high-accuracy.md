@@ -2,18 +2,18 @@
 ms.assetid: ''
 title: Configurazione dei sistemi per l'accuratezza elevata
 description: La sincronizzazione dell'ora in Windows 10 e Windows Server 2016 è stata migliorata in modo significativo.  In condizioni operative ragionevoli i sistemi possono essere configurati in modo da mantenere un'accuratezza di 1 ms (millisecondo) o superiore (rispetto all'ora UTC).
-author: shortpatti
+author: eross-msft
 ms.author: dacuo
 ms.date: 05/08/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: networking
-ms.openlocfilehash: b7cd256fdbbdbe7432e5b5d5b16254314132560f
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 8cdded0eb0dc663d352011fb1a6765a2ed358764
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71405198"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80315030"
 ---
 # <a name="configuring-systems-for-high-accuracy"></a>Configurazione dei sistemi per l'accuratezza elevata
 >Si applica a: Windows Server 2016 e Windows 10, versione 1607 o successive
@@ -106,7 +106,7 @@ Questa misurazione può essere ottenuta usando lo strumento w32tm.exe incorporat
 
 #### <a name="registry-settings"></a>Impostazioni del Registro di sistema
 
-# <a name="minpollintervaltabminpollinterval"></a>[MinPollInterval](#tab/MinPollInterval)
+# <a name="minpollinterval"></a>[MinPollInterval](#tab/MinPollInterval)
 Configura l'intervallo minimo in secondi log2 consentito per il polling del sistema.
 
 |  |  | 
@@ -120,7 +120,7 @@ Il comando seguente segnala al servizio Ora di Windows di selezionare le imposta
 `w32tm /config /update`
 
 
-# <a name="maxpollintervaltabmaxpollinterval"></a>[MaxPollInterval](#tab/MaxPollInterval)
+# <a name="maxpollinterval"></a>[MaxPollInterval](#tab/MaxPollInterval)
 Configura l'intervallo massimo di secondi log2 consentito per il polling del sistema.
 
 |  |  |  
@@ -133,7 +133,7 @@ Il comando seguente segnala al servizio Ora di Windows di selezionare le imposta
 
 `w32tm /config /update`
 
-# <a name="updateintervaltabupdateinterval"></a>[UpdateInterval](#tab/UpdateInterval)
+# <a name="updateinterval"></a>[UpdateInterval](#tab/UpdateInterval)
 Il numero di tick del clock tra le regolazioni di correzione di fase.
 
 |  |  |  
@@ -146,7 +146,7 @@ Il comando seguente segnala al servizio Ora di Windows di selezionare le imposta
 
 `w32tm /config /update`
 
-# <a name="specialpollintervaltabspecialpollinterval"></a>[SpecialPollInterval](#tab/SpecialPollInterval)
+# <a name="specialpollinterval"></a>[SpecialPollInterval](#tab/SpecialPollInterval)
 Configura l'intervallo di polling in secondi quando è abilitato il flag SpecialInterval 0x1.
 
 |  |  |  
@@ -159,7 +159,7 @@ Il comando seguente riavvia il servizio Ora di Windows per selezionare le impost
 
 `net stop w32time && net start w32time`
 
-# <a name="frequencycorrectratetabfrequencycorrectrate"></a>[FrequencyCorrectRate](#tab/FrequencyCorrectRate)
+# <a name="frequencycorrectrate"></a>[FrequencyCorrectRate](#tab/FrequencyCorrectRate)
 
 |  |  |  
 |---------|---------|
