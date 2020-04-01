@@ -93,8 +93,8 @@
 #### [Concedere l'accesso al PC dall'esterno della rete](clients/remote-desktop-allow-outside-access.md)
 #### [Modificare la porta di ascolto di Desktop remoto nel PC](clients/change-listening-port.md)
 ### Informazioni avanzate
-#### [Quale client si adatta meglio alle tue esigenze?](clients/remote-desktop-app-compare.md)
-#### [Impostazioni del file RDP di Desktop remoto](clients/rdp-files.md)
+#### [Confrontare i client](clients/remote-desktop-app-compare.md)
+#### [Impostazioni supportate dei file RDP di Desktop remoto](clients/rdp-files.md)
 #### [Schema URI di Desktop remoto](clients/remote-desktop-uri.md)
 #### [Domande frequenti sul client Desktop remoto](clients/remote-desktop-client-faq.md)
 #### [Impostazioni di privacy per desktop e app gestite](clients/remote-privacy-settings.md)
