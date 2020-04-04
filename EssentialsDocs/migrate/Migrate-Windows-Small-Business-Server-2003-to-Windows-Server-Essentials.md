@@ -12,12 +12,12 @@ ms.assetid: 119a7fbc-2c76-4aa3-8a7f-c7073d461b5b
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: b9c4e60864566d978603276c3119d3cbff1bbf57
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: b99a21d38011b40515fb322429b73f23ad5849cf
+ms.sourcegitcommit: 3c3dfee8ada0083f97a58997d22d218a5d73b9c4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80318937"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80639905"
 ---
 # <a name="migrate-windows-small-business-server-2003-to-windows-server-essentials"></a>Eseguire la migrazione da Windows Small Business Server 2003 a Windows Server Essentials
 
@@ -64,23 +64,7 @@ Questa guida descrive come eseguire la migrazione di un dominio Windows SBS 2003
   
 7.  [Eseguire le attività post-migrazione per la migrazione a Windows Server Essentials](Perform-post-migration-tasks-for-Windows-Server-Essentials-migration.md).  Al termine della migrazione di tutte le impostazioni e i dati in Windows Server Essentials, è possibile eseguire il mapping dei computer autorizzati agli account utente.  
   
-8.  [Eseguire il Best Practices Analyzer di Windows Server Essentials](Run-the-Windows-Server-Essentials-Best-Practices-Analyzer.md).  Al termine della migrazione delle impostazioni e dei dati in Windows Server Essentials, è necessario scaricare ed eseguire il BPA di Windows Server Essentials.  
-
-1.  [Preparare il server di origine per la migrazione a Windows Server Essentials](../migrate/Prepare-your-Source-Server-for-Windows-Server-Essentials-migration.md).  Verificare che il server di origine e la rete siano pronti per la migrazione. In questa sezione viene illustrato come eseguire il backup del server di origine, valutare l'integrità del sistema del server di origine, installare gli aggiornamenti e i Service Pack più recenti e verificare la configurazione della rete.  
-  
-2.  [Installare Windows Server Essentials in modalità di migrazione](../migrate/Install-Windows-Server-Essentials-in-migration-mode.md).  Questa sezione descrive i passaggi da eseguire per installare Windows Server Essentials nel server di destinazione in modalità di migrazione.  
-  
-3.  [Aggiungere i computer alla nuova rete di Windows Server Essentials](../migrate/Join-computers-to-the-new-Windows-Server-Essentials-network.md).  Questa sezione illustra l'aggiunta di computer client alla nuova rete di Windows Server Essentials e l'aggiornamento delle impostazioni di Criteri di gruppo.  
-  
-4.  [Spostare i dati e le impostazioni di SBS 2003 nel server di destinazione](../migrate/Move-Windows-SBS-2003-settings-and-data-to-the-Destination-Server-for-Windows-Server-Essentials-migration.md).  In questa sezione vengono fornite informazioni in merito alla migrazione di dati e impostazioni dal server di origine.  
-  
-5.  [Abilitare il reindirizzamento cartelle nel server di destinazione Windows Server Essentials](../migrate/Enable-folder-redirection-on-the-Windows-Server-Essentials-Destination-Server.md).  Se il reindirizzamento cartelle è abilitato nel server di origine, è possibile abilitarlo nel server di destinazione e quindi eliminare l'impostazione dei Criteri di gruppo per il reindirizzamento cartelle.  
-  
-6.  [Abbassare di e rimuovere il server di origine dalla nuova rete Windows Server Essentials](../migrate/Demote-and-remove-the-Source-Server-from-the-new-Windows-Server-Essentials-network.md).  Prima di rimuovere il server di origine dalla rete, è necessario forzare un aggiornamento dei Criteri di gruppo e abbassare di livello il server di origine.  
-  
-7.  [Eseguire le attività post-migrazione per la migrazione a Windows Server Essentials](../migrate/Perform-post-migration-tasks-for-Windows-Server-Essentials-migration.md).  Al termine della migrazione di tutte le impostazioni e i dati in Windows Server Essentials, è possibile eseguire il mapping dei computer autorizzati agli account utente.  
-  
-8.  [Eseguire il Best Practices Analyzer di Windows Server Essentials](../migrate/Run-the-Windows-Server-Essentials-Best-Practices-Analyzer.md).  Al termine della migrazione delle impostazioni e dei dati in Windows Server Essentials, è necessario scaricare ed eseguire il BPA di Windows Server Essentials.  
+8.  [Eseguire il Best Practices Analyzer di Windows Server Essentials](Run-the-Windows-Server-Essentials-Best-Practices-Analyzer.md).  Al termine della migrazione delle impostazioni e dei dati in Windows Server Essentials, è necessario scaricare ed eseguire il BPA di Windows Server Essentials.   
 
   
  Diverse procedure di migrazione richiedono l'apertura di una finestra del prompt dei comandi come amministratore.  

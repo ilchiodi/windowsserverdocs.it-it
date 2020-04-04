@@ -12,12 +12,12 @@ ms.topic: article
 ms.assetid: faec70ac-88c0-4b0a-85c7-f0fe21e28257
 ms.author: lizross
 author: eross-msft
-ms.openlocfilehash: 6f020dc2bf5c0dc11d18e886346a98a4a40f3855
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: 9434f3192da110c8ad61e999d2aecd02bfff3812
+ms.sourcegitcommit: 3c3dfee8ada0083f97a58997d22d218a5d73b9c4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80314051"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80639845"
 ---
 # <a name="step-2-configure-the-multisite-infrastructure"></a>Passaggio 2 configurare l'infrastruttura multisito
 
@@ -241,7 +241,7 @@ Per caricare o modificare la configurazione di accesso remoto, è possibile tras
   
 #### <a name="to-change-the-domain-controller-that-manages-server-gpos"></a><a name="ChangeDC"></a>Per modificare il controller di dominio che gestisce gli oggetti Criteri di gruppo del server  
   
--   Eseguire il cmdlet Windows PowerShell  `HYPERLINK "https://technet.microsoft.com/library/hh918412.aspx" Set-DAEntryPointDC` sul server di accesso remoto e specificare il nome del controller di dominio non è raggiungibile per i *ExistingDC* parametro. Questo comando Modifica l'associazione di controller di dominio per il server di oggetti Criteri di gruppo dei punti di ingresso che sono attualmente gestiti dal controller di dominio.  
+-   Eseguire il cmdlet di Windows PowerShell [set-DAEntryPointDC](https://docs.microsoft.com/powershell/module/remoteaccess/set-daentrypointdc) nel server di accesso remoto e specificare il nome del controller di dominio non raggiungibile per il parametro *ExistingDC* . Questo comando Modifica l'associazione di controller di dominio per il server di oggetti Criteri di gruppo dei punti di ingresso che sono attualmente gestiti dal controller di dominio.
   
     -   Per sostituire il controller di dominio non raggiungibile "DC1" con il controller di dominio "DC2", eseguire le operazioni seguenti:  
   
@@ -300,7 +300,7 @@ Informazioni sull'associazione di controller di dominio vengono archiviati sia n
     ![Windows PowerShell](../../../../media/Step-2-Configure-the-Multisite-Infrastructure/DCAssocFinal.png)  
   
 ### <a name="optimization-of-configuration-distribution"></a><a name="ConfigDistOptimization"></a>Ottimizzazione della distribuzione della configurazione  
-Quando si apportano modifiche di configurazione, le modifiche vengono applicate solo dopo che il server di oggetti Criteri di gruppo propagazione al server di accesso remoto. Per ridurre il tempo di distribuzione della configurazione, accesso remoto seleziona automaticamente un controller di dominio scrivibile che è il collegamento ipertestuale "<https://technet.microsoft.com/library/cc978016.aspx>" più vicino al server di accesso remoto durante la creazione dell'oggetto Criteri di gruppo del server.  
+Quando si apportano modifiche di configurazione, le modifiche vengono applicate solo dopo che il server di oggetti Criteri di gruppo propagazione al server di accesso remoto. Per ridurre il tempo di distribuzione della configurazione, accesso remoto seleziona automaticamente un controller di dominio scrivibile [più vicino al server di accesso remoto](https://technet.microsoft.com/library/cc978016.aspx) durante la creazione dell'oggetto Criteri di gruppo del server.  
   
 In alcuni scenari, può essere necessario modificare manualmente il controller di dominio che gestisce un oggetto Criteri di gruppo di server per ottimizzare i tempi di distribuzione di configurazione:  
   
@@ -336,4 +336,3 @@ Per ottimizzare i tempi di distribuzione della configurazione, effettuare una de
   
 -   [Passaggio 3: configurare la distribuzione multisito](Step-3-Configure-the-Multisite-Deployment.md)  
 -   [Passaggio 1: implementare una distribuzione di accesso remoto a server singolo](Step-1-Implement-a-Single-Server-Remote-Access-Deployment.md)  
-

@@ -1,5 +1,5 @@
 ---
-title: Impostazione delle sincronizzazioni degli aggiornamenti
+title: Impostazione delle sincronizzazioni di aggiornamento
 description: Argomento Windows Server Update Service (WSUS)-come configurare e configurare le sincronizzazioni degli aggiornamenti
 ms.custom: na
 ms.prod: windows-server
@@ -13,16 +13,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 4559016388f9b0d765c8e4d76f76fa7ef0a7f0f0
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 9c7bca5be7a8ec0e857cba65680fbc3b967af4f8
+ms.sourcegitcommit: 3c3dfee8ada0083f97a58997d22d218a5d73b9c4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71361605"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80639751"
 ---
-# <a name="setting-up-update-synchronizations"></a>Impostazione delle sincronizzazioni degli aggiornamenti
+# <a name="setting-up-update-synchronizations"></a>Impostazione delle sincronizzazioni di aggiornamento
 
->Si applica a: Windows Server (Canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Si applica a: Windows Server 2019, Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Durante la sincronizzazione, un server WSUS scarica gli aggiornamenti (aggiornamento del file e metadati) da un'origine degli aggiornamenti. Inoltre, Scarica nuove classificazioni dei prodotti e le categorie, se presente. Quando il server WSUS viene sincronizzato per la prima volta, verrà scaricato tutti gli aggiornamenti specificati durante la configurazione delle opzioni di sincronizzazione. Dopo la prima sincronizzazione, il server WSUS scarica solo gli aggiornamenti dall'origine degli aggiornamenti, nonché le revisioni di metadati per gli aggiornamenti esistenti e le scadenze degli aggiornamenti.
 
@@ -30,7 +30,7 @@ La prima volta che un server WSUS scarica aggiornamenti può richiedere molto te
 
 È possibile copiare il contenuto dalla directory del contenuto del server WSUS a un altro. Quando si esegue la procedura di installazione di WSUS post, viene specificato il percorso della directory dei contenuti. È possibile utilizzare lo strumento wsusutil.exe per esportare i metadati dell'aggiornamento da un server WSUS in un file. È quindi possibile importare tale file in altri server WSUS.
 
-## <a name="setting-up-update-synchronizations"></a>Impostazione delle sincronizzazioni degli aggiornamenti
+## <a name="setting-up-update-synchronizations"></a>Impostazione delle sincronizzazioni di aggiornamento
 Il **Opzioni** pagina è il punto di accesso centrale nella Console di amministrazione di WSUS per la personalizzazione di come il server WSUS Sincronizza gli aggiornamenti. È possibile specificare gli aggiornamenti vengono sincronizzati automaticamente, in cui il server Ottiene gli aggiornamenti, le impostazioni di connessione e la pianificazione della sincronizzazione. È anche possibile utilizzare la configurazione guidata di **Opzioni** pagina per configurare o riconfigurare il server WSUS in qualsiasi momento.
 
 ### <a name="synchronizing-update-by-product-and-classification"></a>Aggiornamento per prodotto e classificazione di sincronizzazione

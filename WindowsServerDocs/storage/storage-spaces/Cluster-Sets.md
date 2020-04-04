@@ -8,12 +8,12 @@ author: johnmarlin-msft
 ms.date: 01/30/2019
 description: Questo articolo descrive lo scenario dei set di cluster
 ms.localizationpriority: medium
-ms.openlocfilehash: 52d686fa9797d84f56182b15c36a26440792ec13
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: db427e8fa4e5574c6eb7837cf0ab4a9fcc180410
+ms.sourcegitcommit: 3c3dfee8ada0083f97a58997d22d218a5d73b9c4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71402919"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80639957"
 ---
 # <a name="cluster-sets"></a>Set di cluster
 
@@ -65,7 +65,7 @@ Un dominio di errore è il raggruppamento di elementi software e hardware che l'
 
 **Set di disponibilità**
 
-Un set di disponibilità consente all'amministratore di configurare la ridondanza desiderata dei carichi di lavoro in cluster tra domini di errore, organizzando questi in un set di disponibilità e distribuendo i carichi di lavoro in tale set di disponibilità. Supponiamo che se si distribuisce un'applicazione a due livelli, è consigliabile configurare almeno due macchine virtuali in un set di disponibilità per ogni livello, in modo da garantire che quando un dominio di errore nel set di disponibilità diventa inattivo, l'applicazione avrà almeno una macchina virtuale in ogni livello ospitata in un dominio di errore diverso dello stesso set di disponibilità.
+Un set di disponibilità consente all'amministratore di configurare la ridondanza desiderata dei carichi di lavoro in cluster tra domini di errore, organizzando questi in un set di disponibilità e distribuendo i carichi di lavoro in tale set di disponibilità. Supponiamo che se si distribuisce un'applicazione a due livelli, si consiglia di configurare almeno due macchine virtuali in un set di disponibilità per ogni livello, in modo da garantire che quando un dominio di errore nel set di disponibilità diventa inattivo, l'applicazione avrà almeno una macchina virtuale in ogni livello ospitata in un dominio di errore diverso dello stesso set di disponibilità.
 
 ## <a name="why-use-cluster-sets"></a>Perché usare i set di cluster
 
@@ -100,7 +100,7 @@ In Windows Server 2019 è disponibile un nuovo ruolo di file server con scalabil
 
 Le considerazioni seguenti si applicano a un ruolo SOFS dell'infrastruttura:
 
-1.  In un cluster di failover può essere presente al massimo un solo ruolo cluster SOFS di infrastruttura. Il ruolo SOFS dell'infrastruttura viene creato specificando il parametro switch " **-Infrastructure**" per il cmdlet **Add-ClusterScaleOutFileServerRole** .  Ad esempio:
+1.  In un cluster di failover può essere presente al massimo un solo ruolo cluster SOFS di infrastruttura. Il ruolo SOFS dell'infrastruttura viene creato specificando il parametro switch " **-Infrastructure**" per il cmdlet **Add-ClusterScaleOutFileServerRole** .  Ad esempio,
 
         Add-ClusterScaleoutFileServerRole -Name "my_infra_sofs_name" -Infrastructure
 
@@ -163,7 +163,7 @@ Quando si crea un set di cluster, sono consigliati i prerequisiti seguenti:
 
         Get-ClusterSet -CimSession CSMASTER | Get-Cluster | Get-ClusterGroup 
 
-8. Per verificare che il processo di creazione del set di cluster abbia creato una condivisione SMB (identificata come volume1 o la cartella CSV con l'etichetta ScopeName come nome del file server dell'infrastruttura e il percorso come entrambi) nell'infrastruttura SOFS per ogni membro del cluster Volume CSV:
+8. Per verificare che il processo di creazione del set di cluster abbia creato una condivisione SMB (identificata come volume1 o la cartella CSV con l'etichetta ScopeName come nome del file server dell'infrastruttura e il percorso come entrambi) nell'infrastruttura SOFS per ogni volume CSV del membro del cluster:
 
         Get-SmbShare -CimSession CSMASTER
 
@@ -171,7 +171,7 @@ Quando si crea un set di cluster, sono consigliati i prerequisiti seguenti:
 
         Get-ClusterSetLog -ClusterSetCimSession CSMASTER -IncludeClusterLog -IncludeManagementClusterLog -DestinationFolderPath <path>
 
-9. Configurare la [delega vincolata](https://blogs.technet.microsoft.com/virtualization/2017/02/01/live-migration-via-constrained-delegation-with-kerberos-in-windows-server-2016/) Kerberos tra tutti i membri del set di cluster.
+9. Configurare la [delega vincolata](https://techcommunity.microsoft.com/t5/virtualization/live-migration-via-constrained-delegation-with-kerberos-in/ba-p/382334) Kerberos tra tutti i membri del set di cluster.
 
 10. Configurare il tipo di autenticazione della migrazione in tempo reale di una macchina virtuale tra cluster in Kerberos in ogni nodo del set di cluster.
 
@@ -260,7 +260,7 @@ La migrazione in tempo reale di una macchina virtuale tra cluster di set di clus
 
 Con cluster imposta questi passaggi non sono necessari ed è necessario un solo comando.  Per prima cosa, è necessario impostare tutte le reti in modo che siano disponibili per la migrazione con il comando:
 
-    Set-VMHost -UseAnyNetworkMigration $true
+    Set-VMHost -UseAnyNetworkForMigration $true
 
 Ad esempio, voglio spostare una macchina virtuale del set di cluster da CLUSTER1 a NODE2-CL3 in CLUSTER3.  Il singolo comando è:
 

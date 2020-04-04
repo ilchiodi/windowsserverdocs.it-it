@@ -8,12 +8,12 @@ ms.date: 02/10/2020
 ms.topic: article
 ms.prod: windows-server
 ms.technology: storage
-ms.openlocfilehash: a9759f0ea8835c8e07bcd298b75024e3ee29c9ed
-ms.sourcegitcommit: b5c12007b4c8fdad56076d4827790a79686596af
+ms.openlocfilehash: f8a1e70bba740875e19660d5a729a952c9fae8f2
+ms.sourcegitcommit: d56c042c58833bdaa9a6fe54dd68f540af12fc6e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78856345"
+ms.lasthandoff: 04/04/2020
+ms.locfileid: "80661072"
 ---
 # <a name="storage-migration-service-known-issues"></a>Problemi noti del servizio migrazione archiviazione
 
@@ -23,7 +23,7 @@ Il servizio migrazione archiviazione è disponibile in due parti: il servizio in
 
 Ad esempio, Windows Server, versione 1903 include nuove funzionalità e correzioni per il servizio migrazione archiviazione, disponibili anche per Windows Server 2019 e Windows Server, versione 1809 con l'installazione di [KB4512534](https://support.microsoft.com/help/4512534/windows-10-update-kb4512534).
 
-## <a name="collecting-logs"></a>Come raccogliere i file di log quando si lavora con supporto tecnico Microsoft
+## <a name="how-to-collect-log-files-when-working-with-microsoft-support"></a><a name="collecting-logs"></a>Come raccogliere i file di log quando si lavora con supporto tecnico Microsoft
 
 Il servizio migrazione archiviazione contiene i registri eventi per il servizio agente di orchestrazione e il servizio proxy. Il server dell'agente di orchestrazione contiene sempre i registri eventi e i server di destinazione con il servizio proxy installato contengono i log del proxy. Questi log si trovano in:
 
@@ -343,7 +343,7 @@ Quando si tenta di eseguire il trasferimento di un'origine cluster Windows Serve
        at Microsoft.FailoverClusters.Framework.ClusterUtils.RenameFSNetName(SafeClusterHandle ClusterHandle, String clusterName, String FsResourceId, String NetNameResourceId, String newDnsName, CancellationToken ct)
        at Microsoft.StorageMigration.Proxy.Cutover.CutoverUtils.RenameFSNetName(NetworkCredential networkCredential, Boolean isLocal, String clusterName, String fsResourceId, String nnResourceId, String newDnsName, CancellationToken ct)    [d:\os\src\base\dms\proxy\cutover\cutoverproxy\CutoverUtils.cs::RenameFSNetName::1510]
 
-Questo problema è causato da un'API mancante nelle versioni precedenti di Windows Server. Attualmente non è possibile eseguire la migrazione di cluster Windows Server 2008 e Windows Server 2003. È possibile eseguire l'inventario e il trasferimento senza problemi nei cluster Windows Server 2008 R2, quindi eseguire manualmente cutover modificando manualmente l'origine del cluster file server risorsa NetName e l'indirizzo IP, quindi modificando il cluster di destinazione NetName e IP indirizzo corrispondente all'origine originale. 
+Questo problema è causato da un'API mancante nelle versioni precedenti di Windows Server. Attualmente non è possibile eseguire la migrazione di cluster Windows Server 2008 e Windows Server 2003. È possibile eseguire l'inventario e il trasferimento senza problemi nei cluster Windows Server 2008 R2, quindi eseguire manualmente cutover modificando manualmente l'origine del cluster file server risorsa NetName e l'indirizzo IP, quindi cambiando il NetName del cluster di destinazione e l'indirizzo IP in modo che corrisponda all'origine originale. 
 
 ## <a name="cutover-hangs-on-38-mapping-network-interfaces-on-the-source-computer-when-using-dhcp"></a>Cutover si blocca su "38% mapping delle interfacce di rete nel computer di origine..." Quando si usa DHCP 
 
@@ -421,7 +421,7 @@ Se è già stato eseguito il trasferimento di una o più volte:
     Get-ADObject -Filter 'Description -like "*storage migration service renamed*"' -SearchBase 'DC=<domain>,DC=<TLD>' | ft name,distinguishedname
     ```
    
- 2. Per tutti gli utenti restituiti con il nome originale, modificare il nome di accesso utente (precedente a Windows 2000) per rimuovere il suffisso di carattere casuale aggiunto dal servizio migrazione archiviazione, in modo che questo perdente possa accedere.
+ 2. Per tutti gli utenti restituiti con il nome originale, modificare il relativo nome di accesso utente (precedente a Windows 2000) per rimuovere il suffisso di carattere casuale aggiunto dal servizio migrazione archiviazione, in modo che l'utente possa eseguire l'accesso.
  3. Per tutti i gruppi restituiti con il nome originale, modificare il nome del gruppo (precedente a Windows 2000) per rimuovere il suffisso di carattere casuale aggiunto dal servizio migrazione archiviazione.
  4. Per tutti gli utenti o i gruppi disabilitati con nomi che ora contengono un suffisso aggiunto dal servizio migrazione archiviazione, è possibile eliminare questi account. È possibile verificare che gli account utente siano stati aggiunti in un secondo momento perché contengono solo il gruppo Domain Users e avranno una data/ora di creazione corrispondente all'ora di inizio del trasferimento del servizio migrazione archiviazione.
  
@@ -484,7 +484,7 @@ In questa fase, l'agente di orchestrazione del servizio migrazione archiviazione
  - Il servizio Registro di sistema remoto non è in esecuzione nel computer di origine.
  - il firewall non consente le connessioni del registro di sistema remoto al server di origine dall'agente di orchestrazione.
  - L'account di migrazione di origine non dispone delle autorizzazioni del registro di sistema remoto per la connessione al computer di origine.
- - L'account di migrazione di origine non dispone delle autorizzazioni di lettura nel registro di sistema del computer di origine, in "HKEY_LOCAL_MACHINE \SOFTWARE\Microsoft\Windows NT\CurrentVersion" o in "HKEY_LOCAL_MACHINE \SYSTEM\CurrentControlSet\Services\ LanmanServer
+ - L'account di migrazione di origine non dispone delle autorizzazioni di lettura nel registro di sistema del computer di origine, in "HKEY_LOCAL_MACHINE \SOFTWARE\Microsoft\Windows NT\CurrentVersion" o in "HKEY_LOCAL_MACHINE \SYSTEM\CurrentControlSet\Services\LanmanServer"
  
  ## <a name="cutover-hangs-on-38-mapping-network-interfaces-on-the-source-computer"></a>Cutover si blocca su "38% mapping delle interfacce di rete nel computer di origine..." 
 
