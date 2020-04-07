@@ -10,16 +10,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 22554a9669c30cc827c509824f187fbaaedb1272
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 5d71a26cbe889f5de11934b2af411ac407fc5e75
+ms.sourcegitcommit: 3c3dfee8ada0083f97a58997d22d218a5d73b9c4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71361697"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80639864"
 ---
 # <a name="step-1-install-the-wsus-server-role"></a>Passaggio 1: Installare il ruolo server WSUS
 
->Si applica a: Windows Server (Canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Si applica a: Windows Server 2019, Windows Server (Canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Il passaggio successivo della procedura di distribuzione del server WSUS prevede l'installazione del ruolo server WSUS. Nella sezione seguente viene illustrato come installare il ruolo server WSUS tramite Server Manager.
 
@@ -32,13 +32,13 @@ Il passaggio successivo della procedura di distribuzione del server WSUS prevede
 
 2.  In **Server Manager** fare clic su **Gestione** e quindi su **Aggiungi ruoli e funzionalità**.
 
-3.  Nella pagina **Prima di iniziare**, fare clic su **Avanti**.
+3.  Nella pagina **Prima di iniziare** fare clic su **Avanti**.
 
 4.  Nella pagina **Selezione tipo di installazione** verificare che l'opzione **Installazione basata su ruoli o basata su funzionalità** sia selezionata e fare clic su **Avanti**.
 
 5.  Nella pagina **Selezione server di destinazione** scegliere la posizione del server, ad esempio un pool di server o un disco rigido virtuale. Dopo aver selezionato il percorso, scegliere il server in cui si vuole installare il ruolo server WSUS e fare clic su **Avanti**.
 
-6.  Nella pagina **Selezione ruoli server** fare clic su **Windows Server Update Services**.  Viene visualizzato **Aggiungere le funzionalità necessarie per Windows Server Update Services**. Fare clic su **Aggiungi funzionalità necessarie**e quindi su **Avanti**.
+6.  Nella pagina **Selezione ruoli server** fare clic su **Windows Server Update Services**.  Viene visualizzato**Aggiungere le funzionalità necessarie per Windows Server Update Services** . Fare clic su **Aggiungi funzionalità necessarie**e quindi su **Avanti**.
 
 7.  Nella pagina **Selezione funzionalità** mantenere le selezioni predefinite e fare clic su **Avanti**.
 

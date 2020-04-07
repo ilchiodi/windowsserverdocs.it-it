@@ -10,26 +10,26 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 68ff4c893302167815e3e8368d8b03f97d9be131
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 7731cc84f946bfab7f53a3446ed90d1be92cae75
+ms.sourcegitcommit: 3c3dfee8ada0083f97a58997d22d218a5d73b9c4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71361689"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80639802"
 ---
 # <a name="step-3-approve-and-deploy-updates-in-wsus"></a>Passaggio 3: Approvare e distribuire gli aggiornamenti in WSUS
 
->Si applica a: Windows Server (Canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Si applica a: Windows Server 2019, Windows Server (Canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 I computer inclusi in un gruppo di computer contattano automaticamente il server WSUS nelle successive 24 ore per ottenere aggiornamenti. È possibile utilizzare la funzionalità di generazione rapporti di WSUS per determinare se gli aggiornamenti sono stati distribuiti nei computer di test. Quando i test vengono completati correttamente è possibile approvare gli aggiornamenti per i gruppi di computer applicabili dell'organizzazione. Nell'elenco di controllo seguente sono descritti i passaggi per l'approvazione e la distribuzione di aggiornamenti mediante la console di gestione di Windows Server Update Services.
 
-|Attività|Descrizione|
+|Attività|Description|
 |----|--------|
 |[3.1. Approvare e distribuire gli aggiornamenti di WSUS](3-approve-and-deploy-updates-in-wsus.md#BKM_3.1.)|Approvare e distribuire gli aggiornamenti di WSUS mediante la console di gestione di Windows Server Update Services.|
 |[3.2. Configurare le regole di approvazione automatica](3-approve-and-deploy-updates-in-wsus.md#BKM_3.2.a.)|Configurare WSUS in modo da approvare automaticamente l'installazione degli aggiornamenti per i gruppi selezionati e come approvare le revisioni degli aggiornamenti esistenti.|
 |[3.3. Esaminare gli aggiornamenti installati con i rapporti WSUS](3-approve-and-deploy-updates-in-wsus.md#BKM_3.3.)|Esaminare gli aggiornamenti che sono stati installati, i computer che li hanno ricevuti e altre informazioni utilizzando la funzionalità di generazione rapporti di WSUS.|
 
-## <a name="BKM_3.1."></a>3.1. Approvare e distribuire gli aggiornamenti di WSUS
+## <a name="31-approve-and-deploy-wsus-updates"></a><a name="BKM_3.1."></a>3.1. Approvare e distribuire gli aggiornamenti di WSUS
 Utilizzare la procedura seguente per approvare e distribuire gli aggiornamenti.
 
 #### <a name="to-approve-and-deploy-wsus-updates"></a>Per approvare e distribuire gli aggiornamenti di WSUS
@@ -38,7 +38,7 @@ Utilizzare la procedura seguente per approvare e distribuire gli aggiornamenti.
 
 2.  Nella sezione **Tutti gli aggiornamenti** fare clic su **Aggiornamenti necessari per i computer**.
 
-3.  Nell'elenco di aggiornamenti selezionare gli aggiornamenti che si desidera approvare per l'installazione nel gruppo di computer di test. Le informazioni relative a un aggiornamento selezionato sono disponibili nel riquadro inferiore del pannello **Aggiornamenti** . Per selezionare più aggiornamenti contigui, fare clic sui nomi degli aggiornamenti tenendo premuto il tasto **MAIUSC**. Per selezionare più aggiornamenti non contigui, fare clic sui nomi degli aggiornamenti tenendo premuto il tasto **CTRL**.
+3.  Nell'elenco di aggiornamenti selezionare gli aggiornamenti che si desidera approvare per l'installazione nel gruppo di computer di test. Le informazioni relative a un aggiornamento selezionato sono disponibili nel riquadro inferiore del pannello **Aggiornamenti** . Per selezionare più aggiornamenti contigui, fare clic sui nomi degli aggiornamenti tenendo premuto il tasto **MAIUSC**. Per selezionare più aggiornamenti non contigui, fare clic sui nomi degli aggiornamenti tenendo premuto il tasto **CTRL** .
 
 4.  Fare clic con il pulsante destro del mouse sulla selezione e scegliere **Approva**.
 
@@ -48,7 +48,7 @@ Utilizzare la procedura seguente per approvare e distribuire gli aggiornamenti.
 
 7.  Viene visualizzata la finestra **Stato approvazione** , in cui è visualizzato lo stato delle attività relative all'approvazione degli aggiornamenti. Al termine del processo di approvazione fare clic su **Chiudi**.
 
-## <a name="BKM_3.2.a."></a>3.2. Configurare le regole di approvazione automatica
+## <a name="32-configure-auto-approval-rules"></a><a name="BKM_3.2.a."></a>3.2. Configurare le regole di approvazione automatica
 Le approvazioni automatiche consentono di specificare come approvare automaticamente l'installazione degli aggiornamenti per i gruppi selezionati e come approvare le revisioni degli aggiornamenti esistenti.
 
 #### <a name="to-configure-automatic-approvals"></a>Per configurare le approvazioni automatiche
@@ -57,7 +57,7 @@ Le approvazioni automatiche consentono di specificare come approvare automaticam
 
 2.  In **Opzioni**fare clic su **Approvazioni automatiche**. Viene visualizzata la finestra di dialogo Approvazioni automatiche.
 
-3.  In **Regole di aggiornamento** fare clic su **Nuova regola**. Viene visualizzata la finestra di dialogo **Aggiungi regola**.
+3.  In **Regole di aggiornamento**fare clic su **Nuova regola**. Viene visualizzata la finestra di dialogo **Aggiungi regola**.
 
 4.  In **Aggiungi regola**, in **Passaggio 1: selezionare le proprietà**, selezionare una singola opzione o qualsiasi combinazione di opzioni tra le seguenti:
 
@@ -73,7 +73,7 @@ Le approvazioni automatiche consentono di specificare come approvare automaticam
 
 7.  Fare clic su **OK** per chiudere la finestra di dialogo Approvazioni automatiche.
 
-## <a name="BKM_3.3."></a>3.3. Esaminare gli aggiornamenti installati con i rapporti WSUS
+## <a name="33-review-installed-updates-with-wsus-reports"></a><a name="BKM_3.3."></a>3.3. Esaminare gli aggiornamenti installati con i rapporti WSUS
 24 ore dopo aver approvato gli aggiornamenti è possibile utilizzare la funzionalità di generazione rapporti di WSUS per determinare se gli aggiornamenti sono stati distribuiti nei computer di test. Per verificare lo stato di un aggiornamento è possibile utilizzare la funzionalità di generazione rapporti di WSUS come illustrato di seguito.
 
 #### <a name="to-review-updates"></a>Per esaminare gli aggiornamenti

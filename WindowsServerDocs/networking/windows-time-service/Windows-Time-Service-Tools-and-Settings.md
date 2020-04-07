@@ -13,12 +13,12 @@ ms.custom:
 - CI ID 113344
 - CSSTroubleshoot
 audience: Admin
-ms.openlocfilehash: e9432aa11446cdd4f00efca3af28c24d757d6019
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: 52c3d1527726241313cf2b741fbc5a5799aca661
+ms.sourcegitcommit: d56c042c58833bdaa9a6fe54dd68f540af12fc6e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80315135"
+ms.lasthandoff: 04/04/2020
+ms.locfileid: "80661078"
 ---
 # <a name="windows-time-service-tools-and-settings"></a>Strumenti e impostazioni del servizio Ora di Windows
 
@@ -133,7 +133,7 @@ Nella tabella seguente sono elencati i criteri che puoi configurare per il servi
 |Provider servizi orari\Abilita server Windows NTP |W32Time\TimeProviders\NtpServer |
 
 > <sup>1</sup> Percorso categoria: **Configurazione computer\Modelli amministrativi\Sistema\Servizio Ora di Windows**  
-> <sup>2</sup> Sottochiave: **HKLM\SOFTWARE\Policies\Microsoft\Windows**  
+> <sup>2</sup> Sottochiave: **HKLM\SOFTWARE\Policies\Microsoft**  
 > <sup>3</sup> Sottochiave: **HKLM\SYSTEM\CurrentControlSet\Services**
 
 ## <a name="enabling-w32time-logging"></a>Abilitazione della registrazione W32Time
