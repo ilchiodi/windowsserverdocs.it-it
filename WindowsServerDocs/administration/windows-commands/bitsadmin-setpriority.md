@@ -1,28 +1,22 @@
 ---
 title: bitsadmin setpriority
-description: 'Windows Commands Topic for **BITSAdmin sepriority** : imposta la priorità del processo specificato.'
-ms.custom: na
+description: Windows Commands argomento per Bitsadmin sepriority, che imposta la priorità del processo specificato.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 90788363-01a2-4d7c-a560-a3eba45b5e9e
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 60564350928f917ca1861684e042304d5d380426
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 7d007c62402a3d70910e1c79fab5c406295a63a5
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71380445"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80849214"
 ---
 # <a name="bitsadmin-setpriority"></a>bitsadmin setpriority
-
-
 
 Imposta la priorità del processo specificato.
 
@@ -32,20 +26,20 @@ Imposta la priorità del processo specificato.
 bitsadmin /SetPriority <Job> <Priority>
 ```
 
-## <a name="parameters"></a>Parametri
+### <a name="parameters"></a>Parametri
 
 |Parametro|Descrizione|
 |---------|-----------|
 |Job|Nome visualizzato o il GUID del processo|
-|Priority|Uno dei valori seguenti:</br>-IN PRIMO PIANO</br>-ALTO</br>-NORMALE</br>-BASSO|
+|Priorità|Uno dei valori seguenti:</br>-IN PRIMO PIANO</br>-ALTO</br>-NORMALE</br>-BASSO|
 
-## <a name="BKMK_examples"></a>Esempi
+## <a name="examples"></a><a name=BKMK_examples></a>Esempi
 
 Nell'esempio seguente imposta la priorità per il processo denominato *myDownloadJob* Normal.
 ```
 C:\>bitsadmin /SetPriority myDownloadJob NORMAL
 ```
 
-#### <a name="additional-references"></a>Altri riferimenti
+## <a name="additional-references"></a>Altre informazioni di riferimento
 
-[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+- [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

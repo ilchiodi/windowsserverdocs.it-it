@@ -1,7 +1,6 @@
 ---
 ms.assetid: 7be1f2cb-02d5-4209-ba79-edf496a88f47
 title: Scenario di File di controllo dell'accesso
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,14 +8,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 37a3b17360112d958b59a7e9c3f64aed5e6f6a5b
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 37ea1cf28e42f74a18cd57b8fa9def5f9d1646be
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71406990"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80861124"
 ---
-# <a name="scenario-file-access-auditing"></a>Scenario: Controllo dell'accesso ai file
+# <a name="scenario-file-access-auditing"></a>Scenario: File Access Auditing
 
 >Si applica a: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
@@ -71,7 +70,7 @@ Negli argomenti seguenti sono disponibili ulteriori informazioni su questo scena
   
 -   [Distribuire il controllo di sicurezza con i criteri &#40;di controllo centrali procedura dimostrativa&#41;](Deploy-Security-Auditing-with-Central-Audit-Policies--Demonstration-Steps-.md)  
   
-## <a name="BKMK_NEW"></a>Ruoli e funzionalità inclusi in questo scenario  
+## <a name="roles-and-features-included-in-this-scenario"></a><a name="BKMK_NEW"></a>Ruoli e funzionalità inclusi in questo scenario  
 Nella tabella seguente sono elencati i ruoli e le funzionalità che interessano questo scenario e sono descritte le modalità di supporto.  
   
 |Ruolo/funzionalità|Modalità di supporto dello scenario|  

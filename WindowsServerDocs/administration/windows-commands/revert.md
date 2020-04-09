@@ -1,26 +1,22 @@
 ---
-title: Ripristinare
-description: 'Argomento dei comandi di Windows per * * * *- '
-ms.custom: na
+title: ripristinare
+description: Argomento dei comandi di Windows per * * * *-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 75ad40e4-502a-401e-b11e-8b31e00424b5
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 3243f13a4997824d9fff7c874ce26d56325fefa4
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: d7dae609e4615868b03e4b5ea9a681f553aa0667
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71371446"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80835754"
 ---
-# <a name="revert"></a>Ripristinare
+# <a name="revert"></a>ripristinare
 
 
 
@@ -32,12 +28,12 @@ Ripristina un volume in una copia shadow specificata. Questa è supportata solo 
 revert <ShadowCopyID>
 ```
 
-## <a name="parameters"></a>Parametri
+### <a name="parameters"></a>Parametri
 
 |Parametro|Descrizione|
 |---------|-----------|
 |\<ShadowCopyID >|Specifica l'ID della copia shadow per ripristinare il volume.|
 
-#### <a name="additional-references"></a>Altri riferimenti
+## <a name="additional-references"></a>Altre informazioni di riferimento
 
-[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+- [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

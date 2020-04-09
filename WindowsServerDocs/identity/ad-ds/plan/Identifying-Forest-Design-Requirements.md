@@ -1,7 +1,6 @@
 ---
 ms.assetid: 7d957ebb-3476-49d8-b00b-6e93b4a94778
 title: Identificazione dei requisiti di progettazione della foresta
-description: ''
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
@@ -9,12 +8,12 @@ ms.date: 08/07/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 41caeca82819eaea3d86d5f1eb4883ab8bbf53cc
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 33025dc2e08185744ffd0dee7eac4d0c020a0691
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71408793"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80822404"
 ---
 # <a name="identifying-forest-design-requirements"></a>Identificazione dei requisiti di progettazione della foresta
 
@@ -22,7 +21,7 @@ ms.locfileid: "71408793"
 
 Per creare una progettazione della foresta per l'organizzazione, è necessario identificare i requisiti aziendali che devono essere inclusi nella struttura di directory. Ciò comporta la determinazione dell'autonomia dei gruppi dell'organizzazione per la gestione delle risorse di rete e dell'eventuale necessità di isolare le risorse in rete da altri gruppi da parte di ogni gruppo.  
   
-Active Directory Domain Services (AD DS) consente di progettare un'infrastruttura di directory in grado di supportare più gruppi all'interno di un'organizzazione che hanno requisiti di gestione univoci e di ottenere l'indipendenza strutturale e operativa tra gruppi Se necessario.  
+Active Directory Domain Services (AD DS) consente di progettare un'infrastruttura di directory in grado di supportare più gruppi all'interno di un'organizzazione che hanno requisiti di gestione univoci e di ottenere l'indipendenza strutturale e operativa tra i gruppi in base alle esigenze.  
   
 I gruppi dell'organizzazione potrebbero avere alcuni dei seguenti tipi di requisiti:  
   
@@ -38,14 +37,14 @@ I gruppi dell'organizzazione potrebbero avere alcuni dei seguenti tipi di requis
   
 -   **Requisiti legali**. Alcune organizzazioni hanno requisiti legali per operare in modo specifico, ad esempio, limitando l'accesso a determinate informazioni come specificato in un contratto aziendale. Alcune organizzazioni hanno requisiti di sicurezza per operare su reti interne isolate. La mancata ottemperanza di questi requisiti può comportare la perdita del contratto e di eventuali azioni legali.  
   
-Parte dell'identificazione dei requisiti di progettazione della foresta implica l'identificazione del grado di attendibilità dei gruppi dell'organizzazione per i potenziali proprietari della foresta e degli amministratori dei servizi e l'identificazione dei requisiti di autonomia e isolamento per ogni gruppo nell'organizzazione.  
+Parte dell'identificazione dei requisiti di progettazione della foresta implica l'identificazione del grado di attendibilità dei gruppi dell'organizzazione per i potenziali proprietari della foresta e degli amministratori dei servizi e l'identificazione dei requisiti di autonomia e isolamento per ogni gruppo dell'organizzazione.  
   
 Il team di progettazione deve documentare i requisiti di isolamento e autonomia per l'amministrazione dei servizi e dei dati per ogni gruppo dell'organizzazione che intende utilizzare servizi di dominio Active Directory. Il team deve inoltre prendere nota di eventuali aree di connettività limitata che potrebbero influire sulla distribuzione di servizi di dominio Active Directory.  
   
-Il team di progettazione deve documentare i requisiti di isolamento e autonomia per l'amministrazione dei servizi e dei dati per ogni gruppo dell'organizzazione che intende utilizzare servizi di dominio Active Directory. Il team deve inoltre prendere nota di eventuali aree di connettività limitata che potrebbero influire sulla distribuzione di servizi di dominio Active Directory. Per un foglio di lavoro che consente di documentare le aree identificate, scaricare Job_Aids_Designing_and_Deploying_Directory_and_Security_Services. zip da [Job Aids per Windows Server 2003 Deployment Kit](https://go.microsoft.com/fwlink/?LinkID=102558) e aprire "Forest Design requirements" ( DSSLOGI_2. doc).  
+Il team di progettazione deve documentare i requisiti di isolamento e autonomia per l'amministrazione dei servizi e dei dati per ogni gruppo dell'organizzazione che intende utilizzare servizi di dominio Active Directory. Il team deve inoltre prendere nota di eventuali aree di connettività limitata che potrebbero influire sulla distribuzione di servizi di dominio Active Directory. Per un foglio di lavoro che consente di documentare le aree identificate, scaricare Job_Aids_Designing_and_Deploying_Directory_and_Security_Services. zip da supporto [per i processi per Windows Server 2003 Deployment Kit](https://go.microsoft.com/fwlink/?LinkID=102558) e aprire "requisiti di progettazione della foresta" (DSSLOGI_2. doc).  
   
 ## <a name="in-this-section"></a>Contenuto della sezione  
   
 -   [Ambito di autorità dell'amministratore dei servizi](../../ad-ds/plan/Service-Administrator-Scope-of-Authority.md)  
   
--   [Confronto tra autonomia e isolamento](../../ad-ds/plan/Autonomy-vs.-Isolation.md)  
+-   [Indipendenza rispetto a isolamento](../../ad-ds/plan/Autonomy-vs.-Isolation.md)  

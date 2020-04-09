@@ -1,50 +1,45 @@
 ---
 title: bitsadmin getnoprogresstimeout
-description: 'Argomento dei comandi di Windows per **BITSAdmin getnoprogresstimeout** : Recupera il periodo di tempo, in secondi, durante il quale il servizio tenta di trasferire il file dopo che si è verificato un errore temporaneo.'
-ms.custom: na
+description: Windows Commands Topic for **BITSAdmin getnoprogresstimeout**, che consente di recuperare il periodo di tempo, in secondi, durante il quale il servizio tenterà di trasferire il file dopo un errore temporaneo.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 9cd9b19b-cbb4-4352-8419-978080f016b6
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 7dcc0e445f4cae25c27f5ff70c73f4f2f23975aa
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: cf2cfd77b494e221b60c8816ff46eed5f9252f39
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71381496"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80850604"
 ---
 # <a name="bitsadmin-getnoprogresstimeout"></a>bitsadmin getnoprogresstimeout
 
-
-
-Recupera l'intervallo di tempo, in secondi, durante il quale il servizio tenta di trasferire il file dopo che si è verificato un errore temporaneo.
+Recupera l'intervallo di tempo, in secondi, durante il quale il servizio tenterà di trasferire il file dopo che si è verificato un errore temporaneo.
 
 ## <a name="syntax"></a>Sintassi
 
 ```
-bitsadmin /GetNoProgressTimeout <Job>
+bitsadmin /getnoprogresstimeout <job>
 ```
 
-## <a name="parameters"></a>Parametri
+### <a name="parameters"></a>Parametri
 
-|Parametro|Descrizione|
-|---------|-----------|
-|Job|Nome visualizzato o il GUID del processo|
+| Parametro | Descrizione |
+| -------------- | -------------- |
+| lavoro | Nome visualizzato o GUID del processo. |
 
-## <a name="BKMK_examples"></a>Esempi
+## <a name="examples"></a><a name=BKMK_examples></a>Esempi
 
 Nell'esempio seguente viene recuperato il valore di timeout dello stato di avanzamento per il processo denominato *myDownloadJob*.
+
 ```
-C:\>bitsadmin /GetNoProgressTimeout myDownloadJob
+C:\>bitsadmin /getnoprogresstimeout myDownloadJob
 ```
 
-#### <a name="additional-references"></a>Altri riferimenti
+## <a name="additional-references"></a>Altre informazioni di riferimento
 
-[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+- [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

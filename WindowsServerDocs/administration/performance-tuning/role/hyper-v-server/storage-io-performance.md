@@ -4,15 +4,15 @@ description: Considerazioni sulle prestazioni di i/o di archiviazione nell'ottim
 ms.prod: windows-server
 ms.technology: performance-tuning-guide
 ms.topic: article
-ms.author: Asmahi; SandySp; JoPoulso
+ms.author: asmahi; sandysp; jopoulso
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: 7c5a7b667f24ee929a80010dc51508033f991ed5
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 83b22c47cb23b02bb9984e03d78fcae93be1ca0a
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71370056"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80851814"
 ---
 # <a name="hyper-v-storage-io-performance"></a>Prestazioni di I/O di archiviazione Hyper-V
 
@@ -160,7 +160,7 @@ Il disco rigido virtuale punta a un file VHD padre. Le scritture nei blocchi non
 
 ## <a name="block-size-considerations"></a>Considerazioni sulle dimensioni del blocco
 
-Le dimensioni del blocco possono avere un notevole effetto sulle prestazioni. È ottimale per abbinare le dimensioni del blocco ai modelli di allocazione del carico di lavoro che utilizza il disco. Se, ad esempio, un'applicazione viene allocata in blocchi di 16 MB, sarà ottimale avere una dimensione del blocco del disco rigido virtuale di 16 MB. Una dimensione di blocco &gt;di 2 MB è possibile solo nei dischi rigidi virtuali con il formato VHDX. Una dimensione di blocco maggiore rispetto al modello di allocazione per un carico di lavoro di I/O casuale aumenterà significativamente l'utilizzo dello spazio nell'host.
+Le dimensioni del blocco possono avere un notevole effetto sulle prestazioni. È ottimale per abbinare le dimensioni del blocco ai modelli di allocazione del carico di lavoro che utilizza il disco. Se, ad esempio, un'applicazione viene allocata in blocchi di 16 MB, sarà ottimale avere una dimensione del blocco del disco rigido virtuale di 16 MB. Una dimensione del blocco di &gt;2 MB è possibile solo nei dischi rigidi virtuali con il formato VHDX. Una dimensione di blocco maggiore rispetto al modello di allocazione per un carico di lavoro di I/O casuale aumenterà significativamente l'utilizzo dello spazio nell'host.
 
 ## <a name="sector-size-implications"></a>Implicazioni sulle dimensioni del settore
 
@@ -244,7 +244,7 @@ I seguenti miglioramenti chiave introdotti per la prima volta nello stack di arc
 
 -   Meccanismo di completamento I/O più efficiente che interferisce con la distribuzione di interrupt tra i processori virtuali per evitare interruzioni di interprocessore dispendiose.
 
-Introdotta in Windows Server 2012, sono presenti alcune voci del registro di sistema,\\situate\\in\\HKLM\\System\\CurrentControlSet Enum VMBus\\{Device ID} {Instance ID}\\StorChannel, che consente di modificare il numero di canali. Consentono inoltre di allineare i processori virtuali che gestiscono i completamenti di I/O alle CPU virtuali assegnate dall'applicazione come processori di I/O. Le impostazioni del registro di sistema sono configurate in base all'adapter sulla chiave hardware del dispositivo.
+Introdotta in Windows Server 2012, sono presenti alcune voci del registro di sistema, situate in HKLM\\System\\CurrentControlSet\\enum\\VMBUS\\{ID dispositivo}\\{ID istanza}\\StorChannel, che consentono di modificare il numero di canali. Consentono inoltre di allineare i processori virtuali che gestiscono i completamenti di I/O alle CPU virtuali assegnate dall'applicazione come processori di I/O. Le impostazioni del registro di sistema sono configurate in base all'adapter sulla chiave hardware del dispositivo.
 
 -   **ChannelCount (DWORD)** Numero totale di canali da usare, con un massimo di 16. Il valore predefinito è un limite massimo, ovvero il numero di processori virtuali/16.
 
@@ -262,7 +262,7 @@ Hyper-V in Windows Server 2012 e versioni successive supporta le operazioni di o
 
 I file del disco rigido virtuale esistono come file in un volume di archiviazione e condividono lo spazio disponibile con altri file. Poiché le dimensioni di questi file tendono a essere di grandi dimensioni, lo spazio utilizzato può crescere rapidamente. La richiesta di una maggiore quantità di risorse di archiviazione fisica influiscono sul budget hardware IT. È importante ottimizzare il più possibile l'uso dell'archiviazione fisica.
 
-Prima di Windows Server 2012, quando le applicazioni eliminano il contenuto all'interno di un disco rigido virtuale, che ha effettivamente abbandonato lo spazio di archiviazione del contenuto, lo stack di archiviazione di Windows nel sistema operativo guest e nell'host Hyper-V aveva limitazioni che impedivano questa operazione le informazioni vengono comunicate al disco rigido virtuale e al dispositivo di archiviazione fisica. Ciò ha impedito allo stack di archiviazione Hyper-V di ottimizzare l'utilizzo dello spazio da parte dei file di disco virtuale basati su VHD. Ha inoltre impedito al dispositivo di archiviazione sottostante di recuperare lo spazio occupato in precedenza dai dati eliminati.
+Prima di Windows Server 2012, quando le applicazioni eliminano il contenuto all'interno di un disco rigido virtuale che ha effettivamente abbandonato lo spazio di archiviazione del contenuto, lo stack di archiviazione di Windows nel sistema operativo guest e l'host Hyper-V hanno limitazioni che impedivano la comunicazione di queste informazioni con il disco rigido virtuale e il dispositivo di archiviazione fisica. Ciò ha impedito allo stack di archiviazione Hyper-V di ottimizzare l'utilizzo dello spazio da parte dei file di disco virtuale basati su VHD. Ha inoltre impedito al dispositivo di archiviazione sottostante di recuperare lo spazio occupato in precedenza dai dati eliminati.
 
 A partire da Windows Server 2012, Hyper-V supporta le notifiche annullare, che consentono di rendere più efficienti i file VHDX per rappresentare i dati al suo interno. Ciò comporta dimensioni di file più ridotte e consente al dispositivo di archiviazione fisica sottostante di recuperare lo spazio inutilizzato.
 

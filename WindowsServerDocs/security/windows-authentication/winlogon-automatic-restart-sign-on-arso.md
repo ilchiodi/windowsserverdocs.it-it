@@ -1,24 +1,19 @@
 ---
 title: Accesso automatico al riavvio Winlogon
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.service: na
-ms.suite: na
 ms.technology: security-auditing
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 15cddcfa-8a8e-45e4-bb76-b8e1a14ceac0
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/12/2016
-ms.openlocfilehash: f085cf78a01148f97a450577131213ce977a432a
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 3dd66cc799ee23f77c9c60e23e49d3088a27b2fc
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71402321"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80855104"
 ---
 # <a name="winlogon-automatic-restart-sign-on-arso"></a>Accesso automatico al riavvio Winlogon
 
@@ -93,9 +88,9 @@ Se si disabilita questa impostazione di criteri, il dispositivo non archivia le 
   
 **Editor del registro di sistema**  
   
-|Nome valore|Tipo|Data|  
+|Nome valore|Type|Data|  
 |-------|----|----|  
-|DisableAutomaticRestartSignOn|DWORD|0<br /><br />**Esempio:**<br /><br />0 (abilitato)<br /><br />1 (disabilitato)|  
+|DisableAutomaticRestartSignOn|DWORD|0<p>**Esempio:**<p>0 (abilitato)<p>1 (disabilitato)|  
   
 **Percorso del registro di sistema dei criteri:** HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System  
   
@@ -147,6 +142,6 @@ Le ore di accesso e i controlli padre possono impedire la creazione di una nuova
   
 |Termine|Definizione|  
 |----|-------|  
-|Autologon|L'accesso automatico è una funzionalità presente in Windows per diverse versioni.  Si tratta di una funzionalità documentata di Windows che include anche strumenti come l'accesso automatico per Windows v 3.01  *[http:/technet. Microsoft. com/sysinternals/bb963905. aspx](https://technet.microsoft.com/sysinternals/bb963905.aspx)*<br /><br />Consente a un singolo utente del dispositivo di accedere automaticamente senza immettere le credenziali. Le credenziali vengono configurate e archiviate nel registro di sistema come segreto LSA crittografato.|  
+|Autologon|L'accesso automatico è una funzionalità presente in Windows per diverse versioni.  Si tratta di una funzionalità documentata di Windows che include anche strumenti come l'accesso automatico per Windows v 3.01  *[http:/technet. Microsoft. com/sysinternals/bb963905. aspx](https://technet.microsoft.com/sysinternals/bb963905.aspx)*<p>Consente a un singolo utente del dispositivo di accedere automaticamente senza immettere le credenziali. Le credenziali vengono configurate e archiviate nel registro di sistema come segreto LSA crittografato.|  
   
 

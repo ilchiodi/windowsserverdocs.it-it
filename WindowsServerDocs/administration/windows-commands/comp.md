@@ -1,28 +1,22 @@
 ---
 title: comp
-description: 'Argomento dei comandi di Windows per * * * *- '
-ms.custom: na
+description: Windows Commands argomento for comp, che confronta il contenuto di due file o set di file byte per byte.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 40319d23-704d-4da1-be93-8259547275d0
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 84604cea36b0b4c9543a7169002551c0da4f0493
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 2f61743b55f38cfdebb17506368609895f48b4f6
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71379263"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80847454"
 ---
 # <a name="comp"></a>comp
-
-
 
 Confronta il contenuto di due file o gruppi di file byte per byte. Se utilizzata senza parametri, **comp** viene richiesto di inserire i file da confrontare.
 
@@ -34,7 +28,7 @@ Per esempi di utilizzo di questo comando, vedere [Esempi](#BKMK_examples).
 comp [<Data1>] [<Data2>] [/d] [/a] [/l] [/n=<Number>] [/c]
 ```
 
-## <a name="parameters"></a>Parametri
+### <a name="parameters"></a>Parametri
 
 |Parametro|Descrizione|
 |---------|-----------|
@@ -46,9 +40,9 @@ comp [<Data1>] [<Data2>] [/d] [/a] [/l] [/n=<Number>] [/c]
 |/n = numero\<>|Confronta solo il numero di righe che vengono specificate per ogni file, anche se i file sono di dimensioni diverse.|
 |/c|Esegue un confronto senza tale distinzione.|
 |/ [offline]|Elabora i file con il set di attributi non in linea.|
-|/?|Visualizza la Guida al prompt dei comandi.|
+|/?|Visualizza la Guida dal prompt dei comandi.|
 
-## <a name="remarks"></a>Osservazioni
+## <a name="remarks"></a>Note
 
 -   Come il comando **comp** identifica le informazioni non corrispondenti
 
@@ -91,7 +85,7 @@ comp [<Data1>] [<Data2>] [/d] [/a] [/l] [/n=<Number>] [/c]
 
     Per confrontare più file, premere Y. Il comando **comp** richiede i percorsi e i nomi dei nuovi file. Per interrompere l'operazione, premere N. Quando si preme Y, **comp** richiesto per le opzioni della riga di comando da utilizzare. Se non si specificano le opzioni della riga di comando, **comp** utilizza quelli specificati in precedenza.
 
-## <a name="BKMK_examples"></a>Esempi
+## <a name="examples"></a><a name=BKMK_examples></a>Esempi
 
 Per confrontare il contenuto della directory C:\Rapporti con la directory di backup \\\\Sales\Backup\April, digitare:
 ```
@@ -102,6 +96,6 @@ Per confrontare le prime dieci righe dei file di testo nella directory \Invoice 
 comp \invoice\*.txt \invoice\backup\*.txt /n=10 /d
 ```
 
-#### <a name="additional-references"></a>Altri riferimenti
+## <a name="additional-references"></a>Altre informazioni di riferimento
 
-[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+- [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

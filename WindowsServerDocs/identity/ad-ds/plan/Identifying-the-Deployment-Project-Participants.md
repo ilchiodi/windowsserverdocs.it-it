@@ -1,7 +1,6 @@
 ---
 ms.assetid: 50bd2566-e03c-4884-b5c4-895c8aab80aa
 title: Identificazione dei partecipanti al progetto di distribuzione
-description: ''
 author: MicrosoftGuyJFlo
 ms.author: joflore
 manager: mtillman
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: bb5ded466a45061649585a747be74adcdc1148cc
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 516c37165952e46c8e6e76499909e90851e305ce
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71408779"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80822314"
 ---
 # <a name="identifying-the-deployment-project-participants"></a>Identificazione dei partecipanti al progetto di distribuzione
 
@@ -28,10 +27,10 @@ Il primo passaggio nella creazione di un progetto di distribuzione per Dominio d
   
 -   [Compilazione di team di progetto](#BKMK_3)  
   
-## <a name="BKMK_1"></a>Definizione di ruoli specifici del progetto  
+## <a name="defining-project-specific-roles"></a><a name="BKMK_1"></a>Definizione di ruoli specifici del progetto  
 Un passaggio importante per stabilire i team del progetto consiste nell'identificare gli individui che devono mantenere i ruoli specifici del progetto. Questi includono lo sponsor esecutivo, il progettista del progetto e il project manager. Questi utenti sono responsabili dell'esecuzione del progetto di distribuzione Active Directory.  
   
-Dopo aver nominato Project Architect e project manager, questi individui stabiliscono canali di comunicazione nell'intera organizzazione, compilano pianificazioni di progetti e identificano gli individui che saranno membri dei team del progetto, a partire dal diversi proprietari.  
+Dopo aver nominato Project Architect e project manager, questi individui stabiliscono canali di comunicazione nell'intera organizzazione, compilano pianificazioni di progetti e identificano gli individui che saranno membri dei team del progetto, a partire dai diversi proprietari.  
   
 ### <a name="executive-sponsor"></a>SPONSOR Executive  
 La distribuzione di un'infrastruttura come AD DS può avere un notevole effetto su un'organizzazione. Per questo motivo, è importante avere uno sponsor esecutivo che comprende il valore aziendale della distribuzione, supporta il progetto a livello esecutivo e può contribuire a risolvere i conflitti nell'intera organizzazione.  
@@ -56,7 +55,7 @@ Di seguito sono riportate le responsabilità di Active Directory Project Archite
   
 Il progetto di Active Directory finale deve riflettere una combinazione di obiettivi aziendali e decisioni tecniche. Pertanto, il progettista del progetto deve esaminare le decisioni di progettazione per assicurarsi che siano allineate agli obiettivi aziendali.  
   
-### <a name="project-manager"></a>Project Manager  
+### <a name="project-manager"></a>Responsabile di progetto  
 Il project manager facilita la collaborazione tra le business unit e tra i gruppi di gestione tecnologici. Idealmente, la distribuzione di Active Directory project manager è un utente all'interno dell'organizzazione che ha familiarità con i criteri operativi del gruppo IT e con i requisiti di progettazione per i gruppi che si preparano alla distribuzione di servizi di dominio Active Directory. Il project manager controlla l'intero progetto di distribuzione, a partire dalla progettazione e continuando attraverso l'implementazione, e assicura che il progetto rimanga in base alla pianificazione e all'interno del budget. Di seguito sono riportate le responsabilità del project manager:  
   
 -   Pianificazione del progetto di base, ad esempio pianificazione e budget  
@@ -71,7 +70,7 @@ Il project manager facilita la collaborazione tra le business unit e tra i grupp
   
 -   Creazione e gestione della comunicazione con lo sponsor Executive nell'intero progetto di distribuzione  
   
-## <a name="BKMK_2"></a>Creazione di proprietari e amministratori  
+## <a name="establishing-owners-and-administrators"></a><a name="BKMK_2"></a>Creazione di proprietari e amministratori  
 In un progetto di distribuzione di Active Directory, i singoli proprietari sono tenuti responsabili dalla gestione per assicurarsi che le attività di distribuzione siano completate e che Active Directory specifiche di progettazione soddisfino le esigenze dell'organizzazione. I proprietari non possono necessariamente accedere o modificare direttamente l'infrastruttura di directory. Gli amministratori sono gli utenti responsabili del completamento delle attività di distribuzione richieste. Gli amministratori dispongono dell'accesso alla rete e delle autorizzazioni necessarie per modificare la directory e la relativa infrastruttura.  
   
 Il ruolo del proprietario è strategico e gestionale. I proprietari sono responsabili della comunicazione con gli amministratori delle attività necessarie per l'implementazione del Active Directory progettazione, ad esempio la creazione di nuovi controller di dominio all'interno della foresta. Gli amministratori sono responsabili dell'implementazione della progettazione sulla rete in base alle specifiche di progettazione.  
@@ -85,7 +84,7 @@ La gestione di servizi di dominio Active Directory su base giornaliera implica d
   
 -   Proprietari di dati responsabili della manutenzione delle informazioni archiviate nella directory. Sono inclusi la gestione e la gestione di account utente e computer per le risorse locali, ad esempio i server membri e le workstation.  
   
-È importante identificare tempestivamente il servizio Active Directory e i proprietari dei dati, in modo che possano partecipare alla maggior parte del processo di progettazione possibile. Poiché il servizio e i proprietari dei dati sono responsabili per la manutenzione a lungo termine della directory dopo il completamento del progetto di distribuzione, è importante che tali utenti forniscano l'input in merito alle esigenze dell'organizzazione e conoscano come e perché sono state prese determinate decisioni di progettazione. I proprietari del servizio includono il proprietario della foresta, il proprietario DNS (Dominio di Active Directory Naming System) e il proprietario della topologia del sito. I proprietari dei dati includono le unità organizzative (OU).  
+È importante identificare tempestivamente il servizio Active Directory e i proprietari dei dati, in modo che possano partecipare alla maggior parte del processo di progettazione possibile. Poiché il servizio e i proprietari dei dati sono responsabili della manutenzione a lungo termine della directory dopo il completamento del progetto di distribuzione, è importante che tali utenti forniscano l'input in merito alle esigenze organizzative e conoscano come e perché vengono prese determinate decisioni di progettazione. I proprietari del servizio includono il proprietario della foresta, il proprietario DNS (Dominio di Active Directory Naming System) e il proprietario della topologia del sito. I proprietari dei dati includono le unità organizzative (OU).  
   
 ### <a name="service-and-data-administrators"></a>Amministratori di servizi e dati  
 Il funzionamento di servizi di dominio Active Directory prevede due tipi di amministratori: amministratori del servizio e amministratori dei dati. Gli amministratori del servizio implementano le decisioni relative ai criteri prese dai proprietari dei servizi e gestiscono le attività quotidiane associate alla gestione del servizio directory e dell'infrastruttura. Ciò include la gestione dei controller di dominio che ospitano il servizio directory, la gestione di altri servizi di rete, ad esempio DNS, necessari per servizi di dominio Active Directory, il controllo della configurazione delle impostazioni a livello di foresta e la garanzia che la directory sia sempre disponibile.  
@@ -96,7 +95,7 @@ Gli amministratori del servizio sono inoltre responsabili del completamento dell
   
 Gli amministratori di dati sono utenti all'interno di un dominio responsabile sia per la gestione dei dati archiviati in servizi di dominio Active Directory, ad esempio gli account utente e di gruppo, sia per la gestione dei computer membri del proprio dominio. Gli amministratori dei dati controllano i subset di oggetti all'interno della directory e non hanno alcun controllo sull'installazione o la configurazione del servizio directory.  
   
-Gli account amministratore dati non vengono forniti per impostazione predefinita. Dopo che il team di progettazione ha determinato la modalità di gestione delle risorse per l'organizzazione, i proprietari del dominio devono creare gli account amministratore dati e delegarli le autorizzazioni appropriate in base al set di oggetti per cui gli amministratori devono essere responsabili. .  
+Gli account amministratore dati non vengono forniti per impostazione predefinita. Dopo che il team di progettazione ha determinato la modalità di gestione delle risorse per l'organizzazione, i proprietari del dominio devono creare gli account amministratore dati e delegarli le autorizzazioni appropriate in base al set di oggetti per cui gli amministratori devono essere responsabili.  
   
 È consigliabile limitare il numero di amministratori del servizio nell'organizzazione al numero minimo necessario per garantire il funzionamento dell'infrastruttura. La maggior parte del lavoro amministrativo può essere completata dagli amministratori dei dati. Gli amministratori del servizio richiedono un set di competenze molto più ampio perché sono responsabili della gestione della directory e dell'infrastruttura che la supporta. Gli amministratori di dati richiedono solo le competenze necessarie per gestire la propria parte della directory. Suddividere le assegnazioni di lavoro in questo modo comporta un risparmio sui costi per l'organizzazione, perché solo un numero ridotto di amministratori deve essere sottoposto a training per operare e gestire l'intera directory e la relativa infrastruttura.  
   
@@ -107,7 +106,7 @@ La distribuzione di servizi di dominio Active Directory richiede il coordinament
 Una volta completato il progetto di distribuzione, questi proprietari di servizi e dati continuano a essere responsabili della parte dell'infrastruttura gestita dal gruppo. In un ambiente di Active Directory, questi proprietari sono il proprietario della foresta, il DNS per il proprietario di servizi di dominio Active Directory, il proprietario della topologia del sito e il proprietario dell'unità organizzativa. Le sezioni seguenti illustrano i ruoli di questi proprietari di servizi e dati.  
   
 #### <a name="forest-owner"></a>Proprietario foresta  
-Il proprietario della foresta è in genere un responsabile IT (Senior Information Technology) nell'organizzazione responsabile del processo di distribuzione Active Directory e che è infine responsabile della gestione della distribuzione dei servizi nella foresta dopo la la distribuzione è stata completata. Il proprietario della foresta assegna a singoli utenti la possibilità di compilare gli altri ruoli di proprietà identificando il personale principale nell'organizzazione che è in grado di fornire le informazioni necessarie sull'infrastruttura di rete e le esigenze amministrative. Il proprietario della foresta è responsabile per gli elementi seguenti:  
+Il proprietario della foresta è in genere un responsabile IT (Senior Information Technology) nell'organizzazione responsabile del processo di distribuzione Active Directory e che è infine responsabile della gestione della distribuzione dei servizi nella foresta al termine della distribuzione. Il proprietario della foresta assegna a singoli utenti la possibilità di compilare gli altri ruoli di proprietà identificando il personale principale nell'organizzazione che è in grado di fornire le informazioni necessarie sull'infrastruttura di rete e le esigenze amministrative. Il proprietario della foresta è responsabile per gli elementi seguenti:  
   
 -   Distribuzione del dominio radice della foresta per creare la foresta  
   
@@ -172,7 +171,7 @@ Il proprietario dell'unità organizzativa è responsabile della gestione dei dat
   
 Il proprietario dell'unità organizzativa è un proprietario di dati.  
   
-## <a name="BKMK_3"></a>Compilazione di team di progetto  
+## <a name="building-project-teams"></a><a name="BKMK_3"></a>Compilazione di team di progetto  
 Active Directory i team di progetto sono gruppi temporanei responsabili del completamento delle attività di progettazione e distribuzione di Active Directory. Al termine del Active Directory progetto di distribuzione, i proprietari assumono la responsabilità della directory e i team del progetto possono dissociare.  
   
 Le dimensioni dei team del progetto variano in base alle dimensioni dell'organizzazione. Nelle organizzazioni di piccole dimensioni, un singolo utente può coprire più aree di responsabilità di un team di progetto e essere interessato da più fasi della distribuzione. Le organizzazioni di grandi dimensioni potrebbero richiedere team di grandi dimensioni con persone diverse o persino team diversi che coprono le diverse aree di responsabilità. Le dimensioni dei team non sono importanti a condizione che vengano assegnate tutte le aree di responsabilità e che vengano soddisfatti gli obiettivi di progettazione dell'organizzazione.  
@@ -184,7 +183,7 @@ La separazione tra l'amministrazione dei servizi e i dati in servizi di dominio 
   
 Per le organizzazioni che dispongono di un gruppo IT centralizzato di infrastruttura, il gruppo IT è in genere il proprietario della foresta e, di conseguenza, il potenziale proprietario della foresta per le distribuzioni future. Le organizzazioni che includono diversi gruppi IT di infrastruttura indipendente hanno un certo numero di proprietari di foreste potenziali. Se l'organizzazione dispone già di un'infrastruttura Active Directory, tutti i proprietari di foreste correnti sono anche proprietari di foreste potenziali per le nuove distribuzioni.  
   
-Selezionare uno dei proprietari della foresta potenziali da usare come proprietario della foresta per ogni foresta che si sta considerando per la distribuzione. Questi potenziali proprietari della foresta sono responsabili dell'utilizzo del team di progettazione per determinare se la loro foresta verrà effettivamente distribuita o se un'azione alternativa, ad esempio l'aggiunta a un'altra foresta esistente, è un uso migliore delle risorse disponibili e soddisfano ancora le proprie esigenze. Il proprietario o i proprietari della foresta nell'organizzazione sono membri del team di progettazione di Active Directory.  
+Selezionare uno dei proprietari della foresta potenziali da usare come proprietario della foresta per ogni foresta che si sta considerando per la distribuzione. Questi potenziali proprietari della foresta sono responsabili dell'utilizzo del team di progettazione per determinare se la loro foresta verrà effettivamente distribuita o se un'azione alternativa, ad esempio l'aggiunta a un'altra foresta esistente, è un uso migliore delle risorse disponibili e soddisfa comunque le proprie esigenze. Il proprietario o i proprietari della foresta nell'organizzazione sono membri del team di progettazione di Active Directory.  
   
 ### <a name="establishing-a-design-team"></a>Creazione di un team di progettazione  
 Il team di progettazione Active Directory è responsabile della raccolta di tutte le informazioni necessarie per prendere decisioni relative alla progettazione della struttura logica di Active Directory.  
@@ -213,7 +212,7 @@ Il team di progettazione include i membri seguenti:
   
 -   Progettista progetto  
   
--   Project Manager  
+-   Responsabile di progetto  
   
 -   Utenti responsabili della creazione e della gestione dei criteri di sicurezza sulla rete  
   
@@ -253,7 +252,7 @@ Il team di distribuzione di Active Directory include i membri seguenti:
 Il team di distribuzione collabora con il servizio e gli amministratori dei dati durante la fase di distribuzione per garantire che i membri del team operativo abbiano familiarità con la nuova progettazione. Ciò consente di garantire una transizione uniforme della proprietà al termine dell'operazione di distribuzione. Al termine del processo di distribuzione, la responsabilità della gestione del nuovo ambiente di Active Directory passa al team operativo.  
   
 ### <a name="documenting-the-design-and-deployment-teams"></a>Documentazione dei team di progettazione e distribuzione  
-Documentare i nomi e le informazioni di contatto per gli utenti che parteciperanno alla progettazione e alla distribuzione di servizi di dominio Active Directory. Identificare chi sarà responsabile di ogni ruolo nei team di progettazione e distribuzione. Inizialmente, questo elenco include i proprietari delle foreste potenziali, il project manager e l'architetto del progetto. Quando si determina il numero di foreste che si intende distribuire, potrebbe essere necessario creare nuovi team di progettazione per foreste aggiuntive. Si noti che è necessario aggiornare la documentazione quando le appartenenze ai team cambiano e quando si identificano i vari proprietari Active Directory durante il processo di progettazione. Per un foglio di lavoro che assiste l'utente nella documentazione dei team di progettazione e distribuzione per ogni foresta, scaricare Job_Aids_Designing_and_Deploying_Directory_and_Security_Services. zip da Job Aids per Windows Server 2003 Deployment Kit ([https://go.microsoft.com/fwlink/?LinkID=102558](https://go.microsoft.com/fwlink/?LinkID=102558)) e aprire " Informazioni sul team di progettazione e distribuzione "(DSSLOGI_1. doc).  
+Documentare i nomi e le informazioni di contatto per gli utenti che parteciperanno alla progettazione e alla distribuzione di servizi di dominio Active Directory. Identificare chi sarà responsabile di ogni ruolo nei team di progettazione e distribuzione. Inizialmente, questo elenco include i proprietari delle foreste potenziali, il project manager e l'architetto del progetto. Quando si determina il numero di foreste che si intende distribuire, potrebbe essere necessario creare nuovi team di progettazione per foreste aggiuntive. Si noti che è necessario aggiornare la documentazione quando le appartenenze ai team cambiano e quando si identificano i vari proprietari Active Directory durante il processo di progettazione. Per un foglio di lavoro in cui è possibile documentare i team di progettazione e distribuzione per ogni foresta, scaricare Job_Aids_Designing_and_Deploying_Directory_and_Security_Services. zip da supporto per i processi per Windows Server 2003 Deployment Kit ([https://go.microsoft.com/fwlink/?LinkID=102558](https://go.microsoft.com/fwlink/?LinkID=102558)) e aprire "informazioni sul team di progettazione e distribuzione" (DSSLOGI_1. doc).  
   
 
 

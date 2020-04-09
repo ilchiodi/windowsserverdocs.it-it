@@ -4,15 +4,15 @@ description: Ottimizzazione del risparmio energia del processore (PPM) per il pi
 ms.prod: windows-server
 ms.technology: performance-tuning-guide
 ms.topic: article
-ms.author: Qizha;TristanB
+ms.author: qizha;tristanb
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: 2f1d5e2f3f17c40f262b8cea98c04e3347790ba8
-ms.sourcegitcommit: 3f9bcd188dda12dc5803defb47b2c3a907504255
+ms.openlocfilehash: 1457328a151c87d2d4cb41c4ee91b4759f4fb8e2
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "77001826"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80851994"
 ---
 # <a name="power-and-performance-tuning"></a>Ottimizzazione dell'alimentazione e delle prestazioni
 
@@ -100,7 +100,7 @@ Turbo è abilitato per le combinazioni per il risparmio di energia a prestazioni
 > [!Note]
 > Il registro EPB è supportato solo nei processori Intel Westmere e versioni successive.
 
-Per i processori Intel Nehalem e AMD, Turbo è disabilitato per impostazione predefinita nelle piattaforme basate sullo stato P. Tuttavia, se un sistema supporta il controllo delle prestazioni del processore di collaborazione (CPPC), che è una nuova modalità alternativa di comunicazione delle prestazioni tra il sistema operativo e l'hardware (definito in ACPI 5,0), è possibile che Turbo venga attivato se il sistema operativo Windows il sistema richiede dinamicamente all'hardware di offrire i massimi livelli di prestazioni possibili.
+Per i processori Intel Nehalem e AMD, Turbo è disabilitato per impostazione predefinita nelle piattaforme basate sullo stato P. Tuttavia, se un sistema supporta il controllo delle prestazioni del processore di collaborazione (CPPC), che è una nuova modalità alternativa di comunicazione delle prestazioni tra il sistema operativo e l'hardware (definito in ACPI 5,0), è possibile che il sistema operativo Windows richieda in modo dinamico l'hardware per offrire i massimi livelli di prestazioni possibili.
 
 Per abilitare o disabilitare la funzionalità Turbo Boost, il parametro della modalità di boosting delle prestazioni del processore deve essere configurato dall'amministratore o dalle impostazioni predefinite dei parametri per la combinazione per il risparmio di energia scelta. La modalità di potenziamento delle prestazioni del processore ha cinque valori consentiti, come illustrato nella tabella 5.
 
@@ -112,11 +112,11 @@ In Windows Server 2016, il valore predefinito per la modalità Boost è 3.
 
 | **Nome** | **Comportamento basato sullo stato P** | **Comportamento di CPPC** |
 |--------------------------|------------------------|-------------------|
-| 0 (disabilitato) | Disabilitata | Disabilitata |
+| 0 (disabilitato) | Disabled | Disabled |
 | 1 (abilitato) | Abilitato | Efficienza abilitata |
-| 2 (aggressivo) | Abilitato | Aggressiva |
+| 2 (aggressivo) | Abilitato | Aggressive |
 | 3 (efficienza abilitata) | Efficiente | Efficienza abilitata |
-| 4 (efficace aggressivo) | Efficiente | Aggressiva |
+| 4 (efficace aggressivo) | Efficiente | Aggressive |
 
  
 I comandi seguenti abilitano la modalità di potenziamento delle prestazioni del processore nella combinazione per il risparmio di energia corrente (specificare il criterio usando un alias GUID):
@@ -191,7 +191,7 @@ Per la maggior parte dei server, il comportamento predefinito per il parcheggio 
 
 Se il server dispone di requisiti specifici per il parcheggio di base, è possibile controllare il numero di core disponibili per il parcheggio usando il parametro core per le **prestazioni del processore** per il numero massimo di core, o il parametro core per le prestazioni del processore Core di **parcheggio** in Windows Server 2016.
 
-Uno scenario in cui il parcheggio principale non è sempre ottimale per è quando uno o più thread attivi creata un'affinità a un subset non semplice di CPU in un nodo NUMA, ovvero più di una CPU, ma minore dell'intero set di CPU nel nodo. Quando l'algoritmo di parcheggio principale sta raccogliendo core da unpark (presupponendo che si verifichi un aumento dell'intensità del carico di lavoro), è possibile che non vengano sempre scelti i core all'interno del sottoinsieme di creata un'affinità attivo (o subset) per eseguire il unparking e, di conseguenza, la chiusura di core che non saranno effettivamente utilizzato.
+Uno scenario in cui il parcheggio principale non è sempre ottimale per è quando uno o più thread attivi creata un'affinità a un subset non semplice di CPU in un nodo NUMA, ovvero più di una CPU, ma minore dell'intero set di CPU nel nodo. Quando l'algoritmo di parcheggio principale sta raccogliendo core da unpark (presupponendo che si verifichi un aumento dell'intensità del carico di lavoro), è possibile che non vengano sempre scelti i core all'interno del sottoinsieme di creata un'affinità attivo (o subset) per eseguire il unparking e, di conseguenza, i core che non verranno effettivamente utilizzati.
 
 I valori per questi parametri sono percentuali nell'intervallo compreso tra 0 e 100. Il parametro del numero massimo di core per il **parcheggio delle prestazioni del processore** controlla la percentuale massima di core che possono essere annullati (disponibile per l'esecuzione di thread) in qualsiasi momento, mentre il parametro di core minimo per le **prestazioni del processore** controlla la percentuale minima di core che possono essere non parcheggiati. Per disattivare il parcheggio dei componenti di base, impostare il parametro di core minimo per le **prestazioni del processore** al 100% usando i comandi seguenti:
 

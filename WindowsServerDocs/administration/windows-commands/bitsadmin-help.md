@@ -1,30 +1,24 @@
 ---
 title: bitsadmin help
-description: Argomento comandi di Windows per la **Guida di Bitsadmin** -Visualizza l'utilizzo della riga di comando.
-ms.custom: na
+description: Argomento dei comandi di Windows per la **Guida di Bitsadmin**, che consente di visualizzare l'utilizzo della riga di comando.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: c30d89e4-25a3-4974-a002-37138d01e077
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 9917e3537d4b642cdaeabf7d592614ec7de17ab8
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 95bc71c058ee1b20f86202198b1c176744ee403d
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71381120"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80850424"
 ---
 # <a name="bitsadmin-help"></a>bitsadmin help
 
-
-
-Visualizza l'utilizzo della riga di comando.
+Visualizza le informazioni relative alla guida relative ai parametri della riga di comando e alle opzioni di Bitsadmin.
 
 ## <a name="syntax"></a>Sintassi
 
@@ -32,13 +26,14 @@ Visualizza l'utilizzo della riga di comando.
 bitsadmin /help | /?
 ```
 
-## <a name="BKMK_examples"></a>Esempi
+## <a name="examples"></a><a name=BKMK_examples></a>Esempi
 
 Nell'esempio seguente viene recuperata la guida della riga di comando.
+
 ```
 C:\>bitsadmin /help
 ```
 
-#### <a name="additional-references"></a>Altri riferimenti
+## <a name="additional-references"></a>Altre informazioni di riferimento
 
-[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+- [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

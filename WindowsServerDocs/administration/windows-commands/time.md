@@ -1,26 +1,22 @@
 ---
-title: ora
+title: time
 description: Informazioni su come impostare e visualizzare l'ora di sistema.
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 1276a257-7283-41da-ae80-fb4cfb311f9d
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 484653ed65d5e5c16d74b2cb45b2c9da71aa62aa
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 5b6efff57a512a2e0519b3294c51c073f1f44d8d
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71369946"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80832834"
 ---
-# <a name="time"></a>ora
+# <a name="time"></a>time
 
 
 
@@ -34,7 +30,7 @@ Per esempi di utilizzo di questo comando, vedere [Esempi](#BKMK_examples).
 time [/t | [<HH>[:<MM>[:<SS>]] [am|pm]]]
 ```
 
-## <a name="parameters"></a>Parametri
+### <a name="parameters"></a>Parametri
 
 |Parametro|Descrizione|
 |---------|-----------|
@@ -42,14 +38,14 @@ time [/t | [<HH>[:<MM>[:<SS>]] [am|pm]]]
 |/t|Visualizza l'ora corrente senza richiedere una nuova ora.|
 |/?|Visualizza la guida al prompt dei comandi.|
 
-## <a name="remarks"></a>Osservazioni
+## <a name="remarks"></a>Note
 
 -   Per modificare l'ora corrente, è necessario disporre di credenziali amministrative.
 -   È necessario separare i valori per *HH*, *MM*, e *SS* con due punti (:). *SS* e *NN* devono essere separati da un punto (.).
 -   Valido *HH* i valori sono compresi tra 0 e 24.
 -   Valido *MM* e *SS* i valori sono compresi tra 0 e 59.
 
-## <a name="BKMK_examples"></a>Esempi
+## <a name="examples"></a><a name="BKMK_examples"></a>Esempi
 
 Se sono abilitate le estensioni dei comandi, per visualizzare l'ora di sistema corrente, digitare:
 ```
@@ -67,6 +63,6 @@ Enter the new time:
 ```
 Per mantenere l'ora corrente e tornare al prompt dei comandi, premere INVIO. Per modificare l'ora corrente, digitare la nuova ora e quindi premere INVIO.
 
-#### <a name="additional-references"></a>Altri riferimenti
+## <a name="additional-references"></a>Altre informazioni di riferimento
 
-[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+- [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

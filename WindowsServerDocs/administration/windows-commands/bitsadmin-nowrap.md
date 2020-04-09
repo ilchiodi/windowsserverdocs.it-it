@@ -1,46 +1,39 @@
 ---
 title: bitsadmin nowrap
-description: "Argomento dei comandi di Windows per **BITSAdmin nowrap** : tronca qualsiasi riga di testo di output che si estende oltre il bordo all'estrema destra della finestra di comando."
-ms.custom: na
+description: Windows Commands Topic for **BITSAdmin nowrap**, che tronca qualsiasi riga di testo di output che si estende oltre il bordo all'estrema destra della finestra di comando.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 85a47b90-783a-41e4-96f2-81f26ae8ca93
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 3806ec51161eeae498e3c9b367b2aacf0bd32c99
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: f9f1db370d8a8917aa03a414a27623a1024df192
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71381048"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80850184"
 ---
 # <a name="bitsadmin-nowrap"></a>bitsadmin nowrap
 
-Tronca tutte le righe di output testo che si estende oltre il bordo all'estrema destra della finestra di comando.
+Tronca qualsiasi riga di testo di output che si estende oltre il bordo destro della finestra di comando. Per impostazione predefinita, tutte le opzioni, ad eccezione dell'opzione di **monitoraggio** , incapsulano l'output. Specificare l'opzione **nowrap** prima di altre opzioni.
 
 ## <a name="syntax"></a>Sintassi
 
 ```
-bitsadmin /NoWrap
+bitsadmin /nowrap
 ```
 
-## <a name="remarks"></a>Note
+## <a name="examples"></a><a name=BKMK_examples></a>Esempi
 
-Per impostazione predefinita, tutte le opzioni, ad eccezione dell'opzione di **monitoraggio** , incapsulano l'output. Specificare l'opzione **nowrap** prima di altre opzioni.
+Nell'esempio seguente viene recuperato lo stato per il processo denominato *myDownloadJob* e non viene eseguito il wrapping dell'output.
 
-## <a name="BKMK_examples"></a>Esempi
-
-Nell'esempio seguente recupera lo stato del processo *myDownloadJob* e non va a capo l'output
 ```
-C:\>bitsadmin /NoWrap /GetState myDownloadJob
+C:\>bitsadmin /nowrap /getstate myDownloadJob
 ```
 
-#### <a name="additional-references"></a>Altri riferimenti
+## <a name="additional-references"></a>Altre informazioni di riferimento
 
-[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+- [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

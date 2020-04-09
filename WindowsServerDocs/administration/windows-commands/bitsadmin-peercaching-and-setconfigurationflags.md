@@ -1,51 +1,46 @@
 ---
 title: Bitsadmin peer caching e setconfigurationflags
-description: 'Argomento dei comandi di Windows per **BITSAdmin peer caching e setconfigurationflags** : imposta i flag di configurazione che determinano se il computer può fornire contenuti ai peer e può scaricare il contenuto dai peer.'
-ms.custom: na
+description: Argomento dei comandi di Windows per **BITSAdmin peer caching** e **setconfigurationflags**, che imposta i flag di configurazione che determinano se il computer è in grado di fornire contenuti ai peer e se può scaricare il contenuto dai peer.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: ff0a2b49-66e3-4d40-824c-6a3816055d2e
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: a65d54bcaa2bce26eb2b7c98250837ab09c7a423
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: ebaa09da2d4594d2762e67dc5884dd15cf4d1da8
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71381109"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80850134"
 ---
 # <a name="bitsadmin-peercaching-and-setconfigurationflags"></a>Bitsadmin peer caching e setconfigurationflags
 
-
-
-Imposta i flag di configurazione che determinano se il computer può gestire il contenuto ai peer e può scaricare il contenuto da peer.
+Imposta i flag di configurazione che determinano se il computer può gestire il contenuto ai peer e se può scaricare il contenuto da peer.
 
 ## <a name="syntax"></a>Sintassi
 
 ```
-bitsadmin /PeerCaching /SetConfigurationFlags <Job> <Value>
+bitsadmin /peercaching /setconfigurationflags <job> <value>
 ```
 
-## <a name="parameters"></a>Parametri
+### <a name="parameters"></a>Parametri
 
-|Parametro|Descrizione|
-|---------|-----------|
-|Job|Nome visualizzato o il GUID del processo|
-|Value|Il valore è un intero senza segno con l'interpretazione seguente per i bit nella rappresentazione binaria:</br>-Consentire il download dei dati del processo da un peer: Imposta il bit meno significativo</br>-Consenti ai dati del processo di essere serviti ai peer: Impostare il secondo bit da destra.|
+| Parametro | Descrizione |
+| -------------- | -------------- |
+| lavoro | Nome visualizzato o GUID del processo. |
+| value | Unsigned Integer con l'interpretazione seguente per i bit nella rappresentazione binaria:<ul><li> Per consentire il download dei dati del processo da un peer, impostare il bit meno significativo.</li><li>Per consentire ai dati del processo di essere serviti ai peer, impostare il secondo bit da destra.</li></ul>|
 
-## <a name="BKMK_examples"></a>Esempi
+## <a name="examples"></a><a name=BKMK_examples></a>Esempi
 
-Nell'esempio seguente specifica i dati del processo da scaricare dal peer per il processo denominato *myJob*.
+Nell'esempio seguente vengono specificati i dati del processo da scaricare dai peer per il processo denominato *myDownloadJob*.
+
 ```
-C:\> Bitsadmin /PeerCaching /SetConfigurationFlags myJob 1
+C:\> bitsadmin /peercaching /setconfigurationflags myDownloadJob 1
 ```
 
-#### <a name="additional-references"></a>Altri riferimenti
+## <a name="additional-references"></a>Altre informazioni di riferimento
 
-[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+- [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

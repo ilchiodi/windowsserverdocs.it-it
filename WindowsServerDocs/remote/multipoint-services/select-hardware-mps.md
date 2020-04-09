@@ -1,24 +1,20 @@
 ---
 title: Scelta dell'hardware per il sistema di Servizi MultiPoint
 description: Considerazioni sull'hardware per servizi MultiPoint
-ms.custom: na
 ms.date: 07/22/2016
 ms.prod: windows-server
 ms.technology: multipoint-services
-ms.reviewer: na
-ms.suite: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: e74961a2-bd38-48ae-b1c0-4b3eff761b4a
 author: evaseydl
 manager: scottman
 ms.author: evas
-ms.openlocfilehash: 9cfd6572c82bf5c3754165420e61054ec12b9617
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 3dca1b68564c977394c1b71f72db0fde5727c861
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71388999"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80859074"
 ---
 # <a name="selecting-hardware-for-your-multipoint-services-system"></a>Scelta dell'hardware per il sistema di Servizi MultiPoint
 Quando si compila un sistema di servizi MultiPoint, è consigliabile selezionare un computer che soddisfi i requisiti di sistema di Windows Server 2016. Se si decide di selezionare i componenti, considerare quanto segue:  
@@ -81,7 +77,7 @@ Quando si compila un sistema di servizi MultiPoint, considerare i seguenti compo
   
     -   Tastiere e mouse  
   
-    -   Monitoraggi  
+    -   Monitor  
   
 -   Periferiche  
   
@@ -129,7 +125,7 @@ I client USB zero contengono un controller video esterno per collegare un monito
   
 Selezionare una porta USB zero client se si desidera abilitare il supporto per monitor aggiuntivi senza aprire il computer o se si desidera supportare ulteriori stazioni di output video disponibili. Ad esempio, se in precedenza erano quattro monitor collegato\-in schede video e si desidera aggiungere due ulteriori monitor, è possibile collegare\-in due controller video esterno al computer e per i due più monitor. In questo modo, è possibile combinare un USB zero-client con il controller video e non utilizzare slot PCI o PCIe aggiuntivi sulla scheda madre.  
   
-## <a name="BKMK_Selectingdirect-video-connectedorUSBzeroclientstationdevices"></a>Selezione di Direct\-video\-connessi o dispositivi USB zero client Station  
+## <a name="selecting-direct-video-connected-or-usb-zero-client-station-devices"></a><a name="BKMK_Selectingdirect-video-connectedorUSBzeroclientstationdevices"></a>Selezione di Direct\-video\-connessi o dispositivi USB zero client Station  
 Una stazione di servizi MultiPoint è costituito da un hub di stazione o USB zero client con una tastiera e mouse collegato\-in e un monitor collegato\-al computer host o in un client USB zero. Altre periferiche possono essere inserite\-in per la stazione di hub o USB zero client, ma non è necessario creare stazione MultiPoint. Le altre periferiche sono descritti in [selezionando altre periferiche stazione](#selecting-other-station-peripheral-devices).  
   
 I dispositivi che si desidera per creare una stazione di servizi MultiPoint devono soddisfare i requisiti minimi per lavorare con i servizi MultiPoint. In questo argomento vengono fornite informazioni dettagliate sui requisiti per i dispositivi stazione MultiPoint servizi seguenti:  
@@ -182,21 +178,21 @@ Servizi multiPoint supporta periferiche connesse a un hub, stazione un USB zero-
 **Disponibile a tutte le stazioni** dispositivo USB A cui è collegato al computer \(ad esempio, non tramite un hub stazione\) è disponibile per tutte le stazioni. A seconda del dispositivo e può essere utilizzato contemporaneamente da più utenti o solo un utente può accedere alla volta. Nella tabella seguente viene illustrato come accedere ai dispositivi USB.  
   
 > [!NOTE]  
-> La colonna "Connesso al Computer Host" nella tabella si riferisca al comportamento quando il computer che esegue servizi MultiPoint è in esecuzione in modalità stazione con stazioni. Se si esegue in modalità console, le periferiche che sono collegate ovunque si comportano esattamente come un server standard in una sessione della console.  
+> La colonna "connected to host computer" della tabella si riferisce al comportamento quando il computer che esegue MultiPoint Services è in esecuzione in modalità stazione con le stazioni. Se si esegue in modalità console, le periferiche che sono collegate ovunque si comportano esattamente come un server standard in una sessione della console.  
   
 ||Connesso al Computer Host|Connesso a Hub di stazione o a valle|  
 |-|------------------------------|----------------------------------------------|  
-|Tastiera|Non sono funzionanti, a meno che non fa parte di una stazione di PS/2. |Stazione disponibile a singole<br /><br />Non può essere connessa a un hub downstream|  
+|Tastiera|Non sono funzionanti, a meno che non fa parte di una stazione di PS/2. |Stazione disponibile a singole<p>Non può essere connessa a un hub downstream|  
 |Mouse|Non sono funzionanti, a meno che non fa parte di una stazione di PS/2. |Stazione disponibile a singole|  
 |Altoparlanti/cuffie|Non sono funzionanti, a meno che non fa parte di una stazione di PS/2.|Stazione disponibile a singole|  
 |Dispositivo di archiviazione USB|Disponibile a tutte le stazioni|Stazione disponibile a singole|  
 |Controllo Consumer HID|Non funzionante|Stazione disponibile a singole|  
 |Altri dispositivi USB, quali fotocamere, lettori di documenti e unità DVD|Disponibile a tutte le stazioni se supportato da Windows Server 2012|Disponibile a tutte le stazioni se supportato da Windows Server 2008 R2 Servizi Desktop remoto|  
   
-## <a name="BKMK_SelectingRDP-over-LAN-connectedstationhardware"></a>Selezione di\-RDP su\-LAN\-la stazione connessa hardware  
+## <a name="selecting-rdp-over-lan-connected-station-hardware"></a><a name="BKMK_SelectingRDP-over-LAN-connectedstationhardware"></a>Selezione di\-RDP su\-LAN\-la stazione connessa hardware  
 Qualsiasi client LAN che possono connettersi a Servizi Desktop remoto, utilizzando Remote Desktop Protocol, può diventare una stazione di servizi MultiPoint.  
   
-Se si desidera che il client di LAN a essere utilizzato solo come stazione MultiPoint, si desidera "bloccare" il client di rete LAN. Ad esempio, configurare il thin client in modo che può connettersi a una sessione di servizi MultiPoint, o configurare i computer desktop in modo che l'accesso alle icone del desktop e Menu Start elementi come un web browser viene rimossa per impedire l'accesso diretto a Internet. È possibile rendere tali configurazioni tramite strumenti di configurazione client LAN o gruppo o criteri locali.  
+Se si desidera che il client LAN venga utilizzato solo come stazione MultiPoint, è possibile che si desideri bloccare il client LAN. Ad esempio, configurare il thin client in modo che può connettersi a una sessione di servizi MultiPoint, o configurare i computer desktop in modo che l'accesso alle icone del desktop e Menu Start elementi come un web browser viene rimossa per impedire l'accesso diretto a Internet. È possibile rendere tali configurazioni tramite strumenti di configurazione client LAN o gruppo o criteri locali.  
   
 ## <a name="selecting-audio-devices"></a>Selezionare i dispositivi audio  
 È importante assicurarsi che quando si selezionano dispositivi audio, e possono essere inseriti nell'hub stazione, USB zero-client o client LAN. Alcuni hub USB, USB zero client e client delle reti LAN sono spina audio analogico che può essere utilizzato con i dispositivi audio analogici tradizionali \(ad esempio le cuffie o auricolari\). Hub stazione che non dispongono di jack analogico possono usare dispositivi audio USB.  

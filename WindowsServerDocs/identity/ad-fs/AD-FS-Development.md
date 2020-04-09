@@ -1,7 +1,6 @@
 ---
 ms.assetid: e9563792-cd73-4a32-b4a1-5bd6a2109016
 title: Sviluppo di AD FS
-description: ''
 author: billmath
 ms.author: billmath
 manager: mtillman
@@ -9,17 +8,17 @@ ms.date: 02/22/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: d9d170678b845446706c148c8816b5dc83e19371
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: b4c94553116d7a888ad76fd999f12cecd70e3523
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71360114"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80854094"
 ---
 # <a name="ad-fs-development"></a>Sviluppo di AD FS
 
 
-Questo documento contiene un elenco di tutte le procedure dettagliate della documentazione per lo sviluppo di AD FS. Sono inclusi gli elementi seguenti:  
+Questo documento contiene un elenco di tutte le procedure dettagliate della documentazione per lo sviluppo di AD FS. Tali attributi includono:  
   
  
 - [Creare un metodo di autenticazione personalizzato per AD FS](../ad-fs/development/ad-fs-build-custom-auth-method.md)
@@ -38,7 +37,7 @@ Questo documento contiene un elenco di tutte le procedure dettagliate della docu
 
 - [Creazione di un'applicazione client nativa con client OAuth pubblici con AD FS 2016](../ad-fs/development/native-client-with-ad-fs.md)
 
-- [Personalizzare le attestazioni da emettere in token ID quando si usa OpenID Connect o OAuth con AD FS 2016](../ad-fs/development/Customize-Id-Token-AD-FS-2016.md)
+- [Personalizzare le attestazioni da emettere in id_token quando si usa OpenID Connect o OAuth con AD FS 2016](../ad-fs/development/Customize-Id-Token-AD-FS-2016.md)
 
 - [Delega di identità con AD FS](../ad-fs/development/ad-fs-identity-delegation.md)
 

@@ -3,16 +3,15 @@ title: Connessione TCP interrotta durante la negoziazione della convalida
 description: Viene illustrato come risolvere il problema SMB quando la connessione TCP viene interrotta durante la negoziazione di convalida.
 author: Deland-Han
 manager: dcscontentpm
-audience: ITPro
 ms.topic: article
 ms.author: delhan
 ms.date: 12/25/2019
-ms.openlocfilehash: 3455b4ac0a2706f80702378dda02c1877af219ca
-ms.sourcegitcommit: 8cf04db0bc44fd98f4321dca334e38c6573fae6c
+ms.openlocfilehash: 36bd49777899870246a19531c6681a5b45bb622d
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75654622"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80815514"
 ---
 # <a name="tcp-connection-is-aborted-during-validate-negotiate"></a>Connessione TCP interrotta durante la negoziazione della convalida
 
@@ -51,7 +50,7 @@ Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\LanmanWorkstatio
 
 Se il client o il server non è in grado di supportare il comando Validate Negotiate, è possibile aggirare questo problema impostando la firma SMB come obbligatoria. La firma SMB è considerata più sicura rispetto alla negoziazione di convalida. Tuttavia, se è necessaria la firma, è possibile che si verifichi un calo delle prestazioni.
 
-## <a name="reference"></a>Informazioni di riferimento
+## <a name="reference"></a>Riferimento
 
 Per informazioni, vedi gli articoli seguenti:
 

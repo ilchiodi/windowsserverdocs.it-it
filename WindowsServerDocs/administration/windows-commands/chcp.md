@@ -1,28 +1,22 @@
 ---
 title: chcp
-description: 'Argomento dei comandi di Windows per * * * *- '
-ms.custom: na
+description: Windows Commands Topic for CHCP, che modifica la tabella codici della console attiva.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: dc7b1c71-7b80-443d-9cf1-9bcf305aa1fd
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: d5784b052ff1d7084d68cca0589caf518b8e44a8
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: e644cf8544d135c5d21c344b0fd0a3364c7f89c1
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71379534"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80847944"
 ---
 # <a name="chcp"></a>chcp
-
-
 
 Modifica la tabella codici della console attiva. Se utilizzata senza parametri, **chcp** Visualizza il numero della tabella codici della console attiva.
 
@@ -34,16 +28,16 @@ Per esempi di utilizzo di questo comando, vedere [Esempi](#BKMK_examples).
 chcp [<NNN>]
 ```
 
-## <a name="parameters"></a>Parametri
+### <a name="parameters"></a>Parametri
 
 |Parametro|Descrizione|
 |---------|-----------|
 |\<NNN >|Specifica la tabella codici.|
 |/?|Visualizza la guida al prompt dei comandi.|
 
-La tabella seguente elenca ogni codice supportate pagina e il paese/area geografica o lingua:
+La tabella seguente elenca ogni codice supportate pagina e il paese/regione o lingua:
 
-|Tabella codici|Paese/area geografica o lingua|
+|Tabella codici|Paese/regione o lingua|
 |---------|--------------------------|
 |437|Stati Uniti|
 |850|Multilingue (latino I)|
@@ -64,7 +58,7 @@ La tabella seguente elenca ogni codice supportate pagina e il paese/area geograf
 -   Non è necessario preparare le tabelle codici (ad esempio MS-DOS).
 -   I programmi che si avvia dopo aver assegnano una nuova pagina codice, utilizzare la nuova pagina di codice. Tuttavia (eccetto Cmd.exe) i programmi avviati prima di assegnano il nuovo codice pagina Usa la tabella codici originale.
 
-## <a name="BKMK_examples"></a>Esempi
+## <a name="examples"></a><a name=BKMK_examples></a>Esempi
 
 Per visualizzare l'impostazione della tabella codici attiva, digitare:
 ```
@@ -82,6 +76,6 @@ Se la tabella codici specificata non è valida, viene visualizzato il messaggio 
 
 `Invalid code page`
 
-#### <a name="additional-references"></a>Altri riferimenti
+## <a name="additional-references"></a>Altre informazioni di riferimento
 
-[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+- [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

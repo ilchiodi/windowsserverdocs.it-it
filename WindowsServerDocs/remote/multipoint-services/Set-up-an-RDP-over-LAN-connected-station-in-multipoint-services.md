@@ -1,24 +1,20 @@
 ---
 title: Configurare una stazione connessa RDP-over-LAN in MultiPoint Services
 description: Informazioni su come configurare un sistema RDP-over-LAN in MultiPoint Services
-ms.custom: na
 ms.date: 07/22/2016
 ms.prod: windows-server
 ms.technology: multipoint-services
-ms.reviewer: na
-ms.suite: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 60e1a025-c2fb-4708-a3ff-c44c223a3224
 author: evaseydl
 manager: scottman
 ms.author: evas
-ms.openlocfilehash: d0d63a75d3ef6e042d44df0ecf4cc08973e859a6
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 36aaa4c1571ff6dd48ae645b9c7b5746be7c1857
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71394998"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80853904"
 ---
 # <a name="set-up-an-rdp-over-lan-connected-station-in-multipoint-services"></a>Configurare una stazione connessa RDP-over-LAN in MultiPoint Services
 Una stazione connessa RDP-over-LAN è un thin client, un desktop tradizionale o un computer portatile che si connette a MultiPoint Services in una rete locale (LAN) usando il Remote Desktop Protocol (RDP). Per ulteriori informazioni su questo e altri tipi di espansione, vedere [MultiPoint stazioni](MultiPoint-services-Stations.md).  

@@ -8,12 +8,12 @@ author: larsiwer
 ms.asset: b78ab493-e7c3-41f5-ab36-29397f086f32
 ms.author: kathydav
 ms.date: 11/03/2016
-ms.openlocfilehash: 2232f62090e171060f25e4c2513a217e2ab98eaa
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: a7df8de5a828b68a341191eaa1a400f80dd9127b
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75950543"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80852904"
 ---
 # <a name="about-dump-encryption"></a>Informazioni sulla crittografia del dump
 La crittografia del dump può essere usata per crittografare i dump di arresto anomalo del sistema e i dump Live generati per un sistema. I dump vengono crittografati usando una chiave di crittografia simmetrica generata per ogni dump. Questa chiave viene quindi crittografata usando la chiave pubblica specificata dall'amministratore attendibile dell'host (protezione con chiave di crittografia del dump di arresto anomalo del sistema). In questo modo si garantisce che solo un utente con la chiave privata corrispondente possa decrittografare e quindi accedere al contenuto del dump. Questa funzionalità viene sfruttata in un'infrastruttura sorvegliata.
@@ -23,11 +23,11 @@ Nota: se si configura la crittografia del dump, disabilitare anche Segnalazione 
 ### <a name="manual-configuration"></a>Configurazione manuale
 Per attivare la crittografia del dump utilizzando il registro di sistema, configurare i seguenti valori del registro di sistema in `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\CrashControl`
 
-| Nome valore | Digita | Value |
+| Nome valore | Type | Valore |
 | ---------- | ---- | ----- |
 | DumpEncryptionEnabled | DWORD | 1 per abilitare la crittografia del dump, 0 per disabilitare la crittografia del dump |
-| EncryptionCertificates\Certificate.1::P ublicKey | Binario | Chiave pubblica (RSA, 2048 bit) da usare per la crittografia dei dump. Questo deve essere formattato come [BCRYPT_RSAKEY_BLOB](https://msdn.microsoft.com/library/windows/desktop/aa375531(v=vs.85).aspx). |
-| EncryptionCertificates\Certificate.1:: identificazione personale | Stringa | Identificazione personale del certificato per consentire la ricerca automatica della chiave privata nell'archivio certificati locale durante la decrittografia di un dump di arresto anomalo del sistema. |
+| EncryptionCertificates\Certificate.1::P ublicKey | Binary | Chiave pubblica (RSA, 2048 bit) da usare per la crittografia dei dump. Questo deve essere formattato come [BCRYPT_RSAKEY_BLOB](https://msdn.microsoft.com/library/windows/desktop/aa375531(v=vs.85).aspx). |
+| EncryptionCertificates\Certificate.1:: identificazione personale | String | Identificazione personale del certificato per consentire la ricerca automatica della chiave privata nell'archivio certificati locale durante la decrittografia di un dump di arresto anomalo del sistema. |
 
 
 ### <a name="configuration-using-script"></a>Configurazione tramite script
@@ -52,7 +52,7 @@ Dopo la decrittografia, gli strumenti come WinDbg possono aprire il file dump de
 ## <a name="troubleshooting-dump-encryption"></a>Risoluzione dei problemi di crittografia dump
 Se la crittografia del dump è abilitata in un sistema ma non viene generato alcun dump, controllare il registro eventi del sistema `System` per `Kernel-IO` evento 1207. Quando non è possibile inizializzare la crittografia del dump, questo evento viene creato e i dump sono disabilitati.
 
-| Messaggi di errore dettagliati | Passaggi per attenuare |
+| Messaggio di errore dettagliato | Passaggi per attenuare |
 | ---------------------- | ----------------- |
 | Registro di sistema di chiave pubblica o identificazione personale mancante | Controllare se i valori del registro di sistema sono presenti nel percorso previsto |
 | Chiave pubblica non valida | Verificare che la chiave pubblica archiviata nel valore del registro di sistema PublicKey sia archiviata come [BCRYPT_RSAKEY_BLOB](https://msdn.microsoft.com/library/windows/desktop/aa375531(v=vs.85).aspx). |

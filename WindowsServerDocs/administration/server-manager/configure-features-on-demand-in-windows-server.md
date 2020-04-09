@@ -1,24 +1,20 @@
 ---
 title: Configurare Features on Demand in Windows Server
 description: Server Manager
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-server-manager
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: e663bbea-d025-41fa-b16c-c2bff00a88e8
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: f834ca2e4c4acd045ccaeb4f46142dcc0e86f674
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 090b87810dc519728bf915bdb2cd79668c7f01f4
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71383272"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80851554"
 ---
 # <a name="configure-features-on-demand-in-windows-server"></a>Configurare Features on Demand in Windows Server
 
@@ -44,7 +40,7 @@ In una configurazione funzionalità su richiesta, quando i file di funzionalità
 
 -   Configurazione dell'impostazione Criteri di gruppo, **Specifica le impostazioni per l'installazione e il ripristino dei componenti facoltativi**
 
-In questo argomento sono incluse le sezioni seguenti.
+In questo argomento sono contenute le seguenti sezioni.
 
 -   [Creazione di un file di funzionalità o di un archivio affiancato](#BKMK_store)
 
@@ -52,14 +48,14 @@ In questo argomento sono incluse le sezioni seguenti.
 
 -   [Rimuovere i file di funzionalità tramite Uninstall-WindowsFeature](#BKMK_remove)
 
-## <a name="BKMK_store"></a>Creazione di un file di funzionalità o di un archivio affiancato
+## <a name="create-a-feature-file-or-side-by-side-store"></a><a name=BKMK_store></a>Creazione di un file di funzionalità o di un archivio affiancato
 In questa sezione viene descritto come configurare una funzionalità remoto condiviso cartella di file (denominata anche archivio side-by-side) che memorizza i file necessari per installare ruoli, servizi ruolo e funzionalità in server che eseguono Windows Server 2012 R2 o Windows Server 2012. Dopo avere configurato un archivio di funzionalità, è possibile installare ruoli, servizi ruolo e funzionalità in server che eseguono i sistemi operativi e specificare l'archivio di funzionalità come il percorso dei file di origine di installazione.
 
 #### <a name="to-create-a-feature-file-store"></a>Per creare un archivio di file di funzionalità
 
 1.  Creare una cartella condivisa in un server in rete. Ad esempio, *\\\network\share\sxs*.
 
-2.  Verificare di disporre delle autorizzazioni corrette assegnate all'archivio di funzionalità. Il percorso di origine o la condivisione file deve concedere autorizzazioni di **lettura** al gruppo **Everyone** (sconsigliato per motivi di sicurezza) o agli account computer (*dominio*\\*SERverNAME*$) dei server in cui si intende installare funzionalità tramite questo archivio di funzionalità; la concessione dell'accesso all'account utente non è sufficiente.
+2.  Verificare di disporre delle autorizzazioni corrette assegnate all'archivio di funzionalità. Il percorso di origine o la condivisione file deve concedere autorizzazioni di **lettura** al gruppo **Everyone** (sconsigliato per motivi di sicurezza) o agli account computer (*dominio*\\*nomeserver*$) dei server in cui si intende installare le funzionalità di utilizzando questo archivio di funzionalità. la concessione dell'accesso all'account utente non è sufficiente.
 
     Per accedere alle impostazioni delle autorizzazioni e di condivisione file è possibile eseguire una delle due operazioni seguenti sul desktop Windows.
 
@@ -72,14 +68,14 @@ In questa sezione viene descritto come configurare una funzionalità remoto cond
 
 3.  Copiare la cartella **Sources\SxS** dai supporti di installazione di Windows Server alla cartella condivisa creata al passaggio 1.
 
-## <a name="BKMK_methods"></a>Metodi di rimozione dei file di funzionalità
+## <a name="methods-of-removing-feature-files"></a><a name=BKMK_methods></a>Metodi di rimozione dei file di funzionalità
 Sono disponibili due metodi per rimuovere file di funzionalità da Windows Server in una configurazione Funzionalità su richiesta.
 
 -   Il `remove` del parametro di `Uninstall-WindowsFeature` cmdlet consente di eliminare i file di funzionalità da un server o non in linea disco rigido virtuale (VHD) che esegue Windows Server 2012 R2 o Windows Server 2012. I valori validi per il `remove` parametro sono i nomi di ruoli, servizi ruolo e funzionalità.
 
 -   I comandi di Gestione e manutenzione immagini distribuzione (DISM) consentono di creare file WIM personalizzati, per conservare spazio su disco omettendo i file di configurazione non necessari o ottenibili da altre origini remote. Per altre informazioni sull'uso di Gestione e manutenzione immagini distribuzione per preparare immagini personalizzate, vedere [Come abilitare o disabilitare le funzionalità di Windows](https://technet.microsoft.com/library/hh824822.aspx).
 
-## <a name="BKMK_remove"></a>Rimuovere i file di funzionalità tramite Uninstall-WindowsFeature
+## <a name="remove-feature-files-by-using-uninstall-windowsfeature"></a><a name=BKMK_remove></a>Rimuovere i file di funzionalità tramite Uninstall-WindowsFeature
 È possibile utilizzare il cmdlet Uninstall-WindowsFeature per disinstallare ruoli, servizi ruolo e funzionalità dal server e dischi rigidi virtuali offline che eseguono Windows Server 2012 R2 o Windows Server 2012 e per eliminare i file di funzionalità. È possibile disinstallare ed eliminare i ruoli, servizi ruolo e funzionalità nello stesso comando stesso, se desiderato.
 
 > [!IMPORTANT]
@@ -121,7 +117,7 @@ Sono disponibili due metodi per rimuovere file di funzionalità da Windows Serve
     Uninstall-WindowsFeature -Name AD-Domain-Services,GPMC -VHD C:\WS2012VHDs\Contoso.vhd -computerName ContosoDC1
     ```
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 [Installare o disinstallare ruoli, servizi ruolo o funzionalità](install-or-uninstall-roles-role-services-or-features.md)
 [Opzioni di installazione di Windows Server](https://technet.microsoft.com/library/hh831786.aspx)
 [come abilitare o disabilitare le funzionalità di Windows](https://technet.microsoft.com/library/hh824822.aspx)

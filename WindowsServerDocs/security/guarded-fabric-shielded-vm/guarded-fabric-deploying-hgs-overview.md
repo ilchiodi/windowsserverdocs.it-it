@@ -1,25 +1,25 @@
 ---
 title: Distribuzione del servizio sorveglianza host
-ms.custom: na
 ms.prod: windows-server
 ms.topic: article
 ms.assetid: 310b63d9-5ac7-4961-98ef-103af45d706a
 manager: dongill
 author: rpsqrd
+ms.author: ryanpu
 ms.technology: security-guarded-fabric
 ms.date: 01/14/2020
-ms.openlocfilehash: e66e7f365553f3aa106abbebf372492e0cc08386
-ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
+ms.openlocfilehash: a74dd84a0dbefa134a7ead6c9296dd00a38b599e
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79322023"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80856764"
 ---
 # <a name="deploying-the-host-guardian-service"></a>Distribuzione del servizio sorveglianza host 
 
 >Si applica a: Windows Server 2019, Windows Server (canale semestrale), Windows Server 2016
 
-Uno degli obiettivi più importanti di fornire un ambiente ospitato è garantire la sicurezza delle macchine virtuali in esecuzione nell'ambiente. L'infrastruttura sorvegliata consente ai provider di servizi cloud o agli amministratori del cloud privato aziendale di offrire un ambiente più sicuro per le macchine virtuali. Un'infrastruttura sorvegliata è costituita da un servizio Sorveglianza host (Host Guardian Service - HGS), in genere un cluster di tre nodi, nonché da uno o più host sorvegliati e un set di macchine virtuali schermate.
+Uno degli obiettivi più importanti di fornire un ambiente ospitato è garantire la sicurezza delle macchine virtuali in esecuzione nell'ambiente. L'infrastruttura sorvegliata consente ai provider di servizi cloud o agli amministratori del cloud privato aziendale di offrire un ambiente più sicuro per le macchine virtuali. Un'infrastruttura sorvegliata è costituita da un Servizio Sorveglianza host (Host Guardian Service - HGS), in genere, un cluster di tre nodi, oltre a uno o più host sorvegliati e un set di macchine virtuali schermate (VM).
 
 ## <a name="video-deploying-a-guarded-fabric"></a>Video: distribuzione di un'infrastruttura sorvegliata 
 

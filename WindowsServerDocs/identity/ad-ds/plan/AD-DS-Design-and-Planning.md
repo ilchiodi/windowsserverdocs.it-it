@@ -1,7 +1,6 @@
 ---
 ms.assetid: a91339ef-6ad4-445f-8ecc-a95fbcc04296
 title: Pianificazione e progettazione di Active Directory Domain Services
-description: ''
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
@@ -9,12 +8,12 @@ ms.date: 08/07/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 5267561e4a3d19514d9105f21122db73f85bffb9
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: fa596fd3897c9fd2cc368e4c5ef164d05bfc4c20
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71409021"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80822904"
 ---
 # <a name="ad-ds-design-and-planning"></a>Pianificazione e progettazione di Active Directory Domain Services
 
@@ -32,7 +31,7 @@ Sebbene le strategie presentate in questa guida siano appropriate per quasi tutt
   
 Per ulteriori informazioni sul test del processo di distribuzione di servizi di dominio Active Directory, vedere l'articolo [test e verifica del processo di distribuzione](https://go.microsoft.com/fwlink/?LinkId=100206).  
   
-## <a name="in-this-guide"></a>Contenuto della guida
+## <a name="in-this-guide"></a>In questa guida
 
 [Informazioni sulla progettazione di Active Directory Domain Services](Understanding-AD-DS-Design.md)  
   
@@ -48,4 +47,4 @@ Per ulteriori informazioni sul test del processo di distribuzione di servizi di 
   
 [Esempi di valutazione della strategia di distribuzione di Active Directory Domain Services](Evaluating-AD-DS-Deployment-Strategy-Examples.md)  
   
-[Appendice A: Termini importanti di Active Directory Domain Services](Appendix-A--Reviewing-Key-AD-DS-Terms.md)  
+[Appendice A: Revisione delle principali condizioni di servizi di dominio Active Directory](Appendix-A--Reviewing-Key-AD-DS-Terms.md)  

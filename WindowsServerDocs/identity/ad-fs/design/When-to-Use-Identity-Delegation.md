@@ -1,7 +1,6 @@
 ---
 ms.assetid: 6e711a96-9055-4508-b6d4-318d6aa95fd1
 title: Quando usare la delega di identità
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,21 +8,21 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: bac72fb27b40e3d7d7cd4e796caeec12c65def5e
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 7a594332900c8b3afb95c139bcde8458a10f186b
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71358807"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80858464"
 ---
 # <a name="when-to-use-identity-delegation"></a>Quando usare la delega di identità
   
 ## <a name="what-is-identity-delegation"></a>Che cos'è la delega di identità?  
-La delega dell'identità è una funzionalità \(di\) Active Directory Federation Services ad FS che\-consente agli account specificati dall'amministratore di rappresentare gli utenti. L'account che rappresenta l'utente viene chiamato *delegato*. Questa funzionalità di delega è fondamentale per molte applicazioni distribuite per le quali è disponibile una serie di verifiche del controllo di accesso che devono essere eseguite in sequenza per ogni applicazione, database o servizio che fa parte della catena di autorizzazione per la richiesta di origine. Esistono molti\-scenari reali in cui il "front-end" di un'applicazione Web deve recuperare dati da un "back-end" più sicuro, ad esempio un servizio Web connesso a un database Microsoft SQL Server.  
+La delega dell'identità è una funzionalità di Active Directory Federation Services \(AD FS\) che consente all'amministratore di\-account specificati di rappresentare gli utenti. L'account che rappresenta l'utente viene chiamato *delegato*. Questa funzionalità di delega è fondamentale per molte applicazioni distribuite per le quali è disponibile una serie di verifiche del controllo di accesso che devono essere eseguite in sequenza per ogni applicazione, database o servizio che fa parte della catena di autorizzazione per la richiesta di origine. Esistono molti scenari\-reali in cui il "front-end" di un'applicazione Web deve recuperare i dati da un "back-end" più sicuro, ad esempio un servizio Web connesso a un database Microsoft SQL Server.  
   
-Ad esempio, un parti esistenti\-ordinamento può essere migliorato a livello di codice del sito Web in modo che consente alle organizzazioni di visualizzare il proprio stato di cronologia e account di acquisto al partner. Per motivi di sicurezza tutti i dati finanziari di partner è archiviato in un database protetto in dedicato Structured Query Language \(SQL\) server. In questa situazione, il codice nell'applicazione front\--end non riconosce i dati finanziari dell'organizzazione partner. Pertanto, è necessario recuperare i dati da un altro computer in un punto della rete che ospita \(in questo caso\) il servizio Web per il database di parti \(back-end\).  
+Ad esempio, un parti esistenti\-ordinamento può essere migliorato a livello di codice del sito Web in modo che consente alle organizzazioni di visualizzare il proprio stato di cronologia e account di acquisto al partner. Per motivi di sicurezza tutti i dati finanziari di partner è archiviato in un database protetto in dedicato Structured Query Language \(SQL\) server. In questa situazione, il codice nell'applicazione front\-end non riconosce i dati finanziari dell'organizzazione partner. Pertanto, è necessario recuperare i dati da un altro computer in un punto della rete che ospita \(in questo caso\) il servizio Web per il database di parti \(back-end\).  
   
-Per questi dati\-il processo di recupero abbia esito positivo, alcuni successione di autorizzazione "mano\-agitazione" deve avvenire tra l'applicazione Web e il servizio Web per il database di parti, come illustrato nella figura seguente.  
+Per il corretto completamento del processo di recupero dei dati\-, è necessario che venga eseguita una certa successione di autorizzazione "mano\-agitazione" tra l'applicazione Web e il servizio Web per il database delle parti, come illustrato nella figura seguente.  
   
 ![delega dell'identità](media/adfs2_identitydelegationconcept.gif)  
   
@@ -53,10 +52,10 @@ ADFS non limitano gli utenti che possono essere rappresentati. Dopo aver configu
   
 -   Stabilisce e mantiene separati sia il contesto dell'identità per l'account del client delegato che per il server che agisce come delegato.  
   
-È possibile configurare la delega dell'identità mediante l'aggiunta di regole di autorizzazione di delega per una relying party trust nello snap di gestione di ADFS\-in. Per ulteriori informazioni su come eseguire questa operazione, vedere [elenco di controllo: Creazione di regole attestazione per un trust](../../ad-fs/deployment/Checklist--Creating-Claim-Rules-for-a-Relying-Party-Trust.md)della relying party.  
+È possibile configurare la delega dell'identità mediante l'aggiunta di regole di autorizzazione di delega per una relying party trust nello snap di gestione di ADFS\-in. Per ulteriori informazioni su come eseguire questa operazione, vedere [elenco di controllo: creazione di regole attestazione per un Trust della Relying Party](../../ad-fs/deployment/Checklist--Creating-Claim-Rules-for-a-Relying-Party-Trust.md).  
   
 ## <a name="configuring-the-front-end-web-application-for-identity-delegation"></a>Configurazione di primo piano\-terminare l'applicazione Web per la delega dell'identità  
 Gli sviluppatori sono disponibili diverse opzioni che consentono di programmare in modo appropriato all'inizio di Web\-terminare l'applicazione o un servizio per reindirizzare le richieste di delega in un computer di ADFS. Per altre informazioni su come personalizzare un'applicazione Web in modo che funzioni con la delega dell'identità, vedere [Windows Identity Foundation SDK](https://go.microsoft.com/fwlink/?LinkId=122266).  
   
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 [Guida alla progettazione di AD FS in Windows Server 2012](AD-FS-Design-Guide-in-Windows-Server-2012.md)

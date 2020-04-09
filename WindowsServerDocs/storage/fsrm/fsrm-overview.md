@@ -2,18 +2,18 @@
 title: Panoramica di Gestione risorse file server
 ms.prod: windows-server
 ms.author: jgerend
-ms.manager: brianlic
+manager: brianlic
 ms.technology: storage
 ms.topic: article
 author: jasongerend
 ms.date: 5/14/2018
 description: File server Gestione risorse (FSRM) è uno strumento che consente di gestire e classificare i dati in un file server Windows Server.
-ms.openlocfilehash: 719176307afc320ad676fd1acfc07ad9d15920cf
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 0ed7e5abce9389283a9b9d641f813b5df89a586b
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71394173"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80854244"
 ---
 # <a name="file-server-resource-manager-fsrm-overview"></a>Panoramica di Gestione risorse file server
 
@@ -53,7 +53,7 @@ Le funzionalità incluse in file server Gestione risorse possono essere configur
   
 -   Pianificare un rapporto da eseguire ogni domenica a mezzanotte, che generi un elenco dei file utilizzati più di recente nei due giorni precedenti. Ciò può essere utile per determinare l'attività di archiviazione nei fine settimana e pianificare di conseguenza i periodi di inattività del server.  
 
-## <a name="whats-new"></a>Novità: impedire a FSRM di creare Journal delle modifiche
+## <a name="whats-new---prevent-fsrm-from-creating-change-journals"></a><a name="whats-new"></a>Novità: impedire a FSRM di creare Journal delle modifiche
 
 A partire da Windows Server, versione 1803, è ora possibile impedire al servizio file server Gestione risorse di creare un journal delle modifiche (noto anche come journal USN) sui volumi all'avvio del servizio. Questo consente di conservare un po' di spazio in ogni volume, ma disabilita la classificazione dei file in tempo reale.
 
@@ -90,7 +90,7 @@ Per impedire che il file server Gestione risorse la creazione di un journal dell
        ```
     2. Tornare all'editor del registro di sistema, fare clic con il pulsante destro del mouse sulla chiave **HKEY_LOCAL_MACHINE \system\currentcontrolset\services\srmsvc\settings** , quindi scegliere **nuovo** > **valore multistringa**.
     3. Denominare il valore `SkipUSNCreationForVolumes`.
-    4. Immettere il percorso di ogni volume in cui si ignora la creazione di un journal delle modifiche, inserendo ogni percorso in una riga separata. Ad esempio:
+    4. Immettere il percorso di ogni volume in cui si ignora la creazione di un journal delle modifiche, inserendo ogni percorso in una riga separata. Ad esempio,
 
         ```
         \\?\Volume{8d3c9e8a-0000-0000-0000-100000000000}\
@@ -104,6 +104,6 @@ Per impedire che il file server Gestione risorse la creazione di un journal dell
 
 
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 
 - [Controllo dinamico degli accessi](https://technet.microsoft.com/library/dn408191(v=ws.11).aspx) 

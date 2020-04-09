@@ -2,25 +2,23 @@
 title: Creare un commutatore virtuale per le macchine virtuali Hyper-V
 description: Vengono fornite istruzioni sulla creazione di un commutire virtuale utilizzando la console di gestione di Hyper-V o Windows PowerShell
 ms.prod: windows-server
-ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
-ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: fdc8063c-47ce-4448-b445-d7ff9894dc17
-author: KBDAzure
+author: kbdazure
 ms.author: kathydav
 ms.date: 10/04/2016
-ms.openlocfilehash: f1a814060e763545411b5c4345367638a5161ac2
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: e27d1286945671d3f44fe2fa3220a2e223ad7c4f
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71392920"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80860844"
 ---
 # <a name="create-a-virtual-switch-for-hyper-v-virtual-machines"></a>Creare un commutatore virtuale per le macchine virtuali Hyper-V
 
->Si applica a: Windows 10, Windows Server 2016, Microsoft Hyper-V Server 2016, Windows Server 2019 Microsoft Hyper-V Server 2019
+>Si applica a: Windows 10, Windows Server 2016, Microsoft Hyper-V Server 2016, Windows Server 2019, Microsoft Hyper-V Server 2019
   
 Un commutatore virtuale consente alle macchine virtuali create negli host Hyper-V per comunicare con altri computer. È possibile creare un commutire virtuale quando si installa per la prima volta il ruolo Hyper-V in Windows Server. Per creare commutatori virtuali aggiuntivi, utilizzare Hyper-V Manager o Windows PowerShell. Per ulteriori informazioni sui commutatori virtuali, vedere [commutatore virtuale Hyper-V](../../hyper-v-virtual-switch/Hyper-V-Virtual-Switch.md).  
   
@@ -52,8 +50,8 @@ Rete della macchina virtuale può essere un oggetto complesso. E sono disponibil
   
     |Nome dell'impostazione|Descrizione|  
     |----------------|---------------|  
-    |Consenti condivisione della scheda di rete da parte del sistema operativo di gestione|Selezionare questa opzione se si desidera consentire all'host Hyper-V di condividere l'utilizzo del commutatore virtuale e scheda di RETE o scheda NIC del team con la macchina virtuale. Con questa impostazione attivata, l'host può utilizzare le impostazioni configurate per il commutatore virtuale come le impostazioni di qualità del servizio (QoS), le impostazioni di sicurezza o altre funzionalità del commutatore virtuale Hyper-V.|  
-    |Abilita single-root i/o virtualization (SR-IOV)|Selezionare questa opzione solo se si desidera consentire al traffico di macchina virtuale di ignorare il commutatore di macchina virtuale e passare direttamente alla scheda di rete fisica. Per ulteriori informazioni, vedere la pagina relativa alla [virtualizzazione i/O single-root](https://technet.microsoft.com/library/dn641211.aspx#Sec4) nel riferimento complementare poster: Rete Hyper-V.|  
+    |Consenti al sistema operativo di gestione di condividere la scheda di rete|Selezionare questa opzione se si desidera consentire all'host Hyper-V di condividere l'utilizzo del commutatore virtuale e scheda di RETE o scheda NIC del team con la macchina virtuale. Con questa impostazione attivata, l'host può utilizzare le impostazioni configurate per il commutatore virtuale come le impostazioni di qualità del servizio (QoS), le impostazioni di sicurezza o altre funzionalità del commutatore virtuale Hyper-V.|  
+    |Abilita Single-Root I/O Virtualization (SR-IOV)|Selezionare questa opzione solo se si desidera consentire al traffico di macchina virtuale di ignorare il commutatore di macchina virtuale e passare direttamente alla scheda di rete fisica. Per ulteriori informazioni, vedere [Single-Root i/o Virtualization](https://technet.microsoft.com/library/dn641211.aspx#Sec4) nel riferimento complementare Poster: funzionalità di rete Hyper-V.|  
   
 7.  Se si desidera isolare il traffico di rete dal sistema operativo host Hyper-V di gestione o da altre macchine virtuali che condividono lo stesso Commuter virtuale, selezionare **Abilita identificazione LAN virtuale per il sistema operativo di gestione**. È possibile modificare l'ID VLAN a qualsiasi numero o lasciare il valore predefinito. Questo è il numero di identificazione LAN virtuale che utilizzerà il sistema operativo di gestione per le comunicazioni di rete attraverso il commutatore virtuale.  
   
@@ -61,7 +59,7 @@ Rete della macchina virtuale può essere un oggetto complesso. E sono disponibil
   
 8.  Fare clic su **OK**.  
   
-9. Scegliere **Sì**.  
+9. Fare clic su **Sì**.  
   
     ![Schermata che mostra il messaggio "Le modifiche in sospeso può compromettere la connettività di rete"](../media/Hyper-V-NewVSwitch-DisruptNetwork.png)  
   

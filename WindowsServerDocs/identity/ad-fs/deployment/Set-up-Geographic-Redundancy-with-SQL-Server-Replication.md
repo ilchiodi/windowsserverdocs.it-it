@@ -1,6 +1,5 @@
 ---
 title: Configurare la ridondanza geografica con replica di SQL Server
-description: ''
 author: billmath
 manager: femila
 ms.date: 05/31/2017
@@ -9,12 +8,12 @@ ms.prod: windows-server
 ms.technology: active-directory-federation-services
 ms.author: billmath
 ms.assetId: 7b9f9a4f-888c-4358-bacd-3237661b1935
-ms.openlocfilehash: 16cf1a237043aa546d4fc24164045aa9f9a1e6ac
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 54106ae635d44368542986c7c469560981f9888a
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71359824"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80855844"
 ---
 # <a name="setup-geographic-redundancy-with-sql-server-replication"></a>Configurare la ridondanza geografica con replica di SQL Server
 
@@ -89,7 +88,7 @@ Installare e configurare un server farm SQL. Per ulteriori informazioni, vedere 
     ![configurare la ridondanza geografica](media/Set-up-Geographic-Redundancy-with-SQL-Server-Replication/sql18.png) </br>   
     Potrebbe essere necessario creare un account di dominio per SQL Agent. Utilizzare la procedura descritta in [configurare l'accesso SQL per l'account di dominio CONTOSO\\SQLAgent](Set-up-Geographic-Redundancy-with-SQL-Server-Replication.md#sqlagent) per creare l'account di accesso SQL per questo nuovo utente di Active Directory e assegnare autorizzazioni specifiche.  
   
-13. Nella pagina **sicurezza agente** fare clic su **impostazioni di sicurezza** e immettere il nome utente\/password di un account di dominio \(non un\) gMSA creato per l'agente SQL, quindi fare clic su **OK**.  Fai clic su **Next**.  
+13. Nella pagina **sicurezza agente** fare clic su **impostazioni di sicurezza** e immettere il nome utente\/password di un account di dominio \(non un\) gMSA creato per l'agente SQL, quindi fare clic su **OK**.  Fare clic su **Avanti**.  
     ![configurare la ridondanza geografica](media/Set-up-Geographic-Redundancy-with-SQL-Server-Replication/sql19.png) </br>  
 
 14. Nella pagina **Azioni procedura guidata** fare clic su **Avanti**.   
@@ -156,7 +155,7 @@ Assicurarsi di aver creato le impostazioni del server di pubblicazione nella SQL
   
 4.  Inoltre, è possibile cercare nel nodo **SQL Server Agent\\Jobs** per visualizzare il processo\(\) pianificato per l'esecuzione delle operazioni della sottoscrizione\/pubblicazione.  Vengono visualizzati solo i processi locali, quindi assicurarsi di controllare nel server di pubblicazione e nel Sottoscrittore la risoluzione dei problemi.  A destra\-fare clic su un processo e selezionare **Visualizza cronologia** per visualizzare la cronologia di esecuzione e i risultati.  
   
-## <a name="sqlagent"></a>Configurare l'account di accesso SQL per l'account di dominio CONTOSO\\SQLAgent  
+## <a name="configure-sql-login-for-the-domain-account-contososqlagent"></a><a name="sqlagent"></a>Configurare l'account di accesso SQL per l'account di dominio CONTOSO\\SQLAgent  
   
 1.  Creare un nuovo account di accesso per il SQL Server primario e la replica denominato CONTOSO\\SQLAgent \(il nome del nuovo utente di dominio creato e configurato nella pagina **sicurezza agente** nelle procedure precedenti.\)  
   

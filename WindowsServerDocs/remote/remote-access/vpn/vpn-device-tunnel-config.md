@@ -6,15 +6,15 @@ ms.date: 11/05/2018
 ms.technology: networking-ras
 ms.topic: article
 ms.assetid: 158b7a62-2c52-448b-9467-c00d5018f65b
-ms.author: lizross
-author: eross-msft
+ms.author: v-tea
+author: Teresa-MOTIV
 ms.localizationpriority: medium
-ms.openlocfilehash: ebf7a18c462909fa7b07b7c52b6e8a8083d0ab9b
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: 855eb8d45297f15afceedf6cc11c2175c899ae45
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80308076"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80818794"
 ---
 # <a name="configure-vpn-device-tunnels-in-windows-10"></a>Configurare i tunnel dei dispositivi VPN in Windows 10
 
@@ -37,8 +37,8 @@ Il tunnel del dispositivo può essere configurato solo su dispositivi aggiunti a
 È necessario abilitare l'autenticazione del certificato del computer per le connessioni VPN e definire un'autorità di certificazione radice per l'autenticazione delle connessioni VPN in ingresso. 
 
 ```PowerShell
-$VPNRootCertAuthority = “Common Name of trusted root certification authority”
-$RootCACert = (Get-ChildItem -Path cert:LocalMachine\root | Where-Object {$_.Subject -Like “*$VPNRootCertAuthority*” })
+$VPNRootCertAuthority = "Common Name of trusted root certification authority"
+$RootCACert = (Get-ChildItem -Path cert:LocalMachine\root | Where-Object {$_.Subject -Like "*$VPNRootCertAuthority*" })
 Set-VpnAuthProtocol -UserAuthProtocolAccepted Certificate, EAP -RootCertificateNameToAccept $RootCACert -PassThru
 ```
 

@@ -2,7 +2,7 @@
 title: Panoramica di Spazi di archiviazione diretta
 ms.prod: windows-server
 ms.author: cosdar
-ms.manager: dongill
+manager: dongill
 ms.technology: storage-spaces
 ms.topic: article
 author: cosmosdarwin
@@ -10,12 +10,12 @@ ms.date: 06/26/2019
 ms.assetid: 8bd0d09a-0421-40a4-b752-40ecb5350ffd
 description: Panoramica di Spazi di archiviazione diretta, una funzionalità di Windows Server che consente di raggruppare i server con archiviazione interna in una soluzione di archiviazione definita dal software.
 ms.localizationpriority: medium
-ms.openlocfilehash: 4e47adcebf7da87e9d3c96812f5d7d90ca00601b
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: b032d286398b3c1719d290ca83da8bbc9c6b9f85
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71402837"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80859134"
 ---
 # <a name="storage-spaces-direct-overview"></a>Panoramica di Spazi di archiviazione diretta
 
@@ -29,11 +29,11 @@ Per altre applicazioni di spazi di archiviazione, ad esempio i cluster SAS condi
 
 |       |       |
 |   -   |   -   |
-| **Comprensione**<br><ul><li>Panoramica (sei in questa fase)</li><li>[Informazioni sulla cache](understand-the-cache.md)</li><li>[Tolleranza di errore ed efficienza di archiviazione](storage-spaces-fault-tolerance.md)<li>[Considerazioni sulla simmetria dell'unità](drive-symmetry-considerations.md)</li><li>[Comprendere e monitorare risincronizzazione di archiviazione](understand-storage-resync.md)</li><li>[Informazioni sul quorum di cluster e pool](understand-quorum.md)</li><li>[Set di cluster](cluster-sets.md)</li> | **Pianificare**<br><ul><li>[Requisiti hardware](storage-spaces-direct-hardware-requirements.md)</li><li>[Uso della cache di lettura in memoria Volume condiviso cluster](csv-cache.md)</li><li>[Scegliere le unità](choosing-drives.md)</li><li>[Pianificare i volumi](plan-volumes.md)</li><li>[Uso di cluster di macchine virtuali guest](storage-spaces-direct-in-vm.md)</li><li>[Ripristino di emergenza](storage-spaces-direct-disaster-recovery.md)</li> |
+| **Comprensione**<br><ul><li>Panoramica (sei in questa fase)</li><li>[Informazioni sulla cache](understand-the-cache.md)</li><li>[Tolleranza di errore ed efficienza di archiviazione](storage-spaces-fault-tolerance.md)<li>[Considerazioni sulla simmetria dell'unità](drive-symmetry-considerations.md)</li><li>[Comprendere e monitorare risincronizzazione di archiviazione](understand-storage-resync.md)</li><li>[Informazioni sul quorum di cluster e pool](understand-quorum.md)</li><li>[Set di cluster](cluster-sets.md)</li> | **Pianificazione**<br><ul><li>[Requisiti hardware](storage-spaces-direct-hardware-requirements.md)</li><li>[Uso della cache di lettura in memoria Volume condiviso cluster](csv-cache.md)</li><li>[Scegliere le unità](choosing-drives.md)</li><li>[Pianificare i volumi](plan-volumes.md)</li><li>[Uso di cluster di macchine virtuali guest](storage-spaces-direct-in-vm.md)</li><li>[Ripristino di emergenza](storage-spaces-direct-disaster-recovery.md)</li> |
 | **Distribuzione**<br><ul><li>[Distribuire Spazi di archiviazione diretta](deploy-storage-spaces-direct.md)</li><li>[Creare volumi](create-volumes.md)</li><li>[Resilienza annidata](nested-resiliency.md)</li><li>[Configurare quorum](../../failover-clustering/manage-cluster-quorum.md)</li><li>[Eseguire l'aggiornamento di un cluster di Spazi di archiviazione diretta a Windows Server 2019](upgrade-storage-spaces-direct-to-windows-server-2019.md)</li><li>[Concetti e distribuzione della memoria persistente](deploy-pmem.md)</li> | **Gestione**<br><ul><li>[Gestire con Windows Admin Center](../../manage/windows-admin-center/use/manage-hyper-converged.md)</li><li>[Aggiungere server o unità](add-nodes.md)</li><li>[Disconnessione del server a scopo di manutenzione](maintain-servers.md)</li><li>[Rimuovere server](remove-servers.md)</li><li>[Estendere volumi](resize-volumes.md)</li><li>[Eliminare volumi](delete-volumes.md)</li><li>[Aggiornare il firmware delle unità](../update-firmware.md)</li><li>[Cronologia delle prestazioni](performance-history.md)</li><li>[Delimitare l'allocazione di volumi](delimit-volume-allocation.md)</li><li>[Usare monitoraggio di Azure in un cluster iperconvergente](configure-azure-monitor.md)</li> |
 | **Risoluzione dei problemi**<br><ul><li>[Scenari di risoluzione dei problemi](troubleshooting-storage-spaces.md)</li><li>[Risolvere i problemi relativi a stato e stato operativo](storage-spaces-states.md)</li><li>[Raccogliere i dati di diagnostica con Spazi di archiviazione diretta](data-collection.md)</li><li>[Gestione dell'integrità di memoria della classe di archiviazione](Storage-class-memory-health.md)</li> | **Post di Blog recenti**<br><ul><li>[13,7 milioni IOPS con Spazi di archiviazione diretta: il nuovo record di settore per l'infrastruttura iperconvergente](https://blogs.technet.microsoft.com/filecab/2018/10/30/windows-server-2019-and-intel-optane-dc-persistent-memory/)</li><li>[Infrastruttura iperconvergente in Windows Server 2019: il clock del conto alla rovescia inizia subito.](https://blogs.technet.microsoft.com/filecab/2018/10/02/hci-the-countdown-clock-starts-now/)</li><li>[Cinque annunci di grandi dimensioni da Windows Server Summit](https://blogs.technet.microsoft.com/filecab/2018/06/27/windows-server-summit-recap)</li><li>[10.000 Spazi di archiviazione diretta cluster e conteggio...](https://blogs.technet.microsoft.com/filecab/2018/03/27/storage-spaces-direct-momentum/)</li> |
 
-## <a name="videos"></a>Video
+## <a name="videos"></a>Videos
 
 **Panoramica video veloce (5 minuti)**
 
@@ -66,13 +66,13 @@ Per altre applicazioni di spazi di archiviazione, ad esempio i cluster SAS condi
 
 Spazi di archiviazione diretta è stato progettato per due opzioni di distribuzione distinte:
 
-### <a name="converged"></a>Con convergenza
+### <a name="converged"></a>Convergenza eseguita
 
 **Archiviazione e calcolo in cluster distinti.** L'opzione di distribuzione convergente, chiamata anche disaggregata, sovrappone un file server di scalabilità orizzontale (SoFS) a Spazi di archiviazione diretta per offrire un dispositivo NAS in condivisioni file SMB3. In questo modo si ottiene un ridimensionamento del calcolo/carico di lavoro indipendentemente dal cluster di archiviazione, fondamentale per le distribuzioni su larga scala come l'infrastruttura distribuita come servizio (IaaS) Hyper-V per i provider di servizi e le aziende.
 
 ![Spazi di archiviazione diretta fornisce l'archiviazione tramite la funzionalità File server di scalabilità orizzontale alle macchine virtuali Hyper-V in un altro server o cluster](media/storage-spaces-direct-in-windows-server-2016/converged-minimal.png)
 
-### <a name="hyper-converged"></a>Iperconvergente
+### <a name="hyper-converged"></a>Con iperconvergenza
 
 **Un cluster per il calcolo e l'archiviazione.** L'opzione di distribuzione iperconvergente esegue macchine virtuali Hyper-V o database di SQL Server direttamente nei server fornendo archiviazione e archiviando i file nei volumi locali. In questo modo, non è più necessario configurare l'accesso e le autorizzazioni per il file server e si riducono i costi per l'hardware per le distribuzioni di piccole e medie imprese o uffici remoti/succursali. Vedere [Deploy spazi di archiviazione diretta](deploy-storage-spaces-direct.md).
 
@@ -118,18 +118,18 @@ Visitare [Microsoft.com/HCI](https://www.microsoft.com/hci) per leggere le stori
 
 Per gestire e/o monitorare Spazi di archiviazione diretta, è possibile usare gli strumenti seguenti:
 
-| Nome | Grafica o riga di comando? | Pagata o inclusa? |
+| Name | Grafica o riga di comando? | Pagata o inclusa? |
 |-----------------|----------------------------|-------------------|
-| [Windows Admin Center](../../manage/windows-admin-center/overview.md)     | Grafica    | Inclusa |
-| Server Manager & Gestione cluster di failover                                 | Grafica    | Inclusa |
-| Windows PowerShell                                                        | Riga di comando | Inclusa |
+| [Windows Admin Center](../../manage/windows-admin-center/overview.md)     | Grafica    | Inclusione |
+| Server Manager & Gestione cluster di failover                                 | Grafica    | Inclusione |
+| Windows PowerShell                                                        | Riga di comando | Inclusione |
 | [System Center Virtual Machine Manager (SCVMM)](https://technet.microsoft.com/system-center-docs/vmm/manage/manage-storage-spaces-direct-vmm) <br>& [Operations Manager (SCOM)](https://www.microsoft.com/download/details.aspx?id=54700) | Grafica    | A pagamento     |
 
-## <a name="get-started"></a>Informazioni di base
+## <a name="get-started"></a>Attività iniziali
 
 Prova Spazi di archiviazione diretta [in Microsoft Azure](https://blogs.technet.microsoft.com/filecab/2016/05/05/s2dazuretp5/) o scarica una copia di valutazione con licenza di 180 giorni di Windows Server da [Windows Server Valutazioni](https://go.microsoft.com/fwlink/?linkid=842602).
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 
 - [Tolleranza di errore ed efficienza di archiviazione](storage-spaces-fault-tolerance.md)
 - [Replica di archiviazione](../storage-replica/storage-replica-overview.md)

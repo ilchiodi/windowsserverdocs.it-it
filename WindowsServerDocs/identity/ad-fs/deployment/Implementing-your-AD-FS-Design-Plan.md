@@ -1,7 +1,6 @@
 ---
 ms.assetid: d04dd17e-a843-46fd-8711-0039918f92d9
 title: Implementazione del piano di progettazione di AD FS
-description: ''
 author: billmath
 manager: femila
 ms.date: 05/31/2017
@@ -9,18 +8,18 @@ ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: 6306b87dd06774bfde5ffc3ff98818d47d0c858f
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: ee822ef94e2723a4ce20e456a5507f572f038a93
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71408372"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80855414"
 ---
 # <a name="implementing-your-ad-fs-design-plan"></a>Implementazione del piano di progettazione di AD FS
 
 I requisiti e le condizioni ambientali seguenti sono fattori importanti nell'implementazione della Active Directory Federation Services \(AD FS piano di progettazione\):  
   
--   **Partner supportati:** In genere si usa AD FS per collaborare con le organizzazioni partner. Per stabilire la Federazione delle identità, determinare le organizzazioni con cui si desidera creare una relazione. Dopo la distribuzione di una linea di base AD FS, l'utilizzo dei partner comporta l'aggiunta di partner, l'eliminazione di partner e l'aggiornamento delle informazioni sui partner. Le modifiche alle relazioni possono verificarsi per diversi motivi. Ad esempio, la distribuzione di AD FS potrebbe richiedere aggiornamenti della partnership se il partner cambia significativamente l'azienda, l'organizzazione diventa parte di un'organizzazione più grande o di una Federazione di organizzazioni oppure l'organizzazione viene acquisita da un'altra azienda. In uno scenario in cui si esegue la Federazione delle identità da più domini, sarà necessario conoscerne i domini \(\) attualmente supportati e tutti i domini aggiuntivi che rappresentano i potenziali partner.  
+-   **Partner supportati:** In genere si usa AD FS per collaborare con le organizzazioni partner. Per stabilire la Federazione delle identità, determinare le organizzazioni con cui si desidera creare una relazione. Dopo la distribuzione di una linea di base AD FS, l'utilizzo dei partner comporta l'aggiunta di partner, l'eliminazione di partner e l'aggiornamento delle informazioni sui partner. Le modifiche alle relazioni possono verificarsi per diversi motivi. Ad esempio, la distribuzione di AD FS potrebbe richiedere aggiornamenti della partnership se il partner cambia significativamente l'azienda, l'organizzazione diventa parte di un'organizzazione più grande o di una Federazione di organizzazioni oppure l'organizzazione viene acquisita da un'altra società. In uno scenario in cui si esegue la Federazione delle identità da più domini, sarà necessario conoscerne i domini \(\) attualmente supportati e tutti i domini aggiuntivi che rappresentano i potenziali partner.  
   
 -   **Tipi di servizi e applicazioni supportati:** Per alcune applicazioni e servizi è necessario l'accesso alle risorse del sistema operativo, mentre altre sono in grado di riconoscere le attestazioni. È importante comprendere i tipi di applicazioni e servizi che AD FS supporta per poter formulare i requisiti amministrativi.  
   

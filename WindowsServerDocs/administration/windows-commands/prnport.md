@@ -1,30 +1,26 @@
 ---
 title: prnport
 description: Informazioni su come creare, eliminare ed elencare le porte di stampa.
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 6a0ec638-a21e-4a34-be5c-bd0f7ca89ffe
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: c9c162cef2a3ae2f3de1e891691572130ae68f93
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 17f81b127927a41e60c290535032876def109989
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71372548"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80837224"
 ---
 # <a name="prnport"></a>prnport
 
 >Si applica a: Windows Server (Canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Consente di creare, eliminare ed elencare le porte di stampa TCP/IP standard, oltre a visualizzare e modificare la configurazione delle porte.
+consente di creare, eliminare ed elencare le porte di stampa TCP/IP standard, oltre a visualizzare e modificare la configurazione delle porte.
 
 ## <a name="syntax"></a>Sintassi
 ```
@@ -34,7 +30,7 @@ cscript prnport {-a | -d | -l | -g | -t | -?} [-r <PortName>]
 [-i <SNMPIndex>] [-y <CommunityName>] -2{e | -d}
 ```
 
-## <a name="parameters"></a>Parametri
+### <a name="parameters"></a>Parametri
 
 |          Parametro           |                                                                                                                                                                                                                                                                                                     Descrizione                                                                                                                                                                                                                                                                                                      |
 |------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -56,15 +52,15 @@ cscript prnport {-a | -d | -l | -g | -t | -?} [-r <PortName>]
 |       -2 {e &#124; -d}        | Specifica se sono abilitati i doppi spool (noti anche come rispooling) per le porte TCP LPR. I doppi spool sono necessari perché TCP LPR deve includere un numero di byte accurato nel file di controllo inviato alla stampante, ma il protocollo non è in grado di ottenere il conteggio dal provider di stampa locale. Pertanto, quando un file viene sottoposto a spooling in una coda di stampa LPR TCP, viene anche eseguito lo spooling come file temporaneo nella directory system32. TCP LPR determina le dimensioni del file temporaneo e invia le dimensioni al server che esegue LPD. Il parametro **e** Abilita i doppi spool. Il parametro **d** Disabilita i doppi spool. |
 |              /?              |                                                                                                                                                                                                                                                                                         Visualizza la guida al prompt dei comandi.                                                                                                                                                                                                                                                                                         |
 
-## <a name="remarks"></a>Osservazioni
--   Il comando **prnport** è uno script Visual Basic che si trova nella directory%windir%\system32\. printing_Admin_Scripts\\<language>. Per usare questo comando, al prompt dei comandi digitare **cscript** seguito dal percorso completo del file prnport o passare alla cartella appropriata. Ad esempio:
+## <a name="remarks"></a>Note
+-   Il comando **prnport** è uno script Visual Basic che si trova nella directory%windir%\system32\. printing_Admin_Scripts\\<language>. Per usare questo comando, al prompt dei comandi digitare **cscript** seguito dal percorso completo del file prnport o passare alla cartella appropriata. Ad esempio,
     ```
     cscript %WINdir%\System32\printing_Admin_Scripts\en-US\prnport
     ```
 -   Se le informazioni fornite contengono spazi, racchiudere il testo tra virgolette, ad esempio `"computer Name"`.
 -   Il protocollo TCP RAW è un protocollo di prestazioni più elevato in Windows rispetto al protocollo LPR.
 
-## <a name="BKMK_examples"></a>Esempi
+## <a name="examples"></a><a name="BKMK_examples"></a>Esempi
 Per visualizzare tutte le porte di stampa TCP/IP standard nel server \\\Server1, digitare:
 ```
 cscript prnport -l -s Server1
@@ -86,6 +82,6 @@ Per aggiungere una porta di stampa TCP/IP standard nel computer locale che si co
 cscript prnport -a -r IP_10.2.3.4 -h 10.2.3.4
 ```
 
-#### <a name="additional-references"></a>riferimenti aggiuntivi
-[Chiave della sintassi della riga di comando](command-line-syntax-key.md)
+## <a name="additional-references"></a>Altre informazioni di riferimento
+- [Chiave della sintassi della riga di comando](command-line-syntax-key.md)
 [riferimento al comando stampa](print-command-reference.md)

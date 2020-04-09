@@ -1,24 +1,20 @@
 ---
 title: bitsadmin setnoprogresstimeout
-description: 'Argomento dei comandi di Windows per **BITSAdmin setnoprogresstimeout** : consente di impostare il periodo di tempo, in secondi, durante il quale il servizio tenta di trasferire il file dopo che si è verificato un errore temporaneo.'
-ms.custom: na
+description: Windows Commands Topic for Bitsadmin setnoprogresstimeout, che consente di impostare il periodo di tempo, in secondi, durante il quale il servizio tenta di trasferire il file dopo che si è verificato un errore temporaneo.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 7fac50d9-cc6b-46a4-a96f-fab751ee1756
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 761d0d76a2c70af9d4ad68aa564c1a9816691d0d
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 544a6c73f29684bc4091ec05fa28016fbc718bb2
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71380503"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80849354"
 ---
 # <a name="bitsadmin-setnoprogresstimeout"></a>bitsadmin setnoprogresstimeout
 
@@ -30,7 +26,7 @@ Imposta il periodo di tempo, in secondi, durante il quale BITS tenta di trasferi
 bitsadmin /SetNoProgressTimeout <Job> <TimeOutvalue>
 ```
 
-## <a name="parameters"></a>Parametri
+### <a name="parameters"></a>Parametri
 
 |Parametro|Descrizione|
 |---------|-----------|
@@ -43,13 +39,13 @@ bitsadmin /SetNoProgressTimeout <Job> <TimeOutvalue>
 -   L'intervallo di timeout si arresta o viene reimpostato quando viene trasferito un byte di dati.
 -   Se l'intervallo di timeout non lo stato di avanzamento supera il *TimeOutvalue*, quindi il processo viene inserito in uno stato di errore irreversibile.
 
-## <a name="BKMK_examples"></a>Esempi
+## <a name="examples"></a><a name=BKMK_examples></a>Esempi
 
 Nell'esempio seguente non imposta alcun valore di timeout lo stato di avanzamento del processo *myDownloadJob* su 20 secondi
 ```
 C:\>bitsadmin /SetNoProgressTimeout myDownloadJob 20
 ```
 
-#### <a name="additional-references"></a>Altri riferimenti
+## <a name="additional-references"></a>Altre informazioni di riferimento
 
-[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+- [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

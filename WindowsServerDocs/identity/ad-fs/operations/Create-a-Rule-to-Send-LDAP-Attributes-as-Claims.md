@@ -1,7 +1,6 @@
 ---
 ms.assetid: 66664b80-2590-46c0-bfca-82402088e42c
 title: Creare una regola per inviare attributi LDAP come attestazioni
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,21 +8,21 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 4fd5a8683c9bb7bc096298caa1597a760d33edc4
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 6280ee1fb761b154cadb948d18c7b67cb6b8e784
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71358132"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80816654"
 ---
 # <a name="create-a-rule-to-send-ldap-attributes-as-claims"></a>Creare una regola per inviare attributi LDAP come attestazioni
 
 
-Utilizzando il modello di regola Inviare attributi LDAP come attestazioni \(in\)Active Directory Federation Services ad FS, è possibile creare una regola per la selezione degli attributi da un protocollo \(LDAP\)(LightweightDirectoryAccessProtocol)archivio di attributi, ad esempio Active Directory, da inviare come attestazioni al relying party. Ad esempio, è possibile usare questo modello di regola per creare una regola di invio di attributi LDAP come attestazioni che estrae i valori di attributo per gli utenti autenticati dagli attributi **DisplayName** e **telephoneNumber** Active Directory e quindi li invia valori come due diverse attestazioni in uscita.  
+Utilizzando il modello di regola Inviare attributi LDAP come attestazioni in Active Directory Federation Services \(AD FS\), è possibile creare una regola per la selezione degli attributi da un protocollo di accesso Lightweight Directory \(archivio attributi LDAP\), ad esempio Active Directory, da inviare come attestazioni al relying party. Ad esempio, è possibile usare questo modello di regola per creare una regola invia attributi LDAP come attestazioni che estrae i valori di attributo per gli utenti autenticati dagli attributi **DisplayName** e **telephoneNumber** Active Directory e quindi invia tali valori come due diverse attestazioni in uscita.  
   
 È anche possibile usare questa regola per inviare tutte le appartenenze a gruppi dell'utente. Se si vuole inviare solo le singole appartenenze ai gruppi, usare il modello di regola Invio dell'appartenenza a un gruppo come attestazione. È possibile utilizzare la procedura seguente per creare una regola attestazione con lo snap di gestione di ADFS\-in.  
   
-Per completare questa procedura, è necessaria almeno l'appartenenza al gruppo **Administrators** oppure a un gruppo equivalente nel computer locale.  Informazioni dettagliate sull'utilizzo degli account appropriati e appartenenze [dominio gruppi predefiniti locali e](https://go.microsoft.com/fwlink/?LinkId=83477).  
+L'appartenenza al gruppo **Administrators**, o a un gruppo equivalente, nel computer locale è il requisito minimo per eseguire questa procedura.  Informazioni dettagliate sull'utilizzo degli account appropriati e appartenenze [dominio gruppi predefiniti locali e](https://go.microsoft.com/fwlink/?LinkId=83477).  
 
 ## <a name="to-create-a-rule-to-send-ldap-attributes-as-claims-for-a-relying-party-trust-in-windows-server-2016"></a>Per creare una regola per inviare attributi LDAP come attestazioni per un Trust della Relying Party in Windows Server 2016 
 
@@ -107,9 +106,9 @@ Per completare questa procedura, è necessaria almeno l'appartenenza al gruppo *
 ## <a name="additional-references"></a>Altri riferimenti 
 [Configurare le regole delle attestazioni](Configure-Claim-Rules.md)  
  
-[Elenco di controllo: Creazione di regole delle attestazioni per un'istanza di attendibilità del componente](https://technet.microsoft.com/library/ee913578.aspx)  
+[Elenco di controllo: creazione di regole attestazione per un trust della relying party](https://technet.microsoft.com/library/ee913578.aspx)  
 
-[Elenco di controllo: Creazione di regole delle attestazioni per un'istanza di attendibilità del provider di attestazioni](https://technet.microsoft.com/library/ee913564.aspx)  
+[Elenco di controllo: creazione di regole attestazione per un trust del provider di attestazioni](https://technet.microsoft.com/library/ee913564.aspx)  
   
 [Quando usare una regola attestazioni di autorizzazione](../../ad-fs/technical-reference/When-to-Use-an-Authorization-Claim-Rule.md)  
 

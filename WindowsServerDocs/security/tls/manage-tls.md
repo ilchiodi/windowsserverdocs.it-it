@@ -1,23 +1,19 @@
 ---
 title: Gestire Transport Layer Security (TLS)
 description: Sicurezza di Windows Server
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: security-tls-ssl
-ms.tgt_pltfrm: na
 ms.topic: article
 author: justinha
 ms.author: justinha
-manager: brianlic-msft
+manager: brianlic
 ms.date: 05/16/2018
-ms.openlocfilehash: a4ac1ea5b0648dbb80f103c146ad3df23fc04ab7
-ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
+ms.openlocfilehash: 065c8932667eed12d347e796c29cc7ee013c0383
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79322683"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80852934"
 ---
 # <a name="manage-transport-layer-security-tls"></a>Gestire Transport Layer Security (TLS)
 
@@ -121,11 +117,11 @@ Windows non può utilizzare una curva denominata dopo che un amministratore ha r
 Le organizzazioni possono distribuire i parametri della curva al computer aziendale, aggiunto a un dominio, usando Criteri di gruppo e l'estensione del registro di sistema delle preferenze Criteri di gruppo.  
 Il processo per la distribuzione di una curva è:
 
-1.  In Windows 10 e Windows Server 2016, utilizzare **certutil. exe** per aggiungere una nuova curva denominata registrata a Windows.
-2.  Dallo stesso computer aprire il Console Gestione Criteri di gruppo (GPMC), creare un nuovo oggetto Criteri di gruppo e modificarlo.
-3.  Passare a **Configurazione computer | Preferenze | Impostazioni di Windows | Registro di sistema**.  Fare clic con il pulsante destro del mouse su **Registry**. Passare il puntatore su **nuovo** e selezionare **elemento della raccolta**. Rinominare l'elemento della raccolta in modo che corrisponda al nome della curva. Verrà creato un elemento della raccolta del registro di sistema per ogni chiave del registro di sistema in *HKEY_LOCAL_MACHINE \currentcontrolset\control\cryptography\eccparameters*.
-4.  Configurare la raccolta del registro di sistema per le preferenze di Criteri di gruppo appena creata aggiungendo un nuovo **elemento del registro** di sistema per ogni valore del registro di sistema elencato in *HKEY_LOCAL_MACHINE \currentcontrolset\control\cryptography\eccparameters\[curvename]* .
-5.  Distribuire l'oggetto Criteri di gruppo contenente Criteri di gruppo elemento della raccolta registro di sistema nei computer Windows 10 e Windows Server 2016 che devono ricevere le nuove curve denominate.
+1.    In Windows 10 e Windows Server 2016, utilizzare **certutil. exe** per aggiungere una nuova curva denominata registrata a Windows.
+2.    Dallo stesso computer aprire il Console Gestione Criteri di gruppo (GPMC), creare un nuovo oggetto Criteri di gruppo e modificarlo.
+3.    Passare a **Configurazione computer | Preferenze | Impostazioni di Windows | Registro di sistema**.  Fare clic con il pulsante destro del mouse su **Registry**. Passare il puntatore su **nuovo** e selezionare **elemento della raccolta**. Rinominare l'elemento della raccolta in modo che corrisponda al nome della curva. Verrà creato un elemento della raccolta del registro di sistema per ogni chiave del registro di sistema in *HKEY_LOCAL_MACHINE \currentcontrolset\control\cryptography\eccparameters*.
+4.    Configurare la raccolta del registro di sistema per le preferenze di Criteri di gruppo appena creata aggiungendo un nuovo **elemento del registro** di sistema per ogni valore del registro di sistema elencato in *HKEY_LOCAL_MACHINE \currentcontrolset\control\cryptography\eccparameters\[curvename]* .
+5.    Distribuire l'oggetto Criteri di gruppo contenente Criteri di gruppo elemento della raccolta registro di sistema nei computer Windows 10 e Windows Server 2016 che devono ricevere le nuove curve denominate.
 
     ![GPP distribuisce le curve](../media/Transport-Layer-Security-protocol/gpp-distribute-curves.png)
 
@@ -133,7 +129,7 @@ Il processo per la distribuzione di una curva è:
 
 ## <a name="managing-tls-ecc-order"></a>Gestione dell'ordine di TLS
 
-A partire da Windows 10 e Windows Server 2016, è possibile usare le impostazioni di criteri di gruppo dell'ordine di curva ECC. configurare l'ordine predefinito della curva TLS ECC. Utilizzando ECC generico e questa impostazione, le organizzazioni possono aggiungere al sistema operativo le proprie curve denominate attendibili (approvate per l'uso con TLS), quindi aggiungere le curve denominate alla priorità della curva Criteri di gruppo impostazione per assicurarsi che vengano usate in TLS futuro strette. I nuovi elenchi priorità curva diventano attivi al riavvio successivo dopo aver ricevuto le impostazioni dei criteri.     
+A partire da Windows 10 e Windows Server 2016, è possibile usare le impostazioni di criteri di gruppo dell'ordine di curva ECC. configurare l'ordine predefinito della curva TLS ECC. Usando ECC generico e questa impostazione, le organizzazioni possono aggiungere al sistema operativo le proprie curve denominate attendibili (approvate per l'uso con TLS), quindi aggiungere le curve denominate alla priorità della curva Criteri di gruppo impostazione per assicurarsi che vengano usate nei futuri handshake TLS. I nuovi elenchi priorità curva diventano attivi al riavvio successivo dopo aver ricevuto le impostazioni dei criteri.     
 
 ![GPP distribuisce le curve](../media/Transport-Layer-Security-protocol/gp-managing-tls-curve-priority-order.png)
 

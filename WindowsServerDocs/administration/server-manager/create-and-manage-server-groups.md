@@ -1,24 +1,20 @@
 ---
 title: creare e gestire gruppi di server
 description: Server Manager
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-server-manager
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 9d5b1be8-49fd-4ff7-9580-e4ff21fe4b17
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 74075f091cd707f6faf73567c1dce6f22a2f6753
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 2f4ad512c55bcd1391ad55bdbdeb9a2ba3bfd7f0
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71383225"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80851544"
 ---
 # <a name="create-and-manage-server-groups"></a>creare e gestire gruppi di server
 
@@ -26,7 +22,7 @@ ms.locfileid: "71383225"
 
 In questo argomento viene descritto come creare gruppi personalizzati, definiti dall'utente di server in Server Manager in Windows Server.
 
-## <a name="BKMK_groups"></a>Gruppi di server
+## <a name="server-groups"></a><a name=BKMK_groups></a>Gruppi di server
 In vengono visualizzati i server aggiunti al pool di server di **tutti i server** pagina in Server Manager. È possibile creare gruppi personalizzati di server aggiunti. Gruppi di server consentono di visualizzare e gestire un sottoinsieme più piccolo del pool di server come un'unità logica; ad esempio, è possibile creare un gruppo denominato **server contabilità** per tutti i server nell'organizzazione del reparto contabilità, o un gruppo denominato **Chicago** per tutti i server situati geograficamente a Chicago. Dopo aver creato un gruppo di server, home page del gruppo in Server Manager visualizza le informazioni su eventi, servizi, contatori delle prestazioni, risultati di Best Practices Analyzer e installati ruoli e funzionalità per il gruppo nel suo complesso.
 
 I server possono essere membri di più gruppi.
@@ -43,7 +39,7 @@ I server possono essere membri di più gruppi.
 
 #### <a name="to-edit-an-existing-server-group"></a>Per modificare un gruppo di server esistente
 
-1.  Effettuare una delle operazioni seguenti.
+1.  Effettuare una delle operazioni riportate di seguito.
 
     -   Nel riquadro di spostamento Server Manager fare clic con il pulsante destro del mouse su un gruppo di server e quindi scegliere **modifica gruppo di server**.
 
@@ -58,7 +54,7 @@ I server possono essere membri di più gruppi.
 
 #### <a name="to-delete-an-existing-server-group"></a>Per eliminare un gruppo di server esistente
 
-1.  Effettuare una delle operazioni seguenti.
+1.  Effettuare una delle operazioni riportate di seguito.
 
     -   Nel riquadro di spostamento Server Manager fare clic con il pulsante destro del mouse su un gruppo di server e quindi scegliere **Elimina gruppo di server**.
 

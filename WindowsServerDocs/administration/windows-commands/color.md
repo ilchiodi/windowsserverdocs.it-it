@@ -1,28 +1,22 @@
 ---
-title: colore
-description: 'Argomento dei comandi di Windows per * * * *- '
-ms.custom: na
+title: color
+description: Argomento dei comandi di Windows per color, che modifica i colori di primo piano e di sfondo nella finestra del prompt dei comandi per la sessione corrente.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: f5b67131-d196-45ec-a3f9-b5d9f091fd86
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: ed792e4626897945e688f1c54767d7680ade6d99
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 0e89c20d90a3b812fa67b597c4c205d34e725785
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71379243"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80847484"
 ---
-# <a name="color"></a>colore
-
-
+# <a name="color"></a>color
 
 Modifiche di primo piano e sfondo colori nella finestra del prompt dei comandi per la sessione corrente. Se utilizzata senza parametri, **colore** Ripristina la finestra prompt dei comandi predefinita i colori di sfondo e primo piano.
 
@@ -34,28 +28,28 @@ Per esempi di utilizzo di questo comando, vedere [Esempi](#BKMK_examples).
 color [[<B>]<F>]
 ```
 
-## <a name="parameters"></a>Parametri
+### <a name="parameters"></a>Parametri
 
 |Parametro|Descrizione|
 |---------|-----------|
 |\<B >|Specifica il colore di sfondo.|
-|\<F >|Specifica il colore di primo piano.|
+|\<> F|Specifica il colore di primo piano.|
 |/?|Visualizza la guida al prompt dei comandi.|
 
 ## <a name="remarks"></a>Note
 
 -   Nella tabella seguente sono elencate le cifre esadecimali valide che è possibile utilizzare come valori per *B* e *F*.
 
-|Value|Colore|
+|Valore|Colore|
 |-----|-----|
-|0|Nero|
-|1|Blu|
+|0|nero|
+|1|Blue|
 |2|Verde|
-|3|Aqua|
+|3|Verde acqua|
 |4|Rosso|
-|5|Viola|
-|6|Giallo|
-|7|Bianco|
+|5|Purple|
+|6|Yellow|
+|7|Vuoto|
 |8|Grigio|
 |9|Azzurro|
 |A|Verde chiaro|
@@ -70,7 +64,7 @@ color [[<B>]<F>]
 -   Per impostare il colore predefinito della finestra prompt dei comandi, fare clic nell'angolo superiore sinistro della finestra del prompt dei comandi, fare clic su **impostazioni predefinite**, fare clic sui **colori** scheda e quindi scegliere i colori che si desidera utilizzare per il **testo visualizzato sullo schermo** e **dello sfondo**.
 -   Se *B* e *F* sono identici, il **colore** comando imposta ERRORLEVEL su 1, e di primo piano o il colore di sfondo viene apportata alcuna modifica.
 
-## <a name="BKMK_examples"></a>Esempi
+## <a name="examples"></a><a name=BKMK_examples></a>Esempi
 
 Per modificare il colore di sfondo finestra prompt dei comandi in grigio e il colore di primo piano sul rosso, digitare:
 ```
@@ -84,6 +78,6 @@ color e
 > [!NOTE]
 > In questo esempio, lo sfondo è impostato il colore predefinito perché è stata specificata solo da una cifra esadecimale.
 
-#### <a name="additional-references"></a>Altri riferimenti
+## <a name="additional-references"></a>Altre informazioni di riferimento
 
-[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+- [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

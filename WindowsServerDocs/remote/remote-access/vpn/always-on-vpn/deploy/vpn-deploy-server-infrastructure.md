@@ -4,18 +4,17 @@ description: In questo passaggio si installano e configurano i componenti lato s
 ms.prod: windows-server
 ms.technology: networking-ras
 ms.topic: article
-ms.assetid: ''
 ms.localizationpriority: medium
-ms.author: lizross
-author: eross-msft
+ms.author: v-tea
+author: Teresa-MOTIV
 ms.date: 08/30/2018
 ms.reviewer: deverette
-ms.openlocfilehash: a7d1c451989d69f45f02571de4854b0f0f4e12f5
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: 7c09ae7a792030152780ce4eb0029cea3ca234d2
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80307820"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80818924"
 ---
 # <a name="step-2-configure-the-server-infrastructure"></a>Passaggio 2. Configurare l'infrastruttura server
 
@@ -95,7 +94,7 @@ Poiché il server RRAS non è aggiunto a un dominio, non è possibile usare la r
 6. Da un prompt dei comandi con privilegi elevati passare alla cartella che contiene il file VPNGateway. req creato nel passaggio precedente e digitare:
 
    ```
-   certreq -attrib “CertificateTemplate:[Customer]VPNGateway” -submit VPNgateway.req VPNgateway.cer
+   certreq -attrib "CertificateTemplate:[Customer]VPNGateway" -submit VPNgateway.req VPNgateway.cer
    ```
 
 7. Se richiesto dalla finestra elenco autorità di certificazione, selezionare la CA globale (Enterprise) per il servizio della richiesta di certificato.

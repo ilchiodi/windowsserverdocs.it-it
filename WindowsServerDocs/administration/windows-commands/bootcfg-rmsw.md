@@ -1,36 +1,32 @@
 ---
 title: bootcfg rmsw
-description: Argomento dei comandi di Windows per **bootcfg rmsw** -rimuove le opzioni di caricamento del sistema operativo per una voce del sistema operativo specificata.
-ms.custom: na
+description: Windows Commands Topic for bootcfg rmsw, che rimuove le opzioni di caricamento del sistema operativo per una voce del sistema operativo specificata.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: fd7e4248-880e-4e2b-929e-87f8d44b9a63
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 43629f2e13bb6269a43d592fa0907637135aea71
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 956732f396e0fa353a8acd55953e46605a5c4200
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71379861"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80848444"
 ---
 # <a name="bootcfg-rmsw"></a>bootcfg rmsw
 
 >Si applica a: Windows Server (Canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-rimuove le opzioni di caricamento del sistema operativo per una voce del sistema operativo specificata.
+Rimuove opzioni di caricamento del sistema operativo per una voce del sistema operativo specificato.
 
 ## <a name="syntax"></a>Sintassi
 ```
 bootcfg /rmsw [/s <computer> [/u <Domain>\<User> [/p <Password>]]] [/mm] [/bv] [/so] [/ng] /id <OSEntryLineNum>
 ```
-## <a name="parameters"></a>Parametri
+### <a name="parameters"></a>Parametri
 
 |      Parametro       |                                                                                                      Descrizione                                                                                                       |
 |----------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -44,7 +40,7 @@ bootcfg /rmsw [/s <computer> [/u <Domain>\<User> [/p <Password>]]] [/mm] [/bv] [
 | <OSEntryLineNum>/ID | Specifica il numero di riga voce del sistema operativo in della sezione [operating systems] del file Boot. ini da cui vengono rimosse le opzioni di caricamento del sistema operativo. La prima riga dopo la sezione [operating systems] sezione di intestazione è 1. |
 |          /?          |                                                                                          Visualizza la guida al prompt dei comandi.                                                                                          |
 
-## <a name="BKMK_examples"></a>Esempi
+## <a name="examples"></a><a name=BKMK_examples></a>Esempi
 Gli esempi seguenti illustrano come utilizzare il **bootcfg /rmsw**comando:
 ```
 bootcfg /rmsw /mm 64 /id 2 
@@ -53,5 +49,5 @@ bootcfg /rmsw /so /ng /s srvmain /u hiropln /id 2
 bootcfg /rmsw /ng /id 2 
 bootcfg /rmsw /mm 96 /ng /s srvmain /u maindom\hiropln /p p@ssW23 /id 2       
 ```
-#### <a name="additional-references"></a>riferimenti aggiuntivi
-[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+## <a name="additional-references"></a>Altre informazioni di riferimento
+- [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

@@ -1,20 +1,19 @@
 ---
 title: Installare il ruolo del server del controller di rete utilizzando Server Manager
 description: In questo argomento vengono fornite istruzioni su come installare il ruolo del server del controller di rete utilizzando Server Manager in Windows Server 2016.
-manager: brianlic
+manager: grcusanz
 ms.prod: windows-server
 ms.technology: networking-sdn
-ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: 3a6e4352-ff62-4290-b8a4-5c83740070fc
-ms.author: lizross
-author: eross-msft
-ms.openlocfilehash: b8a3e1ede1cdec1ca5ee66be8d53d4420bec673b
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.author: anpaul
+author: AnirbanPaul
+ms.openlocfilehash: a93d737b80e41fbc4401105a9f72426c3a73fa7d
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80317130"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80859674"
 ---
 # <a name="install-the-network-controller-server-role-using-server-manager"></a>Installare il ruolo del server del controller di rete utilizzando Server Manager
 

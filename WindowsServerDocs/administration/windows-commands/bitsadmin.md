@@ -1,24 +1,20 @@
 ---
 title: bitsadmin
-description: Windows Commands Topic for **BITSAdmin** -Bitsadmin è uno strumento da riga di comando che è possibile usare per creare, scaricare o caricare processi e monitorarne lo stato di avanzamento.
-ms.custom: na
+description: Windows Commands Topic for Bitsadmin, che è uno strumento da riga di comando usato per creare, scaricare o caricare processi e monitorarne lo stato di avanzamento.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 4853036e-1df8-45ad-8be6-cfb097b8dd27
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: b53293b28a83ecced34d248741996c958531d517
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: ae6536b5c149f54bbfd37a5e0e814ffaa09a6bae
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71380102"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80848744"
 ---
 # <a name="bitsadmin"></a>bitsadmin
 
@@ -34,7 +30,7 @@ Molti dei commutatori corrispondono ai metodi nelle [interfacce bits](/windows/d
 
 Usare le opzioni seguenti per creare un processo, impostare e recuperare le proprietà di un processo e monitorare lo stato di un processo. Per esempi che illustrano come usare alcune di queste opzioni per eseguire attività, vedere [esempi di Bitsadmin](bitsadmin-examples.md).
 
-## <a name="switches"></a>Interruttori
+## <a name="switches"></a>Switch
 
 [bitsadmin addfile](bitsadmin-addfile.md)  
 [bitsadmin addfileset](bitsadmin-addfileset.md)  

@@ -6,16 +6,16 @@ ms.prod: windows-server
 ms.technology: networking-ras
 ms.topic: article
 ms.date: 07/24/2019
-ms.author: lizross, v-tea
-author: eross-msft
+ms.author: v-tea
+author: Teresa-MOTIV
 ms.localizationpriority: medium
 ms.reviewer: deverette
-ms.openlocfilehash: 30a8e3053f263ffad3be940a52e845fb7159dde1
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: 74cda6a899d69a951c34a9a88e2f51ef1590b621
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80313291"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80859494"
 ---
 # <a name="advanced-features-of-always-on-vpn"></a>Funzionalità avanzate di Always On VPN
 
@@ -32,7 +32,7 @@ Di seguito sono riportate altre opzioni per la disponibilità elevata.
 
 |Opzione  |Descrizione  |
 |---------|---------|
-|Resilienza del server e bilanciamento del carico     |Negli ambienti che richiedono disponibilità elevata o che supportano un numero elevato di richieste, è possibile aumentare le prestazioni e la resilienza dell'accesso remoto usando il bilanciamento del carico tra più server che eseguono Server dei criteri di rete (NPS) e abilitando Clustering del server di accesso remoto.<p>Documenti correlati:<ul><li>[Bilanciamento del carico del server proxy NPS](../../../../../networking/technologies/nps/nps-manage-proxy-lb.md)</li><li>[Distribuire Accesso remoto in un cluster](https://docs.microsoft.com/windows-server/remote/remote-access/ras/cluster/deploy-remote-access-in-cluster)</li></ul>        |
+|Resilienza del server e bilanciamento del carico     |Negli ambienti che richiedono disponibilità elevata o che supportano un numero elevato di richieste, è possibile aumentare le prestazioni e la resilienza dell'accesso remoto usando il bilanciamento del carico tra più server che eseguono Server dei criteri di rete e abilitando il clustering di server di accesso remoto.<p>Documenti correlati:<ul><li>[Bilanciamento del carico del server proxy NPS](../../../../../networking/technologies/nps/nps-manage-proxy-lb.md)</li><li>[Distribuire Accesso remoto in un cluster](https://docs.microsoft.com/windows-server/remote/remote-access/ras/cluster/deploy-remote-access-in-cluster)</li></ul>        |
 |Resilienza del sito geografico     |Per la georilevazione basata su IP, è possibile usare gestione traffico globale con DNS in Windows Server 2016. Per il bilanciamento del carico geografico più affidabile, è possibile usare soluzioni globali di bilanciamento del carico del server, ad esempio Gestione traffico di Microsoft Azure.<p>Documenti correlati:<ul><li>[Panoramica di gestione traffico](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-overview)</li><li>[Gestione traffico di Microsoft Azure](https://azure.microsoft.com/services/traffic-manager)</li></ul>         |
 
 ## <a name="advanced-authentication"></a>Autenticazione avanzata
@@ -68,15 +68,15 @@ Nella tabella seguente sono elencate le versioni di che contengono le correzioni
 |---------|---------|
 |Windows Server, versione 1903  |[KB4501375](https://support.microsoft.com/help/4501375/windows-10-update-kb4501375) |
 |Windows Server 2019<br />Windows Server, versione 1809  |[KB4505658](https://support.microsoft.com/help/4505658/windows-10-update-kb4505658)  |
-|Windows Server, versione 1803  |[KB4507466](https://support.microsoft.com/help/4507466/windows-10-update-kb4507466)  |
-|Windows Server, versione 1709  |[KB4507465](https://support.microsoft.com/help/4507465/windows-10-update-kb4507465)  |
+|Windows Server versione 1803  |[KB4507466](https://support.microsoft.com/help/4507466/windows-10-update-kb4507466)  |
+|Windows Server versione 1709  |[KB4507465](https://support.microsoft.com/help/4507465/windows-10-update-kb4507465)  |
 |Windows Server 2016, versione 1607  |[KB4503294](https://support.microsoft.com/help/4503294/windows-10-update-kb4503294) |
 
 **Come configurare i prerequisiti** 
 
 1. Installare gli aggiornamenti di Windows non appena diventano disponibili.
 1. Assicurarsi che tutti i certificati del server RRAS e del client VPN utilizzati includano voci CDP e che il server RRAS possa raggiungere i rispettivi CRL.
-1. Nel server RRAS usare il cmdlet di PowerShell **set-VpnAuthProtocol** per configurare il parametro **RootCertificateNameToAccept** .<br /><br />
+1. Nel server RRAS usare il cmdlet di PowerShell **set-VpnAuthProtocol** per configurare il parametro **RootCertificateNameToAccept** .<p>
    Nell'esempio seguente vengono elencati i comandi a tale scopo. Nell'esempio **CN = Contoso Root Certification Authority** rappresenta il nome distinto dell'autorità di certificazione radice. 
    ``` powershell
    $cert1 = ( Get-ChildItem -Path cert:LocalMachine\root | Where-Object -FilterScript { $_.Subject -Like "*CN=Contoso Root Certification Authority*" } )

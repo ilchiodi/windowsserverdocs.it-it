@@ -1,7 +1,6 @@
 ---
 ms.assetid: 5a64e790-6725-4099-aa08-8067d57c3168
 title: Creare un'applicazione lato server usando client riservati OAuth con AD FS 2016 o versione successiva
-description: ''
 author: billmath
 ms.author: billmath
 manager: mtillman
@@ -9,12 +8,12 @@ ms.date: 02/22/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 5b2bf036de1de8300e36c3413c551e51d408a4d2
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 8a8567a497e10df66f77fb996c937791b4aa9e08
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71407865"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80857564"
 ---
 # <a name="build-a-server-side-application-using-oauth-confidential-clients-with-ad-fs-2016-or-later"></a>Creare un'applicazione lato server usando client riservati OAuth con AD FS 2016 o versione successiva
 
@@ -46,13 +45,13 @@ Nella sezione seguente viene descritto come configurare il gruppo di applicazion
 
     ![AD FS Oauth](media/Enabling-Oauth-Confidential-Clients-with-AD-FS-2016/AD_FS_Confidential_3.PNG)  
 
-4.  Immettere quanto segue per l' **URI di reindirizzamento:**  -  **https://localhost:44323** .  Fai clic su **Aggiungi**. Fare clic su **Avanti**.  
+4.  Immettere quanto segue per l' **URI di reindirizzamento:**  -  **https://localhost:44323** .  Fare clic su **Add**. Fare clic su **Avanti**.  
 
 5.  Nel **Configura applicazione credenziali** dello schermo, inserire un segno di spunta **generare una chiave privata condivisa** e copiare la chiave privata.  Che verrà usato in un secondo momento come valore per **Ida: ClientSecret** nel file Web. config delle applicazioni.  Fare clic su **Avanti**.  
 
     ![AD FS Oauth](media/Enabling-Oauth-Confidential-Clients-with-AD-FS-2016/AD_FS_Confidential_4.PNG)   
 
-6. Nella schermata **Configura API Web** immettere quanto segue per identificatore. -  **https://contoso.com/WebApp**  Fai clic su **Aggiungi**. Fare clic su **Avanti**.  Questo valore verrà usato successivamente per **ida: GraphResourceId** nel file Web. config dell'applicazione.  
+6. Nella schermata **Configura API Web** immettere quanto segue per **identificatore** -  **https://contoso.com/WebApp** .  Fare clic su **Add**. Fare clic su **Avanti**.  Questo valore verrà usato successivamente per **ida: GraphResourceId** nel file Web. config dell'applicazione.  
 
     ![AD FS Oauth](media/Enabling-Oauth-Confidential-Clients-with-AD-FS-2016/AD_FS_Confidential_9.PNG)  
 
@@ -83,7 +82,7 @@ git clone https://github.com/Azure-Samples/active-directory-dotnet-webapp-webapi
 
 #### <a name="to-upgrade-the-database-file"></a>Per aggiornare il file di database  
 
-1.  Aprire il progetto in Visual Studio. verrà visualizzata una finestra popup che informa che l'app richiede SQL Server 2012 Express o sarà necessario aggiornare il database.  Fare clic su Ok.  
+1.  Aprire il progetto in Visual Studio. verrà visualizzata una finestra popup che informa che l'app richiede SQL Server 2012 Express o sarà necessario aggiornare il database.  Scegliere OK.  
 
     ![AD FS Oauth](media/Enabling-Oauth-Confidential-Clients-with-AD-FS-2016/AD_FS_Confidential_12.PNG)  
 
@@ -107,7 +106,7 @@ git clone https://github.com/Azure-Samples/active-directory-dotnet-webapp-webapi
 
     ![AD FS Oauth](media/Enabling-Oauth-Confidential-Clients-with-AD-FS-2016/AD_FS_Confidential_16.PNG)  
 
-7.  Fare clic su Ok. Fare clic su Ok.  Fare clic su Sì per aggiornare il database.  
+7.  Scegliere OK. Scegliere OK.  Fare clic su Sì per aggiornare il database.  
 
     ![AD FS Oauth](media/Enabling-Oauth-Confidential-Clients-with-AD-FS-2016/AD_FS_Confidential_17.PNG)  
 
@@ -115,7 +114,7 @@ git clone https://github.com/Azure-Samples/active-directory-dotnet-webapp-webapi
 
     ![AD FS Oauth](media/Enabling-Oauth-Confidential-Clients-with-AD-FS-2016/AD_FS_Confidential_18.PNG)  
 
-9.  A questo punto, aprire il file Web. config e sostituire il valore di connectionString con il valore copiato in precedenza.  Salvare il file Web. config.  
+9.  A questo punto, aprire il file Web. config e sostituire il valore di connectionString con il valore copiato in precedenza.  Salvare il file Web.config.  
 
     > [!NOTE]  
     > I passaggi precedenti sono necessari in modo che è possibile ottenere connectionString nuovo.  In caso contrario, quando si esegue Update-Database seguente verrà generato un errore.  
@@ -221,7 +220,7 @@ git clone https://github.com/Azure-Samples/active-directory-dotnet-webapp-webapi
 
         ![AD FS Oauth](media/Enabling-Oauth-Confidential-Clients-with-AD-FS-2016/AD_FS_Confidential_34.PNG)  
 
-## <a name="test-the-solution"></a>Test della soluzione  
+## <a name="test-the-solution"></a>Testare la soluzione  
 In questa sezione verranno testate le soluzioni client riservato.  Utilizzare la procedura seguente per testare la soluzione.  
 
 #### <a name="testing-the-confidential-client-solution"></a>Test della soluzione client riservato  
@@ -234,7 +233,7 @@ In questa sezione verranno testate le soluzioni client riservato.  Utilizzare la
 
    ![AD FS Oauth](media/Enabling-Oauth-Confidential-Clients-with-AD-FS-2016/AD_FS_Confidential_31.PNG)  
 
-3. Si noti ora che il sito di ASP.NET indica Hello abby@contoso.com!.  Fare clic su **profilo**.  
+3. Si noti ora che il sito di ASP.NET dice Hello abby@contoso.com!.  Fare clic su **Profile**.  
 
    ![AD FS Oauth](media/Enabling-Oauth-Confidential-Clients-with-AD-FS-2016/AD_FS_Confidential_32.PNG)  
 

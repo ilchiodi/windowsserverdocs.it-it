@@ -1,24 +1,20 @@
 ---
 title: Raccogliere hardware e driver di dispositivo necessari per l'installazione
 description: Informazioni sui driver che è necessario installare per servizi MultiPoint
-ms.custom: na
 ms.prod: windows-server
 ms.technology: multipoint-services
-ms.reviewer: na
-ms.suite: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 4cf5fdbe-b871-4360-b003-d65ac43b491e
 author: evaseydl
 manager: scottman
 ms.author: evas
 ms.date: 08/04/2016
-ms.openlocfilehash: cfbb8c8b68768c72b869df539c93f05e7e01d256
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 57e47b357d5b6311c69cf54a74e3eaff7913da53
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71394699"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80858724"
 ---
 # <a name="collect-hardware-and-device-drivers-needed-for-the-installation"></a>Raccogliere hardware e driver di dispositivo necessari per l'installazione
 Prima di iniziare a distribuire il sistema MultiPoint Services, sarà necessario:  
@@ -34,4 +30,4 @@ Prima di iniziare a distribuire il sistema MultiPoint Services, sarà necessario
     > Per un'installazione di MultiPoint Services, è necessario installare la versione a 64 bit di tutti i driver.  
   
 > [!TIP]  
-> Se si installa MultiPoint Services in un computer in cui è già installata una versione diversa di Windows, è necessario trovare la scheda video marca e modello in Device Manager prima di avviare l'installazione di Windows Server e verificare che sia possibile ottenere i driver disponibile per Windows Server 2016. Aprire Device Manager, aprire **Gestione computer** dalla schermata **Start** . Quindi, nell'albero della console fare clic su **Device Manager**.
+> Se si installa MultiPoint Services in un computer in cui è già installata una versione diversa di Windows, è necessario trovare la scheda video marca e modello in Device Manager prima di avviare l'installazione di Windows Server e verificare che sia possibile ottenere i driver disponibili per Windows Server 2016. Aprire Device Manager, aprire **Gestione computer** dalla schermata **Start** . Quindi, nell'albero della console fare clic su **Device Manager**.

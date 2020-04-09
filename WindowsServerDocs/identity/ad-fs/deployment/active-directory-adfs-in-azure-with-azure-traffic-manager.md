@@ -1,26 +1,20 @@
 ---
 title: Distribuzione di AD FS di disponibilità elevata tra aree geografiche in Azure con gestione traffico di Azure | Microsoft Docs
-description: In questo documento si apprenderà come distribuire AD FS in Azure per disponibilità elevati.
-keywords: ADFS con gestione traffico di Azure, ADFS con gestione traffico di Azure, geografico, più data center, Data Center geografici, Data Center multigeografia, distribuzione di AD FS in Azure, distribuzione di Azure ADFS, Azure ADFS, Azure AD FS, distribuzione di ADFS, distribuzione di ADFS, ADFS in Azure, distribuire ADFS in Azure, distribuire AD FS in Azure, ad FS Azure, introduzione a AD FS, Azure, AD FS in Azure, IaaS, ADFS, spostare ADFS in Azure
+description: Come distribuire AD FS in Azure per la disponibilità elevata.
 services: active-directory
-documentationcenter: ''
 author: anandyadavmsft
 manager: mtillman
-editor: ''
+ms.prod: windows-server
 ms.assetid: a14bc870-9fad-45ed-acd5-a90ccd432e54
-ms.service: active-directory
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/01/2016
 ms.author: anandy;billmath
-ms.openlocfilehash: d98eb126513d707bce7abe3e901c8bf584d2319c
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 9bfb59fadd2cf6b07d3c47ab69f0fe67974706a3
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70868023"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80855204"
 ---
 # <a name="high-availability-cross-geographic-ad-fs-deployment-in-azure-with-azure-traffic-manager"></a>Distribuzione di AD FS di disponibilità elevata tra aree geografiche in Azure con gestione traffico di Azure
 [Ad FS distribuzione in Azure](how-to-connect-fed-azure-adfs.md) fornisce indicazioni dettagliate su come distribuire una semplice infrastruttura ad FS per la propria organizzazione in Azure. Questo articolo illustra i passaggi successivi per creare una distribuzione tra più aree geografiche di AD FS in Azure usando [Gestione traffico di Azure](https://docs.microsoft.com/azure/traffic-manager/). Gestione traffico di Azure consente di creare un'infrastruttura a disponibilità elevata e a elevate AD FS prestazioni geograficamente elevata per la propria organizzazione, usando la gamma di metodi di routing disponibili per soddisfare le diverse esigenze dell'infrastruttura.
@@ -36,12 +30,12 @@ Un'infrastruttura di AD FS tra aree geografiche A disponibilità elevata consent
 I principi di progettazione di base saranno uguali a quelli elencati nei principi di progettazione nell'articolo AD FS distribuzione in Azure. Il diagramma precedente illustra una semplice estensione della distribuzione di base a un'altra area geografica. Di seguito sono riportati alcuni aspetti da considerare quando si estende la distribuzione a una nuova area geografica
 
 * **Rete virtuale:** È necessario creare una nuova rete virtuale nell'area geografica in cui si vuole distribuire un'infrastruttura AD FS aggiuntiva. Nel diagramma precedente vengono visualizzati Geo1 VNET e GeO2 VNET come due reti virtuali in ogni area geografica.
-* **Controller di dominio e server AD FS nei nuovi VNET geografici:** È consigliabile distribuire i controller di dominio nella nuova area geografica in modo che i server AD FS nella nuova area non debbano contattare un controller di dominio in un'altra rete distante per completare un'autenticazione e quindi migliorare le prestazioni.
+* **Controller di dominio e server ad FS nei nuovi VNET geografici:** È consigliabile distribuire i controller di dominio nella nuova area geografica in modo che i server AD FS nella nuova area non debbano contattare un controller di dominio in un'altra rete distante per completare un'autenticazione e quindi migliorare le prestazioni.
 * **Account di archiviazione:** Gli account di archiviazione sono associati a un'area. Poiché i computer verranno distribuiti in una nuova area geografica, sarà necessario creare nuovi account di archiviazione da usare nell'area.  
 * **Gruppi di sicurezza di rete:** Poiché gli account di archiviazione, i gruppi di sicurezza di rete creati in un'area non possono essere usati in un'altra area geografica. Sarà quindi necessario creare nuovi gruppi di sicurezza di rete simili a quelli nella prima area geografica per la subnet INT e DMZ nella nuova area geografica.
 * **Etichette DNS per gli indirizzi IP pubblici:** Gestione traffico di Azure può fare riferimento agli endpoint solo tramite etichette DNS. Pertanto, è necessario creare etichette DNS per gli indirizzi IP pubblici del servizio di bilanciamento del carico esterno.
 * **Gestione traffico di Azure:** Gestione traffico di Microsoft Azure consente di controllare la distribuzione del traffico utente agli endpoint di servizio in esecuzione in data center diversi in tutto il mondo. Gestione traffico di Azure funziona a livello di DNS. Usa le risposte DNS per indirizzare il traffico degli utenti finali agli endpoint distribuiti a livello globale. I client si connettono quindi direttamente a questi endpoint. Con diverse opzioni di routing di prestazioni, ponderate e priorità, è possibile scegliere facilmente l'opzione di routing più adatta alle esigenze dell'organizzazione. 
-* **Connettività da v-NET a V-NET tra due aree:** Non è necessario disporre di connettività tra le reti virtuali stesse. Poiché ogni rete virtuale ha accesso ai controller di dominio e ha AD FS e server WAP, può funzionare senza alcuna connettività tra le reti virtuali in aree diverse. 
+* **Connettività da v-NET a v-NET tra due aree:** Non è necessario disporre di connettività tra le reti virtuali stesse. Poiché ogni rete virtuale ha accesso ai controller di dominio e ha AD FS e server WAP, può funzionare senza alcuna connettività tra le reti virtuali in aree diverse. 
 
 ## <a name="steps-to-integrate-azure-traffic-manager"></a>Procedura per l'integrazione di gestione traffico di Azure
 ### <a name="deploy-ad-fs-in-the-new-geographical-region"></a>Distribuire AD FS nella nuova area geografica
@@ -60,7 +54,7 @@ Attenersi alla procedura seguente per creare un profilo di gestione traffico. Pe
     ![Creazione del profilo di gestione traffico](./media/active-directory-adfs-in-azure-with-azure-traffic-manager/trafficmanager01.png)
 2. **Metodo di routing del traffico:** In gestione traffico sono disponibili tre opzioni di routing:
    
-   * Priority 
+   * Priorità 
    * Prestazioni
    * Ponderata
      
@@ -73,7 +67,7 @@ Attenersi alla procedura seguente per creare un profilo di gestione traffico. Pe
    
    **Tipo:** Selezionare endpoint di Azure perché verrà puntato a un indirizzo IP pubblico di Azure.
    
-   **Name:** Creare un nome che si desidera associare all'endpoint. Questo non è il nome DNS e non ha alcun impatto sui record DNS.
+   **Nome:** Creare un nome che si desidera associare all'endpoint. Questo non è il nome DNS e non ha alcun impatto sui record DNS.
    
    **Tipo di risorsa di destinazione:** Selezionare indirizzo IP pubblico come valore per questa proprietà. 
    
@@ -106,7 +100,7 @@ Il modo più semplice per testare AD FS consiste nell'usare la pagina IdpInitiat
 
 1. Eseguire il cmdlet seguente nel server AD FS, usando PowerShell, per impostarlo su abilitato. 
    Set-AdfsProperties-EnableIdPInitiatedSignonPage $true
-2. Da qualsiasi computer esterno accedere a<yourfederationservicedns>https:///ADFS/LS/IdpInitiatedSignon.aspx
+2. Da qualsiasi computer esterno accedere a https://<yourfederationservicedns>/adfs/ls/IdpInitiatedSignon.aspx
 3. Dovrebbe essere visualizzata la pagina AD FS come riportato di seguito:
    
     ![Test ADFS-Verifica autenticazione](./media/active-directory-adfs-in-azure-with-azure-traffic-manager/adfstest1.png)
@@ -115,7 +109,7 @@ Il modo più semplice per testare AD FS consiste nell'usare la pagina IdpInitiat
    
     ![Test ADFS-autenticazione riuscita](./media/active-directory-adfs-in-azure-with-azure-traffic-manager/adfstest2.png)
 
-## <a name="related-links"></a>Collegamenti correlati
+## <a name="related-links"></a>Link correlati
 * [Distribuzione di AD FS di base in Azure](how-to-connect-fed-azure-adfs.md)
 * [Gestione traffico di Microsoft Azure](https://docs.microsoft.com/azure/traffic-manager/)
 * [Metodi di routing del traffico di gestione traffico](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-routing-methods)

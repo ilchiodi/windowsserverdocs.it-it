@@ -1,12 +1,8 @@
 ---
-title: Aggiungere i server a Server Manager
+title: Add Servers to Server Manager
 description: Server Manager
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-server-manager
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: aab895f2-fe4d-4408-b66b-cdeadbd8969e
 author: coreyp-at-msft
@@ -14,14 +10,14 @@ ms.author: coreyp
 manager: dongill
 ms.localizationpriority: medium
 ms.date: 02/01/2018
-ms.openlocfilehash: ad30a8f1c4c1e0aa317512eb68fffbd76413175b
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: f7b5a5b358fa2df54777e0f1f88b1e86a7dafd80
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71383263"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80851574"
 ---
-# <a name="add-servers-to-server-manager"></a>Aggiungere i server a Server Manager
+# <a name="add-servers-to-server-manager"></a>Add Servers to Server Manager
 
 >Si applica a: Windows Server (Canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
@@ -30,20 +26,20 @@ In Windows Server è possibile gestire più server remoti tramite un'unica conso
 In questo argomento viene descritto come aggiungere server al pool di server di gestione Server.
 
 > [!NOTE]
-> Secondo i nostri test, Server Manager in Windows Server 2012 e versioni successive di Windows Server può essere usato per gestire fino a 100 server configurati con un carico di lavoro tipico. Il numero di server che è possibile gestire tramite un'unica console di Server Manager può variare a seconda della quantità di dati richiesti dai server gestiti e le risorse hardware e di rete disponibili nel computer che esegue Server Manager. Quando la quantità di dati da visualizzare si avvicina alla capacità delle risorse del computer, possono verificarsi rallentamenti nelle risposte di Server Manager e ritardi nel completamento degli aggiornamenti. Per aumentare il numero di server gestibile con Server Manager, si consiglia di limitare i dati dell'evento che Server Manager ottiene dai server gestiti usando le impostazioni nella finestra di dialogo **Configura dati evento**. La finestra di dialogo Configura dati evento può essere aperta dal menu **Attività** nel riquadro **Eventi** . Se è necessario gestire un numero di livello aziendale di server nell'organizzazione, è consigliabile valutare i prodotti di [suite di Microsoft System Center](https://go.microsoft.com/fwlink/p/?LinkId=239437).
+> Secondo i nostri test, Server Manager in Windows Server 2012 e versioni successive di Windows Server può essere usato per gestire fino a 100 server configurati con un carico di lavoro tipico. Il numero di server che è possibile gestire tramite un'unica console di Server Manager può variare a seconda della quantità di dati richiesti dai server gestiti e le risorse hardware e di rete disponibili nel computer che esegue Server Manager. Quando la quantità di dati da visualizzare si avvicina alla capacità delle risorse del computer, possono verificarsi rallentamenti nelle risposte di Server Manager e ritardi nel completamento degli aggiornamenti. Per aumentare il numero di server gestibile con Server Manager, si consiglia di limitare i dati dell'evento che Server Manager ottiene dai server gestiti usando le impostazioni nella finestra di dialogo **Configura dati evento**. La finestra di dialogo Configura dati evento può essere aperta dal menu **Attività** nel riquadro **Eventi**. Se è necessario gestire un numero di livello aziendale di server nell'organizzazione, è consigliabile valutare i prodotti di [suite di Microsoft System Center](https://go.microsoft.com/fwlink/p/?LinkId=239437).
 > 
 > Server Manager può ricevere lo stato solo online o offline dai server che eseguono Windows Server 2003. Sebbene sia possibile utilizzare Server Manager per eseguire attività di gestione su server che eseguono Windows Server 2008 R2 o Windows Server 2008, è possibile aggiungere ruoli e funzionalità per i server che eseguono Windows Server 2008 R2, Windows Server 2008 o Windows Server 2003.
 > 
 > Server Manager può essere utilizzata per gestire una versione più recente del sistema operativo Windows Server. Server Manager in esecuzione in Windows Server 2012 R2, Windows Server 2012, Windows 8.1 o Windows 8 non può essere usato per gestire i server che eseguono Windows Server 2016.
 
-In questo argomento sono incluse le sezioni seguenti.
+In questo argomento sono contenute le seguenti sezioni.
 
 -   [Aggiungere i server da gestire](#BKMK_add)
 
 -   [Fornire le credenziali con il comando Gestisci come](#BKMK_creds)
 
-## <a name="BKMK_creds"></a>Fornire le credenziali con il comando Gestisci come
-Quando si aggiungono server remoti a Server Manager, alcuni di questi server potrebbero richiedere credenziali diverse per l'account utente per accedervi o gestirli. Per specificare le credenziali per un server gestito che sono diverse da quelli utilizzati per accedere al computer in cui è in esecuzione Server Manager, utilizzare il **Gestione** comando dopo aver aggiunto un server a Server Manager, che è accessibile facendo clic con il movimento di un server gestito nel **server** sezioni della home page di un ruolo o gruppo. Facendo clic su **Account di gestione** viene aperta la finestra di dialogo **Sicurezza di Windows** in cui è possibile fornire un nome utente con diritti di accesso nel server gestito, in uno dei formati seguenti.
+## <a name="provide-credentials-with-the-manage-as-command"></a><a name=BKMK_creds></a>Fornire le credenziali con il comando Gestisci come
+Quando si aggiungono server remoti a Server Manager, alcuni dei server che aggiungono potrebbero richiedere le credenziali dell'account utente diverso per accedere o gestirli. Per specificare le credenziali per un server gestito che sono diverse da quelli utilizzati per accedere al computer in cui è in esecuzione Server Manager, utilizzare il **Gestione** comando dopo aver aggiunto un server a Server Manager, che è accessibile facendo clic con il movimento di un server gestito nel **server** sezioni della home page di un ruolo o gruppo. Facendo clic su **Account di gestione** viene aperta la finestra di dialogo **Sicurezza di Windows** in cui è possibile fornire un nome utente con diritti di accesso nel server gestito, in uno dei formati seguenti.
 
 -   *Nome utente*
 
@@ -51,7 +47,7 @@ Quando si aggiungono server remoti a Server Manager, alcuni di questi server pot
 
 -   *Dominio*\\*Nome utente*
 
-Il **la protezione di Windows** la finestra di dialogo che viene aperta la **Gestione** comando non può accettare credenziali della smart card, fornendo le credenziali della smart card tramite Server Manager non è supportato. Le credenziali fornite per un server gestito utilizzando il **Gestione** comando vengono memorizzati nella cache e mantenute fino a quando si utilizza lo stesso computer in cui è attualmente in esecuzione Server Manager gestisce il server o, purché non vengano sovrascritti specificando credenziali vuote o diverso nello stesso server. Se si esportano le impostazioni di Server Manager in altri computer o si configura il profilo di dominio con il roaming per consentire l'uso delle impostazioni di Server Manager in altri computer, le credenziali di **Account di gestione** per i server nel pool di server non vengono archiviate nel profilo di roaming. Gli utenti di Server Manager devono aggiungerle in ogni computer da cui eseguiranno la gestione.
+Il **la protezione di Windows** la finestra di dialogo che viene aperta la **Gestione** comando non può accettare credenziali della smart card, fornendo le credenziali della smart card tramite Server Manager non è supportato. Le credenziali fornite per un server gestito utilizzando il **Gestione** comando vengono memorizzati nella cache e mantenute fino a quando si utilizza lo stesso computer in cui è attualmente in esecuzione Server Manager gestisce il server o, purché non vengano sovrascritti specificando credenziali vuote o diverso nello stesso server. Se si esporta le impostazioni di Server Manager ad altri computer, o configurare il profilo di dominio in comune per consentire le impostazioni di gestione di Server da utilizzare in altri computer, **Gestione** le credenziali per i pool di server non vengono archiviati nel profilo comune. Gli utenti di Server Manager è necessario aggiungerli in ogni computer da cui si desidera gestire.
 
 Dopo avere aggiunto i server da gestire seguendo le procedure descritte in questo argomento, ma prima di usare il comando **Account di gestione** per specificare le credenziali alternative che potrebbero essere necessarie per gestire un server aggiunto, è possibile che vengano visualizzati errori relativi allo stato gestibilità del server:
 
@@ -64,16 +60,16 @@ Dopo avere aggiunto i server da gestire seguendo le procedure descritte in quest
 > [!NOTE]
 > Ruoli e funzionalità che non supportano il comando **Account di gestione** includono il server Remote Desktop Services (RDS) e Gestione indirizzi IP (IPAM). Se è possibile gestire il server di servizi desktop REMOTO o gestione indirizzi IP remoto usando le stesse credenziali in uso nel computer in cui è in esecuzione Server Manager, provare ad aggiungere l'account in genere utilizzato per gestire tali server remoto al gruppo Administrators nel computer che esegue Server Manager. Quindi, accedi al computer in cui è in esecuzione Server Manager con l'account usato per gestire il server remoto con RDS o IPAM.
 
-## <a name="BKMK_add"></a>Aggiungere i server da gestire
+## <a name="add-servers-to-manage"></a><a name=BKMK_add></a>Aggiungere i server da gestire
 Puoi aggiungere server da gestire a Server Manager usando uno dei tre metodi nella finestra di dialogo **Aggiungi server**.
 
 -   **Active Directory Domain Services** aggiunge i server da gestire trovati da Active Directory nello stesso dominio del computer locale.
 
--   **Voce DNS (Domain Name System)** cerca i server da gestire in base al nome del computer o all'indirizzo IP.
+-   **Voce DNS (Domain Name System)** Cercare i server da gestire in base a nome computer o indirizzo IP.
 
 -   **Importa più server** specifica più server da importare in un file contenente i server elencati in base al nome del computer o all'indirizzo IP.
 
-#### <a name="to-add-servers-to-the-server-pool"></a>Per aggiungere i server al pool di server
+#### <a name="to-add-servers-to-the-server-pool"></a>Per aggiungere server al pool di server
 
 1.  Se Server Manager è già aperto, andare al passaggio successivo. Se Server Manager non è aperto, aprirlo in uno dei modi seguenti.
 
@@ -83,7 +79,7 @@ Puoi aggiungere server da gestire a Server Manager usando uno dei tre metodi nel
 
 2.  Nel menu **Gestisci** fai clic su **Aggiungi server**.
 
-3.  Effettuare una delle operazioni seguenti.
+3.  Effettuare una delle operazioni riportate di seguito.
 
     -   Nella scheda **active directory** seleziona i server presenti nel dominio corrente. Premere **CTRL** mentre si selezionano più server Fai clic sul pulsante freccia destra per spostare i server selezionati nell'elenco **selezionato**.
 
@@ -93,10 +89,10 @@ Puoi aggiungere server da gestire a Server Manager usando uno dei tre metodi nel
 
 4.  Dopo aver aggiunto i server, fare clic su **OK**.
 
-### <a name="add-and-manage-servers-in-workgroups"></a>Aggiungere e gestire i server nei gruppi di lavoro
+### <a name="add-and-manage-servers-in-workgroups"></a>Aggiungere e gestire server in gruppi di lavoro
 Aggiungendo i server appartenenti a gruppi di lavoro a Server Manager potrebbero essere eseguita correttamente, dopo l'aggiunta, la **gestibilità** colonna del **server** sezioni in una pagina ruolo o gruppo che include un server del gruppo di lavoro è possono visualizzare **credenziali non valide** errori che si verificano durante il tentativo di connettersi o raccogliere i dati dal server remoto, gruppo di lavoro.
 
-Questi o errori simili possono verificarsi nelle condizioni seguenti.
+Nelle condizioni seguenti possono verificarsi questi errori o simili.
 
 -   Il server gestito è stesso gruppo di lavoro del computer che esegue Server Manager.
 
@@ -114,7 +110,7 @@ Questi o errori simili possono verificarsi nelle condizioni seguenti.
 
 ##### <a name="to-add-remote-workgroup-servers-to-server-manager"></a>Per aggiungere server di gruppi di lavoro a Server Manager
 
-1.  Sul computer che esegue Server Manager, aggiungere il nome del server del gruppo di lavoro per il **TrustedHosts** elenco. Si tratta di un requisito dell'autenticazione NTLM. Per aggiungere un nome computer a un elenco di host attendibili esistente, aggiungere il parametro `Concatenate` al comando. Ad esempio, per aggiungere il computer `Server01` a un elenco esistente di host attendibili, usa il comando seguente.
+1.  Sul computer che esegue Server Manager, aggiungere il nome del server del gruppo di lavoro per il **TrustedHosts** elenco. Si tratta di un requisito dell'autenticazione NTLM. Per aggiungere un nome computer a un elenco di host attendibili esistente, aggiungere il parametro `Concatenate` al comando. Ad esempio, per aggiungere il computer `Server01` a un elenco esistente di host attendibili, utilizzare il comando seguente.
 
     ```
     Set-Item wsman:\localhost\Client\TrustedHosts Server01 -Concatenate -force
@@ -139,13 +135,13 @@ Questi o errori simili possono verificarsi nelle condizioni seguenti.
 
 5.  Se il computer che esegue Server Manager e il server del gruppo di lavoro di destinazione sono nello stesso gruppo di lavoro, ignorare l'ultimo passaggio. Se i due computer non si trovano nello stesso gruppo di lavoro, fare clic con il pulsante destro del mouse sul server del gruppo di lavoro di destinazione nel riquadro **Server** e quindi scegliere **Account di gestione**.
 
-6.  Accedi al server del gruppo di lavoro con l'account predefinito Administrator per il server del gruppo di lavoro.
+6.  Accedere al computer del gruppo di lavoro con l'account utente Administrator predefinito per il server del gruppo di lavoro.
 
 7.  Verificare che Server Manager è in grado di connettersi a e raccogliere dati dal server del gruppo di lavoro aggiornando il **tutti i server** pagina e quindi visualizzando lo stato di gestibilità per il server del gruppo di lavoro.
 
 ##### <a name="to-add-remote-servers-when-server-manager-is-running-on-a-workgroup-computer"></a>Per aggiungere server remoti quando Server Manager viene eseguito su un computer del gruppo di lavoro
 
-1.  Nel computer che esegue Server Manager, aggiungere server remoti nel computer locale **TrustedHosts** elenco in una sessione di Windows PowerShell. Per aggiungere un nome computer a un elenco di host attendibili esistente, aggiungere il parametro `Concatenate` al comando. Ad esempio, per aggiungere il computer `Server01` a un elenco esistente di host attendibili, usa il comando seguente.
+1.  Nel computer che esegue Server Manager, aggiungere server remoti nel computer locale **TrustedHosts** elenco in una sessione di Windows PowerShell. Per aggiungere un nome computer a un elenco di host attendibili esistente, aggiungere il parametro `Concatenate` al comando. Ad esempio, per aggiungere il computer `Server01` a un elenco esistente di host attendibili, utilizzare il comando seguente.
 
     ```
     Set-Item wsman:\localhost\Client\TrustedHosts Server01 -Concatenate -force
@@ -166,7 +162,7 @@ Questi o errori simili possono verificarsi nelle condizioni seguenti.
 se hai seguito le procedure descritte in questa sezione, ma i problemi di gestione dei computer del gruppo di lavoro o di gestione dei computer dai computer del gruppo di lavoro persistono, vedi [about_remote_Troubleshooting](https://technet.microsoft.com/library/dd347642.aspx) nel sito Web Microsoft.
 
 ### <a name="add-and-manage-servers-in-clusters"></a>Aggiungere e gestire server in cluster
-È possibile utilizzare Server Manager per gestire i server in cluster di failover (denominato anche cluster di server o su MSCS). I server inclusi nei cluster di failover (se i nodi del cluster sono fisici o virtuali) hanno comportamenti particolari e limitazioni di gestione in Server Manager.
+È possibile utilizzare Server Manager per gestire i server in cluster di failover (denominato anche cluster di server o su MSCS). Server in cluster di failover (se i nodi del cluster sono fisico o virtuale) hanno alcuni comportamenti univoci e limitazioni alla gestione in Server Manager.
 
 -   I server fisici e virtuali in cluster vengono aggiunti automaticamente a Server Manager quando un server del cluster viene aggiunto a Server Manager. Analogamente, quando si rimuove un server del cluster di Server Manager, richiesto per rimuovere gli altri server del cluster.
 
@@ -174,7 +170,7 @@ se hai seguito le procedure descritte in questa sezione, ma i problemi di gestio
 
 -   Se si aggiunge un server a Server Manager utilizzando il nome del server cluster virtuale oggetto, il nome dell'oggetto virtuale viene visualizzato in Server Manager anziché il nome del server fisico (previsto).
 
--   Non puoi installare ruoli e funzionalità in un server di cluster virtuale.
+-   Non è possibile installare ruoli e funzionalità in un server virtuale di cluster.
 
 ## <a name="see-also"></a>Vedi anche
 [Server Manager](server-manager.md)

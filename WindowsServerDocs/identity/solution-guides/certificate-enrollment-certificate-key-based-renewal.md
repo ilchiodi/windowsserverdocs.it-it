@@ -1,18 +1,17 @@
 ---
 title: Configurazione di Servizio Web di registrazione certificati per il rinnovo basato su chiave del certificato su una porta personalizzata
-description: ''
 author: Deland-Han
 ms.author: delhan
 manager: dcscontentpm
 ms.date: 11/12/2019
 ms.topic: article
 ms.prod: windows-server
-ms.openlocfilehash: 3d3d08d6abe9daa571dd7365815c1fc61f926501
-ms.sourcegitcommit: e5df3fd267352528eaab5546f817d64d648b297f
+ms.openlocfilehash: a21a34448248658d2ceffcad07d2a4e6e17b9348
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74163107"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80856344"
 ---
 # <a name="configuring-certificate-enrollment-web-service-for-certificate-key-based-renewal-on-a-custom-port"></a>Configurazione di Servizio Web di registrazione certificati per il rinnovo basato su chiave del certificato su una porta personalizzata
 
@@ -21,7 +20,7 @@ Il tecnico del supporto di Andrea Tyagi con il gruppo di Windows
 
 ## <a name="summary"></a>Riepilogo
 
-In questo articolo vengono fornite istruzioni dettagliate per implementare il Servizio Web di informazioni sulle registrazioni di certificati (CEP) e il Servizio Web di registrazione certificati (CES) su una porta personalizzata diversa dalla 443 per il rinnovo basato su chiave del certificato per sfruttare i vantaggi della funzionalità automatica funzionalità di rinnovo di CEP e CES.
+In questo articolo vengono fornite istruzioni dettagliate per implementare il Servizio Web di informazioni sulle registrazioni di certificati (CEP) e il Servizio Web di registrazione certificati (CES) su una porta personalizzata diversa dalla 443 per il rinnovo basato su chiave del certificato, in modo da sfruttare la funzionalità di rinnovo automatico di CEP e CES.
 
 Questo articolo illustra anche il funzionamento di CEP e CES e fornisce linee guida per la configurazione.
 
@@ -224,7 +223,7 @@ Set-ADUser -Identity cepcessvc -Add @{'msDS-AllowedToDelegateTo'=@('HOST/CA1.con
    
    CN = CAORG, CN = Servizi di registrazione, CN = Servizi chiave pubblica, CN = Services, CN = Configuration, DC = contoso, DC = com
 
-3. Fare clic con il pulsante destro del mouse e modificare l'oggetto CA. Modificare l'attributo **msPKI-Registration-Servers** utilizzando la porta personalizzata con gli URI del server CEP e CES trovati nelle impostazioni dell'applicazione. Ad esempio:
+3. Fare clic con il pulsante destro del mouse e modificare l'oggetto CA. Modificare l'attributo **msPKI-Registration-Servers** utilizzando la porta personalizzata con gli URI del server CEP e CES trovati nelle impostazioni dell'applicazione. Ad esempio,
 
    ```
    140https://cepces.contoso.com:49999/ENTCA_CES_UsernamePassword/service.svc/CES0   
@@ -235,7 +234,7 @@ Set-ADUser -Identity cepcessvc -Add @{'msDS-AllowedToDelegateTo'=@('HOST/CA1.con
 
 #### <a name="configure-the-client-computer"></a>Configurare il computer client
 
-Nel computer client configurare i criteri di registrazione e i criteri di registrazione automatica. A tale scopo, attieniti alla seguente procedura:
+Nel computer client configurare i criteri di registrazione e i criteri di registrazione automatica. A tale scopo, effettuare le operazioni seguenti:
 
 1. Selezionare **avvia** > **Esegui**, quindi immettere **gpedit. msc**.
 
@@ -287,7 +286,7 @@ Eseguire il comando seguente:
 certreq -machine -q -enroll -cert <thumbprint> renew
 ```
 
-![.](media/certificate-enrollment-certificate-key-based-renewal-14.png)
+![comando](media/certificate-enrollment-certificate-key-based-renewal-14.png)
 
 ### <a name="method-2"></a>Method 2
 
@@ -297,7 +296,7 @@ Ad esempio, il modello di certificato ha un'impostazione di validità di 2 giorn
 
 Quindi, se si avanza il tempo alle 8:10 dal 19, dal momento che la finestra di rinnovo è stata impostata su 8 ore sul modello, eseguendo certutil-Pulse (per attivare il motore AE) il certificato viene registrato.
 
-![.](media/certificate-enrollment-certificate-key-based-renewal-15.png)
+![comando](media/certificate-enrollment-certificate-key-based-renewal-15.png)
  
 Al termine del test, ripristinare l'impostazione dell'ora sul valore originale, quindi riavviare il computer client.
 
@@ -314,7 +313,7 @@ Al termine del test, ripristinare l'impostazione dell'ora sul valore originale, 
 
 [Install-AdcsEnrollmentWebService](https://docs.microsoft.com/powershell/module/adcsdeployment/install-adcsenrollmentwebservice?view=win10-ps)
 
-Vedi anche
+Vedere anche
 
 [forum sulla sicurezza di Windows Server](https://aka.ms/adcsforum)
 

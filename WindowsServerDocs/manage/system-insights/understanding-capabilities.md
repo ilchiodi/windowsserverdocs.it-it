@@ -1,24 +1,19 @@
 ---
 title: Descrizione delle funzionalità
 description: In questo argomento viene definito il concetto di funzionalità di System Insights e vengono introdotte le funzionalità predefinite disponibili in Windows Server 2019.
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: system-insights
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.assetid: ''
 author: gawatu
 ms.author: gawatu
 manager: mallikarjun.chadalapaka
 ms.date: 6/05/2018
-ms.openlocfilehash: 131fbacaab97c1c2c42920a518ce96ba1b8f5d2b
-ms.sourcegitcommit: 2a15de216edde8b8e240a4aa679dc6d470e4159e
+ms.openlocfilehash: 9b0f043aab5773773785afc7fb48ba0295a76865
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77465565"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80858744"
 ---
 # <a name="understanding-capabilities"></a>Descrizione delle funzionalità
 
@@ -83,7 +78,7 @@ Ogni funzionalità analizza i dati giornalieri per prevedere un utilizzo futuro.
  Previsione della capacità della CPU                | % di tempo del processore  | Media massima di 2 ore al giorno   
  Previsione della capacità di rete         | Totale byte/sec         | Media massima di 2 ore al giorno  
 
-Quando si valuta la logica di filtro precedente, è importante tenere presente che ogni funzionalità Cerca di informare gli amministratori quando l'utilizzo futuro supererà significativamente la capacità disponibile, anche se la CPU ha raggiunto il 100% di utilizzo, l'utilizzo della CPU potrebbe non avere ha causato un calo significativo delle prestazioni o una contesa di risorse. Per la CPU e la rete, è necessario disporre di un utilizzo elevato prolungato anziché picchi momentanei. Una media di utilizzo della CPU e della rete nell'intero giorno, tuttavia, perderebbe le informazioni di utilizzo importanti, perché alcune ore di utilizzo elevato della CPU o della rete potrebbero avere un effetto significativo sulle prestazioni dei carichi di lavoro critici. La media massima di 2 ore durante ogni giorno evita questi estremi e produce comunque dati significativi per ogni funzionalità da analizzare.
+Quando si valuta la logica di filtro precedente, è importante tenere presente che ogni funzionalità Cerca di informare gli amministratori quando l'utilizzo futuro supererà significativamente la capacità disponibile, anche se la CPU ha raggiunto il 100% di utilizzo, l'utilizzo della CPU potrebbe non avere causato un calo significativo delle prestazioni o una contesa di risorse. Per la CPU e la rete, è necessario disporre di un utilizzo elevato prolungato anziché picchi momentanei. Una media di utilizzo della CPU e della rete nell'intero giorno, tuttavia, perderebbe le informazioni di utilizzo importanti, perché alcune ore di utilizzo elevato della CPU o della rete potrebbero avere un effetto significativo sulle prestazioni dei carichi di lavoro critici. La media massima di 2 ore durante ogni giorno evita questi estremi e produce comunque dati significativi per ogni funzionalità da analizzare.
 
 Per il volume e l'utilizzo totale dello spazio di archiviazione, tuttavia, l'utilizzo dell'archiviazione non può superare la capacità disponibile, anche momentaneamente, quindi viene usato il massimo utilizzo giornaliero per queste funzionalità. 
 

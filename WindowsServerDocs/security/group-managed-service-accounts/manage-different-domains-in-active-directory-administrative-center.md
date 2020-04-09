@@ -1,22 +1,18 @@
 ---
 title: Gestire domini diversi in Centro di amministrazione di Active Directory
-ms.prod: windows-server
 description: Sicurezza di Windows Server
-ms.custom: na
-ms.reviewer: na
-ms.suite: na
-ms.tgt_pltfrm: na
+ms.prod: windows-server
 ms.assetid: 166351c3-4076-48be-aa8f-797adf1e9d68
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/12/2016
-ms.openlocfilehash: 71edf6bb38cc665fe5c780ce986d0c0b8807d6ab
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 6690ffbc558db4026c3fe67168907ca953ad4081
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71386935"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80856984"
 ---
 # <a name="manage-different-domains-in-active-directory-administrative-center"></a>Gestire domini diversi in Centro di amministrazione di Active Directory
 
@@ -24,7 +20,7 @@ ms.locfileid: "71386935"
 
   Quando si apre Active Directory amministratore, il dominio al quale si è attualmente connessi in questo computer \(il\) di dominio locale viene visualizzato nel riquadro di spostamento Centro di amministrazione di Active Directory \(riquadro sinistro\). A seconda dei diritti del set corrente di credenziali di accesso, è possibile visualizzare o gestire gli oggetti Active Directory in questo dominio locale.
 
- È inoltre possibile utilizzare lo stesso set di credenziali di accesso e la stessa istanza di Centro di amministrazione di Active Directory per visualizzare o gestire Active Directory oggetti in qualsiasi altro dominio nella stessa foresta o un dominio in un'altra foresta con una relazione di trust stabilita con il locale dominio. Sono supportati entrambi i trust\-Way e due trust\-Way.
+ È inoltre possibile utilizzare lo stesso set di credenziali di accesso e la stessa istanza di Centro di amministrazione di Active Directory per visualizzare o gestire Active Directory oggetti in qualsiasi altro dominio nella stessa foresta o un dominio in un'altra foresta con una relazione di trust stabilita con il dominio locale. Sono supportati entrambi i trust\-Way e due trust\-Way.
 
 > [!NOTE]
 >  Se esiste\-una relazione di trust tra il dominio A e il dominio B tramite il quale gli utenti del dominio A possono accedere alle risorse nel dominio B, ma gli utenti del dominio B non possono accedere alle risorse nel dominio A, se si esegue Centro di amministrazione di Active Directory nel computer in cui il dominio A è il dominio locale, è possibile connettersi al dominio B con il set corrente di credenziali di accesso e nella stessa istanza Centro di amministrazione di Active Directory di Tuttavia, se si esegue Centro di amministrazione di Active Directory nel computer in cui il dominio B è il dominio locale, non è possibile connettersi al dominio A con lo stesso set di credenziali nella stessa istanza del Centro di amministrazione di Active Directory.
@@ -74,7 +70,7 @@ ms.locfileid: "71386935"
 
    Per ulteriori informazioni sulla personalizzazione del riquadro di spostamento Centro di amministrazione di Active Directory, vedere [personalizzare il centro di amministrazione di Active Directory riquadro di spostamento](customize-the-active-directory-administrative-center-navigation-pane.md).
 
-   È inoltre possibile aprire Centro di amministrazione di Active Directory utilizzando un set di credenziali di accesso diverso dal set corrente di credenziali di accesso. Il comando nella procedura seguente può essere utile se si è connessi al computer in cui è in esecuzione Centro di amministrazione di Active Directory con credenziali utente normali, ma si desidera utilizzare Centro di amministrazione di Active Directory sul computer per gestire il dominio locale come amministratore. \(questo comando può essere utile anche se si vuole usare Centro di amministrazione di Active Directory per gestire in remoto un dominio esterno diverso dal dominio locale con un set di credenziali diverso dal set corrente di credenziali di accesso. Tuttavia, il dominio esterno deve avere una relazione di trust stabilita con il dominio locale.\)
+   È inoltre possibile aprire Centro di amministrazione di Active Directory utilizzando un set di credenziali di accesso diverso dal set corrente di credenziali di accesso. Il comando nella procedura riportata di seguito può essere utile se si è connessi al computer in cui è in esecuzione Centro di amministrazione di Active Directory con le normali credenziali utente, ma si desidera utilizzare Centro di amministrazione di Active Directory sul computer per gestire il dominio locale come amministratore. \(questo comando può essere utile anche se si vuole usare Centro di amministrazione di Active Directory per gestire in remoto un dominio esterno diverso dal dominio locale con un set di credenziali diverso dal set corrente di credenziali di accesso. Tuttavia, il dominio esterno deve avere una relazione di trust stabilita con il dominio locale.\)
 
    Per eseguire questa procedura, non è richiesta l'appartenenza ad alcun gruppo.
 

@@ -1,23 +1,19 @@
 ---
 title: Gestire l'integrità del sistema in Windows Server Essentials
 description: Viene descritto come usare Windows Server Essentials
-ms.custom: na
 ms.date: 10/03/2016
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 3043f83b-389c-4f37-a1ff-85afe99314fa
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: bbe05c0564e706ef0227e723a52bd10b2f774756
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: 8bca8f89e876da56dc6ede53a017e4d4331e39fc
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80311070"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80852714"
 ---
 # <a name="manage-system-health-in-windows-server-essentials"></a>Gestire l'integrità del sistema in Windows Server Essentials
 
@@ -28,7 +24,7 @@ ms.locfileid: "80311070"
 > [!NOTE]
 >  In Windows Server Essentials e Windows Server 2012 R2 con il ruolo esperienza Windows Server Essentials installato, gli avvisi di integrità per i computer server e client nella rete non sono più visualizzati nel Visualizzatore avvisi, ma possono essere visualizzati nella scheda rapporti di **stato** della **Home** page.  
   
- Windows Server Essentials monitora attivamente ogni computer connesso al server e avvisa l'amministratore dei problemi relativi all'integrità del sistema, inclusi gli aggiornamenti critici, la mancanza di malware Protection, le definizioni di virus non aggiornate sul client computer e altri problemi importanti che richiedono un'azione. Questi problemi vengono visualizzati come avvisi nel Visualizzatore avvisi, che può essere avviato dal dashboard del server o dalla finestra di avvio del computer client in Windows Server Essentials o nella scheda **rapporti di stato** in Windows Server Essentials. Per impostazione predefinita, gli avvisi sono aggiornati ogni trenta minuti, ma è possibile verificare la presenza di avvisi di rete in qualsiasi momento facendo clic su **Aggiorna** nel Visualizzatore avvisi oppure nella scheda **Rapporti di stato**.  
+ Windows Server Essentials monitora attivamente ogni computer connesso al server e avvisa l'amministratore per i problemi relativi all'integrità del sistema, inclusi aggiornamenti critici, protezione da malware mancanti, definizioni di virus non aggiornate nei computer client e altri problemi importanti che richiedono un'azione. Questi problemi vengono visualizzati come avvisi nel Visualizzatore avvisi, che può essere avviato dal dashboard del server o dalla finestra di avvio del computer client in Windows Server Essentials o nella scheda **rapporti di stato** in Windows Server Essentials. Per impostazione predefinita, gli avvisi sono aggiornati ogni trenta minuti, ma è possibile verificare la presenza di avvisi di rete in qualsiasi momento facendo clic su **Aggiorna** nel Visualizzatore avvisi oppure nella scheda **Rapporti di stato**.  
   
  Gli argomenti seguenti permettono di comprendere, visualizzare e rispondere agli avvisi del Visualizzatore avvisi e offrono anche istruzioni per configurare il server per la ricezione di notifiche di avviso tramite posta elettronica:  
   

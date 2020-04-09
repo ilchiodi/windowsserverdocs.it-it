@@ -1,7 +1,6 @@
 ---
 ms.assetid: a4f7842c-cfca-4d78-916e-023d12a9cdf0
 title: Creare un'attendibilità del provider di attestazioni
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 4539e8abd1af1eca7bacb51971e6d355bb0aab28
-ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
+ms.openlocfilehash: bd5c13dbdf4258b6a87dcf599299dd7969da5acd
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79323083"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80817064"
 ---
 # <a name="create-a-claims-provider-trust"></a>Creare un'attendibilità del provider di attestazioni
 

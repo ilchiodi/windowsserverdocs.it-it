@@ -1,50 +1,45 @@
 ---
 title: Bitsadmin peer caching e getconfigurationflags
-description: Argomento dei comandi di Windows per **BITSAdmin peer caching e getconfigurationflags** -ottiene i flag di configurazione che determinano se il computer serve contenuto ai peer e può scaricare il contenuto dai peer.
-ms.custom: na
+description: Argomento dei comandi di Windows per **BITSAdmin peer caching** e **getconfigurationflags**, che ottiene i flag di configurazione che determinano se il computer fornisce contenuto ai peer e se può scaricare il contenuto dai peer.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 124ddc15-3444-4bd5-96e5-c6bfabe4f9c2
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 94c7eb1a115fe9152b149b8cf65765b179080cc3
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: be8d6a719d63c8e9c6250320560b6ce21274c680
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71381095"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80850174"
 ---
 # <a name="bitsadmin-peercaching-and-getconfigurationflags"></a>Bitsadmin peer caching e getconfigurationflags
 
-
-
-Ottiene i flag di configurazione che determinano se il computer fornisce contenuto per peer e può scaricare il contenuto da peer.
+Ottiene i flag di configurazione che determinano se il computer fornisce contenuto ai peer e se può scaricare il contenuto da peer.
 
 ## <a name="syntax"></a>Sintassi
 
 ```
-bitsadmin /PeerCaching /GetConfigurationFlags <Job> 
+bitsadmin /peercaching /getconfigurationflags <job>
 ```
 
-## <a name="parameters"></a>Parametri
+### <a name="parameters"></a>Parametri
 
-|Parametro|Descrizione|
-|---------|-----------|
-|Job|Nome visualizzato o il GUID del processo|
+| Parametro | Descrizione |
+| -------------- | -------------- |
+| lavoro | Nome visualizzato o GUID del processo. |
 
-## <a name="BKMK_examples"></a>Esempi
+## <a name="examples"></a><a name=BKMK_examples></a>Esempi
 
-Nell'esempio seguente ottiene i flag di configurazione per il processo denominato *myJob*.
+Nell'esempio seguente vengono ottenuti i flag di configurazione per il processo denominato *myDownloadJob*.
+
 ```
-C:\> Bitsadmin /PeerCaching /GetConfigurationFlags myJob
+C:\> bitsadmin /peercaching /getconfigurationflags myDownloadJob
 ```
 
-#### <a name="additional-references"></a>Altri riferimenti
+## <a name="additional-references"></a>Altre informazioni di riferimento
 
-[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+- [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

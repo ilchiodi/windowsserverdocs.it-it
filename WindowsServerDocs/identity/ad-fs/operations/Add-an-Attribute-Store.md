@@ -1,7 +1,6 @@
 ---
 ms.assetid: c60227a8-7b44-40f8-b807-a6532851a4a6
 title: Aggiungere un archivio attributi
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 0f5c9d3b0f856ab72a16930ddb5c50686d747ecc
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: b197268de3c5335e30c2a24a74c5a7b01224b500
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71358390"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80859694"
 ---
 # <a name="add-an-attribute-store"></a>Aggiungere un archivio attributi
 
@@ -23,7 +22,7 @@ Gli account utente e i computer che richiedono l'accesso a una risorsa protetta 
   
 È possibile utilizzare la procedura seguente per aggiungere un archivio attributi per il servizio federativo.  
   
-Per completare questa procedura, è necessaria almeno l'appartenenza al gruppo **Administrators** oppure a un gruppo equivalente nel computer locale.  Informazioni dettagliate sull'utilizzo degli account appropriati e appartenenze [dominio gruppi predefiniti locali e](https://go.microsoft.com/fwlink/?LinkId=83477).   
+L'appartenenza al gruppo **Administrators**, o a un gruppo equivalente, nel computer locale è il requisito minimo per eseguire questa procedura.  Informazioni dettagliate sull'utilizzo degli account appropriati e appartenenze [dominio gruppi predefiniti locali e](https://go.microsoft.com/fwlink/?LinkId=83477).   
   
 #### <a name="to-add-an-attribute-store"></a>Per aggiungere un archivio attributi  
   
@@ -46,7 +45,7 @@ Per completare questa procedura, è necessaria almeno l'appartenenza al gruppo *
  
 ![aggiungere l'archivio di attributi](media/Add-an-Attribute-Store/addstore2.PNG) 
 
-4. Fai clic su **OK**.  
+4. Fare clic su **OK**.  
   
 ## <a name="additional-references"></a>Altri riferimenti  
 

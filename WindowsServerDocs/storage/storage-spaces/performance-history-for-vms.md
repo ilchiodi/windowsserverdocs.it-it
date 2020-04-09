@@ -1,80 +1,79 @@
 ---
-title: Cronologia delle prestazioni per le macchine virtuali
+title: Cronologia prestazioni per le macchine virtuali
 ms.author: cosdar
-ms.manager: eldenc
+manager: eldenc
 ms.technology: storage-spaces
 ms.topic: article
 author: cosmosdarwin
 ms.date: 09/07/2018
-Keywords: Spazi di archiviazione diretta
 ms.localizationpriority: medium
-ms.openlocfilehash: f8072ab5fc853248f2eedd26019956ec864a891d
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: aefc9c3c33cb93be241aae4ef18d815a9f8defef
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59890872"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80856144"
 ---
-# <a name="performance-history-for-virtual-machines"></a>Cronologia delle prestazioni per le macchine virtuali
+# <a name="performance-history-for-virtual-machines"></a>Cronologia prestazioni per le macchine virtuali
 
-> Si applica a: Anteprima Windows Server Insider
+> Si applica a: Windows Server 2019
 
-Questo argomento secondario di [cronologia delle prestazioni per spazi di archiviazione diretta](performance-history.md) descrive in dettaglio la cronologia delle prestazioni raccolta per le macchine virtuali (VM). Cronologia delle prestazioni è disponibile per ogni esecuzione, cluster macchina virtuale.
+Questo argomento secondario della [cronologia delle prestazioni per spazi di archiviazione diretta](performance-history.md) descrive in dettaglio la cronologia delle prestazioni raccolta per le macchine virtuali (VM). La cronologia delle prestazioni è disponibile per ogni macchina virtuale in esecuzione in cluster.
 
    > [!NOTE]
-   > Potrebbero occorrere alcuni minuti per la raccolta iniziare a per le macchine virtuali appena create o rinominate.
+   > Potrebbero essere necessari alcuni minuti per iniziare la raccolta per le macchine virtuali appena create o rinominate.
 
-## <a name="series-names-and-units"></a>Unità e i nomi delle serie
+## <a name="series-names-and-units"></a>Unità e nomi di serie
 
-Queste serie vengono raccolti per tutte le macchine Virtuali idonee:
+Queste serie vengono raccolte per ogni macchina virtuale idonea:
 
-| serie                            | Unità             |
+| Serie                            | Unità             |
 |-----------------------------------|------------------|
-| `vm.cpu.usage`                    | Percentuale          |
-| `vm.memory.assigned`              | Byte            |
-| `vm.memory.available`             | Byte            |
-| `vm.memory.maximum`               | Byte            |
-| `vm.memory.minimum`               | Byte            |
+| `vm.cpu.usage`                    | percent          |
+| `vm.memory.assigned`              | byte            |
+| `vm.memory.available`             | byte            |
+| `vm.memory.maximum`               | byte            |
+| `vm.memory.minimum`               | byte            |
 | `vm.memory.pressure`              | -                |
-| `vm.memory.startup`               | Byte            |
-| `vm.memory.total`                 | Byte            |
-| `vmnetworkadapter.bandwidth.inbound`  | Bit al secondo |
-| `vmnetworkadapter.bandwidth.outbound` | Bit al secondo |
-| `vmnetworkadapter.bandwidth.total`    | Bit al secondo |
+| `vm.memory.startup`               | byte            |
+| `vm.memory.total`                 | byte            |
+| `vmnetworkadapter.bandwidth.inbound`  | bit al secondo |
+| `vmnetworkadapter.bandwidth.outbound` | bit al secondo |
+| `vmnetworkadapter.bandwidth.total`    | bit al secondo |
 
-Inoltre, tutte le serie di disco rigido virtuale (VHD), ad esempio `vhd.iops.total`, vengono aggregati per ogni disco rigido virtuale collegato alla macchina virtuale.
+Inoltre, tutte le serie di dischi rigidi virtuali (VHD), ad esempio `vhd.iops.total`, vengono aggregate per ogni disco rigido virtuale collegato alla macchina virtuale.
 
 ## <a name="how-to-interpret"></a>Come interpretare
 
 
-| serie                            | Descrizione                                                                                                  |
+| Serie                            | Descrizione                                                                                                  |
 |-----------------------------------|--------------------------------------------------------------------------------------------------------------|
-| `vm.cpu.usage`                    | Percentuale della macchina virtuale utilizza del processore o i processori del relativo server host.                                   |
-| `vm.memory.assigned`              | La quantità di memoria assegnata alla macchina virtuale.                                                      |
-| `vm.memory.available`             | La quantità di memoria rimanente disponibile, la quantità assegnato.                                       |
+| `vm.cpu.usage`                    | Percentuale di utilizzo del processore del server host da parte della macchina virtuale.                                   |
+| `vm.memory.assigned`              | Quantità di memoria assegnata alla macchina virtuale.                                                      |
+| `vm.memory.available`             | Quantità di memoria che rimane disponibile, della quantità assegnata.                                       |
 | `vm.memory.maximum`               | Se si usa la memoria dinamica, questa è la quantità massima di memoria che può essere assegnata alla macchina virtuale. |
-| `vm.memory.minimum`               | Se si usa la memoria dinamica, questa è la quantità minima di memoria che può essere assegnata alla macchina virtuale. |
-| `vm.memory.pressure`              | Il rapporto tra memoria richiesta dalla macchina virtuale su memoria allocata alla macchina virtuale.            |
-| `vm.memory.startup`               | La quantità di memoria necessaria per la macchina virtuale da avviare.                                            |
+| `vm.memory.minimum`               | Se si usa la memoria dinamica, si tratta della quantità minima di memoria che può essere assegnata alla macchina virtuale. |
+| `vm.memory.pressure`              | Rapporto tra la memoria richiesta dalla macchina virtuale e la memoria allocata alla macchina virtuale.            |
+| `vm.memory.startup`               | Quantità di memoria necessaria per l'avvio della macchina virtuale.                                            |
 | `vm.memory.total`                 | Memoria totale. |
-| `vmnetworkadapter.bandwidth.inbound`  | Frequenza dei dati ricevuti dalla macchina virtuale tra tutte le schede di rete virtuale.                        |
-| `vmnetworkadapter.bandwidth.outbound` | Frequenza dei dati inviati dalla macchina virtuale su tutte le schede di rete virtuale.                            |
-| `vmnetworkadapter.bandwidth.total`    | Frequenza totale di dati ricevuti o inviati dalla macchina virtuale tra tutte le schede di rete virtuale.          |
+| `vmnetworkadapter.bandwidth.inbound`  | Frequenza dei dati ricevuti dalla macchina virtuale in tutte le schede di rete virtuali.                        |
+| `vmnetworkadapter.bandwidth.outbound` | Frequenza dei dati inviati dalla macchina virtuale in tutte le schede di rete virtuali.                            |
+| `vmnetworkadapter.bandwidth.total`    | Velocità totale dei dati ricevuti o inviati dalla macchina virtuale in tutte le schede di rete virtuali.          |
 
    > [!NOTE]
-   > I contatori vengono misurati su tutto l'intervallo, non campionato. Ad esempio, se la macchina virtuale è inattiva per 9 secondi, ma picchi 50% della CPU dell'host nella seconda 10th, relativo `vm.cpu.usage` saranno registrate come 5% in Media durante questo intervallo di 10 secondi. In questo modo la cronologia delle prestazioni acquisisce tutte le attività e affidabile al rumore.
+   > I contatori sono misurati nell'intero intervallo, non campionati. Se, ad esempio, la macchina virtuale è inattiva per 9 secondi, ma i picchi utilizzano il 50% della CPU dell'host nel decimo secondo, la `vm.cpu.usage` verrà registrata come media del 5% durante questo intervallo di 10 secondi. Ciò garantisce che la cronologia delle prestazioni acquisisce tutte le attività ed è affidabile per il rumore.
 
 ## <a name="usage-in-powershell"></a>Utilizzo in PowerShell
 
-Usare la [Get-VM](https://docs.microsoft.com/powershell/module/hyper-v/get-vm) cmdlet:
+Usare il cmdlet [Get-VM](https://docs.microsoft.com/powershell/module/hyper-v/get-vm) :
 
 ```PowerShell
 Get-VM <Name> | Get-ClusterPerf
 ```
 
    > [!NOTE]
-   > Il cmdlet Get-VM restituisce solo le macchine virtuali nel server locale (o specificato), non in cluster.
+   > Il cmdlet Get-VM restituisce solo le macchine virtuali nel server locale o specificato, non nel cluster.
 
 ## <a name="see-also"></a>Vedere anche
 
-- [Cronologia delle prestazioni per spazi di archiviazione diretta](performance-history.md)
+- [Cronologia prestazioni per Spazi di archiviazione diretta](performance-history.md)

@@ -2,22 +2,18 @@
 title: Distribuire l'accesso remoto con l'autenticazione OTP
 description: Questo argomento fa parte della Guida distribuire accesso remoto con l'autenticazione OTP in Windows Server 2016.
 manager: brianlic
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: networking-ras
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: b1b2fe70-7956-46e8-a3e3-43848868df09
 ms.author: lizross
 author: eross-msft
-ms.openlocfilehash: 5b86cbe970c60f0684f3f6e5198fa91bbb9745b1
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: 47a92db6c451b2e1e9bb44393ab987f242cc0ef5
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80313679"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80858254"
 ---
 # <a name="deploy-remote-access-with-otp-authentication"></a>Distribuire l'accesso remoto con l'autenticazione OTP
 
@@ -74,8 +70,8 @@ Nella tabella seguente sono elencati i ruoli e le funzionalità richiesti per lo
   
 |Funzionalità\/ruoli|Modalità di supporto dello scenario|  
 |---------|-----------------|  
-|*Ruolo gestione accesso remoto*|Il ruolo viene installato e disinstallato tramite la console di Server Manager. Questo ruolo comprende sia DirectAccess, che in precedenza era una funzionalità di Windows Server 2008 R2, che servizi routing e accesso remoto che in precedenza era un servizio ruolo in servizi di accesso e criteri di rete \(NPAS\) ruolo server. Il ruolo Accesso remoto è costituito da due componenti:<br /><br />1. DirectAccess e servizi routing e accesso remoto \(RRAS\) VPN: DirectAccess e VPN vengono gestiti insieme nella console di gestione accesso remoto.<br />2. routing RRAS: le funzionalità di routing RRAS sono gestite nella console di routing e accesso remoto legacy.<br /><br />Il ruolo Accesso remoto dipende dalle funzionalità server seguenti:<br /><br />-Internet Information Services \(server Web IIS\): questa funzionalità è necessaria per configurare il server dei percorsi di rete, utilizzare l'autenticazione OTP e configurare il probe Web predefinito.<br />-Windows Database-Used interna per l'accounting locale sul server di accesso remoto.|  
-|Funzionalità Strumenti di Gestione Accesso remoto|Questa funzionalità viene installata come segue:<br /><br />-Viene installato per impostazione predefinita in un server di accesso remoto quando è installato il ruolo Accesso remoto e supporta l'interfaccia utente della console di gestione remota.<br />-Può essere installata facoltativamente in un server non è in esecuzione il ruolo di server di accesso remoto. In questo caso viene utilizzata per la gestione remota di un computer di Accesso remoto che esegue DirectAccess e VPN.<br /><br />La funzionalità Strumenti di Gestione Accesso remoto è costituita dai seguenti elementi:<br /><br />-Accesso remoto GUI e strumenti da riga di comando<br />-Modulo di accesso remoto per Windows PowerShell<br /><br />Le dipendenze includono:<br /><br />-Console Gestione criteri di gruppo<br />-RAS Connection Manager Administration Kit \(CMAK\)<br />-Windows PowerShell 3.0<br />-Infrastruttura e strumenti di gestione grafico|  
+|*Ruolo gestione accesso remoto*|Il ruolo viene installato e disinstallato tramite la console di Server Manager. Questo ruolo comprende sia DirectAccess, che in precedenza era una funzionalità di Windows Server 2008 R2, che servizi routing e accesso remoto che in precedenza era un servizio ruolo in servizi di accesso e criteri di rete \(NPAS\) ruolo server. Il ruolo Accesso remoto è costituito da due componenti:<p>1. DirectAccess e servizi routing e accesso remoto \(RRAS\) VPN: DirectAccess e VPN vengono gestiti insieme nella console di gestione accesso remoto.<br />2. routing RRAS: le funzionalità di routing RRAS sono gestite nella console di routing e accesso remoto legacy.<p>Il ruolo Accesso remoto dipende dalle funzionalità server seguenti:<p>-Internet Information Services \(server Web IIS\): questa funzionalità è necessaria per configurare il server dei percorsi di rete, utilizzare l'autenticazione OTP e configurare il probe Web predefinito.<br />-Windows Database-Used interna per l'accounting locale sul server di accesso remoto.|  
+|Funzionalità Strumenti di Gestione Accesso remoto|Questa funzionalità viene installata come segue:<p>-Viene installato per impostazione predefinita in un server di accesso remoto quando è installato il ruolo Accesso remoto e supporta l'interfaccia utente della console di gestione remota.<br />-Può essere installata facoltativamente in un server non è in esecuzione il ruolo di server di accesso remoto. In questo caso viene utilizzata per la gestione remota di un computer di Accesso remoto che esegue DirectAccess e VPN.<p>La funzionalità Strumenti di Gestione Accesso remoto è costituita dai seguenti elementi:<p>-Accesso remoto GUI e strumenti da riga di comando<br />-Modulo di accesso remoto per Windows PowerShell<p>Le dipendenze includono:<p>-Console Gestione criteri di gruppo<br />-RAS Connection Manager Administration Kit \(CMAK\)<br />-Windows PowerShell 3.0<br />-Infrastruttura e strumenti di gestione grafico|  
   
 ## <a name="hardware-requirements"></a><a name="BKMK_HARD"></a>Requisiti hardware  
 I requisiti hardware per questo scenario includono i seguenti.  

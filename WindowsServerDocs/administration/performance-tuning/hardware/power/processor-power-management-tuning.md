@@ -4,19 +4,19 @@ description: Ottimizzazione del risparmio energia del processore (PPM) per il pi
 ms.prod: windows-server
 ms.technology: performance-tuning-guide
 ms.topic: article
-ms.author: Qizha;TristanB
+ms.author: qizha;tristanb
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: 53399c1ff1d9fa60df992b922b99c82d119b2f58
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 5c7319c843609f8bf846dd6ccf4bc2bf91f3b942
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71355030"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80851974"
 ---
 # <a name="processor-power-management-ppm-tuning-for-the-windows-server-balanced-power-plan"></a>Ottimizzazione del risparmio energia del processore (PPM) per il piano di risparmio energia bilanciato di Windows Server
 
-A partire da Windows Server 2008, Windows Server offre tre combinazioni per il risparmio di energia: **Bilanciamento**, **prestazioni elevate**e **risparmio di energia**. La combinazione per il risparmio di energia **bilanciata** è la scelta predefinita che mira a garantire la migliore efficienza energetica per un set di carichi di lavoro del server tipici. In questo argomento vengono descritti i carichi di lavoro utilizzati per determinare le impostazioni predefinite per lo schema **bilanciato** per le diverse versioni di Windows precedenti.
+A partire da Windows Server 2008, Windows Server offre tre combinazioni per il risparmio di energia: **bilanciamento**, **prestazioni elevate**e **risparmio di energia**. La combinazione per il risparmio di energia **bilanciata** è la scelta predefinita che mira a garantire la migliore efficienza energetica per un set di carichi di lavoro del server tipici. In questo argomento vengono descritti i carichi di lavoro utilizzati per determinare le impostazioni predefinite per lo schema **bilanciato** per le diverse versioni di Windows precedenti.
 
 Se si esegue un sistema server con caratteristiche del carico di lavoro notevolmente diverse o requisiti di prestazioni e alimentazione rispetto a questi carichi di lavoro, è consigliabile provare a ottimizzare le impostazioni di risparmio energia predefinite (ovvero creare una combinazione per il risparmio di energia personalizzata). Una fonte di informazioni utili sull'ottimizzazione sono le [considerazioni sull'alimentazione hardware del server](../power.md). In alternativa, è possibile decidere che la combinazione per il risparmio di energia a **prestazioni elevate** è la scelta ideale per l'ambiente in uso, riconoscendo che è probabile che si verifichi un notevole calo di energia in cambio di un livello di velocità di risposta maggiore.
 
@@ -46,7 +46,7 @@ L'ottimizzazione in ogni criterio di risparmio energia è basata sui dati dei ci
 
 -   **SPECpower: carico di lavoro JAVA**
 
-    [SPECpower\_ssj2008](http://spec.org/power_ssj2008/) è il primo benchmark di specifiche di settore che valuta congiuntamente le caratteristiche di potenza e prestazioni. Si tratta di un carico di lavoro Java lato server con diversi livelli di carico della CPU. Non richiede molte risorse disco o di rete, ma presenta determinati requisiti per la larghezza di banda della memoria. Quasi tutte le attività della CPU vengono eseguite in modalità utente; l'attività in modalità kernel non ha un notevole effetto sulle caratteristiche di potenza e prestazioni dei benchmark, tranne per le decisioni relative al risparmio energia.
+    [SPECpower\_ssj2008](http://spec.org/power_ssj2008/) è il primo benchmark delle specifiche standard del settore che valuta congiuntamente le caratteristiche di potenza e prestazioni. Si tratta di un carico di lavoro Java lato server con diversi livelli di carico della CPU. Non richiede molte risorse disco o di rete, ma presenta determinati requisiti per la larghezza di banda della memoria. Quasi tutte le attività della CPU vengono eseguite in modalità utente; l'attività in modalità kernel non ha un notevole effetto sulle caratteristiche di potenza e prestazioni dei benchmark, tranne per le decisioni relative al risparmio energia.
 
 -   **Carico di lavoro del server applicazioni**
 
@@ -58,12 +58,12 @@ Tutti i benchmark ad eccezione di SPECpower sono stati originariamente progettat
 
 Per ogni versione di Windows, i server di produzione più recenti vengono usati nel processo di ottimizzazione e analisi della combinazione per il risparmio di energia. In alcuni casi, i test sono stati eseguiti in sistemi di pre-produzione la cui pianificazione della versione corrisponde a quella della versione successiva di Windows.
 
-Dato che la maggior parte dei server viene venduta con 1 a 4 socket del processore e poiché i server con scalabilità verticale hanno meno probabilità di avere un'efficienza energetica come preoccupazione principale, i test di ottimizzazione per la combinazione per il risparmio di energia vengono eseguiti principalmente su sistemi a 2 socket e a 4 socket. La quantità di RAM, disco e risorse di rete per ogni test viene scelta per consentire a ogni sistema di funzionare fino alla sua capacità completa, tenendo conto delle restrizioni di costo che verrebbero normalmente applicate per gli ambienti server reali, ad esempio mantenendo il configurazioni ragionevoli.
+Dato che la maggior parte dei server viene venduta con 1 a 4 socket del processore e poiché i server con scalabilità verticale hanno meno probabilità di avere un'efficienza energetica come preoccupazione principale, i test di ottimizzazione per la combinazione per il risparmio di energia vengono eseguiti principalmente su sistemi a 2 socket e a 4 socket. La quantità di RAM, disco e risorse di rete per ogni test viene scelta per consentire a ogni sistema di funzionare fino alla sua capacità completa, tenendo conto delle restrizioni di costo che verrebbero normalmente applicate per gli ambienti server reali, ad esempio mantenendo le configurazioni ragionevoli.
 
 > [!IMPORTANT]
-> Anche se il sistema può essere eseguito con il picco di carico, in genere viene ottimizzato per i livelli di carico inferiori, perché i server che vengono eseguiti in modo coerente con i livelli di carico di picco dovrebbero essere ben consigliati per usare la combinazione per il risparmio di energia a **prestazioni elevate** , a meno che l'efficienza priorità.
+> Anche se il sistema può essere eseguito con il picco di carico, in genere viene ottimizzato per i livelli di carico inferiori, perché i server che vengono eseguiti in modo coerente con i livelli di carico di picco dovrebbero essere ben raccomandati per usare la combinazione per il risparmio di energia a **prestazioni elevate** , a meno che l'efficienza energetica
 
-### <a name="metrics"></a>metrics
+### <a name="metrics"></a>Metriche
 
 Tutti i benchmark testati usano la velocità effettiva come metrica delle prestazioni. Il tempo di risposta viene considerato un requisito del contratto di contratto per questi carichi di lavoro (ad eccezione di SAP, dove si tratta di una metrica primaria). Ad esempio, un'esecuzione di benchmark viene considerata "valida" Se il tempo di risposta medio o massimo è inferiore a un determinato valore.
 
@@ -74,7 +74,7 @@ Pertanto, l'analisi di ottimizzazione PPM usa anche la velocità effettiva come 
 L'esecuzione di core CPU a frequenze inferiori riduce il consumo di energia. Tuttavia, le frequenze inferiori in genere riducono la velocità effettiva e aumentano il tempo di risposta. Per la combinazione per il risparmio di energia **bilanciata** , c'è un compromesso intenzionale di velocità di risposta e efficienza energetica. I test del carico di lavoro SAP, così come i contratti di tempo di risposta per gli altri carichi di lavoro, assicurano che l'aumento del tempo di risposta non superi una determinata soglia (5% come esempio) per questi carichi di lavoro specifici.
 
 > [!NOTE]
-> Se il carico di lavoro usa il tempo di risposta come misurazione delle prestazioni, il sistema deve passare alla combinazione per il risparmio di energia a **prestazioni elevate** o modificare la combinazione per il risparmio di energia **bilanciata** , come suggerito nei [parametri di combinazione per il risparmio Ora](recommended-balanced-plan-parameters.md).
+> Se il carico di lavoro usa il tempo di risposta come misurazione delle prestazioni, il sistema deve passare alla combinazione per il risparmio di energia a **prestazioni elevate** o modificare la combinazione per il risparmio di energia **bilanciata** , come suggerito nei [parametri di combinazione per il risparmio di energia consigliati](recommended-balanced-plan-parameters.md)
 
 ### <a name="tuning-results"></a>Risultati dell'ottimizzazione
 
@@ -107,11 +107,11 @@ A causa del numero e della complessità dei parametri, può trattarsi di un'atti
 
 ### <a name="understand-high-level-performance-and-power-requirements"></a>Informazioni sulle prestazioni di alto livello e sui requisiti di alimentazione
 
-Se il carico di lavoro è "in tempo reale" (ad esempio, soggetto a glitch o ad altri effetti visivi dell'utente finale) o ha un requisito di velocità di risposta molto elevato (ad esempio, un brokeraggio azionario) e se il consumo di energia non è un criterio primario per l'ambiente, è necessario probabilmente è sufficiente passare alla combinazione per il risparmio di energia a **prestazioni elevate** . In caso contrario, è necessario comprendere i requisiti del tempo di risposta dei carichi di lavoro e quindi ottimizzare i parametri PPM per ottenere una migliore efficienza energetica che soddisfi tali requisiti.
+Se il carico di lavoro è "in tempo reale" (ad esempio, suscettibile di problemi o altri effetti visivi dell'utente finale) o ha un requisito di velocità di risposta molto limitato (ad esempio, un'intermediazione azionaria) e se il consumo di energia non è un criterio primario per l'ambiente, è consigliabile passare solo alla combinazione per il risparmio di energia **ad alte prestazioni** . In caso contrario, è necessario comprendere i requisiti del tempo di risposta dei carichi di lavoro e quindi ottimizzare i parametri PPM per ottenere una migliore efficienza energetica che soddisfi tali requisiti.
 
 ### <a name="understand-underlying-workload-characteristics"></a>Informazioni sulle caratteristiche del carico di lavoro sottostanti
 
-È necessario essere a conoscenza dei carichi di lavoro e progettare i set di parametri dell'esperimento per l'ottimizzazione. Se, ad esempio, le frequenze dei core della CPU devono essere molto veloci (probabilmente si ha un carico di lavoro molto elevato con periodi di inattività significativi, ma è necessaria una velocità di risposta molto rapida quando viene rilevata una nuova transazione), i criteri di aumento delle prestazioni del processore potrebbe essere necessario impostare su "Rocket" (che, come suggerisce il nome, risale la frequenza di core della CPU al valore massimo anziché eseguire il rollup in un periodo di tempo).
+È necessario essere a conoscenza dei carichi di lavoro e progettare i set di parametri dell'esperimento per l'ottimizzazione. Ad esempio, se le frequenze dei core della CPU devono essere molto veloci (probabilmente si ha un carico di lavoro molto elevato con periodi di inattività significativi, tuttavia, è necessaria una velocità di risposta molto rapida quando si verifica una nuova transazione, quindi è possibile che i criteri di aumento delle prestazioni del processore debbano essere impostati su "Rocket" (che, come implica il nome, si riferisce alla frequenza di core della CPU al valore massimo, anziché eseguire il rollup in un periodo di tempo).
 
 Se il carico di lavoro è molto grande, l'intervallo di controllo PPM può essere ridotto per fare in modo che la frequenza della CPU venga avviata prima dell'arrivo di un impeto. Se il carico di lavoro non dispone di una concorrenza di thread elevata, è possibile abilitare il parcheggio di base per forzare l'esecuzione del carico di lavoro su un numero minore di core, che potrebbero anche migliorare la percentuale di riscontri nella cache del processore.
 
@@ -125,7 +125,7 @@ Anche in questo caso, ciò consente di aumentare la complessità del processo di
 
 Questo è il motivo per cui Windows offre una combinazione per il risparmio di energia **bilanciata** , perché in molti casi probabilmente non vale la pena di effettuare l'ottimizzazione manuale per un carico di lavoro specifico in un server specifico.
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 - [Considerazioni sulle prestazioni dell'hardware del server](../index.md)
 - [Considerazioni sull'alimentazione dell'hardware del server](../power.md)
 - [Risparmio energia e ottimizzazione delle prestazioni](power-performance-tuning.md)

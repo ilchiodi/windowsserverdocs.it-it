@@ -1,36 +1,32 @@
 ---
 title: bootcfg raw
-description: 'Argomento dei comandi di Windows per **bootcfg RAW** : aggiunge le opzioni di caricamento del sistema operativo specificate come stringa a una voce del sistema operativo nella sezione **[Operating Systems]** del file Boot. ini.'
-ms.custom: na
+description: Windows Commands Topic for bootcfg RAW, che aggiunge le opzioni di caricamento del sistema operativo, specificate come stringa, a una voce del sistema operativo nella sezione del sistema operativo del file Boot. ini.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: e3458749-b0a0-460f-a022-3ff199a71f27
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: fb5c052f85f54656c54a9e534f867d287407d2d4
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: fd5137187c5ba1dc1b410d728f1c2930ddcbc3cc
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71379905"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80848514"
 ---
 # <a name="bootcfg-raw"></a>bootcfg raw
 
 >Si applica a: Windows Server (Canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-aggiunge le opzioni di caricamento del sistema operativo specificate come stringa a una voce del sistema operativo nella sezione **[Operating Systems]** del file Boot. ini.
+Aggiunge le opzioni di caricamento del sistema operativo specificate come stringa a una voce del sistema operativo di **[i sistemi operativi]** sezione del file Boot. ini.
 
 ## <a name="syntax"></a>Sintassi
 ```
 bootcfg /raw [/s <computer> [/u <Domain>\<User> /p <Password>]] <OSLoadOptionsString> [/id <OSEntryLineNum>] [/a]
 ```
-## <a name="parameters"></a>Parametri
+### <a name="parameters"></a>Parametri
 
 |         Termine          |                                                                                                            Definizione                                                                                                             |
 |-----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -42,16 +38,16 @@ bootcfg /raw [/s <computer> [/u <Domain>\<User> /p <Password>]] <OSLoadOptionsSt
 |          /a           |                                                       Specifica che le opzioni di sistema operativo da aggiungere devono essere aggiunto per le opzioni del sistema operativo esistente.                                                        |
 |          /?           |                                                                                               Visualizza la guida al prompt dei comandi.                                                                                                |
 
-##### <a name="remarks"></a>Osservazioni
-- **bootcfg RAW** viene usato per aggiungere testo alla fine di una voce del sistema operativo, sovrascrivendo eventuali opzioni di immissione esistenti del sistema operativo. Il testo deve contenere opzioni di caricamento del sistema operativo valido, ad esempio **/debug**, **/fastdetect**, **/nodebug**, **/baudrate**, **/crashdebug**, e **/sos**. Ad esempio, il seguente comando aggiunge " **/debug /fastdetect**" alla fine della prima voce del sistema operativo, sostituendo le opzioni di voce del sistema operativo precedente:
+##### <a name="remarks"></a>Note
+- **bootcfg RAW** viene usato per aggiungere testo alla fine di una voce del sistema operativo, sovrascrivendo eventuali opzioni di immissione esistenti del sistema operativo. Il testo deve contenere opzioni di caricamento del sistema operativo valido, ad esempio **/debug**, **/fastdetect**, **/nodebug**, **/baudrate**, **/crashdebug**, e **/sos**. Ad esempio, il comando seguente aggiunge **/debug/fastdetect** alla fine della prima voce del sistema operativo, sostituendo le opzioni di immissione del sistema operativo precedenti:
   ```
-  bootcfg /raw "/debug /fastdetect" /id 1
+  bootcfg /raw /debug /fastdetect /id 1
   ```
-  ## <a name="BKMK_examples"></a>Esempi
+  ## <a name="examples"></a><a name=BKMK_examples></a>Esempi
   Gli esempi seguenti illustrano come utilizzare il **bootcfg / raw** comando:
   ```
-  bootcfg /raw "/debug /sos" /id 2
-  bootcfg /raw /s srvmain /u maindom\hiropln /p p@ssW23 "/crashdebug " /id 2
+  bootcfg /raw /debug /sos /id 2
+  bootcfg /raw /s srvmain /u maindom\hiropln /p p@ssW23 /crashdebug  /id 2
   ```
-  #### <a name="additional-references"></a>riferimenti aggiuntivi
-  [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+  ## <a name="additional-references"></a>Altre informazioni di riferimento
+  - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

@@ -1,24 +1,20 @@
 ---
 title: certutil
-description: 'Argomento dei comandi di Windows per * * * *- '
-ms.custom: na
+description: Argomento comandi di Windows per certutil, ovvero un programma da riga di comando che consente di eseguire il dump e visualizzare le informazioni di configurazione dell'autorità di certificazione (CA), configurare i servizi certificati, eseguire il backup e ripristinare i componenti CA e verificare i certificati, le coppie di chiavi e le catene di certificati.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: c264ccf0-ba1e-412b-9dd3-d77dd9345ad9
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 71525e4051a079eb9a3d0c8c197c8157b53e5e67
-ms.sourcegitcommit: 1f3ffff0af340868dcf3a2cfef5b8f8aea69d96d
+ms.openlocfilehash: 3ae2d68ee6a23422dda3dee8b261027c36707bd1
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2020
-ms.locfileid: "78278546"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80848194"
 ---
 # <a name="certutil"></a>certutil
 
@@ -241,8 +237,8 @@ AttributeString--coppie nome e valore dell'attributo della richiesta
 
 - I nomi e i valori sono separati da due punti.
 - Più coppie nome/valore sono separate da una nuova riga.
-- Esempio: "CertificateTemplate:User\nEMail:User@Domain.com"
-- Ogni sequenza "\n" viene convertita in un separatore di nuova riga.
+- Esempio: CertificateTemplate:User\nEMail:User@Domain.com
+- Ogni \n sequenza viene convertita in un separatore di nuova riga.
 
 [-config Machine\CAName]
 
@@ -337,7 +333,7 @@ CertUtil [opzioni]-cainfo [InfoName [indice | ErrorCode]]
 
 Visualizza informazioni CA
 
-InfoName: indica la proprietà CA da visualizzare (vedere di seguito). Usare "\*" per tutte le proprietà.
+InfoName: indica la proprietà CA da visualizzare (vedere di seguito). Usare \* per tutte le proprietà.
 
 Index: Indice di proprietà in base zero facoltativo
 
@@ -530,19 +526,19 @@ CSV: output come valori delimitati da virgole
 
 Per visualizzare la colonna StatusCode per tutte le voci:-out StatusCode
 
-Per visualizzare tutte le colonne per l'ultima voce:-Restrict "RequestId = = $"
+Per visualizzare tutte le colonne per l'ultima voce:-Restrict RequestId = = $
 
-Per visualizzare RequestId e Disposition per tre richieste:-Restrict "RequestId > = 37, RequestId\<40"-out "RequestId, Disposition"
+Per visualizzare RequestId e Disposition per tre richieste:-Restrict RequestId > = 37, RequestId 40\<-out RequestId, Disposition
 
-Per visualizzare gli ID di riga e i numeri CRL per tutti i CRL di base:-Restrict "CRLMinBase = 0"-out "CRLRowId, CRLNumber" CRL
+Per visualizzare gli ID di riga e i numeri CRL per tutti i CRL di base:-Restrict CRLMinBase = 0-out CRLRowId, CRLNumber CRL
 
-Per visualizzare il CRL base numero 3:-v-Restrict "CRLMinBase = 0, CRLNumber = 3"-out "CRLRawCRL" CRL
+Per visualizzare il numero di base CRL 3:-v-Restrict CRLMinBase = 0, CRLNumber = 3-out CRLRawCRL CRL
 
 Per visualizzare l'intera tabella CRL: CRL
 
-Usare "date [+ |-DD: HH]" per le restrizioni relative alla data
+Use date [+ |-DD: HH] per le restrizioni relative alla data
 
-Usare "Now + DD: HH" per una data relativa all'ora corrente
+USA ora + GG: HH per una data relativa all'ora corrente
 
 [-invisibile all'utente] [-split] [-config Machine\CAName] [-restrict restrizione] [-out ColumnName]
 
@@ -731,11 +727,11 @@ Dump archivio certificati
 
 NomeArchivioCertificati: nome dell'archivio certificati. Esempi:
 
-- "My", "CA" (impostazione predefinita), "root",
-- "autorità ldap:///CN=Certification, CN = Servizi chiave pubblica, CN = Services, CN = Configuration, DC = cpandl, DC = com? Cacertificate? One? objectClass = certificationAuthority" (Visualizza certificati radice)
-- "autorità ldap:///CN=CAName,CN=Certification, CN = Public Key Services, CN = Services, CN = Configuration, DC = cpandl, DC = com? Cacertificate? base? objectClass = certificationAuthority" (modificare i certificati radice)
-- "ldap:///CN=CAName,CN=MachineName,CN=CDP,CN=Public Key Services, CN = Services, CN = Configuration, DC = cpandl, DC = com? certificateRevocationList? base? objectClass = cRLDistributionPoint" (View CRL)
-- "ldap:///CN=NTAuthCertificates,CN=Public Key Services, CN = Services, CN = Configuration, DC = cpandl, DC = com? Cacertificate? base? objectClass = certificationAuthority" (certificati della CA globale (Enterprise))
+- My, CA (impostazione predefinita), radice,
+- Autorità ldap:///CN=Certification, CN = Public Key Services, CN = Services, CN = Configuration, DC = cpandl, DC = com? Cacertificate? One? objectClass = certificationAuthority (Visualizza certificati radice)
+- Autorità ldap:///CN=CAName,CN=Certification, CN = Public Key Services, CN = Services, CN = Configuration, DC = cpandl, DC = com? Cacertificate? base? objectClass = certificationAuthority (modifica certificati radice)
+- ldap:///CN=CAName,CN=MachineName,CN=CDP,CN=Public Key Services, CN = Services, CN = Configuration, DC = cpandl, DC = com? certificateRevocationList? base? objectClass = cRLDistributionPoint (View CRL)
+- ldap:///CN=NTAuthCertificates,CN=Public Key Services, CN = Services, CN = Configuration, DC = cpandl, DC = com? Cacertificate? base? objectClass = certificationAuthority (certificati della CA globale (Enterprise))
 - LDAP: (certificati oggetto computer Active Directory)
 - -utente LDAP: (certificati oggetto utente Active Directory)
 
@@ -821,22 +817,22 @@ PropertyInfFile--file INF contenente le proprietà esterne:
      19 = Empty ; Add archived property, OR:
      19 =       ; Remove archived property
 
-     11 = "{text}Friendly Name" ; Add friendly name property
+     11 = {text}Friendly Name ; Add friendly name property
 
-     127 = "{hex}" ; Add custom hexadecimal property
-         _continue_ = "00 01 02 03 04 05 06 07 08 09 0a 0b 0c 0d 0e 0f"
-         _continue_ = "10 11 12 13 14 15 16 17 18 19 1a 1b 1c 1d 1e 1f"
+     127 = {hex} ; Add custom hexadecimal property
+         _continue_ = 00 01 02 03 04 05 06 07 08 09 0a 0b 0c 0d 0e 0f
+         _continue_ = 10 11 12 13 14 15 16 17 18 19 1a 1b 1c 1d 1e 1f
 
-     2 = "{text}" ; Add Key Provider Information property
-       _continue_ = "Container=Container Name&"
-       _continue_ = "Provider=Microsoft Strong Cryptographic Provider&"
-       _continue_ = "ProviderType=1&"
-       _continue_ = "Flags=0&"
-       _continue_ = "KeySpec=2"
+     2 = {text} ; Add Key Provider Information property
+       _continue_ = Container=Container Name&
+       _continue_ = Provider=Microsoft Strong Cryptographic Provider&
+       _continue_ = ProviderType=1&
+       _continue_ = Flags=0&
+       _continue_ = KeySpec=2
 
-     9 = "{text}" ; Add Enhanced Key Usage property
-       _continue_ = "1.3.6.1.5.5.7.3.2,"
-       _continue_ = "1.3.6.1.5.5.7.3.1,"
+     9 = {text} ; Add Enhanced Key Usage property
+       _continue_ = 1.3.6.1.5.5.7.3.2,
+       _continue_ = 1.3.6.1.5.5.7.3.1,
 ```
 
 [-f] [-Enterprise] [-utente] [-GroupPolicy] [-invisibile all'utente] [-split] [-provider CSP]
@@ -851,11 +847,11 @@ Dump archivio certificati
 
 NomeArchivioCertificati: nome dell'archivio certificati. Esempi:
 
-- "My", "CA" (impostazione predefinita), "root",
-- "autorità ldap:///CN=Certification, CN = Servizi chiave pubblica, CN = Services, CN = Configuration, DC = cpandl, DC = com? Cacertificate? One? objectClass = certificationAuthority" (Visualizza certificati radice)
-- "autorità ldap:///CN=CAName,CN=Certification, CN = Public Key Services, CN = Services, CN = Configuration, DC = cpandl, DC = com? Cacertificate? base? objectClass = certificationAuthority" (modificare i certificati radice)
-- "ldap:///CN=CAName,CN=MachineName,CN=CDP,CN=Public Key Services, CN = Services, CN = Configuration, DC = cpandl, DC = com? certificateRevocationList? base? objectClass = cRLDistributionPoint" (View CRL)
-- "ldap:///CN=NTAuthCertificates,CN=Public Key Services, CN = Services, CN = Configuration, DC = cpandl, DC = com? Cacertificate? base? objectClass = certificationAuthority" (certificati della CA globale (Enterprise))
+- My, CA (impostazione predefinita), radice,
+- Autorità ldap:///CN=Certification, CN = Public Key Services, CN = Services, CN = Configuration, DC = cpandl, DC = com? Cacertificate? One? objectClass = certificationAuthority (Visualizza certificati radice)
+- Autorità ldap:///CN=CAName,CN=Certification, CN = Public Key Services, CN = Services, CN = Configuration, DC = cpandl, DC = com? Cacertificate? base? objectClass = certificationAuthority (modifica certificati radice)
+- ldap:///CN=CAName,CN=MachineName,CN=CDP,CN=Public Key Services, CN = Services, CN = Configuration, DC = cpandl, DC = com? certificateRevocationList? base? objectClass = cRLDistributionPoint (View CRL)
+- ldap:///CN=NTAuthCertificates,CN=Public Key Services, CN = Services, CN = Configuration, DC = cpandl, DC = com? Cacertificate? base? objectClass = certificationAuthority (certificati della CA globale (Enterprise))
 - LDAP: (certificati oggetto computer Active Directory)
 - -utente LDAP: (certificati oggetto utente Active Directory)
 
@@ -890,11 +886,11 @@ Elimina certificato dall'archivio
 
 NomeArchivioCertificati: nome dell'archivio certificati. Esempi:
 
-- "My", "CA" (impostazione predefinita), "root",
-- "autorità ldap:///CN=Certification, CN = Servizi chiave pubblica, CN = Services, CN = Configuration, DC = cpandl, DC = com? Cacertificate? One? objectClass = certificationAuthority" (Visualizza certificati radice)
-- "autorità ldap:///CN=CAName,CN=Certification, CN = Public Key Services, CN = Services, CN = Configuration, DC = cpandl, DC = com? Cacertificate? base? objectClass = certificationAuthority" (modificare i certificati radice)
-- "ldap:///CN=CAName,CN=MachineName,CN=CDP,CN=Public Key Services, CN = Services, CN = Configuration, DC = cpandl, DC = com? certificateRevocationList? base? objectClass = cRLDistributionPoint" (View CRL)
-- "ldap:///CN=NTAuthCertificates,CN=Public Key Services, CN = Services, CN = Configuration, DC = cpandl, DC = com? Cacertificate? base? objectClass = certificationAuthority" (certificati della CA globale (Enterprise))
+- My, CA (impostazione predefinita), radice,
+- Autorità ldap:///CN=Certification, CN = Public Key Services, CN = Services, CN = Configuration, DC = cpandl, DC = com? Cacertificate? One? objectClass = certificationAuthority (Visualizza certificati radice)
+- Autorità ldap:///CN=CAName,CN=Certification, CN = Public Key Services, CN = Services, CN = Configuration, DC = cpandl, DC = com? Cacertificate? base? objectClass = certificationAuthority (modifica certificati radice)
+- ldap:///CN=CAName,CN=MachineName,CN=CDP,CN=Public Key Services, CN = Services, CN = Configuration, DC = cpandl, DC = com? certificateRevocationList? base? objectClass = cRLDistributionPoint (View CRL)
+- ldap:///CN=NTAuthCertificates,CN=Public Key Services, CN = Services, CN = Configuration, DC = cpandl, DC = com? Cacertificate? base? objectClass = certificationAuthority (certificati della CA globale (Enterprise))
 - LDAP: (certificati oggetto computer Active Directory)
 - -utente LDAP: (certificati oggetto utente Active Directory)
 
@@ -1322,7 +1318,7 @@ CRL: creare un CRL vuoto. Il periodo di validità e le altre opzioni non devono 
 
 Outlisting: elenco delimitato da virgole di file di output di certificati o CRL modificati. Il numero di file deve corrispondere a un file con estensione.
 
-StartDate + GG: HH: nuovo periodo di validità: data facoltativa più; periodo di validità di giorni e ore facoltativo; Se vengono specificati entrambi, usare un separatore di segno più (+). Usare "Now [+ GG: HH]" per iniziare dall'ora corrente. Usare "mai" per non avere una data di scadenza (solo per i CRL).
+StartDate + GG: HH: nuovo periodo di validità: data facoltativa più; periodo di validità di giorni e ore facoltativo; Se vengono specificati entrambi, usare un separatore di segno più (+). Usare Now [+ GG: HH] per iniziare dall'ora corrente. Utilizzare mai per non avere una data di scadenza (solo per i CRL).
 
 SerialNumberList: elenco di numeri di serie separati da virgole da aggiungere o rimuovere
 
@@ -1333,8 +1329,8 @@ ObjectIdList: elenco ObjectId con estensione delimitato da virgole da rimuovere
 ```
 [Extensions]
      2.5.29.31 = ; Remove CRL Distribution Points extension
-     2.5.29.15 = "{hex}" ; Update Key Usage extension
-     _continue_="03 02 01 86"
+     2.5.29.15 = {hex} ; Update Key Usage extension
+     _continue_=03 02 01 86
 ```
 
 HashAlgorithm: nome dell'algoritmo hash preceduto da un segno #
@@ -1483,15 +1479,15 @@ PolicyServers: usare la chiave del registro di sistema server dei criteri
 
 ProgId: usare i criteri o il ProgId del modulo di uscita (nome della sottochiave del registro di sistema)
 
-RegistryValueName: nome del valore del registro di sistema (usare "Name\*" per la corrispondenza con prefisso)
+RegistryValueName: nome del valore del registro di sistema (usare il nome\* per la corrispondenza con prefisso)
 
-Valore: nuovo valore del registro di sistema numeric, String o date o filename. Se un valore numerico inizia con "+" o "-", i bit specificati nel nuovo valore vengono impostati o cancellati nel valore del registro di sistema esistente.
+Valore: nuovo valore del registro di sistema numeric, String o date o filename. Se un valore numerico inizia con + o-, i bit specificati nel nuovo valore vengono impostati o cancellati nel valore del registro di sistema esistente.
 
-Se un valore stringa inizia con "+" o "-" e il valore esistente è un valore REG_MULTI_SZ, la stringa viene aggiunta o rimossa dal valore del registro di sistema esistente. Per forzare la creazione di un valore REG_MULTI_SZ, aggiungere "\n" alla fine del valore stringa.
+Se un valore stringa inizia con + o-e il valore esistente è un valore REG_MULTI_SZ, la stringa viene aggiunta o rimossa dal valore del registro di sistema esistente. Per forzare la creazione di un valore REG_MULTI_SZ, aggiungere un \n alla fine del valore stringa.
 
-Se il valore inizia con "\@", il resto del valore è il nome del file che contiene la rappresentazione in formato testo esadecimale di un valore binario. Se non fa riferimento a un file valido, viene invece analizzato come [DATE] [+ |-] [DD: HH]--una data facoltativa più o meno giorni e ore facoltativi. Se vengono specificati entrambi, usare un separatore di segno più (+) o meno (-). Usare "Now + DD: HH" per una data relativa all'ora corrente.
+Se il valore inizia con \@, il resto del valore è il nome del file che contiene la rappresentazione in formato testo esadecimale di un valore binario. Se non fa riferimento a un file valido, viene invece analizzato come [DATE] [+ |-] [DD: HH]--una data facoltativa più o meno giorni e ore facoltativi. Se vengono specificati entrambi, usare un separatore di segno più (+) o meno (-). Usare Now + GG: HH per una data relativa all'ora corrente.
 
-Usare "chain\ChainCacheResyncFiletime \@Now" per scaricare effettivamente i CRL memorizzati nella cache.
+Usare chain\ChainCacheResyncFiletime \@ora per scaricare effettivamente i CRL memorizzati nella cache.
 
 [-f] [-utente] [-GroupPolicy] [-config Machine\CAName]
 
@@ -1521,15 +1517,15 @@ PolicyServers: usare la chiave del registro di sistema server dei criteri
 
 ProgId: usare i criteri o il ProgId del modulo di uscita (nome della sottochiave del registro di sistema)
 
-RegistryValueName: nome del valore del registro di sistema (usare "Name\*" per la corrispondenza con prefisso)
+RegistryValueName: nome del valore del registro di sistema (usare il nome\* per la corrispondenza con prefisso)
 
-Valore: nuovo valore del registro di sistema numeric, String o date o filename. Se un valore numerico inizia con "+" o "-", i bit specificati nel nuovo valore vengono impostati o cancellati nel valore del registro di sistema esistente.
+Valore: nuovo valore del registro di sistema numeric, String o date o filename. Se un valore numerico inizia con + o-, i bit specificati nel nuovo valore vengono impostati o cancellati nel valore del registro di sistema esistente.
 
-Se un valore stringa inizia con "+" o "-" e il valore esistente è un valore REG_MULTI_SZ, la stringa viene aggiunta o rimossa dal valore del registro di sistema esistente. Per forzare la creazione di un valore REG_MULTI_SZ, aggiungere "\n" alla fine del valore stringa.
+Se un valore stringa inizia con + o-e il valore esistente è un valore REG_MULTI_SZ, la stringa viene aggiunta o rimossa dal valore del registro di sistema esistente. Per forzare la creazione di un valore REG_MULTI_SZ, aggiungere un \n alla fine del valore stringa.
 
-Se il valore inizia con "\@", il resto del valore è il nome del file che contiene la rappresentazione in formato testo esadecimale di un valore binario. Se non fa riferimento a un file valido, viene invece analizzato come [DATE] [+ |-] [DD: HH]--una data facoltativa più o meno giorni e ore facoltativi. Se vengono specificati entrambi, usare un separatore di segno più (+) o meno (-). Usare "Now + DD: HH" per una data relativa all'ora corrente.
+Se il valore inizia con \@, il resto del valore è il nome del file che contiene la rappresentazione in formato testo esadecimale di un valore binario. Se non fa riferimento a un file valido, viene invece analizzato come [DATE] [+ |-] [DD: HH]--una data facoltativa più o meno giorni e ore facoltativi. Se vengono specificati entrambi, usare un separatore di segno più (+) o meno (-). Usare Now + GG: HH per una data relativa all'ora corrente.
 
-Usare "chain\ChainCacheResyncFiletime \@Now" per scaricare effettivamente i CRL memorizzati nella cache.
+Usare chain\ChainCacheResyncFiletime \@ora per scaricare effettivamente i CRL memorizzati nella cache.
 
 [-f] [-utente] [-GroupPolicy] [-config Machine\CAName]
 
@@ -1559,15 +1555,15 @@ PolicyServers: usare la chiave del registro di sistema server dei criteri
 
 ProgId: usare i criteri o il ProgId del modulo di uscita (nome della sottochiave del registro di sistema)
 
-RegistryValueName: nome del valore del registro di sistema (usare "Name\*" per la corrispondenza con prefisso)
+RegistryValueName: nome del valore del registro di sistema (usare il nome\* per la corrispondenza con prefisso)
 
-Valore: nuovo valore del registro di sistema numeric, String o date o filename. Se un valore numerico inizia con "+" o "-", i bit specificati nel nuovo valore vengono impostati o cancellati nel valore del registro di sistema esistente.
+Valore: nuovo valore del registro di sistema numeric, String o date o filename. Se un valore numerico inizia con + o-, i bit specificati nel nuovo valore vengono impostati o cancellati nel valore del registro di sistema esistente.
 
-Se un valore stringa inizia con "+" o "-" e il valore esistente è un valore REG_MULTI_SZ, la stringa viene aggiunta o rimossa dal valore del registro di sistema esistente. Per forzare la creazione di un valore REG_MULTI_SZ, aggiungere "\n" alla fine del valore stringa.
+Se un valore stringa inizia con + o-e il valore esistente è un valore REG_MULTI_SZ, la stringa viene aggiunta o rimossa dal valore del registro di sistema esistente. Per forzare la creazione di un valore REG_MULTI_SZ, aggiungere un \n alla fine del valore stringa.
 
-Se il valore inizia con "\@", il resto del valore è il nome del file che contiene la rappresentazione in formato testo esadecimale di un valore binario. Se non fa riferimento a un file valido, viene invece analizzato come [DATE] [+ |-] [DD: HH]--una data facoltativa più o meno giorni e ore facoltativi. Se vengono specificati entrambi, usare un separatore di segno più (+) o meno (-). Usare "Now + DD: HH" per una data relativa all'ora corrente.
+Se il valore inizia con \@, il resto del valore è il nome del file che contiene la rappresentazione in formato testo esadecimale di un valore binario. Se non fa riferimento a un file valido, viene invece analizzato come [DATE] [+ |-] [DD: HH]--una data facoltativa più o meno giorni e ore facoltativi. Se vengono specificati entrambi, usare un separatore di segno più (+) o meno (-). Usare Now + GG: HH per una data relativa all'ora corrente.
 
-Usare "chain\ChainCacheResyncFiletime \@Now" per scaricare effettivamente i CRL memorizzati nella cache.
+Usare chain\ChainCacheResyncFiletime \@ora per scaricare effettivamente i CRL memorizzati nella cache.
 
 [-f] [-utente] [-GroupPolicy] [-config Machine\CAName]
 
@@ -1665,7 +1661,7 @@ PFXOutFile: file di output PFX
 
 ExtendedProperties: include le proprietà estese
 
-La password specificata nella riga di comando è un elenco di password separate da virgole.  Se viene specificata più di una password, per il file di output viene utilizzata l'ultima password.  Se viene fornita una sola password o se l'ultima password è "\*", all'utente verrà richiesto di immettere la password del file di output.
+La password specificata nella riga di comando è un elenco di password separate da virgole.  Se viene specificata più di una password, per il file di output viene utilizzata l'ultima password.  Se viene fornita una sola password o se viene \*l'ultima password, all'utente verrà richiesto di immettere la password del file di output.
 
 [-f] [-utente] [-split] [-p password] [-ProtectTo SAMNameAndSIDList] [-provider CSP]
 
@@ -1689,7 +1685,7 @@ V3CACertId: il token di corrispondenza del certificato CA V3.  Vedere [: Store](
 
 Salt: EPF file di output stringa di Salt
 
-La password specificata nella riga di comando è un elenco di password separate da virgole. Se viene specificata più di una password, per il file di output viene utilizzata l'ultima password.  Se viene fornita una sola password o se l'ultima password è "\*", all'utente verrà richiesto di immettere la password del file di output.
+La password specificata nella riga di comando è un elenco di password separate da virgole. Se viene specificata più di una password, per il file di output viene utilizzata l'ultima password.  Se viene fornita una sola password o se viene \*l'ultima password, all'utente verrà richiesto di immettere la password del file di output.
 
 [-f] [-invisibile all'utente] [-split] [-DC DCName] [-p password] [-provider CSP]
 
@@ -1726,7 +1722,7 @@ Questa sezione definisce le opzioni che è possibile specificare con il comando.
 |-UserName nomeutente|Usare l'account denominato per le credenziali SSL. Per la selezione U/I, use-UserName.|
 |-CERT CertId|Certificato di firma|
 |-DC DCName|Destinazione di un controller di dominio specifico|
-|-limita restrizione|Elenco di restrizioni separate da virgole. Ogni restrizione è costituita da un nome di colonna, un operatore relazionale e un numero intero costante, una stringa o una data. Un nome di colonna può essere preceduto da un segno più o meno per indicare l'ordinamento. Esempi:</br>"RequestId = 47"</br>"+ RequesterName > = a, RequesterName < b"</br>"-RequesterName > dominio, Disposition = 21"|
+|-limita restrizione|Elenco di restrizioni separate da virgole. Ogni restrizione è costituita da un nome di colonna, un operatore relazionale e un numero intero costante, una stringa o una data. Un nome di colonna può essere preceduto da un segno più o meno per indicare l'ordinamento. Esempi:</br>RequestId = 47</br>\+ RequesterName > = a, RequesterName < b</br>-RequesterName > dominio, Disposition = 21|
 |-out (istogramma)|Elenco di colonne delimitate da virgole|
 |-p password|Password|
 |-ProtectTo SAMNameAndSIDList|Elenco di SID e nomi SAM separati da virgole|

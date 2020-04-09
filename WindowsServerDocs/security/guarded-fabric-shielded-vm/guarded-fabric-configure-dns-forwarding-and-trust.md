@@ -1,18 +1,18 @@
 ---
 title: Configurare l'invio DNS e l'attendibilità del dominio
-ms.custom: na
 ms.prod: windows-server
 ms.topic: article
 manager: dongill
 author: rpsqrd
+ms.author: ryanpu
 ms.technology: security-guarded-fabric
 ms.date: 08/29/2018
-ms.openlocfilehash: 5d8ffe82065caeee27c5d13f5243f13addc6c325
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 6d6ad10dacf9c667069ecd43f38473a3f20bc781
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71386744"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80856854"
 ---
 # <a name="configure-dns-forwarding-in-the-hgs-domain-and-a-one-way-trust-with-the-fabric-domain"></a>Configurare l'invio DNS nel dominio HGS e un trust unidirezionale con il dominio dell'infrastruttura
 

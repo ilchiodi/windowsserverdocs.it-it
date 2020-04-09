@@ -1,24 +1,20 @@
 ---
 title: bitsadmin setnotifyflags
-description: Argomento dei comandi di Windows per **BITSAdmin setnotifyflags** -imposta i flag di notifica degli eventi per il processo specificato.
-ms.custom: na
+description: Windows Commands Topic for Bitsadmin setnotifyflags, che imposta i flag di notifica degli eventi per il processo specificato.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: d5763d95-94a6-45ca-9e03-891c20047e06
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: d9cfabf05610cbbe8fa65fd16b0d33e161dcef9b
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: fd3001fa4ae7f51cab92556f4f2f498511cca5ae
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71380447"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80849284"
 ---
 # <a name="bitsadmin-setnotifyflags"></a>bitsadmin setnotifyflags
 
@@ -30,7 +26,7 @@ Imposta l'evento di flag di notifica per il processo specificato.
 bitsadmin /SetNotifyFlags <Job> <NotifyFlags>
 ```
 
-## <a name="parameters"></a>Parametri
+### <a name="parameters"></a>Parametri
 
 |Parametro|Descrizione|
 |---------|-----------|
@@ -43,13 +39,13 @@ Il parametro **NotifyFlags** può contenere uno o più dei flag di notifica segu
 
 |-----|-----| | 1 | Genera un evento quando tutti i file del processo sono stati trasferiti. | | 2 | Genera un evento quando si verifica un errore. | | 4 | Disabilitare le notifiche. |
 
-## <a name="BKMK_examples"></a>Esempi
+## <a name="examples"></a><a name=BKMK_examples></a>Esempi
 
 Nell'esempio seguente imposta i flag di notifica per trasferiti e gli eventi di errore di processo per il processo denominato *myDownloadJob*.
 ```
 C:\>bitsadmin /SetNotifyFlags myDownloadJob 3
 ```
 
-#### <a name="additional-references"></a>Altri riferimenti
+## <a name="additional-references"></a>Altre informazioni di riferimento
 
-[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+- [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

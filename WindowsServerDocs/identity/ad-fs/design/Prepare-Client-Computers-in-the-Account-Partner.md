@@ -1,7 +1,6 @@
 ---
 ms.assetid: cea6011d-3753-4b95-aaa5-38d4e97d6e42
 title: Preparazione dei computer client nel partner account
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 5725f4a7761d08a25ee8c67c0568977e3646397e
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 014524c78312c6fcd478b40ec47e212a194b0531
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71407943"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80858594"
 ---
 # <a name="prepare-client-computers-in-the-account-partner"></a>Preparazione dei computer client nel partner account
 
@@ -28,7 +27,7 @@ In modo che i computer client possano accedere senza problemi alle applicazioni 
   
 -   Installare il server federativo di account appropriato, il server federativo di risorsa e il server Web Secure Sockets Layer \(certificati SSL\) \(o certificati equivalenti concatenati a una\) radice attendibile in ogni computer client.  
   
-    Per altre informazioni, vedere [distribuire i certificati ai computer Client mediante criteri di gruppo](../../ad-fs/deployment/Distribute-Certificates-to-Client-Computers-by-Using-Group-Policy.md).  
+    Per ulteriori informazioni, vedere la pagina relativa [alla distribuzione di certificati ai computer client tramite criteri di gruppo](../../ad-fs/deployment/Distribute-Certificates-to-Client-Computers-by-Using-Group-Policy.md).  
   
 
 ## <a name="see-also"></a>Vedi anche

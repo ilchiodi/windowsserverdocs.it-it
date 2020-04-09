@@ -1,7 +1,6 @@
 ---
 ms.assetid: c17d143b-86b4-47c0-b76e-1862dda8f0bd
 title: 'Procedura dettagliata: Workplace Join con un dispositivo Windows'
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 9867e11aa659be9aff9912780e1186a796a7232e
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 68249c4afcd3fc23f040020a221e53df6d2f6865
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71357775"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80816014"
 ---
 # <a name="walkthrough-workplace-join-with-a-windows-device"></a>Procedura dettagliata: Aggiunta alla rete aziendale con un dispositivo Windows
 
@@ -42,19 +41,19 @@ In questa procedura dettagliata si accede a un'applicazione Web della società p
 ## <a name="join-your-device-with-workplace-join"></a>Aggiungere il dispositivo con Aggiunta alla rete aziendale
 
 > [!IMPORTANT]
-> Affinché Workplace Join abbia esito positivo, il computer client (CLIENT1) deve considerare attendibile il certificato SSL usato per configurare Active Directory Federation Services (AD FS) in [Step 2: Configurare il server federativo con Device Registration Service (ADFS1) ](../deployment/Set-up-the-lab-environment-for-AD-FS-in-Windows-Server-2012-R2.md#BKMK_4). Deve essere inoltre in grado di convalidare le informazioni di revoca per il certificato. In caso di problemi con l'unione all'area di lavoro, è possibile visualizzare il registro eventi in Client1.
+> Per il corretto funzionamento dell'aggiunta all'area di lavoro, il computer client (Client1) deve considerare attendibile il certificato SSL usato per configurare Active Directory Federation Services (AD FS) nel [Step 2: Configure the Federation Server with Device Registration Service (ADFS1)](../deployment/Set-up-the-lab-environment-for-AD-FS-in-Windows-Server-2012-R2.md#BKMK_4). Deve essere inoltre in grado di convalidare le informazioni di revoca per il certificato. In caso di problemi con l'unione all'area di lavoro, è possibile visualizzare il registro eventi in Client1.
 > 
-> Per visualizzare il registro eventi, aprire il Visualizzatore eventi, espandere **Registri applicazioni e servizi**, espandere **Microsoft**, espandere **Windows**e quindi fare clic su **Aggiunta alla rete aziendale**.
+> Per visualizzare il registro eventi, aprire il Visualizzatore eventi, espandere **Registri applicazioni e servizi**, espandere **Microsoft**, espandere **Windows** e quindi fare clic su **Aggiunta alla rete aziendale**.
 
 #### <a name="to-join-your-device-with-workplace-join"></a>Per aggiungere il dispositivo con Aggiunta alla rete aziendale
 
 1. Accedere a Client1 con l'account Microsoft.
 
-2. Nella schermata **Start** del computer client aprire la **barra degli accessi** e quindi selezionare l'accesso alle **impostazioni** . Selezionare **Modifica impostazioni PC**.
+2. Nella schermata **Start** del computer client aprire la **barra degli accessi** e quindi selezionare l'accesso alle **impostazioni**. Selezionare **Modifica impostazioni PC**.
 
-3. Nella pagina **Impostazioni PC** fare clic su **Rete**e quindi su **Rete aziendale**.
+3. Nella pagina **Impostazioni PC** fare clic su **Rete** e quindi su **Rete aziendale**.
 
-4. Nella casella **immettere l'ID utente per ottenere l'accesso alla rete aziendale o attivare la gestione dei dispositivi** Digitare <strong>roberth@contoso.com</strong>, quindi fare clic su **Aggiungi**.
+4. Nella casella **immettere l'ID utente per ottenere l'accesso alla rete aziendale o attivare la gestione dei dispositivi** Digitare <strong>roberth@contoso.com</strong>e quindi fare clic su **Aggiungi**.
 
 5. Quando vengono richieste le credenziali, digitare <strong>roberth@contoso.com</strong>e password: <strong>P@ssword</strong>. Fare clic su **OK**.
 
@@ -77,12 +76,12 @@ In questa parte della dimostrazione si accede all'applicazione Web della societ�
 
 6. Aprire Internet Explorer e passare alla stessa app Claims, **https://webserv1.contoso.com/claimapp** .
 
-7. **Non** verrà chiesto di immettere di nuovo le credenziali. Essendo connessi alla rete aziendale da un dispositivo con Aggiunta alla rete aziendale, si ha Single Sign-On.
+7. **Non**  verrà chiesto di immettere di nuovo le credenziali. Essendo connessi alla rete aziendale da un dispositivo con Aggiunta alla rete aziendale, si ha Single Sign-On.
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 [Aggiunta all'area di lavoro da qualsiasi dispositivo per SSO e autenticazione a due fattori trasparente per tutte le applicazioni aziendali](Join-to-Workplace-from-Any-Device-for-SSO-and-Seamless-Second-Factor-Authentication-Across-Company-Applications.md)
 [configurare l'ambiente lab per ad FS in Windows Server 2012 R2](../deployment/Set-up-the-lab-environment-for-AD-FS-in-Windows-Server-2012-R2.md)
- @ no__t-4Walkthrough: Aggiungere alla rete aziendale con un dispositivo iOS](Walkthrough--Workplace-Join-with-an-iOS-Device.md)
+[procedura dettagliata: workplace join con un dispositivo iOS](Walkthrough--Workplace-Join-with-an-iOS-Device.md)
 
 
 

@@ -1,24 +1,20 @@
 ---
 title: secedit
-description: 'Argomento dei comandi di Windows per * * * *- '
-ms.custom: na
+description: Argomento dei comandi di Windows per * * * *-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 58ed57ed-08e3-403d-a363-0620b358637a
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 5598f830ad4cef8d45c99594da12cbcdd84e7eef
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: e80217c201cde4dc1df58c0e8976fbe1422511fe
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71371115"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80834844"
 ---
 # <a name="secedit"></a>secedit
 
@@ -38,7 +34,7 @@ secedit
 [/validate <configuration file name>]
 ```
 
-### <a name="parameters"></a>Parametri
+#### <a name="parameters"></a>Parametri
 
 |Parametro|Descrizione|
 |---------|-----------|
@@ -49,7 +45,7 @@ secedit
 |[Secedit:import](secedit-import.md)|Consente di importare un modello di protezione in un database in modo che le impostazioni specificate nel modello possono essere applicate a un sistema o analizzate contro un sistema.|
 |[Secedit:validate](secedit-validate.md)|Consente di convalidare la sintassi di un modello di sicurezza.|
 
-## <a name="remarks"></a>Osservazioni
+## <a name="remarks"></a>Note
 
 Per tutti i nomi file, viene utilizzata la directory corrente, se viene specificato alcun percorso.
 
@@ -66,7 +62,7 @@ Quando viene creato un modello di sicurezza utilizzando lo snap-in modello di pr
 > [!NOTE]
 > Microsoft Management Console (MMC) e la configurazione della protezione e snap-in analisi non sono disponibili in Server Core.
 
-#### <a name="additional-references"></a>Altri riferimenti
+## <a name="additional-references"></a>Altre informazioni di riferimento
 
 Per esempi di come è possibile utilizzare questo comando, vedere la sezione esempi in qualsiasi file sottocomando.
--   [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+-   - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

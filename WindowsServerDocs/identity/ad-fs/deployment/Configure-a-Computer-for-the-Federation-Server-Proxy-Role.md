@@ -1,7 +1,6 @@
 ---
 ms.assetid: a2f23877-30a7-439f-817d-387da9e00e86
 title: Configurare un computer per il ruolo di proxy server federativo
-description: ''
 author: billmath
 manager: femila
 ms.date: 05/31/2017
@@ -9,12 +8,12 @@ ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: d47f7d3985aa779276f0712347eb9030857cefdb
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: a8bfe21f50a68edfcdbc7c937dc914ff1e1d94c3
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71359794"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80854904"
 ---
 # <a name="configure-a-computer-for-the-federation-server-proxy-role"></a>Configurare un computer per il ruolo di proxy server federativo
 
@@ -25,29 +24,29 @@ Dopo aver configurato un computer con i certificati richiesti e aver installato 
   
 Una volta terminata la configurazione del computer, verificare che il proxy server federativo funzioni come previsto. Per altre informazioni, vedere [Verificare che un proxy server federativo sia operativo](Verify-That-a-Federation-Server-Proxy-Is-Operational.md).  
   
-Per completare questa procedura, è necessaria almeno l'appartenenza al gruppo **Administrators** oppure a un gruppo equivalente nel computer locale.  Informazioni dettagliate sull'utilizzo degli account appropriati e appartenenze [dominio gruppi predefiniti locali e](https://go.microsoft.com/fwlink/?LinkId=83477).   
+L'appartenenza al gruppo **Administrators**, o a un gruppo equivalente, nel computer locale è il requisito minimo per eseguire questa procedura.  Informazioni dettagliate sull'utilizzo degli account appropriati e appartenenze [dominio gruppi predefiniti locali e](https://go.microsoft.com/fwlink/?LinkId=83477).   
   
-### <a name="to-configure-a-computer-for-the-federation-server-proxy-role"></a>Per configurare un computer per il ruolo di proxy server federativo  
+### <a name="to-configure-a-computer-for-the-federation-server-proxy-role"></a>Configurazione di un computer il ruolo proxy server federativo  
   
-1.  Esistono due modi per avviare la configurazione guidata del server federativo di AD FS. Per avviare la procedura guidata, eseguire una delle operazioni seguenti:  
+1.  Sono due i modi per avviare la configurazione guidata del server federativo di ADFS. Per avviare la procedura guidata, procedere in uno dei seguenti modi:  
   
     -   Nella schermata **Start** Digitare**ad FS configurazione guidata proxy server federativo**, quindi premere INVIO.  
   
     -   In qualsiasi momento dopo aver completato l'installazione guidata, aprire Esplora risorse, passare alla cartella **C:\\windows\\ADFS** , quindi fare\-doppio clic su **FspConfigWizard. exe**.  
   
-2.  Usando uno dei due metodi, avviare la procedura guidata e nella pagina inizialefare clic su **Avanti**.  
+2.  Nell'uno o nell'altro modo avviare la procedura guidata, quindi nella pagina **Welcome** fare clic su **Next**.  
   
-3.  Nella pagina **Nome servizio federativo**, in **Nome servizio federativo**, immettere il nome che rappresenta il servizio federativo per cui il computer agirà nel ruolo di proxy.  
+3.  Nella pagina **Specify Federation Service Name**, in **Federation Service name**, digitare il nome che rappresenta il servizio federativo per cui il computer opererà nel ruolo di proxy.  
   
-4.  In base a specifici requisiti di rete, determinare se sarà necessario usare un server proxy HTTP per inoltrare le richieste al servizio federativo. In caso affermativo, selezionare la casella di controllo relativa all'uso di un server proxy HTTP per l'invio di richieste al servizio federativo, in **Indirizzo e porta server proxy HTTP** immettere l'indirizzo del server proxy, fare clic su **Test connessione** per verificare la connettività e quindi fare clic su **Avanti**.  
+4.  Sulla base dei requisiti specifici di rete, determinare se è necessario un server proxy HTTP per inoltrare le richieste al servizio federativo. In caso affermativo, selezionare la casella di controllo **Use an HTTP proxy server when sending requests to this Federation Service**, in **HTTP proxy server address** digitare l'indirizzo del server proxy, fare clic su **Test Connection** per verificare la connettività, quindi fare clic su **Next**.  
   
-5.  Quando viene richiesto, specificare le credenziali necessarie per stabilire un trust tra il proxy server federativo e il Servizio federativo.  
+5.  Quando viene richiesto, specificare le credenziali necessarie a stabilire un trust tra il proxy server federativo e il servizio federativo.  
   
     Per impostazione predefinita, solo l'account di servizio utilizzato dal Servizio federativo o un membro del gruppo locale BUILTin\\Administrators può autorizzare un proxy server federativo.  
   
-6.  Esaminare i dettagli nella pagina **Applicazione delle impostazioni**. Se le impostazioni sembrano corrette, fare clic su **Avanti** per iniziare a configurare il computer con queste impostazioni proxy.  
+6.  Nella pagina **Ready to Apply Settings** esaminare i dettagli. Se le impostazioni risultano corrette, fare clic su **Next** per avviare la configurazione del computer con queste impostazioni di proxy.  
   
-7.  Esaminare i risultati nella pagina **Risultati di configurazione**. Al termine di tutti i passaggi di configurazione, fare clic su **Chiudi** per uscire dalla procedura guidata.  
+7.  Nella pagina **Configuration Results** esaminare i risultati. Al termine di tutti i passaggi di configurazione, fare clic su **Chiudi** per uscire dalla procedura guidata.  
   
     Non sono presenti Microsoft Management Console \(MMC\) snap\-in da usare per l'amministrazione dei proxy server federativi. Per configurare le impostazioni per ognuno dei proxy server federativi nell'organizzazione, usare i cmdlet di Windows PowerShell.  
   
@@ -80,7 +79,7 @@ Per impostazione predefinita, il servizio proxy server federativo è configurato
     > [!NOTE]  
     > Gli URL degli endpoint non sono abilitati per impostazione predefinita per il servizio proxy server federativo. Se si configura una nuova installazione server federativo, è necessario abilitare prima gli endpoint del servizio proxy server federativo. Si presuppone, ad esempio, che per tutti gli endpoint a cui si riferisce l'esempio in questa procedura siano stati abilitati per il proxy selezionandoli nello snap-in di gestione AD FS\-in e quindi selezionando **Abilita sul proxy**.  
   
-3.  Aggiornare l'installazione di IIS nel proxy server federativo in modo che Security Assertion Markup Language \(SAML\) e WS\-Trust endpoint siano configurati in modo da riflettere il numero di porta aggiornato. A tale scopo, è possibile utilizzare il blocco note per modificare il codice seguente nel file Web. config, che si trova in SystemDrive%\\Inetpub\\ADFS\\LS\\ nel computer proxy server federativo. Ad esempio, supponendo di avere un server federativo denominato sts1.contoso.com e il nuovo numero di porta 444, individuare e aprire il file Web. config nel blocco note nel computer proxy server federativo, individuare la sezione seguente, modificare il numero di porta come evidenziato di seguito, quindi salvare e uscire dal blocco note.  
+3.  Aggiornare l'installazione di IIS nel proxy server federativo in modo che Security Assertion Markup Language \(SAML\) e WS\-Trust endpoint siano configurati in modo da riflettere il numero di porta aggiornato. A tale scopo, è possibile utilizzare il blocco note per modificare il codice seguente nel file Web. config, che si trova in SystemDrive%\\Inetpub\\ADFS\\LS\\ nel computer proxy server federativo. Ad esempio, supponendo che si disponga di un server federativo denominato sts1.contoso.com e che il nuovo numero di porta sia 444, individuare e aprire il file Web. config nel blocco note sul computer proxy server federativo, individuare la sezione seguente, modificare il numero di porta come evidenziato di seguito, quindi salvare e chiudere il blocco note.  
   
     ```  
     <securityTokenService samlProtocolEndpoint="https://sts1.contoso.com:444/adfs/services/trust/samlprotocol/proxycertificatetransport"  

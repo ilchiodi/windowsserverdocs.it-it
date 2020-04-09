@@ -1,26 +1,26 @@
 ---
 title: Handle di contesto RPC per HCN
-description: ''
 ms.author: jmesser
 author: jmesser81
+ms.prod: windows-server
 ms.date: 11/05/2018
-ms.openlocfilehash: 0eb620fe52de5ee98a247e17ed73304b2325c7c8
-ms.sourcegitcommit: 213989f29cc0c30a39a78573bd4396128a59e729
+ms.openlocfilehash: d55a990b2158f8dfbc61d8e75e9b0606edc9bf7c
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70031487"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80859864"
 ---
 # <a name="rpc-context-handles-for-hcn"></a>Handle di contesto RPC per HCN
 
->Si applica a Windows Server (canale semestrale), Windows Server 2019
+>Si applica a: Windows Server (canale semestrale), Windows Server 2019
 
 
 ## <a name="hcn_network"></a>HCN_Network
 
-Una rete HCN è un'entità che viene utilizzata per rappresentare una rete di calcolo host e le risorse di sistema e i criteri associati. Una rete HCN, ad esempio, è in genere costituita da un set di metadati (ad esempio ID, nome, tipo), un commutire virtuale, una scheda di rete virtuale host (che funge da gateway predefinito per la rete), un'istanza NAT (se richiesta dal tipo di rete), un set di subnet e pool MAC ed eventuali criteri a livello di rete da applicare (ad esempio, ACL).
+Una rete HCN è un'entità che viene utilizzata per rappresentare una rete di calcolo host e le risorse di sistema e i criteri associati. Ad esempio, una rete HCN sarà in genere costituita da un set di metadati (ad esempio ID, nome, tipo), un commutire virtuale, una scheda di rete virtuale host (che funge da gateway predefinito per la rete), un'istanza NAT (se richiesta dal tipo di rete), un set di subnet e pool MAC ed eventuali criteri a livello di rete da applicare (ad esempio, ACL)
 
-Le entità di rete HCN sono rappresentate mediante handle del contesto RPC di HCN_NETWORK.
+Le entità di rete HCN sono rappresentate mediante HCN_NETWORK handle di contesto RPC.
 
 ```
 
@@ -152,7 +152,7 @@ HcnCloseNetwork(
 ## <a name="hcn_endpoint"></a>HCN_Endpoint
 
 Un endpoint HCN è un'entità utilizzata per rappresentare un endpoint IP in una rete HCN e le risorse di sistema e i criteri associati. Un endpoint HCN, ad esempio, è in genere costituito da un set di metadati (ad esempio ID, nome, ID di rete padre), dall'identità di rete (ad esempio, indirizzo IP, indirizzo MAC) ed eventuali criteri specifici dell'endpoint da applicare, ad esempio ACL e route.
-Le entità dell'endpoint HCN sono rappresentate mediante handle del contesto RPC di HCN_ENDPOINT.
+Le entità dell'endpoint HCN sono rappresentate mediante HCN_ENDPOINT handle di contesto RPC.
 
 ```
 
@@ -287,7 +287,7 @@ HcnCloseEndpoint(
 
 Uno spazio dei nomi HCN è un'entità utilizzata per rappresentare uno spazio dei nomi di rete di calcolo host. Gli spazi dei nomi consentono di disporre di ambienti di rete isolati in un singolo host, in cui ogni spazio dei nomi dispone di interfacce di rete e tabelle di routing proprie, separate da altri spazi dei nomi.
 
-Le entità dello spazio dei nomi HCN sono rappresentate mediante handle del contesto RPC di HCN_NAMESPACE.
+Le entità dello spazio dei nomi HCN sono rappresentate mediante HCN_NAMESPACE handle del contesto RPC.
 
 ```
 /// Handle to an operation
@@ -422,7 +422,7 @@ HcnCloseNamespace(
 ## <a name="hcn_loadbalancer"></a>HCN_LoadBalancer
 
 Un LoadBalancer HCN è un'entità utilizzata per rappresentare una rete di calcolo host LoadBalancer. LoadBalancers consentono di ottenere endpoint di rete di calcolo host con bilanciamento del carico.
-Le entità HCN LoadBalancer sono rappresentate mediante handle di contesto RPC HCN_LOADBALANCER.
+Le entità HCN LoadBalancer sono rappresentate mediante HCN_LOADBALANCER handle di contesto RPC.
 
 ```
 /// Handle to an operation

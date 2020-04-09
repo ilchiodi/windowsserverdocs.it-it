@@ -1,7 +1,6 @@
 ---
 ms.assetid: 4d002764-58b4-4137-9c86-1e55b02e07ce
 title: Configurazione di organizzazioni partner
-description: ''
 author: billmath
 manager: femila
 ms.date: 05/31/2017
@@ -9,12 +8,12 @@ ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: 575d7e3fc97496c3f7c147220fe342add66517c3
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: ac83d9754365f3ceea5b363af4df93862bdb59e6
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71408391"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80855494"
 ---
 # <a name="configuring-partner-organizations"></a>Configurazione di organizzazioni partner
 
@@ -28,7 +27,7 @@ Un partner account è l'organizzazione nella relazione di trust federativa che a
   
 In altre parole, un partner account rappresenta l'organizzazione per i cui utenti l'account\-server federativo lato rilascia i token di sicurezza. Il server federativo nell'organizzazione partner account autentica gli utenti locali e crea i token di sicurezza usati dal partner risorse per prendere decisioni relative alle autorizzazioni.  
   
-Per quanto riguarda gli archivi di attributi, il partner account in AD FS è concettualmente equivalente a una singola foresta Active Directory i cui account devono accedere alle risorse che si trovano fisicamente in un'altra foresta. Gli account in questa foresta possono accedere alle risorse nella foresta delle risorse solo quando esiste una relazione di trust tra foreste o trust esterni tra le due foreste e le risorse a cui gli utenti tentano di ottenere l'accesso sono state impostate con l'autorizzazione appropriata autorizzazioni.  
+Per quanto riguarda gli archivi di attributi, il partner account in AD FS è concettualmente equivalente a una singola foresta Active Directory i cui account devono accedere alle risorse che si trovano fisicamente in un'altra foresta. Gli account in questa foresta possono accedere alle risorse nella foresta delle risorse solo quando esiste una relazione di trust tra foreste o trust esterni tra le due foreste e le risorse a cui gli utenti stanno tentando di accedere sono state impostate con le autorizzazioni di autorizzazione appropriate.  
   
 ## <a name="about-resource-partner-organizations"></a>Informazioni sulle organizzazioni partner risorse  
 Il partner risorse è l'organizzazione in una distribuzione AD FS in cui si trovano i server Web. Il partner risorse considera attendibile il partner account per autenticare gli utenti. Pertanto, per prendere decisioni di autorizzazione, il partner risorse utilizza le attestazioni incluse nei token di sicurezza che provengono dagli utenti del partner account.  

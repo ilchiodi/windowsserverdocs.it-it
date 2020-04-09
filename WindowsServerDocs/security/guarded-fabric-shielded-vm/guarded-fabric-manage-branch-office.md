@@ -1,17 +1,17 @@
 ---
 title: Considerazioni sulle succursali
-ms.custom: na
 ms.prod: windows-server
 ms.topic: article
 manager: dongill
 author: rpsqrd
+ms.author: ryanpu
 ms.technology: security-guarded-fabric
-ms.openlocfilehash: 5a07553e6662fd79230d566ba2049c5e8997f4d6
-ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
+ms.openlocfilehash: a9893ecd76e142dd243a1d99e83a48d2edfd5872
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79322503"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80856564"
 ---
 # <a name="branch-office-considerations"></a>Considerazioni sulla succursale
 
@@ -61,4 +61,4 @@ Set-HgsKeyProtectionConfiguration -AllowKeyMaterialCaching:$true
 ```
 
 Poiché le protezioni con chiave memorizzabili nella cache sono univoche per ogni macchina virtuale schermata, sarà necessario arrestare completamente (non riavviare) e avviare le macchine virtuali schermate per ottenere una protezione con chiave memorizzabile nella cache dopo che questa impostazione è abilitata in HGS.
-Se la macchina virtuale schermata viene migrata a un host Hyper-V che esegue una versione precedente di Windows Server o ottiene una nuova protezione con chiave da una versione precedente di HGS, non sarà in grado di avviarsi in modalità offline, ma può continuare l'esecuzione in modalità online quando è disponibile l'accesso a HGS in grado.
+Se la macchina virtuale schermata viene migrata a un host Hyper-V che esegue una versione precedente di Windows Server o ottiene una nuova protezione con chiave da una versione precedente di HGS, non sarà in grado di avviarsi in modalità offline, ma è possibile continuare l'esecuzione in modalità online quando è disponibile l'accesso a HGS.

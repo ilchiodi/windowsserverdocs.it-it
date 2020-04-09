@@ -1,20 +1,20 @@
 ---
 title: Kerberos con nome dell'entità servizio (SPN)
 description: Il controller di rete supporta più metodi di autenticazione per la comunicazione con i client di gestione. È possibile usare l'autenticazione basata su Kerberos, l'autenticazione basata su certificati X509. È anche possibile usare nessuna autenticazione per le distribuzioni di test.
-manager: dougkim
+manager: grcusanz
 ms.prod: windows-server
 ms.technology: networking-sdn
 ms.topic: article
 ms.assetid: bc625de9-ee31-40a4-9ad2-7448bfbfb6e6
-ms.author: lizross
-author: eross-msft
+ms.author: anpaul
+author: AnirbanPaul
 ms.date: 08/23/2018
-ms.openlocfilehash: adf282222674130dcb16b0c7bfe0cf3ff05ed720
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: 12ad2b27d275c074e0d8baacccd864e8926f405f
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80317390"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80854374"
 ---
 # <a name="kerberos-with-service-principal-name-spn"></a>Kerberos con nome dell'entità servizio (SPN)
 

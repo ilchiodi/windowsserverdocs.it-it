@@ -2,20 +2,19 @@
 title: Le schede di visualizzazione devono essere abilitate nelle macchine virtuali per fornire funzionalità video
 description: Versione online del testo per questa regola di Best Practices Analyzer.
 ms.prod: windows-server
-ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
 ms.author: kathydav
 ms.topic: article
 ms.assetid: ac5992e6-3c0b-46c2-a48e-6ef37b679228
-author: KBDAzure
+author: kbdazure
 ms.date: 8/16/2016
-ms.openlocfilehash: 0c515c7fb1ed160dfee1e1b7303022082e936157
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 1821aae18b1712ba7d839ca9f42318edc5ef8a35
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71364915"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80862004"
 ---
 # <a name="display-adapters-should-be-enabled-in-virtual-machines-to-provide-video-capabilities"></a>Le schede di visualizzazione devono essere abilitate nelle macchine virtuali per fornire funzionalità video
 
@@ -27,7 +26,7 @@ ms.locfileid: "71364915"
   
 |Proprietà|Dettagli|  
 |-|-|  
-|**Sistema operativo**|Windows Server 2016|  
+|**Sistema operativo**|Windows Server 2016|  
 |**Prodotto/funzionalità**|Hyper-V|  
 |**Gravità**|Avviso|  
 |**Categoria**|Configurazione|  

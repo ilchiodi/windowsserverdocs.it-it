@@ -1,68 +1,65 @@
 ---
-title: Cenni preliminari sulla stampa di Cloud ibrido di Windows Server
-description: Per la stampa Cloud ibrido consente ai professionisti IT di supportare i requisiti di stampa per BYOD o dominio dispositivi aggiunti all'identità.
-ms.prod: w10
-ms.mktglfcycl: manage
-ms.sitesec: library
-ms.pagetype: store
+title: Panoramica di stampa cloud ibrido Windows Server
+description: Hybrid Cloud Print consente ai professionisti IT di supportare i requisiti di stampa per i dispositivi BYOD o aggiunti a un dominio.
+ms.prod: windows-server
 ms.technology: server-general
-author: TrudyHa
-ms.author: TrudyHa
+author: trudyha
+ms.author: trudyha
 ms.date: 10/16/2017
-ms.openlocfilehash: faa9fde857a9a4ee3f7c03f682b3dbced0340417
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: f448e8709f9e73165ba1a477c59567fcff4a2008
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59878832"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80852004"
 ---
-# <a name="windows-server-hybrid-cloud-print-overview"></a>Cenni preliminari sulla stampa di Cloud ibrido di Windows Server
+# <a name="windows-server-hybrid-cloud-print-overview"></a>Panoramica di stampa cloud ibrido Windows Server
 
 **Si applica a**
--   Windows Server 2016
+-   Windows Server 2016
 
-## <a name="what-is-hybrid-cloud-print"></a>Che cos'è stampa Cloud ibrido?
-**Stampa di Cloud ibrido** è disponibile tramite una nuova funzionalità per Windows Server 2016 **funzionalità su richiesta**. Consente ai professionisti IT di supportare i requisiti di stampa per chi desidera portano i propri dispositivi o usano i dispositivi aggiunti ad Azure Active Directory. Sono inclusi i dispositivi mobili, ad esempio Windows phone, computer portatili o Tablet che eseguono Windows 10 o Windows Mobile. Fornisce il supporto della stampa ovunque gli utenti hanno accesso a Internet.
+## <a name="what-is-hybrid-cloud-print"></a>Che cos'è la stampa cloud ibrida?
+**Hybrid Cloud Print** è una nuova funzionalità di Windows Server 2016 disponibile tramite **funzionalità su richiesta**. Consente ai professionisti IT di supportare i requisiti di stampa per gli utenti che portano i propri dispositivi o usano dispositivi aggiunti al Azure Active Directory. Sono inclusi i dispositivi mobili, ad esempio Windows Phone, laptop o tablet che eseguono Windows 10 o Windows Mobile. Fornisce supporto per la stampa da qualsiasi luogo in cui le persone hanno accesso a Internet.
 
-Agli amministratori IT **Hybrid Cloud Print** fornisce l'accesso sicuro alle stampanti locali usando l'autenticazione a più fattori di Azure per convalidare l'accesso utente. Funzionalità (SSO) Single sign-on semplifica l'esperienza dell'utente. **Stampa di Cloud ibrido** si basa su Windows **Server di stampa** ruolo, offrendo un'esperienza simile alla gestione delle stampanti e sicurezza dall'accesso utente ai professionisti IT.
+Per gli amministratori IT, la funzionalità di **stampa cloud ibrida** fornisce l'accesso utente sicuro alle stampanti locali usando l'autenticazione a più fattori di Azure per convalidare l'accesso utente. La funzionalità Single Sign-on (SSO) semplifica l'esperienza utente. Il **cloud ibrido** è basato sul ruolo del **server di stampa** di Windows, offrendo ai professionisti IT un'esperienza simile alla gestione delle stampanti e della sicurezza dell'accesso utente.
 
-**Per la stampa Cloud ibrido** consente agli utenti dell'organizzazione per stampare dai dispositivi usati per completare il proprio lavoro, anche quando si è lontani dalla loro scrivania o all'area di lavoro.
+Il **cloud ibrido** consente agli utenti dell'organizzazione di stampare dai dispositivi usati per completare il lavoro, anche quando si trovano fuori dalla propria scrivania o dall'area di lavoro.
 
-**Stampa di Cloud ibrido** è supportata in Windows 10 Creators Update e Windows 10 S.
+La **stampa cloud ibrida** è supportata in Windows 10 Creators Update e Windows 10 S.
  
 ## <a name="feature-summary"></a>Riepilogo delle funzionalità
-**Stampa di Cloud ibrido** è costituito da due componenti lato server principali: **Individuazione** servizio, e **Windows Print** servizio.
-- **Individuazione** endpoint del servizio in esecuzione in un servizio IIS di supporto standard di settore Mopria Alliance per l'individuazione di stampanti nel cloud.
-- **Stampa di Windows** supportano standard protocollo IPP (Internet Printing) per verificare che il sistema operativo client più ampia endpoint del servizio in esecuzione in un servizio IIS che supportano del settore.
+Il servizio di **stampa cloud ibrido** è costituito da due componenti principali sul lato server, ovvero il servizio di **individuazione** e il servizio di **stampa Windows** .
+- Endpoint del servizio di **individuazione** in esecuzione su un servizio IIS che supporta Mopria Alliance Industry Standard per l'individuazione delle stampanti nel cloud.
+- Endpoint del servizio di **stampa Windows** in esecuzione in un servizio IIS che supporta il protocollo IPP (Internet Printing Protocol) standard del settore per garantire il supporto del sistema operativo client più ampio.
 
 ## <a name="deployment"></a>Distribuzione
-**Stampa di Cloud ibrido** supporta un paio di opzioni di distribuzione diversi a seconda di dove l'organizzazione richiede l'autenticazione dell'utente. Ecco come potrebbe risultare una distribuzione:
+**Hybrid Cloud Print** supporta un paio di opzioni di distribuzione diverse a seconda della posizione in cui l'organizzazione richiede l'autenticazione utente. Di seguito è illustrata una distribuzione simile alla seguente:
 
-![Diagramma che mostra una rappresentazione grafica della soluzione ibrida Cloud Print](../media/hybrid-cloud-print/wshcp-deployment-options.png)
+![Diagramma che mostra una rappresentazione grafica della soluzione di stampa cloud ibrida](../media/hybrid-cloud-print/wshcp-deployment-options.png)
 
-*Diagramma della soluzione ibrida stampa Cloud*
+*Diagramma della soluzione di stampa cloud ibrida*
 
 Il diagramma mostra:
-- **Stampa di Cloud ibrido** usando Azure Active Directory come provider di identità utente. 
-- **Windows Print** servizio e **individuazione** gli endpoint di servizio sono registrati con Azure Active Directory per abilitare il dispositivo client recuperare il token di autenticazione necessari utente da usare per questi servizi. 
-- Manutenzione di un MDM, ad esempio **Microsoft Intune**, effettuare il provisioning del dispositivo client con i criteri necessari per la connessione di Azure Active Directory per **Windows Print** servizio e **individuazione**service.
+- **Stampa cloud ibrida** con Azure Active Directory come provider di identità utente. 
+- Gli endpoint dei servizi di stampa e di **individuazione** di **Windows** sono registrati con Azure Active Directory per consentire al dispositivo client di recuperare il token di autenticazione utente necessario da usare per questi servizi. 
+- Un servizio MDM, ad esempio **Microsoft Intune**, effettua il provisioning del dispositivo client con i criteri necessari per connettersi Azure Active Directory a servizio di **stampa Windows** e al servizio di **individuazione** .
 
-Questa tabella contiene altre informazioni sugli elementi nel diagramma.  
+Questa tabella contiene altre informazioni sugli elementi del diagramma.  
 
 | Elemento | Descrizione |
 | ------- | ----------- |
-| Azure Active Directory  | Fornisce controlli e funzionalità di identità e autorizzazione utente |
-| Active Directory        | Fornisce controlli e funzionalità di identità e autorizzazione utente |
-| Azure AD Connect  | Consente di sincronizzare le credenziali dell'utente tra Azure AD e Active Directory locale. |
-| Servizio MDM (Intune) | Fornisce funzionalità di provisioning dei criteri dispositivo per assicurarsi che il dispositivo client (dispositivi BYOD) sia conforme ai criteri aziendali. |
-| Azure AD Proxy | Fornisce una connessione di lunga durata che viene stabilita da dietro il firewall per Azure per consentire il flusso del traffico specifico dell'applicazione configurata da Internet alla rete aziendale. |
-| App Web di Azure | Il nucleo della soluzione ibrida Cloud Print. Fornisce gli endpoint web richiesto per l'invio di contenuto di stampa per i dispositivi aggiunti non di dominio e individuazione delle stampanti. |
-| Dispositivo BYOD / Server Spooler di stampa di Windows / stampante | Si tratta come-è. Nessuna modifica nella funzionalità nella distribuzione. |
+| Azure Active Directory  | Fornisce e controlla la funzionalità di autorizzazione e identità utente |
+| Active Directory        | Fornisce e controlla la funzionalità di autorizzazione e identità utente |
+| Azure AD Connect  | Sincronizza le credenziali utente tra Azure AD e AD locale. |
+| Servizio MDM (Intune) | Fornisce funzionalità di provisioning dei criteri dei dispositivi per garantire che il dispositivo BYOD sia conforme ai criteri aziendali. |
+| Proxy Azure AD | Fornisce una connessione di lunga durata stabilita da un firewall ad Azure per consentire il flusso di traffico dell'applicazione configurato specifico da Internet alla rete aziendale. |
+| App Web di Azure | Il nucleo della soluzione di stampa cloud ibrida. Fornisce gli endpoint Web richiesti per individuare le stampanti e inviare il contenuto di stampa per i dispositivi non aggiunti a un dominio. |
+| Dispositivo BYOD/stampante/spooler del server di stampa Windows | Sono così come sono. Non sono state apportate modifiche alla funzionalità nella distribuzione. |
 
-Esistono due modi per installare **Hybrid Cloud Print**:
-- **Funzionalità su richiesta** -visualizzare [configurare funzionalità su richiesta in Windows Server](https://docs.microsoft.com/windows-server/administration/server-manager/configure-features-on-demand-in-windows-server) per altre informazioni sull'aggiunta e rimozione di file di ruoli e funzionalità. 
-- **Impostazioni di Windows Server 2016** -gli amministratori possono passare a **delle impostazioni** -> **app** -> **Gestisci funzionalità facoltative**  ->  **Aggiungere una funzionalità** e cercare le funzionalità nei pacchetti richiesta 
-- Comandi di PowerShell - finestra di amministratore In di PowerShell, Esegui questi comandi:
+Esistono due modi per installare la **stampa del cloud ibrido**:
+- \* * Funzionalità su richiesta. per ulteriori informazioni sull'aggiunta e la rimozione di file di ruoli e funzionalità, vedere [configurare funzionalità su richiesta in Windows Server](https://docs.microsoft.com/windows-server/administration/server-manager/configure-features-on-demand-in-windows-server) . 
+- \* * Impostazioni di Windows Server 2016, che gli amministratori possono passare a **impostazioni** -> **app** -> **gestire funzionalità opzionali** -> **aggiungere una funzionalità** e cercare il pacchetto funzionalità su richiesta 
+- Comandi di PowerShell: in una finestra di amministratore di PowerShell, eseguire i comandi seguenti:
 
 ```PowerShell
     Install-Module -Name PublishCloudPrinter

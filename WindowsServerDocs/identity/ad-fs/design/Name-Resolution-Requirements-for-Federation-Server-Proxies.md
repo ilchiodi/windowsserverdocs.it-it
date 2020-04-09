@@ -1,7 +1,6 @@
 ---
 ms.assetid: c28c60ff-693d-49ee-a75b-58f24866217b
 title: Requisiti per la risoluzione dei nomi per i proxy server federativi
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 51176101b471ec940e2b43a95e1a1a8d37b394f3
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 47c5bd23d3ba82c3df81c71951c2a50db0fe99d7
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71408069"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80853044"
 ---
 # <a name="name-resolution-requirements-for-federation-server-proxies"></a>Requisiti per la risoluzione dei nomi per i proxy server federativi
 
@@ -38,7 +37,7 @@ L'illustrazione seguente e i passaggi corrispondenti mostrano in che modo vengon
 Per ulteriori informazioni sulla configurazione di un indirizzo IP del cluster o di un FQDN del cluster tramite NLB, vedere [specifica dei parametri del cluster](https://go.microsoft.com/fwlink/?LinkId=75282).  
   
 ### <a name="1-configure-the-hosts-file-on-the-federation-server-proxy"></a>1. Configurare il file Hosts nel proxy server federativo  
-Poiché il DNS nella rete perimetrale è configurato per risolvere tutte le richieste per fs.fabrikam.com al proxy server federativo di account, il proxy server federativo del partner account ha una voce nel file hosts locale per risolvere fs.fabrikam.com nell'indirizzo IP del server federativo di account effettivo \(o il nome DNS del cluster per la Federazione server farm\) connesso alla rete aziendale. In questo modo, il proxy server federativo di account può risolvere il nome host fs.fabrikam.com nel server federativo di account anziché in se stesso, come si verificherebbe se tentasse di cercare fs.fabrikam.com con il DNS perimetrale, in modo che la Federazione il proxy server può comunicare con il server federativo.  
+Poiché il DNS nella rete perimetrale è configurato per risolvere tutte le richieste per fs.fabrikam.com al proxy server federativo di account, il proxy server federativo del partner account ha una voce nel file hosts locale per risolvere fs.fabrikam.com nell'indirizzo IP del server federativo di account effettivo \(o il nome DNS del cluster per la Federazione server farm\) connesso alla rete aziendale. In questo modo, il proxy server federativo di account può risolvere il nome host fs.fabrikam.com nel server federativo di account anziché in se stesso, come si verificherebbe se tentasse di cercare fs.fabrikam.com con il DNS perimetrale, in modo che il proxy server federativo possa comunicare con il server federativo.  
   
 ### <a name="2-configure-perimeter-dns"></a>2. Configurare il DNS perimetrale  
 Poiché è presente un solo AD FS nome host a cui vengono indirizzati i computer client, sia che si trovino in una Intranet o in Internet, i computer client in Internet che usano il server DNS perimetrale devono risolvere il nome di dominio completo per il server federativo di account \(fs.fabrikam.com\) all'indirizzo IP del proxy server federativo di account nella rete perimetrale. In modo che possa inviare i client al proxy server federativo di account quando tentano di risolvere fs.fabrikam.com, il DNS perimetrale contiene una zona DNS corp.fabrikam.com limitata con un singolo host \(un record di risorse\) per FS \(fs.fabrikam.com\) e l'indirizzo IP del proxy server federativo di account nella rete perimetrale.  
@@ -59,7 +58,7 @@ L'illustrazione seguente e i passaggi corrispondenti mostrano in che modo vengon
 ### <a name="1-configure-perimeter-dns"></a>1. Configurare il DNS perimetrale  
 Per questo scenario, poiché si presuppone che si configuri la zona DNS Internet controllata per la risoluzione delle richieste effettuate per un URL di endpoint specifico \(, fs.fabrikam.com\) al proxy server federativo nella rete perimetrale, è necessario configurare anche la zona nel DNS perimetrale per l'inoltro delle richieste al server federativo nella rete aziendale.  
   
-In modo che i client possano essere reindirizzati al server federativo di account quando tentano di risolvere fs.fabrikam.com, il DNS perimetrale è configurato con un singolo host \(un record di risorse\) per FS \(fs.fabrikam.com\) e l'indirizzo IP del server federativo di account nella rete aziendale. In questo modo, il proxy server federativo di account può risolvere il nome host fs.fabrikam.com nel server federativo di account anziché in se stesso, come si verificherebbe se tentasse di cercare fs.fabrikam.com con il DNS Internet, in modo che il server federativo il proxy può comunicare con il server federativo.  
+In modo che i client possano essere reindirizzati al server federativo di account quando tentano di risolvere fs.fabrikam.com, il DNS perimetrale è configurato con un singolo host \(un record di risorse\) per FS \(fs.fabrikam.com\) e l'indirizzo IP del server federativo di account nella rete aziendale. In questo modo, il proxy server federativo di account può risolvere il nome host fs.fabrikam.com nel server federativo di account anziché in se stesso, come si verificherebbe se tentasse di cercare fs.fabrikam.com con il DNS Internet, in modo che il proxy server federativo possa comunicare con il server federativo.  
   
 ### <a name="2-configure-internet-dns"></a>2. Configurare DNS Internet  
 Per una corretta risoluzione dei nomi in questo scenario, tutte le richieste dei computer client in Internet a fs.fabrikam.com devono essere risolte dalla zona DNS Internet controllata dall'utente. Di conseguenza, è necessario configurare la zona DNS Internet in modo che inoltri le richieste client per fs.fabrikam.com all'indirizzo IP del proxy server federativo di account nella rete perimetrale.  

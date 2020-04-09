@@ -1,50 +1,45 @@
 ---
 title: cache Bitsadmin e limite
-description: 'Argomento dei comandi di Windows per la **cache Bitsadmin e** la limitazione: imposta il limite delle dimensioni della cache.'
-ms.custom: na
+description: Argomento dei comandi di Windows per la **cache Bitsadmin e**il valore di limite, che imposta il limite delle dimensioni della cache.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 46578835-d5ce-423b-be4d-62ddb9e1908d
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 88a10ce8599202e237daa6822cf62806d3c21429
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 746ee0b69da8f5bd22fec2ccbd432126cc25d94d
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71381943"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80850874"
 ---
 # <a name="bitsadmin-cache-and-setlimit"></a>cache Bitsadmin e limite
-
-
 
 Imposta il limite delle dimensioni della cache.
 
 ## <a name="syntax"></a>Sintassi
 
 ```
-bitsadmin /Cache /SetLimit Percent
+bitsadmin /cache /setlimit percent
 ```
 
-## <a name="parameters"></a>Parametri
+### <a name="parameters"></a>Parametri
 
-|Parametro|Descrizione|
-|---------|-----------|
-|Percent|Limite della cache definito come percentuale dello spazio totale su disco rigido.|
+| Parametro | Descrizione |
+| -------------- | -------------- |
+| percent | Limite della cache definito come percentuale dello spazio totale su disco rigido. |
 
-## <a name="BKMK_examples"></a>Esempi
+## <a name="examples"></a><a name=BKMK_examples></a>Esempi
 
 Nell'esempio seguente la dimensione della cache viene limitata al 50%.
+
 ```
-C:\>bitsadmin /Cache /SetLimit 50 
+C:\>bitsadmin /cache /setlimit 50
 ```
 
-#### <a name="additional-references"></a>Altri riferimenti
+## <a name="additional-references"></a>Altre informazioni di riferimento
 
-[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+- [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

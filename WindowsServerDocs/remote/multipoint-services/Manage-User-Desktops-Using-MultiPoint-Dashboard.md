@@ -1,24 +1,20 @@
 ---
 title: Gestire desktop utente tramite Dashboard MultiPoint
 description: Viene fornita una panoramica del Dashboard MultiPoint
-ms.custom: na
 ms.prod: windows-server
 ms.technology: multipoint-services
-ms.reviewer: na
-ms.suite: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: eadfc544-4c13-4216-b0fd-89fbc659a80b
 author: lizap
 manager: dongill
 ms.author: elizapo
 ms.date: 08/04/2016
-ms.openlocfilehash: b250d820e7086054d18d62eebe8ce9d3686f8d5d
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: f879232329cdcfd954661a6a8c7a15666bb9897c
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71405092"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80853484"
 ---
 # <a name="manage-user-desktops-using-multipoint-dashboard"></a>Gestire desktop utente tramite Dashboard MultiPoint
 In un sistema MultiPoint Services un desktop è costituito dall'interfaccia utente del software visualizzata sul monitor per ogni *stazione* utente. Il Dashboard MultiPoint è uno strumento che consente di gestire i desktop.   

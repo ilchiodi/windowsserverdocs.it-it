@@ -2,20 +2,19 @@
 title: Il numero di esecuzione o macchine virtuali configurate devono essere all'interno di limiti supportati
 description: Vengono fornite istruzioni per risolvere il problema segnalato da questa regola di Best Practices Analyzer.
 ms.prod: windows-server
-ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
 ms.author: kathydav
 ms.topic: article
 ms.assetid: 9d3c4aa3-8416-46ec-a253-26dc98088d7b
-author: KBDAzure
+author: kbdazure
 ms.date: 8/16/2016
-ms.openlocfilehash: 56d7fd528d7fda20dbdbb16a6262bb072f053ef0
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 49013d6a4c9dda6e79d6a803bae0f5641d826817
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71364633"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80854624"
 ---
 # <a name="the-number-of-running-or-configured-virtual-machines-must-be-within-supported-limits"></a>Il numero di esecuzione o macchine virtuali configurate devono essere all'interno di limiti supportati
 
@@ -55,13 +54,13 @@ Per spostare una macchina virtuale in un altro server, è possibile:
    > [!IMPORTANT]  
    > Se l'host Hyper-V per l'esportazione da appartiene a un dominio e si desidera archiviare i file esportati in una posizione remota, l'host Hyper-V deve essere configurato per la delega vincolata. Una posizione remota potrebbe essere una cartella di rete condivisa o una cartella nell'host in che si sta importando. La delega vincolata consente l'account computer dell'host Hyper-V di fornire le credenziali delegate per il servizio Common Internet File System (CIFS) al computer remoto. Per istruzioni sulla configurazione della delega vincolata, vedere la sezione dopo l'esportazione e importazione istruzioni, di seguito.  
   
-1.  Aprire la console di gestione di Hyper-V. Fare clic su **avviare**, scegliere **Strumenti di amministrazione**, quindi fare clic su **gestione di Hyper-V**.  
+1.  Aprire la console di gestione di Hyper-V. Fare clic sul pulsante **Start**, scegliere **Strumenti di amministrazione** e quindi **Console di gestione di Hyper-V**.  
   
 2.  Nel riquadro dei risultati, sotto **macchine virtuali**, fare doppio clic su una macchina virtuale e quindi fare clic su **esportare**.  
   
 3.  Nel **esportare una macchina virtuale** la finestra di dialogo, digitare o cercare un percorso con spazio sufficiente per archiviare tutte le risorse della macchina virtuale. Quando si esporta una macchina virtuale, tutti i dischi rigidi virtuali (file con estensione vhd o vhdx), i checkpoint (file con estensione avhd) e i file di stato salvati associati alla macchina virtuale vengono copiati nella cartella specificata.  
   
-4.  Fare clic su **esportare**.  
+4.  Fare clic su **Esporta**.  
   
 Dopo avere esportato le macchine virtuali, importare le macchine virtuali in altro server.  
   
@@ -90,7 +89,7 @@ L'appartenenza di **gli amministratori di dominio** gruppo è necessario per com
   
 4.  Per consentire all'account di computer Hyper-V presentare credenziali delegate per il computer remoto:  
   
-    1.  Fai clic su **Aggiungi**.  
+    1.  Fare clic su **Add**.  
   
     2.  Nel **aggiungere servizi** la finestra di dialogo, fare clic su **utenti o computer**, selezionare il computer remoto e quindi fare clic su **OK**.  
   

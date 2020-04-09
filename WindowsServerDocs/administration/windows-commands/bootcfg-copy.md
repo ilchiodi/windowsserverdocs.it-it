@@ -1,24 +1,20 @@
 ---
 title: bootcfg copy
-description: 'Windows Commands Topic for **bootcfg copy** : crea una copia di una voce di avvio esistente, a cui è possibile aggiungere opzioni della riga di comando.'
-ms.custom: na
+description: Windows Commands argomento per bootcfg copy, che crea una copia di una voce di avvio esistente, a cui è possibile aggiungere opzioni della riga di comando.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 2a236c2a-8675-444d-b695-9cbc9aff643b
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 42a408443cbe6722c25780f7c27d70b05da7eb8e
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 5194418a07aece4f15a84c3eccbc044431a865b9
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71380124"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80848684"
 ---
 # <a name="bootcfg-copy"></a>bootcfg copy
 
@@ -30,7 +26,7 @@ Crea una copia di una voce di avvio esistente, a cui è possibile aggiungere opz
 ```
 bootcfg /copy [/s <computer> [/u <Domain>\<User> /p <Password>]] [/d <Description>] [/id <OSEntryLineNum>]
 ```
-## <a name="parameters"></a>Parametri
+### <a name="parameters"></a>Parametri
 
 |      Parametro       |                                                                                             Descrizione                                                                                             |
 |----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -41,10 +37,10 @@ bootcfg /copy [/s <computer> [/u <Domain>\<User> /p <Password>]] [/d <Descriptio
 | <OSEntryLineNum>/ID |         Specifica il numero di riga voce del sistema operativo in della sezione [operating systems] del file Boot. ini da copiare. La prima riga dopo la sezione [operating systems] sezione di intestazione è 1.         |
 |          /?          |                                                                                Visualizza la guida al prompt dei comandi.                                                                                 |
 
-## <a name="BKMK_examples"></a>Esempi
-Gli esempi seguenti illustrano come utilizzare il **bootcfg /copy** comando per copiare la voce di avvio 1 e immettere "\ABC Server\\" come descrizione:
+## <a name="examples"></a><a name=BKMK_examples></a>Esempi
+Gli esempi seguenti illustrano come è possibile usare il comando **bootcfg/copy** per copiare la voce di avvio 1 e immettere \ABC server\\ come descrizione:
 ```
-bootcfg /copy /d "\ABC Server\" /id 1
+bootcfg /copy /d \ABC Server\ /id 1
 ```
-#### <a name="additional-references"></a>riferimenti aggiuntivi
-[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+## <a name="additional-references"></a>Altre informazioni di riferimento
+- [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

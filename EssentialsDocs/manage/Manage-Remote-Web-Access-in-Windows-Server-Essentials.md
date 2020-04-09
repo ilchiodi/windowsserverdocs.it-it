@@ -1,29 +1,25 @@
 ---
 title: Gestire Accesso Web remoto in Windows Server Essentials
 description: Viene descritto come usare Windows Server Essentials
-ms.custom: na
 ms.date: 10/03/2016
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: f3ea40fa-b6ba-4d66-b754-221ca6271387
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 6f4277637ed0f721b0cae12c15086a59ac6190fc
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: 3457eb28c05bd79f0de3a982da77ca01ffe9b52d
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80311165"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80852764"
 ---
 # <a name="manage-remote-web-access-in-windows-server-essentials"></a>Gestire Accesso Web remoto in Windows Server Essentials
 
 >Si applica a: Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
  
- Accesso Web remoto in Windows Server Essentials o in Windows Server 2012 R2 con il ruolo esperienza Windows Server Essentials installato, fornisce un'esperienza di esplorazione semplificata e intuitiva per il tocco per l'accesso alle applicazioni e ai dati praticamente ovunque si dispone di una connessione Internet e di qualsiasi dispositivo. Per utilizzare la funzionalità Accesso Web remoto, è innanzitutto necessario attivarla mediante la Configurazione guidata di Accesso remoto via Internet e quindi configurare il router e il nome di dominio.  
+ Accesso Web remoto in Windows Server Essentials, o in Windows Server 2012 R2 con il ruolo esperienza Windows Server Essentials installato, offre un'esperienza di browser semplice e intuitiva per l'accesso alle applicazioni e ai dati da qualsiasi luogo in cui sia disponibile una connessione Internet e con quasi tutti i dispositivi. Per utilizzare la funzionalità Accesso Web remoto, è innanzitutto necessario attivarla mediante la Configurazione guidata di Accesso remoto via Internet e quindi configurare il router e il nome di dominio.  
   
 ## <a name="in-this-topic"></a>In questo argomento  
   

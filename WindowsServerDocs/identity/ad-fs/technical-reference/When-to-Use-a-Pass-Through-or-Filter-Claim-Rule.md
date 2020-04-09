@@ -1,7 +1,6 @@
 ---
 ms.assetid: 606df285-259c-4c6b-8583-9aca1d614c43
 title: Quando usare una regola di pass-through o di filtro delle attestazioni
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,15 +8,15 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 49061aaab2f46d7d3abe80d4fade98c10654fc37
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 005f2544b8064e35f9bec1e9d814b49c46512414
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71407294"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80853814"
 ---
 # <a name="when-to-use-a-pass-through-or-filter-claim-rule"></a>Quando usare una regola di pass-through o di filtro delle attestazioni
-È possibile utilizzare questa regola in Active Directory Federation Services \(ad FS\) quando è necessario eseguire un tipo di attestazione in ingresso specifico e quindi applicare un'azione che determinerà l'output che deve essere eseguito in base ai valori nell'attestazione in ingresso. Quando si usa questa regola, si consente l'ingresso o si filtrano le eventuali attestazioni corrispondenti alla logica della regola nella tabella seguente, in base all'opzione configurata nella regola.  
+È possibile utilizzare questa regola in Active Directory Federation Services \(AD FS\) quando è necessario eseguire un tipo di attestazione in ingresso specifico e quindi applicare un'azione che determinerà l'output che deve essere eseguito in base ai valori nell'attestazione in ingresso. Quando si usa questa regola, si consente l'ingresso o si filtrano le eventuali attestazioni corrispondenti alla logica della regola nella tabella seguente, in base all'opzione configurata nella regola.  
   
 |Opzione della regola|Logica della regola|  
 |---------------|--------------|  
@@ -51,12 +50,12 @@ Ad esempio, è possibile usare questa regola per consentire l'ingresso solo dell
   
 Quando si usa una condizione di filtro con questa regola, vengono esaminate tutte le attestazioni in ingresso per determinare quelle che corrispondono ai criteri impostati dalla regola. Tutte le altre attestazioni vengono ignorate, in modo da consentire l'ingresso solo ai valori attestazione specificati che corrispondono al tipo di attestazione selezionato.  
   
-Ad esempio, come illustrato nella figura seguente, quando viene impostata una regola con la condizione per filtrare solo le attestazioni in ingresso che sono chiave per il tipo di attestazione UPN e @fabrikam.comche terminano con, tutte le altre attestazioni in ingresso vengono ignorate a meno che non soddisfino questi criteri. Ciò include l'attestazione in ingresso con il tipo di attestazione E\-l'indirizzo di posta elettronica anche se il relativo valore di attestazione termina con. @fabrikam.com In questo caso, al relying party viene inviata solo l'attestazione contenente il valore di Nick@fabrikam.com .  
+Ad esempio, come illustrato nella figura seguente, quando viene impostata una regola con la condizione per filtrare solo le attestazioni in ingresso che sono chiave per il tipo di attestazione UPN e che terminano con @fabrikam.com, tutte le altre attestazioni in ingresso vengono ignorate, a meno che non soddisfino questi criteri. Include l'attestazione in ingresso con il tipo di attestazione E\-indirizzo di posta elettronica anche se il relativo valore di attestazione termina con @fabrikam.com. In questo caso, solo l'attestazione contenente il valore di Nick@fabrikam.com viene inviata al relying party.  
   
 ![Quando utilizzare passata tramite](media/adfs2_filter.gif)  
   
 ## <a name="configuring-this-rule-on-a-claims-provider-trust"></a>Configurazione della regola in un trust del provider di attestazioni  
-Quando si usa un trust del provider di attestazioni, è possibile configurare questa regola in modo che consenta solo le attestazioni in ingresso dal provider di attestazioni che corrispondono a determinati vincoli. È possibile, ad esempio, accettare\-solo le attestazioni di posta elettronica dal provider di attestazioni. utilizzare quindi questo modello di regola per\-accettare i tipi di attestazione di posta elettronica che terminano \(con il Domain Name System DNSdelproviderdiattestazioni.\) nome.  
+Quando si usa un trust del provider di attestazioni, è possibile configurare questa regola in modo che consenta solo le attestazioni in ingresso dal provider di attestazioni che corrispondono a determinati vincoli. Ad esempio, potrebbe essere necessario accettare solo le attestazioni di posta elettronica dal provider di attestazioni e\-. Pertanto, utilizzare questo modello di regola per accettare i tipi di attestazione di posta elettronica\-che terminano con il Domain Name System del provider di attestazioni \(il nome\) DNS.  
   
 ## <a name="configuring-this-rule-on-a-relying-party-trust"></a>Configurazione di questa regola in un trust della relying party  
 Quando si usa un trust della relying party, è possibile configurare questa regola in modo che consenta l'ingresso o filtri le attestazioni in uscita che verranno inviate alla relying party. Alcune relying party potrebbero non riconoscere determinati tipi di attestazioni e determinate attestazioni potrebbero contenere informazioni riservate che non devono essere inviate a determinate relying party. Questo modello di regola semplifica l'imposizione di tali criteri per un trust della relying party specifico.  
@@ -85,29 +84,29 @@ Se un'attestazione deve essere inviata solo quando il relativo valore corrispond
 Una semplice regola di filtro filtrerà le attestazioni in base a una delle proprietà descritte in precedenza. Ad esempio, la regola seguente passerà tutti e\-le attestazioni di posta elettronica:  
   
 ```  
-c:[type == “http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress”]  => issue(claim  = c);  
+c:[type == "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress"]  => issue(claim  = c);  
 ```  
   
-I filtri possono essere logicamente e\-ed insieme. La regola seguente, ad esempio, accetterà tutte\-le attestazioni di posta elettronica con valorejohndoe@fabrikam.com:  
+I filtri possono essere logicamente e\-ed insieme. La regola seguente, ad esempio, accetterà tutte le attestazioni di posta elettronica\-con valore johndoe@fabrikam.com:  
   
 ```  
-c:[type == “http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress”, value == “johndoe@fabrikam.com “]  => issue(claim  = c);  
+c:[type == "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress", value == "johndoe@fabrikam.com "]  => issue(claim  = c);  
 ```  
   
 Negli esempi precedenti per i filtri è sempre stato usato un operatore di uguaglianza. Il linguaggio delle regole attestazioni supporta gli operatori seguenti:  
   
--   \=\=distinzione maiuscole/\-minuscoleuguale \- \(\)  
+-   \=\= \- equivale a \(case\-sensitive\)  
   
--   \!\=\- distinzione \(maiuscole\-/minuscole non uguale\)  
+-   \!\= \- non è uguale a \(case\-sensitive\)  
   
--   \=~\-corrispondenza espressione regolare  
+-   \=~\- corrispondenza di espressione regolare  
   
--   \!~ \-espressione regolare non\-corrispondente  
+-   \!~ \- espressione regolare non corrisponde\-  
   
 Ad esempio, la regola seguente accetterà tutti e\-le attestazioni non emessi dal server federativo locale con un suffisso di boeing.com di posta elettronica:  
   
 ```  
-c:[type == “http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress”, value =~ “^.*@boeing\.com$” , issuer != “LOCAL AUTHORITY”]  => issue(claim  = c);  
+c:[type == "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress", value =~ "^.*@boeing\.com$" , issuer != "LOCAL AUTHORITY"]  => issue(claim  = c);  
 ```  
   
 ### <a name="best-practices-for-creating-custom-rules"></a>Procedure consigliate per la creazione di regole personalizzate  
@@ -116,10 +115,10 @@ c:[type == “http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress
 
 | Proprietà attestazione |                                                                                                                                                                                                                                                                                                                                                  Descrizione                                                                                                                                                                                                                                                                                                                                                  |
 |----------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|      Type      |                                                                                                                                                                                        Il tipo di attestazione \(generalmente rappresentato come un Uri\) riflette un accordo tra partner in una federazione su quale tipo di informazioni viene comunicato nell'attestazione implicito. Ad esempio, le attestazioni di tipo\/http\/:\/\/schemas.xmlsoap.org\/WS\/2005\/05\/identity claims emailaddress conterrà e\-indirizzo di posta elettronica dell'utente.                                                                                                                                                                                         |
-|     Value      |                                                                                                                                                                                                                                                                   Valore dell'attestazione. Ad esempio, un'attestazione di tipo http\/:\/\/schemas.xmlsoap.org\/WS\/2005\/05\/Identity\/claims EmailAddress potrebbe avere un valorejohndoe@fabrikam.com                                                                                                                                                                                                                                                                    |
-|   ValueType    |                                                                                                                                                                                                  ValueType rappresenta il modo in cui le informazioni contenute nel valore dell'attestazione devono essere interpretate. In genere, ValueType verrà impostato su http:\/\/www.w3.org\/2001\/XmlSchema\#stringa, ma il valore dell'attestazione potrebbe contenere dati \(codificati base64Binary, ad esempio un'immagine \) o una data, un valore booleano e così via.                                                                                                                                                                                                  |
-|     Issuer     | L'emittente rappresenta la parte che ha rilasciato per ultima le attestazioni relative all'utente. Se le attestazioni sono state ricevute da un server federativo del provider di attestazioni, l'autorità emittente di tutte le attestazioni verrà impostata su "LOCAL AUTHORITY". Se le attestazioni sono state ricevute da un server federativo di un provider federativo, l'autorità emittente delle attestazioni verrà impostata sull'identificatore del provider di attestazioni del provider di attestazioni che ha firmato il token. Di conseguenza, durante l'elaborazione delle regole sulle attestazioni ricevute da un provider di attestazioni, l'autorità emittente di tutte le attestazioni verrà impostata sullo stesso valore. Durante la creazione delle regole per una relying party, la proprietà Issuer può essere usata per distinguere le attestazioni originate da diversi provider di attestazioni. |
-| OriginalIssuer |                                                                                                   Questa proprietà dell'attestazione indica il server federativo che ha originariamente rilasciato l'attestazione. Poiché la proprietà Issuer delle attestazioni è impostata sull'ultimo server federativo che ha firmato il token, l'autorità emittente originale è utile negli scenari in cui un'attestazione è propagata attraverso più \(di un server federativo, ad esempio, un relying party che riceve un token il server federativo di un provider federativo potrebbe essere interessato da un particolare server federativo del provider di attestazioni che ha autenticato l'utente\)                                                                                                   |
+|      Type      |                                                                                                                                                                                        Il tipo di attestazione \(generalmente rappresentato come un Uri\) riflette un accordo tra partner in una federazione su quale tipo di informazioni viene comunicato nell'attestazione implicito. Ad esempio, le attestazioni di tipo http:\/\/schemas.xmlsoap.org\/WS\/2005\/05\/Identity\/Claims\/emailaddress conterrà l'indirizzo di posta elettronica\-dell'utente.                                                                                                                                                                                         |
+|     Valore      |                                                                                                                                                                                                                                                                   Valore dell'attestazione. Ad esempio, un'attestazione di tipo http:\/\/schemas.xmlsoap.org\/WS\/2005\/05\/Identity\/Claims\/EmailAddress potrebbe avere un valore di johndoe@fabrikam.com                                                                                                                                                                                                                                                                    |
+|   ValueType    |                                                                                                                                                                                                  ValueType rappresenta il modo in cui le informazioni contenute nel valore dell'attestazione devono essere interpretate. In genere, ValueType verrà impostato su http:\/\/www.w3.org\/2001\/XMLSchema\#stringa, ma il valore dell'attestazione potrebbe contenere dati codificati Base64Binary \(ad esempio, un'immagine\) o una data, un valore booleano e così via.                                                                                                                                                                                                  |
+|     Issuer     | L'emittente rappresenta la parte che ha rilasciato per ultima le attestazioni relative all'utente. Se le attestazioni vengono ottenute in un server federativo del provider di attestazioni, l'autorità emittente di tutte le attestazioni verrà impostata su "LOCAL AUTHORITY". Se le attestazioni sono state ricevute da un server federativo di un provider federativo, l'autorità emittente delle attestazioni verrà impostata sull'identificatore del provider di attestazioni del provider di attestazioni che ha firmato il token. Di conseguenza, durante l'elaborazione delle regole sulle attestazioni ricevute da un provider di attestazioni, l'autorità emittente di tutte le attestazioni verrà impostata sullo stesso valore. Durante la creazione delle regole per una relying party, la proprietà Issuer può essere usata per distinguere le attestazioni originate da diversi provider di attestazioni. |
+| OriginalIssuer |                                                                                                   Questa proprietà dell'attestazione indica il server federativo che ha originariamente rilasciato l'attestazione. Poiché la proprietà Issuer delle attestazioni è impostata sull'ultimo server federativo che ha firmato il token, l'autorità emittente originale è utile negli scenari in cui un'attestazione è propagata attraverso più di un server federativo \(ad esempio, un relying party che riceve un token da un server federativo del provider federativo potrebbe essere interessato a un determinato server federativo del provider di attestazioni autenticato dall'utente\)                                                                                                   |
 |   Proprietà   |                                                                                                                             Oltre alle cinque proprietà descritte in precedenza, ogni attestazione ha un contenitore delle proprietà in cui è possibile archiviare proprietà denominate. Queste proprietà no sono serializzate nel token e servono esclusivamente per passare le informazioni tra i componenti della pipeline di rilascio delle attestazioni all'interno dell'ambito di un singolo server federativo. Ad esempio, quando viene impostata una proprietà durante l'elaborazione delle regole del provider di attestazioni e quindi vi si fa riferimento nelle regole della relying party.                                                                                                                              |
 

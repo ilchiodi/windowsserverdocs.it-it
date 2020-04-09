@@ -1,19 +1,19 @@
 ---
 title: VM schermate per i tenant-creazione di un disco modello-facoltativo
-ms.custom: na
 ms.prod: windows-server
 ms.topic: article
 ms.assetid: c1992f8b-6f88-4dbc-b4a5-08368bba2787
 manager: dongill
 author: rpsqrd
+ms.author: ryanpu
 ms.technology: security-guarded-fabric
 ms.date: 08/29/2018
-ms.openlocfilehash: 8e5080dd74506e86687dddb7be0fd35af92f5b56
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 1f51a0f90f60847929f6fe46732c98f355a6a859
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71403432"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80856444"
 ---
 # <a name="shielded-vms-for-tenants---creating-a-template-disk-optional"></a>VM schermate per i tenant-creazione di un disco modello (facoltativo)
 
@@ -28,10 +28,10 @@ Per creare una nuova macchina virtuale schermata, è necessario usare un disco m
 
 Per creare un disco modello schermato, è necessario innanzitutto preparare un disco del sistema operativo che verrà eseguito tramite la creazione guidata disco modello. Questo disco verrà usato come disco del sistema operativo nelle VM schermate. È possibile usare qualsiasi strumento esistente per creare questo disco, ad esempio Microsoft Desktop Image Service Manager (DISM), oppure configurare manualmente una macchina virtuale con un VHDX vuoto e installare il sistema operativo su tale disco. Quando si configura il disco, è necessario rispettare i requisiti seguenti specifici per le macchine virtuali di seconda generazione e/o schermate: 
 
-| Requisito per VHDX | `Reason` |
+| Requisito per VHDX | Motivo |
 |-----------|----|
 |Deve essere un disco della tabella di partizione GUID (GPT) | Necessario per le macchine virtuali di seconda generazione per supportare UEFI|
-|Il tipo di disco deve essere di **base** anziché **dinamico**. <br>Nota: Si riferisce al tipo di disco logico, non alla funzionalità VHDX "ad espansione dinamica" supportata da Hyper-V. | BitLocker non supporta i dischi dinamici.|
+|Il tipo di disco deve essere di **base** anziché **dinamico**. <br>Nota: si riferisce al tipo di disco logico, non alla funzionalità VHDX "ad espansione dinamica" supportata da Hyper-V. | BitLocker non supporta i dischi dinamici.|
 |Il disco contiene almeno due partizioni. Una partizione deve includere l'unità in cui è installato Windows. Si tratta dell'unità che verrà crittografata da BitLocker. L'altra partizione è la partizione attiva, che contiene il bootloader e rimane non crittografata, in modo che il computer possa essere avviato.|Necessaria per BitLocker|
 |File system NTFS | Necessaria per BitLocker|
 |Il sistema operativo installato in VHDX è uno dei seguenti:<br>-Windows Server 2019, Windows Server 2016, Windows Server 2012 R2 o Windows Server 2012 <br>-Windows 10, Windows 8.1, Windows 8| Necessaria per supportare le macchine virtuali di seconda generazione e il modello di avvio protetto Microsoft|

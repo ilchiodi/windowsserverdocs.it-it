@@ -1,6 +1,5 @@
 ---
 title: What's New in Kerberos Authentication
-ms.custom: na
 ms.prod: windows-server
 ms.topic: article
 ms.assetid: 7bd17803-6e42-4a3b-803f-e47c74725813
@@ -8,12 +7,12 @@ manager: alanth
 author: justinha
 ms.technology: security-authentication
 ms.date: 11/09/2016
-ms.openlocfilehash: a0916abf1076b5f791a856f0c85f54ad17f6d64c
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 35eff73e97c8fdbb6df2c1412779b033a9ca3fa5
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71403472"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80858814"
 ---
 # <a name="whats-new-in-kerberos-authentication"></a>What's New in Kerberos Authentication
 
@@ -31,19 +30,19 @@ A partire da Windows 10, versione 1607 e Windows Server 2016, i client Kerberos 
 
 A partire da Windows Server 2016, KDC può supportare l'estensione di aggiornamento PKInit. Per impostazione predefinita, KDC non offre l'estensione di aggiornamento PKInit. Per abilitarla, usare l'impostazione dei criteri dei modelli amministrativi KDC del supporto KDC per l'estensione PKInit per tutti i controller di dominio nel dominio. Una volta configurate, le opzioni seguenti sono supportate quando il dominio è il livello di funzionalità del dominio Windows Server 2016 (DFL):
 
-- **Disattivata**: Il KDC non offre mai l'estensione di aggiornamento PKInit e accetta richieste di autenticazione valide senza verificarne l'aggiornamento. Gli utenti non riceveranno mai il SID di identità della chiave pubblica aggiornata.
-- **Supportato**: L'estensione di aggiornamento PKInit è supportata su richiesta. I client Kerberos che eseguono l'autenticazione con l'estensione di aggiornamento PKInit ricevono il SID di identità della chiave pubblica aggiornata.
-- **Richiesto**: Per l'autenticazione corretta, è necessaria l'estensione di aggiornamento PKInit. I client Kerberos che non supportano l'estensione di aggiornamento PKInit avranno sempre esito negativo quando si utilizzano le credenziali della chiave pubblica.
+- **Disabilitato**: il KDC non offre mai l'estensione di aggiornamento PKInit e accetta richieste di autenticazione valide senza verificarne l'aggiornamento. Gli utenti non riceveranno mai il SID di identità della chiave pubblica aggiornata.
+- **Supportato**: l'estensione di aggiornamento PKInit è supportata su richiesta. I client Kerberos che eseguono l'autenticazione con l'estensione di aggiornamento PKInit ricevono il SID di identità della chiave pubblica aggiornata.
+- **Obbligatorio**: l'estensione di aggiornamento PKInit è necessaria per l'autenticazione riuscita. I client Kerberos che non supportano l'estensione di aggiornamento PKInit avranno sempre esito negativo quando si utilizzano le credenziali della chiave pubblica.
 
 ## <a name="domain-joined-device-support-for-authentication-using-public-key"></a>Supporto dei dispositivi aggiunti a un dominio per l'autenticazione con chiave pubblica
 
-A partire da Windows 10 versione 1507 e Windows Server 2016, se un dispositivo aggiunto a un dominio è in grado di registrare la chiave pubblica associata con un controller di dominio di Windows Server 2016 (DC), il dispositivo può eseguire l'autenticazione con la chiave pubblica usando l'autenticazione Kerberos per un controller di dominio Windows Server 2016. Per altre informazioni, vedere [autenticazione con chiave pubblica del dispositivo aggiunto](Domain-joined-Device-Public-Key-Authentication.md) a un dominio
+A partire da Windows 10 versione 1507 e Windows Server 2016, se un dispositivo aggiunto a un dominio è in grado di registrare la chiave pubblica associata con un controller di dominio Windows Server 2016 (DC), il dispositivo può eseguire l'autenticazione con la chiave pubblica usando l'autenticazione Kerberos in un controller di dominio di Windows Server 2016. Per altre informazioni, vedere [autenticazione con chiave pubblica del dispositivo aggiunto](Domain-joined-Device-Public-Key-Authentication.md) a un dominio
 
 ## <a name="kerberos-clients-allow-ipv4-and-ipv6-address-hostnames-in-service-principal-names-spns"></a>I client Kerberos consentono i nomi host IPv4 e IPv6 nei nomi dell'entità servizio (SPN)
 
 A partire da Windows 10 versione 1507 e Windows Server 2016, i client Kerberos possono essere configurati per supportare i nomi host IPv4 e IPv6 nei nomi SPN. 
 
-Percorso del registro di sistema:
+Percorso del Registro di sistema:
 
 HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System\Kerberos\Parameters
 
@@ -57,14 +56,14 @@ Per altre informazioni, vedere il documento [configurazione di Kerberos per gli 
 
 A partire da Windows Server 2016, i controller di dominio dispongono del supporto per il mapping dell'account attendibilità della chiave, nonché il fallback a AltSecID esistenti e al nome dell'entità utente (UPN) nel comportamento SAN. Quando UseSubjectAltName è impostato su:
 
-- 0: Il mapping esplicito è obbligatorio. Devono quindi essere presenti:
+- 0: il mapping esplicito è obbligatorio. Devono quindi essere presenti:
     - Trust chiave (nuovo con Windows Server 2016)
     - ExplicitAltSecID
-- 1: Il mapping implicito è consentito (impostazione predefinita):
+- 1: il mapping implicito è consentito (impostazione predefinita):
     1. Se il trust della chiave è configurato per l'account, viene usato per il mapping (nuovo con Windows Server 2016).
     2. Se non è presente alcun UPN nella SAN, viene tentato il mapping di AltSecID.
     3. Se è presente un UPN nella rete SAN, si tenta di eseguire il mapping dell'UPN.
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 - [Panoramica dell'autenticazione Kerberos](kerberos-authentication-overview.md)

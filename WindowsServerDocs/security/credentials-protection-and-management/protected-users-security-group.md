@@ -1,24 +1,20 @@
 ---
 title: Gruppo di sicurezza Utenti protetti
 description: Sicurezza di Windows Server
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: security-credential-protection
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 1b0b5180-f65a-43ac-8ef3-66014116f296
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/12/2016
-ms.openlocfilehash: 10234611904a4ed5b58939d3fd5ca341221c073c
-ms.sourcegitcommit: 51e0b575ef43cd16b2dab2db31c1d416e66eebe8
+ms.openlocfilehash: c6883513fdc02f4f4d1b874995780639279cc178
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76259146"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80857054"
 ---
 # <a name="protected-users-security-group"></a>Gruppo di sicurezza Utenti protetti
 
@@ -26,7 +22,7 @@ ms.locfileid: "76259146"
 
 In questo argomento destinato al professionista IT viene descritto il gruppo di sicurezza Utenti protetti di Active Directory e viene spiegato come funziona. Questo gruppo è stato introdotto nei controller di dominio di Windows Server 2012 R2.
 
-## <a name="BKMK_ProtectedUsers"></a>Panoramica
+## <a name="overview"></a><a name="BKMK_ProtectedUsers"></a>Panoramica
 
 Questo gruppo di sicurezza è progettato come parte di una strategia per gestire l'esposizione delle credenziali all'interno dell'azienda. Agli account dei membri di questo gruppo vengono applicati automaticamente protezioni non configurabili. Per impostazione predefinita, l'appartenenza al gruppo Utenti protetti è progettata per essere restrittiva e sicura in modo proattivo. L'unico metodo per modificare queste protezioni per gli account consiste nel rimuovere l'account dal gruppo di sicurezza.
 
@@ -38,7 +34,7 @@ Questo gruppo globale correlato al dominio attiva la protezione non configurabil
 Per ulteriori informazioni, vedere [modalità di funzionamento del gruppo utenti protetti](#BKMK_HowItWorks) in questo argomento.
 
 
-## <a name="BKMK_Requirements"></a>Requisiti del gruppo utenti protetti
+## <a name="protected-users-group-requirements"></a><a name="BKMK_Requirements"></a>Requisiti del gruppo utenti protetti
 I requisiti per fornire le protezioni dei dispositivi per i membri del gruppo utenti protetti includono:
 
 - Il gruppo di sicurezza globale Utenti protetti viene replicato in tutti i controller di dominio del dominio account.
@@ -58,23 +54,23 @@ I controller di dominio che eseguono un sistema operativo precedente a Windows S
 
 Il gruppo utenti protetti può essere creato [trasferendo il ruolo di emulatore del controller di dominio primario (PDC)](https://technet.microsoft.com/library/cc816944(v=ws.10).aspx) in un controller di dominio che esegue Windows Server 2012 R2. Dopo avere replicato l'oggetto gruppo in altri controller di dominio, il ruolo dell'emulatore PDC può essere ospitato in un controller di dominio che esegue una versione precedente di Windows Server.
 
-### <a name="BKMK_ADgroup"></a>Proprietà Active Directory del gruppo utenti protetti
+### <a name="protected-users-group-ad-properties"></a><a name="BKMK_ADgroup"></a>Proprietà Active Directory del gruppo utenti protetti
 
 La seguente tabella specifica le proprietà del gruppo Utenti protetti.
 
-|Attributo|Value|
+|Attributo|Valore|
 |-------|-----|
 |SID/RID noto|S-1-5-21-<domain>-525|
-|Digita|Dominio globale|
+|Type|Dominio globale|
 |Contenitore predefinito|CN=Utenti, DC=<domain>, DC=|
-|Membri predefiniti|Nessuno|
-|Membro predefinito di|Nessuno|
+|Membri predefiniti|None|
+|Membro predefinito di|None|
 |Protetto da ADMINSDHOLDER?|No|
 |È sicuro spostarlo fuori dal contenitore predefinito?|Sì|
 |È sicuro delegare la gestione di questo gruppo ad amministratori non di servizio?|No|
 |Diritti utente predefiniti|Nessun diritto utente predefinito|
 
-## <a name="BKMK_HowItWorks"></a>Funzionamento del gruppo utenti protetti
+## <a name="how-protected-users-group-works"></a><a name="BKMK_HowItWorks"></a>Funzionamento del gruppo utenti protetti
 In questa sezione viene spiegato come funziona il gruppo Utenti protetti quando:
 
 - Firmato in un dispositivo Windows
@@ -119,11 +115,11 @@ Sono disponibili due registri amministrativi per la risoluzione dei problemi rel
 
 |ID e registro eventi|Descrizione|
 |----------|--------|
-|104<br /><br />**ProtectedUser-Client**|Motivo: il pacchetto di sicurezza nel client non contiene le credenziali.<br /><br />L'errore viene registrato nel computer client quando l'account è membro del gruppo di sicurezza Utenti protetti. Questo evento indica che il gruppo di sicurezza non memorizza nella cache le credenziali necessarie per l'autenticazione al server.<br /><br />Visualizza il nome del pacchetto, il nome utente, il nome di dominio e il nome server.|
-|304<br /><br />**ProtectedUser-Client**|Motivo: il pacchetto di sicurezza non archivia le credenziali dell'utente protetto.<br /><br />Un evento informativo viene registrato nel client per indicare che il pacchetto di sicurezza non memorizza nella cache le credenziali di accesso dell'utente. È previsto che il digest (WDigest), la delega delle credenziali (CredSSP) e NTLM non riescano ad avere credenziali di accesso per Utenti protetti. Tuttavia, le applicazioni possono riuscire se fanno richiesta delle credenziali.<br /><br />Visualizza il nome del pacchetto, il nome utente e il nome di dominio.|
-|100<br /><br />**ProtectedUserFailures-DomainController**|Motivo: si verifica un errore di accesso NTLM per un account che si trova nel gruppo di sicurezza utenti protetti.<br /><br />Viene registrato un errore nel controller di dominio per indicare che l'autenticazione NTLM non è riuscita a causa dell'appartenenza dell'account al gruppo di sicurezza Utenti protetti.<br /><br />Visualizza il nome dell'account e il nome del dispositivo.|
-|104<br /><br />**ProtectedUserFailures-DomainController**|Motivo: i tipi di crittografia DES o RC4 vengono usati per l'autenticazione Kerberos e si verifica un errore di accesso per un utente nel gruppo di sicurezza utenti protetti.<br /><br />La preautenticazione Kerberos non riesce perché i tipi di crittografia DES e RC4 non possono essere usati quando l'account è membro del gruppo di sicurezza Utenti protetti.<br /><br />(AES viene accettato).|
-|303<br /><br />**ProtectedUserSuccesses-DomainController**|Motivo: un ticket di concessione ticket (TGT) Kerberos è stato emesso correttamente per un membro del gruppo utenti protetti.|
+|104<p>**ProtectedUser-Client**|Motivo: il pacchetto di sicurezza nel client non contiene le credenziali.<p>L'errore viene registrato nel computer client quando l'account è membro del gruppo di sicurezza Utenti protetti. Questo evento indica che il gruppo di sicurezza non memorizza nella cache le credenziali necessarie per l'autenticazione al server.<p>Visualizza il nome del pacchetto, il nome utente, il nome di dominio e il nome server.|
+|304<p>**ProtectedUser-Client**|Motivo: il pacchetto di sicurezza non archivia le credenziali dell'utente protetto.<p>Un evento informativo viene registrato nel client per indicare che il pacchetto di sicurezza non memorizza nella cache le credenziali di accesso dell'utente. È previsto che il digest (WDigest), la delega delle credenziali (CredSSP) e NTLM non riescano ad avere credenziali di accesso per Utenti protetti. Tuttavia, le applicazioni possono riuscire se fanno richiesta delle credenziali.<p>Visualizza il nome del pacchetto, il nome utente e il nome di dominio.|
+|100<p>**ProtectedUserFailures-DomainController**|Motivo: si verifica un errore di accesso NTLM per un account che si trova nel gruppo di sicurezza utenti protetti.<p>Viene registrato un errore nel controller di dominio per indicare che l'autenticazione NTLM non è riuscita a causa dell'appartenenza dell'account al gruppo di sicurezza Utenti protetti.<p>Visualizza il nome dell'account e il nome del dispositivo.|
+|104<p>**ProtectedUserFailures-DomainController**|Motivo: i tipi di crittografia DES o RC4 vengono usati per l'autenticazione Kerberos e si verifica un errore di accesso per un utente nel gruppo di sicurezza utenti protetti.<p>La preautenticazione Kerberos non riesce perché i tipi di crittografia DES e RC4 non possono essere usati quando l'account è membro del gruppo di sicurezza Utenti protetti.<p>(AES viene accettato).|
+|303<p>**ProtectedUserSuccesses-DomainController**|Motivo: un ticket di concessione ticket (TGT) Kerberos è stato emesso correttamente per un membro del gruppo utenti protetti.|
 
 
 ## <a name="additional-resources"></a>Risorse aggiuntive

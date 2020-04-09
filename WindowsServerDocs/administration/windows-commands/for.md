@@ -1,24 +1,20 @@
 ---
 title: per
-description: 'Argomento dei comandi di Windows per * * * *- '
-ms.custom: na
+description: Argomento dei comandi di Windows per * * * *-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: e275726c-035f-4a74-8062-013c37f5ded1
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: db0bf54e35e4226cb020b040d5fc36ddd88dc02b
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: e7040e4cb8e0f38e58ce5e868535dcfb2d897fbd
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71377117"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80844534"
 ---
 # <a name="for"></a>per
 
@@ -34,17 +30,17 @@ Per esempi di utilizzo di questo comando, vedere [Esempi](#BKMK_examples).
 for {%%|%}<Variable> in (<Set>) do <Command> [<CommandLineOptions>]
 ```
 
-## <a name="parameters"></a>Parametri
+### <a name="parameters"></a>Parametri
 
 |Parametro|Descrizione|
 |---------|-----------|
-|{%%\|%}\<variabile >|Obbligatorio. Rappresenta un parametro sostituibile. Usare un solo segno di percentuale ( **%** ) per eseguire il comando **for** al prompt dei comandi. Utilizzare i segni di percentuale ( **%%** ) per eseguire il **per** comando all'interno di un file batch. Le variabili sono tra maiuscole e minuscole e devono essere rappresentati con un valore alfabetico, ad esempio **%a**, **%b**, o **%c**.|
-|(\<set >)|Obbligatorio. Specifica uno o più file, directory, o stringhe di testo o un intervallo di valori su cui eseguire il comando. Le parentesi sono obbligatorie.|
-|Comando \<>|Obbligatorio. Specifica il comando che si desidera eseguire orizzontale su ogni file, directory o stringa di testo o sull'intervallo di valori inclusi nel *impostare*.|
+|{%%\|%}\<variabile >|Obbligatoria. Rappresenta un parametro sostituibile. Usare un solo segno di percentuale ( **%** ) per eseguire il comando **for** al prompt dei comandi. Utilizzare i segni di percentuale ( **%%** ) per eseguire il **per** comando all'interno di un file batch. Le variabili sono tra maiuscole e minuscole e devono essere rappresentati con un valore alfabetico, ad esempio **%a**, **%b**, o **%c**.|
+|(\<set >)|Obbligatoria. Specifica uno o più file, directory, o stringhe di testo o un intervallo di valori su cui eseguire il comando. Le parentesi sono obbligatorie.|
+|Comando \<>|Obbligatoria. Specifica il comando che si desidera eseguire orizzontale su ogni file, directory o stringa di testo o sull'intervallo di valori inclusi nel *impostare*.|
 |\<OpzioniRigaComando >|Specifica le opzioni della riga di comando che si desidera utilizzare con il comando specificato.|
 |/?|Visualizza la guida al prompt dei comandi.|
 
-## <a name="remarks"></a>Osservazioni
+## <a name="remarks"></a>Note
 
 - Utilizzo **di per**
 
@@ -104,17 +100,17 @@ for {%%|%}<Variable> in (<Set>) do <Command> [<CommandLineOptions>]
 
     La sintassi sono:  
     ```
-    for /f ["<ParsingKeywords>"] {%%|%}<Variable> in (<Set>) do <Command> [<CommandLineOptions>]
-    for /f ["<ParsingKeywords>"] {%%|%}<Variable> in ("<LiteralString>") do <Command> [<CommandLineOptions>]
-    for /f ["<ParsingKeywords>"] {%%|%}<Variable> in ('<Command>') do <Command> [<CommandLineOptions>]
+    for /f [<ParsingKeywords>] {%%|%}<Variable> in (<Set>) do <Command> [<CommandLineOptions>]
+    for /f [<ParsingKeywords>] {%%|%}<Variable> in (<LiteralString>) do <Command> [<CommandLineOptions>]
+    for /f [<ParsingKeywords>] {%%|%}<Variable> in ('<Command>') do <Command> [<CommandLineOptions>]
     ```  
     Il *impostare* argomento specifica uno o più nomi di file. Ogni file è aperto, leggere ed elaborati prima di passare al file successivo contenuto *impostare*. Per ignorare il comportamento di analisi predefinito, specificare *ParolechiaveAnalisi*. Si tratta di una stringa tra virgolette contenente uno o più parole chiave per specificare diverse opzioni di analisi.
 
     Se si utilizza il **usebackq** opzione, utilizzare una delle sintassi seguenti:  
     ```
-    for /f ["usebackq <ParsingKeywords>"] {%%|%}<Variable> in ("<Set>") do <Command> [<CommandLineOptions>]
-    for /f ["usebackq <ParsingKeywords>"] {%%|%}<Variable> in ('<LiteralString>') do <Command> [<CommandLineOptions>]
-    for /f ["usebackq <ParsingKeywords>"] {%%|%}<Variable> in (`<Command>`) do <Command> [<CommandLineOptions>]
+    for /f [usebackq <ParsingKeywords>] {%%|%}<Variable> in (<Set>) do <Command> [<CommandLineOptions>]
+    for /f [usebackq <ParsingKeywords>] {%%|%}<Variable> in ('<LiteralString>') do <Command> [<CommandLineOptions>]
+    for /f [usebackq <ParsingKeywords>] {%%|%}<Variable> in (`<Command>`) do <Command> [<CommandLineOptions>]
     ```  
     Nella tabella seguente sono elencate le parole chiave di analisi che è possibile utilizzare per *ParolechiaveAnalisi*.  
 
@@ -133,7 +129,7 @@ for {%%|%}<Variable> in (<Set>) do <Command> [<CommandLineOptions>]
 
     |Variabile con modificatore|Descrizione|
     |----------------------|-----------|
-    |% ~ I|Si espande **avvii** che rimuove le virgolette di chiusura ("").|
+    |% ~ I|Espande il segno **% i** che rimuove le virgolette circostanti ().|
     |% ~ fI|Si espande **avvii** in un percorso completo.|
     |% ~ inserimento delle dipendenze|Si espande **avvii** per solo una lettera di unità.|
     |% ~ pi greco|Si espande **avvii** solo in un percorso.|
@@ -160,12 +156,12 @@ for {%%|%}<Variable> in (<Set>) do <Command> [<CommandLineOptions>]
     Tramite i nomi delle variabili lettere maiuscole, ad esempio **%i**, è possibile rendere il codice più leggibile ed evitare confusione con i modificatori, che non distinguono tra maiuscole e minuscole.
 - Analisi di una stringa
 
-  È possibile usare la logica di analisi **per/f** su una stringa immediata eseguendo il wrapping *\<LiteralString\>* in: virgolette doppie (*senza* "usebackq") o tra virgolette singole (*con* "usebackq"), ad esempio ("stringa") o (' stringa '). *\<\>LiteralString* viene considerato come una singola riga di input da un file. Quando si analizzano *\<LiteralString\>* tra virgolette doppie, i simboli dei comandi, ad esempio **\\ \& \|** \> \< \^, vengono considerati caratteri ordinari.
+  È possibile usare la logica di analisi **per/f** su una stringa immediata eseguendo il wrapping di *\<LiteralString\>* in: virgolette doppie (*senza* usebackq) o tra virgolette singole (*con* usebackq), ad esempio (String) o (' String '). *\<\>LiteralString* viene considerato come una singola riga di input da un file. Quando si analizzano *\<LiteralString\>* tra virgolette doppie, i simboli dei comandi, ad esempio **\\ \& \|** \> \< \^, vengono considerati caratteri ordinari.
 - Analisi dell'output
 
   È possibile utilizzare il comando **per/f** per analizzare l'output di un comando inserendo un comando racchiuso tra virgolette *\<\>* tra parentesi. Viene considerato come una riga di comando, che viene passata a un elemento figlio Cmd.exe. L'output viene acquisito in memoria e analizzato come se si tratta di un file.
 
-## <a name="BKMK_examples"></a>Esempi
+## <a name="examples"></a><a name=BKMK_examples></a>Esempi
 
 Utilizzare **per** in un file batch, utilizzare la sintassi seguente:
 ```
@@ -179,17 +175,17 @@ Nell'esempio precedente, ogni file con estensione doc o txt nella directory corr
 
 Per analizzare un file, ignorando le righe di commento, tipo:
 ```
-for /f "eol=; tokens=2,3* delims=," %i in (myfile.txt) do @echo %i %j %k
+for /f eol=; tokens=2,3* delims=, %i in (myfile.txt) do @echo %i %j %k
 ```
-Questo comando consente di analizzare ogni riga in MyFile. txt. Ignora le righe che iniziano con un punto e virgola e passa il token secondo e terzo da ogni riga per il **per** corpo (i token vengono separati da virgole o spazi). Il corpo del **per** istruzione fa riferimento **avvii** per ottenere il token, il secondo **%j** per ottenere il terzo token e **%k** per ottenere tutti i token rimanenti. Se i nomi dei file che viene fornito contiene spazi, utilizzare le virgolette intorno al testo (ad esempio, "nome File"). Per utilizzare le virgolette, è necessario utilizzare **usebackq**. In caso contrario, le virgolette doppie vengono interpretate come definizione di una valore letterale stringa da analizzare.
+Questo comando consente di analizzare ogni riga in MyFile. txt. Ignora le righe che iniziano con un punto e virgola e passa il token secondo e terzo da ogni riga per il **per** corpo (i token vengono separati da virgole o spazi). Il corpo del **per** istruzione fa riferimento **avvii** per ottenere il token, il secondo **%j** per ottenere il terzo token e **%k** per ottenere tutti i token rimanenti. Se i nomi file forniti contengono spazi, racchiudere il testo tra virgolette, ad esempio il nome del file. Per utilizzare le virgolette, è necessario utilizzare **usebackq**. In caso contrario, le virgolette doppie vengono interpretate come definizione di una valore letterale stringa da analizzare.
 
-**%i** viene dichiarato in modo esplicito nel **per** istruzione. **%j** e **%k** in modo implicito vengono dichiarate utilizzando **token =** . È possibile utilizzare **token =** per specificare fino a 26 token, a condizione che non provoca un tentativo di dichiarare una variabile superiore alla lettera "z" o "Z".
+**%i** viene dichiarato in modo esplicito nel **per** istruzione. **%j** e **%k** in modo implicito vengono dichiarate utilizzando **token =** . È possibile utilizzare i **token =** per specificare fino a 26 token, a condizione che non venga eseguito un tentativo di dichiarare una variabile maggiore della lettera Z o z.
 
 Nell'esempio seguente enumera i nomi delle variabili di ambiente nell'ambiente corrente. Per analizzare l'output di un comando inserendo *impostare* tra parentesi, digitare:
 ```
-for /f "usebackq delims==" %i in ('set') do @echo %i 
+for /f usebackq delims== %i in ('set') do @echo %i 
 ```
 
-#### <a name="additional-references"></a>Altri riferimenti
+## <a name="additional-references"></a>Altre informazioni di riferimento
 
-[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+- [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

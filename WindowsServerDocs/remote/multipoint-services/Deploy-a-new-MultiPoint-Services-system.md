@@ -1,24 +1,20 @@
 ---
 title: Distribuire un nuovo sistema Windows MultiPoint Services
 description: Passaggi necessari per distribuire un nuovo ambiente MultiPoint Services
-ms.custom: na
 ms.date: 07/22/2016
 ms.prod: windows-server
 ms.technology: multipoint-services
-ms.reviewer: na
-ms.suite: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 4bac9d1b-bd21-4bc8-8f72-0dd9bb2b3f5d
 author: evaseydl
 ms.author: evas
 manager: scottman
-ms.openlocfilehash: a4ee5145af0dd8cc7d90a2fd7c02ed810157de21
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: e152d8d259d0d838147ff11d88423b9ad2204009
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71389714"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80859754"
 ---
 # <a name="deploy-a-new-windows-multipoint-services-system"></a>Distribuire un nuovo sistema Windows MultiPoint Services
 Negli argomenti di questa sezione viene illustrato come configurare il sistema MultiPoint Services. Si installerà e configurerà un server MultiPoint; configurare le stazioni; installare driver, aggiornamenti e software; aggiungere facoltativamente un dominio; attivare il server MultiPoint; e aggiungere le licenze CAL (Client Access License) per ogni stazione.  

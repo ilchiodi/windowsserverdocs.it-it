@@ -2,22 +2,18 @@
 title: Distribuire un server DirectAccess singolo con impostazioni avanzate
 description: Questo argomento fa parte della Guida distribuire un server DirectAccess singolo con impostazioni avanzate per Windows Server 2016
 manager: brianlic
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: networking-da
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: b211a9ca-1208-4e1f-a0fe-26a610936c30
 ms.author: lizross
 author: eross-msft
-ms.openlocfilehash: 4e6c8379f225dbeefd7c97ac96b9a0047dfd4a0b
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: 7f6a6724a2ab7bb6da48a11d31fb04461912e388
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80309215"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80859524"
 ---
 # <a name="deploy-a-single-directaccess-server-with-advanced-settings"></a>Distribuire un server DirectAccess singolo con impostazioni avanzate
 
@@ -85,8 +81,8 @@ Nella tabella seguente sono elencati i ruoli e le funzionalità richiesti per qu
   
 |Ruolo/funzionalità|Modalità di supporto dello scenario|  
 |---------|-----------------|  
-|Ruolo Accesso remoto|Il ruolo viene installato e disinstallato tramite la console di Server Manager o Windows PowerShell. Questo ruolo comprende sia DirectAccess che Servizio Routing e Accesso remoto (RRAS). Il ruolo Accesso remoto è costituito da due componenti:<br/><br/>1. DirectAccess e VPN RRAS. DirectAccess e VPN vengono gestiti insieme nella console di gestione accesso remoto.<br/>2. routing RRAS. Le funzionalità di routing RRAS sono gestite nella console di routing e accesso remoto legacy.<br /><br />Il ruolo server Accesso remoto dipende dai ruoli e/o dalle funzionalità server seguenti:<br/><br/> -Server Web Internet Information Services (IIS): questa funzionalità è necessaria per configurare il server dei percorsi di rete nel server DirectAccess e il probe Web predefinito.<br/> -Database interno di Windows. Usato per l'accounting locale nel server DirectAccess.|  
-|Funzionalità Strumenti di Gestione Accesso remoto|Questa funzionalità viene installata come segue:<br /><br />-Viene installato per impostazione predefinita in un server DirectAccess quando è installato il ruolo accesso remoto e supporta l'interfaccia utente della console di gestione remota e i cmdlet di Windows PowerShell.<br />-Può essere installata facoltativamente in un server che non esegue il ruolo server DirectAccess. In questo caso viene utilizzata per la gestione remota di un computer di Accesso remoto che esegue DirectAccess e VPN.<br /><br />La funzionalità Strumenti di Gestione Accesso remoto è costituita dai seguenti elementi:<br /><br />-Interfaccia utente grafica (GUI) di accesso remoto<br />-Modulo di accesso remoto per Windows PowerShell<br /><br />Le dipendenze includono:<br /><br />-Console Gestione criteri di gruppo<br />-RAS Connection Manager Administration Kit (CMAK)<br />-Windows PowerShell 3.0<br />-Infrastruttura e strumenti di gestione grafico|  
+|Ruolo Accesso remoto|Il ruolo viene installato e disinstallato tramite la console di Server Manager o Windows PowerShell. Questo ruolo comprende sia DirectAccess che Servizio Routing e Accesso remoto (RRAS). Il ruolo Accesso remoto è costituito da due componenti:<br/><br/>1. DirectAccess e VPN RRAS. DirectAccess e VPN vengono gestiti insieme nella console di gestione accesso remoto.<br/>2. routing RRAS. Le funzionalità di routing RRAS sono gestite nella console di routing e accesso remoto legacy.<p>Il ruolo server Accesso remoto dipende dai ruoli e/o dalle funzionalità server seguenti:<br/><br/> -Server Web Internet Information Services (IIS): questa funzionalità è necessaria per configurare il server dei percorsi di rete nel server DirectAccess e il probe Web predefinito.<br/> -Database interno di Windows. Usato per l'accounting locale nel server DirectAccess.|  
+|Funzionalità Strumenti di Gestione Accesso remoto|Questa funzionalità viene installata come segue:<p>-Viene installato per impostazione predefinita in un server DirectAccess quando è installato il ruolo accesso remoto e supporta l'interfaccia utente della console di gestione remota e i cmdlet di Windows PowerShell.<br />-Può essere installata facoltativamente in un server che non esegue il ruolo server DirectAccess. In questo caso viene utilizzata per la gestione remota di un computer di Accesso remoto che esegue DirectAccess e VPN.<p>La funzionalità Strumenti di Gestione Accesso remoto è costituita dai seguenti elementi:<p>-Interfaccia utente grafica (GUI) di accesso remoto<br />-Modulo di accesso remoto per Windows PowerShell<p>Le dipendenze includono:<p>-Console Gestione criteri di gruppo<br />-RAS Connection Manager Administration Kit (CMAK)<br />-Windows PowerShell 3.0<br />-Infrastruttura e strumenti di gestione grafico|  
   
 ## <a name="hardware-requirements"></a><a name="BKMK_HARD"></a>Requisiti hardware  
 I requisiti hardware per questo scenario includono i seguenti.  
@@ -148,9 +144,9 @@ Nella tabella seguente vengono forniti i collegamenti a risorse aggiuntive.
   
 |Tipo di contenuto|Riferimenti|  
 |--------|-------|  
-|**Distribuzione**|[Percorsi di distribuzione di DirectAccess in Windows Server](../../../remote-access/directaccess/DirectAccess-Deployment-Paths-in-Windows-Server.md)<br /><br />[Distribuire un server DirectAccess singolo tramite la procedura guidata di Introduzione](../../../remote-access/directaccess/single-server-wizard/Deploy-a-Single-DirectAccess-Server-Using-the-Getting-Started-Wizard.md)|  
+|**Distribuzione**|[Percorsi di distribuzione di DirectAccess in Windows Server](../../../remote-access/directaccess/DirectAccess-Deployment-Paths-in-Windows-Server.md)<p>[Distribuire un server DirectAccess singolo tramite la procedura guidata di Introduzione](../../../remote-access/directaccess/single-server-wizard/Deploy-a-Single-DirectAccess-Server-Using-the-Getting-Started-Wizard.md)|  
 |**Strumenti e impostazioni**|[Cmdlet di PowerShell per Accesso remoto](https://technet.microsoft.com/library/hh918399.aspx)|  
-|**Risorse della community**|[Guida alla sopravvivenza di DirectAccess](https://social.technet.microsoft.com/wiki/contents/articles/23210.directaccess-survival-guide.aspx)<br /><br />[Voci wiki di DirectAccess](https://go.microsoft.com/fwlink/?LinkId=236871)|  
+|**Risorse della community**|[Guida alla sopravvivenza di DirectAccess](https://social.technet.microsoft.com/wiki/contents/articles/23210.directaccess-survival-guide.aspx)<p>[Voci wiki di DirectAccess](https://go.microsoft.com/fwlink/?LinkId=236871)|  
 |**Tecnologie correlate**|[Funzionamento di IPv6](https://technet.microsoft.com/library/cc781672(v=WS.10).aspx)|  
   
 

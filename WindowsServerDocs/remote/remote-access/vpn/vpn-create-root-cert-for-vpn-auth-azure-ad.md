@@ -1,22 +1,20 @@
 ---
 title: Creare certificati radice per l'autenticazione VPN con Azure AD
 description: Azure AD usa il certificato VPN per firmare i certificati rilasciati ai client Windows 10 durante l'autenticazione per Azure AD per la connettività VPN. Il certificato contrassegnato come primario è l'emittente usato da Azure AD.
-services: active-directory
 ms.prod: windows-server
 ms.technology: networking-ras
-ms.workload: identity
 ms.topic: article
 ms.date: 06/28/2019
-ms.author: lizross
-author: eross-msft
+ms.author: v-tea
+author: Teresa-MOTIV
 ms.localizationpriority: medium
 ms.reviewer: deverette
-ms.openlocfilehash: def4c0d7437dd297460d0a863cd2568325825ca9
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: f4501c244726ee9b23a6d517c4b835f0c9418302
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80319031"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80818804"
 ---
 # <a name="step-72-create-conditional-access-root-certificates-for-vpn-authentication-with-azure-ad"></a>Passaggio 7.2. Creare certificati radice di accesso condizionale per l'autenticazione VPN con Azure AD
 

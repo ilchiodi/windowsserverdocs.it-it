@@ -1,30 +1,26 @@
 ---
 title: bitsadmin wrap
-description: Argomento comandi di Windows per **BITSAdmin wrap** -wrapping di qualsiasi riga di testo di output che si estende oltre il bordo all'estrema destra della finestra di comando alla riga successiva.
-ms.custom: na
+description: Argomento comandi di Windows per Bitsadmin wrap, che esegue il wrapping di qualsiasi riga di testo di output che si estende oltre il bordo all'estrema destra della finestra di comando alla riga successiva.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 14e57522-539d-4621-ad15-09f7a44ccab7
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 5609fb6f38716795a545e0c7fe3939f893a8c8d5
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 009a0452f44c4944ae110ca6b9e0570793c32a72
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71380685"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80848754"
 ---
 # <a name="bitsadmin-wrap"></a>bitsadmin wrap
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Esegue il wrapping dell'output per adattarlo a una finestra di comando.
+Esegue il wrapping di tutte le righe di output testo che si estende oltre il bordo all'estrema destra della finestra di comando nella riga successiva.
 
 ## <a name="syntax"></a>Sintassi
 
@@ -32,7 +28,7 @@ Esegue il wrapping dell'output per adattarlo a una finestra di comando.
 bitsadmin /Wrap Job
 ```
 
-## <a name="parameters"></a>Parametri
+### <a name="parameters"></a>Parametri
 
 |Parametro|Descrizione|
 |-------|--------|
@@ -42,7 +38,7 @@ bitsadmin /Wrap Job
 
 Specificare prima di altre opzioni. Per impostazione predefinita, tutte le opzioni, ad eccezione dell'opzione di [monitoraggio Bitsadmin](bitsadmin-monitor.md) , incapsulano l'output.
 
-## <a name="BKMK_examples"></a>Esempi
+## <a name="examples"></a><a name=BKMK_examples></a>Esempi
 
 Nell'esempio seguente recupera le informazioni per il processo denominato *myDownloadJob* e include l'output.
 
@@ -50,6 +46,6 @@ Nell'esempio seguente recupera le informazioni per il processo denominato *myDow
 C:\>bitsadmin /Wrap /Info myDownloadJob /verbose
 ```
 
-#### <a name="additional-references"></a>Riferimenti aggiuntivi
+## <a name="additional-references"></a>Altre informazioni di riferimento
 
-[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+- [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

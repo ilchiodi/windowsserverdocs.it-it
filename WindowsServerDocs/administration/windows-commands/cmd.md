@@ -1,26 +1,22 @@
 ---
-title: Cmd
-description: 'Argomento dei comandi di Windows per * * * *- '
-ms.custom: na
+title: cmd
+description: Windows Commands Topic for cmd, che avvia una nuova istanza dell'interprete dei comandi, cmd. exe.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 6ec588db-31a9-4a73-a970-65a2c6f4abbe
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 032fbea2039faa09753ac0c2b51e4b62004d36ac
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 83b5e27017a9a0f979acec428b8ddaa73cd9d46b
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71379335"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80847624"
 ---
-# <a name="cmd"></a>Cmd
+# <a name="cmd"></a>cmd
 
 Avvia una nuova istanza dell'interprete dei comandi, Cmd.exe. Se utilizzata senza parametri, **cmd** vengono visualizzate le informazioni sul copyright e versione del sistema operativo.
 
@@ -30,7 +26,7 @@ Avvia una nuova istanza dell'interprete dei comandi, Cmd.exe. Se utilizzata senz
 cmd [/c|/k] [/s] [/q] [/d] [/a|/u] [/t:{<B><F>|<F>}] [/e:{on|off}] [/f:{on|off}] [/v:{on|off}] [<String>]
 ```
 
-## <a name="parameters"></a>Parametri
+### <a name="parameters"></a>Parametri
 
 |Parametro|Descrizione|
 |---------|-----------|
@@ -55,13 +51,13 @@ Nella tabella seguente sono elencate le cifre esadecimali valide che è possibil
 
 |Valore|Colore|
 |-----|-----|
-|0|Black|
-|1|Blu|
+|0|nero|
+|1|Blue|
 |2|Verde|
 |3|Verde acqua|
-|4|Rossa|
-|5|Viola|
-|6|Giallo|
+|4|Rosso|
+|5|Purple|
+|6|Yellow|
 |7|Vuoto|
 |8|Grigio|
 |9|Azzurro|
@@ -72,14 +68,14 @@ Nella tabella seguente sono elencate le cifre esadecimali valide che è possibil
 |e|Giallo|
 |f|Sfondo bianco|
 
-## <a name="remarks"></a>Osservazioni
+## <a name="remarks"></a>Note
 
 -   Uso di più comandi
 
-    Per usare più comandi per \<stringa >, separarli dal separatore di comandi **&&** e racchiuderli tra virgolette. Ad esempio:
+    Per usare più comandi per \<stringa >, separarli dal separatore di comandi **&&** e racchiuderli tra virgolette. Ad esempio,
 
     ```
-    "<Command>&&<Command>&&<Command>"
+    <Command>&&<Command>&&<Command>
     ``` 
  
 -   Elaborazione virgolette
@@ -103,7 +99,7 @@ Nella tabella seguente sono elencate le cifre esadecimali valide che è possibil
     Se sono presenti una o entrambe le sottochiavi del registro di sistema, vengono eseguite prima di tutte le altre variabili.
 
 > [!CAUTION]
-> La modifica non corretta del Registro di sistema potrebbe danneggiare gravemente il sistema. Prima di apportare modifiche al Registro di sistema, si consiglia di effettuare il backup di tutti i dati importanti presenti sul computer.
+> È possibile che eventuali modifiche non corrette del Registro di sistema danneggino gravemente il sistema. Prima di apportare modifiche al Registro di sistema, si consiglia di effettuare il backup di tutti i dati importanti presenti sul computer.
 
 -   Abilitazione e disabilitazione delle estensioni del comando
 
@@ -116,7 +112,7 @@ Nella tabella seguente sono elencate le cifre esadecimali valide che è possibil
     Impostare il valore di **REG_DWORD** su **0 × 1** (abilitato) o **0 × 0** (disabilitato) nel registro di sistema utilizzando Regedit. exe. Specificato dall'utente e impostazioni avranno precedenza sulle impostazioni del computer e le opzioni della riga di comando hanno la precedenza sulle impostazioni del Registro di sistema.
 
 > [!CAUTION]
-> La modifica non corretta del Registro di sistema potrebbe danneggiare gravemente il sistema. Prima di apportare modifiche al Registro di sistema, si consiglia di effettuare il backup di tutti i dati importanti presenti sul computer.
+> È possibile che eventuali modifiche non corrette del Registro di sistema danneggino gravemente il sistema. Prima di apportare modifiche al Registro di sistema, si consiglia di effettuare il backup di tutti i dati importanti presenti sul computer.
 
     When you enable command extensions, the following commands are affected:  
     -  **assoc**
@@ -156,7 +152,7 @@ Nella tabella seguente sono elencate le cifre esadecimali valide che è possibil
     Per impostare il valore di **REG_DWORD** , eseguire regedit. exe e usare il valore esadecimale di un carattere di controllo per una funzione specifica (ad esempio, **0 × 9** è Tab e **0 × 08** è Backspace). Specificato dall'utente e impostazioni avranno precedenza sulle impostazioni del computer e le opzioni della riga di comando hanno la precedenza sulle impostazioni del Registro di sistema.
 
 > [!CAUTION]
-> La modifica non corretta del Registro di sistema potrebbe danneggiare gravemente il sistema. Prima di apportare modifiche al Registro di sistema, si consiglia di effettuare il backup di tutti i dati importanti presenti sul computer.
+> È possibile che eventuali modifiche non corrette del Registro di sistema danneggino gravemente il sistema. Prima di apportare modifiche al Registro di sistema, si consiglia di effettuare il backup di tutti i dati importanti presenti sul computer.
 
 Se si abilita il completamento del nome file e directory tramite **/f: su**, utilizzare CTRL + D per il completamento del nome di directory e CTRL + F per il completamento del nome file. Per disabilitare un carattere di completamento specifico nel Registro di sistema, utilizzare il valore degli spazi vuoti [**0 × 20**] perché non è un carattere di controllo valido.
 
@@ -166,10 +162,10 @@ Il completamento del nome file e directory elabora correttamente i nomi di file 
 
 I caratteri speciali seguenti richiedono le virgolette: & < > [] {} ^ =;! '+', ~ [spazio].
 
-Se le informazioni che viene fornito contengono spazi, utilizzare le virgolette intorno al testo (ad esempio, "nome Computer").
+Se le informazioni fornite contengono spazi, racchiudere il testo tra virgolette, ad esempio il nome del computer.
 
 Se si elabora il completamento del nome file e directory all'interno *stringa*, qualsiasi parte il *percorso* a destra del cursore viene scartato (nel punto *stringa* in cui è stato elaborato il completamento).
 
-#### <a name="additional-references"></a>Altri riferimenti
+## <a name="additional-references"></a>Altre informazioni di riferimento
 
-[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+- [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

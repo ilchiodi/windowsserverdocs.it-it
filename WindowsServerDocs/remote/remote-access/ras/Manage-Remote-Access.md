@@ -2,22 +2,18 @@
 title: Gestire l'accesso remoto
 description: Questo argomento fornisce informazioni su come gestire l'accesso remoto in Windows Server 2016.
 manager: brianlic
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: networking-ras
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 1459819a-b1b6-4800-8770-4a85d02c7a2b
 ms.author: lizross
 author: eross-msft
-ms.openlocfilehash: 6437a7aa5a535352ad4f6c6be8fbac2162b6feea
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: 19798c5fb29d3b8aea68b29e5a42775970eeca46
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80308435"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80857451"
 ---
 # <a name="manage-remote-access"></a>Gestire l'accesso remoto
 
@@ -86,8 +82,8 @@ Nella tabella seguente sono elencati i ruoli e le funzionalità richiesti per lo
   
 |Ruolo o funzionalità|Modalità di supporto dello scenario|  
 |----------|-----------------|  
-|*Ruolo accesso remoto*|Questo ruolo viene installato e disinstallato con la console di Server Manager o Windows PowerShell. Questo ruolo comprende DirectAccess, una funzionalità precedentemente inclusa in Windows Server 2008 R2, e il servizio Routing e Accesso remoto che in precedenza era un servizio ruolo nel ruolo server Servizi di accesso e criteri di rete (NPAS). Il ruolo Accesso remoto è costituito da due componenti:<br /><br />1. DirectAccess e VPN Servizi routing e accesso remoto (RRAS): DirectAccess e VPN vengono gestiti nella console di gestione accesso remoto.<br />2. RRAS: le funzionalità sono gestite nella console di routing e accesso remoto.<br /><br />Il ruolo del server Accesso remoto dipende dalle funzionalità seguenti:<br /><br />-Server Web (IIS): obbligatorio per configurare il server dei percorsi di rete e il probe Web predefinito.<br />-Database interno di Windows: usato per l'accounting locale sul server di accesso remoto.|  
-|Funzionalità Strumenti di Gestione Accesso remoto|Questa funzionalità viene installata come segue:<br /><br />-Per impostazione predefinita, in un server di accesso remoto quando viene installato il ruolo accesso remoto e supporta l'interfaccia utente della console di gestione remota.<br />-Come opzione in un server che non esegue il ruolo del server accesso remoto. In questo caso, viene usata per la gestione remota di un server di Accesso remoto.<br /><br />Questa funzionalità include gli elementi seguenti:<br /><br />-GUI di accesso remoto e strumenti da riga di comando<br />-Modulo di accesso remoto per Windows PowerShell<br /><br />Le dipendenze includono:<br /><br />-Console Gestione criteri di gruppo<br />-RAS Connection Manager Administration Kit (CMAK)<br />-Windows PowerShell 3.0<br />-Infrastruttura e strumenti di gestione grafico|  
+|*Ruolo accesso remoto*|Questo ruolo viene installato e disinstallato con la console di Server Manager o Windows PowerShell. Questo ruolo comprende DirectAccess, una funzionalità precedentemente inclusa in Windows Server 2008 R2, e il servizio Routing e Accesso remoto che in precedenza era un servizio ruolo nel ruolo server Servizi di accesso e criteri di rete (NPAS). Il ruolo Accesso remoto è costituito da due componenti:<p>1. DirectAccess e VPN Servizi routing e accesso remoto (RRAS): DirectAccess e VPN vengono gestiti nella console di gestione accesso remoto.<br />2. RRAS: le funzionalità sono gestite nella console di routing e accesso remoto.<p>Il ruolo del server Accesso remoto dipende dalle funzionalità seguenti:<p>-Server Web (IIS): obbligatorio per configurare il server dei percorsi di rete e il probe Web predefinito.<br />-Database interno di Windows: usato per l'accounting locale sul server di accesso remoto.|  
+|Funzionalità Strumenti di Gestione Accesso remoto|Questa funzionalità viene installata come segue:<p>-Per impostazione predefinita, in un server di accesso remoto quando viene installato il ruolo accesso remoto e supporta l'interfaccia utente della console di gestione remota.<br />-Come opzione in un server che non esegue il ruolo del server accesso remoto. In questo caso, viene usata per la gestione remota di un server di Accesso remoto.<p>Questa funzionalità include gli elementi seguenti:<p>-GUI di accesso remoto e strumenti da riga di comando<br />-Modulo di accesso remoto per Windows PowerShell<p>Le dipendenze includono:<p>-Console Gestione criteri di gruppo<br />-RAS Connection Manager Administration Kit (CMAK)<br />-Windows PowerShell 3.0<br />-Infrastruttura e strumenti di gestione grafico|  
   
 ## <a name="hardware-requirements"></a><a name="BKMK_HARD"></a>Requisiti hardware  
 I requisiti hardware per questo scenario includono i seguenti.  

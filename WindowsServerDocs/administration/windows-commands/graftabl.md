@@ -1,24 +1,20 @@
 ---
 title: graftabl
-description: 'Argomento dei comandi di Windows per * * * *- '
-ms.custom: na
+description: Argomento dei comandi di Windows per * * * *-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: b08351d4-3d24-490c-86f6-1252da11d923
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: ac7748b43eb8859a17a2c61ef9ef4444019ad51b
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: d55df814cb962e82775a86e154a024c579987cf2
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71375634"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80842414"
 ---
 # <a name="graftabl"></a>graftabl
 
@@ -35,11 +31,11 @@ graftabl <CodePage>
 graftabl /status
 ```
 
-## <a name="parameters"></a>Parametri
+### <a name="parameters"></a>Parametri
 
 |Parametro|Descrizione|
 |---------|-----------|
-|\<CodePage >|Specifica una tabella codici per definire l'aspetto dei caratteri estesi in modalità grafica.</br>Numeri di identificazione di pagina di codice validi sono:</br>437: Stati Uniti</br>850: Multilingue (latino I)</br>852: Slavo (latino II)</br>855: Cirillico (russo)</br>857: Turco</br>860: Portoghese</br>861: Islandese</br>863: Francese (Canada)</br>865: Area lingue nordiche</br>866: Russo</br>869: Greco moderno|
+|\<tabella codici >|Specifica una tabella codici per definire l'aspetto dei caratteri estesi in modalità grafica.</br>Numeri di identificazione di pagina di codice validi sono:</br>437: Stati Uniti</br>850: multilingue (alfabeto latino)</br>852: slave (Latin II)</br>855: cirillico (Russo)</br>857: turco</br>860: Portoghese</br>861: islandese</br>863: canadese-francese</br>865: Nordic</br>866: russo</br>869: greco moderno|
 |/status|Visualizza l'oggetto tabella codici che **graftabl** sta utilizzando.|
 |/?|Visualizza la guida al prompt dei comandi.|
 
@@ -54,7 +50,7 @@ graftabl /status
     |2|Si è verificato un errore di file.|
 -   È possibile utilizzare la variabile di ambiente ERRORLEVEL in un file batch per elaborare i codici di uscita restituiti da **graftabl**.
 
-## <a name="BKMK_examples"></a>Esempi
+## <a name="examples"></a><a name=BKMK_examples></a>Esempi
 
 Per visualizzare la tabella codici corrente utilizzata dal **graftabl**, tipo:
 ```
@@ -69,9 +65,9 @@ Per caricare il grafica del set di caratteri per la tabella codici 850 (multilin
 graftabl 850
 ```
 
-#### <a name="additional-references"></a>Altri riferimenti
+## <a name="additional-references"></a>Altre informazioni di riferimento
 
-[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+- [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
 
 [Freedisk](freedisk.md)
 

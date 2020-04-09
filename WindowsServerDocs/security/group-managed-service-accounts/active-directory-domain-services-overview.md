@@ -1,25 +1,20 @@
 ---
 title: Panoramica di Active Directory Domain Services
 description: Sicurezza di Windows Server
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.service: na
-ms.suite: na
 ms.technology: security-auditing
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 6cfe9479-5d17-41d5-939a-891e5233fdca
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/12/2016
-ms.openlocfilehash: c0ee85358c5e39f1ebf8cd901298a6083a3ebb97
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 73272086b176fa8fb086063ff3d4249a02b016b2
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71403768"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80857024"
 ---
 # <a name="active-directory-domain-services-overview"></a>Panoramica di Active Directory Domain Services
 
@@ -27,7 +22,7 @@ ms.locfileid: "71403768"
   
 Una directory è una struttura gerarchica che archivia le informazioni sugli oggetti sulla rete. Un servizio directory, ad esempio Active Directory Domain Services (AD DS), fornisce i metodi per archiviare i dati della directory e renderli disponibili agli utenti e agli amministratori di rete. Ad esempio, servizi di dominio Active Directory archivia le informazioni sugli account utente, ad esempio nomi, password, numeri di telefono e così via, e consente ad altri utenti autorizzati della stessa rete di accedere a tali informazioni.  
   
-Active Directory archivia le informazioni sugli oggetti sulla rete e semplifica la ricerca e l'utilizzo di queste informazioni da parte degli amministratori e degli utenti. Active Directory utilizza un archivio dati strutturato come base per un'organizzazione logica gerarchica delle informazioni di directory.  
+Active Directory archivia le informazioni relative agli oggetti sulla rete e semplifica la ricerca e l'uso di queste informazioni da parte degli amministratori e degli utenti. Active Directory usa un archivio dati strutturato come base per un'organizzazione logica e gerarchica delle informazioni di directory.  
   
 Questo archivio dati, noto anche come directory, contiene informazioni sugli oggetti Active Directory. Questi oggetti includono in genere risorse condivise, ad esempio server, volumi, stampanti e account utente e computer di rete. Per altre informazioni sull'archivio dati Active Directory, vedere [archivio dati di directory](https://technet.microsoft.com/library/cc736627(v=ws.10).aspx).  
   

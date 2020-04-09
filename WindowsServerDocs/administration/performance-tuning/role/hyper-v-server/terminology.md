@@ -4,25 +4,25 @@ description: Terminologia di Hyper-v utile nell'ottimizzazione delle prestazioni
 ms.prod: windows-server
 ms.technology: performance-tuning-guide
 ms.topic: article
-ms.author: Asmahi; SandySp; JoPoulso
+ms.author: asmahi; sandysp; jopoulso
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: acd61e9edef3ac88027d0cc89618c537fa6aa25f
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 88aaebaac9161849fefe8116a1115eb628bcbf9e
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71385033"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80851764"
 ---
 # <a name="hyper-v-terminology"></a>Terminologia di Hyper-V
 In questa sezione viene riepilogata la terminologia chiave specifica per la tecnologia delle macchine virtuali utilizzata in questo argomento di ottimizzazione delle prestazioni:
 
-| Nome        | Definizione           |
+| Termine        | Definizione           |
 | ------------- |:------------|
 |*partizione figlio* | Qualsiasi macchina virtuale creata dalla partizione radice.|
 |*virtualizzazione dei dispositivi* | Meccanismo che consente di astrarre e condividere una risorsa hardware tra più consumer.|
 |*dispositivo emulato*|Un dispositivo virtualizzato che simula un dispositivo hardware fisico reale, in modo che gli utenti guest possano usare i driver tipici del dispositivo hardware.|
-|*enlightenment*|Ottimizzazione per un sistema operativo guest per renderla consapevole degli ambienti di macchine virtuali e ottimizzare il comportamento per le macchine virtuali.|
+|*illuminazione*|Ottimizzazione per un sistema operativo guest per renderla consapevole degli ambienti di macchine virtuali e ottimizzare il comportamento per le macchine virtuali.|
 |*Guest*|Software in esecuzione in una partizione. Può trattarsi di un sistema operativo completo o di un piccolo kernel per scopi specifici. L'hypervisor è indipendente dal Guest.|
 |*hypervisor*|Un livello di software che si trova sopra l'hardware e al di sotto di uno o più sistemi operativi. Il processo principale consiste nel fornire ambienti di esecuzione isolati denominati partizioni. Ogni partizione dispone di un proprio set di risorse hardware virtualizzate (unità di elaborazione centrale, CPU, memoria e dispositivi). L'hypervisor controlla e regola l'accesso all'hardware sottostante.|
 |*processore logico*| Unità di elaborazione che gestisce un thread di esecuzione (flusso di istruzioni). Possono essere presenti uno o più processori logici per core del processore e uno o più core per ogni socket del processore.|

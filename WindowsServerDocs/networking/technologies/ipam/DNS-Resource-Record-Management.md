@@ -2,22 +2,18 @@
 title: Gestione di record di risorse DNS
 description: Questo argomento fa parte della Guida alla gestione di gestione indirizzi IP in Windows Server 2016.
 manager: brianlic
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: networking-ipam
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 7b66c09d-e401-4f70-9a2a-6047dd629bfa
 ms.author: lizross
 author: eross-msft
-ms.openlocfilehash: 3aa20913a01a23291879b98d6f53fe60a7138670
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: eacd7f62148d4d547e76503a6c6cf7280c3f829b
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80312455"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80853554"
 ---
 # <a name="dns-resource-record-management"></a>Gestione di record di risorse DNS
 

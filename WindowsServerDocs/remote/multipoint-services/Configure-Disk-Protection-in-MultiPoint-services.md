@@ -1,24 +1,20 @@
 ---
 title: Configurare Protezione disco in MultiPoint Services
 description: Informazioni su come configurare la protezione del disco per servizi MultiPoint
-ms.custom: na
 ms.prod: windows-server
 ms.technology: multipoint-services
-ms.reviewer: na
-ms.suite: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: bd9bf5b9-e481-499b-9c15-7ee5a4f470c4
 author: evaseydl
 manager: scottman
 ms.author: evas
 ms.date: 08/04/2016
-ms.openlocfilehash: ae930162de32335ac32e3bda0ac381a26c5ea6dd
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: eee4fc1b80ff57ee1ab5ee683d82c06fbe36b549
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71389825"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80854084"
 ---
 # <a name="configure-disk-protection"></a>Configurare la protezione del disco
 È possibile utilizzare la protezione del disco in MultiPoint Services per proteggere il volume di sistema da aggiornamenti imprevisti, pianificare la conservazione degli aggiornamenti di Windows mentre è attiva la protezione del disco, disabilitare temporaneamente la protezione del disco e disinstallare la protezione del disco.  

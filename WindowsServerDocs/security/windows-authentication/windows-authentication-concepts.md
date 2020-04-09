@@ -1,24 +1,20 @@
 ---
 title: Concetti su Autenticazione di Windows
 description: Sicurezza di Windows Server
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: security-windows-auth
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 29d1db15-cae0-4e3d-9d8e-241ac206bb8b
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/12/2016
-ms.openlocfilehash: 46a0f6c4c08146f1d8fcf9de45446b974e48ecac
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 4051bfea26d5c96d02132b50373f56b7b17ce5fb
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71402339"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80857474"
 ---
 # <a name="windows-authentication-concepts"></a>Concetti su Autenticazione di Windows
 
@@ -34,7 +30,7 @@ L'archiviazione delle chiavi crittografiche in una posizione centralizzata sicur
 
 Le tecniche di autenticazione variano da un semplice accesso a un sistema operativo o da un accesso a un servizio o a un'applicazione, che identifica gli utenti in base a un elemento che solo l'utente conosce, ad esempio una password, a meccanismi di sicurezza più potenti che usano un elemento che l'utente has'such come token, certificati di chiave pubblica, immagini o attributi biologici. In un ambiente aziendale, gli utenti possono accedere a più applicazioni su numerosi tipi di server nell'ambito di un solo percorso o su più percorsi. Per tali motivi, l'autenticazione deve supportare ambienti per altre piattaforme e per altri sistemi operativi Windows.
 
-## <a name="authentication-and-authorization-a-travel-analogy"></a>Autenticazione e autorizzazione: Analogie di viaggio
+## <a name="authentication-and-authorization-a-travel-analogy"></a>Autenticazione e autorizzazione: un'analogia di viaggio
 Un'analogia di viaggio può essere utile per spiegare il funzionamento dell'autenticazione. Alcune attività preparatorie sono in genere necessarie per iniziare il viaggio. Il viaggiatore deve dimostrare la propria identità reale alle autorità host. Questa prova può essere sotto forma di prova di cittadinanza, luogo di nascita, voucher personale, fotografie o qualsiasi altra richiesta da parte della legge del paese host. L'identità del viaggiatore viene convalidata dal rilascio di un passaporto, che è analogo a un account di sistema rilasciato e amministrato da un'organizzazione, ovvero l'entità di sicurezza. Il passaporto e la destinazione prevista sono basati su un set di regole e normative emesse dall'autorità governativa.
 
 **Il viaggio**
@@ -67,7 +63,7 @@ Un account è un mezzo per identificare un richiedente, ovvero l'utente o il ser
 
 Gli account predefiniti e i gruppi di sicurezza di cui sono membri vengono definiti in ogni versione di Windows. Utilizzando i gruppi di sicurezza, è possibile assegnare le stesse autorizzazioni di sicurezza a molti utenti che sono stati autenticati correttamente, semplificando l'amministrazione dell'accesso. Le regole per il rilascio dei passaporti possono richiedere che il viaggiatore venga assegnato a determinati gruppi, ad esempio business, o Tourist o Government. Questo processo garantisce le autorizzazioni di sicurezza coerenti in tutti i membri di un gruppo. L'uso dei gruppi di sicurezza per assegnare le autorizzazioni significa che il controllo di accesso delle risorse rimane costante e facile da gestire e controllare. Con l'aggiunta e la rimozione di utenti che richiedono l'accesso dai gruppi di sicurezza appropriati in base alle esigenze, è possibile ridurre al minimo la frequenza delle modifiche apportate agli elenchi di controllo di accesso (ACL).
 
-Gli account dei servizi gestiti autonomi e gli account virtuali sono stati introdotti in Windows Server 2008 R2 e Windows 7 per fornire le applicazioni necessarie, ad esempio Microsoft Exchange Server e Internet Information Services (IIS), con l'isolamento del proprio dominio gli account, eliminando la necessità di un amministratore di amministrare manualmente il nome dell'entità servizio (SPN) e le credenziali per questi account. Gli account del servizio gestiti del gruppo sono stati introdotti in Windows Server 2012 e forniscono le stesse funzionalità all'interno del dominio, ma anche la funzionalità viene estesa su più server. Durante la connessione a un servizio ospitato in una server farm, ad esempio Bilanciamento carico di rete, i protocolli di autenticazione che supportano l'autenticazione reciproca richiedono che tutte le istanze dei servizi utilizzino la stessa entità.
+Gli account dei servizi gestiti autonomi e gli account virtuali sono stati introdotti in Windows Server 2008 R2 e Windows 7 per fornire le applicazioni necessarie, ad esempio Microsoft Exchange Server e Internet Information Services (IIS), con l'isolamento dei propri account di dominio, eliminando la necessità di un amministratore di amministrare manualmente il nome dell'entità servizio (SPN) e le credenziali per questi account. Gli account del servizio gestiti del gruppo sono stati introdotti in Windows Server 2012 e forniscono le stesse funzionalità all'interno del dominio, ma anche la funzionalità viene estesa su più server. Durante la connessione a un servizio ospitato in una server farm, ad esempio Bilanciamento carico di rete, i protocolli di autenticazione che supportano l'autenticazione reciproca richiedono che tutte le istanze dei servizi utilizzino la stessa entità.
 
 Per ulteriori informazioni sugli account, vedere:
 
@@ -84,7 +80,7 @@ Per ulteriori informazioni sugli account, vedere:
 -   [Identità speciali](https://technet.microsoft.com/itpro/windows/keep-secure/special-identities)
 
 ## <a name="delegated-authentication"></a>Autenticazione delegata
-Per usare l'analogia di viaggio, i paesi potrebbero emettere lo stesso accesso a tutti i membri di una delega governativa ufficiale, purché i delegati siano noti. Questa delega consente a un membro di agire sull'autorità di un altro membro. In Windows, l'autenticazione delegata si verifica quando un servizio di rete accetta una richiesta di autenticazione da un utente e presuppone l'identità di tale utente per avviare una nuova connessione a un secondo servizio di rete. Per supportare l'autenticazione delegata, è necessario stabilire server front-end o di primo livello, ad esempio server Web, responsabili della gestione delle richieste di autenticazione client e dei server back-end o a più livelli, ad esempio database di grandi dimensioni, responsabili di archiviazione delle informazioni. È possibile delegare il diritto di configurare l'autenticazione delegata agli utenti dell'organizzazione per ridurre il carico amministrativo degli amministratori.
+Per usare l'analogia di viaggio, i paesi potrebbero emettere lo stesso accesso a tutti i membri di una delega governativa ufficiale, purché i delegati siano noti. Questa delega consente a un membro di agire sull'autorità di un altro membro. In Windows, l'autenticazione delegata si verifica quando un servizio di rete accetta una richiesta di autenticazione da un utente e presuppone l'identità di tale utente per avviare una nuova connessione a un secondo servizio di rete. Per supportare l'autenticazione delegata, è necessario stabilire server front-end o di primo livello, ad esempio server Web, responsabili della gestione delle richieste di autenticazione client e dei server back-end o a più livelli, ad esempio database di grandi dimensioni, responsabili dell'archiviazione delle informazioni. È possibile delegare il diritto di configurare l'autenticazione delegata agli utenti dell'organizzazione per ridurre il carico amministrativo degli amministratori.
 
 Stabilendo un servizio o un computer considerato attendibile per la delega, si consente al servizio o al computer di completare l'autenticazione delegata, ricevere un ticket per l'utente che effettua la richiesta e quindi accedere alle informazioni per tale utente. Questo modello limita l'accesso ai dati nei server back-end solo agli utenti o ai servizi che presentano le credenziali con i token di controllo di accesso corretti. Consente inoltre di controllare l'accesso a tali risorse di back-end. Richiedendo che tutti i dati siano accessibili per mezzo di credenziali delegate al server per l'utilizzo da parte del client, è necessario assicurarsi che il server non possa essere compromesso e che sia possibile accedere a informazioni riservate archiviate in altri server. L'autenticazione delegata è utile per le applicazioni multilivello progettate per utilizzare Single Sign-On funzionalità in più computer.
 
@@ -98,7 +94,7 @@ Il modo in cui un trust specifico passa le richieste di autenticazione dipende d
 Per informazioni sul funzionamento di un trust, vedere funzionamento dei [trust tra domini e foreste](https://technet.microsoft.com/library/cc773178(v=ws.10).aspx).
 
 ### <a name="protocol-transition"></a>Transizione del protocollo
-La transizione del protocollo consente ai progettisti di applicazioni di supportare diversi meccanismi di autenticazione a livello di autenticazione utente e di passare al protocollo Kerberos per le funzionalità di sicurezza, ad esempio l'autenticazione reciproca e delega vincolata nei livelli applicazione successivi.
+La transizione del protocollo consente ai progettisti di applicazioni di supportare diversi meccanismi di autenticazione a livello di autenticazione utente e di passare al protocollo Kerberos per le funzionalità di sicurezza, ad esempio l'autenticazione reciproca e la delega vincolata, nei livelli applicazione successivi.
 
 Per ulteriori informazioni sulla transizione del protocollo, vedere la pagina relativa alla [transizione del protocollo Kerberos e alla delega vincolata](https://technet.microsoft.com/library/cc758097(v=ws.10).aspx).
 

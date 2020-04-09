@@ -1,7 +1,6 @@
 ---
 ms.assetid: e983d2ab-4153-41e7-b243-12cf7d71a552
 title: Server farm federativa che usa SQL Server
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,16 +8,16 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 0ab150a5070f076db70941bb106b42c3fb15411e
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: fd82edbcd2403416a08a4d707e5271ab2ced4b22
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71408097"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80853124"
 ---
 # <a name="federation-server-farm-using-sql-server"></a>Server farm federativa che usa SQL Server
 
-Questa topologia per \(Active Directory Federation Services\) ad FS è diversa dalla Federazione server farm utilizzando la topologia \(di\) distribuzione database interno di Windows wid in quanto non replica i dati in ciascun server federativo nella farm. Al contrario, tutti i server federativi della farm possono leggere e scrivere dati in un database comune archiviato in un server che esegue Microsoft SQL Server che si trova nella rete aziendale.  
+Questa topologia per Active Directory Federation Services \(AD FS\) differisce dal server farm della Federazione utilizzando il database interno di Windows \(la topologia di distribuzione di WID\) in quanto non replica i dati in ogni server federativo della farm. Al contrario, tutti i server federativi della farm possono leggere e scrivere dati in un database comune archiviato in un server che esegue Microsoft SQL Server che si trova nella rete aziendale.  
   
 > [!IMPORTANT]  
 > Se si desidera creare una farm ADFS e utilizzare SQL Server per archiviare i dati di configurazione, è possibile utilizzare SQL Server 2008 e versioni successive, incluso SQL Server 2012 e SQL Server 2014.  
@@ -34,9 +33,9 @@ Questa sezione vengono descritte varie considerazioni sui destinatari, vantaggi 
   
 ### <a name="what-are-the-benefits-of-using-this-topology"></a>Quali sono i vantaggi dell'utilizzo di questa topologia?  
   
--   Supporto per un numero maggiore di relazioni \(di trust maggiori di 100\)  
+-   Il supporto per un numero maggiore di relazioni di trust \(più di 100\)  
   
--   Supporto per il \(rilevamento della riproduzione dei token una funzionalità\) di sicurezza \(e una parte della \(risoluzione\) dell'artefatto del protocollo Security Assertion Markup Language SAML 2,0\)  
+-   Supporto per il rilevamento della riproduzione dei token \(una funzionalità di sicurezza\) e la risoluzione degli artefatti \(parte del protocollo Security Assertion Markup Language \(SAML\) 2,0\)  
   
 -   Supporto per tutti i vantaggi di SQL Server, ad esempio il mirroring del database, il clustering di failover, la creazione di report e gli strumenti di gestione  
   
@@ -47,7 +46,7 @@ Questa sezione vengono descritte varie considerazioni sui destinatari, vantaggi 
 > [!NOTE]  
 > SQL Server supporta diverse opzioni di ridondanza dei dati e delle applicazioni, tra cui il clustering di failover, il mirroring del database e diversi tipi diversi di replica SQL Server.  
   
-Il reparto IT\) di \(Microsoft Information Technology USA SQL Server il mirroring del database \(in\) modalità sincrona a sicurezza elevata\-e il\- clustering di failover per offrire elevata supporto della disponibilità per l'istanza di SQL Server. SQL Server \(peer\-transazionale\) e\-la replica di tipo merge non sono stati testati dal team del prodotto ad FS in Microsoft. Per ulteriori informazioni su SQL Server, vedere [Panoramica delle soluzioni a disponibilità elevata](https://go.microsoft.com/fwlink/?LinkId=179853) o [selezionando il tipo di replica appropriato](https://go.microsoft.com/fwlink/?LinkId=214648).  
+Microsoft Information Technology \(IT\) reparto utilizza il mirroring del database SQL Server in modalità di \(sincrona e con protezione elevata\-\) per offrire un supporto elevato per la disponibilità\-per l'istanza di SQL Server. SQL Server\-peer \(transazionale a\-peer\) e la replica di tipo merge non sono stati testati dal team di prodotto AD FS di Microsoft. Per ulteriori informazioni su SQL Server, vedere [Panoramica delle soluzioni a disponibilità elevata](https://go.microsoft.com/fwlink/?LinkId=179853) o [selezionando il tipo di replica appropriato](https://go.microsoft.com/fwlink/?LinkId=214648).  
   
 ### <a name="supported-sql-server-versions"></a>Versioni supportate di SQL Server  
 Sono supportate le seguenti versioni SQL server con AD FS in Windows Server 2012 R2:  
@@ -65,7 +64,7 @@ Nella figura seguente viene illustrato il modo in cui la società fittizia Conto
   
 ![server farm con SQL](media/SQLFarmADFSBlue.gif)  
   
-Per ulteriori informazioni su come configurare l'ambiente di rete per l'utilizzo con server federativo o proxy applicazione web, vedere "Requisiti di risoluzione dei nomi" sezione [requisiti per ADFS](AD-FS-Requirements.md) e [pianificare l'infrastruttura di Proxy applicazione Web (WAP)](https://technet.microsoft.com/library/dn383648.aspx).  
+Per ulteriori informazioni su come configurare l'ambiente di rete per l'utilizzo con i server federativi o i proxy applicazione Web, vedere la sezione relativa ai requisiti di risoluzione dei nomi in [ad FS requisiti](AD-FS-Requirements.md) e [pianificare l'infrastruttura del proxy dell'applicazione Web (WAP)](https://technet.microsoft.com/library/dn383648.aspx).  
   
 ## <a name="high-availability-options-for-sql-server-farms"></a>Opzioni di disponibilità elevata per SQL Server farm  
 In Windows Server 2012 R2, ADFS sono disponibili due nuove opzioni per supportare la disponibilità elevata nella farm ADFS utilizzando SQL Server.  
@@ -77,7 +76,7 @@ In Windows Server 2012 R2, ADFS sono disponibili due nuove opzioni per supportar
 In questa sezione viene descritta ciascuna di queste opzioni, quali problemi vengono risolti rispettivamente e alcune considerazioni importanti per decidere quali opzioni per la distribuzione.  
   
 > [!NOTE]  
-> Farm di ADFS di Active Directory che utilizzano Database interno di Windows \(WID\) ridondanza dei dati di base con lettura\/accesso in scrittura sul nodo del server federativo primario e leggere\-accedere solo in nodi secondari.  Può essere utilizzato un geograficamente locale o di una topologia distribuita geograficamente.  
+> Farm di ADFS di Active Directory che utilizzano Database interno di Windows \(WID\) ridondanza dei dati di base con lettura\/accesso in scrittura sul nodo del server federativo primario e leggere\-accedere solo in nodi secondari.  Questa operazione può essere utilizzata in una topologia locale o geograficamente distribuita.  
 >   
 > Quando si utilizza WID tenere presente le limitazioni seguenti:  
 >   
@@ -95,11 +94,11 @@ Nella tabella seguente fornisce un riepilogo di utilizzo di una farm database in
 ### <a name="alwayson-availability-groups"></a>Gruppi di disponibilità AlwaysOn  
 **Panoramica**  
   
-Gruppi di disponibilità AlwaysOn sono stati introdotti in SQL Server 2012 e forniscono un nuovo modo per creare un'istanza di SQL Server la disponibilità elevata.  Gruppi di disponibilità AlwaysOn combinano gli elementi di clustering e il mirroring del database per la ridondanza e failover sia al livello di istanza SQL a livello di database.  A differenza delle opzioni di disponibilità elevata precedente, i gruppi di disponibilità AlwaysOn non richiedono una risorsa di archiviazione comune \(o rete SAN\) a livello di database.  
+Gruppi di disponibilità AlwaysOn sono stati introdotti in SQL Server 2012 e forniscono un nuovo modo per creare un'istanza di SQL Server la disponibilità elevata.  I gruppi di disponibilità AlwaysOn combinano elementi di clustering e mirroring del database per la ridondanza e il failover a livello di istanza SQL e a livello di database.  Diversamente dalle opzioni di disponibilità elevata precedenti, i gruppi di disponibilità AlwaysOn non richiedono un \(di archiviazione comune o una rete di archiviazione\) a livello di database.  
   
-Un gruppo di disponibilità è costituito da una replica primaria \(un set di lettura\-scrivere database primari\) e da uno a quattro repliche di disponibilità \(set di database secondari corrispondenti\).  Il gruppo di disponibilità supporta una singola lettura\-scrivere copia \(la replica primaria\), lettura e da uno a quattro\-solo le repliche di disponibilità.  Ogni replica di disponibilità deve risiedere in un nodo diverso di un singolo Windows Server Failover Clustering \(WSFC\) cluster.  Per ulteriori informazioni sulla funzionalità AlwaysOn gruppi, vedere [Panoramica di gruppi di disponibilità AlwaysOn \(SQL Server\)](https://technet.microsoft.com/library/ff877884.aspx).  
+Un gruppo di disponibilità è costituito da una replica primaria \(un set di lettura\-scrivere database primari\) e da uno a quattro repliche di disponibilità \(set di database secondari corrispondenti\).  Il gruppo di disponibilità supporta una sola copia di lettura\-scrittura \(il\)della replica primaria e da una a quattro leggere\-solo le repliche di disponibilità.  Ogni replica di disponibilità deve risiedere in un nodo diverso di un singolo cluster di failover di Windows Server \(cluster WSFC\).  Per ulteriori informazioni sui gruppi di disponibilità AlwaysOn, vedere [Panoramica di Gruppi di disponibilità AlwaysOn \(SQL Server\)](https://technet.microsoft.com/library/ff877884.aspx).  
   
-Dal punto di vista dei nodi di una farm di Server SQL di ADFS, il gruppo di disponibilità AlwaysOn sostituisce la singola istanza di SQL Server come criteri \/ database elemento.  Il listener del gruppo di disponibilità è il client che \(il servizio token di sicurezza ADFS\) utilizza per connettersi a SQL.  
+Dal punto di vista dei nodi di una farm di Server SQL di ADFS, il gruppo di disponibilità AlwaysOn sostituisce la singola istanza di SQL Server come criteri \/ database elemento.  Il listener del gruppo di disponibilità è quello che il client \(il servizio token di sicurezza AD FS\) USA per connettersi a SQL.  
   
 Il diagramma seguente mostra un SQL Server Farm ADFS con gruppo di disponibilità AlwaysOn.  
   
@@ -113,13 +112,13 @@ Il diagramma seguente mostra un SQL Server Farm ADFS con gruppo di disponibilit�
   
 **Considerazioni principali sulla distribuzione**  
   
-Se si prevede di utilizzare gruppi di disponibilità AlwaysOn in combinazione con la replica di tipo merge di SQL Server, per prendere nota dei problemi descritti in "Considerazioni sulla distribuzione di chiave per l'utilizzo di ADFS con replica di tipo Merge SQL Server" di seguito.  In particolare, quando un gruppo di disponibilità AlwaysOn contenente un database che è un sottoscrittore di replica esegue il failover, la sottoscrizione di replica ha esito negativo. Per riprendere la replica, un amministratore di replica deve riconfigurare manualmente il sottoscrittore.  Vedere la descrizione di SQL Server del problema specifico [sottoscrittori della replica e gruppi di disponibilità AlwaysOn \(SQL Server\)](https://technet.microsoft.com/library/hh882436.aspx) e complessiva supportano le istruzioni per i gruppi di disponibilità AlwaysOn con le opzioni di replica in [replica, il rilevamento delle modifiche, Change Data Capture e gruppi di disponibilità AlwaysOn \(SQL Server\)](https://technet.microsoft.com/library/hh403414.aspx).  
+Se si prevede di utilizzare i gruppi di disponibilità AlwaysOn in combinazione con SQL Server replica di tipo merge, prendere nota dei problemi descritti in "Considerazioni sulla distribuzione chiave per l'utilizzo di AD FS con SQL Server replica di tipo merge" riportata di seguito.  In particolare, quando un gruppo di disponibilità AlwaysOn contenente un database che rappresenta un Sottoscrittore di replica esegue il failover, la sottoscrizione di replica ha esito negativo. Per riprendere la replica, un relativo amministratore deve riconfigurare manualmente il sottoscrittore.  Vedere la descrizione SQL Server di un problema specifico nei [sottoscrittori della replica e Gruppi di disponibilità AlwaysOn \(SQL Server\)](https://technet.microsoft.com/library/hh882436.aspx) e le istruzioni generali di supporto per i gruppi di disponibilità AlwaysOn con le opzioni di replica in [replica, rilevamento modifiche, Change Data Capture e ](https://technet.microsoft.com/library/hh403414.aspx)gruppi di disponibilità AlwaysOn \(SQL Server\).  
   
 **Configurazione di AD FS per l'utilizzo di un gruppo di disponibilità AlwaysOn**  
   
 La configurazione di una farm ADFS con gruppi di disponibilità AlwaysOn richiede una modifica quasi irrilevante per la procedura di distribuzione di ADFS:  
   
-1.  Prima di configurare i gruppi di disponibilità AlwaysOn, è necessario creare i database che si desidera eseguire il backup.  ADFS crea i relativi database come parte del programma di installazione e configurazione iniziale del primo nodo del servizio federativo di una nuova farm di Server SQL di ADFS.  Come parte della configurazione di ADFS, è necessario specificare una stringa di connessione SQL, sarà necessario configurare il primo nodo della farm ADFS per connettersi direttamente a un'istanza di SQL \(questa condizione è temporanea\).   Per indicazioni specifiche sulla configurazione di una farm di ADFS, inclusa la configurazione di un nodo della farm ADFS con una stringa di connessione SQL server, vedere [configurare un Server federativo](../../ad-fs/deployment/Configure-a-Federation-Server.md).  
+1.  Prima di configurare i gruppi di disponibilità AlwaysOn, è necessario creare i database che si desidera eseguire il backup.  AD FS crea i relativi database come parte dell'installazione e della configurazione iniziale del primo nodo servizio federativo di una nuova farm di SQL Server AD FS.  Come parte della configurazione di AD FS, è necessario specificare una stringa di connessione SQL, pertanto sarà necessario configurare il primo nodo della AD FS farm per connettersi direttamente a un'istanza di SQL \(questa è solo\)temporanea.   Per istruzioni specifiche sulla configurazione di una farm di AD FS, inclusa la configurazione di un nodo della AD FS farm con una stringa di connessione SQL Server, vedere [configurare un server federativo](../../ad-fs/deployment/Configure-a-Federation-Server.md).  
   
 2.  Dopo avere creati i database di ADFS, assegnarli a gruppi di disponibilità AlwaysOn e creare il listener TCP/IP comune utilizzando gli strumenti di SQL Server ed elaborare in [creazione e configurazione di gruppi di disponibilità \(SQL Server\)](https://technet.microsoft.com/library/ff878265.aspx).  
   
@@ -129,7 +128,7 @@ La configurazione di una farm ADFS con gruppi di disponibilità AlwaysOn richied
   
     ```  
     PS:\>$temp= Get-WmiObject -namespace root/ADFS -class SecurityTokenService  
-    PS:\>$temp.ConfigurationdatabaseConnectionstring=”data source=<SQLCluster\SQLInstance>; initial catalog=adfsconfiguration;integrated security=true”  
+    PS:\>$temp.ConfigurationdatabaseConnectionstring="data source=<SQLCluster\SQLInstance>; initial catalog=adfsconfiguration;integrated security=true"  
     PS:\>$temp.put()  
   
     ```  
@@ -137,13 +136,13 @@ La configurazione di una farm ADFS con gruppi di disponibilità AlwaysOn richied
 4.  Comandi PSH di esempio per aggiornare la stringa di connessione SQL per il database del servizio di risoluzione dell'artefatto AD FS:  
   
     ```  
-    PS:\> Set-AdfsProperties –artifactdbconnection ”Data source=<SQLCluster\SQLInstance >;Initial Catalog=AdfsArtifactStore;Integrated Security=True”  
+    PS:\> Set-AdfsProperties –artifactdbconnection "Data source=<SQLCluster\SQLInstance >;Initial Catalog=AdfsArtifactStore;Integrated Security=True"  
     ```  
   
 ### <a name="sql-server-merge-replication"></a>Replica di tipo Merge SQL Server  
 Inoltre introdotto in SQL Server 2012, replica di tipo merge consente la ridondanza dei dati dei criteri ADFS con le seguenti caratteristiche:  
   
--   Funzionalità di lettura e scrittura in tutti \(i nodi non solo nel database primario\)  
+-   Funzionalità di lettura e scrittura in tutti i nodi \(non solo il\) primario  
   
 -   Più piccole quantità di dati replicati in modo asincrono per evitare l'introduzione di latenza per il sistema  
   
@@ -151,15 +150,15 @@ Il diagramma seguente illustra una farm di SQL Server ADFS geograficamente ridon
   
 ![server farm con SQL](media/ADFSSQLGeoRedundancy3.png)  
   
-**Considerazioni sulla distribuzione chiave per l'utilizzo di ad FS con \(SQL Server i numeri di nota della replica di tipo merge nel diagramma precedente\)**  
+**Considerazioni sulla distribuzione chiave per l'utilizzo di AD FS con SQL Server replica di tipo merge \(i numeri di nota nel diagramma precedente\)**  
   
--   Database di distribuzione non è supportato per l'utilizzo con i gruppi di disponibilità AlwaysOn o il mirroring del database.  Vedere SQL Server supportano le istruzioni per i gruppi di disponibilità AlwaysOn con le opzioni di replica in [replica, il rilevamento delle modifiche, Change Data Capture e gruppi di disponibilità AlwaysOn \(SQL Server\)](https://technet.microsoft.com/library/hh403414.aspx).  
+-   Database di distribuzione non è supportato per l'utilizzo con i gruppi di disponibilità AlwaysOn o il mirroring del database.  Vedere le istruzioni di supporto SQL Server per i gruppi di disponibilità AlwaysOn con le opzioni di replica in [replica, rilevamento modifiche, Change Data Capture e Gruppi di disponibilità AlwaysOn \(SQL Server ](https://technet.microsoft.com/library/hh403414.aspx)\).  
   
--   Quando un gruppo di disponibilità AlwaysOn contenente un database che è un sottoscrittore di replica esegue il failover, la sottoscrizione di replica ha esito negativo. Per riprendere la replica, un amministratore di replica deve riconfigurare manualmente il sottoscrittore.  Vedere la descrizione di SQL Server del problema specifico [sottoscrittori della replica e gruppi di disponibilità AlwaysOn \(SQL Server\)](https://technet.microsoft.com/library/hh882436.aspx) e complessiva supportano le istruzioni per i gruppi di disponibilità AlwaysOn con le opzioni di replica [replica, il rilevamento delle modifiche, Change Data Capture e gruppi di disponibilità AlwaysOn \(SQL Server\)](https://technet.microsoft.com/library/hh403414.aspx).  
+-   Quando viene eseguito il failover di un gruppo di disponibilità AlwaysOn contenente un database che opera come sottoscrittore di replica, la sottoscrizione di replica non verrà completata. Per riprendere la replica, un relativo amministratore deve riconfigurare manualmente il sottoscrittore.  Vedere la descrizione SQL Server di un problema specifico nei [sottoscrittori della replica e Gruppi di disponibilità AlwaysOn \(SQL Server\)](https://technet.microsoft.com/library/hh882436.aspx) e le istruzioni generali di supporto per i gruppi di disponibilità AlwaysOn con le opzioni di replica [replica, rilevamento modifiche, Change Data Capture e ](https://technet.microsoft.com/library/hh403414.aspx)gruppi di disponibilità AlwaysOn \(SQL Server\).  
   
 Per istruzioni più dettagliate su come configurare ADFS utilizzare una replica di tipo merge SQL Server, vedere [installazione ridondanza geografica con la replica di SQL Server](https://technet.microsoft.com/library/dn632406.aspx).  
   
-## <a name="see-also"></a>Vedere anche  
+## <a name="see-also"></a>Vedi anche  
 [Pianificare la topologia di distribuzione di AD FS](Plan-Your-AD-FS-Deployment-Topology.md)  
 [Guida alla progettazione di AD FS in Windows Server 2012 R2](AD-FS-Design-Guide-in-Windows-Server-2012-R2.md)  
   

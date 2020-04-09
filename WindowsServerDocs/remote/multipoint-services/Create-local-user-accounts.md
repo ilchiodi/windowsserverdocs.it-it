@@ -1,27 +1,23 @@
 ---
 title: Creare account utente locali
 description: Informazioni su Abou thte tre tipi di account utente in MultiPoint Services
-ms.custom: na
 ms.date: 07/22/2016
 ms.prod: windows-server
 ms.technology: multipoint-services
-ms.reviewer: na
-ms.suite: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 33321932-4266-4961-9924-2cb4620bfcb4
 author: evaseydl
 ms.author: evas
 manager: scottman
-ms.openlocfilehash: 874d9cbdb56c59693cb5843a898b9ebd6893d674
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: b07c88e4961544f5854f6e9d829b8d4b97adf7e8
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71405107"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80859764"
 ---
 # <a name="create-local-user-accounts"></a>Creare account utente locali
-Con gestione MultiPoint è possibile creare tre livelli di account utente locali: Account utente standard; Utenti del Dashboard MultiPoint, che hanno diritti amministrativi limitati; e account utente amministrativi completi.  
+È possibile creare tre livelli di account utente locali usando Gestione MultiPoint: account utente standard; Utenti del Dashboard MultiPoint, che hanno diritti amministrativi limitati; e account utente amministrativi completi.  
   
 Usare la procedura seguente per creare un account utente locale in un server MultiPoint. Se l'ambiente include più server MultiPoint e si desidera che l'utente sia in grado di accedere a qualsiasi stazione in qualsiasi server, è necessario creare un account utente locale in ogni server. Il programma di installazione presenta alcune limitazioni. In un ambiente di dominio è anche possibile consentire agli utenti di usare i propri account di dominio. Per una panoramica delle opzioni, vedere [pianificare gli account utente per l'ambiente Windows MultiPoint Services](Plan-user-accounts-for-your-MultiPoint-services-environment.md).  
    

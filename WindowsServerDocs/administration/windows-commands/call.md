@@ -1,35 +1,29 @@
 ---
 title: chiamata
-description: 'Argomento dei comandi di Windows per * * * *- '
-ms.custom: na
+description: Windows Commands Topic for Call, che chiama un programma batch da un altro senza arrestare il programma batch padre.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: d34a41dc-e6c7-4467-bf6a-15cec704833e
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 06/05/2018
-ms.openlocfilehash: 89097ec5d3711b3d8831f8c33b3778ed0752246f
-ms.sourcegitcommit: ee8fa8e1293f29229b5ce1b0f3d4a07ba99568f5
+ms.openlocfilehash: 58b2d03c76f53fa7bbf5c483c1a423cd4a011f94
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2020
-ms.locfileid: "78280192"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80848234"
 ---
 # <a name="call"></a>chiamata
 
-
-
-Chiama un programma batch da un altro senza arrestare il programma batch padre. Il comando **Call** accetta le etichette come destinazione della chiamata.
-
-> [!NOTE]
-> La **chiamata** non ha effetto al prompt dei comandi quando viene usata all'esterno di uno script o di un file batch.
+Chiama un programma batch da un altro senza arrestare il programma batch padre. Il comando **Call** accetta le etichette come destinazione della chiamata
 
 Per esempi di utilizzo di questo comando, vedere [Esempi](#BKMK_examples).
+
+> [!NOTE]
+> La chiamata non ha effetto al prompt dei comandi quando viene usata all'esterno di uno script o di un file batch.
 
 ## <a name="syntax"></a>Sintassi
 
@@ -37,7 +31,7 @@ Per esempi di utilizzo di questo comando, vedere [Esempi](#BKMK_examples).
 call [Drive:][Path]<FileName> [<BatchParameters>] [:<Label> [<Arguments>]]
 ```
 
-## <a name="parameters"></a>Parametri
+### <a name="parameters"></a>Parametri
 
 |           Parametro           |                                                                         Descrizione                                                                          |
 |-------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -57,7 +51,7 @@ I riferimenti all'argomento dello script batch ( **%0**, **%1**,...) sono elenca
 
 |Parametro batch|Descrizione|
 |---------------|-----------|
-|% ~ 1|Espande **%1** e rimuove le virgolette circostanti ("").|
+|% ~ 1|Espande **%1** e rimuove le virgolette circostanti ().|
 |% ~ F1|Espande **%1** in un percorso completo.|
 |% ~ D1|Espande **%1** solo a una lettera di unità.|
 |% ~ P1|Espande **%1** solo in un percorso.|
@@ -100,7 +94,7 @@ Negli esempi precedenti, **%1** e Path possono essere sostituiti da altri valori
 
     `call :<Label> <Arguments>`
 
-## <a name="BKMK_examples"></a>Esempi
+## <a name="examples"></a><a name=BKMK_examples></a>Esempi
 
 Per eseguire il programma denominato nuovo. bat da un altro programma batch, digitare il comando seguente nel programma batch padre:
 ```
@@ -111,6 +105,6 @@ Se il programma batch padre accetta due parametri batch e si desidera che i para
 call checknew %1 %2
 ```
 
-#### <a name="additional-references"></a>Altri riferimenti
+## <a name="additional-references"></a>Altre informazioni di riferimento
 
-[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+- [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

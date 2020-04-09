@@ -4,15 +4,15 @@ description: Suggerimenti per l'ottimizzazione delle prestazioni per Gateway Des
 ms.prod: windows-server
 ms.technology: performance-tuning-guide
 ms.topic: article
-ms.author: HammadBu; VladmiS
+ms.author: hammadbu; vladmis
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: fcd7afd840df12ec19e162f751df9e5c0c9c84d4
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 3794b47e7226a905944495dd7c31f3196a33d0d5
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71385008"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80851734"
 ---
 # <a name="performance-tuning-remote-desktop-gateways"></a>Ottimizzazione delle prestazioni Desktop remoto Gateway
 
@@ -70,42 +70,42 @@ I parametri seguenti consentono di ottimizzare le chiamate a procedure remote (R
 
 Il seguente elenco di contatori delle prestazioni è considerato un set di contatori di base quando si monitora l'utilizzo delle risorse nel Gateway Desktop remoto:
 
--   \\Gateway di Servizi terminal\\\*
+-   \\\\gateway di Servizi terminal \*
 
--   \\Proxy RPC/HTTP\\\*
+-   \\\\proxy RPC/HTTP \*
 
--   \\Proxy RPC/HTTP per server\\\*
+-   \\proxy RPC/HTTP per server\\\*
 
--   \\Servizio Web\\\*
+-   \\\\del servizio Web \*
 
--   \\W3SVC\_W3WP\\\*
+-   \\W3SVC\_\\W3WP \*
 
--   \\IPv4\\\*
+-   \\\\IPv4 \*
 
--   \\Memoria\\\*
+-   Memoria \\\\\*
 
--   \\Interfaccia di rete\*()\\\*
+-   \\\*(Network Interface)\\\*
 
--   \\Elabora (\*)\\\*
+-   \\processo (\*)\\\*
 
--   \\Informazioni sul processore\*()\\\*
+-   \\informazioni sul processore (\*)\\\*
 
--   \\Sincronizzazione (\*)\\\*
+-   \\sincronizzazione (\*)\\\*
 
--   \\Sistema\\\*
+-   \\\\di sistema \*
 
 -   \\TCPv4\\\*
 
 I contatori delle prestazioni seguenti sono applicabili solo per il trasporto RPC legacy:
 
--   \\RPC proxy\\ \* RPC/http
+-   \\proxy RPC/HTTP\\RPC \*
 
--   \\RPC/proxy HTTP per server\\RPC \*
+-   \\proxy RPC/HTTP per server\\\* RPC
 
--   \\RPC servizio\\ \* Web
+-   Servizio Web \\\\RPC \*
 
--   \\\\ RPC\_W3WPW3WP\*
+-   \\W3SVC\_W3WP\\\* RPC
 
 > [!NOTE]
-> Se applicabile, aggiungere gli \\oggetti\\ IPv6 \\\* e\\ TCPv6.\* ReplaceThisText
+> Se applicabile, aggiungere il \\IPv6\\\* e \\TCPv6\\\* oggetti. ReplaceThisText
 

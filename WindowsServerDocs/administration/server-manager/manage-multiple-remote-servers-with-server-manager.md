@@ -1,34 +1,30 @@
 ---
 title: Gestire più server remoti con Server Manager
 description: Server Manager
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-server-manager
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 3a17e686-e7f2-47e2-b7af-733777c38b5f
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 74632dd26a1bfe7b280c73737557f1e954a7a1db
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 4b7a33e15287f24ee5b259618dfcfef3c6245564
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71383143"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80851504"
 ---
 # <a name="manage-multiple-remote-servers-with-server-manager"></a>Gestire più server remoti con Server Manager
 
 >Si applica a: Windows Server 2016
 
-Server Manager è una console di gestione di Windows Server 2012 R2 e Windows Server 2012 che consente ai professionisti IT di eseguire il provisioning e gestire server Windows locali e remoti dai propri desktop, senza richiedere l'accesso fisico ai server o il è necessario abilitare le connessioni rdP (Desktop remoto Protocol) a ogni server. Anche se Server Manager è disponibile in Windows Server 2008 R2 e Windows Server 2008, Server Manager è stato aggiornato in Windows Server 2012, per supportare la gestione remota multiserver e contribuire ad aumentare il numero di server che un amministratore può gestire.
+Server Manager è una console di gestione di Windows Server 2012 R2 e Windows Server 2012 che consente ai professionisti IT di eseguire il provisioning e gestire server Windows locali e remoti dai propri desktop, senza richiedere l'accesso fisico ai server o la necessità di abilitare le connessioni rdP (Desktop remoto Protocol) a ogni server. Anche se Server Manager è disponibile in Windows Server 2008 R2 e Windows Server 2008, Server Manager è stato aggiornato in Windows Server 2012, per supportare la gestione remota multiserver e contribuire ad aumentare il numero di server che un amministratore può gestire.
 
-Nei test è possibile usare Server Manager in Windows Server 2012 R2 e Windows Server 2012 per gestire fino a 100 server configurati con un carico di lavoro tipico. Il numero di server che è possibile gestire tramite un'unica console di Server Manager può variare a seconda della quantità di dati richiesti dai server gestiti e le risorse hardware e di rete disponibili nel computer che esegue Server Manager. Quando la quantità di dati da visualizzare si avvicina alla capacità delle risorse del computer, possono verificarsi rallentamenti nelle risposte di Server Manager e ritardi nel completamento degli aggiornamenti. Per aumentare il numero di server gestibile con Server Manager, si consiglia di limitare i dati dell'evento che Server Manager ottiene dai server gestiti usando le impostazioni nella finestra di dialogo **Configura dati evento**. La finestra di dialogo Configura dati evento può essere aperta dal menu **Attività** nel riquadro **Eventi** . Se è necessario gestire un numero di livello aziendale di server nell'organizzazione, è consigliabile valutare i prodotti di [suite di Microsoft System Center](https://go.microsoft.com/fwlink/p/?LinkId=239437).
+Nei test è possibile usare Server Manager in Windows Server 2012 R2 e Windows Server 2012 per gestire fino a 100 server configurati con un carico di lavoro tipico. Il numero di server che è possibile gestire tramite un'unica console di Server Manager può variare a seconda della quantità di dati richiesti dai server gestiti e le risorse hardware e di rete disponibili nel computer che esegue Server Manager. Quando la quantità di dati da visualizzare si avvicina alla capacità delle risorse del computer, possono verificarsi rallentamenti nelle risposte di Server Manager e ritardi nel completamento degli aggiornamenti. Per aumentare il numero di server gestibile con Server Manager, si consiglia di limitare i dati dell'evento che Server Manager ottiene dai server gestiti usando le impostazioni nella finestra di dialogo **Configura dati evento**. La finestra di dialogo Configura dati evento può essere aperta dal menu **Attività** nel riquadro **Eventi**. Se è necessario gestire un numero di livello aziendale di server nell'organizzazione, è consigliabile valutare i prodotti di [suite di Microsoft System Center](https://go.microsoft.com/fwlink/p/?LinkId=239437).
 
-In questo argomento e nei relativi argomenti secondari vengono fornite informazioni sull'utilizzo delle funzionalità nella console di Server Manager. In questo argomento sono incluse le sezioni seguenti.
+In questo argomento e nei relativi argomenti secondari vengono fornite informazioni sull'utilizzo delle funzionalità nella console di Server Manager. In questo argomento sono contenute le seguenti sezioni.
 
 -   [Esaminare le considerazioni e i requisiti di sistema iniziali](#BKMK_1.1)
 
@@ -40,13 +36,13 @@ In questo argomento e nei relativi argomenti secondari vengono fornite informazi
 
 -   [Esporta le impostazioni Server Manager in altri computer](#BKMK_export)
 
-## <a name="BKMK_1.1"></a>Esaminare le considerazioni e i requisiti di sistema iniziali
+## <a name="review-initial-considerations-and-system-requirements"></a><a name=BKMK_1.1></a>Esaminare le considerazioni e i requisiti di sistema iniziali
 Nelle sezioni seguenti sono elencate alcune considerazioni iniziali che è necessario esaminare, oltre ai requisiti hardware e software per Server Manager.
 
 ### <a name="hardware-requirements"></a>Requisiti hardware
 Server Manager viene installato per impostazione predefinita con tutte le edizioni di Windows Server 2012 R2 e Windows Server 2012. Non esistono altri requisiti hardware per Server Manager.
 
-### <a name="BKMK_softconfig"></a>Requisiti di configurazione e software
+### <a name="software-and-configuration-requirements"></a><a name=BKMK_softconfig></a>Requisiti di configurazione e software
 Server Manager viene installato per impostazione predefinita con tutte le edizioni di Windows Server 2012. Sebbene sia possibile utilizzare Server Manager per gestire le opzioni di installazione dei componenti di [base del server](https://go.microsoft.com/fwlink/p/?LinkID=241573) di windows Server 2012 e windows Server 2008 R2 in esecuzione su computer remoti, Server Manager non viene eseguito direttamente sulle opzioni di installazione dei componenti di base del server.
 
 Per gestire completamente i server remoti che eseguono Windows Server 2008 o Windows Server 2008 R2, installare gli aggiornamenti seguenti nei server da gestire, nell'ordine indicato.
@@ -74,8 +70,8 @@ Il Server Manager Console è incluso con [strumenti di amministrazione remota de
 
 |Sistema operativo di gestione di server di origine|Destinata a Windows Server 2012 R2 |Destinato a Windows Server 2012 |Destinato a Windows Server 2008 R2 o Windows Server 2008 |Destinato a Windows Server 2003|
 |-------------------------------|---------------------------------------|------------------------------------|-----------------------------------------------------------------------|------------------|
-|Windows 8 o Windows Server 2012 |Non supportate|Supporto completo|Quando i [Requisiti di configurazione e software](#BKMK_softconfig) sono soddisfatti, è possibile eseguire la maggiore parte delle attività di gestione, ad eccezione dell'installazione o della disinstallazione di ruoli o funzionalità|Supporto limitato; solo stato online e offline|
-|Windows 8.1 o Windows Server 2012 R2 |Supporto completo|Supporto completo|Quando i [Requisiti di configurazione e software](#BKMK_softconfig) sono soddisfatti, è possibile eseguire la maggiore parte delle attività di gestione, ad eccezione dell'installazione o della disinstallazione di ruoli o funzionalità|Supporto limitato; solo stato online e offline|
+|Windows 8 o Windows Server 2012 |Non supportato|Supporto completo|Dopo che i [requisiti di configurazione e software](#BKMK_softconfig) sono stati soddisfatti, è possibile eseguire la maggiore parte delle attività di gestione, ad eccezione dell'installazione o della disinstallazione di ruoli o funzionalità|Supporto limitato; solo stato online e offline|
+|Windows 8.1 o Windows Server 2012 R2 |Supporto completo|Supporto completo|Dopo che i [requisiti di configurazione e software](#BKMK_softconfig) sono stati soddisfatti, è possibile eseguire la maggiore parte delle attività di gestione, ad eccezione dell'installazione o della disinstallazione di ruoli o funzionalità|Supporto limitato; solo stato online e offline|
 
 ###### <a name="to-start-server-manager-on-a-client-computer"></a>Per avviare Server Manager in un computer client
 
@@ -83,7 +79,7 @@ Il Server Manager Console è incluso con [strumenti di amministrazione remota de
 
 2.  Nella schermata **Start** fare clic su **Server Manager**. Il riquadro **Server Manager** è disponibile dopo l'installazione di Strumenti di amministrazione remota del Server.
 
-3.  Se né gli **strumenti di amministrazione** né i riquadri **Server Manager** vengono visualizzati nella schermata **start** dopo l'installazione di strumenti di amministrazione remota del server e la ricerca di Server Manager nella schermata **Start** non viene visualizzata risultati, verificare che l'impostazione **Mostra strumenti di amministrazione** sia attivata. Per visualizzare questa impostazione, posizionare il cursore del mouse sull'angolo superiore destro della schermata **Start** , quindi fare clic su **Impostazioni**. Se l'impostazione **Mostra strumenti di amministrazione** è disattivata, attivarla per visualizzare gli strumenti installati nell'ambito di Strumenti di amministrazione remota del server.
+3.  Se non vengono visualizzati né gli **strumenti di amministrazione** né i riquadri **Server Manager** nella schermata **start** dopo l'installazione di strumenti di amministrazione remota del server e la ricerca di Server Manager nella schermata **Start** non Visualizza i risultati, verificare che l'impostazione **Mostra strumenti di amministrazione** sia attivata. Per visualizzare questa impostazione, posizionare il cursore del mouse sull'angolo superiore destro della schermata **Start** , quindi fare clic su **Impostazioni**. Se l'impostazione **Mostra strumenti di amministrazione** è disattivata, attivarla per visualizzare gli strumenti installati nell'ambito di Strumenti di amministrazione remota del server.
 
 Per ulteriori informazioni sull'esecuzione di Strumenti di amministrazione remota del server per Windows 8 per gestire i server remoti, vedere [strumenti di amministrazione remota del server](https://go.microsoft.com/fwlink/?LinkID=221055) su TechNet wiki.
 
@@ -94,7 +90,7 @@ Per ulteriori informazioni sull'esecuzione di Strumenti di amministrazione remot
 
 Per eseguire attività di gestione su server remoti utilizzando Server Manager, i server remoti che si desidera gestire devono essere configurati per consentire la gestione remota tramite Server Manager e Windows PowerShell. Se la gestione remota è stata disabilitata in Windows Server 2012 R2 o Windows Server 2012 e si vuole abilitarla di nuovo, seguire questa procedura.
 
-##### <a name="BKMK_windows"></a>Per configurare Server Manager gestione remota in Windows Server 2012 R2 o Windows Server 2012 usando l'interfaccia di Windows
+##### <a name="to-configure-server-manager-remote-management-on--windows-server-2012-r2--or--windows-server-2012--by-using-the-windows-interface"></a><a name=BKMK_windows></a>Per configurare Server Manager gestione remota in Windows Server 2012 R2 o Windows Server 2012 usando l'interfaccia di Windows
 
 1.  > [!NOTE]
     > Le impostazioni controllate dalla finestra di dialogo **Configura gestione remota** non interessano parti di Server Manager che utilizzano DCOM per le comunicazioni remote.
@@ -113,9 +109,9 @@ Per eseguire attività di gestione su server remoti utilizzando Server Manager, 
 
     -   Per consentire a questo computer di gestione remota tramite Server Manager o Windows PowerShell, selezionare **Consenti gestione remota del server da altri computer**.
 
-##### <a name="BKMK_ps"></a>Per abilitare la gestione remota di Server Manager in Windows Server 2012 R2 o Windows Server 2012 usando Windows PowerShell
+##### <a name="to-enable-server-manager-remote-management-on--windows-server-2012-r2--or--windows-server-2012--by-using-windows-powershell"></a><a name=BKMK_ps></a>Per abilitare la gestione remota di Server Manager in Windows Server 2012 R2 o Windows Server 2012 usando Windows PowerShell
 
-1.  Effettuare una delle operazioni seguenti.
+1.  Effettuare una delle operazioni riportate di seguito.
 
     -   Per eseguire Windows PowerShell come amministratore dalla schermata **Start** , fare clic con il pulsante destro del mouse sul riquadro **Windows PowerShell** e quindi scegliere **Esegui come amministratore**.
 
@@ -128,11 +124,11 @@ Per eseguire attività di gestione su server remoti utilizzando Server Manager, 
     > [!NOTE]
     > Questo comando funziona anche in un prompt dei comandi aperto con diritti utente elevati (Esegui come amministratore).
 
-    Se l'abilitazione della gestione remota non riesce, vedere [about_remote_Troubleshooting](https://go.microsoft.com/fwlink/p/?LinkID=135188) su Microsoft TechNet per suggerimenti e procedure consigliate per la risoluzione dei problemi.
+    Se l'abilitazione della gestione remota non riesce, vedere [about_remote_Troubleshooting](https://go.microsoft.com/fwlink/p/?LinkID=135188) in Microsoft TechNet per suggerimenti e procedure consigliate per la risoluzione dei problemi.
 
 ###### <a name="to-enable-server-manager-and-windows-powershell-remote-management-on-older-operating-systems"></a>Per abilitare la gestione remota di Server Manager e Windows PowerShell in sistemi operativi precedenti
 
--   Effettuare una delle operazioni seguenti.
+-   Effettuare una delle operazioni riportate di seguito.
 
     -   Per abilitare la gestione remota nei server che eseguono Windows Server 2008 R2, vedere [gestione remota con Server Manager](https://go.microsoft.com/fwlink/?LinkID=137378) nella Guida di windows Server 2008 R2.
 
@@ -140,33 +136,33 @@ Per eseguire attività di gestione su server remoti utilizzando Server Manager, 
 
     -   Per abilitare la gestione remota su server che eseguono Windows Server 2003, abilitare le eccezioni DCOM di WMI in Windows Firewall. Per altre informazioni su come eseguire questa operazione sui server che eseguono Windows Server 2003, vedere [Connessione attraverso Windows Firewall](https://msdn.microsoft.com/library/aa389286.aspx) su MSDN.
 
-## <a name="BKMK_tasks"></a>Attività che è possibile eseguire in Server Manager
+## <a name="tasks-that-you-can-perform-in-server-manager"></a><a name=BKMK_tasks></a>Attività che è possibile eseguire in Server Manager
 Server Manager rende più efficiente l'amministrazione del server, consentendo agli amministratori di eseguire attività nella tabella seguente tramite un singolo strumento. In Windows Server 2012 R2 e Windows Server 2012, sia gli utenti standard di un server sia i membri del gruppo Administrators possono eseguire attività di gestione in Server Manager, ma per impostazione predefinita gli utenti standard non possono eseguire alcune attività, come illustrato nella tabella seguente.
 
-Gli amministratori possono usare due cmdlet di Windows PowerShell nel modulo cmdlet di Server Manager, [Enable-ServerManagerStandardUserremoting](https://technet.microsoft.com/library/jj205470.aspx) e [Disable-ServerManagerStandardUserremoting](https://technet.microsoft.com/library/jj205468.aspx)per controllare ulteriormente l'accesso utente standard ad alcuni dati aggiuntivi. Il cmdlet **Enable-ServerManagerStandardUserremoting** può fornire uno o più utenti standard e non amministratori per accedere a dati di inventario di eventi, servizi, contatori delle prestazioni e ruoli e funzionalità.
+Per controllare ulteriormente l'accesso utente standard ad alcuni dati aggiuntivi, gli amministratori possono usare due cmdlet di Windows PowerShell nel modulo cmdlet di Server Manager, [Enable-ServerManagerStandardUserremoting](https://technet.microsoft.com/library/jj205470.aspx) e [Disable-ServerManagerStandardUserremoting](https://technet.microsoft.com/library/jj205468.aspx). Il cmdlet **Enable-ServerManagerStandardUserremoting** può fornire uno o più utenti standard e non amministratori per accedere a dati di inventario di eventi, servizi, contatori delle prestazioni e ruoli e funzionalità.
 
 > [!IMPORTANT]
 > Server Manager può essere utilizzata per gestire una versione più recente del sistema operativo Windows Server. Non è possibile usare Server Manager in esecuzione in Windows Server 2012 o Windows 8 per gestire i server che eseguono Windows Server 2012 R2.
 
 |Descrizione dell'attività|Administrators (incluso l'account Administrator predefinito)|Utenti server standard|
 |----------|----------------------------------|-------------|
-|aggiungere server remoti a un pool di server che Server Manager possibile utilizzare per la gestione.|Yes|No|
-|creare e modificare gruppi personalizzati di server, ad esempio i server che si trovano in una posizione geografica specifica o che svolgono uno scopo specifico.|Yes|Yes|
-|Installare o disinstallare ruoli, servizi ruolo e funzionalità nei server locali o remoti che eseguono Windows Server 2012 R2 o Windows Server 2012. Per le definizioni di ruoli, servizi ruolo e funzionalità, vedere [ruoli, servizi ruolo e funzionalità](https://go.microsoft.com/fwlink/p/?LinkId=239558).|Yes|No|
-|Visualizzare e modificare le funzionalità e i ruoli server installati sui server locali o remoti. **Nota:** In Server Manager, i dati relativi ai ruoli e alle funzionalità vengono visualizzati nella lingua di base del sistema, denominata anche lingua GUI predefinita del sistema o la lingua selezionata durante l'installazione del sistema operativo.|Yes|Gli utenti standard possono visualizzare e gestire ruoli e funzionalità, nonché eseguire attività quali visualizzazione degli eventi ruolo, ma non possono aggiungere né rimuovere i servizi ruolo.|
-|avviare strumenti di gestione come Windows PowerShell o snap-in MMC. È possibile avviare una sessione di Windows PowerShell destinata a un server remoto facendo clic con il pulsante destro del mouse sul server nel riquadro **Server** e quindi scegliendo **Windows PowerShell**. È possibile avviare gli snap-in MMC dal menu **strumenti** della console di Server Manager, quindi puntare lo MMC verso un computer remoto dopo l'apertura dello snap-in.|Yes|Yes|
-|Gestire i server remoti con credenziali diverse facendo clic con il pulsante destro del mouse su un server nel riquadro **Server** e quindi scegliendo **Account di gestione**. È possibile utilizzare **Account di gestione** per attività di gestione generali per Servizi file e archiviazione e server.|Yes|No|
-|Eseguire attività di gestione associate al ciclo di vita operativo dei server, ad esempio l'avvio o l'arresto di servizi; e avviare altri strumenti che consentono di configurare le impostazioni di rete di un server, gli utenti e i gruppi e le connessioni Desktop remoto.|Yes|Gli utenti standard non possono avviare o arrestare servizi. Possono modificare il nome del server locale, il gruppo di lavoro o l'appartenenza al dominio e le impostazioni di Desktop remoto, ma vengono richieste da controllo dell'account utente per fornire le credenziali di amministratore prima di poter completare queste attività. Non possono modificare le impostazioni di gestione remota.|
-|Eseguire attività di gestione associate al ciclo di vita operativo dei ruoli installati nei server, tra cui l'analisi dei ruoli per verificarne la conformità alle procedure consigliate.|Yes|Gli utenti standard non possono eseguire analisi Best Practices Analyzer.|
-|Determinare lo stato del server, identificare eventi critici, nonché analizzare e risolvere problemi o errori di configurazione.|Yes|Yes|
-|Personalizzare gli eventi, i dati sulle prestazioni, i servizi e i risultati Best Practices Analyzer per i quali si desidera ricevere avvisi nel Dashboard Server Manager.|Yes|Yes|
-|Riavviare i server.|Yes|No|
-|Aggiornare i dati visualizzati nella console di Server Manager sui server gestiti.|Yes|No|
+|aggiungere server remoti a un pool di server che Server Manager possibile utilizzare per la gestione.|Sì|No|
+|creare e modificare gruppi personalizzati di server, ad esempio i server che si trovano in una posizione geografica specifica o che svolgono uno scopo specifico.|Sì|Sì|
+|Installare o disinstallare ruoli, servizi ruolo e funzionalità nei server locali o remoti che eseguono Windows Server 2012 R2 o Windows Server 2012. Per le definizioni di ruoli, servizi ruolo e funzionalità, vedere [ruoli, servizi ruolo e funzionalità](https://go.microsoft.com/fwlink/p/?LinkId=239558).|Sì|No|
+|Visualizzare e modificare le funzionalità e i ruoli server installati sui server locali o remoti. **Nota:** In Server Manager, i dati relativi ai ruoli e alle funzionalità vengono visualizzati nella lingua di base del sistema, denominata anche lingua GUI predefinita del sistema o la lingua selezionata durante l'installazione del sistema operativo.|Sì|Gli utenti standard possono visualizzare e gestire ruoli e funzionalità, nonché eseguire attività quali visualizzazione degli eventi ruolo, ma non possono aggiungere né rimuovere i servizi ruolo.|
+|avviare strumenti di gestione come Windows PowerShell o snap-in MMC. È possibile avviare una sessione di Windows PowerShell destinata a un server remoto facendo clic con il pulsante destro del mouse sul server nel riquadro **Server** e quindi scegliendo **Windows PowerShell**. È possibile avviare gli snap-in MMC dal menu **strumenti** della console di Server Manager, quindi puntare lo MMC verso un computer remoto dopo l'apertura dello snap-in.|Sì|Sì|
+|Gestire i server remoti con credenziali diverse facendo clic con il pulsante destro del mouse su un server nel riquadro **Server** e quindi scegliendo **Account di gestione**. È possibile utilizzare **Account di gestione** per attività di gestione generali per Servizi file e archiviazione e server.|Sì|No|
+|Eseguire attività di gestione associate al ciclo di vita operativo dei server, ad esempio l'avvio o l'arresto di servizi; e avviare altri strumenti che consentono di configurare le impostazioni di rete di un server, gli utenti e i gruppi e le connessioni Desktop remoto.|Sì|Gli utenti standard non possono avviare o arrestare servizi. Possono modificare il nome del server locale, il gruppo di lavoro o l'appartenenza al dominio e le impostazioni di Desktop remoto, ma vengono richieste da controllo dell'account utente per fornire le credenziali di amministratore prima di poter completare queste attività. Non possono modificare le impostazioni di gestione remota.|
+|Eseguire attività di gestione associate al ciclo di vita operativo dei ruoli installati nei server, tra cui l'analisi dei ruoli per verificarne la conformità alle procedure consigliate.|Sì|Gli utenti standard non possono eseguire analisi Best Practices Analyzer.|
+|Determinare lo stato del server, identificare eventi critici, nonché analizzare e risolvere problemi o errori di configurazione.|Sì|Sì|
+|Personalizzare gli eventi, i dati sulle prestazioni, i servizi e i risultati Best Practices Analyzer per i quali si desidera ricevere avvisi nel Dashboard Server Manager.|Sì|Sì|
+|Riavviare i server.|Sì|No|
+|Aggiornare i dati visualizzati nella console di Server Manager sui server gestiti.|Sì|No|
 
 > [!NOTE]
 > Server Manager può ricevere lo stato solo online o offline dai server che eseguono Windows Server 2003. Non è possibile usare Server Manager per aggiungere ruoli e funzionalità ai server che eseguono Windows Server 2008 R2, Windows Server 2008 o Windows Server 2003.
 
-## <a name="BKMK_start"></a>Avvia Server Manager
+## <a name="start-server-manager"></a><a name=BKMK_start></a>Avvia Server Manager
 Server Manager viene avviato automaticamente per impostazione predefinita nei server che eseguono Windows Server 2012 quando un membro del gruppo Administrators accede a un server. Se si chiude Server Manager, riavviarlo in uno dei modi seguenti. Questa sezione contiene anche i passaggi per modificare il comportamento predefinito e impedire l'avvio automatico del Server Manager.
 
 #### <a name="to-start-server-manager-from-the-start-screen"></a>Per avviare Server Manager dalla schermata Start
@@ -185,13 +181,13 @@ Server Manager viene avviato automaticamente per impostazione predefinita nei se
 
 3.  In alternativa, è possibile impedire l'avvio automatico di Server Manager abilitando l'impostazione Criteri di gruppo, **non avviare Server Manager automaticamente all'accesso**. Il percorso di questa impostazione dei criteri, nella console Criteri di gruppo Editor locale, è Configurazione computer\Modelli Amministrativi\sistema\server Manager.
 
-## <a name="BKMK_restart"></a>Riavviare i server remoti
+## <a name="restart-remote-servers"></a><a name=BKMK_restart></a>Riavviare i server remoti
 È possibile riavviare un server remoto dal riquadro **Server** di una pagina ruolo o gruppo in Server Manager.
 
 > [!IMPORTANT]
 > Il riavvio di un server remoto comporta il riavvio del server, anche se gli utenti sono ancora connessi al server remoto e anche se sono ancora aperti programmi con dati non salvati. Questo comportamento si differenzia dall'arresto o dal riavvio del computer locale, su cui verrebbe richiesto di salvare i dati di programmi non salvati e di verificare che si desiderava indurre gli utenti connessi a disconnettersi. È sicuro che è possibile indurre altri utenti a disconnettersi dai server remoti e che è possibile eliminare i dati non salvati nei programmi eseguiti nei server remoti.
 > 
-> Se si verifica un aggiornamento automatico in Server Manager mentre è in corso l'arresto e il riavvio di un server gestito, possono verificarsi errori di stato di aggiornamento e gestibilità per il server gestito, perché Server Manager non è in grado di connettersi al server remoto finché non è terminato riavvio.
+> Se si verifica un aggiornamento automatico in Server Manager mentre è in corso l'arresto e il riavvio di un server gestito, possono verificarsi errori di stato di aggiornamento e gestibilità per il server gestito, perché Server Manager non è in grado di connettersi al server remoto finché non viene terminato il riavvio.
 
 #### <a name="to-restart-remote-servers-in-server-manager"></a>Per riavviare server remoti in Server Manager
 
@@ -201,12 +197,12 @@ Server Manager viene avviato automaticamente per impostazione predefinita nei se
 
 3.  Fare clic con il pulsante destro del mouse sui server selezionati e quindi scegliere **Riavvia server**.
 
-## <a name="BKMK_export"></a>Esporta le impostazioni Server Manager in altri computer
+## <a name="export-server-manager-settings-to-other-computers"></a><a name=BKMK_export></a>Esporta le impostazioni Server Manager in altri computer
 In Server Manager, l'elenco dei server gestiti, le modifiche alle impostazioni di console Server Manager e gruppi personalizzati creati vengono archiviati in due file seguenti. È possibile riutilizzare queste impostazioni su altri computer che eseguono la stessa versione di Server Manager (non i computer che eseguono l'opzione di installazione dei componenti di base del server) o Windows 8. Strumenti di amministrazione remota del Server deve essere in esecuzione nei computer basati su client Windows per esportare le impostazioni di Server Manager in tali computer.
 
 -   %*AppData*% \ Microsoft\Windows\ServerManager\Serverlist.XML
 
--   %*AppData*% \ Local\Microsoft_Corporation\ServerManager.exe_StrongName_*GUID*\6.2.0.0\User.config
+-   %*AppData*% \ Local \ Microsoft_Corporation \Servermanager. exe_StrongName_*GUID*\6.2.0.0\User.config
 
 > [!NOTE]
 > -   Le credenziali Account di gestione (o alternative) per i server del pool di server non vengono archiviate nel profilo mobile. Gli utenti di Server Manager è necessario aggiungerli in ogni computer da cui si desidera gestire.
@@ -224,17 +220,17 @@ In Server Manager, l'elenco dei server gestiti, le modifiche alle impostazioni d
 
 2.  Nella scheda **profilo** aggiungere un percorso a una condivisione di rete per archiviare il profilo dell'utente.
 
-3.  Effettuare una delle operazioni seguenti.
+3.  Effettuare una delle operazioni riportate di seguito.
 
-    -   Nelle build in Le compilazioni in lingua inglese (en-US), le modifiche apportate al file **Server. XML** vengono automaticamente salvate nel profilo. Andare al passaggio successivo.
+    -   Nelle compilazioni in inglese (en-US) degli Stati Uniti, le modifiche apportate al file **Server. XML** vengono salvate automaticamente nel profilo. Andare al passaggio successivo.
 
     -   In altre Build copiare i due file seguenti dal computer che esegue Server Manager alla condivisione di rete che fa parte del profilo mobile dell'utente.
 
         -   %*AppData*% \ Microsoft\Windows\ServerManager\Serverlist.XML
 
-        -   %*LocalAppData*% \ Microsoft_Corporation\ServerManager.exe_StrongName_*GUID*\6.2.0.0\User.config
+        -   %*LocalAppData*% \ Microsoft_Corporation \Servermanager. exe_StrongName_*GUID*\6.2.0.0\User.config
 
-4.  Fare clic su **OK** per salvare le modifiche e chiudere la finestra di dialogo **Proprietà** .
+4.  Fare clic su **OK** per salvare le modifiche e chiudere la finestra di dialogo **Proprietà**.
 
 #### <a name="to-export-server-manager-settings-to-computers-in-workgroups"></a>Per esportare le impostazioni di Server Manager in computer dei gruppi di lavoro
 
@@ -242,6 +238,6 @@ In Server Manager, l'elenco dei server gestiti, le modifiche alle impostazioni d
 
     -   %*AppData*% \ Microsoft\Windows\ServerManager\Serverlist.XML
 
-    -   %*LocalAppData*% \ Microsoft_Corporation\ServerManager.exe_StrongName_*GUID*\6.2.0.0\User.config
+    -   %*LocalAppData*% \ Microsoft_Corporation \Servermanager. exe_StrongName_*GUID*\6.2.0.0\User.config
 
 

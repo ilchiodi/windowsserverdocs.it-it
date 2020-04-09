@@ -1,7 +1,6 @@
 ---
 ms.assetid: 5c8c6cc0-0d22-4f27-a111-0aa90db7d6c8
 title: Pianificare la topologia di distribuzione di AD FS
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,18 +8,18 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 9cd036e9dd0b249197fb475504c9cad532ead0ea
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 53364e076a8c3b7d95e8c834a5a7621071ed6061
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71408038"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80858674"
 ---
 # <a name="plan-your-ad-fs-deployment-topology"></a>Pianificare la topologia di distribuzione di AD FS
 
 Il primo passaggio nella pianificazione di una distribuzione di Active Directory Federation Services \(AD FS\) consiste nel determinare la topologia di distribuzione appropriata per soddisfare le esigenze dell'organizzazione.  
   
-Prima di leggere questo argomento, esaminare il modo in cui i dati AD FS vengono archiviati e replicati in altri server federativi di una Federazione server farm e assicurarsi di comprendere lo scopo di e i metodi di replica che possono essere utilizzati per i dati sottostanti archiviati nella AD FS con database figuration.  
+Prima di leggere questo argomento, esaminare il modo in cui i dati AD FS vengono archiviati e replicati in altri server federativi di una Federazione server farm e assicurarsi di comprendere lo scopo di e i metodi di replica che possono essere utilizzati per i dati sottostanti archiviati nel database di configurazione AD FS.  
   
 Esistono due tipi di database che è possibile usare per archiviare i dati di configurazione AD FS: database interno di Windows \(WID\) e Microsoft SQL Server. Per altre informazioni, vedere [Ruolo del database di configurazione di ADFS](../../ad-fs/technical-reference/The-Role-of-the-AD-FS-Configuration-Database.md). Esaminare i vari vantaggi e limitazioni associati all'uso di WID o SQL Server come database di configurazione AD FS, insieme ai vari scenari di applicazione supportati e quindi effettuare la selezione.  
   
@@ -32,7 +31,7 @@ AD FS utilizza un database per archiviare la configurazione e, in alcuni casi, i
   
 I due tipi di database sono relativamente equivalenti per la maggior parte degli scopi. Tuttavia, esistono alcune differenze da tenere presenti prima di iniziare a leggere altre informazioni sulle diverse topologie di distribuzione che è possibile usare con AD FS. Nella tabella seguente sono descritte le differenze tra le funzionalità supportate in Database interno di Windows e nel database SQL Server.  
   
-||Funzionalità|Supportata in Database interno di Windows|Supportata in SQL Server
+||Caratteristica|Supportata in Database interno di Windows|Supportata in SQL Server
 | --- | --- | --- |--- |
 |Funzionalità di AD FS|Distribuzione in una server farm federativa|Sì. Se si dispone di un massimo di 100 trust della relying party, una farm WID ha un limite di 30 server federativi.</br></br>Una farm WID non supporta il rilevamento della riproduzione dei token o la risoluzione dell'artefatto (parte del protocollo Security Assertion Markup Language (SAML)). |Sì. Non esiste un limite imposto per il numero di server federativi che si possono distribuire in una singola farm.  
 |Funzionalità di AD FS|Risoluzione artefatto SAML </br></br>**Nota:** Questa funzionalità non è necessaria per i Microsoft Online Services, Microsoft Office 365, Microsoft Exchange o Microsoft Office scenari di SharePoint.|No|Sì  
@@ -53,7 +52,7 @@ L'impatto sulle risorse hardware di un server federativo distribuito in una farm
   
 Diversamente, i server federativi distribuiti in una farm che usa il database SQL Server non includono necessariamente un'istanza locale dal database di configurazione di ADFS. Potrebbero quindi avere esigenze leggermente inferiori in termini di risorse hardware.  
   
-## <a name="BKMK_1"></a>Posizione in cui posizionare un server federativo  
+## <a name="where-to-place-a-federation-server"></a><a name="BKMK_1"></a>Posizione in cui posizionare un server federativo  
 Come procedura di sicurezza consigliata, posizionare AD FS server federativi davanti a un firewall e connetterli alla rete aziendale per impedire l'esposizione a Internet. Questo aspetto è importante perché i server federativi hanno l'autorizzazione completa per concedere i token di sicurezza. Di conseguenza, dovranno avere la stessa protezione di un controller di dominio. Se un server federativo è compromesso, un utente malintenzionato è in grado di rilasciare token di accesso completo a tutte le applicazioni Web e ai server federativi protetti da AD FS.  
   
 > [!NOTE]  

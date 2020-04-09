@@ -1,17 +1,17 @@
 ---
 title: Delimitare l'allocazione di volumi in Spazi di archiviazione diretta
 ms.author: cosmosdarwin
-ms.manager: eldenc
+manager: eldenc
 ms.technology: storage-spaces
 ms.topic: article
 author: cosmosdarwin
 ms.date: 03/29/2018
-ms.openlocfilehash: 19e5a38ca406878b7dbc5a187b0057e97e4fe2d1
-ms.sourcegitcommit: 74107a32efe1e53b36c938166600739a79dd0f51
+ms.openlocfilehash: 26454881279e1d33392a827f794788370def2cab
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76918300"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80858974"
 ---
 # <a name="delimit-the-allocation-of-volumes-in-storage-spaces-direct"></a>Delimitare l'allocazione di volumi in Spazi di archiviazione diretta
 > Si applica a: Windows Server 2019
@@ -23,12 +23,12 @@ Windows Server 2019 introduce un'opzione che consente di delimitare manualmente 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-### <a name="green-checkmark-iconmediadelimit-volume-allocationsupportedpng-consider-using-this-option-if"></a>![Icona segno di spunta verde.](media/delimit-volume-allocation/supported.png) Provare a usare questa opzione se:
+### <a name="green-checkmark-icon-consider-using-this-option-if"></a>![Icona segno di spunta verde.](media/delimit-volume-allocation/supported.png) Provare a usare questa opzione se:
 
 - Il cluster ha sei o più server; e
 - Il cluster usa solo la resilienza con [mirroring a tre vie](storage-spaces-fault-tolerance.md#mirroring)
 
-### <a name="red-x-iconmediadelimit-volume-allocationunsupportedpng-do-not-use-this-option-if"></a>![Icona X rossa.](media/delimit-volume-allocation/unsupported.png) Non usare questa opzione se:
+### <a name="red-x-icon-do-not-use-this-option-if"></a>![Icona X rossa.](media/delimit-volume-allocation/unsupported.png) Non usare questa opzione se:
 
 - Il cluster ha meno di sei server; o
 - Il [cluster usa la](storage-spaces-fault-tolerance.md#parity) resilienza di parità o con [accelerazione speculare](storage-spaces-fault-tolerance.md#mirror-accelerated-parity)
@@ -200,7 +200,7 @@ Sì. È possibile scegliere se delimitare l'allocazione per volume.
 
 No, è uguale a quello dell'allocazione normale.
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 
 - [Panoramica di Spazi di archiviazione diretta](storage-spaces-direct-overview.md)
 - [Tolleranza di errore in Spazi di archiviazione diretta](storage-spaces-fault-tolerance.md)

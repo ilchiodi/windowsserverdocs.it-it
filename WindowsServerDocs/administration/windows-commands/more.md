@@ -1,26 +1,22 @@
 ---
-title: more
-description: 'Argomento dei comandi di Windows per * * * *- '
-ms.custom: na
+title: altro
+description: Argomento dei comandi di Windows per * * * *-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: ded14f6a-d82f-4aeb-a2d8-7ec1c94dfb8f
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 07/26/2019
-ms.openlocfilehash: d505f99511d8702f11ac0c70edba3d62c8cf7996
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 4c627e003e71cb2265c717669e082d48564dd483
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71373914"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80839424"
 ---
-# <a name="more"></a>more
+# <a name="more"></a>altro
 
 
 
@@ -36,7 +32,7 @@ more [[/c] [/p] [/s] [/t<N>] [+<N>]] < [<Drive>:][<Path>]<FileName>
 more [/c] [/p] [/s] [/t<N>] [+<N>] [<Files>]
 ```
 
-## <a name="parameters"></a>Parametri
+### <a name="parameters"></a>Parametri
 
 |           Parametro            |                               Descrizione                               |
 |--------------------------------|-------------------------------------------------------------------------|
@@ -50,7 +46,7 @@ more [/c] [/p] [/s] [/t<N>] [+<N>] [<Files>]
 |            File di \<>            | Specifica un elenco di file da visualizzare. Separare i nomi di file con uno spazio. |
 |               /?               |                  Visualizza la guida al prompt dei comandi.                   |
 
-## <a name="remarks"></a>Osservazioni
+## <a name="remarks"></a>Note
 
 -   I sottocomandi seguenti sono accettati al prompt **più** (`-- More --`). 
 
@@ -68,7 +64,7 @@ more [/c] [/p] [/s] [/t<N>] [+<N>] [<Files>]
 -   Quando si utilizza il carattere di reindirizzamento ( **<** ), è necessario specificare un nome di file come origine. Quando si usa la pipe ( **\|** ), è possibile usare tali comandi come **dir**, **Sort**e **Type**.
 -   Il comando **altro** , con parametri diversi, è disponibile dalla console di ripristino.
 
-## <a name="BKMK_examples"></a>Esempi
+## <a name="examples"></a><a name=BKMK_examples></a>Esempi
 
 Per visualizzare la prima schermata di informazioni di un file denominato clients. New, digitare uno dei comandi seguenti:
 ```
@@ -108,12 +104,12 @@ Gli esempi seguenti possono essere usati al prompt **più** (`-- More --`).
   -- More -- Lines:
   ```  
   Digitare il numero di righe da visualizzare e quindi premere INVIO. **Altro** Visualizza il numero di righe specificato.
-- Per ignorare un numero specifico di righe **, digitare al** prompt **più** . Il numero di righe da ignorare è il seguente:  
+- Per ignorare un numero specifico di righe **, digitare al** prompt **più** . **More** Il numero di righe da ignorare è il seguente:  
   ```
   -- More -- Lines:
   ```  
   Digitare il numero di righe da ignorare, quindi premere INVIO. **More** ignora il numero di righe specificato e visualizza la schermata successiva delle informazioni.
 
-#### <a name="additional-references"></a>Altri riferimenti
+## <a name="additional-references"></a>Altre informazioni di riferimento
 
-[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+- [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

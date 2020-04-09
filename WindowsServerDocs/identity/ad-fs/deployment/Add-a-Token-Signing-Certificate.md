@@ -1,7 +1,6 @@
 ---
 ms.assetid: bbb84ea6-7e31-4442-85ab-a9447e7c19e8
 title: Aggiungere un certificato per la firma di token
-description: ''
 author: billmath
 manager: femila
 ms.date: 05/31/2017
@@ -9,12 +8,12 @@ ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: c8b2246842dd70c06442faed995f6b883dbaf70a
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 9b737cf8c9efb89ef9b3befaa1875b273bfcadf9
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71360091"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80814934"
 ---
 # <a name="add-a-token-signing-certificate"></a>Aggiungere un certificato per la firma di token
 
@@ -26,7 +25,7 @@ I server federativi in Active Directory Federation Services \(AD FS\) richiedono
   
 Il token\-certificato di firma deve essere concatenato a una radice attendibile nel Servizio federativo. È possibile utilizzare la procedura seguente per aggiungere il token\-certificato di firma allo snap di gestione AD FS\-in da un file esportato.  
   
-Per completare questa procedura, è necessaria almeno l'appartenenza al gruppo **Administrators** oppure a un gruppo equivalente nel computer locale.  Per informazioni dettagliate sull'uso degli account appropriati e delle appartenenze a gruppi, vedere [gruppi predefiniti locali e di dominio](https://go.microsoft.com/fwlink/?LinkId=83477) \(http:\/\/go.Microsoft.com\/fwlink\/? LinkId\=83477\).   
+L'appartenenza al gruppo **Administrators**, o a un gruppo equivalente, nel computer locale è il requisito minimo per eseguire questa procedura.  Per informazioni dettagliate sull'uso degli account appropriati e delle appartenenze a gruppi, vedere [gruppi predefiniti locali e di dominio](https://go.microsoft.com/fwlink/?LinkId=83477) \(http:\/\/go.Microsoft.com\/fwlink\/? LinkId\=83477\).   
   
 ### <a name="to-add-a-token-signing-certificate"></a>Per aggiungere un token\-certificato di firma  
   

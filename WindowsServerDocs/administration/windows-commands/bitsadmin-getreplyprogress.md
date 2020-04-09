@@ -1,54 +1,49 @@
 ---
 title: bitsadmin getreplyprogress
-description: 'Argomento dei comandi di Windows per **BITSAdmin getreplyprogress** : recupera le dimensioni e lo stato della risposta del server.'
-ms.custom: na
+description: Windows Commands Topic for **BITSAdmin getreplyprogress**, che consente di recuperare le dimensioni e lo stato di avanzamento della risposta di caricamento del server.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 7f7cb0b4-ad95-44fd-a35d-0ddf5fc0b0d0
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: c791fe98271b497e5ecf48338ab3bbb0cc50de98
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 195ed669817bc0aca7ebc432e7f3c66ab1548162
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71381237"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80850484"
 ---
 # <a name="bitsadmin-getreplyprogress"></a>bitsadmin getreplyprogress
 
-Recupera la dimensione e lo stato di risposta del server.
+Recupera le dimensioni e lo stato di avanzamento della risposta di caricamento del server.
 
-**BITS 1,2 e versioni precedenti**: Non supportati.
+> [!NOTE]
+> Questo comando non è supportato da BITS 1,2 e versioni precedenti.
 
 ## <a name="syntax"></a>Sintassi
 
 ```
-bitsadmin /GetReplyProgress <Job>
+bitsadmin /getreplyprogress <job>
 ```
 
-## <a name="parameters"></a>Parametri
+### <a name="parameters"></a>Parametri
 
-|Parametro|Descrizione|
-|---------|-----------|
-|Job|Nome visualizzato o il GUID del processo|
+| Parametro | Descrizione |
+| -------------- | -------------- |
+| lavoro | Nome visualizzato o GUID del processo. |
 
-## <a name="remarks"></a>Note
 
-Valido solo per i processi di caricamento-risposta.
+## <a name="examples"></a><a name=BKMK_examples></a>Esempi
 
-## <a name="BKMK_examples"></a>Esempi
+Nell'esempio seguente viene recuperato lo stato della risposta di caricamento per il processo denominato *myDownloadJob*.
 
-Nell'esempio seguente viene recuperato lo stato di risposta per il processo denominato *myDownloadJob*.
 ```
-C:\>bitsadmin /GetReplyProgress myDownloadJob
+C:\>bitsadmin /getreplyprogress myDownloadJob
 ```
 
-#### <a name="additional-references"></a>Altri riferimenti
+## <a name="additional-references"></a>Altre informazioni di riferimento
 
-[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+- [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

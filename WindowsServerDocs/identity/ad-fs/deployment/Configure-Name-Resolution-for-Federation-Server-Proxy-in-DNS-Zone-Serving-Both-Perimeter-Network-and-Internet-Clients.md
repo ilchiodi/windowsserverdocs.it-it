@@ -1,7 +1,6 @@
 ---
 ms.assetid: 1a6740e6-5b6d-41f8-9ec4-32cdbee3e1bb
 title: Configurare la risoluzione dei nomi per un proxy server federativo in una zona DNS che serve sia la rete perimetrale sia i client Internet
-description: ''
 author: billmath
 manager: femila
 ms.date: 05/31/2017
@@ -9,12 +8,12 @@ ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: 118c03ada32d3cd5b198ecd238078984a38df0db
-ms.sourcegitcommit: 8fbd2d877612a9feb02d7d91ed0372d7cd441d5c
+ms.openlocfilehash: 487ba9d90043ada0d401d7e5a9d02872e1872b7e
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71359827"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80854934"
 ---
 # <a name="configure-name-resolution-for-a-federation-server-proxy-in-a-dns-zone-that-serves-both-the-perimeter-network-and-internet-clients"></a>Configurare la risoluzione dei nomi per un proxy server federativo in una zona DNS che serve sia la rete perimetrale sia i client Internet
 
@@ -34,7 +33,7 @@ In modo che i computer client su Internet possono accedere un server federativo 
 > [!NOTE]  
 > Si presuppone che si stia usando un server DNS che esegue Windows 2000 Server, Windows Server 2003 o Windows Server 2008 con il servizio server DNS per controllare la zona DNS Internet.  
   
-L'appartenenza a **amministratori**, o equivalente è il requisito minimo necessario per completare questa procedura.  Informazioni dettagliate sull'utilizzo degli account appropriati e appartenenze [dominio gruppi predefiniti locali e](https://go.microsoft.com/fwlink/?LinkId=83477).   
+Per poter completare questa procedura, è richiesta almeno l'appartenenza al gruppo **Administrators** o a un gruppo equivalente.  Informazioni dettagliate sull'utilizzo degli account appropriati e appartenenze [dominio gruppi predefiniti locali e](https://go.microsoft.com/fwlink/?LinkId=83477).   
   
 #### <a name="to-add-a-host-a-resource-record-to-the-internet-dns-zone-for-a-federation-server-proxy"></a>Per aggiungere un host \(A\) record di risorse per la zona DNS Internet per un proxy server federativo  
   
@@ -46,15 +45,15 @@ L'appartenenza a **amministratori**, o equivalente è il requisito minimo necess
   
 4.  In **indirizzo IP**, digitare l'indirizzo IP per il nuovo proxy server federativo, ad esempio, 131.107.27.68.  
   
-5.  Fai clic su **Aggiungi host**.  
+5.  Fare clic su **Aggiungi host**.  
   
 ## <a name="add-a-host-a-resource-record-to-the-perimeter-dns-zone-for-a-federation-server-proxy"></a>Aggiungere un host \(A\) record di risorse per la zona DNS perimetrale per un proxy server federativo  
 In modo che le richieste client Internet possono essere elaborate correttamente dai proxy server federativo e raggiungano il server federativo dopo che vengono risolte nella zona DNS Internet, è necessario creare un host \(A\) record di risorse nella zona DNS perimetrale. Questo record di risorse consente di risolvere il nome host del server federativo di account \(ad esempio, fs. Fabrikam.com\) all'indirizzo IP del server federativo di account \(ad esempio, 192.168.1.4\) nella rete aziendale.  
   
 > [!NOTE]  
-> Si presuppone che si stia usando un server DNS che esegue Windows 2000 Server, Windows Server 2003, Windows Server 2008 o Windows Server® 2012 con il servizio server DNS per controllare la zona DNS perimetrale.  
+> Si presuppone che si stia usando un server DNS che esegue Windows 2000 Server, Windows Server 2003, Windows Server 2008 o Windows Server&reg; 2012 con il servizio server DNS per controllare la zona DNS perimetrale.  
   
-L'appartenenza a **amministratori**, o equivalente è il requisito minimo necessario per completare questa procedura.  Informazioni dettagliate sull'utilizzo degli account appropriati e appartenenze [dominio gruppi predefiniti locali e](https://go.microsoft.com/fwlink/?LinkId=83477).   
+Per poter completare questa procedura, è richiesta almeno l'appartenenza al gruppo **Administrators** o a un gruppo equivalente.  Informazioni dettagliate sull'utilizzo degli account appropriati e appartenenze [dominio gruppi predefiniti locali e](https://go.microsoft.com/fwlink/?LinkId=83477).   
   
 #### <a name="to-add-a-host-a-resource-record-to-the-perimeter-dns-zone-for-a-federation-server-proxy"></a>Per aggiungere un host \(A\) record di risorse per la zona DNS perimetrale per un proxy server federativo  
   
@@ -62,11 +61,11 @@ L'appartenenza a **amministratori**, o equivalente è il requisito minimo necess
   
 2.  Nell'albero della console, a destra\-fare clic sulla zona di ricerca diretta applicabile e quindi fare clic su **Nuovo Host \(A o AAAA\)** .  
   
-3.  In **nome**, digitare solo il nome del computer del server federativo. Ad esempio, per il FQDN fs.fabrikam.com, digitare **ADFS**.  
+3.  In **nome**, digitare solo il nome del computer del server federativo. Ad esempio, per l'FQDN fs.fabrikam.com, digitare **fs**.  
   
 4.  Nel **indirizzo IP** nella casella di testo digitare l'indirizzo IP di un indirizzo per il server federativo nella rete aziendale, ad esempio, 192.168.1.4.  
   
-5.  Fai clic su **Aggiungi host**.  
+5.  Fare clic su **Aggiungi host**.  
   
 ## <a name="additional-references"></a>Altri riferimenti  
 [Elenco di controllo: configurazione di un proxy server federativo](Checklist--Setting-Up-a-Federation-Server-Proxy.md)  

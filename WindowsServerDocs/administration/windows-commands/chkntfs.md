@@ -1,28 +1,22 @@
 ---
 title: chkntfs
-description: 'Argomento dei comandi di Windows per * * * *- '
-ms.custom: na
+description: Windows Commands Topic for chkntfs, che consente di visualizzare o modificare il controllo automatico del disco all'avvio del computer.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 93eca810-8699-4716-8e9d-aecd54f704be
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: f940fe81f0e7e01495e071931059b2375b78bb22
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: bb04022964b3c315c1003a9746f6551fc281dba3
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71379350"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80847774"
 ---
 # <a name="chkntfs"></a>chkntfs
-
-
 
 Visualizza o modifica il controllo del disco automatico all'avvio del computer. Se utilizzata senza opzioni, **chkntfs** visualizza la file System del volume specificato. Se è pianificata l'esecuzione del controllo automatico dei file, **chkntfs** Visualizza se il volume specificato è modificato o è pianificato per essere controllato al successivo avvio del computer.
 
@@ -41,18 +35,18 @@ chkntfs [/x <Volume> [...]]
 chkntfs [/c <Volume> [...]]
 ```
 
-## <a name="parameters"></a>Parametri
+### <a name="parameters"></a>Parametri
 
 |Parametro|Descrizione|
 |---------|-----------|
-|\<Volume > [...]|Specifica uno o più volumi da controllare all'avvio del computer. I volumi validi includono le lettere di unità (seguite da due punti), i punti di montaggio o i nomi dei volumi.|
+|\<volume > [...]|Specifica uno o più volumi da controllare all'avvio del computer. I volumi validi includono le lettere di unità (seguite da due punti), i punti di montaggio o i nomi dei volumi.|
 |/d|Ripristina tutte le impostazioni predefinite di **chkntfs** , eccetto l'ora del conto alla rovescia per il controllo automatico dei file. Per impostazione predefinita, tutti i volumi vengono controllati all'avvio del computer e **chkdsk** viene eseguito su quelli sporchi.|
-|/t [: \<Tempo >]|Modifica l'ora del conto alla rovescia di avvio Autochk. exe per la quantità di tempo specificata in secondi. Se non si immette un'ora, **/t** Visualizza l'ora del conto alla rovescia corrente.|
-|/x \<Volume > [...]|Specifica uno o più volumi da escludere dal controllo quando il computer viene avviato, anche se il volume è contrassegnato per la richiesta di **chkdsk**.|
-|/c \<Volume > [...]|Pianifica uno o più volumi da controllare all'avvio del computer ed esegue **chkdsk** su quelli che sono sporchi.|
+|/t [:\<ora >]|Modifica l'ora del conto alla rovescia di avvio Autochk. exe per la quantità di tempo specificata in secondi. Se non si immette un'ora, **/t** Visualizza l'ora del conto alla rovescia corrente.|
+|/x \<volume > [...]|Specifica uno o più volumi da escludere dal controllo quando il computer viene avviato, anche se il volume è contrassegnato per la richiesta di **chkdsk**.|
+|/c \<volume > [...]|Pianifica uno o più volumi da controllare all'avvio del computer ed esegue **chkdsk** su quelli che sono sporchi.|
 |/?|Visualizza la guida al prompt dei comandi.|
 
-## <a name="BKMK_examples"></a>Esempi
+## <a name="examples"></a><a name=BKMK_examples></a>Esempi
 
 Per visualizzare il tipo di file system per l'unità C, digitare:
 ```
@@ -95,6 +89,6 @@ chkntfs /x c: d: e:
 chkntfs /c d:
 ```
 
-#### <a name="additional-references"></a>Altri riferimenti
+## <a name="additional-references"></a>Altre informazioni di riferimento
 
-[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+- [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

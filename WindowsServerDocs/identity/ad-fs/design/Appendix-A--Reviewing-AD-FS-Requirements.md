@@ -1,7 +1,6 @@
 ---
 ms.assetid: 39ecc468-77c5-4938-827e-48ce498a25ad
 title: Appendice A-revisione dei requisiti di AD FS
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,16 +8,16 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 281bb3763bc13e28b007a819254de382dc977f1c
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: e8a11c7e6072d4aaa1ace19885c92639acfdbbb8
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71408155"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80858054"
 ---
 # <a name="appendix-a-reviewing-ad-fs-requirements"></a>Appendice A: Verifica dei requisiti di ADFS
 
-In modo che i partner dell'organizzazione nella distribuzione di Active Directory Federation Services (AD FS) possano collaborare correttamente, è necessario assicurarsi che l'infrastruttura di rete aziendale sia configurata per supportare AD FS requisiti per gli account, nome risoluzione e certificati. AD FS presenta i seguenti tipi di requisiti:  
+In modo che i partner dell'organizzazione nella distribuzione di Active Directory Federation Services (AD FS) possano collaborare correttamente, è prima necessario assicurarsi che l'infrastruttura di rete aziendale sia configurata per supportare AD FS requisiti per gli account, la risoluzione dei nomi e i certificati. Per ADFS sono previsti i seguenti tipi di requisiti:  
   
 > [!TIP]  
 > È possibile trovare altri collegamenti alle risorse di AD FS nella pagina della [mappa del contenuto di AD FS](https://social.technet.microsoft.com/wiki/contents/articles/2735.aspx) nel sito Wiki di Microsoft TechNet. Questa pagina è gestita dai membri della community di ADFS ed è controllata regolarmente dal team del prodotto ADFS.  
@@ -28,27 +27,27 @@ I requisiti hardware minimi e consigliati seguenti si applicano ai computer del 
   
 |Requisito hardware|Requisito minimo|Requisito consigliato|  
 |------------------------|-----------------------|---------------------------|  
-|Velocità di CPU|Core singolo, 1 gigahertz (GHz)|Quad-core, 2 GHz|  
-|RAM|1 GB|4 GB|  
+|Velocità CPU|Core singolo, 1 gigahertz (GHz)|Quad-core, 2 GHz|  
+|RAM|1 GB|4 GB|  
 |Spazio su disco|50 MB|100 MB|  
   
 ## <a name="software-requirements"></a>Requisiti software  
-AD FS si basa sulle funzionalità server integrate nel sistema operativo Windows Server® 2012.  
+AD FS si basa sulle funzionalità server integrate nel sistema operativo Windows Server&reg; 2012.  
   
 > [!NOTE]  
 > I servizi ruolo Servizio federativo e Proxy servizio federativo non possono coesistere nello stesso computer.  
   
-## <a name="certificate-requirements"></a>Requisiti dei certificati  
+## <a name="certificate-requirements"></a>Requisiti per i certificati  
 I certificati svolgono il ruolo più critico nella protezione delle comunicazioni tra server federativi, proxy server federativi, applicazioni in grado di riconoscere attestazioni e client Web. I requisiti per i certificati variano a seconda che si configuri un computer server federativo o proxy server federativo, come descritto in questa sezione.  
   
-### <a name="federation-server-certificates"></a>Certificati dei server federativi  
-Per i server federativi sono richiesti i certificati indicati nella tabella seguente.  
+### <a name="federation-server-certificates"></a>Certificati server federativi  
+I server federativi richiedono i certificati della tabella seguente.  
   
-|Tipo di certificato|Descrizione|Informazioni che occorre conoscere prima della distribuzione|  
+|Tipo di certificato|Descrizione|Informazioni importanti preliminari alla distribuzione|  
 |--------------------|---------------|------------------------------------------|  
-|Certificato SSL (Secure Sockets Layer)|Si tratta di un certificato SSL (Secure Sockets Layer) standard usato per proteggere le comunicazioni tra server federativi e client.|Questo certificato deve essere associato al sito Default Web Site in Internet Information Services (IIS) per un server federativo o un proxy server federativo.  Per un proxy server federativo l'associazione deve essere configurata in IIS prima di poter eseguire correttamente la Configurazione guidata del proxy del server federativo.<br /><br />**Raccomandazione** poiché questo certificato deve essere considerato attendibile dai client di ADFS, usare un certificato di autenticazione server rilasciato da un'autorità di certificazione (CA) pubblica (di terze parti), ad esempio VeriSign. **Punta** Il nome soggetto del certificato viene usato per rappresentare il nome del Servizio federativo per ogni istanza di ADFS distribuita. Per questo motivo, in un nuovo certificato rilasciato da una CA è consigliabile scegliere un nome soggetto che meglio rappresenti il nome della società o dell'organizzazione per i partner.|  
+|certificato Secure Sockets Layer (SSL)|Si tratta di un certificato SSL (Secure Sockets Layer) standard usato per proteggere le comunicazioni tra server federativi e client.|Questo certificato deve essere associato al sito Default Web Site in Internet Information Services (IIS) per un server federativo o un proxy server federativo.  Per un proxy server federativo l'associazione deve essere configurata in IIS prima di poter eseguire correttamente la Configurazione guidata del proxy del server federativo.<p>**Raccomandazione:** Poiché il certificato deve essere considerato attendibile dai client di AD FS, usare un certificato di autenticazione server emesso da un'autorità di certificazione (CA) pubblica (di terze parti), ad esempio VeriSign. **Suggerimento:** Il nome soggetto di questo certificato viene utilizzato per rappresentare il nome del Servizio federativo per ogni istanza di AD FS distribuita. Per questo motivo, in un nuovo certificato rilasciato da una CA è consigliabile scegliere un nome soggetto che meglio rappresenti il nome della società o dell'organizzazione per i partner.|  
 |Certificato per le comunicazioni di servizi|Questo certificato abilita la sicurezza dei messaggi WCF per proteggere le comunicazioni tra server federativi.|Per impostazione predefinita, come certificato per le comunicazioni di servizi viene usato il certificato SSL.  L'impostazione può essere modificata con la console di gestione di ADFS.|  
-|Certificato per la firma di token|Questo certificato X509 standard viene usato per firmare in modo sicuro tutti i token rilasciati dal server federativo.|Il certificato per la firma di token deve contenere una chiave privata ed essere concatenato a una radice attendibile nel Servizio federativo. Per impostazione predefinita, ADFS crea un certificato autofirmato. È tuttavia possibile modificare questa impostazione in un secondo momento, secondo le esigenze dell'organizzazione, specificando un certificato rilasciato da una CA con lo snap-in Gestione ADFS.|  
+|Certificato per la firma di token|Questo certificato X509 standard viene usato per firmare in modo sicuro tutti i token rilasciati dal server federativo.|Il certificato per la firma di token deve contenere una chiave privata e deve essere collegato a una fonte attendibile nel servizio federativo. Per impostazione predefinita, ADFS crea un certificato autofirmato. È tuttavia possibile modificare questa impostazione in un secondo momento, secondo le esigenze dell'organizzazione, specificando un certificato rilasciato da una CA con lo snap-in Gestione ADFS.|  
 |Certificato di decrittografia token|Si tratta di un certificato SSL standard usato per decrittografare i token in ingresso crittografati da un server federativo di un partner. Viene pubblicato anche nei metadati federativi.|Per impostazione predefinita, ADFS crea un certificato autofirmato. È tuttavia possibile modificare questa impostazione in un secondo momento, secondo le esigenze dell'organizzazione, specificando un certificato rilasciato da una CA con lo snap-in Gestione ADFS.|  
   
 > [!CAUTION]  
@@ -56,12 +55,12 @@ Per i server federativi sono richiesti i certificati indicati nella tabella segu
   
 Per altre informazioni sui certificati usati dai server federativi, vedere [Requisiti dei certificati per i server federativi](Certificate-Requirements-for-Federation-Servers.md).  
   
-### <a name="federation-server-proxy-certificates"></a>Certificati dei proxy server federativi  
+### <a name="federation-server-proxy-certificates"></a>Certificati proxy server federativi  
 Per i proxy server federativi sono richiesti i certificati indicati nella tabella seguente.  
   
-|Tipo di certificato|Descrizione|Informazioni che occorre conoscere prima della distribuzione|  
+|Tipo di certificato|Descrizione|Informazioni importanti preliminari alla distribuzione|  
 |--------------------|---------------|------------------------------------------|  
-|Certificato di autenticazione del server|Si tratta di un certificato SSL (Secure Sockets Layer) standard usato per proteggere le comunicazioni tra un proxy server federativo e i computer client Internet.|Questo certificato deve essere associato al sito Default Web Site in Internet Information Services (IIS) prima di poter eseguire correttamente la Configurazione guidata del proxy del server federativo ADFS.<br /><br />**Raccomandazione** poiché questo certificato deve essere considerato attendibile dai client di ADFS, usare un certificato di autenticazione server rilasciato da un'autorità di certificazione (CA) pubblica (di terze parti), ad esempio VeriSign.<br /><br />**Punta** Il nome soggetto del certificato viene usato per rappresentare il nome del Servizio federativo per ogni istanza di ADFS distribuita. Per questo motivo, è consigliabile scegliere un nome soggetto che meglio rappresenti il nome della società o dell'organizzazione per i partner.|  
+|Certificato di autenticazione server|Si tratta di un certificato SSL (Secure Sockets Layer) standard usato per proteggere le comunicazioni tra un proxy server federativo e i computer client Internet.|Questo certificato deve essere associato al sito Default Web Site in Internet Information Services (IIS) prima di poter eseguire correttamente la Configurazione guidata del proxy del server federativo ADFS.<p>**Raccomandazione:** Poiché il certificato deve essere considerato attendibile dai client di AD FS, usare un certificato di autenticazione server emesso da un'autorità di certificazione (CA) pubblica (di terze parti), ad esempio VeriSign.<p>**Suggerimento:** Il nome soggetto di questo certificato viene utilizzato per rappresentare il nome del Servizio federativo per ogni istanza di AD FS distribuita. Per questo motivo, è consigliabile scegliere un nome soggetto che meglio rappresenti il nome della società o dell'organizzazione per i partner.|  
   
 Per altre informazioni sui certificati usati dai proxy server federativi, vedere [Requisiti dei certificati per i proxy server federativi](Certificate-Requirements-for-Federation-Server-Proxies.md).  
   
@@ -70,13 +69,13 @@ Anche se qualsiasi Web Browser corrente con funzionalità JavaScript può essere
   
 Il team del prodotto AD FS in Microsoft ha testato correttamente le configurazioni del browser e del sistema operativo nella tabella seguente.  
   
-|Browser|Windows 7|Windows Vista|  
+|Browser.|Windows 7|Windows Vista|  
 |-----------|-------------|-----------------|  
-|Internet Explorer 7,0|x|x|  
-|Internet Explorer 8,0|x|x|  
-|Internet Explorer 9,0|x|Non testato|  
-|FireFox 3.0|x|x|  
-|Safari 3.1|x|x|  
+|Internet Explorer 7,0|X|X|  
+|Internet Explorer 8,0|X|X|  
+|Internet Explorer 9,0|X|Non testato|  
+|FireFox 3.0|X|X|  
+|Safari 3.1|X|X|  
   
 > [!NOTE]  
 > ADFS supporta le versioni a 32 bit e 64 bit di tutti i browser inclusi nella tabella precedente.  
@@ -87,13 +86,13 @@ ADFS crea cookie permanenti e basati su sessione che devono essere archiviati ne
 Per motivi di sicurezza, è richiesto il supporto per TLS/SSL.  
   
 ## <a name="network-requirements"></a>Requisiti di rete  
-La configurazione appropriata dei seguenti servizi di rete è fondamentale per la corretta distribuzione di AD FS nell'organizzazione.  
+Una configurazione appropriata dei seguenti servizi di rete è essenziale per la distribuzione corretta di ADFS all'interno dell'organizzazione.  
   
 ### <a name="tcpip-network-connectivity"></a>Connettività di rete TCP/IP  
 Per il funzionamento di AD FS, deve esistere una connettività di rete TCP/IP tra il client. un controller di dominio; e i computer che ospitano il Servizio federativo, il Proxy servizio federativo (quando viene usato) e il Agente Web ADFS.  
   
 ### <a name="dns"></a>DNS  
-Il servizio di rete primario fondamentale per il funzionamento di AD FS, AD eccezione di Active Directory Domain Services (AD DS), è Domain Name System (DNS). La distribuzione del DNS consente agli utenti di usare nomi di computer descrittivi e facili da ricordare per connettersi a computer e altre risorse sulle reti IP.  
+Il servizio di rete primario fondamentale per il funzionamento di AD FS, AD eccezione di Active Directory Domain Services (AD DS), è Domain Name System (DNS). Quando si distribuisce il DNS, gli utenti possono utilizzare nomi computer facili da utilizzare per la connessione ai computer e alle altre risorse delle reti IP.  
   
  Windows Server 2008 utilizza DNS per la risoluzione dei nomi anziché la risoluzione dei nomi NetBIOS di Windows Internet Name Service (WINS) utilizzata nelle reti basate su Windows NT 4.0. È comunque possibile usare WINS per le applicazioni che lo richiedono. Servizi di dominio Active Directory e AD FS richiedono tuttavia la risoluzione dei nomi DNS.  
   
@@ -101,7 +100,7 @@ Il processo di configurazione del DNS per il supporto di AD FS varia a seconda c
   
 -   L'organizzazione ha già di un'infrastruttura DNS esistente. Nella maggior parte degli scenari, il DNS è già configurato in tutta la rete per consentire ai client Web browser della rete aziendale di accedere a Internet. Poiché l'accesso a Internet e la risoluzione dei nomi sono requisiti di AD FS, si presuppone che questa infrastruttura sia attiva per la distribuzione di AD FS.  
   
--   Si prevede di aggiungere un server federativo alla rete aziendale. Allo scopo di autenticare gli utenti sulla rete aziendale, è necessario configurare i server DNS interni nella foresta della rete aziendale in modo che restituiscano il CNAME del server interno che esegue il Servizio federativo. Per altre informazioni, vedere [Name Resolution Requirements for Federation Servers](Name-Resolution-Requirements-for-Federation-Servers.md).  
+-   Si prevede di aggiungere un server federativo alla rete aziendale. Allo scopo di autenticare gli utenti sulla rete aziendale, è necessario configurare i server DNS interni nella foresta della rete aziendale in modo che restituiscano il CNAME del server interno che esegue il Servizio federativo. Per altre informazioni, vedere [Requisiti di risoluzione dei nomi per i server federativi](Name-Resolution-Requirements-for-Federation-Servers.md).  
   
 -   Si prevede di aggiungere un proxy server federativo alla rete perimetrale. Quando si desidera autenticare gli account utente che si trovano nella rete aziendale dell'organizzazione partner identità, è necessario configurare i server DNS interni nella foresta della rete aziendale per restituire il record CNAME del proxy server federativo interno. Per informazioni su come configurare DNS per supportare l'aggiunta di proxy server federativi, vedere [requisiti di risoluzione dei nomi per i proxy server federativi](Name-Resolution-Requirements-for-Federation-Server-Proxies.md).  
   
@@ -115,7 +114,7 @@ ADFS richiede almeno un archivio di attributi da utilizzare per l'autenticazione
   
 I requisiti dell'archivio attributi dipendono dal ruolo svolto dall'organizzazione, cioè come partner account (che ospita gli utenti federati) o come partner risorse (che ospita l'applicazione federata).  
   
-### <a name="adds"></a>AD DS  
+### <a name="adds"></a>Servizi di dominio Active Directory  
 Per il corretto funzionamento di AD FS, i controller di dominio nell'organizzazione partner account o nell'organizzazione partner risorse devono eseguire Windows Server 2003 SP1, Windows Server 2003 R2, Windows Server 2008 o Windows Server 2012.  
   
 Quando si installa e si configura ADFS in un computer appartenente a un dominio, l'archivio account utente di Active Directory di tale dominio sarà disponibile come archivio attributi selezionabile.  
@@ -179,5 +178,5 @@ Per l'autenticazione con smart card viene usato il protocollo Kerberos per l'aut
   
 Per supportare requisiti di complessità dell'autenticazione specifici in alcuni scenari, è anche possibile configurare ADFS per la creazione di un'attestazione che indichi in che modo è stato autenticato l'utente. Un relying party può quindi usare questa attestazione per prendere decisioni di autorizzazione.  
   
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 [Guida alla progettazione di AD FS in Windows Server 2012](AD-FS-Design-Guide-in-Windows-Server-2012.md)

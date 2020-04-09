@@ -5,15 +5,15 @@ ms.prod: windows-server
 ms.technology: networking
 ms.topic: article
 ms.assetid: a6615411-83d9-495f-8a6a-1ebc8b12f164
-manager: brianlic
-ms.author: lizross
-author: eross-msft
-ms.openlocfilehash: 5e1ed095b3180f3aebd25381ec9086445bb141ec
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+manager: dcscontentpm
+ms.author: v-tea
+author: Teresa-Motiv
+ms.openlocfilehash: 2e902f3aea4025afe4f475c45193710a8b474dcd
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80316628"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80862224"
 ---
 # <a name="choosing-a-network-adapter"></a>Scelta di una scheda di rete
 
@@ -100,27 +100,27 @@ Di seguito sono riportati i parametri **set-NetAdapterRss** aggiuntivi che è po
 
 - **\* MaxProcessors**: imposta il numero massimo di processori RSS da usare. Ciò garantisce che il traffico dell'applicazione venga associato a un numero massimo di processori in una determinata interfaccia. Esempio di sintassi:
 
-     `Set-NetAdapterRss –Name “Ethernet” –MaxProcessors <value>`
+     `Set-NetAdapterRss –Name "Ethernet" –MaxProcessors <value>`
 
 - **\* BaseProcessorGroup**: imposta il gruppo di processori di base di un nodo NUMA. Questa operazione influisca sull'array del processore usato da RSS. Esempio di sintassi:
 
-     `Set-NetAdapterRss –Name “Ethernet” –BaseProcessorGroup <value>`
+     `Set-NetAdapterRss –Name "Ethernet" –BaseProcessorGroup <value>`
   
 - **\* MaxProcessorGroup**: imposta il gruppo di processori massimo di un nodo NUMA. Questa operazione influisca sull'array del processore usato da RSS. L'impostazione di questa opzione consente di limitare un gruppo di processori massimo in modo che il bilanciamento del carico sia allineato all'interno di un gruppo k. Esempio di sintassi:
 
-     `Set-NetAdapterRss –Name “Ethernet” –MaxProcessorGroup <value>`
+     `Set-NetAdapterRss –Name "Ethernet" –MaxProcessorGroup <value>`
 
 - **\* BaseProcessorNumber**: imposta il numero del processore di base di un nodo NUMA. Questa operazione influisca sull'array del processore usato da RSS. In questo modo è possibile partizionare i processori tra le schede di rete. Si tratta del primo processore logico nell'intervallo di processori RSS assegnato a ogni adapter. Esempio di sintassi:
 
-     `Set-NetAdapterRss –Name “Ethernet” –BaseProcessorNumber <Byte Value>`
+     `Set-NetAdapterRss –Name "Ethernet" –BaseProcessorNumber <Byte Value>`
 
 - **\* NumaNode**: nodo NUMA da cui ogni scheda di rete può allocare memoria. Può trovarsi all'interno di un gruppo k o di gruppi k diversi. Esempio di sintassi:
 
-     `Set-NetAdapterRss –Name “Ethernet” –NumaNodeID <value>`
+     `Set-NetAdapterRss –Name "Ethernet" –NumaNodeID <value>`
 
 - **\* NumberofReceiveQueues**: se i processori logici sembrano sottoutilizzati per il traffico di ricezione \(ad esempio, come visualizzato in gestione attività\), è possibile provare ad aumentare il numero di code RSS dal valore predefinito 2 al valore massimo supportato dalla scheda di rete. È possibile che la scheda di rete disponga delle opzioni per modificare il numero di code RSS come parte del driver. Esempio di sintassi:
 
-     `Set-NetAdapterRss –Name “Ethernet” –NumberOfReceiveQueues <value>`
+     `Set-NetAdapterRss –Name "Ethernet" –NumberOfReceiveQueues <value>`
 
 Per ulteriori informazioni, fare clic sul collegamento seguente per scaricare [la rete scalabile: eliminazione del collo di bottiglia per l'elaborazione della ricezione, introduzione a RSS](https://download.microsoft.com/download/5/D/6/5D6EAF2B-7DDF-476B-93DC-7CF0072878E6/NDIS_RSS.doc) in formato Word.
   
@@ -190,7 +190,7 @@ Nello scenario precedente, IPv4 RSC è supportato e operativo nell'interfaccia. 
 Di seguito è riportato un esempio di output quando si esegue il cmdlet Get-NetAdapterStatistics.
 
 ```  
-PS C:\Users\Administrator> $x = Get-NetAdapterStatistics “myAdapter”   
+PS C:\Users\Administrator> $x = Get-NetAdapterStatistics "myAdapter"   
 PS C:\Users\Administrator> $x.rscstatistics  
   
 CoalescedBytes       : 0  

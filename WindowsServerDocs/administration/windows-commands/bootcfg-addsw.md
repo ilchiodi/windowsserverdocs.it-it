@@ -1,36 +1,32 @@
 ---
 title: bootcfg addsw
-description: Argomento dei comandi di Windows per **bootcfg Addsw** -aggiunge le opzioni di caricamento del sistema operativo per una voce del sistema operativo specificata.
-ms.custom: na
+description: Windows Commands Topic for bootcfg Addsw, che aggiunge le opzioni di caricamento del sistema operativo per una voce del sistema operativo specificata.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: d8389293-ecd9-42f0-b84b-b9ead4cf52e6
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 2dd727c839babe1ae4f7743285844f35cf5bf76e
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: a9ae5175dfc3b068276f6ab95d6823699c96b2b5
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71380177"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80848714"
 ---
 # <a name="bootcfg-addsw"></a>bootcfg addsw
 
 >Si applica a: Windows Server (Canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-aggiunge le opzioni di caricamento del sistema operativo per una voce del sistema operativo specificata.
+Consente di aggiungere opzioni di caricamento del sistema operativo per una voce del sistema operativo specificato.
 
 ## <a name="syntax"></a>Sintassi
 ```
 bootcfg /addsw [/s <computer> [/u <Domain>\<User> /p <Password>]] [/mm <MaximumRAM>] [/bv] [/so] [/ng] /id <OSEntryLineNum>
 ```
-## <a name="parameters"></a>Parametri
+### <a name="parameters"></a>Parametri
 
 |         Termine         |                                                                                                            Definizione                                                                                                            |
 |----------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -44,7 +40,7 @@ bootcfg /addsw [/s <computer> [/u <Domain>\<User> /p <Password>]] [/mm <MaximumR
 | <OSEntryLineNum>/ID | Specifica il numero di riga voce del sistema operativo in della sezione [operating systems] del file Boot. ini alla quale aggiungere opzioni di caricamento del sistema operativo. La prima riga dopo la sezione [operating systems] sezione di intestazione è 1. |
 |          /?          |                                                                                               Visualizza la guida al prompt dei comandi.                                                                                               |
 
-## <a name="BKMK_examples"></a>Esempi
+## <a name="examples"></a><a name=BKMK_examples></a>Esempi
 Gli esempi seguenti illustrano come utilizzare il **bootcfg /addsw** comando:
 ```
 bootcfg /addsw /mm 64 /id 2 
@@ -53,5 +49,5 @@ bootcfg /addsw /so /ng /s srvmain /u hiropln /id 2
 bootcfg /addsw /ng /id 2 
 bootcfg /addsw /mm 96 /ng /s srvmain /u maindom\hiropln /p p@ssW23 /id 2
 ```
-#### <a name="additional-references"></a>riferimenti aggiuntivi
-[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+## <a name="additional-references"></a>Altre informazioni di riferimento
+- [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

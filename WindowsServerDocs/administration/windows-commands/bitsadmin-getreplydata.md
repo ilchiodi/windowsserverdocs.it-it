@@ -1,54 +1,48 @@
 ---
 title: bitsadmin getreplydata
-description: 'Argomento dei comandi di Windows per **BITSAdmin getreplydata** : recupera i dati di risposta del server in formato esadecimale.'
-ms.custom: na
+description: Windows Commands Topic for **BITSAdmin getreplydata**, che recupera i dati di risposta di caricamento del server in formato esadecimale per il processo.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 819f97d5-b255-4b2d-9f63-0daa73915434
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 7ebd3ee77e5d442467f49bb209c560f089f2271b
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: fb83ca93f8e73445788d926e0d5e6db4c774d759
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71381284"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80850504"
 ---
 # <a name="bitsadmin-getreplydata"></a>bitsadmin getreplydata
 
-Recupera i dati di risposta del server in formato esadecimale.
+Recupera i dati di risposta di caricamento del server in formato esadecimale per il processo.
 
-**BITS 1,2 e versioni precedenti**: Non supportati.
+> [!NOTE]
+> Questo comando non è supportato da BITS 1,2 e versioni precedenti.
 
 ## <a name="syntax"></a>Sintassi
 
 ```
-bitsadmin /GetReplyData <Job>
+bitsadmin /getreplydata <job>
 ```
 
-## <a name="parameters"></a>Parametri
+### <a name="parameters"></a>Parametri
 
-|Parametro|Descrizione|
-|---------|-----------|
-|Job|Nome visualizzato o il GUID del processo|
+| Parametro | Descrizione |
+| -------------- | -------------- |
+| lavoro | Nome visualizzato o GUID del processo. |
 
-## <a name="remarks"></a>Note
+## <a name="examples"></a><a name=BKMK_examples></a>Esempi
 
-Valido solo per i processi di caricamento-risposta.
+Nell'esempio seguente vengono recuperati i dati di risposta di caricamento per il processo denominato *myDownloadJob*.
 
-## <a name="BKMK_examples"></a>Esempi
-
-Nell'esempio seguente recupera i dati di risposta per il processo denominato *myDownloadJob*.
 ```
-C:\>bitsadmin /GetReplyData myDownloadJob
+C:\>bitsadmin /getreplydata myDownloadJob
 ```
 
-#### <a name="additional-references"></a>Altri riferimenti
+## <a name="additional-references"></a>Altre informazioni di riferimento
 
-[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+- [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

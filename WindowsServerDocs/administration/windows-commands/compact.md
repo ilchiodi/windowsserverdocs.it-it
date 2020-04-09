@@ -1,28 +1,22 @@
 ---
-title: compact
-description: 'Argomento dei comandi di Windows per * * * *- '
-ms.custom: na
+title: compatto
+description: Windows Commands (comandi di Windows) per Compact, che consente di visualizzare o modificare la compressione di file o directory in partizioni NTFS.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 429b3752-df0a-43a4-a210-df2f3ad03c3b
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 5e73369d69912437875a0151b1d9cfcfc85a30da
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: e9e6a3ba71ecc0c8e264ac4af8dc1da42d23fdc2
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71379184"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80847354"
 ---
-# <a name="compact"></a>compact
-
-
+# <a name="compact"></a>compatto
 
 Consente di visualizzare o modificare la compressione di file o directory in partizioni NTFS. Se utilizzata senza parametri, **Compact** Visualizza lo stato di compressione della directory corrente e dei file in essa contenuti.
 
@@ -34,18 +28,18 @@ Per esempi di utilizzo di questo comando, vedere [Esempi](#BKMK_examples).
 compact [/c | /u] [/s[:<Dir>]] [/a] [/i] [/f] [/q] [<FileName>[...]]
 ```
 
-## <a name="parameters"></a>Parametri
+### <a name="parameters"></a>Parametri
 
 |Parametro|Descrizione|
 |---------|-----------|
 |/c|Comprime la directory o il file specificato.|
 |/u|Decomprime la directory o il file specificato.|
-|/s [: \<Dir >]|Applica il comando **Compact** a tutte le sottodirectory della directory specificata (o della directory corrente se non ne viene specificato nessuno).|
+|/s [:\<dir >]|Applica il comando **Compact** a tutte le sottodirectory della directory specificata (o della directory corrente se non ne viene specificato nessuno).|
 |/a|Visualizza i file nascosti o di sistema.|
 |/i|Ignora gli errori.|
 |/f|Forza la compressione o la decompressione del file o della directory specificata. **/f** viene usato nel caso di un file che è stato parzialmente compresso quando l'operazione è stata interrotta da un arresto anomalo del sistema. Per forzare la compressione del file nel suo complesso, usare i parametri **/c** e **/f** e specificare il file parzialmente compresso.|
 |/q|Segnala solo le informazioni più importanti.|
-|\<> FileName|Specifica il file o la directory. È possibile usare più nomi file e **&#42;** e **?** caratteri jolly.|
+|\<FileName >|Specifica il file o la directory. È possibile usare più nomi file e **&#42;** e **?** caratteri jolly.|
 |/?|Visualizza la guida al prompt dei comandi.|
 
 ## <a name="remarks"></a>Note
@@ -54,7 +48,7 @@ compact [/c | /u] [/s[:<Dir>]] [/a] [/i] [/f] [/q] [<FileName>[...]]
 -   Non è possibile usare **Compact** per leggere, scrivere o montare volumi compressi con DriveSpace o DoubleSpace.
 -   Non è possibile usare **Compact** per comprimere le partizioni FAT (file allocation table) o FAT32.
 
-## <a name="BKMK_examples"></a>Esempi
+## <a name="examples"></a><a name=BKMK_examples></a>Esempi
 
 Per impostare lo stato di compressione della directory corrente, delle relative sottodirectory e dei file esistenti, digitare:
 ```
@@ -85,6 +79,6 @@ Per rimuovere l'attributo compresso dalla directory C:\Tmp, senza modificare lo 
 compact /u c:\tmp
 ```
 
-#### <a name="additional-references"></a>Altri riferimenti
+## <a name="additional-references"></a>Altre informazioni di riferimento
 
-[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+- [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

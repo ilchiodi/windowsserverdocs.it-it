@@ -2,20 +2,19 @@
 title: Il numero di processori logici in uso non deve superare il valore massimo supportato
 description: Vengono fornite istruzioni per risolvere il problema segnalato da questa regola di Best Practices Analyzer.
 ms.prod: windows-server
-ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
 ms.author: kathydav
 ms.topic: article
 ms.assetid: 66df8b02-91d1-424b-8934-a39c214d530e
-author: KBDAzure
+author: kbdazure
 ms.date: 8/16/2016
-ms.openlocfilehash: 380daf333c041c8702228a60c26ab6e76e4cf3e1
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: b6cd948c47e58dec919cd946ad701f70403d6af3
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71393400"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80859294"
 ---
 # <a name="the-number-of-logical-processors-in-use-must-not-exceed-the-supported-maximum"></a>Il numero di processori logici in uso non deve superare il valore massimo supportato
 
@@ -28,7 +27,7 @@ Per altre informazioni sulle procedure consigliate e le analisi, vedere [Best Pr
 |**Sistema operativo**|Windows Server 2016|  
 |**Prodotto/funzionalità**|Hyper-V|  
 |**Gravità**|Errore|  
-|**Categoria**|Criteri|  
+|**Categoria**|Condizione|  
   
 Nelle sezioni seguenti, corsivo indica il testo visualizzato nello strumento Analizzatore procedure consigliate per questo problema.  
   

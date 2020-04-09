@@ -1,6 +1,5 @@
 ---
 title: Disconnessione singola per OpenID Connect con AD FS
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -8,12 +7,12 @@ ms.date: 11/17/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 5f0127e60243ca81f7e25282adc79e01c54b4b32
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: fe176af74ebabb5cb56d8aa74d755c4e35ec94a3
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71407851"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80857314"
 ---
 #  <a name="single-log-out-for-openid-connect-with-ad-fs"></a>Disconnessione singola per OpenID Connect con AD FS
 
@@ -77,7 +76,7 @@ Set-ADFSProperties -EnableOAuthLogout $true
 >[!NOTE]
 >frontchannel_logout è supportato **solo** dopo installtion di [KB4038801](https://support.microsoft.com/en-gb/help/4038801/windows-10-update-kb4038801)
 
-## <a name="client-configuration"></a>Configurazione client
+## <a name="client-configuration"></a>Configurazione del client
 Il client deve implementare un URL che "si disconnette" dall'utente connesso. L'amministratore può configurare LogoutUri nella configurazione client usando i cmdlet di PowerShell seguenti. 
 
 
@@ -94,20 +93,20 @@ Il `LogoutUri` è l'URL usato da AF FS per disconnettersi dall'utente. Per l'imp
 ![](media/ad-fs-logout-openid-connect/adfs_single_logout2.png)
 
 
-1.  **Token OAuth con ID sessione**: AD FS include l'ID sessione nel token OAuth al momento del rilascio del token token ID. Questa operazione verrà utilizzata in seguito da AD FS per identificare i cookie SSO rilevanti da pulire per l'utente.
-2.  L' **utente avvia la disconnessione in App1**: L'utente può avviare una disconnessione dalle applicazioni registrate. In questo scenario di esempio, un utente avvia una disconnessione da App1.
-3.  L' **applicazione invia la richiesta di disconnessione a ad FS**: Dopo l'avvio della disconnessione da parte dell'utente, l'applicazione invia una richiesta GET a end_session_endpoint di AD FS. L'applicazione può facoltativamente includere id_token_hint come parametro per questa richiesta. Se id_token_hint è presente, AD FS lo userà insieme all'ID sessione per individuare l'URI al quale il client deve essere reindirizzato dopo la disconnessione (post_logout_redirect_uri).  Post_logout_redirect_uri deve essere un URI valido registrato con AD FS tramite il parametro RedirectUris.
-4.  **Ad FS Invia la disconnessione ai client connessi**: AD FS utilizza il valore dell'identificatore di sessione per individuare i client rilevanti a cui l'utente è connesso. Il client identificato riceve una richiesta sul LogoutUri registrato con AD FS per avviare una disconnessione sul lato client.
+1.  **Token OAuth con ID sessione**: ad FS include l'ID sessione nel token OAuth al momento del rilascio id_token token. Questa operazione verrà utilizzata in seguito da AD FS per identificare i cookie SSO rilevanti da pulire per l'utente.
+2.  L' **utente avvia la disconnessione in App1**: l'utente può avviare una disconnessione da tutte le applicazioni registrate. In questo scenario di esempio, un utente avvia una disconnessione da App1.
+3.  L' **applicazione invia la richiesta di disconnessione a ad FS**: dopo che l'utente ha avviato la disconnessione, l'applicazione invia una richiesta GET al end_session_endpoint di ad FS. L'applicazione può facoltativamente includere id_token_hint come parametro per questa richiesta. Se id_token_hint è presente, AD FS lo utilizzerà insieme all'ID sessione per individuare l'URI al quale il client deve essere reindirizzato dopo la disconnessione (post_logout_redirect_uri).  Il post_logout_redirect_uri deve essere un URI valido registrato con AD FS utilizzando il parametro RedirectUris.
+4.  **Ad FS Invia la disconnessione ai client connessi**: ad FS usa il valore dell'identificatore di sessione per trovare i client rilevanti a cui l'utente è connesso. Il client identificato riceve una richiesta sul LogoutUri registrato con AD FS per avviare una disconnessione sul lato client.
 
-## <a name="faqs"></a>Domande frequenti
-**D** I parametri frontchannel_logout_supported e frontchannel_logout_session_supported non sono visibili nel documento di individuazione.</br>
+## <a name="faqs"></a>domande frequenti
+**D:** Non vengono visualizzati i parametri frontchannel_logout_supported e frontchannel_logout_session_supported nel documento di individuazione.</br>
 **R:** Assicurarsi che [KB4038801](https://support.microsoft.com/en-gb/help/4038801/windows-10-update-kb4038801) sia installato in tutti i server ad FS. Vedere Single Logout in server 2016 with [KB4038801](https://support.microsoft.com/en-gb/help/4038801/windows-10-update-kb4038801).
 
-**D** Ho configurato la disconnessione singola come diretta, ma l'utente rimane connesso ad altri client.</br>
-**R:** Verificare che `LogoutUri` sia impostato su tutti i client in cui l'utente è connesso. Inoltre, AD FS esegue un tentativo migliore di inviare la richiesta di disconnessione nel `LogoutUri` registrato. Il client deve implementare la logica per gestire la richiesta e intraprendere un'azione per la disconnessione dell'utente dall'applicazione.</br>
+**D:** Ho configurato la disconnessione singola come diretta, ma l'utente rimane connesso ad altri client.</br>
+**R:** Assicurarsi che `LogoutUri` sia impostato per tutti i client in cui l'utente è connesso. Inoltre, AD FS esegue un tentativo migliore di inviare la richiesta di disconnessione nel `LogoutUri`registrato. Il client deve implementare la logica per gestire la richiesta e intraprendere un'azione per la disconnessione dell'utente dall'applicazione.</br>
 
-**D** Se dopo la disconnessione uno dei client torna a AD FS con un token di aggiornamento valido, AD FS emettere un token di accesso?</br>
-**R:** Sì. È responsabilità dell'applicazione client eliminare tutti gli artefatti autenticati dopo che è stata ricevuta una richiesta di disconnessione nel `LogoutUri` registrato.
+**D:** Se dopo la disconnessione uno dei client torna a AD FS con un token di aggiornamento valido, AD FS emettere un token di accesso?</br>
+**R:** Sì. È responsabilità dell'applicazione client eliminare tutti gli elementi autenticati dopo che è stata ricevuta una richiesta di disconnessione nel `LogoutUri`registrato.
 
 
 ## <a name="next-steps"></a>Passaggi successivi

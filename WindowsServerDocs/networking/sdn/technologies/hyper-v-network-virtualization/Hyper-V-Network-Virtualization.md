@@ -1,23 +1,19 @@
 ---
 title: Virtualizzazione rete Hyper-V
 description: In questo argomento vengono forniti i collegamenti ai contenuti relativi a virtualizzazione rete Hyper-V in Windows Server 2016.
-manager: brianlic
-ms.custom: na
+manager: grcusanz
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: networking-sdn
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 150976f0-ccd5-487a-a458-92261444a846
-ms.author: lizross
-author: eross-msft
-ms.openlocfilehash: a99fed5fb173ed2ef0698ab5c10bcf872e9abea8
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.author: anpaul
+author: AnirbanPaul
+ms.openlocfilehash: 4bd2af103507610e1837f1e4f8e2b36678b14b55
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80317239"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80854304"
 ---
 # <a name="hyper-v-network-virtualization"></a>Virtualizzazione rete Hyper-V
 
@@ -33,4 +29,4 @@ Per altre informazioni, vedere gli argomenti seguenti:
   
 |||  
 |-|-|  
-|![Cloud](../../../media/Hyper-V-Network-Virtualization/All_Symbols_Cloud.png)|Non tutti sanno che Microsoft Azure offre funzionalità simili nel cloud. Altre informazioni sulle [soluzioni di virtualizzazione di Microsoft Azure](https://aka.ms/f9bh7g).<br /><br />Creare una soluzione di virtualizzazione ibrida in Microsoft Azure:<br />- [connettere una rete locale ad Azure tramite VPN da sito a sito ed estendere Active Directory in un controller di dominio della macchina virtuale IaaS in Azure](https://aka.ms/d1dinb)|  
+|![Cloud](../../../media/Hyper-V-Network-Virtualization/All_Symbols_Cloud.png)|Non tutti sanno che Microsoft Azure offre funzionalità simili nel cloud. Altre informazioni sulle [soluzioni di virtualizzazione di Microsoft Azure](https://aka.ms/f9bh7g).<p>Creare una soluzione di virtualizzazione ibrida in Microsoft Azure:<br />- [connettere una rete locale ad Azure tramite VPN da sito a sito ed estendere Active Directory in un controller di dominio della macchina virtuale IaaS in Azure](https://aka.ms/d1dinb)|  

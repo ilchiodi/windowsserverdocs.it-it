@@ -1,7 +1,6 @@
 ---
 ms.assetid: 61ed00fd-51c7-4728-91fa-8501de9d8f28
 title: Pubblicazione delle applicazioni con SharePoint, Exchange e RDG
-description: ''
 author: billmath
 manager: mtillman
 ms.author: billmath
@@ -9,12 +8,12 @@ ms.date: 04/30/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: web-app-proxy
-ms.openlocfilehash: 3852baf866dae20d1d1d08219841295aa976c626
-ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
+ms.openlocfilehash: 18851463b82afc1dc34615e6faaa14622c80224a
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79319935"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80818684"
 ---
 # <a name="publishing-applications-with-sharepoint-exchange-and-rdg"></a>Pubblicazione delle applicazioni con SharePoint, Exchange e RDG
 
@@ -27,7 +26,7 @@ In questo argomento vengono descritte le attività necessarie per la pubblicazio
 > [!NOTE]
 > Queste informazioni vengono fornite così come sono.  Servizi Desktop remoto supporta e consiglia di usare [app Azure proxy per fornire l'accesso remoto sicuro alle applicazioni locali](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-get-started).
 
-## <a name="BKMK_6.1"></a>Pubblicare SharePoint Server
+## <a name="publish-sharepoint-server"></a><a name="BKMK_6.1"></a>Pubblicare SharePoint Server
 È possibile pubblicare un sito di SharePoint tramite proxy applicazione Web quando il sito di SharePoint è configurato per l'autenticazione basata sulle attestazioni o l'autenticazione integrata di Windows. Se si desidera utilizzare Active Directory Federation Services (AD FS) per la pre-autenticazione, è necessario configurare una relying party utilizzando una delle procedure guidate.
 
 -   Se il sito di SharePoint usa l'autenticazione basata sulle attestazioni, è necessario usare l'Aggiunta guidata attendibilità componente per configurare l'attendibilità della relying party per l'applicazione.
@@ -40,7 +39,7 @@ In questo argomento vengono descritte le attività necessarie per la pubblicazio
 
 Se il sito di SharePoint è configurato per l'uso di mapping di accesso alternativo o raccolte siti con nome host, per pubblicare l'applicazione è possibile usare URL diversi per il server back-end e il server esterno. Se, tuttavia, non si configura il sito di SharePoint usando il mapping di accesso alternativo o le raccolte siti con nome host, è necessario usare gli stessi URL per il server back-end e il server esterno.
 
-## <a name="BKMK_6.2"></a>Pubblicare Exchange Server
+## <a name="publish-exchange-server"></a><a name="BKMK_6.2"></a>Pubblicare Exchange Server
 La tabella seguente descrive i servizi di Exchange che è possibile pubblicare tramite proxy applicazione Web e la preautenticazione supportata per questi servizi:
 
 
@@ -48,7 +47,7 @@ La tabella seguente descrive i servizi di Exchange che è possibile pubblicare t
 |------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |    Outlook Web App     | -AD FS usando l'autenticazione non basata sulle attestazioni<br />-Pass-through<br />-AD FS uso dell'autenticazione basata sulle attestazioni per Exchange 2013 Service Pak 1 (SP1) locale |                                                                  Per altre informazioni, vedere: [Uso dell'autenticazione basata sulle attestazioni di AD FS con Outlook Web App ed EAC](https://go.microsoft.com/fwlink/?LinkId=393723)                                                                  |
 | Pannello di controllo di Exchange |                                                                               Pass-through                                                                               |                                                                                                                                                                                                                                                                                    |
-|    Outlook via Internet    |                                                                               Pass-through                                                                               | Per il corretto funzionamento di Outlook via Internet, è necessario pubblicare tre URL:<br /><br />: URL di individuazione automatica.<br />: Nome host esterno del server Exchange. ovvero, l'URL configurato per la connessione dei client a.<br />: FQDN interno del server Exchange. |
+|    Outlook via Internet    |                                                                               Pass-through                                                                               | Per il corretto funzionamento di Outlook via Internet, è necessario pubblicare tre URL:<p>: URL di individuazione automatica.<br />: Nome host esterno del server Exchange. ovvero, l'URL configurato per la connessione dei client a.<br />: FQDN interno del server Exchange. |
 |  Exchange ActiveSync   |                                                     Pass-through<br/> AD FS utilizzo del protocollo di autorizzazione HTTP Basic                                                      |                                                                                                                                                                                                                                                                                    |
 
 Per pubblicare Outlook Web App con l'autenticazione integrata di Windows, è necessario usare la procedura di aggiunta guidata attendibilità della relying party non basata sulle attestazioni per configurare l'attendibilità della relying party per l'applicazione.
@@ -162,7 +161,7 @@ Se si vuole limitare l'accesso al gateway di accesso remoto e aggiungere la pre-
 
             Per ulteriori informazioni su RDP, vedere [configurazione dello scenario OTP del gateway di Servizi terminal](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731249(v=ws.10)).
 
-## <a name="BKMK_Links"></a>Vedere anche
+## <a name="see-also"></a><a name="BKMK_Links"></a>Vedere anche
 
 - [Pianificazione della pubblicazione di applicazioni mediante il proxy applicazione Web](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn383650(v=ws.11))
 

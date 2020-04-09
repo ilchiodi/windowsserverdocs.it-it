@@ -2,20 +2,19 @@
 title: I controller di archiviazione devono essere abilitati nelle macchine virtuali per fornire accesso ai dispositivi di archiviazione collegati
 description: Vengono fornite istruzioni per risolvere il problema segnalato da questa regola di Best Practices Analyzer.
 ms.prod: windows-server
-ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
 ms.author: kathydav
 ms.topic: article
 ms.assetid: 532548a1-8ffe-4b5b-902e-ed2f0819012b
-author: KBDAzure
+author: kbdazure
 ms.date: 8/16/2016
-ms.openlocfilehash: f0d10ab4c419a6014a9edb4b7f721714dc92798d
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: b530a5868633e6007f311f3d15c94b7ec4ded52c
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71393488"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80858794"
 ---
 # <a name="storage-controllers-should-be-enabled-in-virtual-machines-to-provide-access-to-attached-storage"></a>I controller di archiviazione devono essere abilitati nelle macchine virtuali per fornire accesso ai dispositivi di archiviazione collegati
 
@@ -50,7 +49,7 @@ Per istruzioni su come utilizzare Gestione dispositivi, vedere la Guida del sist
   
 #### <a name="to-remove-a-scsi-storage-controller-from-the-virtual-machine"></a>Per rimuovere un controller di archiviazione SCSI dalla macchina virtuale  
   
-1.  Aprire la console di gestione di Hyper-V. Fare clic su **avviare**, scegliere **Strumenti di amministrazione**, quindi fare clic su **gestione di Hyper-V**.  
+1.  Aprire la console di gestione di Hyper-V. Fare clic sul pulsante **Start**, scegliere **Strumenti di amministrazione** e quindi **Console di gestione di Hyper-V**.  
   
 2.  Nel riquadro dei risultati, sotto **macchine virtuali**, selezionare la macchina virtuale che si desidera configurare.  
   

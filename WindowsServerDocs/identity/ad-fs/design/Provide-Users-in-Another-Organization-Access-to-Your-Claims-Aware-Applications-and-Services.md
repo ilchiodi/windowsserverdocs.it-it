@@ -1,7 +1,6 @@
 ---
 ms.assetid: de7e1e4a-f96d-4b59-ac9b-f65f5d37a96f
 title: Fornire agli utenti di un'altra organizzazione l'accesso ai propri servizi e alle applicazioni in grado di riconoscere attestazioni
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: a0b2429599036f2893f23df7921a11c8232d9f67
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 2e47197a980c9bcb576d6634a0031a8ae13afbfd
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71359072"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80858604"
 ---
 # <a name="provide-users-in-another-organization-access-to-your-claims-aware-applications-and-services"></a>Fornire agli utenti di un'altra organizzazione l'accesso ai propri servizi e alle applicazioni in grado di riconoscere attestazioni
 
@@ -33,7 +32,7 @@ Per questo obiettivo di distribuzione, sono necessari i componenti seguenti:
   
 -   **\)Active Directory Domain Services \(servizi di dominio Active Directory:** Il server federativo del partner risorse deve appartenere a un dominio Active Directory.  
   
--   **DNS perimetrale:** Domain Name System \(\) DNS deve contenere un host semplice \(un\) record di risorse in modo che i computer client possano individuare il server federativo del partner risorse e il server Web. Il server DNS può ospitare altri record DNS anch'essi necessari nella rete perimetrale. Per altre informazioni, vedere [Name Resolution Requirements for Federation Servers](Name-Resolution-Requirements-for-Federation-Servers.md).  
+-   **DNS perimetrale:** Domain Name System \(\) DNS deve contenere un host semplice \(un\) record di risorse in modo che i computer client possano individuare il server federativo del partner risorse e il server Web. Il server DNS può ospitare altri record DNS anch'essi necessari nella rete perimetrale. Per altre informazioni, vedere [Requisiti di risoluzione dei nomi per i server federativi](Name-Resolution-Requirements-for-Federation-Servers.md).  
   
 -   **Server federativo partner risorse:** Il server federativo del partner risorse convalida AD FS token inviati dai partner account. L'individuazione del partner account viene eseguita tramite questo server federativo. Per altre informazioni, vedere [Review the Role of the Federation Server in the Resource Partner](Review-the-Role-of-the-Federation-Server-in-the-Resource-Partner.md).  
   

@@ -1,23 +1,19 @@
 ---
 title: SetHttpMethod Bitsadmin
-description: Argomento dei comandi di Windows per **BITSAdmin SetHttpMethod** -imposta il verbo HTTP da usare.
-ms.custom: na
+description: Windows Commands Topic for Bitsadmin SetHttpMethod, che imposta il verbo HTTP da usare.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 03/01/2019
-ms.openlocfilehash: 0f23b3b06bb3da448bb4cf18344aecfa31dcecd9
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 49064395e39b79657249ab3931c6bcc982bd64b4
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71380615"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80849474"
 ---
 # <a name="bitsadmin-sethttpmethod"></a>SetHttpMethod Bitsadmin
 
@@ -29,13 +25,13 @@ Imposta il verbo HTTP da usare.
 bitsadmin /GetHttpMethod <Job> <HTTPMethod>
 ```
 
-## <a name="parameters"></a>Parametri
+### <a name="parameters"></a>Parametri
 
 |Parametro|Descrizione|
 |---------|-----------|
 |Job|Nome visualizzato o il GUID del processo|
 |HTTPMethod|Verbo HTTP da usare|
 
-#### <a name="additional-references"></a>Altri riferimenti
+## <a name="additional-references"></a>Altre informazioni di riferimento
 
-[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+- [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

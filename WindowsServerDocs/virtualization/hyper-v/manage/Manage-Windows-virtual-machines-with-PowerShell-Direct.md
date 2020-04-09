@@ -2,21 +2,19 @@
 title: Gestire le macchine virtuali Windows con PowerShell Direct
 description: Fornisce istruzioni per l'uso di PowerShell Direct per gestire le macchine virtuali senza basarsi su una rete o su una connessione remota.
 ms.prod: windows-server
-ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: b5715c02-a90f-4de9-a71e-0fc09093ba2d
-author: KBDAzure
+author: kbdazure
 ms.author: kathydav
 ms.date: 10/04/2016
-ms.openlocfilehash: f42e221b073cf199117f85ea96beef4997bbbbc5
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: c4a051de2d8f62c38ae0c44b1a62d5bf9df339e8
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71392748"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80859434"
 ---
 # <a name="manage-windows-virtual-machines-with-powershell-direct"></a>Gestire le macchine virtuali Windows con PowerShell Direct
 
@@ -62,7 +60,7 @@ Se è necessario gestire macchine virtuali di versioni precedenti, usare Conness
 Invoke-Command -VMName PSTest  -FilePath C:\script\foo.ps1  
 ```  
   
-Per eseguire un solo comando, usare il parametro **-ScriptBlock**:  
+Per eseguire un comando singolo, utilizzare il parametro **-ScriptBlock**:  
   
 ```  
 Invoke-Command -VMName PSTest  -ScriptBlock { cmdlet }  
@@ -83,7 +81,7 @@ Per creare una sessione di PowerShell Direct in una macchina virtuale
   
 È possibile usare il cmdlet [Get-VM](https://docs.microsoft.com/powershell/module/hyper-v/get-vm) per verificare che le credenziali usate abbiano il ruolo di amministratore di Hyper-V e per ottenere un elenco delle macchine virtuali in esecuzione in locale nell'host e avviate.  
   
-## <a name="see-also"></a>Vedere anche  
+## <a name="see-also"></a>Vedi anche  
 [Enter-PSSession](https://docs.microsoft.com/powershell/module/Microsoft.PowerShell.Core/Enter-PSSession)  
 [Exit-PSSession](https://docs.microsoft.com/powershell/module/Microsoft.PowerShell.Core/Exit-PSSession)  
 [Invoke-Command](https://docs.microsoft.com/powershell/module/Microsoft.PowerShell.Core/Invoke-Command)  

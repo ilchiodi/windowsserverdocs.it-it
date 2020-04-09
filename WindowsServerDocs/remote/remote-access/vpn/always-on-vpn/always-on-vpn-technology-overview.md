@@ -5,15 +5,15 @@ ms.prod: windows-server
 ms.technology: networking-ras
 ms.topic: article
 ms.date: 11/05/2018
-ms.author: lizross
-author: eross-msft
+ms.author: v-tea
+author: Teresa-MOTIV
 ms.localizationpriority: medium
-ms.openlocfilehash: a5d65dd9f8fb6328bd00be8a46af37ee69ccd2bf
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: 570b96d07f414442a00d5f7ec48de80f270f0a76
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80313391"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80861314"
 ---
 # <a name="always-on-vpn-technology-overview"></a>Panoramica della tecnologia VPN Always On
 
@@ -202,10 +202,10 @@ Windows 10 offre molti CSP, ma questa distribuzione è incentrata sull'uso del C
 
 - [Domain Name System (DNS)](../../../../networking/dns/dns-top.md): in questo argomento viene fornita una panoramica di DNS (Domain Name System). In Windows Server 2016, DNS è un ruolo del server che è possibile installare usando Server Manager o i comandi di Windows PowerShell. Se si installa una nuova foresta Active Directory e un dominio, il DNS viene installato automaticamente con Active Directory come server di catalogo globale per la foresta e il dominio.
 
-- [Panoramica di Servizi certificati Active Directory](https://technet.microsoft.com/library/hh831740.aspx): questo documento offre una panoramica di Active Directory Servizi certificati (ad CS) in Windows Server® 2012. Servizi certificati Active Directory è il ruolo server che consente di creare un'infrastruttura a chiave pubblica (PKI) e fornire crittografia a chiave pubblica, certificati digitali e funzionalità di firma digitale per l'organizzazione.
+- [Panoramica di Servizi certificati Active Directory](https://technet.microsoft.com/library/hh831740.aspx): questo documento offre una panoramica di Active Directory Servizi certificati (ad CS) in Windows Server&reg; 2012. Servizi certificati Active Directory è il ruolo server che consente di creare un'infrastruttura a chiave pubblica (PKI) e fornire crittografia a chiave pubblica, certificati digitali e funzionalità di firma digitale per l'organizzazione.
 
 - [Guida alla progettazione dell'infrastruttura a chiave pubblica](https://social.technet.microsoft.com/wiki/contents/articles/2901.public-key-infrastructure-design-guidance.aspx): questo wiki fornisce indicazioni sulla progettazione di infrastrutture a chiave pubblica (PKI). Prima di configurare un'infrastruttura a chiave pubblica (PKI) e una gerarchia di autorità di certificazione (CA), è necessario conoscere i criteri di sicurezza dell'organizzazione e l'istruzione di pratica del certificato (CPS).
 
-- [Guida dettagliata di Servizi certificati Active Directory: distribuzione della gerarchia PKI a due livelli](https://social.technet.microsoft.com/wiki/contents/articles/15037.ad-cs-step-by-step-guide-two-tier-pki-hierarchy-deployment.aspx): questa guida dettagliata descrive i passaggi necessari per configurare una configurazione di base di Active Directory® Servizi certificati (ad CS) in un ambiente lab. Servizi certificati Active Directory in Windows Server® 2008 R2 offre servizi personalizzabili per la creazione e la gestione di certificati di chiave pubblica usati nei sistemi di sicurezza software che usano tecnologie a chiave pubblica.
+- [Guida dettagliata di Servizi certificati Active Directory: distribuzione della gerarchia PKI a due livelli](https://social.technet.microsoft.com/wiki/contents/articles/15037.ad-cs-step-by-step-guide-two-tier-pki-hierarchy-deployment.aspx): questa guida dettagliata descrive i passaggi necessari per configurare una configurazione di base di Active Directory&reg; Servizi certificati (ad CS) in un ambiente lab. Servizi certificati Active Directory in Windows Server&reg; 2008 R2 offre servizi personalizzabili per la creazione e la gestione di certificati di chiave pubblica usati nei sistemi di sicurezza software che usano tecnologie a chiave pubblica.
 
 - [Server dei criteri di rete](../../../../networking/technologies/nps/nps-top.md): in questo argomento viene fornita una panoramica di server dei criteri di rete in Windows Server 2016. Server dei criteri di rete consente di creare e imporre criteri di accesso di rete a livello di organizzazione per l'autorizzazione e l'autenticazione delle richieste di connessione.

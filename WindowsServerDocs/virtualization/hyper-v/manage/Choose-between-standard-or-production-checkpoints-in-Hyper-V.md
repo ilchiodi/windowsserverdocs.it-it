@@ -2,25 +2,23 @@
 title: Scegliere tra i checkpoint standard o di produzione in Hyper-V
 description: Fornisce istruzioni per la configurazione di una macchina virtuale per l'utilizzo di checkpoint standard o di produzione
 ms.prod: windows-server
-ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 92bb573b-03b7-470e-b72e-e35edf52b349
-author: KBDAzure
+author: kbdazure
 ms.author: kathydav
 ms.date: 10/04/2016
-ms.openlocfilehash: 29c7b8be5b1e9d392cead304ab35c3d5dd5ee86a
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 80e26c76e1377c904901f9da10e5fea347e2d333
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71364214"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80852894"
 ---
 # <a name="choose-between-standard-or-production-checkpoints-in-hyper-v"></a>Scegliere tra i checkpoint standard o di produzione in Hyper-V
 
->Si applica a: Windows 10, Windows Server 2016, Microsoft Hyper-V Server 2016, Windows Server 2019 Microsoft Hyper-V Server 2019
+>Si applica a: Windows 10, Windows Server 2016, Microsoft Hyper-V Server 2016, Windows Server 2019, Microsoft Hyper-V Server 2019
 
   
 A partire da Windows 10 e Windows Server 2016, è possibile scegliere tra i checkpoint standard e di produzione per ogni macchina virtuale. I checkpoint di produzione sono il valore predefinito per nuove macchine virtuali.

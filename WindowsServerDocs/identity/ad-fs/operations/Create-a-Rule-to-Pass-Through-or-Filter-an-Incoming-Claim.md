@@ -1,7 +1,6 @@
 ---
 ms.assetid: 6127963f-71b2-4d8f-8b53-7c525bf06521
 title: Creare una regola per Pass-Through o filtrare un'attestazione in ingresso
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,20 +8,20 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 145558e620188c4311d79d2a9ba4ed7aaf7b13a8
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: fb885d8b822faf4bd5ee82ad70c59b99678a58e9
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71358144"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80816834"
 ---
 # <a name="create-a-rule-to-pass-through-or-filter-an-incoming-claim"></a>Creare una regola per Pass-Through o filtrare un'attestazione in ingresso
 
-Utilizzando il pass-through o filtrare un modello di regola attestazione in ingresso in Active Directory Federation Services \(AD FS\), è possibile passare tutte le attestazioni in ingresso con un tipo di attestazione selezionato. È inoltre possibile filtrare i valori delle attestazioni in ingresso con un tipo di attestazione selezionato. Ad esempio, è possibile utilizzare questo modello di regola per creare una regola che invierà tutte le attestazioni di gruppo in ingresso. È anche possibile usare questa regola per inviare solo il nome dell'entità utente \(UPN\) le attestazioni che terminano con @fabrikam.  
+Utilizzando il pass-through o filtrare un modello di regola attestazione in ingresso in Active Directory Federation Services \(AD FS\), è possibile passare tutte le attestazioni in ingresso con un tipo di attestazione selezionato. È possibile anche filtrare i valori delle attestazioni in ingresso in base a un tipo di attestazione selezionato. È possibile, ad esempio, usare questo modello di regola per creare una regola che invierà tutte le attestazioni di gruppo in ingresso. È anche possibile usare questa regola per inviare solo il nome dell'entità utente \(UPN\) le attestazioni che terminano con @fabrikam.  
   
 È possibile utilizzare la procedura seguente per creare una regola attestazione con lo snap di gestione di ADFS\-in.  
   
-Per completare questa procedura, è necessaria almeno l'appartenenza al gruppo **Administrators** oppure a un gruppo equivalente nel computer locale.  Informazioni dettagliate sull'utilizzo degli account appropriati e appartenenze [dominio gruppi predefiniti locali e](https://go.microsoft.com/fwlink/?LinkId=83477).   
+L'appartenenza al gruppo **Administrators**, o a un gruppo equivalente, nel computer locale è il requisito minimo per eseguire questa procedura.  Informazioni dettagliate sull'utilizzo degli account appropriati e appartenenze [dominio gruppi predefiniti locali e](https://go.microsoft.com/fwlink/?LinkId=83477).   
 
 ## <a name="to-create-a-rule-to-pass-through-or-filter-an-incoming-claim-on-a-relying-party-trust-in-windows-server-2016"></a>Per creare una regola per pass-through o filtrare un'attestazione in ingresso in un Trust della Relying Party in Windows Server 2016 
 

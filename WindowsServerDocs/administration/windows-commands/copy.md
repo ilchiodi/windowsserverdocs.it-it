@@ -1,28 +1,22 @@
 ---
-title: copy
-description: 'Argomento dei comandi di Windows per * * * *- '
-ms.custom: na
+title: copiare
+description: Windows Commands argomento for Copy, che copia uno o più file da una posizione a un'altra.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 9624d4a1-349a-4693-ad00-1d1d4e59e9ac
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 102fd6b59516b04b8986ee47b52f521be73f04de
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 3f1ba088f62dec574a23406683bf5ae3d13c1e86
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71379037"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80847144"
 ---
-# <a name="copy"></a>copy
-
-
+# <a name="copy"></a>copiare
 
 Copia di uno o più file da una posizione a un'altra.
 
@@ -34,7 +28,7 @@ Per esempi di utilizzo di questo comando, vedere [Esempi](#BKMK_examples).
 copy [/d] [/v] [/n] [/y | /-y] [/z] [/a | /b] <Source> [/a | /b] [+<Source> [/a | /b] [+ ...]] [<Destination> [/a | /b]]
 ```
 
-## <a name="parameters"></a>Parametri
+### <a name="parameters"></a>Parametri
 
 |Parametro|Descrizione|
 |---------|-----------|
@@ -46,8 +40,8 @@ copy [/d] [/v] [/n] [/y | /-y] [/z] [/a | /b] <Source> [/a | /b] [+<Source> [/a 
 |/z|Copia i file in rete in modalità riavviabile.|
 |/a|Indica un file di testo ASCII.|
 |/ b|Indica un file binario.|
-|\<Source >|Obbligatorio. Specifica il percorso da cui si desidera copiare un file o un set di file. *Origine* può essere costituito da una lettera di unità e i due punti, un nome di directory, un nome di file o una combinazione di questi.|
-|\<Destination >|Obbligatorio. Specifica il percorso in cui si desidera copiare un file o un set di file. *Destinazione* può essere costituito da una lettera di unità e i due punti, un nome di directory, un nome di file o una combinazione di questi.|
+|> origine \<|Obbligatoria. Specifica il percorso da cui si desidera copiare un file o un set di file. *Origine* può essere costituito da una lettera di unità e i due punti, un nome di directory, un nome di file o una combinazione di questi.|
+|> di destinazione \<|Obbligatoria. Specifica il percorso in cui si desidera copiare un file o un set di file. *Destinazione* può essere costituito da una lettera di unità e i due punti, un nome di directory, un nome di file o una combinazione di questi.|
 |/?|Visualizza la guida al prompt dei comandi.|
 
 ## <a name="remarks"></a>Note
@@ -112,7 +106,7 @@ copy [/d] [/v] [/n] [/y | /-y] [/z] [/a | /b] <Source> [/a | /b] [+<Source> [/a 
     Per copiare tutti i file e le sottodirectory della directory, utilizzare il **xcopy** comando.
 -   Il **Copia** comando con parametri diversi, è disponibile dalla Console di ripristino.
 
-## <a name="BKMK_examples"></a>Esempi
+## <a name="examples"></a><a name=BKMK_examples></a>Esempi
 
 Per copiare un file denominato note per doc nell'unità corrente e verificare che sia un carattere di fine del file (CTRL + Z) alla fine del file copiato, digitare:
 ```
@@ -136,7 +130,7 @@ Per combinare tutti i file nella directory corrente che the.txt estensione in un
 ```
 copy *.txt Combined.doc 
 ```
-Se si desidera unire più file binari in un unico file utilizzando caratteri jolly, includere **/b**. In tal modo considerando CTRL + Z come carattere di fine del file. Ad esempio, digitare il comando seguente:
+Se si desidera unire più file binari in un unico file utilizzando caratteri jolly, includere **/b**. In tal modo considerando CTRL + Z come carattere di fine del file. Digitare ad esempio quanto segue:
 ```
 copy /b *.exe Combined.exe
 ```
@@ -144,7 +138,7 @@ copy /b *.exe Combined.exe
 > [!CAUTION]
 > Se si combinano file binari, il file risulta potrebbe essere inutilizzabile a causa di formattazione interna.
 
-Nell'esempio seguente, **Copia** combina ogni file con estensione txt con il corrispondente file ref. Il risultato è un file con lo stesso nome ma con estensione doc. **Copia** combina file1. txt con File1.ref a file1 e quindi **Copia** combina file2 con File2.ref form File2.doc e così via. Ad esempio, digitare il comando seguente:
+Nell'esempio seguente, **Copia** combina ogni file con estensione txt con il corrispondente file ref. Il risultato è un file con lo stesso nome ma con estensione doc. **Copia** combina file1. txt con File1.ref a file1 e quindi **Copia** combina file2 con File2.ref form File2.doc e così via. Digitare ad esempio quanto segue:
 ```
 copy *.txt + *.ref *.doc
 ```
@@ -153,6 +147,6 @@ Per combinare tutti i file con estensione txt e quindi combinare tutti i file co
 copy *.txt + *.ref Combined.doc
 ```
 
-#### <a name="additional-references"></a>Altri riferimenti
+## <a name="additional-references"></a>Altre informazioni di riferimento
 
-[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+- [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

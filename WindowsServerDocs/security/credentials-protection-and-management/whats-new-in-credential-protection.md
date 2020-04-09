@@ -1,24 +1,20 @@
 ---
 title: Novità della protezione delle credenziali
 description: Sicurezza di Windows Server
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: security-credential-protection
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 1b0b5180-f65a-43ac-8ef3-66014116f297
 author: gitmichiko
 ms.author: michikos
 manager: dongill
 ms.date: 03/06/2017
-ms.openlocfilehash: 2351be82ad1d8b9af17715ce363836f57c71ea66
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 35097cee243239735995a00cec7a6fd3936c62a8
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71386916"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80857044"
 ---
 # <a name="whats-new-in-credential-protection"></a>Novità della protezione delle credenziali
 
@@ -47,7 +43,7 @@ Per la protezione del dominio è necessario un Active Directory dominio.
 
 ### <a name="domain-joined-device-support-for-authentication-using-public-key"></a>Supporto dei dispositivi aggiunti a un dominio per l'autenticazione con chiave pubblica
 
-A partire da Windows 10 versione 1507 e Windows Server 2016, se un dispositivo aggiunto a un dominio è in grado di registrare la chiave pubblica associata con un controller di dominio di Windows Server 2016 (DC), il dispositivo può eseguire l'autenticazione con la chiave pubblica usando Kerberos PKINIT autenticazione a un controller di dominio di Windows Server 2016.
+A partire da Windows 10 versione 1507 e Windows Server 2016, se un dispositivo aggiunto a un dominio è in grado di registrare la chiave pubblica associata con un controller di dominio di Windows Server 2016 (DC), il dispositivo può eseguire l'autenticazione con la chiave pubblica usando l'autenticazione Kerberos PKINIT in un controller di dominio di Windows Server 2016.
 
 A partire da Windows Server 2016, KDC supporta l'autenticazione tramite l'attendibilità della chiave Kerberos.  
 
@@ -68,7 +64,7 @@ A partire dal livello di funzionalità del dominio Windows Server 2016 (DFL), i 
 > [!WARNING] 
 > L'aggiunta di un controller di dominio a un dominio con i segreti NTLM in sequenza abilitata prima che il controller di dominio sia stato aggiornato con almeno l'8 novembre, il servizio 2016 esegue il rischio di arresto anomalo del controller di dominio. 
 
-Configurazione: Per i nuovi domini, questa funzionalità è abilitata per impostazione predefinita. Per i domini esistenti, è necessario configurarlo nel centro di amministrazione Active Directory: 
+Configurazione: per i nuovi domini, questa funzionalità è abilitata per impostazione predefinita. Per i domini esistenti, è necessario configurarlo nel centro di amministrazione Active Directory: 
 
 1. Dal centro di amministrazione Active Directory fare clic con il pulsante destro del mouse sul dominio nel riquadro sinistro e selezionare **Proprietà**.
 
@@ -84,6 +80,6 @@ Configurazione: Per i nuovi domini, questa funzionalità è abilitata per impost
 
 A partire dal livello di funzionalità del dominio Windows Server 2016 (DFL), i controller di dominio possono supportare la rete NTLM quando un utente è limitato a dispositivi appartenenti a un dominio specifico. Questa funzionalità non è disponibile in DFLs inferiori.
 
-Configurazione: Nel criterio di autenticazione fare clic su **Consenti autenticazione di rete NTLM quando l'utente è limitato a dispositivi selezionati**. 
+Configurazione: nei criteri di autenticazione fare clic su **Consenti autenticazione di rete NTLM quando l'utente è limitato a dispositivi selezionati**. 
 
 [Altre informazioni sui criteri di autenticazione](https://technet.microsoft.com/windows-server-docs/security/credentials-protection-and-management/authentication-policies-and-authentication-policy-silos).
