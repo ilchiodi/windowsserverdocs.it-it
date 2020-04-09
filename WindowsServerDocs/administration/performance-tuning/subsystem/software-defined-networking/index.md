@@ -4,15 +4,15 @@ description: Linee guida per l'ottimizzazione delle prestazioni SDN (Software De
 ms.prod: windows-server
 ms.technology: performance-tuning-guide
 ms.topic: article
-ms.author: grcusanz; AnPaul
+ms.author: grcusanz; anpaul
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: 8ef8a991b8ababa13c0a7a7be605c6dbe2af17a2
-ms.sourcegitcommit: 2a15de216edde8b8e240a4aa679dc6d470e4159e
+ms.openlocfilehash: cfd166aab7a0ef0383fe4700fdf50cc6d35289b1
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77465455"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80851614"
 ---
 # <a name="performance-tuning-software-defined-networks"></a>Ottimizzazione delle prestazioni di reti software-defined
 

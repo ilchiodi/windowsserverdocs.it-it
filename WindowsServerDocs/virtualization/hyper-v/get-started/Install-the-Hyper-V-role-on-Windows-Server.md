@@ -2,21 +2,19 @@
 title: Installare il ruolo Hyper-V in Windows Server
 description: Vengono fornite istruzioni per l'installazione di Hyper-V tramite Server Manager o Windows PowerShell
 ms.prod: windows-server
-ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
-ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: 8e871317-09d2-4314-a6ec-ced12b7aee89
-author: KBDAzure
+author: kbdazure
 ms.author: kathydav
 ms.date: 12/02/2016
-ms.openlocfilehash: 2687a907852e2a81f03b147df1425cd01b34fb76
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: d4d8f2343f0935ea7185890319a3e33564750572
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71392807"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80860824"
 ---
 # <a name="install-the-hyper-v-role-on-windows-server"></a>Installare il ruolo Hyper-V in Windows Server
 
@@ -34,7 +32,7 @@ Se si desidera installare solo gli strumenti di gestione, ad esempio la console 
   
 ## <a name="install-hyper-v-by-using-server-manager"></a>Installare Hyper-V usando Server Manager  
   
-1. In **Server Manager**, via il **Gestisci** menu, fare clic su **Aggiungi ruoli e funzionalità**.  
+1. In **Server Manager** scegliere **Aggiungi ruoli e funzionalità** dal menu **Gestione**.  
   
 2. Nella pagina **Prima di iniziare** verificare che il server di destinazione e l'ambiente di rete siano preparati per il ruolo e la funzionalità che si desidera installare. Fare clic su **Avanti**.  
   
@@ -42,13 +40,13 @@ Se si desidera installare solo gli strumenti di gestione, ad esempio la console 
   
 4. Nella pagina **Selezione server di destinazione** selezionare un server dal pool di server e quindi fare clic su **Avanti**.  
   
-5. Nel **Selezione ruoli server** selezionare **Hyper-V**.  
+5. Nella pagina **Selezione ruoli server**  selezionare **Hyper-V**.  
   
-6. Per aggiungere gli strumenti che consentono di creare e gestire macchine virtuali, fare clic su **Aggiungi funzionalità**. Nella pagina funzionalità, fare clic su **Avanti**.  
+6. Per aggiungere gli strumenti utilizzati per creare e gestire le macchine virtuali, fare clic su **Aggiungi funzionalità**. Nella pagina Funzionalità fare clic su **Avanti**.  
   
-7. Nel **Crea commutatori virtuali** pagina **migrazione della macchina virtuale** pagina e **archivi predefiniti** pagina, selezionare le opzioni appropriate.  
+7. Selezionare le opzioni appropriate nelle pagine **Crea commutatori virtuali**, **Migrazione di macchine virtuali** e **Archivi predefiniti**.  
   
-8. Nel **Conferma selezioni per l'installazione** selezionare **Riavvia automaticamente il server di destinazione se necessario**, quindi fare clic su **installare**.  
+8. Nella pagina **Conferma selezioni per l'installazione** selezionare **Riavvia automaticamente il server di destinazione se necessario** e quindi fare clic su **Installa**.  
   
 9. Al termine dell'installazione, verificare che Hyper-V sia installato correttamente. Aprire il **tutti i server** in Server Manager e selezionare un server in cui è installato Hyper-V. Controllare il **ruoli e funzionalità** riquadro della pagina per il server selezionato.  
   

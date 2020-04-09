@@ -2,17 +2,17 @@
 title: Panoramica del file system ReFS (Resilient File System)
 ms.prod: windows-server
 ms.author: gawatu
-ms.manager: mchad
+manager: mchad
 ms.technology: storage-file-systems
 ms.topic: article
 author: gawatu
 ms.date: 06/17/2019
-ms.openlocfilehash: 91fdd5aa696c170cacc8903a65e996beb71c4b8f
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 8d32ef6bc4ce169ff73f9ab147783ac0607617f2
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71403021"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80857544"
 ---
 # <a name="resilient-file-system-refs-overview"></a>Panoramica del file system ReFS (Resilient File System)
 
@@ -64,7 +64,7 @@ ReFS è progettato per supportare set di dati molto grandi (nell'ordine di milio
 
 ## <a name="supported-deployments"></a>Distribuzioni supportate
 
-Microsoft ha sviluppato NTFS in modo specifico per un uso generico con un'ampia gamma di configurazioni e carichi di lavoro, tuttavia, per i clienti che richiedono la disponibilità, la resilienza e/o la scalabilità fornita da ReFS, Microsoft supporta ReFS per l'uso in le configurazioni e gli scenari seguenti. 
+Microsoft ha sviluppato NTFS in modo specifico per un uso generico con un'ampia gamma di configurazioni e carichi di lavoro, tuttavia, per i clienti che richiedono in modo specifico la disponibilità, la resilienza e/o la scalabilità fornita da ReFS, Microsoft supporta ReFS per l'uso con le configurazioni e gli scenari seguenti. 
 
 > [!NOTE]
 > Tutte le configurazioni supportate da ReFS devono usare hardware certificato del [Catalogo di Windows Server](https://www.WindowsServerCatalog.com) e soddisfare i requisiti dell'applicazione.
@@ -106,7 +106,7 @@ La distribuzione di ReFS come destinazione di backup è più adatta per le appli
 
 ### <a name="limits"></a>Limiti
 
-| Funzionalità       | ReFS                                        | NTFS |
+| Caratteristica       | ReFS                                        | NTFS |
 |----------------|------------------------------------------------|-----------------------|
 | Lunghezza massima del nome del file | 255 caratteri Unicode  | 255 caratteri Unicode               |
 | Lunghezza massima del nome del percorso |32.000 caratteri Unicode | 32.000 caratteri Unicode                |
@@ -119,24 +119,24 @@ La distribuzione di ReFS come destinazione di backup è più adatta per le appli
 
 | Funzionalità       | ReFS                                        | NTFS |
 |---------------------------|------------------|-----------------------|
-| Crittografia BitLocker | Yes | Yes |
-| Deduplicazione dati | Sì<sup>1</sup> | Yes |
-| Supporto di Volume condiviso cluster | Sì<sup>2</sup> | Yes |
-| Soft link | Yes | Yes |
-| Supporto per cluster di failover | Yes | Yes |
-| Elenchi di controllo di accesso (ACL) | Yes | Yes |
-| Journal USN | Yes | Yes |
-| Notifiche di modifiche | Yes | Yes |
-| Punti di giunzione | Yes | Yes |
-| Punti di montaggio | Yes | Yes |
-| Reparse point | Yes | Yes |
-| Snapshot del volume | Yes | Yes |
-| ID file | Yes | Yes |
-| Oplock | Yes | Yes |
-| File sparse | Yes | Yes |
-| Flussi denominati | Yes | Yes |
-| Thin provisioning | Sì<sup>3</sup> | Yes |
-| Trim/annullare | Sì<sup>3</sup> | Yes |
+| Crittografia BitLocker | Sì | Sì |
+| Deduplicazione dati | Sì<sup>1</sup> | Sì |
+| Supporto di Volume condiviso cluster | Sì<sup>2</sup> | Sì |
+| Collegamenti simbolici | Sì | Sì |
+| Supporto per cluster di failover | Sì | Sì |
+| Elenchi di controllo di accesso (ACL) | Sì | Sì |
+| Journal USN | Sì | Sì |
+| Notifiche di modifiche | Sì | Sì |
+| Punti di giunzione | Sì | Sì |
+| Punti di montaggio | Sì | Sì |
+| Reparse point | Sì | Sì |
+| Snapshot del volume | Sì | Sì |
+| ID file | Sì | Sì |
+| Oplock | Sì | Sì |
+| File sparse | Sì | Sì |
+| Flussi denominati | Sì | Sì |
+| Thin provisioning | Sì<sup>3</sup> | Sì |
+| Trim/annullare | Sì<sup>3</sup> | Sì |
 1. Disponibile in Windows Server, versione 1709 e versioni successive.
 2. Disponibile in Windows Server 2012 R2 e versioni successive.
 3. Solo spazi di archiviazione
@@ -145,26 +145,26 @@ La distribuzione di ReFS come destinazione di backup è più adatta per le appli
 
 | Funzionalità       | ReFS                                        | NTFS |
 |---------------------------|------------------|-----------------------|
-| Clonazione dei blocchi | Yes | No |
-| VDL di tipo sparse | Yes | No |
+| Clonazione dei blocchi | Sì | No |
+| VDL di tipo sparse | Sì | No |
 | Parità accelerata con mirror| Sì (in Spazi di archiviazione diretta) | No |
 
 #### <a name="the-following-features-are-unavailable-on-refs-at-this-time"></a>In ReFS non sono al momento disponibili le seguenti funzionalità:
 
 | Funzionalità       | ReFS                                        | NTFS |
 |---------------------------|------------------|-----------------------|
-| Compressione del file system | No | Yes |
-| Crittografia del file system | No | Yes |
-| Transazioni | No | Yes |
-| Collegamenti reali | No | Yes |
-| ID oggetto | No | Yes |
-| Trasferimento dati Offloaded (ODX) | No | Yes |
-| Nomi brevi | No | Yes |
-| Attributi estesi | No | Yes |
-| Quote disco | No | Yes |
-| Di avvio | No | Yes |
-| Supporto file di paging | No | Yes |
-| Supportato in supporti rimovibili | No | Yes |
+| Compressione del file system | No | Sì |
+| Crittografia del file system | No | Sì |
+| Transazioni | No | Sì |
+| Collegamenti reali | No | Sì |
+| ID oggetto | No | Sì |
+| Trasferimento dati Offloaded (ODX) | No | Sì |
+| Nomi brevi | No | Sì |
+| Attributi estesi | No | Sì |
+| Quote disco | No | Sì |
+| Di avvio | No | Sì |
+| Supporto file di paging | No | Sì |
+| Supportato in supporti rimovibili | No | Sì |
 
 ## <a name="see-also"></a>Vedere anche
 

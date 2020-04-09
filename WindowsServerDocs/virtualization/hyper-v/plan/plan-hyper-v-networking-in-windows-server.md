@@ -2,20 +2,18 @@
 title: Pianificare la rete Hyper-V in Windows Server
 description: Vengono descritti gli elementi necessari per la rete di base in Hyper-V e vengono forniti i collegamenti alle istruzioni
 ms.prod: windows-server
-ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
-ms.tgt_pltfrm: na
 ms.topic: article
-author: KBDAzure
+author: kbdazure
 ms.author: kathydav
 ms.date: 10/04/2016
-ms.openlocfilehash: f09bc82d0dd47d3393dd05dcf03913db11e4c335
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 3127c9579493ad8b317667b61de88304fd14f6cf
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71392511"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80860764"
 ---
 # <a name="plan-for-hyper-v-networking-in-windows-server"></a>Pianificare la rete Hyper-V in Windows Server
 

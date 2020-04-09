@@ -4,15 +4,15 @@ description: Consigli per l'ottimizzazione delle prestazioni per i server Web in
 ms.prod: windows-server
 ms.technology: performance-tuning-guide
 ms.topic: landing-page
-ms.author: DavSo; Ericam; YaShi
+ms.author: davso; ericam; yashi
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: 9587eb5215d2920a0146e8a697c6f36c50f19f27
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: ec36d87957e5bbe897597e330e766c3193cd30d0
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71370048"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80851694"
 ---
 # <a name="performance-tuning-web-servers"></a>Ottimizzazione delle prestazioni dei server Web
 
@@ -57,7 +57,7 @@ La disabilitazione degli aggiornamenti è efficace quando si usano set di dati d
 >[!Warning]
 > Alcune applicazioni, ad esempio le utilità di backup incrementale, si basano su queste informazioni di aggiornamento e non funzionano correttamente senza di esse.
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 - [Ottimizzazione delle prestazioni di IIS 10.0](tuning-iis-10.md)
 - [Ottimizzazione di HTTP 1.1/2](http-performance.md)
 

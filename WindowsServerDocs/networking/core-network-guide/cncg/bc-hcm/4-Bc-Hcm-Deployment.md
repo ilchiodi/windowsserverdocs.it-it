@@ -3,18 +3,17 @@ title: Distribuzione della modalità Cache ospitata di BranchCache
 description: In questa guida vengono fornite istruzioni sulla distribuzione di BranchCache in modalità cache ospitata sul computer che eseguono Windows Server 2016 e Windows 10
 manager: brianlic
 ms.prod: windows-server
-ms.suite: na
 ms.technology: networking-bc
 ms.topic: article
 ms.assetid: c635fa48-d064-4b8b-9dce-9f26abfbcfa4
 ms.author: lizross
 author: eross-msft
-ms.openlocfilehash: a03a4bc51429daea0d1a6cfaeb3da2f8805e711e
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: 10aba87b82804234a91dbc011be75b45724a1e9d
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80318485"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80861744"
 ---
 # <a name="branchcache-hosted-cache-mode-deployment"></a>Distribuzione della modalità Cache ospitata di BranchCache
 
