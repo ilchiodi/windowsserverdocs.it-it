@@ -2,22 +2,19 @@
 title: Messaggi WSUS e suggerimenti per la risoluzione dei problemi
 description: Argomento di Windows Server Update Service (WSUS)-risolvere i problemi usando i messaggi WSUS
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-wsus
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 9f6317f7-bfe0-42d9-87ce-d8f038c728ca
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 0c66e655ea6b6c44ee3ba375f75e6532fab74bfb
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: e4fe14eeaba3fc82e125288f8c47fb445f6e00b0
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75948480"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80828314"
 ---
 # <a name="wsus-messages-and-troubleshooting-tips"></a>Messaggi WSUS e suggerimenti per la risoluzione dei problemi
 
@@ -25,13 +22,13 @@ ms.locfileid: "75948480"
 
 In questo argomento vengono fornite informazioni sui messaggi di WSUS seguenti:
 
--   "Il computer non ha segnalato lo stato"
+-   Stato del computer non segnalato
 
--   "ID messaggio 6703-sincronizzazione WSUS non riuscita"
+-   ID messaggio 6703-sincronizzazione WSUS non riuscita
 
--   "Error 0x80070643: errore irreversibile durante l'installazione"
+-   Errore 0x80070643: errore irreversibile durante l'installazione
 
--   "Alcuni servizi non sono in esecuzione. Controllare i seguenti servizi [...] "
+-   Alcuni servizi non sono in esecuzione. Controllare i seguenti servizi [...]
 
 ## <a name="computer-has-not-reported-status"></a>Stato del computer non segnalato
 Questo messaggio viene generato nella console di WSUS quando un computer client WSUS non invia informazioni al server WSUS per indicare lo stato di aggiornamento corrente. Questo problema è in genere causato dal computer client WSUS, non dal server WSUS.
@@ -76,7 +73,7 @@ Per risolvere il problema, concedere le autorizzazioni di amministratore di sist
 
 - **SelfUpdate:** Vedere [aggiornamenti automatici necessario aggiornare](https://technet.microsoft.com/library/cc708554(v=ws.10).aspx) per informazioni sulla risoluzione dei problemi del servizio SelfUpdate.
 
-- **WSSUService. exe:** Questo servizio semplifica la sincronizzazione. In caso di problemi di sincronizzazione, accedere a WSUSService. exe facendo clic sul pulsante **Start**, scegliendo **strumenti di amministrazione**, facendo clic su **Servizi**e quindi individuando **Windows Server Update Service** nell'elenco dei servizi. Eseguire le operazioni seguenti:
+- **WSSUService. exe:** Questo servizio semplifica la sincronizzazione. In caso di problemi di sincronizzazione, accedere a WSUSService. exe facendo clic sul pulsante **Start**, scegliendo **strumenti di amministrazione**, facendo clic su **Servizi**e quindi individuando **Windows Server Update Service** nell'elenco dei servizi. eseguire le operazioni descritte di seguito.
     
     -   Verificare che il servizio sia in esecuzione. Fare clic su **Avvia** se è stato arrestato o **Riavvia** per aggiornare il servizio.
     
@@ -90,6 +87,6 @@ Per risolvere il problema, concedere le autorizzazioni di amministratore di sist
     
   - **MSSQLSERver** (se si utilizza WMSDE o MSDE o se si utilizza SQL Server e si utilizza il nome dell'istanza predefinita per il nome dell'istanza)
     
-  - **MSSQL $ WSUS** (se si utilizza un database di SQL Server e si è denominata l'istanza del database "WSUS")
+  - **MSSQL $ WSUS** (se si usa un database di SQL Server e l'istanza di database è stata denominata WSUS)
     
     Fare clic con il pulsante destro del mouse sul servizio, quindi scegliere **Avvia** se il servizio non è in esecuzione oppure **Riavvia** per aggiornare il servizio se è in esecuzione.

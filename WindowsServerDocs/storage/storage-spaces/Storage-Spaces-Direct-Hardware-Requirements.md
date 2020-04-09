@@ -3,18 +3,18 @@ title: Requisiti hardware di Spazi di archiviazione diretta
 ms.prod: windows-server
 description: Requisiti hardware minimi per i test di Spazi di archiviazione diretta.
 ms.author: eldenc
-ms.manager: eldenc
+manager: eldenc
 ms.technology: storage-spaces
 ms.topic: article
 author: eldenchristensen
 ms.date: 08/05/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 63a7152ec6abb318a096ac321ae7ccfaaef4d199
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 42022b6e2e3564d1440e2ba1d45f9f98430242c0
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71402933"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80861054"
 ---
 # <a name="storage-spaces-direct-hardware-requirements"></a>Requisiti hardware di Spazi di archiviazione diretta
 
@@ -29,7 +29,7 @@ Per la produzione, Microsoft consiglia di acquistare una soluzione hardware/soft
 
 ## <a name="base-requirements"></a>Requisiti di base
 
-I sistemi, i componenti, i dispositivi e i driver devono essere **certificati Windows server 2016** in base al [Catalogo di Windows Server](https://www.windowsservercatalog.com). Inoltre, è consigliabile che i server, le unità, le schede bus host e le schede di rete dispongano di **SDDC (software-defined Data Center) standard** e/o di **SDDC (software-defined Data Center) Premium** (AQS), come illustrato sotto. Sono presenti più di 1.000 componenti con SDDC AQs.
+I sistemi, i componenti, i dispositivi e i driver devono essere **certificati Windows server 2016** in base al [Catalogo di Windows Server](https://www.windowsservercatalog.com). Inoltre, è consigliabile che i server, le unità, le schede bus host e le schede di rete dispongano di **SDDC (software-defined Data Center) standard** e/o di **SDDC (software-defined Data Center) Premium** (AQS), come illustrato di seguito. Sono presenti più di 1.000 componenti con SDDC AQs.
 
 ![screenshot del catalogo di Windows Server che mostra il AQs SDDC](media/hardware-requirements/sddc-aqs.png)
 
@@ -56,7 +56,7 @@ Inoltre, si applicano i requisiti seguenti:
 
 - Qualsiasi dispositivo di avvio supportato da Windows Server, che [ora include SATADOM](https://cloudblogs.microsoft.com/windowsserver/2017/08/30/announcing-support-for-satadom-boot-drives-in-windows-server-2016/)
 - Il mirroring RAID 1 **non** è necessario, ma è supportato per l'avvio
-- Consigliato: dimensioni minime 200 GB
+- Consigliato: dimensioni minime di 200 GB
 
 ## <a name="networking"></a>Rete
 
@@ -72,8 +72,8 @@ Interconnessione consigliata per prestazioni elevate, scalabilità o distribuzio
 - NIC da 25 Gbps o più veloce
 
 Interconnessioni del nodo Switched o Switched
-- Passa È necessario configurare correttamente i commutatori di rete per gestire la larghezza di banda e il tipo di rete.  Se si usa RDMA che implementa il protocollo RoCE, la configurazione del dispositivo di rete e del Commuter è ancora più importante. 
-- Senza interruttore I nodi possono essere interconnessi usando connessioni dirette, evitando l'uso di un'opzione.  È necessario che ogni nodo disponga di una connessione diretta a tutti gli altri nodi del cluster.
+- Commutazione: i commutatori di rete devono essere configurati correttamente per gestire la larghezza di banda e il tipo di rete.  Se si usa RDMA che implementa il protocollo RoCE, la configurazione del dispositivo di rete e del Commuter è ancora più importante. 
+- Switching: i nodi possono essere interconnessi usando connessioni dirette, evitando l'uso di un'opzione.  È necessario che ogni nodo disponga di una connessione diretta a tutti gli altri nodi del cluster.
 
 
 ## <a name="drives"></a>Unità
@@ -87,8 +87,8 @@ Spazi di archiviazione diretta funziona con unità SATA, SAS o NVMe collegate di
 - I dispositivi cache devono avere una dimensione di 32 GB o superiore
 - Quando si usano dispositivi di memoria permanenti come dispositivi della cache, è necessario usare dispositivi NVMe o unità SSD (non è possibile usare HDD)
 - Il driver NVMe è quello fornito da Microsoft incluso in Windows. (stornvme. sys)
-- Consigliato: Il numero di unità di capacità è un multiplo totale del numero di unità cache
-- Consigliato: Le unità cache devono avere una resistenza di scrittura elevata: almeno 3 unità-Scritture per giorno (DWPD) o almeno 4 terabyte scritti (TBW) al giorno [. vedere informazioni sulle Scritture di unità al giorno (DWPD), terabyte scritti (TBW) e il minimo consigliato per spazi di archiviazione diretta ](https://blogs.technet.microsoft.com/filecab/2017/08/11/understanding-dwpd-tbw/)
+- Consigliato: il numero di unità di capacità è un multiplo totale del numero di unità cache
+- Scelta consigliata: le unità cache devono avere una resistenza di scrittura elevata: almeno 3 unità-Scritture per giorno (DWPD) o almeno 4 terabyte scritti (TBW) al giorno. vedere [informazioni sulle Scritture di unità al giorno (DWPD), terabyte scritti (TBW) e il minimo consigliato per spazi di archiviazione diretta](https://blogs.technet.microsoft.com/filecab/2017/08/11/understanding-dwpd-tbw/)
 
 Ecco in che modo è possibile connettere le unità per Spazi di archiviazione diretta:
 
@@ -96,7 +96,7 @@ Ecco in che modo è possibile connettere le unità per Spazi di archiviazione di
 - Unità NVMe collegate direttamente
 - Scheda bus host SAS (HBA) con unità SAS
 - Scheda bus host SAS (HBA) con unità SATA
-- **NON SUPPORTATO:** Schede del controller RAID o SAN (Fibre Channel, iSCSI, FCoE). Le schede della scheda bus host (HBA) devono implementare una semplice modalità pass-through.
+- **non supportato:** Schede del controller RAID o SAN (Fibre Channel, iSCSI, FCoE). Le schede della scheda bus host (HBA) devono implementare una semplice modalità pass-through.
 
 ![diagramma delle interconnessioni tra unità supportate](media/hardware-requirements/drive-interconnect-support-1.png)
 
@@ -104,7 +104,7 @@ Le unità possono essere interne al server o in un'enclosure esterna connessa a 
 
 - Unità interne al server
 - Unità in uno chassis esterno ("JBOD") connesso a un server
-- **NON SUPPORTATO:** Enclosure SAS condivise connesse a più server o qualsiasi tipo di i/o a percorsi multipli (MPIO) in cui le unità sono accessibili da più percorsi.
+- **non supportato:** Enclosure SAS condivise connesse a più server o qualsiasi tipo di i/o a percorsi multipli (MPIO) in cui le unità sono accessibili da più percorsi.
 
 ![diagramma delle interconnessioni tra unità supportate](media/hardware-requirements/drive-interconnect-support-2.png)
 
