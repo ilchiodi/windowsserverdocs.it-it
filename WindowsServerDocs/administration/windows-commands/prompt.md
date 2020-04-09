@@ -1,24 +1,20 @@
 ---
 title: prompt
 description: Informazioni su come personalizzare il prompt dei comandi.
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 3d98e965-02eb-46ad-9d0a-5dc44830373e
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 07/11/2018
-ms.openlocfilehash: 2df80d3af6344644a68b1b2d01ba48fbf41f1581
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 6662cb7fb00b7d21311fef2ca127ba89591a00b2
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71372023"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80837134"
 ---
 # <a name="prompt"></a>prompt
 
@@ -34,11 +30,11 @@ Per esempi di utilizzo di questo comando, vedere [Esempi](#BKMK_examples).
 prompt [<Text>]
 ```
 
-## <a name="parameters"></a>Parametri
+### <a name="parameters"></a>Parametri
 
 |Parametro|Descrizione|
 |---------|-----------|
-|\<Text >|Specifica il testo e le informazioni che si desidera includere nel prompt dei comandi.|
+|Testo \<>|Specifica il testo e le informazioni che si desidera includere nel prompt dei comandi.|
 |/?|Visualizza la guida al prompt dei comandi.|
 
 ## <a name="remarks"></a>Note
@@ -71,12 +67,12 @@ Quando sono abilitate le estensioni dei comandi (impostazione predefinita), il c
 
 |Carattere|Descrizione|
 |---------|-----------|
-|$+|Zero o più segni di addizione ( **+** ), a seconda della profondità dello stack di directory **push** (un carattere per ogni livello inserito).|
+|$+|Zero o più caratteri segno più ( **+** ), a seconda della profondità dello stack di directory **push** (un carattere per ogni livello inserito).|
 |$m|Nome remoto associato alla lettera di unità corrente o alla stringa vuota se l'unità corrente non è un'unità di rete.|
 
 Se si include il carattere **$p** nel parametro di testo, il disco viene letto dopo aver immesso ogni comando (per determinare l'unità e il percorso correnti). Questa operazione può richiedere più tempo, soprattutto per le unità disco floppy.
 
-## <a name="BKMK_examples"></a>Esempi
+## <a name="examples"></a><a name="BKMK_examples"></a>Esempi
 
 Per impostare un prompt dei comandi a due righe con l'ora e la data correnti nella prima riga e il segno di maggiore rispetto alla riga successiva, digitare:
 ```
@@ -96,6 +92,6 @@ Per modificare manualmente il prompt dei comandi nell'impostazione predefinita, 
 prompt $p$g
 ```
 
-#### <a name="additional-references"></a>Altri riferimenti
+## <a name="additional-references"></a>Altre informazioni di riferimento
 
-[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+- [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

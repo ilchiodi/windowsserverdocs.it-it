@@ -4,18 +4,18 @@ title: Novità del clustering di failover in Windows Server
 ms.prod: windows-server
 ms.technology: storage-failover-clustering
 ms.topic: get-started-article
-manager: dongill
+manager: lizross
 author: JasonGerend
 ms.author: jgerend
 ms.date: 10/18/2018
-ms.openlocfilehash: 40342f43f7afbf020ba20f27586650767218fe83
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: 0d4b648a54e1937aedfe3fd087977c5733110787
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75948034"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80827334"
 ---
-# <a name="whats-new-in-failover-clustering"></a>Novità del clustering di failover
+# <a name="whats-new-in-failover-clustering"></a>What's new in Failover Clustering (Novità del clustering di failover)
 
 > Si applica a: Windows Server 2019, Windows Server 2016
 
@@ -29,22 +29,22 @@ In questo argomento vengono illustrate le funzionalità nuove e modificate del c
     Con i set di cluster è possibile spostare le macchine virtuali in linea (live migrate) tra i cluster all'interno del set di cluster.
 
     Per altre informazioni, vedere [set di cluster](../storage/storage-spaces/cluster-sets.md).
+                
+- **Cluster compatibili con Azure**                
+                
+    I cluster di failover ora rilevano automaticamente le macchine virtuali IaaS in Azure e ottimizzano la configurazione per consentire il failover proattivo e la registrazione degli eventi di manutenzione pianificata di Azure per ottenere i massimi livelli di disponibilità. La distribuzione viene semplificata anche eliminando la necessità di configurare il servizio di bilanciamento del carico con il nome di rete dinamico per il nome del cluster.
+                
+- **Cross-DOM in c Uste MIG**
+                
+    I cluster di failover possono ora spostarsi in modo dinamico da un dominio Active Directory a un altro, semplificando il consolidamento del dominio e consentendo ai cluster di b ' creati da partner hardware e aggiunti al dominio del cliente in un secondo momento.    
+- **Controllo USB**                
 
-- **Cluster compatibili con Azure**
-
-    I cluster di failover ora rilevano automaticamente quando sono in esecuzione in macchine virtuali IaaS di Azure e ottimizzano la configurazione per fornire il failover proattivo e la registrazione degli eventi di manutenzione pianificata di Azure per ottenere i massimi livelli di disponibilità. La distribuzione viene semplificata anche eliminando la necessità di configurare il servizio di bilanciamento del carico con il nome di rete dinamico per il nome del cluster.
-
-- **Migrazione di cluster tra domini**
-
-    I cluster di failover possono ora spostarsi in modo dinamico da un dominio Active Directory a un altro, semplificando il consolidamento del dominio e consentendo la creazione di cluster da parte dei partner hardware e l'aggiunta al dominio del cliente in un secondo momento.
-- **Controllo USB**
-
-    È ora possibile usare un'unità USB semplice collegata a un commutire di rete come server di controllo del mirroring per determinare il quorum per un cluster. Questo consente di estendere il controllo di condivisione file per supportare qualsiasi dispositivo conforme a SMB2.
-
-- **Miglioramenti all'infrastruttura cluster**
-
-    La cache CSV è ora abilitata per impostazione predefinita per migliorare le prestazioni della macchina virtuale. MSDTC supporta ora Volumi condivisi cluster, per consentire la distribuzione di carichi di lavoro MSDTC in Spazi di archiviazione diretta, ad esempio con SQL Server. Logica avanzata per rilevare nodi partizionati con la riparazione automatica per restituire nodi ai membri del cluster. Rilevamento di route di rete di cluster e riparazione automatica avanzati.
-
+    È ora possibile usare un'unità USB si PLE collegata a un commutire di rete come server di controllo del mirroring per determinare il quorum per un cluster. Questo consente di estendere il controllo di condivisione file per supportare qualsiasi dispositivo conforme a SMB2.
+                
+- **Cluster infras Ruct riprova**
+                
+    La cache CSV è ora abilitata da d Foglietta a Oost Virtual Machine performance. MSDTC supporta ora Volumi condivisi cluster, per consentire la distribuzione di carichi di lavoro MSDTC in Spazi di archiviazione diretta, ad esempio con SQL Server. Logica avanzata per rilevare nodi partizionati con la riparazione automatica per restituire nodi ai membri del cluster. Rilevamento di route di rete di cluster e riparazione automatica avanzati.
+                
 - **L'aggiornamento compatibile con i cluster supporta Spazi di archiviazione diretta**
 
     Aggiornamento compatibile con cluster è ora integrato e compatibile con Spazi di archiviazione diretta e convalida e garantisce il completamento della risincronizzazione dei dati su ciascun nodo. Aggiornamento compatibile con cluster controlla gli aggiornamenti per il riavvio intelligente solo se necessario. In questo modo è possibile eseguire il riavvio di tutti i server nel cluster per la manutenzione pianificata.
@@ -66,7 +66,7 @@ In questo argomento vengono illustrate le funzionalità nuove e modificate del c
 
 ## <a name="whats-new-in-windows-server-2016"></a>Novità di Windows Server 2016
 
-### <a name="BKMK_RollingUpgrade"></a>Aggiornamento in sequenza del sistema operativo del cluster
+### <a name="cluster-operating-system-rolling-upgrade"></a><a name="BKMK_RollingUpgrade"></a>Aggiornamento in sequenza del sistema operativo del cluster
 
 L'aggiornamento in sequenza del sistema operativo del cluster consente a un amministratore di aggiornare il sistema operativo dei nodi del cluster da Windows Server 2012 R2 a una versione più recente senza arrestare i carichi di lavoro Hyper-V o File server di scalabilità orizzontale. Usando questa funzionalità, è possibile evitare le sanzioni per il tempo di inattività previste dai contratti di servizio. 
 
@@ -94,7 +94,7 @@ I sistemi operativi del cluster per l'aggiornamento in fasi sono i seguenti per 
 
 Per ulteriori informazioni, vedere [aggiornamento in sequenza del sistema operativo del cluster](cluster-operating-system-rolling-upgrade.md). 
 
-### <a name="BKMK_SR"></a>Replica archiviazione  
+### <a name="storage-replica"></a><a name="BKMK_SR"></a>Replica archiviazione  
 Replica archiviazione è una nuova funzionalità che consente la replica sincrona, a livello di blocco e indipendente dall'archiviazione tra server o cluster per il ripristino di emergenza, nonché l'estensione di un cluster di failover tra siti. La replica sincrona consente il mirroring dei dati in siti fisici con volumi coerenti per arresto anomalo del sistema senza perdere dati a livello di file system. La replica asincrona consente l'estensione del sito oltre le aree metropolitane con la possibilità di perdita di dati. 
 
 **Valore aggiunto da queste modifiche**  
@@ -126,8 +126,8 @@ Replica archiviazione consente di eseguire le operazioni seguenti:
 Per altre informazioni, vedere [Replica archiviazione in Windows Server 2016](../storage/storage-replica/storage-replica-overview.md). 
 
 
-### <a name="BKMK_CloudWitness"></a>Server di controllo cloud  
-Cloud di controllo è un nuovo tipo di quorum di controllo per un cluster di failover in Windows Server 2016 che si basa su Microsoft Azure come punto di arbitraggio. Cloud di controllo, come altri quorum di controllo, ottiene un voto e può partecipare ai calcoli del quorum. È possibile configurare questa funzionalità come quorum di controllo usando la Configurazione guidata quorum del cluster. 
+### <a name="cloud-witness"></a><a name="BKMK_CloudWitness"></a>Server di controllo cloud  
+Cloud di controllo è un nuovo tipo di quorum di controllo per un cluster di failover in Windows Server 2016 che si basa su Microsoft Azure come punto di arbitraggio. Cloud di controllo, come altri quorum di controllo, ottiene un voto e può partecipare ai calcoli del quorum. È possibile configurare questa funzionalità come quorum di controllo usando la Configurazione guidata quorum del cluster. 
 
 **Valore aggiunto da queste modifiche**  
 
@@ -147,7 +147,7 @@ Per altre informazioni, vedere [distribuire un cloud di controllo per un cluster
 
 Questa funzionalità è stata introdotta in Windows Server 2016. 
 
-### <a name="BKMK_VMs"></a>Resilienza macchina virtuale  
+### <a name="virtual-machine-resiliency"></a><a name="BKMK_VMs"></a>Resilienza macchina virtuale  
 **Resilienza di calcolo** Windows Server 2016 include un aumento della resilienza delle macchine virtuali per ridurre i problemi di comunicazione all'interno del cluster nel cluster di calcolo, come indicato di seguito: 
 
 -   **Opzioni di resilienza disponibili per le macchine virtuali:**  È ora possibile configurare le opzioni di resilienza delle macchine virtuali che definiscono il comportamento delle macchine virtuali durante gli errori temporanei:  
@@ -166,17 +166,17 @@ Quando una macchina virtuale si disconnette dalla relativa archiviazione sottost
 
 In Windows Server 2016, la resilienza dell'archiviazione delle macchine virtuali è compatibile e ottimizzata anche per i cluster guest. 
 
-### <a name="BKMK_Diagnostics"></a>Miglioramenti diagnostici nel clustering di failover  
+### <a name="diagnostic-improvements-in-failover-clustering"></a><a name="BKMK_Diagnostics"></a>Miglioramenti diagnostici nel clustering di failover  
 Per semplificare la diagnosi dei problemi relativi ai cluster di failover, Windows Server 2016 include quanto segue:  
 
 -   Diversi miglioramenti apportati ai file di log del cluster, ad esempio le informazioni sul fuso orario e il registro DiagnosticVerbose, semplificano la risoluzione dei problemi relativi al clustering di failover. Per ulteriori informazioni, vedere [miglioramenti della risoluzione dei problemi del cluster di failover di Windows Server 2016-log del cluster](https://blogs.msdn.com/b/clustering/archive/2015/05/15/10614930.aspx). 
 
 -   Un nuovo tipo di dump del **dump di memoria attivo**, che filtra la maggior parte delle pagine di memoria allocate alle macchine virtuali e quindi rende la memoria. dmp molto più piccola e più semplice da salvare o copiare. Per ulteriori informazioni, vedere [miglioramenti della risoluzione dei problemi del cluster di failover di Windows Server 2016-dump attivo](https://blogs.msdn.com/b/clustering/archive/2015/05/18/10615526.aspx). 
 
-### <a name="BKMK_SiteAware"></a>Cluster di failover compatibili con il sito  
+### <a name="site-aware-failover-clusters"></a><a name="BKMK_SiteAware"></a>Cluster di failover compatibili con il sito  
 Windows Server 2016 include cluster di failover compatibili con il sito che consentono di raggruppare i nodi nei cluster estesi in base alla posizione fisica (sito). Il riconoscimento del sito del cluster migliora le operazioni principali durante il ciclo di vita del cluster, ad esempio il comportamento di failover, i criteri di posizionamento, l'heartbeat tra i nodi e il comportamento del quorum. Per ulteriori informazioni, vedere [cluster di failover in grado di riconoscere il sito in Windows Server 2016](https://blogs.msdn.com/b/clustering/archive/2015/08/19/10636304.aspx). 
 
-### <a name="BKMK_multidomainclusters"></a>Cluster di gruppi di lavoro e multidominio  
+### <a name="workgroup-and-multi-domain-clusters"></a><a name="BKMK_multidomainclusters"></a>Cluster di gruppi di lavoro e multidominio  
 In Windows Server 2012 R2 e versioni precedenti è possibile creare un cluster solo tra nodi membro aggiunti allo stesso dominio. Windows Server 2016 supera questo limite e introduce la possibilità di creare un cluster di failover indipendente da Active Directory. È ora possibile creare cluster di failover nelle configurazioni seguenti:  
 
 -   **Cluster a dominio singolo.** Cluster con tutti i nodi aggiunti allo stesso dominio. 
@@ -186,13 +186,13 @@ In Windows Server 2012 R2 e versioni precedenti è possibile creare un cluster s
 -   **Cluster del gruppo di lavoro.** Cluster con nodi che sono server membro/gruppo di lavoro (non aggiunto a un dominio). 
 
 Per altre informazioni, vedere [gruppi di lavoro e cluster multidominio in Windows Server 2016](https://blogs.msdn.com/b/clustering/archive/2015/08/17/10635825.aspx)  
-### <a name="BKMK_VMLoadBalancing"></a>Bilanciamento del carico della macchina virtuale  
+### <a name="virtual-machine-load-balancing"></a><a name="BKMK_VMLoadBalancing"></a>Bilanciamento del carico della macchina virtuale  
 Il bilanciamento del carico della macchina virtuale è una nuova funzionalità del clustering di failover che semplifica il bilanciamento del carico delle macchine virtuali tra i nodi di un cluster. I nodi overcommit sono identificati in base alla memoria della macchina virtuale e all'utilizzo della CPU nel nodo. Le macchine virtuali vengono quindi spostate (migrate in tempo reale) da un nodo overcommit ai nodi con larghezza di banda disponibile (se applicabile). L'aggressività del bilanciamento può essere ottimizzata per garantire prestazioni e utilizzo ottimali del cluster. Il bilanciamento del carico è abilitato per impostazione predefinita in Windows Server 2016 Technical Preview. Tuttavia, il bilanciamento del carico è disabilitato quando è abilitata l'ottimizzazione dinamica SCVMM. 
 
-### <a name="BKMK_VMStartOrder"></a>Ordine di avvio della macchina virtuale  
+### <a name="virtual-machine-start-order"></a><a name="BKMK_VMStartOrder"></a>Ordine di avvio della macchina virtuale  
 L'ordine di avvio della macchina virtuale è una nuova funzionalità del clustering di failover che introduce l'orchestrazione dell'ordine di avvio per le macchine virtuali e tutti i gruppi in un cluster. Ora le macchine virtuali possono essere raggruppate in livelli e le dipendenze degli ordini di avvio possono essere create tra livelli diversi. In questo modo si garantisce che le macchine virtuali più importanti, ad esempio controller di dominio o macchine virtuali di utilità, vengano avviate per prime. Le macchine virtuali non vengono avviate fino a quando non vengono avviate anche le macchine virtuali di cui hanno una dipendenza. 
 
-### <a name="BKMK_SMBMultiChannel"></a>Reti SMB multicanale e multicanale semplificate  
+### <a name="simplified-smb-multichannel-and-multi-nic-cluster-networks"></a><a name="BKMK_SMBMultiChannel"></a>Reti SMB multicanale e multicanale semplificate  
 Le reti cluster di failover non sono più limitate a una singola scheda di interfaccia di rete per subnet/rete. Con le reti SMB multicanale e multicanale semplificate, la configurazione di rete è automatica e ogni scheda di interfaccia di rete nella subnet può essere usata per il traffico del cluster e del carico di lavoro. Questa funzionalità avanzata consente ai clienti di ottimizzare la velocità effettiva della rete per Hyper-V, SQL Server istanza del cluster di failover e altri carichi di lavoro SMB. 
 
 Per ulteriori informazioni, vedere [reti SMB multicanale e cluster multicanale semplificate](smb-multichannel.md).

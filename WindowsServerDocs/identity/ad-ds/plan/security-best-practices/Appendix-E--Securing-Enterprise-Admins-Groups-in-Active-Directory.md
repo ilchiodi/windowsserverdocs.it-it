@@ -1,7 +1,6 @@
 ---
 ms.assetid: f643099e-f9c6-476f-9378-5a9228c39b33
 title: Appendice E-protezione dei gruppi Enterprise Admins in Active Directory
-description: ''
 author: MicrosoftGuyJFlo
 ms.author: joflore
 manager: mtillman
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 51337e5d4940a490045e146d32408d4f709bb6ed
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 5294be945ce4a93ffeb1c27cffa8a82470920e7b
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71408712"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80821634"
 ---
 # <a name="appendix-e-securing-enterprise-admins-groups-in-active-directory"></a>Appendice E: Protezione dei gruppi Enterprise Admins in Active Directory
 
@@ -238,7 +237,7 @@ Accedere localmente da qualsiasi server membro o workstation interessato dall'og
 
 7.  In **programma/script**fare clic su **Sfoglia**, individuare e selezionare il file batch creato nella sezione **creare un file batch** e fare clic su **Apri**.  
 
-8.  Fai clic su **OK**.  
+8.  Fare clic su **OK**.  
 
 9. Fare clic sulla scheda **Generale**.  
 
@@ -248,7 +247,7 @@ Accedere localmente da qualsiasi server membro o workstation interessato dall'og
 
 12. Selezionare **Esegui se l'utente è connesso o meno** e selezionare **non archiviare la password**. L'attività avrà accesso solo alle risorse del computer locale.  
 
-13. Fai clic su **OK**.  
+13. Fare clic su **OK**.  
 
 14. Verrà visualizzata una finestra di dialogo in cui vengono richieste le credenziali dell'account utente per l'esecuzione dell'attività.  
 

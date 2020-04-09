@@ -3,17 +3,17 @@ ms.assetid: 56fc7f80-9558-467e-a6e9-a04c9abbee33
 title: Informazioni sulla presenza di domini di errore
 ms.prod: windows-server
 ms.author: cosdar
-ms.manager: eldenc
+manager: eldenc
 ms.technology: storage-failover-clustering
 ms.topic: article
 author: cosmosdarwin
 ms.date: 09/16/2016
-ms.openlocfilehash: 439f898b7c96ecc3d2f380509fe86d528aa737c5
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 4e42333ecc80ab7401b6e39151377baa86dcf190
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71361139"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80827754"
 ---
 # <a name="fault-domain-awareness"></a>Informazioni sulla presenza di domini di errore
 
@@ -58,7 +58,7 @@ Sono disponibili quattro livelli canonici di domini di errore: sito, rack, chass
 
 ![Diagramma dei diversi livelli di domini di errore](media/Fault-Domains-in-Windows-Server-2016/levels-of-fault-domains.png)
 
-## <a name="usage"></a>Usage  
+## <a name="usage"></a>Utilizzo  
 È possibile usare PowerShell o il markup XML per specificare i domini di errore. Entrambi gli approcci sono equivalenti e offrono funzionalità complete.
 
 >[!IMPORTANT]

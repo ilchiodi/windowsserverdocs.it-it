@@ -1,7 +1,6 @@
 ---
 ms.assetid: 4981b32f-741e-4afc-8734-26a8533ac530
 title: Integrazione di Active Directory Domain Services in un'infrastruttura DNS esistente
-description: ''
 author: MicrosoftGuyJFlo
 ms.author: joflore
 manager: mtillman
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: f4bb480be4696f15f0a63c20ab47042264584d2c
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: cf069102f409247832204546f3e1c15de7238bd3
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71402560"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80822274"
 ---
 # <a name="integrating-ad-ds-into-an-existing-dns-infrastructure"></a>Integrazione di Active Directory Domain Services in un'infrastruttura DNS esistente
 
@@ -31,22 +30,22 @@ Quando si integra servizi di dominio Active Directory con uno spazio dei nomi DN
   
 -   Configurare i controller di dominio per ogni dominio regionale per ospitare le zone DNS che corrispondono ai domini Active Directory.  
   
--   Configurare la zona contenente i record del localizzatore a livello di foresta Active Directory, ovvero _msdcs. *area forestaname* ) da replicare in ogni server DNS nella foresta usando la partizione di directory dell'applicazione DNS a livello di foresta.  
+-   Configurare la zona contenente i record del localizzatore a livello di foresta Active Directory, ovvero l'_msdcs. *area forestaname* ) da replicare in ogni server DNS nella foresta usando la partizione di directory dell'applicazione DNS a livello di foresta.  
   
     > [!NOTE]  
     > Quando il servizio server DNS viene installato con il Installazione guidata di Active Directory Domain Services (si consiglia questa opzione), tutte le attività precedenti vengono eseguite automaticamente. Per ulteriori informazioni, vedere [la distribuzione di un dominio radice della foresta Windows Server 2008](https://technet.microsoft.com/library/cc731174.aspx).  
   
     > [!NOTE]  
-    > Active Directory Domain Services utilizza record localizzatori a livello di foresta per consentire ai partner di replica di trovarsi reciprocamente e di consentire ai client di trovare i server di catalogo globale. Servizi di dominio Active Directory archivia i record del localizzatore a livello di foresta nella _msdcs. area *ForestName* . Poiché le informazioni nella zona devono essere ampiamente disponibili, questa zona viene replicata in tutti i server DNS della foresta per mezzo della partizione di directory applicativa DNS a livello di foresta.  
+    > Active Directory Domain Services utilizza record localizzatori a livello di foresta per consentire ai partner di replica di trovarsi reciprocamente e di consentire ai client di trovare i server di catalogo globale. Servizi di dominio Active Directory archivia i record del localizzatore a livello di foresta nel _msdcs. area *ForestName* . Poiché le informazioni nella zona devono essere ampiamente disponibili, questa zona viene replicata in tutti i server DNS della foresta per mezzo della partizione di directory applicativa DNS a livello di foresta.  
   
 La struttura DNS esistente rimane intatta. Non è necessario spostare server o zone. È sufficiente creare una delega per le zone DNS integrate Active Directory dalla gerarchia DNS esistente.  
   
 ## <a name="creating-the-dns-client-configuration"></a>Creazione della configurazione del client DNS  
 Per configurare DNS nei computer client, il DNS per il proprietario di servizi di dominio Active Directory deve specificare lo schema di denominazione dei computer e il modo in cui i client troveranno i server DNS. Nella tabella seguente sono elencate le configurazioni consigliate per questi elementi di progettazione.  
   
-|Elemento design|Configurazione|  
+|Elemento di progettazione|Configurazione|  
 |------------------|-----------------|  
-|Denominazione computer|Utilizzare la denominazione predefinita. Quando un computer basato su Windows 2000, Windows XP, Windows Server 2003, Windows Server 2008 o Windows Vista viene aggiunto a un dominio, il computer assegna a se stesso un nome di dominio completo (FQDN) che comprende il nome host del computer e il nome dell'attività Dominio di directory.|  
+|Denominazione computer|Utilizzare la denominazione predefinita. Quando un computer basato su Windows 2000, Windows XP, Windows Server 2003, Windows Server 2008 o Windows Vista viene aggiunto a un dominio, il computer assegna a se stesso un nome di dominio completo (FQDN) che comprende il nome host del computer e il nome del dominio Active Directory.|  
 |Configurazione del resolver client|Configurare i computer client in modo che puntino a qualsiasi server DNS nella rete.|  
   
 > [!NOTE]  

@@ -1,7 +1,6 @@
 ---
 ms.assetid: e2651dc8-4b31-4cd8-a400-3b8123890210
 title: Procedure consigliate per la protezione di Active Directory
-description: ''
 author: MicrosoftGuyJFlo
 ms.author: joflore
 manager: mtillman
@@ -9,18 +8,18 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 0d6f4abbf5dd071a2e229acbda2057c1f81851e6
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 8935a08b9ab8f99b5f221a14b93974872f11a091
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71408625"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80821294"
 ---
 # <a name="best-practices-for-securing-active-directory"></a>Procedure consigliate per la protezione di Active Directory
 
 >Si applica a: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Questo documento fornisce un punto di vista di un professionista e contiene un set di tecniche pratiche per aiutare i dirigenti IT a proteggere un ambiente Active Directory aziendale. Active Directory svolge un ruolo fondamentale nell'infrastruttura IT e garantisce l'armonia e la sicurezza di risorse di rete diverse in un ambiente globale interconnesso. I metodi discussi sono basati principalmente sull'esperienza dell'organizzazione Microsoft Information Security and Risk Management (ISRM), che è responsabile della protezione delle risorse di Microsoft IT e di altre divisioni aziendali di Microsoft, oltre a consigliare numero selezionato di clienti Microsoft globali 500.  
+Questo documento fornisce un punto di vista di un professionista e contiene un set di tecniche pratiche per aiutare i dirigenti IT a proteggere un ambiente Active Directory aziendale. Active Directory svolge un ruolo fondamentale nell'infrastruttura IT e garantisce l'armonia e la sicurezza di risorse di rete diverse in un ambiente globale interconnesso. I metodi descritti sono basati principalmente sull'esperienza dell'organizzazione Microsoft Information Security and Risk Management (ISRM), che è responsabile della protezione delle risorse di Microsoft IT e di altre divisioni aziendali Microsoft, oltre a consigliare un numero selezionato di clienti Microsoft globali 500.  
   
 -   [Schema riepilogativo](../../../ad-ds/manage/component-updates/Executive-Summary.md)  
   
@@ -48,25 +47,25 @@ Questo documento fornisce un punto di vista di un professionista e contiene un s
   
 -   [Appendici](../../../ad-ds/plan/security-best-practices/Appendices.md)  
    
--   [Appendice B: Account e gruppi con privilegi in Active Directory](../../../ad-ds/plan/security-best-practices/Appendix-B--Privileged-Accounts-and-Groups-in-Active-Directory.md)  
+-   [Appendice B: account con privilegi e gruppi in Active Directory](../../../ad-ds/plan/security-best-practices/Appendix-B--Privileged-Accounts-and-Groups-in-Active-Directory.md)  
   
--   [Appendice C: Account e gruppi protetti in Active Directory](../../../ad-ds/plan/security-best-practices/Appendix-C--Protected-Accounts-and-Groups-in-Active-Directory.md)  
+-   [Appendice C: account e gruppi protetti in Active Directory](../../../ad-ds/plan/security-best-practices/Appendix-C--Protected-Accounts-and-Groups-in-Active-Directory.md)  
   
--   [Appendice D: Protezione degli account Administrator predefiniti in Active Directory](../../../ad-ds/plan/security-best-practices/Appendix-D--Securing-Built-In-Administrator-Accounts-in-Active-Directory.md)  
+-   [Appendice D: protezione degli account amministratore predefiniti in Active Directory](../../../ad-ds/plan/security-best-practices/Appendix-D--Securing-Built-In-Administrator-Accounts-in-Active-Directory.md)  
   
--   [Appendice E: Protezione dei gruppi Enterprise Admins in Active Directory](../../../ad-ds/plan/security-best-practices/Appendix-E--Securing-Enterprise-Admins-Groups-in-Active-Directory.md)  
+-   [Appendice E: protezione dei gruppi Enterprise Admins in Active Directory](../../../ad-ds/plan/security-best-practices/Appendix-E--Securing-Enterprise-Admins-Groups-in-Active-Directory.md)  
   
--   [Appendice F: Protezione dei gruppi Domain Admins in Active Directory](../../../ad-ds/plan/security-best-practices/Appendix-F--Securing-Domain-Admins-Groups-in-Active-Directory.md)  
+-   [Appendice F: protezione dei gruppi Domain Admins in Active Directory](../../../ad-ds/plan/security-best-practices/Appendix-F--Securing-Domain-Admins-Groups-in-Active-Directory.md)  
   
--   [Appendice G: Protezione dei gruppi Administrators in Active Directory](../../../ad-ds/plan/security-best-practices/Appendix-G--Securing-Administrators-Groups-in-Active-Directory.md)  
+-   [Appendice G: protezione dei gruppi di amministratori in Active Directory](../../../ad-ds/plan/security-best-practices/Appendix-G--Securing-Administrators-Groups-in-Active-Directory.md)  
   
--   [Appendice H: Protezione degli account e dei gruppi Administrator locali](../../../ad-ds/plan/security-best-practices/Appendix-H--Securing-Local-Administrator-Accounts-and-Groups.md)  
+-   [Appendice H: protezione degli account e dei gruppi di amministratori locali](../../../ad-ds/plan/security-best-practices/Appendix-H--Securing-Local-Administrator-Accounts-and-Groups.md)  
   
--   [Appendice I: Creazione di account di gestione per gli account e i gruppi protetti in Active Directory](../../../ad-ds/manage/component-updates/Appendix-I--Creating-Management-Accounts-for-Protected-Accounts-and-Groups-in-Active-Directory.md)   
+-   [Appendice I: creazione di account di gestione per account e gruppi protetti in Active Directory](../../../ad-ds/manage/component-updates/Appendix-I--Creating-Management-Accounts-for-Protected-Accounts-and-Groups-in-Active-Directory.md)   
   
--   [Appendice L: Eventi da monitorare](../../../ad-ds/plan/Appendix-L--Events-to-Monitor.md)  
+-   [Appendice L: eventi da monitorare](../../../ad-ds/plan/Appendix-L--Events-to-Monitor.md)  
   
--   [Appendice M: Collegamenti a documenti e letture consigliate](../../../ad-ds/manage/Appendix-M--Document-Links-and-Recommended-Reading.md)  
+-   [Appendice M: collegamenti al documento e lettura consigliata](../../../ad-ds/manage/Appendix-M--Document-Links-and-Recommended-Reading.md)  
   
 
 

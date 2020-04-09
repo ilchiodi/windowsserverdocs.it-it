@@ -1,7 +1,6 @@
 ---
 ms.assetid: b8df1828-5ead-4c90-b0fe-95c675116b7c
 title: Creazione di un progetto di unità organizzativa
-description: ''
 author: MicrosoftGuyJFlo
 ms.author: joflore
 manager: mtillman
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: a699a30cce3b330c434fdb3784214de3a2daa403
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 718cb4ed8efebbd92f13db67cc4b8f86ac9feb56
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71408952"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80822734"
 ---
 # <a name="creating-an-organizational-unit-design"></a>Creazione di un progetto di unità organizzativa
 
@@ -27,7 +26,7 @@ Inizialmente, progettare la struttura dell'unità organizzativa per abilitare la
 ## <a name="ou-owner-role"></a>Ruolo proprietario unità organizzativa  
 Il proprietario della foresta designa un proprietario OU per ogni unità organizzativa progettata per il dominio. I proprietari delle unità organizzative sono responsabili dei dati che controllano un sottoalbero di oggetti in Active Directory Domain Services (AD DS). I proprietari delle unità organizzative possono controllare la delega dell'amministrazione e la modalità di applicazione dei criteri agli oggetti all'interno dell'unità organizzativa. Possono inoltre creare nuovi sottoalberi e delegare l'amministrazione di unità organizzative all'interno di tali sottoalberi.  
   
-Poiché i proprietari delle unità organizzative non possiedono o controllano il funzionamento del servizio directory, è possibile separare la proprietà e l'amministrazione del servizio directory dalla proprietà e dall'amministrazione degli oggetti, riducendo il numero di amministratori del servizio che dispongono di livelli elevati di Access.  
+Poiché i proprietari delle unità organizzative non possiedono o controllano il funzionamento del servizio directory, è possibile separare la proprietà e l'amministrazione del servizio directory dalla proprietà e dall'amministrazione degli oggetti, riducendo il numero di amministratori del servizio con livelli di accesso elevati.  
   
 Le unità organizzative forniscono autonomia amministrativa e i mezzi per controllare la visibilità degli oggetti nella directory. Le unità organizzative forniscono l'isolamento da altri amministratori dei dati, ma non forniscono isolamento dagli amministratori del servizio. Sebbene i proprietari delle unità organizzative dispongano del controllo su un sottoalbero di oggetti, il proprietario della foresta mantiene il controllo completo su tutti i sottoalberi. Ciò consente al proprietario della foresta di correggere gli errori, ad esempio un errore in un elenco di controllo di accesso (ACL) e di recuperare i sottoalberi delegati quando gli amministratori dei dati vengono terminati.  
   
@@ -41,7 +40,7 @@ Assemblare un team per progettare la struttura dell'unità organizzativa utilizz
   
 È importante documentare la progettazione dell'unità organizzativa. Elenca i nomi delle unità organizzative che si prevede di creare. Per ogni unità organizzativa, quindi, documentare il tipo di unità organizzativa, il proprietario dell'unità organizzativa, l'unità organizzativa padre (se applicabile) e l'origine di tale unità organizzativa.  
   
-Per un foglio di lavoro che facilita la documentazione della progettazione dell'unità organizzativa, scaricare Job_Aids_Designing_and_Deploying_Directory_and_Security_Services. zip da Job Aids per Windows Server 2003 Deployment Kit ([https://go.microsoft.com/fwlink/?LinkID=102558](https://go.microsoft.com/fwlink/?LinkID=102558)) e aprire "identificazione di unità organizzative per ogni dominio". (DSSLOGI_9. doc).  
+Per un foglio di lavoro che assiste l'utente nella documentazione della progettazione dell'unità organizzativa, scaricare Job_Aids_Designing_and_Deploying_Directory_and_Security_Services. zip da supporti per i processi per Windows Server 2003 Deployment Kit ([https://go.microsoft.com/fwlink/?LinkID=102558](https://go.microsoft.com/fwlink/?LinkID=102558)) e aprire "identificazione di unità organizzative per ogni dominio" (DSSLOGI_9. doc).  
   
 ## <a name="in-this-section"></a>Contenuto della sezione  
   

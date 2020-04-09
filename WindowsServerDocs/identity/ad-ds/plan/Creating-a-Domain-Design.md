@@ -1,7 +1,6 @@
 ---
 ms.assetid: 2a25bf86-a8ec-4b1a-9cbb-924d5b574481
 title: Creazione di un progetto di dominio
-description: ''
 author: MicrosoftGuyJFlo
 ms.author: joflore
 manager: mtillman
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 0e263014d49d488e0c1e52395025e21b84d7107f
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: ad2cf439b5d85e72f1a9dbfbf1d0cb1afcadff7e
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71402756"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80822794"
 ---
 # <a name="creating-a-domain-design"></a>Creazione di un progetto di dominio
 

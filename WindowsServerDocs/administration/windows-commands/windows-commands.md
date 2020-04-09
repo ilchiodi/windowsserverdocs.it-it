@@ -9,12 +9,12 @@ ms.author: jgerend
 manager: dongill
 ms.date: 06/26/2019
 ms.prod: windows-server
-ms.openlocfilehash: 5cb26bcff99d9cf3a1ee8b3a937ad6098a913c3d
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 9d68e2becbf9c6522be7e1ff6e6742d44f3a8247
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71362059"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80829234"
 ---
 # <a name="windows-commands"></a>Comandi di Windows
 
@@ -29,7 +29,25 @@ Per trovare informazioni su un comando specifico, nel menu A-Z seguente, fare cl
 [C](#c) | 
 [D](#d) | 
 [E](#e) | 
-[F](#f)1[G](#g)3[H](#h)5[I](#i)7[J](#j)9[K](#k)1[L ](#l)3[M](#m)5[N](#n)7[O](#o)9[P](#p)1[Q](#q)3[R](#r)5[S](#s)7[T](#t)9[U](#u)1[V](#v)3 [W](#w)5[X](#x) | Y | Z
+[F](#f) | 
+[G](#g) | 
+[H](#h) | 
+[i](#i) |
+[J](#j) | 
+[K](#k) | 
+[L](#l) | 
+[M](#m) | 
+[N](#n) | 
+[O](#o) | 
+[P](#p) | 
+[Q](#q) | 
+[R](#r) | 
+[S](#s) | 
+[t](#t) | 
+[U](#u) | 
+[V](#v) | 
+[W](#w) | 
+[X](#x) | Y | Z
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -38,18 +56,18 @@ Le informazioni contenute in questo argomento si applicano a:
 -   Windows Server 2019
 -   Windows Server (Canale semestrale)
 -   Windows Server 2016
--   Windows Server 2012 R2
+-   Windows Server 2012 R2
 -   Windows Server 2012 
 -   Windows Server 2008 R2
 -   Windows Server 2008
 -   Windows 10
--   Windows 8.1
+-   Windows 8.1
 
 ### <a name="command-shell-overview"></a>Cenni preliminari sulla shell comandi
 
 La shell dei comandi era la prima Shell incorporata in Windows per automatizzare le attività di routine, ad esempio la gestione degli account utente o i backup notturni, con file batch (. bat). Con Windows script host è possibile eseguire script più sofisticati nella shell dei comandi. Per ulteriori informazioni, vedere [cscript](cscript.md) o [WScript](wscript.md). È possibile eseguire operazioni in modo più efficiente utilizzando gli script rispetto a quanto possibile tramite l'interfaccia utente. Gli script accettano tutti i comandi disponibili nella riga di comando.
 
-Windows include due shell comandi: Shell dei comandi e [PowerShell](https://docs.microsoft.com/powershell/scripting/powershell-scripting?view=powershell-6). Ogni shell è un programma software che fornisce la comunicazione diretta tra l'utente e il sistema operativo o l'applicazione, fornendo un ambiente per automatizzare le operazioni IT.
+Windows include due shell dei comandi: la shell dei comandi e [PowerShell](https://docs.microsoft.com/powershell/scripting/powershell-scripting?view=powershell-6). Ogni shell è un programma software che fornisce la comunicazione diretta tra l'utente e il sistema operativo o l'applicazione, fornendo un ambiente per automatizzare le operazioni IT.
 
 PowerShell è stato progettato per estendere le funzionalità della shell dei comandi per eseguire comandi di PowerShell denominati cmdlet. I cmdlet sono simili ai comandi di Windows, ma forniscono un linguaggio di scripting più estendibile. È possibile eseguire i comandi di Windows e i cmdlet di PowerShell in PowerShell, ma la shell dei comandi può eseguire solo i comandi di Windows e non i cmdlet di PowerShell.
 
@@ -58,12 +76,12 @@ Per l'automazione di Windows più affidabile e aggiornata, è consigliabile usar
 >È anche possibile scaricare e installare [PowerShell Core](https://docs.microsoft.com/powershell/scripting/whats-new/what-s-new-in-powershell-core-60?view=powershell-6), la versione open source di PowerShell. 
 
 > [!CAUTION]
-> La modifica non corretta del Registro di sistema potrebbe danneggiare gravemente il sistema. Prima di apportare le modifiche seguenti al registro di sistema, è necessario eseguire il backup di tutti i dati importanti presenti nel computer.
+> È possibile che eventuali modifiche non corrette del Registro di sistema danneggino gravemente il sistema. Prima di apportare le modifiche seguenti al registro di sistema, è necessario eseguire il backup di tutti i dati importanti presenti nel computer.
 
 > [!NOTE]
-> Per abilitare o disabilitare il completamento del nome file e directory nella shell dei comandi in una sessione di accesso utente o computer, eseguire **Regedit. exe** e impostare il **valore reg_DWOrd**seguente:
+> Per abilitare o disabilitare il completamento del nome file e directory nella shell dei comandi in una sessione di accesso utente o computer, eseguire **Regedit. exe** e impostare il **valore di reg_DWOrd**seguente:
 > 
-> HKEY_LOCAL_MACHINE\Software\Microsoft\Command Processor\completionChar\reg_DWOrd
+> HKEY_LOCAL_MACHINE \Software\Microsoft\Command Processor\completionChar\ reg_DWOrd
 > 
 > Per impostare il valore **reg_DWOrd** , utilizzare il valore esadecimale di un carattere di controllo per una funzione specifica (ad esempio, **0 9** è Tab e **0 08** è Backspace). Specificato dall'utente e impostazioni avranno precedenza sulle impostazioni del computer e le opzioni della riga di comando hanno la precedenza sulle impostazioni del Registro di sistema.
 
@@ -76,7 +94,25 @@ Per trovare informazioni su un comando di Windows specifico, nel menu A-Z seguen
 [C](#c) | 
 [D](#d) | 
 [E](#e) | 
-[F](#f)1[G](#g)3[H](#h)5[I](#i)7[J](#j)9[K](#k)1[L ](#l)3[M](#m)5[N](#n)7[O](#o)9[P](#p)1[Q](#q)3[R](#r)5[S](#s)7[T](#t)9[U](#u)1[V](#v)3 [W](#w)5[X](#x) | Y | Z
+[F](#f) | 
+[G](#g) | 
+[H](#h) | 
+[i](#i) |
+[J](#j) | 
+[K](#k) | 
+[L](#l) | 
+[M](#m) | 
+[N](#n) | 
+[O](#o) | 
+[P](#p) | 
+[Q](#q) | 
+[R](#r) | 
+[S](#s) | 
+[t](#t) | 
+[U](#u) | 
+[V](#v) | 
+[W](#w) | 
+[X](#x) | Y | Z
 
 ### <a name="a"></a>A
 -   [append](append.md)
@@ -348,13 +384,13 @@ Per trovare informazioni su un comando di Windows specifico, nel menu A-Z seguen
   -   [Manage-bde: protezioni](manage-bde-protectors.md)
   -   [Manage-bde: TPM](manage-bde-tpm.md)
   -   [Manage-bde: seidentificatore](manage-bde-setidentifier.md)
-  -   [manage-BDE: ForceRecovery](manage-bde-forcerecovery.md)
+  -   [Manage-bde: ForceRecovery](manage-bde-forcerecovery.md)
   -   [Manage-bde: ChangePassword](manage-bde-changepassword.md)
   -   [Manage-bde: changepin aggiorna](manage-bde-changepin.md)
   -   [Manage-bde: ChangeKey](manage-bde-changekey.md)
-  -   [manage-BDE: KeyPackage](manage-bde-keypackage.md)
+  -   [Manage-bde: pacchetto di pacchetti](manage-bde-keypackage.md)
   -   [Manage-bde: aggiornamento](manage-bde-upgrade.md)
-  -   [manage-BDE: WipeFreeSpace](manage-bde-wipefreespace.md)
+  -   [Manage-bde: WipeFreeSpace](manage-bde-wipefreespace.md)
 - [mapadmin](mapadmin.md)
 - [Md](Md.md)
 - [mkdir](mkdir.md)
@@ -449,7 +485,7 @@ Per trovare informazioni su un comando di Windows specifico, nel menu A-Z seguen
 -   [quser](quser.md)
 -   [qwinsta](qwinsta.md)
 
-### <a name="r"></a>R
+### <a name="r"></a>V
 - [rcp](rcp.md)
 - [rd](rd.md)
 - [rdpsign](rdpsign.md)
@@ -520,7 +556,7 @@ Per trovare informazioni su un comando di Windows specifico, nel menu A-Z seguen
 - [sysocmgr](sysocmgr.md)
 - [systeminfo](systeminfo.md)
 
-### <a name="t"></a>T
+### <a name="t"></a>Elemento
 -   [takeown](takeown.md)
 -   [tapicfg](tapicfg.md)
 -   [taskkill](taskkill.md)
@@ -553,7 +589,7 @@ Per trovare informazioni su un comando di Windows specifico, nel menu A-Z seguen
 -   [verifier](verifier.md)
 -   [verify](verify_1.md)
 -   [vol](vol.md)
--   [vssadmin](vssadmin.md)- 
+-   - [vssadmin](vssadmin.md) 
 
 ### <a name="w"></a>W
 - [waitfor](waitfor.md)
@@ -582,9 +618,8 @@ Per trovare informazioni su un comando di Windows specifico, nel menu A-Z seguen
 - [winnt32](winnt32.md)
 - [winpop](winpop.md)
 - [winrs](winrs.md)
-- [WLBS](wlbs_1.md)
 - [wmic](wmic.md)
 - [wscript](wscript.md)
 
-### <a name="x"></a>x
+### <a name="x"></a>X
 -   [xcopy](xcopy.md)

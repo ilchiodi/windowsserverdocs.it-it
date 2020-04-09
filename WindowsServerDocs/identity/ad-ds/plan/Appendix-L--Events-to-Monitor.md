@@ -1,7 +1,6 @@
 ---
 ms.assetid: 99a68050-8d19-4c58-ad86-e08a3dcdb4f7
 title: Appendice L-eventi da monitorare
-description: ''
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
@@ -9,12 +8,12 @@ ms.date: 07/30/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: e069fe004d9256682e5754fc90ae6cba88ee7cb3
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: e47b1fbe2df16aca9514e8a29c82d56d8dc96cba
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71402731"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80822854"
 ---
 # <a name="appendix-l-events-to-monitor"></a>Appendice L: Eventi da monitorare
 
@@ -29,94 +28,94 @@ Una criticità potenziale di livello elevato indica che deve essere analizzata u
 |||||  
 |-|-|-|-|  
 |**ID evento Windows corrente**|**ID evento Windows legacy**|**Criticità potenziale**|**Riepilogo eventi**|  
-|4618|N/D|Alto|Si è verificato un modello di eventi di sicurezza monitorato.|  
-|4649|N/D|Alto|È stato rilevato un attacco di riproduzione. Può essere un falso positivo non dannoso a causa di un errore di configurazione.|  
-|4719|612|Alto|Il criterio di controllo del sistema è stato modificato.|  
-|4765|N/D|Alto|La cronologia SID è stata aggiunta a un account.|  
-|4766|N/D|Alto|Il tentativo di aggiungere la cronologia SID a un account non è riuscito.|  
-|4794|N/D|Alto|È stato effettuato un tentativo di impostare la modalità di ripristino dei servizi directory.|  
-|4897|801|Alto|Separazione ruoli abilitata:|  
-|4964|N/D|Alto|Sono stati assegnati gruppi speciali a un nuovo account di accesso.|  
-|5124|N/D|Alto|Un'impostazione di sicurezza è stata aggiornata nel servizio risponditore OCSP|  
+|4618|N/D|Alta|Si è verificato un modello di eventi di sicurezza monitorato.|  
+|4649|N/D|Alta|È stato rilevato un attacco di riproduzione. Può essere un falso positivo non dannoso a causa di un errore di configurazione.|  
+|4719|612|Alta|Il criterio di controllo del sistema è stato modificato.|  
+|4765|N/D|Alta|La cronologia SID è stata aggiunta a un account.|  
+|4766|N/D|Alta|Il tentativo di aggiungere la cronologia SID a un account non è riuscito.|  
+|4794|N/D|Alta|È stato effettuato un tentativo di impostare la modalità di ripristino dei servizi directory.|  
+|4897|801|Alta|Separazione ruoli abilitata:|  
+|4964|N/D|Alta|Sono stati assegnati gruppi speciali a un nuovo account di accesso.|  
+|5124|N/D|Alta|Un'impostazione di sicurezza è stata aggiornata nel servizio risponditore OCSP|  
 |N/D|550|Da medio a alto|Possibile attacco Denial of Service (DoS)|  
 |1102|517|Da medio a alto|Il log di controllo è stato cancellato|  
-|4621|N/D|Medio|Sistema ripristinato dall'amministratore da CrashOnAuditFail. Agli utenti che non sono amministratori verrà ora consentito l'accesso. Alcune attività controllabili potrebbero non essere state registrate.|  
-|4675|N/D|Medio|I SID sono stati filtrati.|  
-|4692|N/D|Medio|Tentativo di backup della chiave master di protezione dati.|  
-|4693|N/D|Medio|È stato eseguito un tentativo di ripristino della chiave master di protezione dati.|  
-|4706|610|Medio|Un nuovo trust è stato creato in un dominio.|  
-|4713|617|Medio|Il criterio Kerberos è stato modificato.|  
-|4714|618|Medio|Il criterio di recupero dati crittografato è stato modificato.|  
-|4715|N/D|Medio|Il criterio di controllo (SACL) per un oggetto è stato modificato.|  
-|4716|620|Medio|Le informazioni sul dominio trusted sono state modificate.|  
-|4724|628|Medio|È stato effettuato un tentativo di reimpostare la password di un account.|  
-|4727|631|Medio|È stato creato un gruppo globale abilitato per la sicurezza.|  
-|4735|639|Medio|Un gruppo locale abilitato per la sicurezza è stato modificato.|  
-|4737|641|Medio|Un gruppo globale abilitato per la sicurezza è stato modificato.|  
-|4739|643|Medio|Il criterio di dominio è stato modificato.|  
-|4754|658|Medio|È stato creato un gruppo universale abilitato per la sicurezza.|  
-|4755|659|Medio|Un gruppo universale abilitato per la sicurezza è stato modificato.|  
-|4764|667|Medio|Un gruppo disabilitato per la sicurezza è stato eliminato|  
-|4764|668|Medio|Il tipo di un gruppo è stato modificato.|  
-|4780|684|Medio|L'ACL è stato impostato per gli account che sono membri dei gruppi Administrators.|  
-|4816|N/D|Medio|RPC ha rilevato una violazione di integrità durante la decrittografia di un messaggio in arrivo.|  
-|4865|N/D|Medio|È stata aggiunta una voce di informazioni foresta attendibile.|  
-|4866|N/D|Medio|È stata rimossa una voce di informazioni foresta attendibile.|  
-|4867|N/D|Medio|È stata modificata una voce di informazioni foresta attendibile.|  
-|4868|772|Medio|Il gestore dei certificati ha negato una richiesta di certificati in sospeso.|  
-|4870|774|Medio|Servizi certificati ha revocato un certificato.|  
-|4882|786|Medio|Le autorizzazioni di sicurezza di Servizi certificati sono cambiate.|  
-|4885|789|Medio|Il filtro di controllo di Servizi certificati è cambiato.|  
-|4890|794|Medio|Le impostazioni del gestore di certificati per Servizi certificati sono cambiate.|  
-|4892|796|Medio|Una proprietà di Servizi certificati è cambiata.|  
-|4896|800|Medio|Una o più righe sono state eliminate dal database dei certificati.|  
-|4906|N/D|Medio|Il valore di CrashOnAuditFail è stato modificato.|  
-|4907|N/D|Medio|Le impostazioni di controllo per l'oggetto sono state modificate.|  
-|4908|N/D|Medio|Tabella di accesso gruppi speciali modificata.|  
-|4912|807|Medio|Il criterio di controllo per utente è stato modificato.|  
-|4960|N/D|Medio|IPsec ha eliminato un pacchetto in ingresso che non ha superato un controllo di integrità. Se il problema persiste, è possibile che si verifichi un problema di rete o che i pacchetti vengano modificati in transito in questo computer. Verificare che i pacchetti inviati dal computer remoto siano identici a quelli ricevuti dal computer. Questo errore potrebbe inoltre indicare problemi di interoperabilità con altre implementazioni di IPsec.|  
-|4961|N/D|Medio|IPsec ha eliminato un pacchetto in ingresso che non ha superato un controllo di riproduzione. Se il problema persiste, potrebbe indicare un attacco di riproduzione contro questo computer.|  
-|4962|N/D|Medio|IPsec ha eliminato un pacchetto in ingresso che non ha superato un controllo di riproduzione. Il pacchetto in ingresso aveva un numero di sequenza troppo basso per assicurarsi che non si trattasse di una riproduzione.|  
-|4963|N/D|Medio|IPsec ha eliminato un pacchetto di testo non crittografato in ingresso che dovrebbe essere stato protetto. Questa operazione è in genere dovuta al computer remoto che modifica i criteri IPsec senza informare il computer. Potrebbe anche trattarsi di un tentativo di attacco di spoofing.|  
-|4965|N/D|Medio|IPsec ha ricevuto un pacchetto da un computer remoto con un indice del parametro di sicurezza (SPI) non corretto. Questo problema si verifica in genere quando si verifica un malfunzionamento dell'hardware che danneggia i pacchetti. Se questi errori permangono, verificare che i pacchetti inviati dal computer remoto corrispondano a quelli ricevuti dal computer. Questo errore può inoltre indicare problemi di interoperabilità con altre implementazioni di IPsec. In tal caso, se la connettività non è ostacolata, questi eventi possono essere ignorati.|  
-|4976|N/D|Medio|Durante la negoziazione in modalità principale, IPsec ha ricevuto un pacchetto di negoziazione non valido. Se il problema persiste, potrebbe indicare un problema di rete o un tentativo di modificare o riprodurre la negoziazione.|  
-|4977|N/D|Medio|Durante la negoziazione in modalità rapida, IPsec ha ricevuto un pacchetto di negoziazione non valido. Se il problema persiste, potrebbe indicare un problema di rete o un tentativo di modificare o riprodurre la negoziazione.|  
-|4978|N/D|Medio|Durante la negoziazione in modalità estesa, IPsec ha ricevuto un pacchetto di negoziazione non valido. Se il problema persiste, potrebbe indicare un problema di rete o un tentativo di modificare o riprodurre la negoziazione.|  
-|4983|N/D|Medio|Negoziazione in modalità estesa IPsec non riuscita. L'associazione di sicurezza in modalità principale corrispondente è stata eliminata.|  
-|4984|N/D|Medio|Negoziazione in modalità estesa IPsec non riuscita. L'associazione di sicurezza in modalità principale corrispondente è stata eliminata.|  
-|5027|N/D|Medio|Il servizio Windows Firewall non è stato in grado di recuperare i criteri di sicurezza dalla risorsa di archiviazione locale. Il servizio continuerà ad applicare i criteri correnti.|  
-|5028|N/D|Medio|Il servizio Windows Firewall non è stato in grado di analizzare i nuovi criteri di sicurezza. Il servizio continuerà con i criteri applicati correnti.|  
-|5029|N/D|Medio|Il servizio Windows Firewall non è riuscito a inizializzare il driver. Il servizio continuerà ad applicare i criteri correnti.|  
-|5030|N/D|Medio|Impossibile avviare il servizio Windows Firewall.|  
-|5035|N/D|Medio|Non è stato possibile avviare il driver Windows Firewall.|  
-|5037|N/D|Medio|Errore di runtime critico rilevato dal driver Windows Firewall. Arresto in corso.|  
-|5038|N/D|Medio|L'integrità del codice ha determinato che l'hash dell'immagine di un file non è valido. Il file potrebbe essere danneggiato a causa di una modifica non autorizzata o l'hash non valido potrebbe indicare un potenziale errore del dispositivo disco.|  
-|5120|N/D|Medio|Il servizio risponditore OCSP è stato avviato|  
-|5121|N/D|Medio|Il servizio risponditore OCSP è stato arrestato|  
-|5122|N/D|Medio|Una voce di configurazione è cambiata nel servizio risponditore OCSP|  
-|5123|N/D|Medio|Una voce di configurazione è cambiata nel servizio risponditore OCSP|  
-|5376|N/D|Medio|È stato eseguito il backup delle credenziali di gestione credenziali.|  
-|5377|N/D|Medio|Le credenziali di gestione credenziali sono state ripristinate da un backup.|  
-|5453|N/D|Medio|Una negoziazione IPsec con un computer remoto non è riuscita perché il servizio AuthIP (IKEEXT) IPsec IKE e non è stato avviato.|  
-|5480|N/D|Medio|Impossibile per i servizi IPsec ottenere l'elenco completo delle interfacce di rete nel computer. Questo costituisce un potenziale rischio per la sicurezza perché alcune interfacce di rete potrebbero non ottenere la protezione fornita dai filtri IPsec applicati. Utilizzare lo snap-in Monitor di sicurezza IP per diagnosticare il problema.|  
-|5483|N/D|Medio|Impossibile inizializzare il server RPC da servizi IPsec. Impossibile avviare i servizi IPsec.|  
-|5484|N/D|Medio|Si è verificato un errore critico dei servizi IPsec ed è stato arrestato. L'arresto dei servizi IPsec può comportare un maggiore rischio di attacchi alla rete o esporre il computer a potenziali rischi per la sicurezza.|  
-|5485|N/D|Medio|I servizi IPsec non sono riusciti a elaborare alcuni filtri IPsec in un evento plug and Play per le interfacce di rete. Questo costituisce un potenziale rischio per la sicurezza perché alcune interfacce di rete potrebbero non ottenere la protezione fornita dai filtri IPsec applicati. Utilizzare lo snap-in Monitor di sicurezza IP per diagnosticare il problema.|  
-|6145|N/D|Medio|Si sono verificati uno o più errori durante l'elaborazione dei criteri di sicurezza negli oggetti Criteri di gruppo.|  
-|6273|N/D|Medio|Il server dei criteri di rete ha negato l'accesso a un utente.|  
-|6274|N/D|Medio|Il server dei criteri di rete ha ignorato la richiesta di un utente.|  
-|6275|N/D|Medio|Il server dei criteri di rete ha ignorato la richiesta di accounting per un utente.|  
-|6276|N/D|Medio|Server dei criteri di rete in quarantena di un utente.|  
-|6277|N/D|Medio|Il server dei criteri di rete ha concesso l'accesso a un utente, ma lo ha messo in prova perché l'host non soddisfa i criteri di integrità definiti.|  
-|6278|N/D|Medio|Il server dei criteri di rete ha concesso l'accesso completo a un utente perché l'host soddisfa i criteri di integrità definiti.|  
-|6279|N/D|Medio|Il server dei criteri di rete ha bloccato l'account utente a causa di tentativi di autenticazione ripetuti non riusciti.|  
-|6280|N/D|Medio|Il server dei criteri di rete ha sbloccato l'account utente.|  
-|-|640|Medio|Database account generale modificato|  
-|-|619|Medio|Criteri di qualità del servizio modificati|  
-|24586|N/D|Medio|Si è verificato un errore durante la conversione del volume|  
-|24592|N/D|Medio|Tentativo di riavvio automatico della conversione sul volume% 2 non riuscito.|  
-|24593|N/D|Medio|Scrittura metadati: Il volume% 2 ha restituito errori durante il tentativo di modificare i metadati. Se gli errori continuano, decrittografare il volume|  
-|24594|N/D|Medio|Ricompilazione dei metadati: Tentativo di scrittura di una copia dei metadati nel volume% 2 non riuscito e potrebbe sembrare danneggiato dal disco. Se gli errori continuano, decrittografare il volume.|  
+|4621|N/D|Media|Sistema ripristinato dall'amministratore da CrashOnAuditFail. Agli utenti che non sono amministratori verrà ora consentito l'accesso. Alcune attività controllabili potrebbero non essere state registrate.|  
+|4675|N/D|Media|I SID sono stati filtrati.|  
+|4692|N/D|Media|Tentativo di backup della chiave master di protezione dati.|  
+|4693|N/D|Media|È stato eseguito un tentativo di ripristino della chiave master di protezione dati.|  
+|4706|610|Media|Un nuovo trust è stato creato in un dominio.|  
+|4713|617|Media|Il criterio Kerberos è stato modificato.|  
+|4714|618|Media|Il criterio di recupero dati crittografato è stato modificato.|  
+|4715|N/D|Media|Il criterio di controllo (SACL) per un oggetto è stato modificato.|  
+|4716|620|Media|Le informazioni sul dominio trusted sono state modificate.|  
+|4724|628|Media|È stato effettuato un tentativo di reimpostare la password di un account.|  
+|4727|631|Media|È stato creato un gruppo globale abilitato per la sicurezza.|  
+|4735|639|Media|Un gruppo locale abilitato per la sicurezza è stato modificato.|  
+|4737|641|Media|Un gruppo globale abilitato per la sicurezza è stato modificato.|  
+|4739|643|Media|Il criterio di dominio è stato modificato.|  
+|4754|658|Media|È stato creato un gruppo universale abilitato per la sicurezza.|  
+|4755|659|Media|Un gruppo universale abilitato per la sicurezza è stato modificato.|  
+|4764|667|Media|Un gruppo disabilitato per la sicurezza è stato eliminato|  
+|4764|668|Media|Il tipo di un gruppo è stato modificato.|  
+|4780|684|Media|L'ACL è stato impostato per gli account che sono membri dei gruppi Administrators.|  
+|4816|N/D|Media|RPC ha rilevato una violazione di integrità durante la decrittografia di un messaggio in arrivo.|  
+|4865|N/D|Media|È stata aggiunta una voce di informazioni foresta attendibile.|  
+|4866|N/D|Media|È stata rimossa una voce di informazioni foresta attendibile.|  
+|4867|N/D|Media|È stata modificata una voce di informazioni foresta attendibile.|  
+|4868|772|Media|Il gestore dei certificati ha negato una richiesta di certificati in sospeso.|  
+|4870|774|Media|Servizi certificati ha revocato un certificato.|  
+|4882|786|Media|Le autorizzazioni di sicurezza di Servizi certificati sono cambiate.|  
+|4885|789|Media|Il filtro di controllo di Servizi certificati è cambiato.|  
+|4890|794|Media|Le impostazioni del gestore di certificati per Servizi certificati sono cambiate.|  
+|4892|796|Media|Una proprietà di Servizi certificati è cambiata.|  
+|4896|800|Media|Una o più righe sono state eliminate dal database dei certificati.|  
+|4906|N/D|Media|Il valore di CrashOnAuditFail è stato modificato.|  
+|4907|N/D|Media|Le impostazioni di controllo per l'oggetto sono state modificate.|  
+|4908|N/D|Media|Tabella di accesso gruppi speciali modificata.|  
+|4912|807|Media|Il criterio di controllo per utente è stato modificato.|  
+|4960|N/D|Media|IPsec ha eliminato un pacchetto in ingresso che non ha superato un controllo di integrità. Se il problema persiste, è possibile che si verifichi un problema di rete o che i pacchetti vengano modificati in transito in questo computer. Verificare che i pacchetti inviati dal computer remoto siano identici a quelli ricevuti dal computer. Questo errore potrebbe inoltre indicare problemi di interoperabilità con altre implementazioni di IPsec.|  
+|4961|N/D|Media|IPsec ha eliminato un pacchetto in ingresso che non ha superato un controllo di riproduzione. Se il problema persiste, potrebbe indicare un attacco di riproduzione contro questo computer.|  
+|4962|N/D|Media|IPsec ha eliminato un pacchetto in ingresso che non ha superato un controllo di riproduzione. Il pacchetto in ingresso aveva un numero di sequenza troppo basso per assicurarsi che non si trattasse di una riproduzione.|  
+|4963|N/D|Media|IPsec ha eliminato un pacchetto di testo non crittografato in ingresso che dovrebbe essere stato protetto. Questa operazione è in genere dovuta al computer remoto che modifica i criteri IPsec senza informare il computer. Potrebbe anche trattarsi di un tentativo di attacco di spoofing.|  
+|4965|N/D|Media|IPsec ha ricevuto un pacchetto da un computer remoto con un indice del parametro di sicurezza (SPI) non corretto. Questo problema si verifica in genere quando si verifica un malfunzionamento dell'hardware che danneggia i pacchetti. Se questi errori permangono, verificare che i pacchetti inviati dal computer remoto corrispondano a quelli ricevuti dal computer. Questo errore può inoltre indicare problemi di interoperabilità con altre implementazioni di IPsec. In tal caso, se la connettività non è ostacolata, questi eventi possono essere ignorati.|  
+|4976|N/D|Media|Durante la negoziazione in modalità principale, IPsec ha ricevuto un pacchetto di negoziazione non valido. Se il problema persiste, potrebbe indicare un problema di rete o un tentativo di modificare o riprodurre la negoziazione.|  
+|4977|N/D|Media|Durante la negoziazione in modalità rapida, IPsec ha ricevuto un pacchetto di negoziazione non valido. Se il problema persiste, potrebbe indicare un problema di rete o un tentativo di modificare o riprodurre la negoziazione.|  
+|4978|N/D|Media|Durante la negoziazione in modalità estesa, IPsec ha ricevuto un pacchetto di negoziazione non valido. Se il problema persiste, potrebbe indicare un problema di rete o un tentativo di modificare o riprodurre la negoziazione.|  
+|4983|N/D|Media|Negoziazione in modalità estesa IPsec non riuscita. L'associazione di sicurezza in modalità principale corrispondente è stata eliminata.|  
+|4984|N/D|Media|Negoziazione in modalità estesa IPsec non riuscita. L'associazione di sicurezza in modalità principale corrispondente è stata eliminata.|  
+|5027|N/D|Media|Il servizio Windows Firewall non è stato in grado di recuperare i criteri di sicurezza dalla risorsa di archiviazione locale. Il servizio continuerà ad applicare i criteri correnti.|  
+|5028|N/D|Media|Il servizio Windows Firewall non è stato in grado di analizzare i nuovi criteri di sicurezza. Il servizio continuerà con i criteri applicati correnti.|  
+|5029|N/D|Media|Il servizio Windows Firewall non è riuscito a inizializzare il driver. Il servizio continuerà ad applicare i criteri correnti.|  
+|5030|N/D|Media|Impossibile avviare il servizio Windows Firewall.|  
+|5035|N/D|Media|Non è stato possibile avviare il driver Windows Firewall.|  
+|5037|N/D|Media|Errore di runtime critico rilevato dal driver Windows Firewall. Arresto in corso.|  
+|5038|N/D|Media|L'integrità del codice ha determinato che l'hash dell'immagine di un file non è valido. Il file potrebbe essere danneggiato a causa di una modifica non autorizzata o l'hash non valido potrebbe indicare un potenziale errore del dispositivo disco.|  
+|5120|N/D|Media|Il servizio risponditore OCSP è stato avviato|  
+|5121|N/D|Media|Il servizio risponditore OCSP è stato arrestato|  
+|5122|N/D|Media|Una voce di configurazione è cambiata nel servizio risponditore OCSP|  
+|5123|N/D|Media|Una voce di configurazione è cambiata nel servizio risponditore OCSP|  
+|5376|N/D|Media|È stato eseguito il backup delle credenziali di gestione credenziali.|  
+|5377|N/D|Media|Le credenziali di gestione credenziali sono state ripristinate da un backup.|  
+|5453|N/D|Media|Una negoziazione IPsec con un computer remoto non è riuscita perché il servizio AuthIP (IKEEXT) IPsec IKE e non è stato avviato.|  
+|5480|N/D|Media|Impossibile per i servizi IPsec ottenere l'elenco completo delle interfacce di rete nel computer. Questo costituisce un potenziale rischio per la sicurezza perché alcune interfacce di rete potrebbero non ottenere la protezione fornita dai filtri IPsec applicati. Utilizzare lo snap-in Monitor di sicurezza IP per diagnosticare il problema.|  
+|5483|N/D|Media|Impossibile inizializzare il server RPC da servizi IPsec. Impossibile avviare i servizi IPsec.|  
+|5484|N/D|Media|Si è verificato un errore critico dei servizi IPsec ed è stato arrestato. L'arresto dei servizi IPsec può comportare un maggiore rischio di attacchi alla rete o esporre il computer a potenziali rischi per la sicurezza.|  
+|5485|N/D|Media|I servizi IPsec non sono riusciti a elaborare alcuni filtri IPsec in un evento plug and Play per le interfacce di rete. Questo costituisce un potenziale rischio per la sicurezza perché alcune interfacce di rete potrebbero non ottenere la protezione fornita dai filtri IPsec applicati. Utilizzare lo snap-in Monitor di sicurezza IP per diagnosticare il problema.|  
+|6145|N/D|Media|Si sono verificati uno o più errori durante l'elaborazione dei criteri di sicurezza negli oggetti Criteri di gruppo.|  
+|6273|N/D|Media|Il server dei criteri di rete ha negato l'accesso a un utente.|  
+|6274|N/D|Media|Il server dei criteri di rete ha ignorato la richiesta di un utente.|  
+|6275|N/D|Media|Il server dei criteri di rete ha ignorato la richiesta di accounting per un utente.|  
+|6276|N/D|Media|Server dei criteri di rete in quarantena di un utente.|  
+|6277|N/D|Media|Il server dei criteri di rete ha concesso l'accesso a un utente, ma lo ha messo in prova perché l'host non soddisfa i criteri di integrità definiti.|  
+|6278|N/D|Media|Il server dei criteri di rete ha concesso l'accesso completo a un utente perché l'host soddisfa i criteri di integrità definiti.|  
+|6279|N/D|Media|Il server dei criteri di rete ha bloccato l'account utente a causa di tentativi di autenticazione ripetuti non riusciti.|  
+|6280|N/D|Media|Il server dei criteri di rete ha sbloccato l'account utente.|  
+|-|640|Media|Database account generale modificato|  
+|-|619|Media|Criteri di qualità del servizio modificati|  
+|24586|N/D|Media|Si è verificato un errore durante la conversione del volume|  
+|24592|N/D|Media|Tentativo di riavvio automatico della conversione sul volume %2 non riuscito.|  
+|24593|N/D|Media|Scrittura dei metadati: il volume %2 restituisce errori durante il tentativo di modificare i metadati. Se gli errori continuano, decrittografare il volume|  
+|24594|N/D|Media|Ricompilazione dei metadati: tentativo di scrittura di una copia dei metadati nel volume %2 non riuscito e potrebbe essere danneggiato. Se gli errori continuano, decrittografare il volume.|  
 |4608|512|Bassa|Avvio di Windows in corso.|  
 |4609|513|Bassa|È in corso l'arresto di Windows.|  
 |4610|514|Bassa|Un pacchetto di autenticazione è stato caricato dall'autorità di sicurezza locale.|  
@@ -174,7 +173,7 @@ Una criticità potenziale di livello elevato indica che deve essere analizzata u
 |4707|611|Bassa|Una relazione di trust con un dominio è stata rimossa.|  
 |4709|N/D|Bassa|Servizi IPsec è stato avviato.|  
 |4710|N/D|Bassa|Servizi IPsec è stato disabilitato.|  
-|4711|N/D|Bassa|Può contenere uno degli elementi seguenti: Il motore PAStore ha applicato la copia memorizzata nella cache locale del criterio IPsec di archiviazione Active Directory nel computer. Il motore PAStore ha applicato Active Directory criterio IPsec di archiviazione nel computer. Il motore PAStore ha applicato i criteri IPsec di archiviazione del registro di sistema locale nel computer. Il motore PAStore non è riuscito a applicare la copia memorizzata nella cache locale del criterio IPsec di archiviazione Active Directory nel computer. Il motore PAStore non è stato in grado di applicare Active Directory criterio IPsec di archiviazione nel computer. Il motore PAStore non è riuscito ad applicare il criterio IPsec di archiviazione del registro di sistema locale nel computer. Il motore PAStore non è riuscito ad applicare alcune regole del criterio IPsec attivo nel computer. Il motore PAStore non è riuscito a caricare i criteri IPsec di archiviazione directory nel computer. Criterio IPsec di archiviazione directory caricato dal motore PAStore nel computer. Il motore PAStore non è riuscito a caricare i criteri IPsec di archiviazione locale nel computer. Il motore PAStore ha caricato i criteri IPsec di archiviazione locale nel computer. Il motore PAStore ha eseguito il polling delle modifiche apportate al criterio IPsec attivo e non ha rilevato alcuna modifica. |  
+|4711|N/D|Bassa|Può contenere uno degli elementi seguenti: il motore PAStore ha applicato la copia memorizzata nella cache locale del criterio IPsec di archiviazione Active Directory nel computer. Il motore PAStore ha applicato Active Directory criterio IPsec di archiviazione nel computer. Il motore PAStore ha applicato i criteri IPsec di archiviazione del registro di sistema locale nel computer. Il motore PAStore non è riuscito a applicare la copia memorizzata nella cache locale del criterio IPsec di archiviazione Active Directory nel computer. Il motore PAStore non è stato in grado di applicare Active Directory criterio IPsec di archiviazione nel computer. Il motore PAStore non è riuscito ad applicare il criterio IPsec di archiviazione del registro di sistema locale nel computer. Il motore PAStore non è riuscito ad applicare alcune regole del criterio IPsec attivo nel computer. Il motore PAStore non è riuscito a caricare i criteri IPsec di archiviazione directory nel computer. Criterio IPsec di archiviazione directory caricato dal motore PAStore nel computer. Il motore PAStore non è riuscito a caricare i criteri IPsec di archiviazione locale nel computer. Il motore PAStore ha caricato i criteri IPsec di archiviazione locale nel computer. Il motore PAStore ha eseguito il polling delle modifiche apportate al criterio IPsec attivo e non ha rilevato alcuna modifica. |  
 |4712|N/D|Bassa|Si è verificato un errore potenzialmente grave nei servizi IPsec.|  
 |4717|621|Bassa|L'accesso alla sicurezza del sistema è stato concesso a un account.|  
 |4718|622|Bassa|L'accesso alla sicurezza del sistema è stato rimosso da un account.|  
@@ -250,7 +249,7 @@ Una criticità potenziale di livello elevato indica che deve essere analizzata u
 |4877|781|Bassa|È stato completato il backup di Servizi certificati.|  
 |4878|782|Bassa|È stato avviato il ripristino di Servizi certificati.|  
 |4879|783|Bassa|È stato completato il ripristino di Servizi certificati.|  
-|4880|784|Bassa|Servizi certificati è stato avviato.|  
+|4880|Procedura di risoluzione per l'ID evento 784|Bassa|Servizi certificati è stato avviato.|  
 |4881|785|Bassa|Servizi certificati è stato arrestato.|  
 |4883|787|Bassa|Servizi certificati ha recuperato una chiave archiviata.|  
 |4884|788|Bassa|Servizi certificati ha importato un certificato nel database.|  
@@ -403,9 +402,9 @@ Una criticità potenziale di livello elevato indica che deve essere analizzata u
 |24582|N/D|Bassa|Decrittografia del volume completata|  
 |24583|N/D|Bassa|Thread di lavoro conversione per volume avviato|  
 |24584|N/D|Bassa|Thread di lavoro conversione per volume interrotto temporaneamente|  
-|24588|N/D|Bassa|L'operazione di conversione sul volume% 2 ha rilevato un errore di settore non valido. Convalidare i dati in questo volume|  
-|24595|N/D|Bassa|Il volume% 2 contiene cluster non validi. Questi cluster verranno ignorati durante la conversione.|  
-|24621|N/D|Bassa|Controllo stato iniziale: Transazione conversione volume in sequenza su% 2.|  
+|24588|N/D|Bassa|L'operazione di conversione sul volume %2 ha rilevato un errore di settore non valido. Convalidare i dati in questo volume|  
+|24595|N/D|Bassa|Il volume %2 contiene cluster non validi. Questi cluster verranno ignorati durante la conversione.|  
+|24621|N/D|Bassa|Controllo dello stato iniziale: transazione di conversione del volume in corso su %2.|  
 |5049|N/D|Bassa|Un'associazione di sicurezza IPsec è stata eliminata.|  
 |5478|N/D|Bassa|Avvio dei servizi IPsec completato.|  
   
@@ -414,4 +413,4 @@ Una criticità potenziale di livello elevato indica che deve essere analizzata u
 >
 > Eseguire **wevtutil gp Microsoft-Windows-Security-Auditing/GE/GM: true** per ottenere un elenco dettagliato di tutti gli ID evento di sicurezza  
   
-Per ulteriori informazioni sugli ID degli eventi di sicurezza di Windows e sui relativi significati, vedere l'articolo supporto tecnico Microsoft [Descrizione degli eventi di sicurezza in Windows 7 e in Windows Server 2008 R2](https://support.microsoft.com/kb/977519). È anche possibile scaricare [gli eventi di controllo di sicurezza per i dettagli degli eventi di sicurezza di Windows 7 e Windows server 2008 R2](https://www.microsoft.com/download/details.aspx?id=21561) e [Windows 8 e Windows Server 2012](https://www.microsoft.com/download/details.aspx?id=35753), che forniscono informazioni dettagliate sugli eventi per i sistemi operativi a cui si fa riferimento nel foglio di calcolo formato.  
+Per ulteriori informazioni sugli ID degli eventi di sicurezza di Windows e sui relativi significati, vedere l'articolo supporto tecnico Microsoft [Descrizione degli eventi di sicurezza in Windows 7 e in Windows Server 2008 R2](https://support.microsoft.com/kb/977519). È anche possibile scaricare [gli eventi di controllo di sicurezza per i dettagli degli eventi di sicurezza di Windows 7 e Windows server 2008 R2](https://www.microsoft.com/download/details.aspx?id=21561) e [Windows 8 e Windows Server 2012](https://www.microsoft.com/download/details.aspx?id=35753), che forniscono informazioni dettagliate sugli eventi per i sistemi operativi a cui si fa riferimento in formato foglio di calcolo.  

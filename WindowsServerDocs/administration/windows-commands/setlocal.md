@@ -1,28 +1,22 @@
 ---
 title: setlocal
-description: 'Argomento dei comandi di Windows per * * * *- '
-ms.custom: na
+description: Windows Commands Topic for setlocale, che avvia la localizzazione delle variabili di ambiente in un file batch.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: e4e4b6d3-3f1a-4851-a782-25ee2470e16e
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 997c996854f488bb1776f135e3288e3b094e683c
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 24ed41289bb517d41db11fd3ebc41e5751b7afd9
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71384094"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80834364"
 ---
 # <a name="setlocal"></a>setlocal
-
-
 
 Avvia la localizzazione delle variabili di ambiente in un file batch. Localizzazione continua fino a quando un corrispondente **endlocal** del comando o viene raggiunta la fine del file batch.
 
@@ -65,7 +59,7 @@ setlocal [enableextensions | disableextensions] [enabledelayedexpansion | disabl
     ```  
     Poiché **cmd** non è impostata la variabile ERRORLEVEL quando le estensioni ai comandi sono disabilitate, il **verificare** comando Inizializza la variabile ERRORLEVEL su un valore diverso da zero quando viene usato con un argomento non valido. Inoltre, se si utilizza il **setlocal** comando con argomenti {**enableextensions** | **disableextensions**} o {**enabledelayedexpansion** | **disabledelayedexpansion**} e non imposta la variabile ERRORLEVEL su **1**, le estensioni ai comandi non sono disponibili.
 
-## <a name="BKMK_examples"></a>Esempi
+## <a name="examples"></a><a name=BKMK_examples></a>Esempi
 
 È possibile localizzare le variabili di ambiente in un file batch, come illustrato nello script di esempio seguente:
 ```
@@ -82,6 +76,6 @@ endlocal
 start notepad c:\superapp.out
 ```
 
-#### <a name="additional-references"></a>Altri riferimenti
+## <a name="additional-references"></a>Altre informazioni di riferimento
 
-[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+- [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
