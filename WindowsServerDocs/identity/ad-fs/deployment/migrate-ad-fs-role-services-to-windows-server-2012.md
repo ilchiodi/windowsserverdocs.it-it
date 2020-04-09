@@ -8,12 +8,12 @@ ms.date: 06/28/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: cdb5523ade5c3c7572656d62d1b4f744683ec96e
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 36d37eb2cc886d9831b995aa8cfdda16765994b8
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71408271"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80857514"
 ---
 # <a name="migrate-active-directory-federation-services-role-services-to-windows-server-2012"></a>Eseguire la migrazione dei servizi ruolo di Active Directory Federation Services a Windows Server 2012
 
@@ -70,10 +70,10 @@ Di seguito vengono fornite istruzioni sulla migrazione dei servizi ruolo seguent
 |AD FS 1,0 agente in grado di riconoscere attestazioni installato con Windows Server 2003 R2)|La migrazione non è supportata|  
 |AD FS 1,1 server federativo installato con Windows Server 2008 o Windows Server 2008 R2|La migrazione non è supportata|  
 |AD FS 1,1 proxy server federativo installato con Windows Server 2008 o Windows Server 2008 R2|La migrazione non è supportata|  
-|AD FS 1,1 agente basato su token Windows installato con Windows Server 2008 o Windows Server 2008 R2|È supportata la migrazione nello stesso server, ma l'agente basato su token Windows AD FS migrato funzionerà solo con un servizio federativo AD FS 1,1 installato con Windows Server 2008 o Windows Server 2008 R2. Per altre informazioni, vedere:<br /><br /> [Eseguire la migrazione di Agenti Web di AD FS 1.1](migrate-the-ad-fs-web-agent.md)<br /><br /> [Interazione con AD FS 1.x](Interoperating-with-AD-FS-1.x.md)|  
-|AD FS 1,1 agente in grado di riconoscere attestazioni installato con Windows Server 2008 o Windows Server 2008 R2)|È supportata la migrazione nello stesso server. L'agente Web in grado di riconoscere attestazioni AD FS 1,1 migrato funzionerà con quanto segue:<br /><br /> AD FS 1,1 servizio federativo installato con Windows Server 2008 o Windows Server 2008 R2<br /><br /> AD FS 2,0 servizio federativo installato in Windows Server 2008 o Windows Server 2008 R2<br /><br /> AD FS servizio federativo installato con Windows Server 2012<br /><br /> Per altre informazioni, vedere:<br /><br /> [Eseguire la migrazione di Agenti Web di AD FS 1.1](migrate-the-ad-fs-web-agent.md)<br /><br /> [Interazione con AD FS 1.x](Interoperating-with-AD-FS-1.x.md)|  
-|AD FS 2,0 server federativo installato in Windows Server 2008 o Windows Server 2008 R2|È supportata la migrazione nello stesso server. Per altre informazioni, vedere:<br /><br /> [Preparare la migrazione del server federativo di AD FS 2.0](prepare-to-migrate-ad-fs-fed-server.md)<br /><br /> [Eseguire la migrazione del server federativo di AD FS 2.0](migrate-the-ad-fs-fed-server.md)|  
-|AD FS 2,0 proxy server federativo installato in Windows Server 2008 o Windows Server 2008 R2|È supportata la migrazione nello stesso server.  Per altre informazioni, vedi:<br /><br /> [Preparare la migrazione del proxy server federativo di AD FS 2.0](prepare-to-migrate-ad-fs-fed-proxy.md)<br /><br /> [Eseguire la migrazione del proxy server federativo di AD FS 2.0](migrate-the-ad-fs-2-fed-server-proxy.md)|  
+|AD FS 1,1 agente basato su token Windows installato con Windows Server 2008 o Windows Server 2008 R2|È supportata la migrazione nello stesso server, ma l'agente basato su token Windows AD FS migrato funzionerà solo con un servizio federativo AD FS 1,1 installato con Windows Server 2008 o Windows Server 2008 R2. Per altre informazioni, vedi:<p> [Eseguire la migrazione di Agenti Web di AD FS 1.1](migrate-the-ad-fs-web-agent.md)<p> [Interazione con AD FS 1.x](Interoperating-with-AD-FS-1.x.md)|  
+|AD FS 1,1 agente in grado di riconoscere attestazioni installato con Windows Server 2008 o Windows Server 2008 R2)|È supportata la migrazione nello stesso server. L'agente Web in grado di riconoscere attestazioni AD FS 1,1 migrato funzionerà con quanto segue:<p> AD FS 1,1 servizio federativo installato con Windows Server 2008 o Windows Server 2008 R2<p> AD FS 2,0 servizio federativo installato in Windows Server 2008 o Windows Server 2008 R2<p> AD FS servizio federativo installato con Windows Server 2012<p> Per altre informazioni, vedi:<p> [Eseguire la migrazione di Agenti Web di AD FS 1.1](migrate-the-ad-fs-web-agent.md)<p> [Interazione con AD FS 1.x](Interoperating-with-AD-FS-1.x.md)|  
+|AD FS 2,0 server federativo installato in Windows Server 2008 o Windows Server 2008 R2|È supportata la migrazione nello stesso server. Per altre informazioni, vedi:<p> [Preparare la migrazione del server federativo di AD FS 2.0](prepare-to-migrate-ad-fs-fed-server.md)<p> [Eseguire la migrazione del server federativo di AD FS 2.0](migrate-the-ad-fs-fed-server.md)|  
+|AD FS 2,0 proxy server federativo installato in Windows Server 2008 o Windows Server 2008 R2|È supportata la migrazione nello stesso server.  Per ulteriori informazioni, vedere:<p> [Preparare la migrazione del proxy server federativo di AD FS 2.0](prepare-to-migrate-ad-fs-fed-proxy.md)<p> [Eseguire la migrazione del proxy server federativo di AD FS 2.0](migrate-the-ad-fs-2-fed-server-proxy.md)|  
   
 ## <a name="see-also"></a>Vedi anche  
  [Preparare la migrazione del server federativo AD FS 2,0](prepare-to-migrate-ad-fs-fed-server.md)   

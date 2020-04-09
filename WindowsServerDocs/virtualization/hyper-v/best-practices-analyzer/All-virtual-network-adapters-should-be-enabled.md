@@ -2,20 +2,19 @@
 title: Tutte le schede di rete virtuali devono essere abilitate
 description: Versione online del testo per questa regola di Best Practices Analyzer.
 ms.prod: windows-server
-ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
 ms.author: kathydav
 ms.topic: article
 ms.assetid: b17d647d-a34a-44de-ada6-01a2bf5eeb48
-author: KBDAzure
+author: kbdazure
 ms.date: 8/16/2016
-ms.openlocfilehash: fce564fdb47d0677b36078f3d8446579bc06816c
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 450a3b42529be9a85991fcaf5263bae7b7827b1a
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71366586"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80857834"
 ---
 # <a name="all-virtual-network-adapters-should-be-enabled"></a>Tutte le schede di rete virtuali devono essere abilitate
 
@@ -44,7 +43,7 @@ Il sistema operativo di gestione non è in grado di connettersi a una rete fisic
   
 ## <a name="resolution"></a>Risoluzione  
   
-*Use rete & impostazioni Internet per abilitare la scheda di rete virtuale. In alternativa, usare gestione commutiri virtuali per riconfigurare il Commuter virtuale esterno in modo che non venga condiviso con il sistema operativo di gestione.*  
+*Utilizzare le impostazioni Internet & rete per abilitare la scheda di rete virtuale. In alternativa, usare gestione compensatori virtuali per riconfigurare il Commuter virtuale esterno in modo che non venga condiviso con il sistema operativo di gestione.*  
   
 
 

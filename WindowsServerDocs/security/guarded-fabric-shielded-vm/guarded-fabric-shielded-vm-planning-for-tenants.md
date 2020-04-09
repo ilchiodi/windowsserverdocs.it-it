@@ -1,18 +1,18 @@
 ---
 title: Infrastruttura sorvegliata e guida alla pianificazione delle VM schermate per i provider di hosting
-ms.custom: na
 ms.prod: windows-server
 ms.topic: article
 ms.assetid: 392af37f-a02d-4d40-a25d-384211cbbfdd
 manager: dongill
 author: nirb-ms
+ms.author: nirb
 ms.technology: security-guarded-fabric
-ms.openlocfilehash: 255429960735d70ff3a4d260bd9090b95882b6bd
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: 829d6a3efef082e35c6a4f98e0ba9e4b70c27a93
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75949776"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80856474"
 ---
 # <a name="guarded-fabric-and-shielded-vm-planning-guide-for-tenants"></a>Guida alla pianificazione dell'infrastruttura sorvegliata e della VM schermata per i tenant
 
@@ -63,7 +63,7 @@ I dati di schermatura contengono i segreti necessari per distribuire macchine vi
 
 I dati di schermatura vengono creati usando la creazione guidata file di dati di schermatura e vengono archiviati nei file PDK che i proprietari delle macchine virtuali caricano nell'infrastruttura sorvegliata.
 
-Le macchine virtuali schermate consentono di proteggersi da attacchi da un'infrastruttura di virtualizzazione compromessa, quindi è necessario un meccanismo sicuro per passare dati di inizializzazione sensibili, ad esempio la password dell'amministratore, le credenziali di aggiunta al dominio o i certificati RDP, senza rivelare questi a infrastruttura di virtualizzazione stessa o agli amministratori. Inoltre, i dati di schermatura contengono gli elementi seguenti:
+Le macchine virtuali schermate proteggono da attacchi provenienti da un'infrastruttura di virtualizzazione compromessa, quindi è necessario un meccanismo sicuro per passare dati di inizializzazione sensibili, ad esempio la password dell'amministratore, le credenziali di aggiunta al dominio o i certificati RDP, senza rivelarli all'infrastruttura di virtualizzazione o agli amministratori. Inoltre, i dati di schermatura contengono gli elementi seguenti:
 
 1. Livello di sicurezza: supportato con schermate o con crittografia
 2. Proprietario ed elenco di sorveglianza host attendibili in cui è possibile eseguire la macchina virtuale

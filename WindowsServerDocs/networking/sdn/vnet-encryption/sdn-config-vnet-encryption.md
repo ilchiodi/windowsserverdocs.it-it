@@ -1,26 +1,26 @@
 ---
 title: Configurare la crittografia per una rete virtuale
 description: La crittografia della rete virtuale consente la crittografia del traffico di rete virtuale tra macchine virtuali che comunicano tra loro all'interno delle subnet contrassegnate come "crittografia abilitata".
-manager: brianlic
+manager: grcusanz
 ms.prod: windows-server
 ms.technology: networking-hv-switch
 ms.topic: get-started-article
 ms.assetid: 378213f5-2d59-4c9b-9607-1fc83f8072f1
-ms.author: lizross
-author: eross-msft
+ms.author: anpaul
+author: AnirbanPaul
 ms.date: 08/08/2018
-ms.openlocfilehash: e68da9be84e9567458467c9ebd89155e7c405c5c
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: daca59ffbb428e4bdfa2a71c156653389275960f
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80312819"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80853594"
 ---
 # <a name="configure-encryption-for-a-virtual-subnet"></a>Configurare la crittografia per una subnet virtuale
 
 >Si applica a: Windows Server
 
-La crittografia della rete virtuale consente la crittografia del traffico di rete virtuale tra le macchine virtuali che comunicano tra loro all'interno delle subnet contrassegnate come "crittografia abilitata". Utilizza anche Datagram Transport Layer Security (DTLS) nella subnet virtuale per codificare pacchetti. DTLS impedisce intercettazioni, manomissioni e contraffazioni da parte di chiunque abbia accesso alla rete fisica.
+La crittografia della rete virtuale consente la crittografia del traffico di rete virtuale tra le macchine virtuali che comunicano tra loro all'interno delle subnet contrassegnate come "crittografia abilitata". Viene inoltre utilizzato Datagram Transport Layer Security (DTLS) nella subnet virtuale per crittografare i pacchetti. DTLS impedisce intercettazioni, manomissioni e contraffazioni da parte di chiunque abbia accesso alla rete fisica.
 
 La crittografia della rete virtuale richiede:
 - Certificati di crittografia installati in ognuno degli host Hyper-V abilitati per SDN.

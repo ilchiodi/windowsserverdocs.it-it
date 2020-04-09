@@ -2,22 +2,18 @@
 title: Passaggio 1 pianificare l'infrastruttura di accesso remoto
 description: Questo argomento fa parte della Guida relativa alla gestione remota dei client DirectAccess in Windows Server 2016.
 manager: brianlic
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: networking-ras
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: a1ce7af5-f3fe-4fc9-82e8-926800e37bc1
 ms.author: lizross
 author: eross-msft
-ms.openlocfilehash: 7c6b4e4d4975303aef6a2334bce164ce498f7254
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: 2df4d64727de403264258e2f377e3df94b9b3d25
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80314280"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80860584"
 ---
 # <a name="step-1-plan-the-remote-access-infrastructure"></a>Passaggio 1 pianificare l'infrastruttura di accesso remoto
 

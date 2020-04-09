@@ -2,20 +2,19 @@
 title: Hypervisor di Windows deve essere in esecuzione
 description: Vengono fornite istruzioni per risolvere il problema segnalato da questa regola di Best Practices Analyzer.
 ms.prod: windows-server
-ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
 ms.author: kathydav
 ms.topic: article
 ms.assetid: 501a9beb-c464-46c0-88c5-e3e7e3e70101
-author: KBDAzure
+author: kbdazure
 ms.date: 10/03/2016
-ms.openlocfilehash: 51f863425bd1107894fb5e4d44ed7c742a806394
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: b24700e0ed617177af888013e36f971870d0ac59
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71393050"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80860954"
 ---
 # <a name="windows-hypervisor-must-be-running"></a>Hypervisor di Windows deve essere in esecuzione
 
@@ -76,7 +75,7 @@ Successivamente, controllare il registro eventi di Hypervisor Hyper-V. Se vi son
   
 #### <a name="to-check-the-event-logs"></a>Per controllare i registri eventi  
   
-1.  Apri il Visualizzatore eventi. Fare clic su **avviare**, fare clic su **Strumenti di amministrazione**, quindi fare clic su **Visualizzatore eventi**.  
+1.  Aprire Visualizzatore eventi. Fare clic su **avviare**, fare clic su **Strumenti di amministrazione**, quindi fare clic su **Visualizzatore eventi**.  
   
 2.  Aprire il registro eventi di Hypervisor Hyper-V. Nel riquadro di spostamento, espandere **registri applicazioni e servizi** >> **Microsoft** >> **Windows** >> **Hypervisor Hyper-V**, quindi fare clic su **operativo**.  
   

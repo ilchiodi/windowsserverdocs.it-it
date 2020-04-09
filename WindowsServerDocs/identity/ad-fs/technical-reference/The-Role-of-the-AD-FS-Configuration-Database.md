@@ -1,7 +1,6 @@
 ---
 ms.assetid: 68db7f26-d6e3-4e67-859b-80f352e6ab6a
 title: Ruolo del database di configurazione di AD FS
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,22 +8,22 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 22047a93ab67d3f21b3e2318fcce497feab8f996
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 9ffdd1876e2dfbc044cebb65d7d6ef80880a64b8
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71385578"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80860164"
 ---
 # <a name="the-role-of-the-ad-fs-configuration-database"></a>Ruolo del database di configurazione di AD FS
-Nel database di configurazione AD FS vengono archiviati tutti i dati di configurazione che rappresentano una singola istanza di Active Directory Federation Services \(AD FS\) \(, ovvero servizio federativo\). Il database di configurazione di ADFS definisce il set di parametri richiesti dal Servizio federativo per identificare partner, certificati, archivi attributi, attestazioni e diversi dati relativi a queste entità associate. È possibile archiviare i dati di configurazione in un database di® Microsoft SQL Server o nel database interno di Windows \(WID\) funzionalità inclusa in Windows Server® 2008, Windows Server 2008 R2 e Windows Server® 2012.  
+Nel database di configurazione AD FS vengono archiviati tutti i dati di configurazione che rappresentano una singola istanza di Active Directory Federation Services \(AD FS\) \(, ovvero servizio federativo\). Il database di configurazione di ADFS definisce il set di parametri richiesti dal Servizio federativo per identificare partner, certificati, archivi attributi, attestazioni e diversi dati relativi a queste entità associate. È possibile archiviare i dati di configurazione in un database di&reg; Microsoft SQL Server o nel database interno di Windows \(WID\) funzionalità inclusa in Windows Server&reg; 2008, Windows Server 2008 R2 e Windows Server&reg; 2012.  
   
 > [!NOTE]  
 > L'intero contenuto del database di configurazione di ADFS può essere archiviato in un'istanza di Database interno di Windows o in un'istanza del database SQL, ma non in entrambi. Ciò significa che non si possono avere alcuni server federativi che usano Database interno di Windows e altri che usano un database SQL Server per la stessa istanza del database di configurazione di ADFS.  
   
 Per scoprire i vantaggi e gli svantaggi della scelta di Database interno di Windows o di SQL Server per archiviare il database di configurazione di ADFS, è possibile usare le informazioni in questo argomento insieme al contenuto disponibile in [Considerazioni sulla topologia di distribuzione di ADFS](https://technet.microsoft.com/library/gg982489.aspx) :  
   
-Database interno di Windows utilizza un archivio dati relazionale e non dispone di un'interfaccia utente gestione \(dell'interfaccia Utente\). Gli amministratori possono invece modificare il contenuto del database di configurazione AD FS usando lo snap-in di gestione AD FS\-in, Fsconfig. exe o i cmdlet di™ di Windows PowerShell.  
+Database interno di Windows utilizza un archivio dati relazionale e non dispone di un'interfaccia utente gestione \(dell'interfaccia Utente\). Gli amministratori possono invece modificare il contenuto del database di configurazione AD FS usando lo snap-in di gestione AD FS\-in, Fsconfig. exe o i cmdlet di&trade; di Windows PowerShell.  
   
 ## <a name="using-wid-to-store-the-ad-fs-configuration-database"></a>Uso di Database interno di Windows per archiviare il database di configurazione di ADFS  
 È possibile creare il database di configurazione di AD FS usando WID come archivio usando lo strumento da riga\-comando Fsconfig. exe o la configurazione guidata del server AD FS Federazione. Quando si usa uno di questi strumenti, è possibile scegliere una qualsiasi delle opzioni seguenti per creare la topologia del server federativo. Ognuna di queste opzioni usa Database interno di Windows per archiviare il database di configurazione di ADFS:  
@@ -39,7 +38,7 @@ Se si seleziona l'opzione\-autonoma, viene utilizzato WID per archiviare una sin
   
 Se si seleziona il primo server federativo nell'opzione per una server farm federativa, Database interno di Windows viene configurato ai fini della scalabilità per poter aggiungere altri server federativi alla farm in un secondo momento. Per altre informazioni sulla distribuzione di una farm con Database interno di Windows o su come configurarne una, vedere [Server farm federativa che usa Database interno di Windows](https://technet.microsoft.com/library/gg982492.aspx) o [Creare il primo server federativo in una server farm federativa.](https://technet.microsoft.com/library/dd807070.aspx)  
   
-Se si sceglie l'opzione per aggiungere un server federativo, Database interno di Windows viene configurato per replicare al nuovo server federativo le modifiche fatte al database di configurazione a intervalli prestabiliti. Per ulteriori informazioni sull'aggiunta di un server federativo a una farm database interno di Windows, vedere [Federation Server Farm utilizzando WID](https://technet.microsoft.com/library/gg982492.aspx) o [aggiungere un Server federativo a una Server Farm federativa](https://technet.microsoft.com/library/ee913575.aspx).  
+Se si sceglie l'opzione per aggiungere un server federativo, Database interno di Windows viene configurato per replicare al nuovo server federativo le modifiche fatte al database di configurazione a intervalli prestabiliti. Per altre informazioni sull'aggiunta di un server federativo a una farm con Database interno di Windows, vedere [Server farm federativa che usa Database interno di Windows](https://technet.microsoft.com/library/gg982492.aspx) o [Aggiungere un server federativo a una server farm federativa](https://technet.microsoft.com/library/ee913575.aspx).  
   
 > [!NOTE]  
 > Quando si distribuisce una server farm federativa tramite WID, alcune funzionalità di ADFS non siano disponibili. Per avere accesso all'intero set di funzionalità quando si configura la server farm, considerare la possibilità di usare invece Microsoft SQL Server per archiviare il database di configurazione di ADFS. Per altre informazioni, vedere [Considerazioni sulla topologia di distribuzione di ADFS](https://technet.microsoft.com/library/gg982489(v=ws.11).aspx).  
@@ -48,7 +47,7 @@ Se si sceglie l'opzione per aggiungere un server federativo, Database interno di
 In questa sezione sono disponibili concetti importanti che descrivono in che modo la server farm federativa che usa Database interno di Windows replica i dati tra un server federativo primario e i server federativi secondari. .  
   
 #### <a name="primary-federation-server"></a>Server federativo primario  
-Un server federativo primario è un computer che esegue Windows Server 2008, Windows Server 2008 R2 o Windows Server® 2012 che è stato configurato nel ruolo server federativo con la configurazione guidata server federativo di AD FS e che dispone di una copia di lettura/scrittura del database di configurazione AD FS. Il server federativo primario viene sempre creato quando si utilizza configurazione guidata Server federativo AD ADFS e selezionare l'opzione per creare un nuovo servizio federativo e rendere il computer del primo server federativo nella farm. Tutti gli altri server federativi della farm, detti anche server federativi secondari, devono sincronizzare le modifiche fatte sul server federativo primario in una copia del database di configurazione di ADFS archiviato localmente.  
+Un server federativo primario è un computer che esegue Windows Server 2008, Windows Server 2008 R2 o Windows Server&reg; 2012 che è stato configurato nel ruolo server federativo con la configurazione guidata server federativo di AD FS e che dispone di una copia di lettura/scrittura del database di configurazione AD FS. Il server federativo primario viene sempre creato quando si utilizza configurazione guidata Server federativo AD ADFS e selezionare l'opzione per creare un nuovo servizio federativo e rendere il computer del primo server federativo nella farm. Tutti gli altri server federativi della farm, detti anche server federativi secondari, devono sincronizzare le modifiche fatte sul server federativo primario in una copia del database di configurazione di ADFS archiviato localmente.  
   
 #### <a name="secondary-federation-servers"></a>Server federativi secondari  
 I server federativi secondari archiviano una copia del database di configurazione AD FS dal server federativo primario, ma queste copie sono di sola lettura\-. I server federativi secondari si connettono al server federativo primario nella farm e sincronizzano i dati, eseguendo il polling a intervalli regolari per verificare se i dati sono stati modificati. I server federativi secondari disponibili per fornire tolleranza di errore per il server federativo primario quando agisce per caricare\-bilanciare le richieste di accesso che vengono inviate ai diversi siti in tutto l'ambiente di rete.  
@@ -79,7 +78,7 @@ Anche il processo di sincronizzazione di Database interno di Windows supporta i 
   
 -   Fornisce supporto delle funzionalità per la risoluzione degli artefatti SAML e SAML/WS\-il rilevamento della riproduzione del token federativo \(descritto di seguito\).  
   
-Il termine "server federativo primario" non si applica quando il database di configurazione di ADFS è archiviato in un'istanza del database SQL, perché tutti i server federativi possono leggere e scrivere nel database di configurazione di ADFS che usa la stessa istanza in cluster di SQL Server, come illustrato nella figura seguente.  
+Il termine "server federativo primario" non si applica quando il database di configurazione AD FS viene archiviato in un'istanza del database SQL, perché tutti i server federativi possono leggere e scrivere in modo analogo nel database di configurazione AD FS che utilizza la stessa istanza del SQL Server cluster, come illustrato nella figura seguente.  
   
 ![Ruoli di AD FS](media/adfs2_SQL.png)  
   

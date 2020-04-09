@@ -1,24 +1,20 @@
 ---
 title: Eseguire la migrazione a MultiPoint Services in Windows Server 2016
 description: Informazioni su come eseguire la migrazione da una versione precedente di MultiPoint Services
-ms.custom: na
 ms.date: 07/29/2016
 ms.prod: windows-server
 ms.technology: multipoint-services
-ms.reviewer: na
-ms.suite: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 16c217ad-700a-48a3-8398-4a7f7e9edb52
 author: lizap
 manager: dongill
 ms.author: elizapo
-ms.openlocfilehash: 297de9ee2450856e24b9196a8bfb312991657e6d
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: a0a0e4f50134102bab7c258e47e63bf7d24e60c8
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71389044"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80858714"
 ---
 # <a name="multipoint-services-migration-in-windows-server-2016"></a>Migrazione di MultiPoint Services in Windows Server 2016
 >Si applica a: Windows Server 2016

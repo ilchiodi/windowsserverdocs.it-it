@@ -1,7 +1,6 @@
 ---
 ms.assetid: 3095e6a7-b562-4c6a-bf29-13b32c133cac
 title: Registrare un certificato SSL per ADFS
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,16 +8,16 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: efa7c7aee848a5bbb68d3ce7140e135d37c2161d
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 6f7af40f23c3fa3bd0a31ecb74b11013133a4b32
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71408360"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80855434"
 ---
 # <a name="enroll-an-ssl-certificate-for-ad-fs"></a>Registrare un certificato SSL per ADFS
 
-Active Directory Federation Services \(AD FS\) richiede un certificato per Secure Socket Layer \(autenticazione server SSL\) in ogni server federativo del server farm di Federazione. Lo stesso certificato può essere utilizzato in ogni server federativo di una farm. È necessario che siano disponibili sia il certificato che la relativa chiave privata. Ad esempio, se il certificato e la relativa chiave privata sono disponibili in un file con estensione pfx, è possibile importare il file direttamente nella configurazione guidata di Active Directory Federation Services. Questo certificato SSL deve contenere quanto segue:  
+Active Directory Federation Services \(AD FS\) richiede un certificato per Secure Socket Layer \(autenticazione server SSL\) in ogni server federativo del server farm di Federazione. Lo stesso certificato può essere utilizzato in ogni server federativo di una farm. Devono essere disponibili sia il certificato sia la relativa chiave privata. Ad esempio, se il certificato e la relativa chiave privata sono disponibili in un file con estensione pfx, è possibile importare il file direttamente nella configurazione guidata di Active Directory Federation Services. Questo certificato SSL deve includere quanto segue:  
   
 1.  Il nome del soggetto e il nome alternativo del soggetto devono contenere il nome del servizio federativo, ad esempio fs.contoso.com.  
   

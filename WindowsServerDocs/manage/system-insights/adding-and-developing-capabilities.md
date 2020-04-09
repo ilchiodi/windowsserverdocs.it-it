@@ -1,54 +1,49 @@
 ---
 title: Aggiunta e sviluppo di funzionalità
-description: Sistema Insights consente di aggiungere nuove capacità predittiva Insights System, senza richiedere eventuali aggiornamenti del sistema operativo. Ciò consente agli sviluppatori, tra cui Microsoft e terze parti, per creare e distribuire una nuova versione a metà di funzionalità per soddisfare gli scenari in cui che si è interessati. Nuove funzionalità è possibile specificare dati personalizzati per raccogliere e analizzare e si integrano inoltre con i piani di gestione di System Insights esistenti.
-ms.custom: na
+description: System Insights consente di aggiungere nuove funzionalità predittive a System Insights, senza richiedere aggiornamenti del sistema operativo. Ciò consente agli sviluppatori, inclusi Microsoft e terze parti, di creare e fornire nuove funzionalità a metà della versione per risolvere gli scenari a cui si è interessati. Le nuove funzionalità possono specificare dati personalizzati da raccogliere e analizzare e integrarsi anche con i piani di gestione di System Insights esistenti.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: system-insights
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.assetid: ''
 author: gawatu
 ms.author: gawatu
 manager: mallikarjun.chadalapaka
 ms.date: 7/31/2018
-ms.openlocfilehash: 8caddead774ac69a38906f3c0a0d2eaf005c1d28
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 0dd4e24197d5a8c438d70a849e435ce28792dfce
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59817482"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80858434"
 ---
-# <a name="adding-and-developing-new-capabilities"></a>Aggiunta e lo sviluppo di nuove funzionalità
+# <a name="adding-and-developing-new-capabilities"></a>Aggiunta e sviluppo di nuove funzionalità
 
 >Si applica a: Windows Server 2019
 
-Sistema Insights consente di aggiungere nuove capacità predittiva Insights System, senza richiedere eventuali aggiornamenti del sistema operativo. Ciò consente agli sviluppatori, tra cui Microsoft e terze parti, per creare e distribuire una nuova versione a metà di funzionalità per soddisfare gli scenari in cui che si è interessati. 
+System Insights consente di aggiungere nuove funzionalità predittive a System Insights, senza richiedere aggiornamenti del sistema operativo. Ciò consente agli sviluppatori, inclusi Microsoft e terze parti, di creare e fornire nuove funzionalità a metà della versione per risolvere gli scenari a cui si è interessati. 
 
-Qualsiasi nuova funzionalità può integrare ed estendere l'infrastruttura di System Insights esistente:
+Tutte le nuove funzionalità possono essere integrate con ed estendere l'infrastruttura esistente di System Insights:
 
-- Nuove funzionalità possono **specificare qualsiasi evento di sistema o del contatore delle prestazioni**, che verrà raccolti, mantenuto in locale e restituita per la funzionalità per l'analisi quando la funzionalità viene richiamata.  
-- Nuove funzionalità possono **sfruttare i vantaggi di Windows Admin Center esistente e piani di gestione di PowerShell**. Non solo sarà nuove funzionalità di essere individuabile nel sistema di Insights, cui trarre vantaggio dalle pianificazioni personalizzate e le azioni correttive. 
+- Le nuove funzionalità possono **specificare qualsiasi contatore delle prestazioni o evento di sistema**, che verrà raccolto, salvato in locale e restituito alla funzionalità di analisi quando viene richiamata la funzionalità.  
+- Le nuove funzionalità possono **sfruttare l'interfaccia di amministrazione di Windows e i piani di gestione di PowerShell esistenti**. Non solo le nuove funzionalità saranno individuabili in System Insights, ma potranno anche trarre vantaggio da pianificazioni personalizzate e azioni correttive. 
 
-## <a name="manage-new-capabilities"></a>Gestire le nuove funzionalità
-- [Informazioni su](add-remove-update-capabilities.md) come aggiungere, rimuovere e aggiornare le funzionalità usando PowerShell. 
+## <a name="manage-new-capabilities"></a>Gestisci nuove funzionalità
+- [Informazioni](add-remove-update-capabilities.md) su come aggiungere, rimuovere e aggiornare le funzionalità usando PowerShell. 
 
 ## <a name="develop-a-capability"></a>Sviluppare una funzionalità
-Usare le risorse seguenti che consentono di iniziare a scrivere il proprio funzionalità personalizzato:
-- [Informazioni su](data-sources.md) sulle origini dati è possibile raccogliere.
-- [Scaricare](https://www.nuget.org/packages/Microsoft.WindowsServer.SystemInsights/) il pacchetto NuGet di Insights di sistema, che contiene le classi e interfacce che è necessario scrivere una funzionalità.
-- [Visitare](https://aka.ms/systeminsights-api) la documentazione dell'API per apprendere le interfacce e classi di informazioni di sistema. 
-- [Usare](https://aka.ms/systeminsights-samplecapability) la funzionalità di esempio Insights di sistema che consentono di iniziare. Ciò viene illustrato come registrare una funzionalità, specificare le origini dati da raccogliere e iniziare ad analizzare i dati di sistema.
+Usare le risorse seguenti per iniziare a scrivere le proprie funzionalità personalizzate:
+- [Informazioni sulle origini](data-sources.md) dati che è possibile raccogliere.
+- [Scaricare](https://www.nuget.org/packages/Microsoft.WindowsServer.SystemInsights/) il pacchetto NuGet di System Insights, che contiene le classi e le interfacce necessarie per scrivere una funzionalità.
+- Per informazioni sulle classi e le interfacce di System Insights, [vedere](https://aka.ms/systeminsights-api) la documentazione dell'API. 
+- [Usare](https://aka.ms/systeminsights-samplecapability) la funzionalità di esempio di System Insights per iniziare. In questo modo viene illustrato come registrare una funzionalità, specificare le origini dati da raccogliere e avviare l'analisi dei dati di sistema.
 
 >[!NOTE]
->Si tratta di funzionalità della versione provvisoria. È soggetto a modifiche, aggiungere nuove funzionalità e includere il feedback.
+>Si tratta di una funzionalità di versione non definitiva. È soggetta a modifiche, in quanto si aggiungono nuove funzionalità e si incorporano commenti e suggerimenti.
 
 ## <a name="see-also"></a>Vedere anche
 Per altre informazioni su System Insights, usare le risorse seguenti:
 
-- [Panoramica sistema Insights](overview.md)
-- [Funzionalità di comprensione](understanding-capabilities.md)
-- [La funzionalità di gestione](managing-capabilities.md)
-- [Aggiunta, rimozione e aggiornamento delle funzionalità](add-remove-update-capabilities.md)
-- [Sistema Insights domande frequenti](faq.md)
+- [Panoramica di System Insights](overview.md)
+- [Descrizione delle funzionalità](understanding-capabilities.md)
+- [Gestione delle funzionalità](managing-capabilities.md)
+- [Aggiunta, rimozione e aggiornamento di funzionalità](add-remove-update-capabilities.md)
+- [Domande frequenti su System Insights](faq.md)

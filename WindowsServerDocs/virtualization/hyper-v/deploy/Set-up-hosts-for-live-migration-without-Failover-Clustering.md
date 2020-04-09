@@ -2,21 +2,19 @@
 title: Configurare gli host per live migration senza Clustering di Failover
 description: Vengono fornite istruzioni per la configurazione della migrazione in tempo reale in un ambiente non cluster
 ms.prod: windows-server
-ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: b5e3c405-cb76-4ff2-8042-c2284448c435
-author: KBDAzure
+author: kbdazure
 ms.author: kathydav
 ms.date: 9/30/2016
-ms.openlocfilehash: 3f0c13ba44eb498635b9b0c049b2921776049840
-ms.sourcegitcommit: 9a6a692a7b2a93f52bb9e2de549753e81d758d28
+ms.openlocfilehash: 2c2f671bf59e95de2604c91944fab3d65f82410e
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72591061"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80860884"
 ---
 # <a name="set-up-hosts-for-live-migration-without-failover-clustering"></a>Configurare gli host per live migration senza Clustering di Failover
 
@@ -52,7 +50,7 @@ Considerare come si desidera impostare le seguenti opzioni:
 
 -  **Preferenza di rete**: si consenta il traffico di migrazione in tempo reale tramite qualsiasi rete disponibile, o isolare il traffico a reti specifiche? Come procedura consigliata di sicurezza, è preferibile isolare il traffico delle migrazioni in tempo reale a reti privati e attendibili perché non viene crittografato durante l'invio in rete. L'isolamento di rete può essere ottenuto con una rete isolata fisicamente o con un'altra tecnologia di rete attendibile come le VLAN.
 
-## <a name="BKMK_Step1"></a>Passaggio 1: configurare la delega vincolata (facoltativo)
+## <a name="step-1-configure-constrained-delegation-optional"></a><a name="BKMK_Step1"></a>Passaggio 1: configurare la delega vincolata (facoltativo)
 Se si è deciso di utilizzare Kerberos per autenticare il traffico di migrazione in tempo reale, configurare la delega vincolata utilizzando un account membro del gruppo Domain Administrators.
 
 ### <a name="use-the-users-and-computers-snap-in-to-configure-constrained-delegation"></a>Utilizzare lo snap-in utenti e computer per configurare la delega vincolata
@@ -67,7 +65,7 @@ Se si è deciso di utilizzare Kerberos per autenticare il traffico di migrazione
 
 5.  Nella scheda delega selezionare **computer attendibile per la delega solo ai servizi specificati** e quindi selezionare **Usa un qualsiasi protocollo di autenticazione**.
 
-6.  Fai clic su **Aggiungi**.
+6.  Fare clic su **Add**.
 
 7.  Da **aggiungere servizi**, fare clic su **utenti o computer**.
 
@@ -79,7 +77,7 @@ Se si è deciso di utilizzare Kerberos per autenticare il traffico di migrazione
 
     -   Per spostare macchine virtuali, selezionare **Servizio di migrazione sistema virtuale**.
 
-10. Nella scheda **Delega** della finestra di dialogo Proprietà verificare che i servizi selezionati nel passaggio precedente siano elencati tra quelli ai quali il computer di destinazione può presentare le credenziali delegate. Fai clic su **OK**.
+10. Nella scheda **Delega** della finestra di dialogo Proprietà verificare che i servizi selezionati nel passaggio precedente siano elencati tra quelli ai quali il computer di destinazione può presentare le credenziali delegate. Fare clic su **OK**.
 
 11. Nella cartella **Computer** selezionare l'account del computer del server di destinazione e ripetere il processo. Nella finestra di dialogo **Seleziona Utenti o Computer** assicurarsi di specificare il nome del server di origine.
 
@@ -88,7 +86,7 @@ Le modifiche di configurazione applicate dopo verificarsi entrambe le operazioni
   -  Le modifiche vengono replicate nei controller di dominio che si è connessi i server che esegue Hyper-V.
   -  Il controller di dominio emette un nuovo ticket Kerberos.
 
-## <a name="BKMK_Step2"></a>Passaggio 2: configurare i computer di origine e di destinazione per la migrazione in tempo reale
+## <a name="step-2-set-up-the-source-and-destination-computers-for-live-migration"></a><a name="BKMK_Step2"></a>Passaggio 2: configurare i computer di origine e di destinazione per la migrazione in tempo reale
 Questo passaggio include la scelta di opzioni per l'autenticazione e di rete. Per una protezione ottimale, è consigliabile selezionare reti specifiche da utilizzare per il traffico di migrazione in tempo reale, come illustrato in precedenza. Questo passaggio illustra anche come scegliere l'opzione relativa alle prestazioni.
 
 ### <a name="use-hyper-v-manager-to-set-up-the-source-and-destination-computers-for-live-migration"></a>Gestione di Hyper-V consente di configurare i computer di origine e destinazione per live migration
@@ -103,14 +101,14 @@ Questo passaggio include la scelta di opzioni per l'autenticazione e di rete. Pe
 
 5.  In **migrazioni in tempo reale simultanee**, specificare un numero diverso se non si desidera utilizzare il valore predefinito è 2.
 
-6.  In **Migrazioni Live Migration in entrata**, fare clic su **Aggiungi** per digitare l'indirizzo IP se si desidera utilizzare connessioni di rete specifiche che accettino il traffico delle migrazioni in tempo reale. In caso contrario, fare clic su **Usa qualsiasi rete disponibile per Live Migration**. Fai clic su **OK**.
+6.  In **Migrazioni Live Migration in entrata**, fare clic su **Aggiungi** per digitare l'indirizzo IP se si desidera utilizzare connessioni di rete specifiche che accettino il traffico delle migrazioni in tempo reale. In caso contrario, fare clic su **Usa qualsiasi rete disponibile per Live Migration**. Fare clic su **OK**.
 
 7.  Per scegliere le opzioni di autenticazione Kerberos e prestazioni, espandere **Live Migration** e quindi selezionare **funzionalità avanzate**.
 
     - Se è stata configurata la delega vincolata, in **protocollo di autenticazione**, selezionare **Kerberos**.
     - In **Opzioni relative alle prestazioni**, esaminare i dettagli e scegliere un'opzione diversa se è appropriato per l'ambiente.
 
-8. Fai clic su **OK**.
+8. Fare clic su **OK**.
 
 9. Selezionare l'altro server di gestione di Hyper-V e ripetere i passaggi.
 
@@ -143,7 +141,7 @@ La tabella seguente descrive come utilizzare le opzioni di prestazioni.
 |----------|---------------|
     |TCP/IP|Copia la memoria della macchina virtuale nel server di destinazione tramite una connessione TCP/IP.|
     |Compressione|Comprime il contenuto della memoria della macchina virtuale prima della copia nel server di destinazione tramite una connessione TCP/IP. **Nota:** questo è il **predefinito** impostazione.|
-    |SMB|Copia la memoria della macchina virtuale nel server di destinazione tramite una connessione SMB 3.0.<br /><br />-SMB diretto viene utilizzato quando le schede di rete nel server di origine e destinazione hanno funzionalità Direct accesso memoria remota (RDMA).<br />-SMB multicanale rileva e utilizza automaticamente più connessioni quando viene identificata una configurazione SMB multicanale appropriata.<br /><br />Per altre informazioni, vedere [Improve Performance of a File Server with SMB Direct](https://technet.microsoft.com/library/jj134210(WS.11).aspx).|
+    |SMB|Copia la memoria della macchina virtuale nel server di destinazione tramite una connessione SMB 3.0.<p>-SMB diretto viene utilizzato quando le schede di rete nel server di origine e destinazione hanno funzionalità Direct accesso memoria remota (RDMA).<br />-SMB multicanale rileva e utilizza automaticamente più connessioni quando viene identificata una configurazione SMB multicanale appropriata.<p>Per ulteriori informazioni, vedere [Migliorare le prestazioni di un file server con SMB diretto](https://technet.microsoft.com/library/jj134210(WS.11).aspx).|
 
  ## <a name="next-steps"></a>Passaggi successivi
 

@@ -1,19 +1,18 @@
 ---
 title: Cronologia prestazioni per i server
 ms.author: cosdar
-ms.manager: eldenc
+manager: eldenc
 ms.technology: storage-spaces
 ms.topic: article
 author: cosmosdarwin
 ms.date: 02/05/2018
-Keywords: Spazi di archiviazione diretti
 ms.localizationpriority: medium
-ms.openlocfilehash: bbfc92f7926b93f5f6716514e64672f4aa304c0f
-ms.sourcegitcommit: e817a130c2ed9caaddd1def1b2edac0c798a6aa2
+ms.openlocfilehash: cf4bdabb132c832370e5dffec215c24b54aebdd7
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74945244"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80856194"
 ---
 # <a name="performance-history-for-servers"></a>Cronologia prestazioni per i server
 
@@ -28,7 +27,7 @@ Questo argomento secondario della [cronologia delle prestazioni per spazi di arc
 
 Queste serie vengono raccolte per ogni server idoneo:
 
-| Serie                           | Unit    |
+| Serie                           | Unità    |
 |----------------------------------|---------|
 | `clusternode.cpu.usage`          | percent |
 | `clusternode.cpu.usage.guest`    | percent |
@@ -93,6 +92,6 @@ Usare il cmdlet [Get-ClusterNode](https://docs.microsoft.com/powershell/module/f
 Get-ClusterNode <Name> | Get-ClusterPerf
 ```
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 
 - [Cronologia prestazioni per Spazi di archiviazione diretta](performance-history.md)

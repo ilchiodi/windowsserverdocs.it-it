@@ -1,24 +1,20 @@
 ---
 title: Distribuire controller di rete tramite Windows PowerShell
 description: In questo argomento vengono fornite istruzioni sull'utilizzo di Windows PowerShell per distribuire Controller di rete in uno o più computer o macchine virtuali (VM) che eseguono Windows Server 2016.
-manager: dougkim
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: networking-sdn
-ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: 2448d381-55aa-4c14-997a-202c537c6727
-ms.author: lizross
-author: eross-msft
+ms.author: anpaul
+author: AnirbanPaul
+manager: grcusanz
 ms.date: 08/23/2018
-ms.openlocfilehash: ee3aa93c02419667b05a987f548ef4d14285231d
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: 429d79ec9ed2f22bd7c7e1a4c1bd8f6cb6ff7fb1
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80313075"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80860734"
 ---
 # <a name="deploy-network-controller-using-windows-powershell"></a>Distribuire controller di rete tramite Windows PowerShell
 

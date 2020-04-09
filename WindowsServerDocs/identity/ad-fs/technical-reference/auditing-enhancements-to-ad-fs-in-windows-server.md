@@ -1,7 +1,6 @@
 ---
 ms.assetid: 208928eb-bb17-4984-a312-23fff43133e3
 title: Controllo dei miglioramenti di AD FS in Windows Server 2016
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,12 +8,12 @@ ms.date: 10/25/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 4eb93513d12b2bba2620ff16be24f62ace5dee85
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 191ecf5b3c7bf6c8c44d4d3553cd6e98b5543351
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71407255"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80853804"
 ---
 # <a name="auditing-enhancements-to-ad-fs-in-windows-server-2016"></a>Controllo dei miglioramenti di AD FS in Windows Server 2016
 
@@ -23,20 +22,20 @@ Attualmente, in AD FS per Windows Server 2012 R2 sono presenti numerosi eventi d
     Con il rilascio di AD FS in Windows Server 2016, il controllo è diventato più semplificato e meno dettagliato.  
   
 ## <a name="auditing-levels-in-ad-fs-for-windows-server-2016"></a>Livelli di controllo in AD FS per Windows Server 2016  
-Per impostazione predefinita, AD FS in Windows Server 2016 è abilitato il controllo di base.  Con il controllo di base, gli amministratori vedranno 5 o meno gli eventi per una singola richiesta.  Questa operazione contrassegna una riduzione significativa del numero di eventi che gli amministratori devono esaminare per poter visualizzare una singola richiesta.   Il livello di controllo può essere generato o abbassato usando il cmdlet di PowerShell:  Set-AdfsProperties-AuditLevel.  La tabella seguente illustra i livelli di controllo disponibili.  
+Per impostazione predefinita, AD FS in Windows Server 2016 è abilitato il controllo di base.  Con il controllo di base, gli amministratori vedranno 5 o meno gli eventi per una singola richiesta.  Questa operazione contrassegna una riduzione significativa del numero di eventi che gli amministratori devono esaminare per poter visualizzare una singola richiesta.   Il livello di controllo può essere generato o abbassato usando PowerShell cmdlet: set-AdfsProperties-AuditLevel.  La tabella seguente illustra i livelli di controllo disponibili.  
   
 ||||  
 |-|-|-|  
-|Livello di controllo|Sintassi di PowerShell|Descrizione|  
-|Nessuno|Set-AdfsProperties-AuditLevel None|Il controllo è disabilitato e non viene registrato alcun evento.|  
+|Audit Level|Sintassi di PowerShell|Descrizione|  
+|None|Set-AdfsProperties-AuditLevel None|Il controllo è disabilitato e non viene registrato alcun evento.|  
 |Basic (impostazione predefinita)|Set-AdfsProperties-AuditLevel Basic|Non verranno registrati più di 5 eventi per una singola richiesta|  
 |Verbose|Set-AdfsProperties-AuditLevel verbose|Tutti gli eventi verranno registrati.  Questa operazione registrerà una quantità significativa di informazioni per ogni richiesta.|  
   
-Per visualizzare il livello di controllo corrente, è possibile usare il cmdlet di PowerShell:  Get-AdfsProperties.  
+Per visualizzare il livello di controllo corrente, è possibile usare il cmdlet di PowerShell: Get-AdfsProperties.  
   
 ![miglioramenti del controllo](media/Auditing-Enhancements-to-AD-FS-in-Windows-Server-2016/ADFS_Audit_1.PNG)  
   
-Il livello di controllo può essere generato o abbassato usando il cmdlet di PowerShell:  Set-AdfsProperties-AuditLevel.  
+Il livello di controllo può essere generato o abbassato usando PowerShell cmdlet: set-AdfsProperties-AuditLevel.  
   
 ![miglioramenti del controllo](media/Auditing-Enhancements-to-AD-FS-in-Windows-Server-2016/ADFS_Audit_2.png)  
   

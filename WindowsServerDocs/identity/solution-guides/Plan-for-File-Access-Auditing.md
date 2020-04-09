@@ -1,7 +1,6 @@
 ---
 ms.assetid: 3ea48a72-20a2-4da4-84e4-26b5728513ce
 title: Pianificazione del controllo dell'accesso ai file
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 25d6e1c3dd3ab0d10f04cef3e88a7671957b51db
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: ffe8843f9ace604bc0904ba2d1eaef78d2872b99
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71407084"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80861164"
 ---
 # <a name="plan-for-file-access-auditing"></a>Pianificazione del controllo dell'accesso ai file
 

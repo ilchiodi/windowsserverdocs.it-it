@@ -2,20 +2,19 @@
 title: Per partecipare alla replica, server nei cluster di failover devono disporre di un gestore di Replica Hyper-V configurato
 description: Versione online del testo per questa regola di Best Practices Analyzer.
 ms.prod: windows-server
-ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
 ms.author: kathydav
 ms.topic: article
 ms.assetid: 5ec88ce5-a8b2-4ece-9062-366523c8b17f
-author: KBDAzure
+author: kbdazure
 ms.date: 8/16/2016
-ms.openlocfilehash: 2e15d2c4a467807397ef4712d2df1730b40d8024
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 921d31aa63bcaaf0946c487d327144f5e29bcfe0
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71364602"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80854584"
 ---
 # <a name="to-participate-in-replication-servers-in-failover-clusters-must-have-a-hyper-v-replica-broker-configured"></a>Per partecipare alla replica, server nei cluster di failover devono disporre di un gestore di Replica Hyper-V configurato
 
@@ -39,7 +38,7 @@ Nelle sezioni seguenti, corsivo indica il testo dell'interfaccia Utente visualiz
 *Se la macchina virtuale viene spostata in un altro nodo del cluster di failover, la replica non potrà continuare.*  
   
 ## <a name="resolution"></a>Risoluzione  
-*Use Gestione cluster di failover per configurare il gestore di replica Hyper-V. Nella console di gestione di Hyper-V verificare che la configurazione della replica usi il nome del gestore di replica Hyper-V come nome del server.*  
+*Usare Gestione cluster di failover per configurare il gestore di replica Hyper-V. Nella console di gestione di Hyper-V verificare che la configurazione della replica usi il nome del gestore di replica Hyper-V come nome del server.*  
   
 
 

@@ -1,7 +1,6 @@
 ---
 title: Domande frequenti su Spazi di archiviazione diretta
 description: Scopri come Spazi di archiviazione diretta
-keywords: Spazi di archiviazione
 ms.prod: windows-server
 ms.author: kaushik
 ms.technology: storage-spaces
@@ -9,12 +8,12 @@ ms.topic: article
 author: kaushika-msft
 ms.date: 10/24/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: 19dcc1c57fe7c7eea74b003553a0b0a6ab5508aa
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: 18384ab3c9e520ace9237b68474a45c8ec349502
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75950233"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80856104"
 ---
 # <a name="storage-spaces-direct---frequently-asked-questions-faq"></a>Domande frequenti su Spazi di archiviazione diretta
 
@@ -36,7 +35,7 @@ Sì, è possibile usare il file system NTFS con Spazi di archiviazione diretta. 
 
 Dopo aver aggiunto il nuovo dominio di errore, i nuovi dischi virtuali creati passeranno al mirroring a tre vie. Il disco virtuale esistente, tuttavia, rimarrà un disco con mirroring a 2 vie. È possibile copiare i dati nei nuovi dischi virtuali dai volumi esistenti per sfruttare i vantaggi della nuova resilienza.
  
-## <a name="the-storage-spaces-direct-was-created-using-the-autoconfig0-switch-and-the-pool-created-manually-when-i-try-to-query-the-storage-spaces-direct-pool-to-create-a-new-volume-i-get-a-message-that-says-enable-clusters2d-again-what-should-i-do"></a>Il Spazi di archiviazione diretta è stato creato con la configurazione automatica: 0 passare a e il pool creato manualmente. Quando si tenta di eseguire una query nel pool di Spazi di archiviazione diretta per creare un nuovo volume, viene visualizzato un messaggio che indica che "Enable-ClusterS2D di nuovo". Cosa dovrei fare?
+## <a name="the-storage-spaces-direct-was-created-using-the-autoconfig0-switch-and-the-pool-created-manually-when-i-try-to-query-the-storage-spaces-direct-pool-to-create-a-new-volume-i-get-a-message-that-says-enable-clusters2d-again-what-should-i-do"></a>Il Spazi di archiviazione diretta è stato creato con la configurazione automatica: 0 passare a e il pool creato manualmente. Quando si tenta di eseguire una query nel pool di Spazi di archiviazione diretta per creare un nuovo volume, viene visualizzato un messaggio che indica che "Enable-ClusterS2D di nuovo". Come si deve procedere?
 
 Per impostazione predefinita, quando si configura Spazi di archiviazione diretta usando il cmdlet Enable-S2D, il cmdlet esegue tutte le operazioni necessarie. Crea il pool e i livelli. Quando si usa la configurazione automatica: 0, è necessario eseguire tutte le operazioni manualmente. Se è stato creato solo il pool, il livello non viene necessariamente creato. Si riceverà un messaggio di errore "Enable-ClusterS2D di nuovo" se non sono stati creati livelli in tutti i livelli o non sono stati creati in un modo corrispondente ai dispositivi collegati. Si consiglia di non utilizzare l'opzione di configurazione automatica in un ambiente di produzione. 
  
@@ -87,5 +86,5 @@ Spazi di archiviazione diretta usa il mapping dei Servizi Enclosure SCSI (SES) p
 Questo:
 
 ```powershell
-get-virtualdisk -friendlyname “xyz” | get-physicalextent
+get-virtualdisk -friendlyname "xyz" | get-physicalextent
 ```

@@ -1,7 +1,6 @@
 ---
 ms.assetid: 6a852428-c1ec-4703-b3b3-a4bfdf8cbb9d
-title: '&#39;Novità di Active Directory Domain Services in Windows Server 2016'
-description: ''
+title: Novità di Active Directory Domain Services in Windows Server 2016
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
@@ -9,22 +8,22 @@ ms.date: 08/07/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 1ef77613919ea6caf39a7cb41ba575652680466d
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: a82f45772e5e35afffc632de2b40c02c75b5e5e4
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75950111"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80856284"
 ---
 # <a name="whats-new-in-active-directory-domain-services-for-windows-server-2016"></a>Novità di Active Directory Domain Services per Windows Server 2016
 
->Si applica a: Windows Server 2016
+>Si applica a: Windows Server 2016
 
 Le seguenti nuove funzionalità in servizi di dominio Active Directory (AD DS) è migliorare la capacità per le organizzazioni di proteggere gli ambienti Active Directory e consentono di eseguire la migrazione a distribuzioni cloud-only e distribuzioni ibride, in alcune applicazioni e servizi sono ospitati nel cloud e ad altri utenti sono ospitati in locale. I miglioramenti includono:  
   
 - [Privileged Access Management](https://docs.microsoft.com/microsoft-identity-manager/pam/privileged-identity-management-for-active-directory-domain-services)  
   
-- [Estensione delle funzionalità del cloud ai dispositivi Windows 10 tramite Aggiunta ad Azure Active Directory](https://azure.microsoft.com/documentation/articles/active-directory-azureadjoin-overview/)
+- [Estensione delle funzionalità del cloud ai dispositivi Windows 10 tramite l'aggiunta di Azure Active Directory](https://azure.microsoft.com/documentation/articles/active-directory-azureadjoin-overview/)
   
 - [Connessione di dispositivi aggiunti a un dominio a Azure AD per le esperienze di Windows 10](https://azure.microsoft.com/documentation/articles/active-directory-azureadjoin-devices-group-policy/)
   
@@ -61,7 +60,7 @@ Gestione accesso con privilegi (PAM) riduce i rischi di sicurezza per gli ambien
 
 Azure Active Directory Join migliora le esperienze di identità per enterprise e business EDU clienti - con funzionalità migliorate per i dispositivi personali e aziendali.  
   
-Vantaggi:  
+Vantaggi  
   
 - **Disponibilità delle attuali impostazioni** nei dispositivi Windows di proprietà della società. I servizi di ossigeno non richiedono più un account Microsoft personale: ora eseguono gli account di lavoro esistenti degli utenti per garantire la conformità. I servizi di ossigeno funzioneranno nei PC che fanno parte di un dominio Windows locale e i PC e i dispositivi aggiunti al tenant di Azure AD ("dominio cloud"). Queste impostazioni includono:  
 

@@ -2,20 +2,19 @@
 title: abilitare l'estensione del commutatore virtuale Piattaforma filtro Windows se richiesto da estensioni di terze parti
 description: Versione online del testo per questa regola di Best Practices Analyzer.
 ms.prod: windows-server
-ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
 ms.author: kathydav
 ms.topic: article
 ms.assetid: 8aa8a9a5-e3fa-4c9b-8331-ba5a3de22429
-author: KBDAzure
+author: kbdazure
 ms.date: 8/16/2016
-ms.openlocfilehash: 41ab2bac7c98608b051c74d2fbfb8359f493385c
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: d4cc23ce638f7b5ee95f80de067b4ad5b360d118
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71364619"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80859304"
 ---
 # <a name="the-wfp-virtual-switch-extension-should-be-enabled-if-it-is-required-by-third-party-extensions"></a>abilitare l'estensione del commutatore virtuale Piattaforma filtro Windows se richiesto da estensioni di terze parti
 
@@ -25,7 +24,7 @@ Per altre informazioni sulle procedure consigliate e sulle analisi, vedere [Eseg
   
 |Proprietà|Dettagli|  
 |-|-|  
-|**Sistema operativo**|Windows Server 2016|  
+|**Sistema operativo**|Windows Server 2016|  
 |**Prodotto/funzionalità**|Hyper-V|  
 |**Gravità**|Avviso|  
 |**Categoria**|Configurazione|  
@@ -52,7 +51,7 @@ Nelle sezioni seguenti, corsivo indica il testo dell'interfaccia Utente visualiz
 3.  Eseguire questo comando dopo aver sostituito esterno con il nome del commutatore esterno:  
   
 ```  
-Enable-VMSwitchExtension -VMSwitchName External -Name "Microsoft Windows Filtering Platform"  
+Enable-VMSwitchExtension -VMSwitchName External -Name Microsoft Windows Filtering Platform  
 ```  
   
 ## <a name="see-also"></a>Vedi anche  

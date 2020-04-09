@@ -1,33 +1,29 @@
 ---
 title: Panoramica tecnica di Criteri di restrizione software
 description: Sicurezza di Windows Server
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: security-software-restriction-policies
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: dc7013b0-0efd-40fd-bd6d-75128adbd0b8
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/12/2016
-ms.openlocfilehash: 293239c9f746f939b06d45d6e8c1a50b59e2bc43
-ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
+ms.openlocfilehash: 38625a8d416345a6a7ed40c021b55aa10d1fd92f
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79322963"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80855274"
 ---
 # <a name="software-restriction-policies-technical-overview"></a>Panoramica tecnica di Criteri di restrizione software
 
 >Si applica a: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-In questo argomento vengono descritti i criteri di restrizione software, quando e come usare la funzionalità, quali modifiche sono state implementate nelle versioni precedenti e sono disponibili collegamenti a risorse aggiuntive per semplificare la creazione e la distribuzione di criteri di restrizione software a partire da Windows Server 2008 e Windows Vista.
+In questo argomento vengono descritti i criteri di restrizione software, quando e come utilizzare la funzionalità, quali modifiche sono state implementate nelle versioni precedenti e sono disponibili collegamenti a risorse aggiuntive che consentono di creare e distribuire i criteri di restrizione software a partire da Windows Server 2008 e Windows Vista.
 
 ## <a name="introduction"></a>Introduzione
-I criteri di restrizione software forniscono agli amministratori un meccanismo basato su Criteri di gruppo per identificare il software e controllarne la capacità di esecuzione nel computer locale. Questi criteri possono essere utilizzati per proteggere i computer che eseguono sistemi operativi Microsoft Windows (a partire da Windows Server 2003 e Windows XP Professional) contro i conflitti noti e proteggere i computer da minacce alla sicurezza, ad esempio virus dannosi. e i programmi Trojan Horse. È possibile usare i criteri di restrizione software anche per creare una configurazione molto restrittiva per i computer, in cui consentire l'esecuzione solo di applicazioni specifiche identificate. I criteri di restrizione software sono integrati in Microsoft Active Directory e nei Criteri di gruppo. È anche possibile creare criteri di restrizione software in computer autonomi.
+I criteri di restrizione software forniscono agli amministratori un meccanismo basato su Criteri di gruppo per identificare il software e controllarne la capacità di esecuzione nel computer locale. Questi criteri possono essere utilizzati per proteggere i computer che eseguono sistemi operativi Microsoft Windows (a partire da Windows Server 2003 e Windows XP Professional) contro i conflitti noti e proteggere i computer da minacce alla sicurezza, ad esempio virus dannosi e programmi Trojan Horse. È possibile usare i criteri di restrizione software anche per creare una configurazione molto restrittiva per i computer, in cui consentire l'esecuzione solo di applicazioni specifiche identificate. I criteri di restrizione software sono integrati in Microsoft Active Directory e nei Criteri di gruppo. È anche possibile creare criteri di restrizione software in computer autonomi.
 
 I criteri di restrizione software sono criteri di attendibilità, ovvero normative configurate dall'amministratore per limitare gli script e altro codice la cui esecuzione non è completamente attendibile. L'estensione criteri di restrizione software per il Editor Criteri di gruppo locali fornisce una singola interfaccia utente tramite la quale è possibile gestire le impostazioni per la limitazione dell'utilizzo delle applicazioni nel computer locale o in un dominio.
 
@@ -72,7 +68,7 @@ In particolare, gli amministratori possono usare i criteri di restrizione softwa
 
 -   Impedire l'esecuzione dei file eseguibili nel computer locale, nell'unità organizzativa, nel sito o nel dominio. Questa funzionalità è utile quando non si usano i criteri di restrizione software per risolvere i potenziali problemi relativi a utenti malintenzionati.
 
-## <a name="BKMK_Diffs_Changes"></a>Differenze e modifiche della funzionalità
+## <a name="differences-and-changes-in-functionality"></a><a name="BKMK_Diffs_Changes"></a>Differenze e modifiche della funzionalità
 Non sono state apportate modifiche alla funzionalità di criteri di RESTRIzione software per Windows Server 2012 e Windows 8.
 
 **Versioni supportate**
@@ -89,15 +85,15 @@ Nel seguente tabella vengono confrontate le funzionalità e le funzioni di Crite
 |Funzione di controllo delle applicazioni|Criteri di restrizione software|AppLocker|
 |----------------|----|-------|
 |Ambito|I criteri del Provider di risorse condivise possono essere applicati a tutti i sistemi operativi Windows, a partire da Windows XP e Windows Server 2003.|I criteri di AppLocker si applicano solo a Windows Server 2008 R2, Windows Server 2012, Windows 7 e Windows 8.|
-|Creazione dei criteri|I criteri di criteri di RESTRIzione software vengono gestiti tramite Criteri di gruppo e solo l'amministratore dell'oggetto Criteri di gruppo può aggiornare i criteri di criteri di L'amministratore del computer locale può modificare i criteri di criteri di RESTRIzione software definiti nell'oggetto Criteri di gruppo locale.|I criteri di AppLocker vengono gestiti tramite Criteri di gruppo e solo l'amministratore dell'oggetto Criteri di gruppo può aggiornare i criteri. L'amministratore del computer locale può modificare i criteri di AppLocker definiti nell'oggetto Criteri di gruppo locale.<br /><br />AppLocker consente la personalizzazione dei messaggi di errore per indirizzare gli utenti a una pagina Web di guida.|
+|Creazione dei criteri|I criteri di criteri di RESTRIzione software vengono gestiti tramite Criteri di gruppo e solo l'amministratore dell'oggetto Criteri di gruppo può aggiornare i criteri di criteri di L'amministratore del computer locale può modificare i criteri di criteri di RESTRIzione software definiti nell'oggetto Criteri di gruppo locale.|I criteri di AppLocker vengono gestiti tramite Criteri di gruppo e solo l'amministratore dell'oggetto Criteri di gruppo può aggiornare i criteri. L'amministratore del computer locale può modificare i criteri di AppLocker definiti nell'oggetto Criteri di gruppo locale.<p>AppLocker consente la personalizzazione dei messaggi di errore per indirizzare gli utenti a una pagina Web di guida.|
 |Manutenzione dei criteri|È necessario aggiornare i criteri di criteri di RESTRIzione software tramite lo snap-in criteri di sicurezza locali (se i criteri sono stati creati localmente) o la Console Gestione Criteri di gruppo (GPMC).|I criteri di AppLocker possono essere aggiornati tramite lo snap-in criteri di sicurezza locali (se i criteri sono stati creati localmente) o la console Gestione criteri di Windows o i cmdlet di AppLocker di Windows PowerShell.|
 |Applicazione criteri|I criteri SRP vengono distribuiti tramite Criteri di gruppo.|I criteri di AppLocker vengono distribuiti tramite Criteri di gruppo.|
-|Modalità di imposizione|L'opzione SRP funziona in modalità elenco di negazione in cui gli amministratori possono creare regole per i file che non vogliono consentire in questa organizzazione, mentre il resto del file può essere eseguito per impostazione predefinita.<br /><br />È inoltre possibile configurare il criteri di RESTRIzione software in modo che per impostazione predefinita tutti i file siano bloccati e che gli amministratori debbano creare regole di autorizzazione per i file che desiderano consentire.|Per impostazione predefinita, AppLocker funziona in "Consenti modalità elenco", in cui è consentita l'esecuzione solo dei file per i quali esiste una regola di consenso corrispondente.|
-|Tipi di file che possono essere controllati|Il SRP può controllare i tipi di file seguenti:<br /><br />-Eseguibili<br />-Dll<br />-Script<br />-Programmi di installazione di Windows<br /><br />Il SRP non è in grado di controllare separatamente ogni tipo di file. Tutte le regole SRP si trovano in una singola raccolta di regole.|AppLocker può controllare i tipi di file seguenti:<br /><br />-Eseguibili<br />-Dll<br />-Script<br />-Programmi di installazione di Windows<br />-App e programmi di installazione in pacchetto (Windows Server 2012 e Windows 8)<br /><br />AppLocker gestisce una raccolta di regole separata per ognuno dei cinque tipi di file.|
-|Tipi di file designati|SRP supporta un elenco estendibile di tipi di file considerati eseguibili. Gli amministratori possono aggiungere estensioni per i file che devono essere considerati eseguibili.|AppLocker non supporta questa operazione. AppLocker supporta attualmente le estensioni di file seguenti:<br /><br />-Eseguibili (. exe,. com)<br />-Dll (. ocx,. dll)<br />-Script (. vbs,. js,. ps1,. cmd,. bat)<br />-Programmi di installazione di Windows (con estensione msi, MST e msp)<br />-Programmi di installazione app in pacchetto (. appx)|
-|Tipi di regole|Il SRP supporta quattro tipi di regole:<br /><br />-Hash<br />-Percorso<br />-Firma<br />-Area Internet|AppLocker supporta tre tipi di regole:<br /><br />-Hash<br />-Percorso<br />-Editore|
+|Modalità di imposizione|L'opzione SRP funziona in modalità elenco di negazione in cui gli amministratori possono creare regole per i file che non vogliono consentire in questa organizzazione, mentre il resto del file può essere eseguito per impostazione predefinita.<p>È inoltre possibile configurare il criteri di RESTRIzione software in modo che per impostazione predefinita tutti i file siano bloccati e che gli amministratori debbano creare regole di autorizzazione per i file che desiderano consentire.|Per impostazione predefinita, AppLocker funziona in "Consenti modalità elenco", in cui è consentita l'esecuzione solo dei file per i quali esiste una regola di consenso corrispondente.|
+|Tipi di file che possono essere controllati|Il SRP può controllare i tipi di file seguenti:<p>-Eseguibili<br />-Dll<br />-Script<br />-Programmi di installazione di Windows<p>Il SRP non è in grado di controllare separatamente ogni tipo di file. Tutte le regole SRP si trovano in una singola raccolta di regole.|AppLocker può controllare i tipi di file seguenti:<p>-Eseguibili<br />-Dll<br />-Script<br />-Programmi di installazione di Windows<br />-App e programmi di installazione in pacchetto (Windows Server 2012 e Windows 8)<p>AppLocker gestisce una raccolta di regole separata per ognuno dei cinque tipi di file.|
+|Tipi di file designati|SRP supporta un elenco estendibile di tipi di file considerati eseguibili. Gli amministratori possono aggiungere estensioni per i file che devono essere considerati eseguibili.|AppLocker non supporta questa operazione. AppLocker supporta attualmente le estensioni di file seguenti:<p>-Eseguibili (. exe,. com)<br />-Dll (. ocx,. dll)<br />-Script (. vbs,. js,. ps1,. cmd,. bat)<br />-Programmi di installazione di Windows (con estensione msi, MST e msp)<br />-Programmi di installazione app in pacchetto (. appx)|
+|Tipi di regole|Il SRP supporta quattro tipi di regole:<p>-Hash<br />-Percorso<br />-Firma<br />-Area Internet|AppLocker supporta tre tipi di regole:<p>-Hash<br />-Percorso<br />-Editore|
 |Modifica del valore hash|Il SRP consente agli amministratori di fornire valori hash personalizzati.|AppLocker calcola il valore hash. Internamente usa l'hash Authenticode di SHA1 per i file eseguibili portabili (exe e dll) e i programmi di installazione di Windows e un hash file flat SHA1 per il resto.|
-|Supporto per diversi livelli di sicurezza|Con gli amministratori SRP è possibile specificare le autorizzazioni con cui è possibile eseguire un'app. Un amministratore può quindi configurare una regola in modo che il blocco note venga sempre eseguito con autorizzazioni limitate e mai con privilegi amministrativi.<br /><br />I criteri di RESTRIzione software in Windows Vista e versioni precedenti supportano più livelli di sicurezza. In Windows 7 l'elenco era limitato a soli due livelli: non consentiti e senza restrizioni (l'utente di base si traduce in non consentito).|AppLocker non supporta i livelli di sicurezza.|
+|Supporto per diversi livelli di sicurezza|Con gli amministratori SRP è possibile specificare le autorizzazioni con cui è possibile eseguire un'app. Un amministratore può quindi configurare una regola in modo che il blocco note venga sempre eseguito con autorizzazioni limitate e mai con privilegi amministrativi.<p>I criteri di RESTRIzione software in Windows Vista e versioni precedenti supportano più livelli di sicurezza. In Windows 7 l'elenco era limitato a soli due livelli: non consentiti e senza restrizioni (l'utente di base si traduce in non consentito).|AppLocker non supporta i livelli di sicurezza.|
 |Gestire le app in pacchetto e i programmi di installazione app in pacchetto|Impossibile|. appx è un tipo di file valido che può essere gestito da AppLocker.|
 |Assegnazione di una regola a un utente o a un gruppo di utenti|Le regole SRP si applicano a tutti gli utenti di un computer specifico.|Le regole di AppLocker possono essere destinate a un utente specifico o a un gruppo di utenti.|
 |Supporto per le eccezioni delle regole|Il SRP non supporta le eccezioni delle regole|Le regole di AppLocker possono avere eccezioni che consentono agli amministratori di creare regole come "Consenti tutto da Windows ad eccezione di Regedit. exe".|
@@ -119,7 +115,7 @@ A un livello elevato, i criteri di restrizione software sono costituiti dai comp
 
 -   Un set di API del sistema operativo e applicazioni che chiamano le API di criteri di restrizione software per fornire l'applicazione dei criteri di restrizione software in fase di esecuzione.
 
--   Active Directory e Criteri di gruppo. I criteri di restrizione software dipendono dall'infrastruttura Criteri di gruppo per propagare i criteri di restrizione software dal Active Directory ai client appropriati e per l'ambito e il filtraggio dell'applicazione di questi criteri nel modo appropriato computer di destinazione.
+-   Active Directory e Criteri di gruppo. I criteri di restrizione software dipendono dall'infrastruttura Criteri di gruppo per la propagazione dei criteri di restrizione software dal Active Directory ai client appropriati e per l'ambito e il filtraggio dell'applicazione di questi criteri ai computer di destinazione appropriati.
 
 -   API di attendibilità Authenticode e WinVerify che vengono usate per elaborare i file eseguibili firmati.
 
@@ -129,7 +125,7 @@ A un livello elevato, i criteri di restrizione software sono costituiti dai comp
 
 Per ulteriori informazioni sull'architettura del SRP, sulle modalità di gestione delle regole, dei processi e delle interazioni tra i criteri di restrizione software, vedere funzionamento dei [criteri di restrizione software](https://technet.microsoft.com/library/cc786941(v=WS.10).aspx) nella raccolta di documentazione tecnica su 2003 Windows
 
-## <a name="BKMK_Best_Practices"></a>Procedure consigliate
+## <a name="best-practices"></a><a name="BKMK_Best_Practices"></a>Procedure consigliate
 
 ### <a name="do-not-modify-the-default-domain-policy"></a>Non modificare i criteri di dominio predefiniti.
 
@@ -180,7 +176,7 @@ Per ulteriori informazioni sull'architettura del SRP, sulle modalità di gestion
 |**Pianificazione**|[Riferimento tecnico per i criteri di restrizione software](https://technet.microsoft.com/library/cc728085(v=WS.10).aspx)|
 |**Operazioni**|[Gestire i criteri di restrizione software](administer-software-restriction-policies.md)|
 |**Risoluzione dei problemi**|[Risoluzione dei problemi relativi ai criteri di restrizione software (2003)](https://technet.microsoft.com/library/cc737011(v=WS.10).aspx)|
-|**Sicurezza**|[Minacce e contromisure per criteri di restrizione software (2008)](https://technet.microsoft.com/library/dd349795(v=WS.10).aspx)<br /><br />[Minacce e contromisure per criteri di restrizione software (2008 R2)](https://technet.microsoft.com/library/hh125926(v=WS.10).aspx)|
+|**Sicurezza**|[Minacce e contromisure per criteri di restrizione software (2008)](https://technet.microsoft.com/library/dd349795(v=WS.10).aspx)<p>[Minacce e contromisure per criteri di restrizione software (2008 R2)](https://technet.microsoft.com/library/hh125926(v=WS.10).aspx)|
 |**Strumenti e impostazioni**|[Strumenti e impostazioni di criteri di restrizione software (2003)](https://technet.microsoft.com/library/cc782454(v=WS.10).aspx)|
 |**Risorse della community**|[Blocco dell'applicazione con criteri di restrizione software](https://technet.microsoft.com/magazine/2008.06.srp.aspx?pr=blog)|
 

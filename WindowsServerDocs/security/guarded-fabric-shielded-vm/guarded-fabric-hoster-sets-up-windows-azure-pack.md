@@ -1,19 +1,19 @@
 ---
 title: VM schermate - Il provider di servizi di hosting configura Windows Azure Pack
-ms.custom: na
 ms.prod: windows-server
 ms.topic: article
 ms.assetid: d528c689-58b0-425c-9740-25e2553ed689
 manager: dongill
 author: rpsqrd
+ms.author: ryanpu
 ms.technology: security-guarded-fabric
 ms.date: 08/29/2018
-ms.openlocfilehash: 7336637bd3186f885db6d94eeffd0d2311edf3ac
-ms.sourcegitcommit: 3f9bcd188dda12dc5803defb47b2c3a907504255
+ms.openlocfilehash: 1d759af575f98d305a67734d0e23680f701f6b72
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "77001840"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80856714"
 ---
 # <a name="shielded-vms---hosting-service-provider-sets-up-windows-azure-pack"></a>VM schermate - Il provider di servizi di hosting configura Windows Azure Pack
 
@@ -69,7 +69,7 @@ Prima di usare Windows Azure Pack, è necessario che sia già installato e confi
 
 3.  Per connettersi Windows Azure Pack all'istanza di Service Provider Foundation, fare clic su **registra Service Provider Foundation di System Center**. Sarà necessario specificare l'URL per Service Provider Foundation, nonché un nome utente e una password.
 
-    ![Registra Service Provider Foundation di System Center](../media/Guarded-Fabric-Shielded-VM/guarded-host-azure-pack-01-register-spf.png)
+    ![Registra Service Provider Foundation per System Center](../media/Guarded-Fabric-Shielded-VM/guarded-host-azure-pack-01-register-spf.png)
 
 4.  Al termine, dovrebbe essere possibile visualizzare i Cloud VM configurati nell'ambiente VMM. Prima di continuare, assicurarsi di avere almeno un Cloud VM che supporta le macchine virtuali schermate disponibili per WAP.
 
@@ -113,7 +113,7 @@ Per consentire ai tenant di creare macchine virtuali in WAP, è innanzitutto nec
 
     A questo punto, Windows Azure Pack è configurato e i tenant saranno in grado di sottoscrivere il piano appena creato e distribuire le macchine virtuali schermate. Per ulteriori passaggi che i tenant devono completare, vedere [macchine virtuali schermate per i tenant-distribuzione di una macchina virtuale schermata usando Windows Azure Pack](guarded-fabric-shielded-vm-windows-azure-pack.md).
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 
 - [Procedura di configurazione del provider di servizi di hosting per host sorvegliati e macchine virtuali schermate](guarded-fabric-configuration-scenarios-for-shielded-vms-overview.md)
 - [Infrastruttura sorvegliata e macchine virtuali schermate](guarded-fabric-and-shielded-vms-top-node.md)

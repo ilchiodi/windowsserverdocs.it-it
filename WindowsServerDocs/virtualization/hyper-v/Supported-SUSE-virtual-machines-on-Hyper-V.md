@@ -2,21 +2,19 @@
 title: Macchine virtuali SUSE supportate in Hyper-V
 description: Elenca i servizi di integrazione Linux e le funzionalità incluse in ogni versione
 ms.prod: windows-server
-ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 7ec0e14c-4498-4bd9-8fe6-b94260198efc
 author: shirgall
 ms.author: kathydav
 ms.date: 10/03/2016
-ms.openlocfilehash: 45517c1d381ba55c819b09b53ae563092e161b1e
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: c5daa73e2e0c59a262565237d979d2e1e544ae4f
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71366732"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80858004"
 ---
 # <a name="supported-suse-virtual-machines-on-hyper-v"></a>Macchine virtuali SUSE supportate in Hyper-V
 
@@ -24,13 +22,13 @@ ms.locfileid: "71366732"
 
 Di seguito è una mappa di distribuzione di funzionalità che indica le funzionalità di ogni versione. Dopo la tabella sono elencate i problemi noti e soluzioni alternative per ogni distribuzione.
 
-Il driver di SUSE Linux Enterprise Service incorporati per Hyper-V sono certificati SUSE. In questo bollettino è possibile visualizzare una configurazione di esempio: [Bollettino di certificazione SUSE sì](https://www.suse.com/nbswebapp/yesBulletin.jsp?bulletinNumber=144176).
+Il driver di SUSE Linux Enterprise Service incorporati per Hyper-V sono certificati SUSE. Un esempio di configurazione può essere visualizzato in questo bollettino Microsoft sulla sicurezza: [SUSE SÌ certificazione bollettino](https://www.suse.com/nbswebapp/yesBulletin.jsp?bulletinNumber=144176).
 
 ## <a name="table-legend"></a>Legenda tabella
 
 * Le **funzionalità predefinite** di LIS sono incluse come parte di questa distribuzione Linux. Il pacchetto di download LIS fornito da Microsoft non funziona per questa distribuzione, pertanto non è necessario installarlo. I numeri di versione del modulo kernel per l'LIS incorporato, come illustrato da **lsmod**, ad esempio, sono diversi dal numero di versione nel pacchetto di download LIS fornito da Microsoft. Una mancata corrispondenza non indica che incorporato LIS è scaduto.
 
-* &#10004; -Funzionalità disponibili
+* & #10004; -Funzionalità disponibili
 
 * (*vuoto*)-funzionalità non disponibile
 
@@ -52,29 +50,29 @@ SLES12 + è solo a 64 bit.
 |**[Archiviazione](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#storage)**||||||||
 |Ridimensionamento VHDX|2019, 2016, 2012 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
 |Fibre Channel virtuale|2019, 2016, 2012 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
-|Backup della macchina virtuale in tempo reale|2019, 2016, 2012 R2|&#10004; Nota 2, 3, 8|&#10004; Nota 2, 3, 8|&#10004; Nota 2, 3, 8|&#10004; Nota 2, 3, 8|&#10004; Nota 2, 3, 8|&#10004; Nota 2, 3, 8|
+|Backup della macchina virtuale in tempo reale|2019, 2016, 2012 R2|& #10004; Nota 2, 3, 8|& #10004; Nota 2, 3, 8|& #10004; Nota 2, 3, 8|& #10004; Nota 2, 3, 8|& #10004; Nota 2, 3, 8|& #10004; Nota 2, 3, 8|
 |Supporto TRIM|2019, 2016, 2012 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;||
 |WWN SCSI|2019, 2016, 2012 R2|&#10004;|&#10004;|&#10004;||||
 |**[Memoria](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#memory)**||||||||
 |Supporto del kernel PAE|2019, 2016, 2012 R2, 2012, 2008 R2|N/D|N/D|N/D|N/D|&#10004;|&#10004;|
 |Configurazione di MMIO Gap|2019, 2016, 2012 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
-|Memoria dinamica - aggiunta a caldo|2019, 2016, 2012 R2, 2012|&#10004; Nota 5, 6|&#10004; Nota 5, 6|&#10004; Nota 5, 6|&#10004; Nota 5, 6|&#10004; Nota 4, 5, 6|&#10004; Nota 4, 5, 6|
-|Memoria dinamica - Ballooning|2019, 2016, 2012 R2, 2012|&#10004; Nota 5, 6|&#10004; Nota 5, 6|&#10004; Nota 5, 6|&#10004; Nota 5, 6|&#10004; Nota 4, 5, 6|&#10004; Nota 4, 5, 6|
-|Ridimensionamento della memoria di runtime|2019, 2016|&#10004; Nota 5, 6|&#10004; Nota 5, 6|&#10004; Nota 5, 6||||
+|Memoria dinamica - aggiunta a caldo|2019, 2016, 2012 R2, 2012|& #10004; Nota 5, 6|& #10004; Nota 5, 6|& #10004; Nota 5, 6|& #10004; Nota 5, 6|& #10004; Nota 4, 5, 6|& #10004; Nota 4, 5, 6|
+|Memoria dinamica - Ballooning|2019, 2016, 2012 R2, 2012|& #10004; Nota 5, 6|& #10004; Nota 5, 6|& #10004; Nota 5, 6|& #10004; Nota 5, 6|& #10004; Nota 4, 5, 6|& #10004; Nota 4, 5, 6|
+|Ridimensionamento della memoria di runtime|2019, 2016|& #10004; Nota 5, 6|& #10004; Nota 5, 6|& #10004; Nota 5, 6||||
 |**[Video](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#video)**||||||||
 |Dispositivo video specifico di Hyper-V|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
 |**[Varie](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#miscellaneous)**||||||||
-|Coppia chiave/valore|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004; Nota 7|&#10004; Nota 7|
+|Coppia chiave/valore|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004;|&#10004;|&#10004;|&#10004;|& #10004; Nota 7|& #10004; Nota 7|
 |Interrupt non mascherabile|2019, 2016, 2012 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
 |Copia di file da host a Guest|2019, 2016, 2012 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;||
 |comando lsvmbus|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004;|&#10004;|&#10004;||||
 |Socket di Hyper-V|2019, 2016|&#10004;|&#10004;|||||
 |Pass-through/DDA PCI|2019, 2016|&#10004;|&#10004;|&#10004;|&#10004;|||
 |**[Macchine virtuali di seconda generazione](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#generation-2-virtual-machines)**||||||||
-|Avvio tramite UEFI|2019, 2016, 2012 R2|&#10004; Nota 9|&#10004; Nota 9|&#10004; Nota 9|&#10004; Nota 9|&#10004; Nota 9||
+|Avvio tramite UEFI|2019, 2016, 2012 R2|& #10004; Nota 9|& #10004; Nota 9|& #10004; Nota 9|& #10004; Nota 9|& #10004; Nota 9||
 |Avvio protetto|2019, 2016|&#10004;|&#10004;|&#10004;|&#10004;|||
 
-## <a name="BKMK_notes"></a>Note
+## <a name="notes"></a><a name="BKMK_notes"></a>Note
 
 1. Inserimento di IP statico potrebbe non funzionare se **Gestione rete** è stato configurato per una scheda di rete specifici di Hyper-V specificata nella macchina virtuale. Per garantire il funzionamento uniforme dell'indirizzo IP statico injection, assicurarsi che Gestione di rete è disattivato completamente o è stato disattivato per una scheda di rete specifico tramite il relativo **ifcfg ethX** file.
 
@@ -103,7 +101,7 @@ SLES12 + è solo a 64 bit.
 
    ```
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 * [Set-VMFirmware](https://technet.microsoft.com/library/dn464287.aspx)
 

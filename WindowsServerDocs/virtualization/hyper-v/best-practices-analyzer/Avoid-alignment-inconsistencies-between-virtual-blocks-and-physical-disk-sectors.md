@@ -2,20 +2,19 @@
 title: Evitare le incoerenze di allineamento tra i blocchi virtuali e i settori del disco fisico in dischi rigidi virtuali dinamici o dischi differenze
 description: Versione online del testo per questa regola di Best Practices Analyzer.
 ms.prod: windows-server
-ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
 ms.author: kathydav
 ms.topic: article
 ms.assetid: a17c8fd2-af81-485b-bfea-bd1ef3e43923
-author: KBDAzure
+author: kbdazure
 ms.date: 8/16/2016
-ms.openlocfilehash: f77d80db1e2454eb460043cacef632e979fc16de
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 3f090f015f2179ba372e56d580477ef8d72d977f
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71366489"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80857804"
 ---
 # <a name="avoid-alignment-inconsistencies-between-virtual-blocks-and-physical-disk-sectors-on-dynamic-virtual-hard-disks-or-differencing-disks"></a>Evitare le incoerenze di allineamento tra i blocchi virtuali e i settori del disco fisico in dischi rigidi virtuali dinamici o dischi differenze
 

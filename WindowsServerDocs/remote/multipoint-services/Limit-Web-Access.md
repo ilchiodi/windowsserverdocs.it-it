@@ -1,24 +1,20 @@
 ---
 title: Limitare l'accesso al Web
 description: Informazioni su come limitare l'accesso degli utenti a Internet in MultiPoint Services
-ms.custom: na
 ms.date: 07/08/2016
 ms.prod: windows-server
 ms.technology: multipoint-services
-ms.reviewer: na
-ms.suite: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 044f2fd5-5b87-42bb-ba0d-c06516ac48c8
 author: lizap
 manager: dongill
 ms.author: elizapo
-ms.openlocfilehash: 8e12eebd55aa066979bbcbe4d2f3e613b5876a01
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 485c82284df4d77eea075d092fa08c820567f6c3
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71395327"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80853684"
 ---
 # <a name="limit-web-access"></a>Limitare l'accesso al Web
 Oltre a monitorare le attività degli utenti sui singoli desktop, l'utente amministratore può limitare l'accesso degli utenti ai siti Web specificati indicando i siti Web e i siti Web consentiti a cui si desidera bloccare l'accesso utente.  
@@ -34,24 +30,24 @@ Oltre a monitorare le attività degli utenti sui singoli desktop, l'utente ammin
 4. Per aggiungere un sito consentito, digitare l'indirizzo Web e quindi fare clic su **Add** (Aggiungi).  
   
    > [!NOTE]
-   > Ad esempio, l'immissione di "contoso.com" consente o blocca i siti relativi a\.www contoso.com (ad esempio,\.www NewPage.contoso.com). Immettendo "contoso" si consentiranno o limiteranno tutti i siti correlati a Contoso (inclusi contoso.com, contoso.uk e così via).  
+   > Ad esempio, l'immissione di "Contoso.com" consente o blocca i siti relativi a www\.contoso.com (ad esempio, www\.newpage.contoso.com). Immettendo "contoso" si consentiranno o limiteranno tutti i siti correlati a Contoso (inclusi contoso.com, contoso.uk e così via).  
   
 5. Per rimuovere un indirizzo Web dall'elenco dei siti consentiti, fare clic sull'indirizzo Web a cui si vuole proibire l'accesso e quindi fare clic su **Remove** (Rimuovi).  
   
 ## <a name="to-limit-web-access-on-all-stations"></a>Per limitare l'accesso al Web su tutte le stazioni  
   
-1. Nel Dashboard MultiPoint, nella scheda **limitazione Web** , fare clic sul menu a discesa\-avvia, quindi fare clic **su limita accesso Web su tutti i desktop**.  
+1. Nel Dashboard MultiPoint, nella scheda **limitazione Web** , fare clic sul menu Start drop\-Down, quindi fare clic su **limit accesso Web su All Desktops**.  
   
-   Verrà visualizzata la pagina **Configure Web Limiting** (Configura limitazione Web), con l'elenco dei siti a cui l'utente può accedere. Effettua una delle seguenti operazioni:  
+   Verrà visualizzata la pagina **Configure Web Limiting** (Configura limitazione Web), con l'elenco dei siti a cui l'utente può accedere. Esegui una delle operazioni seguenti:  
   
 2. Per aggiungere un sito consentito, fare clic su **Allow only these sites** (Consenti solo questi siti), digitare l'indirizzo Web e quindi fare clic su **Add** (Aggiungi).  
   
    Per aggiungere un sito che non si desidera venga visitato dagli utenti, fare clic su non **consentire solo questi siti**, digitare l'indirizzo Web che non si vuole che gli utenti visitino e quindi fare clic su **Aggiungi**.  
   
    > [!NOTE]
-   > Ad esempio, l'immissione di "contoso.com" consente o blocca i siti relativi a www.contoso.com (ad esempio,\.www NewPage.contoso.com). Immettendo "contoso" si consentiranno o limiteranno tutti i siti correlati a Contoso (inclusi contoso.com, contoso.uk e così via).  
+   > Ad esempio, l'immissione di "Contoso.com" consente o blocca i siti relativi a www.contoso.com (ad esempio, www\.newpage.contoso.com). Immettendo "contoso" si consentiranno o limiteranno tutti i siti correlati a Contoso (inclusi contoso.com, contoso.uk e così via).  
   
 3. Per rimuovere un indirizzo Web dall'elenco dei siti consentiti o bloccati, selezionare tale indirizzo e quindi fare clic su **Remove** (Rimuovi).  
   
-## <a name="see-also"></a>Vedere anche  
+## <a name="see-also"></a>Vedi anche  
 [Gestire i desktop degli utenti](manage-user-desktops-using-multipoint-dashboard.md)  

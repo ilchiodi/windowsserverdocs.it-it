@@ -1,24 +1,20 @@
 ---
 title: Assumere il controllo di una sessione utente
 description: Informazioni su come accedere e assumere il controllo della stazione di un altro utente in MultiPoint Services
-ms.custom: na
 ms.prod: windows-server
 ms.technology: multipoint-services
-ms.reviewer: na
-ms.suite: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 99e93b4c-17be-40c2-a9fc-2b4574abf6b6
 author: lizap
 manager: dongill
 ms.author: elizapo
 ms.date: 08/04/2016
-ms.openlocfilehash: 702c6c08647869825d6a46208ee261b6f3843717
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 6144f25ee7ed72a5a3ace7e6d7ed0f86dd3af37d
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71389227"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80853854"
 ---
 # <a name="take-control-of-a-user-session"></a>Assumere il controllo di una sessione utente
 Un utente di Dashboard MultiPoint può assistere un altro utente nell'accesso remoto al desktop usando la funzionalità Take Control (Assumi controllo).  
@@ -32,6 +28,6 @@ Un utente di Dashboard MultiPoint può assistere un altro utente nell'accesso re
     > [!NOTE]  
     > Potrebbe essere necessario ridurre al minimo il desktop dell'utente per visualizzare il Dashboard MultiPoint.  
   
-## <a name="see-also"></a>Vedere anche  
+## <a name="see-also"></a>Vedi anche  
 [Gestire desktop utente tramite Dashboard MultiPoint](Manage-User-Desktops-Using-MultiPoint-Dashboard.md)  
   

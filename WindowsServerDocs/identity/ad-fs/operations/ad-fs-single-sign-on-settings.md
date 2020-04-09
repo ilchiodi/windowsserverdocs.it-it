@@ -1,7 +1,6 @@
 ---
 ms.assetid: 1a443181-7ded-4912-8e40-5aa447faf00c
 title: Impostazioni di Single Sign-On di AD FS 2016
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,12 +8,12 @@ ms.date: 08/17/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 76c34dc518f4578b4ae2ead3459f1d79c191b3d7
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: bad6ad9a95618239825366187c8083c1fe77ae94
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75949192"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80860084"
 ---
 # <a name="ad-fs-single-sign-on-settings"></a>Impostazioni di AD FS Single Sign-on
 
@@ -40,7 +39,7 @@ AD FS supporta diversi tipi di esperienze di Single Sign-on:
   
      Nello scenario OAuth, viene usato un token di aggiornamento per mantenere lo stato SSO dell'utente nell'ambito di una particolare applicazione.  
   
-     Se un dispositivo è registrato, AD FS imposta l'ora di scadenza di un token di aggiornamento in base alla durata dei cookie SSO permanenti per un dispositivo registrato che è 7 giorni per impostazione predefinita per AD FS 2012R2 e fino a un massimo di 90 giorni con AD FS 2016 se usano il dispositivo per accedere alle risorse AD FS entro un intervallo di 14 giorni. 
+     Se un dispositivo è registrato, AD FS imposta la data di scadenza di un token di aggiornamento in base alla durata dei cookie SSO permanenti per un dispositivo registrato che è 7 giorni per impostazione predefinita per AD FS 2012R2 e fino a un massimo di 90 giorni con AD FS 2016 se usano il dispositivo per accedere alle risorse AD FS entro un intervallo di 14 giorni. 
 
 Se il dispositivo non è registrato, ma un utente seleziona l'opzione "Mantieni l'accesso", l'ora di scadenza del token di aggiornamento sarà uguale alla durata dei cookie SSO permanenti per "Mantieni l'accesso", ovvero 1 giorno per impostazione predefinita con un massimo di 7 giorni. In caso contrario, la durata del token di aggiornamento equivale alla durata dei cookie SSO della sessione, che è 8 ore per impostazione predefinita  
   
@@ -103,7 +102,7 @@ Set-AdfsProperties –KmsiLifetimeMins <Int32\>
 ## <a name="psso-revocation"></a>Revoca ACCAVALLARE  
  Per proteggere la sicurezza, AD FS rifiuterà qualsiasi cookie SSO permanente emesso in precedenza quando vengono soddisfatte le condizioni seguenti. In questo modo l'utente deve fornire le proprie credenziali per eseguire nuovamente l'autenticazione con AD FS. 
   
-- L'utente cambia la password  
+- Password modifiche utente  
   
 - L'impostazione SSO permanente è disabilitata in AD FS  
   

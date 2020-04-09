@@ -2,18 +2,18 @@
 title: Informazioni generali su Spazi dei nomi DFS
 ms.prod: windows-server
 ms.author: jgerend
-ms.manager: daveba
+manager: daveba
 ms.technology: storage
 ms.topic: article
 author: jasongerend
 ms.date: 06/07/2019
 description: Questo articolo descrive Spazi dei nomi DFS, ovvero un servizio ruolo di Windows Server che consente di raggruppare le cartelle condivise situate in server diversi in uno o più spazi dei nomi strutturati logicamente.
-ms.openlocfilehash: f4ff1bc394ddb57a290e5ffab1a89f596fc48d05
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: 07f6ac857164257810b297f9e2b83db4e4bd42be
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75949720"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80858984"
 ---
 # <a name="dfs-namespaces-overview"></a>Informazioni generali su Spazi dei nomi DFS
 
@@ -21,7 +21,7 @@ ms.locfileid: "75949720"
 
 Spazi dei nomi DFS è un servizio ruolo di Windows Server che consente di raggruppare le cartelle condivise situate in server diversi in uno o più spazi dei nomi strutturati logicamente. In questo modo gli utenti hanno a disposizione una vista virtuale di cartelle condivise in cui file situati in più server sono accessibili da un unico percorso, come illustrato nella figura riportata di seguito:
 
-![Elementi della tecnologia di Spazi dei nomi DFS](media/dfs-overview.png)
+![Elementi della tecnologia degli spazi dei nomi DFS](media/dfs-overview.png)
 
 Di seguito viene riportata una descrizione degli elementi che costituiscono uno spazio dei nomi DFS:
 
@@ -43,7 +43,7 @@ Un server dello spazio dei nomi è un controller di dominio o server membro che 
 I server che eseguono i seguenti sistemi operativi possono ospitare più spazi dei nomi basati sul dominio oltre a un singolo spazio dei nomi autonomo. 
 
 - Windows Server 2019
-- Windows Server 2016
+- Windows Server 2016
 - Windows Server 2012 R2
 - Windows Server 2012
 - Windows Server 2008 R2 Datacenter ed Enterprise Edition
@@ -69,7 +69,7 @@ Installare spazi dei nomi DFS usando l'interfaccia di [amministrazione di Window
 
 ### <a name="to-install-dfs-by-using-server-manager"></a>Per installare il file system DFS tramite Server Manager
 
-1. Aprire Server Manager, fare clic su **Gestione**e quindi su **Aggiungi ruoli e funzionalità**. Verrà visualizzata l'Aggiunta guidata ruoli e funzionalità.
+1. Aprire Server Manager, fare clic su **Gestione** e quindi su **Aggiungi ruoli e funzionalità**. Verrà visualizzata l'Aggiunta guidata ruoli e funzionalità.
 
 2. Nella pagina **Selezione dei server** selezionare il server o il disco rigido virtuale (VHD) di una macchina virtuale offline in cui si desidera installare il file system DFS.
 
@@ -77,13 +77,13 @@ Installare spazi dei nomi DFS usando l'interfaccia di [amministrazione di Window
 
     - Per installare il servizio Spazi dei nomi DFS, nella pagina **Ruoli server** selezionare **Spazi dei nomi DFS**.
 
-    - Per installare solo gli Strumenti di gestione DFS, nella pagina **Funzionalità** espandere **Strumenti di amministrazione remota del server**, **Strumenti di amministrazione ruoli**, **Strumenti per Servizi file**e quindi selezionare **Strumenti di gestione DFS**.
+    - Per installare solo gli Strumenti di gestione DFS, nella pagina **Funzionalità** espandere **Strumenti di amministrazione remota del server**, **Strumenti di amministrazione ruoli**, **Strumenti per Servizi file** e quindi selezionare **Strumenti di gestione DFS**.
 
          Tramite**Strumenti di gestione DFS** vengono installati lo snap-in Gestione DFS, il modulo Spazi dei nomi DFS per Windows PowerShell e gli strumenti da riga di comando, ma non viene installato alcun servizio DFS nel server.
 
 ### <a name="to-install-dfs-by-using-windows-powershell"></a>Per installare il file system DFS tramite Windows PowerShell
 
-Aprire una sessione di Windows PowerShell con diritti utente elevati, quindi digitare il comando seguente, dove < nome\> è il servizio ruolo o la funzionalità che si desidera installare (vedere la tabella seguente per un elenco di nomi di servizi ruolo o funzionalità rilevanti):
+Apri una sessione di Windows PowerShell con diritti utente elevati e quindi digita il comando seguente, in cui <name\> è il servizio ruolo o la funzionalità che vuoi installare (vedi la tabella seguente per un elenco di nomi di servizi ruolo o funzionalità rilevanti):
 
 ```PowerShell
 Install-WindowsFeature <name>
@@ -116,9 +116,9 @@ L'uso di Spazi dei nomi DFS su una macchina virtuale in Microsoft Azure è stato
 
 Per altre informazioni introduttive sulle macchine virtuali di Azure, vedi la [documentazione delle macchine virtuali di Azure](https://docs.microsoft.com/azure/virtual-machines/).
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 
-Per altre informazioni correlate, vedi le risorse seguenti.
+Per altre informazioni correlate, vedere le risorse seguenti.
 
 | Tipo di contenuto        | Riferimenti |
 | ------------------  | ----------------|

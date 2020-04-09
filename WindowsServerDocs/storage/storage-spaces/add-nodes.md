@@ -3,19 +3,19 @@ ms.assetid: 898d72f1-01e7-4b87-8eb3-a8e0e2e6e6da
 title: Aggiunta di server o unità a Spazi di archiviazione diretta
 ms.prod: windows-server
 ms.author: cosdar
-ms.manager: dongill
+manager: dongill
 ms.technology: storage-spaces
 ms.topic: article
 author: cosmosdarwin
 ms.date: 11/06/2017
 description: Come aggiungere server o unità a un cluster Spazi di archiviazione diretta
 ms.localizationpriority: medium
-ms.openlocfilehash: f5fb9da903bb76de3a075fa7feeeaba468d802c2
-ms.sourcegitcommit: 2a15de216edde8b8e240a4aa679dc6d470e4159e
+ms.openlocfilehash: be79a2d3e0e8c56afc409298518d967c9bc80453
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77465625"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80859124"
 ---
 # <a name="adding-servers-or-drives-to-storage-spaces-direct"></a>Aggiunta di server o unità a Spazi di archiviazione diretta
 
@@ -23,7 +23,7 @@ ms.locfileid: "77465625"
 
 Questo argomento descrive come aggiungere server o unità a Spazi di archiviazione diretta.
 
-## <a name="adding-servers"></a>Aggiunta di server
+## <a name="adding-servers"></a><a name="adding-servers"></a>Aggiunta di server
 
 L'aggiunta di server (spesso chiamata anche scalabilità orizzontale) consente di aggiungere capacità di archiviazione, di migliorarne le prestazioni e di sbloccare una migliore efficienza di archiviazione. Se la distribuzione è iperconvergente, l'aggiunta di server rende disponibili altre risorse di calcolo per il carico di lavoro.
 
@@ -166,7 +166,7 @@ Se la distribuzione usa la tolleranza di errore chassis o rack, è necessario sp
 
 3. Aggiungere il server al cluster come descritto in [Aggiunta di server](#adding-servers). Quando si aggiunge il nuovo server al cluster, viene automaticamente associato, tramite il nome, al dominio di errore segnaposto.
 
-## <a name="adding-drives"></a>Aggiunta di unità
+## <a name="adding-drives"></a><a name="adding-drives"></a>Aggiunta di unità
 
 L'aggiunta di unità, detta anche scalabilità verticale, consente di aggiungere capacità di archiviazione e può anche garantire prestazioni migliori. Se sono disponibili slot liberi, è possibile aggiungere unità a ogni server per espandere la capacità di archiviazione senza aggiungere server. È possibile aggiungere unità di cache o unità di capacità, in modo indipendente in qualsiasi momento.
 

@@ -1,29 +1,25 @@
 ---
 title: Gestire l'hardware delle stazioni
 description: Viene fornita una panoramica su come gestire l'hardware per le stazioni MultiPoint
-ms.custom: na
 ms.prod: windows-server
 ms.technology: multipoint-services
-ms.reviewer: na
-ms.suite: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 429b8539-b17a-4e01-9576-860600466451
 author: lizap
 manager: dongill
 ms.author: elizapo
 ms.date: 08/04/2016
-ms.openlocfilehash: 9ca65352a6f016d5d18bdd92b39b737cdddb9057
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 8ffb6fd714293471a0e9aa020390943b201261c4
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71395244"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80853524"
 ---
 # <a name="manage-station-hardware"></a>Gestire l'hardware delle stazioni
-Un sistema MultiPoint Services è costituito da un singolo computer e da almeno una stazione. L'hardware della stazione è in genere costituito da un hub di stazione, un mouse, una tastiera e un monitor video. Di norma le stazioni sono collegate fisicamente al computer.  
+Un sistema MultiPoint Services è costituito da un singolo computer e almeno una stazione. L'hardware della stazione è in genere costituito da un hub di stazione, un mouse, una tastiera e un monitor. Di norma le stazioni sono collegate fisicamente al computer.  
   
-Le illustrazioni seguenti mostrano un layout di esempio di un sistema MultiPoint Services con quattro stazioni. Ogni stazione è connessa al computer Servizi MultiPoint usando un hub USB e schede video a più monitor. Questa illustrazione non rappresenta le stazioni connesse tramite hub multifunzione.  
+Le illustrazioni seguenti mostrano un layout di esempio di un sistema MultiPoint Services con quattro stazioni. Ogni stazione è connessa al computer Servizi MultiPoint usando un hub USB e schede video a più monitor. Questa illustrazione non rappresenta stazioni collegate mediante hub multifunzione.  
    
 ![Immagine del layout del sistema basato su USB servizi MultiPoint](./media/WMSMultiPointServerUSBSystemLayout.gif)  
   
@@ -47,7 +43,7 @@ L'argomento [Configurazione di una stazione](Set-Up-a-Station.md) descrive come 
   
 Entrambi i tipi di hub di stazione sono collegati al computer tramite un cavo USB. Le procedure riportate nell'argomento [Configurazione di una stazione](Set-Up-a-Station.md) descrivono come connettere i dispositivi hardware a ciascun tipo di hub di stazione.  
   
-## <a name="see-also"></a>Vedere anche  
+## <a name="see-also"></a>Vedi anche  
 [Visualizzare lo stato dell'hardware](View-Hardware-Status.md)  
 [Utilizzare dispositivi USB](Work-with-USB-Devices.md)  
 [Utilizzare dispositivi video](Work-with-Video-Devices.md)  

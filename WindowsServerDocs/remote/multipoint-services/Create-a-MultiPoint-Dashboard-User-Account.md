@@ -1,27 +1,23 @@
 ---
 title: Creare un account utente di Dashboard MultiPoint
-ms.custom: na
 description: Creare un account da usare con il dashboard
 ms.prod: windows-server
 ms.technology: multipoint-services
-ms.reviewer: na
-ms.suite: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: eb9d7da1-eb5e-42c0-8d59-bb6d7b007ea9
 author: lizap
 manager: dongill
 ms.author: elizapo
 ms.date: 08/04/2016
-ms.openlocfilehash: b4e5fb85ae1dcaf7bd698f052e990e6ac1ac8dbc
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: b94c02fe514b4f7a694b908600127eda7c664c09
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71389775"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80859794"
 ---
 # <a name="create-a-multipoint-dashboard-user-account"></a>Creare un account utente di Dashboard MultiPoint
-Creare account utente di Dashboard MultiPoint per gli utenti che accederanno regolarmente stazioni, ma che non gestirà il sistema di servizi MultiPoint. Gli utenti con account utente MultiPoint Dashboard possono eseguire la maggior parte delle applicazioni e Salva i file, ma non può eseguire Gestione MultiPoint. Per vedere chi ha accesso, nella console di gestione MultiPoint MultiPoint Dashboard fare clic su di **utenti** scheda. Gli account utente di Dashboard MultiPoint sono visualizzati nella colonna Account Type (Tipo di account) come **MultiPoint Dashboard User** (Utente di Dashboard MultiPoint).  
+Creare account utente standard MultiPoint Dashboard per gli utenti che accederanno regolarmente alle stazioni, ma che non gestiranno il sistema MultiPoint Services. Gli utenti con account utente MultiPoint Dashboard possono eseguire la maggior parte delle applicazioni e Salva i file, ma non può eseguire Gestione MultiPoint. Per vedere chi ha accesso MultiPoint dashboard, in Gestione MultiPoint fare clic sulla scheda **utenti** . gli account utente del Dashboard MultiPoint vengono visualizzati nella colonna **tipo di account** come utente del **Dashboard MultiPoint**.  
   
 Se gli utenti di MultiPoint Services archiviano documenti privati in Windows, ogni utente dovrà accedere al sistema MultiPoint Services usando un nome utente e una password univoci.  
   
@@ -44,7 +40,7 @@ Se gli utenti di MultiPoint Services archiviano documenti privati in Windows, og
   
 7.  Nella pagina di impostazione del livello di accesso selezionare **MultiPoint Dashboard user** (Utente di Dashboard MultiPoint) e quindi fare clic su **Next** (Avanti).  
   
-8.  Scegliere **Fine**.  
+8.  Fare clic su **Fine**.  
   
-## <a name="see-also"></a>Vedere anche  
+## <a name="see-also"></a>Vedi anche  
 [Considerazioni sugli account utente](User-Account-Considerations.md)

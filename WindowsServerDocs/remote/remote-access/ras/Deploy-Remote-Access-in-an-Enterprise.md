@@ -2,22 +2,18 @@
 title: Distribuire Accesso remoto in una grande impresa
 description: Questo argomento fornisce un'introduzione allo scenario DirectAccess in Windows Server 2016 per le aziende.
 manager: brianlic
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: networking-ras
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 4781df0a-158b-4562-b8f5-32b27615a4f8
 ms.author: lizross
 author: eross-msft
-ms.openlocfilehash: aebdbd02ebe256872b52e794c755e0d590b175a5
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: 6d0a9248865dca4afb3db9609b284048155f9eef
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80308470"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80857434"
 ---
 # <a name="deploy-remote-access-in-an-enterprise"></a>Distribuire Accesso remoto in una grande impresa
 
@@ -67,8 +63,8 @@ La tabella seguente elenca i ruoli e le funzionalità usati nello scenario azien
   
 |Ruolo/funzionalità|Modalità di supporto dello scenario|  
 |---------|-----------------|  
-|Ruolo del server Accesso remoto|Il ruolo viene installato e disinstallato tramite la console di Server Manager. Questo ruolo comprende DirectAccess, una funzionalità precedentemente inclusa in Windows Server 2008 R2, e il servizio Routing e Accesso remoto che in precedenza era un servizio ruolo nel ruolo server Servizi di accesso e criteri di rete (NPAS). Il ruolo Accesso remoto è costituito da due componenti:<br /><br />1. i servizi DirectAccess e routing e accesso remoto (RRAS) VPN-DirectAccess e VPN vengono gestiti insieme nella console di gestione accesso remoto.<br />2. routing RRAS: le funzionalità di routing RRAS sono gestite nella console di routing e accesso remoto legacy.<br /><br />Il ruolo server Accesso remoto dipende dalle funzionalità server seguenti:<br /><br />-Internet Information Services (IIS): questa funzionalità è necessaria per configurare il server dei percorsi di rete e il probe Web predefinito.<br />-Console Gestione Criteri di gruppo funzionalità è richiesta da DirectAccess per creare e gestire gli oggetti di Criteri di gruppo (GPO) in Active Directory e deve essere installato come funzionalità obbligatoria per il ruolo del server.|  
-|Funzionalità Strumenti di Gestione Accesso remoto|Questa funzionalità viene installata come segue:<br /><br />-Viene installato per impostazione predefinita in un server di accesso remoto quando è installato il ruolo Accesso remoto e supporta l'interfaccia utente della console di gestione remota.<br />-Può essere installata facoltativamente in un server non è in esecuzione il ruolo di server di accesso remoto. In questo caso viene utilizzata per la gestione remota di un computer di Accesso remoto che esegue DirectAccess e VPN.<br /><br />La funzionalità Strumenti di Gestione Accesso remoto è costituita dai seguenti elementi:<br /><br />1. interfaccia utente grafica e strumenti da riga di comando di accesso remoto<br />2. modulo di accesso remoto per Windows PowerShell<br /><br />Le dipendenze includono:<br /><br />1. Console Gestione Criteri di gruppo<br />2. RAS Connection Manager Administration Kit (CMAK)<br />3. Windows PowerShell 3,0<br />4. strumenti di gestione grafica e infrastruttura|  
+|Ruolo del server Accesso remoto|Il ruolo viene installato e disinstallato tramite la console di Server Manager. Questo ruolo comprende DirectAccess, una funzionalità precedentemente inclusa in Windows Server 2008 R2, e il servizio Routing e Accesso remoto che in precedenza era un servizio ruolo nel ruolo server Servizi di accesso e criteri di rete (NPAS). Il ruolo Accesso remoto è costituito da due componenti:<p>1. i servizi DirectAccess e routing e accesso remoto (RRAS) VPN-DirectAccess e VPN vengono gestiti insieme nella console di gestione accesso remoto.<br />2. routing RRAS: le funzionalità di routing RRAS sono gestite nella console di routing e accesso remoto legacy.<p>Il ruolo server Accesso remoto dipende dalle funzionalità server seguenti:<p>-Internet Information Services (IIS): questa funzionalità è necessaria per configurare il server dei percorsi di rete e il probe Web predefinito.<br />-Console Gestione Criteri di gruppo funzionalità è richiesta da DirectAccess per creare e gestire gli oggetti di Criteri di gruppo (GPO) in Active Directory e deve essere installato come funzionalità obbligatoria per il ruolo del server.|  
+|Funzionalità Strumenti di Gestione Accesso remoto|Questa funzionalità viene installata come segue:<p>-Viene installato per impostazione predefinita in un server di accesso remoto quando è installato il ruolo Accesso remoto e supporta l'interfaccia utente della console di gestione remota.<br />-Può essere installata facoltativamente in un server non è in esecuzione il ruolo di server di accesso remoto. In questo caso viene utilizzata per la gestione remota di un computer di Accesso remoto che esegue DirectAccess e VPN.<p>La funzionalità Strumenti di Gestione Accesso remoto è costituita dai seguenti elementi:<p>1. interfaccia utente grafica e strumenti da riga di comando di accesso remoto<br />2. modulo di accesso remoto per Windows PowerShell<p>Le dipendenze includono:<p>1. Console Gestione Criteri di gruppo<br />2. RAS Connection Manager Administration Kit (CMAK)<br />3. Windows PowerShell 3,0<br />4. strumenti di gestione grafica e infrastruttura|  
 |Windows NLB|Questa funzionalità consente il bilanciamento del carico di più server di accesso remoto.|  
   
 

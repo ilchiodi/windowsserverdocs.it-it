@@ -1,25 +1,20 @@
 ---
 title: Pianificare un'infrastruttura Software Defined Network
 description: Questo argomento fornisce informazioni su come pianificare la distribuzione dell'infrastruttura SDN (software defined Network).
-manager: dougkim
-ms.custom: na
+manager: grcusanz
 ms.prod: windows-server
-ms.reviewer: na
-ms.service: virtual-network
-ms.suite: na
 ms.technology: networking-sdn
-ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: ea7e53c8-11ec-410b-b287-897c7aaafb13
-ms.author: lizross
-author: eross-msft
+ms.author: anpaul
+author: AnirbanPaul
 ms.date: 08/10/2018
-ms.openlocfilehash: 83f94d3770c475fca7f5d4b8cc2f5a5ade1a20d7
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: 1542ff2c81ec0b6b4bc598dd5039578a67d0fc3e
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80317460"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80854404"
 ---
 # <a name="plan-a-software-defined-network-infrastructure"></a>Pianificare un'infrastruttura Software Defined Network
 
@@ -238,7 +233,7 @@ Nella tabella seguente vengono indicati i requisiti hardware e software minimi p
 
 Host|Requisiti hardware|Requisiti software|  
 --------|-------------------------|-------------------------  
-|Host Hyper-v fisico|CPU 4 Core 2,66 GHz<br /><br />32 GB di RAM<br /><br />300 GB di spazio su disco<br /><br />scheda di rete fisica 1 GB/s (o superiore)|Sistema operativo: Windows Server 2016<br /><br />Ruolo Hyper-V installato|  
+|Host Hyper-v fisico|CPU 4 Core 2,66 GHz<p>32 GB di RAM<p>300 GB di spazio su disco<p>scheda di rete fisica 1 GB/s (o superiore)|Sistema operativo: Windows Server 2016<p>Ruolo Hyper-V installato|  
 
 
 **Requisiti del ruolo macchina virtuale dell'infrastruttura SDN**  
@@ -247,8 +242,8 @@ Role|requisiti di vCPU|Requisiti della memoria|Requisiti dei dischi|
 --------|---------------------|-----------------------|---------------------  
 |Controller di rete (tre nodi)|4 vCPU|4 GB min (8 GB consigliati)|75 GB per l'unità del sistema operativo  
 |SLB/MUX (tre nodi)|8 vCPU|8 GB consigliati|75 GB per l'unità del sistema operativo  
-|Gateway RAS<br /><br />(singolo pool di gateway a tre nodi, due attivo, uno passivo)|8 vCPU|8 GB consigliati|75 GB per l'unità del sistema operativo  
-|Router BGP del gateway RAS per il peering di SLB/MUX<br /><br />(in alternativa, usare il commutatore ToR come router BGP)|2 vCPU|2 GB|75 GB per l'unità del sistema operativo|  
+|Gateway RAS<p>(singolo pool di gateway a tre nodi, due attivo, uno passivo)|8 vCPU|8 GB consigliati|75 GB per l'unità del sistema operativo  
+|Router BGP del gateway RAS per il peering di SLB/MUX<p>(in alternativa, usare il commutatore ToR come router BGP)|2 vCPU|2 GB|75 GB per l'unità del sistema operativo|  
 
 
 Se si usa VMM per la distribuzione, sono necessarie risorse aggiuntive per la macchina virtuale di infrastruttura per VMM e altre infrastrutture non SDN. Per ulteriori informazioni, vedere la pagina relativa alle [raccomandazioni minime hardware per System Center Technical Preview.](https://technet.microsoft.com/library/dn997303.aspx)  
