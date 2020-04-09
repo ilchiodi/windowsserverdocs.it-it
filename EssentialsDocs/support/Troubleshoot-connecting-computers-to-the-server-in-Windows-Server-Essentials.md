@@ -1,23 +1,19 @@
 ---
 title: Risolvere i problemi di connessione dei computer al server in Windows Server Essentials
 description: Viene descritto come usare Windows Server Essentials
-ms.custom: na
 ms.date: 10/03/2016
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: e45b3d89-c057-4c70-a627-86fb06dd22aa
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 4e2a707bf72ca7e371b6503116262e737102c769
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: 2d98d4cc561a3c29ce73455f38f787709149d056
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80318589"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80852194"
 ---
 # <a name="troubleshoot-connecting-computers-to-the-server-in-windows-server-essentials"></a>Risolvere i problemi di connessione dei computer al server in Windows Server Essentials
 

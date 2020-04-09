@@ -1,7 +1,6 @@
 ---
 ms.assetid: 09f335bb-896a-45dd-adc2-f215b8fba828
 title: Progetto SSO Web federativo
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 6a3e7eb6c42c8190da799c88c1e947e6aef1c29f
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 9915a2942c9336d5aeb7776169d2e51491c22909
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71408103"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80853144"
 ---
 # <a name="federated-web-sso-design"></a>Progetto SSO Web federativo
 

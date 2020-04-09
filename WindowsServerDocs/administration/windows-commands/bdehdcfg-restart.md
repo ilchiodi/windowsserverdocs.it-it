@@ -1,28 +1,22 @@
 ---
 title: riavvio BdeHdCfg
-description: "Argomento dei comandi di Windows per il riavvio di BdeHdCfg: indica a BdeHdCfg che il computer deve essere riavviato dopo la conclusione della preparazione dell'unità."
-ms.custom: na
+description: Windows Commands Topic for **BdeHdCfg restart**, che indica a BdeHdCfg che il computer deve essere riavviato al termine della preparazione dell'unità.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: a98b76bb-36f1-4790-b337-7dc35f606bc6
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: e6c4e48b051f567c98ea679feaa22f995982a899
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 9ae6f8d31c09feddf8f994c28d34e4e1b08cc322
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71382206"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80851034"
 ---
 # <a name="bdehdcfg-restart"></a>BdeHdCfg: riavvio
-
-
 
 Informa lo strumento da riga di comando BdeHdCfg che il computer deve essere riavviato dopo la conclusione della preparazione dell'unità. Per un esempio di come è possibile usare questo comando, vedere [esempi](#BKMK_Examples).
 
@@ -32,7 +26,7 @@ Informa lo strumento da riga di comando BdeHdCfg che il computer deve essere ria
 bdehdcfg -target {default|unallocated|<DriveLetter> shrink|<DriveLetter> merge} -restart
 ```
 
-### <a name="parameters"></a>Parametri
+#### <a name="parameters"></a>Parametri
 
 Questo comando non accetta parametri aggiuntivi.
 
@@ -40,14 +34,16 @@ Questo comando non accetta parametri aggiuntivi.
 
 Se altri utenti sono connessi al computer e non si specifica il comando **quiet** , verrà visualizzato un messaggio di richiesta per confermare che il computer deve essere riavviato.
 
-## <a name="BKMK_Examples"></a>Esempi
+## <a name="examples"></a><a name="BKMK_Examples"></a>Esempi
 
 Nell'esempio seguente viene illustrato l'utilizzo del comando **Restart** .
+
 ```
 bdehdcfg -target default -restart
 ```
 
-#### <a name="additional-references"></a>Altri riferimenti
+## <a name="additional-references"></a>Altre informazioni di riferimento
 
--   [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
--   [BdeHdCfg](bdehdcfg.md)
+- [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+
+- [BdeHdCfg](bdehdcfg.md)

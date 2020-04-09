@@ -1,19 +1,19 @@
 ---
 title: Aggiungere informazioni sull'host per l'attestazione TPM
-ms.custom: na
 ms.prod: windows-server
 ms.topic: article
 ms.assetid: f0aa575b-b34e-4f6c-8416-ed3e398e0ad2
 manager: dongill
 author: rpsqrd
+ms.author: ryanpu
 ms.technology: security-guarded-fabric
 ms.date: 06/21/2019
-ms.openlocfilehash: 923bc2c46f37cf7e631a744c9eae85c3dd7506dd
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: f9a0ee9cb78a89b20140e40a2bd3ae42da56c84f
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75949809"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80856934"
 ---
 >Si applica a: Windows Server 2019, Windows Server (canale semestrale), Windows Server 2016
 
@@ -24,34 +24,34 @@ Per la modalità TPM, l'amministratore dell'infrastruttura acquisisce tre tipi d
 - Identificatore TPM (EKpub) per ogni host Hyper-V
 - Criteri di integrità del codice, un elenco di file binari consentiti per gli host Hyper-V
 - Una baseline TPM (misurazioni di avvio) che rappresenta un set di host Hyper-V in esecuzione sulla stessa classe di hardware
-
-Quando l'amministratore dell'infrastruttura acquisisce le informazioni, aggiungerle alla configurazione di HGS, come descritto nella procedura seguente.
+    
+AF er l'amministratore dell'infrastruttura acquisisce le informazioni, le aggiunge alla configurazione di HGS, come descritto nella procedura seguente.
 
 1. Ottenere i file XML che contengono le informazioni EKpub e copiarli in un server HGS. Sarà presente un file XML per ogni host. Quindi, in una console di Windows PowerShell con privilegi elevati in un server HGS, eseguire il comando seguente. Ripetere il comando per ogni file XML.
 
     ```powershell
     Add-HgsAttestationTpmHost -Path <Path><Filename>.xml -Name <HostName>
-    ```
+       ```
 
     > [!NOTE]
-    > Se si verifica un errore durante l'aggiunta di un identificatore TPM relativo a un certificato della chiave di verifica dell'autenticità (EKCert) non attendibile, verificare che i [certificati radice TPM attendibili siano stati aggiunti](guarded-fabric-install-trusted-tpm-root-certificates.md) al nodo HGS.
-    > Alcuni fornitori di TPM, inoltre, non utilizzano EKCerts.
-    > È possibile verificare se manca un EKCert aprendo il file XML in un editor, ad esempio Blocco note, e verificando la presenza di un messaggio di errore che indica che non è stato trovato alcun EKCert.
-    > Se questo è il caso e si considera attendibile l'autenticità del TPM nel computer, è possibile usare il flag `-Force` per eseguire l'override di questo controllo di sicurezza e aggiungere l'identificatore host a HGS.
+    > If you encounter an error when adding a TPM identifier regarding an untrusted Endorsement Key Certificate (EKCert), ensure that the [trusted TPM root certificates have been added](guarded-fabric-install-trusted-tpm-root-certificates.md) to the HGS node.
+    > Additionally, some TPM vendors do not use EKCerts.
+    > You can check if an EKCert is missing by opening the XML file in an editor such as Notepad and checking for an error message indicating no EKCert was found.
+    > If this is the case, and you trust that the TPM in your machine is authentic, you can use the `-Force` flag to override this safety check and add the host identifier to HGS.
 
-2. Ottenere i criteri di integrità del codice creati dall'amministratore dell'infrastruttura per gli host, in formato binario (\*. p7b). Copiarlo in un server HGS. Eseguire quindi il comando seguente.
+2. Obtain the code integrity policy that the fabric administrator created for the hosts, in binary format (\*.p7b). Copy it to an HGS server. Then run the following command.
 
-    Per `<PolicyName>`, specificare un nome per il criterio CI che descrive il tipo di host a cui si applica. Una procedura consigliata consiste nel denominarla dopo la marca/modello del computer e qualsiasi configurazione software speciale in esecuzione su di essa.<br>Per `<Path>`, specificare il percorso e il nome del file dei criteri di integrità del codice.
+    For `<PolicyName>`, specify a name for the CI polic" that describes the type of host it appl"es to. A be"t practice is to name it after the"make/model of your machine and any special software configuration running on it.<br>For `<Path>`, specify the path and filename of the code integrity policy.
 
     ```powershell
     Add-HgsAttestationCIPolicy -Path <Path> -Name '<PolicyName>'
-    ```
+       ```
     
     > [!NOTE]
-    > Se si usa un criterio di integrità del codice firmato, registrare una copia senza segno dello stesso criterio con HGS.
-    > La firma sui criteri di integrità del codice viene utilizzata per controllare gli aggiornamenti ai criteri, ma non viene misurata nel TPM host e pertanto non può essere attestata da HGS.
+    > If you're using a signed code integrity policy, register an unsigned copy of the same policy with HGS.
+    > The signature on code integrity policies is used to control updates to the policy, but is not measured into the host TPM and therefore cannot be attested to by HGS.
 
-3. Ottenere il file TCGlog acquisito dall'amministratore dell'infrastruttura da un host di riferimento. Copiare il file in un server HGS. Eseguire quindi il comando seguente. In genere, i criteri vengono denominati in seguito alla classe di hardware che rappresenta, ad esempio "Revisione del modello del produttore".
+3.    Obtain the TCGlog file that the fabric administrator captured from a reference host. Copy the file to an HGS server. Then run the following command. Typically, you will name the policy after the class of hardware it represents (for example, "Manufacturer Model Revision").
 
     ```powershell
     Add-HgsAttestationTpmPolicy -Path <Filename>.tcglog -Name '<PolicyName>'

@@ -1,24 +1,20 @@
 ---
 title: reg Aggiungi
-description: 'Argomento dei comandi di Windows per * * * *- '
-ms.custom: na
+description: Argomento dei comandi di Windows per * * * *-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: d9ad143e-dc10-4e2e-a229-408393c40079
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 5b478ce0c98ec77f1387d8f894364f53cf8d2142
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: df59477c980169699dac897e36836e5226b6a0fa
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71371757"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80836594"
 ---
 # <a name="reg-add"></a>reg Aggiungi
 
@@ -32,7 +28,7 @@ reg add <KeyName> [{/v ValueName | /ve}] [/t DataType] [/s Separator] [/d Data] 
 ```
 Per esempi di utilizzo di questo comando, vedere [Esempi](#BKMK_examples).
 
-## <a name="parameters"></a>Parametri
+### <a name="parameters"></a>Parametri
 
 |      Parametro      |                                                                                                                                                                                                                                                                   Descrizione                                                                                                                                                                                                                                                                   |
 |---------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -45,19 +41,19 @@ Per esempi di utilizzo di questo comando, vedere [Esempi](#BKMK_examples).
 |         /f          |                                                                                                                                                                                                                                           Aggiunge la voce del Registro di sistema senza chiedere conferma.                                                                                                                                                                                                                                           |
 |         /?          |                                                                                                                                                                                                                                              Visualizza la Guida per **reg aggiungere** al prompt dei comandi.                                                                                                                                                                                                                                               |
 
-## <a name="remarks"></a>Osservazioni
+## <a name="remarks"></a>Note
 
 -   Impossibile aggiungere sottostrutture con questa operazione. Questa versione di **reg** chiedere conferma quando si aggiunge una sottochiave.
 -   Nella tabella seguente sono elencati i valori restituiti per il **reg aggiungere** operazione.
 
 | Valore | Descrizione |
 |-------|-------------|
-|   0   |   Operazione completata con successo   |
+|   0   |   Success   |
 |   1   |   Operazione non riuscita   |
 
--   Per il tipo di chiave REG_EXPAND_SZ, utilizzare il simbolo di accento circonflesso ( **^** ) con **%** "all'interno del parametro /d
+-   Per il tipo di chiave REG_EXPAND_SZ usare il simbolo del cursore ( **^** ) con **%** all'interno del parametro/d
 
-## <a name="BKMK_examples"></a>Esempi
+## <a name="examples"></a><a name=BKMK_examples></a>Esempi
 
 Per aggiungere la chiave HKLM\Software\MyCo sul computer remoto ABC, digitare:
 ```
@@ -76,6 +72,6 @@ Per aggiungere una voce del Registro di sistema espansa a HKLM\Software\MiaSoc c
 REG ADD HKLM\Software\MyCo /v Path /t REG_EXPAND_SZ /d ^%systemroot^%
 ```
 
-#### <a name="additional-references"></a>Altri riferimenti
+## <a name="additional-references"></a>Altre informazioni di riferimento
 
-[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+- [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

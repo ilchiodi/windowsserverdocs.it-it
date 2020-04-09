@@ -1,24 +1,20 @@
 ---
 title: reg delete
-description: 'Argomento dei comandi di Windows per * * * *- '
-ms.custom: na
+description: Argomento dei comandi di Windows per * * * *-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: cee05071-1607-4ab1-b8ab-65caebeb85c3
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 7156bf58b27da1602931f0dc1903de71d86764e7
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 726a3c700a9278dbc7abb1873aae7ea3c957bbb5
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71384756"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80836504"
 ---
 # <a name="reg-delete"></a>reg delete
 
@@ -34,7 +30,7 @@ Per esempi di utilizzo di questo comando, vedere [Esempi](#BKMK_examples).
 Reg delete <KeyName> [{/v ValueName | /ve | /va}] [/f]
 ```
 
-## <a name="parameters"></a>Parametri
+### <a name="parameters"></a>Parametri
 
 |Parametro|Descrizione|
 |---------|-----------|
@@ -45,16 +41,16 @@ Reg delete <KeyName> [{/v ValueName | /ve | /va}] [/f]
 |/f|Elimina la sottochiave del Registro di sistema esistente o una voce senza chiedere conferma.|
 |/?|Visualizza la Guida per **reg delete** al prompt dei comandi.|
 
-## <a name="remarks"></a>Osservazioni
+## <a name="remarks"></a>Note
 
 Nella tabella seguente sono elencati i valori restituiti per il **reg delete** operazione.
 
 |Valore|Descrizione|
 |-----|-----------|
-|0|Operazione completata con successo|
+|0|Success|
 |1|Operazione non riuscita|
 
-## <a name="BKMK_examples"></a>Esempi
+## <a name="examples"></a><a name=BKMK_examples></a>Esempi
 
 Per eliminare la chiave del Registro di sistema Timeout e il relativo tutte le sottochiavi e valori, digitare:
 ```
@@ -65,6 +61,6 @@ Per eliminare il valore del Registro di sistema MTU HKLM\Software\MiaSoc nel com
 REG DELETE \\ZODIAC\HKLM\Software\MyCo /v MTU
 ```
 
-#### <a name="additional-references"></a>Altri riferimenti
+## <a name="additional-references"></a>Altre informazioni di riferimento
 
-[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+- [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

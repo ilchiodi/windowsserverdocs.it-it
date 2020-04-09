@@ -6,13 +6,14 @@ ms.topic: get-started-article
 ms.assetid: 6e102c1f-df26-4eaa-bc7a-d0d55d3b82d5
 author: jasongerend
 ms.author: jgerend
+manager: lizross
 ms.date: 03/27/2018
-ms.openlocfilehash: fc1799db76f528a599ef70eec5093da0a76206a2
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: 8b2ea665542d57b12899a5993a62973c446485a7
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75948532"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80828354"
 ---
 # <a name="cluster-operating-system-rolling-upgrade"></a>Aggiornamento in sequenza del sistema operativo del cluster
 
@@ -226,7 +227,7 @@ L'aggiornamento in sequenza del sistema operativo del cluster include i passaggi
         ![screencap che mostra l'output del cmdlet Get-VMHostSupportedVersion](media/Cluster-Operating-System-Rolling-Upgrade/Clustering_GetVMHostSupportVersion.png)  
         **Figura 21: visualizzazione delle versioni di configurazione della macchina virtuale Hyper-V supportate dall'host**  
 
-   3. In ogni nodo host Hyper-V nel cluster è possibile aggiornare le versioni di configurazione della macchina virtuale Hyper-V pianificando una breve finestra di manutenzione con gli utenti, eseguendo il backup, disattivando le macchine virtuali ed eseguendo il cmdlet [`Update-VMVersion`](https://docs.microsoft.com/powershell/module/hyper-v/Update-VMVersion?view=win10-ps) (vedere la figura 22). Questa operazione aggiornerà la versione della macchina virtuale e attiverà nuove funzionalità di Hyper-V, eliminando la necessità di aggiornamenti futuri dei componenti di integrazione Hyper-V (IC). Questo cmdlet può essere eseguito dal nodo Hyper-V che ospita la macchina virtuale oppure è possibile usare il parametro `-ComputerName` per aggiornare la versione della macchina virtuale in modalità remota. In questo esempio viene aggiornata la versione di configurazione di VM1 da 5,0 a 7,0 per sfruttare le numerose nuove funzionalità di Hyper-V associate a questa versione di configurazione della macchina virtuale, ad esempio i checkpoint di produzione (backup coerenti con l'applicazione) e la macchina virtuale binaria file di configurazione.  
+   3. In ogni nodo host Hyper-V nel cluster è possibile aggiornare le versioni di configurazione della macchina virtuale Hyper-V pianificando una breve finestra di manutenzione con gli utenti, eseguendo il backup, disattivando le macchine virtuali ed eseguendo il cmdlet [`Update-VMVersion`](https://docs.microsoft.com/powershell/module/hyper-v/Update-VMVersion?view=win10-ps) (vedere la figura 22). Questa operazione aggiornerà la versione della macchina virtuale e attiverà nuove funzionalità di Hyper-V, eliminando la necessità di aggiornamenti futuri dei componenti di integrazione Hyper-V (IC). Questo cmdlet può essere eseguito dal nodo Hyper-V che ospita la macchina virtuale oppure è possibile usare il parametro `-ComputerName` per aggiornare la versione della macchina virtuale in modalità remota. In questo esempio viene aggiornata la versione di configurazione di VM1 da 5,0 a 7,0 per sfruttare le numerose nuove funzionalità di Hyper-V associate a questa versione di configurazione della macchina virtuale, ad esempio i checkpoint di produzione (backup coerenti con l'applicazione) e il file di configurazione della macchina virtuale binario.  
 
        ![screencap che mostra il cmdlet Update-VMVersion in azione](media/Cluster-Operating-System-Rolling-Upgrade/Cluster_RollingUpgrade_StopVM.png)  
        **Figura 22: aggiornamento di una versione di macchina virtuale con il cmdlet di PowerShell Update-VMVersion**  
@@ -277,7 +278,7 @@ Sebbene siano destinati a scenari basati su cloud privato, in particolare Hyper-
 **È possibile usare System Center 2016 Virtual Machine Manager (SCVMM) per automatizzare il processo di aggiornamento in sequenza del sistema operativo del cluster?**  
     Sì, è possibile automatizzare il processo di aggiornamento in sequenza del sistema operativo del cluster usando VMM in System Center 2016.  
 
-## <a name="see-also"></a>Vedi anche  
+## <a name="see-also"></a>Vedere anche  
 -   [Note sulla versione: problemi importanti in Windows Server 2016](../get-started/Release-Notes--Important-Issues-in-Windows-Server-2016-Technical-Preview.md)  
 -   [Novità di Windows Server 2016](../get-started/What-s-New-in-windows-server-2016.md)  
 -   [Novità del clustering di failover in Windows Server](whats-new-in-failover-clustering.md)  

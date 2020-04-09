@@ -1,24 +1,20 @@
 ---
 title: xcopy
-description: 'Argomento dei comandi di Windows per * * * *- '
-ms.custom: na
+description: Argomento comandi di Windows per xcopy, w hich copia i file e le directory, incluse le sottodirectory.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 76a310d7-9925-4571-a252-0e28960d5f89
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 01/05/2019
-ms.openlocfilehash: 885729f2bca100d7ac89a3463135d56f48c8b75a
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 660ef69a5f1df99c3b959a588984719c9d4dea6b
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71361794"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80828924"
 ---
 # <a name="xcopy"></a>xcopy
 
@@ -32,11 +28,11 @@ Per esempi di utilizzo di questo comando, vedere [Esempi](#examples).
 Xcopy <Source> [<Destination>] [/w] [/p] [/c] [/v] [/q] [/f] [/l] [/g] [/d [:MM-DD-YYYY]] [/u] [/i] [/s [/e]] [/t] [/k] [/r] [/h] [{/a | /m}] [/n] [/o] [/x] [/exclude:FileName1[+[FileName2]][+[FileName3]] [{/y | /-y}] [/z] [/b] [/j]
 ```
 
-## <a name="parameters"></a>Parametri
+### <a name="parameters"></a>Parametri
 
 |Parametro|Descrizione|
 |---------|-----------|
-|> origine \<|Obbligatorio. Specifica il percorso e i nomi dei file che si desidera copiare. Questo parametro deve includere un'unità o un percorso.|
+|> origine \<|Obbligatoria. Specifica il percorso e i nomi dei file che si desidera copiare. Questo parametro deve includere un'unità o un percorso.|
 |[\<> di destinazione]|Specifica la destinazione dei file che si desidera copiare. Questo parametro può includere una lettera di unità e due punti, un nome di directory, un nome di file o una combinazione di questi.|
 |/w|Visualizza il messaggio seguente e attende la risposta prima di iniziare a copiare i file:</br>**Premere un tasto qualsiasi per iniziare a copiare i file**|
 |/p|Viene richiesto di confermare se si desidera creare ogni file di destinazione.|
@@ -68,7 +64,7 @@ Xcopy <Source> [<Destination>] [/w] [/p] [/c] [/v] [/q] [/f] [/l] [/g] [/d [:MM-
 |/j|Copia i file senza memorizzare nel buffer. Consigliato per file di grandi dimensioni. Questo parametro è stato aggiunto in Windows Server 2008 R2.|
 |/?|Visualizza la guida al prompt dei comandi.|
 
-## <a name="remarks"></a>Osservazioni
+## <a name="remarks"></a>Note
 
 - Utilizzando **/z**
 
@@ -210,12 +206,12 @@ rem  3 File(s) copied
 
 Nell'esempio precedente, questo particolare valore del parametro di origine **.\\sommario\*. yml** copia gli stessi 3 file anche se i due caratteri di percorso **.\\** sono stati rimossi. Tuttavia, non viene copiato alcun file se il carattere jolly asterisco è stato rimosso dal parametro source, rendendolo semplicemente **.\\TOC. yml**.
 
-#### <a name="additional-references"></a>Altri riferimenti
+## <a name="additional-references"></a>Altre informazioni di riferimento
 
--   [Copy](copy.md)
+-   [Copia](copy.md)
 -   [Sposta](move.md)
 -   [Dir](dir.md)
 -   [Attrib](attrib.md)
 -   [DISKCOPY](diskcopy.md)
 -   [Se](if.md)
--   [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+-   - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

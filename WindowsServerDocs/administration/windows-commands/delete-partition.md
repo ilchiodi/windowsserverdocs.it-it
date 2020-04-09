@@ -1,28 +1,22 @@
 ---
 title: Elimina partizione
-description: 'Argomento dei comandi di Windows per * * * *- '
-ms.custom: na
+description: Windows Commands argomento for Delete Partition, che elimina la partizione con lo stato attivo.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 65752312-cb16-46f6-870f-1b95c507b101
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 46a214f26e7c21f6ae08eb16d95fd898bd949b0f
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: a24c18cf98f2899fbb57f1f5f2d2776824d637b7
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71378660"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80846574"
 ---
 # <a name="delete-partition"></a>Elimina partizione
-
-
 
 Elimina la partizione con lo stato attivo.
 
@@ -32,12 +26,12 @@ Elimina la partizione con lo stato attivo.
 delete partition [noerr] [override]
 ```
 
-## <a name="parameters"></a>Parametri
+### <a name="parameters"></a>Parametri
 
 |Parametro|Descrizione|
 |---------|-----------|
-|eseguire l'override|Consente a DiskPart di eliminare qualsiasi partizione indipendentemente dal tipo. In genere, DiskPart consente di eliminare solo le partizioni di dati note.|
-|NOERR|Solo per gli script. Quando si è verificato un errore, DiskPart continua a elaborare i comandi come se non si è verificato l'errore. Senza questo parametro, un errore causa DiskPart viene interrotto con un codice di errore.|
+|override|Consente a DiskPart di eliminare qualsiasi partizione indipendentemente dal tipo. In genere, DiskPart consente di eliminare solo le partizioni di dati note.|
+|NOERR|solo per gli script. Quando si è verificato un errore, DiskPart continua a elaborare i comandi come se non si è verificato l'errore. Senza questo parametro, un errore causa DiskPart viene interrotto con un codice di errore.|
 
 ## <a name="remarks"></a>Note
 
@@ -46,14 +40,14 @@ delete partition [noerr] [override]
 > -   Non è possibile eliminare la partizione di sistema, la partizione di avvio o una partizione che contiene il file di paging attivo o le informazioni di dump di arresto anomalo.
 > -   Per eseguire questa operazione, è necessario selezionare una partizione. Usare il comando **select partition** per selezionare una partizione e spostare lo stato attivo su di essa.
 
-## <a name="BKMK_examples"></a>Esempi
+## <a name="examples"></a><a name=BKMK_examples></a>Esempi
 
 Per eliminare la partizione con lo stato attivo, digitare:
 ```
 delete partition
 ```
 
-#### <a name="additional-references"></a>Altri riferimenti
+## <a name="additional-references"></a>Altre informazioni di riferimento
 
-[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+- [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
 

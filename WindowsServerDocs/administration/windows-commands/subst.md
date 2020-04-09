@@ -1,24 +1,20 @@
 ---
 title: subst
 description: Informazioni su come associare un percorso a una lettera di unità.
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 3e69234c-2312-4343-868b-afc1017c622a
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: f3010d1e58fbd360b8311512e6664873b020c12b
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 43cbc57aba29ea0b9150dccdfc566a93017a09a5
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71383750"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80833644"
 ---
 # <a name="subst"></a>subst
 
@@ -35,12 +31,12 @@ subst [<Drive1>: [<Drive2>:]<Path>]
 subst <Drive1>: /d
 ```
 
-## <a name="parameters"></a>Parametri
+### <a name="parameters"></a>Parametri
 
 |Parametro|Descrizione|
 |---------|-----------|
-|> \<Drive1:|Specifica l'unità virtuale a cui si desidera assegnare un percorso.|
-|[\<Drive2 >:] \<Path >|Specifica l'unità fisica e il percorso che si desidera assegnare a un'unità virtuale.|
+|> unità1 \<:|Specifica l'unità virtuale a cui si desidera assegnare un percorso.|
+|[\<unità2 >:]\<percorso >|Specifica l'unità fisica e il percorso che si desidera assegnare a un'unità virtuale.|
 |/d|Elimina un'unità sostituita (virtuale).|
 |/?|Visualizza la guida al prompt dei comandi.|
 
@@ -63,7 +59,7 @@ subst <Drive1>: /d
 
     `Invalid parameter - drive1:`
 
-## <a name="BKMK_examples"></a>Esempi
+## <a name="examples"></a><a name="BKMK_examples"></a>Esempi
 
 Per creare un'unità virtuale Z per il percorso B:\User\Betty\Forms, digitare:
 ```
@@ -74,6 +70,6 @@ Anziché digitare il percorso completo, è possibile raggiungere questa director
 z: 
 ```
 
-#### <a name="additional-references"></a>Altri riferimenti
+## <a name="additional-references"></a>Altre informazioni di riferimento
 
-[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+- [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

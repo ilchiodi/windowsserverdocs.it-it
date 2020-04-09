@@ -1,29 +1,25 @@
 ---
 title: Eseguire la migrazione da Windows Server 2008 Foundation a Windows Server Essentials
 description: Viene descritto come usare Windows Server Essentials
-ms.custom: na
 ms.date: 10/03/2016
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: f22fc0a4-cb82-4e60-afe6-2d03145745e7
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 1d6fe336692e5775a6a7b98f3a50bda1958058a7
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: 52763340ae2df60f37757dc2fb1344fb891c8f7a
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80318950"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80852544"
 ---
 # <a name="migrate-windows-server-2008-foundation-to-windows-server-essentials"></a>Eseguire la migrazione da Windows Server 2008 Foundation a Windows Server Essentials
 
 >Si applica a: Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
 
-Questa guida descrive come eseguire la migrazione di un dominio Windows Server 2008 Foundation esistente a Windows Server® 2012 Essentials in un nuovo hardware e quindi eseguire la migrazione delle impostazioni e dei dati. Questa guida descrive anche come rimuovere il server esistente dalla rete di Windows Server Essentials al termine della migrazione.  
+Questa guida descrive come eseguire la migrazione di un dominio Windows Server 2008 Foundation esistente a Windows Server&reg; 2012 Essentials in un nuovo hardware e quindi eseguire la migrazione delle impostazioni e dei dati. Questa guida descrive anche come rimuovere il server esistente dalla rete di Windows Server Essentials al termine della migrazione.  
   
 > [!NOTE]
 >  Per evitare problemi durante la migrazione, il team di sviluppo del prodotto Windows Server Essentials consiglia di leggere questo documento prima di iniziare la migrazione.  

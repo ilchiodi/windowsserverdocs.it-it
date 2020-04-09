@@ -1,28 +1,21 @@
 ---
-title: Utilizzando il comando remove-DriverGroup
-description: 'Argomento dei comandi di Windows per * * * *- '
-ms.custom: na
+title: Remove-DriverGroup
+description: Argomento dei comandi di Windows per Remove-DriverGroup, che rimuove un gruppo di driver da un server.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
-ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 1fefe9df-9782-433c-8abe-3f1a35e50da2
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: d22ae4e191c2110a0b8d4cc50c24c2f3ec4a7e60
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 56622c30b8b0af88a57c476eb4f03d598703d603
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71362927"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80830524"
 ---
-# <a name="using-the-remove-drivergroup-command"></a>Utilizzando il comando remove-DriverGroup
-
-
+# <a name="remove-drivergroup"></a>Remove-DriverGroup
 
 Rimuove un gruppo di driver da un server.
 
@@ -32,14 +25,14 @@ Rimuove un gruppo di driver da un server.
 WDSUTIL /Remove-DriverGroup /DriverGroup:<Group Name> [/Server:<Server name>]
 ```
 
-## <a name="parameters"></a>Parametri
+### <a name="parameters"></a>Parametri
 
 |Parametro|Descrizione|
 |---------|-----------|
-|/DriverGroup: nome \<Group >|Specifica il nome del gruppo di driver da rimuovere.|
-|[/Server: nome \<Server >]|Specifica il nome del server. Questo può essere il nome NetBIOS o il nome FQDN. Se non viene specificato un nome di server, viene utilizzato il server locale.|
+|/DriverGroup: nome gruppo\<>|Specifica il nome del gruppo di driver da rimuovere.|
+|[/Server:\<nome server >]|Specifica il nome del server. Questo può essere il nome NetBIOS o il nome FQDN. Se non viene specificato un nome di server, viene utilizzato il server locale.|
 
-## <a name="BKMK_examples"></a>Esempi
+## <a name="examples"></a><a name=BKMK_examples></a>Esempi
 
 Per rimuovere un gruppo di driver, digitare uno dei seguenti:
 ```
@@ -49,6 +42,6 @@ WDSUTIL /Remove-DriverGroup /DriverGroup:PrinterDrivers
 WDSUTIL /Remove-DriverGroup /DriverGroup:PrinterDrivers /Server:MyWdsServer
 ```
 
-#### <a name="additional-references"></a>Altri riferimenti
+## <a name="additional-references"></a>Altre informazioni di riferimento
 
-[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+- [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

@@ -1,24 +1,20 @@
 ---
 title: relog
 description: Informazioni su come estrarre le informazioni sui contatori delle prestazioni dai file di log delle prestazioni di Coutner.
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 7480f6c0-9953-4d70-9b1c-b27e09d8db13
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 07/11/2018
-ms.openlocfilehash: daedd85f1557c191a690e7eb750559cfd268d3a0
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 0ecd06b11c2f055761ed06ef6c9332fb491eaaf3
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71371619"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80836184"
 ---
 # <a name="relog"></a>relog
 
@@ -31,7 +27,7 @@ Estrae i contatori delle prestazioni da registri contatori delle prestazioni in 
 relog [<FileName> [<FileName> ...]] [/a] [/c <path> [<path> ...]] [/cf <FileName>] [/f  {bin|csv|tsv|SQL}] [/t <Value>] [/o {OutputFile|DSN!CounterLog}] [/b <M/D/YYYY> [[<HH>:] <MM>:] <SS>] [/e <M/D/YYYY> [[<HH>:] <MM>:] <SS>] [/config {<FileName>|i}] [/q]  
 ```  
 
-### <a name="parameters"></a>Parametri  
+#### <a name="parameters"></a>Parametri  
 
 |                                         Parametro                                          |                                                                                                                                                                  Descrizione                                                                                                                                                                   |
 |--------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -49,7 +45,7 @@ relog [<FileName> [<FileName> ...]] [/a] [/c <path> [<path> ...]] [/cf <FileName
 |                                             -y                                             |                                                                                                                                            Ignora la richiesta rispondendo a "Sì" a tutte le domande.                                                                                                                                             |
 |                                             /?                                             |                                                                                                                                                      Visualizza la guida al prompt dei comandi.                                                                                                                                                      |
 
-## <a name="remarks"></a>Osservazioni  
+## <a name="remarks"></a>Note  
 Formato del percorso del contatore:  
 - Il formato generale per i percorsi dei contatori è il seguente: [\\\<computer >] \\\<oggetto > [\<padre >\\< istanza # index >] \\\<contatore >] dove i componenti padre, istanza, indice e contatore del formato possono contenere un nome valido o un carattere jolly. Il computer, padre, istanza e i componenti dell'indice non sono necessari per tutti i contatori.  
 - Determinare i percorsi dei contatori da utilizzare in base al contatore stesso. Ad esempio, l'oggetto disco logico ha un'istanza <Index>, pertanto è necessario fornire < #index > o un carattere jolly. Pertanto, è possibile utilizzare il formato seguente: **\LogicalDisk (\*/\*#\*)\\** \\*  
@@ -74,7 +70,7 @@ Utilizzo di **/config** opzione:
 
 Per ulteriori informazioni sull'incorporamento di **relog** negli script Strumentazione gestione Windows (WMI), vedere l'argomento relativo alla creazione di script WMI nel [sito Web Microsoft Windows Resource Kit](https://go.microsoft.com/fwlink/?LinkId=4665).  
 
-## <a name="BKMK_Examples"></a>Esempi  
+## <a name="examples"></a><a name="BKMK_Examples"></a>Esempi  
 Per ricampionare i registri di traccia esistenti a intervalli fissi di 30, elencare i percorsi dei contatori, file e formati di output:  
 ```  
 relog c:\perflogs\daily_trace_log.blg /cf counter_file.txt /o c:\perflogs\reduced_log.csv /t 30 /f csv  
@@ -89,4 +85,4 @@ relog "c:\perflogs\daily_trace_log.blg" -f sql -o "SQL:sql2016x64odbc!counter_lo
 ```
 
 ## <a name="additional-references"></a>Altri riferimenti  
--   [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)  
+-   - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)  

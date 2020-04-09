@@ -2,26 +2,23 @@
 title: Pulizia guidata server
 description: Argomento Windows Server Update Service (WSUS)-come usare la pulitura guidata del server per gestire lo spazio su disco
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-wsus
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 7c351797-2716-4442-a668-60d5b4e77751
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: e285e59a27b6bf0ef1bf3b1ab0f78a96efa60c87
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 12049e2bba28f2381e6e80db07768b4e180861d6
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71361531"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80828535"
 ---
 # <a name="the-server-cleanup-wizard"></a>Pulizia guidata server
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 La pulizia guidata del server è integrata nell'interfaccia utente e può essere usata per semplificare la gestione dello spazio su disco. Questa procedura guidata è possibile eseguire le operazioni seguenti:
 
@@ -51,7 +48,7 @@ La pulizia guidata del server è integrata nell'interfaccia utente e può essere
   > [!IMPORTANT]
   >  Se si rimuove contenuto non necessario utilizzando la pulitura guidata del server, vengono rimossi anche tutti i file di aggiornamento privati scaricati dal sito di Microsoft Update Catalogo. È necessario reimportare questi file dopo l'esecuzione della pulitura guidata del server. 
 
-Se gli aggiornamenti vengono approvati utilizzando una regola di approvazione automatica, potrebbero essere ancora nello stato "approvato" e non verranno rimossi dalla pulitura guidata del server. Per rimuovere gli aggiornamenti approvati automaticamente che rientrano in uno stato "approvato", l'amministratore di WSUS deve almeno impostare manualmente lo stato di approvazione degli aggiornamenti sostituiti su "non approvati" in modo che siano idonei per la declinazione tramite la pulitura guidata del server. La pulizia guidata del server garantirà l'approvazione di un aggiornamento più recente e che nessun sistema client stia ancora segnalando tale aggiornamento in base alle esigenze prima di contrassegnare l'aggiornamento come "rifiutato".
+Se gli aggiornamenti vengono approvati utilizzando una regola di approvazione automatica, potrebbero essere ancora in stato approvato e non verranno rimossi dalla pulitura guidata del server. Per rimuovere gli aggiornamenti approvati automaticamente che rientrano in uno stato approvato, l'amministratore di WSUS deve almeno impostare manualmente lo stato di approvazione degli aggiornamenti sostituiti su non approvato, in modo che siano idonei per la declinazione tramite la pulitura guidata del server. La pulizia guidata del server garantirà l'approvazione di un aggiornamento più recente e che nessun sistema client stia ancora segnalando tale aggiornamento in base alle esigenze prima di contrassegnare l'aggiornamento come rifiutato.
 
 
 

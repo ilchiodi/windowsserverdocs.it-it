@@ -1,29 +1,25 @@
 ---
 title: Eseguire la migrazione da Windows Small Business Server 2003 a Windows Server Essentials
 description: Viene descritto come usare Windows Server Essentials
-ms.custom: na
 ms.date: 10/03/2016
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 119a7fbc-2c76-4aa3-8a7f-c7073d461b5b
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: b99a21d38011b40515fb322429b73f23ad5849cf
-ms.sourcegitcommit: 3c3dfee8ada0083f97a58997d22d218a5d73b9c4
+ms.openlocfilehash: f7dfa203f999e23b52c8fcf1f861a59f4f399d95
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80639905"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80852524"
 ---
 # <a name="migrate-windows-small-business-server-2003-to-windows-server-essentials"></a>Eseguire la migrazione da Windows Small Business Server 2003 a Windows Server Essentials
 
 >Si applica a: Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
 
-Questa guida descrive come eseguire la migrazione di un dominio Windows SBS 2003 esistente a Windows Server® 2012 Essentials in un nuovo hardware e quindi eseguire la migrazione delle impostazioni e dei dati. Questa guida descrive anche come rimuovere il server esistente dalla rete di Windows Server Essentials al termine della migrazione.  
+Questa guida descrive come eseguire la migrazione di un dominio Windows SBS 2003 esistente a Windows Server&reg; 2012 Essentials in un nuovo hardware e quindi eseguire la migrazione delle impostazioni e dei dati. Questa guida descrive anche come rimuovere il server esistente dalla rete di Windows Server Essentials al termine della migrazione.  
   
 > [!IMPORTANT]
 >   Windows Server Essentials richiede un ambiente a 64 bit.  Windows Server Essentials non supporta un ambiente a 32 bit.  

@@ -2,19 +2,18 @@
 title: Evitare di abilitare le macchine virtuali configurate con gli adapter Fibre Channel virtuali per consentire le migrazioni in tempo reale quando sono presenti meno percorsi per Fibre Channel unità logiche (lun) nella destinazione rispetto all'origine
 description: Versione online del testo per questa regola di Best Practices Analyzer.
 ms.prod: windows-server
-ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
 ms.author: kathydav
 ms.topic: article
-author: KBDAzure
+author: kbdazure
 ms.date: 8/16/2016
-ms.openlocfilehash: c55a8c76391ae1b01f43492dc5c72e3760371b80
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 7989d2e1908f6be32f4661900fc507b5843b55c9
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71365282"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80857774"
 ---
 # <a name="avoid-enabling-virtual-machines-configured-with-virtual-fibre-channel-adapters-to-allow-live-migrations-when-there-are-fewer-paths-to-fibre-channel-logical-units-luns-on-the-destination-than-on-the-source"></a>Evitare di abilitare le macchine virtuali configurate con gli adapter Fibre Channel virtuali per consentire le migrazioni in tempo reale quando sono presenti meno percorsi per Fibre Channel unità logiche (lun) nella destinazione rispetto all'origine
 

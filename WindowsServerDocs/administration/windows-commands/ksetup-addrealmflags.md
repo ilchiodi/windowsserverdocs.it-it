@@ -1,24 +1,20 @@
 ---
 title: 'che Ksetup: addrealmflags'
-description: 'Argomento dei comandi di Windows per * * * *- '
-ms.custom: na
+description: Argomento dei comandi di Windows per * * * *-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 80ca1e16-8871-494b-b9be-6bc9d63de860
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 543fcb8105d21020cc9a4ab5e5e8c1eca14a358b
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 21ab18620f0ed25cfb0d50bb1ab1a5d92caa9c54
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71375175"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80841815"
 ---
 # <a name="ksetupaddrealmflags"></a>che Ksetup: addrealmflags
 
@@ -32,7 +28,7 @@ Aggiunge i flag dell'area di autenticazione aggiuntivi per l'area di autenticazi
 ksetup /addrealmflags <RealmName> [sendaddress] [tcpsupported] [delegate] [ncsupported] [rc4]
 ```
 
-### <a name="parameters"></a>Parametri
+#### <a name="parameters"></a>Parametri
 
 |Parametro|Descrizione|
 |---------|-----------|
@@ -40,12 +36,12 @@ ksetup /addrealmflags <RealmName> [sendaddress] [tcpsupported] [delegate] [ncsup
 
 ## <a name="remarks"></a>Note
 
-I flag dell'area di autenticazione specificano funzionalità aggiuntive di un'area di autenticazione Kerberos che non si basa sul sistema operativo Windows Server. I computer che eseguono Windows Server 2003, Windows Server 2008 o Windows Server 2008 R2 possono utilizzare un server Kerberos per amministrare l'autenticazione anziché utilizzare un dominio in cui è in esecuzione un sistema operativo Windows Server e questi sistemi partecipano a un Area di autenticazione Kerberos. Questa voce definisce le funzionalità dell'area di autenticazione. Nella tabella seguente vengono descritte le singole.
+I flag dell'area di autenticazione specificano funzionalità aggiuntive di un'area di autenticazione Kerberos che non si basa sul sistema operativo Windows Server. I computer che eseguono Windows Server 2003, Windows Server 2008 o Windows Server 2008 R2 possono utilizzare un server Kerberos per amministrare l'autenticazione anziché utilizzare un dominio in cui è in esecuzione un sistema operativo Windows Server e questi sistemi partecipano a un'area di autenticazione Kerberos. Questa voce definisce le funzionalità dell'area di autenticazione. Nella tabella seguente vengono descritte le singole.
 
-|Value|Flag area di autenticazione|Descrizione|
+|Valore|Flag area di autenticazione|Descrizione|
 |-----|----------|-----------|
 |0xF|Tutte|Tutti i flag dell'area di autenticazione sono impostati.|
-|0x00|Nessuno|Nessun flag area di autenticazione è impostato e non sono abilitate funzionalità aggiuntive.|
+|0x00|None|Nessun flag area di autenticazione è impostato e non sono abilitate funzionalità aggiuntive.|
 |0x01|SendAddress|L'indirizzo IP verrà incluso nei ticket di concessione ticket.|
 |0x02|TcpSupported|In questa area di autenticazione sono supportati sia il Transmission Control Protocol (TCP) che il protocollo UDP (User Datagram Protocol).|
 |0x04|Delegato|Tutti gli utenti in questa area di autenticazione sono attendibili per la delega.|
@@ -56,7 +52,7 @@ Flag dell'area di autenticazione vengono archiviate nel Registro di sistema **HK
 
 È possibile visualizzare i flag dell'area di autenticazione sono disponibili e impostare la visualizzazione dell'output di che ksetup o /dumpstate che ksetup.
 
-## <a name="BKMK_Examples"></a>Esempi
+## <a name="examples"></a><a name=BKMK_Examples></a>Esempi
 
 Elencare i flag dell'area di autenticazione disponibili per l'area di autenticazione CONTOSO:
 ```
@@ -72,9 +68,9 @@ ksetup /addrealmflags CONTOSO SendAddress
 ```
 Eseguire il **che ksetup** comando per verificare che sia impostato il flag dell'area di autenticazione visualizzando l'output e cercando **flag Realm =** .
 
-#### <a name="additional-references"></a>Altri riferimenti
+## <a name="additional-references"></a>Altre informazioni di riferimento
 
 -   [Ksetup:listrealmflags](ksetup-listrealmflags.md)
 -   [Ksetup:setrealmflags](ksetup-setrealmflags.md)
 -   [Ksetup:delrealmflags](ksetup-delrealmflags.md)
--   [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+-   - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

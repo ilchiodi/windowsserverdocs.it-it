@@ -1,23 +1,19 @@
 ---
 title: Ripristinare un intero sistema dal backup di un computer client esistente
 description: Viene descritto come usare Windows Server Essentials
-ms.custom: na
 ms.date: 10/03/2016
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 47e498a6-1b71-47de-88f6-8c13c221d108
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: b9629f41c4e8eb707b19914a297d9d8b88c6aead
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: 37e4d45f6bd34d77fbbf3cbabcd66a776b624c19
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80310651"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80852644"
 ---
 # <a name="restore-a-full-system-from-an-existing-client-computer-backup"></a>Ripristinare un intero sistema dal backup di un computer client esistente
 
@@ -91,7 +87,7 @@ ms.locfileid: "80310651"
  Il backup degli array di dischi indipendenti (RAID) e dei dischi dinamici non è supportato.  
   
 ##  <a name="how-does-the-system-restore-environment-work"></a><a name="BKMK_HowDoes"></a>Come funziona l'ambiente di ripristino del sistema?  
- Il supporto di ripristino del sistema fornito con Windows Server® 2012 Essentials installa Ambiente preinstallazione di Windows (Windows PE) nel computer. Windows PE sostituisce l'ambiente MS-DOS e contiene i principali file di programma per Windows. In Windows Server Essentials sono disponibili due modi per ripristinare un sistema: usando il servizio ripristino client, che usa una rete e non si basa sui supporti, oppure usando l'unità flash USB.  
+ Il supporto di ripristino del sistema fornito con Windows Server&reg; 2012 Essentials installa Ambiente preinstallazione di Windows (Windows PE) nel computer. Windows PE sostituisce l'ambiente MS-DOS e contiene i principali file di programma per Windows. In Windows Server Essentials sono disponibili due modi per ripristinare un sistema: usando il servizio ripristino client, che usa una rete e non si basa sui supporti, oppure usando l'unità flash USB.  
   
 > [!NOTE]
 >  Windows PE non supporta le connessioni wireless. Per questo motivo, il computer da ripristinare deve essere fisicamente connesso alla rete Small Business.  

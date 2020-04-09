@@ -1,6 +1,5 @@
 ---
 title: Aggiornamento a AD FS in Windows Server 2016 con SQL Server
-description: ''
 author: billmath
 manager: mtillman
 ms.date: 04/11/2018
@@ -9,12 +8,12 @@ ms.prod: windows-server
 ms.assetid: 70f279bf-aea1-4f4f-9ab3-e9157233e267
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: dd843724faf1c7a8101def84091484a5e7f7900f
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: e9488357eecb4a2093d6989e4ebfcc195ce68567
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71408233"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80854004"
 ---
 # <a name="upgrading-to-ad-fs-in-windows-server-2016-with-sql-server"></a>Aggiornamento a AD FS in Windows Server 2016 con SQL Server
 
@@ -46,7 +45,7 @@ Il resto del documento fornisce i passaggi per l'aggiunta di un server federativ
 
 Nel diagramma dell'architettura seguente viene illustrata la configurazione utilizzata per convalidare e registrare i passaggi riportati di seguito.
 
-![Architecture](media/Upgrading-to-AD-FS-in-Windows-Server-2016-SQL/arch.png)
+![Architettura](media/Upgrading-to-AD-FS-in-Windows-Server-2016-SQL/arch.png)
 
 
 #### <a name="join-the-windows-2016-ad-fs-server-to-the-ad-fs-farm"></a>Aggiungere il server di AD FS Windows 2016 alla farm AD FS

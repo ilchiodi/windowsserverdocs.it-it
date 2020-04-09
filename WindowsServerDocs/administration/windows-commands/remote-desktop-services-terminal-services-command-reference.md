@@ -1,32 +1,28 @@
 ---
 title: Riferimento ai comandi di Servizi Desktop remoto (servizi Terminal)
-description: 'Argomento dei comandi di Windows per * * * *- '
-ms.custom: na
+description: Argomento dei comandi di Windows per * * * *-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 2f371848-5c48-470c-908c-afbc95d3a805
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 3d13d6ac2e423c5a07a2a84af5e17fe9081cd70f
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: b2e188be84c657688a971a75788942d4acf598d7
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71371609"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80836064"
 ---
 # <a name="remote-desktop-services-terminal-services-command-reference"></a>Riferimento ai comandi di Servizi Desktop remoto (servizi Terminal)
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Di seguito è riportato un elenco di strumenti della riga di comando di Servizi Desktop remoto.
 > [!NOTE]
-> In Windows Server 2008 R2, Servizi terminal si chiama ora Servizi Desktop remoto. Per informazioni sulle novità della versione più recente, vedere Novità di [Servizi Desktop remoto in Windows server 2012](https://technet.microsoft.com/library/hh831527) nella libreria TechNet di Windows Server.
+> In Windows Server 2008 R2 Servizi terminal è stato rinomato Servizi Desktop remoto. Per informazioni sulle novità della versione più recente, vedere Novità di [Servizi Desktop remoto in Windows server 2012](https://technet.microsoft.com/library/hh831527) nella libreria TechNet di Windows Server.
 > 
 > |                 Comando                 |                                                      Descrizione                                                       |
 > |-----------------------------------------|------------------------------------------------------------------------------------------------------------------------|

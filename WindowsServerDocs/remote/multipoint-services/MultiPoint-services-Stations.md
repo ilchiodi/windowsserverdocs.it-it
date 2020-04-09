@@ -1,24 +1,20 @@
 ---
 title: Stazioni MultiPoint
 description: Informazioni sulle stazioni in MultiPoint Services, incluse le diverse opzioni per gli utenti
-ms.custom: na
 ms.date: 07/22/2016
 ms.prod: windows-server
 ms.technology: multipoint-services
-ms.reviewer: na
-ms.suite: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: f9f9d618-ccfe-41ea-a52c-00c3c7adb51a
 author: evaseydl
 manager: scottman
 ms.author: evas
-ms.openlocfilehash: 7b8f757d552bf54cd7f4eed0783ba8e0062b9d30
-ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
+ms.openlocfilehash: 3bcdd2d3f7492b29ecf92c59714f1d93b910c9b5
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79322803"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80853424"
 ---
 # <a name="multipoint--stations"></a>Stazioni MultiPoint
 In un ambiente di sistema MultiPoint Services, le *stazioni* sono gli endpoint utente per la connessione al computer che esegue multipoint Services. Ogni stazione offre all'utente un'esperienza Windows 10 indipendente. Sono supportati i tipi di stazione seguenti:  
@@ -48,7 +44,7 @@ Il computer che esegue MultiPoint Services può contenere più schede video, cia
   
 **Figura 1** Sistema MultiPoint Services con quattro stazioni connesse a video diretto  
   
-### <a name="BKMK_PS2stations"></a>Stazioni PS/2  
+### <a name="ps2-stations"></a><a name="BKMK_PS2stations"></a>Stazioni PS/2  
 Con MultiPoint Services è possibile eseguire il mapping della tastiera e del mouse PS/2 sulla scheda madre a un monitor connesso video diretto per creare una stazione PS/2. Audio analogico ad alta definizione sulla scheda madre è l'audio associato a questo tipo di stazione. Questa operazione non si applica ai computer in cui non sono presenti Jack PS/2 sulla scheda madre.  
   
 ## <a name="usb-zero-client-connected-stations"></a>USB-zero-client-stazioni connesse  
@@ -64,7 +60,7 @@ Il diagramma seguente mostra un sistema MultiPoint Server con una stazione prima
 I client USB-over-Ethernet zero sono una variante dei client USB zero che inviano USB tramite LAN al sistema MultiPoint Services. Questi tipi di client USB zero funzionano in modo analogo ad altri client USB zero, ma non sono limitati dalla lunghezza massima del cavo USB. I client USB-over-Ethernet zero non sono client thin tradizionali e vengono visualizzati come dispositivi USB virtuali nel sistema MultiPoint Services. Quando si usano questi dispositivi, fare riferimento al produttore del dispositivo per raccomandazioni specifiche relative a prestazioni e pianificazione del sito. La maggior parte dei dispositivi dispone di un plug-in di terze parti per Gestione MultiPoint che consente di associare e connettere i dispositivi al sistema MultiPoint Services.  
   
 ## <a name="rdp-over-lan-connected-stations"></a>Stazioni connesse RDP-over-LAN  
-I thin client e i computer desktop, portatili o tablet tradizionali possono connettersi al computer che esegue MultiPoint Services tramite la rete locale (LAN) utilizzando Remote Desktop Protocol (RDP) o un protocollo proprietario e il Remote Desktop Protocol Provider. Le connessioni RDP forniscono un'esperienza utente finale molto simile a qualsiasi altra stazione MultiPoint, ma usa l'hardware del computer client locale. Scopri di più sulle nostre applicazioni desktop remoto disponibili per Android, iOS, Mac e Windows in [Desktop remoto client](../remote-desktop-services/clients/remote-desktop-clients.md). 
+I thin client e i computer desktop, portatili o tablet tradizionali possono connettersi al computer che esegue MultiPoint Services tramite la rete locale (LAN) utilizzando Remote Desktop Protocol (RDP) o un protocollo proprietario e il provider di Remote Desktop Protocol. Le connessioni RDP forniscono un'esperienza utente finale molto simile a qualsiasi altra stazione MultiPoint, ma usa l'hardware del computer client locale. Scopri di più sulle nostre applicazioni desktop remoto disponibili per Android, iOS, Mac e Windows in [Desktop remoto client](../remote-desktop-services/clients/remote-desktop-clients.md). 
   
 I client e i dispositivi che eseguono Microsoft RemoteFX possono fornire un'esperienza multimediale avanzata sfruttando le funzionalità hardware del processore e dei video del thin client o del computer locale per fornire video ad alta definizione sulla rete.  
   
@@ -113,7 +109,7 @@ Dopo la suddivisione di una stazione, un utente può accedere alla stazione a si
   
 **Figura 4** Sistema MultiPoint Services con stazioni Split screen  
   
-## <a name="BKMK_StationTypeComparison"></a>Confronto tra tipi di stazione  
+## <a name="station-type-comparison"></a><a name="BKMK_StationTypeComparison"></a>Confronto tra tipi di stazione  
   
 ||Video diretto connesso|USB zero client connesso|Connessione RDP-over-LAN|  
 |-|--------------------------|-----------------------------|----------------------------|  

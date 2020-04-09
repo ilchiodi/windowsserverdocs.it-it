@@ -1,24 +1,20 @@
 ---
 title: tasklist
 description: Informazioni su come visualizzare un elenco dei processi in esecuzione nel computer locale o remoto.
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 8dbe30ee-1484-46be-917b-5ca3ff4fdc9c
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: f7ad61dfe8beb86c8299dd71bec1d862805e50e0
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: b43f4c9a89fa60f2244253d48d3dca646fe8e02d
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71383676"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80833434"
 ---
 # <a name="tasklist"></a>tasklist
 
@@ -32,7 +28,7 @@ Per esempi di utilizzo di questo comando, vedere [Esempi](#BKMK_examples).
 tasklist [/s <Computer> [/u [<Domain>\]<UserName> [/p <Password>]]] [{/m <Module> | /svc | /v}] [/fo {table | list | csv}] [/nh] [/fi <Filter> [/fi <Filter> [ ... ]]]
 ```
 
-## <a name="parameters"></a>Parametri
+### <a name="parameters"></a>Parametri
 
 |          Parametro           |                                                                                                                                            Descrizione                                                                                                                                             |
 |------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -51,23 +47,23 @@ tasklist [/s <Computer> [/u [<Domain>\]<UserName> [/p <Password>]]] [{/m <Module
 
 | Nome filtro |    Operatori validi     |                                                                 Valori validi                                                                 |
 |-------------|------------------------|----------------------------------------------------------------------------------------------------------------------------------------------|
-|   STATO    |         eq, ne         |                                                                   ESECUZIONE                                                                    |
+|   STATUS    |         eq, ne         |                                                                   IN ESECUZIONE                                                                    |
 |  IMAGENAME  |         eq, ne         |                                                                  Nome immagine                                                                  |
 |     PID     | eq, ne, gt, lt, ge, le |                                                                  Valore PID                                                                   |
-|   SESSIONE   | eq, ne, gt, lt, ge, le |                                                                Numero sessione                                                                |
+|   SESSIONE   | eq, ne, gt, lt, ge, le |                                                                Numero di sessione                                                                |
 | NOMESESSIONE |         eq, ne         |                                                                 Nome sessione                                                                 |
 |   CPUTIME   | eq, ne, gt, lt, ge, le | Tempo CPU nel formato <em>HH</em> **:** <em>mm</em> **:** <em>SS</em>, dove *mm* e *SS* sono comprese tra 0 e 59 e *HH* è un numero senza segno |
 |  MEMUSAGE   | eq, ne, gt, lt, ge, le |                                                              Utilizzo memoria in KB                                                              |
-|  NOME utente   |         eq, ne         |                                                             Qualsiasi nome utente valido                                                              |
+|  NOME UTENTE   |         eq, ne         |                                                             Qualsiasi nome utente valido                                                              |
 |  Servizi   |         eq, ne         |                                                                 Nome servizio                                                                 |
 | WINDOWTITLE |         eq, ne         |                                                                 Titolo della finestra                                                                 |
 |   MODULI   |         eq, ne         |                                                                   Nome DLL                                                                   |
 
-## <a name="remarks"></a>Osservazioni
+## <a name="remarks"></a>Note
 
 I filtri di stato e WINDOWTITLE non sono supportati quando si specifica un sistema remoto.
 
-## <a name="BKMK_examples"></a>Esempi
+## <a name="examples"></a><a name="BKMK_examples"></a>Esempi
 
 Per elencare tutte le attività con un ID di processo superiore a 1000 e visualizzarle in formato CSV, digitare:
 ```
@@ -94,6 +90,6 @@ Per elencare i processi nel computer remoto "SRVPRINC", usando le credenziali de
 tasklist /s srvmain /u maindom\hiropln /p p@ssW23
 ```
 
-#### <a name="additional-references"></a>Altri riferimenti
+## <a name="additional-references"></a>Altre informazioni di riferimento
 
-[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+- [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

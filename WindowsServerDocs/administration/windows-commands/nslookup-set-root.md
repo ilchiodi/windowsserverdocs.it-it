@@ -1,24 +1,20 @@
 ---
 title: nslookup set root
-description: 'Argomento dei comandi di Windows per * * * *- '
-ms.custom: na
+description: Argomento dei comandi di Windows per * * * *-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 8ad5393c-d4fd-4594-8187-576b1dcde60a
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 5a1737275bf6321525bbba56cd4d6a77ef973423
-ms.sourcegitcommit: 9a6a692a7b2a93f52bb9e2de549753e81d758d28
+ms.openlocfilehash: ea2c34bbf7c9323c948d57ac2a838c22aea1008e
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72591020"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80838314"
 ---
 # <a name="nslookup-set-root"></a>nslookup set root
 
@@ -29,15 +25,15 @@ Modifica il nome del server principale per le query.
 ```
 set root=<RootServer>
 ```
-## <a name="parameters"></a>Parametri
+### <a name="parameters"></a>Parametri
 
 |    Parametro    |                                   Descrizione                                    |
 |-----------------|----------------------------------------------------------------------------------|
 |  <RootServer>   | Specifica il nuovo nome per il server radice. Il valore predefinito è ns.nic.ddn.mil. |
 | {Help &#124; ?} |              Viene visualizzato un breve riepilogo di **nslookup** sottocomandi.               |
 
-## <a name="remarks"></a>Osservazioni
+## <a name="remarks"></a>Note
 - Il sottocomando **set root** influiscono sul sottocomando **radice** .
-  ## <a name="additional-references"></a>riferimenti aggiuntivi
-  [Chiave della sintassi della riga di comando](command-line-syntax-key.md)
+  ## <a name="additional-references"></a>Altre informazioni di riferimento
+  - [Chiave della sintassi della riga di comando](command-line-syntax-key.md)
   [radice nslookup](nslookup-root.md)

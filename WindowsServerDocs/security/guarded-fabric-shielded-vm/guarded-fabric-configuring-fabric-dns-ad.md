@@ -1,19 +1,19 @@
 ---
 title: Configurare il DNS dell'infrastruttura per gli host sorvegliati (AD)
-ms.custom: na
 ms.prod: windows-server
 ms.topic: article
 ms.assetid: 074b6d09-f16e-49bf-b88a-377139d35067
 manager: dongill
 author: rpsqrd
+ms.author: ryanpu
 ms.technology: security-guarded-fabric
 ms.date: 08/29/2018
-ms.openlocfilehash: 411b845d57c36916dcbc73d51675f5d9f92bfa0e
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 5b7deafb49083ad55d5a49d1ad3c5e063e91483f
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71386761"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80856824"
 ---
 # <a name="configure-the-fabric-dns-for-guarded-hosts"></a>Configurare il DNS dell'infrastruttura per gli host sorvegliati
 

@@ -1,24 +1,20 @@
 ---
 title: Seleziona vdisk
-description: 'Argomento dei comandi di Windows per * * * *- '
-ms.custom: na
+description: Argomento dei comandi di Windows per * * * *-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 8808872a-3523-4205-a6c6-83fa738ee37a
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 1bfa6450d1704cde1e5ff2a50a8e3b61a30d0766
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 65e186413bebbf467cd4c2033d274badd1fbea80
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71384187"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80834744"
 ---
 # <a name="select-vdisk"></a>Seleziona vdisk
 
@@ -35,23 +31,23 @@ Seleziona il disco rigido virtuale specificato \(\) VHD e sposta lo stato attivo
 select vdisk file=<full path> [noerr]  
 ```  
   
-## <a name="parameters"></a>Parametri  
+### <a name="parameters"></a>Parametri  
   
 |Parametro|Descrizione|  
 |-------|--------|  
 |file\=<full path>|Specifica il nome di file e percorso completo di un file di disco rigido Virtuale esistente.|  
 |NOERR|Utilizzato solo per gli script. Quando si è verificato un errore, DiskPart continua a elaborare i comandi come se non si è verificato l'errore. Senza questo parametro, un errore causa DiskPart viene interrotto con un codice di errore.|  
   
-## <a name="BKMK_examples"></a>Esempi  
+## <a name="examples"></a><a name=BKMK_examples></a>Esempi  
 Per spostare lo stato attivo per il disco rigido Virtuale denominato test. vhd, digitare:  
   
 ```  
-select vdisk file="c:\test\test.vhd"  
+select vdisk file=c:\test\test.vhd  
 ```  
   
-#### <a name="additional-references"></a>riferimenti aggiuntivi  
+## <a name="additional-references"></a>Altre informazioni di riferimento  
   
--   [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)  
+-   - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)  
   
 -   [Connetti vdisk](attach-vdisk.md)  
   

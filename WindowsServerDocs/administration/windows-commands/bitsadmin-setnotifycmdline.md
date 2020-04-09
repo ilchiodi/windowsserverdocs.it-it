@@ -1,30 +1,26 @@
 ---
 title: bitsadmin setnotifycmdline
-description: Windows Commands Topic for * * * *-Bitsadmin setnotifycmdlineSets comando della riga di comando che viene eseguito al termine del processo di trasferimento dei dati o quando un processo entra in uno stato.
-ms.custom: na
+description: Windows Commands Topic for Bitsadmin setnotifycmdline, che consente di impostare il comando della riga di comando che viene eseguito al termine del processo di trasferimento dei dati o quando un processo entra in uno stato.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 415ae6ef-8549-48b2-9693-2368a6e24075
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 7a307fe552e7d8ec5852de953a3a439cb02246ec
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 761a7003e44e8dc15cb2dd2f1ce5a1a23be53286
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71380485"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80849334"
 ---
 # <a name="bitsadmin-setnotifycmdline"></a>bitsadmin setnotifycmdline
 
 Imposta il comando della riga di comando che viene eseguito al termine del processo di trasferimento dei dati o quando un processo entra in uno stato.
 
-**BITS 1,2 e versioni precedenti**: Non supportati.
+**BITS 1,2 e versioni precedenti**: non supportato.
 
 ## <a name="syntax"></a>Sintassi
 
@@ -32,7 +28,7 @@ Imposta il comando della riga di comando che viene eseguito al termine del proce
 bitsadmin /SetNotifyCmdLine <Job> <ProgramName> [ProgramParameters]
 ```
 
-## <a name="parameters"></a>Parametri
+### <a name="parameters"></a>Parametri
 
 |Parametro|Descrizione|
 |---------|-----------|
@@ -47,16 +43,16 @@ bitsadmin /SetNotifyCmdLine <Job> <ProgramName> [ProgramParameters]
 > [!IMPORTANT]
 > Se *ProgramParameters* non è NULL, quindi il primo parametro in *ProgramParameters* deve corrispondere *ProgramName*.
 
-## <a name="BKMK_examples"></a>Esempi
+## <a name="examples"></a><a name=BKMK_examples></a>Esempi
 
 Nell'esempio seguente imposta la riga di comando utilizzato dal servizio per eseguire il blocco note, quando il processo denominato *myDownloadJob* viene completata.
 ```
 C:\>bitsadmin /SetNotifyCmdLine myDownloadJob c:\winnt\system32\notepad.exe NULL
 ```
 ```
-C:\>bitsadmin /SetNotifyCmdLine myDownloadJob c:\winnt\system32\notepad.exe "notepad c:\eula.txt"
+C:\>bitsadmin /SetNotifyCmdLine myDownloadJob c:\winnt\system32\notepad.exe notepad c:\eula.txt
 ```
 
-#### <a name="additional-references"></a>Altri riferimenti
+## <a name="additional-references"></a>Altre informazioni di riferimento
 
-[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+- [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

@@ -1,24 +1,20 @@
 ---
 title: Panoramica dell'autenticazione Kerberos
 description: Sicurezza di Windows Server
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: security-kerberos
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 646c6309-e865-4be2-b415-44dd125af5c2
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/12/2016
-ms.openlocfilehash: 33712dc8502035bd9e47e1d2bdd4583eb8347dec
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 6b5ec9bfa5c17a9ee9a5ad15af183d25bd533d7e
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71386313"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80856324"
 ---
 # <a name="kerberos-authentication-overview"></a>Panoramica dell'autenticazione Kerberos
 
@@ -26,12 +22,12 @@ ms.locfileid: "71386313"
 
 Kerberos è un protocollo di autenticazione usato per verificare l'identità di un utente o un host. Questo argomento contiene informazioni sull'autenticazione Kerberos in Windows Server 2012 e Windows 8.
 
-## <a name="BKMK_OVER"></a>Descrizione della funzionalità
+## <a name="feature-description"></a><a name="BKMK_OVER"></a>Descrizione delle funzionalità
 I sistemi operativi Windows Server implementano il protocollo e le estensioni Kerberos versione 5 per l'autenticazione con chiave pubblica, il trasporto dei dati di autorizzazione e la delega. Il client di autenticazione Kerberos viene implementato come Security Support Provider \(SSP\)ed è possibile accedervi tramite l'interfaccia Security Support Provider \(SSPI\). L'autenticazione iniziale degli utenti è integrata con il\-di accesso Single Sign-on di Winlogon sull'architettura.
 
 Il Centro distribuzione chiavi Kerberos \(KDC\) è integrato con altri servizi di sicurezza di Windows Server in esecuzione sul controller di dominio. Il KDC usa il database Active Directory Domain Services del dominio come database degli account di sicurezza. Le implementazioni Kerberos predefinite nel dominio o nella foresta richiedono Servizi di dominio Active Directory.
 
-## <a name="kerb_tr_Kerb_Benefits"></a>Applicazioni pratiche
+## <a name="practical-applications"></a><a name="kerb_tr_Kerb_Benefits"></a>Applicazioni pratiche
 I vantaggi ottenuti tramite Kerberos per l'autenticazione basata su\-dominio sono i seguenti:
 
 -   **Autenticazione delegata.**

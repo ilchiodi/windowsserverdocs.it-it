@@ -1,7 +1,6 @@
 ---
 ms.assetid: 7f285c9f-c3e8-4aae-9ff4-a9123815114e
 title: Criteri di accesso centrale dello scenario
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 91fd437895e765d4d73f3a200f76a5f8f96b52f2
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: a22592e5c8af9fa23725de90a14a9a8a46c286d7
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71407097"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80861154"
 ---
 # <a name="scenario-central-access-policy"></a>Scenario: Criteri di accesso centrale
 
@@ -85,7 +84,7 @@ Per i criteri di accesso centrale sono disponibili le indicazioni seguenti:
   
 -   [Controllo dinamico degli accessi: Panoramica dello scenario](Dynamic-Access-Control--Scenario-Overview.md)  
   
-## <a name="BKMK_NEW"></a>Ruoli e funzionalità inclusi in questo scenario  
+## <a name="roles-and-features-included-in-this-scenario"></a><a name="BKMK_NEW"></a>Ruoli e funzionalità inclusi in questo scenario  
 Nella tabella seguente sono elencati i ruoli e le funzionalità che interessano questo scenario e sono descritte le modalità di supporto.  
   
 |Ruolo/funzionalità|Modalità di supporto dello scenario|  

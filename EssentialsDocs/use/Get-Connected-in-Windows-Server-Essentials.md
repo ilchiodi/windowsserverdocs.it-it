@@ -1,23 +1,19 @@
 ---
 title: Connessione in Windows Server Essentials
 description: Viene descritto come usare Windows Server Essentials
-ms.custom: na
 ms.date: 05/07/2016
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 149a5d34-43b7-4b9e-99e7-9f2294ab9ddb
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 14acbff8b538224546884e5bb51c40a22b8849b4
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: 7591efcc896dd382afd50cf0e360e28e0cb08f3e
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80318551"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80852154"
 ---
 # <a name="get-connected-in-windows-server-essentials"></a>Connessione in Windows Server Essentials
 
@@ -448,7 +444,7 @@ ms.locfileid: "80318551"
     > [!NOTE]
     >  Quando si effettua il primo accesso a un computer che esegue Windows 8 utilizzando il proprio account di rete, dopo che il computer si è connesso al server verranno visualizzate le istruzioni per la migrazione dei file e delle applicazioni dall'account utente precedente. Seguire le istruzioni riportate nella pagina **Migrazione di file e applicazioni da un account utente precedente** per migrare tutti i file e le applicazioni all'account utente di rete.  
 
-9. Al termine della connessione del computer al server, i collegamenti al connettore TrayApp e al dashboard del server vengono visualizzati nel menu Start, che può essere usato come indicato di seguito (se nel computer è in esecuzione Windows 8, Windows 8.1 o Windows 10, il dashboard e il connettore TrayApp sarà disponibile dalla schermata Start del computer:  
+9. Al termine della connessione del computer al server, i collegamenti al connettore TrayApp e al dashboard del server vengono visualizzati nel menu Start, che può essere usato come indicato di seguito (se nel computer è in esecuzione Windows 8, Windows 8.1 o Windows 10, il dashboard e il connettore TrayApp saranno disponibili dalla schermata Start del computer):  
 
     -   Se nel computer è in esecuzione Windows 8, Windows 8.1 o Windows 10, il dashboard e il connettore TrayApp saranno disponibili per la ricerca come app.  
 

@@ -1,28 +1,22 @@
 ---
 title: set
-description: 'Argomento dei comandi di Windows per * * * *- '
-ms.custom: na
+description: Windows Commands Topic for set, che Visualizza, imposta o rimuove CMD. Variabili di ambiente EXE.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 5fdd60d6-addf-4574-8c92-8aa53fa73d76
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 12dce38bf8ad050c65a7a8c0fca4a71267cca93f
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 7477caa47ef8f728b2ebe99fe0bbf961888b846e
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71384099"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80834394"
 ---
 # <a name="set"></a>set
-
-
 
 Visualizza, imposta o rimuove CMD. Variabili di ambiente EXE. Se utilizzata senza parametri, **impostare** consente di visualizzare le impostazioni delle variabili di ambiente corrente.
 
@@ -36,26 +30,26 @@ set [/p] <Variable>=[<PromptString>]
 set /a <Variable>=<Expression>
 ```
 
-## <a name="parameters"></a>Parametri
+### <a name="parameters"></a>Parametri
 
 |Parametro|Descrizione|
 |---------|-----------|
 |\<variabile >|Specifica la variabile di ambiente per impostare o modificare.|
 |\<stringa >|Specifica la stringa da associare alla variabile di ambiente specificato.|
 |/p|Imposta il valore di *variabile* a una riga di input immessi dall'utente.|
-|\<StringaPrompt >|Facoltativo. Specifica un messaggio per richiedere l'input dell'utente. Questo parametro viene utilizzato con il **/p** opzione della riga di comando.|
+|\<StringaPrompt >|Facoltativa. Specifica un messaggio per richiedere l'input dell'utente. Questo parametro viene utilizzato con il **/p** opzione della riga di comando.|
 |/a|Set *stringa* su un'espressione numerica valutata.|
 |Espressione \<>|Specifica un'espressione numerica. Vedere la sezione Osservazioni per gli operatori validi che possono essere utilizzati in *espressione*.|
 |/?|Visualizza la guida al prompt dei comandi.|
 
-## <a name="remarks"></a>Osservazioni
+## <a name="remarks"></a>Note
 
 - Utilizzando **impostare** con le estensioni abilitate
 
   Quando sono abilitate le estensioni dei comandi (predefinito) e si esegue **impostare** con un valore, vengono visualizzate tutte le variabili che iniziano con tale valore.
 - Utilizzo di caratteri speciali
 
-  I caratteri **<** , **>** , **|** , **&** , **^** comando speciale shell caratteri e deve essere preceduti dal carattere di escape ( **^** ) o racchiuderlo tra virgolette quando usate *stringa* (ad esempio, **"StringaContenenteSimbolo &"** ). Se si utilizzano le virgolette per racchiudere una stringa che contiene uno dei caratteri speciali, le virgolette sono impostate come parte del valore della variabile di ambiente.
+  I caratteri **<** , **>** , **|** , **&** **^** sono caratteri speciali della shell dei comandi, che devono essere preceduti dal carattere di escape ( **^** ) o racchiusi tra virgolette quando vengono usati nella *stringa* , ad esempio **StringaContenenteSimbolo & symbol**. Se si utilizzano le virgolette per racchiudere una stringa che contiene uno dei caratteri speciali, le virgolette sono impostate come parte del valore della variabile di ambiente.
 - Utilizzo di variabili di ambiente
 
   Utilizzare le variabili di ambiente per controllare il comportamento di alcuni programmi e file batch e per controllare il modo Windows e del sottosistema MS-DOS viene visualizzata e funziona. Il **impostare** comando viene spesso utilizzato nel file Autoexec per impostare le variabili di ambiente.
@@ -77,9 +71,9 @@ set /a <Variable>=<Expression>
   |          ! ~ -          |        Unario         |
   |         \*/%          |      Operazioni aritmetiche      |
   |           + -           |      Operazioni aritmetiche      |
-  |          < < > >          |    Spostamento logico     |
+  |          << >>          |    Spostamento logico     |
   |            &            |     AND bit per bit      |
-  |            ^            | OR esclusivo |
+  |            ^            | OR esclusivo bit per bit |
   |                         |                      |
   | = \*=/=% = + =-= & = ^ = |      = < < = > > =       |
   |            ,            | Separatore di espressione |
@@ -105,7 +99,7 @@ set /a <Variable>=<Expression>
 
   Il **impostare** comando con parametri diversi, è disponibile dalla Console di ripristino.
 
-## <a name="BKMK_examples"></a>Esempi
+## <a name="examples"></a><a name=BKMK_examples></a>Esempi
 
 Per impostare una variabile di ambiente denominata TEST ^ 1, digitare:
 ```
@@ -115,11 +109,11 @@ set testVar=test^^1
 > [!NOTE]
 > Il **impostare** comando Assegna tutto ciò che segue il segno di uguale (=) al valore della variabile. Se si digita:
 > ```
-> set testVar="test^1"
+> set testVar=test^1
 > ```
 > Si otterrà il seguente risultato:
 > ```
-> testVar="test^1"
+> testVar=test^1
 > ```
 > Per impostare una variabile di ambiente denominata TEST & 1, digitare:
 > ```
@@ -135,7 +129,7 @@ set testVar=test^^1
 > ```
 > In questo comando viene elaborato, la stringa C:\Inc sostituisce **% include %** .
 
-È inoltre possibile utilizzare **impostare** in un file batch che aggiunge una nuova directory alla variabile di ambiente PATH. Ad esempio:
+È inoltre possibile utilizzare **impostare** in un file batch che aggiunge una nuova directory alla variabile di ambiente PATH. Ad esempio,
 ```
 @echo off
 rem ADDPATH.BAT adds a new directory
@@ -151,6 +145,6 @@ set p
 > [!NOTE]
 > Questo comando richiede estensioni del comando, che sono abilitati per impostazione predefinita.
 
-#### <a name="additional-references"></a>Altri riferimenti
+## <a name="additional-references"></a>Altre informazioni di riferimento
 
-[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+- [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

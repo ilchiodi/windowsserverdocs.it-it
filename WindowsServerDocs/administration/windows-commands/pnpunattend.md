@@ -1,24 +1,20 @@
 ---
 title: pnpunattend
 description: Informazioni su come controllare i driver di dispositivo in un computer, nonché eseguire installazioni di driver invisibile all'utente.
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 4fa88932-cff0-4dfc-936c-98c0e3dfbeb8 britw
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 07/11/2018
-ms.openlocfilehash: 77a6ab1ea45322e3c53e8b095c412cf8838be60d
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: c4836665946b39acdacf4c204c6e79fc2d8507bd
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71372273"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80837534"
 ---
 # <a name="pnpunattend"></a>pnpunattend
 
@@ -30,16 +26,16 @@ Controlla un computer per i driver di dispositivo ed esegue le installazioni aut
 PnPUnattend.exe auditSystem [/help] [/?] [/h] [/s] [/L]
 ```
 
-## <a name="parameters"></a>Parametri
+### <a name="parameters"></a>Parametri
 
 |Parametro|Descrizione|
 |---------|-----------|
-|Passaggio auditSystem|Specifica l'installazione del driver online.</br>Obbligatorio, tranne quando **pnpunattend** viene eseguito con **/Help** o **/?** parametri.|
-|/s|Facoltativo. Specifica la ricerca dei driver senza installare.|
-|/L|Facoltativo. Specifica di visualizzare le informazioni di log per questo comando nel prompt dei comandi.|
-|/?|Facoltativo. Visualizza la guida per questo comando al prompt dei comandi.|
+|Passaggio auditSystem|Specifica l'installazione del driver online.</br>Obbligatorio, tranne quando **pnpunattend** viene eseguito con **/Help** o **/?** .|
+|/s|Facoltativa. Specifica la ricerca dei driver senza installare.|
+|/L|Facoltativa. Specifica di visualizzare le informazioni di log per questo comando nel prompt dei comandi.|
+|/?|Facoltativa. Visualizza la guida per questo comando al prompt dei comandi.|
 
-## <a name="remarks"></a>Osservazioni
+## <a name="remarks"></a>Note
 
 La preparazione preliminare è obbligatoria. Prima di utilizzare questo comando, è necessario completare le attività seguenti:
 
@@ -60,4 +56,4 @@ pnpunattend auditsystem /s /l
 
 ## <a name="additional-references"></a>Altri riferimenti
 
-[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+- [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

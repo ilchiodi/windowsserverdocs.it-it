@@ -1,28 +1,24 @@
 ---
 title: tracert
-description: 'Argomento dei comandi di Windows per * * * *- '
-ms.custom: na
+description: Windows Commands argomento for tracert, che determina il percorso effettuato a una destinazione, inviando Internet Control Message Protocol (ICMP) Echo Requests o messaggi ICMPv6 alla destinazione con valori di campo TTL (time to Live) incrementali.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 9032a032-2e5e-49d4-9e86-f821600e4ba6
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: f08fd3276f3377fed06d7b9a2cc3399fa1071f39
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: a4485763aecf46aa91664c6a6a42c437be518f02
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71385653"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80832644"
 ---
 # <a name="tracert"></a>tracert
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Determina il percorso effettuato a una destinazione inviando i messaggi di richiesta echo Internet Control Message Protocol (ICMP) o ICMPv6 alla destinazione con valori di campo TTL (time to Live) che aumentano in modo incrementale. Il percorso visualizzato è l'elenco di interfacce router vicino/laterali dei router nel percorso tra un host di origine e una destinazione. L'interfaccia near/Side è l'interfaccia del router più vicina all'host di invio nel percorso. Utilizzato senza parametri, tracert Visualizza la guida.   
 
@@ -30,15 +26,15 @@ Determina il percorso effettuato a una destinazione inviando i messaggi di richi
 ```  
 tracert [/d] [/h <MaximumHops>] [/j <Hostlist>] [/w <timeout>] [/R] [/S <Srcaddr>] [/4][/6] <TargetName>  
 ```  
-### <a name="parameters"></a>Parametri  
+#### <a name="parameters"></a>Parametri  
 |Parametro|Descrizione|  
 |-------|--------|  
 |/d|Impedisce a **tracert** di tentare di risolvere gli indirizzi IP dei router intermedi ai rispettivi nomi. In questo modo è possibile velocizzare la visualizzazione dei risultati di **tracert** .|  
 |/h \<MaximumHops >|Specifica il numero massimo di hop nel percorso in cui cercare la destinazione (destinazione). Il valore predefinito è 30 hop.|  
-|/j \<Hostlist >|Specifica che i messaggi di richiesta echo usano l'opzione Loose Source Route nell'intestazione IP con il set di destinazioni intermedie specificato in *host*. Con il routing del codice sorgente sciolto, le destinazioni intermedie successive possono essere separate da uno o più router. Il numero massimo di indirizzi o nomi nell'elenco host è 9. L' *host* è una serie di indirizzi IP (in notazione decimale tratteggiata) separati da spazi. Utilizzare questo parametro solo quando si tracciano gli indirizzi IPv4.|  
-|/w \<timeout >|Specifica la quantità di tempo in millisecondi di attesa del superamento del tempo ICMP o del messaggio di risposta echo corrispondente a un determinato messaggio di richiesta echo da ricevere. Se non viene ricevuto entro il timeout, viene visualizzato un asterisco (*). Il timeout predefinito è 4000 (4 secondi).|  
+|/j \<host >|Specifica che i messaggi di richiesta echo usano l'opzione Loose Source Route nell'intestazione IP con il set di destinazioni intermedie specificato in *host*. Con il routing del codice sorgente sciolto, le destinazioni intermedie successive possono essere separate da uno o più router. Il numero massimo di indirizzi o nomi nell'elenco host è 9. L' *host* è una serie di indirizzi IP (in notazione decimale tratteggiata) separati da spazi. Utilizzare questo parametro solo quando si tracciano gli indirizzi IPv4.|  
+|timeout \</w >|Specifica la quantità di tempo in millisecondi di attesa del superamento del tempo ICMP o del messaggio di risposta echo corrispondente a un determinato messaggio di richiesta echo da ricevere. Se non viene ricevuto entro il timeout, viene visualizzato un asterisco (*). Il timeout predefinito è 4000 (4 secondi).|  
 |/R|Specifica che l'intestazione dell'estensione di routing IPv6 deve essere utilizzata per inviare un messaggio di richiesta echo all'host locale, utilizzando la destinazione come destinazione intermedia e testando la route inversa.|  
-|/S \<Srcaddr >|Specifica l'indirizzo di origine da utilizzare nei messaggi di richiesta echo. Utilizzare questo parametro solo quando si tracciano indirizzi IPv6.|  
+|/S \<srcaddr >|Specifica l'indirizzo di origine da utilizzare nei messaggi di richiesta echo. Utilizzare questo parametro solo quando si tracciano indirizzi IPv6.|  
 |/4|Specifica che tracert. exe può utilizzare solo IPv4 per questa traccia.|  
 |/6|Specifica che tracert. exe può utilizzare solo IPv6 per questa traccia.|  
 |\<TargetName >|Specifica la destinazione, identificata in base all'indirizzo IP o al nome host.|  
@@ -49,7 +45,7 @@ tracert [/d] [/h <MaximumHops>] [/j <Hostlist>] [/w <timeout>] [/R] [/S <Srcaddr
 -   Per tracciare un percorso e fornire la latenza di rete e la perdita di pacchetti per ogni router e collegamento nel percorso, usare il comando **PathPing** .  
 -   Questo comando è disponibile solo se è installato il protocollo Internet Protocol (TCP/IP) come componente nelle proprietà di una scheda di rete in connessioni di rete.  
 
-## <a name="BKMK_Examples"></a>Esempi  
+## <a name="examples"></a><a name=BKMK_Examples></a>Esempi  
 Per tracciare il percorso dell'host denominato corp7.microsoft.com, digitare:  
 ```  
 tracert corp7.microsoft.com  
@@ -63,4 +59,4 @@ Per tracciare il percorso dell'host denominato corp7.microsoft.com e usare il pe
 tracert /j 10.12.0.1 10.29.3.1 10.1.44.1 corp7.microsoft.com  
 ```  
 ## <a name="additional-references"></a>Altri riferimenti  
--   [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)  
+-   - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)  

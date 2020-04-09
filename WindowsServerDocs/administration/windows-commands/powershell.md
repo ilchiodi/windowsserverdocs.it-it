@@ -1,24 +1,20 @@
 ---
 title: PowerShell
 description: Informazioni su come aprire la console di PowerShell da un prompt dei comandi.
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 694fc970-0b6c-4046-b1b5-7eb1a0d26609
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 07/11/2018
-ms.openlocfilehash: 2c43c71fce9bb25efcf3f03284160d5534475a8a
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 327ac844bec0e4c89ee1443c193aa628de038dea
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71372205"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80837404"
 ---
 # <a name="powershell"></a>PowerShell
 

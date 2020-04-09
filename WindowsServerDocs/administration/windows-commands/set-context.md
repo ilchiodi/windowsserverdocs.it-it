@@ -1,28 +1,22 @@
 ---
 title: Imposta contesto
-description: 'Argomento dei comandi di Windows per * * * *- '
-ms.custom: na
+description: Windows Commands argomento per set context, che imposta il contesto per la creazione di copie shadow.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: fc16c7dd-e8f0-4c2a-8742-0bddb2848bfd
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 16f71d831f374f495abf2239cb8e694eee69efdf
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 162fefc46bc3b8ae39dcb41a387e50ed98fefa70
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71370984"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80834564"
 ---
 # <a name="set-contex"></a>Set di menu di scelta rapida
-
-
 
 Imposta il contesto per la creazione di copie shadow. Se utilizzata senza parametri, **Imposta contesto** Visualizza la Guida al prompt dei comandi.
 
@@ -34,7 +28,7 @@ Per esempi di utilizzo di questo comando, vedere [Esempi](#BKMK_examples).
 set context {clientaccessible | persistent [nowriters] | volatile [nowriters]}
 ```
 
-## <a name="parameters"></a>Parametri
+### <a name="parameters"></a>Parametri
 
 |Parametro|Descrizione|
 |---------|-----------|
@@ -47,13 +41,13 @@ set context {clientaccessible | persistent [nowriters] | volatile [nowriters]}
 
 -   Il *clientaccessible* contesto è persistente per impostazione predefinita.
 
-## <a name="BKMK_examples"></a>Esempi
+## <a name="examples"></a><a name=BKMK_examples></a>Esempi
 
 Per impedire che le copie shadow viene eliminata quando si esce dalla DiskShadow, digitare:
 ```
 set context persistent
 ```
 
-#### <a name="additional-references"></a>Altri riferimenti
+## <a name="additional-references"></a>Altre informazioni di riferimento
 
-[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+- [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

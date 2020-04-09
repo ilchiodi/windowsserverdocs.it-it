@@ -1,24 +1,20 @@
 ---
 title: replace
 description: Informazioni su come usare il comando Sostituisci per sostituire i file.
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 6143661e-d90f-4812-b265-6669b567dd1f
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 07/11/2018
-ms.openlocfilehash: 0e96be58106847a3ff6451cdb7792a197ec40227
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: d44e4f8383a77582177f4d9b161210207ce46e63
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71384513"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80835904"
 ---
 # <a name="replace"></a>replace
 
@@ -35,14 +31,14 @@ replace [<Drive1>:][<Path1>]<FileName> [<Drive2>:][<Path2>] [/a] [/p] [/r] [/w]
 replace [<Drive1>:][<Path1>]<FileName> [<Drive2>:][<Path2>] [/p] [/r] [/s] [/w] [/u] 
 ```
 
-## <a name="parameters"></a>Parametri
+### <a name="parameters"></a>Parametri
 
 |Parametro|Descrizione|
 |---------|-----------|
-|[\<Drive1 >:] [\<Path1 >] \<FileName >|Specifica il percorso e nome del file di origine o un set di file. *Filename* è obbligatorio e può includere caratteri jolly ( **&#42;** e **?** ).|
-|[\<Drive2 >:] [\<Path2 >]|Specifica il percorso del file di destinazione. È possibile specificare un nome di file per file da sostituire. Se non si specifica un'unità o percorso, **sostituire** utilizza l'unità corrente e la directory come destinazione.|
+|[\<unità1 >:] [\<path1 >]\<FileName >|Specifica il percorso e nome del file di origine o un set di file. *Filename* è obbligatorio e può includere caratteri jolly ( **&#42;** e **?** ).|
+|[\<unità2 >:] [\<Path2 >]|Specifica il percorso del file di destinazione. È possibile specificare un nome di file per file da sostituire. Se non si specifica un'unità o percorso, **sostituire** utilizza l'unità corrente e la directory come destinazione.|
 |/a|Aggiunge nuovi file della directory di destinazione invece di sostituire i file esistenti. Non è possibile utilizzare questa opzione della riga di comando con il **/s** o **/u** opzione della riga di comando.|
-|/ p|Chiede conferma prima di sostituire un file di destinazione o aggiunta di un file di origine.|
+|/p|Chiede conferma prima di sostituire un file di destinazione o aggiunta di un file di origine.|
 |/r|Sostituisce i file protetti e di sola lettura. Se si tenta di sostituire un file di sola lettura, ma non si specifica **/r**, risultati di un errore e arresta l'operazione di sostituzione.|
 |/w|Attende che sia possibile inserire un disco prima di inizia la ricerca dei file di origine. Se non si specifica **/w**, **sostituire** inizia la sostituzione o l'aggiunta di file, subito dopo aver premuto INVIO.|
 |/s|Cerca tutte le sottodirectory nella directory di destinazione e sostituisce i file corrispondenti. Non è possibile utilizzare **/s** con il **/a** opzione della riga di comando. Il **sostituire** comando non esegue la ricerca nelle sottodirectory specificate in *Path1*.|
@@ -74,12 +70,12 @@ replace [<Drive1>:][<Path1>]<FileName> [<Drive2>:][<Path2>] [/p] [/r] [/s] [/w] 
 > [!NOTE]
 > È possibile utilizzare il parametro ERRORLEVEL sul **Se** riga di comando in un file batch per elaborare i codici di uscita restituiti da **sostituire**.
 
-## <a name="BKMK_examples"></a>Esempi
+## <a name="examples"></a><a name="BKMK_examples"></a>Esempi
 
 Per aggiornare tutte le versioni di un file denominato Telef (che vengono visualizzati in più directory sull'unità C), con la versione più recente del file Telef da un disco floppy nell'unità, digitare:
 
 `replace a:\phones.cli c:\ /s`
 
-#### <a name="additional-references"></a>Altri riferimenti
+## <a name="additional-references"></a>Altre informazioni di riferimento
 
-[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+- [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

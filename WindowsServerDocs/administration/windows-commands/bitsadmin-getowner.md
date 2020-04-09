@@ -1,24 +1,20 @@
 ---
 title: bitsadmin getowner
-description: 'Argomento dei comandi di Windows per **BITSAdmin GetOwner** : Recupera il proprietario del processo specificato.'
-ms.custom: na
+description: Windows Commands argomento per Bitsadmin **GetOwner**, che recupera il proprietario del processo specificato.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 5203f84c-a879-4f31-ae3e-7ea74bd63ca5
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: ab8151ba8b1379c101aa037504ae2021ff0df62f
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 3e622c3759c9ec20867c693539c4481c70aa4f26
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71381455"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80850564"
 ---
 # <a name="bitsadmin-getowner"></a>bitsadmin getowner
 
@@ -27,22 +23,23 @@ Consente di visualizzare il nome visualizzato o il GUID del proprietario del pro
 ## <a name="syntax"></a>Sintassi
 
 ```
-bitsadmin /GetOwner <Job>
+bitsadmin /getowner <job>
 ```
 
-## <a name="parameters"></a>Parametri
+### <a name="parameters"></a>Parametri
 
-|Parametro|Descrizione|
-|---------|-----------|
-|Job|Nome visualizzato o il GUID del processo|
+| Parametro | Descrizione |
+| -------------- | -------------- |
+| lavoro | Nome visualizzato o GUID del processo. |
 
-## <a name="BKMK_examples"></a>Esempi
+## <a name="examples"></a><a name=BKMK_examples></a>Esempi
 
 Nell'esempio seguente viene visualizzato il proprietario del processo denominato *myDownloadJob*.
+
 ```
-C:\>bitsadmin /GetOwner myDownloadJob
+C:\>bitsadmin /getowner myDownloadJob
 ```
 
-#### <a name="additional-references"></a>Altri riferimenti
+## <a name="additional-references"></a>Altre informazioni di riferimento
 
-[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+- [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

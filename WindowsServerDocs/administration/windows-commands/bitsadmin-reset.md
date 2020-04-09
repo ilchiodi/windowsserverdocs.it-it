@@ -1,57 +1,48 @@
 ---
 title: bitsadmin reset
-description: "Argomento dei comandi di Windows per la **reimpostazione di Bitsadmin** : Annulla tutti i processi nella coda di trasferimento di proprietà dell'utente corrente."
-ms.custom: na
+description: Windows Commands argomento for **BITSAdmin Reset**, che annulla tutti i processi nella coda di trasferimento di proprietà dell'utente corrente.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 0e4f9d1d-072c-493f-8d7a-f6d713c3ef29
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: adc6b07a7b5d1414c733fe6a3ac05eba7cb3029e
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: ed1dcf9bce06af527ffb5b6a79d76d860d78450c
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71380807"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80849794"
 ---
 # <a name="bitsadmin-reset"></a>bitsadmin reset
 
-Annulla tutti i processi nella coda di trasferimento a cui appartiene l'utente corrente.
+Annulla tutti i processi nella coda di trasferimento di proprietà dell'utente corrente. > Non è possibile reimpostare i processi creati dal sistema locale. Al contrario, è necessario essere un amministratore e usare l'utilità di pianificazione per pianificare questo comando come attività usando le credenziali del sistema locale.
 
-**BITSAdmin 1,5 e versioni precedenti**: se si dispone di privilegi di amministratore, **reimpostare** Annulla tutti i processi nella coda. L'opzione/AllUsers non è supportata.
+> [!NOTE]
+> In BITSAdmin 1,5 e versioni precedenti, se si dispone dei privilegi di amministratore, l'opzione/reset cancellerà tutti i processi nella coda. Inoltre, l'opzione/ALLUSERS non è supportata.
 
 ## <a name="syntax"></a>Sintassi
 
 ```
-bitsadmin /Reset [/AllUsers]
+bitsadmin /reset [/allusers]
 ```
 
-## <a name="parameters"></a>Parametri
+### <a name="parameters"></a>Parametri
 
-|Parametro|Descrizione|
-|---------|-----------|
-|AllUsers|Facoltativo: Annulla tutti i processi nella coda.|
+| Parametro | Descrizione |
+| -------------- | -------------- |
+| /allusers | Facoltativa. Annulla tutti i processi nella coda di proprietà dell'utente corrente. Per utilizzare questo parametro, è necessario disporre dei privilegi di amministratore. |
 
-## <a name="remarks"></a>Osservazioni
-
-È necessario disporre dei privilegi di amministratore per utilizzare il **AllUsers** parametro.
-
-> [!NOTE]
-> Gli amministratori non possono reimpostare i processi creati dal sistema locale. Usare l'utilità di pianificazione per pianificare questo comando come attività usando le credenziali del sistema locale.
-
-## <a name="BKMK_examples"></a>Esempi
+## <a name="examples"></a><a name=BKMK_examples></a>Esempi
 
 Nell'esempio seguente Annulla tutti i processi nella coda di trasferimento per l'utente corrente.
+
 ```
-C:\>bitsadmin /Reset
+C:\>bitsadmin /reset
 ```
 
-#### <a name="additional-references"></a>Altri riferimenti
+## <a name="additional-references"></a>Altre informazioni di riferimento
 
-[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+- [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

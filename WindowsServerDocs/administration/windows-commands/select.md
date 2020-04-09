@@ -1,26 +1,22 @@
 ---
-title: selezionare
-description: 'Argomento dei comandi di Windows per * * * *- '
-ms.custom: na
+title: select
+description: Argomento dei comandi di Windows per * * * *-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 9eeb40c0-4258-46e2-8dbc-94f63497e771
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 7dc3bc8775f971968f096ba4344348e77c112cfa
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: f9ad7051978f4b509f54bf783f71943b65617bc7
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71384115"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80834654"
 ---
-# <a name="select"></a>selezionare
+# <a name="select"></a>select
 
 
 
@@ -35,7 +31,7 @@ select volume
 select vdisk
 ```
 
-## <a name="parameters"></a>Parametri
+### <a name="parameters"></a>Parametri
 
 |Parametro|Descrizione|
 |---------|-----------|
@@ -49,7 +45,7 @@ select vdisk
 -   Se si seleziona un volume con una partizione corrispondente, verrà selezionata automaticamente la partizione.
 -   Se è selezionata una partizione con un volume corrispondente, il volume verrà selezionato automaticamente.
 
-#### <a name="additional-references"></a>Altri riferimenti
+## <a name="additional-references"></a>Altre informazioni di riferimento
 
-[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+- [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
 

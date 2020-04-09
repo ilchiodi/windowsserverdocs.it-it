@@ -1,24 +1,21 @@
 ---
 title: Ottimizzazione delle prestazioni delle schede di rete
 description: Questo argomento fa parte della Guida all'ottimizzazione delle prestazioni del sottosistema di rete per Windows Server 2016.
-audience: Admin
-ms.custom:
-- CI ID 111485
-- CSSTroubleshoot
+audience: Admin - CI ID 111485 - CSSTroubleshoot
 ms.prod: windows-server
 ms.technology: networking
 ms.topic: article
 ms.assetid: 0b9b0f80-415c-4f5e-8377-c09b51d9c5dd
 manager: dcscontentpm
-ms.author: lizross
+ms.author: v-tea
 author: Teresa-Motiv
 ms.date: 12/23/2019
-ms.openlocfilehash: f802804d64b3047a2612b7f346de03aff61c30cd
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: dec88eb81227b62cd0a0ca90810b2598b8f9fd52
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80316548"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80854744"
 ---
 # <a name="performance-tuning-network-adapters"></a>Ottimizzazione delle prestazioni delle schede di rete
 
@@ -237,7 +234,7 @@ Per ulteriori informazioni su questi cmdlet, vedere gli articoli seguenti:
 |Disabled |Nessun fattore di scala disponibile |Impostare la finestra di ricezione TCP sul valore predefinito. |
 |Restricted (Restrizioni) |0x4 (fattore di scala 4) |Impostare la finestra di ricezione TCP in modo che cresca oltre il valore predefinito, ma limitare tale crescita in alcuni scenari. |
 |Con restrizioni elevata |0x2 (fattore di scala 2) |Impostare la finestra di ricezione TCP in modo che cresca oltre il valore predefinito, ma eseguire questa operazione in modo molto prudente. |
-|sperimentale |0xE (fattore di scala 14) |Impostare la finestra di ricezione TCP in modo che cresca per adattarsi a scenari estremi. |
+|Sperimentale |0xE (fattore di scala 14) |Impostare la finestra di ricezione TCP in modo che cresca per adattarsi a scenari estremi. |
 
 Se si usa un'applicazione per acquisire i pacchetti di rete, l'applicazione deve segnalare i dati simili ai seguenti per le diverse impostazioni del livello di ottimizzazione automatica della finestra.
 

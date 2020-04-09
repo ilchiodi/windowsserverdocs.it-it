@@ -1,28 +1,22 @@
 ---
-title: active
-description: Windows Commands Topic for **Active** -on Basic disks contrassegna la partizione con lo stato attivo come attivo.
-ms.custom: na
+title: attivo
+description: Windows Commands Topic for **Active**, che nei dischi di base, contrassegna la partizione con lo stato attivo come attivo.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 1f25da2e-87fc-4392-a7ee-f38d09b7873c
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: c926bf9b7a583cf7eaa23166e09e6f0a1599e625
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 42f2e0d367344355e8f9a570f37cfbdc5dfc4590
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71382854"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80851374"
 ---
-# <a name="active"></a>active
-
-
+# <a name="active"></a>attivo
 
 Nei dischi di base Contrassegna partizione come attiva.
 
@@ -33,20 +27,23 @@ Nei dischi di base Contrassegna partizione come attiva.
 
 ```
 active
+```- 
+
+## Remarks
+
+-   This informs the basic input/output system (BIOS) or Extensible Firmware Interface (EFI) that the partition or volume is a valid system partition or system volume.
+
+-   Only partitions can be marked as active.
+
+-   A partition must be selected for this operation to succeed. Use the **select partition** command to select a partition and shift the focus to it.
+
+## <a name=BKMK_examples></a>Examples
+
+To mark the partition with focus as the active partition, type:
+
 ```
-
-## <a name="remarks"></a>Note
-
--   Informa il basic input/output system (BIOS) o l'interfaccia EFI (Extensible Firmware Interface) che la partizione o il volume è una partizione di sistema valida o un volume di sistema.
--   Solo le partizioni possono essere contrassegnate come attive.
--   Per eseguire questa operazione, è necessario selezionare una partizione. Usare il comando **select partition** per selezionare una partizione e spostare lo stato attivo su di essa.
-
-## <a name="BKMK_examples"></a>Esempi
-
-Per contrassegnare la partizione come partizione attiva, digitare:
+attivo
 ```
-active
-```
+## Additional References
 
-#### <a name="additional-references"></a>Altri riferimenti
-
+- [Command-Line Syntax Key](command-line-syntax-key.md)

@@ -1,7 +1,5 @@
 ---
-ms.assetid: ''
 title: Criteri di controllo degli accessi client in AD FS
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,12 +7,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: c00a13076b3c3cf28f9efa0a5127f50e34219c84
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: f9939662c22e9500235bae014b7fb9064afd911b
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71358635"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80858114"
 ---
 # <a name="controlling-access-to-organizational-data-with-active-directory-federation-services"></a>Controllo dell'accesso ai dati dell'organizzazione con Active Directory Federation Services
 

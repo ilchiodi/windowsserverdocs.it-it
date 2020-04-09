@@ -5,14 +5,14 @@ ms.prod: windows-server
 ms.technology: performance-tuning-guide
 ms.topic: article
 author: phstee
-ms.author: NedPyle; Danlo; DKruse
+ms.author: nedpyle; danlo; dkruse
 ms.date: 4/14/2017
-ms.openlocfilehash: 918d21139a068da1a46fbda1fa5034e14c8379c0
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: 89017686801501593c51245d44bf88a6ecf4baf6
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75947067"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80851824"
 ---
 # <a name="performance-tuning-for-smb-file-servers"></a>Ottimizzazione delle prestazioni per i file server SMB
 
@@ -106,7 +106,7 @@ Le seguenti impostazioni del registro di sistema REG\_DWORD possono influire sul
   Le impostazioni predefinite sono rispettivamente 512 e 8192. Questi parametri consentono al server di limitare dinamicamente la concorrenza delle operazioni client entro i limiti specificati. Alcuni client potrebbero ottenere una maggiore velocità effettiva con limiti di concorrenza più elevati, ad esempio la copia di file su collegamenti a larghezza di banda elevata e a latenza elevata.
     
   > [!TIP]
-  > Prima di Windows 10 e Windows Server 2016, il numero di crediti concesso al client variava dinamicamente tra Smb2CreditsMin e Smb2CreditsMax in base a un algoritmo che tentava di determinare il numero ottimale di crediti da concedere in base alla latenza di rete e utilizzo del credito. In Windows 10 e Windows Server 2016, il server SMB è stato modificato in modo da concedere crediti in modo non condizionale su richiesta fino al numero massimo di crediti configurato. Come parte di questa modifica, il meccanismo di limitazione del credito, che riduce le dimensioni della finestra di credito di ogni connessione quando il server è sotto pressione di memoria, è stato rimosso. L'evento di memoria insufficiente del kernel che ha attivato la limitazione delle richieste viene segnalato solo quando la memoria del server è insufficiente (< pochi MB) per essere inutile. Poiché il server non compatta più le finestre di credito, l'impostazione Smb2CreditsMin non è più necessaria e viene ora ignorata.
+  > Prima di Windows 10 e Windows Server 2016, il numero di crediti concesso al client variava dinamicamente tra Smb2CreditsMin e Smb2CreditsMax in base a un algoritmo che tentava di determinare il numero ottimale di crediti da concedere in base alla latenza di rete e all'utilizzo del credito. In Windows 10 e Windows Server 2016, il server SMB è stato modificato in modo da concedere crediti in modo non condizionale su richiesta fino al numero massimo di crediti configurato. Come parte di questa modifica, il meccanismo di limitazione del credito, che riduce le dimensioni della finestra di credito di ogni connessione quando il server è sotto pressione di memoria, è stato rimosso. L'evento di memoria insufficiente del kernel che ha attivato la limitazione delle richieste viene segnalato solo quando la memoria del server è insufficiente (< pochi MB) per essere inutile. Poiché il server non compatta più le finestre di credito, l'impostazione Smb2CreditsMin non è più necessaria e viene ora ignorata.
   > 
   > È possibile monitorare le condivisioni client SMB\\/sec per verificare se sono presenti problemi relativi ai crediti.
 
@@ -148,7 +148,7 @@ Le seguenti impostazioni del registro di sistema REG\_DWORD possono influire sul
 
 Le impostazioni seguenti consentono di ottimizzare un computer per file server le prestazioni in molti casi. Le impostazioni non sono ottimali o appropriate per tutti i computer. È consigliabile valutare l'impatto delle singole impostazioni prima di applicarle.
 
-| Parametro                       | Value | Valore predefinito |
+| Parametro                       | Valore | Default |
 |---------------------------------|-------|---------|
 | AdditionalCriticalWorkerThreads | 64    | 0       |
 | MaxThreadsPerQueue              | 64    | 20      |

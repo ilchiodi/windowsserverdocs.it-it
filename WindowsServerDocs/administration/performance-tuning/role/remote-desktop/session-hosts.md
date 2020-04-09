@@ -4,15 +4,15 @@ description: Linee guida per l'ottimizzazione delle prestazioni per Desktop remo
 ms.prod: windows-server
 ms.technology: performance-tuning-guide
 ms.topic: article
-ms.author: HammadBu; VladmiS; DenisGun
+ms.author: hammadbu; vladmis; denisgun
 author: phstee
 ms.date: 10/22/2019
-ms.openlocfilehash: b439b0cbab66f98a1f74faeb7bff996b30a188d5
-ms.sourcegitcommit: 3262c5c7cece9f2adf2b56f06b7ead38754a451c
+ms.openlocfilehash: 3227bfe3bf21343ca9b7e85a07f550b4684a2fb7
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72812337"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80851714"
 ---
 # <a name="performance-tuning-remote-desktop-session-hosts"></a>Ottimizzazione delle prestazioni Desktop remoto host della sessione
 
@@ -58,7 +58,7 @@ L'attività del disco generata in un tipico server Host sessione Desktop remoto 
 
 -   Profili utente e dati utente
 
-Idealmente, è consigliabile eseguire il backup di queste aree da dispositivi di archiviazione distinti. L'uso di configurazioni RAID con striping o altri tipi di archiviazione a prestazioni elevate migliora ulteriormente le prestazioni. Si consiglia vivamente di usare gli adattatori di archiviazione con memorizzazione nella cache di scrittura con supporto di batteria. I controller con memorizzazione nella cache di scrittura su disco offrono un supporto migliorato per le operazioni di scrittura sincrona. Poiché tutti gli utenti dispongono di un hive separato, le operazioni di scrittura sincrona sono molto più comuni in un server Host sessione Desktop remoto. Gli hive del registro di sistema vengono salvati periodicamente su disco mediante operazioni di scrittura sincrona. Per abilitare queste ottimizzazioni, dalla console Gestione disco aprire la finestra di dialogo **Proprietà** per il disco di destinazione e, nella scheda **criteri** , selezionare la casella di controllo **Abilita Caching scrittura sul disco** e **Disattiva buffer di scrittura cache di Windows. Scaricamento** sulle caselle di controllo del dispositivo.
+Idealmente, è consigliabile eseguire il backup di queste aree da dispositivi di archiviazione distinti. L'uso di configurazioni RAID con striping o altri tipi di archiviazione a prestazioni elevate migliora ulteriormente le prestazioni. Si consiglia vivamente di usare gli adattatori di archiviazione con memorizzazione nella cache di scrittura con supporto di batteria. I controller con memorizzazione nella cache di scrittura su disco offrono un supporto migliorato per le operazioni di scrittura sincrona. Poiché tutti gli utenti dispongono di un hive separato, le operazioni di scrittura sincrona sono molto più comuni in un server Host sessione Desktop remoto. Gli hive del registro di sistema vengono salvati periodicamente su disco mediante operazioni di scrittura sincrona. Per abilitare queste ottimizzazioni, dalla console Gestione disco aprire la finestra di dialogo **Proprietà** per il disco di destinazione e, nella scheda **criteri** , selezionare la casella di controllo **Abilita memorizzazione nella cache sul disco** e **Disattiva lo svuotamento del buffer di scrittura nella cache di Windows** nelle caselle di controllo del dispositivo.
 
 ### <a name="network-configuration"></a>Configurazione di rete
 
@@ -132,7 +132,7 @@ Le icone di notifica sul desktop possono avere meccanismi di aggiornamento piutt
 
 ### <a name="remote-desktop-protocol-data-compression"></a>Compressione dei dati Remote Desktop Protocol
 
-Remote Desktop Protocol la compressione può essere configurata utilizzando Criteri di gruppo in **Configurazione Computer** &gt; **modelli amministrativi** &gt; **componenti Windows** **&gt; Servizi Desktop remoto &gt;** **Host sessione Desktop remoto** &gt; **ambiente della sessione remota** &gt; **configurare la compressione per i dati RemoteFX**. Sono possibili tre valori:
+Remote Desktop Protocol la compressione può essere configurata utilizzando Criteri di gruppo in **Configurazione Computer** &gt; **modelli amministrativi** &gt; **componenti** di Windows **Remote Desktop Session Host** **&gt; Servizi Desktop remoto &gt; host sessione Desktop remoto** &gt; **ambiente sessione remota** &gt; **configurare la compressione per i dati RemoteFX**. Sono possibili tre valori:
 
 -   **Ottimizzato per l'utilizzo di meno memoria** Utilizza la quantità minima di memoria per sessione, ma presenta il rapporto di compressione più basso e pertanto il consumo di larghezza di banda più elevato.
 
@@ -144,7 +144,7 @@ Remote Desktop Protocol la compressione può essere configurata utilizzando Crit
 
 ### <a name="device-redirection"></a>Reindirizzamento del dispositivo
 
-Il reindirizzamento del dispositivo può essere configurato usando Criteri di gruppo in **Configurazione Computer** &gt; **modelli amministrativi** &gt; **componenti Windows** &gt; Servizi Desktop remoto **&gt;** **remoto Host sessione Desktop** &gt; il **Reindirizzamento delle risorse e del dispositivo** o usando la casella proprietà **raccolta di sessioni** in Server Manager.
+Il reindirizzamento del dispositivo può essere configurato usando Criteri di gruppo in **Configurazione Computer** &gt; **modelli amministrativi** &gt; **componenti di Windows** &gt; **Servizi Desktop remoto &gt; host sessione Desktop remoto** **&gt; il** **Reindirizzamento di dispositivi e risorse** oppure usando la casella proprietà **raccolta di sessioni** in Server Manager.
 
 In genere, il reindirizzamento dei dispositivi aumenta la quantità di connessioni del server Host sessione Desktop remoto della larghezza di banda usata perché i dati vengono scambiati tra i dispositivi nei computer client e i processi in esecuzione nella sessione del server. L'entità dell'aumento è una funzione della frequenza delle operazioni eseguite dalle applicazioni in esecuzione nel server sui dispositivi reindirizzati.
 

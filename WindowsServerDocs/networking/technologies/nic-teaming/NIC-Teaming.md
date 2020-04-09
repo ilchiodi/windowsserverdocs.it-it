@@ -2,23 +2,19 @@
 title: Gruppo di schede di interfaccia di rete
 description: In questo argomento viene illustrata una panoramica del gruppo NIC (Network Interface Card) in Windows Server 2016. Gruppo NIC consente di raggruppare una o più schede di rete fisiche Ethernet da una a 32 in una o più schede di rete virtuali basate su software. Queste schede di rete virtuali garantiscono prestazioni elevate e tolleranza di errore in caso di errore delle schede di rete.
 manager: dougkim
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: networking-nict
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: abded6f3-5708-4e35-9a9e-890e81924fec
 ms.author: lizross
 author: eross-msft
 ms.date: 09/10/2018
-ms.openlocfilehash: f4d9dd20d626f998bee0a8414c281cd27b2d3dbb
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: 13607bedb436b794e03e3b2ef67ca0e90d865ed7
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80316440"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80854734"
 ---
 # <a name="nic-teaming"></a>Gruppo di schede di interfaccia di rete
 
@@ -41,7 +37,10 @@ Poiché Windows Server 2016 supporta fino a 32 interfacce del team per ogni team
 Inoltre, è possibile connettere le NIC raggruppate allo stesso commutatore o a diversi commutatori. Se si connettono le schede NIC a diversi commutatori, entrambi i commutatori devono trovarsi nella stessa subnet.  
   
 ## <a name="availability"></a>Disponibilità  
-Gruppo NIC è disponibile in tutte le versioni di Windows Server 2016. È possibile utilizzare un'ampia gamma di strumenti per gestire il gruppo NIC da computer che eseguono un sistema operativo client, ad esempio: • cmdlet di Windows PowerShell • Desktop remoto • Strumenti di amministrazione remota del server  
+Gruppo NIC è disponibile in tutte le versioni di Windows Server 2016. È possibile utilizzare un'ampia gamma di strumenti per gestire il gruppo NIC da computer che eseguono un sistema operativo client, ad esempio:
+*    Cmdlet di Windows PowerShell
+*    Desktop remoto
+*    Strumenti di amministrazione remota del server  
   
 ## <a name="supported-and-unsupported-nics"></a>NIC supportate e non supportate   
 È possibile usare qualsiasi scheda di interfaccia di rete Ethernet che ha superato il test del logo e la qualifica hardware Windows (test WHQL) in un gruppo NIC in Windows Server 2016.  
@@ -116,9 +115,9 @@ Quando un team si connette a un Commuter virtuale Hyper-V, è necessario eseguir
 
 Pianificare l'uso delle VLAN in una macchina virtuale configurata con un gruppo NIC usando le linee guida seguenti:
   
--   Il metodo preferito per supportare più VLAN in una macchina virtuale consiste nel configurare la macchina virtuale con più porte nel Commuter virtuale Hyper-V e associare ogni porta a una VLAN. Non eseguire mai il team di queste porte nella macchina virtuale perché causa problemi di comunicazione di rete.  
+-    Il metodo preferito per supportare più VLAN in una macchina virtuale consiste nel configurare la macchina virtuale con più porte nel Commuter virtuale Hyper-V e associare ogni porta a una VLAN. Non eseguire mai il team di queste porte nella macchina virtuale perché causa problemi di comunicazione di rete.  
 
--   Se la macchina virtuale ha più funzioni virtuali SR-IOV (VFs), assicurarsi che si trovino nella stessa VLAN prima di raggrupparle nella macchina virtuale. È possibile configurare facilmente i diversi VFs in modo che si trovino in VLAN diverse e questo provochi problemi di comunicazione di rete.  
+-    Se la macchina virtuale ha più funzioni virtuali SR-IOV (VFs), assicurarsi che si trovino nella stessa VLAN prima di raggrupparle nella macchina virtuale. È possibile configurare facilmente i diversi VFs in modo che si trovino in VLAN diverse e questo provochi problemi di comunicazione di rete.  
  
   
 ### <a name="manage-network-interfaces-and-vlans"></a>Gestire le interfacce di rete e le VLAN 

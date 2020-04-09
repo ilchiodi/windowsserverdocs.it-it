@@ -1,22 +1,18 @@
 ---
 title: Opzioni di Desktop remoto
-description: Viene descritto come utilizzare Windows Server Essentials
-ms.custom: na
+description: Viene descritto come usare Windows Server Essentials
 ms.date: 10/03/2016
-ms.reviewer: na
-ms.suite: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 51076946-ea9b-4ac7-9a6e-d6023816b97d
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: bbf7f258b2904732ab2e605d1eb3ea6bd2d306be
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 5f2c0da644aaf08cc921f778d9d1203c94e3f94e
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59818312"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80852654"
 ---
 # <a name="remote-desktop-options"></a>Opzioni di Desktop remoto
  
@@ -27,15 +23,15 @@ ms.locfileid: "59818312"
 ||||||  
 |-|-|-|-|-|  
 ||Modem lento (28,8 Kbps)|Modem veloce (56 Kbps) (impostazione predefinita)|Banda larga (128 Kbps - 1,5 Mbps)|Rete locale (1,5 Mbps o superiore)|  
-|Sfondo del desktop|No|No|No|Yes|  
-|Caratteri smussati|No|No|No|Yes|  
-|Composizione desktop|No|No|Yes|Yes|  
-|Visualizza contenuto della finestra durante il trascinamento|No|No|Yes|Yes|  
-|Animazione menu e finestre|No|No|Yes|Yes|  
-|Temi|No|Yes|Yes|Yes|  
-|Cache bitmap|Yes|Yes|Yes|Yes|  
+|Sfondo del desktop|No|No|No|Sì|  
+|Caratteri smussati|No|No|No|Sì|  
+|Composizione desktop|No|No|Sì|Sì|  
+|Visualizza contenuto della finestra durante il trascinamento|No|No|Sì|Sì|  
+|Animazione menu e finestre|No|No|Sì|Sì|  
+|Temi|No|Sì|Sì|Sì|  
+|Cache bitmap|Sì|Sì|Sì|Sì|  
   
-## <a name="screen-size"></a>Dimensioni schermo  
+## <a name="screen-size"></a>Dimensioni dello schermo  
  Questa opzione determina le dimensioni della finestra aperta sul computer locale alla connessione a un computer remoto tramite il sito Web di accesso remoto. Le dimensioni della finestra sono espresse in pixel.  
   
 > [!NOTE]
@@ -65,6 +61,6 @@ ms.locfileid: "59818312"
   
 ## <a name="see-also"></a>Vedere anche  
   
--   [Gestire accesso Web remoto](../manage/Manage-Remote-Web-Access-in-Windows-Server-Essentials.md)  
+-   [Gestisci Accesso Web Remote](../manage/Manage-Remote-Web-Access-in-Windows-Server-Essentials.md)  
   
--   [Usare accesso Web remoto](../use/Use-Remote-Web-Access-in-Windows-Server-Essentials.md)
+-   [USA Accesso Web remoto](../use/Use-Remote-Web-Access-in-Windows-Server-Essentials.md)

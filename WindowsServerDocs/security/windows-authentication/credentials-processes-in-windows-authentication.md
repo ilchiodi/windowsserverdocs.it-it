@@ -1,24 +1,20 @@
 ---
 title: Processi di credenziali in Autenticazione di Windows
 description: Sicurezza di Windows Server
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: security-windows-auth
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 48c60816-fb8b-447c-9c8e-800c2e05b14f
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/12/2016
-ms.openlocfilehash: 051cb88620065ed675f377f3369860f7b04460bd
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 2de8383ce6a946dfdd80cfc027478c495037169b
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71402282"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80857584"
 ---
 # <a name="credentials-processes-in-windows-authentication"></a>Processi di credenziali in Autenticazione di Windows
 
@@ -30,7 +26,7 @@ Gestione delle credenziali di Windows è il processo mediante il quale il sistem
 
 Per impostazione predefinita, le credenziali di Windows vengono convalidate in base al database di gestione degli account di sicurezza (SAM) nel computer locale o a Active Directory in un computer appartenente a un dominio tramite il servizio Winlogon. Le credenziali vengono raccolte tramite l'input dell'utente nell'interfaccia utente di accesso o a livello di codice tramite il Application Programming Interface (API) da presentare alla destinazione di autenticazione.
 
-Le informazioni di sicurezza locali vengono archiviate nel registro di sistema in **HKEY_LOCAL_MACHINE\SECURITY**. Le informazioni archiviate includono le impostazioni dei criteri, i valori di sicurezza predefiniti e le informazioni sull'account, ad esempio le credenziali di accesso nella cache. Una copia del database SAM viene anche archiviata qui, sebbene sia protetta da scrittura.
+Le informazioni di sicurezza locali vengono archiviate nel registro di sistema in **HKEY_LOCAL_MACHINE \Security**. Le informazioni archiviate includono le impostazioni dei criteri, i valori di sicurezza predefiniti e le informazioni sull'account, ad esempio le credenziali di accesso nella cache. Una copia del database SAM viene anche archiviata qui, sebbene sia protetta da scrittura.
 
 Il diagramma seguente illustra i componenti necessari e i percorsi che le credenziali prendono attraverso il sistema per autenticare l'utente o il processo per un accesso riuscito.
 
@@ -40,14 +36,14 @@ Nella tabella seguente vengono descritti i componenti che gestiscono le credenzi
 
 **Componenti di autenticazione per tutti i sistemi**
 
-|Componente|Descrizione|
+|Component|Descrizione|
 |-------|--------|
 |Accesso dell'utente|Winlogon. exe è il file eseguibile responsabile della gestione delle interazioni utente protette. Il servizio Winlogon avvia il processo di accesso per i sistemi operativi Windows passando le credenziali raccolte dall'azione dell'utente sul desktop sicuro (interfaccia utente di accesso) all'autorità di sicurezza locale (LSA) tramite Secur32. dll.|
-|Accesso all'applicazione|Accessi dell'applicazione o del servizio che non richiedono l'accesso interattivo. La maggior parte dei processi avviati dall'utente viene eseguita in modalità utente utilizzando Secur32. dll, mentre i processi avviati all'avvio, ad esempio i servizi, vengono eseguiti in modalità kernel utilizzando Ksecdd. sys.<br /><br />Per ulteriori informazioni sulla modalità utente e sulla modalità kernel, vedere applicazioni e modalità utente o servizi e modalità kernel in questo argomento.|
+|Accesso all'applicazione|Accessi dell'applicazione o del servizio che non richiedono l'accesso interattivo. La maggior parte dei processi avviati dall'utente viene eseguita in modalità utente utilizzando Secur32. dll, mentre i processi avviati all'avvio, ad esempio i servizi, vengono eseguiti in modalità kernel utilizzando Ksecdd. sys.<p>Per ulteriori informazioni sulla modalità utente e sulla modalità kernel, vedere applicazioni e modalità utente o servizi e modalità kernel in questo argomento.|
 |Secur32.dll|I provider di autenticazione multipli che costituiscono la base del processo di autenticazione.|
 |Lsasrv.dll|Il servizio del server LSA, che applica entrambi i criteri di sicurezza e funge da Gestione pacchetti di sicurezza per LSA. L'LSA contiene la funzione Negotiate, che seleziona il protocollo NTLM o Kerberos dopo aver determinato il protocollo che deve avere esito positivo.|
 |Security Support Provider|Set di provider che possono richiamare singolarmente uno o più protocolli di autenticazione. Il set predefinito di provider può essere modificato con ogni versione del sistema operativo Windows e i provider personalizzati possono essere scritti.|
-|Netlogon.dll|I servizi eseguiti dal servizio Accesso rete sono i seguenti:<br /><br />-Mantiene il canale sicuro del computer (da non confondere con Schannel) in un controller di dominio.<br />: Passa le credenziali dell'utente tramite un canale protetto al controller di dominio e restituisce gli identificatori di sicurezza (SID) del dominio e i diritti utente per l'utente.<br />: Pubblica i record di risorse del servizio nel Domain Name System (DNS) e usa DNS per risolvere i nomi negli indirizzi IP (Internet Protocol) dei controller di dominio.<br />: Implementa il protocollo di replica basato su RPC (Remote Procedure Call) per la sincronizzazione dei controller di dominio primario (PDC) e dei controller di dominio di backup (I BDC).|
+|Netlogon.dll|I servizi eseguiti dal servizio Accesso rete sono i seguenti:<p>-Mantiene il canale sicuro del computer (da non confondere con Schannel) in un controller di dominio.<br />: Passa le credenziali dell'utente tramite un canale protetto al controller di dominio e restituisce gli identificatori di sicurezza (SID) del dominio e i diritti utente per l'utente.<br />: Pubblica i record di risorse del servizio nel Domain Name System (DNS) e usa DNS per risolvere i nomi negli indirizzi IP (Internet Protocol) dei controller di dominio.<br />: Implementa il protocollo di replica basato su RPC (Remote Procedure Call) per la sincronizzazione dei controller di dominio primario (PDC) e dei controller di dominio di backup (I BDC).|
 |Samsrv. dll|Gestione account di sicurezza (SAM), che archivia gli account di sicurezza locali, applica i criteri archiviati localmente e supporta le API.|
 |Registro di sistema|Il registro di sistema contiene una copia del database SAM, le impostazioni dei criteri di sicurezza locali, i valori di sicurezza predefiniti e le informazioni sull'account accessibili solo al sistema.|
 
@@ -69,7 +65,7 @@ Questo argomento è suddiviso nelle sezioni seguenti:
 
 -   [Certificati nell'autenticazione di Windows](#BKMK_CertificatesInWindowsAuthentication)
 
-## <a name="BKMK_CrentialInputForUserLogon"></a>Input delle credenziali per l'accesso utente
+## <a name="credential-input-for-user-logon"></a><a name="BKMK_CrentialInputForUserLogon"></a>Input delle credenziali per l'accesso utente
 In Windows Server 2008 e Windows Vista, l'architettura GINA (Graphical Identification and Authentication) è stata sostituita da un modello di provider di credenziali, che consente di enumerare diversi tipi di accesso tramite l'utilizzo dei riquadri di accesso. Entrambi i modelli sono descritti di seguito.
 
 **Architettura di identificazione e autenticazione grafica**
@@ -132,16 +128,16 @@ Il provider di credenziali enumera i riquadri di accesso nelle istanze seguenti:
 
 -   Il provider di credenziali enumera i riquadri in risposta a una richiesta dell'utente per modificare la password o altre informazioni private, ad esempio un PIN. In genere, l'utente attualmente connesso è il riquadro predefinito; Tuttavia, se più di un utente è connesso, vengono visualizzati numerosi riquadri.
 
--   Il provider di credenziali enumera i riquadri in base alle credenziali serializzate da utilizzare per l'autenticazione nei computer remoti. Nell'interfaccia utente delle credenziali non viene utilizzata la stessa istanza del provider dell'interfaccia utente di accesso, di sblocco della workstation o di modifica della password. Non è pertanto possibile mantenere le informazioni sullo stato nel provider tra le istanze dell'interfaccia utente delle credenziali. Questa struttura restituisce un riquadro per ogni accesso al computer remoto, supponendo che le credenziali siano state serializzate correttamente. Questo scenario viene usato anche in controllo dell'account utente, che consente di impedire modifiche non autorizzate a un computer richiedendo all'utente l'autorizzazione o una password di amministratore prima di consentire azioni che potrebbero influire sull'operazione del computer in alternativa, è possibile modificare le impostazioni che interessano altri utenti del computer.
+-   Il provider di credenziali enumera i riquadri in base alle credenziali serializzate da utilizzare per l'autenticazione nei computer remoti. Nell'interfaccia utente delle credenziali non viene utilizzata la stessa istanza del provider dell'interfaccia utente di accesso, di sblocco della workstation o di modifica della password. Non è pertanto possibile mantenere le informazioni sullo stato nel provider tra le istanze dell'interfaccia utente delle credenziali. Questa struttura restituisce un riquadro per ogni accesso al computer remoto, supponendo che le credenziali siano state serializzate correttamente. Questo scenario viene utilizzato anche in controllo dell'account utente, che consente di impedire modifiche non autorizzate a un computer richiedendo all'utente l'autorizzazione o una password di amministratore prima di consentire azioni che potrebbero influire sull'operazione del computer o che potrebbero modificare le impostazioni che interessano altri utenti del computer.
 
 Il diagramma seguente illustra il processo di credenziale per i sistemi operativi designati nell'elenco **si applica a** all'inizio di questo argomento.
 
 ![Diagramma che illustra il processo di credenziale per i sistemi operativi indicati nell'elenco * * si applica a * * all'inizio di questo argomento](../media/credentials-processes-in-windows-authentication/AuthN_CredMan_CredProv.gif)
 
-## <a name="BKMK_CredentialInputForApplicationAndServiceLogon"></a>Input delle credenziali per l'accesso all'applicazione e al servizio
+## <a name="credential-input-for-application-and-service-logon"></a><a name="BKMK_CredentialInputForApplicationAndServiceLogon"></a>Input delle credenziali per l'accesso all'applicazione e al servizio
 L'autenticazione di Windows è progettata per gestire le credenziali per le applicazioni o i servizi che non richiedono l'interazione dell'utente. Le applicazioni in modalità utente sono limitate in termini di risorse di sistema a cui hanno accesso, mentre i servizi possono avere accesso illimitato alla memoria di sistema e ai dispositivi esterni.
 
-I servizi di sistema e le applicazioni a livello di trasporto accedono a un Security Support Provider (SSP) tramite Security Support Provider Interface (SSPI) in Windows, che fornisce funzioni per l'enumerazione dei pacchetti di sicurezza disponibili in un sistema, la selezione di un e usare il pacchetto per ottenere una connessione autenticata.
+I servizi di sistema e le applicazioni a livello di trasporto accedono a un Security Support Provider (SSP) tramite Security Support Provider Interface (SSPI) in Windows, che fornisce funzioni per l'enumerazione dei pacchetti di sicurezza disponibili in un sistema, la selezione di un pacchetto e l'utilizzo di tale pacchetto per ottenere una connessione autenticata.
 
 Quando viene autenticata una connessione client/server:
 
@@ -157,15 +153,15 @@ Quando viene autenticata una connessione client/server:
 
 **Applicazioni e modalità utente**
 
-La modalità utente in Windows è costituita da due sistemi in grado di passare le richieste di I/O ai driver in modalità kernel appropriati: il sistema dell'ambiente, che esegue applicazioni scritte per molti tipi diversi di sistemi operativi, e il sistema integrale, che funziona funzioni specifiche del sistema per conto del sistema dell'ambiente.
+La modalità utente in Windows è costituita da due sistemi in grado di passare le richieste di I/O ai driver in modalità kernel appropriati: il sistema dell'ambiente, che esegue applicazioni scritte per molti tipi diversi di sistemi operativi, e il sistema integrale, che opera funzioni specifiche del sistema per conto del sistema dell'ambiente.
 
-Il sistema integrale gestisce le funzioni system'specific operative per conto del sistema dell'ambiente ed è costituito da un processo di sistema di sicurezza (LSA), da un servizio workstation e da un servizio Server. Il processo del sistema di sicurezza gestisce i token di sicurezza, concede o nega le autorizzazioni per accedere agli account utente in base alle autorizzazioni delle risorse, gestisce le richieste di accesso e avvia l'autenticazione di accesso e determina le risorse di sistema del sistema operativo deve eseguire il controllo.
+Il sistema integrale gestisce le funzioni system'specific operative per conto del sistema dell'ambiente ed è costituito da un processo di sistema di sicurezza (LSA), da un servizio workstation e da un servizio Server. Il processo del sistema di sicurezza gestisce i token di sicurezza, concede o nega le autorizzazioni per accedere agli account utente in base alle autorizzazioni delle risorse, gestisce le richieste di accesso e avvia l'autenticazione di accesso e determina le risorse di sistema che il sistema operativo deve controllare.
 
 Le applicazioni possono essere eseguite in modalità utente in cui l'applicazione può essere eseguita come qualsiasi entità, incluso nel contesto di sicurezza del sistema locale (sistema). Le applicazioni possono anche essere eseguite in modalità kernel in cui l'applicazione può essere eseguita nel contesto di sicurezza del sistema locale (sistema).
 
-SSPI è disponibile tramite il modulo secur32. dll, un'API utilizzata per ottenere servizi di sicurezza integrati per l'autenticazione, l'integrità dei messaggi e la privacy dei messaggi. Fornisce un livello di astrazione tra i protocolli a livello di applicazione e i protocolli di sicurezza. Poiché le diverse applicazioni richiedono diversi modi per identificare o autenticare gli utenti e modi diversi di crittografare i dati durante il trasferimento in rete, SSPI fornisce un modo per accedere alle librerie di collegamento dinamico (dll) che contengono un'autenticazione diversa e funzioni crittografiche. Queste dll sono denominate SSP (Security Support Provider).
+SSPI è disponibile tramite il modulo secur32. dll, un'API utilizzata per ottenere servizi di sicurezza integrati per l'autenticazione, l'integrità dei messaggi e la privacy dei messaggi. Fornisce un livello di astrazione tra i protocolli a livello di applicazione e i protocolli di sicurezza. Poiché le diverse applicazioni richiedono diversi modi per identificare o autenticare gli utenti e modi diversi di crittografare i dati durante il trasferimento in rete, SSPI fornisce un modo per accedere alle librerie di collegamento dinamico (dll) che contengono funzioni di autenticazione e crittografia diverse. Queste dll sono denominate SSP (Security Support Provider).
 
-Gli account dei servizi gestiti e gli account virtuali sono stati introdotti in Windows Server 2008 R2 e Windows 7 per fornire applicazioni cruciali, ad esempio Microsoft SQL Server e Internet Information Services (IIS), con l'isolamento dei propri account di dominio, mentre eliminando la necessità di un amministratore di amministrare manualmente il nome dell'entità servizio (SPN) e le credenziali per questi account. Per ulteriori informazioni su queste funzionalità e sul relativo ruolo nell'autenticazione, vedere la [documentazione relativa agli account dei servizi gestiti per Windows 7 e Windows Server 2008 R2](https://technet.microsoft.com/library/ff641731(v=ws.10).aspx) e [Panoramica degli account del servizio gestito del gruppo](../group-managed-service-accounts/group-managed-service-accounts-overview.md).
+Gli account dei servizi gestiti e gli account virtuali sono stati introdotti in Windows Server 2008 R2 e Windows 7 per fornire applicazioni cruciali, ad esempio Microsoft SQL Server e Internet Information Services (IIS), con l'isolamento dei propri account di dominio, eliminando la necessità di un amministratore di amministrare manualmente il nome dell'entità servizio (SPN) e le credenziali per questi account. Per ulteriori informazioni su queste funzionalità e sul relativo ruolo nell'autenticazione, vedere la [documentazione relativa agli account dei servizi gestiti per Windows 7 e Windows Server 2008 R2](https://technet.microsoft.com/library/ff641731(v=ws.10).aspx) e [Panoramica degli account del servizio gestito del gruppo](../group-managed-service-accounts/group-managed-service-accounts-overview.md).
 
 **Servizi e modalità kernel**
 
@@ -180,7 +176,7 @@ Il file Ksecdd. sys gestisce e crittografa le credenziali e utilizza una chiamat
 
 La modalità kernel ha accesso completo alle risorse hardware e di sistema del computer. La modalità kernel interrompe l'accesso alle aree critiche del sistema operativo da parte dei servizi e delle applicazioni in modalità utente a cui non dovrebbero accedere.
 
-## <a name="BKMK_LSA"></a>Autorità di sicurezza locale
+## <a name="local-security-authority"></a><a name="BKMK_LSA"></a>Autorità di sicurezza locale
 L'autorità di sicurezza locale (LSA) è un processo di sistema protetto che consente di autenticare e registrare gli utenti nel computer locale. Inoltre, LSA mantiene le informazioni su tutti gli aspetti della sicurezza locale in un computer (questi aspetti sono collettivamente noti come criteri di sicurezza locali) e fornisce vari servizi per la conversione tra i nomi e gli identificatori di sicurezza (SID). Il processo del sistema di sicurezza, LSASS (Local Security Authority Server Service), tiene traccia dei criteri di sicurezza e degli account attivi in un sistema di computer.
 
 LSA convalida l'identità di un utente in base a quale delle due entità seguenti ha emesso l'account dell'utente:
@@ -235,7 +231,7 @@ Introdotta in Windows 8.1, il sistema operativo client fornisce protezione aggiu
 
 Per ulteriori informazioni su queste protezioni aggiuntive, vedere la pagina relativa alla [configurazione della protezione LSA aggiuntiva](../credentials-protection-and-management/configuring-additional-lsa-protection.md).
 
-## <a name="BKMK_CachedCredentialsAndValidation"></a>Credenziali e convalida memorizzate nella cache
+## <a name="cached-credentials-and-validation"></a><a name="BKMK_CachedCredentialsAndValidation"></a>Credenziali e convalida memorizzate nella cache
 I meccanismi di convalida si basano sulla presentazione di credenziali al momento dell'accesso. Tuttavia, quando il computer è disconnesso da un controller di dominio e l'utente presenta le credenziali del dominio, Windows usa il processo di credenziali memorizzate nella cache nel meccanismo di convalida.
 
 Ogni volta che un utente accede a un dominio, Windows memorizza nella cache le credenziali fornite e le archivia nell'hive di sicurezza nel registro di sistema del sistema operativo.
@@ -243,7 +239,7 @@ Ogni volta che un utente accede a un dominio, Windows memorizza nella cache le c
 Con le credenziali memorizzate nella cache, l'utente può accedere a un membro del dominio senza connettersi a un controller di dominio all'interno di tale dominio.
 
 
-## <a name="BKMK_CredentialStorageAndValidation"></a>Archiviazione e convalida delle credenziali
+## <a name="credential-storage-and-validation"></a><a name="BKMK_CredentialStorageAndValidation"></a>Archiviazione e convalida delle credenziali
 Non è sempre consigliabile usare un set di credenziali per l'accesso a risorse diverse. È ad esempio possibile che un amministratore desideri utilizzare le credenziali amministrative anziché le credenziali utente per l'accesso a un server remoto. Analogamente, se un utente accede a risorse esterne, ad esempio un conto bancario, può utilizzare solo credenziali diverse dalle credenziali di dominio. Nelle sezioni seguenti vengono descritte le differenze di gestione delle credenziali tra le versioni correnti dei sistemi operativi Windows e i sistemi operativi Windows Vista e Windows XP.
 
 ### <a name="remote-logon-credential-processes"></a>Processi di credenziali di accesso remoto
@@ -259,7 +255,7 @@ Al riavvio, l'utente viene automaticamente connesso tramite il meccanismo autolo
 Per ulteriori informazioni su al riavvio Winlogon, vedere la pagina relativa al [riavvio automatico &#40;di&#41;Winlogon al riavvio Winlogon](winlogon-automatic-restart-sign-on-arso.md).
 
 ### <a name="stored-user-names-and-passwords-in-windows-vista-and-windows-xp"></a>Nomi utente e password archiviati in Windows Vista e Windows XP
-In Windows Server 2008, Windows Server 2003, Windows Vista e Windows XP, **i nomi utente e le password archiviati** nel pannello di controllo semplificano la gestione e l'utilizzo di più set di credenziali di accesso, inclusi i certificati X. 509 utilizzati con le smart card e Windows Live Credentials (ora denominato account Microsoft). Le credenziali, parte del profilo dell'utente, vengono archiviate fino a quando non sono necessarie. Questa azione consente di aumentare la sicurezza in base alle singole risorse garantendo che se una password viene compromessa, non compromette tutta la sicurezza.
+In Windows Server 2008, Windows Server 2003, Windows Vista e Windows XP, **i nomi utente e le password archiviati** nel pannello di controllo semplificano la gestione e l'utilizzo di più set di credenziali di accesso, inclusi i certificati X. 509 utilizzati con le smart card e le credenziali di Windows Live (ora denominate account Microsoft). Le credenziali, parte del profilo dell'utente, vengono archiviate fino a quando non sono necessarie. Questa azione consente di aumentare la sicurezza in base alle singole risorse garantendo che se una password viene compromessa, non compromette tutta la sicurezza.
 
 Dopo che un utente si è connesso e tenta di accedere ad altre risorse protette da password, ad esempio una condivisione in un server, e se le credenziali di accesso predefinite dell'utente non sono sufficienti per ottenere l'accesso, vengono eseguite query su **nomi utente e password archiviati** . Se le credenziali alternative con le informazioni di accesso corrette sono state salvate in **nomi utente e password archiviati**, queste credenziali vengono utilizzate per ottenere l'accesso. In caso contrario, all'utente viene richiesto di fornire nuove credenziali, che possono quindi essere salvate per il riutilizzo, in un secondo momento nella sessione di accesso o durante una sessione successiva.
 
@@ -269,7 +265,7 @@ Si applicano le restrizioni seguenti:
 
 -   **I nomi utente e le password archiviati** archiviano le credenziali solo per NTLM, protocollo Kerberos, account Microsoft (in precedenza Windows Live ID) e l'autenticazione Secure Sockets Layer (SSL). Alcune versioni di Internet Explorer gestiscono la propria cache per l'autenticazione di base.
 
-Queste credenziali diventano una parte crittografata del profilo locale di un utente nella directory \Documents e Settings\nomeutente\dati Applicazioni\microsoft\credentials Di conseguenza, queste credenziali possono essere spostate con l'utente se i criteri di rete dell'utente supportano i profili utente mobili. Tuttavia, se l'utente dispone di copie di **nomi utente e password archiviati** in due computer diversi e modifica le credenziali associate alla risorsa in uno di questi computer, la modifica non viene propagata a **nomi utente e password archiviati.** nel secondo computer.
+Queste credenziali diventano una parte crittografata del profilo locale di un utente nella directory \Documents e Settings\nomeutente\dati Applicazioni\microsoft\credentials Di conseguenza, queste credenziali possono essere spostate con l'utente se i criteri di rete dell'utente supportano i profili utente mobili. Tuttavia, se l'utente dispone di copie di **nomi utente e password archiviati** in due computer diversi e modifica le credenziali associate alla risorsa in uno di questi computer, la modifica non viene propagata a **nomi utente e password archiviati** nel secondo computer.
 
 ### <a name="windows-vault-and-credential-manager"></a>Windows Vault e gestione credenziali
 Gestione credenziali è stato introdotto in Windows Server 2008 R2 e Windows 7 come funzionalità del pannello di controllo per archiviare e gestire i nomi utente e le password. Gestione credenziali consente agli utenti di archiviare le credenziali relative ad altri sistemi e siti Web nell'insieme di credenziali di Windows sicuro. Alcune versioni di Internet Explorer utilizzano questa funzionalità per l'autenticazione nei siti Web.
@@ -280,21 +276,21 @@ Quando un sito Web, un'applicazione o un altro computer richiede l'autenticazion
 
 La volta successiva che viene utilizzato il servizio, gestione credenziali fornisce automaticamente le credenziali archiviate nell'insieme di credenziali di Windows. Se queste non vengono accettate, le informazioni di accesso corrette vengono richieste all'utente. Se l'accesso viene concesso con le nuove credenziali, gestione credenziali sovrascrive la credenziale precedente con quella nuova, quindi archivia le nuove credenziali nell'insieme di credenziali di Windows.
 
-## <a name="BKMK_SAM"></a>Database di gestione degli account di sicurezza
+## <a name="security-accounts-manager-database"></a><a name="BKMK_SAM"></a>Database di gestione degli account di sicurezza
 Gestione account di protezione (SAM) è un database di in cui vengono archiviati gli account utente e i gruppi locali. È presente in ogni sistema operativo Windows; Tuttavia, quando un computer viene aggiunto a un dominio, Active Directory gestisce gli account di dominio nei domini Active Directory.
 
-I computer client che eseguono un sistema operativo Windows, ad esempio, fanno parte di un dominio di rete comunicando con un controller di dominio anche quando nessun utente umano è connesso. Per avviare le comunicazioni, il computer deve disporre di un account attivo nel dominio. Prima di accettare le comunicazioni dal computer, LSA sul controller di dominio autentica l'identità del computer e quindi costruisce il contesto di sicurezza del computer esattamente come per un'entità di protezione umana. Questo contesto di sicurezza definisce l'identità e le funzionalità di un utente o di un servizio su un computer o un utente, un servizio o un computer specifico in una rete. Ad esempio, il token di accesso contenuto nel contesto di sicurezza definisce le risorse (ad esempio una condivisione file o una stampante) a cui è possibile accedere e le azioni, ad esempio lettura, scrittura o modifica, che possono essere eseguite da tale entità, ovvero un utente, un computer o un servizio su tale risorse.
+I computer client che eseguono un sistema operativo Windows, ad esempio, fanno parte di un dominio di rete comunicando con un controller di dominio anche quando nessun utente umano è connesso. Per avviare le comunicazioni, il computer deve disporre di un account attivo nel dominio. Prima di accettare le comunicazioni dal computer, LSA sul controller di dominio autentica l'identità del computer e quindi costruisce il contesto di sicurezza del computer esattamente come per un'entità di protezione umana. Questo contesto di sicurezza definisce l'identità e le funzionalità di un utente o di un servizio su un computer o un utente, un servizio o un computer specifico in una rete. Ad esempio, il token di accesso contenuto all'interno del contesto di sicurezza definisce le risorse (ad esempio una condivisione file o una stampante) a cui è possibile accedere e le azioni, ad esempio la lettura, la scrittura o la modifica, che possono essere eseguite da tale entità, ovvero un utente, un computer o un servizio su tale risorsa.
 
 Il contesto di sicurezza di un utente o di un computer può variare da un computer a un altro, ad esempio quando un utente accede a un server o a una workstation diversa dalla workstation primaria dell'utente. Può anche variare da una sessione a un'altra, ad esempio quando un amministratore modifica i diritti e le autorizzazioni dell'utente. Inoltre, il contesto di sicurezza è in genere diverso quando un utente o un computer opera su una base autonoma, in una rete o come parte di un dominio Active Directory.
 
-## <a name="BKMK_LocalDomainsAndTrustedDomains"></a>Domini locali e domini trusted
+## <a name="local-domains-and-trusted-domains"></a><a name="BKMK_LocalDomainsAndTrustedDomains"></a>Domini locali e domini trusted
 Quando esiste una relazione di trust tra due domini, i meccanismi di autenticazione per ogni dominio si basano sulla validità delle autenticazioni provenienti dall'altro dominio. Consente di garantire l'accesso controllato alle risorse condivise in un dominio di risorse (dominio trusting) verificando che le richieste di autenticazione in ingresso provengano da un'autorità attendibile (dominio trusted). In questo modo, i trust fungono da Bridge che consentono solo la convalida delle richieste di autenticazione tra domini.
 
 Il modo in cui un trust specifico passa le richieste di autenticazione dipende dalla configurazione. Le relazioni di trust possono essere unidirezionali, fornendo l'accesso dal dominio trusted alle risorse nel dominio trusting, oppure bidirezionale, fornendo l'accesso da ogni dominio alle risorse nell'altro dominio. I trust sono anche non transitivi, nel qual caso esiste una relazione di trust tra i due domini trust partner, o transitiva, nel qual caso un trust si estende automaticamente a qualsiasi altro dominio considerato attendibile da uno dei partner.
 
 Per informazioni sulle relazioni di trust tra domini e foreste relative all'autenticazione, vedere [autenticazione delegata e relazioni di trust](https://technet.microsoft.com/library/dn169022.aspx).
 
-## <a name="BKMK_CertificatesInWindowsAuthentication"></a>Certificati nell'autenticazione di Windows
+## <a name="certificates-in-windows-authentication"></a><a name="BKMK_CertificatesInWindowsAuthentication"></a>Certificati nell'autenticazione di Windows
 Un'infrastruttura a chiave pubblica (PKI) è la combinazione di software, tecnologie di crittografia, processi e servizi che consentono a un'organizzazione di proteggere le comunicazioni e le transazioni aziendali. La capacità di un'infrastruttura a chiave pubblica per proteggere le comunicazioni e le transazioni aziendali è basata sullo scambio di certificati digitali tra gli utenti autenticati e le risorse attendibili.
 
 Un certificato digitale è un documento elettronico che contiene informazioni sull'entità a cui appartiene, l'entità da cui è stato emesso, un numero di serie univoco o altre identificazioni univoche, date di rilascio e di scadenza e un'impronta digitale digitale.
@@ -320,11 +316,11 @@ La tecnologia smart card virtuale è stata introdotta in Windows 8. Archivia il 
 
 **Autenticazione remota e wireless**
 
-L'autenticazione di rete remota e wireless è un'altra tecnologia che usa i certificati per l'autenticazione. Il servizio di autenticazione Internet (IAS) e i server di rete privata virtuale utilizzano il protocollo EAP-TLS (Extensible Authentication Protocol-Transport Level Security), PEAP (Protected Extensible Authentication Protocol) o Internet Protocol Security (IPsec) a eseguire l'autenticazione basata sui certificati per molti tipi di accesso alla rete, tra cui la rete privata virtuale (VPN) e le connessioni wireless.
+L'autenticazione di rete remota e wireless è un'altra tecnologia che usa i certificati per l'autenticazione. Il servizio di autenticazione Internet (IAS) e i server di rete privata virtuale utilizzano il protocollo EAP-TLS (Extensible Authentication Protocol-Transport Level Security), PEAP (Protected Extensible Authentication Protocol) o Internet Protocol Security (IPsec) per eseguire l'autenticazione basata sui certificati per molti tipi di accesso alla rete, tra cui la rete privata virtuale (VPN) e le connessioni wireless.
 
 Per informazioni sull'autenticazione basata su certificati in rete, vedere [autenticazione e certificati di accesso alla rete](https://technet.microsoft.com/library/cc759575(WS.10).aspx).
 
-## <a name="BKMK_SeeAlso"></a>Vedere anche
+## <a name="see-also"></a><a name="BKMK_SeeAlso"></a>Vedere anche
 [Concetti su Autenticazione di Windows](https://docs.microsoft.com/windows-server/security/windows-authentication/windows-authentication-concepts)
 
 

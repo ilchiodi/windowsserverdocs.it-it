@@ -1,50 +1,45 @@
 ---
 title: bitsadmin getminretrydelay
-description: "Argomento dei comandi di Windows per **BITSAdmin getminretrydelay** : Recupera l'intervallo di tempo, in secondi, di attesa del servizio dopo aver rilevato un errore temporaneo prima di provare a trasferire il file."
-ms.custom: na
+description: Argomento dei comandi di Windows per **BITSAdmin getminretrydelay**, che consente di recuperare il tempo, in secondi, di attesa del servizio dopo aver rilevato un errore temporaneo prima di provare a trasferire il file.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 54f0abab-c129-40ed-a603-50f464d26011
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 0a2bde6340034e48b97b4c86f48a3b2ef72560a5
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: d79ffdf1f45b0198b4af535ed83154c3c2ec24f4
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71381547"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80850624"
 ---
 # <a name="bitsadmin-getminretrydelay"></a>bitsadmin getminretrydelay
 
-
-
-Recupera l'intervallo di tempo, in secondi, di attesa del servizio dopo che è stato rilevato un errore temporaneo prima di provare a trasferire il file.
+Recupera l'intervallo di tempo, in secondi, durante il quale il servizio resterà in attesa di un errore temporaneo prima di tentare di trasferire il file.
 
 ## <a name="syntax"></a>Sintassi
 
 ```
-bitsadmin /GetMinRetryDelay <Job>
+bitsadmin /getminretrydelay <job>
 ```
 
-## <a name="parameters"></a>Parametri
+### <a name="parameters"></a>Parametri
 
-|Parametro|Descrizione|
-|---------|-----------|
-|Job|Nome visualizzato o il GUID del processo|
+| Parametro | Descrizione |
+| -------------- | -------------- |
+| lavoro | Nome visualizzato o GUID del processo. |
 
-## <a name="BKMK_examples"></a>Esempi
+## <a name="examples"></a><a name=BKMK_examples></a>Esempi
 
 Nell'esempio seguente viene recuperato il ritardo minimo tra tentativi per il processo denominato *myDownloadJob*.
+
 ```
-C:\>bitsadmin /GetMinRetryDelay myDownloadJob
+C:\>bitsadmin /getminretrydelay myDownloadJob
 ```
 
-#### <a name="additional-references"></a>Altri riferimenti
+## <a name="additional-references"></a>Altre informazioni di riferimento
 
-[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+- [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

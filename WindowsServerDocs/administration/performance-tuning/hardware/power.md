@@ -4,15 +4,15 @@ description: Considerazioni sull'alimentazione hardware del server
 ms.prod: windows-server
 ms.technology: performance-tuning-guide
 ms.topic: article
-ms.author: Qizha;TristanB
+ms.author: qizha;tristanb
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: a9d4653824d497ea0c42337260aa788bab354ba3
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 865899e5f33bde97dff97efaff6010b95aafd3e6
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71355020"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80851984"
 ---
 # <a name="server-hardware-power-considerations"></a>Considerazioni sull'alimentazione hardware del server
 
@@ -57,7 +57,7 @@ Le strisce di alimentazione non sono parte integrante dell'hardware del server, 
 
 Per evitare di sprecare energia elettrica, è possibile distribuire un Power Strip gestito in remoto per ogni rack di server per disconnettere l'alimentazione a livello di codice da server specifici.
 
-## <a name="processor-terminology"></a>Terminologia del processore
+## <a name="processor-terminology"></a>terminologia del processore
 La terminologia del processore utilizzata in questo argomento riflette la gerarchia dei componenti disponibili nella figura seguente. I termini utilizzati dalla granularità più grande alla più piccola dei componenti sono i seguenti:
 
 -   Socket processore
@@ -67,7 +67,7 @@ La terminologia del processore utilizzata in questo argomento riflette la gerarc
 
 ![terminologia del processore](../media/perftune-guide-figure-1.png)
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 - [Considerazioni sulle prestazioni dell'hardware del server](index.md)
 - [Risparmio energia e ottimizzazione delle prestazioni](power/power-performance-tuning.md)
 - [Ottimizzazione di Risparmio energia del processore](power/processor-power-management-tuning.md)

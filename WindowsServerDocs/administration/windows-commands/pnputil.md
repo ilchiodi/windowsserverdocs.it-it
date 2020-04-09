@@ -1,24 +1,20 @@
 ---
 title: pnputil
 description: Informazioni su come gestire l'archivio driver con l'utilità pnputil. exe.
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: fab686b8-09d3-4f6c-afa2-630e6036f44c
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 07/11/2018
-ms.openlocfilehash: f20c60bfd9ae33497dd356c7797b9fb1d2b51d18
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 134e6ce4b1fc44450047de3287b7daac67da4b6a
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71372287"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80837514"
 ---
 # <a name="pnputil"></a>pnputil
 
@@ -30,7 +26,7 @@ Pnputil. exe è un'utilità della riga di comando che è possibile utilizzare pe
 pnputil.exe [-f | -i] [ -? | -a | -d | -e ] <INF name>
 ```
 
-## <a name="parameters"></a>Parametri
+### <a name="parameters"></a>Parametri
 
 |Parametro|Descrizione|
 |---------|-----------|
@@ -45,7 +41,7 @@ pnputil.exe [-f | -i] [ -? | -a | -d | -e ] <INF name>
 ## <a name="examples"></a>Esempi
 
 -   pnputil. exe-a a:\usbcam\USBCAM. INF aggiunge il file INF specificato da USBCAM. INF
--   pnputil. exe: un drivers\*.inf c:\ aggiunge tutti i file INF in c:\Drivers\
+-   pnputil. exe-c:\Drivers\*. inf aggiunge tutti i file INF in c:\Drivers\
 -   pnputil. exe-i-a a:\usbcam\USBCAM. INF aggiunge e installa il driver specificato.
 -   pnputil. exe – e enumera tutti i driver di terze parti.
 -   pnputil. exe-d Oem0. inf Elimina l'oggetto specificato.
@@ -53,6 +49,6 @@ pnputil.exe [-f | -i] [ -? | -a | -d | -e ] <INF name>
 
 ## <a name="additional-references"></a>Altri riferimenti
 
-[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+- [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
 
 [Popd](popd.md)

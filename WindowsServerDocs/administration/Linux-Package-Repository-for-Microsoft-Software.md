@@ -1,9 +1,7 @@
 ---
 title: Repository software Linux per prodotti Microsoft
 description: Questo documento descrive come usare e installare i pacchetti software Linux per i prodotti Microsoft.
-ms.custom: na
 ms.prod: windows-server
-ms.service: na
 manager: szark
 ms.technology: compute
 ms.topic: article
@@ -11,12 +9,12 @@ ms.assetid: b5387444-595f-4f38-abb7-163a70ea1895
 author: szarkos
 ms.author: szark
 ms.date: 10/16/2017
-ms.openlocfilehash: e32c11dac1d887ba0ae0192bb658f71ece77a42c
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: b57a1e7243f989a4529a666880572a9ceaa57644
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75947241"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80852064"
 ---
 # <a name="linux-software-repository-for-microsoft-products"></a>Repository software Linux per prodotti Microsoft
 
@@ -30,7 +28,7 @@ Il repository software Linux Microsoft è costituito da più repository secondar
  - MSSQL-Server: questi repository contengono pacchetti per Microsoft SQL Server in Linux. vedere anche: [SQL Server in Linux](https://www.microsoft.com/sql-server/sql-server-vnext-including-Linux).
 
 > [!Note]
-> I pacchetti nei repository software Linux sono soggetti alle condizioni di licenza presenti nei pacchetti. Prima di usare il pacchetto, leggere le condizioni di licenza. L'installazione e l'uso del pacchetto costituiscono accettazione di tali condizioni. Se non si accettano le condizioni di licenza, non usare il pacchetto.
+> I pacchetti nei repository software Linux sono soggetti alle condizioni di licenza presenti nei pacchetti. Prima di usare il pacchetto, leggere le condizioni di licenza. L'installazione e l'utilizzo del pacchetto costituiscono l'accettazione di tali condizioni. Se non si accettano le condizioni di licenza, non utilizzare il pacchetto.
 
 
 ## <a name="configuring-the-repositories"></a>Configurazione dei repository
@@ -63,19 +61,19 @@ I repository possono essere configurati automaticamente installando il pacchetto
 
  - Ubuntu 18,04 (Bionic)
 
-        curl https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
+         curl https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
         sudo apt-add-repository https://packages.microsoft.com/ubuntu/18.04/prod
         sudo apt-get update
 
  - Ubuntu 18,10 (cosmico)
 
-        curl https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
+         curl https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
         sudo apt-add-repository https://packages.microsoft.com/ubuntu/18.10/prod
         sudo apt-get update
 
  - Ubuntu 19,04 (disco)
 
-        curl https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
+         curl https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
         sudo apt-add-repository https://packages.microsoft.com/ubuntu/19.04/prod
         sudo apt-get update
 
@@ -95,7 +93,7 @@ I file di configurazione del repository sono disponibili da [packages.Microsoft.
  - ID chiave pubblica: Microsoft (firma di rilascio) <gpgsecurity@microsoft.com>
  - Impronta digitale chiave pubblica: `BC52 8686 B50D 79E3 39D3 721C EB3E 94AD BE12 29CF`
 
-### <a name="examples"></a>Di seguito sono riportati alcuni esempi.
+### <a name="examples"></a>Esempi:
 
  - RHEL/CentOS 7
 

@@ -1,24 +1,20 @@
 ---
 title: esportazione reg
-description: 'Argomento dei comandi di Windows per * * * *- '
-ms.custom: na
+description: Argomento dei comandi di Windows per * * * *-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 0ad9526f-1e29-4fa5-9d2d-feaa92f12d7c
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 7fb3a779ffe5a4e7d513ca9a3afed8ee90901688
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 5901014511fed0c17a641e1ed183ddbf40dd44c8
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71384755"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80836494"
 ---
 # <a name="reg-export"></a>esportazione reg
 
@@ -34,12 +30,12 @@ Per esempi di utilizzo di questo comando, vedere [Esempi](#BKMK_examples).
 Reg export KeyName FileName [/y]
 ```
 
-## <a name="parameters"></a>Parametri
+### <a name="parameters"></a>Parametri
 
 |Parametro|Descrizione|
 |---------|-----------|
-|\<KeyName >|Specifica il percorso completo della sottochiave. L'operazione di esportazione funziona solo con il computer locale. Il nome di chiave deve includere una chiave radice valido. Le chiavi radice valide sono: HKLM, HKCU, HKCR, HKU e HKCC.|
-|\<> FileName|Specifica il nome e percorso del file deve essere creato durante l'operazione. Il file deve avere estensione reg.|
+|\<nome della >|Specifica il percorso completo della sottochiave. L'operazione di esportazione funziona solo con il computer locale. Il nome di chiave deve includere una chiave radice valido. Le chiavi principali valide sono: HKLM, HKCU, HKCR, HKU e HKCC.|
+|\<FileName >|Specifica il nome e percorso del file deve essere creato durante l'operazione. Il file deve avere estensione reg.|
 |/y|Sovrascrive tutti i file esistenti con il nome *FileName* senza chiedere conferma.|
 |/?|Visualizza la Guida per **reg export** al prompt dei comandi.|
 
@@ -47,18 +43,18 @@ Reg export KeyName FileName [/y]
 
 Nella tabella seguente sono elencati i valori restituiti per il **reg export** operazione.
 
-|Value|Descrizione|
+|Valore|Descrizione|
 |-----|-----------|
-|0|Riuscito|
-|1|Errore|
+|0|Success|
+|1|Operazione non riuscita|
 
-## <a name="BKMK_examples"></a>Esempi
+## <a name="examples"></a><a name=BKMK_examples></a>Esempi
 
 Per esportare il contenuto di tutte le sottochiavi e valori della chiave MyApp nel file AppBkUp. reg, digitare:
 ```
 reg export HKLM\Software\MyCo\MyApp AppBkUp.reg
 ```
 
-#### <a name="additional-references"></a>Altri riferimenti
+## <a name="additional-references"></a>Altre informazioni di riferimento
 
-[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+- [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

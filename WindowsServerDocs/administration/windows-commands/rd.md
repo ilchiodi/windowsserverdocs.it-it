@@ -1,24 +1,20 @@
 ---
 title: rd
-description: 'Argomento dei comandi di Windows per * * * *- '
-ms.custom: na
+description: Argomento dei comandi di Windows per * * * *-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 42e672f6-5bc2-4c16-af25-18e7ed2dd555
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 029935bcd8773e41adefcd6ca916d75edcea3065
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 298e6b291a6aa08701b6d54a11470b0cc4bea486
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71371805"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80836714"
 ---
 # <a name="rd"></a>rd
 
@@ -35,11 +31,11 @@ rd [<Drive>:]<Path> [/s [/q]]
 rmdir [<Drive>:]<Path> [/s [/q]]
 ```
 
-## <a name="parameters"></a>Parametri
+### <a name="parameters"></a>Parametri
 
 |     Parametro     |                                                                 Descrizione                                                                  |
 |-------------------|----------------------------------------------------------------------------------------------------------------------------------------------|
-| [\<Drive >:] <Path> |                      Specifica il percorso e il nome della directory che si desidera eliminare. Il *percorso* è obbligatorio.                       |
+| [\<unità >:]<Path> |                      Specifica il percorso e il nome della directory che si desidera eliminare. Il *percorso* è obbligatorio.                       |
 |        /s         |                     Elimina un albero di directory (la directory specificata e tutte le relative sottodirectory, inclusi tutti i file).                      |
 |        /q         | Specifica la modalità non interattiva. Non richiede la conferma dell'eliminazione di un albero di directory. Si noti che **/q** funziona solo se è specificato **/s** . |
 |        /?         |                                                     Visualizza la guida al prompt dei comandi.                                                     |
@@ -59,7 +55,7 @@ rmdir [<Drive>:]<Path> [/s [/q]]
     Se viene visualizzato questo messaggio di errore, è necessario passare a una directory diversa, non a una sottodirectory della directory corrente, quindi utilizzare **Rd** (specificare il *percorso* , se necessario).
 -   Il comando **Rd** , con parametri diversi, è disponibile dalla console di ripristino.
 
-## <a name="BKMK_examples"></a>Esempi
+## <a name="examples"></a><a name=BKMK_examples></a>Esempi
 
 Non è possibile eliminare la directory attualmente in uso. È necessario passare a una directory che non si trova nella directory corrente. Ad esempio, per passare alla directory padre, digitare:
 ```
@@ -79,6 +75,6 @@ rd /s /q test
 > [!CAUTION]
 > Quando si esegue **Rd/s** in modalità non interattiva, l'intero albero di directory viene eliminato senza conferma. Assicurarsi che i file importanti vengano spostati o sottoposti a backup prima di usare l'opzione della riga di comando **/q** .
 
-#### <a name="additional-references"></a>Altri riferimenti
+## <a name="additional-references"></a>Altre informazioni di riferimento
 
-[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+- [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

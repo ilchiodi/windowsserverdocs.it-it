@@ -1,24 +1,20 @@
 ---
 title: Determinare l'elenco Consenti-Nega e l'inventario delle applicazioni per i criteri di restrizione software
 description: Sicurezza di Windows Server
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: security-software-restriction-policies
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 0abb73b6-b5d8-4505-8ab1-2f29e4bf0411
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/12/2016
-ms.openlocfilehash: 4ddea6daeb2150bd9fd3131a8457a6a4b408cfc3
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 7609ebb0fdcb6d429cd40d99399eaaedb732df08
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71357664"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80855094"
 ---
 # <a name="determine-allow-deny-list-and-application-inventory-for-software-restriction-policies"></a>Determinare l'elenco Consenti-Nega e l'inventario delle applicazioni per i criteri di restrizione software
 
@@ -38,7 +34,7 @@ Per informazioni su come eseguire attività specifiche utilizzando il software d
 -   [Usare i criteri di restrizione software per proteggere il computer da un virus di posta elettronica](use-software-restriction-policies-to-help-protect-your-computer-against-an-email-virus.md)
 
 ### <a name="what-default-rule-to-choose-allow-or-deny"></a>Quale regola predefinita scegliere: Consenti o nega
-I criteri di restrizione software possono essere distribuiti in una delle due modalità che costituiscono la base della regola predefinita: Elenco Consenti elenco o nega. È possibile creare un criterio che identifichi tutte le applicazioni consentite per l'esecuzione nell'ambiente in uso. la regola predefinita nel criterio è limitata e blocca tutte le applicazioni che non sono consentite in modo esplicito per l'esecuzione. In alternativa, è possibile creare un criterio che identifichi tutte le applicazioni che non possono essere eseguite; la regola predefinita è senza restrizioni e limita solo le applicazioni elencate in modo esplicito.
+I criteri di restrizione software possono essere distribuiti in una delle due modalità che costituiscono la base della regola predefinita: Consenti elenco o nega elenco. È possibile creare un criterio che identifichi tutte le applicazioni consentite per l'esecuzione nell'ambiente in uso. la regola predefinita nel criterio è limitata e blocca tutte le applicazioni che non sono consentite in modo esplicito per l'esecuzione. In alternativa, è possibile creare un criterio che identifichi tutte le applicazioni che non possono essere eseguite; la regola predefinita è senza restrizioni e limita solo le applicazioni elencate in modo esplicito.
 
 > [!IMPORTANT]
 > La modalità elenco di negazione potrebbe essere una strategia di manutenzione elevata per la propria organizzazione in merito al controllo delle applicazioni. La creazione e la gestione di un elenco in continua evoluzione che impedisce a tutti i malware e ad altre applicazioni problematiche potrebbero richiedere molto tempo ed essere suscettibili agli errori.
@@ -52,7 +48,7 @@ Per usare in modo efficace la regola Consenti impostazioni predefinite, è neces
 
 2.  Creare il seguente valore del registro di sistema per abilitare la funzionalità di registrazione avanzata e impostare il percorso in cui deve essere scritto il file di log.
 
-    **"Identificatori codeHKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Safer\"**
+    **"HKEY_LOCAL_MACHINE identificatori code\software\policies\microsoft\windows\safer\"**
 
     Valore stringa: *NameLogFile percorso NameLogFile*
 

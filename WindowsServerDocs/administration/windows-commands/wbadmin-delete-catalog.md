@@ -1,24 +1,20 @@
 ---
 title: wbadmin Elimina catalogo
-description: 'Argomento dei comandi di Windows per * * * *- '
-ms.custom: na
+description: Argomento comandi di Windows per Wbadmin delete catalog, che elimina il catalogo di backup archiviato nel computer locale.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: d3041407-4577-4716-a39f-2c8ab48818d1
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 58b8bc6043437755675af28c084257ba0d8b176d
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 5cf069163cb18c1763de2842b518f269b9fa57dd
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71362534"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80829904"
 ---
 # <a name="wbadmin-delete-catalog"></a>wbadmin Elimina catalogo
 
@@ -35,7 +31,7 @@ wbadmin delete catalog
 [-quiet]
 ```
 
-## <a name="parameters"></a>Parametri
+### <a name="parameters"></a>Parametri
 
 |Parametro|Descrizione|
 |---------|-----------|
@@ -45,8 +41,8 @@ wbadmin delete catalog
 
 Se si elimina il catalogo di backup per un computer, non sarà possibile accedere ai backup creati da tale computer utilizzando lo snap-in Windows Server Backup. In tal caso, se è possibile accedere a un altro percorso di backup, usare **Wbadmin restore catalog** per ripristinare il catalogo di backup da tale percorso. È necessario creare un nuovo backup dopo l'eliminazione del catalogo di backup.
 
-#### <a name="additional-references"></a>Altri riferimenti
+## <a name="additional-references"></a>Altre informazioni di riferimento
 
--   [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+-   - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
 -   [Wbadmin](wbadmin.md)
 -   [Remove-WBCatalog](https://technet.microsoft.com/library/jj902445.aspx)

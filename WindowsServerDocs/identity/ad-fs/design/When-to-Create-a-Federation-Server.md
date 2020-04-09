@@ -1,7 +1,6 @@
 ---
 ms.assetid: 824005ae-c3c1-459b-9baa-1660158918ab
 title: Quando creare un server federativo
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 91c260dad1bd260a7dad7320fecd15e6472c50a3
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: b1e58e8940d024b2fbca9ada5d5fa430aeab70a7
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71407889"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80858474"
 ---
 # <a name="when-to-create-a-federation-server"></a>Quando creare un server federativo
 
@@ -31,7 +30,7 @@ Per prendere una decisione consapevole su quando creare un nuovo server federati
   
 Quando un server federativo si trova nella rete aziendale del partner account, il suo ruolo consiste nell'autenticare le credenziali utente del browser, del servizio Web o dei client del selettore di identità e inviare i token di sicurezza ai client. Per altre informazioni, vedere [Review the Role of the Federation Server in the Account Partner](Review-the-Role-of-the-Federation-Server-in-the-Account-Partner.md).  
   
-Quando un server federativo si trova nella rete aziendale del partner risorse, il suo ruolo consiste nell'autenticare gli utenti, in base a un token di sicurezza emesso da un server federativo nell'organizzazione partner risorse, oppure il suo ruolo consiste nel reindirizzare le richieste di token da applicazioni Web o servizi Web configurati all'organizzazione partner account a cui appartiene il client. Per altre informazioni, vedere [Review the Role of the Federation Server in the Resource Partner](Review-the-Role-of-the-Federation-Server-in-the-Resource-Partner.md).  
+Quando un server federativo si trova nella rete aziendale del partner risorse, il suo ruolo consiste nell'autenticare gli utenti, in base a un token di sicurezza emesso da un server federativo nell'organizzazione partner risorse, oppure il ruolo di reindirizzare le richieste di token da applicazioni Web o servizi Web configurati all'organizzazione partner account a cui appartiene il client. Per altre informazioni, vedere [Review the Role of the Federation Server in the Resource Partner](Review-the-Role-of-the-Federation-Server-in-the-Resource-Partner.md).  
   
 ## <a name="determine-which-ad-fs-design-to-deploy"></a>Determinare quale progettazione di AD FS distribuire  
 I server federativi vengono creati nell'organizzazione ogni volta che si desidera distribuire uno dei seguenti tipi di AD FS:  

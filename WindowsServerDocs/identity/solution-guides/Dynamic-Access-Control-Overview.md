@@ -1,7 +1,6 @@
 ---
 ms.assetid: 9ee8a6cb-7550-46e2-9c11-78d0545c3a97
 title: Panoramica del controllo dinamico degli accessi
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 343e51f113f54c3965ef45d49f5d8fd64c260991
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 2374e2c8a1efb204dbae1ee633bc5ee41d049d57
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71357514"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80861174"
 ---
 # <a name="dynamic-access-control-overview"></a>Panoramica del controllo dinamico degli accessi
 
@@ -40,12 +39,12 @@ Le funzionalità e i concetti associati al controllo dinamico degli accessi incl
   
 -   [Autorizzazioni proposte](#BKMK_Permissions2)  
   
-### <a name="BKMK_Rules"></a>Regole di accesso centrale  
+### <a name="central-access-rules"></a><a name="BKMK_Rules"></a>Regole di accesso centrale  
 Una regola di accesso centrale è un'espressione delle regole di autorizzazione, che possono includere una o più condizioni riguardanti gruppi di utenti, attestazioni di utenti e dispositivi e proprietà delle risorse. Combinando più regole di accesso centrale è possibile definire un criterio di accesso centrale.  
   
 Se per un dominio sono state definite una o più regole di accesso centrale, gli amministratori di condivisioni file possono associare regole specifiche a risorse e requisiti aziendali specifici.  
   
-### <a name="BKMK_Policies"></a>Criteri di accesso centrale  
+### <a name="central-access-policies"></a><a name="BKMK_Policies"></a>Criteri di accesso centrale  
 I criteri di accesso centrale sono criteri di autorizzazione che includono espressioni condizionali. Supponiamo, ad esempio, che un'organizzazione abbia un requisito aziendale per limitare l'accesso alle informazioni personali nei file solo al proprietario del file e ai membri del reparto risorse umane che possono visualizzare le informazioni personali. Questo costituisce un criterio a livello dell'organizzazione valido per i file contenenti informazioni personali, ovunque si trovino i file server dell'organizzazione che contengono tali file. Per applicare questo criterio, un'organizzazione deve essere in grado di:  
   
 -   Identificare e contrassegnare i file che contengono le informazioni personali.  
@@ -56,7 +55,7 @@ I criteri di accesso centrale sono criteri di autorizzazione che includono espre
   
 I criteri di accesso centrale sono una sorta di ombrello di protezione che un'organizzazione predispone per i propri server. Questi criteri non intendono sostituire, ma vanno a sommarsi ai criteri di accesso locale o agli elenchi di controllo di accesso discrezionale (DACL) che vengono applicati ai file e alle cartelle.  
   
-### <a name="BKMK_Claims"></a>Sostiene  
+### <a name="claims"></a><a name="BKMK_Claims"></a>Sostiene  
 Un'attestazione è un'informazione univoca riguardante un utente, un dispositivo o una risorsa che viene pubblicata da un controller di dominio. Il titolo dell'utente, la classificazione del reparto di un file o lo stato di integrità di un computer sono esempi validi di un'attestazione. Per un'entità possono esistere più attestazioni ed è possibile utilizzare qualsiasi combinazione di attestazioni per autorizzare l'accesso alle risorse. Nelle versioni supportate di Windows sono disponibili i tipi di attestazioni seguenti:  
   
 -   **Attestazioni utente** Attributi Active Directory associati a un utente specifico.  
@@ -67,12 +66,12 @@ Un'attestazione è un'informazione univoca riguardante un utente, un dispositivo
   
 Le attestazioni consentono agli amministratori di fare affermazioni precise, nell'ambito dell'organizzazione o dell'impresa, per quanto riguarda gli utenti, i dispositivi e le risorse che possono essere incorporati in espressioni, regole e criteri.  
   
-### <a name="BKMK_Expressions2"></a>Espressioni  
+### <a name="expressions"></a><a name="BKMK_Expressions2"></a>Espressioni  
 Le espressioni condizionali rappresentano un progresso nella gestione del controllo dell'accesso, in quanto consentono di concedere o negare l'accesso alle risorse in presenza di determinate condizioni, ad esempio l'appartenenza a un gruppo, il percorso o lo stato di sicurezza del dispositivo. Le espressioni possono essere gestite mediante la finestra di dialogo Impostazioni di protezione avanzate dell'Editor ACL o mediante l'Editor delle regole di accesso centrale in Centro di amministrazione di Active Directory.  
   
 Le espressioni consentono agli amministratori di gestire l'accesso alle risorse sensibili con condizioni flessibili in ambienti aziendali sempre più complessi.  
   
-### <a name="BKMK_Permissions2"></a>Autorizzazioni proposte  
+### <a name="proposed-permissions"></a><a name="BKMK_Permissions2"></a>Autorizzazioni proposte  
 Le autorizzazioni proposte consentono agli amministratori di analizzare in modo più accurato l'impatto dei potenziali cambiamenti delle impostazioni di controllo dell'accesso senza cambiare realmente le impostazioni.  
   
 La possibilità di prevedere di poter effettivamente accedere a una risorsa consente di pianificare e configurare le autorizzazioni per le risorse prima di implementare concretamente tali modifiche.  

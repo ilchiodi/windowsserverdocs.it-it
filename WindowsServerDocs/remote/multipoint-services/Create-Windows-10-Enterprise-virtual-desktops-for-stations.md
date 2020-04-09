@@ -1,24 +1,20 @@
 ---
 title: Creare desktop virtuali di Windows 10 Enterprise per le stazioni
 description: Informazioni su come creare desktop Windows Server 2016 per la stazione
-ms.custom: na
 ms.date: 07/22/2016
 ms.prod: windows-server
 ms.technology: multipoint-services
-ms.reviewer: na
-ms.suite: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 63f08b5b-c735-41f4-b6c8-411eff85a4ab
 author: evaseydl
 ms.author: evas
 manager: scottman
-ms.openlocfilehash: cd08caef8228a4d20c6d5f4a40fe5bd90aacbe40
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 40af6ea98aa91730f78bde8a71f2ad9a741a6490
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71395544"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80859804"
 ---
 # <a name="create-windows-10-enterprise-virtual-desktops-for-stations"></a>Creare desktop virtuali di Windows 10 Enterprise per le stazioni
 Questa configurazione facoltativa in servizi MultiPoint è destinata principalmente in situazioni in cui un'applicazione essenziale richiede un'istanza di un sistema operativo client per ciascun utente. Sono esempi di applicazioni che non possono essere installate in Windows Server e applicazioni che non vengono eseguiranno più istanze nello stesso computer host.  
@@ -32,7 +28,7 @@ Per prepararsi alla creazione stazione di desktop virtuali, assicurarsi che i se
 |Hardware|Requisiti|         |
 |------------|----------------|----------------| 
 |CPU (multimedia)|1 core o thread per ogni macchina virtuale|  
-|Unità di stato solido (SSD)|Capacità > = 20GB per stazione + 40GB per i servizi MultiPoint host del sistema operativo<br /><br />Lettura casuale\/scrivere IOPS > = 3K per stazione|  
+|Unità di stato solido (SSD)|Capacità > = 20GB per stazione + 40GB per i servizi MultiPoint host del sistema operativo<p>Lettura casuale\/scrivere IOPS > = 3K per stazione|  
 |RAM|2GB per stazione + 2GB per il sistema operativo host Windows MultiPoint Server|  
 |Grafica|DX11|  
 |BIOS|Impostazione del BIOS CPU configurato per abilitare la virtualizzazione – secondo SLAT Level Address Translation)|  
@@ -83,7 +79,7 @@ Il passaggio successivo consiste nel creare un modello di Desktop virtuali. Si c
   
 8. Fare clic su **OK**, e attendere la creazione del modello per il completamento.  
   
-9. Il nuovo modello verrà elencato nella **desktop virtuali** scheda. Il modello verrà disattivato.  
+9. Il nuovo modello verrà elencato nella scheda **desktop virtuali** . Il modello verrà disattivato.  
   
 Il passaggio successivo consiste nel configurare il modello con il software e l'impostazione che si desidera includere i desktop virtuali. È necessario farlo prima di creare qualsiasi desktop virtuali dal modello.  
   

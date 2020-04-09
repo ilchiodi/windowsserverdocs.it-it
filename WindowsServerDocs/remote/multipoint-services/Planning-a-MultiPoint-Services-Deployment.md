@@ -1,24 +1,20 @@
 ---
 title: Pianificazione di una distribuzione di Servizi MultiPoint
 description: Argomento di navigazione per informazioni sulla pianificazione della distribuzione di MultiPoint Services
-ms.custom: na
 ms.date: 07/22/2016
 ms.prod: windows-server
 ms.technology: multipoint-services
-ms.reviewer: na
-ms.suite: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: dcb9edf1-99d0-490c-a7f8-863b18a80cdf
 author: evaseydl
 manager: scottman
 ms.author: evas
-ms.openlocfilehash: c6c1074ddd45eee4540b1b6a04d921c2d5cca6ce
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 91a75704515f2999bbbfe6caf443fec7dc09e76d
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71395146"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80853384"
 ---
 # <a name="planning-a-multipoint-services-deployment"></a>Pianificazione di una distribuzione di Servizi MultiPoint
 MultiPoint Services consente di collegare più stazioni allo stesso computer. Più utenti possono quindi condividere lo stesso computer contemporaneamente. Ogni stazione è costituita da un hub di stazione, un monitor, una tastiera e un mouse. MultiPoint Services include l'applicazione MultiPoint Manager, che consente agli utenti amministratori di monitorare e gestire le stazioni MultiPoint e l'applicazione MultiPoint dashboard, che offre funzionalità amministrative quotidiane.   

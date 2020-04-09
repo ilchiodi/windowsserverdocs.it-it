@@ -2,20 +2,19 @@
 title: Utilizzare almeno la versione di protocollo SMB 3.0 configurato per la disponibilità continua nelle condivisioni di file che archiviano i file per le macchine virtuali
 description: Versione online del testo per questa regola di Best Practices Analyzer.
 ms.prod: windows-server
-ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
 ms.author: kathydav
 ms.topic: article
 ms.assetid: a1fa5cf9-8a48-4f63-bb57-d81e63e77b30
-author: KBDAzure
+author: kbdazure
 ms.date: 8/16/2016
-ms.openlocfilehash: 3a6cbb6052e2e50b7fd78792c5e01885d7672932
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 18943c6b34ab74206483779db5afa06bbde04874
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71393336"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80854204"
 ---
 # <a name="use-at-least-smb-protocol-version-30-configured-for-continuous-availability-on-file-shares-that-store-files-for-virtual-machines"></a>Utilizzare almeno la versione di protocollo SMB 3.0 configurato per la disponibilità continua nelle condivisioni di file che archiviano i file per le macchine virtuali
 
@@ -25,7 +24,7 @@ Per altre informazioni sulle procedure consigliate e sulle analisi, vedere [Eseg
   
 |Proprietà|Dettagli|  
 |-|-|  
-|**Sistema operativo**|Windows Server 2016|  
+|**Sistema operativo**|Windows Server 2016|  
 |**Prodotto/funzionalità**|Hyper-V|  
 |**Gravità**|Avviso|  
 |**Categoria**|Configurazione|  
@@ -41,7 +40,7 @@ Nelle sezioni seguenti, corsivo indica il testo dell'interfaccia Utente visualiz
 \<elenco di macchine virtuali >  
   
 ## <a name="resolution"></a>**Soluzione**  
-Effettua una delle seguenti operazioni:  
+Esegui una delle operazioni seguenti:  
   
 -   Spostare i file in una condivisione file SMB 3.0 che è configurata per la disponibilità continua.  
   

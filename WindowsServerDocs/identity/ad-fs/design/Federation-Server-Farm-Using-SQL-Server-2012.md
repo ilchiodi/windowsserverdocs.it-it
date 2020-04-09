@@ -1,7 +1,6 @@
 ---
 ms.assetid: 6618b3ce-0e94-4009-b887-d8e05453358b
 title: Server farm federativa che usa SQL Server
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,16 +8,16 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 358199fd37cdbb320bc8f3e3e5b2900d261986f0
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 862cbc74833e2d4e9f385ba961b58a1f703e6611
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71359148"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80853134"
 ---
 # <a name="federation-server-farm-using-sql-server"></a>Server farm federativa che usa SQL Server
 
-Questa topologia per \(Active Directory Federation Services\) ad FS è diversa dalla Federazione server farm utilizzando la topologia \(di\) distribuzione database interno di Windows wid in quanto non replica i dati in ciascun server federativo nella farm. Al contrario, tutti i server federativi della farm possono leggere e scrivere dati in un database comune archiviato in un server che esegue Microsoft SQL Server che si trova nella rete aziendale.  
+Questa topologia per Active Directory Federation Services \(AD FS\) differisce dal server farm della Federazione utilizzando il database interno di Windows \(la topologia di distribuzione di WID\) in quanto non replica i dati in ogni server federativo della farm. Al contrario, tutti i server federativi della farm possono leggere e scrivere dati in un database comune archiviato in un server che esegue Microsoft SQL Server che si trova nella rete aziendale.  
   
 ## <a name="deployment-considerations"></a>Considerazioni sulla distribuzione  
 Questa sezione vengono descritte varie considerazioni sui destinatari, vantaggi e limitazioni di cui è associate a questa topologia di distribuzione.  
@@ -31,9 +30,9 @@ Questa sezione vengono descritte varie considerazioni sui destinatari, vantaggi 
   
 ### <a name="what-are-the-benefits-of-using-this-topology"></a>Quali sono i vantaggi dell'utilizzo di questa topologia?  
   
--   Supporto per un numero maggiore di relazioni \(di trust maggiori di 100\)  
+-   Il supporto per un numero maggiore di relazioni di trust \(più di 100\)  
   
--   Supporto per il \(rilevamento della riproduzione dei token una funzionalità\) di sicurezza \(e una parte della \(risoluzione\) dell'artefatto del protocollo Security Assertion Markup Language SAML 2,0\)  
+-   Supporto per il rilevamento della riproduzione dei token \(una funzionalità di sicurezza\) e la risoluzione degli artefatti \(parte del protocollo Security Assertion Markup Language \(SAML\) 2,0\)  
   
 -   Supporto per tutti i vantaggi di SQL Server, ad esempio il mirroring del database, il clustering di failover, la creazione di report e gli strumenti di gestione  
   
@@ -44,7 +43,7 @@ Questa sezione vengono descritte varie considerazioni sui destinatari, vantaggi 
 > [!NOTE]  
 > SQL Server supporta diverse opzioni di ridondanza dei dati e delle applicazioni, tra cui il clustering di failover, il mirroring del database e diversi tipi diversi di replica SQL Server.  
   
-Il reparto IT\) di \(Microsoft Information Technology USA SQL Server il mirroring del database \(in\) modalità sincrona a sicurezza elevata\-e il\- clustering di failover per offrire elevata supporto della disponibilità per l'istanza di SQL Server. SQL Server \(peer\-transazionale\) e\-la replica di tipo merge non sono stati testati dal team del prodotto ad FS in Microsoft. Per ulteriori informazioni su SQL Server, vedere [Panoramica delle soluzioni a disponibilità elevata](https://go.microsoft.com/fwlink/?LinkId=179853) o [selezionando il tipo di replica appropriato](https://go.microsoft.com/fwlink/?LinkId=214648).  
+Microsoft Information Technology \(IT\) reparto utilizza il mirroring del database SQL Server in modalità di \(sincrona e con protezione elevata\-\) per offrire un supporto elevato per la disponibilità\-per l'istanza di SQL Server. SQL Server\-peer \(transazionale a\-peer\) e la replica di tipo merge non sono stati testati dal team di prodotto AD FS di Microsoft. Per ulteriori informazioni su SQL Server, vedere [Panoramica delle soluzioni a disponibilità elevata](https://go.microsoft.com/fwlink/?LinkId=179853) o [selezionando il tipo di replica appropriato](https://go.microsoft.com/fwlink/?LinkId=214648).  
   
 ### <a name="supported-sql-server-versions"></a>Versioni supportate di SQL Server  
 Le seguenti versioni SQL server sono supportate con ADFS installato con Windows Server 2012:  
@@ -62,5 +61,5 @@ Nella figura seguente viene illustrato il modo in cui la società fittizia Conto
   
 Per ulteriori informazioni su come configurare l'ambiente di rete per l'utilizzo con i server federativi o server federativi, vedere [requisiti di risoluzione dei nomi per i server federativi](Name-Resolution-Requirements-for-Federation-Servers.md) o [nome requisiti di risoluzione per i proxy Server federativi](Name-Resolution-Requirements-for-Federation-Server-Proxies.md).  
   
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 [Guida alla progettazione di AD FS in Windows Server 2012](AD-FS-Design-Guide-in-Windows-Server-2012.md)

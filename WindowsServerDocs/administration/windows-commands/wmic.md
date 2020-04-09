@@ -1,24 +1,20 @@
 ---
 title: wmic
-description: 'Argomento dei comandi di Windows per * * * *- '
-ms.custom: na
+description: Argomento dei comandi di Windows per WMIC, che visualizza le informazioni WMI all'interno di una shell dei comandi interattiva.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 76397c72-d06f-4cea-88cf-c7603315a983
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: f5096ab82ebbd01cb4f3a7dc0cf0b15e4b9fae8e
-ms.sourcegitcommit: effbc183bf4b370905d95c975626c1ccde057401
+ms.openlocfilehash: 03ba4ecb4b12b03e010318bf6ca260dec00f28f3
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74781328"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80829054"
 ---
 # <a name="wmic"></a>wmic
 
@@ -40,12 +36,12 @@ I comandi secondari seguenti sono sempre disponibili:
 
 |Sottocomando|Descrizione|
 |-----------|-----------|
-|classe|Viene eseguito l'escape dalla modalità alias predefinita di WMIC per accedere direttamente alle classi nello schema WMI.|
+|class|Viene eseguito l'escape dalla modalità alias predefinita di WMIC per accedere direttamente alle classi nello schema WMI.|
 |path|Viene eseguito l'escape dalla modalità alias predefinita di WMIC per accedere direttamente alle istanze nello schema WMI.|
-|contesto|Consente di visualizzare i valori correnti di tutti i commutatori globali.|
+|context|Consente di visualizzare i valori correnti di tutti i commutatori globali.|
 |[uscire \| uscire]|Chiude la shell dei comandi WMIC.|
 
-## <a name="BKMK_examples"></a>Esempi
+## <a name="examples"></a><a name=BKMK_examples></a>Esempi
 
 Per visualizzare i valori correnti di tutte le opzioni globali, digitare:
 ```
@@ -75,6 +71,6 @@ Per modificare l'ID lingua usato dalla riga di comando in inglese (ID impostazio
 wmic /locale:ms_409
 ```
 
-#### <a name="additional-references"></a>Altri riferimenti
+## <a name="additional-references"></a>Altre informazioni di riferimento
 
-[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+- [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

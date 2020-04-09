@@ -1,24 +1,20 @@
 ---
 title: wevtutil
-description: 'Argomento dei comandi di Windows per * * * *- '
-ms.custom: na
+description: Windows Commands Topic for wevtutil, che consente di recuperare informazioni sui registri eventi e i Publisher.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: d4c791e0-7e59-45c5-aa55-0223b77a4822 vhorne
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 21f3b721a2a08a7fa101ec09f1f11b5e984f0113
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 62be2b14373457a3b114e8d067e1c7aa32b2182d
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71362173"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80829354"
 ---
 # <a name="wevtutil"></a>wevtutil
 
@@ -40,7 +36,7 @@ wevtutil [{el | enum-logs}] [{gl | get-log} <Logname> [/f:<Format>]]
 [{cl | clear-log} <Logname> [/bu:<Backup>]] [/r:<Remote>] [/u:<Username>] [/p:<Password>] [/a:<Auth>] [/uni:<Unicode>]
 ```
 
-## <a name="parameters"></a>Parametri
+### <a name="parameters"></a>Parametri
 
 |Parametro|Descrizione|
 |---------|-----------|
@@ -61,7 +57,7 @@ wevtutil [{el | enum-logs}] [{gl | get-log} <Logname> [/f:<Format>]]
 
 |       Opzione       |                                                                                                                                                                                                                                                                 Descrizione                                                                                                                                                                                                                                                                  |
 |--------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|    /f: formato\<>    |                                                                                                                                                               Specifica che l'output deve essere nel formato XML o testo. Se \<Format > è XML, l'output viene visualizzato in formato XML. Se \<Format > è di testo, l'output viene visualizzato senza tag XML. Il valore predefinito è testo.                                                                                                                                                                |
+|    /f: formato\<>    |                                                                                                                                                               Specifica che l'output deve essere nel formato XML o testo. Se \<Format > è XML, l'output viene visualizzato in formato XML. Se \<Format > è di testo, l'output viene visualizzato senza tag XML. Il valore predefinito è Text.                                                                                                                                                                |
 |   /e:\<abilitata >    |                                                                                                                                                                                                                                         Abilita o disabilita un log. \<abilitata > può essere true o false.                                                                                                                                                                                                                                          |
 |  /i: isolamento\<>   | Imposta la modalità di isolamento di log. \<isolamento > può essere sistema, applicazione o personalizzato. La modalità di isolamento di un log determina se un log condivide una sessione con altri registri nella stessa classe di isolamento. Se si specifica l'isolamento di sistema, il log di destinazione condividono almeno delle autorizzazioni con il Registro di sistema di scrittura. Se si specifica l'isolamento delle applicazioni, i registri di destinazione condividono almeno delle autorizzazioni con il registro applicazioni di scrittura. Se si specifica isolamento personalizzato, è necessario fornire anche un descrittore di sicurezza utilizzando il **/ca** (opzione). |
 |  /LFN:\<LogPath >   |                                                                                                                                                                                                           Definisce il nome di file di log. \<LogPath > è il percorso completo del file in cui il servizio Registro eventi archivia gli eventi per questo log.                                                                                                                                                                                                           |
@@ -87,19 +83,19 @@ wevtutil [{el | enum-logs}] [{gl | get-log} <Logname> [/f:<Format>]]
 |   /Bu: > backup\<    |                                                                                                                                                                                                      Specifica il percorso in un file in cui verranno archiviati gli eventi cancellati. Includere l'estensione evtx nel nome del file di backup.                                                                                                                                                                                                       |
 |    /r:\<> remoto    |                                                                                                                                                                                            Esegue il comando in un computer remoto. \<> remoto è il nome del computer remoto. Il **im** e **um** parametri non supportano l'operazione in modalità remota.                                                                                                                                                                                            |
 |   /u:\<nome utente >   |                                                                                                                                                                          Specifica un utente diverso per accedere a un computer remoto. \<nome utente > è un nome utente nel formato dominio\utente o utente. Questa opzione è applicabile solo quando il **/r** opzione specificata.                                                                                                                                                                          |
-|   /p:\<password >   |                                                                                                                                               Specifica la password per l'utente. Se si usa l'opzione **/u** e questa opzione non è specificata o \<password > è " *", all'utente verrà richiesto di immettere una password. Questa opzione è applicabile solo quando si specifica l'opzione \*\*/u*\*.                                                                                                                                                |
+|   /p:\<password >   |                                                                                                                                               Specifica la password per l'utente. Se si usa l'opzione **/u** e questa opzione non è specificata o \<password > è *, all'utente verrà richiesto di immettere una password. Questa opzione è applicabile solo quando si specifica l'opzione \*\*/u*\*.                                                                                                                                                |
 |     /a:\<> di autenticazione     |                                                                                                                                                                                             Definisce il tipo di autenticazione per la connessione a un computer remoto. \<> di autenticazione può essere default, Negotiate, Kerberos o NTLM. Il valore predefinito è Negotiate.                                                                                                                                                                                              |
 |  /UNI:\<> Unicode   |                                                                                                                                                                                                             Visualizza l'output in formato Unicode. \<> Unicode può essere true o false. Se <Unicode> è true, l'output in formato Unicode.                                                                                                                                                                                                             |
 
-## <a name="remarks"></a>Osservazioni
+## <a name="remarks"></a>Note
 
 -   Utilizzo di un file di configurazione con il parametro sl
 
     Il file di configurazione è un file XML con lo stesso formato dell'output di wevtutil GL \<logName >/f: XML. Nell'esempio seguente viene illustrato il formato di file di configurazione che Abilita memorizzazione consente autobackup e imposta la dimensione massima del registro nel registro dell'applicazione:  
     ```
-    <?xml version="1.0" encoding="UTF-8"?>
-    <channel name="Application" isolation="Application"
-    xmlns="https://schemas.microsoft.com/win/2004/08/events">
+    <?xml version=1.0 encoding=UTF-8?>
+    <channel name=Application isolation=Application
+    xmlns=https://schemas.microsoft.com/win/2004/08/events>
     <logging>
     <retention>true</retention>
     <autoBackup>true</autoBackup>
@@ -110,7 +106,7 @@ wevtutil [{el | enum-logs}] [{gl | get-log} <Logname> [/f:<Format>]]
     </channel>
     ```
 
-## <a name="BKMK_examples"></a>Esempi
+## <a name="examples"></a><a name=BKMK_examples></a>Esempi
 
 Elencare i nomi di tutti i log:
 ```
@@ -153,6 +149,6 @@ Cancellare tutti gli eventi nel registro applicazioni dopo averle salvate C:\adm
 wevtutil cl Application /bu:C:\admin\backups\a10306.evtx
 ```
 
-#### <a name="additional-references"></a>Altri riferimenti
+#### <a name="additional-references"></a>Altre informazioni di riferimento
 
-[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+- [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
