@@ -1,24 +1,20 @@
 ---
 title: Manage-bde on
-description: 'Argomento dei comandi di Windows per * * * *- '
-ms.custom: na
+description: Argomento dei comandi di Windows per * * * *-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: f6a12814-df74-416c-a04a-62ea8512263e
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: a95bbc375c0a5b62b96f7c68f7d5ab5e09371d1c
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 1785c10ade5f7aace8595d8d0972fb1fa315232b
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71373996"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80840014"
 ---
 # <a name="manage-bde-on"></a>Manage-bde: on
 
@@ -35,11 +31,11 @@ manage-bde –on <Drive> {[-recoveryPassword <NumericalPassword>]|[-recoverykey 
 [{-?|/?}] [{-help|-h}]
 ```
 
-### <a name="parameters"></a>Parametri
+#### <a name="parameters"></a>Parametri
 
 |Parametro|Descrizione|
 |---------|-----------|
-|\<Drive >|Rappresenta una lettera di unità seguita da due punti.|
+|Unità \<>|Rappresenta una lettera di unità seguita da due punti.|
 |-recoverypassword|Aggiunge una protezione con password numerica. È inoltre possibile utilizzare **- rp** come una versione abbreviata di questo comando.|
 |\<NumericalPassword >|Rappresenta la password di ripristino.|
 |-recoverykey|Aggiunge una protezione con chiave esterna per il ripristino. È inoltre possibile utilizzare **- rk** come una versione abbreviata di questo comando.|
@@ -58,13 +54,13 @@ manage-bde –on <Drive> {[-recoveryPassword <NumericalPassword>]|[-recoverykey 
 |-discoveryvolumetype|Specifica il file system da utilizzare per l'unità di dati di individuazione. L'unità di dati di individuazione è un'unità nascosta aggiunta a un'unità dati rimovibili formattate FAT, protetto da BitLocker che contiene il lettore BitLocker To Go in modo che i sistemi operativi Windows Vista o Windows XP può essere utilizzati per visualizzare le unità protette con BitLocker.|
 |-ForceEncryptionType|Forza utilizzare software o hardware di crittografia di BitLocker. È possibile specificare **Hardware** o **Software** come il tipo di crittografia. Se il **hardware** viene selezionato un parametro, ma l'unità non supporta la crittografia hardware, gestire-bde restituisce un errore. Se le impostazioni di criteri di gruppo impedisce il tipo di crittografia, gestire-bde restituisce un errore. È inoltre possibile utilizzare **- FET con** come una versione abbreviata di questo comando.|
 |-RemoveVolumeShadowCopies|Forzare deletikon di copie Shadow del Volume per il volume. Non sarà in grado di ripristinare questo volume utilizzando punti di ripristino precedenti del sistema dopo aver eseguito questo comando. È inoltre possibile utilizzare **- rvsc** come una versione abbreviata di questo comando.|
-|\<FileSystemType >|Specifica i file System che è possibile usare con le unità dati di individuazione: FAT32, default o None.|
+|\<FileSystemType >|Specifica il file System possono essere utilizzati con le unità di dati di individuazione: FAT32, predefinito o nessuno.|
 |-computername|Specifica che Manage-bde viene utilizzata per modificare la protezione BitLocker su un computer diverso. È inoltre possibile utilizzare **- cn** come una versione abbreviata di questo comando.|
-|\<Nome >|Rappresenta il nome del computer in cui si desidera modificare la protezione BitLocker. I valori accettati includono nome NetBIOS del computer e l'indirizzo IP del computer.|
+|Nome \<>|Rappresenta il nome del computer in cui si desidera modificare la protezione BitLocker. I valori accettati includono nome NetBIOS del computer e l'indirizzo IP del computer.|
 |-? o /?|Visualizza una breve guida al prompt dei comandi.|
 |-Help o-h|Visualizza la Guida completa al prompt dei comandi.|
 
-## <a name="BKMK_Examples"></a>Esempi
+## <a name="examples"></a><a name=BKMK_Examples></a>Esempi
 
 Nell'esempio seguente viene illustrato l'utilizzo di **-su** comando per attivare BitLocker per l'unità C e aggiungere una password di ripristino nell'unità.
 ```
@@ -87,7 +83,7 @@ Nell'esempio seguente viene illustrato l'utilizzo di **-su** comando per attivar
 manage-bde –on C: -fet Hardware
 ```
 
-#### <a name="additional-references"></a>Altri riferimenti
+## <a name="additional-references"></a>Altre informazioni di riferimento
 
--   [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+-   - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
 -   [Manage-bde](manage-bde.md)

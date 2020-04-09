@@ -2,18 +2,17 @@
 title: Risoluzione dei problemi relativi ai server DNS
 description: Questo articolo illustra come risolvere i problemi relativi a DNS dal lato server.
 manager: dcscontentpm
-ms.prod: ''
 ms.technology: networking-dns
 ms.topic: article
 ms.author: delhan
 ms.date: 8/8/2019
 author: Deland-Han
-ms.openlocfilehash: 23e51adafa5ab6da0a9317a1b0fad88bd3901073
-ms.sourcegitcommit: c5709021aa98abd075d7a8f912d4fd2263db8803
+ms.openlocfilehash: 4413c60072c43b623f386d5037e3da7ed5dc128d
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/18/2020
-ms.locfileid: "76265803"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80861324"
 ---
 # <a name="troubleshooting-dns-servers"></a>Risoluzione dei problemi relativi ai server DNS
 
@@ -30,7 +29,7 @@ Questo articolo illustra come risolvere i problemi relativi ai server DNS.
    ```cmd
    nslookup <name> <IP address of the DNS server>
    ```
-   Ad esempio: 
+   Ad esempio, 
    ```cmd
    nslookup app1 10.0.0.1
    ```
@@ -56,7 +55,7 @@ Controllare i log seguenti per verificare se sono presenti errori registrati:
 
 - Applicazione
 
-- Sistema
+- System
 
 - Server DNS
 
@@ -129,7 +128,7 @@ Se il server esegue l'invio di query a un altro server, verificare la presenza d
 
 Se il server è integro e in grado di eseguire le query, ripetere questo passaggio ed esaminare il server a cui questo server invia le query.
 
-Se il server non invia query a un altro server, verificare se il server è in grado di eseguire query su un server radice. A tale scopo, esegui il comando seguente:
+Se il server non invia query a un altro server, verificare se il server è in grado di eseguire query su un server radice. A tale scopo eseguire il comando riportato di seguito:
 
 ```cmd
 nslookup

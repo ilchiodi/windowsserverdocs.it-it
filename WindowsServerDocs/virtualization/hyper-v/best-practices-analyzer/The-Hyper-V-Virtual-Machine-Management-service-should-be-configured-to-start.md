@@ -2,20 +2,19 @@
 title: Il servizio di gestione delle macchine virtuali Hyper-V deve essere configurato per l'avvio automatico
 description: Vengono fornite istruzioni per risolvere il problema segnalato da questa regola di Best Practices Analyzer.
 ms.prod: windows-server
-ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
 ms.author: kathydav
 ms.topic: article
 ms.assetid: 222bbe76-c514-4a3f-b61b-860a4dc2826a
-author: KBDAzure
+author: kbdazure
 ms.date: 8/16/2016
-ms.openlocfilehash: f35f94a815e9f895f7f7690737b6b8fb2bed82e1
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 26122d40b3fbdbdc40a94801d5e3ff8fcf4fa646
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71393423"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80859314"
 ---
 # <a name="the-hyper-v-virtual-machine-management-service-should-be-configured-to-start-automatically"></a>Il servizio di gestione delle macchine virtuali Hyper-V deve essere configurato per l'avvio automatico
 
@@ -50,7 +49,7 @@ Le macchine virtuali in esecuzione continuerà a eseguire. Tuttavia, non sarà p
 > Se non si trova il servizio nell'applicazione desktop o lo strumento da riga di comando indica che il servizio non esiste, gli strumenti di gestione di Hyper-V probabilmente non sono installati. Per installarli:  
 >   
 > - In Windows Server aprire Server Manager e utilizzare l'aggiunta guidata ruoli e funzionalità. Per ulteriori informazioni, vedere [installare il ruolo Hyper-V in Windows Server 2016](../get-started/Install-the-Hyper-V-role-on-Windows-Server.md).  
-> - In Windows, dal desktop iniziare a digitare **programmi**, fare clic su **programmi e funzionalità** (pannello di controllo) > **attivare o disattivare le funzionalità Windows** > **Hyper-v** > **strumenti di gestione Hyper-v**. Fare clic su **OK**.  
+> - In Windows, dal desktop iniziare a digitare **programmi**, fare clic su **programmi e funzionalità** (pannello di controllo) > **attivare o disattivare le funzionalità di Windows** > **Hyper-v** > **gli strumenti di gestione Hyper-v**. Successivamente, scegliere **OK**.  
   
 #### <a name="to-reconfigure-the-service-to-start-automatically-using-the-services-desktop-app"></a>Per riconfigurare il servizio per l'avvio automatico tramite l'app desktop dei servizi  
   
@@ -64,7 +63,7 @@ Le macchine virtuali in esecuzione continuerà a eseguire. Tuttavia, non sarà p
   
 1.  Aprire Windows PowerShell.  
   
-2.  Digitare:  
+2.  Tipo:  
   
     ```  
     set-service  vmms -startuptype automatic  

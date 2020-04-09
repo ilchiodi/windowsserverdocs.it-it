@@ -2,20 +2,19 @@
 title: Riservare uno o più reti virtuali esterne per l'utilizzo esclusivo da macchine virtuali
 description: Vengono fornite istruzioni per risolvere il problema segnalato da questa regola di Best Practices Analyzer.
 ms.prod: windows-server
-ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
 ms.author: kathydav
 ms.topic: article
 ms.assetid: f7732258-93f1-44e8-835b-5ad2d1c45cd9
-author: KBDAzure
+author: kbdazure
 ms.date: 8/16/2016
-ms.openlocfilehash: a72f3d616bb0c520e49c27f90686196463f25953
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: c371743f20f8192b682ff68045c5d72e9e0f7e8d
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71364784"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80861804"
 ---
 # <a name="reserve-one-or-more-external-virtual-networks-for-exclusive-use-by-virtual-machines"></a>Riservare uno o più reti virtuali esterne per l'utilizzo esclusivo da macchine virtuali
 
@@ -46,7 +45,7 @@ Nelle sezioni seguenti, corsivo indica il testo dell'interfaccia Utente visualiz
   
 #### <a name="to-stop-sharing-the-external-virtual-network-with-the-management-operating-system"></a>Per interrompere la condivisione di rete virtuale esterna con sistema operativo di gestione  
   
-1.  Aprire la console di gestione di Hyper-V. Fare clic su **avviare**, scegliere **Strumenti di amministrazione**, quindi fare clic su **gestione di Hyper-V**.  
+1.  Aprire la console di gestione di Hyper-V. Fare clic sul pulsante **Start**, scegliere **Strumenti di amministrazione** e quindi **Console di gestione di Hyper-V**.  
   
 2.  Scegliere **Gestione commutatori virtuali** dal menu **Azioni**.  
   

@@ -1,18 +1,18 @@
 ---
 title: Panoramica dell'infrastruttura sorvegliata e delle macchine virtuali schermate
-ms.custom: na
 ms.prod: windows-server
 ms.topic: article
 manager: dongill
 author: rpsqrd
+ms.author: ryanpu
 ms.technology: security-guarded-fabric
 ms.date: 08/29/2018
-ms.openlocfilehash: ace6eb30ae6df2dc29aacc05eb7852e03145df4f
-ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
+ms.openlocfilehash: edcf2e011b701904fb8c1b27d4f9b7d13415b2a8
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79321993"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80856904"
 ---
 # <a name="guarded-fabric-and-shielded-vms-overview"></a>Panoramica dell'infrastruttura sorvegliata e delle VM schermate
 
@@ -89,9 +89,9 @@ La figura seguente mostra il file di dati di schermatura e gli elementi di confi
 
 Le infrastrutture sorvegliate sono in grado di eseguire tre tipi di macchine virtuali:
 
-1.  Una macchina virtuale normale che non offre protezioni aggiuntive rispetto a quelle delle versioni precedenti di Hyper-V
-2.  Una macchina virtuale con supporto della crittografia le cui protezioni possono essere configurate da un amministratore di infrastruttura
-3.  Una macchina virtuale schermata con tutte le protezioni abilitate che non possono essere disabilitate da un amministratore di infrastruttura
+1.    Una macchina virtuale normale che non offre protezioni aggiuntive rispetto a quelle delle versioni precedenti di Hyper-V
+2.    Una macchina virtuale con supporto della crittografia le cui protezioni possono essere configurate da un amministratore di infrastruttura
+3.    Una macchina virtuale schermata con tutte le protezioni abilitate che non possono essere disabilitate da un amministratore di infrastruttura
 
 Le macchine virtuali con supporto della crittografia sono progettate per essere usate nei casi in cui gli amministratori di infrastruttura sono completamente attendibili.  È possibile, ad esempio, che un'azienda distribuisca un'infrastruttura sorvegliata per garantire che i dischi delle macchine virtuali vengano crittografati nell'area di archiviazione per ragioni di conformità. Gli amministratori dell'infrastruttura possono continuare a usare le funzionalità di gestione più adatte, ad esempio le connessioni alla console delle macchine virtuali, PowerShell Direct e altri strumenti di gestione e risoluzioni dei problemi d'uso quotidiano.
 

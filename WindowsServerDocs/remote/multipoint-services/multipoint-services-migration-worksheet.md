@@ -1,24 +1,20 @@
 ---
 title: Foglio di foglio di pianificazione per la migrazione di MultiPoint Services
 description: Fornisce fogli di programmazione per facilitare la migrazione a MultiPoint Services in Windows Server 2016
-ms.custom: na
 ms.date: 07/29/2016
 ms.prod: windows-server
 ms.technology: multipoint-services
-ms.reviewer: na
-ms.suite: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 864405bb-47ed-4c83-97a2-8df4c6e6f96b
 author: lizap
 manager: dongill
 ms.author: elizapo
-ms.openlocfilehash: d3d2ecca4062d28d210196d9191e08710eb731c2
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: c0d5976e70bcf8009cd98e54e973dd6f585d7208
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71394634"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80858904"
 ---
 # <a name="planning-worksheet-for-multipoint-services-migration"></a>Foglio di foglio di pianificazione per la migrazione di MultiPoint Services
 
@@ -44,7 +40,7 @@ Usare le tabelle e gli elenchi seguenti per raccogliere le impostazioni necessar
 
 Registrare i nomi dei server e dei computer gestiti. È possibile trovare queste informazioni nella scheda **Home** di gestione MultiPoint.
 
-| Computer | Il nome del computer |
+| Computer | Nome computer |
 |----------|---------------|
 | 1        |               |
 | 2        |               |
@@ -81,20 +77,20 @@ Copiare i nomi utente per gli utenti amministratori e MultiPoint dashboard. È p
 
 Administrators:
 
-- nome utente:
-- nome utente:
-- nome utente:
-- nome utente:
-- nome utente:
-- nome utente:
+- Nome utente:
+- Nome utente:
+- Nome utente:
+- Nome utente:
+- Nome utente:
+- Nome utente:
 
 Utenti del dashboard:
 
-- nome utente:
-- nome utente:
-- nome utente:
-- nome utente:
-- nome utente:
+- Nome utente:
+- Nome utente:
+- Nome utente:
+- Nome utente:
+- Nome utente:
 
 ## <a name="vdi-template-and-virtual-desktops"></a>Modello VDI e desktop virtuali
 

@@ -1,24 +1,20 @@
 ---
 title: netcfg
-description: 'Argomento dei comandi di Windows per * * * *- '
-ms.custom: na
+description: Argomento dei comandi di Windows per * * * *-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: e2daaab7-12db-4e36-b70c-db8906d084f7 vhorne
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: bfbe8cd757f78bfa3e808a9126af7d1698579885
-ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
+ms.openlocfilehash: 4895928ffdd5d923d370f82e699d69f42c0f81a5
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79320005"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80838934"
 ---
 # <a name="netcfg"></a>netcfg
 
@@ -29,7 +25,7 @@ Installa il Ambiente preinstallazione di Windows (WinPE), una versione leggera d
 ```
 netcfg [/v] [/e] [/winpe] [/l ] /c /i
 ```
-### <a name="parameters"></a>Parametri
+#### <a name="parameters"></a>Parametri
 |Parametro|Descrizione|
 |-------|--------|
 |/v|Esegui in **modalità dettagliata (** dettagliata)|
@@ -38,11 +34,11 @@ netcfg [/v] [/e] [/winpe] [/l ] /c /i
 |/l|Fornisce il **percorso** del inf|
 |/c|Fornisce la **classe** del componente da installare. protocollo, servizio o client|
 |/i|Fornisce l' **ID** componente|
-|/s|Fornisce il tipo di componenti da **visualizzare**.<br /><br />\ta = Adapters, n = NET Components|
+|/s|Fornisce il tipo di componenti da **visualizzare**.<p>\ta = Adapters, n = NET Components|
 |/ b|Consente di visualizzare i **percorsi di associazione**, se seguiti da una stringa contenente il nome del percorso.|
 |/?|Visualizza la **Guida** al prompt dei comandi.|
 
-## <a name="BKMK_Examples"></a>Esempi
+## <a name="examples"></a><a name=BKMK_Examples></a>Esempi
 
 Per installare l' *esempio* di protocollo usando c:\oemdir\example.inf:
 ```
@@ -72,5 +68,5 @@ Per visualizzare i percorsi di binding contenenti *MS_TCPIP*:
 ```
 netcfg /b ms_tcpip
 ```
-## <a name="additional-references"></a>riferimenti aggiuntivi
--   [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+## <a name="additional-references"></a>Altre informazioni di riferimento
+-   - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

@@ -1,24 +1,20 @@
 ---
 title: mqbkup
-description: 'Argomento dei comandi di Windows per * * * *- '
-ms.custom: na
+description: Argomento dei comandi di Windows per * * * *-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 7bdd41c4-75ef-455f-b241-1d64a4c7acf5
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 66783e0bbfe5c82971e14fd05e913d485485dc6f
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 5ff6fc2f483bceb99b970cd0c48f56985ecd485b
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71373506"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80839354"
 ---
 # <a name="mqbkup"></a>mqbkup
 
@@ -31,14 +27,14 @@ Prima di utilizzare l'utilità di backup/ripristino messaggi MSMQ, è necessario
 ```  
 mqbkup {/b | /r} <folder path_to_storage_device>  
 ```  
-### <a name="parameters"></a>Parametri  
+#### <a name="parameters"></a>Parametri  
 |Parametro|Descrizione|  
 |-------|--------|  
 |/ b|Specifica l'operazione di backup|  
 |/r|Specifica l'operazione di ripristino|  
 |< cartella path_to_storage\_dispositivo >|Specifica il percorso in cui sono archiviati i file dei messaggi MSMQ e le impostazioni del registro di sistema|  
 |/?|Visualizza la guida al prompt dei comandi.|  
-## <a name="BKMK_Examples"></a>Esempi  
+## <a name="examples"></a><a name=BKMK_Examples></a>Esempi  
 Per eseguire il backup di tutti i file di messaggi MSMQ e le impostazioni del registro di sistema e archiviarli nella cartella *Msmqbkup* nell'unità C:.  
 ```  
 mqbkup /b c:\msmqbkup  
@@ -53,5 +49,5 @@ Per ripristinare i messaggi MSMQ e le impostazioni del registro di sistema:
 mqbkup /r c:\msmqbkup  
 ```  
 I percorsi delle cartelle utilizzate per archiviare i file di messaggi MSMQ vengono archiviati nel registro di sistema. In questo modo, l'utilità ripristinerà i file di messaggi MSMQ alle cartelle specificate nel registro di sistema e non alle cartelle di archiviazione utilizzate prima dell'operazione di ripristino. Se le cartelle specificate nel registro di sistema non esistono, l'operazione di ripristino li creerà automaticamente. Se le directory delle cartelle esistono e non sono vuote, l'utilità richiede l'autorizzazione per eliminare il contenuto corrente di queste cartelle.  
-## <a name="additional-references"></a>riferimenti aggiuntivi  
--   [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)  
+## <a name="additional-references"></a>Altre informazioni di riferimento  
+-   - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)  

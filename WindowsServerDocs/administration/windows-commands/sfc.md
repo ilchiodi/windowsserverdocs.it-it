@@ -1,44 +1,41 @@
 ---
 title: sfc
-description: 'Argomento dei comandi di Windows per * * * *- '
-ms.custom: na
+description: Windows Commands Topic for SFC, che consente di analizzare e verificare l'integrità di tutti i file di sistema protetti e sostituisce le versioni non corrette con le versioni corrette.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: c58c25da-e028-42a6-9e10-973484a4b953
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: ca470d519e9f3425c0c58fd0070a76c7038ec9b5
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 7663c8e3527995e2d3ec874dff6fa972e7e83ddd
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71384021"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80834324"
 ---
 # <a name="sfc"></a>sfc
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Esegue l'analisi e verifica l'integrità di sistema protetti tutti i file e sostituisce le versioni non corrette con le versioni corrette.
-Per esempi relativi all'uso di questo comando, vedere [esempi](#BKMK_examples).
+
+Per esempi di utilizzo di questo comando, vedere [Esempi](#BKMK_examples).
 
 ## <a name="syntax"></a>Sintassi
 ```
 sfc [/scannow] [/verifyonly] [/scanfile=<file>] [/verifyfile=<file>] [/offwindir=<offline windows directory> /offbootdir=<offline boot directory>]
 ```
 
-### <a name="parameters"></a>Parametri
+#### <a name="parameters"></a>Parametri
 |Parametro|Descrizione|
 |-------|--------|
 |/scannow|Analizza l'integrità di tutti i file protetti di sistema e ripristinare i file con problemi quando possibile.|
 |/VERIFYONLY|Esegue l'analisi dell'integrità di tutti i file protetti di sistema. Viene eseguita alcuna operazione di ripristino.|
 |/SCANFILE|Analisi dell'integrità del file specificato e il ripristino del file se vengono rilevati problemi, quando possibile.|
-|\<file>|Nome file e percorso completo|
+|file di \<>|Nome file e percorso completo|
 |/VERIFYFILE|Verifica l'integrità del file specificato. Viene eseguita alcuna operazione di ripristino.|
 |/offwindir|Specifica il percorso della directory di windows non in linea, per la riparazione non in linea.|
 |/offbootdir|Specifica il percorso della directory di avvio non in linea non in linea|
@@ -51,7 +48,7 @@ sfc [/scannow] [/verifyonly] [/scanfile=<file>] [/verifyfile=<file>] [/offwindir
 -   Per ulteriori informazioni su **SFC** in Windows Server 2003, vedere l' [articolo 310747](https://go.microsoft.com/fwlink/?LinkId=227069) della Microsoft Knowledge base.
 -   Per ulteriori informazioni su **SFC** in windows Server 2008 e windows Server 2008 R2, vedere [controllo dei file di sistema](https://go.microsoft.com/fwlink/?LinkId=227071).
 
-## <a name="BKMK_examples"></a>Esempi
+## <a name="examples"></a><a name=BKMK_examples></a>Esempi
 Per verificare il **file Kernel32. dll**, tipo:
 ```
 sfc /verifyfile=c:\windows\system32\kernel32.dll
@@ -62,5 +59,5 @@ sfc /scanfile=d:\windows\system32\kernel32.dll /offbootdir=d:\ /offwindir=d:\win
 ```
 
 ## <a name="additional-references"></a>Altri riferimenti
--   [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+-   - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
 

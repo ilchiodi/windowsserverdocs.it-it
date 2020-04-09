@@ -1,24 +1,20 @@
 ---
 title: mapadmin
-description: 'Argomento dei comandi di Windows per * * * *- '
-ms.custom: na
+description: Argomento dei comandi di Windows per * * * *-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: b17332c7-8622-4223-9c43-2fb9cf4d992d
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: fc4b76c1989298ea83c480b9c838ce0fc18fef5f
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 5ea60f4d9753ed90c0d13ee48289b011aeafe6b0
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71373765"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80839674"
 ---
 # <a name="mapadmin"></a>mapadmin
 
@@ -57,14 +53,14 @@ Oltre agli argomenti di comando specifici, **mapadmin** accetta gli argomenti e 
 -p &lt;password&gt; specifica la password dell'utente. Se si specifica l'opzione **-u** omettendo l'opzione **-p** , verrà richiesta la password dell'utente.
 L'azione specifica eseguita da **mapadmin** dipende dall'argomento del comando specificato:
 
-## <a name="parameters"></a>Parametri
-### <a name="start"></a>start
+### <a name="parameters"></a>Parametri
+### <a name="start"></a>inizio
 avvia il servizio di mapping dei nomi utente.
 
 ### <a name="stop"></a>stop
 Arresta il servizio di mapping dei nomi utente.
 
-### <a name="config"></a>configurazione
+### <a name="config"></a>config
 Specifica le impostazioni generali per il mapping dei nomi utente. Con questo argomento di comando sono disponibili le opzioni seguenti: **-r &lt;dddd&gt;:&lt;hh&gt;:&lt;mm&gt;** -specifica l'intervallo di aggiornamento per l'aggiornamento dai database Windows e NIS in giorni, ore e minuti. L'intervallo minimo è di 5 minuti.
 **-i {Yes | No}** -attiva il mapping semplice (**Sì**) o disattivato (**No**). Per impostazione predefinita, il mapping semplice è on.
 **Aggiungi** : crea un nuovo mapping per un utente o un gruppo. Con questo argomento di comando sono disponibili le opzioni seguenti:
@@ -135,5 +131,5 @@ Specifica le impostazioni generali per il mapping dei nomi utente. Con questo ar
 -   per gli utenti UNIX, utilizzare il formato &lt;NISdomain&gt;\\&lt;nome utente&gt;&lt;nome utente&gt;@&lt;NISdomain&gt;&lt;&gt;nome utente @PCNFS\\o PCNFS &lt;&gt; nome utente
 -   per i gruppi UNIX, utilizzare il formato &lt;NISdomain&gt;\\&lt;GroupName&gt;, &lt;GroupName&gt;@&lt;NISdomain&gt;, &lt;GroupName&gt;@PCNFSo PCNFS\\&lt;GroupName&gt;
 
-## <a name="additional-references"></a>riferimenti aggiuntivi
-[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+## <a name="additional-references"></a>Altre informazioni di riferimento
+- [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

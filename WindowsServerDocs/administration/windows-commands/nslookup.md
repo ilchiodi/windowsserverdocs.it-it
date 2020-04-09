@@ -1,28 +1,24 @@
 ---
 title: nslookup
-description: 'Argomento dei comandi di Windows per * * * *- '
-ms.custom: na
+description: Argomento dei comandi di Windows per * * * *-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 41516932-7833-434a-aa92-b4cf0f9a7ef7
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 6b47592be57d5999ac26465097490da266bd0aea
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 15062d81992ee1b6e55d47cb9e49822350e4f2bc
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71372699"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80838094"
 ---
 # <a name="nslookup"></a>nslookup
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Visualizza le informazioni che è possibile utilizzare per diagnosticare infrastruttura Domain Name System (DNS). Prima di utilizzare questo strumento, è necessario conoscere il funzionamento di DNS. Lo strumento da riga di comando nslookup è disponibile solo se è stato installato il protocollo TCP/IP.
 ## <a name="syntax"></a>Sintassi
@@ -57,7 +53,7 @@ nslookup /set [no]vc
 nslookup /view <FileName>
 ```
 
-## <a name="parameters"></a>Parametri
+### <a name="parameters"></a>Parametri
 
 |                       Parametro                       |                                                                                                         Descrizione                                                                                                         |
 |-------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -106,15 +102,15 @@ nslookup /view <FileName>
   |`No response from server`|Nessun nome di server DNS è in esecuzione sul computer del server.|
   |`No records`|Il server dei nomi DNS non dispone di record di risorse del tipo di query corrente per il computer, anche se il nome del computer è valido. Il tipo di query viene specificato con il **set querytype** comando.|
   |`Nonexistent domain`|Il computer o nome di dominio DNS non esiste.|
-  |`Connection refused`<br /><br />-Oppure-<br /><br />`Network is unreachable`|Impossibile stabilire la connessione al server dei nomi DNS o al server con un dito. Questo errore si verifica in genere con **ls** e **dito** richieste.|
+  |`Connection refused`<p>-oppure-<p>`Network is unreachable`|Impossibile stabilire la connessione al server dei nomi DNS o al server con un dito. Questo errore si verifica in genere con **ls** e **dito** richieste.|
   |`Server failure`|Il server dei nomi DNS ha rilevato un'incoerenza interna nel proprio database e non può restituire una risposta valida.|
   |`Refused`|Il server dei nomi DNS rifiutata soddisfare la richiesta.|
   |`format error`|Trovare il server di nome DNS che il pacchetto di richiesta non è nel formato corretto. Può indicare un errore in **nslookup**.|
 - Per ulteriori informazioni sui **nslookup** comando e DNS, vedere le risorse seguenti:
-  - Lee, t, Davies, J. 2000. *Documentazione tecnica su protocolli TCP/IP di Microsoft Windows 2000 e servizi*. Redmond, Washington: Microsoft Press.
-  - Albitz, P., Loukides, M. C. Liu e. 2001. *DNS e BIND, Fourth Edition*. Sebastopoli, California: Reilly e Associates, Inc.
-  - Larson, M. C. Liu e. 2001. *DNS in Windows 2000*. Sebastopoli, California: Reilly e Associates, Inc.
+  - Lee, T., Davies, J. 2000. *Documentazione tecnica su protocolli TCP/IP di Microsoft Windows 2000 e servizi*. Redmond, Washington: Microsoft Press.
+  - Albitz, P., Loukides, M. C. Liu e. 2001. *DNS e BIND, Fourth Edition*. Sebastopoli, California: o ' Reilly and Associates, Inc.
+  - Larson, M. C. Liu e. 2001. *DNS in Windows 2000*. Sebastopoli, California: o ' Reilly and Associates, Inc.
     #### <a name="examples"></a>Esempi
     Ogni opzione della riga di comando è costituito da un trattino (-) seguito dal nome del comando e, in alcuni casi, un segno di uguale (=) e quindi un valore. Ad esempio, per modificare il tipo di query predefinito per il timeout iniziale su 10 secondi e informazioni sull'host (computer), digitare: **nslookup - querytype = hinfo - timeout = 10**
-    ## <a name="see-also"></a>Vedere anche
-    [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+    ## <a name="see-also"></a>Vedi anche
+    - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

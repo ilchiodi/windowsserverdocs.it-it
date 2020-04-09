@@ -2,20 +2,18 @@
 title: Distribuire dispositivi grafici con l'assegnazione di dispositivi discreti
 description: Informazioni su come usare DDA per distribuire dispositivi grafici in Windows Server
 ms.prod: windows-server
-ms.service: na
 ms.technology: hyper-v
-ms.tgt_pltfrm: na
 ms.topic: article
 author: chrishuybregts
 ms.author: chrihu
 ms.assetid: 67a01889-fa36-4bc6-841d-363d76df6a66
 ms.date: 08/21/2019
-ms.openlocfilehash: 5466cecf9f11a53dc6e205f36d50d7b27b310ea1
-ms.sourcegitcommit: 81198fbf9e46830b7f77dcd345b02abb71ae0ac2
+ms.openlocfilehash: 07f0ba19aaf998bb7b2fe8cf4ef1ba6cf8cae322
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72923872"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80860914"
 ---
 # <a name="deploy-graphics-devices-using-discrete-device-assignment"></a>Distribuire dispositivi grafici con l'assegnazione di dispositivi discreti
 
@@ -87,7 +85,7 @@ Il passaggio finale consiste nell'indicare a Hyper-V che una macchina virtuale d
 Add-VMAssignableDevice -LocationPath $locationPath -VMName VMName
 ```
 
-## <a name="whats-next"></a>Passaggi successivi
+## <a name="whats-next"></a>Operazioni successive
 Dopo che un dispositivo è stato montato correttamente in una macchina virtuale, è ora possibile avviare tale macchina virtuale e interagire con il dispositivo come si farebbe normalmente se fosse in esecuzione in un sistema bare metal.  Ciò significa che ora è possibile installare i driver del fornitore dell'hardware nella macchina virtuale e le applicazioni saranno in grado di visualizzare l'hardware presente.  È possibile verificare questo problema aprendo Gestione dispositivi nella macchina virtuale guest e osservando che l'hardware è ora visualizzato.
 
 ## <a name="removing-a-device-and-returning-it-to-the-host"></a>Rimozione di un dispositivo e relativa restituzione all'host
@@ -141,4 +139,4 @@ Se è stata passata una GPU a una macchina virtuale, ma Desktop remoto o un'appl
 - Verificare che il dispositivo disponga di spazio MMIO sufficiente allocato nella macchina virtuale. Per altre informazioni, vedere [MMIO Space](../plan/Plan-for-Deploying-Devices-using-Discrete-Device-Assignment.md#mmio-space).
 - Assicurarsi di usare una GPU supportata dal fornitore in questa configurazione. Alcuni fornitori, ad esempio, impediscono il funzionamento delle schede consumer quando vengono passate a una macchina virtuale.
 - Assicurarsi che l'applicazione in esecuzione supporti l'esecuzione all'interno di una macchina virtuale e che sia la GPU che i driver associati siano supportati dall'applicazione. Per alcune applicazioni sono disponibili elenchi di GPU e ambienti consentiti.
-- Se si usa il ruolo host sessione Desktop remoto o servizi MultiPoint di Windows sul Guest, è necessario assicurarsi che una voce di Criteri di gruppo specifica sia impostata in modo da consentire l'uso della GPU predefinita. Utilizzando un Criteri di gruppo oggetto applicato al Guest (o al Editor Criteri di gruppo locali nel guest), passare all'elemento Criteri di gruppo seguente: **Configurazione Computer** > **modelli di amministratore** > componenti di **Windows** > **Servizi Desktop remoto** > **host sessione Desktop remoto** > **ambiente sessione remota** > **utilizzare la scheda grafica predefinita hardware per tutte le sessioni di Servizi Desktop remoto**. Impostare questo valore su abilitato, quindi riavviare la macchina virtuale dopo aver applicato i criteri.
+- Se si usa il ruolo host sessione Desktop remoto o servizi MultiPoint di Windows sul Guest, è necessario assicurarsi che una voce di Criteri di gruppo specifica sia impostata in modo da consentire l'uso della GPU predefinita. Utilizzando un Criteri di gruppo oggetto applicato al Guest (o al Editor Criteri di gruppo locali nel guest), passare al Criteri di gruppo elemento seguente: **Configurazione Computer** > **modelli di amministratore** > componenti di **Windows** > **Servizi Desktop remoto** > host sessione Desktop remoto **Remote Desktop Session Host** > **ambiente sessione remota** > **utilizzare la scheda grafica predefinita hardware per tutte le sessioni di Servizi Desktop remoto**. Impostare questo valore su abilitato, quindi riavviare la macchina virtuale dopo aver applicato i criteri.

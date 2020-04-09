@@ -1,24 +1,20 @@
 ---
 title: Pianificare gli account utente per l'ambiente MultiPoint Services
 description: Informazioni sulla pianificazione per gli account utente in MultiPoint Services
-ms.custom: na
 ms.date: 07/22/2016
 ms.prod: windows-server
 ms.technology: multipoint-services
-ms.reviewer: na
-ms.suite: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: d47be540-e891-47bd-85da-6df4bbf93b2f
 author: evaseydl
 manager: scottman
 ms.author: evas
-ms.openlocfilehash: 056c3b9773387cf00b40baf6f14e4e1f3583f6c9
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 28ee7a1475ec55352fe344842b8df7633abb9137
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71405011"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80853394"
 ---
 # <a name="plan-user-accounts-for-your-multipoint-services-environment"></a>Pianificare gli account utente per l'ambiente MultiPoint Services
 Il modo migliore per implementare gli account utente in MultiPoint Services dipende dalle dimensioni e dalla complessità della distribuzione:  
@@ -62,7 +58,7 @@ Al contrario, è anche possibile replicare singoli account utente in tutti i com
 |UserAccount_04|UserAccount_04|  
 |UserAccount_05|UserAccount_05|  
   
-Un vantaggio di questo approccio consiste nel fatto che gli utenti dispongono di un account utente locale in tutti i servizi MultiPoint disponibili. Tuttavia, gli svantaggi potrebbero superare questo vantaggio. Ad esempio, anche se il nome utente e la password di una determinata persona sono gli stessi in entrambi i computer, gli account non sono collegati tra loro. Di conseguenza, se un utente accede al proprio account nel computer A lunedì, salva un file e quindi accede al proprio account nel computer B il martedì, non sarà in grado di accedere al file salvato in precedenza nel computer A. , la replica degli account utente in più computer aumenta il sovraccarico amministrativo e i requisiti di archiviazione.  
+Un vantaggio di questo approccio consiste nel fatto che gli utenti dispongono di un account utente locale in tutti i servizi MultiPoint disponibili. Tuttavia, gli svantaggi potrebbero superare questo vantaggio. Ad esempio, anche se il nome utente e la password di una determinata persona sono gli stessi in entrambi i computer, gli account non sono collegati tra loro. Pertanto, se un utente accede al proprio account nel computer A lunedì, salva un file e quindi accede al proprio account nel computer B il martedì, non sarà in grado di accedere al file salvato in precedenza nel computer A. Inoltre, la replica degli account utente in più computer aumenta il sovraccarico amministrativo e i requisiti di archiviazione.  
   
 ### <a name="use-generic-local-user-accounts"></a>Usare account utente locali generici  
 Se il sistema MultiPoint Services non è connesso a un dominio e non si vuole creare un singolo account per ogni utente, è possibile creare account generici per ogni stazione. Se, ad esempio, si dispone di due computer che eseguono MultiPoint Services e cinque stazioni sono associate a ogni computer, è possibile decidere di creare account utente simili a quelli illustrati nella tabella seguente.  

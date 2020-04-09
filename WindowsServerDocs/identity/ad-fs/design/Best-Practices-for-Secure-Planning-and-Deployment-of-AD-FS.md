@@ -1,7 +1,6 @@
 ---
 ms.assetid: 963a3d37-d5f1-4153-b8d5-2537038863cb
 title: Procedure consigliate per la pianificazione e la distribuzione sicure di ADFS
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: be488ccffee7b267d2a3a120b85436abf206f65a
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: bcddb3cc7534f45f0a84e25a6174648f1e3b82af
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71359197"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80858414"
 ---
 # <a name="best-practices-for-secure-planning-and-deployment-of-ad-fs"></a>Procedure consigliate per la pianificazione e la distribuzione sicure di ADFS
 
@@ -57,7 +56,7 @@ Le seguenti procedure consigliate di base sono comuni a tutte le installazioni d
   
     Nella seguente tabella è spiegato come registrare l'estensione dei ruoli della Configurazione guidata impostazioni di sicurezza appropriata in base al ruolo del server ADFS scelto nel computer in cui è installato ADFS.  
   
-    |Ruolo del server ADFS|Database di configurazione di ADFS usato|Al prompt dei comandi digitare il comando seguente:|  
+    |Ruolo del server ADFS|Database di configurazione di ADFS usato|A un prompt dei comandi digitare quanto segue:|  
     |---------------------|-------------------------------------|---------------------------------------------------|  
     |Server federativo autonomo|Database interno di Windows|`scwcmd register /kbname:ADFS2Standalone /kbfile:"WindowsADFSscwStandAlone.xml"`|  
     |Server federativo aggiunto alla farm|Database interno di Windows|`scwcmd register /kbname:ADFS2Standalone /kbfile:"WindowsADFSscwFarm.xml"`|  
@@ -85,11 +84,11 @@ Le seguenti procedure consigliate di base sono comuni a tutte le installazioni d
   
     Per abilitare la funzionalità di protezione estesa, usare il parametro **ExtendedProtectionTokenCheck** nel cmdlet **Set-ADFSProperties**. I valori possibili di questa impostazione e il livello di sicurezza fornito dai valori sono descritti nella tabella seguente.  
   
-    |Valore del parametro|Livello Sicurezza|Impostazione di protezione|  
+    |Valore parametro|Livello Sicurezza|Impostazione di protezione|  
     |-------------------|------------------|----------------------|  
     |Richiedi|Il server è completamente protetto.|La protezione estesa è applicata e sempre richiesta.|  
     |Consenti|Il server è parzialmente protetto.|La protezione estesa è applicata ai sistemi interessati se sono stati configurati per supportarla.|  
-    |Nessuno|Il server è vulnerabile.|La protezione estesa non è applicata.|  
+    |None|Il server è vulnerabile.|La protezione estesa non è applicata.|  
   
 -   **Se si usano la registrazione e la traccia, assicurarsi che le informazioni riservate siano riservate.**  
   
@@ -114,7 +113,7 @@ Le seguenti procedure consigliate di base sono comuni a tutte le installazioni d
      Per il blocco Smart Extranet per AD FS in Windows Server 2016, vedere la pagina relativa alla [protezione del blocco intelligente di ad FS Extranet](../../ad-fs/operations/Configure-AD-FS-Extranet-Smart-Lockout-Protection.md).  
   
 ## <a name="sql-serverspecific-security-best-practices-for-ad-fs"></a>Procedure consigliate per la sicurezza di base specifiche di SQL Server per ADFS  
-Le seguenti procedure consigliate per la protezione sono specifiche per l'utilizzo di Microsoft SQL Server® o database interno di Windows quando tali tecnologie di database vengono utilizzate per gestire i dati in AD FS progettazione e distribuzione.  
+Le seguenti procedure consigliate per la protezione sono specifiche per l'utilizzo di Microsoft SQL Server&reg; o database interno di Windows quando tali tecnologie di database vengono utilizzate per gestire i dati in AD FS progettazione e distribuzione.  
   
 > [!NOTE]  
 > Questi suggerimenti costituiscono un'estensione della guida alla sicurezza del prodotto SQL Server, ma non la sostituiscono. Per ulteriori informazioni sulla pianificazione di un'installazione SQL Server protetta, vedere [considerazioni sulla sicurezza per un'installazione di SQL protetto](https://go.microsoft.com/fwlink/?LinkID=139831) (https://go.microsoft.com/fwlink/?LinkID=139831).  
@@ -125,7 +124,7 @@ Le seguenti procedure consigliate per la protezione sono specifiche per l'utiliz
   
 -   **Eseguire SQL Server in un account del servizio anziché utilizzare gli account di servizio di sistema predefiniti predefiniti.**  
   
-    Per impostazione predefinita, SQL Server è spesso installato e configurato per l'uso di uno degli account di sistema predefiniti supportati, ad esempio LocalSystem o NetworkService. Per migliorare la sicurezza dell'installazione di SQL Server per AD FS, laddove possibile usare un account di servizio separato per accedere al servizio SQL Server e abilitare l'autenticazione Kerberos registrando il nome dell'entità di sicurezza (SPN) di questo account nel Active Directory la distribuzione. In questo modo si abilita l'autenticazione reciproca tra client e server. Senza la registrazione dell'SPN di un account del servizio distinto, SQL Server userà NTLM per l'autenticazione basata su Windows in cui solo il client viene autenticato.  
+    Per impostazione predefinita, SQL Server è spesso installato e configurato per l'uso di uno degli account di sistema predefiniti supportati, ad esempio LocalSystem o NetworkService. Per migliorare la sicurezza dell'installazione di SQL Server per AD FS, laddove possibile usare un account di servizio separato per accedere al servizio SQL Server e abilitare l'autenticazione Kerberos registrando il nome dell'entità di sicurezza (SPN) di questo account nella distribuzione di Active Directory. In questo modo si abilita l'autenticazione reciproca tra client e server. Senza la registrazione dell'SPN di un account del servizio distinto, SQL Server userà NTLM per l'autenticazione basata su Windows in cui solo il client viene autenticato.  
   
 -   **Ridurre a icona la superficie di attacco del SQL Server.**  
   

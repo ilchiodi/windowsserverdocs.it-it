@@ -1,19 +1,19 @@
 ---
 title: Creare un disco modello di macchina virtuale schermata di Windows
-ms.custom: na
 ms.prod: windows-server
 ms.topic: article
 ms.assetid: 9c8b84e8-1f5a-47a1-83ca-b1dbd801cb0b
 manager: dongill
 author: rpsqrd
+ms.author: ryanpu
 ms.technology: security-guarded-fabric
 ms.date: 01/29/2019
-ms.openlocfilehash: 04fdd52544b69d2c41abcbee00dd00b31bf5f21c
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: 766ea9688b7f08914ca68a960cc21393963bd0e9
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75949781"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80856774"
 ---
 # <a name="create-a-windows-shielded-vm-template-disk"></a>Creare un disco modello di macchina virtuale schermata di Windows
 
@@ -113,7 +113,7 @@ L'icona a forma di scudo piccolo accanto al nome del disco indica il disco come 
 
 ## <a name="create-the-shielded-vm-template-in-vmm-using-the-prepared-template-disk"></a>Creare il modello di macchina virtuale schermata in VMM usando il disco modello preparato
 
-Con un disco modello preparato nella libreria VMM, è possibile creare un modello di macchina virtuale per le macchine virtuali schermate. I modelli di macchina virtuale per le macchine virtuali schermate differiscono leggermente dai modelli di VM tradizionali, in quanto determinate impostazioni sono fisse (VM di seconda generazione, UEFI e avvio protetto abilitato e così via) e altre non sono disponibili (la personalizzazione del tenant è limitata a pochi, selezionare le proprietà della VM) . Per creare il modello di macchina virtuale, seguire questa procedura:
+Con un disco modello preparato nella libreria VMM, è possibile creare un modello di macchina virtuale per le macchine virtuali schermate. I modelli di macchina virtuale per le macchine virtuali schermate differiscono leggermente dai modelli di VM tradizionali, in quanto determinate impostazioni sono fisse (VM di seconda generazione, UEFI e avvio protetto abilitato e così via) e altre non sono disponibili (la personalizzazione del tenant è limitata a pochi, selezionare le proprietà della macchina virtuale). Per creare il modello di macchina virtuale, seguire questa procedura:
 
 1. Nell'area di lavoro **libreria** fare clic su **Crea modello di macchina virtuale** nella scheda Home nella parte superiore.
 
@@ -167,7 +167,7 @@ Save-VolumeSignatureCatalog -TemplateDiskPath 'C:\temp\MyLinuxTemplate.vhdx' -Vo
 > [!div class="nextstepaction"]
 > [Creare un file di dati di schermatura](guarded-fabric-tenant-creates-shielding-data.md)
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 
 - [Procedura di configurazione del provider di servizi di hosting per host sorvegliati e macchine virtuali schermate](guarded-fabric-configuration-scenarios-for-shielded-vms-overview.md)
 - [Infrastruttura sorvegliata e macchine virtuali schermate](guarded-fabric-and-shielded-vms-top-node.md)

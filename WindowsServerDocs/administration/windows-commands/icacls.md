@@ -1,24 +1,20 @@
 ---
 title: icacls
-description: 'Argomento dei comandi di Windows per * * * *- '
-ms.custom: na
+description: Argomento dei comandi di Windows per * * * *-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 403edfcc-328a-479d-b641-80c290ccf73e
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 08/21/2018
-ms.openlocfilehash: 494c87073cfd78c7f5e17c72d4c65bec33a49b98
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 59d10b9ed681b7e0af120798dde9f200182d67d3
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71375494"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80842264"
 ---
 # <a name="icacls"></a>icacls
 
@@ -33,7 +29,7 @@ icacls <FileName> [/grant[:r] <Sid>:<Perm>[...]] [/deny <Sid>:<Perm>[...]] [/rem
 icacls <Directory> [/substitute <SidOld> <SidNew> [...]] [/restore <ACLfile> [/c] [/l] [/q]]
 ```
 
-## <a name="parameters"></a>Parametri
+### <a name="parameters"></a>Parametri
 
 |Parametro|Descrizione|
 |---------|-----------|
@@ -56,7 +52,7 @@ icacls <Directory> [/substitute <SidOld> <SidNew> [...]] [/restore <ACLfile> [/c
 |/Restore \<ACLfile > [/c] [/l] [/q]|Si applica stored DACL da *ACLfile* ai file nella directory specificata. Richiede il *Directory* parametro.|
 |/InheritanceLevel: [e\|d\|r]|Imposta il livello di ereditarietà: <br>  **e** -Abilita enheritance <br>**d** : Disabilita l'ereditarietà e copia le voci ACE <br>**r** -rimuove tutte le voci ACE ereditate
 
-## <a name="remarks"></a>Osservazioni
+## <a name="remarks"></a>Note
 
 -   SID potrebbero essere in qualsiasi formato di nome descrittivo o numerici. Se si usa un formato numerico, applicare il carattere **&#42;** jolly all'inizio del SID.
 -   **Icacls** mantiene l'ordine canonico delle voci ACE come:  
@@ -141,18 +137,18 @@ Per ripristinare il DACL per ogni file all'interno di ACLFile presente nella dir
 icacls c:\windows\ /restore aclfile
 ```
 
-Per concedere all'utente le autorizzazioni di eliminazione User1 e scrittura DAC in un file denominato "Test1", digitare:
+Per concedere all'utente User1 le autorizzazioni di eliminazione e scrittura dell'applicazione livello dati in un file denominato Test1, digitare:
 
 ```
 icacls test1 /grant User1:(d,wdac)
 ```
 
-Per concedere all'utente definita dalle autorizzazioni di scrittura DAC ed Elimina SID S-1-1-0 in un file, denominato "Test2", digitare:
+Per concedere all'utente definito da SID S-1-1-0 le autorizzazioni per l'eliminazione e la scrittura dell'applicazione livello dati in un file, denominato Test2, digitare:
 
 ```
 icacls test2 /grant *S-1-1-0:(d,wdac)
 ```
 
-#### <a name="additional-references"></a>Altri riferimenti
+## <a name="additional-references"></a>Altre informazioni di riferimento
 
-[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+- [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

@@ -1,7 +1,6 @@
 ---
 ms.assetid: e831f781-3c45-4d44-b411-160d121d1324
 title: Linguaggio delle regole di trasformazione delle attestazioni
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 200d592bc68562856bbdee623e70d73d41457c15
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: f391c3f8ef2bb5b12f0dd15db55df4f861c05f9b
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71357583"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80861274"
 ---
 # <a name="claims-transformation-rules-language"></a>Linguaggio delle regole di trasformazione delle attestazioni
 
@@ -295,10 +294,10 @@ In questa sezione vengono illustrati alcuni esempi di regole scritte con sintass
   
    Questo esempio è sintatticamente e semanticamente corretto. Tuttavia, l'utilizzo di "Boolean" come valore stringa è associato a una confusione ed è consigliabile evitarlo. Come indicato in precedenza, l'uso di terminali di linguaggio come valori di attestazioni deve essere evitato laddove possibile.  
   
-## <a name="BKMK_LT"></a>Terminali del linguaggio  
+## <a name="language-terminals"></a><a name="BKMK_LT"></a>Terminali del linguaggio  
 La tabella seguente elenca il set completo di stringhe terminali e i terminali di linguaggio associati usati nel linguaggio delle regole di trasformazione delle attestazioni. Queste definizioni utilizzano stringhe UTF-16 senza distinzione tra maiuscole e minuscole.  
   
-|Stringa|Terminale|  
+|String|Terminale|  
 |----------|------------|  
 |"= >"|IMPLICA|  
 |";"|VIRGOLA|  
@@ -314,7 +313,7 @@ La tabella seguente elenca il set completo di stringhe terminali e i terminali d
 |"=~"|REGEXP_MATCH|  
 |"!~"|REGEXP_NOT_MATCH|  
 |"="|ASSEGNARE|  
-|"& &"|E|  
+|"& &"|AND|  
 |problema|PROBLEMA|  
 |tipo|TYPE|  
 |valore|VALORE|  
@@ -324,7 +323,7 @@ La tabella seguente elenca il set completo di stringhe terminali e i terminali d
 |"\\" [^\\"\n] *\\" "|STRINGA|  
 |UInt64|UINT64_TYPE|  
 |Int64|INT64_TYPE|  
-|stringa|STRING_TYPE|  
+|"string"|STRING_TYPE|  
 |Boolean|BOOLEAN_TYPE|  
   
 ## <a name="language-syntax"></a>Sintassi del linguaggio  

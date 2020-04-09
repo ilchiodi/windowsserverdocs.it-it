@@ -1,24 +1,20 @@
 ---
 title: Riavviare o arrestare sistemi MultiPoint
 description: Informazioni su come arrestare o riavviare uno o più sistemi
-ms.custom: na
 ms.prod: windows-server
 ms.technology: multipoint-services
-ms.reviewer: na
-ms.suite: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 6293b4f7-c009-419d-a503-fc4f3ea3913c
 author: lizap
 manager: dongill
 ms.author: elizapo
 ms.date: 08/04/2016
-ms.openlocfilehash: 6f0c5c0f444130f0b8bcb3540c0b2e243de755e7
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: c760efbb8354251af243995030ef4019ec03a823
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71395078"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80859344"
 ---
 # <a name="restart-or-shut-down-multipoint-systems"></a>Riavviare o arrestare sistemi MultiPoint
 È possibile riavviare o arrestare un sistema di servizi MultiPoint o più sistemi ai servizi MultiPoint nel Dashboard MultiPoint.  

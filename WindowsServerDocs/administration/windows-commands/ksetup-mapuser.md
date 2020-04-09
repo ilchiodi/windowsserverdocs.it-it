@@ -1,24 +1,20 @@
 ---
 title: 'che Ksetup: mapuser'
-description: 'Argomento dei comandi di Windows per * * * *- '
-ms.custom: na
+description: Argomento dei comandi di Windows per * * * *-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 84113e6e-89ff-488a-9cd0-f14bbf23b543
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 6b80538999c364e9ed10ca0ed43387f603ac9ad3
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: f61c67fa21eccb77601b78aed51791259d609c5e
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71374982"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80841484"
 ---
 # <a name="ksetupmapuser"></a>che Ksetup: mapuser
 
@@ -32,12 +28,12 @@ Il nome dell'entità Kerberos viene eseguito il mapping a un account. Per esempi
 ksetup /mapuser <Principal> <Account>
 ```
 
-### <a name="parameters"></a>Parametri
+#### <a name="parameters"></a>Parametri
 
 |  Parametro   |                                                   Descrizione                                                   |
 |--------------|-----------------------------------------------------------------------------------------------------------------|
-| \<Principal > |              Nome di dominio completo di qualsiasi entità; ad esempio, mike@corp.CONTOSO.COM.              |
-|  \<Account >  | Qualsiasi account o sicurezza gruppo nome presente in questo computer, ad esempio Guest, gli utenti del dominio o amministratore. |
+| > entità di \< |              Nome di dominio completo di qualsiasi entità; ad esempio, mike@corp.CONTOSO.COM.              |
+|  Account \<>  | Qualsiasi account o sicurezza gruppo nome presente in questo computer, ad esempio Guest, gli utenti del dominio o amministratore. |
 
 ## <a name="remarks"></a>Note
 
@@ -51,7 +47,7 @@ Usare **che Ksetup** senza parametri o argomenti per visualizzare le impostazion
 
 Quando vengono apportate modifiche per il centro di distribuzione chiavi (KDC) esterna e la configurazione dell'area di autenticazione, è necessario un riavvio del computer in cui è stata modificata l'impostazione.
 
-## <a name="BKMK_Examples"></a>Esempi
+## <a name="examples"></a><a name=BKMK_Examples></a>Esempi
 
 Eseguire il mapping di account di Mike Danseglio all'interno di CONTOSO dell'area di autenticazione Kerberos per l'account guest su questo computer, senza dover eseguire l'autenticazione per questo computer concede tutti i privilegi di un membro dell'account Guest predefinito:
 ```
@@ -70,7 +66,7 @@ Eseguire il mapping di tutti gli account entro l'area di autenticazione Kerberos
 ksetup /mapuser * *
 ```
 
-#### <a name="additional-references"></a>Altri riferimenti
+## <a name="additional-references"></a>Altre informazioni di riferimento
 
--   [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+-   - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
 -   [Che Ksetup](ksetup.md)

@@ -1,7 +1,6 @@
 ---
 ms.assetid: 7013fc21-9ced-4f9d-9588-cb04d6d60924
 title: Pianificazione della capacità per i server federativi
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 418bc5d53a2bd11afa8563b07bbff76c89495715
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 5801196921c1f7632725dfddb2a5c8c2bf4ae2b5
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71407972"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80858624"
 ---
 # <a name="planning-for-federation-server-capacity"></a>Pianificazione della capacità per i server federativi
 
@@ -47,7 +46,7 @@ Fortunatamente, i requisiti di memoria, CPU e spazio su disco per i server feder
 > [!NOTE]  
 > Nei test eseguiti dal team del prodotto AD FS utilizzando una Federazione server farm configurata con un SQL Server dedicato per archiviare il database di configurazione AD FS, il carico complessivo sul SQL Server si è rivelato basso. In un test che usa quattro\-Federazione\-server farm configurata per l'uso di un singolo SQL Server, l'utilizzo della CPU non supera il 10% nonostante i test che hanno portato i server federativi alla destinazione dell'utilizzo.  
   
-## <a name="bk_estimatefs"></a>Stimare il numero di server federativi per l'organizzazione  
+## <a name="estimate-the-number-of-federation-servers-for-your-organization"></a><a name="bk_estimatefs"></a>Stimare il numero di server federativi per l'organizzazione  
 Per semplificare il processo di pianificazione dell'hardware per i server federativi, il team del prodotto AD FS ha sviluppato il foglio di calcolo per il dimensionamento della pianificazione della capacità AD FS. Questo foglio di calcolo di Excel include\-di calcolo come la funzionalità che consentirà di ottenere i dati di utilizzo previsti sugli utenti dell'organizzazione e di restituire un numero ottimale consigliato di server federativi per l'ambiente di produzione AD FS.  
   
 > [!NOTE]  

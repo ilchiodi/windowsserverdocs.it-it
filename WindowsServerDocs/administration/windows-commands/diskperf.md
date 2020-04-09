@@ -1,28 +1,22 @@
 ---
 title: diskperf
-description: 'Argomento dei comandi di Windows per * * * *- '
-ms.custom: na
+description: Windows Commands Topic for diskperf, che può essere usato per abilitare o disabilitare in remoto i contatori delle prestazioni dei dischi fisici o logici nei computer che eseguono Windows 2000.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: f06916e8-069b-4ec8-a6eb-59f1d9f77111
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 829f0284d761e6a5134011fa1dff99646d55fc13
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 1b07471c051d57d0279e4fd8b38afdc4acdc4069
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71377807"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80845464"
 ---
 # <a name="diskperf"></a>diskperf
-
-
 
 In Windows 2000, i contatori delle prestazioni dei dischi fisici e logici non sono abilitati per impostazione predefinita.
 

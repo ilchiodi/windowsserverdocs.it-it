@@ -1,24 +1,20 @@
 ---
 title: Creare una macchina virtuale e connettersi a una rete virtuale tenant o VLAN
 description: In questo argomento viene illustrato come creare una VM tenant e connetterla a una rete virtuale creata con la virtualizzazione rete Hyper-V o a una rete locale virtuale (VLAN).
-manager: dougkim
-ms.custom: na
+manager: grcusanz
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: networking-sdn
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 3c62f533-1815-4f08-96b1-dc271f5a2b36
-ms.author: lizross
-author: eross-msft
+ms.author: anpaul
+author: AnirbanPaul
 ms.date: 08/24/2018
-ms.openlocfilehash: ef588cfc93216f13490ef3196ec0990b9e7f48d3
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: 3949c4f10015a7fdfe4955b950b109a702553c45
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80309791"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80854514"
 ---
 # <a name="create-a-vm-and-connect-to-a-tenant-virtual-network-or-vlan"></a>Creare una macchina virtuale e connettersi a una rete virtuale tenant o VLAN
 
@@ -57,7 +53,7 @@ Assicurarsi che una rete virtuale è già stato creato prima di utilizzare quest
 2. Ottenere la rete virtuale che contiene la subnet a cui si desidera connettere la scheda di rete.
 
    ```Powershell 
-   $vnet = get-networkcontrollervirtualnetwork -connectionuri $uri -ResourceId “Contoso_WebTier”
+   $vnet = get-networkcontrollervirtualnetwork -connectionuri $uri -ResourceId "Contoso_WebTier"
    ```
 
 3. Creare un oggetto dell'interfaccia di rete nel controller di rete.
@@ -77,14 +73,14 @@ Assicurarsi che una rete virtuale è già stato creato prima di utilizzare quest
    $ipconfiguration = new-object Microsoft.Windows.NetworkController.NetworkInterfaceIpConfiguration
    $ipconfiguration.resourceid = "MyVM_IP1"
    $ipconfiguration.properties = new-object Microsoft.Windows.NetworkController.NetworkInterfaceIpConfigurationProperties
-   $ipconfiguration.properties.PrivateIPAddress = “24.30.1.101”
+   $ipconfiguration.properties.PrivateIPAddress = "24.30.1.101"
    $ipconfiguration.properties.PrivateIPAllocationMethod = "Static"
     
    $ipconfiguration.properties.Subnet = new-object Microsoft.Windows.NetworkController.Subnet
    $ipconfiguration.properties.subnet.ResourceRef = $vnet.Properties.Subnets[0].ResourceRef
     
    $vmnicproperties.IpConfigurations = @($ipconfiguration)
-   New-NetworkControllerNetworkInterface –ResourceID “MyVM_Ethernet1” –Properties $vmnicproperties –ConnectionUri $uri
+   New-NetworkControllerNetworkInterface –ResourceID "MyVM_Ethernet1" –Properties $vmnicproperties –ConnectionUri $uri
    ```
 
 4. Ottenere InstanceId per l'interfaccia di rete dal controller di rete.
@@ -103,7 +99,7 @@ Assicurarsi che una rete virtuale è già stato creato prima di utilizzare quest
     
    $FeatureId = "9940cd46-8b06-43bb-b9d5-93d50381fd56"
     
-   $vmNics = Get-VMNetworkAdapter -VMName “MyVM”
+   $vmNics = Get-VMNetworkAdapter -VMName "MyVM"
     
    $CurrentFeature = Get-VMSwitchExtensionPortFeature -FeatureId $FeatureId -VMNetworkAdapter $vmNics
     
@@ -134,7 +130,7 @@ Assicurarsi che una rete virtuale è già stato creato prima di utilizzare quest
 6. Avviare la macchina virtuale.
 
    ```PowerShell
-    Get-VM -Name “MyVM” | Start-VM 
+    Get-VM -Name "MyVM" | Start-VM 
    ```
 
 È stata creata correttamente una VM, connessa la macchina virtuale a una rete virtuale tenant e la VM è stata avviata in modo da poter elaborare i carichi di lavoro del tenant.
@@ -155,7 +151,7 @@ Assicurarsi che una rete virtuale è già stato creato prima di utilizzare quest
 2. Impostare l'ID VLAN nella scheda di rete della macchina virtuale.
 
    ```PowerShell
-   Set-VMNetworkAdapterIsolation –VMName “MyVM” -AllowUntaggedTraffic $true -IsolationMode VLAN -DefaultIsolationId 123
+   Set-VMNetworkAdapterIsolation –VMName "MyVM" -AllowUntaggedTraffic $true -IsolationMode VLAN -DefaultIsolationId 123
    ```
 
 3. Ottenere la subnet di rete logica e creare l'interfaccia di rete. 
@@ -174,14 +170,14 @@ Assicurarsi che una rete virtuale è già stato creato prima di utilizzare quest
     $ipconfiguration = new-object Microsoft.Windows.NetworkController.NetworkInterfaceIpConfiguration
     $ipconfiguration.resourceid = "MyVM_Ip1"
     $ipconfiguration.properties = new-object Microsoft.Windows.NetworkController.NetworkInterfaceIpConfigurationProperties
-    $ipconfiguration.properties.PrivateIPAddress = “10.127.132.177”
+    $ipconfiguration.properties.PrivateIPAddress = "10.127.132.177"
     $ipconfiguration.properties.PrivateIPAllocationMethod = "Static"
 
     $ipconfiguration.properties.Subnet = new-object Microsoft.Windows.NetworkController.Subnet
     $ipconfiguration.properties.subnet.ResourceRef = $logicalnet.Properties.Subnets[0].ResourceRef
 
     $vmnicproperties.IpConfigurations = @($ipconfiguration)
-    $vnic = New-NetworkControllerNetworkInterface –ResourceID “MyVM_Ethernet1” –Properties $vmnicproperties –ConnectionUri $uri
+    $vnic = New-NetworkControllerNetworkInterface –ResourceID "MyVM_Ethernet1" –Properties $vmnicproperties –ConnectionUri $uri
 
     $vnic.InstanceId
    ```
@@ -192,7 +188,7 @@ Assicurarsi che una rete virtuale è già stato creato prima di utilizzare quest
    #The hardcoded Ids in this section are fixed values and must not change.
    $FeatureId = "9940cd46-8b06-43bb-b9d5-93d50381fd56"
 
-   $vmNics = Get-VMNetworkAdapter -VMName “MyVM”
+   $vmNics = Get-VMNetworkAdapter -VMName "MyVM"
 
    $CurrentFeature = Get-VMSwitchExtensionPortFeature -FeatureId $FeatureId -VMNetworkAdapter $vmNic
         
@@ -223,7 +219,7 @@ Assicurarsi che una rete virtuale è già stato creato prima di utilizzare quest
 5. Avviare la macchina virtuale.
 
    ```PowerShell
-   Get-VM -Name “MyVM” | Start-VM 
+   Get-VM -Name "MyVM" | Start-VM 
    ```
 
 È stata creata una macchina virtuale, è stata connessa la macchina virtuale a una VLAN e la macchina virtuale è stata avviata in modo da poter elaborare i carichi di lavoro del tenant.

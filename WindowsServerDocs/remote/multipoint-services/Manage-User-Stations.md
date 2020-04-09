@@ -1,30 +1,26 @@
 ---
 title: Gestire stazioni utente
 description: Informazioni su come gestire le stazioni utente in MultiPoint Services
-ms.custom: na
 ms.prod: windows-server
 ms.technology: multipoint-services
-ms.reviewer: na
-ms.suite: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: b418578d-3a4c-49b0-90db-8389b320b2f6
 author: lizap
 manager: dongill
 ms.author: elizapo
 ms.date: 08/04/2016
-ms.openlocfilehash: 7f46d2a68fc6247bddc1251c32ac55544b6fbf52
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 7b434002b5f542e3a9242290217fa66d418ee2f1
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71405069"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80853494"
 ---
 # <a name="manage-user-stations"></a>Gestire stazioni utente
 Questa sezione illustra come gestire le *stazioni* che costituiscono il sistema MultiPoint Services. La gestione di un sistema MultiPoint Services include la gestione dei componenti hardware e software di gestione MultiPoint. In un sistema MultiPoint Services, un desktop è l'interfaccia utente del software visualizzata sul monitor per ogni stazione utente.  
   
 ## <a name="station-status"></a>Stato della stazione  
-È possibile visualizzare i tipi di stato seguenti per ogni desktop nella scheda **Stations** (Stazioni). Lo stato include:  
+È possibile visualizzare i seguenti tipi di stato per ogni desktop nella scheda **stazioni** . lo stato include:  
   
 -   Utenti connessi  
   
@@ -52,7 +48,7 @@ Un utente con privilegi amministrativi può configurare l'accesso automatico di 
 ## <a name="split-a-station"></a>Dividere una stazione  
 Qualsiasi monitor di stazione con risoluzione superiore a 1024x768 può essere diviso in due stazioni. Per altre informazioni sulla divisione di una stazione, vedere l'argomento [Dividere una stazione utente](Split-a-User-Station.md).  
   
-## <a name="see-also"></a>Vedere anche  
+## <a name="see-also"></a>Vedi anche  
 [Visualizzare lo stato delle connessioni utente](View-User-Connection-Status.md)  
 [Scollegare o disconnettere sessioni utente](Log-off-or-Disconnect-User-Sessions.md)  
 [Sospendere e lasciare attiva la sessione utente](Suspend-and-Leave-User-Session-Active.md)  

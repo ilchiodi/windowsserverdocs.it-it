@@ -1,24 +1,20 @@
 ---
 title: nslookup set type
-description: 'Argomento dei comandi di Windows per * * * *- '
-ms.custom: na
+description: Argomento dei comandi di Windows per * * * *-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 5248e314-fac1-413e-81dc-bbe0a0873ba5
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: e3f41cb6bc5117fdd26bba85c6cfd806414bbab4
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 37b6636d9bf457596fc070cdce4a02a023ffd263
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71372884"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80838264"
 ---
 # <a name="nslookup-set-type"></a>nslookup set type
 
@@ -29,7 +25,7 @@ Modifica il tipo di record di risorse per la query.
 ```
 set type=<ResourceRecordtype>
 ```
-## <a name="parameters"></a>Parametri
+### <a name="parameters"></a>Parametri
 <ResourceRecordtype> specifica un tipo di record di risorse DNS. Il tipo di record di risorse predefinito è. Nella tabella seguente sono elencati i valori validi per questo comando.
 
 | Valore |                                                   Descrizione                                                   |
@@ -40,7 +36,7 @@ set type=<ResourceRecordtype>
 |  GID  |                                  Specifica un identificatore di gruppo di un nome di gruppo.                                  |
 | HINFO |                          Specifica la CPU&#39;e il tipo di sistema operativo di un computer.                           |
 |  MB   |                                        Specifica un nome di dominio della cassetta postale.                                         |
-|  GRUPPO   |                                         Specifica un membro del gruppo di posta elettronica.                                          |
+|  MG   |                                         Specifica un membro del gruppo di posta elettronica.                                          |
 | MINFO |                                   Specifica le informazioni sull'elenco di cassette postali o di posta                                   |
 |  Lettura memoria   |                                     Specifica il nome di dominio per la ridenominazione della posta.                                      |
 |  MX   |                                          Specifica lo scambiatore di posta elettronica.                                          |
@@ -54,9 +50,8 @@ set type=<ResourceRecordtype>
 | {Guida |                                                       ?}                                                        |
 
 Viene visualizzato un breve riepilogo di <strong>nslookup</strong> sottocomandi.
-## <a name="remarks"></a>Osservazioni
+## <a name="remarks"></a>Note
 - Il comando <strong>set Type</strong> esegue la stessa funzione del comando <strong>set querytype</strong> .
 - Per ulteriori informazioni sui tipi di record di risorse, vedere Request for Comment (RFC) 1035.
-  ## <a name="additional-references"></a>riferimenti aggiuntivi
-  <a href="command-line-syntax-key.md" data-raw-source="[Command-Line Syntax Key](command-line-syntax-key.md)">Chiave della sintassi della riga di comando</a>
-  <a href="nslookup-set-querytype.md" data-raw-source="[nslookup set querytype](nslookup-set-querytype.md)">nslookup set querytype</a>
+  ## <a name="additional-references"></a>Altre informazioni di riferimento
+  < a href = Command-line-syntax-key.md data-RAW-source =-sintassi della [riga di comando chiave](command-line-syntax-key.md)> sintassi della riga di comando</a> < a href = nslookup-set-querytype.MD data-RAW-Source =[nslookup set querytype](nslookup-set-querytype.md)> nslookup set querytype</a>

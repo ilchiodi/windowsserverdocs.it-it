@@ -9,12 +9,12 @@ ms.technology: storage
 audience: IT Pro
 ms.topic: article
 ms.date: 10/16/2017
-ms.openlocfilehash: c4496cfec94823ae177bc6de4fac83dc977fb61d
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 587ff48bd0af80667f9a336323641b87be808b1d
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71376700"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80843934"
 ---
 # <a name="fsutil-volume"></a>Fsutil volume
 >Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows 10, Windows Server 2012 R2, Windows 8.1, Windows Server 2012, Windows 8, Windows Server 2008 R2, Windows 7
@@ -34,7 +34,7 @@ fsutil volume [list]
 fsutil volume [querycluster] <VolumePath> <Cluster> [<Cluster>] … …
 ```
 
-## <a name="parameters"></a>Parametri
+### <a name="parameters"></a>Parametri
 
 |Parametro|Descrizione|
 |-------------|---------------|
@@ -45,10 +45,10 @@ fsutil volume [querycluster] <VolumePath> <Cluster> [<Cluster>] … …
 |filelayout|Visualizza i metadati NTFS per il file specificato.|
 |\<fileid >|Specifica l'ID del file.|
 |list|Elenca tutti i volumi presenti nel sistema.|
-|querycluster|Trova il file che usa un cluster specificato. È possibile specificare più cluster con il parametro **querycluster** .<br /><br />Questo parametro si applica a:  Windows Server 2008 R2 e Windows 7.|
-|\<cluster >|Specifica il numero di cluster logico (LCN).|
+|querycluster|Trova il file che usa un cluster specificato. È possibile specificare più cluster con il parametro **querycluster** .<p>Questo parametro si applica a: Windows Server 2008 R2 e Windows 7.|
+|> \<cluster|Specifica il numero di cluster logico (LCN).|
 
-## <a name="BKMK_examples"></a>Esempi
+## <a name="examples"></a><a name="BKMK_examples"></a>Esempi
 Per visualizzare un report sui cluster allocati, digitare:
 
 ```
@@ -87,8 +87,8 @@ Per trovare i file che usano i cluster, specificati dai numeri del cluster logic
 fsutil volume querycluster C: 50 0x2000
 ```
 
-#### <a name="additional-references"></a>Altri riferimenti
-[Indicazioni generali sulla sintassi della riga di comando](Command-Line-Syntax-Key.md)
+## <a name="additional-references"></a>Altre informazioni di riferimento
+- [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
 
 [Fsutil](Fsutil.md)
 

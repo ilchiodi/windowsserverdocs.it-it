@@ -1,6 +1,5 @@
 ---
 title: Ruolo del linguaggio delle regole attestazioni
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,12 +8,12 @@ ms.topic: article
 ms.prod: windows-server
 ms.assetid: dda9d148-d72f-4bff-aa2a-f2249fa47e4c
 ms.technology: identity-adfs
-ms.openlocfilehash: ff4c43bb8dc5582716638f0a3f6e4f6a8022aece
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 742e0ce781225303c623461439f8d4460fec97c9
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71407379"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80860104"
 ---
 # <a name="the-role-of-the-claim-rule-language"></a>Ruolo del linguaggio delle regole attestazioni
 Il linguaggio delle regole attestazione Active Directory Federation Services (AD FS) funge da blocco predefinito amministrativo per il comportamento delle attestazioni in ingresso e in uscita, mentre il motore delle attestazioni funge da motore di elaborazione per la logica nel linguaggio delle regole attestazioni che definisce la regola personalizzata. Per ulteriori informazioni su come tutte le regole vengono elaborate dal motore di attestazioni, vedere [il ruolo del motore di attestazioni](The-Role-of-the-Claims-Engine.md).  
@@ -27,7 +26,7 @@ Le regole sono separate le une dalle altre con un punto e virgola.
 Per ulteriori informazioni sull'utilizzo di regole personalizzate, vedere [quando utilizzare una regola attestazione personalizzata](When-to-Use-a-Custom-Claim-Rule.md).  
 
 ## <a name="using-claim-rule-templates-to-learn-about-the-claim-rule-language-syntax"></a>Uso di modelli di regole attestazioni per apprendere la sintassi del linguaggio delle regole attestazioni  
-ADFS offre inoltre una serie di rilascio di attestazione predefiniti e modelli di regole di accettazione che è possibile utilizzare per implementare comuni attestazione regole attestazione. Nel **Modifica regole attestazione** la finestra di dialogo per una determinata relazione di trust, è possibile creare una regola predefinita e visualizzare la sintassi di linguaggio di regola attestazione che costituiscono tale regola, facendo la **Visualizza lingua delle regole** scheda per la regola. Utilizzando le informazioni in questa sezione e **Visualizza lingua delle regole** tecnica possibile consentono di comprendere come creare regole personalizzate.  
+ADFS offre inoltre una serie di rilascio di attestazione predefiniti e modelli di regole di accettazione che è possibile utilizzare per implementare comuni attestazione regole attestazione. Nella finestra di dialogo **Modifica regole attestazioni** per una determinata relazione di trust, è possibile creare una regola predefinita e visualizzare la sintassi che costituisce il linguaggio delle regole attestazioni che costituisce tale regola facendo clic sulla scheda **Visualizza linguaggio delle regole** per tale regola. L'uso delle informazioni di questa sezione e della tecnica **Visualizza lingua delle regole** può fornire informazioni su come costruire regole personalizzate.  
 
 Per ulteriori informazioni sulle regole attestazione e i modelli di regola attestazione, vedere [ruolo delle attestazioni regole](The-Role-of-Claim-Rules.md).  
 
@@ -75,7 +74,7 @@ Nella tabella seguente viene fornito un esempio di condizioni di più espression
 
 |                                                                                                                   Descrizione della condizione                                                                                                                    |                                        Esempio di sintassi della condizione                                        |
 |------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------|
-| Questa regola presenta una condizione da verificare per due input attestazioni, ognuno con un tipo di attestazione specificato ("<http://test/name>" e "<http://test/email>"). Se due attestazioni corrispondenti si trovano nelle attestazioni di input, la regola copia l'attestazione del nome nel set di attestazioni di output. | ``` c1: [type  == "http://test/name"] && c2: [type == "http://test/email"] => issue (claim  = c1 );``` |
+| Questa regola ha una condizione per verificare la presenza di due attestazioni di input, ciascuna con un tipo di attestazione specificato ("<http://test/name>" e "<http://test/email>"). Se due attestazioni corrispondenti si trovano nelle attestazioni di input, la regola copia l'attestazione del nome nel set di attestazioni di output. | ``` c1: [type  == "http://test/name"] && c2: [type == "http://test/email"] => issue (claim  = c1 );``` |
 
 #### <a name="regular--condition-examples"></a>Esempi di condizioni regolari  
 Nella tabella seguente viene fornito un esempio di una normale condizione basata su espressioni.  

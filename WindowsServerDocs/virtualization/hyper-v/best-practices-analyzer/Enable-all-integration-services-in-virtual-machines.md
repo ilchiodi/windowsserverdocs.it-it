@@ -2,20 +2,19 @@
 title: Abilitare tutti i servizi di integrazione in macchine virtuali
 description: Versione online del testo per questa regola di Best Practices Analyzer.
 ms.prod: windows-server
-ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
 ms.author: kathydav
 ms.topic: article
 ms.assetid: 16e202ad-3795-40c9-8176-7ca319e56d26
-author: KBDAzure
+author: kbdazure
 ms.date: 8/16/2016
-ms.openlocfilehash: 1984c3d1d6261756bf83f899985b457681537046
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 2497755185ba1971130b571ce654e0019df18e0a
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71364893"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80861974"
 ---
 # <a name="enable-all-integration-services-in-virtual-machines"></a>Abilitare tutti i servizi di integrazione in macchine virtuali
 
@@ -25,7 +24,7 @@ Per altre informazioni sulle procedure consigliate e le analisi, vedere [Best Pr
   
 |Proprietà|Dettagli|  
 |-|-|  
-|**Sistema operativo**|Windows Server 2016|  
+|**Sistema operativo**|Windows Server 2016|  
 |**Prodotto/funzionalità**|Hyper-V|  
 |**Gravità**|Avviso|  
 |**Categoria**|Configurazione|  
@@ -52,7 +51,7 @@ Nelle sezioni seguenti, corsivo indica il testo dell'interfaccia Utente visualiz
   
 2.  Aprire Servizi. (Fare clic su **Avviare**, fare clic il **Inizia ricerca** digitare **Services. msc**, quindi premere INVIO.)  
   
-3.  Nel riquadro dei dettagli, fare doppio clic su servizio che si desidera configurare e quindi fare clic su **proprietà**.  
+3.  Nel riquadro dei dettagli fare clic con il pulsante destro del mouse sul servizio che si desidera configurare e quindi scegliere **Proprietà**.  
   
 4.  Nel **Generale** scheda **avvio** digitare, fare clic su **automatica**.  
   

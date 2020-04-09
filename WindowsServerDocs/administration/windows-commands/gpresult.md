@@ -1,24 +1,20 @@
 ---
 title: gpresult
-description: 'Argomento dei comandi di Windows per * * * *- '
-ms.custom: na
+description: Argomento dei comandi di Windows per * * * *-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: dfaa3adf-2c83-486c-86d6-23f93c5c883c
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: bb61911450ea8c0c68af0cf1a35c2f571810504b
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 480599a4040ab1fdcc3842cdb0eaa8c35afa873c
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71375663"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80842464"
 ---
 # <a name="gpresult"></a>gpresult
 
@@ -33,7 +29,7 @@ Per utilizzare il reporting RSoP per computer di destinazione in modalità remot
 gpresult [/s <system> [/u <USERNAME> [/p [<PASSWOrd>]]]] [/user [<TARGETDOMAIN>\]<TARGETUSER>] [/scope {user | computer}] {/r | /v | /z | [/x | /h] <FILENAME> [/f] | /?}
 ```
 
-## <a name="parameters"></a>Parametri
+### <a name="parameters"></a>Parametri
 
 > [!NOTE]
 > Tranne quando si utilizza **/?** , è necessario includere un'opzione di output, ovvero **/r**, **/v**, **/z**, **/x**, o **/h**.
@@ -52,7 +48,7 @@ gpresult [/s <system> [/u <USERNAME> [/p [<PASSWOrd>]]]] [/user [<TARGETDOMAIN>\
 |                    /z                    |                                     Visualizza tutte le informazioni disponibili sui criteri di gruppo. Ciò include le impostazioni dettagliate che sono state applicate con una precedenza di 1 e versioni successive.                                      |
 |                    /?                    |                                                                                         Visualizza la guida al prompt dei comandi.                                                                                         |
 
-## <a name="remarks"></a>Osservazioni
+## <a name="remarks"></a>Note
 - Criteri di gruppo sono lo strumento di amministrazione principale per definire e controllare il funzionamento dei programmi, risorse di rete e il sistema operativo per utenti e computer di un'organizzazione. In un ambiente Active Directory, Criteri di gruppo viene applicato a utenti o computer in base all'appartenenza a siti, domini o unità organizzative.
 - Poiché è possibile applicare le impostazioni dei criteri sovrapposti a qualsiasi computer o utente, la funzionalità criteri di gruppo genera un set di impostazioni di criteri risultante quando l'utente effettua l'accesso. **Gpresult** Visualizza il set di impostazioni dei criteri risultante applicato nel computer per l'utente specificato quando l'utente ha effettuato l'accesso.
 - Poiché **/v** e **/z** produrre grandi quantità di informazioni, è utile reindirizzare l'output in un file di testo (ad esempio, **gpresult/z > txt**).
@@ -76,7 +72,7 @@ Nell'esempio seguente sono riportati i dati gruppo di criteri risultante per il 
   gpresult /s srvmain /u maindom\hiropln /p p@ssW23 /r
   ```
   
-## <a name="additional-references"></a>riferimenti aggiuntivi
+## <a name="additional-references"></a>Altre informazioni di riferimento
 - [Criteri di gruppo TechCenter](https://go.microsoft.com/fwlink/?LinkID=145531)
 
-- [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+- - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

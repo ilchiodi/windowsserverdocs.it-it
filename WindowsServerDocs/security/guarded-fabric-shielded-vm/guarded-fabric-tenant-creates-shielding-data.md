@@ -1,19 +1,19 @@
 ---
 title: VM schermate per i tenant-creazione di dati di schermatura per definire una macchina virtuale schermata
-ms.custom: na
 ms.prod: windows-server
 ms.topic: article
 ms.assetid: 49f4e84d-c1f7-45e5-9143-e7ebbb2ef052
 manager: dongill
 author: rpsqrd
+ms.author: ryanpu
 ms.technology: security-guarded-fabric
 ms.date: 09/25/2019
-ms.openlocfilehash: 26ff5e27494e2f42a0c8e4d28e2b9820f8d19e6a
-ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
+ms.openlocfilehash: 6ff502e7246c899a7b4f29125266bf05d07e40ef
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79322463"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80856454"
 ---
 # <a name="shielded-vms-for-tenants---creating-shielding-data-to-define-a-shielded-vm"></a>VM schermate per i tenant-creazione di dati di schermatura per definire una macchina virtuale schermata
 
@@ -39,7 +39,7 @@ Quindi, è possibile creare il file di dati di schermatura:
 
 ## <a name="optional-obtain-a-certificate-for-remote-desktop-connection"></a>Opzionale Ottenere un certificato per Connessione Desktop remoto
 
-Poiché i tenant sono in grado di connettersi alle VM schermate solo usando Connessione Desktop remoto o altri strumenti di gestione remota, è importante assicurarsi che i tenant possano verificare la connessione all'endpoint corretto (ovvero, non esiste un "uomo al centro" intercettazione della connessione.
+Poiché i tenant sono in grado di connettersi alle VM schermate solo usando Connessione Desktop remoto o altri strumenti di gestione remota, è importante assicurarsi che i tenant possano verificare la connessione all'endpoint corretto (ovvero, non esiste un "uomo al centro" che intercetta la connessione).
 
 Un modo per verificare la connessione al server previsto consiste nell'installare e configurare un certificato per la Servizi Desktop remoto da presentare quando si avvia una connessione. Il computer client che si connette al server verificherà se considera attendibile il certificato e visualizzerà un avviso in caso contrario. In genere, per garantire che il client che esegue la connessione consideri attendibile il certificato, i certificati RDP vengono emessi dall'infrastruttura a chiave pubblica del tenant. Altre informazioni sull' [uso dei certificati in Servizi Desktop remoto](https://technet.microsoft.com/library/dn781533.aspx) sono disponibili su TechNet.
 

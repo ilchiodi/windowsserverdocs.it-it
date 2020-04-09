@@ -1,24 +1,20 @@
 ---
-title: Eseguire Best Practices Analyzer analisi e gestire Results_1 di analisi
+title: Esegui analisi Best Practices Analyzer e Gestisci analisi Results_1
 description: Server Manager
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-server-manager
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 232f1c80-88ef-4a39-8014-14be788c2766
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 6edd561749ea0d224058b482992d357357c12505
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 6ff854bcb25e4f5891e56f1e094fd4f387cf023f
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71383085"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80851484"
 ---
 # <a name="run-best-practices-analyzer-scans-and-manage-scan-results"></a>Eseguire analisi di Best Practice Analyzer e gestire i risultati delle analisi
 
@@ -30,7 +26,7 @@ Best Practices Analyzer (BPA) è uno strumento di gestione server disponibile in
 
 È possibile eseguire analisi di Best Practices Analyzer (BPA) da Server Manager, usando l'interfaccia utente grafica di BPA o i cmdlet in Windows PowerShell. a partire da Windows Server 2012, è possibile analizzare uno o più ruoli contemporaneamente, su più server, se si usa il riquadro Best Practices Analyzer nella console di Server Manager o i cmdlet di Windows PowerShell per eseguire le analisi. È inoltre possibile impostare BPA in modo da escludere o ignorare i risultati dell'analisi che non si desidera visualizzare.
 
-In questo argomento sono incluse le sezioni seguenti.
+In questo argomento sono contenute le seguenti sezioni.
 
 -   [trova BPA](#BKMK_find)
 
@@ -40,10 +36,10 @@ In questo argomento sono incluse le sezioni seguenti.
 
 -   [Gestire i risultati dell'analisi](#BKMK_manage)
 
-## <a name="BKMK_find"></a>trova BPA
+## <a name="find-bpa"></a><a name=BKMK_find></a>trova BPA
 È possibile trovare il riquadro Best Practices Analyzer nelle pagine dei gruppi di server e ruoli di Server Manager in Windows Server 2012 R2 e Windows Server 2012 oppure è possibile aprire una sessione di Windows PowerShell con diritti utente elevati per eseguire Best Practices Analyzer cmdlet.
 
-## <a name="BKMK_how"></a>Funzionamento di BPA
+## <a name="how-bpa-works"></a><a name=BKMK_how></a>Funzionamento di BPA
 BPA funziona misurando la conformità di un ruolo alle regole delle procedure consigliate in otto diverse categorie di efficacia, attendibilità e affidabilità. I risultati delle analisi sono rappresentati da tre livelli di gravità descritti nella tabella seguente.
 
 |Livello di gravità|Descrizione|
@@ -57,16 +53,16 @@ Nella tabella seguente vengono descritte le categorie di regole per le procedure
 
 |Nome categoria|Descrizione|
 |---------|--------|
-|Security|Le regole di sicurezza vengono applicate per misurare il rischio relativo di un ruolo per l'esposizione a minacce quali utenti non autorizzati o malintenzionati o perdita o furto di dati riservati o proprietari.|
+|Sicurezza|Le regole di sicurezza vengono applicate per misurare il rischio relativo di un ruolo per l'esposizione a minacce quali utenti non autorizzati o malintenzionati o perdita o furto di dati riservati o proprietari.|
 |Prestazioni|Le regole relative alle prestazioni vengono applicate per misurare la capacità di un ruolo di elaborare le richieste e svolgere i compiti previsti nell'organizzazione entro i periodi di tempo previsti in base al carico di lavoro del ruolo.|
 |Configurazione|Le regole relative alla configurazione vengono applicate per identificare le impostazioni dei ruoli per le quali potrebbero essere necessarie modifiche per garantire il funzionamento ottimale del ruolo. Le regole relative alla configurazione possono aiutare a evitare conflitti tra impostazioni che possono comportare la visualizzazione di messaggi di errore o impedire a un ruolo di svolgere i compiti previsti in un'organizzazione.|
-|Criteri|Le regole dei criteri vengono applicate per identificare Criteri di gruppo o le impostazioni del registro di sistema di Windows che potrebbero richiedere modifiche affinché un ruolo funzioni in modo ottimale e sicuro.|
+|Condizione|Le regole dei criteri vengono applicate per identificare Criteri di gruppo o le impostazioni del registro di sistema di Windows che potrebbero richiedere modifiche affinché un ruolo funzioni in modo ottimale e sicuro.|
 |Operazione|Le regole delle operazioni vengono applicate per identificare i possibili casi in cui un ruolo non è in grado di svolgere i compiti previsti nell'organizzazione.|
 |Pre-distribuzione|Le regole di pre-distribuzione vengono applicate prima che un ruolo installato venga distribuito nell'organizzazione. Consentono agli amministratori di valutare, prima di usare il ruolo nell'ambiente di produzione, se le procedure consigliate sono state soddisfatte.|
 |Post-distribuzione|Le regole di post-distribuzione vengono applicate dopo che tutti i servizi necessari sono stati avviati per un ruolo e dopo che il ruolo è in esecuzione nell'organizzazione.|
 |Prerequisiti|Le regole dei prerequisiti illustrano le impostazioni di configurazione, le impostazioni dei criteri e le funzionalità necessarie per un ruolo affinché tramite BPA possano essere applicate regole specifiche di altre categorie. Un prerequisito nei risultati di un'analisi indica che un'impostazione non corretta, un programma non presente, criteri abilitati o disabilitati in modo non corretto, un'impostazione di una chiave del Registro di sistema o un'altra configurazione ha impedito a BPA di applicare una o più regole durante un'analisi. Un risultato relativo a un prerequisito non implica la conformità o la non conformità, bensì indica che non è stato possibile applicare una regola che pertanto non è inclusa nei risultati dell'analisi.|
 
-## <a name="BKMK_BPAscan"></a>Esecuzione di analisi dei Best Practices Analyzer sui ruoli
+## <a name="performing-best-practices-analyzer-scans-on-roles"></a><a name=BKMK_BPAscan></a>Esecuzione di analisi dei Best Practices Analyzer sui ruoli
 È possibile eseguire analisi BPA sui ruoli usando l'interfaccia utente grafica di BPA in Server Manager o i cmdlet di Windows PowerShell.
 
 In Windows Server 2012 R2 e Windows Server 2012 alcuni ruoli richiedono l'impostazione di parametri aggiuntivi, ad esempio i nomi di server o condivisioni specifiche che eseguono parti del ruolo oppure gli ID dei sottomodelli, prima di avviare un'analisi BPA. Per le analisi BPA su modelli che richiedono di specificare parametri aggiuntivi, usare i cmdlet di BPA. L'interfaccia utente grafica di BPA non accetta parametri aggiuntivi quali gli ID dei sottomodelli. Ad esempio, l'ID del sottomodello **FSRM** rappresenta il sottomodello BPA di Servizi file per Gestione risorse file server, un servizio ruolo dei servizi File e Archiviazione. Per eseguire un'analisi solo sul servizio ruolo Gestione risorse file server, eseguire un'analisi BPA usando i cmdlet di Windows PowerShell e aggiungere il parametro `SubmodelId` al cmdlet.
@@ -77,7 +73,7 @@ Sebbene non sia possibile passare parametri aggiuntivi a un'analisi avviata nell
 
 -   [Analisi dei ruoli mediante i cmdlet di Windows PowerShell](#BKMK_PSscan)
 
-### <a name="BKMK_GUIscan"></a>Analisi dei ruoli tramite l'interfaccia utente grafica di BPA
+### <a name="scanning-roles-by-using-the-bpa-gui"></a><a name=BKMK_GUIscan></a>Analisi dei ruoli tramite l'interfaccia utente grafica di BPA
 Per analizzare uno o più ruoli usando l'interfaccia utente grafica di BPA, eseguire la procedura seguente.
 
 ##### <a name="to-scan-roles-by-using-the-bpa-gui"></a>Per analizzare i ruoli usando l'interfaccia utente grafica di BPA
@@ -96,7 +92,7 @@ Per analizzare uno o più ruoli usando l'interfaccia utente grafica di BPA, eseg
 
 4.  A seconda del numero di regole valutate per il ruolo o il gruppo selezionato, il completamento dell'analisi BPA potrebbe richiedere alcuni minuti.
 
-### <a name="BKMK_PSscan"></a>Analisi dei ruoli mediante i cmdlet di Windows PowerShell
+### <a name="scanning-roles-by-using-windows-powershell-cmdlets"></a><a name=BKMK_PSscan></a>Analisi dei ruoli mediante i cmdlet di Windows PowerShell
 Utilizzare le procedure seguenti per analizzare uno o più ruoli utilizzando i cmdlet di Windows PowerShell.
 
 > [!NOTE]
@@ -110,7 +106,7 @@ Utilizzare le procedure seguenti per analizzare uno o più ruoli utilizzando i c
 
 -   **Set-BPAResult**
 
-#### <a name="BKMK_singlerole"></a>Per analizzare un singolo ruolo usando i cmdlet di Windows PowerShell
+#### <a name="to-scan-a-single-role-by-using-windows-powershell-cmdlets"></a><a name=BKMK_singlerole></a>Per analizzare un singolo ruolo usando i cmdlet di Windows PowerShell
 
 1.  Eseguire una delle operazioni seguenti per eseguire Windows PowerShell con diritti utente elevati.
 
@@ -143,7 +139,7 @@ Utilizzare le procedure seguenti per analizzare uno o più ruoli utilizzando i c
 
     L'esecuzione di questo cmdlet senza specificare un ID modello comporta il piping di tutti i modelli restituiti dal cmdlet `Get-BPAmodel` al cmdlet `Invoke-BPAmodel`, avviando l'analisi in tutti i modelli disponibili sui server aggiunti al pool di Server Manager Server.
 
-#### <a name="BKMK_allroles"></a>Per analizzare tutti i ruoli usando i cmdlet di Windows PowerShell
+#### <a name="to-scan-all-roles-by-using-windows-powershell-cmdlets"></a><a name=BKMK_allroles></a>Per analizzare tutti i ruoli usando i cmdlet di Windows PowerShell
 
 1.  Aprire una sessione di Windows PowerShell con diritti utente elevati, se non ne è già aperta una. Per istruzioni, vedere la procedura precedente.
 
@@ -163,7 +159,7 @@ Utilizzare le procedure seguenti per analizzare uno o più ruoli utilizzando i c
 
     ```
 
-## <a name="BKMK_manage"></a>Gestire i risultati dell'analisi
+## <a name="manage-scan-results"></a><a name=BKMK_manage></a>Gestire i risultati dell'analisi
 Dopo aver completato un'analisi BPA nell'interfaccia utente grafica, è possibile visualizzare i risultati nel riquadro BPA. Quando si seleziona un risultato in un riquadro, vengono visualizzate in anteprima le proprietà del risultato, unitamente all'indicazione della conformità o meno del ruolo alle procedure consigliate associate. Se un risultato non è conforme e si desidera essere in grado di risolvere i problemi descritti nelle proprietà del risultato, i collegamenti ipertestuali nelle proprietà dei risultati degli errori e degli avvisi aprono gli argomenti della Guida per la risoluzione dettagliata sul sito TechCenter di Windows Server.
 
 > [!NOTE]
@@ -175,7 +171,7 @@ Se non è necessario visualizzare alcuni risultati BPA, ad esempio i risultati c
 > [!NOTE]
 > Quando vengono esclusi, i risultati sono esclusi anche dalla visualizzazione sui server gestiti e non possono essere visualizzati nemmeno da altri amministratori. Per escludere i risultati dalla visualizzazione solo in una console di Server Manager locale, creare una query personalizzata anziché usare il comando **Escludi risultato** .
 
-#### <a name="BKMK_exclude"></a>Escludi Risultati analisi
+#### <a name="exclude-scan-results"></a><a name=BKMK_exclude></a>Escludi Risultati analisi
 L'impostazione **Escludi** è permanente. I risultati esclusi rimangono tali nelle analisi successive dello stesso modello nello stesso computer finché non vengono inclusi di nuovo.
 
 È possibile escludere i risultati dell'analisi usando il cmdlet `Set-BPAResult` con il parametro `Exclude` . Come nel riquadro Best Practices Analyzer Server Manager, è possibile escludere singoli oggetti risultato oppure escludere anche un set di risultati i cui campi (categoria, titolo e gravità, ad esempio) sono uguali o contengono valori specificati. È ad esempio possibile escludere tutti i risultati **Prestazioni** da un insieme di risultati dell'analisi per un modello.
@@ -191,17 +187,17 @@ L'impostazione **Escludi** è permanente. I risultati esclusi rimangono tali nel
 
     Il risultato non verrà più visualizzato nell'elenco dei risultati.
 
-3.  Per visualizzare i risultati esclusi nell'interfaccia grafica utente, eseguire la query predefinita **Risultati esclusi**. Fare clic su **Query di ricerca salvate**e quindi su **Risultati esclusi**.
+3.  Per visualizzare i risultati esclusi nell'interfaccia grafica utente, eseguire la query predefinita **Risultati esclusi**. Fare clic su **Query di ricerca salvate** e quindi su **Risultati esclusi**.
 
     Dopo aver eseguito la query **Risultati esclusi**, il testo del sottotitolo del riquadro, una descrizione dei risultati visualizzati nell'elenco, viene modificato in **Risultati esclusi**. Nell'elenco vengono visualizzati solo i risultati esclusi.
 
 ###### <a name="to-exclude-scan-results-by-using-windows-powershell-cmdlets"></a>Per escludere risultati dell'analisi usando i cmdlet di Windows PowerShell
 
-1.  Aprire una sessione di Windows PowerShell con diritti utente elevati.
+1.  Aprire un sessione di Windows PowerShell con diritti utente elevati.
 
 2.  Escludere risultati specifici dall'analisi di un modello eseguendo il comando seguente.
 
-    `Get-BPAResult -modelId <model ID> | Where { $_.<Field Name> -eq "Value"} | Set-BPAResult -Exclude $true`
+    `Get-BPAResult -modelId <model ID> | Where { $_.<Field Name> -eq Value} | Set-BPAResult -Exclude $true`
 
     Il comando precedente consente di recuperare gli elementi dei risultati dell'analisi BPA per l'ID modello rappresentato da *ID modello*.
 
@@ -209,12 +205,12 @@ L'impostazione **Escludi** è permanente. I risultati esclusi rimangono tali nel
 
     La sezione finale del comando, dopo la seconda barra verticale, consente di escludere i risultati filtrati dalla sezione precedente del cmdlet.
 
-    **Esempio:** `Get-BPAResult -Microsoft/Windows/FileServices | Where { $_.Severity -eq "Information"} | Set-BPAResult -Exclude $true`
+    **Esempio:** `Get-BPAResult -Microsoft/Windows/FileServices | Where { $_.Severity -eq Information} | Set-BPAResult -Exclude $true`
 
 #### <a name="include-scan-results"></a>Includere risultati dell'analisi
 Quando si desidera visualizzare risultati dell'analisi esclusi in precedenza, è possibile includere tali risultati. L'impostazione **Includi** è permanente. I risultati inclusi rimangono tali nelle analisi successive dello stesso modello nello stesso computer.
 
-##### <a name="BKMK_gui"></a>Per includere i risultati dell'analisi usando l'interfaccia utente grafica
+##### <a name="to-include-scan-results-by-using-the-gui"></a><a name=BKMK_gui></a>Per includere i risultati dell'analisi usando l'interfaccia utente grafica
 
 1.  Aprire una pagina di gruppo di ruoli o di server in Server Manager.
 
@@ -222,28 +218,28 @@ Quando si desidera visualizzare risultati dell'analisi esclusi in precedenza, è
 
     Il risultato non verrà più visualizzato nell'elenco dei risultati esclusi. Cancellare la query facendo clic su **Cancella tutto** per visualizzare il risultato incluso nell'elenco di tutti i risultati inclusi.
 
-##### <a name="BKMK_cmdlets"></a>Per includere i risultati dell'analisi usando i cmdlet di Windows PowerShell
+##### <a name="to-include-scan-results-by-using-windows-powershell-cmdlets"></a><a name=BKMK_cmdlets></a>Per includere i risultati dell'analisi usando i cmdlet di Windows PowerShell
 
-1.  Aprire una sessione di Windows PowerShell con diritti utente elevati.
+1.  Aprire un sessione di Windows PowerShell con diritti utente elevati.
 
 2.  Includere risultati specifici dell'analisi di un modello digitando il comando seguente e quindi premendo **Invio**.
 
-    `Get-BPAResult -modelId <model Id> | Where { $_.<Field Name> -eq "Value" } | Set-BPAResult -Exclude $false`
+    `Get-BPAResult -modelId <model Id> | Where { $_.<Field Name> -eq Value } | Set-BPAResult -Exclude $false`
 
     Il comando precedente consente di recuperare gli elementi dei risultati dell'analisi BPA per il modello rappresentato da *ID modello*.
 
-    La seconda parte del comando, dopo la prima barra verticale ( **|** ) filtra i risultati del cmdlet **Get-BPAResult** per recuperare solo i risultati dell'analisi per i quali il valore del campo risultato, rappresentato da *nome campo*, corrisponde a testo racchiuso tra virgolette.
+    La seconda parte del comando, dopo il primo carattere barra verticale ( **|** ) filtra i risultati del cmdlet **Get-BPAResult** per recuperare solo i risultati dell'analisi per i quali il valore del campo risultato, rappresentato da *nome campo*, corrisponde al testo tra virgolette.
 
     La parte finale del comando, dopo la seconda barra verticale, consente di includere i risultati filtrati dalla seconda parte del cmdlet, impostando il valore del parametro **-Exclude** su **false**.
 
-    **Esempio:** `Get-BPAResult -Microsoft/Windows/FileServices | Where { $_.Severity -eq "Information"} | Set-BPAResult -Exclude $false`
+    **Esempio:** `Get-BPAResult -Microsoft/Windows/FileServices | Where { $_.Severity -eq Information} | Set-BPAResult -Exclude $false`
 
 ### <a name="view-and-export-bpa-scan-results-in-windows-powershell"></a>Visualizzare ed esportare risultati dell'analisi BPA in Windows PowerShell
 Per visualizzare e gestire i risultati dell'analisi usando i cmdlet di Windows PowerShell, vedere le procedure riportate di seguito. Prima di poter usare le procedure seguenti, eseguire almeno un'analisi BPA su almeno un modello o sottomodello.
 
-#### <a name="BKMK_recentPS"></a>Per visualizzare i risultati dell'analisi più recente di un ruolo usando Windows PowerShell
+#### <a name="to-view-results-of-the-most-recent-scan-of-a-role-by-using-windows-powershell"></a><a name=BKMK_recentPS></a>Per visualizzare i risultati dell'analisi più recente di un ruolo usando Windows PowerShell
 
-1.  Aprire una sessione di Windows PowerShell con diritti utente elevati.
+1.  Aprire un sessione di Windows PowerShell con diritti utente elevati.
 
 2.  Ottenere i risultati dell'analisi più recente per un ID modello specificato. digitare quanto segue, in cui il modello è rappresentato da *ID modello*e quindi premere **invio**. È possibile ottenere risultati per più ID modello separandoli con virgole.
 
@@ -255,7 +251,7 @@ Per visualizzare e gestire i risultati dell'analisi usando i cmdlet di Windows P
 
     **Esempio:** `Get-BPAResult Microsoft/Windows/FileServices -SubmodelID FSRM`
 
-#### <a name="BKMK_formats"></a>Per visualizzare o salvare i risultati BPA dalle sessioni di Windows PowerShell in formati diversi
+#### <a name="to-view-or-save-bpa-results-from-windows-powershell-sessions-in-different-formats"></a><a name=BKMK_formats></a>Per visualizzare o salvare i risultati BPA dalle sessioni di Windows PowerShell in formati diversi
 
 -   In Windows PowerShell ogni risultato BPA è simile al seguente.
 
@@ -280,7 +276,7 @@ Per visualizzare e gestire i risultati dell'analisi usando i cmdlet di Windows P
 
     ```
 
-    Effettuare una delle operazioni seguenti.
+    Effettuare una delle operazioni riportate di seguito.
 
     -   Per formattare i risultati BPA in una tabella, eseguire il cmdlet riportato di seguito, aggiungendo le proprietà dei risultati che si desidera visualizzare dall'esempio precedente.
 
@@ -304,7 +300,7 @@ Per visualizzare e gestire i risultati dell'analisi usando i cmdlet di Windows P
 
         **Esempio:** `Get-BPAResult Microsoft/Windows/FileServices | Export-CSV C:\BPAResults\FileServices.txt`
 
-## <a name="see-also"></a>Vedere anche
-[Contenuto di Best Practices Analyzer risoluzione nel TechCenter di Windows Server](https://go.microsoft.com/fwlink/p/?LinkId=241597)
+## <a name="see-also"></a>Vedi anche
+[Best Practices Analyzer contenuto di risoluzione nel TechCenter di Windows Server](https://go.microsoft.com/fwlink/p/?LinkId=241597)
 [filtrare, ordinare ed eseguire query sui dati nei riquadri Server Manager](filter-sort-and-query-data-in-server-manager-tiles.md)
 [gestire più server remoti con Server Manager](manage-multiple-remote-servers-with-server-manager.md)

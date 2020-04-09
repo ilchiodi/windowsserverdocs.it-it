@@ -1,24 +1,20 @@
 ---
 title: Installazione o disinstallazione di ruoli, servizi ruolo o funzionalità
 description: Server Manager
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-server-manager
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 04f16d84-45c2-4771-84c1-1cc973d0ee02
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: cca2e4c7ba2658c4d85b14ef61ef5f79fbc96345
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 8c270fbdacf5359af4e3150d61693470207f566b
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71383193"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80851524"
 ---
 # <a name="install-or-uninstall-roles-role-services-or-features"></a>Installazione o disinstallazione di ruoli, servizi ruolo o funzionalità
 
@@ -33,7 +29,7 @@ In qualità di amministratore per installare o disinstallare ruoli, servizi ruol
   
 Per ulteriori informazioni su quali sono i ruoli, servizi ruolo e funzionalità, vedere [ruoli, servizi ruolo e funzionalità](https://go.microsoft.com/fwlink/p/?LinkId=239558).  
   
-In questo argomento sono incluse le sezioni seguenti.  
+In questo argomento sono contenute le seguenti sezioni.  
   
 -   [Installare ruoli, servizi ruolo e funzionalità con l'aggiunta guidata ruoli e funzionalità](#install-roles-role-services-and-features-by-using-the-add-roles-and-features-wizard)  
   
@@ -63,9 +59,9 @@ In una singola sessione dell'aggiunta guidata ruoli e funzionalità è possibile
   
 2.  Scegliere **Aggiungi ruoli e funzionalità**dal menu **Gestisci** .  
   
-3.  Nella pagina **Prima di iniziare** verificare che il server di destinazione e l'ambiente di rete siano preparati per il ruolo e la funzionalità che si desidera installare. Fai clic su **Next**.  
+3.  Nella pagina **Prima di iniziare** verificare che il server di destinazione e l'ambiente di rete siano preparati per il ruolo e la funzionalità che si desidera installare. Fare clic su **Avanti**.  
   
-4.  Nella pagina **Selezione tipo di installazione** scegliere **Installazione basata su ruoli o basata su funzionalità** per installare tutte le parti di ruoli o funzionalità in un singolo server oppure scegliere **Installazione di Servizi Desktop remoto** per installare un'infrastruttura desktop basata su macchine virtuali oppure un'infrastruttura desktop basata su sessioni per Servizi Desktop remoto. L'opzione **Installazione basata su scenario di Servizi Desktop remoto** distribuisce parti logiche di Servizi Desktop remoto attraverso server diversi, come richiesto dagli amministratori. Fai clic su **Next**.  
+4.  Nella pagina **Selezione tipo di installazione** scegliere **Installazione basata su ruoli o basata su funzionalità** per installare tutte le parti di ruoli o funzionalità in un singolo server oppure scegliere **Installazione di Servizi Desktop remoto** per installare un'infrastruttura desktop basata su macchine virtuali oppure un'infrastruttura desktop basata su sessioni per Servizi Desktop remoto. L'opzione **Installazione di Servizi Desktop remoto** consente di distribuire parti logiche di Servizi Desktop remoto su server diversi, in base alle esigenze degli amministratori. Fare clic su **Avanti**.  
   
 5.  Nella pagina **Selezione server di destinazione** scegliere un server dal pool di server oppure selezionare un disco rigido virtuale offline. Per selezionare un disco rigido virtuale offline come server di destinazione, selezionare innanzitutto il server in cui montare il disco rigido virtuale, quindi selezionare il file del disco rigido virtuale. Per informazioni su come aggiungere server al pool di server, vedere [aggiungere server a Server Manager](add-servers-to-server-manager.md). Dopo aver selezionato il server di destinazione, fare clic su **Avanti**.  
   
@@ -85,7 +81,7 @@ In una singola sessione dell'aggiunta guidata ruoli e funzionalità è possibile
   
     Inoltre, se si prevede di gestire il ruolo in modalità remota da un altro server o da un computer basato su client Windows che esegue Strumenti di amministrazione remota del server, è possibile scegliere di non installare strumenti di gestione e snap-in per i ruoli nel server di destinazione. Per impostazione predefinita, nell'aggiunta guidata ruoli e funzionalità, gli strumenti di gestione sono selezionati per l'installazione.  
   
-7.  Nella pagina **Conferma selezioni per l'installazione** , rivedere le selezioni di ruolo funzionalità e server. Se si è pronti per l'installazione, fare clic su **Installa**.  
+7.  Nella pagina **Conferma selezioni per l'installazione**, rivedere le selezioni di ruolo funzionalità e server. Se si è pronti per l'installazione, fare clic su **Installa**.  
   
     È anche possibile esportare le selezioni in un file di configurazione basato su XML che è possibile utilizzare per le installazioni automatiche con Windows PowerShell. Per esportare la configurazione specificata in questa procedura guidata Aggiungi ruoli e funzionalità, fare clic su **Esporta impostazioni di configurazione**e quindi salvare il file XML in un percorso appropriato.  
   
@@ -116,7 +112,7 @@ I cmdlet di distribuzione Server Manager per Windows PowerShell funzionano in mo
   
 3. Digitare **Get-Help Install-WindowsFeature**e quindi premere **invio** per visualizzare la sintassi e i parametri accettati per il cmdlet `Install-WindowsFeature`.  
   
-4. digitare quanto segue, quindi premere **invio**, dove *feature_name* rappresenta il nome del comando di un ruolo o di una funzionalità che si desidera installare (ottenuto nel passaggio 2) e *computer_name* rappresenta un computer remoto in cui si desidera installare ruoli e funzionalità. Utilizzare virgole per separare più valori per *nome_funzionalità* . Il parametro `Restart` riavvia automaticamente il server di destinazione se richiesto dall'installazione del ruolo o della funzionalità.  
+4. digitare quanto segue, quindi premere **invio**, dove *feature_name* rappresenta il nome del comando di un ruolo o di una funzionalità che si desidera installare (ottenuto nel passaggio 2) e *computer_name* rappresenta un computer remoto in cui si desidera installare ruoli e funzionalità. Usare virgole per separare più valori per *nome_funzionalità*. Il parametro `Restart` riavvia automaticamente il server di destinazione se richiesto dall'installazione del ruolo o della funzionalità.  
   
    ```  
    Install-WindowsFeature -Name <feature_name> -computerName <computer_name> -Restart  
@@ -157,11 +153,11 @@ In qualità di amministratore per disinstallare ruoli, servizi ruolo e funzional
   
     -   Nel desktop di Windows avviare Server Manager facendo clic su **Server Manager** nella barra delle applicazioni di Windows.  
   
-    -   Nella schermata **Start** di Windows fare clic sul riquadro **Server Manager** .  
+    -   Nella schermata **Start** di Windows fare clic sul riquadro **Server Manager**.  
   
 2.  Scegliere **Rimuovi ruoli e funzionalità** dal menu **Gestione**.  
   
-3.  Nella pagina **Prima di iniziare** verificare che sia stata eseguita la preparazione per la rimozione di ruoli o funzioni da un server. Fai clic su **Next**.  
+3.  Nella pagina **Prima di iniziare** verificare che sia stata eseguita la preparazione per la rimozione di ruoli o funzioni da un server. Fare clic su **Avanti**.  
   
 4.  Nella pagina **Selezione server di destinazione** selezionare un server dal pool di server oppure selezionare un disco rigido virtuale offline. Per selezionare un disco rigido virtuale offline, selezionare innanzitutto il server in cui montare il disco rigido virtuale, quindi selezionare il file del disco rigido virtuale.  
   
@@ -207,7 +203,7 @@ I cmdlet di distribuzione Server Manager per Windows PowerShell funzionano in mo
   
 3. Digitare **Get-Help Uninstall-WindowsFeature**e quindi premere **invio** per visualizzare la sintassi e i parametri accettati per il cmdlet `Uninstall-WindowsFeature`.  
   
-4. Digitare quanto segue, quindi premere **INVIO**, dove *nome_funzionalità* rappresenta il nome del comando di un ruolo o di una funzionalità che si desidera installare (come descritto nel passaggio 2) e *computer_name* rappresenta il computer remoto da cui rimuovere ruoli e funzionalità. Utilizzare virgole per separare più valori per *nome_funzionalità* . Il parametro `Restart` riavvia automaticamente il server di destinazione se richiesto dalla rimozione del ruolo o della funzionalità.  
+4. Digitare quanto segue, quindi premere **INVIO**, dove *nome_funzionalità* rappresenta il nome del comando di un ruolo o di una funzionalità che si desidera installare (come descritto nel passaggio 2) e *computer_name* rappresenta il computer remoto da cui rimuovere ruoli e funzionalità. Usare virgole per separare più valori per *nome_funzionalità*. Il parametro `Restart` riavvia automaticamente il server di destinazione se richiesto dalla rimozione del ruolo o della funzionalità.  
   
    ```  
    Uninstall-WindowsFeature -Name <feature_name> -computerName <computer_name> -Restart  
@@ -236,7 +232,7 @@ I cmdlet di distribuzione Server Manager per Windows PowerShell funzionano in mo
 5. Termine della rimozione, verificare che i ruoli e funzionalità sono stati effettivamente rimossi aprendo la **tutti i server** pagina in Server Manager, selezionando il server da cui sono stati rimossi ruoli e funzionalità e visualizzando il **ruoli e funzionalità** riquadro della pagina per il server selezionato. È anche possibile eseguire il cmdlet `Get-WindowsFeature` indirizzato al server selezionato (Get-WindowsFeature-ComputerName <*computer_name*>) per visualizzare un elenco di ruoli e funzionalità installati nel server.  
   
 ## <a name="install-roles-and-features-on-multiple-servers-by-running-a-windows-powershell-script"></a>Installare ruoli e funzionalità in più server eseguendo uno script di Windows PowerShell  
-Sebbene non sia possibile utilizzare l'aggiunta guidata ruoli e funzionalità per installare ruoli, servizi ruolo e funzionalità in più di un server di destinazione in una singola sessione della procedura guidata, è possibile utilizzare uno script di Windows PowerShell per installare ruoli, servizi ruolo e funzionalità in più destinazioni server gestiti mediante Server Manager. Lo script utilizzato per eseguire la distribuzione batch, quando viene chiamato questo processo, punta a un file di configurazione XML che è possibile creare facilmente utilizzando l'aggiunta guidata ruoli e funzionalità e facendo clic su **Esporta impostazioni di configurazione** dopo aver passato la procedura guidata alla pagina **Conferma selezioni** per l'installazione dell'aggiunta guidata ruoli e funzionalità.  
+Sebbene non sia possibile utilizzare l'aggiunta guidata ruoli e funzionalità per installare ruoli, servizi ruolo e funzionalità in più di un server di destinazione in una singola sessione della procedura guidata, è possibile utilizzare uno script di Windows PowerShell per installare ruoli, servizi ruolo e funzionalità in più server di destinazione gestiti tramite Server Manager. Lo script utilizzato per eseguire la distribuzione batch, quando viene chiamato questo processo, punta a un file di configurazione XML che è possibile creare facilmente utilizzando l'aggiunta guidata ruoli e funzionalità e facendo clic su **Esporta impostazioni di configurazione** dopo aver passato la procedura guidata alla pagina **Conferma selezioni** per l'installazione dell'aggiunta guidata ruoli e funzionalità.  
   
 > [!IMPORTANT]  
 > Tutti i server di destinazione specificati nello script devono essere in esecuzione la versione di Windows Server che corrisponde alla versione di Server Manager sono in esecuzione nel computer locale. Ad esempio, se si eseguono Server Manager in Windows 10, è possibile installare ruoli, servizi ruolo e funzionalità in server che eseguono Windows Server 2016. Se vengono aggiunti strumenti di gestione basata su GUI per l'installazione, il processo di installazione converte automaticamente i server di destinazione che eseguono l'opzione di installazione Server Core di Windows Server per l'opzione di installazione completa (server con un'interfaccia utente grafica completa, anche nota come esecuzione Shell grafica Server).  
@@ -299,11 +295,11 @@ a partire da Windows Server 2012 e Windows 8, i file di funzionalità per .NET F
   
 È possibile installare .NET Framework 3.5 in uno dei modi seguenti.  
   
--   Usare [Per installare .NET Framework 3.5 mediante il cmdlet Install-WindowsFeature](#to-install-net-framework-35-by-running-the-install-windowsfeature-cmdlet) per aggiungere il parametro `Source` e specificare un'origine da cui recuperare i file di funzionalità di .NET Framework 3.5. Se non si aggiunge il parametro `Source`, il processo di installazione determina innanzitutto se il percorso ai file di funzionalità è stato specificato da impostazioni di Criteri di gruppo, e in caso contrario, cerca i file di funzionalità mancanti tramite Windows Update.  
+-   Fare riferimento all'argomento [Per installare .NET Framework 3.5 mediante il cmdlet Install-WindowsFeature](#to-install-net-framework-35-by-running-the-install-windowsfeature-cmdlet) per aggiungere il parametro `Source` e specificare un'origine da cui recuperare i file di funzionalità di .NET Framework 3.5. Se non si aggiunge il parametro `Source`, il processo di installazione determina innanzitutto se il percorso ai file di funzionalità è stato specificato da impostazioni di Criteri di gruppo, e in caso contrario, cerca i file di funzionalità mancanti tramite Windows Update.  
   
 -   Utilizzare [per installare .NET Framework 3,5 utilizzando l'aggiunta guidata ruoli e funzionalità](#to-install-net-framework-35-by-using-the-add-roles-and-features-wizard) per specificare un percorso del file di origine alternativo nella pagina **Conferma opzioni di installazione** dell'aggiunta guidata ruoli e funzionalità.  
   
--   Usare [Per installare .NET Framework 3.5 usando DISM](#to-install-net-framework-35-by-using-dism) per recuperare i file da Windows Update per impostazione predefinita oppure specificando un percorso di origine per il supporto di installazione.  
+-   Fare riferimento all'argomento [Per installare .NET Framework 3.5 utilizzando DISM](#to-install-net-framework-35-by-using-dism) per recuperare i file da Windows Update per impostazione predefinita oppure specificando un percorso di origine per il supporto di installazione.  
   
 [Configurare le origini alternative per i file di funzionalità in Criteri di gruppo](#configure-alternate-sources-for-feature-files-in-group-policy) per .NET Framework 3.5 o altre funzionalità, se i file di funzionalità non sono presenti nel computer locale.  
   
@@ -351,11 +347,11 @@ a partire da Windows Server 2012 e Windows 8, i file di funzionalità per .NET F
   
    **\\ D:\Sources\SxS**  
   
-   Per specificare un file WIM, aggiungere un prefisso **WIM:** e aggiungere l'indice dell'immagine da utilizzare nel file WIM come un suffisso, come mostrato nell'esempio seguente.  
+   Per specificare un file WIM, aggiungere un prefisso **WIM:** e aggiungere l'indice dell'immagine da usare nel file WIM come un suffisso, come mostrato nell'esempio seguente.  
   
    **Wim:\\\\** <em>server_name</em> **\share\install.wim: 3**  
   
-6. Fare clic su **OK**e quindi su **Installa**.  
+6. Fare clic su **OK** e quindi su **Installa**.  
   
 ### <a name="to-install-net-framework-35-by-using-dism"></a>Per installare .NET Framework 3.5 utilizzando DISM  
   
@@ -401,7 +397,7 @@ L'impostazione di Criteri di gruppo descritta in questa sezione specifica i perc
   
 2. Sselect **abilitato** per abilitare l'impostazione dei criteri, se non è già abilitata.  
   
-3. Nella casella di testo **Percorso file di origine alternativo** dell'area **Opzioni** specificare un percorso completo a una cartella condivisa o a un file WIM. Per specificare un file WIM come percorso file di origine alternativo, aggiungere il prefisso **WIM:** al percorso, quindi aggiungere l'indice dell'immagine da utilizzare nel file WIM come suffisso. Di seguito sono illustrati alcuni esempi di valori che è possibile specificare.  
+3. Nella casella di testo **Percorso file di origine alternativo** dell'area **Opzioni** specificare un percorso completo a una cartella condivisa o a un file WIM. Per specificare un file WIM come percorso file di origine alternativo, aggiungere il prefisso **WIM:** al percorso, quindi aggiungere l'indice dell'immagine da usare nel file WIM come suffisso. Di seguito sono illustrati alcuni esempi di valori che è possibile specificare.  
   
    - percorso di una cartella condivisa: **\\\\** <em>server_name</em> **\share\\** <em>Folder_Name</em>  
   
@@ -409,7 +405,7 @@ L'impostazione di Criteri di gruppo descritta in questa sezione specifica i perc
   
 4. Se non si desidera che i computer controllati da questa impostazione dei criteri cerchino i file di funzionalità mancanti in Windows Update, selezionare **non tentare mai di scaricare il payload da Windows Update**.  
   
-5. Se i computer controllati da questa impostazione di criterio in genere ricevono aggiornamenti tramite WSUS ma per trovare i file di funzionalità mancanti si preferisce utilizzare Windows Update, selezionare **Contatta direttamente Windows Update invece di Windows Server Update Services (WSUS) per scaricare il contenuto di ripristino**.  
+5. Se i computer controllati da questa impostazione di criterio in genere ricevono aggiornamenti tramite WSUS ma per trovare i file di funzionalità mancanti si preferisce usare Windows Update, selezionare **Contatta direttamente Windows Update invece di Windows Server Update Services (WSUS) per scaricare il contenuto di ripristino**.  
   
 6. Al termine della modifica dell'impostazione di criterio, fare clic su **OK** e chiudere l'Editor Criteri di gruppo.  
   

@@ -1,18 +1,18 @@
 ---
 title: Inizializzare il cluster HGS usando la modalità AD in una nuova foresta dedicata (impostazione predefinita)
-ms.custom: na
 ms.prod: windows-server
 ms.topic: article
 manager: dongill
 author: rpsqrd
+ms.author: ryanpu
 ms.technology: security-guarded-fabric
 ms.date: 08/29/2018
-ms.openlocfilehash: 4dd10efecf391f7087962e514db7a59135bd93e8
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 851ee57545aa233fd7d6c728b213ba687a1c1371
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71403643"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80856684"
 ---
 # <a name="initialize-the-hgs-cluster-using-ad-mode-in-a-new-dedicated-forest-default"></a>Inizializzare il cluster HGS usando la modalità AD in una nuova foresta dedicata (impostazione predefinita)
 

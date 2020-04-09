@@ -1,25 +1,21 @@
 ---
 title: Creare un account utente standard
-ms.custom: na
 description: Creare un account utente di base per MultiPoint Services
 ms.prod: windows-server
 ms.technology: multipoint-services
-ms.reviewer: na
-ms.suite: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 1e113666-e45f-48b6-aad8-42c361c9046d
 author: lizap
 manager: dongill
-ms.openlocfilehash: dc1307855b847b3d27f655e953c718e4049f8332
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: d92b5b21c5a10e808e52bf5081ebc1ed7a2b9a3d
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71395482"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80859784"
 ---
 # <a name="create-a-standard-user-account"></a>Creare un account utente standard
-Creare *account utente standard* per gli utenti che accederanno regolarmente alle stazioni, ma che non gestiranno il sistema MultiPoint Services. Gli utenti con account utente standard possono eseguire la maggior parte delle applicazioni e Salva i file, ma non può eseguire Gestione MultiPoint. Per vedere chi ha accesso utente standard, in Gestione MultiPoint, fare clic su di **utenti** scheda. Gli account utente standard sono visualizzati nella colonna Account Type (Tipo di account) come **Standard**.  
+Creare *account utente standard* per gli utenti che accederanno regolarmente alle stazioni, ma che non gestiranno il sistema MultiPoint Services. Gli utenti con account utente standard possono eseguire la maggior parte delle applicazioni e Salva i file, ma non può eseguire Gestione MultiPoint. Per vedere chi ha accesso utente standard, in Gestione MultiPoint fare clic sulla scheda **utenti** . gli account utente standard vengono visualizzati nella colonna **tipo di conto** come **standard**.  
   
 Se gli utenti di MultiPoint Services archiviano documenti privati in Windows, ogni utente dovrà accedere al sistema MultiPoint Services usando un nome utente e una password univoci.  
   
@@ -42,4 +38,4 @@ Se gli utenti di MultiPoint Services archiviano documenti privati in Windows, og
   
 7.  Nella pagina di impostazione del livello di accesso selezionare **Standard user** (Utente standard) e quindi fare clic su **Next** (Avanti).  
   
-8.  Scegliere **Fine**.  
+8.  Fare clic su **Fine**.  

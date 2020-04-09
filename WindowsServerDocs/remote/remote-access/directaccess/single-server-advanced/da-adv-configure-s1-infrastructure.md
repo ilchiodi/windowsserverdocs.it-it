@@ -2,22 +2,18 @@
 title: Passaggio 1 configurare l'infrastruttura DirectAccess avanzata
 description: Questo argomento fa parte della Guida distribuire un server DirectAccess singolo con impostazioni avanzate per Windows Server 2016
 manager: brianlic
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: networking-da
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 43abc30a-300d-4752-b845-10a6b9f32244
 ms.author: lizross
 author: eross-msft
-ms.openlocfilehash: c5ab8e089d3cf5fd8f9ed53f7f67cc47a8c17f70
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: 0e6e368c75f45e23fb229de409ff51b76f4ec53c
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80309186"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80861494"
 ---
 # <a name="step-1-configure-advanced-directaccess-infrastructure"></a>Passaggio 1 configurare l'infrastruttura DirectAccess avanzata
 

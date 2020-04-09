@@ -1,24 +1,20 @@
 ---
 title: Visualizzare notifiche e dettagli sulle attività
 description: Server Manager
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-server-manager
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 95117407-2dd3-4f9a-841f-4331be3544c3
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: a3dcbac95e60fce75316f8a4427aef54bdfad15b
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 0047a9f2d4b6b66cec85b2746b1975af2ced3316
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71383017"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80851454"
 ---
 # <a name="view-task-details-and-notifications"></a>Visualizzare notifiche e dettagli sulle attività
 
@@ -31,7 +27,7 @@ Il **notifiche** area della barra dei menu di Server Manager, contrassegnato da 
 
 -   Aggiornare manualmente i dati visualizzati in Server Manager (vengono visualizzate notifiche per gli aggiornamenti automatici solo se gli aggiornamenti non riescono)
 
--   avvio o arresto di servizi
+-   avvio e arresto di servizi
 
 -   Installare o disinstallare ruoli, servizi ruolo e funzionalità
 
@@ -50,7 +46,7 @@ Per eliminare una notifica che non si desidera più visualizzare dall'elenco **n
 ## <a name="viewing-and-troubleshooting-tasks-by-using-task-details"></a>Visualizzazione e risoluzione dei problemi relativi alle attività mediante dettagli attività
 Il comando **Dettagli attività** nella parte inferiore del menu **notifiche** apre la finestra di dialogo **Dettagli attività** , che fornisce descrizioni complete degli eventi relativi alle attività (avvio, arresto, avvisi, operazioni riuscite o errori). Analogamente ad altri controlli elenco in Server Manager, ad esempio **gli eventi**, i **Servizi**e i riquadri **Best Practices Analyzer** , è possibile filtrare e creare query da eseguire sulle attività visualizzate nella finestra di dialogo **Dettagli attività** . Per ulteriori informazioni su come filtrare e creare query sui controlli elenco, vedere [filtrare, ordinare ed eseguire query sui dati nei riquadri Server Manager](filter-sort-and-query-data-in-server-manager-tiles.md). Nel riquadro superiore è possibile esaminare le notifiche così come sono state visualizzate nel menu **notifiche** e visualizzare il numero di notifiche generate sulla stessa attività. selezionando una notifica nel riquadro superiore vengono visualizzati i dettagli completi della notifica nel riquadro inferiore.
 
-Il riquadro inferiore è particolarmente utile per la risoluzione dei problemi relativi alle attività non riuscite. Se Server Manager non è in grado di connettersi o recuperare dati per un server membro del pool di server, le voci di questo riquadro contengono spesso messaggi dettagliati, incluso il testo completo di gestione remota Windows (WinRM) sottostante, rete o problemi di sicurezza che impedire a Server Manager di comunicare con un server di destinazione.
+Il riquadro inferiore è particolarmente utile per la risoluzione dei problemi relativi alle attività non riuscite. Se Server Manager non è in grado di connettersi o recuperare dati per un server membro del pool di server, le voci di questo riquadro contengono spesso messaggi dettagliati, incluso il testo completo di gestione remota Windows (WinRM) sottostante, rete o problemi di sicurezza che impediscono la comunicazione Server Manager con un server di destinazione.
 
 ## <a name="see-also"></a>Vedi anche
 [Filtrare, ordinare ed eseguire query sui dati nei riquadri di Server Manager](filter-sort-and-query-data-in-server-manager-tiles.md)

@@ -1,24 +1,20 @@
 ---
 title: ftype
-description: 'Argomento dei comandi di Windows per * * * *- '
-ms.custom: na
+description: Argomento dei comandi di Windows per * * * *-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 6fb53cee-9bed-44dd-af5d-bc7cec1dd114
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: ce3f4c360269eb9cabd2cbef8abb89935923a595
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: f982f68f25a4decbc9c572b533fa1ecc5e893a8c
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71375821"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80842704"
 ---
 # <a name="ftype"></a>ftype
 
@@ -34,11 +30,11 @@ Per esempi di utilizzo di questo comando, vedere [Esempi](#BKMK_examples).
 ftype [<FileType>[=[<OpenCommandString>]]]
 ```
 
-## <a name="parameters"></a>Parametri
+### <a name="parameters"></a>Parametri
 
 |Parametro|Descrizione|
 |---------|-----------|
-|\<FileType >|Specifica il tipo di file per visualizzare o modificare.|
+|> di \<filetype|Specifica il tipo di file per visualizzare o modificare.|
 |\<OpenCommandString >|Specifica la stringa di comando di apertura da usare all'apertura dei file del tipo di file specificato.|
 |/?|Visualizza la guida al prompt dei comandi.|
 
@@ -46,14 +42,14 @@ ftype [<FileType>[=[<OpenCommandString>]]]
 
 La tabella seguente descrive come **ftype** sostituisce le variabili all'interno di una stringa di comando di apertura:
 
-|Variabile|Valore di sostituzione|
+|Variable|Valore di sostituzione|
 |--------|-----------------|
 |%1 o %0|Ottiene sostituita con il nome del file viene avviato tramite l'associazione.|
 |%*|Ottiene tutti i parametri.|
-|% 2,% 3,...|Ottiene il primo parametro (%2), il secondo parametro (%3) e così via.|
-|%~ @ NO__T-1N >|Ottiene tutti i parametri rimanenti a partire dal *N*parametro in posizione in cui *N* può essere qualsiasi numero compreso tra 2 e 9.|
+|%2, %3,...|Ottiene il primo parametro (%2), il secondo parametro (%3) e così via.|
+|%~\<N >|Ottiene tutti i parametri rimanenti a partire dal *N*parametro in posizione in cui *N* può essere qualsiasi numero compreso tra 2 e 9.|
 
-## <a name="BKMK_examples"></a>Esempi
+## <a name="examples"></a><a name=BKMK_examples></a>Esempi
 
 Per visualizzare i tipi di file corrente le stringhe di comando di apertura definite, digitare:
 ```
@@ -81,6 +77,6 @@ Per eliminare la necessità di digitare l'estensione pl quando si richiama uno s
 set PATHEXT=.pl;%PATHEXT%
 ```
 
-#### <a name="additional-references"></a>Altri riferimenti
+## <a name="additional-references"></a>Altre informazioni di riferimento
 
-[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+- [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

@@ -2,20 +2,19 @@
 title: Assicurarsi che siano disponibili tutte le estensioni del commutatore virtuale obbligatorio
 description: Versione online del testo per questa regola di Best Practices Analyzer.
 ms.prod: windows-server
-ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
 ms.author: kathydav
 ms.topic: article
 ms.assetid: 2f2f2698-f5ec-4cad-aa64-d6987e8142a1
-author: KBDAzure
+author: kbdazure
 ms.date: 8/16/2016
-ms.openlocfilehash: c9363fbce35552a8f7d279662ae9072bcd7ea480
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 14c9fc31521a7d4f5e0eed821c0cc49dcfe74e69
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71364819"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80861934"
 ---
 # <a name="ensure-that-all-mandatory-virtual-switch-extensions-are-available"></a>Assicurarsi che siano disponibili tutte le estensioni del commutatore virtuale obbligatorio
 
@@ -25,7 +24,7 @@ Per altre informazioni sulle procedure consigliate e sulle analisi, vedere [Eseg
   
 |Proprietà|Dettagli|  
 |-|-|  
-|**Sistema operativo**|Windows Server 2016|  
+|**Sistema operativo**|Windows Server 2016|  
 |**Prodotto/funzionalità**|Hyper-V|  
 |**Gravità**|Avviso|  
 |**Categoria**|Configurazione|  

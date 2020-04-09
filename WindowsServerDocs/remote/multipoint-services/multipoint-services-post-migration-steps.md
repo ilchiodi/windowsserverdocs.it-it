@@ -1,23 +1,19 @@
 ---
 title: MultiPoint Services-attività post-migrazione
 description: Informazioni su come convalidare e chiudere la migrazione a MultiPoint Services
-ms.custom: na
 ms.date: 07/29/2016
 ms.prod: windows-server
 ms.technology: multipoint-services
-ms.reviewer: na
-ms.suite: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 1497cae0-071e-467d-89b8-a7050815d7de
 author: lizap
 manager: dongill
-ms.openlocfilehash: 3102a442b4668856050f603f30f57f6bbed20654
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: a1d304e95037ad67a8d4f02e1dc17ec3e0485ed8
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71389025"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80858894"
 ---
 # <a name="multipoint-services---post-migration-tasks"></a>MultiPoint Services-attività post-migrazione
 

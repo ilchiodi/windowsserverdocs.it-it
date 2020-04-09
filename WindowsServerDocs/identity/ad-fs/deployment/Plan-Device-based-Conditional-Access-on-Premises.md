@@ -1,7 +1,6 @@
 ---
 ms.assetid: c5eb3fa0-550c-4a2f-a0bc-698b690c4199
 title: Pianificare l'accesso condizionale locale basato su dispositivo
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 00a7edf9529e1f116d951fd69d3bfa381d6d413a
-ms.sourcegitcommit: 07c9d4ea72528401314e2789e3bc2e688fc96001
+ms.openlocfilehash: d22897111588393efc148e6f24affeb243ee9e88
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76822754"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80855334"
 ---
 # <a name="plan-device-based-conditional-access-on-premises"></a>Pianificare l'accesso condizionale locale basato su dispositivo
 
@@ -35,7 +34,7 @@ Sono disponibili tre tipi di dispositivi registrati, tutti rappresentati come og
 |Descrizione    |  Gli utenti aggiungono il proprio account aziendale o dell'Istituto di istruzione al dispositivo BYOD in modo interattivo.  **Nota:** Aggiungere un account aziendale o dell'Istituto di istruzione è la sostituzione per Workplace Join in Windows 8/8.1       | Gli utenti aggiungono il dispositivo Windows 10 work a Azure AD.|I dispositivi aggiunti a un dominio di Windows 10 vengono registrati automaticamente con Azure AD.|           
 |Modalità di accesso degli utenti al dispositivo     |  Nessun accesso a Windows come account aziendale o dell'Istituto di istruzione.  Accedere utilizzando un account Microsoft.       |   Accedere a Windows come account aziendale o dell'Istituto di istruzione che ha registrato il dispositivo.      |     Accedere con l'account AD.|      
 |Modalità di gestione dei dispositivi    |      Criteri MDM (con registrazione aggiuntiva di Intune)   | Criteri MDM (con registrazione aggiuntiva di Intune)        |   Criteri di gruppo, Configuration Manager |
-|Tipo di trust Azure AD|Aggiunta all'area di lavoro|Azure AD aggiunto|Dominio associato  |     
+|Tipo di trust Azure AD|Aggiunta all'area di lavoro|Azure AD aggiunto|alla rete locale  |     
 |Percorso delle impostazioni W10    | Impostazioni > account > account > aggiungere un account aziendale o dell'Istituto di istruzione        | Impostazioni > > di sistema per > join Azure AD       |   Impostazioni > > di sistema per > aggiunta a un dominio |       
 |Disponibile anche per dispositivi iOS e Android?   |    Sì     |       No  |   No   |   
 
@@ -89,7 +88,7 @@ Dispositivi conformi avranno il **isCompliant** ADFS un'attestazione con valore 
 Per un elenco completo delle attestazioni di accesso condizionale e del dispositivo AD FS 2016, vedere informazioni di [riferimento](#reference).  
 
 
-## <a name="reference"></a>Informazioni di riferimento  
+## <a name="reference"></a>Riferimento  
 #### <a name="complete-list-of-new-ad-fs-2016-and-device-claims"></a>Elenco completo delle nuove AD FS 2016 e delle attestazioni del dispositivo  
 
 * https://schemas.microsoft.com/ws/2014/01/identity/claims/anchorclaimtype  

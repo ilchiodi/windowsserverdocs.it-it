@@ -1,30 +1,26 @@
 ---
 title: diskcomp
-description: 'Argomento dei comandi di Windows per * * * *- '
-ms.custom: na
+description: Windows Commands argomento per verrà, che confronta il contenuto di due dischi floppy.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 4f56f534-a356-4daa-8b4f-38e089341e42
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: ca5ea0f4587b21b2a274c772aab239668b7868b4
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: e36e644616e25659c1a2a5ca684e975fd06fc19f
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71377873"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80845554"
 ---
 # <a name="diskcomp"></a>diskcomp
 
+Confronta il contenuto di due dischi floppy. Se usato senza parametri, **verrà** usa l'unità corrente per confrontare entrambi i dischi.
 
-
-Confronta il contenuto di due dischi floppy. Se usato senza parametri, **verrà** usa l'unità corrente per confrontare entrambi i dischi. Per esempi relativi all'uso di questo comando, vedere [esempi](#BKMK_examples).
+Per esempi di utilizzo di questo comando, vedere [Esempi](#BKMK_examples).
 
 ## <a name="syntax"></a>Sintassi
 
@@ -32,12 +28,12 @@ Confronta il contenuto di due dischi floppy. Se usato senza parametri, **verrà*
 diskcomp [<Drive1>: [<Drive2>:]]
 ```
 
-## <a name="parameters"></a>Parametri
+### <a name="parameters"></a>Parametri
 
 |Parametro|Descrizione|
 |---------|-----------|
-|\<Drive1 >|Specifica l'unità contenente uno dei dischi floppy.|
-|\<Drive2 >|Specifica l'unità contenente l'altro disco floppy.|
+|\<unità1 >|Specifica l'unità contenente uno dei dischi floppy.|
+|\<unità2 >|Specifica l'unità contenente l'altro disco floppy.|
 |/?|Visualizza la guida al prompt dei comandi.|
 
 ## <a name="remarks"></a>Note
@@ -107,7 +103,7 @@ diskcomp [<Drive1>: [<Drive2>:]]
 
   Per elaborare i codici di uscita restituiti da **verrà**, è possibile usare la variabile di ambiente ERRORLEVEL nella riga di comando **if** in un programma batch.
 
-## <a name="BKMK_examples"></a>Esempi
+## <a name="examples"></a><a name=BKMK_examples></a>Esempi
 
 Se il computer dispone di una sola unità disco floppy, ad esempio l'unità A, e si desidera confrontare due dischi, digitare:
 ```
@@ -131,7 +127,7 @@ goto exit
 echo ERROR: An irrecoverable error occurred 
 goto exit 
 :break 
-echo "You just pressed CTRL+C" to stop the comparison 
+echo You just pressed CTRL+C to stop the comparison 
 goto exit 
 :no_compare 
 echo Disks are not the same 
@@ -142,6 +138,6 @@ goto exit
 :exit
 ```
 
-#### <a name="additional-references"></a>Altri riferimenti
+## <a name="additional-references"></a>Altre informazioni di riferimento
 
-[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+- [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

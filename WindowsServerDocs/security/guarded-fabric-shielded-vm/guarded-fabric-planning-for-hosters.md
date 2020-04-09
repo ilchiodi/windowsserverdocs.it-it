@@ -1,19 +1,19 @@
 ---
 title: Infrastruttura sorvegliata e guida alla pianificazione delle VM schermate per i provider di hosting
-ms.custom: na
 ms.prod: windows-server
 ms.topic: article
 ms.assetid: 854defc8-99f8-4573-82c0-f484e0785859
 manager: dongill
 author: nirb-ms
+ms.author: nirb
 ms.technology: security-guarded-fabric
 ms.date: 08/29/2018
-ms.openlocfilehash: 7e0ffb24f888760df58711a867b7ac0ba2650647
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 2e64f8a43318f10db3bfcb604adcef4b0bdc9837
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71386535"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80856514"
 ---
 # <a name="guarded-fabric-and-shielded-vm-planning-guide-for-hosters"></a>Infrastruttura sorvegliata e guida alla pianificazione delle VM schermate per i provider di hosting
 
@@ -26,7 +26,7 @@ Questo argomento descrive le decisioni di pianificazione che dovranno essere ese
 
 ![HGS e host sorvegliato](../media/Guarded-Fabric-Shielded-VM/guarded-host-hgs-plus-host-diagram-basic.png)
 
-## <a name="decision-1-trust-level-in-the-fabric"></a>#1 decisionale: Livello di attendibilità nell'infrastruttura
+## <a name="decision-1-trust-level-in-the-fabric"></a>#1 decisionale: livello di attendibilità nell'infrastruttura
 
 La modalità di implementazione del servizio sorveglianza host e degli host Hyper-V sorvegliati dipende principalmente dal livello di attendibilità che si sta cercando di realizzare nell'infrastruttura. Il livello di attendibilità è regolato dalla modalità di attestazione. Sono disponibili due opzioni che si escludono a vicenda:
 
@@ -50,19 +50,19 @@ La modalità di implementazione del servizio sorveglianza host e degli host Hype
 
 Il livello di attendibilità scelto determinerà i requisiti hardware per gli host Hyper-V e i criteri applicati nell'infrastruttura. Se necessario, è possibile distribuire l'infrastruttura sorvegliata usando l'hardware esistente e l'attestazione attendibile per l'amministratore e quindi convertirla in attestazione Trusted TPM quando l'hardware è stato aggiornato ed è necessario rafforzare la sicurezza dell'infrastruttura.
 
-## <a name="decision-2-existing-hyper-v-fabric-versus-a-new-separate-hyper-v-fabric"></a>#2 decisionale: Infrastruttura Hyper-V esistente rispetto a una nuova infrastruttura di Hyper-V separata
+## <a name="decision-2-existing-hyper-v-fabric-versus-a-new-separate-hyper-v-fabric"></a>Decisione #2: infrastruttura Hyper-V esistente rispetto a una nuova infrastruttura di Hyper-V separata
 
 Se si dispone di un'infrastruttura esistente (Hyper-V o di altro tipo), è molto probabile che sia possibile usarla per eseguire VM schermate insieme a normali macchine virtuali. Alcuni clienti scelgono di integrare le VM schermate negli strumenti e nelle infrastrutture esistenti, mentre altre separano l'infrastruttura per motivi aziendali.
 
 ## <a name="hgs-admin-planning-for-the-host-guardian-service"></a>Pianificazione dell'amministratore di HGS per il servizio sorveglianza host
 
-Distribuire il servizio sorveglianza host (HGS) in un ambiente a sicurezza elevata, sia che si trovi su un server fisico dedicato, una macchina virtuale schermata, una macchina virtuale in un host Hyper-V isolato (separato dall'infrastruttura che protegge) o uno separato logicamente usando un'altra versione di Azure abbonamento.   
+Distribuire il servizio sorveglianza host (HGS) in un ambiente a sicurezza elevata, sia che si trovi su un server fisico dedicato, una macchina virtuale schermata, una macchina virtuale in un host Hyper-V isolato (separato dall'infrastruttura che protegge) o uno separato logicamente usando una sottoscrizione di Azure diversa.   
 
 | Area | Dettagli |
 |------|---------|
 | Requisiti di installazione | <ul><li>Un server (cluster a tre nodi consigliato per la disponibilità elevata)</li><li>Per il fallback sono necessari almeno due server HGS</li><li>I server possono essere virtuali o fisici (server fisico con TPM 2,0 consigliato; TPM 1,2 supportato anche</li><li>Installazione Server Core di Windows Server 2016 o versione successiva</li><li>Linea di rete per l'infrastruttura che consente la configurazione HTTP o di [fallback](guarded-fabric-manage-branch-office.md#fallback-configuration)</li><li>Certificato HTTPS consigliato per la convalida dell'accesso</li></ul> |
 | Ridimensionamento | Ogni nodo del server HGS di dimensioni medie (8 core/4 GB) può gestire 1.000 host Hyper-V. |
-| Management | Designare utenti specifici che gestiranno HGS. Devono essere separate dagli amministratori dell'infrastruttura. Per il confronto, i cluster HGS possono essere considerati in modo analogo a un'autorità di certificazione (CA) in termini di isolamento amministrativo, distribuzione fisica e livello generale di riservatezza della sicurezza. |
+| Gestione | Designare utenti specifici che gestiranno HGS. Devono essere separate dagli amministratori dell'infrastruttura. Per il confronto, i cluster HGS possono essere considerati in modo analogo a un'autorità di certificazione (CA) in termini di isolamento amministrativo, distribuzione fisica e livello generale di riservatezza della sicurezza. |
 | Active Directory del servizio sorveglianza host | Per impostazione predefinita, HGS installa i propri Active Directory interni per la gestione. Si tratta di una foresta autonoma e gestita autonomamente ed è la configurazione consigliata per isolare HGS dall'infrastruttura.<br><br>Se si dispone già di una foresta Active Directory con privilegi elevati utilizzata per l'isolamento, è possibile utilizzare tale foresta anziché la foresta predefinita HGS. È importante che HGS non sia aggiunto a un dominio nella stessa foresta degli host Hyper-V o degli strumenti di gestione dell'infrastruttura. Questa operazione potrebbe consentire a un amministratore dell'infrastruttura di assumere il controllo di HGS. |
 | Ripristino di emergenza | Sono disponibili tre opzioni:<br><ol><li>Installare un cluster HGS separato in ogni data center e autorizzare le macchine virtuali schermate per l'esecuzione nei data center primari e di backup. Questo consente di evitare la necessità di estendere il cluster attraverso una rete WAN e di isolare le macchine virtuali in modo che vengano eseguite solo nel sito designato.</li><li>Installare HGS in un cluster esteso tra due o più data center. Questo garantisce la resilienza se la rete WAN diventa inattiva, ma inserisce i limiti del clustering di failover. Non è possibile isolare i carichi di lavoro in un sito; una macchina virtuale autorizzata per l'esecuzione in un sito può essere eseguita su qualsiasi altro.</li><li>Registrare l'host Hyper-V con un altro HGS come failover.</li></ol>È inoltre consigliabile eseguire il backup di ogni HGS esportando la configurazione in modo che sia sempre possibile eseguire il ripristino localmente. Per altre informazioni, vedere [Export-HgsServerState](https://docs.microsoft.com/powershell/module/hgsserver/export-hgsserverstate) e [Import-HgsServerState](https://docs.microsoft.com/powershell/module/hgsserver/import-hgsserverstate). |
 | Chiavi del servizio sorveglianza host | Un servizio sorveglianza host usa due coppie di chiavi asimmetriche, una chiave di crittografia e una chiave di firma, ciascuna rappresentata da un certificato SSL. Sono disponibili due opzioni per generare queste chiavi:<br><ol><li>Autorità di certificazione interna: è possibile generare queste chiavi usando l'infrastruttura PKI interna. Questo è adatto per un ambiente di Data Center.</li><li>Autorità di certificazione pubblicamente attendibili: usare un set di chiavi ottenute da un'autorità di certificazione pubblicamente attendibile. Questa è l'opzione che i provider di hosting devono usare.</li></ol>Si noti che sebbene sia possibile usare i certificati autofirmati, non è consigliabile per gli scenari di distribuzione diversi dai Lab di prova.<br><br>Oltre a disporre di chiavi di HGS, un provider di hosting può usare "Bring your own key", in cui i tenant possono fornire le proprie chiavi in modo che alcuni o tutti i tenant possano avere una propria chiave HGS specifica. Questa opzione è appropriata per i provider di hosting che possono fornire un processo fuori banda per consentire ai tenant di caricare le proprie chiavi. |
@@ -72,7 +72,7 @@ Distribuire il servizio sorveglianza host (HGS) in un ambiente a sicurezza eleva
 
 | Area | Dettagli |
 |------|---------|
-| Hardware | <ul><li>Attestazione chiave host: È possibile usare qualsiasi hardware esistente come host sorvegliato. Esistono alcune eccezioni (per assicurarsi che l'host possa usare nuovi meccanismi di sicurezza a partire da Windows Server 2016, vedere [hardware compatibile con la protezione basata sulla virtualizzazione di Windows server 2016 per l'integrità del codice](guarded-fabric-compatible-hardware-with-virtualization-based-protection-of-code-integrity.md).</li><li>Attestazione TPM: È possibile usare qualsiasi hardware con la [garanzia hardware Assurance aggiuntiva](https://msdn.microsoft.com/windows/hardware/commercialize/design/compatibility/systems#system-server-assurance) , purché sia configurata in modo appropriato (vedere [configurazioni del server conformi alle VM schermate e protezione basata sulla virtualizzazione dell'integrità del codice ](guarded-fabric-compatible-hardware-with-virtualization-based-protection-of-code-integrity.md)per la configurazione specifica). Sono inclusi TPM 2,0 e UEFI versione 2.3.1 c e successive.</li></ul> |
-| OS | È consigliabile usare l'opzione Server Core per il sistema operativo host Hyper-V. |
+| Hardware | <ul><li>Attestazione chiave host: è possibile usare qualsiasi hardware esistente come host sorvegliato. Esistono alcune eccezioni (per assicurarsi che l'host possa usare nuovi meccanismi di sicurezza a partire da Windows Server 2016, vedere [hardware compatibile con la protezione basata sulla virtualizzazione di Windows server 2016 per l'integrità del codice](guarded-fabric-compatible-hardware-with-virtualization-based-protection-of-code-integrity.md).</li><li>Attestazione TPM: è possibile usare qualsiasi hardware con la [garanzia hardware Assurance aggiuntiva](https://msdn.microsoft.com/windows/hardware/commercialize/design/compatibility/systems#system-server-assurance) , purché sia configurata in modo appropriato (vedere le [configurazioni del server conformi alle VM schermate e la protezione basata sulla virtualizzazione dell'integrità del codice](guarded-fabric-compatible-hardware-with-virtualization-based-protection-of-code-integrity.md) per la configurazione specifica). Sono inclusi TPM 2,0 e UEFI versione 2.3.1 c e successive.</li></ul> |
+| Sistema operativo | È consigliabile usare l'opzione Server Core per il sistema operativo host Hyper-V. |
 | Implicazioni sulle prestazioni | In base ai test delle prestazioni, si prevede una differenza circa il 5% di densità tra l'esecuzione di VM schermate e macchine virtuali non schermate. Ciò significa che se un host Hyper-V specificato può eseguire 20 macchine virtuali non schermate, si prevede che possa eseguire 19 VM schermate.<br><br>Assicurarsi di verificare il dimensionamento con i carichi di lavoro tipici. Potrebbero ad esempio essere presenti alcuni outlier con carichi di lavoro di i/o intensi orientati alla scrittura che influiranno ulteriormente sulla differenza di densità. |
 | Considerazioni sulla succursale | A partire da Windows Server versione 1709, è possibile specificare un URL di fallback per un server HGS virtualizzato eseguito localmente come macchina virtuale schermata nella succursale. L'URL di fallback può essere usato quando la filiale perde la connettività ai server HGS nel Data Center. Nelle versioni precedenti di Windows Server, un host Hyper-V in esecuzione in una succursale richiede la connettività al servizio sorveglianza host per l'accensione o la migrazione in tempo reale di VM schermate. Per altre informazioni, vedere [considerazioni sulle succursali](guarded-fabric-manage-branch-office.md). |

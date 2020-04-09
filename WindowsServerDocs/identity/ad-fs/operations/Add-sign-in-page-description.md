@@ -1,7 +1,6 @@
 ---
 ms.assetid: 330c7b61-dde0-432f-9b74-d250ad9cc808
 title: Aggiungere l'accesso\-nella descrizione della pagina
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 3b34a4e54aebd5b9dc3655eecd770a25f7ea97cf
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 8d3cc69bde1c9126f97926802b53d049ed1ef501
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71407741"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80859994"
 ---
 # <a name="add-sign-in-page-description"></a>Aggiungere l'accesso\-nella descrizione della pagina
 
@@ -28,7 +27,7 @@ Per aggiungere un segno\-nella descrizione della pagina alla pagina Sign\-in, us
  
   
 > [!IMPORTANT]  
-> La stringa per il parametro `SignInPageDescriptionText` supporta sia HTML puro con tag che senza. Pertanto, è possibile eseguire il cmdlet seguente senza usare il &lt;p&gt; tag.  `Set-AdfsGlobalWebContent -SignInPageDescriptionText "Sign-in to Contoso requires device registration. Click <A href='http://fs1.contoso.com/deviceregistration/'>here</A> for more information." ` 
+> La stringa del parametro `SignInPageDescriptionText` supporta l'HTML puro con e senza tag. Pertanto, è possibile eseguire il cmdlet seguente senza usare il &lt;p&gt; tag.  `Set-AdfsGlobalWebContent -SignInPageDescriptionText "Sign-in to Contoso requires device registration. Click <A href='http://fs1.contoso.com/deviceregistration/'>here</A> for more information." ` 
 
 Dopo il segno di\-nella pagina è personalizzato, la personalizzazione ha la precedenza; pertanto, è necessario applicarli a tutte le lingue che si desidera supportare. Tutto il contenuto personalizzato accetta un parametro con le impostazioni locali. Quando si configura il contenuto localizzato, deve essere configurato con un paese\-meno locali prima, ad esempio, "en", prima di configurare paese e area\-specifico delle impostazioni locali, ad esempio "en\-us".  
 

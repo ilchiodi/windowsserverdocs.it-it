@@ -1,24 +1,20 @@
 ---
 title: Kerberos Constrained Delegation Overview
 description: Sicurezza di Windows Server
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: security-kerberos
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 51923b0a-0c1a-47b2-93a0-d36f8e295589
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/12/2016
-ms.openlocfilehash: e6e62effcb875c0e3a1cdd6c886f3d74923e1b94
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 07717743017c15a7bdabd3c3ce38d75a02980460
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71403413"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80858864"
 ---
 # <a name="kerberos-constrained-delegation-overview"></a>Kerberos Constrained Delegation Overview
 
@@ -42,7 +38,7 @@ L'implementazione di Windows Server 2012 R2 e Windows Server 2012 del protocollo
 
 La delega vincolata offre agli amministratori dei servizi la possibilità di specificare e applicare limiti di trust per le applicazioni, limitando l'ambito di azione dei servizi applicativi per conto di un utente. Gli amministratori del servizio possono configurare gli account di servizio front-end che possono delegare ai servizi back-end.
 
-Grazie al supporto della delega vincolata tra domini in Windows Server 2012 R2 e Windows Server 2012, servizi front-end come Microsoft Internet Security and Acceleration (ISA) Server, Microsoft Forefront Threat Management Gateway, Microsoft Exchange È possibile configurare Outlook Accesso Web (OWA) e Microsoft SharePoint Server per utilizzare la delega vincolata per l'autenticazione nei server di altri domini. Vengono in tal modo supportate soluzioni di servizio tra dominio tramite un'infrastruttura Kerberos esistente. La delega vincolata Kerberos può essere gestita dagli amministratori di dominio o dagli amministratori di servizio.
+Grazie al supporto della delega vincolata tra domini in Windows Server 2012 R2 e Windows Server 2012, i servizi front-end come Microsoft Internet Security and Acceleration (ISA) Server, Microsoft Forefront Threat Management Gateway, Microsoft Exchange Outlook Accesso Web (OWA) e Microsoft SharePoint Server possono essere configurati per l'uso della delega vincolata per l'autenticazione nei server in altri domini. Vengono in tal modo supportate soluzioni di servizio tra dominio tramite un'infrastruttura Kerberos esistente. La delega vincolata Kerberos può essere gestita dagli amministratori di dominio o dagli amministratori di servizio.
 
 ## <a name="resource-based-constrained-delegation-across-domains"></a>Delega vincolata basata su risorse tra domini
 
@@ -83,7 +79,7 @@ Per configurare un servizio relativo alle risorse per consentire l'accesso a un 
 
 -   Per configurare il servizio risorse, usare i cmdlet **New-ADComputer**, **New-ADServiceAccount**, **New-ADUser**, **set-ADComputer**, **Set-ADServiceAccount**e **set-aduser** con il parametro **PrincipalsAllowedToDelegateToAccount** .
 
-## <a name="BKMK_SOFT"></a>Requisiti software
+## <a name="software-requirements"></a><a name="BKMK_SOFT"></a>Requisiti software
 La delega vincolata basata sulle risorse può essere configurata solo in un controller di dominio che esegue Windows Server 2012 R2 e Windows Server 2012, ma può essere applicata in una foresta in modalità mista.
 
 È necessario applicare l'hotfix seguente a tutti i controller di dominio che eseguono Windows Server 2012 in domini di account utente nel percorso di riferimento tra i domini front-end e back-end che eseguono sistemi operativi precedenti a Windows Server: la delega vincolata basata sulle risorse KDC_ERR_POLICY errori negli ambienti che dispongono di controller di dominio basati su Windows Server 2008 R2 (https://support.microsoft.com/en-gb/help/2665790/resource-based-constrained-delegation-kdc-err-policy-failure-in-enviro).

@@ -1,28 +1,24 @@
 ---
 title: Manage-bde TPM
-description: 'Argomento dei comandi di Windows per * * * *- '
-ms.custom: na
+description: Argomento dei comandi di Windows per * * * *-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 11a8530d-edd7-4fe3-ae81-b943766760fe
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 577f5f2ecb85ac8c0c28fef2ca343635796454d2
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: b6495bfbfedea7219ae175145f72fc12314ce7ae
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71373834"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80839764"
 ---
 # <a name="manage-bde-tpm"></a>Manage-bde: TPM
 
-> Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> Si applica a: Windows Server (Canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 > 
 > [!IMPORTANT]
 > Questo comando non è supportato per l'utilizzo in computer che eseguono Windows 8, Windows Server 2012 o versioni successive. Per tali computer, è possibile utilizzare il [Gestione TPM cmdlet Windows PowerShell per](https://docs.microsoft.com/powershell/module/trustedplatformmodule/).
@@ -31,7 +27,7 @@ ms.locfileid: "71373834"
 > ```
 > manage-bde -tpm [-turnon] [-takeownership <OwnerPassword>] [-computername <Name>] [{-?|/?}] [{-help|-h}]
 > ```
-> ### <a name="parameters"></a>Parametri
+> #### <a name="parameters"></a>Parametri
 > 
 > |    Parametro    |                                                                              Descrizione                                                                               |
 > |-----------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -43,7 +39,7 @@ ms.locfileid: "71373834"
 > |    -? o /?     |                                                               Visualizza una breve guida al prompt dei comandi.                                                               |
 > |   -Help o-h   |                                                             Visualizza la guida completa al prompt dei comandi.                                                              |
 > 
-> ## <a name="BKMK_Examples"></a>Esempi
+> ## <a name="examples"></a><a name=BKMK_Examples></a>Esempi
 > Nell'esempio seguente viene illustrato l'utilizzo di **- tpm** comando per attivare il TPM.
 > ```
 > manage-bde  tpm -turnon
@@ -52,6 +48,6 @@ ms.locfileid: "71373834"
 > ```
 > manage-bde  tpm  takeownership 0wnerP@ss
 > ```
-> ## <a name="additional-references"></a>Riferimenti aggiuntivi
-> -   [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+> ## <a name="additional-references"></a>Altre informazioni di riferimento
+> -   - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
 > -   [manage-bde](manage-bde.md)

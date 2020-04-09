@@ -2,19 +2,19 @@
 title: Esportare e importare macchine virtuali
 description: Viene illustrato come esportare e importare macchine virtuali utilizzando la console di gestione di Hyper-V o Windows PowerShell.
 ms.prod: windows-server
-author: KBDAzure
+author: kbdazure
 ms.author: kathydav
 manager: dongill
 ms.technology: compute-hyper-v
 ms.date: 12/13/2016
 ms.topic: article
 ms.assetid: 7fd996f5-1ea9-4b16-9776-85fb39a3aa34
-ms.openlocfilehash: 6e130ee8a040cd5b56908d77d91bf196a60de6f7
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 1e9cd8710a53c1e5d9d97e464c32dbf7f17d29a7
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71392982"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80860894"
 ---
 >Si applica a: Windows 10, Windows Server 2016, Microsoft Hyper-V Server 2016, Windows Server 2019, Microsoft Hyper-V Server 2019
 
@@ -36,7 +36,7 @@ Per creare l'esportazione di una macchina virtuale:
 
 Al termine dell'esportazione, è possibile visualizzare tutti i file esportati nel percorso di esportazione.
 
-### <a name="using-powershell"></a>Mediante PowerShell
+### <a name="using-powershell"></a>Utilizzo di PowerShell
 
 Aprire una sessione come amministratore ed eseguire un comando simile al seguente, dopo aver sostituito \<nome VM\> e \<percorso\>:
 
@@ -58,7 +58,7 @@ Per importare una macchina virtuale:
 
 1. Dal menu **azioni** nella console di gestione di Hyper-V fare clic su **Importa macchina virtuale**.
 
-2. Fai clic su **Next**.
+2. Fare clic su **Avanti**.
 
 3. Selezionare la cartella che contiene i file esportati e fare clic su **Avanti**.
 
@@ -80,7 +80,7 @@ Questo tipo di importazione USA i file in cui vengono archiviati al momento dell
 Import-VM -Path 'C:\<vm export path>\2B91FEB3-F1E0-4FFF-B8BE-29CED892A95A.vmcx' 
 ```
 
-#### <a name="restore"></a>Ripristinare
+#### <a name="restore"></a>Ripristina
 
 Per importare la macchina virtuale specificando il percorso per i file della macchina virtuale, eseguire un comando simile al seguente, sostituendo gli esempi con i valori seguenti:
 

@@ -1,7 +1,6 @@
 ---
 ms.assetid: ee008835-7d3b-4977-adcb-7084c40e5918
 title: Deploy Implementing Retention of Information on File Servers (Demonstration Steps)
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 994eadfa205b62c5a512ab130c71fa6c22d1cff6
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: a6b6a5d9e153949db6c89ef503b575039ec6022b
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71357537"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80861214"
 ---
 # <a name="deploy-implementing-retention-of-information-on-file-servers-demonstration-steps"></a>Deploy Implementing Retention of Information on File Servers (Demonstration Steps)
 
@@ -35,12 +34,12 @@ ms.locfileid: "71357537"
 -   [Passaggio 4: classificare manualmente un file](Deploy-Implementing-Retention-of-Information-on-File-Servers--Demonstration-Steps-.md#BKMK_Step4)  
   
 > [!NOTE]  
-> Questo argomento include cmdlet di esempio di Windows PowerShell che è possibile usare per automatizzare alcune delle procedure descritte. Per ulteriori informazioni, vedere [mediante i cmdlet](https://go.microsoft.com/fwlink/p/?linkid=230693).  
+> In questo argomento sono inclusi cmdlet di Windows PowerShell di esempio che possono essere usati per automatizzare alcune delle procedure descritte. Per ulteriori informazioni, vedere [mediante i cmdlet](https://go.microsoft.com/fwlink/p/?linkid=230693).  
   
 ## <a name="prerequisites"></a>Prerequisiti  
 Per i passaggi in questo argomento si presuppone che sia disponibile un server SMTP configurato per notifiche relative alla scadenza di file.  
   
-## <a name="BKMK_Step1"></a>Passaggio 1: creare definizioni delle proprietà delle risorse  
+## <a name="step-1-create-resource-property-definitions"></a><a name="BKMK_Step1"></a>Passaggio 1: creare definizioni delle proprietà delle risorse  
 In questo passaggio si abilita il periodo di memorizzazione e le proprietà di esposizione al rilevamento delle risorse, in modo che Infrastruttura di classificazione file possa usare queste proprietà delle risorse per assegnare tag ai file analizzati in una cartella di rete condivisa.  
   
 [Eseguire questo passaggio con Windows PowerShell](assetId:///4a96cdaf-0081-4824-aab8-f0d51be501ac#BKMK_PSstep1)  
@@ -59,14 +58,14 @@ In questo passaggio si abilita il periodo di memorizzazione e le proprietà di e
   
 ![la soluzione guida i](media/Deploy-Implementing-Retention-of-Information-on-File-Servers--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em>***  
   
-Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.  
+Tramite i cmdlet di Windows PowerShell seguenti viene eseguita la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se è possibile il ritorno a capo automatico in diverse righe a causa di limiti di formattazione.  
   
 ```  
 Set-ADResourceProperty -Enabled:$true -Identity:'CN=RetentionPeriod_MS,CN=Resource Properties,CN=Claims Configuration,CN=Services,CN=Configuration,DC=contoso,DC=com'  
 Set-ADResourceProperty -Enabled:$true -Identity:'CN=Discoverability_MS,CN=Resource Properties,CN=Claims Configuration,CN=Services,CN=Configuration,DC=contoso,DC=com'  
 ```  
   
-## <a name="BKMK_Step2"></a>Passaggio 2: configurare le notifiche  
+## <a name="step-2-configure-notifications"></a><a name="BKMK_Step2"></a>Passaggio 2: configurare le notifiche  
 In questo passaggio si usa Gestione risorse file server per configurare il server SMTP, l'indirizzo di posta elettronica predefinito dell'amministratore e l'indirizzo di posta elettronica predefinito da cui inviare i rapporti.  
   
 [Eseguire questo passaggio con Windows PowerShell](assetId:///4a96cdaf-0081-4824-aab8-f0d51be501ac#BKMK_PSstep2)  
@@ -89,17 +88,17 @@ In questo passaggio si usa Gestione risorse file server per configurare il serve
   
     -   Nel **"Da" indirizzo di posta elettronica predefinito** digitare l'indirizzo di posta elettronica che deve essere utilizzato per inviare le notifiche.  
   
-6.  Fai clic su **OK**.  
+6.  Fare clic su **OK**.  
   
 ![la soluzione guida i](media/Deploy-Implementing-Retention-of-Information-on-File-Servers--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em>***  
   
-Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.  
+Tramite i cmdlet di Windows PowerShell seguenti viene eseguita la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se è possibile il ritorno a capo automatico in diverse righe a causa di limiti di formattazione.  
   
 ```  
 Set-FsrmSetting -SmtpServer IP address of SMTP server -FromEmailAddress "FromEmailAddress" -AdminEmailAddress "AdministratorEmailAddress"  
 ```  
   
-## <a name="BKMK_Step3"></a>Passaggio 3: creare un'attività di gestione file  
+## <a name="step-3-create-a-file-management-task"></a><a name="BKMK_Step3"></a>Passaggio 3: creare un'attività di gestione file  
 In questo passaggio si usa la console di Gestione risorse file server per creare un'attività di gestione file che sarà eseguita l'ultimo giorno del mese e farà scadere tutti i file che soddisfano i criteri seguenti:  
   
 -   Il file non è classificato come sottoposto a blocco a fini giudiziari.  
@@ -128,7 +127,7 @@ In questo passaggio si usa la console di Gestione risorse file server per creare
   
     -   Selezionare la casella di controllo **Invia posta elettronica agli amministratori seguenti**.  
   
-    -   Selezionare la casella di controllo **Invia messaggio di posta elettronica all'utente i cui file sono interessati** , quindi fare clic su **OK**.  
+    -   Selezionare la casella di controllo **Invia messaggio di posta elettronica all'utente i cui file sono interessati**, quindi fare clic su **OK**.  
   
 8.  Nella scheda **Condizione** fare clic su **Aggiungi**, quindi aggiungere le proprietà seguenti:  
   
@@ -136,15 +135,15 @@ In questo passaggio si usa la console di Gestione risorse file server per creare
   
     -   Nell'elenco **Proprietà** fare clic su **Periodo di conservazione**. Nell'elenco **Operatore** fare clic su **Uguale a**. Nell'elenco **Valore** fare clic su **Lungo termine**.  
   
-9. Nella scheda **Condizione** selezionare la casella di controllo **N. di giorni dall'ultima modifica al file** , quindi impostare il valore su **3650**.  
+9. Nella scheda **Condizione** selezionare la casella di controllo **N. di giorni dall'ultima modifica al file**, quindi impostare il valore su **3650**.  
   
-10. Nella scheda **Pianificazione** fare clic sull'opzione **Mensile** , quindi selezionare la casella di controllo **Ultimo** .  
+10. Nella scheda **Pianificazione** fare clic sull'opzione **Mensile**, quindi selezionare la casella di controllo **Ultimo**.  
   
-11. Fai clic su **OK**.  
+11. Fare clic su **OK**.  
   
 ![la soluzione guida i](media/Deploy-Implementing-Retention-of-Information-on-File-Servers--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em>***  
   
-Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.  
+Tramite i cmdlet di Windows PowerShell seguenti viene eseguita la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se è possibile il ritorno a capo automatico in diverse righe a causa di limiti di formattazione.  
   
 ```  
 $fmjexpiration = New-FSRMFmjAction -Type 'Expiration' -ExpirationFolder folder  
@@ -158,7 +157,7 @@ $schedule = New-FsrmScheduledTask -Time $date -Monthly @(-1)
 $fmj1=New-FSRMFileManagementJob -Name "Retention Task" -Namespace @('D:\Finance Documents') -Action $fmjexpiration -Schedule $schedule -Notification @($fmjNotification) -Condition @( $fmjCondition1, $fmjCondition2, $fmjCondition3)  
 ```  
   
-## <a name="BKMK_Step4"></a>Passaggio 4: classificare manualmente un file  
+## <a name="step-4-classify-a-file-manually"></a><a name="BKMK_Step4"></a>Passaggio 4: classificare manualmente un file  
 In questo passaggio si classifica manualmente un file da sottoporre a blocco a fini giudiziari. La cartella padre di questo file sarà classificata con un periodo di memorizzazione a lungo termine.  
   
 #### <a name="to-manually-classify-a-file"></a>Per classificare manualmente un file  
@@ -169,21 +168,21 @@ In questo passaggio si classifica manualmente un file da sottoporre a blocco a f
   
 3.  Fare clic con il pulsante destro del mouse sulla cartella e scegliere **Proprietà**.  
   
-4.  Nella scheda **Classificazione** fare clic su **Periodo di conservazione**, quindi su **Lungo termine**e infine su **OK**.  
+4.  Nella scheda **Classificazione** fare clic su **Periodo di conservazione**, quindi su **Lungo termine** e infine su **OK**.  
   
 5.  Fare clic con il pulsante destro del mouse su un file in tale cartella e scegliere **Proprietà**.  
   
-6.  Nella scheda **Classificazione** fare clic su **Esposizione al rilevamento**, quindi su **Blocco**, **Applica**e infine su **OK**.  
+6.  Nella scheda **Classificazione** fare clic su **Esposizione al rilevamento**, quindi su **Blocco**, **Applica** e infine su **OK**.  
   
 7.  Nel file server eseguire l'attività di gestione file usando la console di Gestione risorse file server. Al termine dell'attività di gestione file, controllare la cartella e assicurarsi che il file non sia stato spostato nella directory di scadenza.  
   
 8.  Fare clic con il pulsante destro del mouse sullo stesso file nella cartella e scegliere **Proprietà**.  
   
-9. Nella scheda **Classificazione** fare clic su **Esposizione al rilevamento**, quindi su **Non applicabile**, **Applica**e infine su **OK**.  
+9. Nella scheda **Classificazione** fare clic su **Esposizione al rilevamento**, quindi su **Non applicabile**, **Applica** e infine su **OK**.  
   
 10. Nel file server eseguire di nuovo l'attività di gestione file usando la console di Gestione risorse file server. Al termine dell'attività di gestione file, controllare la cartella e assicurarsi che il file sia stato spostato nella directory di scadenza.  
   
-## <a name="BKMK_Links"></a>Vedere anche  
+## <a name="see-also"></a><a name="BKMK_Links"></a>Vedere anche  
   
 -   [Scenario: implementare la conservazione delle informazioni nei file server](Scenario--Implement-Retention-of-Information-on-File-Servers.md)  
   

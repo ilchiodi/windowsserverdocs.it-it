@@ -1,24 +1,20 @@
 ---
 title: mantenere
-description: 'Argomento dei comandi di Windows per * * * *- '
-ms.custom: na
+description: Argomento dei comandi di Windows per * * * *-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: eeab0aef-2ba5-441a-a10d-bbef6f0d7e3e
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 3b076e12c833645833f53a06476e62bbf44f2690
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 891192c0d6b1687cf6bffea0f57d1853e023b776
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71384487"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80835764"
 ---
 # <a name="retain"></a>mantenere
 
@@ -37,5 +33,5 @@ retain
 -   Su un disco dinamico MBR (record) di avvio principale, questo comando crea una voce di partizione nel record di avvio principale.
 -   In un disco GPT (tabella) di partizione GUID, questo comando crea una voce di partizione della tabella di partizione GUID.
 
-#### <a name="additional-references"></a>Altri riferimenti
+## <a name="additional-references"></a>Altre informazioni di riferimento
 

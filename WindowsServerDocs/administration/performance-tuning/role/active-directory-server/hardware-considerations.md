@@ -4,15 +4,15 @@ description: Considerazioni sull'hardware nell'ottimizzazione delle prestazioni 
 ms.prod: windows-server
 ms.technology: performance-tuning-guide
 ms.topic: article
-ms.author: TimWi; ChrisRob; HerbertM; KenBrumf;  MLeary; ShawnRab
+ms.author: timwi; chrisrob; herbertm; kenbrumf;  mleary; shawnrab
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: 8e9b121036d33bc36cabb92ca682407bc2382fca
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: c40faca06668adf6fd29a5e4e753e5790b8104b7
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71355095"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80851914"
 ---
 # <a name="hardware-considerations-in-adds-performance-tuning"></a>Considerazioni sull'hardware in aggiunta dell'ottimizzazione delle prestazioni 
 
@@ -27,7 +27,7 @@ Active Directory memorizza nella cache la maggior parte del database consentito 
 
     -   Per le limitazioni delle piattaforme legacy, vedere [utilizzo della memoria da parte del processo Lsass. exe nei controller di dominio che eseguono Windows server 2003 o windows 2000 Server](https://support.microsoft.com/kb/308356).
 
-    -   Usare il contatore\\delle prestazioni della durata &gt; media della cache in standby a lungo termine della memoria di 30 minuti.
+    -   Usare la memoria\\durata media della cache di standby a lungo termine &gt; contatore delle prestazioni di 30 minuti.
 
 -   Inserire il sistema operativo, i log e il database in volumi separati. Se tutte o la maggior parte del DIT possono essere memorizzate nella cache, una volta che la cache viene riscaldata e in uno stato stabile, questo diventa meno pertinente e offre una maggiore flessibilità nel layout di archiviazione. Negli scenari in cui l'intero DIT non può essere memorizzato nella cache, l'importanza di suddividere il sistema operativo, i log e il database su volumi distinti diventa più importante.
 
@@ -41,13 +41,13 @@ Active Directory memorizza nella cache la maggior parte del database consentito 
 
 -   Esaminare le prestazioni del sottosistema del disco singolarmente per ogni volume. La maggior parte degli scenari di Active Directory è prevalentemente basata su Read, quindi le statistiche sul volume che ospita il DIT sono le più importanti da ispezionare. Tuttavia, non trascurare il monitoraggio delle altre unità, incluse le unità del sistema operativo e dei file di log. Per determinare se il controller di dominio è configurato in modo appropriato per evitare che lo spazio di archiviazione sia il collo di bottiglia per le prestazioni, fare riferimento alla sezione sui sottosistemi di archiviazione per i consigli di archiviazione standard. In molti ambienti, la filosofia consiste nel garantire che lo spazio disponibile sia sufficiente per gestire picchi o picchi di carico. Queste soglie sono soglie di avviso in cui la stanza principale per gestire i picchi o i picchi di carico diventa vincolata e la velocità di risposta del client peggiora. In breve, il superamento di queste soglie non è valido a breve termine (da 5 a 15 minuti per alcune volte al giorno), tuttavia un sistema in esecuzione con questi tipi di statistiche non memorizza nella cache completamente il database e può essere sottoposto a tassazione e deve essere analizzato.
 
-    -   Database = =&gt; istanze (Lsass/NTDSA)\\letture database I/O con latenza &lt; media 15ms
+    -   Database = = istanze&gt; (Lsass/NTDSa)\\latenza media delle letture del database di I/O &lt; 15ms
 
-    -   Database = =&gt; istanze (Lsass/NTDSA)\\letture database I/O/sec &lt; 10
+    -   Database = = istanze&gt; (Lsass/NTDSa)\\letture database I/O/sec &lt; 10
 
-    -   Database = =&gt; istanze (Lsass/NTDSA)\\Scritture log di I/O latenza &lt; media 10 ms
+    -   Database = = istanze&gt; (Lsass/NTDSa)\\la latenza media delle Scritture del log di I/O &lt; 10 ms
 
-    -   Database = =&gt; istanze (Lsass/NTDSA)\\Scritture log I/O/sec-solo informativo.
+    -   Database = = istanze&gt; (Lsass/NTDSa)\\Scritture log I/O/sec-solo informativo.
 
         Per mantenere la coerenza dei dati, tutte le modifiche devono essere scritte nel log. Qui non esiste alcun numero valido o non valido, ma solo una misura del supporto per l'archiviazione.
 
@@ -55,13 +55,13 @@ Active Directory memorizza nella cache la maggior parte del database consentito 
 
 ## <a name="dont-over-tax-the-processors"></a>Non sovratassare i processori
 
-I processori che non dispongono di un numero sufficiente di cicli disponibili possono causare tempi di attesa lunghi per il recupero dei thread al processore per l'esecuzione. In molti ambienti, la filosofia consiste nel garantire che lo spazio disponibile sia sufficiente per gestire picchi o picchi di carico per ridurre al minimo l'effetto sulla velocità di risposta dei client in questi scenari. In breve, il superamento delle soglie seguenti non è valido a breve termine (da 5 a 15 minuti per alcune volte al giorno), tuttavia un sistema in esecuzione con questi tipi di statistiche non fornisce alcuna stanza principale per gestire i carichi anomali e può essere facilmente inserito in un sovraccarico cenario. Per la riduzione dei carichi del processore, è necessario esaminare i sistemi che passano oltre le soglie.
+I processori che non dispongono di un numero sufficiente di cicli disponibili possono causare tempi di attesa lunghi per il recupero dei thread al processore per l'esecuzione. In molti ambienti, la filosofia consiste nel garantire che lo spazio disponibile sia sufficiente per gestire picchi o picchi di carico per ridurre al minimo l'effetto sulla velocità di risposta dei client in questi scenari. In breve, il superamento delle soglie indicate di seguito non è valido a breve termine (da 5 a 15 minuti per alcune volte al giorno), tuttavia un sistema in esecuzione con questi tipi di statistiche non fornisce alcuna stanza principale per gestire carichi anomali e può essere facilmente inserito in uno scenario con tassazione eccessiva. Per la riduzione dei carichi del processore, è necessario esaminare i sistemi che passano oltre le soglie.
 
 -   Per ulteriori informazioni su come selezionare un processore, vedere [ottimizzazione delle prestazioni per l'hardware del server](../../hardware/index.md).
 
 -   Aggiungere hardware, ottimizzare il carico, indirizzare i client altrove o rimuovere il carico dall'ambiente per ridurre il carico della CPU.
 
--   Utilizzare le informazioni sul processore (\_Total) \\% utilizzo processore &lt; 60% contatore delle prestazioni.
+-   Usare le informazioni sul processore (\_Total)\\% di utilizzo del processore &lt; 60% del contatore delle prestazioni.
 
 ## <a name="avoid-overloading-the-network-adapter"></a>Evitare l'overload della scheda di rete
 
@@ -69,7 +69,7 @@ Analogamente a quanto avviene con i processori, un utilizzo eccessivo delle sche
 
 -   Per ulteriori informazioni su come ottimizzare il sottosistema di rete, vedere [ottimizzazione delle prestazioni per i sottosistemi di rete](../../../../networking/technologies/network-subsystem/net-sub-performance-top.md).
 
--   Usare il contatore delle prestazioni\*confronta\\interfaccia () byte inviati/sec\*con\\interfaccia () corrente. Il rapporto deve essere inferiore al 60% utilizzato.
+-   Usare il contatore delle prestazioni confronta interfaccia (\*)\\byte inviati/sec con interfaccia (\*)\\larghezza di banda corrente. Il rapporto deve essere inferiore al 60% utilizzato.
 
 ## <a name="see-also"></a>Vedere anche
 - [Ottimizzazione delle prestazioni di Active Directory Server](index.md)

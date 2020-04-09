@@ -1,23 +1,23 @@
 ---
 title: 'Macchine virtuali schermate per i tenant: distribuzione di una macchina virtuale schermata usando Windows Azure Pack'
-ms.custom: na
 ms.prod: windows-server
 ms.topic: article
 ms.assetid: 095315e4-c4a7-4b80-91d8-528119b62c4c
 manager: dongill
 author: rpsqrd
+ms.author: ryanpu
 ms.technology: security-guarded-fabric
 ms.date: 08/29/2018
-ms.openlocfilehash: ec9f12990e7e16aebb208edfe0d97d6671623da1
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: ce3aac47ea6c44abd1811efc1e23b901f53333bb
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71403535"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80856464"
 ---
 # <a name="shielded-vms--for-tenants---deploying-a-shielded-vm-by-using-windows-azure-pack"></a>Macchine virtuali schermate per i tenant: distribuzione di una macchina virtuale schermata usando Windows Azure Pack
 
->Si applica a: Windows Server (Canale semestrale), Windows Server 2019, Windows Server 2016
+>Si applica a: Windows Server (canale semestrale), Windows Server 2019, Windows Server 2016
 
 Se il provider di servizi di hosting lo supporta, è possibile usare Windows Azure Pack per distribuire una macchina virtuale schermata.
 

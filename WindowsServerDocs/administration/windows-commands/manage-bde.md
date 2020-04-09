@@ -1,24 +1,20 @@
 ---
 title: manage-bde
-description: 'Argomento dei comandi di Windows per * * * *- '
-ms.custom: na
+description: Argomento dei comandi di Windows per * * * *-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 276a7841-7289-48d4-a57d-bc7c300affbb
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 7ca23e5f4499672f1e4bfcca6b9ad27f4e84039b
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 816e20152ec40ce54c1192f3075c6f4556aed3db
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71373769"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80839694"
 ---
 # <a name="manage-bde"></a>manage-bde
 
@@ -33,7 +29,7 @@ manage-bde [-status] [–on] [–off] [–pause] [–resume] [–lock] [–unloc
 [–SetIdentifier] [-ForceRecovery] [–changepassword] [–changepin] [–changekey] [-KeyPackage] [–upgrade] [-WipeFreeSpace] [{-?|/?}] [{-help|-h}]
 ```
 
-### <a name="parameters"></a>Parametri
+#### <a name="parameters"></a>Parametri
 
 |Parametro|Descrizione|
 |---------|-----------|
@@ -52,13 +48,13 @@ manage-bde [-status] [–on] [–off] [–pause] [–resume] [–lock] [–unloc
 |[Manage-bde: changepassword](manage-bde-changepassword.md)|Modifica la password per un'unità di dati.|
 |[Manage-bde: changepin](manage-bde-changepin.md)|Modifica il PIN per un'unità del sistema operativo.|
 |[Manage-bde: changekey](manage-bde-changekey.md)|Modifica la chiave di avvio per un'unità del sistema operativo.|
-|[Manage-bde: KeyPackage](manage-bde-keypackage.md)|Genera un pacchetto di chiavi per un'unità.|
+|[Manage-bde: pacchetto di pacchetti](manage-bde-keypackage.md)|Genera un pacchetto di chiavi per un'unità.|
 |[Manage-bde: upgrade](manage-bde-upgrade.md)|Aggiorna la versione di BitLocker.|
 |[Manage-bde: WipeFreeSpace](manage-bde-wipefreespace.md)|Cancella lo spazio disponibile in un'unità.|
 |-? o /?|Visualizza una breve guida al prompt dei comandi.|
 |-Help o-h|Visualizza la Guida completa al prompt dei comandi.|
 
-## <a name="BKMK_Examples"></a>Esempi
+## <a name="examples"></a><a name=BKMK_Examples></a>Esempi
 
 Nell'esempio seguente vengono visualizzate le unità del computer e viene indicato se sono protette da BitLocker e lo stato di crittografia corrente.
 ```
@@ -73,7 +69,7 @@ Nell'esempio seguente viene illustrato come sbloccare un'unità protetta da BitL
 manage-bde –unlock E: -recoverypassword 111111-222222-333333-444444-555555-666666-777777-888888
 ```
 
-#### <a name="additional-references"></a>Altri riferimenti
+## <a name="additional-references"></a>Altre informazioni di riferimento
 
--   [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+-   - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
 -   [Abilitazione di BitLocker tramite la riga di comando](https://technet.microsoft.com/library/dd894351(v=ws.10).aspx)

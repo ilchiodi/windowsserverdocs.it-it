@@ -2,18 +2,17 @@
 title: Disabilitare la memorizzazione nella cache sul lato client DNS nei client DNS
 description: Questo articolo illustra come disabilitare la memorizzazione nella cache sul lato client DNS nei client DNS.
 manager: dcscontentpm
-ms.prod: ''
 ms.technology: networking-dns
 ms.topic: article
 ms.author: delhan
 ms.date: 8/8/2019
 author: Deland-Han
-ms.openlocfilehash: 51a9dbfd05402a9d018aec3bfea8a5c89e9e5d5e
-ms.sourcegitcommit: c5709021aa98abd075d7a8f912d4fd2263db8803
+ms.openlocfilehash: 09af41a544cacb0fd0977847b7bc2e6b0d8a59f7
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/18/2020
-ms.locfileid: "76265843"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80860074"
 ---
 # <a name="disable-dns-client-side-caching-on-dns-clients"></a>Disabilitare la memorizzazione nella cache sul lato client DNS nei client DNS
 
@@ -52,7 +51,7 @@ Questo comando Visualizza il contenuto della cache del resolver DNS, inclusi i r
 ## <a name="using-the-registry-to-control-the-caching-time"></a>Uso del registro di sistema per controllare il tempo di memorizzazione nella cache
 
 > [!IMPORTANT]  
-> Segui con attenzione la procedura descritta in questa sezione. Se le modifiche al Registro di sistema vengono apportate in modo non corretto, possono verificarsi problemi gravi. Prima di modificarlo, [esegui il backup del Registro di sistema per il ripristino](https://support.microsoft.com/help/322756) nel caso in cui si verifichino problemi.
+> Segui con attenzione la procedura descritta in questa sezione. Possono verificarsi dei problemi seri se si modifica il Registro di sistema in modo incorretto. Prima di modificarlo, [esegui il backup del Registro di sistema per il ripristino](https://support.microsoft.com/help/322756) nel caso in cui si verifichino problemi.
 
 L'intervallo di tempo durante il quale una risposta positiva o negativa viene memorizzata nella cache dipende dai valori delle voci nella chiave del registro di sistema seguente:
 

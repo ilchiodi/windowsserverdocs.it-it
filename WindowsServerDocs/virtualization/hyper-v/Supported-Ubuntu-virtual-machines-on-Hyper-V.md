@@ -2,21 +2,19 @@
 title: Macchine virtuali Ubuntu supportate in Hyper-V
 description: Elenca i servizi di integrazione Linux e le funzionalità incluse in ogni versione
 ms.prod: windows-server
-ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 95ea5f7c-25c6-494b-8ffd-2a77f631ee94
 author: shirgall
 ms.author: shirgall
 ms.date: 06/13/2019
-ms.openlocfilehash: ed1c1a9f678dd7cb68b59d2df239ca278b7a3688
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 06c836d9671547ea3d40e5582c2ed7b330777ac9
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71365485"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80857994"
 ---
 # <a name="supported-ubuntu-virtual-machines-on-hyper-v"></a>Macchine virtuali Ubuntu supportate in Hyper-V
 
@@ -32,7 +30,7 @@ La mappa di distribuzione di funzionalità seguente indica le funzionalità di o
 
 * **Incorporata** -LIS sono inclusi come parte di questa distribuzione Linux. Il pacchetto di download LIS fornita da Microsoft non funziona per la distribuzione, in modo da non installare il file. I numeri di versione del modulo del kernel per incorporato LIS (come illustrato da **lsmod**, ad esempio) sono diversi dal numero di versione del pacchetto di download LIS fornita da Microsoft. Una mancata corrispondenza non indica che incorporato LIS è scaduto.
 
-* &#10004; -Funzionalità disponibili
+* & #10004; -Funzionalità disponibili
 
 * (*vuoto*)-funzionalità non disponibile
 
@@ -45,33 +43,33 @@ La mappa di distribuzione di funzionalità seguente indica le funzionalità di o
 |Frame jumbo|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
 |Assegnazione di tag e trunking VLAN|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
 |Migrazione in tempo reale|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
-|Inserimento IP statico|2019, 2016, 2012 R2, 2012|&#10004; Nota 1|&#10004; Nota 1|&#10004; Nota 1|&#10004; Nota 1|&#10004; Nota 1|
+|Inserimento IP statico|2019, 2016, 2012 R2, 2012|& #10004; Nota 1|& #10004; Nota 1|& #10004; Nota 1|& #10004; Nota 1|& #10004; Nota 1|
 |RSS virtuale|2019, 2016, 2012 R2|&#10004;|&#10004;|&#10004;|&#10004;||
 |Offload di segmentazione e checksum TCP|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004;|&#10004;|&#10004;|&#10004;||
 |SR-IOV|2019, 2016|&#10004;|&#10004;|&#10004;|||
 |**[Archiviazione](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#storage)**||||||
 |Ridimensionamento VHDX|2019, 2016, 2012 R2|&#10004;|&#10004;|&#10004;|&#10004;||
-|Fibre Channel virtuale|2019, 2016, 2012 R2|&#10004; Nota 2|&#10004; Nota 2|&#10004; Nota 2|&#10004; Nota 2||
-|Backup della macchina virtuale in tempo reale|2019, 2016, 2012 R2|&#10004;Prendere nota 3, 4, 6|&#10004; Nota 3, 4, 5|&#10004; Nota 3, 4, 5|&#10004; Nota 3, 4, 5||
+|Fibre Channel virtuale|2019, 2016, 2012 R2|& #10004; Nota 2|& #10004; Nota 2|& #10004; Nota 2|& #10004; Nota 2||
+|Backup della macchina virtuale in tempo reale|2019, 2016, 2012 R2|&#10004;Prendere nota 3, 4, 6|& #10004; Nota 3, 4, 5|& #10004; Nota 3, 4, 5|& #10004; Nota 3, 4, 5||
 |Supporto TRIM|2019, 2016, 2012 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
 |WWN SCSI|2019, 2016, 2012 R2|&#10004;|&#10004;|&#10004;|&#10004;||
 |**[Memoria](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#memory)**||||||
 |Supporto del kernel PAE|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
 |Configurazione di MMIO Gap|2019, 2016, 2012 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
-|Memoria dinamica - aggiunta a caldo|2019, 2016, 2012 R2, 2012|&#10004; Si noti 7, 8, 9|&#10004; Si noti 7, 8, 9|&#10004; Si noti 7, 8, 9|&#10004; Si noti 7, 8, 9||
-|Memoria dinamica - Ballooning|2019, 2016, 2012 R2, 2012|&#10004; Si noti 7, 8, 9|&#10004; Si noti 7, 8, 9|&#10004; Si noti 7, 8, 9|&#10004; Si noti 7, 8, 9||
+|Memoria dinamica - aggiunta a caldo|2019, 2016, 2012 R2, 2012|& #10004; Si noti 7, 8, 9|& #10004; Si noti 7, 8, 9|& #10004; Si noti 7, 8, 9|& #10004; Si noti 7, 8, 9||
+|Memoria dinamica - Ballooning|2019, 2016, 2012 R2, 2012|& #10004; Si noti 7, 8, 9|& #10004; Si noti 7, 8, 9|& #10004; Si noti 7, 8, 9|& #10004; Si noti 7, 8, 9||
 |Ridimensionamento della memoria di runtime|2019, 2016|&#10004;|&#10004;|&#10004;|&#10004;||
 |**[Video](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#video)**|||||||
 |Dispositivo video specifico Hyper-V|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004;|&#10004;|&#10004;|&#10004;||
 |**[Varie](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#miscellaneous)**||||||
-|Coppia chiave/valore|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004;Nota 6, 10|&#10004; Nota 5, 10|&#10004; Nota 5, 10|&#10004; Nota 5, 10|&#10004; Nota 5, 10|
+|Coppia chiave/valore|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004;Nota 6, 10|& #10004; Nota 5, 10|& #10004; Nota 5, 10|& #10004; Nota 5, 10|& #10004; Nota 5, 10|
 |Interrupt non mascherabile|2019, 2016, 2012 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
 |Copia di file da host a Guest|2019, 2016, 2012 R2|&#10004;|&#10004;|&#10004;|&#10004;||
 |comando lsvmbus|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004;|&#10004;|&#10004;|&#10004;||
 |Socket di Hyper-V|2019, 2016||||||
 |Pass-through/DDA PCI|2019, 2016|&#10004;|&#10004;|&#10004;|&#10004;||
 |**[Macchine virtuali di seconda generazione](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#generation-2-virtual-machines)**||||||
-|Avvio tramite UEFI|2019, 2016, 2012 R2|&#10004; Nota 11, 12|&#10004; Nota 11, 12|&#10004; Nota 11, 12|&#10004; Nota 11, 12||
+|Avvio tramite UEFI|2019, 2016, 2012 R2|& #10004; Nota 11, 12|& #10004; Nota 11, 12|& #10004; Nota 11, 12|& #10004; Nota 11, 12||
 |Avvio protetto|2019, 2016|&#10004;|&#10004;|&#10004;|&#10004;||
 
 ## <a name="notes"></a>Note
@@ -171,7 +169,7 @@ La mappa di distribuzione di funzionalità seguente indica le funzionalità di o
        # sudo mv shimx64.efi bootx64.efi
        ```
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 * [Macchine virtuali CentOS e Red Hat Enterprise Linux supportate in Hyper-V](Supported-CentOS-and-Red-Hat-Enterprise-Linux-virtual-machines-on-Hyper-V.md)
 

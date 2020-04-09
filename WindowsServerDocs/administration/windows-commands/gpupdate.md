@@ -1,24 +1,20 @@
 ---
 title: gpupdate
-description: 'Argomento dei comandi di Windows per * * * *- '
-ms.custom: na
+description: Argomento dei comandi di Windows per * * * *-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 2fd4e567-2ce1-4637-b611-c2f0895e5708
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 7f73917721fca7b623501b521ad095d40ab98e33
-ms.sourcegitcommit: 2a15de216edde8b8e240a4aa679dc6d470e4159e
+ms.openlocfilehash: 23f9bf243210db7c47b9b08bc363f5dfa7815fc9
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77465415"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80842424"
 ---
 # <a name="gpupdate"></a>gpupdate
 
@@ -30,7 +26,7 @@ Aggiorna le impostazioni di criteri di gruppo. Per esempi di come è possibile u
 gpupdate [/target:{Computer | User}] [/force] [/wait:<VALUE>] [/logoff] [/boot] [/sync] [/?]
 ```
 
-### <a name="parameters"></a>Parametri
+#### <a name="parameters"></a>Parametri
 
 |     Parametro     |                                                                                                                                                                                                                                                                                                                             Descrizione                                                                                                                                                                                                                                                                                                                             |
 |-------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -54,7 +50,7 @@ Forzare un aggiornamento in background di tutte le impostazioni di criteri di gr
 gpupdate /force
 ```
 
-#### <a name="additional-references"></a>Altri riferimenti
+## <a name="additional-references"></a>Altre informazioni di riferimento
 
 -   [Criteri di gruppo TechCenter](https://go.microsoft.com/fwlink/?LinkID=145531)
--   [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+-   - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

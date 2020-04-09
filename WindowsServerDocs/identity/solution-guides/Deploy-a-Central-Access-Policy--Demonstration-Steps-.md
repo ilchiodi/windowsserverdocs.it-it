@@ -1,7 +1,6 @@
 ---
 ms.assetid: 8738c03d-6ae8-49a7-8b0c-bef7eab81057
 title: Distribuire i criteri di accesso centrale (procedura dimostrativa)
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 09b7edcd843dfe65d7e2391612f029cf18b633ec
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 5f4d94facc57cf2b71d6d546b4a2b60253ff58fe
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71357505"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80861204"
 ---
 # <a name="deploy-a-central-access-policy-demonstration-steps"></a>Distribuire i criteri di accesso centrale (procedura dimostrativa)
 
@@ -31,28 +30,28 @@ La distribuzione di un criterio di accesso centrale include le fasi seguenti:
 |[Distribuire i criteri di accesso centrale](Deploy-a-Central-Access-Policy--Demonstration-Steps-.md#BKMK_1.4)|Distribuire i criteri.  
 |[Gestione: modificare e organizzare il criterio](Deploy-a-Central-Access-Policy--Demonstration-Steps-.md#BKMK_1.5)|Modifiche dei criteri e gestione temporanea. 
 
-## <a name="BKMK_1.1"></a>Configurare un ambiente di test  
+## <a name="set-up-a-test-environment"></a><a name="BKMK_1.1"></a>Configurare un ambiente di test  
 Prima di iniziare, è necessario configurare un ambiente di testing per lo scenario. I passaggi per la configurazione del Lab sono descritti in dettaglio nell' [Appendice B: configurazione dell'ambiente di test](Appendix-B--Setting-Up-the-Test-Environment.md).  
 
-## <a name="BKMK_1.2"></a>Piano: identificare la necessità di criteri e la configurazione necessaria per la distribuzione  
+## <a name="plan-identify-the-need-for-policy-and-the-configuration-required-for-deployment"></a><a name="BKMK_1.2"></a>Piano: identificare la necessità di criteri e la configurazione necessaria per la distribuzione  
 In questa sezione sono disponibili le procedure generali che semplificano la fase di pianificazione della distribuzione.  
 
 ||Passaggio|Esempio|  
 |-|--------|-----------|  
 |1.1|Un'azienda stabilisce che è necessario definire un criterio di accesso centrale|Per proteggere le informazioni finanziarie archiviate nei file server, i responsabili della sicurezza del reparto finanziario collaborano con i responsabili della sicurezza centrale delle informazioni per specificare l'esigenza di un criterio di accesso centrale.|  
 |1.2|Esprimere il criterio di accesso|I documenti finanziari devono essere letti solo dai membri del reparto finanziario. I membri del reparto finanziario devono accedere solo ai documenti relativi al proprio paese. L'accesso in scrittura deve essere concesso solo agli amministratori del reparto finanziario. Sarà permessa un'eccezione per i membri del gruppo FinanceException. A questo gruppo sarà assegnato l'accesso in lettura.|  
-|1.3|Esprimere i criteri di accesso nei costrutti di Windows Server 2012|Destinazione:<br /><br />-Resource. Department contiene Finance<br /><br />Regole di accesso:<br /><br />-Consenti lettura utente. paese = Resource. Country e User. Department = Resource. Department<br />-Consenti controllo completo utente. membro (FinanceAdmin)<br /><br />Eccezione:<br /><br />Allow read memberOf(FinanceException)|  
-|1.4|Determinare le proprietà di file necessarie per il criterio|Assegnare tag ai file con:<br /><br />-Reparto<br />-Paese|  
-|1.5|Determinare i tipi di attestazioni e i gruppi necessari per i criteri|Tipi di attestazione:<br /><br />-Paese<br />-Reparto<br /><br />Gruppi di utenti:<br /><br />-FinanceAdmin<br />-Financeexception|  
+|1.3|Esprimere i criteri di accesso nei costrutti di Windows Server 2012|Destinazione:<p>-Resource. Department contiene Finance<p>Regole di accesso:<p>-Consenti lettura utente. paese = Resource. Country e User. Department = Resource. Department<br />-Consenti controllo completo utente. membro (FinanceAdmin)<p>Exception:<p>Allow read memberOf(FinanceException)|  
+|1.4|Determinare le proprietà di file necessarie per il criterio|Assegnare tag ai file con:<p>-Reparto<br />-Paese|  
+|1.5|Determinare i tipi di attestazioni e i gruppi necessari per i criteri|Tipi di attestazione:<p>-Paese<br />-Reparto<p>Gruppi di utenti:<p>-FinanceAdmin<br />-Financeexception|  
 |1.6|Determinare i server a cui applicare il criterio|Applicare il criterio a tutti i file server del reparto finanziario.|  
 
-## <a name="BKMK_1.3"></a>Implementare: configurare i componenti e i criteri  
+## <a name="implement-configure-the-components-and-policy"></a><a name="BKMK_1.3"></a>Implementare: configurare i componenti e i criteri  
 In questa sezione è disponibile un esempio di distribuzione di un criterio di accesso centrale per documenti finanziari.  
 
 |No|Passaggio|Esempio|  
 |------|--------|-----------|  
-|2.1|Creare tipi di attestazioni|Creare i tipi di attestazioni seguenti:<br /><br />-Reparto<br />-Paese|  
-|2.2|Creare proprietà delle risorse|Creare e abilitare le proprietà seguenti delle risorse:<br /><br />-Reparto<br />-Paese|  
+|2.1|Creare tipi di attestazioni|Creare i tipi di attestazioni seguenti:<p>-Reparto<br />-Paese|  
+|2.2|Creare proprietà delle risorse|Creare e abilitare le proprietà seguenti delle risorse:<p>-Reparto<br />-Paese|  
 |2.3|Configurare una regola di accesso centrale|Creare una regola Finance Documents che include il criterio definito nella sezione precedente.|  
 |2.4|Configurare un criterio di accesso centrale|Creare un criterio di accesso centrale denominato Finance Policy e aggiungervi la regola Finance Documents.|  
 |2.5|Specificare i file server come destinazione del criterio di accesso centrale|Pubblicare il criterio di accesso centrale Finance Policy nei file server.|  
@@ -73,11 +72,11 @@ Nella procedura seguente vengono creati due tipi di attestazione: Country e Depa
    > [!TIP]  
    > È anche possibile aprire una finestra **Crea Tipo attestazione** dal riquadro **Attività**. Nel riquadro **Attività** fare clic su **Nuovo** e quindi su **Tipo attestazione**.  
 
-4. Nell'elenco **Attributo di origine** scorrere verso il basso l'elenco di attributi, quindi fare clic su **department**. Nel campo **Nome visualizzato** sarà inserito il valore **department**. Fai clic su **OK**.  
+4. Nell'elenco **Attributo di origine** scorrere verso il basso l'elenco di attributi, quindi fare clic su **department**. Nel campo **Nome visualizzato** sarà inserito il valore **department**. Fare clic su **OK**.  
 
 5. Nel riquadro **Attività** fare clic su **Nuovo** e quindi su **Tipo attestazione**.  
 
-6. Nell'elenco **Attributo di origine** scorrere verso il basso l'elenco di attributi, quindi fare clic sull'attributo **(Country-Name).** Nel campo **Nome visualizzato** digitare **country**.  
+6. Nell'elenco **Attributo di origine** scorrere verso il basso l'elenco di attributi, quindi fare clic sull'attributo  **(Country-Name).** Nel campo **Nome visualizzato** digitare **country**.  
 
 7. Nella sezione **Valori suggeriti** selezionare **Valori suggeriti**, quindi fare clic su **Aggiungi**.  
 
@@ -87,7 +86,7 @@ Nella procedura seguente vengono creati due tipi di attestazione: Country e Depa
 
 ![la soluzione guida i](media/Deploy-a-Central-Access-Policy--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em>***  
 
-Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.  
+Tramite i cmdlet di Windows PowerShell seguenti viene eseguita la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se è possibile il ritorno a capo automatico in diverse righe a causa di limiti di formattazione.  
 
 
     New-ADClaimType country -SourceAttribute c -SuggestedValues:@((New-Object Microsoft.ActiveDirectory.Management.ADSuggestedValueEntry("US","US","")), (New-Object Microsoft.ActiveDirectory.Management.ADSuggestedValueEntry("JP","JP","")))  
@@ -117,13 +116,13 @@ Il passaggio successivo consiste nel creare le proprietà delle risorse. Nella p
 
 6.  Nell'elenco **Proprietà risorsa** nel pannello di navigazione del Centro di amministrazione di Active Directory saranno disponibili due proprietà abilitate delle risorse:  
 
-    -   Country  
+    -   Paese  
 
     -   Reparto  
 
 ![la soluzione guida i](media/Deploy-a-Central-Access-Policy--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em>***  
 
-Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.  
+Tramite i cmdlet di Windows PowerShell seguenti viene eseguita la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se è possibile il ritorno a capo automatico in diverse righe a causa di limiti di formattazione.  
 
 ```  
 New-ADResourceProperty Country -IsSecured $true -ResourcePropertyValueType MS-DS-MultivaluedChoice -SharesValuesWith country  
@@ -191,7 +190,7 @@ Regole di accesso:
 
     ![la soluzione guida i](media/Deploy-a-Central-Access-Policy--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em>***  
 
-    Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.  
+    Tramite i cmdlet di Windows PowerShell seguenti viene eseguita la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se è possibile il ritorno a capo automatico in diverse righe a causa di limiti di formattazione.  
 
 
 ~~~
@@ -226,7 +225,7 @@ Dovrebbe essere ora disponibile una regola di accesso centrale che permette agli
 
    ![la soluzione guida i](media/Deploy-a-Central-Access-Policy--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em>***  
 
-   Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.  
+   Tramite i cmdlet di Windows PowerShell seguenti viene eseguita la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se è possibile il ritorno a capo automatico in diverse righe a causa di limiti di formattazione.  
 
    ```  
    New-ADCentralAccessPolicy "Finance Policy" Add-ADCentralAccessPolicyMember   
@@ -281,7 +280,7 @@ Per consentire ai controller di dominio di un dominio di fornire attestazioni o 
 
 6.  Aprire un prompt dei comandi e digitare `gpupdate /force`.  
 
-## <a name="BKMK_1.4"></a>Distribuire i criteri di accesso centrale  
+## <a name="deploy-the-central-access-policy"></a><a name="BKMK_1.4"></a>Distribuire i criteri di accesso centrale  
 
 ||Passaggio|Esempio|  
 |-|--------|-----------|  
@@ -302,7 +301,7 @@ In questo passaggio il criterio di accesso centrale sarà assegnato a un file se
    > È anche possibile aggiornare le proprietà delle risorse globali accedendo al file server. Per aggiornare le proprietà delle risorse globali dal file server, eseguire la procedura seguente:  
    > 
    > 1. Accedere al file server FILE1 come CONTOSO\Administrator, usando la password <strong>pass@word1</strong>.  
-   > 2. Aprire Gestione risorse file server. Per aprire Gestione risorse file server, fare clic su **Start**, digitare **gestione risorse file server**e quindi fare clic su **Gestione risorse file server**.  
+   > 2. Aprire Gestione risorse file server. Per aprire Gestione risorse file server, fare clic su **Start**, digitare **gestione risorse file server** e quindi fare clic su **Gestione risorse file server**.  
    > 3. In Gestione risorse file server fare clic su **Gestione classificazione file** , fare clic con il pulsante destro del mouse su **Proprietà classificazione** e quindi scegliere **Aggiorna**.  
 
 4. Aprire Esplora risorse e nel riquadro sinistro fare clic sull'unità D. Fare clic con il pulsante destro del mouse sulla cartella **Finance Documents**, quindi scegliere **Proprietà**.  
@@ -328,7 +327,7 @@ Nel passaggio successivo, assicurarsi che l'acceso sia configurato correttamente
 
 2.  Fare clic sulla scheda **Sicurezza**, quindi su **Avanzate** e infine su **Accesso valido**.  
 
-3.  Per esaminare le autorizzazioni per un utente, fare clic su **selezionare un utente**, digitare il nome dell'utente e quindi fare clic su **Visualizza accesso valido** per visualizzare i diritti di accesso validi. Ad esempio:  
+3.  Per esaminare le autorizzazioni per un utente, fare clic su **selezionare un utente**, digitare il nome dell'utente e quindi fare clic su **Visualizza accesso valido** per visualizzare i diritti di accesso validi. Ad esempio,  
 
     -   Myriam Delesalle (MDelesalle) lavora nel reparto finanziario e deve disporre di accesso in lettura alla cartella.  
 
@@ -340,11 +339,11 @@ Nel passaggio successivo, assicurarsi che l'acceso sia configurato correttamente
 
     Si noti l'ultima colonna denominata **Accesso limitato da** nella finestra relativa all'accesso valido. In questa colonna vengono indicati i cancelli che influiscono sulle autorizzazioni della persona. In questo caso, le autorizzazioni Condivisione e NTFS permettono agli utenti di disporre di controllo completo. Il criterio di accesso centrale, tuttavia, limita l'accesso in base alle regole configurate in precedenza.  
 
-## <a name="BKMK_1.5"></a>Gestione: modificare e organizzare il criterio  
+## <a name="maintain-change-and-stage-the-policy"></a><a name="BKMK_1.5"></a>Gestione: modificare e organizzare il criterio  
 
 ||||  
 |-|-|-|  
-|NUMBER|Passaggio|Esempio|  
+|Numero|Passaggio|Esempio|  
 |4.1|Configurare le richieste diritti da dispositivo per i client|Configurare le impostazioni di Criteri di gruppo per abilitare le richieste diritti da dispositivo|  
 |4.2|Abilitare una richiesta diritti per i dispositivi.|Abilitare la richiesta diritti di tipo country per i dispositivi.|  
 |4.3|Aggiungere un criterio di gestione temporanea alla regola di accesso centrale esistente da modificare.|Modificare la regola Finance Documents Rule per aggiungere un criterio di gestione temporanea.|  
@@ -366,7 +365,7 @@ Nel passaggio successivo, assicurarsi che l'acceso sia configurato correttamente
 
 3. Fare clic su **Visualizzazione albero**, espandere **Controllo dinamico degli accessi**, fare doppio clic su **Tipi di attestazione** e infine fare doppio clic sull'attestazione **country**.  
 
-4. In **Le attestazioni di questo tipo possono essere emesse per le classi seguenti** selezionare la casella di controllo **Computer**. Fai clic su **OK**.   
+4. In **Le attestazioni di questo tipo possono essere emesse per le classi seguenti** selezionare la casella di controllo **Computer**. Fare clic su **OK**.   
    Entrambe le caselle di controllo **User** e **Computer** dovrebbero essere selezionate. È ora possibile usare l'attestazione country con i dispositivi, oltre che con gli utenti.  
 
 Il passaggio successivo consiste nel creare un criterio di gestione temporanea. I criteri di gestione temporanea possono essere usati per monitorare gli effetti di una nuova voce di criterio prima di abilitarla. Nel passaggio successivo sarà creata una voce di criterio di gestione temporanea e ne saranno monitorati gli effetti sulla cartella condivisa.  
@@ -404,7 +403,7 @@ Il passaggio successivo consiste nel creare un criterio di gestione temporanea. 
 
 ![la soluzione guida i](media/Deploy-a-Central-Access-Policy--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em>***  
 
-Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.  
+Tramite i cmdlet di Windows PowerShell seguenti viene eseguita la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se è possibile il ritorno a capo automatico in diverse righe a causa di limiti di formattazione.  
 
 ```  
 Set-ADCentralAccessRule  

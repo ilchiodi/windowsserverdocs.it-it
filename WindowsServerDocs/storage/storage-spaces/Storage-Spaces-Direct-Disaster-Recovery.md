@@ -1,19 +1,20 @@
 ---
 title: Scenari di ripristino di emergenza per l'infrastruttura iperconvergente
 ms.prod: windows-server
-ms.manager: eldenc
+manager: eldenc
 ms.technology: storage-spaces
 ms.topic: article
 author: johnmarlin-msft
+ms.author: johnmar
 ms.date: 03/29/2018
 description: Questo articolo descrive gli scenari attualmente disponibili per il ripristino di emergenza di Microsoft HCI (Spazi di archiviazione diretta)
 ms.localizationpriority: medium
-ms.openlocfilehash: 8e6372ec7b4759f672c13f4bd822172afaf3faf3
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 5f3159e0c215d898848df71c6488cd491b7ded38
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71393746"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80859164"
 ---
 # <a name="disaster-recovery-with-storage-spaces-direct"></a>Ripristino di emergenza con Spazi di archiviazione diretta
 
@@ -45,10 +46,10 @@ In questo scenario sono presenti due cluster indipendenti distinti. Per la confi
 
 Quando si distribuisce replica di archiviazione, si applicano le considerazioni seguenti. 
 
-1.  La configurazione della replica viene eseguita al di fuori del clustering di failover. 
-2.  La scelta del metodo di replica dipende dalla latenza di rete e dai requisiti di RPO. Sincrona replica i dati nelle reti a bassa latenza con coerenza di arresto anomalo per evitare perdite di dati in caso di errore. Asincrono replica i dati su reti con latenze più elevate, ma ogni sito potrebbe non avere copie identiche in un momento in cui si è verificato l'errore. 
-3.  In caso di emergenza, i failover tra i cluster non sono automatici ed è necessario orchestrarli manualmente tramite i cmdlet di PowerShell per replica archiviazione. Nel diagramma precedente, ClusterA è il database primario e ClusterB è il database secondario. Se ClusterA diventa inattivo, è necessario impostare manualmente ClusterB come primario prima di poter riportare le risorse. Una volta eseguito il backup del ClusterA, è necessario impostarlo come secondario. Una volta che tutti i dati sono stati sincronizzati, apportare la modifica e scambiare di nuovo i ruoli con il modo in cui sono stati originariamente impostati.
-4.  Poiché replica di archiviazione esegue solo la replica dei dati, è necessario creare una nuova macchina virtuale o un file server Scale Out (SOFS) utilizzando questi dati all'interno Gestione cluster di failover nel partner di replica.
+1.    La configurazione della replica viene eseguita al di fuori del clustering di failover. 
+2.    La scelta del metodo di replica dipende dalla latenza di rete e dai requisiti di RPO. Sincrona replica i dati nelle reti a bassa latenza con coerenza di arresto anomalo per evitare perdite di dati in caso di errore. Asincrono replica i dati su reti con latenze più elevate, ma ogni sito potrebbe non avere copie identiche in un momento in cui si è verificato l'errore. 
+3.    In caso di emergenza, i failover tra i cluster non sono automatici ed è necessario orchestrarli manualmente tramite i cmdlet di PowerShell per replica archiviazione. Nel diagramma precedente, ClusterA è il database primario e ClusterB è il database secondario. Se ClusterA diventa inattivo, è necessario impostare manualmente ClusterB come primario prima di poter riportare le risorse. Una volta eseguito il backup del ClusterA, è necessario impostarlo come secondario. Una volta che tutti i dati sono stati sincronizzati, apportare la modifica e scambiare di nuovo i ruoli con il modo in cui sono stati originariamente impostati.
+4.    Poiché replica di archiviazione esegue solo la replica dei dati, è necessario creare una nuova macchina virtuale o un file server Scale Out (SOFS) utilizzando questi dati all'interno Gestione cluster di failover nel partner di replica.
 
 La replica di archiviazione può essere usata se sono presenti macchine virtuali o un SOFS in esecuzione nel cluster. La possibilità di portare online le risorse nell'HCI della replica può essere manuale o automatizzata tramite l'uso di script di PowerShell.
 
@@ -60,14 +61,14 @@ La [replica Hyper-V](https://docs.microsoft.com/windows-server/virtualization/hy
 
 Con la replica Hyper-V, la replica viene eseguita da Hyper-V. Quando si Abilita per la prima volta una macchina virtuale per la replica, sono disponibili tre opzioni per il modo in cui si desidera che la copia iniziale venga inviata ai corrispondenti cluster di replica.
 
-1.  Invia la copia iniziale sulla rete
-2.  Inviare la copia iniziale a un supporto esterno per poterla copiare manualmente nel server
-3.  Usare una macchina virtuale esistente già creata negli host di replica
+1.    Invia la copia iniziale sulla rete
+2.    Inviare la copia iniziale a un supporto esterno per poterla copiare manualmente nel server
+3.    Usare una macchina virtuale esistente già creata negli host di replica
 
 L'altra opzione è quando si desidera che la replica iniziale venga eseguita.
 
-1.  Avvia immediatamente la replica
-2.  Pianificare un periodo di tempo in cui si verifica la replica iniziale. 
+1.    Avvia immediatamente la replica
+2.    Pianificare un periodo di tempo in cui si verifica la replica iniziale. 
 
 Altre considerazioni che saranno necessarie sono:
 
@@ -78,9 +79,9 @@ Altre considerazioni che saranno necessarie sono:
 
 Quando HCI partecipa alla replica Hyper-V, è necessario che la risorsa [gestore di replica Hyper-v](https://blogs.technet.microsoft.com/virtualization/2012/03/27/why-is-the-hyper-v-replica-broker-required/) sia stata creata in ogni cluster. Questa risorsa esegue diverse operazioni:
 
-1.  Fornisce un solo spazio dei nomi per ogni cluster per cui la replica Hyper-V si connette a.
-2.  Determina il nodo all'interno del cluster in cui risiederà la replica (o la replica estesa) al momento della prima ricezione della copia.
-3.  Tiene traccia del nodo proprietario della replica (o replica estesa) nel caso in cui la macchina virtuale si sposti in un altro nodo. Deve tenere traccia di questo in modo che, al momento della replica, possa inviare le informazioni al nodo appropriato.
+1.    Fornisce un solo spazio dei nomi per ogni cluster per cui la replica Hyper-V si connette a.
+2.    Determina il nodo all'interno del cluster in cui risiederà la replica (o la replica estesa) al momento della prima ricezione della copia.
+3.    Tiene traccia del nodo proprietario della replica (o replica estesa) nel caso in cui la macchina virtuale si sposti in un altro nodo. Deve tenere traccia di questo in modo che, al momento della replica, possa inviare le informazioni al nodo appropriato.
 
 ## <a name="backup-and-restore"></a>Backup e ripristino
 
@@ -102,13 +103,13 @@ Quando si avvia un ripristino autorevole in un nodo del cluster, il servizio clu
 
 Per eseguire un ripristino autorevole, è possibile eseguire i passaggi seguenti.
 
-1.  Eseguire WBADMIN. EXE da un prompt dei comandi amministrativo per ottenere la versione più recente dei backup che si desidera installare e assicurarsi che lo stato del sistema sia uno dei componenti che è possibile ripristinare.
+1.    Eseguire WBADMIN. EXE da un prompt dei comandi amministrativo per ottenere la versione più recente dei backup che si desidera installare e assicurarsi che lo stato del sistema sia uno dei componenti che è possibile ripristinare.
 
     ```powershell
     Wbadmin get versions
     ```
 
-2.  Determinare se per il backup della versione sono presenti le informazioni del registro di sistema del cluster come componente. Questo comando richiede un paio di elementi, la versione e l'applicazione/componente da usare nel passaggio 3. Per la versione, ad esempio, si può dire che il backup è stato eseguito il 3 gennaio 2018 alle 2:04AM e questo è quello che è necessario ripristinare.
+2.    Determinare se per il backup della versione sono presenti le informazioni del registro di sistema del cluster come componente. Questo comando richiede un paio di elementi, la versione e l'applicazione/componente da usare nel passaggio 3. Per la versione, ad esempio, si può dire che il backup è stato eseguito il 3 gennaio 2018 alle 2:04AM e questo è quello che è necessario ripristinare.
 
     ```powershell
     wbadmin get items -backuptarget:\\backupserver\location

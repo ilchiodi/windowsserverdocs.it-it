@@ -1,7 +1,6 @@
 ---
 title: Comprendere e distribuire memoria persistente
 description: Informazioni dettagliate sulla memoria persistente e su come configurarla con spazi di archiviazione diretta in Windows Server 2019.
-keywords: Spazi di archiviazione diretta, memoria persistente, PMEM, archiviazione, S2D
 ms.prod: windows-server
 ms.author: adagashe
 ms.technology: storage-spaces
@@ -9,12 +8,12 @@ ms.topic: article
 author: adagashe
 ms.date: 1/27/2020
 ms.localizationpriority: medium
-ms.openlocfilehash: a9070d2e2ab73c7882f4b2ef585ccb01986695bb
-ms.sourcegitcommit: 07c9d4ea72528401314e2789e3bc2e688fc96001
+ms.openlocfilehash: 43268986f0ef42aabc218062ac19f1d98f27be6d
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76822314"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80861034"
 ---
 # <a name="understand-and-deploy-persistent-memory"></a>Comprendere e distribuire memoria persistente
 
@@ -22,7 +21,7 @@ ms.locfileid: "76822314"
 
 La memoria persistente (o PMem) è un nuovo tipo di tecnologia di memoria che offre una combinazione univoca di capacità e persistenza di grandi dimensioni. Questo articolo fornisce informazioni di base su PMem e i passaggi per distribuirlo in Windows Server 2019 usando Spazi di archiviazione diretta.
 
-## <a name="background"></a>Informazioni
+## <a name="background"></a>Background
 
 PMem è un tipo di RAM non volatile (NVDIMM) che mantiene il contenuto tramite cicli di alimentazione. Il contenuto della memoria rimane anche quando l'alimentazione del sistema si interrompe in caso di interruzione imprevista dell'alimentazione, arresto avviato dall'utente, arresto anomalo del sistema e così via. Questa caratteristica univoca significa che è anche possibile usare PMem come risorsa di archiviazione. Questo è il motivo per cui è possibile che gli utenti facciano riferimento a PMem come "memoria della classe di archiviazione".
 
@@ -38,15 +37,15 @@ Qualsiasi sistema di archiviazione che fornisce tolleranza di errore crea necess
 
 Se si guarda attentamente il video, si noterà che ciò che è ancora più importante è la latenza. Anche con oltre 13,7 milioni di IOPS, il file system in Windows segnala una latenza costantemente inferiore a 40 μs! Si tratta del simbolo per i microsecondi, un milionesimo di secondo. Questa velocità è un ordine di grandezza più veloce rispetto a quello che i normali fornitori di tutti i flash pubblicizzano oggi.
 
-Insieme, Spazi di archiviazione diretta in Windows Server 2019 e Intel® Optane™ controller di dominio persistente forniscono prestazioni eccezionali. Questo benchmark di HCI leader nel settore di oltre 13,7 milioni di IOPS, accompagnato da una latenza prevedibile e estremamente bassa, è più del doppio del precedente benchmark leader nel settore di 6.7 milioni di IOPS. Questa volta sono necessari solo 12 nodi server&mdash;il 25% meno di due anni fa.
+Insieme, Spazi di archiviazione diretta in Windows Server 2019 e Intel&reg; Optane&trade; controller di dominio persistente forniscono prestazioni eccezionali. Questo benchmark di HCI leader nel settore di oltre 13,7 milioni di IOPS, accompagnato da una latenza prevedibile e estremamente bassa, è più del doppio del precedente benchmark leader nel settore di 6.7 milioni di IOPS. Questa volta sono necessari solo 12 nodi server&mdash;il 25% meno di due anni fa.
 
 ![Guadagni IOPS](media/deploy-pmem/iops-gains.png)
 
-L'hardware di test era un cluster a 12 server configurato per l'utilizzo del mirroring a tre vie e dei volumi ReFS delimitati, **12** x Intel® S2600WFT, **384 GIB** Memory, 2 x 28 core "CascadeLake" **1,5 TB** Intel® Optane™ DC persistent Memory As cache, **32 TB** NVME (4 x 8 TB Intel® DC P4510) As capacity, **2** x Mellanox ConnectX-4 25 Gbps.
+L'hardware di test era un cluster a 12 server configurato per l'utilizzo del mirroring a tre vie e dei volumi ReFS delimitati, **12** x Intel&reg; S2600WFT, **384 GIB** Memory, 2 x 28 core "CascadeLake" **1,5 TB** Intel&reg; Optane&trade; DC persistent Memory As cache, **32 TB** NVME (4 x 8 TB Intel&reg; DC P4510) As capacity, **2** x Mellanox ConnectX-4 25 Gbps.
 
 La tabella seguente illustra i numeri di prestazioni completi.  
 
-| Riferimento                   | Performance         |
+| Riferimento                   | Prestazioni         |
 |-----------------------------|---------------------|
 | lettura casuale 4K 100%         | 13,8 milioni IOPS   |
 | 4K 90/10% di lettura/scrittura casuale | 9.450.000 IOPS   |
@@ -56,17 +55,17 @@ La tabella seguente illustra i numeri di prestazioni completi.
 
 La tabella seguente illustra l'hardware di memoria persistente supportato per Windows Server 2019 e Windows Server 2016.  
 
-| Tecnologia di memoria permanente                                      | Windows Server 2016 | Windows Server 2019 |
+| Tecnologia di memoria permanente                                      | Windows Server 2016 | Windows Server 2019 |
 |-------------------------------------------------------------------|--------------------------|--------------------------|
-| **NVDIMM-N** in modalità persistente                                  | Funzionalità supportata                | Funzionalità supportata                |
-| **Memoria persistente Intel Optane™ controller** di dominio in modalità app diretta             | Non Supportato            | Funzionalità supportata                |
-| **Memoria persistente Intel Optane™ controller** di dominio in modalità memoria | Funzionalità supportata            | Funzionalità supportata                |
+| **NVDIMM-N** in modalità persistente                                  | Supportato                | Supportato                |
+| **Memoria persistente Intel Optane&trade; controller** di dominio in modalità app diretta             | Non supportato            | Supportato                |
+| **Memoria persistente Intel Optane&trade; controller** di dominio in modalità memoria | Supportato            | Supportato                |
 
 > [!NOTE]  
 > Intel Optane supporta sia la *memoria* (volatile) che la modalità *app diretta* (permanente).
    
 > [!NOTE]  
-> Quando si riavvia un sistema con più moduli Intel® Optane™ PMem in modalità app diretta divisi in più spazi dei nomi, è possibile che si perda l'accesso ad alcuni o a tutti i dischi di archiviazione logica correlati. Questo problema si verifica nelle versioni di Windows Server 2019 precedenti alla versione 1903.
+> Quando si riavvia un sistema con più moduli Intel&reg; Optane&trade; PMem in modalità app diretta divisi in più spazi dei nomi, è possibile che si perda l'accesso ad alcuni o a tutti i dischi di archiviazione logica correlati. Questo problema si verifica nelle versioni di Windows Server 2019 precedenti alla versione 1903.
 >   
 > Questa perdita di accesso si verifica perché non è stato eseguito il training di un modulo PMem o ha esito negativo all'avvio del sistema. In tal caso, tutti gli spazi dei nomi di archiviazione in qualsiasi modulo PMem nel sistema hanno esito negativo, inclusi gli spazi dei nomi che non eseguono fisicamente il mapping al modulo in cui si è verificato l'errore.
 >   
@@ -159,7 +158,7 @@ Spazi di archiviazione diretta in Windows Server 2019 supporta l'uso di memoria 
 
 ### <a name="understanding-dax"></a>Informazioni su DAX
 
-Esistono due metodi per accedere alla memoria persistente. e sono:
+Esistono due metodi per accedere alla memoria persistente. ovvero:
 
 1. **Accesso diretto (DAX)** , che funziona come la memoria per ottenere la latenza più bassa. L'app modifica direttamente la memoria persistente, ignorando lo stack. Si noti che è possibile utilizzare DAX solo in combinazione con NTFS.
 1. **Blocca l'accesso**, che funziona come l'archiviazione per la compatibilità delle app. In questa configurazione, i dati passano attraverso lo stack. Questa configurazione può essere usata in combinazione con NTFS e ReFS.
@@ -310,7 +309,7 @@ Initializing the physical persistent memory device. This may take a few moments.
 > [!IMPORTANT]  
 > **Initialize-PmemPhysicalDevice** causa la perdita di dati nella memoria persistente. Utilizzarlo come ultima risorsa per correggere i problemi persistenti correlati alla memoria.
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 
 - [Panoramica di Spazi di archiviazione diretta](storage-spaces-direct-overview.md)
 - [Gestione dell'integrità della memoria della classe di archiviazione (NVDIMM-N) in Windows](storage-class-memory-health.md)

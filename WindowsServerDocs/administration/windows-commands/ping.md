@@ -1,24 +1,20 @@
 ---
 title: ping
 description: Usare il comando ping per verificare la connettività di rete.
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 49272671-2eec-4fa5-881f-65c24cfbef52
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 07/11/2018
-ms.openlocfilehash: 7d9841c12d403d91e14021ff9df65246d322debd
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: c9e03b45d889bcac87bd3e533ab69c7a07be74ee
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71372315"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80837554"
 ---
 # <a name="ping"></a>ping
 
@@ -32,7 +28,7 @@ Il comando **ping** verifica la connettività a livello IP a un altro computer T
 ping [/t] [/a] [/n <Count>] [/l <Size>] [/f] [/I <TTL>] [/v <TOS>] [/r <Count>] [/s <Count>] [{/j <Hostlist> | /k <Hostlist>}] [/w <timeout>] [/R] [/S <Srcaddr>] [/4] [/6] <TargetName>
 ```
 
-### <a name="parameters"></a>Parametri
+#### <a name="parameters"></a>Parametri
 
 |Parametro|Descrizione|
 |-------|--------|
@@ -55,12 +51,12 @@ ping [/t] [/a] [/n <Count>] [/l <Size>] [/f] [/I <TTL>] [/v <TOS>] [/r <Count>] 
 |\<TargetName\>|Specifica il nome host o l'indirizzo IP della destinazione.|
 |/?|Visualizza la guida al prompt dei comandi.|
 
-## <a name="remarks"></a>Osservazioni
+## <a name="remarks"></a>Note
 
 -   È possibile utilizzare il comando **ping** per testare il nome del computer e l'indirizzo IP del computer. Se il ping dell'indirizzo IP ha esito positivo, ma il ping del nome del computer non lo è, potrebbe essere presente un problema di risoluzione dei nomi. In tal caso, assicurarsi che il nome del computer che si sta specificando possa essere risolto tramite il file hosts locale, usando le query Domain Name System (DNS) o tramite le tecniche di risoluzione dei nomi NetBIOS.
 -   Questo comando è disponibile solo se è installato il protocollo Internet Protocol (TCP/IP) come componente nelle proprietà di una scheda di rete in connessioni di rete.
 
-## <a name="BKMK_Examples"></a>Esempi
+## <a name="examples"></a><a name="BKMK_Examples"></a>Esempi
 
 Nell'esempio seguente viene illustrato l'output del comando **ping** :
 
@@ -97,5 +93,5 @@ Per effettuare il ping della 10.0.99.221 di destinazione e specificare la route 
 ping /j 10.12.0.1 10.29.3.1 10.1.44.1 10.0.99.221
 ```
 
-## <a name="additional-references"></a>riferimenti aggiuntivi
--   [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+## <a name="additional-references"></a>Altre informazioni di riferimento
+-   - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

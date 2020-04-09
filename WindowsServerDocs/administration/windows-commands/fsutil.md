@@ -9,12 +9,12 @@ ms.technology: storage
 audience: IT Pro
 ms.topic: article
 ms.date: 08/21/2018
-ms.openlocfilehash: 0f338c80dca0ed88ca206aea5aeb415bc191e03a
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 717c287995be2ab56bd49f2f24d46001f77e0e68
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71376673"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80843904"
 ---
 # <a name="fsutil"></a>Fsutil
 
@@ -32,14 +32,14 @@ Esegue le attività correlate ai file system FAT (file allocation table) e NTFS,
 >```
 > Verrà richiesto di riavviare il computer dopo l'installazione. Dopo il riavvio del computer, sarà possibile eseguire **fsutil** come amministratore.
 
-## <a name="parameters"></a>Parametri
+### <a name="parameters"></a>Parametri
 
 |Sottocomando |Descrizione|
 |---|---|
 |[Fsutil 8dot3name](fsutil-8dot3name.md) | Esegue una query o modifica le impostazioni per il comportamento del nome breve nel sistema, ad esempio, genera i nomi di file di lunghezza di 8,3 caratteri. Rimuove il nome breve di tutti i file contenuti in una directory. Analizza una directory e identifica le chiavi del Registro di sistema che potrebbero essere interessate se i nomi brevi sono stati rimossi dal file nella directory.|
 |[Comportamento fsutil](fsutil-behavior.md) |Esegue una query o imposta il comportamento del volume.|
 |[Fsutil dirty](fsutil-dirty.md)| Esegue una query se bit dirty del volume è impostato o imposta un bit del volume danneggiato. Quando un volume del dirty bit è impostato, **autochk** Controlla automaticamente il volume per gli errori al successivo riavvio del computer.|
-|[Fsutil (file)](fsutil-file.md)|Trova un file in base al nome utente (se sono abilitate le quote disco), esegue query sugli intervalli allocati per un file, imposta il nome breve di un file, imposta la lunghezza dei dati valida di un file, imposta zero dati per un file, crea un nuovo file di una dimensione specificata, trova un ID file se viene specificato il nome o trova un nome di collegamento file per un ID file specificato.|
+|[Fsutil (file)](fsutil-file.md)|Trova un file in base al nome utente (se sono abilitate le quote disco), esegue query sugli intervalli allocati per un file, imposta il nome breve di un file, imposta la lunghezza dei dati valida di un file, imposta zero dati per un file, crea un nuovo file di una dimensione specificata, trova un ID file se viene specificato il nome o trova un nome di collegamento file per un|
 |[Fsutil fsinfo](fsutil-fsinfo.md)|Elenca tutte le unità ed esegue una query sul tipo di unità, informazioni sul volume, informazioni sul volume specifiche di NTFS o statistiche file system.|
 |[Fsutil hardlink](fsutil-hardlink.md)|Elenca i collegamenti reali per un file o crea un collegamento reale (una voce di directory per un file). Ogni file può essere considerato disporre di almeno un collegamento fisso. Nei volumi NTFS ogni file può avere più collegamenti reali, quindi un singolo file può essere visualizzato in molte directory (o anche nella stessa directory con nomi diversi). Poiché tutti i collegamenti di riferimento nello stesso file, i programmi possono aprire i collegamenti e modificare il file. Un file viene eliminato dal file system solo dopo l'eliminazione di tutti i collegamenti a esso. Dopo aver creato un collegamento fisso, i programmi possono utilizzarlo come qualsiasi altro nome di file.|
 |[ID fsutil](fsutil-objectid.md)|Gestisce gli identificatori di oggetto utilizzati dal sistema operativo Windows per tenere traccia degli oggetti quali file e directory.|
@@ -55,4 +55,4 @@ Esegue le attività correlate ai file system FAT (file allocation table) e NTFS,
 |[Fsutil Wim](fsutil-wim.md)|Fornisce funzioni per individuare e gestire i file supportati da WIM.|
 
 ## <a name="see-also"></a>Vedere anche
-[Indicazioni generali sulla sintassi della riga di comando](Command-Line-Syntax-Key.md)
+- [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

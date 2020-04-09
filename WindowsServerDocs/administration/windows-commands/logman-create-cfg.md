@@ -1,24 +1,20 @@
 ---
 title: Logman creare cfg
-description: 'Argomento dei comandi di Windows per * * * *- '
-ms.custom: na
+description: Argomento dei comandi di Windows per * * * *-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: bfc87093-3ff5-4e19-aa93-d185fb8e2239
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 9a9dffb308c9c5b73777aa2a2b4dd6e0204699ec
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 51ae4b64665577aa4795527371764401ce1fe9a1
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71374594"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80840884"
 ---
 # <a name="logman-create-cfg"></a>Logman creare cfg
 
@@ -30,7 +26,7 @@ creare un agente di raccolta dati di configurazione.
 ```  
 logman create cfg <[-n] <name>> [options]  
 ```  
-## <a name="parameters"></a>Parametri  
+### <a name="parameters"></a>Parametri  
 
 |                    Parametro                     |                                                                               Descrizione                                                                               |
 |--------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -38,7 +34,7 @@ logman create cfg <[-n] <name>> [options]
 |                -s <computer name>                |                                                          Eseguire il comando nel computer remoto specificato.                                                          |
 |                 -config <value>                  |                                                         Specifica il file di impostazioni che contiene le opzioni di comando.                                                         |
 |                   [-n] <name>                    |                                                                       Nome dell'oggetto di destinazione.                                                                        |
-| -f < bin &#124; bincirc &#124; csv &#124; tsv &#124; sql > |                                                            Specifica il formato di log per l'agente di raccolta dati.                                                             |
+| -f < bin & #124; bincirc & #124; csv & #124; tsv & #124; sql > |                                                            Specifica il formato di log per l'agente di raccolta dati.                                                             |
 |             -u [-] < utente [password] >              | Specifica l'utente di Esegui come. L'immissione di un \* per la password genera una richiesta per la password. La password non viene visualizzata quando si digita. |
 |    -m < [avvio] [stop] [[start] [stop] [...]] >    |                                                modificare l'avvio o l'arresto manuale anziché un'ora di inizio o di fine pianificata.                                                 |
 |                -rf < [[hh:] mm:] ss >                |                                                        Eseguire l'agente di raccolta dati per il periodo di tempo specificato.                                                         |
@@ -59,16 +55,16 @@ logman create cfg <[-n] <name>> [options]
 |            -energia < query [query [...]] >            |                                                      Specifica gli oggetti WMI per raccogliere mediante il linguaggio di query SQL.                                                       |
 |             -ftc < percorso [[...]] >             |                                                           Specifica il percorso completo per i file da raccogliere.                                                            |
 
-## <a name="remarks"></a>Osservazioni  
+## <a name="remarks"></a>Note  
 Dove [-] è elencato, un ulteriore - Nega l'opzione.  
-## <a name="BKMK_examples"></a>Esempi  
+## <a name="examples"></a><a name=BKMK_examples></a>Esempi  
 Il comando seguente crea un agente di raccolta dati di configurazione denominato cfg_log usando la chiave del registro di sistema HKEY_LOCAL_MACHINE \SOFTWARE\Microsoft\Windows NT\Currentverion\\.  
 ```  
-logman create cfg cfg_log -reg "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\Currentverion\\"  
+logman create cfg cfg_log -reg HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\Currentverion\\  
 ```  
 Il comando seguente crea un agente di raccolta dati di configurazione denominato cfg_log che registra tutti gli oggetti WMI da root\wmi nella colonna di database MSNdis_Vendordriverversion.  
 ```  
-logman create cfg cfg_log -mgt "root\wmi:select * FROM MSNdis_Vendordriverversion"  
+logman create cfg cfg_log -mgt root\wmi:select * FROM MSNdis_Vendordriverversion  
 ```  
-#### <a name="additional-references"></a>riferimenti aggiuntivi  
+## <a name="additional-references"></a>Altre informazioni di riferimento  
 [logman](logman.md)  

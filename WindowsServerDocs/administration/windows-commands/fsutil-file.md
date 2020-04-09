@@ -9,12 +9,12 @@ ms.technology: storage
 audience: IT Pro
 ms.topic: article
 ms.date: 10/16/2017
-ms.openlocfilehash: 2b89d96535512f79c83c601be50327c24dc40787
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 175b5e17f186653d4fdbc7efb505637e915cfe38
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71376983"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80844324"
 ---
 # <a name="fsutil-file"></a>Fsutil file
 >Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows 10, Windows Server 2012 R2, Windows 8.1, Windows Server 2012, Windows 8, Windows Server 2008 R2, Windows 7
@@ -42,37 +42,37 @@ fsutil file [setzerodata] offset=<offset> length=<length> <filename>
 
 ```
 
-## <a name="parameters"></a>Parametri
+### <a name="parameters"></a>Parametri
 
 |Parametro|Descrizione|
 |-------------|---------------|
 |CreateNew|Crea un file con il nome e le dimensioni specificati, con contenuto costituito da zeri.|
 |\<filename >|Specifica il percorso completo del file, inclusi il nome file e l'estensione, ad esempio C:\documents\filename.txt.|
-|\<length >|Specifica la lunghezza di dati valida del file.|
+|lunghezza \<>|Specifica la lunghezza di dati valida del file.|
 |findbysid|Trova i file che appartengono a un utente specificato nei volumi NTFS in cui sono abilitate le quote disco.|
-|\<username >|Specifica il nome utente o il nome di accesso dell'utente.|
-|\<directory >|Specifica il percorso completo della directory, ad esempio C:\Users.|
+|nome utente \<>|Specifica il nome utente o il nome di accesso dell'utente.|
+|> Directory \<|Specifica il percorso completo della directory, ad esempio C:\Users.|
 |optimizemetadata|In questo modo viene eseguita una compattazione immediata dei metadati per un determinato file.|
 |/A|Analizzare i metadati del file prima e dopo l'ottimizzazione.|
 |queryallocranges|Esegue una query sugli intervalli allocati per un file in un volume NTFS. Utile per determinare se un file ha aree di tipo sparse.|
-|offset = \<offset >|Specifica l'inizio dell'intervallo da impostare su zero.|
-|lunghezza = \<length >|Specifica la lunghezza dell'intervallo (in byte).|
+|offset = offset\<>|Specifica l'inizio dell'intervallo da impostare su zero.|
+|lunghezza = lunghezza\<>|Specifica la lunghezza dell'intervallo (in byte).|
 |queryextents|Esegue una query sugli extent per un file.|
 |/R|Se <filename> è un punto di analisi, aprirlo anziché la destinazione.|
 |\<startingvcn >|Specifica il primo VCN per eseguire una query. Se omesso, iniziare da VCN 0.|
 |\<numvcns >|Numero di VCNs di cui eseguire la query. Se omesso o 0, eseguire una query fino a EOF.|
-|queryfileid|Esegue una query sull'ID file di un file in un volume NTFS.<br /><br />Questo parametro si applica a:  Windows Server 2008 R2 e Windows 7.|
+|queryfileid|Esegue una query sull'ID file di un file in un volume NTFS.<p>Questo parametro si applica a: Windows Server 2008 R2 e Windows 7.|
 |\<volume >|Specifica il volume come nome dell'unità seguito da due punti.|
-|queryfilenamebyid|Visualizza un nome di collegamento casuale per un ID file specificato in un volume NTFS. Poiché un file può avere più di un nome di collegamento che punta a tale file, non è garantito quale collegamento al file verrà fornito come risultato della query per il nome file.<br /><br />Questo parametro si applica a:  Windows Server 2008 R2 e Windows 7.|
+|queryfilenamebyid|Visualizza un nome di collegamento casuale per un ID file specificato in un volume NTFS. Poiché un file può avere più di un nome di collegamento che punta a tale file, non è garantito quale collegamento al file verrà fornito come risultato della query per il nome file.<p>Questo parametro si applica a: Windows Server 2008 R2 e Windows 7.|
 |\<fileid >|Specifica l'ID del file in un volume NTFS.|
 |queryoptimizemetadata|Esegue una query sullo stato dei metadati di un file.|
 |queryvaliddata|Esegue una query sulla lunghezza dei dati valida per un file.|
 |/D|Visualizza informazioni dettagliate sui dati validi.|
 |seteof|Imposta il EOF del file specificato.|
 |seshortname|Imposta il nome breve (8,3 nome file di lunghezza carattere) per un file in un volume NTFS.|
-|\<shortname >|Specifica il nome breve del file.|
+|\<ShortName >|Specifica il nome breve del file.|
 |setvaliddata|Imposta la lunghezza dei dati valida per un file in un volume NTFS.|
-|\<datalength >|Specifica la lunghezza del file in byte.|
+|\<DATALENGTH >|Specifica la lunghezza del file in byte.|
 |setzerodata|Imposta un intervallo (specificato in base all' *offset* e alla *lunghezza*) del file su zero, che consente di svuotare il file. Se il file è di tipo sparse, viene eseguito il commit delle unità di allocazione sottostanti.|
 
 ## <a name="remarks"></a>Note
@@ -87,7 +87,7 @@ fsutil file [setzerodata] offset=<offset> length=<length> <filename>
 
     -   Creazione di file di grandi dimensioni quando le prestazioni sono un problema. In questo modo si evita il tempo necessario per riempire il file con zeri quando il file viene creato o esteso.
 
-## <a name="BKMK_examples"></a>Esempi
+## <a name="examples"></a><a name="BKMK_examples"></a>Esempi
 Per trovare i file di proprietà di scottb nell'unità C, digitare:
 
 ```
@@ -136,8 +136,8 @@ Per impostare un intervallo di un file in un volume NTFS su zero, digitare:
 fsutil file setzerodata offset=100 length=150 c:\temp\sample.txt  
 ```
 
-#### <a name="additional-references"></a>Altri riferimenti
-[Indicazioni generali sulla sintassi della riga di comando](Command-Line-Syntax-Key.md)
+## <a name="additional-references"></a>Altre informazioni di riferimento
+- [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
 
 [Fsutil](Fsutil.md)
 

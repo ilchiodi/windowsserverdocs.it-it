@@ -1,7 +1,6 @@
 ---
 ms.assetid: d254fca3-85a1-424d-ac22-d6687ec3798e
 title: Fornire agli utenti di Active Directory l'accesso ai servizi e alle applicazioni in grado di riconoscere attestazioni
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 48436f8e98af965f2bc2b38d296c4a15924e4db1
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 0cb530eacfa8239f3a2a135397e54becfadb602b
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71407959"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80858574"
 ---
 # <a name="provide-your-active-directory-users-access-to-your-claims-aware-applications-and-services"></a>Fornire agli utenti di Active Directory l'accesso ai servizi e alle applicazioni in grado di riconoscere attestazioni
 
@@ -35,7 +34,7 @@ Per questo obiettivo di distribuzione, sono necessari i componenti seguenti:
     > [!NOTE]  
     > È anche possibile usare Lightweight Directory Access Protocol \(\) LDAP o Structured Query Language \(SQL\) per includere le identità per la generazione di token AD FS.  
   
--   **DNS aziendale:** Questa implementazione di Domain Name System \(\) DNS contiene un host semplice \(un\) record di risorse in modo che i client Intranet possano individuare il server federativo di account. Questa implementazione di DNS può ospitare anche altri record DNS necessari nella rete aziendale. Per altre informazioni, vedere [Name Resolution Requirements for Federation Servers](Name-Resolution-Requirements-for-Federation-Servers.md).  
+-   **DNS aziendale:** Questa implementazione di Domain Name System \(\) DNS contiene un host semplice \(un\) record di risorse in modo che i client Intranet possano individuare il server federativo di account. Questa implementazione di DNS può ospitare anche altri record DNS necessari nella rete aziendale. Per altre informazioni, vedere [Requisiti di risoluzione dei nomi per i server federativi](Name-Resolution-Requirements-for-Federation-Servers.md).  
   
 -   **Server federativo partner account:** Questo server federativo è aggiunto a un dominio nella foresta del partner account. Autentica gli account utente dei dipendenti e genera i token AD FS. Il computer client per il dipendente esegue l'autenticazione integrata di Windows su questo server federativo per generare un token di AD FS. Per altre informazioni, vedere [Review the Role of the Federation Server in the Account Partner](Review-the-Role-of-the-Federation-Server-in-the-Account-Partner.md).  
   

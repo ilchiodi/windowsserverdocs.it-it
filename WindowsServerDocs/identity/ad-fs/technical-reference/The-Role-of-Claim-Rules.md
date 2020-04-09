@@ -1,7 +1,6 @@
 ---
 ms.assetid: 65e474b5-3076-4ba3-809d-a09160f7c2bd
 title: Ruolo delle regole attestazioni
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 98171c215f9c091795ce43e09e533432a8e67835
-ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
+ms.openlocfilehash: a1e324724f6e56782633357630c26417e0b4c4f2
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79320055"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80860184"
 ---
 # <a name="the-role-of-claim-rules"></a>Ruolo delle regole attestazioni
 La funzione complessiva del Servizio federativo in Active Directory Federation Services \(AD FS\) consiste nell'emettere un token che contiene un set di attestazioni. La decisione che riguarda le attestazioni ADFS accetta e quindi invia è disciplinata dalle regole attestazione.
@@ -100,11 +99,11 @@ La tabella seguente descrive i vari tipi di set di regole attestazioni e spiega 
 
 |Tipo di set di regole attestazioni|Descrizione|Usato in|
 |-----------------------|---------------|-----------|
-|Set di regole di trasformazione accettazione|Set di regole attestazioni usato in un trust del provider di attestazioni specifico per indicare le attestazioni in ingresso che verranno accettate dall'organizzazione del provider di attestazioni e le attestazioni in uscita che verranno inviate al trust della relying party.<br /><br />Le attestazioni in ingresso che verranno usate come origine per il set di regole saranno le attestazioni di output del set di regole di trasformazione rilascio come specificato nell'organizzazione del provider di attestazioni.<br /><br />Per impostazione predefinita, il nodo di attendibilità provider di attestazioni contiene un'attendibilità del provider di attestazioni denominata **Active Directory** che viene utilizzata per rappresentare l'archivio di attributi di origine per il set di regole di trasformazione accettazione. Questo oggetto trust viene usato per rappresentare la connessione dal servizio federativo a un database di Active Directory nella rete. Questo trust predefinito elabora le attestazioni per gli utenti che sono stati autenticati da Active Directory e non può essere eliminato.|Trust del provider di attestazioni|
-|Set di regole di trasformazione rilascio|Set di regole attestazioni usato in un trust della relying party per specificare le attestazioni che verranno rilasciate alla relying party.<br /><br />Le attestazioni in ingresso che verranno usate come origine per il set di regole saranno inizialmente le attestazioni di output delle regole di trasformazione accettazione.|Trust della relying party|
-|Set di regole di autorizzazione di rilascio|Set di regole attestazioni usato in un trust della relying party per specificare gli utenti che potranno ricevere un token per la relying party.<br /><br />Queste regole determinano se un utente può ricevere attestazioni per una relying party e perciò accedere alla relying party.<br /><br />A meno che non si specifichi una regola di autorizzazione rilascio, a tutti gli utenti viene negato l'accesso per impostazione predefinita.|Trust della relying party|
-|Set di regole di autorizzazione di delega|Set di regole attestazioni usato in un trust della relying party per specificare gli utenti che potranno fungere da delegati per altri utenti nella relying party.<br /><br />Queste regole determinano se il richiedente può rappresentare un utente identificando comunque il richiedente nel token inviato alla relying party.<br /><br />A meno che non si specifichi una regola di autorizzazione di delega, nessun utente può fungere da delegati per impostazione predefinita.|Trust della relying party|
-|Set di regole di autorizzazione di rappresentazione|Set di regole attestazioni configurato usando Windows PowerShell per determinare se un utente può rappresentare completamente un altro utente nella relying party.<br /><br />Queste regole determinano se il richiedente può rappresentare un utente senza identificare il richiedente nel token inviato alla relying party.<br /><br />La rappresentazione di un altro utente in questo modo è una funzionalità molto potente, perché la relying party non riconoscerà che l'utente è rappresentato.|Trust della relying party|
+|Set di regole di trasformazione accettazione|Set di regole attestazioni usato in un trust del provider di attestazioni specifico per indicare le attestazioni in ingresso che verranno accettate dall'organizzazione del provider di attestazioni e le attestazioni in uscita che verranno inviate al trust della relying party.<p>Le attestazioni in ingresso che verranno usate come origine per il set di regole saranno le attestazioni di output del set di regole di trasformazione rilascio come specificato nell'organizzazione del provider di attestazioni.<p>Per impostazione predefinita, il nodo di attendibilità provider di attestazioni contiene un'attendibilità del provider di attestazioni denominata **Active Directory** che viene utilizzata per rappresentare l'archivio di attributi di origine per il set di regole di trasformazione accettazione. Questo oggetto trust viene usato per rappresentare la connessione dal servizio federativo a un database di Active Directory nella rete. Questo trust predefinito elabora le attestazioni per gli utenti che sono stati autenticati da Active Directory e non può essere eliminato.|Trust del provider di attestazioni|
+|Set di regole di trasformazione rilascio|Set di regole attestazioni usato in un trust della relying party per specificare le attestazioni che verranno rilasciate alla relying party.<p>Le attestazioni in ingresso che verranno usate come origine per il set di regole saranno inizialmente le attestazioni di output delle regole di trasformazione accettazione.|Trust della relying party|
+|Set di regole di autorizzazione di rilascio|Set di regole attestazioni usato in un trust della relying party per specificare gli utenti che potranno ricevere un token per la relying party.<p>Queste regole determinano se un utente può ricevere attestazioni per una relying party e perciò accedere alla relying party.<p>A meno che non si specifichi una regola di autorizzazione rilascio, a tutti gli utenti viene negato l'accesso per impostazione predefinita.|Trust della relying party|
+|Set di regole di autorizzazione di delega|Set di regole attestazioni usato in un trust della relying party per specificare gli utenti che potranno fungere da delegati per altri utenti nella relying party.<p>Queste regole determinano se il richiedente può rappresentare un utente identificando comunque il richiedente nel token inviato alla relying party.<p>A meno che non si specifichi una regola di autorizzazione di delega, nessun utente può fungere da delegati per impostazione predefinita.|Trust della relying party|
+|Set di regole di autorizzazione di rappresentazione|Set di regole attestazioni configurato usando Windows PowerShell per determinare se un utente può rappresentare completamente un altro utente nella relying party.<p>Queste regole determinano se il richiedente può rappresentare un utente senza identificare il richiedente nel token inviato alla relying party.<p>La rappresentazione di un altro utente in questo modo è una funzionalità molto potente, perché la relying party non riconoscerà che l'utente è rappresentato.|Trust della relying party|
 
 Per ulteriori informazioni su, selezionare le regole attestazione appropriato da utilizzare nell'organizzazione, vedere [determinare il tipo di modello di regola da utilizzare](Determine-the-Type-of-Claim-Rule-Template-to-Use.md).
 

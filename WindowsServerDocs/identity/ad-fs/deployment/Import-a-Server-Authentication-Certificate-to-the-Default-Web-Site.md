@@ -1,7 +1,6 @@
 ---
 ms.assetid: e1f2ce2d-b24f-4ccd-8add-9e69419fc6c1
 title: Importare un certificato di autenticazione server nel sito Web predefinito
-description: ''
 author: billmath
 manager: femila
 ms.date: 05/31/2017
@@ -9,12 +8,12 @@ ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: b1c602d0cdfa562469419de223f5691ec2ff4527
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 3f02358167b024247f934a46218028575e393ba9
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71359558"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80855404"
 ---
 # <a name="import-a-server-authentication-certificate-to-the-default-web-site"></a>Importare un certificato di autenticazione server nel sito Web predefinito
 
@@ -27,13 +26,13 @@ Se si configura una farm, assicurarsi di eseguire questa procedura in modo ident
 > [!NOTE]  
 > Lo snap\-di gestione AD FS in fa riferimento ai certificati di autenticazione server per i server federativi come certificati di comunicazione del servizio.  
   
-Per completare questa procedura, è necessaria almeno l'appartenenza al gruppo **Administrators** oppure a un gruppo equivalente nel computer locale.  Informazioni dettagliate sull'utilizzo degli account appropriati e appartenenze [dominio gruppi predefiniti locali e](https://go.microsoft.com/fwlink/?LinkId=83477).   
+L'appartenenza al gruppo **Administrators**, o a un gruppo equivalente, nel computer locale è il requisito minimo per eseguire questa procedura.  Informazioni dettagliate sull'utilizzo degli account appropriati e appartenenze [dominio gruppi predefiniti locali e](https://go.microsoft.com/fwlink/?LinkId=83477).   
   
-### <a name="to-import-a-server-authentication-certificate-to-the-default-web-site"></a>Per importare un certificato di autenticazione server nel sito Web predefinito  
+### <a name="to-import-a-server-authentication-certificate-to-the-default-web-site"></a>Importazione di un certificato di autenticazione server nel sito Web predefinito  
   
 1.  Nella schermata **Start** digitare**Internet Information Services \(IIS\) Manager**, quindi premere INVIO.  
   
-2.  Nell'albero della console fare clic su **Nome computer**.  
+2.  Nell'albero della console fare clic su **NomeComputer**.  
   
 3.  Nel riquadro centrale, fare doppio\-fare clic su **certificati server**.  
   
@@ -41,9 +40,9 @@ Per completare questa procedura, è necessaria almeno l'appartenenza al gruppo *
   
 5.  Nella finestra di dialogo **Importa certificato** fare clic su **...** .  
   
-6.  Passare al percorso del file di certificato pfx, evidenziarlo e quindi fare clic su **Apri**.  
+6.  Passare al percorso del file di certificato con estensione pfx, evidenziarlo e quindi fare clic su **Apri**.  
   
-7.  Immettere una password per il certificato e quindi fare clic su **OK**.  
+7.  Digitare una password per il certificato, quindi fare clic su **OK**.  
   
 ## <a name="additional-references"></a>Altri riferimenti  
 [Elenco di controllo: configurazione di un server federativo](Checklist--Setting-Up-a-Federation-Server.md)  

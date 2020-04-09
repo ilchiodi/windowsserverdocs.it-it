@@ -1,32 +1,28 @@
 ---
 title: Filtrare e ordinare i dati ed eseguire query su di essi nei riquadri di Server Manager
 description: Server Manager
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-server-manager
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 8786f791-73e5-4c75-8d12-46e88a196976
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 89604b73fd071030d0f800b3a38a7ac3858ef1c6
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: e8447d06c03b6adca00966d05978d4337d9b5984
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71383199"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80851534"
 ---
 # <a name="filter-sort-and-query-data-in-server-manager-tiles"></a>Filtrare e ordinare i dati ed eseguire query su di essi nei riquadri di Server Manager
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 In Windows Server, a sezioni in Server Manager consentono filtrare e ordinare i dati, creare e salvare query personalizzate. È possibile ordinare, utilizzare filtri ed eseguire query sulle voci di elenco i riquadri eventi, prestazioni, Best Practices Analyzer, servizi e i ruoli e funzionalità in server pagine ruolo o gruppo di Server Manager.  
   
-In questo argomento sono incluse le sezioni seguenti.  
+In questo argomento sono contenute le seguenti sezioni.  
   
 -   [Filtrare le voci dell'elenco nei riquadri](#BKMK_tiles)  
   
@@ -34,7 +30,7 @@ In questo argomento sono incluse le sezioni seguenti.
   
 -   [creare ed eseguire query personalizzate nei dati del riquadro](#BKMK_query)  
   
-## <a name="BKMK_tiles"></a>Filtrare le voci dell'elenco nei riquadri  
+## <a name="filter-list-entries-in-tiles"></a><a name=BKMK_tiles></a>Filtrare le voci dell'elenco nei riquadri  
 La casella di testo **Filtro** consente di ridurre l'elenco di voci visualizzate in un riquadro mostrando solo quelle che contengono una stringa di testo specificata.  
   
 #### <a name="to-apply-a-filter-to-the-list-of-entries-in-a-tile"></a>Per applicare un filtro all'elenco di voci in un riquadro  
@@ -49,10 +45,10 @@ La casella di testo **Filtro** consente di ridurre l'elenco di voci visualizzate
   
 4.  Per cancellare il filtro, eliminare la stringa nella casella del filtro oppure fare clic su **X**.  
   
-## <a name="BKMK_sort"></a>ordinare le voci dell'elenco nei riquadri  
+## <a name="sort-list-entries-in-tiles"></a><a name=BKMK_sort></a>ordinare le voci dell'elenco nei riquadri  
 ordinare le voci dell'elenco nei riquadri Server Manager facendo clic sulle intestazioni di colonna. Se si fa clic su un'intestazione di colonna i valori della colonna vengono visualizzati in ordine alfanumerico crescente (freccia rivolta verso l'alto). Se si fa di nuovo clic, i valori della colonna vengono visualizzati in ordine alfanumerico decrescente (freccia rivolta verso il basso).  
   
-## <a name="BKMK_query"></a>creare ed eseguire query personalizzate nei dati del riquadro  
+## <a name="create-and-run-custom-queries-on-tile-data"></a><a name=BKMK_query></a>creare ed eseguire query personalizzate nei dati del riquadro  
 È possibile creare query personalizzate in riquadri eventi, prestazioni, Best Practices Analyzer, servizi o i ruoli e funzionalità in Server Manager. Per impostazione predefinita, l'area della barra degli strumenti del riquadro in cui si selezionano i criteri per la compilazione di una query personalizzata è nascosta; fare clic su **Espandi** (pulsante di espansione sul bordo destro della barra degli strumenti del riquadro) per visualizzare i criteri di query.  
   
 #### <a name="to-create-a-custom-query-for-tile-data"></a>Per creare una query personalizzata per i dati del riquadro  
@@ -85,7 +81,7 @@ ordinare le voci dell'elenco nei riquadri Server Manager facendo clic sulle inte
   
 12. Per eliminare una query salvata, fare clic su **Query salvate**, quindi fare clic su **X** accanto al nome della query salvata da eliminare.  
   
-## <a name="see-also"></a>Vedere anche  
+## <a name="see-also"></a>Vedi anche  
 [Server Manager](server-manager.md)  
 [Visualizzare e configurare dati relativi a prestazioni, eventi e servizi](view-and-configure-performance-event-and-service-data.md)  
   

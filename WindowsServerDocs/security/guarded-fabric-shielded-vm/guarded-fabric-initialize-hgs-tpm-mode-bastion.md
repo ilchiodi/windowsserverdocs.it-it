@@ -1,18 +1,18 @@
 ---
 title: Inizializzare il cluster HGS usando la modalità TPM in una foresta Bastion
-ms.custom: na
 ms.prod: windows-server
 ms.topic: article
 manager: dongill
 author: rpsqrd
+ms.author: ryanpu
 ms.technology: security-guarded-fabric
 ms.date: 08/29/2018
-ms.openlocfilehash: b360f0f5195bea3c61f9a181b4b75a681f7e29b9
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 09fa226b4e7189904d5baa54fb2b59c18a800948
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71403606"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80856634"
 ---
 # <a name="initialize-the-hgs-cluster-using-tpm-mode-in-an-existing-bastion-forest"></a>Inizializzare il cluster HGS usando la modalità TPM in una foresta Bastion esistente
 
@@ -39,7 +39,7 @@ Install-ADServiceAccount -Identity 'HGSgMSA'
 Initialize-HgsServer -UseExistingDomain -ServiceAccount 'HGSgMSA' -JeaReviewersGroup 'HgsJeaReviewers' -JeaAdministratorsGroup 'HgsJeaAdmins' -HgsServiceName 'HgsService' -SigningCertificatePath '.\signCert.pfx' -SigningCertificatePassword $signPass -EncryptionCertificatePath '.\encCert.pfx' -EncryptionCertificatePassword $encryptionCertPass -TrustTpm
 ```
 
-Se si usano i certificati installati nel computer locale (ad esempio certificati supportati da HSM e certificati non esportabili), usare invece i parametri `-SigningCertificateThumbprint` e `-EncryptionCertificateThumbprint`.
+Se si usano i certificati installati nel computer locale (ad esempio certificati con supporto HSM e certificati non esportabili), usare invece il `-SigningCertificateThumbprint` e `-EncryptionCertificateThumbprint` parametri.
 
 ## <a name="next-step"></a>Passaggio successivo
 

@@ -1,23 +1,18 @@
 ---
 title: Come configurare gli account protetti
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.service: na
-ms.suite: na
 ms.technology: security-auditing
-ms.tgt_pltfrm: na
 ms.topic: article
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/12/2016
-ms.openlocfilehash: 4dbcc3165a6226c60a3c6a5acf500c643c8ef4d9
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: 001a20267aef23e7e4457e0979dca40e821931f4
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75949918"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80857144"
 ---
 # <a name="how-to-configure-protected-accounts"></a>Come configurare gli account protetti
 
@@ -42,7 +37,7 @@ Utenti protetti è un nuovo gruppo di sicurezza globale a cui è possibile aggiu
   
 Gruppo di utenti protetti che sono firmati-on per i dispositivi Windows 8.1 e gli host Windows Server 2012 R2 possono *non è più* utilizzare:  
   
--   Delega delle credenziali (CredSSP) - predefinita non vengono memorizzate le credenziali in testo normale anche quando il **Consenti delega credenziali predefinite** criterio è abilitato  
+-   Delega delle credenziali predefinita (CredSSP): le credenziali in testo normale non vengono memorizzate nella cache, anche se è abilitato il criterio **Consenti delega credenziali predefinite**  
   
 -   Digest di Windows: le credenziali in testo normale non vengono memorizzate nella cache, anche se sono abilitate  
   
@@ -62,7 +57,7 @@ Se il livello funzionale del dominio è Windows Server 2012 R2, i membri del gru
   
 -   Rinnovare i ticket utente (TGT) di Kerberos oltre la durata iniziale di quattro ore.  
   
-Per aggiungere utenti al gruppo, è possibile utilizzare [strumenti dell'interfaccia Utente](https://technet.microsoft.com/library/cc753515.aspx) ad esempio Active Directory amministrativi CENTRO utenti di Active Directory e i computer o uno strumento da riga di comando, ad esempio [Dsmod group](https://technet.microsoft.com/library/cc732423.aspx), o Windows PowerShell[Add-ADGroupMember](https://technet.microsoft.com/library/ee617210.aspx) cmdlet. Account per servizi e computer *non dovrebbero* essere membri del gruppo utenti protetti. L'appartenenza per questi account non fornisce protezioni locali perché la password o il certificato è sempre disponibile nell'host.  
+Per aggiungere utenti al gruppo, è possibile utilizzare [strumenti dell'interfaccia Utente](https://technet.microsoft.com/library/cc753515.aspx) ad esempio Active Directory amministrativi CENTRO utenti di Active Directory e i computer o uno strumento da riga di comando, ad esempio [Dsmod group](https://technet.microsoft.com/library/cc732423.aspx), o Windows PowerShell[Add-ADGroupMember](https://technet.microsoft.com/library/ee617210.aspx) cmdlet. Gli account per i servizi e i computer *non devono* essere membri del gruppo Utenti protetti. L'appartenenza per questi account non fornisce protezioni locali perché la password o il certificato è sempre disponibile nell'host.  
   
 > [!WARNING]  
 > Non sono disponibili soluzioni alternative per le restrizioni dell'autenticazione, di conseguenza i membri di gruppi con privilegi elevati, ad esempio il gruppo Admins o il gruppo Domain Admins sono soggetti alle stesse restrizioni degli altri membri del gruppo Utenti protetti. Se tutti i membri di tali gruppi vengono aggiunti al gruppo utenti protetti, è possibile che tutti gli account vengano bloccati. Non è mai necessario aggiungere tutti gli account con privilegi elevati al gruppo utenti protetti fino a quando non si ha testato accuratamente il potenziale impatto.  
@@ -71,7 +66,7 @@ I membri del gruppo Utenti protetti devono essere in grado di eseguire l'autenti
   
 -   Non eseguire test in domini a meno che non **tutti i controller di dominio eseguono Windows Server 2008 o versione successiva**.  
   
--   **Modifica della password** per tutti gli account di dominio che sono stati creati *prima* il dominio è stato creato. In caso contrario, non sarà possibile autenticare questi account.  
+-   **Modificare la password** per tutti gli account di dominio creati *prima* della creazione del dominio stesso. In caso contrario, non sarà possibile autenticare questi account.  
   
 -   **Modifica della password** per ogni utente prima di aggiungere l'account per utenti protetti di gruppo o verificare che la password sia stata modificata di recente in un controller di dominio che esegue Windows Server 2008 o versione successiva.  
   
@@ -86,7 +81,7 @@ Per gli account protetti sono previsti i requisiti di distribuzione seguenti:
 In questa sezione vengono illustrati i nuovi registri che consentono di risolvere i problemi relativi agli eventi correlati a Utenti protetti e viene descritto il modo in cui il gruppo Utenti protetti può influire sulle modifiche per la risoluzione dei problemi relativi alla delega o alla scadenza dei ticket di concessione ticket (TGT).  
   
 #### <a name="new-logs-for-protected-users"></a>Nuovi registri per Utenti protetti  
-Due nuovi registri amministrativi sono disponibili per la risoluzione di eventi relativi a utenti protetti: utenti protetti - Client Log e Protected User Failures - Domain Controller Log. Questi due nuovi registri sono disponibili nel Visualizzatore eventi e sono disabilitati per impostazione predefinita. Per abilitare un registro, fare clic su **registri applicazioni e servizi**, fare clic su **Microsoft**, fare clic su **Windows**, fare clic su **autenticazione**, quindi fare clic sul nome del log e fare clic su **azione** (o destro di log) e fare clic su **Attiva registro**.  
+Due nuovi registri amministrativi sono disponibili per la risoluzione di eventi relativi a utenti protetti: utenti protetti - Client Log e Protected User Failures - Domain Controller Log. Questi due nuovi registri sono disponibili nel Visualizzatore eventi e sono disabilitati per impostazione predefinita. Per abilitare un registro, fare clic su **Registri applicazioni e servizi**, **Microsoft**, **Windows**, **Autenticazione**, sul nome del registro, quindi su **Azione** (o fare clic con il pulsante destro del mouse sul log) e infine scegliere **Attiva registro**.  
   
 Per ulteriori informazioni sugli eventi in questi registri, vedere [criteri di autenticazione e silo di criteri di autenticazione](https://technet.microsoft.com/library/dn486813.aspx).  
   
@@ -95,22 +90,22 @@ In genere, il controller di dominio imposta la durata e il rinnovo del ticket di
   
 ![account protetti](../media/how-to-configure-protected-accounts/ADDS_ProtectAcct_TGTExpiration.png)  
   
-Per **utenti protetti**, le impostazioni seguenti sono hardcoded:  
+Per **Utenti protetti**, le impostazioni seguenti sono hardcoded:  
   
 -   Durata massima ticket utente: 240 minuti  
   
 -   Durata massima rinnovo ticket utente: 240 minuti  
   
 #### <a name="troubleshoot-delegation-issues"></a>Risolvere i problemi relativi alla delega  
-In precedenza, se si verifica un errore una tecnologia che utilizza la delega Kerberos, l'account del client è stato controllato per verificare se **Account è sensibile e non può essere delegato** è stata impostata. Tuttavia, se l'account è un membro di **utenti protetti**, potrebbe non contenere questa impostazione configurata in Active Directory amministrativi CENTRO. Di conseguenza, per la risoluzione dei problemi relativi alla delega, verificare l'impostazione e l'appartenenza al gruppo.  
+In generale, se si verifica un errore in una tecnologia che usa la delega Kerberos, l'account del client viene controllato per verificare se è impostata l'opzione **L'account è sensibile e non può essere delegato**. Se tuttavia l'account è un membro del gruppo **Utenti protetti**, questa opzione potrebbe non essere configurata nel Centro di amministrazione di Active Directory. Di conseguenza, per la risoluzione dei problemi relativi alla delega, verificare l'impostazione e l'appartenenza al gruppo.  
   
 ![account protetti](../media/how-to-configure-protected-accounts/ADDS_ProtectAcct_TshootDelegation.gif)  
   
 ### <a name="audit-authentication-attempts"></a>Controllare i tentativi di autenticazione  
-Per controllare in modo esplicito i tentativi di autenticazione per i membri del **utenti protetti** gruppo, è possibile continuare a raccogliere eventi di controllo del Registro di protezione o raccogliere i dati nei nuovi registri amministrativi. Per ulteriori informazioni su questi eventi, vedere [criteri di autenticazione e silo di criteri di autenticazione](https://technet.microsoft.com/library/dn486813.aspx).  
+Per controllare in modo esplicito i tentativi di autenticazione per i membri del gruppo **Utenti protetti**, è possibile continuare a raccogliere eventi di controllo del registro di protezione o a raccogliere i dati nei nuovi registri amministrativi. Per ulteriori informazioni su questi eventi, vedere [criteri di autenticazione e silo di criteri di autenticazione](https://technet.microsoft.com/library/dn486813.aspx).  
   
 ### <a name="provide-dc-side-protections-for-services-and-computers"></a>Fornire protezioni sul lato controller di dominio per servizi e computer  
-Account per servizi e i computer non possono essere membri di **utenti protetti**. In questa sezione vengono illustrate le protezioni sul lato controller di dominio disponibili per questi account:  
+Gli account per i servizi e i computer non possono essere membri del gruppo **Utenti protetti**. In questa sezione vengono illustrate le protezioni sul lato controller di dominio disponibili per questi account:  
   
 -   Rifiutare l'autenticazione NTLM: configurabile solo tramite i [criteri di blocco NTLM](https://technet.microsoft.com/library/jj865674(v=ws.10).aspx).  
   
@@ -174,7 +169,7 @@ I criteri di autenticazione integrano il gruppo Utenti protetti, offrendo un mod
   
 ### <a name="requirements-for-using-authentication-policies"></a>Requisiti per l'uso dei criteri di autenticazione  
   
-|Criteri di|Requisiti|  
+|Condizione|Requisiti|  
 |-----|--------|  
 |Specifica durate TGT personalizzate| Domini di account con livello funzionale di dominio Windows Server 2012 R2|  
 |Limita l'accesso utente|-Domini di account con livello funzionale di dominio Windows Server 2012 R2 con il supporto di controllo dinamico degli accessi<br />-Dispositivi Windows 8, Windows 8.1, Windows Server 2012 o Windows Server 2012 R2 con supporto per il controllo dinamico degli accessi|  
@@ -182,18 +177,18 @@ I criteri di autenticazione integrano il gruppo Utenti protetti, offrendo un mod
 |Limita il rilascio di ticket di servizio basati su attestazioni utente o account del dispositivo, gruppi di sicurezza o attestazioni| Domini di risorse a livello funzionale di dominio di Windows Server 2012 R2 con il supporto di controllo dinamico degli accessi|  
   
 ### <a name="restrict-a-user-account-to-specific-devices-and-hosts"></a>Limitare un account utente a dispositivi e host specifici  
-Un valore elevato di account con privilegi amministrativi deve essere un membro del **utenti protetti** gruppo. Per impostazione predefinita, nessun account è membro del **utenti protetti** gruppo. Prima di aggiungere account al gruppo, configurare il supporto per il controller di dominio e creare un criterio di controllo per verificare che non vi siano problemi di blocco.  
+È opportuno che un account a valore elevato con privilegi amministrativi sia membro del gruppo **Utenti protetti**. Per impostazione predefinita, nessun account è membro del gruppo **Utenti protetti**. Prima di aggiungere account al gruppo, configurare il supporto per il controller di dominio e creare un criterio di controllo per verificare che non vi siano problemi di blocco.  
   
 #### <a name="configure-domain-controller-support"></a>Configurare il supporto per il controller di dominio  
 Il dominio dell'account utente deve essere a livello funzionale di dominio Windows Server 2012 R2 (Livello). Verificare che tutti i controller di dominio siano Windows Server 2012 R2 e quindi utilizzano Active Directory Domains and Trusts per [aumentare il livello di funzionalità DEL](https://technet.microsoft.com/library/cc753104.aspx) a Windows Server 2012 R2.  
   
 **Per configurare il supporto per il controllo dinamico degli accessi**  
   
-1.  Nel criterio controller di dominio predefinito, fare clic su **Enabled** per abilitare **supporto client Centro distribuzione chiavi (KDC) di attestazioni, autenticazione composta e blindatura Kerberos** in configurazione Computer | Modelli amministrativi | Sistema | KDC.  
+1.  Nel criterio Controller di dominio predefiniti fare clic su **Abilitato** per abilitare l'impostazione **Supporto client Centro distribuzione chiavi Kerberos per attestazioni, autenticazione composta e blindatura Kerberos** in Configurazione computer | Modelli amministrativi | Sistema | KDC.  
   
     ![account protetti](../media/how-to-configure-protected-accounts/ADDS_ProtectAcct_EnableKDCClaims.gif)  
   
-2.  In **Opzioni**, nella casella di riepilogo a discesa, selezionare **Fornisci sempre attestazioni**.  
+2.  Nell'elenco a discesa **Opzioni** selezionare **Fornisci sempre attestazioni**.  
   
     > [!NOTE]  
     > **Supportato** può anche essere configurato, ma poiché il dominio è Windows Server 2012 R2 DFL, con i controller di dominio sempre fornire attestazioni consentirà l'accesso basato sulle attestazioni utente si verificano quando si utilizzano dispositivi grado di riconoscere attestazioni non controlla e dagli host per connettersi ai servizi in grado di riconoscere attestazioni.  
@@ -212,13 +207,13 @@ Il dominio dell'account utente deve essere a livello funzionale di dominio Windo
     > [!NOTE]  
     > Selezionato **autenticazione** nodo è visibile per i domini sono funzionalità del Dominio di Windows Server 2012 R2. Se non viene visualizzato il nodo, quindi riprovare utilizzando un account di amministratore di dominio da un dominio al Dominio di Windows Server 2012 R2.  
   
-2.  Fare clic su **criteri di autenticazione**, quindi fare clic su **New** per creare un nuovo criterio.  
+2.  Fare clic su **Criteri di autenticazione** e quindi su **Nuovo** per creare un nuovo criterio.  
   
     ![account protetti](../media/how-to-configure-protected-accounts/ADDS_ProtectAcct_NewAuthNPolicy.gif)  
   
     I criteri di autenticazione devono avere un nome visualizzato e vengono imposti per impostazione predefinita.  
   
-3.  Per creare un criterio di solo controllo, fare clic su **solo restrizioni dei criteri di controllo**.  
+3.  Per creare un criterio di solo controllo, fare clic su **Solo restrizioni dei criteri di controllo**.  
   
     ![account protetti](../media/how-to-configure-protected-accounts/ADDS_ProtectAcct_NewAuthNPolicyAuditOnly.gif)  
   
@@ -232,44 +227,44 @@ Il dominio dell'account utente deve essere a livello funzionale di dominio Windo
   
     Se lo schema è stato esteso con nuove entità che possono essere usate dal Centro distribuzione chiavi (KDC), il nuovo tipo di account sarà classificato come il tipo di account derivato più vicino.  
   
-4.  Per configurare una durata TGT per gli account utente, selezionare il **specificare una durata Ticket di concessione Ticket per gli account utente** casella di controllo e immettere il tempo in minuti.  
+4.  Per configurare una durata del ticket di concessione ticket (TGT), selezionare la casella di controllo **Specificare una durata Ticket Granting Ticket per gli account utente** e specificare il tempo in minuti.  
   
     ![account protetti](../media/how-to-configure-protected-accounts/ADDS_ProtectAcct_TGTLifetime.gif)  
   
-    Ad esempio, se si desidera una durata TGT massima di 10 ore, immettere **600** come illustrato. Se non è configurata alcuna durata TGT, quindi se l'account è un membro del **utenti protetti** gruppo, la durata TGT e rinnovo è 4 ore. In caso contrario, la durata e il rinnovo del ticket di concessione ticket (TGT) sono impostati in base ai criteri di dominio, come illustrato nella finestra dell'Editor Gestione Criteri di gruppo seguente per un dominio con impostazioni predefinite.  
+    Se ad esempio si vuole impostare una durata TGT massima di 10 ore, specificare **600**, come indicato. Se non è configurata una durata TGT, se l'account è membro del gruppo **Protected Users**, la durata e il rinnovo del ticket di concessione ticket (TGT) è di 4 ore. In caso contrario, la durata e il rinnovo del ticket di concessione ticket (TGT) sono impostati in base ai criteri di dominio, come illustrato nella finestra dell'Editor Gestione Criteri di gruppo seguente per un dominio con impostazioni predefinite.  
   
     ![account protetti](../media/how-to-configure-protected-accounts/ADDS_ProtectAcct_TGTExpiration.png)  
   
-5.  Per limitare l'account utente per selezionare i dispositivi, fare clic su **modificare** per definire le condizioni necessarie per il dispositivo.  
+5.  Per limitare l'account utente a determinati dispositivi, fare clic su **Modifica** per definire le condizioni necessarie per il dispositivo.  
   
     ![account protetti](../media/how-to-configure-protected-accounts/ADDS_ProtectAcct_EditAuthNPolicy.gif)  
   
-6.  Nel **modificare condizioni di controllo di accesso** finestra, fare clic su **aggiungere una condizione**.  
+6.  Nella finestra **Modifica condizioni di controllo di accesso** fare clic su **Aggiungi condizione**.  
   
     ![account protetti](../media/how-to-configure-protected-accounts/ADDS_ProtectAcct_AddCondition.png)  
   
 ##### <a name="add-computer-account-or-group-conditions"></a>Aggiungere condizioni per account computer o gruppi  
   
-1.  Per configurare gli account computer o gruppi, nell'elenco a discesa, selezionare la casella di riepilogo **membro di ogni** e modificare **membro di qualsiasi**.  
+1.  Per configurare account computer o gruppi, nell'elenco a discesa selezionare la voce **Membro di ogni** e sostituirla con **Membro di qualsiasi**.  
   
     ![account protetti](../media/how-to-configure-protected-accounts/ADDS_ProtectAcct_AddCompMember.png)  
   
     > [!NOTE]  
-    > Questo controllo di accesso definisce le condizioni del dispositivo o dell'host dal quale l'utente esegue l'accesso. Nella terminologia di controllo di accesso, l'account computer per il dispositivo o un host è l'utente, il motivo per cui **utente** è l'unica opzione.  
+    > Questo controllo di accesso definisce le condizioni del dispositivo o dell'host dal quale l'utente esegue l'accesso. Nella terminologia relativa al controllo di accesso, l'account computer per il dispositivo o l'host equivale all'utente, ecco perché **Utente** è l'unica opzione disponibile.  
   
-2.  Fare clic su **aggiungere elementi**.  
+2.  Fare clic su **Aggiungi elementi**.  
   
     ![account protetti](../media/how-to-configure-protected-accounts/ADDS_ProtectAcct_AddCompAddItems.png)  
   
-3.  Per modificare i tipi di oggetto, fare clic su **tipi di oggetto**.  
+3.  Per modificare i tipi di oggetto, fare clic su **Tipi di oggetto**.  
   
     ![account protetti](../media/how-to-configure-protected-accounts/ADDS_ProtectAcct_ChangeObjects.gif)  
   
-4.  Per selezionare gli oggetti computer in Active Directory, fare clic su **computer**, quindi fare clic su **OK**.  
+4.  Per selezionare gli oggetti computer in Active Directory, fare clic su **Computer** e quindi su **OK**.  
   
     ![account protetti](../media/how-to-configure-protected-accounts/ADDS_ProtectAcct_ChangeObjectsComputers.gif)  
   
-5.  Digitare il nome del computer per limitare l'utente e quindi fare clic su **Controlla nomi**.  
+5.  Digitare i nomi dei computer per i quali si vuole limitare l'utente e quindi fare clic su **Controlla nomi**.  
   
     ![account protetti](../media/how-to-configure-protected-accounts/ADDS_ProtectAcct_ChangeObjectsCompName.gif)  
   
@@ -277,7 +272,7 @@ Il dominio dell'account utente deve essere a livello funzionale di dominio Windo
   
     ![account protetti](../media/how-to-configure-protected-accounts/ADDS_ProtectAcct_AddCompAddConditions.png)  
   
-7.  Al termine, quindi fare clic su **OK** e verranno visualizzate le condizioni definite per l'account computer.  
+7.  Al termine, fare clic su **OK** per visualizzare le condizioni definite per l'account computer.  
   
     ![account protetti](../media/how-to-configure-protected-accounts/ADDS_ProtectAcct_AddCompDone.png)  
   
@@ -298,23 +293,23 @@ Il dominio dell'account utente deve essere a livello funzionale di dominio Windo
     ![account protetti](../media/how-to-configure-protected-accounts/ADDS_ProtectAcct_CompClaimComplete.gif)  
   
 ##### <a name="troubleshoot-missing-computer-claims"></a>Risolvere i problemi relativi ad attestazioni computer mancanti  
-Se l'attestazione è stato eseguito il provisioning, ma non è disponibile, e può essere configurata solo per **Computer** classi.  
+Se è stato eseguito il provisioning dell'attestazione ma questa non è disponibile, è possibile che sia configurata solo per le classi **Computer**.  
   
 Si supponga che si desidera limitare l'autenticazione basata sull'unità organizzativa (OU) del computer, che era già configurato, ma solo per **Computer** classi.  
   
 ![account protetti](../media/how-to-configure-protected-accounts/ADDS_ProtectAcct_RestrictComputers.gif)  
   
-Per l'attestazione sia disponibile per limitare l'accesso utente al dispositivo, selezionare il **utente** casella di controllo.  
+Affinché l'attestazione sia disponibile per la limitazione dell'accesso utente al dispositivo, selezionare la casella di controllo **Utente**.  
   
 ![account protetti](../media/how-to-configure-protected-accounts/ADDS_ProtectAcct_RestrictUsersComputers.gif)  
   
 #### <a name="provision-a-user-account-with-an-authentication-policy-with-adac"></a>Eseguire il provisioning di un account utente con un criterio di autenticazione tramite il Centro di amministrazione di Active Directory  
   
-1.  Dal **utente** account, fare clic su **criteri**.  
+1.  Nell'account **Utente** fare clic su **Criterio**.  
   
     ![account protetti](../media/how-to-configure-protected-accounts/ADDS_ProtectAcct_UserPolicy.gif)  
   
-2.  Selezionare il **assegnare un criterio di autenticazione a questo account** casella di controllo.  
+2.  Selezionare la casella di controllo **Assegnare un criterio di autenticazione a questo account**.  
   
     ![account protetti](../media/how-to-configure-protected-accounts/ADDS_ProtectAcct_UserPolicyAssign.gif)  
   
@@ -325,7 +320,7 @@ Per l'attestazione sia disponibile per limitare l'accesso utente al dispositivo,
 #### <a name="configure-dynamic-access-control-support-on-devices-and-hosts"></a>Configurare il supporto per il controllo dinamico degli accessi su dispositivi e host  
 È possibile configurare durate del ticket di concessione ticket (TGT) senza configurare il controllo dinamico degli accessi. Il controllo dinamico degli accessi è necessario solo per il controllo di llowedToAuthenticateFrom e AllowedToAuthenticateTo.  
   
-Utilizzando criteri di gruppo o Editor criteri di gruppo, abilitare **supporto client Kerberos per attestazioni, autenticazione composta e blindatura Kerberos** in configurazione Computer | Modelli amministrativi | Sistema | Kerberos:  
+In Criteri di gruppo o nell'Editor Criteri di gruppo locale abilitare l'impostazione **Supporto client Kerberos per attestazioni, autenticazione composta e blindatura Kerberos** in Configurazione computer | Modelli amministrativi | Sistema | Kerberos.  
   
 ![account protetti](../media/how-to-configure-protected-accounts/ADDS_ProtectAcct_KerbClientDACSupport.gif)  
   
@@ -337,35 +332,35 @@ Nella sezione Account in Criterio di autenticazione sono visualizzati gli accoun
 ![account protetti](../media/how-to-configure-protected-accounts/ADDS_ProtectAcct_AccountsAssigned.gif)  
   
 #### <a name="use-the-authentication-policy-failures---domain-controller-administrative-log"></a>Utilizzare gli errori dei criteri di autenticazione - registro amministrativo di Controller di dominio  
-Un nuovo **Authentication Policy Failures - Controller di dominio** registro amministrativo in **registri applicazioni e servizi** > **Microsoft** > **Windows** > **autenticazione** è stata creata per semplificare l'individuazione degli errori a causa dei criteri di autenticazione. Questo registro è disabilitato per impostazione predefinita. Per abilitarlo, fare doppio clic il nome del log e fare clic su **Attiva registro**. I nuovi eventi presentano un contenuto molto simile a quello degli eventi di controllo del ticket di servizio e del ticket di concessione ticket (TGT) di Kerberos esistenti. Per ulteriori informazioni su questi eventi, vedere [criteri di autenticazione e silo di criteri di autenticazione](https://technet.microsoft.com/library/dn486813.aspx).  
+Un nuovo **Authentication Policy Failures - Controller di dominio** registro amministrativo in **registri applicazioni e servizi** > **Microsoft** > **Windows** > **autenticazione** è stata creata per semplificare l'individuazione degli errori a causa dei criteri di autenticazione. Questo registro è disabilitato per impostazione predefinita. Per abilitarlo, fare clic con il pulsante destro del mouse sul nome del registro e scegliere **Attiva registro**. I nuovi eventi presentano un contenuto molto simile a quello degli eventi di controllo del ticket di servizio e del ticket di concessione ticket (TGT) di Kerberos esistenti. Per ulteriori informazioni su questi eventi, vedere [criteri di autenticazione e silo di criteri di autenticazione](https://technet.microsoft.com/library/dn486813.aspx).  
   
 ### <a name="manage-authentication-policies-by-using-windows-powershell"></a>Gestire i criteri di autenticazione con Windows PowerShell  
-Questo comando crea un criterio di autenticazione denominato **TestAuthenticationPolicy**. Il **UserAllowedToAuthenticateFrom** parametro specifica i dispositivi da cui gli utenti possono autenticarsi tramite una stringa SDDL nel file denominato Somefile.  
+Questo comando crea un criterio di autenticazione denominato **TestAuthenticationPolicy**. Il parametro **UserAllowedToAuthenticateFrom** specifica i dispositivi dai quali gli utenti possono effettuare l'autenticazione tramite una stringa SDDL nel file denominato someFile.txt.  
   
 ```  
 PS C:\> New-ADAuthenticationPolicy testAuthenticationPolicy -UserAllowedToAuthenticateFrom (Get-Acl .\someFile.txt).sddl  
 ```  
   
-Questo comando Ottiene tutti i criteri di autenticazione che corrispondono al filtro che il **filtro** parametro specifica.  
+Questo comando recupera tutti i criteri di autenticazione corrispondenti al filtro specificato dal parametro **Filter**.  
   
 ```  
 PS C:\> Get-ADAuthenticationPolicy -Filter "Name -like 'testADAuthenticationPolicy*'" -Server Server02.Contoso.com  
   
 ```  
   
-Questo comando modifica la descrizione e il **UserTGTLifetimeMins** le proprietà dei criteri di autenticazione specificato.  
+Questo comando modifica la descrizione e le proprietà **UserTGTLifetimeMins** del criterio di autenticazione specificato.  
   
 ```  
 PS C:\> Set-ADAuthenticationPolicy -Identity ADAuthenticationPolicy1 -Description "Description" -UserTGTLifetimeMins 45  
 ```  
   
-Questo comando rimuove i criteri di autenticazione che il **identità** parametro specifica.  
+Questo comando rimuove il criterio di autenticazione specificato dal parametro **Identity**.  
   
 ```  
 PS C:\> Remove-ADAuthenticationPolicy -Identity ADAuthenticationPolicy1  
 ```  
   
-Questo comando Usa il **Get-ADAuthenticationPolicy** cmdlet con il **filtro** per ottenere tutti i criteri di autenticazione che non vengono applicati. Il set di risultati viene reindirizzato al **Remove-ADAuthenticationPolicy** cmdlet.  
+Questo comando usa il cmdlet **Get-ADAuthenticationPolicy** con il parametro **Filter** per recuperare tutti i criteri di autenticazione non imposti. Il set di risultati viene reindirizzato al cmdlet **Remove-ADAuthenticationPolicy**.  
   
 ```  
 PS C:\> Get-ADAuthenticationPolicy -Filter 'Enforce -eq $false' | Remove-ADAuthenticationPolicy  
@@ -421,11 +416,11 @@ Queste informazioni ai controller di dominio della risorsa richiede controllo di
   
 #### <a name="to-create-an-authentication-policy-silo-by-using-active-directory-administrative-center"></a>Per creare un silo di criteri di autenticazione con il Centro di amministrazione di Active Directory  
   
-1.  Aprire **Centro di amministrazione di Active Directory**, fare clic su **autenticazione**, fare doppio clic su **silo di criteri di autenticazione**, fare clic su **nuovo**, quindi fare clic su **Silo di criteri di autenticazione**.  
+1.  Aprire **Centro di amministrazione di Active Directory**, fare clic su **Autenticazione**, fare clic con il pulsante destro del mouse su **Silo di criteri di autenticazione**, scegliere **Nuovo** e quindi fare clic su **Silo di criteri di autenticazione**.  
   
     ![account protetti](../media/how-to-configure-protected-accounts/ADDS_ProtectAcct_CreateNewAuthNPolicySilo.gif)  
   
-2.  In **nome**, digitare un nome per il silo. In **account consentiti**, fare clic su **Aggiungi**, digitare i nomi degli account e quindi fare clic su **OK**. È possibile specificare account utente, computer o del servizio. Specificare quindi se usare un singolo criterio per tutte le entità o un criterio separato per ogni tipo di entità e il nome del criterio o dei criteri.  
+2.  In **Nome visualizzato** digitare un nome per il silo. In **Account consentiti** fare clic su **Aggiungi**, digitare i nomi degli account e quindi fare clic su **OK**. È possibile specificare account utente, computer o del servizio. Specificare quindi se usare un singolo criterio per tutte le entità o un criterio separato per ogni tipo di entità e il nome del criterio o dei criteri.  
   
     ![account protetti](../media/how-to-configure-protected-accounts/ADDS_ProtectAcct_NewAuthNPolicySiloDisplayName.gif)  
   
@@ -436,7 +431,7 @@ Questo comando crea un oggetto silo di criterio di autenticazione e lo impone.
 PS C:\>New-ADAuthenticationPolicySilo -Name newSilo -Enforce  
 ```  
   
-Questo comando Ottiene tutte le autenticazioni di silo di criteri che corrispondono al filtro specificato dal **filtro** parametro. L'output viene quindi passato per il **Format-Table** cmdlet per visualizzare il nome dei criteri di e il valore per **Imponi** in ogni criterio.  
+Questo comando recupera tutti i silo di criteri di autenticazione corrispondenti al filtro specificato dal parametro **Filter**. L'output viene quindi passato al cmdlet **Format-Table** per visualizzare il nome del criterio e il valore per **Enforce** in ogni criterio.  
   
 ```  
 PS C:\>Get-ADAuthenticationPolicySilo -Filter 'Name -like "*silo*"' | Format-Table Name, Enforce -AutoSize  
@@ -448,25 +443,25 @@ silos   False
   
 ```  
   
-Questo comando Usa il **Get-ADAuthenticationPolicySilo** cmdlet con il **filtro** per ottenere il risultato del filtro di silo di criteri di autenticazione che non vengono applicati le pipe di **Remove-ADAuthenticationPolicySilo** cmdlet.  
+Questo comando usa il cmdlet **Get-ADAuthenticationPolicySilo** con il parametro **Filter** per recuperare tutti i silo di criteri di autenticazione non imposti e indirizza il risultato del filtro al cmdlet **Remove-ADAuthenticationPolicySilo**.  
   
 ```  
 PS C:\>Get-ADAuthenticationPolicySilo -Filter 'Enforce -eq $False' | Remove-ADAuthenticationPolicySilo  
 ```  
   
-Questo comando concede l'accesso al silo di criteri di autenticazione denominato *Silo* per l'account utente denominato *User01*.  
+Questo comando concede l'accesso al silo di criteri di autenticazione denominato *Silo* all'account utente denominato *User01*.  
   
 ```  
 PS C:\>Grant-ADAuthenticationPolicySiloAccess -Identity Silo -Account User01  
 ```  
   
-Questo comando revoca l'accesso al silo di criteri di autenticazione denominato *Silo* per l'account utente denominato *User01*. Poiché il **conferma** parametro è impostato su **$False**, viene visualizzato alcun messaggio di conferma.  
+Questo comando revoca l'accesso al silo di criteri di autenticazione denominato *Silo* all'account utente denominato *User01*. Poiché il parametro **Confirm** è impostato su **$False**, non viene visualizzato alcun messaggio di conferma.  
   
 ```  
 PS C:\>Revoke-ADAuthenticationPolicySiloAccess -Identity Silo -Account User01 -Confirm:$False  
 ```  
   
-In questo esempio utilizza in primo luogo il **Get-ADComputer** per ottenere tutti gli account di computer che corrispondono al filtro che il **filtro** parametro specifica. L'output di questo comando viene passato a **Set-ADAccountAuthenticatinPolicySilo** per assegnare il silo di criteri di autenticazione denominato *Silo* e i criteri di autenticazione denominato *AuthenticationPolicy02* ad essi.  
+Nell'esempio viene prima usato il cmdlet **Get-ADComputer** per recuperare tutti gli account computer corrispondenti al filtro specificato dal parametro **Filter**. L'output di questo comando viene passato a **Set-ADAccountAuthenticatinPolicySilo** per assegnare gli account al silo di criteri di autenticazione denominato *Silo* e applicare loro il criterio di autenticazione denominato *AuthenticationPolicy02*.  
   
 ```  
 PS C:\>Get-ADComputer -Filter 'Name -like "newComputer*"' | Set-ADAccountAuthenticationPolicySilo -AuthenticationPolicySilo Silo -AuthenticationPolicy AuthenticationPolicy02  

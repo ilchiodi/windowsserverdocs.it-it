@@ -1,24 +1,20 @@
 ---
 title: 'che Ksetup: ChangePassword'
-description: 'Argomento dei comandi di Windows per * * * *- '
-ms.custom: na
+description: Argomento dei comandi di Windows per * * * *-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 283078e7-a88f-4875-90e6-f8605e6b7ea7
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 51be9e71c2b290e6346d23144543e0eec29f9d07
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 68b14388ff3c33458873b494c8d5a770b44f7545
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71375183"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80841784"
 ---
 # <a name="ksetupchangepassword"></a>che Ksetup: ChangePassword
 
@@ -32,7 +28,7 @@ Usa il valore della password Centro distribuzione chiavi (KDC) (kpasswd) per mod
 ksetup /changepassword <OldPasswd> <NewPasswd>
 ```
 
-### <a name="parameters"></a>Parametri
+#### <a name="parameters"></a>Parametri
 
 |Parametro|Descrizione|
 |---------|-----------|
@@ -51,7 +47,7 @@ Se si vuole forzare una modifica della password all'accesso successivo, questo c
 
 L'output del comando segnala lo stato di esito positivo o negativo.
 
-## <a name="BKMK_Examples"></a>Esempi
+## <a name="examples"></a><a name=BKMK_Examples></a>Esempi
 
 Modificare la password di un utente attualmente connesso al computer in questo dominio:
 ```
@@ -66,6 +62,6 @@ Forza l'utente attualmente connesso a modificare la password all'accesso success
 ksetup /changepassword Pas$w0rd *
 ```
 
-#### <a name="additional-references"></a>Altri riferimenti
+## <a name="additional-references"></a>Altre informazioni di riferimento
 
--   [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+-   - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

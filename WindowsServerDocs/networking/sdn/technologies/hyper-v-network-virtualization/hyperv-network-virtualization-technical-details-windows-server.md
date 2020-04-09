@@ -1,24 +1,19 @@
 ---
 title: Dettagli tecnici di virtualizzazione rete Hyper-V in Windows Server 2016
 description: In questo argomento vengono fornite informazioni tecniche su virtualizzazione rete Hyper-V in Windows Server 2016
-manager: brianlic
-ms.custom: na
+manager: grcusanz
 ms.prod: windows-server
-ms.reviewer: na
-ms.service: virtual-network
-ms.suite: na
 ms.technology: networking-sdn
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 9efe0231-94c1-4de7-be8e-becc2af84e69
-ms.author: lizross
-author: eross-msft
-ms.openlocfilehash: a8628404de8a1b9caccc7f7f51b063cabb1caf27
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.author: anpaul
+author: AnirbanPaul
+ms.openlocfilehash: 54fb9eba99a4e6dc565111a3f34c8ccceeca2ff4
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80317200"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80859704"
 ---
 # <a name="hyper-v-network-virtualization-technical-details-in-windows-server-2016"></a>Dettagli tecnici di virtualizzazione rete Hyper-V in Windows Server 2016
 
@@ -41,7 +36,7 @@ Esistono due implementazioni di Virtualizzazione che saranno disponibile in Wind
 
     HNVv1 è compatibile con Windows Server 2012 R2 e System Center 2012 R2 Virtual Machine Manager (VMM). Configurazione per HNVv1 si basa su gestione WMI e i cmdlet di Windows PowerShell (facilitati tramite System Center VMM) per definire le impostazioni di isolamento e indirizzo cliente (CA) - rete virtuale - mapping di indirizzo fisico (PA) e routing. Nessuna funzionalità aggiuntiva è stati aggiunti a HNVv1 in Windows Server 2016 e non include nuove funzionalità sono previsti.  
 
-    • IMPOSTARE gruppo e HNV V1 non sono compatibili con la piattaforma.
+    *   SET gruppo e HNV V1 non sono compatibili con la piattaforma.
 
     o per usare i gateway NVGRE di disponibilità elevata, gli utenti devono usare il team di LBFO o nessun team. Oppure
 

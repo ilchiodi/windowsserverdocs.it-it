@@ -1,24 +1,20 @@
 ---
 title: Configurare i criteri di gruppo per la distribuzione di un dominio
 description: Informazioni su come configurare i criteri di gruppo in MultiPoint Services
-ms.custom: na
 ms.date: 07/22/2016
 ms.prod: windows-server
 ms.technology: multipoint-services
-ms.reviewer: na
-ms.suite: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 13e5fa90-d330-4155-a6b8-78eb650cbbfa
 author: evaseydl
 manager: scottman
 ms.author: evas
-ms.openlocfilehash: 5ac6524289d231d152e366d2ba750a59d27ce14f
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: e851d12dad29de8b3498aad220354d31917fadee
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71395515"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80862184"
 ---
 # <a name="configure-group-policies-for-a-domain-deployment"></a>Configurare i criteri di gruppo per la distribuzione di un dominio
 Per assicurarsi che la distribuzione del dominio di MultiPoint Services funzioni correttamente, applicare le seguenti impostazioni di criteri di gruppo all'account utente WMSshell in un sistema MultiPoint Services.  
@@ -39,14 +35,14 @@ Assegnare i valori seguenti:
 |Impostazione|Valori|  
 |-----------|----------|  
 |Abilita screen saver|Disabled|  
-|Timeout screen saver|Disabled<br /><br />Secondi: xxx|  
+|Timeout screen saver|Disabled<p>Secondi: xxx|  
 |Proteggi screen saver con password|Disabled|  
   
 **Criterio:** Configurazione computer > impostazioni di Windows > impostazioni di sicurezza > criteri locali > Assegnazione diritti utente > **Consenti accesso locale**  
   
 |Impostazione|Valori|  
 |-----------|----------|  
-|Consenti accesso locale|Verificare che l'elenco di account includa l'account WMSshell.<br /><br />**Nota:** Per impostazione predefinita, l'account WMSshell è un membro del gruppo Users. Se il gruppo Users è presente nell'elenco e WMSshell è un membro del gruppo Users, non è necessario aggiungere l'account WMSshell all'elenco.|  
+|Consenti accesso locale|Verificare che l'elenco di account includa l'account WMSshell.<p>**Nota:** Per impostazione predefinita, l'account WMSshell è un membro del gruppo Users. Se il gruppo Users è presente nell'elenco e WMSshell è un membro del gruppo Users, non è necessario aggiungere l'account WMSshell all'elenco.|  
   
 > [!IMPORTANT]  
 > Quando si impostano criteri di gruppo, assicurarsi che i criteri non interferiscano con aggiornamenti automatici e segnalazione errori Windows nel server MultiPoint. Queste impostazioni vengono impostate dalle impostazioni di **installazione** **automatica e automatica segnalazione errori Windows** selezionate durante l'installazione di Windows MultiPoint Server, configurate in Gestione MultiPoint mediante **Modifica impostazioni server**o configurate in aggiornamenti pianificati per la protezione del disco.  
@@ -55,7 +51,7 @@ Assegnare i valori seguenti:
 Per la distribuzione di un dominio di MultiPoint Services, è necessario aggiornare le sottochiavi del registro di sistema seguenti.  
   
 > [!IMPORTANT]  
-> La modifica non corretta del Registro di sistema potrebbe danneggiare gravemente il sistema. Prima di apportare modifiche al Registro di sistema, si consiglia di effettuare il backup di tutti i dati importanti presenti sul computer.  
+> È possibile che eventuali modifiche non corrette del Registro di sistema danneggino gravemente il sistema. Prima di apportare modifiche al Registro di sistema, si consiglia di effettuare il backup di tutti i dati importanti presenti sul computer.  
   
 #### <a name="to-update-registry-subkeys-for-a-domain-deployment-of-multipoint-services"></a>Per aggiornare le sottochiavi del registro di sistema per la distribuzione di un dominio di MultiPoint Services  
   

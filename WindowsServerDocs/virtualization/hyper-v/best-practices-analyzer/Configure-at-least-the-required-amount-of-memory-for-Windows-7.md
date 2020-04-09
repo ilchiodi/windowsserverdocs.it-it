@@ -2,20 +2,19 @@
 title: Configurare almeno la quantità di memoria per una macchina virtuale in esecuzione Windows 7 e abilitato per la memoria dinamica richiesta
 description: Versione online del testo per questa regola di Best Practices Analyzer.
 ms.prod: windows-server
-ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
 ms.author: kathydav
 ms.topic: article
 ms.assetid: 119965bf-6154-414d-b3a1-aa5b30eac5f6
-author: KBDAzure
+author: kbdazure
 ms.date: 8/16/2016
-ms.openlocfilehash: f0865866c3494a0b3719f49f3dd85e85fb48c4e9
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 56b9a1105af1bf3c9b7bef7729a3e47b7299b516
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71365090"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80862144"
 ---
 # <a name="configure-at-least-the-required-amount-of-memory-for-a-virtual-machine-running-windows-7-and-enabled-for-dynamic-memory"></a>Configurare almeno la quantità di memoria per una macchina virtuale in esecuzione Windows 7 e abilitato per la memoria dinamica richiesta
 
@@ -25,7 +24,7 @@ Per altre informazioni sulle procedure consigliate e sulle analisi, vedere [Eseg
   
 |Proprietà|Dettagli|  
 |-|-|  
-|**Sistema operativo**|Windows Server 2016|  
+|**Sistema operativo**|Windows Server 2016|  
 |**Prodotto/funzionalità**|Hyper-V|  
 |**Gravità**|Errore|  
 |**Categoria**|Configurazione|  
@@ -55,7 +54,7 @@ Nelle sezioni seguenti, corsivo indica il testo dell'interfaccia Utente visualiz
   
 5.  In **la memoria dinamica**,  modificare il **RAM minima** su almeno 256 MB e **RAM massima** a 512 MB.  
   
-6.  Fai clic su **OK**.  
+6.  Fare clic su **OK**.  
   
 ### <a name="increase-memory-using-windows-powershell"></a>Aumentare la memoria con Windows PowerShell  
   

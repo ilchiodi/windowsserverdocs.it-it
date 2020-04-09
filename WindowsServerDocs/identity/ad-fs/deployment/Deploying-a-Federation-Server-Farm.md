@@ -1,7 +1,6 @@
 ---
 ms.assetid: bbb5b68f-00ad-4715-8176-0c2769b706c4
 title: Guida alla distribuzione di ADFS in Windows Server 2012 R2
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: e5507cd567114d17c6500655ee210b70bd9ea1ec
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: bb4d13d13771d76a306a32988c0faa03dd01db49
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71408417"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80855464"
 ---
 # <a name="deploying-a-federation-server-farm"></a>Distribuzione di una server farm di federazione
 
@@ -25,7 +24,7 @@ Per distribuire una server farm federativa, completare le attività dell'elenco 
   
 ||Attività|Riferimento|  
 |-|--------|-------------|  
-|![distribuzione di federazione di server farm](media/icon_checkboxo.gif)|Esaminare i concetti e le considerazioni importanti quando si prepara la distribuzione di Active Directory Federation Services \(AD FS\). **Nota:**|![distribuzione di server farm federative](media/faa393df-4856-4431-9eda-4f4e5be72a90.gif)[ad FS Guida alla progettazione in Windows server 2012 R2](../../ad-fs/design/AD-FS-Design-Guide-in-Windows-Server-2012-R2.md)<br /><br />![distribuzione di server farm federative](media/faa393df-4856-4431-9eda-4f4e5be72a90.gif)[informazioni sui concetti chiave ad FS](../../ad-fs/technical-reference/Understanding-Key-AD-FS-Concepts.md)|  
+|![distribuzione di federazione di server farm](media/icon_checkboxo.gif)|Esaminare i concetti e le considerazioni importanti quando si prepara la distribuzione di Active Directory Federation Services \(AD FS\). **Nota:**|![distribuzione di server farm federative](media/faa393df-4856-4431-9eda-4f4e5be72a90.gif)[ad FS Guida alla progettazione in Windows server 2012 R2](../../ad-fs/design/AD-FS-Design-Guide-in-Windows-Server-2012-R2.md)<p>![distribuzione di server farm federative](media/faa393df-4856-4431-9eda-4f4e5be72a90.gif)[informazioni sui concetti chiave ad FS](../../ad-fs/technical-reference/Understanding-Key-AD-FS-Concepts.md)|  
 ||Se si decide di usare Microsoft SQL Server come archivio di configurazione di AD FS, assicurarsi di distribuire un'istanza funzionale di SQL Server.|[SQL Server](https://technet.microsoft.com/sqlserver) **Avviso:** in Windows Server 2012 R2, se si desidera creare una farm di ad FS e utilizzare SQL Server per archiviare i dati di configurazione, è possibile utilizzare SQL Server 2008 e versioni più recenti, incluso SQL Server 2012.|  
 |![distribuzione di federazione di server farm](media/icon_checkboxo.gif)|Aggiungere il computer a un dominio di Active Directory|![la distribuzione di server farm federati](media/faa393df-4856-4431-9eda-4f4e5be72a90.gif)[aggiungere un computer a un dominio](Join-a-Computer-to-a-Domain.md)|  
 |![distribuzione di federazione di server farm](media/icon_checkboxo.gif)|Registrare Secure Socket Layer \(SSL\) certificato per ADFS.|![la distribuzione di server farm federato](media/bc6cea1a-1c6c-4124-8c8f-1df5adfe8c88.gif)[registrare un certificato SSL per ad FS](Enroll-an-SSL-Certificate-for-AD-FS.md)|  

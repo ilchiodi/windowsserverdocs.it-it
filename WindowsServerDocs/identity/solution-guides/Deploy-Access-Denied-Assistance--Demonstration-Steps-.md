@@ -1,7 +1,6 @@
 ---
 ms.assetid: b035e9f8-517f-432a-8dfb-40bfc215bee5
 title: Deploy Access-Denied Assistance (Demonstration Steps)
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: afc05f395753e5c5614e92d109d71e05980d5d92
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: fc23e9d9dae9118bf6d489ed8697ce5bac44e7ba
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71407170"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80861264"
 ---
 # <a name="deploy-access-denied-assistance-demonstration-steps"></a>Deploy Access-Denied Assistance (Demonstration Steps)
 
@@ -31,9 +30,9 @@ In questo argomento è spiegato come configurare l'assistenza per accesso negato
 -   [Passaggio 3: verificare che l'assistenza per accesso negato sia configurata correttamente](Deploy-Access-Denied-Assistance--Demonstration-Steps-.md#BKMK_3)  
   
 > [!NOTE]  
-> Questo argomento include cmdlet di esempio di Windows PowerShell che è possibile usare per automatizzare alcune delle procedure descritte. Per ulteriori informazioni, vedere [mediante i cmdlet](https://go.microsoft.com/fwlink/p/?linkid=230693).  
+> In questo argomento sono inclusi cmdlet di Windows PowerShell di esempio che possono essere usati per automatizzare alcune delle procedure descritte. Per ulteriori informazioni, vedere [mediante i cmdlet](https://go.microsoft.com/fwlink/p/?linkid=230693).  
   
-## <a name="BKMK_1"></a>Passaggio 1: configurare l'assistenza per accesso negato  
+## <a name="step-1-configure-access-denied-assistance"></a><a name="BKMK_1"></a>Passaggio 1: configurare l'assistenza per accesso negato  
 È possibile configurare l'assistenza per accesso negato in un dominio usando Criteri di gruppo oppure individualmente in ogni file server tramite la console di Gestione risorse file server. È anche possibile cambiare il messaggio relativo all'accesso negato per una cartella condivisa specifica in un file server.  
   
 Per configurare l'assistenza per accesso negato per il dominio usando Criteri di gruppo, eseguire la procedura seguente:  
@@ -72,7 +71,7 @@ Per configurare l'assistenza per accesso negato per il dominio usando Criteri di
   
 ![la soluzione guida i](media/Deploy-Access-Denied-Assistance--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em>***  
   
-Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.  
+Tramite i cmdlet di Windows PowerShell seguenti viene eseguita la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se è possibile il ritorno a capo automatico in diverse righe a causa di limiti di formattazione.  
   
 ```  
 Set-GPRegistryValue -Name "Name of GPO" -key "HKLM\Software\Policies\Microsoft\Windows\ADR\AccessDenied" -ValueName AllowEmailRequests -Type DWORD -value 1  
@@ -116,11 +115,11 @@ In alternativa, è possibile configurare l'assistenza per accesso negato individ
   
 7.  Fare clic su **Anteprima** per visualizzare un'anteprima del messaggio di errore per l'utente.  
   
-8.  Fai clic su **OK**.  
+8.  Fare clic su **OK**.  
   
 ![la soluzione guida i](media/Deploy-Access-Denied-Assistance--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em>***  
   
-Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.
+Tramite i cmdlet di Windows PowerShell seguenti viene eseguita la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se è possibile il ritorno a capo automatico in diverse righe a causa di limiti di formattazione.
   
 ```  
 Set-FSRMAdrSetting -Event "AccessDenied" -DisplayMessage "Type the text that the user will see in the error message dialog box." -Enabled:$true -AllowRequests:$true  
@@ -144,7 +143,7 @@ Dopo avere configurato l'assistenza per accesso negato, è necessario abilitarla
   
 ![la soluzione guida i](media/Deploy-Access-Denied-Assistance--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em>***  
   
-Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione. 
+Tramite i cmdlet di Windows PowerShell seguenti viene eseguita la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se è possibile il ritorno a capo automatico in diverse righe a causa di limiti di formattazione. 
   
 ```  
 Set-GPRegistryValue -Name "Name of GPO" -key "HKLM\SOFTWARE\Policies\Microsoft\Windows\Explore" -ValueName EnableShellExecuteFileStreamCheck -Type DWORD -value 1  
@@ -183,13 +182,13 @@ Set-GPRegistryValue -Name "Name of GPO" -key "HKLM\SOFTWARE\Policies\Microsoft\W
   
 ![la soluzione guida i](media/Deploy-Access-Denied-Assistance--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em>***  
   
-Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione. 
+Tramite i cmdlet di Windows PowerShell seguenti viene eseguita la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se è possibile il ritorno a capo automatico in diverse righe a causa di limiti di formattazione. 
   
 ```  
 Set-FSRMMgmtProperty -Namespace "folder path" -Name "AccessDeniedMessage_MS" -Value "Type the text that the user will see in the error message dialog box."  
 ```  
   
-## <a name="BKMK_2"></a>Passaggio 2: configurare le impostazioni di notifica tramite posta elettronica  
+## <a name="step-2-configure-the-email-notification-settings"></a><a name="BKMK_2"></a>Passaggio 2: configurare le impostazioni di notifica tramite posta elettronica  
 È necessario configurare le impostazioni per le notifiche tramite posta elettronica in ogni file server che invierà i messaggi di assistenza per accesso negato.  
   
 [Eseguire questo passaggio con Windows PowerShell](assetId:///4a96cdaf-0081-4824-aab8-f0d51be501ac#BKMK_PSstep2)  
@@ -208,23 +207,23 @@ Set-FSRMMgmtProperty -Namespace "folder path" -Name "AccessDeniedMessage_MS" -Va
   
 5.  Fare clic su **Invio posta elettronica di prova** per verificare al corretta configurazione delle notifiche tramite posta elettronica.  
   
-6.  Fai clic su **OK**.  
+6.  Fare clic su **OK**.  
   
 ![la soluzione guida i](media/Deploy-Access-Denied-Assistance--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em>***  
   
-Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.
+Tramite i cmdlet di Windows PowerShell seguenti viene eseguita la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se è possibile il ritorno a capo automatico in diverse righe a causa di limiti di formattazione.
   
 ```  
 set-FSRMSetting -SMTPServer "server1" -AdminEmailAddress "fileadmin@contoso.com" -FromEmailAddress "fileadmin@contoso.com"  
 ```  
   
-## <a name="BKMK_3"></a>Passaggio 3: verificare che l'assistenza per accesso negato sia configurata correttamente  
+## <a name="step-3-verify-that-access-denied-assistance-is-configured-correctly"></a><a name="BKMK_3"></a>Passaggio 3: verificare che l'assistenza per accesso negato sia configurata correttamente  
 È possibile verificare che l'assistenza per accesso negato sia configurata correttamente in modo che un utente che esegue Windows 8 provi ad accedere a una condivisione o a un file in tale condivisione a cui non ha accesso. Quando viene visualizzato il messaggio di accesso negato, l'utente dovrebbe vedere un pulsante **Richiedi assistenza** . Dopo la selezione del pulsante Richiedi assistenza, l'utente può specificare un motivo per l'accesso e quindi inviare un messaggio di posta elettronica al proprietario della cartella o all'amministratore del file server. Il proprietario della cartella o l'amministratore del file server può verificare che il messaggio di posta elettronica è stato ricevuto e che include i dettagli appropriati.  
   
 > [!IMPORTANT]  
 > Se si desidera verificare l'assistenza per accesso negato tramite un utente che esegue Windows Server 2012, è necessario installare l'esperienza desktop prima di connettersi alla condivisione file.  
   
-## <a name="BKMK_Links"></a>Vedere anche  
+## <a name="see-also"></a><a name="BKMK_Links"></a>Vedere anche  
   
 -   [Scenario: assistenza per accesso negato](Scenario--Access-Denied-Assistance.md)  
   

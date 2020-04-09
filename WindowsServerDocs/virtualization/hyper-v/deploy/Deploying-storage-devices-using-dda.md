@@ -2,19 +2,17 @@
 title: Distribuire dispositivi di archiviazione NVMe usando l'assegnazione di dispositivi discreti
 description: Informazioni su come usare DDA per distribuire i dispositivi di archiviazione
 ms.prod: windows-server
-ms.service: na
 ms.technology: hyper-v
-ms.tgt_pltfrm: na
 ms.topic: article
 author: chrishuybregts
 ms.author: chrihu
 ms.assetid: 1c36107e-78c9-4ec0-a313-6ed557ac0ffc
-ms.openlocfilehash: eb76b25e8ff1428b2c03b37dde1f76562751d3bb
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 2b92b175a6e914b62b069f76f92255cb99d55d74
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71364321"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80860904"
 ---
 # <a name="deploy-nvme-storage-devices-using-discrete-device-assignment"></a>Distribuire dispositivi di archiviazione NVMe usando l'assegnazione di dispositivi discreti
 
@@ -39,7 +37,7 @@ Set-VM -Name VMName -AutomaticStopAction TurnOff
 ## <a name="dismount-the-device-from-the-host-partition"></a>Smontare il dispositivo dalla partizione host
 
 ### <a name="locating-the-devices-location-path"></a>Individuazione del percorso del dispositivo
-Il percorso della posizione PCI è necessario per smontare e montare il dispositivo dall'host.  Un percorso di esempio è simile al seguente: `"PCIROOT(20)#PCI(0300)#PCI(0000)#PCI(0800)#PCI(0000)"`.   Altre informazioni sulla posizione del percorso sono disponibili qui: [Pianificare la distribuzione di dispositivi con l'assegnazione di dispositivi discreti](../plan/Plan-for-Deploying-Devices-using-Discrete-Device-Assignment.md).
+Il percorso della posizione PCI è necessario per smontare e montare il dispositivo dall'host.  Un percorso di esempio è simile al seguente: `"PCIROOT(20)#PCI(0300)#PCI(0000)#PCI(0800)#PCI(0000)"`.   Altre informazioni sulla posizione del percorso sono disponibili qui: pianificare la [distribuzione di dispositivi con l'assegnazione di dispositivi discreti](../plan/Plan-for-Deploying-Devices-using-Discrete-Device-Assignment.md).
 
 ### <a name="disable-the-device"></a>Disabilitare il dispositivo
 Con Device Manager o PowerShell, verificare che il dispositivo sia "disabilitato".  
@@ -56,7 +54,7 @@ Il passaggio finale consiste nell'indicare a Hyper-V che una macchina virtuale d
 Add-VMAssignableDevice -LocationPath $locationPath -VMName VMName
 ```
 
-## <a name="whats-next"></a>Passaggi successivi
+## <a name="whats-next"></a>Operazioni successive
 Dopo che un dispositivo è stato montato correttamente in una macchina virtuale, è ora possibile avviare tale macchina virtuale e interagire con il dispositivo come si farebbe normalmente se fosse in esecuzione in un sistema bare metal.  È possibile verificare questo problema aprendo Gestione dispositivi nella macchina virtuale guest e osservando che l'hardware è ora visualizzato.
 
 ## <a name="removing-a-device-and-returning-it-to-the-host"></a>Rimozione di un dispositivo e relativa restituzione all'host

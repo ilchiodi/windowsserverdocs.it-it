@@ -2,20 +2,19 @@
 title: È configurata l'autenticazione basata su certificato, ma il certificato specificato non è installato nel server di replica o nei nodi del cluster di failover
 description: Versione online del testo per questa regola di Best Practices Analyzer.
 ms.prod: windows-server
-ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
 ms.author: kathydav
 ms.topic: article
 ms.assetid: 4cabbce3-9367-4ddc-a108-1e5e1ab2bcff
-author: KBDAzure
+author: kbdazure
 ms.date: 8/16/2016
-ms.openlocfilehash: 0b107a4760cc3470c7f80d53feef00a2f8f789c5
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: cc89aa201de4b25e4c221b770e6f88908785c859
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71365196"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80857684"
 ---
 # <a name="certificate-based-authentication-is-configured-but-the-specified-certificate-is-not-installed-on-the-replica-server-or-failover-cluster-nodes"></a>È configurata l'autenticazione basata su certificato, ma il certificato specificato non è installato nel server di replica o nei nodi del cluster di failover
 
@@ -29,7 +28,7 @@ ms.locfileid: "71365196"
 |-|-|  
 |**Sistema operativo**|Windows Server 2016|  
 |**Prodotto/funzionalità**|Hyper-V|  
-|**Gravità**|Error|  
+|**Gravità**|Errore|  
 |**Categoria**|Configurazione|  
 
 Nelle sezioni seguenti, corsivo indica il testo dell'interfaccia Utente visualizzata nello strumento Analizzatore procedure consigliate per questo problema.

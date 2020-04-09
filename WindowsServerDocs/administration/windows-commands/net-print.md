@@ -1,24 +1,20 @@
 ---
 title: Stampa di rete
-description: 'Argomento dei comandi di Windows per * * * *- '
-ms.custom: na
+description: Argomento dei comandi di Windows per * * * *-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: f59b2015-4698-415d-9a74-09566c466f40
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 241f9d74cb537924cf69c1e0bb5fd73a422c4b23
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: ad631788a59c24dcb92d180330de25a5be320154
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71373296"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80839054"
 ---
 # <a name="net-print"></a>Stampa di rete
 
@@ -33,17 +29,17 @@ per esempi relativi all'uso di questo comando, vedere la sezione [esempi](#BKMK_
 > Net print {\\<computerName>\<Sharename> | 
 > \\<computerName> <JobNumber> [/hold | /release | /delete]} [help]
 > ```
-> ## <a name="parameters"></a>Parametri
+> ### <a name="parameters"></a>Parametri
 > 
 > |               Parametri               |                                                                                                                                                                                                                     Descrizione                                                                                                                                                                                                                      |
 > |----------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 > |    \\\\<computerName>\\<Sharename>     |                                                                                                                                                                            Specifica (per nome) il computer e la coda di stampa per cui si desidera visualizzare le informazioni.                                                                                                                                                                             |
 > |           \\\\<computerName>           |                                                                                                                                 Specifica (per nome) il computer che ospita il processo di stampa che si desidera controllare. Se non si specifica un computer, viene utilizzato il computer locale. Richiede il parametro <JobNumber>.                                                                                                                                  |
 > |              <JobNumber>               |                                             Specifica il numero del processo di stampa che si desidera controllare. Questo numero viene assegnato dal computer che ospita la coda di stampa in cui viene inviato il processo di stampa. Dopo che un computer ha assegnato un numero a un processo di stampa, tale numero non viene assegnato ad altri processi di stampa in una coda ospitata da tale computer. Obbligatorio quando si usa il parametro \\\\<computerName>.                                             |
-> | [/Hold &#124; /Release &#124; /Delete] | Specifica l'azione da eseguire con il processo di stampa.<br /><br />-Il parametro **/Hold** ritarda il processo, consentendo ad altri processi di stampa di ignorarlo fino a quando non viene rilasciato.<br />-Il parametro **/Release** rilascia un processo di stampa che è stato posticipato.<br />-Il parametro **/Delete** rimuove un processo di stampa da una coda di stampa.<br /><br />Se si specifica un numero di processo, ma non si specifica alcuna azione, verranno visualizzate le informazioni sul processo di stampa. |
+> | [/Hold &#124; /Release &#124; /Delete] | Specifica l'azione da eseguire con il processo di stampa.<p>-Il parametro **/Hold** ritarda il processo, consentendo ad altri processi di stampa di ignorarlo fino a quando non viene rilasciato.<br />-Il parametro **/Release** rilascia un processo di stampa che è stato posticipato.<br />-Il parametro **/Delete** rimuove un processo di stampa da una coda di stampa.<p>Se si specifica un numero di processo, ma non si specifica alcuna azione, verranno visualizzate le informazioni sul processo di stampa. |
 > |                  help                  |                                                                                                                                                                                                     Visualizza la guida per il comando **net print** .                                                                                                                                                                                                     |
 > 
-> ## <a name="remarks"></a>Osservazioni
+> ## <a name="remarks"></a>Note
 > - **Net print** \\\\<computerName> Visualizza informazioni sui processi di stampa in una coda di stampa condivisa. Di seguito è riportato un esempio di report per tutti i processi di stampa in una coda per una stampante condivisa denominata LASER:
 >   ```
 >   printers at \\PRODUCTION
@@ -66,7 +62,7 @@ per esempi relativi all'uso di questo comando, vedere la sezione [esempi](#BKMK_
 >   Job parameters
 >   additional info
 >   ```
->   ## <a name="BKMK_examples"></a>Esempi
+>   ## <a name="examples"></a><a name=BKMK_examples></a>Esempi
 >   Questo esempio illustra come elencare il contenuto della coda di stampa Dotmatrix nel computer \\\Production:
 >   ```
 >   Net print \\Production\Dotmatrix 
@@ -83,6 +79,6 @@ per esempi relativi all'uso di questo comando, vedere la sezione [esempi](#BKMK_
 >   ```
 >   Net print \\Production 263 /release 
 >   ```
->   #### <a name="additional-references"></a>riferimenti aggiuntivi
->   [Chiave della sintassi della riga di comando](command-line-syntax-key.md)
+>   ## <a name="additional-references"></a>Altre informazioni di riferimento
+>   - [Chiave della sintassi della riga di comando](command-line-syntax-key.md)
 >   [riferimento al comando stampa](print-command-reference.md)

@@ -1,24 +1,20 @@
 ---
 title: Usare gli elenchi di controllo di accesso (ACL) per gestire il flusso del traffico di rete del Data Center
 description: In questo argomento si apprenderà come configurare gli elenchi di controllo di accesso (ACL) per gestire il flusso di traffico dei dati usando il firewall del centro dati e gli ACL nelle subnet virtuali. Per abilitare e configurare il firewall di Data Center, è possibile creare ACL che vengono applicati a una subnet virtuale o a un'interfaccia di rete.
-manager: dougkim
-ms.custom: na
+manager: grcusanz
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: networking-sdn
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 6a7ac5af-85e9-4440-a631-6a3a38e9015d
-ms.author: lizross
-author: eross-msft
+ms.author: anpaul
+author: AnirbanPaul
 ms.date: 08/27/2018
-ms.openlocfilehash: 1f18ad9ddb0ea1a7575f6fcb26189f36f818ada2
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: 2b8a3af119ac11f3bcfd704bb4f43f12c989dbf6
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80317480"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80854414"
 ---
 # <a name="use-access-control-lists-acls-to-manage-datacenter-network-traffic-flow"></a>Usare gli elenchi di controllo di accesso (ACL) per gestire il flusso del traffico di rete del Data Center
 

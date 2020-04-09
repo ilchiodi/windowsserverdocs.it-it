@@ -1,24 +1,20 @@
 ---
 title: openfiles
-description: 'Argomento dei comandi di Windows per * * * *- '
-ms.custom: na
+description: Argomento dei comandi di Windows per * * * *-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: c3be561d-a11f-4bf1-9835-8e4e96fe98ec
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 38b1d27b86551c6d4cd9e6b1ad87bfc0e8dd221d
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: f684acc48fbb279ced8ce1dfb3a930ff15f3bf13
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71372496"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80837824"
 ---
 # <a name="openfiles"></a>openfiles
 
@@ -31,7 +27,7 @@ In questo argomento include informazioni sui comandi seguenti:
 -   [/query openfiles](#BKMK_query)
 -   [/local openfiles](#BKMK_local)
 
-## <a name="BKMK_disconnect"></a>/Disconnect openfiles
+## <a name="openfiles-disconnect"></a><a name=BKMK_disconnect></a>/Disconnect openfiles
 
 Consente agli amministratori di disconnettere i file e cartelle che sono state aperte in modalità remota tramite una cartella condivisa.
 
@@ -41,7 +37,7 @@ Consente agli amministratori di disconnettere i file e cartelle che sono state a
 openfiles /disconnect [/s <System> [/u [<Domain>\]<UserName> [/p [<Password>]]]] {[/id <OpenFileID>] | [/a <AccessedBy>] | [/o {read | write | read/write}]} [/op <OpenFile>]
 ```
 
-### <a name="parameters"></a>Parametri
+#### <a name="parameters"></a>Parametri
 
 |            Parametro             |                                                                                                                                 Descrizione                                                                                                                                  |
 |----------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -60,7 +56,7 @@ Per disconnettere tutti i file aperti con il file 26843578 ID, digitare:
 ```
 openfiles /disconnect /id 26843578
 ```
-Per disconnettere tutti i file e directory accessibili all'utente "hiropln", digitare:
+Per disconnettere tutti i file e le directory aperti accessibili dall'utente hiropln, digitare:
 ```
 openfiles /disconnect /a hiropln
 ```
@@ -68,16 +64,16 @@ Per disconnettere tutti i file e directory con la modalità di lettura/scrittura
 ```
 openfiles /disconnect /o read/write
 ```
-Per disconnettere la directory con il nome file aperto "C:\TestShare\", indipendentemente dall'utente che vi accede, digitare:
+Per disconnettere la directory con il nome file aperto C:\TestShare\, indipendentemente dall'utente che vi accede, digitare:
 ```
-openfiles /disconnect /a * /op "c:\testshare\"
+openfiles /disconnect /a * /op c:\testshare\
 ```
-Per disconnettere tutti i file aperti nel computer remoto "Srvprinc" accessibili dall'utente "hiropln", indipendentemente dal relativo ID, digitare:
+Per disconnettere tutti i file aperti nel computer remoto SRVPRINC a cui si accede dall'utente hiropln, indipendentemente dal relativo ID, digitare:
 ```
 openfiles /disconnect /s srvmain /u maindom\hiropln /id *
 ```
 
-## <a name="BKMK_query"></a>/query openfiles
+## <a name="openfiles-query"></a><a name=BKMK_query></a>/query openfiles
 
 Esegue una query e visualizza tutti i file aperti.
 
@@ -87,7 +83,7 @@ Esegue una query e visualizza tutti i file aperti.
 openfiles /query [/s <System> [/u [<Domain>\]<UserName> [/p [<Password>]]]] [/fo {TABLE | LIST | CSV}] [/nh] [/v]
 ```
 
-### <a name="parameters"></a>Parametri
+#### <a name="parameters"></a>Parametri
 
 |          Parametro           |                                                                                                                                 Descrizione                                                                                                                                  |
 |------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -113,7 +109,7 @@ Per eseguire una query e visualizzare tutti i file aperti in formato di elenco c
 ```
 openfiles /query /fo list /v
 ```
-Per eseguire query e visualizzare tutti i file aperti nel sistema remoto "Srvprinc" utilizzando le credenziali per l'utente "hiropln" in "Domprinc", digitare:
+Per eseguire una query e visualizzare tutti i file aperti nel SRVPRINC di sistema remoto usando le credenziali per l'utente hiropln nel dominio Domprinc, digitare:
 ```
 openfiles /query /s srvmain /u maindom\hiropln /p p@ssW23
 ```
@@ -121,7 +117,7 @@ openfiles /query /s srvmain /u maindom\hiropln /p p@ssW23
 > [!NOTE]
 > In questo esempio, la password è specificata nella riga di comando. Per evitare la visualizzazione della password, omettere il **/p** (opzione). Verrà richiesto per la password, che non viene visualizzata sullo schermo.
 
-## <a name="BKMK_local"></a>/local openfiles
+## <a name="openfiles-local"></a><a name=BKMK_local></a>/local openfiles
 
 Abilita o disabilita il flag globale Gestisci elenco di oggetti di sistema. Se utilizzata senza parametri, **openfiles /local** Visualizza lo stato corrente del flag globale Maintain Objects List.
 
@@ -131,14 +127,14 @@ Abilita o disabilita il flag globale Gestisci elenco di oggetti di sistema. Se u
 openfiles /local [on | off]
 ```
 
-### <a name="parameters"></a>Parametri
+#### <a name="parameters"></a>Parametri
 
 |Parametro|Descrizione|
 |---------|-----------|
 |[on \| off]|Abilita o disabilita il flag globale Maintain Objects List, che tiene traccia di handle di file locali di sistema.|
 |/?|Visualizza la guida al prompt dei comandi.|
 
-### <a name="remarks"></a>Osservazioni
+### <a name="remarks"></a>Note
 
 -   Abilitare il flag globale Maintain Objects List può rallentare il sistema.
 -   Le modifiche apportate mediante la **su** o **off** opzione diventano effettive solo dopo il riavvio del sistema.
@@ -167,6 +163,6 @@ Per disabilitare il flag globale Maintain Objects List, digitare:
 openfiles /local off
 ```
 
-#### <a name="additional-references"></a>Altri riferimenti
+## <a name="additional-references"></a>Altre informazioni di riferimento
 
-[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+- [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

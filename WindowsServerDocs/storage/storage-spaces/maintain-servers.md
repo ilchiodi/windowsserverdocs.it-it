@@ -2,20 +2,19 @@
 title: Disconnessione di un server Spazi di archiviazione diretti a scopo di manutenzione
 ms.prod: windows-server
 ms.author: eldenc
-ms.manager: eldenc
+manager: eldenc
 ms.technology: storage-spaces
 ms.topic: article
 author: eldenchristensen
 ms.date: 10/08/2018
-Keywords: Spazi di archiviazione diretti, S2D, manutenzione
 ms.assetid: 73dd8f9c-dcdb-4b25-8540-1d8707e9a148
 ms.localizationpriority: medium
-ms.openlocfilehash: 20439a06c255a73f20a297f765e6ed11abfde6f2
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 2ccf8d809354f96277701cd365966ba5e914f64b
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71402828"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80857534"
 ---
 # <a name="taking-a-storage-spaces-direct-server-offline-for-maintenance"></a>Disconnessione di un server Spazi di archiviazione diretti a scopo di manutenzione
 
@@ -72,7 +71,7 @@ Per eseguire questa operazione in Gestione cluster di failover, passare a **Nodi
 
 ![Sospensione/svuotamento](media/maintain-servers/pause-drain.png)
 
-Tutte le macchine virtuali procederanno alla migrazione in tempo reale ad altri server del cluster. Questa operazione può richiedere alcuni minuti.
+Tutte le macchine virtuali procederanno alla migrazione in tempo reale ad altri server del cluster. L'operazione potrebbe richiedere alcuni minuti.
 
    > [!NOTE]
    > Quando si sospende e svuota il nodo del cluster in modo corretto, Windows esegue un controllo di protezione automatico per assicurare che sia sicuro procedere. In presenza di volumi non integri, si interromperà e si riceverà un avviso per cui non è sicuro procedere.

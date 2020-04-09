@@ -1,24 +1,20 @@
 ---
 title: mqsvc
-description: 'Argomento dei comandi di Windows per * * * *- '
-ms.custom: na
+description: Argomento dei comandi di Windows per * * * *-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 8bfd7874-ccb4-453f-b908-3a5b9aee0ad6
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 8dcf98fa02eaede162fd75181af7a070b8a0aed4
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 2c6db0d1161bacb456305ba33be6d4142277206d
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71373525"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80839304"
 ---
 # <a name="mqsvc"></a>mqsvc
 
@@ -32,10 +28,10 @@ La tecnologia di Accodamento messaggi consente alle applicazioni in esecuzione i
 Mqsvc.exe
 ```
 
-### <a name="parameters"></a>Parametri
+#### <a name="parameters"></a>Parametri
 
-Nessuno
+None
 
-#### <a name="additional-references"></a>Altri riferimenti
+## <a name="additional-references"></a>Altre informazioni di riferimento
 
--   [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+-   - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

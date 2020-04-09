@@ -1,18 +1,18 @@
 ---
 title: Installare i certificati radice TPM attendibili
-ms.custom: na
 ms.prod: windows-server
 ms.topic: article
 manager: dongill
 author: rpsqrd
+ms.author: ryanpu
 ms.technology: security-guarded-fabric
 ms.date: 06/27/2019
-ms.openlocfilehash: 15614ce1065170bc557fad10a168b3dda6a5b05a
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 096a40f422f308a036b8062e4515ebe698c31f08
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71386553"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80856574"
 ---
 # <a name="install-trusted-tpm-root-certificates"></a>Installare i certificati radice TPM attendibili
 
@@ -24,7 +24,7 @@ Se si tenta di registrare un TPM non trusted con `Add-HgsAttestationTpmHost`, ve
 
 Per considerare attendibile la TPMs, è necessario installare i certificati radice e di firma intermedia usati per firmare la chiave di verifica dell'autenticità nel TPMs server in HGS.
 Se si usa più di un modello TPM nel Data Center, potrebbe essere necessario installare certificati diversi per ogni modello.
-HGS cercherà negli archivi certificati "TrustedTPM_RootCA" e "TrustedTPM_IntermediateCA" per i certificati del fornitore.
+HGS esamina gli archivi certificati "TrustedTPM_RootCA" e "TrustedTPM_IntermediateCA" per i certificati del fornitore.
 
 > [!NOTE]
 > I certificati del fornitore TPM sono diversi da quelli installati per impostazione predefinita in Windows e rappresentano i certificati radice e intermedi specifici utilizzati dai fornitori di TPM.

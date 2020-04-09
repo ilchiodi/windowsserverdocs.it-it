@@ -1,24 +1,20 @@
 ---
 title: Criteri di autenticazione e silo di criteri di autenticazione
 description: Sicurezza di Windows Server
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: security-credential-protection
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 7eb0e640-033d-49b5-ab44-3959395ad567
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/12/2016
-ms.openlocfilehash: 6b0b841930df246bd784d990916b6029f12a1f96
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 48171657b42ec8b6ba09aa6a35a2f898d6775d07
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71403821"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80857084"
 ---
 # <a name="authentication-policies-and-authentication-policy-silos"></a>Criteri di autenticazione e silo di criteri di autenticazione
 
@@ -45,7 +41,7 @@ Un silo di criteri di autenticazione controlla gli account che possono essere li
 |--------|--------|
 |Authentication Policy Silo|Un'istanza di questa classe definisce i criteri di autenticazione e i comportamenti correlati per gli utenti, i computer e i servizi assegnati.|
 |Authentication Policy Silos|Un contenitore di questa classe può includere oggetti di silo di criteri di autenticazione.|
-|Authentication Policy Silo Enforced|Specifica se il silo di criteri di autenticazione è applicato.<br /><br />Se non è applicato, per impostazione predefinita il criterio si trova in modalità di controllo. Sono generati eventi che indicano operazioni potenzialmente riuscite e non riuscite, ma al sistema non è applicata alcuna protezione.|
+|Authentication Policy Silo Enforced|Specifica se il silo di criteri di autenticazione è applicato.<p>Se non è applicato, per impostazione predefinita il criterio si trova in modalità di controllo. Sono generati eventi che indicano operazioni potenzialmente riuscite e non riuscite, ma al sistema non è applicata alcuna protezione.|
 |Assigned Authentication Policy Silo Backlink|Questo attributo è il back link per msDS-AssignedAuthNPolicySilo.|
 |Authentication Policy Silo Members|Specifica quali entità sono assegnate ad AuthNPolicySilo.|
 |Authentication Policy Silo Members Backlink|Questo attributo è il back link per msDS-AuthNPolicySiloMembers.|
@@ -90,11 +86,11 @@ I criteri per gli oggetti di Active Directory per utenti, computer e servizi, so
 
 |Type|Nome visualizzato|Descrizione|
 |----|--------|--------|
-|Criteri|Authentication Policy|Un'istanza di questa classe definisce i comportamenti dei criteri di autenticazione per le entità di sicurezza assegnate.|
-|Criteri|Authentication Policies|Un contenitore di questa classe può includere oggetti di criteri di autenticazione.|
-|Criteri|Authentication Policy Enforced|Specifica se i criteri di autenticazione sono applicati.<br /><br />Se non sono applicati, per impostazione predefinita il criterio sarà in modalità di controllo e saranno generati eventi che indicano operazioni potenzialmente riuscite e non riuscite, ma al sistema non sarà applicata alcuna protezione.|
-|Criteri|Assigned Authentication Policy Backlink|Questo attributo è il back link per msDS-AssignedAuthNPolicy.|
-|Criteri|Assigned Authentication Policy|Specifica quale AuthNPolicy deve essere applicato a questa entità di sicurezza.|
+|Condizione|Authentication Policy|Un'istanza di questa classe definisce i comportamenti dei criteri di autenticazione per le entità di sicurezza assegnate.|
+|Condizione|Criteri di autenticazione|Un contenitore di questa classe può includere oggetti di criteri di autenticazione.|
+|Condizione|Authentication Policy Enforced|Specifica se i criteri di autenticazione sono applicati.<p>Se non sono applicati, per impostazione predefinita il criterio sarà in modalità di controllo e saranno generati eventi che indicano operazioni potenzialmente riuscite e non riuscite, ma al sistema non sarà applicata alcuna protezione.|
+|Condizione|Assigned Authentication Policy Backlink|Questo attributo è il back link per msDS-AssignedAuthNPolicy.|
+|Condizione|Assigned Authentication Policy|Specifica quale AuthNPolicy deve essere applicato a questa entità di sicurezza.|
 |Utente|User Authentication Policy|Specifica quale AuthNPolicy deve essere applicato a utenti a cui è assegnato questo oggetto silo.|
 |Utente|User Authentication Policy Backlink|Questo attributo è il back link per msDS-UserAuthNPolicy.|
 |Utente|ms-DS-User-Allowed-To-Authenticate-To|Questo attributo è usato per determinare l'insieme di entità di sicurezza a cui è permesso effettuare l'autenticazione a un servizio in esecuzione con l'account utente.|
@@ -143,7 +139,7 @@ I silo di criteri di autenticazione e i criteri di autenticazione si avvalgono d
 
 -   [Modifiche all'autenticazione Kerberos](https://technet.microsoft.com/library/dd560670(v=ws.10).aspx) (windows Server 2008 R2 e Windows 7)
 
-### <a name="BKMK_HowKerbUsed"></a>Modalità di utilizzo del protocollo Kerberos con i silo di criteri di autenticazione e i criteri
+### <a name="how-the-kerberos-protocol-is-used-with-authentication-policy-silos-and-policies"></a><a name="BKMK_HowKerbUsed"></a>Modalità di utilizzo del protocollo Kerberos con i silo di criteri di autenticazione e i criteri
 Quando un account di dominio è collegato a un silo di criteri di autenticazione e l'utente effettua l'accesso, Gestione account di protezione aggiunge il tipo di attestazione del silo di criteri di autenticazione che include il silo come valore. L'attestazione relativa all'account offre l'accesso al silo di destinazione.
 
 Quando un criterio di autenticazione è applicato e nel controller di dominio si riceve una richiesta del servizio di autenticazione per un account di dominio, il controller di dominio restituisce un TGT non rinnovabile con la durata configurata, a meno che la durata TGT del dominio non sia inferiore.
@@ -161,7 +157,7 @@ Quando un criterio di autenticazione è applicato e il servizio di autenticazion
 > [!NOTE]
 > L'account di dominio deve essere collegato direttamente al criterio o collegato indirettamente tramite l'appartenenza al silo.
 
-Quando un criterio di autenticazione è in modalità di controllo e una richiesta del servizio di concessione ticket viene ricevuta dal controller di dominio per un account di dominio, il controller di dominio verifica se l'autenticazione è consentita in base al certificato dell'attributo Privilege del ticket della richiesta. (PAC) e registra un messaggio di avviso in caso di errore. Il certificato attributi privilegi include diversi tipi di dati relativi all'autorizzazione, inclusi i gruppi a cui appartiene l'utente, i diritti di cui dispone l'utente e i criteri applicabili all'utente. Queste informazioni vengono usate per generare il token di accesso dell'utente. Se si tratta di criteri di autenticazione applicati che consentono l'autenticazione a un utente, un dispositivo o un servizio, il controller di dominio verifica se l'autenticazione è consentita in base ai dati del ticket PAC della richiesta. In caso di esito negativo, il controller di dominio restituisce un messaggio di errore e registra un evento.
+Quando un criterio di autenticazione è in modalità di controllo e una richiesta del servizio di concessione ticket viene ricevuta dal controller di dominio per un account di dominio, il controller di dominio verifica se l'autenticazione è consentita in base ai dati del certificato dell'attributo Privilege (PAC) della richiesta e registra un messaggio di avviso in caso di errore. Il certificato attributi privilegi include diversi tipi di dati relativi all'autorizzazione, inclusi i gruppi a cui appartiene l'utente, i diritti di cui dispone l'utente e i criteri applicabili all'utente. Queste informazioni vengono usate per generare il token di accesso dell'utente. Se si tratta di criteri di autenticazione applicati che consentono l'autenticazione a un utente, un dispositivo o un servizio, il controller di dominio verifica se l'autenticazione è consentita in base ai dati del ticket PAC della richiesta. In caso di esito negativo, il controller di dominio restituisce un messaggio di errore e registra un evento.
 
 > [!NOTE]
 > L'account di dominio deve essere collegato direttamente oppure tramite l'appartenenza a un silo a un criterio di autenticazione controllato, che permette l'autenticazione a un utente, un dispositivo o un servizio.
@@ -170,7 +166,7 @@ Quando un criterio di autenticazione è in modalità di controllo e una richiest
 
 I silo di criteri di autenticazione possono essere configurati per ogni silo usando la console di amministrazione di Active Directory o Windows PowerShell. Per altre informazioni, vedere [Come configurare gli account protetti](how-to-configure-protected-accounts.md).
 
-### <a name="BKMK_HowRestrictingSignOn"></a>Come si limita l'accesso degli utenti
+### <a name="how-restricting-a-user-sign-in-works"></a><a name="BKMK_HowRestrictingSignOn"></a>Come si limita l'accesso degli utenti
 Poiché questi criteri di autenticazione sono applicati a un account, sono applicabili anche agli account usati dai servizi. Questa impostazione è utile per limitare l'uso di una password per un servizio ad alcuni host specifici. Ad esempio, è possibile configurare account del servizio gestiti per un gruppo in modo che gli host siano autorizzati a recuperare la password da Servizi di dominio Active Directory. La password può essere però usata da qualsiasi host per l'autenticazione iniziale. Tramite l'applicazione di una condizione di controllo dell'accesso, è possibile ottenere un livello aggiuntivo di protezione limitando la password solo all'insieme di host in grado di recuperare la password.
 
 Quando i servizi eseguiti come sistema, servizio di rete o altra identità del servizio locale si connettono ai servizi di rete, utilizzano l'account computer dell'host. Non è possibile applicare restrizioni agli account computer. Anche se il servizio usa un account computer non relativo a un host Windows , non sarà quindi possibile applicarvi restrizioni.
@@ -204,7 +200,7 @@ Anche se i sistemi operativi supportano la blindatura Kerberos, è possibile app
 
 3.  Il controller di dominio risponde con una risposta blindata (AS-REP) e il processo di autenticazione continua.
 
-### <a name="BKMK_HowRestrictingServiceTicket"></a>Come si limita il rilascio di ticket di servizio
+### <a name="how-restricting-service-ticket-issuance-works"></a><a name="BKMK_HowRestrictingServiceTicket"></a>Come si limita il rilascio di ticket di servizio
 Quando un account non è consentito e un utente con TGT tenta di connettersi al servizio, ad esempio aprendo un'applicazione che richiede l'autenticazione a un servizio identificato dal nome dell'entità servizio (SPN) del servizio, si verifica la sequenza seguente:
 
 1.  In caso di tentativo di connessione a SPN1 da SPN, Windows invia una richiesta TGS-REQ al controller di dominio che richiede un ticket di servizio per SPN1.
@@ -215,7 +211,7 @@ Quando un account non è consentito e un utente con TGT tenta di connettersi al 
 
 4.  Il controller di dominio respinge la richiesta.
 
-Quando un account è consentito perché l'account soddisfa le condizioni di controllo di accesso impostate dai criteri di autenticazione e un utente che ha un TGT tenta di connettersi al servizio, ad esempio aprendo un'applicazione che richiede l'autenticazione a un servizio che è identificato dal nome SPN del servizio), si verifica la sequenza seguente:
+Quando un account è consentito perché l'account soddisfa le condizioni di controllo di accesso impostate dai criteri di autenticazione e un utente che ha un TGT tenta di connettersi al servizio, ad esempio aprendo un'applicazione che richiede l'autenticazione a un servizio identificato dal nome SPN del servizio, si verifica la sequenza seguente:
 
 1.  In caso di tentativo di connessione a SPN1, Windows invia una richiesta TGS-REQ al controller di dominio che richiede un ticket di servizio per SPN1.
 
@@ -225,7 +221,7 @@ Quando un account è consentito perché l'account soddisfa le condizioni di cont
 
 4.  Il controller di dominio risponde alla richiesta con una richiesta TGS (TGS-REP).
 
-## <a name="BKMK_ErrorandEvents"></a>Messaggi di eventi informativi e di errore associati
+## <a name="associated-error-and-informational-event-messages"></a><a name="BKMK_ErrorandEvents"></a>Messaggi di eventi informativi e di errore associati
 Nella tabella seguente sono descritti gli eventi associati al gruppo di sicurezza Utenti protetti e i criteri di autenticazione applicati ai silo di criteri di autenticazione.
 
 Gli eventi sono registrati nei registri relativi ad applicazioni e servizi in **Microsoft\Windows\Authentication**.
@@ -234,11 +230,11 @@ Per procedure di risoluzione dei problemi che usano questi eventi, vedere [Risol
 
 |ID e registro eventi|Descrizione|
 |----------|--------|
-|101<br /><br />**AuthenticationPolicyFailures-DomainController**|Motivo: Un errore di accesso NTLM si verifica perché il criterio di autenticazione è configurato.<br /><br />Un evento viene registrato nel controller di dominio per indicare che l'autenticazione NTLM non è riuscita perché sono necessarie restrizioni per il controllo di accesso e queste restrizioni non sono applicabili a NTLM.<br /><br />Mostra i nomi di account, dispositivo, criterio e silo.|
-|105<br /><br />**AuthenticationPolicyFailures-DomainController**|Motivo: Si verifica un errore di restrizioni Kerberos perché l'autenticazione da un dispositivo specifico non è stata permessa.<br /><br />Un evento viene registrato nel controller di dominio per indicare che un TGT Kerberos è stato rifiutato perché il dispositivo non soddisfa le restrizioni applicate per il controllo di accesso.<br /><br />Mostra i nomi di account, dispositivo, criterio e silo e la durata TGT.|
-|305<br /><br />**AuthenticationPolicyFailures-DomainController**|Motivo: È possibile che si verifichi un errore relativo alle restrizioni Kerberos perché l'autenticazione da un dispositivo specifico non è stata permessa.<br /><br />In modalità di controllo, un evento informativo viene registrato nel controller di dominio per determinare se un TGT Kerberos sarà rifiutato poiché il dispositivo non soddisfa le restrizioni applicate per il controllo di accesso.<br /><br />Mostra i nomi di account, dispositivo, criterio e silo e la durata TGT.|
-|106<br /><br />**AuthenticationPolicyFailures-DomainController**|Motivo: Si verifica un errore di restrizioni Kerberos perché l'utente o il dispositivo non è stato autorizzato all'autenticazione sul server.<br /><br />Un evento viene registrato nel controller di dominio per indicare che un ticket di servizio Kerberos è stato rifiutato perché l'utente, il dispositivo o entrambi non soddisfano le restrizioni applicate per il controllo di accesso.<br /><br />Mostra i nomi di dispositivo, criterio e silo.|
-|306<br /><br />**AuthenticationPolicyFailures-DomainController**|Motivo: È possibile che si verifichi un errore relativo alle restrizioni Kerberos perché l'utente o il dispositivo non è stato autorizzato all'autenticazione sul server.<br /><br />In modalità di controllo, un evento informativo viene registrato nel controller di dominio per indicare che un ticket di servizio Kerberos sarà rifiutato poiché l'utente, il dispositivo o entrambi non soddisfano le restrizioni applicate per il controllo di accesso.<br /><br />Mostra i nomi di dispositivo, criterio e silo.|
+|101<p>**AuthenticationPolicyFailures-DomainController**|Motivo: si verifica un errore di accesso NTLM perché i criteri di autenticazione sono configurati.<p>Un evento viene registrato nel controller di dominio per indicare che l'autenticazione NTLM non è riuscita perché sono necessarie restrizioni per il controllo di accesso e queste restrizioni non sono applicabili a NTLM.<p>Mostra i nomi di account, dispositivo, criterio e silo.|
+|105<p>**AuthenticationPolicyFailures-DomainController**|Motivo: si verifica un errore di restrizione Kerberos perché l'autenticazione da un dispositivo specifico non è consentita.<p>Un evento viene registrato nel controller di dominio per indicare che un TGT Kerberos è stato rifiutato perché il dispositivo non soddisfa le restrizioni applicate per il controllo di accesso.<p>Mostra i nomi di account, dispositivo, criterio e silo e la durata TGT.|
+|305<p>**AuthenticationPolicyFailures-DomainController**|Motivo: è possibile che si verifichi un potenziale errore di restrizione Kerberos perché l'autenticazione da un dispositivo specifico non è stata consentita.<p>In modalità di controllo, un evento informativo viene registrato nel controller di dominio per determinare se un TGT Kerberos sarà rifiutato poiché il dispositivo non soddisfa le restrizioni applicate per il controllo di accesso.<p>Mostra i nomi di account, dispositivo, criterio e silo e la durata TGT.|
+|106<p>**AuthenticationPolicyFailures-DomainController**|Motivo: si verifica un errore di restrizione Kerberos perché l'utente o il dispositivo non è autorizzato a eseguire l'autenticazione al server.<p>Un evento viene registrato nel controller di dominio per indicare che un ticket di servizio Kerberos è stato rifiutato perché l'utente, il dispositivo o entrambi non soddisfano le restrizioni applicate per il controllo di accesso.<p>Mostra i nomi di dispositivo, criterio e silo.|
+|306<p>**AuthenticationPolicyFailures-DomainController**|Motivo: è possibile che si verifichi un errore di restrizione Kerberos perché l'utente o il dispositivo non è autorizzato a eseguire l'autenticazione al server.<p>In modalità di controllo, un evento informativo viene registrato nel controller di dominio per indicare che un ticket di servizio Kerberos sarà rifiutato poiché l'utente, il dispositivo o entrambi non soddisfano le restrizioni applicate per il controllo di accesso.<p>Mostra i nomi di dispositivo, criterio e silo.|
 
 ## <a name="see-also"></a>Vedere anche
 [Come configurare gli account protetti](how-to-configure-protected-accounts.md)

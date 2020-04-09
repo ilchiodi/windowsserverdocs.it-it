@@ -2,21 +2,19 @@
 title: Macchine virtuali FreeBSD supportate in Hyper-V
 description: Elenca i servizi di integrazione Linux e le funzionalità incluse in ogni versione
 ms.prod: windows-server
-ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 930e758f-bd50-46b4-a3a4-9857110f17b4
 author: shirgall
 ms.author: kathydav
 ms.date: 08/30/2017
-ms.openlocfilehash: b7b02e1ec93d6255412a89e7e7d7b8246cf5e50e
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: ea63a64ee0e1ce36ceb7783bbbc764c6ca5ca9d6
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71365514"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80855954"
 ---
 # <a name="supported-freebsd-virtual-machines-on-hyper-v"></a>Macchine virtuali FreeBSD supportate in Hyper-V
 
@@ -28,26 +26,26 @@ La mappa di distribuzione di funzionalità seguente indica le funzionalità di o
 
 * **Built in** -bis (FreeBSD Integration Service) è incluso in questa versione di FreeBSD.
 
-* &#10004; -Funzionalità disponibili
+* & #10004; -Funzionalità disponibili
 
 * (*vuoto*)-funzionalità non disponibile
 
-|**Funzionalità**|**Versione del sistema operativo Windows Server**|**11.1/11.2**|**11.0**|**10.3**|**10.2**|**10.0 - 10.1**|**9,1-9,3, 8,4**|
+|**Funzionalità**|**Versione del sistema operativo Windows Server**|**11.1/11.2**|**11,0**|**10,3**|**10,2**|**10,0-10,1**|**9,1-9,3, 8,4**|
 |-|-|-|-|-|-|-|-|
 |**Disponibilità**||Incorporata|Incorporata|Incorporata|Incorporata|Incorporata|[Porte](https://svnweb.freebsd.org/ports/branches/2015Q1/emulators/hyperv-is/) |
 |**[Core](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#core)**|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004; |
 |Ora esatta di Windows Server 2016|2019, 2016|&#10004;||||||
 |**[Rete](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#networking)**||||||||
-|Frame jumbo|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004; Nota 3|&#10004; Nota 3|&#10004; Nota 3|&#10004; Nota 3|&#10004; Nota 3|&#10004; Nota 3|
+|Frame jumbo|2019, 2016, 2012 R2, 2012, 2008 R2|& #10004; Nota 3|& #10004; Nota 3|& #10004; Nota 3|& #10004; Nota 3|& #10004; Nota 3|& #10004; Nota 3|
 |Assegnazione di tag e trunking VLAN|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
 |Migrazione in tempo reale|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
-|Inserimento IP statico|2019, 2016, 2012 R2, 2012|&#10004; Nota 4|&#10004; Nota 4|&#10004; Nota 4|&#10004; Nota 4|&#10004; Nota 4|&#10004;|
+|Inserimento IP statico|2019, 2016, 2012 R2, 2012|& #10004; Nota 4|& #10004; Nota 4|& #10004; Nota 4|& #10004; Nota 4|& #10004; Nota 4|&#10004;|
 |RSS virtuale|2019, 2016, 2012 R2|&#10004;|&#10004;|||||
 |Offload di segmentazione e checksum TCP|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004;|&#10004;|&#10004;|&#10004;|||
 |Grandi ricezione Offload (e)|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004;|&#10004;|&#10004;||||
 |SR-IOV|2019, 2016|||||||
 |**[Archiviazione](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#storage)**||Nota 1|Nota 1|Nota 1|Nota 1|Nota 1, 2|Nota 1, 2|
-|Ridimensionamento VHDX|2019, 2016, 2012 R2|&#10004; Nota 7|&#10004; Nota 7|||||
+|Ridimensionamento VHDX|2019, 2016, 2012 R2|& #10004; Nota 7|& #10004; Nota 7|||||
 |Fibre Channel virtuale|2019, 2016, 2012 R2|||||||
 |Backup della macchina virtuale in tempo reale|2019, 2016, 2012 R2|&#10004;||||||
 |Supporto TRIM|2019, 2016, 2012 R2|&#10004;||||||
@@ -61,7 +59,7 @@ La mappa di distribuzione di funzionalità seguente indica le funzionalità di o
 |**[Video](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#video)**||||||||
 |Dispositivo video specifico Hyper-V|2019, 2016, 2012 R2, 2012, 2008 R2|||||||
 |**[Varie](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#miscellaneous)**||||||||
-|Coppia chiave/valore|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004;|&#10004;|&#10004;|&#10004;Nota 6|&#10004; Nota 5, 6|&#10004;Nota 6|
+|Coppia chiave/valore|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004;|&#10004;|&#10004;|&#10004;Nota 6|& #10004; Nota 5, 6|&#10004;Nota 6|
 |Interrupt non mascherabile|2019, 2016, 2012 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
 |Copia di file da host a Guest|2019, 2016, 2012 R2|||||||
 |comando lsvmbus|2019, 2016, 2012 R2, 2012, 2008 R2|||||||
@@ -71,7 +69,7 @@ La mappa di distribuzione di funzionalità seguente indica le funzionalità di o
 |Avvio tramite UEFI|2019, 2016, 2012 R2|&#10004;||||||
 |Avvio protetto|2019, 2016|||||||
 
-## <a name="BKMK_notes"></a>Note
+## <a name="notes"></a><a name="BKMK_notes"></a>Note
 
 1. Suggerire di [etichettare i dispositivi disco]( https://www.freebsd.org/doc/handbook/geom-glabel.html) per evitare errori di montaggio radice durante l'avvio.
 
@@ -94,11 +92,11 @@ La mappa di distribuzione di funzionalità seguente indica le funzionalità di o
     # dd if=/dev/da1 of=/dev/da1 count=0
     # gpart recover da1
     ```
-   **Note aggiuntive**: La matrice di funzionalità di 10 stabili e 11 stabili è uguale alla versione di FreeBSD 11,1. Inoltre, FreeBSD 10,2 e le versioni precedenti (10,1, 10,0, 9. x, 8. x) sono alla fine della vita. Per un elenco aggiornato delle versioni supportate e degli avvisi di sicurezza più recenti, fai riferimento a [questa](https://security.freebsd.org/) pagina.
+   **Note aggiuntive**: la matrice di funzionalità di 10 stabili e 11 stabili è identica alla versione di FreeBSD 11,1. Inoltre, FreeBSD 10,2 e le versioni precedenti (10,1, 10,0, 9. x, 8. x) sono alla fine della vita. Per un elenco aggiornato delle versioni supportate e degli avvisi di sicurezza più recenti, fai riferimento a [questa](https://security.freebsd.org/) pagina.
 
-**Note aggiuntive**: La matrice di funzionalità di 10 stabili e 11 stabili è uguale alla versione di FreeBSD 11,1. Inoltre, FreeBSD 10,2 e le versioni precedenti (10,1, 10,0, 9. x, 8. x) sono alla fine della vita. Per un elenco aggiornato delle versioni supportate e degli avvisi di sicurezza più recenti, fai riferimento a [questa](https://security.freebsd.org/) pagina.
+**Note aggiuntive**: la matrice di funzionalità di 10 stabili e 11 stabili è identica alla versione di FreeBSD 11,1. Inoltre, FreeBSD 10,2 e le versioni precedenti (10,1, 10,0, 9. x, 8. x) sono alla fine della vita. Per un elenco aggiornato delle versioni supportate e degli avvisi di sicurezza più recenti, fai riferimento a [questa](https://security.freebsd.org/) pagina.
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 * [Descrizioni delle funzionalità per le macchine virtuali Linux e FreeBSD in Hyper-V](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md)
 * [Procedure consigliate per l'esecuzione di FreeBSD in Hyper-V](Best-practices-for-running-FreeBSD-on-Hyper-V.md)

@@ -1,24 +1,20 @@
 ---
 title: Gestire i criteri di restrizione software
 description: Sicurezza di Windows Server
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: security-software-restriction-policies
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 8cc22093-67d1-47b6-9ddd-4569b6761ce9
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/12/2016
-ms.openlocfilehash: c75c7813041870f79ed95250857a5c7d1576c7dc
-ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
+ms.openlocfilehash: 88e745b6951ab27f22cc412ee63f792d30775d14
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79322983"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80855114"
 ---
 # <a name="administer-software-restriction-policies"></a>Gestire i criteri di restrizione software
 
@@ -53,7 +49,7 @@ Per informazioni su come eseguire attività specifiche utilizzando il software d
 
 -   [Usare i criteri di restrizione software per proteggere il computer da un virus di posta elettronica](use-software-restriction-policies-to-help-protect-your-computer-against-an-email-virus.md)
 
-## <a name="BKMK_Open_SRP"></a>Per aprire Criteri di restrizione software
+## <a name="to-open-software-restriction-policies"></a><a name="BKMK_Open_SRP"></a>Per aprire Criteri di restrizione software
 
 -   [Per il computer locale](#BKMK_1)
 
@@ -63,7 +59,7 @@ Per informazioni su come eseguire attività specifiche utilizzando il software d
 
 -   [Per un sito di e si è in un controller di dominio o in una workstation in cui è installato il Strumenti di amministrazione remota del server](#BKMK_4)
 
-### <a name="BKMK_1"></a>Per il computer locale
+### <a name="for-your-local-computer"></a><a name="BKMK_1"></a>Per il computer locale
 
 1.  Aprire Impostazioni sicurezza locale.
 
@@ -76,7 +72,7 @@ Per informazioni su come eseguire attività specifiche utilizzando il software d
 > [!NOTE]
 > Per eseguire questa procedura, è necessario essere membro del gruppo Administrators sul computer locale o aver ricevuto in delega l'autorizzazione appropriata.
 
-### <a name="BKMK_2"></a>Per un dominio, un sito o un'unità organizzativa e l'utente si trova in un server membro o in una workstation aggiunta a un dominio
+### <a name="for-a-domain-site-or-organizational-unit-and-you-are-on-a-member-server-or-on-a-workstation-that-is-joined-to-a-domain"></a><a name="BKMK_2"></a>Per un dominio, un sito o un'unità organizzativa e l'utente si trova in un server membro o in una workstation aggiunta a un dominio
 
 1.  Aprire Microsoft Management Console (MMC).
 
@@ -101,7 +97,7 @@ Per informazioni su come eseguire attività specifiche utilizzando il software d
 > [!NOTE]
 > Per eseguire questa procedura, è necessario essere un membro del gruppo Domain Admins.
 
-### <a name="BKMK_3"></a>Per un dominio o un'unità organizzativa e si è in un controller di dominio o in una workstation in cui è installato il Strumenti di amministrazione remota del server
+### <a name="for-a-domain-or-organizational-unit-and-you-are-on-a-domain-controller-or-on-a-workstation-that-has-the-remote-server-administration-tools-installed"></a><a name="BKMK_3"></a>Per un dominio o un'unità organizzativa e si è in un controller di dominio o in una workstation in cui è installato il Strumenti di amministrazione remota del server
 
 1.  Aprire Console Gestione Criteri di gruppo.
 
@@ -120,7 +116,7 @@ Per informazioni su come eseguire attività specifiche utilizzando il software d
 > [!NOTE]
 > Per eseguire questa procedura, è necessario essere un membro del gruppo Domain Admins.
 
-### <a name="BKMK_4"></a>Per un sito di e si è in un controller di dominio o in una workstation in cui è installato il Strumenti di amministrazione remota del server
+### <a name="for-a-site-and-you-are-on-a-domain-controller-or-on-a-workstation-that-has-the-remote-server-administration-tools-installed"></a><a name="BKMK_4"></a>Per un sito di e si è in un controller di dominio o in una workstation in cui è installato il Strumenti di amministrazione remota del server
 
 1.  Aprire Console Gestione Criteri di gruppo.
 
@@ -145,7 +141,7 @@ Per informazioni su come eseguire attività specifiche utilizzando il software d
 > -   Per impostare le impostazioni dei criteri che verranno applicate ai computer, indipendentemente dall'utente che vi accede, fare clic su **Configurazione computer**.
 > -   Per impostare le impostazioni dei criteri che verranno applicate agli utenti, indipendentemente dal computer a cui accedono, fare clic su **Configurazione utente**.
 
-## <a name="BKMK_Create_SRP"></a>Per creare nuovi criteri di restrizione software
+## <a name="to-create-new-software-restriction-policies"></a><a name="BKMK_Create_SRP"></a>Per creare nuovi criteri di restrizione software
 
 1.  Aprire Criteri restrizione software.
 
@@ -158,7 +154,7 @@ Per informazioni su come eseguire attività specifiche utilizzando il software d
 >     -   Per creare nuovi criteri di restrizione software per un computer aggiunto a un dominio, la procedura può essere eseguita dai membri del gruppo Domain Admins.
 > -   Se sono già stati creati criteri di restrizione software per un oggetto Criteri di gruppo, il comando **Nuovi criteri restrizione software** non compare nel menu **Azione**. Per eliminare i criteri di restrizione software applicati a un oggetto Criteri di gruppo, nell'albero della console fare clic con il pulsante destro del mouse su **Criteri restrizione software** e quindi scegliere **Elimina criteri restrizione software**. Quando si eliminano i criteri di restrizione software per un oggetto Criteri di gruppo, vengono eliminate anche tutte le regole dei criteri di restrizione software. Dopo aver eliminato i criteri di restrizione software, è possibile creare nuovi criteri per l'oggetto Criteri di gruppo in questione.
 
-## <a name="BKMK_Add_Del"></a>Per aggiungere o eliminare un tipo di file designato
+## <a name="to-add-or-delete-a-designated-file-type"></a><a name="BKMK_Add_Del"></a>Per aggiungere o eliminare un tipo di file designato
 
 1.  Aprire Criteri restrizione software.
 
@@ -178,7 +174,7 @@ Per informazioni su come eseguire attività specifiche utilizzando il software d
 > -   Potrebbe essere necessario creare una nuova impostazione dei criteri di restrizione software per l'oggetto Criteri di gruppo, se non è ancora stato fatto.
 > -   L'elenco dei tipi di file designati è condiviso da tutte le regole per la configurazione del computer e la configurazione utente per un oggetto Criteri di gruppo.
 
-## <a name="BKMK_Prevent_Admin"></a>Per impedire l'applicazione di criteri di restrizione software agli amministratori locali
+## <a name="to-prevent-software-restriction-policies-from-applying-to-local-administrators"></a><a name="BKMK_Prevent_Admin"></a>Per impedire l'applicazione di criteri di restrizione software agli amministratori locali
 
 1.  Aprire Criteri restrizione software.
 
@@ -192,7 +188,7 @@ Per informazioni su come eseguire attività specifiche utilizzando il software d
 > -   Se è comune per gli utenti essere membri del gruppo Administrators locale nei loro computer nell'organizzazione, potrebbe essere opportuno evitare di abilitare questa opzione.
 > -   Per definire un'impostazione dei criteri di restrizione software per il computer locale, utilizzare questa procedura per evitare l'applicazione dei criteri di restrizione software agli amministratori locali. Se si definisce un'impostazione dei criteri di restrizione software per la rete, filtrare le impostazioni dei criteri utente in base all'appartenenza ai gruppi di sicurezza tramite Criteri di gruppo.
 
-## <a name="BKMK_Sec_Lvl"></a>Per modificare il livello di sicurezza predefinito dei criteri di restrizione software
+## <a name="to-change-the-default-security-level-of-software-restriction-policies"></a><a name="BKMK_Sec_Lvl"></a>Per modificare il livello di sicurezza predefinito dei criteri di restrizione software
 
 1.  Aprire Criteri restrizione software.
 
@@ -210,7 +206,7 @@ Per informazioni su come eseguire attività specifiche utilizzando il software d
 > -   Le regole dei criteri di restrizione software vengono create per specificare le eccezioni al livello di sicurezza predefinito. Quando il livello di sicurezza predefinito è impostato su **Senza restrizioni**, è possibile utilizzare le regole per specificare il software di cui non è consentita l'esecuzione. Quando il livello di sicurezza predefinito è impostato su **Non consentito**, è possibile utilizzare le regole per specificare il software di cui è consentita l'esecuzione.
 > -   Al momento dell'installazione, il livello di sicurezza predefinito per i criteri di restrizione software per tutti i file nel sistema è impostato su **Senza restrizioni**.
 
-## <a name="BKMK_Apply_SRP_DLLs"></a>Per applicare i criteri di restrizione software alle dll
+## <a name="to-apply-software-restriction-policies-to-dlls"></a><a name="BKMK_Apply_SRP_DLLs"></a>Per applicare i criteri di restrizione software alle dll
 
 1.  Aprire Criteri restrizione software.
 

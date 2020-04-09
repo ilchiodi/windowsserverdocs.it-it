@@ -1,7 +1,6 @@
 ---
 ms.assetid: 6b38480e-5b1c-49f0-9d46-8cf22f70f0d2
 title: Configurare l'ambiente lab per AD FS in Windows Server 2012 R2
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 52199ab8ca6f82443e78e72c6980746fa561363a
-ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
+ms.openlocfilehash: 44de547b0a9c8636b07886d35c451bca6ec46341
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79323123"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80855174"
 ---
 # <a name="set-up-the-lab-environment-for-ad-fs-in-windows-server-2012-r2"></a>Configurare l'ambiente lab per AD FS in Windows Server 2012 R2
 
@@ -43,12 +42,12 @@ Per configurare un ambiente di testing, completare i passaggi seguenti:
 
 4.  [Passaggio 4: configurare il computer client (CLIENT1)](../../ad-fs/deployment/../../ad-fs/deployment/Set-up-the-lab-environment-for-AD-FS-in-Windows-Server-2012-R2.md#BKMK_10)
 
-## <a name="BKMK_1"></a>Passaggio 1: configurare il controller di dominio (DC1)
+## <a name="step-1-configure-the-domain-controller-dc1"></a><a name="BKMK_1"></a>Passaggio 1: configurare il controller di dominio (DC1)
 Ai fini di questo ambiente di testing, è possibile chiamare la radice Active Directory dominio **contoso.com** e specificare <strong>pass@word1</strong> come password dell'amministratore.
 
 -   Installare il servizio ruolo Servizi di dominio Active Directory e installare Active Directory Domain Services (AD DS) per rendere il computer un controller di dominio in Windows Server 2012 R2. Questa azione Aggiorna lo schema di servizi di dominio Active Directory come parte della creazione del controller di dominio. Per ulteriori informazioni e istruzioni dettagliate, vedere[https://technet.microsoft.com/library/hh472162.aspx](https://technet.microsoft.com/library/hh472162.aspx).
 
-### <a name="BKMK_2"></a>Creare account di Active Directory di test
+### <a name="create-test-active-directory-accounts"></a><a name="BKMK_2"></a>Creare account di Active Directory di test
 Una volta che il controller di dominio sarà operativo, è possibile creare account utente di test e del gruppo di test in questo dominio e aggiungere l'account utente all'account di gruppo. Usare questi account per completare le procedure dettagliate nelle guide agli scenari elencate in precedenza in questo articolo.
 
 Creare i seguenti account:
@@ -74,7 +73,7 @@ L'account del servizio gestito del gruppo (GMSA) è necessario durante l'install
 
     ```
 
-## <a name="BKMK_4"></a>Passaggio 2: configurare il server federativo (ADFS1) con Device Registration Service
+## <a name="step-2-configure-the-federation-server-adfs1-by-using-device-registration-service"></a><a name="BKMK_4"></a>Passaggio 2: configurare il server federativo (ADFS1) con Device Registration Service
 Per configurare un'altra macchina virtuale, installare Windows Server 2012 R2 e connetterlo al dominio **contoso.com**. Configurare il computer dopo che è stato aggiunto al dominio e quindi procedere con l'installazione e la configurazione del ruolo AD FS.
 
 Per un video, vedere la [serie di video illustrativi su Active Directory Federation Services: Installazione di una server farm AD FS](https://technet.microsoft.com/video/dn469436).
@@ -202,7 +201,7 @@ L'appartenenza al gruppo Administrators o a un gruppo equivalente è il requisit
     > [!IMPORTANT]
     > In una distribuzione reale, se l'azienda usa più suffissi del nome dell'entità utente (UPN), è necessario creare più record CNAME, uno per ognuno dei suffissi UPN nel DNS.
 
-## <a name="BKMK_5"></a>Passaggio 3: configurare il server Web (WebServ1) e un'applicazione di esempio basata su attestazioni
+## <a name="step-3-configure-the-web-server-webserv1-and-a-sample-claims-based-application"></a><a name="BKMK_5"></a>Passaggio 3: configurare il server Web (WebServ1) e un'applicazione di esempio basata su attestazioni
 Configurare una macchina virtuale (WebServ1) installando il sistema operativo Windows Server 2012 R2 e connetterlo al dominio **contoso.com**. Dopo l'aggiunta al dominio, è possibile procedere all'installazione e alla configurazione del ruolo Server Web.
 
 Per completare le procedure dettagliate citate in precedenza in questo argomento, è necessario avere un'applicazione di esempio protetta dal server federativo (ADFS1).
@@ -222,7 +221,7 @@ Per configurare un server Web con questa applicazione di esempio basata su attes
 
 4.  [Creare un trust relying party nel server federativo](../../ad-fs/deployment/Set-up-the-lab-environment-for-AD-FS-in-Windows-Server-2012-R2.md#BKMK_11)
 
-### <a name="BKMK_15"></a>Installare il ruolo server Web e Windows Identity Foundation
+### <a name="install-the-web-server-role-and-windows-identity-foundation"></a><a name="BKMK_15"></a>Installare il ruolo server Web e Windows Identity Foundation
 
 1. > [!NOTE]
    > È necessario avere accesso al supporto di installazione di Windows Server 2012 R2.
@@ -247,11 +246,11 @@ Per configurare un server Web con questa applicazione di esempio basata su attes
 
 10. Nella pagina **Conferma selezioni per l'installazione** fare clic su **Specificare un percorso di origine alternativo**. Immettere il percorso della directory SxS che si trova nel supporto di installazione di Windows Server 2012 R2. Ad esempio D:\Sources\Sxs. Fare clic su **OK** e quindi su **Installa**.
 
-### <a name="BKMK_13"></a>Installare Windows Identity Foundation SDK
+### <a name="install-windows-identity-foundation-sdk"></a><a name="BKMK_13"></a>Installare Windows Identity Foundation SDK
 
 1.  Eseguire WindowsIdentityFoundation-SDK-3.5. msi per installare Windows Identity Foundation SDK 3,5 (https://www.microsoft.com/download/details.aspx?id=4451). Scegliere tutte le opzioni predefinite.
 
-### <a name="BKMK_9"></a>Configurare la semplice app claims in IIS
+### <a name="configure-the-simple-claims-app-in-iis"></a><a name="BKMK_9"></a>Configurare la semplice app claims in IIS
 
 1.  Installare un certificato SSL valido nell'archivio certificati del computer. Il certificato dovrà contenere il nome del server Web, **webserv1.contoso.com**.
 
@@ -322,7 +321,7 @@ Per configurare un server Web con questa applicazione di esempio basata su attes
 
 È ora necessario proteggere l'applicazione di esempio in esecuzione nel server Web con AD FS. A questo scopo è possibile aggiungere un trust della relying party nel server federativo (ADFS1). Per un video, vedere la [serie di video illustrativi su Active Directory Federation Services: Aggiungere un trust della relying party](https://technet.microsoft.com/video/adfs-how-to-add-a-relying-party-trust).
 
-### <a name="BKMK_11"></a>Creare un trust relying party nel server federativo
+### <a name="create-a-relying-party-trust-on-your-federation-server"></a><a name="BKMK_11"></a>Creare un trust relying party nel server federativo
 
 1.  Nel server federativo (ADFS1), nella **console di gestione di ADFS** passare ad **Attendibilità componente** e quindi fare clic su **Aggiungi attendibilità componente**.
 
@@ -350,7 +349,7 @@ Per configurare un server Web con questa applicazione di esempio basata su attes
 
 10. Fare clic su **Fine** e quindi su **OK**.
 
-## <a name="BKMK_10"></a>Passaggio 4: configurare il computer client (CLIENT1)
+## <a name="step-4-configure-the-client-computer-client1"></a><a name="BKMK_10"></a>Passaggio 4: configurare il computer client (CLIENT1)
 Configurare un'altra macchina virtuale e installare Windows 8.1. Questa macchina virtuale dovrà appartenere alla stessa rete virtuale delle altre. Questa macchina virtuale NON dovrà essere aggiunta al dominio Contoso.
 
 Il client DEVE considerare attendibile il certificato SSL usato per il server federativo (ADFS1) configurato nel [Step 2: Configure the federation server (ADFS1) with Device Registration Service](../../ad-fs/deployment/Set-up-the-lab-environment-for-AD-FS-in-Windows-Server-2012-R2.md#BKMK_4). Deve anche riuscire a convalidare le informazioni di revoca per il certificato.

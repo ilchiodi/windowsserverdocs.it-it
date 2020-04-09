@@ -1,24 +1,20 @@
 ---
 title: nfsshare
-description: 'Argomento dei comandi di Windows per * * * *- '
-ms.custom: na
+description: Argomento dei comandi di Windows per * * * *-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 437a2615-335a-442f-9713-d50d5f3983a3
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: d205bcfad11d22fea7fc9d0651aca61f234347cf
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: 032baaf3013d2658b1040345da3a35cb6a1631f2
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75948500"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80838904"
 ---
 # <a name="nfsshare"></a>nfsshare
 
@@ -44,7 +40,7 @@ Il comando **nfsshare** accetta le opzioni e gli argomenti seguenti:
 
 |             Termine              |                                                                                                                                                                                                                      Definizione                                                                                                                                                                                                                       |
 |-------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|         -o anon = {Yes          |                                                                                                                                                                                                                          non                                                                                                                                                                                                                          |
+|         -o anon = {Yes          |                                                                                                                                                                                                                          Non                                                                                                                                                                                                                          |
 |  -o RW [=\<host > [:<Host>]...]  |                       Fornisce accesso in lettura/scrittura alla directory condivisa dagli host o dai gruppi di client specificati dall' *host*. Separare i nomi host e gruppo con i due punti ( **:** ). Se *host* non è specificato, tutti gli host e i gruppi di client (ad eccezione di quelli specificati con l'opzione **ro** ) avranno accesso in lettura/scrittura. Se non è impostata né l'opzione **ro** né l'opzione **RW** , tutti i client avranno accesso in lettura/scrittura alla directory condivisa.                       |
 |  -o ro [=\<host > [:<Host>]...]  | Fornisce accesso in sola lettura alla directory condivisa dagli host o dai gruppi di client specificati dall' *host*. Separare i nomi host e gruppo con i due punti ( **:** ). Se l' *host* non è specificato, tutti i client (eccetto quelli specificati con l'opzione **RW** ) avranno accesso in sola lettura. Se l'opzione **ro** è impostata per uno o più client, ma l'opzione **RW** non è impostata, solo i client specificati con l'opzione **ro** possono accedere alla directory condivisa. |
 |       -o codifica = {Big5       |                                                                                                                                                                                                                        EUC-JP                                                                                                                                                                                                                         |
@@ -56,6 +52,6 @@ Il comando **nfsshare** accetta le opzioni e gli argomenti seguenti:
 > [!NOTE]
 > Per visualizzare la sintassi completa del comando, al prompt dei comandi digitare:</br>> **nfsshare/?**
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 
 [Informazioni di riferimento sui comandi di Servizi per NFS](services-for-network-file-system-command-reference.md)

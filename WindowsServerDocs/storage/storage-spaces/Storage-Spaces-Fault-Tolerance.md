@@ -2,7 +2,7 @@
 title: Tolleranza di errore ed efficienza di archiviazione in Spazi di archiviazione diretta
 ms.prod: windows-server
 ms.author: cosmosdarwin
-ms.manager: eldenc
+manager: eldenc
 ms.technology: storage-spaces
 ms.topic: article
 author: cosmosdarwin
@@ -10,12 +10,12 @@ ms.date: 10/11/2017
 ms.assetid: 5e1d7ecc-e22e-467f-8142-bad6d82fc5d0
 description: Una descrizione delle opzioni di resilienza in Spazi di archiviazione diretta, tra cui mirroring e parità.
 ms.localizationpriority: medium
-ms.openlocfilehash: 2e60a715ffa0097f3f5c615792da3aa0a291d6bd
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: b64592bf3cf5659410dcbbeb4c190d2d6a85485a
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75950048"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80859014"
 ---
 # <a name="fault-tolerance-and-storage-efficiency-in-storage-spaces-direct"></a>Tolleranza di errore ed efficienza di archiviazione in Spazi di archiviazione diretta
 
@@ -41,20 +41,20 @@ In Windows Server 2016, Spazi di archiviazione offre due tipi di mirroring: a 2 
 
 Il mirroring a 2 vie scrive due copie di tutti gli elementi. L'efficienza di archiviazione è pari al 50%: per scrivere 1 TB di dati sono necessari almeno 2 TB di capacità di archiviazione fisica. Analogamente, sono necessari almeno due ["domini di errore" hardware](../../failover-clustering/fault-domains.md) con Spazi di archiviazione diretta, ovvero due server.
 
-![two-way-mirror](media/Storage-Spaces-Fault-Tolerance/two-way-mirror-180px.png)
+![mirroring a 2 vie](media/Storage-Spaces-Fault-Tolerance/two-way-mirror-180px.png)
 
    >[!WARNING]
    > Se hai più di due server, è consigliabile usare invece il mirorring a 3 vie.
 
 ### <a name="three-way-mirror"></a>Mirroring a 3 vie
 
-Il mirroring a 3 vie scrive tre copie di tutti gli elementi. L'efficienza di archiviazione è pari al 33,3%: per scrivere 1 TB di dati sono necessari almeno 3 TB di capacità di archiviazione fisica. Analogamente, sono necessari almeno tre domini di errore hardware: con Spazi di archiviazione diretta questo significa tre server.
+Il mirroring a 3 vie scrive tre copie di tutti gli elementi. L'efficienza di archiviazione è pari al 33,3%: per scrivere 1 TB di dati sono necessari almeno 3 TB di capacità di archiviazione fisica. Analogamente, sono necessari almeno tre domini di errore hardware con Spazi di archiviazione diretta, ovvero tre server.
 
 Il mirroring a 3 vie può tollerare almeno [due problemi hardware (unità o server) alla volta](#examples). Ad esempio, se stai riavviando un server quando improvvisamente si verifica un problema a un'altra unità o server, tutti i dati rimangono sicuri e sempre accessibili.
 
-![three-way-mirror](media/Storage-Spaces-Fault-Tolerance/three-way-mirror-180px.png)
+![mirroring a 3 vie](media/Storage-Spaces-Fault-Tolerance/three-way-mirror-180px.png)
 
-## <a name="parity"></a>Parità
+## <a name="parity"></a>Parity
 
 La codifica di parità, spesso detta "codifica di cancellazione", offre tolleranza di errore usando un'aritmetica bit per bit, che può essere [notevolmente complessa](https://www.microsoft.com/research/wp-content/uploads/2016/02/LRC12-cheng20webpage.pdf). Il funzionamento è meno ovvio rispetto al mirroring e sono disponibili numerose risorse online (ad esempio la guida di terze parti [Dummies Guide to Erasure Coding](http://smahesh.com/blog/2012/07/01/dummies-guide-to-erasure-coding/)) che possono aiutarti a capirlo. È sufficiente notare che questo metodo offre maggiore efficienza di archiviazione senza compromettere la tolleranza di errore.
 
@@ -102,7 +102,7 @@ L'efficienza di archiviazione della parità accelerata con mirror è una via di 
 > [!IMPORTANT]
 > Ti consigliamo di usare il mirroring per i carichi di lavoro più sensibili alle prestazioni. Per altre informazioni su come bilanciare prestazioni e capacità in base al carico di lavoro, vedi [Pianificare volumi](plan-volumes.md#choosing-the-resiliency-type).
 
-## <a name="summary"></a>Riepilogo
+## <a name="summary"></a><a name="summary"></a>Riepilogo
 
 Questa sezione riepiloga i tipi resilienza disponibili in Spazi di archiviazione diretta, i requisiti di scala minimi per ogni tipo, il numero di errori che ogni tipo può tollerare e l'efficienza di archiviazione corrispondente.
 
@@ -110,10 +110,10 @@ Questa sezione riepiloga i tipi resilienza disponibili in Spazi di archiviazione
 
 |    Resilienza          |    Tolleranza di errore       |    Efficienza di archiviazione      |
 |------------------------|----------------------------|----------------------------|
-|    Mirroring a 2 vie      |    1                       |    50%                   |
+|    Mirroring a 2 vie      |    1                       |    50.0%                   |
 |    Mirroring a 3 vie    |    2                       |    33,3%                   |
-|    Doppia parità         |    2                       |    50,0% - 80,0%           |
-|    Modalità mista               |    2                       |    33,3% - 80,0%           |
+|    Doppia parità         |    2                       |    50% - 80%           |
+|    Mixed               |    2                       |    33,3% - 80%           |
 
 ### <a name="minimum-scale-requirements"></a>Requisiti di scala minimi
 
@@ -122,22 +122,22 @@ Questa sezione riepiloga i tipi resilienza disponibili in Spazi di archiviazione
 |    Mirroring a 2 vie      |    2                                |
 |    Mirroring a 3 vie    |    3                                |
 |    Doppia parità         |    4                                |
-|    Modalità mista               |    4                                |
+|    Mixed               |    4                                |
 
    >[!TIP]
-   > A meno che tu non usi la [tolleranza di errore chassis o rack](../../failover-clustering/fault-domains.md), il numero di domini di errore indica il numero di server. Il numero di unità in ogni server non influisce sui tipi di resilienza che puoi usare, a patto che siano soddisfatti i requisiti minimi per Spazi di archiviazione diretta. 
+   > A meno che tu non usi la [tolleranza di errore tramite chassis o rack](../../failover-clustering/fault-domains.md), il numero di domini di errore indica il numero di server. Il numero di unità in ogni server non influisce sui tipi di resilienza che puoi usare, a patto che siano soddisfatti i requisiti minimi per Spazi di archiviazione diretta. 
 
 ### <a name="dual-parity-efficiency-for-hybrid-deployments"></a>Efficienza della doppia parità per le distribuzioni ibride
 
 Questa tabella mostra l'efficienza di archiviazione della doppia parità e dei codici di ricostruzione locali per distribuzioni ibride di dimensioni diverse contenenti sia unità disco rigido (HDD) che unità SSD.
 
-|    Domini di errore      |    Layout           |    Efficienza   |
+|    Domini di errore      |    Layout           |    Efficiency   |
 |-----------------------|---------------------|-----------------|
 |    2                  |    –                |    –            |
 |    3                  |    –                |    –            |
-|    4                  |    RS 2+2           |    50%        |
-|    5                  |    RS 2+2           |    50%        |
-|    6                  |    RS 2+2           |    50%        |
+|    4                  |    RS 2+2           |    50.0%        |
+|    5                  |    RS 2+2           |    50.0%        |
+|    6                  |    RS 2+2           |    50.0%        |
 |    7                  |    RS 4+2           |    66,7%        |
 |    8                  |    RS 4+2           |    66,7%        |
 |    9                  |    RS 4+2           |    66,7%        |
@@ -153,25 +153,25 @@ Questa tabella mostra l'efficienza di archiviazione della doppia parità e dei c
 
 Questa tabella mostra l'efficienza di archiviazione della doppia parità e dei codici di ricostruzione locali per distribuzioni all-flash di dimensioni diverse contenenti solo unità SSD. Il layout con parità può usare gruppi con dimensioni maggiori e ottenere maggiore efficienza di archiviazione in una configurazione all-flash.
 
-|    Domini di errore      |    Layout           |    Efficienza   |
+|    Domini di errore      |    Layout           |    Efficiency   |
 |-----------------------|---------------------|-----------------|
 |    2                  |    –                |    –            |
 |    3                  |    –                |    –            |
-|    4                  |    RS 2+2           |    50%        |
-|    5                  |    RS 2+2           |    50%        |
-|    6                  |    RS 2+2           |    50%        |
+|    4                  |    RS 2+2           |    50.0%        |
+|    5                  |    RS 2+2           |    50.0%        |
+|    6                  |    RS 2+2           |    50.0%        |
 |    7                  |    RS 4+2           |    66,7%        |
 |    8                  |    RS 4+2           |    66,7%        |
-|    9                  |    RS 6+2           |    75%        |
-|    10                 |    RS 6+2           |    75%        |
-|    11                 |    RS 6+2           |    75%        |
-|    12                 |    RS 6+2           |    75%        |
-|    13                 |    RS 6+2           |    75%        |
-|    14                 |    RS 6+2           |    75%        |
-|    15                 |    RS 6+2           |    75%        |
+|    9                  |    RS 6+2           |    75.0%        |
+|    10                 |    RS 6+2           |    75.0%        |
+|    11                 |    RS 6+2           |    75.0%        |
+|    12                 |    RS 6+2           |    75.0%        |
+|    13                 |    RS 6+2           |    75.0%        |
+|    14                 |    RS 6+2           |    75.0%        |
+|    15                 |    RS 6+2           |    75.0%        |
 |    16                 |    LRC (12, 2, 1)   |    80%        |
 
-## <a name="examples"></a>Esempi:
+## <a name="examples"></a><a name="examples"></a>Esempi
 
 A meno che tu non abbia solo due server, ti consigliamo di usare il mirroring a 3 vie e/o la doppia parità, perché offrono una migliore tolleranza di errore. In particolare, garantiscono che tutti i dati siano sicuri e sempre accessibili, anche nel caso in cui si verifichino errori contemporaneamente in due domini di errore con Spazi di archiviazione diretta, ovvero due server.
 
@@ -203,13 +203,13 @@ Nel tempo, Spazi di archiviazione può tollerare un numero qualsiasi di errori, 
 - **7.** Perdita di unità in tre o più server contemporaneamente
 - **8.** Perdita di tre o più server contemporaneamente
 
-![fault-tolerance-examples-7-and-8](media/Storage-Spaces-Fault-Tolerance/Fault-Tolerance-Example-78.png)
+![esempi 7 e 8 relativi alla tolleranza di errore](media/Storage-Spaces-Fault-Tolerance/Fault-Tolerance-Example-78.png)
 
-## <a name="usage"></a>Usage
+## <a name="usage"></a>Utilizzo
 
 Consulta [Creazione di volumi in Spazi di archiviazione diretta](create-volumes.md).
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 
 Ognuno dei link seguenti è presente anche nel corpo di questo argomento.
 

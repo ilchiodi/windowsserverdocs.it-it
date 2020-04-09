@@ -2,20 +2,19 @@
 title: Configurare una macchina virtuale con un controller SCSI in grado di inserimento e scollegare a caldo di archiviazione
 description: Versione online del testo per questa regola di Best Practices Analyzer.
 ms.prod: windows-server
-ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
 ms.author: kathydav
 ms.topic: article
 ms.assetid: 511e1172-aeef-463d-b5dd-2bffae411ff1
-author: KBDAzure
+author: kbdazure
 ms.date: 8/16/2016
-ms.openlocfilehash: 5b901ee8f11942b8ad50a3c34c53354a5998e105
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: bd49a911d278a1f07fe9630f39798204d760dd88
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71365067"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80862154"
 ---
 # <a name="configure-a-virtual-machine-with-a-scsi-controller-to-be-able-to-hot-plug-and-hot-unplug-storage"></a>Configurare una macchina virtuale con un controller SCSI in grado di inserimento e scollegare a caldo di archiviazione
 
@@ -27,7 +26,7 @@ ms.locfileid: "71365067"
   
 |Proprietà|Dettagli|  
 |-|-|  
-|**Sistema operativo**|Windows Server 2016|  
+|**Sistema operativo**|Windows Server 2016|  
 |**Prodotto/funzionalità**|Hyper-V|  
 |**Gravità**|Avviso|  
 |**Categoria**|Configurazione|  

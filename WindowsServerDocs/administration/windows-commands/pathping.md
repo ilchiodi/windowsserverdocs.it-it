@@ -1,28 +1,24 @@
 ---
 title: pathping
 description: Informazioni su come ottenere la latenza di rete e le informazioni sulle perdite usando il comando pathping.
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: ec430125-b1dc-4aad-a7c9-b70f486d9e3c
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 07/11/2018
-ms.openlocfilehash: 3232aaac979aa4e410d31db810abdd940d1c24bf
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 3f853ef430207c08e78e0446ce67c6b5bec4c1db
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71372405"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80837695"
 ---
 # <a name="pathping"></a>pathping
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Fornisce informazioni sulla latenza di rete e la perdita di rete a hop intermedi tra un'origine e una destinazione. **PathPing** invia più messaggi di richiesta echo a ogni router tra un'origine e una destinazione in un determinato periodo di tempo e calcola quindi i risultati in base ai pacchetti restituiti da ogni router. Poiché **PathPing** Visualizza il grado di perdita di pacchetti in un determinato router o collegamento, è possibile determinare quali router o subnet potrebbero riscontrare problemi di rete. 
 
@@ -32,18 +28,18 @@ Fornisce informazioni sulla latenza di rete e la perdita di rete a hop intermedi
 ```
 pathping [/n] [/h] [/g <Hostlist>] [/p <Period>] [/q <NumQueries> [/w <timeout>] [/i <IPaddress>] [/4 <IPv4>] [/6 <IPv6>][<TargetName>]
 ```
-### <a name="parameters"></a>Parametri
+#### <a name="parameters"></a>Parametri
 |Parametro|Descrizione|
 |-------|--------|
 |/n|Impedisce a **PathPing** di tentare di risolvere gli indirizzi IP dei router intermedi con i rispettivi nomi. Questo può accelerare la visualizzazione dei risultati di **PathPing** .|
 |/h \<MaximumHops >|Specifica il numero massimo di hop nel percorso in cui cercare la destinazione (destinazione). Il valore predefinito è 30 hop.|
-|/g \<Hostlist >|Specifica che i messaggi di richiesta echo usano l'opzione Loose Source Route nell'intestazione IP con il set di destinazioni intermedie specificato in *host*. Con il routing del codice sorgente sciolto, le destinazioni intermedie successive possono essere separate da uno o più router. Il numero massimo di indirizzi o nomi nell'elenco host è 9. L' *host* è una serie di indirizzi IP (in notazione decimale tratteggiata) separati da spazi.|
-|/p \<Period >|Specifica il numero di millisecondi di attesa tra i ping consecutivi. Il valore predefinito è 250 millisecondi (1/4 secondi).|
+|/g \<host >|Specifica che i messaggi di richiesta echo usano l'opzione Loose Source Route nell'intestazione IP con il set di destinazioni intermedie specificato in *host*. Con il routing del codice sorgente sciolto, le destinazioni intermedie successive possono essere separate da uno o più router. Il numero massimo di indirizzi o nomi nell'elenco host è 9. L' *host* è una serie di indirizzi IP (in notazione decimale tratteggiata) separati da spazi.|
+|/p \<periodo >|Specifica il numero di millisecondi di attesa tra i ping consecutivi. Il valore predefinito è 250 millisecondi (1/4 secondi).|
 |/q \<NumQueries >|Specifica il numero di messaggi di richiesta echo inviati a ogni router nel percorso. Il valore predefinito è 100 query.|
-|/w \<timeout >|Specifica il numero di millisecondi di attesa per ogni risposta. Il valore predefinito è 3000 millisecondi (3 secondi).|
+|timeout \</w >|Specifica il numero di millisecondi di attesa per ogni risposta. Il valore predefinito è 3000 millisecondi (3 secondi).|
 |/i \<IPaddress >|Specifica l'indirizzo di origine.|
-|/4 \<IPv4 >|Specifica che pathping utilizza solo IPv4.|
-|/6 \<IPv6 >|Specifica che pathping utilizza solo IPv6.|
+|/4 \<> IPv4|Specifica che pathping utilizza solo IPv4.|
+|/6 \<> IPv6|Specifica che pathping utilizza solo IPv6.|
 |\<TargetName >|Specifica la destinazione, che viene identificata in base all'indirizzo IP o al nome host.|
 |/?|Visualizza la guida al prompt dei comandi.|
 
@@ -55,7 +51,7 @@ pathping [/n] [/h] [/g <Hostlist>] [/p <Period>] [/q <NumQueries> [/w <timeout>]
 -   Quando si usa il parametro **/w** , è possibile inviare più ping in parallelo. Per questo motivo, la quantità di tempo specificata nel parametro *timeout* non è vincolata dalla quantità di tempo specificata nel parametro *period* per l'attesa tra i ping.
 -   Questo comando è disponibile solo se è installato il protocollo Internet Protocol (TCP/IP) come componente nelle proprietà di una scheda di rete in connessioni di rete.
 
-## <a name="BKMK_Examples"></a>Esempi
+## <a name="examples"></a><a name=BKMK_Examples></a>Esempi
 
 L'esempio seguente mostra l'output del comando **PathPing** :
 
@@ -92,4 +88,4 @@ Nel report di esempio precedente, le colonne **nodo/collegamento**, **perse/invi
 Il tasso di perdita visualizzato per i collegamenti, identificato come barra verticale ( **|** ) nella colonna **Address** , indica la congestione dei collegamenti che causa la perdita di pacchetti inoltrati nel percorso. I tassi di perdita visualizzati per i router (identificati dai rispettivi indirizzi IP) indicano che questi router potrebbero essere sottoposte a overload.
 
 ## <a name="additional-references"></a>Altri riferimenti
--   [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+-   - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

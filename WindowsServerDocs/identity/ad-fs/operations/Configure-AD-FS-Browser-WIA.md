@@ -6,19 +6,18 @@ ms.author: billmath
 manager: femila
 ms.date: 03/20/2020
 ms.topic: article
-ms.custom: it-pro
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 47ef535c7e761f9de8331b80508703421feb68e9
-ms.sourcegitcommit: 5197a87e659589bcc8d2a32069803ae736b02892
+ms.openlocfilehash: b0c64d90fcbeaf2aa03312b9707bcfa43379271f
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/14/2020
-ms.locfileid: "79376258"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80859934"
 ---
 # <a name="configure-browsers-to-use-windows-integrated-authentication-wia-with-ad-fs"></a>Configurare i browser per l'uso dell'autenticazione integrata di Windows (WIA) con AD FS
 
-Per impostazione predefinita, l'autenticazione integrata di Windows (WIA) è abilitata in Active Directory Federation Services (AD FS) in Windows Server 2012 R2 per le richieste di autenticazione che si verificano all'interno della rete interna dell'organizzazione (Intranet) per qualsiasi applicazione che usa un browser per l'autenticazione.
+Per impostazione predefinita, l'autenticazione integrata di Windows (WIA) è abilitata in Active Directory Federation Services (AD FS) in Windows Server 2012 R2 per le richieste di autenticazione che si verificano all'interno della rete interna dell'organizzazione (Intranet) per qualsiasi applicazione che utilizza un browser per l'autenticazione.
 
 AD FS 2016 dispone ora di un'impostazione predefinita migliorata che consente al browser Microsoft Edge di eseguire WIA anche in modo non Windows Phone corretto:
 

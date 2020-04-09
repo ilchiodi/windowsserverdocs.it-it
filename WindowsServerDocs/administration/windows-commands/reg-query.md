@@ -1,24 +1,20 @@
 ---
 title: query reg
-description: 'Argomento dei comandi di Windows per * * * *- '
-ms.custom: na
+description: Argomento dei comandi di Windows per * * * *-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 0e6a0d7c-ed9b-4318-833d-33f265a81f39
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: d2f616fb33974df4327c7b2536b3143b75d116be
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: bf21933e1ce9928048f0f07ed502dfcab75d1783
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71371724"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80836394"
 ---
 # <a name="reg-query"></a>query reg
 
@@ -34,7 +30,7 @@ Per esempi di utilizzo di questo comando, vedere [Esempi](#BKMK_examples).
 reg query <KeyName> [{/v <ValueName> | /ve}] [/s] [/se <Separator>] [/f <Data>] [{/k | /d}] [/c] [/e] [/t <Type>] [/z]
 ```
 
-## <a name="parameters"></a>Parametri
+### <a name="parameters"></a>Parametri
 
 |Parametro|Descrizione|
 |---------|-----------|
@@ -58,10 +54,10 @@ Nella tabella seguente sono elencati i valori restituiti per il **reg query** op
 
 |Valore|Descrizione|
 |-----|-----------|
-|0|Operazione completata con successo|
+|0|Success|
 |1|Operazione non riuscita|
 
-## <a name="BKMK_examples"></a>Esempi
+## <a name="examples"></a><a name=BKMK_examples></a>Esempi
 
 Per visualizzare il valore del valore del nome, versione nella chiave HKLM\Software\Microsoft\ResKit, digitare:
 ```
@@ -88,6 +84,6 @@ Per visualizzare il valore e i dati per i nomi dei valori null (predefinito) in 
 REG QUERY HKLM\SOFTWARE /ve
 ```
 
-#### <a name="additional-references"></a>Altri riferimenti
+## <a name="additional-references"></a>Altre informazioni di riferimento
 
-[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+- [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
