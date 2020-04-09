@@ -1,24 +1,20 @@
 ---
 title: Gestione e protezione delle credenziali
 description: Sicurezza di Windows Server
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: security-credential-protection
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: e457229c-0126-40fe-948c-101c943e1b57
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/12/2016
-ms.openlocfilehash: 31f0f89099a71f8ea6abcf0064113d6af9608c5a
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: c836da8f83510e6547e0e182ac06fd2151dd9c41
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71403796"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80857064"
 ---
 # <a name="credentials-protection-and-management"></a>Gestione e protezione delle credenziali
 

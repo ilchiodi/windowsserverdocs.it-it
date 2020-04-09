@@ -1,6 +1,5 @@
 ---
 title: Informazioni sulle proprietà di specifica della chiave Active Directory Federation Services e del certificato
-description: ''
 author: billmath
 manager: femila
 ms.date: 05/31/2017
@@ -9,12 +8,12 @@ ms.prod: windows-server
 ms.assetid: a5307da5-02ff-4c31-80f0-47cb17a87272
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: 51c9828cfe494c68422f4985e5b17113020c8414
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: e3ddc427d84a79d831c61cad8087dbfa1d3fb564
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71407413"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80860244"
 ---
 # <a name="ad-fs-and-certificate-keyspec-property-information"></a>Informazioni sulle proprietà delle specifiche della AD FS e del certificato
 La specifica della chiave ("chiave specifica") è una proprietà associata a un certificato e una chiave. Specifica se è possibile usare una chiave privata associata a un certificato per la firma, la crittografia o entrambi.   
@@ -42,7 +41,7 @@ Nel registro eventi potrebbe essere visualizzato quanto segue:
 ## <a name="what-causes-the-problem"></a>Causa del problema
 La proprietà chiave specifica identifica il modo in cui può essere usata una chiave generata o recuperata da Microsoft CryptoAPI (CAPI), da un provider di archiviazione di crittografia (CSP) legacy Microsoft.
 
-Per la firma e la crittografia è possibile usare un valore di una **specifica di una**o più **AT_KEYEXCHANGE**.  Il valore **2**, o **AT_SIGNATURE**, viene usato solo per la firma.
+Per la firma e la crittografia è possibile usare un valore di una specifica di una specifica di un valore pari a **1**o **AT_KEYEXCHANGE**.  Il valore **2**, o **AT_SIGNATURE**, viene utilizzato solo per la firma.
 
 La configurazione errata della specifica di più comune sta usando un valore di 2 per un certificato diverso dal certificato per la firma di token.  
 
@@ -53,14 +52,14 @@ Vedere come verificare la presenza di un valore di una specifica di un valore va
 ### <a name="example"></a>Esempio
 Un esempio di CSP legacy è Microsoft Enhanced Cryptographic Provider. 
 
-Il formato BLOB della chiave Microsoft RSA CSP include rispettivamente un identificatore di algoritmo, **CALG_RSA_KEYX** o **CALG_RSA_SIGN**, per soddisfare le richieste per le chiavi <strong>AT_KEYEXCHANGE * * o * * AT_SIGNATURE</strong> .
+Il formato BLOB della chiave Microsoft RSA CSP include un identificatore di algoritmo, **CALG_RSA_KEYX** o **CALG_RSA_SIGN**rispettivamente, per soddisfare le richieste per le chiavi di <strong>AT_KEYEXCHANGE * * o * * AT_SIGNATURE</strong> .
 
 Gli identificatori dell'algoritmo della chiave RSA vengono mappati ai valori delle specifiche chiave come indicato di seguito
 
 | Algoritmo supportato dal provider| Valore della specifica chiave per le chiamate CAPI |
 | --- | --- |
-|CALG_RSA_KEYX : Chiave RSA che può essere usata per la firma e la decrittografia| AT_KEYEXCHANGE (o la specifica di una scheda di stato = 1)|
-CALG_RSA_SIGN : Chiave solo firma RSA |AT_SIGNATURE (o la specifica di una scheda di stato = 2)|
+|CALG_RSA_KEYX: chiave RSA che può essere usata per la firma e la decrittografia| AT_KEYEXCHANGE o la specifica di una scheda|
+CALG_RSA_SIGN: chiave solo firma RSA |AT_SIGNATURE (o la specifica di una delle due)|
 
 ## <a name="keyspec-values-and-associated-meanings"></a>Valori delle specifiche e significati associati
 Di seguito sono riportati i significati dei diversi valori delle specifiche di codice:
@@ -69,7 +68,7 @@ Di seguito sono riportati i significati dei diversi valori delle specifiche di c
 | --- | --- | --- |
 |0|Il certificato è un certificato CNG|Solo certificato SSL|
 |1|Per un certificato CAPI legacy (non CNG), la chiave può essere usata per la firma e la decrittografia|    SSL, firma di token, decrittografia di token, certificati di comunicazione del servizio|
-|2|Per un certificato CAPI legacy (non CNG), la chiave può essere usata solo per la firma|Non consigliato|
+|2|Per un certificato CAPI legacy (non CNG), la chiave può essere usata solo per la firma|non consigliato|
 
 ## <a name="how-to-check-the-keyspec-value-for-your-certificates--keys"></a>Come controllare il valore della specifica della chiave per i certificati o le chiavi
 Per visualizzare un valore di certificati, è possibile usare lo strumento da riga di comando **certutil** .  
@@ -82,7 +81,7 @@ In CERT_KEY_PROV_INFO_PROP_ID cercare due elementi:
 
 
 1. **ProviderType:** indica se il certificato usa un provider di archiviazione di crittografia (CSP) legacy o un provider di archiviazione chiavi basato sulle API CNG (certificate Next Generation) più recenti.  Qualsiasi valore diverso da zero indica un provider Legacy.
-2. **KeySpec** Di seguito sono riportati i valori validi delle specifiche per un certificato AD FS:
+2. **Specifica della scheda:** Di seguito sono riportati i valori validi delle specifiche per un certificato AD FS:
 
    Provider CSP legacy (ProviderType diverso da 0):
 
@@ -107,8 +106,8 @@ Per modificare il valore di una specifica di base non è necessario che il certi
 2. Esportare il certificato, inclusa la chiave privata, in un file PFX.
 3. Per ogni AD FS e server WAP, seguire questa procedura.
     1. Eliminare il certificato (dal server AD FS/WAP)
-    2. Aprire un prompt dei comandi di PowerShell con privilegi elevati e importare il file PFX in ogni AD FS e server WAP usando la sintassi del cmdlet riportata di seguito, specificando il valore AT_KEYEXCHANGE (che funziona per tutti i AD FS scopi del certificato):
-        1. C: \>certutil – importpfx CertFile. pfx AT_KEYEXCHANGE
+    2. Aprire un prompt dei comandi di PowerShell con privilegi elevati e importare il file PFX in ogni AD FS e server WAP usando la sintassi del cmdlet riportata di seguito, specificando il valore di AT_KEYEXCHANGE (che funziona per tutti gli scopi di AD FS certificate):
+        1. C:\>certutil – importpfx CertFile. pfx AT_KEYEXCHANGE
         2. Immettere la password PFX
     3. Al termine dell'operazione, eseguire le operazioni seguenti
         1. controllare le autorizzazioni per la chiave privata

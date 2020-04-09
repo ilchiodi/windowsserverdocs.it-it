@@ -1,7 +1,6 @@
 ---
 ms.assetid: 460792e4-9f1d-4e7b-b6b2-53e057f839df
 title: Considerazioni sulla topologia di distribuzione di ADFS
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,20 +8,20 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 881cdc02d06ce5afd3c0706f9c1ea5fa2576799f
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 3086de9dc34f555d5f6056716ab9572b980f1962
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71358924"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80858754"
 ---
 # <a name="using-ad-ds-claims-with-ad-fs"></a>Utilizzo di attestazioni Active Directory Domain Services con ADFS
   
   
-È possibile abilitare il controllo di accesso più completo per le applicazioni federate \(utilizzando Active Directory Domain Services\)servizi di dominio Active Directory\-con attestazioni \(utente e dispositivo con Active Directory Federation Services ad FS \).  
+È possibile abilitare il controllo di accesso più completo per le applicazioni federate utilizzando Active Directory Domain Services \(servizi di dominio Active Directory\)\-le attestazioni di utenti e dispositivi con Active Directory Federation Services \(ad FS.\)  
   
 ## <a name="about-dynamic-access-control"></a>Informazioni sul controllo di accesso dinamico  
-In Windows Server® 2012, la funzionalità controllo dinamico degli accessi consente alle organizzazioni di concedere l'accesso ai file in base alle attestazioni utente \(che vengono originate dagli attributi di account utente\) del dispositivo e \(che vengono originate dagli attributi di account computer\) che vengono rilasciati da servizi di dominio Active Directory \(AD DS\). Dominio di Active Directory rilasciate le attestazioni è integrati nell'autenticazione integrata di Windows tramite il protocollo di autenticazione Kerberos.  
+In Windows Server&reg; 2012, la funzionalità di controllo dinamico degli accessi consente alle organizzazioni di concedere l'accesso ai file in base alle attestazioni utente \(originati dagli attributi degli account utente\) e delle attestazioni del dispositivo \(originati dagli attributi degli account computer\) rilasciati da Active Directory Domain Services \(servizi di dominio Active Directory\). Dominio di Active Directory rilasciate le attestazioni è integrati nell'autenticazione integrata di Windows tramite il protocollo di autenticazione Kerberos.  
   
 Per ulteriori informazioni su controllo dinamico degli accessi, vedere [dinamica Guida del contenuto controllo accesso](../../solution-guides/Dynamic-Access-Control--Scenario-Overview.md#BKMK_APP).  
   
@@ -42,16 +41,16 @@ Queste rilasciate le attestazioni di Active Directory può essere inserito un ti
   
     -   AD DS gruppi di sicurezza, in caso contrario, viene utilizzati per controllare l'accesso alle applicazioni e risorse che sono accessibili tramite l'autenticazione integrata di Windows.  
   
-    -   Trust tra foreste che verrebbero altrimenti usati per controllare l'\-accesso alle\- \(applicazioni e alle risorse\) internet B2B \/ accessibili per le aziende.  
+    -   Trust tra foreste che verrebbero altrimenti usati per controllare l'accesso ai\-aziendali per\-business \(\) B2B \/ le applicazioni e le risorse accessibili a Internet.  
   
--   Le organizzazioni possono ora impedire l'accesso non autorizzato alle risorse di rete dai computer client a seconda che un valore di attributo dell'account computer specifico \(archiviato in servizi di dominio Active Directory,\) ad esempio, il nome DNS di un computer corrisponda al controllo di accesso \(criteri della risorsa, ad esempio, un file server che è stato consentito con attestazioni \(\) o i criteri di relying party, ad esempio\-, un'applicazione\)Web in grado di riconoscere attestazioni. Ciò consente agli amministratori di impostare criteri di controllo di accesso più preciso per le risorse o le applicazioni:  
+-   Le organizzazioni possono ora impedire l'accesso non autorizzato alle risorse di rete da computer client a seconda che un valore di attributo dell'account computer specifico archiviato in servizi di dominio Active Directory \(ad esempio, il nome DNS di un computer\) corrisponda ai criteri di controllo di accesso della risorsa \(ad esempio, un file server che è stato consentito con attestazioni\) o relying party criteri \(ad esempio, un\-di attesta\) Ciò consente agli amministratori di impostare criteri di controllo di accesso più preciso per le risorse o le applicazioni:  
   
     -   Accessibile solo tramite l'autenticazione integrata di Windows.  
   
     -   Internet accessibili tramite meccanismi di autenticazione ADFS. ADFS può essere usato per trasformare rilasciate le attestazioni dispositivo attestazioni ADFS che possono essere incapsulate in token SAML che possono essere utilizzati da una risorsa accessibile mediante Internet o l'applicazione relying party in Active Directory.  
   
 ## <a name="differences-between-ad-ds-and-ad-fs-issued-claims"></a>Differenze tra Active Directory e ADFS rilasciate le attestazioni  
-Esistono due fattori discriminanti importanti comprendere le attestazioni inviate da Visual Studio di dominio Active Directory. AD FS. Queste differenze includono:  
+Esistono due fattori che è importante comprendere sulle attestazioni emesse da AD DS rispetto a AD FS. Queste differenze includono:  
   
 -   Active Directory può rilasciare solo le attestazioni che sono incapsulate i ticket Kerberos, non i token SAML. Per ulteriori informazioni sulla modalità di dominio Active Directory emette attestazioni, vedere [dinamica Guida del contenuto controllo accesso](../../solution-guides/Dynamic-Access-Control--Scenario-Overview.md#BKMK_APP).  
   
@@ -78,5 +77,5 @@ Le attestazioni rilasciate da servizi di dominio Active Directory possono essere
   
 Per ulteriori informazioni su come creare le regole di attestazione necessarie per AD DS emesso attestazioni per lavorare con ADFS, vedere [creare una regola per trasformare un'attestazione in ingresso](../../ad-fs/operations/Create-a-Rule-to-Transform-an-Incoming-Claim.md).  
   
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 [Guida alla progettazione di AD FS in Windows Server 2012](AD-FS-Design-Guide-in-Windows-Server-2012.md)

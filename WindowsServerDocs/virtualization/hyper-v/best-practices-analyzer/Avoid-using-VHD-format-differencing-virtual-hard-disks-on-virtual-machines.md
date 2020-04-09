@@ -2,20 +2,19 @@
 title: Evitare l'utilizzo di dischi rigidi virtuali differenze in formato VHD in macchine virtuali che eseguono carichi di lavoro server in un ambiente di produzione
 description: Versione online del testo per questa regola di Best Practices Analyzer.
 ms.prod: windows-server
-ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
 ms.author: kathydav
 ms.topic: article
 ms.assetid: 272de33d-2708-4679-8564-ee28848a2839
-author: KBDAzure
+author: kbdazure
 ms.date: 8/16/2016
-ms.openlocfilehash: 7b6bee685a72f8f9af2e16ffe7ac5cc1e1f22a4f
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: a11959266db4c9f3da73123c41a211198f27b9a5
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71366426"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80857724"
 ---
 # <a name="avoid-using-vhd-format-differencing-virtual-hard-disks-on-virtual-machines-that-run-server-workloads-in-a-production-environment"></a>Evitare l'utilizzo di dischi rigidi virtuali differenze in formato VHD in macchine virtuali che eseguono carichi di lavoro server in un ambiente di produzione
 

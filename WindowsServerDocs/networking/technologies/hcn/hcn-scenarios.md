@@ -1,19 +1,19 @@
 ---
 title: Scenari di rete di calcolo host (HCN)
-description: ''
 ms.author: jmesser
 author: jmesser81
+ms.prod: windows-server
 ms.date: 11/05/2018
-ms.openlocfilehash: 91cdafa9699cd213156d872090034dd4ea67108e
-ms.sourcegitcommit: 213989f29cc0c30a39a78573bd4396128a59e729
+ms.openlocfilehash: 2fdf0d13a0a362681a27106356fbe295532ed970
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70031528"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80859834"
 ---
 # <a name="common-scenarios"></a>Scenari comuni
 
->Si applica a Windows Server (canale semestrale), Windows Server 2019
+>Si applica a: Windows Server (canale semestrale), Windows Server 2019
 
 ## <a name="scenario-hcn"></a>Scenario: HCN 
 
@@ -96,9 +96,9 @@ void CreateHcnNetwork()
                     // UnMarshal  the result Json
      // ErrorSchema
         //   {
-        //  "ErrorCode" : <uint32>,
-        //  "Error" : <string>,
-        //  "Success" : <bool>,
+        //    "ErrorCode" : <uint32>,
+        //    "Error" : <string>,
+        //    "Success" : <bool>,
        //   }
 
         // Failed to create network
@@ -189,7 +189,7 @@ Questo esempio illustra come usare l'API del servizio di rete di calcolo host pe
 ```
 
 
-## <a name="scenario-hcn-endpoint"></a>Scenario: Endpoint HCN
+## <a name="scenario-hcn-endpoint"></a>Scenario: endpoint HCN
 
 ### <a name="create-an-hcn-endpoint"></a>Creare un endpoint HCN
 
@@ -222,7 +222,7 @@ void CreateAndHotAddEndpoint()
             "Suffix" : "net.home",
             "ServerList" : "10.0.0.10",
         }
-    })”;
+    })";
     GUID endpointGuid;  
     HRESULT result = CoCreateGuid(&endpointGuid);
 
@@ -381,7 +381,7 @@ Questo esempio illustra come usare l'API del servizio di rete di calcolo host pe
 ```
 
 
-## <a name="scenario-hcn-namespace"></a>Scenario: Spazio dei nomi HCN
+## <a name="scenario-hcn-namespace"></a>Scenario: spazio dei nomi HCN
 
 ### <a name="create-an-hcn-namespace"></a>Creare uno spazio dei nomi HCN
 
@@ -424,9 +424,9 @@ void CreateHcnNamespace()
                     // UnMarshal  the result Json
      // ErrorSchema
         //   {
-        //  "ErrorCode" : <uint32>,
-        //  "Error" : <string>,
-        //  "Success" : <bool>,
+        //    "ErrorCode" : <uint32>,
+        //    "Error" : <string>,
+        //    "Success" : <bool>,
        //   }
 
         // Failed to create network
@@ -564,7 +564,7 @@ Questo esempio illustra come usare l'API del servizio di rete di calcolo host pe
 ```
 
 
-## <a name="scenario-hcn-load-balancer"></a>Scenario: Bilanciamento del carico HCN
+## <a name="scenario-hcn-load-balancer"></a>Scenario: bilanciamento del carico di HCN
 
 ### <a name="create-an-hcn-load-balancer"></a>Creare un servizio di bilanciamento del carico HCN
 
@@ -620,9 +620,9 @@ void CreateHcnLoadBalancer()
                     // UnMarshal  the result Json
      // ErrorSchema
         //   {
-        //  "ErrorCode" : <uint32>,
-        //  "Error" : <string>,
-        //  "Success" : <bool>,
+        //    "ErrorCode" : <uint32>,
+        //    "Error" : <string>,
+        //    "Success" : <bool>,
        //   }
 
         // Failed to create network
@@ -761,7 +761,7 @@ Questo esempio illustra come usare l'API del servizio di rete di calcolo host pe
 ```
 
 
-## <a name="scenario-hcn-notifications"></a>Scenario: Notifiche HCN
+## <a name="scenario-hcn-notifications"></a>Scenario: notifiche di HCN
 
 ### <a name="register-and-unregister-service-wide-notifications"></a>Registrare e annullare la registrazione di notifiche a livello di servizio
 

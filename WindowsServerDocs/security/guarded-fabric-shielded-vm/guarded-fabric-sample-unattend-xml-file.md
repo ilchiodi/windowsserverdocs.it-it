@@ -1,19 +1,19 @@
 ---
 title: Creare file di risposte di specializzazione del sistema operativo
-ms.custom: na
 ms.prod: windows-server
 ms.topic: article
 ms.assetid: 299aa38e-28d2-4cbe-af16-5b8c533eba1f
 manager: dongill
 author: rpsqrd
+ms.author: ryanpu
 ms.technology: security-guarded-fabric
 ms.date: 08/29/2018
-ms.openlocfilehash: 4920f9a90bd0190d390a9d35b3d265023d69efac
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: be099a234b7e2e73375d23b19161e59876f71d61
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71386499"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80856504"
 ---
 # <a name="create-os-specialization-answer-file"></a>Creare file di risposte di specializzazione del sistema operativo
 
@@ -31,9 +31,9 @@ Per linee guida generali per i file di installazione automatica per le macchine 
 Install-Module GuardedFabricTools -Repository PSGallery -MinimumVersion 1.0.0
 ```
 
-L'output `unattend.xml` può essere incluso nei dati di schermatura, insieme ad altri artefatti, in modo che possa essere usato per creare VM schermate dai modelli.
+L'output del `unattend.xml` può essere incluso nei dati di schermatura, insieme ad altri artefatti, in modo che possa essere usato per creare VM schermate dai modelli.
 
-Le sezioni seguenti illustrano come è possibile usare i parametri di funzione per un file `unattend.xml` contenente varie opzioni:
+Le sezioni seguenti illustrano come è possibile usare i parametri di funzione per un file di `unattend.xml` contenente diverse opzioni:
 
 - [File di risposte di base di Windows](#basic-windows-answer-file)
 - [File di risposte di Windows con aggiunta a un dominio](#windows-answer-file-with-domain-join)
@@ -76,7 +76,7 @@ New-ShieldingDataAnswerFile -Path '.\ShieldedVMAnswerFile.xml' -AdminCredentials
 
 I comandi seguenti creano un file di risposte di Windows che usa indirizzi IP statici forniti in fase di distribuzione dal gestore dell'infrastruttura, ad esempio System Center Virtual Machine Manager.
 
-Virtual Machine Manager fornisce tre componenti all'indirizzo IP statico tramite un pool IP: Indirizzo IPv4, indirizzo IPv6, indirizzo del gateway e indirizzo DNS. Per includere eventuali campi aggiuntivi o richiedere una configurazione di rete personalizzata, sarà necessario modificare manualmente il file di risposte prodotto dallo script.
+Virtual Machine Manager fornisce tre componenti all'indirizzo IP statico tramite un pool IP: indirizzo IPv4, indirizzo IPv6, indirizzo gateway e indirizzo DNS. Per includere eventuali campi aggiuntivi o richiedere una configurazione di rete personalizzata, sarà necessario modificare manualmente il file di risposte prodotto dallo script.
 
 Gli screenshot seguenti mostrano i pool IP che è possibile configurare in Virtual Machine Manager. Questi pool sono necessari se si vuole usare un indirizzo IP statico.
 
@@ -92,7 +92,7 @@ Di seguito è riportato il riepilogo per la creazione del pool di indirizzi IP s
 
 ![Configurare l'hardware per l'uso dell'indirizzo IP statico](../media/Guarded-Fabric-Shielded-VM/guarded-host-unattend-static-ip-address-pool-network-adapter-settings.png)
 
-Quindi, è possibile usare il parametro `-StaticIPPool` per includere gli elementi IP statici nel file di risposta. I parametri `@IPAddr-1@`, `@NextHop-1-1@` e `@DNSAddr-1-1@` nel file di risposte verranno sostituiti con i valori reali specificati in Virtual Machine Manager in fase di distribuzione.
+Quindi, è possibile usare il parametro `-StaticIPPool` per includere gli elementi IP statici nel file di risposta. I parametri `@IPAddr-1@`, `@NextHop-1-1@`e `@DNSAddr-1-1@` nel file di risposte verranno sostituiti con i valori reali specificati in Virtual Machine Manager in fase di distribuzione.
 
 ```powershell
 $adminCred = Get-Credential -Message "Local administrator account"

@@ -1,7 +1,6 @@
 ---
 ms.assetid: 20d183f0-ef94-44bb-9dfc-ed93799dd1a6
 title: Quando usare una regola attestazioni personalizzata
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: c784c4b6dbfee7034dd9302dc87fc74b896763f5
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: 41e7ea7c2bc627f2fce198e5c7227148e8b03d88
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75950148"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80853824"
 ---
 # <a name="when-to-use-a-custom-claim-rule"></a>Quando usare una regola attestazioni personalizzata
 È possibile scrivere una regola attestazioni personalizzata in Active Directory Federation Services \(AD FS\) usando il linguaggio delle regole attestazioni, ovvero il Framework usato dal motore di rilascio delle attestazioni per generare, trasformare, passare e filtrare le attestazioni a livello di codice. Con una regola personalizzata è possibile creare regole con una logica più complessa rispetto a un modello di regola standard. È consigliabile usare una regola personalizzata per:  
@@ -39,9 +38,9 @@ ms.locfileid: "75950148"
   
 Il linguaggio delle regole attestazioni è basato su regole. Presenta una parte di condizione e una parte di esecuzione. È possibile usare la sintassi del linguaggio delle regole attestazioni per enumerare, aggiungere o modificare attestazioni in base alle esigenze dell'organizzazione. Per ulteriori informazioni sul funzionamento di ognuna di queste parti, vedere [il ruolo del linguaggio delle regole attestazioni](The-Role-of-the-Claim-Rule-Language.md).  
   
-Le sezioni seguenti forniscono un'introduzione di base alle regole attestazione, oltre a fornire informazioni dettagliate sui casi in cui è opportuno usare una regola attestazioni personalizzata.  
+Le sezioni seguenti forniscono un'introduzione di base alle regole attestazioni, oltre a fornire informazioni dettagliate sui casi in cui è opportuno usare una regola attestazioni personalizzata.  
   
-## <a name="about-claim-rules"></a>Informazioni sulle regole attestazione  
+## <a name="about-claim-rules"></a>Informazioni sulle regole attestazioni  
 Una regola attestazioni rappresenta un'istanza della logica di business che accetta un'attestazione in ingresso, applica una condizione \(se x, quindi y\) e genera un'attestazione in uscita in base ai parametri della condizione.  
   
 > [!IMPORTANT]  
@@ -57,7 +56,7 @@ Per creare questa regola, è necessario innanzitutto creare la sintassi necessar
   
 Questo modello di regola offre le opzioni seguenti:  
   
--   Specificare un nome di regola attestazioni  
+-   Specificare un nome della regola attestazione  
   
 -   Digitare una o più condizioni e un'istruzione di rilascio facoltative usando il linguaggio delle regole attestazioni AD FS  
   
@@ -67,15 +66,15 @@ Per comprendere meglio il funzionamento del linguaggio delle regole attestazioni
   
 Per ulteriori informazioni su come utilizzare il linguaggio di regola attestazione, vedere [il ruolo del linguaggio di regola attestazione](The-Role-of-the-Claim-Rule-Language.md).  
   
-## <a name="using-the-claim-rule-language"></a>Uso della lingua delle regole attestazione  
+## <a name="using-the-claim-rule-language"></a>Uso del linguaggio delle regole attestazioni  
   
 ### <a name="example-how-to-combine-first-and-last-names-based-on-a-users-name-attribute-values"></a>Esempio: come combinare nomi e cognomi in base ai valori di attributo del nome dell'utente  
-La sintassi della regola seguente combina nomi e cognomi dei valori di attributi in un archivio di attributi specificato. Il motore dei criteri genera un prodotto cartesiano delle corrispondenze per ogni condizione. Ad esempio, l'output per i nomi {"Frank", "Alan"} e i cognomi {"Miller", "Shen"} è {"Frank Miller", "Frank Shen", "Alan Miller", "Alan Shen"}:  
+La sintassi della regola seguente combina nomi e cognomi dei valori di attributi in un archivio di attributi specificato. Il motore dei criteri genera un prodotto cartesiano delle corrispondenze per ogni condizione. Ad esempio, l'output per il nome {"Frank", "Alan"} e i cognomi {"Miller", "Shen"} è {"Frank Miller", "Frank Shen", "Alan Miller", "Alan Shen"}:  
   
 ```  
 c1:[type == "http://exampleschema/firstname" ]  
 &&  c2:[type == "http://exampleschema/lastname",]   
-=> issue(type = "http://exampleschema/name", value = c1.value + “  “ + c2.value);  
+=> issue(type = "http://exampleschema/name", value = c1.value + "  " + c2.value);  
 ```  
   
 ### <a name="example-how-to-issue-a-manager-claim-based-on-whether-users-have-direct-reports"></a>Esempio: Come rilasciare un'attestazione responsabile in base alla presenza o meno di dipendenti diretti per gli utenti  
@@ -83,7 +82,7 @@ La regola seguente rilascia un'attestazione responsabile solo se l'utente ha dip
   
 ```  
 c:[type == "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name"] => add(store = "SQL Store", types = ("http://schemas.xmlsoap.org/claims/Reports"), query = "SELECT Reports FROM dbo.DirectReports WHERE UserName = {0}", param = c.value );  
-count([type == “http://schemas.xmlsoap.org/claims/Reports“] ) > 0 => issue(= "http://schemas.xmlsoap.org/claims/ismanager", value = "true");  
+count([type == "http://schemas.xmlsoap.org/claims/Reports"] ) > 0 => issue(= "http://schemas.xmlsoap.org/claims/ismanager", value = "true");  
 ```  
   
 ### <a name="example-how-to-issue-a-ppid-claim-based-on-an-ldap-attribute"></a>Esempio: Come rilasciare un'attestazione PPID basata su un attributo LDAP  

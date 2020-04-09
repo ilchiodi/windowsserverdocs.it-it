@@ -3,37 +3,38 @@ title: API del servizio HCN (host Compute Network) per VM e contenitori
 description: L'API del servizio HCN (host Compute Network) è un'API Win32 pubblica che fornisce l'accesso a livello di piattaforma per gestire le reti virtuali, gli endpoint della rete virtuale e i criteri associati. Questa funzionalità fornisce connettività e sicurezza per le macchine virtuali e i contenitori in esecuzione in un host Windows.
 ms.author: jmesser
 author: jmesser81
+ms.prod: windows-server
 ms.date: 11/05/2018
-ms.openlocfilehash: e30a778d661fa7c6d2e248234218eb25fba007a1
-ms.sourcegitcommit: 213989f29cc0c30a39a78573bd4396128a59e729
+ms.openlocfilehash: 4afde574802bd63db8ea8ca8db9f5daf1a53dc93
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70031541"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80859844"
 ---
 # <a name="host-compute-network-hcn-service-api-for-vms-and-containers"></a>API del servizio HCN (host Compute Network) per VM e contenitori
 
->Si applica a Windows Server (canale semestrale), Windows Server 2019
+>Si applica a: Windows Server (canale semestrale), Windows Server 2019
 
 L'API del servizio HCN (host Compute Network) è un'API Win32 pubblica che fornisce l'accesso a livello di piattaforma per gestire le reti virtuali, gli endpoint della rete virtuale e i criteri associati. Questa funzionalità fornisce connettività e sicurezza per le macchine virtuali e i contenitori in esecuzione in un host Windows. 
 
 Gli sviluppatori usano l'API del servizio HCN per gestire la rete per le macchine virtuali e i contenitori nei flussi di lavoro dell'applicazione. L'API HCN è stata progettata per offrire la migliore esperienza per gli sviluppatori. Gli utenti finali non interagiscono direttamente con queste API.  
 
 ## <a name="features-of-the-hcn-service-api"></a>Funzionalità dell'API del servizio HCN
--   Implementata come API C ospitata dal servizio di rete host (HNS) su Oncore/VM.
+-    Implementata come API C ospitata dal servizio di rete host (HNS) su Oncore/VM.
 
--   Offre la possibilità di creare, modificare, eliminare ed enumerare oggetti HCN, ad esempio reti, endpoint, spazi dei nomi e criteri. Le operazioni vengono eseguite sugli handle per gli oggetti (ad esempio, un handle di rete) e internamente questi handle vengono implementati usando gli handle del contesto RPC.
+-    Offre la possibilità di creare, modificare, eliminare ed enumerare oggetti HCN, ad esempio reti, endpoint, spazi dei nomi e criteri. Le operazioni vengono eseguite sugli handle per gli oggetti (ad esempio, un handle di rete) e internamente questi handle vengono implementati usando gli handle del contesto RPC.
 
--   Basato su Schema. La maggior parte delle funzioni dell'API definisce parametri di input e output come stringhe contenenti gli argomenti della chiamata di funzione come documenti JSON. I documenti JSON sono basati su schemi fortemente tipizzati e con controllo delle versioni, questi schemi fanno parte della documentazione pubblica. 
+-    Basato su Schema. La maggior parte delle funzioni dell'API definisce parametri di input e output come stringhe contenenti gli argomenti della chiamata di funzione come documenti JSON. I documenti JSON sono basati su schemi fortemente tipizzati e con controllo delle versioni, questi schemi fanno parte della documentazione pubblica. 
 
--   Viene fornita un'API di sottoscrizione/callback per consentire ai client di eseguire la registrazione per le notifiche degli eventi a livello di servizio, ad esempio la creazione e l'eliminazione di una rete.
+-    Viene fornita un'API di sottoscrizione/callback per consentire ai client di eseguire la registrazione per le notifiche degli eventi a livello di servizio, ad esempio la creazione e l'eliminazione di una rete.
 
--   L'API HCN funziona in desktop Bridge (noto anche come Centennial) app in esecuzione nei servizi di sistema. L'API controlla l'ACL recuperando il token utente dal chiamante.
+-    L'API HCN funziona in desktop Bridge (noto anche come Centennial) app in esecuzione nei servizi di sistema. L'API controlla l'ACL recuperando il token utente dal chiamante.
 
 >[!TIP]
 >L'API del servizio HCN è supportata nelle attività in background e nelle finestre non in primo piano. 
 
-## <a name="terminology-host-vs-compute"></a>Terminologia: Confronto tra host e Calcolo
+## <a name="terminology-host-vs-compute"></a>Terminologia: host e calcolo
 Il servizio di calcolo host consente ai chiamanti di creare e gestire le macchine virtuali e i contenitori in un singolo computer fisico. Viene denominato per seguire la terminologia del settore. 
 
 - L' **host** è ampiamente usato nel settore della virtualizzazione per fare riferimento al sistema operativo che fornisce le risorse virtualizzate.
@@ -44,14 +45,14 @@ Il servizio di calcolo host consente ai chiamanti di creare e gestire le macchin
 I documenti di configurazione basati su schemi ben definiti sono uno standard del settore consolidato nello spazio di virtualizzazione. La maggior parte delle soluzioni di virtualizzazione, ad esempio Docker e Kubernetes, fornisce API basate sui documenti di configurazione. Diverse iniziative di settore, con la partecipazione di Microsoft, guidano un ecosistema per la definizione e la convalida di questi schemi, ad esempio [openapi](https://www.openapis.org/).  Queste iniziative guidano inoltre la standardizzazione di definizioni dello schema specifiche per gli schemi utilizzati per i contenitori, ad esempio [Open Container Initiative (OCI)](https://www.opencontainers.org/).
 
 Il linguaggio usato per la creazione di documenti di configurazione è [JSON](https://tools.ietf.org/html/rfc8259), che è possibile usare in combinazione con:
--   Definizioni dello schema che definiscono un modello a oggetti per il documento
--   Convalida dell'eventuale conformità di un documento JSON a uno schema
--   Conversione automatica dei documenti JSON da e verso rappresentazioni native di questi schemi nei linguaggi di programmazione usati dai chiamanti delle API 
+-    Definizioni dello schema che definiscono un modello a oggetti per il documento
+-    Convalida dell'eventuale conformità di un documento JSON a uno schema
+-    Conversione automatica dei documenti JSON da e verso rappresentazioni native di questi schemi nei linguaggi di programmazione usati dai chiamanti delle API 
 
 Le definizioni dello schema usate di frequente sono [openapi](https://www.openapis.org/) e lo [schema JSON](http://json-schema.org/), che consente di specificare le definizioni dettagliate delle proprietà in un documento, ad esempio:
--   Set valido di valori per una proprietà, ad esempio 0-100, per una proprietà che rappresenta una percentuale.
--   Definizione di enumerazioni, rappresentate come un set di stringhe valide per una proprietà.
--   Espressione regolare per il formato previsto di una stringa. 
+-    Set valido di valori per una proprietà, ad esempio 0-100, per una proprietà che rappresenta una percentuale.
+-    Definizione di enumerazioni, rappresentate come un set di stringhe valide per una proprietà.
+-    Espressione regolare per il formato previsto di una stringa. 
 
 Nell'ambito della documentazione delle API di HCN, si prevede di pubblicare lo schema dei documenti JSON come specifica OpenAPI. In base a questa specifica, le rappresentazioni specifiche della lingua dello schema possono consentire l'uso indipendente dai tipi degli oggetti dello schema nel linguaggio di programmazione utilizzato dal client. 
 

@@ -1,6 +1,5 @@
 ---
 title: Guida introduttiva per la distribuzione di infrastruttura sorvegliata
-ms.custom: na
 ms.prod: windows-server
 ms.topic: article
 ms.assetid: e060e052-39a0-4154-90bb-b97cc6dde68e
@@ -9,12 +8,12 @@ author: justinha
 ms.author: justinha
 ms.technology: security-guarded-fabric
 ms.date: 01/30/2019
-ms.openlocfilehash: e2b8400fc7b7f0e01e000fcb2f6472bdb4059ac8
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: c0e29abf14ff1dded12e7e20a0c0a74f80a91d8e
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75949806"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80856744"
 ---
 # <a name="quick-start-for-guarded-fabric-deployment"></a>Guida introduttiva per la distribuzione di infrastruttura sorvegliata
 
@@ -105,9 +104,9 @@ Detto un altro modo, i rigorosi passaggi di convalida usati per la modalità TPM
 
 Per la modalità TPM sono necessari tre elementi: 
 
-1.  Una _chiave_ di verifica dell'autenticità pubblica (o _EKPUB_) dal TPM 2,0 in ogni host Hyper-V. Per acquisire il EKpub, utilizzare `Get-PlatformIdentifier`. 
-2.  Una _baseline hardware_. Se ognuno degli host Hyper-V è identico, è sufficiente una singola linea di base. In caso contrario, sarà necessario uno per ogni classe di hardware. La linea di base è sotto forma di file di log del gruppo di calcolo attendibile, o TCGlog. Il TCGlog contiene tutto ciò che l'host ha fatto, dal firmware UEFI al kernel, fino a quando l'host è stato completamente avviato. Per acquisire la baseline hardware, installare il ruolo Hyper-V e la funzionalità di supporto di sorveglianza host per Hyper-V e usare `Get-HgsAttestationBaselinePolicy`. 
-3.  _Criteri di integrità del codice_. Se ognuno degli host Hyper-V è identico, è sufficiente un singolo criterio CI. In caso contrario, sarà necessario uno per ogni classe di hardware. Windows Server 2016 e Windows 10 sono entrambi dotati di un nuovo tipo di applicazione per i criteri CI, denominati _integrità del codice applicato dall'hypervisor (hvci obbligatoria)_ . HVCI obbligatoria fornisce un'imposizione avanzata e garantisce che a un host sia consentita l'esecuzione solo dei file binari consentiti da un amministratore attendibile. Queste istruzioni vengono incapsulate in un criterio CI aggiunto a HGS. HGS misura i criteri CI di ogni host prima che siano autorizzati a eseguire macchine virtuali schermate. Per acquisire un criterio CI, utilizzare `New-CIPolicy`. Il criterio deve quindi essere convertito nel formato binario usando `ConvertFrom-CIPolicy`.
+1.    Una _chiave_ di verifica dell'autenticità pubblica (o _EKPUB_) dal TPM 2,0 in ogni host Hyper-V. Per acquisire il EKpub, utilizzare `Get-PlatformIdentifier`. 
+2.    Una _baseline hardware_. Se ognuno degli host Hyper-V è identico, è sufficiente una singola linea di base. In caso contrario, sarà necessario uno per ogni classe di hardware. La linea di base è sotto forma di file di log del gruppo di calcolo attendibile, o TCGlog. Il TCGlog contiene tutto ciò che l'host ha fatto, dal firmware UEFI al kernel, fino a quando l'host è stato completamente avviato. Per acquisire la baseline hardware, installare il ruolo Hyper-V e la funzionalità di supporto di sorveglianza host per Hyper-V e usare `Get-HgsAttestationBaselinePolicy`. 
+3.    _Criteri di integrità del codice_. Se ognuno degli host Hyper-V è identico, è sufficiente un singolo criterio CI. In caso contrario, sarà necessario uno per ogni classe di hardware. Windows Server 2016 e Windows 10 sono entrambi dotati di un nuovo tipo di applicazione per i criteri CI, denominati _integrità del codice applicato dall'hypervisor (hvci obbligatoria)_ . HVCI obbligatoria fornisce un'imposizione avanzata e garantisce che a un host sia consentita l'esecuzione solo dei file binari consentiti da un amministratore attendibile. Queste istruzioni vengono incapsulate in un criterio CI aggiunto a HGS. HGS misura i criteri CI di ogni host prima che siano autorizzati a eseguire macchine virtuali schermate. Per acquisire un criterio CI, utilizzare `New-CIPolicy`. Il criterio deve quindi essere convertito nel formato binario usando `ConvertFrom-CIPolicy`.
 
 ![Estrai identità, linea di base e criteri CI](../media/Guarded-Fabric-Shielded-VM/guarded-fabric-deployment-step-three-extract-identity-baseline-ci-policy.png)
 

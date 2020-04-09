@@ -8,12 +8,12 @@ ms.assetid: 7110ad21-a33e-48d5-bb3c-129982913bc8
 manager: brianlic
 ms.author: lizross
 author: eross-msft
-ms.openlocfilehash: a5b2e750bd7a0103382f6d91c515f4e283a112cb
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: 1e962948feaf6bb37beeb3c241d3ae3369be77dc
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80312666"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80860704"
 ---
 # <a name="deploy-dhcp-using-windows-powershell"></a>Distribuire DHCP mediante Windows PowerShell
 
@@ -207,7 +207,7 @@ Nella tabella seguente vengono forniti gli elementi di configurazione di esempio
 |Binding connessioni di rete|Ethernet|
 |Impostazioni server DNS|DC1.corp.contoso.com|
 |Indirizzo IP del server DNS preferito|10.0.0.2|
-|Valori di ambito<br /><br />1. nome ambito<br />2. indirizzo IP iniziale<br />3. indirizzo IP finale<br />4. subnet mask<br />5. gateway predefinito (facoltativo)<br />6. durata lease|1. subnet primaria<br />2.10.0.0.1<br />3.10.0.0.254<br />4.255.255.255.0<br />5.10.0.0.1<br />6. 8 giorni|
+|Valori di ambito<p>1. nome ambito<br />2. indirizzo IP iniziale<br />3. indirizzo IP finale<br />4. subnet mask<br />5. gateway predefinito (facoltativo)<br />6. durata lease|1. subnet primaria<br />2.10.0.0.1<br />3.10.0.0.254<br />4.255.255.255.0<br />5.10.0.0.1<br />6. 8 giorni|
 |Modalità operativa server DHCP IPv6|Non abilitato|
 
 ## <a name="using-this-guide-in-a-test-lab"></a><a name="bkmk_lab"></a>Uso di questa guida in un Lab di test

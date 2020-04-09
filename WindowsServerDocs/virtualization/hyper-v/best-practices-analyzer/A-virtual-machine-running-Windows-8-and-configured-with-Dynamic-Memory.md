@@ -2,20 +2,19 @@
 title: Una macchina virtuale in esecuzione Windows 8 e configurato con la memoria dinamica deve utilizzare valori consigliati per le impostazioni della memoria
 description: Vengono fornite istruzioni per risolvere il problema segnalato da questa regola di Best Practices Analyzer.
 ms.prod: windows-server
-ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
 ms.author: kathydav
 ms.topic: article
 ms.assetid: a17d774e-62bb-40a7-9ddb-80d07596d51c
-author: KBDAzure
+author: kbdazure
 ms.date: 8/16/2016
-ms.openlocfilehash: 9402d511039e03f911b0533a7bc07cba41dcbb3f
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: a551be3a0f1d4bdd0ca8e9ccbb98a583e55ae461
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71366663"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80857914"
 ---
 # <a name="a-virtual-machine-running-windows-8-and-configured-with-dynamic-memory-should-use-recommended-values-for-memory-settings"></a>Una macchina virtuale in esecuzione Windows 8 e configurato con la memoria dinamica deve utilizzare valori consigliati per le impostazioni della memoria
 
@@ -25,7 +24,7 @@ Per altre informazioni sulle procedure consigliate e sulle analisi, vedere [Eseg
   
 |Proprietà|Dettagli|  
 |-|-|  
-|**Sistema operativo**|Windows Server 2016|  
+|**Sistema operativo**|Windows Server 2016|  
 |**Prodotto/funzionalità**|Hyper-V|  
 |**Gravità**|Avviso|  
 |**Categoria**|Configurazione|  
@@ -55,7 +54,7 @@ Nelle sezioni seguenti, corsivo indica il testo dell'interfaccia Utente visualiz
   
 5.  In **la memoria dinamica**,  modificare il **RAM minima** su almeno 256 MB e **RAM massima** a 1 GB.  
   
-6.  Fai clic su **OK**.  
+6.  Fare clic su **OK**.  
   
 ### <a name="increase-memory-using-windows-powershell"></a>Aumentare la memoria con Windows PowerShell  
   

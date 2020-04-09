@@ -1,24 +1,20 @@
 ---
 title: termserver query
-description: 'Argomento dei comandi di Windows per * * * *- '
-ms.custom: na
+description: Argomento dei comandi di Windows per * * * *-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 3b89d3b4-236f-4376-90b6-939a0ec4b288
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 95a2e102a147bd7ebee24995d1e1fcd4147f8174
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: d63bd158dad74203aa7ee3fd4e43dffb97c4c873
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71371886"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80836924"
 ---
 # <a name="query-termserver"></a>termserver query
 
@@ -27,12 +23,12 @@ ms.locfileid: "71371886"
 Visualizza un elenco di tutti i server di host sessione Desktop remoto (host sessione Desktop remoto) nella rete.
 per esempi relativi all'uso di questo comando, vedere [esempi](#BKMK_examples).
 > [!NOTE]
-> In Windows Server 2008 R2, Servizi terminal si chiama ora Servizi Desktop remoto. Per informazioni sulle novità della versione più recente, vedere Novità di [Servizi Desktop remoto in Windows server 2012](https://technet.microsoft.com/library/hh831527) nella libreria TechNet di Windows Server.
+> In Windows Server 2008 R2 Servizi terminal è stato rinomato Servizi Desktop remoto. Per informazioni sulle novità della versione più recente, vedere Novità di [Servizi Desktop remoto in Windows server 2012](https://technet.microsoft.com/library/hh831527) nella libreria TechNet di Windows Server.
 > ## <a name="syntax"></a>Sintassi
 > ```
 > query termserver [<ServerName>] [/domain:<Domain>] [/address] [/continue]
 > ```
-> ## <a name="parameters"></a>Parametri
+> ### <a name="parameters"></a>Parametri
 > 
 > |    Parametro     |                                                                        Descrizione                                                                         |
 > |------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -42,11 +38,11 @@ per esempi relativi all'uso di questo comando, vedere [esempi](#BKMK_examples).
 > |    /continue     |                                              Impedisce la sospensione dopo la visualizzazione di ogni schermata delle informazioni.                                               |
 > |        /?        |                                                            Visualizza la guida al prompt dei comandi.                                                            |
 > 
-> ## <a name="remarks"></a>Osservazioni
+> ## <a name="remarks"></a>Note
 > - **query termserver** Cerca nella rete tutti i server Host sessione Desktop remoto collegati e restituisce le informazioni seguenti:
 >   - Nome del server
 >   - Rete (e indirizzo del nodo se viene utilizzata l'opzione/Address)
->     ## <a name="BKMK_examples"></a>Esempi
+>     ## <a name="examples"></a><a name=BKMK_examples></a>Esempi
 > - Per visualizzare informazioni su tutti i server Host sessione Desktop remoto nella rete, digitare:
 >   ```
 >   query termserver
@@ -63,7 +59,7 @@ per esempi relativi all'uso di questo comando, vedere [esempi](#BKMK_examples).
 >   ```
 >   query termserver Server3 /address
 >   ```
->   #### <a name="additional-references"></a>riferimenti aggiuntivi
->   [Sintassi della riga di comando chiave](command-line-syntax-key.md)
+>   ## <a name="additional-references"></a>Altre informazioni di riferimento
+>   - Guida di riferimento ai comandi della [sintassi della riga di comando](command-line-syntax-key.md)
 >   [query](query.md)
->   [Servizi Desktop remoto &#40;riferimento&#41; ai comandi di Servizi terminal](remote-desktop-services-terminal-services-command-reference.md)
+>   [Servizi Desktop remoto (Servizi terminal)](remote-desktop-services-terminal-services-command-reference.md)

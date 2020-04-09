@@ -1,7 +1,6 @@
 ---
 ms.assetid: bb9b9e18-bf2f-4115-be77-9a165944db41
 title: Pianificazione della distribuzione
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 607dc34c8f44d8d96a8dc0c9d1ed004edc799167
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 6386aac112fcf936ccdd9772e3d5566d8dd21ad8
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71407991"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80858644"
 ---
 # <a name="planning-your-deployment"></a>Pianificazione della distribuzione
 
@@ -23,7 +22,7 @@ Quando si pianifica la collaborazione tra\-\(di Federazione\-basata\) usando Act
 > [!NOTE]  
 > Assicurarsi che il ruolo dell'organizzazione nel contratto di federazione sia ben chiaro a tutte le parti.  
   
-Per la soluzione di accesso Single Sign-on [Web federativo](Federated-Web-SSO-Design.md), ad FS usa termini quali il *partner account* \(detto anche *provider di identità* nello snap-in di gestione ad FS\-in\) e il *partner risorse* \(anche definito *relying party* nello snap-in ad FS Management\-in\) per distinguere l'organizzazione che ospita gli account \(\) del partner account dall'organizzazione che ospita le risorse basate su\-Web \(\)del partner risorse.  
+Per la soluzione di accesso Single Sign-on [Web federativo](Federated-Web-SSO-Design.md), ad FS usa termini quali il *partner account* \(detto anche *provider di identità* nello snap-in di gestione ad FS\-in\) e il *partner risorse* \(relying party ad FS del partner risorse *\-in\)* per distinguere l'organizzazione che ospita gli account \(\) del partner account\-dall'organizzazione che ospita le risorse basate su \(Web\).  
   
 Nel [Web SSO Design](Web-SSO-Design.md)l'organizzazione riveste entrambi i ruoli di partner account e di partner risorse, perché fornisce ai suoi utenti l'accesso alle sue applicazioni.  
   

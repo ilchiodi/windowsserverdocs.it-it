@@ -8,12 +8,12 @@ ms.topic: article
 ms.assetid: b3cd60f7-d380-4712-9a78-0a8f551e1121
 ms.author: lizross
 author: eross-msft
-ms.openlocfilehash: a0da2265f8f66256ed2ba71d4847bf8a548626f8
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: b58fe9eaa66abd91de27713398759529ae6147ae
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80319147"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80861764"
 ---
 # <a name="core-network-components"></a>Componenti di una rete core
 
@@ -283,11 +283,11 @@ Nella tabella seguente vengono forniti gli elementi di configurazione per Active
 
 |Elementi di configurazione|Valori di esempio|
 |------------------------|-------------------|
-|Nome DNS completo|Esempi:<br /><br />-corp.contoso.com<br />-example.com|
+|Nome DNS completo|Esempi:<p>-corp.contoso.com<br />-example.com|
 |Livello di funzionalità della foresta|-Windows Server 2008 <br />-Windows Server 2008 R2 <br />-Windows Server 2012 <br />-Windows Server 2012 R2 <br />-Windows Server 2016|
-|Percorso della cartella per il database di Servizi di dominio Active Directory|\\ E:\Configuration<br /><br />In alternativa accettare il percorso predefinito.|
-|Percorso della cartella per i file di registro di Servizi di dominio Active Directory|\\ E:\Configuration<br /><br />In alternativa accettare il percorso predefinito.|
-|Percorso della cartella SYSVOL di Servizi di dominio Active Directory|\\ E:\Configuration<br /><br />In alternativa accettare il percorso predefinito.|
+|Percorso della cartella per il database di Servizi di dominio Active Directory|\\ E:\Configuration<p>In alternativa accettare il percorso predefinito.|
+|Percorso della cartella per i file di registro di Servizi di dominio Active Directory|\\ E:\Configuration<p>In alternativa accettare il percorso predefinito.|
+|Percorso della cartella SYSVOL di Servizi di dominio Active Directory|\\ E:\Configuration<p>In alternativa accettare il percorso predefinito.|
 |Password di amministratore modalità ripristino servizi directory|**J\*p2leO4 $ F**|
 |Nome file di risposte (facoltativo)|**DS_AnswerFile AD**|
 
@@ -412,7 +412,7 @@ Nella tabella seguente vengono forniti gli elementi di configurazione di esempio
 |Binding connessioni di rete|Ethernet|
 |Impostazioni server DNS|DC1.corp.contoso.com|
 |Indirizzo IP del server DNS preferito|10.0.0.2|
-|Valori per la finestra di dialogo Aggiunta ambito<br /><br />1. nome ambito<br />2. indirizzo IP iniziale<br />3. indirizzo IP finale<br />4. subnet mask<br />5. gateway predefinito (facoltativo)<br />6. durata lease|1. subnet primaria<br />2.10.0.0.1<br />3.10.0.0.254<br />4.255.255.255.0<br />5.10.0.0.1<br />6. 8 giorni|
+|Valori per la finestra di dialogo Aggiunta ambito<p>1. nome ambito<br />2. indirizzo IP iniziale<br />3. indirizzo IP finale<br />4. subnet mask<br />5. gateway predefinito (facoltativo)<br />6. durata lease|1. subnet primaria<br />2.10.0.0.1<br />3.10.0.0.254<br />4.255.255.255.0<br />5.10.0.0.1<br />6. 8 giorni|
 |Modalità operativa server DHCP IPv6|Non abilitato|
 
 ## <a name="core-network-deployment"></a><a name="BKMK_deployment"></a>Distribuzione di rete core
@@ -1437,9 +1437,9 @@ Gli elementi di configurazione per la procedura di implementazione di una rete c
 |-----------------------|------------------|----------|
 |Nome DNS completo|corp.contoso.com||
 |Livello di funzionalità della foresta|Windows Server 2003||
-|Percorso della cartella per il database di Servizi di dominio Active Directory|\\ E:\Configuration<br /><br />In alternativa accettare il percorso predefinito.||
-|Percorso della cartella per i file di registro di Servizi di dominio Active Directory|\\ E:\Configuration<br /><br />In alternativa accettare il percorso predefinito.||
-|Percorso della cartella SYSVOL di Servizi di dominio Active Directory|\\ E:\Configuration<br /><br />In alternativa accettare il percorso predefinito.||
+|Percorso della cartella per il database di Servizi di dominio Active Directory|\\ E:\Configuration<p>In alternativa accettare il percorso predefinito.||
+|Percorso della cartella per i file di registro di Servizi di dominio Active Directory|\\ E:\Configuration<p>In alternativa accettare il percorso predefinito.||
+|Percorso della cartella SYSVOL di Servizi di dominio Active Directory|\\ E:\Configuration<p>In alternativa accettare il percorso predefinito.||
 |Password di amministratore modalità ripristino servizi directory|J*p2leO4$F||
 |Nome file di risposte (facoltativo)|DS_AnswerFile di Active Directory||
 
@@ -1448,10 +1448,10 @@ Gli elementi di configurazione per la procedura di implementazione di una rete c
 |Elementi di configurazione|Valori di esempio|Valori|
 |-----------------------|------------------|----------|
 |Tipo di zona:|-Zona principale<br />-Zona secondaria<br />: Zona di stub||
-|Tipo di zona<br /><br />**Archivia la zona in Active Directory**|-Selezionato<br />-Non selezionata||
+|Tipo di zona<p>**Archivia la zona in Active Directory**|-Selezionato<br />-Non selezionata||
 |Ambito di replica zona Active Directory|-Per tutti i server DNS della foresta<br />-Per tutti i server DNS nel dominio<br />-Per tutti i controller di dominio nel dominio<br />-Per tutti i controller di dominio specificati nell'ambito di questa partizione di directory||
-|Nome della zona di ricerca inversa<br /><br />(tipo IP)|: Zona di ricerca inversa IPv4<br />: Zona di ricerca inversa IPv6||
-|Nome della zona di ricerca inversa<br /><br />(ID rete)|10.0.0||
+|Nome della zona di ricerca inversa<p>(tipo IP)|: Zona di ricerca inversa IPv4<br />: Zona di ricerca inversa IPv6||
+|Nome della zona di ricerca inversa<p>(ID rete)|10.0.0||
 
 ### <a name="installing-dhcp"></a><a name="BKMK_FndtnPrep_InstallDHCP"></a>Installazione di DHCP
 Nelle tabelle riportate in questa sezione sono elencati gli elementi di configurazione per le procedure di preinstallazione e installazione di DHCP.
@@ -1509,16 +1509,16 @@ Gli elementi di configurazione per la procedura di distribuzione di una rete cor
 |-----------------------|------------------|----------|
 |Nome del nuovo ambito|Corp2||
 |Descrizione dell'ambito|Subnet dell'ufficio principale 2||
-|(Intervallo di indirizzi IP)<br /><br />Indirizzo IP iniziale|10.0.1.1||
-|(Intervallo di indirizzi IP)<br /><br />Indirizzo IP finale|10.0.1.254||
+|(Intervallo di indirizzi IP)<p>Indirizzo IP iniziale|10.0.1.1||
+|(Intervallo di indirizzi IP)<p>Indirizzo IP finale|10.0.1.254||
 |Length|8||
 |Subnet mask|255.255.255.0||
 |Indirizzo IP iniziale dell'intervallo di esclusione|10.0.1.1||
 |Indirizzo IP finale dell'intervallo di esclusione|10.0.1.15||
-|Durata del lease<br /><br />Days<br /><br />Hours<br /><br />Minuti|-8<br />-   0<br />-   0||
-|Router (gateway predefinito)<br /><br />Indirizzo IP|10.0.1.1||
+|Durata del lease<p>Days<p>Hours<p>Minuti|-8<br />-   0<br />-   0||
+|Router (gateway predefinito)<p>Indirizzo IP|10.0.1.1||
 |Dominio padre DNS|corp.contoso.com||
-|Server DNS<br /><br />Indirizzo IP|10.0.0.2||
+|Server DNS<p>Indirizzo IP|10.0.0.2||
 
 ### <a name="installing-network-policy-server-optional"></a><a name="BKMK_FndtnPrep_InstallNPS"></a>Installazione del server dei criteri di rete (facoltativo)
 Nelle tabelle riportate in questa sezione sono elencati gli elementi di configurazione per le procedure di preinstallazione e installazione di Server dei criteri di rete.

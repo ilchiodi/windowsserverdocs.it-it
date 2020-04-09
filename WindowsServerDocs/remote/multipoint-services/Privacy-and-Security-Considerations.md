@@ -1,24 +1,20 @@
 ---
 title: Considerazioni su privacy e sicurezza
 description: Fornisce informazioni approfondite sulla privacy e sulla sicurezza per servizi MultiPoint
-ms.custom: na
 ms.prod: windows-server
 ms.technology: multipoint-services
-ms.reviewer: na
-ms.suite: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 00eb89e5-aaf5-450e-94d8-3ef759dc5e26
 author: lizap
 manager: dongill
 ms.author: elizapo
 ms.date: 08/04/2016
-ms.openlocfilehash: 5dffc99342cba3b4c5d43585745dedfd002a7c89
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 0b9b17919ca27a114c11aa903266d6450b28d634
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71389497"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80853354"
 ---
 # <a name="privacy-and-security-considerations"></a>Considerazioni su privacy e sicurezza
 Poiché il sistema MultiPoint Services è concepito come ambiente di elaborazione condiviso, è necessario tenere presenti i seguenti problemi di elaborazione riguardanti la privacy e la sicurezza.  
@@ -31,6 +27,6 @@ Poiché il sistema MultiPoint Services è concepito come ambiente di elaborazion
   
 Risorse di elaborazione condivise, ad esempio un sistema MultiPoint Services, possono essere soggette a minacce della sicurezza a causa del numero potenzialmente elevato di utenti del sistema e della facilità di accesso a cavi e dispositivi hardware della stazione. Un utente malintenzionato può tentare di inserire un keystroke logger o dispositivi simili sull'hub di stazione di MultiPoint Services. Se alle porte del sistema MultiPoint Services sono collegati dispositivi sconosciuti, seguire le linee guida di riassegnazione relative alla sicurezza approvate dall'organizzazione.  
   
-## <a name="see-also"></a>Vedere anche  
+## <a name="see-also"></a>Vedi anche  
 [Gestire file utente](Manage-User-Files.md)  
 [Gestione del sistema di Servizi MultiPoint](Managing-Your-MultiPoint-Services-System.md)

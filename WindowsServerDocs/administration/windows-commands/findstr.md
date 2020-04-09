@@ -1,24 +1,20 @@
 ---
 title: findstr
-description: 'Argomento dei comandi di Windows per * * * *- '
-ms.custom: na
+description: Argomento dei comandi di Windows per * * * *-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: c2d803fb-4cd2-46a1-a1b7-6f5e0249c418
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 547a0abf658ef826cca8c87d451144181f8dac7d
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: dbdc1b741b5934f53340bda773909fb5035e449b
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71377195"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80844634"
 ---
 # <a name="findstr"></a>findstr
 
@@ -32,7 +28,7 @@ Per esempi di utilizzo di questo comando, vedere [Esempi](#examples).
 findstr [/b] [/e] [/l | /r] [/s] [/i] [/x] [/v] [/n] [/m] [/o] [/p] [/f:<File>] [/c:<String>] [/g:<File>] [/d:<DirList>] [/a:<ColorAttribute>] [/off[line]] <Strings> [<Drive>:][<Path>]<FileName>[ ...]
 ```
 
-## <a name="parameters"></a>Parametri
+### <a name="parameters"></a>Parametri
 
 |Parametro|Descrizione|
 |---------|-----------|
@@ -54,11 +50,11 @@ findstr [/b] [/e] [/l | /r] [/s] [/i] [/x] [/v] [/n] [/m] [/o] [/p] [/f:<File>] 
 |/g:\<file >|Ottiene ricerca stringhe dal file specificato.|
 |/d:\<DirList >|Cerca l'elenco di directory specificato. Ogni directory devono essere separati da un punto e virgola (;), ad esempio `dir1;dir2;dir3`.|
 |/a:\<ColorAttribute >|Specifica gli attributi di colore con due cifre esadecimali. Tipo `color /?` Per ulteriori informazioni.|
-|Stringhe di \<>|Specifica il testo da cercare nella *FileName*. Obbligatorio.|
+|Stringhe di \<>|Specifica il testo da cercare nella *FileName*. Obbligatoria.|
 |[\<unità >:] [<Path>]<FileName>[...]|Specifica il percorso e un file o file da cercare. Nome di almeno un file è obbligatorio.|
-|/?|Visualizza la Guida al prompt dei comandi.|
+|/?|Visualizza la Guida dal prompt dei comandi.|
 
-## <a name="remarks"></a>Osservazioni
+## <a name="remarks"></a>Note
 
 - Tutti **findstr** devono precedere le opzioni della riga di comando *stringhe* e *FileName* nella stringa di comando.
 - Espressioni regolari utilizzano sia i caratteri letterali e metacaratteri per individuare modelli di testo, anziché stringhe di caratteri esatte. Un carattere letterale è un carattere che non hanno un significato speciale nella sintassi delle espressioni regolari, corrisponde a un'occorrenza del carattere desiderato. Ad esempio, lettere e numeri sono caratteri letterali. Un metacarattere è un simbolo con un significato speciale (un operatore o delimitatore) nella sintassi delle espressioni regolari.
@@ -84,7 +80,7 @@ findstr [/b] [/e] [/l | /r] [/s] [/i] [/x] [/v] [/n] [/m] [/o] [/p] [/f:<File>] 
   .*
   ``` 
 
-  Utilizzare l'espressione seguente come parte di un'espressione più ampia per trovare qualsiasi stringa che inizia con "b" e termina con "ing": 
+  Usare l'espressione seguente come parte di un'espressione più grande per trovare la corrispondenza con qualsiasi stringa che inizia con b e termina con l'ing: 
 
   ```
   b.*ing
@@ -94,19 +90,19 @@ findstr [/b] [/e] [/l | /r] [/s] [/i] [/x] [/v] [/n] [/m] [/o] [/p] [/f:<File>] 
 
 Utilizzare gli spazi per separare più stringhe di ricerca, a meno che l'argomento è preceduto da **/c**.
 
-Per eseguire la ricerca di "hello" o "there" nel file x. y, digitare:
+Per cercare Hello o Here nel file x. y, digitare:
 
 ```
-findstr "hello there" x.y 
+findstr hello there x.y 
 ```
 
-Per cercare "buona notte" nel file x. y, digitare:
+Per cercare Hello nel file x. y, digitare:
 
 ```
-findstr /c:"hello there" x.y 
+findstr /c:hello there x.y 
 ```
 
-Per trovare tutte le occorrenze della parola "Windows" (con iniziale maiuscola W) nel file proposta. txt, digitare:
+Per trovare tutte le occorrenze delle finestre di Word (con una lettera maiuscola iniziale W) nel file proposta. txt, digitare:
 
 ```
 findstr Windows proposal.txt 
@@ -118,10 +114,10 @@ Per cercare tutti i file nella directory corrente e tutte le sottodirectory cont
 findstr /s /i Windows *.* 
 ```
 
-Per trovare tutte le righe che iniziano con "FOR" e sono precedute da zero o più spazi (ad esempio un ciclo di programma del computer) e per visualizzare il numero di riga in cui si trova ogni occorrenza, digitare:
+Per trovare tutte le occorrenze di righe che iniziano con per e sono precedute da zero o più spazi (ad esempio in un ciclo di programma del computer) e per visualizzare il numero di riga in cui viene trovata ogni occorrenza, digitare:
 
 ```
-findstr /b /n /r /c:"^ *FOR" *.bas 
+findstr /b /n /r /c:^ *FOR *.bas 
 ```
 
 Per cercare più stringhe in un set di file, creare un file di testo che contiene ogni criterio di ricerca in una riga separata. È anche possibile elencare i file che si desidera eseguire la ricerca in un file di testo. Ad esempio, per utilizzare i criteri di ricerca nel file Stringlist.txt, cercare i file elencati in Filelist. txt e quindi archiviare i risultati nel file di risultati. out, tipo:
@@ -130,18 +126,18 @@ Per cercare più stringhe in un set di file, creare un file di testo che contien
 findstr /g:stringlist.txt /f:filelist.txt > results.out 
 ```
 
-Per elencare tutti i file contenenti la parola "computer" all'interno della directory corrente e tutte le sottodirectory, indipendentemente dal caso, digitare:
+Per elencare ogni file contenente il Word computer all'interno della directory corrente e di tutte le sottodirectory, indipendentemente dal caso, digitare:
 
 ```
-findstr /s /i /m "\<computer\>" *.*
+findstr /s /i /m \<computer\> *.*
 ```
 
-Per elencare tutti i file che contiene la parola "computer" e altre parole che iniziano con "comp", (ad esempio "apprezzamento" e "competizione"), tipo:
+Per elencare tutti i file che contengono Word computer e altre parole che iniziano con comp, ad esempio complimento e compete, digitare:
 
 ```
-findstr /s /i /m "\<comp.*" *.*
+findstr /s /i /m \<comp.* *.*
 ```
 
-#### <a name="additional-references"></a>Altri riferimenti
+## <a name="additional-references"></a>Altre informazioni di riferimento
 
-[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+- [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

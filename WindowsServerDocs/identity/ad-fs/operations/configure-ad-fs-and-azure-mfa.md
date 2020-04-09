@@ -1,7 +1,6 @@
 ---
 ms.assetid: 24c4b9bb-928a-4118-acf1-5eb06c6b08e5
 title: Configurare AD FS 2016 e Azure MFA
-description: ''
 ms.author: billmath
 author: billmath
 manager: mtillman
@@ -9,12 +8,12 @@ ms.date: 01/28/2019
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: b658644d1ba7cec1b02a2a51331cd7b7152efc77
-ms.sourcegitcommit: 75e611fd5de8b8aa03fc26c2a3d5dbf8211b8ce3
+ms.openlocfilehash: d519b47d048068ad53e4f11a6b64621ab5f232b1
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77145486"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80855314"
 ---
 # <a name="configure-azure-mfa-as-authentication-provider-with-ad-fs"></a>Configurare l'autenticazione a più fattori di Azure come provider di autenticazione con AD FS
 
@@ -56,7 +55,7 @@ Set-AdfsClaimsProviderTrust -AnchorClaimType "http://schemas.xmlsoap.org/ws/2005
 
 ### <a name="azure-mfa-as-additional-authentication-to-office-365"></a>Autenticazione a più fattori di Azure come autenticazione aggiuntiva per Office 365
 
-In precedenza, se si desiderava usare l'autenticazione a più fattori di Azure come metodo di autenticazione aggiuntivo in AD FS per Office 365 o altre relying party, l'opzione migliore consisteva nel configurare Azure AD per l'autenticazione a più fattori, in cui l'autenticazione principale viene eseguita in locale in AD FS e l'autenticazione a più fattori è TR iggered per Azure AD. A questo punto, è possibile usare l'autenticazione a più fattori di Azure come autenticazione aggiuntiva in AD FS quando l'impostazione Domain SupportsMfa è impostata su $True.  
+In precedenza, se si desiderava usare l'autenticazione a più fattori di Azure come metodo di autenticazione aggiuntivo in AD FS per Office 365 o altre relying party, l'opzione migliore consisteva nel configurare Azure AD per l'autenticazione a più fattori, in cui l'autenticazione principale viene eseguita in locale in AD FS e l'autenticazione a più fattori viene attivata da Azure AD. A questo punto, è possibile usare l'autenticazione a più fattori di Azure come autenticazione aggiuntiva in AD FS quando l'impostazione Domain SupportsMfa è impostata su $True.  
 
 Come descritto in precedenza, qualsiasi utente AD FS che non ha ancora eseguito la registrazione (informazioni di verifica dell'autenticazione a più fattori configurata) deve essere richiesto tramite una pagina di errore AD FS personalizzata per visitare [https://aka.ms/mfasetup](https://aka.ms/mfasetup) per configurare le informazioni di verifica, quindi eseguire nuovamente il tentativo di accesso ad FS.  
 

@@ -1,23 +1,19 @@
 ---
 title: Panoramica della finestra di avvio in Windows Server Essentials
 description: Viene descritto come usare Windows Server Essentials
-ms.custom: na
 ms.date: 10/03/2016
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 198d16cb-3d07-4706-be89-ad14a5f7dc47
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 63a161057f7068dcb9e02faa353270f0150200b4
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: ffff090e360282933723465bb3bbde6c0285a97b
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80310660"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80852664"
 ---
 # <a name="overview-of-the-launchpad-in-windows-server-essentials"></a>Panoramica della finestra di avvio in Windows Server Essentials
 
@@ -77,7 +73,7 @@ La finestra di avvio di Windows Server Essentials è una piccola applicazione in
  Gli avvisi visualizzati nella finestra di avvio offrono un riepilogo sullo stato immediato del computer. Per visualizzare le informazioni su un avviso di stato, fare clic su un indicatore di avviso per aprire il Visualizzatore avvisi. Gli avvisi di stato sono visualizzati nel visualizzatore in base al livello di gravità. Gli avvisi più gravi sono visualizzati per primi nell'elenco, mentre gli avvisi meno gravi sono visualizzati nella parte inferiore dell'elenco. Per ulteriori informazioni sugli avvisi di integrità del computer, vedere [Manage System Health](Manage-System-Health-in-Windows-Server-Essentials.md).  
   
 ##  <a name="use-the-launchpad-with-a-mac-computer"></a><a name="BKMK_Mac"></a>Usare la finestra di avvio con un computer Mac  
- È possibile connettere un computer Mac® che esegue Mac OS X® 10,5 o versione successiva a Windows Server Essentials, Windows Server Essentials o Windows Server 2012 R2 oppure scaricando e installando il software connettore. Al termine dell'installazione del software connettore, è possibile scegliere di avviare automaticamente la finestra di avvio all'avvio del computer.  
+ È possibile connettere un computer Mac&reg; che esegue Mac OS X&reg; 10,5 o versione successiva a Windows Server Essentials, Windows Server Essentials o Windows Server 2012 R2 oppure scaricando e installando il software connettore. Al termine dell'installazione del software connettore, è possibile scegliere di avviare automaticamente la finestra di avvio all'avvio del computer.  
   
  La finestra di avvio è una piccola applicazione che offre agli utenti autenticati l'accesso a funzionalità chiave del server, inclusi file e file multimediali condivisi, componenti aggiuntivi e Accesso Web remoto. La finestra di avvio offre anche informazioni e notifiche in tempo reale sullo stato del computer.  
   

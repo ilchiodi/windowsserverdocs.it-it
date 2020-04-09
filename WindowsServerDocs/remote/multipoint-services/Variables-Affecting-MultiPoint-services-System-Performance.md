@@ -1,31 +1,27 @@
 ---
 title: Variabili che incidono sulle prestazioni del sistema di Servizi MultiPoint
 description: Informazioni sulle prestazioni per servizi MultiPoint
-ms.custom: na
 ms.date: 07/22/2016
 ms.prod: windows-server
 ms.technology: multipoint-services
-ms.reviewer: na
-ms.suite: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 0f3e8875-1b5e-4789-b16c-d06d6e31f38e
 author: evaseydl
 manager: scottman
 ms.author: evas
-ms.openlocfilehash: cba973e3b0a89c26f886a67154c27831adb2c8cc
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 44f268c958ed32e527b66cebe1a10d33652eb9b0
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71394831"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80858914"
 ---
 # <a name="variables-affecting-multipoint-services-system-performance"></a>Variabili che incidono sulle prestazioni del sistema di Servizi MultiPoint
 Sono disponibili molte variabili che possono influire sulle prestazioni complessive del sistema MultiPoint Services. Quando si progetta il sistema, è consigliabile prendere in considerazione questi casi.  
   
 ## <a name="usage"></a>Utilizzo  
   
--   **Applicazioni** Il tipo e il numero di applicazioni in esecuzione allo stesso tempo, in\-particolare le applicazioni con utilizzo intensivo di memoria o della grafica avranno effetto sulle prestazioni complessive del sistema. Per ulteriori informazioni, vedere [applicazioni e contenuti Internet](hardware-and-performance-recommendations.md#applications-and-internet-content).  
+-   **Applicazioni** Il tipo e il numero di applicazioni in esecuzione nello stesso momento, in particolare grafica\-applicazioni pesanti o con utilizzo intensivo di memoria avranno effetto sulle prestazioni complessive del sistema. Per ulteriori informazioni, vedere [applicazioni e contenuti Internet](hardware-and-performance-recommendations.md#applications-and-internet-content).  
   
 -   **Uso di Internet** Tenere presente che se gli utenti visualizzeranno contenuto multimediale o pagine Web che usano video con movimento completo. Questo tipo di contenuto può sovraccaricare il sistema se viene visualizzato un numero eccessivo di utenti contemporaneamente.  
   

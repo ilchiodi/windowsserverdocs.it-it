@@ -1,7 +1,6 @@
 ---
 ms.assetid: 638c89bd-87e6-484b-9d2e-8ae2a74227e5
 title: Impostare un certificato per le comunicazioni di servizi
-description: ''
 author: billmath
 manager: femila
 ms.date: 05/31/2017
@@ -9,12 +8,12 @@ ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: d0464853c73f88ed76545921ffc8a4bf8551c800
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 6e0f9e6cca4fe915d3faed77fd5b5db543596d70
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71408329"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80855304"
 ---
 # <a name="set-a-service-communications-certificate"></a>Impostare un certificato per le comunicazioni di servizi
 
@@ -30,7 +29,7 @@ Server federativi in Active Directory Federation Services \(AD FS\) utilizzare i
 > [!NOTE]  
 > Lo snap\-di gestione AD FS in fa riferimento ai certificati di autenticazione server per i server federativi come certificati di comunicazione del servizio.  
 
-Per completare questa procedura, è necessaria almeno l'appartenenza al gruppo **Administrators** oppure a un gruppo equivalente nel computer locale.  Per informazioni dettagliate sull'uso degli account appropriati e delle appartenenze a gruppi, vedere [gruppi predefiniti locali e di dominio](https://go.microsoft.com/fwlink/?LinkId=83477) \(http:\/\/go.Microsoft.com\/fwlink\/? LinkId\=83477\).   
+L'appartenenza al gruppo **Administrators**, o a un gruppo equivalente, nel computer locale è il requisito minimo per eseguire questa procedura.  Per informazioni dettagliate sull'uso degli account appropriati e delle appartenenze a gruppi, vedere [gruppi predefiniti locali e di dominio](https://go.microsoft.com/fwlink/?LinkId=83477) \(http:\/\/go.Microsoft.com\/fwlink\/? LinkId\=83477\).   
 
 ### <a name="to-set-a-service-communications-certificate"></a>Per impostare un certificato per le comunicazioni di servizio  
 

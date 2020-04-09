@@ -2,21 +2,19 @@
 title: Procedure consigliate per l'esecuzione di FreeBSD in Hyper-V
 description: Fornisce consigli per l'esecuzione di FreeBSD in macchine virtuali
 ms.prod: windows-server
-ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 0c66f1c8-2606-43a3-b4cc-166acaaf2d2a
 author: shirgall
 ms.author: kathydav
 ms.date: 01/09/2017
-ms.openlocfilehash: 1d284b38e1bdb642aa40ecbb8e82caa7712f7aad
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 18f59020ed4878e9a54150dcda18bca3da1dd614
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71365634"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80853284"
 ---
 # <a name="best-practices-for-running-freebsd-on-hyper-v"></a>Procedure consigliate per l'esecuzione di FreeBSD in Hyper-V
 
@@ -62,7 +60,7 @@ Durante l'avvio, i nodi del dispositivo vengono creati quando vengono individuat
    # exit
    ```
 
-   Altre informazioni sulle etichette GEOM sono disponibili all'indirizzo: [Assegnazione di etichette ai dispositivi disco](https://www.freebsd.org/doc/handbook/geom-glabel.html).
+   Altre informazioni sulle etichette GEOM sono disponibili in: [etichettare i dispositivi disco](https://www.freebsd.org/doc/handbook/geom-glabel.html).
 
 3. Il sistema continuerà con l'avvio multiutente. Al termine dell'avvio, modificare/etc/fstab e sostituire i nomi di dispositivo convenzionali con le rispettive etichette. Il/etc/fstab finale sarà simile al seguente:
 

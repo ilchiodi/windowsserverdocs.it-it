@@ -1,24 +1,20 @@
 ---
 title: processo di query
-description: 'Argomento dei comandi di Windows per * * * *- '
-ms.custom: na
+description: Argomento dei comandi di Windows per * * * *-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 36ce3ffc-0092-4eb1-a374-28e6616ca946
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 714a77c5fabf507b84090f37104203abd37a6f0f
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 5ee42286691444c3a667801be3174514a81441c6
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71371907"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80836964"
 ---
 # <a name="query-process"></a>processo di query
 
@@ -28,12 +24,12 @@ Visualizza informazioni sui processi in esecuzione in un server Host sessione De
 È possibile utilizzare questo comando per individuare i programmi eseguiti da un utente specifico e anche gli utenti che eseguono un programma specifico.
 per esempi relativi all'uso di questo comando, vedere [esempi](#BKMK_examples).
 > [!NOTE]
-> In Windows Server 2008 R2, Servizi terminal si chiama ora Servizi Desktop remoto. Per informazioni sulle novità della versione più recente, vedere Novità di [Servizi Desktop remoto in Windows server 2012](https://technet.microsoft.com/library/hh831527) nella libreria TechNet di Windows Server.
+> In Windows Server 2008 R2 Servizi terminal è stato rinomato Servizi Desktop remoto. Per informazioni sulle novità della versione più recente, vedere Novità di [Servizi Desktop remoto in Windows server 2012](https://technet.microsoft.com/library/hh831527) nella libreria TechNet di Windows Server.
 > ## <a name="syntax"></a>Sintassi
 > ```
 > query process [* | <ProcessID> | <UserName> | <SessionName> | /id:<nn> | <ProgramName>] [/server:<ServerName>]
 > ```
-> ## <a name="parameters"></a>Parametri
+> ### <a name="parameters"></a>Parametri
 > 
 > |      Parametro       |                                                                 Descrizione                                                                  |
 > |----------------------|----------------------------------------------------------------------------------------------------------------------------------------------|
@@ -46,7 +42,7 @@ per esempi relativi all'uso di questo comando, vedere [esempi](#BKMK_examples).
 > | /server:<ServerName> | Specifica il server Host sessione Desktop remoto di cui si desidera visualizzare i processi. Se non è specificato, viene utilizzato il server in cui si è attualmente connessi. |
 > |          /?          |                                                     Visualizza la guida al prompt dei comandi.                                                     |
 > 
-> ## <a name="remarks"></a>Osservazioni
+> ## <a name="remarks"></a>Note
 > - Gli amministratori hanno accesso completo a tutte le funzioni di **processo di query** .
 > - Se non si specifica il*nome utente*< >, <*sessionname*>, **/ID:** <*nn*>, <*ProgramName*> o **\\** * parametri, **query process** Visualizza solo i processi che appartengono all'utente corrente.
 > - Se viene specificata una sessione, è necessario che identifichi una sessione attiva.
@@ -57,7 +53,7 @@ per esempi relativi all'uso di questo comando, vedere [esempi](#BKMK_examples).
 >   -   Nome del processo
 >   -   ID del processo
 > - Quando il **processo di query** restituisce informazioni, viene visualizzato un simbolo di maggiore (>) prima di ogni processo appartenente alla sessione corrente.
->   ## <a name="BKMK_examples"></a>Esempi
+>   ## <a name="examples"></a><a name=BKMK_examples></a>Esempi
 > - Per visualizzare informazioni sui processi utilizzati da tutte le sessioni, digitare:
 >   ```
 >   query process *
@@ -66,7 +62,7 @@ per esempi relativi all'uso di questo comando, vedere [esempi](#BKMK_examples).
 >   ```
 >   query process /ID:2
 >   ```
->   #### <a name="additional-references"></a>riferimenti aggiuntivi
->   [Sintassi della riga di comando chiave](command-line-syntax-key.md)
+>   ## <a name="additional-references"></a>Altre informazioni di riferimento
+>   - Guida di riferimento ai comandi della [sintassi della riga di comando](command-line-syntax-key.md)
 >   [query](query.md)
->   [Servizi Desktop remoto &#40;riferimento&#41; ai comandi di Servizi terminal](remote-desktop-services-terminal-services-command-reference.md)
+>   [Servizi Desktop remoto (Servizi terminal)](remote-desktop-services-terminal-services-command-reference.md)

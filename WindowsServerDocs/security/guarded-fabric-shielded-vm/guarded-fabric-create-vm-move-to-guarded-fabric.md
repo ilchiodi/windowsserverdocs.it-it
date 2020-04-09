@@ -1,20 +1,20 @@
 ---
 redirect_url: guarded-fabric-configuration-scenarios-for-shielded-vms-overview.md
 title: Macchine virtuali schermate per i tenant-creazione di una nuova macchina virtuale schermata in locale e trasferimento in un'infrastruttura sorvegliata
-ms.custom: na
 ms.prod: windows-server
 ms.topic: article
 ms.assetid: 0ca1efa0-01f9-4b6f-87d4-c66db00d7d70
 manager: dongill
 author: rpsqrd
+ms.author: ryanpu
 ms.technology: security-guarded-fabric
 ms.date: 08/29/2018
-ms.openlocfilehash: a4b5ff2942c8485a4c10770a4374d56734f7f3c9
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: a5ca3ab29b83d0cb6cb2d55507471790f65800a2
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71402388"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80856724"
 ---
 # <a name="shielded-vms-for-tenants---creating-a-new-shielded-vm-on-premises-and-moving-it-to-a-guarded-fabric"></a>Macchine virtuali schermate per i tenant-creazione di una nuova macchina virtuale schermata in locale e trasferimento in un'infrastruttura sorvegliata
 
@@ -28,7 +28,7 @@ Per comprendere il modo in cui questo argomento si integra nel processo generale
 
 1.  Prima di iniziare la procedura, verificare che si trovi in un host Hyper-V che esegue Windows Server 2016 con i ruoli e le funzionalità seguenti installati:
 
-    - Ruolo
+    - Role
 
         - Hyper-V
 
@@ -130,7 +130,7 @@ Per un'illustrazione della protezione con chiave, che è un elemento in un file 
 
     Importare la macchina virtuale schermata usando la console di gestione di Hyper-V o Windows PowerShell. Per poter avviare la macchina virtuale, è necessario importare il file di configurazione della macchina virtuale dal proprietario della macchina virtuale. Ciò è dovuto al fatto che la protezione con chiave e il TPM virtuale della VM vengono archiviati nel file di configurazione. Se la macchina virtuale è configurata per l'esecuzione nell'infrastruttura sorvegliata, dovrebbe essere in grado di avviarsi correttamente.
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 
 - [Procedura di configurazione del provider di servizi di hosting per host sorvegliati e macchine virtuali schermate](guarded-fabric-configuration-scenarios-for-shielded-vms-overview.md)
 - [Infrastruttura sorvegliata e macchine virtuali schermate](guarded-fabric-and-shielded-vms-top-node.md)

@@ -2,22 +2,18 @@
 title: Passaggio 2 preparare i server Cluster
 description: Questo argomento fa parte della Guida deploy Remote Access in a cluster in Windows Server 2016.
 manager: brianlic
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: networking-ras
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 35d68abb-6914-42e0-91e8-803933cf785e
 ms.author: lizross
 author: eross-msft
-ms.openlocfilehash: 74aac416a5aa69a0cd935d58e3ecb931e4b5fd02
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: e53557f1fb2715f1d0318adc12aebb8f84423519
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80308331"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80861444"
 ---
 # <a name="step-2-prepare-cluster-servers"></a>Passaggio 2 preparare i server Cluster
 
@@ -27,7 +23,7 @@ Prima di poter configurare una distribuzione in cluster, è preparare i server a
   
 |Attività|Descrizione|  
 |----|--------|  
-|[2,1 configurare l'infrastruttura di accesso remoto](#BKMK_config)|In ogni server che si desidera aggiungere al cluster, configurare la topologia di server, gli indirizzi IP, routing e inoltro. Se si configura un cluster con bilanciamento del carico delle macchine virtuali, è necessario configurare le macchine virtuali per l'utilizzo di spoofing degli indirizzi MAC.<br /><br />Inoltre, aggiungere ogni server allo stesso dominio e connettere tutti i server alla stessa subnet.|  
+|[2,1 configurare l'infrastruttura di accesso remoto](#BKMK_config)|In ogni server che si desidera aggiungere al cluster, configurare la topologia di server, gli indirizzi IP, routing e inoltro. Se si configura un cluster con bilanciamento del carico delle macchine virtuali, è necessario configurare le macchine virtuali per l'utilizzo di spoofing degli indirizzi MAC.<p>Inoltre, aggiungere ogni server allo stesso dominio e connettere tutti i server alla stessa subnet.|  
 |[2,2 installare il ruolo accesso remoto](#BKMK_Install)|In ogni server aggiuntivo che si desidera aggiungere al cluster, installare il ruolo Accesso remoto|  
 |[2,3 installare NLB](#BKMK_NLB)|Nel server di accesso remoto distribuito e in ogni server aggiuntivo che si desidera aggiungere al cluster, installare la funzionalità Bilanciamento carico di RETE. Si noti che questo passaggio non è obbligatorio quando si utilizza un bilanciamento del carico esterno.|  
   

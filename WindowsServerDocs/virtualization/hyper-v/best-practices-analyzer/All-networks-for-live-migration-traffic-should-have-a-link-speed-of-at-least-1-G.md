@@ -2,20 +2,19 @@
 title: Tutte le reti per il traffico di migrazione in tempo reale devono avere una velocità di collegamento di almeno 1 Gbps
 description: Versione online del testo per questa regola di Best Practices Analyzer.
 ms.prod: windows-server
-ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
 ms.author: kathydav
 ms.topic: article
 ms.assetid: 89411b63-bec8-463d-b486-107548ed440e
-author: KBDAzure
+author: kbdazure
 ms.date: 8/16/2016
-ms.openlocfilehash: 92ba74ec75d8e90979e1cc329415a52af0218f54
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: adb16b1c4618e0874f48f4715440a9d903f5bc9f
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71365298"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80857844"
 ---
 # <a name="all-networks-for-live-migration-traffic-should-have-a-link-speed-of-at-least-1-gbps"></a>Tutte le reti per il traffico di migrazione in tempo reale devono avere una velocità di collegamento di almeno 1 Gbps
 

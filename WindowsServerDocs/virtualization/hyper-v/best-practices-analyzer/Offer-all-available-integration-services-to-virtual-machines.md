@@ -2,20 +2,19 @@
 title: Offrire i servizi di integrazione disponibile in tutte le macchine virtuali
 description: Vengono fornite istruzioni per risolvere il problema segnalato da questa regola di Best Practices Analyzer.
 ms.prod: windows-server
-ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
 ms.author: kathydav
 ms.topic: article
 ms.assetid: 2c4b2043-ad81-495e-aa7a-467f813bb3d2
-author: KBDAzure
+author: kbdazure
 ms.date: 8/16/2016
-ms.openlocfilehash: 5ec2dc73cea8b8356d832bf9fdb960985df2df6c
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: c7ddf53823a69e1bd66d4e0e43ee452a4614436e
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71393597"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80861884"
 ---
 # <a name="offer-all-available-integration-services-to-virtual-machines"></a>Offrire i servizi di integrazione disponibile in tutte le macchine virtuali
 
@@ -25,7 +24,7 @@ Per altre informazioni sulle procedure consigliate e le analisi, vedere [Best Pr
   
 |Proprietà|Dettagli|  
 |-|-|  
-|**Sistema operativo**|Windows Server 2016|  
+|**Sistema operativo**|Windows Server 2016|  
 |**Prodotto/funzionalità**|Hyper-V|  
 |**Gravità**|Avviso|  
 |**Categoria**|Configurazione|  
@@ -50,7 +49,7 @@ La disponibilità di alcuni servizi di integrazione può essere gestita tramite 
   
 #### <a name="to-manage-the-availability-of-integration-services-to-a-virtual-machine"></a>Per gestire la disponibilità dei servizi di integrazione in una macchina virtuale  
   
-1.  Aprire la console di gestione di Hyper-V. Fare clic su **avviare**, scegliere **Strumenti di amministrazione**, quindi fare clic su **gestione di Hyper-V**.  
+1.  Aprire la console di gestione di Hyper-V. Fare clic sul pulsante **Start**, scegliere **Strumenti di amministrazione** e quindi **Console di gestione di Hyper-V**.  
   
 2.  Nel riquadro dei risultati, sotto **macchine virtuali**, selezionare la macchina virtuale che si desidera configurare.  
   

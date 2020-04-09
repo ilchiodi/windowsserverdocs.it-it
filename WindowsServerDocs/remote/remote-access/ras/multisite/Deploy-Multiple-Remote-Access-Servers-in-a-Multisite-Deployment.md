@@ -2,22 +2,18 @@
 title: Distribuire più server di accesso remoto in una distribuzione multisito
 description: Questo argomento fa parte della Guida distribuire più server di accesso remoto in una distribuzione multisito di Windows Server 2016.
 manager: brianlic
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: networking-ras
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: ac2f6015-50a5-4909-8f67-8565f9d332a2
 ms.author: lizross
 author: eross-msft
-ms.openlocfilehash: 4b9da54822c1b7610bbd7a095beeb305eb243bb1
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: b39b6b47fa266286db1879df61e029033f5f55e5
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80314030"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80858398"
 ---
 # <a name="deploy-multiple-remote-access-servers-in-a-multisite-deployment"></a>Distribuire più server di accesso remoto in una distribuzione multisito
 
@@ -76,8 +72,8 @@ Nella tabella seguente sono elencati i ruoli e funzionalità in questo scenario.
   
 |Ruolo/funzionalità|Modalità di supporto dello scenario|  
 |---------|-----------------|  
-|Ruolo Accesso remoto|Il ruolo viene installato e disinstallato tramite la console di Server Manager. Comprende DirectAccess, una funzionalità precedentemente inclusa in Windows Server 2008 R2, e il servizio Routing e Accesso remoto (RRAS) che in precedenza era un servizio ruolo nel ruolo del server Servizi di accesso e criteri di rete (NPAS). Il ruolo Accesso remoto è costituito da due componenti:<br /><br />-DirectAccess e Routing e accesso remoto (RRAS) VPN DirectAccess e VPN vengono gestiti insieme nella console di gestione accesso remoto.<br />Funzionalità di routing di Routing RRAS routing e accesso REMOTO vengono gestite nella console di Routing e accesso remoto legacy.<br /><br />Le dipendenze sono le seguenti:<br /><br />-Internet Information Services (IIS) Web Server - questa funzionalità è necessaria configurare il server dei percorsi di rete e probe web predefinito.<br />-Windows Database-Used interna per l'accounting locale sul server di accesso remoto.|  
-|Funzionalità Strumenti di Gestione Accesso remoto|Questa funzionalità viene installata come segue:<br /><br />-Viene installato per impostazione predefinita in un server di accesso remoto quando è installato il ruolo Accesso remoto e supporta l'interfaccia utente della console di gestione remota.<br />-Può essere installata facoltativamente in un server non è in esecuzione il ruolo di server di accesso remoto. In questo caso viene utilizzata per la gestione remota di un computer di Accesso remoto che esegue DirectAccess e VPN.<br /><br />La funzionalità Strumenti di Gestione Accesso remoto è costituita dai seguenti elementi:<br /><br />-Accesso remoto GUI e strumenti da riga di comando<br />-Modulo di accesso remoto per Windows PowerShell<br /><br />Le dipendenze includono:<br /><br />-Console Gestione criteri di gruppo<br />-RAS Connection Manager Administration Kit (CMAK)<br />-Windows PowerShell 3.0<br />-Infrastruttura e strumenti di gestione grafico|  
+|Ruolo Accesso remoto|Il ruolo viene installato e disinstallato tramite la console di Server Manager. Comprende DirectAccess, una funzionalità precedentemente inclusa in Windows Server 2008 R2, e il servizio Routing e Accesso remoto (RRAS) che in precedenza era un servizio ruolo nel ruolo del server Servizi di accesso e criteri di rete (NPAS). Il ruolo Accesso remoto è costituito da due componenti:<p>-DirectAccess e Routing e accesso remoto (RRAS) VPN DirectAccess e VPN vengono gestiti insieme nella console di gestione accesso remoto.<br />Funzionalità di routing di Routing RRAS routing e accesso REMOTO vengono gestite nella console di Routing e accesso remoto legacy.<p>Le dipendenze sono le seguenti:<p>-Internet Information Services (IIS) Web Server - questa funzionalità è necessaria configurare il server dei percorsi di rete e probe web predefinito.<br />-Windows Database-Used interna per l'accounting locale sul server di accesso remoto.|  
+|Funzionalità Strumenti di Gestione Accesso remoto|Questa funzionalità viene installata come segue:<p>-Viene installato per impostazione predefinita in un server di accesso remoto quando è installato il ruolo Accesso remoto e supporta l'interfaccia utente della console di gestione remota.<br />-Può essere installata facoltativamente in un server non è in esecuzione il ruolo di server di accesso remoto. In questo caso viene utilizzata per la gestione remota di un computer di Accesso remoto che esegue DirectAccess e VPN.<p>La funzionalità Strumenti di Gestione Accesso remoto è costituita dai seguenti elementi:<p>-Accesso remoto GUI e strumenti da riga di comando<br />-Modulo di accesso remoto per Windows PowerShell<p>Le dipendenze includono:<p>-Console Gestione criteri di gruppo<br />-RAS Connection Manager Administration Kit (CMAK)<br />-Windows PowerShell 3.0<br />-Infrastruttura e strumenti di gestione grafico|  
   
 ## <a name="hardware-requirements"></a><a name="BKMK_HARD"></a>Requisiti hardware  
 I requisiti hardware per questo scenario includono i seguenti.  

@@ -2,18 +2,18 @@
 title: Parità accelerata con mirror
 ms.prod: windows-server
 ms.author: gawatu
-ms.manager: masriniv
+manager: masriniv
 ms.technology: storage-file-systems
 ms.topic: article
 author: gawatu
 ms.date: 10/17/2018
 ms.assetid: ''
-ms.openlocfilehash: 2721f1c744c5c03d8e4bce0508fd23fa5237f95f
-ms.sourcegitcommit: 9a6a692a7b2a93f52bb9e2de549753e81d758d28
+ms.openlocfilehash: 752073e4f12db3b994261a70a9306d45b9a00d77
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72591092"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80861514"
 ---
 # <a name="mirror-accelerated-parity"></a>Parità accelerata con mirror
 
@@ -23,7 +23,7 @@ Il sistema Spazi di archiviazione può fornire la tolleranza di errore per i dat
 
 ![Volume-parità-accelerata-con-mirroring](media/mirror-accelerated-parity/Mirror-Accelerated-Parity-Volume.png)
 
-## <a name="background"></a>Informazioni
+## <a name="background"></a>Background
 
 Gli schemi di resilienza con mirroring e con parità hanno caratteristiche di archiviazione e di prestazioni fondamentalmente diverse:
 - La resilienza del mirror consente agli utenti di ottenere prestazioni di scrittura veloci, ma la replica dei dati per ogni copia non è efficiente nello spazio. 
@@ -53,17 +53,17 @@ Quando vengono spostati dal mirroring alla parità, i dati vengono letti, vengon
 
     - **1a.** Se la scrittura in ingresso modifica i dati esistenti nel mirroring, ReFS modificherà i dati sul posto.
     - **1b.** Se la scrittura in ingresso è una nuova scrittura e ReFS trova spazio libero sufficiente nel mirroring per gestire tale scrittura, ReFS scriverà nel mirroring.
-    ](media/mirror-accelerated-parity/Write-to-Mirror.png) da ![Write a mirror
+    ![](media/mirror-accelerated-parity/Write-to-Mirror.png) Write-to-mirror
 
 2. **Scrive nel mirror, riallocato dalla parità:**
 
     Se la scrittura in ingresso modifica i dati che sono in parità e ReFS riesce a trovare lo spazio disponibile in mirror per il servizio della scrittura in ingresso, ReFS invalida prima di tutto i dati precedenti nella parità e quindi scrive nel mirror. Questo invalidamento rappresenta un'operazione sui metadati rapida e conveniente che consente di migliorare in modo significativo le prestazioni di scrittura nella parità.
-    ](media/mirror-accelerated-parity/Reallocated-Write.png) di ![Reallocated scrittura
+    ![riallocato-scrittura](media/mirror-accelerated-parity/Reallocated-Write.png)
 
 3. **Scritture nella parità:**
     
     Se ReFS non trova spazio libero sufficiente nel mirroring, scriverà nuovi dati nella parità o modificherà direttamente i dati esistenti in parità. Nella sezione "Ottimizzazioni delle prestazioni" seguente vengono fornite indicazioni per ridurre il numero di scritture nella parità.
-    ](media/mirror-accelerated-parity/Write-to-Parity.png) da ![Write a parità
+    ![](media/mirror-accelerated-parity/Write-to-Parity.png) Write-to-parità
 
 **Letture:** ReFS leggerà direttamente dal livello che contiene i dati rilevanti. Se la parità viene costruita con HDD, la cache in Spazi di archiviazione diretta memorizza tali dati per accelerare le letture successive. 
 
@@ -153,7 +153,7 @@ Il cmdlet PowerShell seguente crea un volume con parità accelerata con mirrorin
 New-Volume – FriendlyName “TestVolume” -FileSystem CSVFS_ReFS -StoragePoolFriendlyName “StoragePoolName” -StorageTierFriendlyNames Performance, Capacity -StorageTierSizes 200GB, 800GB
 ```
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 
 -   [Panoramica di ReFS](refs-overview.md)
 -   [Clonazione blocco ReFS](block-cloning.md)

@@ -1,24 +1,20 @@
 ---
 title: Configurazione di Scwcmd
-description: 'Argomento dei comandi di Windows per * * * *- '
-ms.custom: na
+description: Argomento dei comandi di Windows per * * * *-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 6528b9dc-3d82-4228-b734-ed717458d74c
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 43bd70c33294b09f63b9718e4c0f2cdc6cace156
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: ac4333628c33b60daabbb6cff55575d6ec8cd5f6
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71384294"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80835184"
 ---
 # <a name="scwcmd-configure"></a>Scwcmd: configurare
 
@@ -32,24 +28,24 @@ Si applica un criterio di sicurezza generato configurazione guidata Impostazioni
 scwcmd configure [[[/m:<ComputerName> | /ou:<OuName>] /p:<Policy>] | /i:<ComputerList>] [/u:<UserName>] [/pw:<Password>] [/t:<Threads>]
 ```
 
-### <a name="parameters"></a>Parametri
+#### <a name="parameters"></a>Parametri
 
 |Parametro|Descrizione|
 |---------|-----------|
-|/m: \<ComputerName >|Specifica il nome NetBIOS, un nome DNS o un indirizzo IP del computer da configurare. Se il **/m** viene specificato, il **/p** parametro deve inoltre essere specificato.|
-|/ou: > \<OuName|Specifica il nome di dominio completo (FQDN) di un'unità organizzativa (OU) in servizi di dominio Active Directory. Se il **/ou** viene specificato, il **/p** parametro deve inoltre essere specificato. Tutti i computer nell'unità Organizzativa verranno analizzati in base al criterio specificato.|
-|/p: \<Policy >|Specifica il percorso e il nome del file di criteri con estensione XML da utilizzare per eseguire la configurazione.|
-|/i: \<ComputerList >|Specifica il percorso e il nome di un file XML che contiene un elenco di computer insieme ai relativi file di criteri previsto. Tutti i computer nel file XML verranno configurati in base ai relativi file di criteri corrispondenti. Un file XML di esempio è % windir%\security\SampleMachineList.xml.|
-|/u: \<UserName >|Specifica una credenziale utente alternativo da utilizzare quando si configura un computer remoto. Il valore predefinito è connesso per utente.|
-|/PW: > \<Password|Specifica una credenziale utente alternativo da utilizzare quando si configura un computer remoto. Il valore predefinito è la password dell'utente connesso.|
-|/t: \<Threads >|Specifica il numero di operazioni di configurazione in sospeso simultanee che deve essere garantita durante il processo di configurazione (valore predefinito = 40, MinValue = 1, MaxValue = 1000).|
+|/m:\<nomecomputer >|Specifica il nome NetBIOS, un nome DNS o un indirizzo IP del computer da configurare. Se il **/m** viene specificato, il **/p** parametro deve inoltre essere specificato.|
+|/ou:\<OuName >|Specifica il nome di dominio completo (FQDN) di un'unità organizzativa (OU) in servizi di dominio Active Directory. Se il **/ou** viene specificato, il **/p** parametro deve inoltre essere specificato. Tutti i computer nell'unità Organizzativa verranno analizzati in base al criterio specificato.|
+|/p:\<criteri >|Specifica il percorso e il nome del file di criteri con estensione XML da utilizzare per eseguire la configurazione.|
+|/i:\<> di computer|Specifica il percorso e il nome di un file XML che contiene un elenco di computer insieme ai relativi file di criteri previsto. Tutti i computer nel file XML verranno configurati in base ai relativi file di criteri corrispondenti. Un file XML di esempio è % windir%\security\SampleMachineList.xml.|
+|/u:\<nome utente >|Specifica una credenziale utente alternativo da utilizzare quando si configura un computer remoto. Il valore predefinito è connesso per utente.|
+|/PW:\<> password|Specifica una credenziale utente alternativo da utilizzare quando si configura un computer remoto. Il valore predefinito è la password dell'utente connesso.|
+|/t:\<thread >|Specifica il numero di operazioni di configurazione in sospeso simultanee che deve essere garantita durante il processo di configurazione (valore predefinito = 40, MinValue = 1, MaxValue = 1000).|
 |/?|Visualizza la guida al prompt dei comandi.|
 
 ## <a name="remarks"></a>Note
 
 Scwcmd.exe è disponibile solo nei computer che eseguono Windows Server 2008 R2, Windows Server 2008 o Windows Server 2003.
 
-## <a name="BKMK_Examples"></a>Esempi
+## <a name="examples"></a><a name=BKMK_Examples></a>Esempi
 
 Per configurare un criterio di protezione contro la webpolicy.xml di file, digitare:
 ```
@@ -68,6 +64,6 @@ Per configurare un criterio di protezione in tutti i computer nella OU WebServer
 scwcmd configure /ou:OU=WebServers,DC=Marketing,DC=ABCCompany,DC=com /p:webpolicy.xml /u:DomainAdmin
 ```
 
-#### <a name="additional-references"></a>Altri riferimenti
+## <a name="additional-references"></a>Altre informazioni di riferimento
 
--   [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+-   - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

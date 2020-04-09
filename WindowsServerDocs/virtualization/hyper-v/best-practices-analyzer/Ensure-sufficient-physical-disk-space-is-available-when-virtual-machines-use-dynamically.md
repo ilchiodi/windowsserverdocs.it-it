@@ -2,20 +2,19 @@
 title: Verificare che sia disponibile spazio su disco sufficiente quando le macchine virtuali utilizzano dischi rigidi virtuali a espansione dinamica
 description: Versione online del testo per questa regola di Best Practices Analyzer.
 ms.prod: windows-server
-ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
 ms.author: kathydav
 ms.topic: article
 ms.assetid: 9e3e3e64-4b3a-4b9d-acf1-e4df61a04f1e
-author: KBDAzure
+author: kbdazure
 ms.date: 8/16/2016
-ms.openlocfilehash: c38d7c11a05eef9d29097e625fec2830000cf550
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 53302d9e8fc4f960f0a1744d4ebd274b936eac5f
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71393638"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80861944"
 ---
 # <a name="ensure-sufficient-physical-disk-space-is-available-when-virtual-machines-use-dynamically-expanding-virtual-hard-disks"></a>Verificare che sia disponibile spazio su disco sufficiente quando le macchine virtuali utilizzano dischi rigidi virtuali a espansione dinamica
 

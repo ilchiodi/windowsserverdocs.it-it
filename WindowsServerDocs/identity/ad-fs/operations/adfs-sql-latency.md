@@ -8,12 +8,12 @@ ms.date: 06/20/2019
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: e5e90119066285ae8e04b392a13ab1a38488f5ee
-ms.sourcegitcommit: c5709021aa98abd075d7a8f912d4fd2263db8803
+ms.openlocfilehash: b0881bff3455b471b0e51e960e1b0e522508a8b3
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/18/2020
-ms.locfileid: "76265753"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80854864"
 ---
 # <a name="fine-tuning-sql-and-addressing-latency-issues-with-ad-fs"></a>Ottimizzazione di SQL e risoluzione dei problemi di latenza con AD FS
 In un aggiornamento per [AD FS 2016](https://support.microsoft.com/help/4503294/windows-10-update-kb4503294) sono stati introdotti i miglioramenti seguenti per ridurre la latenza tra database. Un aggiornamento imminente per AD FS 2019 includerà questi miglioramenti.

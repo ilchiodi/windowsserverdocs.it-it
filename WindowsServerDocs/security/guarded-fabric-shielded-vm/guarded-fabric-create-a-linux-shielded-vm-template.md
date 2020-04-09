@@ -1,19 +1,19 @@
 ---
 title: Creare un disco modello di macchina virtuale schermato Linux
-ms.custom: na
 ms.prod: windows-server
 ms.topic: article
 ms.assetid: d0e1d4fb-97fc-4389-9421-c869ba532944
 manager: dongill
 author: rpsqrd
+ms.author: ryanpu
 ms.technology: security-guarded-fabric
 ms.date: 08/29/2018
-ms.openlocfilehash: 66d5f70f747a6209f2856afde58b6f486ea597f8
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 1a6325a5d8e931f1e62c83ba4013d94760e39f86
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71386710"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80856794"
 ---
 # <a name="create-a-linux-shielded-vm-template-disk"></a>Creare un disco modello di macchina virtuale schermato Linux
 
@@ -72,7 +72,7 @@ Questi passaggi illustrano i requisiti minimi per ottenere una VM Linux pronta p
 5.  Utilizzando la console di gestione di Hyper-V, [configurare un](https://docs.microsoft.com/windows-server/virtualization/hyper-v/get-started/create-a-virtual-switch-for-hyper-v-virtual-machines) comportatore esterno nel server di virtualizzazione in modo che la macchina virtuale Linux possa accedere a Internet per ottenere gli aggiornamenti.
 
 6.  Successivamente, creare una nuova macchina virtuale su cui installare il sistema operativo Linux.
-    Nel riquadro azioni fare clic su **nuova** **macchina virtuale**  >  per visualizzare la procedura guidata.
+    Nel riquadro azioni fare clic su **nuovo** > **macchina virtuale** per visualizzare la procedura guidata.
     Specificare un nome descrittivo per la macchina virtuale, ad esempio "creato un modello Linux" e fare clic su **Next (avanti**).
 
 7.  Nella seconda pagina della procedura guidata selezionare **generazione 2** per assicurarsi che la macchina virtuale venga sottoposta a provisioning con un profilo del firmware basato su UEFI.
@@ -187,7 +187,7 @@ New-SelfSignedCertificate -Subject "CN=Linux Shielded VM Template Disk Signing C
 ### <a name="process-the-disk-with-the-template-disk-wizard-cmdlet"></a>Elaborare il disco con il cmdlet della creazione guidata disco modello
 
 Copiare il disco modello e il certificato in un computer che esegue Windows Server, versione 1709, quindi eseguire i comandi seguenti per avviare il processo di firma.
-Il valore di VHDX fornito al parametro `-Path` verrà sovrascritto con il disco modello aggiornato, quindi assicurarsi di creare una copia prima di eseguire il comando.
+Le VHDX fornite al parametro `-Path` verranno sovrascritte con il disco modello aggiornato. Assicurarsi quindi di creare una copia prima di eseguire il comando.
 
 > [!IMPORTANT]
 > Le Strumenti di amministrazione remota del server disponibili in Windows Server 2016 o Windows 10 non possono essere usate per preparare un disco modello di macchina virtuale schermato di Linux.

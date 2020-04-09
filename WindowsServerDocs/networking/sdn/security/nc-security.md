@@ -1,20 +1,20 @@
 ---
 title: Sicurezza controller di rete
 description: È possibile utilizzare questo argomento per informazioni su come configurare la sicurezza per tutte le comunicazioni tra il controller di rete e altri software e dispositivi.
-manager: dougkim
+manager: grcusanz
 ms.prod: windows-server
 ms.technology: networking-sdn
 ms.topic: article
 ms.assetid: bc625de9-ee31-40a4-9ad2-7448bfbfb6e6
-ms.author: lizross
-author: eross-msft
+ms.author: anpaul
+author: AnirbanPaul
 ms.date: 08/30/2018
-ms.openlocfilehash: 196a124533b98c6945186ee827494b206028d2c8
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: 64bcf94c2e439d7999e96de939962a3a14d1246d
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80317408"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80854364"
 ---
 # <a name="secure-the-network-controller"></a>Proteggere Controller di rete
 

@@ -1,24 +1,20 @@
 ---
 title: Panoramica di Autenticazione di Windows
 description: Sicurezza di Windows Server
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: security-windows-auth
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 485a0774-0785-457f-a964-0e9403c12bb1
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/12/2016
-ms.openlocfilehash: 262a510e0b8484f3ee5cc28726f10857f92cbfd4
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 2139a6b3a2b22bfe629df7ed073e16eabe31cac2
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71403286"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80861714"
 ---
 # <a name="windows-authentication-overview"></a>Panoramica di Autenticazione di Windows
 
@@ -56,14 +52,14 @@ vedere [Panoramica tecnica sull'autenticazione di Windows](windows-authenticatio
 ## <a name="practical-applications"></a>Applicazioni pratiche
 L'autenticazione di Windows viene utilizzata per verificare che le informazioni provengano da un'origine attendibile, indipendentemente che si tratti di una persona o di un oggetto computer, ad esempio un altro computer. In Windows sono disponibili diversi metodi per raggiungere questo obiettivo, come descritto di seguito.
 
-|A...|Funzionalità|Descrizione|
+|A...|Caratteristica|Descrizione|
 |----|------|--------|
-|Autenticazione nell'ambito di un dominio di Active Directory|Kerberos|I sistemi operativi Microsoft Windows&nbsp;server implementano il protocollo di autenticazione Kerberos versione 5 e le estensioni per l'autenticazione con chiave pubblica. Il client di autenticazione Kerberos viene implementato come Security Support Provider \(SSP\) ed è possibile accedervi tramite l'interfaccia Security Support Provider \(SSPI\). L'autenticazione iniziale degli utenti è integrata con il\-di accesso Single Sign-on di Winlogon sull'architettura. Il Centro distribuzione chiavi Kerberos \(KDC\) è integrato con altri servizi di sicurezza di Windows Server in esecuzione sul controller di dominio. Il KDC utilizza il database del servizio directory Active Directory del dominio come database degli account di sicurezza. Active Directory è necessario per le implementazioni Kerberos predefinite.<br /><br />Per altre risorse, vedere [Panoramica dell'autenticazione Kerberos](../kerberos/kerberos-authentication-overview.md).|
-|Autenticazione sicura sul Web|TLS\/SSL come implementato nel Security Support Provider Schannel|Il Transport Layer Security \(TLS\) protocollo versioni 1,0, 1,1 e 1,2, Secure Sockets Layer \(protocollo\) SSL, versioni 2,0 e 3,0, datagramma Transport Layer Security protocollo versione 1,0 e il trasporto di comunicazione privata \(PCT\) protocollo, versione 1,0, sono basati sulla crittografia a chiave pubblica. Il canale sicuro \(Schannel\) provider Authentication Protocol Suite fornisce questi protocolli. Tutti i protocolli Schannel utilizzano un modello client e server.<br /><br />Per altre risorse, vedere [Panoramica SSP&#41; TLS &#40;-SSL Schannel](../tls/tls-ssl-schannel-ssp-overview.md).|
-|Autenticazione in un servizio Web o un'applicazione|Autenticazione integrata di Windows<br /><br />Autenticazione del digest|Per altre risorse, vedere gli argomenti su [autenticazione integrata di Windows](https://technet.microsoft.com/library/cc758557(v=WS.10).aspx), [autenticazione del digest](https://technet.microsoft.com/library/cc738318(v=ws.10).aspx) e [autenticazione avanzata del digest](https://technet.microsoft.com/library/cc783131(v=ws.10).aspx).|
-|Autenticazione in applicazioni legacy|NTLM|NTLM è un protocollo di autenticazione di tipo richiesta\-risposta. Oltre all'autenticazione, il protocollo NTLM fornisce facoltativamente la sicurezza della sessione, in particolare l'integrità e la riservatezza dei messaggi tramite funzioni di firma e sealing in NTLM.<br /><br />Per altre risorse, vedere [Panoramica di NTLM](../kerberos/ntlm-overview.md).|
-|Utilizzare l'autenticazione a più fattori|Supporto di smart card<br /><br />Supporto biometria|Le smart card sono un metodo manomissione\-resistente e portabile per offrire soluzioni di sicurezza per attività come l'autenticazione client, l'accesso ai domini, la firma del codice e la protezione di e\-posta elettronica.<br /><br />La biometria si basa sulla misurazione di una caratteristica fisica non mutevole di una persona per identificarla in modo univoco. Le impronte digitali sono una delle caratteristiche biometriche utilizzate con maggiore frequenza, con milioni di dispositivi di biometria delle impronte digitali incorporati in personal computer e periferiche.<br /><br />Per altre risorse, vedere [riferimento tecnico per Smart Card](https://technet.microsoft.com/itpro/windows/keep-secure/smart-card-windows-smart-card-technical-reference). |
-|Consentire il riutilizzo, l'archiviazione e la gestione locale delle credenziali|Gestione di credenziali<br /><br />Autorità di sicurezza locale<br /><br />Password|La gestione delle credenziali in Windows assicura che le credenziali vengano archiviate in tutta sicurezza. Le credenziali vengono raccolte sul desktop sicuro \(per l'accesso locale o di dominio\), attraverso app o siti Web in modo che le credenziali corrette vengano presentate ogni volta che si accede a una risorsa.<br /><br />
+|Autenticazione nell'ambito di un dominio di Active Directory|Kerberos|I sistemi operativi Microsoft Windows&nbsp;server implementano il protocollo di autenticazione Kerberos versione 5 e le estensioni per l'autenticazione con chiave pubblica. Il client di autenticazione Kerberos viene implementato come Security Support Provider \(SSP\) ed è possibile accedervi tramite l'interfaccia Security Support Provider \(SSPI\). L'autenticazione iniziale degli utenti è integrata con il\-di accesso Single Sign-on di Winlogon sull'architettura. Il Centro distribuzione chiavi Kerberos \(KDC\) è integrato con altri servizi di sicurezza di Windows Server in esecuzione sul controller di dominio. Il KDC utilizza il database del servizio directory Active Directory del dominio come database degli account di sicurezza. Active Directory è necessario per le implementazioni Kerberos predefinite.<p>Per altre risorse, vedere [Panoramica dell'autenticazione Kerberos](../kerberos/kerberos-authentication-overview.md).|
+|Autenticazione sicura sul Web|TLS\/SSL come implementato nel Security Support Provider Schannel|Il Transport Layer Security \(TLS\) protocollo versioni 1,0, 1,1 e 1,2, Secure Sockets Layer \(protocollo\) SSL, versioni 2,0 e 3,0, datagramma Transport Layer Security protocollo versione 1,0 e il trasporto di comunicazione privata \(PCT\) protocollo, versione 1,0, sono basati sulla crittografia a chiave pubblica. Il canale sicuro \(Schannel\) provider Authentication Protocol Suite fornisce questi protocolli. Tutti i protocolli Schannel utilizzano un modello client e server.<p>Per altre risorse, vedere [Panoramica SSP&#41; TLS &#40;-SSL Schannel](../tls/tls-ssl-schannel-ssp-overview.md).|
+|Autenticazione in un servizio Web o un'applicazione|Autenticazione integrata di Windows<p>Autenticazione del digest|Per altre risorse, vedere gli argomenti su [autenticazione integrata di Windows](https://technet.microsoft.com/library/cc758557(v=WS.10).aspx), [autenticazione del digest](https://technet.microsoft.com/library/cc738318(v=ws.10).aspx) e [autenticazione avanzata del digest](https://technet.microsoft.com/library/cc783131(v=ws.10).aspx).|
+|Autenticazione in applicazioni legacy|NTLM|NTLM è un protocollo di autenticazione di tipo richiesta\-risposta. Oltre all'autenticazione, il protocollo NTLM fornisce facoltativamente la sicurezza della sessione, in particolare l'integrità e la riservatezza dei messaggi tramite funzioni di firma e sealing in NTLM.<p>Per altre risorse, vedere [Panoramica di NTLM](../kerberos/ntlm-overview.md).|
+|Utilizzare l'autenticazione a più fattori|Supporto di smart card<p>Supporto biometria|Le smart card sono un metodo manomissione\-resistente e portabile per offrire soluzioni di sicurezza per attività come l'autenticazione client, l'accesso ai domini, la firma del codice e la protezione di e\-posta elettronica.<p>La biometria si basa sulla misurazione di una caratteristica fisica non mutevole di una persona per identificarla in modo univoco. Le impronte digitali sono una delle caratteristiche biometriche utilizzate con maggiore frequenza, con milioni di dispositivi di biometria delle impronte digitali incorporati in personal computer e periferiche.<p>Per altre risorse, vedere [riferimento tecnico per Smart Card](https://technet.microsoft.com/itpro/windows/keep-secure/smart-card-windows-smart-card-technical-reference). |
+|Consentire il riutilizzo, l'archiviazione e la gestione locale delle credenziali|Gestione di credenziali<p>Autorità di sicurezza locale<p>Password|La gestione delle credenziali in Windows assicura che le credenziali vengano archiviate in tutta sicurezza. Le credenziali vengono raccolte sul desktop sicuro \(per l'accesso locale o di dominio\), attraverso app o siti Web in modo che le credenziali corrette vengano presentate ogni volta che si accede a una risorsa.<p>
 |Estendere la protezione per l'autenticazione moderna ai sistemi legacy|Protezione estesa per l'autenticazione|Questa funzionalità consente di migliorare la protezione e la gestione delle credenziali durante l'autenticazione delle connessioni di rete utilizzando l'autenticazione integrata di Windows \(\)IWA.|
 
 ## <a name="software-requirements"></a>Requisiti software
@@ -77,12 +73,12 @@ Autenticazione di Windows è compatibile con le versioni precedenti del sistema 
 |Tecnologie di autenticazione|Risorse|
 |----------------|-------|
 |Autenticazione di Windows|[Panoramica tecnica di Autenticazione di Windows](../windows-authentication/windows-authentication-technical-overview.md)<br />Include argomenti che illustrano le differenze tra le versioni, i concetti generali di autenticazione, gli scenari di accesso, le architetture per le versioni supportate e le impostazioni applicabili.|
-|Kerberos|[Panoramica dell'autenticazione Kerberos](../kerberos/kerberos-authentication-overview.md)<br /><br />[Panoramica della delega vincolata Kerberos](../kerberos/kerberos-constrained-delegation-overview.md)<br /><br />[Riferimento tecnico per l'autenticazione Kerberos](https://technet.microsoft.com/library/cc739058(v=ws.10).aspx)\(2003\)<br /><br />[Guida alla sopravvivenza di Kerberos](https://social.technet.microsoft.com/wiki/contents/articles/4209.kerberos-survival-guide.aspx) \(TechNet wiki\)|
-|TLS\/SSL e DTLS \(Schannel Security Support Provider\)|[Panoramica SSP&#41; TLS &#40;-SSL Schannel](../tls/tls-ssl-schannel-ssp-overview.md)<br /><br />[Documentazione tecnica su Security Support Provider Schannel](../tls/schannel-security-support-provider-technical-reference.md)|
+|Kerberos|[Panoramica dell'autenticazione Kerberos](../kerberos/kerberos-authentication-overview.md)<p>[Panoramica della delega vincolata Kerberos](../kerberos/kerberos-constrained-delegation-overview.md)<p>[Riferimento tecnico per l'autenticazione Kerberos](https://technet.microsoft.com/library/cc739058(v=ws.10).aspx)\(2003\)<p>[Guida alla sopravvivenza di Kerberos](https://social.technet.microsoft.com/wiki/contents/articles/4209.kerberos-survival-guide.aspx) \(TechNet wiki\)|
+|TLS\/SSL e DTLS \(Schannel Security Support Provider\)|[Panoramica SSP&#41; TLS &#40;-SSL Schannel](../tls/tls-ssl-schannel-ssp-overview.md)<p>[Documentazione tecnica su Security Support Provider Schannel](../tls/schannel-security-support-provider-technical-reference.md)|
 |Autenticazione del digest|[Riferimento tecnico per l'autenticazione del Digest](https://technet.microsoft.com/library/cc782794(v=ws.10).aspx)\(2003\)|
 |NTLM|[Panoramica di NTLM](../kerberos/ntlm-overview.md)<br />Contiene collegamenti alle risorse correnti e precedenti|
 |PKU2U|[Introduzione a PKU2U in Windows](https://technet.microsoft.com/library/dd560634(v=ws.10).aspx)|
-|Smart card|[Riferimento tecnico per Smart Card](https://technet.microsoft.com/itpro/windows/keep-secure/smart-card-windows-smart-card-technical-reference)<br /><br />
-|Credenziali|[Gestione e protezione delle credenziali](../credentials-protection-and-management/credentials-protection-and-management.md)<br />Contiene collegamenti alle risorse correnti e precedenti<br /><br />[Panoramica delle password](../kerberos/passwords-overview.md)<br />Contiene collegamenti alle risorse correnti e precedenti|
+|Smart card|[Riferimento tecnico per Smart Card](https://technet.microsoft.com/itpro/windows/keep-secure/smart-card-windows-smart-card-technical-reference)<p>
+|Credenziali|[Gestione e protezione delle credenziali](../credentials-protection-and-management/credentials-protection-and-management.md)<br />Contiene collegamenti alle risorse correnti e precedenti<p>[Panoramica delle password](../kerberos/passwords-overview.md)<br />Contiene collegamenti alle risorse correnti e precedenti|
 
 

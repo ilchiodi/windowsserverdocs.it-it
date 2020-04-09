@@ -1,24 +1,20 @@
 ---
 title: rdpsign
 description: Informazioni su come firmare digitalmente un file RDP.
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 4a6fa8ce-3d32-49a5-b056-bcc1a23391f5
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 07/11/2018
-ms.openlocfilehash: 406563a07d3760c2846c201410f3a7b8f1c2829b
-ms.sourcegitcommit: b7f55949f166554614f581c9ddcef5a82fa00625
+ms.openlocfilehash: c9df46ab09b758cbd86334d5b418c876c41f0eff
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72588052"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80836674"
 ---
 # <a name="rdpsign"></a>rdpsign
 
@@ -28,14 +24,14 @@ Consente di firmare digitalmente un file Remote Desktop Protocol (RDP).
 per esempi relativi all'uso di questo comando, vedere [esempi](#BKMK_examples).
 
 > [!NOTE]
-> In Windows Server 2008 R2, Servizi terminal si chiama ora Servizi Desktop remoto. Per informazioni sulle novità della versione più recente, vedere Novità di [Servizi Desktop remoto in Windows server 2012](https://technet.microsoft.com/library/hh831527) nella libreria TechNet di Windows Server.
+> In Windows Server 2008 R2 Servizi terminal è stato rinomato Servizi Desktop remoto. Per informazioni sulle novità della versione più recente, vedere Novità di [Servizi Desktop remoto in Windows server 2012](https://technet.microsoft.com/library/hh831527) nella libreria TechNet di Windows Server.
 
 ## <a name="syntax"></a>Sintassi
 ```
 rdpsign /sha1 <hash> [/q | /v |] [/l] <file_name.rdp>
 ```
 
-## <a name="parameters"></a>Parametri
+### <a name="parameters"></a>Parametri
 
 |Parametro|Descrizione|
 |-------|--------|
@@ -46,7 +42,7 @@ rdpsign /sha1 <hash> [/q | /v |] [/l] <file_name.rdp>
 |/l|Verifica i risultati di firma e output senza sostituire effettivamente uno dei file di input.|
 |/?|Visualizza la guida al prompt dei comandi.|
 
-## <a name="remarks"></a>Osservazioni
+## <a name="remarks"></a>Note
 -   L'identificazione personale del certificato SHA1 o SHA256 deve rappresentare un server di pubblicazione trusted con estensione RDP. Per ottenere l'identificazione personale del certificato, aprire lo snap-in certificati, fare doppio clic sul certificato che si desidera utilizzare (nell'archivio certificati del computer locale o nell'archivio certificati personali), fare clic sulla scheda **Dettagli** , quindi nell'elenco dei **campi** fare clic su **identificazione personale**.
 
     > [!NOTE]
@@ -56,7 +52,7 @@ rdpsign /sha1 <hash> [/q | /v |] [/l] <file_name.rdp>
 -   I file di output firmati sovrascriveranno i file di input.
 -   Se uno dei file con estensione RDP non può essere letto o scritto, lo strumento continuerà a eseguire il file successivo se vengono specificati più file.
 
-## <a name="BKMK_examples"></a>Esempi
+## <a name="examples"></a><a name="BKMK_examples"></a>Esempi
 - Per firmare un file con estensione RDP denominato file1. RDP, passare alla cartella in cui è stato salvato il file con estensione RDP, quindi digitare quanto segue:
   ```
   rdpsign /sha1 hash file1.rdp
@@ -72,5 +68,5 @@ rdpsign /sha1 <hash> [/q | /v |] [/l] <file_name.rdp>
   rdpsign /sha1 hash file1.rdp file2.rdp file3.rdp
   ```
   ## <a name="see-also"></a>Vedi anche
-  [Chiave di sintassi della riga di comando](command-line-syntax-key.md)
-  [riferimento ai comandi di &#40;Servizi Desktop remoto Servizi terminal&#41; ](remote-desktop-services-terminal-services-command-reference.md)
+  - Guida di riferimento alla [chiave della sintassi della riga di comando](command-line-syntax-key.md)
+  [Servizi Desktop remoto (Servizi terminal)](remote-desktop-services-terminal-services-command-reference.md)

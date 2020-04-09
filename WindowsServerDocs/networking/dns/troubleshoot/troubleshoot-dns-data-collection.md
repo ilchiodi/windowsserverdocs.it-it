@@ -2,18 +2,17 @@
 title: Risoluzione dei problemi di Domain Name System (DNS)
 description: Questo articolo illustra come raccogliere dati quando si verificano problemi DNS.
 manager: dcscontentpm
-ms.prod: ''
 ms.technology: networking-dns
 ms.topic: article
 ms.author: delhan
 ms.date: 8/8/2019
 author: Deland-Han
-ms.openlocfilehash: 11c52b3beca3afcc0a6bfc8cecee2143dce0f023
-ms.sourcegitcommit: c5709021aa98abd075d7a8f912d4fd2263db8803
+ms.openlocfilehash: 04bfbfbd2957aec21da966a48feca8d7f160a29c
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/18/2020
-ms.locfileid: "76265833"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80860044"
 ---
 # <a name="troubleshooting-domain-name-system-dns-issues"></a>Risoluzione dei problemi di Domain Name System (DNS)
  

@@ -1,19 +1,19 @@
 ---
 title: Ottenere i certificati per HGS
-ms.custom: na
 ms.prod: windows-server
 ms.topic: article
 ms.assetid: f4b4d1a8-bf6d-4881-9150-ddeca8b48038
 manager: dongill
 author: rpsqrd
+ms.author: ryanpu
 ms.technology: security-guarded-fabric
 ms.date: 09/25/2019
-ms.openlocfilehash: e8f4a3696ec5096281ba1ffd130aa97004530cc1
-ms.sourcegitcommit: de71970be7d81b95610a0977c12d456c3917c331
+ms.openlocfilehash: da1ae4bacd5a6b2e38b22930aacf06f65b16bb29
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71940740"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80856534"
 ---
 # <a name="obtain-certificates-for-hgs"></a>Ottenere i certificati per HGS
 
@@ -39,7 +39,7 @@ Provider di crittografia               | Qualsiasi provider di archiviazione chi
 Algoritmo chiave                 | RSA
 Dimensioni minime chiave              | 2048 bit
 Algoritmo di firma           | Consigliato: SHA256
-Key usage                     | Firma digitale *e* crittografia dei dati
+Utilizzo chiavi                     | Firma digitale *e* crittografia dei dati
 Utilizzo chiavi avanzato            | Autenticazione server
 Criteri di rinnovo della chiave            | Rinnovare con la stessa chiave. Il rinnovo dei certificati HGS con chiavi diverse impedisce l'avvio delle macchine virtuali schermate.
 Nome oggetto                  | Consigliato: il nome o l'indirizzo Web della società. Queste informazioni verranno visualizzate ai proprietari delle macchine virtuali nella creazione guidata file di dati di schermatura.
@@ -74,14 +74,14 @@ Remove-Item $encCert.PSPath
 
 ## <a name="request-an-ssl-certificate"></a>Richiedere un certificato SSL
 
-Tutte le chiavi e le informazioni riservate trasmesse tra gli host Hyper-V e HGS vengono crittografate a livello di messaggio, ovvero le informazioni vengono crittografate con le chiavi note a HGS o Hyper-V, impedendo a un utente di sniffare il traffico di rete e di rubare le chiavi per le macchine virtuali.
+Tutte le chiavi e le informazioni riservate trasmesse tra gli host Hyper-V e HGS vengono crittografate a livello di messaggio, ovvero le informazioni vengono crittografate con le chiavi note a HGS o Hyper-V, impedendo a un utente di sniffare il traffico di rete e di rubare le chiavi alle macchine virtuali.
 Tuttavia, se si dispone di reqiurements di conformità o si preferisce semplicemente crittografare tutte le comunicazioni tra Hyper-V e HGS, è possibile configurare HGS con un certificato SSL che consentirà di crittografare tutti i dati a livello di trasporto.
 
 Sia gli host Hyper-V che i nodi HGS devono considerare attendibile il certificato SSL fornito, quindi è consigliabile richiedere il certificato SSL dall'autorità di certificazione dell'organizzazione. Quando si richiede il certificato, assicurarsi di specificare quanto segue:
 
 Proprietà certificato SSL | Valore obbligatorio
 -------------------------|---------------
-Nome oggetto             | Nome del cluster HGS, noto come nome di rete distribuita o FQDN dell'oggetto computer virtuale. Si tratta della concatenazione del nome del servizio HGS fornito a `Initialize-HgsServer` e al nome di dominio HGS.
+Nome oggetto             | Nome del cluster HGS, noto come nome di rete distribuita o FQDN dell'oggetto computer virtuale. Questa sarà la concatenazione del nome del servizio HGS fornito per `Initialize-HgsServer` e il nome di dominio HGS.
 Nome alternativo oggetto | Se si usa un nome DNS diverso per raggiungere il cluster HGS (ad esempio, se si trova dietro un servizio di bilanciamento del carico), assicurarsi di includere i nomi DNS nel campo SAN della richiesta di certificato.
 
 Le opzioni per specificare questo certificato durante l'inizializzazione del server HGS sono descritte in [configurare il primo nodo HGS](guarded-fabric-initialize-hgs.md).

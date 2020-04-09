@@ -1,24 +1,20 @@
 ---
 title: confronto reg
-description: 'Argomento dei comandi di Windows per * * * *- '
-ms.custom: na
+description: Argomento dei comandi di Windows per * * * *-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 177dc6a3-034e-4846-a394-330d03c14e0b
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: bfccc1f64b0113967a52e3ac0516d800cfea3532
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 21eb459711f8ca72bf2f6d841d958bb25a96f845
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71384724"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80836544"
 ---
 # <a name="reg-compare"></a>confronto reg
 
@@ -34,7 +30,7 @@ Per esempi di utilizzo di questo comando, vedere [Esempi](#BKMK_examples).
 reg compare <KeyName1> <KeyName2> [{/v ValueName | /ve}] [{/oa | /od | /os | on}] [/s]
 ```
 
-## <a name="parameters"></a>Parametri
+### <a name="parameters"></a>Parametri
 
 |    Parametro    |                                                                                                                                                                                                                                                                                          Descrizione                                                                                                                                                                                                                                                                                           |
 |-----------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -50,7 +46,7 @@ reg compare <KeyName1> <KeyName2> [{/v ValueName | /ve}] [{/oa | /od | /os | on}
 |       /s        |                                                                                                                                                                                                                                                                         Confronta tutti in modo ricorsivo le sottochiavi e voci.                                                                                                                                                                                                                                                                          |
 |       /?        |                                                                                                                                                                                                                                                                    Visualizza la Guida per **reg compare** al prompt dei comandi.                                                                                                                                                                                                                                                                    |
 
-## <a name="remarks"></a>Osservazioni
+## <a name="remarks"></a>Note
 
 Nella tabella seguente sono elencati i valori restituiti per **reg compare**.
 
@@ -68,7 +64,7 @@ Nella tabella seguente sono elencati i simboli visualizzati nei risultati.
 |<|*Nomechiave1* dati sono minore di *Nomechiave2* dati.|
 |>|*Nomechiave1* dati sono maggiori di *Nomechiave2* dati.|
 
-## <a name="BKMK_examples"></a>Esempi
+## <a name="examples"></a><a name=BKMK_examples></a>Esempi
 
 Per confrontare tutti i valori nella chiave **MyApp** con tutti i valori nella chiave **SalvaMiaApp**, digitare:
 
@@ -82,6 +78,6 @@ Per confrontare tutte le sottochiavi e i valori in Hklm\software\miasoc nel comp
 
 REG COMPARE \\\\ZODIAC\HKLM\Software\MyCo \\\\. /s
 
-#### <a name="additional-references"></a>Altri riferimenti
+## <a name="additional-references"></a>Altre informazioni di riferimento
 
-[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+- [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

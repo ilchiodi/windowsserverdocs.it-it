@@ -1,24 +1,20 @@
 ---
 title: 'che Ksetup: delkdc'
-description: 'Argomento dei comandi di Windows per * * * *- '
-ms.custom: na
+description: Argomento dei comandi di Windows per * * * *-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 7d6ec389-094c-4a7b-a78b-605497ddc289
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: b918f8c2fa0ec09c2aae77517a0ee2c9e77ce2dc
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 63b264da227d51b6f47f982c66828536bd677920
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71375145"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80841694"
 ---
 # <a name="ksetupdelkdc"></a>che Ksetup: delkdc
 
@@ -32,7 +28,7 @@ Elimina le istanze di nomi di Centro distribuzione chiavi (KDC) per l'area di au
 ksetup /delkdc <RealmName> <KDCName>
 ```
 
-### <a name="parameters"></a>Parametri
+#### <a name="parameters"></a>Parametri
 
 |Parametro|Descrizione|
 |---------|-----------|
@@ -47,7 +43,7 @@ Nei computer che eseguono Windows 2000 Server con Service Pack 1 (SP1) e version
 
 Per verificare il nome dell'area di autenticazione predefinito per il computer, o per verificare che questo comando funzioni come previsto, eseguire **che ksetup** al prompt dei comandi e verificare che il KDC è stato rimosso non esiste nell'elenco.
 
-## <a name="BKMK_Examples"></a>Esempi
+## <a name="examples"></a><a name=BKMK_Examples></a>Esempi
 
 I requisiti di sicurezza per questo computer sono stati modificati in modo che il collegamento tra l'area di autenticazione di Windows e l'area di autenticazione di Windows non deve essere rimosso. Innanzitutto, determinare quale associazione da rimuovere e produrre l'output delle associazioni esistenti:
 ```
@@ -58,7 +54,7 @@ Rimuovere l'associazione utilizzando il comando seguente:
 Ksetup /delkdc CORP.CONTOSO.COM mitkdc.contoso.com
 ```
 
-#### <a name="additional-references"></a>Altri riferimenti
+## <a name="additional-references"></a>Altre informazioni di riferimento
 
 -   [Che Ksetup](ksetup.md)
--   [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+-   - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

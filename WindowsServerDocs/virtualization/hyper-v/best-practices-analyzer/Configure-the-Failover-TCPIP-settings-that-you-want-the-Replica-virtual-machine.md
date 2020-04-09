@@ -2,19 +2,18 @@
 title: Configurare le impostazioni TCP/IP di Failover che si desidera che la macchina virtuale di Replica da utilizzare in caso di failover
 description: Versione online del testo per questa regola di Best Practices Analyzer.
 ms.prod: windows-server
-ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
 ms.author: kathydav
 ms.topic: article
-author: KBDAzure
+author: kbdazure
 ms.date: 8/16/2016
-ms.openlocfilehash: 3f2681694d87b34369b29be6216ebec9210c6024
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: d2db5fdedbe2f19c01b7dd172f18b6fec969e828
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71366287"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80862054"
 ---
 # <a name="configure-the-failover-tcpip-settings-that-you-want-the-replica-virtual-machine-to-use-in-the-event-of-a-failover"></a>Configurare le impostazioni TCP/IP di Failover che si desidera che la macchina virtuale di Replica da utilizzare in caso di failover
 
@@ -24,7 +23,7 @@ Per altre informazioni sulle procedure consigliate e sulle analisi, vedere [Eseg
   
 |Proprietà|Dettagli|  
 |-|-|  
-|**Sistema operativo**|Windows Server 2016|  
+|**Sistema operativo**|Windows Server 2016|  
 |**Prodotto/funzionalità**|Hyper-V|  
 |**Gravità**|Avviso|  
 |**Categoria**|Configurazione|  

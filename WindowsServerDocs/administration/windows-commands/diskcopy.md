@@ -1,28 +1,22 @@
 ---
 title: diskcopy
-description: 'Argomento dei comandi di Windows per * * * *- '
-ms.custom: na
+description: Windows Commands Topic for DISKCOPY, che copia il contenuto del disco floppy nell'unità di origine in un disco floppy formattato o non formattato nell'unità di destinazione.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 5fd21efa-52cc-4e70-a7fe-35125a435106
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 05/07/2018
-ms.openlocfilehash: 553a85ac4fd9b7708d7adc668be4e000b36a9346
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 675694503cab207f05fd6b48e0d17c23196f85d0
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71377822"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80845544"
 ---
 # <a name="diskcopy"></a>diskcopy
-
-
 
 Copia il contenuto del disco floppy nell'unità di origine in un disco floppy formattato o non formattato nell'unità di destinazione. Se utilizzata senza parametri, **diskcopy** utilizza l'unità corrente per il disco di origine e il disco di destinazione.
 
@@ -37,12 +31,12 @@ Per esempi di utilizzo di questo comando, vedere [Esempi](#BKMK_examples).
 diskcopy [<Drive1>: [<Drive2>:]] [/v]
 ```
 
-## <a name="parameters"></a>Parametri
+### <a name="parameters"></a>Parametri
 
 |Parametro|Descrizione|
 |---------|-----------|
-|\<Drive1 >|Specifica l'unità che contiene il disco di origine.|
-|\<Drive2 >|Specifica l'unità che contiene il disco di destinazione.|
+|\<unità1 >|Specifica l'unità che contiene il disco di origine.|
+|\<unità2 >|Specifica l'unità che contiene il disco di destinazione.|
 |/v|Verifica che le informazioni vengano copiate correttamente. Questa opzione rallenta il processo di copia.|
 |/?|Visualizza la guida al prompt dei comandi.|
 
@@ -84,9 +78,11 @@ diskcopy [<Drive1>: [<Drive2>:]] [/v]
 
 > [!NOTE]
 > Non è possibile utilizzare **xcopy** per copiare un disco di avvio.
-> -   Informazioni sui codici di uscita di **diskcopy**
 
-    The following table explains each exit code.  
+### <a name="understanding-diskcopy-exit-codes"></a>Informazioni sui codici di uscita di **diskcopy**
+
+    The following table explains each exit code.
+    
     |Codice di uscita|Descrizione|
     |---------|-----------|
     |0|Operazione di copia completata|
@@ -96,7 +92,7 @@ diskcopy [<Drive1>: [<Drive2>:]] [/v]
 
     To process the exit codes that are returned by **diskcomp**, you can use the *ERRORLEVEL* environment variable on the **if** command line in a batch program.
 
-## <a name="BKMK_examples"></a>Esempi
+## <a name="examples"></a><a name=BKMK_examples></a>Esempi
 
 Per copiare il disco nell'unità B sul disco nell'unità A, digitare:
 ```
@@ -106,6 +102,6 @@ Per utilizzare l'unità disco floppy a per copiare un disco floppy in un altro, 
 
 DISKCOPY a:
 
-#### <a name="additional-references"></a>Altri riferimenti
+## <a name="additional-references"></a>Altre informazioni di riferimento
 
-[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+- [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

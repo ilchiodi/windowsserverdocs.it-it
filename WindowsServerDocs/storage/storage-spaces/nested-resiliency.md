@@ -2,32 +2,32 @@
 title: Resilienza annidata per Spazi di archiviazione diretta
 ms.prod: windows-server
 ms.author: jgerend
-ms.manager: dansimp
+manager: dansimp
 ms.technology: storagespaces
 ms.topic: article
 author: cosmosdarwin
 ms.date: 03/15/2019
-ms.openlocfilehash: ea1c4b2c249759634e00f6a1ac2caa34f8085ae1
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: ac4edccf0c1f8882dd2544b2544c3d8555bbc716
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71402866"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80857344"
 ---
 # <a name="nested-resiliency-for-storage-spaces-direct"></a>Resilienza annidata per Spazi di archiviazione diretta
 
 > Si applica a: Windows Server 2019
 
-La resilienza annidata è una nuova funzionalità di [spazi di archiviazione diretta](storage-spaces-direct-overview.md) in Windows Server 2019 che consente a un cluster a due server di resistere a più errori hardware contemporaneamente senza perdita di disponibilità dell'archiviazione, per gli utenti, le app e le macchine virtuali continua l'esecuzione senza alcuna distorsione. In questo argomento viene illustrato il funzionamento, vengono fornite istruzioni dettagliate per iniziare e vengono fornite le risposte alle domande più frequenti.
+La resilienza annidata è una nuova funzionalità di [spazi di archiviazione diretta](storage-spaces-direct-overview.md) in Windows Server 2019 che consente a un cluster a due server di resistere a più errori hardware contemporaneamente senza perdita di disponibilità di spazio di archiviazione, in modo che gli utenti, le app e le macchine virtuali continuino a funzionare senza interruzioni. In questo argomento viene illustrato il funzionamento, vengono fornite istruzioni dettagliate per iniziare e vengono fornite le risposte alle domande più frequenti.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-### <a name="green-checkmark-iconmedianested-resiliencysupportedpng-consider-nested-resiliency-if"></a>![Icona segno di spunta verde.](media/nested-resiliency/supported.png) Prendere in considerazione la resilienza annidata se:
+### <a name="green-checkmark-icon-consider-nested-resiliency-if"></a>![Icona segno di spunta verde.](media/nested-resiliency/supported.png) Prendere in considerazione la resilienza annidata se:
 
 - Il cluster esegue Windows Server 2019; e
 - Il cluster ha esattamente 2 nodi server
 
-### <a name="red-x-iconmedianested-resiliencyunsupportedpng-you-cant-use-nested-resiliency-if"></a>![Icona X rossa.](media/nested-resiliency/unsupported.png) Non è possibile usare la resilienza annidata se:
+### <a name="red-x-icon-you-cant-use-nested-resiliency-if"></a>![Icona X rossa.](media/nested-resiliency/unsupported.png) Non è possibile usare la resilienza annidata se:
 
 - Il cluster esegue Windows Server 2016; o
 - Il cluster contiene 3 o più nodi server
@@ -42,7 +42,7 @@ Il compromesso è che la resilienza annidata presenta una **minore efficienza di
 
 ## <a name="how-it-works"></a>Come funziona
 
-### <a name="inspiration-raid-51"></a>Ispirazione RAID 5 + 1
+### <a name="inspiration-raid-51"></a>Ispirazione: RAID 5 + 1
 
 RAID 5 + 1 è una forma stabilita di resilienza dell'archiviazione distribuita che fornisce informazioni di base utili per comprendere la resilienza annidata. In RAID 5 + 1, all'interno di ogni server, la resilienza locale viene fornita da RAID-5, o una *singola parità*, per proteggersi dalla perdita di una singola unità. Una maggiore resilienza viene quindi garantita dal mirroring RAID-1 o *bidirezionale*tra i due server per proteggersi dalla perdita di uno dei server.
 
@@ -86,7 +86,7 @@ Si noti che l'efficienza della capacità del mirroring a due vie classico (circa
 
 È possibile usare cmdlet di archiviazione familiari in PowerShell per creare volumi con resilienza annidata.
 
-### <a name="step-1-create-storage-tier-templates"></a>Passaggio 1: Creazione di modelli di livello archiviazione
+### <a name="step-1-create-storage-tier-templates"></a>Passaggio 1: creare modelli del livello di archiviazione
 
 Per prima cosa, creare nuovi modelli del livello di archiviazione usando il cmdlet `New-StorageTier`. È sufficiente eseguire questa operazione una sola volta e quindi ogni nuovo volume creato può fare riferimento a questi modelli. Specificare il `-MediaType` delle unità di capacità e, facoltativamente, il `-FriendlyName` di propria scelta. Non modificare gli altri parametri.
 
@@ -100,18 +100,18 @@ New-StorageTier -StoragePoolFriendlyName S2D* -FriendlyName NestedMirror -Resili
 New-StorageTier -StoragePoolFriendlyName S2D* -FriendlyName NestedParity -ResiliencySettingName Parity -MediaType HDD -NumberOfDataCopies 2 -PhysicalDiskRedundancy 1 -NumberOfGroups 1 -FaultDomainAwareness StorageScaleUnit -ColumnIsolation PhysicalDisk 
 ``` 
 
-Se le unità di capacità sono unità SSD (Solid State Drive), impostare il `-MediaType` su `SSD`. Non modificare gli altri parametri.
+Se le unità di capacità sono unità SSD, impostare invece il `-MediaType` su `SSD`. Non modificare gli altri parametri.
 
 > [!TIP]
-> Verificare i livelli creati correttamente con `Get-StorageTier`.
+> Verificare che i livelli creati correttamente con `Get-StorageTier`.
 
-### <a name="step-2-create-volumes"></a>Passaggio 2: Creare volumi
+### <a name="step-2-create-volumes"></a>Passaggio 2: creare volumi
 
 Quindi, creare nuovi volumi utilizzando il cmdlet `New-Volume`.
 
 #### <a name="nested-two-way-mirror"></a>Mirroring a due vie annidato
 
-Per usare il mirroring a due vie annidato, fare riferimento al modello di livello `NestedMirror` e specificare le dimensioni. Esempio:
+Per usare il mirroring a due vie annidato, fare riferimento al modello di livello `NestedMirror` e specificare le dimensioni. Ad esempio,
 
 ```PowerShell
 New-Volume -StoragePoolFriendlyName S2D* -FriendlyName Volume01 -StorageTierFriendlyNames NestedMirror -StorageTierSizes 500GB
@@ -125,15 +125,15 @@ Per utilizzare la parità con accelerazione speculare nidificata, fare riferimen
 New-Volume -StoragePoolFriendlyName S2D* -FriendlyName Volume02 -StorageTierFriendlyNames NestedMirror, NestedParity -StorageTierSizes 100GB, 400GB
 ```
 
-### <a name="step-3-continue-in-windows-admin-center"></a>Passaggio 3: Continua nell'interfaccia di amministrazione di Windows
+### <a name="step-3-continue-in-windows-admin-center"></a>Passaggio 3: continuare nell'interfaccia di amministrazione di Windows
 
 I volumi che usano la resilienza annidata vengono visualizzati nell'interfaccia di [amministrazione di Windows](https://docs.microsoft.com/windows-server/manage/windows-admin-center/understand/windows-admin-center) con l'etichettatura chiara, come nella schermata seguente. Una volta creati, è possibile gestirli e monitorarli usando l'interfaccia di amministrazione di Windows proprio come qualsiasi altro volume in Spazi di archiviazione diretta.
 
 ![](media/nested-resiliency/windows-admin-center.png)
 
-### <a name="optional-extend-to-cache-drives"></a>Facoltativo: Estendi a unità cache
+### <a name="optional-extend-to-cache-drives"></a>Facoltativo: Estendi alle unità della cache
 
-Con le relative impostazioni predefinite, la resilienza annidata protegge dalla perdita di più unità di capacità contemporaneamente o da un server e da un'unità di capacità nello stesso momento. Per estendere questa protezione alle [unità della cache](understand-the-cache.md) , è necessario tenere presente quanto segue: poiché le unità della cache offrono spesso la memorizzazione nella cache di lettura *e scrittura* per *più* unità di capacità, l'unico modo per assicurarsi di poter tollerare la perdita di un'unità cache quando il un altro server è inattivo, ma non solo per le Scritture nella cache, ma ciò influisca sulle prestazioni.
+Con le relative impostazioni predefinite, la resilienza annidata protegge dalla perdita di più unità di capacità contemporaneamente o da un server e da un'unità di capacità nello stesso momento. Per estendere questa protezione alle [unità della cache](understand-the-cache.md) , è necessario prendere in considerazione altre considerazioni: poiché le unità della cache forniscono spesso la memorizzazione nella cache di lettura *e scrittura* per *più* unità di capacità, l'unico modo per garantire che sia possibile tollerare la perdita di un'unità cache quando l'altro server è inattivo è semplicemente non scrivere nella cache, ma ciò influisca sulle prestazioni.
 
 Per risolvere questo scenario, Spazi di archiviazione diretta offre la possibilità di disabilitare automaticamente la memorizzazione nella cache in scrittura quando un server in un cluster a due server è inattivo e quindi riabilitare la memorizzazione nella cache in scrittura dopo il backup del server. Per consentire i riavvii di routine senza effetti sulle prestazioni, la memorizzazione nella cache in scrittura non viene disabilitata fino a quando il server non si arresta per 30 minuti. Quando la memorizzazione nella cache di scrittura è disabilitata, il contenuto della cache di scrittura viene scritto nei dispositivi a capacità. Al termine di questa operazione, il server può tollerare un dispositivo di cache non riuscita nel server online, anche se le letture della cache potrebbero essere ritardate o non riuscite in caso di errore di un dispositivo di cache.
 
@@ -147,7 +147,7 @@ Una volta impostato su **true**, il comportamento della cache è il seguente:
 
 | Situazione                       | Comportamento della cache                           | Può tollerare la perdita di unità cache? |
 |---------------------------------|------------------------------------------|--------------------------------|
-| Entrambi i server                 | Letture e scritture nella cache, prestazioni complete | Yes                            |
+| Entrambi i server                 | Letture e scritture nella cache, prestazioni complete | Sì                            |
 | Server inattivo, primi 30 minuti   | Letture e scritture nella cache, prestazioni complete | No (temporaneamente)               |
 | Dopo i primi 30 minuti          | Solo letture cache, conseguenze sulle prestazioni   | Sì (dopo che la cache è stata scritta in unità di capacità)                           |
 
@@ -159,7 +159,7 @@ No, non è possibile convertire i volumi tra tipi di resilienza. Per le nuove di
 
 ### <a name="can-i-use-nested-resiliency-with-multiple-types-of-capacity-drives"></a>È possibile usare la resilienza annidata con più tipi di unità di capacità?
 
-Sì, è sufficiente specificare il `-MediaType` di ogni livello di conseguenza nel [passaggio 1](#step-1-create-storage-tier-templates) precedente. Ad esempio, con NVMe, SSD e HDD nello stesso cluster, il NVMe fornisce la cache mentre le ultime due forniscono la capacità: impostare il livello `NestedMirror` su `-MediaType SSD` e il livello `NestedParity` su `-MediaType HDD`. In questo caso, si noti che l'efficienza della capacità di parità dipende solo dal numero di unità HDD ed è necessario almeno 4 per ogni server.
+Sì, è sufficiente specificare il `-MediaType` di ogni livello di conseguenza nel [passaggio 1](#step-1-create-storage-tier-templates) precedente. Ad esempio, con NVMe, SSD e HDD nello stesso cluster, il NVMe fornisce la cache mentre le ultime due forniscono la capacità: impostare il livello di `NestedMirror` su `-MediaType SSD` e il livello di `NestedParity` su `-MediaType HDD`. In questo caso, si noti che l'efficienza della capacità di parità dipende solo dal numero di unità HDD ed è necessario almeno 4 per ogni server.
 
 ### <a name="can-i-use-nested-resiliency-with-3-or-more-servers"></a>È possibile utilizzare la resilienza annidata con tre o più server?
 

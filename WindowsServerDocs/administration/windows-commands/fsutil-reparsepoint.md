@@ -9,12 +9,12 @@ ms.technology: storage
 audience: IT Pro
 ms.topic: article
 ms.date: 10/16/2017
-ms.openlocfilehash: fe274ad9a6dffc72607102d3430ba7527d3cc558
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 0b819f15e473738996484283bceac439f482a13d
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71376848"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80844154"
 ---
 # <a name="fsutil-reparsepoint"></a>Fsutil reparsepoint
 >Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows 10, Windows Server 2012 R2, Windows 8.1, Windows Server 2012, Windows 8, Windows Server 2008 R2, Windows 7, Windows 2008, Windows Vista
@@ -30,12 +30,12 @@ fsutil reparsepoint [query] <FileName>
 fsutil reparsepoint [delete] <FileName>
 ```
 
-## <a name="parameters"></a>Parametri
+### <a name="parameters"></a>Parametri
 
 | Parametro  |                                                                Descrizione                                                                |
 |------------|-------------------------------------------------------------------------------------------------------------------------------------------|
 |   query    |            Recupera i dati di reparse point associati al file o alla directory identificata dall'handle specificato.             |
-|   Elimina   | Elimina un reparse point dal file o dalla directory identificato dall'handle specificato, ma non elimina il file o la directory. |
+|   delete   | Elimina un reparse point dal file o dalla directory identificato dall'handle specificato, ma non elimina il file o la directory. |
 | <FileName> |             Specifica il percorso completo del file, inclusi il nome file e l'estensione, ad esempio C:\documents\filename.txt.             |
 
 ## <a name="remarks"></a>Note
@@ -46,7 +46,7 @@ fsutil reparsepoint [delete] <FileName>
 
 -   Quando un programma imposta un reparse point, archivia questi dati, oltre a un tag reparse, che identifica in modo univoco i dati archiviati. Quando il file system apre un file con un reparse point, tenta di trovare il filtro file system associato. Se il filtro file system viene trovato, il filtro elabora il file come indicato dai dati di analisi. Se non viene trovato alcun filtro di file system, l'operazione di apertura file non riesce.
 
-## <a name="BKMK_examples"></a>Esempi
+## <a name="examples"></a><a name="BKMK_examples"></a>Esempi
 Per recuperare i dati di reparse point associati a C:\Server, digitare:
 
 ```
@@ -59,8 +59,8 @@ Per eliminare un reparse point da un file o da una directory specificata, usare 
 fsutil reparsepoint delete c:\server
 ```
 
-#### <a name="additional-references"></a>Altri riferimenti
-[Indicazioni generali sulla sintassi della riga di comando](Command-Line-Syntax-Key.md)
+## <a name="additional-references"></a>Altre informazioni di riferimento
+- [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
 
 [Fsutil](Fsutil.md)
 

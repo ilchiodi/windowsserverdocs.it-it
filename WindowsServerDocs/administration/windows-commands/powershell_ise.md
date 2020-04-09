@@ -1,24 +1,20 @@
 ---
 title: PowerShell_ise
-description: 'Argomento dei comandi di Windows per * * * *- '
-ms.custom: na
+description: Argomento dei comandi di Windows per * * * *-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 32c41b5b-a210-47d9-bd8c-91eb9830b4f0
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 65d8b9e7b7952ec64cd24e8106802cf66de693c6
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: b6ae96dcd40c894e0a528c06b461173f626fb2d2
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71372195"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80837394"
 ---
 # <a name="powershell_ise"></a>PowerShell_ise
 
@@ -32,7 +28,7 @@ Lo strumento **PowerShell_ISE. exe** avvia una sessione di Windows PowerShell IS
 
 ## <a name="using-powershell_iseexe"></a>Utilizzo di PowerShell_ISE. exe
 
-È possibile usare **PowerShell_ISE. exe** per avviare e terminare una sessione di Windows PowerShell nel modo seguente:
+È possibile utilizzare **PowerShell_ISE. exe** per avviare e terminare una sessione di Windows PowerShell nel modo seguente:
 - Per avviare una sessione di Windows PowerShell ISE, in una finestra del prompt dei comandi, in Windows PowerShell o nel menu Start, digitare:  
   ```
   PowerShell_Ise
@@ -49,7 +45,7 @@ Lo strumento **PowerShell_ISE. exe** avvia una sessione di Windows PowerShell IS
   ```
   PowerShell_Ise -NoProfile
   ```  
-- Per visualizzare il file della Guida di **PowerShell_ISE. exe** in una finestra del prompt dei comandi, usare il seguente formato di comando:  
+- Per visualizzare il file della Guida **PowerShell_ISE. exe** in una finestra del prompt dei comandi, usare il seguente formato di comando:  
   ```
   PowerShell_Ise -help, -?, /?
   ```  

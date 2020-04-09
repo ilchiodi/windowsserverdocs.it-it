@@ -1,19 +1,18 @@
 ---
 title: Controlli delle risorse della macchina virtuale
 description: Uso di Gruppi CPU della macchina virtuale
-keywords: windows 10, hyper-v
 author: allenma
 ms.date: 06/18/2018
 ms.topic: article
-ms.prod: windows-10-hyperv
+ms.prod: windows-server
 ms.service: windows-10-hyperv
 ms.assetid: cc7bb88e-ae75-4a54-9fb4-fc7c14964d67
-ms.openlocfilehash: 41390421c9e3126915cdf2e827e251e84495bafd
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: fcf61c22a24abb6b16baf75b4846cc188dcecd49
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70872023"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80860794"
 ---
 >Si applica a: Windows Server 2016, Microsoft Hyper-V Server 2016, Windows Server 2019 Microsoft Hyper-V Server 2019
 

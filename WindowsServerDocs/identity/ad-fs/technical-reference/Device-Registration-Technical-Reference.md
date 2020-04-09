@@ -1,7 +1,6 @@
 ---
 ms.assetid: 69ec592a-5499-4249-8ba0-afa356a8ff75
 title: Guida di riferimento tecnico per la registrazione di dispositivi
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: ab78a5847c52650f2a608dfc89e2001cc43153ff
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 0b921e4a88940477ec7d0d4b2fa165880bd41150
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71407351"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80860224"
 ---
 # <a name="device-registration-technical-reference"></a>Guida di riferimento tecnico per la registrazione di dispositivi
 Il servizio registrazione dispositivo \(DRS\) è un nuovo servizio Windows incluso nel ruolo di Servizio federativo Active Directory in Windows Server 2012 R2.  Il servizio DRS deve essere installato e configurato in tutti i server federativi della farm AD FS.  Per informazioni sulla distribuzione del servizio DRS, vedere [Configurare un server federativo con Device Registration Service](https://technet.microsoft.com/library/dn486831.aspx).  

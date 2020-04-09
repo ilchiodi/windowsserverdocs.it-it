@@ -1,28 +1,24 @@
 ---
 title: Logman delete
-description: 'Argomento dei comandi di Windows per * * * *- '
-ms.custom: na
+description: Argomento dei comandi di Windows per * * * *-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 8f3b2422-3dce-4fb4-adbb-8536b1d7da2b
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 8360a4955a5ebed3eb25fda77acf587c56fbf5d6
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: e0ab38eab988770de4fbcef8af2c7be6a6137b16
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71374431"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80840754"
 ---
 # <a name="logman-delete"></a>Logman delete
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Elimina un agente di raccolta dati esistente.  
 
@@ -30,7 +26,7 @@ Elimina un agente di raccolta dati esistente.
 ```  
 logman delete <[-n] <name>> [options]  
 ```  
-## <a name="parameters"></a>Parametri  
+### <a name="parameters"></a>Parametri  
 
 |        Parametro        |                                                                               Descrizione                                                                               |
 |-------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -41,10 +37,10 @@ logman delete <[-n] <name>> [options]
 |          -ets           |                                              Inviare comandi alle sessioni di traccia eventi direttamente senza salvare o pianificare.                                               |
 | -u [-] < utente [password] > | Specifica l'utente di Esegui come. L'immissione di un \* per la password genera una richiesta per la password. La password non viene visualizzata quando si digita. |
 
-## <a name="BKMK_examples"></a>Esempi  
+## <a name="examples"></a><a name=BKMK_examples></a>Esempi  
 Il comando seguente elimina perf_log l'agente di raccolta dati.  
 ```  
 logman delete perf_log  
 ```  
-#### <a name="additional-references"></a>Riferimenti aggiuntivi  
+## <a name="additional-references"></a>Altre informazioni di riferimento  
 [logman](logman.md)  

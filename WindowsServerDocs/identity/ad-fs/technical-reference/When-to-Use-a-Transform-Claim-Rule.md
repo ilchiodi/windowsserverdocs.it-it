@@ -1,7 +1,6 @@
 ---
 ms.assetid: 77aa61bf-9c04-4889-a5d2-6f45bc1b8bd2
 title: Quando usare una regola attestazioni di trasformazione
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: b7cdf68783db1b6b775209e4e42dc6b6ccf0e1b8
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 2b69156d1e2825f4287112735493ebc5cc8469d2
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71385424"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80853784"
 ---
 # <a name="when-to-use-a-transform-claim-rule"></a>Quando usare una regola attestazioni di trasformazione
 È possibile utilizzare questa regola in Active Directory Federation Services \(AD FS\) quando è necessario eseguire il mapping di un tipo di attestazione in ingresso a un tipo di attestazione in uscita e quindi applicare un'azione che determinerà l'output deve essere eseguito in base ai valori originati nell'attestazione in ingresso. Quando si usa questa regola, si consente l'ingresso o si trasformano le attestazioni corrispondenti alla logica della regola seguente, in base all'opzione configurata nella regola, come descritto nella tabella seguente.  
@@ -76,13 +75,13 @@ Creare questa regola utilizzando il linguaggio di regola attestazione o il **tra
 Per ulteriori istruzioni su come creare questo modello, vedere [creare una regola per trasformare un'attestazione in ingresso](https://technet.microsoft.com/library/dd807068.aspx) nella Guida alla distribuzione di ADFS.  
   
 ## <a name="using-the-claim-rule-language"></a>Uso del linguaggio delle regole attestazioni  
-Se l'attestazione in uscita deve essere creata dal contenuto di più di un'attestazione in ingresso, è necessario usare invece una regola personalizzata. Se il valore attestazione dell'attestazione in uscita deve essere basato sul valore dell'attestazione in ingresso, ma con contenuto aggiuntivo, è necessario includere una regola personalizzata anche in quel contesto. Per altre informazioni, vedere [quando usare una regola attestazioni personalizzata](When-to-Use-a-Custom-Claim-Rule.md).  
+Se l'attestazione in uscita deve essere creata dal contenuto di più di un'attestazione in ingresso, è necessario usare invece una regola personalizzata. Se il valore attestazione dell'attestazione in uscita deve essere basato sul valore dell'attestazione in ingresso, ma con contenuto aggiuntivo, è necessario includere una regola personalizzata anche in quel contesto. Per altre informazioni, vedere [When to Use a Custom Claim Rule](When-to-Use-a-Custom-Claim-Rule.md).  
   
 ### <a name="examples-of-how-to-construct-a-transform-rule-syntax"></a>Esempi di creazione della sintassi di una regola di trasformazione  
-Quando si usa la sintassi del linguaggio delle regole attestazioni per trasformare le attestazioni, è possibile impostare una proprietà dell'attestazione trasformata in un nuovo valore letterale. Ad esempio, la regola seguente modifica il valore attestazione del ruolo da "Administrators" in "root" mantenendo lo stesso tipo di attestazione:  
+Quando si usa la sintassi del linguaggio delle regole attestazioni per trasformare le attestazioni, è possibile impostare una proprietà dell'attestazione trasformata in un nuovo valore letterale. La regola seguente, ad esempio, modifica il valore delle attestazioni di ruolo da "Administrators" a "root" mantenendo lo stesso tipo di attestazione:  
   
 ```  
-c:[type == “https://schemas.microsoft.com/ws/2008/06/identity/claims/role”, value == “Administrators”]  => issue(type = c.type, value = “root”);  
+c:[type == "https://schemas.microsoft.com/ws/2008/06/identity/claims/role", value == "Administrators"]  => issue(type = c.type, value = "root");  
 ```  
   
 Per le trasformazioni delle attestazioni è anche possibile usare espressioni regolari. Ad esempio, la seguente regola verrà impostato il dominio in attestazioni basate su nome utente di windows nel DOMINIO\\formato UTENTE a FABRIKAM:  
@@ -97,7 +96,7 @@ Le trasformazioni di attestazioni possono essere applicate selettivamente alle a
 |Proprietà attestazione|Descrizione|  
 |------------------|---------------|  
 |Type, Value, ValueType|Queste proprietà vengono usate più di frequente per le assegnazioni. Come minimo, è necessario specificare il tipo e il valore per l'attestazione di trasformazione risultante.|  
-|Issuer|Anche se il linguaggio delle regole attestazioni consente di impostare l'autorità emittente di un'attestazione, questa operazione non è in genere consigliabile. L'autorità emittente dell'attestazione non è serializzata nel token. Quando si riceve un token, la proprietà Issuer di tutte le attestazioni è impostata sull'identificatore del server federativo che ha firmato il token. Di conseguenza, l'impostazione dell'autorità emittente di un'attestazione nelle regole non avrà effetto sul contenuto del token e l'impostazione andrà persa dopo l'inclusione dell'attestazione in un token. Il solo scenario in cui può risultare utile impostare l'autorità emittente di un'attestazione è quando questa è impostata su un valore specifico nel set di regole del provider di attestazioni e il set di regole della relying party viene creato con regole che fanno riferimento a questo valore specifico. Se la proprietà Issuer non è impostata esplicitamente su un valore in una regola attestazioni, il motore di rilascio delle attestazioni la imposta su "LOCAL AUTHORITY".|  
+|Issuer|Anche se il linguaggio delle regole attestazioni consente di impostare l'autorità emittente di un'attestazione, questa operazione non è in genere consigliabile. L'autorità emittente dell'attestazione non è serializzata nel token. Quando si riceve un token, la proprietà Issuer di tutte le attestazioni è impostata sull'identificatore del server federativo che ha firmato il token. Di conseguenza, l'impostazione dell'autorità emittente di un'attestazione nelle regole non avrà effetto sul contenuto del token e l'impostazione andrà persa dopo l'inclusione dell'attestazione in un token. Il solo scenario in cui può risultare utile impostare l'autorità emittente di un'attestazione è quando questa è impostata su un valore specifico nel set di regole del provider di attestazioni e il set di regole della relying party viene creato con regole che fanno riferimento a questo valore specifico. Se la proprietà Issuer non è impostata in modo esplicito su un valore in una regola attestazioni, il motore di rilascio delle attestazioni la imposta su "LOCAL AUTHORITY".|  
 |OriginalIssuer|In modo analogo a Issuer, a OriginalIssuer non deve in genere essere assegnato esplicitamente un valore. A differenza di Issuer, la proprietà OriginalIssuer viene serializzata nel token, ma l'aspettativa di consumer di token è che, se impostata, conterrà l'identificatore del server federativo che ha emesso originariamente un'attestazione.|  
 |Proprietà|Come descritto nella sezione precedente, il contenitore delle proprietà di un'attestazione non è persistente nel token, quindi le assegnazioni alle proprietà devono essere eseguite solo se i criteri locali successivi intende faranno riferimento le informazioni archiviate nella proprietà.|  
   

@@ -1,26 +1,22 @@
 ---
-title: etichetta
-description: 'Argomento dei comandi di Windows per * * * *- '
-ms.custom: na
+title: label
+description: Argomento dei comandi di Windows per * * * *-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: bbae8bdd-97d4-4566-9118-7c95aa07645f
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: e66a2d9a7d28462b287084e3f8b129ffc03800bd
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 7ccb86e2167682e1048161f2d5f5386a8b5cf6ed
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71374786"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80841174"
 ---
-# <a name="label"></a>etichetta
+# <a name="label"></a>label
 
 
 
@@ -34,13 +30,13 @@ Per esempi di utilizzo di questo comando, vedere [Esempi](#BKMK_examples).
 label [/mp] [<Volume>] [<Label>]
 ```
 
-## <a name="parameters"></a>Parametri
+### <a name="parameters"></a>Parametri
 
 |Parametro|Descrizione|
 |---------|-----------|
 |/MP|Specifica che il volume deve essere trattato come un nome di volume o punto di montaggio.|
-|\<Volume >|Specifica una lettera di unità (seguita da due punti), punto di montaggio o il nome del volume. Se viene specificato un nome di volume, il **/mp** parametro non è necessario.|
-|\<Label >|Specifica l'etichetta per il volume.|
+|\<volume >|Specifica una lettera di unità (seguita da due punti), punto di montaggio o il nome del volume. Se viene specificato un nome di volume, il **/mp** parametro non è necessario.|
+|Etichetta \<>|Specifica l'etichetta per il volume.|
 |/?|Visualizza la guida al prompt dei comandi.|
 
 ## <a name="remarks"></a>Note
@@ -59,7 +55,7 @@ label [/mp] [<Volume>] [<Label>]
   ```  
   Premere Y per eliminare l'etichetta, o premere N per mantenere l'etichetta.
 
-## <a name="BKMK_examples"></a>Esempi
+## <a name="examples"></a><a name=BKMK_examples></a>Esempi
 
 Per identificare un disco in unità a contenente informazioni sulle vendite di luglio, digitare:
 ```
@@ -82,6 +78,6 @@ Per eliminare l'etichetta corrente dell'unità C, seguire questi passaggi:
    ```  
 3. Premere Y per eliminare l'etichetta corrente.
 
-#### <a name="additional-references"></a>Altri riferimenti
+## <a name="additional-references"></a>Altre informazioni di riferimento
 
-[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+- [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

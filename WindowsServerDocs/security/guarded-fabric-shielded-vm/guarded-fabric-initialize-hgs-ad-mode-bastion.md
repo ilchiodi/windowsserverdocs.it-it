@@ -1,18 +1,18 @@
 ---
 title: Inizializzare il cluster HGS usando la modalità AD in una foresta Bastion
-ms.custom: na
 ms.prod: windows-server
 ms.topic: article
 manager: dongill
 author: rpsqrd
+ms.author: ryanpu
 ms.technology: security-guarded-fabric
 ms.date: 08/29/2018
-ms.openlocfilehash: c69561f7d17bb1d36d90fc66cf4c1a196072fc72
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 75520c7afe1d3b274e643ab63bbf53159c0e2531
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71402362"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80856694"
 ---
 # <a name="initialize-the-hgs-cluster-using-ad-mode-in-an-existing-bastion-forest"></a>Inizializzare il cluster HGS usando la modalità AD in una foresta Bastion esistente
 
@@ -43,7 +43,7 @@ Install-ADServiceAccount -Identity 'HGSgMSA'
 Initialize-HgsServer -UseExistingDomain -ServiceAccount 'HGSgMSA' -JeaReviewersGroup 'HgsJeaReviewers' -JeaAdministratorsGroup 'HgsJeaAdmins' -HgsServiceName 'HgsService' -ClusterName 'HgsCluster' -SigningCertificatePath '.\signCert.pfx' -SigningCertificatePassword $signPass -EncryptionCertificatePath '.\encCert.pfx' -EncryptionCertificatePassword $encryptionCertPass -TrustActiveDirectory
 ```
 
-Se si usano i certificati installati nel computer locale (ad esempio certificati supportati da HSM e certificati non esportabili), usare invece i parametri `-SigningCertificateThumbprint` e `-EncryptionCertificateThumbprint`.
+Se si usano i certificati installati nel computer locale (ad esempio certificati con supporto HSM e certificati non esportabili), usare invece il `-SigningCertificateThumbprint` e `-EncryptionCertificateThumbprint` parametri.
 
 ## <a name="next-step"></a>Passaggio successivo
 

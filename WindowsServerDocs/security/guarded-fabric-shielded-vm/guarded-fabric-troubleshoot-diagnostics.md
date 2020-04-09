@@ -1,19 +1,19 @@
 ---
 title: Risoluzione dei problemi con lo strumento di diagnostica dell'infrastruttura sorvegliata
-ms.custom: na
 ms.prod: windows-server
 ms.topic: article
 ms.assetid: 07691d5b-046c-45ea-8570-a0a85c3f2d22
 manager: dongill
 author: rpsqrd
+ms.author: ryanpu
 ms.technology: security-guarded-fabric
 ms.date: 01/14/2020
-ms.openlocfilehash: c69fc70282ff61ecce25f6413244d7ba3a5ba3bc
-ms.sourcegitcommit: c5709021aa98abd075d7a8f912d4fd2263db8803
+ms.openlocfilehash: 3cf2b71113e812774cfb39b2ed21df8b41f83f12
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/18/2020
-ms.locfileid: "76265823"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80856414"
 ---
 # <a name="troubleshooting-using-the-guarded-fabric-diagnostic-tool"></a>Risoluzione dei problemi con lo strumento di diagnostica dell'infrastruttura sorvegliata
 
@@ -25,7 +25,7 @@ La documentazione completa dei cmdlet usati in questo articolo è reperibile nel
 
 [!INCLUDE [Guarded fabric diagnostics tool](../../../includes/guarded-fabric-diagnostics-tool.md)]
 
-## <a name="quick-start"></a>Avvio rapido
+## <a name="quick-start"></a>Introduzione
 
 È possibile diagnosticare un host sorvegliato o un nodo HGS chiamando il comando seguente da una sessione di Windows PowerShell con privilegi di amministratore locale:
 
@@ -164,7 +164,7 @@ Prima di eseguire la diagnosi manuale, è necessario assicurarsi che gli amminis
 
 I passaggi per eseguire una diagnosi manuale sono i seguenti:
 
-1. Richiedere che ogni amministratore host esegua `Get-HgsTrace` specificando una `-Path` nota e l'elenco di diagnostica che si intende eseguire sulle tracce risultanti.  Ad esempio:
+1. Richiedere che ogni amministratore host esegua `Get-HgsTrace` specificando una `-Path` nota e l'elenco di diagnostica che si intende eseguire sulle tracce risultanti.  Ad esempio,
 
    ```PowerShell
    Get-HgsTrace -Path C:\Traces -Diagnostic Networking,BestPractices
@@ -190,7 +190,7 @@ I passaggi per eseguire una diagnosi manuale sono i seguenti:
          |- [..]
       ```
 
-4. Eseguire la diagnostica, specificando il percorso della cartella di traccia assemblata nel parametro di `-Path` e specificando l'opzione di `-RunDiagnostics`, nonché la diagnostica per cui è stato richiesto agli amministratori di raccogliere le tracce.  Il sistema di diagnostica presuppone che non possa accedere agli host trovati all'interno del percorso e tenterà quindi di usare solo le tracce pre-raccolte.  Se sono presenti tracce mancanti o danneggiate, la diagnostica avrà esito negativo solo per i test interessati e continuerà normalmente.  Ad esempio:
+4. Eseguire la diagnostica, specificando il percorso della cartella di traccia assemblata nel parametro di `-Path` e specificando l'opzione di `-RunDiagnostics`, nonché la diagnostica per cui è stato richiesto agli amministratori di raccogliere le tracce.  Il sistema di diagnostica presuppone che non possa accedere agli host trovati all'interno del percorso e tenterà quindi di usare solo le tracce pre-raccolte.  Se sono presenti tracce mancanti o danneggiate, la diagnostica avrà esito negativo solo per i test interessati e continuerà normalmente.  Ad esempio,
 
    ```PowerShell
    Get-HgsTrace -RunDiagnostics -Diagnostic Networking,BestPractices -Path ".\FabricTraces"

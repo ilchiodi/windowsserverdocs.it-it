@@ -4,15 +4,15 @@ description: Ottimizzazione delle prestazioni per Desktop remoto host di virtual
 ms.prod: windows-server
 ms.technology: performance-tuning-guide
 ms.topic: article
-ms.author: HammadBu; VladmiS; denisgun
+ms.author: hammadbu; vladmis; denisgun
 author: phstee
 ms.date: 10/22/2019
-ms.openlocfilehash: 1b66f6404df5debee2a4c52ffc9166c8eabb9f81
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: 2a0db4d890a01df13c44a9bb7adfbd13bebbdde0
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75947123"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80851704"
 ---
 # <a name="performance-tuning-remote-desktop-virtualization-hosts"></a>Ottimizzazione delle prestazioni Desktop remoto host di virtualizzazione
 
@@ -22,7 +22,7 @@ Windows Server supporta due tipi di desktop virtuali: desktop virtuali personali
 
 ## <a name="general-considerations"></a>Considerazioni generali
 
-### <a name="storage"></a>Archiviazione:
+### <a name="storage"></a>Archiviazione
 
 L'archiviazione è il collo di bottiglia delle prestazioni più probabile ed è importante ridimensionare lo spazio di archiviazione per gestire correttamente il carico di I/O generato dalle modifiche dello stato della macchina virtuale. Se un progetto pilota o una simulazione non è fattibile, è opportuno eseguire il provisioning di un mandrino del disco per quattro macchine virtuali attive. Usare le configurazioni del disco con prestazioni di scrittura ottimali, ad esempio RAID 1 + 0.
 
@@ -41,7 +41,7 @@ Enable-DedupVolume <volume> -UsageType HyperV
 > [!NOTE]
 > L'ottimizzazione della deduplicazione dei file aperti è supportata solo per scenari VDI con Hyper-V usando l'archiviazione remota tramite SMB 3,0.
 
-### <a name="memory"></a>Memory
+### <a name="memory"></a>Memoria
 
 L'utilizzo della memoria del server è determinato da tre fattori principali:
 
@@ -93,10 +93,10 @@ Sebbene sia possibile disabilitare il rollback, si tratta comunque di una condiz
 
 Ogni servizio specifico deve essere valutato in modo appropriato prima di qualsiasi distribuzione estesa. Di seguito sono riportate alcune considerazioni iniziali da considerare:
 
-| Servizio                                      | Perché?                                                                                                                                                                                                      |
+| Service                                      | Perché?                                                                                                                                                                                                      |
 |----------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Aggiornamento automatico                                  | I desktop virtuali in pool vengono aggiornati creando nuovamente il modello di desktop virtuale.                                                                                                                          |
-| File non in linea                                | I desktop virtuali sono sempre online e connessi da un punto di vista della rete.                                                                                                                         |
+| File offline                                | I desktop virtuali sono sempre online e connessi da un punto di vista della rete.                                                                                                                         |
 | Defrag in background                            | Le modifiche del file System vengono ignorate dopo l'accesso dell'utente (a causa di un rollback allo stato incontaminato o la ricreazione del modello di desktop virtuale, il che comporta la ricreazione di tutti i desktop virtuali in pool). |
 | Ibernazione o sospensione                           | Nessun concetto di questo tipo per VDI                                                                                                                                                                                   |
 | Dump memoria controllo bug                        | Nessun concetto di questo tipo per i desktop virtuali in pool. Uno stato incontaminato per il controllo dei bug.                                                                                       |

@@ -1,19 +1,19 @@
 ---
 title: Disponibilità elevata del controller di rete
 description: È possibile usare questo argomento per informazioni sulla disponibilità elevata del controller di rete per SDN (Software Defined Networking) in Windows Server 2016.
-manager: brianlic
+manager: grcusanz
 ms.prod: windows-server
 ms.technology: networking-sdn
 ms.topic: get-started-article
 ms.assetid: 334b090d-bec4-4e67-8307-13831dbdd1d8
-ms.author: lizross
-author: eross-msft
-ms.openlocfilehash: ce3a0dd33ff105fa7cc36305048b8a311577aa21
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.author: anpaul
+author: AnirbanPaul
+ms.openlocfilehash: 3c6d18dcf1071eabaabe9acc29713a7b9a226a84
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80317059"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80859654"
 ---
 # <a name="network-controller-high-availability"></a>Disponibilità elevata del controller di rete
 

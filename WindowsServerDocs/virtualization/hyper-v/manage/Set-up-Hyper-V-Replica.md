@@ -3,19 +3,18 @@ title: Configurare la replica Hyper-V
 ms.technology: compute-hyper-v
 description: Vengono fornite istruzioni per la configurazione della replica, il test del failover e la prima replica.
 ms.prod: windows-server
-ms.service: na
 manager: dongill
 ms.topic: article
 ms.assetid: eea9e996-bfec-4065-b70b-d8f66e7134ac
-author: KBDAzure
+author: kbdazure
 ms.author: kathydav
 ms.date: 10/10/2016
-ms.openlocfilehash: 9ba2fcbbf727b1116cc89d928218ef642d74fc0a
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: b2730c04e4a4cba4a8c79e600e18bfdba1cfd0c4
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71392563"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80859034"
 ---
 # <a name="set-up-hyper-v-replica"></a>Configurare la replica Hyper-V
 
@@ -23,40 +22,40 @@ ms.locfileid: "71392563"
 
 La replica Hyper-V è parte integrante del ruolo Hyper-V Favorisce la strategia di ripristino di emergenza replicando le macchine virtuali da un server host Hyper-V a altro per mantenere i carichi di lavoro disponibili.  Replica Hyper-V crea una copia di una macchina virtuale a una macchina virtuale non in linea di replica. Tenere presente quanto segue:  
 
--   **Host Hyper-V**: I server host primari e secondari possono essere collocati fisicamente con percorso condiviso o in posizioni geografiche separate con la replica su un collegamento WAN. Host Hyper-V possono essere autonomi, cluster, o una combinazione di entrambi. Non esiste alcuna dipendenza di Active Directory tra i server e non devono essere membri del dominio.  
+-   **Host Hyper-V**: possono essere collocati fisicamente insieme o in posizioni geografiche diverse con la replica in una rete WAN collegare i server host primario e secondario. Host Hyper-V possono essere autonomi, cluster, o una combinazione di entrambi. Non esiste alcuna dipendenza di Active Directory tra i server e non devono essere membri del dominio.  
 
--   **Replica e rilevamento delle modifiche**: Quando si Abilita la replica Hyper-V per una macchina virtuale specifica, la replica iniziale crea una macchina virtuale di replica identica in un server host secondario. A questo punto, il rilevamento delle modifiche di Replica Hyper-V crea e gestisce un file di log che acquisiscono le modifiche in un VHD della macchina virtuale. Il file di log viene riprodotto in ordine inverso rispetto alla replica di che disco rigido Virtuale in base alle impostazioni di frequenza di replica. Ciò significa che le modifiche più recenti vengono archiviate e replicate in modo asincrono. La replica può essere tramite HTTP o HTTPS.  
+-   **La replica e il rilevamento delle modifiche**: quando si abilita la Replica Hyper-V per una macchina virtuale specifica, la replica iniziale Crea una macchina virtuale di replica identico in un server host secondario. A questo punto, il rilevamento delle modifiche di Replica Hyper-V crea e gestisce un file di log che acquisiscono le modifiche in un VHD della macchina virtuale. Il file di log viene riprodotto in ordine inverso rispetto alla replica di che disco rigido Virtuale in base alle impostazioni di frequenza di replica. Ciò significa che le modifiche più recenti vengono archiviate e replicate in modo asincrono. La replica può essere tramite HTTP o HTTPS.  
 
--   **Replica estesa (concatenata)** : In questo modo è possibile replicare una macchina virtuale da un host primario a un host secondario e quindi replicare l'host secondario in un terzo host. Si noti che non è possibile replicare dall'host principale direttamente al secondo e terzo.  
+-   **Estesa (concatenata) replica**: consente di replicare una macchina virtuale da un host primario a uno secondario e quindi replicare l'host secondario a un host di terzo. Si noti che non è possibile replicare dall'host principale direttamente al secondo e terzo.  
 
     Questa funzionalità rende più affidabile per il ripristino di emergenza Replica Hyper-V perché se si verifica un'interruzione è possibile ripristinare dalla replica primaria e quella estesa.  È possibile eseguire il failover alla replica estesa se si disattivano i percorsi primari e secondari. Si noti che la replica estesa non supporta la replica coerente con l'applicazione deve utilizzare i dischi rigidi virtuali stesso che utilizza la replica secondaria.  
 
--   **Failover**: Se si verifica un'interruzione nella posizione primaria (o secondaria in caso di estensione), è possibile avviare manualmente un failover di test, pianificato o non pianificato.  
+-   **Failover**: se si verifica un'interruzione nel server principale (o secondario in caso di estesi) è possibile avviare manualmente un test, pianificato, percorso o il failover non pianificato.  
 
-    ||Testa|Pianificato|Non pianificato|  
+    ||Test|Pianificato|Non pianificato|  
     |-|--------|-----------|-------------|  
-    |Quando è necessario eseguire?|Verificare che una macchina virtuale può eseguire il failover e avviare il sito secondario<br /><br />Utile per il testing e training|Durante le interruzioni e tempi di inattività pianificati|Durante gli eventi imprevisti|  
-    |Viene creata una macchina virtuale duplicata?|Yes|No|No|  
+    |Quando è necessario eseguire?|Verificare che una macchina virtuale può eseguire il failover e avviare il sito secondario<p>Utile per il testing e training|Durante le interruzioni e tempi di inattività pianificati|Durante gli eventi imprevisti|  
+    |Viene creata una macchina virtuale duplicata?|Sì|No|No|  
     |In cui è iniziata?|Nella macchina virtuale di replica|Avviata nel computer primario e completata nel secondario|Nella macchina virtuale di replica|  
     |Quanto spesso è consigliabile eseguire?|Si consiglia una volta al mese per i test|Una volta ogni sei mesi o in base ai requisiti di conformità|Solo in caso di emergenza quando la macchina virtuale primaria non è disponibile|  
-    |La macchina virtuale primaria continuare a replicare?|Yes|Sì. Quando l'interruzione del servizio viene risolto replica inversa replica che le modifiche al sito primario in modo che siano sincronizzati primario e secondario.|No|  
-    |È disponibile alcuna perdita di dati?|Nessuno|No. Dopo il failover Replica Hyper-V replica l'ultimo set di modifiche rilevate nuovamente al database primario per garantire una perdita di dati.|Dipende i punti di ripristino e di evento|  
-    |Si verificano tempi di inattività?|No. Non inciderà nell'ambiente di produzione. Crea una macchina virtuale di test duplicati durante il failover. Termine del failover si seleziona **Failover** sulla replica macchina virtuale e ha automaticamente eliminate ed eliminati.|La durata di un'interruzione pianificata|La durata di inattività non pianificato|  
+    |La macchina virtuale primaria continuare a replicare?|Sì|Sì. Quando l'interruzione del servizio viene risolto replica inversa replica che le modifiche al sito primario in modo che siano sincronizzati primario e secondario.|No|  
+    |È disponibile alcuna perdita di dati?|None|Nessuno Dopo il failover Replica Hyper-V replica l'ultimo set di modifiche rilevate nuovamente al database primario per garantire una perdita di dati.|Dipende i punti di ripristino e di evento|  
+    |Si verificano tempi di inattività?|Nessuno Non inciderà nell'ambiente di produzione. Crea una macchina virtuale di test duplicati durante il failover. Termine del failover si seleziona **Failover** sulla replica macchina virtuale e ha automaticamente eliminate ed eliminati.|La durata di un'interruzione pianificata|La durata di inattività non pianificato|  
 
--   **Punti di ripristino**: Quando si configurano le impostazioni di replica per una macchina virtuale, si specificano i punti di ripristino che si desidera archiviare. Punti di ripristino rappresentano uno snapshot temporizzato di cui è possibile ripristinare una macchina virtuale. Ovviamente meno dati vengono persi se esegue il ripristino da un punto di ripristino molto recente. È possibile accedere ai punti di ripristino fino a 24 ore.  
+-   **Punti di ripristino**: quando si configurano le impostazioni di replica per una macchina virtuale, specificare i punti di ripristino che si desidera archiviare da esso. Punti di ripristino rappresentano uno snapshot temporizzato di cui è possibile ripristinare una macchina virtuale. Ovviamente meno dati vengono persi se esegue il ripristino da un punto di ripristino molto recente. È possibile accedere ai punti di ripristino fino a 24 ore.  
 
 ## <a name="deployment-prerequisites"></a>Prerequisiti per la distribuzione  
 Ecco cosa è necessario verificare prima di iniziare:  
 
 -   **Scoprire che necessitano di dischi rigidi virtuali da replicare**. In particolare, i dischi rigidi virtuali che contengono dati che cambiano rapidamente e non usati dal server di Replica dopo il failover, ad esempio dischi di file di paging, devono essere esclusi dalla replica per risparmiare larghezza di banda di rete. Prendere nota delle quali possono essere esclusi i dischi rigidi virtuali.  
 
--   **Decidere la frequenza con cui è necessario sincronizzare i dati**:  I dati nel server di replica vengono aggiornati in base alla frequenza di replica configurata (30 secondi, 5 minuti o 15 minuti). La frequenza scelta deve prendere in considerazione quanto segue: Le macchine virtuali eseguono dati critici con una RPO bassa? Quali sono si considerazioni sulla larghezza di banda?  Le macchine virtuali estremamente critico sarà ovviamente necessario replica più frequente.  
+-   **La frequenza con cui si decide di sincronizzare i dati**: I dati nel server di Replica sono sincronizzati aggiornato in base alla frequenza di replica configurata (30 secondi, 5 minuti o 15 minuti). La frequenza è scegliere opportuno considerare quanto segue: le macchine virtuali con un RPO ridotto di dati critici? Quali sono si considerazioni sulla larghezza di banda?  Le macchine virtuali estremamente critico sarà ovviamente necessario replica più frequente.  
 
--   **Decidere come ripristinare i dati**:  Per impostazione predefinita, la replica Hyper-V archivia solo un singolo punto di ripristino che sarà la replica più recente inviata dal database primario al database secondario. Se si desidera che l'opzione per ripristinare i dati in un punto precedente nel tempo, tuttavia è possibile specificare che devono essere archiviati i punti di ripristino aggiuntivi (per un massimo di 24 punti oraria). Se sono necessari ulteriori punti di ripristino si noti che questa operazione richiede più risorse in overhead di elaborazione e archiviazione.  
+-   **Decidere come ripristinare i dati**: per impostazione predefinita la Replica Hyper-V archivia solo un punto di ripristino singolo che sarà la replica più recente inviata dal database primario nel database secondario. Se si desidera che l'opzione per ripristinare i dati in un punto precedente nel tempo, tuttavia è possibile specificare che devono essere archiviati i punti di ripristino aggiuntivi (per un massimo di 24 punti oraria). Se sono necessari ulteriori punti di ripristino si noti che questa operazione richiede più risorse in overhead di elaborazione e archiviazione.  
 
--   **Individuare i carichi di lavoro da replicare**: La replica Hyper-V standard mantiene la coerenza nello stato del sistema operativo della macchina virtuale dopo un failover, ma non lo stato delle applicazioni in esecuzione nella macchina virtuale. Se si desidera essere in grado di ripristino dello stato del carico di lavoro è possibile creare ripristino coerenti con l'applicazione fa riferimento. Si noti che ripristino coerenti con l'app non è disponibile sul sito di replica estesa se si utilizza la replica estesa (concatenata).  
+-   **Scoprire quale è necessario replicare i carichi di lavoro**: la Replica Hyper-V Standard viene mantenuta la coerenza con lo stato del sistema operativo macchina virtuale dopo un failover, ma non lo stato delle applicazioni che l'esecuzione nella macchina virtuale. Se si desidera essere in grado di ripristino dello stato del carico di lavoro è possibile creare ripristino coerenti con l'applicazione fa riferimento. Si noti che ripristino coerenti con l'app non è disponibile sul sito di replica estesa se si utilizza la replica estesa (concatenata).  
 
--   **Decidere come eseguire la replica iniziale dei dati della macchina virtuale**: La replica viene avviata trasferendo la necessità di trasferire lo stato corrente delle macchine virtuali. Questo stato iniziale può essere trasmesso direttamente tramite la rete esistente, immediatamente o in un momento successivo configurato. È inoltre possibile utilizzare una macchina virtuale ripristinata preesistente (ad esempio, se è stato ripristinato un backup precedente della macchina virtuale nel server di Replica) come copia iniziale. In alternativa, è possibile risparmiare larghezza di banda di rete copiando la copia iniziale su un supporto esterno e quindi distribuendo fisicamente il supporto nel sito di replica.  Se si desidera utilizzare una preesistente tutti gli snapshot precedenti associati eliminazione della macchina virtuale.  
+-   **Decidere come eseguire la replica iniziale dei dati della macchina virtuale**: la replica viene avviata trasferendo le esigenze per trasferire lo stato corrente delle macchine virtuali. Questo stato iniziale può essere trasmesso direttamente tramite la rete esistente, immediatamente o in un momento successivo configurato. È inoltre possibile utilizzare una macchina virtuale ripristinata preesistente (ad esempio, se è stato ripristinato un backup precedente della macchina virtuale nel server di Replica) come copia iniziale. In alternativa, è possibile risparmiare larghezza di banda di rete copiando la copia iniziale su un supporto esterno e quindi distribuendo fisicamente il supporto nel sito di replica.  Se si desidera utilizzare una preesistente tutti gli snapshot precedenti associati eliminazione della macchina virtuale.  
 
 ## <a name="deployment-steps"></a>Fasi di distribuzione  
 
@@ -71,7 +70,7 @@ Ecco cosa è necessario verificare prima di iniziare:
 
     Per entrambe le opzioni è possibile specificare dove devono essere archiviati i dischi rigidi virtuali replicati nel server Hyper-V di replica.  
 
-4.  Fare clic su **OK** o **applicare**.  
+4.  Fare clic su **OK** o su **Applica**.  
 
 ### <a name="step-2-set-up-the-firewall"></a>Passaggio 2: Configurare il firewall  
 Per consentire la replica tra i server primari e secondari, è necessario ottenere il traffico attraverso Windows firewall (o qualsiasi altro firewall di terze parti). Quando è installato il ruolo Hyper-V Server eccezioni predefinite per HTTP (80) e HTTPS (443) vengono creati. Se si utilizza queste porte standard, è necessario solo abilitare le regole:  
@@ -117,8 +116,8 @@ Eseguire le operazioni seguenti in ogni macchina virtuale da replicare:
 ## <a name="run-a-failover"></a>Eseguire un failover  
 Dopo aver completato questi passaggi di distribuzione dell'ambiente replicato sia in esecuzione. È ora possibile eseguire i failover in base alle esigenze.  
 
-**Failover di test**:  Se si desidera eseguire un failover di test, fare clic con il pulsante destro del mouse sulla macchina virtuale primaria e selezionare **replica** > **failover di test**. Selezionare il punto di ripristino più recente o altri se configurato. Una nuova macchina virtuale di test verrà creata e avviata nel sito secondario. Al termine del test, selezionare **Arresta failover di test** nella macchina virtuale di replica per pulirlo. Si noti che per una macchina virtuale è possibile eseguire solo un failover di test alla volta. [Ulteriori](https://blogs.technet.com/b/virtualization/archive/2012/07/26/types-of-failover-operations-in-hyper-v-replica.aspx).  
+**Failover di test**: se si desidera eseguire il pulsante destro del failover di test per la macchina virtuale primaria e selezionare **replica** > **Test Failover**. Selezionare il punto di ripristino più recente o altri se configurato. Una nuova macchina virtuale di test verrà creata e avviata nel sito secondario. Al termine del test, selezionare **Arresta failover di test** nella macchina virtuale di replica per pulirlo. Si noti che per una macchina virtuale è possibile eseguire solo un failover di test alla volta. [Ulteriori](https://blogs.technet.com/b/virtualization/archive/2012/07/26/types-of-failover-operations-in-hyper-v-replica.aspx).  
 
-**Failover pianificato**: Per eseguire un failover pianificato, fare clic con il pulsante destro del mouse sulla macchina virtuale primaria e selezionare **replica** > **failover pianificato**. Failover pianificato esegue controlli dei prerequisiti per garantire una perdita di dati. Consente di verificare che la macchina virtuale primaria viene arrestata prima di iniziare il failover. Dopo la macchina virtuale viene eseguita il failover, avviare la replica delle modifiche al sito primario quando è disponibile. Si noti che per il corretto funzionamento del server primario devono essere configurato per la replica ricevono dal server secondario o dal gestore di Replica Hyper-V nel caso di un cluster primario. Pianificato failover invia l'ultimo set di modifiche rilevate. [Ulteriori](https://blogs.technet.com/b/virtualization/archive/2012/07/31/types-of-failover-operations-in-hyper-v-replica-part-ii-planned-failover.aspx).  
+**Failover pianificato**: per eseguire una rapida failover pianificato della macchina virtuale primaria e selezionare **replica** > **Failover pianificato**. Failover pianificato esegue controlli dei prerequisiti per garantire una perdita di dati. Consente di verificare che la macchina virtuale primaria viene arrestata prima di iniziare il failover. Dopo la macchina virtuale viene eseguita il failover, avviare la replica delle modifiche al sito primario quando è disponibile. Si noti che per il corretto funzionamento del server primario devono essere configurato per la replica ricevono dal server secondario o dal gestore di Replica Hyper-V nel caso di un cluster primario. Pianificato failover invia l'ultimo set di modifiche rilevate. [Ulteriori](https://blogs.technet.com/b/virtualization/archive/2012/07/31/types-of-failover-operations-in-hyper-v-replica-part-ii-planned-failover.aspx).  
 
-**Failover non pianificato**: Per eseguire un failover non pianificato, fare clic con il pulsante destro del mouse sulla macchina virtuale di replica e scegliere **replica** > **failover non pianificato** dalla console di gestione di Hyper-V o da gestione clustering di failover. Se questa opzione è abilitata, è possibile ripristinare dal punto di ripristino più recente o da punti di ripristino precedenti. Dopo il failover, verificare che funzionino come previsto in è stato eseguito il failover macchina virtuale, quindi fare clic su **Complete** nella macchina virtuale di replica. [Ulteriori](https://blogs.technet.com/b/virtualization/archive/2012/08/08/types-of-failover-operations-in-hyper-v-replica-part-iii-unplanned-failover.aspx).  
+**Failover non pianificato**: per eseguire un failover non pianificato, su macchina virtuale di replica e scegliere **replica** > **Failover non pianificato** da Hyper-V Manager o Gestione cluster di Failover. Se questa opzione è abilitata, è possibile ripristinare dal punto di ripristino più recente o da punti di ripristino precedenti. Dopo il failover, verificare che funzionino come previsto in è stato eseguito il failover macchina virtuale, quindi fare clic su **Complete** nella macchina virtuale di replica. [Ulteriori](https://blogs.technet.com/b/virtualization/archive/2012/08/08/types-of-failover-operations-in-hyper-v-replica-part-iii-unplanned-failover.aspx).  

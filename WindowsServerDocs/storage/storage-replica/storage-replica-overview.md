@@ -8,12 +8,12 @@ ms.topic: get-started-article
 author: nedpyle
 ms.date: 4/26/2019
 ms.assetid: e9b18e14-e692-458a-a39f-d5b569ae76c5
-ms.openlocfilehash: d95feb67001dc7b5eff68a0062d5f944672bad80
-ms.sourcegitcommit: 2a15de216edde8b8e240a4aa679dc6d470e4159e
+ms.openlocfilehash: 33626dd632dc8c065d2e32b3a21d9f4c9cf77fa7
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77465230"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80861074"
 ---
 # <a name="storage-replica-overview"></a>Panoramica di Replica di archiviazione
 
@@ -36,7 +36,7 @@ Replica di archiviazione può consentire di ritirare i sistemi di replica dei fi
 
 Replica archiviazione supporta anche la replica asincrona per gli intervalli più lunghi e le reti a latenza superiore. Poiché non è basato su checkpoint e viene replicato continuamente, il Delta delle modifiche tende a essere molto inferiore rispetto ai prodotti basati su snapshot. Inoltre, Replica archiviazione opera a livello di partizione e, pertanto, replica tutti gli snapshot di Servizio Copia Shadow del volume creati da Windows Server o dal software di backup; in questo modo consente l'uso di snapshot dei dati coerenti con l'applicazione per il ripristino temporizzato, in particolar modo i dati utente non strutturati replicati in modo asincrono.  
 
-## <a name="BKMK_SRSupportedScenarios"></a>Configurazioni supportate
+## <a name="supported-configurations"></a><a name="BKMK_SRSupportedScenarios"></a>Configurazioni supportate
 
 È possibile distribuire la replica di archiviazione in un cluster esteso tra cluster e cluster e in configurazioni da server a server (vedere le figure 1-3).
 
@@ -61,7 +61,7 @@ Lo scenario **da server a server** consente la replica sincrona e asincrona tra 
 > [!NOTE]
 > È inoltre possibile configurare la replica da server a sé stesso usando quattro volumi separati in un computer. Tuttavia, questa guida non illustra questo scenario.  
 
-## <a name="BKMK_SR2"></a> Funzionalità di replica di archiviazione  
+## <a name="storage-replica-features"></a><a name="BKMK_SR2"> </a> Funzionalità di replica di archiviazione  
 
 * **Perdita di dati pari a zero, replica a livello di blocco**. Con la replica sincrona non vi è alcuna possibilità di perdere i dati. Con la replica a livello di blocco non vi è alcuna possibilità di bloccare i file.  
 
@@ -109,7 +109,7 @@ Replica archiviazione include le funzionalità seguenti:
 
 *Potrebbe richiedere apparecchiature e cablaggi prolungati aggiuntivi.  
 
-## <a name="BKMK_SR3"></a>Prerequisiti di replica archiviazione
+## <a name="storage-replica-prerequisites"></a><a name="BKMK_SR3"></a>Prerequisiti di replica archiviazione
 
 * Foresta di Active Directory Domain Services.
 * Spazi di archiviazione con JBOD SAS, Spazi di archiviazione diretta, SAN fibre channel, VHDX condiviso, destinazione iSCSI o archiviazione SCSI/SAS o SATA locale. Unità SSD o unità più veloci consigliate per le unità di log della replica. Microsoft consiglia una velocità di archiviazione dei log superiore a quella dell'archiviazione dei dati. I volumi di log non devono essere utilizzati per altri carichi di lavoro.
@@ -122,7 +122,7 @@ Replica archiviazione include le funzionalità seguenti:
   * Replica archiviazione replica un singolo volume anziché un numero illimitato di volumi.
   * I volumi possono avere dimensioni fino a 2 TB anziché una dimensione illimitata.
 
-##  <a name="BKMK_SR4"></a> Informazioni preliminari
+##  <a name="background"></a><a name="BKMK_SR4"> </a> Informazioni preliminari
 
 Questa sezione include informazioni sui termini di settore di alto livello, la replica sincrona e asincrona e i comportamenti chiave.
 
@@ -140,7 +140,7 @@ Quando si verificano operazioni di scrittura dell'applicazione nella copia dei d
 
 | Modalità | Diagramma | Passaggi |
 | -------- | ----------- | --------- |
-| **Sincrono**<br /><br />Perdita di dati pari a zero<br /><br />RPO | ![Diagramma che mostra come Replica di archiviazione scrive dati in modalità di replica sincrona](./media/Storage-Replica-Overview/Storage_SR_SynchronousV2.png) | 1.  L'applicazione scrive i dati<br />2.  I dati del log vengono scritti e replicati nel sito remoto<br />3.  I dati del log vengono scritti nel sito remoto<br />4.  Riconoscimento dal sito remoto<br />5.  Scrittura dell'applicazione riconosciuta<br /><br />t & t1: dati scaricati nel volume, log scrivono sempre |
+| **Sincrono**<p>Perdita di dati pari a zero<p>RPO | ![Diagramma che mostra come Replica di archiviazione scrive dati in modalità di replica sincrona](./media/Storage-Replica-Overview/Storage_SR_SynchronousV2.png) | 1.  L'applicazione scrive i dati<br />2.  I dati del log vengono scritti e replicati nel sito remoto<br />3.  I dati del log vengono scritti nel sito remoto<br />4.  Riconoscimento dal sito remoto<br />5.  Scrittura dell'applicazione riconosciuta<p>t & t1: dati scaricati nel volume, log scrivono sempre |
 
 ### <a name="asynchronous-replication"></a>Replica asincrona
 
@@ -152,7 +152,7 @@ Con il suo RPO maggiore di zero, la replica asincrona è meno adatta per le solu
 
 | Modalità | Diagramma | Passaggi |
 | -------- | ----------- | --------- |
-| **Asincrona**<br /><br />Perdita di dati quasi pari a zero<br /><br />(dipende da vari fattori)<br /><br />RPO | ![Diagramma che mostra come Replica di archiviazione scrive dati in modalità di replica asincrona](./media/Storage-Replica-Overview/Storage_SR_AsynchronousV2.png)|1.  L'applicazione scrive i dati<br />2.  Dati del log scritti<br />3.  Scrittura dell'applicazione riconosciuta<br />4.  Dati replicati al sito remoto<br />5.  Dati del log scritti nel sito remoto<br />6.  Riconoscimento dal sito remoto<br /><br />t & t1: dati scaricati nel volume, log scrivono sempre |
+| **Asincrona**<p>Perdita di dati quasi pari a zero<p>(dipende da vari fattori)<p>RPO | ![Diagramma che mostra come Replica di archiviazione scrive dati in modalità di replica asincrona](./media/Storage-Replica-Overview/Storage_SR_AsynchronousV2.png)|1.  L'applicazione scrive i dati<br />2.  Dati del log scritti<br />3.  Scrittura dell'applicazione riconosciuta<br />4.  Dati replicati al sito remoto<br />5.  Dati del log scritti nel sito remoto<br />6.  Riconoscimento dal sito remoto<p>t & t1: dati scaricati nel volume, log scrivono sempre |
 
 ### <a name="key-evaluation-points-and-behaviors"></a>Punti di valutazione chiave e comportamenti  
 

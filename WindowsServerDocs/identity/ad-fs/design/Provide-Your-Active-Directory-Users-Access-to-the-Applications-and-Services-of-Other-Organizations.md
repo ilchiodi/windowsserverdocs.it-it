@@ -1,7 +1,6 @@
 ---
 ms.assetid: 2d62386c-b466-4a54-b6fa-5d16cda120d8
 title: Fornire agli utenti di Active Directory l'accesso ai servizi e alle applicazioni di altre organizzazioni
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: bcf9b9ec91c1757ad060747a6aa1589012c1ec14
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 13b8c3650442ac85b8b248b58372448543c8ba02
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71359027"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80858584"
 ---
 # <a name="provide-your-active-directory-users-access-to-the-applications-and-services-of-other-organizations"></a>Fornire agli utenti di Active Directory l'accesso ai servizi e alle applicazioni di altre organizzazioni
 

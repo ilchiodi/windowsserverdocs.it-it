@@ -1,38 +1,35 @@
 ---
 title: shadow
-description: 'Argomento dei comandi di Windows per * * * *- '
-ms.custom: na
+description: Argomento Windows Commands per Shadow, che consente di controllare in modalità remota una sessione attiva di un altro utente in un host sessione Desktop remoto server.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: f81d9717-6883-4e14-9508-4b2a87e48ea7 Lizap
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: cb2fad4b0a553e736755f2dc56e5d88297a1fef5
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 90c3202d810257cc94c73b88c5c1627901f54af0
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71383963"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80834334"
 ---
 # <a name="shadow"></a>shadow
 
 >Si applica a: Windows Server (Canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Consente di controllare in modalità remota una sessione attiva di un altro utente in un server di host sessione Desktop remoto (host sessione Desktop remoto).
-per esempi relativi all'uso di questo comando, vedere [esempi](#BKMK_examples).
+Consente di controllare in modalità remota una sessione attiva di un altro utente in un server host sessione Desktop remoto.
+
+Per esempi di utilizzo di questo comando, vedere [Esempi](#BKMK_examples).
 
 ## <a name="syntax"></a>Sintassi
 ```
 shadow {<SessionName> | <SessionID>} [/server:<ServerName>] [/v]
 ```
 
-### <a name="parameters"></a>Parametri
+#### <a name="parameters"></a>Parametri
 |Parametro|Descrizione|
 |-------|--------|
 |\<sessionname >|Specifica il nome della sessione che si desidera controllare in remoto.|
@@ -41,7 +38,7 @@ shadow {<SessionName> | <SessionID>} [/server:<ServerName>] [/v]
 |/v|Visualizza le informazioni sulle azioni eseguite.|
 |/?|Visualizza la guida al prompt dei comandi.|
 
-## <a name="remarks"></a>Osservazioni
+## <a name="remarks"></a>Note
 -   È possibile visualizzare o controllare attivamente la sessione. Se si sceglie di controllare attivamente la sessione di un utente, sarà possibile immettere le azioni della tastiera e del mouse per la sessione.
 -   È sempre possibile controllare in remoto le proprie sessioni, ad eccezione della sessione corrente, ma è necessario disporre dell'autorizzazione controllo completo o del controllo remoto per l'accesso in remoto a un'altra sessione.
 -   È anche possibile avviare il controllo remoto tramite Servizi Desktop remoto Manager.
@@ -50,7 +47,7 @@ shadow {<SessionName> | <SessionID>} [/server:<ServerName>] [/v]
 -   La sessione della console non può controllare in modalità remota un'altra sessione né può essere controllata in remoto da un'altra sessione.
 -   Quando si vuole terminare il controllo remoto (ombreggiatura), premere CTRL +\* (usando \* solo dal tastierino numerico).
 
-## <a name="BKMK_examples"></a>Esempi
+## <a name="examples"></a><a name=BKMK_examples></a>Esempi
 -   Per eseguire l'ombreggiatura della sessione 93, digitare:
     ```
     shadow 93
@@ -60,6 +57,6 @@ shadow {<SessionName> | <SessionID>} [/server:<ServerName>] [/v]
     shadow ACCTG01
     ```
 
-#### <a name="additional-references"></a>riferimenti aggiuntivi
-[Chiave di sintassi della riga di comando](command-line-syntax-key.md)
-[riferimento ai comandi di &#40;Servizi Desktop remoto Servizi terminal&#41; ](remote-desktop-services-terminal-services-command-reference.md)
+## <a name="additional-references"></a>Altre informazioni di riferimento
+- Guida di riferimento alla [chiave della sintassi della riga di comando](command-line-syntax-key.md)
+[Servizi Desktop remoto (Servizi terminal)](remote-desktop-services-terminal-services-command-reference.md)

@@ -1,7 +1,6 @@
 ---
 ms.assetid: 22f53391-8c6a-4873-a1f4-08b4760ea621
 title: Ruolo delle attestazioni
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 851a70bbed606530ca8292f65bc4f776eae77fae
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 2477152231489e309fc48fd57d38e09a9bf658eb
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71407347"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80860174"
 ---
 # <a name="the-role-of-claims"></a>Ruolo delle attestazioni
 Nel modello di identità basato sulle attestazioni\-, le attestazioni svolgono un ruolo fondamentale nel processo di federazione, costituiscono il componente chiave in base al quale vengono determinati i risultati di tutte le richieste di autenticazione e autorizzazione basate su Web\-. Questo modello consente alle organizzazioni di proiettare in modo sicuro identità digitali, diritti o *attestazioni* attraverso limiti di sicurezza aziendali in modo standardizzato.  
@@ -50,20 +49,20 @@ Quando si scrivono regole attestazione, l'origine delle attestazioni in ingresso
 ## <a name="what-are-claim-types"></a>Cosa sono i tipi di attestazioni?  
 Un tipo di attestazione fornisce contesto per il valore dell'attestazione. Viene in genere espresso come Uniform Resource Identifier \(URI\). AD FS possibile supportare qualsiasi tipo di attestazione ed è configurato con i tipi di attestazione nella tabella seguente per impostazione predefinita.  
   
-|Nome|Descrizione|URI|  
+|Name|Descrizione|URI|  
 |--------|---------------|-------|  
 |Indirizzo di posta elettronica\-E|Indirizzo di posta elettronica\-dell'utente|http:\/\/schemas.xmlsoap.org\/WS\/2005\/05\/Identity\/Claims\/EmailAddress|  
-|Nome (di battesimo)|Nome (di battesimo) dell'utente|http:\/\/schemas.xmlsoap.org\/WS\/2005\/05\/Identity\/Claims\/DATANAME|  
-|Nome|Nome univoco dell'utente|http:\/\/schemas.xmlsoap.org\/WS\/2005\/05\/Identity\/Claims\/nome|  
+|Nome|Nome (di battesimo) dell'utente|http:\/\/schemas.xmlsoap.org\/WS\/2005\/05\/Identity\/Claims\/DATANAME|  
+|Name|Nome univoco dell'utente|http:\/\/schemas.xmlsoap.org\/WS\/2005\/05\/Identity\/Claims\/nome|  
 |UPN|Nome dell'entità utente \(\) UPN dell'utente|http:\/\/schemas.xmlsoap.org\/WS\/2005\/05\/Identity\/Claims\/UPN|  
 |Nome comune|Nome comune dell'utente|http:\/\/schemas.xmlsoap.org\/Claims\/CommonName|  
 |AD FS 1. x E\-indirizzo di posta elettronica|Il\-l'indirizzo di posta elettronica dell'utente quando si interopera con AD FS 1,1 o ADFS 1,0|http:\/\/schemas.xmlsoap.org\/Claims\/EmailAddress|  
 |Gruppo|Gruppo a cui appartiene l'utente|http:\/\/schemas.xmlsoap.org\/Claims\/Group|  
 |UPN AD FS 1.x|UPN dell'utente quando interagisce con AD FS 1.1 o AD FS 1.0|http:\/\/schemas.xmlsoap.org\/Claims\/UPN|  
-|Ruolo|Ruolo dell'utente|http:\/\/schemas.microsoft.com\/WS\/2008\/06\/Identity\/Claims\/Role|  
+|Role|Ruolo dell'utente|http:\/\/schemas.microsoft.com\/WS\/2008\/06\/Identity\/Claims\/Role|  
 |Surname|Cognome dell'utente|http:\/\/schemas.xmlsoap.org\/WS\/2005\/05\/Identity\/Claims\/cognome|  
 |PPID|Identificatore privato dell'utente|http:\/\/schemas.xmlsoap.org\/WS\/2005\/05\/Identity\/Claims\/PrivatePersonalIdentifier|  
-|Identificatore nome|Identificatore nome SAML dell'utente|http:\/\/schemas.xmlsoap.org\/WS\/2005\/05\/Identity\/Claims\/NameIdentifier|  
+|ID nome|Identificatore nome SAML dell'utente|http:\/\/schemas.xmlsoap.org\/WS\/2005\/05\/Identity\/Claims\/NameIdentifier|  
 |Metodo di autenticazione|Metodo usato per autenticare l'utente|http:\/\/schemas.microsoft.com\/WS\/2008\/06\/Identity\/Claims\/AuthenticationMethod|  
 |SID gruppo di sola negazione|SID del gruppo Deny\-only dell'utente|http:\/\/schemas.xmlsoap.org\/WS\/2005\/05\/Identity\/Claims\/DenyOnlySid|  
 |SID primario di sola negazione|Nega\-solo SID primario dell'utente|http:\/\/schemas.microsoft.com\/WS\/2008\/06\/Identity\/Claims\/DenyOnlyPrimarySID|  

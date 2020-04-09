@@ -1,23 +1,19 @@
 ---
 title: Tecnologie di System Center per SDN
 description: È possibile utilizzare questo argomento per informazioni sulle tecnologie SDN (Software Defined Networking) disponibili in System Center.
-manager: brianlic
-ms.custom: na
+manager: grcusanz
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: networking-sdn
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: f66ee49a-1fd3-4927-a813-64a15017b63b
-ms.author: lizross
-author: eross-msft
-ms.openlocfilehash: c0e99dde090efa337bee9c0c25594f3f8c9e0377
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.author: anpaul
+author: AnirbanPaul
+ms.openlocfilehash: a6859f89b07aa0708eefec694441b9be269eb45d
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80309980"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80860404"
 ---
 # <a name="system-center-technologies-for-sdn"></a>Tecnologie di System Center per SDN
 

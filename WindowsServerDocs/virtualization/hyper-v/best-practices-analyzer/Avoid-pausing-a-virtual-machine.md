@@ -2,20 +2,19 @@
 title: Evitare la sospensione di una macchina virtuale
 description: Versione online del testo per questa regola di Best Practices Analyzer.
 ms.prod: windows-server
-ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
 ms.author: kathydav
 ms.topic: article
 ms.assetid: 930f927c-e414-4a36-9786-028941e886e4
-author: KBDAzure
+author: kbdazure
 ms.date: 8/16/2016
-ms.openlocfilehash: 406b24edd4a7e87e32058006590ac7cd37206568
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 56c147f6bd2423cdbe2c8847efb43d8601e12ddf
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71366446"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80857744"
 ---
 # <a name="avoid-pausing-a-virtual-machine"></a>Evitare la sospensione di una macchina virtuale
 
@@ -44,7 +43,7 @@ Le macchine virtuali sospese non rilasciano la memoria allocata, il che signific
   
 ## <a name="resolution"></a>Risoluzione  
   
-*If questo comportamento è intenzionale, non è necessaria alcuna azione ulteriore. In caso contrario, provare a riprendere le macchine virtuali o a arrestarle.*  
+*Se questo comportamento è intenzionale, non è necessaria alcuna azione aggiuntiva. In caso contrario, provare a riprendere le macchine virtuali o a arrestarle.*  
   
 #### <a name="use-hyper-v-manager-to-resume-the-virtual-machine"></a>Usare la console di gestione di Hyper-V per riprendere la macchina virtuale  
   
@@ -59,7 +58,7 @@ Le macchine virtuali sospese non rilasciano la memoria allocata, il che signific
   
 #### <a name="use-windows-powershell-to-resume-the-virtual-machine"></a>Usare Windows PowerShell per riprendere la macchina virtuale  
   
-È possibile eseguire questa operazione in un unico comando usando il filtro e la pipeline dopo avere ottenuto tutte le macchine virtuali nell'host. Digitare:  
+È possibile eseguire questa operazione in un unico comando usando il filtro e la pipeline dopo avere ottenuto tutte le macchine virtuali nell'host. Tipo:  
   
 ```  
 get-vm | where state -eq 'paused' | resume-vm  

@@ -2,22 +2,18 @@
 title: PASSAGGIO 11 configurare la distribuzione multisito
 description: 'Questo argomento fa parte della Guida al Lab di test: illustra una distribuzione multisito di DirectAccess per Windows Server 2016'
 manager: brianlic
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: networking-da
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 8cbdeb1d-5f7c-4360-bcc1-ab40d3cd8040
 ms.author: lizross
 author: eross-msft
-ms.openlocfilehash: d90b20716c49b2ea0b1cd002a1c1933fbd6e26e5
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: 0061144387adf041216b7d0d264dced916bc7941
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80314571"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80860354"
 ---
 # <a name="step-11-configure-the-multisite-deployment"></a>PASSAGGIO 11 configurare la distribuzione multisito
 

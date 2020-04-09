@@ -2,22 +2,18 @@
 title: Visualizzare i record di risorse DNS per una zona DNS
 description: Questo argomento fa parte della Guida alla gestione di gestione indirizzi IP in Windows Server 2016.
 manager: brianlic
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: networking-ipam
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 375feefc-949e-47c3-9e61-35b79e021966
 ms.author: lizross
 author: eross-msft
-ms.openlocfilehash: ca2cf532fc9fa7e1f12e5294b40d29863fd42261
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: dfd772f89d913cd75b8c31ef4e5236f3cc11263c
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80312334"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80854844"
 ---
 # <a name="view-dns-resource-records-for-a-dns-zone"></a>Visualizzare i record di risorse DNS per una zona DNS
 
